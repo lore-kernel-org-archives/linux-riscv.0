@@ -1,21 +1,36 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 24 Jan 2018 14:19:09 -0800
-Subject: [PATCH] riscv: don't use the symbolic satp name in assembler code
-In-Reply-To: <20180124132447.5517-1-hch@lst.de>
+Date: Wed, 24 Jan 2018 14:19:11 -0800
+Subject: [PATCH 2/4] riscv: don't read back satp in paging_init
+In-Reply-To: <20180124221913.6613-1-palmer@sifive.com>
 References: <20180124132447.5517-1-hch@lst.de>
-Message-ID: <20180124221913.6613-1-palmer@sifive.com>
+ <20180124221913.6613-1-palmer@sifive.com>
+Message-ID: <20180124221913.6613-3-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 24 Jan 2018 05:24:47 PST (-0800), Christoph Hellwig wrote:
-> The most recent release binutils release (2.29) doesn't know about
-> the satp name yet, so stick to the name from the previous privileged
-> ISA release and comment on the fact.
+From: Christoph Hellwig <hch@lst.de>
 
-I think it'd be better to squash these into the previous cleanup you sent, just
-to make sure the kernel always builds.  How do these look?
+init_mm.pgd (aka swapped_pgd) gets relocated like all other kernel
+symbols by the elf loader, so there is no need to reload it from satp.
 
-[PATCH 1/4] riscv: remove the unused current_pgdir function
-[PATCH 2/4] riscv: don't read back satp in paging_init
-[PATCH 3/4] riscv: rename sptbr to satp
-[PATCH 4/4] riscv: inline set_pgdir into its only caller
+Signed-off-by: Christoph Hellwig <hch@lst.de>
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+---
+ arch/riscv/mm/init.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 9f4bee5e51fd..26a291ee792e 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -39,8 +39,6 @@ void setup_zero_page(void)
+ 
+ void __init paging_init(void)
+ {
+-	init_mm.pgd = (pgd_t *)pfn_to_virt(csr_read(sptbr));
+-
+ 	setup_zero_page();
+ 	local_flush_tlb_all();
+ 	zone_sizes_init();
+-- 
+2.13.6
