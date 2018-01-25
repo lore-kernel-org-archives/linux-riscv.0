@@ -1,21 +1,27 @@
-From: hch@lst.de (Christoph Hellwig)
-Date: Thu, 25 Jan 2018 08:20:31 +0100
-Subject: [PATCH] riscv: don't use the symbolic satp name in assembler code
-In-Reply-To: <20180124221913.6613-1-palmer@sifive.com>
-References: <20180124132447.5517-1-hch@lst.de>
- <20180124221913.6613-1-palmer@sifive.com>
-Message-ID: <20180125072031.GA26420@lst.de>
+From: hch@infradead.org (Christoph Hellwig)
+Date: Wed, 24 Jan 2018 23:45:11 -0800
+Subject: [PATCH v2 1/4] arm: Make set_handle_irq and handle_arch_irq
+ generic
+In-Reply-To: <20180125030756.21787-2-palmer@sifive.com>
+References: <20180125030756.21787-1-palmer@sifive.com>
+ <20180125030756.21787-2-palmer@sifive.com>
+Message-ID: <20180125074511.GA14162@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Jan 24, 2018 at 02:19:09PM -0800, Palmer Dabbelt wrote:
-> On Wed, 24 Jan 2018 05:24:47 PST (-0800), Christoph Hellwig wrote:
-> > The most recent release binutils release (2.29) doesn't know about
-> > the satp name yet, so stick to the name from the previous privileged
-> > ISA release and comment on the fact.
+On Wed, Jan 24, 2018 at 07:07:53PM -0800, Palmer Dabbelt wrote:
+> It looks like this same irqchip registration mechanism has been copied
+> into a handful of ports, including aarch64 and openrisc.  I want to use
+> this in the RISC-V port, so I thought it would be good to make this
+> generic instead.
 > 
-> I think it'd be better to squash these into the previous cleanup you sent, just
-> to make sure the kernel always builds.  How do these look?
+> This patch simply moves set_handle_irq and handle_arch_irq from arch/arm
+> to kernel/irq/handle.c.
 
-Sure, fine with me.  Thanks for doing the work, next time I'd be happy
-to resend as well.
+The two important changes here are that:
+
+ a) the handle_arch_irq defintion is moved from assembly to C code
+ b) it is now marked __ro_after_init
+
+Those should be prominently mentioned in the changelog, and for a
+we probably need an explicit ACK from the ARM folks.
