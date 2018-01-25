@@ -1,52 +1,89 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 24 Jan 2018 19:07:55 -0800
-Subject: [PATCH v2 3/4] openrisc: Use the new MULTI_IRQ_HANDLER
+Date: Wed, 24 Jan 2018 19:07:56 -0800
+Subject: [PATCH v2 4/4] RISC-V: Move to the new generic IRQ handler
 In-Reply-To: <20180125030756.21787-1-palmer@sifive.com>
 References: <20180125030756.21787-1-palmer@sifive.com>
-Message-ID: <20180125030756.21787-4-palmer@sifive.com>
+Message-ID: <20180125030756.21787-5-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-It appears that openrisc copied arm64's MULTI_IRQ_HANDLER code (which
-came from arm).  I wanted to make this generic so I could use it in the
-RISC-V port.  This patch converts the openrisc code to use the generic
-version.
+The old mechanism for handling IRQs on RISC-V was pretty ugly: the arch
+code looked at the Kconfig entry for our first-level irqchip driver and
+called into it directly.
+
+This patch uses the new 0generic IRQ handling infastructure, which
+essentially just deletes a bunch of code.  This does add an additional
+load to the interrupt latency, but there's a lot of tuning left to be
+done there on RISC-V so I think it's OK for now.
 
 Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 ---
- arch/openrisc/Kconfig      | 1 +
- arch/openrisc/kernel/irq.c | 7 -------
- 2 files changed, 1 insertion(+), 7 deletions(-)
+ arch/riscv/Kconfig            |  1 +
+ arch/riscv/include/asm/Kbuild |  1 +
+ arch/riscv/kernel/entry.S     |  5 +++--
+ arch/riscv/kernel/irq.c       | 13 -------------
+ 4 files changed, 5 insertions(+), 15 deletions(-)
 
-diff --git a/arch/openrisc/Kconfig b/arch/openrisc/Kconfig
-index 339df7324e9c..77a9d45ac11e 100644
---- a/arch/openrisc/Kconfig
-+++ b/arch/openrisc/Kconfig
-@@ -35,6 +35,7 @@ config OPENRISC
- 	select ARCH_USE_QUEUED_RWLOCKS
- 	select OMPIC if SMP
- 	select ARCH_WANT_FRAME_POINTERS
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 2c6adf12713a..e67f42178059 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -35,6 +35,7 @@ config RISCV
+ 	select THREAD_INFO_IN_TASK
+ 	select RISCV_IRQ_INTC
+ 	select RISCV_TIMER
 +	select MULTI_IRQ_HANDLER
  
- config CPU_BIG_ENDIAN
+ config MMU
  	def_bool y
-diff --git a/arch/openrisc/kernel/irq.c b/arch/openrisc/kernel/irq.c
-index 35e478a93116..5f9445effaf8 100644
---- a/arch/openrisc/kernel/irq.c
-+++ b/arch/openrisc/kernel/irq.c
-@@ -41,13 +41,6 @@ void __init init_IRQ(void)
+diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+index 970460a0b492..e0d0fbe43ca2 100644
+--- a/arch/riscv/include/asm/Kbuild
++++ b/arch/riscv/include/asm/Kbuild
+@@ -16,6 +16,7 @@ generic-y += ftrace.h
+ generic-y += futex.h
+ generic-y += hardirq.h
+ generic-y += hash.h
++generic-y += handle_irq.h
+ generic-y += hw_irq.h
+ generic-y += ioctl.h
+ generic-y += ioctls.h
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 7404ec222406..a79869151aea 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -166,8 +166,9 @@ ENTRY(handle_exception)
+ 	/* Handle interrupts */
+ 	slli a0, s4, 1
+ 	srli a0, a0, 1
+-	move a1, sp /* pt_regs */
+-	tail do_IRQ
++	move a0, sp /* pt_regs */
++	REG_L a1, handle_arch_irq
++	jr a1
+ 1:
+ 	/* Handle syscalls */
+ 	li t0, EXC_SYSCALL
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index 328718e8026e..b74cbfbce2d0 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -24,16 +24,3 @@ void __init init_IRQ(void)
+ {
  	irqchip_init();
  }
- 
--static void (*handle_arch_irq)(struct pt_regs *);
 -
--void __init set_handle_irq(void (*handle_irq)(struct pt_regs *))
+-asmlinkage void __irq_entry do_IRQ(unsigned int cause, struct pt_regs *regs)
 -{
--	handle_arch_irq = handle_irq;
+-#ifdef CONFIG_RISCV_INTC
+-	/*
+-	 * FIXME: We don't want a direct call to riscv_intc_irq here.  The plan
+-	 * is to put an IRQ domain here and let the interrupt controller
+-	 * register with that, but I poked around the arm64 code a bit and
+-	 * there might be a better way to do it (ie, something fully generic).
+-	 */
+-	riscv_intc_irq(cause, regs);
+-#endif
 -}
--
- void __irq_entry do_IRQ(struct pt_regs *regs)
- {
- 	handle_arch_irq(regs);
 -- 
 2.13.6
