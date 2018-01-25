@@ -1,89 +1,21 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 24 Jan 2018 19:07:56 -0800
-Subject: [PATCH v2 4/4] RISC-V: Move to the new generic IRQ handler
-In-Reply-To: <20180125030756.21787-1-palmer@sifive.com>
-References: <20180125030756.21787-1-palmer@sifive.com>
-Message-ID: <20180125030756.21787-5-palmer@sifive.com>
+From: hch@lst.de (Christoph Hellwig)
+Date: Thu, 25 Jan 2018 08:20:31 +0100
+Subject: [PATCH] riscv: don't use the symbolic satp name in assembler code
+In-Reply-To: <20180124221913.6613-1-palmer@sifive.com>
+References: <20180124132447.5517-1-hch@lst.de>
+ <20180124221913.6613-1-palmer@sifive.com>
+Message-ID: <20180125072031.GA26420@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The old mechanism for handling IRQs on RISC-V was pretty ugly: the arch
-code looked at the Kconfig entry for our first-level irqchip driver and
-called into it directly.
+On Wed, Jan 24, 2018 at 02:19:09PM -0800, Palmer Dabbelt wrote:
+> On Wed, 24 Jan 2018 05:24:47 PST (-0800), Christoph Hellwig wrote:
+> > The most recent release binutils release (2.29) doesn't know about
+> > the satp name yet, so stick to the name from the previous privileged
+> > ISA release and comment on the fact.
+> 
+> I think it'd be better to squash these into the previous cleanup you sent, just
+> to make sure the kernel always builds.  How do these look?
 
-This patch uses the new 0generic IRQ handling infastructure, which
-essentially just deletes a bunch of code.  This does add an additional
-load to the interrupt latency, but there's a lot of tuning left to be
-done there on RISC-V so I think it's OK for now.
-
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- arch/riscv/Kconfig            |  1 +
- arch/riscv/include/asm/Kbuild |  1 +
- arch/riscv/kernel/entry.S     |  5 +++--
- arch/riscv/kernel/irq.c       | 13 -------------
- 4 files changed, 5 insertions(+), 15 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 2c6adf12713a..e67f42178059 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -35,6 +35,7 @@ config RISCV
- 	select THREAD_INFO_IN_TASK
- 	select RISCV_IRQ_INTC
- 	select RISCV_TIMER
-+	select MULTI_IRQ_HANDLER
- 
- config MMU
- 	def_bool y
-diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-index 970460a0b492..e0d0fbe43ca2 100644
---- a/arch/riscv/include/asm/Kbuild
-+++ b/arch/riscv/include/asm/Kbuild
-@@ -16,6 +16,7 @@ generic-y += ftrace.h
- generic-y += futex.h
- generic-y += hardirq.h
- generic-y += hash.h
-+generic-y += handle_irq.h
- generic-y += hw_irq.h
- generic-y += ioctl.h
- generic-y += ioctls.h
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 7404ec222406..a79869151aea 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -166,8 +166,9 @@ ENTRY(handle_exception)
- 	/* Handle interrupts */
- 	slli a0, s4, 1
- 	srli a0, a0, 1
--	move a1, sp /* pt_regs */
--	tail do_IRQ
-+	move a0, sp /* pt_regs */
-+	REG_L a1, handle_arch_irq
-+	jr a1
- 1:
- 	/* Handle syscalls */
- 	li t0, EXC_SYSCALL
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 328718e8026e..b74cbfbce2d0 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -24,16 +24,3 @@ void __init init_IRQ(void)
- {
- 	irqchip_init();
- }
--
--asmlinkage void __irq_entry do_IRQ(unsigned int cause, struct pt_regs *regs)
--{
--#ifdef CONFIG_RISCV_INTC
--	/*
--	 * FIXME: We don't want a direct call to riscv_intc_irq here.  The plan
--	 * is to put an IRQ domain here and let the interrupt controller
--	 * register with that, but I poked around the arm64 code a bit and
--	 * there might be a better way to do it (ie, something fully generic).
--	 */
--	riscv_intc_irq(cause, regs);
--#endif
--}
--- 
-2.13.6
+Sure, fine with me.  Thanks for doing the work, next time I'd be happy
+to resend as well.
