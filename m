@@ -1,10 +1,10 @@
 From: ulfalizer@gmail.com (Ulf Magnusson)
-Date: Mon, 5 Feb 2018 03:08:24 +0100
+Date: Mon, 5 Feb 2018 05:15:23 +0100
 Subject: [PATCH 00/20] Remove references to undefined symbols and fix two
  potential bugs
 In-Reply-To: <20180205012146.23981-1-ulfalizer@gmail.com>
 References: <20180205012146.23981-1-ulfalizer@gmail.com>
-Message-ID: <CAFkk2KRafUf3ki2R7B1pE_wzYkYn-OdeqLnvL0kScSxdzDMEXw@mail.gmail.com>
+Message-ID: <CAFkk2KQ89ZZJEaOi-Z1FbZVVgJJdqc1+0VUeptiQ9SSam=2yRA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
@@ -84,11 +84,19 @@ On Mon, Feb 5, 2018 at 2:21 AM, Ulf Magnusson <ulfalizer@gmail.com> wrote:
 > 2.14.1
 >
 
-The symbol AC97_BUS_NEW in sound/ac97/Kconfig selects the globally
-undefined symbol AC97.
+Another one that looks like a potential bug:
 
-It doesn't seem to simply be a misspelling of AC97_BUS, because then
-the dependencies of AC97_BUS_COMPAT would be impossible to satisfy.
+b49efd762482 ("dma-mapping: move dma_mark_clean to dma-direct.h")
+selects ARCH_HAS_DMA_MARK_CLEAN for ia64 but never defines it. It's
+used in include/linux/dma-direct.h:
+
+  #ifdef CONFIG_ARCH_HAS_DMA_MARK_CLEAN
+  void dma_mark_clean(void *addr, size_t size);
+  #else
+  static inline void dma_mark_clean(void *addr, size_t size)
+  {
+  }
+  #endif /* CONFIG_ARCH_HAS_DMA_MARK_CLEAN */
 
 Cheers,
 Ulf
