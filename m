@@ -1,102 +1,51 @@
-From: ulfalizer@gmail.com (Ulf Magnusson)
-Date: Mon, 5 Feb 2018 05:15:23 +0100
-Subject: [PATCH 00/20] Remove references to undefined symbols and fix two
- potential bugs
-In-Reply-To: <20180205012146.23981-1-ulfalizer@gmail.com>
+From: j.neuschaefer@gmx.net (Jonathan =?utf-8?Q?Neusch=C3=A4fer?=)
+Date: Mon, 5 Feb 2018 11:45:39 +0100
+Subject: [PATCH 06/20] riscv: Remove ARCH_HAS_ATOMIC64_DEC_IF_POSITIVE
+ select
+In-Reply-To: <20180205012146.23981-7-ulfalizer@gmail.com>
 References: <20180205012146.23981-1-ulfalizer@gmail.com>
-Message-ID: <CAFkk2KQ89ZZJEaOi-Z1FbZVVgJJdqc1+0VUeptiQ9SSam=2yRA@mail.gmail.com>
+ <20180205012146.23981-7-ulfalizer@gmail.com>
+Message-ID: <20180205104539.iod5anzzl3axlfbh@latitude>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Feb 5, 2018 at 2:21 AM, Ulf Magnusson <ulfalizer@gmail.com> wrote:
-> Hello,
->
-> This patchset fixes most references to globally undefined symbols in Kconfig
-> files, as reported by the
+On Mon, Feb 05, 2018 at 02:21:18AM +0100, Ulf Magnusson wrote:
+> The ARCH_HAS_ATOMIC64_DEC_IF_POSITIVE symbol was removed in
+> commit 51a021244b9d ("atomic64: no need for
+> CONFIG_ARCH_HAS_ATOMIC64_DEC_IF_POSITIVE").
+> 
+> Remove the ARCH_HAS_ATOMIC64_DEC_IS_POSITIVE select from RISCV.
+> 
+> Discovered with the
 > https://github.com/ulfalizer/Kconfiglib/blob/master/examples/list_undefined.py
-> script. I will send emails in reply to the patchset for some cases where I'm
-> not sure what the proper fix is.
->
-> All of the fixes are independent. I just created a patchset to track them more
-> easily.
->
-> Summary of changes:
->
->  - Commits 1 and 2 fix what looks like potential bugs: A broken (intended)
->    select of PL310_ERRATA_753970 for ARM/mvebu, and a misspelled dependency on
->    PPC_PSERIES in KVM/PPC.
->
->  - Commits 3-5 remove leftover AVR32 stuff.
->
->  - Commits 6 and 7 remove some selects of removed symbols from riscv.
->
->  - Commits 8-17 remove various references to removed symbols.
->
->  - Commits 18-20 fix some (harmless) malformed defaults.
->
-> Ulf Magnusson (20):
->   ARM: mvebu: Fix broken PL310_ERRATA_753970 selects
->   KVM: PPC: Book3S PR: Fix broken select due to misspelling
->   kconfig: Remove leftover references to AVR32 symbol
->   misc: atmel: Remove CPU_AT32AP700X (AVR32) reference
->   rtc: at32ap700x: Remove PLATFORM_AT32AP dependency
->   riscv: Remove ARCH_HAS_ATOMIC64_DEC_IF_POSITIVE select
->   riscv: Remove ARCH_WANT_OPTIONAL_GPIOLIB select
->   s390/kconfig: Remove ARCH_WANTS_PROT_NUMA_PROT_NONE select
->   clk: sunxi-ng: Remove SUNXI_CCU_* selects
->   lib/Kconfig: Remove leftover select of GENERIC_IO
->   usb: gadget: udc: Remove USB_GADGET_DUALSPEED select
->   ARM: debug: Remove ARCH_MSM dep. from UNCOMPRESS_INCLUDE
->   ore: Remove PNFS_OBJLAYOUT dependency
->   iio: gyro: mpu3050: Remove INPUT_MPU3050 dep. from I2C
->   phy: Remove SOC_EXYNOS4212 dep. from PHY_EXYNOS4X12_USB
->   auxdisplay: img-ascii-lcd: Remove MIPS_SEAD3 dep.
->   media: sec: Remove PLAT_S5P dependency
->   iwlwifi: fix malformed CONFIG_IWLWIFI_PCIE_RTPM default
->   ARC: Fix malformed ARC_EMUL_UNALIGNED default
->   x86/PCI: VMD: Fix malformed default
->
->  arch/arc/Kconfig                           |  1 -
->  arch/arm/Kconfig.debug                     |  2 +-
->  arch/arm/mach-mvebu/Kconfig                |  4 ++--
->  arch/powerpc/kvm/Kconfig                   |  2 +-
->  arch/riscv/Kconfig                         |  2 --
->  arch/s390/Kconfig                          |  1 -
->  drivers/auxdisplay/Kconfig                 |  2 +-
->  drivers/clk/sunxi-ng/Kconfig               |  7 -------
->  drivers/cpufreq/Kconfig                    | 10 ----------
->  drivers/iio/gyro/Kconfig                   |  1 -
->  drivers/media/platform/Kconfig             |  2 +-
->  drivers/misc/Kconfig                       |  1 -
->  drivers/net/wireless/intel/iwlwifi/Kconfig |  1 -
->  drivers/pci/host/Kconfig                   |  1 -
->  drivers/phy/samsung/Kconfig                |  2 +-
->  drivers/pwm/Kconfig                        |  2 +-
->  drivers/rtc/Kconfig                        |  2 +-
->  drivers/spi/Kconfig                        |  2 +-
->  drivers/usb/gadget/udc/Kconfig             |  1 -
->  drivers/video/console/Kconfig              |  2 +-
->  fs/exofs/Kconfig.ore                       |  2 +-
->  lib/Kconfig                                |  1 -
->  22 files changed, 12 insertions(+), 39 deletions(-)
->
-> --
-> 2.14.1
->
+> script.
+> 
+> Signed-off-by: Ulf Magnusson <ulfalizer@gmail.com>
+> ---
+>  arch/riscv/Kconfig | 1 -
+>  1 file changed, 1 deletion(-)
 
-Another one that looks like a potential bug:
+Looks good.
 
-b49efd762482 ("dma-mapping: move dma_mark_clean to dma-direct.h")
-selects ARCH_HAS_DMA_MARK_CLEAN for ia64 but never defines it. It's
-used in include/linux/dma-direct.h:
+Reviewed-by: Jonathan Neusch?fer <j.neuschaefer@gmx.net>
 
-  #ifdef CONFIG_ARCH_HAS_DMA_MARK_CLEAN
-  void dma_mark_clean(void *addr, size_t size);
-  #else
-  static inline void dma_mark_clean(void *addr, size_t size)
-  {
-  }
-  #endif /* CONFIG_ARCH_HAS_DMA_MARK_CLEAN */
-
-Cheers,
-Ulf
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index b6722c246d9c..ff69c77b9e78 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -8,7 +8,6 @@ config RISCV
+>  	select OF
+>  	select OF_EARLY_FLATTREE
+>  	select OF_IRQ
+> -	select ARCH_HAS_ATOMIC64_DEC_IF_POSITIVE
+>  	select ARCH_WANT_FRAME_POINTERS
+>  	select CLONE_BACKWARDS
+>  	select COMMON_CLK
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 819 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180205/3c543c9a/attachment.sig>
