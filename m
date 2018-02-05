@@ -1,30 +1,81 @@
-From: shorne@gmail.com (Stafford Horne)
-Date: Sat, 27 Jan 2018 12:13:18 +0900
-Subject: [PATCH v2 3/4] openrisc: Use the new MULTI_IRQ_HANDLER
-In-Reply-To: <20180125074619.GC14162@infradead.org>
-References: <20180125030756.21787-1-palmer@sifive.com>
- <20180125030756.21787-4-palmer@sifive.com>
- <20180125074619.GC14162@infradead.org>
-Message-ID: <20180127031318.GA30895@lianli.shorne-pla.net>
+From: ulfalizer@gmail.com (Ulf Magnusson)
+Date: Mon,  5 Feb 2018 02:21:12 +0100
+Subject: [PATCH 00/20] Remove references to undefined symbols and fix two
+ potential bugs
+Message-ID: <20180205012146.23981-1-ulfalizer@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Jan 24, 2018 at 11:46:19PM -0800, Christoph Hellwig wrote:
-> On Wed, Jan 24, 2018 at 07:07:55PM -0800, Palmer Dabbelt wrote:
-> > It appears that openrisc copied arm64's MULTI_IRQ_HANDLER code (which
-> > came from arm).  I wanted to make this generic so I could use it in the
-> > RISC-V port.  This patch converts the openrisc code to use the generic
-> > version.
-> 
-> Note that openriscv overrides previous handle_arch_irq assignments.
-> We'll need to know from the openrisc folks if that was intentional.
-> 
-> Otherwise this looks fine to me.
+Hello,
 
-This looks fine to me too.  We only assign the handle_arch_irq one time.  I
-think not protecting against overrides was an oversight in the original
-implementation.
+This patchset fixes most references to globally undefined symbols in Kconfig
+files, as reported by the
+https://github.com/ulfalizer/Kconfiglib/blob/master/examples/list_undefined.py
+script. I will send emails in reply to the patchset for some cases where I'm
+not sure what the proper fix is.
 
-Acked-by: Stafford Horne <shorne@gmail.com>
+All of the fixes are independent. I just created a patchset to track them more
+easily.
 
--Stafford
+Summary of changes:
+
+ - Commits 1 and 2 fix what looks like potential bugs: A broken (intended)
+   select of PL310_ERRATA_753970 for ARM/mvebu, and a misspelled dependency on
+   PPC_PSERIES in KVM/PPC.
+
+ - Commits 3-5 remove leftover AVR32 stuff.
+
+ - Commits 6 and 7 remove some selects of removed symbols from riscv.
+
+ - Commits 8-17 remove various references to removed symbols.
+
+ - Commits 18-20 fix some (harmless) malformed defaults.
+
+Ulf Magnusson (20):
+  ARM: mvebu: Fix broken PL310_ERRATA_753970 selects
+  KVM: PPC: Book3S PR: Fix broken select due to misspelling
+  kconfig: Remove leftover references to AVR32 symbol
+  misc: atmel: Remove CPU_AT32AP700X (AVR32) reference
+  rtc: at32ap700x: Remove PLATFORM_AT32AP dependency
+  riscv: Remove ARCH_HAS_ATOMIC64_DEC_IF_POSITIVE select
+  riscv: Remove ARCH_WANT_OPTIONAL_GPIOLIB select
+  s390/kconfig: Remove ARCH_WANTS_PROT_NUMA_PROT_NONE select
+  clk: sunxi-ng: Remove SUNXI_CCU_* selects
+  lib/Kconfig: Remove leftover select of GENERIC_IO
+  usb: gadget: udc: Remove USB_GADGET_DUALSPEED select
+  ARM: debug: Remove ARCH_MSM dep. from UNCOMPRESS_INCLUDE
+  ore: Remove PNFS_OBJLAYOUT dependency
+  iio: gyro: mpu3050: Remove INPUT_MPU3050 dep. from I2C
+  phy: Remove SOC_EXYNOS4212 dep. from PHY_EXYNOS4X12_USB
+  auxdisplay: img-ascii-lcd: Remove MIPS_SEAD3 dep.
+  media: sec: Remove PLAT_S5P dependency
+  iwlwifi: fix malformed CONFIG_IWLWIFI_PCIE_RTPM default
+  ARC: Fix malformed ARC_EMUL_UNALIGNED default
+  x86/PCI: VMD: Fix malformed default
+
+ arch/arc/Kconfig                           |  1 -
+ arch/arm/Kconfig.debug                     |  2 +-
+ arch/arm/mach-mvebu/Kconfig                |  4 ++--
+ arch/powerpc/kvm/Kconfig                   |  2 +-
+ arch/riscv/Kconfig                         |  2 --
+ arch/s390/Kconfig                          |  1 -
+ drivers/auxdisplay/Kconfig                 |  2 +-
+ drivers/clk/sunxi-ng/Kconfig               |  7 -------
+ drivers/cpufreq/Kconfig                    | 10 ----------
+ drivers/iio/gyro/Kconfig                   |  1 -
+ drivers/media/platform/Kconfig             |  2 +-
+ drivers/misc/Kconfig                       |  1 -
+ drivers/net/wireless/intel/iwlwifi/Kconfig |  1 -
+ drivers/pci/host/Kconfig                   |  1 -
+ drivers/phy/samsung/Kconfig                |  2 +-
+ drivers/pwm/Kconfig                        |  2 +-
+ drivers/rtc/Kconfig                        |  2 +-
+ drivers/spi/Kconfig                        |  2 +-
+ drivers/usb/gadget/udc/Kconfig             |  1 -
+ drivers/video/console/Kconfig              |  2 +-
+ fs/exofs/Kconfig.ore                       |  2 +-
+ lib/Kconfig                                |  1 -
+ 22 files changed, 12 insertions(+), 39 deletions(-)
+
+-- 
+2.14.1
