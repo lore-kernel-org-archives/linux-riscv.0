@@ -1,10 +1,10 @@
 From: ulfalizer@gmail.com (Ulf Magnusson)
-Date: Mon, 5 Feb 2018 02:52:41 +0100
+Date: Mon, 5 Feb 2018 03:08:24 +0100
 Subject: [PATCH 00/20] Remove references to undefined symbols and fix two
  potential bugs
 In-Reply-To: <20180205012146.23981-1-ulfalizer@gmail.com>
 References: <20180205012146.23981-1-ulfalizer@gmail.com>
-Message-ID: <CAFkk2KQ639hC0Xuq+xgJY=bAvfRiK1eCdLc6Sze+ZmgAKkWjuA@mail.gmail.com>
+Message-ID: <CAFkk2KRafUf3ki2R7B1pE_wzYkYn-OdeqLnvL0kScSxdzDMEXw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
@@ -84,10 +84,11 @@ On Mon, Feb 5, 2018 at 2:21 AM, Ulf Magnusson <ulfalizer@gmail.com> wrote:
 > 2.14.1
 >
 
-GDBSTUB in arch/mn10300/Kconfig.debug depends on the globally
-undefined symbol DEPRECATED, which seems to have been removed a long
-time ago. Here's an old reference I found:
-https://lwn.net/Articles/113867/
+The symbol AC97_BUS_NEW in sound/ac97/Kconfig selects the globally
+undefined symbol AC97.
+
+It doesn't seem to simply be a misspelling of AC97_BUS, because then
+the dependencies of AC97_BUS_COMPAT would be impossible to satisfy.
 
 Cheers,
 Ulf
