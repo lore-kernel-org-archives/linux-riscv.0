@@ -1,10 +1,10 @@
 From: ulfalizer@gmail.com (Ulf Magnusson)
-Date: Mon, 5 Feb 2018 02:37:43 +0100
+Date: Mon, 5 Feb 2018 02:52:41 +0100
 Subject: [PATCH 00/20] Remove references to undefined symbols and fix two
  potential bugs
 In-Reply-To: <20180205012146.23981-1-ulfalizer@gmail.com>
 References: <20180205012146.23981-1-ulfalizer@gmail.com>
-Message-ID: <CAFkk2KQV3VHfuFfAc9+eJ_GUQeebbvCV==2CF_zbg6_Ht7ohOg@mail.gmail.com>
+Message-ID: <CAFkk2KQ639hC0Xuq+xgJY=bAvfRiK1eCdLc6Sze+ZmgAKkWjuA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
@@ -84,10 +84,10 @@ On Mon, Feb 5, 2018 at 2:21 AM, Ulf Magnusson <ulfalizer@gmail.com> wrote:
 > 2.14.1
 >
 
-Since 05a4a9527931 ("kernel/watchdog: split up config options"),
-lib/Kconfig.debug references a globally undefined symbol
-HARDLOCK_DETECTOR_ARCH. My guess is that it was supposed to be defined
-alongside HARDLOCK_DETECTOR_PERF in the same file.
+GDBSTUB in arch/mn10300/Kconfig.debug depends on the globally
+undefined symbol DEPRECATED, which seems to have been removed a long
+time ago. Here's an old reference I found:
+https://lwn.net/Articles/113867/
 
 Cheers,
 Ulf
