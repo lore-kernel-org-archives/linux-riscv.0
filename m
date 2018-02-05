@@ -1,51 +1,33 @@
-From: j.neuschaefer@gmx.net (Jonathan =?utf-8?Q?Neusch=C3=A4fer?=)
-Date: Mon, 5 Feb 2018 11:45:39 +0100
-Subject: [PATCH 06/20] riscv: Remove ARCH_HAS_ATOMIC64_DEC_IF_POSITIVE
- select
-In-Reply-To: <20180205012146.23981-7-ulfalizer@gmail.com>
+From: linus.walleij@linaro.org (Linus Walleij)
+Date: Tue, 6 Feb 2018 00:25:47 +0100
+Subject: [PATCH 07/20] riscv: Remove ARCH_WANT_OPTIONAL_GPIOLIB select
+In-Reply-To: <20180205012146.23981-8-ulfalizer@gmail.com>
 References: <20180205012146.23981-1-ulfalizer@gmail.com>
- <20180205012146.23981-7-ulfalizer@gmail.com>
-Message-ID: <20180205104539.iod5anzzl3axlfbh@latitude>
+ <20180205012146.23981-8-ulfalizer@gmail.com>
+Message-ID: <CACRpkdY-3ab=o0TpURqa-MyTMJOd86SWqBaD4n7+KGYhgbYjzg@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Feb 05, 2018 at 02:21:18AM +0100, Ulf Magnusson wrote:
-> The ARCH_HAS_ATOMIC64_DEC_IF_POSITIVE symbol was removed in
-> commit 51a021244b9d ("atomic64: no need for
-> CONFIG_ARCH_HAS_ATOMIC64_DEC_IF_POSITIVE").
-> 
-> Remove the ARCH_HAS_ATOMIC64_DEC_IS_POSITIVE select from RISCV.
-> 
+On Mon, Feb 5, 2018 at 2:21 AM, Ulf Magnusson <ulfalizer@gmail.com> wrote:
+
+> The ARCH_WANT_OPTIONAL_GPIOLIB symbol was removed in commit 65053e1a7743
+> ("gpio: delete ARCH_[WANTS_OPTIONAL|REQUIRE]_GPIOLIB"). GPIOLIB should
+> just be selected explicitly if needed.
+>
+> Remove the ARCH_WANT_OPTIONAL_GPIOLIB select from RISCV.
+>
+> See commit 0145071b3314 ("x86: Do away with
+> ARCH_[WANT_OPTIONAL|REQUIRE]_GPIOLIB") and commit da9a1c6767 ("arm64: do
+> away with ARCH_[WANT_OPTIONAL|REQUIRE]_GPIOLIB") as well.
+>
 > Discovered with the
 > https://github.com/ulfalizer/Kconfiglib/blob/master/examples/list_undefined.py
 > script.
-> 
+>
 > Signed-off-by: Ulf Magnusson <ulfalizer@gmail.com>
-> ---
->  arch/riscv/Kconfig | 1 -
->  1 file changed, 1 deletion(-)
 
-Looks good.
+This should probaly be replaced with
+select GPIOLIB
 
-Reviewed-by: Jonathan Neusch?fer <j.neuschaefer@gmx.net>
-
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index b6722c246d9c..ff69c77b9e78 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -8,7 +8,6 @@ config RISCV
->  	select OF
->  	select OF_EARLY_FLATTREE
->  	select OF_IRQ
-> -	select ARCH_HAS_ATOMIC64_DEC_IF_POSITIVE
->  	select ARCH_WANT_FRAME_POINTERS
->  	select CLONE_BACKWARDS
->  	select COMMON_CLK
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: signature.asc
-Type: application/pgp-signature
-Size: 819 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180205/3c543c9a/attachment.sig>
+Yours,
+Linus Walleij
