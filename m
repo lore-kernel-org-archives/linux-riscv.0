@@ -1,28 +1,112 @@
-From: robert.jarzmik@free.fr (Robert Jarzmik)
-Date: Wed, 07 Feb 2018 10:28:11 +0100
-Subject: [PATCH 00/20] Remove references to undefined symbols and fix two
- potential bugs
-In-Reply-To: <CAFkk2KRafUf3ki2R7B1pE_wzYkYn-OdeqLnvL0kScSxdzDMEXw@mail.gmail.com>
- (Ulf Magnusson's message of "Mon, 5 Feb 2018 03:08:24 +0100")
-References: <20180205012146.23981-1-ulfalizer@gmail.com>
- <CAFkk2KRafUf3ki2R7B1pE_wzYkYn-OdeqLnvL0kScSxdzDMEXw@mail.gmail.com>
-Message-ID: <87lgg587ys.fsf@belgarion.home>
+From: palmer@dabbelt.com (Palmer Dabbelt)
+Date: Wed, 07 Feb 2018 09:58:15 -0800 (PST)
+Subject: [GIT PULL] RISC-V changes for 4.16
+Message-ID: <mhng-e9711674-531a-4e02-949b-5c2ec3223849@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Ulf Magnusson <ulfalizer@gmail.com> writes:
+The following changes since commit d8a5b80568a9cb66810e75b182018e9edb68e8ff:
 
-> The symbol AC97_BUS_NEW in sound/ac97/Kconfig selects the globally
-> undefined symbol AC97.
->
-> It doesn't seem to simply be a misspelling of AC97_BUS, because then
-> the dependencies of AC97_BUS_COMPAT would be impossible to satisfy.
-You're correct.
+  Linux 4.15 (2018-01-28 13:20:33 -0800)
 
-I don't know what happened to me when coding this, but you can safely remove
-this useless select statement.
+are available in the git repository at:
 
-Cheers.
+  ssh://git at gitolite.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.16-merge_window
+gpg: Signature made Tue 30 Jan 2018 07:16:17 PM PST
+gpg:                using RSA key 00CE76D1834960DFCE886DF8EF4CA1502CCBAB41
+gpg:                issuer "palmer at dabbelt.com"
+gpg: Good signature from "Palmer Dabbelt <palmer@dabbelt.com>" [ultimate]
+gpg:                 aka "Palmer Dabbelt <palmer@sifive.com>" [ultimate]
 
--- 
-Robert
+for you to fetch changes up to 4889dec6c87d90619cc1e8436327b91f4bb0e467:
+
+  riscv: inline set_pgdir into its only caller (2018-01-30 19:16:17 -0800)
+
+----------------------------------------------------------------
+RISC-V changes for 4.16
+
+This tag contains the fixes we'd like to target for the 4.16 merge
+window.  It's not as much as I was originally hoping to do but between
+glibc, the chip, and FOSDEM there just wasn't enough time to get
+everything put together.  As such, this merge window is essentially just
+going to be small changes.  This includes mostly cleanups:
+
+* A build fix failure to the audit test cases.  RISC-V doesn't have
+  renameat because the generic syscall ABI moved to renameat2 by the
+  time of our port.  The syscall audit test cases don't understand this,
+  so I added a trivial fix.  This went through mailing list review
+  during the 4.15 merge window, but nobody has picked it up so I think
+  it's best to just do this here.
+* The removal of our command-line argument processing code.  The
+  "mem_end" stuff was broken and the rest duplicated generic device tree
+  code.  The generic code was already being called.
+* Some unused/redundant code has been removed, including
+  __ARCH_HAVE_MMU, current_pgdir, and the initialization of init_mm.pgd.
+* SUM is disabled upon taking a trap, which means that user memory is
+  protected during traps taking inside copy_{to,from}_user().
+* The sptbr CSR has been renamed to satp in C code.  We haven't changed
+  the assembly code in order to maintain compatibility with binutils
+  2.29, which doesn't understand the new name.
+
+Additionally, we're adding some new features:
+
+* Basic ftrace support, thanks to Alan Kao!
+* Support for ZONE_DMA32.  This is necessary for all the normal reasons,
+  but also to deal with a deficiency in the Xilinx PCIe controller we're
+  using on our FPGA-based systems.  While the ZONE_DMA32 addition should
+  be sufficient for most uses, it doesn't complete the fix for the
+  Xilinx controller.
+* TLB shootdowns now only target the harts where they're necessary,
+  instead of applying to all harts in the system.
+
+These patches have all been sitting on our linux-next branch for a while
+now.  Due to time constraints this is all I feel comfortable submitting
+during the 4.16 merge window, hopefully we'll do better next time!
+
+----------------------------------------------------------------
+Alan Kao (1):
+      riscv/ftrace: Add basic support
+
+Andrew Waterman (1):
+      RISC-V: Limit the scope of TLB shootdowns
+
+Christoph Hellwig (6):
+      riscv: disable SUM in the exception handler
+      riscv: add ZONE_DMA32
+      riscv: remove the unused current_pgdir function
+      riscv: don't read back satp in paging_init
+      riscv: rename sptbr to satp
+      riscv: inline set_pgdir into its only caller
+
+Michael Clark (1):
+      RISC-V: Remove duplicate command-line parsing logic
+
+Palmer Dabbelt (2):
+      audit: Avoid build failures on systems without renameat
+      RISC-V: Remove mem_end command line processing
+
+Tobias Klauser (2):
+      riscv: remove unused __ARCH_HAVE_MMU define
+      riscv: remove redundant unlikely()
+
+ arch/riscv/Kconfig                    |  10 +++
+ arch/riscv/include/asm/Kbuild         |   1 -
+ arch/riscv/include/asm/csr.h          |  14 ++--
+ arch/riscv/include/asm/ftrace.h       |  10 +++
+ arch/riscv/include/asm/mmu_context.h  |  17 ++---
+ arch/riscv/include/asm/tlbflush.h     |  20 +++---
+ arch/riscv/include/asm/unistd.h       |   1 -
+ arch/riscv/kernel/Makefile            |   7 ++
+ arch/riscv/kernel/entry.S             |   9 ++-
+ arch/riscv/kernel/ftrace.c            |  41 +++++++++++
+ arch/riscv/kernel/head.S              |   6 +-
+ arch/riscv/kernel/mcount.S            | 126 ++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/setup.c             |  44 +++---------
+ arch/riscv/kernel/vdso.c              |   2 +-
+ arch/riscv/mm/fault.c                 |   4 ++
+ arch/riscv/mm/init.c                  |  12 ++--
+ include/asm-generic/audit_dir_write.h |   2 +
+ 17 files changed, 250 insertions(+), 76 deletions(-)
+ create mode 100644 arch/riscv/include/asm/ftrace.h
+ create mode 100644 arch/riscv/kernel/ftrace.c
+ create mode 100644 arch/riscv/kernel/mcount.S
