@@ -1,49 +1,73 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 15 Feb 2018 15:02:28 -0800 (PST)
-Subject: [patches] [PATCH] Rename sbi_save to parse_dtb to improve code
- readability
-In-Reply-To: <1518726629-89073-1-git-send-email-mjc@sifive.com>
-Message-ID: <mhng-2d88cabf-dea4-407f-8750-59c354ae3c06@palmer-si-x1c4>
+From: shea@shealevy.com (Shea Levy)
+Date: Mon, 19 Feb 2018 19:04:18 -0500
+Subject: [PATCH] riscv: Add install target to Makefile.
+Message-ID: <20180220000418.21039-1-shea@shealevy.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, 15 Feb 2018 12:30:29 PST (-0800), Michael Clark wrote:
-> From: Michael Clark <michaeljclark@mac.com>
->
-> The sbi_ prefix would seem to indicate an SBI interface, and save is not
-> very specific. After applying this patch, reading head.S makes more sense.
->
-> Signed-off-by: Michael Clark <michaeljclark@mac.com>
-> ---
->  arch/riscv/kernel/head.S  | 2 +-
->  arch/riscv/kernel/setup.c | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> index 226eeb1..6e07ed3 100644
-> --- a/arch/riscv/kernel/head.S
-> +++ b/arch/riscv/kernel/head.S
-> @@ -64,7 +64,7 @@ ENTRY(_start)
->  	/* Start the kernel */
->  	mv a0, s0
->  	mv a1, s1
-> -	call sbi_save
-> +	call parse_dtb
->  	tail start_kernel
->
->  relocate:
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index c6f332b..41d3400 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -165,7 +165,7 @@ asmlinkage void __init setup_vm(void)
->  #endif
->  }
->
-> -void __init sbi_save(unsigned int hartid, void *dtb)
-> +void __init parse_dtb(unsigned int hartid, void *dtb)
->  {
->  	early_init_dt_scan(__va(dtb));
->  }
+Signed-off-by: Shea Levy <shea@shealevy.com>
+---
+ arch/riscv/Makefile   |  4 ++++
+ arch/riscv/install.sh | 39 +++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 43 insertions(+)
+ create mode 100644 arch/riscv/install.sh
 
-Thanks.
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 6719dd30ec5b..26892daefa05 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -70,3 +70,7 @@ core-y += arch/riscv/kernel/ arch/riscv/mm/
+ libs-y += arch/riscv/lib/
+ 
+ all: vmlinux
++
++PHONY += install
++install: vmlinux
++	sh $(srctree)/arch/riscv/install.sh $(KERNELRELEASE) $< System.map "$(INSTALL_PATH)"
+diff --git a/arch/riscv/install.sh b/arch/riscv/install.sh
+new file mode 100644
+index 000000000000..8b3155a11a4a
+--- /dev/null
++++ b/arch/riscv/install.sh
+@@ -0,0 +1,39 @@
++#!/bin/sh
++#
++# arch/riscv/install.sh
++#
++# This file is subject to the terms and conditions of the GNU General Public
++# License.  See the file "COPYING" in the main directory of this archive
++# for more details.
++#
++# Copyright (C) 1995 by Linus Torvalds
++#
++# Adapted from code in arch/ia64/Makefile by Shea Levy
++#
++# "make install" script for riscv architecture
++#
++# Arguments:
++#   $1 - kernel version
++#   $2 - kernel image file
++#   $3 - kernel map file
++#   $4 - default install path (blank if root directory)
++#
++
++# User may have a custom install script
++
++if [ -x ~/bin/${INSTALLKERNEL} ]; then exec ~/bin/${INSTALLKERNEL} "$@"; fi
++if [ -x /sbin/${INSTALLKERNEL} ]; then exec /sbin/${INSTALLKERNEL} "$@"; fi
++
++# Default install - no bootloader configuration (yet?)
++base=$(basename $2)
++
++if [ -f $4/$base ]; then
++	mv $4/$base $4/$base.old
++fi
++
++if [ -f $4/System.map ]; then
++	mv $4/System.map $4/System.old
++fi
++
++cat $2 > $4/$base
++cp $3 $4/System.map
+-- 
+2.16.1
