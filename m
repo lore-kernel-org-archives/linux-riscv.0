@@ -1,37 +1,54 @@
-From: parri.andrea@gmail.com (Andrea Parri)
-Date: Tue, 20 Feb 2018 11:17:28 +0100
-Subject: [PATCH RFC] riscv/barrier: Define __smp_{mb,rmb,wmb}
-Message-ID: <1519121848-28582-1-git-send-email-parri.andrea@gmail.com>
+From: shea@shealevy.com (Shea Levy)
+Date: Tue, 20 Feb 2018 07:54:26 -0500
+Subject: [PATCH] riscv: Respect the initrd found in the dt, if any.
+Message-ID: <20180220125426.6388-1-shea@shealevy.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Introduce __smp_{mb,rmb,wmb}, and rely on the generic definitions
-for smp_{mb,rmb,wmb}. A first consequence is that smp_{mb,rmb,wmb}
-map to a compiler barrier on !SMP (while their definition remains
-unchanged on SMP). As a further consequence, smp_load_acquire and
-smp_store_release have "fence rw,rw" instead of "fence iorw,iorw".
-
-Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
+Signed-off-by: Shea Levy <shea@shealevy.com>
 ---
- arch/riscv/include/asm/barrier.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/riscv/kernel/setup.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
-index c0319cbf1eec5..5510366d169ae 100644
---- a/arch/riscv/include/asm/barrier.h
-+++ b/arch/riscv/include/asm/barrier.h
-@@ -34,9 +34,9 @@
- #define wmb()		RISCV_FENCE(ow,ow)
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 41d34008faf6..c4ebc907af34 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -88,15 +88,20 @@ static void __init setup_initrd(void)
+ 	extern unsigned long __initramfs_size;
+ 	unsigned long size;
  
- /* These barriers do not need to enforce ordering on devices, just memory. */
--#define smp_mb()	RISCV_FENCE(rw,rw)
--#define smp_rmb()	RISCV_FENCE(r,r)
--#define smp_wmb()	RISCV_FENCE(w,w)
-+#define __smp_mb()	RISCV_FENCE(rw,rw)
-+#define __smp_rmb()	RISCV_FENCE(r,r)
-+#define __smp_wmb()	RISCV_FENCE(w,w)
++	if (initrd_start)
++		goto found;
++
+ 	if (__initramfs_size > 0) {
+ 		initrd_start = (unsigned long)(&__initramfs_start);
+ 		initrd_end = initrd_start + __initramfs_size;
+ 	}
  
- /*
-  * This is a very specific barrier: it's currently only used in two places in
++	initrd_below_start_ok = 1;
+ 	if (initrd_start >= initrd_end) {
+ 		printk(KERN_INFO "initrd not found or empty");
+ 		goto disable;
+ 	}
++found:
+ 	if (__pa(initrd_end) > PFN_PHYS(max_low_pfn)) {
+ 		printk(KERN_ERR "initrd extends beyond end of memory");
+ 		goto disable;
+@@ -104,13 +109,13 @@ static void __init setup_initrd(void)
+ 
+ 	size =  initrd_end - initrd_start;
+ 	memblock_reserve(__pa(initrd_start), size);
+-	initrd_below_start_ok = 1;
+ 
+ 	printk(KERN_INFO "Initial ramdisk at: 0x%p (%lu bytes)\n",
+ 		(void *)(initrd_start), size);
+ 	return;
+ disable:
+ 	pr_cont(" - disabling initrd\n");
++	initrd_below_start_ok = 0;
+ 	initrd_start = 0;
+ 	initrd_end = 0;
+ }
 -- 
-2.7.4
+2.16.1
