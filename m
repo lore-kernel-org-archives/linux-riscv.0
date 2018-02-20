@@ -1,54 +1,30 @@
 From: shea@shealevy.com (Shea Levy)
-Date: Tue, 20 Feb 2018 07:54:26 -0500
-Subject: [PATCH] riscv: Respect the initrd found in the dt, if any.
-Message-ID: <20180220125426.6388-1-shea@shealevy.com>
+Date: Tue, 20 Feb 2018 08:50:43 -0500
+Subject: [PATCH] riscv: Implement free_initrd_mem.
+Message-ID: <20180220135043.15411-1-shea@shealevy.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
 Signed-off-by: Shea Levy <shea@shealevy.com>
 ---
- arch/riscv/kernel/setup.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ arch/riscv/mm/init.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 41d34008faf6..c4ebc907af34 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -88,15 +88,20 @@ static void __init setup_initrd(void)
- 	extern unsigned long __initramfs_size;
- 	unsigned long size;
- 
-+	if (initrd_start)
-+		goto found;
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index c77df8142be2..1c832b541e95 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -66,5 +66,11 @@ void free_initmem(void)
+ #ifdef CONFIG_BLK_DEV_INITRD
+ void free_initrd_mem(unsigned long start, unsigned long end)
+ {
++	if (start == initrd_start)
++		start = round_down(start, PAGE_SIZE);
++	if (end == initrd_end)
++		end = round_up(end, PAGE_SIZE);
 +
- 	if (__initramfs_size > 0) {
- 		initrd_start = (unsigned long)(&__initramfs_start);
- 		initrd_end = initrd_start + __initramfs_size;
- 	}
- 
-+	initrd_below_start_ok = 1;
- 	if (initrd_start >= initrd_end) {
- 		printk(KERN_INFO "initrd not found or empty");
- 		goto disable;
- 	}
-+found:
- 	if (__pa(initrd_end) > PFN_PHYS(max_low_pfn)) {
- 		printk(KERN_ERR "initrd extends beyond end of memory");
- 		goto disable;
-@@ -104,13 +109,13 @@ static void __init setup_initrd(void)
- 
- 	size =  initrd_end - initrd_start;
- 	memblock_reserve(__pa(initrd_start), size);
--	initrd_below_start_ok = 1;
- 
- 	printk(KERN_INFO "Initial ramdisk at: 0x%p (%lu bytes)\n",
- 		(void *)(initrd_start), size);
- 	return;
- disable:
- 	pr_cont(" - disabling initrd\n");
-+	initrd_below_start_ok = 0;
- 	initrd_start = 0;
- 	initrd_end = 0;
++	free_reserved_area((void *)start, (void *)end, -1, "initrd");
  }
+ #endif /* CONFIG_BLK_DEV_INITRD */
 -- 
 2.16.1
