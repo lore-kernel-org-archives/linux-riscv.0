@@ -1,50 +1,37 @@
-From: shea@shealevy.com (Shea Levy)
-Date: Mon, 19 Feb 2018 19:05:04 -0500
-Subject: [PATCH] set_handle_irq: Return EBUSY if the handler has already been
- registered.
-Message-ID: <20180220000504.21112-1-shea@shealevy.com>
+From: parri.andrea@gmail.com (Andrea Parri)
+Date: Tue, 20 Feb 2018 11:17:28 +0100
+Subject: [PATCH RFC] riscv/barrier: Define __smp_{mb,rmb,wmb}
+Message-ID: <1519121848-28582-1-git-send-email-parri.andrea@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This is what's expected by the comments and at least by irq-riscv-intc.c
+Introduce __smp_{mb,rmb,wmb}, and rely on the generic definitions
+for smp_{mb,rmb,wmb}. A first consequence is that smp_{mb,rmb,wmb}
+map to a compiler barrier on !SMP (while their definition remains
+unchanged on SMP). As a further consequence, smp_load_acquire and
+smp_store_release have "fence rw,rw" instead of "fence iorw,iorw".
 
-Signed-off-by: Shea Levy <shea@shealevy.com>
+Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
 ---
- include/linux/irq.h | 2 +-
- kernel/irq/handle.c | 5 +++--
- 2 files changed, 4 insertions(+), 3 deletions(-)
+ arch/riscv/include/asm/barrier.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/include/linux/irq.h b/include/linux/irq.h
-index 2930fd2572e4..77e97872a13e 100644
---- a/include/linux/irq.h
-+++ b/include/linux/irq.h
-@@ -1179,7 +1179,7 @@ int ipi_send_mask(unsigned int virq, const struct cpumask *dest);
-  * Returns 0 on success, or -EBUSY if an IRQ handler has already been
-  * registered.
-  */
--void __init set_handle_irq(void (*handle_irq)(struct pt_regs *));
-+int __init set_handle_irq(void (*handle_irq)(struct pt_regs *));
+diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
+index c0319cbf1eec5..5510366d169ae 100644
+--- a/arch/riscv/include/asm/barrier.h
++++ b/arch/riscv/include/asm/barrier.h
+@@ -34,9 +34,9 @@
+ #define wmb()		RISCV_FENCE(ow,ow)
+ 
+ /* These barriers do not need to enforce ordering on devices, just memory. */
+-#define smp_mb()	RISCV_FENCE(rw,rw)
+-#define smp_rmb()	RISCV_FENCE(r,r)
+-#define smp_wmb()	RISCV_FENCE(w,w)
++#define __smp_mb()	RISCV_FENCE(rw,rw)
++#define __smp_rmb()	RISCV_FENCE(r,r)
++#define __smp_wmb()	RISCV_FENCE(w,w)
  
  /*
-  * Allows interrupt handlers to find the irqchip that's been registered as the
-diff --git a/kernel/irq/handle.c b/kernel/irq/handle.c
-index dee4f9a172ca..3570c715c3e7 100644
---- a/kernel/irq/handle.c
-+++ b/kernel/irq/handle.c
-@@ -213,11 +213,12 @@ irqreturn_t handle_irq_event(struct irq_desc *desc)
- }
- 
- #ifdef CONFIG_GENERIC_IRQ_MULTI_HANDLER
--void __init set_handle_irq(void (*handle_irq)(struct pt_regs *))
-+int __init set_handle_irq(void (*handle_irq)(struct pt_regs *))
- {
- 	if (handle_arch_irq)
--		return;
-+		return -EBUSY;
- 
- 	handle_arch_irq = handle_irq;
-+	return 0;
- }
- #endif
+  * This is a very specific barrier: it's currently only used in two places in
 -- 
-2.16.1
+2.7.4
