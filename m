@@ -1,29 +1,77 @@
 From: shea@shealevy.com (Shea Levy)
-Date: Tue, 20 Feb 2018 08:57:21 -0500
-Subject: [PATCH v2] riscv: Implement free_initrd_mem.
-In-Reply-To: <20180220135043.15411-1-shea@shealevy.com>
-References: <20180220135043.15411-1-shea@shealevy.com>
-Message-ID: <20180220135721.966-1-shea@shealevy.com>
+Date: Tue, 20 Feb 2018 11:03:38 -0500
+Subject: [PATCH v2] riscv: Add install target to Makefile.
+In-Reply-To: <20180220000418.21039-1-shea@shealevy.com>
+References: <20180220000418.21039-1-shea@shealevy.com>
+Message-ID: <20180220160338.14089-1-shea@shealevy.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-v2: Remove incorrect page alignment.
+v2: Fix copy-paste error in comment.
 
 Signed-off-by: Shea Levy <shea@shealevy.com>
 ---
- arch/riscv/mm/init.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/Makefile   |  4 ++++
+ arch/riscv/install.sh | 39 +++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 43 insertions(+)
+ create mode 100644 arch/riscv/install.sh
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index c77df8142be2..1b6daa5184e0 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -66,5 +66,6 @@ void free_initmem(void)
- #ifdef CONFIG_BLK_DEV_INITRD
- void free_initrd_mem(unsigned long start, unsigned long end)
- {
-+	free_reserved_area((void *)start, (void *)end, -1, "initrd");
- }
- #endif /* CONFIG_BLK_DEV_INITRD */
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 6719dd30ec5b..26892daefa05 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -70,3 +70,7 @@ core-y += arch/riscv/kernel/ arch/riscv/mm/
+ libs-y += arch/riscv/lib/
+ 
+ all: vmlinux
++
++PHONY += install
++install: vmlinux
++	sh $(srctree)/arch/riscv/install.sh $(KERNELRELEASE) $< System.map "$(INSTALL_PATH)"
+diff --git a/arch/riscv/install.sh b/arch/riscv/install.sh
+new file mode 100644
+index 000000000000..b98c1db899f1
+--- /dev/null
++++ b/arch/riscv/install.sh
+@@ -0,0 +1,39 @@
++#!/bin/sh
++#
++# arch/riscv/install.sh
++#
++# This file is subject to the terms and conditions of the GNU General Public
++# License.  See the file "COPYING" in the main directory of this archive
++# for more details.
++#
++# Copyright (C) 1995 by Linus Torvalds
++#
++# Adapted from code in arch/ia64/install.sh by Shea Levy
++#
++# "make install" script for riscv architecture
++#
++# Arguments:
++#   $1 - kernel version
++#   $2 - kernel image file
++#   $3 - kernel map file
++#   $4 - default install path (blank if root directory)
++#
++
++# User may have a custom install script
++
++if [ -x ~/bin/${INSTALLKERNEL} ]; then exec ~/bin/${INSTALLKERNEL} "$@"; fi
++if [ -x /sbin/${INSTALLKERNEL} ]; then exec /sbin/${INSTALLKERNEL} "$@"; fi
++
++# Default install - no bootloader configuration (yet?)
++base=$(basename $2)
++
++if [ -f $4/$base ]; then
++	mv $4/$base $4/$base.old
++fi
++
++if [ -f $4/System.map ]; then
++	mv $4/System.map $4/System.old
++fi
++
++cat $2 > $4/$base
++cp $3 $4/System.map
 -- 
 2.16.1
