@@ -1,77 +1,58 @@
-From: shea@shealevy.com (Shea Levy)
-Date: Tue, 20 Feb 2018 11:03:38 -0500
-Subject: [PATCH v2] riscv: Add install target to Makefile.
-In-Reply-To: <20180220000418.21039-1-shea@shealevy.com>
-References: <20180220000418.21039-1-shea@shealevy.com>
-Message-ID: <20180220160338.14089-1-shea@shealevy.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Wed, 21 Feb 2018 08:37:37 -0800 (PST)
+Subject: [GIT PULL] RISC-V: Cleanups for 4.16-rc3
+Message-ID: <mhng-120c4a2d-e09b-4d5d-9fc2-3141275ca58b@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-v2: Fix copy-paste error in comment.
+The following changes since commit 7928b2cbe55b2a410a0f5c1f154610059c57b1b2:
 
-Signed-off-by: Shea Levy <shea@shealevy.com>
----
- arch/riscv/Makefile   |  4 ++++
- arch/riscv/install.sh | 39 +++++++++++++++++++++++++++++++++++++++
- 2 files changed, 43 insertions(+)
- create mode 100644 arch/riscv/install.sh
+  Linux 4.16-rc1 (2018-02-11 15:04:29 -0800)
 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 6719dd30ec5b..26892daefa05 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -70,3 +70,7 @@ core-y += arch/riscv/kernel/ arch/riscv/mm/
- libs-y += arch/riscv/lib/
- 
- all: vmlinux
-+
-+PHONY += install
-+install: vmlinux
-+	sh $(srctree)/arch/riscv/install.sh $(KERNELRELEASE) $< System.map "$(INSTALL_PATH)"
-diff --git a/arch/riscv/install.sh b/arch/riscv/install.sh
-new file mode 100644
-index 000000000000..b98c1db899f1
---- /dev/null
-+++ b/arch/riscv/install.sh
-@@ -0,0 +1,39 @@
-+#!/bin/sh
-+#
-+# arch/riscv/install.sh
-+#
-+# This file is subject to the terms and conditions of the GNU General Public
-+# License.  See the file "COPYING" in the main directory of this archive
-+# for more details.
-+#
-+# Copyright (C) 1995 by Linus Torvalds
-+#
-+# Adapted from code in arch/ia64/install.sh by Shea Levy
-+#
-+# "make install" script for riscv architecture
-+#
-+# Arguments:
-+#   $1 - kernel version
-+#   $2 - kernel image file
-+#   $3 - kernel map file
-+#   $4 - default install path (blank if root directory)
-+#
-+
-+# User may have a custom install script
-+
-+if [ -x ~/bin/${INSTALLKERNEL} ]; then exec ~/bin/${INSTALLKERNEL} "$@"; fi
-+if [ -x /sbin/${INSTALLKERNEL} ]; then exec /sbin/${INSTALLKERNEL} "$@"; fi
-+
-+# Default install - no bootloader configuration (yet?)
-+base=$(basename $2)
-+
-+if [ -f $4/$base ]; then
-+	mv $4/$base $4/$base.old
-+fi
-+
-+if [ -f $4/System.map ]; then
-+	mv $4/System.map $4/System.old
-+fi
-+
-+cat $2 > $4/$base
-+cp $3 $4/System.map
--- 
-2.16.1
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.16-rc3-riscv_cleanups
+
+for you to fetch changes up to 8b08f50152ff85a4780e5c385d2b65889406e842:
+
+  Rename sbi_save to parse_dtb to improve code readability (2018-02-20 10:56:26 -0800)
+
+----------------------------------------------------------------
+RISC-V: Cleanups for 4.16-rc3
+
+This pull request contains a handful of small cleanups.  The only
+functional change is that IRQs are now enabled during exception
+handling, which was found when some warnings triggered with
+`CONFIG_DEBUG_ATOMIC_SLEEP=y`.  The remaining fixes should have no
+functional change: `sbi_save()` has been renamed to `parse_dtb()`
+reflect what it actually does, and a handful of unused Kconfig entries
+have been removed.
+
+This is based on rc1 as a break to my usual flow, as it appears I missed
+rc2 over the holiday.  I've merged master as of Wednesday morning,
+af3e79d29555 ("Merge tag 'leds_for-4.16-rc3' of
+git://git.kernel.org/pub/scm/linux/kernel/git/j.anaszewski/linux-leds")
+without any conflicts and I've given it a simple build test.  If this
+isn't OK then feel free to drop the patch set and I'll send another
+against rc3 for rc4.
+
+----------------------------------------------------------------
+Michael Clark (1):
+      Rename sbi_save to parse_dtb to improve code readability
+
+Palmer Dabbelt (1):
+      RISC-V: kconfig cleanups
+
+Ulf Magnusson (3):
+      riscv: Remove ARCH_WANT_OPTIONAL_GPIOLIB select
+      riscv: kconfig: Remove RISCV_IRQ_INTC select
+      riscv: Remove ARCH_HAS_ATOMIC64_DEC_IF_POSITIVE select
+
+zongbox at gmail.com (1):
+      RISC-V: Enable IRQ during exception handling
+
+ arch/riscv/Kconfig        | 3 ---
+ arch/riscv/kernel/entry.S | 5 +++--
+ arch/riscv/kernel/head.S  | 2 +-
+ arch/riscv/kernel/setup.c | 2 +-
+ 4 files changed, 5 insertions(+), 7 deletions(-)
