@@ -1,29 +1,197 @@
-From: hch@lst.de (Christoph Hellwig)
-Date: Thu, 22 Feb 2018 07:57:14 -0800
-Subject: [PATCH v2] riscv: enable STRICT_DEVMEM by default
-Message-ID: <20180222155714.21946-1-hch@lst.de>
+From: dlustig@nvidia.com (Daniel Lustig)
+Date: Thu, 22 Feb 2018 09:27:09 -0800
+Subject: [RFC PATCH] riscv/locking: Strengthen spin_lock() and
+ spin_unlock()
+In-Reply-To: <20180222141249.GA14033@andrea>
+References: <1519301990-11766-1-git-send-email-parri.andrea@gmail.com>
+ <20180222134004.GN25181@hirez.programming.kicks-ass.net>
+ <20180222141249.GA14033@andrea>
+Message-ID: <82beae6a-2589-6136-b563-3946d7c4fc60@nvidia.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-No need to enable /dev/mem access on a new port.
+On 2/22/2018 6:12 AM, Andrea Parri wrote:
+> On Thu, Feb 22, 2018 at 02:40:04PM +0100, Peter Zijlstra wrote:
+>> On Thu, Feb 22, 2018 at 01:19:50PM +0100, Andrea Parri wrote:
+>>
+>>> C unlock-lock-read-ordering
+>>>
+>>> {}
+>>> /* s initially owned by P1 */
+>>>
+>>> P0(int *x, int *y)
+>>> {
+>>> 	WRITE_ONCE(*x, 1);
+>>> 	smp_wmb();
+>>> 	WRITE_ONCE(*y, 1);
+>>> }
+>>>
+>>> P1(int *x, int *y, spinlock_t *s)
+>>> {
+>>> 	int r0;
+>>> 	int r1;
+>>>
+>>> 	r0 = READ_ONCE(*y);
+>>> 	spin_unlock(s);
+>>> 	spin_lock(s);
+>>> 	r1 = READ_ONCE(*y);
+>>> }
+>>>
+>>> exists (1:r0=1 /\ 1:r1=0)
+>>>
+>>> RISCV RISCV-unlock-lock-read-ordering
+>>> {
+>>> 0:x2=x; 0:x4=y;
+>>> 1:x2=y; 1:x4=x; 1:x6=s;
+>>> s=1;
+>>> }
+>>>  P0           |  P1                      ;
+>>>  ori x1,x0,1  | lw x1,0(x2)              ;
+>>>  sw x1,0(x2)  | amoswap.w.rl x0,x0,(x6)  ;
+>>>  fence w,w    | ori x5,x0,1              ;
+>>>  ori x3,x0,1  | amoswap.w.aq x0,x5,(x6)  ;
+>>>  sw x3,0(x4)  | lw x3,0(x4)              ;
+>>> exists
+>>> (1:x1=1 /\ 1:x3=0)
+>>
+>> So I would indeed expect this to be forbidden. Could someone please
+>> explain how this could be allowed?
+> 
+> As mentioned in IRC, my understanding here is only based on the spec.
+> referred below and on its (available) formalizations.  I expect that
+> RISC-V people will be able to provide more information.
 
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- lib/Kconfig.debug | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I think an RCpc interpretation of .aq and .rl would in fact allow
+the two normal loads in P1 to be reordered.  Wouldn't it?  Does that
+go against what the LKMM requires?
 
-diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index 6088408ef26c..b09caac31578 100644
---- a/lib/Kconfig.debug
-+++ b/lib/Kconfig.debug
-@@ -1968,7 +1968,7 @@ config STRICT_DEVMEM
- 	bool "Filter access to /dev/mem"
- 	depends on MMU && DEVMEM
- 	depends on ARCH_HAS_DEVMEM_IS_ALLOWED
--	default y if TILE || PPC || X86 || ARM64
-+	default y if TILE || PPC || X86 || ARM64 || RISCV
- 	---help---
- 	  If this option is disabled, you allow userspace (root) access to all
- 	  of memory, including kernel and userspace memory. Accidental
--- 
-2.14.2
+The intuition would be that the amoswap.w.aq can forward from the
+amoswap.w.rl while that's still in the store buffer, and then the
+lw x3,0(x4) can also perform while the amoswap.w.rl is still in
+the store buffer, all before the l1 x1,0(x2) executes.  That's
+not forbidden unless the amoswaps are RCsc, unless I'm missing
+something.
+
+Likewise even if the unlock()/lock() is between two stores.  A
+control dependency might originate from the load part of the
+amoswap.w.aq, but there still would have to be something to
+ensure that this load part in fact performs after the store
+part of the amoswap.w.rl performs globally, and that's not
+automatic under RCpc.
+
+In any case, our concern that amoswap.w.rl and amoswap.w.aq might
+not actually be sufficient for spin_unlock() and spin_lock() was
+what prompted us to start our own internal discussion on this.
+
+FWIW we have made a few clarifications to our spec that haven't
+propagated to the public upstream yet, but that should be happening
+soon.  In any case as it relates to the questions here, it's
+more a matter of us deciding what we should put into the spec in
+the end than it is a matter of checking the current text.  In
+other words, we're still finalizing things, and there's still
+some time to tweak as necessary.
+
+>>
+>>> C unlock-lock-write-ordering
+>>>
+>>> {}
+>>> /* s initially owned by P0 */
+>>>
+>>> P0(int *x, int *y, spinlock_t *s)
+>>> {
+>>> 	WRITE_ONCE(*x, 1);
+>>> 	spin_unlock(s);
+>>> 	spin_lock(s);
+>>> 	WRITE_ONCE(*y, 1);
+>>> }
+>>>
+>>> P1(int *x, int *y)
+>>> {
+>>> 	int r0;
+>>> 	int r1;
+>>>
+>>> 	r0 = READ_ONCE(*y);
+>>> 	smp_rmb();
+>>> 	r1 = READ_ONCE(*y);
+>>> }
+>>>
+>>> exists (1:r0=1 /\ 1:r1=0)
+>>>
+>>> RISCV RISCV-unlock-lock-write-ordering
+>>> {
+>>> 0:x2=x; 0:x4=y; 0:x6=s;
+>>> 1:x2=y; 1:x4=x;
+>>> s=1;
+>>> }
+>>>  P0                       | P1           ;
+>>>  ori x1,x0,1              | lw x1,0(x2)  ;
+>>>  sw x1,0(x2)              | fence r,r    ;
+>>>  amoswap.w.rl x0,x0,(x6)  | lw x3,0(x4)  ;
+>>>  ori x5,x0,1              |              ;
+>>>  amoswap.w.aq x0,x5,(x6)  |              ;
+>>>  ori x3,x0,1              |              ;
+>>>  sw x3,0(x4)              |              ;
+>>> exists
+>>> (1:x1=1 /\ 1:x3=0)
+>>
+>> And here I think the RISCV conversion is flawed, there should be a ctrl
+>> dependency. The second store-word in P0 should depend on the result of
+>> amoswap.w.aq being 0.
+> 
+> You're right: AFAICT, this can be remedied by inserting "beq x0,x5,FAIL00"
+> right after amoswap.w.aq (and this label at the end of P0); this does not
+> change the verdict of the available formalizations reported above however.
+> 
+> (So, AFAICT, the above question remains valid/open.)
+
+This makes sense, but one other question: Paul mentioned earlier in the
+thread that
+
+> The PowerPC lock implementation's unlock-lock pair does not order writes
+> from the previous critical section against reads from the later critical
+> section, but it does order other combinations of reads and writes.
+
+My understanding is that the same logic about control dependencies applies
+here too, right?  In other words, in spite of Peter's claim, the control
+dependency doesn't automatically fix this for RISC-V or for PowerPC?
+
+> 
+>   Andrea
+> 
+> 
+>>
+>> (strictly speaking there should be a ctrl-dep in the read example too,
+>> except it'd be pointless for ordering reads, so I accept it being left
+>> out)
+>>
+>> Again, I cannot see how this could be allowed.
+>>
+
+Peter, in this test you mentioned earlier:
+
+P0()
+{
+	WRITE_ONCE(x, 1);
+	smp_store_release(&y, 1);
+	r0 = smp_load_acquire(&y);
+	WRITE_ONCE(z, 1);
+}
+
+P1()
+{
+	r1 = READ_ONCE(z);
+	smp_rmb();
+	r2 = READ_ONCE(x);
+}
+
+exists: r0 == 1 /\ r1==1 /\ r2==0
+
+You expect this to be forbidden too, even if the release and acquire
+are RCpc?  This part I don't follow.  There's no conditional branch
+here to enforce a control dependency.  I get and I agree that
+smp_store_release/smp_load_acquire are different than spin_unlock/
+spin_lock, but isn't that even more reason to allow this one if
+smp_store_release/smp_load_acquire are RCpc without question?
+
+Thanks,
+Dan
