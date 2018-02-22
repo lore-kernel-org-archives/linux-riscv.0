@@ -1,5 +1,5 @@
-From: paulmck@linux.vnet.ibm.com (Paul E. McKenney)
-Date: Thu, 22 Feb 2018 10:13:17 -0800
+From: peterz@infradead.org (Peter Zijlstra)
+Date: Thu, 22 Feb 2018 19:21:07 +0100
 Subject: [RFC PATCH] riscv/locking: Strengthen spin_lock() and
  spin_unlock()
 In-Reply-To: <82beae6a-2589-6136-b563-3946d7c4fc60@nvidia.com>
@@ -7,7 +7,7 @@ References: <1519301990-11766-1-git-send-email-parri.andrea@gmail.com>
  <20180222134004.GN25181@hirez.programming.kicks-ass.net>
  <20180222141249.GA14033@andrea>
  <82beae6a-2589-6136-b563-3946d7c4fc60@nvidia.com>
-Message-ID: <20180222181317.GI2855@linux.vnet.ibm.com>
+Message-ID: <20180222182107.GR25181@hirez.programming.kicks-ass.net>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
@@ -38,31 +38,10 @@ On Thu, Feb 22, 2018 at 09:27:09AM -0800, Daniel Lustig wrote:
 > >>> 	spin_lock(s);
 > >>> 	r1 = READ_ONCE(*y);
 > >>> }
-> >>>
-> >>> exists (1:r0=1 /\ 1:r1=0)
-> >>>
-> >>> RISCV RISCV-unlock-lock-read-ordering
-> >>> {
-> >>> 0:x2=x; 0:x4=y;
-> >>> 1:x2=y; 1:x4=x; 1:x6=s;
-> >>> s=1;
-> >>> }
-> >>>  P0           |  P1                      ;
-> >>>  ori x1,x0,1  | lw x1,0(x2)              ;
-> >>>  sw x1,0(x2)  | amoswap.w.rl x0,x0,(x6)  ;
-> >>>  fence w,w    | ori x5,x0,1              ;
-> >>>  ori x3,x0,1  | amoswap.w.aq x0,x5,(x6)  ;
-> >>>  sw x3,0(x4)  | lw x3,0(x4)              ;
-> >>> exists
-> >>> (1:x1=1 /\ 1:x3=0)
-> >>
+
 > >> So I would indeed expect this to be forbidden. Could someone please
 > >> explain how this could be allowed?
-> > 
-> > As mentioned in IRC, my understanding here is only based on the spec.
-> > referred below and on its (available) formalizations.  I expect that
-> > RISC-V people will be able to provide more information.
-> 
+
 > I think an RCpc interpretation of .aq and .rl would in fact allow
 > the two normal loads in P1 to be reordered.  Wouldn't it?  Does that
 > go against what the LKMM requires?
@@ -73,26 +52,31 @@ On Thu, Feb 22, 2018 at 09:27:09AM -0800, Daniel Lustig wrote:
 > the store buffer, all before the l1 x1,0(x2) executes.  That's
 > not forbidden unless the amoswaps are RCsc, unless I'm missing
 > something.
-> 
+
+So here you're equating flushing the store buffer to RCsc. Is that
+entirely fair? Can't a local store-buffer flush still not mean global
+visibility, similarly, could not a store-buffer have internal ordering,
+such that it guarantees to flush writes in-order? Employing for example
+multiple stages / generations.
+
+That is, I think there's quite a bit of gray area here.
+
+But even with the store buffer, the STORE-RELEASE could 'wait' for all
+prior LOADs to complete before issuing the STORE. It could also
+increment a store-buffer generation before issuing, such that it would,
+once it gets about flushing things, issue the STOREs in the 'promised'
+order.
+
 > Likewise even if the unlock()/lock() is between two stores.  A
 > control dependency might originate from the load part of the
 > amoswap.w.aq, but there still would have to be something to
 > ensure that this load part in fact performs after the store
 > part of the amoswap.w.rl performs globally, and that's not
 > automatic under RCpc.
-> 
-> In any case, our concern that amoswap.w.rl and amoswap.w.aq might
-> not actually be sufficient for spin_unlock() and spin_lock() was
-> what prompted us to start our own internal discussion on this.
-> 
-> FWIW we have made a few clarifications to our spec that haven't
-> propagated to the public upstream yet, but that should be happening
-> soon.  In any case as it relates to the questions here, it's
-> more a matter of us deciding what we should put into the spec in
-> the end than it is a matter of checking the current text.  In
-> other words, we're still finalizing things, and there's still
-> some time to tweak as necessary.
-> 
+
+Right, so I think we have different definitions of what RCpc means, and
+I suspect I might be the odd one out. And its not just spinlocks.
+
 > >>
 > >>> C unlock-lock-write-ordering
 > >>>
@@ -157,21 +141,17 @@ On Thu, Feb 22, 2018 at 09:27:09AM -0800, Daniel Lustig wrote:
 > here too, right?  In other words, in spite of Peter's claim, the control
 > dependency doesn't automatically fix this for RISC-V or for PowerPC?
 
-For PowerPC, an lwsync instruction is used, which means that an external
-obsserver can see a write from an earlier critical section being
-reordered with a read from a later critical section, but no other
-combination of reads and writes can be so reordered.
+So what Paul says is that earlier STOREs and later LOADs can reorder
+(the TSO reordering) over the RELEASE+ACQUIRE. And that is right, LWSYNC
+allows just that one reorder.
 
-I will dig up PowerPC litmus tests demonstrating this and send them
-along.
+The ctrl-dep cannot fix that, ctrl-dep is a LOAD->STORE order, later
+STOREs will happen after the earlier LOAD.
 
-> >> (strictly speaking there should be a ctrl-dep in the read example too,
-> >> except it'd be pointless for ordering reads, so I accept it being left
-> >> out)
-> >>
-> >> Again, I cannot see how this could be allowed.
-> >>
-> 
+But the above example is a STORE->STORE, which LWSYNC _will_ order.
+
+But yes, I remember being confused by that example.
+
 > Peter, in this test you mentioned earlier:
 > 
 > P0()
@@ -198,74 +178,21 @@ along.
 > spin_lock, but isn't that even more reason to allow this one if
 > smp_store_release/smp_load_acquire are RCpc without question?
 
-Here is the above test, reworked a bit to allow herd to accept it:
+Yes, I was expecting that to be forbidden. My definition of RCpc is such
+that ACQUIRE and RELEASE are 'locally' respected.
 
-------------------------------------------------------------------------
+The TSO archs forbid the above by ordering STOREs, then the only
+architectures that implement ACQUIRE/RELEASE are PPC and ARM64 (the rest
+uses smp_mb()), ARM64 has globally consistent RELEASE/ACQUIRE and PPC
+has their LWSYNC which imposes a local TSO order.
 
-C C-peterz
+In particular I'm not a great fan of weakening the LKMM further. PPC
+is already painfully weak (more so than ARM64), but the proposed RISC-V
+would be weaker still.
 
-{
-}
+Of course, I come from x86 so I could be biased, but history has shown
+that the weaker this stuff becomes the more painful this all becomes.
+Not to mention that we'd have to go audit all existant code for
+constructs no longer allowed, which is incredibly painful.
 
-P0(int *x, int *y, int *z)
-{
-	int r0;
-
-	WRITE_ONCE(*x, 1);
-	smp_store_release(y, 1);
-	r0 = smp_load_acquire(y);
-	WRITE_ONCE(*z, 1);
-}
-
-P1(int *x, int *y, int *z)
-{
-	int r1;
-	int r2;
-
-	r1 = READ_ONCE(*z);
-	smp_rmb();
-	r2 = READ_ONCE(*x);
-}
-
-exists (0:r0 == 1 /\ 1:r1==1 /\ 1:r2==0)
-
-------------------------------------------------------------------------
-
-Please let me know if I messed up the conversion.  On the perhaps unlikely
-chance that I got it right, here is what the current version of the
-Linux-kernel memory model says:
-
-------------------------------------------------------------------------
-
-$ herd7 -conf linux-kernel.cfg /tmp/C-peterz.litmus 
-Test C-peterz Allowed
-States 4
-0:r0=1; 1:r1=0; 1:r2=0;
-0:r0=1; 1:r1=0; 1:r2=1;
-0:r0=1; 1:r1=1; 1:r2=0;
-0:r0=1; 1:r1=1; 1:r2=1;
-Ok
-Witnesses
-Positive: 1 Negative: 3
-Condition exists (0:r0=1 /\ 1:r1=1 /\ 1:r2=0)
-Observation C-peterz Sometimes 1 3
-Time C-peterz 0.01
-Hash=6c4f7f8a8dc750fd5d706d6f3c104360
-
-------------------------------------------------------------------------
-
-So the current Linux-kernel memory model does in fact allow this, as
-you say.  But again, there is a proposal to tighten the Linux-kernel
-memory model based on the pre-RISC-V set of architectures running the
-Linux kernel, all of which would forbid this test.
-
-So we have something that is not all that rare in the Linux kernel
-community, namely two conflicting more-or-less concurrent changes.
-This clearly needs to be resolved, either by us not strengthening the
-Linux-kernel memory model in the way we were planning to or by you
-strengthening RISC-V to be no weaker than PowerPC for these sorts of
-externally viewed release-acquire situations.
-
-Other thoughts?
-
-							Thanx, Paul
+Linus too has expressed his preference for stronger models.
