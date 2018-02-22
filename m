@@ -1,198 +1,26 @@
 From: peterz@infradead.org (Peter Zijlstra)
-Date: Thu, 22 Feb 2018 19:21:07 +0100
+Date: Thu, 22 Feb 2018 19:27:17 +0100
 Subject: [RFC PATCH] riscv/locking: Strengthen spin_lock() and
  spin_unlock()
-In-Reply-To: <82beae6a-2589-6136-b563-3946d7c4fc60@nvidia.com>
+In-Reply-To: <20180222181317.GI2855@linux.vnet.ibm.com>
 References: <1519301990-11766-1-git-send-email-parri.andrea@gmail.com>
  <20180222134004.GN25181@hirez.programming.kicks-ass.net>
  <20180222141249.GA14033@andrea>
  <82beae6a-2589-6136-b563-3946d7c4fc60@nvidia.com>
-Message-ID: <20180222182107.GR25181@hirez.programming.kicks-ass.net>
+ <20180222181317.GI2855@linux.vnet.ibm.com>
+Message-ID: <20180222182717.GS25181@hirez.programming.kicks-ass.net>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Feb 22, 2018 at 09:27:09AM -0800, Daniel Lustig wrote:
-> On 2/22/2018 6:12 AM, Andrea Parri wrote:
-> > On Thu, Feb 22, 2018 at 02:40:04PM +0100, Peter Zijlstra wrote:
-> >> On Thu, Feb 22, 2018 at 01:19:50PM +0100, Andrea Parri wrote:
-> >>
-> >>> C unlock-lock-read-ordering
-> >>>
-> >>> {}
-> >>> /* s initially owned by P1 */
-> >>>
-> >>> P0(int *x, int *y)
-> >>> {
-> >>> 	WRITE_ONCE(*x, 1);
-> >>> 	smp_wmb();
-> >>> 	WRITE_ONCE(*y, 1);
-> >>> }
-> >>>
-> >>> P1(int *x, int *y, spinlock_t *s)
-> >>> {
-> >>> 	int r0;
-> >>> 	int r1;
-> >>>
-> >>> 	r0 = READ_ONCE(*y);
-> >>> 	spin_unlock(s);
-> >>> 	spin_lock(s);
-> >>> 	r1 = READ_ONCE(*y);
-> >>> }
-
-> >> So I would indeed expect this to be forbidden. Could someone please
-> >> explain how this could be allowed?
-
-> I think an RCpc interpretation of .aq and .rl would in fact allow
-> the two normal loads in P1 to be reordered.  Wouldn't it?  Does that
-> go against what the LKMM requires?
+On Thu, Feb 22, 2018 at 10:13:17AM -0800, Paul E. McKenney wrote:
+> So we have something that is not all that rare in the Linux kernel
+> community, namely two conflicting more-or-less concurrent changes.
+> This clearly needs to be resolved, either by us not strengthening the
+> Linux-kernel memory model in the way we were planning to or by you
+> strengthening RISC-V to be no weaker than PowerPC for these sorts of
+> externally viewed release-acquire situations.
 > 
-> The intuition would be that the amoswap.w.aq can forward from the
-> amoswap.w.rl while that's still in the store buffer, and then the
-> lw x3,0(x4) can also perform while the amoswap.w.rl is still in
-> the store buffer, all before the l1 x1,0(x2) executes.  That's
-> not forbidden unless the amoswaps are RCsc, unless I'm missing
-> something.
+> Other thoughts?
 
-So here you're equating flushing the store buffer to RCsc. Is that
-entirely fair? Can't a local store-buffer flush still not mean global
-visibility, similarly, could not a store-buffer have internal ordering,
-such that it guarantees to flush writes in-order? Employing for example
-multiple stages / generations.
-
-That is, I think there's quite a bit of gray area here.
-
-But even with the store buffer, the STORE-RELEASE could 'wait' for all
-prior LOADs to complete before issuing the STORE. It could also
-increment a store-buffer generation before issuing, such that it would,
-once it gets about flushing things, issue the STOREs in the 'promised'
-order.
-
-> Likewise even if the unlock()/lock() is between two stores.  A
-> control dependency might originate from the load part of the
-> amoswap.w.aq, but there still would have to be something to
-> ensure that this load part in fact performs after the store
-> part of the amoswap.w.rl performs globally, and that's not
-> automatic under RCpc.
-
-Right, so I think we have different definitions of what RCpc means, and
-I suspect I might be the odd one out. And its not just spinlocks.
-
-> >>
-> >>> C unlock-lock-write-ordering
-> >>>
-> >>> {}
-> >>> /* s initially owned by P0 */
-> >>>
-> >>> P0(int *x, int *y, spinlock_t *s)
-> >>> {
-> >>> 	WRITE_ONCE(*x, 1);
-> >>> 	spin_unlock(s);
-> >>> 	spin_lock(s);
-> >>> 	WRITE_ONCE(*y, 1);
-> >>> }
-> >>>
-> >>> P1(int *x, int *y)
-> >>> {
-> >>> 	int r0;
-> >>> 	int r1;
-> >>>
-> >>> 	r0 = READ_ONCE(*y);
-> >>> 	smp_rmb();
-> >>> 	r1 = READ_ONCE(*y);
-> >>> }
-> >>>
-> >>> exists (1:r0=1 /\ 1:r1=0)
-> >>>
-> >>> RISCV RISCV-unlock-lock-write-ordering
-> >>> {
-> >>> 0:x2=x; 0:x4=y; 0:x6=s;
-> >>> 1:x2=y; 1:x4=x;
-> >>> s=1;
-> >>> }
-> >>>  P0                       | P1           ;
-> >>>  ori x1,x0,1              | lw x1,0(x2)  ;
-> >>>  sw x1,0(x2)              | fence r,r    ;
-> >>>  amoswap.w.rl x0,x0,(x6)  | lw x3,0(x4)  ;
-> >>>  ori x5,x0,1              |              ;
-> >>>  amoswap.w.aq x0,x5,(x6)  |              ;
-> >>>  ori x3,x0,1              |              ;
-> >>>  sw x3,0(x4)              |              ;
-> >>> exists
-> >>> (1:x1=1 /\ 1:x3=0)
-> >>
-> >> And here I think the RISCV conversion is flawed, there should be a ctrl
-> >> dependency. The second store-word in P0 should depend on the result of
-> >> amoswap.w.aq being 0.
-> > 
-> > You're right: AFAICT, this can be remedied by inserting "beq x0,x5,FAIL00"
-> > right after amoswap.w.aq (and this label at the end of P0); this does not
-> > change the verdict of the available formalizations reported above however.
-> > 
-> > (So, AFAICT, the above question remains valid/open.)
-> 
-> This makes sense, but one other question: Paul mentioned earlier in the
-> thread that
-> 
-> > The PowerPC lock implementation's unlock-lock pair does not order writes
-> > from the previous critical section against reads from the later critical
-> > section, but it does order other combinations of reads and writes.
-> 
-> My understanding is that the same logic about control dependencies applies
-> here too, right?  In other words, in spite of Peter's claim, the control
-> dependency doesn't automatically fix this for RISC-V or for PowerPC?
-
-So what Paul says is that earlier STOREs and later LOADs can reorder
-(the TSO reordering) over the RELEASE+ACQUIRE. And that is right, LWSYNC
-allows just that one reorder.
-
-The ctrl-dep cannot fix that, ctrl-dep is a LOAD->STORE order, later
-STOREs will happen after the earlier LOAD.
-
-But the above example is a STORE->STORE, which LWSYNC _will_ order.
-
-But yes, I remember being confused by that example.
-
-> Peter, in this test you mentioned earlier:
-> 
-> P0()
-> {
-> 	WRITE_ONCE(x, 1);
-> 	smp_store_release(&y, 1);
-> 	r0 = smp_load_acquire(&y);
-> 	WRITE_ONCE(z, 1);
-> }
-> 
-> P1()
-> {
-> 	r1 = READ_ONCE(z);
-> 	smp_rmb();
-> 	r2 = READ_ONCE(x);
-> }
-> 
-> exists: r0 == 1 /\ r1==1 /\ r2==0
-> 
-> You expect this to be forbidden too, even if the release and acquire
-> are RCpc?  This part I don't follow.  There's no conditional branch
-> here to enforce a control dependency.  I get and I agree that
-> smp_store_release/smp_load_acquire are different than spin_unlock/
-> spin_lock, but isn't that even more reason to allow this one if
-> smp_store_release/smp_load_acquire are RCpc without question?
-
-Yes, I was expecting that to be forbidden. My definition of RCpc is such
-that ACQUIRE and RELEASE are 'locally' respected.
-
-The TSO archs forbid the above by ordering STOREs, then the only
-architectures that implement ACQUIRE/RELEASE are PPC and ARM64 (the rest
-uses smp_mb()), ARM64 has globally consistent RELEASE/ACQUIRE and PPC
-has their LWSYNC which imposes a local TSO order.
-
-In particular I'm not a great fan of weakening the LKMM further. PPC
-is already painfully weak (more so than ARM64), but the proposed RISC-V
-would be weaker still.
-
-Of course, I come from x86 so I could be biased, but history has shown
-that the weaker this stuff becomes the more painful this all becomes.
-Not to mention that we'd have to go audit all existant code for
-constructs no longer allowed, which is incredibly painful.
-
-Linus too has expressed his preference for stronger models.
+Like said in the other email, I would _much_ prefer to not go weaker
+than PPC, I find that PPC is already painfully weak at times.
