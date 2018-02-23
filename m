@@ -1,57 +1,41 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 22 Feb 2018 15:14:53 -0800 (PST)
-Subject: [PATCH] riscv: Respect the initrd found in the dt, if any.
-In-Reply-To: <20180220125426.6388-1-shea@shealevy.com>
-Message-ID: <mhng-b4425a52-f6fd-48df-b227-c3a786332e6c@palmer-si-x1c4>
+Date: Thu, 22 Feb 2018 16:41:40 -0800 (PST)
+Subject: [PATCH] riscv: Implement free_initrd_mem.
+In-Reply-To: <20180220135043.15411-1-shea@shealevy.com>
+Message-ID: <mhng-96c45513-b898-42bc-af9e-f24d9909f489@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 20 Feb 2018 04:54:26 PST (-0800), shea at shealevy.com wrote:
+On Tue, 20 Feb 2018 05:50:43 PST (-0800), shea at shealevy.com wrote:
 > Signed-off-by: Shea Levy <shea@shealevy.com>
 > ---
->  arch/riscv/kernel/setup.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
+>  arch/riscv/mm/init.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
 >
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 41d34008faf6..c4ebc907af34 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -88,15 +88,20 @@ static void __init setup_initrd(void)
->  	extern unsigned long __initramfs_size;
->  	unsigned long size;
->
-> +	if (initrd_start)
-> +		goto found;
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index c77df8142be2..1c832b541e95 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -66,5 +66,11 @@ void free_initmem(void)
+>  #ifdef CONFIG_BLK_DEV_INITRD
+>  void free_initrd_mem(unsigned long start, unsigned long end)
+>  {
+> +	if (start == initrd_start)
+> +		start = round_down(start, PAGE_SIZE);
+> +	if (end == initrd_end)
+> +		end = round_up(end, PAGE_SIZE);
 > +
->  	if (__initramfs_size > 0) {
->  		initrd_start = (unsigned long)(&__initramfs_start);
->  		initrd_end = initrd_start + __initramfs_size;
->  	}
->
-> +	initrd_below_start_ok = 1;
->  	if (initrd_start >= initrd_end) {
->  		printk(KERN_INFO "initrd not found or empty");
->  		goto disable;
->  	}
-> +found:
->  	if (__pa(initrd_end) > PFN_PHYS(max_low_pfn)) {
->  		printk(KERN_ERR "initrd extends beyond end of memory");
->  		goto disable;
-> @@ -104,13 +109,13 @@ static void __init setup_initrd(void)
->
->  	size =  initrd_end - initrd_start;
->  	memblock_reserve(__pa(initrd_start), size);
-> -	initrd_below_start_ok = 1;
->
->  	printk(KERN_INFO "Initial ramdisk at: 0x%p (%lu bytes)\n",
->  		(void *)(initrd_start), size);
->  	return;
->  disable:
->  	pr_cont(" - disabling initrd\n");
-> +	initrd_below_start_ok = 0;
->  	initrd_start = 0;
->  	initrd_end = 0;
+> +	free_reserved_area((void *)start, (void *)end, -1, "initrd");
 >  }
+>  #endif /* CONFIG_BLK_DEV_INITRD */
 
-It looks like there's some amount of generic support in 
-__early_init_dt_declare_initrd(), can we just use that?
+It looks like everyone is doing something slightly different here:
+
+* arm64 doesn't round to a page size, and has keep_initrd.
+* arm calls poison_init_mem(), and has keep_initrd.
+* sparc64 doesn't round, and doesn't have a keep_initrd.
+* mips doesn't round, and doesn't have a keep_initrd.
+* x86 rounds end to a page size but not start, and doesn't have a keep_initrd.
+
+It feels like this should be something generic.  I'm adding linux-kernel to see 
+what people think.
