@@ -1,73 +1,51 @@
-From: shea@shealevy.com (Shea Levy)
-Date: Thu, 22 Feb 2018 22:38:01 -0500
-Subject: [PATCH] riscv: Respect the initrd found in the dt, if any.
-In-Reply-To: <mhng-b4425a52-f6fd-48df-b227-c3a786332e6c@palmer-si-x1c4>
-References: <mhng-b4425a52-f6fd-48df-b227-c3a786332e6c@palmer-si-x1c4>
-Message-ID: <87k1v44bqe.fsf@xps13.shealevy.com>
+From: parri.andrea@gmail.com (Andrea Parri)
+Date: Fri, 23 Feb 2018 12:16:01 +0100
+Subject: [RFC PATCH] riscv/locking: Strengthen spin_lock() and
+ spin_unlock()
+In-Reply-To: <563431d0-4fb5-9efd-c393-83cc5197e934@nvidia.com>
+References: <1519301990-11766-1-git-send-email-parri.andrea@gmail.com>
+ <20180222134004.GN25181@hirez.programming.kicks-ass.net>
+ <20180222141249.GA14033@andrea>
+ <82beae6a-2589-6136-b563-3946d7c4fc60@nvidia.com>
+ <20180222181317.GI2855@linux.vnet.ibm.com>
+ <20180222182717.GS25181@hirez.programming.kicks-ass.net>
+ <563431d0-4fb5-9efd-c393-83cc5197e934@nvidia.com>
+Message-ID: <20180223111601.GA449@andrea>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-It doesn't look like that generic support handles the case where the
-initrd is compiled into the kernel and not passed in the devicetree,
-which setup_initrd already did before this
-patch. __early_init_dt_delcare_initrd is only called when the devicetree
-properties are found.
+On Thu, Feb 22, 2018 at 11:47:57AM -0800, Daniel Lustig wrote:
+> On 2/22/2018 10:27 AM, Peter Zijlstra wrote:
+> > On Thu, Feb 22, 2018 at 10:13:17AM -0800, Paul E. McKenney wrote:
+> >> So we have something that is not all that rare in the Linux kernel
+> >> community, namely two conflicting more-or-less concurrent changes.
+> >> This clearly needs to be resolved, either by us not strengthening the
+> >> Linux-kernel memory model in the way we were planning to or by you
+> >> strengthening RISC-V to be no weaker than PowerPC for these sorts of
+> >> externally viewed release-acquire situations.
+> >>
+> >> Other thoughts?
+> > 
+> > Like said in the other email, I would _much_ prefer to not go weaker
+> > than PPC, I find that PPC is already painfully weak at times.
+> 
+> Sure, and RISC-V could make this work too by using RCsc instructions
+> and/or by using lightweight fences instead.  It just wasn't clear at
+> first whether smp_load_acquire() and smp_store_release() were RCpc,
+> RCsc, or something else, and hence whether RISC-V would actually need
+> to use something stronger than pure RCpc there.  Likewise for
+> spin_unlock()/spin_lock() and everywhere else this comes up.
 
-Palmer Dabbelt <palmer@sifive.com> writes:
+Thank you for the confirmations.
 
-> On Tue, 20 Feb 2018 04:54:26 PST (-0800), shea at shealevy.com wrote:
->> Signed-off-by: Shea Levy <shea@shealevy.com>
->> ---
->>  arch/riscv/kernel/setup.c | 7 ++++++-
->>  1 file changed, 6 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
->> index 41d34008faf6..c4ebc907af34 100644
->> --- a/arch/riscv/kernel/setup.c
->> +++ b/arch/riscv/kernel/setup.c
->> @@ -88,15 +88,20 @@ static void __init setup_initrd(void)
->>  	extern unsigned long __initramfs_size;
->>  	unsigned long size;
->>
->> +	if (initrd_start)
->> +		goto found;
->> +
->>  	if (__initramfs_size > 0) {
->>  		initrd_start = (unsigned long)(&__initramfs_start);
->>  		initrd_end = initrd_start + __initramfs_size;
->>  	}
->>
->> +	initrd_below_start_ok = 1;
->>  	if (initrd_start >= initrd_end) {
->>  		printk(KERN_INFO "initrd not found or empty");
->>  		goto disable;
->>  	}
->> +found:
->>  	if (__pa(initrd_end) > PFN_PHYS(max_low_pfn)) {
->>  		printk(KERN_ERR "initrd extends beyond end of memory");
->>  		goto disable;
->> @@ -104,13 +109,13 @@ static void __init setup_initrd(void)
->>
->>  	size =  initrd_end - initrd_start;
->>  	memblock_reserve(__pa(initrd_start), size);
->> -	initrd_below_start_ok = 1;
->>
->>  	printk(KERN_INFO "Initial ramdisk at: 0x%p (%lu bytes)\n",
->>  		(void *)(initrd_start), size);
->>  	return;
->>  disable:
->>  	pr_cont(" - disabling initrd\n");
->> +	initrd_below_start_ok = 0;
->>  	initrd_start = 0;
->>  	initrd_end = 0;
->>  }
->
-> It looks like there's some amount of generic support in 
-> __early_init_dt_declare_initrd(), can we just use that?
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: signature.asc
-Type: application/pgp-signature
-Size: 832 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180222/cd0252b4/attachment.sig>
+The hope was indeed that this thread helped clarify what the (current)
+LKMM "expectations" are, and how these are likely to evolve in a near
+future.  And Yes, I'm definitely with you and Paul on "let us (try to)
+keep LKMM and RISC-V synchronized"! ;-)
+
+  Andrea
+
+
+> 
+> 
+> Dan
