@@ -1,8 +1,8 @@
-From: torvalds@linux-foundation.org (Linus Torvalds)
-Date: Mon, 26 Feb 2018 08:06:59 -0800
+From: will.deacon@arm.com (Will Deacon)
+Date: Mon, 26 Feb 2018 16:24:27 +0000
 Subject: [RFC PATCH] riscv/locking: Strengthen spin_lock() and
  spin_unlock()
-In-Reply-To: <20180226142107.uid5vtv5r7zbso33@yquem.inria.fr>
+In-Reply-To: <CA+55aFwu5jat5vV-d6RVaUFo=Bjeyv-7eXWUJySg6xFUTnfbWQ@mail.gmail.com>
 References: <1519301990-11766-1-git-send-email-parri.andrea@gmail.com>
  <20180222134004.GN25181@hirez.programming.kicks-ass.net>
  <20180222141249.GA14033@andrea>
@@ -11,42 +11,55 @@ References: <1519301990-11766-1-git-send-email-parri.andrea@gmail.com>
  <20180222182717.GS25181@hirez.programming.kicks-ass.net>
  <563431d0-4fb5-9efd-c393-83cc5197e934@nvidia.com>
  <20180226142107.uid5vtv5r7zbso33@yquem.inria.fr>
-Message-ID: <CA+55aFwu5jat5vV-d6RVaUFo=Bjeyv-7eXWUJySg6xFUTnfbWQ@mail.gmail.com>
+ <CA+55aFwu5jat5vV-d6RVaUFo=Bjeyv-7eXWUJySg6xFUTnfbWQ@mail.gmail.com>
+Message-ID: <20180226162426.GB17158@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Feb 26, 2018 at 6:21 AM, Luc Maranget <luc.maranget@inria.fr> wrote:
->
-> That is, locks are not implemented from more basic primitive but are specified.
-> The specification can be described as behaving that way:
->   - A lock behaves as a read-modify-write. the read behaving as a read-acquire
+On Mon, Feb 26, 2018 at 08:06:59AM -0800, Linus Torvalds wrote:
+> On Mon, Feb 26, 2018 at 6:21 AM, Luc Maranget <luc.maranget@inria.fr> wrote:
+> >
+> > That is, locks are not implemented from more basic primitive but are specified.
+> > The specification can be described as behaving that way:
+> >   - A lock behaves as a read-modify-write. the read behaving as a read-acquire
+> 
+> This is wrong, or perhaps just misleading.
+> 
+> The *whole* r-m-w acts as an acquire. Not just the read part. The
+> write is very much part of it.
+> 
+> Maybe that's what you meant, but it read to me as "just the read part
+> of the rmw behaves as a read-acquire".
+> 
+> Because it is very important that the _write_ part of the rmw is also
+> ordered wrt everything that is inside the spinlock.
+> 
+> So doing a spinlock as
+> 
+>  (a) read-locked-acquire
+>    modify
+>  (c) write-conditional
+> 
+> would be wrong, because the accesses inside the spinlock are ordered
+> not just wrt the read-acquire, they have to be ordered wrt the write
+> too.
+> 
+> So it is closer to say that it's the _write_ of the r-m-w sequence
+> that has the acquire semantics, not the read.
 
-This is wrong, or perhaps just misleading.
+Strictly speaking, that's not what we've got implemented on arm64: only
+the read part of the RmW has Acquire semantics, but there is a total
+order on the lock/unlock operations for the lock. For example, if one
+CPU does:
 
-The *whole* r-m-w acts as an acquire. Not just the read part. The
-write is very much part of it.
+spin_lock(&lock);
+WRITE_ONCE(foo, 42);
 
-Maybe that's what you meant, but it read to me as "just the read part
-of the rmw behaves as a read-acquire".
+then another CPU could do:
 
-Because it is very important that the _write_ part of the rmw is also
-ordered wrt everything that is inside the spinlock.
+if (smp_load_acquire(&foo) == 42)
+	BUG_ON(!spin_is_locked(&lock));
 
-So doing a spinlock as
+and that could fire. Is that relied on somewhere?
 
- (a) read-locked-acquire
-   modify
- (c) write-conditional
-
-would be wrong, because the accesses inside the spinlock are ordered
-not just wrt the read-acquire, they have to be ordered wrt the write
-too.
-
-So it is closer to say that it's the _write_ of the r-m-w sequence
-that has the acquire semantics, not the read.
-
->   - A unlock behaves as a store release.
-
-Yes.
-
-                  Linus
+Will
