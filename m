@@ -1,77 +1,21 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 23 Feb 2018 16:40:36 -0800 (PST)
-Subject: [PATCH v2] riscv: Add install target to Makefile.
-In-Reply-To: <20180220160338.14089-1-shea@shealevy.com>
-Message-ID: <mhng-2e49e8ba-5e1b-4519-ae49-48668e7a5d7c@palmer-si-x1c4>
+From: shea@shealevy.com (Shea Levy)
+Date: Sun, 25 Feb 2018 23:06:52 -0500
+Subject: RISC-V Seccomp Support?
+Message-ID: <87bmgc4co3.fsf@xps13.shealevy.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 20 Feb 2018 08:03:38 PST (-0800), shea at shealevy.com wrote:
-> v2: Fix copy-paste error in comment.
->
-> Signed-off-by: Shea Levy <shea@shealevy.com>
-> ---
->  arch/riscv/Makefile   |  4 ++++
->  arch/riscv/install.sh | 39 +++++++++++++++++++++++++++++++++++++++
->  2 files changed, 43 insertions(+)
->  create mode 100644 arch/riscv/install.sh
->
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 6719dd30ec5b..26892daefa05 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -70,3 +70,7 @@ core-y += arch/riscv/kernel/ arch/riscv/mm/
->  libs-y += arch/riscv/lib/
->
->  all: vmlinux
-> +
-> +PHONY += install
-> +install: vmlinux
-> +	sh $(srctree)/arch/riscv/install.sh $(KERNELRELEASE) $< System.map "$(INSTALL_PATH)"
-> diff --git a/arch/riscv/install.sh b/arch/riscv/install.sh
-> new file mode 100644
-> index 000000000000..b98c1db899f1
-> --- /dev/null
-> +++ b/arch/riscv/install.sh
-> @@ -0,0 +1,39 @@
-> +#!/bin/sh
-> +#
-> +# arch/riscv/install.sh
-> +#
-> +# This file is subject to the terms and conditions of the GNU General Public
-> +# License.  See the file "COPYING" in the main directory of this archive
-> +# for more details.
-> +#
-> +# Copyright (C) 1995 by Linus Torvalds
-> +#
-> +# Adapted from code in arch/ia64/install.sh by Shea Levy
-> +#
-> +# "make install" script for riscv architecture
-> +#
-> +# Arguments:
-> +#   $1 - kernel version
-> +#   $2 - kernel image file
-> +#   $3 - kernel map file
-> +#   $4 - default install path (blank if root directory)
-> +#
-> +
-> +# User may have a custom install script
-> +
-> +if [ -x ~/bin/${INSTALLKERNEL} ]; then exec ~/bin/${INSTALLKERNEL} "$@"; fi
-> +if [ -x /sbin/${INSTALLKERNEL} ]; then exec /sbin/${INSTALLKERNEL} "$@"; fi
-> +
-> +# Default install - no bootloader configuration (yet?)
-> +base=$(basename $2)
-> +
-> +if [ -f $4/$base ]; then
-> +	mv $4/$base $4/$base.old
-> +fi
-> +
-> +if [ -f $4/System.map ]; then
-> +	mv $4/System.map $4/System.old
-> +fi
-> +
-> +cat $2 > $4/$base
-> +cp $3 $4/System.map
+Hi all,
 
-Thanks.  I'm targeting this for linux-next now.
+Is anyone actively working on CONFIG_HAVE_ARCH_SECCOMP_FILTER support
+for RISC-V? If not, any pointers to getting started on that?
+
+Thanks,
+Shea
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180225/542dc978/attachment.sig>
