@@ -1,15 +1,44 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 26 Feb 2018 17:28:52 -0800 (PST)
-Subject: RISC-V Seccomp Support?
-In-Reply-To: <87bmgc4co3.fsf@xps13.shealevy.com>
-Message-ID: <mhng-05569257-b64f-4bc4-b7ce-c86060a41e76@palmer-si-x1c4>
+From: parri.andrea@gmail.com (Andrea Parri)
+Date: Tue, 27 Feb 2018 03:24:11 +0100
+Subject: [PATCH] riscv/barrier: Define __smp_{store_release,load_acquire}
+Message-ID: <1519698251-19272-1-git-send-email-parri.andrea@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sun, 25 Feb 2018 20:06:52 PST (-0800), shea at shealevy.com wrote:
-> Is anyone actively working on CONFIG_HAVE_ARCH_SECCOMP_FILTER support
-> for RISC-V? If not, any pointers to getting started on that?
+Introduce __smp_{store_release,load_acquire}, and rely on the generic
+definitions for smp_{store_release,load_acquire}. This avoids the use
+of full ("rw,rw") fences on SMP.
 
-IIRC, the filters for seccomp are based on some variant of BPF.  I bet the vast 
-majority of the work here will be bringing up the BPF infrastructure for 
-RISC-V.
+Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
+---
+ arch/riscv/include/asm/barrier.h | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
+index 5510366d169ae..d4628e4b3a5ea 100644
+--- a/arch/riscv/include/asm/barrier.h
++++ b/arch/riscv/include/asm/barrier.h
+@@ -38,6 +38,21 @@
+ #define __smp_rmb()	RISCV_FENCE(r,r)
+ #define __smp_wmb()	RISCV_FENCE(w,w)
+ 
++#define __smp_store_release(p, v)					\
++do {									\
++	compiletime_assert_atomic_type(*p);				\
++	RISCV_FENCE(rw,w);						\
++	WRITE_ONCE(*p, v);						\
++} while (0)
++
++#define __smp_load_acquire(p)						\
++({									\
++	typeof(*p) ___p1 = READ_ONCE(*p);				\
++	compiletime_assert_atomic_type(*p);				\
++	RISCV_FENCE(r,rw);						\
++	___p1;								\
++})
++
+ /*
+  * This is a very specific barrier: it's currently only used in two places in
+  * the kernel, both in the scheduler.  See include/linux/spinlock.h for the two
+-- 
+2.7.4
