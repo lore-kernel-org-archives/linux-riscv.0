@@ -1,24 +1,60 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 27 Feb 2018 13:21:42 -0800 (PST)
-Subject: [PATCH 0/9] RISC-V: Make modules loadable.
-In-Reply-To: <CADJ6UvM2ibbrCTc2YWwgtU-NhOO_RL5J_xi+GkZrpY8Y-TqXCw@mail.gmail.com>
-Message-ID: <mhng-1909df50-1ef0-493a-9b2d-b3cc6bb5cd35@palmer-si-x1c4>
+From: dlustig@nvidia.com (Daniel Lustig)
+Date: Tue, 27 Feb 2018 14:20:37 -0800
+Subject: [PATCH] riscv/barrier: Define __smp_{store_release,load_acquire}
+In-Reply-To: <mhng-d0fc25e5-9a3f-4988-9260-3d584b8f4606@palmer-si-x1c4>
+References: <mhng-d0fc25e5-9a3f-4988-9260-3d584b8f4606@palmer-si-x1c4>
+Message-ID: <e482049c-70b5-3b4f-a818-0740bec9a4fa@nvidia.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 27 Feb 2018 10:26:48 PST (-0800), sorear2 at gmail.com wrote:
-> On Tue, Feb 27, 2018 at 10:21 AM, Palmer Dabbelt <palmer@sifive.com> wrote:
->> * Relaxation is too time consuming.  In this case you want to disable all
->> relaxation, and GAS will already emit code without R_RISCV_ALIGN when run
->> with relaxation disabled.
->
-> Tangentially, I described a linear time algorithm for relaxation a
-> while ago, but binutils is still using a quadratic time one.  Would
-> patches be accepted?
+On 2/27/2018 10:21 AM, Palmer Dabbelt wrote:
+> On Mon, 26 Feb 2018 18:24:11 PST (-0800), parri.andrea at gmail.com wrote:
+>> Introduce __smp_{store_release,load_acquire}, and rely on the generic
+>> definitions for smp_{store_release,load_acquire}. This avoids the use
+>> of full ("rw,rw") fences on SMP.
+>>
+>> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
+>> ---
+>> ?arch/riscv/include/asm/barrier.h | 15 +++++++++++++++
+>> ?1 file changed, 15 insertions(+)
+>>
+>> diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
+>> index 5510366d169ae..d4628e4b3a5ea 100644
+>> --- a/arch/riscv/include/asm/barrier.h
+>> +++ b/arch/riscv/include/asm/barrier.h
+>> @@ -38,6 +38,21 @@
+>> ?#define __smp_rmb()??? RISCV_FENCE(r,r)
+>> ?#define __smp_wmb()??? RISCV_FENCE(w,w)
+>>
+>> +#define __smp_store_release(p, v)??????????????????? \
+>> +do {??????????????????????????????????? \
+>> +??? compiletime_assert_atomic_type(*p);??????????????? \
+>> +??? RISCV_FENCE(rw,w);??????????????????????? \
+>> +??? WRITE_ONCE(*p, v);??????????????????????? \
+>> +} while (0)
+>> +
+>> +#define __smp_load_acquire(p)??????????????????????? \
+>> +({??????????????????????????????????? \
+>> +??? typeof(*p) ___p1 = READ_ONCE(*p);??????????????? \
+>> +??? compiletime_assert_atomic_type(*p);??????????????? \
+>> +??? RISCV_FENCE(r,rw);??????????????????????? \
+>> +??? ___p1;??????????????????????????????? \
+>> +})
+>> +
+>> ?/*
+>> ? * This is a very specific barrier: it's currently only used in two places in
+>> ? * the kernel, both in the scheduler.? See include/linux/spinlock.h for the two
+> 
+> I'm adding Daniel just in case I misunderstood what's going on here,
+> but these look good to me.  As this is a non-trivial memory model
+> change I'm going to let it bake in linux-next for a bit just so it
+> gets some visibility.
 
-Yes.  There's a tiny bit of support in there for it via R_RISCV_DELETE, I think 
-we just need to convert the rest of the relaxations over to that and then flip 
-around the pass that handles R_RISCV_DELETE and we should be good.
+Looks good to me too.  In particular, it also covers the
+Write->release(p)->acquire(p)->Write ordering that we were debating
+in the broader LKMM thread, which is good.
 
-Of course, R_RISCV_DELETE isn't a public relocation so if you have a better way 
-to handle it then I'm all ears :).
+Dan
+
+> 
+> Thanks
