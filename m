@@ -1,102 +1,19 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 26 Feb 2018 16:35:08 -0800 (PST)
-Subject: [PATCH 8/9] RISC-V: Support RISCV_ALIGN relocations in modules.
-In-Reply-To: <20180223031218.10390-9-shea@shealevy.com>
-Message-ID: <mhng-670177e0-14df-457d-9dd1-dbdea0aea587@palmer-si-x1c4>
+Date: Mon, 26 Feb 2018 16:35:10 -0800 (PST)
+Subject: [PATCH 0/9] RISC-V: Make modules loadable.
+In-Reply-To: <20180223031218.10390-1-shea@shealevy.com>
+Message-ID: <mhng-2c353f73-e5d5-422a-8ae4-8d547d29eac2@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, 22 Feb 2018 19:12:17 PST (-0800), shea at shealevy.com wrote:
-> While legal, this noop implementation may be inefficient.
->
-> Signed-off-by: Shea Levy <shea@shealevy.com>
-> ---
->  arch/riscv/kernel/module.c | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-> index 4f3e15e7995b..827cf1211360 100644
-> --- a/arch/riscv/kernel/module.c
-> +++ b/arch/riscv/kernel/module.c
-> @@ -150,8 +150,8 @@ static int apply_r_riscv_call_rela(struct module *me, u32 *location,
->  	return 0;
->  }
->
-> -static int apply_r_riscv_relax_rela(struct module *me, u32 *location,
-> -				    Elf_Addr v)
-> +static int apply_r_riscv_noop_rela(struct module *me, u32 *location,
-> +				   Elf_Addr v)
->  {
->  	return 0;
->  }
-> @@ -181,7 +181,8 @@ static int (*reloc_handlers_rela[]) (struct module *me, u32 *location,
->  	[R_RISCV_PCREL_LO12_I]		= apply_r_riscv_pcrel_lo12_i_rela,
->  	[R_RISCV_PCREL_LO12_S]		= apply_r_riscv_pcrel_lo12_s_rela,
->  	[R_RISCV_CALL]			= apply_r_riscv_call_rela,
-> -	[R_RISCV_RELAX]			= apply_r_riscv_relax_rela,
-> +	[R_RISCV_RELAX]			= apply_r_riscv_noop_rela,
-> +	[R_RISCV_ALIGN]			= apply_r_riscv_noop_rela,
->  	[R_RISCV_ADD32]			= apply_r_riscv_add32_rela,
->  	[R_RISCV_SUB32]			= apply_r_riscv_sub32_rela,
->  };
+On Thu, 22 Feb 2018 19:12:09 PST (-0800), shea at shealevy.com wrote:
+> This was enough to load enough modules to make virtio_scsi devices
+> appear on the qemu virt machine on a highly modular distro kernel.
 
-The output of most RISC-V toolchains requires a relaxation pass for alignment 
-for correctness.  Even if you're enforcing this somewhere in your module build 
-flow you should at least check for alignment when loading modules so there 
-aren't silent breakages, if R_RISCV_ALIGN is escaping to the kernel's loader 
-then it probably needs to be handled.
+Thanks for this, but there's a bit of an issue with R_RISCV_ALIGN.  I'd be OK 
+merging the change set if you emit errors on R_RISCV_ALIGN instances that 
+actually require alignment, as IIRC it's possible to coerce GCC to emit code 
+that doesn't require relaxation of alignment sequences.  This should probably go 
+in the module CFLAGS as well.
 
-For example, I did this (not the best example, but there should be some way to 
-generate this from C I was lazy):
-
-    diff --git a/crypto/authenc.c b/crypto/authenc.c
-    index d3d6d72fe649..4715d7f63f3e 100644
-    --- a/crypto/authenc.c
-    +++ b/crypto/authenc.c
-    @@ -42,6 +42,17 @@ struct authenc_request_ctx {
-            char tail[];
-     };
-    
-    +__asm__ (
-    +".align 2"
-    +"\n\t.global align2"
-    +"\n\talign2:"
-    +"\n\tret"
-    +"\n\t.align 3"
-    +"\n\t.global align3"
-    +"\n\talign3:"
-    +"\n\tret"
-    +);
-    +
-     static void authenc_request_complete(struct aead_request *req, int err)
-     {
-            if (err != -EINPROGRESS)
-
-and ended up with some misaligned stuff:
-
-    $ riscv64-unknown-elf-objdump -d -r crypto/authenc.ko | head -n25
-    
-    crypto/authenc.ko:     file format elf64-littleriscv
-    
-    
-    Disassembly of section .text:
-    
-    0000000000000000 <align2-0x2>:
-       0:	0001                	nop
-    			0: R_RISCV_ALIGN	*ABS*+0x2
-    
-    0000000000000002 <align2>:
-       2:	8082                	ret
-       4:	0001                	nop
-    			4: R_RISCV_ALIGN	*ABS*+0x6
-       6:	00000013          	nop
-    
-    000000000000000a <align3>:
-       a:	8082                	ret
-    
-    000000000000000c <crypto_authenc_extractkeys>:
-       c:	1141                	addi	sp,sp,-16
-       e:	e422                	sd	s0,8(sp)
-      10:	0800                	addi	s0,sp,16
-      12:	470d                	li	a4,3
-      14:	08c77063          	bleu	a2,a4,94 <.L4>
+There are also some minor comments, see the per-patch messages.
