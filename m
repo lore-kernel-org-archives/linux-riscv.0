@@ -1,32 +1,43 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 28 Feb 2018 14:50:28 -0800 (PST)
-Subject: [GIT PULL] RISC-V: smb_mb() fix for 4.16-rc4
-Message-ID: <mhng-6fd686e5-2ed2-4fea-a3be-0c767232c445@palmer-si-x1c4>
+From: jeremy.linton@arm.com (Jeremy Linton)
+Date: Tue, 27 Feb 2018 12:49:58 -0600
+Subject: [PATCH v7 00/13] Support PPTT for ARM64
+In-Reply-To: <8b5bfd7e-57ea-bb34-85f8-69007a3847e6@arm.com>
+References: <20180228220619.6992-1-jeremy.linton@arm.com>
+ <8b5bfd7e-57ea-bb34-85f8-69007a3847e6@arm.com>
+Message-ID: <1890b2e2-375e-f44f-c224-8cfa23a0add3@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The following changes since commit 4a3928c6f8a53fa1aed28ccba227742486e8ddcb:
+On 03/01/2018 06:06 AM, Sudeep Holla wrote:
+> Hi Jeremy,
+> 
+> On 28/02/18 22:06, Jeremy Linton wrote:
+>> ACPI 6.2 adds the Processor Properties Topology Table (PPTT), which is
+>> used to describe the processor and cache topology. Ideally it is
+>> used to extend/override information provided by the hardware, but
+>> right now ARM64 is entirely dependent on firmware provided tables.
+>>
+>> This patch parses the table for the cache topology and CPU topology.
+>> When we enable ACPI/PPTT for arm64 we map the physical_id to the
+>> PPTT node flagged as the physical package by the firmware.
+>> This results in topologies that match what the remainder of the
+>> system expects. To avoid inverted scheduler domains we then
+>> set the MC domain equal to the largest cache within the socket
+>> below the NUMA domain.
+>>
+> I remember reviewing and acknowledging most of the cacheinfo stuff with
+> couple of minor suggestions for v6. I don't see any Acked-by tags in
+> this series and don't know if I need to review/ack any more cacheinfo
+> related patches.
 
-  Linux 4.16-rc3 (2018-02-25 18:50:41 -0800)
+Hi,
 
-are available in the Git repository at:
+Yes, I didn't put them in because I changed the functionality in 2/13 
+and there is a bug fix in 5/13. I thought you might want to do a quick 
+diff of the git v6->v7 tree.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.16-rc4_smp_mb
+Although given that most of the changes were in response to your 
+comments in v6 I probably should have just put the tags in.
 
-for you to fetch changes up to ab4af60534107c55b00fa462eca0385dcef92384:
 
-  riscv/barrier: Define __smp_{mb,rmb,wmb} (2018-02-26 08:44:50 -0800)
-
-----------------------------------------------------------------
-RISC-V: smb_mb() fix for 4.16-rc4
-
-This week we have a single fix: replacing smp_mb() with __smp_mb().  We
-were the only architecture with smp_mb() and it appears to just be
-clearly wrong, so I think this is a pretty safe patch for an RC.
-
-----------------------------------------------------------------
-Andrea Parri (1):
-      riscv/barrier: Define __smp_{mb,rmb,wmb}
-
- arch/riscv/include/asm/barrier.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Thanks,
