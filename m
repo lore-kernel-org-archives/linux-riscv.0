@@ -1,88 +1,85 @@
-From: parri.andrea@gmail.com (Andrea Parri)
-Date: Tue, 27 Feb 2018 03:27:41 +0100
-Subject: [PATCH RFC] riscv/barrier: Define __smp_{mb,rmb,wmb}
-In-Reply-To: <mhng-48f70f62-ce5a-4093-914b-626c204b493e@palmer-si-x1c4>
-References: <20180226103552.GA9138@andrea>
- <mhng-48f70f62-ce5a-4093-914b-626c204b493e@palmer-si-x1c4>
-Message-ID: <20180227022741.GA19333@andrea>
+From: boqun.feng@gmail.com (Boqun Feng)
+Date: Tue, 27 Feb 2018 13:06:35 +0800
+Subject: [RFC PATCH] riscv/locking: Strengthen spin_lock() and
+ spin_unlock()
+In-Reply-To: <20180226162426.GB17158@arm.com>
+References: <1519301990-11766-1-git-send-email-parri.andrea@gmail.com>
+ <20180222134004.GN25181@hirez.programming.kicks-ass.net>
+ <20180222141249.GA14033@andrea>
+ <82beae6a-2589-6136-b563-3946d7c4fc60@nvidia.com>
+ <20180222181317.GI2855@linux.vnet.ibm.com>
+ <20180222182717.GS25181@hirez.programming.kicks-ass.net>
+ <563431d0-4fb5-9efd-c393-83cc5197e934@nvidia.com>
+ <20180226142107.uid5vtv5r7zbso33@yquem.inria.fr>
+ <CA+55aFwu5jat5vV-d6RVaUFo=Bjeyv-7eXWUJySg6xFUTnfbWQ@mail.gmail.com>
+ <20180226162426.GB17158@arm.com>
+Message-ID: <20180227050635.es5v5yogz3x4qrtz@tardis>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Feb 26, 2018 at 05:28:53PM -0800, Palmer Dabbelt wrote:
-> On Mon, 26 Feb 2018 02:35:52 PST (-0800), parri.andrea at gmail.com wrote:
-> >On Thu, Feb 22, 2018 at 03:14:52PM -0800, Palmer Dabbelt wrote:
-> >>On Tue, 20 Feb 2018 02:17:28 PST (-0800), parri.andrea at gmail.com wrote:
-> >>>Introduce __smp_{mb,rmb,wmb}, and rely on the generic definitions
-> >>>for smp_{mb,rmb,wmb}. A first consequence is that smp_{mb,rmb,wmb}
-> >>>map to a compiler barrier on !SMP (while their definition remains
-> >>>unchanged on SMP). As a further consequence, smp_load_acquire and
-> >>>smp_store_release have "fence rw,rw" instead of "fence iorw,iorw".
-> >>>
-> >>>Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-> >>>---
-> >>> arch/riscv/include/asm/barrier.h | 6 +++---
-> >>> 1 file changed, 3 insertions(+), 3 deletions(-)
-> >>>
-> >>>diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
-> >>>index c0319cbf1eec5..5510366d169ae 100644
-> >>>--- a/arch/riscv/include/asm/barrier.h
-> >>>+++ b/arch/riscv/include/asm/barrier.h
-> >>>@@ -34,9 +34,9 @@
-> >>> #define wmb()		RISCV_FENCE(ow,ow)
-> >>>
-> >>> /* These barriers do not need to enforce ordering on devices, just memory. */
-> >>>-#define smp_mb()	RISCV_FENCE(rw,rw)
-> >>>-#define smp_rmb()	RISCV_FENCE(r,r)
-> >>>-#define smp_wmb()	RISCV_FENCE(w,w)
-> >>>+#define __smp_mb()	RISCV_FENCE(rw,rw)
-> >>>+#define __smp_rmb()	RISCV_FENCE(r,r)
-> >>>+#define __smp_wmb()	RISCV_FENCE(w,w)
-> >>>
-> >>> /*
-> >>>  * This is a very specific barrier: it's currently only used in two places in
-> >>
-> >>Thanks!  I'm going to take this for the next RC.
-> >
-> >Thank you, Palmer.  I'm planning to post more changes to the file,
-> >but I'd like to build on top of this change: could you point me to
-> >the appropriate branch/repo for this?
+On Mon, Feb 26, 2018 at 04:24:27PM +0000, Will Deacon wrote:
+> On Mon, Feb 26, 2018 at 08:06:59AM -0800, Linus Torvalds wrote:
+> > On Mon, Feb 26, 2018 at 6:21 AM, Luc Maranget <luc.maranget@inria.fr> wrote:
+> > >
+> > > That is, locks are not implemented from more basic primitive but are specified.
+> > > The specification can be described as behaving that way:
+> > >   - A lock behaves as a read-modify-write. the read behaving as a read-acquire
+> > 
+> > This is wrong, or perhaps just misleading.
+> > 
+> > The *whole* r-m-w acts as an acquire. Not just the read part. The
+> > write is very much part of it.
+> > 
+> > Maybe that's what you meant, but it read to me as "just the read part
+> > of the rmw behaves as a read-acquire".
+> > 
+> > Because it is very important that the _write_ part of the rmw is also
+> > ordered wrt everything that is inside the spinlock.
+> > 
+> > So doing a spinlock as
+> > 
+> >  (a) read-locked-acquire
+> >    modify
+> >  (c) write-conditional
+> > 
+> > would be wrong, because the accesses inside the spinlock are ordered
+> > not just wrt the read-acquire, they have to be ordered wrt the write
+> > too.
+> > 
+> > So it is closer to say that it's the _write_ of the r-m-w sequence
+> > that has the acquire semantics, not the read.
 > 
-> Here's the canonical RISC-V Linux git repo
+> Strictly speaking, that's not what we've got implemented on arm64: only
+> the read part of the RmW has Acquire semantics, but there is a total
+> order on the lock/unlock operations for the lock. For example, if one
+> CPU does:
 > 
->    https://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git/
+> spin_lock(&lock);
+> WRITE_ONCE(foo, 42);
 > 
-> Your branch is now the HEAD of the "for-linus" branch, which means it'll be
-> sent to Linus the next time I send patches.  I generate and tag "for-linus"
-> on Monday mornings and then send it out on Wednesday mornings, just to make
-> sure everything has time to bake.
+> then another CPU could do:
 > 
->    https://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git/
+> if (smp_load_acquire(&foo) == 42)
+> 	BUG_ON(!spin_is_locked(&lock));
 > 
-> Additionally, I mantain a "for-next" branch that contains everything that's
-> been sufficiently reviewed to be made part of Linux, but that is being
-> staged for a bit longer than what's in for-linus for one reason or another
-> (usually it's just not RC material and is targeted for the next merge
-> window).  There is also a RISC-V integration branch named "riscv-all" that
-> contains all our work in progress patches.  This is likely to be unstable,
-> but it's best to check there to see if anything interesting is going on
-> related to what you're working on to avoid duplicating work.
-> 
-> These branches are all generated from my personal git tree
-> 
->    https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/
-> 
-> There's a bunch of branches in here tracking each change set (yours is
-> called "fix-smp_mb", to indicate it can go in during an RC) that's still in
-> flight.  There's some scripts to generate some of these branches, but the
-> commits I actually send upstream are merged by hand
-> 
->    https://github.com/riscv/riscv-linux-infra
-> 
-> "for-next" and "riscv-all" are rebased regularly, so it's probably best to
-> track commits back to their original WIP branch and work from there to avoid
-> major headaches.
 
-Thank you for the info.  I've just sent one more patch on top of your
-'for-linus' (there appeared to be no conflict with 'riscv-all').
+Hmm.. this is new to me. So the write part of spin_lock() and the
+WRITE_ONCE() will not get reordered? Could you explain more about this
+or point where I should look in the document? I understand the write
+part of spin_lock() must be committed earlier than the WRITE_ONCE()
+committed due to the ll/sc, but I thought the ordering of their arrivals
+in memory system is undefined/arbitary.
 
-  Andrea
+Regards,
+Boqun
+
+> and that could fire. Is that relied on somewhere?
+> 
+> Will
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 488 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180227/6adaf085/attachment.sig>
