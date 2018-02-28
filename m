@@ -1,44 +1,70 @@
-From: linux@roeck-us.net (Guenter Roeck)
-Date: Tue, 27 Feb 2018 15:38:24 -0800
-Subject: Building Risc-V Linux kernel images for qemu without rebuilding
- bbl
-In-Reply-To: <CADJ6UvN5iqcm5o2=swC5oryaJif-phqu8RBiQrbEFHn0hZ2ezA@mail.gmail.com>
-References: <20180227225549.GA20986@roeck-us.net>
- <CADJ6UvN5iqcm5o2=swC5oryaJif-phqu8RBiQrbEFHn0hZ2ezA@mail.gmail.com>
-Message-ID: <20180227233824.GA21354@roeck-us.net>
+From: parri.andrea@gmail.com (Andrea Parri)
+Date: Wed, 28 Feb 2018 01:15:24 +0100
+Subject: [PATCH] riscv/barrier: Define __smp_{store_release,load_acquire}
+In-Reply-To: <e482049c-70b5-3b4f-a818-0740bec9a4fa@nvidia.com>
+References: <mhng-d0fc25e5-9a3f-4988-9260-3d584b8f4606@palmer-si-x1c4>
+ <e482049c-70b5-3b4f-a818-0740bec9a4fa@nvidia.com>
+Message-ID: <20180228001524.GA3999@andrea>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, Feb 27, 2018 at 03:12:36PM -0800, Stef O'Rear wrote:
-> On Tue, Feb 27, 2018 at 2:55 PM, Guenter Roeck <linux@roeck-us.net> wrote:
-> > Hi folks,
-> >
-> > I have been trying to set up Risc-V qemu test builds on kerneltests.org.
-> > Major hold-up at this point is the need to continuously rebuild bbl images
-> > with embedded kernel images. Due to various reasons, this is all but
-> > impossible with my auto-build system.
-> >
-> > Is there a means to load bbl and vmlinux images separately into qemu,
-> > or maybe a tool to attach the kernel to a pre-built bbl image ?
-> > Of course, it would be even better if it was possible to just specify
-> > "-kernel vmlinux" or something similar on the kernel command line.
+On Tue, Feb 27, 2018 at 02:20:37PM -0800, Daniel Lustig wrote:
+> On 2/27/2018 10:21 AM, Palmer Dabbelt wrote:
+> > On Mon, 26 Feb 2018 18:24:11 PST (-0800), parri.andrea at gmail.com wrote:
+> >> Introduce __smp_{store_release,load_acquire}, and rely on the generic
+> >> definitions for smp_{store_release,load_acquire}. This avoids the use
+> >> of full ("rw,rw") fences on SMP.
+> >>
+> >> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
+> >> ---
+> >> ?arch/riscv/include/asm/barrier.h | 15 +++++++++++++++
+> >> ?1 file changed, 15 insertions(+)
+> >>
+> >> diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
+> >> index 5510366d169ae..d4628e4b3a5ea 100644
+> >> --- a/arch/riscv/include/asm/barrier.h
+> >> +++ b/arch/riscv/include/asm/barrier.h
+> >> @@ -38,6 +38,21 @@
+> >> ?#define __smp_rmb()??? RISCV_FENCE(r,r)
+> >> ?#define __smp_wmb()??? RISCV_FENCE(w,w)
+> >>
+> >> +#define __smp_store_release(p, v)??????????????????? \
+> >> +do {??????????????????????????????????? \
+> >> +??? compiletime_assert_atomic_type(*p);??????????????? \
+> >> +??? RISCV_FENCE(rw,w);??????????????????????? \
+> >> +??? WRITE_ONCE(*p, v);??????????????????????? \
+> >> +} while (0)
+> >> +
+> >> +#define __smp_load_acquire(p)??????????????????????? \
+> >> +({??????????????????????????????????? \
+> >> +??? typeof(*p) ___p1 = READ_ONCE(*p);??????????????? \
+> >> +??? compiletime_assert_atomic_type(*p);??????????????? \
+> >> +??? RISCV_FENCE(r,rw);??????????????????????? \
+> >> +??? ___p1;??????????????????????????????? \
+> >> +})
+> >> +
+> >> ?/*
+> >> ? * This is a very specific barrier: it's currently only used in two places in
+> >> ? * the kernel, both in the scheduler.? See include/linux/spinlock.h for the two
+> > 
+> > I'm adding Daniel just in case I misunderstood what's going on here,
+> > but these look good to me.  As this is a non-trivial memory model
+> > change I'm going to let it bake in linux-next for a bit just so it
+> > gets some visibility.
 > 
-> This isn't currently possible, but several people have expressed an
-> interest in it.
-> 
-> Recent discussion:
-> 
-> https://github.com/sifive/freedom-u-sdk/issues/33#issuecomment-368260995
-> 
-> https://github.com/riscv/riscv-qemu/pull/109#issuecomment-367885879
-> 
-Excellent. I am looking forward for it to be available in some form. 
+> Looks good to me too.  In particular, it also covers the
+> Write->release(p)->acquire(p)->Write ordering that we were debating
+> in the broader LKMM thread, which is good.
 
-Something to consider in this context might be to ship bbl with qemu
-and hide it behind the qemu command line. This is done for various other
-architectures, so I would assume it should be possible for Risc-V as well.
-This way the user could specify "-kernel vmlinux" or similar without
-having to bother about the bootloader in the first place.
+Yeah, I think that other changes would be required to completely cover
+the issues debated in that thread: I plan to prepare and to post a new
+series/RFC to address those (unless someone precedes me of course ;-).
 
-Thanks,
-Guenter
+  Andrea
+
+
+> 
+> Dan
+> 
+> > 
+> > Thanks
