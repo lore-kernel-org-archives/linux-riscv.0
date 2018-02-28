@@ -1,70 +1,118 @@
-From: parri.andrea@gmail.com (Andrea Parri)
-Date: Wed, 28 Feb 2018 01:15:24 +0100
-Subject: [PATCH] riscv/barrier: Define __smp_{store_release,load_acquire}
-In-Reply-To: <e482049c-70b5-3b4f-a818-0740bec9a4fa@nvidia.com>
-References: <mhng-d0fc25e5-9a3f-4988-9260-3d584b8f4606@palmer-si-x1c4>
- <e482049c-70b5-3b4f-a818-0740bec9a4fa@nvidia.com>
-Message-ID: <20180228001524.GA3999@andrea>
+From: jeremy.linton@arm.com (Jeremy Linton)
+Date: Wed, 28 Feb 2018 16:06:07 -0600
+Subject: [PATCH v7 01/13] drivers: base: cacheinfo: move cache_setup_of_node()
+In-Reply-To: <20180228220619.6992-1-jeremy.linton@arm.com>
+References: <20180228220619.6992-1-jeremy.linton@arm.com>
+Message-ID: <20180228220619.6992-2-jeremy.linton@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, Feb 27, 2018 at 02:20:37PM -0800, Daniel Lustig wrote:
-> On 2/27/2018 10:21 AM, Palmer Dabbelt wrote:
-> > On Mon, 26 Feb 2018 18:24:11 PST (-0800), parri.andrea at gmail.com wrote:
-> >> Introduce __smp_{store_release,load_acquire}, and rely on the generic
-> >> definitions for smp_{store_release,load_acquire}. This avoids the use
-> >> of full ("rw,rw") fences on SMP.
-> >>
-> >> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-> >> ---
-> >> ?arch/riscv/include/asm/barrier.h | 15 +++++++++++++++
-> >> ?1 file changed, 15 insertions(+)
-> >>
-> >> diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
-> >> index 5510366d169ae..d4628e4b3a5ea 100644
-> >> --- a/arch/riscv/include/asm/barrier.h
-> >> +++ b/arch/riscv/include/asm/barrier.h
-> >> @@ -38,6 +38,21 @@
-> >> ?#define __smp_rmb()??? RISCV_FENCE(r,r)
-> >> ?#define __smp_wmb()??? RISCV_FENCE(w,w)
-> >>
-> >> +#define __smp_store_release(p, v)??????????????????? \
-> >> +do {??????????????????????????????????? \
-> >> +??? compiletime_assert_atomic_type(*p);??????????????? \
-> >> +??? RISCV_FENCE(rw,w);??????????????????????? \
-> >> +??? WRITE_ONCE(*p, v);??????????????????????? \
-> >> +} while (0)
-> >> +
-> >> +#define __smp_load_acquire(p)??????????????????????? \
-> >> +({??????????????????????????????????? \
-> >> +??? typeof(*p) ___p1 = READ_ONCE(*p);??????????????? \
-> >> +??? compiletime_assert_atomic_type(*p);??????????????? \
-> >> +??? RISCV_FENCE(r,rw);??????????????????????? \
-> >> +??? ___p1;??????????????????????????????? \
-> >> +})
-> >> +
-> >> ?/*
-> >> ? * This is a very specific barrier: it's currently only used in two places in
-> >> ? * the kernel, both in the scheduler.? See include/linux/spinlock.h for the two
-> > 
-> > I'm adding Daniel just in case I misunderstood what's going on here,
-> > but these look good to me.  As this is a non-trivial memory model
-> > change I'm going to let it bake in linux-next for a bit just so it
-> > gets some visibility.
-> 
-> Looks good to me too.  In particular, it also covers the
-> Write->release(p)->acquire(p)->Write ordering that we were debating
-> in the broader LKMM thread, which is good.
+In preparation for the next patch, and to aid in
+review of that patch, lets move cache_setup_of_node
+further down in the module without any changes.
 
-Yeah, I think that other changes would be required to completely cover
-the issues debated in that thread: I plan to prepare and to post a new
-series/RFC to address those (unless someone precedes me of course ;-).
+Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+---
+ drivers/base/cacheinfo.c | 80 ++++++++++++++++++++++++------------------------
+ 1 file changed, 40 insertions(+), 40 deletions(-)
 
-  Andrea
-
-
-> 
-> Dan
-> 
-> > 
-> > Thanks
+diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
+index edf726267282..09ccef7ddc99 100644
+--- a/drivers/base/cacheinfo.c
++++ b/drivers/base/cacheinfo.c
+@@ -32,46 +32,6 @@ struct cpu_cacheinfo *get_cpu_cacheinfo(unsigned int cpu)
+ }
+ 
+ #ifdef CONFIG_OF
+-static int cache_setup_of_node(unsigned int cpu)
+-{
+-	struct device_node *np;
+-	struct cacheinfo *this_leaf;
+-	struct device *cpu_dev = get_cpu_device(cpu);
+-	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+-	unsigned int index = 0;
+-
+-	/* skip if of_node is already populated */
+-	if (this_cpu_ci->info_list->of_node)
+-		return 0;
+-
+-	if (!cpu_dev) {
+-		pr_err("No cpu device for CPU %d\n", cpu);
+-		return -ENODEV;
+-	}
+-	np = cpu_dev->of_node;
+-	if (!np) {
+-		pr_err("Failed to find cpu%d device node\n", cpu);
+-		return -ENOENT;
+-	}
+-
+-	while (index < cache_leaves(cpu)) {
+-		this_leaf = this_cpu_ci->info_list + index;
+-		if (this_leaf->level != 1)
+-			np = of_find_next_cache_node(np);
+-		else
+-			np = of_node_get(np);/* cpu node itself */
+-		if (!np)
+-			break;
+-		this_leaf->of_node = np;
+-		index++;
+-	}
+-
+-	if (index != cache_leaves(cpu)) /* not all OF nodes populated */
+-		return -ENOENT;
+-
+-	return 0;
+-}
+-
+ static inline bool cache_leaves_are_shared(struct cacheinfo *this_leaf,
+ 					   struct cacheinfo *sib_leaf)
+ {
+@@ -202,6 +162,46 @@ static void cache_of_override_properties(unsigned int cpu)
+ 		cache_associativity(this_leaf);
+ 	}
+ }
++
++static int cache_setup_of_node(unsigned int cpu)
++{
++	struct device_node *np;
++	struct cacheinfo *this_leaf;
++	struct device *cpu_dev = get_cpu_device(cpu);
++	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
++	unsigned int index = 0;
++
++	/* skip if of_node is already populated */
++	if (this_cpu_ci->info_list->of_node)
++		return 0;
++
++	if (!cpu_dev) {
++		pr_err("No cpu device for CPU %d\n", cpu);
++		return -ENODEV;
++	}
++	np = cpu_dev->of_node;
++	if (!np) {
++		pr_err("Failed to find cpu%d device node\n", cpu);
++		return -ENOENT;
++	}
++
++	while (index < cache_leaves(cpu)) {
++		this_leaf = this_cpu_ci->info_list + index;
++		if (this_leaf->level != 1)
++			np = of_find_next_cache_node(np);
++		else
++			np = of_node_get(np);/* cpu node itself */
++		if (!np)
++			break;
++		this_leaf->of_node = np;
++		index++;
++	}
++
++	if (index != cache_leaves(cpu)) /* not all OF nodes populated */
++		return -ENOENT;
++
++	return 0;
++}
+ #else
+ static void cache_of_override_properties(unsigned int cpu) { }
+ static inline int cache_setup_of_node(unsigned int cpu) { return 0; }
+-- 
+2.13.6
