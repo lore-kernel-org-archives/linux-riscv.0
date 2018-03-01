@@ -1,27 +1,33 @@
-From: shea@shealevy.com (Shea Levy)
-Date: Thu, 01 Mar 2018 06:44:20 -0500
-Subject: RISC-V Seccomp Support?
-In-Reply-To: <mhng-05569257-b64f-4bc4-b7ce-c86060a41e76@palmer-si-x1c4>
-References: <mhng-05569257-b64f-4bc4-b7ce-c86060a41e76@palmer-si-x1c4>
-Message-ID: <87d10o2f6z.fsf@xps13.shealevy.com>
+From: sudeep.holla@arm.com (Sudeep Holla)
+Date: Thu, 1 Mar 2018 12:06:15 +0000
+Subject: [PATCH v7 00/13] Support PPTT for ARM64
+In-Reply-To: <20180228220619.6992-1-jeremy.linton@arm.com>
+References: <20180228220619.6992-1-jeremy.linton@arm.com>
+Message-ID: <8b5bfd7e-57ea-bb34-85f8-69007a3847e6@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-OK, thanks. I'll look into getting that working.
+Hi Jeremy,
 
-Palmer Dabbelt <palmer@sifive.com> writes:
+On 28/02/18 22:06, Jeremy Linton wrote:
+> ACPI 6.2 adds the Processor Properties Topology Table (PPTT), which is
+> used to describe the processor and cache topology. Ideally it is
+> used to extend/override information provided by the hardware, but
+> right now ARM64 is entirely dependent on firmware provided tables.
+> 
+> This patch parses the table for the cache topology and CPU topology.
+> When we enable ACPI/PPTT for arm64 we map the physical_id to the
+> PPTT node flagged as the physical package by the firmware.
+> This results in topologies that match what the remainder of the
+> system expects. To avoid inverted scheduler domains we then
+> set the MC domain equal to the largest cache within the socket
+> below the NUMA domain.
+> 
+I remember reviewing and acknowledging most of the cacheinfo stuff with
+couple of minor suggestions for v6. I don't see any Acked-by tags in
+this series and don't know if I need to review/ack any more cacheinfo
+related patches.
 
-> On Sun, 25 Feb 2018 20:06:52 PST (-0800), shea at shealevy.com wrote:
->> Is anyone actively working on CONFIG_HAVE_ARCH_SECCOMP_FILTER support
->> for RISC-V? If not, any pointers to getting started on that?
->
-> IIRC, the filters for seccomp are based on some variant of BPF.  I bet the vast 
-> majority of the work here will be bringing up the BPF infrastructure for 
-> RISC-V.
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: signature.asc
-Type: application/pgp-signature
-Size: 832 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180301/82271749/attachment.sig>
+-- 
+Regards,
+Sudeep
