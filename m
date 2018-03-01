@@ -1,33 +1,94 @@
-From: sudeep.holla@arm.com (Sudeep Holla)
-Date: Thu, 1 Mar 2018 12:06:15 +0000
-Subject: [PATCH v7 00/13] Support PPTT for ARM64
-In-Reply-To: <20180228220619.6992-1-jeremy.linton@arm.com>
-References: <20180228220619.6992-1-jeremy.linton@arm.com>
-Message-ID: <8b5bfd7e-57ea-bb34-85f8-69007a3847e6@arm.com>
+From: parri.andrea@gmail.com (Andrea Parri)
+Date: Thu, 1 Mar 2018 16:11:41 +0100
+Subject: [RFC PATCH] riscv/locking: Strengthen spin_lock() and
+ spin_unlock()
+In-Reply-To: <563431d0-4fb5-9efd-c393-83cc5197e934@nvidia.com>
+References: <1519301990-11766-1-git-send-email-parri.andrea@gmail.com>
+ <20180222134004.GN25181@hirez.programming.kicks-ass.net>
+ <20180222141249.GA14033@andrea>
+ <82beae6a-2589-6136-b563-3946d7c4fc60@nvidia.com>
+ <20180222181317.GI2855@linux.vnet.ibm.com>
+ <20180222182717.GS25181@hirez.programming.kicks-ass.net>
+ <563431d0-4fb5-9efd-c393-83cc5197e934@nvidia.com>
+Message-ID: <20180301151141.GA6430@andrea>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Jeremy,
+Hi Daniel,
 
-On 28/02/18 22:06, Jeremy Linton wrote:
-> ACPI 6.2 adds the Processor Properties Topology Table (PPTT), which is
-> used to describe the processor and cache topology. Ideally it is
-> used to extend/override information provided by the hardware, but
-> right now ARM64 is entirely dependent on firmware provided tables.
+On Thu, Feb 22, 2018 at 11:47:57AM -0800, Daniel Lustig wrote:
+> On 2/22/2018 10:27 AM, Peter Zijlstra wrote:
+> > On Thu, Feb 22, 2018 at 10:13:17AM -0800, Paul E. McKenney wrote:
+> >> So we have something that is not all that rare in the Linux kernel
+> >> community, namely two conflicting more-or-less concurrent changes.
+> >> This clearly needs to be resolved, either by us not strengthening the
+> >> Linux-kernel memory model in the way we were planning to or by you
+> >> strengthening RISC-V to be no weaker than PowerPC for these sorts of
+> >> externally viewed release-acquire situations.
+> >>
+> >> Other thoughts?
+> > 
+> > Like said in the other email, I would _much_ prefer to not go weaker
+> > than PPC, I find that PPC is already painfully weak at times.
 > 
-> This patch parses the table for the cache topology and CPU topology.
-> When we enable ACPI/PPTT for arm64 we map the physical_id to the
-> PPTT node flagged as the physical package by the firmware.
-> This results in topologies that match what the remainder of the
-> system expects. To avoid inverted scheduler domains we then
-> set the MC domain equal to the largest cache within the socket
-> below the NUMA domain.
-> 
-I remember reviewing and acknowledging most of the cacheinfo stuff with
-couple of minor suggestions for v6. I don't see any Acked-by tags in
-this series and don't know if I need to review/ack any more cacheinfo
-related patches.
+> Sure, and RISC-V could make this work too by using RCsc instructions
+> and/or by using lightweight fences instead.  It just wasn't clear at
+> first whether smp_load_acquire() and smp_store_release() were RCpc,
+> RCsc, or something else, and hence whether RISC-V would actually need
+> to use something stronger than pure RCpc there.  Likewise for
+> spin_unlock()/spin_lock() and everywhere else this comes up.
 
--- 
-Regards,
-Sudeep
+while digging into riscv's locks and atomics to fix the issues discussed
+earlier in this thread, I became aware of another issue:
+
+Considering here the CMPXCHG primitives, for example, I noticed that the
+implementation currently provides the four variants
+
+	ATOMIC_OPS(        , .aqrl)
+	ATOMIC_OPS(_acquire,   .aq)
+	ATOMIC_OPS(_release,   .rl)
+	ATOMIC_OPS(_relaxed,      )
+
+(corresponding, resp., to
+
+	atomic_cmpxchg()
+	atomic_cmpxchg_acquire()
+	atomic_cmpxchg_release()
+	atomic_cmpxchg_relaxed()  )
+
+so that the first variant above ends up doing
+
+	0:	lr.w.aqrl  %0, %addr
+		bne        %0, %old, 1f
+		sc.w.aqrl  %1, %new, %addr
+		bnez       %1, 0b
+        1:                   
+
+>From Sect. 2.3.5. ("Acquire/Release Ordering") of the Spec.,
+
+ "AMOs with both .aq and .rl set are fully-ordered operations.  Treating
+  the load part and the store part as independent RCsc operations is not
+  in and of itself sufficient to enforce full fencing behavior, but this
+  subtle weak behavior is counterintuitive and not much of an advantage
+  architecturally, especially with lr and sc also available [...]."
+
+I understand that
+
+        { x = y = u = v = 0 }
+
+	P0()
+
+	WRITE_ONCE(x, 1);		("relaxed" store, sw)
+	atomic_cmpxchg(&u, 0, 1);
+	r0 = READ_ONCE(y);		("relaxed" load, lw)
+
+	P1()
+
+	WRITE_ONCE(y, 1);
+	atomic_cmpxchg(&v, 0, 1);
+	r1 = READ_ONCE(x);
+
+could result in (u = v = 1 and r0 = r1 = 0) at the end; can you confirm?
+
+Thanks,
+  Andrea
