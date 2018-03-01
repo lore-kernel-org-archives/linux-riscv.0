@@ -1,94 +1,157 @@
-From: parri.andrea@gmail.com (Andrea Parri)
-Date: Thu, 1 Mar 2018 16:11:41 +0100
-Subject: [RFC PATCH] riscv/locking: Strengthen spin_lock() and
- spin_unlock()
-In-Reply-To: <563431d0-4fb5-9efd-c393-83cc5197e934@nvidia.com>
-References: <1519301990-11766-1-git-send-email-parri.andrea@gmail.com>
- <20180222134004.GN25181@hirez.programming.kicks-ass.net>
- <20180222141249.GA14033@andrea>
- <82beae6a-2589-6136-b563-3946d7c4fc60@nvidia.com>
- <20180222181317.GI2855@linux.vnet.ibm.com>
- <20180222182717.GS25181@hirez.programming.kicks-ass.net>
- <563431d0-4fb5-9efd-c393-83cc5197e934@nvidia.com>
-Message-ID: <20180301151141.GA6430@andrea>
+From: morten.rasmussen@arm.com (Morten Rasmussen)
+Date: Thu, 1 Mar 2018 15:52:16 +0000
+Subject: [PATCH v7 13/13] arm64: topology: divorce MC scheduling domain
+ from core_siblings
+In-Reply-To: <20180228220619.6992-14-jeremy.linton@arm.com>
+References: <20180228220619.6992-1-jeremy.linton@arm.com>
+ <20180228220619.6992-14-jeremy.linton@arm.com>
+Message-ID: <20180301155216.GI4589@e105550-lin.cambridge.arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Daniel,
+Hi Jeremy,
 
-On Thu, Feb 22, 2018 at 11:47:57AM -0800, Daniel Lustig wrote:
-> On 2/22/2018 10:27 AM, Peter Zijlstra wrote:
-> > On Thu, Feb 22, 2018 at 10:13:17AM -0800, Paul E. McKenney wrote:
-> >> So we have something that is not all that rare in the Linux kernel
-> >> community, namely two conflicting more-or-less concurrent changes.
-> >> This clearly needs to be resolved, either by us not strengthening the
-> >> Linux-kernel memory model in the way we were planning to or by you
-> >> strengthening RISC-V to be no weaker than PowerPC for these sorts of
-> >> externally viewed release-acquire situations.
-> >>
-> >> Other thoughts?
-> > 
-> > Like said in the other email, I would _much_ prefer to not go weaker
-> > than PPC, I find that PPC is already painfully weak at times.
+On Wed, Feb 28, 2018 at 04:06:19PM -0600, Jeremy Linton wrote:
+> Now that we have an accurate view of the physical topology
+> we need to represent it correctly to the scheduler. In the
+> case of NUMA in socket, we need to assure that the sched domain
+> we build for the MC layer isn't larger than the DIE above it.
+
+MC shouldn't be larger than any of the NUMA domains either.
+
+> To do this correctly, we should really base that on the cache
+> topology immediately below the NUMA node (for NUMA in socket)
+> or below the physical package for normal NUMA configurations.
+
+That means we wouldn't support multi-die NUMA nodes?
+
+> This patch creates a set of early cache_siblings masks, then
+> when the scheduler requests the coregroup mask we pick the
+> smaller of the physical package siblings, or the numa siblings
+> and locate the largest cache which is an entire subset of
+> those siblings. If we are unable to find a proper subset of
+> cores then we retain the original behavior and return the
+> core_sibling list.
+
+IIUC, for numa-in-package it is a strict requirement that there is a
+cache that span the entire NUMA node? For example, having a NUMA node
+consisting of two clusters with per-cluster caches only wouldn't be
+supported?
+
 > 
-> Sure, and RISC-V could make this work too by using RCsc instructions
-> and/or by using lightweight fences instead.  It just wasn't clear at
-> first whether smp_load_acquire() and smp_store_release() were RCpc,
-> RCsc, or something else, and hence whether RISC-V would actually need
-> to use something stronger than pure RCpc there.  Likewise for
-> spin_unlock()/spin_lock() and everywhere else this comes up.
+> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+> ---
+>  arch/arm64/include/asm/topology.h |  5 +++
+>  arch/arm64/kernel/topology.c      | 64 +++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 69 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
+> index 6b10459e6905..08db3e4e44e1 100644
+> --- a/arch/arm64/include/asm/topology.h
+> +++ b/arch/arm64/include/asm/topology.h
+> @@ -4,12 +4,17 @@
+>  
+>  #include <linux/cpumask.h>
+>  
+> +#define MAX_CACHE_CHECKS 4
+> +
+>  struct cpu_topology {
+>  	int thread_id;
+>  	int core_id;
+>  	int package_id;
+> +	int cache_id[MAX_CACHE_CHECKS];
+>  	cpumask_t thread_sibling;
+>  	cpumask_t core_sibling;
+> +	cpumask_t cache_siblings[MAX_CACHE_CHECKS];
+> +	int cache_level;
+>  };
+>  
+>  extern struct cpu_topology cpu_topology[NR_CPUS];
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index bd1aae438a31..1809dc9d347c 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -212,8 +212,42 @@ static int __init parse_dt_topology(void)
+>  struct cpu_topology cpu_topology[NR_CPUS];
+>  EXPORT_SYMBOL_GPL(cpu_topology);
+>  
+> +static void find_llc_topology_for_cpu(int cpu)
 
-while digging into riscv's locks and atomics to fix the issues discussed
-earlier in this thread, I became aware of another issue:
+Isn't it more find core/node siblings? Or is it a requirement that the
+last level cache spans exactly one NUMA node? For example, a package
+level cache isn't allowed for numa-in-package?
 
-Considering here the CMPXCHG primitives, for example, I noticed that the
-implementation currently provides the four variants
+> +{
+> +	/* first determine if we are a NUMA in package */
+> +	const cpumask_t *node_mask = cpumask_of_node(cpu_to_node(cpu));
+> +	int indx;
+> +
+> +	if (!cpumask_subset(node_mask, &cpu_topology[cpu].core_sibling)) {
+> +		/* not numa in package, lets use the package siblings */
+> +		node_mask = &cpu_topology[cpu].core_sibling;
+> +	}
+> +
+> +	/*
+> +	 * node_mask should represent the smallest package/numa grouping
+> +	 * lets search for the largest cache smaller than the node_mask.
+> +	 */
+> +	for (indx = 0; indx < MAX_CACHE_CHECKS; indx++) {
+> +		cpumask_t *cache_sibs = &cpu_topology[cpu].cache_siblings[indx];
+> +
+> +		if (cpu_topology[cpu].cache_id[indx] < 0)
+> +			continue;
+> +
+> +		if (cpumask_subset(cache_sibs, node_mask))
+> +			cpu_topology[cpu].cache_level = indx;
 
-	ATOMIC_OPS(        , .aqrl)
-	ATOMIC_OPS(_acquire,   .aq)
-	ATOMIC_OPS(_release,   .rl)
-	ATOMIC_OPS(_relaxed,      )
+I don't this guarantees that the cache level we found matches exactly
+the NUMA node. Taking the two cluster NUMA node example from above, we
+would set cache_level to point at the per-cluster cache as it is a
+subset of the NUMA node but it would only span half of the node. Or am I
+missing something?
 
-(corresponding, resp., to
+> +	}
+> +}
+> +
+>  const struct cpumask *cpu_coregroup_mask(int cpu)
+>  {
+> +	int *llc = &cpu_topology[cpu].cache_level;
+> +
+> +	if (*llc == -1)
+> +		find_llc_topology_for_cpu(cpu);
+> +
+> +	if (*llc != -1)
+> +		return &cpu_topology[cpu].cache_siblings[*llc];
+> +
+>  	return &cpu_topology[cpu].core_sibling;
+>  }
+>  
+> @@ -221,6 +255,7 @@ static void update_siblings_masks(unsigned int cpuid)
+>  {
+>  	struct cpu_topology *cpu_topo, *cpuid_topo = &cpu_topology[cpuid];
+>  	int cpu;
+> +	int idx;
+>  
+>  	/* update core and thread sibling masks */
+>  	for_each_possible_cpu(cpu) {
+> @@ -229,6 +264,16 @@ static void update_siblings_masks(unsigned int cpuid)
+>  		if (cpuid_topo->package_id != cpu_topo->package_id)
+>  			continue;
+>  
+> +		for (idx = 0; idx < MAX_CACHE_CHECKS; idx++) {
+> +			cpumask_t *lsib;
+> +			int cput_id = cpuid_topo->cache_id[idx];
+> +
+> +			if (cput_id == cpu_topo->cache_id[idx]) {
+> +				lsib = &cpuid_topo->cache_siblings[idx];
+> +				cpumask_set_cpu(cpu, lsib);
+> +			}
 
-	atomic_cmpxchg()
-	atomic_cmpxchg_acquire()
-	atomic_cmpxchg_release()
-	atomic_cmpxchg_relaxed()  )
+Shouldn't the cache_id validity be checked here? I don't think it breaks
+anything though.
 
-so that the first variant above ends up doing
+Overall, I think this is more or less in line with the MC domain
+shrinking I just mentioned in the v6 discussion. It is mostly the corner
+cases and assumption about the system topology I'm not sure about.
 
-	0:	lr.w.aqrl  %0, %addr
-		bne        %0, %old, 1f
-		sc.w.aqrl  %1, %new, %addr
-		bnez       %1, 0b
-        1:                   
-
->From Sect. 2.3.5. ("Acquire/Release Ordering") of the Spec.,
-
- "AMOs with both .aq and .rl set are fully-ordered operations.  Treating
-  the load part and the store part as independent RCsc operations is not
-  in and of itself sufficient to enforce full fencing behavior, but this
-  subtle weak behavior is counterintuitive and not much of an advantage
-  architecturally, especially with lr and sc also available [...]."
-
-I understand that
-
-        { x = y = u = v = 0 }
-
-	P0()
-
-	WRITE_ONCE(x, 1);		("relaxed" store, sw)
-	atomic_cmpxchg(&u, 0, 1);
-	r0 = READ_ONCE(y);		("relaxed" load, lw)
-
-	P1()
-
-	WRITE_ONCE(y, 1);
-	atomic_cmpxchg(&v, 0, 1);
-	r1 = READ_ONCE(x);
-
-could result in (u = v = 1 and r0 = r1 = 0) at the end; can you confirm?
-
-Thanks,
-  Andrea
+Morten
