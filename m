@@ -1,25 +1,42 @@
-From: broonie@kernel.org (Mark Brown)
-Date: Mon, 5 Mar 2018 12:24:29 +0000
-Subject: [PATCH v7 10/13] arm64: topology: rename cluster_id
-In-Reply-To: <20180228220619.6992-11-jeremy.linton@arm.com>
-References: <20180228220619.6992-1-jeremy.linton@arm.com>
- <20180228220619.6992-11-jeremy.linton@arm.com>
-Message-ID: <20180305122429.GA25758@sirena.org.uk>
+From: parri.andrea@gmail.com (Andrea Parri)
+Date: Mon,  5 Mar 2018 19:23:30 +0100
+Subject: [RFC PATCH 0/2] riscv/spinlock,atomic: Miscellaneous fixes
+Message-ID: <1520274210-21748-1-git-send-email-parri.andrea@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Feb 28, 2018 at 04:06:16PM -0600, Jeremy Linton wrote:
+Hi,
 
-> Lets match the name of the arm64 topology field
-> to the kernel macro that uses it.
+This RFC is a follow-up on the discussion in [1], which led to the
+discovery of a few issues in the current implementations of RISC-V
+locking and atomic operations.
 
-I called it cluster ID in the code because that's what the documentation
-for MPIDR called it IIRC.  Googling around suggests that this naming may
-be being used by some of the DynamiQ stuff.
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: signature.asc
-Type: application/pgp-signature
-Size: 488 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180305/29609d32/attachment.sig>
+In summary, this series proposes the following modifications:
+
+  1. Use lightweigth fences for acquire/release (locking, atomics)
+
+  2. Use the combination of .rl and full fences for fully-ordered
+     atomics implemented with LR/SC pairs.
+
+  3. A few style changes (80-chars lines, alignment).
+
+Applies on top of "next-smp_sl_ar".
+
+Cheers,
+  Andrea
+
+[1] https://marc.info/?l=linux-kernel&m=151930201102853&w=2
+
+Andrea Parri (2):
+  riscv/spinlock: Strengthen implementations with fences
+  riscv/atomic: Strengthen implementations with fences
+
+ arch/riscv/include/asm/atomic.h   | 417 ++++++++++++++++++++++++--------------
+ arch/riscv/include/asm/cmpxchg.h  | 391 ++++++++++++++++++++++++++++-------
+ arch/riscv/include/asm/fence.h    |  12 ++
+ arch/riscv/include/asm/spinlock.h |  29 +--
+ 4 files changed, 615 insertions(+), 234 deletions(-)
+ create mode 100644 arch/riscv/include/asm/fence.h
+
+-- 
+2.7.4
