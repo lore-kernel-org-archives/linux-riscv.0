@@ -1,21 +1,26 @@
 From: sudeep.holla@arm.com (Sudeep Holla)
-Date: Tue, 6 Mar 2018 16:55:11 +0000
-Subject: [PATCH v7 06/13] ACPI: Enable PPTT support on ARM64
-In-Reply-To: <20180228220619.6992-7-jeremy.linton@arm.com>
+Date: Tue, 6 Mar 2018 17:13:46 +0000
+Subject: [PATCH v7 04/13] arm64/acpi: Create arch specific cpu to acpi id
+ helper
+In-Reply-To: <20180228220619.6992-5-jeremy.linton@arm.com>
 References: <20180228220619.6992-1-jeremy.linton@arm.com>
- <20180228220619.6992-7-jeremy.linton@arm.com>
-Message-ID: <776784b6-01ce-1385-0d02-ca5fd1ece61f@arm.com>
+ <20180228220619.6992-5-jeremy.linton@arm.com>
+Message-ID: <6763fdb6-92ac-c9cd-0cbc-e641e785b2d9@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
 
 
 On 28/02/18 22:06, Jeremy Linton wrote:
-> Now that we have a PPTT parser, in preparation for its use
-> on arm64, lets build it.
+> Its helpful to be able to lookup the acpi_processor_id associated
+> with a logical cpu. Provide an arm64 helper to do this.
 > 
 
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+This patch on it's own is good, but it's quite generic and made to look
+at it again. Sorry for missing this earlier.
+
+Can we use "per_cpu(processors, cpu)->acpi_id" at call sites instead ?
+Or you can make that a generic helper using above expression ?
 
 -- 
 Regards,
