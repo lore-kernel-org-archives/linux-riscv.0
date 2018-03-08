@@ -1,71 +1,116 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed,  7 Mar 2018 15:57:30 -0800
-Subject: [PATCH v3 4/5] arm64: Use the new GENERIC_IRQ_MULTI_HANDLER
-In-Reply-To: <20180307235731.22627-1-palmer@sifive.com>
-References: <20180307235731.22627-1-palmer@sifive.com>
-Message-ID: <20180307235731.22627-5-palmer@sifive.com>
+From: ard.biesheuvel@linaro.org (Ard Biesheuvel)
+Date: Thu, 8 Mar 2018 15:59:29 +0000
+Subject: [PATCH v7 00/13] Support PPTT for ARM64
+In-Reply-To: <1890b2e2-375e-f44f-c224-8cfa23a0add3@arm.com>
+References: <20180228220619.6992-1-jeremy.linton@arm.com>
+ <8b5bfd7e-57ea-bb34-85f8-69007a3847e6@arm.com>
+ <1890b2e2-375e-f44f-c224-8cfa23a0add3@arm.com>
+Message-ID: <CAKv+Gu__yYX-fFqxyxNk3M=Byvw5798po0Jr=qr3anEWKJ+SMA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-It appears arm64 copied arm's GENERIC_IRQ_MULTI_HANDLER code, but made
-it unconditional.  I wanted to make this generic so it could be used by
-the RISC-V port.  This patch converts the arm64 code to use the new
-generic code, which simply consists of deleting the arm64 code and
-setting MULTI_IRQ_HANDLER instead.
+On 27 February 2018 at 18:49, Jeremy Linton <jeremy.linton@arm.com> wrote:
+> On 03/01/2018 06:06 AM, Sudeep Holla wrote:
+>>
+>> Hi Jeremy,
+>>
+>> On 28/02/18 22:06, Jeremy Linton wrote:
+>>>
+>>> ACPI 6.2 adds the Processor Properties Topology Table (PPTT), which is
+>>> used to describe the processor and cache topology. Ideally it is
+>>> used to extend/override information provided by the hardware, but
+>>> right now ARM64 is entirely dependent on firmware provided tables.
+>>>
+>>> This patch parses the table for the cache topology and CPU topology.
+>>> When we enable ACPI/PPTT for arm64 we map the physical_id to the
+>>> PPTT node flagged as the physical package by the firmware.
+>>> This results in topologies that match what the remainder of the
+>>> system expects. To avoid inverted scheduler domains we then
+>>> set the MC domain equal to the largest cache within the socket
+>>> below the NUMA domain.
+>>>
+>> I remember reviewing and acknowledging most of the cacheinfo stuff with
+>> couple of minor suggestions for v6. I don't see any Acked-by tags in
+>> this series and don't know if I need to review/ack any more cacheinfo
+>> related patches.
+>
+>
+> Hi,
+>
+> Yes, I didn't put them in because I changed the functionality in 2/13 and
+> there is a bug fix in 5/13. I thought you might want to do a quick diff of
+> the git v6->v7 tree.
+>
+> Although given that most of the changes were in response to your comments in
+> v6 I probably should have just put the tags in.
+>
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- arch/arm64/Kconfig           |  1 +
- arch/arm64/include/asm/irq.h |  2 --
- arch/arm64/kernel/irq.c      | 10 ----------
- 3 files changed, 1 insertion(+), 12 deletions(-)
+I get sane output from lstopo when applying these patches and booting
+my Socionext SynQuacer in ACPI mode:
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 7381eeb7ef8e..cb03e93f03cf 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -132,6 +132,7 @@ config ARM64
- 	select IRQ_DOMAIN
- 	select IRQ_FORCED_THREADING
- 	select MODULES_USE_ELF_RELA
-+	select GENERIC_IRQ_MULTI_HANDLER
- 	select NO_BOOTMEM
- 	select OF
- 	select OF_EARLY_FLATTREE
-diff --git a/arch/arm64/include/asm/irq.h b/arch/arm64/include/asm/irq.h
-index a0fee6985e6a..b2b0c6405eb0 100644
---- a/arch/arm64/include/asm/irq.h
-+++ b/arch/arm64/include/asm/irq.h
-@@ -8,8 +8,6 @@
- 
- struct pt_regs;
- 
--extern void set_handle_irq(void (*handle_irq)(struct pt_regs *));
--
- static inline int nr_legacy_irqs(void)
- {
- 	return 0;
-diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
-index 60e5fc661f74..780a12f59a8f 100644
---- a/arch/arm64/kernel/irq.c
-+++ b/arch/arm64/kernel/irq.c
-@@ -42,16 +42,6 @@ int arch_show_interrupts(struct seq_file *p, int prec)
- 	return 0;
- }
- 
--void (*handle_arch_irq)(struct pt_regs *) = NULL;
--
--void __init set_handle_irq(void (*handle_irq)(struct pt_regs *))
--{
--	if (handle_arch_irq)
--		return;
--
--	handle_arch_irq = handle_irq;
--}
--
- #ifdef CONFIG_VMAP_STACK
- static void init_irq_stacks(void)
- {
--- 
-2.16.1
+$ lstopo-no-graphics
+Machine (31GB)
+  Package L#0 + L3 L#0 (4096KB)
+    L2 L#0 (256KB)
+      L1d L#0 (32KB) + L1i L#0 (32KB) + Core L#0 + PU L#0 (P#0)
+      L1d L#1 (32KB) + L1i L#1 (32KB) + Core L#1 + PU L#1 (P#1)
+    L2 L#1 (256KB)
+      L1d L#2 (32KB) + L1i L#2 (32KB) + Core L#2 + PU L#2 (P#2)
+      L1d L#3 (32KB) + L1i L#3 (32KB) + Core L#3 + PU L#3 (P#3)
+    L2 L#2 (256KB)
+      L1d L#4 (32KB) + L1i L#4 (32KB) + Core L#4 + PU L#4 (P#4)
+      L1d L#5 (32KB) + L1i L#5 (32KB) + Core L#5 + PU L#5 (P#5)
+    L2 L#3 (256KB)
+      L1d L#6 (32KB) + L1i L#6 (32KB) + Core L#6 + PU L#6 (P#6)
+      L1d L#7 (32KB) + L1i L#7 (32KB) + Core L#7 + PU L#7 (P#7)
+    L2 L#4 (256KB)
+      L1d L#8 (32KB) + L1i L#8 (32KB) + Core L#8 + PU L#8 (P#8)
+      L1d L#9 (32KB) + L1i L#9 (32KB) + Core L#9 + PU L#9 (P#9)
+    L2 L#5 (256KB)
+      L1d L#10 (32KB) + L1i L#10 (32KB) + Core L#10 + PU L#10 (P#10)
+      L1d L#11 (32KB) + L1i L#11 (32KB) + Core L#11 + PU L#11 (P#11)
+    L2 L#6 (256KB)
+      L1d L#12 (32KB) + L1i L#12 (32KB) + Core L#12 + PU L#12 (P#12)
+      L1d L#13 (32KB) + L1i L#13 (32KB) + Core L#13 + PU L#13 (P#13)
+    L2 L#7 (256KB)
+      L1d L#14 (32KB) + L1i L#14 (32KB) + Core L#14 + PU L#14 (P#14)
+      L1d L#15 (32KB) + L1i L#15 (32KB) + Core L#15 + PU L#15 (P#15)
+    L2 L#8 (256KB)
+      L1d L#16 (32KB) + L1i L#16 (32KB) + Core L#16 + PU L#16 (P#16)
+      L1d L#17 (32KB) + L1i L#17 (32KB) + Core L#17 + PU L#17 (P#17)
+    L2 L#9 (256KB)
+      L1d L#18 (32KB) + L1i L#18 (32KB) + Core L#18 + PU L#18 (P#18)
+      L1d L#19 (32KB) + L1i L#19 (32KB) + Core L#19 + PU L#19 (P#19)
+    L2 L#10 (256KB)
+      L1d L#20 (32KB) + L1i L#20 (32KB) + Core L#20 + PU L#20 (P#20)
+      L1d L#21 (32KB) + L1i L#21 (32KB) + Core L#21 + PU L#21 (P#21)
+    L2 L#11 (256KB)
+      L1d L#22 (32KB) + L1i L#22 (32KB) + Core L#22 + PU L#22 (P#22)
+      L1d L#23 (32KB) + L1i L#23 (32KB) + Core L#23 + PU L#23 (P#23)
+  HostBridge L#0
+    PCIBridge
+      PCIBridge
+        PCI 1b21:0612
+          Block(Disk) L#0 "sda"
+  HostBridge L#3
+    PCI 10de:128b
+      GPU L#1 "renderD128"
+      GPU L#2 "card0"
+      GPU L#3 "controlD64"
+
+So
+
+Tested-by: Ard Biesheuvel <ard.biesheuvel@linaro.org>
+
+*However*, while hacking on the firmware that exposes the table, I
+noticed that a malformed structure (incorrect size) can get the parser
+in an infinite loop, hanging the boot after
+
+[    8.244281] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    8.251780] Serial: AMBA driver
+[    8.255042] msm_serial: driver initialized
+[    8.259752] ACPI PPTT: Cache Setup ACPI cpu 0
+[    8.264121] ACPI PPTT: Looking for data cache
+[    8.268484] ACPI PPTT: Looking for CPU 0's level 1 cache type 0
+
+so I guess the parsing code could be made a bit more robust?
