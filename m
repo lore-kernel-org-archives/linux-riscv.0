@@ -1,69 +1,78 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 08 Mar 2018 11:35:41 -0800 (PST)
-Subject: [PATCH] set_handle_irq: Return EBUSY if the handler has already
- been registered.
-In-Reply-To: <87k1umv0ru.fsf@xps13.shealevy.com>
-Message-ID: <mhng-8027a7d2-1e7e-44f2-9f45-8f62284815c7@palmer-si-x1c4>
+Date: Thu, 08 Mar 2018 11:35:42 -0800 (PST)
+Subject: [PATCH] riscv: Respect the initrd found in the dt, if any.
+In-Reply-To: <87h8pqv0qv.fsf@xps13.shealevy.com>
+Message-ID: <mhng-810fd285-39bb-4986-ba28-5fae943aacd4@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-I squashed it into the patch set I just sent out -- sorry, I thought I got your 
-OK for it.  Is that OK?
+Thanks for the ping, I must have missed your response.  I've added this to our 
+for-next branch.
 
-On Thu, 08 Mar 2018 11:13:25 PST (-0800), shea at shealevy.com wrote:
-> Hi all,
+On Thu, 08 Mar 2018 11:14:00 PST (-0800), shea at shealevy.com wrote:
+> Hi Palmer,
 >
-> Any thoughts on this?
+> Any further thoughts on this?
 >
 > Thanks,
 > Shea
 >
 > Shea Levy <shea@shealevy.com> writes:
 >
->> This is what's expected by the comments and at least by irq-riscv-intc.c
+>> It doesn't look like that generic support handles the case where the
+>> initrd is compiled into the kernel and not passed in the devicetree,
+>> which setup_initrd already did before this
+>> patch. __early_init_dt_delcare_initrd is only called when the devicetree
+>> properties are found.
 >>
->> Signed-off-by: Shea Levy <shea@shealevy.com>
->> ---
->>  include/linux/irq.h | 2 +-
->>  kernel/irq/handle.c | 5 +++--
->>  2 files changed, 4 insertions(+), 3 deletions(-)
+>> Palmer Dabbelt <palmer@sifive.com> writes:
 >>
->> diff --git a/include/linux/irq.h b/include/linux/irq.h
->> index 2930fd2572e4..77e97872a13e 100644
->> --- a/include/linux/irq.h
->> +++ b/include/linux/irq.h
->> @@ -1179,7 +1179,7 @@ int ipi_send_mask(unsigned int virq, const struct cpumask *dest);
->>   * Returns 0 on success, or -EBUSY if an IRQ handler has already been
->>   * registered.
->>   */
->> -void __init set_handle_irq(void (*handle_irq)(struct pt_regs *));
->> +int __init set_handle_irq(void (*handle_irq)(struct pt_regs *));
->>
->>  /*
->>   * Allows interrupt handlers to find the irqchip that's been registered as the
->> diff --git a/kernel/irq/handle.c b/kernel/irq/handle.c
->> index dee4f9a172ca..3570c715c3e7 100644
->> --- a/kernel/irq/handle.c
->> +++ b/kernel/irq/handle.c
->> @@ -213,11 +213,12 @@ irqreturn_t handle_irq_event(struct irq_desc *desc)
->>  }
->>
->>  #ifdef CONFIG_GENERIC_IRQ_MULTI_HANDLER
->> -void __init set_handle_irq(void (*handle_irq)(struct pt_regs *))
->> +int __init set_handle_irq(void (*handle_irq)(struct pt_regs *))
->>  {
->>  	if (handle_arch_irq)
->> -		return;
->> +		return -EBUSY;
->>
->>  	handle_arch_irq = handle_irq;
->> +	return 0;
->>  }
->>  #endif
->> --
->> 2.16.1
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv at lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>>> On Tue, 20 Feb 2018 04:54:26 PST (-0800), shea at shealevy.com wrote:
+>>>> Signed-off-by: Shea Levy <shea@shealevy.com>
+>>>> ---
+>>>>  arch/riscv/kernel/setup.c | 7 ++++++-
+>>>>  1 file changed, 6 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+>>>> index 41d34008faf6..c4ebc907af34 100644
+>>>> --- a/arch/riscv/kernel/setup.c
+>>>> +++ b/arch/riscv/kernel/setup.c
+>>>> @@ -88,15 +88,20 @@ static void __init setup_initrd(void)
+>>>>  	extern unsigned long __initramfs_size;
+>>>>  	unsigned long size;
+>>>>
+>>>> +	if (initrd_start)
+>>>> +		goto found;
+>>>> +
+>>>>  	if (__initramfs_size > 0) {
+>>>>  		initrd_start = (unsigned long)(&__initramfs_start);
+>>>>  		initrd_end = initrd_start + __initramfs_size;
+>>>>  	}
+>>>>
+>>>> +	initrd_below_start_ok = 1;
+>>>>  	if (initrd_start >= initrd_end) {
+>>>>  		printk(KERN_INFO "initrd not found or empty");
+>>>>  		goto disable;
+>>>>  	}
+>>>> +found:
+>>>>  	if (__pa(initrd_end) > PFN_PHYS(max_low_pfn)) {
+>>>>  		printk(KERN_ERR "initrd extends beyond end of memory");
+>>>>  		goto disable;
+>>>> @@ -104,13 +109,13 @@ static void __init setup_initrd(void)
+>>>>
+>>>>  	size =  initrd_end - initrd_start;
+>>>>  	memblock_reserve(__pa(initrd_start), size);
+>>>> -	initrd_below_start_ok = 1;
+>>>>
+>>>>  	printk(KERN_INFO "Initial ramdisk at: 0x%p (%lu bytes)\n",
+>>>>  		(void *)(initrd_start), size);
+>>>>  	return;
+>>>>  disable:
+>>>>  	pr_cont(" - disabling initrd\n");
+>>>> +	initrd_below_start_ok = 0;
+>>>>  	initrd_start = 0;
+>>>>  	initrd_end = 0;
+>>>>  }
+>>>
+>>> It looks like there's some amount of generic support in 
+>>> __early_init_dt_declare_initrd(), can we just use that?
