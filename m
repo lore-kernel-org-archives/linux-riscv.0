@@ -1,234 +1,59 @@
-From: jeremy.linton@arm.com (Jeremy Linton)
-Date: Thu, 8 Mar 2018 13:52:33 -0600
-Subject: [PATCH v7 05/13] ACPI/PPTT: Add Processor Properties Topology
- Table parsing
-In-Reply-To: <CAKv+Gu9LHHwWNcQdNwDvY70+whxH1VDoGNkMhM0E67hE0LDMDA@mail.gmail.com>
-References: <20180228220619.6992-1-jeremy.linton@arm.com>
- <20180228220619.6992-6-jeremy.linton@arm.com>
- <CAKv+Gu9LHHwWNcQdNwDvY70+whxH1VDoGNkMhM0E67hE0LDMDA@mail.gmail.com>
-Message-ID: <d79975a0-eca7-7bac-b542-9cc78c71361f@arm.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Thu, 08 Mar 2018 12:31:28 -0800 (PST)
+Subject: [PATCH] riscv: Implement free_initrd_mem.
+In-Reply-To: <874llquz7n.fsf@xps13.shealevy.com>
+Message-ID: <mhng-a815a939-8405-42db-ba34-2a49a622e663@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi,
-
-On 03/08/2018 10:39 AM, Ard Biesheuvel wrote:
-> On 28 February 2018 at 22:06, Jeremy Linton <jeremy.linton@arm.com> wrote:
->> ACPI 6.2 adds a new table, which describes how processing units
->> are related to each other in tree like fashion. Caches are
->> also sprinkled throughout the tree and describe the properties
->> of the caches in relation to other caches and processing units.
+On Thu, 08 Mar 2018 11:47:08 PST (-0800), shea at shealevy.com wrote:
+> Palmer Dabbelt <palmer@sifive.com> writes:
+>
+>> On Thu, 08 Mar 2018 11:14:52 PST (-0800), shea at shealevy.com wrote:
+>>> Hi Palmer,
+>>>
+>>> Palmer Dabbelt <palmer@sifive.com> writes:
+>>>
+>>>> On Tue, 20 Feb 2018 05:50:43 PST (-0800), shea at shealevy.com wrote:
+>>>>> Signed-off-by: Shea Levy <shea@shealevy.com>
+>>>>> ---
+>>>>>  arch/riscv/mm/init.c | 6 ++++++
+>>>>>  1 file changed, 6 insertions(+)
+>>>>>
+>>>>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+>>>>> index c77df8142be2..1c832b541e95 100644
+>>>>> --- a/arch/riscv/mm/init.c
+>>>>> +++ b/arch/riscv/mm/init.c
+>>>>> @@ -66,5 +66,11 @@ void free_initmem(void)
+>>>>>  #ifdef CONFIG_BLK_DEV_INITRD
+>>>>>  void free_initrd_mem(unsigned long start, unsigned long end)
+>>>>>  {
+>>>>> +	if (start == initrd_start)
+>>>>> +		start = round_down(start, PAGE_SIZE);
+>>>>> +	if (end == initrd_end)
+>>>>> +		end = round_up(end, PAGE_SIZE);
+>>>>> +
+>>>>> +	free_reserved_area((void *)start, (void *)end, -1, "initrd");
+>>>>>  }
+>>>>>  #endif /* CONFIG_BLK_DEV_INITRD */
+>>>>
+>>>> It looks like everyone is doing something slightly different here:
+>>>>
+>>>> * arm64 doesn't round to a page size, and has keep_initrd.
+>>>> * arm calls poison_init_mem(), and has keep_initrd.
+>>>> * sparc64 doesn't round, and doesn't have a keep_initrd.
+>>>> * mips doesn't round, and doesn't have a keep_initrd.
+>>>> * x86 rounds end to a page size but not start, and doesn't have a keep_initrd.
+>>>>
+>>>> It feels like this should be something generic.  I'm adding linux-kernel to see 
+>>>> what people think.
+>>>
+>>> Should I try to whip up something generic?
 >>
->> Add the code to parse the cache hierarchy and report the total
->> number of levels of cache for a given core using
->> acpi_find_last_cache_level() as well as fill out the individual
->> cores cache information with cache_setup_acpi() once the
->> cpu_cacheinfo structure has been populated by the arch specific
->> code.
->>
->> An additional patch later in the set adds the ability to report
->> peers in the topology using find_acpi_cpu_topology()
->> to report a unique ID for each processing unit at a given level
->> in the tree. These unique id's can then be used to match related
->> processing units which exist as threads, COD (clusters
->> on die), within a given package, etc.
->>
->> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
->> ---
->>   drivers/acpi/pptt.c | 488 ++++++++++++++++++++++++++++++++++++++++++++++++++++
->>   1 file changed, 488 insertions(+)
->>   create mode 100644 drivers/acpi/pptt.c
->>
->> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
->> new file mode 100644
->> index 000000000000..883e4318c6cd
->> --- /dev/null
->> +++ b/drivers/acpi/pptt.c
-> ...
->> +/* total number of attributes checked by the properties code */
->> +#define PPTT_CHECKED_ATTRIBUTES 4
->> +
->> +/*
->> + * The ACPI spec implies that the fields in the cache structures are used to
->> + * extend and correct the information probed from the hardware. Lets only
->> + * set fields that we determine are VALID.
->> + */
->> +static void update_cache_properties(struct cacheinfo *this_leaf,
->> +                                   struct acpi_pptt_cache *found_cache,
->> +                                   struct acpi_pptt_processor *cpu_node)
->> +{
->> +       int valid_flags = 0;
->> +
->> +       if (found_cache->flags & ACPI_PPTT_SIZE_PROPERTY_VALID) {
->> +               this_leaf->size = found_cache->size;
->> +               valid_flags++;
->> +       }
->> +       if (found_cache->flags & ACPI_PPTT_LINE_SIZE_VALID) {
->> +               this_leaf->coherency_line_size = found_cache->line_size;
->> +               valid_flags++;
->> +       }
->> +       if (found_cache->flags & ACPI_PPTT_NUMBER_OF_SETS_VALID) {
->> +               this_leaf->number_of_sets = found_cache->number_of_sets;
->> +               valid_flags++;
->> +       }
->> +       if (found_cache->flags & ACPI_PPTT_ASSOCIATIVITY_VALID) {
->> +               this_leaf->ways_of_associativity = found_cache->associativity;
->> +               valid_flags++;
->> +       }
->> +       if (found_cache->flags & ACPI_PPTT_WRITE_POLICY_VALID) {
->> +               switch (found_cache->attributes & ACPI_PPTT_MASK_WRITE_POLICY) {
->> +               case ACPI_PPTT_CACHE_POLICY_WT:
->> +                       this_leaf->attributes = CACHE_WRITE_THROUGH;
->> +                       break;
->> +               case ACPI_PPTT_CACHE_POLICY_WB:
->> +                       this_leaf->attributes = CACHE_WRITE_BACK;
->> +                       break;
->> +               }
->> +       }
->> +       if (found_cache->flags & ACPI_PPTT_ALLOCATION_TYPE_VALID) {
->> +               switch (found_cache->attributes & ACPI_PPTT_MASK_ALLOCATION_TYPE) {
->> +               case ACPI_PPTT_CACHE_READ_ALLOCATE:
->> +                       this_leaf->attributes |= CACHE_READ_ALLOCATE;
->> +                       break;
->> +               case ACPI_PPTT_CACHE_WRITE_ALLOCATE:
->> +                       this_leaf->attributes |= CACHE_WRITE_ALLOCATE;
->> +                       break;
->> +               case ACPI_PPTT_CACHE_RW_ALLOCATE:
->> +               case ACPI_PPTT_CACHE_RW_ALLOCATE_ALT:
->> +                       this_leaf->attributes |=
->> +                               CACHE_READ_ALLOCATE | CACHE_WRITE_ALLOCATE;
->> +                       break;
->> +               }
->> +       }
->> +       /*
->> +        * If the above flags are valid, and the cache type is NOCACHE
->> +        * update the cache type as well.
->> +        */
->> +       if ((this_leaf->type == CACHE_TYPE_NOCACHE) &&
->> +           (valid_flags == PPTT_CHECKED_ATTRIBUTES))
->> +               this_leaf->type = CACHE_TYPE_UNIFIED;
-> 
-> Why do we need the associativity and #sets attributes to be valid in
-> order to set the cache type?
+>> I think that'd be best.  Nobody has said anything specific, but it's generally 
+>> been suggested to take bits that we copy into our port and make them generic.  
+>> If there's no clean way do to so then I'm OK taking this, though.
+>
+> OK, will add it to my queue.
 
-This happened a couple revisions ago because its better to force people 
-to completely populate the attributes in the tables (particularly for 
-nodes we are generating, which is what the _NOCACHE check above is 
-detecting) and leave half of them undefined and therefor exported to 
-user-space in a way which makes the properties unreliable across machines.
-
-
-> 
-> I see how size and line size are rather fundamental properties, but
-> for a system cache, the geometry doesn't really matter.
-
-Originally all of them were required (to avoid having the discussion 
-about which ones were "important"), but Sudeep was of the opinion that 
-these were the "important" ones, I can see his point, and no one else 
-spoke up... So, those are the ones that are required.
-
-
-> 
->> +}
->> +
->> +/*
->> + * Update the kernel cache information for each level of cache
->> + * associated with the given acpi cpu.
->> + */
->> +static void cache_setup_acpi_cpu(struct acpi_table_header *table,
->> +                                unsigned int cpu)
->> +{
->> +       struct acpi_pptt_cache *found_cache;
->> +       struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
->> +       u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
->> +       struct cacheinfo *this_leaf;
->> +       unsigned int index = 0;
->> +       struct acpi_pptt_processor *cpu_node = NULL;
->> +
->> +       while (index < get_cpu_cacheinfo(cpu)->num_leaves) {
->> +               this_leaf = this_cpu_ci->info_list + index;
->> +               found_cache = acpi_find_cache_node(table, acpi_cpu_id,
->> +                                                  this_leaf->type,
->> +                                                  this_leaf->level,
->> +                                                  &cpu_node);
->> +               pr_debug("found = %p %p\n", found_cache, cpu_node);
->> +               if (found_cache)
->> +                       update_cache_properties(this_leaf,
->> +                                               found_cache,
->> +                                               cpu_node);
->> +
->> +               index++;
->> +       }
->> +}
->> +
->> +/**
->> + * acpi_find_last_cache_level() - Determines the number of cache levels for a PE
->> + * @cpu: Kernel logical cpu number
->> + *
->> + * Given a logical cpu number, returns the number of levels of cache represented
->> + * in the PPTT. Errors caused by lack of a PPTT table, or otherwise, return 0
->> + * indicating we didn't find any cache levels.
->> + *
->> + * Return: Cache levels visible to this core.
->> + */
->> +int acpi_find_last_cache_level(unsigned int cpu)
->> +{
->> +       u32 acpi_cpu_id;
->> +       struct acpi_table_header *table;
->> +       int number_of_levels = 0;
->> +       acpi_status status;
->> +
->> +       pr_debug("Cache Setup find last level cpu=%d\n", cpu);
->> +
->> +       acpi_cpu_id = get_acpi_id_for_cpu(cpu);
->> +       status = acpi_get_table(ACPI_SIG_PPTT, 0, &table);
->> +       if (ACPI_FAILURE(status)) {
->> +               pr_err_once("No PPTT table found, cache topology may be inaccurate\n");
->> +       } else {
->> +               number_of_levels = acpi_find_cache_levels(table, acpi_cpu_id);
->> +               acpi_put_table(table);
->> +       }
->> +       pr_debug("Cache Setup find last level level=%d\n", number_of_levels);
->> +
->> +       return number_of_levels;
->> +}
->> +
->> +/**
->> + * cache_setup_acpi() - Override CPU cache topology with data from the PPTT
->> + * @cpu: Kernel logical cpu number
->> + *
->> + * Updates the global cache info provided by cpu_get_cacheinfo()
->> + * when there are valid properties in the acpi_pptt_cache nodes. A
->> + * successful parse may not result in any updates if none of the
->> + * cache levels have any valid flags set.  Futher, a unique value is
->> + * associated with each known CPU cache entry. This unique value
->> + * can be used to determine whether caches are shared between cpus.
->> + *
->> + * Return: -ENOENT on failure to find table, or 0 on success
->> + */
->> +int cache_setup_acpi(unsigned int cpu)
->> +{
->> +       struct acpi_table_header *table;
->> +       acpi_status status;
->> +
->> +       pr_debug("Cache Setup ACPI cpu %d\n", cpu);
->> +
->> +       status = acpi_get_table(ACPI_SIG_PPTT, 0, &table);
->> +       if (ACPI_FAILURE(status)) {
->> +               pr_err_once("No PPTT table found, cache topology may be inaccurate\n");
->> +               return -ENOENT;
->> +       }
->> +
->> +       cache_setup_acpi_cpu(table, cpu);
->> +       acpi_put_table(table);
->> +
->> +       return status;
->> +}
->> --
->> 2.13.6
->>
->>
->> _______________________________________________
->> linux-arm-kernel mailing list
->> linux-arm-kernel at lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
+Thanks!
