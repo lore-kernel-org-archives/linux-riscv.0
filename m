@@ -1,59 +1,30 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 08 Mar 2018 12:31:28 -0800 (PST)
-Subject: [PATCH] riscv: Implement free_initrd_mem.
-In-Reply-To: <874llquz7n.fsf@xps13.shealevy.com>
-Message-ID: <mhng-a815a939-8405-42db-ba34-2a49a622e663@palmer-si-x1c4>
+From: brice.goglin@gmail.com (Brice Goglin)
+Date: Thu, 8 Mar 2018 21:41:17 +0100
+Subject: [PATCH v7 13/13] arm64: topology: divorce MC scheduling domain
+ from core_siblings
+In-Reply-To: <20180307130623.GK4589@e105550-lin.cambridge.arm.com>
+References: <20180228220619.6992-1-jeremy.linton@arm.com>
+ <20180228220619.6992-14-jeremy.linton@arm.com>
+ <20180301155216.GI4589@e105550-lin.cambridge.arm.com>
+ <5d6bf4cf-2f6d-d123-f17f-d47d8e74c16c@arm.com>
+ <20180306160721.GJ4589@e105550-lin.cambridge.arm.com>
+ <8ac3567c-9fd8-4b0c-121c-287a027b5156@arm.com>
+ <20180307130623.GK4589@e105550-lin.cambridge.arm.com>
+Message-ID: <d6497158-c58f-4fd4-4613-699fb2af7a61@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, 08 Mar 2018 11:47:08 PST (-0800), shea at shealevy.com wrote:
-> Palmer Dabbelt <palmer@sifive.com> writes:
->
->> On Thu, 08 Mar 2018 11:14:52 PST (-0800), shea at shealevy.com wrote:
->>> Hi Palmer,
->>>
->>> Palmer Dabbelt <palmer@sifive.com> writes:
->>>
->>>> On Tue, 20 Feb 2018 05:50:43 PST (-0800), shea at shealevy.com wrote:
->>>>> Signed-off-by: Shea Levy <shea@shealevy.com>
->>>>> ---
->>>>>  arch/riscv/mm/init.c | 6 ++++++
->>>>>  1 file changed, 6 insertions(+)
->>>>>
->>>>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->>>>> index c77df8142be2..1c832b541e95 100644
->>>>> --- a/arch/riscv/mm/init.c
->>>>> +++ b/arch/riscv/mm/init.c
->>>>> @@ -66,5 +66,11 @@ void free_initmem(void)
->>>>>  #ifdef CONFIG_BLK_DEV_INITRD
->>>>>  void free_initrd_mem(unsigned long start, unsigned long end)
->>>>>  {
->>>>> +	if (start == initrd_start)
->>>>> +		start = round_down(start, PAGE_SIZE);
->>>>> +	if (end == initrd_end)
->>>>> +		end = round_up(end, PAGE_SIZE);
->>>>> +
->>>>> +	free_reserved_area((void *)start, (void *)end, -1, "initrd");
->>>>>  }
->>>>>  #endif /* CONFIG_BLK_DEV_INITRD */
->>>>
->>>> It looks like everyone is doing something slightly different here:
->>>>
->>>> * arm64 doesn't round to a page size, and has keep_initrd.
->>>> * arm calls poison_init_mem(), and has keep_initrd.
->>>> * sparc64 doesn't round, and doesn't have a keep_initrd.
->>>> * mips doesn't round, and doesn't have a keep_initrd.
->>>> * x86 rounds end to a page size but not start, and doesn't have a keep_initrd.
->>>>
->>>> It feels like this should be something generic.  I'm adding linux-kernel to see 
->>>> what people think.
->>>
->>> Should I try to whip up something generic?
->>
->> I think that'd be best.  Nobody has said anything specific, but it's generally 
->> been suggested to take bits that we copy into our port and make them generic.  
->> If there's no clean way do to so then I'm OK taking this, though.
->
-> OK, will add it to my queue.
 
-Thanks!
+> Is there a good reason for diverging instead of adjusting the
+> core_sibling mask? On x86 the core_siblings mask is defined by the last
+> level cache span so they don't have this issue. 
+
+No. core_siblings is defined as the list of cores that have the same
+physical_package_id (see the doc of sysfs topology files), and LLC can
+be smaller than that.
+Example with E5v3 with cluster-on-die (two L3 per package, core_siblings
+is twice larger than L3 cpumap):
+https://www.open-mpi.org/projects/hwloc/lstopo/images/2XeonE5v3.v1.11.png
+On AMD EPYC, you even have up to 8 LLC per package.
+
+Brice
