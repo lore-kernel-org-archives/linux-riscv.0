@@ -1,58 +1,69 @@
-From: shea@shealevy.com (Shea Levy)
-Date: Thu, 08 Mar 2018 14:14:52 -0500
-Subject: [PATCH] riscv: Implement free_initrd_mem.
-In-Reply-To: <mhng-96c45513-b898-42bc-af9e-f24d9909f489@palmer-si-x1c4>
-References: <mhng-96c45513-b898-42bc-af9e-f24d9909f489@palmer-si-x1c4>
-Message-ID: <87efkuv0pf.fsf@xps13.shealevy.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Thu, 08 Mar 2018 11:35:41 -0800 (PST)
+Subject: [PATCH] set_handle_irq: Return EBUSY if the handler has already
+ been registered.
+In-Reply-To: <87k1umv0ru.fsf@xps13.shealevy.com>
+Message-ID: <mhng-8027a7d2-1e7e-44f2-9f45-8f62284815c7@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Palmer,
+I squashed it into the patch set I just sent out -- sorry, I thought I got your 
+OK for it.  Is that OK?
 
-Palmer Dabbelt <palmer@sifive.com> writes:
-
-> On Tue, 20 Feb 2018 05:50:43 PST (-0800), shea at shealevy.com wrote:
+On Thu, 08 Mar 2018 11:13:25 PST (-0800), shea at shealevy.com wrote:
+> Hi all,
+>
+> Any thoughts on this?
+>
+> Thanks,
+> Shea
+>
+> Shea Levy <shea@shealevy.com> writes:
+>
+>> This is what's expected by the comments and at least by irq-riscv-intc.c
+>>
 >> Signed-off-by: Shea Levy <shea@shealevy.com>
 >> ---
->>  arch/riscv/mm/init.c | 6 ++++++
->>  1 file changed, 6 insertions(+)
+>>  include/linux/irq.h | 2 +-
+>>  kernel/irq/handle.c | 5 +++--
+>>  2 files changed, 4 insertions(+), 3 deletions(-)
 >>
->> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->> index c77df8142be2..1c832b541e95 100644
->> --- a/arch/riscv/mm/init.c
->> +++ b/arch/riscv/mm/init.c
->> @@ -66,5 +66,11 @@ void free_initmem(void)
->>  #ifdef CONFIG_BLK_DEV_INITRD
->>  void free_initrd_mem(unsigned long start, unsigned long end)
->>  {
->> +	if (start == initrd_start)
->> +		start = round_down(start, PAGE_SIZE);
->> +	if (end == initrd_end)
->> +		end = round_up(end, PAGE_SIZE);
->> +
->> +	free_reserved_area((void *)start, (void *)end, -1, "initrd");
+>> diff --git a/include/linux/irq.h b/include/linux/irq.h
+>> index 2930fd2572e4..77e97872a13e 100644
+>> --- a/include/linux/irq.h
+>> +++ b/include/linux/irq.h
+>> @@ -1179,7 +1179,7 @@ int ipi_send_mask(unsigned int virq, const struct cpumask *dest);
+>>   * Returns 0 on success, or -EBUSY if an IRQ handler has already been
+>>   * registered.
+>>   */
+>> -void __init set_handle_irq(void (*handle_irq)(struct pt_regs *));
+>> +int __init set_handle_irq(void (*handle_irq)(struct pt_regs *));
+>>
+>>  /*
+>>   * Allows interrupt handlers to find the irqchip that's been registered as the
+>> diff --git a/kernel/irq/handle.c b/kernel/irq/handle.c
+>> index dee4f9a172ca..3570c715c3e7 100644
+>> --- a/kernel/irq/handle.c
+>> +++ b/kernel/irq/handle.c
+>> @@ -213,11 +213,12 @@ irqreturn_t handle_irq_event(struct irq_desc *desc)
 >>  }
->>  #endif /* CONFIG_BLK_DEV_INITRD */
+>>
+>>  #ifdef CONFIG_GENERIC_IRQ_MULTI_HANDLER
+>> -void __init set_handle_irq(void (*handle_irq)(struct pt_regs *))
+>> +int __init set_handle_irq(void (*handle_irq)(struct pt_regs *))
+>>  {
+>>  	if (handle_arch_irq)
+>> -		return;
+>> +		return -EBUSY;
+>>
+>>  	handle_arch_irq = handle_irq;
+>> +	return 0;
+>>  }
+>>  #endif
+>> --
+>> 2.16.1
 >
-> It looks like everyone is doing something slightly different here:
->
-> * arm64 doesn't round to a page size, and has keep_initrd.
-> * arm calls poison_init_mem(), and has keep_initrd.
-> * sparc64 doesn't round, and doesn't have a keep_initrd.
-> * mips doesn't round, and doesn't have a keep_initrd.
-> * x86 rounds end to a page size but not start, and doesn't have a keep_initrd.
->
-> It feels like this should be something generic.  I'm adding linux-kernel to see 
-> what people think.
-
-Should I try to whip up something generic?
-
-Thanks,
-Shea
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: signature.asc
-Type: application/pgp-signature
-Size: 832 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180308/74bf8d50/attachment.sig>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv at lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
