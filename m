@@ -1,120 +1,63 @@
-From: parri.andrea@gmail.com (Andrea Parri)
-Date: Fri, 9 Mar 2018 17:57:58 +0100
-Subject: [PATCH v2 2/2] riscv/atomic: Strengthen implementations with
- fences
-In-Reply-To: <Pine.LNX.4.44L0.1803091129420.2256-100000@iolanthe.rowland.org>
-References: <1520597620-16650-1-git-send-email-parri.andrea@gmail.com>
- <Pine.LNX.4.44L0.1803091129420.2256-100000@iolanthe.rowland.org>
-Message-ID: <20180309165758.GA24626@andrea>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Fri, 09 Mar 2018 09:56:20 -0800 (PST)
+Subject: Make set_handle_irq and handle_arch_irq generic, v3
+In-Reply-To: <alpine.DEB.2.21.1803091113460.1364@nanos.tec.linutronix.de>
+Message-ID: <mhng-df44504d-acc2-4ef9-9660-9959298ae26c@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, Mar 09, 2018 at 11:39:11AM -0500, Alan Stern wrote:
-> On Fri, 9 Mar 2018, Andrea Parri wrote:
-> 
-> > Atomics present the same issue with locking: release and acquire
-> > variants need to be strengthened to meet the constraints defined
-> > by the Linux-kernel memory consistency model [1].
-> > 
-> > Atomics present a further issue: implementations of atomics such
-> > as atomic_cmpxchg() and atomic_add_unless() rely on LR/SC pairs,
-> > which do not give full-ordering with .aqrl; for example, current
-> > implementations allow the "lr-sc-aqrl-pair-vs-full-barrier" test
-> > below to end up with the state indicated in the "exists" clause.
-> > 
-> > In order to "synchronize" LKMM and RISC-V's implementation, this
-> > commit strengthens the implementations of the atomics operations
-> > by replacing .rl and .aq with the use of ("lightweigth") fences,
-> > and by replacing .aqrl LR/SC pairs in sequences such as:
-> > 
-> >   0:      lr.w.aqrl  %0, %addr
-> >           bne        %0, %old, 1f
-> >           ...
-> >           sc.w.aqrl  %1, %new, %addr
-> >           bnez       %1, 0b
-> >   1:
-> > 
-> > with sequences of the form:
-> > 
-> >   0:      lr.w       %0, %addr
-> >           bne        %0, %old, 1f
-> >           ...
-> >           sc.w.rl    %1, %new, %addr   /* SC-release   */
-> >           bnez       %1, 0b
-> >           fence      rw, rw            /* "full" fence */
-> >   1:
-> > 
-> > following Daniel's suggestion.
-> > 
-> > These modifications were validated with simulation of the RISC-V
-> > memory consistency model.
-> > 
-> > C lr-sc-aqrl-pair-vs-full-barrier
-> > 
-> > {}
-> > 
-> > P0(int *x, int *y, atomic_t *u)
-> > {
-> > 	int r0;
-> > 	int r1;
-> > 
-> > 	WRITE_ONCE(*x, 1);
-> > 	r0 = atomic_cmpxchg(u, 0, 1);
-> > 	r1 = READ_ONCE(*y);
-> > }
-> > 
-> > P1(int *x, int *y, atomic_t *v)
-> > {
-> > 	int r0;
-> > 	int r1;
-> > 
-> > 	WRITE_ONCE(*y, 1);
-> > 	r0 = atomic_cmpxchg(v, 0, 1);
-> > 	r1 = READ_ONCE(*x);
-> > }
-> > 
-> > exists (u=1 /\ v=1 /\ 0:r1=0 /\ 1:r1=0)
-> 
-> There's another aspect to this imposed by the LKMM, and I'm not sure
-> whether your patch addresses it.  You add a fence after the cmpxchg
-> operation but nothing before it.  So what would happen with the 
-> following litmus test (which the LKMM forbids)?
+On Fri, 09 Mar 2018 02:20:12 PST (-0800), tglx at linutronix.de wrote:
+> On Wed, 7 Mar 2018, Palmer Dabbelt wrote:
+>
+>> This is my third version of this patch set, but the original cover
+>> letter is still the most relevant description I can come up with.
+>>
+>>     This patch set has been sitting around for a while, but it got a bit lost
+>>     in the shuffle.  In RISC-V land we currently couple do_IRQ (the C entry
+>>     point for interrupt handling) to our first-level interrupt controller.
+>>     While this isn't completely crazy (as the first-level interrupt controller
+>>     is specified by the ISA), it is a bit awkward.
+>>
+>>     This patch set decouples our trap handler from our first-level IRQ chip
+>>     driver by copying what a handful of other architectures are doing.  This
+>>     does add an additional load to the interrupt handling path, but there's a
+>>     handful of performance problems in there that I've been meaning to look at
+>>     so I don't mind adding another one for now.  The advantage is that our
+>>     irqchip driver is decoupled from our arch port, at least at compile time.
+>>
+>> I've build tested this with defconfigs on all the modified architectures
+>> after both patch 1 and 5.  I've left the old acks in for the later
+>> patches as the patch set has changed very little since I last submitted
+>> it.
+>
+> This looks sensible. We have two options for getting this merged:
+>
+> 1)   I'll take the whole lot through tip/irq/core
+>
+> 2)   I'll apply patch 1/N to a special branch in tip. That branch will contain
+>      only this commit on top of 4.16-rc4 and can be pulled by the relevant
+>      architecture maintainers, so they can apply their architecture specific
+>      patches.
 
-Available RISC-V memory model formalizations forbid it;  an intuitive
-explanation could probably be derived by paralleling the argument for
-arm64, as pointed out by Daniel at:
+Option 1 seems like the lowest overhead, as that way we don't need to sequence
+the patches between multiple trees.  If all the other arch maintianers are OK
+with it then that works for me.  The 0-day robot found a new build warning on
+openrisc.  I was plannning on submitting a v4 with this fix in it
 
-  https://marc.info/?l=linux-kernel&m=151994289015267&w=2
+    diff --git a/arch/openrisc/include/asm/irq.h b/arch/openrisc/include/asm/irq.h
+    index d9eee0a2b7b4..eb612b1865d2 100644
+    --- a/arch/openrisc/include/asm/irq.h
+    +++ b/arch/openrisc/include/asm/irq.h
+    @@ -24,6 +24,4 @@
+    
+     #define NO_IRQ         (-1)
+    
+    -extern void set_handle_irq(void (*handle_irq)(struct pt_regs *));
+    -
+     #endif /* __ASM_OPENRISC_IRQ_H__ */
 
-  Andrea
+I can submit a v4, or you can just grab it from
 
+    https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/log/?h=review-irq-1-cleanup
 
-> 
-> C SB-atomic_cmpxchg-mb
-> 
-> {}
-> 
-> P0(int *x, int *y)
-> {
-> 	int r0;
-> 
-> 	WRITE_ONCE(*x, 1);
-> 	r0 = atomic_cmpxchg(y, 0, 0);
-> }
-> 
-> P1(int *x, int *y)
-> {
-> 	int r1;
-> 
-> 	WRITE_ONCE(*y, 1);
-> 	smp_mb();
-> 	r1 = READ_ONCE(*x);
-> }
-> 
-> exists (0:r0=0 /\ 1:r1=0)
-> 
-> This is yet another illustration showing that full fences are stronger 
-> than cominations of release + acquire.
-> 
-> Alan Stern
-> 
+Thanks!
