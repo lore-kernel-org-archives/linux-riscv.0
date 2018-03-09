@@ -1,46 +1,46 @@
-From: tglx@linutronix.de (Thomas Gleixner)
-Date: Fri, 9 Mar 2018 11:20:12 +0100 (CET)
-Subject: Make set_handle_irq and handle_arch_irq generic, v3
-In-Reply-To: <20180307235731.22627-1-palmer@sifive.com>
-References: <20180307235731.22627-1-palmer@sifive.com>
-Message-ID: <alpine.DEB.2.21.1803091113460.1364@nanos.tec.linutronix.de>
+From: parri.andrea@gmail.com (Andrea Parri)
+Date: Fri,  9 Mar 2018 13:12:39 +0100
+Subject: [PATCH v2 0/2] riscv/spinlock,atomic: Miscellaneous fixes
+Message-ID: <1520597559-16547-1-git-send-email-parri.andrea@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 7 Mar 2018, Palmer Dabbelt wrote:
+Hi,
 
-> This is my third version of this patch set, but the original cover
-> letter is still the most relevant description I can come up with.
-> 
->     This patch set has been sitting around for a while, but it got a bit lost
->     in the shuffle.  In RISC-V land we currently couple do_IRQ (the C entry
->     point for interrupt handling) to our first-level interrupt controller.
->     While this isn't completely crazy (as the first-level interrupt controller
->     is specified by the ISA), it is a bit awkward.
-> 
->     This patch set decouples our trap handler from our first-level IRQ chip
->     driver by copying what a handful of other architectures are doing.  This
->     does add an additional load to the interrupt handling path, but there's a
->     handful of performance problems in there that I've been meaning to look at
->     so I don't mind adding another one for now.  The advantage is that our
->     irqchip driver is decoupled from our arch port, at least at compile time.
-> 
-> I've build tested this with defconfigs on all the modified architectures
-> after both patch 1 and 5.  I've left the old acks in for the later
-> patches as the patch set has changed very little since I last submitted
-> it.
+The series is a follow-up on the discussion in [1], which led to the
+discovery of a few issues in the current implementations of RISC-V
+locking and atomic operations.
 
-This looks sensible. We have two options for getting this merged:
+In summary, this series proposes the following modifications:
 
-1)   I'll take the whole lot through tip/irq/core
+  1. Use lightweigth fences for acquire/release (locking, atomics)
 
-2)   I'll apply patch 1/N to a special branch in tip. That branch will contain
-     only this commit on top of 4.16-rc4 and can be pulled by the relevant
-     architecture maintainers, so they can apply their architecture specific
-     patches.
+  2. Use the combination of .rl and full fences for fully-ordered
+     atomics implemented with LR/SC pairs.
 
-Please let me know how you want to proceed.
+  3. A few style changes (80-chars lines, alignment).
 
-Thanks,
+Applies on top of "next-smp_sl_ar".
 
-	tglx
+Cheers,
+  Andrea
+
+Changes since v1 [2]:
+  - correct implementation of atomic_{xchg,cmpxchg}_release().
+
+[1] https://marc.info/?l=linux-kernel&m=151930201102853&w=2
+[2] https://marc.info/?l=linux-kernel&m=152027423529883&w=2
+
+Andrea Parri (2):
+  riscv/spinlock: Strengthen implementations with fences
+  riscv/atomic: Strengthen implementations with fences
+
+ arch/riscv/include/asm/atomic.h   | 417 ++++++++++++++++++++++++--------------
+ arch/riscv/include/asm/cmpxchg.h  | 391 ++++++++++++++++++++++++++++-------
+ arch/riscv/include/asm/fence.h    |  12 ++
+ arch/riscv/include/asm/spinlock.h |  29 +--
+ 4 files changed, 615 insertions(+), 234 deletions(-)
+ create mode 100644 arch/riscv/include/asm/fence.h
+
+-- 
+2.7.4
