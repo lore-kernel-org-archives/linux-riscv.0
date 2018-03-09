@@ -1,50 +1,57 @@
-From: andreyknvl@google.com (Andrey Konovalov)
-Date: Fri,  9 Mar 2018 15:02:03 +0100
-Subject: [RFC PATCH 5/6] lib,
- arm64: untag addrs passed to strncpy_from_user and strnlen_user
-In-Reply-To: <cover.1520600533.git.andreyknvl@google.com>
+From: arnd@arndb.de (Arnd Bergmann)
+Date: Fri, 9 Mar 2018 15:11:27 +0100
+Subject: [RFC PATCH 6/6] arch: add untagged_addr definition for other
+ arches
+In-Reply-To: <89b4bb181a0622d2c581699bb3814fc041078d04.1520600533.git.andreyknvl@google.com>
 References: <cover.1520600533.git.andreyknvl@google.com>
-Message-ID: <c515f67a6d94b2cfcac156bca0b9471203389d79.1520600533.git.andreyknvl@google.com>
+ <89b4bb181a0622d2c581699bb3814fc041078d04.1520600533.git.andreyknvl@google.com>
+Message-ID: <CAK8P3a0NZfxoxeJbrebBmZDqQhD9s12xpUwMoM-rZzH8aezuYA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-strncpy_from_user and strnlen_user accept user addresses as arguments, and
-do not go through the same path as copy_from_user and others, so here we
-need to separately handle the case of tagged user addresses as well.
+On Fri, Mar 9, 2018 at 3:02 PM, Andrey Konovalov <andreyknvl@google.com> wrote:
+> To allow arm64 syscalls accept tagged pointers from userspace, we must
+> untag them when they are passed to the kernel. Since untagging is done in
+> generic parts of the kernel (like the mm subsystem), the untagged_addr
+> macro should be defined for all architectures.
+>
+> Define it as a noop for all other architectures besides arm64.
+>
+> Signed-off-by: Andrey Konovalov <andreyknvl@google.com>
+> ---
+>  arch/alpha/include/asm/uaccess.h      | 2 ++
+>  arch/arc/include/asm/uaccess.h        | 1 +
+>  arch/arm/include/asm/uaccess.h        | 2 ++
+>  arch/blackfin/include/asm/uaccess.h   | 2 ++
+>  arch/c6x/include/asm/uaccess.h        | 2 ++
+>  arch/cris/include/asm/uaccess.h       | 2 ++
+>  arch/frv/include/asm/uaccess.h        | 2 ++
+>  arch/ia64/include/asm/uaccess.h       | 2 ++
+>  arch/m32r/include/asm/uaccess.h       | 2 ++
+>  arch/m68k/include/asm/uaccess.h       | 2 ++
+>  arch/metag/include/asm/uaccess.h      | 2 ++
+>  arch/microblaze/include/asm/uaccess.h | 2 ++
+>  arch/mips/include/asm/uaccess.h       | 2 ++
+>  arch/mn10300/include/asm/uaccess.h    | 2 ++
+>  arch/nios2/include/asm/uaccess.h      | 2 ++
+>  arch/openrisc/include/asm/uaccess.h   | 2 ++
+>  arch/parisc/include/asm/uaccess.h     | 2 ++
+>  arch/powerpc/include/asm/uaccess.h    | 2 ++
+>  arch/riscv/include/asm/uaccess.h      | 2 ++
+>  arch/score/include/asm/uaccess.h      | 2 ++
+>  arch/sh/include/asm/uaccess.h         | 2 ++
+>  arch/sparc/include/asm/uaccess.h      | 2 ++
+>  arch/tile/include/asm/uaccess.h       | 2 ++
+>  arch/x86/include/asm/uaccess.h        | 2 ++
+>  arch/xtensa/include/asm/uaccess.h     | 2 ++
+>  include/asm-generic/uaccess.h         | 2 ++
+>  26 files changed, 51 insertions(+)
 
-Untag user pointers passed to these functions.
+I have patches to remove the blackfin, cris, frv, m32r, metag, mn10300,
+score, tile and unicore32 architectures from the kernel, these should be
+part of linux-next in the next few days. It's not a big issue, but if you keep
+patching them, this will cause a merge conflict.
 
-Signed-off-by: Andrey Konovalov <andreyknvl@google.com>
----
- lib/strncpy_from_user.c | 2 ++
- lib/strnlen_user.c      | 2 ++
- 2 files changed, 4 insertions(+)
+It might be easier to drop them from your patch as well.
 
-diff --git a/lib/strncpy_from_user.c b/lib/strncpy_from_user.c
-index b53e1b5d80f4..97467cd2bc59 100644
---- a/lib/strncpy_from_user.c
-+++ b/lib/strncpy_from_user.c
-@@ -106,6 +106,8 @@ long strncpy_from_user(char *dst, const char __user *src, long count)
- 	if (unlikely(count <= 0))
- 		return 0;
- 
-+	src = untagged_addr(src);
-+
- 	max_addr = user_addr_max();
- 	src_addr = (unsigned long)src;
- 	if (likely(src_addr < max_addr)) {
-diff --git a/lib/strnlen_user.c b/lib/strnlen_user.c
-index 60d0bbda8f5e..8b5f56466e00 100644
---- a/lib/strnlen_user.c
-+++ b/lib/strnlen_user.c
-@@ -108,6 +108,8 @@ long strnlen_user(const char __user *str, long count)
- 	if (unlikely(count <= 0))
- 		return 0;
- 
-+	str = untagged_addr(str);
-+
- 	max_addr = user_addr_max();
- 	src_addr = (unsigned long)str;
- 	if (likely(src_addr < max_addr)) {
--- 
-2.16.2.395.g2e18187dfd-goog
+    Arnd
