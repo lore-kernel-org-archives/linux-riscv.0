@@ -1,33 +1,34 @@
-From: andreyknvl@google.com (Andrey Konovalov)
-Date: Fri, 9 Mar 2018 18:58:00 +0100
-Subject: [RFC PATCH 0/6] arm64: untag user pointers passed to the kernel
-In-Reply-To: <963e112a-88a0-94bc-e6eb-0e9f9a6ee14a@arm.com>
-References: <cover.1520600533.git.andreyknvl@google.com>
- <963e112a-88a0-94bc-e6eb-0e9f9a6ee14a@arm.com>
-Message-ID: <CAAeHK+xTEp-jcMDxNK4kCKcNtVbu4s4VXxzThsKMMFaTdBv0RQ@mail.gmail.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Fri, 09 Mar 2018 10:07:19 -0800 (PST)
+Subject: [RFC PATCH 1/2] riscv/spinlock: Strengthen implementations with
+ fences
+In-Reply-To: <20180309121643.GA16716@andrea>
+Message-ID: <mhng-e33a5770-5cf5-407d-b2f6-45af7c0b9ef8@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, Mar 9, 2018 at 3:15 PM, Robin Murphy <robin.murphy@arm.com> wrote:
-> Hi Andrey,
->
-> On 09/03/18 14:01, Andrey Konovalov wrote:
+On Fri, 09 Mar 2018 04:16:43 PST (-0800), parri.andrea at gmail.com wrote:
+> On Thu, Mar 08, 2018 at 02:11:12PM -0800, Palmer Dabbelt wrote:
+>> On Thu, 08 Mar 2018 13:03:03 PST (-0800), parri.andrea at gmail.com wrote:
+>> >On Wed, Mar 07, 2018 at 10:33:49AM -0800, Palmer Dabbelt wrote:
+>> >
+>> >[...]
+>> >
+>> >>I'm going to go produce a new set of spinlocks, I think it'll be a bit more
+>> >>coherent then.
+>> >>
+>> >>I'm keeping your other patch in my queue for now, it generally looks good
+>> >>but I haven't looked closely yet.
+>> >
+>> >Patches 1 and 2 address a same issue ("release-to-acquire"); this is also
+>> >expressed, more or less explicitly, in the corresponding commit messages:
+>> >it might make sense to "queue" them together, and to build the new locks
+>> >on top of these (even if this meant "rewrite all of/a large portion of
+>> >spinlock.h"...).
 >>
->> arm64 has a feature called Top Byte Ignore, which allows to embed pointer
->> tags into the top byte of each pointer. Userspace programs (such as
->> HWASan, a memory debugging tool [1]) might use this feature and pass
->> tagged user pointers to the kernel through syscalls or other interfaces.
+>> I agree.  IIRC you had a fixup to the first pair of patches, can you submit
+>> a v2?
 >
->
-> If you propose changing the ABI, then
-> Documentation/arm64/tagged-pointers.txt needs to reflect the new one, since
-> passing nonzero tags via syscalls is currently explicitly forbidden.
->
-> Robin.
-
-Hi Robin!
-
-I will include changes to Documentation/arm64/tagged-pointers.txt in
-the next version.
+> I've just sent it (with updated changelog).
 
 Thanks!
