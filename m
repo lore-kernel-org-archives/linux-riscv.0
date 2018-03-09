@@ -1,34 +1,81 @@
 From: andreyknvl@google.com (Andrey Konovalov)
-Date: Fri,  9 Mar 2018 15:01:59 +0100
-Subject: [RFC PATCH 1/6] arm64: add type casts to untagged_addr macro
+Date: Fri,  9 Mar 2018 15:02:02 +0100
+Subject: [RFC PATCH 4/6] mm, arm64: untag user addresses in mm/gup.c
 In-Reply-To: <cover.1520600533.git.andreyknvl@google.com>
 References: <cover.1520600533.git.andreyknvl@google.com>
-Message-ID: <d551b78b854d391f26cb33db12c82ca650a8cebf.1520600533.git.andreyknvl@google.com>
+Message-ID: <becebff594deda3a5881e64a21bf405f030991ad.1520600533.git.andreyknvl@google.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This patch makes the untagged_addr macro accept all kinds of address types
-(void *, unsigned long, etc.) and allows not to specify type casts in each
-place where it is used. This is done by using __typeof__.
+mm/gup.c provides a kernel interface that accepts user addresses and
+manipulates user pages directly (for example get_user_pages, that is used
+by the futex syscall). Here we also need to handle the case of tagged user
+pointers.
+
+Untag addresses passed to this interface.
 
 Signed-off-by: Andrey Konovalov <andreyknvl@google.com>
 ---
- arch/arm64/include/asm/uaccess.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ mm/gup.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
-index e66b0fca99c2..2d6451cbaa86 100644
---- a/arch/arm64/include/asm/uaccess.h
-+++ b/arch/arm64/include/asm/uaccess.h
-@@ -102,7 +102,8 @@ static inline unsigned long __range_ok(const void __user *addr, unsigned long si
-  * up with a tagged userland pointer. Clear the tag to get a sane pointer to
-  * pass on to access_ok(), for instance.
-  */
--#define untagged_addr(addr)		sign_extend64(addr, 55)
-+#define untagged_addr(addr)		\
-+	((__typeof__(addr))sign_extend64((__u64)(addr), 55))
+diff --git a/mm/gup.c b/mm/gup.c
+index 1b46e6e74881..4d820c4792d7 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -386,6 +386,8 @@ struct page *follow_page_mask(struct vm_area_struct *vma,
+ 	struct page *page;
+ 	struct mm_struct *mm = vma->vm_mm;
  
- #define access_ok(type, addr, size)	__range_ok(addr, size)
- #define user_addr_max			get_fs
++	address = untagged_addr(address);
++
+ 	*page_mask = 0;
+ 
+ 	/* make this handle hugepd */
+@@ -647,6 +649,8 @@ static long __get_user_pages(struct task_struct *tsk, struct mm_struct *mm,
+ 	if (!nr_pages)
+ 		return 0;
+ 
++	start = untagged_addr(start);
++
+ 	VM_BUG_ON(!!pages != !!(gup_flags & FOLL_GET));
+ 
+ 	/*
+@@ -801,6 +805,8 @@ int fixup_user_fault(struct task_struct *tsk, struct mm_struct *mm,
+ 	struct vm_area_struct *vma;
+ 	int ret, major = 0;
+ 
++	address = untagged_addr(address);
++
+ 	if (unlocked)
+ 		fault_flags |= FAULT_FLAG_ALLOW_RETRY;
+ 
+@@ -854,6 +860,8 @@ static __always_inline long __get_user_pages_locked(struct task_struct *tsk,
+ 	long ret, pages_done;
+ 	bool lock_dropped;
+ 
++	start = untagged_addr(start);
++
+ 	if (locked) {
+ 		/* if VM_FAULT_RETRY can be returned, vmas become invalid */
+ 		BUG_ON(vmas);
+@@ -1746,6 +1754,8 @@ int __get_user_pages_fast(unsigned long start, int nr_pages, int write,
+ 	unsigned long flags;
+ 	int nr = 0;
+ 
++	start = untagged_addr(start);
++
+ 	start &= PAGE_MASK;
+ 	addr = start;
+ 	len = (unsigned long) nr_pages << PAGE_SHIFT;
+@@ -1798,6 +1808,8 @@ int get_user_pages_fast(unsigned long start, int nr_pages, int write,
+ 	unsigned long addr, len, end;
+ 	int nr = 0, ret = 0;
+ 
++	start = untagged_addr(start);
++
+ 	start &= PAGE_MASK;
+ 	addr = start;
+ 	len = (unsigned long) nr_pages << PAGE_SHIFT;
 -- 
 2.16.2.395.g2e18187dfd-goog
