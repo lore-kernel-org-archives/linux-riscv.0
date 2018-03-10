@@ -1,49 +1,129 @@
-From: tglx@linutronix.de (Thomas Gleixner)
-Date: Sat, 10 Mar 2018 00:00:56 +0100 (CET)
-Subject: Make set_handle_irq and handle_arch_irq generic, v3
-In-Reply-To: <mhng-df44504d-acc2-4ef9-9660-9959298ae26c@palmer-si-x1c4>
-References: <mhng-df44504d-acc2-4ef9-9660-9959298ae26c@palmer-si-x1c4>
-Message-ID: <alpine.DEB.2.21.1803092358120.1570@nanos.tec.linutronix.de>
+From: dlustig@nvidia.com (Daniel Lustig)
+Date: Fri, 9 Mar 2018 16:21:37 -0800
+Subject: [PATCH v2 2/2] riscv/atomic: Strengthen implementations with
+ fences
+In-Reply-To: <mhng-a5cc1e9d-00d5-49e7-8acd-173277f28381@palmer-si-x1c4>
+References: <mhng-a5cc1e9d-00d5-49e7-8acd-173277f28381@palmer-si-x1c4>
+Message-ID: <d7f08bbb-3afb-b745-640a-b720971c68d4@nvidia.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, 9 Mar 2018, Palmer Dabbelt wrote:
-> On Fri, 09 Mar 2018 02:20:12 PST (-0800), tglx at linutronix.de wrote:
-> > This looks sensible. We have two options for getting this merged:
-> > 
-> > 1)   I'll take the whole lot through tip/irq/core
-> > 
-> > 2)   I'll apply patch 1/N to a special branch in tip. That branch will
-> > contain
-> >      only this commit on top of 4.16-rc4 and can be pulled by the relevant
-> >      architecture maintainers, so they can apply their architecture specific
-> >      patches.
+On 3/9/2018 2:57 PM, Palmer Dabbelt wrote:
+> On Fri, 09 Mar 2018 13:30:08 PST (-0800), parri.andrea at gmail.com wrote:
+>> On Fri, Mar 09, 2018 at 10:54:27AM -0800, Palmer Dabbelt wrote:
+>>> On Fri, 09 Mar 2018 10:36:44 PST (-0800), parri.andrea at gmail.com wrote:
+>>
+>> [...]
+>>
+>>> >This proposal relies on the generic definition,
+>>> >
+>>> >?? include/linux/atomic.h ,
+>>> >
+>>> >and on the
+>>> >
+>>> >?? __atomic_op_acquire()
+>>> >?? __atomic_op_release()
+>>> >
+>>> >above to build the acquire/release atomics (except for the xchg,cmpxchg,
+>>> >where the ACQUIRE_BARRIER is inserted conditionally/on success).
+>>>
+>>> I thought we wanted to use the AQ and RL bits for AMOs, just not for LR/SC
+>>> sequences.? IIRC the AMOs are safe with the current memory model, but I might
+>>> just have some version mismatches in my head.
+>>
+>> AMO.aqrl are "safe" w.r.t. the LKMM (as they provide "full-ordering"); OTOH,
+>> AMO.aq and AMO.rl present weaknesses that LKMM (and some kernel developers)
+>> do not "expect".? I was probing this issue in:
+>>
+>> ? https://marc.info/?l=linux-kernel&m=151930201102853&w=2
+>>
+>> (c.f., e.g., test "RISCV-unlock-lock-read-ordering" from that post).
+>>
+>> Quoting from the commit message of my patch 1/2:
+>>
+>> ? "Referring to the "unlock-lock-read-ordering" test reported below,
+>> ?? Daniel wrote:
+>>
+>> ???? I think an RCpc interpretation of .aq and .rl would in fact
+>> ???? allow the two normal loads in P1 to be reordered [...]
+>>
+>> ???? [...]
+>>
+>> ???? Likewise even if the unlock()/lock() is between two stores.
+>> ???? A control dependency might originate from the load part of
+>> ???? the amoswap.w.aq, but there still would have to be something
+>> ???? to ensure that this load part in fact performs after the store
+>> ???? part of the amoswap.w.rl performs globally, and that's not
+>> ???? automatic under RCpc.
+>>
+>> ?? Simulation of the RISC-V memory consistency model confirmed this
+>> ?? expectation."
+>>
+>> I have just (re)checked these observations against the latest specification,
+>> and my results _confirmed_ these verdicts.
 > 
-> Option 1 seems like the lowest overhead, as that way we don't need to sequence
-> the patches between multiple trees.  If all the other arch maintianers are OK
-> with it then that works for me.
+> Thanks, I must have just gotten confused about a draft spec or something.? I'm
+> pulling these on top or your other memory model related patch.? I've renamed
+> the branch "next-mm" to be a bit more descriptiove.
 
-Ok, I wait for someone to yell NO until tuesday. If that doesn't happen I
-pick it up.
+(Sorry for being out of the loop this week, I was out to deal with
+a family matter.)
 
-> The 0-day robot found a new build warning on openrisc.  I was plannning
-> on submitting a v4 with this fix in it
->
->    diff --git a/arch/openrisc/include/asm/irq.h
-> b/arch/openrisc/include/asm/irq.h
->    index d9eee0a2b7b4..eb612b1865d2 100644
->    --- a/arch/openrisc/include/asm/irq.h
->    +++ b/arch/openrisc/include/asm/irq.h
->    @@ -24,6 +24,4 @@
->        #define NO_IRQ         (-1)
->       -extern void set_handle_irq(void (*handle_irq)(struct pt_regs *));
->    -
->     #endif /* __ASM_OPENRISC_IRQ_H__ */
+I assume you're using the herd model?  Luc's doing a great job with
+that, but even so, nothing is officially confirmed until we ratify
+the model.  In other words, the herd model may end up changing too.
+If something is broken on our end, there's still time to fix it.
+
+Regarding AMOs, let me copy from something I wrote in a previous
+offline conversation:
+
+> it seems to us that pairing a store-release of "amoswap.rl" with
+> a "ld; fence r,rw" doesn't actually give us the RC semantics we've
+> been discussing for LKMM.  For example:
 > 
-> I can submit a v4, or you can just grab it from
+> (a) sd t0,0(s0)
+> (b) amoswap.d.rl x0,t1,0(s1)
+>     ...
+> (c) ld a0,0(s1)
+> (d) fence r,rw
+> (e) sd t2,0(s2)
+> 
+> There, we won't get (a) ordered before (e) regardless of whether
+> (b) is RCpc or RCsc.  Do you agree?
 
-Just reply on the v3 openrisc patch with a v4 and I grab it from there.
+At the moment, only the load part of (b) is in the predecessor
+set of (d), but the store part of (b) is not.  Likewise, the
+.rl annotation applies only to the store part of (b), not the
+load part.
+
+This gets back to a question Linus asked last week about
+whether the AMO is a single unit or whether it can be
+considered to split into a load and a store part (which still
+perform atomically).  For RISC-V, for right now at least, the
+answer is the latter.  Is it still the latter for Linux too?
+
+https://lkml.org/lkml/2018/2/26/606
+
+> So I think we'll need to make sure we pair .rl with .aq, or that
+> we pair fence-based mappings with fence-based mappings, in order
+> to make the acquire/release operations work.
+
+This assumes we'll say that .aq and .rl are RCsc, not RCpc.
+But in this case, I think .aq and .rl could still be safe to use,
+as long as you don't ever try to mix in a fence-based mapping
+on the same data structure like in the example above.  That
+might be important if we want to find the most compact legal
+implementation, and hence do want to use .aq and .rl after all.
+
+> And since we don't have native "ld.aq" today in RISC-V, that
+> would mean smp_store_release would have to remain implemented
+> as "fence rw,w; s{w|d}", rather than "amoswap.{w|d}.rl", for
+> example.
+
+Thoughts?
 
 Thanks,
+Dan
 
-	tglx
+> 
+> Thanks!
