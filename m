@@ -1,11 +1,11 @@
-From: parri.andrea@gmail.com (Andrea Parri)
-Date: Sat, 10 Mar 2018 15:18:23 +0100
+From: boqun.feng@gmail.com (Boqun Feng)
+Date: Mon, 12 Mar 2018 14:13:53 +0800
 Subject: [PATCH v2 2/2] riscv/atomic: Strengthen implementations with
  fences
 In-Reply-To: <d7f08bbb-3afb-b745-640a-b720971c68d4@nvidia.com>
 References: <mhng-a5cc1e9d-00d5-49e7-8acd-173277f28381@palmer-si-x1c4>
  <d7f08bbb-3afb-b745-640a-b720971c68d4@nvidia.com>
-Message-ID: <20180310141823.GA5420@andrea>
+Message-ID: <20180312061353.g3czcr4fcdgct36a@tardis>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
@@ -75,19 +75,6 @@ On Fri, Mar 09, 2018 at 04:21:37PM -0800, Daniel Lustig wrote:
 > that, but even so, nothing is officially confirmed until we ratify
 > the model.  In other words, the herd model may end up changing too.
 > If something is broken on our end, there's still time to fix it.
-
-No need to say :) if you look back at the LKMM as from 2 years ago or as
-presented last year in LWN, you won't recognize it as such ;-)  Spec. do
-change/evolve, and so do implementations: if ratifications of the RISC-V
-memory model (or of the LKMM) will enable optimizations/modifications to
-these implementations (while preserving correctness), I'll be glad to do
-or to help with them.
-
-To answer your question: I used both the herd-based model from INRIA and
-the operational model from the group in Cambridge (these are referred to
-in the currently available RISC-V spec.).
-
-
 > 
 > Regarding AMOs, let me copy from something I wrote in a previous
 > offline conversation:
@@ -110,25 +97,25 @@ in the currently available RISC-V spec.).
 > set of (d), but the store part of (b) is not.  Likewise, the
 > .rl annotation applies only to the store part of (b), not the
 > load part.
-
-Indeed.  (If you want, this is one reason why, with these patches, ".rl"
-and "fence r,rw" are never "mixed" as in your snipped above unless there
-is also a "fence rw,rw" in between.)
-
-
 > 
 > This gets back to a question Linus asked last week about
 > whether the AMO is a single unit or whether it can be
+
+You mean AMO or RmW atomic operations?
+
 > considered to split into a load and a store part (which still
 > perform atomically).  For RISC-V, for right now at least, the
 > answer is the latter.  Is it still the latter for Linux too?
-
-Yes: (successful) atomic RMWs all generate (at least) one load event and
-one store event in LKMM.  (This same approach is taken by other hardware
-models as well...)
-
-
 > 
+
+I think for RmW atomics it's still the latter, the acquire or release is
+for the load part or the store part of an RmW. For example, ppc uses
+lwsync as acquire/release barriers, and lwsync could not order
+write->read. 
+
+Regards,
+Boqun
+
 > https://lkml.org/lkml/2018/2/26/606
 > 
 > > So I think we'll need to make sure we pair .rl with .aq, or that
@@ -146,13 +133,6 @@ models as well...)
 > > would mean smp_store_release would have to remain implemented
 > > as "fence rw,w; s{w|d}", rather than "amoswap.{w|d}.rl", for
 > > example.
-
-And these seem to be further valid/strong arguments for these patches ;)
-(independently of how you'll end up ratifying .aq and .rl).
-
-  Andrea
-
-
 > 
 > Thoughts?
 > 
@@ -161,3 +141,10 @@ And these seem to be further valid/strong arguments for these patches ;)
 > 
 > > 
 > > Thanks!
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 488 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180312/6e1d463f/attachment.sig>
