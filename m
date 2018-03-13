@@ -1,156 +1,74 @@
-From: luc.maranget@inria.fr (Luc Maranget)
-Date: Tue, 13 Mar 2018 14:27:16 +0100
-Subject: [PATCH v2 2/2] riscv/atomic: Strengthen implementations with
- fences
-In-Reply-To: <20180312061353.g3czcr4fcdgct36a@tardis>
-References: <mhng-a5cc1e9d-00d5-49e7-8acd-173277f28381@palmer-si-x1c4>
- <d7f08bbb-3afb-b745-640a-b720971c68d4@nvidia.com>
- <20180312061353.g3czcr4fcdgct36a@tardis>
-Message-ID: <20180313132716.tjtgjtsax5vfnvtn@yquem.inria.fr>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Tue, 13 Mar 2018 11:35:54 -0700 (PDT)
+Subject: [PATCH 00/11] RISC-V: Resolve the issue of loadable module on
+ 64-bit
+In-Reply-To: <cover.1520928420.git.zong@andestech.com>
+Message-ID: <mhng-dcc790fc-8fd7-41c8-84c8-cc4b8bd662ea@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-> On Fri, Mar 09, 2018 at 04:21:37PM -0800, Daniel Lustig wrote:
-> > On 3/9/2018 2:57 PM, Palmer Dabbelt wrote:
-> > > On Fri, 09 Mar 2018 13:30:08 PST (-0800), parri.andrea at gmail.com wrote:
-> > >> On Fri, Mar 09, 2018 at 10:54:27AM -0800, Palmer Dabbelt wrote:
-> > >>> On Fri, 09 Mar 2018 10:36:44 PST (-0800), parri.andrea at gmail.com wrote:
-> > >>
-> > >> [...]
-> > >>
-> > >>> >This proposal relies on the generic definition,
-> > >>> >
-> > >>> >?? include/linux/atomic.h ,
-> > >>> >
-> > >>> >and on the
-> > >>> >
-> > >>> >?? __atomic_op_acquire()
-> > >>> >?? __atomic_op_release()
-> > >>> >
-> > >>> >above to build the acquire/release atomics (except for the xchg,cmpxchg,
-> > >>> >where the ACQUIRE_BARRIER is inserted conditionally/on success).
-> > >>>
-> > >>> I thought we wanted to use the AQ and RL bits for AMOs, just not for LR/SC
-> > >>> sequences.? IIRC the AMOs are safe with the current memory model, but I might
-> > >>> just have some version mismatches in my head.
-> > >>
-> > >> AMO.aqrl are "safe" w.r.t. the LKMM (as they provide "full-ordering"); OTOH,
-> > >> AMO.aq and AMO.rl present weaknesses that LKMM (and some kernel developers)
-> > >> do not "expect".? I was probing this issue in:
-> > >>
-> > >> ? https://marc.info/?l=linux-kernel&m=151930201102853&w=2
-> > >>
-> > >> (c.f., e.g., test "RISCV-unlock-lock-read-ordering" from that post).
-> > >>
-> > >> Quoting from the commit message of my patch 1/2:
-> > >>
-> > >> ? "Referring to the "unlock-lock-read-ordering" test reported below,
-> > >> ?? Daniel wrote:
-> > >>
-> > >> ???? I think an RCpc interpretation of .aq and .rl would in fact
-> > >> ???? allow the two normal loads in P1 to be reordered [...]
-> > >>
-> > >> ???? [...]
-> > >>
-> > >> ???? Likewise even if the unlock()/lock() is between two stores.
-> > >> ???? A control dependency might originate from the load part of
-> > >> ???? the amoswap.w.aq, but there still would have to be something
-> > >> ???? to ensure that this load part in fact performs after the store
-> > >> ???? part of the amoswap.w.rl performs globally, and that's not
-> > >> ???? automatic under RCpc.
-> > >>
-> > >> ?? Simulation of the RISC-V memory consistency model confirmed this
-> > >> ?? expectation."
-> > >>
-> > >> I have just (re)checked these observations against the latest specification,
-> > >> and my results _confirmed_ these verdicts.
-> > > 
-> > > Thanks, I must have just gotten confused about a draft spec or something.? I'm
-> > > pulling these on top or your other memory model related patch.? I've renamed
-> > > the branch "next-mm" to be a bit more descriptiove.
-> > 
-> > (Sorry for being out of the loop this week, I was out to deal with
-> > a family matter.)
-> > 
-> > I assume you're using the herd model?  Luc's doing a great job with
-> > that, but even so, nothing is officially confirmed until we ratify
-> > the model.  In other words, the herd model may end up changing too.
-> > If something is broken on our end, there's still time to fix it.
-> > 
-> > Regarding AMOs, let me copy from something I wrote in a previous
-> > offline conversation:
-> > 
-> > > it seems to us that pairing a store-release of "amoswap.rl" with
-> > > a "ld; fence r,rw" doesn't actually give us the RC semantics we've
-> > > been discussing for LKMM.  For example:
-> > > 
-> > > (a) sd t0,0(s0)
-> > > (b) amoswap.d.rl x0,t1,0(s1)
-> > >     ...
-> > > (c) ld a0,0(s1)
-> > > (d) fence r,rw
-> > > (e) sd t2,0(s2)
-> > > 
-> > > There, we won't get (a) ordered before (e) regardless of whether
-> > > (b) is RCpc or RCsc.  Do you agree?
-> > 
-> > At the moment, only the load part of (b) is in the predecessor
-> > set of (d), but the store part of (b) is not.  Likewise, the
-> > .rl annotation applies only to the store part of (b), not the
-> > load part.
-> > 
-> > This gets back to a question Linus asked last week about
-> > whether the AMO is a single unit or whether it can be
-> 
-> You mean AMO or RmW atomic operations?
-> 
-> > considered to split into a load and a store part (which still
-> > perform atomically).  For RISC-V, for right now at least, the
-> > answer is the latter.  Is it still the latter for Linux too?
-> > 
-> 
-> I think for RmW atomics it's still the latter, the acquire or release is
-> for the load part or the store part of an RmW. For example, ppc uses
-> lwsync as acquire/release barriers, and lwsync could not order
-> write->read. 
+On Tue, 13 Mar 2018 01:35:05 PDT (-0700), zong at andestech.com wrote:
+> These patches resolve the some issues of loadable module.
+>   - symbol out of ranges
+>   - unknown relocation types
+>
+> The reference of external variable and function symbols
+> cannot exceed 32-bit offset ranges in kernel module.
+> The module only can work on the 32-bit OS or the 64-bit
+> OS with sv32 virtual addressing.
+>
+> These patches will generate the .got, .got.plt and
+> .plt sections during loading module, let it can refer
+> to the symbol which locate more than 32-bit offset.
+> These sections depend on the relocation types:
+>  - R_RISCV_GOT_HI20
+>  - R_RISCV_CALL_PLT
+>
+> These patches also support more relocation types
+>  - R_RISCV_CALL
+>  - R_RISCV_HI20
+>  - R_RISCV_LO12_I
+>  - R_RISCV_LO12_S
+>  - R_RISCV_RVC_BRANCH
+>  - R_RISCV_RVC_JUMP
+>  - R_RISCV_ALIGN
+>  - R_RISCV_ADD32
+>  - R_RISCV_SUB32
+>
+> Zong Li (11):
+>   RISC-V: Add sections of PLT and GOT for kernel module
+>   RISC-V: Add section of GOT.PLT for kernel module
+>   RISC-V: Support GOT_HI20/CALL_PLT relocation type in kernel module
+>   RISC-V: Support CALL relocation type in kernel module
+>   RISC-V: Support HI20/LO12_I/LO12_S relocation type in kernel module
+>   RISC-V: Support RVC_BRANCH/JUMP relocation type in kernel modulewq
+>   RISC-V: Support ALIGN relocation type in kernel module
+>   RISC-V: Support ADD32 relocation type in kernel module
+>   RISC-V: Support SUB32 relocation type in kernel module
+>   RISC-V: Enable module support in defconfig
+>   RISC-V: Add definition of relocation types
+>
+>  arch/riscv/Kconfig                  |   5 ++
+>  arch/riscv/Makefile                 |   3 +
+>  arch/riscv/configs/defconfig        |   2 +
+>  arch/riscv/include/asm/module.h     | 112 +++++++++++++++++++++++
+>  arch/riscv/include/uapi/asm/elf.h   |  24 +++++
+>  arch/riscv/kernel/Makefile          |   1 +
+>  arch/riscv/kernel/module-sections.c | 156 ++++++++++++++++++++++++++++++++
+>  arch/riscv/kernel/module.c          | 175 ++++++++++++++++++++++++++++++++++--
+>  arch/riscv/kernel/module.lds        |   8 ++
+>  9 files changed, 480 insertions(+), 6 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/module.h
+>  create mode 100644 arch/riscv/kernel/module-sections.c
+>  create mode 100644 arch/riscv/kernel/module.lds
 
-You are correct LKMM represent read-modify-write constructs with 2 events,
-one read and one write. Those are connected by the special "rmw" relation.
+This is the second set of patches that turn on modules, and it has the same
+R_RISCV_ALIGN problem as the other one
 
+    http://lists.infradead.org/pipermail/linux-riscv/2018-February/000081.html
 
-
-> 
-> Regards,
-> Boqun
-
-Regards,
-
---Luc
-
-
-> 
-> > https://lkml.org/lkml/2018/2/26/606
-> > 
-> > > So I think we'll need to make sure we pair .rl with .aq, or that
-> > > we pair fence-based mappings with fence-based mappings, in order
-> > > to make the acquire/release operations work.
-> > 
-> > This assumes we'll say that .aq and .rl are RCsc, not RCpc.
-> > But in this case, I think .aq and .rl could still be safe to use,
-> > as long as you don't ever try to mix in a fence-based mapping
-> > on the same data structure like in the example above.  That
-> > might be important if we want to find the most compact legal
-> > implementation, and hence do want to use .aq and .rl after all.
-> > 
-> > > And since we don't have native "ld.aq" today in RISC-V, that
-> > > would mean smp_store_release would have to remain implemented
-> > > as "fence rw,w; s{w|d}", rather than "amoswap.{w|d}.rl", for
-> > > example.
-> > 
-> > Thoughts?
-> > 
-> > Thanks,
-> > Dan
-> > 
-> > > 
-> > > Thanks!
+It looks like this one uses shared libraries for modules instead of static
+objects.  I think using shared objects is the right thing to do, as it'll allow
+us to place modules anywhere in the address space by having multiple GOTs and
+PLTs.  That's kind of complicated, though, so we can start with something
+simpler like this.
