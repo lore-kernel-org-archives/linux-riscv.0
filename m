@@ -1,13 +1,36 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 13 Mar 2018 11:35:54 -0700 (PDT)
+From: shea@shealevy.com (Shea Levy)
+Date: Tue, 13 Mar 2018 17:26:01 -0400
 Subject: [PATCH 00/11] RISC-V: Resolve the issue of loadable module on
  64-bit
 In-Reply-To: <cover.1520928420.git.zong@andestech.com>
-Message-ID: <mhng-dcc790fc-8fd7-41c8-84c8-cc4b8bd662ea@palmer-si-x1c4>
+References: <cover.1520928420.git.zong@andestech.com>
+Message-ID: <87vadzzmza.fsf@xps13.shealevy.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 13 Mar 2018 01:35:05 PDT (-0700), zong at andestech.com wrote:
+Hello!
+
+You may be interested in my recent patchset [1], which has known issues
+but addresses the same problems yours does. It differs in the approach
+taken here in that, rather than supporting GOT/PLT handling which we
+can't really take advantage of anyway, we simply build non-PIC modules
+instead [2]. Additionally, I see your patchset has the same concern mine
+does, which is that ignoring ALIGN relaxations is not actually an option
+[3]. The approach I plan to take is outlined by Palmer at [4].
+
+As of now I hope to get back to my patchset this weekend, but if you're
+close to a complete implementation by then maybe I can avoid duplicating
+the work ;)
+
+Thanks,
+Shea
+
+[1]: http://lists.infradead.org/pipermail/linux-riscv/2018-February/000081.html
+[2]: http://lists.infradead.org/pipermail/linux-riscv/2018-February/000080.html
+[3]: http://lists.infradead.org/pipermail/linux-riscv/2018-February/000105.html
+[4]: http://lists.infradead.org/pipermail/linux-riscv/2018-March/000147.html
+Zong Li <zong@andestech.com> writes:
+
 > These patches resolve the some issues of loadable module.
 >   - symbol out of ranges
 >   - unknown relocation types
@@ -61,14 +84,19 @@ On Tue, 13 Mar 2018 01:35:05 PDT (-0700), zong at andestech.com wrote:
 >  create mode 100644 arch/riscv/include/asm/module.h
 >  create mode 100644 arch/riscv/kernel/module-sections.c
 >  create mode 100644 arch/riscv/kernel/module.lds
-
-This is the second set of patches that turn on modules, and it has the same
-R_RISCV_ALIGN problem as the other one
-
-    http://lists.infradead.org/pipermail/linux-riscv/2018-February/000081.html
-
-It looks like this one uses shared libraries for modules instead of static
-objects.  I think using shared objects is the right thing to do, as it'll allow
-us to place modules anywhere in the address space by having multiple GOTs and
-PLTs.  That's kind of complicated, though, so we can start with something
-simpler like this.
+>
+> -- 
+> 2.16.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv at lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180313/634eefc4/attachment.sig>
