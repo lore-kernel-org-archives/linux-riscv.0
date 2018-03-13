@@ -1,53 +1,63 @@
-From: mdf@kernel.org (Moritz Fischer)
-Date: Mon, 12 Mar 2018 20:26:09 -0700
-Subject: [RFC/PATCH] risc-v: Fix issue ignoring CONFIG_CMDLINE_OVERRIDE
-Message-ID: <20180313032609.405-1-mdf@kernel.org>
+From: zong@andestech.com (Zong Li)
+Date: Tue, 13 Mar 2018 16:35:05 +0800
+Subject: [PATCH 00/11] RISC-V: Resolve the issue of loadable module on 64-bit
+Message-ID: <cover.1520928420.git.zong@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Fix issue where CONFIG_CMDLINE_OVERRIDE is being
-ignored.
+These patches resolve the some issues of loadable module.
+  - symbol out of ranges
+  - unknown relocation types
 
-Signed-off-by: Trung Tran <trung.tran@ettus.com>
-Signed-off-by: Moritz Fischer <mdf@kernel.org>
----
+The reference of external variable and function symbols
+cannot exceed 32-bit offset ranges in kernel module.
+The module only can work on the 32-bit OS or the 64-bit
+OS with sv32 virtual addressing.
 
-Hi all,
+These patches will generate the .got, .got.plt and
+.plt sections during loading module, let it can refer
+to the symbol which locate more than 32-bit offset.
+These sections depend on the relocation types:
+ - R_RISCV_GOT_HI20
+ - R_RISCV_CALL_PLT
 
-not sure this is the right fix, hopefully someone
-can chime in and come up with the correct solution.
+These patches also support more relocation types
+ - R_RISCV_CALL
+ - R_RISCV_HI20
+ - R_RISCV_LO12_I
+ - R_RISCV_LO12_S
+ - R_RISCV_RVC_BRANCH
+ - R_RISCV_RVC_JUMP
+ - R_RISCV_ALIGN
+ - R_RISCV_ADD32
+ - R_RISCV_SUB32
 
-Thanks,
+Zong Li (11):
+  RISC-V: Add sections of PLT and GOT for kernel module
+  RISC-V: Add section of GOT.PLT for kernel module
+  RISC-V: Support GOT_HI20/CALL_PLT relocation type in kernel module
+  RISC-V: Support CALL relocation type in kernel module
+  RISC-V: Support HI20/LO12_I/LO12_S relocation type in kernel module
+  RISC-V: Support RVC_BRANCH/JUMP relocation type in kernel modulewq
+  RISC-V: Support ALIGN relocation type in kernel module
+  RISC-V: Support ADD32 relocation type in kernel module
+  RISC-V: Support SUB32 relocation type in kernel module
+  RISC-V: Enable module support in defconfig
+  RISC-V: Add definition of relocation types
 
-Moritz
----
- arch/riscv/kernel/setup.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/riscv/Kconfig                  |   5 ++
+ arch/riscv/Makefile                 |   3 +
+ arch/riscv/configs/defconfig        |   2 +
+ arch/riscv/include/asm/module.h     | 112 +++++++++++++++++++++++
+ arch/riscv/include/uapi/asm/elf.h   |  24 +++++
+ arch/riscv/kernel/Makefile          |   1 +
+ arch/riscv/kernel/module-sections.c | 156 ++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/module.c          | 175 ++++++++++++++++++++++++++++++++++--
+ arch/riscv/kernel/module.lds        |   8 ++
+ 9 files changed, 480 insertions(+), 6 deletions(-)
+ create mode 100644 arch/riscv/include/asm/module.h
+ create mode 100644 arch/riscv/kernel/module-sections.c
+ create mode 100644 arch/riscv/kernel/module.lds
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 09f7064e898c..e24191a0c244 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -38,6 +38,8 @@
- #include <asm/tlbflush.h>
- #include <asm/thread_info.h>
- 
-+static char default_command_line[COMMAND_LINE_SIZE] __initdata = CONFIG_CMDLINE;
-+
- #ifdef CONFIG_DUMMY_CONSOLE
- struct screen_info screen_info = {
- 	.orig_video_lines	= 30,
-@@ -194,7 +196,11 @@ static void __init setup_bootmem(void)
- 
- void __init setup_arch(char **cmdline_p)
- {
-+#if defined(CONFIG_CMDLINE_OVERRIDE)
-+	*cmdline_p = default_command_line;
-+#else
- 	*cmdline_p = boot_command_line;
-+#endif
- 
- 	parse_early_param();
- 
 -- 
-2.16.2
+2.16.1
