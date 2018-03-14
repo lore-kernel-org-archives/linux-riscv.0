@@ -1,48 +1,142 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 14 Mar 2018 09:41:43 -0700
-Subject: [PATCH] RISC-V: Rename CONFIG_CMDLINE_OVERRIDE to CONFIG_CMDLINE_FORCE
-Message-ID: <20180314164143.11898-1-palmer@sifive.com>
+Date: Wed, 14 Mar 2018 10:07:49 -0700 (PDT)
+Subject: [PATCH 00/11] RISC-V: Resolve the issue of loadable module on
+ 64-bit
+In-Reply-To: <87o9jqzxcp.fsf@xps13.shealevy.com>
+Message-ID: <mhng-a918ba24-716d-47ae-8f33-4c7ec85cf11a@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The device tree code looks for CONFIG_CMDLINE_FORCE, but we were using
-CONFIG_CMDLINE_OVERRIDE.  It looks like this was just a hold over from
-before our device tree conversion -- in fact, we'd already removed the
-support for CONFIG_CMDLINE_OVERRIDE from our arch-specific code so it
-didn't even work any more.
+On Wed, 14 Mar 2018 04:54:14 PDT (-0700), shea at shealevy.com wrote:
+> Palmer Dabbelt <palmer@sifive.com> writes:
+>
+>> On Tue, 13 Mar 2018 18:34:19 PDT (-0700), zongbox at gmail.com wrote:
+>>> 2018-03-14 5:30 GMT+08:00 Shea Levy <shea@shealevy.com>:
+>>>> Hi Palmer,
+>>>>
+>>>> Palmer Dabbelt <palmer@sifive.com> writes:
+>>>>
+>>>>> On Tue, 13 Mar 2018 01:35:05 PDT (-0700), zong at andestech.com wrote:
+>>>>>> These patches resolve the some issues of loadable module.
+>>>>>>   - symbol out of ranges
+>>>>>>   - unknown relocation types
+>>>>>>
+>>>>>> The reference of external variable and function symbols
+>>>>>> cannot exceed 32-bit offset ranges in kernel module.
+>>>>>> The module only can work on the 32-bit OS or the 64-bit
+>>>>>> OS with sv32 virtual addressing.
+>>>>>>
+>>>>>> These patches will generate the .got, .got.plt and
+>>>>>> .plt sections during loading module, let it can refer
+>>>>>> to the symbol which locate more than 32-bit offset.
+>>>>>> These sections depend on the relocation types:
+>>>>>>  - R_RISCV_GOT_HI20
+>>>>>>  - R_RISCV_CALL_PLT
+>>>>>>
+>>>>>> These patches also support more relocation types
+>>>>>>  - R_RISCV_CALL
+>>>>>>  - R_RISCV_HI20
+>>>>>>  - R_RISCV_LO12_I
+>>>>>>  - R_RISCV_LO12_S
+>>>>>>  - R_RISCV_RVC_BRANCH
+>>>>>>  - R_RISCV_RVC_JUMP
+>>>>>>  - R_RISCV_ALIGN
+>>>>>>  - R_RISCV_ADD32
+>>>>>>  - R_RISCV_SUB32
+>>>>>>
+>>>>>> Zong Li (11):
+>>>>>>   RISC-V: Add sections of PLT and GOT for kernel module
+>>>>>>   RISC-V: Add section of GOT.PLT for kernel module
+>>>>>>   RISC-V: Support GOT_HI20/CALL_PLT relocation type in kernel module
+>>>>>>   RISC-V: Support CALL relocation type in kernel module
+>>>>>>   RISC-V: Support HI20/LO12_I/LO12_S relocation type in kernel module
+>>>>>>   RISC-V: Support RVC_BRANCH/JUMP relocation type in kernel modulewq
+>>>>>>   RISC-V: Support ALIGN relocation type in kernel module
+>>>>>>   RISC-V: Support ADD32 relocation type in kernel module
+>>>>>>   RISC-V: Support SUB32 relocation type in kernel module
+>>>>>>   RISC-V: Enable module support in defconfig
+>>>>>>   RISC-V: Add definition of relocation types
+>>>>>>
+>>>>>>  arch/riscv/Kconfig                  |   5 ++
+>>>>>>  arch/riscv/Makefile                 |   3 +
+>>>>>>  arch/riscv/configs/defconfig        |   2 +
+>>>>>>  arch/riscv/include/asm/module.h     | 112 +++++++++++++++++++++++
+>>>>>>  arch/riscv/include/uapi/asm/elf.h   |  24 +++++
+>>>>>>  arch/riscv/kernel/Makefile          |   1 +
+>>>>>>  arch/riscv/kernel/module-sections.c | 156 ++++++++++++++++++++++++++++++++
+>>>>>>  arch/riscv/kernel/module.c          | 175 ++++++++++++++++++++++++++++++++++--
+>>>>>>  arch/riscv/kernel/module.lds        |   8 ++
+>>>>>>  9 files changed, 480 insertions(+), 6 deletions(-)
+>>>>>>  create mode 100644 arch/riscv/include/asm/module.h
+>>>>>>  create mode 100644 arch/riscv/kernel/module-sections.c
+>>>>>>  create mode 100644 arch/riscv/kernel/module.lds
+>>>>>
+>>>>> This is the second set of patches that turn on modules, and it has the same
+>>>>> R_RISCV_ALIGN problem as the other one
+>>>>>
+>>>>>     http://lists.infradead.org/pipermail/linux-riscv/2018-February/000081.html
+>>>>>
+>>>>> It looks like this one uses shared libraries for modules instead of static
+>>>>> objects.  I think using shared objects is the right thing to do, as it'll allow
+>>>>> us to place modules anywhere in the address space by having multiple GOTs and
+>>>>> PLTs.
+>>>>
+>>>> Can you expand on this? It was my understanding that outside of the
+>>>> context of multiple address spaces sharing code the GOT and PLT were
+>>>> simply unnecessary overhead, what benefit would they bring here?
+>>>>
+>>>>> That's kind of complicated, though, so we can start with something
+>>>>> simpler like this.
+>>>
+>>> Hi,
+>>>
+>>> The kernel module is a object file, it is not be linked by linker, the
+>>> GOT and PLT
+>>> sections will not be generated through -fPIC option, but it will
+>>> generate the relative
+>>> relocation type. As Palmer mention before, If we have GOT and PLT sections,
+>>> we can put the module anywhere, even we support the KASLR in the kernel.
+>>
+>> Sorry, I guess I meant PIC objects not shared objects (I keep forgetting about
+>> PIE).  We'll probably eventually add large code model targets, but they might
+>> end up just being functionally equilivant to PIE with multi-GOT and multi-PLT
+>> so it might not matter.
+>>
+>> Either way, this is the sanest way to do it for now.
+>>
+>>> For the ALIGN problem, the kernel module loader is difficult to remove
+>>> or migrate
+>>> the module's code like relax doing, so the remnant nop instructions harm the
+>>> performance,  I agree the point that adding the mno-relax option and checking
+>>> the alignment in ALIGN type in module loader.
+>>
+>> Sounds good.  I just merged the mno-relax stuff, it'll show up when I get
+>> around to generating a 7.3.0 backport branch.  For now I think you should just
+>> fail on R_RISCV_ALIGN and attempt to pass -mno-relax to the compiler (via
+>> something like "$(call cc-option,-mno-relax)", like we do for
+>> "-mstrict-align").  I don't think it's worth handling R_RISCV_ALIGN in the
+>> kernel, as that's essentially the same as full relaxation support.
+>>
+>
+> Should we unconditionally fail on R_RISCV_ALIGN or only if the code
+> isn't already aligned?
 
-Thanks to Mortiz and Trung for finding the original bug, and for Michael
-for suggeting a better fix.
+Either way is OK for me.  With '-mno-relax' there shouldn't be any
+R_RISCV_ALIGN relocations, so it shouldn't matter.
 
-CC: Trung Tran <trung.tran@ettus.com>
-CC: Moritz Fischer <mdf@kernel.org>
-CC: Michael J Clark <mjc@sifive.com>
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- arch/riscv/Kconfig | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 04807c7f64cc..992412dda60c 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -281,7 +281,7 @@ config CMDLINE_BOOL
- 	  in CONFIG_CMDLINE.
- 
- 	  The built-in options will be concatenated to the default command
--	  line if CMDLINE_OVERRIDE is set to 'N'. Otherwise, the default
-+	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
- 	  command line will be ignored and replaced by the built-in string.
- 
- config CMDLINE
-@@ -291,7 +291,7 @@ config CMDLINE
- 	help
- 	  Supply command-line options at build time by entering them here.
- 
--config CMDLINE_OVERRIDE
-+config CMDLINE_FORCE
- 	bool "Built-in command line overrides bootloader arguments"
- 	depends on CMDLINE_BOOL
- 	help
--- 
-2.16.1
+>>
+>>>>> That's kind of complicated, though, so we can start with something
+>>>>> simpler like this.
+>>>
+>>> So what is the suggestion for that.
+>>
+>> Well, I'm not really sure -- essentially the idea of proper multi-GOT and
+>> multi-PLT support would be to merge the GOTs and PLTs of modules together when
+>> they're within range of each other.  We haven't even figured this out in
+>> userspace yet, so it's probably not worth attempting for kernel modules for a
+>> bit.
+>>
+>> If I understand your code correctly, you're currently generating one GOT and
+>> one PLT per loaded module.  If that's the case, then this is correct, it's just
+>> possible to save some memory by merging these tables.  It's probably not worth
+>> the complexity for kernel modules for a while.
