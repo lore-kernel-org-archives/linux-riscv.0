@@ -1,87 +1,62 @@
-From: lkp@intel.com (kbuild test robot)
-Date: Thu, 15 Mar 2018 01:34:14 +0800
-Subject: [PATCH 02/11] RISC-V: Add section of GOT.PLT for kernel module
-In-Reply-To: <66eb534368782f411021e1a59f3292761d6576cd.1520928420.git.zong@andestech.com>
-References: <66eb534368782f411021e1a59f3292761d6576cd.1520928420.git.zong@andestech.com>
-Message-ID: <201803150146.vzdp4sme%fengguang.wu@intel.com>
+From: mdf@kernel.org (Moritz Fischer)
+Date: Wed, 14 Mar 2018 10:41:01 -0700
+Subject: [PATCH] RISC-V: Rename CONFIG_CMDLINE_OVERRIDE to
+ CONFIG_CMDLINE_FORCE
+In-Reply-To: <20180314164143.11898-1-palmer@sifive.com>
+References: <20180314164143.11898-1-palmer@sifive.com>
+Message-ID: <20180314174101.4aq4kz2coohijhtl@us-aus-ras-130-164-29-23.amer.corp.natinst.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Zong,
+Hi Palmer,
 
-Thank you for the patch! Yet something to improve:
+On Wed, Mar 14, 2018 at 09:41:43AM -0700, Palmer Dabbelt wrote:
+> The device tree code looks for CONFIG_CMDLINE_FORCE, but we were using
+> CONFIG_CMDLINE_OVERRIDE.  It looks like this was just a hold over from
+> before our device tree conversion -- in fact, we'd already removed the
+> support for CONFIG_CMDLINE_OVERRIDE from our arch-specific code so it
+> didn't even work any more.
+> 
+> Thanks to Mortiz and Trung for finding the original bug, and for Michael
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v4.16-rc5 next-20180314]
-[if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
+Nit: s/Mortiz/Moritz/g ;-)
+> for suggeting a better fix.
+> 
+> CC: Trung Tran <trung.tran@ettus.com>
+> CC: Moritz Fischer <mdf@kernel.org>
+> CC: Michael J Clark <mjc@sifive.com>
+> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+Reviewed-by: Moritz Fischer <mdf@kernel.org>
+> ---
+>  arch/riscv/Kconfig | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 04807c7f64cc..992412dda60c 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -281,7 +281,7 @@ config CMDLINE_BOOL
+>  	  in CONFIG_CMDLINE.
+>  
+>  	  The built-in options will be concatenated to the default command
+> -	  line if CMDLINE_OVERRIDE is set to 'N'. Otherwise, the default
+> +	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
+>  	  command line will be ignored and replaced by the built-in string.
+>  
+>  config CMDLINE
+> @@ -291,7 +291,7 @@ config CMDLINE
+>  	help
+>  	  Supply command-line options at build time by entering them here.
+>  
+> -config CMDLINE_OVERRIDE
+> +config CMDLINE_FORCE
+>  	bool "Built-in command line overrides bootloader arguments"
+>  	depends on CMDLINE_BOOL
+>  	help
+> -- 
+> 2.16.1
+> 
 
-url:    https://github.com/0day-ci/linux/commits/Zong-Li/RISC-V-Resolve-the-issue-of-loadable-module-on-64-bit/20180314-203750
-config: riscv-defconfig (attached as .config)
-compiler: riscv64-linux-gcc (GCC) 7.2.0
-reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # save the attached .config to linux build tree
-        make.cross ARCH=riscv 
+Cheers,
 
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/module.h:25:0,
-                    from fs/notify/fsnotify.c:23:
-   arch/riscv/include/asm/module.h:38:25: warning: 'struct mod_section' declared inside parameter list will not be visible outside of this definition or declaration
-               const struct mod_section *sec)
-                            ^~~~~~~~~~~
-   arch/riscv/include/asm/module.h: In function 'get_got_entry':
-   arch/riscv/include/asm/module.h:40:49: error: dereferencing pointer to incomplete type 'const struct mod_section'
-     struct got_entry *got = (struct got_entry *)sec->shdr->sh_addr;
-                                                    ^~
-   arch/riscv/include/asm/module.h: At top level:
-   arch/riscv/include/asm/module.h:89:57: warning: 'struct mod_section' declared inside parameter list will not be visible outside of this definition or declaration
-    static inline int get_got_plt_idx(u64 val, const struct mod_section *sec)
-                                                            ^~~~~~~~~~~
-   arch/riscv/include/asm/module.h: In function 'get_got_plt_idx':
-   arch/riscv/include/asm/module.h:91:53: error: dereferencing pointer to incomplete type 'const struct mod_section'
-     struct got_entry *got_plt = (struct got_entry *)sec->shdr->sh_addr;
-                                                        ^~
-   arch/riscv/include/asm/module.h: At top level:
-   arch/riscv/include/asm/module.h:101:24: warning: 'struct mod_section' declared inside parameter list will not be visible outside of this definition or declaration
-              const struct mod_section *sec_plt,
-                           ^~~~~~~~~~~
-   arch/riscv/include/asm/module.h: In function 'get_plt_entry':
-   arch/riscv/include/asm/module.h:104:53: error: dereferencing pointer to incomplete type 'const struct mod_section'
-     struct plt_entry *plt = (struct plt_entry *)sec_plt->shdr->sh_addr;
-                                                        ^~
->> arch/riscv/include/asm/module.h:105:41: error: passing argument 2 of 'get_got_plt_idx' from incompatible pointer type [-Werror=incompatible-pointer-types]
-     int got_plt_idx = get_got_plt_idx(val, sec_got_plt);
-                                            ^~~~~~~~~~~
-   arch/riscv/include/asm/module.h:89:19: note: expected 'const struct mod_section *' but argument is of type 'const struct mod_section *'
-    static inline int get_got_plt_idx(u64 val, const struct mod_section *sec)
-                      ^~~~~~~~~~~~~~~
-   cc1: some warnings being treated as errors
-
-vim +/get_got_plt_idx +105 arch/riscv/include/asm/module.h
-
-    99	
-   100	static inline struct plt_entry *get_plt_entry(u64 val,
- > 101					      const struct mod_section *sec_plt,
-   102					      const struct mod_section *sec_got_plt)
-   103	{
-   104		struct plt_entry *plt = (struct plt_entry *)sec_plt->shdr->sh_addr;
- > 105		int got_plt_idx = get_got_plt_idx(val, sec_got_plt);
-   106		if (got_plt_idx >= 0)
-   107			return plt + got_plt_idx;
-   108		else
-   109			return NULL;
-   110	}
-   111	
-
----
-0-DAY kernel test infrastructure                Open Source Technology Center
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: .config.gz
-Type: application/gzip
-Size: 16430 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180315/d9501cc0/attachment.gz>
+Moritz
