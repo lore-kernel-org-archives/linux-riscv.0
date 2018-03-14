@@ -1,120 +1,73 @@
-From: shea@shealevy.com (Shea Levy)
-Date: Wed, 14 Mar 2018 13:11:49 -0400
-Subject: [PATCH 00/11] RISC-V: Resolve the issue of loadable module on
- 64-bit
-In-Reply-To: <mhng-fd5e759c-7716-41b2-9fa3-439d6b4b498f@palmer-si-x1c4>
-References: <mhng-fd5e759c-7716-41b2-9fa3-439d6b4b498f@palmer-si-x1c4>
-Message-ID: <87d106zine.fsf@xps13.shealevy.com>
+From: lkp@intel.com (kbuild test robot)
+Date: Thu, 15 Mar 2018 01:20:01 +0800
+Subject: [PATCH 01/11] RISC-V: Add sections of PLT and GOT for kernel
+ module
+In-Reply-To: <135c18787ccbe7a87e99d408e49e0df0b510d573.1520928420.git.zong@andestech.com>
+References: <135c18787ccbe7a87e99d408e49e0df0b510d573.1520928420.git.zong@andestech.com>
+Message-ID: <201803150111.G017fhXz%fengguang.wu@intel.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Palmer Dabbelt <palmer@sifive.com> writes:
+Hi Zong,
 
-> On Wed, 14 Mar 2018 05:07:09 PDT (-0700), shea at shealevy.com wrote:
->> Palmer Dabbelt <palmer@sifive.com> writes:
->>
->>> On Tue, 13 Mar 2018 14:30:53 PDT (-0700), shea at shealevy.com wrote:
->>>> Hi Palmer,
->>>>
->>>> Palmer Dabbelt <palmer@sifive.com> writes:
->>>>
->>>>> On Tue, 13 Mar 2018 01:35:05 PDT (-0700), zong at andestech.com wrote:
->>>>>> These patches resolve the some issues of loadable module.
->>>>>>   - symbol out of ranges
->>>>>>   - unknown relocation types
->>>>>>
->>>>>> The reference of external variable and function symbols
->>>>>> cannot exceed 32-bit offset ranges in kernel module.
->>>>>> The module only can work on the 32-bit OS or the 64-bit
->>>>>> OS with sv32 virtual addressing.
->>>>>>
->>>>>> These patches will generate the .got, .got.plt and
->>>>>> .plt sections during loading module, let it can refer
->>>>>> to the symbol which locate more than 32-bit offset.
->>>>>> These sections depend on the relocation types:
->>>>>>  - R_RISCV_GOT_HI20
->>>>>>  - R_RISCV_CALL_PLT
->>>>>>
->>>>>> These patches also support more relocation types
->>>>>>  - R_RISCV_CALL
->>>>>>  - R_RISCV_HI20
->>>>>>  - R_RISCV_LO12_I
->>>>>>  - R_RISCV_LO12_S
->>>>>>  - R_RISCV_RVC_BRANCH
->>>>>>  - R_RISCV_RVC_JUMP
->>>>>>  - R_RISCV_ALIGN
->>>>>>  - R_RISCV_ADD32
->>>>>>  - R_RISCV_SUB32
->>>>>>
->>>>>> Zong Li (11):
->>>>>>   RISC-V: Add sections of PLT and GOT for kernel module
->>>>>>   RISC-V: Add section of GOT.PLT for kernel module
->>>>>>   RISC-V: Support GOT_HI20/CALL_PLT relocation type in kernel module
->>>>>>   RISC-V: Support CALL relocation type in kernel module
->>>>>>   RISC-V: Support HI20/LO12_I/LO12_S relocation type in kernel module
->>>>>>   RISC-V: Support RVC_BRANCH/JUMP relocation type in kernel modulewq
->>>>>>   RISC-V: Support ALIGN relocation type in kernel module
->>>>>>   RISC-V: Support ADD32 relocation type in kernel module
->>>>>>   RISC-V: Support SUB32 relocation type in kernel module
->>>>>>   RISC-V: Enable module support in defconfig
->>>>>>   RISC-V: Add definition of relocation types
->>>>>>
->>>>>>  arch/riscv/Kconfig                  |   5 ++
->>>>>>  arch/riscv/Makefile                 |   3 +
->>>>>>  arch/riscv/configs/defconfig        |   2 +
->>>>>>  arch/riscv/include/asm/module.h     | 112 +++++++++++++++++++++++
->>>>>>  arch/riscv/include/uapi/asm/elf.h   |  24 +++++
->>>>>>  arch/riscv/kernel/Makefile          |   1 +
->>>>>>  arch/riscv/kernel/module-sections.c | 156 ++++++++++++++++++++++++++++++++
->>>>>>  arch/riscv/kernel/module.c          | 175 ++++++++++++++++++++++++++++++++++--
->>>>>>  arch/riscv/kernel/module.lds        |   8 ++
->>>>>>  9 files changed, 480 insertions(+), 6 deletions(-)
->>>>>>  create mode 100644 arch/riscv/include/asm/module.h
->>>>>>  create mode 100644 arch/riscv/kernel/module-sections.c
->>>>>>  create mode 100644 arch/riscv/kernel/module.lds
->>>>>
->>>>> This is the second set of patches that turn on modules, and it has the same
->>>>> R_RISCV_ALIGN problem as the other one
->>>>>
->>>>>     http://lists.infradead.org/pipermail/linux-riscv/2018-February/000081.html
->>>>>
->>>>> It looks like this one uses shared libraries for modules instead of static
->>>>> objects.  I think using shared objects is the right thing to do, as it'll allow
->>>>> us to place modules anywhere in the address space by having multiple GOTs and
->>>>> PLTs.
->>>>
->>>> Can you expand on this? It was my understanding that outside of the
->>>> context of multiple address spaces sharing code the GOT and PLT were
->>>> simply unnecessary overhead, what benefit would they bring here?
->>>
->>> We don't currently have any position-dependent RISC-V code models larger than
->>> "medany", in which all code and data must live within a single 32-bit
->>> addressable range.  The PLT and GOT sort of provide an out here, so the code
->>> only needs to get to the table (which can then get anywhere via an indirection
->>> layer).
->>>
->>> This is relevant for Linux modules because it lets us load modules anywhere in
->>> the address space.  It's also a bit of a headache, as it either requires a
->>> GOT+PLT per module (which is big) or merging tables (which is hard).
->>
->> I see, thanks! We only get this benefit if we actually do the relevanat
->> indirection in the table, right? And if we merge tables we still have to
->> have all modules within 32 bits of the common table? Is this how some
->> future "medlarge" code model will work, or is it more of a convenient
->> way to reuse existing techniques until other code models are worked out?
->
-> The idea is that you'd merge the tables only when it's possible to do that
-> correctly, which is the tricky part.
->
-> It'd be called "largeany", the "med" part is what limits the code model to 32
-> bit offsets.  We might just call it "large", as the "any" is kind of redundant.
+Thank you for the patch! Yet something to improve:
 
-Ah, right, that makes more sense :D. So would "mcmodel=large" also use
-PLTs/GOTs for long jumps?
+[auto build test ERROR on linus/master]
+[also build test ERROR on v4.16-rc5 next-20180314]
+[if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
+
+url:    https://github.com/0day-ci/linux/commits/Zong-Li/RISC-V-Resolve-the-issue-of-loadable-module-on-64-bit/20180314-203750
+config: riscv-defconfig (attached as .config)
+compiler: riscv64-linux-gcc (GCC) 7.2.0
+reproduce:
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # save the attached .config to linux build tree
+        make.cross ARCH=riscv 
+
+All error/warnings (new ones prefixed by >>):
+
+   In file included from include/linux/module.h:25:0,
+                    from fs/notify/fsnotify.c:23:
+>> arch/riscv/include/asm/module.h:37:25: warning: 'struct mod_section' declared inside parameter list will not be visible outside of this definition or declaration
+               const struct mod_section *sec)
+                            ^~~~~~~~~~~
+   arch/riscv/include/asm/module.h: In function 'get_got_entry':
+>> arch/riscv/include/asm/module.h:39:49: error: dereferencing pointer to incomplete type 'const struct mod_section'
+     struct got_entry *got = (struct got_entry *)sec->shdr->sh_addr;
+                                                    ^~
+   arch/riscv/include/asm/module.h: At top level:
+   arch/riscv/include/asm/module.h:91:25: warning: 'struct mod_section' declared inside parameter list will not be visible outside of this definition or declaration
+               const struct mod_section *sec)
+                            ^~~~~~~~~~~
+   arch/riscv/include/asm/module.h: In function 'get_plt_entry':
+   arch/riscv/include/asm/module.h:93:49: error: dereferencing pointer to incomplete type 'const struct mod_section'
+     struct plt_entry *plt = (struct plt_entry *)sec->shdr->sh_addr;
+                                                    ^~
+
+vim +39 arch/riscv/include/asm/module.h
+
+    35	
+    36	static inline struct got_entry *get_got_entry(u64 val,
+  > 37						      const struct mod_section *sec)
+    38	{
+  > 39		struct got_entry *got = (struct got_entry *)sec->shdr->sh_addr;
+    40		int i;
+    41		for (i = 0; i < sec->num_entries; i++) {
+    42			if (got[i].symbol_addr == val)
+    43				return &got[i];
+    44		}
+    45		return NULL;
+    46	}
+    47	
+
+---
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -------------- next part --------------
 A non-text attachment was scrubbed...
-Name: signature.asc
-Type: application/pgp-signature
-Size: 832 bytes
+Name: .config.gz
+Type: application/gzip
+Size: 16430 bytes
 Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180314/e2fcfbcf/attachment.sig>
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180315/76182765/attachment.gz>
