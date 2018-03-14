@@ -1,62 +1,32 @@
-From: mdf@kernel.org (Moritz Fischer)
-Date: Wed, 14 Mar 2018 10:41:01 -0700
-Subject: [PATCH] RISC-V: Rename CONFIG_CMDLINE_OVERRIDE to
- CONFIG_CMDLINE_FORCE
-In-Reply-To: <20180314164143.11898-1-palmer@sifive.com>
-References: <20180314164143.11898-1-palmer@sifive.com>
-Message-ID: <20180314174101.4aq4kz2coohijhtl@us-aus-ras-130-164-29-23.amer.corp.natinst.com>
+From: tglx@linutronix.de (Thomas Gleixner)
+Date: Wed, 14 Mar 2018 20:36:25 +0100 (CET)
+Subject: [PATCH v3 3/5] arm: Convert to GENERIC_IRQ_MULTI_HANDLER
+In-Reply-To: <mhng-154bcacc-ddfa-4875-b5c5-e3efc72f3e42@palmer-si-x1c4>
+References: <mhng-154bcacc-ddfa-4875-b5c5-e3efc72f3e42@palmer-si-x1c4>
+Message-ID: <alpine.DEB.2.21.1803142035520.1946@nanos.tec.linutronix.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Palmer,
-
-On Wed, Mar 14, 2018 at 09:41:43AM -0700, Palmer Dabbelt wrote:
-> The device tree code looks for CONFIG_CMDLINE_FORCE, but we were using
-> CONFIG_CMDLINE_OVERRIDE.  It looks like this was just a hold over from
-> before our device tree conversion -- in fact, we'd already removed the
-> support for CONFIG_CMDLINE_OVERRIDE from our arch-specific code so it
-> didn't even work any more.
+On Wed, 14 Mar 2018, Palmer Dabbelt wrote:
+> On Wed, 14 Mar 2018 10:07:35 PDT (-0700), tglx at linutronix.de wrote:
+> > On Wed, 7 Mar 2018, Palmer Dabbelt wrote:
+> > 
+> > > This converts the ARM port to use the recently added
+> > > GENERIC_IRQ_MULTI_HANDLER, which is essentially just a copy of ARM's
+> > > existhing MULTI_IRQ_HANDLER.  The only changes are:
+> > > 
+> > > * handle_arch_irq is now defined in a generic C file instead of an
+> > >   arm-specific assembly file.
+> > > * handle_arch_irq is not marked as __ro_after_init.
+> > 
+> > Why? What prevents the generic implementation from doing so?
 > 
-> Thanks to Mortiz and Trung for finding the original bug, and for Michael
+> Sorry, I guess that should have said "handle_arch_irq was not marked as
+> __ro_after_init".  The patch set has __ro_after_init for the generic
+> implementation, which was not the case for the arm version.
 
-Nit: s/Mortiz/Moritz/g ;-)
-> for suggeting a better fix.
-> 
-> CC: Trung Tran <trung.tran@ettus.com>
-> CC: Moritz Fischer <mdf@kernel.org>
-> CC: Michael J Clark <mjc@sifive.com>
-> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-Reviewed-by: Moritz Fischer <mdf@kernel.org>
-> ---
->  arch/riscv/Kconfig | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 04807c7f64cc..992412dda60c 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -281,7 +281,7 @@ config CMDLINE_BOOL
->  	  in CONFIG_CMDLINE.
->  
->  	  The built-in options will be concatenated to the default command
-> -	  line if CMDLINE_OVERRIDE is set to 'N'. Otherwise, the default
-> +	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
->  	  command line will be ignored and replaced by the built-in string.
->  
->  config CMDLINE
-> @@ -291,7 +291,7 @@ config CMDLINE
->  	help
->  	  Supply command-line options at build time by entering them here.
->  
-> -config CMDLINE_OVERRIDE
-> +config CMDLINE_FORCE
->  	bool "Built-in command line overrides bootloader arguments"
->  	depends on CMDLINE_BOOL
->  	help
-> -- 
-> 2.16.1
-> 
+That makes sense.... I'll fix that up.
 
-Cheers,
+Thanks,
 
-Moritz
+	tglx
