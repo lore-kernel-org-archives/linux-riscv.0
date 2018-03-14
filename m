@@ -1,140 +1,172 @@
-From: vkilari@codeaurora.org (vkilari at codeaurora.org)
-Date: Wed, 14 Mar 2018 15:27:35 +0530
-Subject: [PATCH v7 00/13] Support PPTT for ARM64
-In-Reply-To: <20180228220619.6992-1-jeremy.linton@arm.com>
-References: <20180228220619.6992-1-jeremy.linton@arm.com>
-Message-ID: <004d01d3bb7a$e5ec7700$b1c56500$@codeaurora.org>
+From: zongbox@gmail.com (Zong Li)
+Date: Wed, 14 Mar 2018 19:15:22 +0800
+Subject: [PATCH 00/11] RISC-V: Resolve the issue of loadable module on
+ 64-bit
+In-Reply-To: <mhng-bb15ab0a-464a-4baf-bd4c-e8c409722351@palmer-si-x1c4>
+References: <CA+ZOyagHPWNw6uLAGri0cQph06MmspMjUZC--YBe8HRBA2Cd5g@mail.gmail.com>
+ <mhng-bb15ab0a-464a-4baf-bd4c-e8c409722351@palmer-si-x1c4>
+Message-ID: <CA+ZOyajM8k8+o4Y4DL5z4VE7SoMW2SqzpuPyNAd7dn8smsdsfQ@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Jeremy,
+2018-03-14 11:07 GMT+08:00 Palmer Dabbelt <palmer@sifive.com>:
+> On Tue, 13 Mar 2018 18:34:19 PDT (-0700), zongbox at gmail.com wrote:
+>>
+>> 2018-03-14 5:30 GMT+08:00 Shea Levy <shea@shealevy.com>:
+>>>
+>>> Hi Palmer,
+>>>
+>>> Palmer Dabbelt <palmer@sifive.com> writes:
+>>>
+>>>> On Tue, 13 Mar 2018 01:35:05 PDT (-0700), zong at andestech.com wrote:
+>>>>>
+>>>>> These patches resolve the some issues of loadable module.
+>>>>>   - symbol out of ranges
+>>>>>   - unknown relocation types
+>>>>>
+>>>>> The reference of external variable and function symbols
+>>>>> cannot exceed 32-bit offset ranges in kernel module.
+>>>>> The module only can work on the 32-bit OS or the 64-bit
+>>>>> OS with sv32 virtual addressing.
+>>>>>
+>>>>> These patches will generate the .got, .got.plt and
+>>>>> .plt sections during loading module, let it can refer
+>>>>> to the symbol which locate more than 32-bit offset.
+>>>>> These sections depend on the relocation types:
+>>>>>  - R_RISCV_GOT_HI20
+>>>>>  - R_RISCV_CALL_PLT
+>>>>>
+>>>>> These patches also support more relocation types
+>>>>>  - R_RISCV_CALL
+>>>>>  - R_RISCV_HI20
+>>>>>  - R_RISCV_LO12_I
+>>>>>  - R_RISCV_LO12_S
+>>>>>  - R_RISCV_RVC_BRANCH
+>>>>>  - R_RISCV_RVC_JUMP
+>>>>>  - R_RISCV_ALIGN
+>>>>>  - R_RISCV_ADD32
+>>>>>  - R_RISCV_SUB32
+>>>>>
+>>>>> Zong Li (11):
+>>>>>   RISC-V: Add sections of PLT and GOT for kernel module
+>>>>>   RISC-V: Add section of GOT.PLT for kernel module
+>>>>>   RISC-V: Support GOT_HI20/CALL_PLT relocation type in kernel module
+>>>>>   RISC-V: Support CALL relocation type in kernel module
+>>>>>   RISC-V: Support HI20/LO12_I/LO12_S relocation type in kernel module
+>>>>>   RISC-V: Support RVC_BRANCH/JUMP relocation type in kernel modulewq
+>>>>>   RISC-V: Support ALIGN relocation type in kernel module
+>>>>>   RISC-V: Support ADD32 relocation type in kernel module
+>>>>>   RISC-V: Support SUB32 relocation type in kernel module
+>>>>>   RISC-V: Enable module support in defconfig
+>>>>>   RISC-V: Add definition of relocation types
+>>>>>
+>>>>>  arch/riscv/Kconfig                  |   5 ++
+>>>>>  arch/riscv/Makefile                 |   3 +
+>>>>>  arch/riscv/configs/defconfig        |   2 +
+>>>>>  arch/riscv/include/asm/module.h     | 112 +++++++++++++++++++++++
+>>>>>  arch/riscv/include/uapi/asm/elf.h   |  24 +++++
+>>>>>  arch/riscv/kernel/Makefile          |   1 +
+>>>>>  arch/riscv/kernel/module-sections.c | 156
+>>>>> ++++++++++++++++++++++++++++++++
+>>>>>  arch/riscv/kernel/module.c          | 175
+>>>>> ++++++++++++++++++++++++++++++++++--
+>>>>>  arch/riscv/kernel/module.lds        |   8 ++
+>>>>>  9 files changed, 480 insertions(+), 6 deletions(-)
+>>>>>  create mode 100644 arch/riscv/include/asm/module.h
+>>>>>  create mode 100644 arch/riscv/kernel/module-sections.c
+>>>>>  create mode 100644 arch/riscv/kernel/module.lds
+>>>>
+>>>>
+>>>> This is the second set of patches that turn on modules, and it has the
+>>>> same
+>>>> R_RISCV_ALIGN problem as the other one
+>>>>
+>>>>
+>>>> http://lists.infradead.org/pipermail/linux-riscv/2018-February/000081.html
+>>>>
+>>>> It looks like this one uses shared libraries for modules instead of
+>>>> static
+>>>> objects.  I think using shared objects is the right thing to do, as
+>>>> it'll allow
+>>>> us to place modules anywhere in the address space by having multiple
+>>>> GOTs and
+>>>> PLTs.
+>>>
+>>>
+>>> Can you expand on this? It was my understanding that outside of the
+>>> context of multiple address spaces sharing code the GOT and PLT were
+>>> simply unnecessary overhead, what benefit would they bring here?
+>>>
+>>>> That's kind of complicated, though, so we can start with something
+>>>> simpler like this.
+>>
+>>
+>> Hi,
+>>
+>> The kernel module is a object file, it is not be linked by linker, the
+>> GOT and PLT
+>> sections will not be generated through -fPIC option, but it will
+>> generate the relative
+>> relocation type. As Palmer mention before, If we have GOT and PLT
+>> sections,
+>> we can put the module anywhere, even we support the KASLR in the kernel.
+>
+>
+> Sorry, I guess I meant PIC objects not shared objects (I keep forgetting
+> about
+> PIE).  We'll probably eventually add large code model targets, but they
+> might
+> end up just being functionally equilivant to PIE with multi-GOT and
+> multi-PLT
+> so it might not matter.
+>
+> Either way, this is the sanest way to do it for now.
 
-> -----Original Message-----
-> From: Jeremy Linton <jeremy.linton@arm.com>
-> Sent: Thursday, March 1, 2018 3:36 AM
-> To: linux-acpi at vger.kernel.org
-> Cc: linux-arm-kernel at lists.infradead.org; sudeep.holla at arm.com;
-> lorenzo.pieralisi at arm.com; hanjun.guo at linaro.org; rjw at rjwysocki.net;
-> will.deacon at arm.com; catalin.marinas at arm.com;
-> gregkh at linuxfoundation.org; mark.rutland at arm.com; linux-
-> kernel at vger.kernel.org; linux-riscv at lists.infradead.org;
-> wangxiongfeng2 at huawei.com; vkilari at codeaurora.org; ahs3 at redhat.com;
-> dietmar.eggemann at arm.com; morten.rasmussen at arm.com;
-> palmer at sifive.com; lenb at kernel.org; john.garry at huawei.com;
-> austinwc at codeaurora.org; tnowicki at caviumnetworks.com; Jeremy Linton
-> <jeremy.linton@arm.com>
-> Subject: [PATCH v7 00/13] Support PPTT for ARM64
-> 
-> ACPI 6.2 adds the Processor Properties Topology Table (PPTT), which is
-used to
-> describe the processor and cache topology. Ideally it is used to
-extend/override
-> information provided by the hardware, but right now ARM64 is entirely
-> dependent on firmware provided tables.
-> 
-> This patch parses the table for the cache topology and CPU topology.
-> When we enable ACPI/PPTT for arm64 we map the physical_id to the PPTT
-> node flagged as the physical package by the firmware.
-> This results in topologies that match what the remainder of the system
-expects.
-> To avoid inverted scheduler domains we then set the MC domain equal to the
-> largest cache within the socket below the NUMA domain.
-> 
-> For example on juno:
-> [root at mammon-juno-rh topology]# lstopo-no-graphics
->   Package L#0
->     L2 L#0 (1024KB)
->       L1d L#0 (32KB) + L1i L#0 (32KB) + Core L#0 + PU L#0 (P#0)
->       L1d L#1 (32KB) + L1i L#1 (32KB) + Core L#1 + PU L#1 (P#1)
->       L1d L#2 (32KB) + L1i L#2 (32KB) + Core L#2 + PU L#2 (P#2)
->       L1d L#3 (32KB) + L1i L#3 (32KB) + Core L#3 + PU L#3 (P#3)
->     L2 L#1 (2048KB)
->       L1d L#4 (32KB) + L1i L#4 (48KB) + Core L#4 + PU L#4 (P#4)
->       L1d L#5 (32KB) + L1i L#5 (48KB) + Core L#5 + PU L#5 (P#5)
->   HostBridge L#0
->     PCIBridge
->       PCIBridge
->         PCIBridge
->           PCI 1095:3132
->             Block(Disk) L#0 "sda"
->         PCIBridge
->           PCI 1002:68f9
->             GPU L#1 "renderD128"
->             GPU L#2 "card0"
->             GPU L#3 "controlD64"
->         PCIBridge
->           PCI 11ab:4380
->             Net L#4 "enp8s0"
-> 
-> Git tree at:
-> http://linux-arm.org/git?p=linux-jlinton.git
-> branch: pptt_v7
+Actually, I try to use the large code model and without PIC before.
+(The compiler with mcmodel=large obtain from my colleague development)
+On this compiler version, the `-mcmodel=large` uses the constant pool
+mechanism to
+puts the addresses of data symbols at the function tail. It can resolve
+the reference about out of range of data symbol, but this code generation not
+apply to function call. For the compiler code generation and no linker to do
+relax reason, kernel module still needs the PLT section to jump to far target.
+On the other hand, the ARM64 mailing list has the patches to remove
+the large code model for cache performance.
 
-Tested this series and looks good
+https://marc.info/?l=linux-arm-kernel&m=151860828416766
 
-Tested by: Vijaya Kumar K <vkilari@codeaurora.org>
-> 
-> v6->v7:
-> Add additional patch to use the last cache level within the NUMA
->   or socket as the MC domain. This assures the MC domain is
->   equal or smaller than the DIE.
-> 
-> Various formatting/etc review comments.
-> 
-> Rebase to 4.16rc2
-> 
-> v5->v6:
-> Add additional patches which re-factor how the initial DT code sets
->   up the cacheinfo structure so that its not as dependent on the
->   of_node stored in that tree. Once that is done we rename it
->   for use with the ACPI code.
-> 
-> Additionally there were a fair number of minor name/location/etc
->   tweaks scattered about made in response to review comments.
-> 
-> v4->v5:
-> Update the cache type from NOCACHE to UNIFIED when all the cache
->   attributes we update are valid. This fixes a problem where caches
->   which are entirely created by the PPTT don't show up in lstopo.
-> 
-> Give the PPTT its own firmware_node in the cache structure instead of
->   sharing it with the of_node.
-> 
-> Move some pieces around between patches.
-> 
-> (see previous cover letters for futher changes)
-> 
-> Jeremy Linton (13):
->   drivers: base: cacheinfo: move cache_setup_of_node()
->   drivers: base: cacheinfo: setup DT cache properties early
->   cacheinfo: rename of_node to fw_token
->   arm64/acpi: Create arch specific cpu to acpi id helper
->   ACPI/PPTT: Add Processor Properties Topology Table parsing
->   ACPI: Enable PPTT support on ARM64
->   drivers: base cacheinfo: Add support for ACPI based firmware tables
->   arm64: Add support for ACPI based firmware tables
->   ACPI/PPTT: Add topology parsing code
->   arm64: topology: rename cluster_id
->   arm64: topology: enable ACPI/PPTT based CPU topology
->   ACPI: Add PPTT to injectable table list
->   arm64: topology: divorce MC scheduling domain from core_siblings
-> 
->  arch/arm64/Kconfig                |   1 +
->  arch/arm64/include/asm/acpi.h     |   4 +
->  arch/arm64/include/asm/topology.h |   9 +-
->  arch/arm64/kernel/cacheinfo.c     |  15 +-
->  arch/arm64/kernel/topology.c      | 132 +++++++-
->  arch/riscv/kernel/cacheinfo.c     |   1 -
->  drivers/acpi/Kconfig              |   3 +
->  drivers/acpi/Makefile             |   1 +
->  drivers/acpi/pptt.c               | 642
-> ++++++++++++++++++++++++++++++++++++++
->  drivers/acpi/tables.c             |   2 +-
->  drivers/base/cacheinfo.c          | 157 +++++-----
->  include/linux/acpi.h              |   4 +
->  include/linux/cacheinfo.h         |  17 +-
->  13 files changed, 882 insertions(+), 106 deletions(-)  create mode 100644
-> drivers/acpi/pptt.c
-> 
-> --
-> 2.13.6
+so maybe we can use the `medany + fPIC` for now.
+
+>> For the ALIGN problem, the kernel module loader is difficult to remove
+>> or migrate
+>> the module's code like relax doing, so the remnant nop instructions harm
+>> the
+>> performance,  I agree the point that adding the mno-relax option and
+>> checking
+>> the alignment in ALIGN type in module loader.
+>
+>
+> Sounds good.  I just merged the mno-relax stuff, it'll show up when I get
+> around to generating a 7.3.0 backport branch.  For now I think you should
+> just
+> fail on R_RISCV_ALIGN and attempt to pass -mno-relax to the compiler (via
+> something like "$(call cc-option,-mno-relax)", like we do for
+> "-mstrict-align").  I don't think it's worth handling R_RISCV_ALIGN in the
+> kernel, as that's essentially the same as full relaxation support.
+
+OK. I will send the v2 patches with the modification as you mention about
+R_RISCV_ALIGN type?
+
+> If I understand your code correctly, you're currently generating one GOT and
+> one PLT per loaded module.  If that's the case, then this is correct, it's
+> just
+> possible to save some memory by merging these tables.  It's probably not
+> worth
+> the complexity for kernel modules for a while.
+
+Yes, there are one GOT and one PLT per loaded module.
+In the [PATCH 02/11], I generate the third section .got.plt for saving
+more memory of
+each PLT entry.
+
+Thanks a lot.
