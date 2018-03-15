@@ -1,33 +1,43 @@
 From: zong@andestech.com (Zong Li)
-Date: Thu, 15 Mar 2018 16:50:51 +0800
-Subject: [PATCH v2 11/11] RISC-V: Add definition of relocation types
+Date: Thu, 15 Mar 2018 16:50:49 +0800
+Subject: [PATCH v2 09/11] RISC-V: Support SUB32 relocation type in kernel
+ module
 In-Reply-To: <cover.1521103167.git.zong@andestech.com>
 References: <cover.1521103167.git.zong@andestech.com>
-Message-ID: <6146832f0456fab33271f87fca2ef31b7d923188.1521103174.git.zong@andestech.com>
+Message-ID: <f577fe0f07e5e417c11877c714ae4c6e93249e9e.1521103173.git.zong@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
 Signed-off-by: Zong Li <zong@andestech.com>
 ---
- arch/riscv/include/uapi/asm/elf.h | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/riscv/kernel/module.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/riscv/include/uapi/asm/elf.h b/arch/riscv/include/uapi/asm/elf.h
-index a510edfa8226..5cae4c30cd8e 100644
---- a/arch/riscv/include/uapi/asm/elf.h
-+++ b/arch/riscv/include/uapi/asm/elf.h
-@@ -79,5 +79,12 @@ typedef union __riscv_fp_state elf_fpregset_t;
- #define R_RISCV_TPREL_I		49
- #define R_RISCV_TPREL_S		50
- #define R_RISCV_RELAX		51
-+#define R_RISCV_SUB6		52
-+#define R_RISCV_SET6		53
-+#define R_RISCV_SET8		54
-+#define R_RISCV_SET16		55
-+#define R_RISCV_SET32		56
-+#define R_RISCV_32_PCREL	57
-+
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 73ea36c73d3b..5dddba301d0a 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -256,6 +256,13 @@ static int apply_r_riscv_add32_rela(struct module *me, u32 *location,
+ 	return 0;
+ }
  
- #endif /* _UAPI_ASM_ELF_H */
++static int apply_r_riscv_sub32_rela(struct module *me, u32 *location,
++				    Elf_Addr v)
++{
++	*(u32 *)location -= (*(u32 *)v);
++	return 0;
++}
++
+ static int (*reloc_handlers_rela[]) (struct module *me, u32 *location,
+ 				Elf_Addr v) = {
+ 	[R_RISCV_64]			= apply_r_riscv_64_rela,
+@@ -275,6 +282,7 @@ static int (*reloc_handlers_rela[]) (struct module *me, u32 *location,
+ 	[R_RISCV_RELAX]			= apply_r_riscv_relax_rela,
+ 	[R_RISCV_ALIGN]			= apply_r_riscv_align_rela,
+ 	[R_RISCV_ADD32]			= apply_r_riscv_add32_rela,
++	[R_RISCV_SUB32]			= apply_r_riscv_sub32_rela,
+ };
+ 
+ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
 -- 
 2.16.1
