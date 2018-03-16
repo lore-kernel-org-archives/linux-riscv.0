@@ -1,110 +1,108 @@
 From: zongbox@gmail.com (Zong Li)
-Date: Thu, 15 Mar 2018 17:35:48 +0800
-Subject: [PATCH 02/11] RISC-V: Add section of GOT.PLT for kernel module
-In-Reply-To: <201803150146.vzdp4sme%fengguang.wu@intel.com>
-References: <66eb534368782f411021e1a59f3292761d6576cd.1520928420.git.zong@andestech.com>
- <201803150146.vzdp4sme%fengguang.wu@intel.com>
-Message-ID: <CA+ZOyajf3sLf_0q4GGqFGz5XHmtZjacC6T4eGdPLYSJ7wUZagg@mail.gmail.com>
+Date: Fri, 16 Mar 2018 09:18:41 +0800
+Subject: [PATCH v2 00/11] RISC-V: Resolve the issue of loadable module on
+ 64-bit
+In-Reply-To: <cover.1521103167.git.zong@andestech.com>
+References: <cover.1521103167.git.zong@andestech.com>
+Message-ID: <CA+ZOyaiNM5bWWTDMBMjy-8N8=FwEaecxx16CyxvNTKEQ8jk0cQ@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-2018-03-15 1:34 GMT+08:00 kbuild test robot <lkp@intel.com>:
-> Hi Zong,
+2018-03-15 16:50 GMT+08:00 Zong Li <zong@andestech.com>:
+> These patches resolve the some issues of loadable module.
+>   - symbol out of ranges
+>   - unknown relocation types
 >
-> Thank you for the patch! Yet something to improve:
+> The reference of external variable and function symbols
+> cannot exceed 32-bit offset ranges in kernel module.
+> The module only can work on the 32-bit OS or the 64-bit
+> OS with sv32 virtual addressing.
 >
-> [auto build test ERROR on linus/master]
-> [also build test ERROR on v4.16-rc5 next-20180314]
-> [if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
+> These patches will generate the .got, .got.plt and
+> .plt sections during loading module, let it can refer
+> to the symbol which locate more than 32-bit offset.
+> These sections depend on the relocation types:
+>  - R_RISCV_GOT_HI20
+>  - R_RISCV_CALL_PLT
 >
-> url:    https://github.com/0day-ci/linux/commits/Zong-Li/RISC-V-Resolve-the-issue-of-loadable-module-on-64-bit/20180314-203750
-> config: riscv-defconfig (attached as .config)
-> compiler: riscv64-linux-gcc (GCC) 7.2.0
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # save the attached .config to linux build tree
->         make.cross ARCH=riscv
+> These patches also support more relocation types
+>  - R_RISCV_CALL
+>  - R_RISCV_HI20
+>  - R_RISCV_LO12_I
+>  - R_RISCV_LO12_S
+>  - R_RISCV_RVC_BRANCH
+>  - R_RISCV_RVC_JUMP
+>  - R_RISCV_ALIGN
+>  - R_RISCV_ADD32
+>  - R_RISCV_SUB32
 >
-> All errors (new ones prefixed by >>):
+> This is the list of testing modules:
+> # lsmod
+> btrfs 7876158 0 - Live 0xffffffd00745d000
+> ramoops 90806 0 - Live 0xffffffd0024b8000
+> lzo 10554 0 - Live 0xffffffd002050000
+> zstd_decompress 567575 1 btrfs, Live 0xffffffd00238b000
+> zstd_compress 1543837 1 btrfs, Live 0xffffffd002211000
+> zram 101300 0 - Live 0xffffffd0021b8000
+> xxhash 62254 2 zstd_decompress,zstd_compress, Live 0xffffffd0020cf000
+> xor 33246 1 btrfs, Live 0xffffffd002042000
+> xfs 4395343 0 - Live 0xffffffd00399e000
+> tun 252041 0 - Live 0xffffffd0038e0000
+> test_user_copy 5265 0 - Live 0xffffffd003783000
+> test_static_keys 19606 0 - Live 0xffffffd003717000
+> test_static_key_base 7374 1 test_static_keys, Live 0xffffffd0036dc000
+> test_printf 7804 0 [permanent], Live 0xffffffd00369c000
+> test_module 1557 0 - Live 0xffffffd003646000
+> test_kmod 49100 0 - Live 0xffffffd0035f2000
+> test_bpf 1599301 0 - Live 0xffffffd003000000
+> test_bitmap 4403 0 - Live 0xffffffd002dd8000
+> reed_solomon 38866 1 ramoops, Live 0xffffffd002d86000
+> raid6_pq 161872 1 btrfs, Live 0xffffffd002b9e000
+> netdevsim 65401 0 - Live 0xffffffd002910000
 >
->    In file included from include/linux/module.h:25:0,
->                     from fs/notify/fsnotify.c:23:
->    arch/riscv/include/asm/module.h:38:25: warning: 'struct mod_section' declared inside parameter list will not be visible outside of this definition or declaration
->                const struct mod_section *sec)
->                             ^~~~~~~~~~~
->    arch/riscv/include/asm/module.h: In function 'get_got_entry':
->    arch/riscv/include/asm/module.h:40:49: error: dereferencing pointer to incomplete type 'const struct mod_section'
->      struct got_entry *got = (struct got_entry *)sec->shdr->sh_addr;
->                                                     ^~
->    arch/riscv/include/asm/module.h: At top level:
->    arch/riscv/include/asm/module.h:89:57: warning: 'struct mod_section' declared inside parameter list will not be visible outside of this definition or declaration
->     static inline int get_got_plt_idx(u64 val, const struct mod_section *sec)
->                                                             ^~~~~~~~~~~
->    arch/riscv/include/asm/module.h: In function 'get_got_plt_idx':
->    arch/riscv/include/asm/module.h:91:53: error: dereferencing pointer to incomplete type 'const struct mod_section'
->      struct got_entry *got_plt = (struct got_entry *)sec->shdr->sh_addr;
->                                                         ^~
->    arch/riscv/include/asm/module.h: At top level:
->    arch/riscv/include/asm/module.h:101:24: warning: 'struct mod_section' declared inside parameter list will not be visible outside of this definition or declaration
->               const struct mod_section *sec_plt,
->                            ^~~~~~~~~~~
->    arch/riscv/include/asm/module.h: In function 'get_plt_entry':
->    arch/riscv/include/asm/module.h:104:53: error: dereferencing pointer to incomplete type 'const struct mod_section'
->      struct plt_entry *plt = (struct plt_entry *)sec_plt->shdr->sh_addr;
->                                                         ^~
->>> arch/riscv/include/asm/module.h:105:41: error: passing argument 2 of 'get_got_plt_idx' from incompatible pointer type [-Werror=incompatible-pointer-types]
->      int got_plt_idx = get_got_plt_idx(val, sec_got_plt);
->                                             ^~~~~~~~~~~
->    arch/riscv/include/asm/module.h:89:19: note: expected 'const struct mod_section *' but argument is of type 'const struct mod_section *'
->     static inline int get_got_plt_idx(u64 val, const struct mod_section *sec)
->                       ^~~~~~~~~~~~~~~
->    cc1: some warnings being treated as errors
->
-> vim +/get_got_plt_idx +105 arch/riscv/include/asm/module.h
->
->     99
->    100  static inline struct plt_entry *get_plt_entry(u64 val,
->  > 101                                        const struct mod_section *sec_plt,
->    102                                        const struct mod_section *sec_got_plt)
->    103  {
->    104          struct plt_entry *plt = (struct plt_entry *)sec_plt->shdr->sh_addr;
->  > 105          int got_plt_idx = get_got_plt_idx(val, sec_got_plt);
->    106          if (got_plt_idx >= 0)
->    107                  return plt + got_plt_idx;
->    108          else
->    109                  return NULL;
->    110  }
->    111
->
+> Signed-off-by: Zong Li <zong@andestech.com>
 > ---
-> 0-DAY kernel test infrastructure                Open Source Technology Center
-> https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+> Change in v2:
+>  - Add compile option 'mno-relax' for build kernel module
+>  - Just fail on ALIGN type, this is unexpected type with mno-relax.
+>
+> Zong Li (11):
+>   RISC-V: Add sections of PLT and GOT for kernel module
+>   RISC-V: Add section of GOT.PLT for kernel module
+>   RISC-V: Support GOT_HI20/CALL_PLT relocation type in kernel module
+>   RISC-V: Support CALL relocation type in kernel module
+>   RISC-V: Support HI20/LO12_I/LO12_S relocation type in kernel module
+>   RISC-V: Support RVC_BRANCH/JUMP relocation type in kernel modulewq
+>   RISC-V: Support ALIGN relocation type in kernel module
+>   RISC-V: Support ADD32 relocation type in kernel module
+>   RISC-V: Support SUB32 relocation type in kernel module
+>   RISC-V: Enable module support in defconfig
+>   RISC-V: Add definition of relocation types
+>
+>  arch/riscv/Kconfig                  |   5 +
+>  arch/riscv/Makefile                 |   5 +
+>  arch/riscv/configs/defconfig        |   2 +
+>  arch/riscv/include/asm/module.h     | 113 +++++++++++++++++++++++
+>  arch/riscv/include/uapi/asm/elf.h   |   7 ++
+>  arch/riscv/kernel/Makefile          |   1 +
+>  arch/riscv/kernel/module-sections.c | 156 +++++++++++++++++++++++++++++++
+>  arch/riscv/kernel/module.c          | 179 ++++++++++++++++++++++++++++++++++--
+>  arch/riscv/kernel/module.lds        |   8 ++
+>  9 files changed, 470 insertions(+), 6 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/module.h
+>  create mode 100644 arch/riscv/kernel/module-sections.c
+>  create mode 100644 arch/riscv/kernel/module.lds
+>
+> --
+> 2.16.1
+>
 
-The config default is enable the MODULES, but also need to consider
-the MODULES disable situation.
-Modify the include/asm/module.h in PATCH v2
+Hi,
 
-+u64 module_emit_got_entry(struct module *mod, u64 val);
-+u64 module_emit_plt_entry(struct module *mod, u64 val);
+The ALIGN relocation type is just fail and print the error message on
+v2 version,
+Because I think that it will not exist in module which building with
+'mno-relax ' option,
+The behavior of check alignment will become a redundant thing.
 
- #ifdef CONFIG_MODULE_SECTIONS
- struct mod_section {
-@@ -23,6 +21,10 @@ struct mod_arch_specific {
-        struct mod_section plt;
-        struct mod_section got_plt;
- };
--#endif
-
--u64 module_emit_got_entry(struct module *mod, u64 val);
--u64 module_emit_plt_entry(struct module *mod, u64 val);
-
- struct got_entry {
-         u64 symbol_addr;        /* the real variable address */
-@@ -108,6 +109,5 @@ static inline struct plt_entry *get_plt_entry(u64 val,
-                 return NULL;
- }
-
-+#endif /* CONFIG_MODULE_SECTIONS */
-
- #endif /* _ASM_RISCV_MODULE_H */
+Thanks a lot.
