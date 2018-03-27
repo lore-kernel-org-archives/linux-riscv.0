@@ -1,37 +1,37 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 27 Mar 2018 09:19:04 -0700
-Subject: [PATCH v4 1/8] arm64: Set CONFIG_MULTI_IRQ_HANDLER
+Date: Tue, 27 Mar 2018 09:19:05 -0700
+Subject: [PATCH v4 2/8] openrisc: Set CONFIG_MULTI_IRQ_HANDLER
 In-Reply-To: <20180327161911.14086-1-palmer@sifive.com>
 References: <20180327161911.14086-1-palmer@sifive.com>
-Message-ID: <20180327161911.14086-2-palmer@sifive.com>
+Message-ID: <20180327161911.14086-3-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-arm has an optional MULTI_IRQ_HANDLER, which arm64 copied but didn't
+arm has an optional MULTI_IRQ_HANDLER, which openrisc copied but didn't
 make optional.  I'm converting this to generic code, but in order to
-ensure everything stays bisectable I want this defined on arm64 for now.
-This will go away by the end of the patch set.
+ensure everything stays bisectable I want this defined on openrisc for
+now.  This will go away by the end of the patch set.
 
 Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 ---
- arch/arm64/Kconfig | 4 ++++
+ arch/openrisc/Kconfig | 4 ++++
  1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 7381eeb7ef8e..302d0b681676 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -132,6 +132,7 @@ config ARM64
- 	select IRQ_DOMAIN
- 	select IRQ_FORCED_THREADING
+diff --git a/arch/openrisc/Kconfig b/arch/openrisc/Kconfig
+index 339df7324e9c..9ecad05bfc73 100644
+--- a/arch/openrisc/Kconfig
++++ b/arch/openrisc/Kconfig
+@@ -27,6 +27,7 @@ config OPENRISC
+ 	select GENERIC_STRNLEN_USER
+ 	select GENERIC_SMP_IDLE_THREAD
  	select MODULES_USE_ELF_RELA
 +	select MULTI_IRQ_HANDLER
- 	select NO_BOOTMEM
- 	select OF
- 	select OF_EARLY_FLATTREE
-@@ -275,6 +276,9 @@ config ARCH_SUPPORTS_UPROBES
- config ARCH_PROC_KCORE_TEXT
- 	def_bool y
+ 	select HAVE_DEBUG_STACKOVERFLOW
+ 	select OR1K_PIC
+ 	select CPU_NO_EFFICIENT_FFS if !OPENRISC_HAVE_INST_FF1
+@@ -68,6 +69,9 @@ config STACKTRACE_SUPPORT
+ config LOCKDEP_SUPPORT
+ 	def_bool  y
  
 +config MULTI_IRQ_HANDLER
 +	def_bool y
