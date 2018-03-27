@@ -1,27 +1,43 @@
-From: alankao@andestech.com (Alan Kao)
-Date: Mon, 26 Mar 2018 15:57:53 +0800
-Subject: [PATCH 0/2] perf: riscv: Preliminary Perf Event Support on RISC-V
-Message-ID: <1522051075-6442-1-git-send-email-alankao@andestech.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Tue, 27 Mar 2018 09:19:04 -0700
+Subject: [PATCH v4 1/8] arm64: Set CONFIG_MULTI_IRQ_HANDLER
+In-Reply-To: <20180327161911.14086-1-palmer@sifive.com>
+References: <20180327161911.14086-1-palmer@sifive.com>
+Message-ID: <20180327161911.14086-2-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This implements the baseline PMU for RISC-V platforms.
+arm has an optional MULTI_IRQ_HANDLER, which arm64 copied but didn't
+make optional.  I'm converting this to generic code, but in order to
+ensure everything stays bisectable I want this defined on arm64 for now.
+This will go away by the end of the patch set.
 
-To ease the future PMU portings, a guide is also written, containing
-perf concepts, arch porting practices and some hints.
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+---
+ arch/arm64/Kconfig | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Alan Kao (2):
-  perf: riscv: preliminary RISC-V support
-  perf: riscv: Add Document for Future Porting Guide
-
- Documentation/riscv/pmu.txt         | 250 +++++++++++++++++++
- arch/riscv/Kconfig                  |  12 +
- arch/riscv/include/asm/perf_event.h |  76 +++++-
- arch/riscv/kernel/Makefile          |   1 +
- arch/riscv/kernel/perf_event.c      | 469 ++++++++++++++++++++++++++++++++++++
- 5 files changed, 804 insertions(+), 4 deletions(-)
- create mode 100644 Documentation/riscv/pmu.txt
- create mode 100644 arch/riscv/kernel/perf_event.c
-
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 7381eeb7ef8e..302d0b681676 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -132,6 +132,7 @@ config ARM64
+ 	select IRQ_DOMAIN
+ 	select IRQ_FORCED_THREADING
+ 	select MODULES_USE_ELF_RELA
++	select MULTI_IRQ_HANDLER
+ 	select NO_BOOTMEM
+ 	select OF
+ 	select OF_EARLY_FLATTREE
+@@ -275,6 +276,9 @@ config ARCH_SUPPORTS_UPROBES
+ config ARCH_PROC_KCORE_TEXT
+ 	def_bool y
+ 
++config MULTI_IRQ_HANDLER
++	def_bool y
++
+ source "init/Kconfig"
+ 
+ source "kernel/Kconfig.freezer"
 -- 
-2.16.2
+2.16.1
