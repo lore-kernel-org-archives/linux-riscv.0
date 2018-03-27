@@ -1,94 +1,99 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 27 Mar 2018 09:19:07 -0700
-Subject: [PATCH v4 4/8] RISC-V: Move to the new GENERIC_IRQ_MULTI_HANDLER
- handler
-In-Reply-To: <20180327161911.14086-1-palmer@sifive.com>
-References: <20180327161911.14086-1-palmer@sifive.com>
-Message-ID: <20180327161911.14086-5-palmer@sifive.com>
+Date: Tue, 27 Mar 2018 09:19:03 -0700
+Subject: Make set_handle_irq and handle_arch_irq generic, v4
+Message-ID: <20180327161911.14086-1-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The old mechanism for handling IRQs on RISC-V was pretty ugly: the arch
-code looked at the Kconfig entry for our first-level irqchip driver and
-called into it directly.
+This is my third version of this patch set, but the original cover
+letter is still the most relevant description I can come up with.
 
-This patch uses the new generic IRQ handling infastructure, which
-essentially just deletes a bunch of code.  This does add an additional
-load to the interrupt latency, but there's a lot of tuning left to be
-done there on RISC-V so I think it's OK for now.
+    This patch set has been sitting around for a while, but it got a bit lost
+    in the shuffle.  In RISC-V land we currently couple do_IRQ (the C entry
+    point for interrupt handling) to our first-level interrupt controller.
+    While this isn't completely crazy (as the first-level interrupt controller
+    is specified by the ISA), it is a bit awkward.
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
-Acked-by: Stafford Horne <shorne@gmail.com>
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- arch/riscv/Kconfig            |  1 +
- arch/riscv/include/asm/Kbuild |  1 +
- arch/riscv/kernel/entry.S     |  7 +++----
- arch/riscv/kernel/irq.c       | 13 -------------
- 4 files changed, 5 insertions(+), 17 deletions(-)
+    This patch set decouples our trap handler from our first-level IRQ chip
+    driver by copying what a handful of other architectures are doing.  This
+    does add an additional load to the interrupt handling path, but there's a
+    handful of performance problems in there that I've been meaning to look at
+    so I don't mind adding another one for now.  The advantage is that our
+    irqchip driver is decoupled from our arch port, at least at compile time.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 04807c7f64cc..148865de1692 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -33,6 +33,7 @@ config RISCV
- 	select MODULES_USE_ELF_RELA if MODULES
- 	select THREAD_INFO_IN_TASK
- 	select RISCV_TIMER
-+	select GENERIC_IRQ_MULTI_HANDLER
- 
- config MMU
- 	def_bool y
-diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-index 4286a5f83876..1e5fd280fb4d 100644
---- a/arch/riscv/include/asm/Kbuild
-+++ b/arch/riscv/include/asm/Kbuild
-@@ -15,6 +15,7 @@ generic-y += fcntl.h
- generic-y += futex.h
- generic-y += hardirq.h
- generic-y += hash.h
-+generic-y += handle_irq.h
- generic-y += hw_irq.h
- generic-y += ioctl.h
- generic-y += ioctls.h
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 56fa592cfa34..9aaf6c986771 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -167,10 +167,9 @@ ENTRY(handle_exception)
- 	bge s4, zero, 1f
- 
- 	/* Handle interrupts */
--	slli a0, s4, 1
--	srli a0, a0, 1
--	move a1, sp /* pt_regs */
--	tail do_IRQ
-+	move a0, sp /* pt_regs */
-+	REG_L a1, handle_arch_irq
-+	jr a1
- 1:
- 	/* Exceptions run with interrupts enabled */
- 	csrs sstatus, SR_SIE
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 328718e8026e..b74cbfbce2d0 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -24,16 +24,3 @@ void __init init_IRQ(void)
- {
- 	irqchip_init();
- }
--
--asmlinkage void __irq_entry do_IRQ(unsigned int cause, struct pt_regs *regs)
--{
--#ifdef CONFIG_RISCV_INTC
--	/*
--	 * FIXME: We don't want a direct call to riscv_intc_irq here.  The plan
--	 * is to put an IRQ domain here and let the interrupt controller
--	 * register with that, but I poked around the arm64 code a bit and
--	 * there might be a better way to do it (ie, something fully generic).
--	 */
--	riscv_intc_irq(cause, regs);
--#endif
--}
--- 
-2.16.1
+Hopefully this time I've managed to produce a properly bisectable patch
+set.  There were two big bugs in the last version:
+
+* I missed the generic irqchip drivers that set MULTI_IRQ_HANDLER.  This
+  caused all sorts of non-defconfig ARM builds to fail.
+* MULTI_IRQ_HANDLER and GENERIC_IRQ_MULTI_HANDLER could both get set by
+  randconfig builds.  This caused the patch set to be non-bisectable.
+
+I've gone through a bit of a song-and-dance to work around these, but I
+think it's sound.  The patch set works as follows (the order is
+important):
+
+* MULTI_IRQ_HANDLER is added to the arm64 and openriscv ports,
+  forced to true.  Nothing in these ports actually looks at
+  CONFIG_MULTI_IRQ_HANDLER (it's forced to true anyway, so there's no
+  point in looking), it's just there to indicate that set_handle_irq()
+  is defined by these ports.
+* Every generic irqchip driver is modified to set
+  GENERIC_IRQ_MULTI_HANDLER, but only if MULTI_IRQ_HANDLER is false.
+  These generic drivers depend on set_handle_irq() so they need one of
+  these symbols to be set, but the two Kconfig symbols are mutually
+  exclusive so I can't just select both (I just found out that select
+  ignores dependencies :)).
+* GENERIC_IRQ_MULTI_HANDLER is added to all ports, with a dependency on
+  !MULTI_IRQ_HANDLER as they define the same symbols.
+* Support for GENERIC_IRQ_MULTI_HANDLER is added to the RISC-V, arm,
+  arm64, and openrisc ports.  This is a pretty mechanical change for
+  the other ports (just changing the #ifdefs), and a simple one for the
+  RISC-V port.
+
+This patch set assumes that the two patches currently on tip are
+dropped, but if that's not OK then I can create another patch set based
+on those two.  Of course, it won't be fully bisectable (arm randconfig
+will still be broken somewhere in the middle).
+
+I built this patch set after patches 3, 7, and 8 on arm, arm64, and
+openrisc defconfigs as well as an arm randconfig that broke my v3 patch
+set.
+
+Sorry for breaking things, hopefully it works this time!
+
+Changes since v3:
+
+* There's now three new patches: #1 and #2 add MULTI_IRQ_HANDLER on
+  arm64 and openrisc so they match ARM, while #8 removes all
+  MULTI_IRQ_HANDLER references.
+* All the generic irqchip drivers have been converted from
+  MULTI_IRQ_HANDLER to GENERIC_IRQ_MULTI_HANDLER.
+* A handful of commit messages have been cleaned up.
+
+Changes since v2:
+
+* This is now called CONFIG_GENERIC_IRQ_MULTI_HANDLER instead of
+  MULTI_IRQ_HANDLER.
+* Rather than converting the ARM code to generic code, this adds new
+  generic code (based on the ARM implementation) and then provides
+  separate patches to convert each architecture over to use
+  CONFIG_GENERIC_IRQ_MULTI_HANDLER.
+
+Changes since v1:
+
+* I based this on arm instead of arm64, which means we guard the selection of
+  these routines with CONFIG_MULTI_IRQ_HANDLER.
+* The changes are in kernel/irq/handle.c and include/linux/irq.h instead of
+  lib.
+* I've converted the arm, arm64, and openrisc ports to use the generic versions
+  of these routines.
+
+[PATCH v4 1/8] arm64: Set CONFIG_MULTI_IRQ_HANDLER
+[PATCH v4 2/8] openrisc: Set CONFIG_MULTI_IRQ_HANDLER
+[PATCH v4 3/8] irq: Add CONFIG_GENERIC_IRQ_MULTI_HANDLER
+[PATCH v4 4/8] RISC-V: Move to the new GENERIC_IRQ_MULTI_HANDLER
+[PATCH v4 5/8] arm: Convert to GENERIC_IRQ_MULTI_HANDLER
+[PATCH v4 6/8] arm64: Use the new GENERIC_IRQ_MULTI_HANDLER
+[PATCH v4 7/8] openrisc: Use the new GENERIC_IRQ_MULTI_HANDLER
+[PATCH v4 8/8] irq: Remove MULTI_IRQ_HANDLER as it's now obselete
