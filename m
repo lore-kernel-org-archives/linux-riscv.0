@@ -1,34 +1,34 @@
 From: shea@shealevy.com (Shea Levy)
-Date: Thu, 29 Mar 2018 07:31:53 -0400
-Subject: [PATCH v5 02/16] riscv: Free initrds with generic free_initrd_mem.
+Date: Thu, 29 Mar 2018 07:31:55 -0400
+Subject: [PATCH v5 04/16] arc: Switch to generic free_initrd_mem.
 In-Reply-To: <20180329113207.30674-1-shea@shealevy.com>
 References: <20180328203659.18692-1-shea@shealevy.com>
  <20180329113207.30674-1-shea@shealevy.com>
-Message-ID: <20180329113207.30674-2-shea@shealevy.com>
+Message-ID: <20180329113207.30674-4-shea@shealevy.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Now that there is a generic implementation, riscv's noop stub can be
-removed.
+The generic implementation is functionally identical.
 
 Signed-off-by: Shea Levy <shea@shealevy.com>
 ---
- arch/riscv/mm/init.c | 6 ------
- 1 file changed, 6 deletions(-)
+ arch/arc/mm/init.c | 7 -------
+ 1 file changed, 7 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index c77df8142be2..36f83fe8a726 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -62,9 +62,3 @@ void free_initmem(void)
+diff --git a/arch/arc/mm/init.c b/arch/arc/mm/init.c
+index ba145065c579..7bcf23ab1756 100644
+--- a/arch/arc/mm/init.c
++++ b/arch/arc/mm/init.c
+@@ -229,10 +229,3 @@ void __ref free_initmem(void)
  {
- 	free_initmem_default(0);
+ 	free_initmem_default(-1);
  }
 -
 -#ifdef CONFIG_BLK_DEV_INITRD
--void free_initrd_mem(unsigned long start, unsigned long end)
+-void __init free_initrd_mem(unsigned long start, unsigned long end)
 -{
+-	free_reserved_area((void *)start, (void *)end, -1, "initrd");
 -}
--#endif /* CONFIG_BLK_DEV_INITRD */
+-#endif
 -- 
 2.16.2
