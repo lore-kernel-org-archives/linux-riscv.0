@@ -1,26 +1,41 @@
-From: geert@linux-m68k.org (Geert Uytterhoeven)
-Date: Thu, 29 Mar 2018 08:55:34 +0200
-Subject: [PATCH v4 09/16] m68k: Use generic free_initrd_mem.
-In-Reply-To: <20180328203659.18692-10-shea@shealevy.com>
+From: daniel.thompson@linaro.org (Daniel Thompson)
+Date: Thu, 29 Mar 2018 10:52:48 +0100
+Subject: [PATCH v4 02/16] riscv: Use generic free_initrd_mem.
+In-Reply-To: <20180328203659.18692-3-shea@shealevy.com>
 References: <20180328152714.6103-1-shea@shealevy.com>
  <20180328203659.18692-1-shea@shealevy.com>
- <20180328203659.18692-10-shea@shealevy.com>
-Message-ID: <CAMuHMdVs0U616sKVEsj5BqQUPv8xjoSLtAvpoYQwMDJOzSNq2Q@mail.gmail.com>
+ <20180328203659.18692-3-shea@shealevy.com>
+Message-ID: <7fa4f27c-d421-38cd-aa16-445b364ed9eb@linaro.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Mar 28, 2018 at 10:36 PM, Shea Levy <shea@shealevy.com> wrote:
+On 28/03/18 21:36, Shea Levy wrote:
 > Signed-off-by: Shea Levy <shea@shealevy.com>
+> ---
+>   arch/riscv/mm/init.c | 6 ------
+>   1 file changed, 6 deletions(-)
+> 
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index c77df8142be2..36f83fe8a726 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -62,9 +62,3 @@ void free_initmem(void)
+>   {
+>   	free_initmem_default(0);
+>   }
+> -
+> -#ifdef CONFIG_BLK_DEV_INITRD
+> -void free_initrd_mem(unsigned long start, unsigned long end)
+> -{
+> -}
+> -#endif /* CONFIG_BLK_DEV_INITRD */
 
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+This looks like a change of behavior since the weakly defined code does 
+not implement a nop.
 
-Gr{oetje,eeting}s,
+I'm not saying the change is wrong, but if this is a deliberate bug fix 
+then we need more than an empty commit message to explain what is 
+happening here.
 
-                        Geert
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert at linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Daniel.
