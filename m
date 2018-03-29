@@ -1,100 +1,95 @@
-From: matt.redfearn@mips.com (Matt Redfearn)
-Date: Thu, 29 Mar 2018 11:41:22 +0100
-Subject: [PATCH v4 2/3] lib: Rename compiler intrinsic selects to GENERIC_LIB_*
-In-Reply-To: <1522320083-27818-1-git-send-email-matt.redfearn@mips.com>
-References: <1522320083-27818-1-git-send-email-matt.redfearn@mips.com>
-Message-ID: <1522320083-27818-2-git-send-email-matt.redfearn@mips.com>
+From: linux@armlinux.org.uk (Russell King - ARM Linux)
+Date: Thu, 29 Mar 2018 16:27:49 +0100
+Subject: [PATCH] Extract initrd free logic from arch-specific code.
+In-Reply-To: <CAOSf1CG8gQjoL5rDMRMcZp=D8jBEQ9JBSG68=CiXnitC+4Kjvg@mail.gmail.com>
+References: <20180325221853.10839-1-shea@shealevy.com>
+ <20180328152714.6103-1-shea@shealevy.com>
+ <05620fee-e8b5-0668-77b8-da073dc78c40@landley.net>
+ <20180328164813.GA3888@n2100.armlinux.org.uk>
+ <de092e7f-0bc9-bb06-9798-12784930a6bd@landley.net>
+ <20180328221401.GA14084@n2100.armlinux.org.uk>
+ <CAOSf1CG8gQjoL5rDMRMcZp=D8jBEQ9JBSG68=CiXnitC+4Kjvg@mail.gmail.com>
+Message-ID: <20180329152749.GC16141@n2100.armlinux.org.uk>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-When these are included into arch Kconfig files, maintaining
-alphabetical ordering of the selects means these get split up. To allow
-for keeping things tidier and alphabetical, rename the selects to
-GENERIC_LIB_*
+On Thu, Mar 29, 2018 at 09:37:52AM +1100, Oliver wrote:
+> On Thu, Mar 29, 2018 at 9:14 AM, Russell King - ARM Linux
+> <linux@armlinux.org.uk> wrote:
+> > On Wed, Mar 28, 2018 at 02:04:22PM -0500, Rob Landley wrote:
+> >>
+> >>
+> >> On 03/28/2018 11:48 AM, Russell King - ARM Linux wrote:
+> >> > On Wed, Mar 28, 2018 at 10:58:51AM -0500, Rob Landley wrote:
+> >> >> On 03/28/2018 10:26 AM, Shea Levy wrote:
+> >> >>> Now only those architectures that have custom initrd free requirements
+> >> >>> need to define free_initrd_mem.
+> >> >> ...
+> >> >>> --- a/arch/arc/mm/init.c
+> >> >>> +++ b/arch/arc/mm/init.c
+> >> >>> @@ -229,10 +229,3 @@ void __ref free_initmem(void)
+> >> >>>  {
+> >> >>>   free_initmem_default(-1);
+> >> >>>  }
+> >> >>> -
+> >> >>> -#ifdef CONFIG_BLK_DEV_INITRD
+> >> >>> -void __init free_initrd_mem(unsigned long start, unsigned long end)
+> >> >>> -{
+> >> >>> - free_reserved_area((void *)start, (void *)end, -1, "initrd");
+> >> >>> -}
+> >> >>> -#endif
+> >> >>> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> >> >>> index 3f972e83909b..19d1c5594e2d 100644
+> >> >>> --- a/arch/arm/Kconfig
+> >> >>> +++ b/arch/arm/Kconfig
+> >> >>> @@ -47,6 +47,7 @@ config ARM
+> >> >>>   select HARDIRQS_SW_RESEND
+> >> >>>   select HAVE_ARCH_AUDITSYSCALL if (AEABI && !OABI_COMPAT)
+> >> >>>   select HAVE_ARCH_BITREVERSE if (CPU_32v7M || CPU_32v7) && !CPU_32v6
+> >> >>> + select HAVE_ARCH_FREE_INITRD_MEM
+> >> >>>   select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU
+> >> >>>   select HAVE_ARCH_KGDB if !CPU_ENDIAN_BE32 && MMU
+> >> >>>   select HAVE_ARCH_MMAP_RND_BITS if MMU
+> >> >>
+> >> >> Isn't this why weak symbols were invented?
+> >> >
+> >> > Weak symbols means that we end up with both the weakly-referenced code
+> >> > and the arch code in the kernel image.  That's fine if the weak code
+> >> > is small.
+> >>
+> >> The kernel's been able to build with link time garbage collection since 2016:
+> >>
+> >> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b67067f1176d
+> >>
+> >> Wouldn't that remove the unused one?
+> >
+> > Probably, if anyone bothered to use that, which they don't.
+> >
+> > LD_DEAD_CODE_DATA_ELIMINATION is a symbol without a prompt, and from
+> > what I can see, nothing selects it.  Therefore, the symbol is always
+> > disabled, and so the feature never gets used in mainline kernels.
+> >
+> > Brings up the obvious question - why is it there if it's completely
+> > unused?  (Maybe to cause confusion, and allowing a justification
+> > for __weak ?)
+> 
+> IIRC Nick had some patches to do the arch enablement for powerpc, but
+> I'm not sure what happened to them though. I suspect it just fell down
+> Nick's ever growing TODO list.
 
-Signed-off-by: Matt Redfearn <matt.redfearn@mips.com>
-Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
+I've given it a go on ARM, marking every linker-built table with KEEP()
+and comparing the System.map files.  The resulting kernel is around
+150k smaller, which seems good.
 
----
+However, it doesn't boot - and I don't know why.  Booting the kernel
+under kvmtool in a VM using virtio-console, I can find no way to get
+any kernel messages out of it.  Using lkvm debug, I can see that the
+PC is stuck inside die(), and that's the only information I have.
+It dies before bringing up the other CPUs, so it's a very early death.
 
-Changes in v4:
-Rename Kconfig symbols GENERIC_* -> GENERIC_LIB_*
+I don't think other console types are available under ARM64.
 
-Changes in v3: None
-Changes in v2: None
-
- arch/riscv/Kconfig |  6 +++---
- lib/Kconfig        | 12 ++++++------
- lib/Makefile       | 12 ++++++------
- 3 files changed, 15 insertions(+), 15 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 04807c7f64cc..20185aaaf933 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -104,9 +104,9 @@ config ARCH_RV32I
- 	bool "RV32I"
- 	select CPU_SUPPORTS_32BIT_KERNEL
- 	select 32BIT
--	select GENERIC_ASHLDI3
--	select GENERIC_ASHRDI3
--	select GENERIC_LSHRDI3
-+	select GENERIC_LIB_ASHLDI3
-+	select GENERIC_LIB_ASHRDI3
-+	select GENERIC_LIB_LSHRDI3
- 
- config ARCH_RV64I
- 	bool "RV64I"
-diff --git a/lib/Kconfig b/lib/Kconfig
-index e96089499371..e54ebe00937e 100644
---- a/lib/Kconfig
-+++ b/lib/Kconfig
-@@ -588,20 +588,20 @@ config STRING_SELFTEST
- 
- endmenu
- 
--config GENERIC_ASHLDI3
-+config GENERIC_LIB_ASHLDI3
- 	bool
- 
--config GENERIC_ASHRDI3
-+config GENERIC_LIB_ASHRDI3
- 	bool
- 
--config GENERIC_LSHRDI3
-+config GENERIC_LIB_LSHRDI3
- 	bool
- 
--config GENERIC_MULDI3
-+config GENERIC_LIB_MULDI3
- 	bool
- 
--config GENERIC_CMPDI2
-+config GENERIC_LIB_CMPDI2
- 	bool
- 
--config GENERIC_UCMPDI2
-+config GENERIC_LIB_UCMPDI2
- 	bool
-diff --git a/lib/Makefile b/lib/Makefile
-index a90d4fcd748f..7425e177f08c 100644
---- a/lib/Makefile
-+++ b/lib/Makefile
-@@ -253,9 +253,9 @@ obj-$(CONFIG_SBITMAP) += sbitmap.o
- obj-$(CONFIG_PARMAN) += parman.o
- 
- # GCC library routines
--obj-$(CONFIG_GENERIC_ASHLDI3) += ashldi3.o
--obj-$(CONFIG_GENERIC_ASHRDI3) += ashrdi3.o
--obj-$(CONFIG_GENERIC_LSHRDI3) += lshrdi3.o
--obj-$(CONFIG_GENERIC_MULDI3) += muldi3.o
--obj-$(CONFIG_GENERIC_CMPDI2) += cmpdi2.o
--obj-$(CONFIG_GENERIC_UCMPDI2) += ucmpdi2.o
-+obj-$(CONFIG_GENERIC_LIB_ASHLDI3) += ashldi3.o
-+obj-$(CONFIG_GENERIC_LIB_ASHRDI3) += ashrdi3.o
-+obj-$(CONFIG_GENERIC_LIB_LSHRDI3) += lshrdi3.o
-+obj-$(CONFIG_GENERIC_LIB_MULDI3) += muldi3.o
-+obj-$(CONFIG_GENERIC_LIB_CMPDI2) += cmpdi2.o
-+obj-$(CONFIG_GENERIC_LIB_UCMPDI2) += ucmpdi2.o
 -- 
-2.7.4
+RMK's Patch system: http://www.armlinux.org.uk/developer/patches/
+FTTC broadband for 0.8mile line in suburbia: sync at 8.8Mbps down 630kbps up
+According to speedtest.net: 8.21Mbps down 510kbps up
