@@ -1,14 +1,51 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 28 Mar 2018 17:41:11 -0700 (PDT)
-Subject: [PATCH 1/2] perf: riscv: preliminary RISC-V support
-In-Reply-To: <CAJ2AOiNQiTpJ9cBCb_fXVCyVNj9U-Xk3tUG=9toAC7HpQTRQvA@mail.gmail.com>
-Message-ID: <mhng-98d52ac2-733f-48af-9a31-5717c7ee5d01@palmer-si-x1c4>
+From: richard.weiyang@gmail.com (Wei Yang)
+Date: Thu, 29 Mar 2018 09:12:10 +0800
+Subject: [PATCH] Extract initrd free logic from arch-specific code.
+In-Reply-To: <CAGXu5jLioqnOQniXuuNS=PjeAgJr1=BL78Cqu0cwu_Y5e-NDZA@mail.gmail.com>
+References: <20180325221853.10839-1-shea@shealevy.com>
+ <20180328152714.6103-1-shea@shealevy.com>
+ <CAGXu5jLioqnOQniXuuNS=PjeAgJr1=BL78Cqu0cwu_Y5e-NDZA@mail.gmail.com>
+Message-ID: <20180329011210.GA4275@WeideMacBook-Pro.local>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 28 Mar 2018 15:31:30 PDT (-0700), sols at sifive.com wrote:
-> Also, core IDs and socket IDs are wrong in perf report:
+On Wed, Mar 28, 2018 at 09:55:07AM -0700, Kees Cook wrote:
+>On Wed, Mar 28, 2018 at 8:26 AM, Shea Levy <shea@shealevy.com> wrote:
+>> Now only those architectures that have custom initrd free requirements
+>> need to define free_initrd_mem.
+>>
+>> Signed-off-by: Shea Levy <shea@shealevy.com>
+>
+>Yay consolidation! :)
+>
+>> --- a/usr/Kconfig
+>> +++ b/usr/Kconfig
+>> @@ -233,3 +233,7 @@ config INITRAMFS_COMPRESSION
+>>         default ".lzma" if RD_LZMA
+>>         default ".bz2"  if RD_BZIP2
+>>         default ""
+>> +
+>> +config HAVE_ARCH_FREE_INITRD_MEM
+>> +       bool
+>> +       default n
+>
+>If you keep the Kconfig, you can leave off "default n", and I'd
+>suggest adding a help section just to describe what the per-arch
+>responsibilities are when select-ing the config. (See
+>HAVE_ARCH_SECCOMP_FILTER for an example.)
+>
 
-It looks like for this we need the stuff in topology.h.  I've cobbled something 
-together quickly for Alex to use for now to see if that fixes other problems, 
-I'll submit a sane version when we can.
+One question about this change.
+
+The original code would "select" HAVE_ARCH_FREE_INITRD_MEM on those arch.
+After this change, we need to manually "select" this?
+
+>-Kees
+>
+>-- 
+>Kees Cook
+>Pixel Security
+
+-- 
+Wei Yang
+Help you, Help me
