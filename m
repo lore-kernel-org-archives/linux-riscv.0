@@ -1,10 +1,10 @@
 From: shea@shealevy.com (Shea Levy)
-Date: Sun,  1 Apr 2018 10:59:29 -0400
-Subject: [PATCH v6 15/16] sh: Switch to generic free_initrd_mem.
+Date: Sun,  1 Apr 2018 10:59:30 -0400
+Subject: [PATCH v6 16/16] um: Switch to generic free_initrd_mem.
 In-Reply-To: <20180401145931.7932-1-shea@shealevy.com>
 References: <20180329113207.30674-1-shea@shealevy.com>
  <20180401145931.7932-1-shea@shealevy.com>
-Message-ID: <20180401145931.7932-15-shea@shealevy.com>
+Message-ID: <20180401145931.7932-16-shea@shealevy.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
@@ -15,18 +15,17 @@ architecture-specific one removed here.
 Series boot-tested on RISC-V (which now uses the generic
 implementation) and x86_64 (which doesn't).
 
-Acked-by: Rich Felker <dalias@libc.org>
 Signed-off-by: Shea Levy <shea@shealevy.com>
 ---
- arch/sh/mm/init.c | 7 -------
+ arch/um/kernel/mem.c | 7 -------
  1 file changed, 7 deletions(-)
 
-diff --git a/arch/sh/mm/init.c b/arch/sh/mm/init.c
-index ce0bbaa7e404..7451459d0725 100644
---- a/arch/sh/mm/init.c
-+++ b/arch/sh/mm/init.c
-@@ -477,13 +477,6 @@ void free_initmem(void)
- 	free_initmem_default(-1);
+diff --git a/arch/um/kernel/mem.c b/arch/um/kernel/mem.c
+index 3c0e470ea646..2d26eec92126 100644
+--- a/arch/um/kernel/mem.c
++++ b/arch/um/kernel/mem.c
+@@ -170,13 +170,6 @@ void free_initmem(void)
+ {
  }
  
 -#ifdef CONFIG_BLK_DEV_INITRD
@@ -36,8 +35,8 @@ index ce0bbaa7e404..7451459d0725 100644
 -}
 -#endif
 -
- #ifdef CONFIG_MEMORY_HOTPLUG
- int arch_add_memory(int nid, u64 start, u64 size, struct vmem_altmap *altmap,
- 		bool want_memblock)
+ /* Allocate and free page tables. */
+ 
+ pgd_t *pgd_alloc(struct mm_struct *mm)
 -- 
 2.16.2
