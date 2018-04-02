@@ -1,47 +1,50 @@
-From: ley.foon.tan@intel.com (Ley Foon Tan)
-Date: Tue, 03 Apr 2018 00:04:46 +0800
-Subject: [PATCH v6 11/16] nios2: Switch to generic free_initrd_mem.
-In-Reply-To: <20180401145931.7932-11-shea@shealevy.com>
-References: <20180329113207.30674-1-shea@shealevy.com>
- <20180401145931.7932-1-shea@shealevy.com>
- <20180401145931.7932-11-shea@shealevy.com>
-Message-ID: <1522685086.2498.24.camel@intel.com>
+From: alankao@andestech.com (Alan Kao)
+Date: Mon, 2 Apr 2018 16:18:06 +0800
+Subject: [PATCH 1/2] perf: riscv: preliminary RISC-V support
+In-Reply-To: <20180402073611.GA7694@andestech.com>
+References: <1522051075-6442-1-git-send-email-alankao@andestech.com>
+ <1522051075-6442-2-git-send-email-alankao@andestech.com>
+ <CAJ2AOiNQuMJoPZPxy2CDFD0vnxk8E+N-8xiir2nPYKjWJKxshQ@mail.gmail.com>
+ <20180329023024.GA32659@andestech.com>
+ <CAJ2AOiPNquo1hGrYjsDcCM4st5Exa7x_-xUV=QW_MCBVCCCkBw@mail.gmail.com>
+ <20180402073611.GA7694@andestech.com>
+Message-ID: <20180402081806.GA24954@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sun, 2018-04-01 at 10:59 -0400, Shea Levy wrote:
-> The first patch in this series added a weakly-defined generic
-> implementation, which is functionally identical to the
-> architecture-specific one removed here.
-> 
-> Series boot-tested on RISC-V (which now uses the generic
-> implementation) and x86_64 (which doesn't).
-> 
-> Signed-off-by: Shea Levy <shea@shealevy.com>
 
-Acked-by: Ley Foon Tan <ley.foon.tan@intel.com>
+Hi Alex,
+ 
+On Mon, Apr 02, 2018 at 03:36:12PM +0800, Alan Kao wrote:
+> On Sat, Mar 31, 2018 at 03:47:10PM -0700, Alex Solomatnikov wrote:
+> 
+> The original guess was that maybe, an counter value on a hart is picked
+> as the minusend, and an old counter value on another hart was recorded
+> as the subtrahend but numerically larger.  Then, the overflow causes 
+> by that subtraction.  Please let me name this guess as 
+> "cross-hart subtraction."
+>
+> > You can add a skew between cores in qemu, something like this:
+> > 
+> > case CSR_INSTRET:
+> >         core_id()*return cpu_get_host_ticks()/10;
+> >     break;
+> > case CSR_CYCLE:
+> >         return cpu_get_host_ticks();
+> >     break;
+> > 
+> 
+> However, I tried similar stuff to reproduce the phenomenon but in vain.
+> It seems that the 
+>
+>               ***cross-hart subtration doesn't even happen, because generic
+> code handles them.  ...
 
-> ---
-> ?arch/nios2/mm/init.c | 7 -------
-> ?1 file changed, 7 deletions(-)
-> 
-> diff --git a/arch/nios2/mm/init.c b/arch/nios2/mm/init.c
-> index c92fe4234009..3df75ff8c768 100644
-> --- a/arch/nios2/mm/init.c
-> +++ b/arch/nios2/mm/init.c
-> @@ -82,13 +82,6 @@ void __init mmu_init(void)
-> ????????flush_tlb_all();
-> ?}
-> 
-> -#ifdef CONFIG_BLK_DEV_INITRD
-> -void __init free_initrd_mem(unsigned long start, unsigned long end)
-> -{
-> -???????free_reserved_area((void *)start, (void *)end, -1, "initrd");
-> -}
-> -#endif
-> -
-> ?void __ref free_initmem(void)
-> ?{
-> ????????free_initmem_default(-1);
-> --
-> 2.16.2
+I am sorry that this observation is wrong.  With appropriate tweak, we
+successfully reproduce the behavior and locate the the bug.
+
+This will be fix in v2.
+
+
+Thanks for the helps.
+Alan
