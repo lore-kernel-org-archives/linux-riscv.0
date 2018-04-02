@@ -1,50 +1,32 @@
 From: alankao@andestech.com (Alan Kao)
-Date: Mon, 2 Apr 2018 16:18:06 +0800
-Subject: [PATCH 1/2] perf: riscv: preliminary RISC-V support
-In-Reply-To: <20180402073611.GA7694@andestech.com>
-References: <1522051075-6442-1-git-send-email-alankao@andestech.com>
- <1522051075-6442-2-git-send-email-alankao@andestech.com>
- <CAJ2AOiNQuMJoPZPxy2CDFD0vnxk8E+N-8xiir2nPYKjWJKxshQ@mail.gmail.com>
- <20180329023024.GA32659@andestech.com>
- <CAJ2AOiPNquo1hGrYjsDcCM4st5Exa7x_-xUV=QW_MCBVCCCkBw@mail.gmail.com>
- <20180402073611.GA7694@andestech.com>
-Message-ID: <20180402081806.GA24954@andestech.com>
+Date: Mon, 2 Apr 2018 20:31:22 +0800
+Subject: [PATCH 0/2] perf: riscv: Preliminary Perf Event Support on RISC-V
+Message-ID: <1522672284-29593-1-git-send-email-alankao@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
+This implements the baseline PMU for RISC-V platforms.
 
-Hi Alex,
- 
-On Mon, Apr 02, 2018 at 03:36:12PM +0800, Alan Kao wrote:
-> On Sat, Mar 31, 2018 at 03:47:10PM -0700, Alex Solomatnikov wrote:
-> 
-> The original guess was that maybe, an counter value on a hart is picked
-> as the minusend, and an old counter value on another hart was recorded
-> as the subtrahend but numerically larger.  Then, the overflow causes 
-> by that subtraction.  Please let me name this guess as 
-> "cross-hart subtraction."
->
-> > You can add a skew between cores in qemu, something like this:
-> > 
-> > case CSR_INSTRET:
-> >         core_id()*return cpu_get_host_ticks()/10;
-> >     break;
-> > case CSR_CYCLE:
-> >         return cpu_get_host_ticks();
-> >     break;
-> > 
-> 
-> However, I tried similar stuff to reproduce the phenomenon but in vain.
-> It seems that the 
->
->               ***cross-hart subtration doesn't even happen, because generic
-> code handles them.  ...
+To ease future PMU portings, a guide is also written, containing
+perf concepts, arch porting practices and some hints.
 
-I am sorry that this observation is wrong.  With appropriate tweak, we
-successfully reproduce the behavior and locate the the bug.
+Changes in v2:
+ - Fix the bug reported by Alex, which was caused by not sufficient
+   initialization.  Check https://lkml.org/lkml/2018/3/31/251 for the
+   discussion.
 
-This will be fix in v2.
+Alan Kao (2):
+  perf: riscv: preliminary RISC-V support
+  perf: riscv: Add Document for Future Porting Guide
 
+ Documentation/riscv/pmu.txt         | 249 +++++++++++++++++++
+ arch/riscv/Kconfig                  |  12 +
+ arch/riscv/include/asm/perf_event.h |  76 +++++-
+ arch/riscv/kernel/Makefile          |   1 +
+ arch/riscv/kernel/perf_event.c      | 468 ++++++++++++++++++++++++++++++++++++
+ 5 files changed, 802 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/riscv/pmu.txt
+ create mode 100644 arch/riscv/kernel/perf_event.c
 
-Thanks for the helps.
-Alan
+-- 
+2.16.2
