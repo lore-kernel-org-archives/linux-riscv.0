@@ -1,32 +1,106 @@
-From: aurelien@aurel32.net (Aurelien Jarno)
-Date: Wed, 4 Apr 2018 00:06:55 +0200
-Subject: [RFC PR] RISC-V changes for 4.17
-In-Reply-To: <mhng-2eb61f09-8a89-482b-995b-5ae38b73dfe9@palmer-si-x1c4>
-References: <mhng-2eb61f09-8a89-482b-995b-5ae38b73dfe9@palmer-si-x1c4>
-Message-ID: <20180403220655.GA8917@aurel32.net>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Tue, 03 Apr 2018 15:39:34 -0700 (PDT)
+Subject: [PATCH v5 2/3] lib: Rename compiler intrinsic selects to
+ GENERIC_LIB_*
+In-Reply-To: <1522747466-22081-2-git-send-email-matt.redfearn@mips.com>
+Message-ID: <mhng-58affcc9-9eff-4403-861e-e40aea063afc@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Palmer,
+On Tue, 03 Apr 2018 02:24:25 PDT (-0700), matt.redfearn at mips.com wrote:
+> When these are included into arch Kconfig files, maintaining
+> alphabetical ordering of the selects means these get split up. To allow
+> for keeping things tidier and alphabetical, rename the selects to
+> GENERIC_LIB_*
+>
+> Signed-off-by: Matt Redfearn <matt.redfearn@mips.com>
+> Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
+>
+> ---
+>
+> Changes in v5: None
+> Changes in v4:
+> Rename Kconfig symbols GENERIC_* -> GENERIC_LIB_*
+>
+> Changes in v3: None
+> Changes in v2: None
+>
+>  arch/riscv/Kconfig |  6 +++---
+>  lib/Kconfig        | 12 ++++++------
+>  lib/Makefile       | 12 ++++++------
+>  3 files changed, 15 insertions(+), 15 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 04807c7f64cc..20185aaaf933 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -104,9 +104,9 @@ config ARCH_RV32I
+>  	bool "RV32I"
+>  	select CPU_SUPPORTS_32BIT_KERNEL
+>  	select 32BIT
+> -	select GENERIC_ASHLDI3
+> -	select GENERIC_ASHRDI3
+> -	select GENERIC_LSHRDI3
+> +	select GENERIC_LIB_ASHLDI3
+> +	select GENERIC_LIB_ASHRDI3
+> +	select GENERIC_LIB_LSHRDI3
+>
+>  config ARCH_RV64I
+>  	bool "RV64I"
+> diff --git a/lib/Kconfig b/lib/Kconfig
+> index e96089499371..e54ebe00937e 100644
+> --- a/lib/Kconfig
+> +++ b/lib/Kconfig
+> @@ -588,20 +588,20 @@ config STRING_SELFTEST
+>
+>  endmenu
+>
+> -config GENERIC_ASHLDI3
+> +config GENERIC_LIB_ASHLDI3
+>  	bool
+>
+> -config GENERIC_ASHRDI3
+> +config GENERIC_LIB_ASHRDI3
+>  	bool
+>
+> -config GENERIC_LSHRDI3
+> +config GENERIC_LIB_LSHRDI3
+>  	bool
+>
+> -config GENERIC_MULDI3
+> +config GENERIC_LIB_MULDI3
+>  	bool
+>
+> -config GENERIC_CMPDI2
+> +config GENERIC_LIB_CMPDI2
+>  	bool
+>
+> -config GENERIC_UCMPDI2
+> +config GENERIC_LIB_UCMPDI2
+>  	bool
+> diff --git a/lib/Makefile b/lib/Makefile
+> index a90d4fcd748f..7425e177f08c 100644
+> --- a/lib/Makefile
+> +++ b/lib/Makefile
+> @@ -253,9 +253,9 @@ obj-$(CONFIG_SBITMAP) += sbitmap.o
+>  obj-$(CONFIG_PARMAN) += parman.o
+>
+>  # GCC library routines
+> -obj-$(CONFIG_GENERIC_ASHLDI3) += ashldi3.o
+> -obj-$(CONFIG_GENERIC_ASHRDI3) += ashrdi3.o
+> -obj-$(CONFIG_GENERIC_LSHRDI3) += lshrdi3.o
+> -obj-$(CONFIG_GENERIC_MULDI3) += muldi3.o
+> -obj-$(CONFIG_GENERIC_CMPDI2) += cmpdi2.o
+> -obj-$(CONFIG_GENERIC_UCMPDI2) += ucmpdi2.o
+> +obj-$(CONFIG_GENERIC_LIB_ASHLDI3) += ashldi3.o
+> +obj-$(CONFIG_GENERIC_LIB_ASHRDI3) += ashrdi3.o
+> +obj-$(CONFIG_GENERIC_LIB_LSHRDI3) += lshrdi3.o
+> +obj-$(CONFIG_GENERIC_LIB_MULDI3) += muldi3.o
+> +obj-$(CONFIG_GENERIC_LIB_CMPDI2) += cmpdi2.o
+> +obj-$(CONFIG_GENERIC_LIB_UCMPDI2) += ucmpdi2.o
 
-On 2018-04-02 20:58, Palmer Dabbelt wrote:
-> Here's the PR I'm planning on submitting to Linus for the first half of the
-> 4.17 merge window.  Unless anyone knows of any problems I'll submit the PR on
-> Wednesday morning.  I haven't given this a much testing as I probably should
-> have, so please go give things a shot!
-> I don't want to take any new code for Wednesday, but I'm planning on taking the
-> perf stuff for next week if some small issues iron themselves out.
+Sorry, I'm not sure if this is the right patch -- someone suggested acking 
+this, but it's already Review-By me and if I understand correctly it's going 
+through your tree.  I'm a bit new to this, but if it helps then here's a
 
-Do you think it's possible to also include this simple change:
-
-http://lists.infradead.org/pipermail/linux-riscv/2018-March/000292.html
-
-It fixes building the kernel with compilers defaulting to PIE and is a
-no-op for compilers not defaulting to PIE.
-
-Thanks,
-Aurelien
-
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien at aurel32.net                 http://www.aurel32.net
+Acked-By: Palmer Dabbelt <palmer@sifive.com>
