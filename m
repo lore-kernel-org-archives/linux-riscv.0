@@ -1,100 +1,39 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 04 Apr 2018 09:45:41 -0700 (PDT)
-Subject: [GIT PULL] RISC-V changes for 4.17
-Message-ID: <mhng-ac10695e-e25f-4443-9a68-2b7252d9e6d8@palmer-si-x1c4>
+From: jhogan@kernel.org (James Hogan)
+Date: Wed, 4 Apr 2018 23:02:58 +0100
+Subject: [PATCH v5 2/3] lib: Rename compiler intrinsic selects to
+ GENERIC_LIB_*
+In-Reply-To: <mhng-58affcc9-9eff-4403-861e-e40aea063afc@palmer-si-x1c4>
+References: <1522747466-22081-2-git-send-email-matt.redfearn@mips.com>
+ <mhng-58affcc9-9eff-4403-861e-e40aea063afc@palmer-si-x1c4>
+Message-ID: <20180404220258.GA9347@saruman>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The following changes since commit 0adb32858b0bddf4ada5f364a84ed60b196dbcda:
+On Tue, Apr 03, 2018 at 03:39:34PM -0700, Palmer Dabbelt wrote:
+> Sorry, I'm not sure if this is the right patch -- someone suggested acking 
+> this, but it's already Review-By me and if I understand correctly it's going 
+> through your tree.  I'm a bit new to this, but if it helps then here's a
+> 
+> Acked-By: Palmer Dabbelt <palmer@sifive.com>
 
-  Linux 4.16 (2018-04-01 14:20:27 -0700)
+Thanks Palmer.
 
-are available in the Git repository at:
+No worries. FYI Documentation/process/submitting-patches.rst appears to
+now contain lots of gory detail about what Acked-by and Reviewed-by are
+supposed to mean.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.17-mw0
+In this case an acked-by is needed to show your approval of the parts of
+the patch which touch the subsystem you are responsible for (and/or code
+which you have authored) so that the patch can go via another tree. It
+usually indicates that you've reviewed those parts of the patch too, but
+not necessarily the whole thing.
 
-for you to fetch changes up to f6a11d9febad1f308fe4119a54b92e335e7c8032:
-
-  RISC-V: Rename CONFIG_CMDLINE_OVERRIDE to CONFIG_CMDLINE_FORCE (2018-04-03 09:48:27 -0700)
-
-----------------------------------------------------------------
-RISC-V changes for 4.17
-
-This tag contains the new features we'd like to incorporate into the
-RISC-V port for 4.17.  We might have a bit more stuff land later in the
-merge window, but I wanted to get this out earlier just so everyone can
-see where we currently stand.
-
-A short summary of the changes is:
-
-* We've added support for dynamic ftrace on RISC-V targets.
-* There have been a handful of cleanups to our atomic and locking
-  routines.  They now more closely match the released RISC-V memory
-  model draft.
-* Our module loading support has been cleaned up and is now enabled by
-  default, despite some limitations still existing.
-* A patch to define COMMANDLINE_FORCE instead of COMMANDLINE_OVERRIDE so
-  the generic device tree code picks up handling all our command line
-  stuff.
-
-There's more information in the merge commits for each patch set.
-
-----------------------------------------------------------------
-Alan Kao (6):
-      riscv/ftrace: Add RECORD_MCOUNT support
-      riscv/ftrace: Add dynamic function tracer support
-      riscv/ftrace: Add dynamic function graph tracer support
-      riscv/ftrace: Add ARCH_SUPPORTS_FTRACE_OPS support
-      riscv/ftrace: Add DYNAMIC_FTRACE_WITH_REGS support
-      riscv/ftrace: Add HAVE_FUNCTION_GRAPH_RET_ADDR_PTR support
-
-Andrea Parri (3):
-      riscv/barrier: Define __smp_{store_release,load_acquire}
-      riscv/spinlock: Strengthen implementations with fences
-      riscv/atomic: Strengthen implementations with fences
-
-Palmer Dabbelt (4):
-      RISC-V: Add dynamic ftrace support for RISC-V platforms
-      RISC-V: Assorted memory model fixes
-      RISC-V: Fixes to module loading
-      RISC-V: Rename CONFIG_CMDLINE_OVERRIDE to CONFIG_CMDLINE_FORCE
-
-Zong Li (11):
-      RISC-V: Add sections of PLT and GOT for kernel module
-      RISC-V: Add section of GOT.PLT for kernel module
-      RISC-V: Support GOT_HI20/CALL_PLT relocation type in kernel module
-      RISC-V: Support CALL relocation type in kernel module
-      RISC-V: Support HI20/LO12_I/LO12_S relocation type in kernel module
-      RISC-V: Support RVC_BRANCH/JUMP relocation type in kernel modulewq
-      RISC-V: Support ALIGN relocation type in kernel module
-      RISC-V: Support ADD32 relocation type in kernel module
-      RISC-V: Support SUB32 relocation type in kernel module
-      RISC-V: Enable module support in defconfig
-      RISC-V: Add definition of relocation types
-
- arch/riscv/Kconfig                  |  12 +-
- arch/riscv/Makefile                 |   8 +
- arch/riscv/configs/defconfig        |   2 +
- arch/riscv/include/asm/atomic.h     | 417 +++++++++++++++++++++++-------------
- arch/riscv/include/asm/barrier.h    |  15 ++
- arch/riscv/include/asm/cmpxchg.h    | 391 +++++++++++++++++++++++++++------
- arch/riscv/include/asm/fence.h      |  12 ++
- arch/riscv/include/asm/ftrace.h     |  56 +++++
- arch/riscv/include/asm/module.h     | 113 ++++++++++
- arch/riscv/include/asm/spinlock.h   |  29 +--
- arch/riscv/include/uapi/asm/elf.h   |   7 +
- arch/riscv/kernel/Makefile          |   6 +-
- arch/riscv/kernel/ftrace.c          | 175 ++++++++++++++-
- arch/riscv/kernel/mcount-dyn.S      | 239 +++++++++++++++++++++
- arch/riscv/kernel/mcount.S          |  22 +-
- arch/riscv/kernel/module-sections.c | 156 ++++++++++++++
- arch/riscv/kernel/module.c          | 179 +++++++++++++++-
- arch/riscv/kernel/module.lds        |   8 +
- arch/riscv/kernel/stacktrace.c      |   6 +
- scripts/recordmcount.pl             |   5 +
- 20 files changed, 1603 insertions(+), 255 deletions(-)
- create mode 100644 arch/riscv/include/asm/fence.h
- create mode 100644 arch/riscv/include/asm/module.h
- create mode 100644 arch/riscv/kernel/mcount-dyn.S
- create mode 100644 arch/riscv/kernel/module-sections.c
- create mode 100644 arch/riscv/kernel/module.lds
+Cheers
+James
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: Digital signature
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180404/a1a0d519/attachment.sig>
