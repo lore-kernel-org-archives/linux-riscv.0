@@ -1,30 +1,64 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 04 Apr 2018 17:14:46 -0700 (PDT)
-Subject: [PATCH v5 2/3] lib: Rename compiler intrinsic selects to
- GENERIC_LIB_*
-In-Reply-To: <20180404220258.GA9347@saruman>
-Message-ID: <mhng-80bc3ae8-ec63-4482-ad4e-1dddec475753@palmer-si-x1c4>
+From: alankao@andestech.com (Alan Kao)
+Date: Thu, 5 Apr 2018 13:02:29 +0800
+Subject: [PATCH 0/2] perf: riscv: Preliminary Perf Event Support on RISC-V
+In-Reply-To: <mhng-9b55b1b6-08a7-499d-a645-ada1ef5f9df1@palmer-si-x1c4>
+References: <20180403142902.GA10563@andestech.com>
+ <mhng-9b55b1b6-08a7-499d-a645-ada1ef5f9df1@palmer-si-x1c4>
+Message-ID: <20180405050229.GA24451@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 04 Apr 2018 15:02:58 PDT (-0700), jhogan at kernel.org wrote:
-> On Tue, Apr 03, 2018 at 03:39:34PM -0700, Palmer Dabbelt wrote:
->> Sorry, I'm not sure if this is the right patch -- someone suggested acking 
->> this, but it's already Review-By me and if I understand correctly it's going 
->> through your tree.  I'm a bit new to this, but if it helps then here's a
->> 
->> Acked-By: Palmer Dabbelt <palmer@sifive.com>
->
-> Thanks Palmer.
->
-> No worries. FYI Documentation/process/submitting-patches.rst appears to
-> now contain lots of gory detail about what Acked-by and Reviewed-by are
-> supposed to mean.
->
-> In this case an acked-by is needed to show your approval of the parts of
-> the patch which touch the subsystem you are responsible for (and/or code
-> which you have authored) so that the patch can go via another tree. It
-> usually indicates that you've reviewed those parts of the patch too, but
-> not necessarily the whole thing.
+On Tue, Apr 03, 2018 at 03:45:17PM -0700, Palmer Dabbelt wrote:
+> On Tue, 03 Apr 2018 07:29:02 PDT (-0700), alankao at andestech.com wrote:
+> >On Mon, Apr 02, 2018 at 08:15:44PM -0700, Palmer Dabbelt wrote:
+> >>On Mon, 02 Apr 2018 05:31:22 PDT (-0700), alankao at andestech.com wrote:
+> >>>This implements the baseline PMU for RISC-V platforms.
+> >>>
+> >>>To ease future PMU portings, a guide is also written, containing
+> >>>perf concepts, arch porting practices and some hints.
+> >>>
+> >>>Changes in v2:
+> >>> - Fix the bug reported by Alex, which was caused by not sufficient
+> >>>   initialization.  Check https://lkml.org/lkml/2018/3/31/251 for the
+> >>>   discussion.
+> >>>
+> >>>Alan Kao (2):
+> >>>  perf: riscv: preliminary RISC-V support
+> >>>  perf: riscv: Add Document for Future Porting Guide
+> >>>
+> >>> Documentation/riscv/pmu.txt         | 249 +++++++++++++++++++
+> >>> arch/riscv/Kconfig                  |  12 +
+> >>> arch/riscv/include/asm/perf_event.h |  76 +++++-
+> >>> arch/riscv/kernel/Makefile          |   1 +
+> >>> arch/riscv/kernel/perf_event.c      | 468 ++++++++++++++++++++++++++++++++++++
+> >>> 5 files changed, 802 insertions(+), 4 deletions(-)
+> >>> create mode 100644 Documentation/riscv/pmu.txt
+> >>> create mode 100644 arch/riscv/kernel/perf_event.c
+> >>
+> >>I'm having some trouble pulling this into my tree.  I think you might have
+> >>another patch floating around somewhere, as I don't have any
+> >>arch/riscv/include/asm/perf_event.h right now.
+> >>
+> >>Do you mind rebasing this on top of linux-4.16 so I can look properly?
+> >>
+> >>Thanks!
+> >
+> >Sorry for the inconvenience, but this patch was based on Alex's patch at
+> >https://github.com/riscv/riscv-linux/pull/124/files.  I thought that one
+> >had already been picked into your tree.
+> >
+> >Any ideas?
+> 
+> Thanks, it applies on top of that.  I'm going to play around with this a
+> bit, but it looks generally good.
 
-Thanks!
+Note that to make it work better when wraparound occurs, you should change the
+value of *.counter_width* into the width of real hardware counters.  This is
+because this patch does not handle wraparound checking, so using a wider
+bit mask may sometimes report a extremely large number.
+
+Ideally this should be done by adding a Kconfig option called 
+"Hifive Unleashed PMU" which automatically sets the width an reuses most of the
+baseline codes.  What do you think about this?
+
+Thanks.
