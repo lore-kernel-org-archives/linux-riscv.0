@@ -1,84 +1,76 @@
-From: alankao@andestech.com (Alan Kao)
-Date: Mon, 9 Apr 2018 15:07:11 +0800
-Subject: [PATCH 1/2] perf: riscv: preliminary RISC-V support
-In-Reply-To: <mhng-c22f4be6-e89e-42b6-a776-bf4e035c10d4@palmer-si-x1c4>
-References: <1522051075-6442-2-git-send-email-alankao@andestech.com>
- <mhng-c22f4be6-e89e-42b6-a776-bf4e035c10d4@palmer-si-x1c4>
-Message-ID: <20180409070710.GA3844@andestech.com>
+From: shea@shealevy.com (Shea Levy)
+Date: Mon,  9 Apr 2018 08:58:00 -0400
+Subject: [PATCH] RISC-V: Load modules within relative jump range of the kernel
+ text.
+Message-ID: <20180409125800.5000-1-shea@shealevy.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Apr 05, 2018 at 09:47:50AM -0700, Palmer Dabbelt wrote:
-> On Mon, 26 Mar 2018 00:57:54 PDT (-0700), alankao at andestech.com wrote:
-> >This patch provide a basic PMU, riscv_base_pmu, which supports two
-> >general hardware event, instructions and cycles.  Furthermore, this
-> >PMU serves as a reference implementation to ease the portings in
-> >the future.
-> >
-> >riscv_base_pmu should be able to run on any RISC-V machine that
-> >conforms to the Priv-Spec.  Note that the latest qemu model hasn't
-> >fully support a proper behavior of Priv-Spec 1.10 yet, but work
-> >around should be easy with very small fixes.  Please check
-> >https://github.com/riscv/riscv-qemu/pull/115 for future updates.
-> >
-> >Cc: Nick Hu <nickhu@andestech.com>
-> >Cc: Greentime Hu <greentime@andestech.com>
-> >Signed-off-by: Alan Kao <alankao@andestech.com>
-> 
-> We should really be able to detect PMU types at runtime (via a device tree
-> entry) rather than requiring that a single PMU is built in to the kernel.
-> This will require a handful of modifications to how this patch works, which
-> I'll try to list below.
+Signed-off-by: Shea Levy <shea@shealevy.com>
+---
 
-> >+menu "PMU type"
-> >+	depends on PERF_EVENTS
-> >+
-> >+config RISCV_BASE_PMU
-> >+	bool "Base Performance Monitoring Unit"
-> >+	def_bool y
-> >+	help
-> >+	  A base PMU that serves as a reference implementation and has limited
-> >+	  feature of perf.
-> >+
-> >+endmenu
-> >+
-> 
-> Rather than a menu where a single PMU can be selected, there should be
-> options to enable or disable support for each PMU type -- this is just like
-> how all our other drivers work.
-> 
+Note that this patch worked in my old modules patchset and seems to be
+working now, but my kernel boot locks up on top of
+riscv-for-linus-4.17-mw0 and I don't know if it's due to this patch or
+something else that's changed in the mean time.
 
-I see.  Sure.  The descriptions and implementation will be refined in v3.
+---
+ arch/riscv/include/asm/pgtable.h |  9 +++++++++
+ arch/riscv/kernel/module.c       | 11 +++++++++++
+ 2 files changed, 20 insertions(+)
 
-> >+struct pmu * __weak __init riscv_init_platform_pmu(void)
-> >+{
-> >+	riscv_pmu = &riscv_base_pmu;
-> >+	return riscv_pmu->pmu;
-> >+}
-> 
-> Rather than relying on a weak symbol that gets overridden by other PMU
-> types, this should look through the device tree for a compatible PMU (in the
-> case of just the base PMU it could be any RISC-V hart) and install a PMU
-> handler for it.  There'd probably be some sort of priority scheme here, like
-> there are for other driver subsystems, where we'd pick the best PMU driver
-> that's compatible with the PMUs on every hart.
-> 
-> >+
-> >+int __init init_hw_perf_events(void)
-> >+{
-> >+	struct pmu *pmu = riscv_init_platform_pmu();
-> >+
-> >+	perf_irq = NULL;
-> >+	perf_pmu_register(pmu, "cpu", PERF_TYPE_RAW);
-> >+	return 0;
-> >+}
-> >+arch_initcall(init_hw_perf_events);
-> 
-> Since we only have a single PMU type right now this isn't critical to handle
-> right away, but we will have to refactor this before adding another PMU.
-
-I see.  My rough plan is to do the device tree parsing here, and if no specific
-PMU string is found then just register the base PMU proposed in this patch.
-How about this idea?
-
-Thanks.
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 16301966d65b..b08ded13364a 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -25,6 +25,7 @@
+ #include <asm/page.h>
+ #include <asm/tlbflush.h>
+ #include <linux/mm_types.h>
++#include <linux/sizes.h>
+ 
+ #ifdef CONFIG_64BIT
+ #include <asm/pgtable-64.h>
+@@ -425,6 +426,14 @@ static inline void pgtable_cache_init(void)
+ #define TASK_SIZE VMALLOC_START
+ #endif
+ 
++/*
++ * The module space lives between the addresses given by TASK_SIZE
++ * and PAGE_OFFSET - it must be within 2G of the kernel text.
++ */
++#define MODULES_SIZE		(SZ_128M)
++#define MODULES_VADDR		(PAGE_OFFSET - MODULES_SIZE)
++#define MODULES_END		(VMALLOC_END)
++
+ #include <asm-generic/pgtable.h>
+ 
+ #endif /* !__ASSEMBLY__ */
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 5dddba301d0a..1b382c7de095 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -16,6 +16,8 @@
+ #include <linux/err.h>
+ #include <linux/errno.h>
+ #include <linux/moduleloader.h>
++#include <linux/vmalloc.h>
++#include <asm/pgtable.h>
+ 
+ static int apply_r_riscv_64_rela(struct module *me, u32 *location, Elf_Addr v)
+ {
+@@ -382,3 +384,12 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+ 
+ 	return 0;
+ }
++
++void *module_alloc(unsigned long size)
++{
++	return __vmalloc_node_range(size, 1, MODULES_VADDR,
++				    MODULES_END, GFP_KERNEL,
++				    PAGE_KERNEL_EXEC, 0,
++				    NUMA_NO_NODE,
++				    __builtin_return_address(0));
++}
+-- 
+2.16.2
