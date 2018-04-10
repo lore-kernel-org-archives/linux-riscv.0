@@ -1,53 +1,96 @@
-From: ldufour@linux.vnet.ibm.com (Laurent Dufour)
-Date: Tue, 10 Apr 2018 18:44:00 +0200
-Subject: [PATCH v2 2/2] mm: remove odd HAVE_PTE_SPECIAL
-In-Reply-To: <3f20ac8b-20b8-f052-bc44-dcc0316354ca@arm.com>
-References: <1523373951-10981-1-git-send-email-ldufour@linux.vnet.ibm.com>
- <1523373951-10981-3-git-send-email-ldufour@linux.vnet.ibm.com>
- <3f20ac8b-20b8-f052-bc44-dcc0316354ca@arm.com>
-Message-ID: <1521dc0e-e9f8-d10f-e213-1b1552eb03fa@linux.vnet.ibm.com>
+From: sols@sifive.com (Alex Solomatnikov)
+Date: Tue, 10 Apr 2018 11:15:41 -0700
+Subject: [PATCH 1/2] perf: riscv: preliminary RISC-V support
+In-Reply-To: <20180409070710.GA3844@andestech.com>
+References: <1522051075-6442-2-git-send-email-alankao@andestech.com>
+ <mhng-c22f4be6-e89e-42b6-a776-bf4e035c10d4@palmer-si-x1c4>
+ <20180409070710.GA3844@andestech.com>
+Message-ID: <CAJ2AOiNcqpenYd74LSwa++X_1G_JbgqrJ=YiUpofEof1BWGgrw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
+Alan,
 
+I merged SBI emulation for perf counters and config:
+https://github.com/riscv/riscv-pk/pull/98
 
-On 10/04/2018 17:58, Robin Murphy wrote:
-> On 10/04/18 16:25, Laurent Dufour wrote:
->> Remove the additional define HAVE_PTE_SPECIAL and rely directly on
->> CONFIG_ARCH_HAS_PTE_SPECIAL.
->>
->> There is no functional change introduced by this patch
->>
->> Signed-off-by: Laurent Dufour <ldufour@linux.vnet.ibm.com>
->> ---
->> ? mm/memory.c | 23 ++++++++++-------------
->> ? 1 file changed, 10 insertions(+), 13 deletions(-)
->>
->> diff --git a/mm/memory.c b/mm/memory.c
->> index 96910c625daa..53b6344a90d2 100644
->> --- a/mm/memory.c
->> +++ b/mm/memory.c
->> @@ -817,19 +817,13 @@ static void print_bad_pte(struct vm_area_struct *vma,
->> unsigned long addr,
->> ?? * PFNMAP mappings in order to support COWable mappings.
->> ?? *
->> ?? */
->> -#ifdef CONFIG_ARCH_HAS_PTE_SPECIAL
->> -# define HAVE_PTE_SPECIAL 1
->> -#else
->> -# define HAVE_PTE_SPECIAL 0
->> -#endif
->> ? struct page *_vm_normal_page(struct vm_area_struct *vma, unsigned long addr,
->> ?????????????????? pte_t pte, bool with_public_device)
->> ? {
->> ????? unsigned long pfn = pte_pfn(pte);
->> ? -??? if (HAVE_PTE_SPECIAL) {
->> -??????? if (likely(!pte_special(pte)))
->> -??????????? goto check_pfn;
->> +#ifdef CONFIG_ARCH_HAS_PTE_SPECIAL
-> 
-> Nit: Couldn't you use IS_ENABLED(CONFIG_ARCH_HAS_PTE_SPECIAL) within the
-> existing code structure to avoid having to add these #ifdefs?
+You should be able to write these CSRs.
 
-I agree, that would be better. I didn't thought about this option..
-Thanks for reporting this.
+Thanks,
+Alex
+
+On Mon, Apr 9, 2018 at 12:07 AM, Alan Kao <alankao@andestech.com> wrote:
+> On Thu, Apr 05, 2018 at 09:47:50AM -0700, Palmer Dabbelt wrote:
+>> On Mon, 26 Mar 2018 00:57:54 PDT (-0700), alankao at andestech.com wrote:
+>> >This patch provide a basic PMU, riscv_base_pmu, which supports two
+>> >general hardware event, instructions and cycles.  Furthermore, this
+>> >PMU serves as a reference implementation to ease the portings in
+>> >the future.
+>> >
+>> >riscv_base_pmu should be able to run on any RISC-V machine that
+>> >conforms to the Priv-Spec.  Note that the latest qemu model hasn't
+>> >fully support a proper behavior of Priv-Spec 1.10 yet, but work
+>> >around should be easy with very small fixes.  Please check
+>> >https://github.com/riscv/riscv-qemu/pull/115 for future updates.
+>> >
+>> >Cc: Nick Hu <nickhu@andestech.com>
+>> >Cc: Greentime Hu <greentime@andestech.com>
+>> >Signed-off-by: Alan Kao <alankao@andestech.com>
+>>
+>> We should really be able to detect PMU types at runtime (via a device tree
+>> entry) rather than requiring that a single PMU is built in to the kernel.
+>> This will require a handful of modifications to how this patch works, which
+>> I'll try to list below.
+>
+>> >+menu "PMU type"
+>> >+    depends on PERF_EVENTS
+>> >+
+>> >+config RISCV_BASE_PMU
+>> >+    bool "Base Performance Monitoring Unit"
+>> >+    def_bool y
+>> >+    help
+>> >+      A base PMU that serves as a reference implementation and has limited
+>> >+      feature of perf.
+>> >+
+>> >+endmenu
+>> >+
+>>
+>> Rather than a menu where a single PMU can be selected, there should be
+>> options to enable or disable support for each PMU type -- this is just like
+>> how all our other drivers work.
+>>
+>
+> I see.  Sure.  The descriptions and implementation will be refined in v3.
+>
+>> >+struct pmu * __weak __init riscv_init_platform_pmu(void)
+>> >+{
+>> >+    riscv_pmu = &riscv_base_pmu;
+>> >+    return riscv_pmu->pmu;
+>> >+}
+>>
+>> Rather than relying on a weak symbol that gets overridden by other PMU
+>> types, this should look through the device tree for a compatible PMU (in the
+>> case of just the base PMU it could be any RISC-V hart) and install a PMU
+>> handler for it.  There'd probably be some sort of priority scheme here, like
+>> there are for other driver subsystems, where we'd pick the best PMU driver
+>> that's compatible with the PMUs on every hart.
+>>
+>> >+
+>> >+int __init init_hw_perf_events(void)
+>> >+{
+>> >+    struct pmu *pmu = riscv_init_platform_pmu();
+>> >+
+>> >+    perf_irq = NULL;
+>> >+    perf_pmu_register(pmu, "cpu", PERF_TYPE_RAW);
+>> >+    return 0;
+>> >+}
+>> >+arch_initcall(init_hw_perf_events);
+>>
+>> Since we only have a single PMU type right now this isn't critical to handle
+>> right away, but we will have to refactor this before adding another PMU.
+>
+> I see.  My rough plan is to do the device tree parsing here, and if no specific
+> PMU string is found then just register the base PMU proposed in this patch.
+> How about this idea?
+>
+> Thanks.
