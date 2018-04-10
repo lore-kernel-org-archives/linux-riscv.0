@@ -1,35 +1,52 @@
 From: ldufour@linux.vnet.ibm.com (Laurent Dufour)
-Date: Tue, 10 Apr 2018 17:10:52 +0200
-Subject: [PATCH 2/3] mm: replace __HAVE_ARCH_PTE_SPECIAL
-In-Reply-To: <alpine.DEB.2.21.1804091307480.56406@chino.kir.corp.google.com>
-References: <1523282229-20731-1-git-send-email-ldufour@linux.vnet.ibm.com>
- <1523282229-20731-3-git-send-email-ldufour@linux.vnet.ibm.com>
- <20180409175757.GA12938@infradead.org>
- <alpine.DEB.2.21.1804091307480.56406@chino.kir.corp.google.com>
-Message-ID: <3a330851-d545-ebd8-e74c-c44e12220c24@linux.vnet.ibm.com>
+Date: Tue, 10 Apr 2018 17:25:49 +0200
+Subject: [PATCH v2 0/2] move __HAVE_ARCH_PTE_SPECIAL in Kconfig
+Message-ID: <1523373951-10981-1-git-send-email-ldufour@linux.vnet.ibm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 09/04/2018 22:08, David Rientjes wrote:
-> On Mon, 9 Apr 2018, Christoph Hellwig wrote:
-> 
->>> -#ifdef __HAVE_ARCH_PTE_SPECIAL
->>> +#ifdef CONFIG_ARCH_HAS_PTE_SPECIAL
->>>  # define HAVE_PTE_SPECIAL 1
->>>  #else
->>>  # define HAVE_PTE_SPECIAL 0
->>
->> I'd say kill this odd indirection and just use the
->> CONFIG_ARCH_HAS_PTE_SPECIAL symbol directly.
->>
->>
-> 
-> Agree, and I think it would be easier to audit/review if patches 1 and 3 
-> were folded together to see the relationship between the newly added 
-> selects and what #define's it is replacing.  Otherwise, looks good!
->
+The per architecture __HAVE_ARCH_PTE_SPECIAL is defined statically in the
+per architecture header files. This doesn't allow to make other
+configuration dependent on it.
 
-Ok I will fold the 3 patches and introduce a new one removing HAVE_PTE_SPECIAL.
+The first patch of this series is replacing __HAVE_ARCH_PTE_SPECIAL by
+CONFIG_ARCH_HAS_PTE_SPECIAL defined into the Kconfig files,
+setting it automatically when architectures was already setting it in
+header file.
 
-Thanks,
-Laurent.
+The second patch is removing the odd define HAVE_PTE_SPECIAL which is a
+duplicate of CONFIG_ARCH_HAS_PTE_SPECIAL.
+
+There is no functional change introduced by this series.
+
+Laurent Dufour (2):
+  mm: introduce ARCH_HAS_PTE_SPECIAL
+  mm: remove odd HAVE_PTE_SPECIAL
+
+ .../features/vm/pte_special/arch-support.txt       |  2 +-
+ arch/arc/Kconfig                                   |  1 +
+ arch/arc/include/asm/pgtable.h                     |  2 --
+ arch/arm/Kconfig                                   |  1 +
+ arch/arm/include/asm/pgtable-3level.h              |  1 -
+ arch/arm64/Kconfig                                 |  1 +
+ arch/arm64/include/asm/pgtable.h                   |  2 --
+ arch/powerpc/Kconfig                               |  1 +
+ arch/powerpc/include/asm/book3s/64/pgtable.h       |  3 ---
+ arch/powerpc/include/asm/pte-common.h              |  3 ---
+ arch/riscv/Kconfig                                 |  1 +
+ arch/s390/Kconfig                                  |  1 +
+ arch/s390/include/asm/pgtable.h                    |  1 -
+ arch/sh/Kconfig                                    |  1 +
+ arch/sh/include/asm/pgtable.h                      |  2 --
+ arch/sparc/Kconfig                                 |  1 +
+ arch/sparc/include/asm/pgtable_64.h                |  3 ---
+ arch/x86/Kconfig                                   |  1 +
+ arch/x86/include/asm/pgtable_types.h               |  1 -
+ include/linux/pfn_t.h                              |  4 ++--
+ mm/Kconfig                                         |  3 +++
+ mm/gup.c                                           |  4 ++--
+ mm/memory.c                                        | 23 ++++++++++------------
+ 23 files changed, 27 insertions(+), 36 deletions(-)
+
+-- 
+2.7.4
