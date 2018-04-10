@@ -1,85 +1,35 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 09 Apr 2018 14:03:38 -0700 (PDT)
-Subject: [PATCH 1/2] perf: riscv: preliminary RISC-V support
-In-Reply-To: <20180409070710.GA3844@andestech.com>
-Message-ID: <mhng-51708a67-b38d-42a6-848f-9a13375a66cf@palmer-si-x1c4>
+From: ldufour@linux.vnet.ibm.com (Laurent Dufour)
+Date: Tue, 10 Apr 2018 17:10:52 +0200
+Subject: [PATCH 2/3] mm: replace __HAVE_ARCH_PTE_SPECIAL
+In-Reply-To: <alpine.DEB.2.21.1804091307480.56406@chino.kir.corp.google.com>
+References: <1523282229-20731-1-git-send-email-ldufour@linux.vnet.ibm.com>
+ <1523282229-20731-3-git-send-email-ldufour@linux.vnet.ibm.com>
+ <20180409175757.GA12938@infradead.org>
+ <alpine.DEB.2.21.1804091307480.56406@chino.kir.corp.google.com>
+Message-ID: <3a330851-d545-ebd8-e74c-c44e12220c24@linux.vnet.ibm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 09 Apr 2018 00:07:11 PDT (-0700), alankao at andestech.com wrote:
-> On Thu, Apr 05, 2018 at 09:47:50AM -0700, Palmer Dabbelt wrote:
->> On Mon, 26 Mar 2018 00:57:54 PDT (-0700), alankao at andestech.com wrote:
->> >This patch provide a basic PMU, riscv_base_pmu, which supports two
->> >general hardware event, instructions and cycles.  Furthermore, this
->> >PMU serves as a reference implementation to ease the portings in
->> >the future.
->> >
->> >riscv_base_pmu should be able to run on any RISC-V machine that
->> >conforms to the Priv-Spec.  Note that the latest qemu model hasn't
->> >fully support a proper behavior of Priv-Spec 1.10 yet, but work
->> >around should be easy with very small fixes.  Please check
->> >https://github.com/riscv/riscv-qemu/pull/115 for future updates.
->> >
->> >Cc: Nick Hu <nickhu@andestech.com>
->> >Cc: Greentime Hu <greentime@andestech.com>
->> >Signed-off-by: Alan Kao <alankao@andestech.com>
+On 09/04/2018 22:08, David Rientjes wrote:
+> On Mon, 9 Apr 2018, Christoph Hellwig wrote:
+> 
+>>> -#ifdef __HAVE_ARCH_PTE_SPECIAL
+>>> +#ifdef CONFIG_ARCH_HAS_PTE_SPECIAL
+>>>  # define HAVE_PTE_SPECIAL 1
+>>>  #else
+>>>  # define HAVE_PTE_SPECIAL 0
 >>
->> We should really be able to detect PMU types at runtime (via a device tree
->> entry) rather than requiring that a single PMU is built in to the kernel.
->> This will require a handful of modifications to how this patch works, which
->> I'll try to list below.
+>> I'd say kill this odd indirection and just use the
+>> CONFIG_ARCH_HAS_PTE_SPECIAL symbol directly.
+>>
+>>
+> 
+> Agree, and I think it would be easier to audit/review if patches 1 and 3 
+> were folded together to see the relationship between the newly added 
+> selects and what #define's it is replacing.  Otherwise, looks good!
 >
->> >+menu "PMU type"
->> >+	depends on PERF_EVENTS
->> >+
->> >+config RISCV_BASE_PMU
->> >+	bool "Base Performance Monitoring Unit"
->> >+	def_bool y
->> >+	help
->> >+	  A base PMU that serves as a reference implementation and has limited
->> >+	  feature of perf.
->> >+
->> >+endmenu
->> >+
->>
->> Rather than a menu where a single PMU can be selected, there should be
->> options to enable or disable support for each PMU type -- this is just like
->> how all our other drivers work.
->>
->
-> I see.  Sure.  The descriptions and implementation will be refined in v3.
->
->> >+struct pmu * __weak __init riscv_init_platform_pmu(void)
->> >+{
->> >+	riscv_pmu = &riscv_base_pmu;
->> >+	return riscv_pmu->pmu;
->> >+}
->>
->> Rather than relying on a weak symbol that gets overridden by other PMU
->> types, this should look through the device tree for a compatible PMU (in the
->> case of just the base PMU it could be any RISC-V hart) and install a PMU
->> handler for it.  There'd probably be some sort of priority scheme here, like
->> there are for other driver subsystems, where we'd pick the best PMU driver
->> that's compatible with the PMUs on every hart.
->>
->> >+
->> >+int __init init_hw_perf_events(void)
->> >+{
->> >+	struct pmu *pmu = riscv_init_platform_pmu();
->> >+
->> >+	perf_irq = NULL;
->> >+	perf_pmu_register(pmu, "cpu", PERF_TYPE_RAW);
->> >+	return 0;
->> >+}
->> >+arch_initcall(init_hw_perf_events);
->>
->> Since we only have a single PMU type right now this isn't critical to handle
->> right away, but we will have to refactor this before adding another PMU.
->
-> I see.  My rough plan is to do the device tree parsing here, and if no specific
-> PMU string is found then just register the base PMU proposed in this patch.
-> How about this idea?
 
-Sounds good.  We know the generic PMU will work on all RISC-V harts, so there's 
-no need to add an explicit device tree entry for it.  Then we can figure out 
-how to add device tree entries for custom performance monitors later :)
+Ok I will fold the 3 patches and introduce a new one removing HAVE_PTE_SPECIAL.
+
+Thanks,
+Laurent.
