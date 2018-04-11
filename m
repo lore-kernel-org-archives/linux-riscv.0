@@ -1,58 +1,34 @@
-From: ldufour@linux.vnet.ibm.com (Laurent Dufour)
-Date: Wed, 11 Apr 2018 10:03:34 +0200
-Subject: [PATCH v3 0/2] move __HAVE_ARCH_PTE_SPECIAL in Kconfig
-Message-ID: <1523433816-14460-1-git-send-email-ldufour@linux.vnet.ibm.com>
+From: mhocko@kernel.org (Michal Hocko)
+Date: Wed, 11 Apr 2018 10:33:15 +0200
+Subject: [PATCH v3 2/2] mm: remove odd HAVE_PTE_SPECIAL
+In-Reply-To: <1523433816-14460-3-git-send-email-ldufour@linux.vnet.ibm.com>
+References: <1523433816-14460-1-git-send-email-ldufour@linux.vnet.ibm.com>
+ <1523433816-14460-3-git-send-email-ldufour@linux.vnet.ibm.com>
+Message-ID: <20180411083315.GA23400@dhcp22.suse.cz>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The per architecture __HAVE_ARCH_PTE_SPECIAL is defined statically in the
-per architecture header files. This doesn't allow to make other
-configuration dependent on it.
+On Wed 11-04-18 10:03:36, Laurent Dufour wrote:
+> @@ -881,7 +876,8 @@ struct page *_vm_normal_page(struct vm_area_struct *vma, unsigned long addr,
+>  
+>  	if (is_zero_pfn(pfn))
+>  		return NULL;
+> -check_pfn:
+> +
+> +check_pfn: __maybe_unused
+>  	if (unlikely(pfn > highest_memmap_pfn)) {
+>  		print_bad_pte(vma, addr, pte, NULL);
+>  		return NULL;
+> @@ -891,7 +887,7 @@ struct page *_vm_normal_page(struct vm_area_struct *vma, unsigned long addr,
+>  	 * NOTE! We still have PageReserved() pages in the page tables.
+>  	 * eg. VDSO mappings can cause them to exist.
+>  	 */
+> -out:
+> +out: __maybe_unused
+>  	return pfn_to_page(pfn);
 
-The first patch of this series is replacing __HAVE_ARCH_PTE_SPECIAL by
-CONFIG_ARCH_HAS_PTE_SPECIAL defined into the Kconfig files,
-setting it automatically when architectures was already setting it in
-header file.
-
-The second patch is removing the odd define HAVE_PTE_SPECIAL which is a
-duplicate of CONFIG_ARCH_HAS_PTE_SPECIAL.
-
-There is no functional change introduced by this series.
-
---
-Changes since v2:
- * remove __HAVE_ARCH_PTE_SPECIAL in arch/riscv/include/asm/pgtable-bits.h
- * use IS_ENABLED() instead of #ifdef blocks in patch 2
-
-Laurent Dufour (2):
-  mm: introduce ARCH_HAS_PTE_SPECIAL
-  mm: remove odd HAVE_PTE_SPECIAL
-
- .../features/vm/pte_special/arch-support.txt          |  2 +-
- arch/arc/Kconfig                                      |  1 +
- arch/arc/include/asm/pgtable.h                        |  2 --
- arch/arm/Kconfig                                      |  1 +
- arch/arm/include/asm/pgtable-3level.h                 |  1 -
- arch/arm64/Kconfig                                    |  1 +
- arch/arm64/include/asm/pgtable.h                      |  2 --
- arch/powerpc/Kconfig                                  |  1 +
- arch/powerpc/include/asm/book3s/64/pgtable.h          |  3 ---
- arch/powerpc/include/asm/pte-common.h                 |  3 ---
- arch/riscv/Kconfig                                    |  1 +
- arch/riscv/include/asm/pgtable-bits.h                 |  3 ---
- arch/s390/Kconfig                                     |  1 +
- arch/s390/include/asm/pgtable.h                       |  1 -
- arch/sh/Kconfig                                       |  1 +
- arch/sh/include/asm/pgtable.h                         |  2 --
- arch/sparc/Kconfig                                    |  1 +
- arch/sparc/include/asm/pgtable_64.h                   |  3 ---
- arch/x86/Kconfig                                      |  1 +
- arch/x86/include/asm/pgtable_types.h                  |  1 -
- include/linux/pfn_t.h                                 |  4 ++--
- mm/Kconfig                                            |  3 +++
- mm/gup.c                                              |  4 ++--
- mm/memory.c                                           | 19 ++++++++-----------
- 24 files changed, 25 insertions(+), 37 deletions(-)
+Why do we need this ugliness all of the sudden?
 
 -- 
-2.7.4
+Michal Hocko
+SUSE Labs
