@@ -1,39 +1,38 @@
-From: hch@lst.de (Christoph Hellwig)
-Date: Mon, 16 Apr 2018 14:53:51 +0200
-Subject: [PATCH] riscv: select DMA_DIRECT_OPS instead of redefining it
-Message-ID: <20180416125351.14216-1-hch@lst.de>
+From: alankao@andestech.com (Alan Kao)
+Date: Tue, 17 Apr 2018 16:38:58 +0800
+Subject: [PATCH v3 0/2] perf: riscv: Preliminary Perf Event Support on RISC-V
+Message-ID: <1523954340-8708-1-git-send-email-alankao@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-DMA_DIRECT_OPS is defined in lib/Kconfig, so don't duplicate it in
-arch/riscv/Kconfig.
+This implements the baseline PMU for RISC-V platforms.
 
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- arch/riscv/Kconfig | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+To ease future PMU portings, a guide is also written, containing
+perf concepts, arch porting practices and some hints.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 23d8acca5c90..cd4fd85fde84 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -11,6 +11,7 @@ config RISCV
- 	select ARCH_WANT_FRAME_POINTERS
- 	select CLONE_BACKWARDS
- 	select COMMON_CLK
-+	select DMA_DIRECT_OPS
- 	select GENERIC_CLOCKEVENTS
- 	select GENERIC_CPU_DEVICES
- 	select GENERIC_IRQ_SHOW
-@@ -89,9 +90,6 @@ config PGTABLE_LEVELS
- config HAVE_KPROBES
- 	def_bool n
- 
--config DMA_DIRECT_OPS
--	def_bool y
--
- menu "Platform type"
- 
- choice
+Changes in v3:
+ - Fix typos in the document.
+ - Change the initialization routine from statically assigning PMU to
+   device-tree-based methods, and set default to the PMU proposed in
+   this patch.
+
+Changes in v2:
+ - Fix the bug reported by Alex, which was caused by not sufficient
+   initialization.  Check https://lkml.org/lkml/2018/3/31/251 for the
+   discussion.
+
+Alan Kao (2):
+  perf: riscv: preliminary RISC-V support
+  perf: riscv: Add Document for Future Porting Guide
+
+ Documentation/riscv/pmu.txt         | 249 +++++++++++++++
+ arch/riscv/Kconfig                  |  13 +
+ arch/riscv/include/asm/perf_event.h |  78 ++++-
+ arch/riscv/kernel/Makefile          |   1 +
+ arch/riscv/kernel/perf_event.c      | 478 ++++++++++++++++++++++++++++
+ 5 files changed, 815 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/riscv/pmu.txt
+ create mode 100644 arch/riscv/kernel/perf_event.c
+
 -- 
 2.17.0
