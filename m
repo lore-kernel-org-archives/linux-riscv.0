@@ -1,30 +1,78 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 19 Apr 2018 15:59:27 -0700 (PDT)
-Subject: [PATCH] riscv: there is no <asm/handle_irq.h>
-In-Reply-To: <20180416065752.5176-1-hch@lst.de>
-Message-ID: <mhng-2838fe82-881e-4c76-b360-5c35baa9a8a8@palmer-si-x1c4>
+From: alankao@andestech.com (Alan Kao)
+Date: Fri, 20 Apr 2018 07:24:18 +0800
+Subject: [PATCH v4 1/2] perf: riscv: preliminary RISC-V support
+In-Reply-To: <c057c7d1-421f-f4eb-3f03-2abda16d876a@wdc.com>
+References: <1524017523-25076-1-git-send-email-alankao@andestech.com>
+ <1524017523-25076-2-git-send-email-alankao@andestech.com>
+ <c057c7d1-421f-f4eb-3f03-2abda16d876a@wdc.com>
+Message-ID: <20180419232418.GA3902@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sun, 15 Apr 2018 23:57:52 PDT (-0700), Christoph Hellwig wrote:
-> So don't list it as generic-y.
->
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  arch/riscv/include/asm/Kbuild | 1 -
->  1 file changed, 1 deletion(-)
->
-> diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-> index 1e5fd280fb4d..4286a5f83876 100644
-> --- a/arch/riscv/include/asm/Kbuild
-> +++ b/arch/riscv/include/asm/Kbuild
-> @@ -15,7 +15,6 @@ generic-y += fcntl.h
->  generic-y += futex.h
->  generic-y += hardirq.h
->  generic-y += hash.h
-> -generic-y += handle_irq.h
->  generic-y += hw_irq.h
->  generic-y += ioctl.h
->  generic-y += ioctls.h
+On Thu, Apr 19, 2018 at 12:46:24PM -0700, Atish Patra wrote:
+> On 4/17/18 7:13 PM, Alan Kao wrote:
+> >This patch provide a basic PMU, riscv_base_pmu, which supports two
+> >general hardware event, instructions and cycles.  Furthermore, this
+> >PMU serves as a reference implementation to ease the portings in
+> >the future.
+> >
+> >riscv_base_pmu should be able to run on any RISC-V machine that
+> >conforms to the Priv-Spec.  Note that the latest qemu model hasn't
+> >fully support a proper behavior of Priv-Spec 1.10 yet, but work
+> >around should be easy with very small fixes.  Please check
+> >https://github.com/riscv/riscv-qemu/pull/115 for future updates.
+> >
+> >Cc: Nick Hu <nickhu@andestech.com>
+> >Cc: Greentime Hu <greentime@andestech.com>
+> >Signed-off-by: Alan Kao <alankao@andestech.com>
+> >---
+> >  arch/riscv/Kconfig                  |  13 +
+> >  arch/riscv/include/asm/perf_event.h |  79 ++++-
+> >  arch/riscv/kernel/Makefile          |   1 +
+> >  arch/riscv/kernel/perf_event.c      | 482 ++++++++++++++++++++++++++++
+> >  4 files changed, 571 insertions(+), 4 deletions(-)
+> >  create mode 100644 arch/riscv/kernel/perf_event.c
+> >
+> >diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> >index c22ebe08e902..90d9c8e50377 100644
+> >--- a/arch/riscv/Kconfig
+> >+++ b/arch/riscv/Kconfig
+> Some check patch errors.
+> 
+> ERROR: spaces required around that '>=' (ctx:WxV)
+> #517: FILE: arch/riscv/kernel/perf_event.c:356:
+> +	if (riscv_pmu->irq >=0 && riscv_pmu->handle_irq) {
+>  	                   ^
+> 
+> ERROR: spaces required around that '>=' (ctx:WxV)
+> #529: FILE: arch/riscv/kernel/perf_event.c:368:
+> +	if (riscv_pmu->irq >=0) {
+>  	                   ^
+> 
+> WARNING: braces {} are not necessary for single statement blocks
+> #529: FILE: arch/riscv/kernel/perf_event.c:368:
+> +	if (riscv_pmu->irq >=0) {
+> +		free_irq(riscv_pmu->irq, NULL);
+> +	}
+> 
+> WARNING: DT compatible string "riscv,base-pmu" appears un-documented --
+> check ./Documentation/devicetree/bindings/
+> #626: FILE: arch/riscv/kernel/perf_event.c:465:
+> +	{.compatible = "riscv,base-pmu",	.data = &riscv_base_pmu},
+> 
+> ERROR: trailing whitespace
+> #634: FILE: arch/riscv/kernel/perf_event.c:473:
+> +^I$
+> 
+> ERROR: do not use assignment in if condition
+> #635: FILE: arch/riscv/kernel/perf_event.c:474:
+> +	if (node && (of_id = of_match_node(riscv_pmu_of_ids, node)))
+> 
+> total: 4 errors, 3 warnings, 595 lines checked
+> 
+> 
+> Regards,
+> Atish
 
-Thanks!
+Thanks for pointing this out.  I happened to develop this patchset on a machine
+without the post-commit settings.  A new version is ready.
