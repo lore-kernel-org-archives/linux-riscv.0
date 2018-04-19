@@ -1,67 +1,44 @@
-From: shea@shealevy.com (Shea Levy)
-Date: Wed, 18 Apr 2018 07:10:16 -0400
-Subject: [PATCH v6 01/16] initrd: Add weakly-linked generic
- free_initrd_mem.
-In-Reply-To: <20180401145931.7932-1-shea@shealevy.com>
+From: msalter@redhat.com (Mark Salter)
+Date: Thu, 19 Apr 2018 12:37:30 -0400
+Subject: [PATCH v6 05/16] c6x: Switch to generic free_initrd_mem.
+In-Reply-To: <20180401145931.7932-5-shea@shealevy.com>
 References: <20180329113207.30674-1-shea@shealevy.com>
  <20180401145931.7932-1-shea@shealevy.com>
-Message-ID: <87tvs8rcrr.fsf@xps13.shealevy.com>
+ <20180401145931.7932-5-shea@shealevy.com>
+Message-ID: <1524155850.3134.16.camel@redhat.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi all,
-
-Shea Levy <shea@shealevy.com> writes:
-
-> This function is effectively identical across 14 architectures, and
-> the generic implementation is small enough to be negligible in the
-> architectures that do override it. Many of the remaining divergent
-> implementations can be included in the common code path in future,
-> further reducing code duplication and sharing improvements between
-> architectures.
->
+On Sun, 2018-04-01 at 10:59 -0400, Shea Levy wrote:
+> The first patch in this series added a weakly-defined generic
+> implementation, which is functionally identical to the
+> architecture-specific one removed here.
+> 
 > Series boot-tested on RISC-V (which now uses the generic
 > implementation) and x86_64 (which doesn't).
->
-> v6: Add information about build/run testing.
-> v5: Add more complete commit messages.
-> v4: Use weak symbols instead of Kconfig.
-> v3: Make the generic path opt-out instead of opt-in.
-> v2: Mark generic free_initrd_mem __init.
->
+> 
 > Signed-off-by: Shea Levy <shea@shealevy.com>
 > ---
->  init/initramfs.c | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/init/initramfs.c b/init/initramfs.c
-> index 7e99a0038942..c8fe150f958a 100644
-> --- a/init/initramfs.c
-> +++ b/init/initramfs.c
-> @@ -526,6 +526,11 @@ extern unsigned long __initramfs_size;
->  #include <linux/initrd.h>
->  #include <linux/kexec.h>
+>  arch/c6x/mm/init.c | 7 -------
+>  1 file changed, 7 deletions(-)
+> 
+> diff --git a/arch/c6x/mm/init.c b/arch/c6x/mm/init.c
+> index 4cc72b0d1c1d..a11cb657182a 100644
+> --- a/arch/c6x/mm/init.c
+> +++ b/arch/c6x/mm/init.c
+> @@ -66,13 +66,6 @@ void __init mem_init(void)
+>  	mem_init_print_info(NULL);
+>  }
 >  
-> +void __init __weak free_initrd_mem(unsigned long start, unsigned long end)
-> +{
-> +       free_reserved_area((void *)start, (void *)end, -1, "initrd");
-> +}
-> +
->  static void __init free_initrd(void)
+> -#ifdef CONFIG_BLK_DEV_INITRD
+> -void __init free_initrd_mem(unsigned long start, unsigned long end)
+> -{
+> -	free_reserved_area((void *)start, (void *)end, -1, "initrd");
+> -}
+> -#endif
+> -
+>  void __init free_initmem(void)
 >  {
->  #ifdef CONFIG_KEXEC_CORE
-> -- 
-> 2.16.2
+>  	free_initmem_default(-1);
 
-This series has been quiet for a few weeks other than picking up some
-arch-specific acks. What is the next step here?
-
-Thanks,
-Shea
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: signature.asc
-Type: application/pgp-signature
-Size: 832 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180418/f55e9ac1/attachment.sig>
+Acked-by: Mark Salter <msalter@redhat.com>
