@@ -1,78 +1,45 @@
 From: alankao@andestech.com (Alan Kao)
-Date: Fri, 20 Apr 2018 07:24:18 +0800
-Subject: [PATCH v4 1/2] perf: riscv: preliminary RISC-V support
-In-Reply-To: <c057c7d1-421f-f4eb-3f03-2abda16d876a@wdc.com>
-References: <1524017523-25076-1-git-send-email-alankao@andestech.com>
- <1524017523-25076-2-git-send-email-alankao@andestech.com>
- <c057c7d1-421f-f4eb-3f03-2abda16d876a@wdc.com>
-Message-ID: <20180419232418.GA3902@andestech.com>
+Date: Fri, 20 Apr 2018 07:27:48 +0800
+Subject: [PATCH v5 0/2] perf: riscv: Preliminary Perf Event Support on RISC-V
+Message-ID: <1524180470-8622-1-git-send-email-alankao@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Apr 19, 2018 at 12:46:24PM -0700, Atish Patra wrote:
-> On 4/17/18 7:13 PM, Alan Kao wrote:
-> >This patch provide a basic PMU, riscv_base_pmu, which supports two
-> >general hardware event, instructions and cycles.  Furthermore, this
-> >PMU serves as a reference implementation to ease the portings in
-> >the future.
-> >
-> >riscv_base_pmu should be able to run on any RISC-V machine that
-> >conforms to the Priv-Spec.  Note that the latest qemu model hasn't
-> >fully support a proper behavior of Priv-Spec 1.10 yet, but work
-> >around should be easy with very small fixes.  Please check
-> >https://github.com/riscv/riscv-qemu/pull/115 for future updates.
-> >
-> >Cc: Nick Hu <nickhu@andestech.com>
-> >Cc: Greentime Hu <greentime@andestech.com>
-> >Signed-off-by: Alan Kao <alankao@andestech.com>
-> >---
-> >  arch/riscv/Kconfig                  |  13 +
-> >  arch/riscv/include/asm/perf_event.h |  79 ++++-
-> >  arch/riscv/kernel/Makefile          |   1 +
-> >  arch/riscv/kernel/perf_event.c      | 482 ++++++++++++++++++++++++++++
-> >  4 files changed, 571 insertions(+), 4 deletions(-)
-> >  create mode 100644 arch/riscv/kernel/perf_event.c
-> >
-> >diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> >index c22ebe08e902..90d9c8e50377 100644
-> >--- a/arch/riscv/Kconfig
-> >+++ b/arch/riscv/Kconfig
-> Some check patch errors.
-> 
-> ERROR: spaces required around that '>=' (ctx:WxV)
-> #517: FILE: arch/riscv/kernel/perf_event.c:356:
-> +	if (riscv_pmu->irq >=0 && riscv_pmu->handle_irq) {
->  	                   ^
-> 
-> ERROR: spaces required around that '>=' (ctx:WxV)
-> #529: FILE: arch/riscv/kernel/perf_event.c:368:
-> +	if (riscv_pmu->irq >=0) {
->  	                   ^
-> 
-> WARNING: braces {} are not necessary for single statement blocks
-> #529: FILE: arch/riscv/kernel/perf_event.c:368:
-> +	if (riscv_pmu->irq >=0) {
-> +		free_irq(riscv_pmu->irq, NULL);
-> +	}
-> 
-> WARNING: DT compatible string "riscv,base-pmu" appears un-documented --
-> check ./Documentation/devicetree/bindings/
-> #626: FILE: arch/riscv/kernel/perf_event.c:465:
-> +	{.compatible = "riscv,base-pmu",	.data = &riscv_base_pmu},
-> 
-> ERROR: trailing whitespace
-> #634: FILE: arch/riscv/kernel/perf_event.c:473:
-> +^I$
-> 
-> ERROR: do not use assignment in if condition
-> #635: FILE: arch/riscv/kernel/perf_event.c:474:
-> +	if (node && (of_id = of_match_node(riscv_pmu_of_ids, node)))
-> 
-> total: 4 errors, 3 warnings, 595 lines checked
-> 
-> 
-> Regards,
-> Atish
+This implements the baseline PMU for RISC-V platforms.
 
-Thanks for pointing this out.  I happened to develop this patchset on a machine
-without the post-commit settings.  A new version is ready.
+To ease future PMU portings, a guide is also written, containing
+perf concepts, arch porting practices and some hints.
+
+Changes in v5:
+ - Fix patch errors from checkpatch.pl.
+
+Changes in v4:
+ - Fix several compilation errors.  Sorry for that.
+ - Raise a warning in the write_counter body.
+
+Changes in v3:
+ - Fix typos in the document.
+ - Change the initialization routine from statically assigning PMU to
+   device-tree-based methods, and set default to the PMU proposed in
+   this patch.
+
+Changes in v2:
+ - Fix the bug reported by Alex, which was caused by not sufficient
+   initialization.  Check https://lkml.org/lkml/2018/3/31/251 for the
+   discussion.
+
+Alan Kao (2):
+  perf: riscv: preliminary RISC-V support
+  perf: riscv: Add Document for Future Porting Guide
+
+ Documentation/riscv/pmu.txt         | 249 ++++++++++++++
+ arch/riscv/Kconfig                  |  13 +
+ arch/riscv/include/asm/perf_event.h |  79 ++++-
+ arch/riscv/kernel/Makefile          |   1 +
+ arch/riscv/kernel/perf_event.c      | 485 ++++++++++++++++++++++++++++
+ 5 files changed, 823 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/riscv/pmu.txt
+ create mode 100644 arch/riscv/kernel/perf_event.c
+
+-- 
+2.17.0
