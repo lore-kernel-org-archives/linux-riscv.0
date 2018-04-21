@@ -1,105 +1,53 @@
-From: shea@shealevy.com (Shea Levy)
-Date: Fri, 20 Apr 2018 18:50:09 -0400
-Subject: [PATCH v6 01/16] initrd: Add weakly-linked generic
- free_initrd_mem.
-In-Reply-To: <mhng-72f2db2a-5505-4736-b39b-66b85db4d21c@palmer-si-x1c4>
-References: <mhng-72f2db2a-5505-4736-b39b-66b85db4d21c@palmer-si-x1c4>
-Message-ID: <87muxx1oim.fsf@xps13.shealevy.com>
+From: hch@infradead.org (Christoph Hellwig)
+Date: Sat, 21 Apr 2018 00:25:50 -0700
+Subject: [REVIEW][PATCH 14/22] signal/riscv: Use force_sig_fault where
+ appropriate
+In-Reply-To: <20180420143811.9994-14-ebiederm@xmission.com>
+References: <87604mhrnb.fsf@xmission.com>
+ <20180420143811.9994-14-ebiederm@xmission.com>
+Message-ID: <20180421072550.GA6973@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Palmer,
+On Fri, Apr 20, 2018 at 09:38:03AM -0500, Eric W. Biederman wrote:
+> Filling in struct siginfo before calling force_sig_info a tedious and
+> error prone process, where once in a great while the wrong fields
+> are filled out, and siginfo has been inconsistently cleared.
+> 
+> Simplify this process by using the helper force_sig_fault.  Which
+> takes as a parameters all of the information it needs, ensures
+> all of the fiddly bits of filling in struct siginfo are done properly
+> and then calls force_sig_info.
+> 
+> In short about a 5 line reduction in code for every time force_sig_info
+> is called, which makes the calling function clearer.
+> 
+> Cc: Palmer Dabbelt <palmer@sifive.com>
+> Cc: Albert Ou <albert@sifive.com>
+> Cc: linux-riscv at lists.infradead.org
+> Signed-off-by: "Eric W. Biederman" <ebiederm@xmission.com>
+> ---
+>  arch/riscv/kernel/traps.c | 9 +--------
+>  1 file changed, 1 insertion(+), 8 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index 48aa6471cede..3087940008f4 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -66,14 +66,7 @@ void die(struct pt_regs *regs, const char *str)
+>  static inline void do_trap_siginfo(int signo, int code,
+>  	unsigned long addr, struct task_struct *tsk)
+>  {
+> -	siginfo_t info;
+> -
+> -	clear_siginfo(&info);
+> -	info.si_signo = signo;
+> -	info.si_errno = 0;
+> -	info.si_code = code;
+> -	info.si_addr = (void __user *)addr;
+> -	force_sig_info(signo, &info, tsk);
+> +	force_sig_fault(signo, code, (void __user *)addr, tsk);
+>  }
 
-Palmer Dabbelt <palmer@sifive.com> writes:
-
-> On Wed, 18 Apr 2018 04:10:16 PDT (-0700), shea at shealevy.com wrote:
->> Hi all,
->>
->> Shea Levy <shea@shealevy.com> writes:
->>
->>> This function is effectively identical across 14 architectures, and
->>> the generic implementation is small enough to be negligible in the
->>> architectures that do override it. Many of the remaining divergent
->>> implementations can be included in the common code path in future,
->>> further reducing code duplication and sharing improvements between
->>> architectures.
->>>
->>> Series boot-tested on RISC-V (which now uses the generic
->>> implementation) and x86_64 (which doesn't).
->>>
->>> v6: Add information about build/run testing.
->>> v5: Add more complete commit messages.
->>> v4: Use weak symbols instead of Kconfig.
->>> v3: Make the generic path opt-out instead of opt-in.
->>> v2: Mark generic free_initrd_mem __init.
->>>
->>> Signed-off-by: Shea Levy <shea@shealevy.com>
->>> ---
->>>  init/initramfs.c | 5 +++++
->>>  1 file changed, 5 insertions(+)
->>>
->>> diff --git a/init/initramfs.c b/init/initramfs.c
->>> index 7e99a0038942..c8fe150f958a 100644
->>> --- a/init/initramfs.c
->>> +++ b/init/initramfs.c
->>> @@ -526,6 +526,11 @@ extern unsigned long __initramfs_size;
->>>  #include <linux/initrd.h>
->>>  #include <linux/kexec.h>
->>>  
->>> +void __init __weak free_initrd_mem(unsigned long start, unsigned long end)
->>> +{
->>> +       free_reserved_area((void *)start, (void *)end, -1, "initrd");
->>> +}
->>> +
->>>  static void __init free_initrd(void)
->>>  {
->>>  #ifdef CONFIG_KEXEC_CORE
->>> -- 
->>> 2.16.2
->>
->> This series has been quiet for a few weeks other than picking up some
->> arch-specific acks. What is the next step here?
->
-> I'm not sure.  I don't really think it's sane for the RISC-V tree because it 
-> touches so many architectures -- I haven't looked closely, though.
-
-Yeah, I think that makes sense.
-
-> IIRC 
-> there's a slight behavior change to the RISC-V port, which I'd be OK taking 
-> through my tree (and then obviously the RISC-V cleanup as well, unless it goes 
-> in as a whole patch set).
->
-
-So currently the behavior for RISC-V is changed by simply deleting the
-arch-specific free_initrd_mem, which was a noop. Would you like me to
-first submit a patch to have the arch-specific free_initrd_mem and then
-change that in this series?
-
->
-> For the IRQ cleanup I currently have in flight
->
-> * Add the generic support
-> * Move every arch over (RISC-V is in, the rest aren't yet)
-> * Clean up a bit now that everyone is generic
->
-> That lets all the arch-specific patches go in parallel, but can be a bit of a 
-> headache to manage.
-
-With the current series, the first patch could go in on its own and all
-of the arch-specific patches can go in in parallel if we wanted to, but
-beyond the above-suggested implementation of the RISC-V free_initrd_mem
-there's no real reordering meaningful here.
-
->
-> I'm adding Arnd and Olof, as they know a lot more about Linux than I do.  
-> Here's the top-level of the v4 patch set: https://lkml.org/lkml/2018/3/28/744
-
-And here's the top-level of v6, the latest: https://lkml.org/lkml/2018/4/1/50
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: signature.asc
-Type: application/pgp-signature
-Size: 832 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180420/c24e9473/attachment.sig>
+Please kill the do_trap_siginfo helper and use force_sig_fault
+directly in both callers.
