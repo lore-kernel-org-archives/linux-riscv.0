@@ -1,58 +1,87 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 23 Apr 2018 12:11:23 -0700 (PDT)
-Subject: [REVIEW][PATCH 14/22] signal/riscv: Use force_sig_fault where
- appropriate
-In-Reply-To: <20180420143811.9994-14-ebiederm@xmission.com>
-Message-ID: <mhng-77d5b15b-866b-464a-a256-6c7b84726ce3@palmer-si-x1c4>
+Date: Mon, 23 Apr 2018 15:08:10 -0700 (PDT)
+Subject: [PATCH] RISC-V: Load modules within relative jump range of the
+ kernel text.
+In-Reply-To: <87lgdfieqj.fsf@xps13.shealevy.com>
+Message-ID: <mhng-0a2f9574-9b23-4f26-ae76-18ed7f2c8533@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, 20 Apr 2018 07:38:03 PDT (-0700), ebiederm at xmission.com wrote:
-> Filling in struct siginfo before calling force_sig_info a tedious and
-> error prone process, where once in a great while the wrong fields
-> are filled out, and siginfo has been inconsistently cleared.
+On Sun, 22 Apr 2018 05:53:56 PDT (-0700), shea at shealevy.com wrote:
+> Hi Palmer,
 >
-> Simplify this process by using the helper force_sig_fault.  Which
-> takes as a parameters all of the information it needs, ensures
-> all of the fiddly bits of filling in struct siginfo are done properly
-> and then calls force_sig_info.
+> Shea Levy <shea@shealevy.com> writes:
 >
-> In short about a 5 line reduction in code for every time force_sig_info
-> is called, which makes the calling function clearer.
+>> Signed-off-by: Shea Levy <shea@shealevy.com>
+>> ---
+>>
+>> Note that this patch worked in my old modules patchset and seems to be
+>> working now, but my kernel boot locks up on top of
+>> riscv-for-linus-4.17-mw0 and I don't know if it's due to this patch or
+>> something else that's changed in the mean time.
+>>
+>> ---
+>>  arch/riscv/include/asm/pgtable.h |  9 +++++++++
+>>  arch/riscv/kernel/module.c       | 11 +++++++++++
+>>  2 files changed, 20 insertions(+)
+>>
+>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+>> index 16301966d65b..b08ded13364a 100644
+>> --- a/arch/riscv/include/asm/pgtable.h
+>> +++ b/arch/riscv/include/asm/pgtable.h
+>> @@ -25,6 +25,7 @@
+>>  #include <asm/page.h>
+>>  #include <asm/tlbflush.h>
+>>  #include <linux/mm_types.h>
+>> +#include <linux/sizes.h>
+>>  
+>>  #ifdef CONFIG_64BIT
+>>  #include <asm/pgtable-64.h>
+>> @@ -425,6 +426,14 @@ static inline void pgtable_cache_init(void)
+>>  #define TASK_SIZE VMALLOC_START
+>>  #endif
+>>  
+>> +/*
+>> + * The module space lives between the addresses given by TASK_SIZE
+>> + * and PAGE_OFFSET - it must be within 2G of the kernel text.
+>> + */
+>> +#define MODULES_SIZE		(SZ_128M)
+>> +#define MODULES_VADDR		(PAGE_OFFSET - MODULES_SIZE)
+>> +#define MODULES_END		(VMALLOC_END)
+>> +
+>>  #include <asm-generic/pgtable.h>
+>>  
+>>  #endif /* !__ASSEMBLY__ */
+>> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+>> index 5dddba301d0a..1b382c7de095 100644
+>> --- a/arch/riscv/kernel/module.c
+>> +++ b/arch/riscv/kernel/module.c
+>> @@ -16,6 +16,8 @@
+>>  #include <linux/err.h>
+>>  #include <linux/errno.h>
+>>  #include <linux/moduleloader.h>
+>> +#include <linux/vmalloc.h>
+>> +#include <asm/pgtable.h>
+>>  
+>>  static int apply_r_riscv_64_rela(struct module *me, u32 *location, Elf_Addr v)
+>>  {
+>> @@ -382,3 +384,12 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+>>  
+>>  	return 0;
+>>  }
+>> +
+>> +void *module_alloc(unsigned long size)
+>> +{
+>> +	return __vmalloc_node_range(size, 1, MODULES_VADDR,
+>> +				    MODULES_END, GFP_KERNEL,
+>> +				    PAGE_KERNEL_EXEC, 0,
+>> +				    NUMA_NO_NODE,
+>> +				    __builtin_return_address(0));
+>> +}
+>> -- 
+>> 2.16.2
 >
-> Cc: Palmer Dabbelt <palmer@sifive.com>
-> Cc: Albert Ou <albert@sifive.com>
-> Cc: linux-riscv at lists.infradead.org
-> Signed-off-by: "Eric W. Biederman" <ebiederm@xmission.com>
-> ---
->  arch/riscv/kernel/traps.c | 9 +--------
->  1 file changed, 1 insertion(+), 8 deletions(-)
->
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index 48aa6471cede..3087940008f4 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -66,14 +66,7 @@ void die(struct pt_regs *regs, const char *str)
->  static inline void do_trap_siginfo(int signo, int code,
->  	unsigned long addr, struct task_struct *tsk)
->  {
-> -	siginfo_t info;
-> -
-> -	clear_siginfo(&info);
-> -	info.si_signo = signo;
-> -	info.si_errno = 0;
-> -	info.si_code = code;
-> -	info.si_addr = (void __user *)addr;
-> -	force_sig_info(signo, &info, tsk);
-> +	force_sig_fault(signo, code, (void __user *)addr, tsk);
->  }
->
->  void do_trap(struct pt_regs *regs, int signo, int code,
+> Any thoughts on this?
 
-If I understand this correctly, any change in behavior this causes would have 
-been a bug on our end not filling out siginfo correctly?  In that case then 
-feel free to add an
-
-    Acked-by: Palmer Dabbelt <palmer@sifive.com>
-
-Thanks!
+The concept looks good, but does this actually keep the modules within 2GiB of 
+the text if PAGE_OFFSET is large?
