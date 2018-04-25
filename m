@@ -1,74 +1,91 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 24 Apr 2018 17:29:51 -0700 (PDT)
+From: atish.patra@wdc.com (Atish Patra)
+Date: Tue, 24 Apr 2018 18:15:49 -0700
 Subject: [PATCH v5 0/2] perf: riscv: Preliminary Perf Event Support on
  RISC-V
-In-Reply-To: <054df682-c002-23ba-075b-a38c9085260c@wdc.com>
-Message-ID: <mhng-0abe4f84-0dd3-437c-8cf2-b87def246796@palmer-si-x1c4>
+In-Reply-To: <mhng-0abe4f84-0dd3-437c-8cf2-b87def246796@palmer-si-x1c4>
+References: <mhng-0abe4f84-0dd3-437c-8cf2-b87def246796@palmer-si-x1c4>
+Message-ID: <6b211b64-5c17-2884-5b6a-6ff1d3287b16@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 24 Apr 2018 15:16:16 PDT (-0700), atish.patra at wdc.com wrote:
-> On 4/24/18 12:44 PM, Palmer Dabbelt wrote:
->> On Tue, 24 Apr 2018 12:27:26 PDT (-0700), atish.patra at wdc.com wrote:
->>> On 4/24/18 11:07 AM, Atish Patra wrote:
->>>> On 4/19/18 4:28 PM, Alan Kao wrote:
->>>> However, I got an rcu-stall for the test "47: Event times".
->>>> # ./perf test -v 47
->>> Got it working. The test tries to attach the event to CPU0 which doesn't
->>> exist in HighFive Unleashed. Changing it to cpu1 works.
+On 4/24/18 5:29 PM, Palmer Dabbelt wrote:
+> On Tue, 24 Apr 2018 15:16:16 PDT (-0700), atish.patra at wdc.com wrote:
+>> On 4/24/18 12:44 PM, Palmer Dabbelt wrote:
+>>> On Tue, 24 Apr 2018 12:27:26 PDT (-0700), atish.patra at wdc.com wrote:
+>>>> On 4/24/18 11:07 AM, Atish Patra wrote:
+>>>>> On 4/19/18 4:28 PM, Alan Kao wrote:
+>>>>> However, I got an rcu-stall for the test "47: Event times".
+>>>>> # ./perf test -v 47
+>>>> Got it working. The test tries to attach the event to CPU0 which doesn't
+>>>> exist in HighFive Unleashed. Changing it to cpu1 works.
+>>>>
+>>>> diff --git a/tools/perf/tests/event-times.c b/tools/perf/tests/event-times.c
+>>>> index 1a2686f..eb11632f 100644
+>>>> --- a/tools/perf/tests/event-times.c
+>>>> +++ b/tools/perf/tests/event-times.c
+>>>> @@ -113,9 +113,9 @@ static int attach__cpu_disabled(struct perf_evlist
+>>>> *evlist)
+>>>>            struct cpu_map *cpus;
+>>>>            int err;
+>>>>
+>>>> -       pr_debug("attaching to CPU 0 as enabled\n");
+>>>> +       pr_debug("attaching to CPU 1 as disabled\n");
+>>>>
+>>>> -       cpus = cpu_map__new("0");
+>>>> +       cpus = cpu_map__new("1");
+>>>>            if (cpus == NULL) {
+>>>>                    pr_debug("failed to call cpu_map__new\n");
+>>>>                    return -1;
+>>>> @@ -142,9 +142,9 @@ static int attach__cpu_enabled(struct perf_evlist
+>>>> *evlist)
+>>>>            struct cpu_map *cpus;
+>>>>            int err;
+>>>>
+>>>> -       pr_debug("attaching to CPU 0 as enabled\n");
+>>>> +       pr_debug("attaching to CPU 1 as enabled\n");
+>>>>
+>>>> -       cpus = cpu_map__new("0");
+>>>> +       cpus = cpu_map__new("1");
+>>>>            if (cpus == NULL) {
+>>>>                    pr_debug("failed to call cpu_map__new\n");
+>>>>                    return -1;
+>>>>
+>>>>
+>>>> Palmer,
+>>>> Would it be better to officially document it somewhere that CPU0 doesn't
+>>>> exist in the HighFive Unleashed board ?
+>>>> I fear that there will be other standard tests/code path that may fail
+>>>> because of inherent assumption of cpu0 presence.
 >>>
->>> diff --git a/tools/perf/tests/event-times.c b/tools/perf/tests/event-times.c
->>> index 1a2686f..eb11632f 100644
->>> --- a/tools/perf/tests/event-times.c
->>> +++ b/tools/perf/tests/event-times.c
->>> @@ -113,9 +113,9 @@ static int attach__cpu_disabled(struct perf_evlist
->>> *evlist)
->>>           struct cpu_map *cpus;
->>>           int err;
->>>
->>> -       pr_debug("attaching to CPU 0 as enabled\n");
->>> +       pr_debug("attaching to CPU 1 as disabled\n");
->>>
->>> -       cpus = cpu_map__new("0");
->>> +       cpus = cpu_map__new("1");
->>>           if (cpus == NULL) {
->>>                   pr_debug("failed to call cpu_map__new\n");
->>>                   return -1;
->>> @@ -142,9 +142,9 @@ static int attach__cpu_enabled(struct perf_evlist
->>> *evlist)
->>>           struct cpu_map *cpus;
->>>           int err;
->>>
->>> -       pr_debug("attaching to CPU 0 as enabled\n");
->>> +       pr_debug("attaching to CPU 1 as enabled\n");
->>>
->>> -       cpus = cpu_map__new("0");
->>> +       cpus = cpu_map__new("1");
->>>           if (cpus == NULL) {
->>>                   pr_debug("failed to call cpu_map__new\n");
->>>                   return -1;
->>>
->>>
->>> Palmer,
->>> Would it be better to officially document it somewhere that CPU0 doesn't
->>> exist in the HighFive Unleashed board ?
->>> I fear that there will be other standard tests/code path that may fail
->>> because of inherent assumption of cpu0 presence.
+>>> I think the best way to fix this is to just have BBL (or whatever the
+>>> bootloader is) renumber the CPUs so they're contiguous and begin with 0.
 >>
->> I think the best way to fix this is to just have BBL (or whatever the
->> bootloader is) renumber the CPUs so they're contiguous and begin with 0.
->
-> Do you mean BBL will update the device tree that kernel eventually parse
-> and set the hart id?
-> Sounds good to me unless it acts as a big hack in future boot loaders.
+>> Do you mean BBL will update the device tree that kernel eventually parse
+>> and set the hart id?
+>> Sounds good to me unless it acts as a big hack in future boot loaders.
+> 
+> Right now the machine-mode and supervisor-mode hart IDs are logically separate:
+> the bootloader just provides the hart ID as a register argument when starting
+> the kernel.
 
-Right now the machine-mode and supervisor-mode hart IDs are logically separate: 
-the bootloader just provides the hart ID as a register argument when starting 
-the kernel.  BBL already needs to enumerate the harts by looking through the 
-device tree for various other reasons (at least to mask off the harts that 
-Linux doesn't support), so it's not that much effort to just maintain a mapping 
-from supervisor-mode hart IDs to machine-mode hart IDs.
+Yes.
 
-I have some patches floating around that do this, but appear to do it 
-incorrectly enough that nothing boots so maybe I'm missing something that makes 
-this complicated :).
+   BBL already needs to enumerate the harts by looking through the
+> device tree for various other reasons (at least to mask off the harts that
+> Linux doesn't support), so it's not that much effort to just maintain a mapping
+> from supervisor-mode hart IDs to machine-mode hart IDs.
+> 
+
+But Linux also parses the device tree to get hart ID in 
+riscv_of_processor_hart(). This is used to setup the possible/present 
+cpu map in setup_smp().
+
+Thus, Linux also need to see a device tree with cpu0-3 instead of 
+cpu1-4. Otherwise, present cpu map will be incorrect. Isn't it ?
+
+> I have some patches floating around that do this, but appear to do it
+> incorrectly enough that nothing boots so maybe I'm missing something that makes
+> this complicated :).
+> 
+
+Just a wild guess: May be the because of the above reason ;)
