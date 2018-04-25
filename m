@@ -1,102 +1,60 @@
 From: jeremy.linton@arm.com (Jeremy Linton)
-Date: Wed, 25 Apr 2018 18:31:19 -0500
-Subject: [PATCH v8 11/13] arm64: topology: enable ACPI/PPTT based CPU topology
+Date: Wed, 25 Apr 2018 18:31:14 -0500
+Subject: [PATCH v8 06/13] ACPI: Enable PPTT support on ARM64
 In-Reply-To: <20180425233121.13270-1-jeremy.linton@arm.com>
 References: <20180425233121.13270-1-jeremy.linton@arm.com>
-Message-ID: <20180425233121.13270-12-jeremy.linton@arm.com>
+Message-ID: <20180425233121.13270-7-jeremy.linton@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Propagate the topology information from the PPTT tree to the
-cpu_topology array. We can get the thread id and core_id by assuming
-certain levels of the PPTT tree correspond to those concepts.
-The package_id is flagged in the tree and can be found by calling
-find_acpi_cpu_topology_package() which terminates
-its search when it finds an ACPI node flagged as the physical
-package. If the tree doesn't contain enough levels to represent
-all of the requested levels then the root node will be returned
-for all subsequent levels.
+Now that we have a PPTT parser, in preparation for its use
+on arm64, lets build it.
 
 Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
- arch/arm64/kernel/topology.c | 45 +++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 44 insertions(+), 1 deletion(-)
+ arch/arm64/Kconfig    | 1 +
+ drivers/acpi/Kconfig  | 3 +++
+ drivers/acpi/Makefile | 1 +
+ 3 files changed, 5 insertions(+)
 
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index dc18b1e53194..bd1aae438a31 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -11,6 +11,7 @@
-  * for more details.
-  */
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index eb2cf4938f6d..cff33d9eff0c 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -7,6 +7,7 @@ config ARM64
+ 	select ACPI_REDUCED_HARDWARE_ONLY if ACPI
+ 	select ACPI_MCFG if ACPI
+ 	select ACPI_SPCR_TABLE if ACPI
++	select ACPI_PPTT if ACPI
+ 	select ARCH_CLOCKSOURCE_DATA
+ 	select ARCH_HAS_DEBUG_VIRTUAL
+ 	select ARCH_HAS_DEVMEM_IS_ALLOWED
+diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+index 516d7b36d6fb..b533eeb6139d 100644
+--- a/drivers/acpi/Kconfig
++++ b/drivers/acpi/Kconfig
+@@ -547,6 +547,9 @@ config ACPI_CONFIGFS
  
-+#include <linux/acpi.h>
- #include <linux/arch_topology.h>
- #include <linux/cpu.h>
- #include <linux/cpumask.h>
-@@ -22,6 +23,7 @@
- #include <linux/sched.h>
- #include <linux/sched/topology.h>
- #include <linux/slab.h>
-+#include <linux/smp.h>
- #include <linux/string.h>
+ if ARM64
+ source "drivers/acpi/arm64/Kconfig"
++
++config ACPI_PPTT
++	bool
+ endif
  
- #include <asm/cpu.h>
-@@ -296,6 +298,45 @@ static void __init reset_cpu_topology(void)
- 	}
- }
+ config TPS68470_PMIC_OPREGION
+diff --git a/drivers/acpi/Makefile b/drivers/acpi/Makefile
+index 48e202752754..6d59aa109a91 100644
+--- a/drivers/acpi/Makefile
++++ b/drivers/acpi/Makefile
+@@ -88,6 +88,7 @@ obj-$(CONFIG_ACPI_BGRT)		+= bgrt.o
+ obj-$(CONFIG_ACPI_CPPC_LIB)	+= cppc_acpi.o
+ obj-$(CONFIG_ACPI_SPCR_TABLE)	+= spcr.o
+ obj-$(CONFIG_ACPI_DEBUGGER_USER) += acpi_dbg.o
++obj-$(CONFIG_ACPI_PPTT) 	+= pptt.o
  
-+#ifdef CONFIG_ACPI
-+/*
-+ * Propagate the topology information of the processor_topology_node tree to the
-+ * cpu_topology array.
-+ */
-+static int __init parse_acpi_topology(void)
-+{
-+	bool is_threaded;
-+	int cpu, topology_id;
-+
-+	is_threaded = read_cpuid_mpidr() & MPIDR_MT_BITMASK;
-+
-+	for_each_possible_cpu(cpu) {
-+		topology_id = find_acpi_cpu_topology(cpu, 0);
-+		if (topology_id < 0)
-+			return topology_id;
-+
-+		if (is_threaded) {
-+			cpu_topology[cpu].thread_id = topology_id;
-+			topology_id = find_acpi_cpu_topology(cpu, 1);
-+			cpu_topology[cpu].core_id   = topology_id;
-+		} else {
-+			cpu_topology[cpu].thread_id  = -1;
-+			cpu_topology[cpu].core_id    = topology_id;
-+		}
-+		topology_id = find_acpi_cpu_topology_package(cpu);
-+		cpu_topology[cpu].package_id = topology_id;
-+	}
-+
-+	return 0;
-+}
-+
-+#else
-+static inline int __init parse_acpi_topology(void)
-+{
-+	return -EINVAL;
-+}
-+#endif
-+
- void __init init_cpu_topology(void)
- {
- 	reset_cpu_topology();
-@@ -304,6 +345,8 @@ void __init init_cpu_topology(void)
- 	 * Discard anything that was parsed if we hit an error so we
- 	 * don't use partial information.
- 	 */
--	if (of_have_populated_dt() && parse_dt_topology())
-+	if ((!acpi_disabled) && parse_acpi_topology())
-+		reset_cpu_topology();
-+	else if (of_have_populated_dt() && parse_dt_topology())
- 		reset_cpu_topology();
- }
+ # processor has its own "processor." module_param namespace
+ processor-y			:= processor_driver.o
 -- 
 2.13.6
