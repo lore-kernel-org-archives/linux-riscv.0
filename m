@@ -1,102 +1,44 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 25 Apr 2018 09:39:04 -0700 (PDT)
-Subject: [PATCH v5 0/2] perf: riscv: Preliminary Perf Event Support on
- RISC-V
-In-Reply-To: <20180425031936.GA7303@andestech.com>
-Message-ID: <mhng-aec39091-7a3b-4def-99f3-577e023c6919@palmer-si-x1c4>
+Date: Wed, 25 Apr 2018 10:16:55 -0700 (PDT)
+Subject: [GIT PULL] RISC-V Fixes for 4.17-rc3
+Message-ID: <mhng-ef6ff42c-a1bb-4a98-b1fe-4d27d49e82c3@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 24 Apr 2018 20:19:36 PDT (-0700), alankao at andestech.com wrote:
-> Hi Atish, Palmer,
->
-> On Tue, Apr 24, 2018 at 06:15:49PM -0700, Atish Patra wrote:
->> On 4/24/18 5:29 PM, Palmer Dabbelt wrote:
->> >On Tue, 24 Apr 2018 15:16:16 PDT (-0700), atish.patra at wdc.com wrote:
->> >>On 4/24/18 12:44 PM, Palmer Dabbelt wrote:
->> >>>On Tue, 24 Apr 2018 12:27:26 PDT (-0700), atish.patra at wdc.com wrote:
->> >>>>On 4/24/18 11:07 AM, Atish Patra wrote:
->> >>>>>On 4/19/18 4:28 PM, Alan Kao wrote:
->> >>>>>However, I got an rcu-stall for the test "47: Event times".
->> >>>>># ./perf test -v 47
->> >>>>Got it working. The test tries to attach the event to CPU0 which doesn't
->> >>>>exist in HighFive Unleashed. Changing it to cpu1 works.
->> >>>>
->> >>>>diff --git a/tools/perf/tests/event-times.c b/tools/perf/tests/event-times.c
->> >>>>index 1a2686f..eb11632f 100644
->> >>>>--- a/tools/perf/tests/event-times.c
->> >>>>+++ b/tools/perf/tests/event-times.c
->> >>>>@@ -113,9 +113,9 @@ static int attach__cpu_disabled(struct perf_evlist
->> >>>>*evlist)
->> >>>>           struct cpu_map *cpus;
->> >>>>           int err;
->> >>>>
->> >>>>-       pr_debug("attaching to CPU 0 as enabled\n");
->> >>>>+       pr_debug("attaching to CPU 1 as disabled\n");
->> >>>>
->> >>>>-       cpus = cpu_map__new("0");
->> >>>>+       cpus = cpu_map__new("1");
->> >>>>           if (cpus == NULL) {
->> >>>>                   pr_debug("failed to call cpu_map__new\n");
->> >>>>                   return -1;
->> >>>>@@ -142,9 +142,9 @@ static int attach__cpu_enabled(struct perf_evlist
->> >>>>*evlist)
->> >>>>           struct cpu_map *cpus;
->> >>>>           int err;
->> >>>>
->> >>>>-       pr_debug("attaching to CPU 0 as enabled\n");
->> >>>>+       pr_debug("attaching to CPU 1 as enabled\n");
->> >>>>
->> >>>>-       cpus = cpu_map__new("0");
->> >>>>+       cpus = cpu_map__new("1");
->> >>>>           if (cpus == NULL) {
->> >>>>                   pr_debug("failed to call cpu_map__new\n");
->> >>>>                   return -1;
->> >>>>
->> >>>>
->> >>>>Palmer,
->> >>>>Would it be better to officially document it somewhere that CPU0 doesn't
->> >>>>exist in the HighFive Unleashed board ?
->> >>>>I fear that there will be other standard tests/code path that may fail
->> >>>>because of inherent assumption of cpu0 presence.
->> >>>
->> >>>I think the best way to fix this is to just have BBL (or whatever the
->> >>>bootloader is) renumber the CPUs so they're contiguous and begin with 0.
->> >>
->> >>Do you mean BBL will update the device tree that kernel eventually parse
->> >>and set the hart id?
->> >>Sounds good to me unless it acts as a big hack in future boot loaders.
->> >
->> >Right now the machine-mode and supervisor-mode hart IDs are logically separate:
->> >the bootloader just provides the hart ID as a register argument when starting
->> >the kernel.
->>
->> Yes.
->>
->>   BBL already needs to enumerate the harts by looking through the
->> >device tree for various other reasons (at least to mask off the harts that
->> >Linux doesn't support), so it's not that much effort to just maintain a mapping
->> >from supervisor-mode hart IDs to machine-mode hart IDs.
->> >
->>
->> But Linux also parses the device tree to get hart ID in
->> riscv_of_processor_hart(). This is used to setup the possible/present cpu
->> map in setup_smp().
->>
->> Thus, Linux also need to see a device tree with cpu0-3 instead of cpu1-4.
->> Otherwise, present cpu map will be incorrect. Isn't it ?
->>
->> >I have some patches floating around that do this, but appear to do it
->> >incorrectly enough that nothing boots so maybe I'm missing something that makes
->> >this complicated :).
->> >
->>
->> Just a wild guess: May be the because of the above reason ;)
->>
->
-> Thanks for the test and discussion.  It looks like am implementation issue from
-> Unleash, so ... is there anything I should fix and provide a further patch?
+The following changes since commit 6d08b06e67cd117f6992c46611dfb4ce267cd71e:
 
-You're welcome to fix BBL if you want, but that's unrelated to this patch set.  
-I'm going to look over the code again as soon as I get a chance to, thanks for 
-submitting the patches!
+  Linux 4.17-rc2 (2018-04-22 19:20:09 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.17-rc3
+
+for you to fetch changes up to 85602bea297fc4e5223adbf7006dcce9aa694f17:
+
+  RISC-V: build vdso-dummy.o with -no-pie (2018-04-24 10:54:46 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes for 4.17-rc3
+
+This pull request contains three small fixes related to the RISC-V port
+that I'd like to target for 4.17-rc3:
+
+* A Kconfig cleanup to select DMA_DIRECT_OPS instead of redefining it in
+  arch/riscv.
+* The removal of asm/handle_irq.h, which doesn't exist, from our arch
+  header list.
+* The addition of "-no-pie" the link rules for our VDSO-related files,
+  which fixes the build on systems where PIE is enabled by default.
+
+----------------------------------------------------------------
+Aurelien Jarno (1):
+      RISC-V: build vdso-dummy.o with -no-pie
+
+Christoph Hellwig (2):
+      riscv: select DMA_DIRECT_OPS instead of redefining it
+      riscv: there is no <asm/handle_irq.h>
+
+ arch/riscv/Kconfig              | 4 +---
+ arch/riscv/include/asm/Kbuild   | 1 -
+ arch/riscv/kernel/vdso/Makefile | 2 +-
+ 3 files changed, 2 insertions(+), 5 deletions(-)
