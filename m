@@ -1,57 +1,131 @@
-From: sudeep.holla@arm.com (Sudeep Holla)
-Date: Fri, 27 Apr 2018 14:08:14 +0100
-Subject: [PATCH v8 04/13] arm64/acpi: Create arch specific cpu to acpi id
- helper
-In-Reply-To: <ee956bd3-37d7-b9ac-af55-dc297397476d@arm.com>
+From: jeremy.linton@arm.com (Jeremy Linton)
+Date: Fri, 27 Apr 2018 11:20:44 -0500
+Subject: [PATCH v8 05/13] ACPI/PPTT: Add Processor Properties Topology
+ Table parsing
+In-Reply-To: <CAJZ5v0jjPnyC0vm-Fb8y2hw1B9Uc2J5sZrtZYzt_ENT2Sini3A@mail.gmail.com>
 References: <20180425233121.13270-1-jeremy.linton@arm.com>
- <20180425233121.13270-5-jeremy.linton@arm.com>
- <16324b54-42d4-d9bc-6d57-de52431dc209@arm.com>
- <ee956bd3-37d7-b9ac-af55-dc297397476d@arm.com>
-Message-ID: <a00dd78c-6e94-26a2-1515-c677a032e6ce@arm.com>
+ <20180425233121.13270-6-jeremy.linton@arm.com>
+ <CAJZ5v0jjPnyC0vm-Fb8y2hw1B9Uc2J5sZrtZYzt_ENT2Sini3A@mail.gmail.com>
+Message-ID: <b750e86b-bc51-0440-b48d-0e8d3177fa8d@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
+Hi,
 
+Thanks for taking a look at this.
 
-On 26/04/18 19:33, Jeremy Linton wrote:
-> Hi,
-> 
-> On 04/26/2018 05:27 AM, Sudeep Holla wrote:
+On 04/27/2018 06:02 AM, Rafael J. Wysocki wrote:
+> On Thu, Apr 26, 2018 at 1:31 AM, Jeremy Linton <jeremy.linton@arm.com> wrote:
+>> ACPI 6.2 adds a new table, which describes how processing units
+>> are related to each other in tree like fashion. Caches are
+>> also sprinkled throughout the tree and describe the properties
+>> of the caches in relation to other caches and processing units.
 >>
+>> Add the code to parse the cache hierarchy and report the total
+>> number of levels of cache for a given core using
+>> acpi_find_last_cache_level() as well as fill out the individual
+>> cores cache information with cache_setup_acpi() once the
+>> cpu_cacheinfo structure has been populated by the arch specific
+>> code.
 >>
->> On 26/04/18 00:31, Jeremy Linton wrote:
->>> Its helpful to be able to lookup the acpi_processor_id associated
->>> with a logical cpu. Provide an arm64 helper to do this.
->>>
+>> An additional patch later in the set adds the ability to report
+>> peers in the topology using find_acpi_cpu_topology()
+>> to report a unique ID for each processing unit at a given level
+>> in the tree. These unique id's can then be used to match related
+>> processing units which exist as threads, within a given
+>> package, etc.
 >>
->> As I pointed out in the earlier version, this patch is not required.
->> The acpi_id stored in the acpi_processor can be used for this.
->> Won't the below change make it work ? I can't think of any reason why it
->> shouldn't.
+>> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+>> Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+>> ---
+>>   drivers/acpi/pptt.c | 518 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 518 insertions(+)
+>>   create mode 100644 drivers/acpi/pptt.c
+>>
+>> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+>> new file mode 100644
+>> index 000000000000..cced71ef851a
+>> --- /dev/null
+>> +++ b/drivers/acpi/pptt.c
+>> @@ -0,0 +1,518 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * pptt.c - parsing of Processor Properties Topology Table
+>> + *
+>> + * Copyright (C) 2018, ARM
+>> + *
+>> + * This file implements parsing of Processor Properties Topology Table (PPTT)
+>> + * which is optionally used to describe the processor and cache topology.
+>> + * Due to the relative pointers used throughout the table, this doesn't
+>> + * leverage the existing subtable parsing in the kernel.
+>> + *
+>> + * The PPTT structure is an inverted tree, with each node potentially
+>> + * holding one or two inverted tree data structures describing
+>> + * the caches available at that level. Each cache structure optionally
+>> + * contains properties describing the cache at a given level which can be
+>> + * used to override hardware probed values.
+>> + */
+>> +#define pr_fmt(fmt) "ACPI PPTT: " fmt
+>> +
+>> +#include <linux/acpi.h>
+>> +#include <linux/cacheinfo.h>
+>> +#include <acpi/processor.h>
+>> +
+>> +/**
+>> + * fetch_pptt_subtable() - Find/Verify that the PPTT ref is a valid subtable
 > 
-> So, I only noticed your previous email last night on the mail archive,
-> as I was applying your review/ack tags and couldn't find a response for
-> this patch, seem the spam/etc filters need some further tweaking!
->
+> The parens above are at least redundant (if not harmful).  Everywhere
+> else in a similar context too.
 
-Ah that's bad.
+The kerneldoc ones? I guess i'm confused the kernel doc example in 
+doc-guide/kernel-doc has
 
-> At that point, I was pretty sure the suggestion wasn't going to work out
-> of the box as a lot of this code is running fairly early in the boot
-> process. I spent a bit of time and plugged the change in to verify that
-> assertion, and yes the per_cpu processor/acpi bits aren't setup early
-> enough to be used by much of this code. It is being called from
-> init_cpu_topology()/smp_prepare_cpus() which precedes
-> do_basic_setup/do_initcalls() which is what runs the acpi_init()
-> sequence which ends up eventually allocating the required data
-> structures. So without restructuring the core boot sequence, this seems
-> like a reasonable solution.
+* function_name() - Brief description of function.
+
+
 > 
+> Also kerneldoc comments document function arguments too as a rule, so
+> please do that here and wherever you use kerneldoc comments in the
+> patchset.
 
-OK makes sense. I completely ignored topology related patches as I
-haven't looked at them yet and assumed cacheinfo is the only user. Sorry
-for that.
+Ok, sure.
 
--- 
-Regards,
-Sudeep
+> 
+>> + *
+>> + * Given the PPTT table, find and verify that the subtable entry
+>> + * is located within the table
+>> + *
+>> + * Return: acpi_subtable_header* or NULL
+>> + */
+>> +static struct acpi_subtable_header *fetch_pptt_subtable(struct acpi_table_header *table_hdr,
+>> +                                                       u32 pptt_ref)
+>> +{
+>> +       struct acpi_subtable_header *entry;
+>> +
+>> +       /* there isn't a subtable at reference 0 */
+>> +       if (pptt_ref < sizeof(struct acpi_subtable_header))
+>> +               return NULL;
+>> +
+>> +       if (pptt_ref + sizeof(struct acpi_subtable_header) > table_hdr->length)
+>> +               return NULL;
+>> +
+>> +       entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr, pptt_ref);
+>> +
+>> +       if (entry->length == 0)
+>> +               return NULL;
+>> +
+>> +       if (pptt_ref + entry->length > table_hdr->length)
+>> +               return NULL;
+>> +
+>> +       return entry;
+>> +}
+> 
+> Apart from the above I'm not entirely sure why you need the changes in
+> patch [09/13] to go in a separate patch.  All of them are new code
+> going into the file created by this patch, so why not to put them
+> here?
+
+
+Ok, I was doing that because Lorenzo asked for it, but he hasn't said 
+much so I will collapse it back together. That makes me happy, as 
+splitting chunks between patches is a pain anyway.
