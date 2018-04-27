@@ -1,110 +1,69 @@
-From: rafael@kernel.org (Rafael J. Wysocki)
-Date: Fri, 27 Apr 2018 13:02:00 +0200
-Subject: [PATCH v8 05/13] ACPI/PPTT: Add Processor Properties Topology
- Table parsing
-In-Reply-To: <20180425233121.13270-6-jeremy.linton@arm.com>
+From: sudeep.holla@arm.com (Sudeep Holla)
+Date: Fri, 27 Apr 2018 13:49:51 +0100
+Subject: [PATCH v8 07/13] drivers: base cacheinfo: Add support for ACPI
+ based firmware tables
+In-Reply-To: <48bd3299-a95a-8aa6-524d-b3aa01dd9ef2@arm.com>
 References: <20180425233121.13270-1-jeremy.linton@arm.com>
- <20180425233121.13270-6-jeremy.linton@arm.com>
-Message-ID: <CAJZ5v0jjPnyC0vm-Fb8y2hw1B9Uc2J5sZrtZYzt_ENT2Sini3A@mail.gmail.com>
+ <20180425233121.13270-8-jeremy.linton@arm.com>
+ <c3306746-aacd-5ed8-95d6-a3186ec2089f@arm.com>
+ <48bd3299-a95a-8aa6-524d-b3aa01dd9ef2@arm.com>
+Message-ID: <14062628-d6bb-2e46-fd7c-edce814b5d22@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Apr 26, 2018 at 1:31 AM, Jeremy Linton <jeremy.linton@arm.com> wrote:
-> ACPI 6.2 adds a new table, which describes how processing units
-> are related to each other in tree like fashion. Caches are
-> also sprinkled throughout the tree and describe the properties
-> of the caches in relation to other caches and processing units.
->
-> Add the code to parse the cache hierarchy and report the total
-> number of levels of cache for a given core using
-> acpi_find_last_cache_level() as well as fill out the individual
-> cores cache information with cache_setup_acpi() once the
-> cpu_cacheinfo structure has been populated by the arch specific
-> code.
->
-> An additional patch later in the set adds the ability to report
-> peers in the topology using find_acpi_cpu_topology()
-> to report a unique ID for each processing unit at a given level
-> in the tree. These unique id's can then be used to match related
-> processing units which exist as threads, within a given
-> package, etc.
->
-> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
-> Acked-by: Sudeep Holla <sudeep.holla@arm.com>
-> ---
->  drivers/acpi/pptt.c | 518 ++++++++++++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 518 insertions(+)
->  create mode 100644 drivers/acpi/pptt.c
->
-> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-> new file mode 100644
-> index 000000000000..cced71ef851a
-> --- /dev/null
-> +++ b/drivers/acpi/pptt.c
-> @@ -0,0 +1,518 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * pptt.c - parsing of Processor Properties Topology Table
-> + *
-> + * Copyright (C) 2018, ARM
-> + *
-> + * This file implements parsing of Processor Properties Topology Table (PPTT)
-> + * which is optionally used to describe the processor and cache topology.
-> + * Due to the relative pointers used throughout the table, this doesn't
-> + * leverage the existing subtable parsing in the kernel.
-> + *
-> + * The PPTT structure is an inverted tree, with each node potentially
-> + * holding one or two inverted tree data structures describing
-> + * the caches available at that level. Each cache structure optionally
-> + * contains properties describing the cache at a given level which can be
-> + * used to override hardware probed values.
-> + */
-> +#define pr_fmt(fmt) "ACPI PPTT: " fmt
-> +
-> +#include <linux/acpi.h>
-> +#include <linux/cacheinfo.h>
-> +#include <acpi/processor.h>
-> +
-> +/**
-> + * fetch_pptt_subtable() - Find/Verify that the PPTT ref is a valid subtable
 
-The parens above are at least redundant (if not harmful).  Everywhere
-else in a similar context too.
 
-Also kerneldoc comments document function arguments too as a rule, so
-please do that here and wherever you use kerneldoc comments in the
-patchset.
+On 26/04/18 19:57, Jeremy Linton wrote:
+> Hi,
+> 
+> On 04/26/2018 06:05 AM, Sudeep Holla wrote:
+>>
+>>
+>> On 26/04/18 00:31, Jeremy Linton wrote:
+>>> Call ACPI cache parsing routines from base cacheinfo code if ACPI
+>>> is enable. Also stub out cache_setup_acpi() so that individual
+>>> architectures can enable ACPI topology parsing.
+>>>
+>>
+>> [...]
+>>
+>>> +#ifndef CONFIG_ACPI
+>>> +static inline int acpi_find_last_cache_level(unsigned int cpu)
+>>> +{
+>>> +??? /* ACPI kernels should be built with PPTT support */
+>>
+>> This sounds incorrect for x86. But I understand why you have it there.
+>> Does it makes sense to change above to .. ?
+>>
+>> #if !defined(CONFIG_ACPI) || (defined(CONFIG_ACPI) &&
+>> !(CONFIG_ACPI_PPTT))
+>>
+> I'm not sure what that buys us, if anything you want more non-users of
+> the function to be falling through to the function prototype rather than
+> the static inline. The only place any of this matters (as long as the
+> compiler/linker is tossing the static inline) is arm64 because its the
+> only arch making a call to acpi_find_last_cache_level(). ACPI_PPTT is
+> also only visible on arm64 at the moment due to being wrapped in a if
+> ARM64 in the Kconfig
+> 
 
-> + *
-> + * Given the PPTT table, find and verify that the subtable entry
-> + * is located within the table
-> + *
-> + * Return: acpi_subtable_header* or NULL
-> + */
-> +static struct acpi_subtable_header *fetch_pptt_subtable(struct acpi_table_header *table_hdr,
-> +                                                       u32 pptt_ref)
-> +{
-> +       struct acpi_subtable_header *entry;
-> +
-> +       /* there isn't a subtable at reference 0 */
-> +       if (pptt_ref < sizeof(struct acpi_subtable_header))
-> +               return NULL;
-> +
-> +       if (pptt_ref + sizeof(struct acpi_subtable_header) > table_hdr->length)
-> +               return NULL;
-> +
-> +       entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr, pptt_ref);
-> +
-> +       if (entry->length == 0)
-> +               return NULL;
-> +
-> +       if (pptt_ref + entry->length > table_hdr->length)
-> +               return NULL;
-> +
-> +       return entry;
-> +}
+Fair enough.
 
-Apart from the above I'm not entirely sure why you need the changes in
-patch [09/13] to go in a separate patch.  All of them are new code
-going into the file created by this patch, so why not to put them
-here?
+> Put another way, I wouldn't expect an arch to have a 'user' visible
+> option to enable/disable parsing the PPTT. If an arch can handle
+> ACPI/PPTT topology then I would expect it to be fixed to the CONFIG_ACPI
+> state. What happens when acpi_find_last_cache_level() is called should
+> only be dependent on whether ACPI is enabled, the PPTT parser itself
+> will handle the cases of a missing table.
+
+Agreed. But technically that statement is still incorrect as x86 ACPI
+build need not have PPTT enabled. IMO you can reword it, but I will
+leave that to Rafael :)
+
+Other than that, it looks good.
+
+Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+
+-- 
+Regards,
+Sudeep
