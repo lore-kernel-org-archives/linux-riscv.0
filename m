@@ -1,239 +1,121 @@
-From: gregkh@linuxfoundation.org (gregkh at linuxfoundation.org)
-Date: Tue, 01 May 2018 15:33:04 -0700
-Subject: Patch "riscv/spinlock: Strengthen implementations with fences" has
- been added to the 4.16-stable tree
-Message-ID: <152521398425119@kroah.com>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Tue, 1 May 2018 18:40:07 -0700
+Subject: correct Device tree entry for HighFive Unleashed Board ?
+Message-ID: <65e845f9-eaae-4605-8722-2eefbb1fedf0@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
+Hi Palmer,
+I was going through the device tree entries for HighFive Unleashed 
+board. Here are some of the inconsistencies I found as per the device 
+tree standard. I was not sure about the original intention of the 
+changes. Hence the questions instead of the patch :) :).
 
-This is a note to let you know that I've just added the patch titled
+As per the device tree documentation, next-level-cache should point to a 
+<phandle> to the next level cache only.
 
-    riscv/spinlock: Strengthen implementations with fences
-
-to the 4.16-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
-
-The filename of the patch is:
-     riscv-spinlock-strengthen-implementations-with-fences.patch
-and it can be found in the queue-4.16 subdirectory.
-
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
-
-
->From foo at baz Tue May  1 14:59:17 PDT 2018
-From: Andrea Parri <parri.andrea@gmail.com>
-Date: Fri, 9 Mar 2018 13:13:20 +0100
-Subject: riscv/spinlock: Strengthen implementations with fences
-
-From: Andrea Parri <parri.andrea@gmail.com>
-
-[ Upstream commit 0123f4d76ca63b7b895f40089be0ce4809e392d8 ]
-
-Current implementations map locking operations using .rl and .aq
-annotations.  However, this mapping is unsound w.r.t. the kernel
-memory consistency model (LKMM) [1]:
-
-Referring to the "unlock-lock-read-ordering" test reported below,
-Daniel wrote:
-
-  "I think an RCpc interpretation of .aq and .rl would in fact
-   allow the two normal loads in P1 to be reordered [...]
-
-   The intuition would be that the amoswap.w.aq can forward from
-   the amoswap.w.rl while that's still in the store buffer, and
-   then the lw x3,0(x4) can also perform while the amoswap.w.rl
-   is still in the store buffer, all before the l1 x1,0(x2)
-   executes.  That's not forbidden unless the amoswaps are RCsc,
-   unless I'm missing something.
-
-   Likewise even if the unlock()/lock() is between two stores.
-   A control dependency might originate from the load part of
-   the amoswap.w.aq, but there still would have to be something
-   to ensure that this load part in fact performs after the store
-   part of the amoswap.w.rl performs globally, and that's not
-   automatic under RCpc."
-
-Simulation of the RISC-V memory consistency model confirmed this
-expectation.
-
-In order to "synchronize" LKMM and RISC-V's implementation, this
-commit strengthens the implementations of the locking operations
-by replacing .rl and .aq with the use of ("lightweigth") fences,
-resp., "fence rw,  w" and "fence r , rw".
-
-C unlock-lock-read-ordering
-
-{}
-/* s initially owned by P1 */
-
-P0(int *x, int *y)
-{
-        WRITE_ONCE(*x, 1);
-        smp_wmb();
-        WRITE_ONCE(*y, 1);
-}
-
-P1(int *x, int *y, spinlock_t *s)
-{
-        int r0;
-        int r1;
-
-        r0 = READ_ONCE(*y);
-        spin_unlock(s);
-        spin_lock(s);
-        r1 = READ_ONCE(*x);
-}
-
-exists (1:r0=1 /\ 1:r1=0)
-
-[1] https://marc.info/?l=linux-kernel&m=151930201102853&w=2
-    https://groups.google.com/a/groups.riscv.org/forum/#!topic/isa-dev/hKywNHBkAXM
-    https://marc.info/?l=linux-kernel&m=151633436614259&w=2
-
-Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-Cc: Palmer Dabbelt <palmer@sifive.com>
-Cc: Albert Ou <albert@sifive.com>
-Cc: Daniel Lustig <dlustig@nvidia.com>
-Cc: Alan Stern <stern@rowland.harvard.edu>
-Cc: Will Deacon <will.deacon@arm.com>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Boqun Feng <boqun.feng@gmail.com>
-Cc: Nicholas Piggin <npiggin@gmail.com>
-Cc: David Howells <dhowells@redhat.com>
-Cc: Jade Alglave <j.alglave@ucl.ac.uk>
-Cc: Luc Maranget <luc.maranget@inria.fr>
-Cc: "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>
-Cc: Akira Yokosawa <akiyks@gmail.com>
-Cc: Ingo Molnar <mingo@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-riscv at lists.infradead.org
-Cc: linux-kernel at vger.kernel.org
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-Signed-off-by: Sasha Levin <alexander.levin@microsoft.com>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- arch/riscv/include/asm/fence.h    |   12 ++++++++++++
- arch/riscv/include/asm/spinlock.h |   29 +++++++++++++++--------------
- 2 files changed, 27 insertions(+), 14 deletions(-)
- create mode 100644 arch/riscv/include/asm/fence.h
-
---- /dev/null
-+++ b/arch/riscv/include/asm/fence.h
-@@ -0,0 +1,12 @@
-+#ifndef _ASM_RISCV_FENCE_H
-+#define _ASM_RISCV_FENCE_H
-+
-+#ifdef CONFIG_SMP
-+#define RISCV_ACQUIRE_BARRIER		"\tfence r , rw\n"
-+#define RISCV_RELEASE_BARRIER		"\tfence rw,  w\n"
-+#else
-+#define RISCV_ACQUIRE_BARRIER
-+#define RISCV_RELEASE_BARRIER
-+#endif
-+
-+#endif	/* _ASM_RISCV_FENCE_H */
---- a/arch/riscv/include/asm/spinlock.h
-+++ b/arch/riscv/include/asm/spinlock.h
-@@ -17,6 +17,7 @@
+1. The current entry seems incorrect considering two entries. While 0x2 
+phandle points to L2 cache controller correctly, 0x1 phandle points to 
+"error-device at 18000000" which did not make any sense to me.
+.....
+                  cpu at 1 { 
  
- #include <linux/kernel.h>
- #include <asm/current.h>
-+#include <asm/fence.h>
  
- /*
-  * Simple spin lock operations.  These provide no fairness guarantees.
-@@ -28,10 +29,7 @@
+
+                         clock-frequency = <0x0>; 
  
- static inline void arch_spin_unlock(arch_spinlock_t *lock)
- {
--	__asm__ __volatile__ (
--		"amoswap.w.rl x0, x0, %0"
--		: "=A" (lock->lock)
--		:: "memory");
-+	smp_store_release(&lock->lock, 0);
- }
  
- static inline int arch_spin_trylock(arch_spinlock_t *lock)
-@@ -39,7 +37,8 @@ static inline int arch_spin_trylock(arch
- 	int tmp = 1, busy;
+
+                         compatible = "sifive,rocket0", "riscv"; 
  
- 	__asm__ __volatile__ (
--		"amoswap.w.aq %0, %2, %1"
-+		"	amoswap.w %0, %2, %1\n"
-+		RISCV_ACQUIRE_BARRIER
- 		: "=r" (busy), "+A" (lock->lock)
- 		: "r" (tmp)
- 		: "memory");
-@@ -68,8 +67,9 @@ static inline void arch_read_lock(arch_r
- 		"1:	lr.w	%1, %0\n"
- 		"	bltz	%1, 1b\n"
- 		"	addi	%1, %1, 1\n"
--		"	sc.w.aq	%1, %1, %0\n"
-+		"	sc.w	%1, %1, %0\n"
- 		"	bnez	%1, 1b\n"
-+		RISCV_ACQUIRE_BARRIER
- 		: "+A" (lock->lock), "=&r" (tmp)
- 		:: "memory");
- }
-@@ -82,8 +82,9 @@ static inline void arch_write_lock(arch_
- 		"1:	lr.w	%1, %0\n"
- 		"	bnez	%1, 1b\n"
- 		"	li	%1, -1\n"
--		"	sc.w.aq	%1, %1, %0\n"
-+		"	sc.w	%1, %1, %0\n"
- 		"	bnez	%1, 1b\n"
-+		RISCV_ACQUIRE_BARRIER
- 		: "+A" (lock->lock), "=&r" (tmp)
- 		:: "memory");
- }
-@@ -96,8 +97,9 @@ static inline int arch_read_trylock(arch
- 		"1:	lr.w	%1, %0\n"
- 		"	bltz	%1, 1f\n"
- 		"	addi	%1, %1, 1\n"
--		"	sc.w.aq	%1, %1, %0\n"
-+		"	sc.w	%1, %1, %0\n"
- 		"	bnez	%1, 1b\n"
-+		RISCV_ACQUIRE_BARRIER
- 		"1:\n"
- 		: "+A" (lock->lock), "=&r" (busy)
- 		:: "memory");
-@@ -113,8 +115,9 @@ static inline int arch_write_trylock(arc
- 		"1:	lr.w	%1, %0\n"
- 		"	bnez	%1, 1f\n"
- 		"	li	%1, -1\n"
--		"	sc.w.aq	%1, %1, %0\n"
-+		"	sc.w	%1, %1, %0\n"
- 		"	bnez	%1, 1b\n"
-+		RISCV_ACQUIRE_BARRIER
- 		"1:\n"
- 		: "+A" (lock->lock), "=&r" (busy)
- 		:: "memory");
-@@ -125,7 +128,8 @@ static inline int arch_write_trylock(arc
- static inline void arch_read_unlock(arch_rwlock_t *lock)
- {
- 	__asm__ __volatile__(
--		"amoadd.w.rl x0, %1, %0"
-+		RISCV_RELEASE_BARRIER
-+		"	amoadd.w x0, %1, %0\n"
- 		: "+A" (lock->lock)
- 		: "r" (-1)
- 		: "memory");
-@@ -133,10 +137,7 @@ static inline void arch_read_unlock(arch
  
- static inline void arch_write_unlock(arch_rwlock_t *lock)
- {
--	__asm__ __volatile__ (
--		"amoswap.w.rl x0, x0, %0"
--		: "=A" (lock->lock)
--		:: "memory");
-+	smp_store_release(&lock->lock, 0);
- }
+
+                         d-cache-block-size = <0x40>; 
  
- #endif /* _ASM_RISCV_SPINLOCK_H */
+ 
+
+                         ....
+			mmu-type = "riscv,sv39"; 
+ 
+ 
+
+                         next-level-cache = <0x1 0x2>;
+.....
+
+In my opinion, it should only point to phandle of L2 cache controller.
+
+2. The L2 cache controller contains 3 entries in next-level-cache.
+The phandles belong to rom at a000000, chiplink at 40000000, memory at 80000000.
+
+      cache-controller at 2010000 { 
+ 
+ 
+
+                         cache-block-size = <0x40>; 
+ 
+ 
+
+                         cache-level = <0x2>; 
+ 
+ 
+
+                         cache-sets = <0x800>; 
+ 
+ 
+
+                         cache-size = <0x200000>; 
+ 
+ 
+
+                         cache-unified; 
+ 
+ 
+
+                         compatible = "sifive,ccache0", "cache"; 
+ 
+ 
+
+                         interrupt-parent = <0xb>; 
+ 
+ 
+
+                         interrupts = <0x1 0x2 0x3>; 
+ 
+ 
+
+                         next-level-cache = <0xc 0xd 0xe>; 
+ 
+ 
+
+                         reg = <0x0 0x2010000 0x0 0x1000 0x0 0x8000000 
+0x0 0x2000000>; 
+ 
+
+                         reg-names = "control", "sideband"; 
+ 
+ 
+
+                         linux,phandle = <0x2>; 
+ 
+ 
+
+                         phandle = <0x2>; 
+ 
+ 
+
+                 }; 
+ 
+ 
 
 
-Patches currently in stable-queue which might be from parri.andrea at gmail.com are
+In my opinion, there shouldn't be any next-level-cache as there is no L3 
+cache in the board.
 
-queue-4.16/riscv-spinlock-strengthen-implementations-with-fences.patch
+Moreover, cache-controller entry should be inside "cpus" instead of "soc".
+
+Please let me know if I am wrong in either my understandings of cache 
+hierarchy or specific device tree entry purpose. I will send a patch
+if suggested changes looks good.
+
+Regards,
+Atish
