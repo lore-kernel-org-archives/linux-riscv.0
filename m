@@ -1,121 +1,45 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Tue, 1 May 2018 18:40:07 -0700
-Subject: correct Device tree entry for HighFive Unleashed Board ?
-Message-ID: <65e845f9-eaae-4605-8722-2eefbb1fedf0@wdc.com>
+From: rafael@kernel.org (Rafael J. Wysocki)
+Date: Wed, 2 May 2018 10:24:14 +0200
+Subject: [PATCH v8 11/13] arm64: topology: enable ACPI/PPTT based CPU
+ topology
+In-Reply-To: <ab8357f0-61d5-2996-46ca-5bc5d3e097cf@arm.com>
+References: <20180425233121.13270-1-jeremy.linton@arm.com>
+ <20180425233121.13270-12-jeremy.linton@arm.com>
+ <ab8357f0-61d5-2996-46ca-5bc5d3e097cf@arm.com>
+Message-ID: <CAJZ5v0jwtSkw1x+MQVYo60YDeW0+jxLy2d4spQOu+i=pY7fjyQ@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Palmer,
-I was going through the device tree entries for HighFive Unleashed 
-board. Here are some of the inconsistencies I found as per the device 
-tree standard. I was not sure about the original intention of the 
-changes. Hence the questions instead of the patch :) :).
+On Tue, May 1, 2018 at 4:46 PM, Sudeep Holla <sudeep.holla@arm.com> wrote:
+>
+>
+> On 26/04/18 00:31, Jeremy Linton wrote:
+>> Propagate the topology information from the PPTT tree to the
+>> cpu_topology array. We can get the thread id and core_id by assuming
+>> certain levels of the PPTT tree correspond to those concepts.
+>> The package_id is flagged in the tree and can be found by calling
+>> find_acpi_cpu_topology_package() which terminates
+>> its search when it finds an ACPI node flagged as the physical
+>> package. If the tree doesn't contain enough levels to represent
+>> all of the requested levels then the root node will be returned
+>> for all subsequent levels.
+>>
+>
+> Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+>
+> [..]
+>
+>> @@ -304,6 +345,8 @@ void __init init_cpu_topology(void)
+>>        * Discard anything that was parsed if we hit an error so we
+>>        * don't use partial information.
+>>        */
+>> -     if (of_have_populated_dt() && parse_dt_topology())
+>> +     if ((!acpi_disabled) && parse_acpi_topology())
+>
+> [nit] not sure if extra () is need above,
 
-As per the device tree documentation, next-level-cache should point to a 
-<phandle> to the next level cache only.
+No, it isn't.
 
-1. The current entry seems incorrect considering two entries. While 0x2 
-phandle points to L2 cache controller correctly, 0x1 phandle points to 
-"error-device at 18000000" which did not make any sense to me.
-.....
-                  cpu at 1 { 
- 
- 
+> but I am fine either way.
 
-                         clock-frequency = <0x0>; 
- 
- 
-
-                         compatible = "sifive,rocket0", "riscv"; 
- 
- 
-
-                         d-cache-block-size = <0x40>; 
- 
- 
-
-                         ....
-			mmu-type = "riscv,sv39"; 
- 
- 
-
-                         next-level-cache = <0x1 0x2>;
-.....
-
-In my opinion, it should only point to phandle of L2 cache controller.
-
-2. The L2 cache controller contains 3 entries in next-level-cache.
-The phandles belong to rom at a000000, chiplink at 40000000, memory at 80000000.
-
-      cache-controller at 2010000 { 
- 
- 
-
-                         cache-block-size = <0x40>; 
- 
- 
-
-                         cache-level = <0x2>; 
- 
- 
-
-                         cache-sets = <0x800>; 
- 
- 
-
-                         cache-size = <0x200000>; 
- 
- 
-
-                         cache-unified; 
- 
- 
-
-                         compatible = "sifive,ccache0", "cache"; 
- 
- 
-
-                         interrupt-parent = <0xb>; 
- 
- 
-
-                         interrupts = <0x1 0x2 0x3>; 
- 
- 
-
-                         next-level-cache = <0xc 0xd 0xe>; 
- 
- 
-
-                         reg = <0x0 0x2010000 0x0 0x1000 0x0 0x8000000 
-0x0 0x2000000>; 
- 
-
-                         reg-names = "control", "sideband"; 
- 
- 
-
-                         linux,phandle = <0x2>; 
- 
- 
-
-                         phandle = <0x2>; 
- 
- 
-
-                 }; 
- 
- 
-
-
-In my opinion, there shouldn't be any next-level-cache as there is no L3 
-cache in the board.
-
-Moreover, cache-controller entry should be inside "cpus" instead of "soc".
-
-Please let me know if I am wrong in either my understandings of cache 
-hierarchy or specific device tree entry purpose. I will send a patch
-if suggested changes looks good.
-
-Regards,
-Atish
+The redundant parens need to go away, really.
