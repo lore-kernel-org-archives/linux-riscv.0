@@ -1,46 +1,56 @@
-From: vkilari@codeaurora.org (vkilari at codeaurora.org)
-Date: Fri, 4 May 2018 13:40:09 +0530
+From: wangxiongfeng2@huawei.com (Xiongfeng Wang)
+Date: Fri, 4 May 2018 19:34:40 +0800
 Subject: [PATCH v8 00/13] Support PPTT for ARM64
 In-Reply-To: <20180425233121.13270-1-jeremy.linton@arm.com>
 References: <20180425233121.13270-1-jeremy.linton@arm.com>
-Message-ID: <050a01d3e37f$57678470$06368d50$@codeaurora.org>
+Message-ID: <35ce144b-4386-7bd8-f401-8643400fb7a1@huawei.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
+Tested-by: Xiongfeng Wang <wangxiongfeng2@huawei.com>
+
+Tested on D05 board. 'lscpu' prints the following info:
+localhost:~ # lscpu
+Architecture:          aarch64
+Byte Order:            Little Endian
+CPU(s):                64
+On-line CPU(s) list:   0-63
+Thread(s) per core:    1
+Core(s) per socket:    32
+Socket(s):             2
+NUMA node(s):          4
+L1d cache:             32K
+L1i cache:             48K
+L2 cache:              1024K
+L3 cache:              16384K
+NUMA node0 CPU(s):     0-15
+NUMA node1 CPU(s):     16-31
+NUMA node2 CPU(s):     32-47
+NUMA node3 CPU(s):     48-63
+
+'sched_domain' is as follows
+localhost:~ # cat /proc/schedstat
+version 15
+timestamp 4294936236
+cpu0 0 0 0 0 0 0 2471285600 2634828800 4813
+domain0 00000000,0000ffff 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+domain1 00000000,ffffffff 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+domain2 ffffffff,ffffffff 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
 
-> -----Original Message-----
-> From: Jeremy Linton <jeremy.linton@arm.com>
-> Sent: Thursday, April 26, 2018 5:01 AM
-> To: linux-acpi at vger.kernel.org
-> Cc: Sudeep.Holla at arm.com; linux-arm-kernel at lists.infradead.org;
-> Lorenzo.Pieralisi at arm.com; hanjun.guo at linaro.org; rjw at rjwysocki.net;
-> Will.Deacon at arm.com; Catalin.Marinas at arm.com;
-> gregkh at linuxfoundation.org; Mark.Rutland at arm.com; linux-
-> kernel at vger.kernel.org; linux-riscv at lists.infradead.org;
-> wangxiongfeng2 at huawei.com; vkilari at codeaurora.org; ahs3 at redhat.com;
-> Dietmar.Eggemann at arm.com; Morten.Rasmussen at arm.com;
-> palmer at sifive.com; lenb at kernel.org; john.garry at huawei.com;
-> austinwc at codeaurora.org; tnowicki at caviumnetworks.com;
-> jhugo at qti.qualcomm.com; timur at qti.qualcomm.com;
-> ard.biesheuvel at linaro.org; Jeremy Linton <jeremy.linton@arm.com>
-> Subject: [PATCH v8 00/13] Support PPTT for ARM64
-> 
+On 2018/4/26 7:31, Jeremy Linton wrote:
 > ACPI 6.2 adds the Processor Properties Topology Table (PPTT), which is
-used to
-> describe the processor and cache topology. Ideally it is used to
-extend/override
-> information provided by the hardware, but right now ARM64 is entirely
-> dependent on firmware provided tables.
+> used to describe the processor and cache topology. Ideally it is
+> used to extend/override information provided by the hardware, but
+> right now ARM64 is entirely dependent on firmware provided tables.
 > 
 > This patch parses the table for the cache topology and CPU topology.
-> When we enable ACPI/PPTT for arm64 we map the package_id to the PPTT
-> node flagged as the physical package by the firmware.
-> This results in topologies that match what the remainder of the system
-expects.
-> Finally, we update the scheduler MC domain so that it generally reflects
-the
-> LLC unless the LLC is too large for the NUMA domain (or package).
+> When we enable ACPI/PPTT for arm64 we map the package_id to the
+> PPTT node flagged as the physical package by the firmware.
+> This results in topologies that match what the remainder of the
+> system expects. Finally, we update the scheduler MC domain so that
+> it generally reflects the LLC unless the LLC is too large for the
+> NUMA domain (or package).
 > 
 > For example on juno:
 > [root at mammon-juno-rh topology]# lstopo-no-graphics
@@ -71,16 +81,12 @@ the
 > Git tree at:
 > http://linux-arm.org/git?p=linux-jlinton.git
 > branch: pptt_v8
-
-Tested-by: Vijaya Kumar K <vkilari@codeaurora.org>
-
 > 
 > v7->v8:
 > Modify the logic used to select the MC domain (the change
 >   shouldn't modify the sched domains on any existing machines
->   compared to v7, only how they are built) Reduce the severity of some
-parsing
-> messages.
+>   compared to v7, only how they are built)
+> Reduce the severity of some parsing messages.
 > Fix s390 link problem.
 > Further checks to deal with broken PPTT tables.
 > Various style tweaks, SPDX license addition, etc.
@@ -89,7 +95,7 @@ parsing
 > Add additional patch to use the last cache level within the NUMA
 >   or socket as the MC domain. This assures the MC domain is
 >   equal or smaller than the DIE.
-> 
+>   
 > Various formatting/etc review comments.
 > 
 > Rebase to 4.16rc2
@@ -138,14 +144,11 @@ parsing
 >  arch/riscv/kernel/cacheinfo.c     |   1 -
 >  drivers/acpi/Kconfig              |   3 +
 >  drivers/acpi/Makefile             |   1 +
->  drivers/acpi/pptt.c               | 678
-> ++++++++++++++++++++++++++++++++++++++
+>  drivers/acpi/pptt.c               | 678 ++++++++++++++++++++++++++++++++++++++
 >  drivers/acpi/tables.c             |   2 +-
 >  drivers/base/cacheinfo.c          | 157 ++++-----
 >  include/linux/acpi.h              |   4 +
 >  include/linux/cacheinfo.h         |  18 +-
->  13 files changed, 886 insertions(+), 107 deletions(-)  create mode 100644
-> drivers/acpi/pptt.c
+>  13 files changed, 886 insertions(+), 107 deletions(-)
+>  create mode 100644 drivers/acpi/pptt.c
 > 
-> --
-> 2.13.6
