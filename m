@@ -1,62 +1,115 @@
-From: rostedt@goodmis.org (Steven Rostedt)
-Date: Tue, 8 May 2018 23:02:00 -0400
-Subject: [PATCH] riscv/ftrace: Fix the problem modules cannot find _mcount
-In-Reply-To: <20180509023605.GB7303@andestech.com>
-References: <1525749717-384-1-git-send-email-alankao@andestech.com>
- <20180508091142.12b5231a@gandalf.local.home>
- <20180509023605.GB7303@andestech.com>
-Message-ID: <20180508230200.69fbf110@vmware.local.home>
+From: shea@shealevy.com (Shea Levy)
+Date: Wed, 09 May 2018 07:15:24 -0400
+Subject: [PATCH v6 01/16] initrd: Add weakly-linked generic
+ free_initrd_mem.
+In-Reply-To: <87muxx1oim.fsf@xps13.shealevy.com>
+References: <mhng-72f2db2a-5505-4736-b39b-66b85db4d21c@palmer-si-x1c4>
+ <87muxx1oim.fsf@xps13.shealevy.com>
+Message-ID: <8736z1hygj.fsf@xps13.shealevy.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 9 May 2018 10:36:05 +0800
-Alan Kao <alankao@andestech.com> wrote:
+Hi all,
 
-> This EXPORT_SYMBOL and the _mcount body was inside a
-> "#ifndef CONFIG_DYNAMIC_FTRACE" section, so if the config has dynamic ftrace
-> disabled, _mcount is visible.
-> 
-> For the dynamic ftrace case, there is a code snippet in this file:
-> 
-> > ENTRY(ftrace_stub)
-> > #ifdef CONFIG_DYNAMIC_FTRACE         
-> >       .global _mcount
-> >       .set    _mcount, ftrace_stub
-> > #endif
-> >        ret 
-> > ENDPROC(ftrace_stub)  
+Shea Levy <shea@shealevy.com> writes:
 
-I missed that, thanks.
+> Hi Palmer,
+>
+> Palmer Dabbelt <palmer@sifive.com> writes:
+>
+>> On Wed, 18 Apr 2018 04:10:16 PDT (-0700), shea at shealevy.com wrote:
+>>> Hi all,
+>>>
+>>> Shea Levy <shea@shealevy.com> writes:
+>>>
+>>>> This function is effectively identical across 14 architectures, and
+>>>> the generic implementation is small enough to be negligible in the
+>>>> architectures that do override it. Many of the remaining divergent
+>>>> implementations can be included in the common code path in future,
+>>>> further reducing code duplication and sharing improvements between
+>>>> architectures.
+>>>>
+>>>> Series boot-tested on RISC-V (which now uses the generic
+>>>> implementation) and x86_64 (which doesn't).
+>>>>
+>>>> v6: Add information about build/run testing.
+>>>> v5: Add more complete commit messages.
+>>>> v4: Use weak symbols instead of Kconfig.
+>>>> v3: Make the generic path opt-out instead of opt-in.
+>>>> v2: Mark generic free_initrd_mem __init.
+>>>>
+>>>> Signed-off-by: Shea Levy <shea@shealevy.com>
+>>>> ---
+>>>>  init/initramfs.c | 5 +++++
+>>>>  1 file changed, 5 insertions(+)
+>>>>
+>>>> diff --git a/init/initramfs.c b/init/initramfs.c
+>>>> index 7e99a0038942..c8fe150f958a 100644
+>>>> --- a/init/initramfs.c
+>>>> +++ b/init/initramfs.c
+>>>> @@ -526,6 +526,11 @@ extern unsigned long __initramfs_size;
+>>>>  #include <linux/initrd.h>
+>>>>  #include <linux/kexec.h>
+>>>>  
+>>>> +void __init __weak free_initrd_mem(unsigned long start, unsigned long end)
+>>>> +{
+>>>> +       free_reserved_area((void *)start, (void *)end, -1, "initrd");
+>>>> +}
+>>>> +
+>>>>  static void __init free_initrd(void)
+>>>>  {
+>>>>  #ifdef CONFIG_KEXEC_CORE
+>>>> -- 
+>>>> 2.16.2
+>>>
+>>> This series has been quiet for a few weeks other than picking up some
+>>> arch-specific acks. What is the next step here?
+>>
+>> I'm not sure.  I don't really think it's sane for the RISC-V tree because it 
+>> touches so many architectures -- I haven't looked closely, though.
+>
+> Yeah, I think that makes sense.
+>
+>> IIRC 
+>> there's a slight behavior change to the RISC-V port, which I'd be OK taking 
+>> through my tree (and then obviously the RISC-V cleanup as well, unless it goes 
+>> in as a whole patch set).
+>>
+>
+> So currently the behavior for RISC-V is changed by simply deleting the
+> arch-specific free_initrd_mem, which was a noop. Would you like me to
+> first submit a patch to have the arch-specific free_initrd_mem and then
+> change that in this series?
+>
+>>
+>> For the IRQ cleanup I currently have in flight
+>>
+>> * Add the generic support
+>> * Move every arch over (RISC-V is in, the rest aren't yet)
+>> * Clean up a bit now that everyone is generic
+>>
+>> That lets all the arch-specific patches go in parallel, but can be a bit of a 
+>> headache to manage.
+>
+> With the current series, the first patch could go in on its own and all
+> of the arch-specific patches can go in in parallel if we wanted to, but
+> beyond the above-suggested implementation of the RISC-V free_initrd_mem
+> there's no real reordering meaningful here.
+>
+>>
+>> I'm adding Arnd and Olof, as they know a lot more about Linux than I do.  
+>> Here's the top-level of the v4 patch set: https://lkml.org/lkml/2018/3/28/744
+>
+> And here's the top-level of v6, the latest: https://lkml.org/lkml/2018/4/1/50
 
-> 
-> Talking about some bigger issues here, there will be twofold.
-> 
-> 1. This patch lacks call-site collecting mechanism.
-> 
-> This feature requires a pattern check in recordmcount.pl.  With this,
-> section __mcount_loc is properly constructed, and the call-sites will be
-> registered during the loading stage.
-> 
-> However, the loading will then fail at the first try of make_nop, due to
-> the instruction check.  This is thus the second issue.
-> 
-> 
-> 2. The instruction check for kernel texts is not applicable to module texts.
-> 
-> The check expects a call instruction to _mcount, but here it is a call to
-> the .plt section of the module.  After referencing the implementation of arm64,
-> I think it would need much more work to have make_nop's and make_call's behavior
-> right.
+What's the right next step here?
 
-And powerpc64 I believe does something similar (which I think arm64
-based it's work from).
-
-> 
-> 
-> Quick summary: This patch ensures that a kernel build will not fail because of
-> the _mcount-missing problem.  But ftrace cannot trace loading modules for now
-> due to the stated reasons.
-
-Probably why they had modules break to begin with ;-)
-
--- Steve
+Thanks,
+Shea
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 832 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180509/a0cb5cad/attachment.sig>
