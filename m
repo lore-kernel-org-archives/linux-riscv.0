@@ -1,155 +1,352 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Wed,  9 May 2018 15:02:21 -0700
-Subject: [PATCH v2 1/2] RISCV: Register clocksource and events correctly
+Date: Wed,  9 May 2018 15:02:22 -0700
+Subject: [PATCH v2 2/2] RISCV: Support cpu hotplug.
 In-Reply-To: <1525903342-191948-1-git-send-email-atish.patra@wdc.com>
 References: <1525903342-191948-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <1525903342-191948-2-git-send-email-atish.patra@wdc.com>
+Message-ID: <1525903342-191948-3-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Currently, timer_probe() is called for every cpu and clocksource
-is registered multiple times for each cpu which is wrong.
+This patch enable support for cpu hotplug in RISC-V.
 
-Probe timer only once during init and register the clock source at
-that time. Move the clock event registration cpu online notification
-callback. Take this opportunity to remove redundant functions as well.
+In absensece of generic cpu stop functions, WFI is used
+to put the cpu in low power state during offline. An IPI
+is sent to bring it out of WFI during online operation.
+
+Tested both on QEMU and HighFive Unleashed board with
+4 cpus. Test result follows.
+
+$ echo 0 > /sys/devices/system/cpu/cpu2/online
+[   31.828562] CPU2: shutdown
+$ cat /proc/cpuinfo
+hart    : 1
+isa     : rv64imafdc
+mmu     : sv39
+uarch   : sifive,rocket0
+
+hart    : 3
+isa     : rv64imafdc
+mmu     : sv39
+uarch   : sifive,rocket0
+
+hart    : 4
+isa     : rv64imafdc
+mmu     : sv39
+uarch   : sifive,rocket0
+
+$ echo 0 > /sys/devices/system/cpu/cpu4/online
+[   52.968495] CPU4: shutdown
+$ cat /proc/cpuinfo
+hart    : 1
+isa     : rv64imafdc
+mmu     : sv39
+uarch   : sifive,rocket0
+
+hart    : 3
+isa     : rv64imafdc
+mmu     : sv39
+uarch   : sifive,rocket0
+
+$ echo 1 > /sys/devices/system/cpu/cpu4/online
+[   64.298250] CPU4: online
+$ cat /proc/cpuinfo
+hart    : 1
+isa     : rv64imafdc
+mmu     : sv39
+uarch   : sifive,rocket0
+
+hart    : 3
+isa     : rv64imafdc
+mmu     : sv39
+uarch   : sifive,rocket0
+
+hart    : 4
+isa     : rv64imafdc
+mmu     : sv39
+uarch   : sifive,rocket0
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/include/asm/smp.h      |  2 +-
- arch/riscv/kernel/time.c          |  9 +-------
- drivers/clocksource/riscv_timer.c | 44 ++++++++++++++++++++++++++-------------
- include/linux/cpuhotplug.h        |  1 +
- 4 files changed, 32 insertions(+), 24 deletions(-)
+ arch/riscv/Kconfig           | 11 +++++++-
+ arch/riscv/include/asm/csr.h |  1 +
+ arch/riscv/include/asm/smp.h |  9 ++++--
+ arch/riscv/kernel/head.S     | 12 ++++++++
+ arch/riscv/kernel/process.c  |  7 +++++
+ arch/riscv/kernel/setup.c    | 17 ++++++++++++
+ arch/riscv/kernel/smpboot.c  | 66 ++++++++++++++++++++++++++++++++++++++++++--
+ arch/riscv/kernel/traps.c    |  6 ++--
+ 8 files changed, 119 insertions(+), 10 deletions(-)
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 0c57fac..d1f7cd2 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -14,7 +14,6 @@ config RISCV
+ 	select CLONE_BACKWARDS
+ 	select COMMON_CLK
+ 	select GENERIC_CLOCKEVENTS
+-	select GENERIC_CPU_DEVICES
+ 	select GENERIC_IRQ_SHOW
+ 	select GENERIC_PCI_IOMAP
+ 	select GENERIC_STRNCPY_FROM_USER
+@@ -187,6 +186,16 @@ config NR_CPUS
+ 	depends on SMP
+ 	default "8"
+ 
++config HOTPLUG_CPU
++	bool "Support for hot-pluggable CPUs"
++	select GENERIC_IRQ_MIGRATION
++	help
++
++	  Say Y here to experiment with turning CPUs off and on.  CPUs
++	  can be controlled through /sys/devices/system/cpu.
++
++	  Say N if you want to disable CPU hotplug.
++
+ config CPU_SUPPORTS_32BIT_KERNEL
+ 	bool
+ config CPU_SUPPORTS_64BIT_KERNEL
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index 421fa35..1baf8e0 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -54,6 +54,7 @@
+ /* Interrupt Enable and Interrupt Pending flags */
+ #define SIE_SSIE _AC(0x00000002, UL) /* Software Interrupt Enable */
+ #define SIE_STIE _AC(0x00000020, UL) /* Timer Interrupt Enable */
++#define SIE_SEIE _AC(0x000000200, UL) /* External Interrupt Enable */
+ 
+ #define EXC_INST_MISALIGNED     0
+ #define EXC_INST_ACCESS         1
 diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index 85e4220..01b8df8 100644
+index 01b8df8..e78b7f1 100644
 --- a/arch/riscv/include/asm/smp.h
 +++ b/arch/riscv/include/asm/smp.h
-@@ -25,7 +25,7 @@
+@@ -25,9 +25,6 @@
  #ifdef CONFIG_SMP
  
  /* SMP initialization hook for setup_arch */
--void __init init_clockevent(void);
-+void init_clockevent(void);
- 
- /* SMP initialization hook for setup_arch */
+-void init_clockevent(void);
+-
+-/* SMP initialization hook for setup_arch */
  void __init setup_smp(void);
-diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
-index 67709cb..bcd3e76 100644
---- a/arch/riscv/kernel/time.c
-+++ b/arch/riscv/kernel/time.c
-@@ -39,13 +39,6 @@ void riscv_timer_interrupt(void)
- #endif
+ 
+ /* Hook for the generic smp_call_function_many() routine. */
+@@ -47,6 +44,12 @@ void arch_send_call_function_single_ipi(int cpu);
+ /* Interprocessor interrupt handler */
+ irqreturn_t handle_ipi(void);
+ 
++#ifdef CONFIG_HOTPLUG_CPU
++extern int __cpu_disable(void);
++extern void __cpu_die(unsigned int cpu);
++extern void cpu_play_dead(void);
++extern void boot_sec_cpu(void);
++#endif
+ #endif /* CONFIG_SMP */
+ 
+ #endif /* _ASM_RISCV_SMP_H */
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 226eeb1..63d478d 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -149,6 +149,18 @@ relocate:
+ 	j .Lsecondary_park
+ END(_start)
+ 
++.section .text
++.global boot_sec_cpu
++
++boot_sec_cpu:
++	/* clear all pending flags */
++	csrw sip, zero
++	/* Mask all interrupts */
++	csrw sie, zero
++	fence
++
++	tail smp_callin
++
+ __PAGE_ALIGNED_BSS
+ 	/* Empty zero page */
+ 	.balign PAGE_SIZE
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index d74d4ad..c5e2234 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -42,6 +42,13 @@ void arch_cpu_idle(void)
+ 	local_irq_enable();
  }
  
--void __init init_clockevent(void)
--{
--	timer_probe();
--	csr_set(sie, SIE_STIE);
--}
--
--
- static long __init timebase_frequency(void)
++#ifdef CONFIG_HOTPLUG_CPU
++void arch_cpu_idle_dead(void)
++{
++	cpu_play_dead();
++}
++#endif
++
+ void show_regs(struct pt_regs *regs)
  {
- 	struct device_node *cpu;
-@@ -65,5 +58,5 @@ void __init time_init(void)
+ 	show_regs_print_info(KERN_DEFAULT);
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index a1d5853..4ef8a8b 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -81,6 +81,7 @@ EXPORT_SYMBOL(empty_zero_page);
+ 
+ /* The lucky hart to first increment this variable will boot the other cores */
+ atomic_t hart_lottery;
++static DEFINE_PER_CPU(struct cpu, cpu_devices);
+ 
+ #ifdef CONFIG_BLK_DEV_INITRD
+ static void __init setup_initrd(void)
+@@ -248,6 +249,22 @@ void __init setup_arch(char **cmdline_p)
+ 	riscv_fill_hwcap();
+ }
+ 
++static int __init topology_init(void)
++{
++	int i;
++
++	for_each_possible_cpu(i) {
++		struct cpu *cpu = &per_cpu(cpu_devices, i);
++#ifdef CONFIG_HOTPLUG_CPU
++		cpu->hotpluggable = 1;
++#endif
++		register_cpu(cpu, i);
++	}
++
++	return 0;
++}
++subsys_initcall(topology_init);
++
+ static int __init riscv_device_init(void)
  {
- 	riscv_timebase = timebase_frequency();
- 	lpj_fine = riscv_timebase / HZ;
+ 	return of_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index f741458..d7c66a1 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -30,6 +30,7 @@
+ #include <linux/irq.h>
+ #include <linux/of.h>
+ #include <linux/sched/task_stack.h>
++#include <linux/sched/hotplug.h>
+ #include <asm/irq.h>
+ #include <asm/mmu_context.h>
+ #include <asm/tlbflush.h>
+@@ -82,9 +83,11 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+ 	__cpu_up_stack_pointer[cpu] = task_stack_page(tidle) + THREAD_SIZE;
+ 	__cpu_up_task_pointer[cpu] = tidle;
+ 
++	arch_send_call_function_single_ipi(cpu);
+ 	while (!cpu_online(cpu))
+ 		cpu_relax();
+ 
++	pr_notice("CPU%u: online\n", cpu);
+ 	return 0;
+ }
+ 
+@@ -92,10 +95,68 @@ void __init smp_cpus_done(unsigned int max_cpus)
+ {
+ }
+ 
++#ifdef CONFIG_HOTPLUG_CPU
++/*
++ * __cpu_disable runs on the processor to be shutdown.
++ */
++int __cpu_disable(void)
++{
++	unsigned int cpu = smp_processor_id();
++
++	set_cpu_online(cpu, false);
++	irq_migrate_all_off_this_cpu();
++
++	return 0;
++}
++/*
++ * called on the thread which is asking for a CPU to be shutdown -
++ * waits until shutdown has completed, or it is timed out.
++ */
++void __cpu_die(unsigned int cpu)
++{
++	if (!cpu_wait_death(cpu, 5)) {
++		pr_err("CPU %u: didn't die\n", cpu);
++		return;
++	}
++	pr_notice("CPU%u: shutdown\n", cpu);
++}
++/*
++ * Called from the idle thread for the CPU which has been shutdown.
++ */
++void cpu_play_dead(void)
++{
++	int sipval, sieval, scauseval;
++
++	idle_task_exit();
++
++	(void)cpu_report_death();
++
++	/* Do not disable software interrupt to restart cpu after WFI */
++	csr_clear(sie, SIE_STIE | SIE_SEIE);
++	//local_irq_disable();
++	/* clear all pending flags */
++	csr_write(sip, 0);
++	/* clear any previous scause data */
++	csr_write(scause, 0);
++
++	do {
++		wait_for_interrupt();
++		sipval = csr_read(sip);
++		sieval = csr_read(sie);
++		scauseval = csr_read(scause);
++	/* only break if wfi returns for an enabled interrupt */
++	} while ((sipval & sieval) == 0 &&
++		 scauseval != INTERRUPT_CAUSE_SOFTWARE);
++
++	boot_sec_cpu();
++}
++
++
++#endif
+ /*
+  * C entry point for a secondary processor.
+  */
+-asmlinkage void __init smp_callin(void)
++asmlinkage void smp_callin(void)
+ {
+ 	struct mm_struct *mm = &init_mm;
+ 
+@@ -104,9 +165,8 @@ asmlinkage void __init smp_callin(void)
+ 	current->active_mm = mm;
+ 
+ 	trap_init();
 -	init_clockevent();
-+	timer_probe();
+ 	notify_cpu_starting(smp_processor_id());
+-	set_cpu_online(smp_processor_id(), 1);
++	set_cpu_online(smp_processor_id(), true);
+ 	local_flush_tlb_all();
+ 	local_irq_enable();
+ 	preempt_disable();
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 93132cb..b99adf1 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -166,7 +166,7 @@ int is_valid_bugaddr(unsigned long pc)
  }
-diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
-index 59a734c..8b45af2 100644
---- a/drivers/clocksource/riscv_timer.c
-+++ b/drivers/clocksource/riscv_timer.c
-@@ -17,6 +17,7 @@
- #include <linux/delay.h>
- #include <linux/timer_riscv.h>
- #include <linux/sched_clock.h>
-+#include <linux/cpu.h>
- #include <asm/sbi.h>
+ #endif /* CONFIG_GENERIC_BUG */
  
- #define MINDELTA 100
-@@ -71,16 +72,6 @@ DEFINE_PER_CPU(struct clocksource, riscv_clocksource) = {
- 	.read = rdtime,
- };
- 
--void timer_riscv_init(int cpu_id,
--		      unsigned long riscv_timebase,
--		      int (*next)(unsigned long, struct clock_event_device*))
--{
--	struct clock_event_device *ce = per_cpu_ptr(&riscv_clock_event, cpu_id);
--
--	ce->cpumask = cpumask_of(cpu_id);
--	clockevents_config_and_register(ce, riscv_timebase, MINDELTA, MAXDELTA);
--}
--
- static int hart_of_timer(struct device_node *dev)
+-void __init trap_init(void)
++void trap_init(void)
  {
- 	u32 hart;
-@@ -100,21 +91,44 @@ static u64 notrace timer_riscv_sched_read(void)
- 	return get_cycles64();
+ 	/*
+ 	 * Set sup0 scratch register to 0, indicating to exception vector
+@@ -175,6 +175,6 @@ void __init trap_init(void)
+ 	csr_write(sscratch, 0);
+ 	/* Set the exception vector address */
+ 	csr_write(stvec, &handle_exception);
+-	/* Enable all interrupts */
+-	csr_write(sie, -1);
++	/* Enable all interrupts but timer interrupt*/
++	csr_set(sie, SIE_SSIE | SIE_SEIE);
  }
- 
-+static int timer_riscv_starting_cpu(unsigned int cpu)
-+{
-+	struct clock_event_device *ce = per_cpu_ptr(&riscv_clock_event, cpu);
-+
-+	ce->cpumask = cpumask_of(cpu);
-+	clockevents_config_and_register(ce, riscv_timebase, MINDELTA, MAXDELTA);
-+	/* Enable timer interrupt for this cpu */
-+	csr_set(sie, SIE_STIE);
-+
-+	return 0;
-+}
-+
-+static int timer_riscv_dying_cpu(unsigned int cpu)
-+{
-+	/* Disable timer interrupt for this cpu */
-+	csr_clear(sie, SIE_STIE);
-+
-+	return 0;
-+}
-+
- static int __init timer_riscv_init_dt(struct device_node *n)
- {
-+	int err = 0;
- 	int cpu_id = hart_of_timer(n);
--	struct clock_event_device *ce = per_cpu_ptr(&riscv_clock_event, cpu_id);
- 	struct clocksource *cs = per_cpu_ptr(&riscv_clocksource, cpu_id);
- 
- 	if (cpu_id == smp_processor_id()) {
- 		clocksource_register_hz(cs, riscv_timebase);
- 		sched_clock_register(timer_riscv_sched_read, 64, riscv_timebase);
- 
--		ce->cpumask = cpumask_of(cpu_id);
--		clockevents_config_and_register(ce, riscv_timebase, MINDELTA, MAXDELTA);
-+		err = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
-+			 "clockevents/riscv/timer:starting",
-+			 timer_riscv_starting_cpu, timer_riscv_dying_cpu);
-+		if (err)
-+			pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
-+			       err, cpu_id);
- 	}
--
--	return 0;
-+	return err;
- }
- 
- TIMER_OF_DECLARE(riscv_timer, "riscv", timer_riscv_init_dt);
-diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-index 1a32e55..c68f924 100644
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -126,6 +126,7 @@ enum cpuhp_state {
- 	CPUHP_AP_MARCO_TIMER_STARTING,
- 	CPUHP_AP_MIPS_GIC_TIMER_STARTING,
- 	CPUHP_AP_ARC_TIMER_STARTING,
-+	CPUHP_AP_RISCV_TIMER_STARTING,
- 	CPUHP_AP_KVM_STARTING,
- 	CPUHP_AP_KVM_ARM_VGIC_INIT_STARTING,
- 	CPUHP_AP_KVM_ARM_VGIC_STARTING,
 -- 
 2.7.4
