@@ -1,15 +1,15 @@
 From: shea@shealevy.com (Shea Levy)
-Date: Wed, 09 May 2018 07:15:24 -0400
-Subject: [PATCH v6 01/16] initrd: Add weakly-linked generic
- free_initrd_mem.
-In-Reply-To: <87muxx1oim.fsf@xps13.shealevy.com>
-References: <mhng-72f2db2a-5505-4736-b39b-66b85db4d21c@palmer-si-x1c4>
- <87muxx1oim.fsf@xps13.shealevy.com>
-Message-ID: <8736z1hygj.fsf@xps13.shealevy.com>
+Date: Wed, 09 May 2018 07:20:00 -0400
+Subject: [PATCH] RISC-V: Load modules within relative jump range of the
+ kernel text.
+In-Reply-To: <87d0yoizv9.fsf@xps13.shealevy.com>
+References: <mhng-0a2f9574-9b23-4f26-ae76-18ed7f2c8533@palmer-si-x1c4>
+ <87d0yoizv9.fsf@xps13.shealevy.com>
+Message-ID: <87zi19gjof.fsf@xps13.shealevy.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi all,
+Hi Palmer,
 
 Shea Levy <shea@shealevy.com> writes:
 
@@ -17,92 +17,95 @@ Shea Levy <shea@shealevy.com> writes:
 >
 > Palmer Dabbelt <palmer@sifive.com> writes:
 >
->> On Wed, 18 Apr 2018 04:10:16 PDT (-0700), shea at shealevy.com wrote:
->>> Hi all,
+>> On Sun, 22 Apr 2018 05:53:56 PDT (-0700), shea at shealevy.com wrote:
+>>> Hi Palmer,
 >>>
 >>> Shea Levy <shea@shealevy.com> writes:
 >>>
->>>> This function is effectively identical across 14 architectures, and
->>>> the generic implementation is small enough to be negligible in the
->>>> architectures that do override it. Many of the remaining divergent
->>>> implementations can be included in the common code path in future,
->>>> further reducing code duplication and sharing improvements between
->>>> architectures.
->>>>
->>>> Series boot-tested on RISC-V (which now uses the generic
->>>> implementation) and x86_64 (which doesn't).
->>>>
->>>> v6: Add information about build/run testing.
->>>> v5: Add more complete commit messages.
->>>> v4: Use weak symbols instead of Kconfig.
->>>> v3: Make the generic path opt-out instead of opt-in.
->>>> v2: Mark generic free_initrd_mem __init.
->>>>
 >>>> Signed-off-by: Shea Levy <shea@shealevy.com>
 >>>> ---
->>>>  init/initramfs.c | 5 +++++
->>>>  1 file changed, 5 insertions(+)
 >>>>
->>>> diff --git a/init/initramfs.c b/init/initramfs.c
->>>> index 7e99a0038942..c8fe150f958a 100644
->>>> --- a/init/initramfs.c
->>>> +++ b/init/initramfs.c
->>>> @@ -526,6 +526,11 @@ extern unsigned long __initramfs_size;
->>>>  #include <linux/initrd.h>
->>>>  #include <linux/kexec.h>
+>>>> Note that this patch worked in my old modules patchset and seems to be
+>>>> working now, but my kernel boot locks up on top of
+>>>> riscv-for-linus-4.17-mw0 and I don't know if it's due to this patch or
+>>>> something else that's changed in the mean time.
+>>>>
+>>>> ---
+>>>>  arch/riscv/include/asm/pgtable.h |  9 +++++++++
+>>>>  arch/riscv/kernel/module.c       | 11 +++++++++++
+>>>>  2 files changed, 20 insertions(+)
+>>>>
+>>>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+>>>> index 16301966d65b..b08ded13364a 100644
+>>>> --- a/arch/riscv/include/asm/pgtable.h
+>>>> +++ b/arch/riscv/include/asm/pgtable.h
+>>>> @@ -25,6 +25,7 @@
+>>>>  #include <asm/page.h>
+>>>>  #include <asm/tlbflush.h>
+>>>>  #include <linux/mm_types.h>
+>>>> +#include <linux/sizes.h>
 >>>>  
->>>> +void __init __weak free_initrd_mem(unsigned long start, unsigned long end)
->>>> +{
->>>> +       free_reserved_area((void *)start, (void *)end, -1, "initrd");
->>>> +}
+>>>>  #ifdef CONFIG_64BIT
+>>>>  #include <asm/pgtable-64.h>
+>>>> @@ -425,6 +426,14 @@ static inline void pgtable_cache_init(void)
+>>>>  #define TASK_SIZE VMALLOC_START
+>>>>  #endif
+>>>>  
+>>>> +/*
+>>>> + * The module space lives between the addresses given by TASK_SIZE
+>>>> + * and PAGE_OFFSET - it must be within 2G of the kernel text.
+>>>> + */
+>>>> +#define MODULES_SIZE		(SZ_128M)
+>>>> +#define MODULES_VADDR		(PAGE_OFFSET - MODULES_SIZE)
+>>>> +#define MODULES_END		(VMALLOC_END)
 >>>> +
->>>>  static void __init free_initrd(void)
+>>>>  #include <asm-generic/pgtable.h>
+>>>>  
+>>>>  #endif /* !__ASSEMBLY__ */
+>>>> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+>>>> index 5dddba301d0a..1b382c7de095 100644
+>>>> --- a/arch/riscv/kernel/module.c
+>>>> +++ b/arch/riscv/kernel/module.c
+>>>> @@ -16,6 +16,8 @@
+>>>>  #include <linux/err.h>
+>>>>  #include <linux/errno.h>
+>>>>  #include <linux/moduleloader.h>
+>>>> +#include <linux/vmalloc.h>
+>>>> +#include <asm/pgtable.h>
+>>>>  
+>>>>  static int apply_r_riscv_64_rela(struct module *me, u32 *location, Elf_Addr v)
 >>>>  {
->>>>  #ifdef CONFIG_KEXEC_CORE
+>>>> @@ -382,3 +384,12 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+>>>>  
+>>>>  	return 0;
+>>>>  }
+>>>> +
+>>>> +void *module_alloc(unsigned long size)
+>>>> +{
+>>>> +	return __vmalloc_node_range(size, 1, MODULES_VADDR,
+>>>> +				    MODULES_END, GFP_KERNEL,
+>>>> +				    PAGE_KERNEL_EXEC, 0,
+>>>> +				    NUMA_NO_NODE,
+>>>> +				    __builtin_return_address(0));
+>>>> +}
 >>>> -- 
 >>>> 2.16.2
 >>>
->>> This series has been quiet for a few weeks other than picking up some
->>> arch-specific acks. What is the next step here?
+>>> Any thoughts on this?
 >>
->> I'm not sure.  I don't really think it's sane for the RISC-V tree because it 
->> touches so many architectures -- I haven't looked closely, though.
+>> The concept looks good, but does this actually keep the modules within 2GiB of 
+>> the text if PAGE_OFFSET is large?
 >
-> Yeah, I think that makes sense.
+> It's been some time since I wrote this, but I thought PAGE_OFFSET was
+> where the kernel text *started*? So unless the text itself is bigger
+> than 2G - 128 M, in which case we're SOL anyway, it seems like this
+> should work. Is there something better we can do, without a large memory
+> model?
 >
->> IIRC 
->> there's a slight behavior change to the RISC-V port, which I'd be OK taking 
->> through my tree (and then obviously the RISC-V cleanup as well, unless it goes 
->> in as a whole patch set).
->>
->
-> So currently the behavior for RISC-V is changed by simply deleting the
-> arch-specific free_initrd_mem, which was a noop. Would you like me to
-> first submit a patch to have the arch-specific free_initrd_mem and then
-> change that in this series?
->
->>
->> For the IRQ cleanup I currently have in flight
->>
->> * Add the generic support
->> * Move every arch over (RISC-V is in, the rest aren't yet)
->> * Clean up a bit now that everyone is generic
->>
->> That lets all the arch-specific patches go in parallel, but can be a bit of a 
->> headache to manage.
->
-> With the current series, the first patch could go in on its own and all
-> of the arch-specific patches can go in in parallel if we wanted to, but
-> beyond the above-suggested implementation of the RISC-V free_initrd_mem
-> there's no real reordering meaningful here.
->
->>
->> I'm adding Arnd and Olof, as they know a lot more about Linux than I do.  
->> Here's the top-level of the v4 patch set: https://lkml.org/lkml/2018/3/28/744
->
-> And here's the top-level of v6, the latest: https://lkml.org/lkml/2018/4/1/50
+> Thanks,
+> Shea
 
-What's the right next step here?
+Any further thoughts on this?
 
 Thanks,
 Shea
@@ -112,4 +115,4 @@ Name: signature.asc
 Type: application/pgp-signature
 Size: 832 bytes
 Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180509/a0cb5cad/attachment.sig>
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180509/1a390a03/attachment.sig>
