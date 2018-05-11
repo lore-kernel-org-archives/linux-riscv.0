@@ -1,130 +1,124 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Fri, 11 May 2018 10:57:59 -0500
-Subject: correct Device tree entry for HighFive Unleashed Board ?
-In-Reply-To: <65e845f9-eaae-4605-8722-2eefbb1fedf0@wdc.com>
-References: <65e845f9-eaae-4605-8722-2eefbb1fedf0@wdc.com>
-Message-ID: <df663341-2d4a-11bb-2861-393d2cfbcce2@wdc.com>
+From: jeremy.linton@arm.com (Jeremy Linton)
+Date: Fri, 11 May 2018 18:57:56 -0500
+Subject: [PATCH v9 01/12] drivers: base: cacheinfo: move cache_setup_of_node()
+In-Reply-To: <20180511235807.30834-1-jeremy.linton@arm.com>
+References: <20180511235807.30834-1-jeremy.linton@arm.com>
+Message-ID: <20180511235807.30834-2-jeremy.linton@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 5/1/18 8:40 PM, Atish Patra wrote:
-> Hi Palmer,
-> I was going through the device tree entries for HighFive Unleashed
-> board. Here are some of the inconsistencies I found as per the device
-> tree standard. I was not sure about the original intention of the
-> changes. Hence the questions instead of the patch :) :).
-> 
-> As per the device tree documentation, next-level-cache should point to a
-> <phandle> to the next level cache only.
-> 
-> 1. The current entry seems incorrect considering two entries. While 0x2
-> phandle points to L2 cache controller correctly, 0x1 phandle points to
-> "error-device at 18000000" which did not make any sense to me.
-> .....
->                    cpu at 1 {
->   
->   
-> 
->                           clock-frequency = <0x0>;
->   
->   
-> 
->                           compatible = "sifive,rocket0", "riscv";
->   
->   
-> 
->                           d-cache-block-size = <0x40>;
->   
->   
-> 
->                           ....
-> 			mmu-type = "riscv,sv39";
->   
->   
-> 
->                           next-level-cache = <0x1 0x2>;
-> .....
-> 
-> In my opinion, it should only point to phandle of L2 cache controller.
-> 
-> 2. The L2 cache controller contains 3 entries in next-level-cache.
-> The phandles belong to rom at a000000, chiplink at 40000000, memory at 80000000.
-> 
->        cache-controller at 2010000 {
->   
->   
-> 
->                           cache-block-size = <0x40>;
->   
->   
-> 
->                           cache-level = <0x2>;
->   
->   
-> 
->                           cache-sets = <0x800>;
->   
->   
-> 
->                           cache-size = <0x200000>;
->   
->   
-> 
->                           cache-unified;
->   
->   
-> 
->                           compatible = "sifive,ccache0", "cache";
->   
->   
-> 
->                           interrupt-parent = <0xb>;
->   
->   
-> 
->                           interrupts = <0x1 0x2 0x3>;
->   
->   
-> 
->                           next-level-cache = <0xc 0xd 0xe>;
->   
->   
-> 
->                           reg = <0x0 0x2010000 0x0 0x1000 0x0 0x8000000
-> 0x0 0x2000000>;
->   
-> 
->                           reg-names = "control", "sideband";
->   
->   
-> 
->                           linux,phandle = <0x2>;
->   
->   
-> 
->                           phandle = <0x2>;
->   
->   
-> 
->                   };
->   
->   
-> 
-> 
-> In my opinion, there shouldn't be any next-level-cache as there is no L3
-> cache in the board.
-> 
-> Moreover, cache-controller entry should be inside "cpus" instead of "soc".
-> 
-> Please let me know if I am wrong in either my understandings of cache
-> hierarchy or specific device tree entry purpose. I will send a patch
-> if suggested changes looks good.
-> 
-> Regards,
-> Atish
-> 
+In preparation for the next patch, and to aid in
+review of that patch, lets move cache_setup_of_node
+further down in the module without any changes.
 
-Any thoughts ?
+Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+Tested-by: Ard Biesheuvel <ard.biesheuvel@linaro.org>
+Tested-by: Vijaya Kumar K <vkilari@codeaurora.org>
+Tested-by: Xiongfeng Wang <wangxiongfeng2@huawei.com>
+Tested-by: Tomasz Nowicki <Tomasz.Nowicki@cavium.com>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+Acked-by: Ard Biesheuvel <ard.biesheuvel@linaro.org>
+---
+ drivers/base/cacheinfo.c | 80 ++++++++++++++++++++++++------------------------
+ 1 file changed, 40 insertions(+), 40 deletions(-)
 
-Regards,
-Atish
+diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
+index edf726267282..09ccef7ddc99 100644
+--- a/drivers/base/cacheinfo.c
++++ b/drivers/base/cacheinfo.c
+@@ -32,46 +32,6 @@ struct cpu_cacheinfo *get_cpu_cacheinfo(unsigned int cpu)
+ }
+ 
+ #ifdef CONFIG_OF
+-static int cache_setup_of_node(unsigned int cpu)
+-{
+-	struct device_node *np;
+-	struct cacheinfo *this_leaf;
+-	struct device *cpu_dev = get_cpu_device(cpu);
+-	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+-	unsigned int index = 0;
+-
+-	/* skip if of_node is already populated */
+-	if (this_cpu_ci->info_list->of_node)
+-		return 0;
+-
+-	if (!cpu_dev) {
+-		pr_err("No cpu device for CPU %d\n", cpu);
+-		return -ENODEV;
+-	}
+-	np = cpu_dev->of_node;
+-	if (!np) {
+-		pr_err("Failed to find cpu%d device node\n", cpu);
+-		return -ENOENT;
+-	}
+-
+-	while (index < cache_leaves(cpu)) {
+-		this_leaf = this_cpu_ci->info_list + index;
+-		if (this_leaf->level != 1)
+-			np = of_find_next_cache_node(np);
+-		else
+-			np = of_node_get(np);/* cpu node itself */
+-		if (!np)
+-			break;
+-		this_leaf->of_node = np;
+-		index++;
+-	}
+-
+-	if (index != cache_leaves(cpu)) /* not all OF nodes populated */
+-		return -ENOENT;
+-
+-	return 0;
+-}
+-
+ static inline bool cache_leaves_are_shared(struct cacheinfo *this_leaf,
+ 					   struct cacheinfo *sib_leaf)
+ {
+@@ -202,6 +162,46 @@ static void cache_of_override_properties(unsigned int cpu)
+ 		cache_associativity(this_leaf);
+ 	}
+ }
++
++static int cache_setup_of_node(unsigned int cpu)
++{
++	struct device_node *np;
++	struct cacheinfo *this_leaf;
++	struct device *cpu_dev = get_cpu_device(cpu);
++	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
++	unsigned int index = 0;
++
++	/* skip if of_node is already populated */
++	if (this_cpu_ci->info_list->of_node)
++		return 0;
++
++	if (!cpu_dev) {
++		pr_err("No cpu device for CPU %d\n", cpu);
++		return -ENODEV;
++	}
++	np = cpu_dev->of_node;
++	if (!np) {
++		pr_err("Failed to find cpu%d device node\n", cpu);
++		return -ENOENT;
++	}
++
++	while (index < cache_leaves(cpu)) {
++		this_leaf = this_cpu_ci->info_list + index;
++		if (this_leaf->level != 1)
++			np = of_find_next_cache_node(np);
++		else
++			np = of_node_get(np);/* cpu node itself */
++		if (!np)
++			break;
++		this_leaf->of_node = np;
++		index++;
++	}
++
++	if (index != cache_leaves(cpu)) /* not all OF nodes populated */
++		return -ENOENT;
++
++	return 0;
++}
+ #else
+ static void cache_of_override_properties(unsigned int cpu) { }
+ static inline int cache_setup_of_node(unsigned int cpu) { return 0; }
+-- 
+2.13.6
