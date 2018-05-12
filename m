@@ -1,148 +1,120 @@
-From: jeremy.linton@arm.com (Jeremy Linton)
-Date: Fri, 11 May 2018 18:58:07 -0500
-Subject: [PATCH v9 12/12] arm64: topology: divorce MC scheduling domain from
- core_siblings
-In-Reply-To: <20180511235807.30834-1-jeremy.linton@arm.com>
+From: rafael@kernel.org (Rafael J. Wysocki)
+Date: Sat, 12 May 2018 12:09:40 +0200
+Subject: [PATCH v9 05/12] ACPI/PPTT: Add Processor Properties Topology
+ Table parsing
+In-Reply-To: <20180511235807.30834-6-jeremy.linton@arm.com>
 References: <20180511235807.30834-1-jeremy.linton@arm.com>
-Message-ID: <20180511235807.30834-13-jeremy.linton@arm.com>
+ <20180511235807.30834-6-jeremy.linton@arm.com>
+Message-ID: <CAJZ5v0h4OeTaG2h0Q1c8zX93tici_nfLftpEyKWSkXoztHuUDg@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Now that we have an accurate view of the physical topology
-we need to represent it correctly to the scheduler. Generally MC
-should equal the LLC in the system, but there are a number of
-special cases that need to be dealt with.
+On Sat, May 12, 2018 at 1:58 AM, Jeremy Linton <jeremy.linton@arm.com> wrote:
+> ACPI 6.2 adds a new table, which describes how processing units
+> are related to each other in tree like fashion. Caches are
+> also sprinkled throughout the tree and describe the properties
+> of the caches in relation to other caches and processing units.
+>
+> Add the code to parse the cache hierarchy and report the total
+> number of levels of cache for a given core using
+> acpi_find_last_cache_level() as well as fill out the individual
+> cores cache information with cache_setup_acpi() once the
+> cpu_cacheinfo structure has been populated by the arch specific
+> code.
+>
+> An additional patch later in the set adds the ability to report
+> peers in the topology using find_acpi_cpu_topology()
+> to report a unique ID for each processing unit at a given level
+> in the tree. These unique id's can then be used to match related
+> processing units which exist as threads, within a given
+> package, etc.
+>
+> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+> Tested-by: Ard Biesheuvel <ard.biesheuvel@linaro.org>
+> Tested-by: Vijaya Kumar K <vkilari@codeaurora.org>
+> Tested-by: Xiongfeng Wang <wangxiongfeng2@huawei.com>
+> Tested-by: Tomasz Nowicki <Tomasz.Nowicki@cavium.com>
+> Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+> Acked-by: Ard Biesheuvel <ard.biesheuvel@linaro.org>
+> ---
+>  drivers/acpi/pptt.c  | 655 +++++++++++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/acpi.h |   4 +
+>  2 files changed, 659 insertions(+)
+>  create mode 100644 drivers/acpi/pptt.c
+>
+> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> new file mode 100644
+> index 000000000000..e5ea1974d1e3
+> --- /dev/null
+> +++ b/drivers/acpi/pptt.c
+> @@ -0,0 +1,655 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * pptt.c - parsing of Processor Properties Topology Table (PPTT)
+> + *
+> + * Copyright (C) 2018, ARM
+> + *
+> + * This file implements parsing of the Processor Properties Topology Table
+> + * which is optionally used to describe the processor and cache topology.
+> + * Due to the relative pointers used throughout the table, this doesn't
+> + * leverage the existing subtable parsing in the kernel.
+> + *
+> + * The PPTT structure is an inverted tree, with each node potentially
+> + * holding one or two inverted tree data structures describing
+> + * the caches available at that level. Each cache structure optionally
+> + * contains properties describing the cache at a given level which can be
+> + * used to override hardware probed values.
+> + */
+> +#define pr_fmt(fmt) "ACPI PPTT: " fmt
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/cacheinfo.h>
+> +#include <acpi/processor.h>
+> +
+> +static struct acpi_subtable_header *fetch_pptt_subtable(struct acpi_table_header *table_hdr,
+> +                                                       u32 pptt_ref)
+> +{
+> +       struct acpi_subtable_header *entry;
+> +
+> +       /* there isn't a subtable at reference 0 */
+> +       if (pptt_ref < sizeof(struct acpi_subtable_header))
+> +               return NULL;
+> +
+> +       if (pptt_ref + sizeof(struct acpi_subtable_header) > table_hdr->length)
+> +               return NULL;
+> +
+> +       entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr, pptt_ref);
+> +
+> +       if (entry->length == 0)
+> +               return NULL;
+> +
+> +       if (pptt_ref + entry->length > table_hdr->length)
+> +               return NULL;
+> +
+> +       return entry;
+> +}
+> +
+> +static struct acpi_pptt_processor *fetch_pptt_node(struct acpi_table_header *table_hdr,
+> +                                                  u32 pptt_ref)
+> +{
+> +       return (struct acpi_pptt_processor *)fetch_pptt_subtable(table_hdr, pptt_ref);
+> +}
+> +
+> +static struct acpi_pptt_cache *fetch_pptt_cache(struct acpi_table_header *table_hdr,
+> +                                               u32 pptt_ref)
+> +{
+> +       return (struct acpi_pptt_cache *)fetch_pptt_subtable(table_hdr, pptt_ref);
 
-In the case of NUMA in socket, we need to assure that the sched
-domain we build for the MC layer isn't larger than the DIE above it.
-Similarly for LLC's that might exist in cross socket interconnect or
-directory hardware we need to assure that MC is shrunk to the socket
-or NUMA node.
+I don't think you really need the explicit type cast here and above,
+but that's very minor.
 
-This patch builds a sibling mask for the LLC, and then picks the
-smallest of LLC, socket siblings, or NUMA node siblings, which
-gives us the behavior described above. This is ever so slightly
-different than the similar alternative where we look for a cache
-layer less than or equal to the socket/NUMA siblings.
+> +}
 
-The logic to pick the MC layer affects all arm64 machines, but
-only changes the behavior for DT/MPIDR systems if the NUMA domain
-is smaller than the core siblings (generally set to the cluster).
-Potentially this fixes a possible bug in DT systems, but really
-it only affects ACPI systems where the core siblings is correctly
-set to the socket siblings. Thus all currently available ACPI
-systems should have MC equal to LLC, including the NUMA in socket
-machines where the LLC is partitioned between the NUMA nodes.
+Please feel free to add
 
-Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
-Tested-by: Ard Biesheuvel <ard.biesheuvel@linaro.org>
-Tested-by: Vijaya Kumar K <vkilari@codeaurora.org>
-Tested-by: Xiongfeng Wang <wangxiongfeng2@huawei.com>
-Tested-by: Tomasz Nowicki <Tomasz.Nowicki@cavium.com>
-Acked-by: Sudeep Holla <sudeep.holla@arm.com>
-Acked-by: Ard Biesheuvel <ard.biesheuvel@linaro.org>
-Acked-by: Morten Rasmussen <morten.rasmussen@arm.com>
----
- arch/arm64/include/asm/topology.h |  2 ++
- arch/arm64/kernel/topology.c      | 36 +++++++++++++++++++++++++++++++++++-
- 2 files changed, 37 insertions(+), 1 deletion(-)
+Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 
-diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
-index 6b10459e6905..df48212f767b 100644
---- a/arch/arm64/include/asm/topology.h
-+++ b/arch/arm64/include/asm/topology.h
-@@ -8,8 +8,10 @@ struct cpu_topology {
- 	int thread_id;
- 	int core_id;
- 	int package_id;
-+	int llc_id;
- 	cpumask_t thread_sibling;
- 	cpumask_t core_sibling;
-+	cpumask_t llc_siblings;
- };
- 
- extern struct cpu_topology cpu_topology[NR_CPUS];
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index 047d98e68502..7415c166281f 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -13,6 +13,7 @@
- 
- #include <linux/acpi.h>
- #include <linux/arch_topology.h>
-+#include <linux/cacheinfo.h>
- #include <linux/cpu.h>
- #include <linux/cpumask.h>
- #include <linux/init.h>
-@@ -214,7 +215,19 @@ EXPORT_SYMBOL_GPL(cpu_topology);
- 
- const struct cpumask *cpu_coregroup_mask(int cpu)
- {
--	return &cpu_topology[cpu].core_sibling;
-+	const cpumask_t *core_mask = cpumask_of_node(cpu_to_node(cpu));
-+
-+	/* Find the smaller of NUMA, core or LLC siblings */
-+	if (cpumask_subset(&cpu_topology[cpu].core_sibling, core_mask)) {
-+		/* not numa in package, lets use the package siblings */
-+		core_mask = &cpu_topology[cpu].core_sibling;
-+	}
-+	if (cpu_topology[cpu].llc_id != -1) {
-+		if (cpumask_subset(&cpu_topology[cpu].llc_siblings, core_mask))
-+			core_mask = &cpu_topology[cpu].llc_siblings;
-+	}
-+
-+	return core_mask;
- }
- 
- static void update_siblings_masks(unsigned int cpuid)
-@@ -226,6 +239,9 @@ static void update_siblings_masks(unsigned int cpuid)
- 	for_each_possible_cpu(cpu) {
- 		cpu_topo = &cpu_topology[cpu];
- 
-+		if (cpuid_topo->llc_id == cpu_topo->llc_id)
-+			cpumask_set_cpu(cpu, &cpuid_topo->llc_siblings);
-+
- 		if (cpuid_topo->package_id != cpu_topo->package_id)
- 			continue;
- 
-@@ -291,6 +307,10 @@ static void __init reset_cpu_topology(void)
- 		cpu_topo->core_id = 0;
- 		cpu_topo->package_id = -1;
- 
-+		cpu_topo->llc_id = -1;
-+		cpumask_clear(&cpu_topo->llc_siblings);
-+		cpumask_set_cpu(cpu, &cpu_topo->llc_siblings);
-+
- 		cpumask_clear(&cpu_topo->core_sibling);
- 		cpumask_set_cpu(cpu, &cpu_topo->core_sibling);
- 		cpumask_clear(&cpu_topo->thread_sibling);
-@@ -311,6 +331,8 @@ static int __init parse_acpi_topology(void)
- 	is_threaded = read_cpuid_mpidr() & MPIDR_MT_BITMASK;
- 
- 	for_each_possible_cpu(cpu) {
-+		int i, cache_id;
-+
- 		topology_id = find_acpi_cpu_topology(cpu, 0);
- 		if (topology_id < 0)
- 			return topology_id;
-@@ -325,6 +347,18 @@ static int __init parse_acpi_topology(void)
- 		}
- 		topology_id = find_acpi_cpu_topology_package(cpu);
- 		cpu_topology[cpu].package_id = topology_id;
-+
-+		i = acpi_find_last_cache_level(cpu);
-+
-+		if (i > 0) {
-+			/*
-+			 * this is the only part of cpu_topology that has
-+			 * a direct relationship with the cache topology
-+			 */
-+			cache_id = find_acpi_cpu_cache_topology(cpu, i);
-+			if (cache_id > 0)
-+				cpu_topology[cpu].llc_id = cache_id;
-+		}
- 	}
- 
- 	return 0;
--- 
-2.13.6
+to the patch and route it through the arch tree as needed.
+
+Thanks,
+Rafael
