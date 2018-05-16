@@ -1,47 +1,38 @@
-From: rafael@kernel.org (Rafael J. Wysocki)
-Date: Wed, 16 May 2018 10:24:54 +0200
-Subject: [PATCH v9 05/12] ACPI/PPTT: Add Processor Properties Topology
- Table parsing
-In-Reply-To: <7cefb087-f41a-0a73-ef77-b560d338be4b@arm.com>
+From: sudeep.holla@arm.com (Sudeep Holla)
+Date: Wed, 16 May 2018 11:56:26 +0100
+Subject: [PATCH v9 02/12] drivers: base: cacheinfo: setup DT cache
+ properties early
+In-Reply-To: <CAHp75VciOAMX1HWifZ+K9GiVicZRFrwHaGteJFVe1uFrh+qu0w@mail.gmail.com>
 References: <20180511235807.30834-1-jeremy.linton@arm.com>
- <20180511235807.30834-6-jeremy.linton@arm.com>
- <CAJZ5v0h4OeTaG2h0Q1c8zX93tici_nfLftpEyKWSkXoztHuUDg@mail.gmail.com>
- <7cefb087-f41a-0a73-ef77-b560d338be4b@arm.com>
-Message-ID: <CAJZ5v0jE4JJbcK-BiFg_JVf00JZCvbMFRnrkTdJTOwz0vW_ZMg@mail.gmail.com>
+ <20180511235807.30834-3-jeremy.linton@arm.com>
+ <78b08b68-ff57-8dd8-6eb1-00548f275eac@arm.com>
+ <CAHp75VciOAMX1HWifZ+K9GiVicZRFrwHaGteJFVe1uFrh+qu0w@mail.gmail.com>
+Message-ID: <a64ed431-0f60-2711-4138-eeefc7ba2d8b@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, May 15, 2018 at 11:42 PM, Jeremy Linton <jeremy.linton@arm.com> wrote:
-> Hi,
->
->
-> On 05/12/2018 05:09 AM, Rafael J. Wysocki wrote:
->>
->> On Sat, May 12, 2018 at 1:58 AM, Jeremy Linton <jeremy.linton@arm.com>
->> wrote:
->>>
+Hi Andy,
 
-[cut]
+On 15/05/18 20:32, Andy Shevchenko wrote:
+> On Tue, May 15, 2018 at 8:15 PM, Jeremy Linton <jeremy.linton@arm.com> wrote:
+>> On 05/11/2018 06:57 PM, Jeremy Linton wrote:
+> 
+>>>   -     cache_size = of_get_property(this_leaf->of_node, propname, NULL);
+>>> +       cache_size = of_get_property(np, propname, NULL);
+>>>         if (cache_size)
+>>>                 this_leaf->size = of_read_number(cache_size, 1);
+> 
+> Can't you switch to of_read_property_uXX() variant here?
+> 
 
->>
->>
->> I don't think you really need the explicit type cast here and above,
->> but that's very minor.
->>
->>> +}
->>
->>
->> Please feel free to add
->>
->> Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
->>
->> to the patch and route it through the arch tree as needed.
->
->
-> Thanks for looking at this (and the ack of course)!
->
-> As an FYI, the in my build without the type cast, the
-> -Werror=incompatible-pointer-types (sourced from the root Makefile) triggers
-> an error.
+This patch is just changing the first argument to the calls. So if we
+need to change, it has to be separate patch.
 
-Fair enough.
+Now, we can use of_property_read_u64() but is there any particular
+reason you mention that ? One reason I can see is that we can avoid
+making explicit of_get_property call. Just wanted to the motive before I
+can write the patch.
+
+-- 
+Regards,
+Sudeep
