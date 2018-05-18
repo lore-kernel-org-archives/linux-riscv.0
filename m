@@ -1,72 +1,65 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 18 May 2018 11:59:38 -0700 (PDT)
-Subject: [PATCH] riscv: Fix the bug in memory access fixup code
-In-Reply-To: <1525748373-3841-1-git-send-email-alankao@andestech.com>
-Message-ID: <mhng-d1f2e76a-ac6d-41ba-a9fd-959c9b4fd8fc@palmer-si-x1c4>
+From: andy.shevchenko@gmail.com (Andy Shevchenko)
+Date: Sat, 19 May 2018 00:50:08 +0300
+Subject: [PATCH v9 02/12] drivers: base: cacheinfo: setup DT cache
+ properties early
+In-Reply-To: <20180517154701.GA20281@e107155-lin>
+References: <20180511235807.30834-1-jeremy.linton@arm.com>
+ <20180511235807.30834-3-jeremy.linton@arm.com>
+ <78b08b68-ff57-8dd8-6eb1-00548f275eac@arm.com>
+ <CAHp75VciOAMX1HWifZ+K9GiVicZRFrwHaGteJFVe1uFrh+qu0w@mail.gmail.com>
+ <a64ed431-0f60-2711-4138-eeefc7ba2d8b@arm.com>
+ <20180517154701.GA20281@e107155-lin>
+Message-ID: <CAHp75VfEYcPdECmDDOd8CLBBXGpcwSUGQRr0x8VTb1-7j51_0Q@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 07 May 2018 19:59:33 PDT (-0700), alankao at andestech.com wrote:
-> A piece of fixup code is currently shared by __copy_user and
-> __clear_user.  It first disables the access to user-space memory
-> and then returns the "n" argument, which represents #(bytes not processed).
-> However,__copy_user's "n" is in register a2, while __clear_user's in a1,
-> and thus it causes errors for programs like setdomainname02 testcase in LTP.
->
-> This patch fixes this issue by separating their fixup code and returning
-> the right value for the kernel to handle a relative fault properly.
->
-> Signed-off-by: Alan Kao <alankao@andestech.com>
-> Cc: Greentime Hu <greentime@andestech.com>
-> Cc: Zong Li <zong@andestech.com>
-> Cc: Vincent Chen <vincentc@andestech.com>
-> ---
->  arch/riscv/lib/uaccess.S | 13 +++++++++----
->  1 file changed, 9 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-> index 58fb2877c865..0173ea296baa 100644
-> --- a/arch/riscv/lib/uaccess.S
-> +++ b/arch/riscv/lib/uaccess.S
-> @@ -84,7 +84,7 @@ ENTRY(__clear_user)
->  	bgeu t0, t1, 2f
->  	bltu a0, t0, 4f
->  1:
-> -	fixup REG_S, zero, (a0), 10f
-> +	fixup REG_S, zero, (a0), 11f
->  	addi a0, a0, SZREG
->  	bltu a0, t1, 1b
->  2:
-> @@ -96,12 +96,12 @@ ENTRY(__clear_user)
->  	li a0, 0
->  	ret
->  4: /* Edge case: unalignment */
-> -	fixup sb, zero, (a0), 10f
-> +	fixup sb, zero, (a0), 11f
->  	addi a0, a0, 1
->  	bltu a0, t0, 4b
->  	j 1b
->  5: /* Edge case: remainder */
-> -	fixup sb, zero, (a0), 10f
-> +	fixup sb, zero, (a0), 11f
->  	addi a0, a0, 1
->  	bltu a0, a3, 5b
->  	j 3b
-> @@ -109,9 +109,14 @@ ENDPROC(__clear_user)
->
->  	.section .fixup,"ax"
->  	.balign 4
-> +	/* Fixup code for __copy_user(10) and __clear_user(11) */
->  10:
->  	/* Disable access to user memory */
->  	csrs sstatus, t6
-> -	sub a0, a3, a0
-> +	mv a0, a2
-> +	ret
-> +11:
-> +	csrs sstatus, t6
-> +	mv a0, a1
->  	ret
->  	.previous
+On Thu, May 17, 2018 at 6:47 PM, Sudeep Holla <sudeep.holla@arm.com> wrote:
 
-Thanks!
+> Is below patch does what you were looking for ?
+
+Somewhat.
+See below for some minors.
+
+> of_property_read_u64 searches for a property in a device node and read
+> a 64-bit value from it. Instead of using of_get_property to get the
+> property and then read 64-bit value using of_read_number, we can make
+> use of of_property_read_u64.
+
+Suggested-by?
+
+> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+
+
+> -       cache_size = of_get_property(np, propname, NULL);
+> -       if (cache_size)
+> -               this_leaf->size = of_read_number(cache_size, 1);
+> +       if (!of_property_read_u64(np, propname, &cache_size))
+> +               this_leaf->size = cache_size;
+
+I suppose it's something like this
+
+ret = of_property_...(..., &this_leaf->VAR);
+if (ret)
+ warning / set default / etc
+
+>                 propname = cache_type_info[ct_idx].line_size_props[i];
+> -               line_size = of_get_property(np, propname, NULL);
+> -               if (line_size)
+> +               line_size = of_property_read_u64(np, propname, &line_size);
+> +               if (line_size) {
+
+ret = ...
+if (ret) {
+
+> +                       this_leaf->coherency_line_size = line_size;
+>                         break;
+> +               }
+
+> +       if (!of_property_read_u64(np, propname, &nr_sets))
+> +               this_leaf->number_of_sets = nr_sets;
+
+As in first case.
+
+-- 
+With Best Regards,
+Andy Shevchenko
