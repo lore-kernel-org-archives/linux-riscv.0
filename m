@@ -1,65 +1,43 @@
-From: andy.shevchenko@gmail.com (Andy Shevchenko)
-Date: Sat, 19 May 2018 00:50:08 +0300
-Subject: [PATCH v9 02/12] drivers: base: cacheinfo: setup DT cache
- properties early
-In-Reply-To: <20180517154701.GA20281@e107155-lin>
-References: <20180511235807.30834-1-jeremy.linton@arm.com>
- <20180511235807.30834-3-jeremy.linton@arm.com>
- <78b08b68-ff57-8dd8-6eb1-00548f275eac@arm.com>
- <CAHp75VciOAMX1HWifZ+K9GiVicZRFrwHaGteJFVe1uFrh+qu0w@mail.gmail.com>
- <a64ed431-0f60-2711-4138-eeefc7ba2d8b@arm.com>
- <20180517154701.GA20281@e107155-lin>
-Message-ID: <CAHp75VfEYcPdECmDDOd8CLBBXGpcwSUGQRr0x8VTb1-7j51_0Q@mail.gmail.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Fri, 18 May 2018 16:31:36 -0700 (PDT)
+Subject: add swiotlb support for riscv
+In-Reply-To: <20180516144302.823-1-hch@lst.de>
+Message-ID: <mhng-268a981e-4623-4e88-baf3-09cb0fbaca25@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, May 17, 2018 at 6:47 PM, Sudeep Holla <sudeep.holla@arm.com> wrote:
+On Wed, 16 May 2018 07:42:59 PDT (-0700), Christoph Hellwig wrote:
+> Current 64-bit RISC-V cores don't have any iommu support, so they need
+> iommu support when used with more than 4GB DRAM (or even just address
+> space depending on the SBI).  This wires the support up based on
+> earlier patches from Palmer.
 
-> Is below patch does what you were looking for ?
+Yep: the FU540-C000 has a feature where DRAM is always mapped at 2GiB physical, 
+so if we have more than 2GiB of DRAM (we have 8GiB on the only board it'll 
+probably ever be attached to) then we need swiotlb to do 32-bit DMA.
 
-Somewhat.
-See below for some minors.
+> Note that the patches are on to of the dma mapping tree as they require
+> the swiotlb Kconfig consolidation, and should probably merged through
+> that tree as well.
+>
+> Git tree:
+>
+>     git://git.infradead.org/users/hch/misc.git riscv-swiotlb
+>
+> Gitweb:
+>
+>     http://git.infradead.org/users/hch/misc.git/shortlog/refs/heads/riscv-swiotlb
 
-> of_property_read_u64 searches for a property in a device node and read
-> a 64-bit value from it. Instead of using of_get_property to get the
-> property and then read 64-bit value using of_read_number, we can make
-> use of of_property_read_u64.
+Ah, great!  This is much cleaner than our current implementation, which isn't 
+based on the generic stuff :).  I'm happy to have these through that tree if it 
+makes the merging easier, feel free to add an
 
-Suggested-by?
+    Acked-by: Palmer Dabbelt <palmer@sifive.com>
 
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+and/or a
 
+    Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
 
-> -       cache_size = of_get_property(np, propname, NULL);
-> -       if (cache_size)
-> -               this_leaf->size = of_read_number(cache_size, 1);
-> +       if (!of_property_read_u64(np, propname, &cache_size))
-> +               this_leaf->size = cache_size;
-
-I suppose it's something like this
-
-ret = of_property_...(..., &this_leaf->VAR);
-if (ret)
- warning / set default / etc
-
->                 propname = cache_type_info[ct_idx].line_size_props[i];
-> -               line_size = of_get_property(np, propname, NULL);
-> -               if (line_size)
-> +               line_size = of_property_read_u64(np, propname, &line_size);
-> +               if (line_size) {
-
-ret = ...
-if (ret) {
-
-> +                       this_leaf->coherency_line_size = line_size;
->                         break;
-> +               }
-
-> +       if (!of_property_read_u64(np, propname, &nr_sets))
-> +               this_leaf->number_of_sets = nr_sets;
-
-As in first case.
-
--- 
-With Best Regards,
-Andy Shevchenko
+on all 3 of these patches if that helps.  I'm going to park them on my 
+next-swiotlb branch so I can use them, but I won't submit them myself unless 
+someone says something.
