@@ -1,142 +1,72 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 18 May 2018 10:30:20 -0700 (PDT)
-Subject: correct Device tree entry for HighFive Unleashed Board ?
-In-Reply-To: <65e845f9-eaae-4605-8722-2eefbb1fedf0@wdc.com>
-Message-ID: <mhng-80af8220-f9aa-484c-8345-5bcc1b5584cc@palmer-si-x1c4>
+Date: Fri, 18 May 2018 11:59:38 -0700 (PDT)
+Subject: [PATCH] riscv: Fix the bug in memory access fixup code
+In-Reply-To: <1525748373-3841-1-git-send-email-alankao@andestech.com>
+Message-ID: <mhng-d1f2e76a-ac6d-41ba-a9fd-959c9b4fd8fc@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 01 May 2018 18:40:07 PDT (-0700), atish.patra at wdc.com wrote:
-> Hi Palmer,
-> I was going through the device tree entries for HighFive Unleashed
-> board. Here are some of the inconsistencies I found as per the device
-> tree standard. I was not sure about the original intention of the
-> changes. Hence the questions instead of the patch :) :).
+On Mon, 07 May 2018 19:59:33 PDT (-0700), alankao at andestech.com wrote:
+> A piece of fixup code is currently shared by __copy_user and
+> __clear_user.  It first disables the access to user-space memory
+> and then returns the "n" argument, which represents #(bytes not processed).
+> However,__copy_user's "n" is in register a2, while __clear_user's in a1,
+> and thus it causes errors for programs like setdomainname02 testcase in LTP.
 >
-> As per the device tree documentation, next-level-cache should point to a
-> <phandle> to the next level cache only.
+> This patch fixes this issue by separating their fixup code and returning
+> the right value for the kernel to handle a relative fault properly.
 >
-> 1. The current entry seems incorrect considering two entries. While 0x2
-> phandle points to L2 cache controller correctly, 0x1 phandle points to
-> "error-device at 18000000" which did not make any sense to me.
-> .....
->                   cpu at 1 {
+> Signed-off-by: Alan Kao <alankao@andestech.com>
+> Cc: Greentime Hu <greentime@andestech.com>
+> Cc: Zong Li <zong@andestech.com>
+> Cc: Vincent Chen <vincentc@andestech.com>
+> ---
+>  arch/riscv/lib/uaccess.S | 13 +++++++++----
+>  1 file changed, 9 insertions(+), 4 deletions(-)
 >
+> diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
+> index 58fb2877c865..0173ea296baa 100644
+> --- a/arch/riscv/lib/uaccess.S
+> +++ b/arch/riscv/lib/uaccess.S
+> @@ -84,7 +84,7 @@ ENTRY(__clear_user)
+>  	bgeu t0, t1, 2f
+>  	bltu a0, t0, 4f
+>  1:
+> -	fixup REG_S, zero, (a0), 10f
+> +	fixup REG_S, zero, (a0), 11f
+>  	addi a0, a0, SZREG
+>  	bltu a0, t1, 1b
+>  2:
+> @@ -96,12 +96,12 @@ ENTRY(__clear_user)
+>  	li a0, 0
+>  	ret
+>  4: /* Edge case: unalignment */
+> -	fixup sb, zero, (a0), 10f
+> +	fixup sb, zero, (a0), 11f
+>  	addi a0, a0, 1
+>  	bltu a0, t0, 4b
+>  	j 1b
+>  5: /* Edge case: remainder */
+> -	fixup sb, zero, (a0), 10f
+> +	fixup sb, zero, (a0), 11f
+>  	addi a0, a0, 1
+>  	bltu a0, a3, 5b
+>  	j 3b
+> @@ -109,9 +109,14 @@ ENDPROC(__clear_user)
 >
->
->                          clock-frequency = <0x0>;
->
->
->
->                          compatible = "sifive,rocket0", "riscv";
->
->
->
->                          d-cache-block-size = <0x40>;
->
->
->
->                          ....
-> 			mmu-type = "riscv,sv39";
->
->
->
->                          next-level-cache = <0x1 0x2>;
-> .....
->
-> In my opinion, it should only point to phandle of L2 cache controller.
+>  	.section .fixup,"ax"
+>  	.balign 4
+> +	/* Fixup code for __copy_user(10) and __clear_user(11) */
+>  10:
+>  	/* Disable access to user memory */
+>  	csrs sstatus, t6
+> -	sub a0, a3, a0
+> +	mv a0, a2
+> +	ret
+> +11:
+> +	csrs sstatus, t6
+> +	mv a0, a1
+>  	ret
+>  	.previous
 
-I buy that.  My copy of the DT spec says
-
-    next-level-cache
-    SD
-    <phandle>
-    If present, indicates that another level of cache exists. The value is the 
-    phandle of the next level of cache. The phandle value type is fully 
-    described in section 2.3.3.
-
-which makes it seem like there should only be one phandle here, and the L2 
-cache is the more reasonable one to pick.  I think we probably have two because 
-these caches can probably cache from either of those, but it doesn't make a 
-whole lot of sense to bother with the error device.
-
-> 2. The L2 cache controller contains 3 entries in next-level-cache.
-> The phandles belong to rom at a000000, chiplink at 40000000, memory at 80000000.
->
->       cache-controller at 2010000 {
->
->
->
->                          cache-block-size = <0x40>;
->
->
->
->                          cache-level = <0x2>;
->
->
->
->                          cache-sets = <0x800>;
->
->
->
->                          cache-size = <0x200000>;
->
->
->
->                          cache-unified;
->
->
->
->                          compatible = "sifive,ccache0", "cache";
->
->
->
->                          interrupt-parent = <0xb>;
->
->
->
->                          interrupts = <0x1 0x2 0x3>;
->
->
->
->                          next-level-cache = <0xc 0xd 0xe>;
->
->
->
->                          reg = <0x0 0x2010000 0x0 0x1000 0x0 0x8000000
-> 0x0 0x2000000>;
->
->
->                          reg-names = "control", "sideband";
->
->
->
->                          linux,phandle = <0x2>;
->
->
->
->                          phandle = <0x2>;
->
->
->
->                  };
->
->
->
->
-> In my opinion, there shouldn't be any next-level-cache as there is no L3
-> cache in the board.
->
-> Moreover, cache-controller entry should be inside "cpus" instead of "soc".
-
-That matches my reading of the spec as well.
-
-> Please let me know if I am wrong in either my understandings of cache
-> hierarchy or specific device tree entry purpose. I will send a patch
-> if suggested changes looks good.
-
-Ya, I think in this case we're just generating "next-level-cache" from "what's 
-on the other side of this cache", even if that other thing isn't actually a 
-cache.
-
-We should fix these in the actual device tree in the FSBL.
+Thanks!
