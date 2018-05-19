@@ -1,43 +1,36 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 18 May 2018 16:31:36 -0700 (PDT)
-Subject: add swiotlb support for riscv
-In-Reply-To: <20180516144302.823-1-hch@lst.de>
-Message-ID: <mhng-268a981e-4623-4e88-baf3-09cb0fbaca25@palmer-si-x1c4>
+Date: Fri, 18 May 2018 17:37:40 -0700 (PDT)
+Subject: [PATCH v2 0/2] Fix timer initialization and Add support hotplug.
+In-Reply-To: <1525903342-191948-1-git-send-email-atish.patra@wdc.com>
+Message-ID: <mhng-bca33b19-024e-4906-9dfe-2dc542d4d98c@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 16 May 2018 07:42:59 PDT (-0700), Christoph Hellwig wrote:
-> Current 64-bit RISC-V cores don't have any iommu support, so they need
-> iommu support when used with more than 4GB DRAM (or even just address
-> space depending on the SBI).  This wires the support up based on
-> earlier patches from Palmer.
-
-Yep: the FU540-C000 has a feature where DRAM is always mapped at 2GiB physical, 
-so if we have more than 2GiB of DRAM (we have 8GiB on the only board it'll 
-probably ever be attached to) then we need swiotlb to do 32-bit DMA.
-
-> Note that the patches are on to of the dma mapping tree as they require
-> the swiotlb Kconfig consolidation, and should probably merged through
-> that tree as well.
+On Wed, 09 May 2018 15:02:20 PDT (-0700), atish.patra at wdc.com wrote:
+> The patch (1/2)fixes issues around timer initialization. This fix is
+> required for CPU hotplug to work. That's why they are clubbed into one
+> series. I can separate them if required.
 >
-> Git tree:
+> Changes from v1 to v2:
+> 1. Removed compiler warnings about unused variables.
 >
->     git://git.infradead.org/users/hch/misc.git riscv-swiotlb
+> Atish Patra (2):
+>   RISCV: Register clocksource and events correctly
+>   RISCV: Support cpu hotplug.
 >
-> Gitweb:
->
->     http://git.infradead.org/users/hch/misc.git/shortlog/refs/heads/riscv-swiotlb
+>  arch/riscv/Kconfig                | 11 ++++++-
+>  arch/riscv/include/asm/csr.h      |  1 +
+>  arch/riscv/include/asm/smp.h      |  9 ++++--
+>  arch/riscv/kernel/head.S          | 12 +++++++
+>  arch/riscv/kernel/process.c       |  7 +++++
+>  arch/riscv/kernel/setup.c         | 17 ++++++++++
+>  arch/riscv/kernel/smpboot.c       | 66 +++++++++++++++++++++++++++++++++++++--
+>  arch/riscv/kernel/time.c          |  9 +-----
+>  arch/riscv/kernel/traps.c         |  6 ++--
+>  drivers/clocksource/riscv_timer.c | 44 +++++++++++++++++---------
+>  include/linux/cpuhotplug.h        |  1 +
+>  11 files changed, 150 insertions(+), 33 deletions(-)
 
-Ah, great!  This is much cleaner than our current implementation, which isn't 
-based on the generic stuff :).  I'm happy to have these through that tree if it 
-makes the merging easier, feel free to add an
-
-    Acked-by: Palmer Dabbelt <palmer@sifive.com>
-
-and/or a
-
-    Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
-
-on all 3 of these patches if that helps.  I'm going to park them on my 
-next-swiotlb branch so I can use them, but I won't submit them myself unless 
-someone says something.
+Sorry I'm a bit slow here: I was meaning to fix this up.  I think this patch 
+set was made against something like riscv-all, which has a bunch of additional 
+cruft in it.  Do you mind updating it to be against Linus' master?
