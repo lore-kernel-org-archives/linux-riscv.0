@@ -1,32 +1,62 @@
-From: hch@lst.de (Christoph Hellwig)
-Date: Sat, 19 May 2018 08:35:34 +0200
-Subject: add swiotlb support for riscv
-In-Reply-To: <mhng-268a981e-4623-4e88-baf3-09cb0fbaca25@palmer-si-x1c4>
-References: <20180516144302.823-1-hch@lst.de>
- <mhng-268a981e-4623-4e88-baf3-09cb0fbaca25@palmer-si-x1c4>
-Message-ID: <20180519063534.GA17809@lst.de>
+From: sudeep.holla@arm.com (Sudeep Holla)
+Date: Mon, 21 May 2018 10:27:11 +0100
+Subject: [PATCH v9 02/12] drivers: base: cacheinfo: setup DT cache
+ properties early
+In-Reply-To: <CAHp75VfEYcPdECmDDOd8CLBBXGpcwSUGQRr0x8VTb1-7j51_0Q@mail.gmail.com>
+References: <20180511235807.30834-1-jeremy.linton@arm.com>
+ <20180511235807.30834-3-jeremy.linton@arm.com>
+ <78b08b68-ff57-8dd8-6eb1-00548f275eac@arm.com>
+ <CAHp75VciOAMX1HWifZ+K9GiVicZRFrwHaGteJFVe1uFrh+qu0w@mail.gmail.com>
+ <a64ed431-0f60-2711-4138-eeefc7ba2d8b@arm.com>
+ <20180517154701.GA20281@e107155-lin>
+ <CAHp75VfEYcPdECmDDOd8CLBBXGpcwSUGQRr0x8VTb1-7j51_0Q@mail.gmail.com>
+Message-ID: <7c9a4921-d4da-f1db-85ed-7d7f917be30c@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, May 18, 2018 at 04:31:36PM -0700, Palmer Dabbelt wrote:
->>     http://git.infradead.org/users/hch/misc.git/shortlog/refs/heads/riscv-swiotlb
->
-> Ah, great!  This is much cleaner than our current implementation, which 
-> isn't based on the generic stuff :).  I'm happy to have these through that 
-> tree if it makes the merging easier, feel free to add an
->
->    Acked-by: Palmer Dabbelt <palmer@sifive.com>
->
-> and/or a
->
->    Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
->
-> on all 3 of these patches if that helps.  I'm going to park them on my 
-> next-swiotlb branch so I can use them, but I won't submit them myself 
-> unless someone says something.
 
-I think it is indeed easiest if I pull them into the dma-mapping tree.
 
-Feel free the keep them in a riscv branch as well, but remember that
-they depend on other patches in the dma-mapping tree that consolidate
-the SWIOTLB Kconfig symbol.
+On 18/05/18 22:50, Andy Shevchenko wrote:
+> On Thu, May 17, 2018 at 6:47 PM, Sudeep Holla <sudeep.holla@arm.com> wrote:
+> 
+>> Is below patch does what you were looking for ?
+> 
+> Somewhat.
+> See below for some minors.
+> 
+
+Thanks
+
+>> of_property_read_u64 searches for a property in a device node and read
+>> a 64-bit value from it. Instead of using of_get_property to get the
+>> property and then read 64-bit value using of_read_number, we can make
+>> use of of_property_read_u64.
+> 
+> Suggested-by?
+>
+
+Yes indeed, added it locally after I sent out this patch. Will send out
+a proper patch soon.
+
+>> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> 
+> 
+>> -       cache_size = of_get_property(np, propname, NULL);
+>> -       if (cache_size)
+>> -               this_leaf->size = of_read_number(cache_size, 1);
+>> +       if (!of_property_read_u64(np, propname, &cache_size))
+>> +               this_leaf->size = cache_size;
+> 
+> I suppose it's something like this
+> 
+> ret = of_property_...(..., &this_leaf->VAR);
+> if (ret)
+>  warning / set default / etc
+
+OK, I do prefer this but once I was told not to use structure elements
+directly like that, but should be harmless in this particular case, will
+do so.
+
+-- 
+Regards,
+Sudeep
