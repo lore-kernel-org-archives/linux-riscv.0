@@ -1,54 +1,239 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Mon, 21 May 2018 13:43:48 -0700
-Subject: [PATCH v2 0/2] Fix timer initialization and Add support hotplug.
-In-Reply-To: <mhng-bca33b19-024e-4906-9dfe-2dc542d4d98c@palmer-si-x1c4>
-References: <mhng-bca33b19-024e-4906-9dfe-2dc542d4d98c@palmer-si-x1c4>
-Message-ID: <e11c2853-acc6-a9b8-f8e0-9843c7af38ab@wdc.com>
+From: gregkh@linuxfoundation.org (gregkh at linuxfoundation.org)
+Date: Sun, 27 May 2018 16:32:59 +0200
+Subject: Patch "riscv/spinlock: Strengthen implementations with fences" has
+ been added to the 4.16-stable tree
+Message-ID: <152743157947205@kroah.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 5/18/18 5:37 PM, Palmer Dabbelt wrote:
-> On Wed, 09 May 2018 15:02:20 PDT (-0700), atish.patra at wdc.com wrote:
->> The patch (1/2)fixes issues around timer initialization. This fix is
->> required for CPU hotplug to work. That's why they are clubbed into one
->> series. I can separate them if required.
->>
->> Changes from v1 to v2:
->> 1. Removed compiler warnings about unused variables.
->>
->> Atish Patra (2):
->>    RISCV: Register clocksource and events correctly
->>    RISCV: Support cpu hotplug.
->>
->>   arch/riscv/Kconfig                | 11 ++++++-
->>   arch/riscv/include/asm/csr.h      |  1 +
->>   arch/riscv/include/asm/smp.h      |  9 ++++--
->>   arch/riscv/kernel/head.S          | 12 +++++++
->>   arch/riscv/kernel/process.c       |  7 +++++
->>   arch/riscv/kernel/setup.c         | 17 ++++++++++
->>   arch/riscv/kernel/smpboot.c       | 66 +++++++++++++++++++++++++++++++++++++--
->>   arch/riscv/kernel/time.c          |  9 +-----
->>   arch/riscv/kernel/traps.c         |  6 ++--
->>   drivers/clocksource/riscv_timer.c | 44 +++++++++++++++++---------
->>   include/linux/cpuhotplug.h        |  1 +
->>   11 files changed, 150 insertions(+), 33 deletions(-)
-> 
-> Sorry I'm a bit slow here: I was meaning to fix this up.  I think this patch
-> set was made against something like riscv-all, which has a bunch of additional
-> cruft in it.  
 
-Yeah. It is based on riscv-all because my changes also depend on initial 
-timer patches.
+This is a note to let you know that I've just added the patch titled
 
-Do you mind updating it to be against Linus' master?
+    riscv/spinlock: Strengthen implementations with fences
 
-I can do it. But my patches won't work without the initial timer 
-patches. I am not sure how to proceed in that case.
+to the 4.16-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
-Do you want only hotplug patch (2/2) or I can squash the entire 
-wip-timer patches into couple of sane ones and post them to mailing list ?
+The filename of the patch is:
+     riscv-spinlock-strengthen-implementations-with-fences.patch
+and it can be found in the queue-4.16 subdirectory.
 
-Regards,
-Atish
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
 
-> 
+
+>From foo at baz Sun May 27 16:10:02 CEST 2018
+From: Andrea Parri <parri.andrea@gmail.com>
+Date: Fri, 9 Mar 2018 13:13:20 +0100
+Subject: riscv/spinlock: Strengthen implementations with fences
+
+From: Andrea Parri <parri.andrea@gmail.com>
+
+[ Upstream commit 0123f4d76ca63b7b895f40089be0ce4809e392d8 ]
+
+Current implementations map locking operations using .rl and .aq
+annotations.  However, this mapping is unsound w.r.t. the kernel
+memory consistency model (LKMM) [1]:
+
+Referring to the "unlock-lock-read-ordering" test reported below,
+Daniel wrote:
+
+  "I think an RCpc interpretation of .aq and .rl would in fact
+   allow the two normal loads in P1 to be reordered [...]
+
+   The intuition would be that the amoswap.w.aq can forward from
+   the amoswap.w.rl while that's still in the store buffer, and
+   then the lw x3,0(x4) can also perform while the amoswap.w.rl
+   is still in the store buffer, all before the l1 x1,0(x2)
+   executes.  That's not forbidden unless the amoswaps are RCsc,
+   unless I'm missing something.
+
+   Likewise even if the unlock()/lock() is between two stores.
+   A control dependency might originate from the load part of
+   the amoswap.w.aq, but there still would have to be something
+   to ensure that this load part in fact performs after the store
+   part of the amoswap.w.rl performs globally, and that's not
+   automatic under RCpc."
+
+Simulation of the RISC-V memory consistency model confirmed this
+expectation.
+
+In order to "synchronize" LKMM and RISC-V's implementation, this
+commit strengthens the implementations of the locking operations
+by replacing .rl and .aq with the use of ("lightweigth") fences,
+resp., "fence rw,  w" and "fence r , rw".
+
+C unlock-lock-read-ordering
+
+{}
+/* s initially owned by P1 */
+
+P0(int *x, int *y)
+{
+        WRITE_ONCE(*x, 1);
+        smp_wmb();
+        WRITE_ONCE(*y, 1);
+}
+
+P1(int *x, int *y, spinlock_t *s)
+{
+        int r0;
+        int r1;
+
+        r0 = READ_ONCE(*y);
+        spin_unlock(s);
+        spin_lock(s);
+        r1 = READ_ONCE(*x);
+}
+
+exists (1:r0=1 /\ 1:r1=0)
+
+[1] https://marc.info/?l=linux-kernel&m=151930201102853&w=2
+    https://groups.google.com/a/groups.riscv.org/forum/#!topic/isa-dev/hKywNHBkAXM
+    https://marc.info/?l=linux-kernel&m=151633436614259&w=2
+
+Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
+Cc: Palmer Dabbelt <palmer@sifive.com>
+Cc: Albert Ou <albert@sifive.com>
+Cc: Daniel Lustig <dlustig@nvidia.com>
+Cc: Alan Stern <stern@rowland.harvard.edu>
+Cc: Will Deacon <will.deacon@arm.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Boqun Feng <boqun.feng@gmail.com>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: David Howells <dhowells@redhat.com>
+Cc: Jade Alglave <j.alglave@ucl.ac.uk>
+Cc: Luc Maranget <luc.maranget@inria.fr>
+Cc: "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>
+Cc: Akira Yokosawa <akiyks@gmail.com>
+Cc: Ingo Molnar <mingo@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: linux-riscv at lists.infradead.org
+Cc: linux-kernel at vger.kernel.org
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+Signed-off-by: Sasha Levin <alexander.levin@microsoft.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ arch/riscv/include/asm/fence.h    |   12 ++++++++++++
+ arch/riscv/include/asm/spinlock.h |   29 +++++++++++++++--------------
+ 2 files changed, 27 insertions(+), 14 deletions(-)
+ create mode 100644 arch/riscv/include/asm/fence.h
+
+--- /dev/null
++++ b/arch/riscv/include/asm/fence.h
+@@ -0,0 +1,12 @@
++#ifndef _ASM_RISCV_FENCE_H
++#define _ASM_RISCV_FENCE_H
++
++#ifdef CONFIG_SMP
++#define RISCV_ACQUIRE_BARRIER		"\tfence r , rw\n"
++#define RISCV_RELEASE_BARRIER		"\tfence rw,  w\n"
++#else
++#define RISCV_ACQUIRE_BARRIER
++#define RISCV_RELEASE_BARRIER
++#endif
++
++#endif	/* _ASM_RISCV_FENCE_H */
+--- a/arch/riscv/include/asm/spinlock.h
++++ b/arch/riscv/include/asm/spinlock.h
+@@ -17,6 +17,7 @@
+ 
+ #include <linux/kernel.h>
+ #include <asm/current.h>
++#include <asm/fence.h>
+ 
+ /*
+  * Simple spin lock operations.  These provide no fairness guarantees.
+@@ -28,10 +29,7 @@
+ 
+ static inline void arch_spin_unlock(arch_spinlock_t *lock)
+ {
+-	__asm__ __volatile__ (
+-		"amoswap.w.rl x0, x0, %0"
+-		: "=A" (lock->lock)
+-		:: "memory");
++	smp_store_release(&lock->lock, 0);
+ }
+ 
+ static inline int arch_spin_trylock(arch_spinlock_t *lock)
+@@ -39,7 +37,8 @@ static inline int arch_spin_trylock(arch
+ 	int tmp = 1, busy;
+ 
+ 	__asm__ __volatile__ (
+-		"amoswap.w.aq %0, %2, %1"
++		"	amoswap.w %0, %2, %1\n"
++		RISCV_ACQUIRE_BARRIER
+ 		: "=r" (busy), "+A" (lock->lock)
+ 		: "r" (tmp)
+ 		: "memory");
+@@ -68,8 +67,9 @@ static inline void arch_read_lock(arch_r
+ 		"1:	lr.w	%1, %0\n"
+ 		"	bltz	%1, 1b\n"
+ 		"	addi	%1, %1, 1\n"
+-		"	sc.w.aq	%1, %1, %0\n"
++		"	sc.w	%1, %1, %0\n"
+ 		"	bnez	%1, 1b\n"
++		RISCV_ACQUIRE_BARRIER
+ 		: "+A" (lock->lock), "=&r" (tmp)
+ 		:: "memory");
+ }
+@@ -82,8 +82,9 @@ static inline void arch_write_lock(arch_
+ 		"1:	lr.w	%1, %0\n"
+ 		"	bnez	%1, 1b\n"
+ 		"	li	%1, -1\n"
+-		"	sc.w.aq	%1, %1, %0\n"
++		"	sc.w	%1, %1, %0\n"
+ 		"	bnez	%1, 1b\n"
++		RISCV_ACQUIRE_BARRIER
+ 		: "+A" (lock->lock), "=&r" (tmp)
+ 		:: "memory");
+ }
+@@ -96,8 +97,9 @@ static inline int arch_read_trylock(arch
+ 		"1:	lr.w	%1, %0\n"
+ 		"	bltz	%1, 1f\n"
+ 		"	addi	%1, %1, 1\n"
+-		"	sc.w.aq	%1, %1, %0\n"
++		"	sc.w	%1, %1, %0\n"
+ 		"	bnez	%1, 1b\n"
++		RISCV_ACQUIRE_BARRIER
+ 		"1:\n"
+ 		: "+A" (lock->lock), "=&r" (busy)
+ 		:: "memory");
+@@ -113,8 +115,9 @@ static inline int arch_write_trylock(arc
+ 		"1:	lr.w	%1, %0\n"
+ 		"	bnez	%1, 1f\n"
+ 		"	li	%1, -1\n"
+-		"	sc.w.aq	%1, %1, %0\n"
++		"	sc.w	%1, %1, %0\n"
+ 		"	bnez	%1, 1b\n"
++		RISCV_ACQUIRE_BARRIER
+ 		"1:\n"
+ 		: "+A" (lock->lock), "=&r" (busy)
+ 		:: "memory");
+@@ -125,7 +128,8 @@ static inline int arch_write_trylock(arc
+ static inline void arch_read_unlock(arch_rwlock_t *lock)
+ {
+ 	__asm__ __volatile__(
+-		"amoadd.w.rl x0, %1, %0"
++		RISCV_RELEASE_BARRIER
++		"	amoadd.w x0, %1, %0\n"
+ 		: "+A" (lock->lock)
+ 		: "r" (-1)
+ 		: "memory");
+@@ -133,10 +137,7 @@ static inline void arch_read_unlock(arch
+ 
+ static inline void arch_write_unlock(arch_rwlock_t *lock)
+ {
+-	__asm__ __volatile__ (
+-		"amoswap.w.rl x0, x0, %0"
+-		: "=A" (lock->lock)
+-		:: "memory");
++	smp_store_release(&lock->lock, 0);
+ }
+ 
+ #endif /* _ASM_RISCV_SPINLOCK_H */
+
+
+Patches currently in stable-queue which might be from parri.andrea at gmail.com are
+
+queue-4.16/riscv-spinlock-strengthen-implementations-with-fences.patch
