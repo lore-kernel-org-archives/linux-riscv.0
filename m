@@ -1,31 +1,16 @@
-From: gregkh@linuxfoundation.org (gregkh at linuxfoundation.org)
-Date: Sun, 27 May 2018 16:32:59 +0200
-Subject: Patch "riscv/spinlock: Strengthen implementations with fences" has
- been added to the 4.16-stable tree
-Message-ID: <152743157947205@kroah.com>
+From: gregkh@linuxfoundation.org (Greg Kroah-Hartman)
+Date: Mon, 28 May 2018 12:01:57 +0200
+Subject: [PATCH 4.16 084/272] riscv/spinlock: Strengthen implementations with
+ fences
+In-Reply-To: <20180528100240.256525891@linuxfoundation.org>
+References: <20180528100240.256525891@linuxfoundation.org>
+Message-ID: <20180528100248.177371733@linuxfoundation.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
+4.16-stable review patch.  If anyone has any objections, please let me know.
 
-This is a note to let you know that I've just added the patch titled
-
-    riscv/spinlock: Strengthen implementations with fences
-
-to the 4.16-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
-
-The filename of the patch is:
-     riscv-spinlock-strengthen-implementations-with-fences.patch
-and it can be found in the queue-4.16 subdirectory.
-
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
-
-
->From foo at baz Sun May 27 16:10:02 CEST 2018
-From: Andrea Parri <parri.andrea@gmail.com>
-Date: Fri, 9 Mar 2018 13:13:20 +0100
-Subject: riscv/spinlock: Strengthen implementations with fences
+------------------
 
 From: Andrea Parri <parri.andrea@gmail.com>
 
@@ -232,8 +217,3 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
  }
  
  #endif /* _ASM_RISCV_SPINLOCK_H */
-
-
-Patches currently in stable-queue which might be from parri.andrea at gmail.com are
-
-queue-4.16/riscv-spinlock-strengthen-implementations-with-fences.patch
