@@ -1,5 +1,5 @@
-From: jeremy.linton@arm.com (Jeremy Linton)
-Date: Tue, 29 May 2018 10:23:12 -0500
+From: geert@linux-m68k.org (Geert Uytterhoeven)
+Date: Tue, 29 May 2018 17:50:47 +0200
 Subject: [PATCH v9 00/12] Support PPTT for ARM64
 In-Reply-To: <551905a6-eaa8-97df-06ec-1ceedfbc164f@arm.com>
 References: <20180511235807.30834-1-jeremy.linton@arm.com>
@@ -8,36 +8,21 @@ References: <20180511235807.30834-1-jeremy.linton@arm.com>
  <09fb3fe7-d703-43f1-74f7-f8cb5ff1f67a@arm.com>
  <CAMuHMdXgiMeD4uF+j8W+CpNwYYK2W_8xqk_=vGBiW=bUvKeq7w@mail.gmail.com>
  <551905a6-eaa8-97df-06ec-1ceedfbc164f@arm.com>
-Message-ID: <b08eee2a-6fe5-763f-f2e1-2dec05e14ef4@arm.com>
+Message-ID: <CAMuHMdWgsRTqrgwi5Z_xyNXmzS1h4gxLaawdFAL_DGF+Yt8s-A@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi,
+Hi Sudeep,
 
-On 05/29/2018 08:18 AM, Sudeep Holla wrote:
-> 
-> 
+On Tue, May 29, 2018 at 3:18 PM, Sudeep Holla <sudeep.holla@arm.com> wrote:
 > On 29/05/18 12:56, Geert Uytterhoeven wrote:
->> Hi Sudeep,
->>
 >> On Tue, May 29, 2018 at 1:14 PM, Sudeep Holla <sudeep.holla@arm.com> wrote:
 >>> On 29/05/18 11:48, Geert Uytterhoeven wrote:
 >>>> On Thu, May 17, 2018 at 7:05 PM, Catalin Marinas
 >>>> <catalin.marinas@arm.com> wrote:
 >>>>> On Fri, May 11, 2018 at 06:57:55PM -0500, Jeremy Linton wrote:
 >>>>>> Jeremy Linton (12):
->>>>>>    drivers: base: cacheinfo: move cache_setup_of_node()
->>>>>>    drivers: base: cacheinfo: setup DT cache properties early
->>>>>>    cacheinfo: rename of_node to fw_token
->>>>>>    arm64/acpi: Create arch specific cpu to acpi id helper
->>>>>>    ACPI/PPTT: Add Processor Properties Topology Table parsing
->>>>>>    ACPI: Enable PPTT support on ARM64
->>>>>>    drivers: base cacheinfo: Add support for ACPI based firmware tables
->>>>>>    arm64: Add support for ACPI based firmware tables
->>>>>>    arm64: topology: rename cluster_id
->>>>>>    arm64: topology: enable ACPI/PPTT based CPU topology
->>>>>>    ACPI: Add PPTT to injectable table list
->>>>>>    arm64: topology: divorce MC scheduling domain from core_siblings
+>>>>>>   arm64: topology: divorce MC scheduling domain from core_siblings
 >>>>>
 >>>>> Queued for 4.18 (without Sudeep's latest property_read_u64 cacheinfo
 >>>>> patch - http://lkml.kernel.org/r/20180517154701.GA20281 at e107155-lin; I
@@ -48,16 +33,15 @@ On 05/29/2018 08:18 AM, Sudeep Holla wrote:
 >>>> system suspend on big.LITTLE systems to hang after shutting down the first
 >>>> CPU:
 >>>>
->>>>      $ echo mem > /sys/power/state
->>>>      PM: suspend entry (deep)
->>>>      PM: Syncing filesystems ... done.
->>>>      Freezing user space processes ... (elapsed 0.001 seconds) done.
->>>>      OOM killer disabled.
->>>>      Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
->>>>      Disabling non-boot CPUs ...
->>>>      CPU1: shutdown
->>>>      psci: CPU1 killed.
->>>>
+>>>>     $ echo mem > /sys/power/state
+>>>>     PM: suspend entry (deep)
+>>>>     PM: Syncing filesystems ... done.
+>>>>     Freezing user space processes ... (elapsed 0.001 seconds) done.
+>>>>     OOM killer disabled.
+>>>>     Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+>>>>     Disabling non-boot CPUs ...
+>>>>     CPU1: shutdown
+>>>>     psci: CPU1 killed.
 >>>
 >>> Is it OK to assume the suspend failed just after shutting down one CPU
 >>> or it's failing during resume ? It depends on whether you had console
@@ -66,65 +50,95 @@ On 05/29/2018 08:18 AM, Sudeep Holla wrote:
 >> I have no-console-suspend enabled.
 >> It's failing during suspend, the next lines should be:
 >>
->>      CPU2: shutdown
->>      psci: CPU2 killed.
->>      ...
->>
-> 
+>>     CPU2: shutdown
+>>     psci: CPU2 killed.
+>>     ...
+>
 > OK, I was hoping to be something during resume as this patch has nothing
 > executed during suspend. Do you see any change in topology before and
 > after this patch applied. I am interested in the output of:
-> 
+>
 > $ grep "" /sys/devices/system/cpu/cpu*/topology/*
-> 
+
+/sys/devices/system/cpu/cpu0/topology/core_id:0
+/sys/devices/system/cpu/cpu0/topology/core_siblings:0f
+/sys/devices/system/cpu/cpu0/topology/core_siblings_list:0-3
+/sys/devices/system/cpu/cpu0/topology/physical_package_id:0
+/sys/devices/system/cpu/cpu0/topology/thread_siblings:01
+/sys/devices/system/cpu/cpu0/topology/thread_siblings_list:0
+/sys/devices/system/cpu/cpu1/topology/core_id:1
+/sys/devices/system/cpu/cpu1/topology/core_siblings:0f
+/sys/devices/system/cpu/cpu1/topology/core_siblings_list:0-3
+/sys/devices/system/cpu/cpu1/topology/physical_package_id:0
+/sys/devices/system/cpu/cpu1/topology/thread_siblings:02
+/sys/devices/system/cpu/cpu1/topology/thread_siblings_list:1
+/sys/devices/system/cpu/cpu2/topology/core_id:2
+/sys/devices/system/cpu/cpu2/topology/core_siblings:0f
+/sys/devices/system/cpu/cpu2/topology/core_siblings_list:0-3
+/sys/devices/system/cpu/cpu2/topology/physical_package_id:0
+/sys/devices/system/cpu/cpu2/topology/thread_siblings:04
+/sys/devices/system/cpu/cpu2/topology/thread_siblings_list:2
+/sys/devices/system/cpu/cpu3/topology/core_id:3
+/sys/devices/system/cpu/cpu3/topology/core_siblings:0f
+/sys/devices/system/cpu/cpu3/topology/core_siblings_list:0-3
+/sys/devices/system/cpu/cpu3/topology/physical_package_id:0
+/sys/devices/system/cpu/cpu3/topology/thread_siblings:08
+/sys/devices/system/cpu/cpu3/topology/thread_siblings_list:3
+/sys/devices/system/cpu/cpu4/topology/core_id:0
+/sys/devices/system/cpu/cpu4/topology/core_siblings:f0
+/sys/devices/system/cpu/cpu4/topology/core_siblings_list:4-7
+/sys/devices/system/cpu/cpu4/topology/physical_package_id:1
+/sys/devices/system/cpu/cpu4/topology/thread_siblings:10
+/sys/devices/system/cpu/cpu4/topology/thread_siblings_list:4
+/sys/devices/system/cpu/cpu5/topology/core_id:1
+/sys/devices/system/cpu/cpu5/topology/core_siblings:f0
+/sys/devices/system/cpu/cpu5/topology/core_siblings_list:4-7
+/sys/devices/system/cpu/cpu5/topology/physical_package_id:1
+/sys/devices/system/cpu/cpu5/topology/thread_siblings:20
+/sys/devices/system/cpu/cpu5/topology/thread_siblings_list:5
+/sys/devices/system/cpu/cpu6/topology/core_id:2
+/sys/devices/system/cpu/cpu6/topology/core_siblings:f0
+/sys/devices/system/cpu/cpu6/topology/core_siblings_list:4-7
+/sys/devices/system/cpu/cpu6/topology/physical_package_id:1
+/sys/devices/system/cpu/cpu6/topology/thread_siblings:40
+/sys/devices/system/cpu/cpu6/topology/thread_siblings_list:6
+/sys/devices/system/cpu/cpu7/topology/core_id:3
+/sys/devices/system/cpu/cpu7/topology/core_siblings:f0
+/sys/devices/system/cpu/cpu7/topology/core_siblings_list:4-7
+/sys/devices/system/cpu/cpu7/topology/physical_package_id:1
+/sys/devices/system/cpu/cpu7/topology/thread_siblings:80
+/sys/devices/system/cpu/cpu7/topology/thread_siblings_list:7
+
+No change before/after (both match my view of the hardware).
+
+>
 >>>> For me, it fails on the following big.LITTLE systems:
 >>>>
->>>>      R-Car H3 ES2.0 (4xCA57 + 4xCA53)
->>>>      R-Car M3-W (2xCA57 + 4xCA53)
+>>>>     R-Car H3 ES2.0 (4xCA57 + 4xCA53)
+>>>>     R-Car M3-W (2xCA57 + 4xCA53)
 >>>>
 >>>
 >>> Interesting, is it PSCI based system suspend ?
 >>
 >> Yes it is.
->>
->> Suspend-to-idle, which doesn't offline CPUs, still works.
->>
-> 
->  From DT, I guess this platform doesn't have any idle states.
+>
+> From DT, I guess this platform doesn't have any idle states.
 > Does this use genpd power domains ? I see power-domains in the DT, so
 > asking to get more info. Do you have any out of tree patches especially
 > if they are depending on some topology cpumasks ?
-> 
->>>> System supend still works fine on systems with big cores only:
->>>>
->>>>      R-Car H3 ES1.0 (4xCA57 (4xCA53 disabled in firmware))
->>>>      R-Car M3-N (2xCA57)
->>>>
->>>> Reverting this commit fixes the issue for me.
->>>
->>> I can't find anything that relates to system suspend in these patches
->>> unless they are messing with something during CPU hot plug-in back
->>> during resume.
->>
->> It's only the last patch that introduces the breakage.
->>
-> 
-> As specified in the commit log, it won't change any behavior for DT
-> systems if it's non-NUMA or single node system. So I am still wondering
-> what could trigger this regression.
-> 
 
-So, presumably the problem is that the numa mask is smaller than the 
-normal core_siblings...
+No out-of-tree patches.
+I'm testing plain 37c3ec2d810f87ea vs. 37c3ec2d810f87ea^.
+There are power-domains in DT, but they're not managed by the new
+fancy CPU power domain code.
 
-I would verify that that there is a behavior change with something like 
-/proc/schedstat | cut -d ' ' -f-2
+Gr{oetje,eeting}s,
 
-There might be something odd happening with whether you have CONFIG_NUMA 
-set (looking at that right now).
+                        Geert
 
-So, a couple quick todo's, see if the schedstat domains are changing 
-with/without the last patch, and also see if they are changing if you 
-enable/disable NUMA.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert at linux-m68k.org
 
-Why any of that matters for suspend isn't clear at the moment.
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
