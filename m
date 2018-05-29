@@ -1,40 +1,70 @@
-From: yamada.masahiro@socionext.com (Masahiro Yamada)
-Date: Tue, 29 May 2018 15:14:20 +0900
-Subject: [PATCH] riscv: pass machine size to sparse
-In-Reply-To: <20180529061127.GA20005@infradead.org>
-References: <20180528163505.15698-1-luc.vanoostenryck@gmail.com>
- <20180529061127.GA20005@infradead.org>
-Message-ID: <CAK7LNAT_dnO9Enr+Dg11YTux8JAV3K=k4r_5VP3moUCG8s5XHg@mail.gmail.com>
+From: geert@linux-m68k.org (Geert Uytterhoeven)
+Date: Tue, 29 May 2018 12:48:12 +0200
+Subject: [PATCH v9 00/12] Support PPTT for ARM64
+In-Reply-To: <20180517170523.h7tuvbzdfluuidcz@armageddon.cambridge.arm.com>
+References: <20180511235807.30834-1-jeremy.linton@arm.com>
+ <20180517170523.h7tuvbzdfluuidcz@armageddon.cambridge.arm.com>
+Message-ID: <CAMuHMdWJWj3a0MZgEi7VJTUJRNoeR+X3eoN8A-sW6fwimEr6Fg@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-2018-05-29 15:11 GMT+09:00 Christoph Hellwig <hch@infradead.org>:
-> On Mon, May 28, 2018 at 06:35:05PM +0200, Luc Van Oostenryck wrote:
->> By default, sparse assumes a 64bit machine when compiled on x86-64
->> and 32bit when compiled on anything else.
->>
->> This can of course create all sort of problems when this doesn't
->> correspond to the target's machine size, like issuing false
->> warnings like: 'shift too big (32) for type unsigned long' or
->> is 64bit while sparse was compiled on a 32bit machine, or worse,
->> to not emit legitimate warnings.
->>
->> Fix this by passing the appropriate -m32/-m64 flag to sparse.
+Hi Catalin, Jeremy,
+
+On Thu, May 17, 2018 at 7:05 PM, Catalin Marinas
+<catalin.marinas@arm.com> wrote:
+> On Fri, May 11, 2018 at 06:57:55PM -0500, Jeremy Linton wrote:
+>> Jeremy Linton (12):
+>>   drivers: base: cacheinfo: move cache_setup_of_node()
+>>   drivers: base: cacheinfo: setup DT cache properties early
+>>   cacheinfo: rename of_node to fw_token
+>>   arm64/acpi: Create arch specific cpu to acpi id helper
+>>   ACPI/PPTT: Add Processor Properties Topology Table parsing
+>>   ACPI: Enable PPTT support on ARM64
+>>   drivers: base cacheinfo: Add support for ACPI based firmware tables
+>>   arm64: Add support for ACPI based firmware tables
+>>   arm64: topology: rename cluster_id
+>>   arm64: topology: enable ACPI/PPTT based CPU topology
+>>   ACPI: Add PPTT to injectable table list
+>>   arm64: topology: divorce MC scheduling domain from core_siblings
 >
-> Can we please move this to the common Kbuild code using the
-> CONFIG_64BIT syombol?  This really should not need boiler plate in
-> every architecture.
+> Queued for 4.18 (without Sudeep's latest property_read_u64 cacheinfo
+> patch - http://lkml.kernel.org/r/20180517154701.GA20281 at e107155-lin; I
+> can add it separately).
 
+This is now commit 37c3ec2d810f87ea ("arm64: topology: divorce MC
+scheduling domain from core_siblings") in arm64/for-next/core, causing
+system suspend on big.LITTLE systems to hang after shutting down the first
+CPU:
 
-I agree.
+    $ echo mem > /sys/power/state
+    PM: suspend entry (deep)
+    PM: Syncing filesystems ... done.
+    Freezing user space processes ... (elapsed 0.001 seconds) done.
+    OOM killer disabled.
+    Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+    Disabling non-boot CPUs ...
+    CPU1: shutdown
+    psci: CPU1 killed.
 
-Luc did so for -mbig/little-endian:
-https://patchwork.kernel.org/patch/10433957/
+For me, it fails on the following big.LITTLE systems:
 
-We should do likewise for -m32/64.
+    R-Car H3 ES2.0 (4xCA57 + 4xCA53)
+    R-Car M3-W (2xCA57 + 4xCA53)
 
+System supend still works fine on systems with big cores only:
 
+    R-Car H3 ES1.0 (4xCA57 (4xCA53 disabled in firmware))
+    R-Car M3-N (2xCA57)
+
+Reverting this commit fixes the issue for me.
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-Best Regards
-Masahiro Yamada
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert at linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
