@@ -1,38 +1,60 @@
-From: luc.vanoostenryck@gmail.com (Luc Van Oostenryck)
-Date: Mon, 28 May 2018 18:35:05 +0200
-Subject: [PATCH] riscv: pass machine size to sparse
-Message-ID: <20180528163505.15698-1-luc.vanoostenryck@gmail.com>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Mon, 28 May 2018 17:50:51 -0700
+Subject: [PATCH]  RISCV: Disable timer interrupt in handler to fix nohz.
+Message-ID: <1527555051-166186-1-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-By default, sparse assumes a 64bit machine when compiled on x86-64
-and 32bit when compiled on anything else.
+The timer interrupt pending bit is cleared in bbl while
+reprogramming the timer. This works fine unless we are
+in nohz mode. In nohz mode, the timer is not reprogrammed.
+Thus, the pending bits are not cleared leading to continuous
+timer interrupt firing and cpu stalls.
 
-This can of course create all sort of problems when this doesn't
-correspond to the target's machine size, like issuing false
-warnings like: 'shift too big (32) for type unsigned long' or
-is 64bit while sparse was compiled on a 32bit machine, or worse,
-to not emit legitimate warnings.
+Disable timer interrupt in interrupt handler to ignore
+the pending bit until next interrupt. Timer interrupt
+is enabled again before next timer event is set.
 
-Fix this by passing the appropriate -m32/-m64 flag to sparse.
+The details of the stalls can be found in
+https://github.com/riscv/riscv-linux/issues/127
 
-Signed-off-by: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
+Other possible ideas discussion:
+https://github.com/riscv/riscv-pk/pull/108
+
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/Makefile | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/kernel/time.c          | 6 ++++++
+ drivers/clocksource/riscv_timer.c | 1 +
+ 2 files changed, 7 insertions(+)
 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 76e958a54..cb2502e4c 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -71,6 +71,8 @@ KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-relax)
- # architectures.  It's faster to have GCC emit only aligned accesses.
- KBUILD_CFLAGS += $(call cc-option,-mstrict-align)
+diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
+index 67709cb..0bffb8c 100644
+--- a/arch/riscv/kernel/time.c
++++ b/arch/riscv/kernel/time.c
+@@ -35,6 +35,12 @@ void riscv_timer_interrupt(void)
+ 	 */
+ 	struct clock_event_device *evdev = this_cpu_ptr(&riscv_clock_event);
  
-+CHECKFLAGS += -m$(BITS)
-+
- head-y := arch/riscv/kernel/head.o
- 
- core-y += arch/riscv/kernel/ arch/riscv/mm/
++	/*
++	 * There are no direct SBI calls to clear pending timer interrupt bit.
++	 * Disable timer interrupt to ignore pending interrupt until next
++	 * interrupt.
++	 */
++	csr_clear(sie, SIE_STIE);
+ 	evdev->event_handler(evdev);
+ #endif
+ }
+diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
+index 38867bd..f7ea2d3 100644
+--- a/drivers/clocksource/riscv_timer.c
++++ b/drivers/clocksource/riscv_timer.c
+@@ -36,6 +36,7 @@ static int next_event(unsigned long delta, struct clock_event_device *ce)
+ 	 * harts.
+ 	 */
+ 	BUG_ON(ce != this_cpu_ptr(&riscv_clock_event));
++	csr_set(sie, SIE_STIE);
+ 	sbi_set_timer(get_cycles64() + delta);
+ 	return 0;
+ }
 -- 
-2.17.0
+2.7.4
