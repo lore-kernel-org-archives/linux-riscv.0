@@ -1,37 +1,35 @@
 From: luc.vanoostenryck@gmail.com (Luc Van Oostenryck)
-Date: Thu, 31 May 2018 17:42:01 +0200
-Subject: [PATCH] riscv: add riscv-specific predefines to CHECKFLAGS
-Message-ID: <20180531154201.48618-1-luc.vanoostenryck@gmail.com>
+Date: Fri,  1 Jun 2018 17:21:22 +0200
+Subject: [PATCH 2/3] riscv: no __user for probe_kernel_address()
+In-Reply-To: <20180601152123.47256-1-luc.vanoostenryck@gmail.com>
+References: <20180601152123.47256-1-luc.vanoostenryck@gmail.com>
+Message-ID: <20180601152123.47256-3-luc.vanoostenryck@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-RISC-V uses the macro __riscv_xlen, predefined by GCC, to
-make the distinction between 32 or 64 bit code.
+In is_valid_bugaddr(), probe_kernel_address() is called with
+the PC casted to (bug_inst_t __user *) but this function
+only take a plain void* as argument, not a __user pointer.
 
-However, sparse doesn't know anything about this macro
-which lead to wrong warnings and failures.
-
-Fix this by adding a define of __riscv_xlen to CHECKFLAGS
-and add one for __riscv too.
+Fix this by removing the unnneded __user in the cast.
 
 Signed-off-by: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
 ---
- arch/riscv/Makefile | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/riscv/kernel/traps.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 76e958a54..6d4a5f6c3 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -71,6 +71,9 @@ KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-relax)
- # architectures.  It's faster to have GCC emit only aligned accesses.
- KBUILD_CFLAGS += $(call cc-option,-mstrict-align)
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 93132cb59..4c92e5af8 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -160,7 +160,7 @@ int is_valid_bugaddr(unsigned long pc)
  
-+# arch specific predefines for sparse
-+CHECKFLAGS += -D__riscv -D__riscv_xlen=$(BITS)
-+
- head-y := arch/riscv/kernel/head.o
- 
- core-y += arch/riscv/kernel/ arch/riscv/mm/
+ 	if (pc < PAGE_OFFSET)
+ 		return 0;
+-	if (probe_kernel_address((bug_insn_t __user *)pc, insn))
++	if (probe_kernel_address((bug_insn_t *)pc, insn))
+ 		return 0;
+ 	return (insn == __BUG_INSN);
+ }
 -- 
 2.17.1
