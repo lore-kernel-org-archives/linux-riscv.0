@@ -1,49 +1,63 @@
 From: luc.vanoostenryck@gmail.com (Luc Van Oostenryck)
-Date: Fri,  1 Jun 2018 17:21:21 +0200
-Subject: [PATCH 1/3] riscv: use NULL instead of a plain 0
+Date: Fri,  1 Jun 2018 17:21:23 +0200
+Subject: [PATCH 3/3] riscv: fix __user annotation for __copy_user()
 In-Reply-To: <20180601152123.47256-1-luc.vanoostenryck@gmail.com>
 References: <20180601152123.47256-1-luc.vanoostenryck@gmail.com>
-Message-ID: <20180601152123.47256-2-luc.vanoostenryck@gmail.com>
+Message-ID: <20180601152123.47256-4-luc.vanoostenryck@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-sbi_remote_sfence_vma() & sbi_remote_fence_i() takes
-a pointer as first argument but some macros call them with
-a plain 0 which, while legal C, is frowned upon in the kernel.
+__copy_user() is a function, written in assembly, used to copy
+memory between kernel & user space. As such its to & from args
+may both take a user pointer or a kernel pointer.
 
-Change this by replacing the 0 by NULL.
+However the prototype for this function declare these two args
+as 'void __user *', which is no more & no less correct than
+declaring them as 'void *'. In fact theer is no possible correct
+annotation for such a function.
+
+The problem is worked around here by declaring these args as
+unsigned long and casting them to the right type in each of
+two callers raw_copy_{to,from}_user() as some kind of cast would
+be needed anyway.
+
+Note: another solution, maybe cleaner but slightly more complex,
+      would be to declare two version of __copy_user,
+      either in the asm file or via an alias, each having already
+      the correct typing for raw_copy_{to,from}_user().
 
 Signed-off-by: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
 ---
- arch/riscv/include/asm/cacheflush.h | 2 +-
- arch/riscv/include/asm/tlbflush.h   | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/uaccess.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index efd89a88d..8f1307441 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -47,7 +47,7 @@ static inline void flush_dcache_page(struct page *page)
+diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+index 14b0b22fb..c7a6a4a4a 100644
+--- a/arch/riscv/include/asm/uaccess.h
++++ b/arch/riscv/include/asm/uaccess.h
+@@ -392,19 +392,19 @@ do {								\
+ })
  
- #else /* CONFIG_SMP */
  
--#define flush_icache_all() sbi_remote_fence_i(0)
-+#define flush_icache_all() sbi_remote_fence_i(NULL)
- void flush_icache_mm(struct mm_struct *mm, bool local);
+-extern unsigned long __must_check __copy_user(void __user *to,
+-	const void __user *from, unsigned long n);
++extern unsigned long __must_check __copy_user(unsigned long to,
++	const unsigned long from, unsigned long n);
  
- #endif /* CONFIG_SMP */
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 7b209aec3..85c2d8bae 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -49,7 +49,7 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
+ static inline unsigned long
+ raw_copy_from_user(void *to, const void __user *from, unsigned long n)
+ {
+-	return __copy_user(to, from, n);
++	return __copy_user((unsigned long)to, (unsigned long)from, n);
+ }
  
- #include <asm/sbi.h>
+ static inline unsigned long
+ raw_copy_to_user(void __user *to, const void *from, unsigned long n)
+ {
+-	return __copy_user(to, from, n);
++	return __copy_user((unsigned long)to, (unsigned long)from, n);
+ }
  
--#define flush_tlb_all() sbi_remote_sfence_vma(0, 0, -1)
-+#define flush_tlb_all() sbi_remote_sfence_vma(NULL, 0, -1)
- #define flush_tlb_page(vma, addr) flush_tlb_range(vma, addr, 0)
- #define flush_tlb_range(vma, start, end) \
- 	sbi_remote_sfence_vma(mm_cpumask((vma)->vm_mm)->bits, \
+ extern long strncpy_from_user(char *dest, const char __user *src, long count);
 -- 
 2.17.1
