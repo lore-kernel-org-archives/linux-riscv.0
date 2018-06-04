@@ -1,37 +1,77 @@
-From: catalin.marinas@arm.com (Catalin Marinas)
-Date: Mon, 4 Jun 2018 16:12:24 +0100
-Subject: [PATCH v9 00/12] Support PPTT for ARM64
-In-Reply-To: <20180517170523.h7tuvbzdfluuidcz@armageddon.cambridge.arm.com>
-References: <20180511235807.30834-1-jeremy.linton@arm.com>
- <20180517170523.h7tuvbzdfluuidcz@armageddon.cambridge.arm.com>
-Message-ID: <20180604151223.tmwllb72lqopff2y@armageddon.cambridge.arm.com>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Mon, 4 Jun 2018 11:46:50 -0700
+Subject: [PATCH 3/3] riscv: fix __user annotation for __copy_user()
+In-Reply-To: <20180601152123.47256-4-luc.vanoostenryck@gmail.com>
+References: <20180601152123.47256-1-luc.vanoostenryck@gmail.com>
+ <20180601152123.47256-4-luc.vanoostenryck@gmail.com>
+Message-ID: <235fec3e-be2e-874a-8313-e7390fcdca74@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, May 17, 2018 at 06:05:24PM +0100, Catalin Marinas wrote:
-> On Fri, May 11, 2018 at 06:57:55PM -0500, Jeremy Linton wrote:
-> > Jeremy Linton (12):
-> >   drivers: base: cacheinfo: move cache_setup_of_node()
-> >   drivers: base: cacheinfo: setup DT cache properties early
-> >   cacheinfo: rename of_node to fw_token
-> >   arm64/acpi: Create arch specific cpu to acpi id helper
-> >   ACPI/PPTT: Add Processor Properties Topology Table parsing
-> >   ACPI: Enable PPTT support on ARM64
-> >   drivers: base cacheinfo: Add support for ACPI based firmware tables
-> >   arm64: Add support for ACPI based firmware tables
-> >   arm64: topology: rename cluster_id
-> >   arm64: topology: enable ACPI/PPTT based CPU topology
-> >   ACPI: Add PPTT to injectable table list
-> >   arm64: topology: divorce MC scheduling domain from core_siblings
+On 6/1/18 8:22 AM, Luc Van Oostenryck wrote:
+> __copy_user() is a function, written in assembly, used to copy
+> memory between kernel & user space. As such its to & from args
+> may both take a user pointer or a kernel pointer.
 > 
-> Queued for 4.18 (without Sudeep's latest property_read_u64 cacheinfo
-> patch - http://lkml.kernel.org/r/20180517154701.GA20281 at e107155-lin; I
-> can add it separately).
+> However the prototype for this function declare these two args
+> as 'void __user *', which is no more & no less correct than
+> declaring them as 'void *'. In fact theer is no possible correct
 
-I'm going to revert patch 12 in this series (arm64: topology: divorce MC
-scheduling domain from core_siblings) until the problem is understood
-and a fix proposed and tested. It's likely that the PPTT for arm64 will
-only be fully enabled in 4.19.
+/s/theer/there
 
--- 
-Catalin
+> annotation for such a function.
+> 
+> The problem is worked around here by declaring these args as
+> unsigned long and casting them to the right type in each of
+> two callers raw_copy_{to,from}_user() as some kind of cast would
+> be needed anyway.
+> 
+> Note: another solution, maybe cleaner but slightly more complex,
+>        would be to declare two version of __copy_user,
+>        either in the asm file or via an alias, each having already
+>        the correct typing for raw_copy_{to,from}_user().
+> 
+
+I feel that would be a better solution as it is implemented similarly
+in ARM as well.
+
+I am unable to understand how "unsigned long" is better than "void*".
+x86 implementation has both arguments as void*. Can you please clarify ?
+
+
+Regards,
+Atish
+> Signed-off-by: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
+> ---
+>   arch/riscv/include/asm/uaccess.h | 8 ++++----
+>   1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+> index 14b0b22fb..c7a6a4a4a 100644
+> --- a/arch/riscv/include/asm/uaccess.h
+> +++ b/arch/riscv/include/asm/uaccess.h
+> @@ -392,19 +392,19 @@ do {								\
+>   })
+>   
+>   
+> -extern unsigned long __must_check __copy_user(void __user *to,
+> -	const void __user *from, unsigned long n);
+> +extern unsigned long __must_check __copy_user(unsigned long to,
+> +	const unsigned long from, unsigned long n);
+>   
+>   static inline unsigned long
+>   raw_copy_from_user(void *to, const void __user *from, unsigned long n)
+>   {
+> -	return __copy_user(to, from, n);
+> +	return __copy_user((unsigned long)to, (unsigned long)from, n);
+>   }
+>   
+>   static inline unsigned long
+>   raw_copy_to_user(void __user *to, const void *from, unsigned long n)
+>   {
+> -	return __copy_user(to, from, n);
+> +	return __copy_user((unsigned long)to, (unsigned long)from, n);
+>   }
+>   
+>   extern long strncpy_from_user(char *dest, const char __user *src, long count);
+> 
