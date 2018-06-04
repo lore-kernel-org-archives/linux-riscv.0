@@ -1,54 +1,95 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon,  4 Jun 2018 13:50:10 -0700
-Subject: [PATCH 1/2] MAINTAINERS: Add myself as a maintainer for SiFive's
- drivers
-In-Reply-To: <20180604205011.23086-1-palmer@sifive.com>
-References: <20180604205011.23086-1-palmer@sifive.com>
-Message-ID: <20180604205011.23086-2-palmer@sifive.com>
+Date: Mon, 04 Jun 2018 15:20:30 -0700 (PDT)
+Subject: [PATCH v2 0/2] Fix timer initialization and Add support hotplug.
+In-Reply-To: <8634608d-e2ef-799f-bc80-ea6ab07a0f89@wdc.com>
+Message-ID: <mhng-d859aa6f-89c8-4a07-81e6-330dfc23870d@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-There aren't actually any files in the tree that match these patterns
-right now, but we've just started submitting our drivers so I thought it
-would be good to make sure there's at least someone at SiFive who's
-listed as maintaining them.  I'm leaving the RISC-V lists on here
-because:
+On Mon, 28 May 2018 18:15:03 PDT (-0700), atish.patra at wdc.com wrote:
+> On 5/21/18 1:43 PM, Atish Patra wrote:
+>> On 5/18/18 5:37 PM, Palmer Dabbelt wrote:
+>>> On Wed, 09 May 2018 15:02:20 PDT (-0700), atish.patra at wdc.com wrote:
+>>>> The patch (1/2)fixes issues around timer initialization. This fix is
+>>>> required for CPU hotplug to work. That's why they are clubbed into one
+>>>> series. I can separate them if required.
+>>>>
+>>>> Changes from v1 to v2:
+>>>> 1. Removed compiler warnings about unused variables.
+>>>>
+>>>> Atish Patra (2):
+>>>>     RISCV: Register clocksource and events correctly
+>>>>     RISCV: Support cpu hotplug.
+>>>>
+>>>>    arch/riscv/Kconfig                | 11 ++++++-
+>>>>    arch/riscv/include/asm/csr.h      |  1 +
+>>>>    arch/riscv/include/asm/smp.h      |  9 ++++--
+>>>>    arch/riscv/kernel/head.S          | 12 +++++++
+>>>>    arch/riscv/kernel/process.c       |  7 +++++
+>>>>    arch/riscv/kernel/setup.c         | 17 ++++++++++
+>>>>    arch/riscv/kernel/smpboot.c       | 66 +++++++++++++++++++++++++++++++++++++--
+>>>>    arch/riscv/kernel/time.c          |  9 +-----
+>>>>    arch/riscv/kernel/traps.c         |  6 ++--
+>>>>    drivers/clocksource/riscv_timer.c | 44 +++++++++++++++++---------
+>>>>    include/linux/cpuhotplug.h        |  1 +
+>>>>    11 files changed, 150 insertions(+), 33 deletions(-)
+>>>
+>>> Sorry I'm a bit slow here: I was meaning to fix this up.  I think this patch
+>>> set was made against something like riscv-all, which has a bunch of additional
+>>> cruft in it.
+>>
+>> Yeah. It is based on riscv-all because my changes also depend on initial
+>> timer patches.
+>>
+>> Do you mind updating it to be against Linus' master?
+>>
+>> I can do it. But my patches won't work without the initial timer
+>> patches. I am not sure how to proceed in that case.
+>>
+>> Do you want only hotplug patch (2/2) or I can squash the entire
+>> wip-timer patches into couple of sane ones and post them to mailing list ?
+>>
+>
+> As per our discussion, these patches has to be part of wip-timer until
+> interrupt issues are straightened and ready for upstream. All the timer
+> related patches will go on top of it.
+>
+>> Regards,
+>> Atish
+>>
+>>>
+>>
+>>
+> I was reviewing the base timer patches. I have a question about the patch.
+> clocksource: New RISC-V SBI timer driver (ea8ec64).
+>
+> The riscv_timer.h has a well defined per hart timer explanation in the
+> comment and following function declaration. However, I can't find any
+> reference to following functions.
+>
+> +void timer_riscv_init(int cpu_id,
+> +		      unsigned long riscv_timebase,
+> +		      int (*next_event)(unsigned long, struct clock_event_device *));
+> +
+> +void clocksource_riscv_init(unsigned long long (*rdtime)(struct
+> clocksource *));
+>
+> Are these redundant code or I missed something ?
+>
+> If you agree with me, I can send a v3 removing these (will move the
+> comment to riscv_timer.c).
 
-* As of today, all the RISC-V ASICs that people can actually buy are
-  from SiFive -- though hopefully there'll be more soon!
-* The RTL for many of our devices is open source, so I anticipate these
-  devices might make they way chips from other vendors.
-* We may standardize some of these devices as part of a RISC-V
-  specification at some point in the future.
+I see these in riscv_timer.c on my copy of wip-timer
 
-I'm a bit swamped right now so I might not be the most active maintainer
-of these drivers, but I think it'd be good to make sure someone who has
-hardware access gets CC'd on updates to our drivers just as a sanity
-check.  Hopefully that's an OK way to handle this.
+    e56e8bd48eca (HEAD -> wip-timer, kernel.org-palmer/wip-timer) RISCV: Disable timer interrupt in handler to fix nohz.
+    2b030aa93236 RISCV: Support cpu hotplug.
+    1b35cd828f29 RISCV: Register clocksource and events correctly
+    30540340a51e riscv_timer: add support for sched_clock
+    d6ad991df6fa clocksource: RISC-V: Match up with the current DTS
+    c48b6c686f01 Revert "clocksource: riscv_timer: split boot and secondary cpu timer init"
+    baf107699d0f RISC-V: Support per-hart timebase-frequency
+    1e955d9ecfbe clocksource: riscv_timer: split boot and secondary cpu timer init
+    ea8ec6497122 clocksource: New RISC-V SBI timer driver
+    60cc43fc8884 (tag: v4.17-rc1, wip-cpu_hotplog) Linux 4.17-rc1
 
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 9c125f705f78..a8f906d1d1e2 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -12764,6 +12764,14 @@ F:	drivers/media/usb/siano/
- F:	drivers/media/usb/siano/
- F:	drivers/media/mmc/siano/
- 
-+SIFIVE DRIVERS
-+M:	Palmer Dabbelt <palmer@sifive.com>
-+L:	linux-riscv at lists.infradead.org
-+T:	git git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git
-+S:	Supported
-+K:	sifive
-+N:	sifive
-+
- SILEAD TOUCHSCREEN DRIVER
- M:	Hans de Goede <hdegoede@redhat.com>
- L:	linux-input at vger.kernel.org
--- 
-2.16.4
+did I screw something up?
