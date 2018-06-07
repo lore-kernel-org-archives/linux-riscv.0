@@ -1,99 +1,115 @@
-From: luc.vanoostenryck@gmail.com (Luc Van Oostenryck)
-Date: Thu, 7 Jun 2018 18:51:33 +0200
-Subject: [PATCH 3/3] riscv: fix __user annotation for __copy_user()
-In-Reply-To: <mhng-497a442f-c0da-4f88-9b48-827c4f164ed1@palmer-si-x1c4>
-References: <6a0ab99d-6e4d-eb80-bc4d-854d154ae827@wdc.com>
- <mhng-497a442f-c0da-4f88-9b48-827c4f164ed1@palmer-si-x1c4>
-Message-ID: <20180607165131.5qx43o6f2siwyivj@ltop.local>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Thu, 07 Jun 2018 14:14:34 -0700 (PDT)
+Subject: [PATCH v2 0/2] Fix timer initialization and Add support hotplug.
+In-Reply-To: <c319fbfd-d499-3c4c-c7ec-984ae07996e8@wdc.com>
+Message-ID: <mhng-9c84cc1f-f28d-4310-9612-c2035ba05175@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Jun 07, 2018 at 09:30:19AM -0700, Palmer Dabbelt wrote:
-> 
-> I haven't compiled this, but I think it should work.  It's on the
-> fix-sparse branch of kernel.org/palmer/linux.git .
-
-It's essentially what I was thinking but I have some small remarks.
- 
-> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-> index 14b0b22fb578..0dbbbab05dac 100644
-> --- a/arch/riscv/include/asm/uaccess.h
-> +++ b/arch/riscv/include/asm/uaccess.h
-> @@ -392,19 +392,21 @@ do {								\
-> })
-> 
-> 
-> -extern unsigned long __must_check __copy_user(void __user *to,
-> +extern unsigned long __must_check __asm_copy_from_user_user(void *to,
-> 	const void __user *from, unsigned long n);
-> +extern unsigned long __must_check __asm_copy_to_user_user(void __user *to,
-> +	const void *from, unsigned long n);
-> 
-> static inline unsigned long
-> raw_copy_from_user(void *to, const void __user *from, unsigned long n)
-> {
-> -	return __copy_user(to, from, n);
-> +	return __asm_copy_from_user(to, from, n);
-> }
-> 
-> static inline unsigned long
-> raw_copy_to_user(void __user *to, const void *from, unsigned long n)
-> {
-> -	return __copy_user(to, from, n);
-> +	return __asm_copy_to_user(to, from, n);
-> }
-
-The asm function could have directly be named raw_copy_{to,from}_user()
-because the inline functions are just no-ops but it's very clear like so.
-
-> extern long strncpy_from_user(char *dest, const char __user *src, long count);
-> diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-> index 58fb2877c865..bd51e47ebd44 100644
-> --- a/arch/riscv/lib/uaccess.S
-> +++ b/arch/riscv/lib/uaccess.S
-> @@ -13,7 +13,15 @@ _epc:
-> 	.previous
-> 	.endm
-> 
-> -ENTRY(__copy_user)
-> +/* __asm_copy_to_user and __asm_copy_from_user are actually the same function,
-> + * they're just provided as two different symbols to C code so sparse doesn't
-> + * yell about casting between two different address spaces. */
-> +.global __asm_copy_to_user
-> +.set __asm_copy_to_user,__asm_copy_tofrom_user
-> +.global __asm_copy_from_user
-> +.set __asm_copy_from_user,__asm_copy_tofrom_user
+On Mon, 04 Jun 2018 15:34:59 PDT (-0700), atish.patra at wdc.com wrote:
+> On 6/4/18 3:20 PM, Palmer Dabbelt wrote:
+>> On Mon, 28 May 2018 18:15:03 PDT (-0700), atish.patra at wdc.com wrote:
+>>> On 5/21/18 1:43 PM, Atish Patra wrote:
+>>>> On 5/18/18 5:37 PM, Palmer Dabbelt wrote:
+>>>>> On Wed, 09 May 2018 15:02:20 PDT (-0700), atish.patra at wdc.com wrote:
+>>>>>> The patch (1/2)fixes issues around timer initialization. This fix is
+>>>>>> required for CPU hotplug to work. That's why they are clubbed into one
+>>>>>> series. I can separate them if required.
+>>>>>>
+>>>>>> Changes from v1 to v2:
+>>>>>> 1. Removed compiler warnings about unused variables.
+>>>>>>
+>>>>>> Atish Patra (2):
+>>>>>>      RISCV: Register clocksource and events correctly
+>>>>>>      RISCV: Support cpu hotplug.
+>>>>>>
+>>>>>>     arch/riscv/Kconfig                | 11 ++++++-
+>>>>>>     arch/riscv/include/asm/csr.h      |  1 +
+>>>>>>     arch/riscv/include/asm/smp.h      |  9 ++++--
+>>>>>>     arch/riscv/kernel/head.S          | 12 +++++++
+>>>>>>     arch/riscv/kernel/process.c       |  7 +++++
+>>>>>>     arch/riscv/kernel/setup.c         | 17 ++++++++++
+>>>>>>     arch/riscv/kernel/smpboot.c       | 66 +++++++++++++++++++++++++++++++++++++--
+>>>>>>     arch/riscv/kernel/time.c          |  9 +-----
+>>>>>>     arch/riscv/kernel/traps.c         |  6 ++--
+>>>>>>     drivers/clocksource/riscv_timer.c | 44 +++++++++++++++++---------
+>>>>>>     include/linux/cpuhotplug.h        |  1 +
+>>>>>>     11 files changed, 150 insertions(+), 33 deletions(-)
+>>>>>
+>>>>> Sorry I'm a bit slow here: I was meaning to fix this up.  I think this patch
+>>>>> set was made against something like riscv-all, which has a bunch of additional
+>>>>> cruft in it.
+>>>>
+>>>> Yeah. It is based on riscv-all because my changes also depend on initial
+>>>> timer patches.
+>>>>
+>>>> Do you mind updating it to be against Linus' master?
+>>>>
+>>>> I can do it. But my patches won't work without the initial timer
+>>>> patches. I am not sure how to proceed in that case.
+>>>>
+>>>> Do you want only hotplug patch (2/2) or I can squash the entire
+>>>> wip-timer patches into couple of sane ones and post them to mailing list ?
+>>>>
+>>>
+>>> As per our discussion, these patches has to be part of wip-timer until
+>>> interrupt issues are straightened and ready for upstream. All the timer
+>>> related patches will go on top of it.
+>>>
+>>>> Regards,
+>>>> Atish
+>>>>
+>>>>>
+>>>>
+>>>>
+>>> I was reviewing the base timer patches. I have a question about the patch.
+>>> clocksource: New RISC-V SBI timer driver (ea8ec64).
+>>>
+>>> The riscv_timer.h has a well defined per hart timer explanation in the
+>>> comment and following function declaration. However, I can't find any
+>>> reference to following functions.
+>>>
+>>> +void timer_riscv_init(int cpu_id,
+>>> +		      unsigned long riscv_timebase,
+>>> +		      int (*next_event)(unsigned long, struct clock_event_device *));
+>>> +
+>>> +void clocksource_riscv_init(unsigned long long (*rdtime)(struct
+>>> clocksource *));
+>>>
+>>> Are these redundant code or I missed something ?
+>>>
+>>> If you agree with me, I can send a v3 removing these (will move the
+>>> comment to riscv_timer.c).
+>>
+>> I see these in riscv_timer.c on my copy of wip-timer
+>>
+>>      e56e8bd48eca (HEAD -> wip-timer, kernel.org-palmer/wip-timer) RISCV: Disable timer interrupt in handler to fix nohz.
+>>      2b030aa93236 RISCV: Support cpu hotplug.
+>>      1b35cd828f29 RISCV: Register clocksource and events correctly
+>>      30540340a51e riscv_timer: add support for sched_clock
+>>      d6ad991df6fa clocksource: RISC-V: Match up with the current DTS
+>>      c48b6c686f01 Revert "clocksource: riscv_timer: split boot and secondary cpu timer init"
+>>      baf107699d0f RISC-V: Support per-hart timebase-frequency
+>>      1e955d9ecfbe clocksource: riscv_timer: split boot and secondary cpu timer init
+>>      ea8ec6497122 clocksource: New RISC-V SBI timer driver
+>>      60cc43fc8884 (tag: v4.17-rc1, wip-cpu_hotplog) Linux 4.17-rc1
+>>
+>> did I screw something up?
+>
+> Nope. Sorry for not being clear enough.
+>
+> +void timer_riscv_init(int cpu_id,
+> +		      unsigned long riscv_timebase,
+> +		      int (*next_event)(unsigned long, struct clock_event_device *));
 > +
-> +ENTRY(__asm_copy_tofrom_user)
+> +void clocksource_riscv_init(unsigned long long (*rdtime)(struct
+> clocksource *));
+>
+> I was asking about utility of above two functions added as a part of
+> commit ea8ec6497122. I couldn't find any usage of these two.
+>
+> Shall we remove them and move the comment in that file to riscv_timer.c ?
 
-I don't think that the size (as reported by objdump, for example) will
-be correct or even present for __asm_copy_to_user & __asm_copy_to_user.
-
-What can be done is:
-	ENTRY(__asm_copy_to_user)
-	ENTRY(__asm_copy_from_user)
-
-	<function definition>
-
-	ENDPROC(__asm_copy_to_user)
-	ENDPROC(__asm_copy_from_user)
-
-
-Finally, the symbol table need also something like:
-diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
-index 551734248..1e8f8fa54 100644
---- a/arch/riscv/kernel/riscv_ksyms.c
-+++ b/arch/riscv/kernel/riscv_ksyms.c
-@@ -13,6 +13,7 @@
-  * Assembly functions that may be used (directly or indirectly) by modules
-  */
- EXPORT_SYMBOL(__clear_user);
--EXPORT_SYMBOL(__copy_user);
-+EXPORT_SYMBOL(__asm_copy_to_user);
-+EXPORT_SYMBOL(__asm_copy_from_user);
- EXPORT_SYMBOL(memset);
- EXPORT_SYMBOL(memcpy);
-
-
-Best regards,
--- Luc
+Ah, I think this will all need to be rebased at some point to clean up the 
+commit history, as it's become a bit of a mess.  If they're dead in the head of 
+wip-timer then it's sufficient for now.
