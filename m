@@ -1,107 +1,53 @@
-From: alankao@andestech.com (Alan Kao)
-Date: Wed, 6 Jun 2018 11:16:56 +0800
-Subject: [PATCH v5 0/2] perf: riscv: Preliminary Perf Event Support on
- RISC-V
-In-Reply-To: <mhng-aec39091-7a3b-4def-99f3-577e023c6919@palmer-si-x1c4>
-References: <20180425031936.GA7303@andestech.com>
- <mhng-aec39091-7a3b-4def-99f3-577e023c6919@palmer-si-x1c4>
-Message-ID: <20180606031655.GB31803@andestech.com>
+From: schwab@suse.de (Andreas Schwab)
+Date: Thu, 07 Jun 2018 12:27:27 +0200
+Subject: [PATCH] RISC-V: Handle R_RISCV_32 in modules
+Message-ID: <mvm7enaki28.fsf@suse.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Apr 25, 2018 at 09:39:04AM -0700, Palmer Dabbelt wrote:
-> On Tue, 24 Apr 2018 20:19:36 PDT (-0700), alankao at andestech.com wrote:
-> >Hi Atish, Palmer,
-> >
-> >On Tue, Apr 24, 2018 at 06:15:49PM -0700, Atish Patra wrote:
-> >>On 4/24/18 5:29 PM, Palmer Dabbelt wrote:
-> >>>On Tue, 24 Apr 2018 15:16:16 PDT (-0700), atish.patra at wdc.com wrote:
-> >>>>On 4/24/18 12:44 PM, Palmer Dabbelt wrote:
-> >>>>>On Tue, 24 Apr 2018 12:27:26 PDT (-0700), atish.patra at wdc.com wrote:
-> >>>>>>On 4/24/18 11:07 AM, Atish Patra wrote:
-> >>>>>>>On 4/19/18 4:28 PM, Alan Kao wrote:
-> >>>>>>>However, I got an rcu-stall for the test "47: Event times".
-> >>>>>>># ./perf test -v 47
-> >>>>>>Got it working. The test tries to attach the event to CPU0 which doesn't
-> >>>>>>exist in HighFive Unleashed. Changing it to cpu1 works.
-> >>>>>>
-> >>>>>>diff --git a/tools/perf/tests/event-times.c b/tools/perf/tests/event-times.c
-> >>>>>>index 1a2686f..eb11632f 100644
-> >>>>>>--- a/tools/perf/tests/event-times.c
-> >>>>>>+++ b/tools/perf/tests/event-times.c
-> >>>>>>@@ -113,9 +113,9 @@ static int attach__cpu_disabled(struct perf_evlist
-> >>>>>>*evlist)
-> >>>>>>           struct cpu_map *cpus;
-> >>>>>>           int err;
-> >>>>>>
-> >>>>>>-       pr_debug("attaching to CPU 0 as enabled\n");
-> >>>>>>+       pr_debug("attaching to CPU 1 as disabled\n");
-> >>>>>>
-> >>>>>>-       cpus = cpu_map__new("0");
-> >>>>>>+       cpus = cpu_map__new("1");
-> >>>>>>           if (cpus == NULL) {
-> >>>>>>                   pr_debug("failed to call cpu_map__new\n");
-> >>>>>>                   return -1;
-> >>>>>>@@ -142,9 +142,9 @@ static int attach__cpu_enabled(struct perf_evlist
-> >>>>>>*evlist)
-> >>>>>>           struct cpu_map *cpus;
-> >>>>>>           int err;
-> >>>>>>
-> >>>>>>-       pr_debug("attaching to CPU 0 as enabled\n");
-> >>>>>>+       pr_debug("attaching to CPU 1 as enabled\n");
-> >>>>>>
-> >>>>>>-       cpus = cpu_map__new("0");
-> >>>>>>+       cpus = cpu_map__new("1");
-> >>>>>>           if (cpus == NULL) {
-> >>>>>>                   pr_debug("failed to call cpu_map__new\n");
-> >>>>>>                   return -1;
-> >>>>>>
-> >>>>>>
-> >>>>>>Palmer,
-> >>>>>>Would it be better to officially document it somewhere that CPU0 doesn't
-> >>>>>>exist in the HighFive Unleashed board ?
-> >>>>>>I fear that there will be other standard tests/code path that may fail
-> >>>>>>because of inherent assumption of cpu0 presence.
-> >>>>>
-> >>>>>I think the best way to fix this is to just have BBL (or whatever the
-> >>>>>bootloader is) renumber the CPUs so they're contiguous and begin with 0.
-> >>>>
-> >>>>Do you mean BBL will update the device tree that kernel eventually parse
-> >>>>and set the hart id?
-> >>>>Sounds good to me unless it acts as a big hack in future boot loaders.
-> >>>
-> >>>Right now the machine-mode and supervisor-mode hart IDs are logically separate:
-> >>>the bootloader just provides the hart ID as a register argument when starting
-> >>>the kernel.
-> >>
-> >>Yes.
-> >>
-> >>  BBL already needs to enumerate the harts by looking through the
-> >>>device tree for various other reasons (at least to mask off the harts that
-> >>>Linux doesn't support), so it's not that much effort to just maintain a mapping
-> >>>from supervisor-mode hart IDs to machine-mode hart IDs.
-> >>>
-> >>
-> >>But Linux also parses the device tree to get hart ID in
-> >>riscv_of_processor_hart(). This is used to setup the possible/present cpu
-> >>map in setup_smp().
-> >>
-> >>Thus, Linux also need to see a device tree with cpu0-3 instead of cpu1-4.
-> >>Otherwise, present cpu map will be incorrect. Isn't it ?
-> >>
-> >>>I have some patches floating around that do this, but appear to do it
-> >>>incorrectly enough that nothing boots so maybe I'm missing something that makes
-> >>>this complicated :).
-> >>>
-> >>
-> >>Just a wild guess: May be the because of the above reason ;)
-> >>
-> >
-> >Thanks for the test and discussion.  It looks like am implementation issue from
-> >Unleash, so ... is there anything I should fix and provide a further patch?
-> 
-> You're welcome to fix BBL if you want, but that's unrelated to this patch
-> set.  I'm going to look over the code again as soon as I get a chance to,
-> thanks for submitting the patches!
+With CONFIG_MODVERSIONS=y the R_RISCV_32 relocation is used by the
+__kcrctab section.
 
-Any updates?
+Signed-off-by: Andreas Schwab <schwab@suse.de>
+---
+ arch/riscv/kernel/module.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 5dddba301d..1d5e9b934b 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -17,6 +17,17 @@
+ #include <linux/errno.h>
+ #include <linux/moduleloader.h>
+ 
++static int apply_r_riscv_32_rela(struct module *me, u32 *location, Elf_Addr v)
++{
++	if (v != (u32)v) {
++		pr_err("%s: value %016llx out of range for 32-bit field\n",
++		       me->name, v);
++		return -EINVAL;
++	}
++	*location = v;
++	return 0;
++}
++
+ static int apply_r_riscv_64_rela(struct module *me, u32 *location, Elf_Addr v)
+ {
+ 	*(u64 *)location = v;
+@@ -265,6 +276,7 @@ static int apply_r_riscv_sub32_rela(struct module *me, u32 *location,
+ 
+ static int (*reloc_handlers_rela[]) (struct module *me, u32 *location,
+ 				Elf_Addr v) = {
++	[R_RISCV_32]			= apply_r_riscv_32_rela,
+ 	[R_RISCV_64]			= apply_r_riscv_64_rela,
+ 	[R_RISCV_BRANCH]		= apply_r_riscv_branch_rela,
+ 	[R_RISCV_JAL]			= apply_r_riscv_jal_rela,
+-- 
+2.17.1
+
+
+-- 
+Andreas Schwab, SUSE Labs, schwab at suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
