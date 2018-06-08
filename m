@@ -1,115 +1,57 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 07 Jun 2018 14:14:34 -0700 (PDT)
-Subject: [PATCH v2 0/2] Fix timer initialization and Add support hotplug.
-In-Reply-To: <c319fbfd-d499-3c4c-c7ec-984ae07996e8@wdc.com>
-Message-ID: <mhng-9c84cc1f-f28d-4310-9612-c2035ba05175@palmer-si-x1c4>
+Date: Fri, 08 Jun 2018 15:33:35 -0700 (PDT)
+Subject: [PATCH] RISC-V: Handle R_RISCV_32 in modules
+In-Reply-To: <mvm7enaki28.fsf@suse.de>
+Message-ID: <mhng-3f91f2da-55ae-41b8-b5b2-956ea638bed0@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 04 Jun 2018 15:34:59 PDT (-0700), atish.patra at wdc.com wrote:
-> On 6/4/18 3:20 PM, Palmer Dabbelt wrote:
->> On Mon, 28 May 2018 18:15:03 PDT (-0700), atish.patra at wdc.com wrote:
->>> On 5/21/18 1:43 PM, Atish Patra wrote:
->>>> On 5/18/18 5:37 PM, Palmer Dabbelt wrote:
->>>>> On Wed, 09 May 2018 15:02:20 PDT (-0700), atish.patra at wdc.com wrote:
->>>>>> The patch (1/2)fixes issues around timer initialization. This fix is
->>>>>> required for CPU hotplug to work. That's why they are clubbed into one
->>>>>> series. I can separate them if required.
->>>>>>
->>>>>> Changes from v1 to v2:
->>>>>> 1. Removed compiler warnings about unused variables.
->>>>>>
->>>>>> Atish Patra (2):
->>>>>>      RISCV: Register clocksource and events correctly
->>>>>>      RISCV: Support cpu hotplug.
->>>>>>
->>>>>>     arch/riscv/Kconfig                | 11 ++++++-
->>>>>>     arch/riscv/include/asm/csr.h      |  1 +
->>>>>>     arch/riscv/include/asm/smp.h      |  9 ++++--
->>>>>>     arch/riscv/kernel/head.S          | 12 +++++++
->>>>>>     arch/riscv/kernel/process.c       |  7 +++++
->>>>>>     arch/riscv/kernel/setup.c         | 17 ++++++++++
->>>>>>     arch/riscv/kernel/smpboot.c       | 66 +++++++++++++++++++++++++++++++++++++--
->>>>>>     arch/riscv/kernel/time.c          |  9 +-----
->>>>>>     arch/riscv/kernel/traps.c         |  6 ++--
->>>>>>     drivers/clocksource/riscv_timer.c | 44 +++++++++++++++++---------
->>>>>>     include/linux/cpuhotplug.h        |  1 +
->>>>>>     11 files changed, 150 insertions(+), 33 deletions(-)
->>>>>
->>>>> Sorry I'm a bit slow here: I was meaning to fix this up.  I think this patch
->>>>> set was made against something like riscv-all, which has a bunch of additional
->>>>> cruft in it.
->>>>
->>>> Yeah. It is based on riscv-all because my changes also depend on initial
->>>> timer patches.
->>>>
->>>> Do you mind updating it to be against Linus' master?
->>>>
->>>> I can do it. But my patches won't work without the initial timer
->>>> patches. I am not sure how to proceed in that case.
->>>>
->>>> Do you want only hotplug patch (2/2) or I can squash the entire
->>>> wip-timer patches into couple of sane ones and post them to mailing list ?
->>>>
->>>
->>> As per our discussion, these patches has to be part of wip-timer until
->>> interrupt issues are straightened and ready for upstream. All the timer
->>> related patches will go on top of it.
->>>
->>>> Regards,
->>>> Atish
->>>>
->>>>>
->>>>
->>>>
->>> I was reviewing the base timer patches. I have a question about the patch.
->>> clocksource: New RISC-V SBI timer driver (ea8ec64).
->>>
->>> The riscv_timer.h has a well defined per hart timer explanation in the
->>> comment and following function declaration. However, I can't find any
->>> reference to following functions.
->>>
->>> +void timer_riscv_init(int cpu_id,
->>> +		      unsigned long riscv_timebase,
->>> +		      int (*next_event)(unsigned long, struct clock_event_device *));
->>> +
->>> +void clocksource_riscv_init(unsigned long long (*rdtime)(struct
->>> clocksource *));
->>>
->>> Are these redundant code or I missed something ?
->>>
->>> If you agree with me, I can send a v3 removing these (will move the
->>> comment to riscv_timer.c).
->>
->> I see these in riscv_timer.c on my copy of wip-timer
->>
->>      e56e8bd48eca (HEAD -> wip-timer, kernel.org-palmer/wip-timer) RISCV: Disable timer interrupt in handler to fix nohz.
->>      2b030aa93236 RISCV: Support cpu hotplug.
->>      1b35cd828f29 RISCV: Register clocksource and events correctly
->>      30540340a51e riscv_timer: add support for sched_clock
->>      d6ad991df6fa clocksource: RISC-V: Match up with the current DTS
->>      c48b6c686f01 Revert "clocksource: riscv_timer: split boot and secondary cpu timer init"
->>      baf107699d0f RISC-V: Support per-hart timebase-frequency
->>      1e955d9ecfbe clocksource: riscv_timer: split boot and secondary cpu timer init
->>      ea8ec6497122 clocksource: New RISC-V SBI timer driver
->>      60cc43fc8884 (tag: v4.17-rc1, wip-cpu_hotplog) Linux 4.17-rc1
->>
->> did I screw something up?
+On Thu, 07 Jun 2018 03:27:27 PDT (-0700), schwab at suse.de wrote:
+> With CONFIG_MODVERSIONS=y the R_RISCV_32 relocation is used by the
+> __kcrctab section.
 >
-> Nope. Sorry for not being clear enough.
+> Signed-off-by: Andreas Schwab <schwab@suse.de>
+> ---
+>  arch/riscv/kernel/module.c | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
 >
-> +void timer_riscv_init(int cpu_id,
-> +		      unsigned long riscv_timebase,
-> +		      int (*next_event)(unsigned long, struct clock_event_device *));
-> +
-> +void clocksource_riscv_init(unsigned long long (*rdtime)(struct
-> clocksource *));
+> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+> index 5dddba301d..1d5e9b934b 100644
+> --- a/arch/riscv/kernel/module.c
+> +++ b/arch/riscv/kernel/module.c
+> @@ -17,6 +17,17 @@
+>  #include <linux/errno.h>
+>  #include <linux/moduleloader.h>
 >
-> I was asking about utility of above two functions added as a part of
-> commit ea8ec6497122. I couldn't find any usage of these two.
->
-> Shall we remove them and move the comment in that file to riscv_timer.c ?
+> +static int apply_r_riscv_32_rela(struct module *me, u32 *location, Elf_Addr v)
+> +{
+> +	if (v != (u32)v) {
 
-Ah, I think this will all need to be rebased at some point to clean up the 
-commit history, as it's become a bit of a mess.  If they're dead in the head of 
-wip-timer then it's sufficient for now.
+My worry with this kind of check is that it relies on some sort of undefined 
+behavior in C and that at some point in the future GCC will just go decide the 
+check can never fail.  I checked and GCC doesn't elide these checks now, so I 
+might be wrong.
+
+Is this defined to do what it looks like it's doing?
+
+> +		pr_err("%s: value %016llx out of range for 32-bit field\n",
+> +		       me->name, v);
+> +		return -EINVAL;
+> +	}
+> +	*location = v;
+> +	return 0;
+> +}
+> +
+>  static int apply_r_riscv_64_rela(struct module *me, u32 *location, Elf_Addr v)
+>  {
+>  	*(u64 *)location = v;
+> @@ -265,6 +276,7 @@ static int apply_r_riscv_sub32_rela(struct module *me, u32 *location,
+>
+>  static int (*reloc_handlers_rela[]) (struct module *me, u32 *location,
+>  				Elf_Addr v) = {
+> +	[R_RISCV_32]			= apply_r_riscv_32_rela,
+>  	[R_RISCV_64]			= apply_r_riscv_64_rela,
+>  	[R_RISCV_BRANCH]		= apply_r_riscv_branch_rela,
+>  	[R_RISCV_JAL]			= apply_r_riscv_jal_rela,
+
+Thanks!
