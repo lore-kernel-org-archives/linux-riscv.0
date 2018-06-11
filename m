@@ -1,69 +1,48 @@
-From: luc.vanoostenryck@gmail.com (Luc Van Oostenryck)
-Date: Sat, 9 Jun 2018 23:42:12 +0200
-Subject: [PATCH 3/3] riscv: fix __user annotation for __copy_user()
-In-Reply-To: <mhng-34378b5f-fa64-4886-b454-a2cb319d6abb@palmer-si-x1c4>
-References: <20180609001310.jxzcqtdacu4uiz6b@ltop.local>
- <mhng-34378b5f-fa64-4886-b454-a2cb319d6abb@palmer-si-x1c4>
-Message-ID: <20180609214211.u42vfrddl75ow7bb@ltop.local>
+From: schwab@suse.de (Andreas Schwab)
+Date: Mon, 11 Jun 2018 09:54:00 +0200
+Subject: [PATCH] RISC-V: Handle R_RISCV_32 in modules
+In-Reply-To: <mhng-3f91f2da-55ae-41b8-b5b2-956ea638bed0@palmer-si-x1c4>
+ (Palmer Dabbelt's message of "Fri, 08 Jun 2018 15:33:35 -0700 (PDT)")
+References: <mhng-3f91f2da-55ae-41b8-b5b2-956ea638bed0@palmer-si-x1c4>
+Message-ID: <mvm8t7liwrr.fsf@suse.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sat, Jun 09, 2018 at 01:00:08PM -0700, Palmer Dabbelt wrote:
-> On Fri, 08 Jun 2018 17:13:12 PDT (-0700), luc.vanoostenryck at gmail.com wrote:
-> > I tried it and ... the preprocessed asm is as expected:
-> > 	.globl __asm_copy_to_user ; .balign 4 ; __asm_copy_to_user:
-> > 	.globl __asm_copy_from_user ; .balign 4 ; __asm_copy_from_user:
-> > 
-> > 
-> > 	 li t6, 0x00040000
-> > 	 csrs sstatus, t6
-> > 	 ...
-> > 
-> > But the nm -S returns different sizes for them:
-> > 	0000000000000004 000000000000006c T __asm_copy_from_user
-> > 	0000000000000002 000000000000006e T __asm_copy_to_user
-> > 
-> > and the object code is:
-> > 	0000000000000000 <__asm_copy_to_user-0x2>:
-> > 	   0:   0001                    nop
-> > 
-> > 	0000000000000002 <__asm_copy_to_user>:
-> > 	   2:   0001                    nop
-> > 
-> > 	0000000000000004 <__asm_copy_from_user>:
-> > 	   4:   00040fb7                lui     t6,0x40
-> > 	   8:   100fa073                csrs    sstatus,t6
-> > 	   ...
-> > 
-> > Why these unnneded nops?
-> > Is this a known problem of my toolchain (I use a plain gcc 7.3 +
-> > binutils 2.29, both configured as riscv64-none-elf)?
-> > 
-> > If I remove the two ENTRY() and use instead:
-> > 	.globl __asm_copy_to_user ; __asm_copy_to_user:
-> > 	.globl __asm_copy_from_user ; __asm_copy_from_user:
-> > (IOW, I drop the .balign) then I get the expected result.
-> > But well, this seems unrelated to the double ENTRY.
-> > 
-> > I can't test it more for now because I've some link errors (which,
-> > I understand are probably solved in the riscv tree of binutils).
-> > 
-> > I'll send you the patch anyway since, as far as I understand the changes
-> > specific to this copy_to/from_user is OK.
-> 
-> I think it's probably a bug in binutils-2.29 that should be fixed by
-> 2.30 -- IIRC we had some bugs that looked like this and they got
-> fixed, though it might be just in master (so 2.31).
+On Jun 08 2018, Palmer Dabbelt <palmer@sifive.com> wrote:
 
-I've tried binutils-2.30 and riscv-binutils-gdb, both still have
-the problem and master binutils-gdb doesn't compile for me.
-OTOH, everything is fine if I disabled CONFIG_RISCV_ISA_C.
+> On Thu, 07 Jun 2018 03:27:27 PDT (-0700), schwab at suse.de wrote:
+>> With CONFIG_MODVERSIONS=y the R_RISCV_32 relocation is used by the
+>> __kcrctab section.
+>>
+>> Signed-off-by: Andreas Schwab <schwab@suse.de>
+>> ---
+>>  arch/riscv/kernel/module.c | 12 ++++++++++++
+>>  1 file changed, 12 insertions(+)
+>>
+>> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+>> index 5dddba301d..1d5e9b934b 100644
+>> --- a/arch/riscv/kernel/module.c
+>> +++ b/arch/riscv/kernel/module.c
+>> @@ -17,6 +17,17 @@
+>>  #include <linux/errno.h>
+>>  #include <linux/moduleloader.h>
+>>
+>> +static int apply_r_riscv_32_rela(struct module *me, u32 *location, Elf_Addr v)
+>> +{
+>> +	if (v != (u32)v) {
+>
+> My worry with this kind of check is that it relies on some sort of
+> undefined behavior in C and that at some point in the future GCC will just
+> go decide the check can never fail.  I checked and GCC doesn't elide these
+> checks now, so I might be wrong.
+>
+> Is this defined to do what it looks like it's doing?
 
-> Either way it looks innocuous WRT the patch.
+This is unsigned arithmetic, thus fully defined.
 
-Indeed.
-With this, the RISC-V arch should be sparse clean.
-I'll recheck after -rc1.
+Andreas.
 
-Cheers,
--- Luc
+-- 
+Andreas Schwab, SUSE Labs, schwab at suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
