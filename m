@@ -1,44 +1,36 @@
-From: schwab@suse.de (Andreas Schwab)
-Date: Tue, 12 Jun 2018 19:26:36 +0200
-Subject: [PATCH] RISC-V: fix R_RISCV_ADD32/R_RISCV_SUB32 relocations
-Message-ID: <mvmh8m7ex0z.fsf@suse.de>
+From: luc.vanoostenryck@gmail.com (Luc Van Oostenryck)
+Date: Tue, 12 Jun 2018 20:19:57 +0200
+Subject: [PATCH 3/3] riscv: fix __user annotation for __copy_user()
+In-Reply-To: <mhng-92398134-2db9-4a35-b432-0ab444418e1b@palmer-si-x1c4>
+References: <20180612030006.h7a4mag76aqqifod@ltop.local>
+ <mhng-92398134-2db9-4a35-b432-0ab444418e1b@palmer-si-x1c4>
+Message-ID: <CAMHZB6E3Jcvni=nsxvOB-+g8sDGCvEV2G2q2+3XrJJy7f__-eg@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The R_RISCV_ADD32/R_RISCV_SUB32 relocations should add/subtract the
-address of the symbol (without overflow check), not its contents.
+On Tue, Jun 12, 2018 at 7:12 PM, Palmer Dabbelt <palmer@sifive.com> wrote:
+> On Mon, 11 Jun 2018 20:00:08 PDT (-0700), luc.vanoostenryck at gmail.com wrote:
+>> On Mon, Jun 11, 2018 at 12:01:37PM -0700, Palmer Dabbelt wrote:
+>>>
+>>> OK, I'll try and figure out what's going on.  We've had a handful of
+>>> headaches trying to get things like '.align 2; .align 2' to actually
+>>> produce
+>>> no NOPs for the second alignment directive, which is surprisingly
+>>> complicated due to the aggressive linker relaxation we do.
+>>
+>>
+>> OK. I imagine indeed but note that no linker is involved here so,
+>> if the problem is still present, it must already be in the assembler.
+>
+>
+> Ah, OK -- in that case then it's just not a bug.  In RISC-V land we handle
+> alignment as part of relaxation in the linker, so if you're looking at the
+> output of the assembler then you'll always see a bunch of NOPs for every
+> alignment directive.  If you 'objdump -dr' you should be able to see the
+> relocations that get emitted, there should be a R_RISCV_ALIGN that points to
+> the run of NOPs.
 
-Signed-off-by: Andreas Schwab <schwab@suse.de>
----
- arch/riscv/kernel/module.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Ah OK. Indeed I see the R_RISCV_ALIGN.
+Thanks for the explanation.
 
-diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index 29d265d0cf..46aacf6148 100644
---- a/arch/riscv/kernel/module.c
-+++ b/arch/riscv/kernel/module.c
-@@ -265,14 +265,14 @@ static int apply_r_riscv_align_rela(struct module *me, u32 *location,
- static int apply_r_riscv_add32_rela(struct module *me, u32 *location,
- 				    Elf_Addr v)
- {
--	*(u32 *)location += (*(u32 *)v);
-+	*(u32 *)location += (u32)v;
- 	return 0;
- }
- 
- static int apply_r_riscv_sub32_rela(struct module *me, u32 *location,
- 				    Elf_Addr v)
- {
--	*(u32 *)location -= (*(u32 *)v);
-+	*(u32 *)location -= (u32)v;
- 	return 0;
- }
- 
--- 
-2.17.1
-
-
--- 
-Andreas Schwab, SUSE Labs, schwab at suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+-- Luc
