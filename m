@@ -1,85 +1,44 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 12 Jun 2018 10:12:08 -0700 (PDT)
-Subject: [PATCH 3/3] riscv: fix __user annotation for __copy_user()
-In-Reply-To: <20180612030006.h7a4mag76aqqifod@ltop.local>
-Message-ID: <mhng-92398134-2db9-4a35-b432-0ab444418e1b@palmer-si-x1c4>
+From: schwab@suse.de (Andreas Schwab)
+Date: Tue, 12 Jun 2018 19:26:36 +0200
+Subject: [PATCH] RISC-V: fix R_RISCV_ADD32/R_RISCV_SUB32 relocations
+Message-ID: <mvmh8m7ex0z.fsf@suse.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 11 Jun 2018 20:00:08 PDT (-0700), luc.vanoostenryck at gmail.com wrote:
-> On Mon, Jun 11, 2018 at 12:01:37PM -0700, Palmer Dabbelt wrote:
->> On Sat, 09 Jun 2018 14:42:12 PDT (-0700), luc.vanoostenryck at gmail.com wrote:
->> > On Sat, Jun 09, 2018 at 01:00:08PM -0700, Palmer Dabbelt wrote:
->> > > On Fri, 08 Jun 2018 17:13:12 PDT (-0700), luc.vanoostenryck at gmail.com wrote:
->> > > > I tried it and ... the preprocessed asm is as expected:
->> > > > 	.globl __asm_copy_to_user ; .balign 4 ; __asm_copy_to_user:
->> > > > 	.globl __asm_copy_from_user ; .balign 4 ; __asm_copy_from_user:
->> > > >
->> > > >
->> > > > 	 li t6, 0x00040000
->> > > > 	 csrs sstatus, t6
->> > > > 	 ...
->> > > >
->> > > > But the nm -S returns different sizes for them:
->> > > > 	0000000000000004 000000000000006c T __asm_copy_from_user
->> > > > 	0000000000000002 000000000000006e T __asm_copy_to_user
->> > > >
->> > > > and the object code is:
->> > > > 	0000000000000000 <__asm_copy_to_user-0x2>:
->> > > > 	   0:   0001                    nop
->> > > >
->> > > > 	0000000000000002 <__asm_copy_to_user>:
->> > > > 	   2:   0001                    nop
->> > > >
->> > > > 	0000000000000004 <__asm_copy_from_user>:
->> > > > 	   4:   00040fb7                lui     t6,0x40
->> > > > 	   8:   100fa073                csrs    sstatus,t6
->> > > > 	   ...
->> > > >
->> > > > Why these unnneded nops?
->> > > > Is this a known problem of my toolchain (I use a plain gcc 7.3 +
->> > > > binutils 2.29, both configured as riscv64-none-elf)?
->> > > >
->> > > > If I remove the two ENTRY() and use instead:
->> > > > 	.globl __asm_copy_to_user ; __asm_copy_to_user:
->> > > > 	.globl __asm_copy_from_user ; __asm_copy_from_user:
->> > > > (IOW, I drop the .balign) then I get the expected result.
->> > > > But well, this seems unrelated to the double ENTRY.
->> > > >
->> > > > I can't test it more for now because I've some link errors (which,
->> > > > I understand are probably solved in the riscv tree of binutils).
->> > > >
->> > > > I'll send you the patch anyway since, as far as I understand the changes
->> > > > specific to this copy_to/from_user is OK.
->> > >
->> > > I think it's probably a bug in binutils-2.29 that should be fixed by
->> > > 2.30 -- IIRC we had some bugs that looked like this and they got
->> > > fixed, though it might be just in master (so 2.31).
->> >
->> > I've tried binutils-2.30 and riscv-binutils-gdb, both still have
->> > the problem and master binutils-gdb doesn't compile for me.
->> > OTOH, everything is fine if I disabled CONFIG_RISCV_ISA_C.
->>
->> OK, I'll try and figure out what's going on.  We've had a handful of
->> headaches trying to get things like '.align 2; .align 2' to actually produce
->> no NOPs for the second alignment directive, which is surprisingly
->> complicated due to the aggressive linker relaxation we do.
->
-> OK. I imagine indeed but note that no linker is involved here so,
-> if the problem is still present, it must already be in the assembler.
+The R_RISCV_ADD32/R_RISCV_SUB32 relocations should add/subtract the
+address of the symbol (without overflow check), not its contents.
 
-Ah, OK -- in that case then it's just not a bug.  In RISC-V land we handle 
-alignment as part of relaxation in the linker, so if you're looking at the 
-output of the assembler then you'll always see a bunch of NOPs for every 
-alignment directive.  If you 'objdump -dr' you should be able to see the 
-relocations that get emitted, there should be a R_RISCV_ALIGN that points to 
-the run of NOPs.
+Signed-off-by: Andreas Schwab <schwab@suse.de>
+---
+ arch/riscv/kernel/module.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
->> > With this, the RISC-V arch should be sparse clean.
->> > I'll recheck after -rc1.
->>
->> This will be part of the PR that I tag today, so I anticipate it'll be in.
->
-> Cool!
->
-> -- Luc
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 29d265d0cf..46aacf6148 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -265,14 +265,14 @@ static int apply_r_riscv_align_rela(struct module *me, u32 *location,
+ static int apply_r_riscv_add32_rela(struct module *me, u32 *location,
+ 				    Elf_Addr v)
+ {
+-	*(u32 *)location += (*(u32 *)v);
++	*(u32 *)location += (u32)v;
+ 	return 0;
+ }
+ 
+ static int apply_r_riscv_sub32_rela(struct module *me, u32 *location,
+ 				    Elf_Addr v)
+ {
+-	*(u32 *)location -= (*(u32 *)v);
++	*(u32 *)location -= (u32)v;
+ 	return 0;
+ }
+ 
+-- 
+2.17.1
+
+
+-- 
+Andreas Schwab, SUSE Labs, schwab at suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
