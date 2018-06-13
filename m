@@ -1,36 +1,56 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 12 Jun 2018 12:38:11 -0700 (PDT)
-Subject: [PATCH 3/3] riscv: fix __user annotation for __copy_user()
-In-Reply-To: <CAMHZB6E3Jcvni=nsxvOB-+g8sDGCvEV2G2q2+3XrJJy7f__-eg@mail.gmail.com>
-Message-ID: <mhng-8a2f58a2-6c49-43bb-a7dc-51f2f8ff8e8f@palmer-si-x1c4>
+From: alankao@andestech.com (Alan Kao)
+Date: Wed, 13 Jun 2018 14:26:53 +0800
+Subject: On Supporting no-FPU machines
+Message-ID: <20180613062653.GA14518@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 12 Jun 2018 11:19:57 PDT (-0700), luc.vanoostenryck at gmail.com wrote:
-> On Tue, Jun 12, 2018 at 7:12 PM, Palmer Dabbelt <palmer@sifive.com> wrote:
->> On Mon, 11 Jun 2018 20:00:08 PDT (-0700), luc.vanoostenryck at gmail.com wrote:
->>> On Mon, Jun 11, 2018 at 12:01:37PM -0700, Palmer Dabbelt wrote:
->>>>
->>>> OK, I'll try and figure out what's going on.  We've had a handful of
->>>> headaches trying to get things like '.align 2; .align 2' to actually
->>>> produce
->>>> no NOPs for the second alignment directive, which is surprisingly
->>>> complicated due to the aggressive linker relaxation we do.
->>>
->>>
->>> OK. I imagine indeed but note that no linker is involved here so,
->>> if the problem is still present, it must already be in the assembler.
->>
->>
->> Ah, OK -- in that case then it's just not a bug.  In RISC-V land we handle
->> alignment as part of relaxation in the linker, so if you're looking at the
->> output of the assembler then you'll always see a bunch of NOPs for every
->> alignment directive.  If you 'objdump -dr' you should be able to see the
->> relocations that get emitted, there should be a R_RISCV_ALIGN that points to
->> the run of NOPs.
->
-> Ah OK. Indeed I see the R_RISCV_ALIGN.
-> Thanks for the explanation.
+Hi Palmer,
 
-No problem.  There's heaps of info about this in some blog posts I made a while 
-ago if you're interested.
+We would like to run Linux on a RISC-V machine that has no F and D
+extension, but we found some problem.  We would like to have your
+feedback on this.
+
+When context-switching, fstate_restore is always called, and then
+regs->sstatus.FS([13:14]) is checked; if the value is anything other
+than SR_FS_OFF, the kernel restores the floating-point state for the
+next process to be switched to.
+
+However, when a process is loaded, its regs->sstatus.FS is set to
+SR_FS_INITIAL (in start_thread), so it is going to lauch __fstate_restore 
+(in __switch_to_aux) anyway.  On a board that doesn't have FPU, this causes
+a following problem because flds are viewed as illegal instructions.
+
+A quick work-around is something like this:
+
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index cb20913..96159e1 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -83,7 +83,11 @@ void show_regs(struct pt_regs *regs)
+ void start_thread(struct pt_regs *regs, unsigned long pc,
+        unsigned long sp)
+ {
++#ifdef __riscv_flen
+        regs->sstatus = SR_SPIE /* User mode, irqs on */ | SR_FS_INITIAL;
++#else
++       regs->sstatus = SR_SPIE | SR_FS_OFF;
++#endif
+        regs->sepc = pc;
+        regs->sp = sp;
+        set_fs(USER_DS);
+
+This prevents the flds in __fstate_restore if choosing an appropriate toolchain.
+The condition
+
+(regs->sstatus & SR_FS) != SR_FS_OFF
+
+in fstate_restore will never be taken.  
+Actually, we don't even need those floating-point routines for no-FPU boards.  
+We would need a larger patch to make those FP code inside some __riscv_flen
+pre-processor sections.
+
+Do you think this is going to be a right direction to support no-FPU machines?
+
+Many thanks,
+Alan
