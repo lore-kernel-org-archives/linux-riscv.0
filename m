@@ -1,82 +1,71 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 14 Jun 2018 16:26:08 -0700 (PDT)
-Subject: [GIT PULL] RISC-V Updates for the 4.18 Merge Window
-Message-ID: <mhng-b162bf1e-c74e-4102-976b-8a60a06afcdd@palmer-si-x1c4>
+Date: Fri, 15 Jun 2018 13:38:06 -0700 (PDT)
+Subject: On Supporting no-FPU machines
+In-Reply-To: <20180613062653.GA14518@andestech.com>
+Message-ID: <mhng-21cd35e5-8145-40c6-8d17-7b734d5f6969@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The following changes since commit 29dcea88779c856c7dc92040a0c01233263101d4:
+On Tue, 12 Jun 2018 23:26:53 PDT (-0700), alankao at andestech.com wrote:
+> Hi Palmer,
+>
+> We would like to run Linux on a RISC-V machine that has no F and D
+> extension, but we found some problem.  We would like to have your
+> feedback on this.
+>
+> When context-switching, fstate_restore is always called, and then
+> regs->sstatus.FS([13:14]) is checked; if the value is anything other
+> than SR_FS_OFF, the kernel restores the floating-point state for the
+> next process to be switched to.
+>
+> However, when a process is loaded, its regs->sstatus.FS is set to
+> SR_FS_INITIAL (in start_thread), so it is going to lauch __fstate_restore
+> (in __switch_to_aux) anyway.  On a board that doesn't have FPU, this causes
+> a following problem because flds are viewed as illegal instructions.
+>
+> A quick work-around is something like this:
+>
+> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+> index cb20913..96159e1 100644
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -83,7 +83,11 @@ void show_regs(struct pt_regs *regs)
+>  void start_thread(struct pt_regs *regs, unsigned long pc,
+>         unsigned long sp)
+>  {
+> +#ifdef __riscv_flen
+>         regs->sstatus = SR_SPIE /* User mode, irqs on */ | SR_FS_INITIAL;
+> +#else
+> +       regs->sstatus = SR_SPIE | SR_FS_OFF;
+> +#endif
+>         regs->sepc = pc;
+>         regs->sp = sp;
+>         set_fs(USER_DS);
+>
+> This prevents the flds in __fstate_restore if choosing an appropriate toolchain.
+> The condition
+>
+> (regs->sstatus & SR_FS) != SR_FS_OFF
+>
+> in fstate_restore will never be taken.
+> Actually, we don't even need those floating-point routines for no-FPU boards.
+> We would need a larger patch to make those FP code inside some __riscv_flen
+> pre-processor sections.
+>
+> Do you think this is going to be a right direction to support no-FPU machines?
 
-  Linux 4.17 (2018-06-03 14:15:21 -0700)
+Ooh, I think this might be an Andrew question.  I'd been operating under the 
+assumption that sstatus.fs was a WARL field, with the result being that writing 
+sstatus.fs to initial would have no effect on a machine with no floating point 
+support.  This is the behavior that Rocket has, but I can't actually find this 
+definition anywhere in the ISA spec, though.  If the spec is the way I've 
+interpreted it, then we can fix up start_thread by just round tripping the 
+value through sstatus to see what the machine actually supports.
 
-are available in the Git repository at:
+Otherwise we'll have to have a kernel config option to enable/disable the FPU,
+and while that's not a big deal it's slightly nicer if the same kernel works on
+FPU and no-FPU systems.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.18-merge_window
+Andrew: am I missing something?
 
-for you to fetch changes up to 24a130ccfe58e0ef7907ce63030ad0ff7d7c633b:
-
-  RISC-V: Add CONFIG_HVC_RISCV_SBI=y to defconfig (2018-06-11 09:16:24 -0700)
-
-----------------------------------------------------------------
-RISC-V Updates for the 4.18 Merge Window
-
-This tag contains some small RISC-V updates I'd like to target for 4.18.
-They are all fairly small this time.  Here's a short summary, there's
-more info in the commits/merges.
-
-* A fix to __clear_user to respect the passed arguments.
-* Enough support for the perf subsystem to work with RISC-V's ISA
-  defined performance counters.
-* Support for sparse and cleanups suggested by it.
-* Support for R_RISCV_32 (a relocation, not the 32-bit ISA).
-* Some MAINTAINERS cleanups.
-* The addition of CONFIG_HVC_RISCV_SBI to our defconfig, as it's always
-  present.
-
-I've given these a simple build+boot test.
-
-----------------------------------------------------------------
-Alan Kao (4):
-      riscv: Fix the bug in memory access fixup code
-      perf: riscv: preliminary RISC-V support
-      perf: riscv: Add Document for Future Porting Guide
-      riscv/ftrace: Export _mcount when DYNAMIC_FTRACE isn't set
-
-Andreas Schwab (1):
-      RISC-V: Handle R_RISCV_32 in modules
-
-Luc Van Oostenryck (4):
-      riscv: use NULL instead of a plain 0
-      riscv: no __user for probe_kernel_address()
-      riscv: split the declaration of __copy_user
-      riscv: add riscv-specific predefines to CHECKFLAGS
-
-Palmer Dabbelt (6):
-      MAINTAINERS: Add myself as a maintainer for SiFive's drivers
-      MAINTAINERS: Update Albert's email, he's back at Berkeley
-      RISC-V: Preliminary Perf Support
-      MAINTAINERS: RISC-V Updates
-      RISC-V: Make our port sparse-clean
-      RISC-V: Add CONFIG_HVC_RISCV_SBI=y to defconfig
-
- Documentation/riscv/pmu.txt         | 249 ++++++++++++++++++
- MAINTAINERS                         |  10 +-
- arch/riscv/Kconfig                  |  14 ++
- arch/riscv/Makefile                 |   3 +
- arch/riscv/configs/defconfig        |   1 +
- arch/riscv/include/asm/Kbuild       |   1 +
- arch/riscv/include/asm/cacheflush.h |   2 +-
- arch/riscv/include/asm/perf_event.h |  84 +++++++
- arch/riscv/include/asm/tlbflush.h   |   2 +-
- arch/riscv/include/asm/uaccess.h    |   8 +-
- arch/riscv/kernel/Makefile          |   2 +
- arch/riscv/kernel/mcount.S          |   2 +-
- arch/riscv/kernel/module.c          |  12 +
- arch/riscv/kernel/perf_event.c      | 485 ++++++++++++++++++++++++++++++++++++
- arch/riscv/kernel/riscv_ksyms.c     |   3 +-
- arch/riscv/kernel/traps.c           |   2 +-
- arch/riscv/lib/uaccess.S            |  19 +-
- 17 files changed, 884 insertions(+), 15 deletions(-)
- create mode 100644 Documentation/riscv/pmu.txt
- create mode 100644 arch/riscv/include/asm/perf_event.h
- create mode 100644 arch/riscv/kernel/perf_event.c
+ Alan
