@@ -1,42 +1,40 @@
-From: hch@lst.de (Christoph Hellwig)
-Date: Tue, 19 Jun 2018 16:17:00 +0200
-Subject: [PATCH 3/3] PCI/xilinx: Depend on OF instead of the ARCH
-In-Reply-To: <20180619141700.7842-1-hch@lst.de>
+From: arnd@arndb.de (Arnd Bergmann)
+Date: Tue, 19 Jun 2018 16:31:06 +0200
+Subject: [PATCH 1/3] PCI: Add hooks for bus/bridge-specific fixups
+In-Reply-To: <20180619141700.7842-2-hch@lst.de>
 References: <20180619141700.7842-1-hch@lst.de>
-Message-ID: <20180619141700.7842-4-hch@lst.de>
+ <20180619141700.7842-2-hch@lst.de>
+Message-ID: <CAK8P3a2PzaDaug5XHeGHjurVU5mAsHstxOm7cDJf44LoPdmipQ@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-From: Palmer Dabbelt <palmer@dabbelt.com>
+On Tue, Jun 19, 2018 at 4:16 PM, Christoph Hellwig <hch@lst.de> wrote:
+> From: "Wesley W. Terpstra" <wesley@sifive.com>
 
-There isn't a hard dependency of the Xilinx AXI-PCIe host bridge on any
-architecture.  For example: at SiFive we map RISC-V cores to Xilinx FPGAs
-and connect the Xilinx IP via a TileLink adapter, so the RISC-V Linux
-port will need to be able to enable PCIE_XILINX in order to have PCIe
-support.
+> index 340029b2fb38..ea9609fc44fc 100644
+> --- a/include/linux/pci.h
+> +++ b/include/linux/pci.h
+> @@ -662,6 +662,7 @@ static inline int pcibios_err_to_errno(int err)
+>  struct pci_ops {
+>         int (*add_bus)(struct pci_bus *bus);
+>         void (*remove_bus)(struct pci_bus *bus);
+> +       void (*add_dev)(struct pci_dev *dev, struct pci_bus *bus);
+>         void __iomem *(*map_bus)(struct pci_bus *bus, unsigned int devfn, int where);
+>         int (*read)(struct pci_bus *bus, unsigned int devfn, int where, int size, u32 *val);
+>         int (*write)(struct pci_bus *bus, unsigned int devfn, int where, int size, u32 val);
 
-This patch decouples the PCIE_XILINX support from ARCH.  Instead it just
-depends on OF, which I believe is the only true dependency.
+We are a bit inconsistent about adding callbacks to pci_ops or pci_host_bridge.
+I would argue this should be part of pci_host_bridge, and the other two should
+probably be there as well, or possibly moved into a separate
+'pci_host_bridge_ops'
+structure referenced from pci_host_bridge along with the other callbacks there.
 
-Signed-off-by: Palmer Dabbelt <palmer@dabbelt.com>
-[hch: replaced the now removed OF_PCI dependency with just OF]
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- drivers/pci/controller/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+One of the things we discussed in the past (but never implemented) is that
+many of the current '__weak' functions in the PCI core can be turned into
+host_bridge specific operations.
 
-diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-index 18fa09b3ac8f..1fc3d4eb373d 100644
---- a/drivers/pci/controller/Kconfig
-+++ b/drivers/pci/controller/Kconfig
-@@ -103,7 +103,7 @@ config PCI_HOST_GENERIC
- 
- config PCIE_XILINX
- 	bool "Xilinx AXI PCIe host bridge support"
--	depends on ARCH_ZYNQ || MICROBLAZE || (MIPS && PCI_DRIVERS_GENERIC) || COMPILE_TEST
-+	depends on OF || COMPILE_TEST
- 	help
- 	  Say 'Y' here if you want kernel to support the Xilinx AXI PCIe
- 	  Host Bridge driver.
--- 
-2.17.1
+Some config space operations by contrast are currently shared across host
+bridge drivers (see pci_bus_set_ops, or drivers/pci/ecam.c) and probably
+better left out of the host bridge.
+
+      Arnd
