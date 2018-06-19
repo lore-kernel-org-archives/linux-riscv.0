@@ -1,24 +1,35 @@
-From: okaya@kernel.org (Sinan Kaya)
-Date: Tue, 19 Jun 2018 14:48:37 -0400
-Subject: [PATCH 1/3] PCI: Add hooks for bus/bridge-specific fixups
-In-Reply-To: <20180619173240.GA19081@lst.de>
-References: <20180619141700.7842-1-hch@lst.de>
- <20180619141700.7842-2-hch@lst.de>
- <CAK8P3a2PzaDaug5XHeGHjurVU5mAsHstxOm7cDJf44LoPdmipQ@mail.gmail.com>
- <20180619173240.GA19081@lst.de>
-Message-ID: <20180619184837.GA16778@drakthul.qualcomm.com>
+From: robh@kernel.org (Rob Herring)
+Date: Tue, 19 Jun 2018 15:41:34 -0600
+Subject: [PATCH] riscv: remove unnecessary of_platform_populate call
+Message-ID: <20180619214134.20130-1-robh@kernel.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, Jun 19, 2018 at 07:32:40PM +0200, Christoph Hellwig wrote:
-> On Tue, Jun 19, 2018 at 04:31:06PM +0200, Arnd Bergmann wrote:
-> > We are a bit inconsistent about adding callbacks to pci_ops or pci_host_bridge.
-> > I would argue this should be part of pci_host_bridge, and the other two should
-> > probably be there as well, or possibly moved into a separate
-> > 'pci_host_bridge_ops'
-> > structure referenced from pci_host_bridge along with the other callbacks there.
-> 
-> How do we find the proper pci_host_bridge from an arbitrary
-> device deep down the hierachy below it?
+The DT core will call of_platform_default_populate, so it is not
+necessary for arch specific code to call it unless there are custom
+match entries, auxdata or parent device. Neither of those apply here, so
+remove the call.
 
-pci_get_host_bridge_device() should do the work.
+Cc: Palmer Dabbelt <palmer@sifive.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv at lists.infradead.org
+Signed-off-by: Rob Herring <robh@kernel.org>
+---
+ arch/riscv/kernel/setup.c | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index ee44a48faf79..f0d2070866d4 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -220,8 +220,3 @@ void __init setup_arch(char **cmdline_p)
+ 	riscv_fill_hwcap();
+ }
+ 
+-static int __init riscv_device_init(void)
+-{
+-	return of_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);
+-}
+-subsys_initcall_sync(riscv_device_init);
+-- 
+2.17.1
