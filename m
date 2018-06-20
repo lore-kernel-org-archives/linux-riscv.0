@@ -1,53 +1,51 @@
-From: palmer@dabbelt.com (Palmer Dabbelt)
-Date: Wed, 20 Jun 2018 10:59:59 -0700 (PDT)
+From: atish.patra@wdc.com (Atish Patra)
+Date: Wed, 20 Jun 2018 10:50:09 -0700
 Subject: an initial RISC-V Linux 4.18 tree
 In-Reply-To: <20180619171444.GA10395@infradead.org>
-Message-ID: <mhng-5d12a1e7-6a25-4918-b086-41adda73d00b@palmer-si-x1c4>
+References: <20180619171444.GA10395@infradead.org>
+Message-ID: <0a84fcea-e35c-cb2e-dd78-1c3cd1f26901@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 19 Jun 2018 10:14:44 PDT (-0700), Christoph Hellwig wrote:
+On 6/19/18 10:15 AM, Christoph Hellwig wrote:
 > Hi all,
->
+> 
 > there had been some requests for a more updated working RISC-V
 > tree.  Based on that I decided that instead of a private working
 > tree for 4.18 I'd start a public tree:
->
->     git://git.infradead.org/users/hch/riscv.git riscv-linux-4.18
->
+> 
+>      git://git.infradead.org/users/hch/riscv.git riscv-linux-4.18
+> 
 > Gitweb:
->
->     http://git.infradead.org/users/hch/riscv.git/shortlog/refs/heads/riscv-linux-4.18
->
+> 
+>      http://git.infradead.org/users/hch/riscv.git/shortlog/refs/heads/riscv-linux-4.18
+> 
+There are some other timer related patches present in palmer?s wip_timer 
+branch.
+https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/log/?h=wip-timer
+
+(I have few of them as well)
+
+Should I rebase my/other patches on top of your repo and resend?
+
+Regards,
+Atish
+
 > For now this just contains core patches, that is whatever I want/need
 > on Qemu, or what looks like it.  I've also done all the usual cleanups
 > to get the code submission ready, the only exception is the
 > documentation of the PLIC register map as pointed out by Jonathan last
 > time around - I'll need someone more familiar with the hardware and
 > driver to fix that up.
->
+> 
 > Except for that the patches should be good to be submitted, I can
 > help a bit with that, but in general having the original authors submit
 > it would be preferred.
->
+> 
 > The tree is going to get rebased as needed.
-
-Thanks.  Unfortunately I think some of these aren't actually ready to go, which 
-is why they've been blocked for a bit:
-
-* d0789843f663 (irqchip: RISC-V Local Interrupt Controller Driver): This still 
-  calls riscv_*_interrupt(), which we need to refactor to live behind a more 
-  generic interface.
-* 8f9146865931 ("irqchip: New RISC-V PLIC Driver"): Aside from the memory map 
-  questions you mentioned, there's also some question as to what IRQ handling 
-  flow we should use and how to properly register interrupts for harts that are 
-  not yet alive.
-* 5b6b2ec0ed9c ("clocksource: new RISC-V SBI timer driver"): This still uses 
-  riscv_timebase, which isn't a sane interface.
-* 3aa32277ef89 ("base: fix order of OF initialization"): IIRC this was supposed 
-  to be solved in some other way, but I've managed to forget exactly what the 
-  comments were.
-
-It's possible I'm too worried about decoupling the drivers from the arch code.  
-If that's the case then I don't mind submitting these patches now, as at least 
-we'll be able to have everything in master.
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv at lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
