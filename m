@@ -1,39 +1,34 @@
 From: zong@andestech.com (Zong Li)
-Date: Thu, 21 Jun 2018 09:41:42 +0800
-Subject: [PATCH] RISC-V: Add conditional marco for boot_sec_cpu
+Date: Thu, 21 Jun 2018 09:41:41 +0800
+Subject: [PATCH 1/5] RISC-V: Add conditional macro for zone of DMA32
 In-Reply-To: <cover.1529506497.git.zong@andestech.com>
 References: <cover.1529506497.git.zong@andestech.com>
-Message-ID: <1529545326-29272-1-git-send-email-zong@andestech.com>
+Message-ID: <79dba59ab02752b260cb31f557a09df786fd80d7.1529506497.git.zong@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Fix link error when disable support SMP.
-It causes the undefined reference to `smp_callin'.
+The DMA32 is for 64-bit usage.
 
 Signed-off-by: Zong Li <zong@andestech.com>
 ---
- arch/riscv/kernel/head.S | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/mm/init.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 3b6293f10e3e..396ec7b349ce 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -152,6 +152,7 @@ END(_start)
- .section .text
- .global boot_sec_cpu
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index c77df8142be2..91a5852e28fd 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -28,8 +28,11 @@ static void __init zone_sizes_init(void)
+ {
+ 	unsigned long max_zone_pfns[MAX_NR_ZONES] = { 0, };
  
-+#ifdef CONFIG_HOTPLUG_CPU
- boot_sec_cpu:
- 	/* clear all pending flags */
- 	csrw sip, zero
-@@ -160,6 +161,7 @@ boot_sec_cpu:
- 	fence
- 
- 	tail smp_callin
++#ifdef CONFIG_ZONE_DMA32
+ 	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(min(4UL * SZ_1G, max_low_pfn));
++#else
+ 	max_zone_pfns[ZONE_NORMAL] = max_low_pfn;
 +#endif
  
- __PAGE_ALIGNED_BSS
- 	/* Empty zero page */
+ 	free_area_init_nodes(max_zone_pfns);
+ }
 -- 
 2.16.1
