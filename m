@@ -1,30 +1,22 @@
-From: hch@infradead.org (Christoph Hellwig)
-Date: Thu, 21 Jun 2018 07:53:56 -0700
-Subject: [PATCH 5/5] RISC-V: Use fixed width integer types for 32-bit
- compatible
-In-Reply-To: <mvmwousjv8g.fsf@suse.de>
+From: zongbox@gmail.com (Zong Li)
+Date: Thu, 21 Jun 2018 23:19:21 +0800
+Subject: [PATCH 4/5] RISC-V: Change variable type for 32-bit compatible
+In-Reply-To: <CA+ZOyah0-d3diK2iaWXsoPsCS9T8pTfp5-gxOixfBvJYRVjdLQ@mail.gmail.com>
 References: <cover.1529506497.git.zong@andestech.com>
- <37a6523947397cd72320676030b96926e373d05a.1529506497.git.zong@andestech.com>
- <20180621064322.GE19319@infradead.org> <mvmwousjv8g.fsf@suse.de>
-Message-ID: <20180621145356.GB12445@infradead.org>
+ <3f86f9eb853380686a86a8abe6bda0dd3720ee10.1529506497.git.zong@andestech.com>
+ <20180621064135.GD19319@infradead.org>
+ <CA+ZOyah0-d3diK2iaWXsoPsCS9T8pTfp5-gxOixfBvJYRVjdLQ@mail.gmail.com>
+Message-ID: <CA+ZOyagG+wV0vCZ1S4+C+k+iw1dm=ntupsb=tz7eQ5j82qqihQ@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Jun 21, 2018 at 12:21:19PM +0200, Andreas Schwab wrote:
-> On Jun 20 2018, Christoph Hellwig <hch@infradead.org> wrote:
-> 
-> >>  static int apply_r_riscv_32_rela(struct module *me, u32 *location, Elf_Addr v)
-> >>  {
-> >>  	if (v != (u32)v) {
-> >> -		pr_err("%s: value %016llx out of range for 32-bit field\n",
-> >> +		pr_err("%s: value %016" PRIxX "out of range for 32-bit field\n",
-> >>  		       me->name, v);
-> >>  		return -EINVAL;
+> > > -     s64 offset = (void *)v - (void *)location;
+> > > +     uintptr_t offset = (void *)v - (void *)location;
 > >
-> > But in general Linux uXX and sXX values are always the same underlying
-> > fundamental C type.  What is the mismatch here?
-> 
-> The mismatch is that v is Elf_Addr, not u32.
+> > s64 is signed, uintptr is not, so this might change behavior and needs
+> > an explanation.
+> >
+>
+> Yes, it should be intptr_t. Thanks!
 
-Then we'll have to cast to unsigned long before printing, like we
-do elsewhere in kernel.
+Correct, it should be ptrdiff_t. In kernel, there is no intptr_t definition.
