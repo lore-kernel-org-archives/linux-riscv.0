@@ -1,22 +1,54 @@
-From: zongbox@gmail.com (Zong Li)
-Date: Thu, 21 Jun 2018 23:19:21 +0800
-Subject: [PATCH 4/5] RISC-V: Change variable type for 32-bit compatible
-In-Reply-To: <CA+ZOyah0-d3diK2iaWXsoPsCS9T8pTfp5-gxOixfBvJYRVjdLQ@mail.gmail.com>
-References: <cover.1529506497.git.zong@andestech.com>
- <3f86f9eb853380686a86a8abe6bda0dd3720ee10.1529506497.git.zong@andestech.com>
- <20180621064135.GD19319@infradead.org>
- <CA+ZOyah0-d3diK2iaWXsoPsCS9T8pTfp5-gxOixfBvJYRVjdLQ@mail.gmail.com>
-Message-ID: <CA+ZOyagG+wV0vCZ1S4+C+k+iw1dm=ntupsb=tz7eQ5j82qqihQ@mail.gmail.com>
+From: palmer@dabbelt.com (Palmer Dabbelt)
+Date: Thu, 21 Jun 2018 09:06:48 -0700 (PDT)
+Subject: an initial RISC-V Linux 4.18 tree
+In-Reply-To: <20180621063014.GA19319@infradead.org>
+Message-ID: <mhng-13b2506c-f3cd-4383-afe2-7fbebf3af419@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-> > > -     s64 offset = (void *)v - (void *)location;
-> > > +     uintptr_t offset = (void *)v - (void *)location;
-> >
-> > s64 is signed, uintptr is not, so this might change behavior and needs
-> > an explanation.
-> >
+On Wed, 20 Jun 2018 23:30:14 PDT (-0700), Christoph Hellwig wrote:
+> On Wed, Jun 20, 2018 at 10:59:59AM -0700, Palmer Dabbelt wrote:
+>> Thanks.  Unfortunately I think some of these aren't actually ready to go,
+>> which is why they've been blocked for a bit:
+>>
+>> * d0789843f663 (irqchip: RISC-V Local Interrupt Controller Driver): This
+>> still  calls riscv_*_interrupt(), which we need to refactor to live behind a
+>> more  generic interface.
 >
-> Yes, it should be intptr_t. Thanks!
+> I don't really think that is a problem.  Especially in the irq path
+> I'd rather avoid indirections than spuriously adding them.
+>
+>> * 8f9146865931 ("irqchip: New RISC-V PLIC Driver"): Aside from the memory
+>> map  questions you mentioned, there's also some question as to what IRQ
+>> handling  flow we should use and how to properly register interrupts for
+>> harts that are  not yet alive.
+>
+> Is this an urgen problem?
+>
+>> * 5b6b2ec0ed9c ("clocksource: new RISC-V SBI timer driver"): This still uses
+>> riscv_timebase, which isn't a sane interface.
+>
+> It's not really too bad.  Yes, based on some of your work it should be
+> per-hart, but that is something that can be easily fixed up.
+>
+>> * 3aa32277ef89 ("base: fix order of OF initialization"): IIRC this was
+>> supposed  to be solved in some other way, but I've managed to forget exactly
+>> what the  comments were.
+>>
+>> It's possible I'm too worried about decoupling the drivers from the arch
+>> code.  If that's the case then I don't mind submitting these patches now, as
+>> at least we'll be able to have everything in master.
+>
+> These aren't really drivers, but they are arch code, so I really don't
+> think they should be decoupled for decouplings sake.
+>
+> So if you have an update for the PLIC memory map I'd really like to
+> start submitting them so that we have an actually working RISC-V port
+> upstream.
+>
+> Btw, the early console code doesn't seem to have any further
+> dependencies, any chance you could just send that on to Linus at the
+> next opportunity?
 
-Correct, it should be ptrdiff_t. In kernel, there is no intptr_t definition.
+If you think they're in good enough shape then I don't mind submitting them.  
+I'll start sending out patches.
