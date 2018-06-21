@@ -1,101 +1,57 @@
-From: alankao@andestech.com (Alan Kao)
-Date: Thu, 21 Jun 2018 15:19:16 +0800
-Subject: [PATCH] riscv: Add support to no-FPU systems
-In-Reply-To: <20180621063938.GB19319@infradead.org>
-References: <1529544276-28103-1-git-send-email-alankao@andestech.com>
- <20180621063938.GB19319@infradead.org>
-Message-ID: <20180621071915.GA5053@andestech.com>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Thu, 21 Jun 2018 01:11:08 -0700
+Subject: Risc-V, qemu, and initrd
+In-Reply-To: <64d50cba-8215-763c-a5c9-f384b2901d01@roeck-us.net>
+References: <64d50cba-8215-763c-a5c9-f384b2901d01@roeck-us.net>
+Message-ID: <594d0a70-d990-fb0d-466d-e1c4be2e3a7c@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Jun 20, 2018 at 11:39:38PM -0700, Christoph Hellwig wrote:
-> > +ifeq ($(CONFIG_FPU),y)
-> >  KBUILD_AFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)fd$(KBUILD_ARCH_C)
-> > +else
-> > +KBUILD_AFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)$(KBUILD_ARCH_C)
-> > +endif
+On 6/20/18 11:12 PM, Guenter Roeck wrote:
+> Hi folks,
 > 
-> Can we refactor that KBUILD_ARCH code into something like
-> 
-> riscv-march-y				:=
-> riscv-march-$(CONFIG_ARCH_RV32I)	+= rv32im
-> riscv-march-$(CONFIG_ARCH_RV64I)	+= rv64im
-> riscv-march-$(CONFIG_RISCV_ISA_A)	+= a
-> riscv-march-$(CONFIG_FPU)		+= fd
-> riscv-march-$(CONFIG_RISCV_ISA_C)	+= c
-> 
-> KBUILD_CFLAGS += -march=$(riscv-march-y)
+> I tried to boot the latest Linux kernel with qemu from https://github.com/riscv/riscv-qemu.git,
+> branch qemu-2.13-for-upstream.
 > 
 
-That's neat, sure.
+Did you try the upstream kernel? That doesn't boot directly. You need 
+some additional patches which you can find here.
 
-> > +#ifdef CONFIG_FPU
-> >  	regs->sstatus = SR_SPIE /* User mode, irqs on */ | SR_FS_INITIAL;
-> > +#else
-> > +	regs->sstatus = SR_SPIE | SR_FS_OFF;
-> > +#endif
+https://github.com/riscv/riscv-linux/tree/riscv-all
+
+
+> My command line is something like
 > 
-> Having the comment in one branch, but not the other is odd.  I'd be
-> tempted to just remove t entirely, but if not it should be move up
-> or duplicated.
+>       riscv64-softmmu/qemu-system-riscv64 -machine virt -m 512M -bios bbl -kernel vmlinux \
+>           -nographic -monitor none -initrd rootfs.cpio -append "rdinit=/sbin/init"
+>
+
+AFAIK, qemu -kernel argument expects the bbl file which as vmlinux 
+embedded in it. At least that's what the makefile from freedom-u-sdk says:
+
+https://github.com/sifive/freedom-u-sdk/blob/master/Makefile
+
+Regards,
+Atish
+
+> Unfortunately this doesn't work; the image crashes, complaining about a missing
+> root file system.
 > 
-
-I'll move that comment up.
-
-> >  int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
-> >  {
-> > +#ifdef CONFIG_FPU
-> >  	fstate_save(src, task_pt_regs(src));
-> > +#endif
+> Loking into the kernel source, I found arch/riscv/kernel/setup.c:setup_initrd().
+> Debugging shows that initrd_start and initrd_end is set correctly in
+> drivers/of/fdt.c:early_init_dt_check_for_initrd(), but overwritten with the value
+> of __initramfs_start / __initramfs_size in setup_initrd(). This doesn't make
+> sense to me, since populate_rootfs() tries to populate the root file system
+> from both __initramfs_start and initrd_start.
 > 
-> Please provide a !CONFIG_FPU stub for fstate_save, please.
+> Has anyone else noticed this problem ? Any idea what I need to do to load an
+> initrd with the -initrd option of qemu ?
 > 
-> >  }
-
-It's OK to do this to fstate_save/restore, and
-
-> > +#endif
-> >  
-> >  static long restore_sigcontext(struct pt_regs *regs,
-> >  	struct sigcontext __user *sc)
-> > @@ -63,6 +65,7 @@ static long restore_sigcontext(struct pt_regs *regs,
-> >  	err = __copy_from_user(regs, &sc->sc_regs, sizeof(sc->sc_regs));
-> >  	if (unlikely(err))
-> >  		return err;
-> > +#ifdef CONFIG_FPU
-> >  	/* Restore the floating-point state. */
-> >  	err = restore_d_state(regs, &sc->sc_fpregs.d);
-> >  	if (unlikely(err))
-> > @@ -76,6 +79,7 @@ static long restore_sigcontext(struct pt_regs *regs,
-> >  		if (value != 0)
-> >  			return -EINVAL;
-> >  	}
-> > +#endif
+> Thanks,
+> Guenter
 > 
-> Same here.
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv at lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 > 
-
-it's also OK to do so to restore_d_state/save_d_state.  But what to do with the
-following __get_user/__put_user calls?
-
-Can I rename existing restore_d_state to __restore_d_state, and create a new
-function restore_d_state which includes the original restore_d_state/__get_user
-pair, and the same to save_d_state?
-
-> > @@ -127,11 +131,13 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
-> >  	size_t i;
-> >  	/* sc_regs is structured the same as the start of pt_regs */
-> >  	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
-> > +#ifdef CONFIG_FPU
-> >  	/* Save the floating-point state. */
-> >  	err |= save_d_state(regs, &sc->sc_fpregs.d);
-> >  	/* We support no other extension state at this time. */
-> >  	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++)
-> >  		err |= __put_user(0, &sc->sc_fpregs.q.reserved[i]);
-> > +#endif
-> 
-> Same here.
-> 
-
-Thanks,
-Alan
