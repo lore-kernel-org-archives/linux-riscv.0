@@ -1,59 +1,78 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Wed, 20 Jun 2018 23:30:14 -0700
-Subject: an initial RISC-V Linux 4.18 tree
-In-Reply-To: <mhng-5d12a1e7-6a25-4918-b086-41adda73d00b@palmer-si-x1c4>
-References: <20180619171444.GA10395@infradead.org>
- <mhng-5d12a1e7-6a25-4918-b086-41adda73d00b@palmer-si-x1c4>
-Message-ID: <20180621063014.GA19319@infradead.org>
+Date: Wed, 20 Jun 2018 23:39:38 -0700
+Subject: [PATCH] riscv: Add support to no-FPU systems
+In-Reply-To: <1529544276-28103-1-git-send-email-alankao@andestech.com>
+References: <1529544276-28103-1-git-send-email-alankao@andestech.com>
+Message-ID: <20180621063938.GB19319@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Jun 20, 2018 at 10:59:59AM -0700, Palmer Dabbelt wrote:
-> Thanks.  Unfortunately I think some of these aren't actually ready to go,
-> which is why they've been blocked for a bit:
-> 
-> * d0789843f663 (irqchip: RISC-V Local Interrupt Controller Driver): This
-> still  calls riscv_*_interrupt(), which we need to refactor to live behind a
-> more  generic interface.
+> +ifeq ($(CONFIG_FPU),y)
+>  KBUILD_AFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)fd$(KBUILD_ARCH_C)
+> +else
+> +KBUILD_AFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)$(KBUILD_ARCH_C)
+> +endif
 
-I don't really think that is a problem.  Especially in the irq path
-I'd rather avoid indirections than spuriously adding them.
+Can we refactor that KBUILD_ARCH code into something like
 
-> * 8f9146865931 ("irqchip: New RISC-V PLIC Driver"): Aside from the memory
-> map  questions you mentioned, there's also some question as to what IRQ
-> handling  flow we should use and how to properly register interrupts for
-> harts that are  not yet alive.
+riscv-march-y				:=
+riscv-march-$(CONFIG_ARCH_RV32I)	+= rv32im
+riscv-march-$(CONFIG_ARCH_RV64I)	+= rv64im
+riscv-march-$(CONFIG_RISCV_ISA_A)	+= a
+riscv-march-$(CONFIG_FPU)		+= fd
+riscv-march-$(CONFIG_RISCV_ISA_C)	+= c
 
-Is this an urgen problem?
+KBUILD_CFLAGS += -march=$(riscv-march-y)
 
-> * 5b6b2ec0ed9c ("clocksource: new RISC-V SBI timer driver"): This still uses
-> riscv_timebase, which isn't a sane interface.
+> +#ifdef CONFIG_FPU
+>  	regs->sstatus = SR_SPIE /* User mode, irqs on */ | SR_FS_INITIAL;
+> +#else
+> +	regs->sstatus = SR_SPIE | SR_FS_OFF;
+> +#endif
 
-It's not really too bad.  Yes, based on some of your work it should be
-per-hart, but that is something that can be easily fixed up.
+Having the comment in one branch, but not the other is odd.  I'd be
+tempted to just remove t entirely, but if not it should be move up
+or duplicated.
 
-> * 3aa32277ef89 ("base: fix order of OF initialization"): IIRC this was
-> supposed  to be solved in some other way, but I've managed to forget exactly
-> what the  comments were.
-> 
-> It's possible I'm too worried about decoupling the drivers from the arch
-> code.  If that's the case then I don't mind submitting these patches now, as
-> at least we'll be able to have everything in master.
+>  int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+>  {
+> +#ifdef CONFIG_FPU
+>  	fstate_save(src, task_pt_regs(src));
+> +#endif
 
-These aren't really drivers, but they are arch code, so I really don't
-think they should be decoupled for decouplings sake.
+Please provide a !CONFIG_FPU stub for fstate_save, please.
 
-So if you have an update for the PLIC memory map I'd really like to
-start submitting them so that we have an actually working RISC-V port
-upstream.
+>  }
+> +#endif
+>  
+>  static long restore_sigcontext(struct pt_regs *regs,
+>  	struct sigcontext __user *sc)
+> @@ -63,6 +65,7 @@ static long restore_sigcontext(struct pt_regs *regs,
+>  	err = __copy_from_user(regs, &sc->sc_regs, sizeof(sc->sc_regs));
+>  	if (unlikely(err))
+>  		return err;
+> +#ifdef CONFIG_FPU
+>  	/* Restore the floating-point state. */
+>  	err = restore_d_state(regs, &sc->sc_fpregs.d);
+>  	if (unlikely(err))
+> @@ -76,6 +79,7 @@ static long restore_sigcontext(struct pt_regs *regs,
+>  		if (value != 0)
+>  			return -EINVAL;
+>  	}
+> +#endif
 
-Btw, the early console code doesn't seem to have any further
-dependencies, any chance you could just send that on to Linus at the
-next opportunity?
+Same here.
 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv at lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
----end quoted text---
+> @@ -127,11 +131,13 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
+>  	size_t i;
+>  	/* sc_regs is structured the same as the start of pt_regs */
+>  	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
+> +#ifdef CONFIG_FPU
+>  	/* Save the floating-point state. */
+>  	err |= save_d_state(regs, &sc->sc_fpregs.d);
+>  	/* We support no other extension state at this time. */
+>  	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++)
+>  		err |= __put_user(0, &sc->sc_fpregs.q.reserved[i]);
+> +#endif
+
+Same here.
