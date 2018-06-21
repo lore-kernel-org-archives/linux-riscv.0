@@ -1,78 +1,34 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Wed, 20 Jun 2018 23:39:38 -0700
-Subject: [PATCH] riscv: Add support to no-FPU systems
-In-Reply-To: <1529544276-28103-1-git-send-email-alankao@andestech.com>
-References: <1529544276-28103-1-git-send-email-alankao@andestech.com>
-Message-ID: <20180621063938.GB19319@infradead.org>
+Date: Wed, 20 Jun 2018 23:40:43 -0700
+Subject: [PATCH 1/5] RISC-V: Add conditional macro for zone of DMA32
+In-Reply-To: <79dba59ab02752b260cb31f557a09df786fd80d7.1529506497.git.zong@andestech.com>
+References: <cover.1529506497.git.zong@andestech.com>
+ <79dba59ab02752b260cb31f557a09df786fd80d7.1529506497.git.zong@andestech.com>
+Message-ID: <20180621064043.GC19319@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-> +ifeq ($(CONFIG_FPU),y)
->  KBUILD_AFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)fd$(KBUILD_ARCH_C)
-> +else
-> +KBUILD_AFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)$(KBUILD_ARCH_C)
-> +endif
-
-Can we refactor that KBUILD_ARCH code into something like
-
-riscv-march-y				:=
-riscv-march-$(CONFIG_ARCH_RV32I)	+= rv32im
-riscv-march-$(CONFIG_ARCH_RV64I)	+= rv64im
-riscv-march-$(CONFIG_RISCV_ISA_A)	+= a
-riscv-march-$(CONFIG_FPU)		+= fd
-riscv-march-$(CONFIG_RISCV_ISA_C)	+= c
-
-KBUILD_CFLAGS += -march=$(riscv-march-y)
-
-> +#ifdef CONFIG_FPU
->  	regs->sstatus = SR_SPIE /* User mode, irqs on */ | SR_FS_INITIAL;
-> +#else
-> +	regs->sstatus = SR_SPIE | SR_FS_OFF;
-> +#endif
-
-Having the comment in one branch, but not the other is odd.  I'd be
-tempted to just remove t entirely, but if not it should be move up
-or duplicated.
-
->  int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+On Thu, Jun 21, 2018 at 09:41:41AM +0800, Zong Li wrote:
+> The DMA32 is for 64-bit usage.
+> 
+> Signed-off-by: Zong Li <zong@andestech.com>
+> ---
+>  arch/riscv/mm/init.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index c77df8142be2..91a5852e28fd 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -28,8 +28,11 @@ static void __init zone_sizes_init(void)
 >  {
-> +#ifdef CONFIG_FPU
->  	fstate_save(src, task_pt_regs(src));
-> +#endif
-
-Please provide a !CONFIG_FPU stub for fstate_save, please.
-
->  }
-> +#endif
+>  	unsigned long max_zone_pfns[MAX_NR_ZONES] = { 0, };
 >  
->  static long restore_sigcontext(struct pt_regs *regs,
->  	struct sigcontext __user *sc)
-> @@ -63,6 +65,7 @@ static long restore_sigcontext(struct pt_regs *regs,
->  	err = __copy_from_user(regs, &sc->sc_regs, sizeof(sc->sc_regs));
->  	if (unlikely(err))
->  		return err;
-> +#ifdef CONFIG_FPU
->  	/* Restore the floating-point state. */
->  	err = restore_d_state(regs, &sc->sc_fpregs.d);
->  	if (unlikely(err))
-> @@ -76,6 +79,7 @@ static long restore_sigcontext(struct pt_regs *regs,
->  		if (value != 0)
->  			return -EINVAL;
->  	}
+> +#ifdef CONFIG_ZONE_DMA32
+>  	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(min(4UL * SZ_1G, max_low_pfn));
+> +#else
+>  	max_zone_pfns[ZONE_NORMAL] = max_low_pfn;
 > +#endif
 
-Same here.
-
-> @@ -127,11 +131,13 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
->  	size_t i;
->  	/* sc_regs is structured the same as the start of pt_regs */
->  	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
-> +#ifdef CONFIG_FPU
->  	/* Save the floating-point state. */
->  	err |= save_d_state(regs, &sc->sc_fpregs.d);
->  	/* We support no other extension state at this time. */
->  	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++)
->  		err |= __put_user(0, &sc->sc_fpregs.q.reserved[i]);
-> +#endif
-
-Same here.
+This breaks the 64-bit setup.  The second line needs to be kept for
+the CONFIG_ZONE_DMA32 case.
