@@ -1,34 +1,30 @@
 From: zong@andestech.com (Zong Li)
-Date: Thu, 21 Jun 2018 09:41:41 +0800
-Subject: [PATCH 1/5] RISC-V: Add conditional macro for zone of DMA32
-In-Reply-To: <cover.1529506497.git.zong@andestech.com>
-References: <cover.1529506497.git.zong@andestech.com>
-Message-ID: <79dba59ab02752b260cb31f557a09df786fd80d7.1529506497.git.zong@andestech.com>
+Date: Thu, 21 Jun 2018 09:41:40 +0800
+Subject: [PATCH 0/5] Building for 32-bit RISC-V kernel
+Message-ID: <cover.1529506497.git.zong@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The DMA32 is for 64-bit usage.
+These patches are for building 32-bit RISC-V kernel.
+ - Fix the compile errors and warnings on RV32I.
+ - Fix some incompatible problem on RV32I.
+ - Add format.h for compatible of print format.
 
-Signed-off-by: Zong Li <zong@andestech.com>
----
- arch/riscv/mm/init.c | 3 +++
- 1 file changed, 3 insertions(+)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index c77df8142be2..91a5852e28fd 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -28,8 +28,11 @@ static void __init zone_sizes_init(void)
- {
- 	unsigned long max_zone_pfns[MAX_NR_ZONES] = { 0, };
- 
-+#ifdef CONFIG_ZONE_DMA32
- 	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(min(4UL * SZ_1G, max_low_pfn));
-+#else
- 	max_zone_pfns[ZONE_NORMAL] = max_low_pfn;
-+#endif
- 
- 	free_area_init_nodes(max_zone_pfns);
- }
+Zong Li (5):
+  RISC-V: Add conditional macro for zone of DMA32
+  RISC-V: Select GENERIC_UCMPDI2 on RV32I
+  RISC-V: Add definiion of extract symbol's index and type for 32-bit
+  RISC-V: Change variable type for 32-bit compatible
+  RISC-V: Use fixed width integer types for 32-bit compatible
+
+ arch/riscv/Kconfig                |  1 +
+ arch/riscv/include/asm/format.h   | 20 ++++++++++++++++++++
+ arch/riscv/include/uapi/asm/elf.h |  9 +++++++--
+ arch/riscv/kernel/module.c        | 35 ++++++++++++++++++-----------------
+ arch/riscv/mm/init.c              |  3 +++
+ 5 files changed, 49 insertions(+), 19 deletions(-)
+ create mode 100644 arch/riscv/include/asm/format.h
+
 -- 
 2.16.1
