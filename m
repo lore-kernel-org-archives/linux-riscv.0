@@ -1,55 +1,64 @@
-From: linux@roeck-us.net (Guenter Roeck)
-Date: Fri, 22 Jun 2018 09:34:07 -0700
-Subject: Risc-V, qemu, and initrd
-In-Reply-To: <20180622053805.GA19304@infradead.org>
-References: <64d50cba-8215-763c-a5c9-f384b2901d01@roeck-us.net>
- <mvmpo0kjjog.fsf@suse.de> <20180621144821.GA15280@roeck-us.net>
- <20180621145217.GA12445@infradead.org>
- <20180621173314.GA7251@roeck-us.net>
- <20180621175509.GB23315@infradead.org>
- <20180621220859.GA9268@roeck-us.net>
- <20180622053805.GA19304@infradead.org>
-Message-ID: <20180622163407.GA13770@roeck-us.net>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Fri, 22 Jun 2018 15:18:14 -0700
+Subject: [PATCH] RISC-V: Add early printk support via the SBI console
+Message-ID: <20180622221814.29025-1-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Jun 21, 2018 at 10:38:05PM -0700, Christoph Hellwig wrote:
-> On Thu, Jun 21, 2018 at 03:08:59PM -0700, Guenter Roeck wrote:
-> > On Thu, Jun 21, 2018 at 10:55:09AM -0700, Christoph Hellwig wrote:
-> > > On Thu, Jun 21, 2018 at 10:33:14AM -0700, Guenter Roeck wrote:
-> > > > Are you able to boot anything but -M virt ? If yes, can you send me the
-> > > > necessary command line parameters ?
-> > > 
-> > > Just -m virt.  For the SiFive board emulations a lot more driver
-> > > support is required.
-> > 
-> > Ok. At least it is a start. Have you managed to connect a hard drive ?
-> > I was only able to get it to work with initrd.
-> 
-> Yes, I use virtio-blk.  Here is my qemu command line:
-> 
-> /opt/qemu-riscv/bin/qemu-system-riscv64 \
->         -nographic \
->         -machine virt \
->         -kernel bbl \
->         -append "root=/dev/vda ro console=ttyS0" \
->         -drive file=../../busybear-linux/busybear.bin,format=raw,id=hd0 \
->         -device virtio-blk-device,drive=hd0 \
->         -netdev user,id=net0, \
->         -device virtio-net-device,netdev=net0
-> 
+This code lives entirely within the RISC-V arch code.  I've left it
+within an "#ifdef CONFIG_EARLY_PRINTK" despite always having
+EARLY_PRINTK support on RISC-V just in case someone wants to remove
+it.
 
-Yes, that worked. For some reason I had tried to use virtio-scsi-device.
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+---
+ arch/riscv/kernel/setup.c | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-With your Linux kernel ToT, after removing setup_initrd(), and with qemu
-built from riscv/qemu-2.13-for-upstream, my testing now reports:
-
-Building virt:defconfig:initrd ... running .... passed
-Building virt:defconfig:rootfs ... running .... passed
-
-Let's hope that upstream Linux soon gets to a point where I can activate
-those tests.
-
-Thanks a lot!
-
-Guenter
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index ee44a48faf79..494c15ba4610 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -39,6 +39,27 @@
+ #include <asm/tlbflush.h>
+ #include <asm/thread_info.h>
+ 
++#ifdef CONFIG_EARLY_PRINTK
++static void sbi_console_write(struct console *co, const char *buf,
++			      unsigned int n)
++{
++	int i;
++
++	for (i = 0; i < n; ++i) {
++		if (buf[i] == '\n')
++			sbi_console_putchar('\r');
++		sbi_console_putchar(buf[i]);
++	}
++}
++
++struct console riscv_sbi_early_console_dev __initdata = {
++	.name	= "early",
++	.write	= sbi_console_write,
++	.flags	= CON_PRINTBUFFER | CON_BOOT | CON_ANYTIME,
++	.index	= -1
++};
++#endif
++
+ #ifdef CONFIG_DUMMY_CONSOLE
+ struct screen_info screen_info = {
+ 	.orig_video_lines	= 30,
+@@ -195,6 +216,12 @@ static void __init setup_bootmem(void)
+ 
+ void __init setup_arch(char **cmdline_p)
+ {
++#if defined(CONFIG_EARLY_PRINTK)
++       if (likely(early_console == NULL)) {
++               early_console = &riscv_sbi_early_console_dev;
++               register_console(early_console);
++       }
++#endif
+ 	*cmdline_p = boot_command_line;
+ 
+ 	parse_early_param();
+-- 
+2.16.4
