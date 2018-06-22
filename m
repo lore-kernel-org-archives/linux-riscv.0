@@ -1,27 +1,36 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 22 Jun 2018 16:20:03 -0700
-Subject: Driver for the RISC-V Interrupt Controller
-Message-ID: <20180622232006.12158-1-palmer@sifive.com>
+Date: Fri, 22 Jun 2018 16:20:04 -0700
+Subject: [PATCH 1/3] RISC-V: Don't include irq-riscv-intc.h
+In-Reply-To: <20180622232006.12158-1-palmer@sifive.com>
+References: <20180622232006.12158-1-palmer@sifive.com>
+Message-ID: <20180622232006.12158-2-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The RISC-V ISA mandantes the presence of a simple, per-hart (hardware
-thread) interrupt controller availiable to supervisor mode.  This patch
-set adds a driver for this interrupt controller.
+This file has never existed in the upstream kernel, but it's guarded by
+an #ifdef that's also never existed in the upstream kernel.  As a part
+of our interrupt controller refactoring this header is no longer
+necessary, but this reference managed to sneak in anyway.
 
-The patch set itself has been around in various flavors for a while, but
-as far as I remember it's never been properly cleaned up and submitted
-before.  As it currently stands it's essentially three seperate patches,
-but as they're all intertwined I'm keeping them together.  Sorry if
-that's the wrong thing to do.
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+---
+ arch/riscv/kernel/irq.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
-The patches are:
-
-* A cleanup to arch/riscv to remove a bit of the old initialization
-  mechanism that snuck in to our arch port.  This patch is trivial, so
-  unless there's any feedback on it specificly I'll include it in my
-  next pull request.
-* The addition of device tree bindings to describe "riscv,cpu-intc".
-* The actual irqchip driver.  If this gets merged before the arch/riscv
-  patch then it'll cause our build to fail, but I'm assuming this will
-  be targeted at the next merge window so we should be safe.
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index b74cbfbce2d0..7bcdaed15703 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -16,10 +16,6 @@
+ #include <linux/irqchip.h>
+ #include <linux/irqdomain.h>
+ 
+-#ifdef CONFIG_RISCV_INTC
+-#include <linux/irqchip/irq-riscv-intc.h>
+-#endif
+-
+ void __init init_IRQ(void)
+ {
+ 	irqchip_init();
+-- 
+2.16.4
