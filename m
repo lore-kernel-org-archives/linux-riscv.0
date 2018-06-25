@@ -1,113 +1,34 @@
-From: tglx@linutronix.de (Thomas Gleixner)
-Date: Sat, 23 Jun 2018 10:56:29 +0200 (CEST)
-Subject: [PATCH 3/3] irqchip: RISC-V Local Interrupt Controller Driver
-In-Reply-To: <20180622232006.12158-4-palmer@sifive.com>
-References: <20180622232006.12158-1-palmer@sifive.com>
- <20180622232006.12158-4-palmer@sifive.com>
-Message-ID: <alpine.DEB.2.21.1806231041110.8650@nanos.tec.linutronix.de>
+From: zong@andestech.com (Zong Li)
+Date: Mon, 25 Jun 2018 16:49:36 +0800
+Subject: [PATCH v2 0/4] Building for 32-bit RISC-V kernel
+Message-ID: <cover.1529915117.git.zong@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, 22 Jun 2018, Palmer Dabbelt wrote:
-> +struct riscv_irq_data {
-> +	struct irq_chip		chip;
-> +	struct irq_domain	*domain;
-> +	int			hart;
-> +	char			name[20];
-> +};
-> +DEFINE_PER_CPU(struct riscv_irq_data, riscv_irq_data);
+These patches for building 32-bit RISC-V kernel.
+ - Fix the compile errors and warnings on RV32I.
+ - Fix some incompatible problem on RV32I.
+ - Add format.h for compatible of print format.
 
-static ?
+The fixed width integer types format for Elf_Addr will move to
+generic header by another patch. For now, there are some warning
+about unexpected argument of type on RV32I.
 
-> +static void riscv_intc_irq(struct pt_regs *regs)
-> +{
-> +	struct pt_regs *old_regs = set_irq_regs(regs);
-> +	struct irq_domain *domain;
-> +	unsigned long cause = csr_read(scause);
-> +
-> +	/*
-> +	 * The high order bit of the trap cause register is always set for
-> +	 * interrupts, which allows us to differentiate them from exceptions
-> +	 * quickly.  The INTERRUPT_CAUSE_* macros don't contain that bit, so we
-> +	 * need to mask it off here.
-> +	 */
-> +	WARN_ON((cause & (1UL << (PTR_BITS - 1))) == 0);
+Change in v1:
+ - Fix some error in v1
+ - Remove implementation of fixed width integer types format for Elf_Addr.
 
-So what's the point of continuing here? 
+Zong Li (4):
+  RISC-V: Add conditional macro for zone of DMA32
+  RISC-V: Select GENERIC_UCMPDI2 on RV32I
+  RISC-V: Add definiion of extract symbol's index and type for 32-bit
+  RISC-V: Change variable type for 32-bit compatible
 
+ arch/riscv/Kconfig                |  1 +
+ arch/riscv/include/uapi/asm/elf.h |  9 +++++++--
+ arch/riscv/kernel/module.c        | 22 +++++++++++-----------
+ arch/riscv/mm/init.c              |  2 ++
+ 4 files changed, 21 insertions(+), 13 deletions(-)
 
-> +	cause = cause & ~(1UL << (PTR_BITS - 1));
-
-Please define a proper CAUSE_MASK or such as this is really hard to read.
-
-> +/*
-> + * On RISC-V systems local interrupts are masked or unmasked by writing the SIE
-> + * (Supervisor Interrupt Enable) CSR.  As CSRs can only be written on the local
-> + * hart, these functions can only be called on the hart that corresponds to the
-> + * IRQ chip.  They are only called internally to this module, so they BUG_ON if
-> + * this condition is violated rather than attempting to handle the error by
-> + * forwarding to the target hart, as that's already expected to have been done.
-> + */
-> +static void riscv_irq_mask(struct irq_data *d)
-> +{
-> +	struct riscv_irq_data *data = irq_data_get_irq_chip_data(d);
-> +
-> +	BUG_ON(smp_processor_id() != data->hart);
-> +	csr_clear(sie, 1 << (long)d->hwirq);
-
-What's the point of this type cast? Whether you shift by unsigned long or by
-long does not really matter, right? I'd rather expected to see 1U << d->hwirq
-
-> +static int __init riscv_intc_init(struct device_node *node, struct device_node *parent)
-> +{
-> +	int hart;
-> +	struct riscv_irq_data *data;
-
-Nit. Reverse fir tree ordering please
-
-	struct riscv_irq_data *data;
-	int hart;
-
-Simpler to parse.
-
-> +
-> +	if (parent)
-> +		return 0;
-
-Hmm, that wants a comment because it's not clear why this is done for the
-casual reader.
-
-> +
-> +	hart = riscv_of_processor_hart(node->parent);
-> +	if (hart < 0)
-> +		return -EIO;
-> +
-> +	data = &per_cpu(riscv_irq_data, hart);
-> +	snprintf(data->name, sizeof(data->name), "riscv,cpu_intc,%d", hart);
-> +	data->hart = hart;
-> +	data->chip.name = data->name;
-> +	data->chip.irq_mask = riscv_irq_mask;
-> +	data->chip.irq_unmask = riscv_irq_unmask;
-> +	data->chip.irq_enable = riscv_irq_enable;
-> +	data->chip.irq_disable = riscv_irq_disable;
-> +	data->domain = irq_domain_add_linear(node, PTR_BITS,
-> +					     &riscv_irqdomain_ops, data);
-> +	if (!data->domain)
-> +		goto error_add_linear;
-> +
-> +	set_handle_irq(&riscv_intc_irq);
-> +
-> +	pr_info("%s: %lu local interrupts mapped\n", data->name, PTR_BITS);
-> +	return 0;
-> +
-> +error_add_linear:
-> +	pr_warning("%s: unable to add IRQ domain\n",
-> +		   data->name);
-
-One line please.
-
-> +	return -ENXIO;
-
-Thanks,
-
-	tglx
+-- 
+2.16.1
