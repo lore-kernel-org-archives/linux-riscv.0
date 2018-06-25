@@ -1,39 +1,31 @@
 From: zong@andestech.com (Zong Li)
-Date: Mon, 25 Jun 2018 16:49:39 +0800
-Subject: [PATCH v2 3/4] RISC-V: Add definiion of extract symbol's index and
- type for 32-bit
+Date: Mon, 25 Jun 2018 16:49:38 +0800
+Subject: [PATCH v2 2/4] RISC-V: Select GENERIC_UCMPDI2 on RV32I
 In-Reply-To: <cover.1529915117.git.zong@andestech.com>
 References: <cover.1529915117.git.zong@andestech.com>
-Message-ID: <4c4def99db5e0392238947dc878c5018cc7aca3e.1529915117.git.zong@andestech.com>
+Message-ID: <e83cbb33e4b72fdef56bfe396131474040a194b7.1529915117.git.zong@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Use generic marco to get the index and type of symbol.
+On 32-bit, it need to use __ucmpdi2, otherwise, it can't find the __ucmpdi2
+symbol.
 
 Signed-off-by: Zong Li <zong@andestech.com>
 ---
- arch/riscv/include/uapi/asm/elf.h | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/include/uapi/asm/elf.h b/arch/riscv/include/uapi/asm/elf.h
-index 5cae4c30cd8e..1e0dfc36aab9 100644
---- a/arch/riscv/include/uapi/asm/elf.h
-+++ b/arch/riscv/include/uapi/asm/elf.h
-@@ -21,8 +21,13 @@ typedef struct user_regs_struct elf_gregset_t;
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 6debcc4afc72..3e683be9b7a8 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -122,6 +122,7 @@ config ARCH_RV32I
+ 	select GENERIC_ASHLDI3
+ 	select GENERIC_ASHRDI3
+ 	select GENERIC_LSHRDI3
++	select GENERIC_UCMPDI2
  
- typedef union __riscv_fp_state elf_fpregset_t;
- 
--#define ELF_RISCV_R_SYM(r_info) ((r_info) >> 32)
--#define ELF_RISCV_R_TYPE(r_info) ((r_info) & 0xffffffff)
-+#if __riscv_xlen == 64
-+#define ELF_RISCV_R_SYM(r_info)		ELF64_R_SYM(r_info)
-+#define ELF_RISCV_R_TYPE(r_info)	ELF64_R_TYPE(r_info)
-+#else
-+#define ELF_RISCV_R_SYM(r_info)		ELF32_R_SYM(r_info)
-+#define ELF_RISCV_R_TYPE(r_info)	ELF32_R_TYPE(r_info)
-+#endif
- 
- /*
-  * RISC-V relocation types
+ config ARCH_RV64I
+ 	bool "RV64I"
 -- 
 2.16.1
