@@ -1,32 +1,39 @@
 From: zong@andestech.com (Zong Li)
-Date: Mon, 25 Jun 2018 16:49:37 +0800
-Subject: [PATCH v2 1/4] RISC-V: Add conditional macro for zone of DMA32
+Date: Mon, 25 Jun 2018 16:49:39 +0800
+Subject: [PATCH v2 3/4] RISC-V: Add definiion of extract symbol's index and
+ type for 32-bit
 In-Reply-To: <cover.1529915117.git.zong@andestech.com>
 References: <cover.1529915117.git.zong@andestech.com>
-Message-ID: <3d8fcfce1e99fe1f07c11b535319164ee2511c02.1529915117.git.zong@andestech.com>
+Message-ID: <4c4def99db5e0392238947dc878c5018cc7aca3e.1529915117.git.zong@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The DMA32 is for 64-bit usage.
+Use generic marco to get the index and type of symbol.
 
 Signed-off-by: Zong Li <zong@andestech.com>
 ---
- arch/riscv/mm/init.c | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/include/uapi/asm/elf.h | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index c77df8142be2..58a522f9bcc3 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -28,7 +28,9 @@ static void __init zone_sizes_init(void)
- {
- 	unsigned long max_zone_pfns[MAX_NR_ZONES] = { 0, };
+diff --git a/arch/riscv/include/uapi/asm/elf.h b/arch/riscv/include/uapi/asm/elf.h
+index 5cae4c30cd8e..1e0dfc36aab9 100644
+--- a/arch/riscv/include/uapi/asm/elf.h
++++ b/arch/riscv/include/uapi/asm/elf.h
+@@ -21,8 +21,13 @@ typedef struct user_regs_struct elf_gregset_t;
  
-+#ifdef CONFIG_ZONE_DMA32
- 	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(min(4UL * SZ_1G, max_low_pfn));
+ typedef union __riscv_fp_state elf_fpregset_t;
+ 
+-#define ELF_RISCV_R_SYM(r_info) ((r_info) >> 32)
+-#define ELF_RISCV_R_TYPE(r_info) ((r_info) & 0xffffffff)
++#if __riscv_xlen == 64
++#define ELF_RISCV_R_SYM(r_info)		ELF64_R_SYM(r_info)
++#define ELF_RISCV_R_TYPE(r_info)	ELF64_R_TYPE(r_info)
++#else
++#define ELF_RISCV_R_SYM(r_info)		ELF32_R_SYM(r_info)
++#define ELF_RISCV_R_TYPE(r_info)	ELF32_R_TYPE(r_info)
 +#endif
- 	max_zone_pfns[ZONE_NORMAL] = max_low_pfn;
  
- 	free_area_init_nodes(max_zone_pfns);
+ /*
+  * RISC-V relocation types
 -- 
 2.16.1
