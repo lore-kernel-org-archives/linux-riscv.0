@@ -1,14 +1,18 @@
-From: hch@lst.de (Christoph Hellwig)
-Date: Thu, 28 Jun 2018 15:06:21 +0200
-Subject: ERROR: "swiotlb_dma_ops" [...] undefined!
-In-Reply-To: <mvmzhzhg1aq.fsf@suse.de>
-References: <mvmzhzhg1aq.fsf@suse.de>
-Message-ID: <20180628130621.GA8438@lst.de>
+From: hch@infradead.org (Christoph Hellwig)
+Date: Fri, 29 Jun 2018 00:08:32 -0700
+Subject: [PATCH v2 1/4] RISC-V: Add conditional macro for zone of DMA32
+In-Reply-To: <3d8fcfce1e99fe1f07c11b535319164ee2511c02.1529915117.git.zong@andestech.com>
+References: <cover.1529915117.git.zong@andestech.com>
+ <3d8fcfce1e99fe1f07c11b535319164ee2511c02.1529915117.git.zong@andestech.com>
+Message-ID: <20180629070832.GA12956@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, Jun 26, 2018 at 02:49:49PM +0200, Andreas Schwab wrote:
-> swiotlb_dma_ops is not an exported symbol, thus any module using
-> functions from dma-mapping.h will get an undefined reference to it.
+On Mon, Jun 25, 2018 at 04:49:37PM +0800, Zong Li wrote:
+> The DMA32 is for 64-bit usage.
+> 
+> Signed-off-by: Zong Li <zong@andestech.com>
 
-I'll send a patch to Linus to export it.  Thanks for the report.
+Looks good,
+
+Reviewed-by: Christoph Hellwig <hch@lst.de>
