@@ -1,19 +1,17 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Fri, 29 Jun 2018 00:08:44 -0700
-Subject: [PATCH v2 2/4] RISC-V: Select GENERIC_UCMPDI2 on RV32I
-In-Reply-To: <e83cbb33e4b72fdef56bfe396131474040a194b7.1529915117.git.zong@andestech.com>
+Date: Fri, 29 Jun 2018 00:12:00 -0700
+Subject: [PATCH v2 3/4] RISC-V: Add definiion of extract symbol's index
+ and type for 32-bit
+In-Reply-To: <4c4def99db5e0392238947dc878c5018cc7aca3e.1529915117.git.zong@andestech.com>
 References: <cover.1529915117.git.zong@andestech.com>
- <e83cbb33e4b72fdef56bfe396131474040a194b7.1529915117.git.zong@andestech.com>
-Message-ID: <20180629070844.GB12956@infradead.org>
+ <4c4def99db5e0392238947dc878c5018cc7aca3e.1529915117.git.zong@andestech.com>
+Message-ID: <20180629071200.GC12956@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Jun 25, 2018 at 04:49:38PM +0800, Zong Li wrote:
-> On 32-bit, it need to use __ucmpdi2, otherwise, it can't find the __ucmpdi2
-> symbol.
-> 
-> Signed-off-by: Zong Li <zong@andestech.com>
+On Mon, Jun 25, 2018 at 04:49:39PM +0800, Zong Li wrote:
+> Use generic marco to get the index and type of symbol.
 
-Looks good,
-
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+Why do we even need this in a uapi header?  Shouldn't ELF_RISCV_R_SYM
+and ELF_RISCV_R_TYPE move to module.c?  In that case we could just
+use CONFIG_64BIT.
