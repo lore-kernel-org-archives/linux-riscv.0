@@ -1,27 +1,24 @@
-From: anup@brainfault.org (Anup Patel)
-Date: Mon, 2 Jul 2018 17:42:01 +0530
+From: hch@infradead.org (Christoph Hellwig)
+Date: Mon, 2 Jul 2018 06:32:33 -0700
 Subject: [RFC] Cache flush via SBI
-Message-ID: <CAAhSdy3=k52BYjiC+2S0RHk-hnPQXP0da-04aL-tb_O_XuvUEg@mail.gmail.com>
+In-Reply-To: <CAAhSdy3=k52BYjiC+2S0RHk-hnPQXP0da-04aL-tb_O_XuvUEg@mail.gmail.com>
+References: <CAAhSdy3=k52BYjiC+2S0RHk-hnPQXP0da-04aL-tb_O_XuvUEg@mail.gmail.com>
+Message-ID: <20180702133233.GA25558@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi All,
+On Mon, Jul 02, 2018 at 05:42:01PM +0530, Anup Patel wrote:
+> Hi All,
+> 
+> I have gone through various discussions around cache flush/invalidate
+> operation not being part of RISC-V spec. Although, CPU designers can
+> still provide these operations in an implementation specific way.
+> Right?
+> 
+> My suggestion is to have SBI calls for cache flush/invalidate so that
+> platform specific firmware can
+> provide cache flush/invalidate in a more generic way. Thoughts??
 
-I have gone through various discussions around cache flush/invalidate
-operation not being part of RISC-V spec. Although, CPU designers can
-still provide these operations in an implementation specific way.
-Right?
-
-My suggestion is to have SBI calls for cache flush/invalidate so that
-platform specific firmware can
-provide cache flush/invalidate in a more generic way. Thoughts??
-
-I have one important use-case of why cache flush will be required for
-virtualization (based on my previous experience in ARM
-virtualization). The Guest/VM RAM will be mapped as normal (i.e.
-cacheable memory) by QEMU+KVM but Guest OS will start with MMU
-disabled. To ensure that Guest images loaded by QEMU are visible to
-Guest at boot-time, the KVM kernel module will have to do cache flush.
-
-Regards,
-Anup
+No, we need to add them to the spec.  In fact Jacob just sent out
+anothet proposal to isa-dev, but I haven't had the time to go back
+and review it yet.
