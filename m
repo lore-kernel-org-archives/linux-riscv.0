@@ -1,24 +1,76 @@
-From: hch@infradead.org (Christoph Hellwig)
-Date: Mon, 2 Jul 2018 06:32:33 -0700
-Subject: [RFC] Cache flush via SBI
-In-Reply-To: <CAAhSdy3=k52BYjiC+2S0RHk-hnPQXP0da-04aL-tb_O_XuvUEg@mail.gmail.com>
-References: <CAAhSdy3=k52BYjiC+2S0RHk-hnPQXP0da-04aL-tb_O_XuvUEg@mail.gmail.com>
-Message-ID: <20180702133233.GA25558@infradead.org>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Tue, 3 Jul 2018 11:18:33 -0700
+Subject: [RFC PATCH 1/2] dt-binding: RISC-V local timer docs.
+In-Reply-To: <735f61fd-24e1-1d4c-3858-0e55628cd3cc@arm.com>
+References: <1530295283-191270-1-git-send-email-atish.patra@wdc.com>
+ <1530295283-191270-2-git-send-email-atish.patra@wdc.com>
+ <735f61fd-24e1-1d4c-3858-0e55628cd3cc@arm.com>
+Message-ID: <54c43832-9a88-20ed-2e7c-45c48840f944@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Jul 02, 2018 at 05:42:01PM +0530, Anup Patel wrote:
-> Hi All,
+On 7/2/18 1:22 AM, Marc Zyngier wrote:
+> On 29/06/18 19:01, Atish Patra wrote:
+>> This patch adds documentation for the RISC-V local timer node which
+>> defines per-hart based timer interrupts. This is specified by RISC-V
+>> supervisor manual.
+>>
+>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+>> ---
+>>   Documentation/devicetree/bindings/riscv/timer.txt | 35 +++++++++++++++++++++++
+>>   1 file changed, 35 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/riscv/timer.txt
+>>
+>> diff --git a/Documentation/devicetree/bindings/riscv/timer.txt b/Documentation/devicetree/bindings/riscv/timer.txt
+>> new file mode 100644
+>> index 0000000..8dcc930
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/riscv/timer.txt
+>> @@ -0,0 +1,35 @@
+>> +* RISC-V local timer
+>> +
+>> +RISC-V supervisor manual specifies that timer interrupt is connected to
+>> +individual harts directly to minimize the interrupt latency. These per
+>> +hart timer is connected via Hart Level Interrupt Controller (HLIC). The
+>> +HLIC will also act as the interrupt parent for timer interrupt.
+>> +
+>> +Required properties:
+>> +
+>> +- compatible : "riscv,local-timer"
+>> +- interrupts : Should be Timer interrupt number. Current supervisor manual
+>> +	       defines it be 5.
+>> +- interrupt-parent : Should point to local interrupt-controller phandle.
+>> +
+>> +Example:
+>> +	cpus {
+>> +    		#address-cells = <0x00000001>;
+>> +    		..
+>> +		..
+>> +		cpu at 0 {
+>> +      		..
+>> +		..
+>> +		timer {
+>> +        		interrupts = <0x00000005>;
+>> +        		interrupt-parent = <0x00000004>;
+>> +        		compatible = "riscv,local-timer";
+>> +      		}
+>> +      		interrupt-controller {
+>> +			..
+>> +			..
+>> +			compatible = "riscv,cpu-intc";
+>> +			linux,phandle = <0x00000004>;
+>> +			phandle = <0x00000004>;
 > 
-> I have gone through various discussions around cache flush/invalidate
-> operation not being part of RISC-V spec. Although, CPU designers can
-> still provide these operations in an implementation specific way.
-> Right?
+> This looks like the output of a decompiling of a dtb. Please document
+> the binding in the way a human being would write it, not how it is
+> compiled by dtc.
 > 
-> My suggestion is to have SBI calls for cache flush/invalidate so that
-> platform specific firmware can
-> provide cache flush/invalidate in a more generic way. Thoughts??
 
-No, we need to add them to the spec.  In fact Jacob just sent out
-anothet proposal to isa-dev, but I haven't had the time to go back
-and review it yet.
+I will fix it in v2. Thanks for the review.
+
+Regards,
+Atish
+> Thanks,
+> 
+> 	M.
+> 
