@@ -1,43 +1,63 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed,  4 Jul 2018 14:10:56 -0700
-Subject: [PATCH] RISC-V: Use KBUILD_CFLAGS instead of KCFLAGS when building
- the vDSO
-Message-ID: <20180704211056.1885-1-palmer@sifive.com>
+Date: Wed, 04 Jul 2018 14:25:07 -0700 (PDT)
+Subject: [GIT PULL] RISC-V Fixus for 4.18-rc4
+Message-ID: <mhng-daf6638a-82c4-40ad-b63c-d3d205b6f556@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-If you use a 64-bit compiler to build a 32-bit kernel then you'll get an
-error when building the vDSO due to a library mismatch.  The happens
-because the relevant "-march" argument isn't supplied to the GCC run
-that generates one of the vDSO intermediate files.
+The following changes since commit 021c91791a5e7e85c567452f1be3e4c2c6cb6063:
 
-I'm not actually sure what the right thing to do here is as I'm not
-particularly familiar with the kernel build system.  I poked the
-documentation and it appears that KCFLAGS is the correct thing to do
-(it's suggested that should be used when building modules), but we set
-KBUILD_CFLAGS in arch/riscv/Makefile.
+  Linux 4.18-rc3 (2018-07-01 16:04:53 -0700)
 
-This does at least fix the build error.
+are available in the Git repository at:
 
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- arch/riscv/kernel/vdso/Makefile | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.18-rc4
 
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index f6561b783b61..eed1c137f618 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -52,8 +52,8 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
- # Add -lgcc so rv32 gets static muldi3 and lshrdi3 definitions.
- # Make sure only to export the intended __vdso_xxx symbol offsets.
- quiet_cmd_vdsold = VDSOLD  $@
--      cmd_vdsold = $(CC) $(KCFLAGS) $(call cc-option, -no-pie) -nostdlib $(SYSCFLAGS_$(@F)) \
--                           -Wl,-T,$(filter-out FORCE,$^) -o $@.tmp -lgcc && \
-+      cmd_vdsold = $(CC) $(KBUILD_CFLAGS) $(call cc-option, -no-pie) -nostdlib -nostartfiles $(SYSCFLAGS_$(@F)) \
-+                           -Wl,-T,$(filter-out FORCE,$^) -o $@.tmp && \
-                    $(CROSS_COMPILE)objcopy \
-                            $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@
- 
--- 
-2.16.4
+for you to fetch changes up to 9a6a51154f8be90a76f6a8ea8809115c11cec9dd:
+
+  RISC-V: Fix the rv32i kernel build (2018-07-04 14:12:53 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixus for 4.18-rc4
+
+This patch set contains a handful of fixes for the RISC-V port:
+
+* A fix to R_RISCV_ADD32/R_RISCV_SUB32 relocations that allows modules
+  that use these to load correctly.
+* The removal of of_platform_populate(), which is obselete.
+* The removal of irq-riscv-intc.h, which is obselete.
+* A fix to PTRACE_SETREGSET.
+* Fixes that allow the RV32I kernel to build (at least for Zong, I've
+  got another patch on the mailing list that's necessary on my setup
+  :)).
+
+I've just given these a defconfig build test.
+
+----------------------------------------------------------------
+Andreas Schwab (1):
+      RISC-V: fix R_RISCV_ADD32/R_RISCV_SUB32 relocations
+
+Jim Wilson (1):
+      RISC-V: Fix PTRACE_SETREGSET bug.
+
+Palmer Dabbelt (2):
+      RISC-V: Don't include irq-riscv-intc.h
+      RISC-V: Fix the rv32i kernel build
+
+Rob Herring (1):
+      riscv: remove unnecessary of_platform_populate call
+
+Zong Li (4):
+      RISC-V: Add conditional macro for zone of DMA32
+      RISC-V: Select GENERIC_UCMPDI2 on RV32I
+      RISC-V: Add definiion of extract symbol's index and type for 32-bit
+      RISC-V: Change variable type for 32-bit compatible
+
+ arch/riscv/Kconfig                |  1 +
+ arch/riscv/include/uapi/asm/elf.h |  9 +++++++--
+ arch/riscv/kernel/irq.c           |  4 ----
+ arch/riscv/kernel/module.c        | 26 +++++++++++++-------------
+ arch/riscv/kernel/ptrace.c        |  2 +-
+ arch/riscv/kernel/setup.c         |  5 -----
+ arch/riscv/mm/init.c              |  2 ++
+ 7 files changed, 24 insertions(+), 25 deletions(-)
