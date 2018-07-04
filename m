@@ -1,27 +1,43 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 04 Jul 2018 13:58:44 -0700 (PDT)
-Subject: [PATCH v2 3/4] RISC-V: Add definiion of extract symbol's index
- and type for 32-bit
-In-Reply-To: <CA+ZOyahLiGS-7DQO8ncJ_=w-Mkav33FBBOC9-K08XSyhPgjtGg@mail.gmail.com>
-Message-ID: <mhng-640c8a78-7e3a-4ccf-9951-fc85a0969b9c@palmer-si-x1c4>
+Date: Wed,  4 Jul 2018 14:10:56 -0700
+Subject: [PATCH] RISC-V: Use KBUILD_CFLAGS instead of KCFLAGS when building
+ the vDSO
+Message-ID: <20180704211056.1885-1-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, 29 Jun 2018 09:53:49 PDT (-0700), zongbox at gmail.com wrote:
-> Christoph Hellwig <hch@infradead.org> ? 2018?6?29? ?? ??3:12???
->>
->> On Mon, Jun 25, 2018 at 04:49:39PM +0800, Zong Li wrote:
->> > Use generic marco to get the index and type of symbol.
->>
->> Why do we even need this in a uapi header?  Shouldn't ELF_RISCV_R_SYM
->> and ELF_RISCV_R_TYPE move to module.c?  In that case we could just
->> use CONFIG_64BIT.
->
-> Make sense. I even think the all definitions can be move to include/asm/elf.h.
-> How do you think about that?
+If you use a 64-bit compiler to build a 32-bit kernel then you'll get an
+error when building the vDSO due to a library mismatch.  The happens
+because the relevant "-march" argument isn't supplied to the GCC run
+that generates one of the vDSO intermediate files.
 
-Sorry I've been slow about reviewing this, but I think just in the interest of 
-getting a sane RV32I port up and running quickly (so we can try to get glibc in 
-shape) I'm going to take this for now.
+I'm not actually sure what the right thing to do here is as I'm not
+particularly familiar with the kernel build system.  I poked the
+documentation and it appears that KCFLAGS is the correct thing to do
+(it's suggested that should be used when building modules), but we set
+KBUILD_CFLAGS in arch/riscv/Makefile.
 
-Do you mind submitting a cleanup patch?
+This does at least fix the build error.
+
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+---
+ arch/riscv/kernel/vdso/Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index f6561b783b61..eed1c137f618 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -52,8 +52,8 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
+ # Add -lgcc so rv32 gets static muldi3 and lshrdi3 definitions.
+ # Make sure only to export the intended __vdso_xxx symbol offsets.
+ quiet_cmd_vdsold = VDSOLD  $@
+-      cmd_vdsold = $(CC) $(KCFLAGS) $(call cc-option, -no-pie) -nostdlib $(SYSCFLAGS_$(@F)) \
+-                           -Wl,-T,$(filter-out FORCE,$^) -o $@.tmp -lgcc && \
++      cmd_vdsold = $(CC) $(KBUILD_CFLAGS) $(call cc-option, -no-pie) -nostdlib -nostartfiles $(SYSCFLAGS_$(@F)) \
++                           -Wl,-T,$(filter-out FORCE,$^) -o $@.tmp && \
+                    $(CROSS_COMPILE)objcopy \
+                            $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@
+ 
+-- 
+2.16.4
