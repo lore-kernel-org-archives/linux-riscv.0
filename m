@@ -1,29 +1,43 @@
-From: hch@infradead.org (Christoph Hellwig)
-Date: Thu, 5 Jul 2018 08:44:17 -0700
-Subject: [PATCH] RISC-V: Use KBUILD_CFLAGS instead of KCFLAGS when
- building the vDSO
-In-Reply-To: <20180704211056.1885-1-palmer@sifive.com>
-References: <20180704211056.1885-1-palmer@sifive.com>
-Message-ID: <20180705154417.GB31766@infradead.org>
+From: marc.zyngier@arm.com (Marc Zyngier)
+Date: Thu, 5 Jul 2018 16:58:59 +0100
+Subject: [RFC PATCH 2/2] riscv: Introduce per cpu based local timer
+ interrupt
+In-Reply-To: <20180705154235.GA31766@infradead.org>
+References: <1530295283-191270-1-git-send-email-atish.patra@wdc.com>
+ <1530295283-191270-3-git-send-email-atish.patra@wdc.com>
+ <56682a4c-c83f-c10b-0979-330f92cb3ccf@arm.com>
+ <028fb362-0f4e-25b5-b707-7cc3653cbc05@wdc.com>
+ <5c65bc1b-a64c-e93c-84e6-5a576617f64f@arm.com>
+ <aeb8586e-8732-8d86-8750-b66807cbd601@wdc.com>
+ <3ed55348-214c-e50b-f6b0-b425aa3e4706@arm.com>
+ <20180705154235.GA31766@infradead.org>
+Message-ID: <f75795ac-9f13-83b1-b67d-248155e94bb6@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Jul 04, 2018 at 02:10:56PM -0700, Palmer Dabbelt wrote:
-> If you use a 64-bit compiler to build a 32-bit kernel then you'll get an
-> error when building the vDSO due to a library mismatch.  The happens
-> because the relevant "-march" argument isn't supplied to the GCC run
-> that generates one of the vDSO intermediate files.
+On 05/07/18 16:42, hch at infradead.org wrote:
+> On Thu, Jul 05, 2018 at 08:48:23AM +0100, Marc Zyngier wrote:
+>> Here, you have discrete timers, discrete irqchip, and thus individual
+>> domains. You might as well keep everything as non-percpu interrupts with
+>> a fixed affinity, assuming each HLIC is reachable from any CPU (which
+>> cannot universally work on ARM).
 > 
-> I'm not actually sure what the right thing to do here is as I'm not
-> particularly familiar with the kernel build system.  I poked the
-> documentation and it appears that KCFLAGS is the correct thing to do
-> (it's suggested that should be used when building modules), but we set
-> KBUILD_CFLAGS in arch/riscv/Makefile.
-> 
-> This does at least fix the build error.
+> The hart level interrupt controller is based around RISC-V control
+> registers, which per defintion are CPU local.  So you can't touch them
+> at all from other cores and any access of the remote 'irqchip' needs
+> and IPI.
 
-Looks good to me for now.  In the future we might want to use different
-ABIs in the kernel and in userspace, at which point we'd need yet
-another cflags variable.
+Then this is no different from what we have on ARM with GICv1/v2, where
+private interrupts are strictly private, and cannot be accessed from
+another CPU.
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+> I'm not an irqchip expert, but sometimes I really wonder if the irqchip
+> framework really is the right abstraction for this.
+Well, it served us pretty well so far. Seems like RISC-V has decided to
+describe the HW in a subtly (and maybe pointlessly?) different way,
+rather than reusing the existing abstraction. It is not necessarily bad,
+but it just makes things more difficult.
+
+	M.
+-- 
+Jazz is not dead. It just smells funny...
