@@ -1,48 +1,68 @@
-From: tglx@linutronix.de (Thomas Gleixner)
-Date: Thu, 5 Jul 2018 22:33:55 +0200 (CEST)
-Subject: [PATCH 3/6] timex: prepare compat helpers for y2038 changes
-In-Reply-To: <CABeXuvoXX2=0XrnpDjxu74QBK3zd6qEk46tzYrMuRD+-FKjbZw@mail.gmail.com>
-References: <20180703054422.12089-4-deepa.kernel@gmail.com>
- <201807051322.sUohKhUO%fengguang.wu@intel.com>
- <CABeXuvoXX2=0XrnpDjxu74QBK3zd6qEk46tzYrMuRD+-FKjbZw@mail.gmail.com>
-Message-ID: <alpine.DEB.2.21.1807052232310.1771@nanos.tec.linutronix.de>
+From: deepa.kernel@gmail.com (Deepa Dinamani)
+Date: Thu,  5 Jul 2018 14:35:57 -0700
+Subject: [PATCH v2 0/7] Introduce struct __kernel_timex
+Message-ID: <20180705213604.18883-1-deepa.kernel@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, 5 Jul 2018, Deepa Dinamani wrote:
+The series introduces struct __kernel_timex as a substitute for
+the non y2038 safe struct timex.
 
-> The error is fixed with the following patch that goes in before patch
-> 3/6 above in the series.
-> Let me know if I should post a v2 instead.
-> 
-> Thanks,
-> Deepa
-> 
-> 
-> commit bfe4b046ed7f01154aef44fcb77d3f172929ccc2
-> Author: Deepa Dinamani <deepa.kernel@gmail.com>
-> Date:   Thu Jul 5 11:47:25 2018 -0700
-> 
->     riscv: Include asm-generic/compat.h
-> 
->     riscv does not enable CONFIG_COMPAT in default configurations:
->     defconfig, allmodconfig and nomodconfig.
->     And hence does not inlude definitions for compat data types.
-> 
->     Now that time syscalls are being reused in non CONFIG_COMPAT
->     modes, include asm-generic definitions for riscv.
-> 
->     Alternative would be to make compat_time.h to be conditional on
->     CONFIG_COMPAT_32BIT_TIME. But, since riscv is already has an
->     asm/compat.h include the generic version instead.
-> 
->     Signed-off-by: Deepa Dinamani <deepa.kernel@gmail.com>
->     Cc: palmer at sifive.com
->     Cc: linux-riscv at lists.infradead.org
+The series is based on the original series posted by Arnd Bergmann
+in [1].
 
-Post a real patch please instead of something which I have to cleanup
-manually. A V2 of the series is probably the simplest way.
+The overview of the series is as below:
+1. Prepare for the compat timex interfaces to be used unconditionally.
+2. Introduce struct __kernel_timex.
+3. Use struct __kernel_timex in place of struct timex.
+4. Switch syscalls to use struct __kernel_timex.
 
-Thanks,
+[1] https://sourceware.org/ml/libc-alpha/2015-05/msg00070.html
 
-	tglx
+Changes since v1:
+* Fix riscv asm/compat.h to pick up generic compat types
+
+Deepa Dinamani (7):
+  arm64: Make basic compat_* types always available
+  sparc: Make thread_info.h available directly
+  riscv: Include asm-generic/compat.h
+  timex: prepare compat helpers for y2038 changes
+  time: Add struct __kernel_timex
+  timex: use __kernel_timex internally
+  timex: change syscalls to use struct __kernel_timex
+
+ arch/alpha/kernel/osf_sys.c     |  2 +-
+ arch/arm64/include/asm/compat.h | 22 ++++-----
+ arch/riscv/include/asm/compat.h |  3 ++
+ arch/sparc/include/asm/compat.h |  2 +
+ drivers/ptp/ptp_clock.c         |  2 +-
+ include/asm-generic/compat.h    |  8 +++-
+ include/linux/compat.h          | 33 --------------
+ include/linux/compat_time.h     | 34 ++++++++++++++
+ include/linux/posix-clock.h     |  2 +-
+ include/linux/syscalls.h        |  5 +--
+ include/linux/timex.h           |  9 +++-
+ include/uapi/linux/timex.h      | 41 +++++++++++++++++
+ kernel/compat.c                 | 63 --------------------------
+ kernel/time/ntp.c               | 12 ++---
+ kernel/time/ntp_internal.h      |  2 +-
+ kernel/time/posix-clock.c       |  2 +-
+ kernel/time/posix-timers.c      | 14 ++----
+ kernel/time/posix-timers.h      |  2 +-
+ kernel/time/time.c              | 80 ++++++++++++++++++++++++++++++---
+ kernel/time/timekeeping.c       |  4 +-
+ 20 files changed, 201 insertions(+), 141 deletions(-)
+
+
+base-commit: e30b8745c892204095c0a8b69405868f63ddcce1
+-- 
+2.17.1
+
+Cc: catalin.marinas at arm.com
+Cc: davem at davemloft.net
+Cc: linux-alpha at vger.kernel.org
+Cc: linux-api at vger.kernel.org
+Cc: linux-arch at vger.kernel.org
+Cc: linux-riscv at lists.infradead.org
+Cc: netdev at vger.kernel.org
+Cc: palmer at sifive.com
