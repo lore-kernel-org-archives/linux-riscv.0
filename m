@@ -1,71 +1,175 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Thu, 5 Jul 2018 10:15:05 -0700
-Subject: [RFC PATCH 2/2] riscv: Introduce per cpu based local timer
- interrupt
-In-Reply-To: <20180705154235.GA31766@infradead.org>
-References: <1530295283-191270-1-git-send-email-atish.patra@wdc.com>
- <1530295283-191270-3-git-send-email-atish.patra@wdc.com>
- <56682a4c-c83f-c10b-0979-330f92cb3ccf@arm.com>
- <028fb362-0f4e-25b5-b707-7cc3653cbc05@wdc.com>
- <5c65bc1b-a64c-e93c-84e6-5a576617f64f@arm.com>
- <aeb8586e-8732-8d86-8750-b66807cbd601@wdc.com>
- <3ed55348-214c-e50b-f6b0-b425aa3e4706@arm.com>
- <20180705154235.GA31766@infradead.org>
-Message-ID: <f4e95cdd-e52c-a43b-b837-cda627bb8f5c@wdc.com>
+From: deepa.kernel@gmail.com (Deepa Dinamani)
+Date: Thu, 5 Jul 2018 13:06:29 -0700
+Subject: [PATCH 3/6] timex: prepare compat helpers for y2038 changes
+In-Reply-To: <201807051322.sUohKhUO%fengguang.wu@intel.com>
+References: <20180703054422.12089-4-deepa.kernel@gmail.com>
+ <201807051322.sUohKhUO%fengguang.wu@intel.com>
+Message-ID: <CABeXuvoXX2=0XrnpDjxu74QBK3zd6qEk46tzYrMuRD+-FKjbZw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 7/5/18 8:42 AM, hch at infradead.org wrote:
-> On Thu, Jul 05, 2018 at 08:48:23AM +0100, Marc Zyngier wrote:
->>>> It looks like the issue might well be with the way the interrupt
->>>> controller handles those (I suspect it uses a domain per CPU for the
->>>> local interrupts, so the whole concept breaks down badly).
->>>>
->>>
->>> We have different interrupt number(Linux IRQ number) because of per cpu
->>> based interrupt controller called as Hart Level Interrupt Controller
->>> (HLIC). Some more details are on this patch.
->>>
->>> https://lkml.org/lkml/2018/6/22/914
->>>
->>> Thus, each HLIC registers it's own irq domain. Each timer interrupt in
->>> DT defines that CPU's HLIC as it's interrupt parent. Here is an example
->>> of DT.
-> 
-> Btw, for the next iteration of the serie I really think it needs to be
-> against mainline and include the heary level irqchip driver.  Basing
-> against an unknown unknown in some riscv tree makes reviews confusing,
-> and we also really need to get riscv irqs and timers upstream ASAP, so
-> we need to drive these together.
-> 
+The error is fixed with the following patch that goes in before patch
+3/6 above in the series.
+Let me know if I should post a v2 instead.
 
-Agreed. I will resubmit the v2 either with palmer's base patch set or 
-after the base IRQ patches are accepted mainline (whatever makes things 
-move faster).
-
->> This is not how percpu_devid interrupts are supposed to be used. The
->> expected use case is that you have a single domain, and that the same
->> Linux irq spans all the CPUs. On ARM, we declare a *single* timer that
->> is connected to a *single* interrupt controller, and the distribution is
->> completely implicit. That's what percpu_devid interrupts are for.
->>
->> Here, you have discrete timers, discrete irqchip, and thus individual
->> domains. You might as well keep everything as non-percpu interrupts with
->> a fixed affinity, assuming each HLIC is reachable from any CPU (which
->> cannot universally work on ARM).
-> 
-> The hart level interrupt controller is based around RISC-V control
-> registers, which per defintion are CPU local.  So you can't touch them
-> at all from other cores and any access of the remote 'irqchip' needs
-> and IPI.
-> 
-> I'm not an irqchip expert, but sometimes I really wonder if the irqchip
-> framework really is the right abstraction for this.
-> 
-
-I will let palmer to comment on the rationale behind abstracting control 
-registers as an irqchip i.e. HLIC.
+Thanks,
+Deepa
 
 
-Regards,
-Atish
+commit bfe4b046ed7f01154aef44fcb77d3f172929ccc2
+Author: Deepa Dinamani <deepa.kernel@gmail.com>
+Date:   Thu Jul 5 11:47:25 2018 -0700
+
+    riscv: Include asm-generic/compat.h
+
+    riscv does not enable CONFIG_COMPAT in default configurations:
+    defconfig, allmodconfig and nomodconfig.
+    And hence does not inlude definitions for compat data types.
+
+    Now that time syscalls are being reused in non CONFIG_COMPAT
+    modes, include asm-generic definitions for riscv.
+
+    Alternative would be to make compat_time.h to be conditional on
+    CONFIG_COMPAT_32BIT_TIME. But, since riscv is already has an
+    asm/compat.h include the generic version instead.
+
+    Signed-off-by: Deepa Dinamani <deepa.kernel@gmail.com>
+    Cc: palmer at sifive.com
+    Cc: linux-riscv at lists.infradead.org
+
+diff --git a/arch/riscv/include/asm/compat.h b/arch/riscv/include/asm/compat.h
+index 044aecff8854..e78c5054e178 100644
+--- a/arch/riscv/include/asm/compat.h
++++ b/arch/riscv/include/asm/compat.h
+@@ -15,6 +15,9 @@
+  */
+ #ifndef __ASM_COMPAT_H
+ #define __ASM_COMPAT_H
++
++#include <asm-generic/compat.h>
++
+ #ifdef CONFIG_COMPAT
+
+ #if defined(CONFIG_64BIT)
+
+On Thu, Jul 5, 2018 at 12:06 AM, kbuild test robot <lkp@intel.com> wrote:
+> Hi Deepa,
+>
+> Thank you for the patch! Yet something to improve:
+>
+> [auto build test ERROR on tip/timers/core]
+> [also build test ERROR on next-20180704]
+> [cannot apply to linus/master v4.18-rc3]
+> [if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
+>
+> url:    https://github.com/0day-ci/linux/commits/Deepa-Dinamani/arm64-Make-basic-compat_-types-always-available/20180703-151440
+> config: riscv-defconfig (attached as .config)
+> compiler: riscv64-linux-gcc (GCC) 8.1.0
+> reproduce:
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # save the attached .config to linux build tree
+>         GCC_VERSION=8.1.0 make.cross ARCH=riscv
+>
+> All errors (new ones prefixed by >>):
+>
+>    In file included from include/linux/compat.h:10,
+>                     from include/linux/ethtool.h:17,
+>                     from include/linux/netdevice.h:41,
+>                     from drivers/net/mii.c:32:
+>>> include/linux/compat_time.h:29:2: error: unknown type name 'compat_uint_t'
+>      compat_uint_t modes;
+>      ^~~~~~~~~~~~~
+>>> include/linux/compat_time.h:30:2: error: unknown type name 'compat_long_t'
+>      compat_long_t offset;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:31:2: error: unknown type name 'compat_long_t'
+>      compat_long_t freq;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:32:2: error: unknown type name 'compat_long_t'
+>      compat_long_t maxerror;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:33:2: error: unknown type name 'compat_long_t'
+>      compat_long_t esterror;
+>      ^~~~~~~~~~~~~
+>>> include/linux/compat_time.h:34:2: error: unknown type name 'compat_int_t'
+>      compat_int_t status;
+>      ^~~~~~~~~~~~
+>    include/linux/compat_time.h:35:2: error: unknown type name 'compat_long_t'
+>      compat_long_t constant;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:36:2: error: unknown type name 'compat_long_t'
+>      compat_long_t precision;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:37:2: error: unknown type name 'compat_long_t'
+>      compat_long_t tolerance;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:39:2: error: unknown type name 'compat_long_t'
+>      compat_long_t tick;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:40:2: error: unknown type name 'compat_long_t'
+>      compat_long_t ppsfreq;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:41:2: error: unknown type name 'compat_long_t'
+>      compat_long_t jitter;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:42:2: error: unknown type name 'compat_int_t'
+>      compat_int_t shift;
+>      ^~~~~~~~~~~~
+>    include/linux/compat_time.h:43:2: error: unknown type name 'compat_long_t'
+>      compat_long_t stabil;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:44:2: error: unknown type name 'compat_long_t'
+>      compat_long_t jitcnt;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:45:2: error: unknown type name 'compat_long_t'
+>      compat_long_t calcnt;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:46:2: error: unknown type name 'compat_long_t'
+>      compat_long_t errcnt;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:47:2: error: unknown type name 'compat_long_t'
+>      compat_long_t stbcnt;
+>      ^~~~~~~~~~~~~
+>    include/linux/compat_time.h:48:2: error: unknown type name 'compat_int_t'
+>      compat_int_t tai;
+>      ^~~~~~~~~~~~
+>>> include/linux/compat_time.h:50:2: error: expected specifier-qualifier-list before 'compat_int_t'
+>      compat_int_t:32; compat_int_t:32; compat_int_t:32; compat_int_t:32;
+>      ^~~~~~~~~~~~
+>
+> vim +/compat_uint_t +29 include/linux/compat_time.h
+>
+>     27
+>     28  struct compat_timex {
+>   > 29          compat_uint_t modes;
+>   > 30          compat_long_t offset;
+>   > 31          compat_long_t freq;
+>     32          compat_long_t maxerror;
+>     33          compat_long_t esterror;
+>   > 34          compat_int_t status;
+>     35          compat_long_t constant;
+>     36          compat_long_t precision;
+>     37          compat_long_t tolerance;
+>     38          struct compat_timeval time;
+>     39          compat_long_t tick;
+>     40          compat_long_t ppsfreq;
+>     41          compat_long_t jitter;
+>     42          compat_int_t shift;
+>     43          compat_long_t stabil;
+>     44          compat_long_t jitcnt;
+>     45          compat_long_t calcnt;
+>   > 46          compat_long_t errcnt;
+>     47          compat_long_t stbcnt;
+>     48          compat_int_t tai;
+>     49
+>   > 50          compat_int_t:32; compat_int_t:32; compat_int_t:32; compat_int_t:32;
+>     51          compat_int_t:32; compat_int_t:32; compat_int_t:32; compat_int_t:32;
+>     52          compat_int_t:32; compat_int_t:32; compat_int_t:32;
+>     53  };
+>     54
+>     55
+>
+> ---
+> 0-DAY kernel test infrastructure                Open Source Technology Center
+> https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
