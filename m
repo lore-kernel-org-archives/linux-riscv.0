@@ -1,45 +1,72 @@
 From: deepa.kernel@gmail.com (Deepa Dinamani)
-Date: Fri, 6 Jul 2018 21:23:53 -0700
-Subject: [PATCH v2 3/7] riscv: Include asm-generic/compat.h
-In-Reply-To: <CAK8P3a2L9z+Ok1Wd0=5F=Xt7nvqL6be+AS++F3rZzByN+a+9QA@mail.gmail.com>
-References: <20180705213604.18883-1-deepa.kernel@gmail.com>
- <20180705213604.18883-4-deepa.kernel@gmail.com>
- <20180705222110.GA5698@infradead.org>
- <CABeXuvoj_WwvnaqY1wao+axx1JLpPte-iXP=Ti7jsT+r6VrVUg@mail.gmail.com>
- <CAK8P3a2L9z+Ok1Wd0=5F=Xt7nvqL6be+AS++F3rZzByN+a+9QA@mail.gmail.com>
-Message-ID: <CABeXuvr7LUk+eBWwv-sZOt6U+Rq7xRcer0gB+MRbgHjf=bt_pg@mail.gmail.com>
+Date: Fri,  6 Jul 2018 22:42:40 -0700
+Subject: [PATCH v3 0/7] Introduce struct __kernel_timex
+Message-ID: <20180707054247.19802-1-deepa.kernel@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, Jul 6, 2018 at 4:42 AM, Arnd Bergmann <arnd@arndb.de> wrote:
-> On Fri, Jul 6, 2018 at 1:56 AM, Deepa Dinamani <deepa.kernel@gmail.com> wrote:
->> On Thu, Jul 5, 2018 at 3:21 PM, Christoph Hellwig <hch@infradead.org> wrote:
->>> On Thu, Jul 05, 2018 at 02:36:00PM -0700, Deepa Dinamani wrote:
->>>> defconfig, allmodconfig and nomodconfig.
->>>> And hence does not inlude definitions for compat data types.
->>>>
->>>> Now that time syscalls are being reused in non CONFIG_COMPAT
->>>> modes, include asm-generic definitions for riscv.
->>>>
->>>> Alternative would be to make compat_time.h to be conditional on
->>>> CONFIG_COMPAT_32BIT_TIME. But, since riscv is already has an
->>>> asm/compat.h include the generic version instead.
->>>
->>> Two comments here:
->>>
->>> First I think the current riscv compat.h is completely bogus.
->>> As you mentioned riscv does not actually have a compat mode, so
->>> having a compat.h makes no sensse at all, and the COMPAT_UTS_MACHINE
->>> override which is the only thing implemented is included in that
->>> statement.
->>
->> I was leaving the decision on how to clean up compat mode to the
->> architecture maintainers.
->> I wasn't sure if they were still in the middle of implementing it.
->
-> If we only need it for 32 bit time_t, we can probably just use the
-> asm-generic/compat.h for now.
+The series introduces struct __kernel_timex as a substitute for
+the non y2038 safe struct timex.
 
-Ok. Will send out a v3 with asm/compat.h removed. Thanks.
+The series is based on the original series posted by Arnd Bergmann
+in [1].
 
--Deepa
+The overview of the series is as below:
+1. Prepare for the compat timex interfaces to be used unconditionally.
+2. Introduce struct __kernel_timex.
+3. Use struct __kernel_timex in place of struct timex.
+4. Switch syscalls to use struct __kernel_timex.
+
+[1] https://sourceware.org/ml/libc-alpha/2015-05/msg00070.html
+
+Changes since v2:
+* Use only generic compat.h for riscv
+Changes since v1:
+* Fix riscv asm/compat.h to pick up generic compat types
+
+Deepa Dinamani (7):
+  arm64: Make basic compat_* types always available
+  sparc: Make thread_info.h available directly
+  riscv: Delete asm/compat.h
+  timex: prepare compat helpers for y2038 changes
+  time: Add struct __kernel_timex
+  timex: use __kernel_timex internally
+  timex: change syscalls to use struct __kernel_timex
+
+ arch/alpha/kernel/osf_sys.c     |  2 +-
+ arch/arm64/include/asm/compat.h | 22 ++++-----
+ arch/riscv/include/asm/Kbuild   |  1 +
+ arch/riscv/include/asm/compat.h | 29 ------------
+ arch/sparc/include/asm/compat.h |  2 +
+ drivers/ptp/ptp_clock.c         |  2 +-
+ include/asm-generic/compat.h    |  8 +++-
+ include/linux/compat.h          | 33 --------------
+ include/linux/compat_time.h     | 34 ++++++++++++++
+ include/linux/posix-clock.h     |  2 +-
+ include/linux/syscalls.h        |  5 +--
+ include/linux/timex.h           |  9 +++-
+ include/uapi/linux/timex.h      | 41 +++++++++++++++++
+ kernel/compat.c                 | 63 --------------------------
+ kernel/time/ntp.c               | 12 ++---
+ kernel/time/ntp_internal.h      |  2 +-
+ kernel/time/posix-clock.c       |  2 +-
+ kernel/time/posix-timers.c      | 14 ++----
+ kernel/time/posix-timers.h      |  2 +-
+ kernel/time/time.c              | 80 ++++++++++++++++++++++++++++++---
+ kernel/time/timekeeping.c       |  4 +-
+ 21 files changed, 199 insertions(+), 170 deletions(-)
+ delete mode 100644 arch/riscv/include/asm/compat.h
+
+
+base-commit: 526674536360a4c508e84f67314c2028e45e1bf2
+-- 
+2.17.1
+
+Cc: catalin.marinas at arm.com
+Cc: davem at davemloft.net
+Cc: linux-alpha at vger.kernel.org
+Cc: linux-api at vger.kernel.org
+Cc: linux-arch at vger.kernel.org
+Cc: linux-riscv at lists.infradead.org
+Cc: netdev at vger.kernel.org
+Cc: palmer at sifive.com
