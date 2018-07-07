@@ -1,72 +1,80 @@
 From: deepa.kernel@gmail.com (Deepa Dinamani)
-Date: Fri,  6 Jul 2018 22:42:40 -0700
-Subject: [PATCH v3 0/7] Introduce struct __kernel_timex
-Message-ID: <20180707054247.19802-1-deepa.kernel@gmail.com>
+Date: Fri,  6 Jul 2018 22:42:43 -0700
+Subject: [PATCH v3 3/7] riscv: Delete asm/compat.h
+In-Reply-To: <20180707054247.19802-1-deepa.kernel@gmail.com>
+References: <20180707054247.19802-1-deepa.kernel@gmail.com>
+Message-ID: <20180707054247.19802-4-deepa.kernel@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The series introduces struct __kernel_timex as a substitute for
-the non y2038 safe struct timex.
+riscv does not enable CONFIG_COMPAT in default configurations:
+defconfig, allmodconfig and allnoconfig.
+Remove the asm/compat.h as it does not seem to add any value to
+the architecture without CONFIG_COMPAT.
 
-The series is based on the original series posted by Arnd Bergmann
-in [1].
+Now that time compat syscalls are being reused in non CONFIG_COMPAT
+modes, asm-generic/compat.h provides definitions for riscv 32 bit
+mode.
 
-The overview of the series is as below:
-1. Prepare for the compat timex interfaces to be used unconditionally.
-2. Introduce struct __kernel_timex.
-3. Use struct __kernel_timex in place of struct timex.
-4. Switch syscalls to use struct __kernel_timex.
+Alternative would be to make compat_time.h to be conditional on
+CONFIG_COMPAT_32BIT_TIME. But, since riscv does not does not need
+asm/compat.h, delete it instead.
 
-[1] https://sourceware.org/ml/libc-alpha/2015-05/msg00070.html
-
-Changes since v2:
-* Use only generic compat.h for riscv
-Changes since v1:
-* Fix riscv asm/compat.h to pick up generic compat types
-
-Deepa Dinamani (7):
-  arm64: Make basic compat_* types always available
-  sparc: Make thread_info.h available directly
-  riscv: Delete asm/compat.h
-  timex: prepare compat helpers for y2038 changes
-  time: Add struct __kernel_timex
-  timex: use __kernel_timex internally
-  timex: change syscalls to use struct __kernel_timex
-
- arch/alpha/kernel/osf_sys.c     |  2 +-
- arch/arm64/include/asm/compat.h | 22 ++++-----
+Signed-off-by: Deepa Dinamani <deepa.kernel@gmail.com>
+Cc: palmer at sifive.com
+Cc: linux-riscv at lists.infradead.org
+---
  arch/riscv/include/asm/Kbuild   |  1 +
- arch/riscv/include/asm/compat.h | 29 ------------
- arch/sparc/include/asm/compat.h |  2 +
- drivers/ptp/ptp_clock.c         |  2 +-
- include/asm-generic/compat.h    |  8 +++-
- include/linux/compat.h          | 33 --------------
- include/linux/compat_time.h     | 34 ++++++++++++++
- include/linux/posix-clock.h     |  2 +-
- include/linux/syscalls.h        |  5 +--
- include/linux/timex.h           |  9 +++-
- include/uapi/linux/timex.h      | 41 +++++++++++++++++
- kernel/compat.c                 | 63 --------------------------
- kernel/time/ntp.c               | 12 ++---
- kernel/time/ntp_internal.h      |  2 +-
- kernel/time/posix-clock.c       |  2 +-
- kernel/time/posix-timers.c      | 14 ++----
- kernel/time/posix-timers.h      |  2 +-
- kernel/time/time.c              | 80 ++++++++++++++++++++++++++++++---
- kernel/time/timekeeping.c       |  4 +-
- 21 files changed, 199 insertions(+), 170 deletions(-)
+ arch/riscv/include/asm/compat.h | 29 -----------------------------
+ 2 files changed, 1 insertion(+), 29 deletions(-)
  delete mode 100644 arch/riscv/include/asm/compat.h
 
-
-base-commit: 526674536360a4c508e84f67314c2028e45e1bf2
+diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+index 576ffdca06ba..efdbe311e936 100644
+--- a/arch/riscv/include/asm/Kbuild
++++ b/arch/riscv/include/asm/Kbuild
+@@ -1,6 +1,7 @@
+ generic-y += bugs.h
+ generic-y += cacheflush.h
+ generic-y += checksum.h
++generic-y += compat.h
+ generic-y += cputime.h
+ generic-y += device.h
+ generic-y += div64.h
+diff --git a/arch/riscv/include/asm/compat.h b/arch/riscv/include/asm/compat.h
+deleted file mode 100644
+index 044aecff8854..000000000000
+--- a/arch/riscv/include/asm/compat.h
++++ /dev/null
+@@ -1,29 +0,0 @@
+-/*
+- * Copyright (C) 2012 ARM Ltd.
+- *
+- * This program is free software; you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License version 2 as
+- * published by the Free Software Foundation.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#ifndef __ASM_COMPAT_H
+-#define __ASM_COMPAT_H
+-#ifdef CONFIG_COMPAT
+-
+-#if defined(CONFIG_64BIT)
+-#define COMPAT_UTS_MACHINE "riscv64\0\0"
+-#elif defined(CONFIG_32BIT)
+-#define COMPAT_UTS_MACHINE "riscv32\0\0"
+-#else
+-#error "Unknown RISC-V base ISA"
+-#endif
+-
+-#endif /*CONFIG_COMPAT*/
+-#endif /*__ASM_COMPAT_H*/
 -- 
 2.17.1
-
-Cc: catalin.marinas at arm.com
-Cc: davem at davemloft.net
-Cc: linux-alpha at vger.kernel.org
-Cc: linux-api at vger.kernel.org
-Cc: linux-arch at vger.kernel.org
-Cc: linux-riscv at lists.infradead.org
-Cc: netdev at vger.kernel.org
-Cc: palmer at sifive.com
