@@ -1,28 +1,43 @@
-From: anup@brainfault.org (Anup Patel)
-Date: Mon, 9 Jul 2018 12:04:29 +0530
-Subject: [RFC] Hypervisor extension emulation in QEMU or Spike
-Message-ID: <CAAhSdy3yMZWNWsX8+PaYWU0CCYkJdKv-b0Re6X4yanAnJBZeag@mail.gmail.com>
+From: robh@kernel.org (Rob Herring)
+Date: Mon, 9 Jul 2018 09:50:05 -0600
+Subject: [PATCH] riscv: remove unnecessary of_platform_populate call
+In-Reply-To: <20180619214134.20130-1-robh@kernel.org>
+References: <20180619214134.20130-1-robh@kernel.org>
+Message-ID: <CAL_JsqJKwtxDck67QHrZSKKrEXt-ERxH6W0srdw2H5A24CdSKA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi All,
+On Tue, Jun 19, 2018 at 3:41 PM Rob Herring <robh@kernel.org> wrote:
+>
+> The DT core will call of_platform_default_populate, so it is not
+> necessary for arch specific code to call it unless there are custom
+> match entries, auxdata or parent device. Neither of those apply here, so
+> remove the call.
+>
+> Cc: Palmer Dabbelt <palmer@sifive.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: linux-riscv at lists.infradead.org
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+>  arch/riscv/kernel/setup.c | 5 -----
+>  1 file changed, 5 deletions(-)
 
-We have started porting Xvisor to RISC-V.
+Ping?
 
-It's a GPLv2 Type-1 monolithic hypervisor (different from KVM which is Type-2).
-
-For interested folks, here are few papers on Xvisor:
-http://xhypervisor.org/pdf/Embedded_Hypervisor_Xvisor_A_comparative_analysis.pdf
-http://xhypervisor.org/pdf/Xvisor_VirtIO_CAN_Fast_virtualized_CAN.pdf
-http://xhypervisor.org/pdf/dual-ICIT18.pdf
-http://xhypervisor.org/pdf/isol-ICIT18.pdf
-
-At this point, we have managed to get Xvisor booting on QEMU but we
-now need an emulator (QEMU/Spike) which can emulate hypervisor
-extensions.
-
-Is there any work-in-progress implementation of QEMU/Spike with RISC-V
-hypervisor extensions?
-
-Regards,
-Anup
+>
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index ee44a48faf79..f0d2070866d4 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -220,8 +220,3 @@ void __init setup_arch(char **cmdline_p)
+>         riscv_fill_hwcap();
+>  }
+>
+> -static int __init riscv_device_init(void)
+> -{
+> -       return of_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);
+> -}
+> -subsys_initcall_sync(riscv_device_init);
+> --
+> 2.17.1
+>
