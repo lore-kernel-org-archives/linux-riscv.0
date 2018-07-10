@@ -1,43 +1,49 @@
-From: robh@kernel.org (Rob Herring)
-Date: Mon, 9 Jul 2018 09:50:05 -0600
-Subject: [PATCH] riscv: remove unnecessary of_platform_populate call
-In-Reply-To: <20180619214134.20130-1-robh@kernel.org>
-References: <20180619214134.20130-1-robh@kernel.org>
-Message-ID: <CAL_JsqJKwtxDck67QHrZSKKrEXt-ERxH6W0srdw2H5A24CdSKA@mail.gmail.com>
+From: hch@lst.de (Christoph Hellwig)
+Date: Tue, 10 Jul 2018 20:02:32 +0200
+Subject: [RFC PATCH 0/4] Stop losing firmware-set DMA masks
+In-Reply-To: <cover.1531239284.git.robin.murphy@arm.com>
+References: <cover.1531239284.git.robin.murphy@arm.com>
+Message-ID: <20180710180232.GA26285@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, Jun 19, 2018 at 3:41 PM Rob Herring <robh@kernel.org> wrote:
->
-> The DT core will call of_platform_default_populate, so it is not
-> necessary for arch specific code to call it unless there are custom
-> match entries, auxdata or parent device. Neither of those apply here, so
-> remove the call.
->
-> Cc: Palmer Dabbelt <palmer@sifive.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: linux-riscv at lists.infradead.org
-> Signed-off-by: Rob Herring <robh@kernel.org>
-> ---
->  arch/riscv/kernel/setup.c | 5 -----
->  1 file changed, 5 deletions(-)
+> These patches attempt to deal with this in the simplest way possible by
+> generalising the specific quirk for 32-bit bridges into an arbitrary
+> mask which can then also be plumbed into the firmware code. In the
+> interest of being minimally invasive, I've only included a point fix
+> for the IOMMU issue as seen on arm64 - there may be further tweaks
+> needed in DMA ops to catch all possible incarnations of this problem,
+> but this initial RFC is mostly about the impact beyond the dma-mapping
+> subsystem itself.
 
-Ping?
+Thanks, this looks very nice to me.
 
->
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index ee44a48faf79..f0d2070866d4 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -220,8 +220,3 @@ void __init setup_arch(char **cmdline_p)
->         riscv_fill_hwcap();
->  }
->
-> -static int __init riscv_device_init(void)
-> -{
-> -       return of_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);
-> -}
-> -subsys_initcall_sync(riscv_device_init);
-> --
-> 2.17.1
->
+In fact it probably solves the RISC-V/Xiling problem as well if we can
+just add the dma-ranges property to the device tree for the affected
+systems.  Palmer, do you know how easily the DT could be updated for
+that case?
+
+> 
+> Robin.
+> 
+> 
+> [1] http://lists.infradead.org/pipermail/linux-arm-kernel/2018-May/580804.html
+> [2] http://lists.infradead.org/pipermail/linux-arm-kernel/2016-December/474443.html
+> 
+> Robin Murphy (4):
+>   dma-mapping: Generalise dma_32bit_limit flag
+>   ACPI/IORT: Set bus DMA mask as appropriate
+>   of/device: Set bus DMA mask as appropriate
+>   iommu/dma: Respect bus DMA limit for IOVAs
+> 
+>  arch/x86/kernel/pci-dma.c | 2 +-
+>  drivers/acpi/arm64/iort.c | 1 +
+>  drivers/iommu/dma-iommu.c | 3 +++
+>  drivers/of/device.c       | 1 +
+>  include/linux/device.h    | 6 +++---
+>  kernel/dma/direct.c       | 2 +-
+>  6 files changed, 10 insertions(+), 5 deletions(-)
+> 
+> -- 
+> 2.17.1.dirty
+---end quoted text---
