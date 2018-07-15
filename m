@@ -1,35 +1,31 @@
-From: kirill@shutemov.name (Kirill A. Shutemov)
-Date: Thu, 12 Jul 2018 17:05:40 +0300
-Subject: [PATCH 0/6] kbuild: clean-up and rename LDFLAGS to KBUILD_LDFLAGS
-In-Reply-To: <1531382496-3719-1-git-send-email-yamada.masahiro@socionext.com>
-References: <1531382496-3719-1-git-send-email-yamada.masahiro@socionext.com>
-Message-ID: <20180712140539.4b5xdraq34i5dbii@kshutemo-mobl1>
+From: jimw@sifive.com (Jim Wilson)
+Date: Sat, 14 Jul 2018 17:34:39 -0700
+Subject: [PATCH] RISC-V: Don't increment sepc after breakpoint.
+Message-ID: <20180715003442.32216-1-jimw@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Jul 12, 2018 at 05:01:30PM +0900, Masahiro Yamada wrote:
-> 
-> This series renames LDFLAGS to KBUILD_LDFLAGS
-> after some Makefile cleanups.
-> 
-> Currently, the last patch does not apply to Linus' tree
-> due to missing pre-requisite patches.
-> 
-> I will resolve conflicts as needed.
-> 
-> 
-> 
-> Masahiro Yamada (6):
->   um: remove redundant 'export LDFLAGS' in arch/x86/Makefile.um
->   ARM: vfp: clean-up arch/arm/vfp/Makefile
->   kbuild: remove redundant LDFLAGS clearing in arch/*/Makefile
->   kbuild: replace $(LDFLAGS) $(ldflags-y) with $(ld_flags)
->   kbuild: change ld_flags to contain LDFLAGS_$(@F)
->   kbuild: rename LDFLAGS to KBUILD_LDFLAGS
+Adding 4 to sepc is pointless, and is wrong if we executed a 2-byte
+compressed breakpoint.  This plus a corresponding gdb patch allows
+compressed breakpoints to work in gdb.  Gdb maintainers have already
+agreed that this is the right approach.
 
-Thanks! Looks sane to me
+Signed-off-by: Jim Wilson <jimw@sifive.com>
+---
+ arch/riscv/kernel/traps.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-Acked-by: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
-
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 14fcec5bdd24..ae323071c786 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -150,7 +150,6 @@ asmlinkage void do_trap_break(struct pt_regs *regs)
+ #endif /* CONFIG_GENERIC_BUG */
+ 
+ 	do_trap_siginfo(SIGTRAP, TRAP_BRKPT, regs->sepc, current);
+-	regs->sepc += 0x4;
+ }
+ 
+ #ifdef CONFIG_GENERIC_BUG
 -- 
- Kirill A. Shutemov
+2.17.1
