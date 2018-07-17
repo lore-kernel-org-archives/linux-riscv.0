@@ -1,31 +1,117 @@
-From: jimw@sifive.com (Jim Wilson)
-Date: Sat, 14 Jul 2018 17:34:39 -0700
-Subject: [PATCH] RISC-V: Don't increment sepc after breakpoint.
-Message-ID: <20180715003442.32216-1-jimw@sifive.com>
+From: zong@andestech.com (Zong Li)
+Date: Tue, 17 Jul 2018 11:05:56 +0800
+Subject: [PATCH] module: Add the print format of Elf_Addr for 32/64-bit
+ compatibly
+Message-ID: <1531796756-16982-1-git-send-email-zong@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Adding 4 to sepc is pointless, and is wrong if we executed a 2-byte
-compressed breakpoint.  This plus a corresponding gdb patch allows
-compressed breakpoints to work in gdb.  Gdb maintainers have already
-agreed that this is the right approach.
+Use a similar way like fixed width integer types in inttypes.h.
 
-Signed-off-by: Jim Wilson <jimw@sifive.com>
+For the ELF, the Elf32_Addr is int type and Elf64_Addr is long long
+type. It is opposite to definition of inttypes.h, so the Elf_Addr cannot
+re-use the header.
+
+In many architectures, the module loader only print the message of
+module name and relocation type except the address information. We can
+print the address correctly without compile warning by using PRIdEA,
+PRIxEA and so on.
+
+Signed-off-by: Zong Li <zong@andestech.com>
 ---
- arch/riscv/kernel/traps.c | 1 -
- 1 file changed, 1 deletion(-)
+ arch/riscv/kernel/module.c   | 13 +++++++------
+ include/asm-generic/module.h |  9 +++++++++
+ 2 files changed, 16 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 14fcec5bdd24..ae323071c786 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -150,7 +150,6 @@ asmlinkage void do_trap_break(struct pt_regs *regs)
- #endif /* CONFIG_GENERIC_BUG */
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 3303ed2cd419..d839528e491a 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -16,11 +16,12 @@
+ #include <linux/err.h>
+ #include <linux/errno.h>
+ #include <linux/moduleloader.h>
++#include <asm-generic/module.h>
  
- 	do_trap_siginfo(SIGTRAP, TRAP_BRKPT, regs->sepc, current);
--	regs->sepc += 0x4;
- }
+ static int apply_r_riscv_32_rela(struct module *me, u32 *location, Elf_Addr v)
+ {
+ 	if (v != (u32)v) {
+-		pr_err("%s: value %016llx out of range for 32-bit field\n",
++		pr_err("%s: value %016" PRIxEA "out of range for 32-bit field\n",
+ 		       me->name, v);
+ 		return -EINVAL;
+ 	}
+@@ -101,7 +102,7 @@ static int apply_r_riscv_pcrel_hi20_rela(struct module *me, u32 *location,
  
- #ifdef CONFIG_GENERIC_BUG
+ 	if (offset != (s32)offset) {
+ 		pr_err(
+-		  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
++		  "%s: target %016" PRIxEA "can not be addressed by the 32-bit offset from PC = %p\n",
+ 		  me->name, v, location);
+ 		return -EINVAL;
+ 	}
+@@ -143,7 +144,7 @@ static int apply_r_riscv_hi20_rela(struct module *me, u32 *location,
+ 
+ 	if (IS_ENABLED(CMODEL_MEDLOW)) {
+ 		pr_err(
+-		  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
++		  "%s: target %016" PRIxEA "can not be addressed by the 32-bit offset from PC = %p\n",
+ 		  me->name, v, location);
+ 		return -EINVAL;
+ 	}
+@@ -187,7 +188,7 @@ static int apply_r_riscv_got_hi20_rela(struct module *me, u32 *location,
+ 		offset = (void *)offset - (void *)location;
+ 	} else {
+ 		pr_err(
+-		  "%s: can not generate the GOT entry for symbol = %016llx from PC = %p\n",
++		  "%s: can not generate the GOT entry for symbol = %016" PRIxEA "from PC = %p\n",
+ 		  me->name, v, location);
+ 		return -EINVAL;
+ 	}
+@@ -211,7 +212,7 @@ static int apply_r_riscv_call_plt_rela(struct module *me, u32 *location,
+ 			offset = (void *)offset - (void *)location;
+ 		} else {
+ 			pr_err(
+-			  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
++			  "%s: target %016" PRIxEA "can not be addressed by the 32-bit offset from PC = %p\n",
+ 			  me->name, v, location);
+ 			return -EINVAL;
+ 		}
+@@ -233,7 +234,7 @@ static int apply_r_riscv_call_rela(struct module *me, u32 *location,
+ 
+ 	if (offset != fill_v) {
+ 		pr_err(
+-		  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
++		  "%s: target %016" PRIxEA "can not be addressed by the 32-bit offset from PC = %p\n",
+ 		  me->name, v, location);
+ 		return -EINVAL;
+ 	}
+diff --git a/include/asm-generic/module.h b/include/asm-generic/module.h
+index 98e1541b72b7..d358f2414e5e 100644
+--- a/include/asm-generic/module.h
++++ b/include/asm-generic/module.h
+@@ -27,6 +27,7 @@ struct mod_arch_specific
+ #endif
+ #define ELF_R_TYPE(X)	ELF64_R_TYPE(X)
+ #define ELF_R_SYM(X)	ELF64_R_SYM(X)
++#define ELF_ADDR_PREFIX "ll"
+ 
+ #else /* CONFIG_64BIT */
+ 
+@@ -44,6 +45,14 @@ struct mod_arch_specific
+ #endif
+ #define ELF_R_TYPE(X)	ELF32_R_TYPE(X)
+ #define ELF_R_SYM(X)	ELF32_R_SYM(X)
++#define ELF_ADDR_PREFIX
+ #endif
+ 
++#define PRIdEA	ELF_ADDR_PREFIX "d" /* signed decimal */
++#define PRIiEA	ELF_ADDR_PREFIX "i" /* signed decimal */
++#define PRIuEA	ELF_ADDR_PREFIX "u" /* unsigned decimal */
++#define PRIoEA	ELF_ADDR_PREFIX "o" /* unsigned octal */
++#define PRIxEA	ELF_ADDR_PREFIX "x" /* unsigned lowercase hexadecimal */
++#define PRIXEA	ELF_ADDR_PREFIX "X" /* unsigned uppercase hexadecimal */
++
+ #endif /* __ASM_GENERIC_MODULE_H */
 -- 
-2.17.1
+2.16.1
