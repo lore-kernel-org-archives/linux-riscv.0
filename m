@@ -1,43 +1,80 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 25 Jul 2018 14:26:38 -0700 (PDT)
-Subject: RISC-V irqchip drivers
-In-Reply-To: <20180725093649.32332-1-hch@lst.de>
-Message-ID: <mhng-670ecc27-6fdd-491b-8db4-4ce8f93bfb94@palmer-si-x1c4>
+Date: Wed, 25 Jul 2018 14:44:32 -0700 (PDT)
+Subject: [PATCH 1/6] RISC-V: simplify software interrupt / IPI code
+In-Reply-To: <20180725093649.32332-2-hch@lst.de>
+Message-ID: <mhng-03f673cd-5779-44c6-98b3-657e5c4b9d39@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 25 Jul 2018 02:36:43 PDT (-0700), Christoph Hellwig wrote:
-> The RISC-V ISA mandantes the presence of a simple, per-hart (hardware
-> thread) interrupt controller availiable to supervisor mode.  In addition
-> the RISC-V specification contains the definition of a programmable
-> interrupt controller that is present on all current RISC-V cores (at
-> least as far as a I know).
+On Wed, 25 Jul 2018 02:36:44 PDT (-0700), Christoph Hellwig wrote:
+> Rename handle_ipi to riscv_software_interrupt, drop the unused return
+> value and provide a stub for the !SMP build.  This allows simplifying
+> the upcoming interrupt controller driver by not providing a wrapper
+> for it.
 >
-> This series adds both of them.  For the per-hart controller this series
-> tries to address all comments vs the last posting from Palmr in June,
-> and for the PLIC it has a lot of cleanups which I think should address
-> all outstanding comments, but it has been a while since it was last
-> posted.
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> ---
+>  arch/riscv/include/asm/smp.h | 13 +++++++++++--
+>  arch/riscv/kernel/smp.c      |  6 ++----
+>  2 files changed, 13 insertions(+), 6 deletions(-)
 >
-> Without these irqchip drivers the RISC-V port in mainline is rather
-> useless as it can't boot on any SOC or emulator.  With it it still is
-> almost as useless as a clocksource driver is still missing, but at least
-> we're only a patch or two away from a booting system, and the
-> clocksource  driver will need the per-hart interrupt driver to work as
-> well.
+> diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+> index 85e4220839b0..80ecb957fe9f 100644
+> --- a/arch/riscv/include/asm/smp.h
+> +++ b/arch/riscv/include/asm/smp.h
+> @@ -44,8 +44,17 @@ void arch_send_call_function_single_ipi(int cpu);
+>   */
+>  #define raw_smp_processor_id() (*((int*)((char*)get_current() + TASK_TI_CPU)))
 >
-> Palmer: I assume you are ok with me pushing this forward.  If not I'll
-> happily drop this series.
+> -/* Interprocessor interrupt handler */
+> -irqreturn_t handle_ipi(void);
+> +/* Software interrupt handler */
+> +void riscv_software_interrupt(void);
+> +
+> +#else /* CONFIG_SMP */
+> +
+> +/*
+> + * We currently only use software interrupts to pass inter-processor
+> + * interrupts, so if a non-SMP system gets a software interrupt then we
+> + * don't know what to do.
+> + */
+> +#define riscv_software_interrupt()	WARN_ON()
+>
+>  #endif /* CONFIG_SMP */
+>
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index 6d3962435720..906fe21ea21b 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -45,7 +45,7 @@ int setup_profiling_timer(unsigned int multiplier)
+>  	return -EINVAL;
+>  }
+>
+> -irqreturn_t handle_ipi(void)
+> +void riscv_software_interrupt(void)
+>  {
+>  	unsigned long *pending_ipis = &ipi_data[smp_processor_id()].bits;
+>
+> @@ -60,7 +60,7 @@ irqreturn_t handle_ipi(void)
+>
+>  		ops = xchg(pending_ipis, 0);
+>  		if (ops == 0)
+> -			return IRQ_HANDLED;
+> +			return;
+>
+>  		if (ops & (1 << IPI_RESCHEDULE))
+>  			scheduler_ipi();
+> @@ -73,8 +73,6 @@ irqreturn_t handle_ipi(void)
+>  		/* Order data access and bit testing. */
+>  		mb();
+>  	}
+> -
+> -	return IRQ_HANDLED;
+>  }
+>
+>  static void
 
-Thanks for taking this over, and sorry I've dropped the ball a bit here -- 
-there's just a bit too much to do!
+Acked-by: Palmer Dabbelt <palmer@sifive.com>
 
-> A git tree with the patches in this series, the missing clocksource
-> driver a few pending patches to allow booting a RISC-V kernel in qemu
-> is available here:
->
->     git://git.infradead.org/users/hch/riscv.git riscv-linux-4.18
->
-> Gitweb:
->
->     http://git.infradead.org/users/hch/riscv.git/shortlog/refs/heads/riscv-linux-4.18
+I think it's probably easier to have the whole patch set go through the IRQ
+tree, so I won't put these in the RISC-V tree unless someone says something.
