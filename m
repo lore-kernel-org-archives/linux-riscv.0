@@ -1,62 +1,43 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Wed, 25 Jul 2018 10:54:41 -0700
-Subject: [PATCH 3/6] irqchip: RISC-V Local Interrupt Controller Driver
-In-Reply-To: <53518395-83bb-9c2f-bd96-287cc83a1c63@arm.com>
-References: <20180725093649.32332-1-hch@lst.de>
- <20180725093649.32332-4-hch@lst.de>
- <c3ccb953-cd75-4a37-636a-ca643602053a@arm.com>
- <20180725112457.GA24502@lst.de>
- <53518395-83bb-9c2f-bd96-287cc83a1c63@arm.com>
-Message-ID: <afef2fc3-de3a-66f5-36c7-7341931b8a29@wdc.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Wed, 25 Jul 2018 14:26:38 -0700 (PDT)
+Subject: RISC-V irqchip drivers
+In-Reply-To: <20180725093649.32332-1-hch@lst.de>
+Message-ID: <mhng-670ecc27-6fdd-491b-8db4-4ce8f93bfb94@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 7/25/18 4:37 AM, Marc Zyngier wrote:
-> On 25/07/18 12:24, Christoph Hellwig wrote:
->> On Wed, Jul 25, 2018 at 12:18:39PM +0100, Marc Zyngier wrote:
->>> This feels odd. It means that you cannot have the following sequence:
->>>
->>> 	local_irq_disable();
->>> 	enable_irq(x); // where x is owned by a remote hart
->>>
->>> as smp_call_function_single() requires interrupts to be enabled.
->>>
->>> More fundamentally, why are you trying to make these interrupts look
->>> global while they aren't? arm/arm64 have similar restrictions with GICv2
->>> and earlier, and treats these interrupts as per-cpu.
->>>
->>> Given that the drivers that deal with drivers connected to the per-hart
->>> irqchip are themselves likely to be aware of the per-cpu aspect, it
->>> would make sense to align things (we've been through that same
->>> discussion about the clocksource driver a few weeks back).
->>
->> Right now the only direct consumers are said clocksource, the PLIC
->> driver later in this series and the RISC-V arch IPI code.  None of them
->> is going to do a manual enable_irq, so I guess the remote case of the
->> code is simply dead code.  I'll take a look at converting them to
->> per-cpu.  I guess the GICv2 driver is the best template?
-> 
-> I think you can do a much better job than the GICv2 driver ;-). You have
-> the chance of a clean slate, and no legacy (or ACPI) junk to deal with!
-> 
-> I think this is just a matter of moving the HLIC declaration in DT to be
-> outside of the cpu nodes (you just have a single HLIC node that is valid
-> for all the CPUs in the system), and making the interrupts percpu_devid
-> in your mapping function (see gic_irq_domain_map for reference).
-> 
+On Wed, 25 Jul 2018 02:36:43 PDT (-0700), Christoph Hellwig wrote:
+> The RISC-V ISA mandantes the presence of a simple, per-hart (hardware
+> thread) interrupt controller availiable to supervisor mode.  In addition
+> the RISC-V specification contains the definition of a programmable
+> interrupt controller that is present on all current RISC-V cores (at
+> least as far as a I know).
+>
+> This series adds both of them.  For the per-hart controller this series
+> tries to address all comments vs the last posting from Palmr in June,
+> and for the PLIC it has a lot of cleanups which I think should address
+> all outstanding comments, but it has been a while since it was last
+> posted.
+>
+> Without these irqchip drivers the RISC-V port in mainline is rather
+> useless as it can't boot on any SOC or emulator.  With it it still is
+> almost as useless as a clocksource driver is still missing, but at least
+> we're only a patch or two away from a booting system, and the
+> clocksource  driver will need the per-hart interrupt driver to work as
+> well.
+>
+> Palmer: I assume you are ok with me pushing this forward.  If not I'll
+> happily drop this series.
 
-If I am not wrong, we need to change the interrupt-extended property in 
-PLIC DT entry as well. Currently, there are 5 entries corresponding to 
-individual HLIC. I was also planning to start working on converting HLIC 
-to per-cpu but it got delayed because of travel.
+Thanks for taking this over, and sorry I've dropped the ball a bit here -- 
+there's just a bit too much to do!
 
-Christoph: I am not sure if you have access to HighFive Unleashed board. 
-If not I would be happy to test it on the board whenever your patches 
-are ready.
-
-Regards,
-Atish
-> Thanks,
-> 
-> 	M.
-> 
+> A git tree with the patches in this series, the missing clocksource
+> driver a few pending patches to allow booting a RISC-V kernel in qemu
+> is available here:
+>
+>     git://git.infradead.org/users/hch/riscv.git riscv-linux-4.18
+>
+> Gitweb:
+>
+>     http://git.infradead.org/users/hch/riscv.git/shortlog/refs/heads/riscv-linux-4.18
