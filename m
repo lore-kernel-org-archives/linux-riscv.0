@@ -1,44 +1,38 @@
-From: yamada.masahiro@socionext.com (Masahiro Yamada)
-Date: Thu, 19 Jul 2018 08:41:04 +0900
-Subject: [PATCH 0/6] kbuild: clean-up and rename LDFLAGS to KBUILD_LDFLAGS
-In-Reply-To: <20180712140539.4b5xdraq34i5dbii@kshutemo-mobl1>
-References: <1531382496-3719-1-git-send-email-yamada.masahiro@socionext.com>
- <20180712140539.4b5xdraq34i5dbii@kshutemo-mobl1>
-Message-ID: <CAK7LNAThEpLsFgD_pv4ZgLWfbXcNPBiPEU7qZ5ah_R=x8LQA0w@mail.gmail.com>
+From: hch@lst.de (Christoph Hellwig)
+Date: Wed, 25 Jul 2018 11:36:43 +0200
+Subject: RISC-V irqchip drivers
+Message-ID: <20180725093649.32332-1-hch@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-2018-07-12 23:05 GMT+09:00 Kirill A. Shutemov <kirill@shutemov.name>:
-> On Thu, Jul 12, 2018 at 05:01:30PM +0900, Masahiro Yamada wrote:
->>
->> This series renames LDFLAGS to KBUILD_LDFLAGS
->> after some Makefile cleanups.
->>
->> Currently, the last patch does not apply to Linus' tree
->> due to missing pre-requisite patches.
->>
->> I will resolve conflicts as needed.
->>
->>
->>
->> Masahiro Yamada (6):
->>   um: remove redundant 'export LDFLAGS' in arch/x86/Makefile.um
->>   ARM: vfp: clean-up arch/arm/vfp/Makefile
->>   kbuild: remove redundant LDFLAGS clearing in arch/*/Makefile
->>   kbuild: replace $(LDFLAGS) $(ldflags-y) with $(ld_flags)
->>   kbuild: change ld_flags to contain LDFLAGS_$(@F)
->>   kbuild: rename LDFLAGS to KBUILD_LDFLAGS
->
-> Thanks! Looks sane to me
->
-> Acked-by: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
->
+The RISC-V ISA mandantes the presence of a simple, per-hart (hardware
+thread) interrupt controller availiable to supervisor mode.  In addition
+the RISC-V specification contains the definition of a programmable
+interrupt controller that is present on all current RISC-V cores (at
+least as far as a I know).
 
+This series adds both of them.  For the per-hart controller this series
+tries to address all comments vs the last posting from Palmr in June,
+and for the PLIC it has a lot of cleanups which I think should address
+all outstanding comments, but it has been a while since it was last
+posted.
 
-Patch 1, 3, 4, 5 applied to linux-kbuild.
+Without these irqchip drivers the RISC-V port in mainline is rather
+useless as it can't boot on any SOC or emulator.  With it it still is
+almost as useless as a clocksource driver is still missing, but at least
+we're only a patch or two away from a booting system, and the
+clocksource  driver will need the per-hart interrupt driver to work as
+well.
 
+Palmer: I assume you are ok with me pushing this forward.  If not I'll
+happily drop this series.
 
+A git tree with the patches in this series, the missing clocksource
+driver a few pending patches to allow booting a RISC-V kernel in qemu
+is available here:
 
--- 
-Best Regards
-Masahiro Yamada
+    git://git.infradead.org/users/hch/riscv.git riscv-linux-4.18
+
+Gitweb:
+
+    http://git.infradead.org/users/hch/riscv.git/shortlog/refs/heads/riscv-linux-4.18
