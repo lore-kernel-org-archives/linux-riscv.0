@@ -1,89 +1,109 @@
-From: hch@lst.de (Christoph Hellwig)
-Date: Wed, 25 Jul 2018 11:36:49 +0200
-Subject: [PATCH 6/6] dt-bindings: interrupt-controller: RISC-V PLIC
- documentation
-In-Reply-To: <20180725093649.32332-1-hch@lst.de>
+From: marc.zyngier@arm.com (Marc Zyngier)
+Date: Wed, 25 Jul 2018 12:18:39 +0100
+Subject: [PATCH 3/6] irqchip: RISC-V Local Interrupt Controller Driver
+In-Reply-To: <20180725093649.32332-4-hch@lst.de>
 References: <20180725093649.32332-1-hch@lst.de>
-Message-ID: <20180725093649.32332-7-hch@lst.de>
+ <20180725093649.32332-4-hch@lst.de>
+Message-ID: <c3ccb953-cd75-4a37-636a-ca643602053a@arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-From: Palmer Dabbelt <palmer@dabbelt.com>
+On 25/07/18 10:36, Christoph Hellwig wrote:
+> From: Palmer Dabbelt <palmer@dabbelt.com>
+> 
+> This patch adds a driver that manages the local interrupts on each
+> RISC-V hart, as specifiec by the RISC-V supervisor level ISA manual.
+> The local interrupt controller manages software interrupts, timer
+> interrupts, and hardware interrupts (which are routed via the
+> platform level interrupt controller).  Per-hart local interrupt
+> controllers are found on all RISC-V systems.
+> 
+> Signed-off-by: Palmer Dabbelt <palmer@dabbelt.com>
+> [hch: Kconfig simplifications, various cleanups]
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> ---
+>  drivers/irqchip/Kconfig          |   4 +
+>  drivers/irqchip/Makefile         |   1 +
+>  drivers/irqchip/irq-riscv-intc.c | 197 +++++++++++++++++++++++++++++++
+>  3 files changed, 202 insertions(+)
+>  create mode 100644 drivers/irqchip/irq-riscv-intc.c
+> 
 
-This patch adds documentation for the platform-level interrupt
-controller (PLIC) found in all RISC-V systems.  This interrupt
-controller routes interrupts from all the devices in the system to each
-hart-local interrupt controller.
+[...]
 
-Note: the DTS bindings for the PLIC aren't set in stone yet, as we might
-want to change how we're specifying holes in the hart list.
+> +/*
+> + * On RISC-V systems local interrupts are masked or unmasked by writing the SIE
+> + * (Supervisor Interrupt Enable) CSR.  As CSRs can only be written on the local
+> + * hart, these functions can only be called on the hart that corresponds to the
+> + * IRQ chip.  They are only called internally to this module, so they BUG_ON if
+> + * this condition is violated rather than attempting to handle the error by
+> + * forwarding to the target hart, as that's already expected to have been done.
+> + */
+> +static void riscv_irq_mask(struct irq_data *d)
+> +{
+> +	struct riscv_irq_data *data = irq_data_get_irq_chip_data(d);
+> +
+> +	BUG_ON(smp_processor_id() != data->hart);
+> +	csr_clear(sie, 1 << d->hwirq);
+> +}
+> +
+> +static void riscv_irq_unmask(struct irq_data *d)
+> +{
+> +	struct riscv_irq_data *data = irq_data_get_irq_chip_data(d);
+> +
+> +	BUG_ON(smp_processor_id() != data->hart);
+> +	csr_set(sie, 1 << d->hwirq);
+> +}
+> +
+> +/* Callbacks for twiddling SIE on another hart. */
+> +static void riscv_irq_enable_helper(void *d)
+> +{
+> +	riscv_irq_unmask(d);
+> +}
+> +
+> +static void riscv_irq_disable_helper(void *d)
+> +{
+> +	riscv_irq_mask(d);
+> +}
+> +
+> +static void riscv_remote_ctrl(unsigned int cpu, void (*fn)(void *d),
+> +			      struct irq_data *data)
+> +{
+> +	smp_call_function_single(cpu, fn, data, true);
+> +}
+> +
+> +static void riscv_irq_enable(struct irq_data *d)
+> +{
+> +	struct riscv_irq_data *data = irq_data_get_irq_chip_data(d);
+> +
+> +	/*
+> +	 * It's only possible to write SIE on the current hart.  This jumps
+> +	 * over to the target hart if it's not the current one.  It's invalid
+> +	 * to write SIE on a hart that's not currently running.
+> +	 */
+> +	if (data->hart == smp_processor_id())
+> +		riscv_irq_unmask(d);
+> +	else if (cpu_online(data->hart))
+> +		riscv_remote_ctrl(data->hart, riscv_irq_enable_helper, d);
 
-Signed-off-by: Palmer Dabbelt <palmer@dabbelt.com>
----
- .../interrupt-controller/riscv,plic0.txt      | 55 +++++++++++++++++++
- 1 file changed, 55 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,plic0.txt
+This feels odd. It means that you cannot have the following sequence:
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,plic0.txt b/Documentation/devicetree/bindings/interrupt-controller/riscv,plic0.txt
-new file mode 100644
-index 000000000000..99cd359dbd43
---- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,plic0.txt
-@@ -0,0 +1,55 @@
-+RISC-V Platform-Level Interrupt Controller (PLIC)
-+-------------------------------------------------
-+
-+The RISC-V supervisor ISA specification allows for the presence of a
-+platform-level interrupt controller (PLIC).   The PLIC connects all external
-+interrupts in the system to all hart contexts in the system, via the external
-+interrupt source in each hart's hart-local interrupt controller (HLIC).  A hart
-+context is a privilege mode in a hardware execution thread.  For example, in
-+an 4 core system with 2-way SMT, you have 8 harts and probably at least two
-+privilege modes per hart; machine mode and supervisor mode.
-+
-+Each interrupt can be enabled on per-context basis. Any context can claim
-+a pending enabled interrupt and then release it once it has been handled.
-+
-+Each interrupt has a configurable priority. Higher priority interrupts are
-+serviced firs. Each context can specify a priority threshold. Interrupts
-+with priority below this threshold will not cause the PLIC to raise its
-+interrupt line leading to the context.
-+
-+While the PLIC supports both edge-triggered and level-triggered interrupts,
-+interrupt handlers are oblivious to this distinction and therefor it is not
-+specific in the PLIC device-tree binding.
-+
-+While the RISC-V ISA doesn't specify a memory layout for the PLIC, the
-+"riscv,plic0" device is a concrete implementation of the PLIC that contains a
-+specific memory layout.  More details about the memory layout of the
-+"riscv,plic0" device can be found as a comment in the device driver, or as part
-+of the SiFive U5 Coreplex Series Manual (page 22 of the PDF of version 1.0)
-+<https://www.sifive.com/documentation/coreplex/u5-coreplex-series-manual/>
-+
-+Required properties:
-+- compatible : "riscv,plic0"
-+- #address-cells : should be <0>
-+- #interrupt-cells : should be <1>
-+- interrupt-controller : Identifies the node as an interrupt controller
-+- reg : Should contain 1 register range (address and length)
-+- interrupts-extended : Specifies which contexts are connected to the PLIC,
-+  with "-1" specifying that a context is not present.
-+
-+Example:
-+
-+	plic: interrupt-controller at c000000 {
-+		#address-cells = <0>;
-+		#interrupt-cells = <1>;
-+		compatible = "riscv,plic0";
-+		interrupt-controller;
-+		interrupts-extended = <
-+			&cpu0-intc 11
-+			&cpu1-intc 11 &cpu1-intc 9
-+			&cpu2-intc 11 &cpu2-intc 9
-+			&cpu3-intc 11 &cpu3-intc 9
-+			&cpu4-intc 11 &cpu4-intc 9>;
-+		reg = <0xc000000 0x4000000>;
-+		riscv,ndev = <10>;
-+	};
+	local_irq_disable();
+	enable_irq(x); // where x is owned by a remote hart
+
+as smp_call_function_single() requires interrupts to be enabled.
+
+More fundamentally, why are you trying to make these interrupts look
+global while they aren't? arm/arm64 have similar restrictions with GICv2
+and earlier, and treats these interrupts as per-cpu.
+
+Given that the drivers that deal with drivers connected to the per-hart
+irqchip are themselves likely to be aware of the per-cpu aspect, it
+would make sense to align things (we've been through that same
+discussion about the clocksource driver a few weeks back).
+
+Thanks,
+
+	M.
 -- 
-2.18.0
+Jazz is not dead. It just smells funny...
