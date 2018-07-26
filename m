@@ -1,81 +1,32 @@
-From: anup@brainfault.org (Anup Patel)
-Date: Thu, 26 Jul 2018 19:09:57 +0530
-Subject: [PATCH 3/6] irqchip: RISC-V Local Interrupt Controller Driver
-In-Reply-To: <20180726082706.GA22868@lst.de>
-References: <20180725093649.32332-1-hch@lst.de>
- <20180725093649.32332-4-hch@lst.de>
- <c3ccb953-cd75-4a37-636a-ca643602053a@arm.com> <20180725112457.GA24502@lst.de>
- <CAAhSdy31=D3jOgvrc+Td-TeKQMazPA-suFjOy9XwEuima1WdeA@mail.gmail.com>
- <20180726082706.GA22868@lst.de>
-Message-ID: <CAAhSdy0JAmd=ma82yWTwQYMi2T-G8SLriV5tPyScWxOm8rCpjw@mail.gmail.com>
+From: hch@lst.de (Christoph Hellwig)
+Date: Thu, 26 Jul 2018 16:37:14 +0200
+Subject: RFC: simplified RISC-V interrupt and clocksource handling
+Message-ID: <20180726143723.16585-1-hch@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Jul 26, 2018 at 1:57 PM, Christoph Hellwig <hch@lst.de> wrote:
-> On Thu, Jul 26, 2018 at 09:08:00AM +0530, Anup Patel wrote:
->> Actually, RISCV HLIC and PLIC are very similar to RPi2 and RPi3 SOCs.
->>
->> On RPi2 and RPi3, we have per-CPU BCM2836 local intc and the global
->> interrupts are managed using BCM2835 intc. You should certainly have
->> a look a this drivers because these very simple compared to GICv2 and
->> GICv3 drivers.
->
-> Yes, using that model makes writing the per-cpu irq controller driver
-> trivial.  But retrofitting it into the device tree, where the existing
-> bootloader (bbl) assumes the old DT layout is a giant pain in the neck.
+This series tries adds support for interrupt handling and timers
+for the RISC-V architecture.
 
-This can also be taken care in HLIC driver probe function with something
-like below:
+The basic per-hart interrupt handling implemented by the scause
+and sie CSRs is extremely simple and implemented directly in
+arch/riscv/kernel/irq.c.  In addition there is a irqchip driver
+for the PLIC external interrupt controller, which is called through
+the set_handle_irq API, and a clocksource driver that gets its
+timer interrupt directly from the low-level interrupt handling.
 
-if (parent)
-return 0;
+Compared to previous iterations this version does not try to use an
+irqchip driver for the low-level interrupt handling.  This saves
+a couple indirect calls and an additional read of the scause CSR
+in the hot path, makes the code much simpler and last but not least
+avoid the dependency on a device tree for a mandatory architectural
+feature.
 
-if (of_is_compatible(parent, "riscv,cpu")) {
-/*
-* Legacy DT binding so we have HLIC DT node
-* under each CPU DT node. To provide backwared
-* compatiblity we go forward for only one HLIC
-* DT node
-*/
-if (atomic_inc_return(&hlic_lottery) > 1)
-return 0;
-}
+A git tree is available here (contains a few more patches before
+the ones in this series)
 
-In PLIC driver probe, register nested IRQ handler for only first two
-entries of interrupts-extended because it is HLIC IRQs are per-CPU. We
-can happily ignore other entries in interrupts-extended of Legacy DTS.
+    git://git.infradead.org/users/hch/riscv.git riscv-irq-simple
 
->
-> At the same time I'm still not conveninced RISC-V really needs a full
-> irqchip driver for the per-cpu interrupt 'controller' really is nothing
-> but 1 and a half architectural control registers:
->
->   - the scause register that contains the reason for an exception
->     (any exception including syscalls and page faults) for the entry
->     into supervisor mode.  This includes a bit to indicate interrupts,
->     and then logical interrupt reason, out of which only three are
->     interesting for supervisor mode (timer, software, external)
->   - the sie register that allows to to enable/disable each of the above
->     causes individually
+Gitweb:
 
-Biggest plus is the ability show stats for per-CPU interrupts via
-"cat /proc/interrupts" (just like other architectures).
-
-Currently, we have only three per-CPU interrupts (timer, software,
-and external) but in-future people might come-up with interesting
-devices which might have per-CPU interrupts.
-
->
-> So after burning out on DT hacking (never mind retrofitting that into
-> actual shipping SOCs vs just qemu) I'm going to try a version that
-> doesn't add an irqchip for this but just handles it hardcoded in
-> RISC-V do_IRQ.  I'll still keep the irqchip for the PLIC, which while
-> specificed in the RISC-V spec isn't architectural but an actual
-> periphal.
-
-I believe it possible to have RICV HLIC driver which maintains
-backward compatibility with legacy DTS. I haven't tried above
-approach myself on QEMU so I will let you decide.
-
-Regards,
-Anup
+    http://git.infradead.org/users/hch/riscv.git/shortlog/refs/heads/riscv-irq-simple
