@@ -1,35 +1,44 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 25 Jul 2018 14:44:35 -0700 (PDT)
-Subject: [PATCH 2/6] RISC-V: remove INTERRUPT_CAUSE_* defines from
- asm/irq.h
-In-Reply-To: <20180725093649.32332-3-hch@lst.de>
-Message-ID: <mhng-a0410fc4-7f2e-4818-acf0-6a7616ba0010@palmer-si-x1c4>
+From: anup@brainfault.org (Anup Patel)
+Date: Thu, 26 Jul 2018 09:08:00 +0530
+Subject: [PATCH 3/6] irqchip: RISC-V Local Interrupt Controller Driver
+In-Reply-To: <20180725112457.GA24502@lst.de>
+References: <20180725093649.32332-1-hch@lst.de>
+ <20180725093649.32332-4-hch@lst.de>
+ <c3ccb953-cd75-4a37-636a-ca643602053a@arm.com> <20180725112457.GA24502@lst.de>
+Message-ID: <CAAhSdy31=D3jOgvrc+Td-TeKQMazPA-suFjOy9XwEuima1WdeA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 25 Jul 2018 02:36:45 PDT (-0700), Christoph Hellwig wrote:
-> These are only of use to the local irq controller driver, so add them in
-> that driver implementation instead, which will be submitted soon.
+On Wed, Jul 25, 2018 at 4:54 PM, Christoph Hellwig <hch@lst.de> wrote:
+> On Wed, Jul 25, 2018 at 12:18:39PM +0100, Marc Zyngier wrote:
+>> This feels odd. It means that you cannot have the following sequence:
+>>
+>>       local_irq_disable();
+>>       enable_irq(x); // where x is owned by a remote hart
+>>
+>> as smp_call_function_single() requires interrupts to be enabled.
+>>
+>> More fundamentally, why are you trying to make these interrupts look
+>> global while they aren't? arm/arm64 have similar restrictions with GICv2
+>> and earlier, and treats these interrupts as per-cpu.
+>>
+>> Given that the drivers that deal with drivers connected to the per-hart
+>> irqchip are themselves likely to be aware of the per-cpu aspect, it
+>> would make sense to align things (we've been through that same
+>> discussion about the clocksource driver a few weeks back).
 >
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  arch/riscv/include/asm/irq.h | 4 ----
->  1 file changed, 4 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
-> index 4dee9d4c13c0..93eb75eac4ff 100644
-> --- a/arch/riscv/include/asm/irq.h
-> +++ b/arch/riscv/include/asm/irq.h
-> @@ -17,10 +17,6 @@
->
->  #define NR_IRQS         0
->
-> -#define INTERRUPT_CAUSE_SOFTWARE    1
-> -#define INTERRUPT_CAUSE_TIMER       5
-> -#define INTERRUPT_CAUSE_EXTERNAL    9
-> -
->  void riscv_timer_interrupt(void);
->
->  #include <asm-generic/irq.h>
+> Right now the only direct consumers are said clocksource, the PLIC
+> driver later in this series and the RISC-V arch IPI code.  None of them
+> is going to do a manual enable_irq, so I guess the remote case of the
+> code is simply dead code.  I'll take a look at converting them to
+> per-cpu.  I guess the GICv2 driver is the best template?
 
-Acked-by: Palmer Dabbelt <palmer@sifive.com>
+Actually, RISCV HLIC and PLIC are very similar to RPi2 and RPi3 SOCs.
+
+On RPi2 and RPi3, we have per-CPU BCM2836 local intc and the global
+interrupts are managed using BCM2835 intc. You should certainly have
+a look a this drivers because these very simple compared to GICv2 and
+GICv3 drivers.
+
+Regards,
+Anup
