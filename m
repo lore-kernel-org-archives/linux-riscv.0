@@ -1,35 +1,46 @@
-From: hch@lst.de (Christoph Hellwig)
-Date: Fri, 27 Jul 2018 16:44:05 +0200
-Subject: RFC: simplified RISC-V interrupt and clocksource handling
-In-Reply-To: <dc346650-0b48-3c2b-9190-b87ea6987e37@wdc.com>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Fri, 27 Jul 2018 10:44:05 -0700
+Subject: [PATCH 9/9] clocksource: new RISC-V SBI timer driver
+In-Reply-To: <20180727144148.GA29626@lst.de>
 References: <20180726143723.16585-1-hch@lst.de>
- <dc346650-0b48-3c2b-9190-b87ea6987e37@wdc.com>
-Message-ID: <20180727144405.GB29626@lst.de>
+ <20180726143723.16585-10-hch@lst.de>
+ <972dacda-75d6-83cd-45e0-c7526a4e02ba@wdc.com>
+ <20180727144148.GA29626@lst.de>
+Message-ID: <f0a5a2e0-7f08-13cd-1758-f53494c1e391@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Jul 26, 2018 at 04:38:43PM -0700, Atish Patra wrote:
-> 1. As per my understanding, timer interrupt now can't be registered as a 
-> Linux IRQ now. Thus, /proc/interrupts will not be automatically populated 
-> for timer interrupt stats. Am I wrong in my assumption?
+On 7/27/18 7:38 AM, Christoph Hellwig wrote:
+> On Thu, Jul 26, 2018 at 11:51:56AM -0700, Atish Patra wrote:
+>> Should we follow the same prefix for these functions?
+>> either timer_riscv* or riscv_timer* ?
+>>
+>> Apologies for overlooking this in my timer patch as wel
+> 
+> riscv_timer_* sounds saner to me, I can update that.
+> 
 
-Yes, with this code the timer interrupt does not show up in
-/proc/interrupts.  I wonder if that is an issue and if there is any
-precedence for it?
+Thanks.
+>>> +	struct clock_event_device *evdev = this_cpu_ptr(&riscv_clock_event);
+>>> +
+>>
+>> The comment about the purpose of clearing the interrupt in the original
+>> patch is removed here. If that's intentional, it's fine.
+>>
+>> I thought having that comment helps understanding the distinction between
+>> clearing the timer interrupt in SBI call & here.
+> 
+> Yes, that was intentional.  But given that I don't even understand why
+> not using an ABI for architectural interrupt source enable/disable maybe
+> I'm confused and should revisit that decision.
+> 
 
-> 2. The future version of local interrupt controller known as Core Level 
-> Interrupt Controller aka CLIC. Do we have to change the current design
-> again for CLIC in future?
->
-> Here are the docs:
-> https://github.com/sifive/clic-spec/blob/master/clic.adoc
+I tried adding a new SBI call to disable the interrupts. However, I 
+realized that it is not recommended to change the SBI unless absolutely 
+required.
 
-This doesn't really look like 'the future' version but a proposal for
-something more like low end realtime microcontrollers ala ARM Cortex M*.
-At least the priorities don't really make much sense for a general
-purpose SOC.
+Here is the PR & following discussion.
+https://github.com/riscv/riscv-pk/pull/108
 
-Either way the existing architectural scause/sie interrupt handling will
-remain but can be opted out, but if we really want to support the CLIC
-it would have to grow a new irqchip driver, and the PLIC driver would
-require a few dozend new lines of glue code to chain underneath it.
+Regards,
+Atish
