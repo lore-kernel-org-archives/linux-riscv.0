@@ -1,52 +1,31 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Thu, 26 Jul 2018 16:38:43 -0700
-Subject: RFC: simplified RISC-V interrupt and clocksource handling
-In-Reply-To: <20180726143723.16585-1-hch@lst.de>
+From: hch@lst.de (Christoph Hellwig)
+Date: Fri, 27 Jul 2018 16:41:48 +0200
+Subject: [PATCH 9/9] clocksource: new RISC-V SBI timer driver
+In-Reply-To: <972dacda-75d6-83cd-45e0-c7526a4e02ba@wdc.com>
 References: <20180726143723.16585-1-hch@lst.de>
-Message-ID: <dc346650-0b48-3c2b-9190-b87ea6987e37@wdc.com>
+ <20180726143723.16585-10-hch@lst.de>
+ <972dacda-75d6-83cd-45e0-c7526a4e02ba@wdc.com>
+Message-ID: <20180727144148.GA29626@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 7/26/18 7:37 AM, Christoph Hellwig wrote:
-> This series tries adds support for interrupt handling and timers
-> for the RISC-V architecture.
-> 
-> The basic per-hart interrupt handling implemented by the scause
-> and sie CSRs is extremely simple and implemented directly in
-> arch/riscv/kernel/irq.c.  In addition there is a irqchip driver
-> for the PLIC external interrupt controller, which is called through
-> the set_handle_irq API, and a clocksource driver that gets its
-> timer interrupt directly from the low-level interrupt handling.
-> 
-> Compared to previous iterations this version does not try to use an
-> irqchip driver for the low-level interrupt handling.  This saves
-> a couple indirect calls and an additional read of the scause CSR
-> in the hot path, makes the code much simpler and last but not least
-> avoid the dependency on a device tree for a mandatory architectural
-> feature.
-> 
-I agree that this code is much simpler than HLIC code.
-Few doubts though
+On Thu, Jul 26, 2018 at 11:51:56AM -0700, Atish Patra wrote:
+> Should we follow the same prefix for these functions?
+> either timer_riscv* or riscv_timer* ?
+>
+> Apologies for overlooking this in my timer patch as well.
 
-1. As per my understanding, timer interrupt now can't be registered as a 
-Linux IRQ now. Thus, /proc/interrupts will not be automatically 
-populated for timer interrupt stats. Am I wrong in my assumption?
+riscv_timer_* sounds saner to me, I can update that.
 
-2. The future version of local interrupt controller known as Core Level 
-Interrupt Controller aka CLIC. Do we have to change the current design
-again for CLIC in future?
+>> +	struct clock_event_device *evdev = this_cpu_ptr(&riscv_clock_event);
+>> +
+>
+> The comment about the purpose of clearing the interrupt in the original 
+> patch is removed here. If that's intentional, it's fine.
+>
+> I thought having that comment helps understanding the distinction between 
+> clearing the timer interrupt in SBI call & here.
 
-Here are the docs:
-https://github.com/sifive/clic-spec/blob/master/clic.adoc
-
-Regards,
-Atish
-> A git tree is available here (contains a few more patches before
-> the ones in this series)
-> 
->      git://git.infradead.org/users/hch/riscv.git riscv-irq-simple
-> 
-> Gitweb:
-> 
->      http://git.infradead.org/users/hch/riscv.git/shortlog/refs/heads/riscv-irq-simple
-> 
+Yes, that was intentional.  But given that I don't even understand why
+not using an ABI for architectural interrupt source enable/disable maybe
+I'm confused and should revisit that decision.
