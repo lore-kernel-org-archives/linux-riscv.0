@@ -1,338 +1,263 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Fri, 27 Jul 2018 17:04:52 -0700
-Subject: [PATCH 7/9] irqchip: add a RISC-V PLIC driver
-In-Reply-To: <20180726143723.16585-8-hch@lst.de>
-References: <20180726143723.16585-1-hch@lst.de>
- <20180726143723.16585-8-hch@lst.de>
-Message-ID: <1b3f6066-0c7c-a5f5-75ad-559fe81091ee@wdc.com>
+From: lkp@intel.com (kbuild test robot)
+Date: Sun, 29 Jul 2018 00:20:55 +0800
+Subject: [PATCH] riscv: Convert uses of REG_FMT to %p
+In-Reply-To: <db0636b3290bbc72084f170a28e4dee5a22a622d.1532714999.git.joe@perches.com>
+References: <db0636b3290bbc72084f170a28e4dee5a22a622d.1532714999.git.joe@perches.com>
+Message-ID: <201807290050.A99Vnu5d%fengguang.wu@intel.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 7/26/18 7:38 AM, Christoph Hellwig wrote:
-> This patch adds a driver for the Platform Level Interrupt Controller (PLIC)
-> specified as part of the RISC-V supervisor level ISA manual, in the memory
-> layout implemented by SiFive and qemu.
-> 
-> The PLIC connects global interrupt sources to the local interrupt controller
-> on each hart.
-> 
-> This driver is based on the driver in the RISC-V tree from Palmer Dabbelt,
-> but has been almost entirely rewritten since.
-> 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
+Hi Joe,
 
-I tried to boot HighFive Unleashed with the patch series after applying 
-all the patches from riscv-all branch except timer & irq patches. It 
-gets stuck pretty early.
+I love your patch! Yet something to improve:
 
-Here is my github repo with all the changes:
-https://github.com/atishp04/riscv-linux/commits/master_chris_cleanup_hifive
+[auto build test ERROR on linus/master]
+[also build test ERROR on v4.18-rc6 next-20180727]
+[if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
 
-I am still looking into it.
-Palmer: Did I miss something?
+url:    https://github.com/0day-ci/linux/commits/Joe-Perches/riscv-Convert-uses-of-REG_FMT-to-p/20180728-104236
+config: riscv-defconfig (attached as .config)
+compiler: riscv64-linux-gcc (GCC) 8.1.0
+reproduce:
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # save the attached .config to linux build tree
+        GCC_VERSION=8.1.0 make.cross ARCH=riscv 
 
-FWIW, here is the boot log.
---------- Boot log -------------------------------------------
-[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=5
-[    0.000000] NR_IRQS: 0, nr_irqs: 0, preallocated irqs: 0
-[    0.000000] plic: mapped 53 interrupts to 4 (out of 9) handlers.
-[    0.000000] clocksource: riscv_clocksource: mask: 0xffffffffffffffff 
-max_cycles: 0x1d854df40, max_idle_ns: 3526361616960 ns
-[    0.000000] Calibrating delay loop (skipped), value calculated using 
-timer frequency.. 2.00 BogoMIPS (lpj=10000)
-[    0.010000] pid_max: default: 32768 minimum: 301
-[    0.010000] Mount-cache hash table entries: 16384 (order: 5, 131072 
-bytes)
-[    0.020000] Mountpoint-cache hash table entries: 16384 (order: 5, 
-131072 bytes)
-[    0.020000] Hierarchical SRCU implementation.
-[    0.030000] smp: Bringing up secondary CPUs ...
-> ---
->   drivers/irqchip/Kconfig          |  13 ++
->   drivers/irqchip/Makefile         |   1 +
->   drivers/irqchip/irq-riscv-plic.c | 219 +++++++++++++++++++++++++++++++
->   3 files changed, 233 insertions(+)
->   create mode 100644 drivers/irqchip/irq-riscv-plic.c
-> 
-> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-> index e9233db16e03..5ac6dd922a0d 100644
-> --- a/drivers/irqchip/Kconfig
-> +++ b/drivers/irqchip/Kconfig
-> @@ -372,3 +372,16 @@ config QCOM_PDC
->   	  IRQs for Qualcomm Technologies Inc (QTI) mobile chips.
->   
->   endmenu
-> +
-> +config RISCV_PLIC
-> +	bool "Platform-Level Interrupt Controller"
-> +	depends on RISCV
-> +	default y
-> +	help
-> +	   This enables support for the PLIC chip found in standard RISC-V
-> +	   systems.  The PLIC controls devices interrupts and connects them to
-> +	   each core's local interrupt controller.  Aside from timer and
-> +	   software interrupts, all other interrupt sources (MSI, GPIO, etc)
-> +	   are subordinate to the PLIC.
-> +
-> +	   If you don't know what to do here, say Y.
-> diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-> index 15f268f646bf..bf9238da8a31 100644
-> --- a/drivers/irqchip/Makefile
-> +++ b/drivers/irqchip/Makefile
-> @@ -87,3 +87,4 @@ obj-$(CONFIG_MESON_IRQ_GPIO)		+= irq-meson-gpio.o
->   obj-$(CONFIG_GOLDFISH_PIC) 		+= irq-goldfish-pic.o
->   obj-$(CONFIG_NDS32)			+= irq-ativic32.o
->   obj-$(CONFIG_QCOM_PDC)			+= qcom-pdc.o
-> +obj-$(CONFIG_RISCV_PLIC)		+= irq-riscv-plic.o
-> diff --git a/drivers/irqchip/irq-riscv-plic.c b/drivers/irqchip/irq-riscv-plic.c
-> new file mode 100644
-> index 000000000000..274fe2cba544
-> --- /dev/null
-> +++ b/drivers/irqchip/irq-riscv-plic.c
-> @@ -0,0 +1,219 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2017 SiFive
-> + * Copyright (C) 2018 Christoph Hellwig
-> + */
-> +#define pr_fmt(fmt) "plic: " fmt
-> +#include <linux/cpumask.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/irq.h>
-> +#include <linux/irqchip.h>
-> +#include <linux/irqdomain.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_address.h>
-> +#include <linux/of_irq.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/spinlock.h>
-> +
-> +/*
-> + * From the RISC-V Priviledged Spec v1.10:
-> + *
-> + * Global interrupt sources are assigned small unsigned integer identifiers,
-> + * beginning at the value 1.  An interrupt ID of 0 is reserved to mean "no
-> + * interrupt".  Interrupt identifiers are also used to break ties when two or
-> + * more interrupt sources have the same assigned priority. Smaller values of
-> + * interrupt ID take precedence over larger values of interrupt ID.
-> + *
-> + * While the RISC-V supervisor spec doesn't define the maximum number of
-> + * devices supported by the PLIC, the largest number supported by devices
-> + * marked as 'riscv,plic0' (which is the only device type this driver supports,
-> + * and is the only extant PLIC as of now) is 1024.  As mentioned above, device
-> + * 0 is defined to be non-existent so this device really only supports 1023
-> + * devices.
-> + */
-> +#define MAX_DEVICES			1024
-> +#define MAX_CONTEXTS			15872
-> +
+All error/warnings (new ones prefixed by >>):
 
-Is there any way we can preserve some of the comments in the original 
-patch about memory-mapped control registers or at least a reference 
-where to find the register offset calculations?
+   In file included from include/linux/kernel.h:14,
+                    from include/asm-generic/bug.h:18,
+                    from arch/riscv/include/asm/bug.h:75,
+                    from include/linux/bug.h:5,
+                    from include/linux/mmdebug.h:5,
+                    from include/linux/mm.h:9,
+                    from arch/riscv/mm/fault.c:23:
+   arch/riscv/mm/fault.c: In function 'do_page_fault':
+>> arch/riscv/mm/fault.c:197:60: error: expected ')' before 'REG_FMT'
+     pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n",
+                                                               ^~~~~~~
+   include/linux/printk.h:288:21: note: in definition of macro 'pr_fmt'
+    #define pr_fmt(fmt) fmt
+                        ^~~
+   arch/riscv/mm/fault.c:197:2: note: in expansion of macro 'pr_alert'
+     pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n",
+     ^~~~~~~~
+   In file included from include/linux/printk.h:7,
+                    from include/linux/kernel.h:14,
+                    from include/asm-generic/bug.h:18,
+                    from arch/riscv/include/asm/bug.h:75,
+                    from include/linux/bug.h:5,
+                    from include/linux/mmdebug.h:5,
+                    from include/linux/mm.h:9,
+                    from arch/riscv/mm/fault.c:23:
+>> include/linux/kern_levels.h:5:18: warning: format '%s' expects a matching 'char *' argument [-Wformat=]
+    #define KERN_SOH "\001"  /* ASCII Start Of Header */
+                     ^~~~~~
+   include/linux/kern_levels.h:9:20: note: in expansion of macro 'KERN_SOH'
+    #define KERN_ALERT KERN_SOH "1" /* action must be taken immediately */
+                       ^~~~~~~~
+   include/linux/printk.h:300:9: note: in expansion of macro 'KERN_ALERT'
+     printk(KERN_ALERT pr_fmt(fmt), ##__VA_ARGS__)
+            ^~~~~~~~~~
+   arch/riscv/mm/fault.c:197:2: note: in expansion of macro 'pr_alert'
+     pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n",
+     ^~~~~~~~
+   arch/riscv/mm/fault.c:197:37: note: format string is defined here
+     pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n",
+                                       ~^
 
-IMHO, it is helpful for anybody who is not familiar with the details.
-> +/*
-> + * Each interrupt source has a priority register associated with it.
-> + * We always hardwire it to one in Linux.
-> + */
-> +#define PRIORITY_BASE			0
-> +#define	    PRIORITY_PER_ID		4
-> +
-> +/*
-> + * Each hart context has a vector of interupt enable bits associated with it.
-> + * There's one bit for each interrupt source.
-> + */
-> +#define ENABLE_BASE			0x2000
-> +#define     ENABLE_PER_HART		0x80
-> +
-> +/*
-> + * Each hart context has a set of control registers associated with it.  Right
-> + * now there's only two: a source priority threshold over which the hart will
-> + * take an interrupt, and a register to claim interrupts.
-> + */
-> +#define CONTEXT_BASE			0x200000
-> +#define     CONTEXT_PER_HART		0x1000
-> +#define     CONTEXT_THRESHOLD		0x00
-> +#define     CONTEXT_CLAIM		0x04
-> +
-> +static void __iomem *plic_regs;
-> +
-> +static inline void __iomem *plic_hart_offset(int ctxid)
-> +{
-> +	return plic_regs + CONTEXT_BASE + ctxid * CONTEXT_PER_HART;
-> +}
-> +
-> +/*
-> + * Protect mask operations on the registers given that we can't assume that
-> + * atomic memory operations work on them.
-> + */
-> +static DEFINE_SPINLOCK(plic_toggle_lock);
-> +
-> +static inline void plic_toggle(int ctxid, int hwirq, int enable)
-> +{
-> +	u32 __iomem *reg = plic_regs + ENABLE_BASE + ctxid * ENABLE_PER_HART;
+vim +197 arch/riscv/mm/fault.c
 
-shouldn't it be
-u32 __iomem *reg = plic_regs + ENABLE_BASE + ctxid * ENABLE_PER_HART + 
-(hwirq / 32) * 4;
+07037db5 Palmer Dabbelt    2017-07-10  @23  #include <linux/mm.h>
+07037db5 Palmer Dabbelt    2017-07-10   24  #include <linux/kernel.h>
+07037db5 Palmer Dabbelt    2017-07-10   25  #include <linux/interrupt.h>
+07037db5 Palmer Dabbelt    2017-07-10   26  #include <linux/perf_event.h>
+07037db5 Palmer Dabbelt    2017-07-10   27  #include <linux/signal.h>
+07037db5 Palmer Dabbelt    2017-07-10   28  #include <linux/uaccess.h>
+07037db5 Palmer Dabbelt    2017-07-10   29  
+07037db5 Palmer Dabbelt    2017-07-10   30  #include <asm/pgalloc.h>
+07037db5 Palmer Dabbelt    2017-07-10   31  #include <asm/ptrace.h>
+07037db5 Palmer Dabbelt    2017-07-10   32  
+07037db5 Palmer Dabbelt    2017-07-10   33  /*
+07037db5 Palmer Dabbelt    2017-07-10   34   * This routine handles page faults.  It determines the address and the
+07037db5 Palmer Dabbelt    2017-07-10   35   * problem, and then passes it off to one of the appropriate routines.
+07037db5 Palmer Dabbelt    2017-07-10   36   */
+07037db5 Palmer Dabbelt    2017-07-10   37  asmlinkage void do_page_fault(struct pt_regs *regs)
+07037db5 Palmer Dabbelt    2017-07-10   38  {
+07037db5 Palmer Dabbelt    2017-07-10   39  	struct task_struct *tsk;
+07037db5 Palmer Dabbelt    2017-07-10   40  	struct vm_area_struct *vma;
+07037db5 Palmer Dabbelt    2017-07-10   41  	struct mm_struct *mm;
+07037db5 Palmer Dabbelt    2017-07-10   42  	unsigned long addr, cause;
+07037db5 Palmer Dabbelt    2017-07-10   43  	unsigned int flags = FAULT_FLAG_ALLOW_RETRY | FAULT_FLAG_KILLABLE;
+07037db5 Palmer Dabbelt    2017-07-10   44  	int fault, code = SEGV_MAPERR;
+07037db5 Palmer Dabbelt    2017-07-10   45  
+07037db5 Palmer Dabbelt    2017-07-10   46  	cause = regs->scause;
+07037db5 Palmer Dabbelt    2017-07-10   47  	addr = regs->sbadaddr;
+07037db5 Palmer Dabbelt    2017-07-10   48  
+07037db5 Palmer Dabbelt    2017-07-10   49  	tsk = current;
+07037db5 Palmer Dabbelt    2017-07-10   50  	mm = tsk->mm;
+07037db5 Palmer Dabbelt    2017-07-10   51  
+07037db5 Palmer Dabbelt    2017-07-10   52  	/*
+07037db5 Palmer Dabbelt    2017-07-10   53  	 * Fault-in kernel-space virtual memory on-demand.
+07037db5 Palmer Dabbelt    2017-07-10   54  	 * The 'reference' page table is init_mm.pgd.
+07037db5 Palmer Dabbelt    2017-07-10   55  	 *
+07037db5 Palmer Dabbelt    2017-07-10   56  	 * NOTE! We MUST NOT take any locks for this case. We may
+07037db5 Palmer Dabbelt    2017-07-10   57  	 * be in an interrupt or a critical region, and should
+07037db5 Palmer Dabbelt    2017-07-10   58  	 * only copy the information from the master page table,
+07037db5 Palmer Dabbelt    2017-07-10   59  	 * nothing more.
+07037db5 Palmer Dabbelt    2017-07-10   60  	 */
+07037db5 Palmer Dabbelt    2017-07-10   61  	if (unlikely((addr >= VMALLOC_START) && (addr <= VMALLOC_END)))
+07037db5 Palmer Dabbelt    2017-07-10   62  		goto vmalloc_fault;
+07037db5 Palmer Dabbelt    2017-07-10   63  
+07037db5 Palmer Dabbelt    2017-07-10   64  	/* Enable interrupts if they were enabled in the parent context. */
+1125203c Christoph Hellwig 2018-01-04   65  	if (likely(regs->sstatus & SR_SPIE))
+07037db5 Palmer Dabbelt    2017-07-10   66  		local_irq_enable();
+07037db5 Palmer Dabbelt    2017-07-10   67  
+07037db5 Palmer Dabbelt    2017-07-10   68  	/*
+07037db5 Palmer Dabbelt    2017-07-10   69  	 * If we're in an interrupt, have no user context, or are running
+07037db5 Palmer Dabbelt    2017-07-10   70  	 * in an atomic region, then we must not take the fault.
+07037db5 Palmer Dabbelt    2017-07-10   71  	 */
+07037db5 Palmer Dabbelt    2017-07-10   72  	if (unlikely(faulthandler_disabled() || !mm))
+07037db5 Palmer Dabbelt    2017-07-10   73  		goto no_context;
+07037db5 Palmer Dabbelt    2017-07-10   74  
+07037db5 Palmer Dabbelt    2017-07-10   75  	if (user_mode(regs))
+07037db5 Palmer Dabbelt    2017-07-10   76  		flags |= FAULT_FLAG_USER;
+07037db5 Palmer Dabbelt    2017-07-10   77  
+07037db5 Palmer Dabbelt    2017-07-10   78  	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
+07037db5 Palmer Dabbelt    2017-07-10   79  
+07037db5 Palmer Dabbelt    2017-07-10   80  retry:
+07037db5 Palmer Dabbelt    2017-07-10   81  	down_read(&mm->mmap_sem);
+07037db5 Palmer Dabbelt    2017-07-10   82  	vma = find_vma(mm, addr);
+07037db5 Palmer Dabbelt    2017-07-10   83  	if (unlikely(!vma))
+07037db5 Palmer Dabbelt    2017-07-10   84  		goto bad_area;
+07037db5 Palmer Dabbelt    2017-07-10   85  	if (likely(vma->vm_start <= addr))
+07037db5 Palmer Dabbelt    2017-07-10   86  		goto good_area;
+07037db5 Palmer Dabbelt    2017-07-10   87  	if (unlikely(!(vma->vm_flags & VM_GROWSDOWN)))
+07037db5 Palmer Dabbelt    2017-07-10   88  		goto bad_area;
+07037db5 Palmer Dabbelt    2017-07-10   89  	if (unlikely(expand_stack(vma, addr)))
+07037db5 Palmer Dabbelt    2017-07-10   90  		goto bad_area;
+07037db5 Palmer Dabbelt    2017-07-10   91  
+07037db5 Palmer Dabbelt    2017-07-10   92  	/*
+07037db5 Palmer Dabbelt    2017-07-10   93  	 * Ok, we have a good vm_area for this memory access, so
+07037db5 Palmer Dabbelt    2017-07-10   94  	 * we can handle it.
+07037db5 Palmer Dabbelt    2017-07-10   95  	 */
+07037db5 Palmer Dabbelt    2017-07-10   96  good_area:
+07037db5 Palmer Dabbelt    2017-07-10   97  	code = SEGV_ACCERR;
+07037db5 Palmer Dabbelt    2017-07-10   98  
+07037db5 Palmer Dabbelt    2017-07-10   99  	switch (cause) {
+07037db5 Palmer Dabbelt    2017-07-10  100  	case EXC_INST_PAGE_FAULT:
+07037db5 Palmer Dabbelt    2017-07-10  101  		if (!(vma->vm_flags & VM_EXEC))
+07037db5 Palmer Dabbelt    2017-07-10  102  			goto bad_area;
+07037db5 Palmer Dabbelt    2017-07-10  103  		break;
+07037db5 Palmer Dabbelt    2017-07-10  104  	case EXC_LOAD_PAGE_FAULT:
+07037db5 Palmer Dabbelt    2017-07-10  105  		if (!(vma->vm_flags & VM_READ))
+07037db5 Palmer Dabbelt    2017-07-10  106  			goto bad_area;
+07037db5 Palmer Dabbelt    2017-07-10  107  		break;
+07037db5 Palmer Dabbelt    2017-07-10  108  	case EXC_STORE_PAGE_FAULT:
+07037db5 Palmer Dabbelt    2017-07-10  109  		if (!(vma->vm_flags & VM_WRITE))
+07037db5 Palmer Dabbelt    2017-07-10  110  			goto bad_area;
+07037db5 Palmer Dabbelt    2017-07-10  111  		flags |= FAULT_FLAG_WRITE;
+07037db5 Palmer Dabbelt    2017-07-10  112  		break;
+07037db5 Palmer Dabbelt    2017-07-10  113  	default:
+07037db5 Palmer Dabbelt    2017-07-10  114  		panic("%s: unhandled cause %lu", __func__, cause);
+07037db5 Palmer Dabbelt    2017-07-10  115  	}
+07037db5 Palmer Dabbelt    2017-07-10  116  
+07037db5 Palmer Dabbelt    2017-07-10  117  	/*
+07037db5 Palmer Dabbelt    2017-07-10  118  	 * If for any reason at all we could not handle the fault,
+07037db5 Palmer Dabbelt    2017-07-10  119  	 * make sure we exit gracefully rather than endlessly redo
+07037db5 Palmer Dabbelt    2017-07-10  120  	 * the fault.
+07037db5 Palmer Dabbelt    2017-07-10  121  	 */
+07037db5 Palmer Dabbelt    2017-07-10  122  	fault = handle_mm_fault(vma, addr, flags);
+07037db5 Palmer Dabbelt    2017-07-10  123  
+07037db5 Palmer Dabbelt    2017-07-10  124  	/*
+07037db5 Palmer Dabbelt    2017-07-10  125  	 * If we need to retry but a fatal signal is pending, handle the
+07037db5 Palmer Dabbelt    2017-07-10  126  	 * signal first. We do not need to release the mmap_sem because it
+07037db5 Palmer Dabbelt    2017-07-10  127  	 * would already be released in __lock_page_or_retry in mm/filemap.c.
+07037db5 Palmer Dabbelt    2017-07-10  128  	 */
+07037db5 Palmer Dabbelt    2017-07-10  129  	if ((fault & VM_FAULT_RETRY) && fatal_signal_pending(tsk))
+07037db5 Palmer Dabbelt    2017-07-10  130  		return;
+07037db5 Palmer Dabbelt    2017-07-10  131  
+07037db5 Palmer Dabbelt    2017-07-10  132  	if (unlikely(fault & VM_FAULT_ERROR)) {
+07037db5 Palmer Dabbelt    2017-07-10  133  		if (fault & VM_FAULT_OOM)
+07037db5 Palmer Dabbelt    2017-07-10  134  			goto out_of_memory;
+07037db5 Palmer Dabbelt    2017-07-10  135  		else if (fault & VM_FAULT_SIGBUS)
+07037db5 Palmer Dabbelt    2017-07-10  136  			goto do_sigbus;
+07037db5 Palmer Dabbelt    2017-07-10  137  		BUG();
+07037db5 Palmer Dabbelt    2017-07-10  138  	}
+07037db5 Palmer Dabbelt    2017-07-10  139  
+07037db5 Palmer Dabbelt    2017-07-10  140  	/*
+07037db5 Palmer Dabbelt    2017-07-10  141  	 * Major/minor page fault accounting is only done on the
+07037db5 Palmer Dabbelt    2017-07-10  142  	 * initial attempt. If we go through a retry, it is extremely
+07037db5 Palmer Dabbelt    2017-07-10  143  	 * likely that the page will be found in page cache at that point.
+07037db5 Palmer Dabbelt    2017-07-10  144  	 */
+07037db5 Palmer Dabbelt    2017-07-10  145  	if (flags & FAULT_FLAG_ALLOW_RETRY) {
+07037db5 Palmer Dabbelt    2017-07-10  146  		if (fault & VM_FAULT_MAJOR) {
+07037db5 Palmer Dabbelt    2017-07-10  147  			tsk->maj_flt++;
+07037db5 Palmer Dabbelt    2017-07-10  148  			perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS_MAJ,
+07037db5 Palmer Dabbelt    2017-07-10  149  				      1, regs, addr);
+07037db5 Palmer Dabbelt    2017-07-10  150  		} else {
+07037db5 Palmer Dabbelt    2017-07-10  151  			tsk->min_flt++;
+07037db5 Palmer Dabbelt    2017-07-10  152  			perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS_MIN,
+07037db5 Palmer Dabbelt    2017-07-10  153  				      1, regs, addr);
+07037db5 Palmer Dabbelt    2017-07-10  154  		}
+07037db5 Palmer Dabbelt    2017-07-10  155  		if (fault & VM_FAULT_RETRY) {
+07037db5 Palmer Dabbelt    2017-07-10  156  			/*
+07037db5 Palmer Dabbelt    2017-07-10  157  			 * Clear FAULT_FLAG_ALLOW_RETRY to avoid any risk
+07037db5 Palmer Dabbelt    2017-07-10  158  			 * of starvation.
+07037db5 Palmer Dabbelt    2017-07-10  159  			 */
+07037db5 Palmer Dabbelt    2017-07-10  160  			flags &= ~(FAULT_FLAG_ALLOW_RETRY);
+07037db5 Palmer Dabbelt    2017-07-10  161  			flags |= FAULT_FLAG_TRIED;
+07037db5 Palmer Dabbelt    2017-07-10  162  
+07037db5 Palmer Dabbelt    2017-07-10  163  			/*
+07037db5 Palmer Dabbelt    2017-07-10  164  			 * No need to up_read(&mm->mmap_sem) as we would
+07037db5 Palmer Dabbelt    2017-07-10  165  			 * have already released it in __lock_page_or_retry
+07037db5 Palmer Dabbelt    2017-07-10  166  			 * in mm/filemap.c.
+07037db5 Palmer Dabbelt    2017-07-10  167  			 */
+07037db5 Palmer Dabbelt    2017-07-10  168  			goto retry;
+07037db5 Palmer Dabbelt    2017-07-10  169  		}
+07037db5 Palmer Dabbelt    2017-07-10  170  	}
+07037db5 Palmer Dabbelt    2017-07-10  171  
+07037db5 Palmer Dabbelt    2017-07-10  172  	up_read(&mm->mmap_sem);
+07037db5 Palmer Dabbelt    2017-07-10  173  	return;
+07037db5 Palmer Dabbelt    2017-07-10  174  
+07037db5 Palmer Dabbelt    2017-07-10  175  	/*
+07037db5 Palmer Dabbelt    2017-07-10  176  	 * Something tried to access memory that isn't in our memory map.
+07037db5 Palmer Dabbelt    2017-07-10  177  	 * Fix it, but check if it's kernel or user first.
+07037db5 Palmer Dabbelt    2017-07-10  178  	 */
+07037db5 Palmer Dabbelt    2017-07-10  179  bad_area:
+07037db5 Palmer Dabbelt    2017-07-10  180  	up_read(&mm->mmap_sem);
+07037db5 Palmer Dabbelt    2017-07-10  181  	/* User mode accesses just cause a SIGSEGV */
+07037db5 Palmer Dabbelt    2017-07-10  182  	if (user_mode(regs)) {
+07037db5 Palmer Dabbelt    2017-07-10  183  		do_trap(regs, SIGSEGV, code, addr, tsk);
+07037db5 Palmer Dabbelt    2017-07-10  184  		return;
+07037db5 Palmer Dabbelt    2017-07-10  185  	}
+07037db5 Palmer Dabbelt    2017-07-10  186  
+07037db5 Palmer Dabbelt    2017-07-10  187  no_context:
+07037db5 Palmer Dabbelt    2017-07-10  188  	/* Are we prepared to handle this kernel fault? */
+07037db5 Palmer Dabbelt    2017-07-10  189  	if (fixup_exception(regs))
+07037db5 Palmer Dabbelt    2017-07-10  190  		return;
+07037db5 Palmer Dabbelt    2017-07-10  191  
+07037db5 Palmer Dabbelt    2017-07-10  192  	/*
+07037db5 Palmer Dabbelt    2017-07-10  193  	 * Oops. The kernel tried to access some bad page. We'll have to
+07037db5 Palmer Dabbelt    2017-07-10  194  	 * terminate things with extreme prejudice.
+07037db5 Palmer Dabbelt    2017-07-10  195  	 */
+07037db5 Palmer Dabbelt    2017-07-10  196  	bust_spinlocks(1);
+07037db5 Palmer Dabbelt    2017-07-10 @197  	pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n",
 
-Without that change, plic_handle_irq() gets called before irq mapping as 
-plic was not disabled for that irq.
+:::::: The code at line 197 was first introduced by commit
+:::::: 07037db5d479f90377c998259a4f9a469c404edf RISC-V: Paging and MMU
 
-As per comment in the original patch,
---------------------------------------------------------------
-* base + 0x002000: Enable bits for sources 0-31 on context 0
-* base + 0x002004: Enable bits for sources 32-63 on context 0
---------------------------------------------------------------
+:::::: TO: Palmer Dabbelt <palmer@dabbelt.com>
+:::::: CC: Palmer Dabbelt <palmer@dabbelt.com>
 
-> +	u32 hwirq_mask = 1 << (hwirq % 32);
-> +
-> +	spin_lock(&plic_toggle_lock);
-> +	if (enable)
-> +		writel(readl(reg) | hwirq_mask, reg);
-> +	else
-> +		writel(readl(reg) & ~hwirq_mask, reg);
-> +	spin_unlock(&plic_toggle_lock);
-> +}
-> +
-> +static inline void plic_irq_toggle(struct irq_data *d, int enable)
-> +{
-> +	int cpu;
-> +
-> +	writel(enable, plic_regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
-> +	for_each_present_cpu(cpu)
-> +		plic_toggle(cpu, d->hwirq, enable);
-> +}
-> +
-> +static void plic_irq_enable(struct irq_data *d)
-> +{
-> +	plic_irq_toggle(d, 1);
-> +}
-> +
-> +static void plic_irq_disable(struct irq_data *d)
-> +{
-> +	plic_irq_toggle(d, 0);
-> +}
-> +
-> +static struct irq_chip plic_chip = {
-> +	.name		= "riscv,plic0",
-> +	/*
-> +	 * There is no need to mask/unmask PLIC interrupts.  They are "masked"
-> +	 * by reading claim and "unmasked" when writing it back.
-> +	 */
-> +	.irq_enable	= plic_irq_enable,
-> +	.irq_disable	= plic_irq_disable,
-> +};
-> +
-> +static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
-> +			      irq_hw_number_t hwirq)
-> +{
-> +	irq_set_chip_and_handler(irq, &plic_chip, handle_simple_irq);
-> +	irq_set_chip_data(irq, NULL);
-> +	irq_set_noprobe(irq);
-> +	return 0;
-> +}
-> +
-> +static const struct irq_domain_ops plic_irqdomain_ops = {
-> +	.map		= plic_irqdomain_map,
-> +	.xlate		= irq_domain_xlate_onecell,
-> +};
-> +
-> +static struct irq_domain *plic_irqdomain;
-> +
-> +/*
-> + * Handling an interrupt is a two-step process: first you claim the interrupt
-> + * by reading the claim register, then you complete the interrupt by writing
-> + * that source ID back to the same claim register.  This automatically enables
-> + * and disables the interrupt, so there's nothing else to do.
-> + */
-> +static void plic_handle_irq(struct pt_regs *regs)
-> +{
-> +	void __iomem *claim =
-> +		plic_hart_offset(smp_processor_id()) + CONTEXT_CLAIM;
-> +	irq_hw_number_t hwirq;
-> +
-> +	csr_clear(sie, SIE_STIE);
-> +	while ((hwirq = readl(claim))) {
-> +		int irq = irq_find_mapping(plic_irqdomain, hwirq);
-> +
-> +		if (unlikely(irq <= 0)) {
-> +			pr_warn_ratelimited("can't find mapping for hwirq %lu\n",
-> +					hwirq);
-
-Ratlimiting the warning message here didn't help as ack_bad_irq() still 
-print message still flooded the console without any useful info.
-
-Regards,
-Atish
-> +			ack_bad_irq(irq);
-> +		} else {
-> +			generic_handle_irq(irq);
-> +		}
-> +		writel(hwirq, claim);
-> +	}
-> +	csr_set(sie, SIE_STIE);
-> +}
-> +
-> +static int __init plic_init(struct device_node *node,
-> +		struct device_node *parent)
-> +{
-> +	int error = 0, nr_mapped = 0, nr_handlers, cpu;
-> +	u32 nr_irqs;
-> +
-> +	if (plic_regs) {
-> +		pr_warning("PLIC already present.\n");
-> +		return -ENXIO;
-> +	}
-> +
-> +	plic_regs = of_iomap(node, 0);
-> +	if (WARN_ON(!plic_regs))
-> +		return -EIO;
-> +
-> +	error = -EINVAL;
-> +	of_property_read_u32(node, "riscv,ndev", &nr_irqs);
-> +	if (WARN_ON(!nr_irqs))
-> +		goto out_iounmap;
-> +
-> +	nr_handlers = of_irq_count(node);
-> +	if (WARN_ON(!nr_handlers))
-> +		goto out_iounmap;
-> +	if (WARN_ON(nr_handlers < num_possible_cpus()))
-> +		goto out_iounmap;
-> +
-> +	error = -ENOMEM;
-> +	plic_irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
-> +			&plic_irqdomain_ops, NULL);
-> +	if (WARN_ON(!plic_irqdomain))
-> +		goto out_iounmap;
-> +
-> +	/*
-> +	 * We assume that each present hart is wire up to the PLIC.
-> +	 * If that isn't the case in the future this code will need to be
-> +	 * modified.
-> +	 */
-> +	for_each_present_cpu(cpu) {
-> +		irq_hw_number_t hwirq;
-> +
-> +		/* priority must be > threshold to trigger an interrupt */
-> +		writel(0, plic_hart_offset(cpu) + CONTEXT_THRESHOLD);
-> +		for (hwirq = 1; hwirq <= nr_irqs; ++hwirq)
-> +			plic_toggle(cpu, hwirq, 0);
-> +		nr_mapped++;
-> +	}
-> +
-> +	pr_info("mapped %d interrupts to %d (out of %d) handlers.\n",
-> +		nr_irqs, nr_mapped, nr_handlers);
-> +	set_handle_irq(plic_handle_irq);
-> +	return 0;
-> +
-> +out_iounmap:
-> +	iounmap(plic_regs);
-> +	return error;
-> +}
-> +
-> +IRQCHIP_DECLARE(plic0, "riscv,plic0", plic_init);
-> 
+---
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: .config.gz
+Type: application/gzip
+Size: 16327 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180729/f20d3281/attachment.gz>
