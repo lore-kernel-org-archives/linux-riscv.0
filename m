@@ -1,263 +1,149 @@
-From: lkp@intel.com (kbuild test robot)
-Date: Sun, 29 Jul 2018 00:20:55 +0800
-Subject: [PATCH] riscv: Convert uses of REG_FMT to %p
-In-Reply-To: <db0636b3290bbc72084f170a28e4dee5a22a622d.1532714999.git.joe@perches.com>
-References: <db0636b3290bbc72084f170a28e4dee5a22a622d.1532714999.git.joe@perches.com>
-Message-ID: <201807290050.A99Vnu5d%fengguang.wu@intel.com>
+From: joe@perches.com (Joe Perches)
+Date: Sat, 28 Jul 2018 09:39:57 -0700
+Subject: [PATCH V2] riscv: Convert uses of REG_FMT to %p
+Message-ID: <e14dedc721b7aed1cf3ff1bdbc09014c0131c276.1532795905.git.joe@perches.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Joe,
+Use %p pointer output instead of REG_FMT and cast the unsigned longs to
+(void *) to avoid exposing kernel addresses.
 
-I love your patch! Yet something to improve:
+Miscellanea:
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v4.18-rc6 next-20180727]
-[if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
+o Convert pr_cont to printk(KERN_DEFAULT as these uses are
+  new logging lines and not previous line continuations
+o Remove the now unused REG_FMT defines
 
-url:    https://github.com/0day-ci/linux/commits/Joe-Perches/riscv-Convert-uses-of-REG_FMT-to-p/20180728-104236
-config: riscv-defconfig (attached as .config)
-compiler: riscv64-linux-gcc (GCC) 8.1.0
-reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # save the attached .config to linux build tree
-        GCC_VERSION=8.1.0 make.cross ARCH=riscv 
-
-All error/warnings (new ones prefixed by >>):
-
-   In file included from include/linux/kernel.h:14,
-                    from include/asm-generic/bug.h:18,
-                    from arch/riscv/include/asm/bug.h:75,
-                    from include/linux/bug.h:5,
-                    from include/linux/mmdebug.h:5,
-                    from include/linux/mm.h:9,
-                    from arch/riscv/mm/fault.c:23:
-   arch/riscv/mm/fault.c: In function 'do_page_fault':
->> arch/riscv/mm/fault.c:197:60: error: expected ')' before 'REG_FMT'
-     pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n",
-                                                               ^~~~~~~
-   include/linux/printk.h:288:21: note: in definition of macro 'pr_fmt'
-    #define pr_fmt(fmt) fmt
-                        ^~~
-   arch/riscv/mm/fault.c:197:2: note: in expansion of macro 'pr_alert'
-     pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n",
-     ^~~~~~~~
-   In file included from include/linux/printk.h:7,
-                    from include/linux/kernel.h:14,
-                    from include/asm-generic/bug.h:18,
-                    from arch/riscv/include/asm/bug.h:75,
-                    from include/linux/bug.h:5,
-                    from include/linux/mmdebug.h:5,
-                    from include/linux/mm.h:9,
-                    from arch/riscv/mm/fault.c:23:
->> include/linux/kern_levels.h:5:18: warning: format '%s' expects a matching 'char *' argument [-Wformat=]
-    #define KERN_SOH "\001"  /* ASCII Start Of Header */
-                     ^~~~~~
-   include/linux/kern_levels.h:9:20: note: in expansion of macro 'KERN_SOH'
-    #define KERN_ALERT KERN_SOH "1" /* action must be taken immediately */
-                       ^~~~~~~~
-   include/linux/printk.h:300:9: note: in expansion of macro 'KERN_ALERT'
-     printk(KERN_ALERT pr_fmt(fmt), ##__VA_ARGS__)
-            ^~~~~~~~~~
-   arch/riscv/mm/fault.c:197:2: note: in expansion of macro 'pr_alert'
-     pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n",
-     ^~~~~~~~
-   arch/riscv/mm/fault.c:197:37: note: format string is defined here
-     pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n",
-                                       ~^
-
-vim +197 arch/riscv/mm/fault.c
-
-07037db5 Palmer Dabbelt    2017-07-10  @23  #include <linux/mm.h>
-07037db5 Palmer Dabbelt    2017-07-10   24  #include <linux/kernel.h>
-07037db5 Palmer Dabbelt    2017-07-10   25  #include <linux/interrupt.h>
-07037db5 Palmer Dabbelt    2017-07-10   26  #include <linux/perf_event.h>
-07037db5 Palmer Dabbelt    2017-07-10   27  #include <linux/signal.h>
-07037db5 Palmer Dabbelt    2017-07-10   28  #include <linux/uaccess.h>
-07037db5 Palmer Dabbelt    2017-07-10   29  
-07037db5 Palmer Dabbelt    2017-07-10   30  #include <asm/pgalloc.h>
-07037db5 Palmer Dabbelt    2017-07-10   31  #include <asm/ptrace.h>
-07037db5 Palmer Dabbelt    2017-07-10   32  
-07037db5 Palmer Dabbelt    2017-07-10   33  /*
-07037db5 Palmer Dabbelt    2017-07-10   34   * This routine handles page faults.  It determines the address and the
-07037db5 Palmer Dabbelt    2017-07-10   35   * problem, and then passes it off to one of the appropriate routines.
-07037db5 Palmer Dabbelt    2017-07-10   36   */
-07037db5 Palmer Dabbelt    2017-07-10   37  asmlinkage void do_page_fault(struct pt_regs *regs)
-07037db5 Palmer Dabbelt    2017-07-10   38  {
-07037db5 Palmer Dabbelt    2017-07-10   39  	struct task_struct *tsk;
-07037db5 Palmer Dabbelt    2017-07-10   40  	struct vm_area_struct *vma;
-07037db5 Palmer Dabbelt    2017-07-10   41  	struct mm_struct *mm;
-07037db5 Palmer Dabbelt    2017-07-10   42  	unsigned long addr, cause;
-07037db5 Palmer Dabbelt    2017-07-10   43  	unsigned int flags = FAULT_FLAG_ALLOW_RETRY | FAULT_FLAG_KILLABLE;
-07037db5 Palmer Dabbelt    2017-07-10   44  	int fault, code = SEGV_MAPERR;
-07037db5 Palmer Dabbelt    2017-07-10   45  
-07037db5 Palmer Dabbelt    2017-07-10   46  	cause = regs->scause;
-07037db5 Palmer Dabbelt    2017-07-10   47  	addr = regs->sbadaddr;
-07037db5 Palmer Dabbelt    2017-07-10   48  
-07037db5 Palmer Dabbelt    2017-07-10   49  	tsk = current;
-07037db5 Palmer Dabbelt    2017-07-10   50  	mm = tsk->mm;
-07037db5 Palmer Dabbelt    2017-07-10   51  
-07037db5 Palmer Dabbelt    2017-07-10   52  	/*
-07037db5 Palmer Dabbelt    2017-07-10   53  	 * Fault-in kernel-space virtual memory on-demand.
-07037db5 Palmer Dabbelt    2017-07-10   54  	 * The 'reference' page table is init_mm.pgd.
-07037db5 Palmer Dabbelt    2017-07-10   55  	 *
-07037db5 Palmer Dabbelt    2017-07-10   56  	 * NOTE! We MUST NOT take any locks for this case. We may
-07037db5 Palmer Dabbelt    2017-07-10   57  	 * be in an interrupt or a critical region, and should
-07037db5 Palmer Dabbelt    2017-07-10   58  	 * only copy the information from the master page table,
-07037db5 Palmer Dabbelt    2017-07-10   59  	 * nothing more.
-07037db5 Palmer Dabbelt    2017-07-10   60  	 */
-07037db5 Palmer Dabbelt    2017-07-10   61  	if (unlikely((addr >= VMALLOC_START) && (addr <= VMALLOC_END)))
-07037db5 Palmer Dabbelt    2017-07-10   62  		goto vmalloc_fault;
-07037db5 Palmer Dabbelt    2017-07-10   63  
-07037db5 Palmer Dabbelt    2017-07-10   64  	/* Enable interrupts if they were enabled in the parent context. */
-1125203c Christoph Hellwig 2018-01-04   65  	if (likely(regs->sstatus & SR_SPIE))
-07037db5 Palmer Dabbelt    2017-07-10   66  		local_irq_enable();
-07037db5 Palmer Dabbelt    2017-07-10   67  
-07037db5 Palmer Dabbelt    2017-07-10   68  	/*
-07037db5 Palmer Dabbelt    2017-07-10   69  	 * If we're in an interrupt, have no user context, or are running
-07037db5 Palmer Dabbelt    2017-07-10   70  	 * in an atomic region, then we must not take the fault.
-07037db5 Palmer Dabbelt    2017-07-10   71  	 */
-07037db5 Palmer Dabbelt    2017-07-10   72  	if (unlikely(faulthandler_disabled() || !mm))
-07037db5 Palmer Dabbelt    2017-07-10   73  		goto no_context;
-07037db5 Palmer Dabbelt    2017-07-10   74  
-07037db5 Palmer Dabbelt    2017-07-10   75  	if (user_mode(regs))
-07037db5 Palmer Dabbelt    2017-07-10   76  		flags |= FAULT_FLAG_USER;
-07037db5 Palmer Dabbelt    2017-07-10   77  
-07037db5 Palmer Dabbelt    2017-07-10   78  	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
-07037db5 Palmer Dabbelt    2017-07-10   79  
-07037db5 Palmer Dabbelt    2017-07-10   80  retry:
-07037db5 Palmer Dabbelt    2017-07-10   81  	down_read(&mm->mmap_sem);
-07037db5 Palmer Dabbelt    2017-07-10   82  	vma = find_vma(mm, addr);
-07037db5 Palmer Dabbelt    2017-07-10   83  	if (unlikely(!vma))
-07037db5 Palmer Dabbelt    2017-07-10   84  		goto bad_area;
-07037db5 Palmer Dabbelt    2017-07-10   85  	if (likely(vma->vm_start <= addr))
-07037db5 Palmer Dabbelt    2017-07-10   86  		goto good_area;
-07037db5 Palmer Dabbelt    2017-07-10   87  	if (unlikely(!(vma->vm_flags & VM_GROWSDOWN)))
-07037db5 Palmer Dabbelt    2017-07-10   88  		goto bad_area;
-07037db5 Palmer Dabbelt    2017-07-10   89  	if (unlikely(expand_stack(vma, addr)))
-07037db5 Palmer Dabbelt    2017-07-10   90  		goto bad_area;
-07037db5 Palmer Dabbelt    2017-07-10   91  
-07037db5 Palmer Dabbelt    2017-07-10   92  	/*
-07037db5 Palmer Dabbelt    2017-07-10   93  	 * Ok, we have a good vm_area for this memory access, so
-07037db5 Palmer Dabbelt    2017-07-10   94  	 * we can handle it.
-07037db5 Palmer Dabbelt    2017-07-10   95  	 */
-07037db5 Palmer Dabbelt    2017-07-10   96  good_area:
-07037db5 Palmer Dabbelt    2017-07-10   97  	code = SEGV_ACCERR;
-07037db5 Palmer Dabbelt    2017-07-10   98  
-07037db5 Palmer Dabbelt    2017-07-10   99  	switch (cause) {
-07037db5 Palmer Dabbelt    2017-07-10  100  	case EXC_INST_PAGE_FAULT:
-07037db5 Palmer Dabbelt    2017-07-10  101  		if (!(vma->vm_flags & VM_EXEC))
-07037db5 Palmer Dabbelt    2017-07-10  102  			goto bad_area;
-07037db5 Palmer Dabbelt    2017-07-10  103  		break;
-07037db5 Palmer Dabbelt    2017-07-10  104  	case EXC_LOAD_PAGE_FAULT:
-07037db5 Palmer Dabbelt    2017-07-10  105  		if (!(vma->vm_flags & VM_READ))
-07037db5 Palmer Dabbelt    2017-07-10  106  			goto bad_area;
-07037db5 Palmer Dabbelt    2017-07-10  107  		break;
-07037db5 Palmer Dabbelt    2017-07-10  108  	case EXC_STORE_PAGE_FAULT:
-07037db5 Palmer Dabbelt    2017-07-10  109  		if (!(vma->vm_flags & VM_WRITE))
-07037db5 Palmer Dabbelt    2017-07-10  110  			goto bad_area;
-07037db5 Palmer Dabbelt    2017-07-10  111  		flags |= FAULT_FLAG_WRITE;
-07037db5 Palmer Dabbelt    2017-07-10  112  		break;
-07037db5 Palmer Dabbelt    2017-07-10  113  	default:
-07037db5 Palmer Dabbelt    2017-07-10  114  		panic("%s: unhandled cause %lu", __func__, cause);
-07037db5 Palmer Dabbelt    2017-07-10  115  	}
-07037db5 Palmer Dabbelt    2017-07-10  116  
-07037db5 Palmer Dabbelt    2017-07-10  117  	/*
-07037db5 Palmer Dabbelt    2017-07-10  118  	 * If for any reason at all we could not handle the fault,
-07037db5 Palmer Dabbelt    2017-07-10  119  	 * make sure we exit gracefully rather than endlessly redo
-07037db5 Palmer Dabbelt    2017-07-10  120  	 * the fault.
-07037db5 Palmer Dabbelt    2017-07-10  121  	 */
-07037db5 Palmer Dabbelt    2017-07-10  122  	fault = handle_mm_fault(vma, addr, flags);
-07037db5 Palmer Dabbelt    2017-07-10  123  
-07037db5 Palmer Dabbelt    2017-07-10  124  	/*
-07037db5 Palmer Dabbelt    2017-07-10  125  	 * If we need to retry but a fatal signal is pending, handle the
-07037db5 Palmer Dabbelt    2017-07-10  126  	 * signal first. We do not need to release the mmap_sem because it
-07037db5 Palmer Dabbelt    2017-07-10  127  	 * would already be released in __lock_page_or_retry in mm/filemap.c.
-07037db5 Palmer Dabbelt    2017-07-10  128  	 */
-07037db5 Palmer Dabbelt    2017-07-10  129  	if ((fault & VM_FAULT_RETRY) && fatal_signal_pending(tsk))
-07037db5 Palmer Dabbelt    2017-07-10  130  		return;
-07037db5 Palmer Dabbelt    2017-07-10  131  
-07037db5 Palmer Dabbelt    2017-07-10  132  	if (unlikely(fault & VM_FAULT_ERROR)) {
-07037db5 Palmer Dabbelt    2017-07-10  133  		if (fault & VM_FAULT_OOM)
-07037db5 Palmer Dabbelt    2017-07-10  134  			goto out_of_memory;
-07037db5 Palmer Dabbelt    2017-07-10  135  		else if (fault & VM_FAULT_SIGBUS)
-07037db5 Palmer Dabbelt    2017-07-10  136  			goto do_sigbus;
-07037db5 Palmer Dabbelt    2017-07-10  137  		BUG();
-07037db5 Palmer Dabbelt    2017-07-10  138  	}
-07037db5 Palmer Dabbelt    2017-07-10  139  
-07037db5 Palmer Dabbelt    2017-07-10  140  	/*
-07037db5 Palmer Dabbelt    2017-07-10  141  	 * Major/minor page fault accounting is only done on the
-07037db5 Palmer Dabbelt    2017-07-10  142  	 * initial attempt. If we go through a retry, it is extremely
-07037db5 Palmer Dabbelt    2017-07-10  143  	 * likely that the page will be found in page cache at that point.
-07037db5 Palmer Dabbelt    2017-07-10  144  	 */
-07037db5 Palmer Dabbelt    2017-07-10  145  	if (flags & FAULT_FLAG_ALLOW_RETRY) {
-07037db5 Palmer Dabbelt    2017-07-10  146  		if (fault & VM_FAULT_MAJOR) {
-07037db5 Palmer Dabbelt    2017-07-10  147  			tsk->maj_flt++;
-07037db5 Palmer Dabbelt    2017-07-10  148  			perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS_MAJ,
-07037db5 Palmer Dabbelt    2017-07-10  149  				      1, regs, addr);
-07037db5 Palmer Dabbelt    2017-07-10  150  		} else {
-07037db5 Palmer Dabbelt    2017-07-10  151  			tsk->min_flt++;
-07037db5 Palmer Dabbelt    2017-07-10  152  			perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS_MIN,
-07037db5 Palmer Dabbelt    2017-07-10  153  				      1, regs, addr);
-07037db5 Palmer Dabbelt    2017-07-10  154  		}
-07037db5 Palmer Dabbelt    2017-07-10  155  		if (fault & VM_FAULT_RETRY) {
-07037db5 Palmer Dabbelt    2017-07-10  156  			/*
-07037db5 Palmer Dabbelt    2017-07-10  157  			 * Clear FAULT_FLAG_ALLOW_RETRY to avoid any risk
-07037db5 Palmer Dabbelt    2017-07-10  158  			 * of starvation.
-07037db5 Palmer Dabbelt    2017-07-10  159  			 */
-07037db5 Palmer Dabbelt    2017-07-10  160  			flags &= ~(FAULT_FLAG_ALLOW_RETRY);
-07037db5 Palmer Dabbelt    2017-07-10  161  			flags |= FAULT_FLAG_TRIED;
-07037db5 Palmer Dabbelt    2017-07-10  162  
-07037db5 Palmer Dabbelt    2017-07-10  163  			/*
-07037db5 Palmer Dabbelt    2017-07-10  164  			 * No need to up_read(&mm->mmap_sem) as we would
-07037db5 Palmer Dabbelt    2017-07-10  165  			 * have already released it in __lock_page_or_retry
-07037db5 Palmer Dabbelt    2017-07-10  166  			 * in mm/filemap.c.
-07037db5 Palmer Dabbelt    2017-07-10  167  			 */
-07037db5 Palmer Dabbelt    2017-07-10  168  			goto retry;
-07037db5 Palmer Dabbelt    2017-07-10  169  		}
-07037db5 Palmer Dabbelt    2017-07-10  170  	}
-07037db5 Palmer Dabbelt    2017-07-10  171  
-07037db5 Palmer Dabbelt    2017-07-10  172  	up_read(&mm->mmap_sem);
-07037db5 Palmer Dabbelt    2017-07-10  173  	return;
-07037db5 Palmer Dabbelt    2017-07-10  174  
-07037db5 Palmer Dabbelt    2017-07-10  175  	/*
-07037db5 Palmer Dabbelt    2017-07-10  176  	 * Something tried to access memory that isn't in our memory map.
-07037db5 Palmer Dabbelt    2017-07-10  177  	 * Fix it, but check if it's kernel or user first.
-07037db5 Palmer Dabbelt    2017-07-10  178  	 */
-07037db5 Palmer Dabbelt    2017-07-10  179  bad_area:
-07037db5 Palmer Dabbelt    2017-07-10  180  	up_read(&mm->mmap_sem);
-07037db5 Palmer Dabbelt    2017-07-10  181  	/* User mode accesses just cause a SIGSEGV */
-07037db5 Palmer Dabbelt    2017-07-10  182  	if (user_mode(regs)) {
-07037db5 Palmer Dabbelt    2017-07-10  183  		do_trap(regs, SIGSEGV, code, addr, tsk);
-07037db5 Palmer Dabbelt    2017-07-10  184  		return;
-07037db5 Palmer Dabbelt    2017-07-10  185  	}
-07037db5 Palmer Dabbelt    2017-07-10  186  
-07037db5 Palmer Dabbelt    2017-07-10  187  no_context:
-07037db5 Palmer Dabbelt    2017-07-10  188  	/* Are we prepared to handle this kernel fault? */
-07037db5 Palmer Dabbelt    2017-07-10  189  	if (fixup_exception(regs))
-07037db5 Palmer Dabbelt    2017-07-10  190  		return;
-07037db5 Palmer Dabbelt    2017-07-10  191  
-07037db5 Palmer Dabbelt    2017-07-10  192  	/*
-07037db5 Palmer Dabbelt    2017-07-10  193  	 * Oops. The kernel tried to access some bad page. We'll have to
-07037db5 Palmer Dabbelt    2017-07-10  194  	 * terminate things with extreme prejudice.
-07037db5 Palmer Dabbelt    2017-07-10  195  	 */
-07037db5 Palmer Dabbelt    2017-07-10  196  	bust_spinlocks(1);
-07037db5 Palmer Dabbelt    2017-07-10 @197  	pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n",
-
-:::::: The code at line 197 was first introduced by commit
-:::::: 07037db5d479f90377c998259a4f9a469c404edf RISC-V: Paging and MMU
-
-:::::: TO: Palmer Dabbelt <palmer@dabbelt.com>
-:::::: CC: Palmer Dabbelt <palmer@dabbelt.com>
-
+Signed-off-by: Joe Perches <joe@perches.com>
 ---
-0-DAY kernel test infrastructure                Open Source Technology Center
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: .config.gz
-Type: application/gzip
-Size: 16327 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180729/f20d3281/attachment.gz>
+
+v2: sigh: Add missing fault.c
+
+ arch/riscv/include/asm/ptrace.h |  6 -----
+ arch/riscv/kernel/process.c     | 52 +++++++++++++++++++++--------------------
+ arch/riscv/kernel/traps.c       |  4 ++--
+ arch/riscv/mm/fault.c           |  6 ++---
+ 4 files changed, 32 insertions(+), 36 deletions(-)
+
+diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
+index 2c5df945d43c..b123e723f8fa 100644
+--- a/arch/riscv/include/asm/ptrace.h
++++ b/arch/riscv/include/asm/ptrace.h
+@@ -60,12 +60,6 @@ struct pt_regs {
+         unsigned long orig_a0;
+ };
+ 
+-#ifdef CONFIG_64BIT
+-#define REG_FMT "%016lx"
+-#else
+-#define REG_FMT "%08lx"
+-#endif
+-
+ #define user_mode(regs) (((regs)->sstatus & SR_SPP) == 0)
+ 
+ 
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index d7c6ca7c95ae..7223f6715ff3 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -36,7 +36,7 @@
+ extern asmlinkage void ret_from_fork(void);
+ extern asmlinkage void ret_from_kernel_thread(void);
+ 
+-void arch_cpu_idle(void)
++void arch_yycpu_idle(void)
+ {
+ 	wait_for_interrupt();
+ 	local_irq_enable();
+@@ -46,31 +46,33 @@ void show_regs(struct pt_regs *regs)
+ {
+ 	show_regs_print_info(KERN_DEFAULT);
+ 
+-	pr_cont("sepc: " REG_FMT " ra : " REG_FMT " sp : " REG_FMT "\n",
+-		regs->sepc, regs->ra, regs->sp);
+-	pr_cont(" gp : " REG_FMT " tp : " REG_FMT " t0 : " REG_FMT "\n",
+-		regs->gp, regs->tp, regs->t0);
+-	pr_cont(" t1 : " REG_FMT " t2 : " REG_FMT " s0 : " REG_FMT "\n",
+-		regs->t1, regs->t2, regs->s0);
+-	pr_cont(" s1 : " REG_FMT " a0 : " REG_FMT " a1 : " REG_FMT "\n",
+-		regs->s1, regs->a0, regs->a1);
+-	pr_cont(" a2 : " REG_FMT " a3 : " REG_FMT " a4 : " REG_FMT "\n",
+-		regs->a2, regs->a3, regs->a4);
+-	pr_cont(" a5 : " REG_FMT " a6 : " REG_FMT " a7 : " REG_FMT "\n",
+-		regs->a5, regs->a6, regs->a7);
+-	pr_cont(" s2 : " REG_FMT " s3 : " REG_FMT " s4 : " REG_FMT "\n",
+-		regs->s2, regs->s3, regs->s4);
+-	pr_cont(" s5 : " REG_FMT " s6 : " REG_FMT " s7 : " REG_FMT "\n",
+-		regs->s5, regs->s6, regs->s7);
+-	pr_cont(" s8 : " REG_FMT " s9 : " REG_FMT " s10: " REG_FMT "\n",
+-		regs->s8, regs->s9, regs->s10);
+-	pr_cont(" s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n",
+-		regs->s11, regs->t3, regs->t4);
+-	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT "\n",
+-		regs->t5, regs->t6);
++	printk(KERN_DEFAULT "sepc: %p ra : %p sp : %p\n",
++	       (void *)regs->sepc, (void *)regs->ra, (void *)regs->sp);
++	printk(KERN_DEFAULT " gp : %p tp : %p t0 : %p\n",
++	       (void *)regs->gp, (void *)regs->tp, (void *)regs->t0);
++	printk(KERN_DEFAULT " t1 : %p t2 : %p s0 : %p\n",
++	       (void *)regs->t1, (void *)regs->t2, (void *)regs->s0);
++	printk(KERN_DEFAULT " s1 : %p a0 : %p a1 : %p\n",
++	       (void *)regs->s1, (void *)regs->a0, (void *)regs->a1);
++	printk(KERN_DEFAULT " a2 : %p a3 : %p a4 : %p\n",
++	       (void *)regs->a2, (void *)regs->a3, (void *)regs->a4);
++	printk(KERN_DEFAULT " a5 : %p a6 : %p a7 : %p\n",
++	       (void *)regs->a5, (void *)regs->a6, (void *)regs->a7);
++	printk(KERN_DEFAULT " s2 : %p s3 : %p s4 : %p\n",
++	       (void *)regs->s2, (void *)regs->s3, (void *)regs->s4);
++	printk(KERN_DEFAULT " s5 : %p s6 : %p s7 : %p\n",
++	       (void *)regs->s5, (void *)regs->s6, (void *)regs->s7);
++	printk(KERN_DEFAULT " s8 : %p s9 : %p s10: %p\n",
++	       (void *)regs->s8, (void *)regs->s9, (void *)regs->s10);
++	printk(KERN_DEFAULT " s11: %p t3 : %p t4 : %p\n",
++	       (void *)regs->s11, (void *)regs->t3, (void *)regs->t4);
++	printk(KERN_DEFAULT " t5 : %p t6 : %p\n",
++	       (void *)regs->t5, (void *)regs->t6);
+ 
+-	pr_cont("sstatus: " REG_FMT " sbadaddr: " REG_FMT " scause: " REG_FMT "\n",
+-		regs->sstatus, regs->sbadaddr, regs->scause);
++	printk(KERN_DEFAULT "sstatus: %p sbadaddr: %p scause: %p\n",
++	       (void *)regs->sstatus,
++	       (void *)regs->sbadaddr,
++	       (void *)regs->scause);
+ }
+ 
+ void start_thread(struct pt_regs *regs, unsigned long pc,
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 81a1952015a6..ba1942befa6a 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -68,8 +68,8 @@ void do_trap(struct pt_regs *regs, int signo, int code,
+ {
+ 	if (show_unhandled_signals && unhandled_signal(tsk, signo)
+ 	    && printk_ratelimit()) {
+-		pr_info("%s[%d]: unhandled signal %d code 0x%x at 0x" REG_FMT,
+-			tsk->comm, task_pid_nr(tsk), signo, code, addr);
++		pr_info("%s[%d]: unhandled signal %d code 0x%x at 0x%p",
++			tsk->comm, task_pid_nr(tsk), signo, code, (void *)addr);
+ 		print_vma_addr(KERN_CONT " in ", GET_IP(regs));
+ 		pr_cont("\n");
+ 		show_regs(regs);
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 88401d5125bc..f258a58fe9fc 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -195,9 +195,9 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 	 * terminate things with extreme prejudice.
+ 	 */
+ 	bust_spinlocks(1);
+-	pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n",
+-		(addr < PAGE_SIZE) ? "NULL pointer dereference" :
+-		"paging request", addr);
++	pr_alert("Unable to handle kernel %s@virtual address %p\n",
++		 (addr < PAGE_SIZE) ? "NULL pointer dereference" :
++		 "paging request", (void *)addr);
+ 	die(regs, "Oops");
+ 	do_exit(SIGKILL);
+ 
+-- 
+2.15.0
