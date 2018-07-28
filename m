@@ -1,128 +1,338 @@
-From: joe@perches.com (Joe Perches)
-Date: Fri, 27 Jul 2018 11:12:00 -0700
-Subject: [PATCH] riscv: Convert uses of REG_FMT to %p
-Message-ID: <db0636b3290bbc72084f170a28e4dee5a22a622d.1532714999.git.joe@perches.com>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Fri, 27 Jul 2018 17:04:52 -0700
+Subject: [PATCH 7/9] irqchip: add a RISC-V PLIC driver
+In-Reply-To: <20180726143723.16585-8-hch@lst.de>
+References: <20180726143723.16585-1-hch@lst.de>
+ <20180726143723.16585-8-hch@lst.de>
+Message-ID: <1b3f6066-0c7c-a5f5-75ad-559fe81091ee@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Use %p pointer output instead of REG_FMT and cast the unsigned longs to
-(void *) to avoid exposing kernel addresses.
+On 7/26/18 7:38 AM, Christoph Hellwig wrote:
+> This patch adds a driver for the Platform Level Interrupt Controller (PLIC)
+> specified as part of the RISC-V supervisor level ISA manual, in the memory
+> layout implemented by SiFive and qemu.
+> 
+> The PLIC connects global interrupt sources to the local interrupt controller
+> on each hart.
+> 
+> This driver is based on the driver in the RISC-V tree from Palmer Dabbelt,
+> but has been almost entirely rewritten since.
+> 
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
 
-Miscellanea:
+I tried to boot HighFive Unleashed with the patch series after applying 
+all the patches from riscv-all branch except timer & irq patches. It 
+gets stuck pretty early.
 
-o Convert pr_cont to printk(KERN_DEFAULT as these uses are
-  new logging lines and not previous line continuations
-o Remove the now unused REG_FMT defines
+Here is my github repo with all the changes:
+https://github.com/atishp04/riscv-linux/commits/master_chris_cleanup_hifive
 
-Signed-off-by: Joe Perches <joe@perches.com>
----
- arch/riscv/include/asm/ptrace.h |  6 -----
- arch/riscv/kernel/process.c     | 52 +++++++++++++++++++++--------------------
- arch/riscv/kernel/traps.c       |  4 ++--
- 3 files changed, 29 insertions(+), 33 deletions(-)
+I am still looking into it.
+Palmer: Did I miss something?
 
-diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
-index 2c5df945d43c..b123e723f8fa 100644
---- a/arch/riscv/include/asm/ptrace.h
-+++ b/arch/riscv/include/asm/ptrace.h
-@@ -60,12 +60,6 @@ struct pt_regs {
-         unsigned long orig_a0;
- };
- 
--#ifdef CONFIG_64BIT
--#define REG_FMT "%016lx"
--#else
--#define REG_FMT "%08lx"
--#endif
--
- #define user_mode(regs) (((regs)->sstatus & SR_SPP) == 0)
- 
- 
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index d7c6ca7c95ae..7223f6715ff3 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -36,7 +36,7 @@
- extern asmlinkage void ret_from_fork(void);
- extern asmlinkage void ret_from_kernel_thread(void);
- 
--void arch_cpu_idle(void)
-+void arch_yycpu_idle(void)
- {
- 	wait_for_interrupt();
- 	local_irq_enable();
-@@ -46,31 +46,33 @@ void show_regs(struct pt_regs *regs)
- {
- 	show_regs_print_info(KERN_DEFAULT);
- 
--	pr_cont("sepc: " REG_FMT " ra : " REG_FMT " sp : " REG_FMT "\n",
--		regs->sepc, regs->ra, regs->sp);
--	pr_cont(" gp : " REG_FMT " tp : " REG_FMT " t0 : " REG_FMT "\n",
--		regs->gp, regs->tp, regs->t0);
--	pr_cont(" t1 : " REG_FMT " t2 : " REG_FMT " s0 : " REG_FMT "\n",
--		regs->t1, regs->t2, regs->s0);
--	pr_cont(" s1 : " REG_FMT " a0 : " REG_FMT " a1 : " REG_FMT "\n",
--		regs->s1, regs->a0, regs->a1);
--	pr_cont(" a2 : " REG_FMT " a3 : " REG_FMT " a4 : " REG_FMT "\n",
--		regs->a2, regs->a3, regs->a4);
--	pr_cont(" a5 : " REG_FMT " a6 : " REG_FMT " a7 : " REG_FMT "\n",
--		regs->a5, regs->a6, regs->a7);
--	pr_cont(" s2 : " REG_FMT " s3 : " REG_FMT " s4 : " REG_FMT "\n",
--		regs->s2, regs->s3, regs->s4);
--	pr_cont(" s5 : " REG_FMT " s6 : " REG_FMT " s7 : " REG_FMT "\n",
--		regs->s5, regs->s6, regs->s7);
--	pr_cont(" s8 : " REG_FMT " s9 : " REG_FMT " s10: " REG_FMT "\n",
--		regs->s8, regs->s9, regs->s10);
--	pr_cont(" s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n",
--		regs->s11, regs->t3, regs->t4);
--	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT "\n",
--		regs->t5, regs->t6);
-+	printk(KERN_DEFAULT "sepc: %p ra : %p sp : %p\n",
-+	       (void *)regs->sepc, (void *)regs->ra, (void *)regs->sp);
-+	printk(KERN_DEFAULT " gp : %p tp : %p t0 : %p\n",
-+	       (void *)regs->gp, (void *)regs->tp, (void *)regs->t0);
-+	printk(KERN_DEFAULT " t1 : %p t2 : %p s0 : %p\n",
-+	       (void *)regs->t1, (void *)regs->t2, (void *)regs->s0);
-+	printk(KERN_DEFAULT " s1 : %p a0 : %p a1 : %p\n",
-+	       (void *)regs->s1, (void *)regs->a0, (void *)regs->a1);
-+	printk(KERN_DEFAULT " a2 : %p a3 : %p a4 : %p\n",
-+	       (void *)regs->a2, (void *)regs->a3, (void *)regs->a4);
-+	printk(KERN_DEFAULT " a5 : %p a6 : %p a7 : %p\n",
-+	       (void *)regs->a5, (void *)regs->a6, (void *)regs->a7);
-+	printk(KERN_DEFAULT " s2 : %p s3 : %p s4 : %p\n",
-+	       (void *)regs->s2, (void *)regs->s3, (void *)regs->s4);
-+	printk(KERN_DEFAULT " s5 : %p s6 : %p s7 : %p\n",
-+	       (void *)regs->s5, (void *)regs->s6, (void *)regs->s7);
-+	printk(KERN_DEFAULT " s8 : %p s9 : %p s10: %p\n",
-+	       (void *)regs->s8, (void *)regs->s9, (void *)regs->s10);
-+	printk(KERN_DEFAULT " s11: %p t3 : %p t4 : %p\n",
-+	       (void *)regs->s11, (void *)regs->t3, (void *)regs->t4);
-+	printk(KERN_DEFAULT " t5 : %p t6 : %p\n",
-+	       (void *)regs->t5, (void *)regs->t6);
- 
--	pr_cont("sstatus: " REG_FMT " sbadaddr: " REG_FMT " scause: " REG_FMT "\n",
--		regs->sstatus, regs->sbadaddr, regs->scause);
-+	printk(KERN_DEFAULT "sstatus: %p sbadaddr: %p scause: %p\n",
-+	       (void *)regs->sstatus,
-+	       (void *)regs->sbadaddr,
-+	       (void *)regs->scause);
- }
- 
- void start_thread(struct pt_regs *regs, unsigned long pc,
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 81a1952015a6..ba1942befa6a 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -68,8 +68,8 @@ void do_trap(struct pt_regs *regs, int signo, int code,
- {
- 	if (show_unhandled_signals && unhandled_signal(tsk, signo)
- 	    && printk_ratelimit()) {
--		pr_info("%s[%d]: unhandled signal %d code 0x%x at 0x" REG_FMT,
--			tsk->comm, task_pid_nr(tsk), signo, code, addr);
-+		pr_info("%s[%d]: unhandled signal %d code 0x%x at 0x%p",
-+			tsk->comm, task_pid_nr(tsk), signo, code, (void *)addr);
- 		print_vma_addr(KERN_CONT " in ", GET_IP(regs));
- 		pr_cont("\n");
- 		show_regs(regs);
--- 
-2.15.0
+FWIW, here is the boot log.
+--------- Boot log -------------------------------------------
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=5
+[    0.000000] NR_IRQS: 0, nr_irqs: 0, preallocated irqs: 0
+[    0.000000] plic: mapped 53 interrupts to 4 (out of 9) handlers.
+[    0.000000] clocksource: riscv_clocksource: mask: 0xffffffffffffffff 
+max_cycles: 0x1d854df40, max_idle_ns: 3526361616960 ns
+[    0.000000] Calibrating delay loop (skipped), value calculated using 
+timer frequency.. 2.00 BogoMIPS (lpj=10000)
+[    0.010000] pid_max: default: 32768 minimum: 301
+[    0.010000] Mount-cache hash table entries: 16384 (order: 5, 131072 
+bytes)
+[    0.020000] Mountpoint-cache hash table entries: 16384 (order: 5, 
+131072 bytes)
+[    0.020000] Hierarchical SRCU implementation.
+[    0.030000] smp: Bringing up secondary CPUs ...
+> ---
+>   drivers/irqchip/Kconfig          |  13 ++
+>   drivers/irqchip/Makefile         |   1 +
+>   drivers/irqchip/irq-riscv-plic.c | 219 +++++++++++++++++++++++++++++++
+>   3 files changed, 233 insertions(+)
+>   create mode 100644 drivers/irqchip/irq-riscv-plic.c
+> 
+> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+> index e9233db16e03..5ac6dd922a0d 100644
+> --- a/drivers/irqchip/Kconfig
+> +++ b/drivers/irqchip/Kconfig
+> @@ -372,3 +372,16 @@ config QCOM_PDC
+>   	  IRQs for Qualcomm Technologies Inc (QTI) mobile chips.
+>   
+>   endmenu
+> +
+> +config RISCV_PLIC
+> +	bool "Platform-Level Interrupt Controller"
+> +	depends on RISCV
+> +	default y
+> +	help
+> +	   This enables support for the PLIC chip found in standard RISC-V
+> +	   systems.  The PLIC controls devices interrupts and connects them to
+> +	   each core's local interrupt controller.  Aside from timer and
+> +	   software interrupts, all other interrupt sources (MSI, GPIO, etc)
+> +	   are subordinate to the PLIC.
+> +
+> +	   If you don't know what to do here, say Y.
+> diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+> index 15f268f646bf..bf9238da8a31 100644
+> --- a/drivers/irqchip/Makefile
+> +++ b/drivers/irqchip/Makefile
+> @@ -87,3 +87,4 @@ obj-$(CONFIG_MESON_IRQ_GPIO)		+= irq-meson-gpio.o
+>   obj-$(CONFIG_GOLDFISH_PIC) 		+= irq-goldfish-pic.o
+>   obj-$(CONFIG_NDS32)			+= irq-ativic32.o
+>   obj-$(CONFIG_QCOM_PDC)			+= qcom-pdc.o
+> +obj-$(CONFIG_RISCV_PLIC)		+= irq-riscv-plic.o
+> diff --git a/drivers/irqchip/irq-riscv-plic.c b/drivers/irqchip/irq-riscv-plic.c
+> new file mode 100644
+> index 000000000000..274fe2cba544
+> --- /dev/null
+> +++ b/drivers/irqchip/irq-riscv-plic.c
+> @@ -0,0 +1,219 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2017 SiFive
+> + * Copyright (C) 2018 Christoph Hellwig
+> + */
+> +#define pr_fmt(fmt) "plic: " fmt
+> +#include <linux/cpumask.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqchip.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_address.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/spinlock.h>
+> +
+> +/*
+> + * From the RISC-V Priviledged Spec v1.10:
+> + *
+> + * Global interrupt sources are assigned small unsigned integer identifiers,
+> + * beginning at the value 1.  An interrupt ID of 0 is reserved to mean "no
+> + * interrupt".  Interrupt identifiers are also used to break ties when two or
+> + * more interrupt sources have the same assigned priority. Smaller values of
+> + * interrupt ID take precedence over larger values of interrupt ID.
+> + *
+> + * While the RISC-V supervisor spec doesn't define the maximum number of
+> + * devices supported by the PLIC, the largest number supported by devices
+> + * marked as 'riscv,plic0' (which is the only device type this driver supports,
+> + * and is the only extant PLIC as of now) is 1024.  As mentioned above, device
+> + * 0 is defined to be non-existent so this device really only supports 1023
+> + * devices.
+> + */
+> +#define MAX_DEVICES			1024
+> +#define MAX_CONTEXTS			15872
+> +
+
+Is there any way we can preserve some of the comments in the original 
+patch about memory-mapped control registers or at least a reference 
+where to find the register offset calculations?
+
+IMHO, it is helpful for anybody who is not familiar with the details.
+> +/*
+> + * Each interrupt source has a priority register associated with it.
+> + * We always hardwire it to one in Linux.
+> + */
+> +#define PRIORITY_BASE			0
+> +#define	    PRIORITY_PER_ID		4
+> +
+> +/*
+> + * Each hart context has a vector of interupt enable bits associated with it.
+> + * There's one bit for each interrupt source.
+> + */
+> +#define ENABLE_BASE			0x2000
+> +#define     ENABLE_PER_HART		0x80
+> +
+> +/*
+> + * Each hart context has a set of control registers associated with it.  Right
+> + * now there's only two: a source priority threshold over which the hart will
+> + * take an interrupt, and a register to claim interrupts.
+> + */
+> +#define CONTEXT_BASE			0x200000
+> +#define     CONTEXT_PER_HART		0x1000
+> +#define     CONTEXT_THRESHOLD		0x00
+> +#define     CONTEXT_CLAIM		0x04
+> +
+> +static void __iomem *plic_regs;
+> +
+> +static inline void __iomem *plic_hart_offset(int ctxid)
+> +{
+> +	return plic_regs + CONTEXT_BASE + ctxid * CONTEXT_PER_HART;
+> +}
+> +
+> +/*
+> + * Protect mask operations on the registers given that we can't assume that
+> + * atomic memory operations work on them.
+> + */
+> +static DEFINE_SPINLOCK(plic_toggle_lock);
+> +
+> +static inline void plic_toggle(int ctxid, int hwirq, int enable)
+> +{
+> +	u32 __iomem *reg = plic_regs + ENABLE_BASE + ctxid * ENABLE_PER_HART;
+
+shouldn't it be
+u32 __iomem *reg = plic_regs + ENABLE_BASE + ctxid * ENABLE_PER_HART + 
+(hwirq / 32) * 4;
+
+Without that change, plic_handle_irq() gets called before irq mapping as 
+plic was not disabled for that irq.
+
+As per comment in the original patch,
+--------------------------------------------------------------
+* base + 0x002000: Enable bits for sources 0-31 on context 0
+* base + 0x002004: Enable bits for sources 32-63 on context 0
+--------------------------------------------------------------
+
+> +	u32 hwirq_mask = 1 << (hwirq % 32);
+> +
+> +	spin_lock(&plic_toggle_lock);
+> +	if (enable)
+> +		writel(readl(reg) | hwirq_mask, reg);
+> +	else
+> +		writel(readl(reg) & ~hwirq_mask, reg);
+> +	spin_unlock(&plic_toggle_lock);
+> +}
+> +
+> +static inline void plic_irq_toggle(struct irq_data *d, int enable)
+> +{
+> +	int cpu;
+> +
+> +	writel(enable, plic_regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
+> +	for_each_present_cpu(cpu)
+> +		plic_toggle(cpu, d->hwirq, enable);
+> +}
+> +
+> +static void plic_irq_enable(struct irq_data *d)
+> +{
+> +	plic_irq_toggle(d, 1);
+> +}
+> +
+> +static void plic_irq_disable(struct irq_data *d)
+> +{
+> +	plic_irq_toggle(d, 0);
+> +}
+> +
+> +static struct irq_chip plic_chip = {
+> +	.name		= "riscv,plic0",
+> +	/*
+> +	 * There is no need to mask/unmask PLIC interrupts.  They are "masked"
+> +	 * by reading claim and "unmasked" when writing it back.
+> +	 */
+> +	.irq_enable	= plic_irq_enable,
+> +	.irq_disable	= plic_irq_disable,
+> +};
+> +
+> +static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+> +			      irq_hw_number_t hwirq)
+> +{
+> +	irq_set_chip_and_handler(irq, &plic_chip, handle_simple_irq);
+> +	irq_set_chip_data(irq, NULL);
+> +	irq_set_noprobe(irq);
+> +	return 0;
+> +}
+> +
+> +static const struct irq_domain_ops plic_irqdomain_ops = {
+> +	.map		= plic_irqdomain_map,
+> +	.xlate		= irq_domain_xlate_onecell,
+> +};
+> +
+> +static struct irq_domain *plic_irqdomain;
+> +
+> +/*
+> + * Handling an interrupt is a two-step process: first you claim the interrupt
+> + * by reading the claim register, then you complete the interrupt by writing
+> + * that source ID back to the same claim register.  This automatically enables
+> + * and disables the interrupt, so there's nothing else to do.
+> + */
+> +static void plic_handle_irq(struct pt_regs *regs)
+> +{
+> +	void __iomem *claim =
+> +		plic_hart_offset(smp_processor_id()) + CONTEXT_CLAIM;
+> +	irq_hw_number_t hwirq;
+> +
+> +	csr_clear(sie, SIE_STIE);
+> +	while ((hwirq = readl(claim))) {
+> +		int irq = irq_find_mapping(plic_irqdomain, hwirq);
+> +
+> +		if (unlikely(irq <= 0)) {
+> +			pr_warn_ratelimited("can't find mapping for hwirq %lu\n",
+> +					hwirq);
+
+Ratlimiting the warning message here didn't help as ack_bad_irq() still 
+print message still flooded the console without any useful info.
+
+Regards,
+Atish
+> +			ack_bad_irq(irq);
+> +		} else {
+> +			generic_handle_irq(irq);
+> +		}
+> +		writel(hwirq, claim);
+> +	}
+> +	csr_set(sie, SIE_STIE);
+> +}
+> +
+> +static int __init plic_init(struct device_node *node,
+> +		struct device_node *parent)
+> +{
+> +	int error = 0, nr_mapped = 0, nr_handlers, cpu;
+> +	u32 nr_irqs;
+> +
+> +	if (plic_regs) {
+> +		pr_warning("PLIC already present.\n");
+> +		return -ENXIO;
+> +	}
+> +
+> +	plic_regs = of_iomap(node, 0);
+> +	if (WARN_ON(!plic_regs))
+> +		return -EIO;
+> +
+> +	error = -EINVAL;
+> +	of_property_read_u32(node, "riscv,ndev", &nr_irqs);
+> +	if (WARN_ON(!nr_irqs))
+> +		goto out_iounmap;
+> +
+> +	nr_handlers = of_irq_count(node);
+> +	if (WARN_ON(!nr_handlers))
+> +		goto out_iounmap;
+> +	if (WARN_ON(nr_handlers < num_possible_cpus()))
+> +		goto out_iounmap;
+> +
+> +	error = -ENOMEM;
+> +	plic_irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
+> +			&plic_irqdomain_ops, NULL);
+> +	if (WARN_ON(!plic_irqdomain))
+> +		goto out_iounmap;
+> +
+> +	/*
+> +	 * We assume that each present hart is wire up to the PLIC.
+> +	 * If that isn't the case in the future this code will need to be
+> +	 * modified.
+> +	 */
+> +	for_each_present_cpu(cpu) {
+> +		irq_hw_number_t hwirq;
+> +
+> +		/* priority must be > threshold to trigger an interrupt */
+> +		writel(0, plic_hart_offset(cpu) + CONTEXT_THRESHOLD);
+> +		for (hwirq = 1; hwirq <= nr_irqs; ++hwirq)
+> +			plic_toggle(cpu, hwirq, 0);
+> +		nr_mapped++;
+> +	}
+> +
+> +	pr_info("mapped %d interrupts to %d (out of %d) handlers.\n",
+> +		nr_irqs, nr_mapped, nr_handlers);
+> +	set_handle_irq(plic_handle_irq);
+> +	return 0;
+> +
+> +out_iounmap:
+> +	iounmap(plic_regs);
+> +	return error;
+> +}
+> +
+> +IRQCHIP_DECLARE(plic0, "riscv,plic0", plic_init);
+> 
