@@ -1,77 +1,101 @@
 From: robh@kernel.org (Rob Herring)
-Date: Tue, 31 Jul 2018 16:37:14 -0600
-Subject: [PATCH 4/6] dt-bindings: interrupt-controller: RISC-V local
- interrupt controller docs
-In-Reply-To: <20180725093649.32332-5-hch@lst.de>
+Date: Tue, 31 Jul 2018 16:46:30 -0600
+Subject: [PATCH 6/6] dt-bindings: interrupt-controller: RISC-V PLIC
+ documentation
+In-Reply-To: <20180725093649.32332-7-hch@lst.de>
 References: <20180725093649.32332-1-hch@lst.de>
- <20180725093649.32332-5-hch@lst.de>
-Message-ID: <20180731223714.GA12168@rob-hp-laptop>
+ <20180725093649.32332-7-hch@lst.de>
+Message-ID: <20180731224630.GB12168@rob-hp-laptop>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Jul 25, 2018 at 11:36:47AM +0200, Christoph Hellwig wrote:
+On Wed, Jul 25, 2018 at 11:36:49AM +0200, Christoph Hellwig wrote:
 > From: Palmer Dabbelt <palmer@dabbelt.com>
 > 
-> This patch adds documentation on the RISC-V local interrupt controller,
-> which is a per-hart interrupt controller that manages all interrupts
-> entering a RISC-V hart.  This interrupt controller is present on all
-> RISC-V systems.
+> This patch adds documentation for the platform-level interrupt
+> controller (PLIC) found in all RISC-V systems.  This interrupt
+> controller routes interrupts from all the devices in the system to each
+> hart-local interrupt controller.
+> 
+> Note: the DTS bindings for the PLIC aren't set in stone yet, as we might
+> want to change how we're specifying holes in the hart list.
 > 
 > Signed-off-by: Palmer Dabbelt <palmer@dabbelt.com>
 > ---
->  .../interrupt-controller/riscv,cpu-intc.txt   | 41 +++++++++++++++++++
->  1 file changed, 41 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-
-My questions and comments on the prior version from Palmer remain.
-
+>  .../interrupt-controller/riscv,plic0.txt      | 55 +++++++++++++++++++
+>  1 file changed, 55 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,plic0.txt
 > 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,plic0.txt b/Documentation/devicetree/bindings/interrupt-controller/riscv,plic0.txt
 > new file mode 100644
-> index 000000000000..61900e2e3868
+> index 000000000000..99cd359dbd43
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-> @@ -0,0 +1,41 @@
-> +RISC-V Hart-Level Interrupt Controller (HLIC)
-> +---------------------------------------------
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,plic0.txt
+> @@ -0,0 +1,55 @@
+> +RISC-V Platform-Level Interrupt Controller (PLIC)
+> +-------------------------------------------------
 > +
-> +RISC-V cores include Control Status Registers (CSRs) which are local to each
-> +hart and can be read or written by software. Some of these CSRs are used to
-> +control local interrupts connected to the core.  Every interrupt is ultimately
-> +routed through a hart's HLIC before it interrupts that hart.
+> +The RISC-V supervisor ISA specification allows for the presence of a
+> +platform-level interrupt controller (PLIC).   The PLIC connects all external
+> +interrupts in the system to all hart contexts in the system, via the external
+> +interrupt source in each hart's hart-local interrupt controller (HLIC).  A hart
+> +context is a privilege mode in a hardware execution thread.  For example, in
+> +an 4 core system with 2-way SMT, you have 8 harts and probably at least two
+> +privilege modes per hart; machine mode and supervisor mode.
 > +
-> +The RISC-V supervisor ISA manual specifies three interrupt sources that are
-> +attached to every HLIC: software interrupts, the timer interrupt, and external
-> +interrupts.  Software interrupts are used to send IPIs between cores.  The
-> +timer interrupt comes from an architecturally mandated real-time timer that is
-> +controller via SBI calls and CSR reads.  External interrupts connect all other
-> +device interrupts to the HLIC, which are routed via the platform-level
-> +interrupt controller (PLIC).
+> +Each interrupt can be enabled on per-context basis. Any context can claim
+> +a pending enabled interrupt and then release it once it has been handled.
 > +
-> +All RISC-V systems that conform to the supervisor ISA specification are
-> +required to have a HLIC with these three interrupt sources present.  Since the
-> +interrupt map is defined by the ISA it's not listed in the HLIC's device tree
-> +entry, though external interrupt controllers (like the PLIC, for example) will
-> +need to define how their interrupts map to the relevant HLICs.
+> +Each interrupt has a configurable priority. Higher priority interrupts are
+> +serviced firs. Each context can specify a priority threshold. Interrupts
+> +with priority below this threshold will not cause the PLIC to raise its
+> +interrupt line leading to the context.
+> +
+> +While the PLIC supports both edge-triggered and level-triggered interrupts,
+> +interrupt handlers are oblivious to this distinction and therefor it is not
+> +specific in the PLIC device-tree binding.
+> +
+> +While the RISC-V ISA doesn't specify a memory layout for the PLIC, the
+> +"riscv,plic0" device is a concrete implementation of the PLIC that contains a
+> +specific memory layout.  More details about the memory layout of the
+> +"riscv,plic0" device can be found as a comment in the device driver, or as part
+> +of the SiFive U5 Coreplex Series Manual (page 22 of the PDF of version 1.0)
+> +<https://www.sifive.com/documentation/coreplex/u5-coreplex-series-manual/>
 > +
 > +Required properties:
-> +- compatible : "riscv,cpu-intc"
+> +- compatible : "riscv,plic0"
+
+Perhaps this should be 'sifive,plic0'
+
+Normally this would have an SoC specific compatible too. Sometimes we 
+can get away without, but it doesn't seem like the PLIC is very tightly 
+specified nor has common implementations.
+
+> +- #address-cells : should be <0>
 > +- #interrupt-cells : should be <1>
 > +- interrupt-controller : Identifies the node as an interrupt controller
+> +- reg : Should contain 1 register range (address and length)
+> +- interrupts-extended : Specifies which contexts are connected to the PLIC,
+> +  with "-1" specifying that a context is not present.
 > +
-> +Furthermore, this interrupt-controller MUST be embedded inside the cpu
-> +definition of the hart whose CSRs control these local interrupts.
+> +Example:
 > +
-> +An example device tree entry for a HLIC is show below.
-> +
-> +	cpu1: cpu at 1 {
-> +		compatible = "riscv";
-> +		...
-> +		cpu1-intc: interrupt-controller {
-> +			#interrupt-cells = <1>;
-> +			compatible = "riscv,cpu-intc";
-> +			interrupt-controller;
-> +		};
+> +	plic: interrupt-controller at c000000 {
+> +		#address-cells = <0>;
+> +		#interrupt-cells = <1>;
+> +		compatible = "riscv,plic0";
+> +		interrupt-controller;
+> +		interrupts-extended = <
+> +			&cpu0-intc 11
+> +			&cpu1-intc 11 &cpu1-intc 9
+> +			&cpu2-intc 11 &cpu2-intc 9
+> +			&cpu3-intc 11 &cpu3-intc 9
+> +			&cpu4-intc 11 &cpu4-intc 9>;
+> +		reg = <0xc000000 0x4000000>;
+> +		riscv,ndev = <10>;
+
+Not documented.
+
 > +	};
 > -- 
 > 2.18.0
