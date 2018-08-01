@@ -1,51 +1,40 @@
 From: hch@lst.de (Christoph Hellwig)
-Date: Wed,  1 Aug 2018 17:14:02 +0200
-Subject: [PATCH 2/3] PCI/xilinx: Work-around for hardware DMA limit (32 bits)
+Date: Wed,  1 Aug 2018 17:14:03 +0200
+Subject: [PATCH 3/3] PCI/xilinx: Depend on OF instead of the ARCH
 In-Reply-To: <20180801151403.20660-1-hch@lst.de>
 References: <20180801151403.20660-1-hch@lst.de>
-Message-ID: <20180801151403.20660-3-hch@lst.de>
+Message-ID: <20180801151403.20660-4-hch@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This PCIe bridge only has a 32 bit bus master interface, thus truncating
-the DMA capability of all PCIe devices attached beneath it. This caps
-the child device capability so that these devices work on systems with
-physical memory beyond the 4GiB threshold.
+There isn't a hard dependency of the Xilinx AXI-PCIe host bridge on any
+architecture.  For example: at SiFive we map RISC-V cores to Xilinx FPGAs
+and connect the Xilinx IP via a TileLink adapter, so the RISC-V Linux
+port will need to be able to enable PCIE_XILINX in order to have PCIe
+support.
 
-Based on an earlier patch from Wesley W. Terpstra <wesley@sifive.com>.
+This patch decouples the PCIE_XILINX support from ARCH.  Instead it just
+depends on OF, which I believe is the only true dependency.
 
+Signed-off-by: Palmer Dabbelt <palmer@dabbelt.com>
+[hch: switch to OF instead of OF_PCI now that the latter is gone]
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- drivers/pci/controller/pcie-xilinx.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ drivers/pci/controller/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controller/pcie-xilinx.c
-index 7b1389d8e2a5..da65b18aa45e 100644
---- a/drivers/pci/controller/pcie-xilinx.c
-+++ b/drivers/pci/controller/pcie-xilinx.c
-@@ -197,6 +197,15 @@ static void __iomem *xilinx_pcie_map_bus(struct pci_bus *bus,
- 	return port->reg_base + relbus + where;
- }
+diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+index cc9fa02d32a0..0f7ce5eaeac8 100644
+--- a/drivers/pci/controller/Kconfig
++++ b/drivers/pci/controller/Kconfig
+@@ -102,7 +102,7 @@ config PCI_HOST_GENERIC
  
-+/*
-+ * This PCIe bridge only has a 32 bit bus master interface, thus truncating
-+ * the DMA capability of all PCIe devices attached beneath it.
-+ */
-+static void xilinx_pcie_add_dev(struct pci_dev *pdev)
-+{
-+	pdev->dev.bus_dma_mask = DMA_BIT_MASK(32);
-+}
-+
- /* PCIe operations */
- static struct pci_ops xilinx_pcie_ops = {
- 	.map_bus = xilinx_pcie_map_bus,
-@@ -665,6 +674,7 @@ static int xilinx_pcie_probe(struct platform_device *pdev)
- 	bridge->ops = &xilinx_pcie_ops;
- 	bridge->map_irq = of_irq_parse_and_map_pci;
- 	bridge->swizzle_irq = pci_common_swizzle;
-+	bridge->add_dev = xilinx_pcie_add_dev;
- 
- #ifdef CONFIG_PCI_MSI
- 	xilinx_pcie_msi_chip.dev = dev;
+ config PCIE_XILINX
+ 	bool "Xilinx AXI PCIe host bridge support"
+-	depends on ARCH_ZYNQ || MICROBLAZE || (MIPS && PCI_DRIVERS_GENERIC) || COMPILE_TEST
++	depends on OF || COMPILE_TEST
+ 	help
+ 	  Say 'Y' here if you want kernel to support the Xilinx AXI PCIe
+ 	  Host Bridge driver.
 -- 
 2.18.0
