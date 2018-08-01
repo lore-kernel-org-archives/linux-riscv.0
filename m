@@ -1,24 +1,64 @@
 From: hch@lst.de (Christoph Hellwig)
-Date: Wed,  1 Aug 2018 17:14:00 +0200
-Subject: add support for Xilinx PCIe root ports on RISC-V v2
-Message-ID: <20180801151403.20660-1-hch@lst.de>
+Date: Wed,  1 Aug 2018 17:14:01 +0200
+Subject: [PATCH 1/3] PCI: add a callback to struct pci_host_bridge for adding
+ a new device
+In-Reply-To: <20180801151403.20660-1-hch@lst.de>
+References: <20180801151403.20660-1-hch@lst.de>
+Message-ID: <20180801151403.20660-2-hch@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi all,
+There is currently no way for a PCIe bridge to impose constraints on
+devices added to it.  For example, the Xilinx PCIe host bridge only
+supports 32-bit physical addresses (due to a limitation on the AXI
+port's address width).  Thus, even devices that claim to support 64-bit
+DMA addresses must be restricted to 32-bit addresses when attached to
+this host controller.
 
-this series with patches originally from Palmer and Wesley adds support
-for the pcie-xilinx host driver on RISC-V boards.  The interesting part
-about that is that the IP blocks is limited to 32-bit DMA internally,
-which didn't seem to be an issue with the existing users, but shows
-up easily with the Sifive RISC-V boards that have physical memory
-wired up above 4G.
+This patch adds a "add_dev" method  to struct pci_host_bridge that
+allows the host driver to act upon acting adding devices.
 
-Note that patches 1 and 2 depend on changes in the dma-mapping tree
-to add the bus_dma_mask field to struct device and would have to merge
-through the dma-mapping tree or a shared stable branch.  Patch 3 could
-be merged independently.
+Based on an earlier patch from Wesley W. Terpstra <wesley@sifive.com>.
 
-Changes since v1:
- - move the add_dev method to struct pci_host_bridge
- - use the new bus_dma_mask field
+Signed-off-by: Christoph Hellwig <hch@lst.de>
+---
+ drivers/pci/probe.c | 4 ++++
+ include/linux/pci.h | 1 +
+ 2 files changed, 5 insertions(+)
+
+diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+index ac876e32de4b..8736d78ffc66 100644
+--- a/drivers/pci/probe.c
++++ b/drivers/pci/probe.c
+@@ -2290,6 +2290,7 @@ static void pci_set_msi_domain(struct pci_dev *dev)
+ 
+ void pci_device_add(struct pci_dev *dev, struct pci_bus *bus)
+ {
++	struct pci_host_bridge *host = pci_find_host_bridge(bus);
+ 	int ret;
+ 
+ 	pci_configure_device(dev);
+@@ -2331,6 +2332,9 @@ void pci_device_add(struct pci_dev *dev, struct pci_bus *bus)
+ 	/* Set up MSI IRQ domain */
+ 	pci_set_msi_domain(dev);
+ 
++	if (host->add_dev)
++		host->add_dev(dev);
++
+ 	/* Notifier could use PCI capabilities */
+ 	dev->match_driver = false;
+ 	ret = device_add(&dev->dev);
+diff --git a/include/linux/pci.h b/include/linux/pci.h
+index abd5d5e17aee..5eedae8e8f2b 100644
+--- a/include/linux/pci.h
++++ b/include/linux/pci.h
+@@ -485,6 +485,7 @@ struct pci_host_bridge {
+ 			resource_size_t start,
+ 			resource_size_t size,
+ 			resource_size_t align);
++	void (*add_dev)(struct pci_dev *dev);
+ 	unsigned long	private[0] ____cacheline_aligned;
+ };
+ 
+-- 
+2.18.0
