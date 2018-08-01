@@ -1,15 +1,24 @@
 From: hch@lst.de (Christoph Hellwig)
-Date: Wed, 1 Aug 2018 16:18:58 +0200
-Subject: [PATCH 7/9] irqchip: add a RISC-V PLIC driver
-In-Reply-To: <dcb17e67-9f83-0ff5-a2c6-a6dd1b4d9c0d@wdc.com>
-References: <20180726143723.16585-1-hch@lst.de>
- <20180726143723.16585-8-hch@lst.de>
- <1b3f6066-0c7c-a5f5-75ad-559fe81091ee@wdc.com>
- <dc69d688-f765-74cc-3234-563fecff6002@wdc.com> <20180731165712.GA2521@lst.de>
- <dcb17e67-9f83-0ff5-a2c6-a6dd1b4d9c0d@wdc.com>
-Message-ID: <20180801141858.GA28203@lst.de>
+Date: Wed,  1 Aug 2018 17:14:00 +0200
+Subject: add support for Xilinx PCIe root ports on RISC-V v2
+Message-ID: <20180801151403.20660-1-hch@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-I've pushed out an update to the riscv-irq-simple.2 branch to better
-handle with sparse contexid maps, please retry with that.
+Hi all,
+
+this series with patches originally from Palmer and Wesley adds support
+for the pcie-xilinx host driver on RISC-V boards.  The interesting part
+about that is that the IP blocks is limited to 32-bit DMA internally,
+which didn't seem to be an issue with the existing users, but shows
+up easily with the Sifive RISC-V boards that have physical memory
+wired up above 4G.
+
+Note that patches 1 and 2 depend on changes in the dma-mapping tree
+to add the bus_dma_mask field to struct device and would have to merge
+through the dma-mapping tree or a shared stable branch.  Patch 3 could
+be merged independently.
+
+Changes since v1:
+ - move the add_dev method to struct pci_host_bridge
+ - use the new bus_dma_mask field
