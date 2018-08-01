@@ -1,69 +1,44 @@
-From: andrew@sifive.com (Andrew Waterman)
-Date: Wed, 1 Aug 2018 11:23:43 -0700
-Subject: [PATCH v2] riscv: Add support to no-FPU systems
-In-Reply-To: <mhng-47d9ea80-a0c6-4cde-be65-75046c5d49d2@palmer-si-x1c4>
-References: <1530073346-5341-1-git-send-email-alankao@andestech.com>
- <mhng-47d9ea80-a0c6-4cde-be65-75046c5d49d2@palmer-si-x1c4>
-Message-ID: <CA++6G0AMXC0ZeTZ+tkLh_5QGoPMR+3YD8Ed=DR8-G=6FL1yDSw@mail.gmail.com>
+From: robh@kernel.org (Rob Herring)
+Date: Wed, 1 Aug 2018 12:26:31 -0600
+Subject: [PATCH 6/6] dt-bindings: interrupt-controller: RISC-V PLIC
+ documentation
+In-Reply-To: <20180801071635.GC20224@lst.de>
+References: <20180725093649.32332-1-hch@lst.de>
+ <20180725093649.32332-7-hch@lst.de>
+ <20180731224630.GB12168@rob-hp-laptop> <20180801071635.GC20224@lst.de>
+Message-ID: <CAL_JsqJWOXX7-_sb4W63wPRqFjHuU-DM-LNYgczieWjAE5ABfQ@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Aug 1, 2018 at 10:55 AM, Palmer Dabbelt <palmer@sifive.com> wrote:
-> On Tue, 26 Jun 2018 21:22:26 PDT (-0700), alankao at andestech.com wrote:
->>
->> This patch adds an option, CONFIG_FPU, to enable/disable floating
->> procedures.  Also, some style issues are fixed.
->>
->> Signed-off-by: Alan Kao <alankao@andestech.com>
->> Cc: Greentime Hu <greentime@andestech.com>
->> Cc: Zong Li <zong@andestech.com>
->> ---
->>  arch/riscv/Kconfig                 |  9 ++++
->>  arch/riscv/Makefile                | 19 +++----
->>  arch/riscv/include/asm/switch_to.h |  6 +++
->>  arch/riscv/kernel/entry.S          |  3 +-
->>  arch/riscv/kernel/process.c        |  7 ++-
->>  arch/riscv/kernel/signal.c         | 82 +++++++++++++++++++++---------
->>  6 files changed, 90 insertions(+), 36 deletions(-)
->>
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index 6debcc4afc72..6069597ba73f 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -232,6 +232,15 @@ config RISCV_BASE_PMU
->>
->>  endmenu
->>
->> +config FPU
->> +       bool "FPU support"
->> +       default y
->> +       help
->> +         Say N here if you want to disable all floating-point related
->> procedure
->> +         in the kernel.
->> +
->> +         If you don't know what to do here, say Y.
->> +
->>  endmenu
+On Wed, Aug 1, 2018 at 1:12 AM Christoph Hellwig <hch@lst.de> wrote:
 >
+> On Tue, Jul 31, 2018 at 04:46:30PM -0600, Rob Herring wrote:
+> > Perhaps this should be 'sifive,plic0'
 >
-> Sorry for letting this slide for a bit.  While I'm not opposed to a solution
-> that requires a FPU Kconfig option, it'd be a bit better if we could detect
-> this at boot time.  I think this should be possible because at one point
-> this actually worked and we could boot the same kernel on FPU and no-FPU
-> systems.
+> Excepet for the fact this the old name has already been in shipping
+> hardware and release of qemu and other emulators it should.
 
-I believe it would suffice to have start_thread set sstatus.FS to OFF
-for no-FPU systems (vs. INITIAL for systems with FPU).   The ISA
-string in the devicetree should indicate whether F/D extensions are
-present.
+Not really my problem that they didn't follow the process and upstream
+their binding first. But this alone is just a string identifier, so I
+don't really care that much. If things are really a mess, then the
+next implementations will have to have better compatible strings. More
+likely, I'll just see folks trying to add various properties to deal
+with all the differences.
 
-That said, it makes sense to me to additionally provide the Kconfig
-option.  This would elide the sstatus.SD check for no-FPU systems,
-shaving a couple instructions off the context-switch path.  It would
-also enable mimicking the behavior of a no-FPU system even when the
-FPU is present.
+You could always define a better compatible and leave 'riscv,plic0' as
+a fallback to avoid breaking things.
 
+> > Normally this would have an SoC specific compatible too. Sometimes we
+> > can get away without, but it doesn't seem like the PLIC is very tightly
+> > specified nor has common implementations.
 >
-> If that's not possible then we'll have to take something like this.  There
-> were some comments on this v2 but I don't see a v3, did I miss one?
+> It is a giant f***cking mess to be honest.  Adding a highlevel spec
+> to the ISA but not a register layout is completely idotic, but if you
+> look at the current riscv-sw list this decision is still defended by
+> SiFive / the RISC-V foundation.  The whole stale of the RISC-V platform
+> Ecosystem is rather pathetic unfortunately, and people don't seem to
+> be willing to learn from past good practice nor mistakes in ARM land.
+
+Interrupt controllers are where the differentiation is. ;)
+
+Rob
