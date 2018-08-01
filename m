@@ -1,44 +1,52 @@
-From: robh@kernel.org (Rob Herring)
-Date: Wed, 1 Aug 2018 12:26:31 -0600
-Subject: [PATCH 6/6] dt-bindings: interrupt-controller: RISC-V PLIC
- documentation
-In-Reply-To: <20180801071635.GC20224@lst.de>
+From: tglx@linutronix.de (Thomas Gleixner)
+Date: Wed, 1 Aug 2018 20:55:06 +0200 (CEST)
+Subject: [PATCH 3/6] irqchip: RISC-V Local Interrupt Controller Driver
+In-Reply-To: <20180725112457.GA24502@lst.de>
 References: <20180725093649.32332-1-hch@lst.de>
- <20180725093649.32332-7-hch@lst.de>
- <20180731224630.GB12168@rob-hp-laptop> <20180801071635.GC20224@lst.de>
-Message-ID: <CAL_JsqJWOXX7-_sb4W63wPRqFjHuU-DM-LNYgczieWjAE5ABfQ@mail.gmail.com>
+ <20180725093649.32332-4-hch@lst.de>
+ <c3ccb953-cd75-4a37-636a-ca643602053a@arm.com>
+ <20180725112457.GA24502@lst.de>
+Message-ID: <alpine.DEB.2.21.1808012049170.1835@nanos.tec.linutronix.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Aug 1, 2018 at 1:12 AM Christoph Hellwig <hch@lst.de> wrote:
->
-> On Tue, Jul 31, 2018 at 04:46:30PM -0600, Rob Herring wrote:
-> > Perhaps this should be 'sifive,plic0'
->
-> Excepet for the fact this the old name has already been in shipping
-> hardware and release of qemu and other emulators it should.
 
-Not really my problem that they didn't follow the process and upstream
-their binding first. But this alone is just a string identifier, so I
-don't really care that much. If things are really a mess, then the
-next implementations will have to have better compatible strings. More
-likely, I'll just see folks trying to add various properties to deal
-with all the differences.
+On Wed, 25 Jul 2018, Christoph Hellwig wrote:
 
-You could always define a better compatible and leave 'riscv,plic0' as
-a fallback to avoid breaking things.
+> On Wed, Jul 25, 2018 at 12:18:39PM +0100, Marc Zyngier wrote:
+> > This feels odd. It means that you cannot have the following sequence:
+> > 
+> > 	local_irq_disable();
+> > 	enable_irq(x); // where x is owned by a remote hart
+> > 
+> > as smp_call_function_single() requires interrupts to be enabled.
+> > 
+> > More fundamentally, why are you trying to make these interrupts look
+> > global while they aren't? arm/arm64 have similar restrictions with GICv2
+> > and earlier, and treats these interrupts as per-cpu.
+> > 
+> > Given that the drivers that deal with drivers connected to the per-hart
+> > irqchip are themselves likely to be aware of the per-cpu aspect, it
+> > would make sense to align things (we've been through that same
+> > discussion about the clocksource driver a few weeks back).
+> 
+> Right now the only direct consumers are said clocksource, the PLIC
+> driver later in this series and the RISC-V arch IPI code.  None of them
+> is going to do a manual enable_irq, so I guess the remote case of the
+> code is simply dead code.  I'll take a look at converting them to
+> per-cpu.  I guess the GICv2 driver is the best template?
 
-> > Normally this would have an SoC specific compatible too. Sometimes we
-> > can get away without, but it doesn't seem like the PLIC is very tightly
-> > specified nor has common implementations.
->
-> It is a giant f***cking mess to be honest.  Adding a highlevel spec
-> to the ISA but not a register layout is completely idotic, but if you
-> look at the current riscv-sw list this decision is still defended by
-> SiFive / the RISC-V foundation.  The whole stale of the RISC-V platform
-> Ecosystem is rather pathetic unfortunately, and people don't seem to
-> be willing to learn from past good practice nor mistakes in ARM land.
+Confused. The timer and the IPI are separate causes and have nothing to do
+with the per cpu irq domain. That's what the low level interrupt handling
+code tells me.
 
-Interrupt controllers are where the differentiation is. ;)
+If I understand correctly then the per cpu irq domain is for device
+interrupts, right? If so, then this simply cannot work and there is no way
+to make it work with per cpu interrupts either.
 
-Rob
+Is there some high level documentation about the design (or the lack of) or
+can someone give a concise explanation how this stuff is supposed to work?
+
+Thanks,
+
+	tglx
