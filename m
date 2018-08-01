@@ -1,52 +1,31 @@
-From: tglx@linutronix.de (Thomas Gleixner)
-Date: Wed, 1 Aug 2018 20:55:06 +0200 (CEST)
-Subject: [PATCH 3/6] irqchip: RISC-V Local Interrupt Controller Driver
-In-Reply-To: <20180725112457.GA24502@lst.de>
-References: <20180725093649.32332-1-hch@lst.de>
- <20180725093649.32332-4-hch@lst.de>
- <c3ccb953-cd75-4a37-636a-ca643602053a@arm.com>
- <20180725112457.GA24502@lst.de>
-Message-ID: <alpine.DEB.2.21.1808012049170.1835@nanos.tec.linutronix.de>
+From: wesley@sifive.com (Wesley Terpstra)
+Date: Wed, 1 Aug 2018 16:02:34 -0700
+Subject: add support for Xilinx PCIe root ports on RISC-V v2
+In-Reply-To: <20180801151403.20660-1-hch@lst.de>
+References: <20180801151403.20660-1-hch@lst.de>
+Message-ID: <CAMgXwThU2h3Grm+10S0Env1ZUYK5Q7pze+ckADjjyHEUVGs7=A@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
+FYI, I don't believe this solution is the one we intended to merge
+upstream. There is a different approach used in the riscv-linux tree
+from Palmer.
 
-On Wed, 25 Jul 2018, Christoph Hellwig wrote:
-
-> On Wed, Jul 25, 2018 at 12:18:39PM +0100, Marc Zyngier wrote:
-> > This feels odd. It means that you cannot have the following sequence:
-> > 
-> > 	local_irq_disable();
-> > 	enable_irq(x); // where x is owned by a remote hart
-> > 
-> > as smp_call_function_single() requires interrupts to be enabled.
-> > 
-> > More fundamentally, why are you trying to make these interrupts look
-> > global while they aren't? arm/arm64 have similar restrictions with GICv2
-> > and earlier, and treats these interrupts as per-cpu.
-> > 
-> > Given that the drivers that deal with drivers connected to the per-hart
-> > irqchip are themselves likely to be aware of the per-cpu aspect, it
-> > would make sense to align things (we've been through that same
-> > discussion about the clocksource driver a few weeks back).
-> 
-> Right now the only direct consumers are said clocksource, the PLIC
-> driver later in this series and the RISC-V arch IPI code.  None of them
-> is going to do a manual enable_irq, so I guess the remote case of the
-> code is simply dead code.  I'll take a look at converting them to
-> per-cpu.  I guess the GICv2 driver is the best template?
-
-Confused. The timer and the IPI are separate causes and have nothing to do
-with the per cpu irq domain. That's what the low level interrupt handling
-code tells me.
-
-If I understand correctly then the per cpu irq domain is for device
-interrupts, right? If so, then this simply cannot work and there is no way
-to make it work with per cpu interrupts either.
-
-Is there some high level documentation about the design (or the lack of) or
-can someone give a concise explanation how this stuff is supposed to work?
-
-Thanks,
-
-	tglx
+On Wed, Aug 1, 2018 at 8:14 AM, Christoph Hellwig <hch@lst.de> wrote:
+> Hi all,
+>
+> this series with patches originally from Palmer and Wesley adds support
+> for the pcie-xilinx host driver on RISC-V boards.  The interesting part
+> about that is that the IP blocks is limited to 32-bit DMA internally,
+> which didn't seem to be an issue with the existing users, but shows
+> up easily with the Sifive RISC-V boards that have physical memory
+> wired up above 4G.
+>
+> Note that patches 1 and 2 depend on changes in the dma-mapping tree
+> to add the bus_dma_mask field to struct device and would have to merge
+> through the dma-mapping tree or a shared stable branch.  Patch 3 could
+> be merged independently.
+>
+> Changes since v1:
+>  - move the add_dev method to struct pci_host_bridge
+>  - use the new bus_dma_mask field
