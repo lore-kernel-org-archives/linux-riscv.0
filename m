@@ -1,64 +1,51 @@
 From: hch@lst.de (Christoph Hellwig)
-Date: Wed,  1 Aug 2018 17:14:01 +0200
-Subject: [PATCH 1/3] PCI: add a callback to struct pci_host_bridge for adding
- a new device
+Date: Wed,  1 Aug 2018 17:14:02 +0200
+Subject: [PATCH 2/3] PCI/xilinx: Work-around for hardware DMA limit (32 bits)
 In-Reply-To: <20180801151403.20660-1-hch@lst.de>
 References: <20180801151403.20660-1-hch@lst.de>
-Message-ID: <20180801151403.20660-2-hch@lst.de>
+Message-ID: <20180801151403.20660-3-hch@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-There is currently no way for a PCIe bridge to impose constraints on
-devices added to it.  For example, the Xilinx PCIe host bridge only
-supports 32-bit physical addresses (due to a limitation on the AXI
-port's address width).  Thus, even devices that claim to support 64-bit
-DMA addresses must be restricted to 32-bit addresses when attached to
-this host controller.
-
-This patch adds a "add_dev" method  to struct pci_host_bridge that
-allows the host driver to act upon acting adding devices.
+This PCIe bridge only has a 32 bit bus master interface, thus truncating
+the DMA capability of all PCIe devices attached beneath it. This caps
+the child device capability so that these devices work on systems with
+physical memory beyond the 4GiB threshold.
 
 Based on an earlier patch from Wesley W. Terpstra <wesley@sifive.com>.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- drivers/pci/probe.c | 4 ++++
- include/linux/pci.h | 1 +
- 2 files changed, 5 insertions(+)
+ drivers/pci/controller/pcie-xilinx.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-index ac876e32de4b..8736d78ffc66 100644
---- a/drivers/pci/probe.c
-+++ b/drivers/pci/probe.c
-@@ -2290,6 +2290,7 @@ static void pci_set_msi_domain(struct pci_dev *dev)
+diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controller/pcie-xilinx.c
+index 7b1389d8e2a5..da65b18aa45e 100644
+--- a/drivers/pci/controller/pcie-xilinx.c
++++ b/drivers/pci/controller/pcie-xilinx.c
+@@ -197,6 +197,15 @@ static void __iomem *xilinx_pcie_map_bus(struct pci_bus *bus,
+ 	return port->reg_base + relbus + where;
+ }
  
- void pci_device_add(struct pci_dev *dev, struct pci_bus *bus)
- {
-+	struct pci_host_bridge *host = pci_find_host_bridge(bus);
- 	int ret;
- 
- 	pci_configure_device(dev);
-@@ -2331,6 +2332,9 @@ void pci_device_add(struct pci_dev *dev, struct pci_bus *bus)
- 	/* Set up MSI IRQ domain */
- 	pci_set_msi_domain(dev);
- 
-+	if (host->add_dev)
-+		host->add_dev(dev);
++/*
++ * This PCIe bridge only has a 32 bit bus master interface, thus truncating
++ * the DMA capability of all PCIe devices attached beneath it.
++ */
++static void xilinx_pcie_add_dev(struct pci_dev *pdev)
++{
++	pdev->dev.bus_dma_mask = DMA_BIT_MASK(32);
++}
 +
- 	/* Notifier could use PCI capabilities */
- 	dev->match_driver = false;
- 	ret = device_add(&dev->dev);
-diff --git a/include/linux/pci.h b/include/linux/pci.h
-index abd5d5e17aee..5eedae8e8f2b 100644
---- a/include/linux/pci.h
-+++ b/include/linux/pci.h
-@@ -485,6 +485,7 @@ struct pci_host_bridge {
- 			resource_size_t start,
- 			resource_size_t size,
- 			resource_size_t align);
-+	void (*add_dev)(struct pci_dev *dev);
- 	unsigned long	private[0] ____cacheline_aligned;
- };
+ /* PCIe operations */
+ static struct pci_ops xilinx_pcie_ops = {
+ 	.map_bus = xilinx_pcie_map_bus,
+@@ -665,6 +674,7 @@ static int xilinx_pcie_probe(struct platform_device *pdev)
+ 	bridge->ops = &xilinx_pcie_ops;
+ 	bridge->map_irq = of_irq_parse_and_map_pci;
+ 	bridge->swizzle_irq = pci_common_swizzle;
++	bridge->add_dev = xilinx_pcie_add_dev;
  
+ #ifdef CONFIG_PCI_MSI
+ 	xilinx_pcie_msi_chip.dev = dev;
 -- 
 2.18.0
