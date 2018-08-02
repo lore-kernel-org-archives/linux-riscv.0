@@ -1,34 +1,57 @@
-From: hch@infradead.org (Christoph Hellwig)
-Date: Thu, 2 Aug 2018 04:41:48 -0700
-Subject: [PATCH v3 4/4] Add an option to support no-FPU systems
-In-Reply-To: <1533188391-5932-5-git-send-email-alankao@andestech.com>
-References: <1533188391-5932-1-git-send-email-alankao@andestech.com>
- <1533188391-5932-5-git-send-email-alankao@andestech.com>
-Message-ID: <20180802114148.GD17108@infradead.org>
+From: hch@lst.de (Christoph Hellwig)
+Date: Thu, 2 Aug 2018 13:51:18 +0200
+Subject: [PATCH 7/9] irqchip: add a RISC-V PLIC driver
+In-Reply-To: <alpine.DEB.2.21.1808021149470.2037@nanos.tec.linutronix.de>
+References: <20180726143723.16585-1-hch@lst.de>
+ <20180726143723.16585-8-hch@lst.de>
+ <alpine.DEB.2.21.1808021149470.2037@nanos.tec.linutronix.de>
+Message-ID: <20180802115118.GB21984@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Aug 02, 2018 at 01:39:51PM +0800, Alan Kao wrote:
-> FP codes have been separated from common part in previous patches.
-> This patch add the CONFIG_FPU option and some stubs to support
-> no-FPU systems.
+On Thu, Aug 02, 2018 at 12:04:04PM +0200, Thomas Gleixner wrote:
+> 
+> On Thu, 26 Jul 2018, Christoph Hellwig wrote:
+> 
+> > This patch adds a driver for the Platform Level Interrupt Controller (PLIC)
+> 
+> See Documentation/process/submitting-patches.rst and search for 'This patch'
 
-I think the subject should be 'allow to disable FPU support'.
+Fixed.
 
-As discussed in the other thread we should be able to detect
-systems without FPU and handle them fine even with FPU support built
-in.  Even with that I think this patch is otherwise fine and the
-detection can be layered on top.  One more nitpick below:
+> > +static DEFINE_SPINLOCK(plic_toggle_lock);
+> 
+> RAW_SPINLOCK please.
 
-> +#else
-> +#define save_fp_state(task, regs) (0)
-> +#define restore_fp_state(task, regs) (0)
-> +#define fstate_save(task, regs) do { } while (0)
-> +#define fstate_restore(task, regs) do { } while (0)
-> +#define __switch_to_aux(__prev, __next) do { } while (0)
-> +#define DEFAULT_SSTATUS (SR_SPIE | SR_FS_OFF)
-> +#endif
+Done.
 
-Please move the stubs for functions that are static in signal.c
-into signal.c as well - you already have a CONFIG_FPU ifdef block
-in that file anyway.
+> > +static inline void plic_irq_toggle(struct irq_data *d, int enable)
+> > +{
+> > +	int cpu;
+> > +
+> > +	writel(enable, plic_regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
+> > +	for_each_present_cpu(cpu)
+> > +		plic_toggle(cpu, d->hwirq, enable);
+> 
+> I suggest to make that:
+> 
+> 	for_each_cpu(cpu, irq_data_get_affinity_mask(d))
+> 		plic_toggle(cpu, d->hwirq, enable);
+
+Done.
+
+> That gives you immediately support for interrupt affinity. And then it's
+> trivial to do the actual irq_chip::irq_set_affinity() magic as well.
+
+I'll defer that to an incremental patch (added to my todo list).
+
+> > +static void plic_handle_irq(struct pt_regs *regs)
+> > +{
+> > +	void __iomem *claim =
+> > +		plic_hart_offset(smp_processor_id()) + CONTEXT_CLAIM;
+> 
+> Either ignore the 80 char thing or just move the assignment into the code
+> section please. That line break is horrible to read.
+
+That area has been rewritten anyway as we need a cpuid to context
+lookup to cover real SOCs vs just qemu.
