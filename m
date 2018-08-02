@@ -1,83 +1,49 @@
 From: lorenzo.pieralisi@arm.com (Lorenzo Pieralisi)
-Date: Thu, 2 Aug 2018 17:54:30 +0100
-Subject: [PATCH 1/3] PCI: add a callback to struct pci_host_bridge for
- adding a new device
-In-Reply-To: <20180801151403.20660-2-hch@lst.de>
+Date: Thu, 2 Aug 2018 17:56:23 +0100
+Subject: [PATCH 3/3] PCI/xilinx: Depend on OF instead of the ARCH
+In-Reply-To: <20180801151403.20660-4-hch@lst.de>
 References: <20180801151403.20660-1-hch@lst.de>
- <20180801151403.20660-2-hch@lst.de>
-Message-ID: <20180802165430.GA13725@red-moon>
+ <20180801151403.20660-4-hch@lst.de>
+Message-ID: <20180802165623.GB13725@red-moon>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Aug 01, 2018 at 05:14:01PM +0200, Christoph Hellwig wrote:
-> There is currently no way for a PCIe bridge to impose constraints on
-> devices added to it.  For example, the Xilinx PCIe host bridge only
-> supports 32-bit physical addresses (due to a limitation on the AXI
-> port's address width).  Thus, even devices that claim to support 64-bit
-> DMA addresses must be restricted to 32-bit addresses when attached to
-> this host controller.
+On Wed, Aug 01, 2018 at 05:14:03PM +0200, Christoph Hellwig wrote:
+> There isn't a hard dependency of the Xilinx AXI-PCIe host bridge on any
+> architecture.  For example: at SiFive we map RISC-V cores to Xilinx FPGAs
+> and connect the Xilinx IP via a TileLink adapter, so the RISC-V Linux
+> port will need to be able to enable PCIE_XILINX in order to have PCIe
+> support.
 > 
-> This patch adds a "add_dev" method  to struct pci_host_bridge that
-> allows the host driver to act upon acting adding devices.
+> This patch decouples the PCIE_XILINX support from ARCH.  Instead it just
+> depends on OF, which I believe is the only true dependency.
 > 
-> Based on an earlier patch from Wesley W. Terpstra <wesley@sifive.com>.
-> 
+> Signed-off-by: Palmer Dabbelt <palmer@dabbelt.com>
+> [hch: switch to OF instead of OF_PCI now that the latter is gone]
 > Signed-off-by: Christoph Hellwig <hch@lst.de>
 > ---
->  drivers/pci/probe.c | 4 ++++
->  include/linux/pci.h | 1 +
->  2 files changed, 5 insertions(+)
-> 
-> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> index ac876e32de4b..8736d78ffc66 100644
-> --- a/drivers/pci/probe.c
-> +++ b/drivers/pci/probe.c
-> @@ -2290,6 +2290,7 @@ static void pci_set_msi_domain(struct pci_dev *dev)
->  
->  void pci_device_add(struct pci_dev *dev, struct pci_bus *bus)
->  {
-> +	struct pci_host_bridge *host = pci_find_host_bridge(bus);
->  	int ret;
->  
->  	pci_configure_device(dev);
-> @@ -2331,6 +2332,9 @@ void pci_device_add(struct pci_dev *dev, struct pci_bus *bus)
->  	/* Set up MSI IRQ domain */
->  	pci_set_msi_domain(dev);
->  
-> +	if (host->add_dev)
-> +		host->add_dev(dev);
+>  drivers/pci/controller/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Hi Christoph,
+I could have taken it for this merge window but unfortunately it is a
+bit late (ie PCI patches queue is close), I can certainly queue it up
+for v4.20 though.
 
-while at it, IMHO it would be good to match the current
-pcibios_add_device() prototype (ie returning an int error value)
-so that this change can pave the way to removing yet another
-pcibios call.
-
-Actually we could make pcibios_add_device() removal as part of this
-series but you would have to patch all related host bridge drivers
-initializations so I am happy for this patch to go standalone (I can
-patch the rest of the code) - I leave it to Bjorn's decision.
-
-Thanks,
 Lorenzo
 
-> +
->  	/* Notifier could use PCI capabilities */
->  	dev->match_driver = false;
->  	ret = device_add(&dev->dev);
-> diff --git a/include/linux/pci.h b/include/linux/pci.h
-> index abd5d5e17aee..5eedae8e8f2b 100644
-> --- a/include/linux/pci.h
-> +++ b/include/linux/pci.h
-> @@ -485,6 +485,7 @@ struct pci_host_bridge {
->  			resource_size_t start,
->  			resource_size_t size,
->  			resource_size_t align);
-> +	void (*add_dev)(struct pci_dev *dev);
->  	unsigned long	private[0] ____cacheline_aligned;
->  };
+> diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+> index cc9fa02d32a0..0f7ce5eaeac8 100644
+> --- a/drivers/pci/controller/Kconfig
+> +++ b/drivers/pci/controller/Kconfig
+> @@ -102,7 +102,7 @@ config PCI_HOST_GENERIC
 >  
+>  config PCIE_XILINX
+>  	bool "Xilinx AXI PCIe host bridge support"
+> -	depends on ARCH_ZYNQ || MICROBLAZE || (MIPS && PCI_DRIVERS_GENERIC) || COMPILE_TEST
+> +	depends on OF || COMPILE_TEST
+>  	help
+>  	  Say 'Y' here if you want kernel to support the Xilinx AXI PCIe
+>  	  Host Bridge driver.
 > -- 
 > 2.18.0
 > 
