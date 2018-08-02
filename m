@@ -1,38 +1,83 @@
-From: zong@andestech.com (Zong Li)
-Date: Thu, 2 Aug 2018 23:22:56 +0800
-Subject: [PATCH] RISC-V: Add preprocessor directives for boot_sec_cpu
-Message-ID: <1533223376-10130-1-git-send-email-zong@andestech.com>
+From: lorenzo.pieralisi@arm.com (Lorenzo Pieralisi)
+Date: Thu, 2 Aug 2018 17:54:30 +0100
+Subject: [PATCH 1/3] PCI: add a callback to struct pci_host_bridge for
+ adding a new device
+In-Reply-To: <20180801151403.20660-2-hch@lst.de>
+References: <20180801151403.20660-1-hch@lst.de>
+ <20180801151403.20660-2-hch@lst.de>
+Message-ID: <20180802165430.GA13725@red-moon>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The boot_sec_cpu is for hutplug CPU on SMP system. It should
-be conditional compiling. Otherwise, it causes undefined reference
-to `smp_callin' when compiling uniprocessor kernel.
+On Wed, Aug 01, 2018 at 05:14:01PM +0200, Christoph Hellwig wrote:
+> There is currently no way for a PCIe bridge to impose constraints on
+> devices added to it.  For example, the Xilinx PCIe host bridge only
+> supports 32-bit physical addresses (due to a limitation on the AXI
+> port's address width).  Thus, even devices that claim to support 64-bit
+> DMA addresses must be restricted to 32-bit addresses when attached to
+> this host controller.
+> 
+> This patch adds a "add_dev" method  to struct pci_host_bridge that
+> allows the host driver to act upon acting adding devices.
+> 
+> Based on an earlier patch from Wesley W. Terpstra <wesley@sifive.com>.
+> 
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> ---
+>  drivers/pci/probe.c | 4 ++++
+>  include/linux/pci.h | 1 +
+>  2 files changed, 5 insertions(+)
+> 
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index ac876e32de4b..8736d78ffc66 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -2290,6 +2290,7 @@ static void pci_set_msi_domain(struct pci_dev *dev)
+>  
+>  void pci_device_add(struct pci_dev *dev, struct pci_bus *bus)
+>  {
+> +	struct pci_host_bridge *host = pci_find_host_bridge(bus);
+>  	int ret;
+>  
+>  	pci_configure_device(dev);
+> @@ -2331,6 +2332,9 @@ void pci_device_add(struct pci_dev *dev, struct pci_bus *bus)
+>  	/* Set up MSI IRQ domain */
+>  	pci_set_msi_domain(dev);
+>  
+> +	if (host->add_dev)
+> +		host->add_dev(dev);
 
-Signed-off-by: Zong Li <zong@andestech.com>
----
- arch/riscv/kernel/head.S | 2 ++
- 1 file changed, 2 insertions(+)
+Hi Christoph,
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 11066d5..9b6f601 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -154,6 +154,7 @@ END(_start)
- .section .text
- .global boot_sec_cpu
- 
-+#ifdef CONFIG_HOTPLUG_CPU
- boot_sec_cpu:
- 	/* clear all pending flags */
- 	csrw sip, zero
-@@ -162,6 +163,7 @@ boot_sec_cpu:
- 	fence
- 
- 	tail smp_callin
-+#endif
- 
- __PAGE_ALIGNED_BSS
- 	/* Empty zero page */
--- 
-2.7.4
+while at it, IMHO it would be good to match the current
+pcibios_add_device() prototype (ie returning an int error value)
+so that this change can pave the way to removing yet another
+pcibios call.
+
+Actually we could make pcibios_add_device() removal as part of this
+series but you would have to patch all related host bridge drivers
+initializations so I am happy for this patch to go standalone (I can
+patch the rest of the code) - I leave it to Bjorn's decision.
+
+Thanks,
+Lorenzo
+
+> +
+>  	/* Notifier could use PCI capabilities */
+>  	dev->match_driver = false;
+>  	ret = device_add(&dev->dev);
+> diff --git a/include/linux/pci.h b/include/linux/pci.h
+> index abd5d5e17aee..5eedae8e8f2b 100644
+> --- a/include/linux/pci.h
+> +++ b/include/linux/pci.h
+> @@ -485,6 +485,7 @@ struct pci_host_bridge {
+>  			resource_size_t start,
+>  			resource_size_t size,
+>  			resource_size_t align);
+> +	void (*add_dev)(struct pci_dev *dev);
+>  	unsigned long	private[0] ____cacheline_aligned;
+>  };
+>  
+> -- 
+> 2.18.0
+> 
