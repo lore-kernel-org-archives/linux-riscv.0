@@ -1,12 +1,13 @@
 From: zong@andestech.com (Zong Li)
-Date: Thu, 2 Aug 2018 23:21:56 +0800
-Subject: [PATCH v2] RISC-V: Add the directive for alignment of stvec's value
-Message-ID: <1533223316-9942-1-git-send-email-zong@andestech.com>
+Date: Thu, 2 Aug 2018 23:22:56 +0800
+Subject: [PATCH] RISC-V: Add preprocessor directives for boot_sec_cpu
+Message-ID: <1533223376-10130-1-git-send-email-zong@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The stvec's value must be 4 byte alignment by specification definition.
-These directives avoid to stvec be set the non-alignment value.
+The boot_sec_cpu is for hutplug CPU on SMP system. It should
+be conditional compiling. Otherwise, it causes undefined reference
+to `smp_callin' when compiling uniprocessor kernel.
 
 Signed-off-by: Zong Li <zong@andestech.com>
 ---
@@ -14,24 +15,24 @@ Signed-off-by: Zong Li <zong@andestech.com>
  1 file changed, 2 insertions(+)
 
 diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 3b6293f..11066d5 100644
+index 11066d5..9b6f601 100644
 --- a/arch/riscv/kernel/head.S
 +++ b/arch/riscv/kernel/head.S
-@@ -94,6 +94,7 @@ relocate:
- 	or a0, a0, a1
- 	sfence.vma
- 	csrw sptbr, a0
-+.align 2
- 1:
- 	/* Set trap vector to spin forever to help debug */
- 	la a0, .Lsecondary_park
-@@ -143,6 +144,7 @@ relocate:
- 	tail smp_callin
- #endif
+@@ -154,6 +154,7 @@ END(_start)
+ .section .text
+ .global boot_sec_cpu
  
-+.align 2
- .Lsecondary_park:
- 	/* We lack SMP support or have too many harts, so park this hart */
- 	wfi
++#ifdef CONFIG_HOTPLUG_CPU
+ boot_sec_cpu:
+ 	/* clear all pending flags */
+ 	csrw sip, zero
+@@ -162,6 +163,7 @@ boot_sec_cpu:
+ 	fence
+ 
+ 	tail smp_callin
++#endif
+ 
+ __PAGE_ALIGNED_BSS
+ 	/* Empty zero page */
 -- 
 2.7.4
