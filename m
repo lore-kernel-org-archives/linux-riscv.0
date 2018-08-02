@@ -1,35 +1,76 @@
 From: alankao@andestech.com (Alan Kao)
-Date: Thu, 2 Aug 2018 13:39:47 +0800
-Subject: [PATCH v3 0/4] riscv: Add support to no-FPU systems
-Message-ID: <1533188391-5932-1-git-send-email-alankao@andestech.com>
+Date: Thu, 2 Aug 2018 13:39:50 +0800
+Subject: [PATCH v3 3/4] Cleanup ISA string setting
+In-Reply-To: <1533188391-5932-1-git-send-email-alankao@andestech.com>
+References: <1533188391-5932-1-git-send-email-alankao@andestech.com>
+Message-ID: <1533188391-5932-4-git-send-email-alankao@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This patchset adds an option, CONFIG_FPU, to enable/disable floating-
-point procedures.
+The reason that we cannot follow the review's suggestion in
+https://lkml.org/lkml/2018/6/21/39 is because using "+=" as the
+connector in Makefile introduces blanks bewteen the left-hand
+side alphabets.
 
-Changes in v3:
- - Refactor the whole patch into independent ones.
+Note: (Assume that atomic and compressed is on)
 
-Changes in v2:
- - Various code cleanups and style fixes.
+Before this patch, assembler was always given the riscv64imafdc
+MARCH string because there are fld/fsd's in entry.S; compiler was
+always given riscv64imac because kernel doesn't need floating point
+code generation.  After this, the MARCH string in AFLAGS and CFLAGS
+become the same.
 
-Alan Kao (4):
-  Extract FPU context operations from entry.S
-  Refactor FPU codes in signal setup/return procedures
-  Cleanup ISA string setting
-  Add an option to support no-FPU systems
+Signed-off-by: Alan Kao <alankao@andestech.com>
+Cc: Greentime Hu <greentime@andestech.com>
+Cc: Vincent Chen <vincentc@andestech.com>
+Cc: Zong Li <zong@andestech.com>
+Cc: Nick Hu <nickhu@andestech.com>
+---
+ arch/riscv/Makefile | 19 ++++++++-----------
+ 1 file changed, 8 insertions(+), 11 deletions(-)
 
- arch/riscv/Kconfig                 |   9 +++
- arch/riscv/Makefile                |  19 +++---
- arch/riscv/include/asm/switch_to.h |  12 ++++
- arch/riscv/kernel/Makefile         |   1 +
- arch/riscv/kernel/entry.S          |  87 ------------------------
- arch/riscv/kernel/fpu.S            | 105 +++++++++++++++++++++++++++++
- arch/riscv/kernel/process.c        |   4 +-
- arch/riscv/kernel/signal.c         |  70 +++++++++++--------
- 8 files changed, 181 insertions(+), 126 deletions(-)
- create mode 100644 arch/riscv/kernel/fpu.S
-
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 6d4a5f6c3f4f..e0fe6790624f 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -26,7 +26,6 @@ ifeq ($(CONFIG_ARCH_RV64I),y)
+ 
+ 	KBUILD_CFLAGS += -mabi=lp64
+ 	KBUILD_AFLAGS += -mabi=lp64
+-	KBUILD_MARCH = rv64im
+ 	LDFLAGS += -melf64lriscv
+ else
+ 	BITS := 32
+@@ -34,22 +33,20 @@ else
+ 
+ 	KBUILD_CFLAGS += -mabi=ilp32
+ 	KBUILD_AFLAGS += -mabi=ilp32
+-	KBUILD_MARCH = rv32im
+ 	LDFLAGS += -melf32lriscv
+ endif
+ 
+ KBUILD_CFLAGS += -Wall
+ 
+-ifeq ($(CONFIG_RISCV_ISA_A),y)
+-	KBUILD_ARCH_A = a
+-endif
+-ifeq ($(CONFIG_RISCV_ISA_C),y)
+-	KBUILD_ARCH_C = c
+-endif
+-
+-KBUILD_AFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)fd$(KBUILD_ARCH_C)
++# ISA string setting
++riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32im
++riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64im
++riscv-march-$(CONFIG_RISCV_ISA_A)	:= $(riscv-march-y)a
++riscv-march-y				:= $(riscv-march-y)fd
++riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
++KBUILD_CFLAGS += -march=$(riscv-march-y)
++KBUILD_AFLAGS += -march=$(riscv-march-y)
+ 
+-KBUILD_CFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)$(KBUILD_ARCH_C)
+ KBUILD_CFLAGS += -mno-save-restore
+ KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
+ 
 -- 
 2.18.0
