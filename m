@@ -1,62 +1,47 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 02 Aug 2018 10:24:11 -0700 (PDT)
-Subject: simplified RISC-V interrupt and clocksource handling v2
-In-Reply-To: <20180802115008.4031-1-hch@lst.de>
-Message-ID: <mhng-1a7030e5-19c4-481b-9f7c-e0976214eb18@palmer-si-x1c4>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Thu, 2 Aug 2018 11:13:25 -0700
+Subject: [PATCH] RISC-V: Add preprocessor directives for boot_sec_cpu
+In-Reply-To: <1533223376-10130-1-git-send-email-zong@andestech.com>
+References: <1533223376-10130-1-git-send-email-zong@andestech.com>
+Message-ID: <27367ec8-fc26-c678-1883-299a084a5328@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, 02 Aug 2018 04:49:57 PDT (-0700), Christoph Hellwig wrote:
-> This series tries adds support for interrupt handling and timers
-> for the RISC-V architecture.
->
-> The basic per-hart interrupt handling implemented by the scause
-> and sie CSRs is extremely simple and implemented directly in
-> arch/riscv/kernel/irq.c.  In addition there is a irqchip driver
-> for the PLIC external interrupt controller, which is called through
-> the set_handle_irq API, and a clocksource driver that gets its
-> timer interrupt directly from the low-level interrupt handling.
->
-> Compared to previous iterations this version does not try to use an
-> irqchip driver for the low-level interrupt handling.  This saves
-> a couple indirect calls and an additional read of the scause CSR
-> in the hot path, makes the code much simpler and last but not least
-> avoid the dependency on a device tree for a mandatory architectural
-> feature.
->
-> A git tree is available here (contains a few more patches before
-> the ones in this series)
->
->     git://git.infradead.org/users/hch/riscv.git riscv-irq-simple.2
->
-> Gitweb:
->
->     http://git.infradead.org/users/hch/riscv.git/shortlog/refs/heads/riscv-irq-simple.2
->
-> Changes since v1:
->  - rename the plic driver to irq-sifive-plic
->  - switch to a default compatible of sifive,plic0 (still supporting the
->    riscv,plic0 name for compatibility)
->  - add a reference for the SiFive PLIC register layout
->  - fix plic_toggle addressing for large numbers of hwirqs
->  - remove the call to ack_bad_irq
->  - use a raw spinlock for plic_toggle_lock
->  - use the irq_desc cpumask in the plic enable/disable methods
->  - add back OF contexid parsing in the plic driver
->  - don't allow COMPILE_TEST builds of the clocksource driver, as it
->    depends on <asm/sbi.h>
->  - default the clocksource driver to y
->  - clean up naming in the clocksource driver
->  - remove the MINDELTA and MAXDELTA #defines
->  - various DT binding fixes
+On 8/2/18 8:23 AM, Zong Li wrote:
+> The boot_sec_cpu is for hutplug CPU on SMP system. It should
+> be conditional compiling. Otherwise, it causes undefined reference
+> to `smp_callin' when compiling uniprocessor kernel.
+> 
+> Signed-off-by: Zong Li <zong@andestech.com>
+> ---
+>   arch/riscv/kernel/head.S | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> index 11066d5..9b6f601 100644
+> --- a/arch/riscv/kernel/head.S
+> +++ b/arch/riscv/kernel/head.S
+> @@ -154,6 +154,7 @@ END(_start)
+>   .section .text
+>   .global boot_sec_cpu
+>   
+> +#ifdef CONFIG_HOTPLUG_CPU
+>   boot_sec_cpu:
+>   	/* clear all pending flags */
+>   	csrw sip, zero
+> @@ -162,6 +163,7 @@ boot_sec_cpu:
+>   	fence
+>   
+>   	tail smp_callin
+> +#endif
+>   
+>   __PAGE_ALIGNED_BSS
+>   	/* Empty zero page */
+> 
 
-Ah, thank you so much.  This is great!  With this patch set applied on top of 
-rc7 I can boot QEMU master and get to the Fedora root file system.  I'll review 
-the patch set properly, but at least for now I think a
+Thanks for the fix. If you don't mind, I would like to merge it on top
+of my cpu hotplug patch and resubmit together to avoid confusion.
 
-Tested-by: Palmer Dabbelt <palmer@sifive.com>
 
-is warranted.  What's the best way to go about merging this?  There's quite a 
-bit of arch/riscv diff here so I don't mind taking it through the RISC-V tree, 
-but there's also some irqchip and clocksource stuff as well so I'm not sure if 
-that's OK to do.
+Regards,
+Atish
