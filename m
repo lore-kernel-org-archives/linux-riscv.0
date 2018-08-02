@@ -1,49 +1,62 @@
-From: lorenzo.pieralisi@arm.com (Lorenzo Pieralisi)
-Date: Thu, 2 Aug 2018 17:56:23 +0100
-Subject: [PATCH 3/3] PCI/xilinx: Depend on OF instead of the ARCH
-In-Reply-To: <20180801151403.20660-4-hch@lst.de>
-References: <20180801151403.20660-1-hch@lst.de>
- <20180801151403.20660-4-hch@lst.de>
-Message-ID: <20180802165623.GB13725@red-moon>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Thu, 02 Aug 2018 10:24:11 -0700 (PDT)
+Subject: simplified RISC-V interrupt and clocksource handling v2
+In-Reply-To: <20180802115008.4031-1-hch@lst.de>
+Message-ID: <mhng-1a7030e5-19c4-481b-9f7c-e0976214eb18@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Aug 01, 2018 at 05:14:03PM +0200, Christoph Hellwig wrote:
-> There isn't a hard dependency of the Xilinx AXI-PCIe host bridge on any
-> architecture.  For example: at SiFive we map RISC-V cores to Xilinx FPGAs
-> and connect the Xilinx IP via a TileLink adapter, so the RISC-V Linux
-> port will need to be able to enable PCIE_XILINX in order to have PCIe
-> support.
-> 
-> This patch decouples the PCIE_XILINX support from ARCH.  Instead it just
-> depends on OF, which I believe is the only true dependency.
-> 
-> Signed-off-by: Palmer Dabbelt <palmer@dabbelt.com>
-> [hch: switch to OF instead of OF_PCI now that the latter is gone]
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  drivers/pci/controller/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+On Thu, 02 Aug 2018 04:49:57 PDT (-0700), Christoph Hellwig wrote:
+> This series tries adds support for interrupt handling and timers
+> for the RISC-V architecture.
+>
+> The basic per-hart interrupt handling implemented by the scause
+> and sie CSRs is extremely simple and implemented directly in
+> arch/riscv/kernel/irq.c.  In addition there is a irqchip driver
+> for the PLIC external interrupt controller, which is called through
+> the set_handle_irq API, and a clocksource driver that gets its
+> timer interrupt directly from the low-level interrupt handling.
+>
+> Compared to previous iterations this version does not try to use an
+> irqchip driver for the low-level interrupt handling.  This saves
+> a couple indirect calls and an additional read of the scause CSR
+> in the hot path, makes the code much simpler and last but not least
+> avoid the dependency on a device tree for a mandatory architectural
+> feature.
+>
+> A git tree is available here (contains a few more patches before
+> the ones in this series)
+>
+>     git://git.infradead.org/users/hch/riscv.git riscv-irq-simple.2
+>
+> Gitweb:
+>
+>     http://git.infradead.org/users/hch/riscv.git/shortlog/refs/heads/riscv-irq-simple.2
+>
+> Changes since v1:
+>  - rename the plic driver to irq-sifive-plic
+>  - switch to a default compatible of sifive,plic0 (still supporting the
+>    riscv,plic0 name for compatibility)
+>  - add a reference for the SiFive PLIC register layout
+>  - fix plic_toggle addressing for large numbers of hwirqs
+>  - remove the call to ack_bad_irq
+>  - use a raw spinlock for plic_toggle_lock
+>  - use the irq_desc cpumask in the plic enable/disable methods
+>  - add back OF contexid parsing in the plic driver
+>  - don't allow COMPILE_TEST builds of the clocksource driver, as it
+>    depends on <asm/sbi.h>
+>  - default the clocksource driver to y
+>  - clean up naming in the clocksource driver
+>  - remove the MINDELTA and MAXDELTA #defines
+>  - various DT binding fixes
 
-I could have taken it for this merge window but unfortunately it is a
-bit late (ie PCI patches queue is close), I can certainly queue it up
-for v4.20 though.
+Ah, thank you so much.  This is great!  With this patch set applied on top of 
+rc7 I can boot QEMU master and get to the Fedora root file system.  I'll review 
+the patch set properly, but at least for now I think a
 
-Lorenzo
+Tested-by: Palmer Dabbelt <palmer@sifive.com>
 
-> diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-> index cc9fa02d32a0..0f7ce5eaeac8 100644
-> --- a/drivers/pci/controller/Kconfig
-> +++ b/drivers/pci/controller/Kconfig
-> @@ -102,7 +102,7 @@ config PCI_HOST_GENERIC
->  
->  config PCIE_XILINX
->  	bool "Xilinx AXI PCIe host bridge support"
-> -	depends on ARCH_ZYNQ || MICROBLAZE || (MIPS && PCI_DRIVERS_GENERIC) || COMPILE_TEST
-> +	depends on OF || COMPILE_TEST
->  	help
->  	  Say 'Y' here if you want kernel to support the Xilinx AXI PCIe
->  	  Host Bridge driver.
-> -- 
-> 2.18.0
-> 
+is warranted.  What's the best way to go about merging this?  There's quite a 
+bit of arch/riscv diff here so I don't mind taking it through the RISC-V tree, 
+but there's also some irqchip and clocksource stuff as well so I'm not sure if 
+that's OK to do.
