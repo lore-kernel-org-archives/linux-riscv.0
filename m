@@ -1,49 +1,48 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 02 Aug 2018 17:14:39 -0700 (PDT)
-Subject: [RFC PATCH 2/2] riscv: Introduce per cpu based local timer
- interrupt
-In-Reply-To: <f75795ac-9f13-83b1-b67d-248155e94bb6@arm.com>
-Message-ID: <mhng-ad94c766-4d9f-4ad7-a5e0-15c39480c3ba@palmer-si-x1c4>
+From: zongbox@gmail.com (Zong Li)
+Date: Fri, 3 Aug 2018 08:27:57 +0800
+Subject: [PATCH] RISC-V: Add preprocessor directives for boot_sec_cpu
+In-Reply-To: <27367ec8-fc26-c678-1883-299a084a5328@wdc.com>
+References: <1533223376-10130-1-git-send-email-zong@andestech.com>
+ <27367ec8-fc26-c678-1883-299a084a5328@wdc.com>
+Message-ID: <CA+ZOyaiyaVqgba-pLABJgZHVTep8LXiiLQnT+dtCppdvJy36Zw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, 05 Jul 2018 08:58:59 PDT (-0700), marc.zyngier at arm.com wrote:
-> On 05/07/18 16:42, hch at infradead.org wrote:
->> On Thu, Jul 05, 2018 at 08:48:23AM +0100, Marc Zyngier wrote:
->>> Here, you have discrete timers, discrete irqchip, and thus individual
->>> domains. You might as well keep everything as non-percpu interrupts with
->>> a fixed affinity, assuming each HLIC is reachable from any CPU (which
->>> cannot universally work on ARM).
->>
->> The hart level interrupt controller is based around RISC-V control
->> registers, which per defintion are CPU local.  So you can't touch them
->> at all from other cores and any access of the remote 'irqchip' needs
->> and IPI.
+Atish Patra <atish.patra@wdc.com> ? 2018?8?3? ?? ??2:14???
 >
-> Then this is no different from what we have on ARM with GICv1/v2, where
-> private interrupts are strictly private, and cannot be accessed from
-> another CPU.
+> On 8/2/18 8:23 AM, Zong Li wrote:
+> > The boot_sec_cpu is for hutplug CPU on SMP system. It should
+> > be conditional compiling. Otherwise, it causes undefined reference
+> > to `smp_callin' when compiling uniprocessor kernel.
+> >
+> > Signed-off-by: Zong Li <zong@andestech.com>
+> > ---
+> >   arch/riscv/kernel/head.S | 2 ++
+> >   1 file changed, 2 insertions(+)
+> >
+> > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> > index 11066d5..9b6f601 100644
+> > --- a/arch/riscv/kernel/head.S
+> > +++ b/arch/riscv/kernel/head.S
+> > @@ -154,6 +154,7 @@ END(_start)
+> >   .section .text
+> >   .global boot_sec_cpu
+> >
+> > +#ifdef CONFIG_HOTPLUG_CPU
+> >   boot_sec_cpu:
+> >       /* clear all pending flags */
+> >       csrw sip, zero
+> > @@ -162,6 +163,7 @@ boot_sec_cpu:
+> >       fence
+> >
+> >       tail smp_callin
+> > +#endif
+> >
+> >   __PAGE_ALIGNED_BSS
+> >       /* Empty zero page */
+> >
 >
->> I'm not an irqchip expert, but sometimes I really wonder if the irqchip
->> framework really is the right abstraction for this.
-> Well, it served us pretty well so far. Seems like RISC-V has decided to
-> describe the HW in a subtly (and maybe pointlessly?) different way,
-> rather than reusing the existing abstraction. It is not necessarily bad,
-> but it just makes things more difficult.
-
-I think a lot of this boils down to me not really knowing what I'm doing :).  
-The device tree descriptions we provide are generated along with the hardware, 
-so they tend to match the structure of the hardware.  In this case there's an 
-interrupt widget inside each core, and the generation of that RTL triggers the 
-generation of this device tree.  There's then a platform-level interrupt 
-controller (which looks a lot more like the GIC) that triggers the generation 
-of a global interrupt controller device tree node.  We do end up with a bunch 
-of messiness this way, so I'm fine changing it -- we're essentially defining 
-the RISC-V device tree standard here, and I consider that all up for change 
-until we start writing down a platform specification to formalize it.
-
-While I still haven't given it a proper look, I believe Christoph has a 
-solution that meshes a bit better with how these things are generally done that 
-was just sent out for review.
-
-Thanks for the feedback, and sorry I'm so slow!
+> Thanks for the fix. If you don't mind, I would like to merge it on top
+> of my cpu hotplug patch and resubmit together to avoid confusion.
+>
+OK, just take it:)
