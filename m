@@ -1,48 +1,81 @@
-From: zongbox@gmail.com (Zong Li)
-Date: Fri, 3 Aug 2018 08:27:57 +0800
-Subject: [PATCH] RISC-V: Add preprocessor directives for boot_sec_cpu
-In-Reply-To: <27367ec8-fc26-c678-1883-299a084a5328@wdc.com>
-References: <1533223376-10130-1-git-send-email-zong@andestech.com>
- <27367ec8-fc26-c678-1883-299a084a5328@wdc.com>
-Message-ID: <CA+ZOyaiyaVqgba-pLABJgZHVTep8LXiiLQnT+dtCppdvJy36Zw@mail.gmail.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Thu, 02 Aug 2018 18:26:58 -0700 (PDT)
+Subject: [PATCH v3 3/7] riscv: Delete asm/compat.h
+In-Reply-To: <20180707054247.19802-4-deepa.kernel@gmail.com>
+Message-ID: <mhng-ca3e24c4-d59b-491d-a9c5-c8466168b638@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Atish Patra <atish.patra@wdc.com> ? 2018?8?3? ?? ??2:14???
+On Fri, 06 Jul 2018 22:42:43 PDT (-0700), deepa.kernel at gmail.com wrote:
+> riscv does not enable CONFIG_COMPAT in default configurations:
+> defconfig, allmodconfig and allnoconfig.
+> Remove the asm/compat.h as it does not seem to add any value to
+> the architecture without CONFIG_COMPAT.
 >
-> On 8/2/18 8:23 AM, Zong Li wrote:
-> > The boot_sec_cpu is for hutplug CPU on SMP system. It should
-> > be conditional compiling. Otherwise, it causes undefined reference
-> > to `smp_callin' when compiling uniprocessor kernel.
-> >
-> > Signed-off-by: Zong Li <zong@andestech.com>
-> > ---
-> >   arch/riscv/kernel/head.S | 2 ++
-> >   1 file changed, 2 insertions(+)
-> >
-> > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> > index 11066d5..9b6f601 100644
-> > --- a/arch/riscv/kernel/head.S
-> > +++ b/arch/riscv/kernel/head.S
-> > @@ -154,6 +154,7 @@ END(_start)
-> >   .section .text
-> >   .global boot_sec_cpu
-> >
-> > +#ifdef CONFIG_HOTPLUG_CPU
-> >   boot_sec_cpu:
-> >       /* clear all pending flags */
-> >       csrw sip, zero
-> > @@ -162,6 +163,7 @@ boot_sec_cpu:
-> >       fence
-> >
-> >       tail smp_callin
-> > +#endif
-> >
-> >   __PAGE_ALIGNED_BSS
-> >       /* Empty zero page */
-> >
+> Now that time compat syscalls are being reused in non CONFIG_COMPAT
+> modes, asm-generic/compat.h provides definitions for riscv 32 bit
+> mode.
 >
-> Thanks for the fix. If you don't mind, I would like to merge it on top
-> of my cpu hotplug patch and resubmit together to avoid confusion.
+> Alternative would be to make compat_time.h to be conditional on
+> CONFIG_COMPAT_32BIT_TIME. But, since riscv does not does not need
+> asm/compat.h, delete it instead.
 >
-OK, just take it:)
+> Signed-off-by: Deepa Dinamani <deepa.kernel@gmail.com>
+> Cc: palmer at sifive.com
+> Cc: linux-riscv at lists.infradead.org
+> ---
+>  arch/riscv/include/asm/Kbuild   |  1 +
+>  arch/riscv/include/asm/compat.h | 29 -----------------------------
+>  2 files changed, 1 insertion(+), 29 deletions(-)
+>  delete mode 100644 arch/riscv/include/asm/compat.h
+>
+> diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+> index 576ffdca06ba..efdbe311e936 100644
+> --- a/arch/riscv/include/asm/Kbuild
+> +++ b/arch/riscv/include/asm/Kbuild
+> @@ -1,6 +1,7 @@
+>  generic-y += bugs.h
+>  generic-y += cacheflush.h
+>  generic-y += checksum.h
+> +generic-y += compat.h
+>  generic-y += cputime.h
+>  generic-y += device.h
+>  generic-y += div64.h
+> diff --git a/arch/riscv/include/asm/compat.h b/arch/riscv/include/asm/compat.h
+> deleted file mode 100644
+> index 044aecff8854..000000000000
+> --- a/arch/riscv/include/asm/compat.h
+> +++ /dev/null
+> @@ -1,29 +0,0 @@
+> -/*
+> - * Copyright (C) 2012 ARM Ltd.
+> - *
+> - * This program is free software; you can redistribute it and/or modify
+> - * it under the terms of the GNU General Public License version 2 as
+> - * published by the Free Software Foundation.
+> - *
+> - * This program is distributed in the hope that it will be useful,
+> - * but WITHOUT ANY WARRANTY; without even the implied warranty of
+> - * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+> - * GNU General Public License for more details.
+> - *
+> - * You should have received a copy of the GNU General Public License
+> - * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+> - */
+> -#ifndef __ASM_COMPAT_H
+> -#define __ASM_COMPAT_H
+> -#ifdef CONFIG_COMPAT
+> -
+> -#if defined(CONFIG_64BIT)
+> -#define COMPAT_UTS_MACHINE "riscv64\0\0"
+> -#elif defined(CONFIG_32BIT)
+> -#define COMPAT_UTS_MACHINE "riscv32\0\0"
+> -#else
+> -#error "Unknown RISC-V base ISA"
+> -#endif
+> -
+> -#endif /*CONFIG_COMPAT*/
+> -#endif /*__ASM_COMPAT_H*/
+
+I thought we were using this to make uname print "riscv64" (or "riscv32") 
+instead of just "riscv"?  Is there another mechanism to do that?
