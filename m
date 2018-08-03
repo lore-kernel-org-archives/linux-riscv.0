@@ -1,24 +1,64 @@
-From: tglx@linutronix.de (Thomas Gleixner)
-Date: Fri, 3 Aug 2018 09:49:20 +0200 (CEST)
-Subject: simplified RISC-V interrupt and clocksource handling v2
-In-Reply-To: <mhng-1a7030e5-19c4-481b-9f7c-e0976214eb18@palmer-si-x1c4>
-References: <mhng-1a7030e5-19c4-481b-9f7c-e0976214eb18@palmer-si-x1c4>
-Message-ID: <alpine.DEB.2.21.1808030947480.1841@nanos.tec.linutronix.de>
+From: hch@lst.de (Christoph Hellwig)
+Date: Fri, 3 Aug 2018 14:29:58 +0200
+Subject: [PATCH 10/11] irqchip: add a SiFive PLIC driver
+In-Reply-To: <2416469e-c39e-6481-f5e0-ad191b858d06@wdc.com>
+References: <20180802115008.4031-1-hch@lst.de>
+ <20180802115008.4031-11-hch@lst.de>
+ <2416469e-c39e-6481-f5e0-ad191b858d06@wdc.com>
+Message-ID: <20180803122958.GA18301@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, 2 Aug 2018, Palmer Dabbelt wrote:
-> bit of arch/riscv diff here so I don't mind taking it through the RISC-V tree,
-> but there's also some irqchip and clocksource stuff as well so I'm not sure if
-> that's OK to do.
+On Thu, Aug 02, 2018 at 04:13:26PM -0700, Atish Patra wrote:
+>> + * which device 0 is defined as non-existant by the RISC-V Priviledged Spec.
+> /s/existant/existent
+>
+> /s/Priviledged/Privileged
+>> + * Each hart context has a vector of interupt enable bits associated with it.
+> /s/interupt/interrupt
 
-I have no objections if that goes through the risc-v tree once the DT stuff
-is sorted out.
+All fixed.
 
-For the clocksource and irqchip bits:
+>> +	WARN_ON_ONCE(!handler->present);
+>> +
+>> +	csr_clear(sie, SIE_STIE);
+>
+> We should clear the SIE_SEIE not SIE_STIE. Correct ?
 
-    Acked-by: Thomas Gleixner <tglx@linutronix.de>
+Yes, fixed.
 
-Thanks,
+>> +	if (plic_regs) {
+>> +		pr_warning("PLIC already present.\n");
+>
+> Got a check-patch warning.
+>
+> WARNING: Prefer pr_warn(... to pr_warning(...
+> #257: FILE: drivers/irqchip/irq-sifive-plic.c:191:
+> +               pr_warning("PLIC already present.\n");
 
-	tglx
+Fixed.
+
+>> +
+>> +		if (of_irq_parse_one(node, i, &parent)) {
+>> +			pr_err("failed to parse parent for contxt %d.\n", i);
+> /s/contxt/context
+
+Fixed.
+
+>> +			continue;
+>> +		}
+>> +
+>> +		/* skip context holes */
+>> +		if (parent.args[0] == -1)
+>> +			continue;
+>> +
+>> +		cpu = plic_find_hart_id(parent.np->parent);
+>
+> Since plic_find_hart_id() is going to walk up the DT, we can pass only 
+> parent.np instead of parent.np->parent. It does not increase any efficiency 
+> either way. So not very necessary. Just thought of taking the advantage of 
+> plic_find_hart_id.
+
+Yeah, I'll update this.
+
+Thanks for the review!
