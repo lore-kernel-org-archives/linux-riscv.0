@@ -1,33 +1,16 @@
-From: hch@infradead.org (Christoph Hellwig)
-Date: Sat, 4 Aug 2018 01:54:38 -0700
-Subject: [PATCH] RISC-V: Don't use a global include guard for
- uapi/asm/syscalls.h
-In-Reply-To: <20180803195344.22271-1-palmer@sifive.com>
-References: <20180803195344.22271-1-palmer@sifive.com>
-Message-ID: <20180804085438.GA15840@infradead.org>
+From: hch@lst.de (Christoph Hellwig)
+Date: Sat, 4 Aug 2018 11:58:51 +0200
+Subject: [PATCH 09/11] RISC-V: Support per-hart timebase-frequency
+In-Reply-To: <20180803123357.GC18301@lst.de>
+References: <20180802115008.4031-1-hch@lst.de>
+ <20180802115008.4031-10-hch@lst.de>
+ <fef973e1-6efc-0eff-2789-4a4b5b01900b@wdc.com>
+ <20180803123357.GC18301@lst.de>
+Message-ID: <20180804095851.GA12794@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-> index 818655b0d535..882a6aa09a33 100644
-> --- a/arch/riscv/include/uapi/asm/syscalls.h
-> +++ b/arch/riscv/include/uapi/asm/syscalls.h
-> @@ -1,10 +1,11 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> +// SPDX-License-Identifier: GPL-2.0
-
-/* */ is the required style for headers, // is only for other files.
-
-> +/* There is explicitly no include guard here because this file is expected to
-> + * be included multiple times in order to define the syscall macros via
-> + * __SYSCALL. */
-
-Normal Linux comment style would be:
-
-/*
- * There is explicitly no include guard here because this file is expected to
- * be included multiple times in order to define the syscall macros via
- * __SYSCALL.
- */
-
-Also syscalls.h isn't included directly anywhere, but through
-<asm/unistd.h>, so we'll probably need a similar comment there as well.
+Actually I had a slight change of heart: I'm going to drop both
+timebase frequence patches and the enable method documentation one
+from this series as they aren't strictly required to get a booting
+qemu kernel.
