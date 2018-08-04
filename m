@@ -1,59 +1,57 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri,  3 Aug 2018 12:53:44 -0700
-Subject: [PATCH] RISC-V: Don't use a global include guard for
- uapi/asm/syscalls.h
-Message-ID: <20180803195344.22271-1-palmer@sifive.com>
+From: palmer@dabbelt.com (Palmer Dabbelt)
+Date: Fri, 03 Aug 2018 18:48:43 -0700 (PDT)
+Subject: [PATCH 6/6] dt-bindings: interrupt-controller: RISC-V PLIC
+ documentation
+In-Reply-To: <CAL_JsqJWOXX7-_sb4W63wPRqFjHuU-DM-LNYgczieWjAE5ABfQ@mail.gmail.com>
+Message-ID: <mhng-6ecc7259-6cd2-4649-a0b5-be7c79176657@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This file is expected to be included multiple times in the same file in
-order to allow the __SYSCALL macro to generate system call tables.  With
-a global include guard we end up missing __NR_riscv_flush_icache in the
-syscall table, which results in icache flushes that escape the vDSO call
-to not actually do anything.
+On Wed, 01 Aug 2018 11:26:31 PDT (-0700), robh at kernel.org wrote:
+> On Wed, Aug 1, 2018 at 1:12 AM Christoph Hellwig <hch@lst.de> wrote:
+>>
+>> On Tue, Jul 31, 2018 at 04:46:30PM -0600, Rob Herring wrote:
+>> > Perhaps this should be 'sifive,plic0'
+>>
+>> Excepet for the fact this the old name has already been in shipping
+>> hardware and release of qemu and other emulators it should.
+>
+> Not really my problem that they didn't follow the process and upstream
+> their binding first. But this alone is just a string identifier, so I
+> don't really care that much. If things are really a mess, then the
+> next implementations will have to have better compatible strings. More
+> likely, I'll just see folks trying to add various properties to deal
+> with all the differences.
+>
+> You could always define a better compatible and leave 'riscv,plic0' as
+> a fallback to avoid breaking things.
 
-The fix is to move to per-#define include guards, which allows the
-system call tables to actually be populated.  Thanks to Macrus Comstedt
-for finding and fixing the bug!
+Ya, sorry about that.  FWIW, we don't consider any of the bindings stable until 
+they're actually accepted upstream, so it's on us to fix our bootloaders to 
+match what actually lands upstream.  Luckily there's not that much hardware out 
+there and none of it is in production, so I'm OK forcing people to upgrade 
+bootloaders to make this all work.
 
-I also went ahead and fixed the SPDX header to use a //-style comment,
-which I've been told is the canonical way to do it.
+I think it's probably best to leave the extra compat string out of the kernel 
+proper, as then it'll never be enshrined as a RISC-V standard.
 
-Cc: Marcus Comstedt <marcus@mc.pp.se>
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- arch/riscv/include/uapi/asm/syscalls.h | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+>> > Normally this would have an SoC specific compatible too. Sometimes we
+>> > can get away without, but it doesn't seem like the PLIC is very tightly
+>> > specified nor has common implementations.
+>>
+>> It is a giant f***cking mess to be honest.  Adding a highlevel spec
+>> to the ISA but not a register layout is completely idotic, but if you
+>> look at the current riscv-sw list this decision is still defended by
+>> SiFive / the RISC-V foundation.  The whole stale of the RISC-V platform
+>> Ecosystem is rather pathetic unfortunately, and people don't seem to
+>> be willing to learn from past good practice nor mistakes in ARM land.
+>
+> Interrupt controllers are where the differentiation is. ;)
 
-diff --git a/arch/riscv/include/uapi/asm/syscalls.h b/arch/riscv/include/uapi/asm/syscalls.h
-index 818655b0d535..882a6aa09a33 100644
---- a/arch/riscv/include/uapi/asm/syscalls.h
-+++ b/arch/riscv/include/uapi/asm/syscalls.h
-@@ -1,10 +1,11 @@
--/* SPDX-License-Identifier: GPL-2.0 */
-+// SPDX-License-Identifier: GPL-2.0
- /*
-- * Copyright (C) 2017 SiFive
-+ * Copyright (C) 2017-2018 SiFive
-  */
- 
--#ifndef _ASM__UAPI__SYSCALLS_H
--#define _ASM__UAPI__SYSCALLS_H
-+/* There is explicitly no include guard here because this file is expected to
-+ * be included multiple times in order to define the syscall macros via
-+ * __SYSCALL. */
- 
- /*
-  * Allows the instruction cache to be flushed from userspace.  Despite RISC-V
-@@ -20,7 +21,7 @@
-  * caller.  We don't currently do anything with the address range, that's just
-  * in there for forwards compatibility.
-  */
-+#ifndef __NR_riscv_flush_icache
- #define __NR_riscv_flush_icache (__NR_arch_specific_syscall + 15)
--__SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
--
- #endif
-+__SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
--- 
-2.16.4
+Again, sorry about that :).  The RISC-V platform specification really should 
+have started a year ago, but I'm afraid there's just a bit too much going on on 
+my end.
+
+If it helps any, we just submitted a plumbers dev room with one topic being the 
+RISC-V platform spec, so I guess I'm in official trouble now it there isn't at 
+least something to talk about by November...
