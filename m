@@ -1,40 +1,42 @@
-From: hch@lst.de (Christoph Hellwig)
-Date: Sat,  4 Aug 2018 12:14:02 +0200
-Subject: [PATCH 3/3] PCI/xilinx: Depend on OF instead of the ARCH
-In-Reply-To: <20180804101402.10022-1-hch@lst.de>
-References: <20180804101402.10022-1-hch@lst.de>
-Message-ID: <20180804101402.10022-4-hch@lst.de>
+From: tglx@linutronix.de (Thomas Gleixner)
+Date: Sat, 4 Aug 2018 18:40:26 +0200 (CEST)
+Subject: [PATCH 3/6] irqchip: RISC-V Local Interrupt Controller Driver
+In-Reply-To: <mhng-f79111da-51d4-483e-86ce-ff0a41c3b5bc@palmer-si-x1c4>
+References: <mhng-f79111da-51d4-483e-86ce-ff0a41c3b5bc@palmer-si-x1c4>
+Message-ID: <alpine.DEB.2.21.1808041837130.1658@nanos.tec.linutronix.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-There isn't a hard dependency of the Xilinx AXI-PCIe host bridge on any
-architecture.  For example: at SiFive we map RISC-V cores to Xilinx FPGAs
-and connect the Xilinx IP via a TileLink adapter, so the RISC-V Linux
-port will need to be able to enable PCIE_XILINX in order to have PCIe
-support.
+On Fri, 3 Aug 2018, Palmer Dabbelt wrote:
+> On Wed, 01 Aug 2018 11:55:06 PDT (-0700), tglx at linutronix.de wrote:
+> > Is there some high level documentation about the design (or the lack of) or
+> > can someone give a concise explanation how this stuff is supposed to work?
+> As part of our original push to upstream the arch code it was suggested that
+> we move this out to an irqchip driver, but after actually attempting to do
+> that it appears that the mechanics of doing so have overshadowed the
+> complexity of the actual interrupt handling code, which is only a dozen or so
+> instructions.  In retrospect this is just another instance of me not knowing
+> what I'm doing, sorry!
+> 
+> I like Christoph's approach of merging the ISA-mandated interrupt handling
+> code back into arch/riscv, as it's much saner that way.  The one big headache
+> is that because we special-cased timer interrupts in the ISA they now
+> disappear from the standard Linux mechanisms for handling these.
+> 
+> That said, I'd rather have this warts and all then wait around for something
+> perfect, as maintaining a dozen or so out of tree drivers that are tightly
+> coupled to the core arch code has proven to be a mess.  If we can get the code
+> upstream then everyone will be on the same page so we can work on actually
+> improving this, as opposed to just spinning our wheels keeping this big mess
+> alive.
+> 
+> Hopefully that makes some amount of sense...
 
-This patch decouples the PCIE_XILINX support from ARCH.  Instead it just
-depends on OF, which I believe is the only true dependency.
+Thanks for the detailed explanation. It's what I extracted from the
+documents to which Christoph pointed me. And as I said in the other thread
+it does not realiy make sense to force that low level mechanism into an irq
+chip. That would be overkill for no real value.
 
-Signed-off-by: Palmer Dabbelt <palmer@dabbelt.com>
-[hch: switch to OF instead of OF_PCI now that the latter is gone]
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- drivers/pci/controller/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks,
 
-diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-index cc9fa02d32a0..0f7ce5eaeac8 100644
---- a/drivers/pci/controller/Kconfig
-+++ b/drivers/pci/controller/Kconfig
-@@ -102,7 +102,7 @@ config PCI_HOST_GENERIC
- 
- config PCIE_XILINX
- 	bool "Xilinx AXI PCIe host bridge support"
--	depends on ARCH_ZYNQ || MICROBLAZE || (MIPS && PCI_DRIVERS_GENERIC) || COMPILE_TEST
-+	depends on OF || COMPILE_TEST
- 	help
- 	  Say 'Y' here if you want kernel to support the Xilinx AXI PCIe
- 	  Host Bridge driver.
--- 
-2.18.0
+	tglx
