@@ -1,19 +1,28 @@
 From: hch@lst.de (Christoph Hellwig)
-Date: Sat, 4 Aug 2018 12:12:53 +0200
-Subject: [PATCH 3/3] PCI/xilinx: Depend on OF instead of the ARCH
-In-Reply-To: <20180802165623.GB13725@red-moon>
-References: <20180801151403.20660-1-hch@lst.de>
- <20180801151403.20660-4-hch@lst.de> <20180802165623.GB13725@red-moon>
-Message-ID: <20180804101253.GB12948@lst.de>
+Date: Sat,  4 Aug 2018 12:13:59 +0200
+Subject: add support for Xilinx PCIe root ports on RISC-V v3
+Message-ID: <20180804101402.10022-1-hch@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Aug 02, 2018 at 05:56:23PM +0100, Lorenzo Pieralisi wrote:
-> I could have taken it for this merge window but unfortunately it is a
-> bit late (ie PCI patches queue is close), I can certainly queue it up
-> for v4.20 though.
+Hi all,
 
-It is a little sad that we can't take a trivial kconfig patch more than a
-week before the end of the merge window.  But then against given how long
-a version of this patch has been around and not submitted who am I to
-complain..
+this series with patches originally from Palmer and Wesley adds support
+for the pcie-xilinx host driver on RISC-V boards.  The interesting part
+about that is that the IP blocks is limited to 32-bit DMA internally,
+which didn't seem to be an issue with the existing users, but shows
+up easily with the Sifive RISC-V boards that have physical memory
+wired up above 4G.
+
+Note that patches 1 and 2 depend on changes in the dma-mapping tree
+to add the bus_dma_mask field to struct device and would have to merge
+through the dma-mapping tree or a shared stable branch.  Patch 3 could
+be merged independently.
+
+Changes since v2:
+ - rename the add_dev callback to add_device and allow it to return an
+   error code (to allow it to replace pcibios_add_device in the future)
+
+Changes since v1:
+ - move the add_dev method to struct pci_host_bridge
+ - use the new bus_dma_mask field
