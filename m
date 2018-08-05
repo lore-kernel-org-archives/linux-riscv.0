@@ -1,63 +1,26 @@
-From: wesley@sifive.com (Wesley Terpstra)
-Date: Sun, 5 Aug 2018 13:02:58 -0700
-Subject: [PATCH 2/3] PCI/xilinx: Work-around for hardware DMA limit (32
- bits)
-In-Reply-To: <20180804101402.10022-3-hch@lst.de>
-References: <20180804101402.10022-1-hch@lst.de>
- <20180804101402.10022-3-hch@lst.de>
-Message-ID: <CAMgXwTgr572J_HH396tfvT7Zj8Jj0fefKOSmVw2+Gwn8qcPR1g@mail.gmail.com>
+From: arnd@arndb.de (Arnd Bergmann)
+Date: Sun, 5 Aug 2018 23:29:30 +0200
+Subject: [PATCH v3 3/7] riscv: Delete asm/compat.h
+In-Reply-To: <20180803073916.GA19580@infradead.org>
+References: <20180707054247.19802-4-deepa.kernel@gmail.com>
+ <mhng-ca3e24c4-d59b-491d-a9c5-c8466168b638@palmer-si-x1c4>
+ <20180803073916.GA19580@infradead.org>
+Message-ID: <CAK8P3a2i2Por7Xy_7GQEbdOx_CW4jF69MW3VXqc8AnxFjEd4BQ@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-FYI, This Xilinx PCIe IP 32-bit cap only applies to SOME instances of
-the IP. The Ultrascale+ version of Xilinx PCIe hard IP does support
-64-bit or 32-bit. The Virtex7 version only supports 32-bit. The
-pcie-xilinx driver woks with both of these root complexes. So probably
-there should be a conditional hook in the DTS that triggers the
-work-around behaviour.
+On Fri, Aug 3, 2018 at 9:39 AM, Christoph Hellwig <hch@infradead.org> wrote:
+> On Thu, Aug 02, 2018 at 06:26:58PM -0700, Palmer Dabbelt wrote:
+>> I thought we were using this to make uname print "riscv64" (or "riscv32")
+>> instead of just "riscv"?  Is there another mechanism to do that?
+>
+> That is set in the UTS_MACHINE variable in arch/riscv/Makefile
+> and doesn't involve compat.h at all except when actually implementing
+> 32-bit compat on 64 bit, which RISC-V doesn't (at least yet).
 
-On Sat, Aug 4, 2018 at 3:14 AM, Christoph Hellwig <hch@lst.de> wrote:
-> This PCIe bridge only has a 32 bit bus master interface, thus truncating
-> the DMA capability of all PCIe devices attached beneath it. This caps
-> the child device capability so that these devices work on systems with
-> physical memory beyond the 4GiB threshold.
->
-> Based on an earlier patch from Wesley W. Terpstra <wesley@sifive.com>.
->
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  drivers/pci/controller/pcie-xilinx.c | 11 +++++++++++
->  1 file changed, 11 insertions(+)
->
-> diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controller/pcie-xilinx.c
-> index 7b1389d8e2a5..ccfd91e0515f 100644
-> --- a/drivers/pci/controller/pcie-xilinx.c
-> +++ b/drivers/pci/controller/pcie-xilinx.c
-> @@ -197,6 +197,16 @@ static void __iomem *xilinx_pcie_map_bus(struct pci_bus *bus,
->         return port->reg_base + relbus + where;
->  }
->
-> +/*
-> + * This PCIe bridge only has a 32 bit bus master interface, thus truncating
-> + * the DMA capability of all PCIe devices attached beneath it.
-> + */
-> +static int xilinx_pcie_add_device(struct pci_dev *pdev)
-> +{
-> +       pdev->dev.bus_dma_mask = DMA_BIT_MASK(32);
-> +       return 0;
-> +}
-> +
->  /* PCIe operations */
->  static struct pci_ops xilinx_pcie_ops = {
->         .map_bus = xilinx_pcie_map_bus,
-> @@ -665,6 +675,7 @@ static int xilinx_pcie_probe(struct platform_device *pdev)
->         bridge->ops = &xilinx_pcie_ops;
->         bridge->map_irq = of_irq_parse_and_map_pci;
->         bridge->swizzle_irq = pci_common_swizzle;
-> +       bridge->add_device = xilinx_pcie_add_device;
->
->  #ifdef CONFIG_PCI_MSI
->         xilinx_pcie_msi_chip.dev = dev;
-> --
-> 2.18.0
->
+Note that the logic was also wrong, if we had an implementation of
+CONFIG_COMPAT for arch/riscv, it would always result in the
+"riscv64" string for both PER_LINUX and PER_LINUX32, when
+it should be "riscv32" for the PER_LINUX32 personaliy.
+
+      Arnd
