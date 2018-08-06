@@ -1,41 +1,45 @@
-From: lorenzo.pieralisi@arm.com (Lorenzo Pieralisi)
-Date: Mon, 6 Aug 2018 14:40:43 +0100
-Subject: [PATCH 2/3] PCI/xilinx: Work-around for hardware DMA limit (32
- bits)
-In-Reply-To: <20180806123527.GB6997@lst.de>
+From: arnd@arndb.de (Arnd Bergmann)
+Date: Mon, 6 Aug 2018 15:54:13 +0200
+Subject: [PATCH 1/3] PCI: add a callback to struct pci_host_bridge for
+ adding a new device
+In-Reply-To: <20180806123051.GA6997@lst.de>
 References: <20180804101402.10022-1-hch@lst.de>
- <20180804101402.10022-3-hch@lst.de>
- <CAMgXwTgr572J_HH396tfvT7Zj8Jj0fefKOSmVw2+Gwn8qcPR1g@mail.gmail.com>
- <20180806123527.GB6997@lst.de>
-Message-ID: <20180806134043.GD18685@e107981-ln.cambridge.arm.com>
+ <20180804101402.10022-2-hch@lst.de>
+ <20180806112310.GB18685@e107981-ln.cambridge.arm.com>
+ <20180806123051.GA6997@lst.de>
+Message-ID: <CAK8P3a0XyK+j4Z+xhxOYKa=5gHmFnWd7=fU=6A3=VkBXxWjSsw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Aug 06, 2018 at 02:35:27PM +0200, Christoph Hellwig wrote:
-> On Sun, Aug 05, 2018 at 01:02:58PM -0700, Wesley Terpstra wrote:
-> > FYI, This Xilinx PCIe IP 32-bit cap only applies to SOME instances of
-> > the IP. The Ultrascale+ version of Xilinx PCIe hard IP does support
-> > 64-bit or 32-bit. The Virtex7 version only supports 32-bit. The
-> > pcie-xilinx driver woks with both of these root complexes. So probably
-> > there should be a conditional hook in the DTS that triggers the
-> > work-around behaviour.
-> 
-> Either we'll need to able to detect which version we use based on
-> registrs, or we will indeed need firmware information.
-> 
-> Note that we already have the mechanism for firmware directed dma limits
-> in place, it is called the dma-ranges DT property.  If we can get the
-> SiFive firmware to set it up properly the RISC-V swiotlb code will
-> just do the right thing.
+On Mon, Aug 6, 2018 at 2:25 PM Christoph Hellwig <hch@lst.de> wrote:
+>
+> On Mon, Aug 06, 2018 at 12:23:10PM +0100, Lorenzo Pieralisi wrote:
+> > >     pci_configure_device(dev);
+> > > @@ -2328,6 +2329,11 @@ void pci_device_add(struct pci_dev *dev, struct pci_bus *bus)
+> > >     ret = pcibios_add_device(dev);
+> > >     WARN_ON(ret < 0);
+> > >
+> > > +   if (host->add_device) {
+> > > +           ret = host->add_device(dev);
+> > > +           WARN_ON(ret < 0);
+> > > +   }
+> >
+> > This looks fine; we could go a step further and make the hunk above
+> > the default (weak) implementation of pcibios_add_device() that is
+> > currently a NOP returning 0, I will remove it for v4.20.
+>
+> I'd love to see pcibios_add_device go away entirely.  But I wonder how to
+> get setup the pci_host_bridge pointer for the remaining architectures that
+> still implement it.  I did look for any easy way but couldn't find one.
+> But then I don't really know this area of the PCI code too well.
 
-It would do the right thing without patches 1 and 2 (I would
-consider merging patch 1 anyway - see pcibios_add_device()
-removal).
+If the platform doesn't already have a pointer to its pci_host_bridge
+structure, it can call pci_find_host_bridge(bus->dev) to get it.
 
-It seems to me that the best course of action consists in patching
-firmware, that would remove the need for patch 2 (I will merge patch
-1 anyway - even if that's for a "different" purpose, see
-pcibios_add_device() removal), please let us know.
+Ideally, platforms (either arch specific code or drivers/pci/controller)
+should call pci_alloc_host_bridge()/pci_register_host_bridge()
+instead of the traditional pci_create_root_bus() that is less flexible.
+That way, the driver specific structure can get allocated together with
+the host bridge.
 
-Thanks,
-Lorenzo
+         Arnd
