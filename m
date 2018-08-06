@@ -1,32 +1,45 @@
-From: alistair.francis@wdc.com (Alistair Francis)
-Date: Mon,  6 Aug 2018 15:10:09 -0700
-Subject: [PATCH 4/4] irq-riscv-plic: Update function name
+From: j.neuschaefer@gmx.net (Jonathan =?utf-8?Q?Neusch=C3=A4fer?=)
+Date: Tue, 7 Aug 2018 01:13:05 +0200
+Subject: [PATCH 1/4] pcie-microsemi: Add support for the Vera-board root
+ complex
 In-Reply-To: <20180806221009.12466-1-alistair.francis@wdc.com>
 References: <20180806221009.12466-1-alistair.francis@wdc.com>
-Message-ID: <20180806221009.12466-4-alistair.francis@wdc.com>
+Message-ID: <20180806231305.GG2377@latitude>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Update the function riscv_of_processor_hart() name to the new
-riscv_of_processor_hartid() name.
+Hi,
 
-Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
----
- drivers/irqchip/irq-riscv-plic.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Mon, Aug 06, 2018 at 03:10:06PM -0700, Alistair Francis wrote:
+> From: "Wesley W. Terpstra" <wesley@sifive.com>
+> 
+> [Changes by AF:
+>  - Rebase on 4.18 kernel
+>  - Squash previous commits
+> ]
+> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+> ---
+[...]
+> +static const struct of_device_id microsemi_pcie_of_match[] = {
+> +        { .compatible = "ms-pf,axi-pcie-host", },
+> +        {}
+> +};
 
-diff --git a/drivers/irqchip/irq-riscv-plic.c b/drivers/irqchip/irq-riscv-plic.c
-index 99e79713abc6..9a94646fcd53 100644
---- a/drivers/irqchip/irq-riscv-plic.c
-+++ b/drivers/irqchip/irq-riscv-plic.c
-@@ -343,7 +343,7 @@ static int plic_init(struct device_node *node, struct device_node *parent)
- 		/* skip any contexts that lead to inactive harts */
- 		if (of_device_is_compatible(parent.np, "riscv,cpu-intc") &&
- 		    parent.np->parent &&
--		    riscv_of_processor_hart(parent.np->parent) < 0)
-+		    riscv_of_processor_hartid(parent.np->parent) < 0)
- 			continue;
- 
- 		parent_irq = irq_create_of_mapping(&parent);
--- 
-2.17.1
+Two comments here:
+
+- I don't see ms-pf in Documentation/devicetree/bindings/vendor-prefixes.txt
+  For Microsemi, only mscc is listed.
+- Are the devicetree bindings for this device documented somewhere? It
+  might be a good idea to get them into Documentation/devicetree/bindings,
+  or add a link to them either to the commit message or the code itself.
+
+
+Thanks,
+Jonathan Neusch?fer
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180807/79692e77/attachment.sig>
