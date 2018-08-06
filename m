@@ -1,45 +1,51 @@
-From: j.neuschaefer@gmx.net (Jonathan =?utf-8?Q?Neusch=C3=A4fer?=)
-Date: Tue, 7 Aug 2018 01:13:05 +0200
-Subject: [PATCH 1/4] pcie-microsemi: Add support for the Vera-board root
- complex
-In-Reply-To: <20180806221009.12466-1-alistair.francis@wdc.com>
-References: <20180806221009.12466-1-alistair.francis@wdc.com>
-Message-ID: <20180806231305.GG2377@latitude>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Mon,  6 Aug 2018 16:17:36 -0700
+Subject: [RFC] RISC-V: Fix !CONFIG_SMP compilation error
+Message-ID: <1533597456-245169-1-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi,
+Enabling both CONFIG_PERF_EVENTS without !CONFIG_SMP
+generates following compilation error.
 
-On Mon, Aug 06, 2018 at 03:10:06PM -0700, Alistair Francis wrote:
-> From: "Wesley W. Terpstra" <wesley@sifive.com>
-> 
-> [Changes by AF:
->  - Rebase on 4.18 kernel
->  - Squash previous commits
-> ]
-> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
-> ---
-[...]
-> +static const struct of_device_id microsemi_pcie_of_match[] = {
-> +        { .compatible = "ms-pf,axi-pcie-host", },
-> +        {}
-> +};
+arch/riscv/include/asm/perf_event.h:80:2: error: expected
+specifier-qualifier-list before 'irqreturn_t'
 
-Two comments here:
+  irqreturn_t (*handle_irq)(int irq_num, void *dev);
+  ^~~~~~~~~~~
 
-- I don't see ms-pf in Documentation/devicetree/bindings/vendor-prefixes.txt
-  For Microsemi, only mscc is listed.
-- Are the devicetree bindings for this device documented somewhere? It
-  might be a good idea to get them into Documentation/devicetree/bindings,
-  or add a link to them either to the commit message or the code itself.
+Include interrupt.h in proper place to avoid compilation
+error.
 
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ arch/riscv/include/asm/perf_event.h | 1 +
+ arch/riscv/kernel/perf_event.c      | 1 -
+ 2 files changed, 1 insertion(+), 1 deletion(-)
 
-Thanks,
-Jonathan Neusch?fer
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: signature.asc
-Type: application/pgp-signature
-Size: 833 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180807/79692e77/attachment.sig>
+diff --git a/arch/riscv/include/asm/perf_event.h b/arch/riscv/include/asm/perf_event.h
+index 0e638a0c..aefbfaa6 100644
+--- a/arch/riscv/include/asm/perf_event.h
++++ b/arch/riscv/include/asm/perf_event.h
+@@ -10,6 +10,7 @@
+ 
+ #include <linux/perf_event.h>
+ #include <linux/ptrace.h>
++#include <linux/interrupt.h>
+ 
+ #define RISCV_BASE_COUNTERS	2
+ 
+diff --git a/arch/riscv/kernel/perf_event.c b/arch/riscv/kernel/perf_event.c
+index b0e10c4e..a243fae1 100644
+--- a/arch/riscv/kernel/perf_event.c
++++ b/arch/riscv/kernel/perf_event.c
+@@ -27,7 +27,6 @@
+ #include <linux/mutex.h>
+ #include <linux/bitmap.h>
+ #include <linux/irq.h>
+-#include <linux/interrupt.h>
+ #include <linux/perf_event.h>
+ #include <linux/atomic.h>
+ #include <linux/of.h>
+-- 
+2.7.4
