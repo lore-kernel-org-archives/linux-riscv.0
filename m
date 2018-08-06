@@ -1,35 +1,35 @@
-From: palmer@dabbelt.com (Palmer Dabbelt)
-Date: Mon, 06 Aug 2018 13:34:23 -0700 (PDT)
-Subject: [PATCH 09/11] RISC-V: Support per-hart timebase-frequency
-In-Reply-To: <20180803123357.GC18301@lst.de>
-Message-ID: <mhng-d315d8a6-c4db-4ec8-927b-fc9f1d8e7872@palmer-si-x1c4>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Mon,  6 Aug 2018 13:42:57 -0700
+Subject: RISC-V: Don't use a global include guard for uapi/asm/syscalls.h
+In-Reply-To: <20180804085438.GA15840@infradead.org>
+References: <20180804085438.GA15840@infradead.org>
+Message-ID: <20180806204258.22280-1-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, 03 Aug 2018 05:33:57 PDT (-0700), Christoph Hellwig wrote:
-> On Thu, Aug 02, 2018 at 03:19:49PM -0700, Atish Patra wrote:
->> On 8/2/18 4:50 AM, Christoph Hellwig wrote:
->>> From: Palmer Dabbelt <palmer@sifive.com>
->>>
->>> Follow the updated DT specs and read the timebase-frequency from the
->>> CPU 0 node.
->>>
->>
->> However, the DT in the HighFive Unleashed has the entry at the wrong place.
->>
->> Even the example in github also at wrong place.
->> https://github.com/riscv/riscv-device-tree-doc/pull/8/commits/2461d481329c55005fcbe684f0d6bdb3b7f0a432
->>
->> DT should be consistent between Documentation and the one in the hardware.
->> I can fix them in bbl & submit a bbl patch. But I am not sure if that's an
->> acceptable way to do it.
+On Sat, 04 Aug 2018 01:54:38 PDT (-0700), Christoph Hellwig wrote:
+>> index 818655b0d535..882a6aa09a33 100644
+>> --- a/arch/riscv/include/uapi/asm/syscalls.h
+>> +++ b/arch/riscv/include/uapi/asm/syscalls.h
+>> @@ -1,10 +1,11 @@
+>> -/* SPDX-License-Identifier: GPL-2.0 */
+>> +// SPDX-License-Identifier: GPL-2.0
 >
-> I'll need to have comments from Palmer and/or someone else at SiFive
-> here.  Personally I really don't care where we document the timebase,
-> as this patch supports both locations anywhere.  For now I'll just update
-> the commit log to state that more explicitly.
+> /* */ is the required style for headers, // is only for other files.
+>
+>> +/* There is explicitly no include guard here because this file is expected to
+>> + * be included multiple times in order to define the syscall macros via
+>> + * __SYSCALL. */
+>
+> Normal Linux comment style would be:
+>
+> /*
+>  * There is explicitly no include guard here because this file is expected to
+>  * be included multiple times in order to define the syscall macros via
+>  * __SYSCALL.
+>  */
+>
+> Also syscalls.h isn't included directly anywhere, but through
+> <asm/unistd.h>, so we'll probably need a similar comment there as well.
 
-You're welcome to submit a BBL patch to make this all match, but from my 
-understanding of the device tree spec putting timebase-frequency in either 
-place should be legal so it's not a critical fix.  That said, it's better to 
-have them match than not match.
+I've attached a v2 with both of these fixed.  Thanks!
