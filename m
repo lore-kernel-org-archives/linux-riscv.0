@@ -1,68 +1,28 @@
-From: arnd@arndb.de (Arnd Bergmann)
-Date: Tue, 7 Aug 2018 22:15:36 +0200
-Subject: [PATCH 1/2] pcie-microsemi: Add support for the Vera-board root
- complex
-In-Reply-To: <CY4PR11MB1832A0C69637C6208A88C7B396270@CY4PR11MB1832.namprd11.prod.outlook.com>
-References: <CY4PR11MB1832A0C69637C6208A88C7B396270@CY4PR11MB1832.namprd11.prod.outlook.com>
-Message-ID: <CAK8P3a1CoLpw3aTY_UeF3mfzMvtedRsoMVEV-=WkMXue1ycTHw@mail.gmail.com>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Tue, 7 Aug 2018 16:02:51 -0700
+Subject: RISC-V Microconferece at LPC 2018
+Message-ID: <a62b828f-b129-0c98-5ef8-768be3b26fa6@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, Aug 7, 2018 at 8:18 PM <Daire.McNamara@microchip.com> wrote:
-> +
-> +/* PCIe operations */
-> +static struct pci_ops microsemi_pcie_ops = {
-> +        .map_bus = microsemi_pcie_map_bus,
-> +        .read        = pci_generic_config_read,
-> +        .write        = pci_generic_config_write,
-> +};
+Hi,
+We are planning to propose RISC-V Microconference at Linux Plumbers 
+2018. Here is the draft proposal hosted in Google doc with some initial 
+topics and expected participant list.
 
-Could you use pci_generic_ecam_ops here?
+https://docs.google.com/document/d/1u89GAZHmb7_YbW_ZwBK14YNQNUl-BqW4aRCXL7Eb3mo/edit
 
-> +        /* Setup MSI */
-> +        if (IS_ENABLED(CONFIG_PCI_MSI)) {
-> +                port->msi_domain = irq_domain_add_linear(node,
-> +                                                MICROSEMI_NUM_MSI_IRQS,
-> +                                                &msi_domain_ops,
-> +                                                &microsemi_pcie_msi_chip);
-> +                if (!port->msi_domain) {
-> +                        dev_err(dev, "Failed to get a MSI IRQ domain\n");
-> +                        return -ENODEV;
-> +                }
-> +                microsemi_pcie_enable_msi(port);
-> +        }
-> +
-> +        /* Enable interrupts */
-> +        writel(MICROSEMI_PCIE_ENABLE_MSI | MICROSEMI_PCIE_LOCAL_INT_ENABLE,
-> +                bridge_base_addr + MICROSEMI_IMASK_LOCAL);
-> +
-> +        return 0;
-> +}
+If anybody is interested to attend the miniconf in case it gets 
+accepted, please let me know. I will update the confirmed participant list.
 
-It looks like you unconditionally use the MSI controller integrated into
-the host brige. Since this is routed through a legacy interrupt, it would
-result in rather poor performance. It would be better to write the driver
-and binding in a way that allows the use of the CPU's real MSI
-controller if at all possible, and only fall back to the integrated one
-if that doesn't work.
+Moreover, if you would like to discuss any other topic during the 
+miniconf, feel free to edit the document or just reply to me with your 
+topic.
 
-> +        err = pci_scan_root_bus_bridge(bridge);
-> +        dev_info(dev, "pci_scan_root_bus_bridge done\n");
-> +        if (err < 0)
-> +                goto error;
-> +
-> +        bus = bridge->bus;
-> +
-> +        pci_assign_unassigned_bus_resources(bus);
-> +        list_for_each_entry(child, &bus->children, node)
-> +                pcie_bus_configure_settings(child);
-> +        pci_bus_add_devices(bus);
+The conference venue and dates are available at
+https://www.linuxplumbersconf.org/
 
-I think all this should be replaced with pci_probe_bus().
+Hope to see you at Plumbers 2018!! :) :)
 
-Overall, my feeling is that the PCIe portion of this driver could just be
-handled by either the generic OF PCI driver or a simple stub that
-calls pci_host_common_probe(). While the MSI controller driver could
-be split out into a separate file in drivers/irqchip.
-
-       Arnd
+Regards,
+Atish
