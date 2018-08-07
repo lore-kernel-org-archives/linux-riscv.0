@@ -1,32 +1,15 @@
-From: hch@lst.de (Christoph Hellwig)
-Date: Tue, 7 Aug 2018 09:20:34 +0200
-Subject: [PATCH 03/11] dt-bindings: interrupt-controller: RISC-V PLIC
- documentation
-In-Reply-To: <CAL_Jsq+pVzqKUbhErRr15JX2mPUOSTp_ddGvu9KAuf=TtXfduQ@mail.gmail.com>
-References: <20180802115008.4031-1-hch@lst.de>
- <20180802115008.4031-4-hch@lst.de>
- <0093fadc-a150-3745-e73d-e579bfdfabfb@wdc.com>
- <CAL_Jsq+pVzqKUbhErRr15JX2mPUOSTp_ddGvu9KAuf=TtXfduQ@mail.gmail.com>
-Message-ID: <20180807072034.GA569@lst.de>
+From: hch@infradead.org (Christoph Hellwig)
+Date: Tue, 7 Aug 2018 05:45:45 -0700
+Subject: [PATCH v2] RISC-V: Don't use a global include guard for
+ uapi/asm/syscalls.h
+In-Reply-To: <20180806204258.22280-2-palmer@sifive.com>
+References: <20180804085438.GA15840@infradead.org>
+ <20180806204258.22280-1-palmer@sifive.com>
+ <20180806204258.22280-2-palmer@sifive.com>
+Message-ID: <20180807124545.GA15202@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Aug 06, 2018 at 02:59:48PM -0600, Rob Herring wrote:
-> > > +Required properties:
-> > > +- compatible : "sifive,plic0"
-> > > +- #address-cells : should be <0>
-> > > +- #interrupt-cells : should be <1>
-> > > +- interrupt-controller : Identifies the node as an interrupt controller
-> > > +- reg : Should contain 1 register range (address and length)
-> >
-> > The one in the real device tree has two entries.
-> > reg = <0x00000000 0x0c000000 0x00000000 0x04000000>;
-> >
-> > Is it intentional or just incorrect entry left over from earlier days?
-> 
-> > > +             reg = <0xc000000 0x4000000>;
-> 
-> Looks to me like one has #size-cells and #address-cells set to 2 and
-> the example is using 1.
+Looks fine (modulo any typos):
 
-Yes.  And it seems like the real life device tree is simply bogus.
+Reviewed-by: Christoph Hellwig <hch@lst.de>
