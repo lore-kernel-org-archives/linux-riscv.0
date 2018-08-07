@@ -1,51 +1,79 @@
-From: alistair23@gmail.com (Alistair Francis)
-Date: Mon, 6 Aug 2018 16:34:24 -0700
-Subject: [PATCH 1/4] pcie-microsemi: Add support for the Vera-board root
- complex
-In-Reply-To: <20180806231305.GG2377@latitude>
-References: <20180806221009.12466-1-alistair.francis@wdc.com>
- <20180806231305.GG2377@latitude>
-Message-ID: <CAKmqyKPMWbeat9ajucYmQ2RYPVoy+7=3espPetMCsz=0W7zXfQ@mail.gmail.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Mon, 06 Aug 2018 17:11:10 -0700 (PDT)
+Subject: [PATCH v2] RISC-V: Don't use a global include guard for
+ uapi/asm/syscalls.h
+In-Reply-To: <ba59adba-29d3-1559-e2f2-58f1149ba58c@infradead.org>
+Message-ID: <mhng-91dc598c-2e14-4fd9-9113-e38d8c037162@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Aug 6, 2018 at 4:13 PM, Jonathan Neusch?fer
-<j.neuschaefer@gmx.net> wrote:
-> Hi,
->
-> On Mon, Aug 06, 2018 at 03:10:06PM -0700, Alistair Francis wrote:
->> From: "Wesley W. Terpstra" <wesley@sifive.com>
+On Mon, 06 Aug 2018 14:00:53 PDT (-0700), rdunlap at infradead.org wrote:
+> On 08/06/2018 01:42 PM, Palmer Dabbelt wrote:
+>> This file is expected to be included multiple times in the same file in
+>> order to allow the __SYSCALL macro to generate system call tables.  With
+>> a global include guard we end up missing __NR_riscv_flush_icache in the
+>> syscall table, which results in icache flushes that escape the vDSO call
+>> to not actually do anything.
 >>
->> [Changes by AF:
->>  - Rebase on 4.18 kernel
->>  - Squash previous commits
->> ]
->> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+>> The fix is to move to per-#define include guards, which allows the
+>> system call tables to actually be populated.  Thanks to Macrus Comstedt
+>> for finding and fixing the bug!
+>>
+>> I also went ahead and fixed the SPDX header to use a //-style comment,
+>> which I've been told is the canonical way to do it.
+>>
+>> Cc: Marcus Comstedt <marcus@mc.pp.se>
+>> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 >> ---
-> [...]
->> +static const struct of_device_id microsemi_pcie_of_match[] = {
->> +        { .compatible = "ms-pf,axi-pcie-host", },
->> +        {}
->> +};
+>>  arch/riscv/include/asm/unistd.h        |  5 +++++
+>>  arch/riscv/include/uapi/asm/syscalls.h | 15 +++++++++------
+>>  2 files changed, 14 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/arch/riscv/include/asm/unistd.h b/arch/riscv/include/asm/unistd.h
+>> index 080fb28061de..508be1780323 100644
+>> --- a/arch/riscv/include/asm/unistd.h
+>> +++ b/arch/riscv/include/asm/unistd.h
+>> @@ -11,6 +11,11 @@
+>>   *   GNU General Public License for more details.
+>>   */
+>>
+>> +/*
+>> + * There is explicitly no include guard here because this file is expected to
 >
-> Two comments here:
->
-> - I don't see ms-pf in Documentation/devicetree/bindings/vendor-prefixes.txt
->   For Microsemi, only mscc is listed.
-> - Are the devicetree bindings for this device documented somewhere? It
->   might be a good idea to get them into Documentation/devicetree/bindings,
->   or add a link to them either to the commit message or the code itself.
+> to .. be .. included
 
-Thanks for the comments. My goal with this patch was just to get the
-MicroSemi PCIe drivers into the main riscv-all tree. This patch is
-just copied from an old branch from the RISC-V fork GitHub.
-
-I'm happy to help get this into mainline though if that's ok with
-SiFive and MicroSemi guys.
-
-Alistair
+Thanks.  I'm not going to spin a v3 unless there's more feedback, but I'll 
+include it in the PR.
 
 >
+>> + * included multiple times.  See uapi/asm/syscalls.h for more info.
+>> + */
+>> +
+>>  #define __ARCH_WANT_SYS_CLONE
+>>  #include <uapi/asm/unistd.h>
+>>  #include <uapi/asm/syscalls.h>
+>> diff --git a/arch/riscv/include/uapi/asm/syscalls.h b/arch/riscv/include/uapi/asm/syscalls.h
+>> index 818655b0d535..690beb002d1d 100644
+>> --- a/arch/riscv/include/uapi/asm/syscalls.h
+>> +++ b/arch/riscv/include/uapi/asm/syscalls.h
+>> @@ -1,10 +1,13 @@
+>> -/* SPDX-License-Identifier: GPL-2.0 */
+>> +// SPDX-License-Identifier: GPL-2.0
+>>  /*
+>> - * Copyright (C) 2017 SiFive
+>> + * Copyright (C) 2017-2018 SiFive
+>>   */
+>>
+>> -#ifndef _ASM__UAPI__SYSCALLS_H
+>> -#define _ASM__UAPI__SYSCALLS_H
+>> +/*
+>> + * There is explicitly no include guard here because this file is expected to
+>> + * be included multiple times in order to define the syscall macros via
 >
-> Thanks,
-> Jonathan Neusch?fer
+> like that one :)
+>
+>> + * __SYSCALL.
+>> + */
+>>
+>>  /*
+>>   * Allows the instruction cache to be flushed from userspace.  Despite RISC-V
