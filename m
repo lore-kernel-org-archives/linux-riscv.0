@@ -1,15 +1,14 @@
 From: alankao@andestech.com (Alan Kao)
-Date: Wed, 8 Aug 2018 11:24:42 +0800
-Subject: [PATCH v4 2/5] Refactor FPU code in signal setup/return procedures
+Date: Wed, 8 Aug 2018 11:24:41 +0800
+Subject: [PATCH v4 1/5] Extract FPU context operations from entry.S
 In-Reply-To: <1533698685-18022-1-git-send-email-alankao@andestech.com>
 References: <1533698685-18022-1-git-send-email-alankao@andestech.com>
-Message-ID: <1533698685-18022-3-git-send-email-alankao@andestech.com>
+Message-ID: <1533698685-18022-2-git-send-email-alankao@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-FPU-related logic is separated from normal signal handling path in
-this patch.  Kernel can easily be configured to exclude those procedures
-for no-FPU systems.
+We move __fstate_save and __fstate_restore to a new source
+file, fpu.S.
 
 Signed-off-by: Alan Kao <alankao@andestech.com>
 Cc: Greentime Hu <greentime@andestech.com>
@@ -18,114 +17,233 @@ Cc: Zong Li <zong@andestech.com>
 Cc: Nick Hu <nickhu@andestech.com>
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/riscv/kernel/signal.c | 68 +++++++++++++++++++++++---------------
- 1 file changed, 41 insertions(+), 27 deletions(-)
+ arch/riscv/kernel/Makefile |   1 +
+ arch/riscv/kernel/entry.S  |  87 ------------------------------
+ arch/riscv/kernel/fpu.S    | 106 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 107 insertions(+), 87 deletions(-)
+ create mode 100644 arch/riscv/kernel/fpu.S
 
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 718d0c984ef0..6a18b9819ead 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -37,45 +37,63 @@ struct rt_sigframe {
- 	struct ucontext uc;
- };
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index e1274fc03af4..bd433efd915e 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -13,6 +13,7 @@ extra-y += vmlinux.lds
+ obj-y	+= cpu.o
+ obj-y	+= cpufeature.o
+ obj-y	+= entry.o
++obj-y	+= fpu.o
+ obj-y	+= irq.o
+ obj-y	+= process.o
+ obj-y	+= ptrace.o
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 9aaf6c986771..edcd5920ee4e 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -357,93 +357,6 @@ ENTRY(__switch_to)
+ 	ret
+ ENDPROC(__switch_to)
  
--static long restore_d_state(struct pt_regs *regs,
--	struct __riscv_d_ext_state __user *state)
-+static long restore_fp_state(struct pt_regs *regs,
-+			     union __riscv_fp_state *sc_fpregs)
- {
- 	long err;
-+	struct __riscv_d_ext_state __user *state = &sc_fpregs->d;
-+	size_t i;
+-ENTRY(__fstate_save)
+-	li  a2,  TASK_THREAD_F0
+-	add a0, a0, a2
+-	li t1, SR_FS
+-	csrs sstatus, t1
+-	frcsr t0
+-	fsd f0,  TASK_THREAD_F0_F0(a0)
+-	fsd f1,  TASK_THREAD_F1_F0(a0)
+-	fsd f2,  TASK_THREAD_F2_F0(a0)
+-	fsd f3,  TASK_THREAD_F3_F0(a0)
+-	fsd f4,  TASK_THREAD_F4_F0(a0)
+-	fsd f5,  TASK_THREAD_F5_F0(a0)
+-	fsd f6,  TASK_THREAD_F6_F0(a0)
+-	fsd f7,  TASK_THREAD_F7_F0(a0)
+-	fsd f8,  TASK_THREAD_F8_F0(a0)
+-	fsd f9,  TASK_THREAD_F9_F0(a0)
+-	fsd f10, TASK_THREAD_F10_F0(a0)
+-	fsd f11, TASK_THREAD_F11_F0(a0)
+-	fsd f12, TASK_THREAD_F12_F0(a0)
+-	fsd f13, TASK_THREAD_F13_F0(a0)
+-	fsd f14, TASK_THREAD_F14_F0(a0)
+-	fsd f15, TASK_THREAD_F15_F0(a0)
+-	fsd f16, TASK_THREAD_F16_F0(a0)
+-	fsd f17, TASK_THREAD_F17_F0(a0)
+-	fsd f18, TASK_THREAD_F18_F0(a0)
+-	fsd f19, TASK_THREAD_F19_F0(a0)
+-	fsd f20, TASK_THREAD_F20_F0(a0)
+-	fsd f21, TASK_THREAD_F21_F0(a0)
+-	fsd f22, TASK_THREAD_F22_F0(a0)
+-	fsd f23, TASK_THREAD_F23_F0(a0)
+-	fsd f24, TASK_THREAD_F24_F0(a0)
+-	fsd f25, TASK_THREAD_F25_F0(a0)
+-	fsd f26, TASK_THREAD_F26_F0(a0)
+-	fsd f27, TASK_THREAD_F27_F0(a0)
+-	fsd f28, TASK_THREAD_F28_F0(a0)
+-	fsd f29, TASK_THREAD_F29_F0(a0)
+-	fsd f30, TASK_THREAD_F30_F0(a0)
+-	fsd f31, TASK_THREAD_F31_F0(a0)
+-	sw t0, TASK_THREAD_FCSR_F0(a0)
+-	csrc sstatus, t1
+-	ret
+-ENDPROC(__fstate_save)
+-
+-ENTRY(__fstate_restore)
+-	li  a2,  TASK_THREAD_F0
+-	add a0, a0, a2
+-	li t1, SR_FS
+-	lw t0, TASK_THREAD_FCSR_F0(a0)
+-	csrs sstatus, t1
+-	fld f0,  TASK_THREAD_F0_F0(a0)
+-	fld f1,  TASK_THREAD_F1_F0(a0)
+-	fld f2,  TASK_THREAD_F2_F0(a0)
+-	fld f3,  TASK_THREAD_F3_F0(a0)
+-	fld f4,  TASK_THREAD_F4_F0(a0)
+-	fld f5,  TASK_THREAD_F5_F0(a0)
+-	fld f6,  TASK_THREAD_F6_F0(a0)
+-	fld f7,  TASK_THREAD_F7_F0(a0)
+-	fld f8,  TASK_THREAD_F8_F0(a0)
+-	fld f9,  TASK_THREAD_F9_F0(a0)
+-	fld f10, TASK_THREAD_F10_F0(a0)
+-	fld f11, TASK_THREAD_F11_F0(a0)
+-	fld f12, TASK_THREAD_F12_F0(a0)
+-	fld f13, TASK_THREAD_F13_F0(a0)
+-	fld f14, TASK_THREAD_F14_F0(a0)
+-	fld f15, TASK_THREAD_F15_F0(a0)
+-	fld f16, TASK_THREAD_F16_F0(a0)
+-	fld f17, TASK_THREAD_F17_F0(a0)
+-	fld f18, TASK_THREAD_F18_F0(a0)
+-	fld f19, TASK_THREAD_F19_F0(a0)
+-	fld f20, TASK_THREAD_F20_F0(a0)
+-	fld f21, TASK_THREAD_F21_F0(a0)
+-	fld f22, TASK_THREAD_F22_F0(a0)
+-	fld f23, TASK_THREAD_F23_F0(a0)
+-	fld f24, TASK_THREAD_F24_F0(a0)
+-	fld f25, TASK_THREAD_F25_F0(a0)
+-	fld f26, TASK_THREAD_F26_F0(a0)
+-	fld f27, TASK_THREAD_F27_F0(a0)
+-	fld f28, TASK_THREAD_F28_F0(a0)
+-	fld f29, TASK_THREAD_F29_F0(a0)
+-	fld f30, TASK_THREAD_F30_F0(a0)
+-	fld f31, TASK_THREAD_F31_F0(a0)
+-	fscsr t0
+-	csrc sstatus, t1
+-	ret
+-ENDPROC(__fstate_restore)
+-
+-
+ 	.section ".rodata"
+ 	/* Exception vector table */
+ ENTRY(excp_vect_table)
+diff --git a/arch/riscv/kernel/fpu.S b/arch/riscv/kernel/fpu.S
+new file mode 100644
+index 000000000000..1defb0618aff
+--- /dev/null
++++ b/arch/riscv/kernel/fpu.S
+@@ -0,0 +1,106 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2012 Regents of the University of California
++ * Copyright (C) 2017 SiFive
++ *
++ *   This program is free software; you can redistribute it and/or
++ *   modify it under the terms of the GNU General Public License
++ *   as published by the Free Software Foundation, version 2.
++ *
++ *   This program is distributed in the hope that it will be useful,
++ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *   GNU General Public License for more details.
++ */
 +
- 	err = __copy_from_user(&current->thread.fstate, state, sizeof(*state));
--	if (likely(!err))
--		fstate_restore(current, regs);
-+	if (unlikely(err))
-+		return err;
++#include <linux/linkage.h>
 +
-+	fstate_restore(current, regs);
++#include <asm/asm.h>
++#include <asm/csr.h>
++#include <asm/asm-offsets.h>
 +
-+	/* We support no other extension state at this time. */
-+	for (i = 0; i < ARRAY_SIZE(sc_fpregs->q.reserved); i++) {
-+		u32 value;
++ENTRY(__fstate_save)
++	li  a2,  TASK_THREAD_F0
++	add a0, a0, a2
++	li t1, SR_FS
++	csrs sstatus, t1
++	frcsr t0
++	fsd f0,  TASK_THREAD_F0_F0(a0)
++	fsd f1,  TASK_THREAD_F1_F0(a0)
++	fsd f2,  TASK_THREAD_F2_F0(a0)
++	fsd f3,  TASK_THREAD_F3_F0(a0)
++	fsd f4,  TASK_THREAD_F4_F0(a0)
++	fsd f5,  TASK_THREAD_F5_F0(a0)
++	fsd f6,  TASK_THREAD_F6_F0(a0)
++	fsd f7,  TASK_THREAD_F7_F0(a0)
++	fsd f8,  TASK_THREAD_F8_F0(a0)
++	fsd f9,  TASK_THREAD_F9_F0(a0)
++	fsd f10, TASK_THREAD_F10_F0(a0)
++	fsd f11, TASK_THREAD_F11_F0(a0)
++	fsd f12, TASK_THREAD_F12_F0(a0)
++	fsd f13, TASK_THREAD_F13_F0(a0)
++	fsd f14, TASK_THREAD_F14_F0(a0)
++	fsd f15, TASK_THREAD_F15_F0(a0)
++	fsd f16, TASK_THREAD_F16_F0(a0)
++	fsd f17, TASK_THREAD_F17_F0(a0)
++	fsd f18, TASK_THREAD_F18_F0(a0)
++	fsd f19, TASK_THREAD_F19_F0(a0)
++	fsd f20, TASK_THREAD_F20_F0(a0)
++	fsd f21, TASK_THREAD_F21_F0(a0)
++	fsd f22, TASK_THREAD_F22_F0(a0)
++	fsd f23, TASK_THREAD_F23_F0(a0)
++	fsd f24, TASK_THREAD_F24_F0(a0)
++	fsd f25, TASK_THREAD_F25_F0(a0)
++	fsd f26, TASK_THREAD_F26_F0(a0)
++	fsd f27, TASK_THREAD_F27_F0(a0)
++	fsd f28, TASK_THREAD_F28_F0(a0)
++	fsd f29, TASK_THREAD_F29_F0(a0)
++	fsd f30, TASK_THREAD_F30_F0(a0)
++	fsd f31, TASK_THREAD_F31_F0(a0)
++	sw t0, TASK_THREAD_FCSR_F0(a0)
++	csrc sstatus, t1
++	ret
++ENDPROC(__fstate_save)
 +
-+		err = __get_user(value, &sc_fpregs->q.reserved[i]);
-+		if (unlikely(err))
-+			break;
-+		if (value != 0)
-+			return -EINVAL;
-+	}
-+
- 	return err;
- }
- 
--static long save_d_state(struct pt_regs *regs,
--	struct __riscv_d_ext_state __user *state)
-+static long save_fp_state(struct pt_regs *regs,
-+			  union __riscv_fp_state *sc_fpregs)
- {
-+	long err;
-+	struct __riscv_d_ext_state __user *state = &sc_fpregs->d;
-+	size_t i;
-+
- 	fstate_save(current, regs);
--	return __copy_to_user(state, &current->thread.fstate, sizeof(*state));
-+	err = __copy_to_user(state, &current->thread.fstate, sizeof(*state));
-+	if (unlikely(err))
-+		return err;
-+
-+	/* We support no other extension state at this time. */
-+	for (i = 0; i < ARRAY_SIZE(sc_fpregs->q.reserved); i++) {
-+		err = __put_user(0, &sc_fpregs->q.reserved[i]);
-+		if (unlikely(err))
-+			break;
-+	}
-+
-+	return err;
- }
- 
- static long restore_sigcontext(struct pt_regs *regs,
- 	struct sigcontext __user *sc)
- {
- 	long err;
--	size_t i;
- 	/* sc_regs is structured the same as the start of pt_regs */
- 	err = __copy_from_user(regs, &sc->sc_regs, sizeof(sc->sc_regs));
--	if (unlikely(err))
--		return err;
- 	/* Restore the floating-point state. */
--	err = restore_d_state(regs, &sc->sc_fpregs.d);
--	if (unlikely(err))
--		return err;
--	/* We support no other extension state at this time. */
--	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++) {
--		u32 value;
--		err = __get_user(value, &sc->sc_fpregs.q.reserved[i]);
--		if (unlikely(err))
--			break;
--		if (value != 0)
--			return -EINVAL;
--	}
-+	err |= restore_fp_state(regs, &sc->sc_fpregs);
- 	return err;
- }
- 
-@@ -124,14 +142,10 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
- {
- 	struct sigcontext __user *sc = &frame->uc.uc_mcontext;
- 	long err;
--	size_t i;
- 	/* sc_regs is structured the same as the start of pt_regs */
- 	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
- 	/* Save the floating-point state. */
--	err |= save_d_state(regs, &sc->sc_fpregs.d);
--	/* We support no other extension state at this time. */
--	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++)
--		err |= __put_user(0, &sc->sc_fpregs.q.reserved[i]);
-+	err |= save_fp_state(regs, &sc->sc_fpregs);
- 	return err;
- }
- 
++ENTRY(__fstate_restore)
++	li  a2,  TASK_THREAD_F0
++	add a0, a0, a2
++	li t1, SR_FS
++	lw t0, TASK_THREAD_FCSR_F0(a0)
++	csrs sstatus, t1
++	fld f0,  TASK_THREAD_F0_F0(a0)
++	fld f1,  TASK_THREAD_F1_F0(a0)
++	fld f2,  TASK_THREAD_F2_F0(a0)
++	fld f3,  TASK_THREAD_F3_F0(a0)
++	fld f4,  TASK_THREAD_F4_F0(a0)
++	fld f5,  TASK_THREAD_F5_F0(a0)
++	fld f6,  TASK_THREAD_F6_F0(a0)
++	fld f7,  TASK_THREAD_F7_F0(a0)
++	fld f8,  TASK_THREAD_F8_F0(a0)
++	fld f9,  TASK_THREAD_F9_F0(a0)
++	fld f10, TASK_THREAD_F10_F0(a0)
++	fld f11, TASK_THREAD_F11_F0(a0)
++	fld f12, TASK_THREAD_F12_F0(a0)
++	fld f13, TASK_THREAD_F13_F0(a0)
++	fld f14, TASK_THREAD_F14_F0(a0)
++	fld f15, TASK_THREAD_F15_F0(a0)
++	fld f16, TASK_THREAD_F16_F0(a0)
++	fld f17, TASK_THREAD_F17_F0(a0)
++	fld f18, TASK_THREAD_F18_F0(a0)
++	fld f19, TASK_THREAD_F19_F0(a0)
++	fld f20, TASK_THREAD_F20_F0(a0)
++	fld f21, TASK_THREAD_F21_F0(a0)
++	fld f22, TASK_THREAD_F22_F0(a0)
++	fld f23, TASK_THREAD_F23_F0(a0)
++	fld f24, TASK_THREAD_F24_F0(a0)
++	fld f25, TASK_THREAD_F25_F0(a0)
++	fld f26, TASK_THREAD_F26_F0(a0)
++	fld f27, TASK_THREAD_F27_F0(a0)
++	fld f28, TASK_THREAD_F28_F0(a0)
++	fld f29, TASK_THREAD_F29_F0(a0)
++	fld f30, TASK_THREAD_F30_F0(a0)
++	fld f31, TASK_THREAD_F31_F0(a0)
++	fscsr t0
++	csrc sstatus, t1
++	ret
++ENDPROC(__fstate_restore)
 -- 
 2.18.0
