@@ -1,100 +1,61 @@
 From: robh+dt@kernel.org (Rob Herring)
-Date: Wed, 8 Aug 2018 08:29:50 -0600
-Subject: [PATCH 6/8] dt-bindings: interrupt-controller: RISC-V PLIC
- documentation
-In-Reply-To: <20180804082319.5711-7-hch@lst.de>
-References: <20180804082319.5711-1-hch@lst.de>
- <20180804082319.5711-7-hch@lst.de>
-Message-ID: <CAL_JsqKKCPhb1um_+68ya0ng_v2tSb5O+-8RQPqx7Od3sJ4FuA@mail.gmail.com>
+Date: Wed, 8 Aug 2018 08:43:02 -0600
+Subject: [PATCH 02/11] dt-bindings: Add an enable method to RISC-V
+In-Reply-To: <20180802115008.4031-3-hch@lst.de>
+References: <20180802115008.4031-1-hch@lst.de>
+ <20180802115008.4031-3-hch@lst.de>
+Message-ID: <CAL_JsqKZXo7JKszrvAwCzAgysKrwdwb1oZX9K8+FxO4ZitNh_A@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sat, Aug 4, 2018 at 2:23 AM Christoph Hellwig <hch@lst.de> wrote:
+On Thu, Aug 2, 2018 at 5:50 AM Christoph Hellwig <hch@lst.de> wrote:
 >
-> From: Palmer Dabbelt <palmer@dabbelt.com>
-
-Version numbers on the individual patches would be nice...
-
-> This patch adds documentation for the platform-level interrupt
-> controller (PLIC) found in all RISC-V systems.  This interrupt
-> controller routes interrupts from all the devices in the system to each
-> hart-local interrupt controller.
+> From: Palmer Dabbelt <palmer@sifive.com>
 >
-> Note: the DTS bindings for the PLIC aren't set in stone yet, as we might
-> want to change how we're specifying holes in the hart list.
+> RISC-V doesn't currently specify a mechanism for enabling or disabling
+> CPUs.  Instead, we assume that all CPUs are enabled on boot, and if
+> someone wants to save power we instead put a CPU to sleep via a WFI
+> loop.  Future systems may have an explicit mechanism for putting a CPU
+> to sleep, so we're standardizing the device tree entry for when that
+> happens.
 >
-> Signed-off-by: Palmer Dabbelt <palmer@dabbelt.com>
-> [hch: various fixes and updates]
+> We're not defining a spin-table based interface to the firmware, as the
+> plan is to handle this entirely within the kernel instead.
+>
+> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 > Signed-off-by: Christoph Hellwig <hch@lst.de>
 > ---
->  .../interrupt-controller/sifive,plic0.txt     | 57 +++++++++++++++++++
->  1 file changed, 57 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/sifive,plic0.txt
+>  Documentation/devicetree/bindings/riscv/cpus.txt | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 >
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic0.txt b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic0.txt
-> new file mode 100644
-> index 000000000000..bbfa61cf8d3f
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic0.txt
-> @@ -0,0 +1,57 @@
-> +SiFive Platform-Level Interrupt Controller (PLIC)
-> +-------------------------------------------------
-> +
-> +SiFive SOCs include an implementation of the Platform-Level Interrupt Controller
-> +(PLIC) high-level specification in the RISC-V Privileged Architecture
-> +specification.  The PLIC connects all external interrupts in the system to all
-> +hart contexts in the system, via the external interrupt source in each hart.
-> +
-> +A hart context is a privilege mode in a hardware execution thread.  For example,
-> +in an 4 core system with 2-way SMT, you have 8 harts and probably at least two
-> +privilege modes per hart; machine mode and supervisor mode.
-> +
-> +Each interrupt can be enabled on per-context basis.  Any context can claim
-> +a pending enabled interrupt and then release it once it has been handled.
-> +
-> +Each interrupt has a configurable priority.  Higher priority interrupts are
-> +serviced first.  Each context can specify a priority threshold. Interrupts
-> +with priority below this threshold will not cause the PLIC to raise its
-> +interrupt line leading to the context.
-> +
-> +While the PLIC supports both edge-triggered and level-triggered interrupts,
-> +interrupt handlers are oblivious to this distinction and therefore it is not
-> +specified in the PLIC device-tree binding.
-> +
-> +While the RISC-V ISA doesn't specify a memory layout for the PLIC, the
-> +"sifive,plic0" device is a concrete implementation of the PLIC that contains a
-> +specific memory layout, which is documented in chapter 8 of the SiFive U5
-> +Coreplex Series Manual <https://static.dev.sifive.com/U54-MC-RVCoreIP.pdf>.
-> +
-> +Required properties:
-> +- compatible : "sifive,plic0".
-> +- #address-cells : should be <0>.
-> +- #interrupt-cells : should be <1>.
-> +- interrupt-controller : Identifies the node as an interrupt controller.
-> +- reg : Should contain 1 register range (address and length).
-> +- interrupts-extended : Specifies which contexts are connected to the PLIC,
-> +  with "-1" specifying that a context is not present.  The nodes pointed
-> +  to should be "riscv" HART nodes, or eventually be parented by such nodes.
-> +- riscv,ndev: Specifies how many external interrupts are supported by
-> +  this controller.
-> +
-> +Example:
-> +
-> +       plic: interrupt-controller at c000000 {
-> +               #address-cells = <0>;
-> +               #interrupt-cells = <1>;
-> +               compatible = "riscv,plic0";
-> +               interrupt-controller;
-> +               interrupts-extended = <
-> +                       &cpu0-intc 11
-> +                       &cpu1-intc 11 &cpu1-intc 9
-> +                       &cpu2-intc 11 &cpu2-intc 9
-> +                       &cpu3-intc 11 &cpu3-intc 9
-> +                       &cpu4-intc 11 &cpu4-intc 9>;
+> diff --git a/Documentation/devicetree/bindings/riscv/cpus.txt b/Documentation/devicetree/bindings/riscv/cpus.txt
+> index b0b038d6c406..6aa9cd075a5b 100644
+> --- a/Documentation/devicetree/bindings/riscv/cpus.txt
+> +++ b/Documentation/devicetree/bindings/riscv/cpus.txt
+> @@ -82,6 +82,15 @@ described below.
+>                  Value type: <string>
+>                  Definition: Contains the RISC-V ISA string of this hart.  These
+>                              ISA strings are defined by the RISC-V ISA manual.
+> +        - cpu-enable-method:
 
-I'm confused why this is still here if you are dropping the cpu intc binding?
+Something wrong with "enable-method" as defined in the DT spec[1]?
 
-I also noticed the cpu binding refers to "riscv,cpu-intc" as well.
-That needs to be fixed too if there's a change.
+> +                Usage: optional
+> +                Value type: <stringlist>
+> +                Definition: When absent, default is either "always-disabled"
+> +                            "always-enabled", depending on the current state
+> +                            of the CPU.
+> +                            Must be one of:
+> +                                * "always-disabled": This CPU cannot be enabled.
+> +                                * "always-enabled": This CPU cannot be disabled.
 
-Rob
+To follow the spec, 'enable-method' should simply not be present in
+the always-enabled case. I think the always disabled case should be
+handled with:
+
+status = "disabled";
+enable-method = "none";
+
+With "none" needing to be added to the spec.
+
+[1] https://github.com/devicetree-org/devicetree-specification/blob/master/source/devicenodes.rst#general-properties-of-cpuscpu-nodes
