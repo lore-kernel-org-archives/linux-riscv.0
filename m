@@ -1,113 +1,101 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Wed, 8 Aug 2018 00:18:54 -0700
-Subject: [PATCH v4 5/5] Auto-detect whether a FPU exists
-In-Reply-To: <1533698685-18022-6-git-send-email-alankao@andestech.com>
-References: <1533698685-18022-1-git-send-email-alankao@andestech.com>
- <1533698685-18022-6-git-send-email-alankao@andestech.com>
-Message-ID: <20180808071854.GB27402@infradead.org>
+Date: Wed, 8 Aug 2018 00:43:12 -0700
+Subject: [PATCH 1/2] pcie-microsemi: Add support for the Vera-board root
+ complex
+In-Reply-To: <CY4PR11MB1832A0C69637C6208A88C7B396270@CY4PR11MB1832.namprd11.prod.outlook.com>
+References: <CY4PR11MB1832A0C69637C6208A88C7B396270@CY4PR11MB1832.namprd11.prod.outlook.com>
+Message-ID: <20180808074312.GA3705@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
->  extern unsigned long elf_hwcap;
-> +#ifdef CONFIG_FPU
-> +extern bool no_fpu;
-> +#endif
+On Tue, Aug 07, 2018 at 05:16:23PM +0000, Daire.McNamara at microchip.com wrote:
+> Hi all,
+> 
+> I wrote this code and think this patch was submitted under Wesley's name accidentally.? I'd like to take it over going forwards.? 
 
-No need to have an ifdef around an extern declaration.
+Great!  A few comments on the code below.  And as Palmer said this
+should go to the linux-pci list as the main receipient.
 
->  static inline void fstate_save(struct task_struct *task,
->  			       struct pt_regs *regs)
->  {
-> +	if (unlikely(no_fpu))
-> +		return;
+> index 000000000000..50d5dba3695f
+> --- /dev/null
+> +++ b/drivers/pci/controller/pcie-microsemi.c
+> @@ -0,0 +1,778 @@
+> +/*
+> + * PCIe host controller driver for Microsemi AXI PCIe Bridge
+> + *
+> + * Copyright (c) 2018 - Microsemi.
+> + *
+> + * Based on:
+> + *? pcie-rcar.c
+> + *? pcie-xilinx.c
+> + *? pcie-altera.c
+> + *
+> + * This program is free software: you can redistribute it and/or modify
+> + * it under the terms of the GNU General Public License as published by
+> + * the Free Software Foundation, either version 2 of the License, or
+> + * (at your option) any later version.
+
+Please add a SPDX tag as the first line of the file instead of the
+license boilerplate, for this case that would be:
+
+// SPDX-License-Identifier: GPL-2.0+
+
+> +static inline bool microsemi_pcie_link_up(struct microsemi_pcie_port *port)
+> +{
+> +??????? void *base_addr;
 > +
->  	if ((regs->sstatus & SR_FS) == SR_FS_DIRTY) {
-
-Wouldn't the sstatus check here always evaluate to false for the
-no_fpu case anyway?
-
-> @@ -39,6 +43,9 @@ static inline void fstate_save(struct task_struct *task,
->  static inline void fstate_restore(struct task_struct *task,
->  				  struct pt_regs *regs)
->  {
-> +	if (unlikely(no_fpu))
-> +		return;
+> +??????? if(port->bridge == 0)
+> +??????????? base_addr = port->axi_base_addr + MICROSEMI_PCIE0_CTRL_ADDR;
+> +??????? else
+> +??????????? base_addr = port->axi_base_addr + MICROSEMI_PCIE1_CTRL_ADDR;
 > +
+> +??????? return (readl(base_addr + MICROSEMI_LTSSM_STATE)
+> +??????????????? & MICROSEMI_LTSSM_L0_STATE) ? 1 : 0;
+> +}
 
-Same here?
+Some odd formatting here, please always use tabs for indentation
+and align operators at the end of the previous line.
 
-> -#define DEFAULT_SSTATUS (SR_SPIE | SR_FS_INITIAL)
-> +#define DEFAULT_SSTATUS \
-> +	((unlikely(no_fpu)) ? (SR_SPIE | SR_FS_OFF) : (SR_SPIE | SR_FS_INITIAL))
+Also no need for the ? : operator, as conversion to bool do that
+implicitly.
 
-Please don't hide this in a a macro.
+You can run the scripts/checkpatch.pl scripe over the patch to check
+for most of these coding style nits, so I'll stop mentioning them again.
 
-I'd rather get rid of the macro and do this in start_thread:
-
-	regs->sstatus = SR_SPIE /* User mode, irqs on */
-	if (!no_fpu)
-		regs->sstatus |= SR_FS_INITIAL;
-
-and provide a stub for the no_fpu variable for the !CONFIG_CPU case.
-
-In fact I'd probably invert the polarity of this variable and make it
-'has_fpu'.  The for !CONFIG_FPU you define that as
-
-#define has_cpu	false
-		
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -22,6 +22,9 @@
->  #include <asm/hwcap.h>
->  
->  unsigned long elf_hwcap __read_mostly;
-> +#ifdef CONFIG_FPU
-> +bool no_fpu __read_mostly;
-> +#endif
->  
->  void riscv_fill_hwcap(void)
->  {
-> @@ -58,4 +61,12 @@ void riscv_fill_hwcap(void)
->  		elf_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
->  
->  	pr_info("elf_hwcap is 0x%lx", elf_hwcap);
+> +??????? int pos;
 > +
-> +#ifdef CONFIG_FPU
-> +	no_fpu = 0;
-> +	if (!(elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))) {
-> +		pr_info("Bypass FPU code.");
-> +		no_fpu = 1;
-> +	}
-> +#endif
+> +??????? pos = find_first_zero_bit(msi_irq_in_use, MICROSEMI_NUM_MSI_IRQS);
+> +??????? if (pos < MICROSEMI_NUM_MSI_IRQS)
+> +?????????????? ?set_bit(pos, msi_irq_in_use);
+> +??????? else
+> +??????????????? return -ENOSPC;
+> +
+> +??????? return pos;
 
-Note that variables unless they are on stack in a function are always
-initialized to zero.  So together with my above ideas this could become:
+This could be simplified to:
 
-#ifdef CONFIG_FPU
-	if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D)
-		has_fpu = true;
-#endif
+	pos = find_first_zero_bit(msi_irq_in_use, MICROSEMI_NUM_MSI_IRQS);
+	if (pos >= MICROSEMI_NUM_MSI_IRQS)
+		return -ENOSPC;
+	set_bit(pos, msi_irq_in_use);
+	return pos;
 
-Note the use of true/false for booleans and dropping the printk.
+> +static irqreturn_t microsemi_pcie_intr_handler(int irq, void *data)
+> +{
+> +??????? struct microsemi_pcie_port *port = (struct microsemi_pcie_port *) data;
 
-> diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-> index 2450b824d799..9714e4fccb69 100644
-> --- a/arch/riscv/kernel/signal.c
-> +++ b/arch/riscv/kernel/signal.c
-> @@ -45,6 +45,9 @@ static long restore_fp_state(struct pt_regs *regs,
->  	struct __riscv_d_ext_state __user *state = &sc_fpregs->d;
->  	size_t i;
->  
-> +	if (unlikely(no_fpu))
-> +		return 0;
+No need for explicit casts to or from void pointers.
 
-I'd be tempted to move this into the caler, e.g.
+> +??????? if(port->bridge == 0) {
+> +??????????????? bridge_base_addr =? port->axi_base_addr + MICROSEMI_PCIE0_BRIDGE_ADDR;
+> +??????? } else {
+> +??????????????? bridge_base_addr =? port->axi_base_addr + MICROSEMI_PCIE1_BRIDGE_ADDR;
+> +??????? }
 
-	if (has_fpu) {
-		restore_fp_state()..
-	}
+There are quite a few places that calculate addresses based on bridge 0
+vs 1, I wonder if it might be worth to factor those into helpers?
 
-Also the unlikely annotations seem odd - this seems like something that
-even the simplest branch predictor can handle.  If we really want to
-optimize it (not for this series but in the future) we should implement
-the alternatives mechanism for live patching.
+> +??????? //writel(upper_32_bits(regs.start),
+> +??????? //??? bridge_base_addr + MICROSEMI_ATR0_AXI4_SLV0_SRC_ADDR);
+
+For a driver submission please remove dead commented out code.
