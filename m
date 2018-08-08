@@ -1,45 +1,48 @@
-From: robh+dt@kernel.org (Rob Herring)
-Date: Wed, 8 Aug 2018 08:44:41 -0600
-Subject: [PATCH 01/11] dt-bindings: Correct RISC-V's timebase-frequency
-In-Reply-To: <20180802115008.4031-2-hch@lst.de>
-References: <20180802115008.4031-1-hch@lst.de>
- <20180802115008.4031-2-hch@lst.de>
-Message-ID: <CAL_JsqLq_JqjbnjSz7+72ssZH1deKU7iCxofn_bLhiKpCEXD=w@mail.gmail.com>
+From: hch@lst.de (Christoph Hellwig)
+Date: Wed, 8 Aug 2018 17:04:48 +0200
+Subject: [PATCH 6/8] dt-bindings: interrupt-controller: RISC-V PLIC
+ documentation
+In-Reply-To: <CAL_JsqKKCPhb1um_+68ya0ng_v2tSb5O+-8RQPqx7Od3sJ4FuA@mail.gmail.com>
+References: <20180804082319.5711-1-hch@lst.de>
+ <20180804082319.5711-7-hch@lst.de>
+ <CAL_JsqKKCPhb1um_+68ya0ng_v2tSb5O+-8RQPqx7Od3sJ4FuA@mail.gmail.com>
+Message-ID: <20180808150448.GA31785@lst.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Aug 2, 2018 at 5:50 AM Christoph Hellwig <hch@lst.de> wrote:
->
-> From: Palmer Dabbelt <palmer@sifive.com>
->
-> Someone must have read the device tree specification incorrectly,
-> because we were putting timebase-frequency in the wrong place.  This
-> corrects the issue, moving it from
->
-> / {
->         cpus {
->                 timebase-frequency = X;
->         }
-> }
->
-> to
->
-> / {
->         cpus {
->                 cpu at 0 {
->                         timebase-frequency = X;
->                 }
->         }
-> }
->
-> This is great, because the timer's frequency should really be a per-cpu
-> quantity on RISC-V systems since there's a timer per CPU.  This should
-> lead to some cleanups in our timer driver.
->
-> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  Documentation/devicetree/bindings/riscv/cpus.txt | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+On Wed, Aug 08, 2018 at 08:29:50AM -0600, Rob Herring wrote:
+> Version numbers on the individual patches would be nice...
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+We've never done these in the subsystems I'm involved with.  Too
+much clutter in the subject lines for information that is easily
+deductable.
+
+> > +Example:
+> > +
+> > +       plic: interrupt-controller at c000000 {
+> > +               #address-cells = <0>;
+> > +               #interrupt-cells = <1>;
+> > +               compatible = "riscv,plic0";
+> > +               interrupt-controller;
+> > +               interrupts-extended = <
+> > +                       &cpu0-intc 11
+> > +                       &cpu1-intc 11 &cpu1-intc 9
+> > +                       &cpu2-intc 11 &cpu2-intc 9
+> > +                       &cpu3-intc 11 &cpu3-intc 9
+> > +                       &cpu4-intc 11 &cpu4-intc 9>;
+> 
+> I'm confused why this is still here if you are dropping the cpu intc binding?
+
+We need some parent that identifies the core (hart in RISC-V terminology).
+The way the code now works is that it just walks up the parent chain
+until it finds a CPU node, so it either accepts the legacy intc node
+inbetween, or it accepts the cpu node directly as the intc node is pointless.
+
+I guess for the documentation we should instead just point to the
+"riscv" cpu nodes instead?
+
+> I also noticed the cpu binding refers to "riscv,cpu-intc" as well.
+> That needs to be fixed too if there's a change.
+
+Only in the examples.  I'd be fine with dropping them, but let's keep
+that separate from the interrupt support.
