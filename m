@@ -1,74 +1,55 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 07 Aug 2018 19:23:19 -0700 (PDT)
-Subject: simplified RISC-V interrupt and clocksource handling v3
-In-Reply-To: <20180804082319.5711-1-hch@lst.de>
-Message-ID: <mhng-d7c67842-dff7-4200-bc2e-c3eed1a0a7bf@palmer-si-x1c4>
+From: alankao@andestech.com (Alan Kao)
+Date: Wed, 8 Aug 2018 11:24:40 +0800
+Subject: [PATCH v4 0/5] riscv: Add support to no-FPU systems
+Message-ID: <1533698685-18022-1-git-send-email-alankao@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sat, 04 Aug 2018 01:23:11 PDT (-0700), Christoph Hellwig wrote:
-> This series tries adds support for interrupt handling and timers
-> for the RISC-V architecture.
->
-> The basic per-hart interrupt handling implemented by the scause
-> and sie CSRs is extremely simple and implemented directly in
-> arch/riscv/kernel/irq.c.  In addition there is a irqchip driver
-> for the PLIC external interrupt controller, which is called through
-> the set_handle_irq API, and a clocksource driver that gets its
-> timer interrupt directly from the low-level interrupt handling.
->
-> Compared to previous iterations this version does not try to use an
-> irqchip driver for the low-level interrupt handling.  This saves
-> a couple indirect calls and an additional read of the scause CSR
-> in the hot path, makes the code much simpler and last but not least
-> avoid the dependency on a device tree for a mandatory architectural
-> feature.
->
-> A git tree is available here (contains a few more patches before
-> the ones in this series)
->
->     git://git.infradead.org/users/hch/riscv.git riscv-irq-simple.3
->
-> Gitweb:
->
->     http://git.infradead.org/users/hch/riscv.git/shortlog/refs/heads/riscv-irq-simple.3
->
-> Changes since v2:
->  - actually use SEIE instead of STIE in the plic driver
->  - rename the default compat string for the plic to sifive,u5-plic
->  - various spelling fixes
->  - drop a superflous derefence in the plic driver that is taken care of
->    by the following loop
->  - drop the patch to document the enable method - not relevant for the
->    rest of the series
->  - drop the patches for the per-hart timebase frequency - not relevant
->    for the rest of the series.
->  - use riscv_of_processor_hart in the timer driver
->
-> Changes since v1:
->  - rename the plic driver to irq-sifive-plic
->  - switch to a default compatible of sifive,plic0 (still supporting the
->    riscv,plic0 name for compatibility)
->  - add a reference for the SiFive PLIC register layout
->  - fix plic_toggle addressing for large numbers of hwirqs
->  - remove the call to ack_bad_irq
->  - use a raw spinlock for plic_toggle_lock
->  - use the irq_desc cpumask in the plic enable/disable methods
->  - add back OF contexid parsing in the plic driver
->  - don't allow COMPILE_TEST builds of the clocksource driver, as it
->    depends on <asm/sbi.h>
->  - default the clocksource driver to y
->  - clean up naming in the clocksource driver
->  - remove the MINDELTA and MAXDELTA #defines
->  - various DT binding fixes
+This patchset adds an option, CONFIG_FPU, to enable/disable floating-
+point procedures.
 
-Thanks!  Modulo the one device tree issue I replied to in patch 3 this looks 
-great!  We've already gotten the ACKs to take this through the RISC-V tree, so 
-I'm going to put this along with the queued RISC-V patches on our for-next 
-branch, including my proposed change for "sifive,plic-1.0" but leaving the 
-device tree bindings with #{address,size}-cells=1.
+Kernel's new behavior will be as follows:
 
-We can always change this, but I'd like to get this out so people can start 
-playing with it earlier rather than later.
+* with CONFIG_FPU=y
+  All FPU codes are reserved.  If no FPU is found during booting, a
+  global flag will be set, and those functions will be bypassed with
+  condition check to that flag.
 
-Thanks to everyone for all the help!
+* with CONFIG_FPU=n
+  No floating-point instructions in kernel and all related settings
+  are excluded.
+
+Changes in v4:
+ - Append a new patch to detect existence of FPU and followups.
+ - Add SPDX header to newly created fpu.S.
+ - Fix a build error, sorry for that.
+ - Fix wording, style, etc.
+
+Changes in v3:
+ - Refactor the whole patch into independent ones.
+
+Changes in v2:
+ - Various code cleanups and style fixes.
+
+Alan Kao (5):
+  Extract FPU context operations from entry.S
+  Refactor FPU code in signal setup/return procedures
+  Cleanup ISA string setting
+  Allow to disable FPU support
+  Auto-detect whether a FPU exists
+
+ arch/riscv/Kconfig                 |   9 +++
+ arch/riscv/Makefile                |  19 +++---
+ arch/riscv/include/asm/hwcap.h     |   3 +
+ arch/riscv/include/asm/switch_to.h |  21 ++++++
+ arch/riscv/kernel/Makefile         |   1 +
+ arch/riscv/kernel/cpufeature.c     |  11 +++
+ arch/riscv/kernel/entry.S          |  87 -----------------------
+ arch/riscv/kernel/fpu.S            | 106 +++++++++++++++++++++++++++++
+ arch/riscv/kernel/process.c        |   4 +-
+ arch/riscv/kernel/signal.c         |  79 +++++++++++++--------
+ 10 files changed, 214 insertions(+), 126 deletions(-)
+ create mode 100644 arch/riscv/kernel/fpu.S
+
+-- 
+2.18.0
