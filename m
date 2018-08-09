@@ -1,72 +1,58 @@
 From: alankao@andestech.com (Alan Kao)
-Date: Thu, 9 Aug 2018 14:26:41 +0800
-Subject: [PATCH v5 3/5] Cleanup ISA string setting
-In-Reply-To: <1533796003-680-1-git-send-email-alankao@andestech.com>
-References: <1533796003-680-1-git-send-email-alankao@andestech.com>
-Message-ID: <1533796003-680-4-git-send-email-alankao@andestech.com>
+Date: Thu, 9 Aug 2018 14:26:38 +0800
+Subject: [PATCH v5 0/5] riscv: Add support to no-FPU systems
+Message-ID: <1533796003-680-1-git-send-email-alankao@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Just a side note: (Assume that atomic and compressed is on)
+This patchset adds an option, CONFIG_FPU, to enable/disable floating-
+point procedures.
 
-Before this patch, assembler was always given the riscv64imafdc
-MARCH string because there are fld/fsd's in entry.S; compiler was
-always given riscv64imac because kernel doesn't need floating point
-code generation.  After this, the MARCH string in AFLAGS and CFLAGS
-become the same.
+Kernel's new behavior will be as follows:
 
-Signed-off-by: Alan Kao <alankao@andestech.com>
-Cc: Greentime Hu <greentime@andestech.com>
-Cc: Vincent Chen <vincentc@andestech.com>
-Cc: Zong Li <zong@andestech.com>
-Cc: Nick Hu <nickhu@andestech.com>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
----
- arch/riscv/Makefile | 19 ++++++++-----------
- 1 file changed, 8 insertions(+), 11 deletions(-)
+* with CONFIG_FPU=y
+  All FPU codes are reserved.  If no FPU is found during booting, a
+  global flag will be set, and those functions will be bypassed with
+  condition check to that flag.
 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 6d4a5f6c3f4f..e0fe6790624f 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -26,7 +26,6 @@ ifeq ($(CONFIG_ARCH_RV64I),y)
- 
- 	KBUILD_CFLAGS += -mabi=lp64
- 	KBUILD_AFLAGS += -mabi=lp64
--	KBUILD_MARCH = rv64im
- 	LDFLAGS += -melf64lriscv
- else
- 	BITS := 32
-@@ -34,22 +33,20 @@ else
- 
- 	KBUILD_CFLAGS += -mabi=ilp32
- 	KBUILD_AFLAGS += -mabi=ilp32
--	KBUILD_MARCH = rv32im
- 	LDFLAGS += -melf32lriscv
- endif
- 
- KBUILD_CFLAGS += -Wall
- 
--ifeq ($(CONFIG_RISCV_ISA_A),y)
--	KBUILD_ARCH_A = a
--endif
--ifeq ($(CONFIG_RISCV_ISA_C),y)
--	KBUILD_ARCH_C = c
--endif
--
--KBUILD_AFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)fd$(KBUILD_ARCH_C)
-+# ISA string setting
-+riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32im
-+riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64im
-+riscv-march-$(CONFIG_RISCV_ISA_A)	:= $(riscv-march-y)a
-+riscv-march-y				:= $(riscv-march-y)fd
-+riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
-+KBUILD_CFLAGS += -march=$(riscv-march-y)
-+KBUILD_AFLAGS += -march=$(riscv-march-y)
- 
--KBUILD_CFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)$(KBUILD_ARCH_C)
- KBUILD_CFLAGS += -mno-save-restore
- KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
- 
+* with CONFIG_FPU=n
+  No floating-point instructions in kernel and all related settings
+  are excluded.
+
+Changes in v5:
+ - Invert the polarity of checking flag from no_fpu to has_fpu.
+
+Changes in v4:
+ - Append a new patch to detect existence of FPU and followups.
+ - Add SPDX header to newly created fpu.S.
+ - Fix a build error, sorry for that.
+ - Fix wording, style, etc.
+
+Changes in v3:
+ - Refactor the whole patch into independent ones.
+
+Changes in v2:
+ - Various code cleanups and style fixes.
+
+Alan Kao (5):
+  Extract FPU context operations from entry.S
+  Refactor FPU code in signal setup/return procedures
+  Cleanup ISA string setting
+  Allow to disable FPU support
+  Auto-detect whether a FPU exists
+
+ arch/riscv/Kconfig                 |   9 +++
+ arch/riscv/Makefile                |  19 +++---
+ arch/riscv/include/asm/hwcap.h     |   1 +
+ arch/riscv/include/asm/switch_to.h |  13 +++-
+ arch/riscv/kernel/Makefile         |   1 +
+ arch/riscv/kernel/cpufeature.c     |   8 +++
+ arch/riscv/kernel/entry.S          |  87 -----------------------
+ arch/riscv/kernel/fpu.S            | 106 +++++++++++++++++++++++++++++
+ arch/riscv/kernel/process.c        |   6 +-
+ arch/riscv/kernel/signal.c         |  75 ++++++++++++--------
+ 10 files changed, 198 insertions(+), 127 deletions(-)
+ create mode 100644 arch/riscv/kernel/fpu.S
+
 -- 
 2.18.0
