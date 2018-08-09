@@ -1,48 +1,69 @@
-From: marc.zyngier@arm.com (Marc Zyngier)
-Date: Thu, 9 Aug 2018 11:19:51 +0100
-Subject: [PATCH 03/11] dt-bindings: interrupt-controller: RISC-V PLIC
- documentation
-In-Reply-To: <20180808165729.GA6079@lst.de>
-References: <CAL_Jsq+pVzqKUbhErRr15JX2mPUOSTp_ddGvu9KAuf=TtXfduQ@mail.gmail.com>
- <mhng-4bc89d00-bc90-440f-996f-861dde382aaa@palmer-si-x1c4>
- <CAL_JsqKPFSQYH3p6a0VoCr-VAzf_98H7N3fNJ+4+DquS8WcjUQ@mail.gmail.com>
- <20180808150938.GA32274@lst.de>
- <bb671fe1-6c43-3218-0096-7c5280ffb6b5@arm.com> <20180808165729.GA6079@lst.de>
-Message-ID: <15990cbc-042c-027e-ea2d-c4f0433c29a1@arm.com>
+From: linux@roeck-us.net (Guenter Roeck)
+Date: Thu, 9 Aug 2018 06:26:12 -0700
+Subject: [PATCH] RISC-V: Don't use a global include guard for
+ uapi/asm/syscalls.h
+In-Reply-To: <20180803195344.22271-1-palmer@sifive.com>
+References: <20180803195344.22271-1-palmer@sifive.com>
+Message-ID: <20180809132612.GA31058@roeck-us.net>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 08/08/18 17:57, Christoph Hellwig wrote:
-> On Wed, Aug 08, 2018 at 05:47:40PM +0100, Marc Zyngier wrote:
->> The original GIC driver deals with 2.5 revisions of the architecture
->> (yes, there was something pre-GICv1...), and implementers have been
->> creative to the extreme. Still, we could have done without most of these
->> compat strings. Hindsight and all that jazz.
->>
->> GICv3 is a much more controlled architecture, and although people have
->> come up with a number of turds masquerading as implementations, it has
->> never been bad enough to mandate a different set of compat strings.
->> Also, you cannot describe that kind of stuff in ACPI, and we need to
->> support both, so we've come up with different ways of handling this.
+On Fri, Aug 03, 2018 at 12:53:44PM -0700, Palmer Dabbelt wrote:
+> This file is expected to be included multiple times in the same file in
+> order to allow the __SYSCALL macro to generate system call tables.  With
+> a global include guard we end up missing __NR_riscv_flush_icache in the
+> syscall table, which results in icache flushes that escape the vDSO call
+> to not actually do anything.
 > 
-> So the claim from SiFive is that all their current plic blocks are
-> the same.  Based on that I'd be really tempted to just match for
-> sifive,plic (or sifive,plic1 as suggested by them), but also require
-> each device to actually provide a board specific compatible string,
-> just in case that something goes wrong.  Which I suspect is what you
-> are doing with GICv3, right?
+> The fix is to move to per-#define include guards, which allows the
+> system call tables to actually be populated.  Thanks to Macrus Comstedt
+> for finding and fixing the bug!
+> 
+> I also went ahead and fixed the SPDX header to use a //-style comment,
+> which I've been told is the canonical way to do it.
+> 
+> Cc: Marcus Comstedt <marcus@mc.pp.se>
+> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 
-We do it slightly differently:
+Fails to build riscv:allnoconfig.
 
-Each GICv3 implementation has a set of ID registers that uniquely
-identifies the implementer and revision of the HW block. This allows us
-to quirk individual implementations while only having a single matching
-property, and be independent of a single firmware implementation (DT vs
-ACPI).
+CC      arch/riscv/kernel/syscall_table.o
+./arch/riscv/include/uapi/asm/syscalls.h:29:36: error:
+?sys_riscv_flush_icache? undeclared here (not in a function); did you mean ?__NR_riscv_flush_icache??
 
-We don't mandate anything at the board or even SoC level though (it
-would quickly become unmanageable given the number of SOCs and devices).
+Guenter
 
-	M.
--- 
-Jazz is not dead. It just smells funny...
+> ---
+>  arch/riscv/include/uapi/asm/syscalls.h | 13 +++++++------
+>  1 file changed, 7 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/riscv/include/uapi/asm/syscalls.h b/arch/riscv/include/uapi/asm/syscalls.h
+> index 818655b0d535..882a6aa09a33 100644
+> --- a/arch/riscv/include/uapi/asm/syscalls.h
+> +++ b/arch/riscv/include/uapi/asm/syscalls.h
+> @@ -1,10 +1,11 @@
+> -/* SPDX-License-Identifier: GPL-2.0 */
+> +// SPDX-License-Identifier: GPL-2.0
+>  /*
+> - * Copyright (C) 2017 SiFive
+> + * Copyright (C) 2017-2018 SiFive
+>   */
+>  
+> -#ifndef _ASM__UAPI__SYSCALLS_H
+> -#define _ASM__UAPI__SYSCALLS_H
+> +/* There is explicitly no include guard here because this file is expected to
+> + * be included multiple times in order to define the syscall macros via
+> + * __SYSCALL. */
+>  
+>  /*
+>   * Allows the instruction cache to be flushed from userspace.  Despite RISC-V
+> @@ -20,7 +21,7 @@
+>   * caller.  We don't currently do anything with the address range, that's just
+>   * in there for forwards compatibility.
+>   */
+> +#ifndef __NR_riscv_flush_icache
+>  #define __NR_riscv_flush_icache (__NR_arch_specific_syscall + 15)
+> -__SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
+> -
+>  #endif
+> +__SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
