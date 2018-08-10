@@ -1,40 +1,19 @@
-From: linux@roeck-us.net (Guenter Roeck)
-Date: Thu, 9 Aug 2018 21:53:27 -0700
-Subject: [PATCH v2 2/2] RISC-V: Don't use a global include guard for
- uapi/asm/syscalls.h
-In-Reply-To: <mhng-ef018453-7a99-48b3-bda5-5408383d9566@palmer-si-x1c4>
-References: <mhng-ef018453-7a99-48b3-bda5-5408383d9566@palmer-si-x1c4>
-Message-ID: <98730af5-701d-f0be-410c-29e74bb36ec3@roeck-us.net>
+From: hch@infradead.org (Christoph Hellwig)
+Date: Fri, 10 Aug 2018 01:38:04 -0700
+Subject: [PATCH v3 1/2] RISC-V: Define sys_riscv_flush_icache when SMP=n
+In-Reply-To: <20180809221952.24260-2-palmer@sifive.com>
+References: <20180809221952.24260-1-palmer@sifive.com>
+ <20180809221952.24260-2-palmer@sifive.com>
+Message-ID: <20180810083804.GA20415@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 08/09/2018 08:59 PM, Palmer Dabbelt wrote:
-[ ... ]
->>> Also, what is your methodology?? I follow
->>>
->>> ??? https://wiki.qemu.org/Documentation/Platforms/RISCV
+On Thu, Aug 09, 2018 at 03:19:51PM -0700, Palmer Dabbelt wrote:
+> This would be necessary to make non-SMP builds work, but there is
+> another error in the implementation of our syscall linkage that actually
+> just causes sys_riscv_flush_icache to never build.  I've build tested
+> this on allnoconfig and allnoconfig+SMP=y, as well as defconfig like
+> normal.
 
-Here are my qemu command lines:
-
-qemu-system-riscv64 -M virt -m 512M -no-reboot -bios bbl \
-	-kernel vmlinux -netdev user,id=net0 -device virtio-net-device,netdev=net0 \
-	-initrd rootfs.cpio \
-	-append 'rdinit=/sbin/init earlycon console=ttyS0,115200' \
-	-nographic -monitor none
-
-qemu-system-riscv64 -M virt -m 512M -no-reboot -bios bbl \
-	-kernel vmlinux -netdev user,id=net0 -device virtio-net-device,netdev=net0 \
-	-device virtio-blk-device,drive=d0 \
-	-drive file=rootfs.ext2,if=none,id=d0,format=raw \
-	-append 'root=/dev/vda rw earlycon console=ttyS0,115200' \
-	-nographic -monitor none
-
-Root file systems and the bbl binary are published at
-	https://github.com/groeck/linux-build-test/tree/master/rootfs/riscv64
-
-Hint: If you specify "noreboot" as additional command line option, you'll end up in a shell.
-
-Qemu version:
-	https://github.com/riscv/riscv-qemu.git branch 'v3.0.0-local-riscv'
-
-Guenter
+Would't it make sense to use COND_SYSCALL to stub out the syscall
+for !SMP builds?
