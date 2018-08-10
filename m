@@ -1,80 +1,124 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu,  9 Aug 2018 15:19:52 -0700
-Subject: [PATCH v3 2/2] RISC-V: Don't use a global include guard for
- uapi/asm/syscalls.h
-In-Reply-To: <20180809221952.24260-1-palmer@sifive.com>
-References: <20180809221952.24260-1-palmer@sifive.com>
-Message-ID: <20180809221952.24260-3-palmer@sifive.com>
+From: zongbox@gmail.com (Zong Li)
+Date: Fri, 10 Aug 2018 08:36:03 +0800
+Subject: [PATCH] module: Add the print format of Elf_Addr for 32/64-bit
+ compatibly
+In-Reply-To: <1531796756-16982-1-git-send-email-zong@andestech.com>
+References: <1531796756-16982-1-git-send-email-zong@andestech.com>
+Message-ID: <CA+ZOyahU_D616x_PjB=6tzDagWJOf_=bgFOUSx2t2Q3HcNEB5g@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This file is expected to be included multiple times in the same file in
-order to allow the __SYSCALL macro to generate system call tables.  With
-a global include guard we end up missing __NR_riscv_flush_icache in the
-syscall table, which results in icache flushes that escape the vDSO call
-to not actually do anything.
+Zong Li <zong@andestech.com> ? 2018?7?17? ?? ??11:06???
+>
+> Use a similar way like fixed width integer types in inttypes.h.
+>
+> For the ELF, the Elf32_Addr is int type and Elf64_Addr is long long
+> type. It is opposite to definition of inttypes.h, so the Elf_Addr cannot
+> re-use the header.
+>
+> In many architectures, the module loader only print the message of
+> module name and relocation type except the address information. We can
+> print the address correctly without compile warning by using PRIdEA,
+> PRIxEA and so on.
+>
+> Signed-off-by: Zong Li <zong@andestech.com>
+> ---
+>  arch/riscv/kernel/module.c   | 13 +++++++------
+>  include/asm-generic/module.h |  9 +++++++++
+>  2 files changed, 16 insertions(+), 6 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+> index 3303ed2cd419..d839528e491a 100644
+> --- a/arch/riscv/kernel/module.c
+> +++ b/arch/riscv/kernel/module.c
+> @@ -16,11 +16,12 @@
+>  #include <linux/err.h>
+>  #include <linux/errno.h>
+>  #include <linux/moduleloader.h>
+> +#include <asm-generic/module.h>
+>
+>  static int apply_r_riscv_32_rela(struct module *me, u32 *location, Elf_Addr v)
+>  {
+>         if (v != (u32)v) {
+> -               pr_err("%s: value %016llx out of range for 32-bit field\n",
+> +               pr_err("%s: value %016" PRIxEA "out of range for 32-bit field\n",
+>                        me->name, v);
+>                 return -EINVAL;
+>         }
+> @@ -101,7 +102,7 @@ static int apply_r_riscv_pcrel_hi20_rela(struct module *me, u32 *location,
+>
+>         if (offset != (s32)offset) {
+>                 pr_err(
+> -                 "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
+> +                 "%s: target %016" PRIxEA "can not be addressed by the 32-bit offset from PC = %p\n",
+>                   me->name, v, location);
+>                 return -EINVAL;
+>         }
+> @@ -143,7 +144,7 @@ static int apply_r_riscv_hi20_rela(struct module *me, u32 *location,
+>
+>         if (IS_ENABLED(CMODEL_MEDLOW)) {
+>                 pr_err(
+> -                 "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
+> +                 "%s: target %016" PRIxEA "can not be addressed by the 32-bit offset from PC = %p\n",
+>                   me->name, v, location);
+>                 return -EINVAL;
+>         }
+> @@ -187,7 +188,7 @@ static int apply_r_riscv_got_hi20_rela(struct module *me, u32 *location,
+>                 offset = (void *)offset - (void *)location;
+>         } else {
+>                 pr_err(
+> -                 "%s: can not generate the GOT entry for symbol = %016llx from PC = %p\n",
+> +                 "%s: can not generate the GOT entry for symbol = %016" PRIxEA "from PC = %p\n",
+>                   me->name, v, location);
+>                 return -EINVAL;
+>         }
+> @@ -211,7 +212,7 @@ static int apply_r_riscv_call_plt_rela(struct module *me, u32 *location,
+>                         offset = (void *)offset - (void *)location;
+>                 } else {
+>                         pr_err(
+> -                         "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
+> +                         "%s: target %016" PRIxEA "can not be addressed by the 32-bit offset from PC = %p\n",
+>                           me->name, v, location);
+>                         return -EINVAL;
+>                 }
+> @@ -233,7 +234,7 @@ static int apply_r_riscv_call_rela(struct module *me, u32 *location,
+>
+>         if (offset != fill_v) {
+>                 pr_err(
+> -                 "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
+> +                 "%s: target %016" PRIxEA "can not be addressed by the 32-bit offset from PC = %p\n",
+>                   me->name, v, location);
+>                 return -EINVAL;
+>         }
+> diff --git a/include/asm-generic/module.h b/include/asm-generic/module.h
+> index 98e1541b72b7..d358f2414e5e 100644
+> --- a/include/asm-generic/module.h
+> +++ b/include/asm-generic/module.h
+> @@ -27,6 +27,7 @@ struct mod_arch_specific
+>  #endif
+>  #define ELF_R_TYPE(X)  ELF64_R_TYPE(X)
+>  #define ELF_R_SYM(X)   ELF64_R_SYM(X)
+> +#define ELF_ADDR_PREFIX "ll"
+>
+>  #else /* CONFIG_64BIT */
+>
+> @@ -44,6 +45,14 @@ struct mod_arch_specific
+>  #endif
+>  #define ELF_R_TYPE(X)  ELF32_R_TYPE(X)
+>  #define ELF_R_SYM(X)   ELF32_R_SYM(X)
+> +#define ELF_ADDR_PREFIX
+>  #endif
+>
+> +#define PRIdEA ELF_ADDR_PREFIX "d" /* signed decimal */
+> +#define PRIiEA ELF_ADDR_PREFIX "i" /* signed decimal */
+> +#define PRIuEA ELF_ADDR_PREFIX "u" /* unsigned decimal */
+> +#define PRIoEA ELF_ADDR_PREFIX "o" /* unsigned octal */
+> +#define PRIxEA ELF_ADDR_PREFIX "x" /* unsigned lowercase hexadecimal */
+> +#define PRIXEA ELF_ADDR_PREFIX "X" /* unsigned uppercase hexadecimal */
+> +
+>  #endif /* __ASM_GENERIC_MODULE_H */
+> --
+> 2.16.1
+>
 
-The fix is to move to per-#define include guards, which allows the
-system call tables to actually be populated.  Thanks to Macrus Comstedt
-for finding and fixing the bug!
-
-I also went ahead and fixed the SPDX header to use a //-style comment,
-which I've been told is the canonical way to do it.
-
-Cc: Marcus Comstedt <marcus@mc.pp.se>
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- arch/riscv/include/asm/unistd.h        |  5 +++++
- arch/riscv/include/uapi/asm/syscalls.h | 15 +++++++++------
- 2 files changed, 14 insertions(+), 6 deletions(-)
-
-diff --git a/arch/riscv/include/asm/unistd.h b/arch/riscv/include/asm/unistd.h
-index 080fb28061de..0caea01d5cca 100644
---- a/arch/riscv/include/asm/unistd.h
-+++ b/arch/riscv/include/asm/unistd.h
-@@ -11,6 +11,11 @@
-  *   GNU General Public License for more details.
-  */
- 
-+/*
-+ * There is explicitly no include guard here because this file is expected to
-+ * be included multiple times.  See uapi/asm/syscalls.h for more info.
-+ */
-+
- #define __ARCH_WANT_SYS_CLONE
- #include <uapi/asm/unistd.h>
- #include <uapi/asm/syscalls.h>
-diff --git a/arch/riscv/include/uapi/asm/syscalls.h b/arch/riscv/include/uapi/asm/syscalls.h
-index 818655b0d535..690beb002d1d 100644
---- a/arch/riscv/include/uapi/asm/syscalls.h
-+++ b/arch/riscv/include/uapi/asm/syscalls.h
-@@ -1,10 +1,13 @@
--/* SPDX-License-Identifier: GPL-2.0 */
-+// SPDX-License-Identifier: GPL-2.0
- /*
-- * Copyright (C) 2017 SiFive
-+ * Copyright (C) 2017-2018 SiFive
-  */
- 
--#ifndef _ASM__UAPI__SYSCALLS_H
--#define _ASM__UAPI__SYSCALLS_H
-+/*
-+ * There is explicitly no include guard here because this file is expected to
-+ * be included multiple times in order to define the syscall macros via
-+ * __SYSCALL.
-+ */
- 
- /*
-  * Allows the instruction cache to be flushed from userspace.  Despite RISC-V
-@@ -20,7 +23,7 @@
-  * caller.  We don't currently do anything with the address range, that's just
-  * in there for forwards compatibility.
-  */
-+#ifndef __NR_riscv_flush_icache
- #define __NR_riscv_flush_icache (__NR_arch_specific_syscall + 15)
--__SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
--
- #endif
-+__SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
--- 
-2.16.4
+ping
