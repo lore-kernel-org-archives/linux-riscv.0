@@ -1,59 +1,54 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 10 Aug 2018 13:55:12 -0700 (PDT)
-Subject: [RFC] RISC-V: Fix !CONFIG_SMP compilation error
-In-Reply-To: <b77401db-2bd5-3290-86b3-b173b06f964d@wdc.com>
-Message-ID: <mhng-b76eb7de-3d75-4daf-b57c-f29060adfd07@palmer-si-x1c4>
+Date: Fri, 10 Aug 2018 13:55:15 -0700 (PDT)
+Subject: [PATCH v3 1/2] RISC-V: Define sys_riscv_flush_icache when SMP=n
+In-Reply-To: <20180810184715.GA11259@roeck-us.net>
+Message-ID: <mhng-f3c54437-a74c-4a33-b59e-84eaf3453c85@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, 10 Aug 2018 11:31:08 PDT (-0700), atish.patra at wdc.com wrote:
-> On 8/6/18 4:17 PM, Atish Patra wrote:
->> Enabling both CONFIG_PERF_EVENTS without !CONFIG_SMP
->> generates following compilation error.
+On Fri, 10 Aug 2018 11:47:15 PDT (-0700), linux at roeck-us.net wrote:
+> On Fri, Aug 10, 2018 at 11:27:37AM -0700, Palmer Dabbelt wrote:
+>> On Fri, 10 Aug 2018 01:38:04 PDT (-0700), Christoph Hellwig wrote:
+>> >On Thu, Aug 09, 2018 at 03:19:51PM -0700, Palmer Dabbelt wrote:
+>> >>This would be necessary to make non-SMP builds work, but there is
+>> >>another error in the implementation of our syscall linkage that actually
+>> >>just causes sys_riscv_flush_icache to never build.  I've build tested
+>> >>this on allnoconfig and allnoconfig+SMP=y, as well as defconfig like
+>> >>normal.
+>> >
+>> >Would't it make sense to use COND_SYSCALL to stub out the syscall
+>> >for !SMP builds?
 >>
->> arch/riscv/include/asm/perf_event.h:80:2: error: expected
->> specifier-qualifier-list before 'irqreturn_t'
+>> I'm not sure.  We can implement the syscall fine in !SMP, it's just that the
+>> vDSO is expected to always eat these calls because in non-SMP mode you can
+>> do a global fence.i by just doing a local fence.i (there's only one hart).
 >>
->>    irqreturn_t (*handle_irq)(int irq_num, void *dev);
->>    ^~~~~~~~~~~
->>
->> Include interrupt.h in proper place to avoid compilation
->> error.
->>
->> Signed-off-by: Atish Patra <atish.patra@wdc.com>
->> ---
->>   arch/riscv/include/asm/perf_event.h | 1 +
->>   arch/riscv/kernel/perf_event.c      | 1 -
->>   2 files changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/arch/riscv/include/asm/perf_event.h b/arch/riscv/include/asm/perf_event.h
->> index 0e638a0c..aefbfaa6 100644
->> --- a/arch/riscv/include/asm/perf_event.h
->> +++ b/arch/riscv/include/asm/perf_event.h
->> @@ -10,6 +10,7 @@
->>
->>   #include <linux/perf_event.h>
->>   #include <linux/ptrace.h>
->> +#include <linux/interrupt.h>
->>
->>   #define RISCV_BASE_COUNTERS	2
->>
->> diff --git a/arch/riscv/kernel/perf_event.c b/arch/riscv/kernel/perf_event.c
->> index b0e10c4e..a243fae1 100644
->> --- a/arch/riscv/kernel/perf_event.c
->> +++ b/arch/riscv/kernel/perf_event.c
->> @@ -27,7 +27,6 @@
->>   #include <linux/mutex.h>
->>   #include <linux/bitmap.h>
->>   #include <linux/irq.h>
->> -#include <linux/interrupt.h>
->>   #include <linux/perf_event.h>
->>   #include <linux/atomic.h>
->>   #include <linux/of.h>
->>
-> ping ?
+>> The original rationale behind not having the syscall in non-SMP mode was to
+>> limit the user ABI, but on looking again that seems like it's just a bit of
+>> extra complexity that doesn't help anything.  It's already been demonstrated
+>
+> Doesn't this mean that some userspace code will only run if the kernel was
+> compiled for SMP ? I always thought that was unacceptable.
 
-Sorry about this, it got dropped.  This looks fine and fixes the bug, so I've 
-gone and put it on for-next.
+Well, the officially sanctioned way to obtain this functionality is via a vDSO 
+call.  On non-SMP systems it will never make the system call.  As a result we 
+thought we'd keep it out of the ABI, but after looking again it seems yucky to 
+do so.  Here's the vDSO entry, for reference:
 
-Thanks!
+    ENTRY(__vdso_flush_icache)
+            .cfi_startproc
+    #ifdef CONFIG_SMP
+            li a7, __NR_riscv_flush_icache
+            ecall
+    #else
+            fence.i
+            li a0, 0
+    #endif
+            ret
+            .cfi_endproc
+    ENDPROC(__vdso_flush_icache)
+
+Note that glibc has a fallback to make the system call if it can't find the 
+vDSO entry, but then doesn't have a secondary fallback to emit a local fence.i 
+if the system call doesn't exist.  It seems easier to fix the kernel to always 
+provide the syscall and just call it a bug.
