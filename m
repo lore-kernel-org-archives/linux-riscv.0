@@ -1,41 +1,57 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 09 Aug 2018 18:50:42 -0700 (PDT)
-Subject: FW: [PATCH v2] RISC-V: Add the directive for alignment of stvec's
- value
-In-Reply-To: <CA+ZOyajyOfjZh8tQB4reAka3s+tqXachY4hiAtpA4Bb67x58AQ@mail.gmail.com>
-Message-ID: <mhng-0cd89708-476d-4cd0-81a2-8ba5d18114ee@palmer-si-x1c4>
+From: linux@roeck-us.net (Guenter Roeck)
+Date: Thu, 9 Aug 2018 19:40:55 -0700
+Subject: [PATCH v2 2/2] RISC-V: Don't use a global include guard for
+ uapi/asm/syscalls.h
+In-Reply-To: <mhng-80aa1c8e-e2ed-4662-8715-4bb9e6ba7598@palmer-si-x1c4>
+References: <mhng-80aa1c8e-e2ed-4662-8715-4bb9e6ba7598@palmer-si-x1c4>
+Message-ID: <7f1a254d-58b0-1581-ea71-582bae131d3a@roeck-us.net>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, 09 Aug 2018 17:37:39 PDT (-0700), zongbox at gmail.com wrote:
->> Subject: [PATCH v2] RISC-V: Add the directive for alignment of stvec's value
+On 08/09/2018 06:03 PM, Palmer Dabbelt wrote:
+> On Thu, 09 Aug 2018 14:24:22 PDT (-0700), linux at roeck-us.net wrote:
+>> On Thu, Aug 09, 2018 at 01:25:24PM -0700, Palmer Dabbelt wrote:
+>>> This file is expected to be included multiple times in the same file in
+>>> order to allow the __SYSCALL macro to generate system call tables.? With
+>>> a global include guard we end up missing __NR_riscv_flush_icache in the
+>>> syscall table, which results in icache flushes that escape the vDSO call
+>>> to not actually do anything.
+>>>
+>>> The fix is to move to per-#define include guards, which allows the
+>>> system call tables to actually be populated.? Thanks to Macrus Comstedt
+>>> for finding and fixing the bug!
+>>>
+>>> I also went ahead and fixed the SPDX header to use a //-style comment,
+>>> which I've been told is the canonical way to do it.
+>>>
+>>> Cc: Marcus Comstedt <marcus@mc.pp.se>
+>>> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 >>
->> The stvec's value must be 4 byte alignment by specification definition.
->> These directives avoid to stvec be set the non-alignment value.
+>> [Compile-]Tested-by: Guenter Roeck <linux@roeck-us.net>
 >>
->> Signed-off-by: Zong Li <zong@andestech.com>
->> ---
->>  arch/riscv/kernel/head.S | 2 ++
->>  1 file changed, 2 insertions(+)
+>> on top of linux-next after reverting the version of the patch there.
 >>
->> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S index 3b6293f..11066d5 100644
->> --- a/arch/riscv/kernel/head.S
->> +++ b/arch/riscv/kernel/head.S
->> @@ -94,6 +94,7 @@ relocate:
->>         or a0, a0, a1
->>         sfence.vma
->>         csrw sptbr, a0
->> +.align 2
->>  1:
->>         /* Set trap vector to spin forever to help debug */
->>         la a0, .Lsecondary_park
->> @@ -143,6 +144,7 @@ relocate:
->>         tail smp_callin
->>  #endif
->>
->> +.align 2
->>  .Lsecondary_park:
->>         /* We lack SMP support or have too many harts, so park this hart */
->>         wfi
+>> I also tried to run the resulting image (defconfig) with qemu (built
+>> from https://github.com/riscv/riscv-qemu.git), but that still doesn't
+>> work. I assume there are still some patches missing ?
+> 
+> Do you have the PLIC patches?? They'll be necessary to make this all work, and there's a v4 out now that when combined with for-next should get you to userspace.
+> 
+>  ?? https://lore.kernel.org/lkml/20180809075602.989-1-hch at lst.de/T/#u
+> 
+Yes, after merging that branch on top of linux-next I can boot into Linux.
+If I add my "riscv: Drop setup_initrd" patch as well, I can boot using
+initrd, otherwise I have to use virtio-blk-device.
 
-Thanks, this got lost in the shuffle somewhere.  It's in for-next now.
+> Also, what is your methodology?? I follow
+> 
+>  ?? https://wiki.qemu.org/Documentation/Platforms/RISCV
+> 
+> and could could natively compile and run hello world with an earlier version of Christoph's patch set, which is really only cosmetically different than the v4. I use qemu's master branch as well, which when I tried was exactly 3.0.0-rc3.
+> 
+
+That doesn't work for me, possibly because I don't specify a bbl
+image with -kernel but vmlinux (using -bios for the bbl image).
+I use branch qemu-for-upstream of https://github.com/riscv/riscv-qemu.git.
+
+Guenter
