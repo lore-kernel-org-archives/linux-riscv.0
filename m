@@ -1,60 +1,74 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 09 Aug 2018 20:59:59 -0700 (PDT)
-Subject: [PATCH v2 2/2] RISC-V: Don't use a global include guard for
- uapi/asm/syscalls.h
-In-Reply-To: <7f1a254d-58b0-1581-ea71-582bae131d3a@roeck-us.net>
-Message-ID: <mhng-ef018453-7a99-48b3-bda5-5408383d9566@palmer-si-x1c4>
+From: linux@roeck-us.net (Guenter Roeck)
+Date: Thu,  9 Aug 2018 21:11:40 -0700
+Subject: [PATCH] riscv: Drop setup_initrd
+Message-ID: <1533874300-17656-1-git-send-email-linux@roeck-us.net>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, 09 Aug 2018 19:40:55 PDT (-0700), linux at roeck-us.net wrote:
-> On 08/09/2018 06:03 PM, Palmer Dabbelt wrote:
->> On Thu, 09 Aug 2018 14:24:22 PDT (-0700), linux at roeck-us.net wrote:
->>> On Thu, Aug 09, 2018 at 01:25:24PM -0700, Palmer Dabbelt wrote:
->>>> This file is expected to be included multiple times in the same file in
->>>> order to allow the __SYSCALL macro to generate system call tables.? With
->>>> a global include guard we end up missing __NR_riscv_flush_icache in the
->>>> syscall table, which results in icache flushes that escape the vDSO call
->>>> to not actually do anything.
->>>>
->>>> The fix is to move to per-#define include guards, which allows the
->>>> system call tables to actually be populated.? Thanks to Macrus Comstedt
->>>> for finding and fixing the bug!
->>>>
->>>> I also went ahead and fixed the SPDX header to use a //-style comment,
->>>> which I've been told is the canonical way to do it.
->>>>
->>>> Cc: Marcus Comstedt <marcus@mc.pp.se>
->>>> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
->>>
->>> [Compile-]Tested-by: Guenter Roeck <linux@roeck-us.net>
->>>
->>> on top of linux-next after reverting the version of the patch there.
->>>
->>> I also tried to run the resulting image (defconfig) with qemu (built
->>> from https://github.com/riscv/riscv-qemu.git), but that still doesn't
->>> work. I assume there are still some patches missing ?
->>
->> Do you have the PLIC patches?? They'll be necessary to make this all work, and there's a v4 out now that when combined with for-next should get you to userspace.
->>
->>  ?? https://lore.kernel.org/lkml/20180809075602.989-1-hch at lst.de/T/#u
->>
-> Yes, after merging that branch on top of linux-next I can boot into Linux.
-> If I add my "riscv: Drop setup_initrd" patch as well, I can boot using
-> initrd, otherwise I have to use virtio-blk-device.
+setup_initrd() does not appear to serve a practical purpose other than
+preventing qemu boots with "-initrd" parameter, so let's drop it.
 
-Awesome!  If you patch isn't on for-next then I must have missed it, do you 
-mind sending me a pointer?  I can't find any references in my email.
+Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+---
+ arch/riscv/kernel/setup.c | 39 ---------------------------------------
+ 1 file changed, 39 deletions(-)
 
->> Also, what is your methodology?? I follow
->>
->>  ?? https://wiki.qemu.org/Documentation/Platforms/RISCV
->>
->> and could could natively compile and run hello world with an earlier version of Christoph's patch set, which is really only cosmetically different than the v4. I use qemu's master branch as well, which when I tried was exactly 3.0.0-rc3.
->>
->
-> That doesn't work for me, possibly because I don't specify a bbl
-> image with -kernel but vmlinux (using -bios for the bbl image).
-> I use branch qemu-for-upstream of https://github.com/riscv/riscv-qemu.git.
->
-> Guenter
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 2e56af3281f8..579f58a42974 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -82,41 +82,6 @@ EXPORT_SYMBOL(empty_zero_page);
+ /* The lucky hart to first increment this variable will boot the other cores */
+ atomic_t hart_lottery;
+ 
+-#ifdef CONFIG_BLK_DEV_INITRD
+-static void __init setup_initrd(void)
+-{
+-	extern char __initramfs_start[];
+-	extern unsigned long __initramfs_size;
+-	unsigned long size;
+-
+-	if (__initramfs_size > 0) {
+-		initrd_start = (unsigned long)(&__initramfs_start);
+-		initrd_end = initrd_start + __initramfs_size;
+-	}
+-
+-	if (initrd_start >= initrd_end) {
+-		printk(KERN_INFO "initrd not found or empty");
+-		goto disable;
+-	}
+-	if (__pa(initrd_end) > PFN_PHYS(max_low_pfn)) {
+-		printk(KERN_ERR "initrd extends beyond end of memory");
+-		goto disable;
+-	}
+-
+-	size =  initrd_end - initrd_start;
+-	memblock_reserve(__pa(initrd_start), size);
+-	initrd_below_start_ok = 1;
+-
+-	printk(KERN_INFO "Initial ramdisk at: 0x%p (%lu bytes)\n",
+-		(void *)(initrd_start), size);
+-	return;
+-disable:
+-	pr_cont(" - disabling initrd\n");
+-	initrd_start = 0;
+-	initrd_end = 0;
+-}
+-#endif /* CONFIG_BLK_DEV_INITRD */
+-
+ pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+ pgd_t trampoline_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+ 
+@@ -195,10 +160,6 @@ static void __init setup_bootmem(void)
+ 	set_max_mapnr(PFN_DOWN(mem_size));
+ 	max_low_pfn = pfn_base + PFN_DOWN(mem_size);
+ 
+-#ifdef CONFIG_BLK_DEV_INITRD
+-	setup_initrd();
+-#endif /* CONFIG_BLK_DEV_INITRD */
+-
+ 	early_init_fdt_reserve_self();
+ 	early_init_fdt_scan_reserved_mem();
+ 	memblock_allow_resize();
+-- 
+2.7.4
