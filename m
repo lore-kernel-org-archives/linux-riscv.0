@@ -1,84 +1,86 @@
 From: linux@roeck-us.net (Guenter Roeck)
-Date: Fri, 10 Aug 2018 07:07:36 -0700
-Subject: [PATCH v3 1/2] RISC-V: Define sys_riscv_flush_icache when SMP=n
-In-Reply-To: <20180809221952.24260-2-palmer@sifive.com>
+Date: Fri, 10 Aug 2018 07:07:49 -0700
+Subject: [PATCH v3 2/2] RISC-V: Don't use a global include guard for
+ uapi/asm/syscalls.h
+In-Reply-To: <20180809221952.24260-3-palmer@sifive.com>
 References: <20180809221952.24260-1-palmer@sifive.com>
- <20180809221952.24260-2-palmer@sifive.com>
-Message-ID: <20180810140736.GA13061@roeck-us.net>
+ <20180809221952.24260-3-palmer@sifive.com>
+Message-ID: <20180810140749.GB13061@roeck-us.net>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Aug 09, 2018 at 03:19:51PM -0700, Palmer Dabbelt wrote:
-> This would be necessary to make non-SMP builds work, but there is
-> another error in the implementation of our syscall linkage that actually
-> just causes sys_riscv_flush_icache to never build.  I've build tested
-> this on allnoconfig and allnoconfig+SMP=y, as well as defconfig like
-> normal.
+On Thu, Aug 09, 2018 at 03:19:52PM -0700, Palmer Dabbelt wrote:
+> This file is expected to be included multiple times in the same file in
+> order to allow the __SYSCALL macro to generate system call tables.  With
+> a global include guard we end up missing __NR_riscv_flush_icache in the
+> syscall table, which results in icache flushes that escape the vDSO call
+> to not actually do anything.
 > 
-> CC: Christoph Hellwig <hch@infradead.org>
-> CC: Guenter Roeck <linux@roeck-us.net>
-> In-Reply-To: <20180809055830.GA17533@infradead.org>
-> In-Reply-To: <20180809132612.GA31058@roeck-us.net>
+> The fix is to move to per-#define include guards, which allows the
+> system call tables to actually be populated.  Thanks to Macrus Comstedt
+> for finding and fixing the bug!
+> 
+> I also went ahead and fixed the SPDX header to use a //-style comment,
+> which I've been told is the canonical way to do it.
+> 
+> Cc: Marcus Comstedt <marcus@mc.pp.se>
 > Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 
 Tested-by: Guenter Roeck <linux@roeck-us.net>
 
 > ---
->  arch/riscv/include/asm/vdso.h |  2 --
->  arch/riscv/kernel/sys_riscv.c | 12 ++++++++++--
->  2 files changed, 10 insertions(+), 4 deletions(-)
+>  arch/riscv/include/asm/unistd.h        |  5 +++++
+>  arch/riscv/include/uapi/asm/syscalls.h | 15 +++++++++------
+>  2 files changed, 14 insertions(+), 6 deletions(-)
 > 
-> diff --git a/arch/riscv/include/asm/vdso.h b/arch/riscv/include/asm/vdso.h
-> index 541544d64c33..ec6180a4b55d 100644
-> --- a/arch/riscv/include/asm/vdso.h
-> +++ b/arch/riscv/include/asm/vdso.h
-> @@ -38,8 +38,6 @@ struct vdso_data {
->  	(void __user *)((unsigned long)(base) + __vdso_##name);			\
->  })
+> diff --git a/arch/riscv/include/asm/unistd.h b/arch/riscv/include/asm/unistd.h
+> index 080fb28061de..0caea01d5cca 100644
+> --- a/arch/riscv/include/asm/unistd.h
+> +++ b/arch/riscv/include/asm/unistd.h
+> @@ -11,6 +11,11 @@
+>   *   GNU General Public License for more details.
+>   */
 >  
-> -#ifdef CONFIG_SMP
->  asmlinkage long sys_riscv_flush_icache(uintptr_t, uintptr_t, uintptr_t);
-> -#endif
+> +/*
+> + * There is explicitly no include guard here because this file is expected to
+> + * be included multiple times.  See uapi/asm/syscalls.h for more info.
+> + */
+> +
+>  #define __ARCH_WANT_SYS_CLONE
+>  #include <uapi/asm/unistd.h>
+>  #include <uapi/asm/syscalls.h>
+> diff --git a/arch/riscv/include/uapi/asm/syscalls.h b/arch/riscv/include/uapi/asm/syscalls.h
+> index 818655b0d535..690beb002d1d 100644
+> --- a/arch/riscv/include/uapi/asm/syscalls.h
+> +++ b/arch/riscv/include/uapi/asm/syscalls.h
+> @@ -1,10 +1,13 @@
+> -/* SPDX-License-Identifier: GPL-2.0 */
+> +// SPDX-License-Identifier: GPL-2.0
+>  /*
+> - * Copyright (C) 2017 SiFive
+> + * Copyright (C) 2017-2018 SiFive
+>   */
 >  
->  #endif /* _ASM_RISCV_VDSO_H */
-> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-> index f7181ed8aafc..568026ccf6e8 100644
-> --- a/arch/riscv/kernel/sys_riscv.c
-> +++ b/arch/riscv/kernel/sys_riscv.c
-> @@ -48,7 +48,6 @@ SYSCALL_DEFINE6(mmap2, unsigned long, addr, unsigned long, len,
->  }
->  #endif /* !CONFIG_64BIT */
+> -#ifndef _ASM__UAPI__SYSCALLS_H
+> -#define _ASM__UAPI__SYSCALLS_H
+> +/*
+> + * There is explicitly no include guard here because this file is expected to
+> + * be included multiple times in order to define the syscall macros via
+> + * __SYSCALL.
+> + */
 >  
-> -#ifdef CONFIG_SMP
 >  /*
 >   * Allows the instruction cache to be flushed from userspace.  Despite RISC-V
->   * having a direct 'fence.i' instruction available to userspace (which we
-> @@ -66,15 +65,24 @@ SYSCALL_DEFINE6(mmap2, unsigned long, addr, unsigned long, len,
->  SYSCALL_DEFINE3(riscv_flush_icache, uintptr_t, start, uintptr_t, end,
->  	uintptr_t, flags)
->  {
-> +#ifdef CONFIG_SMP
->  	struct mm_struct *mm = current->mm;
->  	bool local = (flags & SYS_RISCV_FLUSH_ICACHE_LOCAL) != 0;
-> +#endif
->  
->  	/* Check the reserved flags. */
->  	if (unlikely(flags & ~SYS_RISCV_FLUSH_ICACHE_ALL))
->  		return -EINVAL;
->  
-> +	/*
-> +	 * Without CONFIG_SMP flush_icache_mm is a just a flush_icache_all(),
-> +	 * which generates unused variable warnings all over this function.
-> +	 */
-> +#ifdef CONFIG_SMP
->  	flush_icache_mm(mm, local);
-> +#else
-> +	flush_icache_all();
-> +#endif
->  
->  	return 0;
->  }
-> -#endif
+> @@ -20,7 +23,7 @@
+>   * caller.  We don't currently do anything with the address range, that's just
+>   * in there for forwards compatibility.
+>   */
+> +#ifndef __NR_riscv_flush_icache
+>  #define __NR_riscv_flush_icache (__NR_arch_specific_syscall + 15)
+> -__SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
+> -
+>  #endif
+> +__SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
 > -- 
 > 2.16.4
 > 
