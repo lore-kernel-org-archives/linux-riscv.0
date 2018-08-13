@@ -1,54 +1,186 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 10 Aug 2018 13:55:15 -0700 (PDT)
-Subject: [PATCH v3 1/2] RISC-V: Define sys_riscv_flush_icache when SMP=n
-In-Reply-To: <20180810184715.GA11259@roeck-us.net>
-Message-ID: <mhng-f3c54437-a74c-4a33-b59e-84eaf3453c85@palmer-si-x1c4>
+From: robh+dt@kernel.org (Rob Herring)
+Date: Mon, 13 Aug 2018 08:09:57 -0600
+Subject: [PATCH 03/11] dt-bindings: interrupt-controller: RISC-V PLIC
+ documentation
+In-Reply-To: <mhng-d9abab59-2b3e-48a7-a28f-84f820964baa@palmer-si-x1c4>
+References: <CAL_JsqLpM=UG_9aL8CquhP8SajVav5in7RJRDk9tDd=QrTdVFw@mail.gmail.com>
+ <mhng-d9abab59-2b3e-48a7-a28f-84f820964baa@palmer-si-x1c4>
+Message-ID: <CAL_JsqKJAguba1YVQUzXRGL2zkPm2dTib5p=gMq6Ea3jpH6RaQ@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, 10 Aug 2018 11:47:15 PDT (-0700), linux at roeck-us.net wrote:
-> On Fri, Aug 10, 2018 at 11:27:37AM -0700, Palmer Dabbelt wrote:
->> On Fri, 10 Aug 2018 01:38:04 PDT (-0700), Christoph Hellwig wrote:
->> >On Thu, Aug 09, 2018 at 03:19:51PM -0700, Palmer Dabbelt wrote:
->> >>This would be necessary to make non-SMP builds work, but there is
->> >>another error in the implementation of our syscall linkage that actually
->> >>just causes sys_riscv_flush_icache to never build.  I've build tested
->> >>this on allnoconfig and allnoconfig+SMP=y, as well as defconfig like
->> >>normal.
->> >
->> >Would't it make sense to use COND_SYSCALL to stub out the syscall
->> >for !SMP builds?
->>
->> I'm not sure.  We can implement the syscall fine in !SMP, it's just that the
->> vDSO is expected to always eat these calls because in non-SMP mode you can
->> do a global fence.i by just doing a local fence.i (there's only one hart).
->>
->> The original rationale behind not having the syscall in non-SMP mode was to
->> limit the user ABI, but on looking again that seems like it's just a bit of
->> extra complexity that doesn't help anything.  It's already been demonstrated
+On Fri, Aug 10, 2018 at 2:09 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
 >
-> Doesn't this mean that some userspace code will only run if the kernel was
-> compiled for SMP ? I always thought that was unacceptable.
+> On Fri, 10 Aug 2018 09:57:03 PDT (-0700), robh+dt at kernel.org wrote:
+> > On Thu, Aug 9, 2018 at 12:29 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> >>
+> >> On Wed, 08 Aug 2018 16:32:07 PDT (-0700), robh+dt at kernel.org wrote:
+> >> > On Wed, Aug 8, 2018 at 1:38 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> >> >>
+> >> >> On Wed, 08 Aug 2018 07:16:14 PDT (-0700), robh+dt at kernel.org wrote:
+> >> >> > On Tue, Aug 7, 2018 at 8:17 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> >> >> >>
+> >> >> >> On Mon, 06 Aug 2018 13:59:48 PDT (-0700), robh+dt at kernel.org wrote:
+> >> >> >> > On Thu, Aug 2, 2018 at 4:08 PM Atish Patra <atish.patra@wdc.com> wrote:
+> >> >> >> >>
+> >> >> >> >> On 8/2/18 4:50 AM, Christoph Hellwig wrote:
+> >> >> >> >> > From: Palmer Dabbelt <palmer@dabbelt.com>
+> >> >> >> >> >
+> >> >> >> >> > This patch adds documentation for the platform-level interrupt
+> >> >> >> >> > controller (PLIC) found in all RISC-V systems.  This interrupt
+> >> >> >> >> > controller routes interrupts from all the devices in the system to each
+> >> >> >> >> > hart-local interrupt controller.
+> >> >> >> >> >
+> >> >> >> >> > Note: the DTS bindings for the PLIC aren't set in stone yet, as we might
+> >> >> >> >> > want to change how we're specifying holes in the hart list.
+> >> >> >> >> >
+> >> >> >> >> > Signed-off-by: Palmer Dabbelt <palmer@dabbelt.com>
+> >> >> >> >> > [hch: various fixes and updates]
+> >> >> >> >> > Signed-off-by: Christoph Hellwig <hch@lst.de>
+> >> >> >> >> > ---
+> >> >> >> >> >   .../interrupt-controller/sifive,plic0.txt     | 57 +++++++++++++++++++
+> >> >> >> >> >   1 file changed, 57 insertions(+)
+> >> >> >> >> >   create mode 100644 Documentation/devicetree/bindings/interrupt-controller/sifive,plic0.txt
+> >> >> >> >> >
+> >> >> >> >> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic0.txt b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic0.txt
+> >> >> >> >> > new file mode 100644
+> >> >> >> >> > index 000000000000..c756cd208a93
+> >> >> >> >> > --- /dev/null
+> >> >> >> >> > +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic0.txt
+> >> >> >> >> > @@ -0,0 +1,57 @@
+> >> >> >> >> > +SiFive Platform-Level Interrupt Controller (PLIC)
+> >> >> >> >> > +-------------------------------------------------
+> >> >> >> >> > +
+> >> >> >> >> > +SiFive SOCs include an implementation of the Platform-Level Interrupt Controller
+> >> >> >> >> > +(PLIC) high-level specification in the RISC-V Privileged Architecture
+> >> >> >> >> > +specification.  The PLIC connects all external interrupts in the system to all
+> >> >> >> >> > +hart contexts in the system, via the external interrupt source in each hart.
+> >> >> >> >> > +
+> >> >> >> >> > +A hart context is a privilege mode in a hardware execution thread.  For example,
+> >> >> >> >> > +in an 4 core system with 2-way SMT, you have 8 harts and probably at least two
+> >> >> >> >> > +privilege modes per hart; machine mode and supervisor mode.
+> >> >> >> >> > +
+> >> >> >> >> > +Each interrupt can be enabled on per-context basis. Any context can claim
+> >> >> >> >> > +a pending enabled interrupt and then release it once it has been handled.
+> >> >> >> >> > +
+> >> >> >> >> > +Each interrupt has a configurable priority. Higher priority interrupts are
+> >> >> >> >> > +serviced first. Each context can specify a priority threshold. Interrupts
+> >> >> >> >> > +with priority below this threshold will not cause the PLIC to raise its
+> >> >> >> >> > +interrupt line leading to the context.
+> >> >> >> >> > +
+> >> >> >> >> > +While the PLIC supports both edge-triggered and level-triggered interrupts,
+> >> >> >> >> > +interrupt handlers are oblivious to this distinction and therefore it is not
+> >> >> >> >> > +specified in the PLIC device-tree binding.
+> >> >> >> >> > +
+> >> >> >> >> > +While the RISC-V ISA doesn't specify a memory layout for the PLIC, the
+> >> >> >> >> > +"sifive,plic0" device is a concrete implementation of the PLIC that contains a
+> >> >> >> >> > +specific memory layout, which is documented in chapter 8 of the SiFive U5
+> >> >> >> >> > +Coreplex Series Manual <https://static.dev.sifive.com/U54-MC-RVCoreIP.pdf>.
+> >> >> >> >> > +
+> >> >> >> >> > +Required properties:
+> >> >> >> >> > +- compatible : "sifive,plic0"
+> >> >> >>
+> >> >> >> I think there was a thread bouncing around somewhere where decided to pick the
+> >> >> >> official name of the compatible string to be "sifive,plic-1.0".  The idea here
+> >> >> >> is that the PLIC is compatible across all of SiFive's current implementations,
+> >> >> >> but there's some limitations in the memory map that will probably cause us to
+> >> >> >> spin a version 2 at some point so we want major version number.  The minor
+> >> >> >> number is just in case we find some errata in the PLIC.
+> >> >> >
+> >> >> > Is 1.0 an actual version number corresponding to an exact, revision
+> >> >> > controlled version of the IP or just something you made up? Looks like
+> >> >> > the latter to me and I'm not a fan of s/w folks making up version
+> >> >> > numbers for h/w. Standard naming convention is <vendor>,<soc>-<block>
+> >> >> > unless you have good reason to deviate (IP for FPGAs where version
+> >> >> > numbers are exposed to customers is one example).
+> >> >>
+> >> >> The hardware versioning scheme calls it "riscv,plic0", which is what we were
+> >> >> originally using.  This PLIC isn't actually defined as a RISC-V spec, so we
+> >> >> wanted to change it to a "sifive,*" name instead.  Since we were going to
+> >> >> change the compat string anyway, I thought we'd just introduce a minor number
+> >> >> to be safe.  Since "0.0" is an awkward number, I figured "1.0" would be saner.
+> >> >
+> >> > So I guess to answer my question, you are just making up version
+> >> > numbers. Unless you are doing the IP verilog too, don't do that.
+> >>
+> >> Well, in this case my proposal would be that we change the hardware team's
+> >> versioning scheme to match whatever we decide on the versioning scheme should
+> >> be as a part of this discussion.  I proposed accepting whatever versioning
+> >> scheme is decided upon hereto the hardware team before discussing changing the
+> >> naming scheme and they agreed to do so.
+> >>
+> >> So we're really in the drivers' seat here.
+> >
+> > Okay. So you could have something like x.y.z versioning where a change
+> > in X is change in register layout and/or major functional change, Y is
+> > backwards compatible changes (i.e. superset of functionality), Z is
+> > not s/w visible changes (though trusting that Z changes are really not
+> > s/w visible makes me nervous). If you have a version register, then
+> > the compatible string only needs to be specific enough to read that
+> > register.
+> >
+> > And if I can have anything I ask for, then any configuration option
+> > needs to be s/w readable too. Things like FIFO sizes, number of
+> > channels, etc. Sometimes these are DT properties, but generally the
+> > preference is to make these implied by the compatible. There's no set
+> > rule though. The problem with properties is they work well if you know
+> > up front to have them, but often something is fixed and implied and
+> > then becomes variable when a new version of the block is created.
+> >
+> > Think of it this way, DT is a work-around for non-discoverable h/w.
+> > The best solution is making the h/w more discoverable. If you look at
+> > the ARM Primecell aka amba_bus drivers, we don't actually match on the
+> > device compatible string (e.g. arm,pl011). Only "arm,primecell" is
+> > used and then we match with standard ID registers from there. We only
+> > need DT to discover where those blocks are, not what they are or what
+> > version they are (and of course other things like clocks, regulators,
+> > etc.).
+>
+> Ya, good, that's generally been my model for it.  In the PLIC there isn't a
+> whole lot in terms of configuration options to probe dynamically, as the
+> register layout is fixed (determined by the device tree compat string) and the
+> interrupt routings are fixed (determined by interrupt-parent and reg).  There's
+> some amount of scheme for probing these, but since the routings aren't
+> discoverable without the device tree they're not really useful in practice.
+>
+> Our more modern blocks are becoming larger in scope, and these tend to have
+> their options determined by software.  For example, SiFive's CLIC proposal (a
+> proposal for a new RISC-V core-local interrupt controller) has many runtime
+> discoverable properties, with pretty much only the base address being specified
+> in the device tree -- here's an example of a binding
+>
+>                 L1: interrupt-controller at 2000000 {
+>                         compatible = "riscv,clic0";
+>                         interrupts-extended = <&L2 3 &L2 7 &L2 11>;
+>                         reg = <0x2000000 0x1000000>;
+>                         reg-names = "control";
+>                 };
+>
+> I don't want to go too far down the CLIC path, though, as there's still a lot
+> of work to be done there :)
+>
+> > So what your compatible string(s) need to look like depend on all the
+> > above. It can be very generic if you can identify the block, version,
+> > and capabilities in a standard way.
+>
+> For now I think the best bet is to go with "sifive,plic-1.0.0" as well as
+> "sifive,fu540-c000-plic".  That way we've got plenty of room to avoid painting
+> ourselves into a corner later.  In the interest of getting people a system they
+> can start testing, I'm going to go ahead and bring the PLIC driver into my
+> for-next branch with the "sifive,plic-1.0.0" binding.  I don't want to just
+> unilaterally kill the discussion, but I figure we can always submit a fixup
+> driver patch later if I'm wrong and we're not on the same page now.
 
-Well, the officially sanctioned way to obtain this functionality is via a vDSO 
-call.  On non-SMP systems it will never make the system call.  As a result we 
-thought we'd keep it out of the ABI, but after looking again it seems yucky to 
-do so.  Here's the vDSO entry, for reference:
+Okay.
 
-    ENTRY(__vdso_flush_icache)
-            .cfi_startproc
-    #ifdef CONFIG_SMP
-            li a7, __NR_riscv_flush_icache
-            ecall
-    #else
-            fence.i
-            li a0, 0
-    #endif
-            ret
-            .cfi_endproc
-    ENDPROC(__vdso_flush_icache)
+> I've also gone ahead and opened a PR against the RTL generator, but I'll wait
+> on the bindings to be officially accepted before merging that:
+>
+>     https://github.com/freechipsproject/rocket-chip/pull/1575
+>
+> I'm assuming the bindings will go in through your tree?
 
-Note that glibc has a fallback to make the system call if it can't find the 
-vDSO entry, but then doesn't have a secondary fallback to emit a local fence.i 
-if the system call doesn't exist.  It seems easier to fix the kernel to always 
-provide the syscall and just call it a bug.
+No, they generally go thru the arch or subsystem trees with the code
+that uses them (unless there isn't any and I'll take them).
+
+Rob
