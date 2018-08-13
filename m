@@ -1,89 +1,146 @@
-From: robh@kernel.org (Rob Herring)
-Date: Mon, 13 Aug 2018 09:36:48 -0600
-Subject: [PATCH v4 1/3] dt-bindings: interrupt-controller: RISC-V local
- interrupt controller
-In-Reply-To: <20180809075602.989-2-hch@lst.de>
-References: <20180809075602.989-1-hch@lst.de> <20180809075602.989-2-hch@lst.de>
-Message-ID: <20180813153648.GA29089@rob-hp-laptop>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Mon, 13 Aug 2018 13:12:24 -0700 (PDT)
+Subject: [PULL RFC] RISC-V Updates for the 4.19 Merge Window
+Message-ID: <mhng-f26c6ad4-70c0-466b-ae53-e504ae8088c4@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Aug 09, 2018 at 09:56:00AM +0200, Christoph Hellwig wrote:
-> From: Palmer Dabbelt <palmer@dabbelt.com>
-> 
-> Add documentation on the RISC-V local interrupt controller, which is a
-> per-hart interrupt controller that manages all interrupts entering a
-> RISC-V hart.  This interrupt controller is present on all RISC-V systems.
-> 
-> Signed-off-by: Palmer Dabbelt <palmer@dabbelt.com>
-> [hch: minor cleanups]
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  .../interrupt-controller/riscv,cpu-intc.txt   | 44 +++++++++++++++++++
->  1 file changed, 44 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-> 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-> new file mode 100644
-> index 000000000000..b0a8af51c388
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-> @@ -0,0 +1,44 @@
-> +RISC-V Hart-Level Interrupt Controller (HLIC)
-> +---------------------------------------------
-> +
-> +RISC-V cores include Control Status Registers (CSRs) which are local to each
-> +CPU core (HART in RISC-V terminology) and can be read or written by software.
-> +Some of these CSRs are used to control local interrupts connected to the core.
-> +Every interrupt is ultimately routed through a hart's HLIC before it
-> +interrupts that hart.
-> +
-> +The RISC-V supervisor ISA manual specifies three interrupt sources that are
-> +attached to every HLIC: software interrupts, the timer interrupt, and external
-> +interrupts.  Software interrupts are used to send IPIs between cores.  The
-> +timer interrupt comes from an architecturally mandated real-time timer that is
-> +controller via Supervisor Binary Interface (SBI) calls and CSR reads.  External
+Below is the pull request I plan to submit on Wednesday morning.  I'm planning
+on using it as the basis of a riscv-linux-4.18 branch that consists of only
+backports from the upstream kernel, which should make the RISC-V Linux
+ecosystem a whole lot more stable.
 
-s/controller/controlled/
+I'm planning on submitting another PR with at least the icache flushing fixes
+in it next week.
 
-> +interrupts connect all other device interrupts to the HLIC, which are routed
-> +via the platform-level interrupt controller (PLIC).
-> +
-> +All RISC-V systems that conform to the supervisor ISA specification are
-> +required to have a HLIC with these three interrupt sources present.  Since the
-> +interrupt map is defined by the ISA it's not listed in the HLIC's device tree
-> +entry, though external interrupt controllers (like the PLIC, for example) will
-> +need to define how their interrupts map to the relevant HLICs.  This means
-> +a PLIC interrupt property will typically list the HLICs for all present HARTs
-> +in the system.
-> +
-> +Required properties:
-> +- compatible : "riscv,cpu-intc"
-> +- #interrupt-cells : should be <1>
+This is availiable as riscv-for-linus-4.19-mw0, or as riscv-linux-4.18 on
+github.  I've gone and marked that branch as rebase-proof under the speculation
+that the PR gets merged, at which point riscv-linux-4.18 will be officially
+rebase proof.
 
-Given that there's only 3 sources and they are fixed(?), you should 
-define the numbering of them here.
+Thanks to everyone who helped out!
 
-> +- interrupt-controller : Identifies the node as an interrupt controller
-> +
-> +Furthermore, this interrupt-controller MUST be embedded inside the cpu
-> +definition of the hart whose CSRs control these local interrupts.
-> +
-> +An example device tree entry for a HLIC is show below.
-> +
-> +	cpu1: cpu at 1 {
-> +		compatible = "riscv";
-> +		...
-> +		cpu1-intc: interrupt-controller {
-> +			#interrupt-cells = <1>;
-> +			compatible = "riscv,cpu-intc", "sifive,fu540-c000-cpu-intc";
 
-The order here should be reversed (most specific first) and 
-"sifive,fu540-c000-cpu-intc" needs to be listed above.
+Here's the PR:
 
-> +			interrupt-controller;
-> +		};
-> +	};
-> -- 
-> 2.18.0
-> 
+The following changes since commit 94710cac0ef4ee177a63b5227664b38c95bbf703:
+
+  Linux 4.18 (2018-08-12 13:41:04 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-mw0
+
+for you to fetch changes up to 627672cf431b0379c07cc8d146f907cda6797222:
+
+  dt-bindings: interrupt-controller: SiFive Plaform Level Interrupt Controller (2018-08-13 09:39:11 -0700)
+
+----------------------------------------------------------------
+RISC-V Updates for the 4.19 Merge Window
+
+This tag contains some major improvements to the RISC-V port, including
+the necessary interrupt controller and timer support to actually make it
+to userspace.  Support for three devices has been added:
+
+* Support for the ISA-mandated timers on RISC-V systems.
+* Support for the ISA-mandated first-level interrupt controller on
+  RISC-V systems, which is handled as part of our core arch code because
+  it's very small and tightly tied to the ISA.
+* Support for SiFive's platform-level interrupt controller, which talks
+  to the actual devices.
+
+In addition to these new devices, there are a handful of cleanups all
+over the RISC-V tree:
+
+* Build fixes for various configurations
+    * A fix to the vDSO build's makefile so it respects CFLAGS.
+    * The addition of __lshrti3, a libgcc derived function necessary for
+      some 32-bit configurations.
+    * !SMP && PERF_EVENTS
+* Cleanups to the arch code to remove the remnants of old versions of
+  the drivers that were just properly submitted.
+    * Some dead code from the timer driver, most of which wasn't ever
+      even compiled.
+    * Cleanups of some interrupt #defines, which are now local to the
+      interrupt handling code.
+* Fixes to ptrace(), which while not being sufficient to fully make GDB
+  work are at least sufficient to get simple GDB tasks to work.
+* Early printk support via RISC-V's architecturally mandated SBI console
+  device.
+* A fix to our early debug trap handler to ensure it's always aligned.
+
+These patches have all been through a fairly extensive review process,
+but as this enables a whole pile of functionality (ie, userspace) I'm
+confident we'll need to submit a few more patches.  The only concrete
+issues I know about are the sys_riscv_flush_icache patches, but as I
+managed to screw those up on Friday I figured it'd be best to let them
+bake another week.
+
+This tag boots a Fedora root filesystem on QEMU's master branch for me,
+and before this morning's rebase (from 4.18-rc8 to 4.18) it booted on
+the HiFive Unleashed.
+
+Thanks to Christoph Hellwig and the other guys at WD for getting the new
+drivers in shape!
+
+----------------------------------------------------------------
+Alex Guo (1):
+      RISC-V: implement __lshrti3.
+
+Atish Patra (1):
+      RISC-V: Fix !CONFIG_SMP compilation error
+
+Christoph Hellwig (6):
+      RISC-V: remove timer leftovers
+      RISC-V: simplify software interrupt / IPI code
+      RISC-V: remove INTERRUPT_CAUSE_* defines from asm/irq.h
+      RISC-V: add a definition for the SIE SEIE bit
+      RISC-V: implement low-level interrupt handling
+      irqchip: add a SiFive PLIC driver
+
+Jim Wilson (1):
+      RISC-V: Don't increment sepc after breakpoint.
+
+Palmer Dabbelt (5):
+      RISC-V: Use KBUILD_CFLAGS instead of KCFLAGS when building the vDSO
+      RISC-V: Add early printk support via the SBI console
+      clocksource: new RISC-V SBI timer driver
+      dt-bindings: interrupt-controller: RISC-V local interrupt controller
+      dt-bindings: interrupt-controller: SiFive Plaform Level Interrupt Controller
+
+Zong Li (1):
+      RISC-V: Add the directive for alignment of stvec's value
+
+ .../interrupt-controller/riscv,cpu-intc.txt        |  44 ++++
+ .../interrupt-controller/sifive,plic-1.0.0.txt     |  58 +++++
+ arch/riscv/Makefile                                |   3 +
+ arch/riscv/configs/defconfig                       |   1 +
+ arch/riscv/include/asm/csr.h                       |   1 +
+ arch/riscv/include/asm/irq.h                       |   5 +-
+ arch/riscv/include/asm/perf_event.h                |   1 +
+ arch/riscv/include/asm/smp.h                       |   6 -
+ arch/riscv/kernel/entry.S                          |   4 +-
+ arch/riscv/kernel/head.S                           |   2 +
+ arch/riscv/kernel/irq.c                            |  55 ++++-
+ arch/riscv/kernel/perf_event.c                     |   1 -
+ arch/riscv/kernel/setup.c                          |  27 +++
+ arch/riscv/kernel/smp.c                            |   6 +-
+ arch/riscv/kernel/smpboot.c                        |   1 -
+ arch/riscv/kernel/time.c                           |  30 +--
+ arch/riscv/kernel/traps.c                          |   1 -
+ arch/riscv/kernel/vdso/Makefile                    |   4 +-
+ arch/riscv/lib/Makefile                            |   1 +
+ arch/riscv/lib/tishift.S                           |  42 ++++
+ drivers/clocksource/Kconfig                        |  11 +
+ drivers/clocksource/Makefile                       |   1 +
+ drivers/clocksource/riscv_timer.c                  | 105 +++++++++
+ drivers/irqchip/Kconfig                            |  12 +
+ drivers/irqchip/Makefile                           |   1 +
+ drivers/irqchip/irq-sifive-plic.c                  | 260 +++++++++++++++++++++
+ include/linux/cpuhotplug.h                         |   1 +
+ 27 files changed, 625 insertions(+), 59 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.txt
+ create mode 100644 arch/riscv/lib/tishift.S
+ create mode 100644 drivers/clocksource/riscv_timer.c
+ create mode 100644 drivers/irqchip/irq-sifive-plic.c
