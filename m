@@ -1,184 +1,82 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Thu, 16 Aug 2018 10:26:56 -0700
-Subject: [RFC PATCH 2/5] RISC-V: Use Linux logical cpu number instead of
- hartid
-In-Reply-To: <CAAhSdy0GLqwWohBjGD_Q+s95wXJKge-6MCf4a1TkMoDS3ezEAg@mail.gmail.com>
-References: <1534377377-70108-1-git-send-email-atish.patra@wdc.com>
- <1534377377-70108-3-git-send-email-atish.patra@wdc.com>
- <CAAhSdy0O7qid67J2pvyc3sFHsOPA-PFpiSKrHBB1tRDb678bAQ@mail.gmail.com>
- <adf9579e-62e1-e778-10f0-5e55c5b48406@wdc.com>
- <CAAhSdy2WXSeg7eWM0Jj7bN6KN6KC+WHqetZTSx4ATrfEcRk6Bg@mail.gmail.com>
- <f45cd8bd-0b79-9e01-595d-5d0d19ab543e@wdc.com>
- <CAAhSdy0GLqwWohBjGD_Q+s95wXJKge-6MCf4a1TkMoDS3ezEAg@mail.gmail.com>
-Message-ID: <004f66f0-4e65-d787-145a-bbf0c6f19763@wdc.com>
+From: helgaas@kernel.org (Bjorn Helgaas)
+Date: Thu, 16 Aug 2018 15:59:01 -0500
+Subject: [PATCH 1/3] PCI: add a callback to struct pci_host_bridge for
+ adding a new device
+In-Reply-To: <20180815195227.GG28888@bhelgaas-glaptop.roam.corp.google.com>
+References: <20180801151403.20660-1-hch@lst.de>
+ <20180801151403.20660-2-hch@lst.de>
+ <20180802165430.GA13725@red-moon>
+ <20180815195227.GG28888@bhelgaas-glaptop.roam.corp.google.com>
+Message-ID: <20180816205901.GA15085@bhelgaas-glaptop.roam.corp.google.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 8/15/18 11:03 PM, Anup Patel wrote:
-> On Thu, Aug 16, 2018 at 11:22 AM, Atish Patra <atish.patra@wdc.com> wrote:
->> On 8/15/18 10:45 PM, Anup Patel wrote:
->>>
->>> On Thu, Aug 16, 2018 at 10:53 AM, Atish Patra <atish.patra@wdc.com> wrote:
->>>>
->>>> On 8/15/18 9:24 PM, Anup Patel wrote:
->>>>>
->>>>>
->>>>> On Thu, Aug 16, 2018 at 5:26 AM, Atish Patra <atish.patra@wdc.com>
->>>>> wrote:
->>>>>>
->>>>>>
->>>>>> Setup the cpu_logical_map during boot. Moreover, every SBI call
->>>>>> and PLIC context are based on the physical hartid. Use the logical
->>>>>> cpu to hartid mapping to pass correct hartid to respective functions.
->>>>>>
->>>>>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
->>>>>> ---
->>>>>>     arch/riscv/include/asm/tlbflush.h | 17 +++++++++++++----
->>>>>>     arch/riscv/kernel/cpu.c           |  4 +++-
->>>>>>     arch/riscv/kernel/setup.c         | 10 ++++++++++
->>>>>>     arch/riscv/kernel/smp.c           | 24 +++++++++++++++---------
->>>>>>     arch/riscv/kernel/smpboot.c       | 30
->>>>>> ++++++++++++++++++------------
->>>>>>     drivers/clocksource/riscv_timer.c | 12 ++++++++----
->>>>>>     drivers/irqchip/irq-sifive-plic.c | 11 +++++++----
->>>>>>     7 files changed, 74 insertions(+), 34 deletions(-)
->>>>>>
->>>>>> diff --git a/arch/riscv/include/asm/tlbflush.h
->>>>>> b/arch/riscv/include/asm/tlbflush.h
->>>>>> index 85c2d8ba..ecfd9b0e 100644
->>>>>> --- a/arch/riscv/include/asm/tlbflush.h
->>>>>> +++ b/arch/riscv/include/asm/tlbflush.h
->>>>>> @@ -16,6 +16,7 @@
->>>>>>     #define _ASM_RISCV_TLBFLUSH_H
->>>>>>
->>>>>>     #include <linux/mm_types.h>
->>>>>> +#include <asm/smp.h>
->>>>>>
->>>>>>     /*
->>>>>>      * Flush entire local TLB.  'sfence.vma' implicitly fences with the
->>>>>> instruction
->>>>>> @@ -49,13 +50,21 @@ static inline void flush_tlb_range(struct
->>>>>> vm_area_struct *vma,
->>>>>>
->>>>>>     #include <asm/sbi.h>
->>>>>>
->>>>>> -#define flush_tlb_all() sbi_remote_sfence_vma(NULL, 0, -1)
->>>>>> +static inline void remote_sfence_vma(struct cpumask *cmask, unsigned
->>>>>> long start,
->>>>>> +                                    unsigned long size)
->>>>>> +{
->>>>>> +       struct cpumask hmask;
->>>>>> +
->>>>>> +       cpuid_to_hartid_mask(cmask, &hmask);
->>>>>> +       sbi_remote_sfence_vma(hmask.bits, start, size);
->>>>>> +}
->>>>>> +
->>>>>> +#define flush_tlb_all() remote_sfence_vma(NULL, 0, -1)
->>>>>>     #define flush_tlb_page(vma, addr) flush_tlb_range(vma, addr, 0)
->>>>>>     #define flush_tlb_range(vma, start, end) \
->>>>>> -       sbi_remote_sfence_vma(mm_cpumask((vma)->vm_mm)->bits, \
->>>>>> -                             start, (end) - (start))
->>>>>> +       remote_sfence_vma(mm_cpumask((vma)->vm_mm), start, (end) -
->>>>>> (start))
->>>>>>     #define flush_tlb_mm(mm) \
->>>>>> -       sbi_remote_sfence_vma(mm_cpumask(mm)->bits, 0, -1)
->>>>>> +       remote_sfence_vma(mm_cpumask(mm), 0, -1)
->>>>>>
->>>>>>     #endif /* CONFIG_SMP */
->>>>>>
->>>>>> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
->>>>>> index ca6c81e5..f8a18ace 100644
->>>>>> --- a/arch/riscv/kernel/cpu.c
->>>>>> +++ b/arch/riscv/kernel/cpu.c
->>>>>> @@ -14,6 +14,7 @@
->>>>>>     #include <linux/init.h>
->>>>>>     #include <linux/seq_file.h>
->>>>>>     #include <linux/of.h>
->>>>>> +#include <asm/smp.h>
->>>>>>
->>>>>>     /* Return -1 if not a valid hart */
->>>>>>     int riscv_of_processor_hart(struct device_node *node)
->>>>>> @@ -79,7 +80,8 @@ static void c_stop(struct seq_file *m, void *v)
->>>>>>     static int c_show(struct seq_file *m, void *v)
->>>>>>     {
->>>>>>            unsigned long hart_id = (unsigned long)v - 1;
->>>>>> -       struct device_node *node = of_get_cpu_node(hart_id, NULL);
->>>>>> +       struct device_node *node =
->>>>>> of_get_cpu_node(cpu_logical_map(hart_id),
->>>>>> +                                                  NULL);
->>>>>
->>>>>
->>>>>
->>>>> The hart_id is misleading name here. It should be cpu_id. Please replace
->>>>> all instances of hart_id with cpu_id and where hard ID is to be
->>>>> displayed
->>>>> use cpu_logical_map(cpu_id).
->>>>>
->>>> Correct. Thanks for catching it. I will fix it in v2.
->>>>
->>>>
->>>>>>            const char *compat, *isa, *mmu;
->>>>>>
->>>>>>            seq_printf(m, "hart\t: %lu\n", hart_id);
->>>>>> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
->>>>>> index e21ed481..97b586f8 100644
->>>>>> --- a/arch/riscv/kernel/setup.c
->>>>>> +++ b/arch/riscv/kernel/setup.c
->>>>>> @@ -84,6 +84,16 @@ atomic_t hart_lottery;
->>>>>>
->>>>>>     u64 __cpu_logical_map[NR_CPUS];
->>>>>>
->>>>>> +void __init smp_setup_processor_id(void)
->>>>>> +{
->>>>>> +       int cpu = smp_processor_id();
->>>>>> +
->>>>>> +       cpu_logical_map(0) = cpu;
->>>>>
->>>>>
->>>>>
->>>>> I think this should be:
->>>>> cpu_logical_map(cpu) = hart_id;
->>>>>
->>>>> Here hart_id for boot CPU will be value of a0 register passed at
->>>>> boot-time.
->>>>>
->>>> I will change the variable name to hart_id. The assembly code in head.S
->>>> have
->>>> already stored hart id in thread info structure. So smp_processor_id()
->>>> and
->>>> hart id would be the same.
->>>>
->>>>
->>>
->>> I guess this means that for boot CPU, cpuid == hartid
->>>
->>
->> No. I set the cpuid 0 for boot cpu by doing this.
->>
->> +       /* Change the boot cpu ID in thread_info */
->> +       current->thread_info.cpu = 0;
->>
->>> This is very confusing because other places I see CPU0 is the boot CPU.
->>>
->>
->> CPU0 is the boot cpu.
->>>
->>> I think assembly code in head.S should store 0 in thread info for boot
->>> CPU.
->>>
->> If we do that, we loose track of boot cpu hartid. We have to store it
->> somewhere else to update the cpu_logical_map(0). Isn't it ?
+On Wed, Aug 15, 2018 at 02:52:28PM -0500, Bjorn Helgaas wrote:
+> On Thu, Aug 02, 2018 at 05:54:30PM +0100, Lorenzo Pieralisi wrote:
+> > On Wed, Aug 01, 2018 at 05:14:01PM +0200, Christoph Hellwig wrote:
+> > > There is currently no way for a PCIe bridge to impose constraints on
+> > > devices added to it.  For example, the Xilinx PCIe host bridge only
+> > > supports 32-bit physical addresses (due to a limitation on the AXI
+> > > port's address width).  Thus, even devices that claim to support 64-bit
+> > > DMA addresses must be restricted to 32-bit addresses when attached to
+> > > this host controller.
+> > > 
+> > > This patch adds a "add_dev" method  to struct pci_host_bridge that
+> > > allows the host driver to act upon acting adding devices.
+> > > 
+> > > Based on an earlier patch from Wesley W. Terpstra <wesley@sifive.com>.
+> > > 
+> > > Signed-off-by: Christoph Hellwig <hch@lst.de>
+> > > ---
+> > >  drivers/pci/probe.c | 4 ++++
+> > >  include/linux/pci.h | 1 +
+> > >  2 files changed, 5 insertions(+)
+> > > 
+> > > diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> > > index ac876e32de4b..8736d78ffc66 100644
+> > > --- a/drivers/pci/probe.c
+> > > +++ b/drivers/pci/probe.c
+> > > @@ -2290,6 +2290,7 @@ static void pci_set_msi_domain(struct pci_dev *dev)
+> > >  
+> > >  void pci_device_add(struct pci_dev *dev, struct pci_bus *bus)
+> > >  {
+> > > +	struct pci_host_bridge *host = pci_find_host_bridge(bus);
+> > >  	int ret;
+> > >  
+> > >  	pci_configure_device(dev);
+> > > @@ -2331,6 +2332,9 @@ void pci_device_add(struct pci_dev *dev, struct pci_bus *bus)
+> > >  	/* Set up MSI IRQ domain */
+> > >  	pci_set_msi_domain(dev);
+> > >  
+> > > +	if (host->add_dev)
+> > > +		host->add_dev(dev);
+> > 
+> > Hi Christoph,
+> > 
+> > while at it, IMHO it would be good to match the current
+> > pcibios_add_device() prototype (ie returning an int error value)
+> > so that this change can pave the way to removing yet another
+> > pcibios call.
+> > 
+> > Actually we could make pcibios_add_device() removal as part of this
+> > series but you would have to patch all related host bridge drivers
+> > initializations so I am happy for this patch to go standalone (I can
+> > patch the rest of the code) - I leave it to Bjorn's decision.
 > 
-> We can have variable of machine word size declared in assembly
-> named "boot_cpu_hart_id" which will hold the hart ID of boot CPU.
+> This patch seems OK to me.
 > 
-> No need to update thread_info.cpu on boot CPU. In fact, set
-> thread_info.cpu to 0 in head.S itself.
-> 
+> I don't really care about the prototype.  There's only one
+> pcibios_add_device() implementation (x86) that returns anything other
+> than 0, and that's a pretty obscure error case related to f9a37be0f02a
+> ("x86: Use PCI setup data"), which lets us use ROM data from boot
+> services.  Even then the only thing that happens is a WARN_ON().  A
+> more descriptive printk would be a lot more useful.
 
-Hmm. That will work too. Thanks.
+Thinking about this some more, I'm not so sure about the connection
+with removing pcibios_add_device().  This host_bridge->add_dev() hook
+would be for host bridge-specific things, while pcibios_add_device()
+is for arch-specific things.
 
-Atish
-> Regards,
-> Anup
-> 
+I'd still love to get rid of pcibios_add_device() (especially the
+non-arch-specific things like the pci_claim_resource() in s390); I'm
+just not sure yet whether this particular patch is the vehicle.
