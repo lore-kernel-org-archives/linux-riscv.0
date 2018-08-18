@@ -1,138 +1,238 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 17 Aug 2018 13:28:11 -0700 (PDT)
-Subject: [GIT PULL] RISC-V Updates for the 4.19 Merge Window
-Message-ID: <mhng-4afb9897-29ed-4eb4-88d7-6cfb09a0a65c@palmer-si-x1c4>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Fri, 17 Aug 2018 18:25:10 -0700
+Subject: [RFC PATCH 3/5] RISC-V: Add cpu_operatios structure
+In-Reply-To: <CAAhSdy30Fz0Ki5zMws6hspgn=xwcFLj3VVixH88UWGU+oehBQg@mail.gmail.com>
+References: <1534377377-70108-1-git-send-email-atish.patra@wdc.com>
+ <1534377377-70108-4-git-send-email-atish.patra@wdc.com>
+ <CAAhSdy2TeNfjdzWPHtCwrorBu8c9v-u9Ro-eGMbzSwzapfwdjw@mail.gmail.com>
+ <ce39a215-3bb1-d866-0d84-76642acb70bc@wdc.com>
+ <CAAhSdy30Fz0Ki5zMws6hspgn=xwcFLj3VVixH88UWGU+oehBQg@mail.gmail.com>
+Message-ID: <c36fab90-ddcc-da88-b959-224d3ce6b965@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-I remember having sent this on Wednesday, but for some reason I don't see it in
-your tree or my outbox so I might be crazy.  I was planning submitting some
-more patches next week anyway, so while I'm OK just rolling these up as well
-it'd be slightly easier if we can get these into -rc1 so we can test them.
+On 8/15/18 11:21 PM, Anup Patel wrote:
+> On Thu, Aug 16, 2018 at 11:10 AM, Atish Patra <atish.patra@wdc.com> wrote:
+>> On 8/15/18 10:02 PM, Anup Patel wrote:
+>>>
+>>> On Thu, Aug 16, 2018 at 5:26 AM, Atish Patra <atish.patra@wdc.com> wrote:
+>>>>
+>>>> Defining cpu_operations now helps adding cpu hotplug
+>>>> support in proper manner. Moreover, it provides flexibility
+>>>> in supporting other cpu enable/boot methods can be
+>>>> supported in future. This patch has been largely inspired from
+>>>> ARM64. However, a default boot method is defined for RISC-V unlike
+>>>> ARM64.
+>>>>
+>>>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+>>>> ---
+>>>>    arch/riscv/include/asm/smp.h | 10 ++++++++++
+>>>>    arch/riscv/kernel/smp.c      |  8 ++++++++
+>>>>    arch/riscv/kernel/smpboot.c  | 34 ++++++++++++++++++++++++++++------
+>>>>    3 files changed, 46 insertions(+), 6 deletions(-)
+>>>>
+>>>> diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+>>>> index 0763337b..2bb6e6c2 100644
+>>>> --- a/arch/riscv/include/asm/smp.h
+>>>> +++ b/arch/riscv/include/asm/smp.h
+>>>> @@ -28,6 +28,15 @@
+>>>>    extern u64 __cpu_logical_map[NR_CPUS];
+>>>>    #define cpu_logical_map(cpu)    __cpu_logical_map[cpu]
+>>>>
+>>>> +struct cpu_operations {
+>>>> +       const char      *name;
+>>>> +       int             (*cpu_init)(unsigned int);
+>>>> +       int             (*cpu_prepare)(unsigned int);
+>>>> +       int             (*cpu_boot)(unsigned int, struct task_struct *);
+>>>> +};
+>>>> +extern struct cpu_operations cpu_ops;
+>>>> +void smp_set_cpu_ops(const struct cpu_operations *cpu_ops);
+>>>> +
+>>>>    #ifdef CONFIG_SMP
+>>>>
+>>>>    /* SMP initialization hook for setup_arch */
+>>>> @@ -57,5 +66,6 @@ static inline void cpuid_to_hartid_mask(const struct
+>>>> cpumask *in,
+>>>>           cpumask_set_cpu(cpu_logical_map(0), out);
+>>>>    }
+>>>>
+>>>> +
+>>>>    #endif /* CONFIG_SMP */
+>>>>    #endif /* _ASM_RISCV_SMP_H */
+>>>> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+>>>> index 4ab70480..5de58ced 100644
+>>>> --- a/arch/riscv/kernel/smp.c
+>>>> +++ b/arch/riscv/kernel/smp.c
+>>>> @@ -58,6 +58,14 @@ void cpuid_to_hartid_mask(const struct cpumask *in,
+>>>> struct cpumask *out)
+>>>>           for_each_cpu(cpu, in)
+>>>>                   cpumask_set_cpu(cpu_logical_map(cpu), out);
+>>>>    }
+>>>> +struct cpu_operations cpu_ops __ro_after_init;
+>>>> +
+>>>> +void smp_set_cpu_ops(const struct cpu_operations *ops)
+>>>> +{
+>>>> +       if (ops)
+>>>> +               cpu_ops = *ops;
+>>>> +}
+>>>> +
+>>>
+>>>
+>>> Move both cpu_ops and smp_set_cpu_ops() to smpboot.c. This way
+>>> you will not require to make cpu_ops as global.
+>>>
+>> ok.
+>>
+>>> Further, I think cpu_ops should be a pointer and initial value should
+>>> be &default_ops.
+>>>
+>>> Something like this:
+>>> struct cpu_operations *cpu_ops __ro_after_init = &default_ops;
+>>>
+>>
+>> That will work too. However, setting it through smp_set_cpu_ops provides a
+>> sample implementation for any future SMP enable methods. That's why I used
+>> the API. I can change it if you think otherwise.
+> 
+> Having thought about this more, I think cpu_ops should be an pointer array
+> of NR_CPUS size. This means its not necessary to have have same ops for
+> all CPUs. The ARM64 implementation of CPU operations also allows separate
+> CPU operations for each CPU.
+>
 
-Sorry!
+I initially had NR_CPUs based pointer array implementation similar to 
+arm64. However, I couldn't find a use case for it. So I removed it.
 
 
+> For example, let's us assume that we have an SOC where we 2 cores
+> per-cluster and N clusters. All CPUs of cluster0 comes up at the same time
+> whereas cluster1 onwards we have to bring-up CPUs using special HW
+> mechanism.
+> 
 
+I was not aware of such a use case. If that's a valid possible future 
+use case, we should make it pointer array implementation. I will add it 
+in v2
 
-The following changes since commit 94710cac0ef4ee177a63b5227664b38c95bbf703:
-
-  Linux 4.18 (2018-08-12 13:41:04 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-mw0
-
-for you to fetch changes up to 627672cf431b0379c07cc8d146f907cda6797222:
-
-  dt-bindings: interrupt-controller: SiFive Plaform Level Interrupt Controller (2018-08-13 09:39:11 -0700)
-
-----------------------------------------------------------------
-RISC-V Updates for the 4.19 Merge Window
-
-This tag contains some major improvements to the RISC-V port, including
-the necessary interrupt controller and timer support to actually make it
-to userspace.  Support for three devices has been added:
-
-* Support for the ISA-mandated timers on RISC-V systems.
-* Support for the ISA-mandated first-level interrupt controller on
-  RISC-V systems, which is handled as part of our core arch code because
-  it's very small and tightly tied to the ISA.
-* Support for SiFive's platform-level interrupt controller, which talks
-  to the actual devices.
-
-In addition to these new devices, there are a handful of cleanups all
-over the RISC-V tree:
-
-* Build fixes for various configurations
-    * A fix to the vDSO build's makefile so it respects CFLAGS.
-    * The addition of __lshrti3, a libgcc derived function necessary for
-      some 32-bit configurations.
-    * !SMP && PERF_EVENTS
-* Cleanups to the arch code to remove the remnants of old versions of
-  the drivers that were just properly submitted.
-    * Some dead code from the timer driver, most of which wasn't ever
-      even compiled.
-    * Cleanups of some interrupt #defines, which are now local to the
-      interrupt handling code.
-* Fixes to ptrace(), which while not being sufficient to fully make GDB
-  work are at least sufficient to get simple GDB tasks to work.
-* Early printk support via RISC-V's architecturally mandated SBI console
-  device.
-* A fix to our early debug trap handler to ensure it's always aligned.
-
-These patches have all been through a fairly extensive review process,
-but as this enables a whole pile of functionality (ie, userspace) I'm
-confident we'll need to submit a few more patches.  The only concrete
-issues I know about are the sys_riscv_flush_icache patches, but as I
-managed to screw those up on Friday I figured it'd be best to let them
-bake another week.
-
-This tag boots a Fedora root filesystem on QEMU's master branch for me,
-and before this morning's rebase (from 4.18-rc8 to 4.18) it booted on
-the HiFive Unleashed.
-
-Thanks to Christoph Hellwig and the other guys at WD for getting the new
-drivers in shape!
-
-----------------------------------------------------------------
-Alex Guo (1):
-      RISC-V: implement __lshrti3.
-
-Atish Patra (1):
-      RISC-V: Fix !CONFIG_SMP compilation error
-
-Christoph Hellwig (6):
-      RISC-V: remove timer leftovers
-      RISC-V: simplify software interrupt / IPI code
-      RISC-V: remove INTERRUPT_CAUSE_* defines from asm/irq.h
-      RISC-V: add a definition for the SIE SEIE bit
-      RISC-V: implement low-level interrupt handling
-      irqchip: add a SiFive PLIC driver
-
-Jim Wilson (1):
-      RISC-V: Don't increment sepc after breakpoint.
-
-Palmer Dabbelt (5):
-      RISC-V: Use KBUILD_CFLAGS instead of KCFLAGS when building the vDSO
-      RISC-V: Add early printk support via the SBI console
-      clocksource: new RISC-V SBI timer driver
-      dt-bindings: interrupt-controller: RISC-V local interrupt controller
-      dt-bindings: interrupt-controller: SiFive Plaform Level Interrupt Controller
-
-Zong Li (1):
-      RISC-V: Add the directive for alignment of stvec's value
-
- .../interrupt-controller/riscv,cpu-intc.txt        |  44 ++++
- .../interrupt-controller/sifive,plic-1.0.0.txt     |  58 +++++
- arch/riscv/Makefile                                |   3 +
- arch/riscv/configs/defconfig                       |   1 +
- arch/riscv/include/asm/csr.h                       |   1 +
- arch/riscv/include/asm/irq.h                       |   5 +-
- arch/riscv/include/asm/perf_event.h                |   1 +
- arch/riscv/include/asm/smp.h                       |   6 -
- arch/riscv/kernel/entry.S                          |   4 +-
- arch/riscv/kernel/head.S                           |   2 +
- arch/riscv/kernel/irq.c                            |  55 ++++-
- arch/riscv/kernel/perf_event.c                     |   1 -
- arch/riscv/kernel/setup.c                          |  27 +++
- arch/riscv/kernel/smp.c                            |   6 +-
- arch/riscv/kernel/smpboot.c                        |   1 -
- arch/riscv/kernel/time.c                           |  30 +--
- arch/riscv/kernel/traps.c                          |   1 -
- arch/riscv/kernel/vdso/Makefile                    |   4 +-
- arch/riscv/lib/Makefile                            |   1 +
- arch/riscv/lib/tishift.S                           |  42 ++++
- drivers/clocksource/Kconfig                        |  11 +
- drivers/clocksource/Makefile                       |   1 +
- drivers/clocksource/riscv_timer.c                  | 105 +++++++++
- drivers/irqchip/Kconfig                            |  12 +
- drivers/irqchip/Makefile                           |   1 +
- drivers/irqchip/irq-sifive-plic.c                  | 260 +++++++++++++++++++++
- include/linux/cpuhotplug.h                         |   1 +
- 27 files changed, 625 insertions(+), 59 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.txt
- create mode 100644 arch/riscv/lib/tishift.S
- create mode 100644 drivers/clocksource/riscv_timer.c
- create mode 100644 drivers/irqchip/irq-sifive-plic.c
+Regards,
+Atish
+>>
+>>
+>>
+>>>>    /* Unsupported */
+>>>>    int setup_profiling_timer(unsigned int multiplier)
+>>>>    {
+>>>> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+>>>> index 6ab2bb1b..045a1a45 100644
+>>>> --- a/arch/riscv/kernel/smpboot.c
+>>>> +++ b/arch/riscv/kernel/smpboot.c
+>>>> @@ -30,6 +30,7 @@
+>>>>    #include <linux/irq.h>
+>>>>    #include <linux/of.h>
+>>>>    #include <linux/sched/task_stack.h>
+>>>> +#include <linux/smp.h>
+>>>>    #include <asm/irq.h>
+>>>>    #include <asm/mmu_context.h>
+>>>>    #include <asm/tlbflush.h>
+>>>> @@ -38,6 +39,7 @@
+>>>>
+>>>>    void *__cpu_up_stack_pointer[NR_CPUS];
+>>>>    void *__cpu_up_task_pointer[NR_CPUS];
+>>>> +struct cpu_operations default_ops;
+>>>>
+>>>>    void __init smp_prepare_boot_cpu(void)
+>>>>    {
+>>>> @@ -53,6 +55,7 @@ void __init setup_smp(void)
+>>>>           int hart, found_boot_cpu = 0;
+>>>>           int cpuid = 1;
+>>>>
+>>>> +       smp_set_cpu_ops(&default_ops);
+>>>>           while ((dn = of_find_node_by_type(dn, "cpu"))) {
+>>>>                   hart = riscv_of_processor_hart(dn);
+>>>>
+>>>> @@ -73,10 +76,8 @@ void __init setup_smp(void)
+>>>>           BUG_ON(!found_boot_cpu);
+>>>>    }
+>>>>
+>>>> -int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+>>>> +int default_cpu_boot(unsigned int hartid, struct task_struct *tidle)
+>>>>    {
+>>>> -       int hartid = cpu_logical_map(cpu);
+>>>> -       tidle->thread_info.cpu = cpu;
+>>>>           /*
+>>>>            * On RISC-V systems, all harts boot on their own accord.  Our
+>>>> _start
+>>>>            * selects the first hart to boot the kernel and causes the
+>>>> remainder
+>>>> @@ -84,13 +85,28 @@ int __cpu_up(unsigned int cpu, struct task_struct
+>>>> *tidle)
+>>>>            * setup by that main hart.  Writing __cpu_up_stack_pointer
+>>>> signals to
+>>>>            * the spinning harts that they can continue the boot process.
+>>>>            */
+>>>> -       smp_mb();
+>>>> +
+>>>>           __cpu_up_stack_pointer[hartid] = task_stack_page(tidle) +
+>>>> THREAD_SIZE;
+>>>>           __cpu_up_task_pointer[hartid] = tidle;
+>>>> +       return 0;
+>>>> +}
+>>>> +
+>>>> +int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+>>>> +{
+>>>> +       int err = -1;
+>>>> +       int hartid = cpu_logical_map(cpu);
+>>>>
+>>>> -       while (!cpu_online(cpu))
+>>>> -               cpu_relax();
+>>>> +       tidle->thread_info.cpu = cpu;
+>>>> +       smp_mb();
+>>>>
+>>>> +       if (cpu_ops.cpu_boot)
+>>>> +               err = cpu_ops.cpu_boot(hartid, tidle);
+>>>> +       if (!err) {
+>>>> +               while (!cpu_online(cpu))
+>>>> +                       cpu_relax();
+>>>> +       } else {
+>>>> +               pr_err("CPU %d [hartid %d]failed to boot\n", cpu,
+>>>> hartid);
+>>>> +       }
+>>>>           return 0;
+>>>>    }
+>>>>
+>>>> @@ -117,3 +133,9 @@ asmlinkage void __init smp_callin(void)
+>>>>           preempt_disable();
+>>>>           cpu_startup_entry(CPUHP_AP_ONLINE_IDLE);
+>>>>    }
+>>>> +
+>>>> +
+>>>> +struct cpu_operations default_ops = {
+>>>> +       .name           = "default",
+>>>> +       .cpu_boot       = default_cpu_boot,
+>>>> +};
+>>>
+>>>
+>>> I think having dedicated source file for default_ops makes more sense
+>>> so that we have a clear/simple reference implementation of cpu_operations.
+>>>
+>>> Eventually, we might have one source file for each type of SMP enable
+>>> method.
+>>>
+>>> Try to keep smpboot.c generic and independent of any cpu_operations.
+>>> What say?
+>>>
+>>
+>> Any other SMP enable method should definitely get its own file. I am not
+>> sure about the default one though. As default_ops is truly the default
+>> booting method which will always be present in absence of anything else, I
+>> thought keeping it smpboot.c emphasizes that point. Moreover, it's not that
+>> big even. But I am open to moving to it's own source file if you strongly
+>> think we should do that.
+>>
+> 
+> I am more inclined towards keeping default_ops in separate source but it's
+> not a big deal. Let's wait for more comments.
+> 
+> Regards,
+> Anup
+> 
