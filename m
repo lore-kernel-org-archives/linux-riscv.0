@@ -1,71 +1,47 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Mon, 20 Aug 2018 16:10:04 -0700
-Subject: [PATCH] dt-bindings: riscv,cpu-intc: Cleanups from a missed review
-In-Reply-To: <20180820230011.25368-1-palmer@sifive.com>
-References: <20180820230011.25368-1-palmer@sifive.com>
-Message-ID: <51924de4-4a16-07a0-f499-753e0df49678@wdc.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Mon, 20 Aug 2018 16:30:39 -0700 (PDT)
+Subject: [PATCH v3 1/2] RISC-V: Define sys_riscv_flush_icache when SMP=n
+In-Reply-To: <20180814133922.GC28080@infradead.org>
+Message-ID: <mhng-32cf9aae-1b8f-42e7-86ce-497ba7a43577@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 8/20/18 4:01 PM, Palmer Dabbelt wrote:
-> I managed to miss one of Rob's code reviews on the mailing list
-> <http://lists.infradead.org/pipermail/linux-riscv/2018-August/001139.html>.
-> The patch has already been merged, so I'm submitting a fixup.
-> 
-> Sorry!
-> 
-> Fixes: b67bc7cb4088 ("dt-bindings: interrupt-controller: RISC-V local interrupt controller")
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Christoph Hellwig <hch@infradead.org>
-> Cc: Karsten Merker <merker@debian.org>
-> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-> ---
->   .../bindings/interrupt-controller/riscv,cpu-intc.txt       | 14 +++++++++++---
->   1 file changed, 11 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-> index b0a8af51c388..265b223cd978 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-> @@ -11,7 +11,7 @@ The RISC-V supervisor ISA manual specifies three interrupt sources that are
->   attached to every HLIC: software interrupts, the timer interrupt, and external
->   interrupts.  Software interrupts are used to send IPIs between cores.  The
->   timer interrupt comes from an architecturally mandated real-time timer that is
-> -controller via Supervisor Binary Interface (SBI) calls and CSR reads.  External
-> +controlled via Supervisor Binary Interface (SBI) calls and CSR reads.  External
->   interrupts connect all other device interrupts to the HLIC, which are routed
->   via the platform-level interrupt controller (PLIC).
->   
-> @@ -25,7 +25,15 @@ in the system.
->   
->   Required properties:
->   - compatible : "riscv,cpu-intc"
+On Tue, 14 Aug 2018 06:39:23 PDT (-0700), Christoph Hellwig wrote:
+>>  SYSCALL_DEFINE3(riscv_flush_icache, uintptr_t, start, uintptr_t, end,
+>>  	uintptr_t, flags)
+>>  {
+>> +#ifdef CONFIG_SMP
+>>  	struct mm_struct *mm = current->mm;
+>>  	bool local = (flags & SYS_RISCV_FLUSH_ICACHE_LOCAL) != 0;
+>> +#endif
+>>
+>>  	/* Check the reserved flags. */
+>>  	if (unlikely(flags & ~SYS_RISCV_FLUSH_ICACHE_ALL))
+>>  		return -EINVAL;
+>>
+>> +	/*
+>> +	 * Without CONFIG_SMP flush_icache_mm is a just a flush_icache_all(),
+>> +	 * which generates unused variable warnings all over this function.
+>> +	 */
+>> +#ifdef CONFIG_SMP
+>>  	flush_icache_mm(mm, local);
+>> +#else
+>> +	flush_icache_all();
+>> +#endif
+>
+> Eeek.
+>
+> Something like an unconditional:
+>
+> 	flush_icache_mm(current->mm, flags & SYS_RISCV_FLUSH_ICACHE_LOCAL);
+>
+> should solve those issues.
+>
+> Also in the longer run we should turn the !SMP flush_icache_mm stub
+> into an inline function to solve this problem for all potential
+> callers.  Excepte that flush_icache_mm happens to be a RISC-V specific
+> API without any other callers.  So for now I think the above is what
+> I'd do, but this area has a lot of room for cleanup.
 
-Since this is a fix up patch, we should update the compatible string 
-with the sifive specific one as well. no?
-
-Regards,
-Atish
-> -- #interrupt-cells : should be <1>
-> +- #interrupt-cells : should be <1>.  The interrupt sources are defined by the
-> +  RISC-V supervisor ISA manual, with only the following three interrupts being
-> +  defined for supervisor mode:
-> +    - Source 1 is the supervisor software interrupt, which can be sent by an SBI
-> +      call and is reserved for use by software.
-> +    - Source 5 is the supervisor timer interrupt, which can be configured by
-> +      SBI calls and implements a one-shot timer.
-> +    - Source 9 is the supervisor external interrupt, which chains to all other
-> +      device interrupts.
->   - interrupt-controller : Identifies the node as an interrupt controller
->   
->   Furthermore, this interrupt-controller MUST be embedded inside the cpu
-> @@ -38,7 +46,7 @@ An example device tree entry for a HLIC is show below.
->   		...
->   		cpu1-intc: interrupt-controller {
->   			#interrupt-cells = <1>;
-> -			compatible = "riscv,cpu-intc", "sifive,fu540-c000-cpu-intc";
-> +			compatible = "sifive,fu540-c000-cpu-intc", "riscv,cpu-intc";
->   			interrupt-controller;
->   		};
->   	};
-> 
+Thanks, that's a lot cleaner.  I missed this for the PR, but I'll submit a 
+cleanup patch after RC1.
