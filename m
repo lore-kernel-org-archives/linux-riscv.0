@@ -1,41 +1,64 @@
-From: linux@roeck-us.net (Guenter Roeck)
-Date: Sun, 19 Aug 2018 08:10:37 -0700
-Subject: [GIT PULL] RISC-V Updates for the 4.19 Merge Window
-In-Reply-To: <20180819072614.etl7izdicabsffn3@excalibur.cnev.de>
-References: <mhng-4afb9897-29ed-4eb4-88d7-6cfb09a0a65c@palmer-si-x1c4>
- <20180818133759.GA20049@roeck-us.net>
- <20180819072614.etl7izdicabsffn3@excalibur.cnev.de>
-Message-ID: <2f5d45c1-9f18-9002-d655-90aad655b416@roeck-us.net>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Mon, 20 Aug 2018 11:53:43 -0700 (PDT)
+Subject: [PULL RFC] RISC-V Updates for the 4.19 Merge Window, Part 2
+Message-ID: <mhng-61ca6b4b-56bd-46de-bc46-2841a25bedc5@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 08/19/2018 12:26 AM, Karsten Merker wrote:
-[ ... ]
->> However, the she system boots fine with the same qemu command line if I use qemu
->> built from https://github.com/riscv/riscv-qemu.git, branch qemu-for-upstream.
-> 
-> Hello,
-> 
-> AFAICS the qemu patch that adds support for handling separate bbl
-> and kernel images, i.e.
-> 
->    https://github.com/riscv/riscv-qemu/commit/6338416ecf4717197c635b5abf9c17465d2d0da0
-> 
-> hasn't yet made it into upstream qemu, so using the "-bios"
-> option for bbl generally doesn't work with (upstream) qemu 3.0.
-> 
+For the RISC-V people: I know there's more patches on linux-riscv, but I
+haven't gotten time to get through all of them.  I'm sure some of them
+are suitable for 4.19 RCs, but the others I'll defer until the next
+merge window.  I'll open a more detailed thread soon, I'm going through all the
+WIP branches now to see what's actually sane.
 
-You are correct. With qemu 3.0+commit b79cd8dec5 ("RISC-V: Support separate firmware
-and kernel payload") and this pull request plus "riscv: Drop setup_initrd" on top
-of mainline, my test passes:
 
-Build reference: riscv-for-linus-4.19-mw0-8897-gd028021652dd
 
-Building virt:defconfig:initrd ... running .... passed
-Building virt:defconfig:virtio-blk:rootfs ... running .... passed
 
-... giving this an official
+The following changes since commit 1009aa1205c2c5e9101437dcadfa195708d863bf:
 
-Tested-by: Guenter Roeck <linux@roeck-us.net>
+  Merge tag 'riscv-for-linus-4.19-mw0' of git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux (2018-08-19 09:56:38 -0700)
 
-Guenter
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-mw1
+
+for you to fetch changes up to 7a3b1bf70b37b3797c8570b82a473fd5749fab8d:
+
+  RISC-V: Fix sys_riscv_flush_icache (2018-08-20 11:32:10 -0700)
+
+----------------------------------------------------------------
+RISC-V Updates for the 4.19 Merge Window, Part 2
+
+This tag contains a pair of fixes to the RISC-V port.  I've based this
+on top of the merge of my previous PR, as I wanted to keep this as
+linear as possible (so I didn't want to base on the last tag, which is
+4.18 as I'm signing this PR) but didn't want to just grab master at some
+arbitrary point.  Let me know if that's the wrong thing to do.
+
+The fixes are:
+
+* The removal of our compat.h, which didn't do anything.
+* Fixes to sys_riscv_flush_icache to ensure it actually shows up.  We're
+  going to just call this a bug in the ABI, as it was always supposed to
+  be there.
+
+I've given these a simple build+boot test, both individually and as the
+actual tag.
+
+----------------------------------------------------------------
+Deepa Dinamani (1):
+      riscv: Delete asm/compat.h
+
+Palmer Dabbelt (3):
+      RISC-V: Define sys_riscv_flush_icache when SMP=n
+      RISC-V: Don't use a global include guard for uapi/asm/syscalls.h
+      RISC-V: Fix sys_riscv_flush_icache
+
+ arch/riscv/include/asm/Kbuild          |  1 +
+ arch/riscv/include/asm/compat.h        | 29 -----------------------------
+ arch/riscv/include/asm/unistd.h        |  5 +++++
+ arch/riscv/include/asm/vdso.h          |  2 --
+ arch/riscv/include/uapi/asm/syscalls.h | 13 ++++++++-----
+ arch/riscv/kernel/sys_riscv.c          | 12 ++++++++++--
+ 6 files changed, 24 insertions(+), 38 deletions(-)
+ delete mode 100644 arch/riscv/include/asm/compat.h
