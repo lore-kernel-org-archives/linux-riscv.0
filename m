@@ -1,57 +1,60 @@
-From: hch@infradead.org (Christoph Hellwig)
-Date: Tue, 21 Aug 2018 00:54:52 -0700
-Subject: [RFC PATCH 5/5] RISC-V: Support cpu hotplug.
-In-Reply-To: <1534377377-70108-6-git-send-email-atish.patra@wdc.com>
-References: <1534377377-70108-1-git-send-email-atish.patra@wdc.com>
- <1534377377-70108-6-git-send-email-atish.patra@wdc.com>
-Message-ID: <20180821075452.GC28079@infradead.org>
+From: robh@kernel.org (Rob Herring)
+Date: Tue, 21 Aug 2018 07:59:03 -0500
+Subject: [PATCH] dt-bindings: riscv,
+ cpu-intc: Cleanups from a missed review
+In-Reply-To: <51924de4-4a16-07a0-f499-753e0df49678@wdc.com>
+References: <20180820230011.25368-1-palmer@sifive.com>
+ <51924de4-4a16-07a0-f499-753e0df49678@wdc.com>
+Message-ID: <CABGGisyZ=kuWesNkKRQQATsSf6_aiWTscmW1OANLtTSJAKQ0EA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
->  	if (!err) {
-> +
-> +#ifdef CONFIG_HOTPLUG_CPU
-> +		arch_send_call_function_single_ipi(cpu);
-> +#endif
+On Mon, Aug 20, 2018 at 6:10 PM Atish Patra <atish.patra@wdc.com> wrote:
+>
+> On 8/20/18 4:01 PM, Palmer Dabbelt wrote:
+> > I managed to miss one of Rob's code reviews on the mailing list
+> > <http://lists.infradead.org/pipermail/linux-riscv/2018-August/001139.html>.
+> > The patch has already been merged, so I'm submitting a fixup.
+> >
+> > Sorry!
+> >
+> > Fixes: b67bc7cb4088 ("dt-bindings: interrupt-controller: RISC-V local interrupt controller")
+> > Cc: Rob Herring <robh@kernel.org>
+> > Cc: Christoph Hellwig <hch@infradead.org>
+> > Cc: Karsten Merker <merker@debian.org>
+> > Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+> > ---
+> >   .../bindings/interrupt-controller/riscv,cpu-intc.txt       | 14 +++++++++++---
+> >   1 file changed, 11 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
+> > index b0a8af51c388..265b223cd978 100644
+> > --- a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
+> > +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
+> > @@ -11,7 +11,7 @@ The RISC-V supervisor ISA manual specifies three interrupt sources that are
+> >   attached to every HLIC: software interrupts, the timer interrupt, and external
+> >   interrupts.  Software interrupts are used to send IPIs between cores.  The
+> >   timer interrupt comes from an architecturally mandated real-time timer that is
+> > -controller via Supervisor Binary Interface (SBI) calls and CSR reads.  External
+> > +controlled via Supervisor Binary Interface (SBI) calls and CSR reads.  External
+> >   interrupts connect all other device interrupts to the HLIC, which are routed
+> >   via the platform-level interrupt controller (PLIC).
+> >
+> > @@ -25,7 +25,15 @@ in the system.
+> >
+> >   Required properties:
+> >   - compatible : "riscv,cpu-intc"
+>
+> Since this is a fix up patch, we should update the compatible string
+> with the sifive specific one as well. no?
 
-Please just provide a stub version of arch_send_call_function_single_ipi
-for the !CONFIG_HOTPLUG_CPU case instead of the ifdef here.
+I think it is fine as is if my understanding is correct. Given this is
+part of the RISC-V spec(s), then using 'riscv' here for riscv,cpu-intc
+is fine. It was only the PLIC which didn't have any standard
+definition that I had issue with. Plus, with the SoC specific string,
+I'm not too worried about what the fallback is.
 
-> +#ifdef CONFIG_HOTPLUG_CPU
-> +int can_hotplug_cpu(void)
+However, sifive,fu540-c000-cpu-intc does need to be documented.
+Putting it in the example is not documenting it.
 
-This should be a bool.
-
-> +{
-> +	if (cpu_ops.cpu_die)
-> +		return 1;
-> +	else
-> +		return 0;
-> +}
-
-	return cpu_ops.cpu_die != NULL;
-
-> +void default_cpu_die(unsigned int cpu)
-> +{
-> +	int sipval, sieval, scauseval;
-> +
-> +	/* clear all pending flags */
-> +	csr_write(sip, 0);
-> +	/* clear any previous scause data */
-> +	csr_write(scause, 0);
-> +
-> +	do {
-> +		wait_for_interrupt();
-> +		sipval = csr_read(sip);
-> +		sieval = csr_read(sie);
-> +		scauseval = csr_read(scause);
-> +	/* only break if wfi returns for an enabled interrupt */
-> +	} while ((sipval & sieval) == 0 &&
-> +		 scauseval != INTERRUPT_CAUSE_SOFTWARE);
-> +
-> +	boot_sec_cpu();
-> +}
-
-I suspect all of this except for the boot_sec_cpu() should go into
-a helper in irq.c.  Also as-is this probably doesn't work as scauseval
-will have INTERRUPT_CAUSE_FLAG set, making the comparism never true.
+Rob
