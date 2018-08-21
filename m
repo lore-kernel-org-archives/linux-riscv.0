@@ -1,60 +1,44 @@
-From: robh@kernel.org (Rob Herring)
-Date: Tue, 21 Aug 2018 07:59:03 -0500
-Subject: [PATCH] dt-bindings: riscv,
- cpu-intc: Cleanups from a missed review
-In-Reply-To: <51924de4-4a16-07a0-f499-753e0df49678@wdc.com>
-References: <20180820230011.25368-1-palmer@sifive.com>
- <51924de4-4a16-07a0-f499-753e0df49678@wdc.com>
-Message-ID: <CABGGisyZ=kuWesNkKRQQATsSf6_aiWTscmW1OANLtTSJAKQ0EA@mail.gmail.com>
+From: anup@brainfault.org (Anup Patel)
+Date: Tue, 21 Aug 2018 22:34:38 +0530
+Subject: [RFC PATCH 3/5] RISC-V: Add cpu_operatios structure
+In-Reply-To: <20180821074826.GA28079@infradead.org>
+References: <1534377377-70108-1-git-send-email-atish.patra@wdc.com>
+ <1534377377-70108-4-git-send-email-atish.patra@wdc.com>
+ <CAAhSdy2TeNfjdzWPHtCwrorBu8c9v-u9Ro-eGMbzSwzapfwdjw@mail.gmail.com>
+ <ce39a215-3bb1-d866-0d84-76642acb70bc@wdc.com>
+ <CAAhSdy30Fz0Ki5zMws6hspgn=xwcFLj3VVixH88UWGU+oehBQg@mail.gmail.com>
+ <20180821074826.GA28079@infradead.org>
+Message-ID: <CAAhSdy2NP4raXXPVvEJyAO127=J9jR3NNEHLF=vigBz=v-Qqkw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Aug 20, 2018 at 6:10 PM Atish Patra <atish.patra@wdc.com> wrote:
+On Tue, Aug 21, 2018 at 1:18 PM, Christoph Hellwig <hch@infradead.org> wrote:
+> On Thu, Aug 16, 2018 at 11:51:03AM +0530, Anup Patel wrote:
+>> Having thought about this more, I think cpu_ops should be an pointer array
+>> of NR_CPUS size. This means its not necessary to have have same ops for
+>> all CPUs. The ARM64 implementation of CPU operations also allows separate
+>> CPU operations for each CPU.
+>>
+>> For example, let's us assume that we have an SOC where we 2 cores
+>> per-cluster and N clusters. All CPUs of cluster0 comes up at the same time
+>> whereas cluster1 onwards we have to bring-up CPUs using special HW
+>> mechanism.
 >
-> On 8/20/18 4:01 PM, Palmer Dabbelt wrote:
-> > I managed to miss one of Rob's code reviews on the mailing list
-> > <http://lists.infradead.org/pipermail/linux-riscv/2018-August/001139.html>.
-> > The patch has already been merged, so I'm submitting a fixup.
-> >
-> > Sorry!
-> >
-> > Fixes: b67bc7cb4088 ("dt-bindings: interrupt-controller: RISC-V local interrupt controller")
-> > Cc: Rob Herring <robh@kernel.org>
-> > Cc: Christoph Hellwig <hch@infradead.org>
-> > Cc: Karsten Merker <merker@debian.org>
-> > Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-> > ---
-> >   .../bindings/interrupt-controller/riscv,cpu-intc.txt       | 14 +++++++++++---
-> >   1 file changed, 11 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-> > index b0a8af51c388..265b223cd978 100644
-> > --- a/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-> > +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,cpu-intc.txt
-> > @@ -11,7 +11,7 @@ The RISC-V supervisor ISA manual specifies three interrupt sources that are
-> >   attached to every HLIC: software interrupts, the timer interrupt, and external
-> >   interrupts.  Software interrupts are used to send IPIs between cores.  The
-> >   timer interrupt comes from an architecturally mandated real-time timer that is
-> > -controller via Supervisor Binary Interface (SBI) calls and CSR reads.  External
-> > +controlled via Supervisor Binary Interface (SBI) calls and CSR reads.  External
-> >   interrupts connect all other device interrupts to the HLIC, which are routed
-> >   via the platform-level interrupt controller (PLIC).
-> >
-> > @@ -25,7 +25,15 @@ in the system.
-> >
-> >   Required properties:
-> >   - compatible : "riscv,cpu-intc"
->
-> Since this is a fix up patch, we should update the compatible string
-> with the sifive specific one as well. no?
+> All this (including the patch itself) seems a little hypothetical.
+> I'd rather only add all this infrastructure once it actually is needed.
 
-I think it is fine as is if my understanding is correct. Given this is
-part of the RISC-V spec(s), then using 'riscv' here for riscv,cpu-intc
-is fine. It was only the PLIC which didn't have any standard
-definition that I had issue with. Plus, with the SoC specific string,
-I'm not too worried about what the fallback is.
+The cpu_operations is certainly required because SOC vendors will add
+vendor-specific mechanism to selectively bringing-up CPUs/HARTs instead
+of all CPUs entering Linux kernel simultaneously. In fact, we might also end-up
+having CPU ON/OFF operations in SBI.
 
-However, sifive,fu540-c000-cpu-intc does need to be documented.
-Putting it in the example is not documenting it.
+Having separate cpu_operations for each CPU is good for flexibility because
+CPU clusters might have different way of bringing up CPUs (for example, take
+any Hetrogeneous Multiprocessor Systems (HMP)).
 
-Rob
+IMHO, RISCV Linux port is new and this the right time to implement critical
+infrastructure things (such as cpu_operations). Also, its not something radical
+because we are taking inspiration from existing Linux ports (such as ARM64).
+
+Regards,
+Anup
