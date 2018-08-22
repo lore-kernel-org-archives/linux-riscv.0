@@ -1,43 +1,29 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 21 Aug 2018 13:57:54 -0700 (PDT)
-Subject: [GIT PULL] RISC-V Updates for the 4.19 Merge Window
-In-Reply-To: <20180821194550.wrh3q2fkr6wmrovd@excalibur.cnev.de>
-Message-ID: <mhng-d4882478-2772-4ef9-b79e-9b447a32cb8c@palmer-si-x1c4>
+From: hch@infradead.org (Christoph Hellwig)
+Date: Tue, 21 Aug 2018 23:03:53 -0700
+Subject: [RFC PATCH 3/5] RISC-V: Add cpu_operatios structure
+In-Reply-To: <CAAhSdy2NP4raXXPVvEJyAO127=J9jR3NNEHLF=vigBz=v-Qqkw@mail.gmail.com>
+References: <1534377377-70108-1-git-send-email-atish.patra@wdc.com>
+ <1534377377-70108-4-git-send-email-atish.patra@wdc.com>
+ <CAAhSdy2TeNfjdzWPHtCwrorBu8c9v-u9Ro-eGMbzSwzapfwdjw@mail.gmail.com>
+ <ce39a215-3bb1-d866-0d84-76642acb70bc@wdc.com>
+ <CAAhSdy30Fz0Ki5zMws6hspgn=xwcFLj3VVixH88UWGU+oehBQg@mail.gmail.com>
+ <20180821074826.GA28079@infradead.org>
+ <CAAhSdy2NP4raXXPVvEJyAO127=J9jR3NNEHLF=vigBz=v-Qqkw@mail.gmail.com>
+Message-ID: <20180822060353.GA27106@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 21 Aug 2018 12:45:50 PDT (-0700), merker at debian.org wrote:
-> On Tue, Aug 21, 2018 at 11:31:48AM -0700, Palmer Dabbelt wrote:
->> On Sat, 18 Aug 2018 06:37:59 PDT (-0700), linux at roeck-us.net wrote:
-> [...]
->> > Do you have vmlinux embedded in bbl ?
->> >
->> > With separate bbl and vmlinux, and the following qemu command line
->> > (with qemu 3.0)
->> >
->> > qemu-system-riscv64 -M virt -m 512M -no-reboot \
->> > 	-bios bbl -kernel vmlinux \
->> > 	-netdev user,id=net0 -device virtio-net-device,netdev=net0 \
->> > 	-device virtio-blk-device,drive=d0 \
->> > 	-drive file=rootfs.ext2,if=none,id=d0,format=raw \
->> > 	-append 'root=/dev/vda rw console=ttyS0,115200' \
->> > 	-nographic -monitor none
->> >
->> > all I get is
->> >
->> > rom: requested regions overlap (rom mrom.reset. free=0x000000000001cbe8, addr=0x0000000000001000)
->> >
->> > However, the she system boots fine with the same qemu command line if I use qemu
->> > built from https://github.com/riscv/riscv-qemu.git, branch qemu-for-upstream.
->>
->> Yes, I have a vmlinux built into my BBL.  I didn't actually look closely at
->> the command line I was copying and see that vmlinux in there, my guess would
->> be that it's getting ignored.  I don't remember if upstream BBL actually
->> works with the split bbl/vmlinux setup, I've kind of stopped paying
->> attention to BBL as I'm just waiting for someone to tell me instructions as
->> to how to use a real bootloader... :)
->
-> JFTR, upstream bbl supports the split bbl/vmlinux setup, it's just
-> upstream qemu that lacks the support for now (qemu-riscv has it).
+On Tue, Aug 21, 2018 at 10:34:38PM +0530, Anup Patel wrote:
+> The cpu_operations is certainly required because SOC vendors will add
+> vendor-specific mechanism to selectively bringing-up CPUs/HARTs instead
+> of all CPUs entering Linux kernel simultaneously. In fact, we might also end-up
+> having CPU ON/OFF operations in SBI.
 
-Thanks!
+Your forgot an essential part in your analysis:  Right now we only have
+one single way to deal with cpu on/offlining, and that is the dummy WFI
+kind.  Once other ways show up we can build proper infrastructure, but
+until then this is just a white elephant as we have no idea how these
+abstractions will look like.
+
+And my hope is that we'll just see new SBI calls, in which case we'll
+just need SBI and dummy version and can avoid all the indirect calls.
