@@ -1,20 +1,12 @@
-From: anup@brainfault.org (Anup Patel)
-Date: Wed, 22 Aug 2018 20:54:51 +0530
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Wed, 22 Aug 2018 10:16:46 -0700 (PDT)
 Subject: [RFC PATCH 3/5] RISC-V: Add cpu_operatios structure
 In-Reply-To: <20180822060353.GA27106@infradead.org>
-References: <1534377377-70108-1-git-send-email-atish.patra@wdc.com>
- <1534377377-70108-4-git-send-email-atish.patra@wdc.com>
- <CAAhSdy2TeNfjdzWPHtCwrorBu8c9v-u9Ro-eGMbzSwzapfwdjw@mail.gmail.com>
- <ce39a215-3bb1-d866-0d84-76642acb70bc@wdc.com>
- <CAAhSdy30Fz0Ki5zMws6hspgn=xwcFLj3VVixH88UWGU+oehBQg@mail.gmail.com>
- <20180821074826.GA28079@infradead.org>
- <CAAhSdy2NP4raXXPVvEJyAO127=J9jR3NNEHLF=vigBz=v-Qqkw@mail.gmail.com>
- <20180822060353.GA27106@infradead.org>
-Message-ID: <CAAhSdy1jdn7OS1AxwXYZqejUw-qto-5Afbb6o034ahH26E+vyw@mail.gmail.com>
+Message-ID: <mhng-fdb283aa-89d9-4de9-95f7-7886ed854df1@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Aug 22, 2018 at 11:33 AM, Christoph Hellwig <hch@infradead.org> wrote:
+On Tue, 21 Aug 2018 23:03:53 PDT (-0700), Christoph Hellwig wrote:
 > On Tue, Aug 21, 2018 at 10:34:38PM +0530, Anup Patel wrote:
 >> The cpu_operations is certainly required because SOC vendors will add
 >> vendor-specific mechanism to selectively bringing-up CPUs/HARTs instead
@@ -30,15 +22,6 @@ On Wed, Aug 22, 2018 at 11:33 AM, Christoph Hellwig <hch@infradead.org> wrote:
 > And my hope is that we'll just see new SBI calls, in which case we'll
 > just need SBI and dummy version and can avoid all the indirect calls.
 
-IMHO, rather than waiting for new CPU ON/OFF methods to come-up we
-can keep the cpu_operations ready. Also, we are not re-inventing anything
-here which we might have to discard later because cpu_operations are
-already tried and hardened for Linux ARM64.
-
-I agree with you that in long-term SBI-based CPU ON/OFF will be widely
-used. Most likely we will have at-least two CPU ON/OFF methods:
-1. Existing lottery based spinning
-2. New SBI calls
-
-Regards,
-Anup
+Yes, the goal here is to define one good interface via the SBI.  We've got a 
+session at Plumbers this year and one of the blocks is to sit down and talk 
+about this API, hopefully we can make some headway while there.
