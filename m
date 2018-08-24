@@ -1,40 +1,40 @@
-From: will.deacon@arm.com (Will Deacon)
-Date: Fri, 24 Aug 2018 15:25:33 +0100
+From: linux@roeck-us.net (Guenter Roeck)
+Date: Fri, 24 Aug 2018 06:07:22 -0700
 Subject: [RFC PATCH 2/2] mm: mmu_notifier fix for tlb_end_vma (build
  failures)
-In-Reply-To: <7d0111f4-c369-43a8-72c6-1a7390cdebdd@roeck-us.net>
+In-Reply-To: <20180823084709.19717-3-npiggin@gmail.com>
 References: <20180823084709.19717-1-npiggin@gmail.com>
  <20180823084709.19717-3-npiggin@gmail.com>
- <20180824130722.GA31409@roeck-us.net>
- <20180824131026.GB11868@brain-police>
- <20180824132419.GA9983@roeck-us.net>
- <20180824133427.GC11868@brain-police>
- <20180824135048.GF11868@brain-police>
- <7d0111f4-c369-43a8-72c6-1a7390cdebdd@roeck-us.net>
-Message-ID: <20180824142532.GG11868@brain-police>
+Message-ID: <20180824130722.GA31409@roeck-us.net>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, Aug 24, 2018 at 07:06:51AM -0700, Guenter Roeck wrote:
-> On 08/24/2018 06:50 AM, Will Deacon wrote:
+On Thu, Aug 23, 2018 at 06:47:09PM +1000, Nicholas Piggin wrote:
+> The generic tlb_end_vma does not call invalidate_range mmu notifier,
+> and it resets resets the mmu_gather range, which means the notifier
+> won't be called on part of the range in case of an unmap that spans
+> multiple vmas.
 > 
-> >>-#include <asm-generic/tlb.h>
-> >>+struct mmu_gather;
-> >>  static inline void tlb_flush(struct mmu_gather *tlb)
-> >>  {
-> >>  	flush_tlb_mm(tlb->mm);
-> >
-> >Bah, didn't spot the dereference so this won't work either. You basically
-> >just need to copy what I did for arm64 in d475fac95779.
-> >
+> ARM64 seems to be the only arch I could see that has notifiers and
+> uses the generic tlb_end_vma. I have not actually tested it.
 > 
-> Yes, this seems to work. It doesn't really need "struct mmu_gather;" -
-> I assume that is included from elsewhere - but I added it to be safe.
+> Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
+> Acked-by: Will Deacon <will.deacon@arm.com>
 
-struct mmu_gather comes in via asm-generic/tlb.h.
+This patch breaks riscv builds in mainline.
 
-> Can you send a full patch, or do you want me to do it ?
+Building riscv:defconfig ... failed
+--------------
+Error log:
+In file included from riscv/include/asm/tlb.h:17:0,
+                 from arch/riscv/include/asm/pgalloc.h:19,
+                 from riscv/mm/fault.c:30:
+include/asm-generic/tlb.h: In function 'tlb_flush_mmu_tlbonly':
+include/asm-generic/tlb.h:147:2: error: implicit declaration of function 'tlb_flush'
 
-I'm evidently incapable of writing code today, so please go ahead :)
+In file included from arch/riscv/include/asm/pgalloc.h:19:0,
+		from arch/riscv/mm/fault.c:30:
+arch/riscv/include/asm/tlb.h: At top level:
+arch/riscv/include/asm/tlb.h:19:20: warning: conflicting types for 'tlb_flush'
 
-Will
+Guenter
