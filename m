@@ -1,82 +1,48 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Fri, 24 Aug 2018 10:18:51 -0700
-Subject: macb: probe of 10090000.ethernet failed with error -110
-Message-ID: <6fc2e90f-cddb-3772-5b4e-f2e2c3466537@wdc.com>
+From: linux@roeck-us.net (Guenter Roeck)
+Date: Fri, 24 Aug 2018 11:22:59 -0700
+Subject: [RFC PATCH 2/2] mm: mmu_notifier fix for tlb_end_vma (build
+ failures)
+In-Reply-To: <20180824142532.GG11868@brain-police>
+References: <20180823084709.19717-1-npiggin@gmail.com>
+ <20180823084709.19717-3-npiggin@gmail.com>
+ <20180824130722.GA31409@roeck-us.net>
+ <20180824131026.GB11868@brain-police>
+ <20180824132419.GA9983@roeck-us.net>
+ <20180824133427.GC11868@brain-police>
+ <20180824135048.GF11868@brain-police>
+ <7d0111f4-c369-43a8-72c6-1a7390cdebdd@roeck-us.net>
+ <20180824142532.GG11868@brain-police>
+Message-ID: <20180824182259.GA18477@roeck-us.net>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi,
-I am not able to connect to the network on HiFiveUnleashed board (4/5 
-times) because of the following error. I believe the error is due to 
-device Microsemi VSC8541 which is enabled CONFIG_MICROSEMI_PHY.
+On Fri, Aug 24, 2018 at 03:25:33PM +0100, Will Deacon wrote:
+> On Fri, Aug 24, 2018 at 07:06:51AM -0700, Guenter Roeck wrote:
+> > On 08/24/2018 06:50 AM, Will Deacon wrote:
+> > 
+> > >>-#include <asm-generic/tlb.h>
+> > >>+struct mmu_gather;
+> > >>  static inline void tlb_flush(struct mmu_gather *tlb)
+> > >>  {
+> > >>  	flush_tlb_mm(tlb->mm);
+> > >
+> > >Bah, didn't spot the dereference so this won't work either. You basically
+> > >just need to copy what I did for arm64 in d475fac95779.
+> > >
+> > 
+> > Yes, this seems to work. It doesn't really need "struct mmu_gather;" -
+> > I assume that is included from elsewhere - but I added it to be safe.
+> 
+> struct mmu_gather comes in via asm-generic/tlb.h.
+> 
+>From linux/mm.h, really, which happens to be included before
+asm/tlb.h is included (see arch/riscv/include/asm/pgalloc.h).
+I kept it to be future-proof.
 
-----------------------------------------------------------------------
-macb 10090000.ethernet (unnamed net_device) (uninitialized): Could not 
-attach to PHY
-macb: probe of 10090000.ethernet failed with error -110
-----------------------------------------------------------------------
+> > Can you send a full patch, or do you want me to do it ?
+> 
+> I'm evidently incapable of writing code today, so please go ahead :)
+> 
+Done. We'll see if I am any better.
 
-I have all the sifive specific drivers built on top of 4.17. It works 
-sometimes. My initial debugging points to following code path.
-
-macb_probe->phy_connect_direct->phy_attach_direct->phy_init_hw()->
-genphy_soft_reset()->phy_poll_reset
-
-phy_poll_reset tries to do reset PHY by clearing the BMCR_RESET.
-
-int phy_init_hw(struct phy_device *phydev)
-{
-         int ret = 0;
-
-         /* Deassert the reset signal */
-         phy_device_reset(phydev, 0);
-
-         if (!phydev->drv || !phydev->drv->config_init)
-                 return 0;
-
-         if (phydev->drv->soft_reset)
-                 ret = phydev->drv->soft_reset(phydev);
-         else
-                 ret = genphy_soft_reset(phydev);
-
-    ...
-}
-
-static int phy_poll_reset(struct phy_device *phydev)
-{
-         /* Poll until the reset bit clears (50ms per retry == 0.6 sec) */
-         unsigned int retries = 12;
-         int ret;
-
-         dump_stack();
-         do {
-                 msleep(50);
-                 ret = phy_read(phydev, MII_BMCR);
-                 if (ret < 0)
-                         return ret;
-         } while (ret & BMCR_RESET && --retries);
-         if (ret & BMCR_RESET)
-                 return -ETIMEDOUT;
-
-         /* Some chips (smsc911x) may still need up to another 1ms after the
-          * BMCR_RESET bit is cleared before they are usable.
-          */
-         msleep(1);
-         return 0;
-}
-
-It looks like genphy_soft_reset()->phy_poll_reset() timesout after 
-trying out 0.6 seconds returning -ETIMEDOUT. I have tried to increase 
-the timeout to 20 seconds. Still same timeout happens. I have verified 
-the driver is getting registered.
-
-[    5.960025] libphy: Microsemi VSC8541 SyncE: Registered new driver
-[    6.455635] libphy: phy_init_hw: In phydev->drv name =[Microsemi 
-VSC8541 SyncE]
-
-Has anybody seen this error earlier or know what can be possible reason 
-for the timeout?
-
-
-Regards,
-Atish
+Guenter
