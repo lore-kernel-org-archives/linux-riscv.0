@@ -1,41 +1,106 @@
-From: linux@roeck-us.net (Guenter Roeck)
-Date: Fri, 24 Aug 2018 11:22:55 -0700
-Subject: [PATCH] riscv: tlb: Provide definition of tlb_flush() before
- including tlb.h
-Message-ID: <1535134975-18594-1-git-send-email-linux@roeck-us.net>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Fri, 24 Aug 2018 16:32:12 -0700 (PDT)
+Subject: [RFC PATCH 2/2] mm: mmu_notifier fix for tlb_end_vma (build
+ failures)
+In-Reply-To: <20180824135048.GF11868@brain-police>
+Message-ID: <mhng-86a3cd0c-c3dc-42a9-a955-01fbce9d2797@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-From: Will Deacon <will.deacon@arm.com>
+On Fri, 24 Aug 2018 06:50:48 PDT (-0700), Will Deacon wrote:
+> On Fri, Aug 24, 2018 at 02:34:27PM +0100, Will Deacon wrote:
+>> On Fri, Aug 24, 2018 at 06:24:19AM -0700, Guenter Roeck wrote:
+>> > On Fri, Aug 24, 2018 at 02:10:27PM +0100, Will Deacon wrote:
+>> > > On Fri, Aug 24, 2018 at 06:07:22AM -0700, Guenter Roeck wrote:
+>> > > > On Thu, Aug 23, 2018 at 06:47:09PM +1000, Nicholas Piggin wrote:
+>> > > > > The generic tlb_end_vma does not call invalidate_range mmu notifier,
+>> > > > > and it resets resets the mmu_gather range, which means the notifier
+>> > > > > won't be called on part of the range in case of an unmap that spans
+>> > > > > multiple vmas.
+>> > > > >
+>> > > > > ARM64 seems to be the only arch I could see that has notifiers and
+>> > > > > uses the generic tlb_end_vma. I have not actually tested it.
+>> > > > >
+>> > > > > Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
+>> > > > > Acked-by: Will Deacon <will.deacon@arm.com>
+>> > > >
+>> > > > This patch breaks riscv builds in mainline.
+>> > >
+>> > > Looks very similar to the breakage we hit on arm64. diff below should fix
+>> > > it.
+>> > >
+>> >
+>> > Unfortunately it doesn't.
+>> >
+>> > In file included from ./arch/riscv/include/asm/pgtable.h:26:0,
+>> >                  from ./include/linux/memremap.h:7,
+>> >                  from ./include/linux/mm.h:27,
+>> >                  from arch/riscv/mm/fault.c:23:
+>> > ./arch/riscv/include/asm/tlb.h: In function ?tlb_flush?:
+>> > ./arch/riscv/include/asm/tlb.h:19:18: error: dereferencing pointer to incomplete type ?struct mmu_gather?
+>> >   flush_tlb_mm(tlb->mm);
+>> >                   ^
+>>
+>> Sorry, I was a bit quick of the mark there. You'll need a forward
+>> declaration for the paramater type. Here it is with a commit message,
+>> although still untested because I haven't got round to setting up a riscv
+>> toolchain yet.
 
-As of commit fd1102f0aade ("mm: mmu_notifier fix for tlb_end_vma"),
-asm-generic/tlb.h now calls tlb_flush() from a static inline function,
-so we need to make sure that it's declared before #including the
-asm-generic header in the arch header.
+FWIW, Arnd built them last time he updated the cross tools so you should be 
+able to get GCC 8.1.0 for RISC-V from there.  I use this make.cross script that 
+I stole from the Intel 0-day robot
 
-Reported-by: Guenter Roeck <linux@roeck-us.net>
-Fixes: fd1102f0aade ("mm: mmu_notifier fix for tlb_end_vma")
-Signed-off-by: Will Deacon <will.deacon@arm.com>
-[groeck: Use forward declaration instead of moving inline function]
-Signed-off-by: Guenter Roeck <linux@roeck-us.net>
----
- arch/riscv/include/asm/tlb.h | 4 ++++
- 1 file changed, 4 insertions(+)
+    https://github.com/palmer-dabbelt/home/blob/master/.local/src/local-scripts/make.cross.bash
 
-diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
-index c229509288ea..439dc7072e05 100644
---- a/arch/riscv/include/asm/tlb.h
-+++ b/arch/riscv/include/asm/tlb.h
-@@ -14,6 +14,10 @@
- #ifndef _ASM_RISCV_TLB_H
- #define _ASM_RISCV_TLB_H
- 
-+struct mmu_gather;
-+
-+static void tlb_flush(struct mmu_gather *tlb);
-+
- #include <asm-generic/tlb.h>
- 
- static inline void tlb_flush(struct mmu_gather *tlb)
--- 
-2.7.4
+If I'm reading it correctly the tools come from here
+
+    http://cdn.kernel.org/pub/tools/crosstool/files/bin/x86_64/8.1.0/x86_64-gcc-8.1.0-nolibc-riscv64-linux.tar.gz
+
+I use the make.cross script as it makes it super easy to test my 
+across-the-tree patches on other people's ports.
+
+>>
+>> Will
+>>
+>> --->8
+>>
+>> From adb9be33d68320edcda80d540a97a647792894d2 Mon Sep 17 00:00:00 2001
+>> From: Will Deacon <will.deacon@arm.com>
+>> Date: Fri, 24 Aug 2018 14:33:48 +0100
+>> Subject: [PATCH] riscv: tlb: Provide definition of tlb_flush() before
+>>  including tlb.h
+>>
+>> As of commit fd1102f0aade ("mm: mmu_notifier fix for tlb_end_vma"),
+>> asm-generic/tlb.h now calls tlb_flush() from a static inline function,
+>> so we need to make sure that it's declared before #including the
+>> asm-generic header in the arch header.
+>>
+>> Since tlb_flush() is a one-liner for riscv, we can define it before
+>> including asm-generic/tlb.h as long as we provide a forward declaration
+>> of struct mmu_gather.
+>>
+>> Reported-by: Guenter Roeck <linux@roeck-us.net>
+>> Signed-off-by: Will Deacon <will.deacon@arm.com>
+>> ---
+>>  arch/riscv/include/asm/tlb.h | 4 +++-
+>>  1 file changed, 3 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
+>> index c229509288ea..a3d1380ad970 100644
+>> --- a/arch/riscv/include/asm/tlb.h
+>> +++ b/arch/riscv/include/asm/tlb.h
+>> @@ -14,11 +14,13 @@
+>>  #ifndef _ASM_RISCV_TLB_H
+>>  #define _ASM_RISCV_TLB_H
+>>
+>> -#include <asm-generic/tlb.h>
+>> +struct mmu_gather;
+>>
+>>  static inline void tlb_flush(struct mmu_gather *tlb)
+>>  {
+>>  	flush_tlb_mm(tlb->mm);
+>
+> Bah, didn't spot the dereference so this won't work either. You basically
+> just need to copy what I did for arm64 in d475fac95779.
+>
+> Will
