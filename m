@@ -1,44 +1,52 @@
-From: yamada.masahiro@socionext.com (Masahiro Yamada)
-Date: Fri, 24 Aug 2018 17:33:53 +0900
-Subject: [PATCH] riscv: move GCC version check for ARCH_SUPPORTS_INT128 to
- Kconfig
-Message-ID: <1535099634-29439-1-git-send-email-yamada.masahiro@socionext.com>
+From: will.deacon@arm.com (Will Deacon)
+Date: Fri, 24 Aug 2018 14:10:27 +0100
+Subject: [RFC PATCH 2/2] mm: mmu_notifier fix for tlb_end_vma (build
+ failures)
+In-Reply-To: <20180824130722.GA31409@roeck-us.net>
+References: <20180823084709.19717-1-npiggin@gmail.com>
+ <20180823084709.19717-3-npiggin@gmail.com>
+ <20180824130722.GA31409@roeck-us.net>
+Message-ID: <20180824131026.GB11868@brain-police>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This becomes much neater in Kconfig.
+On Fri, Aug 24, 2018 at 06:07:22AM -0700, Guenter Roeck wrote:
+> On Thu, Aug 23, 2018 at 06:47:09PM +1000, Nicholas Piggin wrote:
+> > The generic tlb_end_vma does not call invalidate_range mmu notifier,
+> > and it resets resets the mmu_gather range, which means the notifier
+> > won't be called on part of the range in case of an unmap that spans
+> > multiple vmas.
+> > 
+> > ARM64 seems to be the only arch I could see that has notifiers and
+> > uses the generic tlb_end_vma. I have not actually tested it.
+> > 
+> > Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
+> > Acked-by: Will Deacon <will.deacon@arm.com>
+> 
+> This patch breaks riscv builds in mainline.
 
-Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
----
+Looks very similar to the breakage we hit on arm64. diff below should fix
+it.
 
- arch/riscv/Kconfig  | 1 +
- arch/riscv/Makefile | 2 --
- 2 files changed, 1 insertion(+), 2 deletions(-)
+Will
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a344980..ed81df4 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -112,6 +112,7 @@ config ARCH_RV32I
- config ARCH_RV64I
- 	bool "RV64I"
- 	select 64BIT
-+	select ARCH_SUPPORTS_INT128 if GCC_VERSION >= 50000
- 	select HAVE_FUNCTION_TRACER
- 	select HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FTRACE_MCOUNT_RECORD
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 61ec424..33700e4 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -25,8 +25,6 @@ ifeq ($(CONFIG_ARCH_RV64I),y)
+--->*
+
+diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
+index c229509288ea..5017060be63c 100644
+--- a/arch/riscv/include/asm/tlb.h
++++ b/arch/riscv/include/asm/tlb.h
+@@ -14,11 +14,11 @@
+ #ifndef _ASM_RISCV_TLB_H
+ #define _ASM_RISCV_TLB_H
  
- 	KBUILD_CFLAGS += -mabi=lp64
- 	KBUILD_AFLAGS += -mabi=lp64
--	
--	KBUILD_CFLAGS	+= $(call cc-ifversion, -ge, 0500, -DCONFIG_ARCH_SUPPORTS_INT128)
+-#include <asm-generic/tlb.h>
+-
+ static inline void tlb_flush(struct mmu_gather *tlb)
+ {
+ 	flush_tlb_mm(tlb->mm);
+ }
  
- 	KBUILD_MARCH = rv64im
- 	KBUILD_LDFLAGS += -melf64lriscv
--- 
-2.7.4
++#include <asm-generic/tlb.h>
++
+ #endif /* _ASM_RISCV_TLB_H */
