@@ -1,51 +1,50 @@
 From: linux@roeck-us.net (Guenter Roeck)
-Date: Fri, 24 Aug 2018 07:06:51 -0700
+Date: Fri, 24 Aug 2018 06:24:19 -0700
 Subject: [RFC PATCH 2/2] mm: mmu_notifier fix for tlb_end_vma (build
  failures)
-In-Reply-To: <20180824135048.GF11868@brain-police>
+In-Reply-To: <20180824131026.GB11868@brain-police>
 References: <20180823084709.19717-1-npiggin@gmail.com>
  <20180823084709.19717-3-npiggin@gmail.com>
- <20180824130722.GA31409@roeck-us.net> <20180824131026.GB11868@brain-police>
- <20180824132419.GA9983@roeck-us.net> <20180824133427.GC11868@brain-police>
- <20180824135048.GF11868@brain-police>
-Message-ID: <7d0111f4-c369-43a8-72c6-1a7390cdebdd@roeck-us.net>
+ <20180824130722.GA31409@roeck-us.net>
+ <20180824131026.GB11868@brain-police>
+Message-ID: <20180824132419.GA9983@roeck-us.net>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 08/24/2018 06:50 AM, Will Deacon wrote:
-
->> -#include <asm-generic/tlb.h>
->> +struct mmu_gather;
->>   
->>   static inline void tlb_flush(struct mmu_gather *tlb)
->>   {
->>   	flush_tlb_mm(tlb->mm);
+On Fri, Aug 24, 2018 at 02:10:27PM +0100, Will Deacon wrote:
+> On Fri, Aug 24, 2018 at 06:07:22AM -0700, Guenter Roeck wrote:
+> > On Thu, Aug 23, 2018 at 06:47:09PM +1000, Nicholas Piggin wrote:
+> > > The generic tlb_end_vma does not call invalidate_range mmu notifier,
+> > > and it resets resets the mmu_gather range, which means the notifier
+> > > won't be called on part of the range in case of an unmap that spans
+> > > multiple vmas.
+> > > 
+> > > ARM64 seems to be the only arch I could see that has notifiers and
+> > > uses the generic tlb_end_vma. I have not actually tested it.
+> > > 
+> > > Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
+> > > Acked-by: Will Deacon <will.deacon@arm.com>
+> > 
+> > This patch breaks riscv builds in mainline.
 > 
-> Bah, didn't spot the dereference so this won't work either. You basically
-> just need to copy what I did for arm64 in d475fac95779.
+> Looks very similar to the breakage we hit on arm64. diff below should fix
+> it.
 > 
 
-Yes, this seems to work. It doesn't really need "struct mmu_gather;" -
-I assume that is included from elsewhere - but I added it to be safe.
+Unfortunately it doesn't.
 
-Can you send a full patch, or do you want me to do it ?
+In file included from ./arch/riscv/include/asm/pgtable.h:26:0,
+                 from ./include/linux/memremap.h:7,
+                 from ./include/linux/mm.h:27,
+                 from arch/riscv/mm/fault.c:23:
+./arch/riscv/include/asm/tlb.h: In function ?tlb_flush?:
+./arch/riscv/include/asm/tlb.h:19:18: error: dereferencing pointer to incomplete type ?struct mmu_gather?
+  flush_tlb_mm(tlb->mm);
+                  ^
+./arch/riscv/include/asm/tlbflush.h:58:35: note: in definition of macro ?flush_tlb_mm?
+  sbi_remote_sfence_vma(mm_cpumask(mm)->bits, 0, -1)
 
-Thanks,
+Note that reverting the offending patch does fix the problem,
+so there is no secondary problem lurking around.
+
 Guenter
-
----
-diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
-index c229509288ea..439dc7072e05 100644
---- a/arch/riscv/include/asm/tlb.h
-+++ b/arch/riscv/include/asm/tlb.h
-@@ -14,6 +14,10 @@
-  #ifndef _ASM_RISCV_TLB_H
-  #define _ASM_RISCV_TLB_H
-
-+struct mmu_gather;
-+
-+static void tlb_flush(struct mmu_gather *tlb);
-+
-  #include <asm-generic/tlb.h>
-
-  static inline void tlb_flush(struct mmu_gather *tlb)
