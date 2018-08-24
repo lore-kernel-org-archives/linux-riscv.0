@@ -1,40 +1,83 @@
 From: linux@roeck-us.net (Guenter Roeck)
-Date: Fri, 24 Aug 2018 06:07:22 -0700
+Date: Fri, 24 Aug 2018 06:54:58 -0700
 Subject: [RFC PATCH 2/2] mm: mmu_notifier fix for tlb_end_vma (build
  failures)
-In-Reply-To: <20180823084709.19717-3-npiggin@gmail.com>
+In-Reply-To: <20180824135048.GF11868@brain-police>
 References: <20180823084709.19717-1-npiggin@gmail.com>
  <20180823084709.19717-3-npiggin@gmail.com>
-Message-ID: <20180824130722.GA31409@roeck-us.net>
+ <20180824130722.GA31409@roeck-us.net>
+ <20180824131026.GB11868@brain-police>
+ <20180824132419.GA9983@roeck-us.net>
+ <20180824133427.GC11868@brain-police>
+ <20180824135048.GF11868@brain-police>
+Message-ID: <20180824135458.GA30345@roeck-us.net>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Aug 23, 2018 at 06:47:09PM +1000, Nicholas Piggin wrote:
-> The generic tlb_end_vma does not call invalidate_range mmu notifier,
-> and it resets resets the mmu_gather range, which means the notifier
-> won't be called on part of the range in case of an unmap that spans
-> multiple vmas.
-> 
-> ARM64 seems to be the only arch I could see that has notifiers and
-> uses the generic tlb_end_vma. I have not actually tested it.
-> 
-> Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
-> Acked-by: Will Deacon <will.deacon@arm.com>
+On Fri, Aug 24, 2018 at 02:50:48PM +0100, Will Deacon wrote:
+> > 
+> > Sorry, I was a bit quick of the mark there. You'll need a forward
+> > declaration for the paramater type. Here it is with a commit message,
+> > although still untested because I haven't got round to setting up a riscv
+> > toolchain yet.
+> > 
 
-This patch breaks riscv builds in mainline.
+Still doesn't work.
 
-Building riscv:defconfig ... failed
---------------
-Error log:
-In file included from riscv/include/asm/tlb.h:17:0,
-                 from arch/riscv/include/asm/pgalloc.h:19,
-                 from riscv/mm/fault.c:30:
-include/asm-generic/tlb.h: In function 'tlb_flush_mmu_tlbonly':
-include/asm-generic/tlb.h:147:2: error: implicit declaration of function 'tlb_flush'
+CC      mm/memory.o
+In file included from ./arch/riscv/include/asm/pgtable.h:26:0,
+                 from ./include/linux/memremap.h:7,
+		 from ./include/linux/mm.h:27,
+		 from arch/riscv/mm/fault.c:23:
+./arch/riscv/include/asm/tlb.h: In function ?tlb_flush?:
+./arch/riscv/include/asm/tlb.h:21:18: error:
+	dereferencing pointer to incomplete type ?struct mmu_gather? flush_tlb_mm(tlb->mm);
 
-In file included from arch/riscv/include/asm/pgalloc.h:19:0,
-		from arch/riscv/mm/fault.c:30:
-arch/riscv/include/asm/tlb.h: At top level:
-arch/riscv/include/asm/tlb.h:19:20: warning: conflicting types for 'tlb_flush'
+Problem is that struct mmu_gather is dereferenced in tlb_flush().
 
 Guenter
+
+> > Will
+> > 
+> > --->8
+> > 
+> > From adb9be33d68320edcda80d540a97a647792894d2 Mon Sep 17 00:00:00 2001
+> > From: Will Deacon <will.deacon@arm.com>
+> > Date: Fri, 24 Aug 2018 14:33:48 +0100
+> > Subject: [PATCH] riscv: tlb: Provide definition of tlb_flush() before
+> >  including tlb.h
+> > 
+> > As of commit fd1102f0aade ("mm: mmu_notifier fix for tlb_end_vma"),
+> > asm-generic/tlb.h now calls tlb_flush() from a static inline function,
+> > so we need to make sure that it's declared before #including the
+> > asm-generic header in the arch header.
+> > 
+> > Since tlb_flush() is a one-liner for riscv, we can define it before
+> > including asm-generic/tlb.h as long as we provide a forward declaration
+> > of struct mmu_gather.
+> > 
+> > Reported-by: Guenter Roeck <linux@roeck-us.net>
+> > Signed-off-by: Will Deacon <will.deacon@arm.com>
+> > ---
+> >  arch/riscv/include/asm/tlb.h | 4 +++-
+> >  1 file changed, 3 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
+> > index c229509288ea..a3d1380ad970 100644
+> > --- a/arch/riscv/include/asm/tlb.h
+> > +++ b/arch/riscv/include/asm/tlb.h
+> > @@ -14,11 +14,13 @@
+> >  #ifndef _ASM_RISCV_TLB_H
+> >  #define _ASM_RISCV_TLB_H
+> >  
+> > -#include <asm-generic/tlb.h>
+> > +struct mmu_gather;
+> >  
+> >  static inline void tlb_flush(struct mmu_gather *tlb)
+> >  {
+> >  	flush_tlb_mm(tlb->mm);
+> 
+> Bah, didn't spot the dereference so this won't work either. You basically
+> just need to copy what I did for arm64 in d475fac95779.
+> 
+> Will
