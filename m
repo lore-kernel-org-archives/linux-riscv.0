@@ -1,100 +1,51 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 27 Aug 2018 11:42:39 -0700
-Subject: [PATCH 4/8] RISC-V: Filter ISA and MMU values in cpuinfo
+Date: Mon, 27 Aug 2018 11:42:41 -0700
+Subject: [PATCH 6/8] RISC-V: Use mmgrab()
 In-Reply-To: <20180827184243.25344-1-palmer@sifive.com>
 References: <20180827184243.25344-1-palmer@sifive.com>
-Message-ID: <20180827184243.25344-5-palmer@sifive.com>
+Message-ID: <20180827184243.25344-7-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-We shouldn't be directly passing device tree values to userspace, both
-because there could be mistakes in device trees and because the kernel
-doesn't support arbitrary ISAs.
+f1f1007644ff ("mm: add new mmgrab() helper") added a helper that we
+missed out on.
 
 Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 ---
- arch/riscv/kernel/cpu.c | 62 +++++++++++++++++++++++++++++++++++++++++++------
- 1 file changed, 55 insertions(+), 7 deletions(-)
+ arch/riscv/kernel/smpboot.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 19e98c1710dd..a18b4e3962a1 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -58,6 +58,57 @@ int riscv_of_processor_hartid(struct device_node *node)
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index e1f6a5ad0416..5437a04babcd 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -30,6 +30,7 @@
+ #include <linux/irq.h>
+ #include <linux/of.h>
+ #include <linux/sched/task_stack.h>
++#include <linux/sched/mm.h>
+ #include <asm/irq.h>
+ #include <asm/mmu_context.h>
+ #include <asm/tlbflush.h>
+@@ -79,8 +80,8 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+ 	 * the spinning harts that they can continue the boot process.
+ 	 */
+ 	smp_mb();
+-	__cpu_up_stack_pointer[cpu] = task_stack_page(tidle) + THREAD_SIZE;
+-	__cpu_up_task_pointer[cpu] = tidle;
++	WRITE_ONCE(__cpu_up_stack_pointer[cpu], task_stack_page(tidle) + THREAD_SIZE);
++	WRITE_ONCE(__cpu_up_task_pointer[cpu], tidle);
  
- #ifdef CONFIG_PROC_FS
+ 	while (!cpu_online(cpu))
+ 		cpu_relax();
+@@ -100,7 +101,7 @@ asmlinkage void __init smp_callin(void)
+ 	struct mm_struct *mm = &init_mm;
  
-+static void print_isa(struct seq_file *f, const char *orig_isa)
-+{
-+    static const char *ext = "mafdc";
-+    const char *isa = orig_isa;
-+    const char *e;
-+
-+    /* Linux doesn't support rv32e or rv128i, and we only support booting
-+     * kernels on harts with the same ISA that the kernel is compiled for. */
-+#if defined(CONFIG_32BIT)
-+    if (strncmp(isa, "rv32i", 5) != 0)
-+        return;
-+#elif defined(CONFIG_64BIT)
-+    if (strncmp(isa, "rv64i", 5) != 0)
-+        return;
-+#endif
-+
-+    /* Print the base ISA, as we already know it's legal. */
-+    seq_printf(f, "isa\t: ");
-+    seq_write(f, isa, 5);
-+    isa += 5;
-+
-+    /* Check the rest of the ISA string for valid extensions, printing those we
-+     * find.  RISC-V ISA strings define an order, so we only print the
-+     * extension bits when they're in order. */
-+    for (e = ext; *e != '\0'; ++e) {
-+        if (isa[0] == e[0]) {
-+            seq_write(f, isa, 1);
-+            isa++;
-+        }
-+    }
-+
-+    /* If we were given an unsupported ISA in the device tree then print a bit
-+     * of info describing what went wrong. */
-+    if (isa[0] != '\0')
-+        pr_info("unsupported ISA \"%s\" in device tree", orig_isa);
-+}
-+
-+static void print_mmu(struct seq_file *f, const char *mmu_type)
-+{
-+#if defined(CONFIG_32BIT)
-+    if (strcmp(mmu_type, "riscv,sv32") != 0)
-+        return;
-+#elif defined(CONFIG_64BIT)
-+    if ((strcmp(mmu_type, "riscv,sv39") != 0)
-+        && (strcmp(mmu_type, "riscv,sv48") != 0))
-+        return;
-+#endif
-+
-+    seq_printf(f, "mmu\t: %s\n", mmu_type+6);
-+}
-+
- static void *c_start(struct seq_file *m, loff_t *pos)
- {
- 	*pos = cpumask_next(*pos - 1, cpu_online_mask);
-@@ -83,13 +134,10 @@ static int c_show(struct seq_file *m, void *v)
- 	const char *compat, *isa, *mmu;
+ 	/* All kernel threads share the same mm context.  */
+-	atomic_inc(&mm->mm_count);
++	mmgrab(mm);
+ 	current->active_mm = mm;
  
- 	seq_printf(m, "hart\t: %lu\n", hart_id);
--	if (!of_property_read_string(node, "riscv,isa", &isa)
--	    && isa[0] == 'r'
--	    && isa[1] == 'v')
--		seq_printf(m, "isa\t: %s\n", isa);
--	if (!of_property_read_string(node, "mmu-type", &mmu)
--	    && !strncmp(mmu, "riscv,", 6))
--		seq_printf(m, "mmu\t: %s\n", mmu+6);
-+	if (!of_property_read_string(node, "riscv,isa", &isa))
-+        print_isa(m, isa);
-+	if (!of_property_read_string(node, "mmu-type", &mmu))
-+        print_mmu(m, mmu);
- 	if (!of_property_read_string(node, "compatible", &compat)
- 	    && strcmp(compat, "riscv"))
- 		seq_printf(m, "uarch\t: %s\n", compat);
+ 	trap_init();
 -- 
 2.16.4
