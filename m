@@ -1,106 +1,125 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 24 Aug 2018 16:32:12 -0700 (PDT)
-Subject: [RFC PATCH 2/2] mm: mmu_notifier fix for tlb_end_vma (build
- failures)
-In-Reply-To: <20180824135048.GF11868@brain-police>
-Message-ID: <mhng-86a3cd0c-c3dc-42a9-a955-01fbce9d2797@palmer-si-x1c4>
+From: alankao@andestech.com (Alan Kao)
+Date: Mon, 27 Aug 2018 09:07:55 +0800
+Subject: [PATCH 5/5] Auto-detect whether a FPU exists
+In-Reply-To: <1535332075-5727-1-git-send-email-alankao@andestech.com>
+References: <1535332075-5727-1-git-send-email-alankao@andestech.com>
+Message-ID: <1535332075-5727-6-git-send-email-alankao@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, 24 Aug 2018 06:50:48 PDT (-0700), Will Deacon wrote:
-> On Fri, Aug 24, 2018 at 02:34:27PM +0100, Will Deacon wrote:
->> On Fri, Aug 24, 2018 at 06:24:19AM -0700, Guenter Roeck wrote:
->> > On Fri, Aug 24, 2018 at 02:10:27PM +0100, Will Deacon wrote:
->> > > On Fri, Aug 24, 2018 at 06:07:22AM -0700, Guenter Roeck wrote:
->> > > > On Thu, Aug 23, 2018 at 06:47:09PM +1000, Nicholas Piggin wrote:
->> > > > > The generic tlb_end_vma does not call invalidate_range mmu notifier,
->> > > > > and it resets resets the mmu_gather range, which means the notifier
->> > > > > won't be called on part of the range in case of an unmap that spans
->> > > > > multiple vmas.
->> > > > >
->> > > > > ARM64 seems to be the only arch I could see that has notifiers and
->> > > > > uses the generic tlb_end_vma. I have not actually tested it.
->> > > > >
->> > > > > Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
->> > > > > Acked-by: Will Deacon <will.deacon@arm.com>
->> > > >
->> > > > This patch breaks riscv builds in mainline.
->> > >
->> > > Looks very similar to the breakage we hit on arm64. diff below should fix
->> > > it.
->> > >
->> >
->> > Unfortunately it doesn't.
->> >
->> > In file included from ./arch/riscv/include/asm/pgtable.h:26:0,
->> >                  from ./include/linux/memremap.h:7,
->> >                  from ./include/linux/mm.h:27,
->> >                  from arch/riscv/mm/fault.c:23:
->> > ./arch/riscv/include/asm/tlb.h: In function ?tlb_flush?:
->> > ./arch/riscv/include/asm/tlb.h:19:18: error: dereferencing pointer to incomplete type ?struct mmu_gather?
->> >   flush_tlb_mm(tlb->mm);
->> >                   ^
->>
->> Sorry, I was a bit quick of the mark there. You'll need a forward
->> declaration for the paramater type. Here it is with a commit message,
->> although still untested because I haven't got round to setting up a riscv
->> toolchain yet.
+We expect that a kernel with CONFIG_FPU=y can still support no-FPU
+machines. To do so, the kernel should first examine the existence of a
+FPU, then do nothing if a FPU does exist; otherwise, it should
+disable/bypass all FPU-related functions.
 
-FWIW, Arnd built them last time he updated the cross tools so you should be 
-able to get GCC 8.1.0 for RISC-V from there.  I use this make.cross script that 
-I stole from the Intel 0-day robot
+In this patch, a new global variable, has_fpu, is created and determined
+when parsing the hardware capability from device tree during booting.
+This variable is used in those FPU-related functions.
 
-    https://github.com/palmer-dabbelt/home/blob/master/.local/src/local-scripts/make.cross.bash
+Signed-off-by: Alan Kao <alankao@andestech.com>
+Cc: Greentime Hu <greentime@andestech.com>
+Cc: Vincent Chen <vincentc@andestech.com>
+Cc: Zong Li <zong@andestech.com>
+Cc: Nick Hu <nickhu@andestech.com>
+---
+ arch/riscv/include/asm/switch_to.h | 8 ++++----
+ arch/riscv/kernel/cpufeature.c     | 8 ++++++++
+ arch/riscv/kernel/process.c        | 4 +++-
+ arch/riscv/kernel/signal.c         | 6 ++++--
+ 4 files changed, 19 insertions(+), 7 deletions(-)
 
-If I'm reading it correctly the tools come from here
-
-    http://cdn.kernel.org/pub/tools/crosstool/files/bin/x86_64/8.1.0/x86_64-gcc-8.1.0-nolibc-riscv64-linux.tar.gz
-
-I use the make.cross script as it makes it super easy to test my 
-across-the-tree patches on other people's ports.
-
->>
->> Will
->>
->> --->8
->>
->> From adb9be33d68320edcda80d540a97a647792894d2 Mon Sep 17 00:00:00 2001
->> From: Will Deacon <will.deacon@arm.com>
->> Date: Fri, 24 Aug 2018 14:33:48 +0100
->> Subject: [PATCH] riscv: tlb: Provide definition of tlb_flush() before
->>  including tlb.h
->>
->> As of commit fd1102f0aade ("mm: mmu_notifier fix for tlb_end_vma"),
->> asm-generic/tlb.h now calls tlb_flush() from a static inline function,
->> so we need to make sure that it's declared before #including the
->> asm-generic header in the arch header.
->>
->> Since tlb_flush() is a one-liner for riscv, we can define it before
->> including asm-generic/tlb.h as long as we provide a forward declaration
->> of struct mmu_gather.
->>
->> Reported-by: Guenter Roeck <linux@roeck-us.net>
->> Signed-off-by: Will Deacon <will.deacon@arm.com>
->> ---
->>  arch/riscv/include/asm/tlb.h | 4 +++-
->>  1 file changed, 3 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
->> index c229509288ea..a3d1380ad970 100644
->> --- a/arch/riscv/include/asm/tlb.h
->> +++ b/arch/riscv/include/asm/tlb.h
->> @@ -14,11 +14,13 @@
->>  #ifndef _ASM_RISCV_TLB_H
->>  #define _ASM_RISCV_TLB_H
->>
->> -#include <asm-generic/tlb.h>
->> +struct mmu_gather;
->>
->>  static inline void tlb_flush(struct mmu_gather *tlb)
->>  {
->>  	flush_tlb_mm(tlb->mm);
->
-> Bah, didn't spot the dereference so this won't work either. You basically
-> just need to copy what I did for arm64 in d475fac95779.
->
-> Will
+diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
+index 093050b03543..733559083f24 100644
+--- a/arch/riscv/include/asm/switch_to.h
++++ b/arch/riscv/include/asm/switch_to.h
+@@ -56,13 +56,12 @@ static inline void __switch_to_aux(struct task_struct *prev,
+ 	fstate_restore(next, task_pt_regs(next));
+ }
+ 
+-#define DEFAULT_SSTATUS (SR_SPIE | SR_FS_INITIAL)
+-
++extern bool has_fpu;
+ #else
++#define has_fpu false
+ #define fstate_save(task, regs) do { } while (0)
+ #define fstate_restore(task, regs) do { } while (0)
+ #define __switch_to_aux(__prev, __next) do { } while (0)
+-#define DEFAULT_SSTATUS (SR_SPIE | SR_FS_OFF)
+ #endif
+ 
+ extern struct task_struct *__switch_to(struct task_struct *,
+@@ -72,7 +71,8 @@ extern struct task_struct *__switch_to(struct task_struct *,
+ do {							\
+ 	struct task_struct *__prev = (prev);		\
+ 	struct task_struct *__next = (next);		\
+-	__switch_to_aux(__prev, __next);		\
++	if (has_fpu)					\
++		__switch_to_aux(__prev, __next);	\
+ 	((last) = __switch_to(__prev, __next));		\
+ } while (0)
+ 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 17011a870044..46942e635266 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -22,6 +22,9 @@
+ #include <asm/hwcap.h>
+ 
+ unsigned long elf_hwcap __read_mostly;
++#ifdef CONFIG_FPU
++bool has_fpu __read_mostly;
++#endif
+ 
+ void riscv_fill_hwcap(void)
+ {
+@@ -58,4 +61,9 @@ void riscv_fill_hwcap(void)
+ 		elf_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
+ 
+ 	pr_info("elf_hwcap is 0x%lx", elf_hwcap);
++
++#ifdef CONFIG_FPU
++	if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))
++		has_fpu = true;
++#endif
+ }
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index 07d515655aa9..bef19993ea92 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -76,7 +76,9 @@ void show_regs(struct pt_regs *regs)
+ void start_thread(struct pt_regs *regs, unsigned long pc,
+ 	unsigned long sp)
+ {
+-	regs->sstatus = DEFAULT_SSTATUS;
++	regs->sstatus = SR_SPIE;
++	if (has_fpu)
++		regs->sstatus |= SR_FS_INITIAL;
+ 	regs->sepc = pc;
+ 	regs->sp = sp;
+ 	set_fs(USER_DS);
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index 2450b824d799..f9b5e7e352ef 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -98,7 +98,8 @@ static long restore_sigcontext(struct pt_regs *regs,
+ 	/* sc_regs is structured the same as the start of pt_regs */
+ 	err = __copy_from_user(regs, &sc->sc_regs, sizeof(sc->sc_regs));
+ 	/* Restore the floating-point state. */
+-	err |= restore_fp_state(regs, &sc->sc_fpregs);
++	if (has_fpu)
++		err |= restore_fp_state(regs, &sc->sc_fpregs);
+ 	return err;
+ }
+ 
+@@ -150,7 +151,8 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
+ 	/* sc_regs is structured the same as the start of pt_regs */
+ 	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
+ 	/* Save the floating-point state. */
+-	err |= save_fp_state(regs, &sc->sc_fpregs);
++	if (has_fpu)
++		err |= save_fp_state(regs, &sc->sc_fpregs);
+ 	return err;
+ }
+ 
+-- 
+2.18.0
