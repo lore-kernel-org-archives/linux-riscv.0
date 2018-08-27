@@ -1,48 +1,100 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 27 Aug 2018 11:42:40 -0700
-Subject: [PATCH 5/8] RISC-V: Rename im_okay_therefore_i_am to found_boot_cpu
+Date: Mon, 27 Aug 2018 11:42:39 -0700
+Subject: [PATCH 4/8] RISC-V: Filter ISA and MMU values in cpuinfo
 In-Reply-To: <20180827184243.25344-1-palmer@sifive.com>
 References: <20180827184243.25344-1-palmer@sifive.com>
-Message-ID: <20180827184243.25344-6-palmer@sifive.com>
+Message-ID: <20180827184243.25344-5-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The old name was a bit odd.
+We shouldn't be directly passing device tree values to userspace, both
+because there could be mistakes in device trees and because the kernel
+doesn't support arbitrary ISAs.
 
 Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 ---
- arch/riscv/kernel/smpboot.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/riscv/kernel/cpu.c | 62 +++++++++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 55 insertions(+), 7 deletions(-)
 
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 5f29f8562cf6..e1f6a5ad0416 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -50,7 +50,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
- void __init setup_smp(void)
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 19e98c1710dd..a18b4e3962a1 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -58,6 +58,57 @@ int riscv_of_processor_hartid(struct device_node *node)
+ 
+ #ifdef CONFIG_PROC_FS
+ 
++static void print_isa(struct seq_file *f, const char *orig_isa)
++{
++    static const char *ext = "mafdc";
++    const char *isa = orig_isa;
++    const char *e;
++
++    /* Linux doesn't support rv32e or rv128i, and we only support booting
++     * kernels on harts with the same ISA that the kernel is compiled for. */
++#if defined(CONFIG_32BIT)
++    if (strncmp(isa, "rv32i", 5) != 0)
++        return;
++#elif defined(CONFIG_64BIT)
++    if (strncmp(isa, "rv64i", 5) != 0)
++        return;
++#endif
++
++    /* Print the base ISA, as we already know it's legal. */
++    seq_printf(f, "isa\t: ");
++    seq_write(f, isa, 5);
++    isa += 5;
++
++    /* Check the rest of the ISA string for valid extensions, printing those we
++     * find.  RISC-V ISA strings define an order, so we only print the
++     * extension bits when they're in order. */
++    for (e = ext; *e != '\0'; ++e) {
++        if (isa[0] == e[0]) {
++            seq_write(f, isa, 1);
++            isa++;
++        }
++    }
++
++    /* If we were given an unsupported ISA in the device tree then print a bit
++     * of info describing what went wrong. */
++    if (isa[0] != '\0')
++        pr_info("unsupported ISA \"%s\" in device tree", orig_isa);
++}
++
++static void print_mmu(struct seq_file *f, const char *mmu_type)
++{
++#if defined(CONFIG_32BIT)
++    if (strcmp(mmu_type, "riscv,sv32") != 0)
++        return;
++#elif defined(CONFIG_64BIT)
++    if ((strcmp(mmu_type, "riscv,sv39") != 0)
++        && (strcmp(mmu_type, "riscv,sv48") != 0))
++        return;
++#endif
++
++    seq_printf(f, "mmu\t: %s\n", mmu_type+6);
++}
++
+ static void *c_start(struct seq_file *m, loff_t *pos)
  {
- 	struct device_node *dn = NULL;
--	int hart, im_okay_therefore_i_am = 0;
-+	int hart, found_boot_cpu = 0;
+ 	*pos = cpumask_next(*pos - 1, cpu_online_mask);
+@@ -83,13 +134,10 @@ static int c_show(struct seq_file *m, void *v)
+ 	const char *compat, *isa, *mmu;
  
- 	while ((dn = of_find_node_by_type(dn, "cpu"))) {
- 		hart = riscv_of_processor_hartid(dn);
-@@ -58,13 +58,13 @@ void __init setup_smp(void)
- 			set_cpu_possible(hart, true);
- 			set_cpu_present(hart, true);
- 			if (hart == smp_processor_id()) {
--				BUG_ON(im_okay_therefore_i_am);
--				im_okay_therefore_i_am = 1;
-+				BUG_ON(found_boot_cpu);
-+				found_boot_cpu = 1;
- 			}
- 		}
- 	}
- 
--	BUG_ON(!im_okay_therefore_i_am);
-+	BUG_ON(!found_boot_cpu);
- }
- 
- int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+ 	seq_printf(m, "hart\t: %lu\n", hart_id);
+-	if (!of_property_read_string(node, "riscv,isa", &isa)
+-	    && isa[0] == 'r'
+-	    && isa[1] == 'v')
+-		seq_printf(m, "isa\t: %s\n", isa);
+-	if (!of_property_read_string(node, "mmu-type", &mmu)
+-	    && !strncmp(mmu, "riscv,", 6))
+-		seq_printf(m, "mmu\t: %s\n", mmu+6);
++	if (!of_property_read_string(node, "riscv,isa", &isa))
++        print_isa(m, isa);
++	if (!of_property_read_string(node, "mmu-type", &mmu))
++        print_mmu(m, mmu);
+ 	if (!of_property_read_string(node, "compatible", &compat)
+ 	    && strcmp(compat, "riscv"))
+ 		seq_printf(m, "uarch\t: %s\n", compat);
 -- 
 2.16.4
