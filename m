@@ -1,51 +1,31 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 27 Aug 2018 11:42:41 -0700
-Subject: [PATCH 6/8] RISC-V: Use mmgrab()
+Date: Mon, 27 Aug 2018 11:42:42 -0700
+Subject: [PATCH 7/8] RISC-V: Comment on the TLB flush in smp_callin()
 In-Reply-To: <20180827184243.25344-1-palmer@sifive.com>
 References: <20180827184243.25344-1-palmer@sifive.com>
-Message-ID: <20180827184243.25344-7-palmer@sifive.com>
+Message-ID: <20180827184243.25344-8-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-f1f1007644ff ("mm: add new mmgrab() helper") added a helper that we
-missed out on.
+This isn't readily apparent from reading the code.
 
 Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 ---
- arch/riscv/kernel/smpboot.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ arch/riscv/kernel/smpboot.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index e1f6a5ad0416..5437a04babcd 100644
+index 5437a04babcd..953bc540207d 100644
 --- a/arch/riscv/kernel/smpboot.c
 +++ b/arch/riscv/kernel/smpboot.c
-@@ -30,6 +30,7 @@
- #include <linux/irq.h>
- #include <linux/of.h>
- #include <linux/sched/task_stack.h>
-+#include <linux/sched/mm.h>
- #include <asm/irq.h>
- #include <asm/mmu_context.h>
- #include <asm/tlbflush.h>
-@@ -79,8 +80,8 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
- 	 * the spinning harts that they can continue the boot process.
- 	 */
- 	smp_mb();
--	__cpu_up_stack_pointer[cpu] = task_stack_page(tidle) + THREAD_SIZE;
--	__cpu_up_task_pointer[cpu] = tidle;
-+	WRITE_ONCE(__cpu_up_stack_pointer[cpu], task_stack_page(tidle) + THREAD_SIZE);
-+	WRITE_ONCE(__cpu_up_task_pointer[cpu], tidle);
- 
- 	while (!cpu_online(cpu))
- 		cpu_relax();
-@@ -100,7 +101,7 @@ asmlinkage void __init smp_callin(void)
- 	struct mm_struct *mm = &init_mm;
- 
- 	/* All kernel threads share the same mm context.  */
--	atomic_inc(&mm->mm_count);
-+	mmgrab(mm);
- 	current->active_mm = mm;
- 
+@@ -107,6 +107,8 @@ asmlinkage void __init smp_callin(void)
  	trap_init();
+ 	notify_cpu_starting(smp_processor_id());
+ 	set_cpu_online(smp_processor_id(), 1);
++	/* Remote TLB flushes are ignored while the CPU is offline, so emit a local
++	 * TLB flush right now just in case. */
+ 	local_flush_tlb_all();
+ 	local_irq_enable();
+ 	preempt_disable();
 -- 
 2.16.4
