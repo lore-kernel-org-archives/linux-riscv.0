@@ -1,64 +1,67 @@
 From: alankao@andestech.com (Alan Kao)
-Date: Mon, 27 Aug 2018 09:07:50 +0800
-Subject: [PATCH v7 0/5] riscv: Add support to no-FPU systems
-Message-ID: <1535332075-5727-1-git-send-email-alankao@andestech.com>
+Date: Mon, 27 Aug 2018 09:07:53 +0800
+Subject: [PATCH 3/5] Cleanup ISA string setting
+In-Reply-To: <1535332075-5727-1-git-send-email-alankao@andestech.com>
+References: <1535332075-5727-1-git-send-email-alankao@andestech.com>
+Message-ID: <1535332075-5727-4-git-send-email-alankao@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This patchset adds an option, CONFIG_FPU, to enable/disable floating-
-point procedures.
+This patch cleanup the MARCH string passing to both compiler and
+assembler.  Note that the CFLAGS should not contain "fd" before we
+have mechnisms like kernel_fpu_begin/end in other architectures.
 
-Kernel's new behavior will be as follows:
+Signed-off-by: Alan Kao <alankao@andestech.com>
+Cc: Greentime Hu <greentime@andestech.com>
+Cc: Vincent Chen <vincentc@andestech.com>
+Cc: Zong Li <zong@andestech.com>
+Cc: Nick Hu <nickhu@andestech.com>
+---
+ arch/riscv/Makefile | 19 ++++++++-----------
+ 1 file changed, 8 insertions(+), 11 deletions(-)
 
-* with CONFIG_FPU=y
-  All FPU codes are reserved.  If no FPU is found during booting, a
-  global flag will be set, and those functions will be bypassed with
-  condition check to that flag.
-
-* with CONFIG_FPU=n
-  No floating-point instructions in kernel and all related settings
-  are excluded.
-
-Changes in v7:
- - Remove "fd" attribute from KBUILD_CFLAGS.
-
-Changes in v6 (PATCH 0005 only):
- - Make the flag checking neater.
-
-Changes in v5:
- - Invert the polarity of checking flag from no_fpu to has_fpu.
-
-Changes in v4:
- - Append a new patch to detect existence of FPU and followups.
- - Add SPDX header to newly created fpu.S.
- - Fix a build error, sorry for that.
- - Fix wording, style, etc.
-
-Changes in v3:
- - Refactor the whole patch into independent ones.
-
-Changes in v2:
- - Various code cleanups and style fixes.
-
-
-Alan Kao (5):
-  Extract FPU context operations from entry.S
-  Refactor FPU code in signal setup/return procedures
-  Cleanup ISA string setting
-  Allow to disable FPU support
-  Auto-detect whether a FPU exists
-
- arch/riscv/Kconfig                 |   9 +++
- arch/riscv/Makefile                |  19 +++---
- arch/riscv/include/asm/switch_to.h |  12 +++-
- arch/riscv/kernel/Makefile         |   1 +
- arch/riscv/kernel/cpufeature.c     |   8 +++
- arch/riscv/kernel/entry.S          |  87 -----------------------
- arch/riscv/kernel/fpu.S            | 106 +++++++++++++++++++++++++++++
- arch/riscv/kernel/process.c        |   6 +-
- arch/riscv/kernel/signal.c         |  75 ++++++++++++--------
- 9 files changed, 196 insertions(+), 127 deletions(-)
- create mode 100644 arch/riscv/kernel/fpu.S
-
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 1f536a7784aa..33bd3b4dd926 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -29,7 +29,6 @@ ifeq ($(CONFIG_ARCH_RV64I),y)
+ 	
+ 	KBUILD_CFLAGS	+= $(call cc-ifversion, -ge, 0500, -DCONFIG_ARCH_SUPPORTS_INT128)
+ 
+-	KBUILD_MARCH = rv64im
+ 	LDFLAGS += -melf64lriscv
+ else
+ 	BITS := 32
+@@ -37,22 +36,20 @@ else
+ 
+ 	KBUILD_CFLAGS += -mabi=ilp32
+ 	KBUILD_AFLAGS += -mabi=ilp32
+-	KBUILD_MARCH = rv32im
+ 	LDFLAGS += -melf32lriscv
+ endif
+ 
+ KBUILD_CFLAGS += -Wall
+ 
+-ifeq ($(CONFIG_RISCV_ISA_A),y)
+-	KBUILD_ARCH_A = a
+-endif
+-ifeq ($(CONFIG_RISCV_ISA_C),y)
+-	KBUILD_ARCH_C = c
+-endif
+-
+-KBUILD_AFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)fd$(KBUILD_ARCH_C)
++# ISA string setting
++riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32im
++riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64im
++riscv-march-$(CONFIG_RISCV_ISA_A)	:= $(riscv-march-y)a
++riscv-march-y				:= fd
++riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
++KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
++KBUILD_AFLAGS += -march=$(riscv-march-y)
+ 
+-KBUILD_CFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)$(KBUILD_ARCH_C)
+ KBUILD_CFLAGS += -mno-save-restore
+ KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
+ 
 -- 
 2.18.0
