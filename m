@@ -1,131 +1,78 @@
-From: alankao@andestech.com (Alan Kao)
-Date: Mon, 27 Aug 2018 09:07:52 +0800
-Subject: [PATCH 2/5] Refactor FPU code in signal setup/return procedures
-In-Reply-To: <1535332075-5727-1-git-send-email-alankao@andestech.com>
-References: <1535332075-5727-1-git-send-email-alankao@andestech.com>
-Message-ID: <1535332075-5727-3-git-send-email-alankao@andestech.com>
+From: npiggin@gmail.com (Nicholas Piggin)
+Date: Mon, 27 Aug 2018 17:43:43 +1000
+Subject: [PATCH] treewide: remove current_text_addr
+In-Reply-To: <CA+55aFzuSCKfmgT9efHuwtan+m3+bPh4BpwbZwn5gGX_H=Thuw@mail.gmail.com>
+References: <CAKwvOdkWL_2yTnJqM6n6R9UCPwY4iz-9BQYGN2MDAk9EzumUvA@mail.gmail.com>
+ <20180821202900.208417-1-ndesaulniers@google.com>
+ <207784db-4fcc-85e7-a0b2-fec26b7dab81@gmx.de>
+ <c62e4e00-fb8f-19a6-f3eb-bde60118cb1a@zytor.com>
+ <81141365-8168-799b-f34f-da5f92efaaf9@zytor.com>
+ <7f49eeab-a5cc-867f-58fb-abd266f9c2c9@zytor.com>
+ <6ca8a1d3-ff95-e9f4-f003-0a5af85bcb6f@zytor.com>
+ <CA+55aFzuSCKfmgT9efHuwtan+m3+bPh4BpwbZwn5gGX_H=Thuw@mail.gmail.com>
+Message-ID: <20180827161121.07aa9da6@roar.ozlabs.ibm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-FPU-related logic is separated from normal signal handling path in
-this patch.  Kernel can easily be configured to exclude those procedures
-for no-FPU systems.
+[ Trimmed the cc list because my SMTP didn't accept that many
+addresses. ]
 
-Signed-off-by: Alan Kao <alankao@andestech.com>
-Cc: Greentime Hu <greentime@andestech.com>
-Cc: Vincent Chen <vincentc@andestech.com>
-Cc: Zong Li <zong@andestech.com>
-Cc: Nick Hu <nickhu@andestech.com>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
----
- arch/riscv/kernel/signal.c | 68 +++++++++++++++++++++++---------------
- 1 file changed, 41 insertions(+), 27 deletions(-)
+On Sun, 26 Aug 2018 13:25:14 -0700
+Linus Torvalds <torvalds@linux-foundation.org> wrote:
 
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 718d0c984ef0..6a18b9819ead 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -37,45 +37,63 @@ struct rt_sigframe {
- 	struct ucontext uc;
- };
- 
--static long restore_d_state(struct pt_regs *regs,
--	struct __riscv_d_ext_state __user *state)
-+static long restore_fp_state(struct pt_regs *regs,
-+			     union __riscv_fp_state *sc_fpregs)
- {
- 	long err;
-+	struct __riscv_d_ext_state __user *state = &sc_fpregs->d;
-+	size_t i;
-+
- 	err = __copy_from_user(&current->thread.fstate, state, sizeof(*state));
--	if (likely(!err))
--		fstate_restore(current, regs);
-+	if (unlikely(err))
-+		return err;
-+
-+	fstate_restore(current, regs);
-+
-+	/* We support no other extension state at this time. */
-+	for (i = 0; i < ARRAY_SIZE(sc_fpregs->q.reserved); i++) {
-+		u32 value;
-+
-+		err = __get_user(value, &sc_fpregs->q.reserved[i]);
-+		if (unlikely(err))
-+			break;
-+		if (value != 0)
-+			return -EINVAL;
-+	}
-+
- 	return err;
- }
- 
--static long save_d_state(struct pt_regs *regs,
--	struct __riscv_d_ext_state __user *state)
-+static long save_fp_state(struct pt_regs *regs,
-+			  union __riscv_fp_state *sc_fpregs)
- {
-+	long err;
-+	struct __riscv_d_ext_state __user *state = &sc_fpregs->d;
-+	size_t i;
-+
- 	fstate_save(current, regs);
--	return __copy_to_user(state, &current->thread.fstate, sizeof(*state));
-+	err = __copy_to_user(state, &current->thread.fstate, sizeof(*state));
-+	if (unlikely(err))
-+		return err;
-+
-+	/* We support no other extension state at this time. */
-+	for (i = 0; i < ARRAY_SIZE(sc_fpregs->q.reserved); i++) {
-+		err = __put_user(0, &sc_fpregs->q.reserved[i]);
-+		if (unlikely(err))
-+			break;
-+	}
-+
-+	return err;
- }
- 
- static long restore_sigcontext(struct pt_regs *regs,
- 	struct sigcontext __user *sc)
- {
- 	long err;
--	size_t i;
- 	/* sc_regs is structured the same as the start of pt_regs */
- 	err = __copy_from_user(regs, &sc->sc_regs, sizeof(sc->sc_regs));
--	if (unlikely(err))
--		return err;
- 	/* Restore the floating-point state. */
--	err = restore_d_state(regs, &sc->sc_fpregs.d);
--	if (unlikely(err))
--		return err;
--	/* We support no other extension state at this time. */
--	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++) {
--		u32 value;
--		err = __get_user(value, &sc->sc_fpregs.q.reserved[i]);
--		if (unlikely(err))
--			break;
--		if (value != 0)
--			return -EINVAL;
--	}
-+	err |= restore_fp_state(regs, &sc->sc_fpregs);
- 	return err;
- }
- 
-@@ -124,14 +142,10 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
- {
- 	struct sigcontext __user *sc = &frame->uc.uc_mcontext;
- 	long err;
--	size_t i;
- 	/* sc_regs is structured the same as the start of pt_regs */
- 	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
- 	/* Save the floating-point state. */
--	err |= save_d_state(regs, &sc->sc_fpregs.d);
--	/* We support no other extension state at this time. */
--	for (i = 0; i < ARRAY_SIZE(sc->sc_fpregs.q.reserved); i++)
--		err |= __put_user(0, &sc->sc_fpregs.q.reserved[i]);
-+	err |= save_fp_state(regs, &sc->sc_fpregs);
- 	return err;
- }
- 
--- 
-2.18.0
+> On Sun, Aug 26, 2018 at 12:32 PM H. Peter Anvin <hpa@zytor.com> wrote:
+> >
+> > Here is a full-blown (user space) test program demonstrating the whole
+> > technique and how to use it.  
+> 
+> So while I agree that some _THIS_IP_ users might be better off being
+> converted to __builtin_return_address(0) at the caller, I also think
+> that the whole "notailcall" thing shows why that can easily be more
+> problematic than just our currnet _THIS_IP_ solution.
+> 
+> Honestly, I'd suggest:
+> 
+>  - just do the current_text_addr() to _THIS_IP_ conversion
+> 
+>  - keep _THIS_IP_ and make it be the generic one, and screw the whole
+> "some architectures might implement is better" issue. Nobody cares.
+> 
+>  - try to convince people to move away from the "we want the kernel
+> instruction pointer for the call" model entirely, and consider this a
+> "legacy" issue.
+> 
+> The whole instruction pointer is a nasty thing. We should discourage
+> it and not make complex infrastructure for it.
+> 
+> Instead, maybe we could encourage something like
+> 
+>   struct kernel_loc { const char *file; const char *fn; int line; };
+> 
+>   #define __GEN_LOC__(n) \
+>         ({ static const struct kernel_loc n = { \
+>                 __FILE__, __FUNCTION__, __LINE__  \
+>            }; &n; })
+> 
+>   #define _THIS_LOC_ __GEN_LOC__(__UNIQUE_ID(loc))
+> 
+> which is a hell of a lot nicer to use, and actually allows gcc to
+> optimize things (try it: if you pass a _THIS_LOC_ off to an inline
+> function, and that inline function uses the name and line number, gcc
+> will pick them up directly, without the extra structure dereference.
+> 
+> Wouldn't it be much nicer to pass these kinds of "location pointer"
+> around, rather than the nasty _THIS_IP_ thing?
+
+Seems nice. Do you even need this unique ID thing? AFAIKS the name
+would never really be useful.
+
+It could perhaps go into a cold data section too, I assume the common
+case is that you do not access it. Although gcc will end up putting
+the file and function names into regular rodata.
+
+Possibly we could add a printk specifier for it, pass it through to
+existing BUG, etc macros that want exactly this, etc. Makes a lot of
+sense.
+
+Thanks,
+Nick
