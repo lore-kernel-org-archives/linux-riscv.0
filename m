@@ -1,101 +1,44 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Tue, 28 Aug 2018 11:50:20 -0700
-Subject: [PATCH 3/8] RISC-V: Rename riscv_of_processor_hart to
- riscv_of_processor_hartid
-In-Reply-To: <20180827184243.25344-4-palmer@sifive.com>
-References: <20180827184243.25344-1-palmer@sifive.com>
- <20180827184243.25344-4-palmer@sifive.com>
-Message-ID: <6d213376-5e00-48a9-35a2-a83807f2e481@wdc.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Tue, 28 Aug 2018 13:10:18 -0700 (PDT)
+Subject: [PULL RFC] RISC-V Fixes and Cleanups for 4.19-rc2
+Message-ID: <mhng-bcacb571-db58-46be-9e14-195fe77ed990@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 8/27/18 11:58 AM, Palmer Dabbelt wrote:
-> It's a bit confusing exactly what this function does: it actually
-> returns the hartid of an OF processor node, failing with -1 on invalid
-> nodes.  I've changed the name to _hartid() in order to make that a bit
-> more clear, as well as adding a comment.
-> 
-> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-> ---
->   arch/riscv/include/asm/processor.h | 4 +++-
->   arch/riscv/kernel/cpu.c            | 2 +-
->   arch/riscv/kernel/smpboot.c        | 2 +-
->   drivers/clocksource/riscv_timer.c  | 2 +-
->   drivers/irqchip/irq-sifive-plic.c  | 2 +-
->   5 files changed, 7 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index 3fe4af8147d2..9d32670d84a4 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -88,7 +88,9 @@ static inline void wait_for_interrupt(void)
->   }
->   
->   struct device_node;
-> -extern int riscv_of_processor_hart(struct device_node *node);
-> +/* Returns the hart ID of the given device tree node, or -1 if the device tree
-> + * node isn't a RISC-V hart. */
+The following changes since commit 5b394b2ddf0347bef56e50c69a58773c94343ff3:
 
-I think multi-line commenting format should be:
-/*
-  *
-  */
+  Linux 4.19-rc1 (2018-08-26 14:11:59 -0700)
 
-Otherwise, Reviewed-by: Atish Patra <atish.patra@wdc.com>
-> +extern int riscv_of_processor_hartid(struct device_node *node);
->   
->   extern void riscv_fill_hwcap(void);
->   
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index ca6c81e54e37..19e98c1710dd 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -16,7 +16,7 @@
->   #include <linux/of.h>
->   
->   /* Return -1 if not a valid hart */
-> -int riscv_of_processor_hart(struct device_node *node)
-> +int riscv_of_processor_hartid(struct device_node *node)
->   {
->   	const char *isa, *status;
->   	u32 hart;
-> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> index 56abab6a9812..5f29f8562cf6 100644
-> --- a/arch/riscv/kernel/smpboot.c
-> +++ b/arch/riscv/kernel/smpboot.c
-> @@ -53,7 +53,7 @@ void __init setup_smp(void)
->   	int hart, im_okay_therefore_i_am = 0;
->   
->   	while ((dn = of_find_node_by_type(dn, "cpu"))) {
-> -		hart = riscv_of_processor_hart(dn);
-> +		hart = riscv_of_processor_hartid(dn);
->   		if (hart >= 0) {
->   			set_cpu_possible(hart, true);
->   			set_cpu_present(hart, true);
-> diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
-> index 4e8b347e43e2..ad7453fc3129 100644
-> --- a/drivers/clocksource/riscv_timer.c
-> +++ b/drivers/clocksource/riscv_timer.c
-> @@ -84,7 +84,7 @@ void riscv_timer_interrupt(void)
->   
->   static int __init riscv_timer_init_dt(struct device_node *n)
->   {
-> -	int cpu_id = riscv_of_processor_hart(n), error;
-> +	int cpu_id = riscv_of_processor_hartid(n), error;
->   	struct clocksource *cs;
->   
->   	if (cpu_id != smp_processor_id())
-> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index 532e9d68c704..c55eaa31cde2 100644
-> --- a/drivers/irqchip/irq-sifive-plic.c
-> +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -176,7 +176,7 @@ static int plic_find_hart_id(struct device_node *node)
->   {
->   	for (; node; node = node->parent) {
->   		if (of_device_is_compatible(node, "riscv"))
-> -			return riscv_of_processor_hart(node);
-> +			return riscv_of_processor_hartid(node);
->   	}
->   
->   	return -1;
-> 
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-rc2
+
+for you to fetch changes up to 47d80a68f10d3290204a12f7836a9a8190dfc327:
+
+  RISC-V: Use a less ugly workaround for unused variable warnings (2018-08-28 12:58:36 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes and Cleanups for 4.19-rc2
+
+This tag contains a handful of patches that filtered their way in during
+the merge window but just didn't make the deadline.  It includes:
+
+* Additional documentation in the riscv,cpu-intc device tree binding
+  that resulted from some feedback I missed in the original patch set.
+* A build fix that provides the definition of tlb_flush() before
+  including tlb.h, which fixes a RISC-V build regression introduced
+  during this merge window.
+* A cosmetic cleanup to sys_riscv_flush_icache().
+
+----------------------------------------------------------------
+Palmer Dabbelt (2):
+      dt-bindings: riscv,cpu-intc: Cleanups from a missed review
+      RISC-V: Use a less ugly workaround for unused variable warnings
+
+Will Deacon (1):
+      riscv: tlb: Provide definition of tlb_flush() before including tlb.h
+
+ .../bindings/interrupt-controller/riscv,cpu-intc.txt      | 14 +++++++++++---
+ arch/riscv/include/asm/tlb.h                              |  4 ++++
+ arch/riscv/kernel/sys_riscv.c                             | 15 +--------------
+ 3 files changed, 16 insertions(+), 17 deletions(-)
