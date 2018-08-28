@@ -1,83 +1,101 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 28 Aug 2018 09:51:25 -0700 (PDT)
-Subject: [PATCH] RISC-V: Mask out the F extension on systems without D
-In-Reply-To: <20180828071032.GA16806@andestech.com>
-Message-ID: <mhng-0c98c74e-8a51-435a-ae29-b95a56075dee@palmer-si-x1c4>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Tue, 28 Aug 2018 11:50:20 -0700
+Subject: [PATCH 3/8] RISC-V: Rename riscv_of_processor_hart to
+ riscv_of_processor_hartid
+In-Reply-To: <20180827184243.25344-4-palmer@sifive.com>
+References: <20180827184243.25344-1-palmer@sifive.com>
+ <20180827184243.25344-4-palmer@sifive.com>
+Message-ID: <6d213376-5e00-48a9-35a2-a83807f2e481@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 28 Aug 2018 00:10:32 PDT (-0700), alankao at andestech.com wrote:
-> Hi Palmer,
->
-> On Mon, Aug 27, 2018 at 03:03:52PM -0700, Palmer Dabbelt wrote:
->> The RISC-V Linux port doesn't support systems that have the F extension
->> but don't have the D extension -- we actually don't support systems
->> without D either, but Alan's patch set is rectifying that soon.  For now
->> I think we can leave this in a semi-broken state and just wait for
->> Alan's patch set to get merged for proper non-FPU support -- the patch
->> set is starting to look good, so doing something in-between doesn't seem
->> like it's worth the work.
->>
->> I don't think it's worth fretting about support for systems with F but
->> not D for now: our glibc ABIs are IMAC and IMAFDC so they probably won't
->> end up being popular.  We can always extend this in the future.
->>
->> CC: Alan Kao <alankao@andestech.com>
->> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
->> ---
->>  arch/riscv/kernel/cpufeature.c | 7 +++++++
->>  1 file changed, 7 insertions(+)
->>
->> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
->> index 17011a870044..652d102ffa06 100644
->> --- a/arch/riscv/kernel/cpufeature.c
->> +++ b/arch/riscv/kernel/cpufeature.c
->> @@ -57,5 +57,12 @@ void riscv_fill_hwcap(void)
->>  	for (i = 0; i < strlen(isa); ++i)
->>  		elf_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
->>
->> +	/* We don't support systems with F but without D, so mask those out
->> +	 * here. */
->> +	if ((elf_hwcap & COMPAT_HWCAP_ISA_F) && !(elf_hwcap & COMPAT_HWCAP_ISA_D)) {
->> +		pr_info("This kernel does not support systems with F but not D");
->> +		elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
->> +	}
->> +
->
-> The commit message does address the problem and this patch does provide checks
-> and helpful information to users, but I wonder if we really need this patch, for
-> two reasons:
->
-> * Just as you mentioned, current glibc ABI does not support such a thing as
->   IMAFC, so probably no one has had trouble with this.  To be honest, I suppose
->   that anybody (RISC-V enthusiasts or vendors) who really need F-only support
->   in kernel should get themself involved in the development by sending patches
->   to improve.
->
-> * There are corner cases to let a F-only machine to pass the check in this
->   patch.  For instance, a vendor decides to name her extension ISA as doom,
->   and supports single-precision FP only, so her ISA string would be
->
->     IMAFCXdoom.
->
->   The variable elf_hwcap is calculated at the loop in line 57,58, the 'd'
->   from Xdoom would bypass the check, while the underlying machine does not
->   support double-precision FP.
+On 8/27/18 11:58 AM, Palmer Dabbelt wrote:
+> It's a bit confusing exactly what this function does: it actually
+> returns the hartid of an OF processor node, failing with -1 on invalid
+> nodes.  I've changed the name to _hartid() in order to make that a bit
+> more clear, as well as adding a comment.
+> 
+> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+> ---
+>   arch/riscv/include/asm/processor.h | 4 +++-
+>   arch/riscv/kernel/cpu.c            | 2 +-
+>   arch/riscv/kernel/smpboot.c        | 2 +-
+>   drivers/clocksource/riscv_timer.c  | 2 +-
+>   drivers/irqchip/irq-sifive-plic.c  | 2 +-
+>   5 files changed, 7 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> index 3fe4af8147d2..9d32670d84a4 100644
+> --- a/arch/riscv/include/asm/processor.h
+> +++ b/arch/riscv/include/asm/processor.h
+> @@ -88,7 +88,9 @@ static inline void wait_for_interrupt(void)
+>   }
+>   
+>   struct device_node;
+> -extern int riscv_of_processor_hart(struct device_node *node);
+> +/* Returns the hart ID of the given device tree node, or -1 if the device tree
+> + * node isn't a RISC-V hart. */
 
-Ah, yes, that makes sense.  I'd go the other way here and just be strict about 
-parsing the ISA string: it's defined to be listed in a particular order, so we 
-should really only be accepting legal ISA strings.
+I think multi-line commenting format should be:
+/*
+  *
+  */
 
-I'll submit a second patch to fix this behavior.
-
->
->>  	pr_info("elf_hwcap is 0x%lx", elf_hwcap);
->>  }
->> --
->> 2.16.4
->>
->
-> I don't know if the reasons make sense to you, but anyway that's all I
-> would like to say about this patch.
->
-> Alan
+Otherwise, Reviewed-by: Atish Patra <atish.patra@wdc.com>
+> +extern int riscv_of_processor_hartid(struct device_node *node);
+>   
+>   extern void riscv_fill_hwcap(void);
+>   
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index ca6c81e54e37..19e98c1710dd 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -16,7 +16,7 @@
+>   #include <linux/of.h>
+>   
+>   /* Return -1 if not a valid hart */
+> -int riscv_of_processor_hart(struct device_node *node)
+> +int riscv_of_processor_hartid(struct device_node *node)
+>   {
+>   	const char *isa, *status;
+>   	u32 hart;
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index 56abab6a9812..5f29f8562cf6 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -53,7 +53,7 @@ void __init setup_smp(void)
+>   	int hart, im_okay_therefore_i_am = 0;
+>   
+>   	while ((dn = of_find_node_by_type(dn, "cpu"))) {
+> -		hart = riscv_of_processor_hart(dn);
+> +		hart = riscv_of_processor_hartid(dn);
+>   		if (hart >= 0) {
+>   			set_cpu_possible(hart, true);
+>   			set_cpu_present(hart, true);
+> diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
+> index 4e8b347e43e2..ad7453fc3129 100644
+> --- a/drivers/clocksource/riscv_timer.c
+> +++ b/drivers/clocksource/riscv_timer.c
+> @@ -84,7 +84,7 @@ void riscv_timer_interrupt(void)
+>   
+>   static int __init riscv_timer_init_dt(struct device_node *n)
+>   {
+> -	int cpu_id = riscv_of_processor_hart(n), error;
+> +	int cpu_id = riscv_of_processor_hartid(n), error;
+>   	struct clocksource *cs;
+>   
+>   	if (cpu_id != smp_processor_id())
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index 532e9d68c704..c55eaa31cde2 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -176,7 +176,7 @@ static int plic_find_hart_id(struct device_node *node)
+>   {
+>   	for (; node; node = node->parent) {
+>   		if (of_device_is_compatible(node, "riscv"))
+> -			return riscv_of_processor_hart(node);
+> +			return riscv_of_processor_hartid(node);
+>   	}
+>   
+>   	return -1;
+> 
