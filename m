@@ -1,10 +1,10 @@
 From: linux@roeck-us.net (Guenter Roeck)
-Date: Tue, 28 Aug 2018 13:59:02 -0700
+Date: Tue, 28 Aug 2018 14:25:05 -0700
 Subject: [PATCH] riscv: Drop setup_initrd
 In-Reply-To: <mhng-7faee2bb-ee3e-48d1-a016-782ebbbb903d@palmer-si-x1c4>
 References: <1533874300-17656-1-git-send-email-linux@roeck-us.net>
  <mhng-7faee2bb-ee3e-48d1-a016-782ebbbb903d@palmer-si-x1c4>
-Message-ID: <20180828205902.GB31691@roeck-us.net>
+Message-ID: <20180828212505.GA24238@roeck-us.net>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
@@ -37,6 +37,23 @@ On Tue, Aug 28, 2018 at 01:10:20PM -0700, Palmer Dabbelt wrote:
 > >-		initrd_start = (unsigned long)(&__initramfs_start);
 > >-		initrd_end = initrd_start + __initramfs_size;
 > >-	}
+
+The underlying problem is probably that __initramfs_size == 512 even
+if there is no embedded initrd. Result is that initrd_start and initrd_end
+are always overwritten, even if provided and even if there is no embedded
+initrd. Result is that initrd_start and initrd_end are always overwritten,
+and -initrd from the qemu command line is always ignored.
+
+A less invasive fix than mine would be
+
+-	if (__initramfs_size > 0) {
++	if (__initramfs_size > 0 && !initrd_start) {
+
+Any chance you can test that with your setup ?
+
+Thanks,
+Guenter
+
 > >-
 > >-	if (initrd_start >= initrd_end) {
 > >-		printk(KERN_INFO "initrd not found or empty");
@@ -81,18 +98,6 @@ On Tue, Aug 28, 2018 at 01:10:20PM -0700, Palmer Dabbelt wrote:
 > should probably update that one, but I don't remember anything going by).
 > Do you have time to take a look?  Here's my QEMU commandline
 > 
-
-Odd. Maybe 'RISC-V: Support separate firmware and kernel payload' creates
-incompatibilities, or you have an embedded initrd in your kernel image
-and that somehow doesn't work (I thought I tested that but maybe I didn't).
-
-Unfortunately, I have no means to generate a unified bbl+vmlinux,
-I would have to set it up, and I won't have time anytime soon to do that.
-Guess we'll have to live with broken initrd for non-unified builds.
-I'll just drop the initrd boot tests from my setup.
-
-Guenter
-
 > ./riscv64-softmmu/qemu-system-riscv64    -nographic    -machine virt    -smp 4    -m 2G    -kernel /home/palmer/work/riscv/riscv-pk/build/bbl -object rng-random,filename=/dev/urandom,id=rng0    -device virtio-rng-device,rng=rng0    -append "console=ttyS0 ro root=/dev/vda"    -device virtio-blk-device,drive=hd0    -drive file=stage4-disk.img,format=raw,id=hd0    -device virtio-net-device,netdev=usernet    -netdev user,id=usernet,hostfwd=tcp::10000-:22
 > 
 > I just tagged the PR I plan to submit for RC2 tomorrow, so at least it
