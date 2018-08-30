@@ -1,29 +1,18 @@
-From: anup@brainfault.org (Anup Patel)
-Date: Thu, 30 Aug 2018 10:18:16 -0400
-Subject: [PATCH v2 0/3] RISC-V: Add new smp features
-In-Reply-To: <20180830141120.GA1724@infradead.org>
-References: <1535445370-19004-1-git-send-email-atish.patra@wdc.com>
- <CAAhSdy0=ROMqkbgqcKLSdM11TBOeD65GR42s0j_HOYd+y-=jmg@mail.gmail.com>
- <20180830141120.GA1724@infradead.org>
-Message-ID: <CAAhSdy2Ma6DXfVTYWpByvmKKbrdaAsyr_-b947+oNSgGVk4E5g@mail.gmail.com>
+From: hch@infradead.org (Christoph Hellwig)
+Date: Thu, 30 Aug 2018 07:31:15 -0700
+Subject: [PATCH 3/5] Cleanup ISA string setting
+In-Reply-To: <1535332075-5727-4-git-send-email-alankao@andestech.com>
+References: <1535332075-5727-1-git-send-email-alankao@andestech.com>
+ <1535332075-5727-4-git-send-email-alankao@andestech.com>
+Message-ID: <20180830143115.GA11544@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Aug 30, 2018 at 10:11 AM, Christoph Hellwig <hch@infradead.org> wrote:
-> On Thu, Aug 30, 2018 at 09:53:50AM -0400, Anup Patel wrote:
->> > Atish Patra (3):
->> >   RISC-V: Add logical CPU indexing for RISC-V
->> >   RISC-V: Use Linux logical cpu number instead of hartid
->> >   RISC-V: Support cpu hotplug.
->> >
->>
->> This series looks good to me.
->
-> Hmm, that series didn't make it to my inbox, neither directly, nor
-> through the linux-riscv list.  Where did you see it?
+On Mon, Aug 27, 2018 at 09:07:53AM +0800, Alan Kao wrote:
+> This patch cleanup the MARCH string passing to both compiler and
+> assembler.  Note that the CFLAGS should not contain "fd" before we
+> have mechnisms like kernel_fpu_begin/end in other architectures.
 
-Ahh, looks like some issue indeed. I am in TO list of patch series, thats why
-I got the patch series.
+Looks good,
 
---
-Anup
+Reviewed-by: Christoph Hellwig <hch@lst.de>
