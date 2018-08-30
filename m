@@ -1,44 +1,38 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 29 Aug 2018 17:32:05 -0700 (PDT)
-Subject: [GIT PULL] RISC-V Fixes and Cleanups for 4.19-rc2
-Message-ID: <mhng-ffc7dae9-c6aa-4209-8baa-7f23a8d6d33d@palmer-si-x1c4>
+From: geert@linux-m68k.org (Geert Uytterhoeven)
+Date: Thu, 30 Aug 2018 11:00:47 +0200
+Subject: [PATCH v2] riscv: Do not overwrite initrd_start and initrd_end
+In-Reply-To: <1535502826-23856-1-git-send-email-linux@roeck-us.net>
+References: <1535502826-23856-1-git-send-email-linux@roeck-us.net>
+Message-ID: <CAMuHMdV5_n=HqkBTZHZbpgzjoZD0_rmfxcT7GiGOpFxyZyiJ7A@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The following changes since commit 5b394b2ddf0347bef56e50c69a58773c94343ff3:
+Hi Guenter,
 
-  Linux 4.19-rc1 (2018-08-26 14:11:59 -0700)
+On Wed, Aug 29, 2018 at 2:34 AM Guenter Roeck <linux@roeck-us.net> wrote:
+> setup_initrd() overwrites initrd_start and initrd_end if __initramfs_size
+> is larger than 0, which is always true even if there is no embedded
+> initramfs. This prevents booting qemu with "-initrd" parameter.
+> Overwriting initrd_start and initrd_end is not necessary since
+> __initramfs_start and __initramfs_size are used directly in
 
-are available in the Git repository at:
+... since commit df52092f3c977885 ("fastboot: remove duplicate
+unpack_to_rootfs()")...
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-rc2
+To avoid -stable backporting this beyond v2.6.30 ;-)
 
-for you to fetch changes up to 47d80a68f10d3290204a12f7836a9a8190dfc327:
+> populate_rootfs() to load the built-in initramfs, so just drop
+> that code.
+>
+> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
 
-  RISC-V: Use a less ugly workaround for unused variable warnings (2018-08-28 12:58:36 -0700)
+Gr{oetje,eeting}s,
 
-----------------------------------------------------------------
-RISC-V Fixes and Cleanups for 4.19-rc2
+                        Geert
 
-This tag contains a handful of patches that filtered their way in during
-the merge window but just didn't make the deadline.  It includes:
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert at linux-m68k.org
 
-* Additional documentation in the riscv,cpu-intc device tree binding
-  that resulted from some feedback I missed in the original patch set.
-* A build fix that provides the definition of tlb_flush() before
-  including tlb.h, which fixes a RISC-V build regression introduced
-  during this merge window.
-* A cosmetic cleanup to sys_riscv_flush_icache().
-
-----------------------------------------------------------------
-Palmer Dabbelt (2):
-      dt-bindings: riscv,cpu-intc: Cleanups from a missed review
-      RISC-V: Use a less ugly workaround for unused variable warnings
-
-Will Deacon (1):
-      riscv: tlb: Provide definition of tlb_flush() before including tlb.h
-
- .../bindings/interrupt-controller/riscv,cpu-intc.txt      | 14 +++++++++++---
- arch/riscv/include/asm/tlb.h                              |  4 ++++
- arch/riscv/kernel/sys_riscv.c                             | 15 +--------------
- 3 files changed, 16 insertions(+), 17 deletions(-)
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
