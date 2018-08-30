@@ -1,17 +1,27 @@
-From: hch@infradead.org (Christoph Hellwig)
-Date: Thu, 30 Aug 2018 07:42:33 -0700
-Subject: [PATCH 7/8] RISC-V: Comment on the TLB flush in smp_callin()
-In-Reply-To: <20180827184243.25344-8-palmer@sifive.com>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Thu, 30 Aug 2018 09:11:11 -0700
+Subject: [PATCH 5/8] RISC-V: Rename im_okay_therefore_i_am to
+ found_boot_cpu
+In-Reply-To: <20180830144118.GA27233@infradead.org>
 References: <20180827184243.25344-1-palmer@sifive.com>
- <20180827184243.25344-8-palmer@sifive.com>
-Message-ID: <20180830144233.GC27233@infradead.org>
+ <20180827184243.25344-6-palmer@sifive.com>
+ <20180830144118.GA27233@infradead.org>
+Message-ID: <30229ef5-ce4e-e78b-32f9-7c563f63827b@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
->  	notify_cpu_starting(smp_processor_id());
->  	set_cpu_online(smp_processor_id(), 1);
-> +	/* Remote TLB flushes are ignored while the CPU is offline, so emit a local
-> +	 * TLB flush right now just in case. */
+On 8/30/18 7:41 AM, Christoph Hellwig wrote:
+>>   	struct device_node *dn = NULL;
+>> -	int hart, im_okay_therefore_i_am = 0;
+>> +	int hart, found_boot_cpu = 0;
+> 
+> If you rename this anyway please switch to use a bool.
+> 
 
-Please use the normal kernel comment style and break the line after 80
-characters.
+I can address the comment on this patch and fold it in my series to 
+avoid unnecessary conflict.
+
+@Palmer: You can drop this patch.
+
+Regards,
+Atish
