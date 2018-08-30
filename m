@@ -1,27 +1,41 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Thu, 30 Aug 2018 09:11:11 -0700
-Subject: [PATCH 5/8] RISC-V: Rename im_okay_therefore_i_am to
- found_boot_cpu
-In-Reply-To: <20180830144118.GA27233@infradead.org>
-References: <20180827184243.25344-1-palmer@sifive.com>
- <20180827184243.25344-6-palmer@sifive.com>
- <20180830144118.GA27233@infradead.org>
-Message-ID: <30229ef5-ce4e-e78b-32f9-7c563f63827b@wdc.com>
+Date: Thu, 30 Aug 2018 09:04:02 -0700
+Subject: [PATCH v2 0/3] RISC-V: Add new smp features
+In-Reply-To: <CAAhSdy2Ma6DXfVTYWpByvmKKbrdaAsyr_-b947+oNSgGVk4E5g@mail.gmail.com>
+References: <1535445370-19004-1-git-send-email-atish.patra@wdc.com>
+ <CAAhSdy0=ROMqkbgqcKLSdM11TBOeD65GR42s0j_HOYd+y-=jmg@mail.gmail.com>
+ <20180830141120.GA1724@infradead.org>
+ <CAAhSdy2Ma6DXfVTYWpByvmKKbrdaAsyr_-b947+oNSgGVk4E5g@mail.gmail.com>
+Message-ID: <1b9d1096-2d4d-4835-1a62-0ab47e24f81a@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 8/30/18 7:41 AM, Christoph Hellwig wrote:
->>   	struct device_node *dn = NULL;
->> -	int hart, im_okay_therefore_i_am = 0;
->> +	int hart, found_boot_cpu = 0;
-> 
-> If you rename this anyway please switch to use a bool.
+On 8/30/18 7:18 AM, Anup Patel wrote:
+> On Thu, Aug 30, 2018 at 10:11 AM, Christoph Hellwig <hch@infradead.org> wrote:
+>> On Thu, Aug 30, 2018 at 09:53:50AM -0400, Anup Patel wrote:
+>>>> Atish Patra (3):
+>>>>    RISC-V: Add logical CPU indexing for RISC-V
+>>>>    RISC-V: Use Linux logical cpu number instead of hartid
+>>>>    RISC-V: Support cpu hotplug.
+>>>>
+>>>
+>>> This series looks good to me.
+>>
+>> Hmm, that series didn't make it to my inbox, neither directly, nor
+>> through the linux-riscv list.  Where did you see it?
 > 
 
-I can address the comment on this patch and fold it in my series to 
-avoid unnecessary conflict.
+Strange.
 
-@Palmer: You can drop this patch.
+> Ahh, looks like some issue indeed. I am in TO list of patch series, thats why
+> I got the patch series.
+> 
+
+So is Christoff & linux-riscv. I see it in lkml but not in linux-riscv.
+Apologies for the issues. I will resend it again.
 
 Regards,
 Atish
+> --
+> Anup
+> 
