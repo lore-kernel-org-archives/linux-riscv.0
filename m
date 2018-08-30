@@ -1,22 +1,22 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Thu, 30 Aug 2018 07:38:53 -0700
-Subject: [PATCH 2/8] RISC-V: Don't set
- cacheinfo.{physical_line_partition, attributes}
-In-Reply-To: <20180827184243.25344-3-palmer@sifive.com>
+Date: Thu, 30 Aug 2018 07:40:10 -0700
+Subject: [PATCH 3/8] RISC-V: Rename riscv_of_processor_hart to
+ riscv_of_processor_hartid
+In-Reply-To: <20180827184243.25344-4-palmer@sifive.com>
 References: <20180827184243.25344-1-palmer@sifive.com>
- <20180827184243.25344-3-palmer@sifive.com>
-Message-ID: <20180830143853.GD11544@infradead.org>
+ <20180827184243.25344-4-palmer@sifive.com>
+Message-ID: <20180830144010.GE11544@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Aug 27, 2018 at 11:42:37AM -0700, Palmer Dabbelt wrote:
-> These are just hard coded in the RISC-V port, which doesn't make any
-> sense.  We should probably be setting these from device tree entries
-> when they exist, but for now I think it's saner to just leave them all
-> as their default values.
-> 
-> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+> +/* Returns the hart ID of the given device tree node, or -1 if the device tree
+> + * node isn't a RISC-V hart. */
 
-Looks fine:
+In addition to the comment formatting: we usually keep the description
+near the implementation, not the header.  It could also become a
+kerneldoc comment for added clarity.
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+> +extern int riscv_of_processor_hartid(struct device_node *node);
+
+No need to declare function prototypes in headers with the extern
+attribute, btw.
