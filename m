@@ -1,40 +1,23 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Thu, 30 Aug 2018 23:18:59 -0700
-Subject: [PATCH v2 3/3] RISC-V: Support cpu hotplug.
-In-Reply-To: <1535445370-19004-4-git-send-email-atish.patra@wdc.com>
-References: <1535445370-19004-1-git-send-email-atish.patra@wdc.com>
- <1535445370-19004-4-git-send-email-atish.patra@wdc.com>
-Message-ID: <20180831061859.GC19292@infradead.org>
+Date: Thu, 30 Aug 2018 23:20:06 -0700
+Subject: [PATCH v2] riscv: Do not overwrite initrd_start and initrd_end
+In-Reply-To: <1535502826-23856-1-git-send-email-linux@roeck-us.net>
+References: <1535502826-23856-1-git-send-email-linux@roeck-us.net>
+Message-ID: <20180831062006.GA18424@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-> +#else
-> +static inline bool can_hotplug_cpu(void) { return 0; }
-> +static inline void arch_send_call_wakeup_ipi(int cpu) { }
+On Tue, Aug 28, 2018 at 05:33:46PM -0700, Guenter Roeck wrote:
+> setup_initrd() overwrites initrd_start and initrd_end if __initramfs_size
+> is larger than 0, which is always true even if there is no embedded
+> initramfs. This prevents booting qemu with "-initrd" parameter.
+> Overwriting initrd_start and initrd_end is not necessary since
+> __initramfs_start and __initramfs_size are used directly in
+> populate_rootfs() to load the built-in initramfs, so just drop
+> that code.
+> 
+> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
 
-Please use normal coding style for these stubs.
+Looks good,
 
->  #define INTERRUPT_CAUSE_FLAG	(1UL << (__riscv_xlen - 1))
-> +#define get_scause(cause)	(cause & ~INTERRUPT_CAUSE_FLAG)
-
-I think this helper is misleading - the cause includes the interrupt
-flag.  I'd rather open code this in the other place as well.
-
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index d7c6ca7c..cb209139 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -42,6 +42,13 @@ void arch_cpu_idle(void)
->  	local_irq_enable();
->  }
->  
-> +#ifdef CONFIG_HOTPLUG_CPU
-> +void arch_cpu_idle_dead(void)
-> +{
-> +	cpu_play_dead();
-> +}
-> +#endif
-
-I wonder if it might be worth to introduce a small
-arch/riscv/kernel/cpu-hotplug.c file for the various CONFIG_HOTPLUG_CPU
-only functions.
+Reviewed-by: Christoph Hellwig <hch@lst.de>
