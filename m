@@ -1,53 +1,33 @@
-From: jeremy.linton@arm.com (Jeremy Linton)
-Date: Thu, 30 Aug 2018 14:50:39 -0500
-Subject: [PATCH 2/8] RISC-V: Don't set
- cacheinfo.{physical_line_partition,attributes}
-In-Reply-To: <20180827184243.25344-3-palmer@sifive.com>
+From: hch@infradead.org (Christoph Hellwig)
+Date: Thu, 30 Aug 2018 22:54:47 -0700
+Subject: [PATCH 5/8] RISC-V: Rename im_okay_therefore_i_am to
+ found_boot_cpu
+In-Reply-To: <30229ef5-ce4e-e78b-32f9-7c563f63827b@wdc.com>
 References: <20180827184243.25344-1-palmer@sifive.com>
- <20180827184243.25344-3-palmer@sifive.com>
-Message-ID: <fe5ba627-ab8a-79b1-a46a-1d7213707684@arm.com>
+ <20180827184243.25344-6-palmer@sifive.com>
+ <20180830144118.GA27233@infradead.org>
+ <30229ef5-ce4e-e78b-32f9-7c563f63827b@wdc.com>
+Message-ID: <20180831055447.GA18478@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi,
-
-On 08/27/2018 01:42 PM, Palmer Dabbelt wrote:
-> These are just hard coded in the RISC-V port, which doesn't make any
-> sense.  We should probably be setting these from device tree entries
-> when they exist, but for now I think it's saner to just leave them all
-> as their default values.
-
-Default value here means unset and not visible in /sys.
-
-Which looks fine to me.
-
-Reviewed-by: Jeremy Linton <jeremy.linton@arm.com>
-
-Thanks,
-
-
+On Thu, Aug 30, 2018 at 09:11:11AM -0700, Atish Patra wrote:
+> On 8/30/18 7:41 AM, Christoph Hellwig wrote:
+> > >   	struct device_node *dn = NULL;
+> > > -	int hart, im_okay_therefore_i_am = 0;
+> > > +	int hart, found_boot_cpu = 0;
+> > 
+> > If you rename this anyway please switch to use a bool.
+> > 
 > 
-> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-> ---
->   arch/riscv/kernel/cacheinfo.c | 7 -------
->   1 file changed, 7 deletions(-)
+> I can address the comment on this patch and fold it in my series to avoid
+> unnecessary conflict.
 > 
-> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-> index 0bc86e5f8f3f..cb35ffd8ec6b 100644
-> --- a/arch/riscv/kernel/cacheinfo.c
-> +++ b/arch/riscv/kernel/cacheinfo.c
-> @@ -22,13 +22,6 @@ static void ci_leaf_init(struct cacheinfo *this_leaf,
->   {
->   	this_leaf->level = level;
->   	this_leaf->type = type;
-> -	/* not a sector cache */
-> -	this_leaf->physical_line_partition = 1;
-> -	/* TODO: Add to DTS */
-> -	this_leaf->attributes =
-> -		CACHE_WRITE_BACK
-> -		| CACHE_READ_ALLOCATE
-> -		| CACHE_WRITE_ALLOCATE;
->   }
->   
->   static int __init_cache_level(unsigned int cpu)
-> 
+> @Palmer: You can drop this patch.
+
+If Palmer is ok with it how about you include a respin of his whole
+series?  There are some overlaps I think and having a single person
+in charge might be helpful.
+
+Btw, I've found your series in my linux-kernel folder, but it did
+not make it to linux-riscv or my personal inbox despite the CC.
