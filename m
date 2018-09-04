@@ -1,61 +1,53 @@
-From: ndesaulniers@google.com (Nick Desaulniers)
-Date: Fri, 31 Aug 2018 16:49:25 -0000
-Subject: [PATCH] treewide: remove current_text_addr
-In-Reply-To: <4d1a8f35-e2fc-70d2-ca0e-44b8574c86f1@zytor.com>
-References: <20180821202900.208417-1-ndesaulniers@google.com>
- <207784db-4fcc-85e7-a0b2-fec26b7dab81@gmx.de>
- <c62e4e00-fb8f-19a6-f3eb-bde60118cb1a@zytor.com>
- <81141365-8168-799b-f34f-da5f92efaaf9@zytor.com>
- <7f49eeab-a5cc-867f-58fb-abd266f9c2c9@zytor.com>
- <6ca8a1d3-ff95-e9f4-f003-0a5af85bcb6f@zytor.com>
- <CA+55aFzuSCKfmgT9efHuwtan+m3+bPh4BpwbZwn5gGX_H=Thuw@mail.gmail.com>
- <CAKwvOd=wAaPBkFHAcWxgMW91a--9gbvu7xrt3j-q8c+-mT=7Lw@mail.gmail.com>
- <20180827073358.GV24124@hirez.programming.kicks-ass.net>
- <f9896d68-4a49-e666-cea5-a9c0522f1658@zytor.com>
- <20180827131103.GD24124@hirez.programming.kicks-ass.net>
- <4d1a8f35-e2fc-70d2-ca0e-44b8574c86f1@zytor.com>
-Message-ID: <CAKwvOdmXhRZJ5bQw+W0Ro+oeWSTRJzG1UAJnjyjciR1JFs+ubA@mail.gmail.com>
+From: anup@brainfault.org (Anup Patel)
+Date: Tue,  4 Sep 2018 18:15:09 +0530
+Subject: [RFC PATCH 0/5] New RISC-V Local Interrupt Controller Driver
+Message-ID: <20180904124514.6290-1-anup@brainfault.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Aug 27, 2018 at 6:34 AM H. Peter Anvin <hpa@zytor.com> wrote:
->
-> On 08/27/18 06:11, Peter Zijlstra wrote:
-> > On Mon, Aug 27, 2018 at 05:26:53AM -0700, H. Peter Anvin wrote:
-> >
-> >> _THIS_IP_, however, is completely ill-defined, other than being an
-> >> address *somewhere* in the same global function (not even necessarily
-> >> the same function if the function is static!)  As my experiment show, in
-> >> many (nearly) cases gcc will hoist the address all the way to the top of
-> >> the function, at least for the current generic implementation.
-> >
-> > It seems to have mostly worked so far... did anything change?
-> >
->
-> Most likely because the major architectures contain a arch-specific
-> assembly implementation.  The generic implementation used in some places
-> is completely broken, as my experiments show.
->
-> >> For the case where _THIS_IP_ is passed to an out-of-line function in all
-> >> cases, it is extra pointless because all it does is increase the
-> >> footprint of every caller: _RET_IP_ is inherently passed to the function
-> >> anyway, and with tailcall protection it will uniquely identify a callsite.
-> >
-> > So I think we can convert many of the lockdep _THIS_IP_ calls to
-> > _RET_IP_ on the other side, with a wee bit of care.
-> >
-> > A little something like so perhaps...
->
-> I don't have time to look at this right now (I'm on sabbatical, and I'm
-> dealing with personal legal stuff right at the moment), but I think it
-> is the right direction.
->
->         -hpa
+This patchset provides a new RISC-V Local Interrupt Controller Driver
+for managing per-CPU local interrupts. The overall approach is inspired
+from the way per-CPU local interrupts are handled by Linux ARM64 and
+ARM GICv3 driver.
 
-Linus,
-Can this patch please be merged?  Then we can polish off Peter's
-change to lockdep to not even use _THIS_IP_.
+Few advantages of having this new driver are as follows:
+1. It registers all local interrupts as per-CPU interrupts
+2. We can develop drivers for devices with per-CPU local interrupts
+without changing arch code or this driver
+3. It allows local interrupt controller DT node under each CPU DT node
+as well as single system-wide DT node for local interrupt controller.
+
+With this patchset, output of "cat /proc/interrupts" looks as follows:
+           CPU0       CPU1       CPU2       CPU3       
+  5:        995       1012        997       1015  RISC-V INTC   5 Edge      riscv_timer
+  8:         23          6         10          7  SiFive PLIC   8 Edge      virtio0
+ 10:          9         10          5          4  SiFive PLIC  10 Edge      ttyS0
+
+The patchset is based up Linux-4.19-rc2 and can be found at
+riscv_intc_v1 branch of:
+https://github.com/avpatel/linux.git
+
+Anup Patel (5):
+  RISC-V: Make IPI triggering flexible
+  RISC-V: No need to pass scause as arg to do_IRQ()
+  RISC-V: Select useful GENERIC_IRQ kconfig options
+  irqchip: RISC-V Local Interrupt Controller Driver
+  clocksource: riscv_timer: Make timer interrupt as a per-CPU interrupt
+
+ arch/riscv/Kconfig                |   4 +
+ arch/riscv/include/asm/irq.h      |  16 ++-
+ arch/riscv/include/asm/smp.h      |  10 ++
+ arch/riscv/kernel/entry.S         |   1 -
+ arch/riscv/kernel/irq.c           |  45 +--------
+ arch/riscv/kernel/smp.c           |  23 ++++-
+ drivers/clocksource/riscv_timer.c |  76 ++++++++++++---
+ drivers/irqchip/Kconfig           |  15 ++-
+ drivers/irqchip/Makefile          |   1 +
+ drivers/irqchip/irq-riscv-intc.c  | 156 ++++++++++++++++++++++++++++++
+ drivers/irqchip/irq-sifive-plic.c |  21 +++-
+ include/linux/cpuhotplug.h        |   1 +
+ 12 files changed, 301 insertions(+), 68 deletions(-)
+ create mode 100644 drivers/irqchip/irq-riscv-intc.c
 
 -- 
-Thanks,
-~Nick Desaulniers
+2.17.1
