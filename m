@@ -1,89 +1,58 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Tue, 4 Sep 2018 10:59:20 -0700
-Subject: [PATCH v2 1/3] RISC-V: Add logical CPU indexing for RISC-V
-In-Reply-To: <20180831060352.GA19292@infradead.org>
+Date: Tue, 4 Sep 2018 11:08:35 -0700
+Subject: [PATCH v2 3/3] RISC-V: Support cpu hotplug.
+In-Reply-To: <20180831061859.GC19292@infradead.org>
 References: <1535445370-19004-1-git-send-email-atish.patra@wdc.com>
- <1535445370-19004-2-git-send-email-atish.patra@wdc.com>
- <20180831060352.GA19292@infradead.org>
-Message-ID: <5930c4f2-b091-6f20-ef6d-2358a370482d@wdc.com>
+ <1535445370-19004-4-git-send-email-atish.patra@wdc.com>
+ <20180831061859.GC19292@infradead.org>
+Message-ID: <0d439b9d-b3d0-7d2c-117b-abb37adf769c@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 8/30/18 11:03 PM, Christoph Hellwig wrote:
-> On Tue, Aug 28, 2018 at 01:36:08AM -0700, Atish Patra wrote:
->> Currently, both linux cpu id and hardware cpu id are same.
->> This is not recommended as it will lead to discontinuous cpu
->> indexing in Linux. Moreover, kdump kernel will run from CPU0
->> which would be absent if we follow existing scheme.
->>
->> Implement a logical mapping between Linux cpu id and hardware
->> cpuid to decouple these two. Always mark the boot processor as
->> cpu0 and all other cpus get the logical cpu id based on their
->> booting order.
->>
->> Signed-off-by: Atish Patra <atish.patra@wdc.com>
->> ---
->>   arch/riscv/include/asm/smp.h | 18 +++++++++++++++++-
->>   arch/riscv/kernel/setup.c    |  2 ++
->>   arch/riscv/kernel/smp.c      | 19 +++++++++++++++++++
->>   3 files changed, 38 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
->> index 36016845..a5c257b3 100644
->> --- a/arch/riscv/include/asm/smp.h
->> +++ b/arch/riscv/include/asm/smp.h
->> @@ -22,6 +22,13 @@
->>   #include <linux/cpumask.h>
->>   #include <linux/irqreturn.h>
+On 8/30/18 11:19 PM, Christoph Hellwig wrote:
+>> +#else
+>> +static inline bool can_hotplug_cpu(void) { return 0; }
+>> +static inline void arch_send_call_wakeup_ipi(int cpu) { }
+> 
+> Please use normal coding style for these stubs.
+
+Done.
+> 
+>>   #define INTERRUPT_CAUSE_FLAG	(1UL << (__riscv_xlen - 1))
+>> +#define get_scause(cause)	(cause & ~INTERRUPT_CAUSE_FLAG)
+> 
+> I think this helper is misleading - the cause includes the interrupt
+> flag.  I'd rather open code this in the other place as well.
+> 
+
+ok. Done.
+
+>> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+>> index d7c6ca7c..cb209139 100644
+>> --- a/arch/riscv/kernel/process.c
+>> +++ b/arch/riscv/kernel/process.c
+>> @@ -42,6 +42,13 @@ void arch_cpu_idle(void)
+>>   	local_irq_enable();
+>>   }
 >>   
->> +#define INVALID_HARTID -1
->> +/*
->> + * Mapping between linux logical cpu index and hartid.
->> + */
->> +extern unsigned long __cpu_logical_map[NR_CPUS];
->> +#define cpu_logical_map(cpu)    __cpu_logical_map[cpu]
-> 
-> How about naming this cpuid_to_hardid_map to make things a little
-> more obvious?  
-
-Sure.
-Also shouldn't this be signed given your INVALID_HARTID
-> definition above.
-> 
-
-I don't know what I was thinking after adding INVALID_HARTID. I will fix 
-this.
-
->> +static inline int riscv_hartid_to_cpuid(int hartid) { return 0 ; }
->> +static inline void riscv_cpuid_to_hartid_mask(const struct cpumask *in,
->> +				       struct cpumask *out) {
->> +	cpumask_set_cpu(cpu_logical_map(0), out);
+>> +#ifdef CONFIG_HOTPLUG_CPU
+>> +void arch_cpu_idle_dead(void)
+>> +{
+>> +	cpu_play_dead();
 >> +}
+>> +#endif
 > 
-> Please use normal coding style even for stubs:
-> 
-> static inline int riscv_hartid_to_cpuid(int hartid)
-> {
-> 	return 0;
-> }
-> 
-> static inline void riscv_cpuid_to_hartid_mask(const struct cpumask *in,
-> 			struct cpumask *out)
-> {
-> 	cpumask_set_cpu(cpu_logical_map(0), out);
-> }
-> 
->> +unsigned long __cpu_logical_map[NR_CPUS] = { [0 ... NR_CPUS-1] = INVALID_HARTID };
-> 
-> Please break the line into the usual format:
+> I wonder if it might be worth to introduce a small
+> arch/riscv/kernel/cpu-hotplug.c file for the various CONFIG_HOTPLUG_CPU
+> only functions.
 > 
 
+I have kept it here to match all other arch. Same goes for all hotplug 
+functions in smpboot.c
 
-> unsigned long __cpu_logical_map[NR_CPUS] = {
-> 	[0 ... NR_CPUS-1]	= INVALID_HARTID,
-> };
-> 
-ok.
+I can move them to a separate file if you think that provides better 
+code readability and structure.
+
 
 Regards,
-Atish
+Atish 		
