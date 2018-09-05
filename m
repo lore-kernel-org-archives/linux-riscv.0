@@ -1,22 +1,17 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Wed, 5 Sep 2018 11:58:38 -0700
-Subject: [RFC PATCH 4/5] irqchip: RISC-V Local Interrupt Controller Driver
-In-Reply-To: <CAAhSdy3-mM-zyYOvQBR+JsRTZGZWUF=4Y=0jTKhVMAYPxOfJ6Q@mail.gmail.com>
-References: <20180904124514.6290-1-anup@brainfault.org>
- <20180904124514.6290-5-anup@brainfault.org>
- <20180904185755.GD25119@infradead.org>
- <CAAhSdy3-mM-zyYOvQBR+JsRTZGZWUF=4Y=0jTKhVMAYPxOfJ6Q@mail.gmail.com>
-Message-ID: <20180905185838.GC15741@infradead.org>
+Date: Wed, 5 Sep 2018 12:03:03 -0700
+Subject: [PATCH -next] RISC-V: Request newstat syscalls
+In-Reply-To: <1536158166-3397-1-git-send-email-linux@roeck-us.net>
+References: <1536158166-3397-1-git-send-email-linux@roeck-us.net>
+Message-ID: <20180905190303.GA1420@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Sep 05, 2018 at 11:39:01AM +0530, Anup Patel wrote:
-> Previously submitted driver, registered separate irq_domain for
-> each CPU and local IRQs were registered as regular IRQs to IRQ
-> subsystem.
-> (Refer, https://www.spinics.net/lists/devicetree/msg241230.html)
+On Wed, Sep 05, 2018 at 07:36:06AM -0700, Guenter Roeck wrote:
+> Fixes: 82b355d161c9 ("y2038: Remove newstat family from default syscall set")
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+> ---
+> I would suggest to merge this patch with the offending patch.
 
-And we reject that driver approach for good reason and are now
-doing the architectualy low-level irq handling in common code
-without any need whatsover to duplicate information in the
-privileged spec in DT. 
+Yes, that would be helpful.
