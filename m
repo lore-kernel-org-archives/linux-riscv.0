@@ -1,30 +1,70 @@
-From: hch@infradead.org (Christoph Hellwig)
-Date: Wed, 5 Sep 2018 12:06:48 -0700
-Subject: Unable to handle kernel paging request at virtual address
- 0000001bf8068693
-In-Reply-To: <ade8cef4-aad0-3320-8bce-700cd3e106c9@wdc.com>
-References: <mvmh8j4f4yb.fsf@suse.de>
- <ade8cef4-aad0-3320-8bce-700cd3e106c9@wdc.com>
-Message-ID: <20180905190648.GC1420@infradead.org>
+From: robh@kernel.org (Rob Herring)
+Date: Wed,  5 Sep 2018 14:37:17 -0500
+Subject: [PATCH 00/21] DT cpu node iterator
+Message-ID: <20180905193738.19325-1-robh@kernel.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Sep 05, 2018 at 10:17:08AM -0700, Atish Patra wrote:
-> This issue is fixed in 4.19-rc1.
-> 
-> If you don't want to pull the latest, here is the change you need to
-> cherry-pick to your branch.
-> 
-> https://lore.kernel.org/lkml/20180626192746.GJ3593 at linux.vnet.ibm.com/
+This series adds an iterator for cpu nodes and converts users over to use
+it or of_get_cpu_node in some cases. This allows us to remove the
+dependency on device_type property for cpu nodes though removing that
+from DTS files will have to wait for some time. In some cases, this makes
+the DT search more strict by only looking in /cpus child nodes rather
+than any node with the device_type == cpu. The iterator also honors the
+status property which is often forgotten.
 
-Paul, I think we need this in 4.18-stable.
+I've only tested on ARM under QEMU and compiled powerpc.
 
-Also Palmer, I think we should pick it up in riscv-linux-4.18.
+Rob
 
-The mainline commit is:
+Rob Herring (21):
+  of: Add cpu node iterator for_each_of_cpu_node()
+  of: Support matching cpu nodes with no 'reg' property
+  ARM: use for_each_of_cpu_node iterator
+  ARM: topology: remove unneeded check for /cpus node
+  ARM: shmobile: use for_each_of_cpu_node iterator
+  arm64: use for_each_of_cpu_node iterator
+  c6x: use for_each_of_cpu_node iterator
+  microblaze: get cpu node with of_get_cpu_node
+  nios2: get cpu node with of_get_cpu_node
+  openrisc: use for_each_of_cpu_node iterator
+  powerpc: use for_each_of_cpu_node iterator
+  powerpc: 4xx: get cpu node with of_get_cpu_node
+  powerpc: 8xx: get cpu node with of_get_cpu_node
+  riscv: use for_each_of_cpu_node iterator
+  SH: use for_each_of_cpu_node iterator
+  x86: DT: use for_each_of_cpu_node iterator
+  clk: mvebu: use for_each_of_cpu_node iterator
+  edac: cpc925: use for_each_of_cpu_node iterator
+  iommu: fsl_pamu: use for_each_of_cpu_node iterator
+  of: use for_each_of_cpu_node iterator
+  fbdev: fsl-diu: get cpu node with of_get_cpu_node
 
-commit fcc63543650150629c8a873cbef3578770acecd9
-Author: Boqun Feng <boqun.feng@gmail.com>
-Date:   Fri Jun 15 12:06:31 2018 -0700
+ arch/arm/kernel/devtree.c                 |  5 +--
+ arch/arm/kernel/topology.c                |  6 ---
+ arch/arm/mach-shmobile/pm-rcar-gen2.c     |  8 +---
+ arch/arm/mach-shmobile/pm-rmobile.c       |  2 +-
+ arch/arm/mach-shmobile/timer.c            | 10 +----
+ arch/arm64/kernel/smp.c                   |  2 +-
+ arch/c6x/kernel/setup.c                   | 11 ++---
+ arch/microblaze/kernel/cpu/cpuinfo.c      |  4 +-
+ arch/nios2/kernel/cpuinfo.c               |  4 +-
+ arch/openrisc/kernel/setup.c              |  3 +-
+ arch/powerpc/platforms/4xx/soc.c          |  2 +-
+ arch/powerpc/platforms/8xx/m8xx_setup.c   |  5 ++-
+ arch/powerpc/platforms/powermac/feature.c | 51 ++++++++---------------
+ arch/powerpc/platforms/powermac/setup.c   | 15 +++----
+ arch/riscv/kernel/smpboot.c               |  2 +-
+ arch/sh/boards/of-generic.c               |  2 +-
+ arch/x86/kernel/devicetree.c              |  2 +-
+ drivers/clk/mvebu/clk-cpu.c               |  4 +-
+ drivers/edac/cpc925_edac.c                | 20 +--------
+ drivers/iommu/fsl_pamu.c                  |  2 +-
+ drivers/of/base.c                         | 43 ++++++++++++++++++-
+ drivers/of/of_numa.c                      | 15 +------
+ drivers/video/fbdev/fsl-diu-fb.c          |  2 +-
+ include/linux/of.h                        | 11 +++++
+ 24 files changed, 111 insertions(+), 120 deletions(-)
 
-    rcu: Make expedited GPs handle CPU 0 being offline
+--
+2.17.1
