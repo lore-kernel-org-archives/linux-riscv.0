@@ -1,33 +1,37 @@
-From: arnd@arndb.de (Arnd Bergmann)
-Date: Wed, 5 Sep 2018 22:46:44 +0200
-Subject: [PATCH -next] RISC-V: Request newstat syscalls
-In-Reply-To: <1536158166-3397-1-git-send-email-linux@roeck-us.net>
-References: <1536158166-3397-1-git-send-email-linux@roeck-us.net>
-Message-ID: <CAK8P3a1cM_StS=mrUCu=-3vahUX=oBa-4t=qvuvjRiC37+Tm=Q@mail.gmail.com>
+From: paulmck@linux.vnet.ibm.com (Paul E. McKenney)
+Date: Wed, 5 Sep 2018 14:07:08 -0700
+Subject: Unable to handle kernel paging request at virtual address
+ 0000001bf8068693
+In-Reply-To: <20180905190648.GC1420@infradead.org>
+References: <mvmh8j4f4yb.fsf@suse.de>
+ <ade8cef4-aad0-3320-8bce-700cd3e106c9@wdc.com>
+ <20180905190648.GC1420@infradead.org>
+Message-ID: <20180905210708.GC4225@linux.vnet.ibm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Sep 5, 2018 at 4:36 PM Guenter Roeck <linux@roeck-us.net> wrote:
->
-> Since commit 82b355d161c9 ("y2038: Remove newstat family from default
-> syscall set"), riscv images fail to boot with the following error.
->
-> /sbin/init: error while loading shared libraries: libc.so.6:
->         cannot stat shared object: Error 38
-> Kernel panic - not syncing: Attempted to kill init! exitcode=0x00007f00
->
-> Explicitly request newstat syscalls to fix the problem.
->
-> Fixes: 82b355d161c9 ("y2038: Remove newstat family from default syscall set")
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-> ---
-> I would suggest to merge this patch with the offending patch.
+On Wed, Sep 05, 2018 at 12:06:48PM -0700, Christoph Hellwig wrote:
+> On Wed, Sep 05, 2018 at 10:17:08AM -0700, Atish Patra wrote:
+> > This issue is fixed in 4.19-rc1.
+> > 
+> > If you don't want to pull the latest, here is the change you need to
+> > cherry-pick to your branch.
+> > 
+> > https://lore.kernel.org/lkml/20180626192746.GJ3593 at linux.vnet.ibm.com/
+> 
+> Paul, I think we need this in 4.18-stable.
+> 
+> Also Palmer, I think we should pick it up in riscv-linux-4.18.
+> 
+> The mainline commit is:
+> 
+> commit fcc63543650150629c8a873cbef3578770acecd9
+> Author: Boqun Feng <boqun.feng@gmail.com>
+> Date:   Fri Jun 15 12:06:31 2018 -0700
+> 
+>     rcu: Make expedited GPs handle CPU 0 being offline
 
-Looks good, thanks for the fix!
+OK, it backports cleanly and passes a short rcutorture test.  You guys
+have tested it, correct?  If so, I am happy to pass it on to -stable.
 
-Sorry about taking too long to respond to your original bug report. I
-applied the patch on top of the rest of the series  and pushed it out
-to my public tree for tomorrow's linux-next.
-
-       Arnd
+							Thanx, Paul
