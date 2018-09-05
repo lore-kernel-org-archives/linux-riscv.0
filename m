@@ -1,39 +1,33 @@
-From: robh@kernel.org (Rob Herring)
-Date: Wed,  5 Sep 2018 14:37:31 -0500
-Subject: [PATCH 14/21] riscv: use for_each_of_cpu_node iterator
-In-Reply-To: <20180905193738.19325-1-robh@kernel.org>
-References: <20180905193738.19325-1-robh@kernel.org>
-Message-ID: <20180905193738.19325-15-robh@kernel.org>
+From: arnd@arndb.de (Arnd Bergmann)
+Date: Wed, 5 Sep 2018 22:46:44 +0200
+Subject: [PATCH -next] RISC-V: Request newstat syscalls
+In-Reply-To: <1536158166-3397-1-git-send-email-linux@roeck-us.net>
+References: <1536158166-3397-1-git-send-email-linux@roeck-us.net>
+Message-ID: <CAK8P3a1cM_StS=mrUCu=-3vahUX=oBa-4t=qvuvjRiC37+Tm=Q@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Use the for_each_of_cpu_node iterator to iterate over cpu nodes. This
-has the side effect of defaulting to iterating using "cpu" node names in
-preference to the deprecated (for FDT) device_type == "cpu".
+On Wed, Sep 5, 2018 at 4:36 PM Guenter Roeck <linux@roeck-us.net> wrote:
+>
+> Since commit 82b355d161c9 ("y2038: Remove newstat family from default
+> syscall set"), riscv images fail to boot with the following error.
+>
+> /sbin/init: error while loading shared libraries: libc.so.6:
+>         cannot stat shared object: Error 38
+> Kernel panic - not syncing: Attempted to kill init! exitcode=0x00007f00
+>
+> Explicitly request newstat syscalls to fix the problem.
+>
+> Fixes: 82b355d161c9 ("y2038: Remove newstat family from default syscall set")
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+> ---
+> I would suggest to merge this patch with the offending patch.
 
-Cc: Palmer Dabbelt <palmer@sifive.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv at lists.infradead.org
-Signed-off-by: Rob Herring <robh@kernel.org>
----
-Please ack and I will take via the DT tree. This is dependent on the
-first 2 patches.
+Looks good, thanks for the fix!
 
- arch/riscv/kernel/smpboot.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Sorry about taking too long to respond to your original bug report. I
+applied the patch on top of the rest of the series  and pushed it out
+to my public tree for tomorrow's linux-next.
 
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 56abab6a9812..3c59afe67951 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -52,7 +52,7 @@ void __init setup_smp(void)
- 	struct device_node *dn = NULL;
- 	int hart, im_okay_therefore_i_am = 0;
-
--	while ((dn = of_find_node_by_type(dn, "cpu"))) {
-+	for_each_of_cpu_node(dn) {
- 		hart = riscv_of_processor_hart(dn);
- 		if (hart >= 0) {
- 			set_cpu_possible(hart, true);
---
-2.17.1
+       Arnd
