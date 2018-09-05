@@ -1,26 +1,35 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Wed, 5 Sep 2018 11:56:03 -0700
-Subject: [RFC PATCH 1/5] RISC-V: Make IPI triggering flexible
-In-Reply-To: <CAAhSdy1iPZ_Y4opsXBE0o09uzgSxV8A9YKHawFB+knXH7FFLsQ@mail.gmail.com>
+Date: Wed, 5 Sep 2018 11:57:24 -0700
+Subject: [RFC PATCH 3/5] RISC-V: Select useful GENERIC_IRQ kconfig options
+In-Reply-To: <CAAhSdy3qUkDmV5deoy9x3sqdv8xTq37od6SzgF0hmN1JPThGgw@mail.gmail.com>
 References: <20180904124514.6290-1-anup@brainfault.org>
- <20180904124514.6290-2-anup@brainfault.org>
- <20180904185001.GA25119@infradead.org>
- <CAAhSdy1iPZ_Y4opsXBE0o09uzgSxV8A9YKHawFB+knXH7FFLsQ@mail.gmail.com>
-Message-ID: <20180905185603.GA15741@infradead.org>
+ <20180904124514.6290-4-anup@brainfault.org>
+ <20180904185629.GC25119@infradead.org>
+ <CAAhSdy3qUkDmV5deoy9x3sqdv8xTq37od6SzgF0hmN1JPThGgw@mail.gmail.com>
+Message-ID: <20180905185724.GB15741@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Sep 05, 2018 at 10:06:24AM +0530, Anup Patel wrote:
-> It's outrageous to call IPI mechanisms using interrupt-controller as "wacky".
+On Wed, Sep 05, 2018 at 10:22:27AM +0530, Anup Patel wrote:
+> I am sure we will see both Level and Edge triggered interrupts
+> in RISC-V system. The MMIO device interrupts will be mostly
+> Level triggered and PCI MSIs will be mapped as Edge triggered
+> by MSI controller.
+> 
+> We should definitely select GENERIC_IRQ_SHOW_LEVEL
+> so that nature of IRQ interrupt line is evident in /proc/interrupts.
 
-I call pluggable IPI whacky, and it's not outragous.  What is outragous
-is your bullshit architecture astronaut patches.
+Please settle the argument with Thomas and Marc on what the default
+for this option should be - in the end it just shows another line
+in procfs, and I see no reason for RISC-V to ever deviated from the
+global Linux default here, whatever that default is.
 
-There might be a nned to abstract IPI details even more in the future,
-but the way to do it is either architectureally in the RISC-V privileged
-spec, or in the SBI spec once we actually have one.
+> >> HANDLE_DOMAIN_IRQ
+> >
+> > We aren't using handle_domain_irq anywhere in RISC-V, no need to
+> > build this.
+> 
+> The new RISC-V local interrupt controller driver introduced by
+> this patchset uses handle_domain_irq().
 
-Having host OSes go through hoops to provide pluggable IPI
-implementations is complete bullshit, and the argument that we already
-have this in some architectures is not a good reason to repeat that
-mistake.
+So select it in the patch that needs it, not anywhere else.
