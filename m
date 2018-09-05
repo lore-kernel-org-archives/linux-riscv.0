@@ -1,8 +1,8 @@
 From: schwab@suse.de (Andreas Schwab)
-Date: Wed, 05 Sep 2018 14:58:25 +0200
+Date: Wed, 05 Sep 2018 15:25:55 +0200
 Subject: Unable to handle kernel paging request at virtual address
  0000001bf8068693
-Message-ID: <mvmk1o0f6dq.fsf@suse.de>
+Message-ID: <mvmin3kf53w.fsf@suse.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
@@ -55,10 +55,13 @@ Andreas Schwab, SUSE Labs, schwab at suse.de
 GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
 "And now for something completely different."
 -------------- next part --------------
-An embedded and charset-unspecified text was scrubbed...
-Name: .config
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180905/edb889c1/attachment.ksh>
+A non-text attachment was scrubbed...
+Name: config.gz
+Type: application/x-gzip
+Size: 43733 bytes
+Desc: kernel config
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180905/ba40573f/attachment.bin>
 -------------- next part --------------
 An embedded and charset-unspecified text was scrubbed...
 Name: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180905/edb889c1/attachment-0001.ksh>
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20180905/ba40573f/attachment.ksh>
