@@ -1,31 +1,110 @@
-From: schwab@suse.de (Andreas Schwab)
-Date: Thu, 06 Sep 2018 09:35:33 +0200
-Subject: Unable to handle kernel paging request at virtual address
- 0000001bf8068693
-In-Reply-To: <20180905190648.GC1420@infradead.org> (Christoph Hellwig's
- message of "Wed, 5 Sep 2018 12:06:48 -0700")
-References: <mvmh8j4f4yb.fsf@suse.de>
- <ade8cef4-aad0-3320-8bce-700cd3e106c9@wdc.com>
- <20180905190648.GC1420@infradead.org>
-Message-ID: <mvm1sa7f58a.fsf@suse.de>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Thu,  6 Sep 2018 01:05:25 -0700
+Subject: [PATCH v3 02/12] RISC-V: Filter ISA and MMU values in cpuinfo
+In-Reply-To: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
+References: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
+Message-ID: <1536221135-182613-3-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sep 05 2018, Christoph Hellwig <hch@infradead.org> wrote:
+From: Palmer Dabbelt <palmer@sifive.com>
 
-> The mainline commit is:
->
-> commit fcc63543650150629c8a873cbef3578770acecd9
-> Author: Boqun Feng <boqun.feng@gmail.com>
-> Date:   Fri Jun 15 12:06:31 2018 -0700
->
->     rcu: Make expedited GPs handle CPU 0 being offline
+We shouldn't be directly passing device tree values to userspace, both
+because there could be mistakes in device trees and because the kernel
+doesn't support arbitrary ISAs.
 
-Thanks, this got me further.
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+[Atish: checkpatch fix and code comment formatting update]
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ arch/riscv/kernel/cpu.c | 68 ++++++++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 61 insertions(+), 7 deletions(-)
 
-Andreas.
-
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index ca6c81e5..b10cf054 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -58,6 +58,63 @@ int riscv_of_processor_hart(struct device_node *node)
+ 
+ #ifdef CONFIG_PROC_FS
+ 
++static void print_isa(struct seq_file *f, const char *orig_isa)
++{
++	static const char *ext = "mafdc";
++	const char *isa = orig_isa;
++	const char *e;
++
++	/*
++	 * Linux doesn't support rv32e or rv128i, and we only support booting
++	 * kernels on harts with the same ISA that the kernel is compiled for.
++	 */
++#if defined(CONFIG_32BIT)
++	if (strncmp(isa, "rv32i", 5) != 0)
++		return;
++#elif defined(CONFIG_64BIT)
++	if (strncmp(isa, "rv64i", 5) != 0)
++		return;
++#endif
++
++	/* Print the base ISA, as we already know it's legal. */
++	seq_puts(f, "isa\t: ");
++	seq_write(f, isa, 5);
++	isa += 5;
++
++	/*
++	 * Check the rest of the ISA string for valid extensions, printing those
++	 * we find.  RISC-V ISA strings define an order, so we only print the
++	 * extension bits when they're in order.
++	 */
++	for (e = ext; *e != '\0'; ++e) {
++		if (isa[0] == e[0]) {
++			seq_write(f, isa, 1);
++			isa++;
++		}
++	}
++
++	/*
++	 * If we were given an unsupported ISA in the device tree then print
++	 * a bit of info describing what went wrong.
++	 */
++	if (isa[0] != '\0')
++		pr_info("unsupported ISA \"%s\" in device tree", orig_isa);
++}
++
++static void print_mmu(struct seq_file *f, const char *mmu_type)
++{
++#if defined(CONFIG_32BIT)
++	if (strcmp(mmu_type, "riscv,sv32") != 0)
++		return;
++#elif defined(CONFIG_64BIT)
++	if ((strcmp(mmu_type, "riscv,sv39") != 0)
++	    && (strcmp(mmu_type, "riscv,sv48") != 0))
++		return;
++#endif
++
++	seq_printf(f, "mmu\t: %s\n", mmu_type+6);
++}
++
+ static void *c_start(struct seq_file *m, loff_t *pos)
+ {
+ 	*pos = cpumask_next(*pos - 1, cpu_online_mask);
+@@ -83,13 +140,10 @@ static int c_show(struct seq_file *m, void *v)
+ 	const char *compat, *isa, *mmu;
+ 
+ 	seq_printf(m, "hart\t: %lu\n", hart_id);
+-	if (!of_property_read_string(node, "riscv,isa", &isa)
+-	    && isa[0] == 'r'
+-	    && isa[1] == 'v')
+-		seq_printf(m, "isa\t: %s\n", isa);
+-	if (!of_property_read_string(node, "mmu-type", &mmu)
+-	    && !strncmp(mmu, "riscv,", 6))
+-		seq_printf(m, "mmu\t: %s\n", mmu+6);
++	if (!of_property_read_string(node, "riscv,isa", &isa))
++		print_isa(m, isa);
++	if (!of_property_read_string(node, "mmu-type", &mmu))
++		print_mmu(m, mmu);
+ 	if (!of_property_read_string(node, "compatible", &compat)
+ 	    && strcmp(compat, "riscv"))
+ 		seq_printf(m, "uarch\t: %s\n", compat);
 -- 
-Andreas Schwab, SUSE Labs, schwab at suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+2.7.4
