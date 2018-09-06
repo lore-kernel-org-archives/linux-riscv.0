@@ -1,47 +1,77 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 06 Sep 2018 02:45:11 -0700 (PDT)
-Subject: [PATCH 5/8] RISC-V: Rename im_okay_therefore_i_am to
- found_boot_cpu
-In-Reply-To: <f62e9466-bd77-096d-fcc7-f5750d0257bb@wdc.com>
-Message-ID: <mhng-dd0dbcb8-790a-47a8-8c1f-ab1026a02624@palmer-si-x1c4>
+Date: Thu, 06 Sep 2018 02:45:15 -0700 (PDT)
+Subject: [PATCH] y2038: Remove newstat family from default syscall set
+In-Reply-To: <20180901174353.GA14271@roeck-us.net>
+Message-ID: <mhng-a047b20f-8546-4762-bcf0-f884be595b92@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, 31 Aug 2018 14:18:02 PDT (-0700), atish.patra at wdc.com wrote:
-> On 8/30/18 10:54 PM, Christoph Hellwig wrote:
->> On Thu, Aug 30, 2018 at 09:11:11AM -0700, Atish Patra wrote:
->>> On 8/30/18 7:41 AM, Christoph Hellwig wrote:
->>>>>    	struct device_node *dn = NULL;
->>>>> -	int hart, im_okay_therefore_i_am = 0;
->>>>> +	int hart, found_boot_cpu = 0;
->>>>
->>>> If you rename this anyway please switch to use a bool.
->>>>
->>>
->>> I can address the comment on this patch and fold it in my series to avoid
->>> unnecessary conflict.
->>>
->>> @Palmer: You can drop this patch.
+On Sat, 01 Sep 2018 10:43:53 PDT (-0700), linux at roeck-us.net wrote:
+> Hi Arnd,
+>
+> On Fri, Apr 13, 2018 at 11:50:12AM +0200, Arnd Bergmann wrote:
+>> We have four generations of stat() syscalls:
+>> - the oldstat syscalls that are only used on the older architectures
+>> - the newstat family that is used on all 64-bit architectures but
+>>   lacked support for large files on 32-bit architectures.
+>> - the stat64 family that is used mostly on 32-bit architectures to
+>>   replace newstat
+>> - statx() to replace all of the above, adding 64-bit timestamps among
+>>   other things.
 >>
->> If Palmer is ok with it how about you include a respin of his whole
->> series?  There are some overlaps I think and having a single person
->> in charge might be helpful.
+>> We already compile stat64 only on those architectures that need it,
+>> but newstat is always built, including on those that don't reference
+>> it. This adds a new __ARCH_WANT_NEW_STAT symbol along the lines of
+>> __ARCH_WANT_OLD_STAT and __ARCH_WANT_STAT64 to control compilation of
+>> newstat. All architectures that need it use an explict define, the
+>> others now get a little bit smaller, and future architecture (including
+>> 64-bit targets) won't ever see it.
 >>
 >
-> Sure. I am fine with it. Palmer ?
+> This patch causes my riscv boot tests to crash in -next
 
-Ya, I have no problem with it.
+Ah, thanks for running these!
 
+> sbin/init: error while loading shared libraries: libc.so.6: cannot stat shared object: Error 38
+> Kernel panic - not syncing: Attempted to kill init! exitcode=0x00007f00
 >
->> Btw, I've found your series in my linux-kernel folder, but it did
->> not make it to linux-riscv or my personal inbox despite the CC.
->>
+> The following change fixes the problem for me, but of course I have no idea
+> if it is correct. Copying RISC-V maintainers for input.
 >
-> Thanks for the review.
-> I checked my scripts. I couldn't figure out what went wrong.
-> Not sure if there was some issue with infradead.org at that time.
+> Guenter
 >
-> Anyways, sorry again for the mess. I will keep a watch on this next time.
+> ---
+> diff --git a/arch/riscv/include/asm/unistd.h b/arch/riscv/include/asm/unistd.h
+> index 0caea01d5cca..eff7aa9aa163 100644
+> --- a/arch/riscv/include/asm/unistd.h
+> +++ b/arch/riscv/include/asm/unistd.h
+> @@ -16,6 +16,7 @@
+>   * be included multiple times.  See uapi/asm/syscalls.h for more info.
+>   */
 >
-> Regards,
-> Atish
+> +#define __ARCH_WANT_NEW_STAT
+>  #define __ARCH_WANT_SYS_CLONE
+>  #include <uapi/asm/unistd.h>
+>  #include <uapi/asm/syscalls.h>
+
+I'm afraid I'm not sure what the right thing to do here is either, but from the 
+patch description it does seem like we should have this guarded by an "#ifdef 
+CONFIG_32BIT" so we can keep it out of our 32-bit ABI (which isn't in glibc 
+yet, so isn't stable) in favor of statx() (or maybe stat64()?).  The one 
+problem here is that I can't find "newstat" anywhere in glibc to verify it's 
+actually supposed to be part of our 64-bit ABI, though I can find a bunch of 
+references to "statx" that seem to indicate it's meant to be present.
+
+That said, assuming you don't have anything wacky going on in userspace if this 
+breaks the ABI then it breaks the ABI, so however newstat got into a binary we 
+still need to keep it around.  Poking around my Fedora glibc image I see
+
+    000000000009b040 <__xstat>:
+       9b040:       e51d                    bnez    a0,9b06e <__xstat+0x2e>
+       9b042:       04f00893                li      a7,79
+       9b046:       f9c00513                li      a0,-100
+       9b04a:       4681                    li      a3,0
+       9b04c:       00000073                ecall
+
+which seems to coorespond with sys_newfstatat, which indicates to me we should 
+have it in the 64-bit ABI.
