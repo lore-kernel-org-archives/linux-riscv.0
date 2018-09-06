@@ -1,60 +1,143 @@
 From: anup@brainfault.org (Anup Patel)
-Date: Thu,  6 Sep 2018 18:06:46 +0530
-Subject: [PATCH v2 0/5] New RISC-V Local Interrupt Controller Driver
-Message-ID: <20180906123651.28500-1-anup@brainfault.org>
+Date: Thu,  6 Sep 2018 18:06:47 +0530
+Subject: [PATCH v2 1/5] RISC-V: self-contained IPI handling routine
+In-Reply-To: <20180906123651.28500-1-anup@brainfault.org>
+References: <20180906123651.28500-1-anup@brainfault.org>
+Message-ID: <20180906123651.28500-2-anup@brainfault.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This patchset provides a new RISC-V Local Interrupt Controller Driver
-for managing per-CPU local interrupts. The overall approach is inspired
-from the way per-CPU local interrupts are handled by Linux ARM64 and
-ARM GICv3 driver.
+Currently, the IPI handling routine riscv_software_interrupt() does
+not take any argument and also does not perform irq_enter()/irq_exit().
 
-Few advantages of having this new driver are as follows:
-1. It registers all local interrupts as per-CPU interrupts
-2. We can develop drivers for devices with per-CPU local interrupts
-without changing arch code or this driver
-3. It allows local interrupt controller DT node under each CPU DT node
-as well as single system-wide DT node for local interrupt controller.
+This patch makes IPI handling routine more self-contained by:
+1. Passing "pt_regs *" argument
+2. Explicitly doing irq_enter()/irq_exit()
+3. Explicitly save/restore "pt_regs *" using set_irq_regs()
 
-With this patchset, output of "cat /proc/interrupts" looks as follows:
-           CPU0       CPU1       CPU2       CPU3       
-  5:       1256       1269       1276       1262  RISC-V INTC   5  riscv_timer
-  8:          6         15          7         16  SiFive PLIC   8  virtio0
- 10:         22         12         12         21  SiFive PLIC  10  ttyS0
+With above changes, IPI handling routine does not depend on caller
+function to perform irq_enter()/irq_exit() and save/restore of
+"pt_regs *" hence its more self-contained. This also enables us
+to call IPI handling routine from IRQCHIP drivers.
 
-The patchset is based up Linux-4.19-rc2 and can be found at
-riscv_intc_v2 branch of:
-https://github.com/avpatel/linux.git
+Signed-off-by: Anup Patel <anup@brainfault.org>
+---
+ arch/riscv/include/asm/irq.h |  1 -
+ arch/riscv/include/asm/smp.h |  3 +++
+ arch/riscv/kernel/irq.c      | 16 ++++++++++------
+ arch/riscv/kernel/smp.c      | 11 +++++++++--
+ 4 files changed, 22 insertions(+), 9 deletions(-)
 
-Changes since v1:
- - Removed changes related to puggable IPI triggering
- - Separate patch for self-contained IPI handling routine
- - Removed patch for GENERIC_IRQ kconfig options
- - Added patch to remove do_IRQ() function
- - Rebased upon Atish's SMP patches
-
-Anup Patel (5):
-  RISC-V: self-contained IPI handling routine
-  RISC-V: No need to pass scause as arg to do_IRQ()
-  irqchip: RISC-V Local Interrupt Controller Driver
-  clocksource: riscv_timer: Make timer interrupt as a per-CPU interrupt
-  RISC-V: Remove do_IRQ() function
-
- arch/riscv/Kconfig                |   1 +
- arch/riscv/include/asm/irq.h      |  17 +++-
- arch/riscv/include/asm/smp.h      |   3 +
- arch/riscv/kernel/entry.S         |   5 +-
- arch/riscv/kernel/irq.c           |  47 +---------
- arch/riscv/kernel/smp.c           |  11 ++-
- drivers/clocksource/riscv_timer.c |  78 ++++++++++++----
- drivers/irqchip/Kconfig           |  15 ++-
- drivers/irqchip/Makefile          |   1 +
- drivers/irqchip/irq-riscv-intc.c  | 148 ++++++++++++++++++++++++++++++
- drivers/irqchip/irq-sifive-plic.c |  20 +++-
- include/linux/cpuhotplug.h        |   1 +
- 12 files changed, 273 insertions(+), 74 deletions(-)
- create mode 100644 drivers/irqchip/irq-riscv-intc.c
-
+diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
+index a873a72d0f00..8d5d1a9f7fae 100644
+--- a/arch/riscv/include/asm/irq.h
++++ b/arch/riscv/include/asm/irq.h
+@@ -18,7 +18,6 @@
+ #define NR_IRQS         0
+ 
+ void riscv_timer_interrupt(void);
+-void riscv_software_interrupt(void);
+ void wait_for_software_interrupt(void);
+ 
+ #include <asm-generic/irq.h>
+diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+index 8145b8657d20..d7c3da05f200 100644
+--- a/arch/riscv/include/asm/smp.h
++++ b/arch/riscv/include/asm/smp.h
+@@ -51,6 +51,9 @@ void send_ipi_message(const struct cpumask *to_whom,
+ /* SMP initialization hook for setup_arch */
+ void __init setup_smp(void);
+ 
++/* Called from C code, this handles an IPI. */
++void handle_IPI(struct pt_regs *regs);
++
+ /* Hook for the generic smp_call_function_many() routine. */
+ void arch_send_call_function_ipi_mask(struct cpumask *mask);
+ 
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index 7e14b0d9a71d..f5073dcbc560 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -26,12 +26,15 @@
+ 
+ asmlinkage void __irq_entry do_IRQ(struct pt_regs *regs, unsigned long cause)
+ {
+-	struct pt_regs *old_regs = set_irq_regs(regs);
++	struct pt_regs *old_regs;
+ 
+-	irq_enter();
+ 	switch (cause & ~INTERRUPT_CAUSE_FLAG) {
+ 	case INTERRUPT_CAUSE_TIMER:
++		old_regs = set_irq_regs(regs);
++		irq_enter();
+ 		riscv_timer_interrupt();
++		irq_exit();
++		set_irq_regs(old_regs);
+ 		break;
+ #ifdef CONFIG_SMP
+ 	case INTERRUPT_CAUSE_SOFTWARE:
+@@ -39,18 +42,19 @@ asmlinkage void __irq_entry do_IRQ(struct pt_regs *regs, unsigned long cause)
+ 		 * We only use software interrupts to pass IPIs, so if a non-SMP
+ 		 * system gets one, then we don't know what to do.
+ 		 */
+-		riscv_software_interrupt();
++		handle_IPI(regs);
+ 		break;
+ #endif
+ 	case INTERRUPT_CAUSE_EXTERNAL:
++		old_regs = set_irq_regs(regs);
++		irq_enter();
+ 		handle_arch_irq(regs);
++		irq_exit();
++		set_irq_regs(old_regs);
+ 		break;
+ 	default:
+ 		panic("unexpected interrupt cause");
+ 	}
+-	irq_exit();
+-
+-	set_irq_regs(old_regs);
+ }
+ 
+ /*
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 629456bb6122..9e7bcf705946 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -58,10 +58,13 @@ int setup_profiling_timer(unsigned int multiplier)
+ 	return -EINVAL;
+ }
+ 
+-void riscv_software_interrupt(void)
++void handle_IPI(struct pt_regs *regs)
+ {
++	struct pt_regs *old_regs = set_irq_regs(regs);
+ 	unsigned long *pending_ipis = &ipi_data[smp_processor_id()].bits;
+ 
++	irq_enter();
++
+ 	/* Clear pending IPI */
+ 	csr_clear(sip, SIE_SSIE);
+ 
+@@ -73,7 +76,7 @@ void riscv_software_interrupt(void)
+ 
+ 		ops = xchg(pending_ipis, 0);
+ 		if (ops == 0)
+-			return;
++			goto done;
+ 
+ 		if (ops & (1 << IPI_RESCHEDULE))
+ 			scheduler_ipi();
+@@ -86,6 +89,10 @@ void riscv_software_interrupt(void)
+ 		/* Order data access and bit testing. */
+ 		mb();
+ 	}
++
++done:
++	irq_exit();
++	set_irq_regs(old_regs);
+ }
+ 
+ void
 -- 
 2.17.1
