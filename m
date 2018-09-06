@@ -1,53 +1,36 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Thu,  6 Sep 2018 01:05:30 -0700
-Subject: [PATCH v3 07/12] RISC-V: Rename im_okay_therefore_i_am to
- found_boot_cpu
+Date: Thu,  6 Sep 2018 01:05:32 -0700
+Subject: [PATCH v3 09/12] RISC-V: User WRITE_ONCE instead of direct access
 In-Reply-To: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
 References: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <1536221135-182613-8-git-send-email-atish.patra@wdc.com>
+Message-ID: <1536221135-182613-10-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-From: Palmer Dabbelt <palmer@sifive.com>
+The secondary harts spin on couple of per cpu variables until both of
+these are non-zero so it's not necessary to have any ordering here.
+However, WRITE_ONCE should be used to avoid tearing.
 
-The old name was a bit odd.
-
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/kernel/smpboot.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
+ arch/riscv/kernel/smpboot.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index cfb0b02d..4a232600 100644
+index 17e74831..1e478615 100644
 --- a/arch/riscv/kernel/smpboot.c
 +++ b/arch/riscv/kernel/smpboot.c
-@@ -50,7 +50,8 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
- void __init setup_smp(void)
- {
- 	struct device_node *dn = NULL;
--	int hart, im_okay_therefore_i_am = 0;
-+	int hart;
-+	bool found_boot_cpu = false;
+@@ -81,8 +81,9 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+ 	 * the spinning harts that they can continue the boot process.
+ 	 */
+ 	smp_mb();
+-	__cpu_up_stack_pointer[cpu] = task_stack_page(tidle) + THREAD_SIZE;
+-	__cpu_up_task_pointer[cpu] = tidle;
++	WRITE_ONCE(__cpu_up_stack_pointer[cpu],
++		  task_stack_page(tidle) + THREAD_SIZE);
++	WRITE_ONCE(__cpu_up_task_pointer[cpu], tidle);
  
- 	while ((dn = of_find_node_by_type(dn, "cpu"))) {
- 		hart = riscv_of_processor_hartid(dn);
-@@ -58,13 +59,13 @@ void __init setup_smp(void)
- 			set_cpu_possible(hart, true);
- 			set_cpu_present(hart, true);
- 			if (hart == smp_processor_id()) {
--				BUG_ON(im_okay_therefore_i_am);
--				im_okay_therefore_i_am = 1;
-+				BUG_ON(found_boot_cpu);
-+				found_boot_cpu = true;
- 			}
- 		}
- 	}
- 
--	BUG_ON(!im_okay_therefore_i_am);
-+	BUG_ON(!found_boot_cpu);
- }
- 
- int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+ 	while (!cpu_online(cpu))
+ 		cpu_relax();
 -- 
 2.7.4
