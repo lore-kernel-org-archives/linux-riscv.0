@@ -1,110 +1,78 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Thu,  6 Sep 2018 01:05:25 -0700
-Subject: [PATCH v3 02/12] RISC-V: Filter ISA and MMU values in cpuinfo
-In-Reply-To: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
-References: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <1536221135-182613-3-git-send-email-atish.patra@wdc.com>
+Date: Thu,  6 Sep 2018 01:05:23 -0700
+Subject: [PATCH v3 00/12] SMP cleanup and new features 
+Message-ID: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-From: Palmer Dabbelt <palmer@sifive.com>
+This patch series has updated the assorted cleanup series by palmer.
+The original cleanup patch series can be found here.
+http://lists.infradead.org/pipermail/linux-riscv/2018-August/001232.html
 
-We shouldn't be directly passing device tree values to userspace, both
-because there could be mistakes in device trees and because the kernel
-doesn't support arbitrary ISAs.
+It also implemented following smp related features.
+Some of the work has been inspired from ARM64.
 
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-[Atish: checkpatch fix and code comment formatting update]
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/kernel/cpu.c | 68 ++++++++++++++++++++++++++++++++++++++++++++-----
- 1 file changed, 61 insertions(+), 7 deletions(-)
+1. Decouple linux logical cpu ids from hardware cpu id
+2. Support cpu hotplug.
 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index ca6c81e5..b10cf054 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -58,6 +58,63 @@ int riscv_of_processor_hart(struct device_node *node)
- 
- #ifdef CONFIG_PROC_FS
- 
-+static void print_isa(struct seq_file *f, const char *orig_isa)
-+{
-+	static const char *ext = "mafdc";
-+	const char *isa = orig_isa;
-+	const char *e;
-+
-+	/*
-+	 * Linux doesn't support rv32e or rv128i, and we only support booting
-+	 * kernels on harts with the same ISA that the kernel is compiled for.
-+	 */
-+#if defined(CONFIG_32BIT)
-+	if (strncmp(isa, "rv32i", 5) != 0)
-+		return;
-+#elif defined(CONFIG_64BIT)
-+	if (strncmp(isa, "rv64i", 5) != 0)
-+		return;
-+#endif
-+
-+	/* Print the base ISA, as we already know it's legal. */
-+	seq_puts(f, "isa\t: ");
-+	seq_write(f, isa, 5);
-+	isa += 5;
-+
-+	/*
-+	 * Check the rest of the ISA string for valid extensions, printing those
-+	 * we find.  RISC-V ISA strings define an order, so we only print the
-+	 * extension bits when they're in order.
-+	 */
-+	for (e = ext; *e != '\0'; ++e) {
-+		if (isa[0] == e[0]) {
-+			seq_write(f, isa, 1);
-+			isa++;
-+		}
-+	}
-+
-+	/*
-+	 * If we were given an unsupported ISA in the device tree then print
-+	 * a bit of info describing what went wrong.
-+	 */
-+	if (isa[0] != '\0')
-+		pr_info("unsupported ISA \"%s\" in device tree", orig_isa);
-+}
-+
-+static void print_mmu(struct seq_file *f, const char *mmu_type)
-+{
-+#if defined(CONFIG_32BIT)
-+	if (strcmp(mmu_type, "riscv,sv32") != 0)
-+		return;
-+#elif defined(CONFIG_64BIT)
-+	if ((strcmp(mmu_type, "riscv,sv39") != 0)
-+	    && (strcmp(mmu_type, "riscv,sv48") != 0))
-+		return;
-+#endif
-+
-+	seq_printf(f, "mmu\t: %s\n", mmu_type+6);
-+}
-+
- static void *c_start(struct seq_file *m, loff_t *pos)
- {
- 	*pos = cpumask_next(*pos - 1, cpu_online_mask);
-@@ -83,13 +140,10 @@ static int c_show(struct seq_file *m, void *v)
- 	const char *compat, *isa, *mmu;
- 
- 	seq_printf(m, "hart\t: %lu\n", hart_id);
--	if (!of_property_read_string(node, "riscv,isa", &isa)
--	    && isa[0] == 'r'
--	    && isa[1] == 'v')
--		seq_printf(m, "isa\t: %s\n", isa);
--	if (!of_property_read_string(node, "mmu-type", &mmu)
--	    && !strncmp(mmu, "riscv,", 6))
--		seq_printf(m, "mmu\t: %s\n", mmu+6);
-+	if (!of_property_read_string(node, "riscv,isa", &isa))
-+		print_isa(m, isa);
-+	if (!of_property_read_string(node, "mmu-type", &mmu))
-+		print_mmu(m, mmu);
- 	if (!of_property_read_string(node, "compatible", &compat)
- 	    && strcmp(compat, "riscv"))
- 		seq_printf(m, "uarch\t: %s\n", compat);
+Tested on QEMU & HighFive Unleashed board with/without SMP enabled.
+
+Both the patch series have been combined to avoid conflicts as a lot
+of common code is changed in both the series. I have mostly addressed
+review comments and fixed checkpatch errors from palmer's series.
+
+Palmer: I hope it's not a problem. I would be happy to drop the patches
+if you want to take over.
+
+v1->v2:
+
+1. Dropped cpu_ops patch.
+2. Moved back IRQ cause definitions to irq.h
+3. Keep boot cpu hart id and assign zero as the cpu id for boot cpu.
+4. Renamed cpu id and hart id correctly.
+
+v2-v3:
+
+1. Added cleanup patches from palmer.
+2. Moved the hotplug related functions to it's own file.
+3. Updated stub functions as per coding guidelines.
+4. Renamed __cpu_logical_map to a more coherent name.
+
+Atish Patra (5):
+  RISC-V: Disable preemption before enabling interrupts
+  RISC-V: User WRITE_ONCE instead of direct access
+  RISC-V: Add logical CPU indexing for RISC-V
+  RISC-V: Use Linux logical cpu number instead of hartid
+  RISC-V: Support cpu hotplug.
+
+Palmer Dabbelt (7):
+  RISC-V: Don't set cacheinfo.{physical_line_partition,attributes}
+  RISC-V: Filter ISA and MMU values in cpuinfo
+  RISC-V: Comment on the TLB flush in smp_callin()
+  RISC-V: Provide a cleaner raw_smp_processor_id()
+  RISC-V: Rename riscv_of_processor_hart to riscv_of_processor_hartid
+  RISC-V: Rename im_okay_therefore_i_am to found_boot_cpu
+  RISC-V: Use mmgrab()
+
+ arch/riscv/Kconfig                 | 12 +++++-
+ arch/riscv/include/asm/irq.h       |  1 +
+ arch/riscv/include/asm/processor.h |  2 +-
+ arch/riscv/include/asm/smp.h       | 66 +++++++++++++++++++++++++-----
+ arch/riscv/include/asm/tlbflush.h  | 16 ++++++--
+ arch/riscv/kernel/Makefile         |  1 +
+ arch/riscv/kernel/cacheinfo.c      |  7 ----
+ arch/riscv/kernel/cpu-hotplug.c    | 72 +++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/cpu.c            | 83 ++++++++++++++++++++++++++++++++------
+ arch/riscv/kernel/head.S           | 17 +++++++-
+ arch/riscv/kernel/irq.c            | 24 +++++++++++
+ arch/riscv/kernel/setup.c          | 27 ++++++++++++-
+ arch/riscv/kernel/smp.c            | 49 +++++++++++++++-------
+ arch/riscv/kernel/smpboot.c        | 53 ++++++++++++++++--------
+ arch/riscv/kernel/traps.c          |  6 +--
+ drivers/clocksource/riscv_timer.c  | 12 ++++--
+ drivers/irqchip/irq-sifive-plic.c  | 10 +++--
+ 17 files changed, 379 insertions(+), 79 deletions(-)
+ create mode 100644 arch/riscv/kernel/cpu-hotplug.c
+
 -- 
 2.7.4
