@@ -1,22 +1,30 @@
-From: anup@brainfault.org (Anup Patel)
-Date: Thu, 6 Sep 2018 19:49:22 +0530
-Subject: [PATCH v2 3/5] irqchip: RISC-V Local Interrupt Controller Driver
-In-Reply-To: <20180906140628.GA10580@infradead.org>
-References: <20180906123651.28500-1-anup@brainfault.org>
- <20180906123651.28500-4-anup@brainfault.org>
- <20180906140628.GA10580@infradead.org>
-Message-ID: <CAAhSdy0Rn5q_xeWYK84qMf69w0=vgz6=Pin9kyAKpZ17Vf3x5Q@mail.gmail.com>
+From: paulmck@linux.vnet.ibm.com (Paul E. McKenney)
+Date: Thu, 6 Sep 2018 10:50:08 -0700
+Subject: Unable to handle kernel paging request at virtual address
+ 0000001bf8068693
+In-Reply-To: <mvm1sa7f58a.fsf@suse.de>
+References: <mvmh8j4f4yb.fsf@suse.de>
+ <ade8cef4-aad0-3320-8bce-700cd3e106c9@wdc.com>
+ <20180905190648.GC1420@infradead.org> <mvm1sa7f58a.fsf@suse.de>
+Message-ID: <20180906175008.GY4225@linux.vnet.ibm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Sep 6, 2018 at 7:36 PM, Christoph Hellwig <hch@infradead.org> wrote:
-> Just as before:  NAK to entirely pointless abstractions.  Please stop
-> beating the dead horse.
+On Thu, Sep 06, 2018 at 09:35:33AM +0200, Andreas Schwab wrote:
+> On Sep 05 2018, Christoph Hellwig <hch@infradead.org> wrote:
+> 
+> > The mainline commit is:
+> >
+> > commit fcc63543650150629c8a873cbef3578770acecd9
+> > Author: Boqun Feng <boqun.feng@gmail.com>
+> > Date:   Fri Jun 15 12:06:31 2018 -0700
+> >
+> >     rcu: Make expedited GPs handle CPU 0 being offline
+> 
+> Thanks, this got me further.
 
-That's just your opinion without any concrete reasoning.
+Very good!  This was against 4.18-stable, correct?  If so, please let
+me know and I will send the request to -stable.  Or you guys can send
+the request, your choice.
 
-Even after explaining in various ways, you fail to understand the
-flexibility brought by this driver.
-
-Regards,
-Anup
+							Thanx, Paul
