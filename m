@@ -1,62 +1,93 @@
-From: anup@brainfault.org (Anup Patel)
-Date: Thu, 6 Sep 2018 16:15:14 +0530
-Subject: [RFC PATCH 1/5] RISC-V: Make IPI triggering flexible
-In-Reply-To: <mhng-ba039ed5-dcff-41d3-b237-0708b5e117b2@palmer-si-x1c4>
-References: <20180904185001.GA25119@infradead.org>
- <mhng-ba039ed5-dcff-41d3-b237-0708b5e117b2@palmer-si-x1c4>
-Message-ID: <CAAhSdy3mOdxR9JpZyC9fCx5rphUBDxn2kbRpgtZp4h0_jYCxMA@mail.gmail.com>
+From: yamada.masahiro@socionext.com (Masahiro Yamada)
+Date: Thu, 6 Sep 2018 19:45:56 +0900
+Subject: [PATCH] riscv: move GCC version check for ARCH_SUPPORTS_INT128 to
+ Kconfig
+In-Reply-To: <mhng-89887f62-7423-4fcf-9df5-f5777e6644db@palmer-si-x1c4>
+References: <1535099634-29439-1-git-send-email-yamada.masahiro@socionext.com>
+ <mhng-89887f62-7423-4fcf-9df5-f5777e6644db@palmer-si-x1c4>
+Message-ID: <CAK7LNAS9hb+QarVNtH3t1fA5vitgwztNZm6y3jM+p8FckOez2g@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Sep 6, 2018 at 3:15 PM, Palmer Dabbelt <palmer@sifive.com> wrote:
-> On Tue, 04 Sep 2018 11:50:02 PDT (-0700), Christoph Hellwig wrote:
->>
->> On Tue, Sep 04, 2018 at 06:15:10PM +0530, Anup Patel wrote:
->>>
->>> The mechanism to trigger IPI is generally part of interrupt-controller
->>> driver for various architectures. On RISC-V, we have an option to trigger
->>> IPI using SBI or SOC vendor can implement RISC-V CPU where IPI will be
->>> triggered using SOC interrupt-controller (e.g. custom PLIC).
->>
->>
->> Which is exactly what we want to avoid, and should not make it easy.
->>
->> The last thing we need is non-standard whacky IPI mechanisms, and
->> that is why we habe SBI calls for it.  I think we should simply
->> stat that if an RISC-V cpu design bypasse the SBI for no good reason
->> we'll simply not support it.
->
->
-> I agree.  Hiding this sort of stuff is the whole point of the SBI.
->
-> Anup: do you have some concrete reason for trying to avoid the SBI?  If it's
-> just to add non-standard interrupt controllers then I don't think that's a
-> sufficient reason, as you can just add support for whatever the non-standard
-> interrupt mechanism is in the SBI implementation -- that's what we're doing
-> with BBL's CLINT driver, though there's not a whole lot of wackiness there
-> so at least the SBI implementation is pretty small.
->
->> So NAK for this patch.
->
->
-> Certainly without a compelling reason, and even then I'd only want to take
-> some standard interrupt controller -- for example, the CLIC (or whatever the
-> result of the fast interrupts task group is called) could be a viable
-> option.  Even with a standard interrupt controller, we'd need a really
-> compelling reason to do so.
+Hi Palmer,
 
-This patch is doing two things:
-1. Allow IRQCHIP driver to provide IPI trigger mechanism
-2. Have more generic IPI handler in arch/riscv so that IRQCHIP driver
-can call it
+2018-09-06 18:45 GMT+09:00 Palmer Dabbelt <palmer@sifive.com>:
+> On Fri, 24 Aug 2018 01:33:53 PDT (-0700), yamada.masahiro at socionext.com
+> wrote:
+>>
+>> This becomes much neater in Kconfig.
+>>
+>> Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
+>> ---
+>>
+>>  arch/riscv/Kconfig  | 1 +
+>>  arch/riscv/Makefile | 2 --
+>>  2 files changed, 1 insertion(+), 2 deletions(-)
+>>
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index a344980..ed81df4 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -112,6 +112,7 @@ config ARCH_RV32I
+>>  config ARCH_RV64I
+>>         bool "RV64I"
+>>         select 64BIT
+>> +       select ARCH_SUPPORTS_INT128 if GCC_VERSION >= 50000
+>>         select HAVE_FUNCTION_TRACER
+>>         select HAVE_FUNCTION_GRAPH_TRACER
+>>         select HAVE_FTRACE_MCOUNT_RECORD
+>> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+>> index 61ec424..33700e4 100644
+>> --- a/arch/riscv/Makefile
+>> +++ b/arch/riscv/Makefile
+>> @@ -25,8 +25,6 @@ ifeq ($(CONFIG_ARCH_RV64I),y)
+>>
+>>         KBUILD_CFLAGS += -mabi=lp64
+>>         KBUILD_AFLAGS += -mabi=lp64
+>> -
+>> -       KBUILD_CFLAGS   += $(call cc-ifversion, -ge, 0500,
+>> -DCONFIG_ARCH_SUPPORTS_INT128)
+>>
+>>         KBUILD_MARCH = rv64im
+>>         KBUILD_LDFLAGS += -melf64lriscv
+>
+>
+> FWIW, while there isn't an official RISC-V GCC port that old (IIRC 6 was our
+> first version, but it may have been 7) there are out-of-tree ports so I
+> think this is OK to leave as it stands.
 
-The main intention behind point1 was to allow interrupt-controller
-specific IPI triggering mechanism. I am totally fine in dropping changes
-related to point1. May be we can revisit this if we find compelling use-case.
 
-I will revise this patch to have changes related to point2 only. These
-changes are required for the new RISCV local interrupt controller
-driver introduced by this patchset.
+It is not my point.
+I would not argue the minimum GCC version for RISC-V.
 
-Regards,
-Anup
+
+My motivation:
+
+[1] Remove (or move to Kconfig)
+    $(call cc-ifversion, ...) from Makefile.
+
+    If you test the GCC version in arch/riscv/Makefile,
+    scripts/gcc-version.sh  is invoked for every incremental build.
+
+
+[2] Follow the macro naming convention
+
+    We add CONFIG_ prefix to macros defined in Kconfig.
+
+    I know some CONFIG options are defined in Makefiles,
+    but my ultimate goal is to move all CONFIG options to Kconfig.
+
+    See arch/{arm64,x86}/Kconfig that select ARCH_SUPPORTS_INT128
+
+
+
+If you think GCC 6 or 7 is the minimum,
+please feel free to remove "if GCC_VERSION >= 50000",
+but it is not my main interest here
+(and it should be done as a separate work).
+
+
+
+-- 
+Best Regards
+Masahiro Yamada
