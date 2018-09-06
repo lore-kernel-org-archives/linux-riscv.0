@@ -1,36 +1,44 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Thu,  6 Sep 2018 01:05:32 -0700
-Subject: [PATCH v3 09/12] RISC-V: User WRITE_ONCE instead of direct access
+Date: Thu,  6 Sep 2018 01:05:31 -0700
+Subject: [PATCH v3 08/12] RISC-V: Use mmgrab()
 In-Reply-To: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
 References: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <1536221135-182613-10-git-send-email-atish.patra@wdc.com>
+Message-ID: <1536221135-182613-9-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The secondary harts spin on couple of per cpu variables until both of
-these are non-zero so it's not necessary to have any ordering here.
-However, WRITE_ONCE should be used to avoid tearing.
+From: Palmer Dabbelt <palmer@sifive.com>
 
+commit f1f1007644ff ("mm: add new mmgrab() helper") added a
+helper that we missed out on.
+
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/kernel/smpboot.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ arch/riscv/kernel/smpboot.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 17e74831..1e478615 100644
+index 4a232600..17e74831 100644
 --- a/arch/riscv/kernel/smpboot.c
 +++ b/arch/riscv/kernel/smpboot.c
-@@ -81,8 +81,9 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
- 	 * the spinning harts that they can continue the boot process.
- 	 */
- 	smp_mb();
--	__cpu_up_stack_pointer[cpu] = task_stack_page(tidle) + THREAD_SIZE;
--	__cpu_up_task_pointer[cpu] = tidle;
-+	WRITE_ONCE(__cpu_up_stack_pointer[cpu],
-+		  task_stack_page(tidle) + THREAD_SIZE);
-+	WRITE_ONCE(__cpu_up_task_pointer[cpu], tidle);
+@@ -30,6 +30,7 @@
+ #include <linux/irq.h>
+ #include <linux/of.h>
+ #include <linux/sched/task_stack.h>
++#include <linux/sched/mm.h>
+ #include <asm/irq.h>
+ #include <asm/mmu_context.h>
+ #include <asm/tlbflush.h>
+@@ -101,7 +102,7 @@ asmlinkage void __init smp_callin(void)
+ 	struct mm_struct *mm = &init_mm;
  
- 	while (!cpu_online(cpu))
- 		cpu_relax();
+ 	/* All kernel threads share the same mm context.  */
+-	atomic_inc(&mm->mm_count);
++	mmgrab(mm);
+ 	current->active_mm = mm;
+ 
+ 	trap_init();
 -- 
 2.7.4
