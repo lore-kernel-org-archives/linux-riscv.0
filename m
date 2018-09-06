@@ -1,450 +1,324 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Thu,  6 Sep 2018 01:05:35 -0700
-Subject: [PATCH v3 12/12] RISC-V: Support cpu hotplug.
+Date: Thu,  6 Sep 2018 01:05:34 -0700
+Subject: [PATCH v3 11/12] RISC-V: Use Linux logical cpu number instead of
+ hartid
 In-Reply-To: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
 References: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <1536221135-182613-13-git-send-email-atish.patra@wdc.com>
+Message-ID: <1536221135-182613-12-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This patch enable support for cpu hotplug in RISC-V.
-
-In absence of generic cpu stop functions, WFI is used
-to put the cpu in low power state during offline. An IPI
-is sent to bring it out of WFI during online operation.
-
-Tested both on QEMU and HighFive Unleashed board with
-4 cpus. Test result follows.
-
-$ echo 0 > /sys/devices/system/cpu/cpu2/online
-[   31.828562] CPU2: shutdown
-$ cat /proc/cpuinfo
-hart    : 0
-isa     : rv64imafdc
-mmu     : sv39
-uarch   : sifive,rocket0
-
-hart    : 1
-isa     : rv64imafdc
-mmu     : sv39
-uarch   : sifive,rocket0
-
-hart    : 3
-isa     : rv64imafdc
-mmu     : sv39
-uarch   : sifive,rocket0
-
-$ echo 0 > /sys/devices/system/cpu/cpu3/online
-[   52.968495] CPU3: shutdown
-$ cat /proc/cpuinfo
-hart    : 0
-isa     : rv64imafdc
-mmu     : sv39
-uarch   : sifive,rocket0
-
-hart    : 2
-isa     : rv64imafdc
-mmu     : sv39
-uarch   : sifive,rocket0
-
-$ echo 1 > /sys/devices/system/cpu/cpu3/online
-[   64.298250] CPU3: online
-$ cat /proc/cpuinfo
-hart    : 0
-isa     : rv64imafdc
-mmu     : sv39
-uarch   : sifive,rocket0
-
-hart    : 1
-isa     : rv64imafdc
-mmu     : sv39
-uarch   : sifive,rocket0
-
-hart    : 3
-isa     : rv64imafdc
-mmu     : sv39
-uarch   : sifive,rocket0
+Setup the cpu_logical_map during boot. Moreover, every SBI call
+and PLIC context are based on the physical hartid. Use the logical
+cpu to hartid mapping to pass correct hartid to respective functions.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Reviewed-by  : Anup Patel <anup@brainfault.org>
 ---
- arch/riscv/Kconfig              | 12 ++++++-
- arch/riscv/include/asm/irq.h    |  1 +
- arch/riscv/include/asm/smp.h    | 28 ++++++++++++++++
- arch/riscv/kernel/Makefile      |  1 +
- arch/riscv/kernel/cpu-hotplug.c | 72 +++++++++++++++++++++++++++++++++++++++++
- arch/riscv/kernel/head.S        | 13 ++++++++
- arch/riscv/kernel/irq.c         | 24 ++++++++++++++
- arch/riscv/kernel/setup.c       | 17 +++++++++-
- arch/riscv/kernel/smp.c         |  8 +----
- arch/riscv/kernel/smpboot.c     |  7 ++--
- arch/riscv/kernel/traps.c       |  6 ++--
- 11 files changed, 175 insertions(+), 14 deletions(-)
- create mode 100644 arch/riscv/kernel/cpu-hotplug.c
+ arch/riscv/include/asm/tlbflush.h | 16 +++++++++++++---
+ arch/riscv/kernel/cpu.c           |  8 +++++---
+ arch/riscv/kernel/head.S          |  4 +++-
+ arch/riscv/kernel/setup.c         |  6 ++++++
+ arch/riscv/kernel/smp.c           | 24 +++++++++++++++---------
+ arch/riscv/kernel/smpboot.c       | 25 ++++++++++++++++---------
+ drivers/clocksource/riscv_timer.c | 12 ++++++++----
+ drivers/irqchip/irq-sifive-plic.c |  8 +++++---
+ 8 files changed, 71 insertions(+), 32 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a3449802..ea2e617e 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -21,7 +21,6 @@ config RISCV
- 	select COMMON_CLK
- 	select DMA_DIRECT_OPS
- 	select GENERIC_CLOCKEVENTS
--	select GENERIC_CPU_DEVICES
- 	select GENERIC_IRQ_SHOW
- 	select GENERIC_PCI_IOMAP
- 	select GENERIC_STRNCPY_FROM_USER
-@@ -167,6 +166,17 @@ config SMP
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index 85c2d8ba..54fee0ca 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -16,6 +16,7 @@
+ #define _ASM_RISCV_TLBFLUSH_H
  
- 	  If you don't know what to do here, say N.
+ #include <linux/mm_types.h>
++#include <asm/smp.h>
  
-+config HOTPLUG_CPU
-+	bool "Support for hot-pluggable CPUs"
-+	depends on SMP
-+	select GENERIC_IRQ_MIGRATION
-+	help
-+
-+	  Say Y here to experiment with turning CPUs off and on.  CPUs
-+	  can be controlled through /sys/devices/system/cpu.
-+
-+	  Say N if you want to disable CPU hotplug.
-+
- config NR_CPUS
- 	int "Maximum number of CPUs (2-32)"
- 	range 2 32
-diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
-index 996b6fbe..a873a72d 100644
---- a/arch/riscv/include/asm/irq.h
-+++ b/arch/riscv/include/asm/irq.h
-@@ -19,6 +19,7 @@
+ /*
+  * Flush entire local TLB.  'sfence.vma' implicitly fences with the instruction
+@@ -49,13 +50,22 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
  
- void riscv_timer_interrupt(void);
- void riscv_software_interrupt(void);
-+void wait_for_software_interrupt(void);
+ #include <asm/sbi.h>
  
- #include <asm-generic/irq.h>
- 
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index fce312ce..8145b865 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -25,8 +25,29 @@
- extern unsigned long __cpuid_to_hardid_map[NR_CPUS];
- #define cpuid_to_hardid_map(cpu)    __cpuid_to_hardid_map[cpu]
- 
-+#if defined CONFIG_SMP && defined CONFIG_HOTPLUG_CPU
-+void arch_send_call_wakeup_ipi(int cpu);
-+bool can_hotplug_cpu(void);
-+#else
-+static inline bool can_hotplug_cpu(void)
++static inline void remote_sfence_vma(struct cpumask *cmask, unsigned long start,
++				     unsigned long size)
 +{
-+	return 0;
-+}
-+static inline void arch_send_call_wakeup_ipi(int cpu) { }
-+#endif
++	struct cpumask hmask;
 +
- #ifdef CONFIG_SMP
- 
-+enum ipi_message_type {
-+	IPI_RESCHEDULE,
-+	IPI_CALL_FUNC,
-+	IPI_CALL_WAKEUP,
-+	IPI_MAX
-+};
-+
-+void send_ipi_message(const struct cpumask *to_whom,
-+		      enum ipi_message_type operation);
-+
- /* SMP initialization hook for setup_arch */
- void __init setup_smp(void);
- 
-@@ -45,6 +66,13 @@ void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
-  */
- #define raw_smp_processor_id() (current_thread_info()->cpu)
- 
-+#ifdef CONFIG_HOTPLUG_CPU
-+int __cpu_disable(void);
-+void __cpu_die(unsigned int cpu);
-+void cpu_play_dead(void);
-+void boot_sec_cpu(void);
-+#endif /* CONFIG_HOTPLUG_CPU */
-+
- #else
- 
- static inline int riscv_hartid_to_cpuid(int hartid)
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index e1274fc0..62043204 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -35,6 +35,7 @@ obj-$(CONFIG_SMP)		+= smpboot.o
- obj-$(CONFIG_SMP)		+= smp.o
- obj-$(CONFIG_MODULES)		+= module.o
- obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
-+obj-$(CONFIG_HOTPLUG_CPU)	+= cpu-hotplug.o
- 
- obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
- obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
-diff --git a/arch/riscv/kernel/cpu-hotplug.c b/arch/riscv/kernel/cpu-hotplug.c
-new file mode 100644
-index 00000000..7a152972
---- /dev/null
-+++ b/arch/riscv/kernel/cpu-hotplug.c
-@@ -0,0 +1,72 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2018 Western Digital Corporation or its affiliates.
-+ */
-+
-+#include <linux/kernel.h>
-+#include <linux/mm.h>
-+#include <linux/sched.h>
-+#include <linux/err.h>
-+#include <linux/irq.h>
-+#include <linux/cpu.h>
-+#include <linux/sched/hotplug.h>
-+#include <asm/irq.h>
-+#include <asm/sbi.h>
-+
-+bool can_hotplug_cpu(void)
-+{
-+	return true;
++	cpumask_clear(&hmask);
++	riscv_cpuid_to_hartid_mask(cmask, &hmask);
++	sbi_remote_sfence_vma(hmask.bits, start, size);
 +}
 +
-+void arch_cpu_idle_dead(void)
-+{
-+	cpu_play_dead();
-+}
-+
-+/*
-+ * __cpu_disable runs on the processor to be shutdown.
-+ */
-+int __cpu_disable(void)
-+{
-+	int ret = 0;
-+	unsigned int cpu = smp_processor_id();
-+
-+	set_cpu_online(cpu, false);
-+	irq_migrate_all_off_this_cpu();
-+
-+	return ret;
-+}
-+/*
-+ * called on the thread which is asking for a CPU to be shutdown -
-+ * waits until shutdown has completed, or it is timed out.
-+ */
-+void __cpu_die(unsigned int cpu)
-+{
-+	if (!cpu_wait_death(cpu, 5)) {
-+		pr_err("CPU %u: didn't die\n", cpu);
-+		return;
-+	}
-+	pr_notice("CPU%u: shutdown\n", cpu);
-+	/*TODO: Do we need to verify is cpu is really dead */
-+}
-+
-+/*
-+ * Called from the idle thread for the CPU which has been shutdown.
-+ *
-+ */
-+void cpu_play_dead(void)
-+{
-+	idle_task_exit();
-+
-+	(void)cpu_report_death();
-+
-+	/* Do not disable software interrupt to restart cpu after WFI */
-+	csr_clear(sie, SIE_STIE | SIE_SEIE);
-+	wait_for_software_interrupt();
-+	boot_sec_cpu();
-+}
-+
-+void arch_send_call_wakeup_ipi(int cpu)
-+{
-+	send_ipi_message(cpumask_of(cpu), IPI_CALL_WAKEUP);
-+}
+ #define flush_tlb_all() sbi_remote_sfence_vma(NULL, 0, -1)
+ #define flush_tlb_page(vma, addr) flush_tlb_range(vma, addr, 0)
+ #define flush_tlb_range(vma, start, end) \
+-	sbi_remote_sfence_vma(mm_cpumask((vma)->vm_mm)->bits, \
+-			      start, (end) - (start))
++	remote_sfence_vma(mm_cpumask((vma)->vm_mm), start, (end) - (start))
+ #define flush_tlb_mm(mm) \
+-	sbi_remote_sfence_vma(mm_cpumask(mm)->bits, 0, -1)
++	remote_sfence_vma(mm_cpumask(mm), 0, -1)
+ 
+ #endif /* CONFIG_SMP */
+ 
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 04c0bcf2..bb28f4ab 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -14,6 +14,7 @@
+ #include <linux/init.h>
+ #include <linux/seq_file.h>
+ #include <linux/of.h>
++#include <asm/smp.h>
+ 
+ /*
+  * Returns the hart ID of the given device tree node, or -1 if the device tree
+@@ -138,11 +139,12 @@ static void c_stop(struct seq_file *m, void *v)
+ 
+ static int c_show(struct seq_file *m, void *v)
+ {
+-	unsigned long hart_id = (unsigned long)v - 1;
+-	struct device_node *node = of_get_cpu_node(hart_id, NULL);
++	unsigned long cpu_id = (unsigned long)v - 1;
++	struct device_node *node = of_get_cpu_node(cpuid_to_hardid_map(cpu_id),
++						   NULL);
+ 	const char *compat, *isa, *mmu;
+ 
+-	seq_printf(m, "hart\t: %lu\n", hart_id);
++	seq_printf(m, "hart\t: %lu\n", cpu_id);
+ 	if (!of_property_read_string(node, "riscv,isa", &isa))
+ 		print_isa(m, isa);
+ 	if (!of_property_read_string(node, "mmu-type", &mmu))
 diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 711190d4..07d9fb38 100644
+index c4d2c63f..711190d4 100644
 --- a/arch/riscv/kernel/head.S
 +++ b/arch/riscv/kernel/head.S
-@@ -153,6 +153,19 @@ relocate:
- 	j .Lsecondary_park
- END(_start)
+@@ -47,6 +47,8 @@ ENTRY(_start)
+ 	/* Save hart ID and DTB physical address */
+ 	mv s0, a0
+ 	mv s1, a1
++	la a2, boot_cpu_hartid
++	REG_S a0, (a2)
  
-+#ifdef CONFIG_SMP
-+.section .text
-+.global boot_sec_cpu
-+
-+boot_sec_cpu:
-+	/* clear all pending flags */
-+	csrw sip, zero
-+	/* Mask all interrupts */
-+	csrw sie, zero
-+	fence
-+
-+	tail smp_callin
-+#endif
- __PAGE_ALIGNED_BSS
- 	/* Empty zero page */
- 	.balign PAGE_SIZE
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 0cfac48a..7e14b0d9 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -53,6 +53,30 @@ asmlinkage void __irq_entry do_IRQ(struct pt_regs *regs, unsigned long cause)
- 	set_irq_regs(old_regs);
- }
+ 	/* Initialize page tables and relocate to virtual addresses */
+ 	la sp, init_thread_union + THREAD_SIZE
+@@ -55,7 +57,7 @@ ENTRY(_start)
  
-+/*
-+ * This function doesn't return until a software interrupt is sent via IPI.
-+ * Obviously, all the interrupts except software interrupt should be disabled
-+ * before this function is called.
-+ */
-+void wait_for_software_interrupt(void)
-+{
-+	unsigned long sipval, sieval, scauseval;
-+
-+	/* clear all pending flags */
-+	csr_write(sip, 0);
-+	/* clear any previous scause data */
-+	csr_write(scause, 0);
-+
-+	do {
-+		wait_for_interrupt();
-+		sipval = csr_read(sip);
-+		sieval = csr_read(sie);
-+		scauseval = csr_read(scause) & ~INTERRUPT_CAUSE_FLAG;
-+	/* only break if wfi returns for an enabled interrupt */
-+	} while ((sipval & sieval) == 0 &&
-+		 scauseval != INTERRUPT_CAUSE_SOFTWARE);
-+}
-+
- void __init init_IRQ(void)
- {
- 	irqchip_init();
+ 	/* Restore C environment */
+ 	la tp, init_task
+-	sw s0, TASK_TI_CPU(tp)
++	sw zero, TASK_TI_CPU(tp)
+ 
+ 	la sp, init_thread_union
+ 	li a0, ASM_THREAD_SIZE
 diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index a5fac1b7..612f0c21 100644
+index eef1b1a6..a5fac1b7 100644
 --- a/arch/riscv/kernel/setup.c
 +++ b/arch/riscv/kernel/setup.c
-@@ -30,11 +30,11 @@
- #include <linux/of_platform.h>
- #include <linux/sched/task.h>
- #include <linux/swiotlb.h>
-+#include <linux/smp.h>
+@@ -81,11 +81,17 @@ EXPORT_SYMBOL(empty_zero_page);
  
- #include <asm/setup.h>
- #include <asm/sections.h>
- #include <asm/pgtable.h>
--#include <asm/smp.h>
- #include <asm/sbi.h>
- #include <asm/tlbflush.h>
- #include <asm/thread_info.h>
-@@ -82,6 +82,7 @@ EXPORT_SYMBOL(empty_zero_page);
  /* The lucky hart to first increment this variable will boot the other cores */
  atomic_t hart_lottery;
- unsigned long boot_cpu_hartid;
-+static DEFINE_PER_CPU(struct cpu, cpu_devices);
++unsigned long boot_cpu_hartid;
  
  unsigned long __cpuid_to_hardid_map[NR_CPUS] = {
  	[0 ... NR_CPUS-1] = INVALID_HARTID
-@@ -257,3 +258,17 @@ void __init setup_arch(char **cmdline_p)
- 	riscv_fill_hwcap();
- }
+ };
  
-+static int __init topology_init(void)
++void __init smp_setup_processor_id(void)
 +{
-+	int i;
-+
-+	for_each_possible_cpu(i) {
-+		struct cpu *cpu = &per_cpu(cpu_devices, i);
-+
-+		cpu->hotpluggable = can_hotplug_cpu();
-+		register_cpu(cpu, i);
-+	}
-+
-+	return 0;
++	cpuid_to_hardid_map(0) = boot_cpu_hartid;
 +}
-+subsys_initcall(topology_init);
++
+ #ifdef CONFIG_BLK_DEV_INITRD
+ static void __init setup_initrd(void)
+ {
 diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 89d95866..629456bb 100644
+index 5aba0107..89d95866 100644
 --- a/arch/riscv/kernel/smp.c
 +++ b/arch/riscv/kernel/smp.c
-@@ -32,12 +32,6 @@ static struct {
- 	unsigned long bits ____cacheline_aligned;
- } ipi_data[NR_CPUS] __cacheline_aligned;
- 
--enum ipi_message_type {
--	IPI_RESCHEDULE,
--	IPI_CALL_FUNC,
--	IPI_MAX
--};
--
- int riscv_hartid_to_cpuid(int hartid)
- {
- 	int i = -1;
-@@ -94,7 +88,7 @@ void riscv_software_interrupt(void)
- 	}
- }
- 
--static void
-+void
+@@ -97,14 +97,18 @@ void riscv_software_interrupt(void)
+ static void
  send_ipi_message(const struct cpumask *to_whom, enum ipi_message_type operation)
  {
- 	int cpuid, hartid;
+-	int i;
++	int cpuid, hartid;
++	struct cpumask hartid_mask;
+ 
++	cpumask_clear(&hartid_mask);
+ 	mb();
+-	for_each_cpu(i, to_whom)
+-		set_bit(operation, &ipi_data[i].bits);
+-
++	for_each_cpu(cpuid, to_whom) {
++		set_bit(operation, &ipi_data[cpuid].bits);
++		hartid = cpuid_to_hardid_map(cpuid);
++		cpumask_set_cpu(hartid, &hartid_mask);
++	}
+ 	mb();
+-	sbi_send_ipi(cpumask_bits(to_whom));
++	sbi_send_ipi(cpumask_bits(&hartid_mask));
+ }
+ 
+ void arch_send_call_function_ipi_mask(struct cpumask *mask)
+@@ -146,7 +150,7 @@ void smp_send_reschedule(int cpu)
+ void flush_icache_mm(struct mm_struct *mm, bool local)
+ {
+ 	unsigned int cpu;
+-	cpumask_t others, *mask;
++	cpumask_t others, hmask, *mask;
+ 
+ 	preempt_disable();
+ 
+@@ -164,9 +168,11 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
+ 	 */
+ 	cpumask_andnot(&others, mm_cpumask(mm), cpumask_of(cpu));
+ 	local |= cpumask_empty(&others);
+-	if (mm != current->active_mm || !local)
+-		sbi_remote_fence_i(others.bits);
+-	else {
++	if (mm != current->active_mm || !local) {
++		cpumask_clear(&hmask);
++		riscv_cpuid_to_hartid_mask(&others, &hmask);
++		sbi_remote_fence_i(hmask.bits);
++	} else {
+ 		/*
+ 		 * It's assumed that at least one strongly ordered operation is
+ 		 * performed on this hart between setting a hart's cpumask bit
 diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index f44ae780..a9138431 100644
+index 1e478615..f44ae780 100644
 --- a/arch/riscv/kernel/smpboot.c
 +++ b/arch/riscv/kernel/smpboot.c
-@@ -92,9 +92,12 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
- 		  task_stack_page(tidle) + THREAD_SIZE);
- 	WRITE_ONCE(__cpu_up_task_pointer[hartid], tidle);
+@@ -53,17 +53,23 @@ void __init setup_smp(void)
+ 	struct device_node *dn = NULL;
+ 	int hart;
+ 	bool found_boot_cpu = false;
++	int cpuid = 1;
  
-+	arch_send_call_wakeup_ipi(cpu);
+ 	while ((dn = of_find_node_by_type(dn, "cpu"))) {
+ 		hart = riscv_of_processor_hartid(dn);
+-		if (hart >= 0) {
+-			set_cpu_possible(hart, true);
+-			set_cpu_present(hart, true);
+-			if (hart == smp_processor_id()) {
+-				BUG_ON(found_boot_cpu);
+-				found_boot_cpu = true;
+-			}
++		if (hart < 0)
++			continue;
++
++		if (hart == cpuid_to_hardid_map(0)) {
++			BUG_ON(found_boot_cpu);
++			found_boot_cpu = 1;
++			continue;
+ 		}
++
++		cpuid_to_hardid_map(cpuid) = hart;
++		set_cpu_possible(cpuid, true);
++		set_cpu_present(cpuid, true);
++		cpuid++;
+ 	}
+ 
+ 	BUG_ON(!found_boot_cpu);
+@@ -71,6 +77,7 @@ void __init setup_smp(void)
+ 
+ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+ {
++	int hartid = cpuid_to_hardid_map(cpu);
+ 	tidle->thread_info.cpu = cpu;
+ 
+ 	/*
+@@ -81,9 +88,9 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+ 	 * the spinning harts that they can continue the boot process.
+ 	 */
+ 	smp_mb();
+-	WRITE_ONCE(__cpu_up_stack_pointer[cpu],
++	WRITE_ONCE(__cpu_up_stack_pointer[hartid],
+ 		  task_stack_page(tidle) + THREAD_SIZE);
+-	WRITE_ONCE(__cpu_up_task_pointer[cpu], tidle);
++	WRITE_ONCE(__cpu_up_task_pointer[hartid], tidle);
+ 
  	while (!cpu_online(cpu))
  		cpu_relax();
+diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
+index ad7453fc..084e97dc 100644
+--- a/drivers/clocksource/riscv_timer.c
++++ b/drivers/clocksource/riscv_timer.c
+@@ -8,6 +8,7 @@
+ #include <linux/cpu.h>
+ #include <linux/delay.h>
+ #include <linux/irq.h>
++#include <asm/smp.h>
+ #include <asm/sbi.h>
  
-+	pr_notice("CPU%u: online\n", cpu);
-+
- 	return 0;
- }
- 
-@@ -105,7 +108,7 @@ void __init smp_cpus_done(unsigned int max_cpus)
  /*
-  * C entry point for a secondary processor.
-  */
--asmlinkage void __init smp_callin(void)
-+asmlinkage void smp_callin(void)
+@@ -84,13 +85,16 @@ void riscv_timer_interrupt(void)
+ 
+ static int __init riscv_timer_init_dt(struct device_node *n)
  {
- 	struct mm_struct *mm = &init_mm;
+-	int cpu_id = riscv_of_processor_hartid(n), error;
++	int cpuid, hartid, error;
+ 	struct clocksource *cs;
  
-@@ -115,7 +118,7 @@ asmlinkage void __init smp_callin(void)
+-	if (cpu_id != smp_processor_id())
++	hartid = riscv_of_processor_hartid(n);
++	cpuid = riscv_hartid_to_cpuid(hartid);
++
++	if (cpuid != smp_processor_id())
+ 		return 0;
  
- 	trap_init();
- 	notify_cpu_starting(smp_processor_id());
--	set_cpu_online(smp_processor_id(), 1);
-+	set_cpu_online(smp_processor_id(), true);
- 	/*
- 	 * Remote TLB flushes are ignored while the CPU is offline, so emit
- 	 * a local TLB flush right now just in case.
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 24a9333d..8b331619 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -153,7 +153,7 @@ int is_valid_bugaddr(unsigned long pc)
+-	cs = per_cpu_ptr(&riscv_clocksource, cpu_id);
++	cs = per_cpu_ptr(&riscv_clocksource, cpuid);
+ 	clocksource_register_hz(cs, riscv_timebase);
+ 
+ 	error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
+@@ -98,7 +102,7 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+ 			 riscv_timer_starting_cpu, riscv_timer_dying_cpu);
+ 	if (error)
+ 		pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
+-		       error, cpu_id);
++		       error, cpuid);
+ 	return error;
  }
- #endif /* CONFIG_GENERIC_BUG */
  
--void __init trap_init(void)
-+void trap_init(void)
- {
- 	/*
- 	 * Set sup0 scratch register to 0, indicating to exception vector
-@@ -162,6 +162,6 @@ void __init trap_init(void)
- 	csr_write(sscratch, 0);
- 	/* Set the exception vector address */
- 	csr_write(stvec, &handle_exception);
--	/* Enable all interrupts */
--	csr_write(sie, -1);
-+	/* Enable all interrupts but timer interrupt*/
-+	csr_set(sie, SIE_SSIE | SIE_SEIE);
- }
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index c55eaa31..357e9daf 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -15,6 +15,7 @@
+ #include <linux/of_irq.h>
+ #include <linux/platform_device.h>
+ #include <linux/spinlock.h>
++#include <asm/smp.h>
+ 
+ /*
+  * This driver implements a version of the RISC-V PLIC with the actual layout
+@@ -218,7 +219,7 @@ static int __init plic_init(struct device_node *node,
+ 		struct of_phandle_args parent;
+ 		struct plic_handler *handler;
+ 		irq_hw_number_t hwirq;
+-		int cpu;
++		int cpu, hartid;
+ 
+ 		if (of_irq_parse_one(node, i, &parent)) {
+ 			pr_err("failed to parse parent for context %d.\n", i);
+@@ -229,12 +230,13 @@ static int __init plic_init(struct device_node *node,
+ 		if (parent.args[0] == -1)
+ 			continue;
+ 
+-		cpu = plic_find_hart_id(parent.np);
+-		if (cpu < 0) {
++		hartid = plic_find_hart_id(parent.np);
++		if (hartid < 0) {
+ 			pr_warn("failed to parse hart ID for context %d.\n", i);
+ 			continue;
+ 		}
+ 
++		cpu = riscv_hartid_to_cpuid(hartid);
+ 		handler = per_cpu_ptr(&plic_handlers, cpu);
+ 		handler->present = true;
+ 		handler->ctxid = i;
 -- 
 2.7.4
