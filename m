@@ -1,42 +1,66 @@
-From: jcowgill@debian.org (James Cowgill)
-Date: Thu,  6 Sep 2018 22:57:56 +0100
-Subject: [PATCH] RISC-V: include linux/ftrace.h in asm-prototypes.h
-Message-ID: <20180906215756.28414-1-jcowgill@debian.org>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Thu, 6 Sep 2018 17:24:43 -0700
+Subject: Unable to handle kernel paging request at virtual address
+ 0000001bf8068693
+In-Reply-To: <20180906042009.GJ4225@linux.vnet.ibm.com>
+References: <mvmh8j4f4yb.fsf@suse.de>
+ <ade8cef4-aad0-3320-8bce-700cd3e106c9@wdc.com>
+ <20180905190648.GC1420@infradead.org>
+ <20180905210708.GC4225@linux.vnet.ibm.com>
+ <ef12ee11-5752-1596-4701-60722984b863@wdc.com>
+ <20180906042009.GJ4225@linux.vnet.ibm.com>
+Message-ID: <76b92dc0-80d6-a062-924c-1a7d2c2810cd@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Building a riscv kernel with CONFIG_FUNCTION_TRACER and
-CONFIG_MODVERSIONS enabled results in these two warnings:
+On 9/5/18 9:20 PM, Paul E. McKenney wrote:
+> On Wed, Sep 05, 2018 at 09:10:14PM -0700, Atish Patra wrote:
+>> On 9/5/18 2:07 PM, Paul E. McKenney wrote:
+>>> On Wed, Sep 05, 2018 at 12:06:48PM -0700, Christoph Hellwig wrote:
+>>>> On Wed, Sep 05, 2018 at 10:17:08AM -0700, Atish Patra wrote:
+>>>>> This issue is fixed in 4.19-rc1.
+>>>>>
+>>>>> If you don't want to pull the latest, here is the change you need to
+>>>>> cherry-pick to your branch.
+>>>>>
+>>>>> https://lore.kernel.org/lkml/20180626192746.GJ3593 at linux.vnet.ibm.com/
+>>>>
+>>>> Paul, I think we need this in 4.18-stable.
+>>>>
+>>>> Also Palmer, I think we should pick it up in riscv-linux-4.18.
+>>>>
+>>>> The mainline commit is:
+>>>>
+>>>> commit fcc63543650150629c8a873cbef3578770acecd9
+>>>> Author: Boqun Feng <boqun.feng@gmail.com>
+>>>> Date:   Fri Jun 15 12:06:31 2018 -0700
+>>>>
+>>>>      rcu: Make expedited GPs handle CPU 0 being offline
+>>>
+>>> OK, it backports cleanly and passes a short rcutorture test.  You guys
+>>> have tested it, correct?  If so, I am happy to pass it on to -stable.
+>>>
+>>> 							Thanx, Paul
+>>>
+>>>
+>> Hi Paul,
+>> I had it tested on top of 4.18-rc8 with RISC-V board (HighFive Unleashed).
+>>
+>> I can try again on 4.18-stable if required.
+> 
+> Hello, Atish,
+> 
+> Please do test it on 4.18-stable.  The -stable maintainers get
+> understandably annoyed when given non-working backports.  ;-)
+> 
+> 							Thanx, Paul
+> 
+> 
 
-  MODPOST vmlinux.o
-WARNING: EXPORT symbol "return_to_handler" [vmlinux] version generation failed, symbol will not be versioned.
-WARNING: EXPORT symbol "_mcount" [vmlinux] version generation failed, symbol will not be versioned.
+Done. I have verified on 4.18-stable with HighFive Unleashed board.
 
-When exporting symbols from an assembly file, the MODVERSIONS code
-requires their prototypes to be defined in asm-prototypes.h (see
-scripts/Makefile.build). Since both of these symbols have prototypes
-defined in linux/ftrace.h, include this header from RISC-V's
-asm-prototypes.h.
+FWIW,
+Tested-by: Atish Patra <atish.patra@wdc.com>
 
-Reported-by: Karsten Merker <merker@debian.org>
-Signed-off-by: James Cowgill <jcowgill@debian.org>
----
- arch/riscv/include/asm/asm-prototypes.h | 7 +++++++
- 1 file changed, 7 insertions(+)
- create mode 100644 arch/riscv/include/asm/asm-prototypes.h
-
-diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
-new file mode 100644
-index 000000000000..c9fecd120d18
---- /dev/null
-+++ b/arch/riscv/include/asm/asm-prototypes.h
-@@ -0,0 +1,7 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_RISCV_PROTOTYPES_H
-+
-+#include <linux/ftrace.h>
-+#include <asm-generic/asm-prototypes.h>
-+
-+#endif /* _ASM_RISCV_PROTOTYPES_H */
--- 
-2.19.0.rc2
+Regards,
+Atish
