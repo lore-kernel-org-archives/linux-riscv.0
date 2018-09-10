@@ -1,8 +1,9 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Mon, 10 Sep 2018 09:11:43 -0700
+Date: Mon, 10 Sep 2018 09:13:28 -0700
 Subject: [PATCH v2 3/5] irqchip: RISC-V Local Interrupt Controller Driver
-In-Reply-To: <alpine.DEB.2.21.1809101805110.1419@nanos.tec.linutronix.de>
-References: <20180906140628.GA10580@infradead.org>
+In-Reply-To: <CAAhSdy1be_ibiowifBdgBZjbHuFU=CR4rZXQDwQghVYkex5bMg@mail.gmail.com>
+References: <20180906123651.28500-4-anup@brainfault.org>
+ <20180906140628.GA10580@infradead.org>
  <alpine.DEB.2.21.1809081241310.1402@nanos.tec.linutronix.de>
  <20180910132924.GA6987@infradead.org>
  <alpine.DEB.2.21.1809101533330.1292@nanos.tec.linutronix.de>
@@ -11,24 +12,26 @@ References: <20180906140628.GA10580@infradead.org>
  <alpine.DEB.2.21.1809101544560.1292@nanos.tec.linutronix.de>
  <20180910134915.GB30774@infradead.org>
  <CAAhSdy1be_ibiowifBdgBZjbHuFU=CR4rZXQDwQghVYkex5bMg@mail.gmail.com>
- <alpine.DEB.2.21.1809101805110.1419@nanos.tec.linutronix.de>
-Message-ID: <20180910161143.GA1053@infradead.org>
+Message-ID: <20180910161328.GA13171@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Sep 10, 2018 at 06:07:12PM +0200, Thomas Gleixner wrote:
-> > Considering above, it is better to have a distinct irqchip and
-> > irq_domain for all local interrupts (just like this patch).
+On Mon, Sep 10, 2018 at 07:59:15PM +0530, Anup Patel wrote:
+> > Yes.  external is chained and IPI is still handled explicitly.
 > 
-> If that's the future usage
+> On riscv64, there are 64 local interrupts (i.e. per-CPU interrupts).
 
-It's not, at least there has been no proposal for that so far, and I
-don't really think it is how the architecture was intended.
+There aren't.  There are 9 right now, which are your three below:
 
-> and that's what my impression was, under which I
-> changed my mind, yes, then having a domain model is certainly of advantage
-> especially when those things end up being different per SoC.
+> Three of these local interrupts have clearly defined use:
+> 1. Software interrupt (inter-processor interrupt)
+> 2. External interrupt (interrupt from PLIC)
+> 3. Timer interrupt (interrupt from per-CPU timer)
 
-And even if we went down the way of using the other bits it would
-be architectureal in the RISC-V spec - these are not available for
-vendor specific uses.
+multiplied by 3 for machine, supervisor, user.
+
+> Other local interrupts are available for future use.
+
+The others aren't even defined as other interrupts, but just reserved
+fields.  And only one bit per privilege level would even fit into the
+encoding scheme used right now.
