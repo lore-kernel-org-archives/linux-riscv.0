@@ -1,8 +1,9 @@
-From: hch@infradead.org (Christoph Hellwig)
-Date: Mon, 10 Sep 2018 09:35:43 -0700
+From: anup@brainfault.org (Anup Patel)
+Date: Mon, 10 Sep 2018 22:05:42 +0530
 Subject: [PATCH v2 3/5] irqchip: RISC-V Local Interrupt Controller Driver
-In-Reply-To: <CAAhSdy2Y-XTZ12i5aV+SzraMZP1YQBhAArpER-YssPcBJNOPOA@mail.gmail.com>
-References: <alpine.DEB.2.21.1809081241310.1402@nanos.tec.linutronix.de>
+In-Reply-To: <20180910161143.GA1053@infradead.org>
+References: <20180906140628.GA10580@infradead.org>
+ <alpine.DEB.2.21.1809081241310.1402@nanos.tec.linutronix.de>
  <20180910132924.GA6987@infradead.org>
  <alpine.DEB.2.21.1809101533330.1292@nanos.tec.linutronix.de>
  <alpine.DEB.2.21.1809101536410.1292@nanos.tec.linutronix.de>
@@ -10,25 +11,33 @@ References: <alpine.DEB.2.21.1809081241310.1402@nanos.tec.linutronix.de>
  <alpine.DEB.2.21.1809101544560.1292@nanos.tec.linutronix.de>
  <20180910134915.GB30774@infradead.org>
  <CAAhSdy1be_ibiowifBdgBZjbHuFU=CR4rZXQDwQghVYkex5bMg@mail.gmail.com>
- <20180910161328.GA13171@infradead.org>
- <CAAhSdy2Y-XTZ12i5aV+SzraMZP1YQBhAArpER-YssPcBJNOPOA@mail.gmail.com>
-Message-ID: <20180910163543.GA13052@infradead.org>
+ <alpine.DEB.2.21.1809101805110.1419@nanos.tec.linutronix.de>
+ <20180910161143.GA1053@infradead.org>
+Message-ID: <CAAhSdy0kgsy0QFDQGYeVy6vxu8v7UwRGbdJC9Hhz+36TNYjyGA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Sep 10, 2018 at 10:02:09PM +0530, Anup Patel wrote:
-> You are thinking very much in-context of SiFive CPUs only.
+On Mon, Sep 10, 2018 at 9:41 PM, Christoph Hellwig <hch@infradead.org> wrote:
+> On Mon, Sep 10, 2018 at 06:07:12PM +0200, Thomas Gleixner wrote:
+>> > Considering above, it is better to have a distinct irqchip and
+>> > irq_domain for all local interrupts (just like this patch).
+>>
+>> If that's the future usage
+>
+> It's not, at least there has been no proposal for that so far, and I
+> don't really think it is how the architecture was intended.
+>
+>> and that's what my impression was, under which I
+>> changed my mind, yes, then having a domain model is certainly of advantage
+>> especially when those things end up being different per SoC.
+>
+> And even if we went down the way of using the other bits it would
+> be architectureal in the RISC-V spec - these are not available for
+> vendor specific uses.
 
-No.  I think in terms of the RISC-V spec.  I could care less about
-SiFive to be honest.
+I am quite sure RISC-V spec does not restrict the use of other
+local interrupts. Different CPU implementations can have their
+own local interrupts.
 
-> Lot of SOC vendors are trying to come-up with their own CPUs
-> and RISC-V spec does not restrict the use of local interrupts.
-
-Yes, it does.
-
-> The mie/mip/sie/sip/uie/uip are all machine word size so on
-> riscv64 we can theoretically have maximum 64 local interrupts.
-
-They could in theory IFF someone actually get the use case through
-the riscv privileged spec working group.
+Regards,
+Anup
