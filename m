@@ -1,28 +1,38 @@
-From: hch@infradead.org (Christoph Hellwig)
-Date: Mon, 10 Sep 2018 06:41:47 -0700
-Subject: Post-4.19 WIP Branch Cleanup, riscv-linux-4.18, and 4.20 plans
-In-Reply-To: <mhng-d37c6b2f-e76a-40ae-95fd-7988b49407fd@palmer-si-x1c4>
-References: <ed6952fc-000f-af33-5d2f-ca26ba59741c@wdc.com>
- <mhng-d37c6b2f-e76a-40ae-95fd-7988b49407fd@palmer-si-x1c4>
-Message-ID: <20180910134147.GA25264@infradead.org>
+From: tglx@linutronix.de (Thomas Gleixner)
+Date: Mon, 10 Sep 2018 15:45:42 +0200 (CEST)
+Subject: [PATCH v2 3/5] irqchip: RISC-V Local Interrupt Controller Driver
+In-Reply-To: <20180910133902.GB21593@infradead.org>
+References: <20180906123651.28500-1-anup@brainfault.org>
+ <20180906123651.28500-4-anup@brainfault.org>
+ <20180906140628.GA10580@infradead.org>
+ <alpine.DEB.2.21.1809081241310.1402@nanos.tec.linutronix.de>
+ <20180910132924.GA6987@infradead.org>
+ <alpine.DEB.2.21.1809101533330.1292@nanos.tec.linutronix.de>
+ <alpine.DEB.2.21.1809101536410.1292@nanos.tec.linutronix.de>
+ <20180910133902.GB21593@infradead.org>
+Message-ID: <alpine.DEB.2.21.1809101544560.1292@nanos.tec.linutronix.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Sep 06, 2018 at 02:45:00AM -0700, Palmer Dabbelt wrote:
-> > I think gpio & pwm are required as well. I couldn't get networking up
-> > without the GPIO driver.
-> 
-> That makes sense: IIRC the GPIO twiddles the pins that control the Ethernet phy.
-> 
-> > https://github.com/riscv/riscv-linux/commit/7b012f300afcff77c20a4d84519f4bd2b9b17bd0
+On Mon, 10 Sep 2018, Christoph Hellwig wrote:
+> On Mon, Sep 10, 2018 at 03:37:31PM +0200, Thomas Gleixner wrote:
+> > > > Just a few weeks ago you said the contrary:
+> > > > 
+> > > > http://lists.infradead.org/pipermail/linux-riscv/2018-August/000943.html
+> > > 
+> > > Sigh. Yes. Now that you remind me. 
 > > 
-> > https://github.com/riscv/riscv-linux/commit/d6e84658098c6f37875a9e4b151706c6b541dc0b
+> > Just for clarification. I had the impression that Anup was trying to wire
+> > up more than just the timer interrupt, but that doesn't seem to be the
+> > case.
 > 
-> Thanks.  I've grabbed both of these into WIP branches for now, they're at
-> least the self contained type so it should be viable to start cleaning them
-> up, pending time.
+> He has an irqchip that is called from the RISC-V exception handler
+> when the interrupt flag is set in scause and then dispatches to one
+> of:  IPI, timer, actual irqchip.
 
-Btw, do we have volunteers for given drivers?  I think Paul is trying
-to handle the serial driver.  I'll try to spend some time on one or two,
-and have a SiFive board now.  but I won't really have time to try it
-until the end of the month as I'm busy travelling and at conferences.
+So the per cpu timer is the only per cpu interrupt and that thing is used
+unconditionally, right?
+
+Thanks,
+
+	tglx
