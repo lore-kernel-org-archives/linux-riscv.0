@@ -1,38 +1,60 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Mon, 10 Sep 2018 10:13:47 -0700
-Subject: Post-4.19 WIP Branch Cleanup, riscv-linux-4.18, and 4.20 plans
-In-Reply-To: <20180910134147.GA25264@infradead.org>
-References: <ed6952fc-000f-af33-5d2f-ca26ba59741c@wdc.com>
- <mhng-d37c6b2f-e76a-40ae-95fd-7988b49407fd@palmer-si-x1c4>
- <20180910134147.GA25264@infradead.org>
-Message-ID: <0520d2cf-2e7b-f4b5-9e8c-4d06d60d6ac3@wdc.com>
+From: tglx@linutronix.de (Thomas Gleixner)
+Date: Mon, 10 Sep 2018 21:37:59 +0200 (CEST)
+Subject: [PATCH v2 3/5] irqchip: RISC-V Local Interrupt Controller Driver
+In-Reply-To: <CAAhSdy3AN4YTaAJCR50WMB8CgaoZNeT9uOZt2GH2O6i8Y6z6ew@mail.gmail.com>
+References: <20180910132924.GA6987@infradead.org>
+ <alpine.DEB.2.21.1809101533330.1292@nanos.tec.linutronix.de>
+ <alpine.DEB.2.21.1809101536410.1292@nanos.tec.linutronix.de>
+ <20180910133902.GB21593@infradead.org>
+ <alpine.DEB.2.21.1809101544560.1292@nanos.tec.linutronix.de>
+ <20180910134915.GB30774@infradead.org>
+ <CAAhSdy1be_ibiowifBdgBZjbHuFU=CR4rZXQDwQghVYkex5bMg@mail.gmail.com>
+ <alpine.DEB.2.21.1809101805110.1419@nanos.tec.linutronix.de>
+ <20180910161143.GA1053@infradead.org>
+ <CAAhSdy0kgsy0QFDQGYeVy6vxu8v7UwRGbdJC9Hhz+36TNYjyGA@mail.gmail.com>
+ <20180910163936.GA18699@infradead.org>
+ <CAAhSdy3AN4YTaAJCR50WMB8CgaoZNeT9uOZt2GH2O6i8Y6z6ew@mail.gmail.com>
+Message-ID: <alpine.DEB.2.21.1809102133240.1419@nanos.tec.linutronix.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 9/10/18 6:41 AM, Christoph Hellwig wrote:
-> On Thu, Sep 06, 2018 at 02:45:00AM -0700, Palmer Dabbelt wrote:
->>> I think gpio & pwm are required as well. I couldn't get networking up
->>> without the GPIO driver.
->>
->> That makes sense: IIRC the GPIO twiddles the pins that control the Ethernet phy.
->>
->>> https://github.com/riscv/riscv-linux/commit/7b012f300afcff77c20a4d84519f4bd2b9b17bd0
->>>
->>> https://github.com/riscv/riscv-linux/commit/d6e84658098c6f37875a9e4b151706c6b541dc0b
->>
->> Thanks.  I've grabbed both of these into WIP branches for now, they're at
->> least the self contained type so it should be viable to start cleaning them
->> up, pending time.
+On Mon, 10 Sep 2018, Anup Patel wrote:
+> On Mon, Sep 10, 2018 at 10:09 PM, Christoph Hellwig <hch@infradead.org> wrote:
+> > On Mon, Sep 10, 2018 at 10:05:42PM +0530, Anup Patel wrote:
+> >> I am quite sure RISC-V spec does not restrict the use of other
+> >> local interrupts. Different CPU implementations can have their
+> >> own local interrupts.
+> >
+> > Please take a look at sections 3.1.14 and 4.1.1 of the RISC-V privileged
+> > spec 1.10.
 > 
-> Btw, do we have volunteers for given drivers?  I think Paul is trying
-> to handle the serial driver.  I'll try to spend some time on one or two,
-> and have a SiFive board now.  but I won't really have time to try it
-> until the end of the month as I'm busy travelling and at conferences.
+> RISC-V priv spec 1.10 defines the 9 bits in MIE and MIP registers and
+> other bits are reserved.
 > 
+> The unused bits in MIP are WIRI (reserved write ignored and read ignored)
+> and unused bits in MIE are WPRI (reserved write preserve values and
+> read ignored).
 > 
+> The RISC-V priv spec 1.10 does not tell that unused reserved bits in
+> MIE/MIP cannot be used for:
+> 1. CPU implementation specific local interrupts
+> 2. Per-CPU device interrupts.
+> 
+> The RISC-V priv spec 1.10 tries to only describe MIE/MIP bits which
+> are mandatory on any RISC-V 1.10 compliant CPU but it possible to
+> used other reserved bits for implementation specific local interrupts.
 
-I will start with GPIO & PWM drivers.
+Processor local interrupts really should be architected and there are
+really not that many of them.
 
+But well, RISC-V decided obvsiouly not to learn from mistakes made by
+others.
 
-Regards,
-Atish
+That said, if your cpu local interrupts are not architectural and cannot be
+made software configured architectural, then you will end up sooner than
+later with the need for an irqdomain in order to handle the implementer
+specific crap.
+
+Thanks,
+
+	tglx
