@@ -1,27 +1,18 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Mon, 10 Sep 2018 06:35:49 -0700
-Subject: [RFC PATCH 4/5] irqchip: RISC-V Local Interrupt Controller Driver
-In-Reply-To: <CAAhSdy2B3RTYKTsm+HrJfsC3dP3vZyT0VYi80h3pDVUxDCONwA@mail.gmail.com>
-References: <20180904124514.6290-1-anup@brainfault.org>
- <20180904124514.6290-5-anup@brainfault.org>
- <20180904185755.GD25119@infradead.org>
- <CAAhSdy3-mM-zyYOvQBR+JsRTZGZWUF=4Y=0jTKhVMAYPxOfJ6Q@mail.gmail.com>
- <20180905185838.GC15741@infradead.org>
- <CAAhSdy2B3RTYKTsm+HrJfsC3dP3vZyT0VYi80h3pDVUxDCONwA@mail.gmail.com>
-Message-ID: <20180910133549.GA15730@infradead.org>
+Date: Mon, 10 Sep 2018 06:36:46 -0700
+Subject: [GIT PULL] RISC-V: A single fix for 4.19-rc3
+In-Reply-To: <CAEn-LTrXFsJJ1iQFrCFZQ_UdFwT96VpYSVhUHYDCh1ns=eSODA@mail.gmail.com>
+References: <mhng-bcd3f712-980c-425d-ac55-a322d54dd8bb@palmer-si-x1c4>
+ <CAEn-LTrXFsJJ1iQFrCFZQ_UdFwT96VpYSVhUHYDCh1ns=eSODA@mail.gmail.com>
+Message-ID: <20180910133646.GB15730@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Sep 06, 2018 at 05:23:07PM +0530, Anup Patel wrote:
-> > And we reject that driver approach for good reason and are now
-> > doing the architectualy low-level irq handling in common code
-> > without any need whatsover to duplicate information in the
-> > privileged spec in DT.
+On Mon, Sep 10, 2018 at 07:53:33AM +0200, David Abdurachmanov wrote:
+> Was this sent only to linux-riscv mailing-list? I don't see anyone
+> else in CC field.
 > 
-> In other words, the whole idea of separate RISCV local interrupt
-> controller driver was dropped due duplicate information in privilege
-> spec DT ??
+> I checked -rc3 today, and I don't see this patch there.
 
-No.  We came to the conflusion that a few registers on a cpu
-that allow enabling/disabling local vs external vs timer intterupts
-aren't worth writing an irqchip (or DT entries) for.
+Yes, I think this needs to be sent to Linus so that he can actually pick
+it up :)
