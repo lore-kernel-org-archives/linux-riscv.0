@@ -1,24 +1,25 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Mon, 10 Sep 2018 04:29:09 -0700
-Subject: [PATCH v3 11/12] RISC-V: Use Linux logical cpu number instead of
- hartid
-In-Reply-To: <1536221135-182613-12-git-send-email-atish.patra@wdc.com>
-References: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
- <1536221135-182613-12-git-send-email-atish.patra@wdc.com>
-Message-ID: <20180910112909.GJ12979@infradead.org>
+Date: Mon, 10 Sep 2018 06:29:24 -0700
+Subject: [PATCH v2 3/5] irqchip: RISC-V Local Interrupt Controller Driver
+In-Reply-To: <alpine.DEB.2.21.1809081241310.1402@nanos.tec.linutronix.de>
+References: <20180906123651.28500-1-anup@brainfault.org>
+ <20180906123651.28500-4-anup@brainfault.org>
+ <20180906140628.GA10580@infradead.org>
+ <alpine.DEB.2.21.1809081241310.1402@nanos.tec.linutronix.de>
+Message-ID: <20180910132924.GA6987@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Sep 06, 2018 at 01:05:34AM -0700, Atish Patra wrote:
-> Setup the cpu_logical_map during boot. Moreover, every SBI call
-> and PLIC context are based on the physical hartid. Use the logical
-> cpu to hartid mapping to pass correct hartid to respective functions.
+On Sat, Sep 08, 2018 at 12:46:35PM +0200, Thomas Gleixner wrote:
+> On Thu, 6 Sep 2018, Christoph Hellwig wrote:
 > 
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> Reviewed-by  : Anup Patel <anup@brainfault.org>
+> > Just as before:  NAK to entirely pointless abstractions.  Please stop
+> > beating the dead horse.
+> 
+> I disagree. These interrupts very well fit into the percpu interupt
+> mechanics and that allows them to be handled by all the generic mechanisms
+> as any other interrupt.
 
-Same whitespace issue here.
+Just a few weeks ago you said the contrary:
 
-Otherwise looks fine:
-
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+http://lists.infradead.org/pipermail/linux-riscv/2018-August/000943.html
