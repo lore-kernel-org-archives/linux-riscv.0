@@ -1,18 +1,35 @@
-From: hch@infradead.org (Christoph Hellwig)
-Date: Mon, 10 Sep 2018 06:36:46 -0700
-Subject: [GIT PULL] RISC-V: A single fix for 4.19-rc3
-In-Reply-To: <CAEn-LTrXFsJJ1iQFrCFZQ_UdFwT96VpYSVhUHYDCh1ns=eSODA@mail.gmail.com>
-References: <mhng-bcd3f712-980c-425d-ac55-a322d54dd8bb@palmer-si-x1c4>
- <CAEn-LTrXFsJJ1iQFrCFZQ_UdFwT96VpYSVhUHYDCh1ns=eSODA@mail.gmail.com>
-Message-ID: <20180910133646.GB15730@infradead.org>
+From: tglx@linutronix.de (Thomas Gleixner)
+Date: Mon, 10 Sep 2018 15:37:31 +0200 (CEST)
+Subject: [PATCH v2 3/5] irqchip: RISC-V Local Interrupt Controller Driver
+In-Reply-To: <alpine.DEB.2.21.1809101533330.1292@nanos.tec.linutronix.de>
+References: <20180906123651.28500-1-anup@brainfault.org>
+ <20180906123651.28500-4-anup@brainfault.org>
+ <20180906140628.GA10580@infradead.org>
+ <alpine.DEB.2.21.1809081241310.1402@nanos.tec.linutronix.de>
+ <20180910132924.GA6987@infradead.org>
+ <alpine.DEB.2.21.1809101533330.1292@nanos.tec.linutronix.de>
+Message-ID: <alpine.DEB.2.21.1809101536410.1292@nanos.tec.linutronix.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Sep 10, 2018 at 07:53:33AM +0200, David Abdurachmanov wrote:
-> Was this sent only to linux-riscv mailing-list? I don't see anyone
-> else in CC field.
+On Mon, 10 Sep 2018, Thomas Gleixner wrote:
+> On Mon, 10 Sep 2018, Christoph Hellwig wrote:
+> > On Sat, Sep 08, 2018 at 12:46:35PM +0200, Thomas Gleixner wrote:
+> > > On Thu, 6 Sep 2018, Christoph Hellwig wrote:
+> > > 
+> > > > Just as before:  NAK to entirely pointless abstractions.  Please stop
+> > > > beating the dead horse.
+> > > 
+> > > I disagree. These interrupts very well fit into the percpu interupt
+> > > mechanics and that allows them to be handled by all the generic mechanisms
+> > > as any other interrupt.
+> > 
+> > Just a few weeks ago you said the contrary:
+> > 
+> > http://lists.infradead.org/pipermail/linux-riscv/2018-August/000943.html
 > 
-> I checked -rc3 today, and I don't see this patch there.
+> Sigh. Yes. Now that you remind me. 
 
-Yes, I think this needs to be sent to Linus so that he can actually pick
-it up :)
+Just for clarification. I had the impression that Anup was trying to wire
+up more than just the timer interrupt, but that doesn't seem to be the
+case.
