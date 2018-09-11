@@ -1,37 +1,38 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Mon, 10 Sep 2018 18:36:52 -0700
-Subject: [PATCH v3 06/12] RISC-V: Rename riscv_of_processor_hart to
- riscv_of_processor_hartid
-In-Reply-To: <20180910112548.GF12979@infradead.org>
-References: <1536221135-182613-1-git-send-email-atish.patra@wdc.com>
- <1536221135-182613-7-git-send-email-atish.patra@wdc.com>
- <20180910112548.GF12979@infradead.org>
-Message-ID: <6acd4eec-bdfb-cfc8-6dca-782eb9ec01b0@wdc.com>
+From: anup@brainfault.org (Anup Patel)
+Date: Tue, 11 Sep 2018 09:07:12 +0530
+Subject: [RFC PATCH 1/5] RISC-V: Make IPI triggering flexible
+In-Reply-To: <20180910133418.GA12330@infradead.org>
+References: <20180904185001.GA25119@infradead.org>
+ <mhng-ba039ed5-dcff-41d3-b237-0708b5e117b2@palmer-si-x1c4>
+ <CAAhSdy3mOdxR9JpZyC9fCx5rphUBDxn2kbRpgtZp4h0_jYCxMA@mail.gmail.com>
+ <20180910133418.GA12330@infradead.org>
+Message-ID: <CAAhSdy0zums9m4ZgSAv9GZuGE1iLfCfMbpjduZnNXQZu8uJZ5Q@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 9/10/18 4:26 AM, Christoph Hellwig wrote:
-> On Thu, Sep 06, 2018 at 01:05:29AM -0700, Atish Patra wrote:
->> From: Palmer Dabbelt <palmer@sifive.com>
->>
->> It's a bit confusing exactly what this function does: it actually
->> returns the hartid of an OF processor node, failing with -1 on invalid
->> nodes.  I've changed the name to _hartid() in order to make that a bit
->> more clear, as well as adding a comment.
->>
->> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-> 
-> Looks generally good, but it is going to conflict with the dt iterators
-> series from Rob.  Given that this is just a little cleanup it might be
-> worth deferring until the next merge window.
-> 
+On Mon, Sep 10, 2018 at 7:04 PM, Christoph Hellwig <hch@infradead.org> wrote:
+> On Thu, Sep 06, 2018 at 04:15:14PM +0530, Anup Patel wrote:
+>> This patch is doing two things:
+>> 1. Allow IRQCHIP driver to provide IPI trigger mechanism
+>
+> And the big questions is why do we want that?  The last thing we
+> want is for people to "innovate" on how they deliver IPIs.  RISC-V
+> has defined an SBI interface for it to hide all the details, and
+> we should not try to handle systems that are not SBI compliant.
+>
+> Eventuall we might want to revisit the SBI to improve on shortcomings
+> if there are any, but we should not allow random irqchip drivers to
+> override this.
 
-Sure. np. I guess the entire series can be parked in for-next until the 
-next merge window opens.
+I have already dropped this part from the PATCH v2.
+
+>
+>> 2. Have more generic IPI handler in arch/riscv so that IRQCHIP driver
+>> can call it
+>
+> And that is rather irrelevant without 1) above.
+
+Nopes, this is required for the RISC-V INTC driver.
 
 Regards,
-Atish
-> Otherwise looks good:
-> 
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
-> 
+Anup
