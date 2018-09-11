@@ -1,36 +1,27 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Tue, 11 Sep 2018 11:30:18 -0700
-Subject: [PATCH] RISCV: Fix end PFN for low memory
-Message-ID: <1536690618-9157-1-git-send-email-atish.patra@wdc.com>
+Date: Tue, 11 Sep 2018 11:31:33 -0700
+Subject: Memory allocation failure using GFP_DMA32 in 4.19-rc2
+In-Reply-To: <20180911061619.GA15060@infradead.org>
+References: <3aa15803-e86a-7aa2-e57c-93e43c3d046f@wdc.com>
+ <20180910135231.GA19320@infradead.org>
+ <de897a8b-4961-247e-e90c-c5132bddf125@wdc.com>
+ <20180911061619.GA15060@infradead.org>
+Message-ID: <d7fbf697-1d2a-3c41-b20d-d1037e623730@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Use memblock_end_of_DRAM which provides correct last low memory
-PFN. Without that, DMA32 region becomes empty resulting in zero
-pages being allocated for DMA32.
+On 9/10/18 11:16 PM, Christoph Hellwig wrote:
+> On Mon, Sep 10, 2018 at 06:13:07PM -0700, Atish Patra wrote:
+>> The above issue can be fixed by your patch which was present in one of the
+>> wip-dma branch.
+>>
+>> https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=wip-dma&id=004baee3b83c7ce1c70ff0b7a15fbc3946278af4
+> 
+> Hmm. I'm not even sure I wrote it that way, it might have been a fixup
+> from Palmer.  Either way we should get it into 4.19-rc.
+> 
 
-This patch is based on earlier patch from palmer which never
-merged into 4.19. I just edited the commit text to make more
-sense.
+Sent the patch.
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- arch/riscv/kernel/setup.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index db20dc63..a192bf8a 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -193,7 +193,7 @@ static void __init setup_bootmem(void)
- 	BUG_ON(mem_size == 0);
- 
- 	set_max_mapnr(PFN_DOWN(mem_size));
--	max_low_pfn = pfn_base + PFN_DOWN(mem_size);
-+	max_low_pfn = memblock_end_of_DRAM();
- 
- #ifdef CONFIG_BLK_DEV_INITRD
- 	setup_initrd();
--- 
-2.7.4
+Regards,
+Atish
