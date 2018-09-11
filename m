@@ -1,54 +1,44 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Tue, 11 Sep 2018 13:05:28 -0700
-Subject: [PATCH v4 01/12] RISC-V: No need to pass scause as arg to do_IRQ()
+Date: Tue, 11 Sep 2018 13:05:29 -0700
+Subject: [PATCH v4 02/12] RISC-V: Don't set cacheinfo.{physical_line_partition,
+ attributes}
 In-Reply-To: <1536696339-15204-1-git-send-email-atish.patra@wdc.com>
 References: <1536696339-15204-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <1536696339-15204-2-git-send-email-atish.patra@wdc.com>
+Message-ID: <1536696339-15204-3-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-From: Anup Patel <anup@brainfault.org>
+From: Palmer Dabbelt <palmer@sifive.com>
 
-The scause is already part of pt_regs so no need to pass
-scause as separate arg to do_IRQ().
+These are just hard coded in the RISC-V port, which doesn't make any
+sense.  We should probably be setting these from device tree entries
+when they exist, but for now I think it's saner to just leave them all
+as their default values.
 
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 Reviewed-by: Christoph Hellwig <hch@lst.de>
-Signed-off-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Jeremy Linton <jeremy.linton@arm.com>
 ---
- arch/riscv/kernel/entry.S | 1 -
- arch/riscv/kernel/irq.c   | 4 ++--
- 2 files changed, 2 insertions(+), 3 deletions(-)
+ arch/riscv/kernel/cacheinfo.c | 7 -------
+ 1 file changed, 7 deletions(-)
 
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index fa2c08e3..6eaacfa5 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -168,7 +168,6 @@ ENTRY(handle_exception)
- 
- 	/* Handle interrupts */
- 	move a0, sp /* pt_regs */
--	move a1, s4 /* scause */
- 	tail do_IRQ
- 1:
- 	/* Exceptions run with interrupts enabled */
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 0cfac48a..ca459331 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -24,12 +24,12 @@
-  */
- #define INTERRUPT_CAUSE_FLAG	(1UL << (__riscv_xlen - 1))
- 
--asmlinkage void __irq_entry do_IRQ(struct pt_regs *regs, unsigned long cause)
-+asmlinkage void __irq_entry do_IRQ(struct pt_regs *regs)
+diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+index 0bc86e5f..cb35ffd8 100644
+--- a/arch/riscv/kernel/cacheinfo.c
++++ b/arch/riscv/kernel/cacheinfo.c
+@@ -22,13 +22,6 @@ static void ci_leaf_init(struct cacheinfo *this_leaf,
  {
- 	struct pt_regs *old_regs = set_irq_regs(regs);
+ 	this_leaf->level = level;
+ 	this_leaf->type = type;
+-	/* not a sector cache */
+-	this_leaf->physical_line_partition = 1;
+-	/* TODO: Add to DTS */
+-	this_leaf->attributes =
+-		CACHE_WRITE_BACK
+-		| CACHE_READ_ALLOCATE
+-		| CACHE_WRITE_ALLOCATE;
+ }
  
- 	irq_enter();
--	switch (cause & ~INTERRUPT_CAUSE_FLAG) {
-+	switch (regs->scause & ~INTERRUPT_CAUSE_FLAG) {
- 	case INTERRUPT_CAUSE_TIMER:
- 		riscv_timer_interrupt();
- 		break;
+ static int __init_cache_level(unsigned int cpu)
 -- 
 2.7.4
