@@ -1,38 +1,47 @@
 From: anup@brainfault.org (Anup Patel)
-Date: Tue, 11 Sep 2018 09:07:12 +0530
-Subject: [RFC PATCH 1/5] RISC-V: Make IPI triggering flexible
-In-Reply-To: <20180910133418.GA12330@infradead.org>
-References: <20180904185001.GA25119@infradead.org>
- <mhng-ba039ed5-dcff-41d3-b237-0708b5e117b2@palmer-si-x1c4>
- <CAAhSdy3mOdxR9JpZyC9fCx5rphUBDxn2kbRpgtZp4h0_jYCxMA@mail.gmail.com>
- <20180910133418.GA12330@infradead.org>
-Message-ID: <CAAhSdy0zums9m4ZgSAv9GZuGE1iLfCfMbpjduZnNXQZu8uJZ5Q@mail.gmail.com>
+Date: Tue, 11 Sep 2018 09:27:45 +0530
+Subject: [PATCH v2 3/5] irqchip: RISC-V Local Interrupt Controller Driver
+In-Reply-To: <20180910221902.GB7368@infradead.org>
+References: <20180910133902.GB21593@infradead.org>
+ <alpine.DEB.2.21.1809101544560.1292@nanos.tec.linutronix.de>
+ <20180910134915.GB30774@infradead.org>
+ <CAAhSdy1be_ibiowifBdgBZjbHuFU=CR4rZXQDwQghVYkex5bMg@mail.gmail.com>
+ <alpine.DEB.2.21.1809101805110.1419@nanos.tec.linutronix.de>
+ <20180910161143.GA1053@infradead.org>
+ <CAAhSdy0kgsy0QFDQGYeVy6vxu8v7UwRGbdJC9Hhz+36TNYjyGA@mail.gmail.com>
+ <20180910163936.GA18699@infradead.org>
+ <CAAhSdy3AN4YTaAJCR50WMB8CgaoZNeT9uOZt2GH2O6i8Y6z6ew@mail.gmail.com>
+ <alpine.DEB.2.21.1809102133240.1419@nanos.tec.linutronix.de>
+ <20180910221902.GB7368@infradead.org>
+Message-ID: <CAAhSdy2uAqOQohmx_HDgR1MbtWeOdc0MTFxToMK2Ak9-za1evg@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Sep 10, 2018 at 7:04 PM, Christoph Hellwig <hch@infradead.org> wrote:
-> On Thu, Sep 06, 2018 at 04:15:14PM +0530, Anup Patel wrote:
->> This patch is doing two things:
->> 1. Allow IRQCHIP driver to provide IPI trigger mechanism
+On Tue, Sep 11, 2018 at 3:49 AM, Christoph Hellwig <hch@infradead.org> wrote:
+> On Mon, Sep 10, 2018 at 09:37:59PM +0200, Thomas Gleixner wrote:
+>> Processor local interrupts really should be architected and there are
+>> really not that many of them.
 >
-> And the big questions is why do we want that?  The last thing we
-> want is for people to "innovate" on how they deliver IPIs.  RISC-V
-> has defined an SBI interface for it to hide all the details, and
-> we should not try to handle systems that are not SBI compliant.
+> And that is what they are.
 >
-> Eventuall we might want to revisit the SBI to improve on shortcomings
-> if there are any, but we should not allow random irqchip drivers to
-> override this.
+>> But well, RISC-V decided obvsiouly not to learn from mistakes made by
+>> others.
+>
+> I don't think that is the case.  I think Atup misreads what reserved
+> means - if you look at section 2.3 of the RISC-V privileged spec
+> it clearly states that reserved fields are for future use and not
+> for vendor specific use.
 
-I have already dropped this part from the PATCH v2.
+I think I understood what reserved means here. If reserved bits are
+not for vendor specific or implementation specific stuff then it should
+be mentioned clearly which is not the case.
 
->
->> 2. Have more generic IPI handler in arch/riscv so that IRQCHIP driver
->> can call it
->
-> And that is rather irrelevant without 1) above.
+The list of currently defined RISC-V local interrupts will definitely grow
+based on my experience from ARM/ARM64 world.
 
-Nopes, this is required for the RISC-V INTC driver.
+Like Thomas mentioned, we will definitely end-up having separate
+irqchip and irq_domain for RISC-V local interrupts for flexibility. Better
+do it now with separate RISC-V INTC driver.
 
 Regards,
 Anup
