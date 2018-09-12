@@ -1,37 +1,64 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 12 Sep 2018 09:45:46 -0700 (PDT)
-Subject: [GIT PULL] RISC-V: A single fix for 4.19-rc3
-Message-ID: <mhng-2cf2fc4d-085f-4974-96ad-e27b240611d6@palmer-si-x1c4>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Wed, 12 Sep 2018 09:47:55 -0700
+Subject: [PATCH] RISC-V: Show CPU ID and Hart ID separately in
+ /proc/cpuinfo
+In-Reply-To: <20180912143822.21948-1-anup@brainfault.org>
+References: <20180912143822.21948-1-anup@brainfault.org>
+Message-ID: <72961c71-c4e4-7990-da64-a7f1613f2e1c@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-I forgot to send this out last week as I was going to the GNU tool cauldron.  I
-haven't gotten through my backlog yet so I don't have any other patches for
-this RC, so I figured I'd just send out the old tag.  If that's an issue I can
-make a new one.
+On 9/12/18 7:38 AM, Anup Patel wrote:
+> Currently, /proc/cpuinfo show logical CPU ID as Hart ID which
+> is in-correct. This patch shows CPU ID and Hart ID separately
+> in /proc/cpuinfo using cpuid_to_hardid_map().
+> 
+> With this patch, contents of /proc/cpuinfo looks as follows:
+> cpu	: 0
+> hart	: 1
+> isa	: rv64imafdcsu
+> mmu	: sv48
+> 
+> cpu	: 1
+> hart	: 0
+> isa	: rv64imafdcsu
+> mmu	: sv48
+> 
+> cpu	: 2
+> hart	: 3
+> isa	: rv64imafdcsu
+> mmu	: sv48
+> 
+> cpu	: 3
+> hart	: 2
+> isa	: rv64imafdcsu
+> mmu	: sv48
+> 
+> Signed-off-by: Anup Patel <anup@brainfault.org>
+> ---
+>   arch/riscv/kernel/cpu.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index f0f0ec2737b7..7c1342e242e6 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -87,7 +87,8 @@ static int c_show(struct seq_file *m, void *v)
+>   						   NULL);
+>   	const char *compat, *isa, *mmu;
+>   
+> -	seq_printf(m, "hart\t: %lu\n", cpu_id);
+> +	seq_printf(m, "cpu\t: %lu\n", cpu_id);
+> +	seq_printf(m, "hart\t: %lu\n", cpuid_to_hardid_map(cpu_id));
+>   	if (!of_property_read_string(node, "riscv,isa", &isa)
+>   	    && isa[0] == 'r'
+>   	    && isa[1] == 'v')
+> 
 
-The following changes since commit 57361846b52bc686112da6ca5368d11210796804:
+The extra hart information will not be parsed by lscpu which will make 
+the cpu information inconsistent between lscpu & /proc/cpuinfo.
 
-  Linux 4.19-rc2 (2018-09-02 14:37:30 -0700)
+Should we patch lscpu as well to show correct hart id as well ?
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-rc3
-
-for you to fetch changes up to e866d3e84eb7c9588afb77604d417e8cc49fe216:
-
-  riscv: Do not overwrite initrd_start and initrd_end (2018-09-04 17:04:50 -0700)
-
-----------------------------------------------------------------
-RISC-V: A single fix for 4.19-rc3
-
-This tag contains what I hope to be the last RISC-V patch for 4.19.  It
-fixes a bug in our initramfs support by removing some broken and
-obselete code.
-
-----------------------------------------------------------------
-Guenter Roeck (1):
-      riscv: Do not overwrite initrd_start and initrd_end
-
- arch/riscv/kernel/setup.c | 7 -------
- 1 file changed, 7 deletions(-)
+Regards,
+Atish
