@@ -1,54 +1,79 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Thu, 13 Sep 2018 11:36:54 -0700
-Subject: [PATCH v5 01/12] RISC-V: No need to pass scause as arg to do_IRQ()
-In-Reply-To: <1536863825-66808-1-git-send-email-atish.patra@wdc.com>
-References: <1536863825-66808-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <1536863825-66808-2-git-send-email-atish.patra@wdc.com>
+Date: Thu, 13 Sep 2018 11:36:53 -0700
+Subject: [PATCH v5 00/12] SMP cleanup and new features
+Message-ID: <1536863825-66808-1-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-From: Anup Patel <anup@brainfault.org>
+This patch series has updated the assorted cleanup series by palmer.
+The original cleanup patch series can be found here.
+http://lists.infradead.org/pipermail/linux-riscv/2018-August/001232.html
 
-The scause is already part of pt_regs so no need to pass
-scause as separate arg to do_IRQ().
+It also implemented decoupling linux logical CPU ids from hart id.
+Some of the work has been inspired from ARM64.
+Tested on QEMU & HighFive Unleashed board with/without SMP enabled.
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
-Signed-off-by: Anup Patel <anup@brainfault.org>
----
- arch/riscv/kernel/entry.S | 1 -
- arch/riscv/kernel/irq.c   | 4 ++--
- 2 files changed, 2 insertions(+), 3 deletions(-)
+Both the patch series have been combined to avoid conflicts as a lot
+of common code is changed in both the series. I have mostly addressed
+review comments and fixed checkpatch errors from palmer's series.
 
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index fa2c08e3..6eaacfa5 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -168,7 +168,6 @@ ENTRY(handle_exception)
- 
- 	/* Handle interrupts */
- 	move a0, sp /* pt_regs */
--	move a1, s4 /* scause */
- 	tail do_IRQ
- 1:
- 	/* Exceptions run with interrupts enabled */
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 0cfac48a..ca459331 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -24,12 +24,12 @@
-  */
- #define INTERRUPT_CAUSE_FLAG	(1UL << (__riscv_xlen - 1))
- 
--asmlinkage void __irq_entry do_IRQ(struct pt_regs *regs, unsigned long cause)
-+asmlinkage void __irq_entry do_IRQ(struct pt_regs *regs)
- {
- 	struct pt_regs *old_regs = set_irq_regs(regs);
- 
- 	irq_enter();
--	switch (cause & ~INTERRUPT_CAUSE_FLAG) {
-+	switch (regs->scause & ~INTERRUPT_CAUSE_FLAG) {
- 	case INTERRUPT_CAUSE_TIMER:
- 		riscv_timer_interrupt();
- 		break;
+v1->v2:
+
+1. Dropped cpu_ops patch.
+2. Moved back IRQ cause definitions to irq.h
+3. Keep boot CPU hart id and assign zero as the CPU id for boot CPU.
+4. Renamed CPU id and hart id correctly.
+
+v2-v3:
+
+1. Added cleanup patches from palmer.
+2. Moved the hotplug related functions to it's own file.
+3. Updated stub functions as per coding guidelines.
+4. Renamed __cpu_logical_map to a more coherent name.
+
+v3-v4:
+
+1. Addressed minor typos in commit text and code.
+2. Included Anup's do_IRQ patch.
+3. Dropped CPU hotplug patch. As there are some concerns
+   about approach, I will submit it separately.
+
+v4->v5:
+
+1. Minor typo fixes in commit text. 
+
+Anup Patel (1):
+  RISC-V: No need to pass scause as arg to do_IRQ()
+
+Atish Patra (4):
+  RISC-V: Disable preemption before enabling interrupts
+  RISC-V: Use WRITE_ONCE instead of direct access
+  RISC-V: Add logical CPU indexing for RISC-V
+  RISC-V: Use Linux logical CPU number instead of hartid
+
+Palmer Dabbelt (7):
+  RISC-V: Don't set cacheinfo.{physical_line_partition,attributes}
+  RISC-V: Filter ISA and MMU values in cpuinfo
+  RISC-V: Comment on the TLB flush in smp_callin()
+  RISC-V: Provide a cleaner raw_smp_processor_id()
+  RISC-V: Rename riscv_of_processor_hart to riscv_of_processor_hartid
+  RISC-V: Rename im_okay_therefore_i_am to found_boot_cpu
+  RISC-V: Use mmgrab()
+
+ arch/riscv/include/asm/processor.h |  2 +-
+ arch/riscv/include/asm/smp.h       | 38 ++++++++++++-----
+ arch/riscv/include/asm/tlbflush.h  | 16 ++++++--
+ arch/riscv/kernel/cacheinfo.c      |  7 ----
+ arch/riscv/kernel/cpu.c            | 83 ++++++++++++++++++++++++++++++++------
+ arch/riscv/kernel/entry.S          |  1 -
+ arch/riscv/kernel/head.S           |  4 +-
+ arch/riscv/kernel/irq.c            |  4 +-
+ arch/riscv/kernel/setup.c          | 10 +++++
+ arch/riscv/kernel/smp.c            | 43 +++++++++++++++-----
+ arch/riscv/kernel/smpboot.c        | 46 ++++++++++++++-------
+ drivers/clocksource/riscv_timer.c  | 12 ++++--
+ drivers/irqchip/irq-sifive-plic.c  | 10 +++--
+ 13 files changed, 207 insertions(+), 69 deletions(-)
+
 -- 
 2.7.4
