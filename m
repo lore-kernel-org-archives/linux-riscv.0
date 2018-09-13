@@ -1,59 +1,44 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Thu, 13 Sep 2018 11:36:59 -0700
-Subject: [PATCH v5 06/12] RISC-V: Provide a cleaner raw_smp_processor_id()
+Date: Thu, 13 Sep 2018 11:37:02 -0700
+Subject: [PATCH v5 09/12] RISC-V: Use mmgrab()
 In-Reply-To: <1536863825-66808-1-git-send-email-atish.patra@wdc.com>
 References: <1536863825-66808-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <1536863825-66808-7-git-send-email-atish.patra@wdc.com>
+Message-ID: <1536863825-66808-10-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
 From: Palmer Dabbelt <palmer@sifive.com>
 
-I'm not sure how I managed to miss this the first time, but this is much
-better.
+commit f1f1007644ff ("mm: add new mmgrab() helper") added a
+helper that we missed out on.
 
 Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-[Atish: code comment formatting and other fixes]
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
 Reviewed-by: Christoph Hellwig <hch@lst.de>
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/include/asm/smp.h | 14 ++++----------
- 1 file changed, 4 insertions(+), 10 deletions(-)
+ arch/riscv/kernel/smpboot.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index 36016845..85d7619e 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -14,13 +14,9 @@
- #ifndef _ASM_RISCV_SMP_H
- #define _ASM_RISCV_SMP_H
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index 4a232600..17e74831 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -30,6 +30,7 @@
+ #include <linux/irq.h>
+ #include <linux/of.h>
+ #include <linux/sched/task_stack.h>
++#include <linux/sched/mm.h>
+ #include <asm/irq.h>
+ #include <asm/mmu_context.h>
+ #include <asm/tlbflush.h>
+@@ -101,7 +102,7 @@ asmlinkage void __init smp_callin(void)
+ 	struct mm_struct *mm = &init_mm;
  
--/* This both needs asm-offsets.h and is used when generating it. */
--#ifndef GENERATING_ASM_OFFSETS
--#include <asm/asm-offsets.h>
--#endif
--
- #include <linux/cpumask.h>
- #include <linux/irqreturn.h>
-+#include <linux/thread_info.h>
+ 	/* All kernel threads share the same mm context.  */
+-	atomic_inc(&mm->mm_count);
++	mmgrab(mm);
+ 	current->active_mm = mm;
  
- #ifdef CONFIG_SMP
- 
-@@ -34,12 +30,10 @@ void arch_send_call_function_ipi_mask(struct cpumask *mask);
- void arch_send_call_function_single_ipi(int cpu);
- 
- /*
-- * This is particularly ugly: it appears we can't actually get the definition
-- * of task_struct here, but we need access to the CPU this task is running on.
-- * Instead of using C we're using asm-offsets.h to get the current processor
-- * ID.
-+ * Obtains the hart ID of the currently executing task.  This relies on
-+ * THREAD_INFO_IN_TASK, but we define that unconditionally.
-  */
--#define raw_smp_processor_id() (*((int*)((char*)get_current() + TASK_TI_CPU)))
-+#define raw_smp_processor_id() (current_thread_info()->cpu)
- 
- #endif /* CONFIG_SMP */
- 
+ 	trap_init();
 -- 
 2.7.4
