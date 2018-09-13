@@ -1,101 +1,59 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Thu, 13 Sep 2018 11:37:00 -0700
-Subject: [PATCH v5 07/12] RISC-V: Rename riscv_of_processor_hart to
- riscv_of_processor_hartid
+Date: Thu, 13 Sep 2018 11:36:59 -0700
+Subject: [PATCH v5 06/12] RISC-V: Provide a cleaner raw_smp_processor_id()
 In-Reply-To: <1536863825-66808-1-git-send-email-atish.patra@wdc.com>
 References: <1536863825-66808-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <1536863825-66808-8-git-send-email-atish.patra@wdc.com>
+Message-ID: <1536863825-66808-7-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
 From: Palmer Dabbelt <palmer@sifive.com>
 
-It's a bit confusing exactly what this function does: it actually
-returns the hartid of an OF processor node, failing with -1 on invalid
-nodes.  I've changed the name to _hartid() in order to make that a bit
-more clear, as well as adding a comment.
+I'm not sure how I managed to miss this the first time, but this is much
+better.
 
 Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-[Atish: code comment formatting update]
+[Atish: code comment formatting and other fixes]
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/riscv/include/asm/processor.h | 2 +-
- arch/riscv/kernel/cpu.c            | 7 +++++--
- arch/riscv/kernel/smpboot.c        | 2 +-
- drivers/clocksource/riscv_timer.c  | 2 +-
- drivers/irqchip/irq-sifive-plic.c  | 2 +-
- 5 files changed, 9 insertions(+), 6 deletions(-)
+ arch/riscv/include/asm/smp.h | 14 ++++----------
+ 1 file changed, 4 insertions(+), 10 deletions(-)
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 3fe4af81..50de774d 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -88,7 +88,7 @@ static inline void wait_for_interrupt(void)
- }
+diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+index 36016845..85d7619e 100644
+--- a/arch/riscv/include/asm/smp.h
++++ b/arch/riscv/include/asm/smp.h
+@@ -14,13 +14,9 @@
+ #ifndef _ASM_RISCV_SMP_H
+ #define _ASM_RISCV_SMP_H
  
- struct device_node;
--extern int riscv_of_processor_hart(struct device_node *node);
-+int riscv_of_processor_hartid(struct device_node *node);
+-/* This both needs asm-offsets.h and is used when generating it. */
+-#ifndef GENERATING_ASM_OFFSETS
+-#include <asm/asm-offsets.h>
+-#endif
+-
+ #include <linux/cpumask.h>
+ #include <linux/irqreturn.h>
++#include <linux/thread_info.h>
  
- extern void riscv_fill_hwcap(void);
+ #ifdef CONFIG_SMP
  
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 1c0bf662..4723e235 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -15,8 +15,11 @@
- #include <linux/seq_file.h>
- #include <linux/of.h>
+@@ -34,12 +30,10 @@ void arch_send_call_function_ipi_mask(struct cpumask *mask);
+ void arch_send_call_function_single_ipi(int cpu);
  
--/* Return -1 if not a valid hart */
--int riscv_of_processor_hart(struct device_node *node)
-+/*
-+ * Returns the hart ID of the given device tree node, or -1 if the device tree
-+ * node isn't a RISC-V hart.
-+ */
-+int riscv_of_processor_hartid(struct device_node *node)
- {
- 	const char *isa, *status;
- 	u32 hart;
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 670749ec..cfb0b02d 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -53,7 +53,7 @@ void __init setup_smp(void)
- 	int hart, im_okay_therefore_i_am = 0;
+ /*
+- * This is particularly ugly: it appears we can't actually get the definition
+- * of task_struct here, but we need access to the CPU this task is running on.
+- * Instead of using C we're using asm-offsets.h to get the current processor
+- * ID.
++ * Obtains the hart ID of the currently executing task.  This relies on
++ * THREAD_INFO_IN_TASK, but we define that unconditionally.
+  */
+-#define raw_smp_processor_id() (*((int*)((char*)get_current() + TASK_TI_CPU)))
++#define raw_smp_processor_id() (current_thread_info()->cpu)
  
- 	while ((dn = of_find_node_by_type(dn, "cpu"))) {
--		hart = riscv_of_processor_hart(dn);
-+		hart = riscv_of_processor_hartid(dn);
- 		if (hart >= 0) {
- 			set_cpu_possible(hart, true);
- 			set_cpu_present(hart, true);
-diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
-index 4e8b347e..ad7453fc 100644
---- a/drivers/clocksource/riscv_timer.c
-+++ b/drivers/clocksource/riscv_timer.c
-@@ -84,7 +84,7 @@ void riscv_timer_interrupt(void)
+ #endif /* CONFIG_SMP */
  
- static int __init riscv_timer_init_dt(struct device_node *n)
- {
--	int cpu_id = riscv_of_processor_hart(n), error;
-+	int cpu_id = riscv_of_processor_hartid(n), error;
- 	struct clocksource *cs;
- 
- 	if (cpu_id != smp_processor_id())
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 532e9d68..c55eaa31 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -176,7 +176,7 @@ static int plic_find_hart_id(struct device_node *node)
- {
- 	for (; node; node = node->parent) {
- 		if (of_device_is_compatible(node, "riscv"))
--			return riscv_of_processor_hart(node);
-+			return riscv_of_processor_hartid(node);
- 	}
- 
- 	return -1;
 -- 
 2.7.4
