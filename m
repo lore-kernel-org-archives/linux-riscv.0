@@ -1,325 +1,360 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Thu, 13 Sep 2018 11:37:05 -0700
-Subject: [PATCH v5 12/12] RISC-V: Use Linux logical CPU number instead of
- hartid
-In-Reply-To: <1536863825-66808-1-git-send-email-atish.patra@wdc.com>
-References: <1536863825-66808-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <1536863825-66808-13-git-send-email-atish.patra@wdc.com>
+From: rppt@linux.vnet.ibm.com (Mike Rapoport)
+Date: Fri, 14 Sep 2018 15:10:16 +0300
+Subject: [PATCH 01/30] mips: switch to NO_BOOTMEM
+In-Reply-To: <1536927045-23536-1-git-send-email-rppt@linux.vnet.ibm.com>
+References: <1536927045-23536-1-git-send-email-rppt@linux.vnet.ibm.com>
+Message-ID: <1536927045-23536-2-git-send-email-rppt@linux.vnet.ibm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Setup the cpu_logical_map during boot. Moreover, every SBI call
-and PLIC context are based on the physical hartid. Use the logical
-CPU to hartid mapping to pass correct hartid to respective functions.
+MIPS already has memblock support and all the memory is already registered
+with it.
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+This patch replaces bootmem memory reservations with memblock ones and
+removes the bootmem initialization.
+
+Since memblock allocates memory in top-down mode, we ensure that memblock
+limit is max_low_pfn to prevent allocations from the high memory.
+
+To have the exceptions base in the lower 512M of the physical memory, its
+allocation in arch/mips/kernel/traps.c::traps_init() is using bottom-up
+mode.
+
+Signed-off-by: Mike Rapoport <rppt@linux.vnet.ibm.com>
 ---
- arch/riscv/include/asm/tlbflush.h | 16 +++++++++++++---
- arch/riscv/kernel/cpu.c           |  8 +++++---
- arch/riscv/kernel/head.S          |  4 +++-
- arch/riscv/kernel/setup.c         |  6 ++++++
- arch/riscv/kernel/smp.c           | 24 +++++++++++++++---------
- arch/riscv/kernel/smpboot.c       | 25 ++++++++++++++++---------
- drivers/clocksource/riscv_timer.c | 12 ++++++++----
- drivers/irqchip/irq-sifive-plic.c |  8 +++++---
- 8 files changed, 71 insertions(+), 32 deletions(-)
+ arch/mips/Kconfig                      |  1 +
+ arch/mips/kernel/setup.c               | 99 ++++++++--------------------------
+ arch/mips/kernel/traps.c               |  3 ++
+ arch/mips/loongson64/loongson-3/numa.c | 34 ++++++------
+ arch/mips/sgi-ip27/ip27-memory.c       | 11 ++--
+ 5 files changed, 46 insertions(+), 102 deletions(-)
 
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 85c2d8ba..54fee0ca 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -16,6 +16,7 @@
- #define _ASM_RISCV_TLBFLUSH_H
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index 54532f2..1b5fa1a 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -78,6 +78,7 @@ config MIPS
+ 	select RTC_LIB
+ 	select SYSCTL_EXCEPTION_TRACE
+ 	select VIRT_TO_BUS
++	select NO_BOOTMEM
  
- #include <linux/mm_types.h>
-+#include <asm/smp.h>
+ menu "Machine selection"
  
- /*
-  * Flush entire local TLB.  'sfence.vma' implicitly fences with the instruction
-@@ -49,13 +50,22 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
+diff --git a/arch/mips/kernel/setup.c b/arch/mips/kernel/setup.c
+index 32fc11d..2fde53e 100644
+--- a/arch/mips/kernel/setup.c
++++ b/arch/mips/kernel/setup.c
+@@ -333,7 +333,7 @@ static void __init finalize_initrd(void)
  
- #include <asm/sbi.h>
+ 	maybe_bswap_initrd();
  
-+static inline void remote_sfence_vma(struct cpumask *cmask, unsigned long start,
-+				     unsigned long size)
-+{
-+	struct cpumask hmask;
-+
-+	cpumask_clear(&hmask);
-+	riscv_cpuid_to_hartid_mask(cmask, &hmask);
-+	sbi_remote_sfence_vma(hmask.bits, start, size);
-+}
-+
- #define flush_tlb_all() sbi_remote_sfence_vma(NULL, 0, -1)
- #define flush_tlb_page(vma, addr) flush_tlb_range(vma, addr, 0)
- #define flush_tlb_range(vma, start, end) \
--	sbi_remote_sfence_vma(mm_cpumask((vma)->vm_mm)->bits, \
--			      start, (end) - (start))
-+	remote_sfence_vma(mm_cpumask((vma)->vm_mm), start, (end) - (start))
- #define flush_tlb_mm(mm) \
--	sbi_remote_sfence_vma(mm_cpumask(mm)->bits, 0, -1)
-+	remote_sfence_vma(mm_cpumask(mm), 0, -1)
+-	reserve_bootmem(__pa(initrd_start), size, BOOTMEM_DEFAULT);
++	memblock_reserve(__pa(initrd_start), size);
+ 	initrd_below_start_ok = 1;
  
- #endif /* CONFIG_SMP */
+ 	pr_info("Initial ramdisk at: 0x%lx (%lu bytes)\n",
+@@ -370,20 +370,10 @@ static void __init bootmem_init(void)
  
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 4723e235..36b6ddb1 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -14,6 +14,7 @@
- #include <linux/init.h>
- #include <linux/seq_file.h>
- #include <linux/of.h>
-+#include <asm/smp.h>
+ #else  /* !CONFIG_SGI_IP27 */
  
- /*
-  * Returns the hart ID of the given device tree node, or -1 if the device tree
-@@ -138,11 +139,12 @@ static void c_stop(struct seq_file *m, void *v)
- 
- static int c_show(struct seq_file *m, void *v)
- {
--	unsigned long hart_id = (unsigned long)v - 1;
--	struct device_node *node = of_get_cpu_node(hart_id, NULL);
-+	unsigned long cpu_id = (unsigned long)v - 1;
-+	struct device_node *node = of_get_cpu_node(cpuid_to_hardid_map(cpu_id),
-+						   NULL);
- 	const char *compat, *isa, *mmu;
- 
--	seq_printf(m, "hart\t: %lu\n", hart_id);
-+	seq_printf(m, "hart\t: %lu\n", cpu_id);
- 	if (!of_property_read_string(node, "riscv,isa", &isa))
- 		print_isa(m, isa);
- 	if (!of_property_read_string(node, "mmu-type", &mmu))
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index c4d2c63f..711190d4 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -47,6 +47,8 @@ ENTRY(_start)
- 	/* Save hart ID and DTB physical address */
- 	mv s0, a0
- 	mv s1, a1
-+	la a2, boot_cpu_hartid
-+	REG_S a0, (a2)
- 
- 	/* Initialize page tables and relocate to virtual addresses */
- 	la sp, init_thread_union + THREAD_SIZE
-@@ -55,7 +57,7 @@ ENTRY(_start)
- 
- 	/* Restore C environment */
- 	la tp, init_task
--	sw s0, TASK_TI_CPU(tp)
-+	sw zero, TASK_TI_CPU(tp)
- 
- 	la sp, init_thread_union
- 	li a0, ASM_THREAD_SIZE
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index eef1b1a6..a5fac1b7 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -81,11 +81,17 @@ EXPORT_SYMBOL(empty_zero_page);
- 
- /* The lucky hart to first increment this variable will boot the other cores */
- atomic_t hart_lottery;
-+unsigned long boot_cpu_hartid;
- 
- unsigned long __cpuid_to_hardid_map[NR_CPUS] = {
- 	[0 ... NR_CPUS-1] = INVALID_HARTID
- };
- 
-+void __init smp_setup_processor_id(void)
-+{
-+	cpuid_to_hardid_map(0) = boot_cpu_hartid;
-+}
-+
- #ifdef CONFIG_BLK_DEV_INITRD
- static void __init setup_initrd(void)
- {
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 5aba0107..89d95866 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -97,14 +97,18 @@ void riscv_software_interrupt(void)
- static void
- send_ipi_message(const struct cpumask *to_whom, enum ipi_message_type operation)
- {
--	int i;
-+	int cpuid, hartid;
-+	struct cpumask hartid_mask;
- 
-+	cpumask_clear(&hartid_mask);
- 	mb();
--	for_each_cpu(i, to_whom)
--		set_bit(operation, &ipi_data[i].bits);
+-static unsigned long __init bootmap_bytes(unsigned long pages)
+-{
+-	unsigned long bytes = DIV_ROUND_UP(pages, 8);
 -
-+	for_each_cpu(cpuid, to_whom) {
-+		set_bit(operation, &ipi_data[cpuid].bits);
-+		hartid = cpuid_to_hardid_map(cpuid);
-+		cpumask_set_cpu(hartid, &hartid_mask);
-+	}
- 	mb();
--	sbi_send_ipi(cpumask_bits(to_whom));
-+	sbi_send_ipi(cpumask_bits(&hartid_mask));
- }
- 
- void arch_send_call_function_ipi_mask(struct cpumask *mask)
-@@ -146,7 +150,7 @@ void smp_send_reschedule(int cpu)
- void flush_icache_mm(struct mm_struct *mm, bool local)
+-	return ALIGN(bytes, sizeof(long));
+-}
+-
+ static void __init bootmem_init(void)
  {
- 	unsigned int cpu;
--	cpumask_t others, *mask;
-+	cpumask_t others, hmask, *mask;
- 
- 	preempt_disable();
- 
-@@ -164,9 +168,11 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
- 	 */
- 	cpumask_andnot(&others, mm_cpumask(mm), cpumask_of(cpu));
- 	local |= cpumask_empty(&others);
--	if (mm != current->active_mm || !local)
--		sbi_remote_fence_i(others.bits);
--	else {
-+	if (mm != current->active_mm || !local) {
-+		cpumask_clear(&hmask);
-+		riscv_cpuid_to_hartid_mask(&others, &hmask);
-+		sbi_remote_fence_i(hmask.bits);
-+	} else {
- 		/*
- 		 * It's assumed that at least one strongly ordered operation is
- 		 * performed on this hart between setting a hart's cpumask bit
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 1e478615..f44ae780 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -53,17 +53,23 @@ void __init setup_smp(void)
- 	struct device_node *dn = NULL;
- 	int hart;
- 	bool found_boot_cpu = false;
-+	int cpuid = 1;
- 
- 	while ((dn = of_find_node_by_type(dn, "cpu"))) {
- 		hart = riscv_of_processor_hartid(dn);
--		if (hart >= 0) {
--			set_cpu_possible(hart, true);
--			set_cpu_present(hart, true);
--			if (hart == smp_processor_id()) {
--				BUG_ON(found_boot_cpu);
--				found_boot_cpu = true;
--			}
-+		if (hart < 0)
-+			continue;
-+
-+		if (hart == cpuid_to_hardid_map(0)) {
-+			BUG_ON(found_boot_cpu);
-+			found_boot_cpu = 1;
-+			continue;
- 		}
-+
-+		cpuid_to_hardid_map(cpuid) = hart;
-+		set_cpu_possible(cpuid, true);
-+		set_cpu_present(cpuid, true);
-+		cpuid++;
- 	}
- 
- 	BUG_ON(!found_boot_cpu);
-@@ -71,6 +77,7 @@ void __init setup_smp(void)
- 
- int __cpu_up(unsigned int cpu, struct task_struct *tidle)
- {
-+	int hartid = cpuid_to_hardid_map(cpu);
- 	tidle->thread_info.cpu = cpu;
+ 	unsigned long reserved_end;
+-	unsigned long mapstart = ~0UL;
+-	unsigned long bootmap_size;
+ 	phys_addr_t ramstart = PHYS_ADDR_MAX;
+-	bool bootmap_valid = false;
+ 	int i;
  
  	/*
-@@ -81,9 +88,9 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
- 	 * the spinning harts that they can continue the boot process.
- 	 */
- 	smp_mb();
--	WRITE_ONCE(__cpu_up_stack_pointer[cpu],
-+	WRITE_ONCE(__cpu_up_stack_pointer[hartid],
- 		  task_stack_page(tidle) + THREAD_SIZE);
--	WRITE_ONCE(__cpu_up_task_pointer[cpu], tidle);
-+	WRITE_ONCE(__cpu_up_task_pointer[hartid], tidle);
+@@ -395,6 +385,8 @@ static void __init bootmem_init(void)
+ 	init_initrd();
+ 	reserved_end = (unsigned long) PFN_UP(__pa_symbol(&_end));
  
- 	while (!cpu_online(cpu))
- 		cpu_relax();
-diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
-index ad7453fc..084e97dc 100644
---- a/drivers/clocksource/riscv_timer.c
-+++ b/drivers/clocksource/riscv_timer.c
-@@ -8,6 +8,7 @@
- #include <linux/cpu.h>
- #include <linux/delay.h>
- #include <linux/irq.h>
-+#include <asm/smp.h>
- #include <asm/sbi.h>
- 
- /*
-@@ -84,13 +85,16 @@ void riscv_timer_interrupt(void)
- 
- static int __init riscv_timer_init_dt(struct device_node *n)
- {
--	int cpu_id = riscv_of_processor_hartid(n), error;
-+	int cpuid, hartid, error;
- 	struct clocksource *cs;
- 
--	if (cpu_id != smp_processor_id())
-+	hartid = riscv_of_processor_hartid(n);
-+	cpuid = riscv_hartid_to_cpuid(hartid);
++	memblock_reserve(PHYS_OFFSET, reserved_end << PAGE_SHIFT);
 +
-+	if (cpuid != smp_processor_id())
- 		return 0;
- 
--	cs = per_cpu_ptr(&riscv_clocksource, cpu_id);
-+	cs = per_cpu_ptr(&riscv_clocksource, cpuid);
- 	clocksource_register_hz(cs, riscv_timebase);
- 
- 	error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
-@@ -98,7 +102,7 @@ static int __init riscv_timer_init_dt(struct device_node *n)
- 			 riscv_timer_starting_cpu, riscv_timer_dying_cpu);
- 	if (error)
- 		pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
--		       error, cpu_id);
-+		       error, cpuid);
- 	return error;
- }
- 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index c55eaa31..357e9daf 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -15,6 +15,7 @@
- #include <linux/of_irq.h>
- #include <linux/platform_device.h>
- #include <linux/spinlock.h>
-+#include <asm/smp.h>
- 
- /*
-  * This driver implements a version of the RISC-V PLIC with the actual layout
-@@ -218,7 +219,7 @@ static int __init plic_init(struct device_node *node,
- 		struct of_phandle_args parent;
- 		struct plic_handler *handler;
- 		irq_hw_number_t hwirq;
--		int cpu;
-+		int cpu, hartid;
- 
- 		if (of_irq_parse_one(node, i, &parent)) {
- 			pr_err("failed to parse parent for context %d.\n", i);
-@@ -229,12 +230,13 @@ static int __init plic_init(struct device_node *node,
- 		if (parent.args[0] == -1)
+ 	/*
+ 	 * max_low_pfn is not a number of pages. The number of pages
+ 	 * of the system is given by 'max_low_pfn - min_low_pfn'.
+@@ -442,9 +434,6 @@ static void __init bootmem_init(void)
+ 		if (initrd_end && end <= (unsigned long)PFN_UP(__pa(initrd_end)))
  			continue;
+ #endif
+-		if (start >= mapstart)
+-			continue;
+-		mapstart = max(reserved_end, start);
+ 	}
  
--		cpu = plic_find_hart_id(parent.np);
--		if (cpu < 0) {
-+		hartid = plic_find_hart_id(parent.np);
-+		if (hartid < 0) {
- 			pr_warn("failed to parse hart ID for context %d.\n", i);
+ 	if (min_low_pfn >= max_low_pfn)
+@@ -456,9 +445,11 @@ static void __init bootmem_init(void)
+ 	/*
+ 	 * Reserve any memory between the start of RAM and PHYS_OFFSET
+ 	 */
+-	if (ramstart > PHYS_OFFSET)
++	if (ramstart > PHYS_OFFSET) {
+ 		add_memory_region(PHYS_OFFSET, ramstart - PHYS_OFFSET,
+ 				  BOOT_MEM_RESERVED);
++		memblock_reserve(PHYS_OFFSET, ramstart - PHYS_OFFSET);
++	}
+ 
+ 	if (min_low_pfn > ARCH_PFN_OFFSET) {
+ 		pr_info("Wasting %lu bytes for tracking %lu unused pages\n",
+@@ -483,52 +474,6 @@ static void __init bootmem_init(void)
+ 		max_low_pfn = PFN_DOWN(HIGHMEM_START);
+ 	}
+ 
+-#ifdef CONFIG_BLK_DEV_INITRD
+-	/*
+-	 * mapstart should be after initrd_end
+-	 */
+-	if (initrd_end)
+-		mapstart = max(mapstart, (unsigned long)PFN_UP(__pa(initrd_end)));
+-#endif
+-
+-	/*
+-	 * check that mapstart doesn't overlap with any of
+-	 * memory regions that have been reserved through eg. DTB
+-	 */
+-	bootmap_size = bootmap_bytes(max_low_pfn - min_low_pfn);
+-
+-	bootmap_valid = memory_region_available(PFN_PHYS(mapstart),
+-						bootmap_size);
+-	for (i = 0; i < boot_mem_map.nr_map && !bootmap_valid; i++) {
+-		unsigned long mapstart_addr;
+-
+-		switch (boot_mem_map.map[i].type) {
+-		case BOOT_MEM_RESERVED:
+-			mapstart_addr = PFN_ALIGN(boot_mem_map.map[i].addr +
+-						boot_mem_map.map[i].size);
+-			if (PHYS_PFN(mapstart_addr) < mapstart)
+-				break;
+-
+-			bootmap_valid = memory_region_available(mapstart_addr,
+-								bootmap_size);
+-			if (bootmap_valid)
+-				mapstart = PHYS_PFN(mapstart_addr);
+-			break;
+-		default:
+-			break;
+-		}
+-	}
+-
+-	if (!bootmap_valid)
+-		panic("No memory area to place a bootmap bitmap");
+-
+-	/*
+-	 * Initialize the boot-time allocator with low memory only.
+-	 */
+-	if (bootmap_size != init_bootmem_node(NODE_DATA(0), mapstart,
+-					 min_low_pfn, max_low_pfn))
+-		panic("Unexpected memory size required for bootmap");
+-
+ 	for (i = 0; i < boot_mem_map.nr_map; i++) {
+ 		unsigned long start, end;
+ 
+@@ -577,9 +522,9 @@ static void __init bootmem_init(void)
+ 		default:
+ 			/* Not usable memory */
+ 			if (start > min_low_pfn && end < max_low_pfn)
+-				reserve_bootmem(boot_mem_map.map[i].addr,
+-						boot_mem_map.map[i].size,
+-						BOOTMEM_DEFAULT);
++				memblock_reserve(boot_mem_map.map[i].addr,
++						boot_mem_map.map[i].size);
++
  			continue;
  		}
  
-+		cpu = riscv_hartid_to_cpuid(hartid);
- 		handler = per_cpu_ptr(&plic_handlers, cpu);
- 		handler->present = true;
- 		handler->ctxid = i;
+@@ -602,15 +547,9 @@ static void __init bootmem_init(void)
+ 		size = end - start;
+ 
+ 		/* Register lowmem ranges */
+-		free_bootmem(PFN_PHYS(start), size << PAGE_SHIFT);
+ 		memory_present(0, start, end);
+ 	}
+ 
+-	/*
+-	 * Reserve the bootmap memory.
+-	 */
+-	reserve_bootmem(PFN_PHYS(mapstart), bootmap_size, BOOTMEM_DEFAULT);
+-
+ #ifdef CONFIG_RELOCATABLE
+ 	/*
+ 	 * The kernel reserves all memory below its _end symbol as bootmem,
+@@ -907,21 +846,29 @@ static void __init arch_mem_init(char **cmdline_p)
+ 	early_init_fdt_scan_reserved_mem();
+ 
+ 	bootmem_init();
++
++	/*
++	 * Prevent memblock from allocating high memory.
++	 * This cannot be done before max_low_pfn is detected, so up
++	 * to this point is possible to only reserve physical memory
++	 * with memblock_reserve; memblock_virt_alloc* can be used
++	 * only after this point
++	 */
++	memblock_set_current_limit(PFN_PHYS(max_low_pfn));
++
+ #ifdef CONFIG_PROC_VMCORE
+ 	if (setup_elfcorehdr && setup_elfcorehdr_size) {
+ 		printk(KERN_INFO "kdump reserved memory@%lx-%lx\n",
+ 		       setup_elfcorehdr, setup_elfcorehdr_size);
+-		reserve_bootmem(setup_elfcorehdr, setup_elfcorehdr_size,
+-				BOOTMEM_DEFAULT);
++		memblock_reserve(setup_elfcorehdr, setup_elfcorehdr_size);
+ 	}
+ #endif
+ 
+ 	mips_parse_crashkernel();
+ #ifdef CONFIG_KEXEC
+ 	if (crashk_res.start != crashk_res.end)
+-		reserve_bootmem(crashk_res.start,
+-				crashk_res.end - crashk_res.start + 1,
+-				BOOTMEM_DEFAULT);
++		memblock_reserve(crashk_res.start,
++				 crashk_res.end - crashk_res.start + 1);
+ #endif
+ 	device_tree_init();
+ 	sparse_init();
+@@ -931,7 +878,7 @@ static void __init arch_mem_init(char **cmdline_p)
+ 	/* Tell bootmem about cma reserved memblock section */
+ 	for_each_memblock(reserved, reg)
+ 		if (reg->size != 0)
+-			reserve_bootmem(reg->base, reg->size, BOOTMEM_DEFAULT);
++			memblock_reserve(reg->base, reg->size);
+ 
+ 	reserve_bootmem_region(__pa_symbol(&__nosave_begin),
+ 			__pa_symbol(&__nosave_end)); /* Reserve for hibernation */
+diff --git a/arch/mips/kernel/traps.c b/arch/mips/kernel/traps.c
+index 576aeef..5feef28 100644
+--- a/arch/mips/kernel/traps.c
++++ b/arch/mips/kernel/traps.c
+@@ -29,6 +29,7 @@
+ #include <linux/spinlock.h>
+ #include <linux/kallsyms.h>
+ #include <linux/bootmem.h>
++#include <linux/memblock.h>
+ #include <linux/interrupt.h>
+ #include <linux/ptrace.h>
+ #include <linux/kgdb.h>
+@@ -2260,8 +2261,10 @@ void __init trap_init(void)
+ 		unsigned long size = 0x200 + VECTORSPACING*64;
+ 		phys_addr_t ebase_pa;
+ 
++		memblock_set_bottom_up(true);
+ 		ebase = (unsigned long)
+ 			__alloc_bootmem(size, 1 << fls(size), 0);
++		memblock_set_bottom_up(false);
+ 
+ 		/*
+ 		 * Try to ensure ebase resides in KSeg0 if possible.
+diff --git a/arch/mips/loongson64/loongson-3/numa.c b/arch/mips/loongson64/loongson-3/numa.c
+index 9717106..c1e6ec5 100644
+--- a/arch/mips/loongson64/loongson-3/numa.c
++++ b/arch/mips/loongson64/loongson-3/numa.c
+@@ -180,43 +180,39 @@ static void __init szmem(unsigned int node)
+ 
+ static void __init node_mem_init(unsigned int node)
+ {
+-	unsigned long bootmap_size;
+ 	unsigned long node_addrspace_offset;
+-	unsigned long start_pfn, end_pfn, freepfn;
++	unsigned long start_pfn, end_pfn;
+ 
+ 	node_addrspace_offset = nid_to_addroffset(node);
+ 	pr_info("Node%d's addrspace_offset is 0x%lx\n",
+ 			node, node_addrspace_offset);
+ 
+ 	get_pfn_range_for_nid(node, &start_pfn, &end_pfn);
+-	freepfn = start_pfn;
+-	if (node == 0)
+-		freepfn = PFN_UP(__pa_symbol(&_end)); /* kernel end address */
+-	pr_info("Node%d: start_pfn=0x%lx, end_pfn=0x%lx, freepfn=0x%lx\n",
+-		node, start_pfn, end_pfn, freepfn);
++	pr_info("Node%d: start_pfn=0x%lx, end_pfn=0x%lx\n",
++		node, start_pfn, end_pfn);
+ 
+ 	__node_data[node] = prealloc__node_data + node;
+ 
+-	NODE_DATA(node)->bdata = &bootmem_node_data[node];
+ 	NODE_DATA(node)->node_start_pfn = start_pfn;
+ 	NODE_DATA(node)->node_spanned_pages = end_pfn - start_pfn;
+ 
+-	bootmap_size = init_bootmem_node(NODE_DATA(node), freepfn,
+-					start_pfn, end_pfn);
+ 	free_bootmem_with_active_regions(node, end_pfn);
+-	if (node == 0) /* used by finalize_initrd() */
++
++	if (node == 0) {
++		/* kernel end address */
++		unsigned long kernel_end_pfn = PFN_UP(__pa_symbol(&_end));
++
++		/* used by finalize_initrd() */
+ 		max_low_pfn = end_pfn;
+ 
+-	/* This is reserved for the kernel and bdata->node_bootmem_map */
+-	reserve_bootmem_node(NODE_DATA(node), start_pfn << PAGE_SHIFT,
+-		((freepfn - start_pfn) << PAGE_SHIFT) + bootmap_size,
+-		BOOTMEM_DEFAULT);
++		/* Reserve the kernel text/data/bss */
++		memblock_reserve(start_pfn << PAGE_SHIFT,
++				 ((kernel_end_pfn - start_pfn) << PAGE_SHIFT));
+ 
+-	if (node == 0 && node_end_pfn(0) >= (0xffffffff >> PAGE_SHIFT)) {
+ 		/* Reserve 0xfe000000~0xffffffff for RS780E integrated GPU */
+-		reserve_bootmem_node(NODE_DATA(node),
+-				(node_addrspace_offset | 0xfe000000),
+-				32 << 20, BOOTMEM_DEFAULT);
++		if (node_end_pfn(0) >= (0xffffffff >> PAGE_SHIFT))
++			memblock_reserve((node_addrspace_offset | 0xfe000000),
++					 32 << 20);
+ 	}
+ 
+ 	sparse_memory_present_with_active_regions(node);
+diff --git a/arch/mips/sgi-ip27/ip27-memory.c b/arch/mips/sgi-ip27/ip27-memory.c
+index 59133d0a..6f7bef0 100644
+--- a/arch/mips/sgi-ip27/ip27-memory.c
++++ b/arch/mips/sgi-ip27/ip27-memory.c
+@@ -389,7 +389,6 @@ static void __init node_mem_init(cnodeid_t node)
+ {
+ 	unsigned long slot_firstpfn = slot_getbasepfn(node, 0);
+ 	unsigned long slot_freepfn = node_getfirstfree(node);
+-	unsigned long bootmap_size;
+ 	unsigned long start_pfn, end_pfn;
+ 
+ 	get_pfn_range_for_nid(node, &start_pfn, &end_pfn);
+@@ -400,7 +399,6 @@ static void __init node_mem_init(cnodeid_t node)
+ 	__node_data[node] = __va(slot_freepfn << PAGE_SHIFT);
+ 	memset(__node_data[node], 0, PAGE_SIZE);
+ 
+-	NODE_DATA(node)->bdata = &bootmem_node_data[node];
+ 	NODE_DATA(node)->node_start_pfn = start_pfn;
+ 	NODE_DATA(node)->node_spanned_pages = end_pfn - start_pfn;
+ 
+@@ -409,12 +407,11 @@ static void __init node_mem_init(cnodeid_t node)
+ 	slot_freepfn += PFN_UP(sizeof(struct pglist_data) +
+ 			       sizeof(struct hub_data));
+ 
+-	bootmap_size = init_bootmem_node(NODE_DATA(node), slot_freepfn,
+-					start_pfn, end_pfn);
+ 	free_bootmem_with_active_regions(node, end_pfn);
+-	reserve_bootmem_node(NODE_DATA(node), slot_firstpfn << PAGE_SHIFT,
+-		((slot_freepfn - slot_firstpfn) << PAGE_SHIFT) + bootmap_size,
+-		BOOTMEM_DEFAULT);
++
++	memblock_reserve(slot_firstpfn << PAGE_SHIFT,
++			 ((slot_freepfn - slot_firstpfn) << PAGE_SHIFT));
++
+ 	sparse_memory_present_with_active_regions(node);
+ }
+ 
 -- 
 2.7.4
