@@ -1,117 +1,78 @@
 From: rppt@linux.vnet.ibm.com (Mike Rapoport)
-Date: Fri, 14 Sep 2018 15:10:45 +0300
-Subject: [PATCH 30/30] docs/boot-time-mm: remove bootmem documentation
+Date: Fri, 14 Sep 2018 15:10:41 +0300
+Subject: [PATCH 26/30] memblock: rename __free_pages_bootmem to
+ memblock_free_pages
 In-Reply-To: <1536927045-23536-1-git-send-email-rppt@linux.vnet.ibm.com>
 References: <1536927045-23536-1-git-send-email-rppt@linux.vnet.ibm.com>
-Message-ID: <1536927045-23536-31-git-send-email-rppt@linux.vnet.ibm.com>
+Message-ID: <1536927045-23536-27-git-send-email-rppt@linux.vnet.ibm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Signed-off-by: Mike Rapoport <rppt@linux.vnet.ibm.com>
----
- Documentation/core-api/boot-time-mm.rst | 71 +++++----------------------------
- 1 file changed, 10 insertions(+), 61 deletions(-)
+The conversion is done using
 
-diff --git a/Documentation/core-api/boot-time-mm.rst b/Documentation/core-api/boot-time-mm.rst
-index 03cb164..e5ec9f1 100644
---- a/Documentation/core-api/boot-time-mm.rst
-+++ b/Documentation/core-api/boot-time-mm.rst
-@@ -5,54 +5,23 @@ Boot time memory management
- Early system initialization cannot use "normal" memory management
- simply because it is not set up yet. But there is still need to
- allocate memory for various data structures, for instance for the
--physical page allocator. To address this, a specialized allocator
--called the :ref:`Boot Memory Allocator <bootmem>`, or bootmem, was
--introduced. Several years later PowerPC developers added a "Logical
--Memory Blocks" allocator, which was later adopted by other
--architectures and renamed to :ref:`memblock <memblock>`. There is also
--a compatibility layer called `nobootmem` that translates bootmem
--allocation interfaces to memblock calls.
-+physical page allocator.
+sed -i 's at __free_pages_bootmem@memblock_free_pages@' \
+    $(git grep -l __free_pages_bootmem)
+
+Signed-off-by: Mike Rapoport <rppt@linux.vnet.ibm.com>
+Acked-by: Michal Hocko <mhocko@suse.com>
+---
+ mm/internal.h   | 2 +-
+ mm/memblock.c   | 2 +-
+ mm/nobootmem.c  | 2 +-
+ mm/page_alloc.c | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/mm/internal.h b/mm/internal.h
+index 87256ae..291eb2b 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -161,7 +161,7 @@ static inline struct page *pageblock_pfn_to_page(unsigned long start_pfn,
+ }
  
--The selection of the early allocator is done using
--``CONFIG_NO_BOOTMEM`` and ``CONFIG_HAVE_MEMBLOCK`` kernel
--configuration options. These options are enabled or disabled
--statically by the architectures' Kconfig files.
--
--* Architectures that rely only on bootmem select
--  ``CONFIG_NO_BOOTMEM=n && CONFIG_HAVE_MEMBLOCK=n``.
--* The users of memblock with the nobootmem compatibility layer set
--  ``CONFIG_NO_BOOTMEM=y && CONFIG_HAVE_MEMBLOCK=y``.
--* And for those that use both memblock and bootmem the configuration
--  includes ``CONFIG_NO_BOOTMEM=n && CONFIG_HAVE_MEMBLOCK=y``.
--
--Whichever allocator is used, it is the responsibility of the
--architecture specific initialization to set it up in
--:c:func:`setup_arch` and tear it down in :c:func:`mem_init` functions.
-+A specialized allocator called ``memblock`` performs the
-+boot time memory management. The architecture specific initialization
-+must set it up in :c:func:`setup_arch` and tear it down in
-+:c:func:`mem_init` functions.
+ extern int __isolate_free_page(struct page *page, unsigned int order);
+-extern void __free_pages_bootmem(struct page *page, unsigned long pfn,
++extern void memblock_free_pages(struct page *page, unsigned long pfn,
+ 					unsigned int order);
+ extern void prep_compound_page(struct page *page, unsigned int order);
+ extern void post_alloc_hook(struct page *page, unsigned int order,
+diff --git a/mm/memblock.c b/mm/memblock.c
+index 1534edb..a2cd61d 100644
+--- a/mm/memblock.c
++++ b/mm/memblock.c
+@@ -1615,7 +1615,7 @@ void __init __memblock_free_late(phys_addr_t base, phys_addr_t size)
+ 	end = PFN_DOWN(base + size);
  
- Once the early memory management is available it offers a variety of
- functions and macros for memory allocations. The allocation request
- may be directed to the first (and probably the only) node or to a
- particular node in a NUMA system. There are API variants that panic
--when an allocation fails and those that don't. And more recent and
--advanced memblock even allows controlling its own behaviour.
--
--.. _bootmem:
--
--Bootmem
--=======
--
--(mostly stolen from Mel Gorman's "Understanding the Linux Virtual
--Memory Manager" `book`_)
--
--.. _book: https://www.kernel.org/doc/gorman/
--
--.. kernel-doc:: mm/bootmem.c
--   :doc: bootmem overview
-+when an allocation fails and those that don't.
+ 	for (; cursor < end; cursor++) {
+-		__free_pages_bootmem(pfn_to_page(cursor), cursor, 0);
++		memblock_free_pages(pfn_to_page(cursor), cursor, 0);
+ 		totalram_pages++;
+ 	}
+ }
+diff --git a/mm/nobootmem.c b/mm/nobootmem.c
+index bb64b09..9608bc5 100644
+--- a/mm/nobootmem.c
++++ b/mm/nobootmem.c
+@@ -43,7 +43,7 @@ static void __init __free_pages_memory(unsigned long start, unsigned long end)
+ 		while (start + (1UL << order) > end)
+ 			order--;
  
--.. _memblock:
-+Memblock also offers a variety of APIs that control its own behaviour.
+-		__free_pages_bootmem(pfn_to_page(start), start, order);
++		memblock_free_pages(pfn_to_page(start), start, order);
  
--Memblock
--========
-+Memblock Overview
-+=================
+ 		start += (1UL << order);
+ 	}
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index 13e394c..f4a8bc8 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -1334,7 +1334,7 @@ meminit_pfn_in_nid(unsigned long pfn, int node,
+ #endif
  
- .. kernel-doc:: mm/memblock.c
-    :doc: memblock overview
-@@ -61,26 +30,6 @@ Memblock
- Functions and structures
- ========================
  
--Common API
------------
--
--The functions that are described in this section are available
--regardless of what early memory manager is enabled.
--
--.. kernel-doc:: mm/nobootmem.c
--
--Bootmem specific API
----------------------
--
--These interfaces available only with bootmem, i.e when ``CONFIG_NO_BOOTMEM=n``
--
--.. kernel-doc:: include/linux/bootmem.h
--.. kernel-doc:: mm/bootmem.c
--   :nodocs:
--
--Memblock specific API
-----------------------
--
- Here is the description of memblock data structures, functions and
- macros. Some of them are actually internal, but since they are
- documented it would be silly to omit them. Besides, reading the
-@@ -89,4 +38,4 @@ really happens under the hood.
- 
- .. kernel-doc:: include/linux/memblock.h
- .. kernel-doc:: mm/memblock.c
--   :nodocs:
-+   :functions:
+-void __init __free_pages_bootmem(struct page *page, unsigned long pfn,
++void __init memblock_free_pages(struct page *page, unsigned long pfn,
+ 							unsigned int order)
+ {
+ 	if (early_page_uninitialised(pfn))
 -- 
 2.7.4
