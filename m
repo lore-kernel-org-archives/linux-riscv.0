@@ -1,48 +1,50 @@
 From: rppt@linux.vnet.ibm.com (Mike Rapoport)
-Date: Fri, 14 Sep 2018 15:10:27 +0300
-Subject: [PATCH 12/30] memblock: replace alloc_bootmem_low with
- memblock_alloc_low
+Date: Fri, 14 Sep 2018 15:10:29 +0300
+Subject: [PATCH 14/30] memblock: add align parameter to memblock_alloc_node()
 In-Reply-To: <1536927045-23536-1-git-send-email-rppt@linux.vnet.ibm.com>
 References: <1536927045-23536-1-git-send-email-rppt@linux.vnet.ibm.com>
-Message-ID: <1536927045-23536-13-git-send-email-rppt@linux.vnet.ibm.com>
+Message-ID: <1536927045-23536-15-git-send-email-rppt@linux.vnet.ibm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The alloc_bootmem_low(size) allocates low memory with default alignement
-and can be replcaed by memblock_alloc_low(size, 0)
+With the align parameter memblock_alloc_node() can be used as drop in
+replacement for alloc_bootmem_pages_node() and __alloc_bootmem_node(),
+which is done in the following patches.
 
 Signed-off-by: Mike Rapoport <rppt@linux.vnet.ibm.com>
-Acked-by: Michal Hocko <mhocko@suse.com>
 ---
- arch/arm64/kernel/setup.c     | 2 +-
- arch/unicore32/kernel/setup.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ include/linux/bootmem.h | 4 ++--
+ mm/sparse.c             | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-index 5b4fac4..cf7a7b7 100644
---- a/arch/arm64/kernel/setup.c
-+++ b/arch/arm64/kernel/setup.c
-@@ -213,7 +213,7 @@ static void __init request_standard_resources(void)
- 	kernel_data.end     = __pa_symbol(_end - 1);
+diff --git a/include/linux/bootmem.h b/include/linux/bootmem.h
+index 7d91f0f..3896af2 100644
+--- a/include/linux/bootmem.h
++++ b/include/linux/bootmem.h
+@@ -157,9 +157,9 @@ static inline void * __init memblock_alloc_from_nopanic(
+ }
  
- 	for_each_memblock(memory, region) {
--		res = alloc_bootmem_low(sizeof(*res));
-+		res = memblock_alloc_low(sizeof(*res), 0);
- 		if (memblock_is_nomap(region)) {
- 			res->name  = "reserved";
- 			res->flags = IORESOURCE_MEM;
-diff --git a/arch/unicore32/kernel/setup.c b/arch/unicore32/kernel/setup.c
-index c2bffa5..9f163f9 100644
---- a/arch/unicore32/kernel/setup.c
-+++ b/arch/unicore32/kernel/setup.c
-@@ -207,7 +207,7 @@ request_standard_resources(struct meminfo *mi)
- 		if (mi->bank[i].size == 0)
- 			continue;
+ static inline void * __init memblock_alloc_node(
+-						phys_addr_t size, int nid)
++		phys_addr_t size, phys_addr_t align, int nid)
+ {
+-	return memblock_alloc_try_nid(size, 0, BOOTMEM_LOW_LIMIT,
++	return memblock_alloc_try_nid(size, align, BOOTMEM_LOW_LIMIT,
+ 					    BOOTMEM_ALLOC_ACCESSIBLE, nid);
+ }
  
--		res = alloc_bootmem_low(sizeof(*res));
-+		res = memblock_alloc_low(sizeof(*res), 0);
- 		res->name  = "System RAM";
- 		res->start = mi->bank[i].start;
- 		res->end   = mi->bank[i].start + mi->bank[i].size - 1;
+diff --git a/mm/sparse.c b/mm/sparse.c
+index 04e97af..509828f 100644
+--- a/mm/sparse.c
++++ b/mm/sparse.c
+@@ -68,7 +68,7 @@ static noinline struct mem_section __ref *sparse_index_alloc(int nid)
+ 	if (slab_is_available())
+ 		section = kzalloc_node(array_size, GFP_KERNEL, nid);
+ 	else
+-		section = memblock_alloc_node(array_size, nid);
++		section = memblock_alloc_node(array_size, 0, nid);
+ 
+ 	return section;
+ }
 -- 
 2.7.4
