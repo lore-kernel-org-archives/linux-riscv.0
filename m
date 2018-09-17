@@ -1,42 +1,64 @@
-From: anup@brainfault.org (Anup Patel)
-Date: Mon, 17 Sep 2018 19:58:21 +0530
-Subject: [PATCH v2 3/5] irqchip: RISC-V Local Interrupt Controller Driver
-In-Reply-To: <20180917141436.GB2821@infradead.org>
-References: <alpine.DEB.2.21.1809101533330.1292@nanos.tec.linutronix.de>
- <alpine.DEB.2.21.1809101536410.1292@nanos.tec.linutronix.de>
- <20180910133902.GB21593@infradead.org>
- <alpine.DEB.2.21.1809101544560.1292@nanos.tec.linutronix.de>
- <20180910134915.GB30774@infradead.org>
- <CAAhSdy1be_ibiowifBdgBZjbHuFU=CR4rZXQDwQghVYkex5bMg@mail.gmail.com>
- <20180910161328.GA13171@infradead.org>
- <CAAhSdy2Y-XTZ12i5aV+SzraMZP1YQBhAArpER-YssPcBJNOPOA@mail.gmail.com>
- <20180910163543.GA13052@infradead.org>
- <CAAhSdy2PSLjrtmSbkJ4w-v-zWm2hjii3XL6HE5Pe7u3wz4BmZA@mail.gmail.com>
- <20180917141436.GB2821@infradead.org>
-Message-ID: <CAAhSdy1gD3tZLmBzfpJV1qQKsG4GKgLkoBC7v5Kycw8KX+YeLg@mail.gmail.com>
+From: hch@infradead.org (Christoph Hellwig)
+Date: Mon, 17 Sep 2018 07:35:50 -0700
+Subject: [RFC 3/3] RISC-V: Remove per cpu clocksource
+In-Reply-To: <1536962096-233842-4-git-send-email-atish.patra@wdc.com>
+References: <1536962096-233842-1-git-send-email-atish.patra@wdc.com>
+ <1536962096-233842-4-git-send-email-atish.patra@wdc.com>
+Message-ID: <20180917143550.GC15588@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Sep 17, 2018 at 7:44 PM Christoph Hellwig <hch@infradead.org> wrote:
->
-> On Mon, Sep 10, 2018 at 10:08:58PM +0530, Anup Patel wrote:
-> > > They could in theory IFF someone actually get the use case through
-> > > the riscv privileged spec working group.
-> >
-> > Their is no point in having each and every possible local interrupts
-> > defined by RISC-V spec because some of these will be CPU
-> > implementation specific in which case these local interrupts will
-> > be described in platform specific DT passed to Linux.
->
-> Again, to legally have implementation specific local interrupt types
-> you'll first need to convice the spec to change the status for those
-> fields from reserved to implementation specific.
+I think only having one clocksource is indeed the right thing.
 
-I agree, this needs to be first clarified in RISC-V spec. May be this is
-a good topic for discussion in any upcoming RISC-V meetup.
+But that makes the whole TIMER_OF_DECLARE for each hart (cpu core for
+those not RISC-V savvy) even more questionable than it already is.
 
-Until then anyone can try these patches from riscv_intc_v2 branch of
-https://github.com/avpatel/linux
+I think we should just initialize the clocksource directly as it is
+architectually guaranteed to exist.  Below is a completely untested
+(not even compiled) version of your patch that does what I think
+we should be doing here.  But I'd rather hear from more timer and/or
+DT savvy folks before proceeding.
 
-Regards,
-Anup
+diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
+index 4e8b347e43e2..2fe497c67283 100644
+--- a/drivers/clocksource/riscv_timer.c
++++ b/drivers/clocksource/riscv_timer.c
+@@ -48,7 +48,7 @@ static unsigned long long riscv_clocksource_rdtime(struct clocksource *cs)
+ 	return get_cycles64();
+ }
+ 
+-static DEFINE_PER_CPU(struct clocksource, riscv_clocksource) = {
++static struct clocksource, riscv_clocksource = {
+ 	.name		= "riscv_clocksource",
+ 	.rating		= 300,
+ 	.mask		= CLOCKSOURCE_MASK(BITS_PER_LONG),
+@@ -82,24 +82,16 @@ void riscv_timer_interrupt(void)
+ 	evdev->event_handler(evdev);
+ }
+ 
+-static int __init riscv_timer_init_dt(struct device_node *n)
++static int __init riscv_timer_init(void)
+ {
+-	int cpu_id = riscv_of_processor_hart(n), error;
+-	struct clocksource *cs;
+-
+-	if (cpu_id != smp_processor_id())
+-		return 0;
+-
+-	cs = per_cpu_ptr(&riscv_clocksource, cpu_id);
+-	clocksource_register_hz(cs, riscv_timebase);
++	int error;
+ 
++	clocksource_register_hz(&riscv_clocksource, riscv_timebase);
+ 	error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
+ 			 "clockevents/riscv/timer:starting",
+ 			 riscv_timer_starting_cpu, riscv_timer_dying_cpu);
+ 	if (error)
+-		pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
+-		       error, cpu_id);
++		pr_err("RISCV timer register failed: %d.\n", error);
+ 	return error;
+ }
+-
+-TIMER_OF_DECLARE(riscv_timer, "riscv", riscv_timer_init_dt);
++core_initcall(riscv_timer_init);
