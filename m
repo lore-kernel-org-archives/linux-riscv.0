@@ -1,42 +1,48 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Mon, 17 Sep 2018 11:03:34 -0700
-Subject: RISC-V Microconferece at LPC 2018
-In-Reply-To: <a62b828f-b129-0c98-5ef8-768be3b26fa6@wdc.com>
-References: <a62b828f-b129-0c98-5ef8-768be3b26fa6@wdc.com>
-Message-ID: <5838bd23-7a06-aed4-2c7c-534d68ffc17a@wdc.com>
+Date: Mon, 17 Sep 2018 11:32:31 -0700
+Subject: [RFC 3/3] RISC-V: Remove per cpu clocksource
+In-Reply-To: <20180917150149.GA25348@infradead.org>
+References: <1536962096-233842-1-git-send-email-atish.patra@wdc.com>
+ <1536962096-233842-4-git-send-email-atish.patra@wdc.com>
+ <20180917143550.GC15588@infradead.org>
+ <alpine.DEB.2.21.1809171638560.16580@nanos.tec.linutronix.de>
+ <20180917150149.GA25348@infradead.org>
+Message-ID: <c1773efc-d087-6dc2-0ba4-a71c8ae991be@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 8/7/18 4:02 PM, Atish Patra wrote:
-> Hi,
-> We are planning to propose RISC-V Microconference at Linux Plumbers
-> 2018. Here is the draft proposal hosted in Google doc with some initial
-> topics and expected participant list.
+On 9/17/18 8:01 AM, Christoph Hellwig wrote:
+> On Mon, Sep 17, 2018 at 04:52:44PM +0200, Thomas Gleixner wrote:
+>> If this really does not need configuration and all actual implementations
+>> are not "allowed" to screw the timer up, then this surely can do without
+>> DT.
 > 
-> https://docs.google.com/document/d/1u89GAZHmb7_YbW_ZwBK14YNQNUl-BqW4aRCXL7Eb3mo/edit
+> That would be the plan.
 > 
-> If anybody is interested to attend the miniconf in case it gets
-> accepted, please let me know. I will update the confirmed participant list.
+>>
+>> Just for the record, this would be the first (architected) timer ever which
+>> just works. I'm having a hard time to believe this, but I'd certainly
+>> welcome it.
 > 
-> Moreover, if you would like to discuss any other topic during the
-> miniconf, feel free to edit the document or just reply to me with your
-> topic.
-> 
-> The conference venue and dates are available at
-> https://www.linuxplumbersconf.org/
-> 
-> Hope to see you at Plumbers 2018!! :) :)
-> 
-> Regards,
-> Atish
+> And that would be the contact with reality.  Note that the current
+> scheme which just matches for the riscv hart (aka cpu core) nodes
+> would not exactly help either.
 > 
 
-RISC-V microconference is now officialy accepted in LPC2018.
+I thought we will have a dedicated timer node (like all other arch) 
+sooner or later and we will just change TIMER_OF to match that node 
+instead of riscv hart.
 
-https://blog.linuxplumbersconf.org/2018/risc-v-microconference-accepted-for-linux-plumbers-conference/
-
-As the blog post says, please let us know if you are interested in 
-attending or discussing some other problems in RISC-V during the MC.
+In this way, we will not do something entirely different from any other 
+architecture.
 
 Regards,
 Atish
+>>
+>>> -TIMER_OF_DECLARE(riscv_timer, "riscv", riscv_timer_init_dt);
+>>> +core_initcall(riscv_timer_init);
+>>
+>> Are you sure that core_initcall is not too late?
+> 
+> No, I'm not at all.  This is just intended as a quick throw-away draft.
+> 
