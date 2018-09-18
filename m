@@ -1,37 +1,33 @@
 From: zongbox@gmail.com (Zong Li)
-Date: Tue, 18 Sep 2018 17:19:17 +0800
-Subject: [PATCH 5/5] RISC-V: Avoid corrupting the upper 32-bit of phys_addr_t
- in ioremap
+Date: Tue, 18 Sep 2018 17:19:14 +0800
+Subject: [PATCH 2/5] RISC-V: Use swiotlb on RV64 only
 In-Reply-To: <cover.1537260207.git.zongbox@gmail.com>
 References: <cover.1537260207.git.zongbox@gmail.com>
-Message-ID: <9fc325660fb1e0ef9133705f7c05784dcc12c0c2.1537260207.git.zongbox@gmail.com>
+Message-ID: <b9b943c21725db9822a787a1e985010012fc33b2.1537260207.git.zongbox@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-From: Vincent Chen <vincentc@andestech.com>
+Only RV64 supports swiotlb.
 
-For 32bit, the upper 32-bit of phys_addr_t will be flushed to zero
-after AND with PAGE_MASK because the data type of PAGE_MASK is
-unsigned long. To fix this problem, the page alignment is done by
-subtracting the page offset instead of AND with PAGE_MASK.
-
-Signed-off-by: Vincent Chen <vincentc@andestech.com>
+Signed-off-by: Zong Li <zong@andestech.com>
 ---
- arch/riscv/mm/ioremap.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/kernel/setup.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/riscv/mm/ioremap.c b/arch/riscv/mm/ioremap.c
-index 70ef272..bd2f2db 100644
---- a/arch/riscv/mm/ioremap.c
-+++ b/arch/riscv/mm/ioremap.c
-@@ -42,7 +42,7 @@ static void __iomem *__ioremap_caller(phys_addr_t addr, size_t size,
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index aee6031..872a280 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -227,7 +227,10 @@ void __init setup_arch(char **cmdline_p)
+ 	setup_bootmem();
+ 	paging_init();
+ 	unflatten_device_tree();
++
++#ifdef CONFIG_64bit
+ 	swiotlb_init(1);
++#endif
  
- 	/* Page-align mappings */
- 	offset = addr & (~PAGE_MASK);
--	addr &= PAGE_MASK;
-+	addr -= offset;
- 	size = PAGE_ALIGN(size + offset);
- 
- 	area = get_vm_area_caller(size, VM_IOREMAP, caller);
+ #ifdef CONFIG_SMP
+ 	setup_smp();
 -- 
 2.7.4
