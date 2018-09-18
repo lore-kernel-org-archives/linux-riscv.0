@@ -1,37 +1,32 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Mon, 17 Sep 2018 19:26:52 -0700
-Subject: [RFC 1/3] dt-bindings: Correct RISC-V's timebase-frequency
-In-Reply-To: <20180917142017.GA15588@infradead.org>
-References: <1536962096-233842-1-git-send-email-atish.patra@wdc.com>
- <1536962096-233842-2-git-send-email-atish.patra@wdc.com>
- <20180917142017.GA15588@infradead.org>
-Message-ID: <b397a711-90e8-8c35-c49a-8d60b129c384@wdc.com>
+From: zongbox@gmail.com (Zong Li)
+Date: Tue, 18 Sep 2018 17:19:12 +0800
+Subject: [PATCH 0/5] Fix some bugs on RV32 build fail and issue.
+Message-ID: <cover.1537260207.git.zongbox@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 9/17/18 7:20 AM, Christoph Hellwig wrote:
-> On Fri, Sep 14, 2018 at 02:54:54PM -0700, Atish Patra wrote:
->> From: Palmer Dabbelt <palmer@sifive.com>
->>
->> Someone must have read the device tree specification incorrectly,
->> because we were putting timebase-frequency in the wrong place.  This
->> corrects the issue, moving it from
-> 
-> Last time this was brought up we actually had realy life DTs with
-> the timebase-frequency under cpus and not the invidual cpu node.
-> 
+This patches fix up the building fail, less function and other issue on RV32.
 
-Unfortunately, it still is. I hope SiFive can publish the updated 
-firmware with correct DT entries. I can patch BBL to fix these DT issues 
-until the firmware update if that's accepted.
+Vincent Chen (1):
+  RISC-V: Avoid corrupting the upper 32-bit of phys_addr_t in ioremap
 
+Zong Li (4):
+  RISC-V: Build tishift only on 64-bit
+  RISC-V: Use swiotlb on RV64 only
+  lib: Add umoddi3 and udivmoddi4 of GCC library routines
+  RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
 
-> I think we need to just document both possibilities and live with
-> them.
-> 
-Yup. That was the intention. I will update the document/commit text to 
-reflect that.
+ arch/riscv/Kconfig        |   1 +
+ arch/riscv/kernel/setup.c |   3 +
+ arch/riscv/lib/Makefile   |   3 +-
+ arch/riscv/mm/ioremap.c   |   2 +-
+ lib/Kconfig               |   3 +
+ lib/Makefile              |   1 +
+ lib/udivmoddi4.c          | 291 ++++++++++++++++++++++++++++++++++++++++++++++
+ lib/umoddi3.c             |  16 +++
+ 8 files changed, 318 insertions(+), 2 deletions(-)
+ create mode 100644 lib/udivmoddi4.c
+ create mode 100644 lib/umoddi3.c
 
-
-Regards,
-Atish
+-- 
+2.7.4
