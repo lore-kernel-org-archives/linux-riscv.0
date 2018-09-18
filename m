@@ -1,33 +1,30 @@
 From: zongbox@gmail.com (Zong Li)
-Date: Tue, 18 Sep 2018 17:19:14 +0800
-Subject: [PATCH 2/5] RISC-V: Use swiotlb on RV64 only
+Date: Tue, 18 Sep 2018 17:19:16 +0800
+Subject: [PATCH 4/5] RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
 In-Reply-To: <cover.1537260207.git.zongbox@gmail.com>
 References: <cover.1537260207.git.zongbox@gmail.com>
-Message-ID: <b9b943c21725db9822a787a1e985010012fc33b2.1537260207.git.zongbox@gmail.com>
+Message-ID: <609ae2448aab79dea99888bf5c72d1eb9877c7c3.1537260207.git.zongbox@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Only RV64 supports swiotlb.
+On 32-bit, it need to use __umoddi3 by some drivers.
 
 Signed-off-by: Zong Li <zong@andestech.com>
 ---
- arch/riscv/kernel/setup.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index aee6031..872a280 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -227,7 +227,10 @@ void __init setup_arch(char **cmdline_p)
- 	setup_bootmem();
- 	paging_init();
- 	unflatten_device_tree();
-+
-+#ifdef CONFIG_64bit
- 	swiotlb_init(1);
-+#endif
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a344980..dc262fa 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -108,6 +108,7 @@ config ARCH_RV32I
+ 	select GENERIC_LIB_ASHRDI3
+ 	select GENERIC_LIB_LSHRDI3
+ 	select GENERIC_LIB_UCMPDI2
++	select GENERIC_LIB_UMODDI3
  
- #ifdef CONFIG_SMP
- 	setup_smp();
+ config ARCH_RV64I
+ 	bool "RV64I"
 -- 
 2.7.4
