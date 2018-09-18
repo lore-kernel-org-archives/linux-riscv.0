@@ -1,41 +1,31 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 18 Sep 2018 15:53:21 -0700 (PDT)
-Subject: [PATCH 14/21] riscv: use for_each_of_cpu_node iterator
-In-Reply-To: <20180905193738.19325-15-robh@kernel.org>
-Message-ID: <mhng-bec6b34b-dd05-410f-bbd2-3a60a196615d@palmer-si-x1c4>
+Date: Tue, 18 Sep 2018 15:53:20 -0700 (PDT)
+Subject: Unable to handle kernel paging request at virtual address
+ 0000001bf8068693
+In-Reply-To: <20180905190648.GC1420@infradead.org>
+Message-ID: <mhng-07deb823-671d-453c-ad4c-1cf6d11d49d7@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 05 Sep 2018 12:37:31 PDT (-0700), robh at kernel.org wrote:
-> Use the for_each_of_cpu_node iterator to iterate over cpu nodes. This
-> has the side effect of defaulting to iterating using "cpu" node names in
-> preference to the deprecated (for FDT) device_type == "cpu".
+On Wed, 05 Sep 2018 12:06:48 PDT (-0700), Christoph Hellwig wrote:
+> On Wed, Sep 05, 2018 at 10:17:08AM -0700, Atish Patra wrote:
+>> This issue is fixed in 4.19-rc1.
+>>
+>> If you don't want to pull the latest, here is the change you need to
+>> cherry-pick to your branch.
+>>
+>> https://lore.kernel.org/lkml/20180626192746.GJ3593 at linux.vnet.ibm.com/
 >
-> Cc: Palmer Dabbelt <palmer@sifive.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: linux-riscv at lists.infradead.org
-> Signed-off-by: Rob Herring <robh@kernel.org>
-> ---
-> Please ack and I will take via the DT tree. This is dependent on the
-> first 2 patches.
+> Paul, I think we need this in 4.18-stable.
 >
->  arch/riscv/kernel/smpboot.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Also Palmer, I think we should pick it up in riscv-linux-4.18.
 >
-> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> index 56abab6a9812..3c59afe67951 100644
-> --- a/arch/riscv/kernel/smpboot.c
-> +++ b/arch/riscv/kernel/smpboot.c
-> @@ -52,7 +52,7 @@ void __init setup_smp(void)
->  	struct device_node *dn = NULL;
->  	int hart, im_okay_therefore_i_am = 0;
+> The mainline commit is:
 >
-> -	while ((dn = of_find_node_by_type(dn, "cpu"))) {
-> +	for_each_of_cpu_node(dn) {
->  		hart = riscv_of_processor_hart(dn);
->  		if (hart >= 0) {
->  			set_cpu_possible(hart, true);
+> commit fcc63543650150629c8a873cbef3578770acecd9
+> Author: Boqun Feng <boqun.feng@gmail.com>
+> Date:   Fri Jun 15 12:06:31 2018 -0700
+>
+>     rcu: Make expedited GPs handle CPU 0 being offline
 
-Acked-by: Palmer Dabbelt <palmer@sifive.com>
-
-Thanks!
+I added it to riscv-linux-4.18.  Thanks!
