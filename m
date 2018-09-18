@@ -1,31 +1,37 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Mon, 17 Sep 2018 19:23:02 -0700
-Subject: [RFC 2/3] RISC-V:Support per-hart timebase-frequency
-In-Reply-To: <20180917142308.GB15588@infradead.org>
+Date: Mon, 17 Sep 2018 19:26:52 -0700
+Subject: [RFC 1/3] dt-bindings: Correct RISC-V's timebase-frequency
+In-Reply-To: <20180917142017.GA15588@infradead.org>
 References: <1536962096-233842-1-git-send-email-atish.patra@wdc.com>
- <1536962096-233842-3-git-send-email-atish.patra@wdc.com>
- <20180917142308.GB15588@infradead.org>
-Message-ID: <4d7c1d3d-df0b-df7c-aabd-8ce9fd9dc623@wdc.com>
+ <1536962096-233842-2-git-send-email-atish.patra@wdc.com>
+ <20180917142017.GA15588@infradead.org>
+Message-ID: <b397a711-90e8-8c35-c49a-8d60b129c384@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 9/17/18 7:23 AM, Christoph Hellwig wrote:
-> On Fri, Sep 14, 2018 at 02:54:55PM -0700, Atish Patra wrote:
->> Follow the updated DT specs and read the timebase-frequency
->> from the boot cpu. Keep the old DT reading as well for backward
->> compatibility. This patch is rework of old patch from Palmer.
+On 9/17/18 7:20 AM, Christoph Hellwig wrote:
+> On Fri, Sep 14, 2018 at 02:54:54PM -0700, Atish Patra wrote:
+>> From: Palmer Dabbelt <palmer@sifive.com>
 >>
->> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+>> Someone must have read the device tree specification incorrectly,
+>> because we were putting timebase-frequency in the wrong place.  This
+>> corrects the issue, moving it from
 > 
-> This setup looks a bit odd because it keeps blindly overwriting
-> riscv_timebase for every cpu found.  Shouldn't we at least check that
-> they all match for now as the rest of the port assumes that?
+> Last time this was brought up we actually had realy life DTs with
+> the timebase-frequency under cpus and not the invidual cpu node.
 > 
 
-It will be only updated for boot cpu as it is done after this check.
+Unfortunately, it still is. I hope SiFive can publish the updated 
+firmware with correct DT entries. I can patch BBL to fix these DT issues 
+until the firmware update if that's accepted.
 
-if (cpuid != smp_processor_id())
-  		return 0;
+
+> I think we need to just document both possibilities and live with
+> them.
+> 
+Yup. That was the intention. I will update the document/commit text to 
+reflect that.
+
 
 Regards,
 Atish
