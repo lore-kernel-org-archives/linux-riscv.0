@@ -1,48 +1,31 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Mon, 17 Sep 2018 11:32:31 -0700
-Subject: [RFC 3/3] RISC-V: Remove per cpu clocksource
-In-Reply-To: <20180917150149.GA25348@infradead.org>
+Date: Mon, 17 Sep 2018 19:23:02 -0700
+Subject: [RFC 2/3] RISC-V:Support per-hart timebase-frequency
+In-Reply-To: <20180917142308.GB15588@infradead.org>
 References: <1536962096-233842-1-git-send-email-atish.patra@wdc.com>
- <1536962096-233842-4-git-send-email-atish.patra@wdc.com>
- <20180917143550.GC15588@infradead.org>
- <alpine.DEB.2.21.1809171638560.16580@nanos.tec.linutronix.de>
- <20180917150149.GA25348@infradead.org>
-Message-ID: <c1773efc-d087-6dc2-0ba4-a71c8ae991be@wdc.com>
+ <1536962096-233842-3-git-send-email-atish.patra@wdc.com>
+ <20180917142308.GB15588@infradead.org>
+Message-ID: <4d7c1d3d-df0b-df7c-aabd-8ce9fd9dc623@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 9/17/18 8:01 AM, Christoph Hellwig wrote:
-> On Mon, Sep 17, 2018 at 04:52:44PM +0200, Thomas Gleixner wrote:
->> If this really does not need configuration and all actual implementations
->> are not "allowed" to screw the timer up, then this surely can do without
->> DT.
-> 
-> That would be the plan.
-> 
+On 9/17/18 7:23 AM, Christoph Hellwig wrote:
+> On Fri, Sep 14, 2018 at 02:54:55PM -0700, Atish Patra wrote:
+>> Follow the updated DT specs and read the timebase-frequency
+>> from the boot cpu. Keep the old DT reading as well for backward
+>> compatibility. This patch is rework of old patch from Palmer.
 >>
->> Just for the record, this would be the first (architected) timer ever which
->> just works. I'm having a hard time to believe this, but I'd certainly
->> welcome it.
+>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
 > 
-> And that would be the contact with reality.  Note that the current
-> scheme which just matches for the riscv hart (aka cpu core) nodes
-> would not exactly help either.
+> This setup looks a bit odd because it keeps blindly overwriting
+> riscv_timebase for every cpu found.  Shouldn't we at least check that
+> they all match for now as the rest of the port assumes that?
 > 
 
-I thought we will have a dedicated timer node (like all other arch) 
-sooner or later and we will just change TIMER_OF to match that node 
-instead of riscv hart.
+It will be only updated for boot cpu as it is done after this check.
 
-In this way, we will not do something entirely different from any other 
-architecture.
+if (cpuid != smp_processor_id())
+  		return 0;
 
 Regards,
 Atish
->>
->>> -TIMER_OF_DECLARE(riscv_timer, "riscv", riscv_timer_init_dt);
->>> +core_initcall(riscv_timer_init);
->>
->> Are you sure that core_initcall is not too late?
-> 
-> No, I'm not at all.  This is just intended as a quick throw-away draft.
-> 
