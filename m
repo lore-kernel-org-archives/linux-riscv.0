@@ -1,30 +1,119 @@
-From: schwab@suse.de (Andreas Schwab)
-Date: Wed, 19 Sep 2018 12:15:30 +0200
-Subject: Driver for HiFive-U MMC interface
-In-Reply-To: <3f299fc2-e38b-ccc9-2e29-c4a456f1fee6@wdc.com> (Atish Patra's
- message of "Wed, 19 Sep 2018 00:35:10 -0700")
-References: <mhng-4e7e9fe4-3a36-415e-a1a5-b41493b806b1@palmer-si-x1c4>
- <mvmd0tavtmp.fsf@suse.de>
- <3f299fc2-e38b-ccc9-2e29-c4a456f1fee6@wdc.com>
-Message-ID: <mvmworhvlml.fsf@suse.de>
+From: mick@ics.forth.gr (Nick Kossifidis)
+Date: Thu, 20 Sep 2018 01:48:15 +0300
+Subject: [PATCH] RISC-V: Cosmetic menuconfig changes
+Message-ID: <20180919224815.24688-1-mick@ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sep 19 2018, Atish Patra <atish.patra@wdc.com> wrote:
+* Move the built-in cmdline configuration on a new menu entry "Boot
+  options", it doesn't make much sense to be part of the debuging menu.
 
-> There were some network and DMA32 issues in 4.18. Here is my tree on top
-> of 4.19-rc2. I use this for booting Fedora Gnome Desktop as well.
->
-> https://github.com/atishp04/riscv-linux/tree/4.19_fedora_success_sep11
+* Rename "Kernel Type" menu to "Kernel features" to be more consistent with
+  what other architectures are using, plus "type" is a bit misleading here.
 
-Thanks, after cherry-picking the missing commits I have now a 4.19-rc4
-kernel that looks stable.
+Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
+---
+ arch/riscv/Kconfig       | 40 +++++++++++++++++++++++++++++++++++++++-
+ arch/riscv/Kconfig.debug | 35 -----------------------------------
+ 2 files changed, 39 insertions(+), 36 deletions(-)
 
-git://github.com/andreas-schwab/linux#riscv-4.19-rc4
-
-Andreas.
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a3449802..82172bf8 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -210,12 +210,50 @@ endmenu
+ 
+ endmenu
+ 
+-menu "Kernel type"
++menu "Kernel features"
+ 
+ source "kernel/Kconfig.hz"
+ 
+ endmenu
+ 
++menu "Boot options"
++
++config CMDLINE_BOOL
++	bool "Built-in kernel command line"
++	help
++	  For most platforms, it is firmware or second stage bootloader
++	  that by default specifies the kernel command line options.
++	  However, it might be necessary or advantageous to either override
++	  the default kernel command line or add a few extra options to it.
++	  For such cases, this option allows hardcoding command line options
++	  directly into the kernel.
++
++	  For that, choose 'Y' here and fill in the extra boot parameters
++	  in CONFIG_CMDLINE.
++
++	  The built-in options will be concatenated to the default command
++	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
++	  command line will be ignored and replaced by the built-in string.
++
++config CMDLINE
++	string "Built-in kernel command string"
++	depends on CMDLINE_BOOL
++	default ""
++	help
++	  Supply command-line options at build time by entering them here.
++
++config CMDLINE_FORCE
++	bool "Built-in command line overrides bootloader arguments"
++	depends on CMDLINE_BOOL
++	help
++	  Set this option to 'Y' to have the kernel ignore the bootloader
++	  or firmware command line.  Instead, the built-in command line
++	  will be used exclusively.
++
++	  If you don't know what to do here, say N.
++
++endmenu
++
+ menu "Bus support"
+ 
+ config PCI
+diff --git a/arch/riscv/Kconfig.debug b/arch/riscv/Kconfig.debug
+index 3224ff6e..c5a72f17 100644
+--- a/arch/riscv/Kconfig.debug
++++ b/arch/riscv/Kconfig.debug
+@@ -1,37 +1,2 @@
+-
+-config CMDLINE_BOOL
+-	bool "Built-in kernel command line"
+-	help
+-	  For most platforms, it is firmware or second stage bootloader
+-	  that by default specifies the kernel command line options.
+-	  However, it might be necessary or advantageous to either override
+-	  the default kernel command line or add a few extra options to it.
+-	  For such cases, this option allows hardcoding command line options
+-	  directly into the kernel.
+-
+-	  For that, choose 'Y' here and fill in the extra boot parameters
+-	  in CONFIG_CMDLINE.
+-
+-	  The built-in options will be concatenated to the default command
+-	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
+-	  command line will be ignored and replaced by the built-in string.
+-
+-config CMDLINE
+-	string "Built-in kernel command string"
+-	depends on CMDLINE_BOOL
+-	default ""
+-	help
+-	  Supply command-line options at build time by entering them here.
+-
+-config CMDLINE_FORCE
+-	bool "Built-in command line overrides bootloader arguments"
+-	depends on CMDLINE_BOOL
+-	help
+-	  Set this option to 'Y' to have the kernel ignore the bootloader
+-	  or firmware command line.  Instead, the built-in command line
+-	  will be used exclusively.
+-
+-	  If you don't know what to do here, say N.
+-
+ config EARLY_PRINTK
+ 	def_bool y
 -- 
-Andreas Schwab, SUSE Labs, schwab at suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+2.16.4
