@@ -2,85 +2,95 @@ Return-Path: <SRS0=VRtT=MG=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C3951ECE568
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 24 Sep 2018 20:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ADB50ECE568
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 24 Sep 2018 21:10:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7D19B2098A
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 24 Sep 2018 20:46:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5A4EA20666
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 24 Sep 2018 21:10:17 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="a0SxyLUX";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="MYoI4VPK"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7D19B2098A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="m1ziwDrO";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="mmmzoqsf";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="rwGEpJxq"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A4EA20666
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:Subject:
-	Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ye8oUHt0qfsLiTAYV3eAbmgBfJjxPBc4flzt2ssWlF0=; b=a0SxyLUXoQtPyb
-	oXx38KW+txjpa4rvAGdJyNuRLpKVO/0DfH3hAUmsjuCB2ruFaYrOcANvVbvpW+D8VCXY3WGLGI8eq
-	MshAymnLwRr3do3EBXNgfoGWwWNfJyUqEtSi9NojweZjmuWw7FsWpyx34K7m5bSyGU2CuA5YUHUtP
-	4+JK3GTL7lVI1Fkf8o4dzac4yrlWiGAMt41UF1S5LxB1C+dSamP4WCjtPnJBdGhtp0+w1LqGg7ytZ
-	P2kkIpbLiQeurhCiqVCDjDX32uFkvg31xGZuw0hHDLM92J6Jq/INV3kSVGRtFs5hJF0g/3Vgo5W4b
-	K6dOhRd0zuJh/H7a6FgA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=yHvVGL4nFSFQfzM9SeECq/w7Vikl9ai8rNhrVZ1rDU4=; b=m1ziwDrOLMKLgIdwqhY5XdfFM
+	rFa0qexHw53BnV/o2gOiE8toQyd+baaz6E3ERp1JkuKvDxcZf0aCqIHftTHMc4BXLXRPPjEq0BeCh
+	1HW6t2GzPG5mc5HKGKeVPtdJqJ1gh12bsUwVKv8rOOxg9DR0UKgpC6f3d359gDTCWe4rdjHENf9Lm
+	k2CwAMdVLWGIRVg+buHw0v3It9CQeLF3/Q2nIzNC9rqcM4m3Vj/jUK1WK71C23ENcjqRX1ss6135o
+	VDYKZvAPITIFZK+EW9sMVES59aqXsedl38o4DLIOWBIEkzNQxk4g5Z0aXmZmaR4DH/Fn9y7nKoCR4
+	LIE1ZbZxA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1g4XkH-00046h-1n; Mon, 24 Sep 2018 20:46:17 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1g4Y7T-0000t3-Se; Mon, 24 Sep 2018 21:10:15 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1g4Xju-00045B-40
- for linux-riscv@lists.infradead.org; Mon, 24 Sep 2018 20:45:55 +0000
-Received: by mail-pg1-x542.google.com with SMTP id z3-v6so4809106pgv.8
- for <linux-riscv@lists.infradead.org>; Mon, 24 Sep 2018 13:45:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:from:to:message-id;
- bh=azWPOKqWWFSGqe6aQhQ6tNpWbbpg2xrzIx5NPKK1yVA=;
- b=MYoI4VPKP7/MUGDOGiEa7js+IGy1l1v7MWisEgACRCkggLf3YR1Vl526C0tqawuPma
- 38DekRfuuT4zPAFFHf/TBqusbcof6DgSw+4FW4PK9VSriiNnscBebLD4kTFZDPNUfZS5
- /O15GR0zcKxFbLTwgxSi+CdBEsN0v7wBaj03X4FPMZmRnjHvnFvmwgxVrY/cH13pqhDI
- xJVGgy0wWnd546ByhpLsuOGOFINtRf9Ja/csfcxBQn3f8EJZr+l+CJg4YMyezhjPagKe
- rCoF5faLbuLmUzD/UQUtyZZXYHMzLoAasldqyUS/umQXUtl6KNsHO8lsyYZ9EBmYveMq
- gSWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:from:to:message-id;
- bh=azWPOKqWWFSGqe6aQhQ6tNpWbbpg2xrzIx5NPKK1yVA=;
- b=sMrE+1ebHLXsaw2dnu1TQ9hpqTYBM4S7OXmnC08Z0j/TrRctQn5XeEgq89rmsYgblL
- kOiHRHQzETB7/2lOKmfhV2Pp3rimj8hwcILZOd1C1IofTPqSOWtK8NigBMjSFiIn9WIR
- bpUQfxiepbxUNT681EU8gMnYXGqhlrBk7hlloouff7hqrbGemtkmi/kxBKhITgzh2xcT
- qspDUlwCNOf747wn5YcpOgbcY2Wo8fJhtvJimIiEJa1dVGx3L7Lu6F51MlwQEJTNEBhi
- MGDN9CEChEcnOAAq68CuexRCGe5Jct2xhQeQ21SHzYs+uHjjn/VbJ6h8P8fKabk2UkYw
- 4U/A==
-X-Gm-Message-State: ABuFfog7+3AkpkaP97/Ne5wXfePXsrWo65ESIoGGxesTxK2Cn1bc8nlo
- +jSfK6eyh5WvzJGHp19msWb6Eu5pL9A=
-X-Google-Smtp-Source: ACcGV60iIVIHZBf8n/lE4f/Zy6PwNXBm80NpIA7d0polXWtFaWogAVwplA4ovqqvF1pj1fbBvIMowg==
-X-Received: by 2002:a17:902:7796:: with SMTP id
- o22-v6mr434200pll.5.1537821932061; 
- Mon, 24 Sep 2018 13:45:32 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id 8-v6sm253228pgu.10.2018.09.24.13.45.30
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 24 Sep 2018 13:45:31 -0700 (PDT)
-Date: Mon, 24 Sep 2018 13:45:31 -0700 (PDT)
-X-Google-Original-Date: Mon, 24 Sep 2018 13:45:28 PDT (-0700)
-Subject: [GIT PULL] A Single RISC-V Update for 4.19-rc6
-From: Palmer Dabbelt <palmer@sifive.com>
-To: linux-riscv@lists.infradead.org
-Message-ID: <mhng-e3afd7a0-8f32-43a2-98bc-ef162868bede@palmer-si-x1c4>
+ id 1g4Y78-0000f9-6c
+ for linux-riscv@bombadil.infradead.org; Mon, 24 Sep 2018 21:09:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+ In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
+ :Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=Moh3jlnB4LAik7xhYmQfdXcJpooEfD0O8K5BFsg531E=; b=mmmzoqsfFhe8WOnIyQ/lZxKFUH
+ u7Ul4AG/VsQMjm1lLQPdJuz2bJ/edI57/nuBUlYUalJCjWm4tuzxbSykfRCdIJro9/EwH3NWS0voU
+ RDzFYHv+D90XJpWDEXTnlSMYWyakrTOd3q2v7E6SgYA2hg01CTvdFDVStsffgAXXXUhr/fGh9q4L2
+ Sgr+2dtKAFFmJ1Z3CNVWa8qhmzCjAeYEnDGSB6GvQ25W8ChSCZcrY7OImQeHHEkIdC3dVY9lp7yd3
+ 4mlRdIbs1TvLYeHdMUdN/dbt4+fYhuqfhI8pZU8GnoUCriOiRa+HFq2Tn0fHJyA/T4bIqQuCBSRlW
+ Kp5ssUGQ==;
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1g4Xt1-0004Wd-En
+ for linux-riscv@lists.infradead.org; Mon, 24 Sep 2018 20:55:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1537822519; x=1569358519;
+ h=subject:to:cc:references:from:message-id:date:
+ mime-version:in-reply-to:content-transfer-encoding;
+ bh=7HoNZHAIVceRRl8V9absbQdxVJL1GpmgDBfkNWWq6Fc=;
+ b=rwGEpJxqQBi42fN+jm/CuWjwg9k8TzgD372StSVZqddwIVyfX6E+jZjd
+ 6nSzbhLG7SVDyeFtdveXGCJwP894Jvtgo95Ys4M0ZKjyIJ0iGnGzasUYo
+ Agh9il8ClQgmINnvxhQdqX8cp643fiXp/zyJMC22MxOmu+zTxj70yvqeg
+ BE72SJkie0DUFn8n0ocwvd/pz0HED4lwfSDdm2fPHznPhMi0w7ZGNjwYO
+ KUbw0bYcr7b2VhxYnENgjnBuhDDJ2Dk/KBfCK60dafkDQn3SENg+0vPKX
+ 18KAe7YjKshlp4haWDbqbjSSyDF+pvDTZUct4qZ8suw7tB+FbRRKKfLEk Q==;
+X-IronPort-AV: E=Sophos;i="5.54,299,1534780800"; d="scan'208";a="194692179"
+Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 25 Sep 2018 04:55:04 +0800
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep02.wdc.com with ESMTP; 24 Sep 2018 13:40:57 -0700
+Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.196.159.148])
+ ([10.196.159.148])
+ by uls-op-cesaip01.wdc.com with ESMTP; 24 Sep 2018 13:55:05 -0700
+Subject: Re: [PATCH] RISCV: Fix end PFN for low memory
+To: "palmer@sifive.com" <palmer@sifive.com>
+References: <1536690618-9157-1-git-send-email-atish.patra@wdc.com>
+ <20180917140816.GA28689@infradead.org>
+From: Atish Patra <atish.patra@wdc.com>
+Message-ID: <50f35396-9e2b-c177-6a96-9c450c7abdde@wdc.com>
+Date: Mon, 24 Sep 2018 13:55:04 -0700
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:52.0)
+ Gecko/20100101 Thunderbird/52.9.1
+MIME-Version: 1.0
+In-Reply-To: <20180917140816.GA28689@infradead.org>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20180924_134554_191977_B6815E4B 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20180924_215519_786893_01087B38 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,39 +102,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Cc: Damien Le Moal <Damien.LeMoal@wdc.com>,
+ "anup@brainfault.org" <anup@brainfault.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Christoph Hellwig <hch@infradead.org>,
+ "terpstra@sifive.com" <terpstra@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20180924204531.gcO3qnr1iyvIwg53P0YTVwxDSy2V0M5tW0MlFkJJB3A@z>
+Message-ID: <20180924205504.6eXEBkj1P47lJrUgwsAmyKGANfIeTLEsPcF7WGNmZCA@z>
 
-The following changes since commit 6bf4ca7fbc85d80446ac01c0d1d77db4d91a6d84:
+On 9/17/18 7:08 AM, Christoph Hellwig wrote:
+> On Tue, Sep 11, 2018 at 11:30:18AM -0700, Atish Patra wrote:
+>> Use memblock_end_of_DRAM which provides correct last low memory
+>> PFN. Without that, DMA32 region becomes empty resulting in zero
+>> pages being allocated for DMA32.
+>>
+>> This patch is based on earlier patch from palmer which never
+>> merged into 4.19. I just edited the commit text to make more
+>> sense.
+> 
+> Looks good,
+> 
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> 
+> Palmer, can you queue this up for 4.19?
+> 
+Hi Palmer,
+I did not see this one pulled into your rc6 PR.
+Not sure if it was intentional or just lost in heap of emails.
 
-  Linux 4.19-rc5 (2018-09-23 19:15:18 +0200)
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-rc6
-
-for you to fetch changes up to 57a489786de9ec37d6e25ef1305dc337047f0236:
-
-  RISC-V: include linux/ftrace.h in asm-prototypes.h (2018-09-24 13:12:27 -0700)
-
-----------------------------------------------------------------
-A Single RISC-V Update for 4.19-rc6
-
-The Debian guys have been pushing on our port and found some unversioned
-symbols leaking into modules.  This PR contains a single fix for that
-issue.
-
-----------------------------------------------------------------
-James Cowgill (1):
-      RISC-V: include linux/ftrace.h in asm-prototypes.h
-
- arch/riscv/include/asm/asm-prototypes.h | 7 +++++++
- 1 file changed, 7 insertions(+)
- create mode 100644 arch/riscv/include/asm/asm-prototypes.h
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
