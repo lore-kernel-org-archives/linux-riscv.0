@@ -1,23 +1,34 @@
-From: zongbox@gmail.com (Zong Li)
-Date: Tue, 25 Sep 2018 10:33:52 +0800
-Subject: [PATCH 1/5] RISC-V: Build tishift only on 64-bit
-In-Reply-To: <20180921065806.GA8401@infradead.org>
-References: <cover.1537260207.git.zongbox@gmail.com>
- <40c77db9ee2d23479ff90f2658539d29d7a30896.1537260207.git.zongbox@gmail.com>
- <20180921065806.GA8401@infradead.org>
-Message-ID: <CA+ZOyaj2Ed3GCK0icaRNcttM7set=V1ffravCZefwmykD8=eMg@mail.gmail.com>
+From: arnd@arndb.de (Arnd Bergmann)
+Date: Tue, 25 Sep 2018 07:48:14 +0200
+Subject: mmcqd/0 stuck at 100% CPU
+In-Reply-To: <q3worc5qfj.fsf@armitage.lysator.liu.se>
+References: <q3worc5qfj.fsf@armitage.lysator.liu.se>
+Message-ID: <CAK8P3a3h4eBBWk0WTo6=b+Q0Q33M_6tQQyrwGorgYDNrBj3AwA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Christoph Hellwig <hch@infradead.org> ? 2018?9?21? ?? ??2:58???
->
-> On Tue, Sep 18, 2018 at 05:19:13PM +0800, Zong Li wrote:
-> > Only RV64 supports 128 integer size.
-> >
-> > Signed-off-by: Zong Li <zong@andestech.com>
->
-> This looks fine.  Just curious, what do we even need 128-bit integers
-> for on riscv64?  Did you see any issues if you drop it entirely?
+On Tue, Sep 25, 2018 at 3:38 AM Marcus Comstedt <marcus@lysator.liu.se> wrote:
+> I'm writing this mail to inform about an issue with the SDcard driver on
+> the Hi5Unleashed board running Linux 4.15.18 (riscv-linux-4.15 branch
+> from git + patch-4.15.18.xz from kernel.org).
 
-You can refer to this issue, but I didn't try it.
-https://github.com/riscv/riscv-linux/issues/136
+Can you try a newer kernel version?
+
+> So what is mmcqd/0 doing?  Checking /proc/74/stack gives one of three
+> results:
+>
+> # cat /proc/74/stack
+> [<0>] __schedule+0x1c6/0x4ea
+> [<0>] 0xffffffffffffffff
+> # cat /proc/74/stack
+> [<0>] __schedule+0x1c6/0x4ea
+> [<0>] blk_fetch_request+0x12/0x56
+> [<0>] mmc_queue_thread+0x56/0xf6
+> [<0>] kthread+0xcc/0xde
+
+This part of the mmc stack was completely rewritten in 4.16
+(after many years of not changing much), so the results will
+be very different. If there is a bug in the driver, it may show
+in a different way though.
+
+     Arnd
