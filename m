@@ -2,21 +2,21 @@ Return-Path: <SRS0=2CuI=MH=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A20FAC43382
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 25 Sep 2018 06:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 803ECC43382
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 25 Sep 2018 07:21:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A901521480
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 25 Sep 2018 06:17:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 17D6E208D9
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 25 Sep 2018 07:21:44 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="O0Wsm1Hu"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A901521480
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=lysator.liu.se
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jtJmi/UZ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 17D6E208D9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -24,43 +24,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
 	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lnq7aho/mOR8G4LZLLx8BxqhHtfa6qYmYDpz/xUAZnw=; b=O0Wsm1HuM0I5bn
-	88x3ZiCHVYFfNp45ql6+e/guZq0vKyrlKi+2fjFdMce/0mCV2zz8nVK/p/6MMKycWBS2NRwDfxsZh
-	1EuHGzG34CBaoedJZJH2uM7ym3N80NNoHtk2du3BH/h2mn9tlGvWubYy6D5AMvnj4z4VbsCD3y3iT
-	YgBySwnEENH6YGcztPLkGx7JF+zsyEat5BSd9urFK5Z0E7sKqfVIVzxh15aR+X5/LwrN7NYVlUkKZ
-	Ge3/KQls0ArTlrbglkB6Ry+uFZ4+e3eNWVn2/hCJ/yULm1/GNua/z2Xzj3aNrPy0L49BtvKEX/jVS
-	11aJFpSIdnP7UDbx6uRw==;
+	List-Owner; bh=9Lh7U5r/7qbJ+r4J5DYa+gP42r/BJn56KGlHzoVvLW4=; b=jtJmi/UZ8BBi8H
+	R6yPiNZJj5mhSmwauS+ZJOkmW++m3t2Um9irTSbyXcvypZ3uSKRU1DkGrSoaAIWR6gXgPhNCrD4vI
+	BWs1nQsM9XefIDL4BJVMLopvTYQpLZD9jAruKaUCFpX9iAwyHnhFEBm8Ev5xMTJXXBzLnChKhSb9N
+	UYO5RzudnpzcsIDuW+aME4bG2iqBjY40zA/R97JhKxJp1oOTrne+DA/aaKiv0d5XQN0kbtfj0Va7t
+	j+UCNw4Ps7ftnn6K/xupuucNLkTM65YMJPzcRWmBOOetOovyB8UyUw8MrKK1NR4s3djxa7cNjv2n4
+	usgc9tRkB9ncaZxnCz1w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1g4gej-0004E8-PX; Tue, 25 Sep 2018 06:17:09 +0000
-Received: from mail.lysator.liu.se ([2001:6b0:17:f0a0::3])
+	id 1g4hfA-00040Z-Ur; Tue, 25 Sep 2018 07:21:40 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1g4geL-0004CC-Pm
- for linux-riscv@lists.infradead.org; Tue, 25 Sep 2018 06:16:48 +0000
-Received: from mail.lysator.liu.se (localhost [127.0.0.1])
- by mail.lysator.liu.se (Postfix) with ESMTP id E739C40061;
- Tue, 25 Sep 2018 08:15:55 +0200 (CEST)
-Received: from armitage.lysator.liu.se (armitage.lysator.liu.se
- [IPv6:2001:6b0:17:f0a0::83])
- by mail.lysator.liu.se (Postfix) with SMTP id 708D740060;
- Tue, 25 Sep 2018 08:15:53 +0200 (CEST)
-Received: by armitage.lysator.liu.se (sSMTP sendmail emulation);
- Tue, 25 Sep 2018 08:15:53 +0200
-From: Marcus Comstedt <marcus@lysator.liu.se>
-To: Arnd Bergmann <arnd@arndb.de>
-Subject: Re: mmcqd/0 stuck at 100% CPU
-References: <q3worc5qfj.fsf@armitage.lysator.liu.se>
- <CAK8P3a3h4eBBWk0WTo6=b+Q0Q33M_6tQQyrwGorgYDNrBj3AwA@mail.gmail.com>
-Date: Tue, 25 Sep 2018 08:15:53 +0200
-In-Reply-To: <CAK8P3a3h4eBBWk0WTo6=b+Q0Q33M_6tQQyrwGorgYDNrBj3AwA@mail.gmail.com>
- (Arnd Bergmann's message of "Tue, 25 Sep 2018 07:48:14 +0200")
-Message-ID: <q3pnx2kspy.fsf@armitage.lysator.liu.se>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1 (berkeley-unix)
+ id 1g4heW-0003gx-Ms
+ for linux-riscv@lists.infradead.org; Tue, 25 Sep 2018 07:21:03 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id E59BAAF41;
+ Tue, 25 Sep 2018 07:20:25 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: Zong Li <zongbox@gmail.com>
+Subject: Re: [PATCH 3/5] lib: Add umoddi3 and udivmoddi4 of GCC library
+ routines
+References: <cover.1537260207.git.zongbox@gmail.com>
+ <2ccc6c0758624dbb22f6fe451a3e476a000108ef.1537260207.git.zongbox@gmail.com>
+ <20180921070006.GC8401@infradead.org>
+ <CA+ZOyaiJv-NZWk3ec_3zhRTSn7G-NGgyaiPTXOmuWfTWD7KSJw@mail.gmail.com>
+X-Yow: I think I am an overnight sensation right now!!
+Date: Tue, 25 Sep 2018 09:20:25 +0200
+In-Reply-To: <CA+ZOyaiJv-NZWk3ec_3zhRTSn7G-NGgyaiPTXOmuWfTWD7KSJw@mail.gmail.com>
+ (Zong Li's message of "Tue, 25 Sep 2018 10:19:55 +0800")
+Message-ID: <mvmefdicabq.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1 (gnu/linux)
 MIME-Version: 1.0
-X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20180924_231646_062381_BC7BF16B 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20180925_002100_906038_C5C4DAC3 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -72,46 +71,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: vincentc@andestech.com, aou@eecs.berkeley.edu, zong@andestech.com,
+ palmer@sifive.com, linux-kernel@vger.kernel.org, hch@infradead.org,
+ linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20180925061553.sCiPYdoAAWId1K4AN-IMVh4Y4weWSeswxWvCWBZm-bc@z>
+Message-ID: <20180925072025.w8Dbmi752pPz-oRltHg_ZurLqQqWaBpXjkAyoLey_0Y@z>
 
+On Sep 25 2018, Zong Li <zongbox@gmail.com> wrote:
 
-Arnd Bergmann <arnd@arndb.de> writes:
+> The RV32 need the umoddi3 to do modulo when the operands are long long
+> type, like other libraries implementation such as ucmpdi2, lshrdi3 and
+> so on. I encounter the undefined reference 'umoddi3' when I use the in
+> house dma driver, although it is in house driver, but I think that
+> umoddi3 is a common function for RV32.
 
->> I'm writing this mail to inform about an issue with the SDcard driver on
->> the Hi5Unleashed board running Linux 4.15.18 (riscv-linux-4.15 branch
->> from git + patch-4.15.18.xz from kernel.org).
->
-> Can you try a newer kernel version?
+You probably should use the macros from <asm/div64.h> instead.
 
-Only the 4.15 branch supports the H5U, and there are no further patches
-to that kernel line.  I can try this unofficial mix between 4.15 and
-4.19-rc2:
-https://github.com/atishp04/riscv-linux/tree/4.19_fedora_success_sep11 =
+Andreas.
 
-
-
-> This part of the mmc stack was completely rewritten in 4.16
-> (after many years of not changing much), so the results will
-> be very different. If there is a bug in the driver, it may show
-> in a different way though.
-
-Ok, worth a try then.  Thanks.
-
-
-  // Marcus
-
-
--- =
-
---------------------------------------------------------------------------
-Marcus Comstedt                          Lysator Academic Computer Society
-marcus@lysator.liu.se                    Link=F6ping University, Sweden   //
-----------------------------------------------------------------------\X/-
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
