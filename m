@@ -1,42 +1,30 @@
-From: marcus@lysator.liu.se (Marcus Comstedt)
-Date: Tue, 25 Sep 2018 08:15:53 +0200
-Subject: mmcqd/0 stuck at 100% CPU
-In-Reply-To: <CAK8P3a3h4eBBWk0WTo6=b+Q0Q33M_6tQQyrwGorgYDNrBj3AwA@mail.gmail.com>
- (Arnd Bergmann's message of "Tue, 25 Sep 2018 07:48:14 +0200")
-References: <q3worc5qfj.fsf@armitage.lysator.liu.se>
- <CAK8P3a3h4eBBWk0WTo6=b+Q0Q33M_6tQQyrwGorgYDNrBj3AwA@mail.gmail.com>
-Message-ID: <q3pnx2kspy.fsf@armitage.lysator.liu.se>
+From: schwab@suse.de (Andreas Schwab)
+Date: Tue, 25 Sep 2018 09:20:25 +0200
+Subject: [PATCH 3/5] lib: Add umoddi3 and udivmoddi4 of GCC library
+ routines
+In-Reply-To: <CA+ZOyaiJv-NZWk3ec_3zhRTSn7G-NGgyaiPTXOmuWfTWD7KSJw@mail.gmail.com>
+ (Zong Li's message of "Tue, 25 Sep 2018 10:19:55 +0800")
+References: <cover.1537260207.git.zongbox@gmail.com>
+ <2ccc6c0758624dbb22f6fe451a3e476a000108ef.1537260207.git.zongbox@gmail.com>
+ <20180921070006.GC8401@infradead.org>
+ <CA+ZOyaiJv-NZWk3ec_3zhRTSn7G-NGgyaiPTXOmuWfTWD7KSJw@mail.gmail.com>
+Message-ID: <mvmefdicabq.fsf@suse.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
+On Sep 25 2018, Zong Li <zongbox@gmail.com> wrote:
 
-Arnd Bergmann <arnd@arndb.de> writes:
+> The RV32 need the umoddi3 to do modulo when the operands are long long
+> type, like other libraries implementation such as ucmpdi2, lshrdi3 and
+> so on. I encounter the undefined reference 'umoddi3' when I use the in
+> house dma driver, although it is in house driver, but I think that
+> umoddi3 is a common function for RV32.
 
->> I'm writing this mail to inform about an issue with the SDcard driver on
->> the Hi5Unleashed board running Linux 4.15.18 (riscv-linux-4.15 branch
->> from git + patch-4.15.18.xz from kernel.org).
->
-> Can you try a newer kernel version?
+You probably should use the macros from <asm/div64.h> instead.
 
-Only the 4.15 branch supports the H5U, and there are no further patches
-to that kernel line.  I can try this unofficial mix between 4.15 and
-4.19-rc2:
-https://github.com/atishp04/riscv-linux/tree/4.19_fedora_success_sep11 
-
-
-> This part of the mmc stack was completely rewritten in 4.16
-> (after many years of not changing much), so the results will
-> be very different. If there is a bug in the driver, it may show
-> in a different way though.
-
-Ok, worth a try then.  Thanks.
-
-
-  // Marcus
-
+Andreas.
 
 -- 
---------------------------------------------------------------------------
-Marcus Comstedt                          Lysator Academic Computer Society
-marcus at lysator.liu.se                    Link?ping University, Sweden   //
-----------------------------------------------------------------------\X/-
+Andreas Schwab, SUSE Labs, schwab at suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
