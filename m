@@ -1,35 +1,23 @@
 From: zongbox@gmail.com (Zong Li)
-Date: Tue, 25 Sep 2018 10:19:55 +0800
-Subject: [PATCH 3/5] lib: Add umoddi3 and udivmoddi4 of GCC library
- routines
-In-Reply-To: <20180921070006.GC8401@infradead.org>
+Date: Tue, 25 Sep 2018 10:33:52 +0800
+Subject: [PATCH 1/5] RISC-V: Build tishift only on 64-bit
+In-Reply-To: <20180921065806.GA8401@infradead.org>
 References: <cover.1537260207.git.zongbox@gmail.com>
- <2ccc6c0758624dbb22f6fe451a3e476a000108ef.1537260207.git.zongbox@gmail.com>
- <20180921070006.GC8401@infradead.org>
-Message-ID: <CA+ZOyaiJv-NZWk3ec_3zhRTSn7G-NGgyaiPTXOmuWfTWD7KSJw@mail.gmail.com>
+ <40c77db9ee2d23479ff90f2658539d29d7a30896.1537260207.git.zongbox@gmail.com>
+ <20180921065806.GA8401@infradead.org>
+Message-ID: <CA+ZOyaj2Ed3GCK0icaRNcttM7set=V1ffravCZefwmykD8=eMg@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Christoph Hellwig <hch@infradead.org> ? 2018?9?21? ?? ??3:00???
+Christoph Hellwig <hch@infradead.org> ? 2018?9?21? ?? ??2:58???
 >
-> On Tue, Sep 18, 2018 at 05:19:15PM +0800, Zong Li wrote:
-> > Add umoddi3 and udivmoddi4 support for 32-bit.
+> On Tue, Sep 18, 2018 at 05:19:13PM +0800, Zong Li wrote:
+> > Only RV64 supports 128 integer size.
+> >
+> > Signed-off-by: Zong Li <zong@andestech.com>
 >
-> This probably wants a better explanation of why you need them.
->
-> > index 0000000..69f2d36
-> > --- /dev/null
-> > +++ b/lib/udivmoddi4.c
-> > @@ -0,0 +1,291 @@
-> > +// SPDX-License-Identifier: GPL-2.0
->
-> Who wrote this code, where does it come from?
+> This looks fine.  Just curious, what do we even need 128-bit integers
+> for on riscv64?  Did you see any issues if you drop it entirely?
 
-The RV32 need the umoddi3 to do modulo when the operands are long long
-type, like other libraries implementation such as ucmpdi2, lshrdi3 and
-so on. I encounter the undefined reference 'umoddi3' when I use the in
-house dma driver, although it is in house driver, but I think that
-umoddi3 is a common function for RV32. The udivmoddi4 and umoddi3 are
-copies from libgcc in gcc. There are other functions use the
-udivmoddi4 in libgcc, so I separate the umoddi3 and udivmoddi4 for
-flexible extension in the future.
+You can refer to this issue, but I didn't try it.
+https://github.com/riscv/riscv-linux/issues/136
