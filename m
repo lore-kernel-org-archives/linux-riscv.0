@@ -1,52 +1,102 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 25 Sep 2018 10:57:22 -0700 (PDT)
-Subject: [PATCH 1/2] riscv/bitops: Remove smp_mb__{before,
- after}_clear_bit()
-In-Reply-To: <20180925174906.GA4372@andrea>
-Message-ID: <mhng-011ba62c-cdf5-4a9b-9d4e-b1a7909d5d43@palmer-si-x1c4>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Tue, 25 Sep 2018 10:59:15 -0700
+Subject: [PATCH v2] RISC-V: Show CPU ID and Hart ID separately in
+ /proc/cpuinfo
+In-Reply-To: <20180923133737.22693-1-anup@brainfault.org>
+References: <20180923133737.22693-1-anup@brainfault.org>
+Message-ID: <a7c64e1a-405e-6a2c-cb42-211c4f89367d@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 25 Sep 2018 10:49:06 PDT (-0700), andrea.parri at amarulasolutions.com wrote:
-> On Tue, Sep 25, 2018 at 10:19:24AM -0700, Palmer Dabbelt wrote:
->> On Tue, 25 Sep 2018 05:12:24 PDT (-0700), andrea.parri at amarulasolutions.com wrote:
->> > The barriers are unused; remove their definition.
->> >
->> > Signed-off-by: Andrea Parri <andrea.parri@amarulasolutions.com>
->> > Cc: Palmer Dabbelt <palmer@sifive.com>
->> > Cc: Albert Ou <aou@eecs.berkeley.edu>
->> > Cc: <linux-riscv@lists.infradead.org>
->> > ---
->> >  arch/riscv/include/asm/bitops.h | 5 -----
->> >  1 file changed, 5 deletions(-)
->> >
->> > diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
->> > index f30daf26f08f4..01db98dfd0435 100644
->> > --- a/arch/riscv/include/asm/bitops.h
->> > +++ b/arch/riscv/include/asm/bitops.h
->> > @@ -23,11 +23,6 @@
->> >  #include <asm/barrier.h>
->> >  #include <asm/bitsperlong.h>
->> >
->> > -#ifndef smp_mb__before_clear_bit
->> > -#define smp_mb__before_clear_bit()  smp_mb()
->> > -#define smp_mb__after_clear_bit()   smp_mb()
->> > -#endif /* smp_mb__before_clear_bit */
->> > -
->> >  #include <asm-generic/bitops/__ffs.h>
->> >  #include <asm-generic/bitops/ffz.h>
->> >  #include <asm-generic/bitops/fls.h>
->>
->> Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
->
-> Thank you.
->
->
->>
->> Do you want me to take this via the RISC-V tree?  I only ended up with patch
->> 1/2 in my inbox, and I probably shouldn't take both.
->
-> I expected this to go via the RISC-V tree and 2/2 via the H8/300 tree,
-> but really no preference from me as long as they get upstreamed. ;-)
+On 9/23/18 6:37 AM, Anup Patel wrote:
+> Currently, /proc/cpuinfo show logical CPU ID as Hart ID which
+> is in-correct. This patch shows CPU ID and Hart ID separately
+> in /proc/cpuinfo using cpuid_to_hardid_map().
+> 
+I noticed it should be cpuid_to_hartid_map instead of 
+cpuid_to_hardid_map. It was a typo in my smp cleanup patch series.
+Sorry for the inconvenience here.
 
-Works for me.  I'll take this one.
+I can include this patch in into my series fixing the typo if you want.
+
+Regards,
+Atish
+> With this patch, contents of /proc/cpuinfo looks as follows:
+> processor	: 0
+> hart		: 1
+> isa		: rv64imafdc
+> mmu		: sv48
+> 
+> processor	: 1
+> hart		: 0
+> isa		: rv64imafdc
+> mmu		: sv48
+> 
+> processor	: 2
+> hart		: 2
+> isa		: rv64imafdc
+> mmu		: sv48
+> 
+> processor	: 3
+> hart		: 3
+> isa		: rv64imafdc
+> mmu		: sv48
+> 
+> Signed-off-by: Anup Patel <anup@brainfault.org>
+> ---
+> 
+> Changes since v1:
+>   - Show logical CPU ID as "processor" attribute in /proc/cpuinfo
+> 
+>   arch/riscv/kernel/cpu.c | 10 ++++++----
+>   1 file changed, 6 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index 36b6ddb19b4d..392c7c19c4a3 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -81,7 +81,7 @@ static void print_isa(struct seq_file *f, const char *orig_isa)
+>   #endif
+>   
+>   	/* Print the base ISA, as we already know it's legal. */
+> -	seq_puts(f, "isa\t: ");
+> +	seq_puts(f, "isa\t\t: ");
+>   	seq_write(f, isa, 5);
+>   	isa += 5;
+>   
+> @@ -96,6 +96,7 @@ static void print_isa(struct seq_file *f, const char *orig_isa)
+>   			isa++;
+>   		}
+>   	}
+> +	seq_puts(f, "\n");
+>   
+>   	/*
+>   	 * If we were given an unsupported ISA in the device tree then print
+> @@ -116,7 +117,7 @@ static void print_mmu(struct seq_file *f, const char *mmu_type)
+>   		return;
+>   #endif
+>   
+> -	seq_printf(f, "mmu\t: %s\n", mmu_type+6);
+> +	seq_printf(f, "mmu\t\t: %s\n", mmu_type+6);
+>   }
+>   
+>   static void *c_start(struct seq_file *m, loff_t *pos)
+> @@ -144,14 +145,15 @@ static int c_show(struct seq_file *m, void *v)
+>   						   NULL);
+>   	const char *compat, *isa, *mmu;
+>   
+> -	seq_printf(m, "hart\t: %lu\n", cpu_id);
+> +	seq_printf(m, "processor\t: %lu\n", cpu_id);
+> +	seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hardid_map(cpu_id));
+>   	if (!of_property_read_string(node, "riscv,isa", &isa))
+>   		print_isa(m, isa);
+>   	if (!of_property_read_string(node, "mmu-type", &mmu))
+>   		print_mmu(m, mmu);
+>   	if (!of_property_read_string(node, "compatible", &compat)
+>   	    && strcmp(compat, "riscv"))
+> -		seq_printf(m, "uarch\t: %s\n", compat);
+> +		seq_printf(m, "uarch\t\t: %s\n", compat);
+>   	seq_puts(m, "\n");
+>   
+>   	return 0;
+> 
