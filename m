@@ -1,37 +1,25 @@
-From: andrea.parri@amarulasolutions.com (Andrea Parri)
-Date: Tue, 25 Sep 2018 14:12:24 +0200
-Subject: [PATCH 1/2] riscv/bitops: Remove smp_mb__{before,after}_clear_bit()
-In-Reply-To: <20180925121225.9917-1-andrea.parri@amarulasolutions.com>
-References: <20180925121225.9917-1-andrea.parri@amarulasolutions.com>
-Message-ID: <20180925121225.9917-2-andrea.parri@amarulasolutions.com>
+From: hch@infradead.org (Christoph Hellwig)
+Date: Tue, 25 Sep 2018 08:25:08 -0700
+Subject: [PATCH 3/5] lib: Add umoddi3 and udivmoddi4 of GCC library
+ routines
+In-Reply-To: <CA+ZOyaiJv-NZWk3ec_3zhRTSn7G-NGgyaiPTXOmuWfTWD7KSJw@mail.gmail.com>
+References: <cover.1537260207.git.zongbox@gmail.com>
+ <2ccc6c0758624dbb22f6fe451a3e476a000108ef.1537260207.git.zongbox@gmail.com>
+ <20180921070006.GC8401@infradead.org>
+ <CA+ZOyaiJv-NZWk3ec_3zhRTSn7G-NGgyaiPTXOmuWfTWD7KSJw@mail.gmail.com>
+Message-ID: <20180925152508.GA24002@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The barriers are unused; remove their definition.
+On Tue, Sep 25, 2018 at 10:19:55AM +0800, Zong Li wrote:
+> The RV32 need the umoddi3 to do modulo when the operands are long long
+> type, like other libraries implementation such as ucmpdi2, lshrdi3 and
+> so on. I encounter the undefined reference 'umoddi3' when I use the in
+> house dma driver, although it is in house driver, but I think that
+> umoddi3 is a common function for RV32. The udivmoddi4 and umoddi3 are
+> copies from libgcc in gcc. There are other functions use the
+> udivmoddi4 in libgcc, so I separate the umoddi3 and udivmoddi4 for
+> flexible extension in the future.
 
-Signed-off-by: Andrea Parri <andrea.parri@amarulasolutions.com>
-Cc: Palmer Dabbelt <palmer@sifive.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: <linux-riscv@lists.infradead.org>
----
- arch/riscv/include/asm/bitops.h | 5 -----
- 1 file changed, 5 deletions(-)
-
-diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
-index f30daf26f08f4..01db98dfd0435 100644
---- a/arch/riscv/include/asm/bitops.h
-+++ b/arch/riscv/include/asm/bitops.h
-@@ -23,11 +23,6 @@
- #include <asm/barrier.h>
- #include <asm/bitsperlong.h>
- 
--#ifndef smp_mb__before_clear_bit
--#define smp_mb__before_clear_bit()  smp_mb()
--#define smp_mb__after_clear_bit()   smp_mb()
--#endif /* smp_mb__before_clear_bit */
--
- #include <asm-generic/bitops/__ffs.h>
- #include <asm-generic/bitops/ffz.h>
- #include <asm-generic/bitops/fls.h>
--- 
-2.17.1
+I don't think libgcc is GPLv2 licensed, is it?  Also please retain
+the copyright notices from libgcc.
