@@ -1,34 +1,54 @@
 From: anup@brainfault.org (Anup Patel)
-Date: Wed, 26 Sep 2018 09:46:40 +0530
-Subject: [PATCH v2] RISC-V: Show CPU ID and Hart ID separately in
- /proc/cpuinfo
-In-Reply-To: <a7c64e1a-405e-6a2c-cb42-211c4f89367d@wdc.com>
-References: <20180923133737.22693-1-anup@brainfault.org>
- <a7c64e1a-405e-6a2c-cb42-211c4f89367d@wdc.com>
-Message-ID: <CAAhSdy2ZOXk3fDt8W_G1=h_OrifFsXP3XwZ2xnXwt9ztzW4GEg@mail.gmail.com>
+Date: Wed, 26 Sep 2018 11:24:48 +0530
+Subject: [PATCH v2 3/5] irqchip: RISC-V Local Interrupt Controller Driver
+In-Reply-To: <CAAhSdy1gD3tZLmBzfpJV1qQKsG4GKgLkoBC7v5Kycw8KX+YeLg@mail.gmail.com>
+References: <alpine.DEB.2.21.1809101533330.1292@nanos.tec.linutronix.de>
+ <alpine.DEB.2.21.1809101536410.1292@nanos.tec.linutronix.de>
+ <20180910133902.GB21593@infradead.org>
+ <alpine.DEB.2.21.1809101544560.1292@nanos.tec.linutronix.de>
+ <20180910134915.GB30774@infradead.org>
+ <CAAhSdy1be_ibiowifBdgBZjbHuFU=CR4rZXQDwQghVYkex5bMg@mail.gmail.com>
+ <20180910161328.GA13171@infradead.org>
+ <CAAhSdy2Y-XTZ12i5aV+SzraMZP1YQBhAArpER-YssPcBJNOPOA@mail.gmail.com>
+ <20180910163543.GA13052@infradead.org>
+ <CAAhSdy2PSLjrtmSbkJ4w-v-zWm2hjii3XL6HE5Pe7u3wz4BmZA@mail.gmail.com>
+ <20180917141436.GB2821@infradead.org>
+ <CAAhSdy1gD3tZLmBzfpJV1qQKsG4GKgLkoBC7v5Kycw8KX+YeLg@mail.gmail.com>
+Message-ID: <CAAhSdy3unGBSS9Xgozwt4so_RBOr1WSugiP-4J49q-GOub2mDQ@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, Sep 25, 2018 at 11:29 PM Atish Patra <atish.patra@wdc.com> wrote:
+On Mon, Sep 17, 2018 at 7:58 PM Anup Patel <anup@brainfault.org> wrote:
 >
-> On 9/23/18 6:37 AM, Anup Patel wrote:
-> > Currently, /proc/cpuinfo show logical CPU ID as Hart ID which
-> > is in-correct. This patch shows CPU ID and Hart ID separately
-> > in /proc/cpuinfo using cpuid_to_hardid_map().
+> On Mon, Sep 17, 2018 at 7:44 PM Christoph Hellwig <hch@infradead.org> wrote:
 > >
-> I noticed it should be cpuid_to_hartid_map instead of
-> cpuid_to_hardid_map. It was a typo in my smp cleanup patch series.
-> Sorry for the inconvenience here.
-
-Thanks for pointing.
-
+> > On Mon, Sep 10, 2018 at 10:08:58PM +0530, Anup Patel wrote:
+> > > > They could in theory IFF someone actually get the use case through
+> > > > the riscv privileged spec working group.
+> > >
+> > > Their is no point in having each and every possible local interrupts
+> > > defined by RISC-V spec because some of these will be CPU
+> > > implementation specific in which case these local interrupts will
+> > > be described in platform specific DT passed to Linux.
+> >
+> > Again, to legally have implementation specific local interrupt types
+> > you'll first need to convice the spec to change the status for those
+> > fields from reserved to implementation specific.
 >
-> I can include this patch in into my series fixing the typo if you want.
+> I agree, this needs to be first clarified in RISC-V spec. May be this is
+> a good topic for discussion in any upcoming RISC-V meetup.
+>
+> Until then anyone can try these patches from riscv_intc_v2 branch of
+> https://github.com/avpatel/linux
+>
 
-Yes, please.
+I released that CLIC is going to be available for both M-mode and S-mode.
+Software can choose to use HLIC or CLIC based on it's own preference.
 
-You can also include "RISC-V: Show IPI stats" patch in your series.
-This patch was reviewed by Christoph.
+If we are going to support both HLIC and CLIC in Linux kernel for per-CPU
+local interrupts then we should definitely have irqdomain and irqchip for
+per-CPU local interrupts. The selection between HLIC and CLIC will be
+based on which driver gets probed via DT.
 
-Thanks,
+Regards,
 Anup
