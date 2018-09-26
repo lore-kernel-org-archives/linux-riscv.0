@@ -1,16 +1,24 @@
-From: schwab@suse.de (Andreas Schwab)
-Date: Wed, 26 Sep 2018 10:41:18 +0200
-Subject: futex_atomic_cmpxchg_inatomic is missing
-Message-ID: <mvmh8icabwx.fsf@suse.de>
+From: mhocko@kernel.org (Michal Hocko)
+Date: Wed, 26 Sep 2018 11:22:39 +0200
+Subject: [PATCH 02/30] mm: remove CONFIG_NO_BOOTMEM
+In-Reply-To: <1536927045-23536-3-git-send-email-rppt@linux.vnet.ibm.com>
+References: <1536927045-23536-1-git-send-email-rppt@linux.vnet.ibm.com>
+ <1536927045-23536-3-git-send-email-rppt@linux.vnet.ibm.com>
+Message-ID: <20180926092239.GK6278@dhcp22.suse.cz>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The riscv port does not define futex_atomic_cmpxchg_inatomic, but glibc
-is assuming that set_robust_list always works.
+On Fri 14-09-18 15:10:17, Mike Rapoport wrote:
+> All achitectures select NO_BOOTMEM which essentially becomes 'Y' for any
+> kernel configuration and therefore it can be removed.
 
-Andreas.
+git grep suggests that DEFERRED_STRUCT_PAGE_INIT still depends on
+NO_BOOTMEM but I have a vague feeling that I've seen a patch to address
+that. It would be great to have it folded to this one.
 
+> Signed-off-by: Mike Rapoport <rppt@linux.vnet.ibm.com>
+
+Acked-by: Michal Hocko <mhocko@suse.com>
 -- 
-Andreas Schwab, SUSE Labs, schwab at suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+Michal Hocko
+SUSE Labs
