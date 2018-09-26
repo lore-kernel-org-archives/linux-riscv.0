@@ -1,39 +1,48 @@
-From: mhocko@kernel.org (Michal Hocko)
-Date: Wed, 26 Sep 2018 16:23:19 +0200
-Subject: [PATCH 14/30] memblock: add align parameter to
- memblock_alloc_node()
-In-Reply-To: <20180926134335.GF4628@rapoport-lnx>
-References: <1536927045-23536-1-git-send-email-rppt@linux.vnet.ibm.com>
- <1536927045-23536-15-git-send-email-rppt@linux.vnet.ibm.com>
- <20180926093127.GO6278@dhcp22.suse.cz>
- <20180926093648.GP6278@dhcp22.suse.cz>
- <20180926134335.GF4628@rapoport-lnx>
-Message-ID: <20180926142319.GA6278@dhcp22.suse.cz>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Wed, 26 Sep 2018 08:38:53 -0700 (PDT)
+Subject: [PATCH v2 3/5] irqchip: RISC-V Local Interrupt Controller Driver
+In-Reply-To: <CAAhSdy3unGBSS9Xgozwt4so_RBOr1WSugiP-4J49q-GOub2mDQ@mail.gmail.com>
+Message-ID: <mhng-0d0ee718-944f-4798-a6d8-e14f6ad51c37@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed 26-09-18 16:43:35, Mike Rapoport wrote:
-> On Wed, Sep 26, 2018 at 11:36:48AM +0200, Michal Hocko wrote:
-> > On Wed 26-09-18 11:31:27, Michal Hocko wrote:
-> > > On Fri 14-09-18 15:10:29, Mike Rapoport wrote:
-> > > > With the align parameter memblock_alloc_node() can be used as drop in
-> > > > replacement for alloc_bootmem_pages_node() and __alloc_bootmem_node(),
-> > > > which is done in the following patches.
-> > > 
-> > > /me confused. Why do we need this patch at all? Maybe it should be
-> > > folded into the later patch you are refereing here?
-> > 
-> > OK, I can see 1536927045-23536-17-git-send-email-rppt at linux.vnet.ibm.com
-> > now. If you are going to repost for whatever reason please merge those
-> > two. Also I would get rid of the implicit "0 implies SMP_CACHE_BYTES"
-> > behavior. It is subtle and you have to dig deep to find that out. Why
-> > not make it explicit?
-> 
-> Agree. I'd just prefer to make it a separate patch rather then resend the
-> whole series. 
+On Tue, 25 Sep 2018 22:54:48 PDT (-0700), anup at brainfault.org wrote:
+> On Mon, Sep 17, 2018 at 7:58 PM Anup Patel <anup@brainfault.org> wrote:
+>>
+>> On Mon, Sep 17, 2018 at 7:44 PM Christoph Hellwig <hch@infradead.org> wrote:
+>> >
+>> > On Mon, Sep 10, 2018 at 10:08:58PM +0530, Anup Patel wrote:
+>> > > > They could in theory IFF someone actually get the use case through
+>> > > > the riscv privileged spec working group.
+>> > >
+>> > > Their is no point in having each and every possible local interrupts
+>> > > defined by RISC-V spec because some of these will be CPU
+>> > > implementation specific in which case these local interrupts will
+>> > > be described in platform specific DT passed to Linux.
+>> >
+>> > Again, to legally have implementation specific local interrupt types
+>> > you'll first need to convice the spec to change the status for those
+>> > fields from reserved to implementation specific.
+>>
+>> I agree, this needs to be first clarified in RISC-V spec. May be this is
+>> a good topic for discussion in any upcoming RISC-V meetup.
+>>
+>> Until then anyone can try these patches from riscv_intc_v2 branch of
+>> https://github.com/avpatel/linux
+>>
+>
+> I released that CLIC is going to be available for both M-mode and S-mode.
+> Software can choose to use HLIC or CLIC based on it's own preference.
+>
+> If we are going to support both HLIC and CLIC in Linux kernel for per-CPU
+> local interrupts then we should definitely have irqdomain and irqchip for
+> per-CPU local interrupts. The selection between HLIC and CLIC will be
+> based on which driver gets probed via DT.
 
-Sure, no objection from me.
+Yes, and note that the CLIC is actually an extension of what is currently 
+available.  Thus we could produce a single driver that supports both, with 
+features selected based on a DT entry.
 
--- 
-Michal Hocko
-SUSE Labs
+I'm not sure if a native CLIC driver buys us anything in Linux, though, as 
+IIRC there aren't that many CLIC features that will be particularly useful in 
+our space.
