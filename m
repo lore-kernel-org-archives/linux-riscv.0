@@ -1,46 +1,30 @@
-From: paul.walmsley@sifive.com (Paul Walmsley)
-Date: Tue, 25 Sep 2018 14:07:04 -0700
-Subject: mmcqd/0 stuck at 100% CPU
-In-Reply-To: <mhng-9789543b-ece6-4f92-b4f6-ec6ebc258baf@palmer-si-x1c4>
-References: <mhng-9789543b-ece6-4f92-b4f6-ec6ebc258baf@palmer-si-x1c4>
-Message-ID: <66b20b1c-3594-36f3-b93c-d8d1e8dbf816@sifive.com>
+From: zongbox@gmail.com (Zong Li)
+Date: Wed, 26 Sep 2018 10:40:02 +0800
+Subject: [PATCH 3/5] lib: Add umoddi3 and udivmoddi4 of GCC library
+ routines
+In-Reply-To: <20180925152508.GA24002@infradead.org>
+References: <cover.1537260207.git.zongbox@gmail.com>
+ <2ccc6c0758624dbb22f6fe451a3e476a000108ef.1537260207.git.zongbox@gmail.com>
+ <20180921070006.GC8401@infradead.org>
+ <CA+ZOyaiJv-NZWk3ec_3zhRTSn7G-NGgyaiPTXOmuWfTWD7KSJw@mail.gmail.com>
+ <20180925152508.GA24002@infradead.org>
+Message-ID: <CA+ZOyaiB+eEWUr7J1s4PRB5tYcKQfbTp--hnL7S6H3BtUraizw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-
-On 9/25/18 8:36 AM, Palmer Dabbelt wrote:
-> On Mon, 24 Sep 2018 23:15:53 PDT (-0700), marcus at lysator.liu.se wrote:
->>
->> Arnd Bergmann <arnd@arndb.de> writes:
->>
->>>> I'm writing this mail to inform about an issue with the SDcard 
->>>> driver on
->>>> the Hi5Unleashed board running Linux 4.15.18 (riscv-linux-4.15 branch
->>>> from git + patch-4.15.18.xz from kernel.org).
->>>
->>> Can you try a newer kernel version?
->>
->> Only the 4.15 branch supports the H5U, and there are no further patches
->> to that kernel line.? I can try this unofficial mix between 4.15 and
->> 4.19-rc2:
->> https://github.com/atishp04/riscv-linux/tree/4.19_fedora_success_sep11
->>
->>> This part of the mmc stack was completely rewritten in 4.16
->>> (after many years of not changing much), so the results will
->>> be very different. If there is a bug in the driver, it may show
->>> in a different way though.
->>
->> Ok, worth a try then.? Thanks.
+Christoph Hellwig <hch@infradead.org> ? 2018?9?25? ?? ??11:25???
 >
-> FWIW, I'm pretty sure that we see worse behavior in the newer kernels 
-> than the older kernels.? Paul or Atish might know better, though, as I 
-> haven't poked this in a bit. 
+> On Tue, Sep 25, 2018 at 10:19:55AM +0800, Zong Li wrote:
+> > The RV32 need the umoddi3 to do modulo when the operands are long long
+> > type, like other libraries implementation such as ucmpdi2, lshrdi3 and
+> > so on. I encounter the undefined reference 'umoddi3' when I use the in
+> > house dma driver, although it is in house driver, but I think that
+> > umoddi3 is a common function for RV32. The udivmoddi4 and umoddi3 are
+> > copies from libgcc in gcc. There are other functions use the
+> > udivmoddi4 in libgcc, so I separate the umoddi3 and udivmoddi4 for
+> > flexible extension in the future.
+>
+> I don't think libgcc is GPLv2 licensed, is it?  Also please retain
+> the copyright notices from libgcc.
 
-
-We did try on an experimental v4.19-rc4 branch, and were not able to 
-reproduce the bug.? There were multiple confounds, though, including the 
-use of a much lower SPI clock rate to the SD card, so we weren't able to 
-draw any firm conclusions that that time.
-
-
-- Paul
+I will give next version patch. Thanks.
