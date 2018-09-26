@@ -6,16 +6,16 @@ X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 33A15C43382
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Sep 2018 09:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C42AFC43382
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Sep 2018 09:41:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DC24220645
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Sep 2018 09:40:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7A8D020779
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Sep 2018 09:41:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="k5NNZbdq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DC24220645
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="t5LsUALJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7A8D020779
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,36 +24,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K+SQjyQ1jH6KIhRc9Eq03E8i4i7MqJiLoDe0DVFI6Ho=; b=k5NNZbdqbet7j+
-	QMuTEyap7wD+zcT0y7wa4Ie2XOmCIl33YLULbDQBCjqJymb6A0sCzoYUESnZVWoYAehbEmDOnn7ig
-	4Qh99XMurQNbFhAl2BU0bxjgmXisXGJ61O4uRJ5uyZW+wVHMNEvjNsImmFS4B8KtIO8AE9cgRLb6I
-	kH28hM/r5NLKu8XlPvBNtil35V7sDy5MTF8WZLBowD4IFle2F9Nd7ZqNKMKWL/G4U3ssK3rJcd3Cc
-	dUIAgt25sew7mYM1XvPKgLYQ/M3nSPHFUulsFa/fe35qh4lcM27ZmTVDLEKIpzG+glngTQ8zooaII
-	D2UmLKnAo9Laa58zBr4Q==;
+	List-Owner; bh=chbEtiPYNvr6oDtr8R3J90PCMc4YsVYb3XeffWV7VMI=; b=t5LsUALJOtakPJ
+	RxrA94BbYcXrWGcFRu0tAHnoTob/X8EEilnIKIF5py6OpZTDiKacnlNslpo1vDWSYuy7jt/bqgzw5
+	BJaVmC5iJuAVQQdl4UhRaOD+fty1PdwuTecjWzbXhsll6hNhiWozv0+H3CoksLXat7NhIkquJKd47
+	0M6nNrnmjRbAhO4dv3vLWYgqCRMSmdKF2xYgFGBbe/UzH8cF59YQDdyLLd6SIwmY0lhKXP95ChUZE
+	Zq88etpuKMGHcfPjzaj7BNavAU/LBSJOFe8K/f661hWGbla98eOYqiA0XNjk4FXwZO+mj3EOErQ9Y
+	m0we4gd2MBe+IDfqhy0g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1g564u-0002m0-E5; Wed, 26 Sep 2018 09:25:52 +0000
+	id 1g56K2-0001OF-6d; Wed, 26 Sep 2018 09:41:30 +0000
 Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1g563k-0001N4-2C; Wed, 26 Sep 2018 09:24:41 +0000
+ id 1g567P-0003s9-3A; Wed, 26 Sep 2018 09:28:28 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id D477EAE02;
- Wed, 26 Sep 2018 09:24:08 +0000 (UTC)
-Date: Wed, 26 Sep 2018 11:24:04 +0200
+ by mx1.suse.de (Postfix) with ESMTP id E137BAEAC;
+ Wed, 26 Sep 2018 09:27:55 +0000 (UTC)
+Date: Wed, 26 Sep 2018 11:27:54 +0200
 From: Michal Hocko <mhocko@kernel.org>
 To: Mike Rapoport <rppt@linux.vnet.ibm.com>
-Subject: Re: [PATCH 03/30] mm: remove CONFIG_HAVE_MEMBLOCK
-Message-ID: <20180926092404.GL6278@dhcp22.suse.cz>
+Subject: Re: [PATCH 07/30] memblock: remove _virt from APIs returning virtual
+ address
+Message-ID: <20180926092754.GN6278@dhcp22.suse.cz>
 References: <1536927045-23536-1-git-send-email-rppt@linux.vnet.ibm.com>
- <1536927045-23536-4-git-send-email-rppt@linux.vnet.ibm.com>
+ <1536927045-23536-8-git-send-email-rppt@linux.vnet.ibm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <1536927045-23536-4-git-send-email-rppt@linux.vnet.ibm.com>
+In-Reply-To: <1536927045-23536-8-git-send-email-rppt@linux.vnet.ibm.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20180926_022440_267555_1D91AB52 
-X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-CacheID: sfid-20180926_022827_286476_950AC70B 
+X-CRM114-Status: UNSURE (   8.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -96,19 +97,19 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20180926092404.4-t2pcMRx5Po6E_sBDC6LQeB6mAkakYRObQmeMB_ZK8@z>
+Message-ID: <20180926092754.0ENCQcA11oNbeMLT4FdxxWt0ZltUbV4OgUNFybBKJA8@z>
 
-On Fri 14-09-18 15:10:18, Mike Rapoport wrote:
-> All architecures use memblock for early memory management. There is no need
-> for the CONFIG_HAVE_MEMBLOCK configuration option.
-
-git grep says
-arch/csky/Kconfig:  select HAVE_MEMBLOCK
-
+On Fri 14-09-18 15:10:22, Mike Rapoport wrote:
+> The conversion is done using
+> 
+> sed -i 's@memblock_virt_alloc@memblock_alloc@g' \
+> 	$(git grep -l memblock_virt_alloc)
+> 
 > Signed-off-by: Mike Rapoport <rppt@linux.vnet.ibm.com>
 
-Other than that
-Acked-by: Michal Hocko <mhocko@suse.com>
+As I've said earlier, I am not entirely thrilled by this change. It is
+unnecessary churn. So if nothing else just add a note _why_ you think
+this is better.
 -- 
 Michal Hocko
 SUSE Labs
