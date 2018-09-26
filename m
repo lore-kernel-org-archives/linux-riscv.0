@@ -1,54 +1,29 @@
-From: anup@brainfault.org (Anup Patel)
-Date: Wed, 26 Sep 2018 11:24:48 +0530
-Subject: [PATCH v2 3/5] irqchip: RISC-V Local Interrupt Controller Driver
-In-Reply-To: <CAAhSdy1gD3tZLmBzfpJV1qQKsG4GKgLkoBC7v5Kycw8KX+YeLg@mail.gmail.com>
-References: <alpine.DEB.2.21.1809101533330.1292@nanos.tec.linutronix.de>
- <alpine.DEB.2.21.1809101536410.1292@nanos.tec.linutronix.de>
- <20180910133902.GB21593@infradead.org>
- <alpine.DEB.2.21.1809101544560.1292@nanos.tec.linutronix.de>
- <20180910134915.GB30774@infradead.org>
- <CAAhSdy1be_ibiowifBdgBZjbHuFU=CR4rZXQDwQghVYkex5bMg@mail.gmail.com>
- <20180910161328.GA13171@infradead.org>
- <CAAhSdy2Y-XTZ12i5aV+SzraMZP1YQBhAArpER-YssPcBJNOPOA@mail.gmail.com>
- <20180910163543.GA13052@infradead.org>
- <CAAhSdy2PSLjrtmSbkJ4w-v-zWm2hjii3XL6HE5Pe7u3wz4BmZA@mail.gmail.com>
- <20180917141436.GB2821@infradead.org>
- <CAAhSdy1gD3tZLmBzfpJV1qQKsG4GKgLkoBC7v5Kycw8KX+YeLg@mail.gmail.com>
-Message-ID: <CAAhSdy3unGBSS9Xgozwt4so_RBOr1WSugiP-4J49q-GOub2mDQ@mail.gmail.com>
+From: zongbox@gmail.com (Zong Li)
+Date: Wed, 26 Sep 2018 15:12:45 +0800
+Subject: [PATCH 3/5] lib: Add umoddi3 and udivmoddi4 of GCC library
+ routines
+In-Reply-To: <mvmefdicabq.fsf@suse.de>
+References: <cover.1537260207.git.zongbox@gmail.com>
+ <2ccc6c0758624dbb22f6fe451a3e476a000108ef.1537260207.git.zongbox@gmail.com>
+ <20180921070006.GC8401@infradead.org>
+ <CA+ZOyaiJv-NZWk3ec_3zhRTSn7G-NGgyaiPTXOmuWfTWD7KSJw@mail.gmail.com>
+ <mvmefdicabq.fsf@suse.de>
+Message-ID: <CA+ZOyagnA=NRjRH4qWw8FgOTBr1uAvDvK1Pk8MAw8ysQdgdfPA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Sep 17, 2018 at 7:58 PM Anup Patel <anup@brainfault.org> wrote:
+Andreas Schwab <schwab@suse.de> ? 2018?9?25? ?? ??3:20???
 >
-> On Mon, Sep 17, 2018 at 7:44 PM Christoph Hellwig <hch@infradead.org> wrote:
-> >
-> > On Mon, Sep 10, 2018 at 10:08:58PM +0530, Anup Patel wrote:
-> > > > They could in theory IFF someone actually get the use case through
-> > > > the riscv privileged spec working group.
-> > >
-> > > Their is no point in having each and every possible local interrupts
-> > > defined by RISC-V spec because some of these will be CPU
-> > > implementation specific in which case these local interrupts will
-> > > be described in platform specific DT passed to Linux.
-> >
-> > Again, to legally have implementation specific local interrupt types
-> > you'll first need to convice the spec to change the status for those
-> > fields from reserved to implementation specific.
+> On Sep 25 2018, Zong Li <zongbox@gmail.com> wrote:
 >
-> I agree, this needs to be first clarified in RISC-V spec. May be this is
-> a good topic for discussion in any upcoming RISC-V meetup.
+> > The RV32 need the umoddi3 to do modulo when the operands are long long
+> > type, like other libraries implementation such as ucmpdi2, lshrdi3 and
+> > so on. I encounter the undefined reference 'umoddi3' when I use the in
+> > house dma driver, although it is in house driver, but I think that
+> > umoddi3 is a common function for RV32.
 >
-> Until then anyone can try these patches from riscv_intc_v2 branch of
-> https://github.com/avpatel/linux
->
+> You probably should use the macros from <asm/div64.h> instead.
 
-I released that CLIC is going to be available for both M-mode and S-mode.
-Software can choose to use HLIC or CLIC based on it's own preference.
+Hi Andreas,
 
-If we are going to support both HLIC and CLIC in Linux kernel for per-CPU
-local interrupts then we should definitely have irqdomain and irqchip for
-per-CPU local interrupts. The selection between HLIC and CLIC will be
-based on which driver gets probed via DT.
-
-Regards,
-Anup
+This doesn't work for me, the divisor of my case is also long long type.
