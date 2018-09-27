@@ -1,66 +1,33 @@
-From: rppt@linux.vnet.ibm.com (Mike Rapoport)
-Date: Thu, 27 Sep 2018 07:50:20 +0300
-Subject: [PATCH 03/30] mm: remove CONFIG_HAVE_MEMBLOCK
-In-Reply-To: <CAKgT0UcC-GTtyPK9ynvj6r3YFqy8kE40iMJxzPowbNoXGf9iWg@mail.gmail.com>
-References: <1536927045-23536-1-git-send-email-rppt@linux.vnet.ibm.com>
- <1536927045-23536-4-git-send-email-rppt@linux.vnet.ibm.com>
- <CAKgT0UdP=78RsWHMxFu4PD8a3AhA3eNcG68Z_9aGY0vhOKf7xA@mail.gmail.com>
- <20180926183152.GA4597@rapoport-lnx>
- <CAKgT0UcC-GTtyPK9ynvj6r3YFqy8kE40iMJxzPowbNoXGf9iWg@mail.gmail.com>
-Message-ID: <20180927045019.GA16740@rapoport-lnx>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Thu, 27 Sep 2018 11:51:07 -0700 (PDT)
+Subject: [GIT PULL] A Single RISC-V Update for 4.19-rc6
+Message-ID: <mhng-61f81f3e-1f1c-4b5d-a36c-caabba09a7b9@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Sep 26, 2018 at 05:34:32PM -0700, Alexander Duyck wrote:
-> On Wed, Sep 26, 2018 at 11:32 AM Mike Rapoport <rppt@linux.vnet.ibm.com> wrote:
-> >
-> > On Wed, Sep 26, 2018 at 09:58:41AM -0700, Alexander Duyck wrote:
-> > > On Fri, Sep 14, 2018 at 5:11 AM Mike Rapoport <rppt@linux.vnet.ibm.com> wrote:
-> > > >
-> > > > All architecures use memblock for early memory management. There is no need
-> > > > for the CONFIG_HAVE_MEMBLOCK configuration option.
-> > > >
-> > > > Signed-off-by: Mike Rapoport <rppt@linux.vnet.ibm.com>
-> > >
-> > > <snip>
-> > >
-> > > > diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-> > > > index 5169205..4ae91fc 100644
-> > > > --- a/include/linux/memblock.h
-> > > > +++ b/include/linux/memblock.h
-> > > > @@ -2,7 +2,6 @@
-> > > >  #define _LINUX_MEMBLOCK_H
-> > > >  #ifdef __KERNEL__
-> > > >
-> > > > -#ifdef CONFIG_HAVE_MEMBLOCK
-> > > >  /*
-> > > >   * Logical memory blocks.
-> > > >   *
-> > > > @@ -460,7 +459,6 @@ static inline phys_addr_t memblock_alloc(phys_addr_t size, phys_addr_t align)
-> > > >  {
-> > > >         return 0;
-> > > >  }
-> > > > -#endif /* CONFIG_HAVE_MEMBLOCK */
-> > > >
-> > > >  #endif /* __KERNEL__ */
-> > >
-> > > There was an #else above this section and I believe it and the code
-> > > after it needs to be stripped as well.
-> >
-> > Right, I've already sent the fix [1] and it's in mmots.
-> >
-> > [1] https://lkml.org/lkml/2018/9/19/416
-> >
-> 
-> Are you sure? The patch you reference appears to be for
-> drivers/of/fdt.c, and the bit I pointed out here is in
-> include/linux/memblock.h.
+The following changes since commit 6bf4ca7fbc85d80446ac01c0d1d77db4d91a6d84:
 
-Ah, sorry. You are right, will fix. Thanks for spotting it!
- 
-> - Alex
-> 
+  Linux 4.19-rc5 (2018-09-23 19:15:18 +0200)
 
--- 
-Sincerely yours,
-Mike.
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-rc6
+
+for you to fetch changes up to 57a489786de9ec37d6e25ef1305dc337047f0236:
+
+  RISC-V: include linux/ftrace.h in asm-prototypes.h (2018-09-24 13:12:27 -0700)
+
+----------------------------------------------------------------
+A Single RISC-V Update for 4.19-rc6
+
+The Debian guys have been pushing on our port and found some unversioned
+symbols leaking into modules.  This PR contains a single fix for that
+issue.
+
+----------------------------------------------------------------
+James Cowgill (1):
+      RISC-V: include linux/ftrace.h in asm-prototypes.h
+
+ arch/riscv/include/asm/asm-prototypes.h | 7 +++++++
+ 1 file changed, 7 insertions(+)
+ create mode 100644 arch/riscv/include/asm/asm-prototypes.h
