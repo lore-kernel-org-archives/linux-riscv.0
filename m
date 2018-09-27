@@ -1,33 +1,45 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 27 Sep 2018 11:51:07 -0700 (PDT)
-Subject: [GIT PULL] A Single RISC-V Update for 4.19-rc6
-Message-ID: <mhng-61f81f3e-1f1c-4b5d-a36c-caabba09a7b9@palmer-si-x1c4>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Thu, 27 Sep 2018 15:28:50 -0700
+Subject: [PATCH v2] RISC-V: Show CPU ID and Hart ID separately in
+ /proc/cpuinfo
+In-Reply-To: <CAAhSdy2ZOXk3fDt8W_G1=h_OrifFsXP3XwZ2xnXwt9ztzW4GEg@mail.gmail.com>
+References: <20180923133737.22693-1-anup@brainfault.org>
+ <a7c64e1a-405e-6a2c-cb42-211c4f89367d@wdc.com>
+ <CAAhSdy2ZOXk3fDt8W_G1=h_OrifFsXP3XwZ2xnXwt9ztzW4GEg@mail.gmail.com>
+Message-ID: <d0c811f0-02f0-3503-fb03-4a07ebdfb477@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The following changes since commit 6bf4ca7fbc85d80446ac01c0d1d77db4d91a6d84:
+On 9/25/18 9:17 PM, Anup Patel wrote:
+> On Tue, Sep 25, 2018 at 11:29 PM Atish Patra <atish.patra@wdc.com> wrote:
+>>
+>> On 9/23/18 6:37 AM, Anup Patel wrote:
+>>> Currently, /proc/cpuinfo show logical CPU ID as Hart ID which
+>>> is in-correct. This patch shows CPU ID and Hart ID separately
+>>> in /proc/cpuinfo using cpuid_to_hardid_map().
+>>>
+>> I noticed it should be cpuid_to_hartid_map instead of
+>> cpuid_to_hardid_map. It was a typo in my smp cleanup patch series.
+>> Sorry for the inconvenience here.
+> 
+> Thanks for pointing.
+> 
+>>
+>> I can include this patch in into my series fixing the typo if you want.
+> 
+> Yes, please.
+> 
 
-  Linux 4.19-rc5 (2018-09-23 19:15:18 +0200)
+Great.
 
-are available in the Git repository at:
+> You can also include "RISC-V: Show IPI stats" patch in your series.
+> This patch was reviewed by Christoph.
+> 
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-rc6
+I already had that included as a part of v5.
 
-for you to fetch changes up to 57a489786de9ec37d6e25ef1305dc337047f0236:
-
-  RISC-V: include linux/ftrace.h in asm-prototypes.h (2018-09-24 13:12:27 -0700)
-
-----------------------------------------------------------------
-A Single RISC-V Update for 4.19-rc6
-
-The Debian guys have been pushing on our port and found some unversioned
-symbols leaking into modules.  This PR contains a single fix for that
-issue.
-
-----------------------------------------------------------------
-James Cowgill (1):
-      RISC-V: include linux/ftrace.h in asm-prototypes.h
-
- arch/riscv/include/asm/asm-prototypes.h | 7 +++++++
- 1 file changed, 7 insertions(+)
- create mode 100644 arch/riscv/include/asm/asm-prototypes.h
+Regards,
+Atish
+> Thanks,
+> Anup
+> 
