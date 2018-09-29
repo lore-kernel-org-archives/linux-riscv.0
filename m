@@ -1,56 +1,86 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 28 Sep 2018 16:52:19 -0700 (PDT)
-Subject: [PATCH v2 0/5] Fix some bugs on RV32 build fail and issue
-In-Reply-To: <cover.1537949825.git.zongbox@gmail.com>
-Message-ID: <mhng-1934187c-6fab-4000-af19-23a80173669d@palmer-si-x1c4>
+Date: Fri, 28 Sep 2018 17:13:34 -0700 (PDT)
+Subject: [PATCH v5 00/12] SMP cleanup and new features
+In-Reply-To: <1536863825-66808-1-git-send-email-atish.patra@wdc.com>
+Message-ID: <mhng-206c9841-0e02-4d09-8860-160c0d917c94@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 26 Sep 2018 01:31:09 PDT (-0700), zongbox at gmail.com wrote:
-> This patches contain the modificaion as follows:
-> 1. Fix up the building fail on RV32.
-> 2. Add umoddi3 and udivmoddi4 functions for RV32.
-> 3. Fix ioremap problem on RV32.
+On Thu, 13 Sep 2018 11:36:53 PDT (-0700), atish.patra at wdc.com wrote:
+> This patch series has updated the assorted cleanup series by palmer.
+> The original cleanup patch series can be found here.
+> http://lists.infradead.org/pipermail/linux-riscv/2018-August/001232.html
 >
-> Changes in v2:
->  - Retain the copyright notices from libgcc in umoddi3.c and udivmoddi4.c.
+> It also implemented decoupling linux logical CPU ids from hart id.
+> Some of the work has been inspired from ARM64.
+> Tested on QEMU & HighFive Unleashed board with/without SMP enabled.
 >
-> Vincent Chen (1):
->   RISC-V: Avoid corrupting the upper 32-bit of phys_addr_t in ioremap
+> Both the patch series have been combined to avoid conflicts as a lot
+> of common code is changed in both the series. I have mostly addressed
+> review comments and fixed checkpatch errors from palmer's series.
 >
-> Zong Li (4):
->   RISC-V: Build tishift only on 64-bit
->   RISC-V: Use swiotlb on RV64 only
->   lib: Add umoddi3 and udivmoddi4 of GCC library routines
->   RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
+> v1->v2:
 >
->  arch/riscv/Kconfig        |   1 +
->  arch/riscv/kernel/setup.c |   3 +
->  arch/riscv/lib/Makefile   |   3 +-
->  arch/riscv/mm/ioremap.c   |   2 +-
->  lib/Kconfig               |   3 +
->  lib/Makefile              |   1 +
->  lib/udivmoddi4.c          | 309 ++++++++++++++++++++++++++++++++++++++++++++++
->  lib/umoddi3.c             |  34 +++++
->  8 files changed, 354 insertions(+), 2 deletions(-)
->  create mode 100644 lib/udivmoddi4.c
->  create mode 100644 lib/umoddi3.c
+> 1. Dropped cpu_ops patch.
+> 2. Moved back IRQ cause definitions to irq.h
+> 3. Keep boot CPU hart id and assign zero as the CPU id for boot CPU.
+> 4. Renamed CPU id and hart id correctly.
+>
+> v2-v3:
+>
+> 1. Added cleanup patches from palmer.
+> 2. Moved the hotplug related functions to it's own file.
+> 3. Updated stub functions as per coding guidelines.
+> 4. Renamed __cpu_logical_map to a more coherent name.
+>
+> v3-v4:
+>
+> 1. Addressed minor typos in commit text and code.
+> 2. Included Anup's do_IRQ patch.
+> 3. Dropped CPU hotplug patch. As there are some concerns
+>    about approach, I will submit it separately.
+>
+> v4->v5:
+>
+> 1. Minor typo fixes in commit text.
+>
+> Anup Patel (1):
+>   RISC-V: No need to pass scause as arg to do_IRQ()
+>
+> Atish Patra (4):
+>   RISC-V: Disable preemption before enabling interrupts
+>   RISC-V: Use WRITE_ONCE instead of direct access
+>   RISC-V: Add logical CPU indexing for RISC-V
+>   RISC-V: Use Linux logical CPU number instead of hartid
+>
+> Palmer Dabbelt (7):
+>   RISC-V: Don't set cacheinfo.{physical_line_partition,attributes}
+>   RISC-V: Filter ISA and MMU values in cpuinfo
+>   RISC-V: Comment on the TLB flush in smp_callin()
+>   RISC-V: Provide a cleaner raw_smp_processor_id()
+>   RISC-V: Rename riscv_of_processor_hart to riscv_of_processor_hartid
+>   RISC-V: Rename im_okay_therefore_i_am to found_boot_cpu
+>   RISC-V: Use mmgrab()
+>
+>  arch/riscv/include/asm/processor.h |  2 +-
+>  arch/riscv/include/asm/smp.h       | 38 ++++++++++++-----
+>  arch/riscv/include/asm/tlbflush.h  | 16 ++++++--
+>  arch/riscv/kernel/cacheinfo.c      |  7 ----
+>  arch/riscv/kernel/cpu.c            | 83 ++++++++++++++++++++++++++++++++------
+>  arch/riscv/kernel/entry.S          |  1 -
+>  arch/riscv/kernel/head.S           |  4 +-
+>  arch/riscv/kernel/irq.c            |  4 +-
+>  arch/riscv/kernel/setup.c          | 10 +++++
+>  arch/riscv/kernel/smp.c            | 43 +++++++++++++++-----
+>  arch/riscv/kernel/smpboot.c        | 46 ++++++++++++++-------
+>  drivers/clocksource/riscv_timer.c  | 12 ++++--
+>  drivers/irqchip/irq-sifive-plic.c  | 10 +++--
+>  13 files changed, 207 insertions(+), 69 deletions(-)
 
-I like what this does, but there's a license issue here that Christoph pointed 
-out.  It'd be great to have RV32I systems booting 4.19, do you think there's a 
-chance you can sort this out next week so we can get it into the last RC?  That 
-would help with the rv32i glibc process, as we'll actually be able to boot an 
-upstream kernel.
+I didn't look closely because I assume your cleanups are better than mine, and 
+than you at least gave this a boot test to ensure I didn't do anything too 
+stupid :)
 
-It looks like the functions we have an issue with come from libgcc2.c, which 
-doesn't change very much.  As far as I can tell we might be able to get away 
-with these functions from 4.2.1, which was licensed under the GPLv2.  Here's 
-the relevant functions on GCC's github mirror
+I'm preparing our first meaningful for-next now, I'll drop this one in.
 
-    https://github.com/gcc-mirror/gcc/blob/gcc-4_2_1-release/gcc/libgcc2.c#L559
-    https://github.com/gcc-mirror/gcc/blob/gcc-4_2_1-release/gcc/libgcc2.c#L844
-
-These look very similar to what you send out.  As far as I can tell, if you 
-base your code on the GPLv2 version then this should be fine to include.
-
-Thanks!
+Thanks for taking this over!
