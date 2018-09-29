@@ -1,63 +1,104 @@
-From: zongbox@gmail.com (Zong Li)
-Date: Sat, 29 Sep 2018 11:40:37 +0800
-Subject: [PATCH v2 0/5] Fix some bugs on RV32 build fail and issue
-In-Reply-To: <mhng-1934187c-6fab-4000-af19-23a80173669d@palmer-si-x1c4>
-References: <cover.1537949825.git.zongbox@gmail.com>
- <mhng-1934187c-6fab-4000-af19-23a80173669d@palmer-si-x1c4>
-Message-ID: <CA+ZOyagkLaikQjcwJzFumOs=o2Bhu0nzRcdb3a8fW7nT-HfprQ@mail.gmail.com>
+From: anup@brainfault.org (Anup Patel)
+Date: Sat, 29 Sep 2018 11:39:56 +0530
+Subject: [PATCH] RISC-V: Show IPI stats
+In-Reply-To: <mhng-2395876e-5470-45f9-83e1-4abae5188b0c@palmer-si-x1c4>
+References: <20180910134659.GA30774@infradead.org>
+ <mhng-2395876e-5470-45f9-83e1-4abae5188b0c@palmer-si-x1c4>
+Message-ID: <CAAhSdy0wd7LN1tb5oRkgYbxeR=Yb3LomUtTcym1dhyO6wa+a9g@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Palmer Dabbelt <palmer@sifive.com> ? 2018?9?29? ?? ??7:52???
+On Sat, Sep 29, 2018 at 7:15 AM Palmer Dabbelt <palmer@sifive.com> wrote:
 >
-> On Wed, 26 Sep 2018 01:31:09 PDT (-0700), zongbox at gmail.com wrote:
-> > This patches contain the modificaion as follows:
-> > 1. Fix up the building fail on RV32.
-> > 2. Add umoddi3 and udivmoddi4 functions for RV32.
-> > 3. Fix ioremap problem on RV32.
+> On Mon, 10 Sep 2018 06:46:59 PDT (-0700), Christoph Hellwig wrote:
+> > On Fri, Sep 07, 2018 at 06:14:29PM +0530, Anup Patel wrote:
+> >> This patch provides arch_show_interrupts() implementation to
+> >> show IPI stats via /proc/interrupts.
+> >>
+> >> Now the contents of /proc/interrupts" will look like below:
+> >>            CPU0       CPU1       CPU2       CPU3
+> >>   8:         17          7          6         14  SiFive PLIC   8  virtio0
+> >>  10:         10         10          9         11  SiFive PLIC  10  ttyS0
+> >> IPI0:       170        673        251         79  Rescheduling interrupts
+> >> IPI1:         1         12         27          1  Function call interrupts
+> >> IPI2:         0          0          0          0  CPU wake-up interrupts
+> >>
+> >> Signed-off-by: Anup Patel <anup@brainfault.org>
 > >
-> > Changes in v2:
-> >  - Retain the copyright notices from libgcc in umoddi3.c and udivmoddi4.c.
-> >
-> > Vincent Chen (1):
-> >   RISC-V: Avoid corrupting the upper 32-bit of phys_addr_t in ioremap
-> >
-> > Zong Li (4):
-> >   RISC-V: Build tishift only on 64-bit
-> >   RISC-V: Use swiotlb on RV64 only
-> >   lib: Add umoddi3 and udivmoddi4 of GCC library routines
-> >   RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
-> >
-> >  arch/riscv/Kconfig        |   1 +
-> >  arch/riscv/kernel/setup.c |   3 +
-> >  arch/riscv/lib/Makefile   |   3 +-
-> >  arch/riscv/mm/ioremap.c   |   2 +-
-> >  lib/Kconfig               |   3 +
-> >  lib/Makefile              |   1 +
-> >  lib/udivmoddi4.c          | 309 ++++++++++++++++++++++++++++++++++++++++++++++
-> >  lib/umoddi3.c             |  34 +++++
-> >  8 files changed, 354 insertions(+), 2 deletions(-)
-> >  create mode 100644 lib/udivmoddi4.c
-> >  create mode 100644 lib/umoddi3.c
+> > Thanks, this looks pretty sensible to me.  Maybe we want to also show
+> > timer interrupts if we do this?
 >
-> I like what this does, but there's a license issue here that Christoph pointed
-> out.  It'd be great to have RV32I systems booting 4.19, do you think there's a
-> chance you can sort this out next week so we can get it into the last RC?  That
-> would help with the rv32i glibc process, as we'll actually be able to boot an
-> upstream kernel.
->
-> It looks like the functions we have an issue with come from libgcc2.c, which
-> doesn't change very much.  As far as I can tell we might be able to get away
-> with these functions from 4.2.1, which was licensed under the GPLv2.  Here's
-> the relevant functions on GCC's github mirror
->
->     https://github.com/gcc-mirror/gcc/blob/gcc-4_2_1-release/gcc/libgcc2.c#L559
->     https://github.com/gcc-mirror/gcc/blob/gcc-4_2_1-release/gcc/libgcc2.c#L844
->
-> These look very similar to what you send out.  As far as I can tell, if you
-> base your code on the GPLv2 version then this should be fine to include.
->
-> Thanks!
+> IIRC we used to have some issue where the timer interrupt ID in
+> /proc/interrupts aliased with a possible PLIC interrupt ID, but that was back
+> when we had a big mess of chained interrupt drivers that didn't really talk to
+> each other.  I think at some point I might have just removed the timer
+> interrupt from /proc/interrupts as a hack, but now that our interrupt
+> controller mess is sorted out it'd be better to have it.
 
-Thanks for the help and useful information. I will modify the
-implementation and submit the next version.
+If we have irqdomain and irqchip for HLIC then showing timer interrupts
+becomes cleaner. My RISCV INTC patch achieves this.
+
+>
+> I'm fine taking this without the timer interrupts, as something is better than
+> nothing.
+
+Sure.
+
+>
+> >> --- a/arch/riscv/kernel/irq.c
+> >> +++ b/arch/riscv/kernel/irq.c
+> >> @@ -8,6 +8,7 @@
+> >>  #include <linux/interrupt.h>
+> >>  #include <linux/irqchip.h>
+> >>  #include <linux/irqdomain.h>
+> >> +#include <linux/seq_file.h>
+> >>
+> >>  /*
+> >>   * Possible interrupt causes:
+> >> @@ -24,6 +25,14 @@
+> >>   */
+> >>  #define INTERRUPT_CAUSE_FLAG        (1UL << (__riscv_xlen - 1))
+> >>
+> >> +int arch_show_interrupts(struct seq_file *p, int prec)
+> >> +{
+> >> +#ifdef CONFIG_SMP
+> >> +    show_ipi_stats(p, prec);
+> >> +#endif
+> >> +    return 0;
+> >> +}
+> >
+> > If we don't also add timer stats I'd just move arch_show_interrupts
+> > to smp.c and make it conditional.  If we don't this split might make
+> > more sense.
+>
+> Makes sense, but I think timer interrupts are more interesting to see than IPIs
+> so we'll eventually pipe them through.  Might just be my workloads, though :)
+>
+> >> +static const char *ipi_names[IPI_MAX] = {
+> >> +    [IPI_RESCHEDULE] = "Rescheduling interrupts",
+> >> +    [IPI_CALL_FUNC] = "Function call interrupts",
+> >> +    [IPI_CALL_WAKEUP] = "CPU wake-up interrupts",
+> >> +};
+> >
+> > No need for the explicit array size.  Also please use a few tabs to
+> > align this nicely:
+> >
+> > static const char *ipi_names[] = {
+> >       [IPI_RESCHEDULE]        = "Rescheduling interrupts",
+> >       [IPI_CALL_FUNC]         = "Function call interrupts",
+> >       [IPI_CALL_WAKEUP]       = "CPU wake-up interrupts",
+> > };
+>
+> I don't see a v2 of this, was there one?  If not then I'll just clean up
+> ipi_names and drop this on for-next.
+>
+> Thanks for the patch!
+
+I will send v3 patch because IPI_CALL_WAKEUP is not going to be available.
+
+I will base v3 patch upon v5 of Atish's patchset. Atish will take v3 of this
+patch and make it part of his v6 patchset so that it will be easy for you
+to apply.
+
+Regards,
+Anup
