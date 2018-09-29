@@ -1,23 +1,35 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 28 Sep 2018 17:20:45 -0700 (PDT)
-Subject: [RFC 2/3] RISC-V:Support per-hart timebase-frequency
-In-Reply-To: <20180917142308.GB15588@infradead.org>
-Message-ID: <mhng-54e4fe3d-12d8-48c7-b1ea-df317fb3ff3a@palmer-si-x1c4>
+Date: Fri, 28 Sep 2018 18:45:01 -0700 (PDT)
+Subject: [RFC PATCH 1/5] RISC-V: Make IPI triggering flexible
+In-Reply-To: <20180910133418.GA12330@infradead.org>
+Message-ID: <mhng-0f237369-b7fb-47cd-a610-be4c577c3c4f@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 17 Sep 2018 07:23:08 PDT (-0700), Christoph Hellwig wrote:
-> On Fri, Sep 14, 2018 at 02:54:55PM -0700, Atish Patra wrote:
->> Follow the updated DT specs and read the timebase-frequency
->> from the boot cpu. Keep the old DT reading as well for backward
->> compatibility. This patch is rework of old patch from Palmer.
->>
->> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+On Mon, 10 Sep 2018 06:34:18 PDT (-0700), Christoph Hellwig wrote:
+> On Thu, Sep 06, 2018 at 04:15:14PM +0530, Anup Patel wrote:
+>> This patch is doing two things:
+>> 1. Allow IRQCHIP driver to provide IPI trigger mechanism
 >
-> This setup looks a bit odd because it keeps blindly overwriting
-> riscv_timebase for every cpu found.  Shouldn't we at least check that
-> they all match for now as the rest of the port assumes that?
+> And the big questions is why do we want that?  The last thing we
+> want is for people to "innovate" on how they deliver IPIs.  RISC-V
+> has defined an SBI interface for it to hide all the details, and
+> we should not try to handle systems that are not SBI compliant.
+>
+> Eventuall we might want to revisit the SBI to improve on shortcomings
+> if there are any, but we should not allow random irqchip drivers to
+> override this.
 
-I agree.  There should be at least a warning if they don't match, but ideally 
-we'd just support per-CPU timebases.  We have those systems already, they just 
-don't boot Linux (at least, not yet :)).
+I agree.  The whole point of the SBI is to provide an interface that everyone 
+uses so we can the go figure out how to make this fast later.  If each platform 
+has their own magic IPI hooks then this will end up being a mess.
+
+We've got some schemes floating around to make the SBI fast (essentially an SBI 
+VDSO), I'd prefer to push on that rather than adding a bunch of complexity 
+here.
+
+>
+>> 2. Have more generic IPI handler in arch/riscv so that IRQCHIP driver
+>> can call it
+>
+> And that is rather irrelevant without 1) above.
