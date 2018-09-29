@@ -1,35 +1,128 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 28 Sep 2018 18:45:01 -0700 (PDT)
-Subject: [RFC PATCH 1/5] RISC-V: Make IPI triggering flexible
-In-Reply-To: <20180910133418.GA12330@infradead.org>
-Message-ID: <mhng-0f237369-b7fb-47cd-a610-be4c577c3c4f@palmer-si-x1c4>
+Date: Fri, 28 Sep 2018 18:44:57 -0700 (PDT)
+Subject: [PATCH] RISC-V: Cosmetic menuconfig changes
+In-Reply-To: <20180919224815.24688-1-mick@ics.forth.gr>
+Message-ID: <mhng-4c7f23e6-3111-4b77-9cb9-87da815f14d7@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 10 Sep 2018 06:34:18 PDT (-0700), Christoph Hellwig wrote:
-> On Thu, Sep 06, 2018 at 04:15:14PM +0530, Anup Patel wrote:
->> This patch is doing two things:
->> 1. Allow IRQCHIP driver to provide IPI trigger mechanism
+On Wed, 19 Sep 2018 15:48:15 PDT (-0700), mick at ics.forth.gr wrote:
+> * Move the built-in cmdline configuration on a new menu entry "Boot
+>   options", it doesn't make much sense to be part of the debuging menu.
 >
-> And the big questions is why do we want that?  The last thing we
-> want is for people to "innovate" on how they deliver IPIs.  RISC-V
-> has defined an SBI interface for it to hide all the details, and
-> we should not try to handle systems that are not SBI compliant.
+> * Rename "Kernel Type" menu to "Kernel features" to be more consistent with
+>   what other architectures are using, plus "type" is a bit misleading here.
 >
-> Eventuall we might want to revisit the SBI to improve on shortcomings
-> if there are any, but we should not allow random irqchip drivers to
-> override this.
+> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
 
-I agree.  The whole point of the SBI is to provide an interface that everyone 
-uses so we can the go figure out how to make this fast later.  If each platform 
-has their own magic IPI hooks then this will end up being a mess.
+This seems reasonable to me.  I've added it to our for-next branch, we'll see 
+if anyone else has comments.  Thanks!
 
-We've got some schemes floating around to make the SBI fast (essentially an SBI 
-VDSO), I'd prefer to push on that rather than adding a bunch of complexity 
-here.
+Did you, by any chance, go and check to see if these boot options actually 
+work?  We've got a bunch of subtly different boot methods and they've been 
+broken in various ones at various times, so I always like to try and catalog 
+what actually works now so at least I know where to look when testing things.
 
+> ---
+>  arch/riscv/Kconfig       | 40 +++++++++++++++++++++++++++++++++++++++-
+>  arch/riscv/Kconfig.debug | 35 -----------------------------------
+>  2 files changed, 39 insertions(+), 36 deletions(-)
 >
->> 2. Have more generic IPI handler in arch/riscv so that IRQCHIP driver
->> can call it
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index a3449802..82172bf8 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -210,12 +210,50 @@ endmenu
 >
-> And that is rather irrelevant without 1) above.
+>  endmenu
+>
+> -menu "Kernel type"
+> +menu "Kernel features"
+>
+>  source "kernel/Kconfig.hz"
+>
+>  endmenu
+>
+> +menu "Boot options"
+> +
+> +config CMDLINE_BOOL
+> +	bool "Built-in kernel command line"
+> +	help
+> +	  For most platforms, it is firmware or second stage bootloader
+> +	  that by default specifies the kernel command line options.
+> +	  However, it might be necessary or advantageous to either override
+> +	  the default kernel command line or add a few extra options to it.
+> +	  For such cases, this option allows hardcoding command line options
+> +	  directly into the kernel.
+> +
+> +	  For that, choose 'Y' here and fill in the extra boot parameters
+> +	  in CONFIG_CMDLINE.
+> +
+> +	  The built-in options will be concatenated to the default command
+> +	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
+> +	  command line will be ignored and replaced by the built-in string.
+> +
+> +config CMDLINE
+> +	string "Built-in kernel command string"
+> +	depends on CMDLINE_BOOL
+> +	default ""
+> +	help
+> +	  Supply command-line options at build time by entering them here.
+> +
+> +config CMDLINE_FORCE
+> +	bool "Built-in command line overrides bootloader arguments"
+> +	depends on CMDLINE_BOOL
+> +	help
+> +	  Set this option to 'Y' to have the kernel ignore the bootloader
+> +	  or firmware command line.  Instead, the built-in command line
+> +	  will be used exclusively.
+> +
+> +	  If you don't know what to do here, say N.
+> +
+> +endmenu
+> +
+>  menu "Bus support"
+>
+>  config PCI
+> diff --git a/arch/riscv/Kconfig.debug b/arch/riscv/Kconfig.debug
+> index 3224ff6e..c5a72f17 100644
+> --- a/arch/riscv/Kconfig.debug
+> +++ b/arch/riscv/Kconfig.debug
+> @@ -1,37 +1,2 @@
+> -
+> -config CMDLINE_BOOL
+> -	bool "Built-in kernel command line"
+> -	help
+> -	  For most platforms, it is firmware or second stage bootloader
+> -	  that by default specifies the kernel command line options.
+> -	  However, it might be necessary or advantageous to either override
+> -	  the default kernel command line or add a few extra options to it.
+> -	  For such cases, this option allows hardcoding command line options
+> -	  directly into the kernel.
+> -
+> -	  For that, choose 'Y' here and fill in the extra boot parameters
+> -	  in CONFIG_CMDLINE.
+> -
+> -	  The built-in options will be concatenated to the default command
+> -	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
+> -	  command line will be ignored and replaced by the built-in string.
+> -
+> -config CMDLINE
+> -	string "Built-in kernel command string"
+> -	depends on CMDLINE_BOOL
+> -	default ""
+> -	help
+> -	  Supply command-line options at build time by entering them here.
+> -
+> -config CMDLINE_FORCE
+> -	bool "Built-in command line overrides bootloader arguments"
+> -	depends on CMDLINE_BOOL
+> -	help
+> -	  Set this option to 'Y' to have the kernel ignore the bootloader
+> -	  or firmware command line.  Instead, the built-in command line
+> -	  will be used exclusively.
+> -
+> -	  If you don't know what to do here, say N.
+> -
+>  config EARLY_PRINTK
+>  	def_bool y
