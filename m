@@ -1,128 +1,84 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 28 Sep 2018 18:44:57 -0700 (PDT)
-Subject: [PATCH] RISC-V: Cosmetic menuconfig changes
-In-Reply-To: <20180919224815.24688-1-mick@ics.forth.gr>
-Message-ID: <mhng-4c7f23e6-3111-4b77-9cb9-87da815f14d7@palmer-si-x1c4>
+Date: Fri, 28 Sep 2018 18:45:03 -0700 (PDT)
+Subject: [PATCH] RISC-V: Show IPI stats
+In-Reply-To: <20180910134659.GA30774@infradead.org>
+Message-ID: <mhng-2395876e-5470-45f9-83e1-4abae5188b0c@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 19 Sep 2018 15:48:15 PDT (-0700), mick at ics.forth.gr wrote:
-> * Move the built-in cmdline configuration on a new menu entry "Boot
->   options", it doesn't make much sense to be part of the debuging menu.
+On Mon, 10 Sep 2018 06:46:59 PDT (-0700), Christoph Hellwig wrote:
+> On Fri, Sep 07, 2018 at 06:14:29PM +0530, Anup Patel wrote:
+>> This patch provides arch_show_interrupts() implementation to
+>> show IPI stats via /proc/interrupts.
+>>
+>> Now the contents of /proc/interrupts" will look like below:
+>>            CPU0       CPU1       CPU2       CPU3
+>>   8:         17          7          6         14  SiFive PLIC   8  virtio0
+>>  10:         10         10          9         11  SiFive PLIC  10  ttyS0
+>> IPI0:       170        673        251         79  Rescheduling interrupts
+>> IPI1:         1         12         27          1  Function call interrupts
+>> IPI2:         0          0          0          0  CPU wake-up interrupts
+>>
+>> Signed-off-by: Anup Patel <anup@brainfault.org>
 >
-> * Rename "Kernel Type" menu to "Kernel features" to be more consistent with
->   what other architectures are using, plus "type" is a bit misleading here.
->
-> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
+> Thanks, this looks pretty sensible to me.  Maybe we want to also show
+> timer interrupts if we do this?
 
-This seems reasonable to me.  I've added it to our for-next branch, we'll see 
-if anyone else has comments.  Thanks!
+IIRC we used to have some issue where the timer interrupt ID in 
+/proc/interrupts aliased with a possible PLIC interrupt ID, but that was back 
+when we had a big mess of chained interrupt drivers that didn't really talk to 
+each other.  I think at some point I might have just removed the timer 
+interrupt from /proc/interrupts as a hack, but now that our interrupt 
+controller mess is sorted out it'd be better to have it.
 
-Did you, by any chance, go and check to see if these boot options actually 
-work?  We've got a bunch of subtly different boot methods and they've been 
-broken in various ones at various times, so I always like to try and catalog 
-what actually works now so at least I know where to look when testing things.
+I'm fine taking this without the timer interrupts, as something is better than 
+nothing.
 
-> ---
->  arch/riscv/Kconfig       | 40 +++++++++++++++++++++++++++++++++++++++-
->  arch/riscv/Kconfig.debug | 35 -----------------------------------
->  2 files changed, 39 insertions(+), 36 deletions(-)
+>> --- a/arch/riscv/kernel/irq.c
+>> +++ b/arch/riscv/kernel/irq.c
+>> @@ -8,6 +8,7 @@
+>>  #include <linux/interrupt.h>
+>>  #include <linux/irqchip.h>
+>>  #include <linux/irqdomain.h>
+>> +#include <linux/seq_file.h>
+>>
+>>  /*
+>>   * Possible interrupt causes:
+>> @@ -24,6 +25,14 @@
+>>   */
+>>  #define INTERRUPT_CAUSE_FLAG	(1UL << (__riscv_xlen - 1))
+>>
+>> +int arch_show_interrupts(struct seq_file *p, int prec)
+>> +{
+>> +#ifdef CONFIG_SMP
+>> +	show_ipi_stats(p, prec);
+>> +#endif
+>> +	return 0;
+>> +}
 >
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index a3449802..82172bf8 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -210,12 +210,50 @@ endmenu
+> If we don't also add timer stats I'd just move arch_show_interrupts
+> to smp.c and make it conditional.  If we don't this split might make
+> more sense.
+
+Makes sense, but I think timer interrupts are more interesting to see than IPIs 
+so we'll eventually pipe them through.  Might just be my workloads, though :)
+
+>> +static const char *ipi_names[IPI_MAX] = {
+>> +	[IPI_RESCHEDULE] = "Rescheduling interrupts",
+>> +	[IPI_CALL_FUNC] = "Function call interrupts",
+>> +	[IPI_CALL_WAKEUP] = "CPU wake-up interrupts",
+>> +};
 >
->  endmenu
+> No need for the explicit array size.  Also please use a few tabs to
+> align this nicely:
 >
-> -menu "Kernel type"
-> +menu "Kernel features"
->
->  source "kernel/Kconfig.hz"
->
->  endmenu
->
-> +menu "Boot options"
-> +
-> +config CMDLINE_BOOL
-> +	bool "Built-in kernel command line"
-> +	help
-> +	  For most platforms, it is firmware or second stage bootloader
-> +	  that by default specifies the kernel command line options.
-> +	  However, it might be necessary or advantageous to either override
-> +	  the default kernel command line or add a few extra options to it.
-> +	  For such cases, this option allows hardcoding command line options
-> +	  directly into the kernel.
-> +
-> +	  For that, choose 'Y' here and fill in the extra boot parameters
-> +	  in CONFIG_CMDLINE.
-> +
-> +	  The built-in options will be concatenated to the default command
-> +	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
-> +	  command line will be ignored and replaced by the built-in string.
-> +
-> +config CMDLINE
-> +	string "Built-in kernel command string"
-> +	depends on CMDLINE_BOOL
-> +	default ""
-> +	help
-> +	  Supply command-line options at build time by entering them here.
-> +
-> +config CMDLINE_FORCE
-> +	bool "Built-in command line overrides bootloader arguments"
-> +	depends on CMDLINE_BOOL
-> +	help
-> +	  Set this option to 'Y' to have the kernel ignore the bootloader
-> +	  or firmware command line.  Instead, the built-in command line
-> +	  will be used exclusively.
-> +
-> +	  If you don't know what to do here, say N.
-> +
-> +endmenu
-> +
->  menu "Bus support"
->
->  config PCI
-> diff --git a/arch/riscv/Kconfig.debug b/arch/riscv/Kconfig.debug
-> index 3224ff6e..c5a72f17 100644
-> --- a/arch/riscv/Kconfig.debug
-> +++ b/arch/riscv/Kconfig.debug
-> @@ -1,37 +1,2 @@
-> -
-> -config CMDLINE_BOOL
-> -	bool "Built-in kernel command line"
-> -	help
-> -	  For most platforms, it is firmware or second stage bootloader
-> -	  that by default specifies the kernel command line options.
-> -	  However, it might be necessary or advantageous to either override
-> -	  the default kernel command line or add a few extra options to it.
-> -	  For such cases, this option allows hardcoding command line options
-> -	  directly into the kernel.
-> -
-> -	  For that, choose 'Y' here and fill in the extra boot parameters
-> -	  in CONFIG_CMDLINE.
-> -
-> -	  The built-in options will be concatenated to the default command
-> -	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
-> -	  command line will be ignored and replaced by the built-in string.
-> -
-> -config CMDLINE
-> -	string "Built-in kernel command string"
-> -	depends on CMDLINE_BOOL
-> -	default ""
-> -	help
-> -	  Supply command-line options at build time by entering them here.
-> -
-> -config CMDLINE_FORCE
-> -	bool "Built-in command line overrides bootloader arguments"
-> -	depends on CMDLINE_BOOL
-> -	help
-> -	  Set this option to 'Y' to have the kernel ignore the bootloader
-> -	  or firmware command line.  Instead, the built-in command line
-> -	  will be used exclusively.
-> -
-> -	  If you don't know what to do here, say N.
-> -
->  config EARLY_PRINTK
->  	def_bool y
+> static const char *ipi_names[] = {
+> 	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
+> 	[IPI_CALL_FUNC]		= "Function call interrupts",
+> 	[IPI_CALL_WAKEUP]	= "CPU wake-up interrupts",
+> };
+
+I don't see a v2 of this, was there one?  If not then I'll just clean up 
+ipi_names and drop this on for-next.
+
+Thanks for the patch!
