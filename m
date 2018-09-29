@@ -1,38 +1,39 @@
-From: anup@brainfault.org (Anup Patel)
-Date: Sat, 29 Sep 2018 12:36:03 +0530
-Subject: [RFC PATCH 1/5] RISC-V: Make IPI triggering flexible
-In-Reply-To: <mhng-0f237369-b7fb-47cd-a610-be4c577c3c4f@palmer-si-x1c4>
-References: <20180910133418.GA12330@infradead.org>
- <mhng-0f237369-b7fb-47cd-a610-be4c577c3c4f@palmer-si-x1c4>
-Message-ID: <CAAhSdy0nmy=vX74e08BOPqC_pyEnRrPz06gTWz8LivOkQscYuw@mail.gmail.com>
+From: mick@ics.forth.gr (Nick Kossifidis)
+Date: Sat, 29 Sep 2018 23:45:05 +0300
+Subject: [PATCH] RISC-V: Cosmetic menuconfig changes
+In-Reply-To: <mhng-4c7f23e6-3111-4b77-9cb9-87da815f14d7@palmer-si-x1c4>
+References: <mhng-4c7f23e6-3111-4b77-9cb9-87da815f14d7@palmer-si-x1c4>
+Message-ID: <904aad36ec736345fc715b3f13c268f1@mailhost.ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sat, Sep 29, 2018 at 7:15 AM Palmer Dabbelt <palmer@sifive.com> wrote:
->
-> On Mon, 10 Sep 2018 06:34:18 PDT (-0700), Christoph Hellwig wrote:
-> > On Thu, Sep 06, 2018 at 04:15:14PM +0530, Anup Patel wrote:
-> >> This patch is doing two things:
-> >> 1. Allow IRQCHIP driver to provide IPI trigger mechanism
-> >
-> > And the big questions is why do we want that?  The last thing we
-> > want is for people to "innovate" on how they deliver IPIs.  RISC-V
-> > has defined an SBI interface for it to hide all the details, and
-> > we should not try to handle systems that are not SBI compliant.
-> >
-> > Eventuall we might want to revisit the SBI to improve on shortcomings
-> > if there are any, but we should not allow random irqchip drivers to
-> > override this.
->
-> I agree.  The whole point of the SBI is to provide an interface that everyone
-> uses so we can the go figure out how to make this fast later.  If each platform
-> has their own magic IPI hooks then this will end up being a mess.
->
-> We've got some schemes floating around to make the SBI fast (essentially an SBI
-> VDSO), I'd prefer to push on that rather than adding a bunch of complexity
-> here.
+???? 2018-09-29 04:44, Palmer Dabbelt ??????:
+> On Wed, 19 Sep 2018 15:48:15 PDT (-0700), mick at ics.forth.gr wrote:
+>> * Move the built-in cmdline configuration on a new menu entry "Boot
+>>   options", it doesn't make much sense to be part of the debuging 
+>> menu.
+>> 
+>> * Rename "Kernel Type" menu to "Kernel features" to be more consistent 
+>> with
+>>   what other architectures are using, plus "type" is a bit misleading 
+>> here.
+>> 
+>> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
+> 
+> This seems reasonable to me.  I've added it to our for-next branch,
+> we'll see if anyone else has comments.  Thanks!
+> 
+> Did you, by any chance, go and check to see if these boot options
+> actually work?  We've got a bunch of subtly different boot methods and
+> they've been broken in various ones at various times, so I always like
+> to try and catalog what actually works now so at least I know where to
+> look when testing things.
+> 
 
-Yes, I have already removed the IPI triggering part from this patchset.
-
-Regards,
-Anup
+I assumed that since it was already there it worked but you are right, 
+cmdline when passed from the bootloader through the generated device 
+tree 
+(https://github.com/riscv/riscv-qemu/blob/riscv-all/hw/riscv/virt.c) 
+works but when passed through the config option doesn't. Do you want me 
+to send a separate patch for that or re-send this one as well as a 
+series ?
