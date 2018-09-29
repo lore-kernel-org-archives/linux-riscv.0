@@ -1,84 +1,59 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 28 Sep 2018 18:45:03 -0700 (PDT)
-Subject: [PATCH] RISC-V: Show IPI stats
-In-Reply-To: <20180910134659.GA30774@infradead.org>
-Message-ID: <mhng-2395876e-5470-45f9-83e1-4abae5188b0c@palmer-si-x1c4>
+Date: Fri, 28 Sep 2018 18:46:09 -0700 (PDT)
+Subject: [PATCH] RISC-V: Show CPU ID and Hart ID separately in
+ /proc/cpuinfo
+In-Reply-To: <20180912143822.21948-1-anup@brainfault.org>
+Message-ID: <mhng-f8bcf381-8d26-4082-876a-781fe87ee721@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 10 Sep 2018 06:46:59 PDT (-0700), Christoph Hellwig wrote:
-> On Fri, Sep 07, 2018 at 06:14:29PM +0530, Anup Patel wrote:
->> This patch provides arch_show_interrupts() implementation to
->> show IPI stats via /proc/interrupts.
->>
->> Now the contents of /proc/interrupts" will look like below:
->>            CPU0       CPU1       CPU2       CPU3
->>   8:         17          7          6         14  SiFive PLIC   8  virtio0
->>  10:         10         10          9         11  SiFive PLIC  10  ttyS0
->> IPI0:       170        673        251         79  Rescheduling interrupts
->> IPI1:         1         12         27          1  Function call interrupts
->> IPI2:         0          0          0          0  CPU wake-up interrupts
->>
->> Signed-off-by: Anup Patel <anup@brainfault.org>
+On Wed, 12 Sep 2018 07:38:22 PDT (-0700), anup at brainfault.org wrote:
+> Currently, /proc/cpuinfo show logical CPU ID as Hart ID which
+> is in-correct. This patch shows CPU ID and Hart ID separately
+> in /proc/cpuinfo using cpuid_to_hardid_map().
 >
-> Thanks, this looks pretty sensible to me.  Maybe we want to also show
-> timer interrupts if we do this?
-
-IIRC we used to have some issue where the timer interrupt ID in 
-/proc/interrupts aliased with a possible PLIC interrupt ID, but that was back 
-when we had a big mess of chained interrupt drivers that didn't really talk to 
-each other.  I think at some point I might have just removed the timer 
-interrupt from /proc/interrupts as a hack, but now that our interrupt 
-controller mess is sorted out it'd be better to have it.
-
-I'm fine taking this without the timer interrupts, as something is better than 
-nothing.
-
->> --- a/arch/riscv/kernel/irq.c
->> +++ b/arch/riscv/kernel/irq.c
->> @@ -8,6 +8,7 @@
->>  #include <linux/interrupt.h>
->>  #include <linux/irqchip.h>
->>  #include <linux/irqdomain.h>
->> +#include <linux/seq_file.h>
->>
->>  /*
->>   * Possible interrupt causes:
->> @@ -24,6 +25,14 @@
->>   */
->>  #define INTERRUPT_CAUSE_FLAG	(1UL << (__riscv_xlen - 1))
->>
->> +int arch_show_interrupts(struct seq_file *p, int prec)
->> +{
->> +#ifdef CONFIG_SMP
->> +	show_ipi_stats(p, prec);
->> +#endif
->> +	return 0;
->> +}
+> With this patch, contents of /proc/cpuinfo looks as follows:
+> cpu	: 0
+> hart	: 1
+> isa	: rv64imafdcsu
+> mmu	: sv48
 >
-> If we don't also add timer stats I'd just move arch_show_interrupts
-> to smp.c and make it conditional.  If we don't this split might make
-> more sense.
-
-Makes sense, but I think timer interrupts are more interesting to see than IPIs 
-so we'll eventually pipe them through.  Might just be my workloads, though :)
-
->> +static const char *ipi_names[IPI_MAX] = {
->> +	[IPI_RESCHEDULE] = "Rescheduling interrupts",
->> +	[IPI_CALL_FUNC] = "Function call interrupts",
->> +	[IPI_CALL_WAKEUP] = "CPU wake-up interrupts",
->> +};
+> cpu	: 1
+> hart	: 0
+> isa	: rv64imafdcsu
+> mmu	: sv48
 >
-> No need for the explicit array size.  Also please use a few tabs to
-> align this nicely:
+> cpu	: 2
+> hart	: 3
+> isa	: rv64imafdcsu
+> mmu	: sv48
 >
-> static const char *ipi_names[] = {
-> 	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
-> 	[IPI_CALL_FUNC]		= "Function call interrupts",
-> 	[IPI_CALL_WAKEUP]	= "CPU wake-up interrupts",
-> };
+> cpu	: 3
+> hart	: 2
+> isa	: rv64imafdcsu
+> mmu	: sv48
+>
+> Signed-off-by: Anup Patel <anup@brainfault.org>
+> ---
+>  arch/riscv/kernel/cpu.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index f0f0ec2737b7..7c1342e242e6 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -87,7 +87,8 @@ static int c_show(struct seq_file *m, void *v)
+>  						   NULL);
+>  	const char *compat, *isa, *mmu;
+>
+> -	seq_printf(m, "hart\t: %lu\n", cpu_id);
+> +	seq_printf(m, "cpu\t: %lu\n", cpu_id);
+> +	seq_printf(m, "hart\t: %lu\n", cpuid_to_hardid_map(cpu_id));
+>  	if (!of_property_read_string(node, "riscv,isa", &isa)
+>  	    && isa[0] == 'r'
+>  	    && isa[1] == 'v')
 
-I don't see a v2 of this, was there one?  If not then I'll just clean up 
-ipi_names and drop this on for-next.
+I like this, but it doesn't appear to apply.  Do you mind sending something 
+against Linus' master?  Then I should be able to sort it out.
 
-Thanks for the patch!
+Thanks!
