@@ -1,23 +1,22 @@
-Return-Path: <SRS0=e5NN=MK=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=lSM2=ML=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CE9F9C43143
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 28 Sep 2018 23:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 32785C43143
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 29 Sep 2018 00:13:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9C421206B6
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 28 Sep 2018 23:52:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 008882073F
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 29 Sep 2018 00:13:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RSZ6Sji2";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="atpTXFAE"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9C421206B6
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="L7I7sK6s";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="VUZawglJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 008882073F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,63 +25,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=mMVglvgVVSuRtUyUm3NQoq4sFXY3CTUi80AHLpe/DHQ=; b=RSZ6Sji2RG+ObV4A0c47HGJWS
-	SKR2naCoGTITgHGLRmTa+2ahjO0HZLRcSnnHUDGcdaFtC/5+FeriZlx3HLki210qe6SHwiyp34TBi
-	YQwSQ1fDRU7ii50Ac1yddxViZQAE00zkRceuqoK54Q3vfzu02yv+r5FeBLWzRYWCDWnbWM8as/YxE
-	OKVWCq+eUpgGQKPVuU/gFNV5ZU8PrAoxvvLL7jFva/hyeLmzRvbf59kvIVg3yyRGaRDQRWpJe+rG8
-	ycQfvi6jG44CyUbGCsifptK/5WHtfXkDz+eZsERlAGT4Y+1q6aeg3cu6ZdNRthpzB6PCtZTZAa3ea
-	Bjk2Ig+yg==;
+	 bh=81n5TNhzjFvswFcD2MNsABDMoY+rYbjZxKqnWxxBdng=; b=L7I7sK6sSh2KelWd1IRdaAqXT
+	wRYhm1nffCEtv+eyF6421WzA0Ewdl8LnIY781lFXr3n21IP9URKWwzBEMUa+05LT3vbMU7EIAn8AM
+	G3KoqHv0P6Y2KTvxx9I6u1lL1v023QXECmrrVDYJhkyQt4crK7YF/EooxpVJhyp7PCjytBgQRxQE8
+	llJ0OJIa4tN4SZ66kXmnRdl2FaGB+8t3kR1q4TJYvTRzw3QUCKaSf0pngoaHOwUTkg62LXiUXFK1n
+	ysEh633wFeRITLwgS2F7eDZS3L+A6CC1uR3Ny96XQ4n5T0aX9RdxOcLlMfC9vtRVMlHL2NSgx6j6t
+	vRkf+Z/yw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1g62Yv-0007dP-Mf; Fri, 28 Sep 2018 23:52:45 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1g62tL-0005d7-8A; Sat, 29 Sep 2018 00:13:51 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1g62Yh-0007aN-Mc
- for linux-riscv@lists.infradead.org; Fri, 28 Sep 2018 23:52:43 +0000
-Received: by mail-pf1-x444.google.com with SMTP id k19-v6so5321057pfi.1
- for <linux-riscv@lists.infradead.org>; Fri, 28 Sep 2018 16:52:21 -0700 (PDT)
+ id 1g62tH-0005bt-Qa
+ for linux-riscv@lists.infradead.org; Sat, 29 Sep 2018 00:13:49 +0000
+Received: by mail-pf1-x443.google.com with SMTP id j26-v6so5309222pfi.10
+ for <linux-riscv@lists.infradead.org>; Fri, 28 Sep 2018 17:13:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=OnT54z5lgaA9LYwi8+7ZPe4Iw8qJqNThCDiT5afzxE4=;
- b=atpTXFAEOoVV2Tvoe/9xuQpRmltCARrRutFpFsk+ykbLsKU5ERcJDUx1mp5ld5ifgu
- nUDEkY2DxLclyHaElK90g6rSNPRbOjFghnN5hhZR8jqzX/ioy859l8mV1OJsD2Kl6kfe
- Qu3yrg8O2uQQHcTG2Kag09wMY0DAWashv7IuPzaSstz5WNaBaRJuZ+STIkiKI7awiJRV
- LEkyBqs9nCStga4WUsICeU+YwXOrXEvE6hcjtsftkw5wFqpv83IwDb2TxoHVwZuQfkZx
- cgAwNrTL/Htwdv7NYY3pr7tBfXE7sjeMkW1J+vSXUTdFQtX7MiB9E8irxCDm2AbQ8zvR
- ZCnQ==
+ bh=V3PPVFuAw7d7GVOffOjIMLdLtbHfHXr85pTfXyiWsJg=;
+ b=VUZawglJ9Gj9AWTj0MEcBfL4+GMk6ytyB2MixqEGPbO9t9Nxm93A44jNaMxkF8bp9L
+ TsMcqN0qZAJO4Iwdl30YWMTVk2J7dCRZjW8cyRMfPshGQ0ozxf/vUOXp+005H/vMByNh
+ KJItA7yuH2NvBUnYVhxpEM3quwzNlwg+qLQHyBvUpKKzGJpybcGq4bQQbxdTImU8n5BC
+ x7C34AnT7YTF2CPfdxXn/nsIZ1++8ivl/V0/gND4+KCBRV56OYT6Qp4IVcn+jyYvGcwi
+ okITfOEs9ExVx/cthmvWKlWpi9A7ymPDbSr9R0ubvieButxLdPZl3xaFUF0LHPghLmXI
+ XNEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=OnT54z5lgaA9LYwi8+7ZPe4Iw8qJqNThCDiT5afzxE4=;
- b=QzKIY20ZWzpnYbw5N/pSffuNfvsNlYG0d1+R2ZK+NB/K+yV58AzilofPBD5M9xxB1G
- OANGOGAAjI2Vi7B2QXGIiheNttoCliNy1U6uD2vrIEY5Ph3Utgh9NX2dAUHz9Q29wmJq
- HSUV11gATsgbSqHEmOIjTgy2V6tIZvs73uu6LsiugoKXb/4WNQRXXwWPCJSv9EybL0UC
- VnDCrh74GgPOhVLIORGorDvl3uDNp7TDJk/jwWQcYv4uzG8+71jEGYbewgTj+TuueRR6
- TPpqUjl7U6/YVw07vxrBmYp8b2ZdCk3OUlZz1ewLEKhpH5DRl40yT6sotEVDU6aNc1Vn
- a1ZA==
-X-Gm-Message-State: ABuFfogvjRobLJfzIkia5dy9D52nRxxeK/tLSLhRsSWO701hrCoB0pht
- fwSoFvRRKvSVRbr7v9JUIr445A6raWU=
-X-Google-Smtp-Source: ACcGV61Pix4ATLo985K1Eza8oxcyndnQwfnEvur90Met3eYk/2XQiDEm1cxLA8k4Mr07M6SNzmNiJw==
-X-Received: by 2002:a62:34c4:: with SMTP id
- b187-v6mr826125pfa.15.1538178740272; 
- Fri, 28 Sep 2018 16:52:20 -0700 (PDT)
+ bh=V3PPVFuAw7d7GVOffOjIMLdLtbHfHXr85pTfXyiWsJg=;
+ b=O7sjc6gPwbV7/js/sy/YWRGXSHOuRq4RMzOd0i2E7VuWCHIpnrZg28tN/2UV1aIuW0
+ iekylbdrR1SrZ3GMgNfyQK4L4GvUKvCDv+7VjKVJ+kX/xmiLPP3AR1Ld/vCF3N49ACRe
+ SPPhI7hBUnd4fM2/4IfKj7CRHstglvbpcRnut0JyncChUYIhPYPQrobdvjk/qyyildM3
+ oyypTTh8ulwIsUTw+Eg1ThzXtgK3ojwUtCK33J8I0BzdvFVmrGN01Md3/KaouWdl5Twb
+ XL03V/KIM5fLh6/rMoOVADy1lKcmSzTpgB3RIH1zeRo08U49SDh/pRWGVy9xxZvgPS3z
+ EbjA==
+X-Gm-Message-State: ABuFfohUrrlRklIpvb4oJJYKeZg2aeqe75T2f6LIG2Um1xEOpYVu89pA
+ +un4SiODeOikWkyM5xpEnXnxwrbpG7I=
+X-Google-Smtp-Source: ACcGV63NVV+yR4S4LDI1GihzPGBOsTwQ4RXn4GpF0EqVOM6I+J9wlsLXCj5WlzJar6sTzy/srx08zA==
+X-Received: by 2002:a62:11cb:: with SMTP id 72-v6mr900671pfr.120.1538180016459; 
+ Fri, 28 Sep 2018 17:13:36 -0700 (PDT)
 Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id y3-v6sm10237794pfi.24.2018.09.28.16.52.18
+ by smtp.gmail.com with ESMTPSA id q26-v6sm9309503pfj.127.2018.09.28.17.13.34
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 28 Sep 2018 16:52:19 -0700 (PDT)
-Date: Fri, 28 Sep 2018 16:52:19 -0700 (PDT)
-X-Google-Original-Date: Fri, 28 Sep 2018 16:51:53 PDT (-0700)
-Subject: Re: [PATCH v2 0/5] Fix some bugs on RV32 build fail and issue
-In-Reply-To: <cover.1537949825.git.zongbox@gmail.com>
+ Fri, 28 Sep 2018 17:13:34 -0700 (PDT)
+Date: Fri, 28 Sep 2018 17:13:34 -0700 (PDT)
+X-Google-Original-Date: Fri, 28 Sep 2018 17:13:19 PDT (-0700)
+Subject: Re: [PATCH v5 00/12] SMP cleanup and new features
+In-Reply-To: <1536863825-66808-1-git-send-email-atish.patra@wdc.com>
 From: Palmer Dabbelt <palmer@sifive.com>
-To: zongbox@gmail.com, Christoph Hellwig <hch@infradead.org>
-Message-ID: <mhng-1934187c-6fab-4000-af19-23a80173669d@palmer-si-x1c4>
+To: atish.patra@wdc.com
+Message-ID: <mhng-206c9841-0e02-4d09-8860-160c0d917c94@palmer-si-x1c4>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20180928_165231_791942_BD0D3A50 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20180928_171347_901133_F0B48E34 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,62 +92,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: vincentc@andestech.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
- zongbox@gmail.com, zong@andestech.com, linux-riscv@lists.infradead.org
+Cc: mark.rutland@arm.com, Damien.LeMoal@wdc.com, catalin.marinas@arm.com,
+ jason@lakedaemon.net, ard.biesheuvel@linaro.org, marc.zyngier@arm.com,
+ anup@brainfault.org, dmitriy@oss-tech.org, linux-kernel@vger.kernel.org,
+ jeremy.linton@arm.com, Christoph Hellwig <hch@infradead.org>,
+ atish.patra@wdc.com, schwab@linux-m68k.org,
+ Greg KH <gregkh@linuxfoundation.org>, linux-riscv@lists.infradead.org,
+ tglx@linutronix.de
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20180928235219.p0vopqfZ5oqELHeA043J35D8vy0VhQx5SK_htz8NWGE@z>
+Message-ID: <20180929001334.9aKXq-Itu6ZqffETs0pagaIcGMNuLJcVjRMpxF8OixA@z>
 
-On Wed, 26 Sep 2018 01:31:09 PDT (-0700), zongbox@gmail.com wrote:
-> This patches contain the modificaion as follows:
-> 1. Fix up the building fail on RV32.
-> 2. Add umoddi3 and udivmoddi4 functions for RV32.
-> 3. Fix ioremap problem on RV32.
+On Thu, 13 Sep 2018 11:36:53 PDT (-0700), atish.patra@wdc.com wrote:
+> This patch series has updated the assorted cleanup series by palmer.
+> The original cleanup patch series can be found here.
+> http://lists.infradead.org/pipermail/linux-riscv/2018-August/001232.html
 >
-> Changes in v2:
->  - Retain the copyright notices from libgcc in umoddi3.c and udivmoddi4.c.
+> It also implemented decoupling linux logical CPU ids from hart id.
+> Some of the work has been inspired from ARM64.
+> Tested on QEMU & HighFive Unleashed board with/without SMP enabled.
 >
-> Vincent Chen (1):
->   RISC-V: Avoid corrupting the upper 32-bit of phys_addr_t in ioremap
+> Both the patch series have been combined to avoid conflicts as a lot
+> of common code is changed in both the series. I have mostly addressed
+> review comments and fixed checkpatch errors from palmer's series.
 >
-> Zong Li (4):
->   RISC-V: Build tishift only on 64-bit
->   RISC-V: Use swiotlb on RV64 only
->   lib: Add umoddi3 and udivmoddi4 of GCC library routines
->   RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
+> v1->v2:
 >
->  arch/riscv/Kconfig        |   1 +
->  arch/riscv/kernel/setup.c |   3 +
->  arch/riscv/lib/Makefile   |   3 +-
->  arch/riscv/mm/ioremap.c   |   2 +-
->  lib/Kconfig               |   3 +
->  lib/Makefile              |   1 +
->  lib/udivmoddi4.c          | 309 ++++++++++++++++++++++++++++++++++++++++++++++
->  lib/umoddi3.c             |  34 +++++
->  8 files changed, 354 insertions(+), 2 deletions(-)
->  create mode 100644 lib/udivmoddi4.c
->  create mode 100644 lib/umoddi3.c
+> 1. Dropped cpu_ops patch.
+> 2. Moved back IRQ cause definitions to irq.h
+> 3. Keep boot CPU hart id and assign zero as the CPU id for boot CPU.
+> 4. Renamed CPU id and hart id correctly.
+>
+> v2-v3:
+>
+> 1. Added cleanup patches from palmer.
+> 2. Moved the hotplug related functions to it's own file.
+> 3. Updated stub functions as per coding guidelines.
+> 4. Renamed __cpu_logical_map to a more coherent name.
+>
+> v3-v4:
+>
+> 1. Addressed minor typos in commit text and code.
+> 2. Included Anup's do_IRQ patch.
+> 3. Dropped CPU hotplug patch. As there are some concerns
+>    about approach, I will submit it separately.
+>
+> v4->v5:
+>
+> 1. Minor typo fixes in commit text.
+>
+> Anup Patel (1):
+>   RISC-V: No need to pass scause as arg to do_IRQ()
+>
+> Atish Patra (4):
+>   RISC-V: Disable preemption before enabling interrupts
+>   RISC-V: Use WRITE_ONCE instead of direct access
+>   RISC-V: Add logical CPU indexing for RISC-V
+>   RISC-V: Use Linux logical CPU number instead of hartid
+>
+> Palmer Dabbelt (7):
+>   RISC-V: Don't set cacheinfo.{physical_line_partition,attributes}
+>   RISC-V: Filter ISA and MMU values in cpuinfo
+>   RISC-V: Comment on the TLB flush in smp_callin()
+>   RISC-V: Provide a cleaner raw_smp_processor_id()
+>   RISC-V: Rename riscv_of_processor_hart to riscv_of_processor_hartid
+>   RISC-V: Rename im_okay_therefore_i_am to found_boot_cpu
+>   RISC-V: Use mmgrab()
+>
+>  arch/riscv/include/asm/processor.h |  2 +-
+>  arch/riscv/include/asm/smp.h       | 38 ++++++++++++-----
+>  arch/riscv/include/asm/tlbflush.h  | 16 ++++++--
+>  arch/riscv/kernel/cacheinfo.c      |  7 ----
+>  arch/riscv/kernel/cpu.c            | 83 ++++++++++++++++++++++++++++++++------
+>  arch/riscv/kernel/entry.S          |  1 -
+>  arch/riscv/kernel/head.S           |  4 +-
+>  arch/riscv/kernel/irq.c            |  4 +-
+>  arch/riscv/kernel/setup.c          | 10 +++++
+>  arch/riscv/kernel/smp.c            | 43 +++++++++++++++-----
+>  arch/riscv/kernel/smpboot.c        | 46 ++++++++++++++-------
+>  drivers/clocksource/riscv_timer.c  | 12 ++++--
+>  drivers/irqchip/irq-sifive-plic.c  | 10 +++--
+>  13 files changed, 207 insertions(+), 69 deletions(-)
 
-I like what this does, but there's a license issue here that Christoph pointed 
-out.  It'd be great to have RV32I systems booting 4.19, do you think there's a 
-chance you can sort this out next week so we can get it into the last RC?  That 
-would help with the rv32i glibc process, as we'll actually be able to boot an 
-upstream kernel.
+I didn't look closely because I assume your cleanups are better than mine, and 
+than you at least gave this a boot test to ensure I didn't do anything too 
+stupid :)
 
-It looks like the functions we have an issue with come from libgcc2.c, which 
-doesn't change very much.  As far as I can tell we might be able to get away 
-with these functions from 4.2.1, which was licensed under the GPLv2.  Here's 
-the relevant functions on GCC's github mirror
+I'm preparing our first meaningful for-next now, I'll drop this one in.
 
-    https://github.com/gcc-mirror/gcc/blob/gcc-4_2_1-release/gcc/libgcc2.c#L559
-    https://github.com/gcc-mirror/gcc/blob/gcc-4_2_1-release/gcc/libgcc2.c#L844
-
-These look very similar to what you send out.  As far as I can tell, if you 
-base your code on the GPLv2 version then this should be fine to include.
-
-Thanks!
+Thanks for taking this over!
 
 _______________________________________________
 linux-riscv mailing list
