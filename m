@@ -1,59 +1,22 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 28 Sep 2018 18:46:09 -0700 (PDT)
-Subject: [PATCH] RISC-V: Show CPU ID and Hart ID separately in
- /proc/cpuinfo
-In-Reply-To: <20180912143822.21948-1-anup@brainfault.org>
-Message-ID: <mhng-f8bcf381-8d26-4082-876a-781fe87ee721@palmer-si-x1c4>
+Date: Fri, 28 Sep 2018 19:17:17 -0700 (PDT)
+Subject: futex_atomic_cmpxchg_inatomic is missing
+In-Reply-To: <mvmh8icabwx.fsf@suse.de>
+Message-ID: <mhng-b1474fef-9750-4bfb-be90-5e4bf4c964d4@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 12 Sep 2018 07:38:22 PDT (-0700), anup at brainfault.org wrote:
-> Currently, /proc/cpuinfo show logical CPU ID as Hart ID which
-> is in-correct. This patch shows CPU ID and Hart ID separately
-> in /proc/cpuinfo using cpuid_to_hardid_map().
->
-> With this patch, contents of /proc/cpuinfo looks as follows:
-> cpu	: 0
-> hart	: 1
-> isa	: rv64imafdcsu
-> mmu	: sv48
->
-> cpu	: 1
-> hart	: 0
-> isa	: rv64imafdcsu
-> mmu	: sv48
->
-> cpu	: 2
-> hart	: 3
-> isa	: rv64imafdcsu
-> mmu	: sv48
->
-> cpu	: 3
-> hart	: 2
-> isa	: rv64imafdcsu
-> mmu	: sv48
->
-> Signed-off-by: Anup Patel <anup@brainfault.org>
-> ---
->  arch/riscv/kernel/cpu.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index f0f0ec2737b7..7c1342e242e6 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -87,7 +87,8 @@ static int c_show(struct seq_file *m, void *v)
->  						   NULL);
->  	const char *compat, *isa, *mmu;
->
-> -	seq_printf(m, "hart\t: %lu\n", cpu_id);
-> +	seq_printf(m, "cpu\t: %lu\n", cpu_id);
-> +	seq_printf(m, "hart\t: %lu\n", cpuid_to_hardid_map(cpu_id));
->  	if (!of_property_read_string(node, "riscv,isa", &isa)
->  	    && isa[0] == 'r'
->  	    && isa[1] == 'v')
+On Wed, 26 Sep 2018 01:41:18 PDT (-0700), schwab at suse.de wrote:
+> The riscv port does not define futex_atomic_cmpxchg_inatomic, but glibc
+> is assuming that set_robust_list always works.
 
-I like this, but it doesn't appear to apply.  Do you mind sending something 
-against Linus' master?  Then I should be able to sort it out.
+Yes.  Someone has pointed this out before, but we haven't had time to figure 
+out the correct kernel implementation yet.  Properly implementing the whole API is 
+probably only a hundred lines of code, but any of this lock stuff is always 
+very slow going.
 
-Thanks!
+Christoph published a simple Kconfig workaround a while ago to turn on the 
+generic support for non-SMP systems, which might help you work around your 
+issue.  My plan was to construct a for-next branch over the weekend, but I 
+managed to do so today so I might have time to take a look -- no promises, 
+though :)
