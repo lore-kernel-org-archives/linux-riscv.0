@@ -1,43 +1,23 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 01 Oct 2018 09:56:18 -0700 (PDT)
-Subject: [PATCH] RISC-V: Cosmetic menuconfig changes
-In-Reply-To: <904aad36ec736345fc715b3f13c268f1@mailhost.ics.forth.gr>
-Message-ID: <mhng-4401a1da-ed84-4aa3-b44a-c7475cd45aaa@palmer-si-x1c4>
+Date: Mon, 01 Oct 2018 15:19:35 -0700 (PDT)
+Subject: futex_atomic_cmpxchg_inatomic is missing
+In-Reply-To: <mvmzhvy6t79.fsf@suse.de>
+Message-ID: <mhng-177982ae-3ff1-4e5a-a553-51c5cf1f2710@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sat, 29 Sep 2018 13:45:05 PDT (-0700), mick at ics.forth.gr wrote:
-> ???? 2018-09-29 04:44, Palmer Dabbelt ??????:
->> On Wed, 19 Sep 2018 15:48:15 PDT (-0700), mick at ics.forth.gr wrote:
->>> * Move the built-in cmdline configuration on a new menu entry "Boot
->>>   options", it doesn't make much sense to be part of the debuging
->>> menu.
->>>
->>> * Rename "Kernel Type" menu to "Kernel features" to be more consistent
->>> with
->>>   what other architectures are using, plus "type" is a bit misleading
->>> here.
->>>
->>> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
->>
->> This seems reasonable to me.  I've added it to our for-next branch,
->> we'll see if anyone else has comments.  Thanks!
->>
->> Did you, by any chance, go and check to see if these boot options
->> actually work?  We've got a bunch of subtly different boot methods and
->> they've been broken in various ones at various times, so I always like
->> to try and catalog what actually works now so at least I know where to
->> look when testing things.
->>
+On Mon, 01 Oct 2018 00:07:22 PDT (-0700), schwab at suse.de wrote:
+> On Sep 28 2018, Palmer Dabbelt <palmer@sifive.com> wrote:
 >
-> I assumed that since it was already there it worked but you are right,
-> cmdline when passed from the bootloader through the generated device
-> tree
-> (https://github.com/riscv/riscv-qemu/blob/riscv-all/hw/riscv/virt.c)
-> works but when passed through the config option doesn't. Do you want me
-> to send a separate patch for that or re-send this one as well as a
-> series ?
+>> Christoph published a simple Kconfig workaround a while ago to turn on the
+>> generic support for non-SMP systems, which might help you work around your
+>> issue.
+>
+> What kind of workaround?  If you disable SMP this should be
+> automatically enabled.  But of course, being non-SMP, this is also
+> useless.
 
-I think it's better to send that out as a separate patch.  There's really no 
-reason to couple the two, it's just that this reminded me that we probably had 
-some bugs here.
+I think we just need some sort of 
+CONFIG_WE_HAVE_GENERIC_FUTEX_CMPXCHG_FOR_NONSMP selected by default in 
+arch/riscv/Kconfig.  I punted on it because having this support only for 
+non-SMP systems didn't seem so useful.
