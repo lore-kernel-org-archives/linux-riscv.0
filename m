@@ -1,39 +1,26 @@
-From: mick@ics.forth.gr (Nick Kossifidis)
-Date: Sat, 29 Sep 2018 23:45:05 +0300
-Subject: [PATCH] RISC-V: Cosmetic menuconfig changes
-In-Reply-To: <mhng-4c7f23e6-3111-4b77-9cb9-87da815f14d7@palmer-si-x1c4>
-References: <mhng-4c7f23e6-3111-4b77-9cb9-87da815f14d7@palmer-si-x1c4>
-Message-ID: <904aad36ec736345fc715b3f13c268f1@mailhost.ics.forth.gr>
+From: schwab@suse.de (Andreas Schwab)
+Date: Mon, 01 Oct 2018 09:07:22 +0200
+Subject: futex_atomic_cmpxchg_inatomic is missing
+In-Reply-To: <mhng-b1474fef-9750-4bfb-be90-5e4bf4c964d4@palmer-si-x1c4>
+ (Palmer Dabbelt's message of "Fri, 28 Sep 2018 19:17:17 -0700 (PDT)")
+References: <mhng-b1474fef-9750-4bfb-be90-5e4bf4c964d4@palmer-si-x1c4>
+Message-ID: <mvmzhvy6t79.fsf@suse.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-???? 2018-09-29 04:44, Palmer Dabbelt ??????:
-> On Wed, 19 Sep 2018 15:48:15 PDT (-0700), mick at ics.forth.gr wrote:
->> * Move the built-in cmdline configuration on a new menu entry "Boot
->>   options", it doesn't make much sense to be part of the debuging 
->> menu.
->> 
->> * Rename "Kernel Type" menu to "Kernel features" to be more consistent 
->> with
->>   what other architectures are using, plus "type" is a bit misleading 
->> here.
->> 
->> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
-> 
-> This seems reasonable to me.  I've added it to our for-next branch,
-> we'll see if anyone else has comments.  Thanks!
-> 
-> Did you, by any chance, go and check to see if these boot options
-> actually work?  We've got a bunch of subtly different boot methods and
-> they've been broken in various ones at various times, so I always like
-> to try and catalog what actually works now so at least I know where to
-> look when testing things.
-> 
+On Sep 28 2018, Palmer Dabbelt <palmer@sifive.com> wrote:
 
-I assumed that since it was already there it worked but you are right, 
-cmdline when passed from the bootloader through the generated device 
-tree 
-(https://github.com/riscv/riscv-qemu/blob/riscv-all/hw/riscv/virt.c) 
-works but when passed through the config option doesn't. Do you want me 
-to send a separate patch for that or re-send this one as well as a 
-series ?
+> Christoph published a simple Kconfig workaround a while ago to turn on the
+> generic support for non-SMP systems, which might help you work around your
+> issue.
+
+What kind of workaround?  If you disable SMP this should be
+automatically enabled.  But of course, being non-SMP, this is also
+useless.
+
+Andreas.
+
+-- 
+Andreas Schwab, SUSE Labs, schwab at suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
