@@ -1,94 +1,33 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 02 Oct 2018 12:40:08 -0700 (PDT)
-Subject: [PATCH v6 00/14] SMP cleanup and new features
-In-Reply-To: <1538507707-22299-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <mhng-d52d60ae-732e-4252-9258-21ea6bed8a31@palmer-si-x1c4>
+Date: Tue, 02 Oct 2018 12:54:52 -0700 (PDT)
+Subject: [GIT PULL] A Single RISC-V Fix for 4.19-rc7
+Message-ID: <mhng-02593196-13c6-4467-aeeb-bfb9aafbb326@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 02 Oct 2018 12:14:53 PDT (-0700), atish.patra at wdc.com wrote:
-> This patch series now has evolved to contain several related changes.
->
-> 1. Updated the assorted cleanup series by palmer.
-> The original cleanup patch series can be found here.
-> http://lists.infradead.org/pipermail/linux-riscv/2018-August/001232.html
->
-> 2. Implemented decoupling linux logical CPU ids from hart id.
-> Some of the work has been inspired from ARM64.
-> Tested on QEMU & HighFive Unleashed board with/without SMP enabled.
->
-> 3. Included Anup's cleanup and IPI stat patch.
->
-> All the patch series have been combined to avoid conflicts as a lot
-> of common code is changed different patch sets. I have mostly addressed
-> review comments and fixed checkpatch errors from palmer's and anup's series.
->
-> v1->v2:
->
-> 1. Dropped cpu_ops patch.
-> 2. Moved back IRQ cause definitions to irq.h
-> 3. Keep boot CPU hart id and assign zero as the CPU id for boot CPU.
-> 4. Renamed CPU id and hart id correctly.
->
-> v2-v3:
->
-> 1. Added cleanup patches from palmer.
-> 2. Moved the hotplug related functions to it's own file.
-> 3. Updated stub functions as per coding guidelines.
-> 4. Renamed __cpu_logical_map to a more coherent name.
->
-> v3-v4:
->
-> 1. Addressed minor typos in commit text and code.
-> 2. Included Anup's do_IRQ patch.
-> 3. Dropped CPU hotplug patch. As there are some concerns
->    about approach, I will submit it separately.
->
-> v4->v5:
->
-> 1. Minor typo fixes in commit text.
->
-> v5->v6:
-> 1. Included Anup's IPI stat and cpuinfo patch.
-> 2. Fixed a typo cpuid_to_hardid_map->cpuid_to_hartid_map
->
->
-> Anup Patel (3):
->   RISC-V: No need to pass scause as arg to do_IRQ()
->   RISC-V: Show CPU ID and Hart ID separately in /proc/cpuinfo
->   RISC-V: Show IPI stats
->
-> Atish Patra (4):
->   RISC-V: Disable preemption before enabling interrupts
->   RISC-V: Use WRITE_ONCE instead of direct access
->   RISC-V: Add logical CPU indexing for RISC-V
->   RISC-V: Use Linux logical CPU number instead of hartid
->
-> Palmer Dabbelt (7):
->   RISC-V: Don't set cacheinfo.{physical_line_partition,attributes}
->   RISC-V: Filter ISA and MMU values in cpuinfo
->   RISC-V: Comment on the TLB flush in smp_callin()
->   RISC-V: Provide a cleaner raw_smp_processor_id()
->   RISC-V: Rename riscv_of_processor_hart to riscv_of_processor_hartid
->   RISC-V: Rename im_okay_therefore_i_am to found_boot_cpu
->   RISC-V: Use mmgrab()
->
->  arch/riscv/include/asm/processor.h |  2 +-
->  arch/riscv/include/asm/smp.h       | 47 +++++++++++++++-----
->  arch/riscv/include/asm/tlbflush.h  | 16 +++++--
->  arch/riscv/kernel/cacheinfo.c      |  7 ---
->  arch/riscv/kernel/cpu.c            | 87 ++++++++++++++++++++++++++++++++------
->  arch/riscv/kernel/entry.S          |  1 -
->  arch/riscv/kernel/head.S           |  4 +-
->  arch/riscv/kernel/irq.c            | 12 +++++-
->  arch/riscv/kernel/setup.c          | 10 +++++
->  arch/riscv/kernel/smp.c            | 82 ++++++++++++++++++++++++++++-------
->  arch/riscv/kernel/smpboot.c        | 46 ++++++++++++++------
->  drivers/clocksource/riscv_timer.c  | 12 ++++--
->  drivers/irqchip/irq-sifive-plic.c  | 10 +++--
->  13 files changed, 259 insertions(+), 77 deletions(-)
+The following changes since commit 17b57b1883c1285f3d0dc2266e8f79286a7bef38:
 
-These are on my "next-smp" branch, and will land in for-next as soon as it's 
-done regenerating.  I've replaced the "next-cleanups" branch.
+  Linux 4.19-rc6 (2018-09-30 07:15:35 -0700)
 
-Thanks!
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-rc7
+
+for you to fetch changes up to ef1f2258748b675422ca0107e5bfb9ceeac675de:
+
+  RISCV: Fix end PFN for low memory (2018-10-02 12:50:01 -0700)
+
+----------------------------------------------------------------
+A Single RISC-V Fix for 4.19-rc7
+
+This tag contains a single patch that managed to get lost in the
+shuffle, which explains why it's so late.  This single line has been
+floating around in various patch sets for months, and fixes our DMA32
+region.
+
+----------------------------------------------------------------
+Atish Patra (1):
+      RISCV: Fix end PFN for low memory
+
+ arch/riscv/kernel/setup.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
