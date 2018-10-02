@@ -1,30 +1,31 @@
 From: zongbox@gmail.com (Zong Li)
-Date: Tue,  2 Oct 2018 16:52:30 +0800
-Subject: [PATCH v3 4/5] RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
+Date: Tue,  2 Oct 2018 16:52:27 +0800
+Subject: [PATCH v3 1/5] RISC-V: Build tishift only on 64-bit
 In-Reply-To: <cover.1538470103.git.zongbox@gmail.com>
 References: <cover.1538470103.git.zongbox@gmail.com>
-Message-ID: <3f1967e8be0c25910bf04181e84b46a788a156d7.1538470103.git.zongbox@gmail.com>
+Message-ID: <40c77db9ee2d23479ff90f2658539d29d7a30896.1538470103.git.zongbox@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 32-bit, it need to use __umoddi3 by some drivers.
+Only RV64 supports 128 integer size.
 
 Signed-off-by: Zong Li <zong@andestech.com>
 ---
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/lib/Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a344980..dc262fa 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -108,6 +108,7 @@ config ARCH_RV32I
- 	select GENERIC_LIB_ASHRDI3
- 	select GENERIC_LIB_LSHRDI3
- 	select GENERIC_LIB_UCMPDI2
-+	select GENERIC_LIB_UMODDI3
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 445ec84..5739bd0 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -2,6 +2,7 @@ lib-y	+= delay.o
+ lib-y	+= memcpy.o
+ lib-y	+= memset.o
+ lib-y	+= uaccess.o
+-lib-y	+= tishift.o
++
++lib-(CONFIG_64BIT) += tishift.o
  
- config ARCH_RV64I
- 	bool "RV64I"
+ lib-$(CONFIG_32BIT) += udivdi3.o
 -- 
 2.7.4
