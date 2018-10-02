@@ -1,16 +1,26 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Tue, 2 Oct 2018 07:50:57 -0700
-Subject: [PATCH v3 4/5] RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
-In-Reply-To: <3f1967e8be0c25910bf04181e84b46a788a156d7.1538470103.git.zongbox@gmail.com>
+Date: Tue, 2 Oct 2018 07:51:16 -0700
+Subject: [PATCH v3 5/5] RISC-V: Avoid corrupting the upper 32-bit of
+ phys_addr_t in ioremap
+In-Reply-To: <54849b9d9a709525640011814872155eafa7a9d7.1538470103.git.zongbox@gmail.com>
 References: <cover.1538470103.git.zongbox@gmail.com>
- <3f1967e8be0c25910bf04181e84b46a788a156d7.1538470103.git.zongbox@gmail.com>
-Message-ID: <20181002145057.GD3889@infradead.org>
+ <54849b9d9a709525640011814872155eafa7a9d7.1538470103.git.zongbox@gmail.com>
+Message-ID: <20181002145116.GE3889@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, Oct 02, 2018 at 04:52:30PM +0800, Zong Li wrote:
-> On 32-bit, it need to use __umoddi3 by some drivers.
+On Tue, Oct 02, 2018 at 04:52:31PM +0800, Zong Li wrote:
+> From: Vincent Chen <vincentc@andestech.com>
 > 
-> Signed-off-by: Zong Li <zong@andestech.com>
+> For 32bit, the upper 32-bit of phys_addr_t will be flushed to zero
+> after AND with PAGE_MASK because the data type of PAGE_MASK is
+> unsigned long. To fix this problem, the page alignment is done by
+> subtracting the page offset instead of AND with PAGE_MASK.
+> 
+> Signed-off-by: Vincent Chen <vincentc@andestech.com>
 
-Which drivers?
+Looks good,
+
+Reviewed-by: Christoph Hellwig <hch@lst.de>
+
+(and I'm pretty sure I reviewed this before..)
