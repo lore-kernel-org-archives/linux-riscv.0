@@ -1,111 +1,77 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 02 Oct 2018 07:56:40 -0700 (PDT)
-Subject: [PATCH] RISC-V: Implement built-in command line feature
-In-Reply-To: <20181002140449.24147-1-mick@ics.forth.gr>
-Message-ID: <mhng-d047a199-9994-4150-95b0-72ad6c1ec96a@palmer-si-x1c4>
+Date: Tue, 02 Oct 2018 08:02:48 -0700 (PDT)
+Subject: [PATCH v3 3/5] lib: Add umoddi3 and udivmoddi4 of GCC library
+ routines
+In-Reply-To: <20181002145041.GC3889@infradead.org>
+Message-ID: <mhng-2b0c98e6-298b-4fc4-842c-809002de3451@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 02 Oct 2018 07:04:49 PDT (-0700), mick at ics.forth.gr wrote:
-> This patch enables the use of a built-in kernel command line, which can
-> optionaly also override the command line provided by the boot loader.
+On Tue, 02 Oct 2018 07:50:41 PDT (-0700), Christoph Hellwig wrote:
+>> The udivmoddi4 and umoddi3 are copies from libgcc in gcc. There are other
+>> functions use the udivmoddi4 in libgcc, so I separate the umoddi3 and
+>> udivmoddi4 for flexible extension in the future.
 >
-> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
-
-Christoph's comments are valid, but I have a bigger one: our original plan was 
-to fix the generic support for CONFIG_CMDLINE, and while I'd still prefer to do 
-that our original attempt got hung up.  A working implementation trumps a clean 
-one, but I'd still prefer the clean one if you have time to take a look.
-
-The offending function is early_init_dt_scan_chosen() in drivers/of/fdt.c.  The 
-issue is that this is only called when a chosen node is present, which doesn't 
-get called (and therefor doesn't set boot_command_line) when there is no 
-/chosen node.  The fix might be as simple as checking for a /chosen node in 
-early_init_dt_scan_nodes(), and calling the CONFIG_CMDLINE handling if there's 
-no /chosen node.
-
-If that's too much work I can add it to my TODO list, but that never gets 
-shorter :).  Given that last time we tried messing with this we broke things 
-multiple times, I'd prefer to have this on for-next for a bit first either way, 
-so there's no big rush on my end.
-
-Thanks for the patch!
-
-> ---
->  arch/riscv/kernel/setup.c | 49 +++++++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 49 insertions(+)
+> Can you please mention which exact version of an external projected
+> you imported things from?  That will generally help if/when someone
+> has to dig into diverging versions.
 >
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index aee603123..fd171ca7f 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -30,6 +30,7 @@
->  #include <linux/of_platform.h>
->  #include <linux/sched/task.h>
->  #include <linux/swiotlb.h>
-> +#include <linux/string.h>
+>> +++ b/lib/udivmoddi4.c
+>> @@ -0,0 +1,310 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +
+>> +/*
+>> + * This program is free software; you can redistribute it and/or modify
+>> + * it under the terms of the GNU General Public License as published by
+>> + * the Free Software Foundation; either version 2 of the License, or
+>> + * (at your option) any later version.
+>> + *
+>> + * This program is distributed in the hope that it will be useful,
+>> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
+>> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+>> + * GNU General Public License for more details.
+>> + *
+>> + * You should have received a copy of the GNU General Public License
+>> + * along with this program; if not, see the file COPYING, or write
+>> + * to the Free Software Foundation, Inc.
+>> + */
 >
->  #include <asm/setup.h>
->  #include <asm/sections.h>
-> @@ -39,6 +40,14 @@
->  #include <asm/tlbflush.h>
->  #include <asm/thread_info.h>
->
-> +#ifdef CONFIG_CMDLINE_BOOL
-> +#ifdef CONFIG_CMDLINE_FORCE
-> +	static const char fixed_cmdline[] __initconst = CONFIG_CMDLINE;
-> +#else
-> +	static char builtin_cmdline[] __initdata = CONFIG_CMDLINE;
-> +#endif
-> +#endif
-> +
->  #ifdef CONFIG_EARLY_PRINTK
->  static void sbi_console_write(struct console *co, const char *buf,
->  			      unsigned int n)
-> @@ -215,6 +224,46 @@ void __init setup_arch(char **cmdline_p)
->                 register_console(early_console);
->         }
->  #endif
-> +
-> +	/* When we return, cmdline_p should point to a temporary
-> +	 * buffer on the kernel's init section (that gets cleaned up
-> +	 * later on) to be saved on static_command_line and parsed for
-> +	 * parameters.
-> +	 *
-> +	 * That string may get tweaked during parameter parsing so we
-> +	 * also want to keep an untouched version of the command line
-> +	 * to display on dmesg, /proc/cmdline etc.
-> +	 *
-> +	 * At this point boot_command_line is a temporary buffer
-> +	 * (also on the init section) that contains the command line
-> +	 * string passed from the boot loader. After we return,
-> +	 * it will be saved to saved_command_line that holds the
-> +	 * untouched version of the command line.
-> +	 *
-> +	 * Since we won't be doing any parameter parsing here, we'll
-> +	 * hold the initial/untouched command line string on
-> +	 * boot_command_line and make cmdline_p point to it as well.
-> +	 * This way boot_command_line will be copied to both
-> +	 * saved_command_line and static_command_line.
-> +	 */
-> +#ifdef CONFIG_CMDLINE_BOOL
-> +#ifdef CONFIG_CMDLINE_FORCE
-> +	/* Built-in args override boot loader args and
-> +	 * boot loader args are being ignored.
-> +	 */
-> +	strlcpy(boot_command_line, fixed_cmdline, COMMAND_LINE_SIZE);
-> +#else
-> +	/* Boot loader args override built-in args so we
-> +	 * need to put built-in args before boot loader args.
-> +	 */
-> +	if (builtin_cmdline[0]) {
-> +		strlcat(builtin_cmdline, " ", COMMAND_LINE_SIZE);
-> +		strlcat(builtin_cmdline, boot_command_line, COMMAND_LINE_SIZE);
-> +		strlcpy(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
-> +	}
-> +#endif
-> +#endif
-> +
->  	*cmdline_p = boot_command_line;
->
->  	parse_early_param();
+> The SPDX tag was supposed to replace this boiler plate.  On the other
+> hand I'm surpriced there is no Copyright statement here - the FSF is
+> usually very good about having them uptodate in every GNU project.
+
+I suggested he import the gcc-4.2.1 version, which has a big copyright notice
+
+    /* More subroutines needed by GCC output code on some machines.  */
+    /* Compile this one with gcc.  */
+    /* Copyright (C) 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+       2000, 2001, 2002, 2003, 2004, 2005  Free Software Foundation, Inc.
+    
+    This file is part of GCC.
+    
+    GCC is free software; you can redistribute it and/or modify it under
+    the terms of the GNU General Public License as published by the Free
+    Software Foundation; either version 2, or (at your option) any later
+    version.
+    
+    In addition to the permissions in the GNU General Public License, the
+    Free Software Foundation gives you unlimited permission to link the
+    compiled version of this file into combinations with other programs,
+    and to distribute those combinations without any restriction coming
+    from the use of this file.  (The General Public License restrictions
+    do apply in other respects; for example, they cover modification of
+    the file, and distribution when not linked into a combine
+    executable.)
+    
+    GCC is distributed in the hope that it will be useful, but WITHOUT ANY
+    WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with GCC; see the file COPYING.  If not, write to the Free
+    Software Foundation, 51 Franklin Street, Fifth Floor, Boston, MA
+    02110-1301, USA.  */
+
+so it looks like something went wrong here.  Zong: did you go back and 
+re-construct this function from the GPLv2 source?
