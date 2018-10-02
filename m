@@ -1,232 +1,94 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Tue, 2 Oct 2018 12:18:01 -0700
-Subject: [PATCH v3] RISC-V: Show IPI stats
-In-Reply-To: <CAAhSdy1DQFNEvW2Nr6g5mv9y_+GrhFL4nVxOROwGwGcqsHhqtg@mail.gmail.com>
-References: <20180929062605.12888-1-anup@brainfault.org>
- <7d40c900-cfb2-f3a0-fce9-0136814781fe@wdc.com>
- <CAAhSdy1DQFNEvW2Nr6g5mv9y_+GrhFL4nVxOROwGwGcqsHhqtg@mail.gmail.com>
-Message-ID: <54503b86-cb77-9eaf-6bd9-5e8caa2ebb78@wdc.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Tue, 02 Oct 2018 12:40:08 -0700 (PDT)
+Subject: [PATCH v6 00/14] SMP cleanup and new features
+In-Reply-To: <1538507707-22299-1-git-send-email-atish.patra@wdc.com>
+Message-ID: <mhng-d52d60ae-732e-4252-9258-21ea6bed8a31@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 10/1/18 8:29 PM, Anup Patel wrote:
-> On Tue, Oct 2, 2018 at 8:45 AM Atish Patra <atish.patra@wdc.com> wrote:
->>
->> On 9/28/18 11:26 PM, Anup Patel wrote:
->>> This patch provides arch_show_interrupts() implementation to
->>> show IPI stats via /proc/interrupts.
->>>
->>> Now the contents of /proc/interrupts" will look like below:
->>>              CPU0       CPU1       CPU2       CPU3
->>>     8:         17          7          6         14  SiFive PLIC   8  virtio0
->>>    10:         10         10          9         11  SiFive PLIC  10  ttyS0
->>> IPI0:       170        673        251         79  Rescheduling interrupts
->>> IPI1:         1         12         27          1  Function call interrupts
->>>
->>> Signed-off-by: Anup Patel <anup@brainfault.org>
->>>
->>> Changes since v2:
->>>    - Remove use of IPI_CALL_WAKEUP because it's being removed
->>>
->>> Changes since v1:
->>>    - Add stub inline show_ipi_stats() function for !CONFIG_SMP
->>>    - Make ipi_names[] dynamically sized at compile time
->>>    - Minor beautification of ipi_names[] using tabs
->>>
->>> ---
->>>    arch/riscv/include/asm/smp.h |  9 +++++++++
->>>    arch/riscv/kernel/irq.c      |  8 ++++++++
->>>    arch/riscv/kernel/smp.c      | 39 +++++++++++++++++++++++++++++-------
->>>    3 files changed, 49 insertions(+), 7 deletions(-)
->>>
->>> diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
->>> index fce312ce3516..5278ae8f1346 100644
->>> --- a/arch/riscv/include/asm/smp.h
->>> +++ b/arch/riscv/include/asm/smp.h
->>> @@ -25,8 +25,13 @@
->>>    extern unsigned long __cpuid_to_hardid_map[NR_CPUS];
->>>    #define cpuid_to_hardid_map(cpu)    __cpuid_to_hardid_map[cpu]
->>>
->>> +struct seq_file;
->>> +
->>>    #ifdef CONFIG_SMP
->>>
->>> +/* print IPI stats */
->>> +void show_ipi_stats(struct seq_file *p, int prec);
->>> +
->>>    /* SMP initialization hook for setup_arch */
->>>    void __init setup_smp(void);
->>>
->>> @@ -47,6 +52,10 @@ void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
->>>
->>>    #else
->>>
->>> +static inline void show_ipi_stats(struct seq_file *p, int prec)
->>> +{
->>> +}
->>> +
->>>    static inline int riscv_hartid_to_cpuid(int hartid)
->>>    {
->>>        return 0;
->>> diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
->>> index ca4593317e45..48e6b7db83a1 100644
->>> --- a/arch/riscv/kernel/irq.c
->>> +++ b/arch/riscv/kernel/irq.c
->>> @@ -8,6 +8,8 @@
->>>    #include <linux/interrupt.h>
->>>    #include <linux/irqchip.h>
->>>    #include <linux/irqdomain.h>
->>> +#include <linux/seq_file.h>
->>> +#include <asm/smp.h>
->>>
->>>    /*
->>>     * Possible interrupt causes:
->>> @@ -24,6 +26,12 @@
->>>     */
->>>    #define INTERRUPT_CAUSE_FLAG        (1UL << (__riscv_xlen - 1))
->>>
->>> +int arch_show_interrupts(struct seq_file *p, int prec)
->>> +{
->>> +     show_ipi_stats(p, prec);
->>> +     return 0;
->>> +}
->>> +
->>>    asmlinkage void __irq_entry do_IRQ(struct pt_regs *regs)
->>>    {
->>>        struct pt_regs *old_regs = set_irq_regs(regs);
->>> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
->>> index 89d95866f562..686fa7a427ff 100644
->>> --- a/arch/riscv/kernel/smp.c
->>> +++ b/arch/riscv/kernel/smp.c
->>> @@ -22,22 +22,24 @@
->>>    #include <linux/interrupt.h>
->>>    #include <linux/smp.h>
->>>    #include <linux/sched.h>
->>> +#include <linux/seq_file.h>
->>>
->>>    #include <asm/sbi.h>
->>>    #include <asm/tlbflush.h>
->>>    #include <asm/cacheflush.h>
->>>
->>> -/* A collection of single bit ipi messages.  */
->>> -static struct {
->>> -     unsigned long bits ____cacheline_aligned;
->>> -} ipi_data[NR_CPUS] __cacheline_aligned;
->>> -
->>>    enum ipi_message_type {
->>>        IPI_RESCHEDULE,
->>>        IPI_CALL_FUNC,
->>>        IPI_MAX
->>>    };
->>>
->>> +/* A collection of single bit ipi messages.  */
->>> +static struct {
->>> +     unsigned long stats[IPI_MAX] ____cacheline_aligned;
->>> +     unsigned long bits ____cacheline_aligned;
->>> +} ipi_data[NR_CPUS] __cacheline_aligned;
->>> +
->>>    int riscv_hartid_to_cpuid(int hartid)
->>>    {
->>>        int i = -1;
->>> @@ -67,6 +69,7 @@ int setup_profiling_timer(unsigned int multiplier)
->>>    void riscv_software_interrupt(void)
->>>    {
->>>        unsigned long *pending_ipis = &ipi_data[smp_processor_id()].bits;
->>> +     unsigned long *stats = ipi_data[smp_processor_id()].stats;
->>>
->>>        /* Clear pending IPI */
->>>        csr_clear(sip, SIE_SSIE);
->>> @@ -81,11 +84,15 @@ void riscv_software_interrupt(void)
->>>                if (ops == 0)
->>>                        return;
->>>
->>> -             if (ops & (1 << IPI_RESCHEDULE))
->>> +             if (ops & (1 << IPI_RESCHEDULE)) {
->>> +                     stats[IPI_RESCHEDULE]++;
->>>                        scheduler_ipi();
->>> +             }
->>>
->>> -             if (ops & (1 << IPI_CALL_FUNC))
->>> +             if (ops & (1 << IPI_CALL_FUNC)) {
->>> +                     stats[IPI_CALL_FUNC]++;
->>>                        generic_smp_call_function_interrupt();
->>> +             }
->>>
->>>                BUG_ON((ops >> IPI_MAX) != 0);
->>>
->>> @@ -111,6 +118,24 @@ send_ipi_message(const struct cpumask *to_whom, enum ipi_message_type operation)
->>>        sbi_send_ipi(cpumask_bits(&hartid_mask));
->>>    }
->>>
->>> +static const char *ipi_names[] = {
->>> +     [IPI_RESCHEDULE]        = "Rescheduling interrupts",
->>> +     [IPI_CALL_FUNC]         = "Function call interrupts",
->>> +};
->>> +
->>> +void show_ipi_stats(struct seq_file *p, int prec)
->>> +{
->>> +     unsigned int cpu, i;
->>> +
->>> +     for (i = 0; i < IPI_MAX; i++) {
->>> +             seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i,
->>> +                        prec >= 4 ? " " : "");
->>> +             for_each_online_cpu(cpu)
->>> +                     seq_printf(p, "%10lu ", ipi_data[cpu].stats[i]);
->>> +             seq_printf(p, " %s\n", ipi_names[i]);
->>> +     }
->>> +}
->>> +
->>>    void arch_send_call_function_ipi_mask(struct cpumask *mask)
->>>    {
->>>        send_ipi_message(mask, IPI_CALL_FUNC);
->>>
->> some checkpatch errors.
->>
->> patches/smp_cleanup/0014-RISC-V-Show-IPI-stats.patch
->> ----------------------------------------------------
->> WARNING: Missing a blank line after declarations
->> #115: FILE: arch/riscv/kernel/smp.c:40:
->> +       unsigned long stats[IPI_MAX] ____cacheline_aligned;
->> +       unsigned long bits ____cacheline_aligned;
-> 
-> This was already there in existing code.
-> 
->>
->> WARNING: usage of NR_CPUS is often wrong - consider using
->> cpu_possible(), num_possible_cpus(), for_each_possible_cpu(), etc
->> #116: FILE: arch/riscv/kernel/smp.c:41:
->> +} ipi_data[NR_CPUS] __cacheline_aligned;
-> 
-> Even this was already there in existing code.
-> 
->>
->> WARNING: static const char * array should probably be static const char
->> * const
->> #151: FILE: arch/riscv/kernel/smp.c:121:
->> +static const char *ipi_names[] = {
->>
->> total: 0 errors, 3 warnings, 120 lines checked
->>
->> Let me know if they were ignored on purpose.
->>
-> 
-> Yes, this one was added by this patch.
-> 
-> Do you want me to send revised patch?
-> 
+On Tue, 02 Oct 2018 12:14:53 PDT (-0700), atish.patra at wdc.com wrote:
+> This patch series now has evolved to contain several related changes.
+>
+> 1. Updated the assorted cleanup series by palmer.
+> The original cleanup patch series can be found here.
+> http://lists.infradead.org/pipermail/linux-riscv/2018-August/001232.html
+>
+> 2. Implemented decoupling linux logical CPU ids from hart id.
+> Some of the work has been inspired from ARM64.
+> Tested on QEMU & HighFive Unleashed board with/without SMP enabled.
+>
+> 3. Included Anup's cleanup and IPI stat patch.
+>
+> All the patch series have been combined to avoid conflicts as a lot
+> of common code is changed different patch sets. I have mostly addressed
+> review comments and fixed checkpatch errors from palmer's and anup's series.
+>
+> v1->v2:
+>
+> 1. Dropped cpu_ops patch.
+> 2. Moved back IRQ cause definitions to irq.h
+> 3. Keep boot CPU hart id and assign zero as the CPU id for boot CPU.
+> 4. Renamed CPU id and hart id correctly.
+>
+> v2-v3:
+>
+> 1. Added cleanup patches from palmer.
+> 2. Moved the hotplug related functions to it's own file.
+> 3. Updated stub functions as per coding guidelines.
+> 4. Renamed __cpu_logical_map to a more coherent name.
+>
+> v3-v4:
+>
+> 1. Addressed minor typos in commit text and code.
+> 2. Included Anup's do_IRQ patch.
+> 3. Dropped CPU hotplug patch. As there are some concerns
+>    about approach, I will submit it separately.
+>
+> v4->v5:
+>
+> 1. Minor typo fixes in commit text.
+>
+> v5->v6:
+> 1. Included Anup's IPI stat and cpuinfo patch.
+> 2. Fixed a typo cpuid_to_hardid_map->cpuid_to_hartid_map
+>
+>
+> Anup Patel (3):
+>   RISC-V: No need to pass scause as arg to do_IRQ()
+>   RISC-V: Show CPU ID and Hart ID separately in /proc/cpuinfo
+>   RISC-V: Show IPI stats
+>
+> Atish Patra (4):
+>   RISC-V: Disable preemption before enabling interrupts
+>   RISC-V: Use WRITE_ONCE instead of direct access
+>   RISC-V: Add logical CPU indexing for RISC-V
+>   RISC-V: Use Linux logical CPU number instead of hartid
+>
+> Palmer Dabbelt (7):
+>   RISC-V: Don't set cacheinfo.{physical_line_partition,attributes}
+>   RISC-V: Filter ISA and MMU values in cpuinfo
+>   RISC-V: Comment on the TLB flush in smp_callin()
+>   RISC-V: Provide a cleaner raw_smp_processor_id()
+>   RISC-V: Rename riscv_of_processor_hart to riscv_of_processor_hartid
+>   RISC-V: Rename im_okay_therefore_i_am to found_boot_cpu
+>   RISC-V: Use mmgrab()
+>
+>  arch/riscv/include/asm/processor.h |  2 +-
+>  arch/riscv/include/asm/smp.h       | 47 +++++++++++++++-----
+>  arch/riscv/include/asm/tlbflush.h  | 16 +++++--
+>  arch/riscv/kernel/cacheinfo.c      |  7 ---
+>  arch/riscv/kernel/cpu.c            | 87 ++++++++++++++++++++++++++++++++------
+>  arch/riscv/kernel/entry.S          |  1 -
+>  arch/riscv/kernel/head.S           |  4 +-
+>  arch/riscv/kernel/irq.c            | 12 +++++-
+>  arch/riscv/kernel/setup.c          | 10 +++++
+>  arch/riscv/kernel/smp.c            | 82 ++++++++++++++++++++++++++++-------
+>  arch/riscv/kernel/smpboot.c        | 46 ++++++++++++++------
+>  drivers/clocksource/riscv_timer.c  | 12 ++++--
+>  drivers/irqchip/irq-sifive-plic.c  | 10 +++--
+>  13 files changed, 259 insertions(+), 77 deletions(-)
 
-Nope. That's just a one line fix. I fixed it and submitted the patch as 
-part of my v6.
+These are on my "next-smp" branch, and will land in for-next as soon as it's 
+done regenerating.  I've replaced the "next-cleanups" branch.
 
-I will send a separate patch fix for the patch errors introduced by the 
-existing code as the fix was bit involved.
-
-Regards,
-Atish
-> Regards,
-> Anup
-> 
-
-
-Regards,
-Atish
+Thanks!
