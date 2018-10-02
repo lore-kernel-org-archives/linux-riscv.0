@@ -1,84 +1,43 @@
 From: mick@ics.forth.gr (Nick Kossifidis)
-Date: Tue, 02 Oct 2018 18:21:26 +0300
+Date: Tue, 02 Oct 2018 19:43:48 +0300
 Subject: [PATCH] RISC-V: Implement built-in command line feature
-In-Reply-To: <20181002143455.GA1476@infradead.org>
-References: <20181002140449.24147-1-mick@ics.forth.gr>
- <20181002143455.GA1476@infradead.org>
-Message-ID: <a425c3cc9507782d305f802232704077@mailhost.ics.forth.gr>
+In-Reply-To: <mhng-d047a199-9994-4150-95b0-72ad6c1ec96a@palmer-si-x1c4>
+References: <mhng-d047a199-9994-4150-95b0-72ad6c1ec96a@palmer-si-x1c4>
+Message-ID: <41abac95c55e46047e37ee77439bc4c9@mailhost.ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-???? 2018-10-02 17:34, Christoph Hellwig ??????:
->> +#ifdef CONFIG_CMDLINE_BOOL
->> +#ifdef CONFIG_CMDLINE_FORCE
->> +	static const char fixed_cmdline[] __initconst = CONFIG_CMDLINE;
->> +#else
->> +	static char builtin_cmdline[] __initdata = CONFIG_CMDLINE;
->> +#endif
->> +#endif
+???? 2018-10-02 17:56, Palmer Dabbelt ??????:
+> On Tue, 02 Oct 2018 07:04:49 PDT (-0700), mick at ics.forth.gr wrote:
+>> This patch enables the use of a built-in kernel command line, which 
+>> can
+>> optionaly also override the command line provided by the boot loader.
+>> 
+>> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
 > 
-> Why do you need two variables here?  x86, where this same logic is used
-> seems to get away with just a builtin_cmdline command line one.
+> Christoph's comments are valid, but I have a bigger one: our original
+> plan was to fix the generic support for CONFIG_CMDLINE, and while I'd
+> still prefer to do that our original attempt got hung up.  A working
+> implementation trumps a clean one, but I'd still prefer the clean one
+> if you have time to take a look.
 > 
-
-x86 actually uses an extra buffer named command_line, copies 
-boot_command_line
-there and returns a pointer to command_line (instead of just returning a 
-pointer
-to boot_command_line). What I do here is in case we have a forced 
-command line,
-I prefer having it as const (since the buffer won't get modified) 
-instead of
-having it as rw. I believe it's cleaner and the name is more 
-representative.
-
-> Also please don't indent code inside cpp conditionals.
+> The offending function is early_init_dt_scan_chosen() in
+> drivers/of/fdt.c.  The issue is that this is only called when a chosen
+> node is present, which doesn't get called (and therefor doesn't set
+> boot_command_line) when there is no /chosen node.  The fix might be as
+> simple as checking for a /chosen node in early_init_dt_scan_nodes(),
+> and calling the CONFIG_CMDLINE handling if there's no /chosen node.
 > 
-
-ACK (although there is nothing against it on the kernel coding 
-guidelines)
-
->> +	/* When we return, cmdline_p should point to a temporary
+> If that's too much work I can add it to my TODO list, but that never
+> gets shorter :).  Given that last time we tried messing with this we
+> broke things multiple times, I'd prefer to have this on for-next for a
+> bit first either way, so there's no big rush on my end.
 > 
-> This is not the normal kernel comment style.  Please keep the
-> /* on a line of its own.
+> Thanks for the patch!
 > 
 
-It is for drivers/net where I've mostly worked (drivers/net/wireless) 
-but you are
-right, I'll fix it and re-send.
-
->> +#ifdef CONFIG_CMDLINE_BOOL
->> +#ifdef CONFIG_CMDLINE_FORCE
->> +	/* Built-in args override boot loader args and
->> +	 * boot loader args are being ignored.
->> +	 */
->> +	strlcpy(boot_command_line, fixed_cmdline, COMMAND_LINE_SIZE);
->> +#else
->> +	/* Boot loader args override built-in args so we
->> +	 * need to put built-in args before boot loader args.
->> +	 */
->> +	if (builtin_cmdline[0]) {
->> +		strlcat(builtin_cmdline, " ", COMMAND_LINE_SIZE);
->> +		strlcat(builtin_cmdline, boot_command_line, COMMAND_LINE_SIZE);
->> +		strlcpy(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
->> +	}
->> +#endif
->> +#endif
-> 
-> Even if this seems mostly copied - it probably should be #if/#elif
-> instead of this convoluted magic:
-> 
-> #if defined(CONFIG_CMDLINE_FORCE)
-> 	strlcpy(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
-> #elif defined(CONFIG_CMDLINE_BOOL)
-> 	if (builtin_cmdline[0]) {
-> 		strlcat(builtin_cmdline, " ", COMMAND_LINE_SIZE);
-> 		strlcat(builtin_cmdline, boot_command_line, COMMAND_LINE_SIZE);
-> 		strlcpy(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
-> 	}
-> #endif
-
-There is a reason behind this "magic" IMHO, in your approach the reader 
-doesn't realize
-that CONFIG_CMDLINE_FORCE depends on CONFIG_CMDLINE_BOOL.
+ACK I'll work on that instead, it makes more sense if we only get the
+boot arguments through the device tree. We'll also need to define
+CONFIG_CMDLINE_EXTEND for this to work as expected so I guess I'll send
+a series to also tweak Kconfig again. Do you want me to work on top of
+my previous Kconfig patch or should I send a new series from scratch ?
