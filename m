@@ -1,37 +1,30 @@
 From: zongbox@gmail.com (Zong Li)
-Date: Tue,  2 Oct 2018 16:52:31 +0800
-Subject: [PATCH v3 5/5] RISC-V: Avoid corrupting the upper 32-bit of
- phys_addr_t in ioremap
+Date: Tue,  2 Oct 2018 16:52:30 +0800
+Subject: [PATCH v3 4/5] RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
 In-Reply-To: <cover.1538470103.git.zongbox@gmail.com>
 References: <cover.1538470103.git.zongbox@gmail.com>
-Message-ID: <54849b9d9a709525640011814872155eafa7a9d7.1538470103.git.zongbox@gmail.com>
+Message-ID: <3f1967e8be0c25910bf04181e84b46a788a156d7.1538470103.git.zongbox@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-From: Vincent Chen <vincentc@andestech.com>
+On 32-bit, it need to use __umoddi3 by some drivers.
 
-For 32bit, the upper 32-bit of phys_addr_t will be flushed to zero
-after AND with PAGE_MASK because the data type of PAGE_MASK is
-unsigned long. To fix this problem, the page alignment is done by
-subtracting the page offset instead of AND with PAGE_MASK.
-
-Signed-off-by: Vincent Chen <vincentc@andestech.com>
+Signed-off-by: Zong Li <zong@andestech.com>
 ---
- arch/riscv/mm/ioremap.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/mm/ioremap.c b/arch/riscv/mm/ioremap.c
-index 70ef272..bd2f2db 100644
---- a/arch/riscv/mm/ioremap.c
-+++ b/arch/riscv/mm/ioremap.c
-@@ -42,7 +42,7 @@ static void __iomem *__ioremap_caller(phys_addr_t addr, size_t size,
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a344980..dc262fa 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -108,6 +108,7 @@ config ARCH_RV32I
+ 	select GENERIC_LIB_ASHRDI3
+ 	select GENERIC_LIB_LSHRDI3
+ 	select GENERIC_LIB_UCMPDI2
++	select GENERIC_LIB_UMODDI3
  
- 	/* Page-align mappings */
- 	offset = addr & (~PAGE_MASK);
--	addr &= PAGE_MASK;
-+	addr -= offset;
- 	size = PAGE_ALIGN(size + offset);
- 
- 	area = get_vm_area_caller(size, VM_IOREMAP, caller);
+ config ARCH_RV64I
+ 	bool "RV64I"
 -- 
 2.7.4
