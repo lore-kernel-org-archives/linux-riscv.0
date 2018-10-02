@@ -1,31 +1,33 @@
 From: zongbox@gmail.com (Zong Li)
-Date: Tue,  2 Oct 2018 16:52:27 +0800
-Subject: [PATCH v3 1/5] RISC-V: Build tishift only on 64-bit
+Date: Tue,  2 Oct 2018 16:52:28 +0800
+Subject: [PATCH v3 2/5] RISC-V: Use swiotlb on RV64 only
 In-Reply-To: <cover.1538470103.git.zongbox@gmail.com>
 References: <cover.1538470103.git.zongbox@gmail.com>
-Message-ID: <40c77db9ee2d23479ff90f2658539d29d7a30896.1538470103.git.zongbox@gmail.com>
+Message-ID: <a2ae9d4b7cd1d97cafe8161ec28f46e4a7968776.1538470103.git.zongbox@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Only RV64 supports 128 integer size.
+Only RV64 supports swiotlb. On RV32, it don't select the SWIOTLB.
 
 Signed-off-by: Zong Li <zong@andestech.com>
 ---
- arch/riscv/lib/Makefile | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/setup.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 445ec84..5739bd0 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -2,6 +2,7 @@ lib-y	+= delay.o
- lib-y	+= memcpy.o
- lib-y	+= memset.o
- lib-y	+= uaccess.o
--lib-y	+= tishift.o
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index aee6031..6de6584 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -227,7 +227,10 @@ void __init setup_arch(char **cmdline_p)
+ 	setup_bootmem();
+ 	paging_init();
+ 	unflatten_device_tree();
 +
-+lib-(CONFIG_64BIT) += tishift.o
++#ifdef CONFIG_SWIOTLB
+ 	swiotlb_init(1);
++#endif
  
- lib-$(CONFIG_32BIT) += udivdi3.o
+ #ifdef CONFIG_SMP
+ 	setup_smp();
 -- 
 2.7.4
