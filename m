@@ -1,54 +1,38 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Tue,  2 Oct 2018 12:14:54 -0700
-Subject: [PATCH v6 01/14] RISC-V: No need to pass scause as arg to do_IRQ()
+Date: Tue,  2 Oct 2018 12:14:57 -0700
+Subject: [PATCH v6 04/14] RISC-V: Comment on the TLB flush in smp_callin()
 In-Reply-To: <1538507707-22299-1-git-send-email-atish.patra@wdc.com>
 References: <1538507707-22299-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <1538507707-22299-2-git-send-email-atish.patra@wdc.com>
+Message-ID: <1538507707-22299-5-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-From: Anup Patel <anup@brainfault.org>
+From: Palmer Dabbelt <palmer@sifive.com>
 
-The scause is already part of pt_regs so no need to pass
-scause as separate arg to do_IRQ().
+This isn't readily apparent from reading the code.
 
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+[Atish: code comment formatting update]
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
 Reviewed-by: Christoph Hellwig <hch@lst.de>
-Signed-off-by: Anup Patel <anup@brainfault.org>
 ---
- arch/riscv/kernel/entry.S | 1 -
- arch/riscv/kernel/irq.c   | 4 ++--
- 2 files changed, 2 insertions(+), 3 deletions(-)
+ arch/riscv/kernel/smpboot.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index fa2c08e3..6eaacfa5 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -168,7 +168,6 @@ ENTRY(handle_exception)
- 
- 	/* Handle interrupts */
- 	move a0, sp /* pt_regs */
--	move a1, s4 /* scause */
- 	tail do_IRQ
- 1:
- 	/* Exceptions run with interrupts enabled */
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 0cfac48a..ca459331 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -24,12 +24,12 @@
-  */
- #define INTERRUPT_CAUSE_FLAG	(1UL << (__riscv_xlen - 1))
- 
--asmlinkage void __irq_entry do_IRQ(struct pt_regs *regs, unsigned long cause)
-+asmlinkage void __irq_entry do_IRQ(struct pt_regs *regs)
- {
- 	struct pt_regs *old_regs = set_irq_regs(regs);
- 
- 	irq_enter();
--	switch (cause & ~INTERRUPT_CAUSE_FLAG) {
-+	switch (regs->scause & ~INTERRUPT_CAUSE_FLAG) {
- 	case INTERRUPT_CAUSE_TIMER:
- 		riscv_timer_interrupt();
- 		break;
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index 56abab6a..712e9ca8 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -106,6 +106,10 @@ asmlinkage void __init smp_callin(void)
+ 	trap_init();
+ 	notify_cpu_starting(smp_processor_id());
+ 	set_cpu_online(smp_processor_id(), 1);
++	/*
++	 * Remote TLB flushes are ignored while the CPU is offline, so emit
++	 * a local TLB flush right now just in case.
++	 */
+ 	local_flush_tlb_all();
+ 	local_irq_enable();
+ 	preempt_disable();
 -- 
 2.7.4
