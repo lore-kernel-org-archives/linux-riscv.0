@@ -4,85 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 71CB1C43143
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Oct 2018 15:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C3BEC43143
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Oct 2018 15:22:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2850F20666
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Oct 2018 15:03:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F113C20666
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Oct 2018 15:22:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OJ+rjw+1";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="HU71PMl3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2850F20666
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Nnmaph3v"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F113C20666
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ics.forth.gr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=LSRP9E4W3As0sw63ob/UEbQJmF1DkG2BcfxixoVGRBk=; b=OJ+rjw+1sJg5mrEo8jB3+puVm
-	ode5KYjodbXL+vnzIbYuqw+b7mgUjmzdkLUsCB4+VO1AItTmkYW6tZj5lQdR3G4988MkmiELhtpMl
-	drWWCkQ0rwFzsbd5KwDF6icOng2JUok0s4K9VkEV+GTpe/Ari/xJsB5qRxqmsHCAtXsi3/LsSln5M
-	KTcKWxqT2PxQoSG5HaeibhCQwEAaqIuxf7pZJD9vh/8ogY/2dE51fMsmpXkipfj6JwHbVMjLnk79W
-	JKwGVqOayAdKW98BXEXr7zuzO4/a1kWglt/WsERbXwKPFcgExgYxPngUMnhY+Ln9B8IPVEBwCZZvf
-	ITyoU2ncw==;
+	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:To:From:
+	Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=sig+xG8LPNaceteUmQ6ZKUfTTr+epAVvXnVTr15zZAw=; b=Nnmaph3v/xm6Xki6SLFjYEnmo
+	zN6LJeAL78VNhXGmZ3YIx4KJfpN5OMYaLi4nBLIxiiAnggnzFTvLpXwhGGkKF2vpSzvyvJyEaS78p
+	yT7wY6i16O2Mmkl4QwPJXZk2h990cbk0NuTl1hEQGRSGhxlPPGyti1xVcYwcGK3Bjzg2IJTQ1BYAB
+	puaj7Bf6KiWNafiQXC3lMIEpc9YQDsCxkGTI+6EWPsTnaVKbMSt9aBx4sZVjLdJI1iSf+7//WB5RK
+	D4ShJIN8OYvxI2FficZVNDiRtG0NxH2dX0P9VPIrRo4XgLX9VM8wvdatSWcaYMAsVUBgjSYh83eh1
+	na49qGShA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1g7MDA-0008Mz-Ak; Tue, 02 Oct 2018 15:03:44 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1g7MCT-0007zH-Pn
- for linux-riscv@lists.infradead.org; Tue, 02 Oct 2018 15:03:09 +0000
-Received: by mail-pl1-x632.google.com with SMTP id az3-v6so1843165plb.4
- for <linux-riscv@lists.infradead.org>; Tue, 02 Oct 2018 08:02:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=d2CF0k82WvxlhQY1DrC5bSUsm2VCZF/3wkDQIrTo6sQ=;
- b=HU71PMl3Wri9ctt6+i3RPVSSh3glZ2Cm6Pvwchek4UgHdFe5kIjVVa6uVECKNSuwnN
- rWFx1/rhovlA3d9tXQrIrO92iwa7/UnYjrlmLqT09kLXnOkJY2lYH4rGj8reOyYCHlyU
- XZcSlLW9zjZCsP+woxXTzEOdkprY2nOEC8tQmh+hp/285HQcU1Isa3pcQRmfZqDFlRqQ
- HYZGSBDjWexLRJFQ+6kqIr4ApKD1OnEJLonPOEeTxImcOxJOaalRgY5+PkTxHURgOPQc
- 1HkEKzumbMyrO6xbLDV135H2q+i2xwgTeie5zT4y/TY9b8szvqWRW+4MxdpXcqLhR+fu
- yF9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=d2CF0k82WvxlhQY1DrC5bSUsm2VCZF/3wkDQIrTo6sQ=;
- b=X54yj7IO710q+zLwHoQAk0Cm7g3kGrLfAKRQVS+rYx88G+rS2ZRivnzqVhbwgc24tk
- 0G8Kayxs+0ny98ZkqisgBTwWFyih16urwaIB6ABQBu47b+YUI7P6Mec9ELIYlsPe35gg
- FMOiWDQdPzV6zOm4z/osJK24O1OiEg5aqXHAHiMIZsplEWP9Df9l6wW2Q0ai9LLBVHM/
- VHNkMUL3d8vqkFVpJ4Ae+u+cAx17CFQvRH2LNZPOo3cnXofg4GSNB0/yitVJEUTW74eE
- bDe91LF+20w7IE6fQZl6k29chto5fdznJutzHUbrEZJ+UNwMwio/aQIIdqtosIaM17+e
- vewg==
-X-Gm-Message-State: ABuFfoiyfoXE9XIJ/VEMyrdtEqCXYzvBw6rxUPlvcpSB1wgvlLPTOwX7
- zK/KQIF70dNiIgLZahlaNEK4lBy10NQ=
-X-Google-Smtp-Source: ACcGV62EwD4y3SBd8pwUOyD33jtOAiS4o1ikoySfClbcM6K097toJJ2gI6ii95BlqwDJpEP74IFhUw==
-X-Received: by 2002:a17:902:784a:: with SMTP id
- e10-v6mr17044577pln.197.1538492569681; 
- Tue, 02 Oct 2018 08:02:49 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id p24-v6sm20376372pgm.70.2018.10.02.08.02.48
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 02 Oct 2018 08:02:48 -0700 (PDT)
-Date: Tue, 02 Oct 2018 08:02:48 -0700 (PDT)
-X-Google-Original-Date: Tue, 02 Oct 2018 08:01:58 PDT (-0700)
-Subject: Re: [PATCH v3 3/5] lib: Add umoddi3 and udivmoddi4 of GCC library
- routines
-In-Reply-To: <20181002145041.GC3889@infradead.org>
-From: Palmer Dabbelt <palmer@sifive.com>
+	id 1g7MUw-0007A0-TI; Tue, 02 Oct 2018 15:22:06 +0000
+Received: from mailgate-4.ics.forth.gr ([139.91.1.7])
+ by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1g7MUu-0006yZ-EP
+ for linux-riscv@lists.infradead.org; Tue, 02 Oct 2018 15:22:06 +0000
+Received: from av1.ics.forth.gr (av3in.ics.forth.gr. [139.91.1.77])
+ by mailgate-4.ics.forth.gr (8.14.5/ICS-FORTH/V10-1.9-GATE-OUT) with ESMTP id
+ w92FLRbJ038590; Tue, 2 Oct 2018 18:21:29 +0300 (EEST)
+X-AuditID: 8b5b9d4d-91bff70000000e62-37-5bb38cf7444c
+Received: from enigma.ics.forth.gr (webmail.ics.forth.gr [139.91.1.35])
+ by av1.ics.forth.gr (SMTP Outbound / FORTH / ICS) with SMTP id
+ 14.F7.03682.7FC83BB5; Tue,  2 Oct 2018 18:21:27 +0300 (EEST)
+Received: from webmail.ics.forth.gr (localhost [127.0.0.1])
+ by enigma.ics.forth.gr (8.15.1//ICS-FORTH/V10.5.0C-EXTNULL-SSL-SASL) with
+ ESMTP id w92FLQVo030216; Tue, 2 Oct 2018 18:21:26 +0300
+X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
+MIME-Version: 1.0
+Date: Tue, 02 Oct 2018 18:21:26 +0300
+From: Nick Kossifidis <mick@ics.forth.gr>
 To: Christoph Hellwig <hch@infradead.org>
-Message-ID: <mhng-2b0c98e6-298b-4fc4-842c-809002de3451@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+Subject: Re: [PATCH] RISC-V: Implement built-in command line feature
+Organization: FORTH
+In-Reply-To: <20181002143455.GA1476@infradead.org>
+References: <20181002140449.24147-1-mick@ics.forth.gr>
+ <20181002143455.GA1476@infradead.org>
+Message-ID: <a425c3cc9507782d305f802232704077@mailhost.ics.forth.gr>
+X-Sender: mick@mailhost.ics.forth.gr
+User-Agent: Roundcube Webmail/1.1.2
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrCLMWRmVeSWpSXmKPExsXSHc2orPu9Z3O0wenFnBZbf89itzg9YRGT
+ xbbPLWwWze/OsVtsnrCA1YHV43DHF3aPh5suMXlsXqHlsXlJvcel5uvsAaxRXDYpqTmZZalF
+ +nYJXBm3d11nLZgsUnF3+jz2BsZNAl2MnBwSAiYSq7f0s3YxcnEICRxllGjYM4kdwjnIKPFo
+ xUcmiCpTidl7OxlBbF4BQYmTM5+wgNjMAhYSU6/sZ4Sw5SWat85mBrFZBFQlbk08DNbLJqAp
+ Mf/SQbB6ESD71vJ2Zoj6aonNr86zgtjCAi4Sy74+A5vDLyAs8enuRbA4p4CRRP+U62wgtpBA
+ nMSFDY/ZIW5wkTj48B47xG0qEh9+PwCzRQWUJV6cmM46gVFoFpJTZyE5dRaSUxcwMq9iFEgs
+ M9bLTC7WS8svKsnQSy/axAgO+7m+OxjPLbA/xCjAwajEw8sgvylaiDWxrLgy9xCjBAezkghv
+ X+LmaCHelMTKqtSi/Pii0pzU4kOM0hwsSuK8h1+EBwkJpCeWpGanphakFsFkmTg4pRoY1UuO
+ zmLh8N6d/GqdV9Xh7R/VA1f/OX9j+/7fLbcC7zmuq36XsuvrX/MjuxOtJt9hYJzJH8jh0q+l
+ qx2UXXlQZGX9501LDoU8uHmhfXvJs4dfTHRvJoaq9U811phhVjwvf+l/jrdXZz5f1nnhJkOJ
+ W2xYWNIq/7O/N/TxHjTjUfa/KFG7eUZFtxJLcUaioRZzUXEiANLLynN3AgAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181002_080301_885505_280DE18C 
-X-CRM114-Status: GOOD (  20.77  )
+X-CRM114-CacheID: sfid-20181002_082204_920456_3EE20DC4 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,85 +85,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: zong@andestech.com, aou@eecs.berkeley.edu, zongbox@gmail.com,
- linux-kernel@vger.kernel.org, Christoph Hellwig <hch@infradead.org>,
- linux-riscv@lists.infradead.org
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: Nick Kossifidis <mick@ics.forth.gr>, linux-riscv@lists.infradead.org,
+ palmer@sifive.com, aou@eecs.berkeley.edu
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181002150248.AOa5SfOTxy3QApYdjScEr20QVk61KEMcKIrYqhw9avs@z>
+Message-ID: <20181002152126.dMVDPCbPNg92Q2rJblDOgo_mtjs8dkOzXr8yn6FghdA@z>
 
-On Tue, 02 Oct 2018 07:50:41 PDT (-0700), Christoph Hellwig wrote:
->> The udivmoddi4 and umoddi3 are copies from libgcc in gcc. There are other
->> functions use the udivmoddi4 in libgcc, so I separate the umoddi3 and
->> udivmoddi4 for flexible extension in the future.
->
-> Can you please mention which exact version of an external projected
-> you imported things from?  That will generally help if/when someone
-> has to dig into diverging versions.
->
->> +++ b/lib/udivmoddi4.c
->> @@ -0,0 +1,310 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +
->> +/*
->> + * This program is free software; you can redistribute it and/or modify
->> + * it under the terms of the GNU General Public License as published by
->> + * the Free Software Foundation; either version 2 of the License, or
->> + * (at your option) any later version.
->> + *
->> + * This program is distributed in the hope that it will be useful,
->> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
->> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
->> + * GNU General Public License for more details.
->> + *
->> + * You should have received a copy of the GNU General Public License
->> + * along with this program; if not, see the file COPYING, or write
->> + * to the Free Software Foundation, Inc.
->> + */
->
-> The SPDX tag was supposed to replace this boiler plate.  On the other
-> hand I'm surpriced there is no Copyright statement here - the FSF is
-> usually very good about having them uptodate in every GNU project.
-
-I suggested he import the gcc-4.2.1 version, which has a big copyright notice
-
-    /* More subroutines needed by GCC output code on some machines.  */
-    /* Compile this one with gcc.  */
-    /* Copyright (C) 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
-       2000, 2001, 2002, 2003, 2004, 2005  Free Software Foundation, Inc.
-    
-    This file is part of GCC.
-    
-    GCC is free software; you can redistribute it and/or modify it under
-    the terms of the GNU General Public License as published by the Free
-    Software Foundation; either version 2, or (at your option) any later
-    version.
-    
-    In addition to the permissions in the GNU General Public License, the
-    Free Software Foundation gives you unlimited permission to link the
-    compiled version of this file into combinations with other programs,
-    and to distribute those combinations without any restriction coming
-    from the use of this file.  (The General Public License restrictions
-    do apply in other respects; for example, they cover modification of
-    the file, and distribution when not linked into a combine
-    executable.)
-    
-    GCC is distributed in the hope that it will be useful, but WITHOUT ANY
-    WARRANTY; without even the implied warranty of MERCHANTABILITY or
-    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
-    for more details.
-    
-    You should have received a copy of the GNU General Public License
-    along with GCC; see the file COPYING.  If not, write to the Free
-    Software Foundation, 51 Franklin Street, Fifth Floor, Boston, MA
-    02110-1301, USA.  */
-
-so it looks like something went wrong here.  Zong: did you go back and 
-re-construct this function from the GPLv2 source?
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+zqPPhM65z4IgMjAxOC0xMC0wMiAxNzozNCwgQ2hyaXN0b3BoIEhlbGx3aWcgzq3Os8+BzrHPiM61
+Ogo+PiArI2lmZGVmIENPTkZJR19DTURMSU5FX0JPT0wKPj4gKyNpZmRlZiBDT05GSUdfQ01ETElO
+RV9GT1JDRQo+PiArCXN0YXRpYyBjb25zdCBjaGFyIGZpeGVkX2NtZGxpbmVbXSBfX2luaXRjb25z
+dCA9IENPTkZJR19DTURMSU5FOwo+PiArI2Vsc2UKPj4gKwlzdGF0aWMgY2hhciBidWlsdGluX2Nt
+ZGxpbmVbXSBfX2luaXRkYXRhID0gQ09ORklHX0NNRExJTkU7Cj4+ICsjZW5kaWYKPj4gKyNlbmRp
+Zgo+IAo+IFdoeSBkbyB5b3UgbmVlZCB0d28gdmFyaWFibGVzIGhlcmU/ICB4ODYsIHdoZXJlIHRo
+aXMgc2FtZSBsb2dpYyBpcyB1c2VkCj4gc2VlbXMgdG8gZ2V0IGF3YXkgd2l0aCBqdXN0IGEgYnVp
+bHRpbl9jbWRsaW5lIGNvbW1hbmQgbGluZSBvbmUuCj4gCgp4ODYgYWN0dWFsbHkgdXNlcyBhbiBl
+eHRyYSBidWZmZXIgbmFtZWQgY29tbWFuZF9saW5lLCBjb3BpZXMgCmJvb3RfY29tbWFuZF9saW5l
+CnRoZXJlIGFuZCByZXR1cm5zIGEgcG9pbnRlciB0byBjb21tYW5kX2xpbmUgKGluc3RlYWQgb2Yg
+anVzdCByZXR1cm5pbmcgYSAKcG9pbnRlcgp0byBib290X2NvbW1hbmRfbGluZSkuIFdoYXQgSSBk
+byBoZXJlIGlzIGluIGNhc2Ugd2UgaGF2ZSBhIGZvcmNlZCAKY29tbWFuZCBsaW5lLApJIHByZWZl
+ciBoYXZpbmcgaXQgYXMgY29uc3QgKHNpbmNlIHRoZSBidWZmZXIgd29uJ3QgZ2V0IG1vZGlmaWVk
+KSAKaW5zdGVhZCBvZgpoYXZpbmcgaXQgYXMgcncuIEkgYmVsaWV2ZSBpdCdzIGNsZWFuZXIgYW5k
+IHRoZSBuYW1lIGlzIG1vcmUgCnJlcHJlc2VudGF0aXZlLgoKPiBBbHNvIHBsZWFzZSBkb24ndCBp
+bmRlbnQgY29kZSBpbnNpZGUgY3BwIGNvbmRpdGlvbmFscy4KPiAKCkFDSyAoYWx0aG91Z2ggdGhl
+cmUgaXMgbm90aGluZyBhZ2FpbnN0IGl0IG9uIHRoZSBrZXJuZWwgY29kaW5nIApndWlkZWxpbmVz
+KQoKPj4gKwkvKiBXaGVuIHdlIHJldHVybiwgY21kbGluZV9wIHNob3VsZCBwb2ludCB0byBhIHRl
+bXBvcmFyeQo+IAo+IFRoaXMgaXMgbm90IHRoZSBub3JtYWwga2VybmVsIGNvbW1lbnQgc3R5bGUu
+ICBQbGVhc2Uga2VlcCB0aGUKPiAvKiBvbiBhIGxpbmUgb2YgaXRzIG93bi4KPiAKCkl0IGlzIGZv
+ciBkcml2ZXJzL25ldCB3aGVyZSBJJ3ZlIG1vc3RseSB3b3JrZWQgKGRyaXZlcnMvbmV0L3dpcmVs
+ZXNzKSAKYnV0IHlvdSBhcmUKcmlnaHQsIEknbGwgZml4IGl0IGFuZCByZS1zZW5kLgoKPj4gKyNp
+ZmRlZiBDT05GSUdfQ01ETElORV9CT09MCj4+ICsjaWZkZWYgQ09ORklHX0NNRExJTkVfRk9SQ0UK
+Pj4gKwkvKiBCdWlsdC1pbiBhcmdzIG92ZXJyaWRlIGJvb3QgbG9hZGVyIGFyZ3MgYW5kCj4+ICsJ
+ICogYm9vdCBsb2FkZXIgYXJncyBhcmUgYmVpbmcgaWdub3JlZC4KPj4gKwkgKi8KPj4gKwlzdHJs
+Y3B5KGJvb3RfY29tbWFuZF9saW5lLCBmaXhlZF9jbWRsaW5lLCBDT01NQU5EX0xJTkVfU0laRSk7
+Cj4+ICsjZWxzZQo+PiArCS8qIEJvb3QgbG9hZGVyIGFyZ3Mgb3ZlcnJpZGUgYnVpbHQtaW4gYXJn
+cyBzbyB3ZQo+PiArCSAqIG5lZWQgdG8gcHV0IGJ1aWx0LWluIGFyZ3MgYmVmb3JlIGJvb3QgbG9h
+ZGVyIGFyZ3MuCj4+ICsJICovCj4+ICsJaWYgKGJ1aWx0aW5fY21kbGluZVswXSkgewo+PiArCQlz
+dHJsY2F0KGJ1aWx0aW5fY21kbGluZSwgIiAiLCBDT01NQU5EX0xJTkVfU0laRSk7Cj4+ICsJCXN0
+cmxjYXQoYnVpbHRpbl9jbWRsaW5lLCBib290X2NvbW1hbmRfbGluZSwgQ09NTUFORF9MSU5FX1NJ
+WkUpOwo+PiArCQlzdHJsY3B5KGJvb3RfY29tbWFuZF9saW5lLCBidWlsdGluX2NtZGxpbmUsIENP
+TU1BTkRfTElORV9TSVpFKTsKPj4gKwl9Cj4+ICsjZW5kaWYKPj4gKyNlbmRpZgo+IAo+IEV2ZW4g
+aWYgdGhpcyBzZWVtcyBtb3N0bHkgY29waWVkIC0gaXQgcHJvYmFibHkgc2hvdWxkIGJlICNpZi8j
+ZWxpZgo+IGluc3RlYWQgb2YgdGhpcyBjb252b2x1dGVkIG1hZ2ljOgo+IAo+ICNpZiBkZWZpbmVk
+KENPTkZJR19DTURMSU5FX0ZPUkNFKQo+IAlzdHJsY3B5KGJvb3RfY29tbWFuZF9saW5lLCBidWls
+dGluX2NtZGxpbmUsIENPTU1BTkRfTElORV9TSVpFKTsKPiAjZWxpZiBkZWZpbmVkKENPTkZJR19D
+TURMSU5FX0JPT0wpCj4gCWlmIChidWlsdGluX2NtZGxpbmVbMF0pIHsKPiAJCXN0cmxjYXQoYnVp
+bHRpbl9jbWRsaW5lLCAiICIsIENPTU1BTkRfTElORV9TSVpFKTsKPiAJCXN0cmxjYXQoYnVpbHRp
+bl9jbWRsaW5lLCBib290X2NvbW1hbmRfbGluZSwgQ09NTUFORF9MSU5FX1NJWkUpOwo+IAkJc3Ry
+bGNweShib290X2NvbW1hbmRfbGluZSwgYnVpbHRpbl9jbWRsaW5lLCBDT01NQU5EX0xJTkVfU0la
+RSk7Cj4gCX0KPiAjZW5kaWYKClRoZXJlIGlzIGEgcmVhc29uIGJlaGluZCB0aGlzICJtYWdpYyIg
+SU1ITywgaW4geW91ciBhcHByb2FjaCB0aGUgcmVhZGVyIApkb2Vzbid0IHJlYWxpemUKdGhhdCBD
+T05GSUdfQ01ETElORV9GT1JDRSBkZXBlbmRzIG9uIENPTkZJR19DTURMSU5FX0JPT0wuCgoKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
+bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
+LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
