@@ -1,101 +1,181 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Tue,  2 Oct 2018 12:15:00 -0700
-Subject: [PATCH v6 07/14] RISC-V: Rename riscv_of_processor_hart to
- riscv_of_processor_hartid
+Date: Tue,  2 Oct 2018 12:15:07 -0700
+Subject: [PATCH v6 14/14] RISC-V: Show IPI stats
 In-Reply-To: <1538507707-22299-1-git-send-email-atish.patra@wdc.com>
 References: <1538507707-22299-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <1538507707-22299-8-git-send-email-atish.patra@wdc.com>
+Message-ID: <1538507707-22299-15-git-send-email-atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-From: Palmer Dabbelt <palmer@sifive.com>
+From: Anup Patel <anup@brainfault.org>
 
-It's a bit confusing exactly what this function does: it actually
-returns the hartid of an OF processor node, failing with -1 on invalid
-nodes.  I've changed the name to _hartid() in order to make that a bit
-more clear, as well as adding a comment.
+This patch provides arch_show_interrupts() implementation to
+show IPI stats via /proc/interrupts.
 
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-[Atish: code comment formatting update]
+Now the contents of /proc/interrupts" will look like below:
+           CPU0       CPU1       CPU2       CPU3
+  8:         17          7          6         14  SiFive PLIC   8  virtio0
+ 10:         10         10          9         11  SiFive PLIC  10  ttyS0
+IPI0:       170        673        251         79  Rescheduling interrupts
+IPI1:         1         12         27          1  Function call interrupts
+
+Signed-off-by: Anup Patel <anup@brainfault.org>
+[Atish - Fixed checkpatch errors]
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
----
- arch/riscv/include/asm/processor.h | 2 +-
- arch/riscv/kernel/cpu.c            | 7 +++++--
- arch/riscv/kernel/smpboot.c        | 2 +-
- drivers/clocksource/riscv_timer.c  | 2 +-
- drivers/irqchip/irq-sifive-plic.c  | 2 +-
- 5 files changed, 9 insertions(+), 6 deletions(-)
+Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 3fe4af81..50de774d 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -88,7 +88,7 @@ static inline void wait_for_interrupt(void)
+Changes since v2:
+ - Remove use of IPI_CALL_WAKEUP because it's being removed
+
+Changes since v1:
+ - Add stub inline show_ipi_stats() function for !CONFIG_SMP
+ - Make ipi_names[] dynamically sized at compile time
+ - Minor beautification of ipi_names[] using tabs
+---
+ arch/riscv/include/asm/smp.h |  9 +++++++++
+ arch/riscv/kernel/irq.c      |  8 ++++++++
+ arch/riscv/kernel/smp.c      | 39 ++++++++++++++++++++++++++++++++-------
+ 3 files changed, 49 insertions(+), 7 deletions(-)
+
+diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+index 47fd61df..41aa73b4 100644
+--- a/arch/riscv/include/asm/smp.h
++++ b/arch/riscv/include/asm/smp.h
+@@ -25,8 +25,13 @@
+ extern unsigned long __cpuid_to_hartid_map[NR_CPUS];
+ #define cpuid_to_hartid_map(cpu)    __cpuid_to_hartid_map[cpu]
+ 
++struct seq_file;
++
+ #ifdef CONFIG_SMP
+ 
++/* print IPI stats */
++void show_ipi_stats(struct seq_file *p, int prec);
++
+ /* SMP initialization hook for setup_arch */
+ void __init setup_smp(void);
+ 
+@@ -47,6 +52,10 @@ void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
+ 
+ #else
+ 
++static inline void show_ipi_stats(struct seq_file *p, int prec)
++{
++}
++
+ static inline int riscv_hartid_to_cpuid(int hartid)
+ {
+ 	return 0;
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index ca459331..48e6b7db 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -8,6 +8,8 @@
+ #include <linux/interrupt.h>
+ #include <linux/irqchip.h>
+ #include <linux/irqdomain.h>
++#include <linux/seq_file.h>
++#include <asm/smp.h>
+ 
+ /*
+  * Possible interrupt causes:
+@@ -24,6 +26,12 @@
+  */
+ #define INTERRUPT_CAUSE_FLAG	(1UL << (__riscv_xlen - 1))
+ 
++int arch_show_interrupts(struct seq_file *p, int prec)
++{
++	show_ipi_stats(p, prec);
++	return 0;
++}
++
+ asmlinkage void __irq_entry do_IRQ(struct pt_regs *regs)
+ {
+ 	struct pt_regs *old_regs = set_irq_regs(regs);
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 4eac0094..57b1383e 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -22,22 +22,24 @@
+ #include <linux/interrupt.h>
+ #include <linux/smp.h>
+ #include <linux/sched.h>
++#include <linux/seq_file.h>
+ 
+ #include <asm/sbi.h>
+ #include <asm/tlbflush.h>
+ #include <asm/cacheflush.h>
+ 
+-/* A collection of single bit ipi messages.  */
+-static struct {
+-	unsigned long bits ____cacheline_aligned;
+-} ipi_data[NR_CPUS] __cacheline_aligned;
+-
+ enum ipi_message_type {
+ 	IPI_RESCHEDULE,
+ 	IPI_CALL_FUNC,
+ 	IPI_MAX
+ };
+ 
++/* A collection of single bit ipi messages.  */
++static struct {
++	unsigned long stats[IPI_MAX] ____cacheline_aligned;
++	unsigned long bits ____cacheline_aligned;
++} ipi_data[NR_CPUS] __cacheline_aligned;
++
+ int riscv_hartid_to_cpuid(int hartid)
+ {
+ 	int i = -1;
+@@ -67,6 +69,7 @@ int setup_profiling_timer(unsigned int multiplier)
+ void riscv_software_interrupt(void)
+ {
+ 	unsigned long *pending_ipis = &ipi_data[smp_processor_id()].bits;
++	unsigned long *stats = ipi_data[smp_processor_id()].stats;
+ 
+ 	/* Clear pending IPI */
+ 	csr_clear(sip, SIE_SSIE);
+@@ -81,11 +84,15 @@ void riscv_software_interrupt(void)
+ 		if (ops == 0)
+ 			return;
+ 
+-		if (ops & (1 << IPI_RESCHEDULE))
++		if (ops & (1 << IPI_RESCHEDULE)) {
++			stats[IPI_RESCHEDULE]++;
+ 			scheduler_ipi();
++		}
+ 
+-		if (ops & (1 << IPI_CALL_FUNC))
++		if (ops & (1 << IPI_CALL_FUNC)) {
++			stats[IPI_CALL_FUNC]++;
+ 			generic_smp_call_function_interrupt();
++		}
+ 
+ 		BUG_ON((ops >> IPI_MAX) != 0);
+ 
+@@ -111,6 +118,24 @@ send_ipi_message(const struct cpumask *to_whom, enum ipi_message_type operation)
+ 	sbi_send_ipi(cpumask_bits(&hartid_mask));
  }
  
- struct device_node;
--extern int riscv_of_processor_hart(struct device_node *node);
-+int riscv_of_processor_hartid(struct device_node *node);
- 
- extern void riscv_fill_hwcap(void);
- 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 1c0bf662..4723e235 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -15,8 +15,11 @@
- #include <linux/seq_file.h>
- #include <linux/of.h>
- 
--/* Return -1 if not a valid hart */
--int riscv_of_processor_hart(struct device_node *node)
-+/*
-+ * Returns the hart ID of the given device tree node, or -1 if the device tree
-+ * node isn't a RISC-V hart.
-+ */
-+int riscv_of_processor_hartid(struct device_node *node)
++static const char * const ipi_names[] = {
++	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
++	[IPI_CALL_FUNC]		= "Function call interrupts",
++};
++
++void show_ipi_stats(struct seq_file *p, int prec)
++{
++	unsigned int cpu, i;
++
++	for (i = 0; i < IPI_MAX; i++) {
++		seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i,
++			   prec >= 4 ? " " : "");
++		for_each_online_cpu(cpu)
++			seq_printf(p, "%10lu ", ipi_data[cpu].stats[i]);
++		seq_printf(p, " %s\n", ipi_names[i]);
++	}
++}
++
+ void arch_send_call_function_ipi_mask(struct cpumask *mask)
  {
- 	const char *isa, *status;
- 	u32 hart;
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 670749ec..cfb0b02d 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -53,7 +53,7 @@ void __init setup_smp(void)
- 	int hart, im_okay_therefore_i_am = 0;
- 
- 	while ((dn = of_find_node_by_type(dn, "cpu"))) {
--		hart = riscv_of_processor_hart(dn);
-+		hart = riscv_of_processor_hartid(dn);
- 		if (hart >= 0) {
- 			set_cpu_possible(hart, true);
- 			set_cpu_present(hart, true);
-diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
-index 4e8b347e..ad7453fc 100644
---- a/drivers/clocksource/riscv_timer.c
-+++ b/drivers/clocksource/riscv_timer.c
-@@ -84,7 +84,7 @@ void riscv_timer_interrupt(void)
- 
- static int __init riscv_timer_init_dt(struct device_node *n)
- {
--	int cpu_id = riscv_of_processor_hart(n), error;
-+	int cpu_id = riscv_of_processor_hartid(n), error;
- 	struct clocksource *cs;
- 
- 	if (cpu_id != smp_processor_id())
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 532e9d68..c55eaa31 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -176,7 +176,7 @@ static int plic_find_hart_id(struct device_node *node)
- {
- 	for (; node; node = node->parent) {
- 		if (of_device_is_compatible(node, "riscv"))
--			return riscv_of_processor_hart(node);
-+			return riscv_of_processor_hartid(node);
- 	}
- 
- 	return -1;
+ 	send_ipi_message(mask, IPI_CALL_FUNC);
 -- 
 2.7.4
