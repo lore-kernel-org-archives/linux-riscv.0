@@ -1,31 +1,37 @@
 From: zongbox@gmail.com (Zong Li)
-Date: Wed,  3 Oct 2018 11:10:01 +0800
-Subject: [PATCH v4 4/5] RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
+Date: Wed,  3 Oct 2018 11:10:02 +0800
+Subject: [PATCH v4 5/5] RISC-V: Avoid corrupting the upper 32-bit of
+ phys_addr_t in ioremap
 In-Reply-To: <cover.1538535527.git.zongbox@gmail.com>
 References: <cover.1538535527.git.zongbox@gmail.com>
-Message-ID: <b87900141b3ee65e639bb8a0278a2acd7fced103.1538535528.git.zongbox@gmail.com>
+Message-ID: <d851bbf26416d6fe5e55a2bec3121890cc95babd.1538535528.git.zongbox@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On RV32, it will use the __umoddi3. Select GENERIC_LIB_UMODDI3 to avoid
-undefined reference.
+From: Vincent Chen <vincentc@andestech.com>
 
-Signed-off-by: Zong Li <zong@andestech.com>
+For 32bit, the upper 32-bit of phys_addr_t will be flushed to zero
+after AND with PAGE_MASK because the data type of PAGE_MASK is
+unsigned long. To fix this problem, the page alignment is done by
+subtracting the page offset instead of AND with PAGE_MASK.
+
+Signed-off-by: Vincent Chen <vincentc@andestech.com>
 ---
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/mm/ioremap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a344980..dc262fa 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -108,6 +108,7 @@ config ARCH_RV32I
- 	select GENERIC_LIB_ASHRDI3
- 	select GENERIC_LIB_LSHRDI3
- 	select GENERIC_LIB_UCMPDI2
-+	select GENERIC_LIB_UMODDI3
+diff --git a/arch/riscv/mm/ioremap.c b/arch/riscv/mm/ioremap.c
+index 70ef272..bd2f2db 100644
+--- a/arch/riscv/mm/ioremap.c
++++ b/arch/riscv/mm/ioremap.c
+@@ -42,7 +42,7 @@ static void __iomem *__ioremap_caller(phys_addr_t addr, size_t size,
  
- config ARCH_RV64I
- 	bool "RV64I"
+ 	/* Page-align mappings */
+ 	offset = addr & (~PAGE_MASK);
+-	addr &= PAGE_MASK;
++	addr -= offset;
+ 	size = PAGE_ALIGN(size + offset);
+ 
+ 	area = get_vm_area_caller(size, VM_IOREMAP, caller);
 -- 
 2.7.4
