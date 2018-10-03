@@ -2,92 +2,87 @@ Return-Path: <SRS0=xmLI=MP=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-3.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AA7B2C64EBC
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Oct 2018 03:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E8232C64EBC
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Oct 2018 03:27:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 794D420878
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Oct 2018 03:13:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A6DD12082A
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Oct 2018 03:27:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pT4uBgkm";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="llJyOIKc"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 794D420878
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="l2p6UwAS";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="GZ+A4Cmo"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A6DD12082A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=WNK8D9tMqAx1dBLTh1oxH1oNt6ABU8mXFXG3AiZf7Ww=; b=pT4uBgkmPfSnKo86jj3aLaiKGL
-	NtmU5E4TMMzx6x+5Urz9KX2eEG5bH0QNVkqoRHA6bnigGAV6q/YItpHL4Xcf2Qr39vqzCXPO4gHJ9
-	ZyDEsI89mH+gyFJOhsJYEa1uZcbsc7Tm8Q0FmnhsqhDeoIN1/EMqzkZ8wBbmVhm0glE5IuLPCWjDt
-	h3FljwU0Dttqrd2s/r6RoZrobWkXVDjjRfn9TXvL9bFO4xHZQkGReqGvVjg7jlVyS0QyY0XP4uwWB
-	RzEyL8FUhB4xlR8eGb1itngy0KAhCbx1iZOHU7I+5Wtcpxu0EtFFdlr8ZRqKVzEieMHeMHIAm7cXZ
-	OSXYsqlw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0RBvFaTy94UHnAqLo00B9WVmB68YtZkYz8w/FKJXRRY=; b=l2p6UwASKHdze7
+	aEn9vP6G/kux0aANrtnHY+n0KV/Mv4+hsviXQ2s4U9OC6y+j2/8jJ35mLMqUcUN91FzWsdGlohuyl
+	IQysEY0jlG8Z3agtmrF+ac9c4DBGkQtc+msrf2HFlOta7TXAZ9k/TX0n/v+R8oQKHqGWAtJheJF9D
+	wxtpuoTNzFfqdnceFB1dwR12c4QmAdc7WZIXPwnN3HQa+X1gr4q89Jp93Erjz1/r6foGemCBDATCH
+	zlCDoc7wHc/D7ByENtZ2E3bMEE9WeNTLXSU1cHRPDMfsWoFjCi4tHVHj2I0+IvUeMyn7sBar9TTgC
+	oOaBS2PSeGvLxKeMydPg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1g7Xb5-0005IE-Ul; Wed, 03 Oct 2018 03:13:12 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1g7Xob-0001nX-S1; Wed, 03 Oct 2018 03:27:09 +0000
+Received: from mail-it1-x142.google.com ([2607:f8b0:4864:20::142])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1g7Xat-00058k-Mb
- for linux-riscv@lists.infradead.org; Wed, 03 Oct 2018 03:13:06 +0000
-Received: by mail-pg1-x544.google.com with SMTP id g2-v6so856741pgu.11
- for <linux-riscv@lists.infradead.org>; Tue, 02 Oct 2018 20:12:49 -0700 (PDT)
+ id 1g7XoW-0001m8-PO
+ for linux-riscv@lists.infradead.org; Wed, 03 Oct 2018 03:27:08 +0000
+Received: by mail-it1-x142.google.com with SMTP id h6-v6so10686631ith.0
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Oct 2018 20:26:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=UBDvynMlQ+CLa//vjhI1FniisjjUmkbIGiogOAJ0pDw=;
- b=llJyOIKcGT/3qJR9GzkclSLGh2c3cN4qwf+z2v31BO4vntlAGTBeojgVAUS6o8eIDm
- b4EIanPvZAB6xVNlJPmMFdICb9zRQqF23MM4otJ9jvdk6AcbOJemtwevF1X3UGPkkuvq
- wwFqegteig4g2rFsbbLaBOWzTeaJtIui8AoH7tn56H0YAU4LaWXtDb8J8heE6j9mTO7B
- ZFR9XZuphFa4dO3YhAPAAJqT5w9fUvW6gJZGkS4A/E5YmFBuk4hNCDzkidp68NMwcB3e
- iE7hxRzObyQo1jQtbLGsQPAvdEjv4d0V8lBuaUdqA4sVxOtM8H2p7U/28q0D4Pcvr1cv
- zLtQ==
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=uQao3xGFEFn8Y07K52ssW3bIqYUjRZ72xPIgvT77Ym4=;
+ b=GZ+A4CmoXyGrbbVW3uT0V+18mzHQHBQzDHvK19anHICNRGZ4k8fx1247KVm3oXUqvk
+ hfxD2U7j4YCRZYF+KONDkPtuU0VDLXZjkjFOdkVj2Ui9CAD71cLd7+52NB+TKIhy+rRO
+ ITh5H5IUV1E0f67o/pxErBPB0qdv/kD8ZCpiLWWD7Vs7SRZ/gdYLR3K3W9m5xYYbFHUm
+ XxvigGqkNb+Ip3yTCZ2uAhndIYTLubgVm18VoO57ayUwlRrinZ8GoR/MxoxZBZ5EV/6Y
+ UNuHdkGoSKpL4gW9EusNYYJWyDytSCcyaZA2pEibTMKhlDzqvrrg9zY8AYmz3zXm+c6j
+ /o9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=UBDvynMlQ+CLa//vjhI1FniisjjUmkbIGiogOAJ0pDw=;
- b=ieVg5CHhvGNuXJ9XyrylcFWwOw8qvk7U0wZ94Qj6jM6mA8ZdN/+CauuaXinJrBqUdG
- QPj7WgQR3uadkIg7ETCatiyvQD/YiAUY8y8KD4AEbFG+Zpwes5/pxHC9iBBUZQGoRu4i
- GNIq4+WEayL4UC5pS8u+0VgvbIGoZdXrO1Isjz8u3RICWivslhZ9StHgAcoYI53Qy7if
- zPYeY8nq3jGAyDPiRtSpCUdak7JpxbOQypwe+NqR5BRnFRzMDSH5Jk2pWo4BzgeiaE3H
- ke9Qzhs+kDuNFhoktbrHDYC5a+6lZzRqNaZbuSETWGE8qGdDqIKr99/lgtA3RyBE/Kz+
- FGmQ==
-X-Gm-Message-State: ABuFfogImtO57vjt7t8aKcr4A1NncFr3xHrHm9OC6BoLfjgq1qwB4ew6
- 6XzMIi3b5DB+OLEQP5yNtA4=
-X-Google-Smtp-Source: ACcGV62/6tCgPPAKhKgQ/LLOd/bTYYaJLObPXOTkiO87jcJNyWzO5iiZ+VQsARaUG8CSmzrXXJ7a+w==
-X-Received: by 2002:a63:1411:: with SMTP id
- u17-v6mr16880911pgl.247.1538536368856; 
- Tue, 02 Oct 2018 20:12:48 -0700 (PDT)
-Received: from app09.andestech.com (59-120-53-16.HINET-IP.hinet.net.
- [59.120.53.16])
- by smtp.gmail.com with ESMTPSA id v23-v6sm21777747pfm.80.2018.10.02.20.12.47
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 02 Oct 2018 20:12:48 -0700 (PDT)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=uQao3xGFEFn8Y07K52ssW3bIqYUjRZ72xPIgvT77Ym4=;
+ b=RghogViLT3xglY4a5qyeYp+7v/1obJVl/CZm2OP6A8OYt7Zw53qBZf9PyLzV8mOP/i
+ OIqjIhfTMLRY2Cx+pbGIDyg/jkp5//CWXQz6tVCe3Ns3qflrE4kVAp63Sv8RqFPfeSym
+ E7zVzv5hgntASkS0ja8+VMGGEczyFPX2SmzFhovA2MPQBJiMOlvR1wM1Qh3SxBov2Q3j
+ +rqX/HGhWRliBr7oS+Tlgph9943HviS5OH8UCP86O4V6NZq4r0drmsDF9YMjCPTftEB5
+ o2jXnvyfqh5CIA7INZQDa0IxqkfAR61fihJnopW9DCtqGAfVVhQLOBQbfp1qK2r87sUr
+ vIzg==
+X-Gm-Message-State: ABuFfogzFz9DVg4WbL3w2ULBp+XiRIIvGglJQ64oRre99GASld3qKgoA
+ DhDQjhgO+RlLRY5EvqfEK+NliDJK6+CDjmdRD5A=
+X-Google-Smtp-Source: ACcGV60UH3Tc3qrk2vBvlkhP7HdVxRn3MMNJthy9WqLiWK3RZJHb32Z9GWd1mHq/f4badBV1GUohh9Rk/JPMGefJQhA=
+X-Received: by 2002:a24:ee0c:: with SMTP id
+ b12-v6mr3984139iti.33.1538537213819; 
+ Tue, 02 Oct 2018 20:26:53 -0700 (PDT)
+MIME-Version: 1.0
+References: <cover.1538470103.git.zongbox@gmail.com>
+ <54849b9d9a709525640011814872155eafa7a9d7.1538470103.git.zongbox@gmail.com>
+ <20181002145116.GE3889@infradead.org>
+In-Reply-To: <20181002145116.GE3889@infradead.org>
 From: Zong Li <zongbox@gmail.com>
-To: palmer@sifive.com,
-	aou@eecs.berkeley.edu
-Subject: [PATCH v4 5/5] RISC-V: Avoid corrupting the upper 32-bit of
+Date: Wed, 3 Oct 2018 11:26:43 +0800
+Message-ID:
+ <CA+ZOyahwAA3v+9XeJ4eLkhiNgDacHtLHfrqG3ifhdV-shwnAaA@mail.gmail.com>
+Subject: Re: [PATCH v3 5/5] RISC-V: Avoid corrupting the upper 32-bit of
  phys_addr_t in ioremap
-Date: Wed,  3 Oct 2018 11:10:02 +0800
-Message-Id:
- <d851bbf26416d6fe5e55a2bec3121890cc95babd.1538535528.git.zongbox@gmail.com>
-X-Mailer: git-send-email 2.18.0
-In-Reply-To: <cover.1538535527.git.zongbox@gmail.com>
-References: <cover.1538535527.git.zongbox@gmail.com>
+To: hch@infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181002_201259_763441_254B4E11 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20181002_202704_826891_72029428 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -99,45 +94,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: hch@infradead.org, zong@andestech.com, linux-riscv@lists.infradead.org,
- Vincent Chen <vincentc@andestech.com>, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Vincent Chen <vincentc@andestech.com>, aou@eecs.berkeley.edu,
+ Palmer Dabbelt <palmer@sifive.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Zong Li <zong@andestech.com>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181003031002.zs8zsfjIjc6F7oMGVah8jYbosjZO9nMhWqso2-Gn538@z>
+Message-ID: <20181003032643.yplDJS3Hni4Uo02Xh7Nj1nApjK5Ip0yst1qyVRSDT8I@z>
 
-From: Vincent Chen <vincentc@andestech.com>
-
-For 32bit, the upper 32-bit of phys_addr_t will be flushed to zero
-after AND with PAGE_MASK because the data type of PAGE_MASK is
-unsigned long. To fix this problem, the page alignment is done by
-subtracting the page offset instead of AND with PAGE_MASK.
-
-Signed-off-by: Vincent Chen <vincentc@andestech.com>
----
- arch/riscv/mm/ioremap.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/mm/ioremap.c b/arch/riscv/mm/ioremap.c
-index 70ef272..bd2f2db 100644
---- a/arch/riscv/mm/ioremap.c
-+++ b/arch/riscv/mm/ioremap.c
-@@ -42,7 +42,7 @@ static void __iomem *__ioremap_caller(phys_addr_t addr, size_t size,
- 
- 	/* Page-align mappings */
- 	offset = addr & (~PAGE_MASK);
--	addr &= PAGE_MASK;
-+	addr -= offset;
- 	size = PAGE_ALIGN(size + offset);
- 
- 	area = get_vm_area_caller(size, VM_IOREMAP, caller);
--- 
-2.7.4
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q2hyaXN0b3BoIEhlbGx3aWcgPGhjaEBpbmZyYWRlYWQub3JnPiDmlrwgMjAxOOW5tDEw5pyIMuaX
+pSDpgLHkuowg5LiL5Y2IMTA6NTHlr6vpgZPvvJoKPgo+IE9uIFR1ZSwgT2N0IDAyLCAyMDE4IGF0
+IDA0OjUyOjMxUE0gKzA4MDAsIFpvbmcgTGkgd3JvdGU6Cj4gPiBGcm9tOiBWaW5jZW50IENoZW4g
+PHZpbmNlbnRjQGFuZGVzdGVjaC5jb20+Cj4gPgo+ID4gRm9yIDMyYml0LCB0aGUgdXBwZXIgMzIt
+Yml0IG9mIHBoeXNfYWRkcl90IHdpbGwgYmUgZmx1c2hlZCB0byB6ZXJvCj4gPiBhZnRlciBBTkQg
+d2l0aCBQQUdFX01BU0sgYmVjYXVzZSB0aGUgZGF0YSB0eXBlIG9mIFBBR0VfTUFTSyBpcwo+ID4g
+dW5zaWduZWQgbG9uZy4gVG8gZml4IHRoaXMgcHJvYmxlbSwgdGhlIHBhZ2UgYWxpZ25tZW50IGlz
+IGRvbmUgYnkKPiA+IHN1YnRyYWN0aW5nIHRoZSBwYWdlIG9mZnNldCBpbnN0ZWFkIG9mIEFORCB3
+aXRoIFBBR0VfTUFTSy4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBWaW5jZW50IENoZW4gPHZpbmNl
+bnRjQGFuZGVzdGVjaC5jb20+Cj4KPiBMb29rcyBnb29kLAo+Cj4gUmV2aWV3ZWQtYnk6IENocmlz
+dG9waCBIZWxsd2lnIDxoY2hAbHN0LmRlPgo+Cj4gKGFuZCBJJ20gcHJldHR5IHN1cmUgSSByZXZp
+ZXdlZCB0aGlzIGJlZm9yZS4uKQoKSGkgQ2hyaXN0b3BoLAoKVmVyeSBzb3JyeSBhYm91dCB0aGF0
+LiBJIGRpZG4ndCBub3RpY2UgSSBsb3NlIHRoZXNlIHJldmlldyB0YWdzLiBDb3VsZAp5b3UgcGxl
+YXNlIGhlbHAgdG8gcmV2aWV3IGFnYWluIGluIHZlcnNpb24gNCBwYXRjaGVzPyBUaGFuayB5b3Uu
+CgpSZWdhcmRzLApab25nCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
