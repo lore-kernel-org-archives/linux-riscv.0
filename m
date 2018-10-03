@@ -1,88 +1,48 @@
 From: zongbox@gmail.com (Zong Li)
-Date: Wed, 3 Oct 2018 09:39:58 +0800
-Subject: [PATCH v3 3/5] lib: Add umoddi3 and udivmoddi4 of GCC library
- routines
-In-Reply-To: <mhng-2b0c98e6-298b-4fc4-842c-809002de3451@palmer-si-x1c4>
-References: <20181002145041.GC3889@infradead.org>
- <mhng-2b0c98e6-298b-4fc4-842c-809002de3451@palmer-si-x1c4>
-Message-ID: <CA+ZOyajMbaUrpPMeTgynyJpBtLh-19=VR=t0rq=bGcTmh0LF1w@mail.gmail.com>
+Date: Wed,  3 Oct 2018 11:09:57 +0800
+Subject: [PATCH v4 0/5] Fix some bugs on RV32 build fail and issue
+Message-ID: <cover.1538535527.git.zongbox@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Palmer Dabbelt <palmer@sifive.com> ? 2018?10?2? ?? ??11:02???
->
-> On Tue, 02 Oct 2018 07:50:41 PDT (-0700), Christoph Hellwig wrote:
-> >> The udivmoddi4 and umoddi3 are copies from libgcc in gcc. There are other
-> >> functions use the udivmoddi4 in libgcc, so I separate the umoddi3 and
-> >> udivmoddi4 for flexible extension in the future.
-> >
-> > Can you please mention which exact version of an external projected
-> > you imported things from?  That will generally help if/when someone
-> > has to dig into diverging versions.
-> >
-> >> +++ b/lib/udivmoddi4.c
-> >> @@ -0,0 +1,310 @@
-> >> +// SPDX-License-Identifier: GPL-2.0
-> >> +
-> >> +/*
-> >> + * This program is free software; you can redistribute it and/or modify
-> >> + * it under the terms of the GNU General Public License as published by
-> >> + * the Free Software Foundation; either version 2 of the License, or
-> >> + * (at your option) any later version.
-> >> + *
-> >> + * This program is distributed in the hope that it will be useful,
-> >> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
-> >> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-> >> + * GNU General Public License for more details.
-> >> + *
-> >> + * You should have received a copy of the GNU General Public License
-> >> + * along with this program; if not, see the file COPYING, or write
-> >> + * to the Free Software Foundation, Inc.
-> >> + */
-> >
-> > The SPDX tag was supposed to replace this boiler plate.  On the other
-> > hand I'm surpriced there is no Copyright statement here - the FSF is
-> > usually very good about having them uptodate in every GNU project.
->
-> I suggested he import the gcc-4.2.1 version, which has a big copyright notice
->
->     /* More subroutines needed by GCC output code on some machines.  */
->     /* Compile this one with gcc.  */
->     /* Copyright (C) 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
->        2000, 2001, 2002, 2003, 2004, 2005  Free Software Foundation, Inc.
->
->     This file is part of GCC.
->
->     GCC is free software; you can redistribute it and/or modify it under
->     the terms of the GNU General Public License as published by the Free
->     Software Foundation; either version 2, or (at your option) any later
->     version.
->
->     In addition to the permissions in the GNU General Public License, the
->     Free Software Foundation gives you unlimited permission to link the
->     compiled version of this file into combinations with other programs,
->     and to distribute those combinations without any restriction coming
->     from the use of this file.  (The General Public License restrictions
->     do apply in other respects; for example, they cover modification of
->     the file, and distribution when not linked into a combine
->     executable.)
->
->     GCC is distributed in the hope that it will be useful, but WITHOUT ANY
->     WARRANTY; without even the implied warranty of MERCHANTABILITY or
->     FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
->     for more details.
->
->     You should have received a copy of the GNU General Public License
->     along with GCC; see the file COPYING.  If not, write to the Free
->     Software Foundation, 51 Franklin Street, Fifth Floor, Boston, MA
->     02110-1301, USA.  */
->
-> so it looks like something went wrong here.  Zong: did you go back and
-> re-construct this function from the GPLv2 source?
+This patches contain the modificaion as follows:
+1. Fix up the building fail on RV32.
+2. Add umoddi3 and udivmoddi4 functions for RV32.
+3. Fix ioremap problem on RV32.
 
-Yes, I re-construct this function from GCC 4.2.1. The copyright part,
-I referred to the other GCC routine copies in kernel such as ucmpdi2,
-muldi3, ashldi3 and so on, I found they removed the 'GCC' string, so I
-use the same copyright from these files.
-I will re-write the copyright part and submit the next version. Thanks
-to all for help.
+Thanks all for review these code and modify the copyright description.
+
+Changes in v4:
+ - Retain the complete copyright description.
+ - Modify commit message.
+ - Rebase upstream code.
+
+Changes in v3:
+ - Change the copyright notices to GPLv2 from  gcc 4.2.1.
+
+Changes in v2:
+ - Retain the copyright notices from libgcc in umoddi3.c and udivmoddi4.c.
+
+Vincent Chen (1):
+  RISC-V: Avoid corrupting the upper 32-bit of phys_addr_t in ioremap
+
+Zong Li (4):
+  RISC-V: Build tishift only on 64-bit
+  RISC-V: Add preprocessor directive for swiotlb
+  lib: Add umoddi3 and udivmoddi4 of GCC library routines
+  RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
+
+ arch/riscv/Kconfig        |   1 +
+ arch/riscv/kernel/setup.c |   3 +
+ arch/riscv/lib/Makefile   |   3 +-
+ arch/riscv/mm/ioremap.c   |   2 +-
+ lib/Kconfig               |   3 +
+ lib/Makefile              |   1 +
+ lib/udivmoddi4.c          | 326 ++++++++++++++++++++++++++++++++++++++++++++++
+ lib/umoddi3.c             |  48 +++++++
+ 8 files changed, 385 insertions(+), 2 deletions(-)
+ create mode 100644 lib/udivmoddi4.c
+ create mode 100644 lib/umoddi3.c
+
+-- 
+2.7.4
