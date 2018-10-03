@@ -1,33 +1,31 @@
 From: zongbox@gmail.com (Zong Li)
-Date: Wed,  3 Oct 2018 11:09:59 +0800
-Subject: [PATCH v4 2/5] RISC-V: Add preprocessor directive for swiotlb
+Date: Wed,  3 Oct 2018 11:10:01 +0800
+Subject: [PATCH v4 4/5] RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
 In-Reply-To: <cover.1538535527.git.zongbox@gmail.com>
 References: <cover.1538535527.git.zongbox@gmail.com>
-Message-ID: <0aaabb05426a360f71cbc7a910e2c613d3a3891c.1538535528.git.zongbox@gmail.com>
+Message-ID: <b87900141b3ee65e639bb8a0278a2acd7fced103.1538535528.git.zongbox@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On RV32, it doesn't select the SWIOTLB, only RV64 support swiotlb now.
+On RV32, it will use the __umoddi3. Select GENERIC_LIB_UMODDI3 to avoid
+undefined reference.
 
 Signed-off-by: Zong Li <zong@andestech.com>
 ---
- arch/riscv/kernel/setup.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index aee6031..6de6584 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -227,7 +227,10 @@ void __init setup_arch(char **cmdline_p)
- 	setup_bootmem();
- 	paging_init();
- 	unflatten_device_tree();
-+
-+#ifdef CONFIG_SWIOTLB
- 	swiotlb_init(1);
-+#endif
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a344980..dc262fa 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -108,6 +108,7 @@ config ARCH_RV32I
+ 	select GENERIC_LIB_ASHRDI3
+ 	select GENERIC_LIB_LSHRDI3
+ 	select GENERIC_LIB_UCMPDI2
++	select GENERIC_LIB_UMODDI3
  
- #ifdef CONFIG_SMP
- 	setup_smp();
+ config ARCH_RV64I
+ 	bool "RV64I"
 -- 
 2.7.4
