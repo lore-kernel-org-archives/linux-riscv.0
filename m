@@ -1,33 +1,88 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 02 Oct 2018 12:54:52 -0700 (PDT)
-Subject: [GIT PULL] A Single RISC-V Fix for 4.19-rc7
-Message-ID: <mhng-02593196-13c6-4467-aeeb-bfb9aafbb326@palmer-si-x1c4>
+From: zongbox@gmail.com (Zong Li)
+Date: Wed, 3 Oct 2018 09:39:58 +0800
+Subject: [PATCH v3 3/5] lib: Add umoddi3 and udivmoddi4 of GCC library
+ routines
+In-Reply-To: <mhng-2b0c98e6-298b-4fc4-842c-809002de3451@palmer-si-x1c4>
+References: <20181002145041.GC3889@infradead.org>
+ <mhng-2b0c98e6-298b-4fc4-842c-809002de3451@palmer-si-x1c4>
+Message-ID: <CA+ZOyajMbaUrpPMeTgynyJpBtLh-19=VR=t0rq=bGcTmh0LF1w@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The following changes since commit 17b57b1883c1285f3d0dc2266e8f79286a7bef38:
+Palmer Dabbelt <palmer@sifive.com> ? 2018?10?2? ?? ??11:02???
+>
+> On Tue, 02 Oct 2018 07:50:41 PDT (-0700), Christoph Hellwig wrote:
+> >> The udivmoddi4 and umoddi3 are copies from libgcc in gcc. There are other
+> >> functions use the udivmoddi4 in libgcc, so I separate the umoddi3 and
+> >> udivmoddi4 for flexible extension in the future.
+> >
+> > Can you please mention which exact version of an external projected
+> > you imported things from?  That will generally help if/when someone
+> > has to dig into diverging versions.
+> >
+> >> +++ b/lib/udivmoddi4.c
+> >> @@ -0,0 +1,310 @@
+> >> +// SPDX-License-Identifier: GPL-2.0
+> >> +
+> >> +/*
+> >> + * This program is free software; you can redistribute it and/or modify
+> >> + * it under the terms of the GNU General Public License as published by
+> >> + * the Free Software Foundation; either version 2 of the License, or
+> >> + * (at your option) any later version.
+> >> + *
+> >> + * This program is distributed in the hope that it will be useful,
+> >> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
+> >> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+> >> + * GNU General Public License for more details.
+> >> + *
+> >> + * You should have received a copy of the GNU General Public License
+> >> + * along with this program; if not, see the file COPYING, or write
+> >> + * to the Free Software Foundation, Inc.
+> >> + */
+> >
+> > The SPDX tag was supposed to replace this boiler plate.  On the other
+> > hand I'm surpriced there is no Copyright statement here - the FSF is
+> > usually very good about having them uptodate in every GNU project.
+>
+> I suggested he import the gcc-4.2.1 version, which has a big copyright notice
+>
+>     /* More subroutines needed by GCC output code on some machines.  */
+>     /* Compile this one with gcc.  */
+>     /* Copyright (C) 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+>        2000, 2001, 2002, 2003, 2004, 2005  Free Software Foundation, Inc.
+>
+>     This file is part of GCC.
+>
+>     GCC is free software; you can redistribute it and/or modify it under
+>     the terms of the GNU General Public License as published by the Free
+>     Software Foundation; either version 2, or (at your option) any later
+>     version.
+>
+>     In addition to the permissions in the GNU General Public License, the
+>     Free Software Foundation gives you unlimited permission to link the
+>     compiled version of this file into combinations with other programs,
+>     and to distribute those combinations without any restriction coming
+>     from the use of this file.  (The General Public License restrictions
+>     do apply in other respects; for example, they cover modification of
+>     the file, and distribution when not linked into a combine
+>     executable.)
+>
+>     GCC is distributed in the hope that it will be useful, but WITHOUT ANY
+>     WARRANTY; without even the implied warranty of MERCHANTABILITY or
+>     FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+>     for more details.
+>
+>     You should have received a copy of the GNU General Public License
+>     along with GCC; see the file COPYING.  If not, write to the Free
+>     Software Foundation, 51 Franklin Street, Fifth Floor, Boston, MA
+>     02110-1301, USA.  */
+>
+> so it looks like something went wrong here.  Zong: did you go back and
+> re-construct this function from the GPLv2 source?
 
-  Linux 4.19-rc6 (2018-09-30 07:15:35 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-rc7
-
-for you to fetch changes up to ef1f2258748b675422ca0107e5bfb9ceeac675de:
-
-  RISCV: Fix end PFN for low memory (2018-10-02 12:50:01 -0700)
-
-----------------------------------------------------------------
-A Single RISC-V Fix for 4.19-rc7
-
-This tag contains a single patch that managed to get lost in the
-shuffle, which explains why it's so late.  This single line has been
-floating around in various patch sets for months, and fixes our DMA32
-region.
-
-----------------------------------------------------------------
-Atish Patra (1):
-      RISCV: Fix end PFN for low memory
-
- arch/riscv/kernel/setup.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Yes, I re-construct this function from GCC 4.2.1. The copyright part,
+I referred to the other GCC routine copies in kernel such as ucmpdi2,
+muldi3, ashldi3 and so on, I found they removed the 'GCC' string, so I
+use the same copyright from these files.
+I will re-write the copyright part and submit the next version. Thanks
+to all for help.
