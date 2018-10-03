@@ -1,37 +1,153 @@
-From: zongbox@gmail.com (Zong Li)
-Date: Wed, 3 Oct 2018 11:26:43 +0800
-Subject: [PATCH v3 5/5] RISC-V: Avoid corrupting the upper 32-bit of
- phys_addr_t in ioremap
-In-Reply-To: <20181002145116.GE3889@infradead.org>
-References: <cover.1538470103.git.zongbox@gmail.com>
- <54849b9d9a709525640011814872155eafa7a9d7.1538470103.git.zongbox@gmail.com>
- <20181002145116.GE3889@infradead.org>
-Message-ID: <CA+ZOyahwAA3v+9XeJ4eLkhiNgDacHtLHfrqG3ifhdV-shwnAaA@mail.gmail.com>
+From: Alistair.Francis@wdc.com (Alistair Francis)
+Date: Wed, 3 Oct 2018 17:34:16 +0000
+Subject: VirtIO GPU in QEMU
+In-Reply-To: <mhng-e8ffbf9d-9789-4256-b808-6b6bc1a17647@palmer-si-x1c4>
+References: <mhng-e8ffbf9d-9789-4256-b808-6b6bc1a17647@palmer-si-x1c4>
+Message-ID: <df1aafdfdad87b7febd3de63b308a8073ea51a4c.camel@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Christoph Hellwig <hch@infradead.org> ? 2018?10?2? ?? ??10:51???
->
-> On Tue, Oct 02, 2018 at 04:52:31PM +0800, Zong Li wrote:
-> > From: Vincent Chen <vincentc@andestech.com>
-> >
-> > For 32bit, the upper 32-bit of phys_addr_t will be flushed to zero
-> > after AND with PAGE_MASK because the data type of PAGE_MASK is
-> > unsigned long. To fix this problem, the page alignment is done by
-> > subtracting the page offset instead of AND with PAGE_MASK.
-> >
-> > Signed-off-by: Vincent Chen <vincentc@andestech.com>
->
-> Looks good,
->
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
->
-> (and I'm pretty sure I reviewed this before..)
+On Tue, 2018-10-02 at 11:43 -0700, Palmer Dabbelt wrote:
+> Alistair recently (maybe 6 weeks ago) posted some patches to the QEMU
+> mailing 
+> list to enable support for VirtIO GPU devices on the RISC-V virt
+> machine in 
+> QEMU.  I've been excited to try these out for a while and finally got
+> around to 
+> in this morning.  I'm using QEMU master with his patches applied
+> 
+>     * 3db98f2e2f8d - (HEAD -> vga) hw/riscv/virt: Connect a VirtIO
+> net PCIe device (2 hours ago) <Alistair Francis>
+>     * 2542422da056 - hw/riscv/sifive_u: Connect the Xilinx PCIe (2
+> hours ago) <Alistair Francis>
+>     * 8bf2bc25d2ec - riscv: Enable VGA and PCIE_VGA (2 hours ago)
+> <Alistair Francis>
+>     * 7e872529c291 - hw/riscv/virt: Connect the gpex PCIe (2 hours
+> ago) <Alistair Francis>
+>     * ac38103d897b - hw/riscv/virt: Increase the number of interrupts
+> (2 hours ago) <Alistair Francis>
+>     *   3892f1f1a963 - (origin/master, origin/HEAD, master) Merge
+> remote-tracking branch 'remotes/dgibson/tags/libfdt-20181002' into
+> staging (10 hours ago) <Peter Maydell>
+>     |\
+>     | * 0b001b3094bc - Update dtc/libfdt submodule to v1.4.7 (15
+> hours ago) <David Gibson>
+>     * |   8f09da690f84 - Merge remote-tracking branch
+> 'remotes/xtensa/tags/20181001-xtensa' into staging (11 hours ago)
+> <Peter Maydell>
+> 
+> and on the kernel side I'm using 4.19-rc5.  After twiddling some
+> QEMU 
+> command-line options, I've ended up with
+> 
+>     ./riscv64-softmmu/qemu-system-riscv64 -machine virt -smp 2 -m 2G
+> -kernel /home/palmer/work/riscv/riscv-pk/build/bbl -object rng-
+> random,filename=/dev/urandom,id=rng0 -device virtio-rng-
+> device,rng=rng0 -append "console=ttyS0 ro root=/dev/vda" -device
+> virtio-blk-device,drive=hd0 -drive file=stage4-
+> disk.img,format=raw,id=hd0 -device virtio-net-device,netdev=usernet
+> -netdev user,id=usernet,hostfwd=tcp::10000-:22 -device virtio-gpu
 
-Hi Christoph,
+This doesn't look right, this is what I use (with the latest patches):
 
-Very sorry about that. I didn't notice I lose these review tags. Could
-you please help to review again in version 4 patches? Thank you.
+./qemu-system-riscv64  -drive file=/scratch/alistair/yocto/oe-
+master/build/tmp-glibc/deploy/images/freedom-u540/core-image-minimal-
+freedom-u540.ext4,format=raw,id=hd0 -device virtio-blk-device,drive=hd0 
+-show-cursor  -machine virt  -m 2G -serial mon:stdio -serial null
+-kernel /scratch/alistair/yocto/oe-master/build/tmp-
+glibc/deploy/images/freedom-u540/bbl -append 'root=/dev/vda rw
+highres=off  mem=2G ip=dhcp' -device bochs-display -display sdl
 
-Regards,
-Zong
+Also make sure QEMU is commpiled with SDL support.
+
+> 
+> and the following diff from 4.19-rc5's kernel defconfig (which
+> appears to be 
+> mostly noise)
+
+I tested it with the 4.15 kernel, I didn't have any luck the one time I
+tried a newer kernel, but I didn't try too hard.
+
+> 
+>     $ diff -u defconfig arch/riscv/configs/defconfig 
+>     --- defconfig	2018-10-02 11:39:47.831328320 -0700
+>     +++ arch/riscv/configs/defconfig	2018-09-28 16:29:21.682511931
+> -0700
+>     @@ -1,3 +1,6 @@
+>     +CONFIG_SMP=y
+>     +CONFIG_PCI=y
+>     +CONFIG_PCIE_XILINX=y
+>      CONFIG_SYSVIPC=y
+>      CONFIG_POSIX_MQUEUE=y
+>      CONFIG_IKCONFIG=y
+>     @@ -8,17 +11,10 @@
+>      CONFIG_CGROUP_BPF=y
+>      CONFIG_NAMESPACES=y
+>      CONFIG_USER_NS=y
+>     -CONFIG_CHECKPOINT_RESTORE=y
+>      CONFIG_BLK_DEV_INITRD=y
+>      CONFIG_EXPERT=y
+>     +CONFIG_CHECKPOINT_RESTORE=y
+>      CONFIG_BPF_SYSCALL=y
+>     -CONFIG_SMP=y
+>     -CONFIG_PCI=y
+>     -CONFIG_PCIEPORTBUS=y
+>     -CONFIG_PCI_HOST_GENERIC=y
+>     -CONFIG_PCIE_XILINX=y
+>     -CONFIG_MODULES=y
+>     -CONFIG_MODULE_UNLOAD=y
+>      CONFIG_NET=y
+>      CONFIG_PACKET=y
+>      CONFIG_UNIX=y
+>     @@ -52,8 +48,6 @@
+>      # CONFIG_PTP_1588_CLOCK is not set
+>      CONFIG_DRM=y
+>      CONFIG_DRM_RADEON=y
+>     -CONFIG_DRM_VGEM=y
+>     -CONFIG_DRM_VIRTIO_GPU=y
+>      CONFIG_FRAMEBUFFER_CONSOLE=y
+>      CONFIG_USB=y
+>      CONFIG_USB_XHCI_HCD=y
+>     @@ -64,11 +58,8 @@
+>      CONFIG_USB_OHCI_HCD_PLATFORM=y
+>      CONFIG_USB_STORAGE=y
+>      CONFIG_USB_UAS=y
+>     -CONFIG_VIRTIO_PCI=y
+>     -CONFIG_VIRTIO_BALLOON=y
+>     -CONFIG_VIRTIO_INPUT=y
+>      CONFIG_VIRTIO_MMIO=y
+>     -CONFIG_SIFIVE_PLIC=y
+>     +CONFIG_RAS=y
+>      CONFIG_EXT4_FS=y
+>      CONFIG_EXT4_FS_POSIX_ACL=y
+>      CONFIG_AUTOFS4_FS=y
+>     @@ -81,5 +72,8 @@
+>      CONFIG_NFS_V4_1=y
+>      CONFIG_NFS_V4_2=y
+>      CONFIG_ROOT_NFS=y
+>     -CONFIG_CRYPTO_USER_API_HASH=y
+>      # CONFIG_RCU_TRACE is not set
+>     +CONFIG_CRYPTO_USER_API_HASH=y
+>     +CONFIG_MODULES=y
+>     +CONFIG_MODULE_UNLOAD=y
+>     +CONFIG_SIFIVE_PLIC=y
+> 
+> I can finally get to the point where I see "*ERROR Failed setting up
+> TTM BO 
+> subsystem", which cascades into an error probing the virtio_gpu
+> device.
+> 
+> I was wondering if anyone else has tried these patches?
+
+I'm out of the office at the moment, but when I get back later this
+week I'll retest my patches rebased on master and send a new version.
+
+I'll test with both the 4.15 and the 4.19 kernel and let you know.
+
+Hopefully then someone can review my patches and we can have them
+merged :)
+
+Alistair
+
+> 
+> Time permitting I'll take a look, but no promises...
