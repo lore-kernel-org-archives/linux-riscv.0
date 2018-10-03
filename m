@@ -1,48 +1,31 @@
 From: zongbox@gmail.com (Zong Li)
-Date: Wed,  3 Oct 2018 11:09:57 +0800
-Subject: [PATCH v4 0/5] Fix some bugs on RV32 build fail and issue
-Message-ID: <cover.1538535527.git.zongbox@gmail.com>
+Date: Wed,  3 Oct 2018 11:09:58 +0800
+Subject: [PATCH v4 1/5] RISC-V: Build tishift only on 64-bit
+In-Reply-To: <cover.1538535527.git.zongbox@gmail.com>
+References: <cover.1538535527.git.zongbox@gmail.com>
+Message-ID: <bedaad30d6ab1102e195c50d8c919bcef70b3b24.1538535528.git.zongbox@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This patches contain the modificaion as follows:
-1. Fix up the building fail on RV32.
-2. Add umoddi3 and udivmoddi4 functions for RV32.
-3. Fix ioremap problem on RV32.
+Only RV64 supports 128 integer size.
 
-Thanks all for review these code and modify the copyright description.
+Signed-off-by: Zong Li <zong@andestech.com>
+---
+ arch/riscv/lib/Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Changes in v4:
- - Retain the complete copyright description.
- - Modify commit message.
- - Rebase upstream code.
-
-Changes in v3:
- - Change the copyright notices to GPLv2 from  gcc 4.2.1.
-
-Changes in v2:
- - Retain the copyright notices from libgcc in umoddi3.c and udivmoddi4.c.
-
-Vincent Chen (1):
-  RISC-V: Avoid corrupting the upper 32-bit of phys_addr_t in ioremap
-
-Zong Li (4):
-  RISC-V: Build tishift only on 64-bit
-  RISC-V: Add preprocessor directive for swiotlb
-  lib: Add umoddi3 and udivmoddi4 of GCC library routines
-  RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
-
- arch/riscv/Kconfig        |   1 +
- arch/riscv/kernel/setup.c |   3 +
- arch/riscv/lib/Makefile   |   3 +-
- arch/riscv/mm/ioremap.c   |   2 +-
- lib/Kconfig               |   3 +
- lib/Makefile              |   1 +
- lib/udivmoddi4.c          | 326 ++++++++++++++++++++++++++++++++++++++++++++++
- lib/umoddi3.c             |  48 +++++++
- 8 files changed, 385 insertions(+), 2 deletions(-)
- create mode 100644 lib/udivmoddi4.c
- create mode 100644 lib/umoddi3.c
-
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 445ec84..5739bd0 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -2,6 +2,7 @@ lib-y	+= delay.o
+ lib-y	+= memcpy.o
+ lib-y	+= memset.o
+ lib-y	+= uaccess.o
+-lib-y	+= tishift.o
++
++lib-(CONFIG_64BIT) += tishift.o
+ 
+ lib-$(CONFIG_32BIT) += udivdi3.o
 -- 
 2.7.4
