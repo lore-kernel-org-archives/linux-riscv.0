@@ -1,153 +1,85 @@
-From: Alistair.Francis@wdc.com (Alistair Francis)
-Date: Wed, 3 Oct 2018 17:34:16 +0000
-Subject: VirtIO GPU in QEMU
-In-Reply-To: <mhng-e8ffbf9d-9789-4256-b808-6b6bc1a17647@palmer-si-x1c4>
-References: <mhng-e8ffbf9d-9789-4256-b808-6b6bc1a17647@palmer-si-x1c4>
-Message-ID: <df1aafdfdad87b7febd3de63b308a8073ea51a4c.camel@wdc.com>
+From: mick@ics.forth.gr (Nick Kossifidis)
+Date: Thu,  4 Oct 2018 14:32:30 +0300
+Subject: [PATCH] RISC-V: Update Kconfig to better handle CMDLINE
+Message-ID: <20181004113230.7995-1-mick@ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 2018-10-02 at 11:43 -0700, Palmer Dabbelt wrote:
-> Alistair recently (maybe 6 weeks ago) posted some patches to the QEMU
-> mailing 
-> list to enable support for VirtIO GPU devices on the RISC-V virt
-> machine in 
-> QEMU.  I've been excited to try these out for a while and finally got
-> around to 
-> in this morning.  I'm using QEMU master with his patches applied
-> 
->     * 3db98f2e2f8d - (HEAD -> vga) hw/riscv/virt: Connect a VirtIO
-> net PCIe device (2 hours ago) <Alistair Francis>
->     * 2542422da056 - hw/riscv/sifive_u: Connect the Xilinx PCIe (2
-> hours ago) <Alistair Francis>
->     * 8bf2bc25d2ec - riscv: Enable VGA and PCIE_VGA (2 hours ago)
-> <Alistair Francis>
->     * 7e872529c291 - hw/riscv/virt: Connect the gpex PCIe (2 hours
-> ago) <Alistair Francis>
->     * ac38103d897b - hw/riscv/virt: Increase the number of interrupts
-> (2 hours ago) <Alistair Francis>
->     *   3892f1f1a963 - (origin/master, origin/HEAD, master) Merge
-> remote-tracking branch 'remotes/dgibson/tags/libfdt-20181002' into
-> staging (10 hours ago) <Peter Maydell>
->     |\
->     | * 0b001b3094bc - Update dtc/libfdt submodule to v1.4.7 (15
-> hours ago) <David Gibson>
->     * |   8f09da690f84 - Merge remote-tracking branch
-> 'remotes/xtensa/tags/20181001-xtensa' into staging (11 hours ago)
-> <Peter Maydell>
-> 
-> and on the kernel side I'm using 4.19-rc5.  After twiddling some
-> QEMU 
-> command-line options, I've ended up with
-> 
->     ./riscv64-softmmu/qemu-system-riscv64 -machine virt -smp 2 -m 2G
-> -kernel /home/palmer/work/riscv/riscv-pk/build/bbl -object rng-
-> random,filename=/dev/urandom,id=rng0 -device virtio-rng-
-> device,rng=rng0 -append "console=ttyS0 ro root=/dev/vda" -device
-> virtio-blk-device,drive=hd0 -drive file=stage4-
-> disk.img,format=raw,id=hd0 -device virtio-net-device,netdev=usernet
-> -netdev user,id=usernet,hostfwd=tcp::10000-:22 -device virtio-gpu
+Add a menu to chose how the built-in command line will be used and
+add CMDLINE_EXTEND for compatibility with FDT code.
 
-This doesn't look right, this is what I use (with the latest patches):
+Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
+---
+ arch/riscv/Kconfig | 45 ++++++++++++++++++++++++---------------------
+ 1 file changed, 24 insertions(+), 21 deletions(-)
 
-./qemu-system-riscv64  -drive file=/scratch/alistair/yocto/oe-
-master/build/tmp-glibc/deploy/images/freedom-u540/core-image-minimal-
-freedom-u540.ext4,format=raw,id=hd0 -device virtio-blk-device,drive=hd0 
--show-cursor  -machine virt  -m 2G -serial mon:stdio -serial null
--kernel /scratch/alistair/yocto/oe-master/build/tmp-
-glibc/deploy/images/freedom-u540/bbl -append 'root=/dev/vda rw
-highres=off  mem=2G ip=dhcp' -device bochs-display -display sdl
-
-Also make sure QEMU is commpiled with SDL support.
-
-> 
-> and the following diff from 4.19-rc5's kernel defconfig (which
-> appears to be 
-> mostly noise)
-
-I tested it with the 4.15 kernel, I didn't have any luck the one time I
-tried a newer kernel, but I didn't try too hard.
-
-> 
->     $ diff -u defconfig arch/riscv/configs/defconfig 
->     --- defconfig	2018-10-02 11:39:47.831328320 -0700
->     +++ arch/riscv/configs/defconfig	2018-09-28 16:29:21.682511931
-> -0700
->     @@ -1,3 +1,6 @@
->     +CONFIG_SMP=y
->     +CONFIG_PCI=y
->     +CONFIG_PCIE_XILINX=y
->      CONFIG_SYSVIPC=y
->      CONFIG_POSIX_MQUEUE=y
->      CONFIG_IKCONFIG=y
->     @@ -8,17 +11,10 @@
->      CONFIG_CGROUP_BPF=y
->      CONFIG_NAMESPACES=y
->      CONFIG_USER_NS=y
->     -CONFIG_CHECKPOINT_RESTORE=y
->      CONFIG_BLK_DEV_INITRD=y
->      CONFIG_EXPERT=y
->     +CONFIG_CHECKPOINT_RESTORE=y
->      CONFIG_BPF_SYSCALL=y
->     -CONFIG_SMP=y
->     -CONFIG_PCI=y
->     -CONFIG_PCIEPORTBUS=y
->     -CONFIG_PCI_HOST_GENERIC=y
->     -CONFIG_PCIE_XILINX=y
->     -CONFIG_MODULES=y
->     -CONFIG_MODULE_UNLOAD=y
->      CONFIG_NET=y
->      CONFIG_PACKET=y
->      CONFIG_UNIX=y
->     @@ -52,8 +48,6 @@
->      # CONFIG_PTP_1588_CLOCK is not set
->      CONFIG_DRM=y
->      CONFIG_DRM_RADEON=y
->     -CONFIG_DRM_VGEM=y
->     -CONFIG_DRM_VIRTIO_GPU=y
->      CONFIG_FRAMEBUFFER_CONSOLE=y
->      CONFIG_USB=y
->      CONFIG_USB_XHCI_HCD=y
->     @@ -64,11 +58,8 @@
->      CONFIG_USB_OHCI_HCD_PLATFORM=y
->      CONFIG_USB_STORAGE=y
->      CONFIG_USB_UAS=y
->     -CONFIG_VIRTIO_PCI=y
->     -CONFIG_VIRTIO_BALLOON=y
->     -CONFIG_VIRTIO_INPUT=y
->      CONFIG_VIRTIO_MMIO=y
->     -CONFIG_SIFIVE_PLIC=y
->     +CONFIG_RAS=y
->      CONFIG_EXT4_FS=y
->      CONFIG_EXT4_FS_POSIX_ACL=y
->      CONFIG_AUTOFS4_FS=y
->     @@ -81,5 +72,8 @@
->      CONFIG_NFS_V4_1=y
->      CONFIG_NFS_V4_2=y
->      CONFIG_ROOT_NFS=y
->     -CONFIG_CRYPTO_USER_API_HASH=y
->      # CONFIG_RCU_TRACE is not set
->     +CONFIG_CRYPTO_USER_API_HASH=y
->     +CONFIG_MODULES=y
->     +CONFIG_MODULE_UNLOAD=y
->     +CONFIG_SIFIVE_PLIC=y
-> 
-> I can finally get to the point where I see "*ERROR Failed setting up
-> TTM BO 
-> subsystem", which cascades into an error probing the virtio_gpu
-> device.
-> 
-> I was wondering if anyone else has tried these patches?
-
-I'm out of the office at the moment, but when I get back later this
-week I'll retest my patches rebased on master and send a new version.
-
-I'll test with both the 4.15 and the 4.19 kernel and let you know.
-
-Hopefully then someone can review my patches and we can have them
-merged :)
-
-Alistair
-
-> 
-> Time permitting I'll take a look, but no promises...
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 82172bf85..cce141552 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -218,39 +218,42 @@ endmenu
+ 
+ menu "Boot options"
+ 
+-config CMDLINE_BOOL
+-	bool "Built-in kernel command line"
++config CMDLINE
++	string "Built-in kernel command line"
+ 	help
+ 	  For most platforms, it is firmware or second stage bootloader
+ 	  that by default specifies the kernel command line options.
+ 	  However, it might be necessary or advantageous to either override
+-	  the default kernel command line or add a few extra options to it.
+-	  For such cases, this option allows hardcoding command line options
+-	  directly into the kernel.
++	  the provided kernel command line or add a few extra options to it.
++	  For such cases, it is possible to define a built-in command line
++	  here and chose how the kernel should use it later on.
+ 
+-	  For that, choose 'Y' here and fill in the extra boot parameters
+-	  in CONFIG_CMDLINE.
++choice
++	prompt "Built-in command line usage" if CMDLINE != ""
++	default CMDLINE_FALLBACK
++	help
++	  Chose how the kernel will handle the provided built-in command
++	  line.
+ 
+-	  The built-in options will be concatenated to the default command
+-	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
+-	  command line will be ignored and replaced by the built-in string.
++config CMDLINE_FALLBACK
++	bool "Fallback"
++	help
++	  Use the built-in command line as fallback in case we get nothing
++	  from the boot loader.
+ 
+-config CMDLINE
+-	string "Built-in kernel command string"
+-	depends on CMDLINE_BOOL
+-	default ""
++config CMDLINE_EXTEND
++	bool "Extension"
+ 	help
+-	  Supply command-line options at build time by entering them here.
++	  Use the built-in command line as an extension of the command line
++	  provided by the boot loader.
+ 
+ config CMDLINE_FORCE
+-	bool "Built-in command line overrides bootloader arguments"
+-	depends on CMDLINE_BOOL
++	bool "Forced"
+ 	help
+-	  Set this option to 'Y' to have the kernel ignore the bootloader
+-	  or firmware command line.  Instead, the built-in command line
+-	  will be used exclusively.
++	  Use the built-in command line in place of the command line
++	  provided by the boot loader.
+ 
+-	  If you don't know what to do here, say N.
++endchoice
+ 
+ endmenu
+ 
+-- 
+2.16.4
