@@ -1,70 +1,33 @@
-From: alankao@andestech.com (Alan Kao)
-Date: Thu, 4 Oct 2018 13:30:42 +0800
-Subject: [PATCH v7 0/5] riscv: Add support to no-FPU systems
-In-Reply-To: <mhng-e6132f52-a57b-482e-8fed-03e3b6f0ee93@palmer-si-x1c4>
-References: <1535332075-5727-1-git-send-email-alankao@andestech.com>
- <mhng-e6132f52-a57b-482e-8fed-03e3b6f0ee93@palmer-si-x1c4>
-Message-ID: <20181004053042.GA31734@andestech.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Thu, 04 Oct 2018 08:40:18 -0700 (PDT)
+Subject: [GIT PULL] A Single RISC-V Fix for 4.19-rc7
+Message-ID: <mhng-cfdf26dd-f145-40fa-b698-efb9b65de276@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Sep 06, 2018 at 02:45:04AM -0700, Palmer Dabbelt wrote:
-> On Sun, 26 Aug 2018 18:07:50 PDT (-0700), alankao at andestech.com wrote:
-> >This patchset adds an option, CONFIG_FPU, to enable/disable floating-
-> >point procedures.
-> >
-> >Kernel's new behavior will be as follows:
-> >
-> >* with CONFIG_FPU=y
-> >  All FPU codes are reserved.  If no FPU is found during booting, a
-> >  global flag will be set, and those functions will be bypassed with
-> >  condition check to that flag.
-> >
-> >* with CONFIG_FPU=n
-> >  No floating-point instructions in kernel and all related settings
-> >  are excluded.
-> >
-> >Changes in v7:
-> > - Remove "fd" attribute from KBUILD_CFLAGS.
-> >
-> >Changes in v6 (PATCH 0005 only):
-> > - Make the flag checking neater.
-> >
-> >Changes in v5:
-> > - Invert the polarity of checking flag from no_fpu to has_fpu.
-> >
-> >Changes in v4:
-> > - Append a new patch to detect existence of FPU and followups.
-> > - Add SPDX header to newly created fpu.S.
-> > - Fix a build error, sorry for that.
-> > - Fix wording, style, etc.
-> >
-> >Changes in v3:
-> > - Refactor the whole patch into independent ones.
-> >
-> >Changes in v2:
-> > - Various code cleanups and style fixes.
-> >
-> >
-> >Alan Kao (5):
-> >  Extract FPU context operations from entry.S
-> >  Refactor FPU code in signal setup/return procedures
-> >  Cleanup ISA string setting
-> >  Allow to disable FPU support
-> >  Auto-detect whether a FPU exists
-> >
-> > arch/riscv/Kconfig                 |   9 +++
-> > arch/riscv/Makefile                |  19 +++---
-> > arch/riscv/include/asm/switch_to.h |  12 +++-
-> > arch/riscv/kernel/Makefile         |   1 +
-> > arch/riscv/kernel/cpufeature.c     |   8 +++
-> > arch/riscv/kernel/entry.S          |  87 -----------------------
-> > arch/riscv/kernel/fpu.S            | 106 +++++++++++++++++++++++++++++
-> > arch/riscv/kernel/process.c        |   6 +-
-> > arch/riscv/kernel/signal.c         |  75 ++++++++++++--------
-> > 9 files changed, 196 insertions(+), 127 deletions(-)
-> > create mode 100644 arch/riscv/kernel/fpu.S
-> 
-> Thanks!  I'll add this to our for-next branch.
+The following changes since commit 17b57b1883c1285f3d0dc2266e8f79286a7bef38:
 
-Any updates?
+  Linux 4.19-rc6 (2018-09-30 07:15:35 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-rc7
+
+for you to fetch changes up to ef1f2258748b675422ca0107e5bfb9ceeac675de:
+
+  RISCV: Fix end PFN for low memory (2018-10-02 12:50:01 -0700)
+
+----------------------------------------------------------------
+A Single RISC-V Fix for 4.19-rc7
+
+This tag contains a single patch that managed to get lost in the
+shuffle, which explains why it's so late.  This single line has been
+floating around in various patch sets for months, and fixes our DMA32
+region.
+
+----------------------------------------------------------------
+Atish Patra (1):
+      RISCV: Fix end PFN for low memory
+
+ arch/riscv/kernel/setup.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
