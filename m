@@ -1,21 +1,127 @@
-From: gregkh@linuxfoundation.org (Greg KH)
-Date: Thu, 4 Oct 2018 09:16:53 -0700
-Subject: [GIT PULL] A Single RISC-V Fix for 4.19-rc7
-In-Reply-To: <mhng-cfdf26dd-f145-40fa-b698-efb9b65de276@palmer-si-x1c4>
-References: <mhng-cfdf26dd-f145-40fa-b698-efb9b65de276@palmer-si-x1c4>
-Message-ID: <20181004161653.GA2543@kroah.com>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Thu, 4 Oct 2018 11:54:05 -0700
+Subject: [PATCH] OF: Handle CMDLINE when /chosen node is not present
+In-Reply-To: <20181004123110.8487-1-mick@ics.forth.gr>
+References: <20181004123110.8487-1-mick@ics.forth.gr>
+Message-ID: <fdd03e2e-4c1e-e89d-a336-ab4a716e7abc@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Oct 04, 2018 at 08:40:18AM -0700, Palmer Dabbelt wrote:
-> The following changes since commit 17b57b1883c1285f3d0dc2266e8f79286a7bef38:
+On 10/4/18 5:46 AM, Nick Kossifidis wrote:
+> The /chosen node is optional so we should handle CMDLINE regardless
+> the presence of /chosen/bootargs. Move handling of CMDLINE in
+> early_init_dt_scan() instead.
 > 
->   Linux 4.19-rc6 (2018-09-30 07:15:35 -0700)
+> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
 > 
-> are available in the Git repository at:
+> ---
+>   drivers/of/fdt.c | 69 +++++++++++++++++++++++++++++++++++++++-----------------
+>   1 file changed, 48 insertions(+), 21 deletions(-)
 > 
->   git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.19-rc7
+> diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+> index 800ad252c..868464b0b 100644
+> --- a/drivers/of/fdt.c
+> +++ b/drivers/of/fdt.c
+> @@ -31,6 +31,14 @@
+>   
+>   #include "of_private.h"
+>   
+> +#ifdef CONFIG_CMDLINE
+> +#ifdef CONFIG_CMDLINE_FORCE
+> +static const char fixed_cmdline[] __initconst = CONFIG_CMDLINE;
+> +#else
+> +static char builtin_cmdline[] __initdata = CONFIG_CMDLINE;
+> +#endif
+> +#endif
+> +
+>   /*
+>    * of_fdt_limit_memory - limit the number of regions in the /memory node
+>    * @limit: maximum entries
+> @@ -1088,28 +1096,10 @@ int __init early_init_dt_scan_chosen(unsigned long node, const char *uname,
+>   
+>   	/* Retrieve command line */
+>   	p = of_get_flat_dt_prop(node, "bootargs", &l);
+> -	if (p != NULL && l > 0)
+> +	if (p != NULL && l > 0) {
+>   		strlcpy(data, p, min((int)l, COMMAND_LINE_SIZE));
+> -
+> -	/*
+> -	 * CONFIG_CMDLINE is meant to be a default in case nothing else
+> -	 * managed to set the command line, unless CONFIG_CMDLINE_FORCE
+> -	 * is set in which case we override whatever was found earlier.
+> -	 */
+> -#ifdef CONFIG_CMDLINE
+> -#if defined(CONFIG_CMDLINE_EXTEND)
+> -	strlcat(data, " ", COMMAND_LINE_SIZE);
+> -	strlcat(data, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+> -#elif defined(CONFIG_CMDLINE_FORCE)
+> -	strlcpy(data, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+> -#else
+> -	/* No arguments from boot loader, use kernel's  cmdl*/
+> -	if (!((char *)data)[0])
+> -		strlcpy(data, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+> -#endif
+> -#endif /* CONFIG_CMDLINE */
+> -
+> -	pr_debug("Command line is: %s\n", (char*)data);
+> +		pr_debug("Got bootargs: %s\n", (char *) data);
+> +	}
+>   
+>   	/* break now */
+>   	return 1;
+> @@ -1240,6 +1230,43 @@ bool __init early_init_dt_scan(void *params)
+>   		return false;
+>   
+>   	early_init_dt_scan_nodes();
+> +
+> +	/*
+> +	 * The /chosen node normaly contains the bootargs element
 
-Now merged, thanks.
+/s/normaly/normally
 
-greg k-h
+> +	 * that includes the kernel's command line parameters.
+> +	 * However the presence of /chosen is not mandatory so
+> +	 * in case we didn't get a command line when scanning
+> +	 * nodes above, we should provide one here before we
+> +	 * return, if possible.
+> +	 *
+> +	 * The built-in command line can be used as a default
+> +	 * command line in case we received nothing from the
+> +	 * device tree/bootloader. It can also be used for
+> +	 * extending or replacing the received command line.
+> +	 */
+> +#ifdef CONFIG_CMDLINE
+> +#if defined(CONFIG_CMDLINE_EXTEND)
+> +	/*
+> +	 * Order of parameters shouldn't matter for most cases,
+> +	 * so prepending or appending the built-in command line
+> +	 * shouldn't make a difference. In cases where it does
+> +	 * it's up to the user to configure the kernel and/or
+> +	 * the bootloader properly.
+> +	 */
+> +	if (builtin_cmdline[0]) {
+> +		strlcat(boot_command_line, " ", COMMAND_LINE_SIZE);
+> +		strlcat(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE)
+> +	}
+> +#elif defined(CONFIG_CMDLINE_FORCE)
+> +	if (fixed_cmdline[0])
+> +		strlcpy(boot_command_line, fixed_cmdline, COMMAND_LINE_SIZE);
+> +#else
+> +	/* No arguments from boot loader, use kernel's cmdline */
+> +	if (!boot_command_line[0] && builtin_cmdline[0])
+> +		strlcpy(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
+> +#endif
+> +#endif /* CONFIG_CMDLINE */
+> +
+
+Any specific reason for doing this in early_init_dt_scan instead of 
+early_init_dt_scan_chosen?
+I think keeping all boot command line modifications at one place makes 
+more sense.
+
+Regards,
+Atish
+>   	return true;
+>   }
+>   
+> 
