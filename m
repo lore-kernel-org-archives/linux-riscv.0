@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 68779C65BA7
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  5 Oct 2018 16:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 48DFAC65BA7
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  5 Oct 2018 16:20:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 19C2D208E7
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  5 Oct 2018 16:20:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0483E2087D
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  5 Oct 2018 16:20:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="o1I7VVAR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 19C2D208E7
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dbImp1zC"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0483E2087D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=deltatee.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,31 +25,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Subject:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yqFkAoLhSsf/mcFrN2q+RIf/G0WkInF5z5ugk7alikc=; b=o1I7VVARxhDLE0
-	jFD47yzRPT6FSZlxAwfr4UcYDhfL5gD29rmqXoP3Qo5DoORcQrEcY5yTNx53bOr1R84EGX8ZoCvaq
-	talrs6KIFkoS13jzGSTSqVcYuZIKRcWe2dDmreamHX+L35kKHJovsLKqfGyl7PPUS35sgOHAlCbtZ
-	4OrmNC9orL7sXGq0oQPhWZjshTjDdd1o6e9IbtSKVomeiWB6vBmugZWx+LBxS8aKnH/eu89qv7BXh
-	6hl3A6LW9hoHVUNvWp7zFaPufIzhjnwC4dS/OrfuLolk6eDb+xR6puE9gX74fot6x6fRDegOfNWof
-	48bL1UAlBRwv484DJmmA==;
+	List-Owner; bh=5TsxtWPKNL3Nw90kI+0AietqRrNsZu4QLNdBexmFg7w=; b=dbImp1zCbeHpKw
+	1wCn0nXTxqZXdMbG4yJp2o2BZTB3xATopvjFPcfVrmh9aUCmw9Y6VD9LXsWCnmXsqVHADRoXPILMf
+	l1r3d6Z1EIy/hSCyPxvvC0vdVNdMxdnbMAqQoxgaZ5pF+O0yED2pP2mn8eMzVZVwJ3hYz/5akduxv
+	AF4A7VTsNk20n7fG9369vFEb/MSz4Ii+HqthB9oUZbFZ1gvmS9k2ZuLTIpBIEjw45ozotrez402XD
+	c/rnVuMcBCVMuJcKGSZDv1HP3fOFBAi6t8P+p74ZB9m5yL2Ea0so92PQ+Q9Qcd41s8eOYyKdxdeYF
+	ca/ozyrz+mLjOR+fVnyA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1g8Spc-0006s8-E7; Fri, 05 Oct 2018 16:20:00 +0000
+	id 1g8SqN-0008Mr-Kr; Fri, 05 Oct 2018 16:20:47 +0000
 Received: from ale.deltatee.com ([207.54.116.67])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1g8Sme-0005ei-MC; Fri, 05 Oct 2018 16:17:42 +0000
+ id 1g8Sme-0005eh-M7; Fri, 05 Oct 2018 16:17:57 +0000
 Received: from cgy1-donard.priv.deltatee.com ([172.16.1.31])
  by ale.deltatee.com with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
  (Exim 4.89) (envelope-from <gunthorp@deltatee.com>)
- id 1g8SmU-0008D2-45; Fri, 05 Oct 2018 10:16:47 -0600
+ id 1g8SmT-0008D6-Oi; Fri, 05 Oct 2018 10:16:47 -0600
 Received: from gunthorp by cgy1-donard.priv.deltatee.com with local (Exim 4.89)
  (envelope-from <gunthorp@deltatee.com>)
- id 1g8SmR-0000eX-VZ; Fri, 05 Oct 2018 10:16:44 -0600
+ id 1g8SmS-0000ej-BG; Fri, 05 Oct 2018 10:16:44 -0600
 From: Logan Gunthorpe <logang@deltatee.com>
 To: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
  linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-sh@vger.kernel.org
-Date: Fri,  5 Oct 2018 10:16:38 -0600
-Message-Id: <20181005161642.2462-2-logang@deltatee.com>
+Date: Fri,  5 Oct 2018 10:16:42 -0600
+Message-Id: <20181005161642.2462-6-logang@deltatee.com>
 X-Mailer: git-send-email 2.19.0
 In-Reply-To: <20181005161642.2462-1-logang@deltatee.com>
 References: <20181005161642.2462-1-logang@deltatee.com>
@@ -57,17 +57,16 @@ MIME-Version: 1.0
 X-SA-Exim-Connect-IP: 172.16.1.31
 X-SA-Exim-Rcpt-To: linux-mm@kvack.org, linux-riscv@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-sh@vger.kernel.org, sbates@raithlin.com, palmer@sifive.com,
- aou@eecs.berkeley.edu, hch@lst.de, logang@deltatee.com,
- akpm@linux-foundation.org, mhocko@suse.com, vbabka@suse.cz,
- pasha.tatashin@oracle.com, osalvador@suse.de
+ linux-sh@vger.kernel.org, sbates@raithlin.com, aou@eecs.berkeley.edu,
+ hch@lst.de, logang@deltatee.com, palmer@sifive.com, andrew@sifive.com,
+ olof@lixom.net, michaeljclark@mac.com, robh@kernel.org, zong@andestech.com
 X-SA-Exim-Mail-From: gunthorp@deltatee.com
-Subject: [PATCH 1/5] mm/sparse: add common helper to mark all memblocks present
+Subject: [PATCH 5/5] RISC-V: Implement sparsemem
 X-SA-Exim-Version: 4.2.1 (built Tue, 02 Aug 2016 21:08:31 +0000)
 X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181005_091657_080360_0B25A345 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20181005_091657_103031_04208758 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -79,87 +78,190 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
- Pavel Tatashin <pasha.tatashin@oracle.com>,
- Stephen Bates <sbates@raithlin.com>, Michal Hocko <mhocko@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Logan Gunthorpe <logang@deltatee.com>, Christoph Hellwig <hch@lst.de>,
- Vlastimil Babka <vbabka@suse.cz>, Oscar Salvador <osalvador@suse.de>
+Cc: Rob Herring <robh@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Waterman <andrew@sifive.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Stephen Bates <sbates@raithlin.com>, Zong Li <zong@andestech.com>,
+ Olof Johansson <olof@lixom.net>, Michael Clark <michaeljclark@mac.com>,
+ Logan Gunthorpe <logang@deltatee.com>, Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181005161638.5EKSANeU3xS_2oh5_VPL-CrzkWt0ohyyAecJ89Jkayo@z>
+Message-ID: <20181005161642.DJdaaGcD-TP8Ib3gwBsP5nzsmuQ3AzeakaIG9b-w1to@z>
 
-Presently the arches arm64, arm, sh have a function which loops through
-each memblock and calls memory present. riscv will require a similar
-function.
+This patch implements sparsemem support for risc-v which helps pave the
+way for memory hotplug and eventually P2P support.
 
-Introduce a common memblocks_present() function that can be used by
-all the arches. Subsequent patches will cleanup the arches that
-make use of this.
+We introduce Kconfig options for virtual and physical address bits which
+are used to calculate the size of the vmemmap and set the
+MAX_PHYSMEM_BITS.
+
+The vmemmap is located directly before the VMALLOC region and sized
+such that we can allocate enough pages to populate all the virtual
+address space in the system (similar to the way it's done in arm64).
+
+During initialization, call memblocks_present() and sparse_init(),
+and provide a stub for vmemmap_populate() (all of which is similar to
+arm64).
 
 Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Michal Hocko <mhocko@suse.com>
-Cc: Vlastimil Babka <vbabka@suse.cz>
-Cc: Pavel Tatashin <pasha.tatashin@oracle.com>
-Cc: Oscar Salvador <osalvador@suse.de>
+Cc: Palmer Dabbelt <palmer@sifive.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Andrew Waterman <andrew@sifive.com>
+Cc: Olof Johansson <olof@lixom.net>
+Cc: Michael Clark <michaeljclark@mac.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Zong Li <zong@andestech.com>
 ---
- include/linux/mmzone.h |  6 ++++++
- mm/sparse.c            | 15 +++++++++++++++
- 2 files changed, 21 insertions(+)
+ arch/riscv/Kconfig                 | 23 +++++++++++++++++++++++
+ arch/riscv/include/asm/pgtable.h   | 24 ++++++++++++++++++++----
+ arch/riscv/include/asm/sparsemem.h | 11 +++++++++++
+ arch/riscv/kernel/setup.c          |  4 +++-
+ arch/riscv/mm/init.c               |  8 ++++++++
+ 5 files changed, 65 insertions(+), 5 deletions(-)
+ create mode 100644 arch/riscv/include/asm/sparsemem.h
 
-diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-index 1e22d96734e0..a10fc3c18b07 100644
---- a/include/linux/mmzone.h
-+++ b/include/linux/mmzone.h
-@@ -794,6 +794,12 @@ void memory_present(int nid, unsigned long start, unsigned long end);
- static inline void memory_present(int nid, unsigned long start, unsigned long end) {}
- #endif
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a344980287a5..a1b5d758a542 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -52,12 +52,32 @@ config ZONE_DMA32
+ 	bool
+ 	default y if 64BIT
  
-+#if defined(CONFIG_SPARSEMEM) && defined(CONFIG_HAVE_MEMBLOCK)
-+void memblocks_present(void);
-+#else
-+static inline void memblocks_present(void) {}
-+#endif
++config VA_BITS
++	int
++	default 32 if 32BIT
++	default 39 if 64BIT
 +
- #ifdef CONFIG_HAVE_MEMORYLESS_NODES
- int local_memory_node(int node_id);
- #else
-diff --git a/mm/sparse.c b/mm/sparse.c
-index 10b07eea9a6e..109159574208 100644
---- a/mm/sparse.c
-+++ b/mm/sparse.c
-@@ -5,6 +5,7 @@
- #include <linux/mm.h>
- #include <linux/slab.h>
- #include <linux/mmzone.h>
-+#include <linux/memblock.h>
- #include <linux/bootmem.h>
- #include <linux/compiler.h>
- #include <linux/highmem.h>
-@@ -238,6 +239,20 @@ void __init memory_present(int nid, unsigned long start, unsigned long end)
- 	}
- }
++config PA_BITS
++	int
++	default 34 if 32BIT
++	default 56 if 64BIT
++
+ config PAGE_OFFSET
+ 	hex
+ 	default 0xC0000000 if 32BIT && MAXPHYSMEM_2GB
+ 	default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
+ 	default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
  
-+#ifdef CONFIG_HAVE_MEMBLOCK
-+void __init memblocks_present(void)
-+{
-+	struct memblock_region *reg;
++config ARCH_FLATMEM_ENABLE
++	def_bool y
 +
-+	for_each_memblock(memory, reg) {
-+		int nid = memblock_get_region_node(reg);
++config ARCH_SPARSEMEM_ENABLE
++	def_bool y
++	select SPARSEMEM_VMEMMAP_ENABLE
 +
-+		memory_present(nid, memblock_region_memory_base_pfn(reg),
-+			       memblock_region_memory_end_pfn(reg));
-+	}
-+}
-+#endif
++config ARCH_SELECT_MEMORY_MODEL
++	def_bool ARCH_SPARSEMEM_ENABLE
++
+ config STACKTRACE_SUPPORT
+ 	def_bool y
+ 
+@@ -92,6 +112,9 @@ config PGTABLE_LEVELS
+ config HAVE_KPROBES
+ 	def_bool n
+ 
++config HAVE_ARCH_PFN_VALID
++	def_bool y
++
+ menu "Platform type"
+ 
+ choice
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 16301966d65b..20c49cded686 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -89,6 +89,26 @@ extern pgd_t swapper_pg_dir[];
+ #define __S110	PAGE_SHARED_EXEC
+ #define __S111	PAGE_SHARED_EXEC
+ 
++#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
++#define VMALLOC_END      (PAGE_OFFSET - 1)
++#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
++
++/*
++ * Log2 of the upper bound of the size of a struct page. Used for sizing
++ * the vmemmap region only, does not affect actual memory footprint.
++ * We don't use sizeof(struct page) directly since taking its size here
++ * requires its definition to be available at this point in the inclusion
++ * chain, and it may not be a power of 2 in the first place.
++ */
++#define STRUCT_PAGE_MAX_SHIFT	6
++
++#define VMEMMAP_SIZE	(UL(1) << (CONFIG_VA_BITS - PAGE_SHIFT - 1 + \
++				   STRUCT_PAGE_MAX_SHIFT))
++#define VMEMMAP_END	(VMALLOC_START - 1)
++#define VMEMMAP_START	(VMALLOC_START - VMEMMAP_SIZE)
++
++#define vmemmap		((struct page *)VMEMMAP_START)
 +
  /*
-  * Subtle, we encode the real pfn into the mem_map such that
-  * the identity pfn - section_mem_map will return the actual
+  * ZERO_PAGE is a global shared page that is always zero,
+  * used for zero-mapped memory areas, etc.
+@@ -411,10 +431,6 @@ static inline void pgtable_cache_init(void)
+ 	/* No page table caches to initialize */
+ }
+ 
+-#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
+-#define VMALLOC_END      (PAGE_OFFSET - 1)
+-#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
+-
+ /*
+  * Task size is 0x40000000000 for RV64 or 0xb800000 for RV32.
+  * Note that PGDIR_SIZE must evenly divide TASK_SIZE.
+diff --git a/arch/riscv/include/asm/sparsemem.h b/arch/riscv/include/asm/sparsemem.h
+new file mode 100644
+index 000000000000..4563e806c788
+--- /dev/null
++++ b/arch/riscv/include/asm/sparsemem.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef __ASM_SPARSEMEM_H
++#define __ASM_SPARSEMEM_H
++
++#ifdef CONFIG_SPARSEMEM
++#define MAX_PHYSMEM_BITS	CONFIG_PA_BITS
++#define SECTION_SIZE_BITS	30
++#endif
++
++#endif
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index aee603123030..89fa781a9bf8 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -205,6 +205,9 @@ static void __init setup_bootmem(void)
+ 		                  PFN_PHYS(end_pfn - start_pfn),
+ 		                  &memblock.memory, 0);
+ 	}
++
++	memblocks_present();
++	sparse_init();
+ }
+ 
+ void __init setup_arch(char **cmdline_p)
+@@ -239,4 +242,3 @@ void __init setup_arch(char **cmdline_p)
+ 
+ 	riscv_fill_hwcap();
+ }
+-
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 58a522f9bcc3..5d529878667c 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -70,3 +70,11 @@ void free_initrd_mem(unsigned long start, unsigned long end)
+ {
+ }
+ #endif /* CONFIG_BLK_DEV_INITRD */
++
++#ifdef CONFIG_SPARSEMEM
++int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
++			       struct vmem_altmap *altmap)
++{
++	return vmemmap_populate_basepages(start, end, node);
++}
++#endif
 -- 
 2.19.0
 
