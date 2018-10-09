@@ -2,87 +2,76 @@ Return-Path: <SRS0=n4Ll=MV=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C67D6ECDE3A
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  9 Oct 2018 18:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3E86AFA3753
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  9 Oct 2018 18:51:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6624620835
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  9 Oct 2018 18:01:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 058C22151C
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  9 Oct 2018 18:51:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gPQIaPBc";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="ELx7h2ig"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6624620835
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GJ0PnyQC";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="MwwN1c7u"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 058C22151C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=0pfdbM5ible/chjKVjyOHOUq7zYRa2IuwS24YA9MrHU=; b=gPQIaPBcMuETvkqKboHKavOeR
-	CDHsuDKT5gOLMB+7o4fQsp2AowzPkhpjPUfs5AqmAi4P34wRchdbg6vwIZC9lpWIOiuJKMPUExLiZ
-	v5eqHFAuAvoXJ25XzUdyF5dC9A94ofs6AOW4oucsNWnRWEd/FaE6IUEdZn4SzsvFFotCiFtR0N4n/
-	IyhC6f45moZquAwIRWQzrUNYyb38ssXeDncWYKB2Hz9Dqoo6NyflrlQpd2Hau0B//nqVmmoJOD0nh
-	FRDD4F/1mhDtSBkzRu5Mnql8XufHh827/aXGWRj/xuEsKCac1R8j0VjuAIzQeapP+uP7n4CJwTJ3Y
-	W7UZ3PGdw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=t7nruJAFjov0B02M6Ks7KfTxRWBQ1+YYQ8CCArmvcRk=; b=GJ0PnyQCAqro8mQyyJJ4JWKe8b
+	UCVEM5fn/oo+9Db/w4oJnnfDiXS5a4+k/x8psyoH873QsZXJ9081dVGAxUlE2Bl6U0yf7RudIwCKX
+	5cCmD2+UyNcAmywtXeB1pGu2jAD14Prt/kAHfvn10Ri4kP41n8ZSrkSSs1YeDMjrtHbiZKlEol1Yw
+	RieTFNxxw24qpNjbpASe0nyh9npeuQBZzXOxmjsnRhqBVFMkkxfgi5ihU1eqoPs/wnQexaYE6lyJw
+	NRr157aPc2l8YpvA96TsaR6DFKHQMnNMuWtmDV9pHC56SYGVLwCuSTED7UHsRDTJHYPw/Krz2hKwz
+	jlm5WdPg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1g9wJj-000663-49; Tue, 09 Oct 2018 18:01:11 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1g9x6b-0000GO-Ie; Tue, 09 Oct 2018 18:51:41 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1g9vz5-0003F6-MZ
- for linux-riscv@lists.infradead.org; Tue, 09 Oct 2018 17:40:56 +0000
-Received: by mail-pl1-x643.google.com with SMTP id s4-v6so1188641plp.0
- for <linux-riscv@lists.infradead.org>; Tue, 09 Oct 2018 10:39:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=YJbVbLMGXurKTYglgUAUcIE2/pFzIh+yi5ripnvYdA4=;
- b=ELx7h2ig2/8tmLmcibDzXXXlAQ1/nfFumKoNKc+ScblFfDIRNeLFmUgYZ61mPL9nEy
- 7O/0VruMeMFMgSFggOO/mUov4EGzh2H1/db6go3C/5sTfqO+iwNueVeWL8PyepXV140Z
- +hkghlukxFFbqAjxZ8fPeRG1EW2nDi2lY+pHx4gxGdYGv3+zGMPmpjjzY5uISw+rIE0a
- ughP+NOmaNJydGMi5Ta57Tguy8bOIaE1dx4fK9N5T5tlTj7BFbSWv1D+5ZJDFxydqpDp
- itirLuZG+cGkXhPjL3v8K7wVETR564DWniTSOGwVzdJ9Yd5DTtTOQxqeKo/COUkXJ4Cq
- Sxqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=YJbVbLMGXurKTYglgUAUcIE2/pFzIh+yi5ripnvYdA4=;
- b=i2C87Yfu5m4Td4kYP5+YlRx0XMswcM00NZPxxLGe5d3EAK7SaJ/mWycSoZIENJ3lEH
- CUzXhftM2IgRZvMYR2Ay6J73GeB2wUld6ItZMivuEbdaMEUoqJYJhyI8ZJnV42j+EMR6
- yv2ym7eMe7tfXr0B/9hvspvMNOFVkrhNDyXHJvcaNixxPHcY8fYrq9p4Bi1/Ad4Z2JJq
- BkNTqOd/0KDO1GAky6uOzN9t734RQo/7qcsakS8ioRN98Nd/zWKLAYcT3xlYWLtF/fYT
- o9kG98Vt39uGtKZpzeZXhxuxIfa+pYXiuCxIU5uTEx0lqbGrl+6a3E7PlakvzR0GGLRn
- oXyA==
-X-Gm-Message-State: ABuFfogMOvpAtw5UVO+j87a46caamV1bmQEOGyX+I05WfFwjCgQD6RSq
- h3j7p5C3MHLyEfiVCkPKluABQTBvVjE=
-X-Google-Smtp-Source: ACcGV62VgJKWbKBFWa79WoNCFFFn63FWXvWLKAtPmKNG9mGW3SnZ76ta4AAp1CPUi1lTMnwPFfg3Ng==
-X-Received: by 2002:a17:902:369:: with SMTP id
- 96-v6mr24494928pld.36.1539106779692; 
- Tue, 09 Oct 2018 10:39:39 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id c2-v6sm16973505pfn.95.2018.10.09.10.39.38
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 09 Oct 2018 10:39:38 -0700 (PDT)
-Date: Tue, 09 Oct 2018 10:39:38 -0700 (PDT)
-X-Google-Original-Date: Tue, 09 Oct 2018 10:39:16 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: remove the unused return_to_handler export
-In-Reply-To: <20181009161533.GA21260@lst.de>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: Christoph Hellwig <hch@lst.de>
-Message-ID: <mhng-976e0e6f-930c-4e03-9a28-0bd9f80d3266@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ id 1g9x6W-0000Df-Kz
+ for linux-riscv@lists.infradead.org; Tue, 09 Oct 2018 18:51:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1539111097; x=1570647097;
+ h=from:to:cc:subject:date:message-id:in-reply-to: references;
+ bh=3buQbls5/gIS7422ozrHmZ63B7g/jc69OByotZi7u7I=;
+ b=MwwN1c7uie1VFDg58gtTHMX2EsxHIOF4IBoHemjoTjT7ROuPL11uXL6b
+ VPnZKXeFMp2pM0dS1nxGN4scuM6bE3UKIwyVawIIGtFlVY66ep1Tb21Nc
+ sKBI4RAXajdLA5sHxc0ZY0O4T/+N5A8Btv5x+xRYVfmXMKUUTswgHtjeo
+ RIx/Js77IHTiJCiTXkFTrMxWE915vDCFXE+uYg/VfJt55+UYu0EfzGBZa
+ NxJA6IPddu03MU2dNEM+MlDNeSTek9oAVPmPL1vXg2BYAbMGUpC+gDhoA
+ ESvG3v0ViZ4PbvDjCi/2Gt5hGSETViNvHUI6Imw6KTBxgvgiYwawPdzDF w==;
+X-IronPort-AV: E=Sophos;i="5.54,361,1534780800"; d="scan'208";a="92668395"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 10 Oct 2018 02:51:26 +0800
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP; 09 Oct 2018 11:36:52 -0700
+Received: from jedi-01.sdcorp.global.sandisk.com (HELO
+ jedi-01.int.fusionio.com) ([10.11.143.218])
+ by uls-op-cesaip02.wdc.com with ESMTP; 09 Oct 2018 11:51:26 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: palmer@sifive.com, linux-riscv@lists.infradead.org,
+ linux-pwm@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: [RFC 1/4] pwm: sifive: Add DT documentation for SiFive PWM Controller.
+Date: Tue,  9 Oct 2018 11:51:22 -0700
+Message-Id: <1539111085-25502-2-git-send-email-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.7.4
+In-Reply-To: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
+References: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181009_103951_785968_664843BA 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20181009_115136_720924_578A15D6 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,48 +83,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, linus.walleij@linaro.org,
+ linux-kernel@vger.kernel.org, hch@infradead.org, atish.patra@wdc.com,
+ robh+dt@kernel.org, thierry.reding@gmail.com
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181009173938.D2bAzVQVPD6nI4NscY4-D1iiQKIl67F09ncyHfRMd90@z>
+Message-ID: <20181009185122.WB5aLUtOJ36cNtc92YBQj68CkAM4N9WnT7_ng4eJ_5E@z>
 
-Sorry, this must have gotten lost.  It'll be in for-next soon.
+From: "Wesley W. Terpstra" <wesley@sifive.com>
 
-On Tue, 09 Oct 2018 09:15:33 PDT (-0700), Christoph Hellwig wrote:
-> ping?
->
-> On Fri, Sep 21, 2018 at 08:43:21AM +0200, Christoph Hellwig wrote:
->> This export is not only not needed, but also breaks symbol versioning
->> due to being an undeclared assembly export.
->>
->> Signed-off-by: Christoph Hellwig <hch@lst.de>
->> ---
->>  arch/riscv/kernel/mcount.S | 1 -
->>  1 file changed, 1 deletion(-)
->>
->> diff --git a/arch/riscv/kernel/mcount.S b/arch/riscv/kernel/mcount.S
->> index 5721624886a1..8a5593ff9ff3 100644
->> --- a/arch/riscv/kernel/mcount.S
->> +++ b/arch/riscv/kernel/mcount.S
->> @@ -75,7 +75,6 @@ ENTRY(return_to_handler)
->>  	RESTORE_RET_ABI_STATE
->>  	jalr	a1
->>  ENDPROC(return_to_handler)
->> -EXPORT_SYMBOL(return_to_handler)
->>  #endif
->>
->>  #ifndef CONFIG_DYNAMIC_FTRACE
->> --
->> 2.18.0
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> ---end quoted text---
+DT documentation for PWM controller added with updated compatible
+string.
+
+Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
+[Atish: Compatible string update]
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ .../devicetree/bindings/pwm/pwm-sifive.txt         | 32 ++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+
+diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+new file mode 100644
+index 00000000..532b10fc
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+@@ -0,0 +1,32 @@
++SiFive PWM controller
++
++Unlike most other PWM controllers, the SiFive PWM controller currently only
++supports one period for all channels in the PWM. This is set globally in DTS.
++The period also has significant restrictions on the values it can achieve,
++which the driver rounds to the nearest achievable frequency.
++
++Required properties:
++- compatible: should be one of
++	"sifive,fu540-c000-pwm0","sifive,pwm0".
++	PWM controller is HiFive Unleashed specific chip which warrants a
++	specific compatible string. The second string is kept for backward
++	compatibility until a firmware update with latest compatible string.
++- reg: physical base address and length of the controller's registers
++- clocks: The frequency the controller runs at
++- #pwm-cells: Should be 2.
++  The first cell is the PWM channel number
++  The second cell is the PWM polarity
++- sifive,approx-period: the driver will get as close to this period as it can
++- interrupts: one interrupt per PWM channel (currently unused in the driver)
++
++Examples:
++
++pwm:  pwm@10020000 {
++	compatible = "sifive,fu540-c000-pwm0","sifive,pwm0";
++	reg = <0x0 0x10020000 0x0 0x1000>;
++	clocks = <&tlclk>;
++	interrupt-parent = <&plic>;
++	interrupts = <42 43 44 45>;
++	#pwm-cells = <2>;
++	sifive,approx-period = <1000000>;
++};
+-- 
+2.7.4
+
 
 _______________________________________________
 linux-riscv mailing list
