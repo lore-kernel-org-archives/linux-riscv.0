@@ -1,22 +1,66 @@
-From: catalin.marinas@arm.com (Catalin Marinas)
-Date: Fri, 5 Oct 2018 17:32:51 +0100
-Subject: [PATCH 3/5] arm64: mm: make use of new memblocks_present() helper
-In-Reply-To: <20181005161642.2462-4-logang@deltatee.com>
-References: <20181005161642.2462-1-logang@deltatee.com>
- <20181005161642.2462-4-logang@deltatee.com>
-Message-ID: <20181005163248.naky3huexiiwycra@mbp>
+From: alankao@andestech.com (Alan Kao)
+Date: Tue, 9 Oct 2018 10:18:29 +0800
+Subject: [PATCH v8 0/5] riscv: Add support to no-FPU systems
+Message-ID: <1539051514-3658-1-git-send-email-alankao@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, Oct 05, 2018 at 10:16:40AM -0600, Logan Gunthorpe wrote:
-> Cleanup the arm64_memory_present() function seeing it's very
-> similar to other arches.
-> 
-> memblocks_present() is a direct replacement of arm64_memory_present()
-> 
-> Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-> ---
->  arch/arm64/mm/init.c | 20 +-------------------
->  1 file changed, 1 insertion(+), 19 deletions(-)
+This patchset adds an option, CONFIG_FPU, to enable/disable floating-
+point procedures.
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Kernel's new behavior will be as follows:
+
+* with CONFIG_FPU=y
+  All FPU codes are reserved.  If no FPU is found during booting, a
+  global flag will be set, and those functions will be bypassed with
+  condition check to that flag.
+
+* with CONFIG_FPU=n
+  No floating-point instructions in kernel and all related settings
+  are excluded.
+
+Changes in v8:
+ - Fix a build fail introduced in v7.
+
+Changes in v7:
+ - Remove "fd" attribute from KBUILD_CFLAGS.
+
+Changes in v6 (PATCH 0005 only):
+ - Make the flag checking neater.
+
+Changes in v5:
+ - Invert the polarity of checking flag from no_fpu to has_fpu.
+
+Changes in v4:
+ - Append a new patch to detect existence of FPU and followups.
+ - Add SPDX header to newly created fpu.S.
+ - Fix a build error, sorry for that.
+ - Fix wording, style, etc.
+
+Changes in v3:
+ - Refactor the whole patch into independent ones.
+
+Changes in v2:
+ - Various code cleanups and style fixes.
+
+Alan Kao (5):
+  Extract FPU context operations from entry.S
+  Refactor FPU code in signal setup/return procedures
+  Cleanup ISA string setting
+  Allow to disable FPU support
+  Auto-detect whether a FPU exists
+
+ arch/riscv/Kconfig                 |   9 ++++
+ arch/riscv/Makefile                |  19 +++----
+ arch/riscv/include/asm/switch_to.h |  12 ++++-
+ arch/riscv/kernel/Makefile         |   1 +
+ arch/riscv/kernel/cpufeature.c     |   8 +++
+ arch/riscv/kernel/entry.S          |  87 ------------------------------
+ arch/riscv/kernel/fpu.S            | 106 +++++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/process.c        |   6 ++-
+ arch/riscv/kernel/signal.c         |  75 ++++++++++++++++----------
+ 9 files changed, 196 insertions(+), 127 deletions(-)
+ create mode 100644 arch/riscv/kernel/fpu.S
+
+-- 
+2.7.4
