@@ -1,378 +1,192 @@
-From: thierry.reding@gmail.com (Thierry Reding)
-Date: Wed, 10 Oct 2018 16:13:41 +0200
-Subject: [RFC 2/4] pwm: sifive: Add a driver for SiFive SoC PWM
-In-Reply-To: <1539111085-25502-3-git-send-email-atish.patra@wdc.com>
-References: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
- <1539111085-25502-3-git-send-email-atish.patra@wdc.com>
-Message-ID: <20181010141341.GF21134@ulmo>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Wed, 10 Oct 2018 17:27:29 -0700 (PDT)
+Subject: [PATCH 5/5] RISC-V: Implement sparsemem
+In-Reply-To: <20181005161642.2462-6-logang@deltatee.com>
+Message-ID: <mhng-c93e2f59-7121-4964-bd61-3c4c02044cf3@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, Oct 09, 2018 at 11:51:23AM -0700, Atish Patra wrote:
-> From: "Wesley W. Terpstra" <wesley@sifive.com>
-> 
-> Adds a PWM driver for PWM chip present in SiFive's HiFive Unleashed SoC.
-> 
-> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
-> [Atish: Various fixes and code cleanup]
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+On Fri, 05 Oct 2018 09:16:42 PDT (-0700), logang at deltatee.com wrote:
+> This patch implements sparsemem support for risc-v which helps pave the
+> way for memory hotplug and eventually P2P support.
+>
+> We introduce Kconfig options for virtual and physical address bits which
+> are used to calculate the size of the vmemmap and set the
+> MAX_PHYSMEM_BITS.
+>
+> The vmemmap is located directly before the VMALLOC region and sized
+> such that we can allocate enough pages to populate all the virtual
+> address space in the system (similar to the way it's done in arm64).
+>
+> During initialization, call memblocks_present() and sparse_init(),
+> and provide a stub for vmemmap_populate() (all of which is similar to
+> arm64).
+>
+> Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
+> Cc: Palmer Dabbelt <palmer@sifive.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Andrew Waterman <andrew@sifive.com>
+> Cc: Olof Johansson <olof@lixom.net>
+> Cc: Michael Clark <michaeljclark@mac.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Zong Li <zong@andestech.com>
 > ---
->  drivers/pwm/Kconfig      |  10 ++
->  drivers/pwm/Makefile     |   1 +
->  drivers/pwm/pwm-sifive.c | 240 +++++++++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 251 insertions(+)
->  create mode 100644 drivers/pwm/pwm-sifive.c
-> 
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 504d2527..dd12144d 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -378,6 +378,16 @@ config PWM_SAMSUNG
->  	  To compile this driver as a module, choose M here: the module
->  	  will be called pwm-samsung.
->  
-> +config PWM_SIFIVE
-> +	tristate "SiFive PWM support"
-> +	depends on OF
-> +	depends on COMMON_CLK
-> +	help
-> +	  Generic PWM framework driver for SiFive SoCs.
+>  arch/riscv/Kconfig                 | 23 +++++++++++++++++++++++
+>  arch/riscv/include/asm/pgtable.h   | 24 ++++++++++++++++++++----
+>  arch/riscv/include/asm/sparsemem.h | 11 +++++++++++
+>  arch/riscv/kernel/setup.c          |  4 +++-
+>  arch/riscv/mm/init.c               |  8 ++++++++
+>  5 files changed, 65 insertions(+), 5 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/sparsemem.h
+
+I don't really know anything about this, but you're welcome to add a
+
+Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
+
+if you think it'll help.  I'm assuming you're targeting a different tree for 
+the patch set, in which case it's probably best to keep this together with the 
+rest of it.
+
+Thanks for porting your stuff to RISC-V!
+
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index a344980287a5..a1b5d758a542 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -52,12 +52,32 @@ config ZONE_DMA32
+>  	bool
+>  	default y if 64BIT
+>
+> +config VA_BITS
+> +	int
+> +	default 32 if 32BIT
+> +	default 39 if 64BIT
 > +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called pwm-sifive.
+> +config PA_BITS
+> +	int
+> +	default 34 if 32BIT
+> +	default 56 if 64BIT
 > +
->  config PWM_SPEAR
->  	tristate "STMicroelectronics SPEAr PWM support"
->  	depends on PLAT_SPEAR
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index 9c676a0d..30089ca6 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -37,6 +37,7 @@ obj-$(CONFIG_PWM_RCAR)		+= pwm-rcar.o
->  obj-$(CONFIG_PWM_RENESAS_TPU)	+= pwm-renesas-tpu.o
->  obj-$(CONFIG_PWM_ROCKCHIP)	+= pwm-rockchip.o
->  obj-$(CONFIG_PWM_SAMSUNG)	+= pwm-samsung.o
-> +obj-$(CONFIG_PWM_SIFIVE)	+= pwm-sifive.o
->  obj-$(CONFIG_PWM_SPEAR)		+= pwm-spear.o
->  obj-$(CONFIG_PWM_STI)		+= pwm-sti.o
->  obj-$(CONFIG_PWM_STM32)		+= pwm-stm32.o
-> diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
-> new file mode 100644
-> index 00000000..99580025
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-sifive.c
-> @@ -0,0 +1,240 @@
-> +// SPDX-License-Identifier: GPL-2.0
+>  config PAGE_OFFSET
+>  	hex
+>  	default 0xC0000000 if 32BIT && MAXPHYSMEM_2GB
+>  	default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
+>  	default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
+>
+> +config ARCH_FLATMEM_ENABLE
+> +	def_bool y
+> +
+> +config ARCH_SPARSEMEM_ENABLE
+> +	def_bool y
+> +	select SPARSEMEM_VMEMMAP_ENABLE
+> +
+> +config ARCH_SELECT_MEMORY_MODEL
+> +	def_bool ARCH_SPARSEMEM_ENABLE
+> +
+>  config STACKTRACE_SUPPORT
+>  	def_bool y
+>
+> @@ -92,6 +112,9 @@ config PGTABLE_LEVELS
+>  config HAVE_KPROBES
+>  	def_bool n
+>
+> +config HAVE_ARCH_PFN_VALID
+> +	def_bool y
+> +
+>  menu "Platform type"
+>
+>  choice
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 16301966d65b..20c49cded686 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -89,6 +89,26 @@ extern pgd_t swapper_pg_dir[];
+>  #define __S110	PAGE_SHARED_EXEC
+>  #define __S111	PAGE_SHARED_EXEC
+>
+> +#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
+> +#define VMALLOC_END      (PAGE_OFFSET - 1)
+> +#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
+> +
 > +/*
-> + * Copyright (C) 2017 SiFive
+> + * Log2 of the upper bound of the size of a struct page. Used for sizing
+> + * the vmemmap region only, does not affect actual memory footprint.
+> + * We don't use sizeof(struct page) directly since taking its size here
+> + * requires its definition to be available at this point in the inclusion
+> + * chain, and it may not be a power of 2 in the first place.
 > + */
-> +#include <dt-bindings/pwm/pwm.h>
-
-What do you need this for? Your driver should only be dealing with enum
-pwm_polarity, not the defines from the above header. This works but only
-because PWM_POLARITY_INVERTED and PWM_POLARITY_INVERSED happen to be the
-same value.
-
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +#include <linux/slab.h>
-> +#include <linux/clk.h>
-> +#include <linux/io.h>
-
-Keep these in alphabetical order, please.
-
+> +#define STRUCT_PAGE_MAX_SHIFT	6
 > +
-> +#define MAX_PWM			4
+> +#define VMEMMAP_SIZE	(UL(1) << (CONFIG_VA_BITS - PAGE_SHIFT - 1 + \
+> +				   STRUCT_PAGE_MAX_SHIFT))
+> +#define VMEMMAP_END	(VMALLOC_START - 1)
+> +#define VMEMMAP_START	(VMALLOC_START - VMEMMAP_SIZE)
 > +
-> +/* Register offsets */
-> +#define REG_PWMCFG		0x0
-> +#define REG_PWMCOUNT		0x8
-> +#define REG_PWMS		0x10
-> +#define	REG_PWMCMP0		0x20
+> +#define vmemmap		((struct page *)VMEMMAP_START)
 > +
-> +/* PWMCFG fields */
-> +#define BIT_PWM_SCALE		0
-> +#define BIT_PWM_STICKY		8
-> +#define BIT_PWM_ZERO_ZMP	9
-> +#define BIT_PWM_DEGLITCH	10
-> +#define BIT_PWM_EN_ALWAYS	12
-> +#define BIT_PWM_EN_ONCE		13
-> +#define BIT_PWM0_CENTER		16
-> +#define BIT_PWM0_GANG		24
-> +#define BIT_PWM0_IP		28
+>  /*
+>   * ZERO_PAGE is a global shared page that is always zero,
+>   * used for zero-mapped memory areas, etc.
+> @@ -411,10 +431,6 @@ static inline void pgtable_cache_init(void)
+>  	/* No page table caches to initialize */
+>  }
+>
+> -#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
+> -#define VMALLOC_END      (PAGE_OFFSET - 1)
+> -#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
+> -
+>  /*
+>   * Task size is 0x40000000000 for RV64 or 0xb800000 for RV32.
+>   * Note that PGDIR_SIZE must evenly divide TASK_SIZE.
+> diff --git a/arch/riscv/include/asm/sparsemem.h b/arch/riscv/include/asm/sparsemem.h
+> new file mode 100644
+> index 000000000000..4563e806c788
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/sparsemem.h
+> @@ -0,0 +1,11 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
 > +
-> +#define SIZE_PWMCMP		4
-> +#define MASK_PWM_SCALE		0xf
+> +#ifndef __ASM_SPARSEMEM_H
+> +#define __ASM_SPARSEMEM_H
 > +
-> +struct sifive_pwm_device {
-> +	struct pwm_chip		chip;
-> +	struct notifier_block	notifier;
-> +	struct clk		*clk;
-> +	void __iomem		*regs;
-> +	unsigned int		approx_period;
-> +	unsigned int		real_period;
-> +};
-
-No need to align these. A single space is enough to separate variable
-type and name.
-
+> +#ifdef CONFIG_SPARSEMEM
+> +#define MAX_PHYSMEM_BITS	CONFIG_PA_BITS
+> +#define SECTION_SIZE_BITS	30
+> +#endif
 > +
-> +static inline struct sifive_pwm_device *to_sifive_pwm_chip(struct pwm_chip *c)
+> +#endif
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index aee603123030..89fa781a9bf8 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -205,6 +205,9 @@ static void __init setup_bootmem(void)
+>  		                  PFN_PHYS(end_pfn - start_pfn),
+>  		                  &memblock.memory, 0);
+>  	}
+> +
+> +	memblocks_present();
+> +	sparse_init();
+>  }
+>
+>  void __init setup_arch(char **cmdline_p)
+> @@ -239,4 +242,3 @@ void __init setup_arch(char **cmdline_p)
+>
+>  	riscv_fill_hwcap();
+>  }
+> -
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 58a522f9bcc3..5d529878667c 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -70,3 +70,11 @@ void free_initrd_mem(unsigned long start, unsigned long end)
+>  {
+>  }
+>  #endif /* CONFIG_BLK_DEV_INITRD */
+> +
+> +#ifdef CONFIG_SPARSEMEM
+> +int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+> +			       struct vmem_altmap *altmap)
 > +{
-> +	return container_of(c, struct sifive_pwm_device, chip);
+> +	return vmemmap_populate_basepages(start, end, node);
 > +}
-> +
-> +static int sifive_pwm_apply(struct pwm_chip *chip, struct pwm_device *dev,
-> +			    struct pwm_state *state)
-> +{
-> +	struct sifive_pwm_device *pwm = to_sifive_pwm_chip(chip);
-> +	unsigned int duty_cycle;
-> +	u32 frac;
-> +
-> +	duty_cycle = state->duty_cycle;
-> +	if (!state->enabled)
-> +		duty_cycle = 0;
-> +	if (state->polarity == PWM_POLARITY_NORMAL)
-> +		duty_cycle = state->period - duty_cycle;
-
-That's not actually polarity inversion. This is "lightweight" inversion
-which should be up to the consumer, not the PWM driver, to implement. If
-you don't actually have a knob in hardware to switch the polarity, don't
-support it.
-
-> +
-> +	frac = ((u64)duty_cycle << 16) / state->period;
-> +	frac = min(frac, 0xFFFFU);
-> +
-> +	iowrite32(frac, pwm->regs + REG_PWMCMP0 + (dev->hwpwm * SIZE_PWMCMP));
-
-writel()?
-
-> +
-> +	if (state->enabled) {
-> +		state->period = pwm->real_period;
-> +		state->duty_cycle = ((u64)frac * pwm->real_period) >> 16;
-> +		if (state->polarity == PWM_POLARITY_NORMAL)
-> +			state->duty_cycle = state->period - state->duty_cycle;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void sifive_pwm_get_state(struct pwm_chip *chip, struct pwm_device *dev,
-> +				 struct pwm_state *state)
-> +{
-> +	struct sifive_pwm_device *pwm = to_sifive_pwm_chip(chip);
-> +	unsigned long duty;
-> +
-> +	duty = ioread32(pwm->regs + REG_PWMCMP0 + (dev->hwpwm * SIZE_PWMCMP));
-
-readl()? Maybe also change duty to u32, which is what readl() returns.
-
-> +
-> +	state->period     = pwm->real_period;
-> +	state->duty_cycle = ((u64)duty * pwm->real_period) >> 16;
-> +	state->polarity   = PWM_POLARITY_INVERSED;
-> +	state->enabled    = duty > 0;
-> +}
-> +
-> +static const struct pwm_ops sifive_pwm_ops = {
-> +	.get_state	= sifive_pwm_get_state,
-> +	.apply		= sifive_pwm_apply,
-> +	.owner		= THIS_MODULE,
-
-Again, no need to artificially align these.
-
-> +};
-> +
-> +static struct pwm_device *sifive_pwm_xlate(struct pwm_chip *chip,
-> +					   const struct of_phandle_args *args)
-> +{
-> +	struct sifive_pwm_device *pwm = to_sifive_pwm_chip(chip);
-> +	struct pwm_device *dev;
-> +
-> +	if (args->args[0] >= chip->npwm)
-> +		return ERR_PTR(-EINVAL);
-> +
-> +	dev = pwm_request_from_chip(chip, args->args[0], NULL);
-> +	if (IS_ERR(dev))
-> +		return dev;
-> +
-> +	/* The period cannot be changed on a per-PWM basis */
-> +	dev->args.period   = pwm->real_period;
-> +	dev->args.polarity = PWM_POLARITY_NORMAL;
-> +	if (args->args[1] & PWM_POLARITY_INVERTED)
-> +		dev->args.polarity = PWM_POLARITY_INVERSED;
-> +
-> +	return dev;
-> +}
-> +
-> +static void sifive_pwm_update_clock(struct sifive_pwm_device *pwm,
-> +				    unsigned long rate)
-> +{
-> +	/* (1 << (16+scale)) * 10^9/rate = real_period */
-> +	unsigned long scalePow = (pwm->approx_period * (u64)rate) / 1000000000;
-> +	int scale = ilog2(scalePow) - 16;
-> +
-> +	scale = clamp(scale, 0, 0xf);
-> +	iowrite32((1 << BIT_PWM_EN_ALWAYS) | (scale << BIT_PWM_SCALE),
-> +		  pwm->regs + REG_PWMCFG);
-> +
-> +	pwm->real_period = (1000000000ULL << (16 + scale)) / rate;
-> +}
-> +
-> +static int sifive_pwm_clock_notifier(struct notifier_block *nb,
-> +				     unsigned long event, void *data)
-> +{
-> +	struct clk_notifier_data *ndata = data;
-> +	struct sifive_pwm_device *pwm = container_of(nb,
-> +						     struct sifive_pwm_device,
-> +						     notifier);
-> +
-> +	if (event == POST_RATE_CHANGE)
-> +		sifive_pwm_update_clock(pwm, ndata->new_rate);
-> +
-> +	return NOTIFY_OK;
-> +}
-
-Does this mean that the PWM source clock can be shared with other IP
-blocks? What happens if some other user sets a frequency that we can't
-support? Or what if the clock rate change results in a real period that
-is out of the limits that are considered valid?
-
-> +static int sifive_pwm_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *node = pdev->dev.of_node;
-> +	struct sifive_pwm_device *pwm;
-> +	struct pwm_chip *chip;
-> +	struct resource *res;
-> +	int ret;
-> +
-> +	pwm = devm_kzalloc(dev, sizeof(*pwm), GFP_KERNEL);
-> +	if (!pwm)
-> +		return -ENOMEM;
-> +
-> +	chip = &pwm->chip;
-> +	chip->dev = dev;
-> +	chip->ops = &sifive_pwm_ops;
-> +	chip->of_xlate = sifive_pwm_xlate;
-> +	chip->of_pwm_n_cells = 2;
-> +	chip->base = -1;
-> +
-> +	ret = of_property_read_u32(node, "sifive,npwm", &chip->npwm);
-> +	if (ret < 0 || chip->npwm > MAX_PWM)
-> +		chip->npwm = MAX_PWM;
-
-This property is not documented. Also, why is it necessary? Do you
-expect the number of PWMs to differ depending on the instance of the IP
-block? I would argue that the number of PWMs can be derived from the
-compatible string, so it's unnecessary here.
-
-I think you can also remove the MAX_PWM macro, since that's only used in
-one location and it's meaning is very clear in the context, so the
-symbolic name isn't useful.
-
-> +
-> +	ret = of_property_read_u32(node, "sifive,approx-period",
-> +				   &pwm->approx_period);
-> +	if (ret < 0) {
-> +		dev_err(dev, "Unable to read sifive,approx-period from DTS\n");
-> +		return -ENOENT;
-> +	}
-
-Maybe propagate ret instead of always returning -ENOENT?
-
-> +
-> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	pwm->regs = devm_ioremap_resource(dev, res);
-> +	if (IS_ERR(pwm->regs)) {
-> +		dev_err(dev, "Unable to map IO resources\n");
-> +		return PTR_ERR(pwm->regs);
-> +	}
-> +
-> +	pwm->clk = devm_clk_get(dev, NULL);
-> +	if (IS_ERR(pwm->clk)) {
-> +		dev_err(dev, "Unable to find controller clock\n");
-> +		return PTR_ERR(pwm->clk);
-> +	}
-> +
-> +	/* Watch for changes to underlying clock frequency */
-> +	pwm->notifier.notifier_call = sifive_pwm_clock_notifier;
-> +	clk_notifier_register(pwm->clk, &pwm->notifier);
-
-Check for errors from this?
-
-> +
-> +	/* Initialize PWM config */
-> +	sifive_pwm_update_clock(pwm, clk_get_rate(pwm->clk));
-> +
-> +	/* No interrupt handler needed yet */
-
-That's not a useful comment.
-
-> +
-> +	ret = pwmchip_add(chip);
-> +	if (ret < 0) {
-> +		dev_err(dev, "cannot register PWM: %d\n", ret);
-> +		clk_notifier_unregister(pwm->clk, &pwm->notifier);
-
-Might be worth introducing a managed version of clk_notifier_register()
-so that we can avoid having to unregister it.
-
-> +		return ret;
-> +	}
-> +
-> +	platform_set_drvdata(pdev, pwm);
-> +	dev_info(dev, "SiFive PWM chip registered %d PWMs\n", chip->npwm);
-
-Remove this, or at least make it dev_dbg(). This is not noteworthy news,
-so no need to bother the user with it.
-
-> +
-> +	return 0;
-> +}
-> +
-> +static int sifive_pwm_remove(struct platform_device *dev)
-> +{
-> +	struct sifive_pwm_device *pwm = platform_get_drvdata(dev);
-> +	struct pwm_chip *chip = &pwm->chip;
-
-Not sure that this intermediate variable is useful, might as well use
-&pwm->chip in the one location where you need it.
-
-> +
-> +	clk_notifier_unregister(pwm->clk, &pwm->notifier);
-> +	return pwmchip_remove(chip);
-> +}
-> +
-> +static const struct of_device_id sifive_pwm_of_match[] = {
-> +	{ .compatible = "sifive,pwm0" },
-> +	{ .compatible = "sifive,fu540-c000-pwm0" },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, sifive_pwm_of_match);
-> +
-> +static struct platform_driver sifive_pwm_driver = {
-> +	.probe = sifive_pwm_probe,
-> +	.remove = sifive_pwm_remove,
-> +	.driver = {
-> +		.name = "pwm-sifivem",
-
-Why does this have the 'm' at the end? I don't see that anywhere else in
-the names.
-
-> +		.of_match_table = of_match_ptr(sifive_pwm_of_match),
-
-No need for of_match_ptr() here since you depend on OF, so this is
-always going to expand to sifive_pwm_of_match.
-
-Thierry
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: signature.asc
-Type: application/pgp-signature
-Size: 833 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20181010/cb669bc3/attachment.sig>
+> +#endif
