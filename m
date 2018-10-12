@@ -2,23 +2,23 @@ Return-Path: <SRS0=LzlR=MY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-4.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable autolearn_force=no
+	URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 02901C6783C
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Oct 2018 12:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4DC26C6783C
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Oct 2018 13:20:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B3F5C20865
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Oct 2018 12:51:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0788020868
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Oct 2018 13:20:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WgCCUW2o";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="cuTpq2Kx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B3F5C20865
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=joelfernandes.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gUV7G1wL";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=shutemov-name.20150623.gappssmtp.com header.i=@shutemov-name.20150623.gappssmtp.com header.b="YGQLxTR/"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0788020868
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=shutemov.name
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -26,65 +26,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vv2q5RPaYPxtHiea9/6H/fBzubHa4ecZNCUi7DMg2uU=; b=WgCCUW2oUxWx7W
-	ly+vx/sRnG1/et19eARJWJwvyjqTlqTpjgaDnnKR39wd6FQDSRsyEQ+ae8NqBSf59rynxKFx+Unel
-	eg+TOJtkJDbiSjmoj8E8HrxvAo1RswvhIvmSA3dOfHe1rjMwZwMwfn1inrKiWR9ZOMS+3H93zN6lo
-	cG5N9Dswg58F8fY0+7T2I0L0oZy5NCn/0fKnEZOOeKCeXqM71xEdm6EwaX6/XnNy67OANc/LstGaP
-	9EyYB1KzojNlfjW6Wfod9Dkj6ruiYHmV7Gp67RZe52l6eXEIlML6XxO4y9FGLHzuEPjaK5stxCixy
-	ajZT1YzL0RnvHELlHlJw==;
+	List-Owner; bh=XRgfL5k61u1u66oPZQy2jzXvxWZsEsJx7YEYRxZ0c18=; b=gUV7G1wL7qyyXV
+	v3zkJI4Dqd0s3zdkP0XgW0GngtZgqmKVEgBKH85mCPnsg+ukOg1hpT8dQeQEH+f3NCgrJ3V8wMkL8
+	pfZwYWk6CTdlKZaZyyOYc5CBgMsiOBGZNuqJHTNuQiFizBd2bFOsmDDb43o8lebGTwU+TuInbClve
+	treae4vulGp2XafWAv5xByBUah3Il7kaqeAdfvwza8tIEzmyz8yf6zq+V3iH/GVw0ZogQPT7k5M2w
+	xOujwgf6NwZX4l/flxT1Q++EsFryc2gYld7LyXOOoPl+Ip7RM+cYEAHUfDax8PRi7Dt8z4MHsoy4+
+	ReVU62sk4+lOd0oHGNAQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gAwuG-0007Ei-J9; Fri, 12 Oct 2018 12:51:04 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1gAxMP-0000br-Dg; Fri, 12 Oct 2018 13:20:09 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gAwuD-0007Bq-52
- for linux-riscv@lists.infradead.org; Fri, 12 Oct 2018 12:51:02 +0000
-Received: by mail-pl1-x643.google.com with SMTP id y15-v6so5901740plr.12
- for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 05:50:50 -0700 (PDT)
+ id 1gAxMJ-0000FH-Bj
+ for linux-riscv@lists.infradead.org; Fri, 12 Oct 2018 13:20:06 +0000
+Received: by mail-pl1-x642.google.com with SMTP id y11-v6so5938770plt.3
+ for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 06:19:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=joelfernandes.org; s=google;
+ d=shutemov-name.20150623.gappssmtp.com; s=20150623;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to:user-agent;
- bh=QKN0QLgWMdeaFShuOKgUCdS+KZEgqTytMiliL2mzgC0=;
- b=cuTpq2KxjzFREjuReJCgXoTtmsf4MapPO/GKTB1jBLxsEEu2m7M7ZkvRB6q79tS5tz
- O6mqiraSPEsjDSeGINirN/8v2zV5PUlYs/7NG0sKTsmNtz6ADZ+8u7AlqnAMULoHIM7r
- c98gGt3pHgL5ok5lR90IVL9Vuy1e12CI4gJLs=
+ bh=qPLu7mXDYNebnqy2itkdFlgzgYtAbH0/XYuxd81Ni0g=;
+ b=YGQLxTR/pEGGaKQwkJOPBPFRTunxlW3tZGxesrOXRnJ6KNUkprkgsjFH3yz3BCwgrr
+ aYzpBghcn1iHyBVjtKgD40ZPbxRHkilAmJzb7/aFvPSk5SxyasOy3AigGVde1WJB2nax
+ zY2/Ac5VgCKM0KrcyJ+RW5uG3SsqMPxflZ6l1QaePADC37N9Ltvz6oG9Aod/JKTtPaDs
+ CNP1gfPNcIhVYS97nBIRjsXfwVI0/hOh6yz5e52vOr0n6L+OGcaaHMTa3oKpjyQI30pq
+ +2lbu9/KfK8VHGL5qG/kTRpE1ENspnuC41qZ5FOTEi8qxtzqM+whP9MXiu/XeiCSptlJ
+ /2xQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=QKN0QLgWMdeaFShuOKgUCdS+KZEgqTytMiliL2mzgC0=;
- b=YNnEHYh3Ul34MG/pcpnkeJP9EDE5Mz5QKnVxBOR2La5tWr+NMgJrHcL4d/aqe1+5lN
- UP4uonXgDuGDAdmgZz0+7rsJoQIjazhdde1FpDGGSI4pcKBv1dn6CLMjw7PtLPh82MIH
- nEEe9kcHueLqN9pHMqAB9jsViDR/XJigi/v6XCp4PuMhuUl/tF9B2j6E7jKofT28M1iP
- xluhLseEFOXXQLIUyNK1P0q1Q2Y9DZCKJias3oGtPgst945XD7ZJjYTpipvL6vbEicjc
- zZMKMaZyj8xFIPwaZHoqw1nGdKfc0anMHXoiwK2k+AvvNj3st38a7Q2IdD4SYh3elOkm
- tW4A==
-X-Gm-Message-State: ABuFfogteHAXeh2Q/Qp2XX2CEiBlTn/lrklQ92mf79Jr/lOK3omDbMN0
- mpz/edBjJkb90jgRp61mmuhZWg==
-X-Google-Smtp-Source: ACcGV62U4sAceqM+O5tNywkqcriJ8B2EehkajcnFr0AxLQ8/wmf9zrWd7Nv4vm7gsM8YPAJpgdeQnw==
-X-Received: by 2002:a17:902:22a:: with SMTP id
- 39-v6mr5923316plc.267.1539348649157; 
- Fri, 12 Oct 2018 05:50:49 -0700 (PDT)
-Received: from localhost ([2620:0:1000:1601:3aef:314f:b9ea:889f])
- by smtp.gmail.com with ESMTPSA id z11-v6sm4395226pfg.85.2018.10.12.05.50.47
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Fri, 12 Oct 2018 05:50:47 -0700 (PDT)
-Date: Fri, 12 Oct 2018 05:50:46 -0700
-From: Joel Fernandes <joel@joelfernandes.org>
-To: "Kirill A. Shutemov" <kirill@shutemov.name>
+ bh=qPLu7mXDYNebnqy2itkdFlgzgYtAbH0/XYuxd81Ni0g=;
+ b=DiSmhijXpWnHfOS8kgAW5/q/cisnO+vm86v5qShxvjV3h/K+IGFoaHbuw1GImb+DfM
+ qyoQTtxbiQ9DttWGA4AbpkvmUxS5hZZFwAqjRBcnYbrB/Wmgxrmz3pSI1rFVBhEvKEq7
+ AFAIZ7FnQtbpG58+E5Xqfn6Rb0K+FjGw/pSWjxpj22xCWJNTHg8aGvzApddX83roOXyy
+ nZkjLoxgkaSxpia7YjAOBLMKXZMdNx+Rgypnh13qlqHlRQ7FzpJzIu8gBmb12bdq7cDY
+ +zxtmxJfPhZKsGwz89MF8DnDLNy7MPeldH22r3zKbludoPLgOvRrCAHgETsK4R1AWYTD
+ Okuw==
+X-Gm-Message-State: ABuFfogfo31bgWo+yuUpeuH03UOzYXaZqyzyzkFSIZtsIiWXszhup/qr
+ ysdP/sFCrDYKx17So+CLkZsZPg==
+X-Google-Smtp-Source: ACcGV63NiI8G9L9RoeLis69krPaHbnldlLDZCtg1d0C3iU/tVpX89y6Av72eJGnMr1LMuMBi4E+eAQ==
+X-Received: by 2002:a17:902:bf0a:: with SMTP id
+ bi10-v6mr5901268plb.72.1539350392511; 
+ Fri, 12 Oct 2018 06:19:52 -0700 (PDT)
+Received: from kshutemo-mobl1.localdomain ([134.134.139.83])
+ by smtp.gmail.com with ESMTPSA id t22-v6sm2727444pfk.141.2018.10.12.06.19.50
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 12 Oct 2018 06:19:51 -0700 (PDT)
+Received: by kshutemo-mobl1.localdomain (Postfix, from userid 1000)
+ id E9F3E300030; Fri, 12 Oct 2018 16:19:46 +0300 (+03)
+Date: Fri, 12 Oct 2018 16:19:46 +0300
+From: "Kirill A. Shutemov" <kirill@shutemov.name>
+To: Joel Fernandes <joel@joelfernandes.org>
 Subject: Re: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
-Message-ID: <20181012125046.GA170912@joelaf.mtv.corp.google.com>
+Message-ID: <20181012131946.zoab2lpfmrycmuju@kshutemo-mobl1>
 References: <20181012013756.11285-1-joel@joelfernandes.org>
  <20181012013756.11285-2-joel@joelfernandes.org>
  <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
+ <20181012125046.GA170912@joelaf.mtv.corp.google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20181012125046.GA170912@joelaf.mtv.corp.google.com>
+User-Agent: NeoMutt/20180716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181012_055101_252810_47A68266 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20181012_062003_482616_0EB43115 
+X-CRM114-Status: GOOD (  25.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -132,73 +138,85 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181012125046.iGPOKn32GQOAwBVfMHSCtSwyddI009imh2cE6lYglAA@z>
+Message-ID: <20181012131946.YJDp11FUW_50rwrBb8gZcB8olUgjBcDH5yWi6wuqaro@z>
 
-On Fri, Oct 12, 2018 at 02:30:56PM +0300, Kirill A. Shutemov wrote:
-> On Thu, Oct 11, 2018 at 06:37:56PM -0700, Joel Fernandes (Google) wrote:
-> > Android needs to mremap large regions of memory during memory management
-> > related operations. The mremap system call can be really slow if THP is
-> > not enabled. The bottleneck is move_page_tables, which is copying each
-> > pte at a time, and can be really slow across a large map. Turning on THP
-> > may not be a viable option, and is not for us. This patch speeds up the
-> > performance for non-THP system by copying at the PMD level when possible.
+On Fri, Oct 12, 2018 at 05:50:46AM -0700, Joel Fernandes wrote:
+> On Fri, Oct 12, 2018 at 02:30:56PM +0300, Kirill A. Shutemov wrote:
+> > On Thu, Oct 11, 2018 at 06:37:56PM -0700, Joel Fernandes (Google) wrote:
+> > > Android needs to mremap large regions of memory during memory management
+> > > related operations. The mremap system call can be really slow if THP is
+> > > not enabled. The bottleneck is move_page_tables, which is copying each
+> > > pte at a time, and can be really slow across a large map. Turning on THP
+> > > may not be a viable option, and is not for us. This patch speeds up the
+> > > performance for non-THP system by copying at the PMD level when possible.
+> > > 
+> > > The speed up is three orders of magnitude. On a 1GB mremap, the mremap
+> > > completion times drops from 160-250 millesconds to 380-400 microseconds.
+> > > 
+> > > Before:
+> > > Total mremap time for 1GB data: 242321014 nanoseconds.
+> > > Total mremap time for 1GB data: 196842467 nanoseconds.
+> > > Total mremap time for 1GB data: 167051162 nanoseconds.
+> > > 
+> > > After:
+> > > Total mremap time for 1GB data: 385781 nanoseconds.
+> > > Total mremap time for 1GB data: 388959 nanoseconds.
+> > > Total mremap time for 1GB data: 402813 nanoseconds.
+> > > 
+> > > Incase THP is enabled, the optimization is skipped. I also flush the
+> > > tlb every time we do this optimization since I couldn't find a way to
+> > > determine if the low-level PTEs are dirty. It is seen that the cost of
+> > > doing so is not much compared the improvement, on both x86-64 and arm64.
 > > 
-> > The speed up is three orders of magnitude. On a 1GB mremap, the mremap
-> > completion times drops from 160-250 millesconds to 380-400 microseconds.
+> > I looked into the code more and noticed move_pte() helper called from
+> > move_ptes(). It changes PTE entry to suite new address.
 > > 
-> > Before:
-> > Total mremap time for 1GB data: 242321014 nanoseconds.
-> > Total mremap time for 1GB data: 196842467 nanoseconds.
-> > Total mremap time for 1GB data: 167051162 nanoseconds.
-> > 
-> > After:
-> > Total mremap time for 1GB data: 385781 nanoseconds.
-> > Total mremap time for 1GB data: 388959 nanoseconds.
-> > Total mremap time for 1GB data: 402813 nanoseconds.
-> > 
-> > Incase THP is enabled, the optimization is skipped. I also flush the
-> > tlb every time we do this optimization since I couldn't find a way to
-> > determine if the low-level PTEs are dirty. It is seen that the cost of
-> > doing so is not much compared the improvement, on both x86-64 and arm64.
+> > It is only defined in non-trivial way on Sparc. I don't know much about
+> > Sparc and it's hard for me to say if the optimization will break anything
+> > there.
 > 
-> I looked into the code more and noticed move_pte() helper called from
-> move_ptes(). It changes PTE entry to suite new address.
+> Sparc's move_pte seems to be flushing the D-cache to prevent aliasing. It is
+> not modifying the PTE itself AFAICS:
 > 
-> It is only defined in non-trivial way on Sparc. I don't know much about
-> Sparc and it's hard for me to say if the optimization will break anything
-> there.
+> #ifdef DCACHE_ALIASING_POSSIBLE
+> #define __HAVE_ARCH_MOVE_PTE
+> #define move_pte(pte, prot, old_addr, new_addr)                         \
+> ({                                                                      \
+>         pte_t newpte = (pte);                                           \
+>         if (tlb_type != hypervisor && pte_present(pte)) {               \
+>                 unsigned long this_pfn = pte_pfn(pte);                  \
+>                                                                         \
+>                 if (pfn_valid(this_pfn) &&                              \
+>                     (((old_addr) ^ (new_addr)) & (1 << 13)))            \
+>                         flush_dcache_page_all(current->mm,              \
+>                                               pfn_to_page(this_pfn));   \
+>         }                                                               \
+>         newpte;                                                         \
+> })
+> #endif
+> 
+> If its an issue, then how do transparent huge pages work on Sparc?  I don't
+> see the huge page code (move_huge_pages) during mremap doing anything special
+> for Sparc architecture when moving PMDs..
 
-Sparc's move_pte seems to be flushing the D-cache to prevent aliasing. It is
-not modifying the PTE itself AFAICS:
+My *guess* is that it will work fine on Sparc as it apprarently it only
+cares about change in bit 13 of virtual address. It will never happen for
+huge pages or when PTE page tables move.
 
-#ifdef DCACHE_ALIASING_POSSIBLE
-#define __HAVE_ARCH_MOVE_PTE
-#define move_pte(pte, prot, old_addr, new_addr)                         \
-({                                                                      \
-        pte_t newpte = (pte);                                           \
-        if (tlb_type != hypervisor && pte_present(pte)) {               \
-                unsigned long this_pfn = pte_pfn(pte);                  \
-                                                                        \
-                if (pfn_valid(this_pfn) &&                              \
-                    (((old_addr) ^ (new_addr)) & (1 << 13)))            \
-                        flush_dcache_page_all(current->mm,              \
-                                              pfn_to_page(this_pfn));   \
-        }                                                               \
-        newpte;                                                         \
-})
-#endif
+But I just realized that the problem is bigger: since we pass new_addr to
+the set_pte_at() we would need to audit all implementations that they are
+safe with just moving PTE page table.
 
-If its an issue, then how do transparent huge pages work on Sparc?  I don't
-see the huge page code (move_huge_pages) during mremap doing anything special
-for Sparc architecture when moving PMDs..
+I would rather go with per-architecture enabling. It's much safer.
 
-Also, do we not flush the caches from any path when we munmap address space?
-We do call do_munmap on the old mapping from mremap after moving to the new one.
+> Also, do we not flush the caches from any path when we munmap address space?
+> We do call do_munmap on the old mapping from mremap after moving to the new one.
 
-thanks,
+Are you sure about that? It can be hided deeper in architecture-specific
+code.
 
- - Joel
-
+-- 
+ Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
