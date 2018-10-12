@@ -2,83 +2,98 @@ Return-Path: <SRS0=LzlR=MY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F185EC6787C
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Oct 2018 20:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E37F2C6787C
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Oct 2018 21:34:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 96BA620868
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Oct 2018 20:04:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9816B2087D
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Oct 2018 21:34:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hHp6SiJ9";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="fbSFmjp8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 96BA620868
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GUSpFi4L";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=shutemov-name.20150623.gappssmtp.com header.i=@shutemov-name.20150623.gappssmtp.com header.b="tt4haWxv"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9816B2087D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=shutemov.name
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=vcHIl86MU4BjWQskS93ziPrnTc9v23ZOBMo2vZh6jEU=; b=hHp
-	6SiJ9B8AtaHzuqUiGeGyW44BfGKK0O1DG6LZ6V679ON7jBEk94l36x1KiffrD2LXvExKnmlqxSLeV
-	KtZxvEw/Jx7hcAEK+nrHg7GeJ5kON8Gm52cfvoc3Cop2uiLOYPLT0g1iMD9jBhlGp4JKCAKjDNIM/
-	jeJaLDjCDJ3ozqfPg7pmbsbD2pSx3o+bb0aTsMK78byXNAXctTnWYM2fnJ6Wd76nYSkDIIRikS5OT
-	+U10h02p7oV//kp2DXz8mllKoxoLtjIaaT+wU7BEZ9leTb/jgdkIm3jZtjgYJfOl6eRh0BxXtmF4U
-	XYWvh9Iy8KxVrtDHsOfbyPjgxsQiAng==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gIQ0Cb6piF9H0Oivd7tWa1LWjK0DMJhe9XUgV7LACKc=; b=GUSpFi4LiL9x5s
+	f7nRpE/TYMndJahTws5hdu9pzjWkPUlNpWR+a+zUy+HEeObpfQfT8vtj+jRr2IGpYlf7Yi1nUB2cx
+	NDKgP3Suuv51P+CKBNmh0SFXH+SLrWnjLPFrLtJgnm5yxgXzY1O2a1tXFLpaMnGJy/YOE1TUPoDRV
+	1LqS6Qs67Ca7rISJ4tPMFa9TSm4xZTJboOWqx5Jl8NDZCmel4JQAtCpJ0AmC4lOAg1vOCc+ZS2Dps
+	GqKsiNDAnFxHYpjIVD1KpJR4RYhBLtrXPBt9xjunSlnhborjmTutg12dottz0xhJXWsJ1Wr+7v7jH
+	TJPkTg41CAuyTxnlcdXw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gB3fN-0005K2-Kt; Fri, 12 Oct 2018 20:04:09 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1gB54j-0005PZ-C9; Fri, 12 Oct 2018 21:34:25 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gB3fK-0005Iq-Od
- for linux-riscv@lists.infradead.org; Fri, 12 Oct 2018 20:04:09 +0000
-Received: by mail-pf1-x444.google.com with SMTP id r9-v6so6700096pff.11
- for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 13:03:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id;
- bh=ff2lmux7mfrChAsbcFnFTGPnKv6j0pqjQJJW8ppuj3A=;
- b=fbSFmjp8lEu/hgHy5Es96Lla4bTe3KL5a+T6zUmuaYjep3rDL4a49oYmwnmdstTUPS
- p8nHDKT56hyJSeyFtuS1/YTmSQ6UfYY7xWPrVvtiG9bAldTqoEQ+ohivPoMEsJUzMzvO
- Vs5L6xlKa5V4dfYNVJQvrl28N1+PLd1eV07UzbuEkA7iaHA5C8hl6XqSMOhhlHF72wL5
- 8vAWxz6uB54+w3N00NM1lX7baQKjfuifBim/iu9sluQwok4JZF2sjXiDK3W3thF0WPng
- EtRI3tT7MwC/dhDqROqii5yLvpuCSqkAKft/pCV6ilgG8i6xRz6+L2lT+OG99Icr8xRI
- 3dbw==
+ id 1gB54e-0005Bp-ND
+ for linux-riscv@lists.infradead.org; Fri, 12 Oct 2018 21:34:23 +0000
+Received: by mail-pf1-x443.google.com with SMTP id f29-v6so6810378pff.5
+ for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 14:34:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=shutemov-name.20150623.gappssmtp.com; s=20150623;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=LHzipgUbb9bD6KKi7C8OH4ai2uXb2G2QZZei89osBiM=;
+ b=tt4haWxvZLIGYgzjVvsH+gjFwfPR7DwtAHjZBdy13UoFAue6QtBjQ7yFpwdRLddwrz
+ 5M7Rt9vrVAomTaqAQJ7suNm3XfxtViA+swo1shgRv6b5mcASOaSfl1jxY9Io26x/3N43
+ kJHc/sqKzp2v6SuHG2C8dEeJBeZpx9rXlnSqNr5HyQtCYHzhqAX/snQjGfm5BB5VdZSs
+ MEUpJyErXmrbzyP5LvHp09wHHqO17A1BhLGE8wPOnD0xxGQXTAOimdYT+DkyVwz2AN51
+ go/7rEXftCDBj/fYKEoPC9lVN9fdUs5TJXPwZPZIVEu19exs/DzqHb05FsfuzodtJKAK
+ +mQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=ff2lmux7mfrChAsbcFnFTGPnKv6j0pqjQJJW8ppuj3A=;
- b=SoY6mQUgn9OR0yLxVH6o1VqABYXHT9U8TzHeWbkmfZxpwFIkBW4OaoNXkOGvKYdSmu
- j/qfgBglV4YlugnIpSQjt9f4WXHtG5t5RA4QV8EQNos0ueGNmqaa+SbVVWFAyaYHpJ/J
- fNZ9hHyaUYYyC0+lnesXiulyPpSTjVNk8zUNUQExOPn/PvK8mtNxcfkXHymoiKxhJBDT
- LMZ/aU+oSUdTwwyy6Tu7iOglIoUA5ybValbB4TS7HpLAs8tqH6ZLppaEocRAgM7NaNIt
- arfHGgzXv4qgFEebCNnToKuoK1rR0hD2eEfMd33dNKjqBI7zpyU6KunNlZgDrBu0BBfM
- +BjA==
-X-Gm-Message-State: ABuFfoi/O9oMC4f12DetA1Ij7i8XBojj5GmRC0hL82A33R2cC8nZSCt1
- H0m1Kg5EhCGtXPSEINAgjXuFnjbqi/Y=
-X-Google-Smtp-Source: ACcGV63/fsAnNELAoy09NLuwlUhng+d6kdnpLATDFRvpls/Yi2z33ee1sp3MnhQUR1DkFJO53M6UCA==
-X-Received: by 2002:a63:c306:: with SMTP id
- c6-v6mr6792586pgd.133.1539374635368; 
- Fri, 12 Oct 2018 13:03:55 -0700 (PDT)
-Received: from rohan.guest.sifive.com ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id i5-v6sm2882548pfo.107.2018.10.12.13.03.54
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=LHzipgUbb9bD6KKi7C8OH4ai2uXb2G2QZZei89osBiM=;
+ b=gplvT99KunwbDiKQ3Cb6WXan9u1aFcMuJjj2YeqMkBKNEr/vhQVB9yrRPJoZfCTIZ/
+ wUPxBdZP/zcsG+zw/GMHKYc8geQElhJT31DiMkAO3KZIMjtdIQWoJNlHL4LY/yGG2F9O
+ Zz2o77xSxF5/1POiNCRZUHZJj+mi6UPnb1D12TE7FSPBlXXAlyEFuIko2gO1NJXodFR+
+ JmzIJ8mcRlvfkNQYmxs/s0bjvU2HjpaUSV9fuGt+vEAEg2jd/psyc16rEn+Zu0FNyPJ/
+ f3wWX8+ASyIlX1IVbFBhJNcrZAdoJzK5Zhj1gNMGUU9++a02A9ozBDZ4M67Sj/JpxoRf
+ lnZw==
+X-Gm-Message-State: ABuFfohjvgsxSiJHZgy8P4xA6CQFRrP06PgdNnmtvxRmcqRx51DOfL9J
+ OjNWXJTddWcdVaqZ104IA2+ivQ==
+X-Google-Smtp-Source: ACcGV60SvcDuwwFfUZrEoWm25R56HMmg4aebudF5owuY6h5Fceo65AszhVv0RP3+l3Jd652Z5Qm4rw==
+X-Received: by 2002:a63:7b09:: with SMTP id
+ w9-v6mr7023932pgc.385.1539380045793; 
+ Fri, 12 Oct 2018 14:34:05 -0700 (PDT)
+Received: from kshutemo-mobl1.localdomain (fmdmzpr03-ext.fm.intel.com.
+ [192.55.54.38])
+ by smtp.gmail.com with ESMTPSA id t85-v6sm3751969pfi.73.2018.10.12.14.34.03
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 12 Oct 2018 13:03:54 -0700 (PDT)
-From: Jim Wilson <jimw@sifive.com>
-To: linux-riscv@lists.infradead.org
-Subject: [PATCH] RISC-V: Add futex support.
-Date: Fri, 12 Oct 2018 13:03:50 -0700
-Message-Id: <20181012200350.5258-1-jimw@sifive.com>
-X-Mailer: git-send-email 2.17.1
+ Fri, 12 Oct 2018 14:34:04 -0700 (PDT)
+Received: by kshutemo-mobl1.localdomain (Postfix, from userid 1000)
+ id 0D98A300030; Sat, 13 Oct 2018 00:34:00 +0300 (+03)
+Date: Sat, 13 Oct 2018 00:33:59 +0300
+From: "Kirill A. Shutemov" <kirill@shutemov.name>
+To: Joel Fernandes <joel@joelfernandes.org>
+Subject: Re: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
+Message-ID: <20181012213359.qpvq3obugbvy73bg@kshutemo-mobl1>
+References: <20181012013756.11285-1-joel@joelfernandes.org>
+ <20181012013756.11285-2-joel@joelfernandes.org>
+ <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
+ <20181012125046.GA170912@joelaf.mtv.corp.google.com>
+ <20181012131946.zoab2lpfmrycmuju@kshutemo-mobl1>
+ <20181012165719.GE223066@joelaf.mtv.corp.google.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20181012165719.GE223066@joelaf.mtv.corp.google.com>
+User-Agent: NeoMutt/20180716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181012_130406_852170_330E9B7E 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20181012_143420_784025_87D01743 
+X-CRM114-Status: GOOD (  31.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,179 +105,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jim Wilson <jimw@sifive.com>
-MIME-Version: 1.0
+Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
+ linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Will Deacon <will.deacon@arm.com>,
+ mhocko@kernel.org, linux-mm@kvack.org, lokeshgidra@google.com,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ elfring@users.sourceforge.net, Jonas Bonn <jonas@southpole.se>,
+ linux-s390@vger.kernel.org, dancol@google.com,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, linux-xtensa@linux-xtensa.org,
+ linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ hughd@google.com, "James E.J. Bottomley" <jejb@parisc-linux.org>,
+ kasan-dev@googlegroups.com, kvmarm@lists.cs.columbia.edu,
+ Ingo Molnar <mingo@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Andrey Ryabinin <aryabinin@virtuozzo.com>, linux-snps-arc@lists.infradead.org,
+ kernel-team@android.com, Sam Creasey <sammy@sammy.net>,
+ Fenghua Yu <fenghua.yu@intel.com>, Jeff Dike <jdike@addtoit.com>,
+ linux-um@lists.infradead.org,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Julia Lawall <Julia.Lawall@lip6.fr>, linux-m68k@lists.linux-m68k.org,
+ openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
+ Andy Lutomirski <luto@kernel.org>, nios2-dev@lists.rocketboards.org,
+ Stafford Horne <shorne@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
+ linux-arm-kernel@lists.infradead.org, Chris Zankel <chris@zankel.net>,
+ Tony Luck <tony.luck@intel.com>, Richard Weinberger <richard@nod.at>,
+ linux-parisc@vger.kernel.org, pantin@google.com,
+ Max Filippov <jcmvbkbc@gmail.com>, linux-kernel@vger.kernel.org,
+ minchan@kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+ linux-alpha@vger.kernel.org, Ley Foon Tan <lftan@altera.com>,
+ akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
+ "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181012200350.2QoFJgxMbYF-lnTeGFvywNLRiqOYYEbVGAhJgrwCy_o@z>
+Message-ID: <20181012213359.uZsMTkNF7AcuGyYrKbx-xoLDgTJLzwt3RKRAxvmbbPw@z>
 
-Here is an attempt to add the missing futex support.  I started with the MIPS
-version of futex.h and modified it until I got it working.  I tested it on
-a HiFive Unleashed running Fedora Core 29 using the fc29 4.15 version of the
-kernel.  This was tested against the glibc testsuite, where it fixes 14 nptl
-related testsuite failures.  That unfortunately only tests the cmpxchg support,
-so I also used the testcase at the end of
-   https://lwn.net/Articles/148830/
-which tests the atomic_op functionality, except that it doesn't verify that
-the operations are atomic, which they obviously are.  This testcase runs
-successfully with the patch and fails without it.
+On Fri, Oct 12, 2018 at 09:57:19AM -0700, Joel Fernandes wrote:
+> On Fri, Oct 12, 2018 at 04:19:46PM +0300, Kirill A. Shutemov wrote:
+> > On Fri, Oct 12, 2018 at 05:50:46AM -0700, Joel Fernandes wrote:
+> > > On Fri, Oct 12, 2018 at 02:30:56PM +0300, Kirill A. Shutemov wrote:
+> > > > On Thu, Oct 11, 2018 at 06:37:56PM -0700, Joel Fernandes (Google) wrote:
+> > > > > Android needs to mremap large regions of memory during memory management
+> > > > > related operations. The mremap system call can be really slow if THP is
+> > > > > not enabled. The bottleneck is move_page_tables, which is copying each
+> > > > > pte at a time, and can be really slow across a large map. Turning on THP
+> > > > > may not be a viable option, and is not for us. This patch speeds up the
+> > > > > performance for non-THP system by copying at the PMD level when possible.
+> > > > > 
+> > > > > The speed up is three orders of magnitude. On a 1GB mremap, the mremap
+> > > > > completion times drops from 160-250 millesconds to 380-400 microseconds.
+> > > > > 
+> > > > > Before:
+> > > > > Total mremap time for 1GB data: 242321014 nanoseconds.
+> > > > > Total mremap time for 1GB data: 196842467 nanoseconds.
+> > > > > Total mremap time for 1GB data: 167051162 nanoseconds.
+> > > > > 
+> > > > > After:
+> > > > > Total mremap time for 1GB data: 385781 nanoseconds.
+> > > > > Total mremap time for 1GB data: 388959 nanoseconds.
+> > > > > Total mremap time for 1GB data: 402813 nanoseconds.
+> > > > > 
+> > > > > Incase THP is enabled, the optimization is skipped. I also flush the
+> > > > > tlb every time we do this optimization since I couldn't find a way to
+> > > > > determine if the low-level PTEs are dirty. It is seen that the cost of
+> > > > > doing so is not much compared the improvement, on both x86-64 and arm64.
+> > > > 
+> > > > I looked into the code more and noticed move_pte() helper called from
+> > > > move_ptes(). It changes PTE entry to suite new address.
+> > > > 
+> > > > It is only defined in non-trivial way on Sparc. I don't know much about
+> > > > Sparc and it's hard for me to say if the optimization will break anything
+> > > > there.
+> > > 
+> > > Sparc's move_pte seems to be flushing the D-cache to prevent aliasing. It is
+> > > not modifying the PTE itself AFAICS:
+> > > 
+> > > #ifdef DCACHE_ALIASING_POSSIBLE
+> > > #define __HAVE_ARCH_MOVE_PTE
+> > > #define move_pte(pte, prot, old_addr, new_addr)                         \
+> > > ({                                                                      \
+> > >         pte_t newpte = (pte);                                           \
+> > >         if (tlb_type != hypervisor && pte_present(pte)) {               \
+> > >                 unsigned long this_pfn = pte_pfn(pte);                  \
+> > >                                                                         \
+> > >                 if (pfn_valid(this_pfn) &&                              \
+> > >                     (((old_addr) ^ (new_addr)) & (1 << 13)))            \
+> > >                         flush_dcache_page_all(current->mm,              \
+> > >                                               pfn_to_page(this_pfn));   \
+> > >         }                                                               \
+> > >         newpte;                                                         \
+> > > })
+> > > #endif
+> > > 
+> > > If its an issue, then how do transparent huge pages work on Sparc?  I don't
+> > > see the huge page code (move_huge_pages) during mremap doing anything special
+> > > for Sparc architecture when moving PMDs..
+> > 
+> > My *guess* is that it will work fine on Sparc as it apprarently it only
+> > cares about change in bit 13 of virtual address. It will never happen for
+> > huge pages or when PTE page tables move.
+> > 
+> > But I just realized that the problem is bigger: since we pass new_addr to
+> > the set_pte_at() we would need to audit all implementations that they are
+> > safe with just moving PTE page table.
+> > 
+> > I would rather go with per-architecture enabling. It's much safer.
+> 
+> I'm Ok with the per-arch enabling, I agree its safer. So I should be adding a
+> a new __HAVE_ARCH_MOVE_PMD right, or did you have a better name for that?
 
-I'm not a kernel expert, so there could be details I got wrong here.  I wasn't
-sure about the memory model support, so I used aqrl which seemed safest, and
-didn't add fences which seemed unnecessary.  I'm not sure about the copyright
-statements, I left in Ralf Baechle's line because I started with his code.
-Checkpatch reports some style problems, but it is the same style as the MIPS
-futex.h, and the uses of ENOSYS appear correct even though it complains about
-them.  I don't know if any of that matters.
+I believe Kconfig option is more cononical way to do this nowadays.
+So CONFIG_HAVE_ARCH_MOVE_PMD, I guess. Or CONFIG_HAVE_MOVE_PMD.
+An arch that supports it would select the option.
 
-Jim
+> Also, do you feel we should still need to remove the address argument from
+> set_pte_alloc? Or should we leave that alone if we do per-arch?
+> I figure I spent a bunch of time on that already anyway, and its a clean up
+> anyway, so may as well do it. But perhaps that "pte_alloc cleanup" can then
+> be a separate patch independent of this series?
 
-Signed-off-by: Jim Wilson <jimw@sifive.com>
----
- arch/riscv/include/asm/futex.h | 129 +++++++++++++++++++++++++++++++++
- 1 file changed, 129 insertions(+)
- create mode 100644 arch/riscv/include/asm/futex.h
+Yeah. The cleanup makes sense anyway.
 
-diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
-new file mode 100644
-index 000000000000..f36ccceda762
---- /dev/null
-+++ b/arch/riscv/include/asm/futex.h
-@@ -0,0 +1,129 @@
-+/*
-+ * This file is subject to the terms and conditions of the GNU General Public
-+ * License.  See the file "COPYING" in the main directory of this archive
-+ * for more details.
-+ *
-+ * Copyright (c) 2006  Ralf Baechle (ralf@linux-mips.org)
-+ * Copyright (c) 2018  Jim Wilson (jimw@sifive.com)
-+ */
-+#ifndef _ASM_FUTEX_H
-+#define _ASM_FUTEX_H
-+
-+#ifdef __KERNEL__
-+
-+#include <linux/futex.h>
-+#include <linux/uaccess.h>
-+#include <asm/errno.h>
-+#include <asm/asm.h>
-+
-+#define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)		\
-+{									\
-+	uintptr_t __tmp;						\
-+	if (__riscv_atomic) {						\
-+		__enable_user_access();					\
-+		__asm__ __volatile__ (					\
-+		"1:	" insn "				\n"	\
-+		"2:						\n"	\
-+		"	.section .fixup,\"ax\"			\n"	\
-+		"	.balign 4				\n"	\
-+		"3:	li %0,%5				\n"	\
-+		"	jump 2b,%3				\n"	\
-+		"	.previous				\n"	\
-+		"	.section __ex_table,\"a\"		\n"	\
-+		"	.balign " RISCV_SZPTR "			\n"	\
-+		"	" RISCV_PTR " 1b, 3b			\n"	\
-+		"	.previous				\n"	\
-+		: "+r" (ret), "=&r" (oldval),				\
-+		  "+m" (*uaddr), "=&r" (__tmp)				\
-+		: "Jr" (oparg), "i" (-EFAULT)				\
-+		: "memory");						\
-+		__disable_user_access();				\
-+	} else {							\
-+		ret = -ENOSYS;						\
-+	}								\
-+}
-+
-+static inline int
-+arch_futex_atomic_op_inuser(int op, int oparg, int *oval, u32 __user *uaddr)
-+{
-+	int oldval = 0, ret = 0;
-+
-+	pagefault_disable();
-+
-+	switch (op) {
-+	case FUTEX_OP_SET:
-+		__futex_atomic_op("amoswap.w.aqrl %1,%z4,%2",
-+				  ret, oldval, uaddr, oparg);
-+		break;
-+	case FUTEX_OP_ADD:
-+		__futex_atomic_op("amoadd.w.aqrl %1,%z4,%2",
-+				  ret, oldval, uaddr, oparg);
-+		break;
-+	case FUTEX_OP_OR:
-+		__futex_atomic_op("amoor.w.aqrl %1,%z4,%2",
-+				  ret, oldval, uaddr, oparg);
-+		break;
-+	case FUTEX_OP_ANDN:
-+		__futex_atomic_op("amoand.w.aqrl %1,%z4,%2",
-+				  ret, oldval, uaddr, ~oparg);
-+		break;
-+	case FUTEX_OP_XOR:
-+		__futex_atomic_op("amoxor.w.aqrl %1,%z4,%2",
-+				  ret, oldval, uaddr, oparg);
-+		break;
-+	default:
-+		ret = -ENOSYS;
-+	}
-+
-+	pagefault_enable();
-+
-+	if (!ret)
-+		*oval = oldval;
-+
-+	return ret;
-+}
-+
-+static inline int
-+futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
-+			      u32 oldval, u32 newval)
-+{
-+	int ret = 0;
-+	u32 val;
-+	uintptr_t __tmp;
-+
-+	if (!access_ok(VERIFY_WRITE, uaddr, sizeof(u32)))
-+		return -EFAULT;
-+
-+	if (__riscv_atomic) {
-+		__enable_user_access();
-+		__asm__ __volatile__ (
-+		"1:	lr.w.aqrl %1,%4				\n"
-+		"	bne %1,%z5,3f				\n"
-+		"2:	sc.w.aqrl %3,%z6,%2			\n"
-+		"	bnez %3,1b				\n"
-+		"3:						\n"
-+		"	.section .fixup,\"ax\"			\n"
-+		"	.balign 4				\n"
-+		"4:	li %0,%7				\n"
-+		"	jump 3b,%3				\n"
-+		"	.previous				\n"
-+		"	.section __ex_table,\"a\"		\n"
-+		"	.balign " RISCV_SZPTR "			\n"
-+		"	" RISCV_PTR " 1b, 4b			\n"
-+		"	" RISCV_PTR " 2b, 4b			\n"
-+		"	.previous				\n"
-+		: "+r" (ret), "=&r" (val), "=m" (*uaddr), "=&r" (__tmp)
-+		: "m" (*uaddr), "Jr" (oldval), "Jr" (newval),
-+		  "i" (-EFAULT)
-+		: "memory");
-+		__disable_user_access();
-+	} else {
-+		ret = -ENOSYS;
-+	}
-+
-+	*uval = val;
-+	return ret;
-+}
-+
-+#endif
-+#endif /* _ASM_FUTEX_H */
 -- 
-2.19.0.rc0
-
+ Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
