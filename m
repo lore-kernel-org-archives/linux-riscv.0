@@ -1,34 +1,75 @@
-From: mick@ics.forth.gr (Nick Kossifidis)
-Date: Fri, 12 Oct 2018 15:44:56 +0300
-Subject: RISCV - missing kernel features
-In-Reply-To: <CAOuPNLjReF+EXOnQM9=e5cHUYOUWync66VMKR5Qt+jrN2WkG8w@mail.gmail.com>
-References: <CAOuPNLjReF+EXOnQM9=e5cHUYOUWync66VMKR5Qt+jrN2WkG8w@mail.gmail.com>
-Message-ID: <b08b6678025254191562823bd6d826bb@mailhost.ics.forth.gr>
+From: joel@joelfernandes.org (Joel Fernandes)
+Date: Fri, 12 Oct 2018 05:50:46 -0700
+Subject: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
+In-Reply-To: <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
+References: <20181012013756.11285-1-joel@joelfernandes.org>
+ <20181012013756.11285-2-joel@joelfernandes.org>
+ <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
+Message-ID: <20181012125046.GA170912@joelaf.mtv.corp.google.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-???? 2018-10-12 14:13, Pintu Kumar ??????:
-> Hi,
+On Fri, Oct 12, 2018 at 02:30:56PM +0300, Kirill A. Shutemov wrote:
+> On Thu, Oct 11, 2018 at 06:37:56PM -0700, Joel Fernandes (Google) wrote:
+> > Android needs to mremap large regions of memory during memory management
+> > related operations. The mremap system call can be really slow if THP is
+> > not enabled. The bottleneck is move_page_tables, which is copying each
+> > pte at a time, and can be really slow across a large map. Turning on THP
+> > may not be a viable option, and is not for us. This patch speeds up the
+> > performance for non-THP system by copying at the PMD level when possible.
+> > 
+> > The speed up is three orders of magnitude. On a 1GB mremap, the mremap
+> > completion times drops from 160-250 millesconds to 380-400 microseconds.
+> > 
+> > Before:
+> > Total mremap time for 1GB data: 242321014 nanoseconds.
+> > Total mremap time for 1GB data: 196842467 nanoseconds.
+> > Total mremap time for 1GB data: 167051162 nanoseconds.
+> > 
+> > After:
+> > Total mremap time for 1GB data: 385781 nanoseconds.
+> > Total mremap time for 1GB data: 388959 nanoseconds.
+> > Total mremap time for 1GB data: 402813 nanoseconds.
+> > 
+> > Incase THP is enabled, the optimization is skipped. I also flush the
+> > tlb every time we do this optimization since I couldn't find a way to
+> > determine if the low-level PTEs are dirty. It is seen that the cost of
+> > doing so is not much compared the improvement, on both x86-64 and arm64.
 > 
-> I am new to RISC-V.
-> However, at first, I could bring up riscv-linux kernel 4.18 on QEMU
-> environment using busy bear. Then I developed several sample
-> applications, drivers, perf, LTP tests and verified on qemu.
-> Now, I am curious to know what are the kernel features that are
-> missing in risc-v right now, and what are the plans.
-> If there is any TO-DO list, please share.
+> I looked into the code more and noticed move_pte() helper called from
+> move_ptes(). It changes PTE entry to suite new address.
 > 
-> I would be more than happy to pick some of them and contribute in my 
-> free time.
-> 
-> Thank You!
-> Regards,
-> Pintu
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv at lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> It is only defined in non-trivial way on Sparc. I don't know much about
+> Sparc and it's hard for me to say if the optimization will break anything
+> there.
 
-We'll have a wiki up next week, for now this thread is useful...
-http://lists.infradead.org/pipermail/linux-riscv/2018-September/001348.html
+Sparc's move_pte seems to be flushing the D-cache to prevent aliasing. It is
+not modifying the PTE itself AFAICS:
+
+#ifdef DCACHE_ALIASING_POSSIBLE
+#define __HAVE_ARCH_MOVE_PTE
+#define move_pte(pte, prot, old_addr, new_addr)                         \
+({                                                                      \
+        pte_t newpte = (pte);                                           \
+        if (tlb_type != hypervisor && pte_present(pte)) {               \
+                unsigned long this_pfn = pte_pfn(pte);                  \
+                                                                        \
+                if (pfn_valid(this_pfn) &&                              \
+                    (((old_addr) ^ (new_addr)) & (1 << 13)))            \
+                        flush_dcache_page_all(current->mm,              \
+                                              pfn_to_page(this_pfn));   \
+        }                                                               \
+        newpte;                                                         \
+})
+#endif
+
+If its an issue, then how do transparent huge pages work on Sparc?  I don't
+see the huge page code (move_huge_pages) during mremap doing anything special
+for Sparc architecture when moving PMDs..
+
+Also, do we not flush the caches from any path when we munmap address space?
+We do call do_munmap on the old mapping from mremap after moving to the new one.
+
+thanks,
+
+ - Joel
