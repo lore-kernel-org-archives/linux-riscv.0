@@ -1,171 +1,102 @@
-From: jimw@sifive.com (Jim Wilson)
-Date: Fri, 12 Oct 2018 13:03:50 -0700
-Subject: [PATCH] RISC-V: Add futex support.
-Message-ID: <20181012200350.5258-1-jimw@sifive.com>
+From: kirill@shutemov.name (Kirill A. Shutemov)
+Date: Sat, 13 Oct 2018 00:33:59 +0300
+Subject: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
+In-Reply-To: <20181012165719.GE223066@joelaf.mtv.corp.google.com>
+References: <20181012013756.11285-1-joel@joelfernandes.org>
+ <20181012013756.11285-2-joel@joelfernandes.org>
+ <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
+ <20181012125046.GA170912@joelaf.mtv.corp.google.com>
+ <20181012131946.zoab2lpfmrycmuju@kshutemo-mobl1>
+ <20181012165719.GE223066@joelaf.mtv.corp.google.com>
+Message-ID: <20181012213359.qpvq3obugbvy73bg@kshutemo-mobl1>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Here is an attempt to add the missing futex support.  I started with the MIPS
-version of futex.h and modified it until I got it working.  I tested it on
-a HiFive Unleashed running Fedora Core 29 using the fc29 4.15 version of the
-kernel.  This was tested against the glibc testsuite, where it fixes 14 nptl
-related testsuite failures.  That unfortunately only tests the cmpxchg support,
-so I also used the testcase at the end of
-   https://lwn.net/Articles/148830/
-which tests the atomic_op functionality, except that it doesn't verify that
-the operations are atomic, which they obviously are.  This testcase runs
-successfully with the patch and fails without it.
+On Fri, Oct 12, 2018 at 09:57:19AM -0700, Joel Fernandes wrote:
+> On Fri, Oct 12, 2018 at 04:19:46PM +0300, Kirill A. Shutemov wrote:
+> > On Fri, Oct 12, 2018 at 05:50:46AM -0700, Joel Fernandes wrote:
+> > > On Fri, Oct 12, 2018 at 02:30:56PM +0300, Kirill A. Shutemov wrote:
+> > > > On Thu, Oct 11, 2018 at 06:37:56PM -0700, Joel Fernandes (Google) wrote:
+> > > > > Android needs to mremap large regions of memory during memory management
+> > > > > related operations. The mremap system call can be really slow if THP is
+> > > > > not enabled. The bottleneck is move_page_tables, which is copying each
+> > > > > pte at a time, and can be really slow across a large map. Turning on THP
+> > > > > may not be a viable option, and is not for us. This patch speeds up the
+> > > > > performance for non-THP system by copying at the PMD level when possible.
+> > > > > 
+> > > > > The speed up is three orders of magnitude. On a 1GB mremap, the mremap
+> > > > > completion times drops from 160-250 millesconds to 380-400 microseconds.
+> > > > > 
+> > > > > Before:
+> > > > > Total mremap time for 1GB data: 242321014 nanoseconds.
+> > > > > Total mremap time for 1GB data: 196842467 nanoseconds.
+> > > > > Total mremap time for 1GB data: 167051162 nanoseconds.
+> > > > > 
+> > > > > After:
+> > > > > Total mremap time for 1GB data: 385781 nanoseconds.
+> > > > > Total mremap time for 1GB data: 388959 nanoseconds.
+> > > > > Total mremap time for 1GB data: 402813 nanoseconds.
+> > > > > 
+> > > > > Incase THP is enabled, the optimization is skipped. I also flush the
+> > > > > tlb every time we do this optimization since I couldn't find a way to
+> > > > > determine if the low-level PTEs are dirty. It is seen that the cost of
+> > > > > doing so is not much compared the improvement, on both x86-64 and arm64.
+> > > > 
+> > > > I looked into the code more and noticed move_pte() helper called from
+> > > > move_ptes(). It changes PTE entry to suite new address.
+> > > > 
+> > > > It is only defined in non-trivial way on Sparc. I don't know much about
+> > > > Sparc and it's hard for me to say if the optimization will break anything
+> > > > there.
+> > > 
+> > > Sparc's move_pte seems to be flushing the D-cache to prevent aliasing. It is
+> > > not modifying the PTE itself AFAICS:
+> > > 
+> > > #ifdef DCACHE_ALIASING_POSSIBLE
+> > > #define __HAVE_ARCH_MOVE_PTE
+> > > #define move_pte(pte, prot, old_addr, new_addr)                         \
+> > > ({                                                                      \
+> > >         pte_t newpte = (pte);                                           \
+> > >         if (tlb_type != hypervisor && pte_present(pte)) {               \
+> > >                 unsigned long this_pfn = pte_pfn(pte);                  \
+> > >                                                                         \
+> > >                 if (pfn_valid(this_pfn) &&                              \
+> > >                     (((old_addr) ^ (new_addr)) & (1 << 13)))            \
+> > >                         flush_dcache_page_all(current->mm,              \
+> > >                                               pfn_to_page(this_pfn));   \
+> > >         }                                                               \
+> > >         newpte;                                                         \
+> > > })
+> > > #endif
+> > > 
+> > > If its an issue, then how do transparent huge pages work on Sparc?  I don't
+> > > see the huge page code (move_huge_pages) during mremap doing anything special
+> > > for Sparc architecture when moving PMDs..
+> > 
+> > My *guess* is that it will work fine on Sparc as it apprarently it only
+> > cares about change in bit 13 of virtual address. It will never happen for
+> > huge pages or when PTE page tables move.
+> > 
+> > But I just realized that the problem is bigger: since we pass new_addr to
+> > the set_pte_at() we would need to audit all implementations that they are
+> > safe with just moving PTE page table.
+> > 
+> > I would rather go with per-architecture enabling. It's much safer.
+> 
+> I'm Ok with the per-arch enabling, I agree its safer. So I should be adding a
+> a new __HAVE_ARCH_MOVE_PMD right, or did you have a better name for that?
 
-I'm not a kernel expert, so there could be details I got wrong here.  I wasn't
-sure about the memory model support, so I used aqrl which seemed safest, and
-didn't add fences which seemed unnecessary.  I'm not sure about the copyright
-statements, I left in Ralf Baechle's line because I started with his code.
-Checkpatch reports some style problems, but it is the same style as the MIPS
-futex.h, and the uses of ENOSYS appear correct even though it complains about
-them.  I don't know if any of that matters.
+I believe Kconfig option is more cononical way to do this nowadays.
+So CONFIG_HAVE_ARCH_MOVE_PMD, I guess. Or CONFIG_HAVE_MOVE_PMD.
+An arch that supports it would select the option.
 
-Jim
+> Also, do you feel we should still need to remove the address argument from
+> set_pte_alloc? Or should we leave that alone if we do per-arch?
+> I figure I spent a bunch of time on that already anyway, and its a clean up
+> anyway, so may as well do it. But perhaps that "pte_alloc cleanup" can then
+> be a separate patch independent of this series?
 
-Signed-off-by: Jim Wilson <jimw@sifive.com>
----
- arch/riscv/include/asm/futex.h | 129 +++++++++++++++++++++++++++++++++
- 1 file changed, 129 insertions(+)
- create mode 100644 arch/riscv/include/asm/futex.h
+Yeah. The cleanup makes sense anyway.
 
-diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
-new file mode 100644
-index 000000000000..f36ccceda762
---- /dev/null
-+++ b/arch/riscv/include/asm/futex.h
-@@ -0,0 +1,129 @@
-+/*
-+ * This file is subject to the terms and conditions of the GNU General Public
-+ * License.  See the file "COPYING" in the main directory of this archive
-+ * for more details.
-+ *
-+ * Copyright (c) 2006  Ralf Baechle (ralf at linux-mips.org)
-+ * Copyright (c) 2018  Jim Wilson (jimw at sifive.com)
-+ */
-+#ifndef _ASM_FUTEX_H
-+#define _ASM_FUTEX_H
-+
-+#ifdef __KERNEL__
-+
-+#include <linux/futex.h>
-+#include <linux/uaccess.h>
-+#include <asm/errno.h>
-+#include <asm/asm.h>
-+
-+#define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)		\
-+{									\
-+	uintptr_t __tmp;						\
-+	if (__riscv_atomic) {						\
-+		__enable_user_access();					\
-+		__asm__ __volatile__ (					\
-+		"1:	" insn "				\n"	\
-+		"2:						\n"	\
-+		"	.section .fixup,\"ax\"			\n"	\
-+		"	.balign 4				\n"	\
-+		"3:	li %0,%5				\n"	\
-+		"	jump 2b,%3				\n"	\
-+		"	.previous				\n"	\
-+		"	.section __ex_table,\"a\"		\n"	\
-+		"	.balign " RISCV_SZPTR "			\n"	\
-+		"	" RISCV_PTR " 1b, 3b			\n"	\
-+		"	.previous				\n"	\
-+		: "+r" (ret), "=&r" (oldval),				\
-+		  "+m" (*uaddr), "=&r" (__tmp)				\
-+		: "Jr" (oparg), "i" (-EFAULT)				\
-+		: "memory");						\
-+		__disable_user_access();				\
-+	} else {							\
-+		ret = -ENOSYS;						\
-+	}								\
-+}
-+
-+static inline int
-+arch_futex_atomic_op_inuser(int op, int oparg, int *oval, u32 __user *uaddr)
-+{
-+	int oldval = 0, ret = 0;
-+
-+	pagefault_disable();
-+
-+	switch (op) {
-+	case FUTEX_OP_SET:
-+		__futex_atomic_op("amoswap.w.aqrl %1,%z4,%2",
-+				  ret, oldval, uaddr, oparg);
-+		break;
-+	case FUTEX_OP_ADD:
-+		__futex_atomic_op("amoadd.w.aqrl %1,%z4,%2",
-+				  ret, oldval, uaddr, oparg);
-+		break;
-+	case FUTEX_OP_OR:
-+		__futex_atomic_op("amoor.w.aqrl %1,%z4,%2",
-+				  ret, oldval, uaddr, oparg);
-+		break;
-+	case FUTEX_OP_ANDN:
-+		__futex_atomic_op("amoand.w.aqrl %1,%z4,%2",
-+				  ret, oldval, uaddr, ~oparg);
-+		break;
-+	case FUTEX_OP_XOR:
-+		__futex_atomic_op("amoxor.w.aqrl %1,%z4,%2",
-+				  ret, oldval, uaddr, oparg);
-+		break;
-+	default:
-+		ret = -ENOSYS;
-+	}
-+
-+	pagefault_enable();
-+
-+	if (!ret)
-+		*oval = oldval;
-+
-+	return ret;
-+}
-+
-+static inline int
-+futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
-+			      u32 oldval, u32 newval)
-+{
-+	int ret = 0;
-+	u32 val;
-+	uintptr_t __tmp;
-+
-+	if (!access_ok(VERIFY_WRITE, uaddr, sizeof(u32)))
-+		return -EFAULT;
-+
-+	if (__riscv_atomic) {
-+		__enable_user_access();
-+		__asm__ __volatile__ (
-+		"1:	lr.w.aqrl %1,%4				\n"
-+		"	bne %1,%z5,3f				\n"
-+		"2:	sc.w.aqrl %3,%z6,%2			\n"
-+		"	bnez %3,1b				\n"
-+		"3:						\n"
-+		"	.section .fixup,\"ax\"			\n"
-+		"	.balign 4				\n"
-+		"4:	li %0,%7				\n"
-+		"	jump 3b,%3				\n"
-+		"	.previous				\n"
-+		"	.section __ex_table,\"a\"		\n"
-+		"	.balign " RISCV_SZPTR "			\n"
-+		"	" RISCV_PTR " 1b, 4b			\n"
-+		"	" RISCV_PTR " 2b, 4b			\n"
-+		"	.previous				\n"
-+		: "+r" (ret), "=&r" (val), "=m" (*uaddr), "=&r" (__tmp)
-+		: "m" (*uaddr), "Jr" (oldval), "Jr" (newval),
-+		  "i" (-EFAULT)
-+		: "memory");
-+		__disable_user_access();
-+	} else {
-+		ret = -ENOSYS;
-+	}
-+
-+	*uval = val;
-+	return ret;
-+}
-+
-+#endif
-+#endif /* _ASM_FUTEX_H */
 -- 
-2.19.0.rc0
+ Kirill A. Shutemov
