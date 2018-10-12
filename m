@@ -1,130 +1,77 @@
-From: joel@joelfernandes.org (Joel Fernandes (Google))
-Date: Thu, 11 Oct 2018 18:37:56 -0700
-Subject: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
+From: kirill@shutemov.name (Kirill A. Shutemov)
+Date: Fri, 12 Oct 2018 14:09:06 +0300
+Subject: [PATCH v2 1/2] treewide: remove unused address argument from
+ pte_alloc functions
 In-Reply-To: <20181012013756.11285-1-joel@joelfernandes.org>
 References: <20181012013756.11285-1-joel@joelfernandes.org>
-Message-ID: <20181012013756.11285-2-joel@joelfernandes.org>
+Message-ID: <20181012110906.fpfttp4nhvsr2ps7@kshutemo-mobl1>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Android needs to mremap large regions of memory during memory management
-related operations. The mremap system call can be really slow if THP is
-not enabled. The bottleneck is move_page_tables, which is copying each
-pte at a time, and can be really slow across a large map. Turning on THP
-may not be a viable option, and is not for us. This patch speeds up the
-performance for non-THP system by copying at the PMD level when possible.
+On Thu, Oct 11, 2018 at 06:37:55PM -0700, Joel Fernandes (Google) wrote:
+> diff --git a/arch/m68k/include/asm/mcf_pgalloc.h b/arch/m68k/include/asm/mcf_pgalloc.h
+> index 12fe700632f4..4399d712f6db 100644
+> --- a/arch/m68k/include/asm/mcf_pgalloc.h
+> +++ b/arch/m68k/include/asm/mcf_pgalloc.h
+> @@ -12,8 +12,7 @@ extern inline void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
+>  
+>  extern const char bad_pmd_string[];
+>  
+> -extern inline pte_t *pte_alloc_one_kernel(struct mm_struct *mm,
+> -	unsigned long address)
+> +extern inline pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
+>  {
+>  	unsigned long page = __get_free_page(GFP_DMA);
+>  
+> @@ -32,8 +31,6 @@ extern inline pmd_t *pmd_alloc_kernel(pgd_t *pgd, unsigned long address)
+>  #define pmd_alloc_one_fast(mm, address) ({ BUG(); ((pmd_t *)1); })
+>  #define pmd_alloc_one(mm, address)      ({ BUG(); ((pmd_t *)2); })
+>  
+> -#define pte_alloc_one_fast(mm, addr) pte_alloc_one(mm, addr)
+> -
 
-The speed up is three orders of magnitude. On a 1GB mremap, the mremap
-completion times drops from 160-250 millesconds to 380-400 microseconds.
+I believe this was one done manually, right?
+Please explicitely state everthing you did on not of sematic patch
 
-Before:
-Total mremap time for 1GB data: 242321014 nanoseconds.
-Total mremap time for 1GB data: 196842467 nanoseconds.
-Total mremap time for 1GB data: 167051162 nanoseconds.
+...
 
-After:
-Total mremap time for 1GB data: 385781 nanoseconds.
-Total mremap time for 1GB data: 388959 nanoseconds.
-Total mremap time for 1GB data: 402813 nanoseconds.
+> diff --git a/arch/microblaze/include/asm/pgalloc.h b/arch/microblaze/include/asm/pgalloc.h
+> index 7c89390c0c13..f4cc9ffc449e 100644
+> --- a/arch/microblaze/include/asm/pgalloc.h
+> +++ b/arch/microblaze/include/asm/pgalloc.h
+> @@ -108,10 +108,9 @@ static inline void free_pgd_slow(pgd_t *pgd)
+>  #define pmd_alloc_one_fast(mm, address)	({ BUG(); ((pmd_t *)1); })
+>  #define pmd_alloc_one(mm, address)	({ BUG(); ((pmd_t *)2); })
+>  
+> -extern pte_t *pte_alloc_one_kernel(struct mm_struct *mm, unsigned long addr);
+> +extern pte_t *pte_alloc_one_kernel(struct mm_struct *mm);
+>  
+> -static inline struct page *pte_alloc_one(struct mm_struct *mm,
+> -		unsigned long address)
+> +static inline struct page *pte_alloc_one(struct mm_struct *mm)
+>  {
+>  	struct page *ptepage;
+>  
+> @@ -132,20 +131,6 @@ static inline struct page *pte_alloc_one(struct mm_struct *mm,
+>  	return ptepage;
+>  }
+>  
+> -static inline pte_t *pte_alloc_one_fast(struct mm_struct *mm,
+> -		unsigned long address)
+> -{
+> -	unsigned long *ret;
+> -
+> -	ret = pte_quicklist;
+> -	if (ret != NULL) {
+> -		pte_quicklist = (unsigned long *)(*ret);
+> -		ret[0] = 0;
+> -		pgtable_cache_size--;
+> -	}
+> -	return (pte_t *)ret;
+> -}
+> -
 
-Incase THP is enabled, the optimization is skipped. I also flush the
-tlb every time we do this optimization since I couldn't find a way to
-determine if the low-level PTEs are dirty. It is seen that the cost of
-doing so is not much compared the improvement, on both x86-64 and arm64.
+Ditto.
 
-Cc: minchan at kernel.org
-Cc: pantin at google.com
-Cc: hughd at google.com
-Cc: lokeshgidra at google.com
-Cc: dancol at google.com
-Cc: mhocko at kernel.org
-Cc: kirill at shutemov.name
-Cc: akpm at linux-foundation.org
-Signed-off-by: Joel Fernandes (Google) <joel@joelfernandes.org>
----
- mm/mremap.c | 62 +++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 62 insertions(+)
-
-diff --git a/mm/mremap.c b/mm/mremap.c
-index 9e68a02a52b1..d82c485822ef 100644
---- a/mm/mremap.c
-+++ b/mm/mremap.c
-@@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
- 		drop_rmap_locks(vma);
- }
- 
-+static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
-+		  unsigned long new_addr, unsigned long old_end,
-+		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
-+{
-+	spinlock_t *old_ptl, *new_ptl;
-+	struct mm_struct *mm = vma->vm_mm;
-+
-+	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
-+	    || old_end - old_addr < PMD_SIZE)
-+		return false;
-+
-+	/*
-+	 * The destination pmd shouldn't be established, free_pgtables()
-+	 * should have release it.
-+	 */
-+	if (WARN_ON(!pmd_none(*new_pmd)))
-+		return false;
-+
-+	/*
-+	 * We don't have to worry about the ordering of src and dst
-+	 * ptlocks because exclusive mmap_sem prevents deadlock.
-+	 */
-+	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
-+	if (old_ptl) {
-+		pmd_t pmd;
-+
-+		new_ptl = pmd_lockptr(mm, new_pmd);
-+		if (new_ptl != old_ptl)
-+			spin_lock_nested(new_ptl, SINGLE_DEPTH_NESTING);
-+
-+		/* Clear the pmd */
-+		pmd = *old_pmd;
-+		pmd_clear(old_pmd);
-+
-+		VM_BUG_ON(!pmd_none(*new_pmd));
-+
-+		/* Set the new pmd */
-+		set_pmd_at(mm, new_addr, new_pmd, pmd);
-+		if (new_ptl != old_ptl)
-+			spin_unlock(new_ptl);
-+		spin_unlock(old_ptl);
-+
-+		*need_flush = true;
-+		return true;
-+	}
-+	return false;
-+}
-+
- unsigned long move_page_tables(struct vm_area_struct *vma,
- 		unsigned long old_addr, struct vm_area_struct *new_vma,
- 		unsigned long new_addr, unsigned long len,
-@@ -239,7 +287,21 @@ unsigned long move_page_tables(struct vm_area_struct *vma,
- 			split_huge_pmd(vma, old_pmd, old_addr);
- 			if (pmd_trans_unstable(old_pmd))
- 				continue;
-+		} else if (extent == PMD_SIZE) {
-+			bool moved;
-+
-+			/* See comment in move_ptes() */
-+			if (need_rmap_locks)
-+				take_rmap_locks(vma);
-+			moved = move_normal_pmd(vma, old_addr, new_addr,
-+					old_end, old_pmd, new_pmd,
-+					&need_flush);
-+			if (need_rmap_locks)
-+				drop_rmap_locks(vma);
-+			if (moved)
-+				continue;
- 		}
-+
- 		if (pte_alloc(new_vma->vm_mm, new_pmd))
- 			break;
- 		next = (new_addr + PMD_SIZE) & PMD_MASK;
 -- 
-2.19.0.605.g01d371f741-goog
+ Kirill A. Shutemov
