@@ -2,95 +2,68 @@ Return-Path: <SRS0=LzlR=MY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=unavailable autolearn_force=no
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4DC26C6783C
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Oct 2018 13:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 43AD0C6783C
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Oct 2018 14:10:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0788020868
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Oct 2018 13:20:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F3A8620865
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Oct 2018 14:10:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gUV7G1wL";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=shutemov-name.20150623.gappssmtp.com header.i=@shutemov-name.20150623.gappssmtp.com header.b="YGQLxTR/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0788020868
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=shutemov.name
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Z1Xiyp/q"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F3A8620865
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=kot-begemot.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XRgfL5k61u1u66oPZQy2jzXvxWZsEsJx7YEYRxZ0c18=; b=gUV7G1wL7qyyXV
-	v3zkJI4Dqd0s3zdkP0XgW0GngtZgqmKVEgBKH85mCPnsg+ukOg1hpT8dQeQEH+f3NCgrJ3V8wMkL8
-	pfZwYWk6CTdlKZaZyyOYc5CBgMsiOBGZNuqJHTNuQiFizBd2bFOsmDDb43o8lebGTwU+TuInbClve
-	treae4vulGp2XafWAv5xByBUah3Il7kaqeAdfvwza8tIEzmyz8yf6zq+V3iH/GVw0ZogQPT7k5M2w
-	xOujwgf6NwZX4l/flxT1Q++EsFryc2gYld7LyXOOoPl+Ip7RM+cYEAHUfDax8PRi7Dt8z4MHsoy4+
-	ReVU62sk4+lOd0oHGNAQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=T6rsWn45iWBOksUk0m0yDGMhZlo4qIlPINBJ9WCG6f0=; b=Z1Xiyp/qSRBuql8m1X0M5ILEe
+	8uA75qtf03JA+3qOoDM/ak9TpSoxb9SHJlItIrh8JS6D183KRlsxNCFPdZ4M8U4tiHe9QLDwVaghU
+	pLQrZh22IgJwuQpsUVRBs22UA3YPMhwAvSJF+j5OGZZRgxDeslk3fm26K96XfaEz/xjegCmB8yJ+B
+	BVDxXXM73wy0arsYBic4F5Z9KIM5AOW3rYyYb5h/qMLQjUU4wGPvre79h/uKYvWknt+/Lpj/yUfIu
+	a2H+4I5wsksKpbkHPV43lotPW2ZNIyOKxfQTaiU7Bg9Z6GvT88aphYWxyD6gC3kXqxMO176D7g7ho
+	7uW7f5v7g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gAxMP-0000br-Dg; Fri, 12 Oct 2018 13:20:09 +0000
-Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
+	id 1gAy9W-000315-Gm; Fri, 12 Oct 2018 14:10:54 +0000
+Received: from ivanoab6.miniserver.com ([5.153.251.140]
+ helo=www.kot-begemot.co.uk)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gAxMJ-0000FH-Bj
- for linux-riscv@lists.infradead.org; Fri, 12 Oct 2018 13:20:06 +0000
-Received: by mail-pl1-x642.google.com with SMTP id y11-v6so5938770plt.3
- for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 06:19:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=shutemov-name.20150623.gappssmtp.com; s=20150623;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to:user-agent;
- bh=qPLu7mXDYNebnqy2itkdFlgzgYtAbH0/XYuxd81Ni0g=;
- b=YGQLxTR/pEGGaKQwkJOPBPFRTunxlW3tZGxesrOXRnJ6KNUkprkgsjFH3yz3BCwgrr
- aYzpBghcn1iHyBVjtKgD40ZPbxRHkilAmJzb7/aFvPSk5SxyasOy3AigGVde1WJB2nax
- zY2/Ac5VgCKM0KrcyJ+RW5uG3SsqMPxflZ6l1QaePADC37N9Ltvz6oG9Aod/JKTtPaDs
- CNP1gfPNcIhVYS97nBIRjsXfwVI0/hOh6yz5e52vOr0n6L+OGcaaHMTa3oKpjyQI30pq
- +2lbu9/KfK8VHGL5qG/kTRpE1ENspnuC41qZ5FOTEi8qxtzqM+whP9MXiu/XeiCSptlJ
- /2xQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=qPLu7mXDYNebnqy2itkdFlgzgYtAbH0/XYuxd81Ni0g=;
- b=DiSmhijXpWnHfOS8kgAW5/q/cisnO+vm86v5qShxvjV3h/K+IGFoaHbuw1GImb+DfM
- qyoQTtxbiQ9DttWGA4AbpkvmUxS5hZZFwAqjRBcnYbrB/Wmgxrmz3pSI1rFVBhEvKEq7
- AFAIZ7FnQtbpG58+E5Xqfn6Rb0K+FjGw/pSWjxpj22xCWJNTHg8aGvzApddX83roOXyy
- nZkjLoxgkaSxpia7YjAOBLMKXZMdNx+Rgypnh13qlqHlRQ7FzpJzIu8gBmb12bdq7cDY
- +zxtmxJfPhZKsGwz89MF8DnDLNy7MPeldH22r3zKbludoPLgOvRrCAHgETsK4R1AWYTD
- Okuw==
-X-Gm-Message-State: ABuFfogfo31bgWo+yuUpeuH03UOzYXaZqyzyzkFSIZtsIiWXszhup/qr
- ysdP/sFCrDYKx17So+CLkZsZPg==
-X-Google-Smtp-Source: ACcGV63NiI8G9L9RoeLis69krPaHbnldlLDZCtg1d0C3iU/tVpX89y6Av72eJGnMr1LMuMBi4E+eAQ==
-X-Received: by 2002:a17:902:bf0a:: with SMTP id
- bi10-v6mr5901268plb.72.1539350392511; 
- Fri, 12 Oct 2018 06:19:52 -0700 (PDT)
-Received: from kshutemo-mobl1.localdomain ([134.134.139.83])
- by smtp.gmail.com with ESMTPSA id t22-v6sm2727444pfk.141.2018.10.12.06.19.50
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 12 Oct 2018 06:19:51 -0700 (PDT)
-Received: by kshutemo-mobl1.localdomain (Postfix, from userid 1000)
- id E9F3E300030; Fri, 12 Oct 2018 16:19:46 +0300 (+03)
-Date: Fri, 12 Oct 2018 16:19:46 +0300
-From: "Kirill A. Shutemov" <kirill@shutemov.name>
-To: Joel Fernandes <joel@joelfernandes.org>
+ id 1gAy9R-0002zi-QZ; Fri, 12 Oct 2018 14:10:51 +0000
+Received: from [192.168.17.6] (helo=smaug.kot-begemot.co.uk)
+ by www.kot-begemot.co.uk with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.89) (envelope-from <anton.ivanov@kot-begemot.co.uk>)
+ id 1gAy8U-0002nI-NC; Fri, 12 Oct 2018 14:09:50 +0000
+Received: from amistad.kot-begemot.co.uk ([192.168.3.89])
+ by smaug.kot-begemot.co.uk with esmtpsa
+ (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128) (Exim 4.89)
+ (envelope-from <anton.ivanov@kot-begemot.co.uk>)
+ id 1gAy8U-0002bW-6c; Fri, 12 Oct 2018 15:09:50 +0100
 Subject: Re: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
-Message-ID: <20181012131946.zoab2lpfmrycmuju@kshutemo-mobl1>
+To: "Joel Fernandes (Google)" <joel@joelfernandes.org>,
+ linux-kernel@vger.kernel.org
 References: <20181012013756.11285-1-joel@joelfernandes.org>
  <20181012013756.11285-2-joel@joelfernandes.org>
- <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
- <20181012125046.GA170912@joelaf.mtv.corp.google.com>
+From: Anton Ivanov <anton.ivanov@kot-begemot.co.uk>
+Message-ID: <9ed82f9e-88c4-8e4f-8c45-3ef153469603@kot-begemot.co.uk>
+Date: Fri, 12 Oct 2018 15:09:49 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20181012125046.GA170912@joelaf.mtv.corp.google.com>
-User-Agent: NeoMutt/20180716
+In-Reply-To: <20181012013756.11285-2-joel@joelfernandes.org>
+Content-Language: en-US
+X-Clacks-Overhead: GNU Terry Pratchett
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181012_062003_482616_0EB43115 
-X-CRM114-Status: GOOD (  25.55  )
+X-CRM114-CacheID: sfid-20181012_071050_034025_EC97D3C6 
+X-CRM114-Status: GOOD (  25.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -111,112 +84,170 @@ Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
  sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
  elfring@users.sourceforge.net, Jonas Bonn <jonas@southpole.se>,
  linux-s390@vger.kernel.org, dancol@google.com,
- Yoshinori Sato <ysato@users.sourceforge.jp>, linux-xtensa@linux-xtensa.org,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Max Filippov <jcmvbkbc@gmail.com>,
  linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>,
- "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ "maintainer:X86 ARCHITECTURE 32-BIT AND 64-BIT" <x86@kernel.org>,
  hughd@google.com, "James E.J. Bottomley" <jejb@parisc-linux.org>,
  kasan-dev@googlegroups.com, kvmarm@lists.cs.columbia.edu,
  Ingo Molnar <mingo@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
  Andrey Ryabinin <aryabinin@virtuozzo.com>, linux-snps-arc@lists.infradead.org,
  kernel-team@android.com, Sam Creasey <sammy@sammy.net>,
- Fenghua Yu <fenghua.yu@intel.com>, Jeff Dike <jdike@addtoit.com>,
- linux-um@lists.infradead.org,
+ linux-xtensa@linux-xtensa.org, Jeff Dike <jdike@addtoit.com>,
+ linux-alpha@vger.kernel.org, linux-um@lists.infradead.org,
  Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
  Julia Lawall <Julia.Lawall@lip6.fr>, linux-m68k@lists.linux-m68k.org,
  openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
- Andy Lutomirski <luto@kernel.org>, nios2-dev@lists.rocketboards.org,
- Stafford Horne <shorne@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
- linux-arm-kernel@lists.infradead.org, Chris Zankel <chris@zankel.net>,
- Tony Luck <tony.luck@intel.com>, Richard Weinberger <richard@nod.at>,
+ Andy Lutomirski <luto@kernel.org>, Ley Foon Tan <lftan@altera.com>,
+ kirill@shutemov.name, Stafford Horne <shorne@gmail.com>,
+ Guan Xuetao <gxt@pku.edu.cn>, linux-arm-kernel@lists.infradead.org,
+ Chris Zankel <chris@zankel.net>, Tony Luck <tony.luck@intel.com>,
  linux-parisc@vger.kernel.org, pantin@google.com,
- Max Filippov <jcmvbkbc@gmail.com>, linux-kernel@vger.kernel.org,
- minchan@kernel.org, Thomas Gleixner <tglx@linutronix.de>,
- linux-alpha@vger.kernel.org, Ley Foon Tan <lftan@altera.com>,
- akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
- "David S. Miller" <davem@davemloft.net>
-Content-Type: text/plain; charset="us-ascii"
+ Fenghua Yu <fenghua.yu@intel.com>, minchan@kernel.org,
+ Thomas Gleixner <tglx@linutronix.de>, Richard Weinberger <richard@nod.at>,
+ nios2-dev@lists.rocketboards.org, akpm@linux-foundation.org,
+ linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181012131946.YJDp11FUW_50rwrBb8gZcB8olUgjBcDH5yWi6wuqaro@z>
+Message-ID: <20181012140949.r9Sv8O2V_xaHa5AagEb6TJwubd_daKcRckJflkAaiAU@z>
 
-On Fri, Oct 12, 2018 at 05:50:46AM -0700, Joel Fernandes wrote:
-> On Fri, Oct 12, 2018 at 02:30:56PM +0300, Kirill A. Shutemov wrote:
-> > On Thu, Oct 11, 2018 at 06:37:56PM -0700, Joel Fernandes (Google) wrote:
-> > > Android needs to mremap large regions of memory during memory management
-> > > related operations. The mremap system call can be really slow if THP is
-> > > not enabled. The bottleneck is move_page_tables, which is copying each
-> > > pte at a time, and can be really slow across a large map. Turning on THP
-> > > may not be a viable option, and is not for us. This patch speeds up the
-> > > performance for non-THP system by copying at the PMD level when possible.
-> > > 
-> > > The speed up is three orders of magnitude. On a 1GB mremap, the mremap
-> > > completion times drops from 160-250 millesconds to 380-400 microseconds.
-> > > 
-> > > Before:
-> > > Total mremap time for 1GB data: 242321014 nanoseconds.
-> > > Total mremap time for 1GB data: 196842467 nanoseconds.
-> > > Total mremap time for 1GB data: 167051162 nanoseconds.
-> > > 
-> > > After:
-> > > Total mremap time for 1GB data: 385781 nanoseconds.
-> > > Total mremap time for 1GB data: 388959 nanoseconds.
-> > > Total mremap time for 1GB data: 402813 nanoseconds.
-> > > 
-> > > Incase THP is enabled, the optimization is skipped. I also flush the
-> > > tlb every time we do this optimization since I couldn't find a way to
-> > > determine if the low-level PTEs are dirty. It is seen that the cost of
-> > > doing so is not much compared the improvement, on both x86-64 and arm64.
-> > 
-> > I looked into the code more and noticed move_pte() helper called from
-> > move_ptes(). It changes PTE entry to suite new address.
-> > 
-> > It is only defined in non-trivial way on Sparc. I don't know much about
-> > Sparc and it's hard for me to say if the optimization will break anything
-> > there.
-> 
-> Sparc's move_pte seems to be flushing the D-cache to prevent aliasing. It is
-> not modifying the PTE itself AFAICS:
-> 
-> #ifdef DCACHE_ALIASING_POSSIBLE
-> #define __HAVE_ARCH_MOVE_PTE
-> #define move_pte(pte, prot, old_addr, new_addr)                         \
-> ({                                                                      \
->         pte_t newpte = (pte);                                           \
->         if (tlb_type != hypervisor && pte_present(pte)) {               \
->                 unsigned long this_pfn = pte_pfn(pte);                  \
->                                                                         \
->                 if (pfn_valid(this_pfn) &&                              \
->                     (((old_addr) ^ (new_addr)) & (1 << 13)))            \
->                         flush_dcache_page_all(current->mm,              \
->                                               pfn_to_page(this_pfn));   \
->         }                                                               \
->         newpte;                                                         \
-> })
-> #endif
-> 
-> If its an issue, then how do transparent huge pages work on Sparc?  I don't
-> see the huge page code (move_huge_pages) during mremap doing anything special
-> for Sparc architecture when moving PMDs..
+On 10/12/18 2:37 AM, Joel Fernandes (Google) wrote:
+> Android needs to mremap large regions of memory during memory management
+> related operations. The mremap system call can be really slow if THP is
+> not enabled. The bottleneck is move_page_tables, which is copying each
+> pte at a time, and can be really slow across a large map. Turning on THP
+> may not be a viable option, and is not for us. This patch speeds up the
+> performance for non-THP system by copying at the PMD level when possible.
+>
+> The speed up is three orders of magnitude. On a 1GB mremap, the mremap
+> completion times drops from 160-250 millesconds to 380-400 microseconds.
+>
+> Before:
+> Total mremap time for 1GB data: 242321014 nanoseconds.
+> Total mremap time for 1GB data: 196842467 nanoseconds.
+> Total mremap time for 1GB data: 167051162 nanoseconds.
+>
+> After:
+> Total mremap time for 1GB data: 385781 nanoseconds.
+> Total mremap time for 1GB data: 388959 nanoseconds.
+> Total mremap time for 1GB data: 402813 nanoseconds.
+>
+> Incase THP is enabled, the optimization is skipped. I also flush the
+> tlb every time we do this optimization since I couldn't find a way to
+> determine if the low-level PTEs are dirty. It is seen that the cost of
+> doing so is not much compared the improvement, on both x86-64 and arm64.
+>
+> Cc: minchan@kernel.org
+> Cc: pantin@google.com
+> Cc: hughd@google.com
+> Cc: lokeshgidra@google.com
+> Cc: dancol@google.com
+> Cc: mhocko@kernel.org
+> Cc: kirill@shutemov.name
+> Cc: akpm@linux-foundation.org
+> Signed-off-by: Joel Fernandes (Google) <joel@joelfernandes.org>
+> ---
+>   mm/mremap.c | 62 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+>   1 file changed, 62 insertions(+)
+>
+> diff --git a/mm/mremap.c b/mm/mremap.c
+> index 9e68a02a52b1..d82c485822ef 100644
+> --- a/mm/mremap.c
+> +++ b/mm/mremap.c
+> @@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
+>   		drop_rmap_locks(vma);
+>   }
+>   
+> +static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
+> +		  unsigned long new_addr, unsigned long old_end,
+> +		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
+> +{
+> +	spinlock_t *old_ptl, *new_ptl;
+> +	struct mm_struct *mm = vma->vm_mm;
+> +
+> +	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
+> +	    || old_end - old_addr < PMD_SIZE)
+> +		return false;
+> +
+> +	/*
+> +	 * The destination pmd shouldn't be established, free_pgtables()
+> +	 * should have release it.
+> +	 */
+> +	if (WARN_ON(!pmd_none(*new_pmd)))
+> +		return false;
+> +
+> +	/*
+> +	 * We don't have to worry about the ordering of src and dst
+> +	 * ptlocks because exclusive mmap_sem prevents deadlock.
+> +	 */
+> +	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
+> +	if (old_ptl) {
+> +		pmd_t pmd;
+> +
+> +		new_ptl = pmd_lockptr(mm, new_pmd);
+> +		if (new_ptl != old_ptl)
+> +			spin_lock_nested(new_ptl, SINGLE_DEPTH_NESTING);
+> +
+> +		/* Clear the pmd */
+> +		pmd = *old_pmd;
+> +		pmd_clear(old_pmd);
+> +
+> +		VM_BUG_ON(!pmd_none(*new_pmd));
+> +
+> +		/* Set the new pmd */
+> +		set_pmd_at(mm, new_addr, new_pmd, pmd);
 
-My *guess* is that it will work fine on Sparc as it apprarently it only
-cares about change in bit 13 of virtual address. It will never happen for
-huge pages or when PTE page tables move.
+UML does not have set_pmd_at at all
 
-But I just realized that the problem is bigger: since we pass new_addr to
-the set_pte_at() we would need to audit all implementations that they are
-safe with just moving PTE page table.
+If I read the code right, MIPS completely ignores the address argument 
+so set_pmd_at there may not have the effect which this patch is trying 
+to achieve.
 
-I would rather go with per-architecture enabling. It's much safer.
+IMHO, this needs to be a per-architecture, not across full tree.
 
-> Also, do we not flush the caches from any path when we munmap address space?
-> We do call do_munmap on the old mapping from mremap after moving to the new one.
+> +		if (new_ptl != old_ptl)
+> +			spin_unlock(new_ptl);
+> +		spin_unlock(old_ptl);
+> +
+> +		*need_flush = true;
+> +		return true;
+> +	}
+> +	return false;
+> +}
+> +
+>   unsigned long move_page_tables(struct vm_area_struct *vma,
+>   		unsigned long old_addr, struct vm_area_struct *new_vma,
+>   		unsigned long new_addr, unsigned long len,
+> @@ -239,7 +287,21 @@ unsigned long move_page_tables(struct vm_area_struct *vma,
+>   			split_huge_pmd(vma, old_pmd, old_addr);
+>   			if (pmd_trans_unstable(old_pmd))
+>   				continue;
+> +		} else if (extent == PMD_SIZE) {
+> +			bool moved;
+> +
+> +			/* See comment in move_ptes() */
+> +			if (need_rmap_locks)
+> +				take_rmap_locks(vma);
+> +			moved = move_normal_pmd(vma, old_addr, new_addr,
+> +					old_end, old_pmd, new_pmd,
+> +					&need_flush);
+> +			if (need_rmap_locks)
+> +				drop_rmap_locks(vma);
+> +			if (moved)
+> +				continue;
+>   		}
+> +
+>   		if (pte_alloc(new_vma->vm_mm, new_pmd))
+>   			break;
+>   		next = (new_addr + PMD_SIZE) & PMD_MASK;
 
-Are you sure about that? It can be hided deeper in architecture-specific
-code.
 
--- 
- Kirill A. Shutemov
+Brgds,
+
+
+A.
+
 
 _______________________________________________
 linux-riscv mailing list
