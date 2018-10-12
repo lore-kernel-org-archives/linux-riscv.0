@@ -1,26 +1,34 @@
-From: kirill@shutemov.name (Kirill A. Shutemov)
-Date: Fri, 12 Oct 2018 14:36:45 +0300
-Subject: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
-In-Reply-To: <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
-References: <20181012013756.11285-1-joel@joelfernandes.org>
- <20181012013756.11285-2-joel@joelfernandes.org>
- <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
-Message-ID: <20181012113644.meqy5yb3xrxyh6lh@kshutemo-mobl1>
+From: mick@ics.forth.gr (Nick Kossifidis)
+Date: Fri, 12 Oct 2018 15:44:56 +0300
+Subject: RISCV - missing kernel features
+In-Reply-To: <CAOuPNLjReF+EXOnQM9=e5cHUYOUWync66VMKR5Qt+jrN2WkG8w@mail.gmail.com>
+References: <CAOuPNLjReF+EXOnQM9=e5cHUYOUWync66VMKR5Qt+jrN2WkG8w@mail.gmail.com>
+Message-ID: <b08b6678025254191562823bd6d826bb@mailhost.ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, Oct 12, 2018 at 02:30:56PM +0300, Kirill A. Shutemov wrote:
-> On Thu, Oct 11, 2018 at 06:37:56PM -0700, Joel Fernandes (Google) wrote:
-> > @@ -239,7 +287,21 @@ unsigned long move_page_tables(struct vm_area_struct *vma,
-> >  			split_huge_pmd(vma, old_pmd, old_addr);
-> >  			if (pmd_trans_unstable(old_pmd))
-> >  				continue;
-> > +		} else if (extent == PMD_SIZE) {
+???? 2018-10-12 14:13, Pintu Kumar ??????:
+> Hi,
 > 
-> Hm. What guarantees that new_addr is PMD_SIZE-aligned?
-> It's not obvious to me.
+> I am new to RISC-V.
+> However, at first, I could bring up riscv-linux kernel 4.18 on QEMU
+> environment using busy bear. Then I developed several sample
+> applications, drivers, perf, LTP tests and verified on qemu.
+> Now, I am curious to know what are the kernel features that are
+> missing in risc-v right now, and what are the plans.
+> If there is any TO-DO list, please share.
+> 
+> I would be more than happy to pick some of them and contribute in my 
+> free time.
+> 
+> Thank You!
+> Regards,
+> Pintu
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv at lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-Ignore this :)
-
--- 
- Kirill A. Shutemov
+We'll have a wiki up next week, for now this thread is useful...
+http://lists.infradead.org/pipermail/linux-riscv/2018-September/001348.html
