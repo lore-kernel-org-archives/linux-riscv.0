@@ -2,85 +2,86 @@ Return-Path: <SRS0=D72f=MZ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C858C6787C
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4D87FC71122
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:32:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 474C820895
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:32:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1EC1620895
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:32:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="K7vn6uoM";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="aZ2XsHZU"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 474C820895
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="twlUZuuh";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="lwmRep2s"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1EC1620895
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=joelfernandes.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tJkd+W8FDakisABlLASQM0gPd+CTt7nhidEFU0dkfnE=; b=K7vn6uoMFgl8Rm
-	BG0an3potZeYhhRtJRMa8Y4HAEaE73DF66rrRNRJPxV2Xl9ru3yfDQbNNPlxRCOO6tu6X8BNMRQnt
-	JgCKSet7BUolmR0LADAGtiGnB0Ctr4FT5LI5WtrFEfd9zsY/iV1LWzWkXBfgetsaqk4ZcuKtwAPd1
-	AcjjBuUi6cSU0nLRA1DTARWhzzMs7h2pJq3UIU1sRDDvLSoElHbGZdjucUYvIJ2CSScCeoKGTMISc
-	aRwg9c32pT8HDYynaDSn+8JH4Zk3jPUqX7fraYCTjnTEbaUo1GkuHzkZYvOej7s4AprsT1KWG9lTf
-	FKiLB6JvjVlM7+yxhqcw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/vnqw4sThJiAQyUbqpdymRMr53qmEzFmrbmdARM0L38=; b=twlUZuuhbg0x3K
+	pujOsvF1SSsW+OG7qm1PCH6Au0w0zBOAv7sA68A72GuGApgCnnGWEsJbbTtGfW0Pmwthi6+b+AQXC
+	oOq5tg3mGprTGlbmN+4JSZZgOjqHHdrqWoU8UabVyQtEDs1KLkxQEwKkTnyVEWitIvhMrnHXGPxtA
+	cptYNQ8dxKfvlbNiFbDKxnrkOdtg2pvE5mDDOexswJrPXDXiyHyufpOJZprvXK8/kXTa4n0YOq0fK
+	RnsNpWhN9z+4gXeSDj+O6gxnBfRB7G8r9/q6pgUE6qET8426P47Ek9/zrEwxdJJXAGc2dWVDk2zWv
+	EBbNeJ+2dXIofpJW9scQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gB8nE-0004Pc-D3; Sat, 13 Oct 2018 01:32:36 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1gB8nL-0004Sa-LB; Sat, 13 Oct 2018 01:32:43 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gB8n8-0004Lq-Hi
- for linux-riscv@lists.infradead.org; Sat, 13 Oct 2018 01:32:32 +0000
-Received: by mail-pg1-x544.google.com with SMTP id 23-v6so6596084pgc.8
- for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 18:32:18 -0700 (PDT)
+ id 1gB8n8-0004Ly-HW
+ for linux-riscv@lists.infradead.org; Sat, 13 Oct 2018 01:32:37 +0000
+Received: by mail-pg1-x541.google.com with SMTP id n31-v6so6601107pgm.7
+ for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 18:32:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=joelfernandes.org; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=/tt52pA472dSwsAAwQJ939rJwzTfqkSaNx9EwvICru0=;
- b=aZ2XsHZUVMUuO5DvSG7J3SKtJwMjFPFkNKSdOTMVPxEWZUBHqCq91bWsY5lJSZ5abW
- MspF88SV9xG3kBt1cxNpgjwLM9fjqG9Qr8THIveYjgxWMmIJI/3CsoQ1euVVO+u9jU3b
- 84AjE6qoveKMUd+TSCAUYFppegkJuFE12F9Zo=
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=TuTZZG6t7Vpxk6hICMjuKsRejg5EuhIlnOB0TcQ6zaw=;
+ b=lwmRep2sGNPNtJhgB9RsOPKTOOSB/krJ8anCRbmRRsLRPZ/Xgg8wtftrtImybZPJ9o
+ ta6TKRrl0gc5jms/MCsxSVJ+O1Hrax3boWXjxUDfy0mAOjOPdatt+VtwlcaiJ8EZAXsz
+ W1Bl/HdY1fIvlWc7La4wrjjn5Dnmh5o9mNT2I=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=/tt52pA472dSwsAAwQJ939rJwzTfqkSaNx9EwvICru0=;
- b=pt5eIUtJ94wDd0zGeL0xOjOORMR2ZiS/dbNRbQbtjLR0JzSBahYt2pyDjMNIXxF2Yz
- lbOm8kJ0vx3CObIVWv+y7y3F1RlrmyFA0gohyBy1wvK9bYUoXRXdJ3JBjxs7pMfcl4Gy
- 2bk+wg52egcgluQJxZ9U0RBj7Jr9tU/3JjquLxkbENwbJ8eIy3hjcQ98S0pExrs7YVoW
- yXachrRx5mRDGSmKld2tncUZyZ+6L6PrpjuJ3LDg/JgqXh62cVoNzurlxqBVPxCh2ap0
- N7ynEA2TV6RPsv1n1QZs8HYxlxIxrCXCYqdRlJIC+tKX+FcwuLTneIIoS6nwQMvSQSim
- psXw==
-X-Gm-Message-State: ABuFfohgZ7NrLwc+3Zk7oKHnKgXsMTLnfO5I3oeddMVuExa3aqmHFxsw
- +Pumi37oHmNchFEiTxyHXNpITQ==
-X-Google-Smtp-Source: ACcGV63QPVBHwSaBapNX/Xe3if6+zBlb78Rh0S4DGfzofyGyhDp7+M5q3Vlq+GIpXS8LG6/GNUgmRw==
-X-Received: by 2002:a63:ae4d:: with SMTP id
- e13-v6mr7685442pgp.315.1539394337561; 
- Fri, 12 Oct 2018 18:32:17 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=TuTZZG6t7Vpxk6hICMjuKsRejg5EuhIlnOB0TcQ6zaw=;
+ b=RQbYl4p/OxunEtC33gKB7lzisrV/6d/Ey8q4pPGyDfvNicSW3cUJf3+SjtFKjJHpnM
+ S17LSAwCx/Vv67tFXm79/vlEjOGx1vkcbkUZLWYUZ0krGDA6Pg1mvJ+UhjJaX7A64ZbS
+ iyE9GetrCNi9Ms7kV95B8qqSvo51INeKOdtAMIfDjqdA7Z0FIvjO4LUkhvAgpCfRtUUC
+ +NvBYQbi50mhR+Yk6RgeqH+vUt3S2xB+SeQahwgwPYOAwqns2RfP4HRs+0RPv6YVtW97
+ bFO9kF3b3Uwqm0r8n6gshmnDqGrBta13wGScKskfnPQr6yv6ZOxTgw4qNQBi2PPhk5UT
+ z5ZQ==
+X-Gm-Message-State: ABuFfojeLhuq/AD4x5Q/X24A4cV5EuUESH54zA/rzhrp01n9EZSDnewP
+ tgFv5KHaBO0nSMcFzXHLPj8VJw==
+X-Google-Smtp-Source: ACcGV61+9EmPtOdQGzTHjVGwLpiqYsmqyZ1bXa4NAgT6WNqQkE33CkAc0nRdLLEL017wJ1a4KyTnew==
+X-Received: by 2002:a63:b08:: with SMTP id 8-v6mr7584652pgl.130.1539394343099; 
+ Fri, 12 Oct 2018 18:32:23 -0700 (PDT)
 Received: from joelaf.mtv.corp.google.com
  ([2620:0:1000:1601:3aef:314f:b9ea:889f])
- by smtp.gmail.com with ESMTPSA id q7-v6sm6507828pfd.164.2018.10.12.18.32.14
+ by smtp.gmail.com with ESMTPSA id q7-v6sm6507828pfd.164.2018.10.12.18.32.20
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 12 Oct 2018 18:32:16 -0700 (PDT)
+ Fri, 12 Oct 2018 18:32:21 -0700 (PDT)
 From: "Joel Fernandes (Google)" <joel@joelfernandes.org>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 0/4] Add support for fast mremap
-Date: Fri, 12 Oct 2018 18:31:56 -0700
-Message-Id: <20181013013200.206928-1-joel@joelfernandes.org>
+Subject: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
+Date: Fri, 12 Oct 2018 18:31:58 -0700
+Message-Id: <20181013013200.206928-3-joel@joelfernandes.org>
 X-Mailer: git-send-email 2.19.0.605.g01d371f741-goog
+In-Reply-To: <20181013013200.206928-1-joel@joelfernandes.org>
+References: <20181013013200.206928-1-joel@joelfernandes.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181012_183230_648265_3EF9E498 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20181012_183230_656833_AFDEDB5D 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -115,11 +116,11 @@ Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
  Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
  Julia Lawall <Julia.Lawall@lip6.fr>, linux-m68k@lists.linux-m68k.org,
  Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
- nios2-dev@lists.rocketboards.org, "Kirill A. Shutemov" <kirill@shutemov.name>,
+ nios2-dev@lists.rocketboards.org, kirill@shutemov.name,
  Stafford Horne <shorne@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
  Chris Zankel <chris@zankel.net>, Tony Luck <tony.luck@intel.com>,
  Richard Weinberger <richard@nod.at>, linux-parisc@vger.kernel.org,
- Max Filippov <jcmvbkbc@gmail.com>, pantin@google.com, minchan@kernel.org,
+ pantin@google.com, Max Filippov <jcmvbkbc@gmail.com>, minchan@kernel.org,
  Thomas Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org,
  Ley Foon Tan <lftan@altera.com>, akpm@linux-foundation.org,
  linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>
@@ -127,81 +128,151 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181013013156.KVb07pVPFYO2k3taVPqzLjCLjqizE6NwipN3dl5GsSw@z>
+Message-ID: <20181013013158.UbgTghEx6hvrDuq8gpeKxT9qWKjG5_a89lT_TrCGFJI@z>
 
-Hi,
-Here is the latest "fast mremap" series. The main change in this submission is
-to enable the fast mremap optimization on a per-architecture basis to prevent
-possible issues with architectures that may not behave well with such change.
+Android needs to mremap large regions of memory during memory management
+related operations. The mremap system call can be really slow if THP is
+not enabled. The bottleneck is move_page_tables, which is copying each
+pte at a time, and can be really slow across a large map. Turning on THP
+may not be a viable option, and is not for us. This patch speeds up the
+performance for non-THP system by copying at the PMD level when possible.
 
-x86: select HAVE_MOVE_PMD for faster mremap (v1)
+The speed up is three orders of magnitude. On a 1GB mremap, the mremap
+completion times drops from 160-250 millesconds to 380-400 microseconds.
 
-arm64: select HAVE_MOVE_PMD for faster mremap (v1)
+Before:
+Total mremap time for 1GB data: 242321014 nanoseconds.
+Total mremap time for 1GB data: 196842467 nanoseconds.
+Total mremap time for 1GB data: 167051162 nanoseconds.
 
-mm: speed up mremap by 500x on large regions (v2)
-v1->v2: Added support for per-arch enablement (Kirill Shutemov)
+After:
+Total mremap time for 1GB data: 385781 nanoseconds.
+Total mremap time for 1GB data: 388959 nanoseconds.
+Total mremap time for 1GB data: 402813 nanoseconds.
 
-treewide: remove unused address argument from pte_alloc functions (v2)
-v1->v2: fix arch/um/ prototype which was missed in v1 (Anton Ivanov)
-        update changelog with manual fixups for m68k and microblaze.
+Incase THP is enabled, the optimization is skipped. I also flush the
+tlb every time we do this optimization since I couldn't find a way to
+determine if the low-level PTEs are dirty. It is seen that the cost of
+doing so is not much compared the improvement, on both x86-64 and arm64.
 
-Joel Fernandes (Google) (4):
-  treewide: remove unused address argument from pte_alloc functions (v2)
-  mm: speed up mremap by 500x on large regions (v2)
-  arm64: select HAVE_MOVE_PMD for faster mremap (v1)
-  x86: select HAVE_MOVE_PMD for faster mremap (v1)
+Cc: minchan@kernel.org
+Cc: pantin@google.com
+Cc: hughd@google.com
+Cc: lokeshgidra@google.com
+Cc: dancol@google.com
+Cc: mhocko@kernel.org
+Cc: kirill@shutemov.name
+Cc: akpm@linux-foundation.org
+Cc: kernel-team@android.com
+Signed-off-by: Joel Fernandes (Google) <joel@joelfernandes.org>
+---
+ arch/Kconfig |  5 ++++
+ mm/mremap.c  | 65 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 70 insertions(+)
 
- arch/Kconfig                                 |  5 ++
- arch/alpha/include/asm/pgalloc.h             |  6 +-
- arch/arc/include/asm/pgalloc.h               |  5 +-
- arch/arm/include/asm/pgalloc.h               |  4 +-
- arch/arm64/Kconfig                           |  1 +
- arch/arm64/include/asm/pgalloc.h             |  4 +-
- arch/hexagon/include/asm/pgalloc.h           |  6 +-
- arch/ia64/include/asm/pgalloc.h              |  5 +-
- arch/m68k/include/asm/mcf_pgalloc.h          |  8 +--
- arch/m68k/include/asm/motorola_pgalloc.h     |  4 +-
- arch/m68k/include/asm/sun3_pgalloc.h         |  6 +-
- arch/microblaze/include/asm/pgalloc.h        | 19 +-----
- arch/microblaze/mm/pgtable.c                 |  3 +-
- arch/mips/include/asm/pgalloc.h              |  6 +-
- arch/nds32/include/asm/pgalloc.h             |  5 +-
- arch/nios2/include/asm/pgalloc.h             |  6 +-
- arch/openrisc/include/asm/pgalloc.h          |  5 +-
- arch/openrisc/mm/ioremap.c                   |  3 +-
- arch/parisc/include/asm/pgalloc.h            |  4 +-
- arch/powerpc/include/asm/book3s/32/pgalloc.h |  4 +-
- arch/powerpc/include/asm/book3s/64/pgalloc.h | 12 ++--
- arch/powerpc/include/asm/nohash/32/pgalloc.h |  4 +-
- arch/powerpc/include/asm/nohash/64/pgalloc.h |  6 +-
- arch/powerpc/mm/pgtable-book3s64.c           |  2 +-
- arch/powerpc/mm/pgtable_32.c                 |  4 +-
- arch/riscv/include/asm/pgalloc.h             |  6 +-
- arch/s390/include/asm/pgalloc.h              |  4 +-
- arch/sh/include/asm/pgalloc.h                |  6 +-
- arch/sparc/include/asm/pgalloc_32.h          |  5 +-
- arch/sparc/include/asm/pgalloc_64.h          |  6 +-
- arch/sparc/mm/init_64.c                      |  6 +-
- arch/sparc/mm/srmmu.c                        |  4 +-
- arch/um/include/asm/pgalloc.h                |  4 +-
- arch/um/kernel/mem.c                         |  4 +-
- arch/unicore32/include/asm/pgalloc.h         |  4 +-
- arch/x86/Kconfig                             |  1 +
- arch/x86/include/asm/pgalloc.h               |  4 +-
- arch/x86/mm/pgtable.c                        |  4 +-
- arch/xtensa/include/asm/pgalloc.h            |  8 +--
- include/linux/mm.h                           | 13 ++--
- mm/huge_memory.c                             |  8 +--
- mm/kasan/kasan_init.c                        |  2 +-
- mm/memory.c                                  | 17 +++--
- mm/migrate.c                                 |  2 +-
- mm/mremap.c                                  | 67 +++++++++++++++++++-
- mm/userfaultfd.c                             |  2 +-
- virt/kvm/arm/mmu.c                           |  2 +-
- 47 files changed, 169 insertions(+), 147 deletions(-)
-
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 6801123932a5..9724fe39884f 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -518,6 +518,11 @@ config HAVE_IRQ_TIME_ACCOUNTING
+ 	  Archs need to ensure they use a high enough resolution clock to
+ 	  support irq time accounting and then call enable_sched_clock_irqtime().
+ 
++config HAVE_MOVE_PMD
++	bool
++	help
++	  Archs that select this are able to move page tables at the PMD level.
++
+ config HAVE_ARCH_TRANSPARENT_HUGEPAGE
+ 	bool
+ 
+diff --git a/mm/mremap.c b/mm/mremap.c
+index 9e68a02a52b1..2fd163cff406 100644
+--- a/mm/mremap.c
++++ b/mm/mremap.c
+@@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
+ 		drop_rmap_locks(vma);
+ }
+ 
++static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
++		  unsigned long new_addr, unsigned long old_end,
++		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
++{
++	spinlock_t *old_ptl, *new_ptl;
++	struct mm_struct *mm = vma->vm_mm;
++
++	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
++	    || old_end - old_addr < PMD_SIZE)
++		return false;
++
++	/*
++	 * The destination pmd shouldn't be established, free_pgtables()
++	 * should have release it.
++	 */
++	if (WARN_ON(!pmd_none(*new_pmd)))
++		return false;
++
++	/*
++	 * We don't have to worry about the ordering of src and dst
++	 * ptlocks because exclusive mmap_sem prevents deadlock.
++	 */
++	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
++	if (old_ptl) {
++		pmd_t pmd;
++
++		new_ptl = pmd_lockptr(mm, new_pmd);
++		if (new_ptl != old_ptl)
++			spin_lock_nested(new_ptl, SINGLE_DEPTH_NESTING);
++
++		/* Clear the pmd */
++		pmd = *old_pmd;
++		pmd_clear(old_pmd);
++
++		VM_BUG_ON(!pmd_none(*new_pmd));
++
++		/* Set the new pmd */
++		set_pmd_at(mm, new_addr, new_pmd, pmd);
++		if (new_ptl != old_ptl)
++			spin_unlock(new_ptl);
++		spin_unlock(old_ptl);
++
++		*need_flush = true;
++		return true;
++	}
++	return false;
++}
++
+ unsigned long move_page_tables(struct vm_area_struct *vma,
+ 		unsigned long old_addr, struct vm_area_struct *new_vma,
+ 		unsigned long new_addr, unsigned long len,
+@@ -239,7 +287,24 @@ unsigned long move_page_tables(struct vm_area_struct *vma,
+ 			split_huge_pmd(vma, old_pmd, old_addr);
+ 			if (pmd_trans_unstable(old_pmd))
+ 				continue;
++		} else if (extent == PMD_SIZE && IS_ENABLED(CONFIG_HAVE_MOVE_PMD)) {
++			/*
++			 * If the extent is PMD-sized, try to speed the move by
++			 * moving at the PMD level if possible.
++			 */
++			bool moved;
++
++			if (need_rmap_locks)
++				take_rmap_locks(vma);
++			moved = move_normal_pmd(vma, old_addr, new_addr,
++					old_end, old_pmd, new_pmd,
++					&need_flush);
++			if (need_rmap_locks)
++				drop_rmap_locks(vma);
++			if (moved)
++				continue;
+ 		}
++
+ 		if (pte_alloc(new_vma->vm_mm, new_pmd))
+ 			break;
+ 		next = (new_addr + PMD_SIZE) & PMD_MASK;
 -- 
 2.19.0.605.g01d371f741-goog
+
 
 _______________________________________________
 linux-riscv mailing list
