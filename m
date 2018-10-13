@@ -2,74 +2,78 @@ Return-Path: <SRS0=D72f=MZ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7F732C71122
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0006BC6787C
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 02:11:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4840420865
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:54:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A7B0B20895
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 02:11:17 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JKQVJqct";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="oO7CQBJ0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4840420865
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ocXRNal1";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="N2gi5ZnN"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A7B0B20895
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=joelfernandes.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P9SRHhdmruuMTeJG6tcR+kvUVljT/pxo2MX5n3PWq9A=; b=JKQVJqctSMCawT
-	aaoebvMk4WR7i2EBiloE+eTEX4jERA1NsJIrAouv4qifyzRY2YQrQEh5dC9Oz3Kof1uUXAFaHpiEP
-	7DwDf2fFiLsv115FvdlhlrI5eVJU77WZ3wuPjcBFc8WigiYUt5JywyhTFylp9VlVcQbt5aC33qLJB
-	DpMufqDLyFQm8GQ8BAFLRwVVSwKM+suA41ZzfDZ/6hGqJSyCrnLuJAGHDmiXMKtrkVvdKL8EBnyDr
-	EEcBkLW9RxZjj5XRmHii5RsMrsDVDgDBQ84jE3ttBRHo6rSizg3WrFmO7vEKkC91vD3jPNAdHpSQY
-	jqjwNWEK6d/Lhe7/aZWw==;
+	List-Owner; bh=yrjwdsNXt50TWoQ+3sta4EY/4Zaz+p4PSWfMiIdQHF0=; b=ocXRNal15X+qTO
+	eNgTJhpp2VlTapruOPMzSNO3JJbKiBdpmK+vUPl/3Y3WOzsCAiVzWpfts0XX62r3AixN0o21KRGU7
+	45v2edclLzpbSEuhQaNgCws2eMzTpwodMV7c7q04yCMtMto/fuAZ4zTE5eHYBHsl/i16wMC3dJkK9
+	yTGIJTyrglb0Re2hKmX2gu4pIsbJn66Ag6IMqjf0YOO9Tr3wIJZpYay/DrbbExhys6LPHUPz6XXMN
+	09cUNbonB/XkWctEOyyd8Zu/vmYaDPrtOc5KcEze1pJTijd6CrWg/0r/9fbmjqQbzpn8VESIK+5IX
+	GDsu/NbUtMN6M1znOwUw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gB98q-0003Hc-1X; Sat, 13 Oct 2018 01:54:56 +0000
-Received: from mail-ot1-x343.google.com ([2607:f8b0:4864:20::343])
+	id 1gB9Oc-0001k2-Jp; Sat, 13 Oct 2018 02:11:14 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gB98m-0003EH-RA
- for linux-riscv@lists.infradead.org; Sat, 13 Oct 2018 01:54:54 +0000
-Received: by mail-ot1-x343.google.com with SMTP id c32so14078679otb.8
- for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 18:54:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=mime-version:in-reply-to:references:from:date:message-id:subject:to
- :cc; bh=ruDqHADLGhUq/OqjXNRFevT5jDn0habRcwA3l0QGuG8=;
- b=oO7CQBJ0o3h4W+oksCLNlcAMMdo7sg4Jtv1VCUZcuw6SrUuKQoC7/yRbVEByqVegR5
- 2XakAmI6gLBq49bXmjVYz4+acBeAcuwKtUHPjj2sGXy+jzOkdhqdTL0YPcZPqB+LKt6o
- bhRful9oO7cRR8nbmHw1A7uqI9ttcB1fV31XpSXw7a9IcC+joMzcgVc8TxQKKcRQt8Re
- zoNMfZUWu+1do2+6RW0MSWVyN/9DUjKrGt5dJpbjxpWiCS22HxYleuy9uZIoJeze7/q0
- zCoyyhRBLvqgZ71FAynWB3xe4pRvB3ibgZGe60xwaYIUrVPx8bwkXyzud+F7R7U1MaXx
- /VYA==
+ id 1gB9OY-0001i9-Oz
+ for linux-riscv@lists.infradead.org; Sat, 13 Oct 2018 02:11:12 +0000
+Received: by mail-pg1-x543.google.com with SMTP id i4-v6so6621514pgq.9
+ for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 19:11:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=joelfernandes.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=6XZWKP2pbysVG8F4WKX4YkunFpUXVJoneS2qWT0rIgM=;
+ b=N2gi5ZnNq30pQxOnEBYq6zdh6G0ns+SI6AVZkhimNQGD9yQOm5UYR6JGFwS2BUFCIW
+ FauhTl3Q+WSZVHehFg8SNEE/bWYFsI9CNtDr8BWvee6Gq8YU62TJwxNiZpLSShCoUVdR
+ L56i07BfoCPIOURgBXyQvQokxNKgq+N+jyEKk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:in-reply-to:references:from:date
- :message-id:subject:to:cc;
- bh=ruDqHADLGhUq/OqjXNRFevT5jDn0habRcwA3l0QGuG8=;
- b=l8rghv4xbJYFoEp1oEBqP3z05Yf5180/JHOmicxcBxHMTJtp3utqRhEsgln+gHh7b7
- Ay/pvw6IIsESx0xJgK2LWVPaqvuo7BD1BitpQoQhR6n05aobAVs6bJ+zcJ09L1FrPV8s
- niq75EqN5Pj9vIj0U9gL0hEvsArMjarMaRyuvOpLqnkVRhHfbFkaFDy8vGUQgddrUCT9
- en1L4raOZrfnzUjEh12bejGuutTgpIPDTZI1YB5Sj/yiF1ekLKYq81MwWDHxSgbaJdh8
- prCSKhpc/Tl3F1tZisU0WgMy7L7YQ63VTzeLy7ehsUbpmTn5bQiCZtaC+YdOSKmK5rTM
- IxaQ==
-X-Gm-Message-State: ABuFfoitUGrYC/Y0HgMi0mraAikV6iicfajVNvuoH7PTIScy/1edZX8Z
- RZhgyR6n5RUP56vJOzJvW/9H+SRmhmMQ7f+Ry14zyQ==
-X-Google-Smtp-Source: ACcGV61wTHJT8KA0FRbB4T8HJavFhx8DCnBEFcv7It/8YmRplkdtkLJbpEFBtddWCai0iE4efhP92rfUMrMKw3tumlM=
-X-Received: by 2002:a9d:3a21:: with SMTP id j30mr2325823otc.237.1539395674440; 
- Fri, 12 Oct 2018 18:54:34 -0700 (PDT)
-MIME-Version: 1.0
-Received: by 2002:ac9:56d8:0:0:0:0:0 with HTTP; Fri, 12 Oct 2018 18:54:33
- -0700 (PDT)
-In-Reply-To: <20181013014429.GB207108@joelaf.mtv.corp.google.com>
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=6XZWKP2pbysVG8F4WKX4YkunFpUXVJoneS2qWT0rIgM=;
+ b=dYzNlAttyvfVh1EvHUxaFJtOLW0q2HmgZbkZ30NVtctMhovzMiKEs05kMK3UFIgVx4
+ iSuR5x4xBGVTxAyXPJetkSkoR5JzzteVZcaUus/XdJik+lwM+7bkDzY63MJYRfcDXUJ2
+ GZGiMIvL9ZB2cMa3ZxS2d61rcRkVLOdAIrqEGudOt+7AhY2DhzujRyxpu2WyzV7ByaWu
+ /cmU1gXJjgi6NgMJRA5cAmQQ7HSa3WlgWzMBvhRJhkegwXgK6Lyy/XYEiHT6uLoD70fu
+ tLz/zngzX/uKWDwCPxVuahylY5uYHIUzN+XQNO0N1glMIY4bNGVK5Gl8+wQ+iCT1azsQ
+ HbnQ==
+X-Gm-Message-State: ABuFfoiGcEXa9f+5P545x/Qs1VE8hoei1b6pZCGqG19cOgXh75B1E7Yr
+ q64VTMjMqNSetnJ7dc9KhlGSSg==
+X-Google-Smtp-Source: ACcGV63F+9SrXFCpEUHB+XptA5Iqqus34UkUro+5Ai/GVN+L0Yg6ILmrGMV/JAu7RXyjGdEg/oMq4Q==
+X-Received: by 2002:a65:5147:: with SMTP id
+ g7-v6mr7890713pgq.252.1539396659739; 
+ Fri, 12 Oct 2018 19:10:59 -0700 (PDT)
+Received: from localhost ([2620:0:1000:1601:3aef:314f:b9ea:889f])
+ by smtp.gmail.com with ESMTPSA id b29-v6sm4669490pfj.183.2018.10.12.19.10.58
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Fri, 12 Oct 2018 19:10:58 -0700 (PDT)
+Date: Fri, 12 Oct 2018 19:10:57 -0700
+From: Joel Fernandes <joel@joelfernandes.org>
+To: Daniel Colascione <dancol@google.com>
+Subject: Re: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
+Message-ID: <20181013021057.GA213522@joelaf.mtv.corp.google.com>
 References: <20181012013756.11285-2-joel@joelfernandes.org>
  <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
  <20181012125046.GA170912@joelaf.mtv.corp.google.com>
@@ -77,15 +81,14 @@ References: <20181012013756.11285-2-joel@joelfernandes.org>
  <20181013013540.GA207108@joelaf.mtv.corp.google.com>
  <CAKOZueuNvWvn18vffJWpbpg7h-uScT8gXrrudTB2pnT4M2HJ_w@mail.gmail.com>
  <20181013014429.GB207108@joelaf.mtv.corp.google.com>
-From: Daniel Colascione <dancol@google.com>
-Date: Fri, 12 Oct 2018 18:54:33 -0700
-Message-ID:
  <CAKOZues25aaKz3_AiyfJ=r2QBd5MghgY3ky_ptg4Z8=ST4DCgw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
-To: Joel Fernandes <joel@joelfernandes.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAKOZues25aaKz3_AiyfJ=r2QBd5MghgY3ky_ptg4Z8=ST4DCgw@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181012_185452_914611_715C698D 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20181012_191110_832720_7F502443 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -121,30 +124,37 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181013015433.VDJNaVLewX29nj0zVLXYDW4QRARV-_o6DPkot-OZxXM@z>
+Message-ID: <20181013021057.3DjOKygTtQraVEYjiIqIEnSJPVGOCSa-3FSP3PwyaGc@z>
 
-I wonder whether it makes sense to expose to userspace somehow whether
-mremap is "fast" for a particular architecture. If a feature relies on
-fast mremap, it might be better for some userland component to disable
-that feature entirely rather than blindly use mremap and end up
-performing very poorly. If we're disabling fast mremap when THP is
-enabled, the userland component can't just rely on an architecture
-switch and some kind of runtime feature detection becomes even more
-important.
+On Fri, Oct 12, 2018 at 06:54:33PM -0700, Daniel Colascione wrote:
+> I wonder whether it makes sense to expose to userspace somehow whether
+> mremap is "fast" for a particular architecture. If a feature relies on
+> fast mremap, it might be better for some userland component to disable
+> that feature entirely rather than blindly use mremap and end up
+> performing very poorly. If we're disabling fast mremap when THP is
+> enabled, the userland component can't just rely on an architecture
+> switch and some kind of runtime feature detection becomes even more
+> important.
 
-On Fri, Oct 12, 2018 at 6:44 PM, Joel Fernandes <joel@joelfernandes.org> wrote:
-> On Fri, Oct 12, 2018 at 06:39:45PM -0700, Daniel Colascione wrote:
->> Not 32-bit ARM?
->
-> Well, I didn't want to enable every possible architecture we could in a
-> single go. Certainly arm32 can be a follow on enablement as can be other
-> architectures. The point of this series is to upstream this feature and
-> enable a hand-picked few architectures as a first step.
->
-> thanks,
->
->  - Joel
->
+I hate to point out that its forbidden to top post on LKML :-)
+https://kernelnewbies.org/mailinglistguidelines
+So don't that Mr. Dan! :D
+
+But anyway, I think this runtime detection thing is not needed. THP is
+actually expected to be as fast as this anyway, so if that's available then
+we should already be as fast. This is for non-THP where THP cannot be enabled
+and there is still room for some improvement. Most/all architectures will be
+just fine with this. This flag is more of a safety-net type of thing where in
+the future if there is this one or two weird architectures that don't play
+well, then they can turn it off at the architecture level by not selecting
+the flag. See my latest patches for the per-architecture compile-time
+controls. Ideally we'd like to blanket turn it on on all, but this is just
+playing it extra safe as Kirill and me were discussing on other threads.
+
+thanks!
+
+- Joel
+
 
 _______________________________________________
 linux-riscv mailing list
