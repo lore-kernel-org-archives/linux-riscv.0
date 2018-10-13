@@ -2,87 +2,89 @@ Return-Path: <SRS0=D72f=MZ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4D3F1C71122
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:33:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 16399C6787C
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:35:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 14D7A20895
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:33:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CF78320895
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:35:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="De0pIyjf";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="hu1RRoD4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14D7A20895
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PTpYhqet";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="t/bdXm4a"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CF78320895
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=joelfernandes.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lWYq9UPK6CrLf6d0MpH3TilKIECEFT8r9QOfJxuLtFk=; b=De0pIyjfh0jrHG
-	JS9QGaCtE3lOhrqsmFQrjUIwrOk5y5KS6JEg/eYqBKWMddgvBq9EW15NNg+KjfGxS6gLHC2v0ru6z
-	Dnx+0AjmdYwwymKGWdJr3XazjMgC+VepPsJHnYTEd8TUcYkK0BMSqCVOi8ICgFno23CNTIggNZ66C
-	qalPHyk3/3crFfK1voa5fnPn8ewAUemD3Z4EZs2EUzps1T/0ErHkYPssrKExvoHf4To6AKK/ozumX
-	6txRmKfDnlv5tLf1nTAbuy9pWrtFraQ4iF2s/yA/fb25naWCq1XAclhXZZqL1K3da+tky4bflQX8Z
-	hLtiIdOtgdwHDZwLCF3g==;
+	List-Owner; bh=VUQGKrvVUUaWnZBjOp32sepx5VyRGCnlG4I4KPzpqvk=; b=PTpYhqetaHeAqL
+	pDw72+OR9QImLzyTcpNW1DL9GfGev4XUJE6zQ9uxnolYrBM6YI75b7YkqtoiBmEWbQUB5e71Us6Gj
+	0SN8rOm3SZiUXSQVPYDvGRxOKELrMYIANvtvhGT7bDDAHLMBCAc8wOkDqf+SrtdetUC6cMcLKJdnZ
+	saEGkOX7bINMfymWmO9T3nM+KIqWn1rPsUlEHU7IVGXVuKedoRqnREGq0eHsI8K47L1QxktGpbyHS
+	jD6IePRv+8sJrPcOBBhqQLG/akDAoWg98JkHZaCjC5lhdETFeBmhYxdLPxqaT/RIIMdTXXCU5sgmO
+	sYfAo1KavBRj4IKVu3JQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gB8nt-0004d8-TF; Sat, 13 Oct 2018 01:33:17 +0000
+	id 1gB8qT-000659-0d; Sat, 13 Oct 2018 01:35:57 +0000
 Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gB8nH-0004MD-FO
- for linux-riscv@lists.infradead.org; Sat, 13 Oct 2018 01:33:08 +0000
-Received: by mail-pl1-x643.google.com with SMTP id q17-v6so6681447plr.8
- for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 18:32:29 -0700 (PDT)
+ id 1gB8qP-00062z-UD
+ for linux-riscv@lists.infradead.org; Sat, 13 Oct 2018 01:35:55 +0000
+Received: by mail-pl1-x643.google.com with SMTP id f8-v6so6697350plb.2
+ for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 18:35:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=joelfernandes.org; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=jtAK3pAlFMeOO6SUm8Lh3Bmb29tPAciRzUtn881iM5M=;
- b=hu1RRoD4zGFkh1NvswXMY0Mcf7RReZIxK6TbDCgMDMi1xCXvjQWNtmb8jA6UW1Q5ZI
- bybcFeJfratqjTeqEb7mRWAGReU9tL9VCuSkWsUqyCZbL3y+XtXFIKgHbMuC6INYU+VH
- z4FmPqYFb3J2yvvfenwn9pAR6sobi8QuQFyFE=
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=WNSmz6gPUWl0psy6VYdrKZKj8jjeGLoBOEaYk7PTF5E=;
+ b=t/bdXm4ahfHUsC1W/kmIGtZM4IaaXFvhptMHyl/MsEl85wogOLcBRPLXwHtXoa2xTR
+ d2M48uB6euL4d5IaKV5t6nT5ABUr0y0qRBKJlUNuiclAcNB1bktYaPSMWAk89SYK1P2v
+ +doypv+PPbaJGW2yXU+EaPjAWnWnd1ZXLhamE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=jtAK3pAlFMeOO6SUm8Lh3Bmb29tPAciRzUtn881iM5M=;
- b=fLZfd8Tj+x9vy6cEM4iNDCnPG5zBa30cop9/OtcKjP8Vh5e75RbFh2F0ok7fY4TYNK
- hQ8MvegfV1lWUurufmZdU1KNqg5+KfrUsmwAiIxvzi3DV1WvBFyjIW3Uyj3NkWQcUaII
- CNfbTsZoQ1URcszGurfVmUjyXRtXSwjjopZ8uVy838kV2AmRP1fLKy3M1dvx73JdmgfA
- LcYsxIu6y//g15KDpZoHpXrMSi9UaE5QQFCLOTjo9+5dJ7AX4KvDmYisIzYihz2LvUb8
- P1k6HbFp+tp4oHDlDraBjFdKRZsY92Y4EWli+ncVSQMuhLmMmEXinjdvpxO0oDVgOeiU
- RjpA==
-X-Gm-Message-State: ABuFfoijxFJoTZ37thC8+DwdyL/nC/OPY8g6VTyS+zynWvDRn2l+TIYZ
- aFv8lyxDtBV8HQtHukJBVPB45g==
-X-Google-Smtp-Source: ACcGV60cRgU0XyfJPBpItPjBh+EP7iRiHLZbhDbgbD69TJC4FgrTPRZLx9S2q81RSPgQ8LHOmiT4Xw==
-X-Received: by 2002:a17:902:8687:: with SMTP id
- g7-v6mr8297604plo.30.1539394348522; 
- Fri, 12 Oct 2018 18:32:28 -0700 (PDT)
-Received: from joelaf.mtv.corp.google.com
- ([2620:0:1000:1601:3aef:314f:b9ea:889f])
- by smtp.gmail.com with ESMTPSA id q7-v6sm6507828pfd.164.2018.10.12.18.32.25
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 12 Oct 2018 18:32:27 -0700 (PDT)
-From: "Joel Fernandes (Google)" <joel@joelfernandes.org>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] x86: select HAVE_MOVE_PMD for faster mremap (v1)
-Date: Fri, 12 Oct 2018 18:32:00 -0700
-Message-Id: <20181013013200.206928-5-joel@joelfernandes.org>
-X-Mailer: git-send-email 2.19.0.605.g01d371f741-goog
-In-Reply-To: <20181013013200.206928-1-joel@joelfernandes.org>
-References: <20181013013200.206928-1-joel@joelfernandes.org>
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=WNSmz6gPUWl0psy6VYdrKZKj8jjeGLoBOEaYk7PTF5E=;
+ b=CuO+GvDgVXCjKRgigH2ExTmA+tGoDvTQX7zcnlIzzK8BzWb6s/0OEIMAMluaTQHXFo
+ COTG3sTAQGNgwIjc/56ro1i4gNtenynHpL11waDD1mb7UD1u4DIAmxJpxfh67kTG1Onh
+ FKlZNmn+2+7NniFnPbUQcdAt0RZVKu//Ltyiw1z5Gx19/jOXMXNPwNTXJ9QF1BqfmvmL
+ 6DasJ92qHTEdOg78pD7o1/alhx0YxwpTVSh1hTDJY5BPDbzymb1eCLx42O0jtlIXzlJt
+ X7OaHujycmZ4liLa5GCBSMe6ucd6DEO5zx+UrqW2lTUcowXN0FGyD1Mr8nLaQv9AXQD2
+ 999w==
+X-Gm-Message-State: ABuFfojz8MaxzshridzuVt+XctdUx0l96odT+HV8hTflU95M3/6QjFfJ
+ Gtzck7flLeHvyMHrJkxRxr0I0g==
+X-Google-Smtp-Source: ACcGV63YcGHLeWFH+zMcDfPGfwOAvPK81iWmstN1Bsc/dCjm29V/T1DgWrxlTjwp6QBDN3hA/VReOg==
+X-Received: by 2002:a17:902:d20a:: with SMTP id
+ t10-v6mr8118444ply.256.1539394543039; 
+ Fri, 12 Oct 2018 18:35:43 -0700 (PDT)
+Received: from localhost ([2620:0:1000:1601:3aef:314f:b9ea:889f])
+ by smtp.gmail.com with ESMTPSA id 20-v6sm3688934pge.77.2018.10.12.18.35.41
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Fri, 12 Oct 2018 18:35:41 -0700 (PDT)
+Date: Fri, 12 Oct 2018 18:35:40 -0700
+From: Joel Fernandes <joel@joelfernandes.org>
+To: David Miller <davem@davemloft.net>
+Subject: Re: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
+Message-ID: <20181013013540.GA207108@joelaf.mtv.corp.google.com>
+References: <20181012013756.11285-2-joel@joelfernandes.org>
+ <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
+ <20181012125046.GA170912@joelaf.mtv.corp.google.com>
+ <20181012.111836.1569129998592378186.davem@davemloft.net>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20181012.111836.1569129998592378186.davem@davemloft.net>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181012_183239_570100_64EB529C 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20181012_183553_994509_936838C0 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,65 +96,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
- linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Will Deacon <will.deacon@arm.com>,
- mhocko@kernel.org, linux-mm@kvack.org, lokeshgidra@google.com,
- "Joel Fernandes \(Google\)" <joel@joelfernandes.org>,
- linux-riscv@lists.infradead.org, elfring@users.sourceforge.net,
- Jonas Bonn <jonas@southpole.se>, kvmarm@lists.cs.columbia.edu,
- dancol@google.com, Yoshinori Sato <ysato@users.sourceforge.jp>,
- sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
- linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>,
- "maintainer:X86 ARCHITECTURE 32-BIT AND 64-BIT" <x86@kernel.org>,
- hughd@google.com, "James E.J. Bottomley" <jejb@parisc-linux.org>,
- kasan-dev@googlegroups.com, anton.ivanov@kot-begemot.co.uk,
- Ingo Molnar <mingo@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Andrey Ryabinin <aryabinin@virtuozzo.com>, linux-snps-arc@lists.infradead.org,
- kernel-team@android.com, Sam Creasey <sammy@sammy.net>,
- Fenghua Yu <fenghua.yu@intel.com>, linux-s390@vger.kernel.org,
- Jeff Dike <jdike@addtoit.com>, linux-um@lists.infradead.org,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Julia Lawall <Julia.Lawall@lip6.fr>, linux-m68k@lists.linux-m68k.org,
- Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
- nios2-dev@lists.rocketboards.org, "Kirill A. Shutemov" <kirill@shutemov.name>,
- Stafford Horne <shorne@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
- Chris Zankel <chris@zankel.net>, Tony Luck <tony.luck@intel.com>,
- Richard Weinberger <richard@nod.at>, linux-parisc@vger.kernel.org,
- Max Filippov <jcmvbkbc@gmail.com>, pantin@google.com, minchan@kernel.org,
- Thomas Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org,
- Ley Foon Tan <lftan@altera.com>, akpm@linux-foundation.org,
- linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>
+Cc: linux-mips@linux-mips.org, linux-ia64@vger.kernel.org,
+ linux-sh@vger.kernel.org, peterz@infradead.org, catalin.marinas@arm.com,
+ dave.hansen@linux.intel.com, mhocko@kernel.org, linux-mm@kvack.org,
+ lokeshgidra@google.com, linux-riscv@lists.infradead.org,
+ elfring@users.sourceforge.net, jonas@southpole.se, linux-s390@vger.kernel.org,
+ dancol@google.com, linux-xtensa@linux-xtensa.org,
+ linux-hexagon@vger.kernel.org, deller@gmx.de, hughd@google.com,
+ jejb@parisc-linux.org, kasan-dev@googlegroups.com,
+ kvmarm@lists.cs.columbia.edu, mingo@redhat.com, geert@linux-m68k.org,
+ aryabinin@virtuozzo.com, linux-snps-arc@lists.infradead.org,
+ kernel-team@android.com, fenghua.yu@intel.com, jdike@addtoit.com,
+ linux-um@lists.infradead.org, Julia.Lawall@lip6.fr,
+ linux-m68k@lists.linux-m68k.org, bp@alien8.de, luto@kernel.org,
+ nios2-dev@lists.rocketboards.org, kirill@shutemov.name, gxt@pku.edu.cn,
+ chris@zankel.net, richard@nod.at, linux-parisc@vger.kernel.org,
+ pantin@google.com, jcmvbkbc@gmail.com, linux-kernel@vger.kernel.org,
+ minchan@kernel.org, linux-alpha@vger.kernel.org, lftan@altera.com,
+ akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181013013200.PzCgXsS2d9otR--Hb_mylFpoESB1adbCsHdC6baDpCo@z>
+Message-ID: <20181013013540.zhw7pjSjxg_Yzfa-wrqun3Ju9Sz-LXVTIifv_9oNCEA@z>
 
-Moving page-tables at the PMD-level on x86 is known to be safe. Enable
-this option so that we can do fast mremap when possible.
+On Fri, Oct 12, 2018 at 11:18:36AM -0700, David Miller wrote:
+> From: Joel Fernandes <joel@joelfernandes.org>
+[...]
+> > Also, do we not flush the caches from any path when we munmap
+> > address space?  We do call do_munmap on the old mapping from mremap
+> > after moving to the new one.
+> 
+> Sparc makes sure that shared mapping have consistent colors.  Therefore
+> all that's left are private mappings and those will be initialized by
+> block stores to clear the page out or similar.
+> 
+> Also, when creating new mappings, we flush the D-cache when necessary
+> in update_mmu_cache().
+> 
+> We also maintain a bit in the page struct to track when a page which
+> was potentially written to on one cpu ends up mapped into another
+> address space and flush as necessary.
+> 
+> The cache is write-through, which simplifies the preconditions we have
+> to maintain.
 
-Signed-off-by: Joel Fernandes (Google) <joel@joelfernandes.org>
----
- arch/x86/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+Makes sense, thanks. For the moment I sent patches to enable this on arm64
+and x86. We can enable it on sparc as well at a later time as it sounds it
+could be a safe optimization to apply to that architecture as well.
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 1a0be022f91d..01c02a9d7825 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -171,6 +171,7 @@ config X86
- 	select HAVE_MEMBLOCK_NODE_MAP
- 	select HAVE_MIXED_BREAKPOINTS_REGS
- 	select HAVE_MOD_ARCH_SPECIFIC
-+	select HAVE_MOVE_PMD
- 	select HAVE_NMI
- 	select HAVE_OPROFILE
- 	select HAVE_OPTPROBES
--- 
-2.19.0.605.g01d371f741-goog
+thanks,
+
+ - Joel
 
 
 _______________________________________________
