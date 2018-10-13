@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C7276C71122
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4D3F1C71122
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:33:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9791D20895
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:33:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 14D7A20895
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 01:33:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tMYD8yXB";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="pvEfVikz"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9791D20895
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="De0pIyjf";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="hu1RRoD4"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14D7A20895
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=joelfernandes.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,63 +26,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jJr088qDi7NHQJlvztkwiGehKYjp9ABomIe3Ups3sbY=; b=tMYD8yXB4DMkhu
-	m/bkP9LDvV6I6OW3Py71Zl1wU2ZYnAR8QSqSH2YEjnuAUWPUIi5zRA8E2r2ewEAcbuYoH3Wyk2Mfm
-	45YwDZJ+AmLppS2b9/l0uzGxJ+WRA2hMwF5753rdSmzC/ZibKsZIFAlottWBrc9xlP/04DPGcEmjw
-	wONbCugdr2apsn1Bw7j5eVKfub4YGCBi0mBjnccWQzgJ4XmVv2cMhYHLY7AZkOCmgYFDAqozyqe0z
-	tOj+P7aVC76ZEUYAHuMHJ02XCSHp57U/eb+DYbDATVCjEK2YxlOiehKmOgjx9hq8Uovuicx3+Z7K5
-	deHJcfnfZq4Mxoi3mg0A==;
+	List-Owner; bh=lWYq9UPK6CrLf6d0MpH3TilKIECEFT8r9QOfJxuLtFk=; b=De0pIyjfh0jrHG
+	JS9QGaCtE3lOhrqsmFQrjUIwrOk5y5KS6JEg/eYqBKWMddgvBq9EW15NNg+KjfGxS6gLHC2v0ru6z
+	Dnx+0AjmdYwwymKGWdJr3XazjMgC+VepPsJHnYTEd8TUcYkK0BMSqCVOi8ICgFno23CNTIggNZ66C
+	qalPHyk3/3crFfK1voa5fnPn8ewAUemD3Z4EZs2EUzps1T/0ErHkYPssrKExvoHf4To6AKK/ozumX
+	6txRmKfDnlv5tLf1nTAbuy9pWrtFraQ4iF2s/yA/fb25naWCq1XAclhXZZqL1K3da+tky4bflQX8Z
+	hLtiIdOtgdwHDZwLCF3g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gB8nj-0004ZG-Rb; Sat, 13 Oct 2018 01:33:07 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1gB8nt-0004d8-TF; Sat, 13 Oct 2018 01:33:17 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gB8nE-0004M5-T6
- for linux-riscv@lists.infradead.org; Sat, 13 Oct 2018 01:33:02 +0000
-Received: by mail-pg1-x542.google.com with SMTP id v133-v6so6608017pgb.2
- for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 18:32:26 -0700 (PDT)
+ id 1gB8nH-0004MD-FO
+ for linux-riscv@lists.infradead.org; Sat, 13 Oct 2018 01:33:08 +0000
+Received: by mail-pl1-x643.google.com with SMTP id q17-v6so6681447plr.8
+ for <linux-riscv@lists.infradead.org>; Fri, 12 Oct 2018 18:32:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=joelfernandes.org; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=bjYTsH4Iq69Ub7N2c7p2HOCfpyLGuHcm9WhDWE1Dnwg=;
- b=pvEfVikziMJRWxtTRTm3WwDM1z7pcXybcAtnjCIyQdfWN8O5jRGdCgjUlGTjsMAT/F
- saWeGlI2HK0vC3ro6vBYXn3xIZY1BMwuP8djzpt6M+eKMtkHqPqZ+mldfVclfk22srUA
- b5EsPUgxygKFL8hgKZ6UMDusfAYxbbW7exB4M=
+ bh=jtAK3pAlFMeOO6SUm8Lh3Bmb29tPAciRzUtn881iM5M=;
+ b=hu1RRoD4zGFkh1NvswXMY0Mcf7RReZIxK6TbDCgMDMi1xCXvjQWNtmb8jA6UW1Q5ZI
+ bybcFeJfratqjTeqEb7mRWAGReU9tL9VCuSkWsUqyCZbL3y+XtXFIKgHbMuC6INYU+VH
+ z4FmPqYFb3J2yvvfenwn9pAR6sobi8QuQFyFE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=bjYTsH4Iq69Ub7N2c7p2HOCfpyLGuHcm9WhDWE1Dnwg=;
- b=mWdmD4iHoLX6rYRruU4EFFRy0a4O6LaAVGF8jx8xTJmtwj13nyulBQz3BjaXirJhHK
- t9P1XLJBIXYs7kJ1lGl2hNCp8ew3+fWwd+3fJBQaW7FUnJ7jGUUSYkSgWvMVAYfGHK+C
- fJbuzFA5mr2NNe14WRvT7oTbnwy77aY9YVOthD2KhfA7Yu8I5mt3OLOIrQi3tQF/2+u8
- yYiXqthzJ0bBNdwq1IRsCuylGEkbnDT159fSRanzuavbc4L+zN+kjtpikqT1DYFiB8AV
- 800LD7pu/NbkJ/84LtBH6m1k7R0IKZ7uxUWl5r974Hz1FCPa89mqxdYmayl2HGSzQAlb
- 6Gyg==
-X-Gm-Message-State: ABuFfoioRiQaR/6H7XISB4iGEDD1/bCX+oPh9kpmMyqceUwXOXTWDxx2
- FHVnT6SWkNA7QkHUev6blAO+eA==
-X-Google-Smtp-Source: ACcGV60ecPJwErRYv7rdeDNNhheUXmreqwFNvyYIFQM0w7YuygsKhKKgtC5tCiolpW/Ws3yIGetyhA==
-X-Received: by 2002:a63:2a11:: with SMTP id
- q17-v6mr7630469pgq.374.1539394345842; 
- Fri, 12 Oct 2018 18:32:25 -0700 (PDT)
+ bh=jtAK3pAlFMeOO6SUm8Lh3Bmb29tPAciRzUtn881iM5M=;
+ b=fLZfd8Tj+x9vy6cEM4iNDCnPG5zBa30cop9/OtcKjP8Vh5e75RbFh2F0ok7fY4TYNK
+ hQ8MvegfV1lWUurufmZdU1KNqg5+KfrUsmwAiIxvzi3DV1WvBFyjIW3Uyj3NkWQcUaII
+ CNfbTsZoQ1URcszGurfVmUjyXRtXSwjjopZ8uVy838kV2AmRP1fLKy3M1dvx73JdmgfA
+ LcYsxIu6y//g15KDpZoHpXrMSi9UaE5QQFCLOTjo9+5dJ7AX4KvDmYisIzYihz2LvUb8
+ P1k6HbFp+tp4oHDlDraBjFdKRZsY92Y4EWli+ncVSQMuhLmMmEXinjdvpxO0oDVgOeiU
+ RjpA==
+X-Gm-Message-State: ABuFfoijxFJoTZ37thC8+DwdyL/nC/OPY8g6VTyS+zynWvDRn2l+TIYZ
+ aFv8lyxDtBV8HQtHukJBVPB45g==
+X-Google-Smtp-Source: ACcGV60cRgU0XyfJPBpItPjBh+EP7iRiHLZbhDbgbD69TJC4FgrTPRZLx9S2q81RSPgQ8LHOmiT4Xw==
+X-Received: by 2002:a17:902:8687:: with SMTP id
+ g7-v6mr8297604plo.30.1539394348522; 
+ Fri, 12 Oct 2018 18:32:28 -0700 (PDT)
 Received: from joelaf.mtv.corp.google.com
  ([2620:0:1000:1601:3aef:314f:b9ea:889f])
- by smtp.gmail.com with ESMTPSA id q7-v6sm6507828pfd.164.2018.10.12.18.32.23
+ by smtp.gmail.com with ESMTPSA id q7-v6sm6507828pfd.164.2018.10.12.18.32.25
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 12 Oct 2018 18:32:24 -0700 (PDT)
+ Fri, 12 Oct 2018 18:32:27 -0700 (PDT)
 From: "Joel Fernandes (Google)" <joel@joelfernandes.org>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 3/4] arm64: select HAVE_MOVE_PMD for faster mremap (v1)
-Date: Fri, 12 Oct 2018 18:31:59 -0700
-Message-Id: <20181013013200.206928-4-joel@joelfernandes.org>
+Subject: [PATCH 4/4] x86: select HAVE_MOVE_PMD for faster mremap (v1)
+Date: Fri, 12 Oct 2018 18:32:00 -0700
+Message-Id: <20181013013200.206928-5-joel@joelfernandes.org>
 X-Mailer: git-send-email 2.19.0.605.g01d371f741-goog
 In-Reply-To: <20181013013200.206928-1-joel@joelfernandes.org>
 References: <20181013013200.206928-1-joel@joelfernandes.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181012_183236_972890_525F2791 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20181012_183239_570100_64EB529C 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -129,28 +129,28 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181013013159.BZzEkIwjnjgYanV77WC-rUWqf3IJP3KOyys0LhU5gVE@z>
+Message-ID: <20181013013200.PzCgXsS2d9otR--Hb_mylFpoESB1adbCsHdC6baDpCo@z>
 
-Moving page-tables at the PMD-level on arm64 is known to be safe. Enable
+Moving page-tables at the PMD-level on x86 is known to be safe. Enable
 this option so that we can do fast mremap when possible.
 
 Signed-off-by: Joel Fernandes (Google) <joel@joelfernandes.org>
 ---
- arch/arm64/Kconfig | 1 +
+ arch/x86/Kconfig | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 1b1a0e95c751..5d7c35c6f90c 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -135,6 +135,7 @@ config ARM64
- 	select HAVE_IRQ_TIME_ACCOUNTING
- 	select HAVE_MEMBLOCK
- 	select HAVE_MEMBLOCK_NODE_MAP if NUMA
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 1a0be022f91d..01c02a9d7825 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -171,6 +171,7 @@ config X86
+ 	select HAVE_MEMBLOCK_NODE_MAP
+ 	select HAVE_MIXED_BREAKPOINTS_REGS
+ 	select HAVE_MOD_ARCH_SPECIFIC
 +	select HAVE_MOVE_PMD
  	select HAVE_NMI
- 	select HAVE_PATA_PLATFORM
- 	select HAVE_PERF_EVENTS
+ 	select HAVE_OPROFILE
+ 	select HAVE_OPTPROBES
 -- 
 2.19.0.605.g01d371f741-goog
 
