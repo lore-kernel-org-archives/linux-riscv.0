@@ -1,31 +1,40 @@
-From: joel@joelfernandes.org (Joel Fernandes (Google))
-Date: Fri, 12 Oct 2018 18:32:00 -0700
-Subject: [PATCH 4/4] x86: select HAVE_MOVE_PMD for faster mremap (v1)
-In-Reply-To: <20181013013200.206928-1-joel@joelfernandes.org>
-References: <20181013013200.206928-1-joel@joelfernandes.org>
-Message-ID: <20181013013200.206928-5-joel@joelfernandes.org>
+From: joel@joelfernandes.org (Joel Fernandes)
+Date: Fri, 12 Oct 2018 18:35:40 -0700
+Subject: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
+In-Reply-To: <20181012.111836.1569129998592378186.davem@davemloft.net>
+References: <20181012013756.11285-2-joel@joelfernandes.org>
+ <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
+ <20181012125046.GA170912@joelaf.mtv.corp.google.com>
+ <20181012.111836.1569129998592378186.davem@davemloft.net>
+Message-ID: <20181013013540.GA207108@joelaf.mtv.corp.google.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Moving page-tables at the PMD-level on x86 is known to be safe. Enable
-this option so that we can do fast mremap when possible.
+On Fri, Oct 12, 2018 at 11:18:36AM -0700, David Miller wrote:
+> From: Joel Fernandes <joel@joelfernandes.org>
+[...]
+> > Also, do we not flush the caches from any path when we munmap
+> > address space?  We do call do_munmap on the old mapping from mremap
+> > after moving to the new one.
+> 
+> Sparc makes sure that shared mapping have consistent colors.  Therefore
+> all that's left are private mappings and those will be initialized by
+> block stores to clear the page out or similar.
+> 
+> Also, when creating new mappings, we flush the D-cache when necessary
+> in update_mmu_cache().
+> 
+> We also maintain a bit in the page struct to track when a page which
+> was potentially written to on one cpu ends up mapped into another
+> address space and flush as necessary.
+> 
+> The cache is write-through, which simplifies the preconditions we have
+> to maintain.
 
-Signed-off-by: Joel Fernandes (Google) <joel@joelfernandes.org>
----
- arch/x86/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+Makes sense, thanks. For the moment I sent patches to enable this on arm64
+and x86. We can enable it on sparc as well at a later time as it sounds it
+could be a safe optimization to apply to that architecture as well.
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 1a0be022f91d..01c02a9d7825 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -171,6 +171,7 @@ config X86
- 	select HAVE_MEMBLOCK_NODE_MAP
- 	select HAVE_MIXED_BREAKPOINTS_REGS
- 	select HAVE_MOD_ARCH_SPECIFIC
-+	select HAVE_MOVE_PMD
- 	select HAVE_NMI
- 	select HAVE_OPROFILE
- 	select HAVE_OPTPROBES
--- 
-2.19.0.605.g01d371f741-goog
+thanks,
+
+ - Joel
