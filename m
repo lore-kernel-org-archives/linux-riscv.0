@@ -1,140 +1,90 @@
-From: kirill@shutemov.name (Kirill A. Shutemov)
-Date: Sat, 13 Oct 2018 00:40:08 +0300
-Subject: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
-In-Reply-To: <97cb3fe1-7bc1-12ff-d602-56c72a5496c5@kot-begemot.co.uk>
-References: <20181012013756.11285-1-joel@joelfernandes.org>
- <20181012013756.11285-2-joel@joelfernandes.org>
- <9ed82f9e-88c4-8e4f-8c45-3ef153469603@kot-begemot.co.uk>
- <20181012143728.t42uvr6etg7gp7fh@kshutemo-mobl1>
- <4dd52e22-5b51-9b30-7178-fde603a08f88@kot-begemot.co.uk>
- <97cb3fe1-7bc1-12ff-d602-56c72a5496c5@kot-begemot.co.uk>
-Message-ID: <20181012214008.jj7vhh76vte7xj7i@kshutemo-mobl1>
+From: jimw@sifive.com (Jim Wilson)
+Date: Fri, 12 Oct 2018 17:56:49 -0700
+Subject: [PATCH] RISC-V: Add FP register ptrace support for gdb.
+Message-ID: <20181013005649.14379-1-jimw@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, Oct 12, 2018 at 05:42:24PM +0100, Anton Ivanov wrote:
-> 
-> On 10/12/18 3:48 PM, Anton Ivanov wrote:
-> > On 12/10/2018 15:37, Kirill A. Shutemov wrote:
-> > > On Fri, Oct 12, 2018 at 03:09:49PM +0100, Anton Ivanov wrote:
-> > > > On 10/12/18 2:37 AM, Joel Fernandes (Google) wrote:
-> > > > > Android needs to mremap large regions of memory during
-> > > > > memory management
-> > > > > related operations. The mremap system call can be really
-> > > > > slow if THP is
-> > > > > not enabled. The bottleneck is move_page_tables, which is copying each
-> > > > > pte at a time, and can be really slow across a large map.
-> > > > > Turning on THP
-> > > > > may not be a viable option, and is not for us. This patch
-> > > > > speeds up the
-> > > > > performance for non-THP system by copying at the PMD level
-> > > > > when possible.
-> > > > > 
-> > > > > The speed up is three orders of magnitude. On a 1GB mremap, the mremap
-> > > > > completion times drops from 160-250 millesconds to 380-400
-> > > > > microseconds.
-> > > > > 
-> > > > > Before:
-> > > > > Total mremap time for 1GB data: 242321014 nanoseconds.
-> > > > > Total mremap time for 1GB data: 196842467 nanoseconds.
-> > > > > Total mremap time for 1GB data: 167051162 nanoseconds.
-> > > > > 
-> > > > > After:
-> > > > > Total mremap time for 1GB data: 385781 nanoseconds.
-> > > > > Total mremap time for 1GB data: 388959 nanoseconds.
-> > > > > Total mremap time for 1GB data: 402813 nanoseconds.
-> > > > > 
-> > > > > Incase THP is enabled, the optimization is skipped. I also flush the
-> > > > > tlb every time we do this optimization since I couldn't find a way to
-> > > > > determine if the low-level PTEs are dirty. It is seen that the cost of
-> > > > > doing so is not much compared the improvement, on both
-> > > > > x86-64 and arm64.
-> > > > > 
-> > > > > Cc: minchan at kernel.org
-> > > > > Cc: pantin at google.com
-> > > > > Cc: hughd at google.com
-> > > > > Cc: lokeshgidra at google.com
-> > > > > Cc: dancol at google.com
-> > > > > Cc: mhocko at kernel.org
-> > > > > Cc: kirill at shutemov.name
-> > > > > Cc: akpm at linux-foundation.org
-> > > > > Signed-off-by: Joel Fernandes (Google) <joel@joelfernandes.org>
-> > > > > ---
-> > > > > ?? mm/mremap.c | 62
-> > > > > +++++++++++++++++++++++++++++++++++++++++++++++++++++
-> > > > > ?? 1 file changed, 62 insertions(+)
-> > > > > 
-> > > > > diff --git a/mm/mremap.c b/mm/mremap.c
-> > > > > index 9e68a02a52b1..d82c485822ef 100644
-> > > > > --- a/mm/mremap.c
-> > > > > +++ b/mm/mremap.c
-> > > > > @@ -191,6 +191,54 @@ static void move_ptes(struct
-> > > > > vm_area_struct *vma, pmd_t *old_pmd,
-> > > > > ?????????? drop_rmap_locks(vma);
-> > > > > ?? }
-> > > > > +static bool move_normal_pmd(struct vm_area_struct *vma,
-> > > > > unsigned long old_addr,
-> > > > > +????????? unsigned long new_addr, unsigned long old_end,
-> > > > > +????????? pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
-> > > > > +{
-> > > > > +??? spinlock_t *old_ptl, *new_ptl;
-> > > > > +??? struct mm_struct *mm = vma->vm_mm;
-> > > > > +
-> > > > > +??? if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
-> > > > > +??????? || old_end - old_addr < PMD_SIZE)
-> > > > > +??????? return false;
-> > > > > +
-> > > > > +??? /*
-> > > > > +???? * The destination pmd shouldn't be established, free_pgtables()
-> > > > > +???? * should have release it.
-> > > > > +???? */
-> > > > > +??? if (WARN_ON(!pmd_none(*new_pmd)))
-> > > > > +??????? return false;
-> > > > > +
-> > > > > +??? /*
-> > > > > +???? * We don't have to worry about the ordering of src and dst
-> > > > > +???? * ptlocks because exclusive mmap_sem prevents deadlock.
-> > > > > +???? */
-> > > > > +??? old_ptl = pmd_lock(vma->vm_mm, old_pmd);
-> > > > > +??? if (old_ptl) {
-> > > > > +??????? pmd_t pmd;
-> > > > > +
-> > > > > +??????? new_ptl = pmd_lockptr(mm, new_pmd);
-> > > > > +??????? if (new_ptl != old_ptl)
-> > > > > +??????????? spin_lock_nested(new_ptl, SINGLE_DEPTH_NESTING);
-> > > > > +
-> > > > > +??????? /* Clear the pmd */
-> > > > > +??????? pmd = *old_pmd;
-> > > > > +??????? pmd_clear(old_pmd);
-> > > > > +
-> > > > > +??????? VM_BUG_ON(!pmd_none(*new_pmd));
-> > > > > +
-> > > > > +??????? /* Set the new pmd */
-> > > > > +??????? set_pmd_at(mm, new_addr, new_pmd, pmd);
-> > > > UML does not have set_pmd_at at all
-> > > Every architecture does. :)
-> > 
-> > I tried to build it patching vs 4.19-rc before I made this statement and
-> > ran into that.
-> > 
-> > Presently it does not.
-> > 
-> > https://elixir.bootlin.com/linux/v4.19-rc7/ident/set_pmd_at - UML is not
-> > on the list.
-> 
-> Once this problem as well as the omissions in the include changes for UML in
-> patch one have been fixed it appears to be working.
-> 
-> What it needs is attached.
+This has been tested by hand, and with the gdb testsuite, and is working
+well.  Corresponding patches for gdb have already been upstreamed, but
+they don't depend on the exact form of this patch, they only depend on
+the use of NT_PRFPREG.
 
-Well, the optization is only suitable for arch that has 3 or more levels
-of page tables. Otherwise it will not have [non-folded] pmd.
+I think there is room for improvement here, but not sure if that is required
+before this can be accepted.  I'm abusing the ELF_NGREG macro because we don't
+have one for FP registers, and the elf_greg_t type again because there isn't
+one for FP registers.  In the riscv_fpr_get function, I'm using a single call
+to user_regset_copyout which means effectively the entire fstate struct is
+being copied from kernel space to user space.  That may include some padding
+at the end of the structure.  I don't know if that is safe or not.  This could
+be fixed by using two user_regset_copyout calls with a little bit of extra
+complexity.  Similarly with riscv_fpr_set and user_regset_copyin.  This
+probably only works for targets that have the D extension.  Not sure if
+this matters; I don't have a system with only F support, or no FP support,
+to test against.
 
-And in this case arch/um already should have set_pmd_at(), see
-3_LEVEL_PGTABLES.
+Jim
 
-To port on 2-level paging, it has to be handled on pgd level. It
-complicates the code and will not bring much value.
+Signed-off-by: Jim Wilson <jimw@sifive.com>
+---
+ arch/riscv/kernel/ptrace.c | 31 ++++++++++++++++++++++++++++++-
+ 1 file changed, 30 insertions(+), 1 deletion(-)
 
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index 9f82a7e34c64..8352d1bfadaf 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -27,7 +27,7 @@
+ #include <trace/events/syscalls.h>
+ 
+ enum riscv_regset {
+-	REGSET_X,
++	REGSET_X, REGSET_F
+ };
+ 
+ static int riscv_gpr_get(struct task_struct *target,
+@@ -54,6 +54,27 @@ static int riscv_gpr_set(struct task_struct *target,
+ 	return ret;
+ }
+ 
++static int riscv_fpr_get(struct task_struct *target,
++			 const struct user_regset *regset,
++			 unsigned int pos, unsigned int count,
++			 void *kbuf, void __user *ubuf)
++{
++	struct __riscv_d_ext_state *fstate = &target->thread.fstate;
++
++	return user_regset_copyout(&pos, &count, &kbuf, &ubuf, fstate, 0, -1);
++}
++
++static int riscv_fpr_set(struct task_struct *target,
++			 const struct user_regset *regset,
++			 unsigned int pos, unsigned int count,
++			 const void *kbuf, const void __user *ubuf)
++{
++	int ret;
++	struct __riscv_d_ext_state *fstate = &target->thread.fstate;
++
++	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, fstate, 0, -1);
++	return ret;
++}
+ 
+ static const struct user_regset riscv_user_regset[] = {
+ 	[REGSET_X] = {
+@@ -64,6 +85,14 @@ static const struct user_regset riscv_user_regset[] = {
+ 		.get = &riscv_gpr_get,
+ 		.set = &riscv_gpr_set,
+ 	},
++	[REGSET_F] = {
++		.core_note_type = NT_PRFPREG,
++		.n = ELF_NGREG+1,
++		.size = sizeof(elf_greg_t),
++		.align = sizeof(elf_greg_t),
++		.get = &riscv_fpr_get,
++		.set = &riscv_fpr_set,
++	},
+ };
+ 
+ static const struct user_regset_view riscv_user_native_view = {
 -- 
- Kirill A. Shutemov
+2.19.0.rc0
