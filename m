@@ -1,23 +1,24 @@
-Return-Path: <SRS0=D72f=MZ=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=wOAF=M2=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4479BC71122
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 17:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7B906C28CF8
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 14 Oct 2018 00:02:26 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1C66A20693
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Oct 2018 17:51:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 172D720835
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 14 Oct 2018 00:02:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="H4BW048F";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="gtX/3bFK"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1C66A20693
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=joelfernandes.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JwW1gxRW";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="gAhghVqn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 172D720835
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -25,72 +26,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t6DJy4u6XfD3oB9eFnKSpxG3J/uYVoGgIMhsf6MEjxs=; b=H4BW048F3Sq70y
-	NucsVkWHFzzdmHJM/N6Plhq5W95RRDR6fT1Bvrbu5gMJbrQW7Xu4eCAFxh9PWMt11rVLspRayslgQ
-	iPafQeikyQYZifPXTSQyPhVRw6v3Y/Wtn+Ky26nV97HV3QH3lWcXegn4ro6zdjrGrRCwiNk0NoNvL
-	pPcfes+rwwstdtKVyvQHMKzESHycJLAKlXmn8mcMMxsD43r+0euXm4WKITESGfoePLfVdpkea/W6b
-	Eyb4SNblIqZKVI44kAJa6s6p3KsrPeNGSHNG2PyKbf15zh+sCT4FsflXPxWEjgJctKe9rwHo6nthy
-	efF7e5vHglMh4XwuVm4Q==;
+	List-Owner; bh=yVveNqwMlocRQ6Rg69AkOqp8zbkGtbu1F07ZyU3qjhE=; b=JwW1gxRWXZjVd0
+	2OOy8QdwMFJJig7J4E7a7lWhKTbUtUOemdIE2PKUcwL7610EqCSoqi+jtf49yyt+T/Or/TToGmEKz
+	8JRxHaP5RjJiAKwTEq1ZKDfDGsKEeBDnKWzgNbv1mSwDPeIVjrCzK50U+Nl15iKT+jlFyJ3+zsY2v
+	vI4rC3RzDkHvseTWzBbYbI+NqxW/n74ejivSVvuLx865UEpkupbWfzOMk+7oU98BmRnlnqVkOnTRg
+	d2k0rx7QtI3UmkdvzQ45RYKZJBQOBvL4SvZrec/n+ygml708WFvVYxCKh8OFU31CCqmUXtBSNRrPB
+	ICI3PSNiobqi3emA/01w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gBO43-0000v8-2s; Sat, 13 Oct 2018 17:50:59 +0000
-Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+	id 1gBTrS-00026d-Tm; Sun, 14 Oct 2018 00:02:22 +0000
+Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gBO3z-0000sa-LJ
- for linux-riscv@lists.infradead.org; Sat, 13 Oct 2018 17:50:57 +0000
-Received: by mail-pg1-x541.google.com with SMTP id 80-v6so7260501pgh.10
- for <linux-riscv@lists.infradead.org>; Sat, 13 Oct 2018 10:50:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=joelfernandes.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
+ id 1gBTrP-00025m-Qu
+ for linux-riscv@lists.infradead.org; Sun, 14 Oct 2018 00:02:21 +0000
+Received: by mail-pg1-x542.google.com with SMTP id i4-v6so7461650pgq.9
+ for <linux-riscv@lists.infradead.org>; Sat, 13 Oct 2018 17:02:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=sender:date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to:user-agent;
- bh=GoWsMygASIRyu7PZgD3N2dBBnQZB9nQ/7GbuLV2HYnY=;
- b=gtX/3bFKdysbo0S38lPP9ATjDdsTysp7ptOg+SsEzBQmc5jRhOODzCYik6fd+BjPNr
- xu2Vp+XyGO4o3VTbAkLtyvZfSWRtUUHxernM8wIzLOXHfZUYx/YsB2m5iu16tCWuQG1m
- dx/4Vn6wKESA5zdAVp2ssOawvrRQIiujDiDAU=
+ bh=XQ9ooewDGpp08nPommmRaP2wvXxwlXLWiicntLKC0TQ=;
+ b=gAhghVqnzOlTCprV1zPEvnoH29Kcel/Ki05fCuwl3eEvxzmFNsFgVMnGV9KwV6QhAb
+ nZKCgvSpKy/taut7sws1ht1fy9kVARWmAGF0KP7oNgnc5FejkjiYZLPuG5Jru08KdN3a
+ d9Jcg49hC7inQjADrd7RZJ+PjC33mugJ3DscdRnOe5NDcRNoAtzj2O6jJCa1KbKzJ/N7
+ 6KjOIDH/2hvEb3mkg0dK0cqHpwlujkvNv0o1BrCYGOTBHVBJLIf7lx19+/UB9IJyBjSB
+ hnfACjM9u24CV0vxEqJUX0gl+TBmAVUY2ukWia5CGgBLa16HtqpQXfwuNMWgCIGnzRDm
+ C3sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=GoWsMygASIRyu7PZgD3N2dBBnQZB9nQ/7GbuLV2HYnY=;
- b=LIyj7nuBWUw29tGBwBmYQUcwKl4c6am8Gnm4DrhOHPQQeMZ49yHhqS2pNB1hsIhqhU
- QCQNYbvyPTOJbGSYni0QTaXKg27rHv9aO9md6Ui4489aSyjW2k8gOuPcin0hU9XdyTIq
- wWv9/mRgHBw0tYkG4gyyBbiJCAQ4Npw161fZ+iPiNzZCOBK/521/KterhQsdDHDP0sPt
- gg3V/Wy6hiODBa7mvgC9H1hLh/zNtMgln/XsBb6tFf83qRSrGEqnTWofSXRK3WWQYDpW
- YUTR/5/rMp7RpjIFV9N/dPO5iA3MHTY0QBHr95LzwvrmWDGM+P/caVe89ka4zIO6IP2w
- hVAg==
-X-Gm-Message-State: ABuFfoj4eLU7DkvvaDK5Z4znUMYQc4KuI9lEnXvcV++A8SleN+MkWfK+
- 0Uook3cnOBduzs/AX9VRqk1JPw==
-X-Google-Smtp-Source: ACcGV61mIIBnEva6K1s4pwIUv1udY8Qs2DvoHn+puuc+AYRgF7l/b6wUFQE1+gRiz97iAhmfFDPhRQ==
-X-Received: by 2002:a63:f64f:: with SMTP id
- u15-v6mr10134944pgj.258.1539453041895; 
- Sat, 13 Oct 2018 10:50:41 -0700 (PDT)
-Received: from localhost ([2620:0:1000:1601:3aef:314f:b9ea:889f])
- by smtp.gmail.com with ESMTPSA id t26-v6sm7479626pfa.158.2018.10.13.10.50.40
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Sat, 13 Oct 2018 10:50:40 -0700 (PDT)
-Date: Sat, 13 Oct 2018 10:50:39 -0700
-From: Joel Fernandes <joel@joelfernandes.org>
-To: dancol@google.com
-Subject: Re: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
-Message-ID: <20181013175039.GB213522@joelaf.mtv.corp.google.com>
-References: <20181012013756.11285-2-joel@joelfernandes.org>
- <20181012113056.gxhcbrqyu7k7xnyv@kshutemo-mobl1>
- <20181012125046.GA170912@joelaf.mtv.corp.google.com>
- <20181012.111836.1569129998592378186.davem@davemloft.net>
- <20181013013540.GA207108@joelaf.mtv.corp.google.com>
- <CAKOZueuNvWvn18vffJWpbpg7h-uScT8gXrrudTB2pnT4M2HJ_w@mail.gmail.com>
- <20181013014429.GB207108@joelaf.mtv.corp.google.com>
- <CAKOZues25aaKz3_AiyfJ=r2QBd5MghgY3ky_ptg4Z8=ST4DCgw@mail.gmail.com>
- <20181013021057.GA213522@joelaf.mtv.corp.google.com>
- <CAKOZueu2wdkeUFYLQ8qE48yJs1_uRz-9RVJRkp==CL=jp=Q8+g@mail.gmail.com>
+ h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+ :references:mime-version:content-disposition:in-reply-to:user-agent;
+ bh=XQ9ooewDGpp08nPommmRaP2wvXxwlXLWiicntLKC0TQ=;
+ b=YfMKOffKEOmZuJrUFrJ7o58dEzKJ69TTHvWLh2XYf6IOjo/Vs9ZSfc2kJhzh+trX+M
+ lD/uiRG91DmRFXo/pEbc7lY/NgT3kSsKNcAbesb8JziUpMK9Zki9uUnsRGWucL8SSuZN
+ B1hy6dcKb+clyHsMAAAwH1KBARWpc/ane5zPjLaQfrf4RO95tzIeTP6ztXcc00XCD4Sn
+ AVGVGwkWKADXBUpJZFWCqcyzBq7LpGoCnfeEl0KjbAMUz8BkCta7JGA1MoiW6yJuFXWw
+ TShHbTBED0a03WgdXF+Y05VgEbCabUQD3fLecJsCNuXyVHGA9nR3WXNaleKgtaxqF85H
+ XvAg==
+X-Gm-Message-State: ABuFfoiJcg/WqWQtEJjkJce0aPU6DejxZ0M8TwRXVgIXv1PjXrMXzrkX
+ bOUw0Tz0KO2FMIQoRBfPqyM=
+X-Google-Smtp-Source: ACcGV623aiWz7i0DLLQYHSPURubl8Ks+z+/nd1fzMq/VCvHfPUP5ZS83oDmkqhVd8S70+vDxEW4hzQ==
+X-Received: by 2002:a62:35c2:: with SMTP id
+ c185-v6mr11769226pfa.69.1539475328312; 
+ Sat, 13 Oct 2018 17:02:08 -0700 (PDT)
+Received: from localhost (108-223-40-66.lightspeed.sntcca.sbcglobal.net.
+ [108.223.40.66])
+ by smtp.gmail.com with ESMTPSA id t184-v6sm3587730pfd.14.2018.10.13.17.02.06
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Sat, 13 Oct 2018 17:02:07 -0700 (PDT)
+Date: Sat, 13 Oct 2018 17:02:05 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Alan Kao <alankao@andestech.com>
+Subject: Re: [PATCH v8 3/5] Cleanup ISA string setting
+Message-ID: <20181014000205.GA22333@roeck-us.net>
+References: <1539051514-3658-1-git-send-email-alankao@andestech.com>
+ <1539051514-3658-4-git-send-email-alankao@andestech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAKOZueu2wdkeUFYLQ8qE48yJs1_uRz-9RVJRkp==CL=jp=Q8+g@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <1539051514-3658-4-git-send-email-alankao@andestech.com>
+User-Agent: Mutt/1.5.24 (2015-08-30)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181013_105055_696226_D91EF2CE 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20181013_170219_905458_FB7D576E 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -102,73 +98,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mips@linux-mips.org, linux-ia64@vger.kernel.org,
- linux-sh@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
- catalin.marinas@arm.com, dave.hansen@linux.intel.com,
- Michal Hocko <mhocko@kernel.org>, linux-mm <linux-mm@kvack.org>,
- Lokesh Gidra <lokeshgidra@google.com>, linux-riscv@lists.infradead.org,
- elfring@users.sourceforge.net, Jonas Bonn <jonas@southpole.se>,
- linux-s390@vger.kernel.org, linux-xtensa@linux-xtensa.org,
- linux-hexagon@vger.kernel.org, deller@gmx.de, Hugh Dickins <hughd@google.com>,
- jejb@parisc-linux.org, kasan-dev@googlegroups.com,
- kvmarm@lists.cs.columbia.edu, mingo@redhat.com, geert@linux-m68k.org,
- aryabinin@virtuozzo.com, linux-snps-arc@lists.infradead.org,
- kernel-team@android.com, fenghua.yu@intel.com, jdike@addtoit.com,
- linux-um@lists.infradead.org, Julia Lawall <Julia.Lawall@lip6.fr>,
- linux-m68k@lists.linux-m68k.org, bp@alien8.de, luto@kernel.org,
- nios2-dev@lists.rocketboards.org, kirill@shutemov.name, gxt@pku.edu.cn,
- Chris Zankel <chris@zankel.net>, richard@nod.at, linux-parisc@vger.kernel.org,
- Ramon Pantin <pantin@google.com>, Max Filippov <jcmvbkbc@gmail.com>,
- linux-kernel <linux-kernel@vger.kernel.org>, Minchan Kim <minchan@kernel.org>,
- linux-alpha@vger.kernel.org, lftan@altera.com,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org,
- David Miller <davem@davemloft.net>
+Cc: Zong Li <zong@andestech.com>, Nick Hu <nickhu@andestech.com>,
+ Greentime Hu <greentime@andestech.com>, Palmer Dabbelt <palmer@sifive.com>,
+ linux-kernel@vger.kernel.org, Vincent Chen <vincentc@andestech.com>,
+ linux-riscv@lists.infradead.org, Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181013175039.sFwNXAvloB4rnfWOE8R1rQoeX3NktdeCxrowqmf33io@z>
+Message-ID: <20181014000205.vD6W7890zp95jhvpZ_XVda9_X6MsDdpnuuTRMmIf77Q@z>
 
-On Fri, Oct 12, 2018 at 07:25:08PM -0700, Daniel Colascione wrote:
-[...] 
-> > But anyway, I think this runtime detection thing is not needed. THP is
-> > actually expected to be as fast as this anyway, so if that's available then
-> > we should already be as fast.
+Hi,
+
+On Tue, Oct 09, 2018 at 10:18:32AM +0800, Alan Kao wrote:
+> This patch cleanup the MARCH string passing to both compiler and
+> assembler.  Note that the CFLAGS should not contain "fd" before we
+> have mechnisms like kernel_fpu_begin/end in other architectures.
 > 
-> Ah, I think the commit message is confusing. (Or else I'm misreading
-> the patch now.) It's not quite that we're disabling the feature when
-> THP is enabled anywhere, but rather that we use the move_huge_pmd path
-> for huge PMDs and use the new code only for non-huge PMDs. (Right?) If
-> that's the case, the commit message shouldn't say "Incase THP is
-> enabled, the optimization is skipped". Even if THP is enabled on a
-> system generally, we might use the new PMD-moving code for mapping
-> types that don't support THP-ization, right?
+> Signed-off-by: Alan Kao <alankao@andestech.com>
+> Cc: Greentime Hu <greentime@andestech.com>
+> Cc: Vincent Chen <vincentc@andestech.com>
+> Cc: Zong Li <zong@andestech.com>
+> Cc: Nick Hu <nickhu@andestech.com>
+> ---
 
-That is true. Ok, I guess I can update the commit message to be more accurate
-about that.
+With this patch in -next applied, I get the following error
+when building riscv:defconfig.
 
-> > This is for non-THP where THP cannot be enabled
-> > and there is still room for some improvement. Most/all architectures will be
-> > just fine with this. This flag is more of a safety-net type of thing where in
-> > the future if there is this one or two weird architectures that don't play
-> > well, then they can turn it off at the architecture level by not selecting
-> > the flag. See my latest patches for the per-architecture compile-time
-> > controls. Ideally we'd like to blanket turn it on on all, but this is just
-> > playing it extra safe as Kirill and me were discussing on other threads.
-> 
-> Sure. I'm just pointing out that the 500x performance different turns
-> the operation into a qualitatively different feature, so if we expect
-> to actually ship a mainstream architecture without support for this
-> thing, we should make it explicit. If we're not, we shouldn't.
+cc1: error: -march=c: ISA string must begin with rv32 or rv64
+cc1: error: ABI requires -march=rv64
+Kbuild:21: recipe for target 'kernel/bounds.s' failed
 
-We can make it explicit by enabling it in such a mainstream architecture is
-my point. Also if the optimization is not doing what its supposed to, then
-userspace will also just know by measuring the time.
+This is seen with both gcc 7.3.0 and gcc 8.2.0. Bisect log is attached.
 
-thanks,
+What am I missing ? Does RISC-V now require a new non-upstream compiler ?
+Or a special version of make ? I am currently using GNU Make 4.1.
 
- - Joel
+Thanks,
+Guenter
 
+---
+# bad: [774ea0551a2966c8fc29a6f675c3e28c5c6fa586] Add linux-next specific files for 20181012
+# good: [0238df646e6224016a45505d2c111a24669ebe21] Linux 4.19-rc7
+git bisect start 'HEAD' 'v4.19-rc7'
+# bad: [dfbf78faefa3c26d94208398e62bf25ea798e7f2] Merge remote-tracking branch 'spi-nor/spi-nor/next'
+git bisect bad dfbf78faefa3c26d94208398e62bf25ea798e7f2
+# bad: [530d65b38df62760ce7f778907cc3fce6f5519b7] Merge remote-tracking branch 'hid/for-next'
+git bisect bad 530d65b38df62760ce7f778907cc3fce6f5519b7
+# good: [4967343a2e8ae0ee767471053f8b55e529b7be7e] Merge remote-tracking branch 'arm-soc/for-next'
+git bisect good 4967343a2e8ae0ee767471053f8b55e529b7be7e
+# bad: [e8af1ded2dc3e3cb4e8c414809b2303f5b91abe0] Merge remote-tracking branch 'befs/for-next'
+git bisect bad e8af1ded2dc3e3cb4e8c414809b2303f5b91abe0
+# good: [1ccf1a61dd05b37ddc41fb874109915efb56c53d] Merge remote-tracking branch 'clk-samsung/for-next'
+git bisect good 1ccf1a61dd05b37ddc41fb874109915efb56c53d
+# good: [43693e88f9764f7ff292e18cbb0d36ed9b26411e] Merge remote-tracking branch 'powerpc/next'
+git bisect good 43693e88f9764f7ff292e18cbb0d36ed9b26411e
+# good: [52a34b34d4ff9a61bc6da9740541d8f08a40438c] s390/crypto: Enhance paes cipher to accept variable length key material
+git bisect good 52a34b34d4ff9a61bc6da9740541d8f08a40438c
+# bad: [cc932c65d7892091735a553b89fdd21cc20cb85d] Merge remote-tracking branch 's390/features'
+git bisect bad cc932c65d7892091735a553b89fdd21cc20cb85d
+# bad: [bb0133e085b524a49829fd02be21f1edd3beaac1] automerging branch "kernel.org-palmer-linux/next-nofpu" into "for-next"
+git bisect bad bb0133e085b524a49829fd02be21f1edd3beaac1
+# good: [c720a7ff190fc2015ae1449bcbf31216c4a9e973] automerging branch "kernel.org-palmer-linux/next-hch" into "for-next"
+git bisect good c720a7ff190fc2015ae1449bcbf31216c4a9e973
+# bad: [27625655dbfd83205ba489183f45a87717cb867c] RISC-V: Auto-detect whether a FPU exists
+git bisect bad 27625655dbfd83205ba489183f45a87717cb867c
+# good: [5453696cb3f1e5b316511234e27570d2f7698b70] RISC-V: Refactor FPU code in signal setup/return procedures
+git bisect good 5453696cb3f1e5b316511234e27570d2f7698b70
+# bad: [919ecff9aac4e7c8dae05d924385fb05c7c63854] RISC-V: Allow to disable FPU support
+git bisect bad 919ecff9aac4e7c8dae05d924385fb05c7c63854
+# bad: [0a5bee05fc67ce2044b8d91a18abbf14042da531] RISC-V: Cleanup ISA string setting
+git bisect bad 0a5bee05fc67ce2044b8d91a18abbf14042da531
+# first bad commit: [0a5bee05fc67ce2044b8d91a18abbf14042da531] RISC-V: Cleanup ISA string setting
 
 _______________________________________________
 linux-riscv mailing list
