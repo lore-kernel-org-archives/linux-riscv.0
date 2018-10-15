@@ -1,61 +1,196 @@
-From: rjones@redhat.com (Richard W.M. Jones)
-Date: Mon, 15 Oct 2018 22:14:51 +0100
-Subject: [sw-dev] Re: [isa-dev] riscv-qemu - linux boot is failing for
- vda device
-In-Reply-To: <0D61A5C7-23B7-466E-BE00-458675DE4FF7@mac.com>
-References: <CAOuPNLgimMwWrw6oXs7Eu8xBG+geOt53D_LjiiNk7=OEtLtz3g@mail.gmail.com>
- <0D61A5C7-23B7-466E-BE00-458675DE4FF7@mac.com>
-Message-ID: <20181015211451.GC31130@redhat.com>
+From: joel@joelfernandes.org (Joel Fernandes)
+Date: Mon, 15 Oct 2018 15:33:03 -0700
+Subject: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
+In-Reply-To: <20181015094209.GA31999@infradead.org>
+References: <20181013013200.206928-1-joel@joelfernandes.org>
+ <20181013013200.206928-3-joel@joelfernandes.org>
+ <20181015094209.GA31999@infradead.org>
+Message-ID: <20181015223303.GA164293@joelaf.mtv.corp.google.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, Oct 16, 2018 at 09:26:20AM +1300, 'Michael Clark' via RISC-V SW Dev wrote:
-> Dropping isa-dev, adding sw-dev
+On Mon, Oct 15, 2018 at 02:42:09AM -0700, Christoph Hellwig wrote:
+> On Fri, Oct 12, 2018 at 06:31:58PM -0700, Joel Fernandes (Google) wrote:
+> > Android needs to mremap large regions of memory during memory management
+> > related operations.
 > 
-> > On 16/10/2018, at 3:00 AM, Pintu Kumar <pintu.ping@gmail.com> wrote:
-> > 
-> > Hi,
-> > I am trying to setup riscv-qemu booting on a new Ubuntu PC.
-> > I dont want to use freedom-u-sdk, so I am preparing my own environment.
-> > I could able to build the following:
-> > - riscv-toolchain
-> > - riscv-linux
-> > - riscv-qemu
-> > - riscv-pk
-> > - busybear
-> > 
-> > After that, I am trying to boot riscv-qemu, using the following command:
-> > # sudo qemu-system-riscv64 -nographic -machine virt -kernel
-> > PK/riscv-pk/build/bbl -append "root=/dev/vda ro console=ttyS0" -drive
-> > file=busybear.bin,format=raw,id=hd0 -device
-> > virtio-blk-device,drive=hd0
+> Just curious: why?
+
+In Android we have a requirement of moving a large (up to a GB now, but may
+grow bigger in future) memory range from one location to another. This move
+operation has to happen when the application threads are paused for this
+operation. Therefore, an inefficient move like it is now (for example 250ms
+on arm64) will cause response time issues for applications, which is not
+acceptable. Huge pages cannot be used in such memory ranges to avoid this
+inefficiency as (when the application threads are running) our fault handlers
+are designed to process 4KB pages at a time, to keep response times low. So
+using huge pages in this context can, again, cause response time issues.
+
+Also, the mremap syscall waiting for quarter of a second for a large mremap
+is quite weird and we ought to improve it where possible.
+
+> > +	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
+> > +	    || old_end - old_addr < PMD_SIZE)
 > 
-> Note: sudo is not required. sudo is used in the busybear start-qemu.sh script as it uses bridged networking. The latest version of busybear points at linux-4.19-rc5 so the issue may have been fixed.
+> The || goes on the first line.
+
+Ok, fixed.
+
+> > +		} else if (extent == PMD_SIZE && IS_ENABLED(CONFIG_HAVE_MOVE_PMD)) {
 > 
-> > But, I am getting kernel panic.
-> > 
-> > ---------
-> > bbl loader
-> > ....
-> > Linux version 4.18.0-rc6...
+> Overly long line.
 
-It's a bit of a guess, but could this be the upstream kernel?  The
-latest riscv-linux is 4.18.0 (not -rc6).
+Ok, fixed. Preview of updated patch is below.
 
-The reason I say it might be the upstream kernel is because ...
+thanks,
 
-> > virtio_blk: probe of virtio0 failed with error -22
+ - Joel
 
-... I saw this exact error when I was using the upstream kernel
-instead of the one which supported interrupt handling.  Interrupt
-handling for RISC-V was added upstream after 4.18 so wouldn't be
-included in upstream 4.18.0-rc6.
+------8<---
+From: "Joel Fernandes (Google)" <joel@joelfernandes.org>
+Subject: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v3)
 
-Rich.
+Android needs to mremap large regions of memory during memory management
+related operations. The mremap system call can be really slow if THP is
+not enabled. The bottleneck is move_page_tables, which is copying each
+pte at a time, and can be really slow across a large map. Turning on THP
+may not be a viable option, and is not for us. This patch speeds up the
+performance for non-THP system by copying at the PMD level when possible.
 
+The speed up is three orders of magnitude. On a 1GB mremap, the mremap
+completion times drops from 160-250 millesconds to 380-400 microseconds.
+
+Before:
+Total mremap time for 1GB data: 242321014 nanoseconds.
+Total mremap time for 1GB data: 196842467 nanoseconds.
+Total mremap time for 1GB data: 167051162 nanoseconds.
+
+After:
+Total mremap time for 1GB data: 385781 nanoseconds.
+Total mremap time for 1GB data: 388959 nanoseconds.
+Total mremap time for 1GB data: 402813 nanoseconds.
+
+Incase THP is enabled, the optimization is mostly skipped except in
+certain situations. I also flush the tlb every time we do this
+optimization since I couldn't find a way to determine if the low-level
+PTEs are dirty. It is seen that the cost of doing so is not much
+compared the improvement, on both x86-64 and arm64.
+
+Cc: minchan at kernel.org
+Cc: pantin at google.com
+Cc: hughd at google.com
+Cc: lokeshgidra at google.com
+Cc: dancol at google.com
+Cc: mhocko at kernel.org
+Cc: kirill at shutemov.name
+Cc: akpm at linux-foundation.org
+Cc: kernel-team at android.com
+Signed-off-by: Joel Fernandes (Google) <joel@joelfernandes.org>
+---
+ arch/Kconfig |  5 ++++
+ mm/mremap.c  | 66 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 71 insertions(+)
+
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 6801123932a5..9724fe39884f 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -518,6 +518,11 @@ config HAVE_IRQ_TIME_ACCOUNTING
+ 	  Archs need to ensure they use a high enough resolution clock to
+ 	  support irq time accounting and then call enable_sched_clock_irqtime().
+ 
++config HAVE_MOVE_PMD
++	bool
++	help
++	  Archs that select this are able to move page tables at the PMD level.
++
+ config HAVE_ARCH_TRANSPARENT_HUGEPAGE
+ 	bool
+ 
+diff --git a/mm/mremap.c b/mm/mremap.c
+index 9e68a02a52b1..a8dd98a59975 100644
+--- a/mm/mremap.c
++++ b/mm/mremap.c
+@@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
+ 		drop_rmap_locks(vma);
+ }
+ 
++static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
++		  unsigned long new_addr, unsigned long old_end,
++		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
++{
++	spinlock_t *old_ptl, *new_ptl;
++	struct mm_struct *mm = vma->vm_mm;
++
++	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK) ||
++	    old_end - old_addr < PMD_SIZE)
++		return false;
++
++	/*
++	 * The destination pmd shouldn't be established, free_pgtables()
++	 * should have release it.
++	 */
++	if (WARN_ON(!pmd_none(*new_pmd)))
++		return false;
++
++	/*
++	 * We don't have to worry about the ordering of src and dst
++	 * ptlocks because exclusive mmap_sem prevents deadlock.
++	 */
++	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
++	if (old_ptl) {
++		pmd_t pmd;
++
++		new_ptl = pmd_lockptr(mm, new_pmd);
++		if (new_ptl != old_ptl)
++			spin_lock_nested(new_ptl, SINGLE_DEPTH_NESTING);
++
++		/* Clear the pmd */
++		pmd = *old_pmd;
++		pmd_clear(old_pmd);
++
++		VM_BUG_ON(!pmd_none(*new_pmd));
++
++		/* Set the new pmd */
++		set_pmd_at(mm, new_addr, new_pmd, pmd);
++		if (new_ptl != old_ptl)
++			spin_unlock(new_ptl);
++		spin_unlock(old_ptl);
++
++		*need_flush = true;
++		return true;
++	}
++	return false;
++}
++
+ unsigned long move_page_tables(struct vm_area_struct *vma,
+ 		unsigned long old_addr, struct vm_area_struct *new_vma,
+ 		unsigned long new_addr, unsigned long len,
+@@ -239,7 +287,25 @@ unsigned long move_page_tables(struct vm_area_struct *vma,
+ 			split_huge_pmd(vma, old_pmd, old_addr);
+ 			if (pmd_trans_unstable(old_pmd))
+ 				continue;
++		} else if (extent == PMD_SIZE &&
++			   IS_ENABLED(CONFIG_HAVE_MOVE_PMD)) {
++			/*
++			 * If the extent is PMD-sized, try to speed the move by
++			 * moving at the PMD level if possible.
++			 */
++			bool moved;
++
++			if (need_rmap_locks)
++				take_rmap_locks(vma);
++			moved = move_normal_pmd(vma, old_addr, new_addr,
++						old_end, old_pmd, new_pmd,
++						&need_flush);
++			if (need_rmap_locks)
++				drop_rmap_locks(vma);
++			if (moved)
++				continue;
+ 		}
++
+ 		if (pte_alloc(new_vma->vm_mm, new_pmd))
+ 			break;
+ 		next = (new_addr + PMD_SIZE) & PMD_MASK;
 -- 
-Richard Jones, Virtualization Group, Red Hat http://people.redhat.com/~rjones
-Read my programming and virtualization blog: http://rwmj.wordpress.com
-virt-top is 'top' for virtual machines.  Tiny program with many
-powerful monitoring features, net stats, disk stats, logging, etc.
-http://people.redhat.com/~rjones/virt-top
+2.19.1.331.ge82ca0e54c-goog
