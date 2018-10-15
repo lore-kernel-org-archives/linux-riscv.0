@@ -7,17 +7,16 @@ X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ADC48C04AA5
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 18:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 18BC2C04AA5
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 18:40:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6B15420881
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 18:32:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C9576208B3
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 18:40:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sVBtMhNm";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="r/dSfFYL"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6B15420881
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gO3yWfeT"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C9576208B3
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=deltatee.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,46 +25,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Subject:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8Z7IBtqeLNj/0863z4y5ZrHWmt3QzigTi/+Lp1NHgms=; b=sVBtMhNmHvVhnM
-	VtlSKTApUP2pmi25GylaxS+AXqMJhFWkQ0KlwGFpIJiB5Sh/tXzHO8rkco0BSsM6GJQfq7c7D1veK
-	0VpX2ExdnuHormbNxEFJZ0JGn7DtEVp8aKBMOf20hopP6B+og7KU6Gkx5D2XEXuQxrAZpSYJ72BgU
-	/9Ib4iPrAUcjWx1WRM7EcBRayfCGgGlzkoq6i6ye30XN1fnqYri7TK8F00tgWb3i3O+oz1f/Ofki5
-	kKUAAdLha47au0wQPwPyJCZd7mXNvv5l05TVXsmn/CO1SrrR6LqT5r01FhbhAbaXE1MJftQOBr4xB
-	0M525EVjP6ZrZsy/h6zw==;
+	List-Owner; bh=bwkbuCPxPt+bosyhlje6rUPVC91ocfs/t+oX3MLSkBQ=; b=gO3yWfeT+fE1JG
+	dQJzxmQYu5Yg8MG1+Yeh0dIlT9RTUvDhrXIftyvCZVokIqaG1OyNof8P30b204SLiI2GYRsUBl66X
+	lWwBOvpLPzjnjecMJKW1ehCtLOPZRl0b87ljwC30W4KTYqieiXqre92wsVDh7osQC9FWpwxqT/mTG
+	cdJSXL1eAcRaIvW4eeNn2R8Ob4+TjOM4KZbO+wHaposaoYvd5XDOfYjIfCqmoH6CCE4vytQoNmLoe
+	A7kkzus0gvwWFzdoTnIVDF8Iv275B3g9vBfJqtwoDepxuFvCJsp301M3ZvLShZx2QzxqiiowLp+WS
+	vn4tbH7cF+sixP/k/IHg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gC7fE-0002Ml-79; Mon, 15 Oct 2018 18:32:24 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gC7cd-0007jg-To; Mon, 15 Oct 2018 18:29:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=Subject:Content-Transfer-Encoding:
- MIME-Version:References:In-Reply-To:Message-Id:Date:Cc:To:From:Sender:
- Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Pjn2SKMH8bI3Nc5MBoKr+9lA/vWqKzACQOBqjOPOq7Y=; b=r/dSfFYLkRbfV6Q4i7P0SXB4HK
- 6LcXb854VeEk5v9xWzYjGpZeXzJKe7t0lwIiCLlF9CWHaYHW7kJza2YEEVMPv0Ps4sCOuVzyE1Qia
- fnpekFg28JH+yMWB6OF3pzwlS+3Wwy+Ucin+e/ptIjDr5q8lyg381JOEgCMyx1KWOx/GrJP93xDJh
- mycJfAgGhN/EvVK4wNFIUxt0gEDIDhY5AFum4a02ChAMWVyEPs3TAtE+o+vUBMmZoolLCDtKVqbSd
- qwWJzSGgzv98QBbE/mGhVtiooPLlj5xEdUo2t3FDeUrToDiS7a065p9m2hdT1dOTdhuqojv50Zn+F
- wFH2cWIA==;
+	id 1gC7n3-0006wg-PH; Mon, 15 Oct 2018 18:40:29 +0000
 Received: from ale.deltatee.com ([207.54.116.67])
- by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gC77X-0004xE-Ke; Mon, 15 Oct 2018 17:57:38 +0000
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gC77R-0008II-Aw; Mon, 15 Oct 2018 17:59:20 +0000
 Received: from cgy1-donard.priv.deltatee.com ([172.16.1.31])
  by ale.deltatee.com with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
  (Exim 4.89) (envelope-from <gunthorp@deltatee.com>)
- id 1gC77D-0002IK-Pi; Mon, 15 Oct 2018 11:57:18 -0600
+ id 1gC77C-0002IL-7I; Mon, 15 Oct 2018 11:57:15 -0600
 Received: from gunthorp by cgy1-donard.priv.deltatee.com with local (Exim 4.89)
  (envelope-from <gunthorp@deltatee.com>)
- id 1gC779-0002Mg-AI; Mon, 15 Oct 2018 11:57:11 -0600
+ id 1gC779-0002Mj-F4; Mon, 15 Oct 2018 11:57:11 -0600
 From: Logan Gunthorpe <logang@deltatee.com>
 To: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
  linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-sh@vger.kernel.org
-Date: Mon, 15 Oct 2018 11:56:59 -0600
-Message-Id: <20181015175702.9036-4-logang@deltatee.com>
+Date: Mon, 15 Oct 2018 11:57:00 -0600
+Message-Id: <20181015175702.9036-5-logang@deltatee.com>
 X-Mailer: git-send-email 2.19.0
 In-Reply-To: <20181015175702.9036-1-logang@deltatee.com>
 References: <20181015175702.9036-1-logang@deltatee.com>
@@ -75,15 +59,14 @@ X-SA-Exim-Rcpt-To: linux-mm@kvack.org, linux-riscv@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-sh@vger.kernel.org, sbates@raithlin.com, palmer@sifive.com,
  aou@eecs.berkeley.edu, hch@lst.de, akpm@linux-foundation.org, arnd@arndb.de,
- logang@deltatee.com, linux@armlinux.org.uk, keescook@chromium.org,
- philip@cog.systems, rostedt@goodmis.org, nicolas.pitre@linaro.org
+ logang@deltatee.com, will.deacon@arm.com
 X-SA-Exim-Mail-From: gunthorp@deltatee.com
-Subject: [PATCH v2 3/6] ARM: mm: make use of new memblocks_present() helper
+Subject: [PATCH v2 4/6] arm64: mm: make use of new memblocks_present() helper
 X-SA-Exim-Version: 4.2.1 (built Tue, 02 Aug 2016 21:08:31 +0000)
 X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181015_185736_362050_07FC0AF7 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20181015_105729_565159_9379219D 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -95,72 +78,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Nicolas Pitre <nicolas.pitre@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
- Palmer Dabbelt <palmer@sifive.com>, Russell King <linux@armlinux.org.uk>,
- "Steven Rostedt \(VMware\)" <rostedt@goodmis.org>,
- Stephen Bates <sbates@raithlin.com>, Philip Derrin <philip@cog.systems>,
- Andrew Morton <akpm@linux-foundation.org>,
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+ Palmer Dabbelt <palmer@sifive.com>, Will Deacon <will.deacon@arm.com>,
+ Stephen Bates <sbates@raithlin.com>, Andrew Morton <akpm@linux-foundation.org>,
  Logan Gunthorpe <logang@deltatee.com>, Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181015175659.ncSqzhhXFbGB6yEgQ6wM3sJMfR1HJIehxIpN_pW0Pw4@z>
+Message-ID: <20181015175700.86py78yg8ug6jDnyWkQR0VKeCXF1M8GmnXLhV6yHvxk@z>
 
-Cleanup the arm_memory_present() function seeing it's very
+Cleanup the arm64_memory_present() function seeing it's very
 similar to other arches.
 
-The new memblocks_present() helper checks for node ids which the
-arm version did not. However, this is equivalent seeing
-HAVE_MEMBLOCK_NODE_MAP should be false in this arch and therefore
-memblock_get_region_node() should return 0.
+memblocks_present() is a direct replacement of arm64_memory_present()
 
 Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-Cc: Russell King <linux@armlinux.org.uk>
-Cc: Kees Cook <keescook@chromium.org>
-Cc: Philip Derrin <philip@cog.systems>
-Cc: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
-Cc: Nicolas Pitre <nicolas.pitre@linaro.org>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will.deacon@arm.com>
 ---
- arch/arm/mm/init.c | 17 +----------------
- 1 file changed, 1 insertion(+), 16 deletions(-)
+ arch/arm64/mm/init.c | 20 +-------------------
+ 1 file changed, 1 insertion(+), 19 deletions(-)
 
-diff --git a/arch/arm/mm/init.c b/arch/arm/mm/init.c
-index 0cc8e04295a4..e2710dd7446f 100644
---- a/arch/arm/mm/init.c
-+++ b/arch/arm/mm/init.c
-@@ -201,21 +201,6 @@ int pfn_valid(unsigned long pfn)
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 6a0b5c5a61af..c51a944fe19f 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -296,24 +296,6 @@ int pfn_valid(unsigned long pfn)
  EXPORT_SYMBOL(pfn_valid);
  #endif
  
 -#ifndef CONFIG_SPARSEMEM
--static void __init arm_memory_present(void)
+-static void __init arm64_memory_present(void)
 -{
 -}
 -#else
--static void __init arm_memory_present(void)
+-static void __init arm64_memory_present(void)
 -{
 -	struct memblock_region *reg;
 -
--	for_each_memblock(memory, reg)
--		memory_present(0, memblock_region_memory_base_pfn(reg),
--			       memblock_region_memory_end_pfn(reg));
+-	for_each_memblock(memory, reg) {
+-		int nid = memblock_get_region_node(reg);
+-
+-		memory_present(nid, memblock_region_memory_base_pfn(reg),
+-				memblock_region_memory_end_pfn(reg));
+-	}
 -}
 -#endif
 -
- static bool arm_memblock_steal_permitted = true;
+ static phys_addr_t memory_limit = PHYS_ADDR_MAX;
  
- phys_addr_t __init arm_memblock_steal(phys_addr_t size, phys_addr_t align)
-@@ -317,7 +302,7 @@ void __init bootmem_init(void)
- 	 * Sparsemem tries to allocate bootmem in memory_present(),
- 	 * so must be done after the fixed reservations
+ /*
+@@ -506,7 +488,7 @@ void __init bootmem_init(void)
+ 	 * Sparsemem tries to allocate bootmem in memory_present(), so must be
+ 	 * done after the fixed reservations.
  	 */
--	arm_memory_present();
+-	arm64_memory_present();
 +	memblocks_present();
  
- 	/*
- 	 * sparse_init() needs the bootmem allocator up and running.
+ 	sparse_init();
+ 	zone_sizes_init(min, max);
 -- 
 2.19.0
 
