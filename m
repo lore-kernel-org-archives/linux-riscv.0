@@ -1,64 +1,88 @@
-From: logang@deltatee.com (Logan Gunthorpe)
-Date: Mon, 15 Oct 2018 11:56:59 -0600
-Subject: [PATCH v2 3/6] ARM: mm: make use of new memblocks_present() helper
-In-Reply-To: <20181015175702.9036-1-logang@deltatee.com>
-References: <20181015175702.9036-1-logang@deltatee.com>
-Message-ID: <20181015175702.9036-4-logang@deltatee.com>
+From: michaeljclark@mac.com (Michael Clark)
+Date: Tue, 16 Oct 2018 09:26:20 +1300
+Subject: [isa-dev] riscv-qemu - linux boot is failing for vda device
+In-Reply-To: <CAOuPNLgimMwWrw6oXs7Eu8xBG+geOt53D_LjiiNk7=OEtLtz3g@mail.gmail.com>
+References: <CAOuPNLgimMwWrw6oXs7Eu8xBG+geOt53D_LjiiNk7=OEtLtz3g@mail.gmail.com>
+Message-ID: <0D61A5C7-23B7-466E-BE00-458675DE4FF7@mac.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Cleanup the arm_memory_present() function seeing it's very
-similar to other arches.
+Dropping isa-dev, adding sw-dev
 
-The new memblocks_present() helper checks for node ids which the
-arm version did not. However, this is equivalent seeing
-HAVE_MEMBLOCK_NODE_MAP should be false in this arch and therefore
-memblock_get_region_node() should return 0.
+> On 16/10/2018, at 3:00 AM, Pintu Kumar <pintu.ping@gmail.com> wrote:
+> 
+> Hi,
+> I am trying to setup riscv-qemu booting on a new Ubuntu PC.
+> I dont want to use freedom-u-sdk, so I am preparing my own environment.
+> I could able to build the following:
+> - riscv-toolchain
+> - riscv-linux
+> - riscv-qemu
+> - riscv-pk
+> - busybear
+> 
+> After that, I am trying to boot riscv-qemu, using the following command:
+> # sudo qemu-system-riscv64 -nographic -machine virt -kernel
+> PK/riscv-pk/build/bbl -append "root=/dev/vda ro console=ttyS0" -drive
+> file=busybear.bin,format=raw,id=hd0 -device
+> virtio-blk-device,drive=hd0
 
-Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-Cc: Russell King <linux@armlinux.org.uk>
-Cc: Kees Cook <keescook@chromium.org>
-Cc: Philip Derrin <philip@cog.systems>
-Cc: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
-Cc: Nicolas Pitre <nicolas.pitre@linaro.org>
----
- arch/arm/mm/init.c | 17 +----------------
- 1 file changed, 1 insertion(+), 16 deletions(-)
+Note: sudo is not required. sudo is used in the busybear start-qemu.sh script as it uses bridged networking. The latest version of busybear points at linux-4.19-rc5 so the issue may have been fixed.
 
-diff --git a/arch/arm/mm/init.c b/arch/arm/mm/init.c
-index 0cc8e04295a4..e2710dd7446f 100644
---- a/arch/arm/mm/init.c
-+++ b/arch/arm/mm/init.c
-@@ -201,21 +201,6 @@ int pfn_valid(unsigned long pfn)
- EXPORT_SYMBOL(pfn_valid);
- #endif
- 
--#ifndef CONFIG_SPARSEMEM
--static void __init arm_memory_present(void)
--{
--}
--#else
--static void __init arm_memory_present(void)
--{
--	struct memblock_region *reg;
--
--	for_each_memblock(memory, reg)
--		memory_present(0, memblock_region_memory_base_pfn(reg),
--			       memblock_region_memory_end_pfn(reg));
--}
--#endif
--
- static bool arm_memblock_steal_permitted = true;
- 
- phys_addr_t __init arm_memblock_steal(phys_addr_t size, phys_addr_t align)
-@@ -317,7 +302,7 @@ void __init bootmem_init(void)
- 	 * Sparsemem tries to allocate bootmem in memory_present(),
- 	 * so must be done after the fixed reservations
- 	 */
--	arm_memory_present();
-+	memblocks_present();
- 
- 	/*
- 	 * sparse_init() needs the bootmem allocator up and running.
--- 
-2.19.0
+> But, I am getting kernel panic.
+> 
+> ---------
+> bbl loader
+> ....
+> Linux version 4.18.0-rc6...
+> ....
+> devtmpfs: initialized
+> cpu cpu0: Error -2 creating of_node link
+
+Not sure what is happening here.
+
+> ......
+> SCSI subsystem initialized
+> ....
+> Unpacking initramfs...
+> ....
+> loop: module loaded
+> virtio_blk: probe of virtio0 failed with error -22
+> ...
+> VFS: Cannot open root device "vda" or unknown-block(0,0): error -6
+
+It is finding vda from the command-line, thus chosen in the generic open-firmware code is working fine.
+
+> Please append a correct "root=" boot option; here are the available partitions:
+> Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
+> CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.18.0-rc6-13927-gd72e90f3 #3
+> -----------
+> 
+> Basically, it could not find the "vda" device, even though I passed
+> the "root=/dev/vda"
+> 
+> What could be the cause of this issue?
+> 
+> CONFIG_DEVTMPFS=y
+> CONFIG_DEVTMPFS_MOUNT=y
+> CONFIG_VIRTIO_BLK=y
+> # CONFIG_VIRTIO_BLK_SCSI is not set
+> # CONFIG_SCSI_VIRTIO is not set
+> CONFIG_VIRTIO_NET=y
+
+I can?t tell at a glance what your problem is, but if that is your complete .config delta from defconfig then we can drop it into busybear and point it at your kernel version; currently the build scripts use an archive.
+
+> These are already enabled in the kernel.
+> If I am missing any config, please let me know.
+
+You are probably missing config. Do you have the filesystems enabled?
+
+> Thanks,
+> Pintu
+> 
+> -- 
+> You received this message because you are subscribed to the Google Groups "RISC-V ISA Dev" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to isa-dev+unsubscribe at groups.riscv.org.
+> To post to this group, send email to isa-dev at groups.riscv.org.
+> Visit this group at https://groups.google.com/a/groups.riscv.org/group/isa-dev/.
+> To view this discussion on the web visit https://groups.google.com/a/groups.riscv.org/d/msgid/isa-dev/CAOuPNLgimMwWrw6oXs7Eu8xBG%2BgeOt53D_LjiiNk7%3DOEtLtz3g%40mail.gmail.com.
