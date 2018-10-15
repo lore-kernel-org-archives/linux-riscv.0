@@ -6,16 +6,16 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4FFB4C28CF8
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 08:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CA9CCC7112B
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 09:42:27 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1A9D52064E
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 08:41:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9C2742064A
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 09:42:27 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="r28ILzqc"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1A9D52064E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Q47D6lZb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9C2742064A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,26 +24,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BXd+c3iVGbenOeWqOwJxYKKHSJIOLR6DJpaR5OtxYm4=; b=r28ILzqcn+UCot
-	N/6P+PhphoBiJyqXEuylfqDUkE7sFs3rilgHsm8UNoVVJ432NDrigPp0JFCdJeKDkGMJlyAhNz2yO
-	OnFn05tNNKjmcEEgKkxVjU4ZhkXxEVhZhuZcFV5fE1ydxAZLrNpP1VcAFgcWRbKxkEGng8IPwW+op
-	z/Q6A+wq2JJrSc9pQFhw9U+N8ia37mhvbzUEV5a8EL30FkaYO1hk6f+RWa4CfO+1fudWCMzA+Xa2N
-	Ta35FmoFHUQEacDpOfG/3SNyovmR7/7uNj7A60flHG6S5qcr4lNH5mD/UkriRX8Yy6nPILXOWFOqU
-	mDI39qaIqRvVQ5HrCxBA==;
+	List-Owner; bh=TCjTMMQ010+7Uab8tptQYMfkYJp4a4EMnQy9lxkB0t8=; b=Q47D6lZbL039s1
+	O2PE9cidmpjCqZmbmEzAJTlT+QgtZ1TBDXoSLGjVRt5zwinuX9vSuU0m846I3Sq9SXwZKe0dzo0aD
+	uh7jzav2oVljhCQx3GThtIfaU6nUI+aLdRswNg4M/WgRYeNlSwO5c30ggaLnBOyG5gOloZsoyXs7r
+	/vAJgHFU797moTMAZwdF/PBgykQMnXW0YF1F8H8elyLbIo9+qgjTOISQCgxEV5znyjVeTtOnW0ARL
+	EkXyoAU+ofgQdGKfGVRlaDc3w/RhSkcH2lc6kvNn+N8H7hUWa/m4DzTWp9KMsxyJSR7Ew0jnEtitX
+	N6jbT9bUXj7rJrZR+xlg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gByQl-0000tM-Bv; Mon, 15 Oct 2018 08:40:51 +0000
+	id 1gBzOI-0001Wz-S1; Mon, 15 Oct 2018 09:42:22 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1gByKm-0005MA-3e; Mon, 15 Oct 2018 08:34:40 +0000
-Date: Mon, 15 Oct 2018 01:34:39 -0700
+ Hat Linux)) id 1gBzO5-0001W2-VT; Mon, 15 Oct 2018 09:42:09 +0000
+Date: Mon, 15 Oct 2018 02:42:09 -0700
 From: Christoph Hellwig <hch@infradead.org>
-To: Jim Wilson <jimw@sifive.com>
-Subject: Re: [PATCH] RISC-V: Add futex support.
-Message-ID: <20181015083439.GA11826@infradead.org>
-References: <20181012200350.5258-1-jimw@sifive.com>
+To: "Joel Fernandes (Google)" <joel@joelfernandes.org>
+Subject: Re: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
+Message-ID: <20181015094209.GA31999@infradead.org>
+References: <20181013013200.206928-1-joel@joelfernandes.org>
+ <20181013013200.206928-3-joel@joelfernandes.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20181012200350.5258-1-jimw@sifive.com>
+In-Reply-To: <20181013013200.206928-3-joel@joelfernandes.org>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -56,77 +57,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org
+Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
+ linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Will Deacon <will.deacon@arm.com>,
+ mhocko@kernel.org, linux-mm@kvack.org, lokeshgidra@google.com,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu, Jonas Bonn <jonas@southpole.se>,
+ linux-s390@vger.kernel.org, dancol@google.com,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Max Filippov <jcmvbkbc@gmail.com>,
+ linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>,
+ "maintainer:X86 ARCHITECTURE 32-BIT AND 64-BIT" <x86@kernel.org>,
+ hughd@google.com, "James E.J. Bottomley" <jejb@parisc-linux.org>,
+ kasan-dev@googlegroups.com, elfring@users.sourceforge.net,
+ Ingo Molnar <mingo@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Andrey Ryabinin <aryabinin@virtuozzo.com>, linux-snps-arc@lists.infradead.org,
+ kernel-team@android.com, Sam Creasey <sammy@sammy.net>,
+ linux-xtensa@linux-xtensa.org, Jeff Dike <jdike@addtoit.com>,
+ linux-alpha@vger.kernel.org, linux-um@lists.infradead.org,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Julia Lawall <Julia.Lawall@lip6.fr>, linux-m68k@lists.linux-m68k.org,
+ Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
+ Ley Foon Tan <lftan@altera.com>, kirill@shutemov.name,
+ Stafford Horne <shorne@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
+ Chris Zankel <chris@zankel.net>, Tony Luck <tony.luck@intel.com>,
+ linux-parisc@vger.kernel.org, pantin@google.com, linux-kernel@vger.kernel.org,
+ Fenghua Yu <fenghua.yu@intel.com>, minchan@kernel.org,
+ Thomas Gleixner <tglx@linutronix.de>, Richard Weinberger <richard@nod.at>,
+ anton.ivanov@kot-begemot.co.uk, nios2-dev@lists.rocketboards.org,
+ akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
+ "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181015083439.ANvzSg_epKMrurbTwofheQ8627RskwkblrgwJokvMRg@z>
+Message-ID: <20181015094209.foW2_wCSgjMHXUJvknL1OaQJldVjIFWAemj8L4QgNSI@z>
 
-> I'm not a kernel expert, so there could be details I got wrong here.  I wasn't
-> sure about the memory model support, so I used aqrl which seemed safest, and
-> didn't add fences which seemed unnecessary.  I'm not sure about the copyright
-> statements, I left in Ralf Baechle's line because I started with his code.
-> Checkpatch reports some style problems, but it is the same style as the MIPS
-> futex.h, and the uses of ENOSYS appear correct even though it complains about
-> them.  I don't know if any of that matters.
+On Fri, Oct 12, 2018 at 06:31:58PM -0700, Joel Fernandes (Google) wrote:
+> Android needs to mremap large regions of memory during memory management
+> related operations.
 
-Thanks Jim,
+Just curious: why?
 
-a few comments below:
+> +	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
+> +	    || old_end - old_addr < PMD_SIZE)
 
-> +/*
-> + * This file is subject to the terms and conditions of the GNU General Public
-> + * License.  See the file "COPYING" in the main directory of this archive
-> + * for more details.
-> + *
+The || goes on the first line.
 
-This should be replaced with an SPDX header:
+> +		} else if (extent == PMD_SIZE && IS_ENABLED(CONFIG_HAVE_MOVE_PMD)) {
 
-/* SPDX-License-Identifier: GPL-2.0 */
-
-> +#ifdef __KERNEL__
-
-No need for this ifdef.
-
-> +#include <asm/errno.h>
-
-This shoud be <linux/errno.h>
-
-> +#include <asm/asm.h>
-> +
-> +#define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)		\
-> +{									\
-> +	uintptr_t __tmp;						\
-> +	if (__riscv_atomic) {						\
-
-__riscv_atomic doesn't exist anywhere in the kernel tree.
-
-> +		__enable_user_access();					\
-> +		__asm__ __volatile__ (					\
-> +		"1:	" insn "				\n"	\
-> +		"2:						\n"	\
-> +		"	.section .fixup,\"ax\"			\n"	\
-> +		"	.balign 4				\n"	\
-> +		"3:	li %0,%5				\n"	\
-> +		"	jump 2b,%3				\n"	\
-> +		"	.previous				\n"	\
-> +		"	.section __ex_table,\"a\"		\n"	\
-> +		"	.balign " RISCV_SZPTR "			\n"	\
-> +		"	" RISCV_PTR " 1b, 3b			\n"	\
-> +		"	.previous				\n"	\
-> +		: "+r" (ret), "=&r" (oldval),				\
-> +		  "+m" (*uaddr), "=&r" (__tmp)				\
-> +		: "Jr" (oparg), "i" (-EFAULT)				\
-
-Might it be worth to use named __asm__ argument like we do in
-arch/riscv/include/asm/atomic.h?
-
-arch/riscv/include/asm/Kbuild needs to drop the generic-y line
-for futex.h now that there is a a real arch-specific one.
-
-arch/riscv/Kconfig should grow an unconditional 'select HAVE_FUTEX_CMPXCHG'
-to skip the feature probing.
+Overly long line.
 
 _______________________________________________
 linux-riscv mailing list
