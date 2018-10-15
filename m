@@ -1,65 +1,115 @@
-From: pintu.ping@gmail.com (Pintu Kumar)
-Date: Mon, 15 Oct 2018 19:30:59 +0530
-Subject: riscv-qemu - linux boot is failing for vda device
-Message-ID: <CAOuPNLgimMwWrw6oXs7Eu8xBG+geOt53D_LjiiNk7=OEtLtz3g@mail.gmail.com>
+From: mick@ics.forth.gr (Nick Kossifidis)
+Date: Mon, 15 Oct 2018 17:20:10 +0300
+Subject: [PATCH v2] OF: Handle CMDLINE when /chosen node is not present
+Message-ID: <20181015142010.13401-1-mick@ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi,
-I am trying to setup riscv-qemu booting on a new Ubuntu PC.
-I dont want to use freedom-u-sdk, so I am preparing my own environment.
-I could able to build the following:
-- riscv-toolchain
-- riscv-linux
-- riscv-qemu
-- riscv-pk
-- busybear
+The /chosen node is optional so we should handle CMDLINE regardless
+the presence of /chosen/bootargs. Move handling of CMDLINE in
+early_init_dt_scan() instead.
 
-After that, I am trying to boot riscv-qemu, using the following command:
-# sudo qemu-system-riscv64 -nographic -machine virt -kernel
-PK/riscv-pk/build/bbl -append "root=/dev/vda ro console=ttyS0" -drive
-file=busybear.bin,format=raw,id=hd0 -device
-virtio-blk-device,drive=hd0
+v2: Fix typo on comments section
 
-But, I am getting kernel panic.
+Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
+---
+ drivers/of/fdt.c | 69 +++++++++++++++++++++++++++++++++++++++-----------------
+ 1 file changed, 48 insertions(+), 21 deletions(-)
 
----------
-bbl loader
-....
-Linux version 4.18.0-rc6...
-....
-devtmpfs: initialized
-cpu cpu0: Error -2 creating of_node link
-......
-SCSI subsystem initialized
-....
-Unpacking initramfs...
-....
-loop: module loaded
-virtio_blk: probe of virtio0 failed with error -22
-...
-VFS: Cannot open root device "vda" or unknown-block(0,0): error -6
-Please append a correct "root=" boot option; here are the available partitions:
-Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
-CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.18.0-rc6-13927-gd72e90f3 #3
------------
-
-Basically, it could not find the "vda" device, even though I passed
-the "root=/dev/vda"
-
-What could be the cause of this issue?
-
-CONFIG_DEVTMPFS=y
-CONFIG_DEVTMPFS_MOUNT=y
-CONFIG_VIRTIO_BLK=y
-# CONFIG_VIRTIO_BLK_SCSI is not set
-# CONFIG_SCSI_VIRTIO is not set
-CONFIG_VIRTIO_NET=y
-
-These are already enabled in the kernel.
-If I am missing any config, please let me know.
-
-
-
-Thanks,
-Pintu
+diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+index 800ad252c..868464b0b 100644
+--- a/drivers/of/fdt.c
++++ b/drivers/of/fdt.c
+@@ -31,6 +31,14 @@
+ 
+ #include "of_private.h"
+ 
++#ifdef CONFIG_CMDLINE
++#ifdef CONFIG_CMDLINE_FORCE
++static const char fixed_cmdline[] __initconst = CONFIG_CMDLINE;
++#else
++static char builtin_cmdline[] __initdata = CONFIG_CMDLINE;
++#endif
++#endif
++
+ /*
+  * of_fdt_limit_memory - limit the number of regions in the /memory node
+  * @limit: maximum entries
+@@ -1088,28 +1096,10 @@ int __init early_init_dt_scan_chosen(unsigned long node, const char *uname,
+ 
+ 	/* Retrieve command line */
+ 	p = of_get_flat_dt_prop(node, "bootargs", &l);
+-	if (p != NULL && l > 0)
++	if (p != NULL && l > 0) {
+ 		strlcpy(data, p, min((int)l, COMMAND_LINE_SIZE));
+-
+-	/*
+-	 * CONFIG_CMDLINE is meant to be a default in case nothing else
+-	 * managed to set the command line, unless CONFIG_CMDLINE_FORCE
+-	 * is set in which case we override whatever was found earlier.
+-	 */
+-#ifdef CONFIG_CMDLINE
+-#if defined(CONFIG_CMDLINE_EXTEND)
+-	strlcat(data, " ", COMMAND_LINE_SIZE);
+-	strlcat(data, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+-#elif defined(CONFIG_CMDLINE_FORCE)
+-	strlcpy(data, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+-#else
+-	/* No arguments from boot loader, use kernel's  cmdl*/
+-	if (!((char *)data)[0])
+-		strlcpy(data, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+-#endif
+-#endif /* CONFIG_CMDLINE */
+-
+-	pr_debug("Command line is: %s\n", (char*)data);
++		pr_debug("Got bootargs: %s\n", (char *) data);
++	}
+ 
+ 	/* break now */
+ 	return 1;
+@@ -1240,6 +1230,43 @@ bool __init early_init_dt_scan(void *params)
+ 		return false;
+ 
+ 	early_init_dt_scan_nodes();
++
++	/*
++	 * The /chosen node normally contains the bootargs element
++	 * that includes the kernel's command line parameters.
++	 * However the presence of /chosen is not mandatory so
++	 * in case we didn't get a command line when scanning
++	 * nodes above, we need to provide one here before we
++	 * return if possible.
++	 *
++	 * The built-in command line can be used as a default
++	 * command line in case we received nothing from the
++	 * device tree/bootloader. It can also be used for
++	 * extending or replacing the received command line.
++	 */
++#ifdef CONFIG_CMDLINE
++#if defined(CONFIG_CMDLINE_EXTEND)
++	/*
++	 * Order of parameters shouldn't matter for most cases,
++	 * so prepending or appending the built-in command line
++	 * shouldn't make a difference. In cases where it does
++	 * it's up to the user to configure the kernel and/or
++	 * the bootloader properly.
++	 */
++	if (builtin_cmdline[0]) {
++		strlcat(boot_command_line, " ", COMMAND_LINE_SIZE);
++		strlcat(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
++	}
++#elif defined(CONFIG_CMDLINE_FORCE)
++	if (fixed_cmdline[0])
++		strlcpy(boot_command_line, fixed_cmdline, COMMAND_LINE_SIZE);
++#else
++	/* No arguments from boot loader, use kernel's cmdline */
++	if (!boot_command_line[0] && builtin_cmdline[0])
++		strlcpy(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
++#endif
++#endif /* CONFIG_CMDLINE */
++
+ 	return true;
+ }
+ 
+-- 
+2.16.4
