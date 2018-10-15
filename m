@@ -1,55 +1,65 @@
-From: zongbox@gmail.com (Zong Li)
-Date: Mon, 15 Oct 2018 20:33:17 +0800
-Subject: [PATCH v4 0/5] Fix some bugs on RV32 build fail and issue
-In-Reply-To: <cover.1538535527.git.zongbox@gmail.com>
-References: <cover.1538535527.git.zongbox@gmail.com>
-Message-ID: <CA+ZOyaig6dwzfhUn5CQ92P__yay2-aAgA4Nh+VxTs50FCbECwQ@mail.gmail.com>
+From: pintu.ping@gmail.com (Pintu Kumar)
+Date: Mon, 15 Oct 2018 19:30:59 +0530
+Subject: riscv-qemu - linux boot is failing for vda device
+Message-ID: <CAOuPNLgimMwWrw6oXs7Eu8xBG+geOt53D_LjiiNk7=OEtLtz3g@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Zong Li <zongbox@gmail.com> ? 2018?10?3? ?? ??11:12???
->
-> This patches contain the modificaion as follows:
-> 1. Fix up the building fail on RV32.
-> 2. Add umoddi3 and udivmoddi4 functions for RV32.
-> 3. Fix ioremap problem on RV32.
->
-> Thanks all for review these code and modify the copyright description.
->
-> Changes in v4:
->  - Retain the complete copyright description.
->  - Modify commit message.
->  - Rebase upstream code.
->
-> Changes in v3:
->  - Change the copyright notices to GPLv2 from  gcc 4.2.1.
->
-> Changes in v2:
->  - Retain the copyright notices from libgcc in umoddi3.c and udivmoddi4.c.
->
-> Vincent Chen (1):
->   RISC-V: Avoid corrupting the upper 32-bit of phys_addr_t in ioremap
->
-> Zong Li (4):
->   RISC-V: Build tishift only on 64-bit
->   RISC-V: Add preprocessor directive for swiotlb
->   lib: Add umoddi3 and udivmoddi4 of GCC library routines
->   RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
->
->  arch/riscv/Kconfig        |   1 +
->  arch/riscv/kernel/setup.c |   3 +
->  arch/riscv/lib/Makefile   |   3 +-
->  arch/riscv/mm/ioremap.c   |   2 +-
->  lib/Kconfig               |   3 +
->  lib/Makefile              |   1 +
->  lib/udivmoddi4.c          | 326 ++++++++++++++++++++++++++++++++++++++++++++++
->  lib/umoddi3.c             |  48 +++++++
->  8 files changed, 385 insertions(+), 2 deletions(-)
->  create mode 100644 lib/udivmoddi4.c
->  create mode 100644 lib/umoddi3.c
->
-> --
-> 2.7.4
->
+Hi,
+I am trying to setup riscv-qemu booting on a new Ubuntu PC.
+I dont want to use freedom-u-sdk, so I am preparing my own environment.
+I could able to build the following:
+- riscv-toolchain
+- riscv-linux
+- riscv-qemu
+- riscv-pk
+- busybear
 
-ping
+After that, I am trying to boot riscv-qemu, using the following command:
+# sudo qemu-system-riscv64 -nographic -machine virt -kernel
+PK/riscv-pk/build/bbl -append "root=/dev/vda ro console=ttyS0" -drive
+file=busybear.bin,format=raw,id=hd0 -device
+virtio-blk-device,drive=hd0
+
+But, I am getting kernel panic.
+
+---------
+bbl loader
+....
+Linux version 4.18.0-rc6...
+....
+devtmpfs: initialized
+cpu cpu0: Error -2 creating of_node link
+......
+SCSI subsystem initialized
+....
+Unpacking initramfs...
+....
+loop: module loaded
+virtio_blk: probe of virtio0 failed with error -22
+...
+VFS: Cannot open root device "vda" or unknown-block(0,0): error -6
+Please append a correct "root=" boot option; here are the available partitions:
+Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
+CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.18.0-rc6-13927-gd72e90f3 #3
+-----------
+
+Basically, it could not find the "vda" device, even though I passed
+the "root=/dev/vda"
+
+What could be the cause of this issue?
+
+CONFIG_DEVTMPFS=y
+CONFIG_DEVTMPFS_MOUNT=y
+CONFIG_VIRTIO_BLK=y
+# CONFIG_VIRTIO_BLK_SCSI is not set
+# CONFIG_SCSI_VIRTIO is not set
+CONFIG_VIRTIO_NET=y
+
+These are already enabled in the kernel.
+If I am missing any config, please let me know.
+
+
+
+Thanks,
+Pintu
