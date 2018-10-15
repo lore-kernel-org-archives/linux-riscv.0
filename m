@@ -1,80 +1,64 @@
 From: logang@deltatee.com (Logan Gunthorpe)
-Date: Mon, 15 Oct 2018 11:56:58 -0600
-Subject: [PATCH v2 2/6] mm/sparse: add common helper to mark all memblocks
- present
+Date: Mon, 15 Oct 2018 11:56:59 -0600
+Subject: [PATCH v2 3/6] ARM: mm: make use of new memblocks_present() helper
 In-Reply-To: <20181015175702.9036-1-logang@deltatee.com>
 References: <20181015175702.9036-1-logang@deltatee.com>
-Message-ID: <20181015175702.9036-3-logang@deltatee.com>
+Message-ID: <20181015175702.9036-4-logang@deltatee.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Presently the arches arm64, arm and sh have a function which loops through
-each memblock and calls memory present. riscv will require a similar
-function.
+Cleanup the arm_memory_present() function seeing it's very
+similar to other arches.
 
-Introduce a common memblocks_present() function that can be used by
-all the arches. Subsequent patches will cleanup the arches that
-make use of this.
+The new memblocks_present() helper checks for node ids which the
+arm version did not. However, this is equivalent seeing
+HAVE_MEMBLOCK_NODE_MAP should be false in this arch and therefore
+memblock_get_region_node() should return 0.
 
 Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Michal Hocko <mhocko@suse.com>
-Cc: Vlastimil Babka <vbabka@suse.cz>
-Cc: Pavel Tatashin <pasha.tatashin@oracle.com>
-Cc: Oscar Salvador <osalvador@suse.de>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Kees Cook <keescook@chromium.org>
+Cc: Philip Derrin <philip@cog.systems>
+Cc: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
+Cc: Nicolas Pitre <nicolas.pitre@linaro.org>
 ---
- include/linux/mmzone.h |  6 ++++++
- mm/sparse.c            | 14 ++++++++++++++
- 2 files changed, 20 insertions(+)
+ arch/arm/mm/init.c | 17 +----------------
+ 1 file changed, 1 insertion(+), 16 deletions(-)
 
-diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-index d4b0c79d2924..26a026a45857 100644
---- a/include/linux/mmzone.h
-+++ b/include/linux/mmzone.h
-@@ -784,6 +784,12 @@ void memory_present(int nid, unsigned long start, unsigned long end);
- static inline void memory_present(int nid, unsigned long start, unsigned long end) {}
+diff --git a/arch/arm/mm/init.c b/arch/arm/mm/init.c
+index 0cc8e04295a4..e2710dd7446f 100644
+--- a/arch/arm/mm/init.c
++++ b/arch/arm/mm/init.c
+@@ -201,21 +201,6 @@ int pfn_valid(unsigned long pfn)
+ EXPORT_SYMBOL(pfn_valid);
  #endif
  
-+#if defined(CONFIG_SPARSEMEM) && defined(CONFIG_HAVE_MEMBLOCK)
-+void memblocks_present(void);
-+#else
-+static inline void memblocks_present(void) {}
-+#endif
-+
- #ifdef CONFIG_HAVE_MEMORYLESS_NODES
- int local_memory_node(int node_id);
- #else
-diff --git a/mm/sparse.c b/mm/sparse.c
-index 10b07eea9a6e..90aec8331a03 100644
---- a/mm/sparse.c
-+++ b/mm/sparse.c
-@@ -5,6 +5,7 @@
- #include <linux/mm.h>
- #include <linux/slab.h>
- #include <linux/mmzone.h>
-+#include <linux/memblock.h>
- #include <linux/bootmem.h>
- #include <linux/compiler.h>
- #include <linux/highmem.h>
-@@ -238,6 +239,19 @@ void __init memory_present(int nid, unsigned long start, unsigned long end)
- 	}
- }
+-#ifndef CONFIG_SPARSEMEM
+-static void __init arm_memory_present(void)
+-{
+-}
+-#else
+-static void __init arm_memory_present(void)
+-{
+-	struct memblock_region *reg;
+-
+-	for_each_memblock(memory, reg)
+-		memory_present(0, memblock_region_memory_base_pfn(reg),
+-			       memblock_region_memory_end_pfn(reg));
+-}
+-#endif
+-
+ static bool arm_memblock_steal_permitted = true;
  
-+#ifdef CONFIG_HAVE_MEMBLOCK
-+void __init memblocks_present(void)
-+{
-+	struct memblock_region *reg;
-+
-+	for_each_memblock(memory, reg) {
-+		memory_present(memblock_get_region_node(reg),
-+			       memblock_region_memory_base_pfn(reg),
-+			       memblock_region_memory_end_pfn(reg));
-+	}
-+}
-+#endif
-+
- /*
-  * Subtle, we encode the real pfn into the mem_map such that
-  * the identity pfn - section_mem_map will return the actual
+ phys_addr_t __init arm_memblock_steal(phys_addr_t size, phys_addr_t align)
+@@ -317,7 +302,7 @@ void __init bootmem_init(void)
+ 	 * Sparsemem tries to allocate bootmem in memory_present(),
+ 	 * so must be done after the fixed reservations
+ 	 */
+-	arm_memory_present();
++	memblocks_present();
+ 
+ 	/*
+ 	 * sparse_init() needs the bootmem allocator up and running.
 -- 
 2.19.0
