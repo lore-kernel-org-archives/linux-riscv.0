@@ -1,115 +1,31 @@
-From: mick@ics.forth.gr (Nick Kossifidis)
-Date: Mon, 15 Oct 2018 17:20:10 +0300
-Subject: [PATCH v2] OF: Handle CMDLINE when /chosen node is not present
-Message-ID: <20181015142010.13401-1-mick@ics.forth.gr>
+From: jimw@sifive.com (Jim Wilson)
+Date: Mon, 15 Oct 2018 08:57:24 -0700
+Subject: [PATCH] RISC-V: Add futex support.
+In-Reply-To: <20181015083439.GA11826@infradead.org>
+References: <20181012200350.5258-1-jimw@sifive.com>
+ <20181015083439.GA11826@infradead.org>
+Message-ID: <CAFyWVaZaXd8GZYSrMqZh+zQ+3CDghpumjo2ETezXcR93OXXSZg@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The /chosen node is optional so we should handle CMDLINE regardless
-the presence of /chosen/bootargs. Move handling of CMDLINE in
-early_init_dt_scan() instead.
+On Mon, Oct 15, 2018 at 1:34 AM Christoph Hellwig <hch@infradead.org> wrote:
+> > +#include <asm/asm.h>
+> > +
+> > +#define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)           \
+> > +{                                                                    \
+> > +     uintptr_t __tmp;                                                \
+> > +     if (__riscv_atomic) {                                           \
+>
+> __riscv_atomic doesn't exist anywhere in the kernel tree.
 
-v2: Fix typo on comments section
+__riscv_atomic is a predefined macro from the compiler.  It is defined
+when the target has atomic instructions, e.g. -march=rv64ia.  It is
+not defined when the target has no atomic instructions, e.g.
+-march=rv64i.  The idea here was that we only used atomic instructions
+if the target has them.  I didn't think to check for a more proper
+kernel solution.  I see that there is a CONFIG_RISCV_ISA_A so it looks
+like I should be testing that instead.
 
-Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
----
- drivers/of/fdt.c | 69 +++++++++++++++++++++++++++++++++++++++-----------------
- 1 file changed, 48 insertions(+), 21 deletions(-)
+I will work on a revised patch as per your suggestions.
 
-diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-index 800ad252c..868464b0b 100644
---- a/drivers/of/fdt.c
-+++ b/drivers/of/fdt.c
-@@ -31,6 +31,14 @@
- 
- #include "of_private.h"
- 
-+#ifdef CONFIG_CMDLINE
-+#ifdef CONFIG_CMDLINE_FORCE
-+static const char fixed_cmdline[] __initconst = CONFIG_CMDLINE;
-+#else
-+static char builtin_cmdline[] __initdata = CONFIG_CMDLINE;
-+#endif
-+#endif
-+
- /*
-  * of_fdt_limit_memory - limit the number of regions in the /memory node
-  * @limit: maximum entries
-@@ -1088,28 +1096,10 @@ int __init early_init_dt_scan_chosen(unsigned long node, const char *uname,
- 
- 	/* Retrieve command line */
- 	p = of_get_flat_dt_prop(node, "bootargs", &l);
--	if (p != NULL && l > 0)
-+	if (p != NULL && l > 0) {
- 		strlcpy(data, p, min((int)l, COMMAND_LINE_SIZE));
--
--	/*
--	 * CONFIG_CMDLINE is meant to be a default in case nothing else
--	 * managed to set the command line, unless CONFIG_CMDLINE_FORCE
--	 * is set in which case we override whatever was found earlier.
--	 */
--#ifdef CONFIG_CMDLINE
--#if defined(CONFIG_CMDLINE_EXTEND)
--	strlcat(data, " ", COMMAND_LINE_SIZE);
--	strlcat(data, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
--#elif defined(CONFIG_CMDLINE_FORCE)
--	strlcpy(data, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
--#else
--	/* No arguments from boot loader, use kernel's  cmdl*/
--	if (!((char *)data)[0])
--		strlcpy(data, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
--#endif
--#endif /* CONFIG_CMDLINE */
--
--	pr_debug("Command line is: %s\n", (char*)data);
-+		pr_debug("Got bootargs: %s\n", (char *) data);
-+	}
- 
- 	/* break now */
- 	return 1;
-@@ -1240,6 +1230,43 @@ bool __init early_init_dt_scan(void *params)
- 		return false;
- 
- 	early_init_dt_scan_nodes();
-+
-+	/*
-+	 * The /chosen node normally contains the bootargs element
-+	 * that includes the kernel's command line parameters.
-+	 * However the presence of /chosen is not mandatory so
-+	 * in case we didn't get a command line when scanning
-+	 * nodes above, we need to provide one here before we
-+	 * return if possible.
-+	 *
-+	 * The built-in command line can be used as a default
-+	 * command line in case we received nothing from the
-+	 * device tree/bootloader. It can also be used for
-+	 * extending or replacing the received command line.
-+	 */
-+#ifdef CONFIG_CMDLINE
-+#if defined(CONFIG_CMDLINE_EXTEND)
-+	/*
-+	 * Order of parameters shouldn't matter for most cases,
-+	 * so prepending or appending the built-in command line
-+	 * shouldn't make a difference. In cases where it does
-+	 * it's up to the user to configure the kernel and/or
-+	 * the bootloader properly.
-+	 */
-+	if (builtin_cmdline[0]) {
-+		strlcat(boot_command_line, " ", COMMAND_LINE_SIZE);
-+		strlcat(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
-+	}
-+#elif defined(CONFIG_CMDLINE_FORCE)
-+	if (fixed_cmdline[0])
-+		strlcpy(boot_command_line, fixed_cmdline, COMMAND_LINE_SIZE);
-+#else
-+	/* No arguments from boot loader, use kernel's cmdline */
-+	if (!boot_command_line[0] && builtin_cmdline[0])
-+		strlcpy(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
-+#endif
-+#endif /* CONFIG_CMDLINE */
-+
- 	return true;
- }
- 
--- 
-2.16.4
+Jim
