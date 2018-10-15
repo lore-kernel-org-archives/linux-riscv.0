@@ -1,58 +1,43 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 15 Oct 2018 16:16:37 -0700 (PDT)
-Subject: [PATCH v4 0/5] Fix some bugs on RV32 build fail and issue
-In-Reply-To: <CA+ZOyaig6dwzfhUn5CQ92P__yay2-aAgA4Nh+VxTs50FCbECwQ@mail.gmail.com>
-Message-ID: <mhng-4a97b34b-cb44-42cb-9fd8-d62b95edfa7e@palmer-si-x1c4>
+From: wesley@sifive.com (Wesley Terpstra)
+Date: Mon, 15 Oct 2018 16:19:20 -0700
+Subject: [RFC 1/4] pwm: sifive: Add DT documentation for SiFive PWM
+ Controller.
+In-Reply-To: <25758ab9-eb36-741b-6264-42412b3ddd8e@wdc.com>
+References: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
+ <1539111085-25502-2-git-send-email-atish.patra@wdc.com>
+ <20181010134926.GD21134@ulmo>
+ <25758ab9-eb36-741b-6264-42412b3ddd8e@wdc.com>
+Message-ID: <CAMgXwTieXNa13_xGp2mkw99+VJm-R1xrxMHSmRLZV-hG5oSdzA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 15 Oct 2018 05:33:17 PDT (-0700), zongbox at gmail.com wrote:
-> Zong Li <zongbox@gmail.com> ? 2018?10?3? ?? ??11:12???
->>
->> This patches contain the modificaion as follows:
->> 1. Fix up the building fail on RV32.
->> 2. Add umoddi3 and udivmoddi4 functions for RV32.
->> 3. Fix ioremap problem on RV32.
->>
->> Thanks all for review these code and modify the copyright description.
->>
->> Changes in v4:
->>  - Retain the complete copyright description.
->>  - Modify commit message.
->>  - Rebase upstream code.
->>
->> Changes in v3:
->>  - Change the copyright notices to GPLv2 from  gcc 4.2.1.
->>
->> Changes in v2:
->>  - Retain the copyright notices from libgcc in umoddi3.c and udivmoddi4.c.
->>
->> Vincent Chen (1):
->>   RISC-V: Avoid corrupting the upper 32-bit of phys_addr_t in ioremap
->>
->> Zong Li (4):
->>   RISC-V: Build tishift only on 64-bit
->>   RISC-V: Add preprocessor directive for swiotlb
->>   lib: Add umoddi3 and udivmoddi4 of GCC library routines
->>   RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
->>
->>  arch/riscv/Kconfig        |   1 +
->>  arch/riscv/kernel/setup.c |   3 +
->>  arch/riscv/lib/Makefile   |   3 +-
->>  arch/riscv/mm/ioremap.c   |   2 +-
->>  lib/Kconfig               |   3 +
->>  lib/Makefile              |   1 +
->>  lib/udivmoddi4.c          | 326 ++++++++++++++++++++++++++++++++++++++++++++++
->>  lib/umoddi3.c             |  48 +++++++
->>  8 files changed, 385 insertions(+), 2 deletions(-)
->>  create mode 100644 lib/udivmoddi4.c
->>  create mode 100644 lib/umoddi3.c
->>
->> --
->> 2.7.4
->>
+On Mon, Oct 15, 2018 at 3:57 PM Atish Patra <atish.patra@wdc.com> wrote:
+> >> +SiFive PWM controller
+> >> +
+> >> +Unlike most other PWM controllers, the SiFive PWM controller currently only
+> >> +supports one period for all channels in the PWM. This is set globally in DTS.
+> >> +The period also has significant restrictions on the values it can achieve,
+> >> +which the driver rounds to the nearest achievable frequency.
+> >
+> > What restrictions are these? If "nearest achievable" is too far off the
+> > target period it might be preferable to error out.
+> >
 >
-> ping
+> @Wes: Any comments?
 
-Oh, sorry about that -- I took them into my local tree but they didn't make it 
-to kernel.org.  They should be in for-next now.
+When I last looked at this driver and hardware, I briefly considered
+throwing up my hands and pretending that this PWM device had no period
+control at all, only duty-cycle. There are several examples of PWM
+controllers in linux already that behave that way.
+
+Most of the uses of this PWM are only going to care about the
+duty-cycle, not the period. So failing when the period is unachievable
+seems worse to me than just completely eliminating access to period
+control.
+
+> I think yes. Since fu540 is the first Linux capable RISC-V core, SiFive
+> Guys decided mark it as version 0.
+>
+> @Wesly: Please correct me if I am wrong.
+
+Correct.
