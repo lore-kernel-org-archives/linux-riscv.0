@@ -2,82 +2,86 @@ Return-Path: <SRS0=r0AO=M3=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 17C5FC04EB9
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 22:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9BD7DC04EB9
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 23:16:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DC8792054F
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 22:57:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6BCC12089D
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 23:16:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Q6/mJs+e";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="F/CNNzbo"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DC8792054F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="F/5vkGYP";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="afw/VZD3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6BCC12089D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=hHDhvl+BfJa+skDtTBrO7f/+w1h1hHOoyH3gNlxiYOs=; b=Q6/mJs+eJ5to3//svmOQGT1oj
-	6ydkzmjC60A+4xKNvZF17IqGwCCBJmAVQ2bQ4DIeScZ9yCBivfdCb54yPr7HEpqsT0LBXKQSMxoHS
-	u5MBEkZr0ZW7Op5d5QQeqBFCXoqeJJ02UenUNSYddzun/ns/BXT1znyje9KmPaiCvmNLV/DN7W8o1
-	PaFAgU41AOtCkV8anKeigf++d+LZYqJ7SDbY2UgHFUkGqvHV4M7Lm0lJob78AnHI3DtXOw2aHxAkz
-	v1/iMtOvhioYhOigmaV/sSgh/y9QwGpNdKloyZZ3ZNXSqzVWB9QlcVITynq0IRzbl5KfC1ZrQH+Mm
-	0jhJ/OPXQ==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=D96BUAKZJsdW7EvcMrOLqlmpUbdyEZAge/IsKUHPOHs=; b=F/5vkGYP8BBGQFEziHLSlpIBR
+	Dv8Kr4SMbXc+JNbtzFoAKxibZvd49aRJputnzHUPgBYtSY9QmTY1dmfMXQlDudpkZae1EuLbaBAKe
+	YziMp4pUA/DP3le/fwHinOfKb3mRtw6XfKaqQ/sgDh+7hqdy7MGDuCQ98BtdOX64teybf3x8/Jjzm
+	qOSQ3UiV2Ng8ILVbfea8XSesHZdCWgZ+SeOFafj6Cklg52f9gYOAz8pwmAwYGrQtGSlNjUvqQeVbO
+	xZfPA0BPW1S7EpE7D/97dcKtvCYGB2sVnP4qXi6bJ3ug8LMW6S8IaH92lBMqMaTOlFLOdXYJv+/Kf
+	QW1DzHPJg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gCBo5-0008DK-3J; Mon, 15 Oct 2018 22:57:49 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1gCC6X-00071t-55; Mon, 15 Oct 2018 23:16:53 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gCBo2-0008CX-OJ
- for linux-riscv@lists.infradead.org; Mon, 15 Oct 2018 22:57:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1539644267; x=1571180267;
- h=subject:to:cc:references:from:message-id:date:
- mime-version:in-reply-to:content-transfer-encoding;
- bh=TNWsDsrY0+1IONRcBFghvNkJcTRtv8K90Rbf9IJ+PFU=;
- b=F/CNNzboSnUZj/AgGdFqmXMfk9DLCzBbn9OGQ+/rekERDTJnrdMhq+2E
- ZXJ57ZvmwjquZ1fzUykrumj+2xto9UsfgzCk4MniNoBCBf3Qpq1mSOwAp
- z+CUFVxwNUAHbaVomCvcIhstN9i6rcxM4e/9g0jJfUKPo0WODihhEFPsi
- mrN/dQYGwqvXywN0qLAIvgLAMqZ1slUZjSWgFgUBGF8+1uhGBTusCBUhv
- rCO7zOjM8Sji0Ut9mj4R3PJcRqAHWN5aDIDwI16JhC5bd3voBIYQwfqnv
- m+Jtk3+PWXpn5wRraKKhLoPdPDo1Q5iCcoK+ZEP49KWfF+3NeKH/gv51a A==;
-X-IronPort-AV: E=Sophos;i="5.54,386,1534780800"; d="scan'208";a="92013127"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 16 Oct 2018 06:57:36 +0800
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep02.wdc.com with ESMTP; 15 Oct 2018 15:42:10 -0700
-Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.73.114])
- ([10.111.73.114])
- by uls-op-cesaip02.wdc.com with ESMTP; 15 Oct 2018 15:57:36 -0700
-Subject: Re: [RFC 1/4] pwm: sifive: Add DT documentation for SiFive PWM
- Controller.
-To: Thierry Reding <thierry.reding@gmail.com>,
- Wesley Terpstra <wesley@sifive.com>
-References: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
- <1539111085-25502-2-git-send-email-atish.patra@wdc.com>
- <20181010134926.GD21134@ulmo>
-From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <25758ab9-eb36-741b-6264-42412b3ddd8e@wdc.com>
-Date: Mon, 15 Oct 2018 15:57:35 -0700
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:52.0)
- Gecko/20100101 Thunderbird/52.9.1
-MIME-Version: 1.0
-In-Reply-To: <20181010134926.GD21134@ulmo>
-Content-Language: en-US
+ id 1gCC6T-0006zY-L2
+ for linux-riscv@lists.infradead.org; Mon, 15 Oct 2018 23:16:51 +0000
+Received: by mail-pl1-x644.google.com with SMTP id s4-v6so10033554plp.0
+ for <linux-riscv@lists.infradead.org>; Mon, 15 Oct 2018 16:16:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=zY5FRFGJ1x+0u/V5mm5L6gboapti4teFd3k5CuR3lYA=;
+ b=afw/VZD3n/lVtV9SV2RTXfAcuuZiK/C3lzJa7Yyar09LteLgZHDnw8mJXPSm3dxOo1
+ RbFqJHtz5PUWT8ZxTH16C061i1grp8bJD2EriKxetMboEwPgYMa59si5UEFu3/8cYREN
+ owS+O2OFgwfmi2DJiLZOb89g4cICP9kWyizmYS3zVRkM5ZxTtzl8FQk2bAGiaQlSa/X5
+ 2bnSmza3zY5wBaNT1njlN/hUO3CQpxBfo/eWMPBOCAoOJTR/eqHJRVdcgHVoW2LevK5P
+ pA/K0RpN5EQ2iGl9zInUWKUOUO4N7s9CVQv9Q/k4fCPWUYo/ZW4asBdn0nfJ15e1FeTo
+ gezQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=zY5FRFGJ1x+0u/V5mm5L6gboapti4teFd3k5CuR3lYA=;
+ b=s38BUPD4eKXLMA9fXjEdoD26Hi0flKrcVwBm2ZAgvL6bBaugQCj+eSzd3JsrdpHPTz
+ AnvksQbYi06J9QOlEbYVjFn723VwR5FcIYQ9+ywckaslyGq6p/xvBaOJwZe5JaIZDt81
+ tizqoskZx/TrZZ59v728tcKmBHvYLcAxQCnVIxWJ6luDgs2TH6q45z0bM94KaD5nxHP7
+ 2w/dvrwdfOY6FaVEVElxV/6Qo3i3v+7SCAItXr753yv6ZIoUOFFZZPUpHHXYLTr1xNWr
+ NdCGIf7/gX4pA59QaxHSTK1Tvj3XYhB98OXn4+b6DHV0v1HPZ+J7UgfFOV9jPUJTH/g6
+ kSKA==
+X-Gm-Message-State: ABuFfohLk2+YM9XCM0Oz2bm4BUIsa/xecLovuaUhZmW3BjuGUFoMH8OC
+ ABBYk+uX7fH/1bMLL2ugxPDUtg==
+X-Google-Smtp-Source: ACcGV61fuQQ0iW5aZeqcft2ermAFW27Wr/C+O6CPP7Vp30IhvtlV2VWS798LYnIlRwfhU2zx8xTnOw==
+X-Received: by 2002:a17:902:b403:: with SMTP id
+ x3-v6mr19232609plr.237.1539645398172; 
+ Mon, 15 Oct 2018 16:16:38 -0700 (PDT)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id x20-v6sm20505698pfe.131.2018.10.15.16.16.36
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 15 Oct 2018 16:16:37 -0700 (PDT)
+Date: Mon, 15 Oct 2018 16:16:37 -0700 (PDT)
+X-Google-Original-Date: Mon, 15 Oct 2018 15:51:51 PDT (-0700)
+Subject: Re: [PATCH v4 0/5] Fix some bugs on RV32 build fail and issue
+In-Reply-To: <CA+ZOyaig6dwzfhUn5CQ92P__yay2-aAgA4Nh+VxTs50FCbECwQ@mail.gmail.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: zongbox@gmail.com
+Message-ID: <mhng-4a97b34b-cb44-42cb-9fd8-d62b95edfa7e@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181015_155746_831170_5B342A81 
-X-CRM114-Status: GOOD (  20.93  )
+X-CRM114-CacheID: sfid-20181015_161649_690820_AF790BB9 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -89,91 +93,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linus.walleij@linaro.org, palmer@sifive.com, linux-kernel@vger.kernel.org,
- hch@infradead.org, linux-gpio@vger.kernel.org, robh+dt@kernel.org,
- linux-riscv@lists.infradead.org
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: Christoph Hellwig <hch@infradead.org>, zong@andestech.com,
+ linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
+ linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181015225735.JHH6CgAfNDS6xhGTwTQh-09s2x6kZrhWtZVcwn_LnQk@z>
+Message-ID: <20181015231637.t-_FAtJNjM4q18AUqwaGLmfqvV0vXwYKMzyIv3rUTeM@z>
 
-On 10/10/18 6:49 AM, Thierry Reding wrote:
-> On Tue, Oct 09, 2018 at 11:51:22AM -0700, Atish Patra wrote:
->> From: "Wesley W. Terpstra" <wesley@sifive.com>
->>
->> DT documentation for PWM controller added with updated compatible
->> string.
->>
->> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
->> [Atish: Compatible string update]
->> Signed-off-by: Atish Patra <atish.patra@wdc.com>
->> ---
->>   .../devicetree/bindings/pwm/pwm-sifive.txt         | 32 ++++++++++++++++++++++
->>   1 file changed, 32 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.txt
->>
->> diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
->> new file mode 100644
->> index 00000000..532b10fc
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
->> @@ -0,0 +1,32 @@
->> +SiFive PWM controller
->> +
->> +Unlike most other PWM controllers, the SiFive PWM controller currently only
->> +supports one period for all channels in the PWM. This is set globally in DTS.
->> +The period also has significant restrictions on the values it can achieve,
->> +which the driver rounds to the nearest achievable frequency.
-> 
-> What restrictions are these? If "nearest achievable" is too far off the
-> target period it might be preferable to error out.
-> 
-
-@Wes: Any comments?
-
->> +Required properties:
->> +- compatible: should be one of
->> +	"sifive,fu540-c000-pwm0","sifive,pwm0".
-> 
-> What's the '0' in here? A version number?
->
-
-I think yes. Since fu540 is the first Linux capable RISC-V core, SiFive 
-Guys decided mark it as version 0.
-
-@Wesly: Please correct me if I am wrong.
-
->> +	PWM controller is HiFive Unleashed specific chip which warrants a
->> +	specific compatible string. The second string is kept for backward
->> +	compatibility until a firmware update with latest compatible string.
->> +- reg: physical base address and length of the controller's registers
->> +- clocks: The frequency the controller runs at
->> +- #pwm-cells: Should be 2.
->> +  The first cell is the PWM channel number
->> +  The second cell is the PWM polarity
->> +- sifive,approx-period: the driver will get as close to this period as it can
-> 
-> Given the above comment, maybe "sifive,period"?
-> 
-
-ok.
-In Unleashed board, the DT is loaded by FSBL (first stage boot loader). 
-Thus, changing device tree entries requires a FSBL update. If we update 
-this string, we need to update the driver to parse both properties so 
-that existing devices with older firmware continue to work.
-
-This is probably ok as we anyways do that for compatible strings. Just 
-wanted to update that here for the record.
-
-Regards,
-Atish
-> Thierry
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAxNSBPY3QgMjAxOCAwNTozMzoxNyBQRFQgKC0wNzAwKSwgem9uZ2JveEBnbWFpbC5j
+b20gd3JvdGU6Cj4gWm9uZyBMaSA8em9uZ2JveEBnbWFpbC5jb20+IOaWvCAyMDE45bm0MTDmnIgz
+5pelIOmAseS4iSDkuIrljYgxMToxMuWvq+mBk++8mgo+Pgo+PiBUaGlzIHBhdGNoZXMgY29udGFp
+biB0aGUgbW9kaWZpY2Fpb24gYXMgZm9sbG93czoKPj4gMS4gRml4IHVwIHRoZSBidWlsZGluZyBm
+YWlsIG9uIFJWMzIuCj4+IDIuIEFkZCB1bW9kZGkzIGFuZCB1ZGl2bW9kZGk0IGZ1bmN0aW9ucyBm
+b3IgUlYzMi4KPj4gMy4gRml4IGlvcmVtYXAgcHJvYmxlbSBvbiBSVjMyLgo+Pgo+PiBUaGFua3Mg
+YWxsIGZvciByZXZpZXcgdGhlc2UgY29kZSBhbmQgbW9kaWZ5IHRoZSBjb3B5cmlnaHQgZGVzY3Jp
+cHRpb24uCj4+Cj4+IENoYW5nZXMgaW4gdjQ6Cj4+ICAtIFJldGFpbiB0aGUgY29tcGxldGUgY29w
+eXJpZ2h0IGRlc2NyaXB0aW9uLgo+PiAgLSBNb2RpZnkgY29tbWl0IG1lc3NhZ2UuCj4+ICAtIFJl
+YmFzZSB1cHN0cmVhbSBjb2RlLgo+Pgo+PiBDaGFuZ2VzIGluIHYzOgo+PiAgLSBDaGFuZ2UgdGhl
+IGNvcHlyaWdodCBub3RpY2VzIHRvIEdQTHYyIGZyb20gIGdjYyA0LjIuMS4KPj4KPj4gQ2hhbmdl
+cyBpbiB2MjoKPj4gIC0gUmV0YWluIHRoZSBjb3B5cmlnaHQgbm90aWNlcyBmcm9tIGxpYmdjYyBp
+biB1bW9kZGkzLmMgYW5kIHVkaXZtb2RkaTQuYy4KPj4KPj4gVmluY2VudCBDaGVuICgxKToKPj4g
+ICBSSVNDLVY6IEF2b2lkIGNvcnJ1cHRpbmcgdGhlIHVwcGVyIDMyLWJpdCBvZiBwaHlzX2FkZHJf
+dCBpbiBpb3JlbWFwCj4+Cj4+IFpvbmcgTGkgKDQpOgo+PiAgIFJJU0MtVjogQnVpbGQgdGlzaGlm
+dCBvbmx5IG9uIDY0LWJpdAo+PiAgIFJJU0MtVjogQWRkIHByZXByb2Nlc3NvciBkaXJlY3RpdmUg
+Zm9yIHN3aW90bGIKPj4gICBsaWI6IEFkZCB1bW9kZGkzIGFuZCB1ZGl2bW9kZGk0IG9mIEdDQyBs
+aWJyYXJ5IHJvdXRpbmVzCj4+ICAgUklTQy1WOiBTZWxlY3QgR0VORVJJQ19MSUJfVU1PRERJMyBv
+biBSVjMyCj4+Cj4+ICBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgIHwgICAxICsKPj4gIGFyY2gv
+cmlzY3Yva2VybmVsL3NldHVwLmMgfCAgIDMgKwo+PiAgYXJjaC9yaXNjdi9saWIvTWFrZWZpbGUg
+ICB8ICAgMyArLQo+PiAgYXJjaC9yaXNjdi9tbS9pb3JlbWFwLmMgICB8ICAgMiArLQo+PiAgbGli
+L0tjb25maWcgICAgICAgICAgICAgICB8ICAgMyArCj4+ICBsaWIvTWFrZWZpbGUgICAgICAgICAg
+ICAgIHwgICAxICsKPj4gIGxpYi91ZGl2bW9kZGk0LmMgICAgICAgICAgfCAzMjYgKysrKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+PiAgbGliL3Vtb2RkaTMuYyAg
+ICAgICAgICAgICB8ICA0OCArKysrKysrCj4+ICA4IGZpbGVzIGNoYW5nZWQsIDM4NSBpbnNlcnRp
+b25zKCspLCAyIGRlbGV0aW9ucygtKQo+PiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGxpYi91ZGl2bW9k
+ZGk0LmMKPj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBsaWIvdW1vZGRpMy5jCj4+Cj4+IC0tCj4+IDIu
+Ny40Cj4+Cj4KPiBwaW5nCgpPaCwgc29ycnkgYWJvdXQgdGhhdCAtLSBJIHRvb2sgdGhlbSBpbnRv
+IG15IGxvY2FsIHRyZWUgYnV0IHRoZXkgZGlkbid0IG1ha2UgaXQgCnRvIGtlcm5lbC5vcmcuICBU
+aGV5IHNob3VsZCBiZSBpbiBmb3ItbmV4dCBub3cuCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
