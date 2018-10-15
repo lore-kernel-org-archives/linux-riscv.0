@@ -1,45 +1,33 @@
-From: hch@infradead.org (Christoph Hellwig)
-Date: Mon, 15 Oct 2018 09:09:49 -0700
-Subject: [PATCH] RISC-V: Add futex support.
-In-Reply-To: <20181015160103.GA19517@infradead.org>
-References: <20181012200350.5258-1-jimw@sifive.com>
- <20181015083439.GA11826@infradead.org>
- <CAFyWVaZaXd8GZYSrMqZh+zQ+3CDghpumjo2ETezXcR93OXXSZg@mail.gmail.com>
- <20181015160103.GA19517@infradead.org>
-Message-ID: <20181015160949.GA26588@infradead.org>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Mon, 15 Oct 2018 10:39:29 -0700 (PDT)
+Subject: [PATCH 5/5] RISC-V: Implement sparsemem
+In-Reply-To: <15C8B877-4BBE-47E1-98D1-945E9355E757@raithlin.com>
+Message-ID: <mhng-d8f1905a-8985-4797-b05b-b165b4ce91f1@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Oct 15, 2018 at 09:01:03AM -0700, Christoph Hellwig wrote:
-> On Mon, Oct 15, 2018 at 08:57:24AM -0700, Jim Wilson wrote:
-> > __riscv_atomic is a predefined macro from the compiler.  It is defined
-> > when the target has atomic instructions, e.g. -march=rv64ia.  It is
-> > not defined when the target has no atomic instructions, e.g.
-> > -march=rv64i.  The idea here was that we only used atomic instructions
-> > if the target has them.  I didn't think to check for a more proper
-> > kernel solution.  I see that there is a CONFIG_RISCV_ISA_A so it looks
-> > like I should be testing that instead.
+On Thu, 11 Oct 2018 05:18:20 PDT (-0700), sbates at raithlin.com wrote:
+> Palmer
 > 
-> Actually CONFIG_RISCV_ISA_A is dead code as well.  We assume A
-> extensions in the kernel, so there should be no conditionals.
+>> I don't really know anything about this, but you're welcome to add a
+>>    
+>>    Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
+> 
+> Thanks. I think it would be good to get someone who's familiar with linux/mm to take a look.
+>     
+>> if you think it'll help.  I'm assuming you're targeting a different tree for 
+>> the patch set, in which case it's probably best to keep this together with the 
+>> rest of it.
+> 
+> No I think this series should be pulled by the RISC-V maintainer. The other patches in this series just refactor some code and need to be ACK'ed by their ARCH developers but I suspect the series should be pulled into RISC-V. That said since it does touch other arch should it be pulled by mm? 
+> 
+> BTW note that RISC-V SPARSEMEM support is pretty useful for all manner of things and not just the p2pdma discussed in the cover.
 
-Actually we don't require the A extension for UP kernels, which
-makes sense.
+Ah, OK -- I thought this was adding the support everywhere.  Do you mind 
+re-sending the patches with the various acks/reviews and I'll put in on 
+for-next?
 
-But that means we should keep using the asm-generic version for
-the UP !CONFIG_RISCV_ISA_A case.
-
-e.g.
-
-#ifndef CONFIG_RISCV_ISA_A
-/* 
- * Use the generic interrupt disabling versions if the A extension
- * is not supported.
- */
-#ifdef CONFIG_SMP
-#error "Can't support generic futex calls with A extension on SMP"
-#endif
-#include <asm-generic/futex.h>
-#else
-<rest of your new file>
-#endif
+>     
+>> Thanks for porting your stuff to RISC-V!
+> 
+> You bet ;-)
