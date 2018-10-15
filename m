@@ -2,83 +2,88 @@ Return-Path: <SRS0=r0AO=M3=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EA0A8C04AA5
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 17:42:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6F946C04AA5
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 18:03:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AE01B20881
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 17:42:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1D2CF2064A
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Oct 2018 18:03:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uzDuJVIp";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="fIYGj+xg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AE01B20881
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="K+epA5ZK";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="ktljj6fz"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1D2CF2064A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=deltatee.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:MIME-Version:References:
+	In-Reply-To:Message-Id:Date:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sIg4QsiuSSh6OL9gcLcW7DAVTI0xf83c4fxsrGOOT7w=; b=uzDuJVIpvA7r3c
-	Ipq54I+z41E9aAVAVEAVT0MwYlC/ZCvRO9joPqSqRBe6J2ndM8hSAYp4w5GZwhMiwZ8VngXtL06lS
-	vgI5Cx2fzsvVw/ANVBY/P5G+UuAZOAtEZDq5t5WR3OMR/fVpPPsfdqiJiUCle1TaCG5O45ONfUEyW
-	EkBV6MpEuTMNUR5/spyxNcHPgAClUlz+OvinFpefQQMzlwAizWj4ck3t/Fe2g9ek/JRTIARPuRe0R
-	IbrcqZQvx9kLQVfOeAfm0+t8Hd9uYGtCzUb6YfEOFNiy5JFyVAEqAdCVbBmDXtUsOK3HzTm3Mnlso
-	D3a8y18R22UCOUMfqR2g==;
+	List-Owner; bh=K3RGU5INwezcxFuZa6BRF33l03siMPjCi7s/fmjheJ8=; b=K+epA5ZKAo/vqG
+	NtUB/1L82la4RfJ/Afq0WvcJFz/edClkLLb3L+BfIfgPHLzsdBgECTiq/yt2hLfFTByHSAF+4B8zW
+	mzd9IG0D8QXZPqFhiFsQPzDRIwlsXyPg8H9uLox4OqS9myeF4cRTFaJXNxn1GXlSf65ytYJy01Oek
+	cYWr2k5/BTPZ1OsDnn3Etg5WANXx03yyvY6wUZ/kqyWn/1AIRWci1zthnaZ1nLtcmtXBOysO85TPS
+	ejIBhMeHZIEDKUyMUWkwaPEI3VquA5bZGb1wOZygeOzkbBQx6h2zdpn3VZQRGyteMk8ockf7PgHlR
+	v0xNlK27x1Dgi+vzLDHg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gC6se-0002UA-0x; Mon, 15 Oct 2018 17:42:12 +0000
-Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
+	id 1gC7Cz-0003TN-GH; Mon, 15 Oct 2018 18:03:13 +0000
+Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gC6sa-0002TK-Pr
- for linux-riscv@lists.infradead.org; Mon, 15 Oct 2018 17:42:10 +0000
-Received: by mail-vs1-xe36.google.com with SMTP id c205so16773384vsd.3
- for <linux-riscv@lists.infradead.org>; Mon, 15 Oct 2018 10:41:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=UYugQquSw7Qw3oJFutT1qMuKHPATED6PhOIvnjqSUxs=;
- b=fIYGj+xgMKVJ8TEyzPYXA7L3I9RtbmUokW6rrMdbGujE6QAjVzADAcLMCv89knptGT
- rX1w4oFlccvoLKuFZwVdQ76YVSrvQ8Fo8hx9X7DrvgPGpkR284YMbF8hDve2lE/bHXw6
- kMg04wGMpGFgePJiWvxX2CE8uO0RBHl0fNQhJcfNP6JosBsVulMCQ32bz3w2tdA6LA/m
- mW/9QqQI11nNCvB29gj/2sAuy/sE/14bwgQ9i/+v2/nTzvX2yo7sk3kqrH/RBVTuZGZE
- Ldh4D+u3CQSxZeI25CuGlwV0r/8A1wEqdWuSSNu9KRPf+D+WTUMg9wE0GVakMNPIfoUf
- +1Rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=UYugQquSw7Qw3oJFutT1qMuKHPATED6PhOIvnjqSUxs=;
- b=mAu7PwlbaSHO9Q8cC0W4QQAZ+uj1Iwm8ajkfdjyGfOY8yuxaHp+VaTZ8eO4AkVsStH
- bSfwAGLwI+KeZXQXz0zrXaMtG32mmobMYSBaml4EWXENhvd1ZpPkpg7nRyNYfew+DeAF
- OLdB9+pHE+eL4xw18DPFPj0aRUMzkdSzU10Kf2wvttFoP5nkEX/FtOs8w2o+vlaDpL01
- 9+FJe4ZceFfcv9wAOAuHce4hA4guzhJxoiQR9cNs9kUEneRvEKAA7ch75B+RFoV+Tpbw
- UAtKHSRWuTfFb96q5+uH93L1agwxV65w8IOjxgDYNqf8Y8X/emonGy9BL5jBne5h5Oi3
- AH9g==
-X-Gm-Message-State: ABuFfoiOsVzO4+WIaBWd+ZpZNFF6M+HGmpVHKHHXN6CTaQ2NztxabSWf
- dUKB78dqJm60YR9PwnXElFGARBDTpU6QW06Vi3dMqZg3
-X-Google-Smtp-Source: ACcGV62Qq7txEpc7d2EMUbeLFvkp6NYnyxXN2bWlzsru1x5DogbvsXS9o36qwt/LwyCyA1zL/tdENzllXr3zUfOkbd4=
-X-Received: by 2002:a67:4e54:: with SMTP id c81mr7212633vsb.72.1539625317435; 
- Mon, 15 Oct 2018 10:41:57 -0700 (PDT)
+ id 1gC77d-0008TO-O4; Mon, 15 Oct 2018 17:57:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=merlin.20170209; h=Subject:Content-Transfer-Encoding:
+ MIME-Version:References:In-Reply-To:Message-Id:Date:Cc:To:From:Sender:
+ Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=NTcJ226Q2+0NWWI9l8S5fVLhXXyyUbvC1ipsiSvc4qQ=; b=ktljj6fzzrdObY68xfhP0xuRx/
+ pd0ezA7APdasFHCnNGTxQRTfFBz12FTzMP3B/vJlA4/k1f1TbBTowmIFXK7SU5ru8ZTtn67SyCR4f
+ oIPj1JFUghulWRyytQdJ/oQFZul+EUE3YI8uFsZOekzf+q9FO9ixy8U4d6I7cqQBP05M+3yW12a6h
+ qMyNqRvhV6LDWhwNp2T1mZCGxxf9ZPm/oxvxZgV5le6G7PonolYeXhISM1ii2KVYsm8FJb552f7h2
+ RkqjAVYqy/VHWCfXhU3ztkxVa6+pPCcpMaRDVHXeEP1vCM30mfHqyGa1SlmHnzbBCu4jupOH0aE4U
+ TRKpenRA==;
+Received: from ale.deltatee.com ([207.54.116.67])
+ by merlin.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gC77a-00028K-2A; Mon, 15 Oct 2018 17:57:39 +0000
+Received: from cgy1-donard.priv.deltatee.com ([172.16.1.31])
+ by ale.deltatee.com with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.89) (envelope-from <gunthorp@deltatee.com>)
+ id 1gC77C-0002IM-K6; Mon, 15 Oct 2018 11:57:17 -0600
+Received: from gunthorp by cgy1-donard.priv.deltatee.com with local (Exim 4.89)
+ (envelope-from <gunthorp@deltatee.com>)
+ id 1gC779-0002Mm-IN; Mon, 15 Oct 2018 11:57:11 -0600
+From: Logan Gunthorpe <logang@deltatee.com>
+To: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-sh@vger.kernel.org
+Date: Mon, 15 Oct 2018 11:57:01 -0600
+Message-Id: <20181015175702.9036-6-logang@deltatee.com>
+X-Mailer: git-send-email 2.19.0
+In-Reply-To: <20181015175702.9036-1-logang@deltatee.com>
+References: <20181015175702.9036-1-logang@deltatee.com>
 MIME-Version: 1.0
-References: <20181013005649.14379-1-jimw@sifive.com>
- <20181015084013.GB11826@infradead.org>
-In-Reply-To: <20181015084013.GB11826@infradead.org>
-From: Jim Wilson <jimw@sifive.com>
-Date: Mon, 15 Oct 2018 10:41:46 -0700
-Message-ID:
- <CAFyWVaYGU=QQi9W2ZuO54T_akNMSk73B8HRLiLfTVoROoj-m-A@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Add FP register ptrace support for gdb.
-To: hch@infradead.org
+X-SA-Exim-Connect-IP: 172.16.1.31
+X-SA-Exim-Rcpt-To: linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-sh@vger.kernel.org, sbates@raithlin.com, palmer@sifive.com,
+ aou@eecs.berkeley.edu, hch@lst.de, akpm@linux-foundation.org, arnd@arndb.de,
+ logang@deltatee.com, ysato@users.sourceforge.jp, dalias@libc.org,
+ dan.j.williams@intel.com, robh@kernel.org
+X-SA-Exim-Mail-From: gunthorp@deltatee.com
+Subject: [PATCH v2 5/6] sh: mm: make use of new memblocks_present() helper
+X-SA-Exim-Version: 4.2.1 (built Tue, 02 Aug 2016 21:08:31 +0000)
+X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181015_104208_886730_BF49CCC4 
-X-CRM114-Status: UNSURE (   6.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181015_135738_227677_881053D2 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,24 +95,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Arnd Bergmann <arnd@arndb.de>,
+ Palmer Dabbelt <palmer@sifive.com>, Dan Williams <dan.j.williams@intel.com>,
+ Stephen Bates <sbates@raithlin.com>, Rich Felker <dalias@libc.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Logan Gunthorpe <logang@deltatee.com>, Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181015174146.NiOhdoIAK7pBCuu77GDSXaGRiEKcGa3kkK0ki3p4wpc@z>
+Message-ID: <20181015175701.GJ_THgEdh3W4iqr2D9zNkBi6g4qcKBTslUBEGRP4TmE@z>
 
-On Mon, Oct 15, 2018 at 1:40 AM Christoph Hellwig <hch@infradead.org> wrote:
-> So why don't we have a proper macro / type for the FP registers?
+Cleanup the open coded for_each_memblock() loop that is equivalent
+to the new memblocks_present() helper.
 
-Shrug.  No one has defined them.  I can try adding them, but the
-farther I get from ptrace the less comfortable I am, and the more
-revisions I'll probably need.
+Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
+Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+Cc: Rich Felker <dalias@libc.org>
+Cc: Dan Williams <dan.j.williams@intel.com>
+Cc: Rob Herring <robh@kernel.org>
+---
+ arch/sh/mm/init.c | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
 
-The other comments are as I expected.  I will work on a followup
-version of the patch that tries to fix these problems.
+diff --git a/arch/sh/mm/init.c b/arch/sh/mm/init.c
+index 7713c084d040..f601f96408ee 100644
+--- a/arch/sh/mm/init.c
++++ b/arch/sh/mm/init.c
+@@ -235,12 +235,7 @@ static void __init do_init_bootmem(void)
+ 
+ 	plat_mem_setup();
+ 
+-	for_each_memblock(memory, reg) {
+-		int nid = memblock_get_region_node(reg);
+-
+-		memory_present(nid, memblock_region_memory_base_pfn(reg),
+-			memblock_region_memory_end_pfn(reg));
+-	}
++	memblocks_present();
+ 	sparse_init();
+ }
+ 
+-- 
+2.19.0
 
-Jim
 
 _______________________________________________
 linux-riscv mailing list
