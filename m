@@ -1,73 +1,39 @@
 From: hch@infradead.org (Christoph Hellwig)
-Date: Mon, 15 Oct 2018 01:34:39 -0700
-Subject: [PATCH] RISC-V: Add futex support.
-In-Reply-To: <20181012200350.5258-1-jimw@sifive.com>
-References: <20181012200350.5258-1-jimw@sifive.com>
-Message-ID: <20181015083439.GA11826@infradead.org>
+Date: Mon, 15 Oct 2018 01:40:13 -0700
+Subject: [PATCH] RISC-V: Add FP register ptrace support for gdb.
+In-Reply-To: <20181013005649.14379-1-jimw@sifive.com>
+References: <20181013005649.14379-1-jimw@sifive.com>
+Message-ID: <20181015084013.GB11826@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-> I'm not a kernel expert, so there could be details I got wrong here.  I wasn't
-> sure about the memory model support, so I used aqrl which seemed safest, and
-> didn't add fences which seemed unnecessary.  I'm not sure about the copyright
-> statements, I left in Ralf Baechle's line because I started with his code.
-> Checkpatch reports some style problems, but it is the same style as the MIPS
-> futex.h, and the uses of ENOSYS appear correct even though it complains about
-> them.  I don't know if any of that matters.
+> I think there is room for improvement here, but not sure if that is required
+> before this can be accepted.  I'm abusing the ELF_NGREG macro because we don't
+> have one for FP registers, and the elf_greg_t type again because there isn't
+> one for FP registers.
 
-Thanks Jim,
+So why don't we have a proper macro / type for the FP registers?
 
-a few comments below:
+> In the riscv_fpr_get function, I'm using a single call
+> to user_regset_copyout which means effectively the entire fstate struct is
+> being copied from kernel space to user space.  That may include some padding
+> at the end of the structure.  I don't know if that is safe or not.
 
-> +/*
-> + * This file is subject to the terms and conditions of the GNU General Public
-> + * License.  See the file "COPYING" in the main directory of this archive
-> + * for more details.
-> + *
+In general we should avoid copying padding to userspace as it might be
+uninitialized.  If you can't avoid that the structures always need to be
+zeroed explicitly first, which might to lead to security issues later
+on.
 
-This should be replaced with an SPDX header:
+> This could
+> be fixed by using two user_regset_copyout calls with a little bit of extra
+> complexity.  Similarly with riscv_fpr_set and user_regset_copyin.  This
+> probably only works for targets that have the D extension.  Not sure if
+> this matters; I don't have a system with only F support, or no FP support,
+> to test against.
 
-/* SPDX-License-Identifier: GPL-2.0 */
+The kernel currently assumes the D extension is presend if the F
+extension is present.
 
-> +#ifdef __KERNEL__
-
-No need for this ifdef.
-
-> +#include <asm/errno.h>
-
-This shoud be <linux/errno.h>
-
-> +#include <asm/asm.h>
-> +
-> +#define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)		\
-> +{									\
-> +	uintptr_t __tmp;						\
-> +	if (__riscv_atomic) {						\
-
-__riscv_atomic doesn't exist anywhere in the kernel tree.
-
-> +		__enable_user_access();					\
-> +		__asm__ __volatile__ (					\
-> +		"1:	" insn "				\n"	\
-> +		"2:						\n"	\
-> +		"	.section .fixup,\"ax\"			\n"	\
-> +		"	.balign 4				\n"	\
-> +		"3:	li %0,%5				\n"	\
-> +		"	jump 2b,%3				\n"	\
-> +		"	.previous				\n"	\
-> +		"	.section __ex_table,\"a\"		\n"	\
-> +		"	.balign " RISCV_SZPTR "			\n"	\
-> +		"	" RISCV_PTR " 1b, 3b			\n"	\
-> +		"	.previous				\n"	\
-> +		: "+r" (ret), "=&r" (oldval),				\
-> +		  "+m" (*uaddr), "=&r" (__tmp)				\
-> +		: "Jr" (oparg), "i" (-EFAULT)				\
-
-Might it be worth to use named __asm__ argument like we do in
-arch/riscv/include/asm/atomic.h?
-
-arch/riscv/include/asm/Kbuild needs to drop the generic-y line
-for futex.h now that there is a a real arch-specific one.
-
-arch/riscv/Kconfig should grow an unconditional 'select HAVE_FUTEX_CMPXCHG'
-to skip the feature probing.
+I don't really know enough about the ptrace code to have useful
+comments, but the code should depend on CONFIG_FPU, otherwise builds
+without support for the F and D extensions will fail.
