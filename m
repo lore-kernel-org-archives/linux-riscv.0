@@ -1,89 +1,51 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Tue, 16 Oct 2018 15:20:34 -0700
-Subject: [RFC 1/4] pwm: sifive: Add DT documentation for SiFive PWM
- Controller.
-In-Reply-To: <20181016220437.GB31973@mithrandir>
-References: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
- <1539111085-25502-2-git-send-email-atish.patra@wdc.com>
- <20181010134926.GD21134@ulmo> <25758ab9-eb36-741b-6264-42412b3ddd8e@wdc.com>
- <20181016110142.GC8852@ulmo>
- <6e108e3c-15c1-b13b-ac3e-60c5eb209c7b@sifive.com>
- <20181016220437.GB31973@mithrandir>
-Message-ID: <7fc1168d-a840-032a-c0a9-2a610127c484@wdc.com>
+From: michaeljclark@mac.com (Michael Clark)
+Date: Wed, 17 Oct 2018 11:30:50 +1300
+Subject: [sw-dev] Re: [isa-dev] riscv-qemu - linux boot is failing for vda
+ device
+In-Reply-To: <20181016200245.j2gesmdjgoi7zmqh@excalibur.cnev.de>
+References: <CAOuPNLiR+BLUno8sYjwLwW1BqJbBrH-suBiHEx1-dtMO906Ung@mail.gmail.com>
+ <mhng-14c6ccbd-b9ff-40e3-b69b-4333d814c6c1@palmer-si-x1c4>
+ <20181016200245.j2gesmdjgoi7zmqh@excalibur.cnev.de>
+Message-ID: <D9003246-0336-4327-97D3-D8F079F640D3@mac.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 10/16/18 3:04 PM, Thierry Reding wrote:
-> On Tue, Oct 16, 2018 at 10:31:42AM -0700, Paul Walmsley wrote:
->>
->> On 10/16/18 4:01 AM, Thierry Reding wrote:
->>> On Mon, Oct 15, 2018 at 03:57:35PM -0700, Atish Patra wrote:
->>>> On 10/10/18 6:49 AM, Thierry Reding wrote:
->>>>> On Tue, Oct 09, 2018 at 11:51:22AM -0700, Atish Patra wrote:
->>>>>> +Required properties:
->>>>>> +- compatible: should be one of
->>>>>> +	"sifive,fu540-c000-pwm0","sifive,pwm0".
->>>>> What's the '0' in here? A version number?
->>>>>
->>>> I think yes. Since fu540 is the first Linux capable RISC-V core, SiFive Guys
->>>> decided mark it as version 0.
->>>>
->>>> @Wesly: Please correct me if I am wrong.
->>> It seems fairly superfluous to me to have a version number in additon to
->>> the fu540-c000, which already seems to be the core plus some sort of
->>> part number. Do you really expect there to be any changes in the SoC
->>> that would require a different compatible string at this point? If the
->>> SoC has taped out, how will you ever get a different version of the PWM
->>> IP in it?
->>>
->>> I would expect any improvements or changes to the PWM IP to show up in a
->>> different SoC generation, at which point it would be something like
->>> "sifive,fu640-c000" maybe, or perhaps "sifive,fu540-d000", or whatever
->>> the numbering is.
->>
->>
->> The "0" suffix refers to a revision number for the underlying PWM IP block.
->>
->> It's certainly important to keep that version number on the "sifive,pwm0"
->> compatible string that doesn't have the chip name associated with it.
-> 
-> Isn't the hardware identified by "sifive,pwm0" and "sifive,fu540-c000"
-> effectively identical? 
 
-Yes.
 
-Is there a need to have two compatible strings
-> that refer to the exact same hardware?
+> On 17/10/2018, at 9:02 AM, Karsten Merker <merker@debian.org> wrote:
 > 
+>> On Tue, Oct 16, 2018 at 11:38:53AM -0700, Palmer Dabbelt wrote:
+>>> On Tue, 16 Oct 2018 06:12:11 PDT (-0700), pintu.ping at gmail.com wrote:
+>>>> On Tue, Oct 16, 2018 at 6:10 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+>>>> On Mon, 15 Oct 2018 14:14:51 PDT (-0700), rjones at redhat.com wrote:
+> [...]
+>>>> Your best bet today is to run 4.19-rc8, which should be pretty stable.
+>>> 
+>>> Yes, I checked with mainline linux-kernel 4.19.
+>>> Now I am able to boot successfully and login into qemu-riscv shell.
+>>> Thank you so much :)
+>>> 
+>>> But I am curious to know what changes resulted into this fix, in 4.19 kernel ?
+>>> Which is the exact patch in mainline, that fixes this issue?
+>>> Because at times during the development, it will be difficult to
+>>> simply upgrade the kernel version.
+>> 
+>> Yes, that's expected.  RISC-V Linux is still pretty bleeding edge, you just
+>> happened to catch it between when master started working and when there was
+>> a proper release that contained your patches.  Since master is very calm
+>> right now (there was an rc8 before release, but it's very close to a
+>> release) it's OK to use, but you best bet going forward is to use the
+>> release tarballs just like normal.
+> 
+> Just as a data point in case you should find it helpful: I'm
+> since two weeks running 4.19-rc6/-rc7 on the qemu-riscv "virt"
+> board under permanent heavy load (the system is running a Debian
+> package builder) without a single hiccup.
 
-The DT in the hardware has only sifive,pwm0. I have added 
-"sifive,fu540-c000" as that was concluded as the correct compatible 
-string from platform level interrupt controller patch(PLIC) discussion.
+Hi Karsten,
 
-(http://lists.infradead.org/pipermail/linux-riscv/2018-August/001135.html)
+Have you tried riscv-qemu? I know qemu-riscv gets quite a lot of testing but I?d like to gain some more confidence in riscv-qemu.
 
-"sifive,pwm0" is required to until all the Unleashed SoC gets an updated 
-firmware with correct compatible string "sifive,fu540-c000". I agree 
-this is a mess. But we have to carry it until all every DT(corresponding 
-to each driver) is finalized. I guess SiFive will release a firmware 
-update that contains all the updated DT once that is done. We can get 
-rid of all the redundant compatible strings at that time.
+We might have a PLIC bug in QEMU. If anyone has a reproducer they can file an issue on the riscv-qemu issue tracker and I?ll take a look...
 
-Regards,
-Atish
->> As to whether there could ever be a FU540-C000 part with different IP block
->> versions on it: FU540-C000 is ultimately a marketing name.? While
->> theoretically we shouldn't have another "FU540-C000" chip with different
->> peripheral IP block versions on it, I don't think any engineer can guarantee
->> that it won't happen.
-> 
-> I would argue that if at some point there was indeed a chip with the
-> same name but a different IP block version in it, we can figure out what
-> to call it. Sure there are no guarantees, but it's still fairly unlikely
-> in my opinion, so I personally wouldn't worry about this up front.
-> 
-> Anyway, I don't feel strongly either way, I'm just pointing out that
-> this is somewhat unusual. If you want to keep it, feel free to.
-> 
-> Thierry
-> 
+Michael
