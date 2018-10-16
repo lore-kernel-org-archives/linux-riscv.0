@@ -2,23 +2,22 @@ Return-Path: <SRS0=QIML=M4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.2 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C5793C04EBD
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 11:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E60FC04EBD
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 11:13:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 68B682086E
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 11:02:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2FE5F2083C
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 11:13:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Yb9CR5/H";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="HijZaiu5"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 68B682086E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZCWSdqtW";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="kLDfKh1+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2FE5F2083C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,68 +26,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0pbTS1zUC8onDWldGNgXP+2oe2tJG5sGebnhe5gJmOY=; b=Yb9CR5/HpVWf6hpaHxJem10Xz
-	M7URcLDeA4Lya+etU7jLrJ0N4RgPfIYLDGrtqJC1D/Zcsp2VCsuPYCyCEnqnXXvpfDCgu5paROsUD
-	a3IzsXekLqXEAOMcWMIR7bfXhiXOXROdUaDWjNMeDKiAXhxHF1J3eeB2zZMUosNFmFw2YaBHd/qhR
-	n1+bFVFmYlAAOgut9Tyya8kqGcu7DsAeXP0/eDbbwCW2XpfiXHdGaIbbPTAja3ywc5BdeCaKEbopJ
-	RpB3GeYsH4odwPXhQ9VE2E6p2nI+bCcZrPBg74WuOcnrPBggEkzMyXrAgGkW0f0LPZf5WpJjV4jU9
-	lZbq7LsCw==;
+	 bh=PFfUWOH1b+egUCWyag0vLsYHp4K4SYZWSbHP1juqiUY=; b=ZCWSdqtW5h6CJMSb5UNVtWkrZ
+	QU2ZoYRP0gYzz9smkrF710Q3pnkywekHQU86sEbfMDcBq0nmmvFH/0xWsBD04wRqkXMi5/0gGS6Y1
+	7r3EUfIlIYzfiXCnqPFyoDdSOgSvnLvu1xz53FfniwLvByiq2StpEJRFOWn6/5rBaf6n2ivfjyD4z
+	QW097zok/kHaUuFCC+4S9eIj3NeqbxPRx9cBJyZLi8gfdASS8hNo86CpxfbohZoyvhku98paIs/mW
+	jmZR8SXN8kcXqgw8lpZgt/wlRGJ6CAwTwuTo2UM8h/klT9hWiwRDj21DtW++BTwISCtb3n6CnToLv
+	tSr+eYfkQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gCN7b-0000GW-Rt; Tue, 16 Oct 2018 11:02:43 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1gCNID-0004e3-DP; Tue, 16 Oct 2018 11:13:41 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gCN6q-0008N0-2e
- for linux-riscv@lists.infradead.org; Tue, 16 Oct 2018 11:02:18 +0000
-Received: by mail-wr1-x444.google.com with SMTP id d2-v6so24979496wro.7
- for <linux-riscv@lists.infradead.org>; Tue, 16 Oct 2018 04:01:45 -0700 (PDT)
+ id 1gCNIB-0004c4-19
+ for linux-riscv@lists.infradead.org; Tue, 16 Oct 2018 11:13:40 +0000
+Received: by mail-wm1-x344.google.com with SMTP id 143-v6so21855832wmf.1
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Oct 2018 04:13:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to:user-agent;
- bh=fnGCS83Z0SZAGsiz42xG0H+2VU7WB1tZuj9DdgTIoQQ=;
- b=HijZaiu5sP3vZtlCbpQZqyDsGFpqIRHQgyMltErHDYKNDutFb6azEo8VWcnZxd2HPx
- x3idSsHg0FEecmvOeEtF+ayf1448eR/5B4WThHpMoY2b51hdjAqJhfR7CnPBk4MYl8KX
- lQmCEkKamsvEETtB/xtK07w1qfQpxsS3idFMb32Yph9yC1kPRbPu7PXEbraYL232zBkb
- 2Vj61TBwHnC5+A1SqriQa/PP4xuZ/lKezYqu4HdgqDAcHpoBhHQGawH2pgc1tE5veLoY
- DAF3XE+qtpJsX0RMLiCJrWEwiZM+IzIG6eqv+NEoHydy3uXzjvkQSk/f5y3CMOATWM3U
- yfgg==
+ bh=4je4xhXUCeLf8WgsbR+Mno33Kmekkz3UdqSRFHJ3HPs=;
+ b=kLDfKh1+m47caMGRW8CaYkQSRo8Oaky3+rOBBamCWNj4QStSP90ObSv6FYVHl5a5zA
+ X0IsJPV5UPd79C4e1HGdqtupUkS5FBhjuKRDjzx0gtU8nEBROtsLwjkUEzzijB5oKnVZ
+ BdKyOd7hUka9GrRL2gQZPVQY7rkI2ooLS+5yllGXPNCMEczrwuXdYqRicIAB2u7FUwEk
+ 2F4ge9OwPqaNrKfFmWFkEtRUBQAG5t/Sl1GnEiJe9mdvAvAqDD5a2Ik1g/ugX7nMLjTw
+ 0ikYfvtlMPWoQZbcMdG/5zREisQQZDOEhlG4SXt9hWLCuXBTGq+tCTft2Qn/+janivIc
+ 3wVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=fnGCS83Z0SZAGsiz42xG0H+2VU7WB1tZuj9DdgTIoQQ=;
- b=hKFc/SNxCJMdZFFjFmjPIas4Ts9FkRNnRs67No2YGgwdnkAQV72axtSZ4lmgLIclem
- dSI8kM1f5OUIiBT9eJYj+Hwhhz//Xdi9VOtQPQCMqc1GqkUM2VqWF2ztveDrt+ULciyt
- lcxPSiQ/pcYIPLg73DSPf6vlW+JmUHTRV6eGb3tQL7AZWZjWymJA6QP9QscGE3fwShix
- +VVgrsKxvbeTPrKvmuL+HDzgVDZsxq+EZeKAVuHv9qFNYURkdJ0P2VI9unHcdAhXCaV1
- YlHFo46yzc+yYO1KIjQFtMaQ8k3vrl+gcHTjTO8nt6aqS0neF5VqX+C4QKiLm+VNeWZL
- GC+g==
-X-Gm-Message-State: ABuFfohWWUDV5qlgm0maVukeLXhVAcgCOQ8kCmlKFxnoN/4otnB0H17m
- QfvO62mNas3wy/tU7QGGaHA=
-X-Google-Smtp-Source: ACcGV60XPHlPvtT49HYyLOubtJz18+BHFeC1YnHOQgMbaW99bDWRvBFlBT3htyhCBzTfO1CtCq3UIg==
-X-Received: by 2002:a5d:4208:: with SMTP id
- n8-v6mr17033485wrq.260.1539687704113; 
- Tue, 16 Oct 2018 04:01:44 -0700 (PDT)
+ bh=4je4xhXUCeLf8WgsbR+Mno33Kmekkz3UdqSRFHJ3HPs=;
+ b=pkq6qmyqBTOPuqsW6WmX/N2b5/V8/CLSiRzW61mA2UG+rWSe0v+XS77eWah+njB5bA
+ 0Tgc1n2NGG36LFSbIc+KHa3YTUoprhFAOC58qsesGHqGPEnKg6lL643JMWzkszKWH8aH
+ ld510KaOPbQyBZImmo5q0wxrQT5StG5Z2+ZDCZjftVfpFTWxdS/XNB5n9026VOAVdRoI
+ IxNqIlxXETLFzPAQ1lzlpHonTVtwBWR4PRKBUlyUSEK7O5+iDNycS1vrOyMTtXgZYdim
+ tw+eVqSlRfI+coUZafurNYmfhj7S6i6eUdiaDljpDpXNyfmYqLSf1yJRMSZd+uvWbZxz
+ OVcg==
+X-Gm-Message-State: ABuFfogrtXRxZG6Rw1Oude/Zuvuaf2XHwpAHmKB1h8KmtO7tinBqtsI1
+ cm7ZGjNinVcW9bxoq5nWP8Q=
+X-Google-Smtp-Source: ACcGV6145tiwAzlh1H+MH5aPV3aWH+hPaWsbcomVP0tlsCTyYuQhmmvNu+WC69PzMzpHmjb/5whPNQ==
+X-Received: by 2002:a1c:ee15:: with SMTP id
+ m21-v6mr16157442wmh.124.1539688407082; 
+ Tue, 16 Oct 2018 04:13:27 -0700 (PDT)
 Received: from localhost (pD9E5106D.dip0.t-ipconnect.de. [217.229.16.109])
- by smtp.gmail.com with ESMTPSA id 126-v6sm11977018wme.48.2018.10.16.04.01.42
+ by smtp.gmail.com with ESMTPSA id 143-v6sm12746627wmv.6.2018.10.16.04.13.25
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Tue, 16 Oct 2018 04:01:43 -0700 (PDT)
-Date: Tue, 16 Oct 2018 13:01:42 +0200
+ Tue, 16 Oct 2018 04:13:26 -0700 (PDT)
+Date: Tue, 16 Oct 2018 13:13:24 +0200
 From: Thierry Reding <thierry.reding@gmail.com>
-To: Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>
+To: Wesley Terpstra <wesley@sifive.com>
 Subject: Re: [RFC 1/4] pwm: sifive: Add DT documentation for SiFive PWM
  Controller.
-Message-ID: <20181016110142.GC8852@ulmo>
+Message-ID: <20181016111324.GD8852@ulmo>
 References: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
  <1539111085-25502-2-git-send-email-atish.patra@wdc.com>
  <20181010134926.GD21134@ulmo>
  <25758ab9-eb36-741b-6264-42412b3ddd8e@wdc.com>
+ <CAMgXwTieXNa13_xGp2mkw99+VJm-R1xrxMHSmRLZV-hG5oSdzA@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <25758ab9-eb36-741b-6264-42412b3ddd8e@wdc.com>
+In-Reply-To: <CAMgXwTieXNa13_xGp2mkw99+VJm-R1xrxMHSmRLZV-hG5oSdzA@mail.gmail.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181016_040156_156336_9CE02EF1 
-X-CRM114-Status: GOOD (  30.85  )
+X-CRM114-CacheID: sfid-20181016_041339_074663_4F7699FA 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -100,149 +100,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- Wesley Terpstra <wesley@sifive.com>, linus.walleij@linaro.org,
- palmer@sifive.com, linux-kernel@vger.kernel.org, hch@infradead.org,
- linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============5046195507495047457=="
+Cc: Mark Rutland <mark.rutland@arm.com>, linux-pwm@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linus.walleij@linaro.org,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Christoph Hellwig <hch@infradead.org>, Atish Patra <atish.patra@wdc.com>,
+ devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+ linux-riscv@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============1031875157555973572=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181016110142.9yyj4Qt3wobg7fn_mKOAk3HPkXwXAboEbKziL-e-vks@z>
+Message-ID: <20181016111324.EM9syEbRh9LhSYxB0wLFhdN1HkxKBYykaP8kYkX7Luw@z>
 
 
---===============5046195507495047457==
+--===============1031875157555973572==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Pk6IbRAofICFmK5e"
+	protocol="application/pgp-signature"; boundary="vni90+aGYgRvsTuO"
 Content-Disposition: inline
 
 
---Pk6IbRAofICFmK5e
+--vni90+aGYgRvsTuO
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Oct 15, 2018 at 03:57:35PM -0700, Atish Patra wrote:
-> On 10/10/18 6:49 AM, Thierry Reding wrote:
-> > On Tue, Oct 09, 2018 at 11:51:22AM -0700, Atish Patra wrote:
-> > > From: "Wesley W. Terpstra" <wesley@sifive.com>
-> > >=20
-> > > DT documentation for PWM controller added with updated compatible
-> > > string.
-> > >=20
-> > > Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
-> > > [Atish: Compatible string update]
-> > > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > > ---
-> > >   .../devicetree/bindings/pwm/pwm-sifive.txt         | 32 +++++++++++=
-+++++++++++
-> > >   1 file changed, 32 insertions(+)
-> > >   create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive=
-=2Etxt
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt b/D=
-ocumentation/devicetree/bindings/pwm/pwm-sifive.txt
-> > > new file mode 100644
-> > > index 00000000..532b10fc
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
-> > > @@ -0,0 +1,32 @@
-> > > +SiFive PWM controller
-> > > +
-> > > +Unlike most other PWM controllers, the SiFive PWM controller current=
-ly only
-> > > +supports one period for all channels in the PWM. This is set globall=
-y in DTS.
-> > > +The period also has significant restrictions on the values it can ac=
-hieve,
-> > > +which the driver rounds to the nearest achievable frequency.
-> >=20
-> > What restrictions are these? If "nearest achievable" is too far off the
-> > target period it might be preferable to error out.
-> >=20
+On Mon, Oct 15, 2018 at 04:19:20PM -0700, Wesley Terpstra wrote:
+> On Mon, Oct 15, 2018 at 3:57 PM Atish Patra <atish.patra@wdc.com> wrote:
+> > >> +SiFive PWM controller
+> > >> +
+> > >> +Unlike most other PWM controllers, the SiFive PWM controller curren=
+tly only
+> > >> +supports one period for all channels in the PWM. This is set global=
+ly in DTS.
+> > >> +The period also has significant restrictions on the values it can a=
+chieve,
+> > >> +which the driver rounds to the nearest achievable frequency.
+> > >
+> > > What restrictions are these? If "nearest achievable" is too far off t=
+he
+> > > target period it might be preferable to error out.
+> > >
+> >
+> > @Wes: Any comments?
 >=20
-> @Wes: Any comments?
->=20
-> > > +Required properties:
-> > > +- compatible: should be one of
-> > > +	"sifive,fu540-c000-pwm0","sifive,pwm0".
-> >=20
-> > What's the '0' in here? A version number?
-> >=20
->=20
-> I think yes. Since fu540 is the first Linux capable RISC-V core, SiFive G=
-uys
-> decided mark it as version 0.
->=20
-> @Wesly: Please correct me if I am wrong.
+> When I last looked at this driver and hardware, I briefly considered
+> throwing up my hands and pretending that this PWM device had no period
+> control at all, only duty-cycle. There are several examples of PWM
+> controllers in linux already that behave that way.
 
-It seems fairly superfluous to me to have a version number in additon to
-the fu540-c000, which already seems to be the core plus some sort of
-part number. Do you really expect there to be any changes in the SoC
-that would require a different compatible string at this point? If the
-SoC has taped out, how will you ever get a different version of the PWM
-IP in it?
+Can you point those out? So far we've always opted to refuse changing
+the period of PWM channels that share a period if it didn't match the
+current period.
 
-I would expect any improvements or changes to the PWM IP to show up in a
-different SoC generation, at which point it would be something like
-"sifive,fu640-c000" maybe, or perhaps "sifive,fu540-d000", or whatever
-the numbering is.
+> Most of the uses of this PWM are only going to care about the
+> duty-cycle, not the period. So failing when the period is unachievable
+> seems worse to me than just completely eliminating access to period
+> control.
 
-> > > +	PWM controller is HiFive Unleashed specific chip which warrants a
-> > > +	specific compatible string. The second string is kept for backward
-> > > +	compatibility until a firmware update with latest compatible string.
-> > > +- reg: physical base address and length of the controller's registers
-> > > +- clocks: The frequency the controller runs at
-> > > +- #pwm-cells: Should be 2.
-> > > +  The first cell is the PWM channel number
-> > > +  The second cell is the PWM polarity
-> > > +- sifive,approx-period: the driver will get as close to this period =
-as it can
-> >=20
-> > Given the above comment, maybe "sifive,period"?
-> >=20
->=20
-> ok.
-> In Unleashed board, the DT is loaded by FSBL (first stage boot loader).
-> Thus, changing device tree entries requires a FSBL update. If we update t=
-his
-> string, we need to update the driver to parse both properties so that
-> existing devices with older firmware continue to work.
->=20
-> This is probably ok as we anyways do that for compatible strings. Just
-> wanted to update that here for the record.
+I'm not sure we've ever tried to completely take period out of the
+picture. You could probably do it if you use only the atomic API because
+then you just leave the period untouched. And if you have a post-clock
+change you just need to make sure to record the new period and update
+the duty cycle so that the ratio remains the same.
 
-I'm going to defer to Rob on this. He's said in the past that he doesn't
-care about existing bindings that haven't been vetted through upstream,
-even if that means that bootloaders may have to be updated. I know he's
-been fairly strict on this in the past, but let's see if there is room
-for exceptions.
+I think that could work, but I think it'd be best to be explicit about
+it, rather than just handwaving it.
 
 Thierry
 
---Pk6IbRAofICFmK5e
+--vni90+aGYgRvsTuO
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAlvFxRMACgkQ3SOs138+
-s6GhURAAmC6vuSADDLFab6WEqwRLFGoo9to8KJZ7D+7hu7qf/bAwo8RXJ30UXWyE
-72UmII/bY4sTDaBAPU0e4LhN7fwp4TaOWqV03FN2zalTxPeeVF7zEE7elulhsZNp
-9UuSTvIAXvHK8FmE3mFoGXduSaDAfpDmx2CzLZrHtJ14JSK2xpRr6z7K2OX2XdWP
-YsPglyv40v1e/x8p/GlsiO8fo8+AtOFyyCvIq/IcI+o3ynQZXwyYsGOdSrtPYHTj
-51ZDLXJK4dAxLijoJ/MPpZGq50BNbtSlgsylEkHV/7iLhGqskQkjXlUlM1zPBTeX
-VWHK+/akjOzlEhase3MaBA4wNgZZ0JPXWn+pUWIK4CjL9A6sTbxWEiVGBK9Heo5O
-3ghb8BcJolWVgS0Z9xnamcs1SXODhqwQzZhVNNSW2xQTsdEW0+OKcwWuNANOOzrr
-a7yZQYL55G+C3cBL74Kc4n82gjlIsl+q85OD0XMyhpoVRPd2SvLFqy7nHXVRl50K
-PGEJNwLIFYgKzFcHUQI7uO+wBAo9Lx92QPBVtUJCrbBwJxcgkCXwwWMQqLyR5WbL
-Uaw2K5rb6ICdIxzlsd4C97alXe/7xCU0tSLiUmieno02appctkBQEoceKqeVAbOZ
-A2+T8lVGEmPg3ugVzeSyvJxDXo679KUNQAGHz7GgTg3yJmDhraI=
-=UizH
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAlvFx9IACgkQ3SOs138+
+s6EG5Q//VozF9Lk+dGPqd7hls3pRBj6SyqljD13wEXsC+zLveuBBDKtOFvJ53yYj
+A5PxNzKHGdfFcEm+WWNthJezglWFUBwoeiJVmOkuhHSTAwSXr+bhKjPRzPyRssNe
+Av0PZyxQ9yB9XsmZSZrixTtGT6XpAW3MB/9ha3G/PkL6lEM7mI1rCoA1riiZsnpq
+gX5v1d8+lizsAJMYIDduyAbyB3+zvpRwtrQSEuM+p5pwpQBZhZiEI18fXOazDGmF
+p0FCHWwRTXXlVN2gOk84+Q8/mXRFA35NqbhTJ6yrqavZLd2k7nhwVr69N1bw2DQC
+PzdzYM/JD4CowrfzpAnNG6ysqvkzh44zQB0uHhF8dDNQC+JqAYReUNH8/JjbHqd/
+cuI21LU5l0mBgMyza9Eal+WwXXMe/tppz9CcHddMEke3RUXDo+MRHDNtphid/sOf
+TznJLIAbOiOGsoUfyoHycbEh0xmMiNoqnayt7sUvdzoKSxi+HIwsvVbsPMvlqapM
+qGq0t3q/gK19MiEG5yUEhNf3WzhJCGMdJKcnlAzX8chKA2nrmIGvBIr29TUnPo8X
+cMmOUncqNkQ3oj9ypACk+9ACXNAAQoupww+fLQZ/0V6lm4BM7JjLRCpsxPqKjYhK
+nbW9AskHYjXg5kVVMj7/GwwdXNXV9Q/iWCxax2JxY8bsuXuxnMk=
+=DuQI
 -----END PGP SIGNATURE-----
 
---Pk6IbRAofICFmK5e--
+--vni90+aGYgRvsTuO--
 
 
---===============5046195507495047457==
+--===============1031875157555973572==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -253,5 +201,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5046195507495047457==--
+--===============1031875157555973572==--
 
