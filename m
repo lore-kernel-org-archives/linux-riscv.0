@@ -2,87 +2,90 @@ Return-Path: <SRS0=QIML=M4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 73F69C5ACCA
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 18:39:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1F7F6C5ACCC
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 19:43:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2CAAC2098A
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 18:39:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CE1CA21470
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 19:43:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="P5aNeMmL";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="UOkws/Cc"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2CAAC2098A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YMY3HKiJ";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="V9PgMDNF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CE1CA21470
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=joelfernandes.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=v3QxjfsOESQzlEmr0QpR9xAoPfeUEIcUE6/AowoBWF0=; b=P5aNeMmLGSsDu1dXuHfc0VKwG
-	vH0QM3bPhOOkCpOKaMitAYRlEx9nVhGntPKPpU3kj8ojBJYVKIb7nroXuBSvxa1jBMYNty8WDg5k4
-	93Bic2pyF2LrsyD3mx1L89+pHlmjHl7RvjnHUvLYDcCMNmFqoSivrjjhKBiIYQnisSgfsTqRifC/7
-	c9f+cUNM/O4vM68ghe+oGegubTkJl/y7dYqZa+7j8toS3PZTLazoXHsumgodutBnWYN1ae2+OvqsV
-	5bisewt0/ea1e+3Kdxq30IIGu4C6Mxp6r7X/3GHq9xYdsOEbQ3kLNwVeNWe5HRLk5/xsMNM49ACIw
-	brCUj7ZHg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=txee99mZWsxHNjmpsMWzyUJMkT98Uj2+WPtsJjFmS2c=; b=YMY3HKiJ0T7UUy
+	uvweesoar9dZJ/d5ysx1vtBDkMG1Ph2p3e5X7QTkR5D3y0JckDf3DqzjKuxD75pJ2MH0FAGSha5Z8
+	JqOMRTLcETjjDDu3eP8kCwZsnRHwCWWuOCTFJ37wSnvf3VaMoXFPoYh7Zbb4KYIFHbVYHhxmQi6no
+	CHc9FtNrL6upLUIm1M2KnFViOAHJEpm6/L5HOfp6cxdi52Hd+j7R9BrjF/pdysDBmLVP8xWMfq1GN
+	uhWEI9l3ZVX/HCKXnSFpdSA48tc7JL837wSo6hkyF1ou/XZymJYwCJRcuDLbn2RPzYw3L/Aofkq+S
+	4w+hrXh6+zV0bhNPSQpw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gCUFJ-0007iL-7f; Tue, 16 Oct 2018 18:39:09 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1gCVFd-0007hP-R9; Tue, 16 Oct 2018 19:43:33 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gCUFF-0007g1-Ks
- for linux-riscv@lists.infradead.org; Tue, 16 Oct 2018 18:39:07 +0000
-Received: by mail-pg1-x542.google.com with SMTP id f18-v6so11274975pgv.3
- for <linux-riscv@lists.infradead.org>; Tue, 16 Oct 2018 11:38:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=9e5TREYIbZduqYfTe+l8iXUjUiStXCdxThOfSNUbAXE=;
- b=UOkws/Cc8s4WAG2Q0l6Fa/wXHl0WhFkOC1vvlTGRzelvOmYjF4HpvKRU9XhsCj6jvL
- o5kgGraWnD1mqjgbxMywIov8dOCiOcS1yVzIg+A4HQinsVnMDZkkDnB1lojkaoM4IhY5
- 5H7YOmVwqe2MMEH9zuyPLPCiUISjVXw2i9/iq4soEzwLl3kYWqAeh5v4aR4XXRi9m7Ul
- iKPIKZn0ZEvifUs4D9zOQ0I45pcz0zZngBTmT2rT4s/ZtM+x4uvgdv6X2eETId27zLRZ
- eumg2/qRGo9uS1nV+Fr1v485Vfs6Asr29XSMe2+5kseckI0dg+onLelAP0wMQzLIhu6V
- xa8Q==
+ id 1gCVFY-0007ad-LD
+ for linux-riscv@lists.infradead.org; Tue, 16 Oct 2018 19:43:30 +0000
+Received: by mail-pl1-x642.google.com with SMTP id 30-v6so11482586plb.10
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Oct 2018 12:43:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=joelfernandes.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=4E6/TYIJnb1hpwFXfznXrU9WRJfBcYMDYHXRqDEZgOg=;
+ b=V9PgMDNF7CBl5+Nzjvr0iSOtDiDCQgsN/s5ihAy9noZqWII6hYc6Ts6C5GhDKx8GXO
+ m7lTUaprGsEeUyTBUKqmHo3irjZ1l34Zh9xqtEP2vVvNhHYNULvRTyjfiwn/iz3OaXl0
+ 6o0VR9etFqC0VPLMHRowVmTVSwuMOe0dtplzs=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=9e5TREYIbZduqYfTe+l8iXUjUiStXCdxThOfSNUbAXE=;
- b=TurUcRWHgBkdlyQTy3tMf/3nzhcdWL59lnTa4m1eB4uWhKMFB5od3HOoeqiM+ex8UY
- l8BlR581m53gqk1P6WPNJqlLRADeHOPSPMb4cxF8yXDzuxWs1ChK2rzi/pfv09K54dkJ
- xr3fiLjN857hhcphe5kdFxY0m1W0o2MIGYHr6FA/bGSwBpqImwXLp51BzBo7EJdNbK6D
- 0w4ctVFdDtCUOBJmmLeJLxADmQ+4wxVtT7UUL2y+l4/FPVIPBiYAxxfBccdQIFNXtIIT
- wETKzFwjT9Fb+5hFPl8iSmbBEGDZ7Uc8G+My+CIEtpKiMbm1aJbBzE/VZGzbh3oasbRO
- 9aTw==
-X-Gm-Message-State: ABuFfojdPPMcNNZNyuV9xR5PYjxqq/ryaQWAn1ZmF1EEvy01uCpwiy/s
- QV8EEjhrw/IXZTznFJhs4x9vFg==
-X-Google-Smtp-Source: ACcGV626+JGNKLOSbH4OoyDZuYe2k7TfQRPBJ/Bzpa9vqdkLAz0xS5/yooPMLnToz7xt9J/H2cH9EQ==
-X-Received: by 2002:a63:1c1b:: with SMTP id
- c27-v6mr21411714pgc.351.1539715134251; 
- Tue, 16 Oct 2018 11:38:54 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id m27-v6sm26450675pff.187.2018.10.16.11.38.52
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 16 Oct 2018 11:38:53 -0700 (PDT)
-Date: Tue, 16 Oct 2018 11:38:53 -0700 (PDT)
-X-Google-Original-Date: Tue, 16 Oct 2018 11:38:40 PDT (-0700)
-Subject: Re: [sw-dev] Re: [isa-dev] riscv-qemu - linux boot is failing for vda
- device
-In-Reply-To: <CAOuPNLiR+BLUno8sYjwLwW1BqJbBrH-suBiHEx1-dtMO906Ung@mail.gmail.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: pintu.ping@gmail.com
-Message-ID: <mhng-14c6ccbd-b9ff-40e3-b69b-4333d814c6c1@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=4E6/TYIJnb1hpwFXfznXrU9WRJfBcYMDYHXRqDEZgOg=;
+ b=enaKBwDST01cG8b2NplYf6+O8UTaICBNZ302XZ0pK1lwRowFa8h3L70W+2kNV/XYk/
+ ITk2gyoP/g1eOMe27KlO8WCED8h1cW6SkhbUhSr+AISxHs299fOtjuww/PCjFuMFd0bd
+ Akv8Oyskl5YbfpJtY1N01QHmoRGkbBOjXpqE7O0+9MCCLMxDaxt7RkOyi7TW7I05XuVF
+ UnRLRxcqdc4+uqSv0KNVuFioCLRzo0WgsC/6Whok1zNeLiE2P4WpN8/ZM4UELbzDv3vE
+ m6xDbwl3KuSfW/Vd7mW6qWA98zAvMYwClzTpEcysv9eMceA7bngDTkmaEjo/DL5K82jc
+ aQFg==
+X-Gm-Message-State: ABuFfohsNV7cu3u7sCpEmbclU1R/lDR2vvJRKHCumJbwOtxq6+HwalpE
+ 96im4bUuo4VeCCwQEBKmqTmy4Q==
+X-Google-Smtp-Source: ACcGV62AdBcFxDIb9TDt/mmUnedT1xOttrv1cSqMsBN5bCJGRH95gVqQWD3vO6sNA2FVCR0J+aMC2w==
+X-Received: by 2002:a17:902:15a8:: with SMTP id
+ m37-v6mr22725955pla.132.1539718996443; 
+ Tue, 16 Oct 2018 12:43:16 -0700 (PDT)
+Received: from localhost ([2620:0:1000:1601:3aef:314f:b9ea:889f])
+ by smtp.gmail.com with ESMTPSA id s2-v6sm15420002pgo.90.2018.10.16.12.43.14
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Tue, 16 Oct 2018 12:43:14 -0700 (PDT)
+Date: Tue, 16 Oct 2018 12:43:13 -0700
+From: Joel Fernandes <joel@joelfernandes.org>
+To: Vlastimil Babka <vbabka@suse.cz>
+Subject: Re: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
+Message-ID: <20181016194313.GA247930@joelaf.mtv.corp.google.com>
+References: <20181013013200.206928-1-joel@joelfernandes.org>
+ <20181013013200.206928-3-joel@joelfernandes.org>
+ <20181015094209.GA31999@infradead.org>
+ <20181015223303.GA164293@joelaf.mtv.corp.google.com>
+ <35b9c85a-b366-9ca3-5647-c2568c811961@suse.cz>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <35b9c85a-b366-9ca3-5647-c2568c811961@suse.cz>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181016_113905_735668_07CEFB43 
-X-CRM114-Status: GOOD (  22.23  )
+X-CRM114-CacheID: sfid-20181016_124328_738497_45AB7171 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,86 +97,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, sw-dev@groups.riscv.org, rjones@redhat.com,
- Michael Clark <michaeljclark@mac.com>
+Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
+ linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Will Deacon <will.deacon@arm.com>,
+ mhocko@kernel.org, linux-mm@kvack.org, lokeshgidra@google.com,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu, Jonas Bonn <jonas@southpole.se>,
+ linux-s390@vger.kernel.org, dancol@google.com,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Max Filippov <jcmvbkbc@gmail.com>,
+ linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>,
+ "maintainer:X86 ARCHITECTURE 32-BIT AND 64-BIT" <x86@kernel.org>,
+ hughd@google.com, "James E.J. Bottomley" <jejb@parisc-linux.org>,
+ kasan-dev@googlegroups.com, elfring@users.sourceforge.net,
+ Christoph Hellwig <hch@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Andrey Ryabinin <aryabinin@virtuozzo.com>, linux-snps-arc@lists.infradead.org,
+ kernel-team@android.com, Sam Creasey <sammy@sammy.net>,
+ linux-xtensa@linux-xtensa.org, Jeff Dike <jdike@addtoit.com>,
+ linux-alpha@vger.kernel.org, linux-um@lists.infradead.org,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Julia Lawall <Julia.Lawall@lip6.fr>, linux-m68k@lists.linux-m68k.org,
+ Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
+ Ley Foon Tan <lftan@altera.com>, kirill@shutemov.name,
+ Stafford Horne <shorne@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
+ Chris Zankel <chris@zankel.net>, Tony Luck <tony.luck@intel.com>,
+ linux-parisc@vger.kernel.org, pantin@google.com, linux-kernel@vger.kernel.org,
+ Fenghua Yu <fenghua.yu@intel.com>, minchan@kernel.org,
+ Thomas Gleixner <tglx@linutronix.de>, Richard Weinberger <richard@nod.at>,
+ anton.ivanov@kot-begemot.co.uk, nios2-dev@lists.rocketboards.org,
+ akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
+ "David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181016183853.GVqFa9wRNa7VtGGre8ZbIimifaczkbvETVVZhp38qZs@z>
+Message-ID: <20181016194313.Cma5dxTt1XBAqsnH5K-8ol6u-pUteLpgieyS3__xgyU@z>
 
-On Tue, 16 Oct 2018 06:12:11 PDT (-0700), pintu.ping@gmail.com wrote:
-> On Tue, Oct 16, 2018 at 6:10 AM Palmer Dabbelt <palmer@sifive.com> wrote:
->>
->> On Mon, 15 Oct 2018 14:14:51 PDT (-0700), rjones@redhat.com wrote:
->
->> >
->> >> > virtio_blk: probe of virtio0 failed with error -22
->> >
->> > ... I saw this exact error when I was using the upstream kernel
->> > instead of the one which supported interrupt handling.  Interrupt
->> > handling for RISC-V was added upstream after 4.18 so wouldn't be
->> > included in upstream 4.18.0-rc6.
->>
->> Your best bet today is to run 4.19-rc8, which should be pretty stable.
->
-> Yes, I checked with mainline linux-kernel 4.19.
-> Now I am able to boot successfully and login into qemu-riscv shell.
-> Thank you so much :)
->
-> But I am curious to know what changes resulted into this fix, in 4.19 kernel ?
-> Which is the exact patch in mainline, that fixes this issue?
-> Because at times during the development, it will be difficult to
-> simply upgrade the kernel version.
+On Tue, Oct 16, 2018 at 01:29:52PM +0200, Vlastimil Babka wrote:
+> On 10/16/18 12:33 AM, Joel Fernandes wrote:
+> > On Mon, Oct 15, 2018 at 02:42:09AM -0700, Christoph Hellwig wrote:
+> >> On Fri, Oct 12, 2018 at 06:31:58PM -0700, Joel Fernandes (Google) wrote:
+> >>> Android needs to mremap large regions of memory during memory management
+> >>> related operations.
+> >>
+> >> Just curious: why?
+> > 
+> > In Android we have a requirement of moving a large (up to a GB now, but may
+> > grow bigger in future) memory range from one location to another.
+> 
+> I think Christoph's "why?" was about the requirement, not why it hurts
+> applications. I admit I'm now also curious :)
 
-Yes, that's expected.  RISC-V Linux is still pretty bleeding edge, you just 
-happened to catch it between when master started working and when there was a 
-proper release that contained your patches.  Since master is very calm right 
-now (there was an rc8 before release, but it's very close to a release) it's OK 
-to use, but you best bet going forward is to use the release tarballs just like 
-normal.
+This issue was discovered when we wanted to be able to move the physical
+pages of a memory range to another location quickly so that, after the
+application threads are resumed, UFFDIO_REGISTER_MODE_MISSING userfaultfd
+faults can be received on the original memory range. The actual operations
+performed on the memory range are beyond the scope of this discussion. The
+user threads continue to refer to the old address which will now fault. The
+reason we want retain the old memory range and receives faults there is to
+avoid the need to fix the addresses all over the address space of the threads
+after we finish with performing operations on them in the fault handlers, so
+we mremap it and receive faults at the old addresses.
 
-> So, I wanted to stick to 4.18 itself, however I can back port the
-> patches from 4.19 to fix the issue.
+Does that answer your question?
 
-We have a backports branch, it's called "riscv-linux-4.18".  I'll continue to 
-produce a backports branch for the latest upstream release until things get 
-pretty stable.
+thanks,
 
-> So, if you can point me to the exact patch, it will be of great help.
+- Joel
 
-Here's the PLIC driver, but it depends on a bunch of other patches.  Like I 
-said, that's what the backports branch is for :)
-
-$ git log drivers/irqchip/irq-sifive-plic.c | cat
-commit 8237f8bc4f6eb7e5ce2a19276079cfd3a7c6314a
-gpg: Signature made Mon 13 Aug 2018 08:31:32 AM PDT
-gpg:                using RSA key 00CE76D1834960DFCE886DF8EF4CA1502CCBAB41
-gpg:                issuer "palmer@dabbelt.com"
-gpg: Good signature from "Palmer Dabbelt <palmer@dabbelt.com>" [ultimate]
-gpg:                 aka "Palmer Dabbelt <palmer@sifive.com>" [ultimate]
-Author: Christoph Hellwig <hch@lst.de>
-Date:   Thu Jul 26 16:27:00 2018 +0200
-
-    irqchip: add a SiFive PLIC driver
-
-    Add a driver for the SiFive implementation of the RISC-V Platform Level
-    Interrupt Controller (PLIC).  The PLIC connects global interrupt sources
-    to the local interrupt controller on each hart.
-
-    This driver is based on the driver in the RISC-V tree from Palmer Dabbelt,
-    but has been almost entirely rewritten since, and includes many fixes
-    from Atish Patra.
-
-    Signed-off-by: Christoph Hellwig <hch@lst.de>
-    Acked-by: Thomas Gleixner <tglx@linutronix.de>
-    Reviewed-by: Atish Patra <atish.patra@wdc.com>
-    [Binding update by Palmer]
-    Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-
->
-> Thanks,
-> Pintu
 
 _______________________________________________
 linux-riscv mailing list
