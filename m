@@ -1,53 +1,164 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 15 Oct 2018 17:40:13 -0700 (PDT)
-Subject: [sw-dev] Re: [isa-dev] riscv-qemu - linux boot is failing for vda
- device
-In-Reply-To: <20181015211451.GC31130@redhat.com>
-Message-ID: <mhng-2be13863-3f80-432c-9945-2770e7e7e4b4@palmer-si-x1c4>
+From: joel@joelfernandes.org (Joel Fernandes)
+Date: Mon, 15 Oct 2018 19:08:53 -0700
+Subject: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
+In-Reply-To: <20181015101814.306d257c@mschwideX1>
+References: <20181012013756.11285-1-joel@joelfernandes.org>
+ <20181012013756.11285-2-joel@joelfernandes.org>
+ <6580a62b-69c6-f2e3-767c-bd36b977bea2@de.ibm.com>
+ <20181015101814.306d257c@mschwideX1>
+Message-ID: <20181016020853.GA56701@joelaf.mtv.corp.google.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 15 Oct 2018 14:14:51 PDT (-0700), rjones at redhat.com wrote:
-> On Tue, Oct 16, 2018 at 09:26:20AM +1300, 'Michael Clark' via RISC-V SW Dev wrote:
->> Dropping isa-dev, adding sw-dev
->>
->> > On 16/10/2018, at 3:00 AM, Pintu Kumar <pintu.ping@gmail.com> wrote:
->> >
->> > Hi,
->> > I am trying to setup riscv-qemu booting on a new Ubuntu PC.
->> > I dont want to use freedom-u-sdk, so I am preparing my own environment.
->> > I could able to build the following:
->> > - riscv-toolchain
->> > - riscv-linux
->> > - riscv-qemu
->> > - riscv-pk
->> > - busybear
->> >
->> > After that, I am trying to boot riscv-qemu, using the following command:
->> > # sudo qemu-system-riscv64 -nographic -machine virt -kernel
->> > PK/riscv-pk/build/bbl -append "root=/dev/vda ro console=ttyS0" -drive
->> > file=busybear.bin,format=raw,id=hd0 -device
->> > virtio-blk-device,drive=hd0
->>
->> Note: sudo is not required. sudo is used in the busybear start-qemu.sh script as it uses bridged networking. The latest version of busybear points at linux-4.19-rc5 so the issue may have been fixed.
->>
->> > But, I am getting kernel panic.
->> >
->> > ---------
->> > bbl loader
->> > ....
->> > Linux version 4.18.0-rc6...
->
-> It's a bit of a guess, but could this be the upstream kernel?  The
-> latest riscv-linux is 4.18.0 (not -rc6).
->
-> The reason I say it might be the upstream kernel is because ...
->
->> > virtio_blk: probe of virtio0 failed with error -22
->
-> ... I saw this exact error when I was using the upstream kernel
-> instead of the one which supported interrupt handling.  Interrupt
-> handling for RISC-V was added upstream after 4.18 so wouldn't be
-> included in upstream 4.18.0-rc6.
+On Mon, Oct 15, 2018 at 10:18:14AM +0200, Martin Schwidefsky wrote:
+> On Mon, 15 Oct 2018 09:10:53 +0200
+> Christian Borntraeger <borntraeger@de.ibm.com> wrote:
+> 
+> > On 10/12/2018 03:37 AM, Joel Fernandes (Google) wrote:
+> > > Android needs to mremap large regions of memory during memory management
+> > > related operations. The mremap system call can be really slow if THP is
+> > > not enabled. The bottleneck is move_page_tables, which is copying each
+> > > pte at a time, and can be really slow across a large map. Turning on THP
+> > > may not be a viable option, and is not for us. This patch speeds up the
+> > > performance for non-THP system by copying at the PMD level when possible.
+> > > 
+> > > The speed up is three orders of magnitude. On a 1GB mremap, the mremap
+> > > completion times drops from 160-250 millesconds to 380-400 microseconds.
+> > > 
+> > > Before:
+> > > Total mremap time for 1GB data: 242321014 nanoseconds.
+> > > Total mremap time for 1GB data: 196842467 nanoseconds.
+> > > Total mremap time for 1GB data: 167051162 nanoseconds.
+> > > 
+> > > After:
+> > > Total mremap time for 1GB data: 385781 nanoseconds.
+> > > Total mremap time for 1GB data: 388959 nanoseconds.
+> > > Total mremap time for 1GB data: 402813 nanoseconds.
+> > > 
+> > > Incase THP is enabled, the optimization is skipped. I also flush the
+> > > tlb every time we do this optimization since I couldn't find a way to
+> > > determine if the low-level PTEs are dirty. It is seen that the cost of
+> > > doing so is not much compared the improvement, on both x86-64 and arm64.
+> > > 
+> > > Cc: minchan at kernel.org
+> > > Cc: pantin at google.com
+> > > Cc: hughd at google.com
+> > > Cc: lokeshgidra at google.com
+> > > Cc: dancol at google.com
+> > > Cc: mhocko at kernel.org
+> > > Cc: kirill at shutemov.name
+> > > Cc: akpm at linux-foundation.org
+> > > Signed-off-by: Joel Fernandes (Google) <joel@joelfernandes.org>
+> > > ---
+> > >  mm/mremap.c | 62 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+> > >  1 file changed, 62 insertions(+)
+> > > 
+> > > diff --git a/mm/mremap.c b/mm/mremap.c
+> > > index 9e68a02a52b1..d82c485822ef 100644
+> > > --- a/mm/mremap.c
+> > > +++ b/mm/mremap.c
+> > > @@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
+> > >  		drop_rmap_locks(vma);
+> > >  }
+> > >  
+> > > +static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
+> > > +		  unsigned long new_addr, unsigned long old_end,
+> > > +		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
+> > > +{
+> > > +	spinlock_t *old_ptl, *new_ptl;
+> > > +	struct mm_struct *mm = vma->vm_mm;
+> > > +
+> > > +	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
+> > > +	    || old_end - old_addr < PMD_SIZE)
+> > > +		return false;
+> > > +
+> > > +	/*
+> > > +	 * The destination pmd shouldn't be established, free_pgtables()
+> > > +	 * should have release it.
+> > > +	 */
+> > > +	if (WARN_ON(!pmd_none(*new_pmd)))
+> > > +		return false;
+> > > +
+> > > +	/*
+> > > +	 * We don't have to worry about the ordering of src and dst
+> > > +	 * ptlocks because exclusive mmap_sem prevents deadlock.
+> > > +	 */
+> > > +	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
+> > > +	if (old_ptl) {
+> > > +		pmd_t pmd;
+> > > +
+> > > +		new_ptl = pmd_lockptr(mm, new_pmd);
+> > > +		if (new_ptl != old_ptl)
+> > > +			spin_lock_nested(new_ptl, SINGLE_DEPTH_NESTING);
+> > > +
+> > > +		/* Clear the pmd */
+> > > +		pmd = *old_pmd;
+> > > +		pmd_clear(old_pmd);  
+> > 
+> > Adding Martin Schwidefsky.
+> > Is this mapping maybe still in use on other CPUs? If yes, I think for
+> > s390 we need to flush here as well (in other word we might need to introduce
+> > pmd_clear_flush). On s390 you have to use instructions like CRDTE,IPTE or IDTE
+> > to modify page table entries that are still in use. Otherwise you can get a 
+> > delayed access exception which is - in contrast to page faults - not recoverable.
+> 
+> Just clearing an active pmd would be broken for s390. We need the equivalent
+> of the ptep_get_and_clear() function for pmds. For s390 this function would
+> look like this:
+> 
+> static inline pte_t pmdp_get_and_clear(struct mm_struct *mm,
+>                                        unsigned long addr, pmd_t *pmdp)
+> {
+>         return pmdp_xchg_lazy(mm, addr, pmdp, __pmd(_SEGMENT_ENTRY_INVALID));
+> }
+> 
+> Just like pmdp_huge_get_and_clear() in fact.
 
-Your best bet today is to run 4.19-rc8, which should be pretty stable.
+I agree architecture like s390 may need additional explicit instructions to
+avoid any unrecoverable failure. So the good news is in my last patch I sent, I
+have put this behind an architecture flag (HAVE_MOVE_PMD), so we don't have
+to enable it with architectures that cannot handle it:
+https://www.spinics.net/lists/linux-mm/msg163621.html
+
+Also we are triggering this optimization only if the page is not a transparent
+huge page by calling pmd_trans_huge(). For regular pages, it should be safe to
+not do the atomic get_and_clear AIUI because Linux doesn't use any bits from
+the PMD like the dirty bit if THP is not in use (and the processors that I
+saw (not s390) should not storing anything in the bits anyway when the page
+is not a huge page. I have gone through various scenarios and read both arm
+32-bit and 64-bit and x86 64-bit manuals, and I believe it to be safe.
+
+For s390, lets not set the HAVE_MOVE_PMD flag. Does that work for you?
+
+> > > +
+> > > +		VM_BUG_ON(!pmd_none(*new_pmd));
+> > > +
+> > > +		/* Set the new pmd */
+> > > +		set_pmd_at(mm, new_addr, new_pmd, pmd);
+> > > +		if (new_ptl != old_ptl)
+> > > +			spin_unlock(new_ptl);
+> > > +		spin_unlock(old_ptl);
+> > > +
+> > > +		*need_flush = true;
+> > > +		return true;
+> > > +	}
+> > > +	return false;
+> > > +}
+> > > +
+> 
+> So the idea is to move the pmd entry to the new location, dragging
+> the whole pte table to a new location with a different address.
+> I wonder if that is safe in regard to get_user_pages_fast().
+
+Could you elaborate why you feel it may not be?
+
+Are you concerned that the PMD moving interferes with the page walk? Incase
+the tree changes during page-walking, the number of pages pinned by
+get_user_pages_fast may be less than the number requested. In this case,
+get_user_pages_fast would fall back to the slow path which should be
+synchronized with the mremap by courtesy of the mm->mmap_sem. But please let
+me know the scenario you have in mind and if I missed something.
+
+thanks,
+
+ - Joel
