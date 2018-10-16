@@ -1,54 +1,81 @@
-From: paul.walmsley@sifive.com (Paul Walmsley)
-Date: Tue, 16 Oct 2018 10:31:42 -0700
-Subject: [RFC 1/4] pwm: sifive: Add DT documentation for SiFive PWM
- Controller.
-In-Reply-To: <20181016110142.GC8852@ulmo>
-References: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
- <1539111085-25502-2-git-send-email-atish.patra@wdc.com>
- <20181010134926.GD21134@ulmo> <25758ab9-eb36-741b-6264-42412b3ddd8e@wdc.com>
- <20181016110142.GC8852@ulmo>
-Message-ID: <6e108e3c-15c1-b13b-ac3e-60c5eb209c7b@sifive.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Tue, 16 Oct 2018 11:38:53 -0700 (PDT)
+Subject: [sw-dev] Re: [isa-dev] riscv-qemu - linux boot is failing for vda
+ device
+In-Reply-To: <CAOuPNLiR+BLUno8sYjwLwW1BqJbBrH-suBiHEx1-dtMO906Ung@mail.gmail.com>
+Message-ID: <mhng-14c6ccbd-b9ff-40e3-b69b-4333d814c6c1@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-
-On 10/16/18 4:01 AM, Thierry Reding wrote:
-> On Mon, Oct 15, 2018 at 03:57:35PM -0700, Atish Patra wrote:
->> On 10/10/18 6:49 AM, Thierry Reding wrote:
->>> On Tue, Oct 09, 2018 at 11:51:22AM -0700, Atish Patra wrote:
->>>> +Required properties:
->>>> +- compatible: should be one of
->>>> +	"sifive,fu540-c000-pwm0","sifive,pwm0".
->>> What's the '0' in here? A version number?
->>>
->> I think yes. Since fu540 is the first Linux capable RISC-V core, SiFive Guys
->> decided mark it as version 0.
+On Tue, 16 Oct 2018 06:12:11 PDT (-0700), pintu.ping at gmail.com wrote:
+> On Tue, Oct 16, 2018 at 6:10 AM Palmer Dabbelt <palmer@sifive.com> wrote:
 >>
->> @Wesly: Please correct me if I am wrong.
-> It seems fairly superfluous to me to have a version number in additon to
-> the fu540-c000, which already seems to be the core plus some sort of
-> part number. Do you really expect there to be any changes in the SoC
-> that would require a different compatible string at this point? If the
-> SoC has taped out, how will you ever get a different version of the PWM
-> IP in it?
+>> On Mon, 15 Oct 2018 14:14:51 PDT (-0700), rjones at redhat.com wrote:
 >
-> I would expect any improvements or changes to the PWM IP to show up in a
-> different SoC generation, at which point it would be something like
-> "sifive,fu640-c000" maybe, or perhaps "sifive,fu540-d000", or whatever
-> the numbering is.
+>> >
+>> >> > virtio_blk: probe of virtio0 failed with error -22
+>> >
+>> > ... I saw this exact error when I was using the upstream kernel
+>> > instead of the one which supported interrupt handling.  Interrupt
+>> > handling for RISC-V was added upstream after 4.18 so wouldn't be
+>> > included in upstream 4.18.0-rc6.
+>>
+>> Your best bet today is to run 4.19-rc8, which should be pretty stable.
+>
+> Yes, I checked with mainline linux-kernel 4.19.
+> Now I am able to boot successfully and login into qemu-riscv shell.
+> Thank you so much :)
+>
+> But I am curious to know what changes resulted into this fix, in 4.19 kernel ?
+> Which is the exact patch in mainline, that fixes this issue?
+> Because at times during the development, it will be difficult to
+> simply upgrade the kernel version.
 
+Yes, that's expected.  RISC-V Linux is still pretty bleeding edge, you just 
+happened to catch it between when master started working and when there was a 
+proper release that contained your patches.  Since master is very calm right 
+now (there was an rc8 before release, but it's very close to a release) it's OK 
+to use, but you best bet going forward is to use the release tarballs just like 
+normal.
 
-The "0" suffix refers to a revision number for the underlying PWM IP block.
+> So, I wanted to stick to 4.18 itself, however I can back port the
+> patches from 4.19 to fix the issue.
 
-It's certainly important to keep that version number on the 
-"sifive,pwm0" compatible string that doesn't have the chip name 
-associated with it.
+We have a backports branch, it's called "riscv-linux-4.18".  I'll continue to 
+produce a backports branch for the latest upstream release until things get 
+pretty stable.
 
-As to whether there could ever be a FU540-C000 part with different IP 
-block versions on it: FU540-C000 is ultimately a marketing name.? While 
-theoretically we shouldn't have another "FU540-C000" chip with different 
-peripheral IP block versions on it, I don't think any engineer can 
-guarantee that it won't happen.
+> So, if you can point me to the exact patch, it will be of great help.
 
+Here's the PLIC driver, but it depends on a bunch of other patches.  Like I 
+said, that's what the backports branch is for :)
 
-- Paul
+$ git log drivers/irqchip/irq-sifive-plic.c | cat
+commit 8237f8bc4f6eb7e5ce2a19276079cfd3a7c6314a
+gpg: Signature made Mon 13 Aug 2018 08:31:32 AM PDT
+gpg:                using RSA key 00CE76D1834960DFCE886DF8EF4CA1502CCBAB41
+gpg:                issuer "palmer at dabbelt.com"
+gpg: Good signature from "Palmer Dabbelt <palmer@dabbelt.com>" [ultimate]
+gpg:                 aka "Palmer Dabbelt <palmer@sifive.com>" [ultimate]
+Author: Christoph Hellwig <hch@lst.de>
+Date:   Thu Jul 26 16:27:00 2018 +0200
+
+    irqchip: add a SiFive PLIC driver
+
+    Add a driver for the SiFive implementation of the RISC-V Platform Level
+    Interrupt Controller (PLIC).  The PLIC connects global interrupt sources
+    to the local interrupt controller on each hart.
+
+    This driver is based on the driver in the RISC-V tree from Palmer Dabbelt,
+    but has been almost entirely rewritten since, and includes many fixes
+    from Atish Patra.
+
+    Signed-off-by: Christoph Hellwig <hch@lst.de>
+    Acked-by: Thomas Gleixner <tglx@linutronix.de>
+    Reviewed-by: Atish Patra <atish.patra@wdc.com>
+    [Binding update by Palmer]
+    Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+
+>
+> Thanks,
+> Pintu
