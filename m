@@ -1,185 +1,74 @@
-From: jimw@sifive.com (Jim Wilson)
-Date: Tue, 16 Oct 2018 14:42:59 -0700
-Subject: [PATCH, v2] RISC-V: Add futex support.
-Message-ID: <20181016214259.12063-1-jimw@sifive.com>
+From: thierry.reding@gmail.com (Thierry Reding)
+Date: Wed, 17 Oct 2018 00:04:38 +0200
+Subject: [RFC 1/4] pwm: sifive: Add DT documentation for SiFive PWM
+ Controller.
+In-Reply-To: <6e108e3c-15c1-b13b-ac3e-60c5eb209c7b@sifive.com>
+References: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
+ <1539111085-25502-2-git-send-email-atish.patra@wdc.com>
+ <20181010134926.GD21134@ulmo>
+ <25758ab9-eb36-741b-6264-42412b3ddd8e@wdc.com>
+ <20181016110142.GC8852@ulmo>
+ <6e108e3c-15c1-b13b-ac3e-60c5eb209c7b@sifive.com>
+Message-ID: <20181016220437.GB31973@mithrandir>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Updated as per sugestions from Christoph Hellwig.  As before, tested on a
-HiFive Unleashed running fedora core 29 with a 4.15 based kernel against the
-glibc testsuite and the futex wake_op testcase from
-    https://lwn.net/Articles/148830/
-14 glibc testcase failures are fixed by the patch, and the wake_op testcase
-works with the patch.
+On Tue, Oct 16, 2018 at 10:31:42AM -0700, Paul Walmsley wrote:
+> 
+> On 10/16/18 4:01 AM, Thierry Reding wrote:
+> > On Mon, Oct 15, 2018 at 03:57:35PM -0700, Atish Patra wrote:
+> > > On 10/10/18 6:49 AM, Thierry Reding wrote:
+> > > > On Tue, Oct 09, 2018 at 11:51:22AM -0700, Atish Patra wrote:
+> > > > > +Required properties:
+> > > > > +- compatible: should be one of
+> > > > > +	"sifive,fu540-c000-pwm0","sifive,pwm0".
+> > > > What's the '0' in here? A version number?
+> > > > 
+> > > I think yes. Since fu540 is the first Linux capable RISC-V core, SiFive Guys
+> > > decided mark it as version 0.
+> > > 
+> > > @Wesly: Please correct me if I am wrong.
+> > It seems fairly superfluous to me to have a version number in additon to
+> > the fu540-c000, which already seems to be the core plus some sort of
+> > part number. Do you really expect there to be any changes in the SoC
+> > that would require a different compatible string at this point? If the
+> > SoC has taped out, how will you ever get a different version of the PWM
+> > IP in it?
+> > 
+> > I would expect any improvements or changes to the PWM IP to show up in a
+> > different SoC generation, at which point it would be something like
+> > "sifive,fu640-c000" maybe, or perhaps "sifive,fu540-d000", or whatever
+> > the numbering is.
+> 
+> 
+> The "0" suffix refers to a revision number for the underlying PWM IP block.
+> 
+> It's certainly important to keep that version number on the "sifive,pwm0"
+> compatible string that doesn't have the chip name associated with it.
 
-This is a patch based off of a 4.19 tree.  The 4.15 patch is trivially
-different as arch/riscv/Kconfig changed.  This patch was tested on qemu with
-the glibc nptl/tst-cond-except testcase, and the wake_op testcase from above.
+Isn't the hardware identified by "sifive,pwm0" and "sifive,fu540-c000"
+effectively identical? Is there a need to have two compatible strings
+that refer to the exact same hardware?
 
-Signed-off-by: Jim Wilson <jimw@sifive.com>
----
- arch/riscv/Kconfig             |   1 +
- arch/riscv/include/asm/Kbuild  |   1 -
- arch/riscv/include/asm/futex.h | 127 +++++++++++++++++++++++++++++++++
- 3 files changed, 128 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/include/asm/futex.h
+> As to whether there could ever be a FU540-C000 part with different IP block
+> versions on it: FU540-C000 is ultimately a marketing name.? While
+> theoretically we shouldn't have another "FU540-C000" chip with different
+> peripheral IP block versions on it, I don't think any engineer can guarantee
+> that it won't happen.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a344980287a5..093361e2298c 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -31,6 +31,7 @@ config RISCV
- 	select HAVE_MEMBLOCK
- 	select HAVE_MEMBLOCK_NODE_MAP
- 	select HAVE_DMA_CONTIGUOUS
-+	select HAVE_FUTEX_CMPXCHG if FUTEX
- 	select HAVE_GENERIC_DMA_COHERENT
- 	select HAVE_PERF_EVENTS
- 	select IRQ_DOMAIN
-diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-index efdbe311e936..6a646d9ea780 100644
---- a/arch/riscv/include/asm/Kbuild
-+++ b/arch/riscv/include/asm/Kbuild
-@@ -13,7 +13,6 @@ generic-y += errno.h
- generic-y += exec.h
- generic-y += fb.h
- generic-y += fcntl.h
--generic-y += futex.h
- generic-y += hardirq.h
- generic-y += hash.h
- generic-y += hw_irq.h
-diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
-new file mode 100644
-index 000000000000..c594db8fd01c
---- /dev/null
-+++ b/arch/riscv/include/asm/futex.h
-@@ -0,0 +1,127 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/* Copyright (c) 2006  Ralf Baechle (ralf at linux-mips.org)
-+ * Copyright (c) 2018  Jim Wilson (jimw at sifive.com)
-+ */
-+
-+#ifndef _ASM_FUTEX_H
-+#define _ASM_FUTEX_H
-+
-+#ifndef CONFIG_RISCV_ISA_A
-+/*
-+ * Use the generic interrupt disabling versions if the A extension
-+ * is not supported.
-+ */
-+#ifdef CONFIG_SMP
-+#error "Can't support generic futex calls without A extension on SMP"
-+#endif
-+#include <asm-generic/futex.h>
-+
-+#else /* CONFIG_RISCV_ISA_A */
-+
-+#include <linux/futex.h>
-+#include <linux/uaccess.h>
-+#include <linux/errno.h>
-+#include <asm/asm.h>
-+
-+#define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)	\
-+{								\
-+	uintptr_t tmp;						\
-+	__enable_user_access();					\
-+	__asm__ __volatile__ (					\
-+	"1:	" insn "				\n"	\
-+	"2:						\n"	\
-+	"	.section .fixup,\"ax\"			\n"	\
-+	"	.balign 4				\n"	\
-+	"3:	li %[r],%[e]				\n"	\
-+	"	jump 2b,%[t]				\n"	\
-+	"	.previous				\n"	\
-+	"	.section __ex_table,\"a\"		\n"	\
-+	"	.balign " RISCV_SZPTR "			\n"	\
-+	"	" RISCV_PTR " 1b, 3b			\n"	\
-+	"	.previous				\n"	\
-+	: [r] "+r" (ret), [ov] "=&r" (oldval),			\
-+	  [u] "+m" (*uaddr), [t] "=&r" (tmp)			\
-+	: [op] "Jr" (oparg), [e] "i" (-EFAULT)			\
-+	: "memory");						\
-+	__disable_user_access();				\
-+}
-+
-+static inline int
-+arch_futex_atomic_op_inuser(int op, int oparg, int *oval, u32 __user *uaddr)
-+{
-+	int oldval = 0, ret = 0;
-+
-+	pagefault_disable();
-+
-+	switch (op) {
-+	case FUTEX_OP_SET:
-+		__futex_atomic_op("amoswap.w.aqrl %[ov],%z[op],%[u]",
-+				  ret, oldval, uaddr, oparg);
-+		break;
-+	case FUTEX_OP_ADD:
-+		__futex_atomic_op("amoadd.w.aqrl %[ov],%z[op],%[u]",
-+				  ret, oldval, uaddr, oparg);
-+		break;
-+	case FUTEX_OP_OR:
-+		__futex_atomic_op("amoor.w.aqrl %[ov],%z[op],%[u]",
-+				  ret, oldval, uaddr, oparg);
-+		break;
-+	case FUTEX_OP_ANDN:
-+		__futex_atomic_op("amoand.w.aqrl %[ov],%z[op],%[u]",
-+				  ret, oldval, uaddr, ~oparg);
-+		break;
-+	case FUTEX_OP_XOR:
-+		__futex_atomic_op("amoxor.w.aqrl %[ov],%z[op],%[u]",
-+				  ret, oldval, uaddr, oparg);
-+		break;
-+	default:
-+		ret = -ENOSYS;
-+	}
-+
-+	pagefault_enable();
-+
-+	if (!ret)
-+		*oval = oldval;
-+
-+	return ret;
-+}
-+
-+static inline int
-+futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
-+			      u32 oldval, u32 newval)
-+{
-+	int ret = 0;
-+	u32 val;
-+	uintptr_t tmp;
-+
-+	if (!access_ok(VERIFY_WRITE, uaddr, sizeof(u32)))
-+		return -EFAULT;
-+
-+	__enable_user_access();
-+	__asm__ __volatile__ (
-+	"1:	lr.w.aqrl %[v],%[u]			\n"
-+	"	bne %[v],%z[ov],3f			\n"
-+	"2:	sc.w.aqrl %[t],%z[nv],%[u]		\n"
-+	"	bnez %[t],1b				\n"
-+	"3:						\n"
-+	"	.section .fixup,\"ax\"			\n"
-+	"	.balign 4				\n"
-+	"4:	li %[r],%[e]				\n"
-+	"	jump 3b,%[t]				\n"
-+	"	.previous				\n"
-+	"	.section __ex_table,\"a\"		\n"
-+	"	.balign " RISCV_SZPTR "			\n"
-+	"	" RISCV_PTR " 1b, 4b			\n"
-+	"	" RISCV_PTR " 2b, 4b			\n"
-+	"	.previous				\n"
-+	: [r] "+r" (ret), [v] "=&r" (val), [u] "+m" (*uaddr), [t] "=&r" (tmp)
-+	: [ov] "Jr" (oldval), [nv] "Jr" (newval), [e] "i" (-EFAULT)
-+	: "memory");
-+	__disable_user_access();
-+
-+	*uval = val;
-+	return ret;
-+}
-+
-+#endif /* CONFIG_RISCV_ISA_A */
-+#endif /* _ASM_FUTEX_H */
--- 
-2.19.0.rc0
+I would argue that if at some point there was indeed a chip with the
+same name but a different IP block version in it, we can figure out what
+to call it. Sure there are no guarantees, but it's still fairly unlikely
+in my opinion, so I personally wouldn't worry about this up front.
+
+Anyway, I don't feel strongly either way, I'm just pointing out that
+this is somewhat unusual. If you want to keep it, feel free to.
+
+Thierry
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20181017/9888a711/attachment.sig>
