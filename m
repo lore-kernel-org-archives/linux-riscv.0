@@ -1,43 +1,33 @@
-From: wesley@sifive.com (Wesley Terpstra)
-Date: Mon, 15 Oct 2018 16:19:20 -0700
-Subject: [RFC 1/4] pwm: sifive: Add DT documentation for SiFive PWM
- Controller.
-In-Reply-To: <25758ab9-eb36-741b-6264-42412b3ddd8e@wdc.com>
-References: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
- <1539111085-25502-2-git-send-email-atish.patra@wdc.com>
- <20181010134926.GD21134@ulmo>
- <25758ab9-eb36-741b-6264-42412b3ddd8e@wdc.com>
-Message-ID: <CAMgXwTieXNa13_xGp2mkw99+VJm-R1xrxMHSmRLZV-hG5oSdzA@mail.gmail.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Mon, 15 Oct 2018 17:04:15 -0700 (PDT)
+Subject: [PATCH v2 0/6] sparsemem support for RISC-V
+In-Reply-To: <20181015175702.9036-1-logang@deltatee.com>
+Message-ID: <mhng-fd0541de-3ac1-4772-916d-be6b2d02e63e@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Oct 15, 2018 at 3:57 PM Atish Patra <atish.patra@wdc.com> wrote:
-> >> +SiFive PWM controller
-> >> +
-> >> +Unlike most other PWM controllers, the SiFive PWM controller currently only
-> >> +supports one period for all channels in the PWM. This is set globally in DTS.
-> >> +The period also has significant restrictions on the values it can achieve,
-> >> +which the driver rounds to the nearest achievable frequency.
-> >
-> > What restrictions are these? If "nearest achievable" is too far off the
-> > target period it might be preferable to error out.
-> >
+On Mon, 15 Oct 2018 10:56:56 PDT (-0700), logang at deltatee.com wrote:
+> This patchset implements sparsemem on RISC-V. The first few patches
+> move some code in existing architectures into common helpers
+> so they can be used by the new RISC-V implementation. The final
+> patch actually adds sparsmem support to RISC-V.
 >
-> @Wes: Any comments?
+> This is the first small step in supporting P2P on RISC-V.
 
-When I last looked at this driver and hardware, I briefly considered
-throwing up my hands and pretending that this PWM device had no period
-control at all, only duty-cycle. There are several examples of PWM
-controllers in linux already that behave that way.
+Thanks.  I see less maintainer tags for the parts that touch other ports than I 
+would feel comfortable merging.  I'm going to let this sit in my inbox for 
+a bit and we'll see if anything collects.
 
-Most of the uses of this PWM are only going to care about the
-duty-cycle, not the period. So failing when the period is unachievable
-seems worse to me than just completely eliminating access to period
-control.
+For patch sets I submit that clean up other ports I've attempted to split the 
+patch into N patch sets, where:
 
-> I think yes. Since fu540 is the first Linux capable RISC-V core, SiFive
-> Guys decided mark it as version 0.
->
-> @Wesly: Please correct me if I am wrong.
+* One part adds the generic support, which starts out as dead code.
+* One part per arch uses the generic support.
 
-Correct.
+This is a bit of a headache, but it at least allows us to get the RISC-V 
+version that uses the generic support in quickly while waiting on acks from the 
+other arch maintainers.
+
+Like I said, I'll wait a bit and hope people ack.
+
+Thanks!
