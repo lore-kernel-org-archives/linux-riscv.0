@@ -2,96 +2,84 @@ Return-Path: <SRS0=QIML=M4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C7CCC5ACC6
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 22:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D33E8C5ACC6
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 22:20:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 481C321471
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 22:04:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A0DD22148E
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 22:20:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="khk8qn9Z";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="lHklnCrs"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 481C321471
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rx10t38Y";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="lu+mW7bR"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A0DD22148E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=/T51RKYPJ0WdwX+fh4ySOegx0QktEqPYzlBmE0zl2e4=; b=khk8qn9ZrcFgA0K7nlwB2anjx
-	0pgsTXY0B69FOEri+AI5Dnu6twcA4vT4HH5vL5BJg4XUmX7FWQ5D+Dya1Lwv5q2Fvhl4Y2BLNW+V7
-	RI240+7NtMC6B8Nek8qRvA3Dzm1/wygJSzojC8Pi1wOsWD7euxvH4oAJV0+9tVND+qEim7DWyiZki
-	bfY8uC6p1C8sVRuDrofV3NNX2JT4NVzN4t9EEnVt/kgQSLS6nLN9t5oaPraGDFDJ7NAD/x73A029k
-	WciKPnhmyQfXlkIcCwf9c6ayc9Arcxn9+LQARrFUfaWfIOuCkVxSV6PkXZZICKFiihtnFQUyj9Dil
-	k8+VUszpA==;
+	 bh=JP/GPmDQgYErDP21OnDxMQM2J3bm9OtDYTwVwqWavCI=; b=rx10t38YNdMnmiZuD+o6L7mRy
+	MOFOBSZf9PbrIhGwJ8g+u9pkk3P81Db2nZZMa1zuKyO4YYc9v5i1kkBl33dTKLFBsohOcuAazD9KX
+	yRjNvNdWDk4OmdOxxx+uO1du0v/RKYZ8E732I0zME/BSYHKWEw+6/wbujt5nZdh1V/yfq2f9+pEKP
+	NlYwg0zpg09aXHxLwAGWdC6bcxWZ3dPa147Bpl7fK3vpLQGoSFO69iNQrx7mgNLBI4U7AJvy8hlAx
+	Xb2Rqz63UQ61LjrrSWaTxokHAH4ZNBtomfoP5HeI8uJyHLS8BV8iTb7s2djT13wd/XEnIW5BOKjGx
+	r3cGQOwXQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gCXSR-0000en-GY; Tue, 16 Oct 2018 22:04:55 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1gCXhr-0006um-MB; Tue, 16 Oct 2018 22:20:51 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gCXSO-0000de-AQ
- for linux-riscv@lists.infradead.org; Tue, 16 Oct 2018 22:04:53 +0000
-Received: by mail-ed1-x533.google.com with SMTP id l14-v6so13934167edq.0
- for <linux-riscv@lists.infradead.org>; Tue, 16 Oct 2018 15:04:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to:user-agent;
- bh=NXSAtxInDpav2TMfWlEdFVVydwk5NLD0uC7NkOBdkl0=;
- b=lHklnCrszkTaulrgZXfARRO9d77Wg+UDrSyaIEaly3GG8fB80q66Bl0brunxzs7E80
- KGZfHVG4jYvFGEow7yuwGk6w4fTqHakMt/vZzCop+14tndRJwrmKfJGBNf9Kq9V2oDeG
- MhTFSziEPWLymRgd3IlRYS+yiy/N3K6mPZvNRuLxzHjop5JICWlCVsXDrBZqBUEHCB5t
- nR3lD7RR64AoTupo8QA0c/kpeSB5W1q4UmTgKef0DLOZTf6W2eHg1US5SmfTE0ODpOwE
- BuonFXZkT6maYIgMRLAe/ve9sUGx7e4vq7wUVNwQY1Bq7knv8Dqx3CESKlensAEyqobA
- EgYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=NXSAtxInDpav2TMfWlEdFVVydwk5NLD0uC7NkOBdkl0=;
- b=fq0FYTgrFi+dVxtXIMN6ZsdBRKQCNuECBAi/Ryt/HExq5Q3MpupRgaXTusAQXB3fGw
- ZNJ4WmIOJ8IeORtzCmyBLWE7xd14cuMLyp2NPW0SGqkC9mbAxx+1hYd4n4pVnHxBytoR
- yOipFRIl3x+AEOM7oJNZRCc8p4f2LSdEIwIOh2JM6QpEhP7RHGBH2rynQ8x/A+mwkavq
- 8IBVCyw9hti0lXMmWlo12nhhrj/0zoqYEb+chTU+W9Attilermy9XMnHLo0J4G/mLOjH
- nnMsCnklVy88Scd6o6MhtcA3UKJbrdJgY4Fp4Khf+9NrRClHs4pYyJA8lfwb+sKUY7LI
- YJrg==
-X-Gm-Message-State: ABuFfojA/5a8KJtXlVAvs4+hdKoU4JrKOT5JgGo7i/ILymRVWST0KBQN
- w6wpw2DaKHR2KlXRzD4ZYpA=
-X-Google-Smtp-Source: ACcGV60rrLbJWV/HWOuoMh3CcWXwYK9mvu3bgZZd43NHgPJnF7Ok448MJxN+vpAVjYkAUDXN8aqYZg==
-X-Received: by 2002:a17:906:4583:: with SMTP id
- t3-v6mr25076310ejq.210.1539727480103; 
- Tue, 16 Oct 2018 15:04:40 -0700 (PDT)
-Received: from localhost
- (p200300E41F201D00021F3CFFFE37B91B.dip0.t-ipconnect.de.
- [2003:e4:1f20:1d00:21f:3cff:fe37:b91b])
- by smtp.gmail.com with ESMTPSA id f25-v6sm3258881ejb.29.2018.10.16.15.04.39
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Tue, 16 Oct 2018 15:04:39 -0700 (PDT)
-Date: Wed, 17 Oct 2018 00:04:38 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>
+ id 1gCXhn-0006tA-O2
+ for linux-riscv@lists.infradead.org; Tue, 16 Oct 2018 22:20:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1539728448; x=1571264448;
+ h=subject:to:cc:references:from:message-id:date:
+ mime-version:in-reply-to:content-transfer-encoding;
+ bh=a2fG+05X3DwXT0k2mb0bZPF86aHlYDiKC30d3quRiTA=;
+ b=lu+mW7bR66BFxqYA9W9+JWD+q+xq9JQFjlzGsRgb8O92X1QR51imPFwu
+ z9cqewzncKuSYXC0JKl0fxFP1K6jYmN6TbaL6Pwj2IX/SUmCfZj6XakO0
+ XDT22PQnehNCvuSF3+Q3iA6tHJvRRJ2Rx3tpWHJ/0TBmG3qnjvwcVDi5/
+ YKis0yooE8epNdYJc+JfyS1NngirvnNTmlPhD6CKsuSljoIzd2kdCdpcq
+ C3nRELqbTCKF43edHx2qxRF8/eEzO69No/a+Y3Z2VqoCIdCC8ztAYcA5K
+ pEmXAKId3s/FdnIgEg4+2gtW6vjgOP6lppiFElQE/C1ee9yLa3h/OFctM A==;
+X-IronPort-AV: E=Sophos;i="5.54,389,1534780800"; d="scan'208";a="93188008"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 17 Oct 2018 06:20:36 +0800
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP; 16 Oct 2018 15:05:41 -0700
+Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.73.114])
+ ([10.111.73.114])
+ by uls-op-cesaip02.wdc.com with ESMTP; 16 Oct 2018 15:20:34 -0700
 Subject: Re: [RFC 1/4] pwm: sifive: Add DT documentation for SiFive PWM
  Controller.
-Message-ID: <20181016220437.GB31973@mithrandir>
+To: Thierry Reding <thierry.reding@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
 References: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
  <1539111085-25502-2-git-send-email-atish.patra@wdc.com>
- <20181010134926.GD21134@ulmo>
- <25758ab9-eb36-741b-6264-42412b3ddd8e@wdc.com>
+ <20181010134926.GD21134@ulmo> <25758ab9-eb36-741b-6264-42412b3ddd8e@wdc.com>
  <20181016110142.GC8852@ulmo>
  <6e108e3c-15c1-b13b-ac3e-60c5eb209c7b@sifive.com>
+ <20181016220437.GB31973@mithrandir>
+From: Atish Patra <atish.patra@wdc.com>
+Message-ID: <7fc1168d-a840-032a-c0a9-2a610127c484@wdc.com>
+Date: Tue, 16 Oct 2018 15:20:34 -0700
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:52.0)
+ Gecko/20100101 Thunderbird/52.9.1
 MIME-Version: 1.0
-In-Reply-To: <6e108e3c-15c1-b13b-ac3e-60c5eb209c7b@sifive.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20181016220437.GB31973@mithrandir>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181016_150452_520035_FA204A34 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20181016_152047_899415_66652085 
+X-CRM114-Status: GOOD (  21.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -103,118 +91,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, linux-pwm@vger.kernel.org,
+Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
  Wesley Terpstra <wesley@sifive.com>, linus.walleij@linaro.org,
  palmer@sifive.com, linux-kernel@vger.kernel.org, hch@infradead.org,
- Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
- linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============0377782278524974058=="
+ linux-gpio@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+ linux-riscv@lists.infradead.org
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181016220438.-Z16xGEj2FrRuVZhlOp8awoJw_S8vRKsu5v6JO7RHqw@z>
+Message-ID: <20181016222034.MaZhvaPAgTEYJU1wEeZQcA-Uht4OsELlN5P_WOpXqmc@z>
 
-
---===============0377782278524974058==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="gatW/ieO32f1wygP"
-Content-Disposition: inline
-
-
---gatW/ieO32f1wygP
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Oct 16, 2018 at 10:31:42AM -0700, Paul Walmsley wrote:
->=20
-> On 10/16/18 4:01 AM, Thierry Reding wrote:
-> > On Mon, Oct 15, 2018 at 03:57:35PM -0700, Atish Patra wrote:
-> > > On 10/10/18 6:49 AM, Thierry Reding wrote:
-> > > > On Tue, Oct 09, 2018 at 11:51:22AM -0700, Atish Patra wrote:
-> > > > > +Required properties:
-> > > > > +- compatible: should be one of
-> > > > > +	"sifive,fu540-c000-pwm0","sifive,pwm0".
-> > > > What's the '0' in here? A version number?
-> > > >=20
-> > > I think yes. Since fu540 is the first Linux capable RISC-V core, SiFi=
-ve Guys
-> > > decided mark it as version 0.
-> > >=20
-> > > @Wesly: Please correct me if I am wrong.
-> > It seems fairly superfluous to me to have a version number in additon to
-> > the fu540-c000, which already seems to be the core plus some sort of
-> > part number. Do you really expect there to be any changes in the SoC
-> > that would require a different compatible string at this point? If the
-> > SoC has taped out, how will you ever get a different version of the PWM
-> > IP in it?
-> >=20
-> > I would expect any improvements or changes to the PWM IP to show up in a
-> > different SoC generation, at which point it would be something like
-> > "sifive,fu640-c000" maybe, or perhaps "sifive,fu540-d000", or whatever
-> > the numbering is.
->=20
->=20
-> The "0" suffix refers to a revision number for the underlying PWM IP bloc=
-k.
->=20
-> It's certainly important to keep that version number on the "sifive,pwm0"
-> compatible string that doesn't have the chip name associated with it.
-
-Isn't the hardware identified by "sifive,pwm0" and "sifive,fu540-c000"
-effectively identical? Is there a need to have two compatible strings
-that refer to the exact same hardware?
-
-> As to whether there could ever be a FU540-C000 part with different IP blo=
-ck
-> versions on it: FU540-C000 is ultimately a marketing name.=C2=A0 While
-> theoretically we shouldn't have another "FU540-C000" chip with different
-> peripheral IP block versions on it, I don't think any engineer can guaran=
-tee
-> that it won't happen.
-
-I would argue that if at some point there was indeed a chip with the
-same name but a different IP block version in it, we can figure out what
-to call it. Sure there are no guarantees, but it's still fairly unlikely
-in my opinion, so I personally wouldn't worry about this up front.
-
-Anyway, I don't feel strongly either way, I'm just pointing out that
-this is somewhat unusual. If you want to keep it, feel free to.
-
-Thierry
-
---gatW/ieO32f1wygP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAlvGYHQACgkQ3SOs138+
-s6Hahg/+NQ5CHvFT0bH8HcY8uoN6f7XFm/apwAkvBhdwjG5Cwrz5vvnWRk5T6kgu
-Uwg9cLx/UDQPEoswnA6J7A/2UHzRojvLYhismbi4JPLxkTNEZEgwAN5VYbVrC1Dx
-HBpFtfK30gXG207M27uMSOVf3xd4j1vYliUC662NG4cSOGZJZIjLRmooTIMPoYTk
-ICh+GIvxgqw4PdgtyYGi1Yvi6upw9LqOSzUC0sQQNkQqZXv/4SwGeWxEGCOXNxof
-Gvg3dUU5/N/jOQWlmZTSOuao1BeEUiGreLcCyv8PoMklYwFUJJlz0DauamuQGINy
-WDtHAGcFiIRbrGNAVs59TSz0Wur/o3by9uRSE0UYfa2i2zrYE9PeNSGyunyeMrtu
-VacYjYiGyUNRO20YGtn4/rHIOiPZT6vnFY+gj7q5T3q4KghiZgmoRhYHEagJwH8/
-IwepyPsn3yKJvepitm1WF4oTQeyAYIIayTYKn25BXXtwv6T8oU6WYBDVvQttgLw4
-m8kMf8DErLPwBBI8QGUGbrm5FpiJhX045kmRlSyqL6tXx/xopzNNdioRV7gRprE4
-rBQfSrl90OxM9J58eUHeMmi/tasjlKAVmPoyUC04JyQM3IZIT/ZUYJ3sf/eYQigl
-tjEHVAh68jtI8NJ1me9cT9z/7NoIDvG8qwQsFXytk51g7bu98DM=
-=8BAi
------END PGP SIGNATURE-----
-
---gatW/ieO32f1wygP--
-
-
---===============0377782278524974058==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0377782278524974058==--
-
+T24gMTAvMTYvMTggMzowNCBQTSwgVGhpZXJyeSBSZWRpbmcgd3JvdGU6Cj4gT24gVHVlLCBPY3Qg
+MTYsIDIwMTggYXQgMTA6MzE6NDJBTSAtMDcwMCwgUGF1bCBXYWxtc2xleSB3cm90ZToKPj4KPj4g
+T24gMTAvMTYvMTggNDowMSBBTSwgVGhpZXJyeSBSZWRpbmcgd3JvdGU6Cj4+PiBPbiBNb24sIE9j
+dCAxNSwgMjAxOCBhdCAwMzo1NzozNVBNIC0wNzAwLCBBdGlzaCBQYXRyYSB3cm90ZToKPj4+PiBP
+biAxMC8xMC8xOCA2OjQ5IEFNLCBUaGllcnJ5IFJlZGluZyB3cm90ZToKPj4+Pj4gT24gVHVlLCBP
+Y3QgMDksIDIwMTggYXQgMTE6NTE6MjJBTSAtMDcwMCwgQXRpc2ggUGF0cmEgd3JvdGU6Cj4+Pj4+
+PiArUmVxdWlyZWQgcHJvcGVydGllczoKPj4+Pj4+ICstIGNvbXBhdGlibGU6IHNob3VsZCBiZSBv
+bmUgb2YKPj4+Pj4+ICsJInNpZml2ZSxmdTU0MC1jMDAwLXB3bTAiLCJzaWZpdmUscHdtMCIuCj4+
+Pj4+IFdoYXQncyB0aGUgJzAnIGluIGhlcmU/IEEgdmVyc2lvbiBudW1iZXI/Cj4+Pj4+Cj4+Pj4g
+SSB0aGluayB5ZXMuIFNpbmNlIGZ1NTQwIGlzIHRoZSBmaXJzdCBMaW51eCBjYXBhYmxlIFJJU0Mt
+ViBjb3JlLCBTaUZpdmUgR3V5cwo+Pj4+IGRlY2lkZWQgbWFyayBpdCBhcyB2ZXJzaW9uIDAuCj4+
+Pj4KPj4+PiBAV2VzbHk6IFBsZWFzZSBjb3JyZWN0IG1lIGlmIEkgYW0gd3JvbmcuCj4+PiBJdCBz
+ZWVtcyBmYWlybHkgc3VwZXJmbHVvdXMgdG8gbWUgdG8gaGF2ZSBhIHZlcnNpb24gbnVtYmVyIGlu
+IGFkZGl0b24gdG8KPj4+IHRoZSBmdTU0MC1jMDAwLCB3aGljaCBhbHJlYWR5IHNlZW1zIHRvIGJl
+IHRoZSBjb3JlIHBsdXMgc29tZSBzb3J0IG9mCj4+PiBwYXJ0IG51bWJlci4gRG8geW91IHJlYWxs
+eSBleHBlY3QgdGhlcmUgdG8gYmUgYW55IGNoYW5nZXMgaW4gdGhlIFNvQwo+Pj4gdGhhdCB3b3Vs
+ZCByZXF1aXJlIGEgZGlmZmVyZW50IGNvbXBhdGlibGUgc3RyaW5nIGF0IHRoaXMgcG9pbnQ/IElm
+IHRoZQo+Pj4gU29DIGhhcyB0YXBlZCBvdXQsIGhvdyB3aWxsIHlvdSBldmVyIGdldCBhIGRpZmZl
+cmVudCB2ZXJzaW9uIG9mIHRoZSBQV00KPj4+IElQIGluIGl0Pwo+Pj4KPj4+IEkgd291bGQgZXhw
+ZWN0IGFueSBpbXByb3ZlbWVudHMgb3IgY2hhbmdlcyB0byB0aGUgUFdNIElQIHRvIHNob3cgdXAg
+aW4gYQo+Pj4gZGlmZmVyZW50IFNvQyBnZW5lcmF0aW9uLCBhdCB3aGljaCBwb2ludCBpdCB3b3Vs
+ZCBiZSBzb21ldGhpbmcgbGlrZQo+Pj4gInNpZml2ZSxmdTY0MC1jMDAwIiBtYXliZSwgb3IgcGVy
+aGFwcyAic2lmaXZlLGZ1NTQwLWQwMDAiLCBvciB3aGF0ZXZlcgo+Pj4gdGhlIG51bWJlcmluZyBp
+cy4KPj4KPj4KPj4gVGhlICIwIiBzdWZmaXggcmVmZXJzIHRvIGEgcmV2aXNpb24gbnVtYmVyIGZv
+ciB0aGUgdW5kZXJseWluZyBQV00gSVAgYmxvY2suCj4+Cj4+IEl0J3MgY2VydGFpbmx5IGltcG9y
+dGFudCB0byBrZWVwIHRoYXQgdmVyc2lvbiBudW1iZXIgb24gdGhlICJzaWZpdmUscHdtMCIKPj4g
+Y29tcGF0aWJsZSBzdHJpbmcgdGhhdCBkb2Vzbid0IGhhdmUgdGhlIGNoaXAgbmFtZSBhc3NvY2lh
+dGVkIHdpdGggaXQuCj4gCj4gSXNuJ3QgdGhlIGhhcmR3YXJlIGlkZW50aWZpZWQgYnkgInNpZml2
+ZSxwd20wIiBhbmQgInNpZml2ZSxmdTU0MC1jMDAwIgo+IGVmZmVjdGl2ZWx5IGlkZW50aWNhbD8g
+CgpZZXMuCgpJcyB0aGVyZSBhIG5lZWQgdG8gaGF2ZSB0d28gY29tcGF0aWJsZSBzdHJpbmdzCj4g
+dGhhdCByZWZlciB0byB0aGUgZXhhY3Qgc2FtZSBoYXJkd2FyZT8KPiAKClRoZSBEVCBpbiB0aGUg
+aGFyZHdhcmUgaGFzIG9ubHkgc2lmaXZlLHB3bTAuIEkgaGF2ZSBhZGRlZCAKInNpZml2ZSxmdTU0
+MC1jMDAwIiBhcyB0aGF0IHdhcyBjb25jbHVkZWQgYXMgdGhlIGNvcnJlY3QgY29tcGF0aWJsZSAK
+c3RyaW5nIGZyb20gcGxhdGZvcm0gbGV2ZWwgaW50ZXJydXB0IGNvbnRyb2xsZXIgcGF0Y2goUExJ
+QykgZGlzY3Vzc2lvbi4KCihodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9waXBlcm1haWwvbGlu
+dXgtcmlzY3YvMjAxOC1BdWd1c3QvMDAxMTM1Lmh0bWwpCgoic2lmaXZlLHB3bTAiIGlzIHJlcXVp
+cmVkIHRvIHVudGlsIGFsbCB0aGUgVW5sZWFzaGVkIFNvQyBnZXRzIGFuIHVwZGF0ZWQgCmZpcm13
+YXJlIHdpdGggY29ycmVjdCBjb21wYXRpYmxlIHN0cmluZyAic2lmaXZlLGZ1NTQwLWMwMDAiLiBJ
+IGFncmVlIAp0aGlzIGlzIGEgbWVzcy4gQnV0IHdlIGhhdmUgdG8gY2FycnkgaXQgdW50aWwgYWxs
+IGV2ZXJ5IERUKGNvcnJlc3BvbmRpbmcgCnRvIGVhY2ggZHJpdmVyKSBpcyBmaW5hbGl6ZWQuIEkg
+Z3Vlc3MgU2lGaXZlIHdpbGwgcmVsZWFzZSBhIGZpcm13YXJlIAp1cGRhdGUgdGhhdCBjb250YWlu
+cyBhbGwgdGhlIHVwZGF0ZWQgRFQgb25jZSB0aGF0IGlzIGRvbmUuIFdlIGNhbiBnZXQgCnJpZCBv
+ZiBhbGwgdGhlIHJlZHVuZGFudCBjb21wYXRpYmxlIHN0cmluZ3MgYXQgdGhhdCB0aW1lLgoKUmVn
+YXJkcywKQXRpc2gKPj4gQXMgdG8gd2hldGhlciB0aGVyZSBjb3VsZCBldmVyIGJlIGEgRlU1NDAt
+QzAwMCBwYXJ0IHdpdGggZGlmZmVyZW50IElQIGJsb2NrCj4+IHZlcnNpb25zIG9uIGl0OiBGVTU0
+MC1DMDAwIGlzIHVsdGltYXRlbHkgYSBtYXJrZXRpbmcgbmFtZS7CoCBXaGlsZQo+PiB0aGVvcmV0
+aWNhbGx5IHdlIHNob3VsZG4ndCBoYXZlIGFub3RoZXIgIkZVNTQwLUMwMDAiIGNoaXAgd2l0aCBk
+aWZmZXJlbnQKPj4gcGVyaXBoZXJhbCBJUCBibG9jayB2ZXJzaW9ucyBvbiBpdCwgSSBkb24ndCB0
+aGluayBhbnkgZW5naW5lZXIgY2FuIGd1YXJhbnRlZQo+PiB0aGF0IGl0IHdvbid0IGhhcHBlbi4K
+PiAKPiBJIHdvdWxkIGFyZ3VlIHRoYXQgaWYgYXQgc29tZSBwb2ludCB0aGVyZSB3YXMgaW5kZWVk
+IGEgY2hpcCB3aXRoIHRoZQo+IHNhbWUgbmFtZSBidXQgYSBkaWZmZXJlbnQgSVAgYmxvY2sgdmVy
+c2lvbiBpbiBpdCwgd2UgY2FuIGZpZ3VyZSBvdXQgd2hhdAo+IHRvIGNhbGwgaXQuIFN1cmUgdGhl
+cmUgYXJlIG5vIGd1YXJhbnRlZXMsIGJ1dCBpdCdzIHN0aWxsIGZhaXJseSB1bmxpa2VseQo+IGlu
+IG15IG9waW5pb24sIHNvIEkgcGVyc29uYWxseSB3b3VsZG4ndCB3b3JyeSBhYm91dCB0aGlzIHVw
+IGZyb250Lgo+IAo+IEFueXdheSwgSSBkb24ndCBmZWVsIHN0cm9uZ2x5IGVpdGhlciB3YXksIEkn
+bSBqdXN0IHBvaW50aW5nIG91dCB0aGF0Cj4gdGhpcyBpcyBzb21ld2hhdCB1bnVzdWFsLiBJZiB5
+b3Ugd2FudCB0byBrZWVwIGl0LCBmZWVsIGZyZWUgdG8uCj4gCj4gVGhpZXJyeQo+IAoKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
