@@ -2,102 +2,84 @@ Return-Path: <SRS0=QIML=M4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A5427C04EBD
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 11:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9B223C04EBD
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 13:12:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 732022086E
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 11:40:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5E91420866
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 13:12:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pfKwGXZH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 732022086E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="n78pK7z1";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="C1QA2hRz"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5E91420866
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ju5VG+Xmic6CW2spwJnktyyHxA7mBbiDK69+bTIvdgc=; b=pfKwGXZHy/S0kd
-	NOriejbFl+d7upEusIm6BTVF+e3R+Tt2QSAUBFyUDNrYk0bO7U0DvQk6JZe7uu19wA0xkCf09k572
-	tWjAIpN5/ZSWNFvahbZ2A7ZKu4Ge7VUARAX/Xmz0MD3nXzsOoszm6f93JapVmQ9OmSRGnpZLkv10e
-	DlJTDmuNcZbIgp1gXA0h1idl3iOuKlrNXYwR4iZUlew+BCrLEnKEqIJBpEuKeN9s5ndWzkVk4x7Ew
-	iEF+nHKAMwbWqO9M83chicBa29J9q6Kqz2V8krcvAq6GmwnifzjUE4ZYoAvLvn6fScN885y0x8rKf
-	NZrEKKdg9+3wGs5SyGJw==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=E/v6SCL9stZ9EjjrVS8fDgx98DT5K7ulVvOdbfWO1vQ=; b=n78pK7z13zPhyk
+	EuebRfzQ0UOk0PE4/JwaHPOkNwozP7tf04lnS2qcchTTkk6bhJDrSEEIYJewWOKSB/HAVnH40Kb7N
+	NtMgwN2K69t/7PY0h+wbHjSJF2WPB6I308R2q6QLoZg6ROHYH4N1sQAvaL0tYGq8Vi57UKGLrNVHl
+	E3IYgseTJSCGOAZDrGrIcR7ZyMNhoMVQQRpyqSIuDGbK+yUwqjXsFDVtYX2kc0SYEGk6u4m3Sl846
+	DxMWYg+A16RaM1HXXsM9nZlml6tQoapWbC4sgkSdx7VU5s7qHJJr/b+Lka/WPSw6WPQgYa1hevOG9
+	aZtel/q2OjUb7uEGU9Mg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gCNiH-0006wA-9v; Tue, 16 Oct 2018 11:40:37 +0000
-Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+	id 1gCP9b-0001XU-Ko; Tue, 16 Oct 2018 13:12:55 +0000
+Received: from mail-vs1-xe43.google.com ([2607:f8b0:4864:20::e43])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gCNYE-00017b-9S; Tue, 16 Oct 2018 11:30:23 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay1.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 05DCEAF00;
- Tue, 16 Oct 2018 11:29:58 +0000 (UTC)
-Subject: Re: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
-To: Joel Fernandes <joel@joelfernandes.org>,
- Christoph Hellwig <hch@infradead.org>
-References: <20181013013200.206928-1-joel@joelfernandes.org>
- <20181013013200.206928-3-joel@joelfernandes.org>
- <20181015094209.GA31999@infradead.org>
- <20181015223303.GA164293@joelaf.mtv.corp.google.com>
-From: Vlastimil Babka <vbabka@suse.cz>
-Openpgp: preference=signencrypt
-Autocrypt: addr=vbabka@suse.cz; prefer-encrypt=mutual; keydata=
- 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
- cqmP8roqufIAj+Ohhzs=
-Message-ID: <35b9c85a-b366-9ca3-5647-c2568c811961@suse.cz>
-Date: Tue, 16 Oct 2018 13:29:52 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.0
+ id 1gCP9G-0001Iy-Ow
+ for linux-riscv@lists.infradead.org; Tue, 16 Oct 2018 13:12:47 +0000
+Received: by mail-vs1-xe43.google.com with SMTP id i10so18356610vsm.13
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Oct 2018 06:12:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=AVB7HvxbMJdCtZORWsAJt55jP3s3mh/sghTsC99Hk6o=;
+ b=C1QA2hRzUvvG2+z0/Sr0Ow9kuKS/GhRiaSPA4rPH5FkKucAeEpwXLt57X4wNC9DjLr
+ jyzfRrem8X//9AcSdlrEKSHERk5hXSNkBGUMUEDqoZWNy3ezEXaXiHUUAcXL70rr9+/t
+ UntQHf4sfdmka4E7eWQn/IEypGEyws21dRVycq2ZkB18EBu9uwQIXU/ZjAPvDa8gyLoN
+ +TTREKfAKQ6XQPyWz726vgSGwO0kEvvOJYaaBzqLI+L3Mz2w2KcCe8eZslsxCz58M0FM
+ BiwOdBzJDTmkTuJ0q0YuOWuEaDu/xppn5fvTieLFfge6lSD1RYCCCs3XZTLyraqWmYAY
+ K9uA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=AVB7HvxbMJdCtZORWsAJt55jP3s3mh/sghTsC99Hk6o=;
+ b=ma5wX60W91Wu0wXRXngXuqXuN+wWN68865hC5t77NSOS5BKKlVyDsq7gx+3xUqC0Ix
+ n2MHx+wGFOZTR7YDs3Pl8svLYf6/YqkZTDyh45wU0q4+COsIr6k1A9Yzg8GdMTsggPBU
+ YN9Gf4ZEFs411q7NwGBnU9cuQMsbgxdcINUJu4riyqD5ZRS6YX50ndXwiIK0XsjO6Nf1
+ ylwJYVZHJQFXW/fdDb6uI0lrm1Th0Y/2fopotC6lHcYgujVrtRQodulCgR31D4uEOdv+
+ eO5vdisHGgPoSRJ8l15zNO+EV7SKPWiLsmcGhte+zuKFJEkC7ja2FFtvvKL8ELiqMRwb
+ kwOg==
+X-Gm-Message-State: ABuFfoj2KKc7hnPp5Ki+e7mIKXT1eu6K5S/gnCgRlu/z21jtnV4ycoAS
+ iHj6lSJQU2UOFmN3n5ep0m8nxV+nTT1l5SrK/44=
+X-Google-Smtp-Source: ACcGV62dUazcusGGoTfEcc3JccboEgPqqM4nuyXZsGPsEpQXb6WA8hH4mCDkM+0bdIU9+E8bZDURkXor5D3Ycrful8Y=
+X-Received: by 2002:a67:38d8:: with SMTP id n85mr8592457vsi.30.1539695542748; 
+ Tue, 16 Oct 2018 06:12:22 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20181015223303.GA164293@joelaf.mtv.corp.google.com>
-Content-Language: en-US
+References: <20181015211451.GC31130@redhat.com>
+ <mhng-2be13863-3f80-432c-9945-2770e7e7e4b4@palmer-si-x1c4>
+In-Reply-To: <mhng-2be13863-3f80-432c-9945-2770e7e7e4b4@palmer-si-x1c4>
+From: Pintu Kumar <pintu.ping@gmail.com>
+Date: Tue, 16 Oct 2018 18:42:11 +0530
+Message-ID:
+ <CAOuPNLiR+BLUno8sYjwLwW1BqJbBrH-suBiHEx1-dtMO906Ung@mail.gmail.com>
+Subject: Re: [sw-dev] Re: [isa-dev] riscv-qemu - linux boot is failing for vda
+ device
+To: palmer@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181016_043014_747780_22AB49ED 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20181016_061234_878888_3560828D 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -109,68 +91,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
- linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Will Deacon <will.deacon@arm.com>,
- mhocko@kernel.org, linux-mm@kvack.org, lokeshgidra@google.com,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- kvmarm@lists.cs.columbia.edu, Jonas Bonn <jonas@southpole.se>,
- linux-s390@vger.kernel.org, dancol@google.com,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Max Filippov <jcmvbkbc@gmail.com>,
- linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>,
- "maintainer:X86 ARCHITECTURE 32-BIT AND 64-BIT" <x86@kernel.org>,
- hughd@google.com, "James E.J. Bottomley" <jejb@parisc-linux.org>,
- kasan-dev@googlegroups.com, elfring@users.sourceforge.net,
- Ingo Molnar <mingo@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Andrey Ryabinin <aryabinin@virtuozzo.com>, linux-snps-arc@lists.infradead.org,
- kernel-team@android.com, Sam Creasey <sammy@sammy.net>,
- linux-xtensa@linux-xtensa.org, Jeff Dike <jdike@addtoit.com>,
- linux-alpha@vger.kernel.org, linux-um@lists.infradead.org,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Julia Lawall <Julia.Lawall@lip6.fr>, linux-m68k@lists.linux-m68k.org,
- Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
- Ley Foon Tan <lftan@altera.com>, kirill@shutemov.name,
- Stafford Horne <shorne@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
- Chris Zankel <chris@zankel.net>, Tony Luck <tony.luck@intel.com>,
- linux-parisc@vger.kernel.org, pantin@google.com, linux-kernel@vger.kernel.org,
- Fenghua Yu <fenghua.yu@intel.com>, minchan@kernel.org,
- Thomas Gleixner <tglx@linutronix.de>, Richard Weinberger <richard@nod.at>,
- anton.ivanov@kot-begemot.co.uk, nios2-dev@lists.rocketboards.org,
- akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
- "David S. Miller" <davem@davemloft.net>
+Cc: linux-riscv@lists.infradead.org, sw-dev@groups.riscv.org, rjones@redhat.com,
+ Michael Clark <michaeljclark@mac.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181016112952.48qvQbJtWlsPNEiS78SrqCvha_w0kqrfEPwtVgxVL_g@z>
+Message-ID: <20181016131211.4hFRnSUN-OFriclcJkql8Qj3udaGRLS6xUN0zIKsknY@z>
 
-On 10/16/18 12:33 AM, Joel Fernandes wrote:
-> On Mon, Oct 15, 2018 at 02:42:09AM -0700, Christoph Hellwig wrote:
->> On Fri, Oct 12, 2018 at 06:31:58PM -0700, Joel Fernandes (Google) wrote:
->>> Android needs to mremap large regions of memory during memory management
->>> related operations.
->>
->> Just curious: why?
-> 
-> In Android we have a requirement of moving a large (up to a GB now, but may
-> grow bigger in future) memory range from one location to another.
+On Tue, Oct 16, 2018 at 6:10 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+>
+> On Mon, 15 Oct 2018 14:14:51 PDT (-0700), rjones@redhat.com wrote:
 
-I think Christoph's "why?" was about the requirement, not why it hurts
-applications. I admit I'm now also curious :)
+> >
+> >> > virtio_blk: probe of virtio0 failed with error -22
+> >
+> > ... I saw this exact error when I was using the upstream kernel
+> > instead of the one which supported interrupt handling.  Interrupt
+> > handling for RISC-V was added upstream after 4.18 so wouldn't be
+> > included in upstream 4.18.0-rc6.
+>
+> Your best bet today is to run 4.19-rc8, which should be pretty stable.
 
-> This move
-> operation has to happen when the application threads are paused for this
-> operation. Therefore, an inefficient move like it is now (for example 250ms
-> on arm64) will cause response time issues for applications, which is not
-> acceptable. Huge pages cannot be used in such memory ranges to avoid this
-> inefficiency as (when the application threads are running) our fault handlers
-> are designed to process 4KB pages at a time, to keep response times low. So
-> using huge pages in this context can, again, cause response time issues.
-> 
-> Also, the mremap syscall waiting for quarter of a second for a large mremap
-> is quite weird and we ought to improve it where possible.
+Yes, I checked with mainline linux-kernel 4.19.
+Now I am able to boot successfully and login into qemu-riscv shell.
+Thank you so much :)
+
+But I am curious to know what changes resulted into this fix, in 4.19 kernel ?
+Which is the exact patch in mainline, that fixes this issue?
+Because at times during the development, it will be difficult to
+simply upgrade the kernel version.
+So, I wanted to stick to 4.18 itself, however I can back port the
+patches from 4.19 to fix the issue.
+So, if you can point me to the exact patch, it will be of great help.
+
+Thanks,
+Pintu
 
 _______________________________________________
 linux-riscv mailing list
