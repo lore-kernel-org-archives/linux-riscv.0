@@ -2,87 +2,90 @@ Return-Path: <SRS0=QIML=M4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 93375C04EB9
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 00:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 34880C04EB9
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 02:09:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5AFBF20866
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 00:40:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F0C942089E
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 02:09:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="avNCyeYh";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Z5dqSqks"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5AFBF20866
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uBGd1ZcM";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="Ok8PoT2K"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F0C942089E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=joelfernandes.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=5zYE603GDWkxYeXq9H7cINI7zQ3vYDo7JtCIc+6ZynI=; b=avNCyeYhwIhyxHXkGH65a5/Up
-	0MZFriwEYl3TLOahjnjzJfaoiUjN5Za1OhfXMVg2HVIWKTofrUhWGs08x7zN40DgduV6UkWHwOzO5
-	d3HNNWw7v80Yg7m8L+YL7OPlgHyL/4TJAi3FwL2a0OA3dPF+l26LacVOW9BHsr9wy/441QdwgYlGR
-	DpQr2MvigzJcxwuse7USrKYEzUV8kEpdMREkQFG63ysTGdRmoVyB8Ru33I03thjnFU6tFb8UDBXnj
-	ESNizy7P/P3RK0GSc+qKi6RPytrfjUUUycvWM7O51uCznR3ina6HrPyRuzGpJLtidmdZglxA/CHtE
-	N9oXZt0nA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=a/zypxRt4u9HeE4YG4/v/j0pjNQpmj0Y5dp6iNWBkaM=; b=uBGd1ZcMQXYeEm
+	Ncmbm7nNx15mBYW4N7F2rjRd6ZoBzJy/XrTQXBR4cwxJyRYb7MYe08yUGHIDtu62dAOc+DCZ4bxmh
+	oAWzAhNmm4anw8wrFsupfYQuS9aC1GqjD/JnXQkiyJTCPphyk2BDmX5zMOXCC3Jg5sbzs5w0hZPCx
+	LDQYRfVbOG70BPNuKpkGY5DCKwcF7YqVkgy/PWJQgBo0AIcsOo5if4/Kq/7c4VQDvvtb7nhXpbQmj
+	KZ/VEWkrh+NnFhaOpzGRDnXzEKUAWGLAf/Zq/p0Nu+g+rB1JpTDGvoOr+5JdsGiQ4Tjf5GOPvNsUb
+	v32bt1aARQreTXx6LeVg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gCDPP-0000aP-Ra; Tue, 16 Oct 2018 00:40:27 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1gCEnh-0005kY-GE; Tue, 16 Oct 2018 02:09:37 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gCDPN-0000ZP-MK
- for linux-riscv@lists.infradead.org; Tue, 16 Oct 2018 00:40:27 +0000
-Received: by mail-pg1-x529.google.com with SMTP id c10-v6so9959210pgq.4
- for <linux-riscv@lists.infradead.org>; Mon, 15 Oct 2018 17:40:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=ZtvwgpWy9o3sJB2FUo30o6ltX+QcOHTTA0avHX/3IYQ=;
- b=Z5dqSqksAjPUury7bMYLlorWrNw2EU9//3DCCRv5gZcvEwCIuG0qN1V0TzM95S9ain
- XYnTqDuH6Rm6mkKMGBux52xYKbfAn58OJo7ck6T05DVYcBhPk/pAgHgRD0RqMvHUsv+o
- 9cbUh0wtFW6a49ciMNEEBsq7K7cRct6tDrzG+/QCYE5XpmQgUlBgLsQw7ZZqiAbODvSm
- 5TozZcKrrp8/Mtre/sN74Y/H2Uwu/5Z1nMoVf3mjjxVco2YV4LxqhXPvm8Zv9fh1+6aa
- l6ShKSBHiv7Vkwh5Yly8dzOfZTj3EA36VDzpoQAIq5hv1xd7DgHvb7puUi6PyZFIJIED
- d5ng==
+ id 1gCEnE-0005OC-5g
+ for linux-riscv@lists.infradead.org; Tue, 16 Oct 2018 02:09:29 +0000
+Received: by mail-pg1-x544.google.com with SMTP id t70-v6so10035975pgd.12
+ for <linux-riscv@lists.infradead.org>; Mon, 15 Oct 2018 19:08:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=joelfernandes.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=Cz67bHFDMvGJFAPVrnGd7nRR9VaEfFbq9lmMgtQ7ALI=;
+ b=Ok8PoT2K5GRd0KamvoP9eqKuZhLNGS9A/TQQUFKNVaiKMTPdWZBOlKBJnP/SBNp0fB
+ eaNg0TIhicPK/28Gv9xiSnJPwjChRHhy71Hj8UEp7IXgBHdi4gGzcrB8K+qvQHybEgT/
+ 4RZeGqEX+CUKeDt+Zqt+rRqDUsxY24+s4U2g8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=ZtvwgpWy9o3sJB2FUo30o6ltX+QcOHTTA0avHX/3IYQ=;
- b=JfWT+eUen5Q9iHTouoQFMMHANJSfWVZxV7pvd83vxUuapFLL9BraJoCaiW02kb/Go3
- I1kpJ+BvsoT0ykzu9ycqExhY6elBhbta3azRzUkAMwVmicy2AteA8gjGW5Iz4qt092kz
- 3gTOxLbY7mClGqmPKZT9O93fn5FvvSta4LGQ4rpmh1jZqwInnoW81P1rfuPt+1qoAjNf
- 4j9ro0azLNOCZlPawACzGCCohf9gqLlfU6O9ggy+IPi47UVC4aDESl+oBtw3tKwbz5Ja
- 9wOnEdglQ/FkO7ZdoLV1HKA2fYz5SDntS1UQEn7bgSkrkejpi0+Zp4U6p0BxE75K2qdQ
- 6XJg==
-X-Gm-Message-State: ABuFfoj/vkD67J0Wg+jF2v9V5KrCwh1XP1Dtuog6wvZI52Tkb7lNDs7a
- B/S4A55ri1TvxUhN1119lPDsxQ==
-X-Google-Smtp-Source: ACcGV63Z7wdAgQj6VFpNlRVLKv/aI+k9OcuaCCe44hXndshGYgHpWJvPjI31yXdp38Yvnc8Fh4WtHQ==
-X-Received: by 2002:a63:d60a:: with SMTP id
- q10-v6mr17863122pgg.175.1539650414738; 
- Mon, 15 Oct 2018 17:40:14 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id a16-v6sm14506763pfi.49.2018.10.15.17.40.13
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 15 Oct 2018 17:40:13 -0700 (PDT)
-Date: Mon, 15 Oct 2018 17:40:13 -0700 (PDT)
-X-Google-Original-Date: Mon, 15 Oct 2018 17:40:09 PDT (-0700)
-Subject: Re: [sw-dev] Re: [isa-dev] riscv-qemu - linux boot is failing for vda
- device
-In-Reply-To: <20181015211451.GC31130@redhat.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: rjones@redhat.com
-Message-ID: <mhng-2be13863-3f80-432c-9945-2770e7e7e4b4@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=Cz67bHFDMvGJFAPVrnGd7nRR9VaEfFbq9lmMgtQ7ALI=;
+ b=jyccON+9pTWpaeQ47azzdqPk8kTKv6gG+SFmJWnx3iATQ//HnOFxb3hOTJOCEuGyyS
+ /wViIASKLzEQz/3etW8uuuSeqk1XzVYEsi3Zw5jaariJ2RfIesa6ioxfLWyysYEYdHEA
+ TReMPeeH3XCmFYE5JvayirUuUAc5hYe1ZWIsP64grcsyDpfBrnOx+qsSsc65ZuqhWqv0
+ u9lGioIZknZZKJgvg9eVCOM2oPcZDXmM+uNKsSfk6H62onhbCbb06VfB/8FRE2zKOYcR
+ eOREkycdoS6ZW0pz4CKAAgerZj2gQLJUIjAfiEtmLsD5HoGrsCj3plnEm3RDBv+ULABx
+ h7nw==
+X-Gm-Message-State: ABuFfog58LV1mljMp9gxfwygI66ouA+il4tYl2RweorPxyY9GUN5yEaS
+ ZKZU1pgzFhGPHAmCe4STRkE59w==
+X-Google-Smtp-Source: ACcGV61tXshD0kdUz1rx/VWy95C7tPdFHs9NIxbQ7U95KgElxYyhNYgyjAz7jKjVcYQ4X5DlhOsyjw==
+X-Received: by 2002:a62:6643:: with SMTP id
+ a64-v6mr19935671pfc.202.1539655735629; 
+ Mon, 15 Oct 2018 19:08:55 -0700 (PDT)
+Received: from localhost ([2620:0:1000:1601:3aef:314f:b9ea:889f])
+ by smtp.gmail.com with ESMTPSA id m15-v6sm19964319pgt.28.2018.10.15.19.08.53
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Mon, 15 Oct 2018 19:08:54 -0700 (PDT)
+Date: Mon, 15 Oct 2018 19:08:53 -0700
+From: Joel Fernandes <joel@joelfernandes.org>
+To: Martin Schwidefsky <schwidefsky@de.ibm.com>
+Subject: Re: [PATCH v2 2/2] mm: speed up mremap by 500x on large regions
+Message-ID: <20181016020853.GA56701@joelaf.mtv.corp.google.com>
+References: <20181012013756.11285-1-joel@joelfernandes.org>
+ <20181012013756.11285-2-joel@joelfernandes.org>
+ <6580a62b-69c6-f2e3-767c-bd36b977bea2@de.ibm.com>
+ <20181015101814.306d257c@mschwideX1>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20181015101814.306d257c@mschwideX1>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181015_174025_760115_00C03734 
-X-CRM114-Status: GOOD (  19.03  )
+X-CRM114-CacheID: sfid-20181015_190908_317437_C07725AE 
+X-CRM114-Status: GOOD (  36.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,58 +97,198 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, sw-dev@groups.riscv.org,
- pintu.ping@gmail.com, Michael Clark <michaeljclark@mac.com>
+Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
+ linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Will Deacon <will.deacon@arm.com>,
+ mhocko@kernel.org, linux-mm@kvack.org, lokeshgidra@google.com,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ elfring@users.sourceforge.net, Jonas Bonn <jonas@southpole.se>,
+ linux-s390@vger.kernel.org, dancol@google.com,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, linux-xtensa@linux-xtensa.org,
+ linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ hughd@google.com, "James E.J. Bottomley" <jejb@parisc-linux.org>,
+ kasan-dev@googlegroups.com, kvmarm@lists.cs.columbia.edu,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Andrey Ryabinin <aryabinin@virtuozzo.com>, linux-snps-arc@lists.infradead.org,
+ kernel-team@android.com, Sam Creasey <sammy@sammy.net>,
+ Fenghua Yu <fenghua.yu@intel.com>, Jeff Dike <jdike@addtoit.com>,
+ linux-um@lists.infradead.org,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Julia Lawall <Julia.Lawall@lip6.fr>, linux-m68k@lists.linux-m68k.org,
+ openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
+ Andy Lutomirski <luto@kernel.org>, nios2-dev@lists.rocketboards.org,
+ kirill@shutemov.name, Stafford Horne <shorne@gmail.com>,
+ Guan Xuetao <gxt@pku.edu.cn>, linux-arm-kernel@lists.infradead.org,
+ Chris Zankel <chris@zankel.net>, Tony Luck <tony.luck@intel.com>,
+ Richard Weinberger <richard@nod.at>, linux-parisc@vger.kernel.org,
+ pantin@google.com, Max Filippov <jcmvbkbc@gmail.com>,
+ linux-kernel@vger.kernel.org, minchan@kernel.org,
+ Thomas Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org,
+ Ley Foon Tan <lftan@altera.com>, akpm@linux-foundation.org,
+ linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181016004013.LOgaL5xylnrsGL1bdDCZ5eJIRQhse9XdHFYmrd5Edd4@z>
+Message-ID: <20181016020853.1r_1OBIkV5k0vt29CnHsBNWmnWNPM_0_FF2LSTIybEk@z>
 
-On Mon, 15 Oct 2018 14:14:51 PDT (-0700), rjones@redhat.com wrote:
-> On Tue, Oct 16, 2018 at 09:26:20AM +1300, 'Michael Clark' via RISC-V SW Dev wrote:
->> Dropping isa-dev, adding sw-dev
->>
->> > On 16/10/2018, at 3:00 AM, Pintu Kumar <pintu.ping@gmail.com> wrote:
->> >
->> > Hi,
->> > I am trying to setup riscv-qemu booting on a new Ubuntu PC.
->> > I dont want to use freedom-u-sdk, so I am preparing my own environment.
->> > I could able to build the following:
->> > - riscv-toolchain
->> > - riscv-linux
->> > - riscv-qemu
->> > - riscv-pk
->> > - busybear
->> >
->> > After that, I am trying to boot riscv-qemu, using the following command:
->> > # sudo qemu-system-riscv64 -nographic -machine virt -kernel
->> > PK/riscv-pk/build/bbl -append "root=/dev/vda ro console=ttyS0" -drive
->> > file=busybear.bin,format=raw,id=hd0 -device
->> > virtio-blk-device,drive=hd0
->>
->> Note: sudo is not required. sudo is used in the busybear start-qemu.sh script as it uses bridged networking. The latest version of busybear points at linux-4.19-rc5 so the issue may have been fixed.
->>
->> > But, I am getting kernel panic.
->> >
->> > ---------
->> > bbl loader
->> > ....
->> > Linux version 4.18.0-rc6...
->
-> It's a bit of a guess, but could this be the upstream kernel?  The
-> latest riscv-linux is 4.18.0 (not -rc6).
->
-> The reason I say it might be the upstream kernel is because ...
->
->> > virtio_blk: probe of virtio0 failed with error -22
->
-> ... I saw this exact error when I was using the upstream kernel
-> instead of the one which supported interrupt handling.  Interrupt
-> handling for RISC-V was added upstream after 4.18 so wouldn't be
-> included in upstream 4.18.0-rc6.
+On Mon, Oct 15, 2018 at 10:18:14AM +0200, Martin Schwidefsky wrote:
+> On Mon, 15 Oct 2018 09:10:53 +0200
+> Christian Borntraeger <borntraeger@de.ibm.com> wrote:
+> 
+> > On 10/12/2018 03:37 AM, Joel Fernandes (Google) wrote:
+> > > Android needs to mremap large regions of memory during memory management
+> > > related operations. The mremap system call can be really slow if THP is
+> > > not enabled. The bottleneck is move_page_tables, which is copying each
+> > > pte at a time, and can be really slow across a large map. Turning on THP
+> > > may not be a viable option, and is not for us. This patch speeds up the
+> > > performance for non-THP system by copying at the PMD level when possible.
+> > > 
+> > > The speed up is three orders of magnitude. On a 1GB mremap, the mremap
+> > > completion times drops from 160-250 millesconds to 380-400 microseconds.
+> > > 
+> > > Before:
+> > > Total mremap time for 1GB data: 242321014 nanoseconds.
+> > > Total mremap time for 1GB data: 196842467 nanoseconds.
+> > > Total mremap time for 1GB data: 167051162 nanoseconds.
+> > > 
+> > > After:
+> > > Total mremap time for 1GB data: 385781 nanoseconds.
+> > > Total mremap time for 1GB data: 388959 nanoseconds.
+> > > Total mremap time for 1GB data: 402813 nanoseconds.
+> > > 
+> > > Incase THP is enabled, the optimization is skipped. I also flush the
+> > > tlb every time we do this optimization since I couldn't find a way to
+> > > determine if the low-level PTEs are dirty. It is seen that the cost of
+> > > doing so is not much compared the improvement, on both x86-64 and arm64.
+> > > 
+> > > Cc: minchan@kernel.org
+> > > Cc: pantin@google.com
+> > > Cc: hughd@google.com
+> > > Cc: lokeshgidra@google.com
+> > > Cc: dancol@google.com
+> > > Cc: mhocko@kernel.org
+> > > Cc: kirill@shutemov.name
+> > > Cc: akpm@linux-foundation.org
+> > > Signed-off-by: Joel Fernandes (Google) <joel@joelfernandes.org>
+> > > ---
+> > >  mm/mremap.c | 62 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+> > >  1 file changed, 62 insertions(+)
+> > > 
+> > > diff --git a/mm/mremap.c b/mm/mremap.c
+> > > index 9e68a02a52b1..d82c485822ef 100644
+> > > --- a/mm/mremap.c
+> > > +++ b/mm/mremap.c
+> > > @@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
+> > >  		drop_rmap_locks(vma);
+> > >  }
+> > >  
+> > > +static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
+> > > +		  unsigned long new_addr, unsigned long old_end,
+> > > +		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
+> > > +{
+> > > +	spinlock_t *old_ptl, *new_ptl;
+> > > +	struct mm_struct *mm = vma->vm_mm;
+> > > +
+> > > +	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
+> > > +	    || old_end - old_addr < PMD_SIZE)
+> > > +		return false;
+> > > +
+> > > +	/*
+> > > +	 * The destination pmd shouldn't be established, free_pgtables()
+> > > +	 * should have release it.
+> > > +	 */
+> > > +	if (WARN_ON(!pmd_none(*new_pmd)))
+> > > +		return false;
+> > > +
+> > > +	/*
+> > > +	 * We don't have to worry about the ordering of src and dst
+> > > +	 * ptlocks because exclusive mmap_sem prevents deadlock.
+> > > +	 */
+> > > +	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
+> > > +	if (old_ptl) {
+> > > +		pmd_t pmd;
+> > > +
+> > > +		new_ptl = pmd_lockptr(mm, new_pmd);
+> > > +		if (new_ptl != old_ptl)
+> > > +			spin_lock_nested(new_ptl, SINGLE_DEPTH_NESTING);
+> > > +
+> > > +		/* Clear the pmd */
+> > > +		pmd = *old_pmd;
+> > > +		pmd_clear(old_pmd);  
+> > 
+> > Adding Martin Schwidefsky.
+> > Is this mapping maybe still in use on other CPUs? If yes, I think for
+> > s390 we need to flush here as well (in other word we might need to introduce
+> > pmd_clear_flush). On s390 you have to use instructions like CRDTE,IPTE or IDTE
+> > to modify page table entries that are still in use. Otherwise you can get a 
+> > delayed access exception which is - in contrast to page faults - not recoverable.
+> 
+> Just clearing an active pmd would be broken for s390. We need the equivalent
+> of the ptep_get_and_clear() function for pmds. For s390 this function would
+> look like this:
+> 
+> static inline pte_t pmdp_get_and_clear(struct mm_struct *mm,
+>                                        unsigned long addr, pmd_t *pmdp)
+> {
+>         return pmdp_xchg_lazy(mm, addr, pmdp, __pmd(_SEGMENT_ENTRY_INVALID));
+> }
+> 
+> Just like pmdp_huge_get_and_clear() in fact.
 
-Your best bet today is to run 4.19-rc8, which should be pretty stable.
+I agree architecture like s390 may need additional explicit instructions to
+avoid any unrecoverable failure. So the good news is in my last patch I sent, I
+have put this behind an architecture flag (HAVE_MOVE_PMD), so we don't have
+to enable it with architectures that cannot handle it:
+https://www.spinics.net/lists/linux-mm/msg163621.html
+
+Also we are triggering this optimization only if the page is not a transparent
+huge page by calling pmd_trans_huge(). For regular pages, it should be safe to
+not do the atomic get_and_clear AIUI because Linux doesn't use any bits from
+the PMD like the dirty bit if THP is not in use (and the processors that I
+saw (not s390) should not storing anything in the bits anyway when the page
+is not a huge page. I have gone through various scenarios and read both arm
+32-bit and 64-bit and x86 64-bit manuals, and I believe it to be safe.
+
+For s390, lets not set the HAVE_MOVE_PMD flag. Does that work for you?
+
+> > > +
+> > > +		VM_BUG_ON(!pmd_none(*new_pmd));
+> > > +
+> > > +		/* Set the new pmd */
+> > > +		set_pmd_at(mm, new_addr, new_pmd, pmd);
+> > > +		if (new_ptl != old_ptl)
+> > > +			spin_unlock(new_ptl);
+> > > +		spin_unlock(old_ptl);
+> > > +
+> > > +		*need_flush = true;
+> > > +		return true;
+> > > +	}
+> > > +	return false;
+> > > +}
+> > > +
+> 
+> So the idea is to move the pmd entry to the new location, dragging
+> the whole pte table to a new location with a different address.
+> I wonder if that is safe in regard to get_user_pages_fast().
+
+Could you elaborate why you feel it may not be?
+
+Are you concerned that the PMD moving interferes with the page walk? Incase
+the tree changes during page-walking, the number of pages pinned by
+get_user_pages_fast may be less than the number requested. In this case,
+get_user_pages_fast would fall back to the slow path which should be
+synchronized with the mremap by courtesy of the mm->mmap_sem. But please let
+me know the scenario you have in mind and if I missed something.
+
+thanks,
+
+ - Joel
+
 
 _______________________________________________
 linux-riscv mailing list
