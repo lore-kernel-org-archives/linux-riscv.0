@@ -1,63 +1,57 @@
-From: linux@roeck-us.net (Guenter Roeck)
-Date: Tue, 16 Oct 2018 06:18:49 -0700
-Subject: [PATCH v8 3/5] Cleanup ISA string setting
-In-Reply-To: <mhng-48e07863-dd56-4ef6-8342-aa19414bc1b8@palmer-si-x1c4>
-References: <mhng-48e07863-dd56-4ef6-8342-aa19414bc1b8@palmer-si-x1c4>
-Message-ID: <fc881ae2-4803-5859-f9c1-52f1a1381f6f@roeck-us.net>
+From: rjones@redhat.com (Richard W.M. Jones)
+Date: Tue, 16 Oct 2018 14:30:29 +0100
+Subject: [sw-dev] Re: [isa-dev] riscv-qemu - linux boot is failing for
+ vda device
+In-Reply-To: <CAOuPNLiR+BLUno8sYjwLwW1BqJbBrH-suBiHEx1-dtMO906Ung@mail.gmail.com>
+References: <20181015211451.GC31130@redhat.com>
+ <mhng-2be13863-3f80-432c-9945-2770e7e7e4b4@palmer-si-x1c4>
+ <CAOuPNLiR+BLUno8sYjwLwW1BqJbBrH-suBiHEx1-dtMO906Ung@mail.gmail.com>
+Message-ID: <20181016133029.GY27120@redhat.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 10/15/2018 03:34 PM, Palmer Dabbelt wrote:
-> On Sun, 14 Oct 2018 16:46:40 PDT (-0700), alankao at andestech.com wrote:
->> Hi Guenter,
->>
->> On Sat, Oct 13, 2018 at 05:02:05PM -0700, Guenter Roeck wrote:
->>> Hi,
->>>
->>> With this patch in -next applied, I get the following error
->>> when building riscv:defconfig.
->>
->> I guess what you meant was this commit:
->> commit 0a5bee05fc67ce2044b8d91a18abbf14042da531
->>
->> The modification in Makefile was
->>
->> -endif
->> -
->> -KBUILD_AFLAGS += -march=$(KBUILD_MARCH)$(KBUILD_ARCH_A)fd$(KBUILD_ARCH_C)
->> +# ISA string setting
->> +riscv-march-$(CONFIG_ARCH_RV32I)?????? := rv32im
->> +riscv-march-$(CONFIG_ARCH_RV64I)?????? := rv64im
->> +riscv-march-$(CONFIG_RISCV_ISA_A)????? := $(riscv-march-y)a
->> +riscv-march-y????????????????????????? := fd
->> +riscv-march-$(CONFIG_RISCV_ISA_C)????? := $(riscv-march-y)c
->>
->> and the ":= fd" line was wrong.? It should have been
->>
->> +riscv-march-y????????????????????????? := $(riscv-march-y)fd
->>
->>>
->>>
->>> What am I missing ? Does RISC-V now require a new non-upstream compiler ?
->>> Or a special version of make ? I am currently using GNU Make 4.1.
->>
->> So I sent the v8 to fix this problem.
->> Sorry for the inconvinience.
->>
->>>
->>> Thanks,
->>> Guenter
->>>
->>> ---
->>
->> And Palmer, it seems that the patch that causes this build error has been
->> pulled into linux-next.? Any idea how to fix that one?
+On Tue, Oct 16, 2018 at 06:42:11PM +0530, Pintu Kumar wrote:
+> On Tue, Oct 16, 2018 at 6:10 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+> >
+> > On Mon, 15 Oct 2018 14:14:51 PDT (-0700), rjones at redhat.com wrote:
 > 
-> If I run into the new version then I'll overwrite in in my for-next branch.? I don't see one, though...
+> > >
+> > >> > virtio_blk: probe of virtio0 failed with error -22
+> > >
+> > > ... I saw this exact error when I was using the upstream kernel
+> > > instead of the one which supported interrupt handling.  Interrupt
+> > > handling for RISC-V was added upstream after 4.18 so wouldn't be
+> > > included in upstream 4.18.0-rc6.
+> >
+> > Your best bet today is to run 4.19-rc8, which should be pretty stable.
 > 
+> Yes, I checked with mainline linux-kernel 4.19.
+> Now I am able to boot successfully and login into qemu-riscv shell.
+> Thank you so much :)
+> 
+> But I am curious to know what changes resulted into this fix, in 4.19 kernel ?
+> Which is the exact patch in mainline, that fixes this issue?
 
-The series is on lore, lkml, and patchwork. Patchwork link to v8 of this patch:
+It'll be one of the interrupt or irqchip patches here:
 
-https://lore.kernel.org/patchwork/patch/997407/
+  https://github.com/riscv/riscv-linux/commits/riscv-linux-4.18
 
-Guenter
+You should follow Palmer's advice and use the kernel he recommends
+rather than trying to cherry pick patches.
+
+Rich.
+
+> Because at times during the development, it will be difficult to
+> simply upgrade the kernel version.
+> So, I wanted to stick to 4.18 itself, however I can back port the
+> patches from 4.19 to fix the issue.
+> So, if you can point me to the exact patch, it will be of great help.
+> 
+> Thanks,
+> Pintu
+
+-- 
+Richard Jones, Virtualization Group, Red Hat http://people.redhat.com/~rjones
+Read my programming and virtualization blog: http://rwmj.wordpress.com
+virt-builder quickly builds VMs from scratch
+http://libguestfs.org/virt-builder.1.html
