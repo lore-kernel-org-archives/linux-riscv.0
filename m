@@ -1,33 +1,53 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 15 Oct 2018 17:04:15 -0700 (PDT)
-Subject: [PATCH v2 0/6] sparsemem support for RISC-V
-In-Reply-To: <20181015175702.9036-1-logang@deltatee.com>
-Message-ID: <mhng-fd0541de-3ac1-4772-916d-be6b2d02e63e@palmer-si-x1c4>
+Date: Mon, 15 Oct 2018 17:40:13 -0700 (PDT)
+Subject: [sw-dev] Re: [isa-dev] riscv-qemu - linux boot is failing for vda
+ device
+In-Reply-To: <20181015211451.GC31130@redhat.com>
+Message-ID: <mhng-2be13863-3f80-432c-9945-2770e7e7e4b4@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 15 Oct 2018 10:56:56 PDT (-0700), logang at deltatee.com wrote:
-> This patchset implements sparsemem on RISC-V. The first few patches
-> move some code in existing architectures into common helpers
-> so they can be used by the new RISC-V implementation. The final
-> patch actually adds sparsmem support to RISC-V.
+On Mon, 15 Oct 2018 14:14:51 PDT (-0700), rjones at redhat.com wrote:
+> On Tue, Oct 16, 2018 at 09:26:20AM +1300, 'Michael Clark' via RISC-V SW Dev wrote:
+>> Dropping isa-dev, adding sw-dev
+>>
+>> > On 16/10/2018, at 3:00 AM, Pintu Kumar <pintu.ping@gmail.com> wrote:
+>> >
+>> > Hi,
+>> > I am trying to setup riscv-qemu booting on a new Ubuntu PC.
+>> > I dont want to use freedom-u-sdk, so I am preparing my own environment.
+>> > I could able to build the following:
+>> > - riscv-toolchain
+>> > - riscv-linux
+>> > - riscv-qemu
+>> > - riscv-pk
+>> > - busybear
+>> >
+>> > After that, I am trying to boot riscv-qemu, using the following command:
+>> > # sudo qemu-system-riscv64 -nographic -machine virt -kernel
+>> > PK/riscv-pk/build/bbl -append "root=/dev/vda ro console=ttyS0" -drive
+>> > file=busybear.bin,format=raw,id=hd0 -device
+>> > virtio-blk-device,drive=hd0
+>>
+>> Note: sudo is not required. sudo is used in the busybear start-qemu.sh script as it uses bridged networking. The latest version of busybear points at linux-4.19-rc5 so the issue may have been fixed.
+>>
+>> > But, I am getting kernel panic.
+>> >
+>> > ---------
+>> > bbl loader
+>> > ....
+>> > Linux version 4.18.0-rc6...
 >
-> This is the first small step in supporting P2P on RISC-V.
+> It's a bit of a guess, but could this be the upstream kernel?  The
+> latest riscv-linux is 4.18.0 (not -rc6).
+>
+> The reason I say it might be the upstream kernel is because ...
+>
+>> > virtio_blk: probe of virtio0 failed with error -22
+>
+> ... I saw this exact error when I was using the upstream kernel
+> instead of the one which supported interrupt handling.  Interrupt
+> handling for RISC-V was added upstream after 4.18 so wouldn't be
+> included in upstream 4.18.0-rc6.
 
-Thanks.  I see less maintainer tags for the parts that touch other ports than I 
-would feel comfortable merging.  I'm going to let this sit in my inbox for 
-a bit and we'll see if anything collects.
-
-For patch sets I submit that clean up other ports I've attempted to split the 
-patch into N patch sets, where:
-
-* One part adds the generic support, which starts out as dead code.
-* One part per arch uses the generic support.
-
-This is a bit of a headache, but it at least allows us to get the RISC-V 
-version that uses the generic support in quickly while waiting on acks from the 
-other arch maintainers.
-
-Like I said, I'll wait a bit and hope people ack.
-
-Thanks!
+Your best bet today is to run 4.19-rc8, which should be pretty stable.
