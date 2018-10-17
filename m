@@ -1,82 +1,81 @@
-Return-Path: <SRS0=QIML=M4=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=aUtB=M5=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 21C80C5ACC6
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 22:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CAF92C5ACCC
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 17 Oct 2018 01:01:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E490721471
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Oct 2018 22:42:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9898E214C3
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 17 Oct 2018 01:01:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UJWLaeO2";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="HunfM1ZY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E490721471
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cCKp6krN";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="gluMQyMZ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9898E214C3
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
+	To:Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=4z1c24h1fxeVXM2eccplZ8pUH1X71OYe0mkW6uwuTG8=; b=UJWLaeO2RoXa0mxyAI6xjeRWb
-	OZQrkGVB3aQ+j/A/NpPn7z9wc5X1BBx7NeU+cUMT8NfgevjeojjFnTAUrMKAFL5MEm5jEgOMn46Sd
-	D8fQwvVQQP9ZbZYEHy8VzU8S99gg4qHzdc87Y8M5GSUJvsB9FZPdVbKrYigwT1B1BB/xmUYMj1NsP
-	NUU/YeGKPzFz7Rm/jEIQEU9/lAMjDGxhs1o2Bfng8uVdymFNVLYe+pMrwRCdU+lfUmby2BdvtmX45
-	8eYURs9jzc7uAXRHqp7qjMWnnqvKu7WS8tUG+Ez33mI7g+idV8qkW1qIYbmVY0BBxtlNSOAkXx/8y
-	hi58nzYFQ==;
+	 bh=ZEjLwBCRTCoNbkZmLT2TTT6qd7Pu9kIpz+giKCcCOFs=; b=cCKp6krNfLDI/Ofk2RuyLfBkR
+	7JvmGUteg1CwEUubUaNq9Z3ppb6377OP/wURz/WyKmY4dQf2L+JFt11qimMRLqDnzY5MG5ZBkkEFJ
+	m856AEh0zfsO3Xc6yOM3haZoP0qFZYx1B/zuMenwE9fFfA6oUhfzjfyqsSS2roEz4yK9uvwH1NGw0
+	N2tf+pIJnJ/WUxgqMkOZnLmlWnWsdcl0ylm2LiY8OCrfeG2d5S4Fv4icTtj29MgiAjFX9HueYfOlV
+	NFG3YVozdZ1VKqUM6GCAHYAFD2TknDPV2rm1pjxa/UjCjfr1+3YViH7IbAShKiii8W5YUlGT7aHCX
+	NF/93KFLw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gCY2a-00064A-3o; Tue, 16 Oct 2018 22:42:16 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1gCaDS-0001NP-0L; Wed, 17 Oct 2018 01:01:38 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gCY2W-00062C-Fr
- for linux-riscv@lists.infradead.org; Tue, 16 Oct 2018 22:42:13 +0000
+ id 1gCaDP-0001MV-BY
+ for linux-riscv@lists.infradead.org; Wed, 17 Oct 2018 01:01:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1539729745; x=1571265745;
- h=subject:to:cc:references:from:message-id:date:
+ t=1539738095; x=1571274095;
+ h=from:subject:to:cc:references:message-id:date:
  mime-version:in-reply-to:content-transfer-encoding;
- bh=bIKrHmJ5r6oX+d3ZG6SZwoyMJNUWYLEyxfD0C4trCHo=;
- b=HunfM1ZYuqAbuz9NSMbRvrCrf1T6bRxCcif9T6llTpc8TTf1rLcJej+h
- YySdLgYMCHZQq0Cmma7lY7YWpMMzfDTP6HtHkcllt9PirlUpXDcyZC7Z5
- 40hzlYBWpein9XOWgXLlv3hoP3j+AeAP4OYZ3VzfUPcNd3SbnLS5U9arz
- ldHpg0+tB5walDJVGNf6t+t9txN2GG7XGy3q93Gxz4FPYBVf5v8QyHpnE
- AxtftKm3JtB88zwGqbvMXSu1W4cMcXI0N2CjVOLPXDu5LKHDHRSVONtpG
- s05nMnwGCxAbW1ut66hU+unIGVXfHEZtorvHh4qI0bTeo5OolP+x2dS5D g==;
-X-IronPort-AV: E=Sophos;i="5.54,389,1534780800"; d="scan'208";a="189794712"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
+ bh=qzltMKBFD9GBZjcn5ePHd3WcmyNOpRLo7a7/Sa9inz0=;
+ b=gluMQyMZcMqxzMN6ZpOaj12nzF9JYu+HQM3mNaOiIHjk2dmEmTamUgNV
+ eOVcudGaLBjPYIWAwkR4cdlS4LIlCA9V5kwRQ3B0exK79JuOUsb2WSQpZ
+ yqaVXM6Eph/WbTLvUJFv5wHRlRzrDRIEdLSu+tLQxyd1QuILO8b0amrRL
+ MlDARa99gIcxEAQJ7W/eU5HMcmBM9D/TOtLK+GkmFCdmEW6Gazw2ZWwEn
+ o/vZYx4rexd+erlVF0bnVNDt4lkHR/kf00/7OKjwaCBwJQibSFTZBIJkQ
+ 95l9JM19oj4cPTe/+s4AcD3jBOYaU+IbjAvJ81fg1eSablNSL/QN9pN+C Q==;
+X-IronPort-AV: E=Sophos;i="5.54,389,1534780800"; d="scan'208";a="93791390"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 17 Oct 2018 06:42:08 +0800
+ by ob1.hgst.iphmx.com with ESMTP; 17 Oct 2018 09:01:15 +0800
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep02.wdc.com with ESMTP; 16 Oct 2018 15:26:34 -0700
+ by uls-op-cesaep02.wdc.com with ESMTP; 16 Oct 2018 17:45:47 -0700
 Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.73.114])
  ([10.111.73.114])
- by uls-op-cesaip02.wdc.com with ESMTP; 16 Oct 2018 15:42:01 -0700
-Subject: Re: [RFC 1/4] pwm: sifive: Add DT documentation for SiFive PWM
- Controller.
-To: Thierry Reding <thierry.reding@gmail.com>
-References: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
- <1539111085-25502-2-git-send-email-atish.patra@wdc.com>
- <20181010135109.GE21134@ulmo> <ef19e79a-d975-bde4-1692-65389ead7c15@wdc.com>
- <20181016105103.GB8852@ulmo>
+ by uls-op-cesaip02.wdc.com with ESMTP; 16 Oct 2018 18:01:15 -0700
 From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <c702cf04-a565-dc76-a3bb-dbed922a9c80@wdc.com>
-Date: Tue, 16 Oct 2018 15:42:00 -0700
+Subject: Re: [RFC 4/4] gpio: sifive: Add GPIO driver for SiFive SoCs
+To: Linus Walleij <linus.walleij@linaro.org>,
+ "thierry.reding@gmail.com" <thierry.reding@gmail.com>
+References: <1539111085-25502-1-git-send-email-atish.patra@wdc.com>
+ <1539111085-25502-5-git-send-email-atish.patra@wdc.com>
+ <CACRpkdaoBwqQ4V5Hm9f_G5_jrdkvjT5anhBK1_HoFTj6=cba-Q@mail.gmail.com>
+Message-ID: <d8fe9a17-283c-e2ad-9e01-2754b35699b4@wdc.com>
+Date: Tue, 16 Oct 2018 18:01:13 -0700
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:52.0)
  Gecko/20100101 Thunderbird/52.9.1
 MIME-Version: 1.0
-In-Reply-To: <20181016105103.GB8852@ulmo>
+In-Reply-To: <CACRpkdaoBwqQ4V5Hm9f_G5_jrdkvjT5anhBK1_HoFTj6=cba-Q@mail.gmail.com>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181016_154212_568142_337B8EAF 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20181016_180135_462834_272B36E4 
+X-CRM114-Status: GOOD (  32.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -88,68 +87,193 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- Wesley Terpstra <wesley@sifive.com>, linus.walleij@linaro.org,
- palmer@sifive.com, linux-kernel@vger.kernel.org, hch@infradead.org,
- linux-gpio@vger.kernel.org, robh+dt@kernel.org,
- linux-riscv@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "linux-pwm@vger.kernel.org" <linux-pwm@vger.kernel.org>,
+ Palmer Dabbelt <palmer@sifive.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Christoph Hellwig <hch@infradead.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181016224200.C-UNSXKVJjNIIjnus80MJZveo5gUZKDrn2bT4WAYJdU@z>
+Message-ID: <20181017010113.izXDCOPJ3ps0qKRqgNt5OaOZf6ghv-_e1nquGaG8TsE@z>
 
-On 10/16/18 3:51 AM, Thierry Reding wrote:
-> On Mon, Oct 15, 2018 at 03:45:46PM -0700, Atish Patra wrote:
->> On 10/10/18 6:51 AM, Thierry Reding wrote:
->>> On Tue, Oct 09, 2018 at 11:51:22AM -0700, Atish Patra wrote:
->>> [...]
->>>> +- interrupts: one interrupt per PWM channel (currently unused in the driver)
->>>
->>> This should probably say what the interrupt is used for. And once you
->>> have that, remove the comment about it being unused in the driver. DT
->>> is OS agnostic, so "driver" is very unspecific and your claim may
->>> actually be false.
->>>
->>> Thierry
->>>
->> As per my understanding, they are generated by hardware but no usage of pwm
->> interrupts as of now.
+On 10/10/18 5:35 AM, Linus Walleij wrote:
+> Hi Atish,
 > 
-> It might be useful to say when they are generated. Are they generated
-> once per period? At the beginning or the end of the period? That kind
-> of thing.
+> thanks for your patch!
 > 
-
-Sure. I might have over simplified the statement above.
-I could only find this about pwm interrupts in spec.
-"The PWM can be configured to provide periodic counter interrupts by 
-enabling auto-zeroing of the count register when a comparator 0 fires"
-
-I may be wrong here but it looks like we need to configure the hardware 
-to generate periodic interrupts. I will confirm with Wesly and update it 
-in v2.
-
->> I am not sure if removing the entire entry is a good idea.
->> What would be the best way to represent that information ?
+> On Tue, Oct 9, 2018 at 8:51 PM Atish Patra <atish.patra@wdc.com> wrote:
+> 
+>> From: "Wesley W. Terpstra" <wesley@sifive.com>
 >>
->> May be this ?
+>> Adds the GPIO driver for SiFive RISC-V SoCs.
 >>
->> +-interrupts: one interrupt per PWM channel. No usage in HiFive Unleashed
->> SoC.
+>> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
+>> [Atish: Various fixes and code cleanup]
+>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
 > 
-> Why do you think you need to say that they are unused? If the hardware
-> generates these interrupts, then they are "used". If no driver currently
-> has a use for them, that's driver specific and doesn't belong in the DT
-> bindings.
+> (...)
+> 
+>> +config GPIO_SIFIVE
+>> +       bool "SiFive GPIO support"
+>> +       depends on OF_GPIO
+>> +       select GPIOLIB_IRQCHIP
+> 
+> I suggest to add
+> select GPIO_GENERIC as per below.
+> 
+> Maybe select REGMAP_MMIO as well.
+
+ok.
+
+> 
+>> +       help
+>> +         Say yes here to support the GPIO device on SiFive SoCs.
+>> +
+> 
+>> +#include <linux/of_irq.h>
+>> +#include <linux/irqchip/chained_irq.h>
+> 
+> Do you need these two? I think <linux/gpio/driver.h>
+> will bring them in for you.
 > 
 
-Sounds good. I will update accordingly.
+driver.h only brings chained_irq.h. of_irq.h is still required. Right ?
+
+>> +#include <linux/pinctrl/consumer.h>
+> 
+> Are you using this?
+
+My bad. Left over from the old code. I will remove it.
+
+> 
+>> +struct sifive_gpio {
+>> +       raw_spinlock_t          lock;
+>> +       void __iomem            *base;
+>> +       struct gpio_chip        gc;
+>> +       unsigned long           enabled;
+> 
+> Since max GPIO is 32 why not use an u32 for this?
+> 
+
+Sure.
+
+>> +       unsigned int            trigger[MAX_GPIO];
+>> +       unsigned int            irq_parent[MAX_GPIO];
+>> +       struct sifive_gpio      *self_ptr[MAX_GPIO];
+>> +};
+>> +
+>> +static void sifive_assign_bit(void __iomem *ptr, unsigned int offset, int value)
+>> +{
+>> +       /*
+>> +        * It's frustrating that we are not allowed to use the device atomics
+>> +        * which are GUARANTEED to be supported by this device on RISC-V
+>> +        */
+>> +       u32 bit = BIT(offset), old = ioread32(ptr);
+>> +
+>> +       if (value)
+>> +               iowrite32(old | bit, ptr);
+>> +       else
+>> +               iowrite32(old & ~bit, ptr);
+>> +}
+> 
+> This looks like a mask and set implementation, you are
+> essentially reinventing regmap MMIO and the
+> regmap_update_bits() call. Could you look into
+> just using regmap MMIO in that case?
+> 
+> If you need examples, look at gpio-mvebu.c that calls
+> devm_regmap_init_mmio() for example.
+> 
+
+That's really cool. Sorry, for not checking that earlier.
+I am pretty new to this.
+
+>> +static int sifive_direction_input(struct gpio_chip *gc, unsigned int offset)
+>> +static int sifive_direction_output(struct gpio_chip *gc, unsigned int offset,
+>> +static int sifive_get_direction(struct gpio_chip *gc, unsigned int offset)
+>> +static int sifive_get_value(struct gpio_chip *gc, unsigned int offset)
+>> +static void sifive_set_value(struct gpio_chip *gc, unsigned int offset,
+> 
+> These functions look like a typical hardware that can use
+> 
+> GPIOLIB_GENERIC and bgpio_init() to set up the accessors.
+> 
+> See gpio-ftgpio010.c for an example.
+> 
+> As a bonus you will get .get/.set_multiple implemented by
+> the generic GPIO.
+> 
+
+Great. This will reduce the driver a code by a big factor.
+Thanks for the pointer.
+
+
+>> +static void sifive_irq_enable(struct irq_data *d)
+>> +static void sifive_irq_disable(struct irq_data *d)
+> (...)
+>> +static struct irq_chip sifive_irqchip = {
+>> +       .name           = "sifive-gpio",
+>> +       .irq_set_type   = sifive_irq_set_type,
+>> +       .irq_mask       = sifive_irq_mask,
+>> +       .irq_unmask     = sifive_irq_unmask,
+>> +       .irq_enable     = sifive_irq_enable,
+>> +       .irq_disable    = sifive_irq_disable,
+> 
+> The handling of .irq_enable and .irq_disable has
+> changed upstream. Please align with the new codebase
+> as changed by Hans Verkuil:
+> 
+> commit 461c1a7d4733d1dfd5c47b040cf32a5e7eefbc6c
+> "gpiolib: override irq_enable/disable"
+> commit 4e9439ddacea06f35acce4d374bf6bd0acf99bc8
+> "gpiolib: add flag to indicate if the irq is disabled"
+> 
+> You will need to rebase your work on the v4.20-rc1 once it is
+> out. Right now the changes are on linux-next or my devel
+> branch.
+
+Will do.
+
+> 
+>> +       ngpio = of_irq_count(node);
+>> +       if (ngpio >= MAX_GPIO) {
+>> +               dev_err(dev, "Too many GPIO interrupts (max=%d)\n", MAX_GPIO);
+>> +               return -ENXIO;
+>> +       }
+> (...)
+>> +       for (gpio = 0; gpio < ngpio; ++gpio) {
+>> +               irq = platform_get_irq(pdev, gpio);
+>> +               if (irq < 0) {
+>> +                       dev_err(dev, "invalid IRQ\n");
+>> +                       gpiochip_remove(&chip->gc);
+>> +                       return -ENODEV;
+>> +               }
+> 
+> This is an hierarchical IRQ so it should use an hierarchical
+> irqdomain.
+> 
+> I am discussing with Thierry to make more generic irq domains
+> for hierarchical IRQ GPIOs, until then you have to look at
+> gpio-thunderx.c, gpio-uniphier.c or gpio-xgene-sb.c that all
+> use hierarchical IRQs.
+> 
+
+Thanks. I will convert them to hierarchical IRQ.
 
 Regards,
 Atish
-> Thierry
+> Yours,
+> Linus Walleij
 > 
+
+
 
 
 _______________________________________________
