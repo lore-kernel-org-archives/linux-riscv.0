@@ -2,59 +2,87 @@ Return-Path: <SRS0=HMje=M7=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-9.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 93C3DECDE3D
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 19 Oct 2018 17:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 30CABECDE3D
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 19 Oct 2018 18:49:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6A6BF2087A
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 19 Oct 2018 17:32:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DA9C421470
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 19 Oct 2018 18:49:03 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZYx1l5xP"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6A6BF2087A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lip6.fr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JA6e1qOv";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="b05AGQAI"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA9C421470
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AhJ3DznbD+Jy5YjJCBQ5LLe5gh1Zjake7u5DDMOUeyo=; b=ZYx1l5xPDgl1RB
-	2k4i1tWeYBEhE+rgVvVNHOfJFyXE840K3ZS7618ZOpnCVLEUyuf/8l3oRIm/ntbb6aKbfHoMPCPkV
-	DmmRGlwaxhOibDOL5AvJQ0NHAqsA3EnAr3r0M30kfiDXn3jwJ7QaG64QyO5fwfJBk+TsZXkoJ8rz7
-	S6AcrzBgSTXcYDbfICAnlVn081D/QZyvILb8MiulTk4djOqmQrj0u7olrggxh+rP9+rtNm9qxxtxT
-	XeqnuQAqB6o9fcwG97TM7zUEVgRA40RVqx4Z+57je0OK3LDxhBDOqLHnckQkzPW00Qw1qWuJtSMiW
-	a8WcZZUQ5s4WKqT7R06Q==;
+	List-Owner; bh=zXNEPb0G58/NwCfnirDH+rwgcvKHRCyhKfSVRnLMX1Q=; b=JA6e1qOvLki8KB
+	+BJljmfry0o/rUbTNnFKJQ7o4DJm7o9Mqim3ZFxRDt9eb8vFoVRe2cFxOANGf4jiiSWYYU1aiv/Ch
+	9+h2jmEDUYFtWfMgLaz6RTG9qxrEGBbnJHq3l2CHHy2FD8b0a1mAhSV3JQtK154KabiAi6fKtm7TX
+	kqpHK6/J4VSMnceGQhoaHUbKZJe8mviqydnYaleRjZNjw1M8Lj6xkB8RGoV2M0rOuObUB/eT0T72Z
+	yBZlaGprp/YN+O7tan2I0xpBCk3V3OrX4yy7Krdha/Tw25Gp7WKsp7rLi1gJOhJ+IbTiU1OAsZ0bd
+	qrSVwhozAZkMyXao1o3g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gDYdj-0006sF-VF; Fri, 19 Oct 2018 17:32:47 +0000
-Received: from mail3-relais-sop.national.inria.fr ([192.134.164.104])
+	id 1gDZpU-0002VW-MN; Fri, 19 Oct 2018 18:49:00 +0000
+Received: from mail-it1-x143.google.com ([2607:f8b0:4864:20::143])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gDYZ1-0005Gx-6Z
- for linux-riscv@lists.infradead.org; Fri, 19 Oct 2018 17:27:57 +0000
-X-IronPort-AV: E=Sophos;i="5.54,400,1534802400"; d="scan'208";a="282734461"
-Received: from unknown (HELO hadrien) ([132.227.125.15])
- by mail3-relais-sop.national.inria.fr with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 19 Oct 2018 19:27:35 +0200
-Date: Fri, 19 Oct 2018 19:27:35 +0200 (CEST)
-From: Julia Lawall <julia.lawall@lip6.fr>
-X-X-Sender: jll@hadrien
-To: Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH 2/2] tty: serial: add driver for the SiFive UART (fwd)
-Message-ID: <alpine.DEB.2.21.1810191926360.5513@hadrien>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+ id 1gDZpR-0002Sv-Kj
+ for linux-riscv@lists.infradead.org; Fri, 19 Oct 2018 18:48:59 +0000
+Received: by mail-it1-x143.google.com with SMTP id i76-v6so5652966ita.3
+ for <linux-riscv@lists.infradead.org>; Fri, 19 Oct 2018 11:48:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=cOR2IJIowt4OkXEi+YRhZzCYyNynhKMj+YhQKSHNISY=;
+ b=b05AGQAIPo7lxePa3iJZHr567v2l0b1Ldjzm9JRACleC3LvzBJ0xWPmsgxRnryqdBt
+ YeTO1tYInccCiJaaufah4L8Ved1wewZUMd0DQ81EqJuvq5A/fdjJC+Sbs73X2aULDE89
+ PUZVsd1a/XQNYvxkjkaYk+Iq19TgsRJWUO2Vzyu7eBcd0ZMe8vo/IHylolKsWc6V0xVO
+ 2tag9wlOooNX0JQcRYvl+v7PCuctHV37IvmZAsa0nlhFRWEiZ7cjS43PiqXCSPXbAST3
+ 0ahwt44fYM9F0VvKyYxgyqfEJQE+pIWSzeXlPp0tet8m2A+Z3bkBQrm9rmfPQZbM5mfn
+ QWYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=cOR2IJIowt4OkXEi+YRhZzCYyNynhKMj+YhQKSHNISY=;
+ b=lFguV5qpqX7qI/f6KpT6iewmbPBoaX6hrjoIWTA3Na648x869chu+GLb0o/PgNgjCy
+ mixw/3zuUKGx2x7aYDRhrOkc0lScP8qC7bwMG5nyWrExczGViIKX+HTZ1a0UnOJqH3SV
+ oFDu1hzQ8tUM4dljOEAPluYRWA4nG7USQjKECrkUoiNK1/0SvBFJhkHFp6TakiqVXp0R
+ 0ZZ1fKCP/MYVwYRHSabfjjo//k0/VDs2sbTxmSRVy3Ly4+dEhJu2vClKNxaUMmnfUMqH
+ zcxKjL8j5n0THgWuCDZWubNTiOxF44ScVP4hbfsyq63Ic8Oh6uT0xu27NWL+1HxonUw4
+ vxqQ==
+X-Gm-Message-State: ABuFfoiIFW2R+IhN+mVF81TOpzIqnWshPXm9LDf5XDDbYhKlah56MePX
+ +sL0gp4CCDBP0/5iB0+N7sQMWQ==
+X-Google-Smtp-Source: ACcGV61aKh+F0b/UL3DZbcm7cPaAlkxEPwwda6xhyIOsXCU0duUBfeacPfegSOONACojQkJiHC7YKw==
+X-Received: by 2002:a24:f884:: with SMTP id
+ a126-v6mr4051948ith.113.1539974924382; 
+ Fri, 19 Oct 2018 11:48:44 -0700 (PDT)
+Received: from viisi.dia.dnvr ([67.133.97.101])
+ by smtp.gmail.com with ESMTPSA id f9-v6sm7528873iok.25.2018.10.19.11.48.43
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 19 Oct 2018 11:48:43 -0700 (PDT)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+To: linux-serial@vger.kernel.org
+Subject: [PATCH v2 0/2] tty: serial: add DT bindings and serial driver for the
+ SiFive FU540 UART
+Date: Fri, 19 Oct 2018 11:48:26 -0700
+Message-Id: <20181019184827.12351-1-paul.walmsley@sifive.com>
+X-Mailer: git-send-email 2.19.1
 MIME-Version: 1.0
-X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181019_102755_541116_DDECA2E1 
-X-CRM114-Status: GOOD (  12.27  )
-X-Mailman-Approved-At: Fri, 19 Oct 2018 10:32:43 -0700
+X-CRM114-CacheID: sfid-20181019_114857_685969_1986D630 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -66,85 +94,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Paul Walmsley <paul@pwsan.com>, Wesley Terpstra <wesley@sifive.com>,
+Cc: devicetree@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>,
+ Wesley Terpstra <wesley@sifive.com>, Jiri Slaby <jslaby@suse.com>,
+ linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, kbuild-all@01.org,
- linux-serial@vger.kernel.org, Jiri Slaby <jslaby@suse.com>,
  linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181019172735.gQq42UQblNzE112HcnidqBJpWgrc_Tn08eFWiFEic8I@z>
+Message-ID: <20181019184826.bTeHZDRZ4NWCvS4JebxbqMqgLRTSaRjl-t9IR4KmLFo@z>
 
-Hello,
+This series adds a serial driver, with console support, for the
+UART IP block present on the SiFive FU540 SoC.  The programming
+model is straightforward, but unique.
 
-It looks like an unlock is needed before the return on line 562.
+Boot-tested on a SiFive FU540 HiFive-U board (with appropriate patches
+to the DT data).
 
-julia
+The patches in this series can also be found at:
 
----------- Forwarded message ----------
-Date: Fri, 19 Oct 2018 18:12:04 +0800
-From: kbuild test robot <lkp@intel.com>
-To: kbuild@01.org
-Cc: Julia Lawall <julia.lawall@lip6.fr>
-Subject: Re: [PATCH 2/2] tty: serial: add driver for the SiFive UART
+https://github.com/sifive/riscv-linux/tree/dev/paulw/serial-v4.19-rc7
 
-CC: kbuild-all@01.org
-In-Reply-To: <20181018234352.26788-3-paul.walmsley@sifive.com>
-References: <20181018234352.26788-3-paul.walmsley@sifive.com>
-TO: Paul Walmsley <paul.walmsley@sifive.com>
-CC: linux-serial@vger.kernel.org
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jslaby@suse.com>, Palmer Dabbelt <palmer@sifive.com>, Wesley Terpstra <wesley@sifive.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Paul Walmsley <paul@pwsan.com>
+This second version fixes a few problems identified by the 0-day
+build system, mostly focused around remnants relating to
+CONFIG_CONSOLE_POLL, and a missing spin_unlock() in the ISR.
 
-Hi Paul,
+Paul Walmsley (2):
+  dt-bindings: serial: add documentation for the SiFive UART driver
+  tty: serial: add driver for the SiFive UART
 
-I love your patch! Perhaps something to improve:
+ .../bindings/serial/sifive-serial.txt         |   21 +
+ drivers/tty/serial/Kconfig                    |   24 +
+ drivers/tty/serial/Makefile                   |    1 +
+ drivers/tty/serial/sifive.c                   | 1067 +++++++++++++++++
+ include/uapi/linux/serial_core.h              |    3 +
+ 5 files changed, 1116 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/serial/sifive-serial.txt
+ create mode 100644 drivers/tty/serial/sifive.c
 
-[auto build test WARNING on tty/tty-testing]
-[also build test WARNING on v4.19-rc8 next-20181019]
-[if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
 
-url:    https://github.com/0day-ci/linux/commits/Paul-Walmsley/dt-bindings-serial-add-documentation-for-the-SiFive-UART-driver/20181019-165529
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git tty-testing
-:::::: branch date: 77 minutes ago
-:::::: commit date: 77 minutes ago
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Jiri Slaby <jslaby@suse.com>
+Cc: Palmer Dabbelt <palmer@sifive.com>
+Cc: Wesley Terpstra <wesley@sifive.com>
+Cc: linux-serial@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: devicetree@vger.kernel.org
 
->> drivers/tty/serial/sifive.c:562:2-8: preceding lock on line 558
+-- 
+2.19.1
 
-# https://github.com/0day-ci/linux/commit/15d0af7ab79ba53f984613f23e668cade495babb
-git remote add linux-review https://github.com/0day-ci/linux
-git remote update linux-review
-git checkout 15d0af7ab79ba53f984613f23e668cade495babb
-vim +562 drivers/tty/serial/sifive.c
-
-15d0af7a Paul Walmsley 2018-10-18  552
-15d0af7a Paul Walmsley 2018-10-18  553  static irqreturn_t sifive_serial_irq(int irq, void *dev_id)
-15d0af7a Paul Walmsley 2018-10-18  554  {
-15d0af7a Paul Walmsley 2018-10-18  555  	struct sifive_serial_port *ssp = dev_id;
-15d0af7a Paul Walmsley 2018-10-18  556  	u32 ip;
-15d0af7a Paul Walmsley 2018-10-18  557
-15d0af7a Paul Walmsley 2018-10-18 @558  	spin_lock(&ssp->port.lock);
-15d0af7a Paul Walmsley 2018-10-18  559
-15d0af7a Paul Walmsley 2018-10-18  560  	ip = __ssp_readl(ssp, SIFIVE_SERIAL_IP_OFFS);
-15d0af7a Paul Walmsley 2018-10-18  561  	if (!ip)
-15d0af7a Paul Walmsley 2018-10-18 @562  		return IRQ_NONE;
-15d0af7a Paul Walmsley 2018-10-18  563
-15d0af7a Paul Walmsley 2018-10-18  564  	if (ip & SIFIVE_SERIAL_IP_RXWM_MASK)
-15d0af7a Paul Walmsley 2018-10-18  565  		__ssp_receive_chars(ssp);
-15d0af7a Paul Walmsley 2018-10-18  566  	if (ip & SIFIVE_SERIAL_IP_TXWM_MASK)
-15d0af7a Paul Walmsley 2018-10-18  567  		__ssp_transmit_chars(ssp);
-15d0af7a Paul Walmsley 2018-10-18  568
-15d0af7a Paul Walmsley 2018-10-18  569  	spin_unlock(&ssp->port.lock);
-15d0af7a Paul Walmsley 2018-10-18  570
-15d0af7a Paul Walmsley 2018-10-18  571  	return IRQ_HANDLED;
-15d0af7a Paul Walmsley 2018-10-18  572  }
-15d0af7a Paul Walmsley 2018-10-18  573
-
----
-0-DAY kernel test infrastructure                Open Source Technology Center
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 
 _______________________________________________
 linux-riscv mailing list
