@@ -1,9 +1,9 @@
 From: lkp@intel.com (kbuild test robot)
-Date: Fri, 19 Oct 2018 17:55:54 +0800
+Date: Fri, 19 Oct 2018 18:40:23 +0800
 Subject: [PATCH 2/2] tty: serial: add driver for the SiFive UART
 In-Reply-To: <20181018234352.26788-3-paul.walmsley@sifive.com>
 References: <20181018234352.26788-3-paul.walmsley@sifive.com>
-Message-ID: <201810191752.QgAYljOJ%fengguang.wu@intel.com>
+Message-ID: <201810191825.su9Sr3Jr%fengguang.wu@intel.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
@@ -17,38 +17,24 @@ I love your patch! Yet something to improve:
 
 url:    https://github.com/0day-ci/linux/commits/Paul-Walmsley/dt-bindings-serial-add-documentation-for-the-SiFive-UART-driver/20181019-165529
 base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git tty-testing
-config: i386-allmodconfig (attached as .config)
-compiler: gcc-7 (Debian 7.3.0-1) 7.3.0
+config: powerpc-allyesconfig (attached as .config)
+compiler: powerpc64-linux-gnu-gcc (Debian 7.2.0-11) 7.2.0
 reproduce:
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
         # save the attached .config to linux build tree
-        make ARCH=i386 
+        GCC_VERSION=7.2.0 make.cross ARCH=powerpc 
 
 All errors (new ones prefixed by >>):
 
->> drivers/tty/serial/sifive.c:891:20: error: 'sifive_serial_poll_put_char' undeclared here (not in a function); did you mean 'sifive_serial_clk_notifier'?
+>> drivers/tty/serial/sifive.c:891:20: error: 'sifive_serial_poll_put_char' undeclared here (not in a function); did you mean 'sifive_serial_console_putchar'?
      .poll_put_char  = sifive_serial_poll_put_char,
                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-                       sifive_serial_clk_notifier
->> drivers/tty/serial/sifive.c:892:20: error: 'sifive_serial_poll_get_char' undeclared here (not in a function); did you mean 'sifive_serial_poll_put_char'?
+                       sifive_serial_console_putchar
+   drivers/tty/serial/sifive.c:892:20: error: 'sifive_serial_poll_get_char' undeclared here (not in a function); did you mean 'sifive_serial_poll_put_char'?
      .poll_get_char  = sifive_serial_poll_get_char,
                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
                        sifive_serial_poll_put_char
-   In file included from drivers/tty/serial/sifive.c:47:0:
-   drivers/tty/serial/sifive.c:1028:25: error: 'sifive_serial_match' undeclared here (not in a function); did you mean 'sifive_serial_of_match'?
-    MODULE_DEVICE_TABLE(of, sifive_serial_match);
-                            ^
-   include/linux/module.h:213:15: note: in definition of macro 'MODULE_DEVICE_TABLE'
-    extern typeof(name) __mod_##type##__##name##_device_table  \
-                  ^~~~
-   include/linux/module.h:213:21: error: '__mod_of__sifive_serial_match_device_table' aliased to undefined symbol 'sifive_serial_match'
-    extern typeof(name) __mod_##type##__##name##_device_table  \
-                        ^
-   drivers/tty/serial/sifive.c:1028:1: note: in expansion of macro 'MODULE_DEVICE_TABLE'
-    MODULE_DEVICE_TABLE(of, sifive_serial_match);
-    ^~~~~~~~~~~~~~~~~~~
-   drivers/tty/serial/sifive.c:522:13: warning: '__ssp_wait_for_xmitr' defined but not used [-Wunused-function]
-    static void __ssp_wait_for_xmitr(struct sifive_serial_port *ssp)
-                ^~~~~~~~~~~~~~~~~~~~
 
 vim +891 drivers/tty/serial/sifive.c
 
@@ -71,7 +57,7 @@ vim +891 drivers/tty/serial/sifive.c
    889		.verify_port	= sifive_serial_verify_port,
    890	#ifdef CONFIG_CONSOLE_POLL
  > 891		.poll_put_char  = sifive_serial_poll_put_char,
- > 892		.poll_get_char  = sifive_serial_poll_get_char,
+   892		.poll_get_char  = sifive_serial_poll_get_char,
    893	#endif
    894	};
    895	
@@ -83,6 +69,6 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 A non-text attachment was scrubbed...
 Name: .config.gz
 Type: application/gzip
-Size: 65228 bytes
+Size: 58777 bytes
 Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20181019/a9951260/attachment.gz>
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20181019/aaaf27bd/attachment.gz>
