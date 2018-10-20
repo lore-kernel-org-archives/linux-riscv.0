@@ -2,22 +2,22 @@ Return-Path: <SRS0=U2Mo=NA=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1BABDECDE3D
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 20 Oct 2018 13:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C28DDECDE3D
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 20 Oct 2018 13:51:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DFA77204FD
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 20 Oct 2018 13:50:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 91DBA204FD
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 20 Oct 2018 13:51:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mE5iTzpM";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="RdWIrKup"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DFA77204FD
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="a7jDYhIr";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="PPZTpPZO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 91DBA204FD
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,66 +26,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8F7S9OWetKBfNuotzeRX0MYznDE8WHyVi6EfqoZo6JM=; b=mE5iTzpMWP9pQp
-	XYAaBjXlpIPToqcJNewKX4yBnsypqVArGSqZ/QIF84iTGrl3v4JjbyMxszBxuPG4iADZ7QsPaRx4o
-	0aiyoVQI9BJtZtZ9soQxFbud8Vx8WiIcXt3ns9IFTLacaQyQUswYfRIuHoayUgeW5tVF0xTDxzZvq
-	KtFNhvQnuyK3K7CrsQ3sRFLwkkWKNO30UzskgotOEBDbaBN4qb/dUATHt6SaTNrIQj62D04eU8Ovw
-	zvtQ0f1Va6l98omZgvHetXPXVf/VuDgZAHDaXV1a5E7YWUEaZSx2O49TH+1L7lDHzDdMlzWLfJ9Zl
-	YH8vYkwbNK/PdZKMHEuQ==;
+	List-Owner; bh=OElAudQ40qu7B64jgmiXPfgRGsyYOs8rlmskNFlpyMs=; b=a7jDYhIrpVImGt
+	RXkPcalguP0lWIRIvY+CJKI9Fv7KYYa3kxprHcI0DnDAO1pU30cj6bGx/18PJGeBtTMDiTU3H2VDs
+	gm2Om0yqwEycm5T2Tq3yw1GLWSaxGxRPfek5BZQCGIFiJAMr6BxwX1/KTPBYHSWjPFKNAULU/3Zwd
+	zoQaXeUcyw88qKnI3iYbc+hZYx0J0/19tqxkwASGDP62Xl6xkrpTgZ/9bmlYbYn5AXia1ccLQ/Ap1
+	Lm7LC6rPoWeX9COSeXIpD+iMTOY9ffLT/ohSyDsEym24ARZdz8nLV2OvNHRuD6UX85s8qe98axhsF
+	lj/7tUVNUSLMCoQK/2fw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gDreZ-00026I-N8; Sat, 20 Oct 2018 13:50:55 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1gDreg-00028W-Sq; Sat, 20 Oct 2018 13:51:02 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gDreV-00022t-AE
- for linux-riscv@lists.infradead.org; Sat, 20 Oct 2018 13:50:53 +0000
-Received: by mail-wr1-x444.google.com with SMTP id l6-v6so39819823wrt.1
- for <linux-riscv@lists.infradead.org>; Sat, 20 Oct 2018 06:50:40 -0700 (PDT)
+ id 1gDreY-000236-16
+ for linux-riscv@lists.infradead.org; Sat, 20 Oct 2018 13:51:00 +0000
+Received: by mail-wr1-x443.google.com with SMTP id f8-v6so708598wro.9
+ for <linux-riscv@lists.infradead.org>; Sat, 20 Oct 2018 06:50:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=TwLCHpP8kf+4rr/NbIN453XbTBZTe4XodmQVrexotJY=;
- b=RdWIrKupHcDvm18Sfo9zS/lrKGcwiUvge3qibXzdVmaed+ACU+7HnBHQMPlvut8W5J
- FgOsCoi5GXfb2mujHsZ/AVCommDwAPmYQAOFpg/gajevBp4NHPqDjKmKKdlQ6WXPKahy
- Azs+icTGaoh5BQ3NDLvsUBoNR05C/khgIIYl62Hg5tVHcD+t3sCZEGKBGEBoOVNDFyRp
- AU72yPT+gMZak0Q/frX18AUp3iVrOh7COPpxh0o2X2qwjtryQ45M14k/UmnR0l4TCpdX
- OPgf/MmBaKcTStXOQBNp17zc6nEHSBB+Kkcbsay2SPd5y9WYUThXFNgJZ2ljGpjau9fb
- +VuQ==
+ bh=mOn3TG2+oeg5nI/Zp84WaB+7/5aTdGuPMNt8FHDTWnA=;
+ b=PPZTpPZO80vh9zZBaaKNOL4JdAUBy9yGm0Xr8Izag8WOa+AKxS+L9doVywPV/KEQll
+ vEUNG1y2yLhYjGSkxXy8rWOLJCyNNR+l5stxKVtxxKIvfdKfbR/C84B1H8M6xjjN11wn
+ JCxRUtVwtNXwAfz9t/5mcE2O2LV+tjOQxKIbrAtZMrTQTP/w/zmBblxrLn6dMtowuW35
+ M980anXFspBDQ/Tfp3w8SbwnFu8hD8nvjmb2bxqAdAYozmpRFPGqaXNHO5lL5jqlsDbb
+ XUBMoklW01DJkz59pjn8u709RF6mC/V+7hZ8rOsIhIe1hDFfjlwTyRsnvEh6qDYCqJlY
+ aEYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=TwLCHpP8kf+4rr/NbIN453XbTBZTe4XodmQVrexotJY=;
- b=PlI+Wi9jGADZ5e8nvmy37P2fJm18494L7f+xamA+ISu3Wrf2tSmoQZGX8l3oHW0S8E
- 5hxBU6IJdWHCVZTqRNPkEtfRGim9rXZFc7IwSMC9MZmjwByJaIugbuNjdAarILtqk6Xg
- 9Yx8gF/8mRJAdsb/YxPKUCZctw6M8YQF16wn55qMEi0t+0VTrcBBz07OY8mE3zgPdGhP
- TjCOb1vNgxcARVYrb04rDwY8HoYjlWGsbHgSiDEmNQEWImb3dCyqrh/0pqlhZdXCzec4
- o5duwTJ2ReFnc11c/8mNe953AfYBw3gtLc9Lxsz+jJN/m01wHpbgWvPPSDih5fV+hGY1
- Utig==
-X-Gm-Message-State: ABuFfohnm8d4Ad1VbMyRWwUxLcouwamYJjdtT6daAozN2WfxVx2qvOi0
- zZmySpj/Ai6DuMBsUJ2bShVtqg==
-X-Google-Smtp-Source: ACcGV61PlikZUj7Qbw+Lc/0wkLSwO/nJIyd8fEDd9dpzZWi3QLt9RKDFst4+6CBC5bnhigN2ytGl3w==
-X-Received: by 2002:adf:ecc9:: with SMTP id
- s9-v6mr36018146wro.142.1540043439647; 
- Sat, 20 Oct 2018 06:50:39 -0700 (PDT)
+ bh=mOn3TG2+oeg5nI/Zp84WaB+7/5aTdGuPMNt8FHDTWnA=;
+ b=idkzfoOAKYQEECiaY6zTpqD24ikyS96oVR/qG7vzIGeRZ9+kSMlpe2phjwDmSMsqlt
+ 9jN22DHGXWN3JxywvVVbAtsMW9k7FF0rWsVd1/hYBlIrBLnsmS2ILdSbROmNAS1s0def
+ qAGd+de7v0wh3VwmBoPm94aYLloL12SENKO4WCi4kYFWHGzWO2npD60JeLk/F13P1AML
+ Byyy6/1X5RYWi5I/xH3c51E0mPJeTCsddgq9z8lBLQy32JDyIJLoMS2rNvbN2Ad6GwN+
+ yt7EMClCHlgrP4GD+pAyC49z28jf5FzwoyyQrLtH3R31bJb6klUBsuuWwly3RV9fYSNv
+ kZCg==
+X-Gm-Message-State: ABuFfohA1z5M8K/ZEQVw7MXM/dvA+d0v+snIwyNushHf3AVp13kt8dxK
+ a2B5omMVAQ93q27THBY8+ob76ELE6QOMHA==
+X-Google-Smtp-Source: ACcGV60UgKipdTT5M38/2IK0vvJSyxPxvFA8kBBIprOmtrEHUR7zB6z7FpZ+vDMLz5URIpUWu9kyMg==
+X-Received: by 2002:a5d:610c:: with SMTP id
+ v12-v6mr38218734wrt.308.1540043442373; 
+ Sat, 20 Oct 2018 06:50:42 -0700 (PDT)
 Received: from viisi.sifive.com ([37.152.39.96])
- by smtp.gmail.com with ESMTPSA id o4-v6sm16906615wrj.45.2018.10.20.06.50.38
+ by smtp.gmail.com with ESMTPSA id o4-v6sm16906615wrj.45.2018.10.20.06.50.40
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Sat, 20 Oct 2018 06:50:39 -0700 (PDT)
+ Sat, 20 Oct 2018 06:50:41 -0700 (PDT)
 From: Paul Walmsley <paul.walmsley@sifive.com>
 To: linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org
-Subject: [PATCH v2 2/3] dt-bindings: clk: add documentation for the SiFive
- PRCI driver
-Date: Sat, 20 Oct 2018 06:50:23 -0700
-Message-Id: <20181020135024.28573-3-paul.walmsley@sifive.com>
+Subject: [PATCH v2 3/3] clk: sifive: add a driver for the SiFive FU540 PRCI IP
+ block
+Date: Sat, 20 Oct 2018 06:50:24 -0700
+Message-Id: <20181020135024.28573-4-paul.walmsley@sifive.com>
 X-Mailer: git-send-email 2.19.1
 In-Reply-To: <20181020135024.28573-1-paul.walmsley@sifive.com>
 References: <20181020135024.28573-1-paul.walmsley@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181020_065051_401937_EF2EDACD 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20181020_065054_116697_DC820E4A 
+X-CRM114-Status: GOOD (  23.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,91 +97,780 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul@pwsan.com>,
- Stephen Boyd <sboyd@kernel.org>, Megan Wachs <megan@sifive.com>,
+Cc: Paul Walmsley <paul@pwsan.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Stephen Boyd <sboyd@kernel.org>, "Wesley W . Terpstra" <wesley@sifive.com>,
  Michael Turquette <mturquette@baylibre.com>,
  Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Megan Wachs <megan@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
  linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181020135023.eOYXALkyqJu4gj7yjAQoXgtsBcewxvbBSK4j8YINlI4@z>
+Message-ID: <20181020135024.gI5H5kojR1x1v6L5sImkhmKG1VCfrcK1uunTbFlhjYs@z>
 
-Add DT binding documentation for the Linux driver for the SiFive
-PRCI clock & reset control IP block, as found on the SiFive
-FU540 chip.
+Add driver code for the SiFive FU540 PRCI IP block.  This IP block
+handles reset and clock control for the SiFive FU540 device and
+implements SoC-level clock tree controls and dividers.
+
+Based on code written by Wesley Terpstra <wesley@sifive.com>:
+https://github.com/riscv/riscv-linux/commit/999529edf517ed75b56659d456d221b2ee56bb60
+
+Boot and PLL rate change were tested on a SiFive HiFive Unleashed
+board.
 
 Cc: Michael Turquette <mturquette@baylibre.com>
 Cc: Stephen Boyd <sboyd@kernel.org>
-Cc: Rob Herring <robh+dt@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Wesley W. Terpstra <wesley@sifive.com>
 Cc: Palmer Dabbelt <palmer@sifive.com>
 Cc: Megan Wachs <megan@sifive.com>
-Cc: linux-clk@vger.kernel.org
-Cc: devicetree@vger.kernel.org
 Cc: linux-riscv@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
+Cc: linux-clk@vger.kernel.org
 Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
 Signed-off-by: Paul Walmsley <paul@pwsan.com>
 ---
-v2: remove out-of-date example, add documentation for the compatible
-    string and for the required PCB clock nodes
+ drivers/clk/Kconfig                   |   1 +
+ drivers/clk/Makefile                  |   1 +
+ drivers/clk/sifive/Kconfig            |  18 +
+ drivers/clk/sifive/Makefile           |   1 +
+ drivers/clk/sifive/fu540-prci.c       | 634 ++++++++++++++++++++++++++
+ include/linux/clk/sifive-fu540-prci.h |  27 ++
+ 6 files changed, 682 insertions(+)
+ create mode 100644 drivers/clk/sifive/Kconfig
+ create mode 100644 drivers/clk/sifive/Makefile
+ create mode 100644 drivers/clk/sifive/fu540-prci.c
+ create mode 100644 include/linux/clk/sifive-fu540-prci.h
 
-.../bindings/clock/sifive/fu540-prci.txt      | 43 +++++++++++++++++++
- 1 file changed, 43 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/sifive/fu540-prci.txt
-
-diff --git a/Documentation/devicetree/bindings/clock/sifive/fu540-prci.txt b/Documentation/devicetree/bindings/clock/sifive/fu540-prci.txt
+diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+index a34ccfcb54ac..0af5f6843a2f 100644
+--- a/drivers/clk/Kconfig
++++ b/drivers/clk/Kconfig
+@@ -295,6 +295,7 @@ source "drivers/clk/mvebu/Kconfig"
+ source "drivers/clk/qcom/Kconfig"
+ source "drivers/clk/renesas/Kconfig"
+ source "drivers/clk/samsung/Kconfig"
++source "drivers/clk/sifive/Kconfig"
+ source "drivers/clk/sprd/Kconfig"
+ source "drivers/clk/sunxi-ng/Kconfig"
+ source "drivers/clk/tegra/Kconfig"
+diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+index d59c11ddfc5e..8b07ebab37f8 100644
+--- a/drivers/clk/Makefile
++++ b/drivers/clk/Makefile
+@@ -91,6 +91,7 @@ obj-$(CONFIG_COMMON_CLK_QCOM)		+= qcom/
+ obj-y					+= renesas/
+ obj-$(CONFIG_ARCH_ROCKCHIP)		+= rockchip/
+ obj-$(CONFIG_COMMON_CLK_SAMSUNG)	+= samsung/
++obj-y					+= sifive/
+ obj-$(CONFIG_ARCH_SIRF)			+= sirf/
+ obj-$(CONFIG_ARCH_SOCFPGA)		+= socfpga/
+ obj-$(CONFIG_PLAT_SPEAR)		+= spear/
+diff --git a/drivers/clk/sifive/Kconfig b/drivers/clk/sifive/Kconfig
 new file mode 100644
-index 000000000000..d7c1e83fa5ed
+index 000000000000..8db4a3eb4782
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/sifive/fu540-prci.txt
-@@ -0,0 +1,43 @@
-+SiFive FU540 PRCI bindings
++++ b/drivers/clk/sifive/Kconfig
+@@ -0,0 +1,18 @@
++# SPDX-License-Identifier: GPL-2.0
 +
-+On the FU540 family of SoCs, most system-wide clock and reset integration
-+is via the PRCI IP block.
++menuconfig CLK_SIFIVE
++	bool "SiFive SoC driver support"
++	help
++	  SoC drivers for SiFive Linux-capable SoCs.
 +
-+Required properties:
-+- compatible: Should be "sifive,<chip>-prci<version>".  As of the time this
-+              file was written, only one value is supported:
-+	      "sifive,fu540-c000-prci0"
-+- reg: Should describe the PRCI's register target physical address region
-+- clocks: Should point to the hfclk device tree node and the rtcclk
-+          device tree node.  The RTC clock here is not a time-of-day clock,
-+	  but is instead a high-stability clock source for system timers
-+	  and cycle counters.
-+- #clock-cells: Should be <1>
++if CLK_SIFIVE
 +
-+The clock consumer should specify the desired clock via the clock ID
-+macros defined in include/linux/clk/sifive-fu540-prci.h.  These macros
-+begin with PRCI_CLK_.
++config CLK_SIFIVE_FU540_PRCI
++	bool "PRCI driver for SiFive FU540 SoCs"
++	select CLK_ANALOGBITS_WRPLL_CLN28HPC
++	help
++	  Supports the Power Reset Clock interface (PRCI) IP block found in
++	  FU540 SoCs.  If this kernel is meant to run on a SiFive FU540 SoC,
++	  enable this driver.
 +
-+The hfclk and rtcclk nodes are required, and represent physical
-+crystals or resonators located on the PCB.
++endif
+diff --git a/drivers/clk/sifive/Makefile b/drivers/clk/sifive/Makefile
+new file mode 100644
+index 000000000000..74d58a4c0756
+--- /dev/null
++++ b/drivers/clk/sifive/Makefile
+@@ -0,0 +1 @@
++obj-$(CONFIG_CLK_SIFIVE_FU540_PRCI)	+= fu540-prci.o
+diff --git a/drivers/clk/sifive/fu540-prci.c b/drivers/clk/sifive/fu540-prci.c
+new file mode 100644
+index 000000000000..870cb8333648
+--- /dev/null
++++ b/drivers/clk/sifive/fu540-prci.c
+@@ -0,0 +1,634 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2018 SiFive, Inc.
++ * Wesley Terpstra
++ * Paul Walmsley
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License version 2 as
++ * published by the Free Software Foundation.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * The FU540 PRCI implements clock and reset control for the SiFive
++ * FU540-C000 chip.   This driver assumes that it has sole control
++ * over all PRCI resources.
++ *
++ * This driver is based on the PRCI driver written by Wesley Terpstra:
++ * https://github.com/riscv/riscv-linux/commit/999529edf517ed75b56659d456d221b2ee56bb60
++ *
++ * References:
++ * - SiFive FU540-C000 manual v1p0, Chapter 7 "Clocking and Reset"
++ */
 +
-+Examples:
++#include <linux/clkdev.h>
++#include <linux/clk-provider.h>
++#include <linux/clk.h>
++#include <linux/clk/analogbits-wrpll-cln28hpc.h>
++#include <linux/delay.h>
++#include <linux/err.h>
++#include <linux/log2.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
++#include <linux/clk/sifive-fu540-prci.h>
 +
-+hfclk: hfclk {
-+	#clock-cells = <0>;
-+	compatible = "fixed-clock";
-+	clock-frequency = <33333333>;
-+	clock-output-names = "hfclk";
++/*
++ * EXPECTED_CLK_PARENT_COUNT: how many parent clocks this driver expects:
++ *     hfclk and rtcclk
++ */
++#define EXPECTED_CLK_PARENT_COUNT		2
++
++/*
++ * Register offsets and bitmasks
++ */
++
++/* COREPLLCFG0 */
++#define PRCI_COREPLLCFG0_OFFSET			0x4
++# define PRCI_COREPLLCFG0_DIVR_SHIFT		0
++# define PRCI_COREPLLCFG0_DIVR_MASK		(0x3f << PRCI_COREPLLCFG0_DIVR_SHIFT)
++# define PRCI_COREPLLCFG0_DIVF_SHIFT		6
++# define PRCI_COREPLLCFG0_DIVF_MASK		(0x1ff << PRCI_COREPLLCFG0_DIVF_SHIFT)
++# define PRCI_COREPLLCFG0_DIVQ_SHIFT		15
++# define PRCI_COREPLLCFG0_DIVQ_MASK		(0x7 << PRCI_COREPLLCFG0_DIVQ_SHIFT)
++# define PRCI_COREPLLCFG0_RANGE_SHIFT		18
++# define PRCI_COREPLLCFG0_RANGE_MASK		(0x7 << PRCI_COREPLLCFG0_RANGE_SHIFT)
++# define PRCI_COREPLLCFG0_BYPASS_SHIFT		24
++# define PRCI_COREPLLCFG0_BYPASS_MASK		(0x1 << PRCI_COREPLLCFG0_BYPASS_SHIFT)
++# define PRCI_COREPLLCFG0_FSE_SHIFT		25
++# define PRCI_COREPLLCFG0_FSE_MASK		(0x1 << PRCI_COREPLLCFG0_FSE_SHIFT)
++# define PRCI_COREPLLCFG0_LOCK_SHIFT		31
++# define PRCI_COREPLLCFG0_LOCK_MASK		(0x1 << PRCI_COREPLLCFG0_LOCK_SHIFT)
++
++/* DDRPLLCFG0 */
++#define PRCI_DDRPLLCFG0_OFFSET			0xc
++# define PRCI_DDRPLLCFG0_DIVR_SHIFT		0
++# define PRCI_DDRPLLCFG0_DIVR_MASK		(0x3f << PRCI_DDRPLLCFG0_DIVR_SHIFT)
++# define PRCI_DDRPLLCFG0_DIVF_SHIFT		6
++# define PRCI_DDRPLLCFG0_DIVF_MASK		(0x1ff << PRCI_DDRPLLCFG0_DIVF_SHIFT)
++# define PRCI_DDRPLLCFG0_DIVQ_SHIFT		15
++# define PRCI_DDRPLLCFG0_DIVQ_MASK		(0x7 << PRCI_DDRPLLCFG0_DIVQ_SHIFT)
++# define PRCI_DDRPLLCFG0_RANGE_SHIFT		18
++# define PRCI_DDRPLLCFG0_RANGE_MASK		(0x7 << PRCI_DDRPLLCFG0_RANGE_SHIFT)
++# define PRCI_DDRPLLCFG0_BYPASS_SHIFT		24
++# define PRCI_DDRPLLCFG0_BYPASS_MASK		(0x1 << PRCI_DDRPLLCFG0_BYPASS_SHIFT)
++# define PRCI_DDRPLLCFG0_FSE_SHIFT		25
++# define PRCI_DDRPLLCFG0_FSE_MASK		(0x1 << PRCI_DDRPLLCFG0_FSE_SHIFT)
++# define PRCI_DDRPLLCFG0_LOCK_SHIFT		31
++# define PRCI_DDRPLLCFG0_LOCK_MASK		(0x1 << PRCI_DDRPLLCFG0_LOCK_SHIFT)
++
++/* DDRPLLCFG1 */
++#define PRCI_DDRPLLCFG1_OFFSET			0x10
++# define PRCI_DDRPLLCFG1_CKE_SHIFT		24
++# define PRCI_DDRPLLCFG1_CKE_MASK		(0x1 << PRCI_DDRPLLCFG1_CKE_SHIFT)
++
++/* GEMGXLPLLCFG0 */
++#define PRCI_GEMGXLPLLCFG0_OFFSET		0x1c
++# define PRCI_GEMGXLPLLCFG0_DIVR_SHIFT		0
++# define PRCI_GEMGXLPLLCFG0_DIVR_MASK		(0x3f << PRCI_GEMGXLPLLCFG0_DIVR_SHIFT)
++# define PRCI_GEMGXLPLLCFG0_DIVF_SHIFT		6
++# define PRCI_GEMGXLPLLCFG0_DIVF_MASK		(0x1ff << PRCI_GEMGXLPLLCFG0_DIVF_SHIFT)
++# define PRCI_GEMGXLPLLCFG0_DIVQ_SHIFT		15
++# define PRCI_GEMGXLPLLCFG0_DIVQ_MASK		(0x7 << PRCI_GEMGXLPLLCFG0_DIVQ_SHIFT)
++# define PRCI_GEMGXLPLLCFG0_RANGE_SHIFT		18
++# define PRCI_GEMGXLPLLCFG0_RANGE_MASK		(0x7 << PRCI_GEMGXLPLLCFG0_RANGE_SHIFT)
++# define PRCI_GEMGXLPLLCFG0_BYPASS_SHIFT	24
++# define PRCI_GEMGXLPLLCFG0_BYPASS_MASK		(0x1 << PRCI_GEMGXLPLLCFG0_BYPASS_SHIFT)
++# define PRCI_GEMGXLPLLCFG0_FSE_SHIFT		25
++# define PRCI_GEMGXLPLLCFG0_FSE_MASK		(0x1 << PRCI_GEMGXLPLLCFG0_FSE_SHIFT)
++# define PRCI_GEMGXLPLLCFG0_LOCK_SHIFT		31
++# define PRCI_GEMGXLPLLCFG0_LOCK_MASK		(0x1 << PRCI_GEMGXLPLLCFG0_LOCK_SHIFT)
++
++/* GEMGXLPLLCFG1 */
++#define PRCI_GEMGXLPLLCFG1_OFFSET		0x20
++# define PRCI_GEMGXLPLLCFG1_CKE_SHIFT		24
++# define PRCI_GEMGXLPLLCFG1_CKE_MASK		(0x1 << PRCI_GEMGXLPLLCFG1_CKE_SHIFT)
++
++/* CORECLKSEL */
++#define PRCI_CORECLKSEL_OFFSET			0x24
++# define PRCI_CORECLKSEL_CORECLKSEL_SHIFT	0
++# define PRCI_CORECLKSEL_CORECLKSEL_MASK	(0x1 << PRCI_CORECLKSEL_CORECLKSEL_SHIFT)
++
++/* DEVICESRESETREG */
++#define PRCI_DEVICESRESETREG_OFFSET			0x28
++# define PRCI_DEVICESRESETREG_DDR_CTRL_RST_N_SHIFT	0
++# define PRCI_DEVICESRESETREG_DDR_CTRL_RST_N_MASK	(0x1 << PRCI_DEVICESRESETREG_DDR_CTRL_RST_N_SHIFT)
++# define PRCI_DEVICESRESETREG_DDR_AXI_RST_N_SHIFT	1
++# define PRCI_DEVICESRESETREG_DDR_AXI_RST_N_MASK	(0x1 << PRCI_DEVICESRESETREG_DDR_AXI_RST_N_SHIFT)
++# define PRCI_DEVICESRESETREG_DDR_AHB_RST_N_SHIFT	2
++# define PRCI_DEVICESRESETREG_DDR_AHB_RST_N_MASK	(0x1 << PRCI_DEVICESRESETREG_DDR_AHB_RST_N_SHIFT)
++# define PRCI_DEVICESRESETREG_DDR_PHY_RST_N_SHIFT	3
++# define PRCI_DEVICESRESETREG_DDR_PHY_RST_N_MASK	(0x1 << PRCI_DEVICESRESETREG_DDR_PHY_RST_N_SHIFT)
++# define PRCI_DEVICESRESETREG_GEMGXL_RST_N_SHIFT	5
++# define PRCI_DEVICESRESETREG_GEMGXL_RST_N_MASK		(0x1 << PRCI_DEVICESRESETREG_GEMGXL_RST_N_SHIFT)
++
++/* CLKMUXSTATUSREG */
++#define PRCI_CLKMUXSTATUSREG_OFFSET			0x2c
++# define PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_SHIFT	1
++# define PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_MASK	(0x1 << PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_SHIFT)
++
++/*
++ * Private structures
++ */
++
++/**
++ * struct __prci_data - per-device-instance data
++ * @va: base virtual address of the PRCI IP block
++ * @hw_clks: encapsulates struct clk_hw records
++ *
++ * PRCI per-device instance data
++ */
++struct __prci_data {
++	void __iomem *va;
++	struct clk_hw_onecell_data hw_clks;
 +};
-+rtcclk: rtcclk {
-+	#clock-cells = <0>;
-+	compatible = "fixed-clock";
-+	clock-frequency = <1000000>;
-+	clock-output-names = "rtcclk";
++
++/**
++ * struct __prci_wrpll_data - WRPLL configuration and integration data
++ * @c: WRPLL current configuration record
++ * @bypass: fn ptr to code to bypass the WRPLL (if applicable; else NULL)
++ * @no_bypass: fn ptr to code to not bypass the WRPLL (if applicable; else NULL)
++ * @cfg0_offs: WRPLL CFG0 register offset (in bytes) from the PRCI base address
++ *
++ * @bypass and @no_bypass are used for WRPLL instances that contain a separate
++ * external glitchless clock mux downstream from the PLL.  The WRPLL internal
++ * bypass mux is not glitchless.
++ */
++struct __prci_wrpll_data {
++	struct analogbits_wrpll_cfg c;
++	void (*bypass)(struct __prci_data *pd);
++	void (*no_bypass)(struct __prci_data *pd);
++	u8 cfg0_offs;
 +};
-+prci0: prci@10000000 {
-+	compatible = "sifive,fu540-c000-prci0";
-+	reg = <0x0 0x10000000 0x0 0x1000>;
-+	clocks = <&hfclk>, <&rtcclk>;
-+	#clock-cells = <1>;
++
++/**
++ * struct __prci_clock - describes a clock device managed by PRCI
++ * @name: user-readable clock name string - should match the manual
++ * @parent_name: parent name for this clock
++ * @ops: struct clk_ops for the Linux clock framework to use for control
++ * @hw: Linux-private clock data
++ * @pwd: WRPLL-specific data, associated with this clock (if not NULL)
++ * @pd: PRCI-specific data associated with this clock (if not NULL)
++ *
++ * PRCI clock data.  Used by the PRCI driver to register PRCI-provided
++ * clocks to the Linux clock infrastructure.
++ */
++struct __prci_clock {
++	const char *name;
++	const char *parent_name;
++	const struct clk_ops *ops;
++	struct clk_hw hw;
++	struct __prci_wrpll_data *pwd;
++	struct __prci_data *pd;
 +};
++
++#define clk_hw_to_prci_clock(pwd) container_of(pwd, struct __prci_clock, hw)
++
++/*
++ * Private functions
++ */
++
++/**
++ * __prci_readl() - read from a PRCI register
++ * @pd: PRCI context
++ * @offs: register offset to read from (in bytes, from PRCI base address)
++ *
++ * Read the register located at offset @offs from the base virtual
++ * address of the PRCI register target described by @pd, and return
++ * the value to the caller.
++ *
++ * Context: Any context.
++ *
++ * Return: the contents of the register described by @pd and @offs.
++ */
++static u32 __prci_readl(struct __prci_data *pd, u32 offs)
++{
++	return readl_relaxed(pd->va + offs);
++}
++
++static void __prci_writel(u32 v, u32 offs, struct __prci_data *pd)
++{
++	return writel_relaxed(v, pd->va + offs);
++}
++
++/* WRPLL-related private functions */
++
++/**
++ * __prci_wrpll_unpack() - unpack WRPLL configuration registers into parameters
++ * @c: ptr to a struct analogbits_wrpll_cfg record to write config into
++ * @r: value read from the PRCI PLL configuration register
++ *
++ * Given a value @r read from an FU540 PRCI PLL configuration register,
++ * split it into fields and populate it into the WRPLL configuration record
++ * pointed to by @c.
++ *
++ * The COREPLLCFG0 macros are used below, but the other *PLLCFG0 macros
++ * have the same register layout.
++ *
++ * Context: Any context.
++ */
++static void __prci_wrpll_unpack(struct analogbits_wrpll_cfg *c, u32 r)
++{
++	u32 v;
++
++	v = r & PRCI_COREPLLCFG0_DIVR_MASK;
++	v >>= PRCI_COREPLLCFG0_DIVR_SHIFT;
++	c->divr = v;
++
++	v = r & PRCI_COREPLLCFG0_DIVF_MASK;
++	v >>= PRCI_COREPLLCFG0_DIVF_SHIFT;
++	c->divf = v;
++
++	v = r & PRCI_COREPLLCFG0_DIVQ_MASK;
++	v >>= PRCI_COREPLLCFG0_DIVQ_SHIFT;
++	c->divq = v;
++
++	v = r & PRCI_COREPLLCFG0_RANGE_MASK;
++	v >>= PRCI_COREPLLCFG0_RANGE_SHIFT;
++	c->range = v;
++
++	c->flags &= (WRPLL_FLAGS_INT_FEEDBACK_MASK |
++		     WRPLL_FLAGS_EXT_FEEDBACK_MASK);
++
++	if (r & PRCI_COREPLLCFG0_FSE_MASK)
++		c->flags |= WRPLL_FLAGS_INT_FEEDBACK_MASK;
++	else
++		c->flags |= WRPLL_FLAGS_EXT_FEEDBACK_MASK;
++}
++
++/**
++ * __prci_wrpll_pack() - pack PLL configuration parameters into a register value
++ * @c: pointer to a struct analogbits_wrpll_cfg record containing the PLL's cfg
++ *
++ * Using a set of WRPLL configuration values pointed to by @c,
++ * assemble a PRCI PLL configuration register value, and return it to
++ * the caller.
++ *
++ * Context: Any context.  Caller must ensure that the contents of the
++ *          record pointed to by @c do not change during the execution
++ *          of this function.
++ *
++ * Returns: a value suitable for writing into a PRCI PLL configuration
++ *          register
++ */
++static u32 __prci_wrpll_pack(struct analogbits_wrpll_cfg *c)
++{
++	u32 r = 0;
++
++	r |= c->divr << PRCI_COREPLLCFG0_DIVR_SHIFT;
++	r |= c->divf << PRCI_COREPLLCFG0_DIVF_SHIFT;
++	r |= c->divq << PRCI_COREPLLCFG0_DIVQ_SHIFT;
++	r |= c->range << PRCI_COREPLLCFG0_RANGE_SHIFT;
++	if (c->flags & WRPLL_FLAGS_INT_FEEDBACK_MASK)
++		r |= PRCI_COREPLLCFG0_FSE_MASK;
++
++	return r;
++}
++
++/**
++ * __prci_wrpll_read_cfg() - read the WRPLL configuration from the PRCI
++ * @pd: PRCI context
++ * @pwd: PRCI WRPLL metadata
++ *
++ * Read the current configuration of the PLL identified by @pwd from
++ * the PRCI identified by @pd, and store it into the local configuration
++ * cache in @pwd.
++ *
++ * Context: Any context.  Caller must prevent the records pointed to by
++ *          @pd and @pwd from changing during execution.
++ */
++static void __prci_wrpll_read_cfg(struct __prci_data *pd,
++				  struct __prci_wrpll_data *pwd)
++{
++	__prci_wrpll_unpack(&pwd->c, __prci_readl(pd, pwd->cfg0_offs));
++}
++
++/**
++ * __prci_wrpll_write_cfg() - write WRPLL configuration into the PRCI
++ * @pd: PRCI context
++ * @pwd: PRCI WRPLL metadata
++ * @c: WRPLL configuration record to write
++ *
++ * Write the WRPLL configuration described by @c into the WRPLL
++ * configuration register identified by @pwd in the PRCI instance
++ * described by @c.  Make a cached copy of the WRPLL's current
++ * configuration so it can be used by other code.
++ *
++ * Context: Any context.  Caller must prevent the records pointed to by
++ *          @pd and @pwd from changing during execution.
++ */
++static void __prci_wrpll_write_cfg(struct __prci_data *pd,
++				   struct __prci_wrpll_data *pwd,
++				   struct analogbits_wrpll_cfg *c)
++{
++	__prci_writel(__prci_wrpll_pack(c), pwd->cfg0_offs, pd);
++
++	memcpy(&pwd->c, c, sizeof(struct analogbits_wrpll_cfg));
++}
++
++/* Core clock mux control */
++
++/**
++ * __prci_coreclksel_use_hfclk() - switch the CORECLK mux to output HFCLK
++ * @pd: struct __prci_data * for the PRCI containing the CORECLK mux reg
++ *
++ * Switch the CORECLK mux to the HFCLK input source; return once complete.
++ *
++ * Context: Any context.  Caller must prevent concurrent changes to the
++ *          PRCI_CORECLKSEL_OFFSET register.
++ */
++static void __prci_coreclksel_use_hfclk(struct __prci_data *pd)
++{
++	u32 r;
++
++	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);
++	r |= PRCI_CORECLKSEL_CORECLKSEL_MASK;
++	__prci_writel(r, PRCI_CORECLKSEL_OFFSET, pd);
++
++	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET); /* barrier */
++}
++
++/**
++ * __prci_coreclksel_use_corepll() - switch the CORECLK mux to output COREPLL
++ * @pd: struct __prci_data * for the PRCI containing the CORECLK mux reg
++ *
++ * Switch the CORECLK mux to the PLL output clock; return once complete.
++ *
++ * Context: Any context.  Caller must prevent concurrent changes to the
++ *          PRCI_CORECLKSEL_OFFSET register.
++ */
++static void __prci_coreclksel_use_corepll(struct __prci_data *pd)
++{
++	u32 r;
++
++	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);
++	r &= ~PRCI_CORECLKSEL_CORECLKSEL_MASK;
++	__prci_writel(r, PRCI_CORECLKSEL_OFFSET, pd);
++
++	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET); /* barrier */
++}
++
++/*
++ * Linux clock framework integration
++ *
++ * See the Linux clock framework documentation for more information on
++ * these functions.
++ */
++
++static unsigned long sifive_fu540_prci_wrpll_recalc_rate(struct clk_hw *hw,
++							 unsigned long parent_rate)
++{
++	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
++	struct __prci_wrpll_data *pwd = pc->pwd;
++
++	return analogbits_wrpll_calc_output_rate(&pwd->c, parent_rate);
++}
++
++static long sifive_fu540_prci_wrpll_round_rate(struct clk_hw *hw,
++					       unsigned long rate,
++					       unsigned long *parent_rate)
++{
++	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
++	struct __prci_wrpll_data *pwd = pc->pwd;
++	struct analogbits_wrpll_cfg c;
++
++	memcpy(&c, &pwd->c, sizeof(c));
++
++	analogbits_wrpll_configure_for_rate(&c, rate, *parent_rate);
++
++	return analogbits_wrpll_calc_output_rate(&c, *parent_rate);
++}
++
++static int sifive_fu540_prci_wrpll_set_rate(struct clk_hw *hw,
++					    unsigned long rate,
++					    unsigned long parent_rate)
++{
++	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
++	struct __prci_wrpll_data *pwd = pc->pwd;
++	struct __prci_data *pd = pc->pd;
++	int r;
++
++	r = analogbits_wrpll_configure_for_rate(&pwd->c, rate, parent_rate);
++	if (r)
++		return -ERANGE;
++
++	if (pwd->bypass)
++		pwd->bypass(pd);
++
++	__prci_wrpll_write_cfg(pd, pwd, &pwd->c);
++
++	udelay(analogbits_wrpll_calc_max_lock_us(&pwd->c));
++
++	if (pwd->no_bypass)
++		pwd->no_bypass(pd);
++
++	return 0;
++}
++
++static const struct clk_ops sifive_fu540_prci_wrpll_clk_ops = {
++	.set_rate = sifive_fu540_prci_wrpll_set_rate,
++	.round_rate = sifive_fu540_prci_wrpll_round_rate,
++	.recalc_rate = sifive_fu540_prci_wrpll_recalc_rate,
++};
++
++static const struct clk_ops sifive_fu540_prci_wrpll_ro_clk_ops = {
++	.recalc_rate = sifive_fu540_prci_wrpll_recalc_rate,
++};
++
++/* TLCLKSEL clock integration */
++
++static unsigned long sifive_fu540_prci_tlclksel_recalc_rate(struct clk_hw *hw,
++							    unsigned long parent_rate)
++{
++	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
++	struct __prci_data *pd = pc->pd;
++	u32 v;
++	u8 div;
++
++	v = __prci_readl(pd, PRCI_CLKMUXSTATUSREG_OFFSET);
++	v &= PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_MASK;
++	div = v ? 1 : 2;
++
++	return div_u64(parent_rate, div);
++}
++
++static const struct clk_ops sifive_fu540_prci_tlclksel_clk_ops = {
++	.recalc_rate = sifive_fu540_prci_tlclksel_recalc_rate,
++};
++
++/*
++ * PRCI integration data for each WRPLL instance
++ */
++
++static struct __prci_wrpll_data __prci_corepll_data = {
++	.cfg0_offs = PRCI_COREPLLCFG0_OFFSET,
++	.bypass = __prci_coreclksel_use_hfclk,
++	.no_bypass = __prci_coreclksel_use_corepll,
++};
++
++static struct __prci_wrpll_data __prci_ddrpll_data = {
++	.cfg0_offs = PRCI_DDRPLLCFG0_OFFSET,
++};
++
++static struct __prci_wrpll_data __prci_gemgxlpll_data = {
++	.cfg0_offs = PRCI_GEMGXLPLLCFG0_OFFSET,
++};
++
++/*
++ * List of clock controls provided by the PRCI
++ */
++
++static struct __prci_clock __prci_init_clocks[] = {
++	[PRCI_CLK_COREPLL] = {
++		.name = "corepll",
++		.parent_name = "hfclk",
++		.ops = &sifive_fu540_prci_wrpll_clk_ops,
++		.pwd = &__prci_corepll_data,
++	},
++	[PRCI_CLK_DDRPLL] = {
++		.name = "ddrpll",
++		.parent_name = "hfclk",
++		.ops = &sifive_fu540_prci_wrpll_ro_clk_ops,
++		.pwd = &__prci_ddrpll_data,
++	},
++	[PRCI_CLK_GEMGXLPLL] = {
++		.name = "gemgxlpll",
++		.parent_name = "hfclk",
++		.ops = &sifive_fu540_prci_wrpll_clk_ops,
++		.pwd = &__prci_gemgxlpll_data,
++	},
++	[PRCI_CLK_TLCLK] = {
++		.name = "tlclk",
++		.parent_name = "corepll",
++		.ops = &sifive_fu540_prci_tlclksel_clk_ops,
++	},
++};
++
++/**
++ * __prci_register_clocks() - register clock controls in the PRCI with Linux
++ * @dev: Linux struct device *
++ *
++ * Register the list of clock controls described in __prci_init_plls[] with
++ * the Linux clock framework.
++ *
++ * Return: 0 upon success or a negative Linux error code upon failure.
++ */
++static int __prci_register_clocks(struct device *dev)
++{
++	struct __prci_data *pd = dev_get_drvdata(dev);
++	struct clk_init_data init;
++	struct __prci_clock *pic;
++	int parent_count, i, clk_hw_count, r;
++
++	parent_count = of_clk_get_parent_count(dev->of_node);
++	if (parent_count != EXPECTED_CLK_PARENT_COUNT) {
++		dev_err(dev, "expected two parent clocks, only found %d\n",
++			parent_count);
++		return -EINVAL;
++	}
++
++	memset(&init, 0, sizeof(struct clk_init_data));
++
++	/* Register PLLs */
++	clk_hw_count = sizeof(__prci_init_clocks) / sizeof(struct __prci_clock);
++
++	for (i = 0; i < clk_hw_count; ++i) {
++		pic = &__prci_init_clocks[i];
++
++		init.name = pic->name;
++		init.parent_names = (const char *[]) { pic->parent_name };
++		init.num_parents = 1;
++		init.ops = pic->ops;
++		init.flags = CLK_IGNORE_UNUSED;
++		pic->hw.init = &init;
++
++		pic->pd = pd;
++
++		if (pic->pwd)
++			__prci_wrpll_read_cfg(pd, pic->pwd);
++
++		r = devm_clk_hw_register(dev, &pic->hw);
++		if (r) {
++			dev_warn(dev, "Failed to register clock %s: %d\n",
++				 init.name, r);
++			return r;
++		}
++
++		r = clk_hw_register_clkdev(&pic->hw, pic->name, dev_name(dev));
++		if (r) {
++			dev_warn(dev, "Failed to register clkdev for %s: %d\n",
++				 init.name, r);
++			return r;
++		}
++
++		pd->hw_clks.hws[i] = &pic->hw;
++	}
++
++	pd->hw_clks.num = i;
++
++	r = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
++					&pd->hw_clks);
++	if (r) {
++		dev_err(dev, "could not add hw_provider: %d\n", r);
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++/*
++ * Linux device model integration
++ *
++ * See the Linux device model documentation for more information about
++ * these functions.
++ */
++static int sifive_fu540_prci_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct resource *res;
++	struct __prci_data *pd;
++	int r;
++
++	pd = devm_kzalloc(dev, sizeof(struct __prci_data), GFP_KERNEL);
++	if (!pd)
++		return -ENOMEM;
++
++	dev_set_drvdata(dev, pd);
++
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	pd->va = devm_ioremap_resource(dev, res);
++	if (IS_ERR(pd->va))
++		return PTR_ERR(pd->va);
++
++	r = __prci_register_clocks(dev);
++	if (r) {
++		dev_err(dev, "could not register clocks: %d\n", r);
++		return -EINVAL;
++	}
++
++	dev_info(dev, "SiFive FU540 PRCI probed\n");
++
++	return 0;
++}
++
++static const struct of_device_id sifive_fu540_prci_of_match[] = {
++	{ .compatible = "sifive,fu540-c000-prci0", },
++	{}
++};
++
++static struct platform_driver sifive_fu540_prci_driver = {
++	.driver	= {
++		.name = "sifive-fu540-prci",
++		.of_match_table = sifive_fu540_prci_of_match,
++	},
++	.probe = sifive_fu540_prci_probe,
++};
++
++static int __init sifive_fu540_prci_init(void)
++{
++	return platform_driver_register(&sifive_fu540_prci_driver);
++}
++core_initcall(sifive_fu540_prci_init);
+diff --git a/include/linux/clk/sifive-fu540-prci.h b/include/linux/clk/sifive-fu540-prci.h
+new file mode 100644
+index 000000000000..5d03eae7d4ef
+--- /dev/null
++++ b/include/linux/clk/sifive-fu540-prci.h
+@@ -0,0 +1,27 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2018 SiFive, Inc.
++ * Wesley Terpstra
++ * Paul Walmsley
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License version 2 as
++ * published by the Free Software Foundation.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ */
++
++#ifndef __LINUX_CLK_SIFIVE_FU540_PRCI_H
++#define __LINUX_CLK_SIFIVE_FU540_PRCI_H
++
++/* Clock indexes for use by Device Tree data */
++
++#define PRCI_CLK_COREPLL		0
++#define PRCI_CLK_DDRPLL			1
++#define PRCI_CLK_GEMGXLPLL		2
++#define PRCI_CLK_TLCLK			3
++
++#endif
 -- 
 2.19.1
 
