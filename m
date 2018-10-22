@@ -1,81 +1,90 @@
-Return-Path: <SRS0=U2Mo=NA=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=qhrg=NC=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 82D0AECDE3D
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 20 Oct 2018 14:22:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 835C0C67863
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 22 Oct 2018 12:04:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5502021534
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 20 Oct 2018 14:22:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 50F6520652
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 22 Oct 2018 12:04:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OWTJJcH4";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="j0H+dFP/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5502021534
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Txk0u3nA";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="kN56Gi4O"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 50F6520652
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oO1QfdRdzBRJrltIgjTmaGaZ6zOhYyhojCO1AVTCO8g=; b=OWTJJcH43iDdx/
-	hodbTt1VWBqlhznLZE4RAP+l4YvLoJOP3GzcYWaWmOxmzpwupdnXMdfCY7gBG1z1khjMqgYorPqbO
-	Q6mprBeEvVy1O6aD9A4F9KDBbYXdUPeMeublzOEjgaSB01aEVnZY3JBxARBPYwv/OKohhaYbKJyzQ
-	jcvNyOGm+lN8I4/M5bG4MP7PfAJQcNrAC0THqowphbEMbDrAshHpJf52EbwASD+hPRiv3SwfCAVqZ
-	kI1dyblSUt3OEDjch1W2bKdTQwA7lEMqNCeMYZc9eq21KeqlB0LXijuMmVw0SfN1xAtakIsbDND4W
-	lQ3G433lRqbqt2EPoriQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=C8kIFWGU1pKw1YVDwBKbnNtnjGWOZZ7I1fHbS5uQZW4=; b=Txk
+	0u3nAmNQa2sGqMakZjHMnoQw/mJkijiAxZ0nwrYWLJKqPN+b5TK1cCj+oIw+xdj6iCUMKX3JrWRJp
+	4u04geAOPWp5MHPzM60aJBu0kvSkW8/0KNqvIGOQPmS8Moy/6vmWjtOw4Q+e0oUk+RimkAooI75YE
+	pjIY1Ia/fvu9DYEdsgfZ/l4SvaLh/IBDIqd2DwWq+yTRP6gKZbfA2zRhY8wpeXylFpG2LkIYElZa/
+	9fAo30B9W9bZomYwAUHDpHHduagmx4SFyeoya8rjDecueflNDh/XlouSK+KteVwURKRNZkVJ8eOXf
+	Sy926rtAG4FiRQM3PDO3kz4+4VxahCQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gDs8m-000375-LL; Sat, 20 Oct 2018 14:22:08 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1gEYwA-0007VO-BP; Mon, 22 Oct 2018 12:03:58 +0000
+Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gDs8j-00036E-7w
- for linux-riscv@lists.infradead.org; Sat, 20 Oct 2018 14:22:07 +0000
-Received: from mail-qt1-f178.google.com (mail-qt1-f178.google.com
- [209.85.160.178])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 7ED792154C
- for <linux-riscv@lists.infradead.org>; Sat, 20 Oct 2018 14:21:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1540045314;
- bh=+40t+JokEkPKqjA0ZzxhopmJPSulcQLzupa1A3k6mn4=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=j0H+dFP/92P57M9unZq3GMC4bFqGbY3BJzIsL/pIq8AL02ZmLry9U8Lr+tX8UMJCO
- 0YddfIRN9VSjXCjN3ilhx2oLHmlOD0PEqoDVy2gT8GV1XfRTnNGEklE4GBRHZtoJ05
- 6GRGrW9SINyVZTHdUit0ZPeLvp37xpsuPs+3FvV8=
-Received: by mail-qt1-f178.google.com with SMTP id k3-v6so5706949qth.2
- for <linux-riscv@lists.infradead.org>; Sat, 20 Oct 2018 07:21:54 -0700 (PDT)
-X-Gm-Message-State: ABuFfohVIL8Xtr0Q+Yr78e3du8uuXeP7b6Wy6pZ8UH8nczg4qGwPJnrz
- w4qsXaAr1aztn4GrWFr/qa62NoSSdeXaxFXeIA==
-X-Google-Smtp-Source: ACcGV61df+RWMC8bsOb3xGtJVPKx/CBY/H1zZXHSGDssuM6/+Bm1ERhEOT+HlpvxupU4JSClLLL3ussaiaMgroDiV10=
-X-Received: by 2002:ac8:1701:: with SMTP id w1-v6mr4831981qtj.76.1540045313584; 
- Sat, 20 Oct 2018 07:21:53 -0700 (PDT)
-MIME-Version: 1.0
-References: <20181019184827.12351-1-paul.walmsley@sifive.com>
- <20181019184827.12351-2-paul.walmsley@sifive.com>
- <CAL_JsqJBSqaxnETdJg1Mdp+H2ay+WKT0JaxLe6D4Fwo_99qUkw@mail.gmail.com>
- <4317548d-f831-29ba-3be9-35f080587db9@sifive.com>
-In-Reply-To: <4317548d-f831-29ba-3be9-35f080587db9@sifive.com>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Sat, 20 Oct 2018 09:21:42 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqLagTgjDhZ02X=wPFDB4WF2bR7=LyzSW9D=ooo_XB_zOg@mail.gmail.com>
-Message-ID:
- <CAL_JsqLagTgjDhZ02X=wPFDB4WF2bR7=LyzSW9D=ooo_XB_zOg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: serial: add documentation for the
- SiFive UART driver
-To: Paul Walmsley <paul.walmsley@sifive.com>
+ id 1gEYw4-0007U3-7N
+ for linux-riscv@lists.infradead.org; Mon, 22 Oct 2018 12:03:55 +0000
+Received: by mail-pg1-x542.google.com with SMTP id 23-v6so18915947pgc.8
+ for <linux-riscv@lists.infradead.org>; Mon, 22 Oct 2018 05:03:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=from:to:cc:subject:date:message-id;
+ bh=dWqYib6c7YCfkEeuiyUid02W5JbWuq8jXJrrJ2nv3tM=;
+ b=kN56Gi4O7/FFa2Xc//BlTk+VZ0+ZxduRW9DN3Dd53WYr/HYBuvZ4EEavfu3eSh1or3
+ vc1yIfpRosWXeT6rDEJwKWOcCXREstmPIHvN+A1eVBbik0fHkwqxx7KFXJbte3Bm6A7m
+ 3ikyCJcR6/yhpbX2a0/b9DQofhzvjSDb/7AuLxXk9tUCLunlnwoWdAqtrm5nEaIMU1sZ
+ 7Pnhehag+gPyq2f/E6D/ReMQ5H0FuhHFoL7FjKzfYjpBSfLFLZp5edp+0+rn3uR2WY9O
+ +ZwluxBDBXvmTYkjb6OqSA1B54nFMV9gb7nD29phNvaY4XfV3SEp3jnWv9J+sIZDnUf6
+ Lqaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=dWqYib6c7YCfkEeuiyUid02W5JbWuq8jXJrrJ2nv3tM=;
+ b=lQ8VKg/w+HQ8AIW3fidQ0crVsvZqCsHFiYZx6RKggcdy5f9Lov5I4DBEzvwMfqTqo3
+ Z2TAoEPCx9KaVc86TmINLEaVL+dTSBTaKtoU1mS3KgW9daXHgGcfujW9VkZca5qbVePO
+ tAt7wG85zym76t1FI+dtlcvc+yc+9I8e+LYG2xXzyH8cyNZXkwom8J0RfHN4g+i5L/xz
+ 0ATvViLcNFeSbG2WcbpsNdAwGf1zDz1maZlfcLLQAJ899++Pr7rUuMZ42uTthW0vIEqf
+ PnwTeZSezSZlCRWY8/HOm8pES5lMmQJQIz4AMe5Yc4hwp4mPX/DUs0KE5eA569k3F0KC
+ Amhw==
+X-Gm-Message-State: ABuFfoi67YC6wgqo0Kvjrg9xG/UpDR+97yQbjID2ah0oLFW5HiWGJ4fT
+ 7m3gGvE53adPWLqCZl/G9/s+4g==
+X-Google-Smtp-Source: ACcGV63LjxoASoVU0N9GOjkHm3GIxpYGE+VrCNf3317VMFiXHXpyw88po3hVN1ovB/orTf4wqrA9aQ==
+X-Received: by 2002:a63:584f:: with SMTP id
+ i15-v6mr42745920pgm.178.1540209820537; 
+ Mon, 22 Oct 2018 05:03:40 -0700 (PDT)
+Received: from anup-ubuntu64.dlink.router ([106.51.30.16])
+ by smtp.googlemail.com with ESMTPSA id
+ n79-v6sm55443405pfk.19.2018.10.22.05.03.36
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 22 Oct 2018 05:03:39 -0700 (PDT)
+From: Anup Patel <anup@brainfault.org>
+To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Jason Cooper <jason@lakedaemon.net>,
+ Marc Zyngier <marc.zyngier@arm.com>
+Subject: [PATCH 0/4] IRQ affinity support in PLIC driver
+Date: Mon, 22 Oct 2018 17:15:13 +0530
+Message-Id: <20181022114517.22748-1-anup@brainfault.org>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181020_072205_319665_E856A939 
-X-CRM114-Status: GOOD (  25.43  )
+X-CRM114-CacheID: sfid-20181022_050352_431254_2AD49123 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -87,111 +96,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Paul Walmsley <paul@pwsan.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Palmer Dabbelt <palmer@sifive.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- linux-riscv@lists.infradead.org
+Cc: Christoph Hellwig <hch@infradead.org>, Atish Patra <atish.patra@wdc.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Anup Patel <anup@brainfault.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181020142142.7qHm63BhOlYIciZkT2zji1pWKL35gxOs_Xn9gQj1MG0@z>
+Message-ID: <20181022114513.BGPyU_49towu8zTIHXk6W8klLQNpdz9ZJ-N-IPXScEI@z>
 
-On Fri, Oct 19, 2018 at 5:06 PM Paul Walmsley <paul.walmsley@sifive.com> wrote:
->
->
-> On 10/19/18 1:45 PM, Rob Herring wrote:
-> > On Fri, Oct 19, 2018 at 1:48 PM Paul Walmsley <paul.walmsley@sifive.com> wrote:
-> >> Add DT binding documentation for the Linux driver for the SiFive
-> >> asynchronous serial IP block.  Nothing too exotic.
-> >>
-> >> Cc: linux-serial@vger.kernel.org
-> >> Cc: devicetree@vger.kernel.org
-> >> Cc: linux-riscv@lists.infradead.org
-> >> Cc: linux-kernel@vger.kernel.org
-> >> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> >> Cc: Rob Herring <robh+dt@kernel.org>
-> >> Cc: Mark Rutland <mark.rutland@arm.com>
-> >> Cc: Palmer Dabbelt <palmer@sifive.com>
-> >> Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
-> >> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-> >> Signed-off-by: Paul Walmsley <paul@pwsan.com>
-> >> ---
-> >>   .../bindings/serial/sifive-serial.txt         | 21 +++++++++++++++++++
-> >>   1 file changed, 21 insertions(+)
-> >>   create mode 100644 Documentation/devicetree/bindings/serial/sifive-serial.txt
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/serial/sifive-serial.txt b/Documentation/devicetree/bindings/serial/sifive-serial.txt
-> >> new file mode 100644
-> >> index 000000000000..8982338512f5
-> >> --- /dev/null
-> >> +++ b/Documentation/devicetree/bindings/serial/sifive-serial.txt
-> >> @@ -0,0 +1,21 @@
-> >> +SiFive asynchronous serial interface (UART)
-> >> +
-> >> +Required properties:
-> >> +
-> >> +- compatible: should be "sifive,fu540-c000-uart0" or "sifive,uart0"
-> > I assume once again, the last '0' is a version?
->
->
-> Yes.
->
->
-> > Palmer mentioned the
-> > compatible string is part of the IP block repository?
->
->
-> It is, but there's no guarantee that the compatible string from the RTL
-> will make it into a ROM for any given chip.  For example, a customer may
-> want the UART, but not want to take the DT ROM to keep area down.
+This patchset primarily adds IRQ affinity support in PLIC driver and
+other improvements.
 
-Optional? Well, that's pointless to have then.
+The patchset gives mechanism for explicitly routing external interrupts to
+particular CPUs using smp_affinity attribute of each Linux IRQs. Also, we
+can now use IRQ balancer from kernel-space or user-space.
 
-> This is one of the reasons why we'll likely switch to the usual
-> software-maintained DTS files for Linux, just like the rest of arch/arm,
-> arch/powerpc, etc.
+The patchset is tested on QEMU virt machine. It is based on Linux-4.19-rc2
+and can be found at riscv_plic_irq_affinity_v1 branch of:
+https://github.com/avpatel/linux.git
 
-Then you should probably just follow normal conventions.
+Anup Patel (4):
+  irqchip: sifive-plic: Pre-compute context hart base and enable base
+  irqchip: sifive-plic: More flexible plic_irq_toggle()
+  irqchip: sifive-plic: Differentiate between PLIC handler and context
+  irqchip: sifive-plic: Implement irq_set_affinity() for SMP host
 
-I don't think DT in the h/w is the best strategy anyways. Ideally,
-what the h/w should have are version and capabilities (assuming there
-are configuration options) registers which aren't optional and can't
-be forgotten to be updated. The version should probably have a vendor
-too.
+ drivers/irqchip/irq-sifive-plic.c | 164 ++++++++++++++++++------------
+ 1 file changed, 99 insertions(+), 65 deletions(-)
 
-> > As I mentioned for the
-> > intc and now the pwm block bindings, if you are going to do version
-> > numbers please document the versioning scheme.
->
->
-> Will add that to the binding document.
+-- 
+2.17.1
 
-I don't seem to be making my point clear. I don't want any of this
-added to a binding doc for particular IP blocks. Write a common doc
-that explains the scheme and addresses the questions I asked. Then
-just reference that doc here.
-
-Maybe this is documented somewhere already? Otherwise, if one is
-creating a new IP block, how do they know what the versioning scheme
-is or what goes in the DT ROM?
-
->
->
-> >   Where does the
-> > number come from?
->
->
-> It comes from the RTL, which is public:
->
-> https://github.com/sifive/sifive-blocks/blob/master/src/main/scala/devices/uart/UART.scala#L43
-
-I'm not going to go read your RTL, sorry.
-
-Rob
 
 _______________________________________________
 linux-riscv mailing list
