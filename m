@@ -1,87 +1,85 @@
-Return-Path: <SRS0=qhrg=NC=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=kxho=ND=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 65976C004D3
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 22 Oct 2018 22:55:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CF87FC004D3
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 23 Oct 2018 01:20:29 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6B2E520663
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 22 Oct 2018 22:55:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D3AA420652
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 23 Oct 2018 01:20:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VeaTYpUP";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="BRZp7GNq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6B2E520663
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="njnmf+R6";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="UZ6UEQvJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D3AA420652
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=OPBlKaeA8rzU6fPYCAEAyaIxRSpTFDgTMnmcCiUZmCg=; b=VeaTYpUP66hP35ElqQ62SYWi1
-	RFq86KF6xq/GLVeI7w1/CQpypCpNCp3opcOaDhpzkAvhaC8b78rB5jojkLoMnLToUFLng0BS3SWDq
-	tVYbpPK4GQZx5WVL2XxvcrZjc11Sy3dBF+O77IuIij0rSv8ATSGRsL1w7NQo3uf4AVQTG5kROZJLq
-	wfjZid6H7LGKr/BgE57ZGXQGejS0aks59w/BsLZW97L0WwSdxk4kuhKcOjwbiIX/MfYgnhnGSHmJ3
-	8+rjvuv5GsPLKpN7hTb5i319FPwTFQTgSPWMtCJh4sVgFYbI0LaW+Y1tlF7CfEvcuWYETqUtC+QIT
-	kshecLOIg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:Subject:
+	Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2pKIBut+lWoN9vqwU9GL8ezuVnNYnuBLsmAcKKvnDSE=; b=njnmf+R66Xanh7
+	3TIrklzh00KTwo4RIHR4SOz8IZW01bPp8Tc7QG9llbzIKYuMnQbri+yjiMQJIxyF23VJ8UzrKua8M
+	cK7Pq0LEfx6ZiskkSylfbNouzmQJeGAFLxanZNIrJmtojG2N7OHHf09dRVYjv/OgIAdvmMvIZW+TE
+	bdpoePkxaYhcCWeWXHUMzo6yuFOE0eeWWPQBUsJRUXqJNA3pMBnmCDYYnp/fjZVV69JNnL7VHb/hu
+	Auh1gLTDB4wGBP4sLbd74DlC/Q4IJtUW2s7MFfw3kQ+gYdR7jw5MmBE24frlSmTKuBbrSxH6CX3Sr
+	QJXRfeOBdrKFnrKPr1sQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gEj6r-0003dx-0J; Mon, 22 Oct 2018 22:55:41 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1gElMx-0006v3-0N; Tue, 23 Oct 2018 01:20:27 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gEj6o-0003dM-9x
- for linux-riscv@lists.infradead.org; Mon, 22 Oct 2018 22:55:39 +0000
-Received: by mail-pf1-x441.google.com with SMTP id g21-v6so13637939pfi.7
- for <linux-riscv@lists.infradead.org>; Mon, 22 Oct 2018 15:55:27 -0700 (PDT)
+ id 1gElMt-0006E9-FG
+ for linux-riscv@lists.infradead.org; Tue, 23 Oct 2018 01:20:25 +0000
+Received: by mail-pf1-x442.google.com with SMTP id r64-v6so20778460pfb.13
+ for <linux-riscv@lists.infradead.org>; Mon, 22 Oct 2018 18:20:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=r7yZLn68sbOk7hs4CYqLx+hlOfURlzn+vBrcgdejPPM=;
- b=BRZp7GNq9Je8VCEaI+LLNRS9W8sONE95eEq1SabOCzN8yS7zATnhfVEL3MidQ8qa/1
- wXH9ctlhV325nww+A5gulHmF+ZSujfGIaVu1PCsOeX7gLh3kIgf2JUl/bUBfBvYw1V01
- /QjbJOlC1ntJn/AZLfTNFK3ohA6S1dCE9U6VAtbJNV8TYjAmNr4bRgnAFhUZh4YKXbMf
- a9fQE5j3oO1sa9O0gTIxce9loXbhL3KOz4iv4YR51lsVQqJQSrKvCE5gkCz+ZAXeJVx1
- Bv+xe/9rgZsqn6ApsK9dk2IGCH1FtEqSK86RwbTrVSh8ToDA7qAFG3jv5wkJIHUqfLdK
- tZWw==
+ h=date:subject:from:to:message-id;
+ bh=KdWjBufdMXaqmbcyKnElkku8kEd6E8AjHGjdvwh2Mv4=;
+ b=UZ6UEQvJXMhoZ26P0+90H8dxrEgrdLyoOpCw7oyG9ILQxaOr8/A0nEg3UbfikhO1ut
+ VZjhoAO8ENzWnLiLSbeQBVwVK9J6w4wiiPKJPW390yazr2YaZmgz7CfMcIkPJQMrjww9
+ aeMfYLvY1KnBMfjg4AI0OoSby4YGXNWuWIVlG1PjOzHP9sdkEhwKgFRnuvcGL/KYTGMw
+ kWA+FKb+uhpMAjyG+76wucepaQLX2jrQVdUgXQZs5JF0FZHTNrTy+8cYxyApEwVsgs1M
+ 3bp94b8mlr7u+qyAS4IdDY6RVLY/6OoNKlrhr9DiwG7NtXKcNkiKneLljXs0mw5M8ky/
+ g+pA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=r7yZLn68sbOk7hs4CYqLx+hlOfURlzn+vBrcgdejPPM=;
- b=oQAr9BhT20MyZ91wXOWOUCpPmfTRft8QrpXe3b8NKpKyn1aPjbjN+CGaBV8TYdiDYP
- t0EDV+fWlgT5YUln8Xa5mfjXnPnkL52IBj5i1QJxHBcFhd4wCRYjynyTQtBnFC4lz2jg
- qSVw0RjUpxFezgaLclv4H/gEbzwGk9nEX+yz0nLm0zlVr/SHGo1uwBdCrosMMu6GmmWn
- HWBtYszoGN+2zVDpQCorXTsJ1faZtQkg2eVAWXM1JKQMu/m6loL7zuxmLLRkVEl89sBD
- hHr+AJa0sHjWu+OwaG/+osa6WZ0Sn/APEVWXXDDVsBrEeWimOUb0aNnM8Bn2hYUVTSiI
- vnVg==
-X-Gm-Message-State: ABuFfoj5rWhhPlE3sO2lmVWx5rG+Ljbd5oNdVspyymYVEvDnMwAbJC/a
- R/EfGtcsKmxuj0FeM1089oTavQ==
-X-Google-Smtp-Source: ACcGV62PJPL2/X41/eubx7QEKi4M5IAsvkC1vY13646Bwl56nJ/imu7HXKrlZs7oCIAi84TX7Ijbvw==
-X-Received: by 2002:aa7:88c2:: with SMTP id
- p2-v6mr39811945pfo.32.1540248927208; 
- Mon, 22 Oct 2018 15:55:27 -0700 (PDT)
+ h=x-gm-message-state:date:subject:from:to:message-id;
+ bh=KdWjBufdMXaqmbcyKnElkku8kEd6E8AjHGjdvwh2Mv4=;
+ b=eJaSCpdlN5YrD+Cma3BYaMCI/EsyiaNlgz9mxUxNV7KGkkS8BB6gO0KCfQ3QUBKXs2
+ 6DGkSi6xbKTfk9MoyiRaNUsaX8K/+w8dmNfE6tbwpS6s/BWD7089cOzSLd0EBeiGGCRH
+ yqcJLC7BnAtEnL1sqsffTUMOV/oKuZSsr9jp3ED/tcq1KMnCd0C4gIGEOdpeOBYgZu/v
+ fkOc4y/yvwRogl5RWGaVczhMThGFNhY5W0q2mLszB9DnJWBy0+ZIavjkuqHlsHLQI5tp
+ H9HoRW1fqVMLXsANiQRMlCBeSi8YZQPyzx8S0v74vV0MH/7lr1Vui83a8uWsJbF4hpDS
+ EDeQ==
+X-Gm-Message-State: ABuFfoh5ia31BX7KREfVJWOv9/D8c57FK/zsQijmuX0K1P24LzJrtKHz
+ fq8I1ZtRSvcmJaq03R6h+CDNODjHlbg=
+X-Google-Smtp-Source: ACcGV63Dw0aizq3M/h2yQmtwKZH3S+uhDNFN2cgfmuFpKge3RddpyFOOeTXVIrkKiTMq9kKGN9q3PA==
+X-Received: by 2002:aa7:8281:: with SMTP id
+ s1-v6mr46949394pfm.63.1540257612189; 
+ Mon, 22 Oct 2018 18:20:12 -0700 (PDT)
 Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id s80-v6sm43083294pfa.114.2018.10.22.15.55.25
+ by smtp.gmail.com with ESMTPSA id u38-v6sm4644085pgl.57.2018.10.22.18.20.10
+ for <linux-riscv@lists.infradead.org>
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 22 Oct 2018 15:55:26 -0700 (PDT)
-Date: Mon, 22 Oct 2018 15:55:26 -0700 (PDT)
-X-Google-Original-Date: Mon, 22 Oct 2018 15:48:42 PDT (-0700)
-Subject: Re: [PATCH v2] OF: Handle CMDLINE when /chosen node is not present
-In-Reply-To: <20181022224213.GA25145@bogus>
+ Mon, 22 Oct 2018 18:20:11 -0700 (PDT)
+Date: Mon, 22 Oct 2018 18:20:11 -0700 (PDT)
+X-Google-Original-Date: Mon, 22 Oct 2018 18:20:07 PDT (-0700)
+Subject: [PULL RFC] RISC-V Patches for the 4.20 Merge Window, Part 1
 From: Palmer Dabbelt <palmer@sifive.com>
-To: robh@kernel.org, linux-mips@linux-mips.org
-Message-ID: <mhng-08dbc241-46e4-411b-ba13-32435abde7ad@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+To: linux-riscv@lists.infradead.org
+Message-ID: <mhng-737b95bd-3a5b-44c7-ac14-3af4bbcca32e@palmer-si-x1c4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181022_155538_379346_3BCE0500 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20181022_182023_550508_5E60D925 
+X-CRM114-Status: GOOD (  19.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,42 +91,151 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mick@ics.forth.gr, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, frowand.list@gmail.com
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181022225526.FS8LqQ8Sk_ixJtL8xSC7shehxNbQx7fu9S8K3o_zVEM@z>
+Message-ID: <20181023012011.TIqKSwZGYJObr-yum4Sz_qGyA8Y3uUyqOHpDDYBdaj8@z>
 
-On Mon, 22 Oct 2018 15:42:13 PDT (-0700), robh@kernel.org wrote:
-> On Mon, Oct 15, 2018 at 05:20:10PM +0300, Nick Kossifidis wrote:
->> The /chosen node is optional so we should handle CMDLINE regardless
->> the presence of /chosen/bootargs. Move handling of CMDLINE in
->> early_init_dt_scan() instead.
->
-> I looked at this a while back. I'm not sure this behavior can be changed
-> without breaking some MIPS platforms that could be relying on the
-> current behavior. But trying to make sense of the MIPS code is a
-> challenge and they have some other issues in this area.
->
-> Can't this be fixed by making /chosen manditory? I'd expect ultimately
-> you are always going to need it.
->
-> I'd rather not resort to making this per arch. There's also some effort
-> to consolidate cmd line handling[1].
+The following changes since commit 84df9525b0c27f3ebc2ebb1864fa62a97fdedb7d:
 
-I'd rather make /chosen mandatory on RISC-V than to have per-arch handling, as 
-like you've said there's already too much duplication.  That said, it does seem 
-like a bug to me because the behavior seems somewhat arbitrary -- an empty 
-/chosen node causing the built-in command-line argument handling to go off the 
-rails just smells so buggy.
+  Linux 4.19 (2018-10-22 07:37:37 +0100)
 
-If that's the case, could we at least have something like 
-"CONFIG_OF_CHOSEN_IS_MANDATORY" that provides a warning when there is no 
-/chosen node and is set on architecture where the spec mandates /chosen?
+are available in the Git repository at:
 
-I've added linux-mips to see if anyone has any ideas.
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.20-mw0
+
+for you to fetch changes up to d26c4bbf992463c043fdee4b3e5efa3f08990862:
+
+  RISC-V: SMP cleanup and new features (2018-10-22 17:41:43 -0700)
+
+----------------------------------------------------------------
+RISC-V Patches for the 4.20 Merge Window, Part 1
+
+This patch set contains a lot (at least, for me) of improvements to the
+RISC-V kernel port:
+
+* The removal of some cacheinfo values that were bogus.
+* On systems with F but without D the kernel will not show the F
+  extension to userspace, as it isn't actually supported.
+* Support for futexes.
+* Removal of some unused code.
+* Cleanup of some menuconfig entries.
+* Support for systems without a floating-point unit, and for building
+  kernels that will never use the floating-point unit.
+* More fixes to the RV32I port, which regressed again.  It's really time
+  to get this into a regression test somewhere so I stop breaking it.
+  Thanks to Zong for resurrecting it again!
+* Various fixes that resulted from a year old review of our original
+  patch set that I finally got around to.
+* Various improvements to SMP support, largely based around having
+  switched to logical hart numbering, as well as some interrupt
+  improvements.  This one is in the same patch set as above, thanks to
+  Atish for sheparding everything though as my patch set was a bit of a
+  mess.
+
+I'm pretty sure this is our largest patch set since the original kernel
+contribution, and it's certainly the one with the most contributors.
+While I don't have anything else I know I'm going to submit for the
+merge window, I would be somewhat surprised if I didn't screw anything
+up.
+
+Thanks for the help, everyone!
+
+----------------------------------------------------------------
+Alan Kao (5):
+      Extract FPU context operations from entry.S
+      Refactor FPU code in signal setup/return procedures
+      Cleanup ISA string setting
+      Allow to disable FPU support
+      Auto-detect whether a FPU exists
+
+Anup Patel (3):
+      RISC-V: No need to pass scause as arg to do_IRQ()
+      RISC-V: Show CPU ID and Hart ID separately in /proc/cpuinfo
+      RISC-V: Show IPI stats
+
+Atish Patra (4):
+      RISC-V: Disable preemption before enabling interrupts
+      RISC-V: Use WRITE_ONCE instead of direct access
+      RISC-V: Add logical CPU indexing for RISC-V
+      RISC-V: Use Linux logical CPU number instead of hartid
+
+Christoph Hellwig (1):
+      RISC-V: remove the unused return_to_handler export
+
+Jim Wilson (2):
+      RISC-V: Add FP register ptrace support for gdb.
+      RISC-V: Add futex support.
+
+Masahiro Yamada (1):
+      riscv: move GCC version check for ARCH_SUPPORTS_INT128 to Kconfig
+
+Nick Kossifidis (1):
+      RISC-V: Cosmetic menuconfig changes
+
+Palmer Dabbelt (12):
+      RISC-V: Don't set cacheinfo.{physical_line_partition,attributes}
+      RISC-V: Filter ISA and MMU values in cpuinfo
+      RISC-V: Comment on the TLB flush in smp_callin()
+      RISC-V: Provide a cleaner raw_smp_processor_id()
+      RISC-V: Rename riscv_of_processor_hart to riscv_of_processor_hartid
+      RISC-V: Rename im_okay_therefore_i_am to found_boot_cpu
+      RISC-V: Use mmgrab()
+      RISC-V: Don't set cacheinfo.{physical_line_partition,attributes}
+      RISC-V: Mask out the F extension on systems without D
+      riscv: Add support to no-FPU systems
+      RISC-V: Fix some RV32 bugs and build failures
+      RISC-V: SMP cleanup and new features
+
+Vincent Chen (1):
+      RISC-V: Avoid corrupting the upper 32-bit of phys_addr_t in ioremap
+
+Zong Li (4):
+      RISC-V: Build tishift only on 64-bit
+      RISC-V: Use swiotlb on RV64 only
+      lib: Add umoddi3 and udivmoddi4 of GCC library routines
+      RISC-V: Select GENERIC_LIB_UMODDI3 on RV32
+
+ arch/riscv/Kconfig                 |  52 ++++++-
+ arch/riscv/Kconfig.debug           |  35 -----
+ arch/riscv/Makefile                |  21 +--
+ arch/riscv/include/asm/Kbuild      |   1 -
+ arch/riscv/include/asm/futex.h     | 128 +++++++++++++++
+ arch/riscv/include/asm/processor.h |   2 +-
+ arch/riscv/include/asm/smp.h       |  47 ++++--
+ arch/riscv/include/asm/switch_to.h |  12 +-
+ arch/riscv/include/asm/tlbflush.h  |  16 +-
+ arch/riscv/include/uapi/asm/elf.h  |   3 +
+ arch/riscv/kernel/Makefile         |   1 +
+ arch/riscv/kernel/cacheinfo.c      |   7 -
+ arch/riscv/kernel/cpu.c            |  87 +++++++++--
+ arch/riscv/kernel/cpufeature.c     |  15 ++
+ arch/riscv/kernel/entry.S          |  88 -----------
+ arch/riscv/kernel/fpu.S            | 106 +++++++++++++
+ arch/riscv/kernel/head.S           |   4 +-
+ arch/riscv/kernel/irq.c            |  12 +-
+ arch/riscv/kernel/mcount.S         |   1 -
+ arch/riscv/kernel/process.c        |   6 +-
+ arch/riscv/kernel/ptrace.c         |  52 +++++++
+ arch/riscv/kernel/setup.c          |  13 ++
+ arch/riscv/kernel/signal.c         |  75 +++++----
+ arch/riscv/kernel/smp.c            |  82 ++++++++--
+ arch/riscv/kernel/smpboot.c        |  46 ++++--
+ arch/riscv/lib/Makefile            |   3 +-
+ arch/riscv/mm/ioremap.c            |   2 +-
+ drivers/clocksource/riscv_timer.c  |  12 +-
+ drivers/irqchip/irq-sifive-plic.c  |  10 +-
+ lib/Kconfig                        |   3 +
+ lib/Makefile                       |   1 +
+ lib/udivmoddi4.c                   | 310 +++++++++++++++++++++++++++++++++++++
+ lib/umoddi3.c                      |  32 ++++
+ 33 files changed, 1039 insertions(+), 246 deletions(-)
+ create mode 100644 arch/riscv/include/asm/futex.h
+ create mode 100644 arch/riscv/kernel/fpu.S
+ create mode 100644 lib/udivmoddi4.c
+ create mode 100644 lib/umoddi3.c
 
 _______________________________________________
 linux-riscv mailing list
