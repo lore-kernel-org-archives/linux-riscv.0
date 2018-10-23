@@ -2,82 +2,87 @@ Return-Path: <SRS0=kxho=ND=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-8.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1DFC3C46475
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 23 Oct 2018 23:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 78FDEC67863
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 23 Oct 2018 23:41:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CACE22075D
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 23 Oct 2018 23:41:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3FDE92075D
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 23 Oct 2018 23:41:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gjxSKKp9";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="JZ1FQW2s"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CACE22075D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="saM2wyMI";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="SOtzcgbD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3FDE92075D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=oF5dKzfzbL9F3Z9Pt8OJy6pj2bGwC+EGmPeNp0xp+Ho=; b=gjx
-	SKKp98FfigWb5ADsLwxtAyb4HhSkfRTM2VAGB5uKfjfxaSFVvCxfBdCdrpvaKAde+Oa9HgNBWRNvg
-	LmawktkCKv3ix2AhFChkfOgZP5wd3Kr167Qa7tsAGUPsXoKlfTFARGqyVUgw1E3z2WVXwCzZTg3Q/
-	R2PsMmvisDXbiW0p+u5HXSx/Zmm6coM2bF+wUy517iWO7ctHP6OTCXW49bPAALPvNkKVsIgZ9HKmy
-	rHVyThepBGfaF1BEgRdJzrtpfkNKMvxIExFLAS/hHGfaCVKsFarxp3ltO0VBjuXC83DeLpff5Hht9
-	CD5739M9KZmpjoO1pGF+xcoKTEtKf1A==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=vLa+t3GPlNFS0Nrfp7iR12cQ7+qsTMjhxPuB2KfubR8=; b=saM2wyMIjKXQQhGfL6awRobI0x
+	qvvFJqNvc7KS5FVV65jezKEtFrWJ+57R32jwh5f+4HA3x8vTpmEq3hczVzjt08ZrGaghW/IaVERZj
+	hgsct5tDm93WbQ9pMhTS0Mhyg+OcEnx1XXOhD52apabnExy3KCc+EU9epZgvfQOKUP4VV9fpCfMMs
+	2+Kzy+MgTDbiPS8Qr7PFo8pke7G6qrtf9RhN00JRdUfk1gvo/xvu4CpKzB/6X+AVmAlcfh3y+3JZc
+	se3MWcU945RxKBva/z8UNWs4UzNiWjV7ddH+xB5T0jDhW/ZRtP2mZsF0v3qqJYqPgGJP89CLaf4Qh
+	JuQJ4ZWA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gF6If-0006ka-1F; Tue, 23 Oct 2018 23:41:25 +0000
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
+	id 1gF6Ij-0006m4-6t; Tue, 23 Oct 2018 23:41:29 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gF6Ia-0006jI-7K; Tue, 23 Oct 2018 23:41:21 +0000
-Received: by mail-pl1-x641.google.com with SMTP id y11-v6so1359221plt.3;
- Tue, 23 Oct 2018 16:41:07 -0700 (PDT)
+ id 1gF6Ib-0006jJ-D1; Tue, 23 Oct 2018 23:41:23 +0000
+Received: by mail-pg1-x544.google.com with SMTP id w3-v6so1388695pgs.11;
+ Tue, 23 Oct 2018 16:41:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id;
- bh=7OS2r3euy1TczlyR46QbFm62nalquqEBBOjTowUcAkM=;
- b=JZ1FQW2sjznoZVhwKxRvzGXbACgNDowsPsyxlWZVVG7INAURVS5jcxx915CmrAtFRB
- 8hWt+dLKEAVaszN//gmUjAYoT7FDyiMui97wYDmRNVObbg407myVHSOQQZ2tzM6HKXjZ
- mHfpSVcF4JVoAjUiAlqOz8+OgLkgiyNTMN4slZ2nQdl2qnD25v68X/twk29GWgHctS5W
- xnYbKMErl9Jjcz+rWWWrl4jqwHUvFwF5J4+jg0wCCfi+5wfY10suO+glJ/huiOk8gQQR
- VFWKT2AnmDQl75D4iT3d+hUeGJI3o/5MTq/bf6m/xNvsxIAEvup7H34zIhNHpVjgjKte
- er4Q==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references;
+ bh=Pq3SbMOtnxSRiUv39G2pLKqpO+80vJrLYAw7jgLwqi0=;
+ b=SOtzcgbDQQRqIv8sjSXHYWM8Pa7a+AuRto/2mANyNoHiFqB6TYuMdkqcNujN+8uuxM
+ wWk+ZVFH4lobhvAiSEyoOEmaA2h5RvJANDafujz0r1NW6xAke9IoOxVyWwTtTdfOeJ1N
+ UF56+tI71T0f4T5vFIRpAsvHvfy8JDlUH4XfhJht5HEQKrDxJqAwQeXREp2R2k/bznSQ
+ dxLf759Vr0nLnznvqXn6NWniG91dlSqzG91An4xiMjTL6dtC8D9duHyozyWvvlAEvEOb
+ GEUnaauIbfB4YMgxTroabvXCQ4b4GsmPNA4wIdj57oUt+YbmRqhJLPxxSEKLcj4OjQ63
+ POiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=7OS2r3euy1TczlyR46QbFm62nalquqEBBOjTowUcAkM=;
- b=iShJuU+Ay6ReytOb+Q6JSSx7TVe6IIHPTizJKu2J/8DCGN0WiFFzrAzJOahiMxYdWh
- E1vWPCvKUcpj+t8dPBFie948duv0udEbp40iVDcYde6aTuXvjxCVRMY3fpkD+YGQVZ+Q
- PX2sEphSlU7Xl/ZAjXc1SEuLvTGX8EO5tHwT+4UU6eRtLLw6XfT2zSdoy8WzH9XN02eV
- 1NM3heIInnZrgRkLgPhYYnOUp0LY4YkahtYe/nBpo3Un6lFX4LEJxkQ2ZKpoLclWpI1m
- 9PGEy2czVHYpK72YbUxj4mPcHkJIDy4r9I56piDAtZCCpF8seBGwlOD5yrH5RCZmLDXn
- 4jNg==
-X-Gm-Message-State: AGRZ1gKZOt3iA+kor0FPfv9qzb6iP8nDR9CfgQ9x7gruGEGYkfvgx3NS
- 05VgfaquFYC4VaQvWeXiCRk=
-X-Google-Smtp-Source: AJdET5fBJhLb6MQXskYp1eO10D2a24G6cKuepRaM3H/nhlH771jer1HqF14MUwzRYB/YVHWQB+Kq3Q==
-X-Received: by 2002:a17:902:6e08:: with SMTP id
- u8-v6mr162695plk.64.1540338065703; 
- Tue, 23 Oct 2018 16:41:05 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references;
+ bh=Pq3SbMOtnxSRiUv39G2pLKqpO+80vJrLYAw7jgLwqi0=;
+ b=IptRpE5tioOPzgNtCIsy5zgnO81REuNYJt02ui8PGKZKU3mRujnmVO9TJXLG42n68I
+ 30hQqF6yC9EDB2S0XRX6VvTaeE6d11BoYxYbZmtFaSu3OH0uYORs5+RJysXRMCxIb87t
+ ZsxZ6dXIHIOsJtKEzo/coyXZaOs+wzN9D0qXSSMaCcMTCrpw/Iqs/7ee+FEPPBvfBS/a
+ B11WJp6iwtdQLXU/eFJhBN3UqMP1iPLQHqewXo2PKwNxVBrKXONNyI56UAMl7K11mDAB
+ wuEwNF65Ip6t/QbCFvXCi5xqqiYpsyJzNgysXGqLx6n120kpWq4ulaJZRXj0maut+mgG
+ sNTw==
+X-Gm-Message-State: AGRZ1gJ1Nb9TrM3A7zhZmhZUZvk3O+z1xLejR+/J/J3FVe82bECwd9nj
+ 1coXfgo+X9JjNB9sZ37JVTY=
+X-Google-Smtp-Source: AJdET5dcFE9ran0APIXfIKwqJHwMEkCBdOxUyxu2dalXrrITp9OyAgwV/HkX29ePl741rIGhL0+NiQ==
+X-Received: by 2002:a62:8281:: with SMTP id
+ w123-v6mr331532pfd.68.1540338070202; 
+ Tue, 23 Oct 2018 16:41:10 -0700 (PDT)
 Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.250])
- by smtp.gmail.com with ESMTPSA id a5-v6sm3041223pfo.53.2018.10.23.16.41.01
+ by smtp.gmail.com with ESMTPSA id a5-v6sm3041223pfo.53.2018.10.23.16.41.05
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 23 Oct 2018 16:41:04 -0700 (PDT)
+ Tue, 23 Oct 2018 16:41:09 -0700 (PDT)
 From: Florian Fainelli <f.fainelli@gmail.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] arm64: Cut rebuild time when changing
- CONFIG_BLK_DEV_INITRD
-Date: Tue, 23 Oct 2018 16:40:41 -0700
-Message-Id: <20181023234044.1138-1-f.fainelli@gmail.com>
+Subject: [PATCH 1/2] arch: Add asm-generic/initrd.h and make use of it for
+ most architectures
+Date: Tue, 23 Oct 2018 16:40:42 -0700
+Message-Id: <20181023234044.1138-2-f.fainelli@gmail.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20181023234044.1138-1-f.fainelli@gmail.com>
+References: <20181023234044.1138-1-f.fainelli@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181023_164120_293149_93CBB978 
+X-CRM114-CacheID: sfid-20181023_164121_441259_24426C17 
 X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -169,65 +174,323 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181023234041.yEifiM6027ybvN65xzV-YBoH8FCg3Uq8nY_8LtAKYn4@z>
+Message-ID: <20181023234042.8Yc7tMr59YTSasu5zASfEEzz2FiAy1VY-JVTPOCwAHI@z>
 
-Hi all,
+In preparation for separating the definition of
+__early_init_dt_declare_initrd() on ARM64 in order to cut the amount of
+files that require a rebuild when CONFIG_BLK_DEV_INITRD value is
+changed, introduce an empty asm-generic initrd.h file and update all
+architectures but arm64 to make use of it.
 
-While investigating why ARM64 required a ton of objects to be rebuilt
-when toggling CONFIG_DEV_BLK_INITRD, it became clear that this was
-because we define __early_init_dt_declare_initrd() differently and we do
-that in arch/arm64/include/asm/memory.h which gets included by a fair
-amount of other header files, and translation units as well.
-
-This patch series proposes adding an empty initrd.h to satisfy the need
-for drivers/of/fdt.c to unconditionally include that file, and moves the
-custom __early_init_dt_declare_initrd() definition away from
-asm/memory.h
-
-This cuts the number of objects rebuilds from 1920 down to 26, so a
-factor 73 approximately.
-
-Apologies for the long CC list, please let me know how you would go
-about merging that and if another approach would be preferable, e.g:
-introducing a CONFIG_ARCH_INITRD_BELOW_START_OK Kconfig option or
-something like that.
-
-Florian Fainelli (2):
-  arch: Add asm-generic/initrd.h and make use of it for most
-    architectures
-  arm64: Create asm/initrd.h
-
- arch/alpha/include/asm/Kbuild      |  1 +
- arch/arc/include/asm/Kbuild        |  1 +
- arch/arm/include/asm/Kbuild        |  1 +
- arch/arm64/include/asm/initrd.h    | 13 +++++++++++++
- arch/arm64/include/asm/memory.h    |  8 --------
- arch/c6x/include/asm/Kbuild        |  1 +
- arch/h8300/include/asm/Kbuild      |  1 +
- arch/hexagon/include/asm/Kbuild    |  1 +
- arch/ia64/include/asm/Kbuild       |  1 +
- arch/m68k/include/asm/Kbuild       |  1 +
- arch/microblaze/include/asm/Kbuild |  1 +
- arch/mips/include/asm/Kbuild       |  1 +
- arch/nds32/include/asm/Kbuild      |  1 +
- arch/nios2/include/asm/Kbuild      |  1 +
- arch/openrisc/include/asm/Kbuild   |  1 +
- arch/parisc/include/asm/Kbuild     |  1 +
- arch/powerpc/include/asm/Kbuild    |  1 +
- arch/riscv/include/asm/Kbuild      |  1 +
- arch/s390/include/asm/Kbuild       |  1 +
- arch/sh/include/asm/Kbuild         |  1 +
- arch/sparc/include/asm/Kbuild      |  1 +
- arch/um/include/asm/Kbuild         |  1 +
- arch/unicore32/include/asm/Kbuild  |  1 +
- arch/x86/include/asm/Kbuild        |  1 +
- arch/xtensa/include/asm/Kbuild     |  1 +
- drivers/of/fdt.c                   |  1 +
- include/asm-generic/initrd.h       |  1 +
- 27 files changed, 38 insertions(+), 8 deletions(-)
- create mode 100644 arch/arm64/include/asm/initrd.h
+Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
+---
+ arch/alpha/include/asm/Kbuild      | 1 +
+ arch/arc/include/asm/Kbuild        | 1 +
+ arch/arm/include/asm/Kbuild        | 1 +
+ arch/c6x/include/asm/Kbuild        | 1 +
+ arch/h8300/include/asm/Kbuild      | 1 +
+ arch/hexagon/include/asm/Kbuild    | 1 +
+ arch/ia64/include/asm/Kbuild       | 1 +
+ arch/m68k/include/asm/Kbuild       | 1 +
+ arch/microblaze/include/asm/Kbuild | 1 +
+ arch/mips/include/asm/Kbuild       | 1 +
+ arch/nds32/include/asm/Kbuild      | 1 +
+ arch/nios2/include/asm/Kbuild      | 1 +
+ arch/openrisc/include/asm/Kbuild   | 1 +
+ arch/parisc/include/asm/Kbuild     | 1 +
+ arch/powerpc/include/asm/Kbuild    | 1 +
+ arch/riscv/include/asm/Kbuild      | 1 +
+ arch/s390/include/asm/Kbuild       | 1 +
+ arch/sh/include/asm/Kbuild         | 1 +
+ arch/sparc/include/asm/Kbuild      | 1 +
+ arch/um/include/asm/Kbuild         | 1 +
+ arch/unicore32/include/asm/Kbuild  | 1 +
+ arch/x86/include/asm/Kbuild        | 1 +
+ arch/xtensa/include/asm/Kbuild     | 1 +
+ include/asm-generic/initrd.h       | 1 +
+ 24 files changed, 24 insertions(+)
  create mode 100644 include/asm-generic/initrd.h
 
+diff --git a/arch/alpha/include/asm/Kbuild b/arch/alpha/include/asm/Kbuild
+index 0580cb8c84b2..cd6f723aed1b 100644
+--- a/arch/alpha/include/asm/Kbuild
++++ b/arch/alpha/include/asm/Kbuild
+@@ -5,6 +5,7 @@ generic-y += compat.h
+ generic-y += exec.h
+ generic-y += export.h
+ generic-y += fb.h
++generic-y += initrd.h
+ generic-y += irq_work.h
+ generic-y += mcs_spinlock.h
+ generic-y += mm-arch-hooks.h
+diff --git a/arch/arc/include/asm/Kbuild b/arch/arc/include/asm/Kbuild
+index feed50ce89fa..ba18632aa493 100644
+--- a/arch/arc/include/asm/Kbuild
++++ b/arch/arc/include/asm/Kbuild
+@@ -10,6 +10,7 @@ generic-y += fb.h
+ generic-y += ftrace.h
+ generic-y += hardirq.h
+ generic-y += hw_irq.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+ generic-y += kmap_types.h
+diff --git a/arch/arm/include/asm/Kbuild b/arch/arm/include/asm/Kbuild
+index 1d66db9c9db5..b91d5b32e64f 100644
+--- a/arch/arm/include/asm/Kbuild
++++ b/arch/arm/include/asm/Kbuild
+@@ -4,6 +4,7 @@ generic-y += early_ioremap.h
+ generic-y += emergency-restart.h
+ generic-y += exec.h
+ generic-y += extable.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += kdebug.h
+ generic-y += local.h
+diff --git a/arch/c6x/include/asm/Kbuild b/arch/c6x/include/asm/Kbuild
+index 33a2c94fed0d..9e14cf6e89b4 100644
+--- a/arch/c6x/include/asm/Kbuild
++++ b/arch/c6x/include/asm/Kbuild
+@@ -13,6 +13,7 @@ generic-y += extable.h
+ generic-y += fb.h
+ generic-y += futex.h
+ generic-y += hw_irq.h
++generic-y += initrd.h
+ generic-y += io.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+diff --git a/arch/h8300/include/asm/Kbuild b/arch/h8300/include/asm/Kbuild
+index a5d0b2991f47..7d4e06a757c8 100644
+--- a/arch/h8300/include/asm/Kbuild
++++ b/arch/h8300/include/asm/Kbuild
+@@ -19,6 +19,7 @@ generic-y += futex.h
+ generic-y += hardirq.h
+ generic-y += hash.h
+ generic-y += hw_irq.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+ generic-y += kdebug.h
+diff --git a/arch/hexagon/include/asm/Kbuild b/arch/hexagon/include/asm/Kbuild
+index 47c4da3d64a4..0be62abf2123 100644
+--- a/arch/hexagon/include/asm/Kbuild
++++ b/arch/hexagon/include/asm/Kbuild
+@@ -13,6 +13,7 @@ generic-y += fb.h
+ generic-y += ftrace.h
+ generic-y += hardirq.h
+ generic-y += hw_irq.h
++generic-y += initrd.h
+ generic-y += iomap.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+diff --git a/arch/ia64/include/asm/Kbuild b/arch/ia64/include/asm/Kbuild
+index 557bbc8ba9f5..1a1f1e4ba0d5 100644
+--- a/arch/ia64/include/asm/Kbuild
++++ b/arch/ia64/include/asm/Kbuild
+@@ -1,5 +1,6 @@
+ generic-y += compat.h
+ generic-y += exec.h
++generic-y += initrd.h
+ generic-y += irq_work.h
+ generic-y += mcs_spinlock.h
+ generic-y += mm-arch-hooks.h
+diff --git a/arch/m68k/include/asm/Kbuild b/arch/m68k/include/asm/Kbuild
+index a4b8d3331a9e..9903551e0c9c 100644
+--- a/arch/m68k/include/asm/Kbuild
++++ b/arch/m68k/include/asm/Kbuild
+@@ -7,6 +7,7 @@ generic-y += exec.h
+ generic-y += extable.h
+ generic-y += futex.h
+ generic-y += hw_irq.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+ generic-y += kdebug.h
+diff --git a/arch/microblaze/include/asm/Kbuild b/arch/microblaze/include/asm/Kbuild
+index 569ba9e670c1..ec37e6304be5 100644
+--- a/arch/microblaze/include/asm/Kbuild
++++ b/arch/microblaze/include/asm/Kbuild
+@@ -11,6 +11,7 @@ generic-y += exec.h
+ generic-y += extable.h
+ generic-y += fb.h
+ generic-y += hardirq.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+ generic-y += kdebug.h
+diff --git a/arch/mips/include/asm/Kbuild b/arch/mips/include/asm/Kbuild
+index 9a81e72119da..005ef04a4c73 100644
+--- a/arch/mips/include/asm/Kbuild
++++ b/arch/mips/include/asm/Kbuild
+@@ -5,6 +5,7 @@ generic-y += device.h
+ generic-y += dma-contiguous.h
+ generic-y += emergency-restart.h
+ generic-y += export.h
++generic-y += initrd.h
+ generic-y += irq_work.h
+ generic-y += local64.h
+ generic-y += mcs_spinlock.h
+diff --git a/arch/nds32/include/asm/Kbuild b/arch/nds32/include/asm/Kbuild
+index dbc4e5422550..1400aaf0c840 100644
+--- a/arch/nds32/include/asm/Kbuild
++++ b/arch/nds32/include/asm/Kbuild
+@@ -25,6 +25,7 @@ generic-y += ftrace.h
+ generic-y += gpio.h
+ generic-y += hardirq.h
+ generic-y += hw_irq.h
++generic-y += initrd.h
+ generic-y += ioctl.h
+ generic-y += ioctls.h
+ generic-y += irq.h
+diff --git a/arch/nios2/include/asm/Kbuild b/arch/nios2/include/asm/Kbuild
+index 8fde4fa2c34f..d89de02549ee 100644
+--- a/arch/nios2/include/asm/Kbuild
++++ b/arch/nios2/include/asm/Kbuild
+@@ -18,6 +18,7 @@ generic-y += ftrace.h
+ generic-y += futex.h
+ generic-y += hardirq.h
+ generic-y += hw_irq.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+ generic-y += kdebug.h
+diff --git a/arch/openrisc/include/asm/Kbuild b/arch/openrisc/include/asm/Kbuild
+index eb87cd8327c8..296fd55e8473 100644
+--- a/arch/openrisc/include/asm/Kbuild
++++ b/arch/openrisc/include/asm/Kbuild
+@@ -15,6 +15,7 @@ generic-y += fb.h
+ generic-y += ftrace.h
+ generic-y += hardirq.h
+ generic-y += hw_irq.h
++generic-y += initrd.h
+ generic-y += irq.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+diff --git a/arch/parisc/include/asm/Kbuild b/arch/parisc/include/asm/Kbuild
+index 2013d639e735..1382d78a2477 100644
+--- a/arch/parisc/include/asm/Kbuild
++++ b/arch/parisc/include/asm/Kbuild
+@@ -5,6 +5,7 @@ generic-y += div64.h
+ generic-y += emergency-restart.h
+ generic-y += exec.h
+ generic-y += hw_irq.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+ generic-y += kdebug.h
+diff --git a/arch/powerpc/include/asm/Kbuild b/arch/powerpc/include/asm/Kbuild
+index 3196d227e351..e3ea67c30605 100644
+--- a/arch/powerpc/include/asm/Kbuild
++++ b/arch/powerpc/include/asm/Kbuild
+@@ -1,5 +1,6 @@
+ generic-y += div64.h
+ generic-y += export.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+ generic-y += local64.h
+diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+index efdbe311e936..0e67ed69c423 100644
+--- a/arch/riscv/include/asm/Kbuild
++++ b/arch/riscv/include/asm/Kbuild
+@@ -17,6 +17,7 @@ generic-y += futex.h
+ generic-y += hardirq.h
+ generic-y += hash.h
+ generic-y += hw_irq.h
++generic-y += initrd.h
+ generic-y += ioctl.h
+ generic-y += ioctls.h
+ generic-y += ipcbuf.h
+diff --git a/arch/s390/include/asm/Kbuild b/arch/s390/include/asm/Kbuild
+index e3239772887a..dc618745d427 100644
+--- a/arch/s390/include/asm/Kbuild
++++ b/arch/s390/include/asm/Kbuild
+@@ -13,6 +13,7 @@ generic-y += div64.h
+ generic-y += emergency-restart.h
+ generic-y += export.h
+ generic-y += fb.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+ generic-y += kmap_types.h
+diff --git a/arch/sh/include/asm/Kbuild b/arch/sh/include/asm/Kbuild
+index 6a5609a55965..c006a7cf3a43 100644
+--- a/arch/sh/include/asm/Kbuild
++++ b/arch/sh/include/asm/Kbuild
+@@ -5,6 +5,7 @@ generic-y += div64.h
+ generic-y += dma-mapping.h
+ generic-y += emergency-restart.h
+ generic-y += exec.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+ generic-y += local.h
+diff --git a/arch/sparc/include/asm/Kbuild b/arch/sparc/include/asm/Kbuild
+index 410b263ef5c8..a5772c2a96c8 100644
+--- a/arch/sparc/include/asm/Kbuild
++++ b/arch/sparc/include/asm/Kbuild
+@@ -5,6 +5,7 @@ generic-y += div64.h
+ generic-y += emergency-restart.h
+ generic-y += exec.h
+ generic-y += export.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+ generic-y += linkage.h
+diff --git a/arch/um/include/asm/Kbuild b/arch/um/include/asm/Kbuild
+index b10dde6cb793..032cfe1b530b 100644
+--- a/arch/um/include/asm/Kbuild
++++ b/arch/um/include/asm/Kbuild
+@@ -12,6 +12,7 @@ generic-y += ftrace.h
+ generic-y += futex.h
+ generic-y += hardirq.h
+ generic-y += hw_irq.h
++generic-y += initrd.h
+ generic-y += io.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+diff --git a/arch/unicore32/include/asm/Kbuild b/arch/unicore32/include/asm/Kbuild
+index 1372553dc0a9..32e7dea45fcd 100644
+--- a/arch/unicore32/include/asm/Kbuild
++++ b/arch/unicore32/include/asm/Kbuild
+@@ -13,6 +13,7 @@ generic-y += ftrace.h
+ generic-y += futex.h
+ generic-y += hardirq.h
+ generic-y += hw_irq.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+ generic-y += kdebug.h
+diff --git a/arch/x86/include/asm/Kbuild b/arch/x86/include/asm/Kbuild
+index a0ab9ab61c75..290bd1c3ee2d 100644
+--- a/arch/x86/include/asm/Kbuild
++++ b/arch/x86/include/asm/Kbuild
+@@ -9,5 +9,6 @@ generated-y += xen-hypercalls.h
+ generic-y += dma-contiguous.h
+ generic-y += early_ioremap.h
+ generic-y += export.h
++generic-y += initrd.h
+ generic-y += mcs_spinlock.h
+ generic-y += mm-arch-hooks.h
+diff --git a/arch/xtensa/include/asm/Kbuild b/arch/xtensa/include/asm/Kbuild
+index 82c756431b49..f2c363f2d22a 100644
+--- a/arch/xtensa/include/asm/Kbuild
++++ b/arch/xtensa/include/asm/Kbuild
+@@ -9,6 +9,7 @@ generic-y += exec.h
+ generic-y += extable.h
+ generic-y += fb.h
+ generic-y += hardirq.h
++generic-y += initrd.h
+ generic-y += irq_regs.h
+ generic-y += irq_work.h
+ generic-y += kdebug.h
+diff --git a/include/asm-generic/initrd.h b/include/asm-generic/initrd.h
+new file mode 100644
+index 000000000000..b1a49677fe25
+--- /dev/null
++++ b/include/asm-generic/initrd.h
+@@ -0,0 +1 @@
++/* no content, but patch(1) dislikes empty files */
 -- 
 2.17.1
 
