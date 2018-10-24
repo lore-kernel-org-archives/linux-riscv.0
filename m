@@ -1,76 +1,60 @@
-From: robh@kernel.org (Rob Herring)
-Date: Wed, 24 Oct 2018 16:25:47 -0500
-Subject: [PATCH v2 0/2] arm64: Cut rebuild time when changing
- CONFIG_BLK_DEV_INITRD
-In-Reply-To: <6e647f76-8523-09d3-9b72-d8d8abd213a4@gmail.com>
-References: <20181024193256.23734-1-f.fainelli@gmail.com>
- <CAL_Jsq+KCOv6pXXHhHDZ+7-QUrmtMDvSjEVhK15yZ3qbnn61Ag@mail.gmail.com>
- <6e647f76-8523-09d3-9b72-d8d8abd213a4@gmail.com>
-Message-ID: <CAL_JsqKC6+8gobdk1uhMLLdMUHEO8D0c3m6+F_3y3NTU_KidOw@mail.gmail.com>
+From: keescook@chromium.org (Kees Cook)
+Date: Wed, 24 Oct 2018 14:26:05 -0700
+Subject: [PATCH 1/2] Move EM_RISCV into elf-em.h
+In-Reply-To: <20181024204036.8799-2-palmer@sifive.com>
+References: <CAEn-LTqbEmWovu4t7Rs4C211+GRRU4V3B=+WmW0SOhX_b8db5Q@mail.gmail.com>
+ <20181024204036.8799-1-palmer@sifive.com>
+ <20181024204036.8799-2-palmer@sifive.com>
+Message-ID: <CAGXu5jJxPKcivD6PtK0WwGVphU6Uzj4QAFXrAw52UjUDTZSupw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Oct 24, 2018 at 3:01 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
+On Wed, Oct 24, 2018 at 1:40 PM, Palmer Dabbelt <palmer@sifive.com> wrote:
+> This should never have been inside our arch port to begin with, it's
+> just a relic from when we were maintaining out of tree patches.
 >
-> On 10/24/18 12:55 PM, Rob Herring wrote:
-> > On Wed, Oct 24, 2018 at 2:33 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
-> >>
-> >> Hi all,
-> >>
-> >> While investigating why ARM64 required a ton of objects to be rebuilt
-> >> when toggling CONFIG_DEV_BLK_INITRD, it became clear that this was
-> >> because we define __early_init_dt_declare_initrd() differently and we do
-> >> that in arch/arm64/include/asm/memory.h which gets included by a fair
-> >> amount of other header files, and translation units as well.
-> >
-> > I scratch my head sometimes as to why some config options rebuild so
-> > much stuff. One down, ? to go. :)
-> >
->
-> This one was by far the most invasive one due to its include chain, but
-> yes, there would be many more that could be optimized.
->
-> >> Changing the value of CONFIG_DEV_BLK_INITRD is a common thing with build
-> >> systems that generate two kernels: one with the initramfs and one
-> >> without. buildroot is one of these build systems, OpenWrt is also
-> >> another one that does this.
-> >>
-> >> This patch series proposes adding an empty initrd.h to satisfy the need
-> >> for drivers/of/fdt.c to unconditionally include that file, and moves the
-> >> custom __early_init_dt_declare_initrd() definition away from
-> >> asm/memory.h
-> >>
-> >> This cuts the number of objects rebuilds from 1920 down to 26, so a
-> >> factor 73 approximately.
-> >>
-> >> Apologies for the long CC list, please let me know how you would go
-> >> about merging that and if another approach would be preferable, e.g:
-> >> introducing a CONFIG_ARCH_INITRD_BELOW_START_OK Kconfig option or
-> >> something like that.
-> >
-> > There may be a better way as of 4.20 because bootmem is now gone and
-> > only memblock is used. This should unify what each arch needs to do
-> > with initrd early. We need the physical address early for memblock
-> > reserving. Then later on we need the virtual address to access the
-> > initrd. Perhaps we should just change initrd_start and initrd_end to
-> > physical addresses (or add 2 new variables would be less invasive and
-> > allow for different translation than __va()). The sanity checks and
-> > memblock reserve could also perhaps be moved to a common location.
-> >
-> > Alternatively, given arm64 is the only oddball, I'd be fine with an
-> > "if (IS_ENABLED(CONFIG_ARM64))" condition in the default
-> > __early_init_dt_declare_initrd as long as we have a path to removing
-> > it like the above option.
->
-> OK, let me cook a patch doing that and meanwhile I will look at how much
-> work is involved to implement the above option you outlined, which also
-> sounds entirely reasonable.
+> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 
-BTW, I would suspect that initrd_below_start_ok being 1 is not okay
-for most arches. I'm not sure how that would work. min_low_pfn is
-typically based on the start of memory. arm64 is not even setting it.
+Reviewed-by: Kees Cook <keescook@chromium.org>
 
-Rob
+-Kees
 
+> ---
+>  arch/riscv/include/asm/elf.h | 3 ---
+>  include/uapi/linux/elf-em.h  | 1 +
+>  2 files changed, 1 insertion(+), 3 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+> index a1ef503d616e..697fc23b0d5a 100644
+> --- a/arch/riscv/include/asm/elf.h
+> +++ b/arch/riscv/include/asm/elf.h
+> @@ -16,9 +16,6 @@
+>  #include <asm/auxvec.h>
+>  #include <asm/byteorder.h>
+>
+> -/* TODO: Move definition into include/uapi/linux/elf-em.h */
+> -#define EM_RISCV       0xF3
+> -
+>  /*
+>   * These are used to set parameters in the core dumps.
+>   */
+> diff --git a/include/uapi/linux/elf-em.h b/include/uapi/linux/elf-em.h
+> index 31aa10178335..93722e60204c 100644
+> --- a/include/uapi/linux/elf-em.h
+> +++ b/include/uapi/linux/elf-em.h
+> @@ -41,6 +41,7 @@
+>  #define EM_TILEPRO     188     /* Tilera TILEPro */
+>  #define EM_MICROBLAZE  189     /* Xilinx MicroBlaze */
+>  #define EM_TILEGX      191     /* Tilera TILE-Gx */
+> +#define EM_RISCV       243     /* RISC-V */
+>  #define EM_BPF         247     /* Linux BPF - in-kernel virtual machine */
+>  #define EM_FRV         0x5441  /* Fujitsu FR-V */
+>
 > --
-> Florian
+> 2.18.1
+>
+
+
+
+-- 
+Kees Cook
