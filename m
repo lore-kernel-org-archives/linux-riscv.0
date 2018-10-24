@@ -1,70 +1,48 @@
-From: keescook@chromium.org (Kees Cook)
-Date: Wed, 24 Oct 2018 14:42:03 -0700
-Subject: [PATCH 2/2] RISC-V: Add support for SECCOMP
-In-Reply-To: <20181024204036.8799-3-palmer@sifive.com>
-References: <CAEn-LTqbEmWovu4t7Rs4C211+GRRU4V3B=+WmW0SOhX_b8db5Q@mail.gmail.com>
- <20181024204036.8799-1-palmer@sifive.com>
- <20181024204036.8799-3-palmer@sifive.com>
-Message-ID: <CAGXu5jJ7gmVXZE+iksW99c6bHEV2rSOG+boQDRGmMSDa9HOh_A@mail.gmail.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Wed, 24 Oct 2018 15:05:43 -0700 (PDT)
+Subject: [PATCH] RISC-V: properly determine hardware caps
+In-Reply-To: <mvmftwxruas.fsf@suse.de>
+Message-ID: <mhng-fe1ddf75-4f79-4ffa-8017-d9ddae5ef503@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Oct 24, 2018 at 1:40 PM, Palmer Dabbelt <palmer@sifive.com> wrote:
-> From: "Wesley W. Terpstra" <wesley@sifive.com>
+On Tue, 23 Oct 2018 00:33:47 PDT (-0700), schwab at suse.de wrote:
+> On the Hifive-U platform, cpu 0 is a masked cpu with less capabilities
+> than the other cpus.  Ignore it for the purpose of determining the
+> hardware capabilities of the system.
 >
-> This is a fairly straight-forward implementation of seccomp for RISC-V
-> systems.
->
-> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
-> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+> Signed-off-by: Andreas Schwab <schwab@suse.de>
 > ---
->  arch/riscv/Kconfig                   | 18 ++++++++++++++++++
->  arch/riscv/include/asm/seccomp.h     | 10 ++++++++++
->  arch/riscv/include/asm/syscall.h     |  6 ++++++
->  arch/riscv/include/asm/thread_info.h |  1 +
->  include/uapi/linux/audit.h           |  1 +
->  5 files changed, 36 insertions(+)
->  create mode 100644 arch/riscv/include/asm/seccomp.h
+>  arch/riscv/kernel/cpufeature.c | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
 >
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index a344980287a5..28abe47602a1 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -28,6 +28,7 @@ config RISCV
->         select GENERIC_STRNLEN_USER
->         select GENERIC_SMP_IDLE_THREAD
->         select GENERIC_ATOMIC64 if !64BIT || !RISCV_ISA_A
-> +       select HAVE_ARCH_SECCOMP_FILTER
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 5493f32287..0339087aa6 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -28,7 +28,7 @@ bool has_fpu __read_mostly;
+>
+>  void riscv_fill_hwcap(void)
+>  {
+> -	struct device_node *node;
+> +	struct device_node *node = NULL;
+>  	const char *isa;
+>  	size_t i;
+>  	static unsigned long isa2hwcap[256] = {0};
+> @@ -44,9 +44,11 @@ void riscv_fill_hwcap(void)
+>
+>  	/*
+>  	 * We don't support running Linux on hertergenous ISA systems.  For
+> -	 * now, we just check the ISA of the first processor.
+> +	 * now, we just check the ISA of the first "okay" processor.
+>  	 */
+> -	node = of_find_node_by_type(NULL, "cpu");
+> +	while ((node = of_find_node_by_type(node, "cpu")))
+> +		if (riscv_of_processor_hartid(node) >= 0)
+> +			break;
+>  	if (!node) {
+>  		pr_warning("Unable to find \"cpu\" devicetree entry");
+>  		return;
 
-I think this patch is missing most of the actual seccomp glue?
-
-config HAVE_ARCH_SECCOMP_FILTER
-        bool
-        help
-          An arch should select this symbol if it provides all of these things:
-          - syscall_get_arch()
-          - syscall_get_arguments()
-          - syscall_rollback()
-          - syscall_set_return_value()
-          - SIGSYS siginfo_t support
-          - secure_computing is called from a ptrace_event()-safe context
-          - secure_computing return value is checked and a return value of -1
-            results in the system call being skipped immediately.
-          - seccomp syscall wired up
-
-I only see syscall_get_arch(). Nothing is using TIF_SECCOMP (I'd
-expect a masked check in entry.S -- it seems like tracepoints are
-getting missed too? I see it handled in ptrace.c but not checked in
-entry.S?) There's no checking for seccomp in ptrace.c, etc.
-
-At the very least, I think the Kconfigs should not be included in this
-patch. The other things are needed, but without everything else,
-seccomp isn't actually available. :)
-
-Reading the per-arch Kconfigs, I am reminded I still need to move
-CONFIG_SECCOMP up into arch/Kconfig. :P
-
--Kees
-
--- 
-Kees Cook
+Thanks!  I'll add this to for-next, and if there's no other comments I'll 
+include it as part of next week's PR.
