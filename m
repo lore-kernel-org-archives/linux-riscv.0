@@ -1,68 +1,32 @@
-From: f.fainelli@gmail.com (Florian Fainelli)
-Date: Wed, 24 Oct 2018 13:01:19 -0700
-Subject: [PATCH v2 0/2] arm64: Cut rebuild time when changing
- CONFIG_BLK_DEV_INITRD
-In-Reply-To: <CAL_Jsq+KCOv6pXXHhHDZ+7-QUrmtMDvSjEVhK15yZ3qbnn61Ag@mail.gmail.com>
-References: <20181024193256.23734-1-f.fainelli@gmail.com>
- <CAL_Jsq+KCOv6pXXHhHDZ+7-QUrmtMDvSjEVhK15yZ3qbnn61Ag@mail.gmail.com>
-Message-ID: <6e647f76-8523-09d3-9b72-d8d8abd213a4@gmail.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Wed, 24 Oct 2018 13:40:34 -0700
+Subject: [PATCH 0/2] RISC-V: Add support for SECCOMP
+In-Reply-To: <CAEn-LTqbEmWovu4t7Rs4C211+GRRU4V3B=+WmW0SOhX_b8db5Q@mail.gmail.com>
+References: <CAEn-LTqbEmWovu4t7Rs4C211+GRRU4V3B=+WmW0SOhX_b8db5Q@mail.gmail.com>
+Message-ID: <20181024204036.8799-1-palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 10/24/18 12:55 PM, Rob Herring wrote:
-> On Wed, Oct 24, 2018 at 2:33 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
->>
->> Hi all,
->>
->> While investigating why ARM64 required a ton of objects to be rebuilt
->> when toggling CONFIG_DEV_BLK_INITRD, it became clear that this was
->> because we define __early_init_dt_declare_initrd() differently and we do
->> that in arch/arm64/include/asm/memory.h which gets included by a fair
->> amount of other header files, and translation units as well.
-> 
-> I scratch my head sometimes as to why some config options rebuild so
-> much stuff. One down, ? to go. :)
-> 
+On Tue, 23 Oct 2018 01:20:28 PDT (-0700), david.abdurachmanov at gmail.com wrote:
+> On Tue, Oct 23, 2018 at 3:20 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+>
+>> I'm pretty sure this is our largest patch set since the original kernel
+>> contribution, and it's certainly the one with the most contributors.
+>> While I don't have anything else I know I'm going to submit for the
+>> merge window, I would be somewhat surprised if I didn't screw anything
+>> up.
+>
+> Hi Palmer,
+>
+> Do you plan to land wip-seccomp in 4.20?
+>
+> It was mentioned back in August:
+> http://lists.infradead.org/pipermail/linux-riscv/2018-August/001182.html
+>
+> david
 
-This one was by far the most invasive one due to its include chain, but
-yes, there would be many more that could be optimized.
+I've updated the patches to live on top of 4.19 as well as cleaning up
+the Kconfig entry.  Unless anyone has any comments I'll add them to
+for-next and submit a PR next week.
 
->> Changing the value of CONFIG_DEV_BLK_INITRD is a common thing with build
->> systems that generate two kernels: one with the initramfs and one
->> without. buildroot is one of these build systems, OpenWrt is also
->> another one that does this.
->>
->> This patch series proposes adding an empty initrd.h to satisfy the need
->> for drivers/of/fdt.c to unconditionally include that file, and moves the
->> custom __early_init_dt_declare_initrd() definition away from
->> asm/memory.h
->>
->> This cuts the number of objects rebuilds from 1920 down to 26, so a
->> factor 73 approximately.
->>
->> Apologies for the long CC list, please let me know how you would go
->> about merging that and if another approach would be preferable, e.g:
->> introducing a CONFIG_ARCH_INITRD_BELOW_START_OK Kconfig option or
->> something like that.
-> 
-> There may be a better way as of 4.20 because bootmem is now gone and
-> only memblock is used. This should unify what each arch needs to do
-> with initrd early. We need the physical address early for memblock
-> reserving. Then later on we need the virtual address to access the
-> initrd. Perhaps we should just change initrd_start and initrd_end to
-> physical addresses (or add 2 new variables would be less invasive and
-> allow for different translation than __va()). The sanity checks and
-> memblock reserve could also perhaps be moved to a common location.
-> 
-> Alternatively, given arm64 is the only oddball, I'd be fine with an
-> "if (IS_ENABLED(CONFIG_ARM64))" condition in the default
-> __early_init_dt_declare_initrd as long as we have a path to removing
-> it like the above option.
-
-OK, let me cook a patch doing that and meanwhile I will look at how much
-work is involved to implement the above option you outlined, which also
-sounds entirely reasonable.
-
-Thanks!
--- 
-Florian
+Thanks for the reminder!
