@@ -4,94 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9FD12ECDE46
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Oct 2018 21:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A4E62ECDE46
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Oct 2018 22:06:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4F3F020652
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Oct 2018 21:47:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 419262075D
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Oct 2018 22:06:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EiSLbJ8d";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="oCBsGSPv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4F3F020652
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="olDQjSqt";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="W3I0iUFh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 419262075D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z8AcqA0rb6M8TtWWinmWi8obki58rKkCVxFzBSiIjLM=; b=EiSLbJ8dYuGvpT
-	HKdSAAu7DsPbK45lHjsh6BsSB/WGZ6KPicYShuIbI2jn4VbmegQ/JiS4I1tPGYL9EHo7+PAa0TNdx
-	9q1dYyT1ixXuJTqwqqiY3u2/bkBaTnTo2lQ3+LwHppnyxyH0qt5XvotYL99kMPNKiGUWFa2tLkzbO
-	2LVbIjyeVqm9At33oYAT6/PkLySUTYy2UHq5L838I4Ku85fQ/dTlxmquAlTddzWBU747niYuWVwK2
-	HBDCl6uwN2CFBisvKeLPT4WYqA0yF7uPTY61ftJnkkV30xY20YZgEYC3R7W9/ihUENHt7FRsH1n7p
-	ONgJpgGQgUMJc/sYwiUA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=hH5jCZWnSf0dC1xtIP+Uk82BrpWEUfnuT97oOs7nXvI=; b=olDQjSqtsgqVBf7RQ85iPPYXA
+	cszEazjOU5jkIGVDpICvMxCp4zX2O3RRS576PVFGYcpdb1F5NJUn83SGKShg/ah9JPyynpXJz6Od6
+	nTX55wMM0XJNjNBFFe/KuFlLAvKUfWvGvU/uV2PcbJI7Wqu/31iWJ8oTjvgJe3iinCMvwTopX051P
+	MdPecXQ0Yb9sK7hDa5kSS13W33QlPVpapuSf7jJSaEaxQ8IYw7XmjsnysNOwUtDpI6MfYUuL1UF6G
+	QuCaOGGy1DV+x5i+bdFiBp08GjbMWrbD+MqQWhYzU7TLgkxnyGwST19Cg4sTK6Pz27bnahjAXO411
+	12d6VaHCw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gFQzu-0001rj-Dx; Wed, 24 Oct 2018 21:47:26 +0000
-Received: from mail-yb1-xb44.google.com ([2607:f8b0:4864:20::b44])
+	id 1gFRHq-0001Sj-PI; Wed, 24 Oct 2018 22:05:58 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gFQzr-0001rN-Uk
- for linux-riscv@lists.infradead.org; Wed, 24 Oct 2018 21:47:25 +0000
-Received: by mail-yb1-xb44.google.com with SMTP id e16-v6so2795095ybk.8
- for <linux-riscv@lists.infradead.org>; Wed, 24 Oct 2018 14:47:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=mime-version:in-reply-to:references:from:date:message-id:subject:to
- :cc; bh=SpR5PQEROeAv83K8afXyXqw/J6C4jmUgmC8hplFSm64=;
- b=oCBsGSPvBXL9EdKvmdPAdDzC7A9Qss8d1x8bQ/yaE6M3uDeDhAAvtguMgfVypcGsiO
- /+jdM/3i/GmYoSHC3u1q61BcgiwQkl4nPwCVqmcxJlUl5lrx2OfUcDtPYzUU0e5TkFqI
- 86g4SpeZkJr47G5yf6Y4PY5xW7HlrHr5Vn9Qo=
+ id 1gFRHn-0001Rt-QX
+ for linux-riscv@lists.infradead.org; Wed, 24 Oct 2018 22:05:57 +0000
+Received: by mail-pl1-x641.google.com with SMTP id p5-v6so2868784plq.8
+ for <linux-riscv@lists.infradead.org>; Wed, 24 Oct 2018 15:05:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=1kBphnAyZczCooAon+quSbWP6ohQnb3omfdsMC00wpI=;
+ b=W3I0iUFhNFwfbpq1I1wb8DlCQjefJOEGhHXtQI4fjzl4DtjuWpeA0LSATPwwslKq8r
+ JVmP5EkjXvmisE/74lJNFSQRfvAPDada0U/MMCdn0tmqJkp+VKB5Bw0fgsDnN7hDt/uk
+ 7kTDHLfUtdsP3J0gxxujBAkeidKKqTXjTzXqBTXNyAiPlJiMxq+2r9yPUTXv+R2gxkhN
+ gNmFQXPA1VaSFrZITtAAG12drK2uoZyv2J46gq+Bz+47pJu9fAzgmOa4Zw5yMHGWfWfv
+ WL/378FUnX5BNI/Ms1E9j1BprzhVD+hiErwqtZRH0EmlYHc1lbDecpLQ7E2iZyKXgzd1
+ LoRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:in-reply-to:references:from:date
- :message-id:subject:to:cc;
- bh=SpR5PQEROeAv83K8afXyXqw/J6C4jmUgmC8hplFSm64=;
- b=Dkc7N0f8yYoEVWqN/8s1Uu6ydkjzhwNyhDSVQI5+mKw8BfKvtf9UKQ+DcGQvT6GJlp
- ikSwI8ZGGBe5omEoRCoH1v12w/KtLeKWQXMtN4qq9TACcINkQfdVng9wj0scc8A1hyNm
- 8NosVhxNcdEWi5qwraCoGGDDnktAFx5BmJR6RQ/xtt1fyddIfXagsAzA0DXC9SE6JC83
- 8X+149K47tYGsKn/mHd1g5rUZIpn3cjX/JYPgy7OQxOcJixOsEkp9PxFg5AhWdkJgF24
- mfN30ADuFey6mHzay2tbrDdcfEU50fbzeHT8mGo4Wpi8NeX0/xNqFWPJTVyH1aTmzPDv
- DlYA==
-X-Gm-Message-State: AGRZ1gLbtEc/5a5j88yHfazwmK9HBZCh6OpKxfc9up9txVn2kdAg5zKA
- oHawpAO3x3aTs85XZG+9WXkTLvSKwck=
-X-Google-Smtp-Source: AJdET5c3WIuzLqv8/U1HUQY7fUdJ3dA2yt95gszoYXQ68WT0weWcWd9fN+d8qy+GFkVIRmC2xO4PxQ==
-X-Received: by 2002:a25:bdcd:: with SMTP id
- g13-v6mr4079667ybk.253.1540417631932; 
- Wed, 24 Oct 2018 14:47:11 -0700 (PDT)
-Received: from mail-yw1-f54.google.com (mail-yw1-f54.google.com.
- [209.85.161.54])
- by smtp.gmail.com with ESMTPSA id a189-v6sm2588159ywg.65.2018.10.24.14.47.11
- for <linux-riscv@lists.infradead.org>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=1kBphnAyZczCooAon+quSbWP6ohQnb3omfdsMC00wpI=;
+ b=ULuXkKNNCyjq0heT7Nh9Ux3WeH0msCZg77nZMZUMP4f7mrnGLf2hyxc49BjCHjrFuU
+ DOz0Ar03shvhkg/eX/FlN94rcOCh2vk6nW5GjzQ9IRsaYSZZ8aXvnz1EtGmW4IR7Zlvb
+ 9Ka3VJJnq7MzYPmpvJm0xs2aNwLIYmicdbRIS+YhUt1XtXEm+pF/XbJttDWvHHfBLlC+
+ aoPusbcR62o7SYKhXH+JzwkYuZCD6B10+QwKOdewiWWetcnVOWEzLQ0VySLJKFdYnokM
+ h3/EheK14fxHxvqonGR6HVco7tjU25Go7LtrPyfZRBgm2zXmLnor/FJ4JAu+tHu8k11R
+ oVzg==
+X-Gm-Message-State: AGRZ1gLWXzmiQEyynQXrx9hrtcwaAWQuFcdxARZf9aeJ40fH5PHpTU4M
+ Vf9TAs9eEkfyrZYH9Gt9q6FjiWecn+c=
+X-Google-Smtp-Source: AJdET5di/QtUcEkJAWeaqcXQd8DTAU6jIbsy1GkOcB7ONIvhaPQBlkgtTc4UB4Edmnf+tiuO3MiLqg==
+X-Received: by 2002:a17:902:a9cb:: with SMTP id
+ b11-v6mr4008287plr.219.1540418744758; 
+ Wed, 24 Oct 2018 15:05:44 -0700 (PDT)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id m18-v6sm7527666pfk.149.2018.10.24.15.05.43
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 24 Oct 2018 14:47:11 -0700 (PDT)
-Received: by mail-yw1-f54.google.com with SMTP id v199-v6so2745270ywg.1
- for <linux-riscv@lists.infradead.org>; Wed, 24 Oct 2018 14:47:11 -0700 (PDT)
-X-Received: by 2002:a0d:fec6:: with SMTP id
- o189-v6mr4082861ywf.237.1540417324661; 
- Wed, 24 Oct 2018 14:42:04 -0700 (PDT)
-MIME-Version: 1.0
-Received: by 2002:a25:3990:0:0:0:0:0 with HTTP; Wed, 24 Oct 2018 14:42:03
- -0700 (PDT)
-In-Reply-To: <20181024204036.8799-3-palmer@sifive.com>
-References: <CAEn-LTqbEmWovu4t7Rs4C211+GRRU4V3B=+WmW0SOhX_b8db5Q@mail.gmail.com>
- <20181024204036.8799-1-palmer@sifive.com>
- <20181024204036.8799-3-palmer@sifive.com>
-From: Kees Cook <keescook@chromium.org>
-Date: Wed, 24 Oct 2018 14:42:03 -0700
-X-Gmail-Original-Message-ID: <CAGXu5jJ7gmVXZE+iksW99c6bHEV2rSOG+boQDRGmMSDa9HOh_A@mail.gmail.com>
-Message-ID:
- <CAGXu5jJ7gmVXZE+iksW99c6bHEV2rSOG+boQDRGmMSDa9HOh_A@mail.gmail.com>
-Subject: Re: [PATCH 2/2] RISC-V: Add support for SECCOMP
-To: Palmer Dabbelt <palmer@sifive.com>
+ Wed, 24 Oct 2018 15:05:43 -0700 (PDT)
+Date: Wed, 24 Oct 2018 15:05:43 -0700 (PDT)
+X-Google-Original-Date: Wed, 24 Oct 2018 14:01:56 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: properly determine hardware caps
+In-Reply-To: <mvmftwxruas.fsf@suse.de>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: schwab@suse.de
+Message-ID: <mhng-fe1ddf75-4f79-4ffa-8017-d9ddae5ef503@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181024_144724_033629_C1CFC2C4 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20181024_150555_869620_BE3A5A98 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -103,80 +94,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Kate Stewart <kstewart@linuxfoundation.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Will Drewry <wad@chromium.org>,
- Paul Moore <paul@paul-moore.com>, Greg KH <gregkh@linuxfoundation.org>,
- Wesley Terpstra <wesley@sifive.com>, david.abdurachmanov@gmail.com,
- LKML <linux-kernel@vger.kernel.org>, Eric Paris <eparis@redhat.com>,
- Andy Lutomirski <luto@amacapital.net>, David Howells <dhowells@redhat.com>,
- Linux Audit <linux-audit@redhat.com>,
- Philippe Ombredanne <pombredanne@nexb.com>, linux-riscv@lists.infradead.org,
- Thomas Gleixner <tglx@linutronix.de>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181024214203.--r16WEJ637kvwHCuQ8-w-wJuiN-6AIfyyu-JvJpuy0@z>
+Message-ID: <20181024220543.SSJb2X6ztk6iTeG0CN1zPHHEcfLq-jFlQPOuFEC9K60@z>
 
-On Wed, Oct 24, 2018 at 1:40 PM, Palmer Dabbelt <palmer@sifive.com> wrote:
-> From: "Wesley W. Terpstra" <wesley@sifive.com>
+On Tue, 23 Oct 2018 00:33:47 PDT (-0700), schwab@suse.de wrote:
+> On the Hifive-U platform, cpu 0 is a masked cpu with less capabilities
+> than the other cpus.  Ignore it for the purpose of determining the
+> hardware capabilities of the system.
 >
-> This is a fairly straight-forward implementation of seccomp for RISC-V
-> systems.
->
-> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
-> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+> Signed-off-by: Andreas Schwab <schwab@suse.de>
 > ---
->  arch/riscv/Kconfig                   | 18 ++++++++++++++++++
->  arch/riscv/include/asm/seccomp.h     | 10 ++++++++++
->  arch/riscv/include/asm/syscall.h     |  6 ++++++
->  arch/riscv/include/asm/thread_info.h |  1 +
->  include/uapi/linux/audit.h           |  1 +
->  5 files changed, 36 insertions(+)
->  create mode 100644 arch/riscv/include/asm/seccomp.h
+>  arch/riscv/kernel/cpufeature.c | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
 >
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index a344980287a5..28abe47602a1 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -28,6 +28,7 @@ config RISCV
->         select GENERIC_STRNLEN_USER
->         select GENERIC_SMP_IDLE_THREAD
->         select GENERIC_ATOMIC64 if !64BIT || !RISCV_ISA_A
-> +       select HAVE_ARCH_SECCOMP_FILTER
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 5493f32287..0339087aa6 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -28,7 +28,7 @@ bool has_fpu __read_mostly;
+>
+>  void riscv_fill_hwcap(void)
+>  {
+> -	struct device_node *node;
+> +	struct device_node *node = NULL;
+>  	const char *isa;
+>  	size_t i;
+>  	static unsigned long isa2hwcap[256] = {0};
+> @@ -44,9 +44,11 @@ void riscv_fill_hwcap(void)
+>
+>  	/*
+>  	 * We don't support running Linux on hertergenous ISA systems.  For
+> -	 * now, we just check the ISA of the first processor.
+> +	 * now, we just check the ISA of the first "okay" processor.
+>  	 */
+> -	node = of_find_node_by_type(NULL, "cpu");
+> +	while ((node = of_find_node_by_type(node, "cpu")))
+> +		if (riscv_of_processor_hartid(node) >= 0)
+> +			break;
+>  	if (!node) {
+>  		pr_warning("Unable to find \"cpu\" devicetree entry");
+>  		return;
 
-I think this patch is missing most of the actual seccomp glue?
-
-config HAVE_ARCH_SECCOMP_FILTER
-        bool
-        help
-          An arch should select this symbol if it provides all of these things:
-          - syscall_get_arch()
-          - syscall_get_arguments()
-          - syscall_rollback()
-          - syscall_set_return_value()
-          - SIGSYS siginfo_t support
-          - secure_computing is called from a ptrace_event()-safe context
-          - secure_computing return value is checked and a return value of -1
-            results in the system call being skipped immediately.
-          - seccomp syscall wired up
-
-I only see syscall_get_arch(). Nothing is using TIF_SECCOMP (I'd
-expect a masked check in entry.S -- it seems like tracepoints are
-getting missed too? I see it handled in ptrace.c but not checked in
-entry.S?) There's no checking for seccomp in ptrace.c, etc.
-
-At the very least, I think the Kconfigs should not be included in this
-patch. The other things are needed, but without everything else,
-seccomp isn't actually available. :)
-
-Reading the per-arch Kconfigs, I am reminded I still need to move
-CONFIG_SECCOMP up into arch/Kconfig. :P
-
--Kees
-
--- 
-Kees Cook
+Thanks!  I'll add this to for-next, and if there's no other comments I'll 
+include it as part of next week's PR.
 
 _______________________________________________
 linux-riscv mailing list
