@@ -1,48 +1,32 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 24 Oct 2018 15:05:43 -0700 (PDT)
-Subject: [PATCH] RISC-V: properly determine hardware caps
-In-Reply-To: <mvmftwxruas.fsf@suse.de>
-Message-ID: <mhng-fe1ddf75-4f79-4ffa-8017-d9ddae5ef503@palmer-si-x1c4>
+From: keescook@chromium.org (Kees Cook)
+Date: Wed, 24 Oct 2018 15:34:45 -0700
+Subject: [PATCH 2/2] RISC-V: Add support for SECCOMP
+In-Reply-To: <CAGXu5jJ7gmVXZE+iksW99c6bHEV2rSOG+boQDRGmMSDa9HOh_A@mail.gmail.com>
+References: <CAEn-LTqbEmWovu4t7Rs4C211+GRRU4V3B=+WmW0SOhX_b8db5Q@mail.gmail.com>
+ <20181024204036.8799-1-palmer@sifive.com>
+ <20181024204036.8799-3-palmer@sifive.com>
+ <CAGXu5jJ7gmVXZE+iksW99c6bHEV2rSOG+boQDRGmMSDa9HOh_A@mail.gmail.com>
+Message-ID: <CAGXu5j+N5Du=c-dfGd-_rLjE3NEeN+MXTsKjt2APA1U1xwwSag@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 23 Oct 2018 00:33:47 PDT (-0700), schwab at suse.de wrote:
-> On the Hifive-U platform, cpu 0 is a masked cpu with less capabilities
-> than the other cpus.  Ignore it for the purpose of determining the
-> hardware capabilities of the system.
->
-> Signed-off-by: Andreas Schwab <schwab@suse.de>
-> ---
->  arch/riscv/kernel/cpufeature.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 5493f32287..0339087aa6 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -28,7 +28,7 @@ bool has_fpu __read_mostly;
->
->  void riscv_fill_hwcap(void)
->  {
-> -	struct device_node *node;
-> +	struct device_node *node = NULL;
->  	const char *isa;
->  	size_t i;
->  	static unsigned long isa2hwcap[256] = {0};
-> @@ -44,9 +44,11 @@ void riscv_fill_hwcap(void)
->
->  	/*
->  	 * We don't support running Linux on hertergenous ISA systems.  For
-> -	 * now, we just check the ISA of the first processor.
-> +	 * now, we just check the ISA of the first "okay" processor.
->  	 */
-> -	node = of_find_node_by_type(NULL, "cpu");
-> +	while ((node = of_find_node_by_type(node, "cpu")))
-> +		if (riscv_of_processor_hartid(node) >= 0)
-> +			break;
->  	if (!node) {
->  		pr_warning("Unable to find \"cpu\" devicetree entry");
->  		return;
+On Wed, Oct 24, 2018 at 2:42 PM, Kees Cook <keescook@chromium.org> wrote:
+> config HAVE_ARCH_SECCOMP_FILTER
+>         bool
+>         help
+>           An arch should select this symbol if it provides all of these things:
+>           - syscall_get_arch()
+>           - syscall_get_arguments()
+>           - syscall_rollback()
+>           - syscall_set_return_value()
+>           - SIGSYS siginfo_t support
+>           - secure_computing is called from a ptrace_event()-safe context
+>           - secure_computing return value is checked and a return value of -1
+>             results in the system call being skipped immediately.
+>           - seccomp syscall wired up
 
-Thanks!  I'll add this to for-next, and if there's no other comments I'll 
-include it as part of next week's PR.
+Oh, and I should add to this list, "passes
+tools/testing/selftests/seccomp/seccomp_bpf test". :)
+
+-- 
+Kees Cook
