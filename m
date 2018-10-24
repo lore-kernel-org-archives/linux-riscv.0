@@ -1,64 +1,86 @@
-From: kirill@shutemov.name (Kirill A. Shutemov)
-Date: Wed, 24 Oct 2018 15:57:24 +0300
-Subject: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
-In-Reply-To: <20181024115733.GN8537@350D>
-References: <20181013013200.206928-1-joel@joelfernandes.org>
- <20181013013200.206928-3-joel@joelfernandes.org>
- <20181024101255.it4lptrjogalxbey@kshutemo-mobl1>
- <20181024115733.GN8537@350D>
-Message-ID: <20181024125724.yf6frdimjulf35do@kshutemo-mobl1>
+From: mick@ics.forth.gr (Nick Kossifidis)
+Date: Wed, 24 Oct 2018 16:32:40 +0300
+Subject: [PATCH v2] OF: Handle CMDLINE when /chosen node is not present
+In-Reply-To: <CAL_JsqKA6_saB7Ak=BZqSth6KAZ1g2srF5BsOQRGdE2+rmcR8w@mail.gmail.com>
+References: <20181022224213.GA25145@bogus>
+ <mhng-08dbc241-46e4-411b-ba13-32435abde7ad@palmer-si-x1c4>
+ <CAL_JsqKA6_saB7Ak=BZqSth6KAZ1g2srF5BsOQRGdE2+rmcR8w@mail.gmail.com>
+Message-ID: <8e420b9dee0f246fda8e018532737b1a@mailhost.ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Oct 24, 2018 at 10:57:33PM +1100, Balbir Singh wrote:
-> On Wed, Oct 24, 2018 at 01:12:56PM +0300, Kirill A. Shutemov wrote:
-> > On Fri, Oct 12, 2018 at 06:31:58PM -0700, Joel Fernandes (Google) wrote:
-> > > diff --git a/mm/mremap.c b/mm/mremap.c
-> > > index 9e68a02a52b1..2fd163cff406 100644
-> > > --- a/mm/mremap.c
-> > > +++ b/mm/mremap.c
-> > > @@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
-> > >  		drop_rmap_locks(vma);
-> > >  }
-> > >  
-> > > +static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
-> > > +		  unsigned long new_addr, unsigned long old_end,
-> > > +		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
-> > > +{
-> > > +	spinlock_t *old_ptl, *new_ptl;
-> > > +	struct mm_struct *mm = vma->vm_mm;
-> > > +
-> > > +	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
-> > > +	    || old_end - old_addr < PMD_SIZE)
-> > > +		return false;
-> > > +
-> > > +	/*
-> > > +	 * The destination pmd shouldn't be established, free_pgtables()
-> > > +	 * should have release it.
-> > > +	 */
-> > > +	if (WARN_ON(!pmd_none(*new_pmd)))
-> > > +		return false;
-> > > +
-> > > +	/*
-> > > +	 * We don't have to worry about the ordering of src and dst
-> > > +	 * ptlocks because exclusive mmap_sem prevents deadlock.
-> > > +	 */
-> > > +	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
-> > > +	if (old_ptl) {
-> > 
-> > How can it ever be false?
-> > 
-> > > +		pmd_t pmd;
-> > > +
-> > > +		new_ptl = pmd_lockptr(mm, new_pmd);
+???? 2018-10-23 17:30, Rob Herring ??????:
+> On Mon, Oct 22, 2018 at 5:55 PM Palmer Dabbelt <palmer@sifive.com> 
+> wrote:
+>> 
+>> On Mon, 22 Oct 2018 15:42:13 PDT (-0700), robh at kernel.org wrote:
+>> > On Mon, Oct 15, 2018 at 05:20:10PM +0300, Nick Kossifidis wrote:
+>> >> The /chosen node is optional so we should handle CMDLINE regardless
+>> >> the presence of /chosen/bootargs. Move handling of CMDLINE in
+>> >> early_init_dt_scan() instead.
+>> >
+>> > I looked at this a while back. I'm not sure this behavior can be changed
+>> > without breaking some MIPS platforms that could be relying on the
+>> > current behavior. But trying to make sense of the MIPS code is a
+>> > challenge and they have some other issues in this area.
+>> >
+>> > Can't this be fixed by making /chosen manditory? I'd expect ultimately
+>> > you are always going to need it.
+>> >
+>> > I'd rather not resort to making this per arch. There's also some effort
+>> > to consolidate cmd line handling[1].
+>> 
+>> I'd rather make /chosen mandatory on RISC-V than to have per-arch 
+>> handling, as
+>> like you've said there's already too much duplication.  That said, it 
+>> does seem
+>> like a bug to me because the behavior seems somewhat arbitrary -- an 
+>> empty
+>> /chosen node causing the built-in command-line argument handling to go 
+>> off the
+>> rails just smells so buggy.
 > 
+> Yes. Probably need to do some archaeology on this code to figure out
+> some of the expectations.
 > 
-> Looks like this is largely inspired by move_huge_pmd(), I guess a lot of
-> the code applies, why not just reuse as much as possible? The same comments
-> w.r.t mmap_sem helping protect against lock order issues applies as well.
+>> If that's the case, could we at least have something like
+>> "CONFIG_OF_CHOSEN_IS_MANDATORY" that provides a warning when there is 
+>> no
+>> /chosen node and is set on architecture where the spec mandates 
+>> /chosen?
+> 
+> I'd be okay to make it a warning unconditionally. At least then we can
+> find the cases that deviate and either fix them or understand their
+> expectations.
+> 
+> Rob
 
-pmd_lock() cannot fail, but __pmd_trans_huge_lock() can. We should not
-copy the code blindly.
+I don't think we can make /chosen node mandatory since it's not 
+specified as such
+by the spec 
+(https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.2).
+No matter what we say from the kernel side, the device tree provider is 
+not expected
+to always provide the /chosen mode. Also device tree is not the only 
+provider of
+a command line, we might get a command line from different places 
+per-arch (e.g. atags
+on arm) or through EFI/ACPI/kexec as well. That's why my initial 
+approach for RISC-V
+was on the arch-specific code.
 
--- 
- Kirill A. Shutemov
+We shouldn't try to handle the built-in CMDLINE on each of the possible 
+command line
+providers and if we do we should at least make sure we don't depend on 
+the presence
+of a provided command line (which is the issue in this case).
+
+I believe the best approach is to consolidate all the different CMDLINE 
+approaches
+for the various archs / providers and clean up the mess instead of 
+re-implementing
+the same thing again and again. I saw the patch you mentioned and it's a 
+start.
+I'll look more into it and try to come up with a similar one.
+
+Nick
