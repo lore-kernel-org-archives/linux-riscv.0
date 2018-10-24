@@ -1,119 +1,76 @@
 From: robh@kernel.org (Rob Herring)
-Date: Wed, 24 Oct 2018 16:06:52 -0500
-Subject: [PATCH v2] OF: Handle CMDLINE when /chosen node is not present
-In-Reply-To: <8e420b9dee0f246fda8e018532737b1a@mailhost.ics.forth.gr>
-References: <20181022224213.GA25145@bogus>
- <mhng-08dbc241-46e4-411b-ba13-32435abde7ad@palmer-si-x1c4>
- <CAL_JsqKA6_saB7Ak=BZqSth6KAZ1g2srF5BsOQRGdE2+rmcR8w@mail.gmail.com>
- <8e420b9dee0f246fda8e018532737b1a@mailhost.ics.forth.gr>
-Message-ID: <CAL_Jsq+CgxWbCMz_qwLbMJS3fYwKyCMBGVS501-5ShXywyDAXA@mail.gmail.com>
+Date: Wed, 24 Oct 2018 16:25:47 -0500
+Subject: [PATCH v2 0/2] arm64: Cut rebuild time when changing
+ CONFIG_BLK_DEV_INITRD
+In-Reply-To: <6e647f76-8523-09d3-9b72-d8d8abd213a4@gmail.com>
+References: <20181024193256.23734-1-f.fainelli@gmail.com>
+ <CAL_Jsq+KCOv6pXXHhHDZ+7-QUrmtMDvSjEVhK15yZ3qbnn61Ag@mail.gmail.com>
+ <6e647f76-8523-09d3-9b72-d8d8abd213a4@gmail.com>
+Message-ID: <CAL_JsqKC6+8gobdk1uhMLLdMUHEO8D0c3m6+F_3y3NTU_KidOw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Oct 24, 2018 at 8:33 AM Nick Kossifidis <mick@ics.forth.gr> wrote:
+On Wed, Oct 24, 2018 at 3:01 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
 >
-> ???? 2018-10-23 17:30, Rob Herring ??????:
-> > On Mon, Oct 22, 2018 at 5:55 PM Palmer Dabbelt <palmer@sifive.com>
-> > wrote:
+> On 10/24/18 12:55 PM, Rob Herring wrote:
+> > On Wed, Oct 24, 2018 at 2:33 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
 > >>
-> >> On Mon, 22 Oct 2018 15:42:13 PDT (-0700), robh at kernel.org wrote:
-> >> > On Mon, Oct 15, 2018 at 05:20:10PM +0300, Nick Kossifidis wrote:
-> >> >> The /chosen node is optional so we should handle CMDLINE regardless
-> >> >> the presence of /chosen/bootargs. Move handling of CMDLINE in
-> >> >> early_init_dt_scan() instead.
-> >> >
-> >> > I looked at this a while back. I'm not sure this behavior can be changed
-> >> > without breaking some MIPS platforms that could be relying on the
-> >> > current behavior. But trying to make sense of the MIPS code is a
-> >> > challenge and they have some other issues in this area.
-> >> >
-> >> > Can't this be fixed by making /chosen manditory? I'd expect ultimately
-> >> > you are always going to need it.
-> >> >
-> >> > I'd rather not resort to making this per arch. There's also some effort
-> >> > to consolidate cmd line handling[1].
+> >> Hi all,
 > >>
-> >> I'd rather make /chosen mandatory on RISC-V than to have per-arch
-> >> handling, as
-> >> like you've said there's already too much duplication.  That said, it
-> >> does seem
-> >> like a bug to me because the behavior seems somewhat arbitrary -- an
-> >> empty
-> >> /chosen node causing the built-in command-line argument handling to go
-> >> off the
-> >> rails just smells so buggy.
+> >> While investigating why ARM64 required a ton of objects to be rebuilt
+> >> when toggling CONFIG_DEV_BLK_INITRD, it became clear that this was
+> >> because we define __early_init_dt_declare_initrd() differently and we do
+> >> that in arch/arm64/include/asm/memory.h which gets included by a fair
+> >> amount of other header files, and translation units as well.
 > >
-> > Yes. Probably need to do some archaeology on this code to figure out
-> > some of the expectations.
+> > I scratch my head sometimes as to why some config options rebuild so
+> > much stuff. One down, ? to go. :)
 > >
-> >> If that's the case, could we at least have something like
-> >> "CONFIG_OF_CHOSEN_IS_MANDATORY" that provides a warning when there is
-> >> no
-> >> /chosen node and is set on architecture where the spec mandates
-> >> /chosen?
-> >
-> > I'd be okay to make it a warning unconditionally. At least then we can
-> > find the cases that deviate and either fix them or understand their
-> > expectations.
-> >
-> > Rob
 >
-> I don't think we can make /chosen node mandatory since it's not
-> specified as such
-> by the spec
-> (https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.2).
+> This one was by far the most invasive one due to its include chain, but
+> yes, there would be many more that could be optimized.
+>
+> >> Changing the value of CONFIG_DEV_BLK_INITRD is a common thing with build
+> >> systems that generate two kernels: one with the initramfs and one
+> >> without. buildroot is one of these build systems, OpenWrt is also
+> >> another one that does this.
+> >>
+> >> This patch series proposes adding an empty initrd.h to satisfy the need
+> >> for drivers/of/fdt.c to unconditionally include that file, and moves the
+> >> custom __early_init_dt_declare_initrd() definition away from
+> >> asm/memory.h
+> >>
+> >> This cuts the number of objects rebuilds from 1920 down to 26, so a
+> >> factor 73 approximately.
+> >>
+> >> Apologies for the long CC list, please let me know how you would go
+> >> about merging that and if another approach would be preferable, e.g:
+> >> introducing a CONFIG_ARCH_INITRD_BELOW_START_OK Kconfig option or
+> >> something like that.
+> >
+> > There may be a better way as of 4.20 because bootmem is now gone and
+> > only memblock is used. This should unify what each arch needs to do
+> > with initrd early. We need the physical address early for memblock
+> > reserving. Then later on we need the virtual address to access the
+> > initrd. Perhaps we should just change initrd_start and initrd_end to
+> > physical addresses (or add 2 new variables would be less invasive and
+> > allow for different translation than __va()). The sanity checks and
+> > memblock reserve could also perhaps be moved to a common location.
+> >
+> > Alternatively, given arm64 is the only oddball, I'd be fine with an
+> > "if (IS_ENABLED(CONFIG_ARM64))" condition in the default
+> > __early_init_dt_declare_initrd as long as we have a path to removing
+> > it like the above option.
+>
+> OK, let me cook a patch doing that and meanwhile I will look at how much
+> work is involved to implement the above option you outlined, which also
+> sounds entirely reasonable.
 
-We can change the spec. :) Maybe only to recommended for the DT spec,
-but you should also clearly define the boot interface to the kernel on
-risc-v or suffer the pain later. And in that you can make it required.
-
-Regardless, what I was really getting at is effectively it will become
-required anyways. Pretty much every setup needs kernel cmdline. Yes it
-can be built-in, but soon as it is your kernel works on a single
-platform. Want to support an initrd? Need chosen. crashdump? Need
-chosen. Want a console? Need chosen.
-
-> No matter what we say from the kernel side, the device tree provider is
-> not expected
-> to always provide the /chosen mode. Also device tree is not the only
-> provider of
-> a command line, we might get a command line from different places
-> per-arch (e.g. atags
-> on arm) or through EFI/ACPI/kexec as well. That's why my initial
-> approach for RISC-V
-> was on the arch-specific code.
-
-An arch is free to choose its own way, yes. You'd be crazy to invent
-something new though.
-
-ATAGS is legacy. If we do have ATAGS with DT, we fix it up in one
-place (the decompressor) by moving all the parameters to DT. Then it
-is either ATAGS or DT boot and one code path from there. MIPS does not
-do that and is a mess. AFAICT, there can be 3 sources of parameters
-(bootloader(legacy), DT, or kernel) and those have an undefined way
-they are combined (other than what the code happens to do). And on top
-of that the DT can be built-in, external, or both.
-
-ACPI and EFI don't deal with the command line (as least on arm and
-arm64). The kernel command line is always passed via DT. DT is the
-kernel boot interface even for arm64 ACPI systems.
+BTW, I would suspect that initrd_below_start_ok being 1 is not okay
+for most arches. I'm not sure how that would work. min_low_pfn is
+typically based on the start of memory. arm64 is not even setting it.
 
 Rob
 
-
->
-> We shouldn't try to handle the built-in CMDLINE on each of the possible
-> command line
-> providers and if we do we should at least make sure we don't depend on
-> the presence
-> of a provided command line (which is the issue in this case).
->
-> I believe the best approach is to consolidate all the different CMDLINE
-> approaches
-> for the various archs / providers and clean up the mess instead of
-> re-implementing
-> the same thing again and again. I saw the patch you mentioned and it's a
-> start.
-> I'll look more into it and try to come up with a similar one.
->
-> Nick
+> --
+> Florian
