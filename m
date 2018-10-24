@@ -2,24 +2,23 @@ Return-Path: <SRS0=/L7I=NE=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.2 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable autolearn_force=no
+X-Spam-Status: No, score=-7.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D389BC67863
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Oct 2018 11:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B78BCC67863
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Oct 2018 12:57:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5774820824
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Oct 2018 11:58:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8823D2064A
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Oct 2018 12:57:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XMtVM4qK";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="rxvOMkoP"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5774820824
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZCeOUh2V";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=shutemov-name.20150623.gappssmtp.com header.i=@shutemov-name.20150623.gappssmtp.com header.b="QUWcy6Sl"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8823D2064A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=shutemov.name
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -27,67 +26,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6qDtJR3YpygazZynBFAm7SI/n6M/dSnEYOBH3i65dCU=; b=XMtVM4qKA4APTU
-	BjlyUqcJK7hQTundTexAsUMxoQw0AL3QaeWZh6WtX8+IfS/IJvnsyY+pyjQzOq58iYipjh/SWLAgj
-	fjkJ5YJ/U1BWqePiRUy69gvu1XqizyVHlxljLB6wK2BO5o6+8Hay6fh/KfMKM27cel0+x+bZKH8iE
-	tDohNk2y6qqgXuGCjXPQZdLUAS0KcYfElpYElCcIn37GDlqhTBiiIAOWq1ghCd2YgOUYwYNfjBRU3
-	a4zQVy3GG/p0ihb+rjp4G3/VAksHqUecKt0fIgYMy/b7YDrjt5LIjwyDFsaimncgdTdTj2hu7NrTb
-	oxJ16Z/LCulUh/e+SuGw==;
+	List-Owner; bh=YlOVR6ri3IOJ4nDDfzKqFXkXmDS028DxfU2S9ZLyp4U=; b=ZCeOUh2Vs/p3Qm
+	S8ryJcghPT5f+tPoQxwNAiQ6z5Rjar5ZiuDLgo5By9lYWAf4CtRkKfRvpicUZV6KJeSeQqf8/6eIT
+	jcLYYiZNQu96ax7QYRrgdHbiPsTGDWLQAm1fEwPh82eUBZ1+X22TZbAs1Mlzw3VBXqTW7ziAhGdLX
+	0tzUUtOHvP82YBcQgO3auwDV2FJjvAeQUgbcib9VGW8AiWrN5KaevAsAOYTvq0Nzpy1BiU2+urGCj
+	KPntRde3fq4+GLaEjluSXu1vGxamS2upLO1XrigUPZNVvy2w4xhZjnTqKOAjoCAmW7fC83keOe62n
+	tWC++xpBwmcTXA+peh0Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gFHnm-0006n4-Dd; Wed, 24 Oct 2018 11:58:18 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1gFIjJ-0006KQ-HG; Wed, 24 Oct 2018 12:57:45 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gFHnK-0006Y6-8f; Wed, 24 Oct 2018 11:58:01 +0000
-Received: by mail-pg1-x542.google.com with SMTP id g12-v6so2218514pgs.1;
- Wed, 24 Oct 2018 04:57:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ id 1gFIjF-0006J8-Oc
+ for linux-riscv@lists.infradead.org; Wed, 24 Oct 2018 12:57:43 +0000
+Received: by mail-pl1-x642.google.com with SMTP id f8-v6so2207723plb.2
+ for <linux-riscv@lists.infradead.org>; Wed, 24 Oct 2018 05:57:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=shutemov-name.20150623.gappssmtp.com; s=20150623;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to:user-agent;
- bh=r4S1JZtjtEoZRmv1cmbD7oqQ5fBxxZJ0gckdgeOcI14=;
- b=rxvOMkoPR1fl+wChK1gmiyTy80jYizuSzzLNsN1UW/nn68lcvDelAzg7q5xRULAFwF
- 88m9+eaacj9fu1oQRgbn9o9rL5OobsROYLsUPy8Jgnz+ao671RDA5Lk1ggZYlGqX9SbG
- 9RUUixIOumM9W9fFeC11ng0GECm2HV0kpOJEacCyBhFOab2Q3i4VFHF0QbnxQWZzkmCY
- Lire1m9l7AF9VgUbUKgofuhPxpehLdKNOXRb6mUKntibxqs2pslottwNtAIjzUINJV13
- bV4f1WLD9yCA7Iyr+h+lgaNFbMHR6/U4tmHoxnhQ/7prUqBNDcYtn35v7xWxzF+rGnLI
- 1zrQ==
+ bh=u4uba2fx6yj15XJfXzXAGhRcWjDfkikfuZTGMLXtNuw=;
+ b=QUWcy6Sl2uKBSxMKyAQKgPHaaZkxUyGKW1j/tcrhbSXB3vW5a56lXmFSTP0gzGbZK3
+ vffkJDQW2WMbIFLuD1+6ufBku/+pf6UeruhfzRwNYwFgIuIJTiBEFtQd6OUHFAQ6eayl
+ P+oyst7tx7B2tcyac+nAMIUnZnHfXCn48NySbAEzmKBcKrbkCpbDR97BYPvJugxN++Cj
+ APyxLuPJd0VjY9bkSUeFLpZ1THRyudEGwY77knuPasZkTOLS31IxwdJtMwVSEmSEjNTT
+ gafpbeBUtbqb+qibgmoy3fyXe8MHjyx6PnKU0Is89VSk3GMj5Rt4EKiaVNHGw+K4Tm+L
+ MPaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=r4S1JZtjtEoZRmv1cmbD7oqQ5fBxxZJ0gckdgeOcI14=;
- b=IjWhuy2DCafakCHos4M0GcG9M+++pTNlXnnA8PBUZNzIKX3M2XDE3MECwB6pzfM3nN
- QcfPs27SKl5mFSEooXJbqMjbx83UniuNNtVnnH/4LjHAwi1BV8KZQTMLbiNe7Qj4gAXB
- WiwJN3gpUB4gETa3kF2SIbaG0zt9P4jW8rui/oIbV5eVOC7serhiwbPRzjDdg05NuIFA
- MAkSL4TfS9YxfuO3e1IfL9ZEdsTWsOTm5USlwxZxFkembyzDiciEiD6vz1oErLxKPQO7
- 4g9LSz5n6/IzeiKtRveJh4qva8galJwL/cnZQG8NeG/jADKpLzQwZDFdkp7RBnOQyOFM
- EfQw==
-X-Gm-Message-State: AGRZ1gJbx6JyOWNdbfjv/qBgk9DqcZhStfzAHC5t9G5oaQVL6U6G1l/R
- mOAslYnBWOjMDz7cGiqPtFg=
-X-Google-Smtp-Source: AJdET5fJWm/yEunoAdHkJCNfHZyAKT69zWrP0KZ/06Nf8Zmi/6rvBn7LEzBt+uDaB55Nx51vc0n+3g==
-X-Received: by 2002:a62:6383:: with SMTP id
- x125-v6mr2334785pfb.13.1540382257876; 
- Wed, 24 Oct 2018 04:57:37 -0700 (PDT)
-Received: from localhost (14-202-194-140.static.tpgi.com.au. [14.202.194.140])
- by smtp.gmail.com with ESMTPSA id
- t5-v6sm3677450pfm.26.2018.10.24.04.57.35
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Wed, 24 Oct 2018 04:57:36 -0700 (PDT)
-Date: Wed, 24 Oct 2018 22:57:33 +1100
-From: Balbir Singh <bsingharora@gmail.com>
-To: "Kirill A. Shutemov" <kirill@shutemov.name>
+ bh=u4uba2fx6yj15XJfXzXAGhRcWjDfkikfuZTGMLXtNuw=;
+ b=ElyF0Ye9SpeWugwzu4kT6Mb/NOLizC6PjCGCvQe9aaXHMBibCwQ6lLznEBMTbqCwC6
+ 1SWuOpEpJKeXt8oa0RA68WdNmQpvYGxXGg9OXy0NJZCosD17CiXtshaGT8ZZAipviarN
+ upKwq5vbQUsvHsEkqpGnQzBVOYIVZFPxsQib37pb7MoscYgnGwrfkZebUPI1qqGK1R0J
+ DBuY8UCZt7Badao3DpyoQFGFG2aitwRavmyfTCemOLHLLeypFDQK32lfvjiNevQPxddj
+ /ydjfuEZVagP1zURPUyug9uFVEnnEU2gAGnnFdv2t5jgOzhRuhjOf7BIRpDhINz2o38z
+ z3PQ==
+X-Gm-Message-State: AGRZ1gLbOVCGytEpeVqRmp6guZyzgUVGQLaqwBCEhAE+kvfRN3+iFNip
+ DUtPiC+cZuS6nzFsUASgkZ2OhA==
+X-Google-Smtp-Source: AJdET5f0Q09g2nkZdpmB3hAoSyWMxOfqRQx8u4VGhcieEr9jQ0pioGElufWMbGpMlhoL8pENMWgATQ==
+X-Received: by 2002:a17:902:bf02:: with SMTP id
+ bi2-v6mr2470661plb.186.1540385850462; 
+ Wed, 24 Oct 2018 05:57:30 -0700 (PDT)
+Received: from kshutemo-mobl1.localdomain ([192.55.54.44])
+ by smtp.gmail.com with ESMTPSA id l83-v6sm10557314pfi.172.2018.10.24.05.57.28
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 24 Oct 2018 05:57:29 -0700 (PDT)
+Received: by kshutemo-mobl1.localdomain (Postfix, from userid 1000)
+ id 1845F300225; Wed, 24 Oct 2018 15:57:24 +0300 (+03)
+Date: Wed, 24 Oct 2018 15:57:24 +0300
+From: "Kirill A. Shutemov" <kirill@shutemov.name>
+To: Balbir Singh <bsingharora@gmail.com>
 Subject: Re: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
-Message-ID: <20181024115733.GN8537@350D>
+Message-ID: <20181024125724.yf6frdimjulf35do@kshutemo-mobl1>
 References: <20181013013200.206928-1-joel@joelfernandes.org>
  <20181013013200.206928-3-joel@joelfernandes.org>
  <20181024101255.it4lptrjogalxbey@kshutemo-mobl1>
+ <20181024115733.GN8537@350D>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20181024101255.it4lptrjogalxbey@kshutemo-mobl1>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+In-Reply-To: <20181024115733.GN8537@350D>
+User-Agent: NeoMutt/20180716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181024_045750_521481_D1AA580F 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20181024_055741_832328_9E0530C1 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -135,78 +138,60 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181024115733.mZpxzNRdRAIDc4z8RZlmwTLR_6XbnZ8uf8EzntNJZas@z>
+Message-ID: <20181024125724._hZYb0wUf_cwlM3uuHiDJ1HA6tT25wMYbdXuDT8iHm4@z>
 
-On Wed, Oct 24, 2018 at 01:12:56PM +0300, Kirill A. Shutemov wrote:
-> On Fri, Oct 12, 2018 at 06:31:58PM -0700, Joel Fernandes (Google) wrote:
-> > diff --git a/mm/mremap.c b/mm/mremap.c
-> > index 9e68a02a52b1..2fd163cff406 100644
-> > --- a/mm/mremap.c
-> > +++ b/mm/mremap.c
-> > @@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
-> >  		drop_rmap_locks(vma);
-> >  }
-> >  
-> > +static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
-> > +		  unsigned long new_addr, unsigned long old_end,
-> > +		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
-> > +{
-> > +	spinlock_t *old_ptl, *new_ptl;
-> > +	struct mm_struct *mm = vma->vm_mm;
-> > +
-> > +	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
-> > +	    || old_end - old_addr < PMD_SIZE)
-> > +		return false;
-> > +
-> > +	/*
-> > +	 * The destination pmd shouldn't be established, free_pgtables()
-> > +	 * should have release it.
-> > +	 */
-> > +	if (WARN_ON(!pmd_none(*new_pmd)))
-> > +		return false;
-> > +
-> > +	/*
-> > +	 * We don't have to worry about the ordering of src and dst
-> > +	 * ptlocks because exclusive mmap_sem prevents deadlock.
-> > +	 */
-> > +	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
-> > +	if (old_ptl) {
+On Wed, Oct 24, 2018 at 10:57:33PM +1100, Balbir Singh wrote:
+> On Wed, Oct 24, 2018 at 01:12:56PM +0300, Kirill A. Shutemov wrote:
+> > On Fri, Oct 12, 2018 at 06:31:58PM -0700, Joel Fernandes (Google) wrote:
+> > > diff --git a/mm/mremap.c b/mm/mremap.c
+> > > index 9e68a02a52b1..2fd163cff406 100644
+> > > --- a/mm/mremap.c
+> > > +++ b/mm/mremap.c
+> > > @@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
+> > >  		drop_rmap_locks(vma);
+> > >  }
+> > >  
+> > > +static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
+> > > +		  unsigned long new_addr, unsigned long old_end,
+> > > +		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
+> > > +{
+> > > +	spinlock_t *old_ptl, *new_ptl;
+> > > +	struct mm_struct *mm = vma->vm_mm;
+> > > +
+> > > +	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
+> > > +	    || old_end - old_addr < PMD_SIZE)
+> > > +		return false;
+> > > +
+> > > +	/*
+> > > +	 * The destination pmd shouldn't be established, free_pgtables()
+> > > +	 * should have release it.
+> > > +	 */
+> > > +	if (WARN_ON(!pmd_none(*new_pmd)))
+> > > +		return false;
+> > > +
+> > > +	/*
+> > > +	 * We don't have to worry about the ordering of src and dst
+> > > +	 * ptlocks because exclusive mmap_sem prevents deadlock.
+> > > +	 */
+> > > +	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
+> > > +	if (old_ptl) {
+> > 
+> > How can it ever be false?
+> > 
+> > > +		pmd_t pmd;
+> > > +
+> > > +		new_ptl = pmd_lockptr(mm, new_pmd);
 > 
-> How can it ever be false?
 > 
-> > +		pmd_t pmd;
-> > +
-> > +		new_ptl = pmd_lockptr(mm, new_pmd);
+> Looks like this is largely inspired by move_huge_pmd(), I guess a lot of
+> the code applies, why not just reuse as much as possible? The same comments
+> w.r.t mmap_sem helping protect against lock order issues applies as well.
 
+pmd_lock() cannot fail, but __pmd_trans_huge_lock() can. We should not
+copy the code blindly.
 
-Looks like this is largely inspired by move_huge_pmd(), I guess a lot of
-the code applies, why not just reuse as much as possible? The same comments
-w.r.t mmap_sem helping protect against lock order issues applies as well.
-
-> > +		if (new_ptl != old_ptl)
-> > +			spin_lock_nested(new_ptl, SINGLE_DEPTH_NESTING);
-> > +
-> > +		/* Clear the pmd */
-> > +		pmd = *old_pmd;
-> > +		pmd_clear(old_pmd);
-> > +
-> > +		VM_BUG_ON(!pmd_none(*new_pmd));
-> > +
-> > +		/* Set the new pmd */
-> > +		set_pmd_at(mm, new_addr, new_pmd, pmd);
-> > +		if (new_ptl != old_ptl)
-> > +			spin_unlock(new_ptl);
-> > +		spin_unlock(old_ptl);
-> > +
-> > +		*need_flush = true;
-> > +		return true;
-> > +	}
-> > +	return false;
-> > +}
-> > +
-> -- 
->  Kirill A. Shutemov
-> 
+-- 
+ Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
