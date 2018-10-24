@@ -1,86 +1,132 @@
-From: mick@ics.forth.gr (Nick Kossifidis)
-Date: Wed, 24 Oct 2018 16:32:40 +0300
-Subject: [PATCH v2] OF: Handle CMDLINE when /chosen node is not present
-In-Reply-To: <CAL_JsqKA6_saB7Ak=BZqSth6KAZ1g2srF5BsOQRGdE2+rmcR8w@mail.gmail.com>
-References: <20181022224213.GA25145@bogus>
- <mhng-08dbc241-46e4-411b-ba13-32435abde7ad@palmer-si-x1c4>
- <CAL_JsqKA6_saB7Ak=BZqSth6KAZ1g2srF5BsOQRGdE2+rmcR8w@mail.gmail.com>
-Message-ID: <8e420b9dee0f246fda8e018532737b1a@mailhost.ics.forth.gr>
+From: robh@kernel.org (Rob Herring)
+Date: Wed, 24 Oct 2018 11:53:49 -0500
+Subject: [PATCH v2 1/2] dt-bindings: serial: add documentation for the
+ SiFive UART driver
+In-Reply-To: <mhng-44b7601c-c2f4-4de8-a12e-7730e03d691e@palmer-si-x1c4>
+References: <CAL_JsqJBSqaxnETdJg1Mdp+H2ay+WKT0JaxLe6D4Fwo_99qUkw@mail.gmail.com>
+ <mhng-44b7601c-c2f4-4de8-a12e-7730e03d691e@palmer-si-x1c4>
+Message-ID: <20181024165349.GA5652@bogus>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-???? 2018-10-23 17:30, Rob Herring ??????:
-> On Mon, Oct 22, 2018 at 5:55 PM Palmer Dabbelt <palmer@sifive.com> 
-> wrote:
->> 
->> On Mon, 22 Oct 2018 15:42:13 PDT (-0700), robh at kernel.org wrote:
->> > On Mon, Oct 15, 2018 at 05:20:10PM +0300, Nick Kossifidis wrote:
->> >> The /chosen node is optional so we should handle CMDLINE regardless
->> >> the presence of /chosen/bootargs. Move handling of CMDLINE in
->> >> early_init_dt_scan() instead.
->> >
->> > I looked at this a while back. I'm not sure this behavior can be changed
->> > without breaking some MIPS platforms that could be relying on the
->> > current behavior. But trying to make sense of the MIPS code is a
->> > challenge and they have some other issues in this area.
->> >
->> > Can't this be fixed by making /chosen manditory? I'd expect ultimately
->> > you are always going to need it.
->> >
->> > I'd rather not resort to making this per arch. There's also some effort
->> > to consolidate cmd line handling[1].
->> 
->> I'd rather make /chosen mandatory on RISC-V than to have per-arch 
->> handling, as
->> like you've said there's already too much duplication.  That said, it 
->> does seem
->> like a bug to me because the behavior seems somewhat arbitrary -- an 
->> empty
->> /chosen node causing the built-in command-line argument handling to go 
->> off the
->> rails just smells so buggy.
+On Mon, Oct 22, 2018 at 09:41:51AM -0700, Palmer Dabbelt wrote:
+> On Fri, 19 Oct 2018 13:45:57 PDT (-0700), robh+dt at kernel.org wrote:
+> > On Fri, Oct 19, 2018 at 1:48 PM Paul Walmsley <paul.walmsley@sifive.com> wrote:
+> > > 
+> > > Add DT binding documentation for the Linux driver for the SiFive
+> > > asynchronous serial IP block.  Nothing too exotic.
+> > > 
+> > > Cc: linux-serial at vger.kernel.org
+> > > Cc: devicetree at vger.kernel.org
+> > > Cc: linux-riscv at lists.infradead.org
+> > > Cc: linux-kernel at vger.kernel.org
+> > > Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> > > Cc: Rob Herring <robh+dt@kernel.org>
+> > > Cc: Mark Rutland <mark.rutland@arm.com>
+> > > Cc: Palmer Dabbelt <palmer@sifive.com>
+> > > Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
+> > > Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+> > > Signed-off-by: Paul Walmsley <paul@pwsan.com>
+> > > ---
+> > >  .../bindings/serial/sifive-serial.txt         | 21 +++++++++++++++++++
+> > >  1 file changed, 21 insertions(+)
+> > >  create mode 100644 Documentation/devicetree/bindings/serial/sifive-serial.txt
+> > > 
+> > > diff --git a/Documentation/devicetree/bindings/serial/sifive-serial.txt b/Documentation/devicetree/bindings/serial/sifive-serial.txt
+> > > new file mode 100644
+> > > index 000000000000..8982338512f5
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/serial/sifive-serial.txt
+> > > @@ -0,0 +1,21 @@
+> > > +SiFive asynchronous serial interface (UART)
+> > > +
+> > > +Required properties:
+> > > +
+> > > +- compatible: should be "sifive,fu540-c000-uart0" or "sifive,uart0"
+> > 
+> > I assume once again, the last '0' is a version? As I mentioned for the
+> > intc and now the pwm block bindings, if you are going to do version
+> > numbers please document the versioning scheme. Palmer mentioned the
+> > compatible string is part of the IP block repository? Where does the
+> > number come from? What's the next version? Major vs. minor versions?
+> > ECO fixes? Is the version s/w readable? How do you ensure it gets
+> > updated? All that should be addressed.
 > 
-> Yes. Probably need to do some archaeology on this code to figure out
-> some of the expectations.
+> The RISC-V ecosystem is a bit different than that of ARM, MIPS, or Intel in
+> that the ISA is an royalty-free open standard that anyone can implement (ie,
+> without even signing a license agreement), with only the "RISC-V" trademark
+> being held behind a pay+conformance wall.  As a result, we don't actually
+> have any control over who builds a RISC-V chip so all we at SiFive can
+> really to is try to demonstrate good practices in software land and go from
+> there.
+
+Rights to the ISA and cores may be different, but how chips are built 
+is not really all that different (or doesn't have to be).
+
+> As far as SiFive's codebase is concerned, the version number is embedded in
+> the RTL generator, and a device tree is generated along with the RTL.  This
+> device tree is then embedded into a mask ROM on the chip, which allows the
+> earliest stage of boot to proceed.  As I'm sure you know, boot is a very
+> complicated process and as a result the device tree passed to Linux doesn't
+> necessarily look like what's in the ROM, but the intent is to keep iterating
+> until we can get these as similar as possible -- that's why we're submitting
+> every devicetree binding to the standard.
+
+So all this discussion is purely SiFive specific and really has nothing 
+to do with RISC-V ecosystem.
+
+Putting the DT into the ROM isn't something I'd do. It's simply not 
+going to work timeline wise IMO.
+
+> Specifically as far as the UART is concerned, the compat string that's not
+> chip-specific lives here (the "sifive,fu540-c000-uart" string lives in an
+> internal chip repo that I can't point to):
 > 
->> If that's the case, could we at least have something like
->> "CONFIG_OF_CHOSEN_IS_MANDATORY" that provides a warning when there is 
->> no
->> /chosen node and is set on architecture where the spec mandates 
->> /chosen?
+>    https://github.com/sifive/sifive-blocks/blob/master/src/main/scala/devices/uart/UART.scala#L43
 > 
-> I'd be okay to make it a warning unconditionally. At least then we can
-> find the cases that deviate and either fix them or understand their
-> expectations.
+> The version numbering scheme right now is pretty simple: I try to pay as
+> much attention as possible to how the hardware changes (both by looking and
+> with some automation), and I go yell at anyone who does something stupid.  I
+> know it's not the most scalable of schemes, but it's the best we have.  The
+> UART is actually an interesting case right now because we have an
+> outstanding pull request that adds a bit to the UART and then adds
+> "sifive,uart1" to the compat string
 > 
-> Rob
+>    https://github.com/sifive/sifive-blocks/pull/90
 
-I don't think we can make /chosen node mandatory since it's not 
-specified as such
-by the spec 
-(https://github.com/devicetree-org/devicetree-specification/releases/tag/v0.2).
-No matter what we say from the kernel side, the device tree provider is 
-not expected
-to always provide the /chosen mode. Also device tree is not the only 
-provider of
-a command line, we might get a command line from different places 
-per-arch (e.g. atags
-on arm) or through EFI/ACPI/kexec as well. That's why my initial 
-approach for RISC-V
-was on the arch-specific code.
+Relying on people to catch whether changes are important or not is bound 
+to fail. It's really got to be built into the design flow.
 
-We shouldn't try to handle the built-in CMDLINE on each of the possible 
-command line
-providers and if we do we should at least make sure we don't depend on 
-the presence
-of a provided command line (which is the issue in this case).
+Even just updating a version register I've experienced the h/w designers 
+forgetting to update it.
 
-I believe the best approach is to consolidate all the different CMDLINE 
-approaches
-for the various archs / providers and clean up the mess instead of 
-re-implementing
-the same thing again and again. I saw the patch you mentioned and it's a 
-start.
-I'll look more into it and try to come up with a similar one.
+> My intent is to ensure that the device tree's compat string uniquely
+> identifies the software interface to a block.  Thus, whenever a device's
+> implementation changes in a software-visible way (bug fix or feature
+> addition) we change the compat string -- either adding one (as is the case
+> of the UART, where the compat string will be both "sifive,uart1" and
+> "sifive,uart0" since the new feature is backwards compatible with the old
+> software) or changing one (if the interface change is not compatible with
+> old software).
 
-Nick
+What about config options? Say the UART has a configurable FIFO size.
+
+What about major vs. minor version changes? Respins of chips would need 
+to make minor changes if picking up major changes are deemed too risky.
+
+> Like I said above, this is all a manual process right now and this only
+> applies to SiFive's implementations.  I'm confident that I can at least
+> ensure that, for any given SiFive implementation, a block's compat string
+> will uniquely identify the software interface to it.  For the rest of the
+> RISC-V world all we can do is set a good example and review the software.
+
+This is all good information and is essentially what I'm looking for. I 
+just don't want it lost in a reply to an email, but something you can 
+reference. Look at bindings/arm/primecell.txt for example. That 
+describes a family of IP blocks and not any specific device.
+
+Whether the versioning is sufficient or not, I don't really care as long 
+as you docuemnt what it is so it is consistent. Since you have a common 
+schema across IP blocks, that means you should have a common document.
+
+Rob
