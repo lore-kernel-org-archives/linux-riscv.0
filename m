@@ -1,77 +1,79 @@
 From: f.fainelli@gmail.com (Florian Fainelli)
-Date: Wed, 24 Oct 2018 12:32:54 -0700
-Subject: [PATCH v2 0/2] arm64: Cut rebuild time when changing
- CONFIG_BLK_DEV_INITRD
-Message-ID: <20181024193256.23734-1-f.fainelli@gmail.com>
+Date: Wed, 24 Oct 2018 12:32:56 -0700
+Subject: [PATCH v2 2/2] arm64: Create asm/initrd.h
+In-Reply-To: <20181024193256.23734-1-f.fainelli@gmail.com>
+References: <20181024193256.23734-1-f.fainelli@gmail.com>
+Message-ID: <20181024193256.23734-3-f.fainelli@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi all,
+ARM64 is the only architecture that requires a re-definition of
+__early_init_dt_declare_initrd(). Now that we added the infrastructure
+in asm-generic to provide an asm/initrd.h file, properly break up that
+definition from asm/memory.h and make use of that header in
+drivers/of/fdt.c where this is used.
 
-While investigating why ARM64 required a ton of objects to be rebuilt
-when toggling CONFIG_DEV_BLK_INITRD, it became clear that this was
-because we define __early_init_dt_declare_initrd() differently and we do
-that in arch/arm64/include/asm/memory.h which gets included by a fair
-amount of other header files, and translation units as well.
+This significantly cuts the number of objects that need to be rebuilt on
+ARM64 due to the repercusions of including asm/memory.h in several
+places.
 
-Changing the value of CONFIG_DEV_BLK_INITRD is a common thing with build
-systems that generate two kernels: one with the initramfs and one
-without. buildroot is one of these build systems, OpenWrt is also
-another one that does this.
-
-This patch series proposes adding an empty initrd.h to satisfy the need
-for drivers/of/fdt.c to unconditionally include that file, and moves the
-custom __early_init_dt_declare_initrd() definition away from
-asm/memory.h
-
-This cuts the number of objects rebuilds from 1920 down to 26, so a
-factor 73 approximately.
-
-Apologies for the long CC list, please let me know how you would go
-about merging that and if another approach would be preferable, e.g:
-introducing a CONFIG_ARCH_INITRD_BELOW_START_OK Kconfig option or
-something like that.
-
-Changes in v2:
-
-- put an /* empty */ comment in the asm-generic/initrd.h file
-- trim down the CC list to maximize the chances of people receiving this
-
-Florian Fainelli (2):
-  arch: Add asm-generic/initrd.h and make use of it for most
-    architectures
-  arm64: Create asm/initrd.h
-
- arch/alpha/include/asm/Kbuild      |  1 +
- arch/arc/include/asm/Kbuild        |  1 +
- arch/arm/include/asm/Kbuild        |  1 +
- arch/arm64/include/asm/initrd.h    | 13 +++++++++++++
- arch/arm64/include/asm/memory.h    |  8 --------
- arch/c6x/include/asm/Kbuild        |  1 +
- arch/h8300/include/asm/Kbuild      |  1 +
- arch/hexagon/include/asm/Kbuild    |  1 +
- arch/ia64/include/asm/Kbuild       |  1 +
- arch/m68k/include/asm/Kbuild       |  1 +
- arch/microblaze/include/asm/Kbuild |  1 +
- arch/mips/include/asm/Kbuild       |  1 +
- arch/nds32/include/asm/Kbuild      |  1 +
- arch/nios2/include/asm/Kbuild      |  1 +
- arch/openrisc/include/asm/Kbuild   |  1 +
- arch/parisc/include/asm/Kbuild     |  1 +
- arch/powerpc/include/asm/Kbuild    |  1 +
- arch/riscv/include/asm/Kbuild      |  1 +
- arch/s390/include/asm/Kbuild       |  1 +
- arch/sh/include/asm/Kbuild         |  1 +
- arch/sparc/include/asm/Kbuild      |  1 +
- arch/um/include/asm/Kbuild         |  1 +
- arch/unicore32/include/asm/Kbuild  |  1 +
- arch/x86/include/asm/Kbuild        |  1 +
- arch/xtensa/include/asm/Kbuild     |  1 +
- drivers/of/fdt.c                   |  1 +
- include/asm-generic/initrd.h       |  1 +
- 27 files changed, 38 insertions(+), 8 deletions(-)
+Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
+---
+ arch/arm64/include/asm/initrd.h | 13 +++++++++++++
+ arch/arm64/include/asm/memory.h |  8 --------
+ drivers/of/fdt.c                |  1 +
+ 3 files changed, 14 insertions(+), 8 deletions(-)
  create mode 100644 arch/arm64/include/asm/initrd.h
- create mode 100644 include/asm-generic/initrd.h
 
+diff --git a/arch/arm64/include/asm/initrd.h b/arch/arm64/include/asm/initrd.h
+new file mode 100644
+index 000000000000..0c9572485810
+--- /dev/null
++++ b/arch/arm64/include/asm/initrd.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __ASM_INITRD_H
++#define __ASM_INITRD_H
++
++#ifdef CONFIG_BLK_DEV_INITRD
++#define __early_init_dt_declare_initrd(__start, __end)			\
++	do {								\
++		initrd_start = (__start);				\
++		initrd_end = (__end);					\
++	} while (0)
++#endif
++
++#endif /* __ASM_INITRD_H */
+diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
+index b96442960aea..dc3ca21ba240 100644
+--- a/arch/arm64/include/asm/memory.h
++++ b/arch/arm64/include/asm/memory.h
+@@ -168,14 +168,6 @@
+ #define IOREMAP_MAX_ORDER	(PMD_SHIFT)
+ #endif
+ 
+-#ifdef CONFIG_BLK_DEV_INITRD
+-#define __early_init_dt_declare_initrd(__start, __end)			\
+-	do {								\
+-		initrd_start = (__start);				\
+-		initrd_end = (__end);					\
+-	} while (0)
+-#endif
+-
+ #ifndef __ASSEMBLY__
+ 
+ #include <linux/bitops.h>
+diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+index 800ad252cf9c..4e4711af907b 100644
+--- a/drivers/of/fdt.c
++++ b/drivers/of/fdt.c
+@@ -28,6 +28,7 @@
+ 
+ #include <asm/setup.h>  /* for COMMAND_LINE_SIZE */
+ #include <asm/page.h>
++#include <asm/initrd.h>
+ 
+ #include "of_private.h"
+ 
 -- 
 2.17.1
