@@ -2,21 +2,23 @@ Return-Path: <SRS0=/L7I=NE=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5B0F8C67863
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Oct 2018 08:37:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5622C004D3
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Oct 2018 10:13:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 27856206B5
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Oct 2018 08:37:37 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5A5882082F
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Oct 2018 10:13:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FzbY+CYH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 27856206B5
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hjpj8Wth";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=shutemov-name.20150623.gappssmtp.com header.i=@shutemov-name.20150623.gappssmtp.com header.b="LW3rQRbs"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A5882082F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=shutemov.name
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -24,32 +26,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jxDUMh8XsRLRX6fuYfpqCCFW+8Sn15jyZGhTDP7lHsc=; b=FzbY+CYHh6Ys1w
-	d5zGoN+veOF6LcTqIqF1TIKMU9akTNdx5ldUX4bUSHob3kWPdSpmXVSxWd10UCIUi6lwYnL7WV9Fm
-	EpzdxzSNdNI3c+8hUhe8Km5ToeGGX4frCYHWdH7Hxh6Xukz1MFKfG3+Js00PLywbytEC8NbBrsxn8
-	Lb9mN/KXTC/mwufgtncVkiErfVNf0bjq0QvbDEmbFO5Uxu0WH8APFjIpyseKgmZb+LpWNMM9hMneg
-	ZjRuNF27ib5eyyDZ8ZVuYYtYVsOQTjtPHDCJKc6WHOzEL/SlcwOkHPTfEK1OSbBV1umaRq3l9eIaq
-	e1GqQSoE8a286d47SHFw==;
+	List-Owner; bh=miDjoPv29CeZTdXAbjp0XTwbBdZPEknNHdytF/qo7Ak=; b=hjpj8WthMYKlOI
+	dFEsXxrQBoqyPbK1lcgb/GLNMfURWS4qS1G8ArxCKzwdkycOhswRgH0Atg5fTAoe1D+gSmRWJUi3R
+	CJkJ8PzxcNOM/8WnDP4azb86+T2yezO4Jpo9aQZ+HoG3Jd3Me/s+/12Ja8zYp3mUyVKkpWT7ZNz4h
+	S5KIeB5nckFF64qQ5rlz6+pmkJghdCR7PQLBl7FzH9O72PD9WkkFAprrHKDWfDrr3ImgoDJwuAh3J
+	SDHQRIBnYhFMgUUoAkRIhr//s9u6cE2DN/P5NAhV76ufEjhT3vUvreWDTdTSILyUzL73wui8LGiYV
+	CUzyjEp/VwMXhExFXf1A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gFEfU-0004Tx-NU; Wed, 24 Oct 2018 08:37:32 +0000
-Received: from [185.7.230.213] (helo=worktop)
- by bombadil.infradead.org with esmtpsa (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gFEfH-0004So-Sa; Wed, 24 Oct 2018 08:37:20 +0000
-Received: by worktop (Postfix, from userid 1000)
- id EDB716E08AB; Wed, 24 Oct 2018 10:37:16 +0200 (CEST)
-Date: Wed, 24 Oct 2018 10:37:16 +0200
-From: Peter Zijlstra <peterz@infradead.org>
+	id 1gFGAT-000413-Up; Wed, 24 Oct 2018 10:13:37 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gFGA6-0003x7-B1
+ for linux-riscv@lists.infradead.org; Wed, 24 Oct 2018 10:13:16 +0000
+Received: by mail-pl1-x642.google.com with SMTP id bb7-v6so2005823plb.13
+ for <linux-riscv@lists.infradead.org>; Wed, 24 Oct 2018 03:13:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=shutemov-name.20150623.gappssmtp.com; s=20150623;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=jjwSE14LPfje/VjGow1mCRc4iV2H58RrCA9qPOR9BBI=;
+ b=LW3rQRbs8K/P5qiShw/IjeV4JIMIBiAhuu+U9E9cikIKD48cJuEOrgryRgu/RAi5Bj
+ 3cLxW44W5HajhHHvJFOUhlFSBMtQdtCFyuZNB5pWXN50urWt943X7B6IlF4lnS2P8crr
+ IK0a5dadeVb2twXxbnvoqBnwvaymW80gt6ONfdSTaWEEdiF5GMl7OFiNooArOjDtQJEc
+ VX9+WeKOJthMSmGl1YHBxsgw6f3AbqohBwSKRHD/fHYsKKW9yvNIulEI+bhq7B56IpfI
+ Yf4cEjhcH3uKS6huccQljB1CsOCeoxoVGJnLxQA4VWUlW/F/y0aI0+QL5dcA4RpObOXq
+ 3F7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=jjwSE14LPfje/VjGow1mCRc4iV2H58RrCA9qPOR9BBI=;
+ b=rPbS1XddM4WDaUqU0WF3KFG3oS/NLcVcwwCVIqVYcGM1yUhp8ZnPPr4B5WLUole5EB
+ IeSPEYHD74Z4sy3izj8JEdIM2Gu+CwjNdK+y8MHSx+fkCQuZCKHd1CgtNcV9bfi0mLdH
+ 3y+VWcmEbpEwLFgDzJlIDVdxad/YrtM2v1UbMq+IwCGJK5UtGOyxzR5pB/V+40fl1X62
+ 4G40zD6URMMW0UQz88acwZMOZU5t2V85A2pkTKgNJ0ilmGhTw3kvpLmYtXNbUk4Nb3iL
+ J098fhFOmORPcrXCe54A7lwNo5BYAtNoYkoAqMjsyoLzUDPE8PSsk2UzmG6PteXpSsK2
+ kPGw==
+X-Gm-Message-State: AGRZ1gL0TJJ7x4XNoXHqvlowH+IF3whiKgLh4peSDVbMbJkB8Pkhs8GG
+ FndrOpNDH0HP0ENpaGIMfP1ZsA==
+X-Google-Smtp-Source: AJdET5d0UdURELlruNjEqupiPGen6jVsxoGb5+iKkDtucxAzZChLo1c7KZe84NtjlNKHALsCS+tdDQ==
+X-Received: by 2002:a17:902:9344:: with SMTP id
+ g4-v6mr1939843plp.159.1540375982727; 
+ Wed, 24 Oct 2018 03:13:02 -0700 (PDT)
+Received: from kshutemo-mobl1.localdomain ([134.134.139.82])
+ by smtp.gmail.com with ESMTPSA id m11-v6sm6396544pgn.39.2018.10.24.03.13.00
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 24 Oct 2018 03:13:01 -0700 (PDT)
+Received: by kshutemo-mobl1.localdomain (Postfix, from userid 1000)
+ id 594E3300225; Wed, 24 Oct 2018 13:12:56 +0300 (+03)
+Date: Wed, 24 Oct 2018 13:12:56 +0300
+From: "Kirill A. Shutemov" <kirill@shutemov.name>
 To: "Joel Fernandes (Google)" <joel@joelfernandes.org>
-Subject: Re: [PATCH 1/4] treewide: remove unused address argument from
- pte_alloc functions (v2)
-Message-ID: <20181024083716.GN3109@worktop.c.hoisthospitality.com>
+Subject: Re: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
+Message-ID: <20181024101255.it4lptrjogalxbey@kshutemo-mobl1>
 References: <20181013013200.206928-1-joel@joelfernandes.org>
- <20181013013200.206928-2-joel@joelfernandes.org>
+ <20181013013200.206928-3-joel@joelfernandes.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20181013013200.206928-2-joel@joelfernandes.org>
-User-Agent: Mutt/1.5.22.1 (2013-10-16)
+In-Reply-To: <20181013013200.206928-3-joel@joelfernandes.org>
+User-Agent: NeoMutt/20180716
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20181024_031314_586931_2266593C 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -63,9 +102,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
  linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>,
  Catalin Marinas <catalin.marinas@arm.com>,
  Dave Hansen <dave.hansen@linux.intel.com>, Will Deacon <will.deacon@arm.com>,
- Michal Hocko <mhocko@kernel.org>, linux-mm@kvack.org, lokeshgidra@google.com,
+ mhocko@kernel.org, linux-mm@kvack.org, lokeshgidra@google.com,
  sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
  elfring@users.sourceforge.net, Jonas Bonn <jonas@southpole.se>,
  kvmarm@lists.cs.columbia.edu, dancol@google.com,
@@ -82,36 +122,83 @@ Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
  Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
  Julia Lawall <Julia.Lawall@lip6.fr>, linux-m68k@lists.linux-m68k.org,
  Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
- nios2-dev@lists.rocketboards.org, "Kirill A . Shutemov" <kirill@shutemov.name>,
- Stafford Horne <shorne@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
- Chris Zankel <chris@zankel.net>, Tony Luck <tony.luck@intel.com>,
- Richard Weinberger <richard@nod.at>, linux-parisc@vger.kernel.org,
- Max Filippov <jcmvbkbc@gmail.com>, pantin@google.com,
- linux-kernel@vger.kernel.org, minchan@kernel.org,
- Thomas Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org,
- Ley Foon Tan <lftan@altera.com>, akpm@linux-foundation.org,
- linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>
+ nios2-dev@lists.rocketboards.org, Stafford Horne <shorne@gmail.com>,
+ Guan Xuetao <gxt@pku.edu.cn>, Chris Zankel <chris@zankel.net>,
+ Tony Luck <tony.luck@intel.com>, Richard Weinberger <richard@nod.at>,
+ linux-parisc@vger.kernel.org, pantin@google.com,
+ Max Filippov <jcmvbkbc@gmail.com>, linux-kernel@vger.kernel.org,
+ minchan@kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+ linux-alpha@vger.kernel.org, Ley Foon Tan <lftan@altera.com>,
+ akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
+ "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181024083716.8e-pq3GUbTJfvXXTquTFs5nhcmVO9AKaY5x8nHZ40ao@z>
+Message-ID: <20181024101256.QySn0e0dmTlPdS4jWBjZgoX8vVWMQhokrDexXuF_Qz4@z>
 
-On Fri, Oct 12, 2018 at 06:31:57PM -0700, Joel Fernandes (Google) wrote:
-> This series speeds up mremap(2) syscall by copying page tables at the
-> PMD level even for non-THP systems. There is concern that the extra
-> 'address' argument that mremap passes to pte_alloc may do something
-> subtle architecture related in the future that may make the scheme not
-> work.  Also we find that there is no point in passing the 'address' to
-> pte_alloc since its unused. So this patch therefore removes this
-> argument tree-wide resulting in a nice negative diff as well. Also
-> ensuring along the way that the enabled architectures do not do anything
-> funky with 'address' argument that goes unnoticed by the optimization.
+On Fri, Oct 12, 2018 at 06:31:58PM -0700, Joel Fernandes (Google) wrote:
+> diff --git a/mm/mremap.c b/mm/mremap.c
+> index 9e68a02a52b1..2fd163cff406 100644
+> --- a/mm/mremap.c
+> +++ b/mm/mremap.c
+> @@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
+>  		drop_rmap_locks(vma);
+>  }
+>  
+> +static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
+> +		  unsigned long new_addr, unsigned long old_end,
+> +		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
+> +{
+> +	spinlock_t *old_ptl, *new_ptl;
+> +	struct mm_struct *mm = vma->vm_mm;
+> +
+> +	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
+> +	    || old_end - old_addr < PMD_SIZE)
+> +		return false;
+> +
+> +	/*
+> +	 * The destination pmd shouldn't be established, free_pgtables()
+> +	 * should have release it.
+> +	 */
+> +	if (WARN_ON(!pmd_none(*new_pmd)))
+> +		return false;
+> +
+> +	/*
+> +	 * We don't have to worry about the ordering of src and dst
+> +	 * ptlocks because exclusive mmap_sem prevents deadlock.
+> +	 */
+> +	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
+> +	if (old_ptl) {
 
-Did you happen to look at the history of where that address argument
-came from? -- just being curious here. ISTR something vague about
-architectures having different paging structure for different memory
-ranges.
+How can it ever be false?
+
+> +		pmd_t pmd;
+> +
+> +		new_ptl = pmd_lockptr(mm, new_pmd);
+> +		if (new_ptl != old_ptl)
+> +			spin_lock_nested(new_ptl, SINGLE_DEPTH_NESTING);
+> +
+> +		/* Clear the pmd */
+> +		pmd = *old_pmd;
+> +		pmd_clear(old_pmd);
+> +
+> +		VM_BUG_ON(!pmd_none(*new_pmd));
+> +
+> +		/* Set the new pmd */
+> +		set_pmd_at(mm, new_addr, new_pmd, pmd);
+> +		if (new_ptl != old_ptl)
+> +			spin_unlock(new_ptl);
+> +		spin_unlock(old_ptl);
+> +
+> +		*need_flush = true;
+> +		return true;
+> +	}
+> +	return false;
+> +}
+> +
+-- 
+ Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
