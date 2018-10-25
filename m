@@ -1,165 +1,156 @@
-From: rppt@linux.ibm.com (Mike Rapoport)
-Date: Thu, 25 Oct 2018 18:29:36 +0100
-Subject: [PATCH v2 0/2] arm64: Cut rebuild time when changing
- CONFIG_BLK_DEV_INITRD
-In-Reply-To: <CAL_JsqL62ttsGSbE1BS5v-mX3pKE-p_HyvuZD6nB+GUbQyetzg@mail.gmail.com>
-References: <20181024193256.23734-1-f.fainelli@gmail.com>
- <CAL_Jsq+KCOv6pXXHhHDZ+7-QUrmtMDvSjEVhK15yZ3qbnn61Ag@mail.gmail.com>
- <20181025093833.GA23607@rapoport-lnx>
- <CAL_JsqL62ttsGSbE1BS5v-mX3pKE-p_HyvuZD6nB+GUbQyetzg@mail.gmail.com>
-Message-ID: <20181025172935.GA27364@rapoport-lnx>
+From: david.abdurachmanov@gmail.com (David Abdurachmanov)
+Date: Thu, 25 Oct 2018 20:31:30 +0200
+Subject: [PATCH 2/2] RISC-V: Add support for SECCOMP
+In-Reply-To: <20181024204036.8799-3-palmer@sifive.com>
+References: <CAEn-LTqbEmWovu4t7Rs4C211+GRRU4V3B=+WmW0SOhX_b8db5Q@mail.gmail.com>
+ <20181024204036.8799-1-palmer@sifive.com>
+ <20181024204036.8799-3-palmer@sifive.com>
+Message-ID: <CAEn-LTovzRncSKCGv8wUTL6FkzcC+Hw1EBGe+Rc4GQyEgcK1uA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Oct 25, 2018 at 08:15:15AM -0500, Rob Herring wrote:
-> +Ard
-> 
-> On Thu, Oct 25, 2018 at 4:38 AM Mike Rapoport <rppt@linux.ibm.com> wrote:
-> >
-> > On Wed, Oct 24, 2018 at 02:55:17PM -0500, Rob Herring wrote:
-> > > On Wed, Oct 24, 2018 at 2:33 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
-> > > >
-> > > > Hi all,
-> > > >
-> > > > While investigating why ARM64 required a ton of objects to be rebuilt
-> > > > when toggling CONFIG_DEV_BLK_INITRD, it became clear that this was
-> > > > because we define __early_init_dt_declare_initrd() differently and we do
-> > > > that in arch/arm64/include/asm/memory.h which gets included by a fair
-> > > > amount of other header files, and translation units as well.
-> > >
-> > > I scratch my head sometimes as to why some config options rebuild so
-> > > much stuff. One down, ? to go. :)
-> > >
-> > > > Changing the value of CONFIG_DEV_BLK_INITRD is a common thing with build
-> > > > systems that generate two kernels: one with the initramfs and one
-> > > > without. buildroot is one of these build systems, OpenWrt is also
-> > > > another one that does this.
-> > > >
-> > > > This patch series proposes adding an empty initrd.h to satisfy the need
-> > > > for drivers/of/fdt.c to unconditionally include that file, and moves the
-> > > > custom __early_init_dt_declare_initrd() definition away from
-> > > > asm/memory.h
-> > > >
-> > > > This cuts the number of objects rebuilds from 1920 down to 26, so a
-> > > > factor 73 approximately.
-> > > >
-> > > > Apologies for the long CC list, please let me know how you would go
-> > > > about merging that and if another approach would be preferable, e.g:
-> > > > introducing a CONFIG_ARCH_INITRD_BELOW_START_OK Kconfig option or
-> > > > something like that.
-> > >
-> > > There may be a better way as of 4.20 because bootmem is now gone and
-> > > only memblock is used. This should unify what each arch needs to do
-> > > with initrd early. We need the physical address early for memblock
-> > > reserving. Then later on we need the virtual address to access the
-> > > initrd. Perhaps we should just change initrd_start and initrd_end to
-> > > physical addresses (or add 2 new variables would be less invasive and
-> > > allow for different translation than __va()). The sanity checks and
-> > > memblock reserve could also perhaps be moved to a common location.
-> > >
-> > > Alternatively, given arm64 is the only oddball, I'd be fine with an
-> > > "if (IS_ENABLED(CONFIG_ARM64))" condition in the default
-> > > __early_init_dt_declare_initrd as long as we have a path to removing
-> > > it like the above option.
-> >
-> > I think arm64 does not have to redefine __early_init_dt_declare_initrd().
-> > Something like this might be just all we need (completely untested,
-> > probably it won't even compile):
-> >
-> > diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> > index 9d9582c..e9ca238 100644
-> > --- a/arch/arm64/mm/init.c
-> > +++ b/arch/arm64/mm/init.c
-> > @@ -62,6 +62,9 @@ s64 memstart_addr __ro_after_init = -1;
-> >  phys_addr_t arm64_dma_phys_limit __ro_after_init;
-> >
-> >  #ifdef CONFIG_BLK_DEV_INITRD
-> > +
-> > +static phys_addr_t initrd_start_phys, initrd_end_phys;
-> > +
-> >  static int __init early_initrd(char *p)
-> >  {
-> >         unsigned long start, size;
-> > @@ -71,8 +74,8 @@ static int __init early_initrd(char *p)
-> >         if (*endp == ',') {
-> >                 size = memparse(endp + 1, NULL);
-> >
-> > -               initrd_start = start;
-> > -               initrd_end = start + size;
-> > +               initrd_start_phys = start;
-> > +               initrd_end_phys = end;
-> >         }
-> >         return 0;
-> >  }
-> > @@ -407,14 +410,27 @@ void __init arm64_memblock_init(void)
-> >                 memblock_add(__pa_symbol(_text), (u64)(_end - _text));
-> >         }
-> >
-> > -       if (IS_ENABLED(CONFIG_BLK_DEV_INITRD) && initrd_start) {
-> > +       if (IS_ENABLED(CONFIG_BLK_DEV_INITRD) &&
-> > +           (initrd_start || initrd_start_phys)) {
-> > +               /*
-> > +                * FIXME: ensure proper precendence between
-> > +                * early_initrd and DT when both are present
-> 
-> Command line takes precedence, so just reverse the order.
-> 
-> > +                */
-> > +               if (initrd_start) {
-> > +                       initrd_start_phys = __phys_to_virt(initrd_start);
-> > +                       initrd_end_phys = __phys_to_virt(initrd_end);
-> 
-> AIUI, the original issue was doing the P2V translation was happening
-> too early and the VA could be wrong if the linear range is adjusted.
-> So I don't think this would work.
+On Wed, Oct 24, 2018 at 10:40 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+>
+> From: "Wesley W. Terpstra" <wesley@sifive.com>
+>
+> This is a fairly straight-forward implementation of seccomp for RISC-V
+> systems.
+>
+> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
+> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+> ---
+>  arch/riscv/Kconfig                   | 18 ++++++++++++++++++
+>  arch/riscv/include/asm/seccomp.h     | 10 ++++++++++
+>  arch/riscv/include/asm/syscall.h     |  6 ++++++
+>  arch/riscv/include/asm/thread_info.h |  1 +
+>  include/uapi/linux/audit.h           |  1 +
+>  5 files changed, 36 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/seccomp.h
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index a344980287a5..28abe47602a1 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -28,6 +28,7 @@ config RISCV
+>         select GENERIC_STRNLEN_USER
+>         select GENERIC_SMP_IDLE_THREAD
+>         select GENERIC_ATOMIC64 if !64BIT || !RISCV_ISA_A
+> +       select HAVE_ARCH_SECCOMP_FILTER
+>         select HAVE_MEMBLOCK
+>         select HAVE_MEMBLOCK_NODE_MAP
+>         select HAVE_DMA_CONTIGUOUS
+> @@ -214,6 +215,22 @@ menu "Kernel type"
+>
+>  source "kernel/Kconfig.hz"
+>
+> +config SECCOMP
+> +       bool "Enable seccomp to safely compute untrusted bytecode"
+> +
+> +       help
+> +         This kernel feature is useful for number crunching applications
+> +         that may need to compute untrusted bytecode during their
+> +         execution. By using pipes or other transports made available to
+> +         the process as file descriptors supporting the read/write
+> +         syscalls, it's possible to isolate those applications in
+> +         their own address space using seccomp. Once seccomp is
+> +         enabled via prctl(PR_SET_SECCOMP), it cannot be disabled
+> +         and the task is only allowed to execute a few safe syscalls
+> +         defined by each seccomp mode.
+> +
+> +         If unsure, say Y. Only embedded should say N here.
+> +
+>  endmenu
+>
+>  menu "Bus support"
+> @@ -243,3 +260,4 @@ menu "Power management options"
+>  source kernel/power/Kconfig
+>
+>  endmenu
+> +
+> diff --git a/arch/riscv/include/asm/seccomp.h b/arch/riscv/include/asm/seccomp.h
+> new file mode 100644
+> index 000000000000..c1b4407f1038
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/seccomp.h
+> @@ -0,0 +1,10 @@
+> +/* Copyright 2018 SiFive, Inc. */
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _ASM_RISCV_SECCOMP_H
+> +#define _ASM_RISCV_SECCOMP_H
+> +
+> +#include <asm/unistd.h>
+> +
+> +#include <asm-generic/seccomp.h>
+> +
+> +#endif /* _ASM_RISCV_SECCOMP_H */
+> diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+> index 8d25f8904c00..d24f774f39df 100644
+> --- a/arch/riscv/include/asm/syscall.h
+> +++ b/arch/riscv/include/asm/syscall.h
+> @@ -19,6 +19,7 @@
+>  #define _ASM_RISCV_SYSCALL_H
+>
+>  #include <linux/sched.h>
+> +#include <uapi/linux/audit.h>
+>  #include <linux/err.h>
+>
+>  /* The array of function pointers for syscalls. */
+> @@ -99,4 +100,9 @@ static inline void syscall_set_arguments(struct task_struct *task,
+>         memcpy(&regs->a1 + i * sizeof(regs->a1), args, n * sizeof(regs->a0));
+>  }
+>
+> +static inline int syscall_get_arch(void)
+> +{
+> +       return AUDIT_ARCH_RISCV;
+> +}
+> +
+>  #endif /* _ASM_RISCV_SYSCALL_H */
+> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+> index f8fa1cd2dad9..374973dc05c6 100644
+> --- a/arch/riscv/include/asm/thread_info.h
+> +++ b/arch/riscv/include/asm/thread_info.h
+> @@ -80,6 +80,7 @@ struct thread_info {
+>  #define TIF_RESTORE_SIGMASK    4       /* restore signal mask in do_signal() */
+>  #define TIF_MEMDIE             5       /* is terminating due to OOM killer */
+>  #define TIF_SYSCALL_TRACEPOINT  6       /* syscall tracepoint instrumentation */
+> +#define TIF_SECCOMP            7       /* seccomp syscall filtering active */
+>
+>  #define _TIF_SYSCALL_TRACE     (1 << TIF_SYSCALL_TRACE)
+>  #define _TIF_NOTIFY_RESUME     (1 << TIF_NOTIFY_RESUME)
+> diff --git a/include/uapi/linux/audit.h b/include/uapi/linux/audit.h
+> index 818ae690ab79..c16fa1a76659 100644
+> --- a/include/uapi/linux/audit.h
+> +++ b/include/uapi/linux/audit.h
+> @@ -399,6 +399,7 @@ enum {
+>  /* do not define AUDIT_ARCH_PPCLE since it is not supported by audit */
+>  #define AUDIT_ARCH_PPC64       (EM_PPC64|__AUDIT_ARCH_64BIT)
+>  #define AUDIT_ARCH_PPC64LE     (EM_PPC64|__AUDIT_ARCH_64BIT|__AUDIT_ARCH_LE)
+> +#define AUDIT_ARCH_RISCV       (EM_RISCV)
+>  #define AUDIT_ARCH_S390                (EM_S390)
+>  #define AUDIT_ARCH_S390X       (EM_S390|__AUDIT_ARCH_64BIT)
+>  #define AUDIT_ARCH_SH          (EM_SH)
 
-Probably things have changed since then, but in the current code there is
+Palmer,
 
-		initrd_start = __phys_to_virt(initrd_start);
+Half of the patch seems to touch audit parts. I started working on audit
+support this morning, and I can boot Fedora with audit traces.
 
-and in between only the code related to CONFIG_RANDOMIZE_BASE, so I believe
-it's safe to use __phys_to_virt() here as well.
- 
-> I suppose you could convert the VA back to a PA before any adjustments
-> and then back to a VA again after. But that's kind of hacky. 2 wrongs
-> making a right.
-> 
-> > +               } else if (initrd_start_phys) {
-> > +                       initrd_start = __va(initrd_start_phys);
-> > +                       initrd_end = __va(initrd_start_phys);
-> > +               }
-> > +
-> >                 /*
-> >                  * Add back the memory we just removed if it results in the
-> >                  * initrd to become inaccessible via the linear mapping.
-> >                  * Otherwise, this is a no-op
-> >                  */
-> > -               u64 base = initrd_start & PAGE_MASK;
-> > -               u64 size = PAGE_ALIGN(initrd_end) - base;
-> > +               u64 base = initrd_start_phys & PAGE_MASK;
-> > +               u64 size = PAGE_ALIGN(initrd_end_phys) - base;
-> >
-> >                 /*
-> >                  * We can only add back the initrd memory if we don't end up
-> > @@ -458,7 +474,7 @@ void __init arm64_memblock_init(void)
-> >          * pagetables with memblock.
-> >          */
-> >         memblock_reserve(__pa_symbol(_text), _end - _text);
-> > -#ifdef CONFIG_BLK_DEV_INITRD
-> > +#if 0
-> >         if (initrd_start) {
-> >                 memblock_reserve(initrd_start, initrd_end - initrd_start);
-> >
-> >
-> > > Rob
-> > >
-> >
-> > --
-> > Sincerely yours,
-> > Mike.
-> >
-> 
+[root at fedora-riscv ~]# dmesg | grep audit
+[    0.312000] audit: initializing netlink subsys (disabled)
+[    0.316000] audit: type=2000 audit(0.316:1): state=initialized
+audit_enabled=0 res=1
+[    7.288000] audit: type=1130 audit(1529665913.772:2): pid=1 uid=0
+auid=4294967295 ses=4294967295 msg='unit=systemd-remount-fs
+comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=?
+terminal=? res=success'
+[    7.684000] audit: type=1130 audit(1529665914.176:3): pid=1 uid=0
+auid=4294967295 ses=4294967295 msg='unit=systemd-sysctl comm="systemd"
+exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=?
+res=success'
+[..]
 
--- 
-Sincerely yours,
-Mike.
+I am still working on audit user-space support for better testing.
+
+I suggest we first implement audit and then seccomp.
+
+david
