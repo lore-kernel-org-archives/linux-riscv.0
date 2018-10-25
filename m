@@ -1,51 +1,70 @@
-From: paul@paul-moore.com (Paul Moore)
-Date: Thu, 25 Oct 2018 16:36:41 -0400
+From: luto@amacapital.net (Andy Lutomirski)
+Date: Thu, 25 Oct 2018 14:02:20 -0700
 Subject: [PATCH 2/2] RISC-V: Add support for SECCOMP
-In-Reply-To: <CAEn-LTovzRncSKCGv8wUTL6FkzcC+Hw1EBGe+Rc4GQyEgcK1uA@mail.gmail.com>
+In-Reply-To: <CAGXu5jJ7gmVXZE+iksW99c6bHEV2rSOG+boQDRGmMSDa9HOh_A@mail.gmail.com>
 References: <CAEn-LTqbEmWovu4t7Rs4C211+GRRU4V3B=+WmW0SOhX_b8db5Q@mail.gmail.com>
  <20181024204036.8799-1-palmer@sifive.com>
  <20181024204036.8799-3-palmer@sifive.com>
- <CAEn-LTovzRncSKCGv8wUTL6FkzcC+Hw1EBGe+Rc4GQyEgcK1uA@mail.gmail.com>
-Message-ID: <CAHC9VhT015tz4qZZ=vM6FowsUXLv-RYeBrH4C8d6jvg=XHumHA@mail.gmail.com>
+ <CAGXu5jJ7gmVXZE+iksW99c6bHEV2rSOG+boQDRGmMSDa9HOh_A@mail.gmail.com>
+Message-ID: <CALCETrUSvugnh1JiLgn49c4_dw6F8bXiO52jdqiAKEn-CgzoXA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Oct 25, 2018 at 2:31 PM David Abdurachmanov
-<david.abdurachmanov@gmail.com> wrote:
-> On Wed, Oct 24, 2018 at 10:40 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+On Wed, Oct 24, 2018 at 2:42 PM Kees Cook <keescook@chromium.org> wrote:
+>
+> On Wed, Oct 24, 2018 at 1:40 PM, Palmer Dabbelt <palmer@sifive.com> wrote:
 > > From: "Wesley W. Terpstra" <wesley@sifive.com>
-
-...
-
-> Palmer,
+> >
+> > This is a fairly straight-forward implementation of seccomp for RISC-V
+> > systems.
+> >
+> > Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
+> > Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+> > ---
+> >  arch/riscv/Kconfig                   | 18 ++++++++++++++++++
+> >  arch/riscv/include/asm/seccomp.h     | 10 ++++++++++
+> >  arch/riscv/include/asm/syscall.h     |  6 ++++++
+> >  arch/riscv/include/asm/thread_info.h |  1 +
+> >  include/uapi/linux/audit.h           |  1 +
+> >  5 files changed, 36 insertions(+)
+> >  create mode 100644 arch/riscv/include/asm/seccomp.h
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index a344980287a5..28abe47602a1 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -28,6 +28,7 @@ config RISCV
+> >         select GENERIC_STRNLEN_USER
+> >         select GENERIC_SMP_IDLE_THREAD
+> >         select GENERIC_ATOMIC64 if !64BIT || !RISCV_ISA_A
+> > +       select HAVE_ARCH_SECCOMP_FILTER
 >
-> Half of the patch seems to touch audit parts. I started working on audit
-> support this morning, and I can boot Fedora with audit traces.
+> I think this patch is missing most of the actual seccomp glue?
 >
-> [root at fedora-riscv ~]# dmesg | grep audit
-> [    0.312000] audit: initializing netlink subsys (disabled)
-> [    0.316000] audit: type=2000 audit(0.316:1): state=initialized
-> audit_enabled=0 res=1
-> [    7.288000] audit: type=1130 audit(1529665913.772:2): pid=1 uid=0
-> auid=4294967295 ses=4294967295 msg='unit=systemd-remount-fs
-> comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=?
-> terminal=? res=success'
-> [    7.684000] audit: type=1130 audit(1529665914.176:3): pid=1 uid=0
-> auid=4294967295 ses=4294967295 msg='unit=systemd-sysctl comm="systemd"
-> exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=?
-> res=success'
-> [..]
+> config HAVE_ARCH_SECCOMP_FILTER
+>         bool
+>         help
+>           An arch should select this symbol if it provides all of these things:
+>           - syscall_get_arch()
+>           - syscall_get_arguments()
+>           - syscall_rollback()
+>           - syscall_set_return_value()
+>           - SIGSYS siginfo_t support
+>           - secure_computing is called from a ptrace_event()-safe context
+>           - secure_computing return value is checked and a return value of -1
+>             results in the system call being skipped immediately.
+>           - seccomp syscall wired up
 >
-> I am still working on audit user-space support for better testing.
->
-> I suggest we first implement audit and then seccomp.
+> I only see syscall_get_arch(). Nothing is using TIF_SECCOMP (I'd
+> expect a masked check in entry.S -- it seems like tracepoints are
+> getting missed too? I see it handled in ptrace.c but not checked in
+> entry.S?) There's no checking for seccomp in ptrace.c, etc.
 
-FYI, while small and far from comprehensive, we do have a test suite
-we use for basic validation of the audit kernel bits which may be
-helpful while you're working on the audit enablement:
+Hi RISC-V people:
 
-* https://github.com/linux-audit/audit-testsuite
+I strongly, strongly suggest that you rewrite your asm to work the way
+that x86's does: have a function called prepare_exit_to_usermode() and
+make it work more or less like x86's.  Doing all the exit work in asm
+like you are is just setting you up for a world of pain.
 
--- 
-paul moore
-www.paul-moore.com
+--Andy
