@@ -2,94 +2,106 @@ Return-Path: <SRS0=LGYn=NG=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 62D01C46475
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 01:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 23707ECDE44
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 08:13:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E0C1620824
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 01:51:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DE21A20834
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 08:13:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iP/8WPsO";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.b="hEFvPNr6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E0C1620824
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WIoJF6iO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DE21A20834
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:In-Reply-To:MIME-Version:
+	References:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0qwtKronhsvYtx2AL8U1TSXqWzDzDl/BBet21S13AaQ=; b=iP/8WPsOtU6zLI
-	+k+gTRVF5jL7EjClQY2J2BNmscsMV3yRY/XdYA9AYhdVoRnhkNMa/whNNl61vUYpRK8F4zu3wppSY
-	IzG5ykCzdwQktiv/YDEqquMF668CzNTe/xFQIeP5kWREtMpfuxEt30a1Q92s9gCM/TGSh9IwDHaIE
-	IXltDEXRDu3wr6sIa3Lz0oFb9nVhYc2ctih/l5azwMqtzcrnNWflvAZoIFYoy3OUHjp61XIituMhP
-	KfwBzt+l1i5XseA9n15e1hvmLIGJBnuMSJLx1Y8ZSvBvUt79ggDamikpumQqVy0jJdgVLEYWWLd8i
-	v74RY7N6P3WFPYWjljRA==;
+	List-Owner; bh=uIYthtFhLUubx9dkS7yluWFoEZMVDRMPg3XE9CeGxUU=; b=WIoJF6iOGJmMxU
+	khKC/z3wqe8fIRY71REc9OjL1mZ6eoSaLwYJJ6er0ai3TDucclGoktluwf0hWlZ18LKAI/01sMJ/W
+	s8Of6soYkPa4RlkjCC5ystVqILDjnU+6mbGMoz+r5E2LlCnifOPZre26T5yrwX3EvfSfTPvjCJWHI
+	GTzDFJVqo0T9zmlRHhcvhQtND1XeJRnP1j1rh0bOQZbw3LaIUgbjQmVsPXvfwfd9ab/r/1E/ehI3y
+	hwbS/CKn25IkpOrqKpeHJmwtH/4j40kh7MhzHvq7hLX2+nRx+OJ71VrDaK8NAFms5Tlcm7MXjdoS0
+	i1gJjhIwantNSz1JGVZA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gFrHi-0008H0-Gh; Fri, 26 Oct 2018 01:51:34 +0000
-Received: from mail-lj1-x244.google.com ([2a00:1450:4864:20::244])
+	id 1gFxFP-0003Tu-HX; Fri, 26 Oct 2018 08:13:35 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gFrHf-0008GH-Fc
- for linux-riscv@lists.infradead.org; Fri, 26 Oct 2018 01:51:32 +0000
-Received: by mail-lj1-x244.google.com with SMTP id s15-v6so10053091lji.3
- for <linux-riscv@lists.infradead.org>; Thu, 25 Oct 2018 18:51:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=linux-foundation.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=YlshRK5JZz44bbe2wyN1oqlLyTr3ZumtAPiaOfDgcto=;
- b=hEFvPNr6z4Kd4ywAMeNIeaEwD34AwW4S46sxAQUHJu8zO5nICL++gCA4VRbQTzP+2Q
- FcBUhcABbg2RWagntjAnDF4rT588cZRQ26msDPp5+nJNwHpcpzYY4FFsDN7a3crQ30hU
- qtmiKUNorxtZOJpYtozRm0PrXElj7L6VaSdnU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=YlshRK5JZz44bbe2wyN1oqlLyTr3ZumtAPiaOfDgcto=;
- b=oF2QqgZw6w+5j8oo/9xM1OeVt/q8rcdAiS/G22W/Ve+QPrhwcbdK5+AHCe8pxybHq4
- 2xygBkIXYrparj44sIpRkRXrWOiguMJJ1m+aHpo4P5dVpAvbHYGWu0hRXvQuZ2xiR8PT
- 4LwOjeNSrvo8ZjSJtsxsM3wlOQHKSbnqibG2GjRrlEqAJf3nGYqcsjG1iC+RX4DSTNtv
- tfVd2r9GWWEdPX1T3CrFnVUd+3iNS+GS1Ktksutbby/2/LLNCXK6fnDVL1cMr/KUVHFO
- rJWPbRUNIDzENVmw2iEfv9S89u4AiNP3LVTjK+kWoNVi8G7GhW10FFeV2is35urNw4iG
- ZhyQ==
-X-Gm-Message-State: AGRZ1gKtjEoaTQ9AXDCmRPT7jrs1OKUX85Dtg2y0DYhI097/sTBjMon4
- D57GHxKpeUdC5IMwsdJwAT4yFkC39BY+VQ==
-X-Google-Smtp-Source: AJdET5fvo2gRRjiwWY8oxKrVZw8UvxeUteeZ4cVaQNccHpQkLWlTu3/j327O5dvjWU7NZTHETPx1cg==
-X-Received: by 2002:a2e:29a:: with SMTP id y26-v6mr946543lje.62.1540518678836; 
- Thu, 25 Oct 2018 18:51:18 -0700 (PDT)
-Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com.
- [209.85.167.44])
- by smtp.gmail.com with ESMTPSA id t4-v6sm1461087lft.77.2018.10.25.18.51.17
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Thu, 25 Oct 2018 18:51:18 -0700 (PDT)
-Received: by mail-lf1-f44.google.com with SMTP id q6-v6so7552596lfh.9
- for <linux-riscv@lists.infradead.org>; Thu, 25 Oct 2018 18:51:17 -0700 (PDT)
-X-Received: by 2002:a19:288c:: with SMTP id
- o134-v6mr957397lfo.124.1540518677398; 
- Thu, 25 Oct 2018 18:51:17 -0700 (PDT)
+ id 1gFxEo-0003A9-OJ
+ for linux-riscv@lists.infradead.org; Fri, 26 Oct 2018 08:13:03 +0000
+Received: from pps.filterd (m0098414.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.0.22/8.16.0.22) with SMTP id
+ w9Q89B9q049359
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Oct 2018 04:12:48 -0400
+Received: from e06smtp05.uk.ibm.com (e06smtp05.uk.ibm.com [195.75.94.101])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 2nby3x8a5c-1
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Oct 2018 04:12:47 -0400
+Received: from localhost
+ by e06smtp05.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
+ Violators will be prosecuted
+ for <linux-riscv@lists.infradead.org> from <rppt@linux.ibm.com>;
+ Fri, 26 Oct 2018 09:12:45 +0100
+Received: from b06cxnps3075.portsmouth.uk.ibm.com (9.149.109.195)
+ by e06smtp05.uk.ibm.com (192.168.101.135) with IBM ESMTP SMTP Gateway:
+ Authorized Use Only! Violators will be prosecuted; 
+ (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
+ Fri, 26 Oct 2018 09:12:36 +0100
+Received: from d06av24.portsmouth.uk.ibm.com (mk.ibm.com [9.149.105.60])
+ by b06cxnps3075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ w9Q8CZGQ20119794
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Fri, 26 Oct 2018 08:12:35 GMT
+Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 0CA9542042;
+ Fri, 26 Oct 2018 08:12:35 +0000 (GMT)
+Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 5C81E4203F;
+ Fri, 26 Oct 2018 08:12:28 +0000 (GMT)
+Received: from rapoport-lnx (unknown [9.148.204.85])
+ by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+ Fri, 26 Oct 2018 08:12:28 +0000 (GMT)
+Date: Fri, 26 Oct 2018 09:12:25 +0100
+From: Mike Rapoport <rppt@linux.ibm.com>
+To: Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH v2 0/2] arm64: Cut rebuild time when changing
+ CONFIG_BLK_DEV_INITRD
+References: <20181024193256.23734-1-f.fainelli@gmail.com>
+ <CAL_Jsq+KCOv6pXXHhHDZ+7-QUrmtMDvSjEVhK15yZ3qbnn61Ag@mail.gmail.com>
+ <20181025093833.GA23607@rapoport-lnx>
+ <CAL_JsqL62ttsGSbE1BS5v-mX3pKE-p_HyvuZD6nB+GUbQyetzg@mail.gmail.com>
+ <20181025172935.GA27364@rapoport-lnx>
+ <CAL_JsqJrMq+QHvuOsqEdCFchmXsd4s2XKUD_TboKzeEQprJvjg@mail.gmail.com>
 MIME-Version: 1.0
-References: <mhng-80deacac-267f-4b3a-ac60-4e24f120d86e@palmer-si-x1c4>
- <CAHk-=wimJ+g2O7DND0XZ54XZSrY_aiVWsiyyAXL9T1+=BG9Ptg@mail.gmail.com>
- <41b34e47-57de-bcc1-c86e-8b98f663367a@sifive.com>
-In-Reply-To: <41b34e47-57de-bcc1-c86e-8b98f663367a@sifive.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Thu, 25 Oct 2018 18:51:01 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wiHy+39PkEjUuQRJdOO7aNytYXeAGD-tZwOfOEj6ZhTKg@mail.gmail.com>
-Message-ID:
- <CAHk-=wiHy+39PkEjUuQRJdOO7aNytYXeAGD-tZwOfOEj6ZhTKg@mail.gmail.com>
-Subject: Re: [GIT PULL] RISC-V Patches for the 4.20 Merge Window, Part 1
-To: paul.walmsley@sifive.com
+Content-Disposition: inline
+In-Reply-To: <CAL_JsqJrMq+QHvuOsqEdCFchmXsd4s2XKUD_TboKzeEQprJvjg@mail.gmail.com>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-TM-AS-GCONF: 00
+x-cbid: 18102608-0020-0000-0000-000002DA8D36
+X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
+x-cbparentid: 18102608-0021-0000-0000-00002129C562
+Message-Id: <20181026081224.GB27364@rapoport-lnx>
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
+ definitions=2018-10-26_05:, , signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501
+ malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
+ mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1807170000 definitions=main-1810260073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181025_185131_563948_A41C70CE 
-X-CRM114-Status: UNSURE (   8.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181026_011258_965200_E879FD9E 
+X-CRM114-Status: GOOD (  46.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -101,38 +113,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Greg KH <gregkh@linuxfoundation.org>, linux-riscv@lists.infradead.org,
- palmer@sifive.com, zongbox@gmail.com
+Cc: Linux-MIPS <linux-mips@linux-mips.org>, linux-ia64@vger.kernel.org,
+ SH-Linux <linux-sh@vger.kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will.deacon@arm.com>, devicetree@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>,
+ linux-s390@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
+ linux-c6x-dev@linux-c6x.org, linux-hexagon@vger.kernel.org,
+ arcml <linux-snps-arc@lists.infradead.org>,
+ "moderated list:H8/300 ARCHITECTURE" <uclinux-h8-devel@lists.sourceforge.jp>,
+ linux-xtensa@linux-xtensa.org, Arnd Bergmann <arnd@arndb.de>,
+ Marc Zyngier <marc.zyngier@arm.com>, linux-um@lists.infradead.org,
+ linux-m68k@lists.linux-m68k.org, Openrisc <openrisc@lists.librecores.org>,
+ "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>, linux-parisc@vger.kernel.org,
+ Ard Biesheuvel <ard.biesheuvel@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ linux-alpha@vger.kernel.org, Olof Johansson <olof@lixom.net>,
+ nios2-dev@lists.rocketboards.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181026015101.oUDWKxjtjFvpdOECRKsyw-gZMPjVhXa3GjDAPisu8-8@z>
+Message-ID: <20181026081225.8Hv-VZU8kBGOybeDsYNgtan4aUR5eH_1AtQ-khWhQmc@z>
 
-On 10/25/18 6:12 PM, Linus Torvalds wrote:
->
-> Almost always, the 64-bit divide turns out to be entirely pointless,
-> and the code can be written as a (much cheaper) 64-by-32 divide
-> instead using the functions in <asm/div.h> instead.
+On Thu, Oct 25, 2018 at 04:13:10PM -0500, Rob Herring wrote:
+> On Thu, Oct 25, 2018 at 12:30 PM Mike Rapoport <rppt@linux.ibm.com> wrote:
+> >
+> > On Thu, Oct 25, 2018 at 08:15:15AM -0500, Rob Herring wrote:
+> > > +Ard
+> > >
+> > > On Thu, Oct 25, 2018 at 4:38 AM Mike Rapoport <rppt@linux.ibm.com> wrote:
+> > > >
+> > > > On Wed, Oct 24, 2018 at 02:55:17PM -0500, Rob Herring wrote:
+> > > > > On Wed, Oct 24, 2018 at 2:33 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
+> > > > > >
+> > > > > > Hi all,
+> > > > > >
+> > > > > > While investigating why ARM64 required a ton of objects to be rebuilt
+> > > > > > when toggling CONFIG_DEV_BLK_INITRD, it became clear that this was
+> > > > > > because we define __early_init_dt_declare_initrd() differently and we do
+> > > > > > that in arch/arm64/include/asm/memory.h which gets included by a fair
+> > > > > > amount of other header files, and translation units as well.
+> > > > >
+> > > > > I scratch my head sometimes as to why some config options rebuild so
+> > > > > much stuff. One down, ? to go. :)
+> > > > >
+> > > > > > Changing the value of CONFIG_DEV_BLK_INITRD is a common thing with build
+> > > > > > systems that generate two kernels: one with the initramfs and one
+> > > > > > without. buildroot is one of these build systems, OpenWrt is also
+> > > > > > another one that does this.
+> > > > > >
+> > > > > > This patch series proposes adding an empty initrd.h to satisfy the need
+> > > > > > for drivers/of/fdt.c to unconditionally include that file, and moves the
+> > > > > > custom __early_init_dt_declare_initrd() definition away from
+> > > > > > asm/memory.h
+> > > > > >
+> > > > > > This cuts the number of objects rebuilds from 1920 down to 26, so a
+> > > > > > factor 73 approximately.
+> > > > > >
+> > > > > > Apologies for the long CC list, please let me know how you would go
+> > > > > > about merging that and if another approach would be preferable, e.g:
+> > > > > > introducing a CONFIG_ARCH_INITRD_BELOW_START_OK Kconfig option or
+> > > > > > something like that.
+> > > > >
+> > > > > There may be a better way as of 4.20 because bootmem is now gone and
+> > > > > only memblock is used. This should unify what each arch needs to do
+> > > > > with initrd early. We need the physical address early for memblock
+> > > > > reserving. Then later on we need the virtual address to access the
+> > > > > initrd. Perhaps we should just change initrd_start and initrd_end to
+> > > > > physical addresses (or add 2 new variables would be less invasive and
+> > > > > allow for different translation than __va()). The sanity checks and
+> > > > > memblock reserve could also perhaps be moved to a common location.
+> > > > >
+> > > > > Alternatively, given arm64 is the only oddball, I'd be fine with an
+> > > > > "if (IS_ENABLED(CONFIG_ARM64))" condition in the default
+> > > > > __early_init_dt_declare_initrd as long as we have a path to removing
+> > > > > it like the above option.
+> > > >
+> > > > I think arm64 does not have to redefine __early_init_dt_declare_initrd().
+> > > > Something like this might be just all we need (completely untested,
+> > > > probably it won't even compile):
+> > > >
+> > > > diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> > > > index 9d9582c..e9ca238 100644
+> > > > --- a/arch/arm64/mm/init.c
+> > > > +++ b/arch/arm64/mm/init.c
+> > > > @@ -62,6 +62,9 @@ s64 memstart_addr __ro_after_init = -1;
+> > > >  phys_addr_t arm64_dma_phys_limit __ro_after_init;
+> > > >
+> > > >  #ifdef CONFIG_BLK_DEV_INITRD
+> > > > +
+> > > > +static phys_addr_t initrd_start_phys, initrd_end_phys;
+> > > > +
+> > > >  static int __init early_initrd(char *p)
+> > > >  {
+> > > >         unsigned long start, size;
+> > > > @@ -71,8 +74,8 @@ static int __init early_initrd(char *p)
+> > > >         if (*endp == ',') {
+> > > >                 size = memparse(endp + 1, NULL);
+> > > >
+> > > > -               initrd_start = start;
+> > > > -               initrd_end = start + size;
+> > > > +               initrd_start_phys = start;
+> > > > +               initrd_end_phys = end;
+> > > >         }
+> > > >         return 0;
+> > > >  }
+> > > > @@ -407,14 +410,27 @@ void __init arm64_memblock_init(void)
+> > > >                 memblock_add(__pa_symbol(_text), (u64)(_end - _text));
+> > > >         }
+> > > >
+> > > > -       if (IS_ENABLED(CONFIG_BLK_DEV_INITRD) && initrd_start) {
+> > > > +       if (IS_ENABLED(CONFIG_BLK_DEV_INITRD) &&
+> > > > +           (initrd_start || initrd_start_phys)) {
+> > > > +               /*
+> > > > +                * FIXME: ensure proper precendence between
+> > > > +                * early_initrd and DT when both are present
+> > >
+> > > Command line takes precedence, so just reverse the order.
+> > >
+> > > > +                */
+> > > > +               if (initrd_start) {
+> > > > +                       initrd_start_phys = __phys_to_virt(initrd_start);
+> > > > +                       initrd_end_phys = __phys_to_virt(initrd_end);
+> 
+> BTW, I think you meant virt_to_phys() here?
 
-The other common situation for the kernel is that something was
-written as "xyz / abc", when it turns out that abc is really just a
-power-of-two.
+Right, and then there is no problem at all do the conversion here :)
+ 
+> > >
+> > > AIUI, the original issue was doing the P2V translation was happening
+> > > too early and the VA could be wrong if the linear range is adjusted.
+> > > So I don't think this would work.
+> >
+> > Probably things have changed since then, but in the current code there is
+> >
+> >                 initrd_start = __phys_to_virt(initrd_start);
+> >
+> > and in between only the code related to CONFIG_RANDOMIZE_BASE, so I believe
+> > it's safe to use __phys_to_virt() here as well.
+> 
+> Here is fine yes, but I believe it was the the phys to virt in the DT
+> code before adjusting the linear range that was the problem.
+> 
+> Rob
+> 
 
-So it's not necessarily always that the 64-bit divide can be
-re-written as a 64-by-32 divide, sometimes it can be rewritten as
-simply a shift. Which is even cheaper.
+-- 
+Sincerely yours,
+Mike.
 
-That's the reason I try to actively discourage full 64-by-64 divides.
-We have had situations where people end up using a divide that can
-take hundres of cycles, where alarmingly often it can be rewritten as
-one that takes tens of cycles or even just _single_ cycles.
-
-People don't sometimes appreciate just how expensive 64-by-64 divides
-are when you don't have direct hardware support for them, and how
-often there are much simpler and faster ways to avoid them.
-
-                 Linus
 
 _______________________________________________
 linux-riscv mailing list
