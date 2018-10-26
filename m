@@ -1,49 +1,117 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 26 Oct 2018 12:32:47 -0700 (PDT)
-Subject: [GIT PULL] RISC-V Patches for the 4.20 Merge Window, Part 1
-In-Reply-To: <CAHk-=wimJ+g2O7DND0XZ54XZSrY_aiVWsiyyAXL9T1+=BG9Ptg@mail.gmail.com>
-Message-ID: <mhng-5d10d061-df2c-4077-9ff3-4e3845f85293@palmer-si-x1c4>
+From: joel@joelfernandes.org (Joel Fernandes)
+Date: Fri, 26 Oct 2018 14:11:48 -0700
+Subject: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
+In-Reply-To: <20181025101900.phqnqpoju5t2gar5@kshutemo-mobl1>
+References: <20181013013200.206928-1-joel@joelfernandes.org>
+ <20181013013200.206928-3-joel@joelfernandes.org>
+ <20181024101255.it4lptrjogalxbey@kshutemo-mobl1>
+ <20181024115733.GN8537@350D>
+ <20181024125724.yf6frdimjulf35do@kshutemo-mobl1>
+ <20181025020907.GA13560@joelaf.mtv.corp.google.com>
+ <20181025101900.phqnqpoju5t2gar5@kshutemo-mobl1>
+Message-ID: <20181026211148.GA140716@joelaf.mtv.corp.google.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, 25 Oct 2018 18:12:46 PDT (-0700), Linus Torvalds wrote:
-> On Wed, Oct 24, 2018 at 1:42 PM Palmer Dabbelt <palmer@sifive.com> wrote:
->>
->> I'm pretty sure this is our largest patch set since the original kernel
->> contribution, and it's certainly the one with the most contributors.
->> While I don't have anything else I know I'm going to submit for the
->> merge window, I would be somewhat surprised if I didn't screw anything
->> up.
->
-> So I'm not entirely sure this is a screw-up, but it does have some
-> signs of being one:
->
->>       lib: Add umoddi3 and udivmoddi4 of GCC library routines
->
-> We have *actively* tried to avoid needing umoddi3 and friends, and
-> have so far succceeded in doing that across many different
-> architectures, and many many years.
->
-> And when we _have_ added it, we've added it as architecture-specific
-> optimized routines when people really need it.
->
-> The reason to avoid a full 64-by-64 divide is that
->
->  (a) it is really expensive
->
->  (b) code that needs it is almost always actually wrong
->
-> Almost always, the 64-bit divide turns out to be entirely pointless,
-> and the code can be written as a (much cheaper) 64-by-32 divide
-> instead using the functions in <asm/div.h> instead.
->
-> Does RISC-V _really_ need that disgusting full 64-bit divide, or was
-> the addition of that simply a "we didn't know better, and didn't
-> realize just how expensive and wrong it is"?
->
-> I've pulled this, but I really _really_ hope that I will get a second
-> pull request that gets rid of this again, and fixes whatever RISC-V
-> code that triggered this to just do not do an insane full 64-bit
-> divide on a 32-bit architecture.
+On Thu, Oct 25, 2018 at 01:19:00PM +0300, Kirill A. Shutemov wrote:
+> On Wed, Oct 24, 2018 at 07:09:07PM -0700, Joel Fernandes wrote:
+> > On Wed, Oct 24, 2018 at 03:57:24PM +0300, Kirill A. Shutemov wrote:
+> > > On Wed, Oct 24, 2018 at 10:57:33PM +1100, Balbir Singh wrote:
+> > > > On Wed, Oct 24, 2018 at 01:12:56PM +0300, Kirill A. Shutemov wrote:
+> > > > > On Fri, Oct 12, 2018 at 06:31:58PM -0700, Joel Fernandes (Google) wrote:
+> > > > > > diff --git a/mm/mremap.c b/mm/mremap.c
+> > > > > > index 9e68a02a52b1..2fd163cff406 100644
+> > > > > > --- a/mm/mremap.c
+> > > > > > +++ b/mm/mremap.c
+> > > > > > @@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
+> > > > > >  		drop_rmap_locks(vma);
+> > > > > >  }
+> > > > > >  
+> > > > > > +static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
+> > > > > > +		  unsigned long new_addr, unsigned long old_end,
+> > > > > > +		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
+> > > > > > +{
+> > > > > > +	spinlock_t *old_ptl, *new_ptl;
+> > > > > > +	struct mm_struct *mm = vma->vm_mm;
+> > > > > > +
+> > > > > > +	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
+> > > > > > +	    || old_end - old_addr < PMD_SIZE)
+> > > > > > +		return false;
+> > > > > > +
+> > > > > > +	/*
+> > > > > > +	 * The destination pmd shouldn't be established, free_pgtables()
+> > > > > > +	 * should have release it.
+> > > > > > +	 */
+> > > > > > +	if (WARN_ON(!pmd_none(*new_pmd)))
+> > > > > > +		return false;
+> > > > > > +
+> > > > > > +	/*
+> > > > > > +	 * We don't have to worry about the ordering of src and dst
+> > > > > > +	 * ptlocks because exclusive mmap_sem prevents deadlock.
+> > > > > > +	 */
+> > > > > > +	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
+> > > > > > +	if (old_ptl) {
+> > > > > 
+> > > > > How can it ever be false?
+> > 
+> > Kirill,
+> > It cannot, you are right. I'll remove the test.
+> > 
+> > By the way, there are new changes upstream by Linus which flush the TLB
+> > before releasing the ptlock instead of after. I'm guessing that patch came
+> > about because of reviews of this patch and someone spotted an issue in the
+> > existing code :)
+> > 
+> > Anyway the patch in concern is:
+> > eb66ae030829 ("mremap: properly flush TLB before releasing the page")
+> > 
+> > I need to rebase on top of that with appropriate modifications, but I worry
+> > that this patch will slow down performance since we have to flush at every
+> > PMD/PTE move before releasing the ptlock. Where as with my patch, the
+> > intention is to flush only at once in the end of move_page_tables. When I
+> > tried to flush TLB on every PMD move, it was quite slow on my arm64 device [2].
+> > 
+> > Further observation [1] is, it seems like the move_huge_pmds and move_ptes code
+> > is a bit sub optimal in the sense, we are acquiring and releasing the same
+> > ptlock for a bunch of PMDs if the said PMDs are on the same page-table page
+> > right? Instead we can do better by acquiring and release the ptlock less
+> > often.
+> > 
+> > I think this observation [1] and the frequent TLB flush issue [2] can be solved
+> > by acquiring the ptlock once for a bunch of PMDs, move them all, then flush
+> > the tlb and then release the ptlock, and then proceed to doing the same thing
+> > for the PMDs in the next page-table page. What do you think?
+> 
+> Yeah, that's viable optimization.
+> 
+> The tricky part is that one PMD page table can have PMD entires of
+> different types: THP, page table that you can move as whole and the one
+> that you cannot (for any reason).
+> 
+> If we cannot move the PMD entry as a whole and must go to PTE page table
+> we would need to drop PMD ptl and take PTE ptl (it might be the same lock
+> in some configuations).
 
-Thanks.  We'll go figure out how to remove it.
+> Also we don't want to take PMD lock unless it's required.
+> 
+> I expect it to be not very trivial to get everything right. But take a
+> shot :)
+
+Yes, that is exactly the issue I hit when I attempted it. :) The locks need
+to be release if we do something different on the next loop iteration. It
+complicates the code and not sure if it is worth it in the long run.  On x86
+atleast, I don't see any perf issues with the TLB-flush per-PMD move, so the
+patch is Ok there. On arm64, it negates the performance benefit even though
+its not any worse than what we are doing currently at the PTE level.
+
+My thinking is to take it slow and get the patch in in its current state,
+since it improves x86. Then as a next step, look into why the arm64 tlb
+flushes are that expensive and look into optimizing that. On arm64 I am
+testing on a 4.9 kernel so I'm wondering there are any optimizations since
+4.9 that can help speed it up there. After that, if all else fails about
+speeding up arm64, then I look into developing the cleanest possible solution
+where we can keep the lock held for longer and flush lesser.
+
+thanks,
+
+ - Joel
