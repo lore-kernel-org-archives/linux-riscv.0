@@ -2,106 +2,72 @@ Return-Path: <SRS0=LGYn=NG=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 23707ECDE44
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 08:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2E894C6786E
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 08:52:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DE21A20834
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 08:13:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F29DE20834
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 08:52:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WIoJF6iO"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DE21A20834
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="l0GeRHFC";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="ucA2s1NE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F29DE20834
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:In-Reply-To:MIME-Version:
-	References:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uIYthtFhLUubx9dkS7yluWFoEZMVDRMPg3XE9CeGxUU=; b=WIoJF6iOGJmMxU
-	khKC/z3wqe8fIRY71REc9OjL1mZ6eoSaLwYJJ6er0ai3TDucclGoktluwf0hWlZ18LKAI/01sMJ/W
-	s8Of6soYkPa4RlkjCC5ystVqILDjnU+6mbGMoz+r5E2LlCnifOPZre26T5yrwX3EvfSfTPvjCJWHI
-	GTzDFJVqo0T9zmlRHhcvhQtND1XeJRnP1j1rh0bOQZbw3LaIUgbjQmVsPXvfwfd9ab/r/1E/ehI3y
-	hwbS/CKn25IkpOrqKpeHJmwtH/4j40kh7MhzHvq7hLX2+nRx+OJ71VrDaK8NAFms5Tlcm7MXjdoS0
-	i1gJjhIwantNSz1JGVZA==;
+	List-Owner; bh=7QO47gwGNYRYmDxmabBe3Vpr76cakKR1XHrna9n79fk=; b=l0GeRHFCtza9mb
+	Ti6KcJbhtDv/B2P4KvC2CuR3yg8qwrvA24sLXXsG5a7SpbPy7Z3vHxeqnZ03zp2DmWyh0yezv0ccc
+	P/XkmSAVG+I6rtNFexLNolKIIy6VslKnrcpQJvBL/vsM/WFFSXck9HOUVuW/2ot0DSUP0lDaImvr/
+	na0G8PU0EKxG+LYW1iXJlcDSol3TNeLZ2A75uYLxHp6l9eLbF0sfSyxkXixD3+C5HW0gCxNohF6xc
+	Yf9oqEOYJOSpVW7F0IaCRkPLNNkosXbIn/2ZbGn6joCeLOTkS53E6YbMX3FqzeN2ukAQpm5a/FSei
+	T5t5HbKK8WRGQ3cqAIag==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gFxFP-0003Tu-HX; Fri, 26 Oct 2018 08:13:35 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
- helo=mx0a-001b2d01.pphosted.com)
+	id 1gFxr7-0004Mi-H3; Fri, 26 Oct 2018 08:52:33 +0000
+Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gFxEo-0003A9-OJ
- for linux-riscv@lists.infradead.org; Fri, 26 Oct 2018 08:13:03 +0000
-Received: from pps.filterd (m0098414.ppops.net [127.0.0.1])
- by mx0b-001b2d01.pphosted.com (8.16.0.22/8.16.0.22) with SMTP id
- w9Q89B9q049359
- for <linux-riscv@lists.infradead.org>; Fri, 26 Oct 2018 04:12:48 -0400
-Received: from e06smtp05.uk.ibm.com (e06smtp05.uk.ibm.com [195.75.94.101])
- by mx0b-001b2d01.pphosted.com with ESMTP id 2nby3x8a5c-1
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
- for <linux-riscv@lists.infradead.org>; Fri, 26 Oct 2018 04:12:47 -0400
-Received: from localhost
- by e06smtp05.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
- Violators will be prosecuted
- for <linux-riscv@lists.infradead.org> from <rppt@linux.ibm.com>;
- Fri, 26 Oct 2018 09:12:45 +0100
-Received: from b06cxnps3075.portsmouth.uk.ibm.com (9.149.109.195)
- by e06smtp05.uk.ibm.com (192.168.101.135) with IBM ESMTP SMTP Gateway:
- Authorized Use Only! Violators will be prosecuted; 
- (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
- Fri, 26 Oct 2018 09:12:36 +0100
-Received: from d06av24.portsmouth.uk.ibm.com (mk.ibm.com [9.149.105.60])
- by b06cxnps3075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- w9Q8CZGQ20119794
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
- Fri, 26 Oct 2018 08:12:35 GMT
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 0CA9542042;
- Fri, 26 Oct 2018 08:12:35 +0000 (GMT)
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 5C81E4203F;
- Fri, 26 Oct 2018 08:12:28 +0000 (GMT)
-Received: from rapoport-lnx (unknown [9.148.204.85])
- by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Fri, 26 Oct 2018 08:12:28 +0000 (GMT)
-Date: Fri, 26 Oct 2018 09:12:25 +0100
-From: Mike Rapoport <rppt@linux.ibm.com>
-To: Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v2 0/2] arm64: Cut rebuild time when changing
- CONFIG_BLK_DEV_INITRD
-References: <20181024193256.23734-1-f.fainelli@gmail.com>
- <CAL_Jsq+KCOv6pXXHhHDZ+7-QUrmtMDvSjEVhK15yZ3qbnn61Ag@mail.gmail.com>
- <20181025093833.GA23607@rapoport-lnx>
- <CAL_JsqL62ttsGSbE1BS5v-mX3pKE-p_HyvuZD6nB+GUbQyetzg@mail.gmail.com>
- <20181025172935.GA27364@rapoport-lnx>
- <CAL_JsqJrMq+QHvuOsqEdCFchmXsd4s2XKUD_TboKzeEQprJvjg@mail.gmail.com>
+ id 1gFxr1-0004Jz-W0; Fri, 26 Oct 2018 08:52:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=merlin.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=pbk9Jp4NpLV5KhCv2GieE6eo6VugTGuTfEvdAP/DTOU=; b=ucA2s1NEduQA2HG6o8PHl9GX1
+ 1c9iAfHE+3hqIl/VOcrEC4U61PEkSMe2UlNY8ypIaHjQM2VFqPCLJW1X9TyB3wWuCgKbVPigZk0cL
+ 8xXH3vrCr+QLGW8A+8M1aJInEB7Ent4aKqtrYwIq3zSx2xpx4WErOiYwf+CUPAYBaTROX2LN6wtam
+ SO+PDPDdJ9gkMza75ER7YzuuEE9Nbr1grRJK7p7fXgBxca+Uj29aAUjQiybM8sVWM4X51T4/vAu3t
+ jGJE+MJ5H5/n+ZlZg0mYiuiT+wrbdPBImX4VY03B6CnjBGen3lPKGeN206IfOOZzbJStVnZtSqh8h
+ j/PfTfURA==;
+Received: from [167.98.65.38] (helo=worktop)
+ by merlin.infradead.org with esmtpsa (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gFxqe-000103-2S; Fri, 26 Oct 2018 08:52:04 +0000
+Received: by worktop (Postfix, from userid 1000)
+ id A96EE6E07CA; Fri, 26 Oct 2018 10:52:02 +0200 (CEST)
+Date: Fri, 26 Oct 2018 10:52:02 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Joel Fernandes <joel@joelfernandes.org>
+Subject: Re: [PATCH 1/4] treewide: remove unused address argument from
+ pte_alloc functions (v2)
+Message-ID: <20181026085202.GC3109@worktop.c.hoisthospitality.com>
+References: <20181013013200.206928-1-joel@joelfernandes.org>
+ <20181013013200.206928-2-joel@joelfernandes.org>
+ <20181024083716.GN3109@worktop.c.hoisthospitality.com>
+ <20181025022119.GC13560@joelaf.mtv.corp.google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAL_JsqJrMq+QHvuOsqEdCFchmXsd4s2XKUD_TboKzeEQprJvjg@mail.gmail.com>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-TM-AS-GCONF: 00
-x-cbid: 18102608-0020-0000-0000-000002DA8D36
-X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
-x-cbparentid: 18102608-0021-0000-0000-00002129C562
-Message-Id: <20181026081224.GB27364@rapoport-lnx>
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
- definitions=2018-10-26_05:, , signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501
- malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1807170000 definitions=main-1810260073
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181026_011258_965200_E879FD9E 
-X-CRM114-Status: GOOD (  46.28  )
+In-Reply-To: <20181025022119.GC13560@joelaf.mtv.corp.google.com>
+User-Agent: Mutt/1.5.22.1 (2013-10-16)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -113,157 +79,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Linux-MIPS <linux-mips@linux-mips.org>, linux-ia64@vger.kernel.org,
- SH-Linux <linux-sh@vger.kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will.deacon@arm.com>, devicetree@vger.kernel.org,
+Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
+ linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Will Deacon <will.deacon@arm.com>,
+ Michal Hocko <mhocko@kernel.org>, linux-mm@kvack.org, lokeshgidra@google.com,
  sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>,
- linux-s390@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
- linux-c6x-dev@linux-c6x.org, linux-hexagon@vger.kernel.org,
- arcml <linux-snps-arc@lists.infradead.org>,
- "moderated list:H8/300 ARCHITECTURE" <uclinux-h8-devel@lists.sourceforge.jp>,
- linux-xtensa@linux-xtensa.org, Arnd Bergmann <arnd@arndb.de>,
- Marc Zyngier <marc.zyngier@arm.com>, linux-um@lists.infradead.org,
- linux-m68k@lists.linux-m68k.org, Openrisc <openrisc@lists.librecores.org>,
- "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>, linux-parisc@vger.kernel.org,
- Ard Biesheuvel <ard.biesheuvel@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- linux-alpha@vger.kernel.org, Olof Johansson <olof@lixom.net>,
- nios2-dev@lists.rocketboards.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+ elfring@users.sourceforge.net, Jonas Bonn <jonas@southpole.se>,
+ kvmarm@lists.cs.columbia.edu, dancol@google.com,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, linux-xtensa@linux-xtensa.org,
+ linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ hughd@google.com, "James E.J. Bottomley" <jejb@parisc-linux.org>,
+ kasan-dev@googlegroups.com, anton.ivanov@kot-begemot.co.uk,
+ Ingo Molnar <mingo@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Andrey Ryabinin <aryabinin@virtuozzo.com>, linux-snps-arc@lists.infradead.org,
+ kernel-team@android.com, Sam Creasey <sammy@sammy.net>,
+ Fenghua Yu <fenghua.yu@intel.com>, linux-s390@vger.kernel.org,
+ Jeff Dike <jdike@addtoit.com>, linux-um@lists.infradead.org,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Julia Lawall <Julia.Lawall@lip6.fr>, linux-m68k@lists.linux-m68k.org,
+ Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
+ nios2-dev@lists.rocketboards.org, "Kirill A . Shutemov" <kirill@shutemov.name>,
+ Stafford Horne <shorne@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
+ Chris Zankel <chris@zankel.net>, Tony Luck <tony.luck@intel.com>,
+ Richard Weinberger <richard@nod.at>, linux-parisc@vger.kernel.org,
+ Max Filippov <jcmvbkbc@gmail.com>, pantin@google.com,
+ linux-kernel@vger.kernel.org, minchan@kernel.org,
+ Thomas Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org,
+ Ley Foon Tan <lftan@altera.com>, akpm@linux-foundation.org,
+ linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181026081225.8Hv-VZU8kBGOybeDsYNgtan4aUR5eH_1AtQ-khWhQmc@z>
+Message-ID: <20181026085202.8dOyX_gmp8y1JMJA_KLWqfgrfIKUsPEFmxCvxrcHE9A@z>
 
-On Thu, Oct 25, 2018 at 04:13:10PM -0500, Rob Herring wrote:
-> On Thu, Oct 25, 2018 at 12:30 PM Mike Rapoport <rppt@linux.ibm.com> wrote:
-> >
-> > On Thu, Oct 25, 2018 at 08:15:15AM -0500, Rob Herring wrote:
-> > > +Ard
-> > >
-> > > On Thu, Oct 25, 2018 at 4:38 AM Mike Rapoport <rppt@linux.ibm.com> wrote:
-> > > >
-> > > > On Wed, Oct 24, 2018 at 02:55:17PM -0500, Rob Herring wrote:
-> > > > > On Wed, Oct 24, 2018 at 2:33 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
-> > > > > >
-> > > > > > Hi all,
-> > > > > >
-> > > > > > While investigating why ARM64 required a ton of objects to be rebuilt
-> > > > > > when toggling CONFIG_DEV_BLK_INITRD, it became clear that this was
-> > > > > > because we define __early_init_dt_declare_initrd() differently and we do
-> > > > > > that in arch/arm64/include/asm/memory.h which gets included by a fair
-> > > > > > amount of other header files, and translation units as well.
-> > > > >
-> > > > > I scratch my head sometimes as to why some config options rebuild so
-> > > > > much stuff. One down, ? to go. :)
-> > > > >
-> > > > > > Changing the value of CONFIG_DEV_BLK_INITRD is a common thing with build
-> > > > > > systems that generate two kernels: one with the initramfs and one
-> > > > > > without. buildroot is one of these build systems, OpenWrt is also
-> > > > > > another one that does this.
-> > > > > >
-> > > > > > This patch series proposes adding an empty initrd.h to satisfy the need
-> > > > > > for drivers/of/fdt.c to unconditionally include that file, and moves the
-> > > > > > custom __early_init_dt_declare_initrd() definition away from
-> > > > > > asm/memory.h
-> > > > > >
-> > > > > > This cuts the number of objects rebuilds from 1920 down to 26, so a
-> > > > > > factor 73 approximately.
-> > > > > >
-> > > > > > Apologies for the long CC list, please let me know how you would go
-> > > > > > about merging that and if another approach would be preferable, e.g:
-> > > > > > introducing a CONFIG_ARCH_INITRD_BELOW_START_OK Kconfig option or
-> > > > > > something like that.
-> > > > >
-> > > > > There may be a better way as of 4.20 because bootmem is now gone and
-> > > > > only memblock is used. This should unify what each arch needs to do
-> > > > > with initrd early. We need the physical address early for memblock
-> > > > > reserving. Then later on we need the virtual address to access the
-> > > > > initrd. Perhaps we should just change initrd_start and initrd_end to
-> > > > > physical addresses (or add 2 new variables would be less invasive and
-> > > > > allow for different translation than __va()). The sanity checks and
-> > > > > memblock reserve could also perhaps be moved to a common location.
-> > > > >
-> > > > > Alternatively, given arm64 is the only oddball, I'd be fine with an
-> > > > > "if (IS_ENABLED(CONFIG_ARM64))" condition in the default
-> > > > > __early_init_dt_declare_initrd as long as we have a path to removing
-> > > > > it like the above option.
-> > > >
-> > > > I think arm64 does not have to redefine __early_init_dt_declare_initrd().
-> > > > Something like this might be just all we need (completely untested,
-> > > > probably it won't even compile):
-> > > >
-> > > > diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> > > > index 9d9582c..e9ca238 100644
-> > > > --- a/arch/arm64/mm/init.c
-> > > > +++ b/arch/arm64/mm/init.c
-> > > > @@ -62,6 +62,9 @@ s64 memstart_addr __ro_after_init = -1;
-> > > >  phys_addr_t arm64_dma_phys_limit __ro_after_init;
-> > > >
-> > > >  #ifdef CONFIG_BLK_DEV_INITRD
-> > > > +
-> > > > +static phys_addr_t initrd_start_phys, initrd_end_phys;
-> > > > +
-> > > >  static int __init early_initrd(char *p)
-> > > >  {
-> > > >         unsigned long start, size;
-> > > > @@ -71,8 +74,8 @@ static int __init early_initrd(char *p)
-> > > >         if (*endp == ',') {
-> > > >                 size = memparse(endp + 1, NULL);
-> > > >
-> > > > -               initrd_start = start;
-> > > > -               initrd_end = start + size;
-> > > > +               initrd_start_phys = start;
-> > > > +               initrd_end_phys = end;
-> > > >         }
-> > > >         return 0;
-> > > >  }
-> > > > @@ -407,14 +410,27 @@ void __init arm64_memblock_init(void)
-> > > >                 memblock_add(__pa_symbol(_text), (u64)(_end - _text));
-> > > >         }
-> > > >
-> > > > -       if (IS_ENABLED(CONFIG_BLK_DEV_INITRD) && initrd_start) {
-> > > > +       if (IS_ENABLED(CONFIG_BLK_DEV_INITRD) &&
-> > > > +           (initrd_start || initrd_start_phys)) {
-> > > > +               /*
-> > > > +                * FIXME: ensure proper precendence between
-> > > > +                * early_initrd and DT when both are present
-> > >
-> > > Command line takes precedence, so just reverse the order.
-> > >
-> > > > +                */
-> > > > +               if (initrd_start) {
-> > > > +                       initrd_start_phys = __phys_to_virt(initrd_start);
-> > > > +                       initrd_end_phys = __phys_to_virt(initrd_end);
+On Wed, Oct 24, 2018 at 07:21:19PM -0700, Joel Fernandes wrote:
+> On Wed, Oct 24, 2018 at 10:37:16AM +0200, Peter Zijlstra wrote:
+> > On Fri, Oct 12, 2018 at 06:31:57PM -0700, Joel Fernandes (Google) wrote:
+> > > This series speeds up mremap(2) syscall by copying page tables at the
+> > > PMD level even for non-THP systems. There is concern that the extra
+> > > 'address' argument that mremap passes to pte_alloc may do something
+> > > subtle architecture related in the future that may make the scheme not
+> > > work.  Also we find that there is no point in passing the 'address' to
+> > > pte_alloc since its unused. So this patch therefore removes this
+> > > argument tree-wide resulting in a nice negative diff as well. Also
+> > > ensuring along the way that the enabled architectures do not do anything
+> > > funky with 'address' argument that goes unnoticed by the optimization.
+> > 
+> > Did you happen to look at the history of where that address argument
+> > came from? -- just being curious here. ISTR something vague about
+> > architectures having different paging structure for different memory
+> > ranges.
 > 
-> BTW, I think you meant virt_to_phys() here?
+> I didn't happen to do that analysis but from code analysis, no architecutre
+> is using it. Since its unused in the kernel, may be such architectures don't
+> exist or were removed, so we don't need to bother? Could you share more about
+> your concern with the removal of this argument?
 
-Right, and then there is no problem at all do the conversion here :)
- 
-> > >
-> > > AIUI, the original issue was doing the P2V translation was happening
-> > > too early and the VA could be wrong if the linear range is adjusted.
-> > > So I don't think this would work.
-> >
-> > Probably things have changed since then, but in the current code there is
-> >
-> >                 initrd_start = __phys_to_virt(initrd_start);
-> >
-> > and in between only the code related to CONFIG_RANDOMIZE_BASE, so I believe
-> > it's safe to use __phys_to_virt() here as well.
-> 
-> Here is fine yes, but I believe it was the the phys to virt in the DT
-> code before adjusting the linear range that was the problem.
-> 
-> Rob
-> 
-
--- 
-Sincerely yours,
-Mike.
+No concerns at all with removing it; I was purely curious as to the
+origin of the unused argument. Kirill provided that answer.
 
 
 _______________________________________________
