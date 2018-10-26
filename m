@@ -1,59 +1,44 @@
-From: rppt@linux.ibm.com (Mike Rapoport)
-Date: Fri, 26 Oct 2018 12:07:09 +0100
-Subject: [PATCH v2 0/2] arm64: Cut rebuild time when changing
- CONFIG_BLK_DEV_INITRD
-In-Reply-To: <1bb3bd63-a88e-b668-ea36-f0f985c0e2b1@gmail.com>
-References: <20181024193256.23734-1-f.fainelli@gmail.com>
- <CAL_Jsq+KCOv6pXXHhHDZ+7-QUrmtMDvSjEVhK15yZ3qbnn61Ag@mail.gmail.com>
- <20181025093833.GA23607@rapoport-lnx>
- <CAL_JsqL62ttsGSbE1BS5v-mX3pKE-p_HyvuZD6nB+GUbQyetzg@mail.gmail.com>
- <20181025172935.GA27364@rapoport-lnx>
- <CAL_JsqJrMq+QHvuOsqEdCFchmXsd4s2XKUD_TboKzeEQprJvjg@mail.gmail.com>
- <1bb3bd63-a88e-b668-ea36-f0f985c0e2b1@gmail.com>
-Message-ID: <20181026110708.GA3814@rapoport-lnx>
+From: zongbox@gmail.com (Zong Li)
+Date: Sat, 27 Oct 2018 00:13:05 +0800
+Subject: [GIT PULL] RISC-V Patches for the 4.20 Merge Window, Part 1
+In-Reply-To: <CAHk-=wiHy+39PkEjUuQRJdOO7aNytYXeAGD-tZwOfOEj6ZhTKg@mail.gmail.com>
+References: <mhng-80deacac-267f-4b3a-ac60-4e24f120d86e@palmer-si-x1c4>
+ <CAHk-=wimJ+g2O7DND0XZ54XZSrY_aiVWsiyyAXL9T1+=BG9Ptg@mail.gmail.com>
+ <41b34e47-57de-bcc1-c86e-8b98f663367a@sifive.com>
+ <CAHk-=wiHy+39PkEjUuQRJdOO7aNytYXeAGD-tZwOfOEj6ZhTKg@mail.gmail.com>
+Message-ID: <CA+ZOyagSZHXXy_ViTg7Po3qOVgUschzuvDXrhuiAkr-dg-svig@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Oct 25, 2018 at 04:07:13PM -0700, Florian Fainelli wrote:
-> On 10/25/18 2:13 PM, Rob Herring wrote:
-> > On Thu, Oct 25, 2018 at 12:30 PM Mike Rapoport <rppt@linux.ibm.com> wrote:
-> >>
-> >> On Thu, Oct 25, 2018 at 08:15:15AM -0500, Rob Herring wrote:
-> >>> +Ard
-> >>>
-> >>> On Thu, Oct 25, 2018 at 4:38 AM Mike Rapoport <rppt@linux.ibm.com> wrote:
-> >>>>
-> >>>> On Wed, Oct 24, 2018 at 02:55:17PM -0500, Rob Herring wrote:
-> >>>>> On Wed, Oct 24, 2018 at 2:33 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
-> >>>>>>
-> >>>>>> Hi all,
-> >>>>>>
-> >>>>>> While investigating why ARM64 required a ton of objects to be rebuilt
-> >>>>>> when toggling CONFIG_DEV_BLK_INITRD, it became clear that this was
-> >>>>>> because we define __early_init_dt_declare_initrd() differently and we do
-> >>>>>> that in arch/arm64/include/asm/memory.h which gets included by a fair
-> >>>>>> amount of other header files, and translation units as well.
-> >>>>>
-> >>>> I think arm64 does not have to redefine __early_init_dt_declare_initrd().
-> >>>> Something like this might be just all we need (completely untested,
-> >>>> probably it won't even compile):
+Linus Torvalds <torvalds@linux-foundation.org> ? 2018?10?26? ?? ??9:51???
+>
+> On 10/25/18 6:12 PM, Linus Torvalds wrote:
+> >
+> > Almost always, the 64-bit divide turns out to be entirely pointless,
+> > and the code can be written as a (much cheaper) 64-by-32 divide
+> > instead using the functions in <asm/div.h> instead.
+>
+> The other common situation for the kernel is that something was
+> written as "xyz / abc", when it turns out that abc is really just a
+> power-of-two.
+>
+> So it's not necessarily always that the 64-bit divide can be
+> re-written as a 64-by-32 divide, sometimes it can be rewritten as
+> simply a shift. Which is even cheaper.
+>
+> That's the reason I try to actively discourage full 64-by-64 divides.
+> We have had situations where people end up using a divide that can
+> take hundres of cycles, where alarmingly often it can be rewritten as
+> one that takes tens of cycles or even just _single_ cycles.
+>
+> People don't sometimes appreciate just how expensive 64-by-64 divides
+> are when you don't have direct hardware support for them, and how
+> often there are much simpler and faster ways to avoid them.
+>
 
-[ ... ]
- 
-> FWIW, I am extracting the ARM implementation that parses the initrd
-> early command line parameter and the "setup" code doing the page
-> boundary alignment and memblock checking into a helper into lib/ that
-> other architectures can re-use. So far, this removes the need for
-> unicore32, arc and arm to duplicate essentially the same logic.
-
-Presuming you are going to need asm-generic/initrd.h for that as well,
-using override for __early_init_dt_declare_initrd in arm64 version of
-initrd.h might be the simplest option.
-
-> -- 
-> Florian
-> 
-
--- 
-Sincerely yours,
-Mike.
+Our driver guys implement the DMA driver which has a full 64-bit
+divide in its initialization function. I had checked the code, it
+could use the 64-by-32 divides in fact of the situation. I was not
+conscious of the mistake and naively thought that umoddi3 is useful
+for the other drivers which need the 64-by-64 divide. I would submit a
+patch to get rid of these routines.
