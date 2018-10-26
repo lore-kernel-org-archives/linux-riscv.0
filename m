@@ -2,86 +2,93 @@ Return-Path: <SRS0=LGYn=NG=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F0D1CECDE46
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 19:33:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D078EECDE44
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 21:12:10 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7EF0C20834
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 19:33:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6C9BD20848
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 21:12:10 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Pzj7KhT/";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="LxoATBM+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7EF0C20834
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QycQLJYa";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="jUdZbGfd"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6C9BD20848
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=joelfernandes.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=UygpnMrs3GPMm4XMxCA76Dd3NwZ+nI6wSNBqdZtTbME=; b=Pzj7KhT/fsSu1pgLeW/XhZbeu
-	RfgG6rAVoQSDNsZjrCTBk03h9XC7clPJUY8lXyl+BPUnrwDcGuSn1En78kzwbckpr3x7smAUTQACh
-	18FKBhZI6rd7ZQDLCr8dAm7lTQSmEshsHLU4I0Gx6h2k8OBlXbjNuixi9Lo+grcFuU2GH3gzuMm3/
-	L/eHxIDSogAKJZWcUGhO1qlDnTv2BSBghhYSmnHnSWXEC8rjGVw1aEPG5mNp8yCWcbIUbJdfOe0hZ
-	4GLepHMWnHTFKMMC/SjvmWHgQOlFJvHBiItkop5dVqHQQsNRNOEfqBWdqZ47NrPcBkN3KPOtaOnLr
-	nXai9TC+w==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s7jKYUleSrjqzz6RBv/+/gpTu+ggG6LVZW797QqeWng=; b=QycQLJYal4KQyl
+	DhNWZ9N7wUwfZtdxLWWoONdUVXAe4Ih4p1nG+R9mgClL4qKAN5WiDEj0KOQ66xIueasIxY3q/DfDj
+	ivdLks8SkDIiXPpNiGpa/jETm5HTSLGPtxBCmp9rbdd0II4aVJO++ijG3G2Lkc8yRohwjmy8Ya6fE
+	hnh43eXS1chbTnm6JeEZkaKYf2CVPIBhDRemhq8jFgyEcrfLfr6+UFQV1Mn4xegEwX5mgpVcvu5VC
+	LzH43KxNUi6g79/0XOI4R1bn9VUWdrjd9LTalAx8yZD7ZyC1w0pHG89GHmevq+a20FGEWuGf2Iu+O
+	RemhsZ30naMQbU7AxHIQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gG7rG-000680-3v; Fri, 26 Oct 2018 19:33:22 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1gG9Op-0001Tf-0G; Fri, 26 Oct 2018 21:12:07 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gG7qu-0005u3-CI
- for linux-riscv@lists.infradead.org; Fri, 26 Oct 2018 19:33:09 +0000
-Received: by mail-pf1-x442.google.com with SMTP id r64-v6so1005141pfb.13
- for <linux-riscv@lists.infradead.org>; Fri, 26 Oct 2018 12:32:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=x0Wn+vfPKKXHEvMKPA0d/KQJi/QqD8ugXxafW72W89U=;
- b=LxoATBM+BvaqAzgEbMwClM/pSMZZK/dh9NDTqbKduZt3vh3qEcOi34eefm+NYVTS4E
- 86q7WnZ/poIUEAYXdO8UGyCY0Tn6P9riRZH40srasb6gpZulupWb2E5P5+CF8Vb7euZq
- XFG1iKAND94Qi6wnEcB1z8959dhl4+6Q6KIqnPsTq+B++pN9quf/DPXjd26WrK7CNitA
- zmSJ1CtTjS3denuOaJh6mCHBwYaoPZGLIy+lkEcK8ole94NOC6KRXxSh5PYK5th2DH+S
- cXIMjx3FPlC9y73rBIvh9JPila2/DPBF9tDDXsIasYJ0ETKy9KZvxDMkKio/v3cdyyBV
- h8ag==
+ id 1gG9Ol-0001S7-Ao
+ for linux-riscv@lists.infradead.org; Fri, 26 Oct 2018 21:12:05 +0000
+Received: by mail-pf1-x444.google.com with SMTP id j23-v6so1135749pfi.4
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Oct 2018 14:11:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=joelfernandes.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=dq+BjoUNcVExlg1sXd41CFSHaNo2sNM3KG7r3+8ZNw0=;
+ b=jUdZbGfdMmHbj+wS2nK71WlJiDawq8Itd/RTEa+Uht/1HfD1MG4DERZYGnaq3P9Nc2
+ KQ1X/lsCXUB+c4wqS2xa43P9JsuWAMKg9AOWVAhJsoLthDvJPtmObd1QaUfJOcplQ4lI
+ jM1YKDpaoKdfaUESMF2KDVofBLWzrI5zbGipg=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=x0Wn+vfPKKXHEvMKPA0d/KQJi/QqD8ugXxafW72W89U=;
- b=Np0oqXTe7Jx89XZ9TLx3wW5eKyQBfiuSwzqMG/8D8ASpkDo+pIvytzBfP2wTdgmsIt
- 3r6lkPBQbl56M6DjPCB51/aehXpGi/6hT4DvfwbXreImfj2kd4YVeNLuaHQhLofYqhci
- dUcIbSsr62HGm9EtoRfyrC1hAR70/ZkLlPT3BOC4mwAtgtpBqyDmUVuJdM6F3XsQLpYc
- SPIUB/NXl62Vx5o+TEc7f/929q3RQJ28tInk5rcjahWQ7C8PRqIOBsCzTiN2ZIv028+G
- VpQW5njdn/ni85S7CGZ/6Hu3TMGEYvPhZ+TVCk0OD4GAFsknip6IoseSl2LjUnaD18Tw
- +4Ow==
-X-Gm-Message-State: AGRZ1gJjdyt22e/QRv/gemLepJuEm7pLXyp5Z17TwI+QkpAVdD5cxmVM
- 2FvFNYC/AWJ4rCoq/GVXk37ZJlY4KGA=
-X-Google-Smtp-Source: AJdET5c+PkKRSMzJuNFIyzYMR2kU1zi4qQjMN0/Crs08cRw8Sp2moQPisEsJJRu6nkHg1cJ7r1LzHQ==
-X-Received: by 2002:a62:104b:: with SMTP id
- y72-v6mr5073637pfi.113.1540582368497; 
- Fri, 26 Oct 2018 12:32:48 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id 64-v6sm28317024pfq.10.2018.10.26.12.32.46
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 26 Oct 2018 12:32:47 -0700 (PDT)
-Date: Fri, 26 Oct 2018 12:32:47 -0700 (PDT)
-X-Google-Original-Date: Fri, 26 Oct 2018 12:32:44 PDT (-0700)
-Subject: Re: [GIT PULL] RISC-V Patches for the 4.20 Merge Window, Part 1
-In-Reply-To: <CAHk-=wimJ+g2O7DND0XZ54XZSrY_aiVWsiyyAXL9T1+=BG9Ptg@mail.gmail.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-5d10d061-df2c-4077-9ff3-4e3845f85293@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=dq+BjoUNcVExlg1sXd41CFSHaNo2sNM3KG7r3+8ZNw0=;
+ b=AJhu1891vUVNlx8ZTvwMC4kHDD91fS1gsyWzhQH09qNPqJV/bdzy+VRGExkBPBw8VU
+ l3Y1iLDiy9b/ZrL1lSyXRLjt+ZvE2sSBEAGSxgq6ugNqbtuYvfa3wT4kWlSl4I+DHW3K
+ XQczxqck9jUV0viJsVmQWd9Aq3fJg5h415Kb7fu5Ekbsfa1Nb2yfuRA+/xmPXmM6Sv7O
+ ZzVu+3nruFnpEEqwoQ/qDa9cShedsGYs8GOK60IPdEMz1nBzbyaeAuLLFltyUziErgP+
+ RQeSMmkgXSI8FbjZUegWNwAraUSY9Ck6epk7D7keAa1xFafSb7PZsQ2lzrQKqaYEhgFE
+ aPJA==
+X-Gm-Message-State: AGRZ1gJnHiNlJQGlJ+1N/KDw5/QFY2/aYqs2EQNxhR7ie+g/EiH67pFL
+ 5hnbXOEG1p3wErMiHcgGcapGaA==
+X-Google-Smtp-Source: AJdET5fmLpXiZHsclSf8WQrC32LTuEtER38eHQ8nOhnTEjlLxcTgs5o0PRgpqH8CQQiQra8WDw5wjA==
+X-Received: by 2002:a63:4454:: with SMTP id
+ t20-v6mr4917963pgk.102.1540588311053; 
+ Fri, 26 Oct 2018 14:11:51 -0700 (PDT)
+Received: from localhost ([2620:0:1000:1601:3aef:314f:b9ea:889f])
+ by smtp.gmail.com with ESMTPSA id e131-v6sm19942293pfc.52.2018.10.26.14.11.49
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Fri, 26 Oct 2018 14:11:49 -0700 (PDT)
+Date: Fri, 26 Oct 2018 14:11:48 -0700
+From: Joel Fernandes <joel@joelfernandes.org>
+To: "Kirill A. Shutemov" <kirill@shutemov.name>
+Subject: Re: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
+Message-ID: <20181026211148.GA140716@joelaf.mtv.corp.google.com>
+References: <20181013013200.206928-1-joel@joelfernandes.org>
+ <20181013013200.206928-3-joel@joelfernandes.org>
+ <20181024101255.it4lptrjogalxbey@kshutemo-mobl1>
+ <20181024115733.GN8537@350D>
+ <20181024125724.yf6frdimjulf35do@kshutemo-mobl1>
+ <20181025020907.GA13560@joelaf.mtv.corp.google.com>
+ <20181025101900.phqnqpoju5t2gar5@kshutemo-mobl1>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20181025101900.phqnqpoju5t2gar5@kshutemo-mobl1>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181026_123300_472699_92206EA6 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20181026_141203_380563_A1B4E8BE 
+X-CRM114-Status: GOOD (  34.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,54 +100,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Greg KH <gregkh@linuxfoundation.org>, linux-riscv@lists.infradead.org
+Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
+ linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Balbir Singh <bsingharora@gmail.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Will Deacon <will.deacon@arm.com>,
+ mhocko@kernel.org, linux-mm@kvack.org, lokeshgidra@google.com,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ elfring@users.sourceforge.net, Jonas Bonn <jonas@southpole.se>,
+ kvmarm@lists.cs.columbia.edu, dancol@google.com,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, linux-xtensa@linux-xtensa.org,
+ linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ hughd@google.com, "James E.J. Bottomley" <jejb@parisc-linux.org>,
+ kasan-dev@googlegroups.com, anton.ivanov@kot-begemot.co.uk,
+ Ingo Molnar <mingo@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Andrey Ryabinin <aryabinin@virtuozzo.com>, linux-snps-arc@lists.infradead.org,
+ kernel-team@android.com, Sam Creasey <sammy@sammy.net>,
+ Fenghua Yu <fenghua.yu@intel.com>, linux-s390@vger.kernel.org,
+ Jeff Dike <jdike@addtoit.com>, linux-um@lists.infradead.org,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Julia Lawall <Julia.Lawall@lip6.fr>, linux-m68k@lists.linux-m68k.org,
+ Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
+ nios2-dev@lists.rocketboards.org, Stafford Horne <shorne@gmail.com>,
+ Guan Xuetao <gxt@pku.edu.cn>, Chris Zankel <chris@zankel.net>,
+ Tony Luck <tony.luck@intel.com>, Richard Weinberger <richard@nod.at>,
+ linux-parisc@vger.kernel.org, pantin@google.com,
+ Max Filippov <jcmvbkbc@gmail.com>, linux-kernel@vger.kernel.org,
+ minchan@kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+ linux-alpha@vger.kernel.org, Ley Foon Tan <lftan@altera.com>,
+ akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
+ "David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181026193247.q0Vi8ik1fC_ePKa1H3TupuG4Ti57u8h9ts6Sft4YiH0@z>
+Message-ID: <20181026211148.6hUFSX6D1MVpjAh-xqpeImQAI9tUihdm8cTf5QeB8uw@z>
 
-On Thu, 25 Oct 2018 18:12:46 PDT (-0700), Linus Torvalds wrote:
-> On Wed, Oct 24, 2018 at 1:42 PM Palmer Dabbelt <palmer@sifive.com> wrote:
->>
->> I'm pretty sure this is our largest patch set since the original kernel
->> contribution, and it's certainly the one with the most contributors.
->> While I don't have anything else I know I'm going to submit for the
->> merge window, I would be somewhat surprised if I didn't screw anything
->> up.
->
-> So I'm not entirely sure this is a screw-up, but it does have some
-> signs of being one:
->
->>       lib: Add umoddi3 and udivmoddi4 of GCC library routines
->
-> We have *actively* tried to avoid needing umoddi3 and friends, and
-> have so far succceeded in doing that across many different
-> architectures, and many many years.
->
-> And when we _have_ added it, we've added it as architecture-specific
-> optimized routines when people really need it.
->
-> The reason to avoid a full 64-by-64 divide is that
->
->  (a) it is really expensive
->
->  (b) code that needs it is almost always actually wrong
->
-> Almost always, the 64-bit divide turns out to be entirely pointless,
-> and the code can be written as a (much cheaper) 64-by-32 divide
-> instead using the functions in <asm/div.h> instead.
->
-> Does RISC-V _really_ need that disgusting full 64-bit divide, or was
-> the addition of that simply a "we didn't know better, and didn't
-> realize just how expensive and wrong it is"?
->
-> I've pulled this, but I really _really_ hope that I will get a second
-> pull request that gets rid of this again, and fixes whatever RISC-V
-> code that triggered this to just do not do an insane full 64-bit
-> divide on a 32-bit architecture.
+On Thu, Oct 25, 2018 at 01:19:00PM +0300, Kirill A. Shutemov wrote:
+> On Wed, Oct 24, 2018 at 07:09:07PM -0700, Joel Fernandes wrote:
+> > On Wed, Oct 24, 2018 at 03:57:24PM +0300, Kirill A. Shutemov wrote:
+> > > On Wed, Oct 24, 2018 at 10:57:33PM +1100, Balbir Singh wrote:
+> > > > On Wed, Oct 24, 2018 at 01:12:56PM +0300, Kirill A. Shutemov wrote:
+> > > > > On Fri, Oct 12, 2018 at 06:31:58PM -0700, Joel Fernandes (Google) wrote:
+> > > > > > diff --git a/mm/mremap.c b/mm/mremap.c
+> > > > > > index 9e68a02a52b1..2fd163cff406 100644
+> > > > > > --- a/mm/mremap.c
+> > > > > > +++ b/mm/mremap.c
+> > > > > > @@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
+> > > > > >  		drop_rmap_locks(vma);
+> > > > > >  }
+> > > > > >  
+> > > > > > +static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
+> > > > > > +		  unsigned long new_addr, unsigned long old_end,
+> > > > > > +		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
+> > > > > > +{
+> > > > > > +	spinlock_t *old_ptl, *new_ptl;
+> > > > > > +	struct mm_struct *mm = vma->vm_mm;
+> > > > > > +
+> > > > > > +	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
+> > > > > > +	    || old_end - old_addr < PMD_SIZE)
+> > > > > > +		return false;
+> > > > > > +
+> > > > > > +	/*
+> > > > > > +	 * The destination pmd shouldn't be established, free_pgtables()
+> > > > > > +	 * should have release it.
+> > > > > > +	 */
+> > > > > > +	if (WARN_ON(!pmd_none(*new_pmd)))
+> > > > > > +		return false;
+> > > > > > +
+> > > > > > +	/*
+> > > > > > +	 * We don't have to worry about the ordering of src and dst
+> > > > > > +	 * ptlocks because exclusive mmap_sem prevents deadlock.
+> > > > > > +	 */
+> > > > > > +	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
+> > > > > > +	if (old_ptl) {
+> > > > > 
+> > > > > How can it ever be false?
+> > 
+> > Kirill,
+> > It cannot, you are right. I'll remove the test.
+> > 
+> > By the way, there are new changes upstream by Linus which flush the TLB
+> > before releasing the ptlock instead of after. I'm guessing that patch came
+> > about because of reviews of this patch and someone spotted an issue in the
+> > existing code :)
+> > 
+> > Anyway the patch in concern is:
+> > eb66ae030829 ("mremap: properly flush TLB before releasing the page")
+> > 
+> > I need to rebase on top of that with appropriate modifications, but I worry
+> > that this patch will slow down performance since we have to flush at every
+> > PMD/PTE move before releasing the ptlock. Where as with my patch, the
+> > intention is to flush only at once in the end of move_page_tables. When I
+> > tried to flush TLB on every PMD move, it was quite slow on my arm64 device [2].
+> > 
+> > Further observation [1] is, it seems like the move_huge_pmds and move_ptes code
+> > is a bit sub optimal in the sense, we are acquiring and releasing the same
+> > ptlock for a bunch of PMDs if the said PMDs are on the same page-table page
+> > right? Instead we can do better by acquiring and release the ptlock less
+> > often.
+> > 
+> > I think this observation [1] and the frequent TLB flush issue [2] can be solved
+> > by acquiring the ptlock once for a bunch of PMDs, move them all, then flush
+> > the tlb and then release the ptlock, and then proceed to doing the same thing
+> > for the PMDs in the next page-table page. What do you think?
+> 
+> Yeah, that's viable optimization.
+> 
+> The tricky part is that one PMD page table can have PMD entires of
+> different types: THP, page table that you can move as whole and the one
+> that you cannot (for any reason).
+> 
+> If we cannot move the PMD entry as a whole and must go to PTE page table
+> we would need to drop PMD ptl and take PTE ptl (it might be the same lock
+> in some configuations).
 
-Thanks.  We'll go figure out how to remove it.
+> Also we don't want to take PMD lock unless it's required.
+> 
+> I expect it to be not very trivial to get everything right. But take a
+> shot :)
+
+Yes, that is exactly the issue I hit when I attempted it. :) The locks need
+to be release if we do something different on the next loop iteration. It
+complicates the code and not sure if it is worth it in the long run.  On x86
+atleast, I don't see any perf issues with the TLB-flush per-PMD move, so the
+patch is Ok there. On arm64, it negates the performance benefit even though
+its not any worse than what we are doing currently at the PTE level.
+
+My thinking is to take it slow and get the patch in in its current state,
+since it improves x86. Then as a next step, look into why the arm64 tlb
+flushes are that expensive and look into optimizing that. On arm64 I am
+testing on a 4.9 kernel so I'm wondering there are any optimizations since
+4.9 that can help speed it up there. After that, if all else fails about
+speeding up arm64, then I look into developing the cleanest possible solution
+where we can keep the lock held for longer and flush lesser.
+
+thanks,
+
+ - Joel
+
 
 _______________________________________________
 linux-riscv mailing list
