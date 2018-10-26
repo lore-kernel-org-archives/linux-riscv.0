@@ -1,69 +1,49 @@
-From: f.fainelli@gmail.com (Florian Fainelli)
-Date: Fri, 26 Oct 2018 12:05:25 -0700
-Subject: [PATCH v2 0/2] arm64: Cut rebuild time when changing
- CONFIG_BLK_DEV_INITRD
-In-Reply-To: <20181026110708.GA3814@rapoport-lnx>
-References: <20181024193256.23734-1-f.fainelli@gmail.com>
- <CAL_Jsq+KCOv6pXXHhHDZ+7-QUrmtMDvSjEVhK15yZ3qbnn61Ag@mail.gmail.com>
- <20181025093833.GA23607@rapoport-lnx>
- <CAL_JsqL62ttsGSbE1BS5v-mX3pKE-p_HyvuZD6nB+GUbQyetzg@mail.gmail.com>
- <20181025172935.GA27364@rapoport-lnx>
- <CAL_JsqJrMq+QHvuOsqEdCFchmXsd4s2XKUD_TboKzeEQprJvjg@mail.gmail.com>
- <1bb3bd63-a88e-b668-ea36-f0f985c0e2b1@gmail.com>
- <20181026110708.GA3814@rapoport-lnx>
-Message-ID: <53ec9df5-ef2a-edc5-be1c-bca32959c0bc@gmail.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Fri, 26 Oct 2018 12:32:47 -0700 (PDT)
+Subject: [GIT PULL] RISC-V Patches for the 4.20 Merge Window, Part 1
+In-Reply-To: <CAHk-=wimJ+g2O7DND0XZ54XZSrY_aiVWsiyyAXL9T1+=BG9Ptg@mail.gmail.com>
+Message-ID: <mhng-5d10d061-df2c-4077-9ff3-4e3845f85293@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 10/26/18 4:07 AM, Mike Rapoport wrote:
-> On Thu, Oct 25, 2018 at 04:07:13PM -0700, Florian Fainelli wrote:
->> On 10/25/18 2:13 PM, Rob Herring wrote:
->>> On Thu, Oct 25, 2018 at 12:30 PM Mike Rapoport <rppt@linux.ibm.com> wrote:
->>>>
->>>> On Thu, Oct 25, 2018 at 08:15:15AM -0500, Rob Herring wrote:
->>>>> +Ard
->>>>>
->>>>> On Thu, Oct 25, 2018 at 4:38 AM Mike Rapoport <rppt@linux.ibm.com> wrote:
->>>>>>
->>>>>> On Wed, Oct 24, 2018 at 02:55:17PM -0500, Rob Herring wrote:
->>>>>>> On Wed, Oct 24, 2018 at 2:33 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
->>>>>>>>
->>>>>>>> Hi all,
->>>>>>>>
->>>>>>>> While investigating why ARM64 required a ton of objects to be rebuilt
->>>>>>>> when toggling CONFIG_DEV_BLK_INITRD, it became clear that this was
->>>>>>>> because we define __early_init_dt_declare_initrd() differently and we do
->>>>>>>> that in arch/arm64/include/asm/memory.h which gets included by a fair
->>>>>>>> amount of other header files, and translation units as well.
->>>>>>>
->>>>>> I think arm64 does not have to redefine __early_init_dt_declare_initrd().
->>>>>> Something like this might be just all we need (completely untested,
->>>>>> probably it won't even compile):
-> 
-> [ ... ]
->  
->> FWIW, I am extracting the ARM implementation that parses the initrd
->> early command line parameter and the "setup" code doing the page
->> boundary alignment and memblock checking into a helper into lib/ that
->> other architectures can re-use. So far, this removes the need for
->> unicore32, arc and arm to duplicate essentially the same logic.
-> 
-> Presuming you are going to need asm-generic/initrd.h for that as well,
-> using override for __early_init_dt_declare_initrd in arm64 version of
-> initrd.h might be the simplest option.
+On Thu, 25 Oct 2018 18:12:46 PDT (-0700), Linus Torvalds wrote:
+> On Wed, Oct 24, 2018 at 1:42 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+>>
+>> I'm pretty sure this is our largest patch set since the original kernel
+>> contribution, and it's certainly the one with the most contributors.
+>> While I don't have anything else I know I'm going to submit for the
+>> merge window, I would be somewhat surprised if I didn't screw anything
+>> up.
+>
+> So I'm not entirely sure this is a screw-up, but it does have some
+> signs of being one:
+>
+>>       lib: Add umoddi3 and udivmoddi4 of GCC library routines
+>
+> We have *actively* tried to avoid needing umoddi3 and friends, and
+> have so far succceeded in doing that across many different
+> architectures, and many many years.
+>
+> And when we _have_ added it, we've added it as architecture-specific
+> optimized routines when people really need it.
+>
+> The reason to avoid a full 64-by-64 divide is that
+>
+>  (a) it is really expensive
+>
+>  (b) code that needs it is almost always actually wrong
+>
+> Almost always, the 64-bit divide turns out to be entirely pointless,
+> and the code can be written as a (much cheaper) 64-by-32 divide
+> instead using the functions in <asm/div.h> instead.
+>
+> Does RISC-V _really_ need that disgusting full 64-bit divide, or was
+> the addition of that simply a "we didn't know better, and didn't
+> realize just how expensive and wrong it is"?
+>
+> I've pulled this, but I really _really_ hope that I will get a second
+> pull request that gets rid of this again, and fixes whatever RISC-V
+> code that triggered this to just do not do an insane full 64-bit
+> divide on a 32-bit architecture.
 
-What I am contemplating doing is promote
-phys_initrd_start/phys_initrd_size to be global variables (similar to
-initrd_start, initrd_end) and have a generic helper function for parsing
-the initrd= command line parameter and finally removing
-__early_init_dt_declare_initrd() because we could have
-early_init_dt_check_for_initrd() just populate
-phys_initrd_start/phys_initrd_size directly as well as
-initrd_start/initrd_end using __va() to preserve compatibility with
-architectures that rely on this. Then I would convert ARM64 to check for
-phys_initrd_start which is really what it is is trying to do in
-arch/arm64/mm/init.c::arm64_memblock_init().
-
-Does that sound like a reasonable approach?
--- 
-Florian
+Thanks.  We'll go figure out how to remove it.
