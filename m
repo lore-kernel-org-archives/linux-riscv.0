@@ -2,134 +2,86 @@ Return-Path: <SRS0=LGYn=NG=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D32FEECDE44
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 19:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F0D1CECDE46
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 19:33:26 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A0DBB2085B
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 19:05:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7EF0C20834
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 19:33:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Hk+HSUXu";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="qf+6EyNn"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A0DBB2085B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Pzj7KhT/";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="LxoATBM+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7EF0C20834
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dkdl3xRUIUvVgtr8Q8iL1llJPBTNJ4s4D4/vGXlPICk=; b=Hk+HSUXuqWRlJF
-	E/gdnd2Q7oz3mhdL4t1C3wGFGwJ9qdtoWzMP30yA/miThcOJDghYS1cHyvStfzBTiY4ihhaYXTyMN
-	UCR7zKlL2beviK1Rahr1l7Joh7O5bzd1x1NHmiPoaWfmqNwa0gnqIO6cgsrCcjDm+JA7m0HZ3qQtj
-	F5AaF4LsWhufZx56vD0pYFm9Mp0gSvjWqapKARwOUNdmYXE6Eb+UyIGcU4zceHhAyknyWD5WB+01b
-	h5tCgXcOOMess1ZvBl/8MdGKykx720x0JAvMfzw4JJKXmHTVszhzLSBM9yQJpddoLfThIxJQvGG/9
-	32kgpsjVBQfYLQRz9vbg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=UygpnMrs3GPMm4XMxCA76Dd3NwZ+nI6wSNBqdZtTbME=; b=Pzj7KhT/fsSu1pgLeW/XhZbeu
+	RfgG6rAVoQSDNsZjrCTBk03h9XC7clPJUY8lXyl+BPUnrwDcGuSn1En78kzwbckpr3x7smAUTQACh
+	18FKBhZI6rd7ZQDLCr8dAm7lTQSmEshsHLU4I0Gx6h2k8OBlXbjNuixi9Lo+grcFuU2GH3gzuMm3/
+	L/eHxIDSogAKJZWcUGhO1qlDnTv2BSBghhYSmnHnSWXEC8rjGVw1aEPG5mNp8yCWcbIUbJdfOe0hZ
+	4GLepHMWnHTFKMMC/SjvmWHgQOlFJvHBiItkop5dVqHQQsNRNOEfqBWdqZ47NrPcBkN3KPOtaOnLr
+	nXai9TC+w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gG7Qg-0002NP-V3; Fri, 26 Oct 2018 19:05:54 +0000
-Received: from mail-yb1-xb44.google.com ([2607:f8b0:4864:20::b44])
+	id 1gG7rG-000680-3v; Fri, 26 Oct 2018 19:33:22 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gG7Qd-0002LF-8x; Fri, 26 Oct 2018 19:05:52 +0000
-Received: by mail-yb1-xb44.google.com with SMTP id f15-v6so407805ybq.13;
- Fri, 26 Oct 2018 12:05:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=subject:to:cc:references:from:openpgp:autocrypt:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
+ id 1gG7qu-0005u3-CI
+ for linux-riscv@lists.infradead.org; Fri, 26 Oct 2018 19:33:09 +0000
+Received: by mail-pf1-x442.google.com with SMTP id r64-v6so1005141pfb.13
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Oct 2018 12:32:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=FAfIpbbf5i32tB0r0OpipHm6jpAr1/uuQfuj8ItsGRA=;
- b=qf+6EyNnERQ9ISNKEs/mkjInmLhEi3e5XFQKCPEk9Rvbx9WMTSytjprKr1IKEWMkyE
- A0TiP8GXcfT4mMjuooA8trWdBcYRNEQ/SQtCXRR7NON8uqPDwo8QOptKmAfFgOCxe1CI
- dgBYCHD675VdwrtYHgijFyUl7N2oE8TFTqSxb5b3bWIGVo1begYx0OeNs40ZDNGviBm9
- 5Fsex7kf8CYy/FXCKbGDTA/QRFfTEZBSYEc2XefNvN7iq03zwPD0x80b0r/6iYQiMk5r
- Aj3UYw43WcYJuAbXOui+EXjE1UDiUD5pN1Z1eXW5ZNPzki6NlRY3P6F/sfP5uidsdlY1
- SbFA==
+ bh=x0Wn+vfPKKXHEvMKPA0d/KQJi/QqD8ugXxafW72W89U=;
+ b=LxoATBM+BvaqAzgEbMwClM/pSMZZK/dh9NDTqbKduZt3vh3qEcOi34eefm+NYVTS4E
+ 86q7WnZ/poIUEAYXdO8UGyCY0Tn6P9riRZH40srasb6gpZulupWb2E5P5+CF8Vb7euZq
+ XFG1iKAND94Qi6wnEcB1z8959dhl4+6Q6KIqnPsTq+B++pN9quf/DPXjd26WrK7CNitA
+ zmSJ1CtTjS3denuOaJh6mCHBwYaoPZGLIy+lkEcK8ole94NOC6KRXxSh5PYK5th2DH+S
+ cXIMjx3FPlC9y73rBIvh9JPila2/DPBF9tDDXsIasYJ0ETKy9KZvxDMkKio/v3cdyyBV
+ h8ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:openpgp:autocrypt
- :message-id:date:user-agent:mime-version:in-reply-to
- :content-language:content-transfer-encoding;
- bh=FAfIpbbf5i32tB0r0OpipHm6jpAr1/uuQfuj8ItsGRA=;
- b=JTaeI+7tj1ePifJQJ91TK0AFnUGczr1rJoBcgpOhEs2yHRgUZW87UxpCkN6EtjsdwX
- nStcq9iAZrzvfoAPHlBw/V51Q/qLH8G/PMNOhNnPdctxs84sWsshvlBhJHJRe7Fn5UAG
- yFTsE3gOHmCH8W/dD41nKvoNKVB5Xh2pwRFGdpc6lLpDMT0izUIPXKJ7vSFStzXEyDj5
- +UXNVRl5aKTsesgnM4IZhgTVnJHVqdTq8ejQYZIE47vg/KptnEcVFylVEsOFiA7e7hjY
- yaBPQ5u8nuYc0Jjus3J/HXUtlZZzrrpY3VaQuuf9yL0LI8Hnx7voI8c3JKhQmgShUBzV
- /KFQ==
-X-Gm-Message-State: AGRZ1gK5HcWxRn6k1Xq9czn2fIJPd+OPa+JPXSz/sjSfZWaBjnBignKU
- zjGwTEYs0A5D38Ew5OuhssQ=
-X-Google-Smtp-Source: AJdET5dV1IOus9aqQsph3pmNqMsV4bLMRQ4D26c0WAXpjJOwhptLhWUaKk6TE97vVn+BFlm+D9FO6A==
-X-Received: by 2002:a25:73c2:: with SMTP id
- o185-v6mr4910563ybc.254.1540580736335; 
- Fri, 26 Oct 2018 12:05:36 -0700 (PDT)
-Received: from [10.67.49.121] ([192.19.223.250])
- by smtp.googlemail.com with ESMTPSA id
- r5-v6sm6493141ywr.80.2018.10.26.12.05.32
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=x0Wn+vfPKKXHEvMKPA0d/KQJi/QqD8ugXxafW72W89U=;
+ b=Np0oqXTe7Jx89XZ9TLx3wW5eKyQBfiuSwzqMG/8D8ASpkDo+pIvytzBfP2wTdgmsIt
+ 3r6lkPBQbl56M6DjPCB51/aehXpGi/6hT4DvfwbXreImfj2kd4YVeNLuaHQhLofYqhci
+ dUcIbSsr62HGm9EtoRfyrC1hAR70/ZkLlPT3BOC4mwAtgtpBqyDmUVuJdM6F3XsQLpYc
+ SPIUB/NXl62Vx5o+TEc7f/929q3RQJ28tInk5rcjahWQ7C8PRqIOBsCzTiN2ZIv028+G
+ VpQW5njdn/ni85S7CGZ/6Hu3TMGEYvPhZ+TVCk0OD4GAFsknip6IoseSl2LjUnaD18Tw
+ +4Ow==
+X-Gm-Message-State: AGRZ1gJjdyt22e/QRv/gemLepJuEm7pLXyp5Z17TwI+QkpAVdD5cxmVM
+ 2FvFNYC/AWJ4rCoq/GVXk37ZJlY4KGA=
+X-Google-Smtp-Source: AJdET5c+PkKRSMzJuNFIyzYMR2kU1zi4qQjMN0/Crs08cRw8Sp2moQPisEsJJRu6nkHg1cJ7r1LzHQ==
+X-Received: by 2002:a62:104b:: with SMTP id
+ y72-v6mr5073637pfi.113.1540582368497; 
+ Fri, 26 Oct 2018 12:32:48 -0700 (PDT)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id 64-v6sm28317024pfq.10.2018.10.26.12.32.46
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 26 Oct 2018 12:05:35 -0700 (PDT)
-Subject: Re: [PATCH v2 0/2] arm64: Cut rebuild time when changing
- CONFIG_BLK_DEV_INITRD
-To: Mike Rapoport <rppt@linux.ibm.com>
-References: <20181024193256.23734-1-f.fainelli@gmail.com>
- <CAL_Jsq+KCOv6pXXHhHDZ+7-QUrmtMDvSjEVhK15yZ3qbnn61Ag@mail.gmail.com>
- <20181025093833.GA23607@rapoport-lnx>
- <CAL_JsqL62ttsGSbE1BS5v-mX3pKE-p_HyvuZD6nB+GUbQyetzg@mail.gmail.com>
- <20181025172935.GA27364@rapoport-lnx>
- <CAL_JsqJrMq+QHvuOsqEdCFchmXsd4s2XKUD_TboKzeEQprJvjg@mail.gmail.com>
- <1bb3bd63-a88e-b668-ea36-f0f985c0e2b1@gmail.com>
- <20181026110708.GA3814@rapoport-lnx>
-From: Florian Fainelli <f.fainelli@gmail.com>
-Openpgp: preference=signencrypt
-Autocrypt: addr=f.fainelli@gmail.com; prefer-encrypt=mutual; keydata=
- xsDiBEjPuBIRBACW9MxSJU9fvEOCTnRNqG/13rAGsj+vJqontvoDSNxRgmafP8d3nesnqPyR
- xGlkaOSDuu09rxuW+69Y2f1TzjFuGpBk4ysWOR85O2Nx8AJ6fYGCoeTbovrNlGT1M9obSFGQ
- X3IzRnWoqlfudjTO5TKoqkbOgpYqIo5n1QbEjCCwCwCg3DOH/4ug2AUUlcIT9/l3pGvoRJ0E
- AICDzi3l7pmC5IWn2n1mvP5247urtHFs/uusE827DDj3K8Upn2vYiOFMBhGsxAk6YKV6IP0d
- ZdWX6fqkJJlu9cSDvWtO1hXeHIfQIE/xcqvlRH783KrihLcsmnBqOiS6rJDO2x1eAgC8meAX
- SAgsrBhcgGl2Rl5gh/jkeA5ykwbxA/9u1eEuL70Qzt5APJmqVXR+kWvrqdBVPoUNy/tQ8mYc
- nzJJ63ng3tHhnwHXZOu8hL4nqwlYHRa9eeglXYhBqja4ZvIvCEqSmEukfivk+DlIgVoOAJbh
- qIWgvr3SIEuR6ayY3f5j0f2ejUMYlYYnKdiHXFlF9uXm1ELrb0YX4GMHz80nRmxvcmlhbiBG
- YWluZWxsaSA8Zi5mYWluZWxsaUBnbWFpbC5jb20+wmYEExECACYCGyMGCwkIBwMCBBUCCAME
- FgIDAQIeAQIXgAUCVF/S8QUJHlwd3wAKCRBhV5kVtWN2DvCVAJ4u4/bPF4P3jxb4qEY8I2gS
- 6hG0gACffNWlqJ2T4wSSn+3o7CCZNd7SLSDOw00ESM+4EhAQAL/o09boR9D3Vk1Tt7+gpYr3
- WQ6hgYVON905q2ndEoA2J0dQxJNRw3snabHDDzQBAcqOvdi7YidfBVdKi0wxHhSuRBfuOppu
- pdXkb7zxuPQuSveCLqqZWRQ+Cc2QgF7SBqgznbe6Ngout5qXY5Dcagk9LqFNGhJQzUGHAsIs
- hap1f0B1PoUyUNeEInV98D8Xd/edM3mhO9nRpUXRK9Bvt4iEZUXGuVtZLT52nK6Wv2EZ1TiT
- OiqZlf1P+vxYLBx9eKmabPdm3yjalhY8yr1S1vL0gSA/C6W1o/TowdieF1rWN/MYHlkpyj9c
- Rpc281gAO0AP3V1G00YzBEdYyi0gaJbCEQnq8Vz1vDXFxHzyhgGz7umBsVKmYwZgA8DrrB0M
- oaP35wuGR3RJcaG30AnJpEDkBYHznI2apxdcuTPOHZyEilIRrBGzDwGtAhldzlBoBwE3Z3MY
- 31TOpACu1ZpNOMysZ6xiE35pWkwc0KYm4hJA5GFfmWSN6DniimW3pmdDIiw4Ifcx8b3mFrRO
- BbDIW13E51j9RjbO/nAaK9ndZ5LRO1B/8Fwat7bLzmsCiEXOJY7NNpIEpkoNoEUfCcZwmLrU
- +eOTPzaF6drw6ayewEi5yzPg3TAT6FV3oBsNg3xlwU0gPK3v6gYPX5w9+ovPZ1/qqNfOrbsE
- FRuiSVsZQ5s3AAMFD/9XjlnnVDh9GX/r/6hjmr4U9tEsM+VQXaVXqZuHKaSmojOLUCP/YVQo
- 7IiYaNssCS4FCPe4yrL4FJJfJAsbeyDykMN7wAnBcOkbZ9BPJPNCbqU6dowLOiy8AuTYQ48m
- vIyQ4Ijnb6GTrtxIUDQeOBNuQC/gyyx3nbL/lVlHbxr4tb6YkhkO6shjXhQh7nQb33FjGO4P
- WU11Nr9i/qoV8QCo12MQEo244RRA6VMud06y/E449rWZFSTwGqb0FS0seTcYNvxt8PB2izX+
- HZA8SL54j479ubxhfuoTu5nXdtFYFj5Lj5x34LKPx7MpgAmj0H7SDhpFWF2FzcC1bjiW9mjW
- HaKaX23Awt97AqQZXegbfkJwX2Y53ufq8Np3e1542lh3/mpiGSilCsaTahEGrHK+lIusl6mz
- Joil+u3k01ofvJMK0ZdzGUZ/aPMZ16LofjFA+MNxWrZFrkYmiGdv+LG45zSlZyIvzSiG2lKy
- kuVag+IijCIom78P9jRtB1q1Q5lwZp2TLAJlz92DmFwBg1hyFzwDADjZ2nrDxKUiybXIgZp9
- aU2d++ptEGCVJOfEW4qpWCCLPbOT7XBr+g/4H3qWbs3j/cDDq7LuVYIe+wchy/iXEJaQVeTC
- y5arMQorqTFWlEOgRA8OP47L9knl9i4xuR0euV6DChDrguup2aJVU8JPBBgRAgAPAhsMBQJU
- X9LxBQkeXB3fAAoJEGFXmRW1Y3YOj4UAn3nrFLPZekMeqX5aD/aq/dsbXSfyAKC45Go0YyxV
- HGuUuzv+GKZ6nsysJw==
-Message-ID: <53ec9df5-ef2a-edc5-be1c-bca32959c0bc@gmail.com>
-Date: Fri, 26 Oct 2018 12:05:25 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.2.1
-MIME-Version: 1.0
-In-Reply-To: <20181026110708.GA3814@rapoport-lnx>
-Content-Language: en-US
+ Fri, 26 Oct 2018 12:32:47 -0700 (PDT)
+Date: Fri, 26 Oct 2018 12:32:47 -0700 (PDT)
+X-Google-Original-Date: Fri, 26 Oct 2018 12:32:44 PDT (-0700)
+Subject: Re: [GIT PULL] RISC-V Patches for the 4.20 Merge Window, Part 1
+In-Reply-To: <CAHk-=wimJ+g2O7DND0XZ54XZSrY_aiVWsiyyAXL9T1+=BG9Ptg@mail.gmail.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-5d10d061-df2c-4077-9ff3-4e3845f85293@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181026_120551_337982_DD87065C 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20181026_123300_472699_92206EA6 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -141,83 +93,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Linux-MIPS <linux-mips@linux-mips.org>, linux-ia64@vger.kernel.org,
- SH-Linux <linux-sh@vger.kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will.deacon@arm.com>, devicetree@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>,
- Rob Herring <robh@kernel.org>, linux-c6x-dev@linux-c6x.org,
- linux-hexagon@vger.kernel.org, arcml <linux-snps-arc@lists.infradead.org>,
- "moderated list:H8/300 ARCHITECTURE" <uclinux-h8-devel@lists.sourceforge.jp>,
- linux-xtensa@linux-xtensa.org, Arnd Bergmann <arnd@arndb.de>,
- linux-s390@vger.kernel.org, Marc Zyngier <marc.zyngier@arm.com>,
- linux-um@lists.infradead.org, linux-m68k@lists.linux-m68k.org,
- Openrisc <openrisc@lists.librecores.org>,
- "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>, linux-parisc@vger.kernel.org,
- Ard Biesheuvel <ard.biesheuvel@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- linux-alpha@vger.kernel.org, Olof Johansson <olof@lixom.net>,
- nios2-dev@lists.rocketboards.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: Greg KH <gregkh@linuxfoundation.org>, linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181026190525.t1hp8KcAg4cYbMeyu2CvtagBuuiXMYrsyPsqYR-4xiA@z>
+Message-ID: <20181026193247.q0Vi8ik1fC_ePKa1H3TupuG4Ti57u8h9ts6Sft4YiH0@z>
 
-On 10/26/18 4:07 AM, Mike Rapoport wrote:
-> On Thu, Oct 25, 2018 at 04:07:13PM -0700, Florian Fainelli wrote:
->> On 10/25/18 2:13 PM, Rob Herring wrote:
->>> On Thu, Oct 25, 2018 at 12:30 PM Mike Rapoport <rppt@linux.ibm.com> wrote:
->>>>
->>>> On Thu, Oct 25, 2018 at 08:15:15AM -0500, Rob Herring wrote:
->>>>> +Ard
->>>>>
->>>>> On Thu, Oct 25, 2018 at 4:38 AM Mike Rapoport <rppt@linux.ibm.com> wrote:
->>>>>>
->>>>>> On Wed, Oct 24, 2018 at 02:55:17PM -0500, Rob Herring wrote:
->>>>>>> On Wed, Oct 24, 2018 at 2:33 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
->>>>>>>>
->>>>>>>> Hi all,
->>>>>>>>
->>>>>>>> While investigating why ARM64 required a ton of objects to be rebuilt
->>>>>>>> when toggling CONFIG_DEV_BLK_INITRD, it became clear that this was
->>>>>>>> because we define __early_init_dt_declare_initrd() differently and we do
->>>>>>>> that in arch/arm64/include/asm/memory.h which gets included by a fair
->>>>>>>> amount of other header files, and translation units as well.
->>>>>>>
->>>>>> I think arm64 does not have to redefine __early_init_dt_declare_initrd().
->>>>>> Something like this might be just all we need (completely untested,
->>>>>> probably it won't even compile):
-> 
-> [ ... ]
->  
->> FWIW, I am extracting the ARM implementation that parses the initrd
->> early command line parameter and the "setup" code doing the page
->> boundary alignment and memblock checking into a helper into lib/ that
->> other architectures can re-use. So far, this removes the need for
->> unicore32, arc and arm to duplicate essentially the same logic.
-> 
-> Presuming you are going to need asm-generic/initrd.h for that as well,
-> using override for __early_init_dt_declare_initrd in arm64 version of
-> initrd.h might be the simplest option.
+On Thu, 25 Oct 2018 18:12:46 PDT (-0700), Linus Torvalds wrote:
+> On Wed, Oct 24, 2018 at 1:42 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+>>
+>> I'm pretty sure this is our largest patch set since the original kernel
+>> contribution, and it's certainly the one with the most contributors.
+>> While I don't have anything else I know I'm going to submit for the
+>> merge window, I would be somewhat surprised if I didn't screw anything
+>> up.
+>
+> So I'm not entirely sure this is a screw-up, but it does have some
+> signs of being one:
+>
+>>       lib: Add umoddi3 and udivmoddi4 of GCC library routines
+>
+> We have *actively* tried to avoid needing umoddi3 and friends, and
+> have so far succceeded in doing that across many different
+> architectures, and many many years.
+>
+> And when we _have_ added it, we've added it as architecture-specific
+> optimized routines when people really need it.
+>
+> The reason to avoid a full 64-by-64 divide is that
+>
+>  (a) it is really expensive
+>
+>  (b) code that needs it is almost always actually wrong
+>
+> Almost always, the 64-bit divide turns out to be entirely pointless,
+> and the code can be written as a (much cheaper) 64-by-32 divide
+> instead using the functions in <asm/div.h> instead.
+>
+> Does RISC-V _really_ need that disgusting full 64-bit divide, or was
+> the addition of that simply a "we didn't know better, and didn't
+> realize just how expensive and wrong it is"?
+>
+> I've pulled this, but I really _really_ hope that I will get a second
+> pull request that gets rid of this again, and fixes whatever RISC-V
+> code that triggered this to just do not do an insane full 64-bit
+> divide on a 32-bit architecture.
 
-What I am contemplating doing is promote
-phys_initrd_start/phys_initrd_size to be global variables (similar to
-initrd_start, initrd_end) and have a generic helper function for parsing
-the initrd= command line parameter and finally removing
-__early_init_dt_declare_initrd() because we could have
-early_init_dt_check_for_initrd() just populate
-phys_initrd_start/phys_initrd_size directly as well as
-initrd_start/initrd_end using __va() to preserve compatibility with
-architectures that rely on this. Then I would convert ARM64 to check for
-phys_initrd_start which is really what it is is trying to do in
-arch/arm64/mm/init.c::arm64_memblock_init().
-
-Does that sound like a reasonable approach?
--- 
-Florian
+Thanks.  We'll go figure out how to remove it.
 
 _______________________________________________
 linux-riscv mailing list
