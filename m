@@ -2,23 +2,22 @@ Return-Path: <SRS0=itc2=NH=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 364EEC46475
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 27 Oct 2018 10:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 10870C46475
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 27 Oct 2018 19:39:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E4BCC20856
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 27 Oct 2018 10:21:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BE4E92082C
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 27 Oct 2018 19:39:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YxyEcYJY";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="ab1knh/8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E4BCC20856
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QYUYTxPb";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="QPtsyBSU"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BE4E92082C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=joelfernandes.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -26,69 +25,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SrWrwwAalg7+LAxjCAz6rcXSvM88hAsG9/x7m1A6xbA=; b=YxyEcYJYcaiPJM
-	aDJlb7jJ0WsT65fepgkNpxFQK6a0CLld1eHMG+s1epwUJx3ecoWaxEQ9SsBF4x6pb85afBX5Fwk1u
-	8zZzRCFxbJiOexN9Wbvm0ffoSNG0iZCOwSdP+kZbnZp8QxVbI40VGaNDcfnjeqzHjCeLf5aVfNkj1
-	izZsOQGAM+lAmfWip66rLumyDgJoBekJt3wxDtirs3LVWbzQsqXdrruhFEa50dMufl6LDlFWr1+zj
-	1yFBDjd2girmkTGWeku0cHZ5JVz7K2X4UOzzquNUal3W+q1EssZQucCKxeP8fo0p6EFhhZKwxhIaM
-	CvLYDJFHTTzOhlbjH8lQ==;
+	List-Owner; bh=yNlId/N8ScruE955t91Vv+UbO7OWarVvcxmw4sWyucE=; b=QYUYTxPbqSoJrP
+	9jowLSBAQP9jyXABwJ3vWxgfXH6EnP+a/oOFnxP8ZQMWpOzBX5U1qTw1WS3LCZWSFgT3YudnMFaRq
+	xREKQxih0/BG17qiNIYsQBGZ3JN6zjCN8Lcy2Yg5t3LBef28zMaUoBFpTxC3Z7xk6jV13fg45L8kG
+	EhKv9VhfjwCu9mSPhSsKds5vZ5gfz9NeUxeZjrlysUv+xwGPE1S4YdQj+5GBFfQwwT1v84neFhKOj
+	f3AoVF/gLkWTVLANXXNNAu46j53kmzm6sZz3D47jgm+j/NfRAA6n/xYvyCQLeWx1mqBZg9aU11qdD
+	+7ro6jrSSgCtBwhHdyEQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gGLic-0004AK-UG; Sat, 27 Oct 2018 10:21:22 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1gGUQq-0002pC-9N; Sat, 27 Oct 2018 19:39:36 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gGLiZ-00049B-Lz; Sat, 27 Oct 2018 10:21:21 +0000
-Received: by mail-pl1-x644.google.com with SMTP id f10-v6so1632484plr.1;
- Sat, 27 Oct 2018 03:21:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ id 1gGUQl-0002nZ-Dg
+ for linux-riscv@lists.infradead.org; Sat, 27 Oct 2018 19:39:33 +0000
+Received: by mail-pl1-x643.google.com with SMTP id bh10-v6so1976835plb.4
+ for <linux-riscv@lists.infradead.org>; Sat, 27 Oct 2018 12:39:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=joelfernandes.org; s=google;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to:user-agent;
- bh=Ytoc7E/E+CDN+36oMCq4ib7UWrIKwi1XigueqliThJE=;
- b=ab1knh/8i2Gpv4Vxfi+YDSBKbX/LgufE79cYPr5GJEdQUVQbI970thsDIy0ZjV1q0k
- ZSfcWvh4GTM9Brshk9p+y4tQ9MlVv9xCOgRN+Mkl3IacQhaurmJjOF4ISMav3UWSPWT0
- QDI4JUUMAIPA35q0/cXsitIc3ySa7+/5ANkq6TLz2UHPpSbIN1fzgNHsIaIbSC3XX++1
- mylMnA2ff0XDd2sL+yXZDHQHXijLBXi1MJNMHNoE52RFFgyL7H1Hr53le1mRs/9vRlLJ
- 8fln4V5coK7PbseEtgyE6znLwjAsimR/DLzPXzQyaRXpcBZcO/1WMqn8CO3ILrNZhl0z
- +0sw==
+ bh=AHWCz3fu9TpC7J2ei9HeEkNKgFxDHuGGuLqn4Rh+JHE=;
+ b=QPtsyBSUj6AojIo85azY8oUVJwGhm0RIqVohzSIMkkWGL/CZwEBPHYTna50E7Om4WA
+ F5z18wGfy8lz5xFwg1vCwZ9ySWUf9QkWrrkAXwGsE1TwsrZ1HoqAWixpXJ3DliywdJzW
+ CxbFyNe852Wb89cMxFXqW5ZHR3ew/TXqEJ1ok=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=Ytoc7E/E+CDN+36oMCq4ib7UWrIKwi1XigueqliThJE=;
- b=Lq6+b47hD2UKD5ywqwdhGkXh8LUNa+nwrSz/DFQnMsCKUd3/2aVP3JhRdgr8DJrVFq
- QY3PDd1eVBjEDPDyz6Hzju8AWA97DWuyG+TiTXwbxTawT9uCOT4OeMwLKMxrzDI9pN5d
- chxmFtwDTwr/ipKf3Pig8COSMd343MPyd3RW38qlQjNqOYDPVSiEW9XT/Bk7p1HfPJ8F
- EQxFVxjGGQnlqDsYdciAi3spusH/OGLYBh3bQavDUn+Fp1PUDLovkNhJz4q4KkEvya/c
- np5okdsNh5zUhik772yScEdyr9OJesG2SlzK9WxuTwOF0KzCZPwSflqul0kz0YatWelw
- J0XA==
-X-Gm-Message-State: AGRZ1gIWZfTod4M0+ajRgc8jjDi3Jz/QaI0tzSm540ro6WuMuXBQaWZZ
- wkZExGkErEkWuuddlDvbdaE=
-X-Google-Smtp-Source: AJdET5dClbYQTLuFDbJ+0gDgS5/Hrs1bQO5PPuAbjI+vFXrDoU6PrAD4ZO8YmfARdAwQaa7m0KGriw==
-X-Received: by 2002:a17:902:76c3:: with SMTP id
- j3-v6mr6882579plt.339.1540635667807; 
- Sat, 27 Oct 2018 03:21:07 -0700 (PDT)
-Received: from localhost (14-202-194-140.static.tpgi.com.au. [14.202.194.140])
- by smtp.gmail.com with ESMTPSA id
- z129-v6sm17506690pfb.40.2018.10.27.03.21.05
+ bh=AHWCz3fu9TpC7J2ei9HeEkNKgFxDHuGGuLqn4Rh+JHE=;
+ b=CukULNIevtIL8TI+PIUEGSa1roGf6v13Nm/BGnOVCUZOoXO8inIHxSQxMKFBVVqXLF
+ D7lS4R+Ijm+R1mIJYTj7Ug2H2VWeTOEBTFNyHN9njuxDPwqmfmNU5i/8RipC99s1vo7D
+ axaOuC+hv6HTQZWz2l8yLtNSYUbUY7GRRf3sAW3ctRpEqY5bmtXwsP68yv2T//dFQ9wQ
+ JRShwgJL1IoGemUdMH8XpyPMwMkfP/0/Oh5LZD4UW0+L9tkcKWRedFQSuUS2ekeTJl4x
+ Kkw8fddkv3LQNJ4OIw40/oM9tyrQHtTLccDlb8J+YrUftCQfV9VG+cx+eWkpI1G266Ni
+ jb7g==
+X-Gm-Message-State: AGRZ1gKXbf9dP9Fz7vJqggZd5/XoimSY02Eu3hozU3fYYz7UWNTuXqRw
+ l0uQ4Wp/Ljz7rdVb8RxnMTIe8Q==
+X-Google-Smtp-Source: AJdET5f21mfpbfgLffX+k0qGngh7x8A4g9m9LTX1FSqvBjQFfP0xKIMF/O60+aOyl9qi4XLET8IsYQ==
+X-Received: by 2002:a17:902:3381:: with SMTP id
+ b1-v6mr8190467plc.323.1540669159792; 
+ Sat, 27 Oct 2018 12:39:19 -0700 (PDT)
+Received: from localhost ([2620:0:1000:1601:3aef:314f:b9ea:889f])
+ by smtp.gmail.com with ESMTPSA id 11-v6sm23945581pfs.108.2018.10.27.12.39.18
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Sat, 27 Oct 2018 03:21:06 -0700 (PDT)
-Date: Sat, 27 Oct 2018 21:21:02 +1100
-From: Balbir Singh <bsingharora@gmail.com>
-To: Joel Fernandes <joel@joelfernandes.org>
+ Sat, 27 Oct 2018 12:39:18 -0700 (PDT)
+Date: Sat, 27 Oct 2018 12:39:17 -0700
+From: Joel Fernandes <joel@joelfernandes.org>
+To: Balbir Singh <bsingharora@gmail.com>
 Subject: Re: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
-Message-ID: <20181027102102.GO8537@350D>
+Message-ID: <20181027193917.GA51131@joelaf.mtv.corp.google.com>
 References: <20181013013200.206928-1-joel@joelfernandes.org>
  <20181013013200.206928-3-joel@joelfernandes.org>
  <20181024101255.it4lptrjogalxbey@kshutemo-mobl1>
  <20181024115733.GN8537@350D>
  <20181025021350.GB13560@joelaf.mtv.corp.google.com>
+ <20181027102102.GO8537@350D>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20181025021350.GB13560@joelaf.mtv.corp.google.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+In-Reply-To: <20181027102102.GO8537@350D>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181027_032119_727705_4260A1AA 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20181027_123931_518438_8EAA1CBC 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -135,28 +133,54 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181027102102.O2ptzsZ4d0L2bULaqg9d5uN7K4LqUSIQwKK4dOHSsHY@z>
+Message-ID: <20181027193917.4bi4eH0QalqrYLVQkfQF3Ssxcg4If9_oEmkvK1poIck@z>
 
-On Wed, Oct 24, 2018 at 07:13:50PM -0700, Joel Fernandes wrote:
-> On Wed, Oct 24, 2018 at 10:57:33PM +1100, Balbir Singh wrote:
-> [...]
-> > > > +		pmd_t pmd;
-> > > > +
-> > > > +		new_ptl = pmd_lockptr(mm, new_pmd);
+Hi Balbir,
+
+On Sat, Oct 27, 2018 at 09:21:02PM +1100, Balbir Singh wrote:
+> On Wed, Oct 24, 2018 at 07:13:50PM -0700, Joel Fernandes wrote:
+> > On Wed, Oct 24, 2018 at 10:57:33PM +1100, Balbir Singh wrote:
+> > [...]
+> > > > > +		pmd_t pmd;
+> > > > > +
+> > > > > +		new_ptl = pmd_lockptr(mm, new_pmd);
+> > > 
+> > > 
+> > > Looks like this is largely inspired by move_huge_pmd(), I guess a lot of
+> > > the code applies, why not just reuse as much as possible? The same comments
+> > > w.r.t mmap_sem helping protect against lock order issues applies as well.
 > > 
-> > 
-> > Looks like this is largely inspired by move_huge_pmd(), I guess a lot of
-> > the code applies, why not just reuse as much as possible? The same comments
-> > w.r.t mmap_sem helping protect against lock order issues applies as well.
+> > I thought about this and when I looked into it, it seemed there are subtle
+> > differences that make such sharing not worth it (or not possible).
+> >
 > 
-> I thought about this and when I looked into it, it seemed there are subtle
-> differences that make such sharing not worth it (or not possible).
->
+> Could you elaborate on them?
 
-Could you elaborate on them?
+The move_huge_page function is defined only for CONFIG_TRANSPARENT_HUGEPAGE
+so we cannot reuse it to begin with, since we have it disabled on our
+systems. I am not sure if it is a good idea to split that out and refactor it
+for reuse especially since our case is quite simple compared to huge pages.
 
-Thanks,
-Balbir Singh. 
+There are also a couple of subtle differences between the move_normal_pmd and
+the move_huge_pmd. Atleast 2 of them are:
+
+1. We don't concern ourself with the PMD dirty bit, since the pages being
+moved are normal pages and at the soft-dirty bit accounting is at the PTE
+level, since we are not moving PTEs, we don't need to do that.
+
+2. The locking is simpler as Kirill pointed, pmd_lock cannot fail however
+__pmd_trans_huge_lock can.
+
+I feel it is not super useful to refactor move_huge_pmd to support our case
+especially since move_normal_pmd is quite small, so IMHO the benefit of code
+reuse isn't there very much.
+
+Do let me know your thoughts and thanks for your interest in this.
+
+thanks,
+
+ - Joel
+
 
 _______________________________________________
 linux-riscv mailing list
