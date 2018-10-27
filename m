@@ -1,94 +1,87 @@
-Return-Path: <SRS0=LGYn=NG=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=itc2=NH=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D078EECDE44
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 21:12:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5FC01C46475
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 27 Oct 2018 06:07:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6C9BD20848
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Oct 2018 21:12:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F14A220843
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 27 Oct 2018 06:07:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QycQLJYa";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=joelfernandes.org header.i=@joelfernandes.org header.b="jUdZbGfd"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6C9BD20848
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=joelfernandes.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="r3SrM+FR";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="mfwSAJuf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F14A220843
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s7jKYUleSrjqzz6RBv/+/gpTu+ggG6LVZW797QqeWng=; b=QycQLJYal4KQyl
-	DhNWZ9N7wUwfZtdxLWWoONdUVXAe4Ih4p1nG+R9mgClL4qKAN5WiDEj0KOQ66xIueasIxY3q/DfDj
-	ivdLks8SkDIiXPpNiGpa/jETm5HTSLGPtxBCmp9rbdd0II4aVJO++ijG3G2Lkc8yRohwjmy8Ya6fE
-	hnh43eXS1chbTnm6JeEZkaKYf2CVPIBhDRemhq8jFgyEcrfLfr6+UFQV1Mn4xegEwX5mgpVcvu5VC
-	LzH43KxNUi6g79/0XOI4R1bn9VUWdrjd9LTalAx8yZD7ZyC1w0pHG89GHmevq+a20FGEWuGf2Iu+O
-	RemhsZ30naMQbU7AxHIQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=SMBMQgNuOXNsd012lksdsAi30ABDggHCQGyyKoDoi5A=; b=r3SrM+FRBMyyqC8oYr1iuiugv
+	LBLNQfVwR55WtEi221N9EThcc+ey05sJxtdT6t1hsWRcVuQMtyLdN8N/jBliZpKq2VxLI2Qf2R3DD
+	zENBcm5odkSLNX8oi5Z6YHlI6EAIY+VQVg7ikPd+h4/exOAMAL0CWUepMgoZaVJEscmmJkRHk32wY
+	IzA9uo1n929vppVpexjxgcBeNuVOe3vhGXsnI4lE9C2syHtsZh58oLkPqmNR9crAulv+07SjJx5R1
+	azTV1kdiyKbVzcb6vNulLipzEvfRHTd/qIUzqKdJ472Qu2QnFm6VuFEFirifdEk6/ZC/N7OFgnMOI
+	n4xYhBBfQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gG9Op-0001Tf-0G; Fri, 26 Oct 2018 21:12:07 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1gGHku-0005h0-21; Sat, 27 Oct 2018 06:07:28 +0000
+Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gG9Ol-0001S7-Ao
- for linux-riscv@lists.infradead.org; Fri, 26 Oct 2018 21:12:05 +0000
-Received: by mail-pf1-x444.google.com with SMTP id j23-v6so1135749pfi.4
- for <linux-riscv@lists.infradead.org>; Fri, 26 Oct 2018 14:11:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=joelfernandes.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to:user-agent;
- bh=dq+BjoUNcVExlg1sXd41CFSHaNo2sNM3KG7r3+8ZNw0=;
- b=jUdZbGfdMmHbj+wS2nK71WlJiDawq8Itd/RTEa+Uht/1HfD1MG4DERZYGnaq3P9Nc2
- KQ1X/lsCXUB+c4wqS2xa43P9JsuWAMKg9AOWVAhJsoLthDvJPtmObd1QaUfJOcplQ4lI
- jM1YKDpaoKdfaUESMF2KDVofBLWzrI5zbGipg=
+ id 1gGHkq-0005g4-IR
+ for linux-riscv@lists.infradead.org; Sat, 27 Oct 2018 06:07:26 +0000
+Received: by mail-pg1-x542.google.com with SMTP id a5-v6so1468879pgt.13
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Oct 2018 23:07:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=sczwW8B+pPyBZ1qmKbBegzuoM/j/WmamFwZgX+JMnh4=;
+ b=mfwSAJufxxxk2JwgmZCJ7dz+U/ydiEEjkTeVKMqCjJVau5RJTOyv4v+sRohbCx3evZ
+ nmZ/X9PB0H2zr+LBYsMYVAPxNvGYimifgq6qAFnSZ69gELuqUL7Kaa2mRViZJm+uxB9A
+ 4tKVLAMPh8ji+7k3v1UTMjnKSYZRlp+tQ4z72yKrsKUz2Crtd8fhDic1+sHd8pWBnGg0
+ RwgvkMDupHawRhGbOf9oU71W4aVYiMu+dJQdvXCgeRZxURHG2roSNNSJyUcSngWXPg69
+ m3xCBpANF5CzOtawt3WYzPF8C9I/k+Ec6ao1ajYC7EN42IhuGu2ZJTi1lJV/OaxjLM2g
+ 5edg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=dq+BjoUNcVExlg1sXd41CFSHaNo2sNM3KG7r3+8ZNw0=;
- b=AJhu1891vUVNlx8ZTvwMC4kHDD91fS1gsyWzhQH09qNPqJV/bdzy+VRGExkBPBw8VU
- l3Y1iLDiy9b/ZrL1lSyXRLjt+ZvE2sSBEAGSxgq6ugNqbtuYvfa3wT4kWlSl4I+DHW3K
- XQczxqck9jUV0viJsVmQWd9Aq3fJg5h415Kb7fu5Ekbsfa1Nb2yfuRA+/xmPXmM6Sv7O
- ZzVu+3nruFnpEEqwoQ/qDa9cShedsGYs8GOK60IPdEMz1nBzbyaeAuLLFltyUziErgP+
- RQeSMmkgXSI8FbjZUegWNwAraUSY9Ck6epk7D7keAa1xFafSb7PZsQ2lzrQKqaYEhgFE
- aPJA==
-X-Gm-Message-State: AGRZ1gJnHiNlJQGlJ+1N/KDw5/QFY2/aYqs2EQNxhR7ie+g/EiH67pFL
- 5hnbXOEG1p3wErMiHcgGcapGaA==
-X-Google-Smtp-Source: AJdET5fmLpXiZHsclSf8WQrC32LTuEtER38eHQ8nOhnTEjlLxcTgs5o0PRgpqH8CQQiQra8WDw5wjA==
-X-Received: by 2002:a63:4454:: with SMTP id
- t20-v6mr4917963pgk.102.1540588311053; 
- Fri, 26 Oct 2018 14:11:51 -0700 (PDT)
-Received: from localhost ([2620:0:1000:1601:3aef:314f:b9ea:889f])
- by smtp.gmail.com with ESMTPSA id e131-v6sm19942293pfc.52.2018.10.26.14.11.49
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Fri, 26 Oct 2018 14:11:49 -0700 (PDT)
-Date: Fri, 26 Oct 2018 14:11:48 -0700
-From: Joel Fernandes <joel@joelfernandes.org>
-To: "Kirill A. Shutemov" <kirill@shutemov.name>
-Subject: Re: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
-Message-ID: <20181026211148.GA140716@joelaf.mtv.corp.google.com>
-References: <20181013013200.206928-1-joel@joelfernandes.org>
- <20181013013200.206928-3-joel@joelfernandes.org>
- <20181024101255.it4lptrjogalxbey@kshutemo-mobl1>
- <20181024115733.GN8537@350D>
- <20181024125724.yf6frdimjulf35do@kshutemo-mobl1>
- <20181025020907.GA13560@joelaf.mtv.corp.google.com>
- <20181025101900.phqnqpoju5t2gar5@kshutemo-mobl1>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20181025101900.phqnqpoju5t2gar5@kshutemo-mobl1>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=sczwW8B+pPyBZ1qmKbBegzuoM/j/WmamFwZgX+JMnh4=;
+ b=XHK9iAAsuuSj00tJKecgJPE01Veb6FE5OSh6+BOOn4D4oNYTzN1gYEdjtregHTnWRf
+ q5y4NMiSTFc2b3aJkvlMKNXvrFK/JyNCWSYhKK4q90bvrYvcLJMwLnJY0T/fPNsrqR3m
+ kURrrQnaonIc4k1fCWfJJaokOjzh8X4DtoHoJ2CrEywygiRIMVA+Q+/6jY3h14PVasxZ
+ FogmHkBDS3zz43fkg3BYPDtyxEzlojzc2hJcmpW9R/gjno9u2K902otRvYL1OIH24kTe
+ PPx6SdxqdONU7IZA7CIqcD2wCLJUIWnnbaBDfnCjEGzzrt7yCIvVF2KhIV7VrVpOJ44X
+ 2lXQ==
+X-Gm-Message-State: AGRZ1gLVCO2TbZjvnMiBiNH+DV2WFJ8X9wQAsM/kJkahJ5DPEXLjzqjj
+ +FKvQs7WgoE0epZYEzr19LieOFqEFBc=
+X-Google-Smtp-Source: AJdET5cIVAgYokGIFLWsNTg3FsQjU7PS2j4cEJDDNiaSmvMiH/5WxFtqkvOi3fAY6pL7rreaGZXYWw==
+X-Received: by 2002:a63:77ce:: with SMTP id s197mr6093007pgc.89.1540620432916; 
+ Fri, 26 Oct 2018 23:07:12 -0700 (PDT)
+Received: from localhost (c-67-161-15-180.hsd1.ca.comcast.net. [67.161.15.180])
+ by smtp.gmail.com with ESMTPSA id e9-v6sm15800833pgl.44.2018.10.26.23.07.11
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 26 Oct 2018 23:07:11 -0700 (PDT)
+Date: Fri, 26 Oct 2018 23:07:11 -0700 (PDT)
+X-Google-Original-Date: Fri, 26 Oct 2018 22:53:14 PDT (-0700)
+Subject: Re: [PATCH 2/2] RISC-V: Add support for SECCOMP
+In-Reply-To: <CAEn-LTovzRncSKCGv8wUTL6FkzcC+Hw1EBGe+Rc4GQyEgcK1uA@mail.gmail.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: david.abdurachmanov@gmail.com
+Message-ID: <mhng-4bae5431-dfdc-4376-9f7a-6c75b91c1eaa@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181026_141203_380563_A1B4E8BE 
-X-CRM114-Status: GOOD (  34.64  )
+X-CRM114-CacheID: sfid-20181026_230724_646299_61824650 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -100,147 +93,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mips@linux-mips.org, Rich Felker <dalias@libc.org>,
- linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Balbir Singh <bsingharora@gmail.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Will Deacon <will.deacon@arm.com>,
- mhocko@kernel.org, linux-mm@kvack.org, lokeshgidra@google.com,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- elfring@users.sourceforge.net, Jonas Bonn <jonas@southpole.se>,
- kvmarm@lists.cs.columbia.edu, dancol@google.com,
- Yoshinori Sato <ysato@users.sourceforge.jp>, linux-xtensa@linux-xtensa.org,
- linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>,
- "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
- hughd@google.com, "James E.J. Bottomley" <jejb@parisc-linux.org>,
- kasan-dev@googlegroups.com, anton.ivanov@kot-begemot.co.uk,
- Ingo Molnar <mingo@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Andrey Ryabinin <aryabinin@virtuozzo.com>, linux-snps-arc@lists.infradead.org,
- kernel-team@android.com, Sam Creasey <sammy@sammy.net>,
- Fenghua Yu <fenghua.yu@intel.com>, linux-s390@vger.kernel.org,
- Jeff Dike <jdike@addtoit.com>, linux-um@lists.infradead.org,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Julia Lawall <Julia.Lawall@lip6.fr>, linux-m68k@lists.linux-m68k.org,
- Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
- nios2-dev@lists.rocketboards.org, Stafford Horne <shorne@gmail.com>,
- Guan Xuetao <gxt@pku.edu.cn>, Chris Zankel <chris@zankel.net>,
- Tony Luck <tony.luck@intel.com>, Richard Weinberger <richard@nod.at>,
- linux-parisc@vger.kernel.org, pantin@google.com,
- Max Filippov <jcmvbkbc@gmail.com>, linux-kernel@vger.kernel.org,
- minchan@kernel.org, Thomas Gleixner <tglx@linutronix.de>,
- linux-alpha@vger.kernel.org, Ley Foon Tan <lftan@altera.com>,
- akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
- "David S. Miller" <davem@davemloft.net>
-Content-Type: text/plain; charset="us-ascii"
+Cc: kstewart@linuxfoundation.org, aou@eecs.berkeley.edu, wad@chromium.org,
+ paul@paul-moore.com, Greg KH <gregkh@linuxfoundation.org>,
+ Wesley Terpstra <wesley@sifive.com>, linux-kernel@vger.kernel.org,
+ eparis@redhat.com, luto@amacapital.net, dhowells@redhat.com,
+ linux-audit@redhat.com, pombredanne@nexb.com, linux-riscv@lists.infradead.org,
+ tglx@linutronix.de, keescook@chromium.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181026211148.6hUFSX6D1MVpjAh-xqpeImQAI9tUihdm8cTf5QeB8uw@z>
+Message-ID: <20181027060711.L88Agq7elSwafs2wp4gPqiqz-SbxVDCBIuQwoTuKF-k@z>
 
-On Thu, Oct 25, 2018 at 01:19:00PM +0300, Kirill A. Shutemov wrote:
-> On Wed, Oct 24, 2018 at 07:09:07PM -0700, Joel Fernandes wrote:
-> > On Wed, Oct 24, 2018 at 03:57:24PM +0300, Kirill A. Shutemov wrote:
-> > > On Wed, Oct 24, 2018 at 10:57:33PM +1100, Balbir Singh wrote:
-> > > > On Wed, Oct 24, 2018 at 01:12:56PM +0300, Kirill A. Shutemov wrote:
-> > > > > On Fri, Oct 12, 2018 at 06:31:58PM -0700, Joel Fernandes (Google) wrote:
-> > > > > > diff --git a/mm/mremap.c b/mm/mremap.c
-> > > > > > index 9e68a02a52b1..2fd163cff406 100644
-> > > > > > --- a/mm/mremap.c
-> > > > > > +++ b/mm/mremap.c
-> > > > > > @@ -191,6 +191,54 @@ static void move_ptes(struct vm_area_struct *vma, pmd_t *old_pmd,
-> > > > > >  		drop_rmap_locks(vma);
-> > > > > >  }
-> > > > > >  
-> > > > > > +static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
-> > > > > > +		  unsigned long new_addr, unsigned long old_end,
-> > > > > > +		  pmd_t *old_pmd, pmd_t *new_pmd, bool *need_flush)
-> > > > > > +{
-> > > > > > +	spinlock_t *old_ptl, *new_ptl;
-> > > > > > +	struct mm_struct *mm = vma->vm_mm;
-> > > > > > +
-> > > > > > +	if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
-> > > > > > +	    || old_end - old_addr < PMD_SIZE)
-> > > > > > +		return false;
-> > > > > > +
-> > > > > > +	/*
-> > > > > > +	 * The destination pmd shouldn't be established, free_pgtables()
-> > > > > > +	 * should have release it.
-> > > > > > +	 */
-> > > > > > +	if (WARN_ON(!pmd_none(*new_pmd)))
-> > > > > > +		return false;
-> > > > > > +
-> > > > > > +	/*
-> > > > > > +	 * We don't have to worry about the ordering of src and dst
-> > > > > > +	 * ptlocks because exclusive mmap_sem prevents deadlock.
-> > > > > > +	 */
-> > > > > > +	old_ptl = pmd_lock(vma->vm_mm, old_pmd);
-> > > > > > +	if (old_ptl) {
-> > > > > 
-> > > > > How can it ever be false?
-> > 
-> > Kirill,
-> > It cannot, you are right. I'll remove the test.
-> > 
-> > By the way, there are new changes upstream by Linus which flush the TLB
-> > before releasing the ptlock instead of after. I'm guessing that patch came
-> > about because of reviews of this patch and someone spotted an issue in the
-> > existing code :)
-> > 
-> > Anyway the patch in concern is:
-> > eb66ae030829 ("mremap: properly flush TLB before releasing the page")
-> > 
-> > I need to rebase on top of that with appropriate modifications, but I worry
-> > that this patch will slow down performance since we have to flush at every
-> > PMD/PTE move before releasing the ptlock. Where as with my patch, the
-> > intention is to flush only at once in the end of move_page_tables. When I
-> > tried to flush TLB on every PMD move, it was quite slow on my arm64 device [2].
-> > 
-> > Further observation [1] is, it seems like the move_huge_pmds and move_ptes code
-> > is a bit sub optimal in the sense, we are acquiring and releasing the same
-> > ptlock for a bunch of PMDs if the said PMDs are on the same page-table page
-> > right? Instead we can do better by acquiring and release the ptlock less
-> > often.
-> > 
-> > I think this observation [1] and the frequent TLB flush issue [2] can be solved
-> > by acquiring the ptlock once for a bunch of PMDs, move them all, then flush
-> > the tlb and then release the ptlock, and then proceed to doing the same thing
-> > for the PMDs in the next page-table page. What do you think?
-> 
-> Yeah, that's viable optimization.
-> 
-> The tricky part is that one PMD page table can have PMD entires of
-> different types: THP, page table that you can move as whole and the one
-> that you cannot (for any reason).
-> 
-> If we cannot move the PMD entry as a whole and must go to PTE page table
-> we would need to drop PMD ptl and take PTE ptl (it might be the same lock
-> in some configuations).
+On Thu, 25 Oct 2018 11:31:30 PDT (-0700), david.abdurachmanov@gmail.com wrote:
+> On Wed, Oct 24, 2018 at 10:40 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+>>
+>> From: "Wesley W. Terpstra" <wesley@sifive.com>
+>>
+>> This is a fairly straight-forward implementation of seccomp for RISC-V
+>> systems.
+>>
+>> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
+>> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+>> ---
+>>  arch/riscv/Kconfig                   | 18 ++++++++++++++++++
+>>  arch/riscv/include/asm/seccomp.h     | 10 ++++++++++
+>>  arch/riscv/include/asm/syscall.h     |  6 ++++++
+>>  arch/riscv/include/asm/thread_info.h |  1 +
+>>  include/uapi/linux/audit.h           |  1 +
+>>  5 files changed, 36 insertions(+)
+>>  create mode 100644 arch/riscv/include/asm/seccomp.h
+>>
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index a344980287a5..28abe47602a1 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -28,6 +28,7 @@ config RISCV
+>>         select GENERIC_STRNLEN_USER
+>>         select GENERIC_SMP_IDLE_THREAD
+>>         select GENERIC_ATOMIC64 if !64BIT || !RISCV_ISA_A
+>> +       select HAVE_ARCH_SECCOMP_FILTER
+>>         select HAVE_MEMBLOCK
+>>         select HAVE_MEMBLOCK_NODE_MAP
+>>         select HAVE_DMA_CONTIGUOUS
+>> @@ -214,6 +215,22 @@ menu "Kernel type"
+>>
+>>  source "kernel/Kconfig.hz"
+>>
+>> +config SECCOMP
+>> +       bool "Enable seccomp to safely compute untrusted bytecode"
+>> +
+>> +       help
+>> +         This kernel feature is useful for number crunching applications
+>> +         that may need to compute untrusted bytecode during their
+>> +         execution. By using pipes or other transports made available to
+>> +         the process as file descriptors supporting the read/write
+>> +         syscalls, it's possible to isolate those applications in
+>> +         their own address space using seccomp. Once seccomp is
+>> +         enabled via prctl(PR_SET_SECCOMP), it cannot be disabled
+>> +         and the task is only allowed to execute a few safe syscalls
+>> +         defined by each seccomp mode.
+>> +
+>> +         If unsure, say Y. Only embedded should say N here.
+>> +
+>>  endmenu
+>>
+>>  menu "Bus support"
+>> @@ -243,3 +260,4 @@ menu "Power management options"
+>>  source kernel/power/Kconfig
+>>
+>>  endmenu
+>> +
+>> diff --git a/arch/riscv/include/asm/seccomp.h b/arch/riscv/include/asm/seccomp.h
+>> new file mode 100644
+>> index 000000000000..c1b4407f1038
+>> --- /dev/null
+>> +++ b/arch/riscv/include/asm/seccomp.h
+>> @@ -0,0 +1,10 @@
+>> +/* Copyright 2018 SiFive, Inc. */
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +#ifndef _ASM_RISCV_SECCOMP_H
+>> +#define _ASM_RISCV_SECCOMP_H
+>> +
+>> +#include <asm/unistd.h>
+>> +
+>> +#include <asm-generic/seccomp.h>
+>> +
+>> +#endif /* _ASM_RISCV_SECCOMP_H */
+>> diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+>> index 8d25f8904c00..d24f774f39df 100644
+>> --- a/arch/riscv/include/asm/syscall.h
+>> +++ b/arch/riscv/include/asm/syscall.h
+>> @@ -19,6 +19,7 @@
+>>  #define _ASM_RISCV_SYSCALL_H
+>>
+>>  #include <linux/sched.h>
+>> +#include <uapi/linux/audit.h>
+>>  #include <linux/err.h>
+>>
+>>  /* The array of function pointers for syscalls. */
+>> @@ -99,4 +100,9 @@ static inline void syscall_set_arguments(struct task_struct *task,
+>>         memcpy(&regs->a1 + i * sizeof(regs->a1), args, n * sizeof(regs->a0));
+>>  }
+>>
+>> +static inline int syscall_get_arch(void)
+>> +{
+>> +       return AUDIT_ARCH_RISCV;
+>> +}
+>> +
+>>  #endif /* _ASM_RISCV_SYSCALL_H */
+>> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+>> index f8fa1cd2dad9..374973dc05c6 100644
+>> --- a/arch/riscv/include/asm/thread_info.h
+>> +++ b/arch/riscv/include/asm/thread_info.h
+>> @@ -80,6 +80,7 @@ struct thread_info {
+>>  #define TIF_RESTORE_SIGMASK    4       /* restore signal mask in do_signal() */
+>>  #define TIF_MEMDIE             5       /* is terminating due to OOM killer */
+>>  #define TIF_SYSCALL_TRACEPOINT  6       /* syscall tracepoint instrumentation */
+>> +#define TIF_SECCOMP            7       /* seccomp syscall filtering active */
+>>
+>>  #define _TIF_SYSCALL_TRACE     (1 << TIF_SYSCALL_TRACE)
+>>  #define _TIF_NOTIFY_RESUME     (1 << TIF_NOTIFY_RESUME)
+>> diff --git a/include/uapi/linux/audit.h b/include/uapi/linux/audit.h
+>> index 818ae690ab79..c16fa1a76659 100644
+>> --- a/include/uapi/linux/audit.h
+>> +++ b/include/uapi/linux/audit.h
+>> @@ -399,6 +399,7 @@ enum {
+>>  /* do not define AUDIT_ARCH_PPCLE since it is not supported by audit */
+>>  #define AUDIT_ARCH_PPC64       (EM_PPC64|__AUDIT_ARCH_64BIT)
+>>  #define AUDIT_ARCH_PPC64LE     (EM_PPC64|__AUDIT_ARCH_64BIT|__AUDIT_ARCH_LE)
+>> +#define AUDIT_ARCH_RISCV       (EM_RISCV)
+>>  #define AUDIT_ARCH_S390                (EM_S390)
+>>  #define AUDIT_ARCH_S390X       (EM_S390|__AUDIT_ARCH_64BIT)
+>>  #define AUDIT_ARCH_SH          (EM_SH)
+>
+> Palmer,
+>
+> Half of the patch seems to touch audit parts. I started working on audit
+> support this morning, and I can boot Fedora with audit traces.
+>
+> [root@fedora-riscv ~]# dmesg | grep audit
+> [    0.312000] audit: initializing netlink subsys (disabled)
+> [    0.316000] audit: type=2000 audit(0.316:1): state=initialized
+> audit_enabled=0 res=1
+> [    7.288000] audit: type=1130 audit(1529665913.772:2): pid=1 uid=0
+> auid=4294967295 ses=4294967295 msg='unit=systemd-remount-fs
+> comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=?
+> terminal=? res=success'
+> [    7.684000] audit: type=1130 audit(1529665914.176:3): pid=1 uid=0
+> auid=4294967295 ses=4294967295 msg='unit=systemd-sysctl comm="systemd"
+> exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=?
+> res=success'
+> [..]
+>
+> I am still working on audit user-space support for better testing.
+>
+> I suggest we first implement audit and then seccomp.
 
-> Also we don't want to take PMD lock unless it's required.
-> 
-> I expect it to be not very trivial to get everything right. But take a
-> shot :)
+Works for me.  I'll drop my patch set for now.
 
-Yes, that is exactly the issue I hit when I attempted it. :) The locks need
-to be release if we do something different on the next loop iteration. It
-complicates the code and not sure if it is worth it in the long run.  On x86
-atleast, I don't see any perf issues with the TLB-flush per-PMD move, so the
-patch is Ok there. On arm64, it negates the performance benefit even though
-its not any worse than what we are doing currently at the PTE level.
-
-My thinking is to take it slow and get the patch in in its current state,
-since it improves x86. Then as a next step, look into why the arm64 tlb
-flushes are that expensive and look into optimizing that. On arm64 I am
-testing on a 4.9 kernel so I'm wondering there are any optimizations since
-4.9 that can help speed it up there. After that, if all else fails about
-speeding up arm64, then I look into developing the cleanest possible solution
-where we can keep the lock held for longer and flush lesser.
-
-thanks,
-
- - Joel
-
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
