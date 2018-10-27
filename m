@@ -1,26 +1,33 @@
-From: david.abdurachmanov@gmail.com (David Abdurachmanov)
-Date: Sat, 27 Oct 2018 11:10:34 +0200
-Subject: [PATCH 1/2] Move EM_RISCV into elf-em.h
-In-Reply-To: <20181027074613.GA7868@infradead.org>
-References: <CAEn-LTqbEmWovu4t7Rs4C211+GRRU4V3B=+WmW0SOhX_b8db5Q@mail.gmail.com>
- <20181024204036.8799-1-palmer@sifive.com>
- <20181024204036.8799-2-palmer@sifive.com>
- <20181027074613.GA7868@infradead.org>
-Message-ID: <CAEn-LTq8i4FFU15Gn_zm_mwUzgp6i5dGCgKmbXju9qwBny+QhQ@mail.gmail.com>
+From: bsingharora@gmail.com (Balbir Singh)
+Date: Sat, 27 Oct 2018 21:21:02 +1100
+Subject: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
+In-Reply-To: <20181025021350.GB13560@joelaf.mtv.corp.google.com>
+References: <20181013013200.206928-1-joel@joelfernandes.org>
+ <20181013013200.206928-3-joel@joelfernandes.org>
+ <20181024101255.it4lptrjogalxbey@kshutemo-mobl1>
+ <20181024115733.GN8537@350D>
+ <20181025021350.GB13560@joelaf.mtv.corp.google.com>
+Message-ID: <20181027102102.GO8537@350D>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sat, Oct 27, 2018 at 9:46 AM Christoph Hellwig <hch@infradead.org> wrote:
+On Wed, Oct 24, 2018 at 07:13:50PM -0700, Joel Fernandes wrote:
+> On Wed, Oct 24, 2018 at 10:57:33PM +1100, Balbir Singh wrote:
+> [...]
+> > > > +		pmd_t pmd;
+> > > > +
+> > > > +		new_ptl = pmd_lockptr(mm, new_pmd);
+> > 
+> > 
+> > Looks like this is largely inspired by move_huge_pmd(), I guess a lot of
+> > the code applies, why not just reuse as much as possible? The same comments
+> > w.r.t mmap_sem helping protect against lock order issues applies as well.
+> 
+> I thought about this and when I looked into it, it seemed there are subtle
+> differences that make such sharing not worth it (or not possible).
 >
-> On Wed, Oct 24, 2018 at 01:40:35PM -0700, Palmer Dabbelt wrote:
-> > This should never have been inside our arch port to begin with, it's
-> > just a relic from when we were maintaining out of tree patches.
-> >
-> > Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
->
-> Looks good, and probably harmless enought that we should pick it up
-> for this merge window:
 
-That would be nice. The audit parts I am working on depends on this patch.
+Could you elaborate on them?
 
-Tested-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
+Thanks,
+Balbir Singh. 
