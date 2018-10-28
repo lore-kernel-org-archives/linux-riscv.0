@@ -1,83 +1,67 @@
-From: david.abdurachmanov@gmail.com (David Abdurachmanov)
-Date: Sun, 28 Oct 2018 12:07:55 +0100
-Subject: [PATCH 2/2] RISC-V: Add support for SECCOMP
-In-Reply-To: <CAHC9VhT015tz4qZZ=vM6FowsUXLv-RYeBrH4C8d6jvg=XHumHA@mail.gmail.com>
-References: <CAEn-LTqbEmWovu4t7Rs4C211+GRRU4V3B=+WmW0SOhX_b8db5Q@mail.gmail.com>
- <20181024204036.8799-1-palmer@sifive.com>
- <20181024204036.8799-3-palmer@sifive.com>
- <CAEn-LTovzRncSKCGv8wUTL6FkzcC+Hw1EBGe+Rc4GQyEgcK1uA@mail.gmail.com>
- <CAHC9VhT015tz4qZZ=vM6FowsUXLv-RYeBrH4C8d6jvg=XHumHA@mail.gmail.com>
-Message-ID: <CAEn-LTonSqSG8GtgVmwt7ToJ2NZKsGEaWndmA0Q7Lzm316CFbA@mail.gmail.com>
+From: bsingharora@gmail.com (Balbir Singh)
+Date: Mon, 29 Oct 2018 09:40:02 +1100
+Subject: [PATCH 2/4] mm: speed up mremap by 500x on large regions (v2)
+In-Reply-To: <20181027193917.GA51131@joelaf.mtv.corp.google.com>
+References: <20181013013200.206928-1-joel@joelfernandes.org>
+ <20181013013200.206928-3-joel@joelfernandes.org>
+ <20181024101255.it4lptrjogalxbey@kshutemo-mobl1>
+ <20181024115733.GN8537@350D>
+ <20181025021350.GB13560@joelaf.mtv.corp.google.com>
+ <20181027102102.GO8537@350D>
+ <20181027193917.GA51131@joelaf.mtv.corp.google.com>
+Message-ID: <20181028224002.GA16399@350D>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Oct 25, 2018 at 10:36 PM Paul Moore <paul@paul-moore.com> wrote:
+On Sat, Oct 27, 2018 at 12:39:17PM -0700, Joel Fernandes wrote:
+> Hi Balbir,
+> 
+> On Sat, Oct 27, 2018 at 09:21:02PM +1100, Balbir Singh wrote:
+> > On Wed, Oct 24, 2018 at 07:13:50PM -0700, Joel Fernandes wrote:
+> > > On Wed, Oct 24, 2018 at 10:57:33PM +1100, Balbir Singh wrote:
+> > > [...]
+> > > > > > +		pmd_t pmd;
+> > > > > > +
+> > > > > > +		new_ptl = pmd_lockptr(mm, new_pmd);
+> > > > 
+> > > > 
+> > > > Looks like this is largely inspired by move_huge_pmd(), I guess a lot of
+> > > > the code applies, why not just reuse as much as possible? The same comments
+> > > > w.r.t mmap_sem helping protect against lock order issues applies as well.
+> > > 
+> > > I thought about this and when I looked into it, it seemed there are subtle
+> > > differences that make such sharing not worth it (or not possible).
+> > >
+> > 
+> > Could you elaborate on them?
+> 
+> The move_huge_page function is defined only for CONFIG_TRANSPARENT_HUGEPAGE
+> so we cannot reuse it to begin with, since we have it disabled on our
+> systems. I am not sure if it is a good idea to split that out and refactor it
+> for reuse especially since our case is quite simple compared to huge pages.
+> 
+> There are also a couple of subtle differences between the move_normal_pmd and
+> the move_huge_pmd. Atleast 2 of them are:
+> 
+> 1. We don't concern ourself with the PMD dirty bit, since the pages being
+> moved are normal pages and at the soft-dirty bit accounting is at the PTE
+> level, since we are not moving PTEs, we don't need to do that.
+> 
+> 2. The locking is simpler as Kirill pointed, pmd_lock cannot fail however
+> __pmd_trans_huge_lock can.
+> 
+> I feel it is not super useful to refactor move_huge_pmd to support our case
+> especially since move_normal_pmd is quite small, so IMHO the benefit of code
+> reuse isn't there very much.
 >
-> On Thu, Oct 25, 2018 at 2:31 PM David Abdurachmanov
-> <david.abdurachmanov@gmail.com> wrote:
-> > On Wed, Oct 24, 2018 at 10:40 PM Palmer Dabbelt <palmer@sifive.com> wrote:
-> > > From: "Wesley W. Terpstra" <wesley@sifive.com>
+
+My big concern is that any bug fixes will need to monitor both paths.
+Do you see a big overhead in checking the soft dirty bit? The locking is
+a little different. Having said that, I am not strictly opposed to the
+extra code, just concerned about missing fixes/updates as we find them.
+ 
+> Do let me know your thoughts and thanks for your interest in this.
+> 
 >
-> ...
->
-> > Palmer,
-> >
-> > Half of the patch seems to touch audit parts. I started working on audit
-> > support this morning, and I can boot Fedora with audit traces.
-> >
-> > [root at fedora-riscv ~]# dmesg | grep audit
-> > [    0.312000] audit: initializing netlink subsys (disabled)
-> > [    0.316000] audit: type=2000 audit(0.316:1): state=initialized
-> > audit_enabled=0 res=1
-> > [    7.288000] audit: type=1130 audit(1529665913.772:2): pid=1 uid=0
-> > auid=4294967295 ses=4294967295 msg='unit=systemd-remount-fs
-> > comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=?
-> > terminal=? res=success'
-> > [    7.684000] audit: type=1130 audit(1529665914.176:3): pid=1 uid=0
-> > auid=4294967295 ses=4294967295 msg='unit=systemd-sysctl comm="systemd"
-> > exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=?
-> > res=success'
-> > [..]
-> >
-> > I am still working on audit user-space support for better testing.
-> >
-> > I suggest we first implement audit and then seccomp.
->
-> FYI, while small and far from comprehensive, we do have a test suite
-> we use for basic validation of the audit kernel bits which may be
-> helpful while you're working on the audit enablement:
->
-> * https://github.com/linux-audit/audit-testsuite
 
-Currently I checked the following to work:
-- /proc/self/loginuid (required by DNF [package manager])
-- auditctl (checked several different example rules from internet)
-- aulast
-- aulastlog
-- ausearch
-- ausyscall
-- aureport
-- autrace (compared some syscalls to strace: order and
-  return value/input arguments seems to be correct)
-
-I checked audit-testsuite yesterday and it seems to be only for
-x86-64 / x86-32. After adjusting it (MODE, syscalls) I am at:
-
-Failed 4/14 test programs. 19/88 subtests failed.
-
-I don't plan to look further in the failure, e.g.:
-- syscall_socketcall: that's an old stuff and not relevant to
-  new arches
-- syscall_module: Fedora kernel currently is not compiled
-  with kernel loadable module support
-- filter_exclude: two tests fail because id -Z doesn't print
-  any categories, but "semanage login -l" output is identical
-  between x86_64 and riscv64
-- netfilter_pkt: don't have CONFIG_IP_NF_MANGLE enabled
-
-Fedora kernel currently has minimal CONFIG_* options
-and is built without loadable module support.
-
-I will send the patches for review soon.
-
-david
+Balbir Singh. 
