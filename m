@@ -1,137 +1,47 @@
 From: david.abdurachmanov@gmail.com (David Abdurachmanov)
-Date: Mon, 29 Oct 2018 11:48:53 +0100
-Subject: [PATCH 1/2] riscv: add audit support
+Date: Mon, 29 Oct 2018 11:48:54 +0100
+Subject: [PATCH 2/2] riscv: audit: add audit hook in
+ do_syscall_trace_enter/exit()
 In-Reply-To: <20181029104854.17432-1-david.abdurachmanov@gmail.com>
 References: <20181029104854.17432-1-david.abdurachmanov@gmail.com>
-Message-ID: <20181029104854.17432-2-david.abdurachmanov@gmail.com>
+Message-ID: <20181029104854.17432-3-david.abdurachmanov@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On RISC-V (riscv) audit is supported through generic lib/audit.c.
-The patch adds required arch specific definitions.
+This patch adds auditing functions on entry to and exit from every system
+call invocation.
 
 Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
 ---
- arch/riscv/Kconfig                   |  1 +
- arch/riscv/include/asm/ptrace.h      |  5 +++++
- arch/riscv/include/asm/syscall.h     | 10 ++++++++++
- arch/riscv/include/asm/thread_info.h |  6 ++++++
- arch/riscv/kernel/entry.S            |  4 ++--
- include/uapi/linux/audit.h           |  2 ++
- 6 files changed, 26 insertions(+), 2 deletions(-)
+ arch/riscv/kernel/ptrace.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a344980287a5..8e6d404a4ed0 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -28,6 +28,7 @@ config RISCV
- 	select GENERIC_STRNLEN_USER
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_ATOMIC64 if !64BIT || !RISCV_ISA_A
-+	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_MEMBLOCK
- 	select HAVE_MEMBLOCK_NODE_MAP
- 	select HAVE_DMA_CONTIGUOUS
-diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
-index 2c5df945d43c..62c5e9d35596 100644
---- a/arch/riscv/include/asm/ptrace.h
-+++ b/arch/riscv/include/asm/ptrace.h
-@@ -113,6 +113,11 @@ static inline void frame_pointer_set(struct pt_regs *regs,
- 	SET_FP(regs, val);
- }
- 
-+static inline unsigned long regs_return_value(struct pt_regs *regs)
-+{
-+	return regs->a0;
-+}
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _ASM_RISCV_PTRACE_H */
-diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
-index 8d25f8904c00..bba3da6ef157 100644
---- a/arch/riscv/include/asm/syscall.h
-+++ b/arch/riscv/include/asm/syscall.h
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index 9f82a7e34c64..85b0c93f00c6 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
 @@ -18,6 +18,7 @@
- #ifndef _ASM_RISCV_SYSCALL_H
- #define _ASM_RISCV_SYSCALL_H
- 
-+#include <uapi/linux/audit.h>
- #include <linux/sched.h>
- #include <linux/err.h>
- 
-@@ -99,4 +100,13 @@ static inline void syscall_set_arguments(struct task_struct *task,
- 	memcpy(&regs->a1 + i * sizeof(regs->a1), args, n * sizeof(regs->a0));
+ #include <asm/ptrace.h>
+ #include <asm/syscall.h>
+ #include <asm/thread_info.h>
++#include <linux/audit.h>
+ #include <linux/ptrace.h>
+ #include <linux/elf.h>
+ #include <linux/regset.h>
+@@ -111,10 +112,14 @@ void do_syscall_trace_enter(struct pt_regs *regs)
+ 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
+ 		trace_sys_enter(regs, syscall_get_nr(current, regs));
+ #endif
++
++	audit_syscall_entry(regs->a7, regs->a0, regs->a1, regs->a2, regs->a3);
  }
  
-+static inline int syscall_get_arch(void)
-+{
-+#ifdef CONFIG_64BIT
-+	return AUDIT_ARCH_RISCV64;
-+#else
-+	return AUDIT_ARCH_RISCV32;
-+#endif
-+}
+ void do_syscall_trace_exit(struct pt_regs *regs)
+ {
++	audit_syscall_exit(regs);
 +
- #endif	/* _ASM_RISCV_SYSCALL_H */
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index f8fa1cd2dad9..1c9cc8389928 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -80,13 +80,19 @@ struct thread_info {
- #define TIF_RESTORE_SIGMASK	4	/* restore signal mask in do_signal() */
- #define TIF_MEMDIE		5	/* is terminating due to OOM killer */
- #define TIF_SYSCALL_TRACEPOINT  6       /* syscall tracepoint instrumentation */
-+#define TIF_SYSCALL_AUDIT	7	/* syscall auditing */
+ 	if (test_thread_flag(TIF_SYSCALL_TRACE))
+ 		tracehook_report_syscall_exit(regs, 0);
  
- #define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
- #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
- #define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
- #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
-+#define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
-+#define _TIF_SYSCALL_AUDIT	(1 << TIF_SYSCALL_AUDIT)
- 
- #define _TIF_WORK_MASK \
- 	(_TIF_NOTIFY_RESUME | _TIF_SIGPENDING | _TIF_NEED_RESCHED)
- 
-+#define _TIF_SYSCALL_WORK \
-+	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_TRACEPOINT | _TIF_SYSCALL_AUDIT)
-+
- #endif /* _ASM_RISCV_THREAD_INFO_H */
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index fa2c08e3c05e..2a6c2e7aaff3 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -202,7 +202,7 @@ handle_syscall:
- 	REG_S s2, PT_SEPC(sp)
- 	/* Trace syscalls, but only if requested by the user. */
- 	REG_L t0, TASK_TI_FLAGS(tp)
--	andi t0, t0, _TIF_SYSCALL_TRACE
-+	andi t0, t0, _TIF_SYSCALL_WORK
- 	bnez t0, handle_syscall_trace_enter
- check_syscall_nr:
- 	/* Check to make sure we don't jump to a bogus syscall number. */
-@@ -222,7 +222,7 @@ ret_from_syscall:
- 	REG_S a0, PT_A0(sp)
- 	/* Trace syscalls, but only if requested by the user. */
- 	REG_L t0, TASK_TI_FLAGS(tp)
--	andi t0, t0, _TIF_SYSCALL_TRACE
-+	andi t0, t0, _TIF_SYSCALL_WORK
- 	bnez t0, handle_syscall_trace_exit
- 
- ret_from_exception:
-diff --git a/include/uapi/linux/audit.h b/include/uapi/linux/audit.h
-index 818ae690ab79..d0e037a96a7b 100644
---- a/include/uapi/linux/audit.h
-+++ b/include/uapi/linux/audit.h
-@@ -399,6 +399,8 @@ enum {
- /* do not define AUDIT_ARCH_PPCLE since it is not supported by audit */
- #define AUDIT_ARCH_PPC64	(EM_PPC64|__AUDIT_ARCH_64BIT)
- #define AUDIT_ARCH_PPC64LE	(EM_PPC64|__AUDIT_ARCH_64BIT|__AUDIT_ARCH_LE)
-+#define AUDIT_ARCH_RISCV32	(EM_RISCV|__AUDIT_ARCH_LE)
-+#define AUDIT_ARCH_RISCV64	(EM_RISCV|__AUDIT_ARCH_64BIT|__AUDIT_ARCH_LE)
- #define AUDIT_ARCH_S390		(EM_S390)
- #define AUDIT_ARCH_S390X	(EM_S390|__AUDIT_ARCH_64BIT)
- #define AUDIT_ARCH_SH		(EM_SH)
 -- 
 2.17.2
