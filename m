@@ -1,79 +1,66 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 29 Oct 2018 13:27:55 -0700 (PDT)
-Subject: [PATCH 2/2] RISC-V: Add support for SECCOMP
-In-Reply-To: <CAEn-LTonSqSG8GtgVmwt7ToJ2NZKsGEaWndmA0Q7Lzm316CFbA@mail.gmail.com>
-Message-ID: <mhng-71c7a4db-432a-4f97-86cd-1fe16091a6c8@palmer-si-x1c4>
+From: paul@paul-moore.com (Paul Moore)
+Date: Mon, 29 Oct 2018 18:57:44 -0400
+Subject: [PATCH 0/2] riscv: add audit support
+In-Reply-To: <20181029104854.17432-1-david.abdurachmanov@gmail.com>
+References: <20181029104854.17432-1-david.abdurachmanov@gmail.com>
+Message-ID: <CAHC9VhSdOJunU18-FxbdmTuEmwtwzSbaBwt71P-F5hP3sLW-Ag@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sun, 28 Oct 2018 04:07:55 PDT (-0700), david.abdurachmanov at gmail.com wrote:
-> On Thu, Oct 25, 2018 at 10:36 PM Paul Moore <paul@paul-moore.com> wrote:
->>
->> On Thu, Oct 25, 2018 at 2:31 PM David Abdurachmanov
->> <david.abdurachmanov@gmail.com> wrote:
->> > On Wed, Oct 24, 2018 at 10:40 PM Palmer Dabbelt <palmer@sifive.com> wrote:
->> > > From: "Wesley W. Terpstra" <wesley@sifive.com>
->>
->> ...
->>
->> > Palmer,
->> >
->> > Half of the patch seems to touch audit parts. I started working on audit
->> > support this morning, and I can boot Fedora with audit traces.
->> >
->> > [root at fedora-riscv ~]# dmesg | grep audit
->> > [    0.312000] audit: initializing netlink subsys (disabled)
->> > [    0.316000] audit: type=2000 audit(0.316:1): state=initialized
->> > audit_enabled=0 res=1
->> > [    7.288000] audit: type=1130 audit(1529665913.772:2): pid=1 uid=0
->> > auid=4294967295 ses=4294967295 msg='unit=systemd-remount-fs
->> > comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=?
->> > terminal=? res=success'
->> > [    7.684000] audit: type=1130 audit(1529665914.176:3): pid=1 uid=0
->> > auid=4294967295 ses=4294967295 msg='unit=systemd-sysctl comm="systemd"
->> > exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=?
->> > res=success'
->> > [..]
->> >
->> > I am still working on audit user-space support for better testing.
->> >
->> > I suggest we first implement audit and then seccomp.
->>
->> FYI, while small and far from comprehensive, we do have a test suite
->> we use for basic validation of the audit kernel bits which may be
->> helpful while you're working on the audit enablement:
->>
->> * https://github.com/linux-audit/audit-testsuite
+On Mon, Oct 29, 2018 at 6:49 AM David Abdurachmanov
+<david.abdurachmanov@gmail.com> wrote:
+> This patchset adds system call audit support on riscv (riscv32 &
+> riscv64).
 >
-> Currently I checked the following to work:
-> - /proc/self/loginuid (required by DNF [package manager])
+> The pachset was prepared on top of v4.19 tag.
+>
+> audit-userspace changes were submitted. See:
+> https://github.com/linux-audit/audit-userspace/pull/73
+>
+> Tested the following manually:
 > - auditctl (checked several different example rules from internet)
 > - aulast
 > - aulastlog
 > - ausearch
 > - ausyscall
 > - aureport
-> - autrace (compared some syscalls to strace: order and
->   return value/input arguments seems to be correct)
+> - autrace (compared some syscalls to strace: order and return
+>   value/input arguments seem to be correct)
+> - /proc/self/loginuid (required by DNF [package manager])
 >
-> I checked audit-testsuite yesterday and it seems to be only for
-> x86-64 / x86-32. After adjusting it (MODE, syscalls) I am at:
+> I looked into audit-testsuite and with some adjustments results are:
 >
 > Failed 4/14 test programs. 19/88 subtests failed.
 >
-> I don't plan to look further in the failure, e.g.:
-> - syscall_socketcall: that's an old stuff and not relevant to
->   new arches
-> - syscall_module: Fedora kernel currently is not compiled
->   with kernel loadable module support
-> - filter_exclude: two tests fail because id -Z doesn't print
->   any categories, but "semanage login -l" output is identical
->   between x86_64 and riscv64
-> - netfilter_pkt: don't have CONFIG_IP_NF_MANGLE enabled
+> The failing tests were due to missing CONFIG_IP_NF_MANGLE, 'id -Z' not
+> printing categories (don't know why), not having loadable kernel module
+> support enablled and syscall_socketcall not being relevant for new arches.
 >
-> Fedora kernel currently has minimal CONFIG_* options
-> and is built without loadable module support.
+> audit-testsuite with adjustments:
+> https://github.com/davidlt/audit-testsuite/tree/riscv64
 >
-> I will send the patches for review soon.
+> Depends on:
+> [PATCH 1/2] Move EM_RISCV into elf-em.h
+> http://lists.infradead.org/pipermail/linux-riscv/2018-October/001885.html
+>
+> This should solve DNF issues in Fedora 29/RISCV.
+>
+> David Abdurachmanov (2):
+>   riscv: add audit support
+>   riscv: audit: add audit hook in do_syscall_trace_enter/exit()
+>
+>  arch/riscv/Kconfig                   |  1 +
+>  arch/riscv/include/asm/ptrace.h      |  5 +++++
+>  arch/riscv/include/asm/syscall.h     | 10 ++++++++++
+>  arch/riscv/include/asm/thread_info.h |  6 ++++++
+>  arch/riscv/kernel/entry.S            |  4 ++--
+>  arch/riscv/kernel/ptrace.c           |  5 +++++
+>  include/uapi/linux/audit.h           |  2 ++
+>  7 files changed, 31 insertions(+), 2 deletions(-)
 
-Thanks!
+Thanks for the patches David, I'll be able to take a closer look next
+week once the merge window is closed.
+
+-- 
+paul moore
+www.paul-moore.com
