@@ -1,44 +1,28 @@
-From: kraxel@redhat.com (Gerd Hoffmann)
-Date: Tue, 30 Oct 2018 08:23:44 +0100
-Subject: virtio-gpu without ARCH_HAS_SG_CHAIN
-In-Reply-To: <CAGw6cBsWHB4aRf=kPoT+v-FbtL0ymeBtZNEwKYobFizc0cLeaQ@mail.gmail.com>
-References: <CAGw6cBsWHB4aRf=kPoT+v-FbtL0ymeBtZNEwKYobFizc0cLeaQ@mail.gmail.com>
-Message-ID: <20181030072344.sstmq6jxcmyzbqmr@sirius.home.kraxel.org>
+From: david.abdurachmanov@gmail.com (David Abdurachmanov)
+Date: Tue, 30 Oct 2018 08:23:21 +0100
+Subject: [PATCH] riscv: fix trace_sys_exit hook
+In-Reply-To: <20181029121516.29574-1-david.abdurachmanov@gmail.com>
+References: <20181029121516.29574-1-david.abdurachmanov@gmail.com>
+Message-ID: <CAEn-LTpaTxPmb0De=834S5G6fA_Oe+mTN0bYk+iR4Amb4Sk1wA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Oct 29, 2018 at 12:46:34PM -0700, Michael Forney wrote:
-> Hi,
-> 
-> I was looking at adding virtio-gpu support to tinyemu
-> (https://bellard.org/tinyemu/). I got it to work on x86, but just for
-> fun I tried it under riscv and ran into an issue with buffer
-> allocations (though, this should affect any arch without
-> ARCH_HAS_SG_CHAIN).
-> 
-> virtio-gpu uses ttm to allocate buffers, which swaps pages to ensure
-> that they aren't consecutive[0][1].
+On Mon, Oct 29, 2018 at 1:15 PM David Abdurachmanov
+<david.abdurachmanov@gmail.com> wrote:
+>
+> Depends on:
+> http://lists.infradead.org/pipermail/linux-riscv/2018-October/001931.html
+>
+> Why we don't have HAVE_SYSCALL_TRACEPOINTS in arch/riscv/Kconfig?
+>
 
-Interesting.
+I looked this morning into Documentation/trace/ftrace-design.rst again.
 
-While hacking the virtio-gpu ttm code I've already noticed that I get
-non-contignous memory even for small allocations (cursor, which is only
-4 pages), but havn't found the time yet to look at this.
+Of all the things the document describes we are only missing
+HAVE_SYSCALL_TRACEPOINTS in Kconfig, yet we already have it
+implemented in ptrace.c (+ this minor fix). Reading document, I think,
+we check all the boxes needed for HAVE_SYSCALL_TRACEPOINTS.
 
-Christian, care to explain the background?  The commit message sounds a
-bit like it papers over a bug somewhere else.
+I assume it was just missed (?) and will do v2 later on.
 
-> However, this causes sg_alloc_table_from_pages to use a sg entry for
-> every single page, limiting buffers to only 170 pages (the number of
-> sg entries that can fit into a page). This is only 417x417 with 32bpp.
-> I believe the page swapping also makes TRANSFER_TO_HOST_2D inefficient
-> by forcing the host to do many memcpys instead of just a few.
-
-Probably not *that* bad, the amount of data copyed doesn't change after
-all.  But, yes, I'd prefer to have shorter sh lists too.
-
-cheers,
-  Gerd
-
-> [0] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/drivers/gpu/drm/ttm/ttm_page_alloc.c?id=fdb1a2236b07948e83e0a777e1795d4f07e52c33
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/drivers/gpu/drm/ttm/ttm_page_alloc.c?id=ae937fe19636067ec5e20d7f1fa10c6cc6000b52
+david
