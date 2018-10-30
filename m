@@ -2,108 +2,87 @@ Return-Path: <SRS0=Vdo/=NK=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+X-Spam-Status: No, score=-9.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 73EF1C2BC61
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Oct 2018 16:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D2D33C6786F
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Oct 2018 16:16:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3996420657
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Oct 2018 16:14:53 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A3CBD20657
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Oct 2018 16:16:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mM9ImOOP";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="N1QkNPiK";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="rLS5aEgW"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3996420657
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="W9hbntDL";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="kBBZy09R"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A3CBD20657
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=/Pb+L8gFj7jRwfo0uBWoydJ3haEXvD77nJ54KzyL1GM=; b=mM9ImOOPx2yP4fOkijoJIzW+kh
-	zo1G0Hf8ex+Yz7aPZlEUQVKE7NxbZQOMJSMLLD6n7nEfWAP0d/M/xZimkjQDuQ4+9sBQPrvLfHNqv
-	vPxhio/rR2cWMSnQWfXWMCgkmEzwCNcAXnCg+/+hrogLei18GVoO5/D+Y2Ps8WRVs/oB85MWVRQfS
-	uEBZcw+BUCy3ox9OChouzgCkxbuzEyBPb3nFHo5shBLC31uJ3e5UZXypUKO4V3eFILBGPXacr9bPE
-	Jqv3P+uPdQ25qbb1GvKZ+qIwpoLQVnWigyBE2rxVk9CWvemXLAZV5b85NOY1Knd37FiVISp+lFkS5
-	wooGWlQQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4Sl9JqFWN5vLUy1bkk9qnk5MAVtetqWXrURVq9Cj5T0=; b=W9hbntDLJbzU21
+	9+Hmr3VP2kYBm7baQxtc7ZgNvIwUSBCn/Mg8Ut/Xm++W6Ag1CUdXZMU+nJSNZt7CcSIbe7WMn1Pb2
+	OqQ/MIKuQrhi8n3hlMoNbf3p4ss8TXOFeU1typjfO9/TFwig7UZUFQItVFQZj6hpK0cpXk5rYfiNJ
+	6616FSP+46eh1PZFR4/JCw2P8uqsDEL9MrRX4lv/hIVSaUd0lusY9CL0cJRJC/wbA2vn2r/fGXnQy
+	IpO4qwRY/qf4tnEIHgHhkX45jWmwZrLceWYhzn67lYCknQeOx/y1xko7ZqnnHSOdf3nb6Zh47yIEP
+	TKJYWtlSju3T4p2ERBfA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gHWfL-0007TN-Gz; Tue, 30 Oct 2018 16:14:51 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1gHWh0-0002iu-7I; Tue, 30 Oct 2018 16:16:34 +0000
+Received: from merlin.infradead.org ([205.233.59.134])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gHW0b-0000G0-MZ
- for linux-riscv@bombadil.infradead.org; Tue, 30 Oct 2018 15:32:45 +0000
+ id 1gHVhm-0000p6-Bu
+ for linux-riscv@bombadil.infradead.org; Tue, 30 Oct 2018 15:13:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=References:In-Reply-To:Message-Id:Date:
- Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
+ d=infradead.org; s=merlin.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
  Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
  List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=NuxinlPFkTFdjaEbQkXHMBa3Mw58yZFqIfMCUEnEDSY=; b=N1QkNPiK6AbOTLSwEOlpAYYMx
- yWSnpEI+qXmNCDnKijOdwdBuar4sPRLLh6yBF/vRrVSBU519cEBY0m56uk5oexxWVZcuypSwfAV9Q
- x9lvOtO8aMql+zyUQPQeutt1JZT012VXJayVqEgpa6MgLobUl4kuk2DyvYGyP/fGiYS0XJ2LBNxar
- xDPNYpGNGs6ENWdM3k132nr+CWr2Knv/c2fwufRNY+WqYKinZQrDTrJuTJMyhoPlJJkzCrXnH5xvu
- nos0v97zyhh3NRJhCH33HB1B62F1LUxdZ/n0eOStGbhuT5rrDxHuKvmbJHEz3sD+M8/6bjXj0bZR6
- 102pZokIw==;
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
- by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gHQq6-0007yq-4e
- for linux-riscv@lists.infradead.org; Tue, 30 Oct 2018 10:01:36 +0000
-Received: by mail-wm1-x342.google.com with SMTP id h2-v6so7258775wmb.0
- for <linux-riscv@lists.infradead.org>; Tue, 30 Oct 2018 03:01:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=NuxinlPFkTFdjaEbQkXHMBa3Mw58yZFqIfMCUEnEDSY=;
- b=rLS5aEgWL6fDLTgU58G5ZB9HwHHBeowRFymG8eSvRJY2YwW6XNTNxvxs5AFDa0WCOR
- N/n0rcFSbIi6+5sq4HauX8VPp2pKXMiw0a7EwJzQDLIfvEqeu/uOBGRUUL6ch4SPLjlY
- D2RrZFxq7WUBe0bNEAbkHELw/4oJ2WX9f/zZptfFHiHN7i8V/JqqfKm1sXa+d1ULgi2r
- FLvPLcW1ZT/BO9spbf1H5ip0oFx16zug2gajmwx6nbx4atKDZo+msiEypwH9npzD9Cj1
- 6+cjm4j5BDxLB6KvnSSS6O9qhy8RrYp2t6DBu4ZjCHXw0f239udR7uSj1AxIbuqBCVjH
- ibCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=NuxinlPFkTFdjaEbQkXHMBa3Mw58yZFqIfMCUEnEDSY=;
- b=LPmt1c2narDe1vN7s+miiznXX/5DNYwVNriNl51/u18FGCXrigf6EZdqnjI1h8PqhG
- EWRXXcqZ+pndf55zTqmDlIh2cT3vpVNm5ESnJSghUnH9bcfVP9LneaAJznIgprd8sj6u
- Q+EIkRshP1OIrkCKgIuinLCUg6n4pQ63pCa5e6dQoViDt3yH4EnIT4i9ksmidD1f6jrx
- zEoIR6FNHDA3e+C1wyyiDvQg/Y4LaZ7EBUtC668F0mESDrPzj4XHNq5jqyGi0aTO9gvl
- D3ptg3+kzouQtO89F+IukAzonf+lPQvWiGCzyBOje7A1Rnwfer5d3Ve945Ww2GeEDpnv
- cHJA==
-X-Gm-Message-State: AGRZ1gLEfUvICzYyG0PDgFiwQlj32fZYYe3uyK3qWUc4Sv9SjnBXApyv
- TkoP7Ot0aUIn63m9R45LEh4=
-X-Google-Smtp-Source: AJdET5ch03jlyaZ8QsjzPLguPHICXfvserlErz048N4EwfQi8L+ZjEqnN0qYfgCiyNDePha1y/3uWQ==
-X-Received: by 2002:a1c:f60f:: with SMTP id
- w15-v6mr1228836wmc.101.1540893681699; 
- Tue, 30 Oct 2018 03:01:21 -0700 (PDT)
-Received: from localhost.localdomain (ip-76.net-89-3-178.rev.numericable.fr.
- [89.3.178.76])
- by smtp.gmail.com with ESMTPSA id f1-v6sm18420825wme.23.2018.10.30.03.01.20
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Tue, 30 Oct 2018 03:01:21 -0700 (PDT)
-From: David Abdurachmanov <david.abdurachmanov@gmail.com>
-To: palmer@sifive.com, aou@eecs.berkeley.edu, green.hu@gmail.com,
- deanbo422@gmail.com, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: [PATCH 2/2] doc: re-run features-refresh.sh
-Date: Tue, 30 Oct 2018 11:01:07 +0100
-Message-Id: <20181030100107.4590-3-david.abdurachmanov@gmail.com>
-X-Mailer: git-send-email 2.17.2
-In-Reply-To: <20181030100107.4590-1-david.abdurachmanov@gmail.com>
-References: <20181030100107.4590-1-david.abdurachmanov@gmail.com>
+ bh=BkYL+Y5GGRMd6N0QpBgW8DzjmK54rkY5Ly6LQnAts98=; b=kBBZy09Rp6T4uGACjZQiXhfkq
+ h3UCvHo6JDBdNFhpBh3F3uSdZR63ankS4YjDin1HQnzPQDrcggG45w4VjAkVZZ5g1Z0TJKW0jPyTe
+ bZKsnEPgOcPfRZMDN8tWzxrJCIHPUX9Pd9m5ub5rzgOdaNrgL4lJTIKoivEF5cDY3c403wX7kiSYL
+ 3fngGKIw+nJZJo4AdbVG5CfKp8e4+LdhlP0DLIiSOyVSy2yGN4RsrFVufoCzKREnjczJ05NPkSssd
+ dQ79eC7E6p3KBf38GpSFuDE+9ezoqfyl8HrhSk1tqiVBuFP5nDQeJjlFVk/eCIVSchkXznrfLv6UV
+ o3e2RR2LA==;
+Received: from mx1.redhat.com ([209.132.183.28])
+ by merlin.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gHONr-0000zH-Kv
+ for linux-riscv@lists.infradead.org; Tue, 30 Oct 2018 07:24:16 +0000
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
+ [10.5.11.23])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mx1.redhat.com (Postfix) with ESMTPS id A11CA313CA1B;
+ Tue, 30 Oct 2018 07:23:45 +0000 (UTC)
+Received: from sirius.home.kraxel.org (ovpn-116-158.ams2.redhat.com
+ [10.36.116.158])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 5118B2AAA1;
+ Tue, 30 Oct 2018 07:23:45 +0000 (UTC)
+Received: by sirius.home.kraxel.org (Postfix, from userid 1000)
+ id 3E7B7B3DC7; Tue, 30 Oct 2018 08:23:44 +0100 (CET)
+Date: Tue, 30 Oct 2018 08:23:44 +0100
+From: Gerd Hoffmann <kraxel@redhat.com>
+To: Michael Forney <mforney@mforney.org>, christian.koenig@amd.com
+Subject: Re: virtio-gpu without ARCH_HAS_SG_CHAIN
+Message-ID: <20181030072344.sstmq6jxcmyzbqmr@sirius.home.kraxel.org>
+References: <CAGw6cBsWHB4aRf=kPoT+v-FbtL0ymeBtZNEwKYobFizc0cLeaQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAGw6cBsWHB4aRf=kPoT+v-FbtL0ymeBtZNEwKYobFizc0cLeaQ@mail.gmail.com>
+User-Agent: NeoMutt/20180716
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+ (mx1.redhat.com [10.5.110.46]); Tue, 30 Oct 2018 07:23:45 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181030_100134_181402_8F9F0B18 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20181030_032415_767080_75CC7CBD 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -115,85 +94,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Abdurachmanov <david.abdurachmanov@gmail.com>
-MIME-Version: 1.0
+Cc: linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ virtualization@lists.linux-foundation.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181030100107.GkQxjU4oqp_L-YUB_2TgIHc95rDbh3b-Ghw6-iPcwDM@z>
+Message-ID: <20181030072344.j4_2_YkaVd6r18w5yAV6aCA8XFxRXrujlL97vHxXTIk@z>
 
-Some arch-support.txt are out-of-date.
-This also incl. riscv in sg-chain and pte_special tables.
+On Mon, Oct 29, 2018 at 12:46:34PM -0700, Michael Forney wrote:
+> Hi,
+> 
+> I was looking at adding virtio-gpu support to tinyemu
+> (https://bellard.org/tinyemu/). I got it to work on x86, but just for
+> fun I tried it under riscv and ran into an issue with buffer
+> allocations (though, this should affect any arch without
+> ARCH_HAS_SG_CHAIN).
+> 
+> virtio-gpu uses ttm to allocate buffers, which swaps pages to ensure
+> that they aren't consecutive[0][1].
 
-Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
----
- Documentation/features/io/sg-chain/arch-support.txt           | 4 ++--
- .../features/locking/queued-spinlocks/arch-support.txt        | 2 +-
- Documentation/features/perf/kprobes-event/arch-support.txt    | 2 +-
- Documentation/features/vm/pte_special/arch-support.txt        | 2 +-
- 4 files changed, 5 insertions(+), 5 deletions(-)
+Interesting.
 
-diff --git a/Documentation/features/io/sg-chain/arch-support.txt b/Documentation/features/io/sg-chain/arch-support.txt
-index 6554f0372c3f..41ea6f738b38 100644
---- a/Documentation/features/io/sg-chain/arch-support.txt
-+++ b/Documentation/features/io/sg-chain/arch-support.txt
-@@ -22,12 +22,12 @@
-     |    openrisc: | TODO |
-     |      parisc: | TODO |
-     |     powerpc: |  ok  |
--    |       riscv: | TODO |
-+    |       riscv: |  ok  |
-     |        s390: |  ok  |
-     |          sh: | TODO |
-     |       sparc: |  ok  |
-     |          um: | TODO |
-     |   unicore32: | TODO |
-     |         x86: |  ok  |
--    |      xtensa: | TODO |
-+    |      xtensa: |  ok  |
-     -----------------------
-diff --git a/Documentation/features/locking/queued-spinlocks/arch-support.txt b/Documentation/features/locking/queued-spinlocks/arch-support.txt
-index 478e9101322c..beb013a72a90 100644
---- a/Documentation/features/locking/queued-spinlocks/arch-support.txt
-+++ b/Documentation/features/locking/queued-spinlocks/arch-support.txt
-@@ -9,7 +9,7 @@
-     |       alpha: | TODO |
-     |         arc: | TODO |
-     |         arm: | TODO |
--    |       arm64: | TODO |
-+    |       arm64: |  ok  |
-     |         c6x: | TODO |
-     |       h8300: | TODO |
-     |     hexagon: | TODO |
-diff --git a/Documentation/features/perf/kprobes-event/arch-support.txt b/Documentation/features/perf/kprobes-event/arch-support.txt
-index 7331402d1887..bfe41d68b7af 100644
---- a/Documentation/features/perf/kprobes-event/arch-support.txt
-+++ b/Documentation/features/perf/kprobes-event/arch-support.txt
-@@ -20,7 +20,7 @@
-     |       nds32: |  ok  |
-     |       nios2: | TODO |
-     |    openrisc: | TODO |
--    |      parisc: | TODO |
-+    |      parisc: |  ok  |
-     |     powerpc: |  ok  |
-     |       riscv: | TODO |
-     |        s390: |  ok  |
-diff --git a/Documentation/features/vm/pte_special/arch-support.txt b/Documentation/features/vm/pte_special/arch-support.txt
-index a8378424bc98..5bca00664a4f 100644
---- a/Documentation/features/vm/pte_special/arch-support.txt
-+++ b/Documentation/features/vm/pte_special/arch-support.txt
-@@ -22,7 +22,7 @@
-     |    openrisc: | TODO |
-     |      parisc: | TODO |
-     |     powerpc: |  ok  |
--    |       riscv: | TODO |
-+    |       riscv: |  ok  |
-     |        s390: |  ok  |
-     |          sh: |  ok  |
-     |       sparc: |  ok  |
--- 
-2.17.2
+While hacking the virtio-gpu ttm code I've already noticed that I get
+non-contignous memory even for small allocations (cursor, which is only
+4 pages), but havn't found the time yet to look at this.
+
+Christian, care to explain the background?  The commit message sounds a
+bit like it papers over a bug somewhere else.
+
+> However, this causes sg_alloc_table_from_pages to use a sg entry for
+> every single page, limiting buffers to only 170 pages (the number of
+> sg entries that can fit into a page). This is only 417x417 with 32bpp.
+> I believe the page swapping also makes TRANSFER_TO_HOST_2D inefficient
+> by forcing the host to do many memcpys instead of just a few.
+
+Probably not *that* bad, the amount of data copyed doesn't change after
+all.  But, yes, I'd prefer to have shorter sh lists too.
+
+cheers,
+  Gerd
+
+> [0] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/drivers/gpu/drm/ttm/ttm_page_alloc.c?id=fdb1a2236b07948e83e0a777e1795d4f07e52c33
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/drivers/gpu/drm/ttm/ttm_page_alloc.c?id=ae937fe19636067ec5e20d7f1fa10c6cc6000b52
 
 
 _______________________________________________
