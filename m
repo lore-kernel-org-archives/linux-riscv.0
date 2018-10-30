@@ -2,102 +2,102 @@ Return-Path: <SRS0=Vdo/=NK=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-2.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 57E2EC6786F
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Oct 2018 15:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C6C0EC2BC61
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Oct 2018 16:13:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1A2032081B
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Oct 2018 15:52:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 797FA20657
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Oct 2018 16:13:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UTr3ocqr";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="KM9Ix7+u";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="nXjD184b"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1A2032081B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HRXEYcSv";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="AR5OZjfW";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="FHBDvlke"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 797FA20657
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=9zQZPD663TfFW8+y5Z8WaC/AdKdRKGERIOVKtQVhU3U=; b=UTr3ocqrum8y+s6nb7qGkRiPSh
-	sZAM4jEemxkZH2o0tv0w0u8rHwJgauQLJ+yYh5/JfYVguxlpbXrPxPn18qtN7beRZ8CFxqkxXZqvD
-	lSFpYnYqD7PNTWBGpmlNIuCkzx7HyH51xuGEWIu9VMivZg4Cag3PplCr0ygP2hrTGCcsH4NE8hRQc
-	juXyl0jPYczXumhe1I5fZ75Z6Hs+jDTVd/1fRIPIaBEP6iEeivJIaQOByBTk7B+OV9XRHuO2ZTlz8
-	6Mf/lSdpsBCNlk4E/CuXKt1HVKiHTdf42c2qWh5sOktR74uTK3vwS7jK4cdg/J1YfJVD0SLkjqIQR
-	k/4zjulw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=ZTWtyvKv71bikH7FaFWq4kZMAszYMyODFiNqRJJHg64=; b=HRX
+	EYcSvEjNzrcpicvLaV23yuzDnHCoGyhqiL5yaBeYTOvdHZ8ckPmtHjEx2ZCCXBjYWUjsEZ5E1Bb03
+	SLjeVRK/77ABgHoBXI2gF6+RZTfl5N7vTJlWmQocZCzbxQUi+K9yRc5Ni38yUU1yW6+R+eco+0lFW
+	P3ICva3lIOBowfVaL6c4VbVbIOHpEuscK23baspuOTAMji9zlSX5pEo8bXJVEqr1FqgzSCt/Y+NdL
+	KFuQkN6cXHSXO0mVQn0ClfTLYv1HwSutwd2bJgmllhHco++jOz7Y/8dExz8c836ooQY7GLbYRoDE2
+	qcHe+bNMnQ+4KYPxJstyxhLQHA2ek6g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gHWJe-0008Lf-6z; Tue, 30 Oct 2018 15:52:26 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
+	id 1gHWeS-0006Qv-D5; Tue, 30 Oct 2018 16:13:56 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gHVhu-0000Xj-TH
- for linux-riscv@bombadil.infradead.org; Tue, 30 Oct 2018 15:13:27 +0000
+ id 1gHVzm-00085B-2U
+ for linux-riscv@bombadil.infradead.org; Tue, 30 Oct 2018 15:31:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Type:To:Subject:Message-ID:Date
- :From:In-Reply-To:References:MIME-Version:Sender:Reply-To:Cc:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ d=infradead.org; s=casper.20170209; h=Message-Id:Date:Subject:Cc:To:From:
+ Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
  List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=4DJuc2i95zXJlo6qm/8qeVQ2k/FdiYTh2vtUfqEHMF0=; b=KM9Ix7+uJlFp9ynuAH5g5A328
- r9fEkYZ1f/lJZxRYvIkFl2kJSCUZ8UZZSBzwXzBSHWhPFZB1m0DlQo5x4/FIygotbpo/HLCeTMTVt
- RIfnDlS0ZWrGU9Qkr0+ImkQiNS5EOofbIZ6ho0YCWetEQuSY/alhQdZeix+H1t+IroiCagtW/1r0H
- gkqdFUMHu6blutfY3kP3zdY40yk6kkhnkojL+ywPRhwUFA5La9mTVxhyh5qmO/oOOwLL2ITIpNvQN
- Tb3qomXX0One1L33/ug7In2wKVmlGGuw0KVSAU2HLsK8JH0uDErOLqVE+NPnDtWgSTyUnneVczcOF
- ArGpgUCiA==;
-Received: from mail-ot1-x341.google.com ([2607:f8b0:4864:20::341])
- by merlin.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gHOVc-00019y-BX
- for linux-riscv@lists.infradead.org; Tue, 30 Oct 2018 07:32:17 +0000
-Received: by mail-ot1-x341.google.com with SMTP id e9so8652056oti.1
- for <linux-riscv@lists.infradead.org>; Tue, 30 Oct 2018 00:32:03 -0700 (PDT)
+ bh=PcIdga3zkqCuJMMCGKfLMgVBdR4DqN1Jn/lpPqPfX2c=; b=AR5OZjfWR7Qiw05d5vs1DPnVM
+ mTZNSj6hU+IWkjIQyn4++PUw62AkvY2a0NJttQl2OYcR2zpW++jENO2w+rDrXHve0MrxCyFRWL2Vf
+ yem7SPr3SqDG16077W/m9I/pH/b13WSn8a/9v6QyPvBtK3uBvZ2q1Dwp8pKrwqFgNQdHxf98AZ5Dw
+ aqZtGIX9Ebd6QQjwpmiL6TEmajwERiM/a+0BNnzXF/5mf32DCYEvFt99an6V8OqkU/1ufDkd3Fwop
+ QdGWow2ye0scDje3UzcDDRnF5Y1hNM7IcYHX7dNpEYlqX5R8gBHd27xzpVFgDMh8Tmhvq/sFlyO0P
+ WLE7NrTww==;
+Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gHQq3-0007yR-3S
+ for linux-riscv@lists.infradead.org; Tue, 30 Oct 2018 10:01:32 +0000
+Received: by mail-wr1-x442.google.com with SMTP id d10-v6so11848635wrs.5
+ for <linux-riscv@lists.infradead.org>; Tue, 30 Oct 2018 03:01:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
- bh=4DJuc2i95zXJlo6qm/8qeVQ2k/FdiYTh2vtUfqEHMF0=;
- b=nXjD184bujdfTLhc2MD4rHMgHvxRPMtWf3zURasKYCodQys61tZz6CvyJMXtjthp89
- WxLumFErgqy+4jiGvkDbjI45UnhWFTLQVEKPiwlam2VYVZgwvA8G1gabKQCBoV0ROuYT
- LZjEPEU+WXf6trF/At2KUjOfMZX6jx8g4mRbpYXMTARPnXoDj+fWFZ7+ItHqCmNP7WON
- OzLYkBNpHdQMQHNTRBl/pERRWxqDnDq7UAwDjRXv1V2ZV+wEezXtvxA1eN2C/pP2tR8J
- D/JT9VxlB7c4nM6Yas5GxCC1NNWSlErn9uSe9Y1lFTjr5A5mzw9XPUX5UH3lfyOPbJXC
- ERBg==
+ h=from:to:cc:subject:date:message-id;
+ bh=PcIdga3zkqCuJMMCGKfLMgVBdR4DqN1Jn/lpPqPfX2c=;
+ b=FHBDvlkeG5tM+SUh4g4qptsGHgK8OsP4k0df5y4l52hk6Y1Gg5f1HwaaoJzAYFdJEQ
+ xzp+HIxUJsj3kmLc7mgb4pTpHaudgGKZbZjVTVDHJ9AZozp3s5Lgoy7XHVuCdW2Pze2n
+ bBRC1N3r/AN84ziKil25hZFaMFzqgi5WdsXZ9uWjipuvN0JX+729y2nAhjY3JXYUP9RR
+ MIaQTP7Y2FYfQzmuUuIXfwJXf+HLXqY/E6Y+QhE35kzQzcYdbTAob9yHzZ5y6XuBhtTN
+ YjghldpzV88xnx+3UYs5AzS5piClWMpLVIr5nKcgSGX2343P0tuE5i29AccGhSf7/046
+ zhaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to;
- bh=4DJuc2i95zXJlo6qm/8qeVQ2k/FdiYTh2vtUfqEHMF0=;
- b=IGkoAj1O6U8Bddws4noIFXGOOS5mBoU5rcShrOTPgIFzuRqqugepKI5gTsM7F79T3X
- GCo3mIfpk8SskR+neD7iBDk8cABF9T8bBGLcQLKYuQOVtYTfjuO2v5vF5QLBblg4rhat
- b1TKb5Fb4sKii2kD/E1dO1kYIkOGfPo7XDt3HmUxJW9MlgzgNukQuhfOl45g36aQ4/it
- 4VuRmOjuYpvZNjOcmyF8NJi60gZkl8VOKcoYhyppndOzENhJ4EtX67TnIgqoFKd6ZUpp
- laIUvgYO89W+Dn2DqjiB5qHTWUTbz2A3hA6eHuhQBI/uZtsyCmwsBsEwkYVRbkA4pfY9
- 78ow==
-X-Gm-Message-State: AGRZ1gJWYtk9tOVEKR4bbyEna8gruY5QJfdXLIbBi2jOWIs/b4RP4ZaT
- HslSFRobNz+LwwB5UhSBJUYy2Z8+4gs7UeZgRaM=
-X-Google-Smtp-Source: AJdET5e2r6USBRr5MQ2Qy/7+PtpnMuqXVQONVLGrjKrN7IEnjpM5vDy6fS0ezcmeclV5mYeTmOAct50v4DNoi1t6hlA=
-X-Received: by 2002:a9d:7383:: with SMTP id j3mr7222828otk.117.1540884212956; 
- Tue, 30 Oct 2018 00:23:32 -0700 (PDT)
-MIME-Version: 1.0
-References: <20181029121516.29574-1-david.abdurachmanov@gmail.com>
-In-Reply-To: <20181029121516.29574-1-david.abdurachmanov@gmail.com>
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=PcIdga3zkqCuJMMCGKfLMgVBdR4DqN1Jn/lpPqPfX2c=;
+ b=c4qPoSnYGnPaqgTl1PJR+OkMKSvku+vhX6JGeZDPf1FSokR2kP0EZ/JFLxAyEhxIQU
+ 1QEHIYFccVTXjBV/TUOwZeYYX3j3dw3ajIbxVXuyv/7C1FxYLJ5S4Oc7wwj6tIiOF1Yi
+ J5slkH6oNjlBLuWhnoPEvSo02h+lS6kw2Cycjkq2xtxzlQ0srzxqKHf+VWNCPARbe3aq
+ mcQUN1QyfSTtRIcEb5wMB+5EtZOCHVTkmfxS5LKStGxhhddRDJpobOchAQxRjLMFJDzt
+ aMNAYsOea1Vo4kry/YkyblkEb2tCfcMlliT9yDJOWm3wl+yMEP5FcXN2L3AJT8lyvmZe
+ DKAg==
+X-Gm-Message-State: AGRZ1gKrXrGIMN2lysEMRyHmiBmVgUyBdhXhKizPUfolutnuP657lAT6
+ CoQjh6JEBay6g8JR9YHh5eY=
+X-Google-Smtp-Source: AJdET5fSnJcvBXTDWEZzfcCwiO4xU4tI/3q70xIOCwRMF3mHO9fpl4eUh96mK+1CuwHUM5V/q8wRbQ==
+X-Received: by 2002:adf:e388:: with SMTP id e8-v6mr697516wrm.321.1540893674667; 
+ Tue, 30 Oct 2018 03:01:14 -0700 (PDT)
+Received: from localhost.localdomain (ip-76.net-89-3-178.rev.numericable.fr.
+ [89.3.178.76])
+ by smtp.gmail.com with ESMTPSA id f1-v6sm18420825wme.23.2018.10.30.03.01.13
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Tue, 30 Oct 2018 03:01:14 -0700 (PDT)
 From: David Abdurachmanov <david.abdurachmanov@gmail.com>
-Date: Tue, 30 Oct 2018 08:23:21 +0100
-Message-ID:
- <CAEn-LTpaTxPmb0De=834S5G6fA_Oe+mTN0bYk+iR4Amb4Sk1wA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: fix trace_sys_exit hook
-To: Palmer Dabbelt <palmer@sifive.com>, aou@eecs.berkeley.edu, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+To: palmer@sifive.com, aou@eecs.berkeley.edu, green.hu@gmail.com,
+ deanbo422@gmail.com, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: [PATCH 0/2] riscv: add ARCH_HAS_SG_CHAIN to Kconfig
+Date: Tue, 30 Oct 2018 11:01:05 +0100
+Message-Id: <20181030100107.4590-1-david.abdurachmanov@gmail.com>
+X-Mailer: git-send-email 2.17.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181030_033216_400115_87037A3F 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181030_100131_138339_690A6EF8 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -109,31 +109,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: David Abdurachmanov <david.abdurachmanov@gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181030072321.sWI0DWT6G72n24dbxzR_uqyp9dxWnkxJoXE_w5SR6SM@z>
+Message-ID: <20181030100105.Bhe183beHbmcECplHffKxRHGuBWKOz8W0FJIq6jTUEI@z>
 
-On Mon, Oct 29, 2018 at 1:15 PM David Abdurachmanov
-<david.abdurachmanov@gmail.com> wrote:
->
-> Depends on:
-> http://lists.infradead.org/pipermail/linux-riscv/2018-October/001931.html
->
-> Why we don't have HAVE_SYSCALL_TRACEPOINTS in arch/riscv/Kconfig?
->
+This should improve virtio-gpu support for riscv.
 
-I looked this morning into Documentation/trace/ftrace-design.rst again.
+David Abdurachmanov (2):
+  riscv: add ARCH_HAS_SG_CHAIN
+  doc: re-run features-refresh.sh
 
-Of all the things the document describes we are only missing
-HAVE_SYSCALL_TRACEPOINTS in Kconfig, yet we already have it
-implemented in ptrace.c (+ this minor fix). Reading document, I think,
-we check all the boxes needed for HAVE_SYSCALL_TRACEPOINTS.
+ Documentation/features/io/sg-chain/arch-support.txt           | 4 ++--
+ .../features/locking/queued-spinlocks/arch-support.txt        | 2 +-
+ Documentation/features/perf/kprobes-event/arch-support.txt    | 2 +-
+ Documentation/features/vm/pte_special/arch-support.txt        | 2 +-
+ arch/riscv/Kconfig                                            | 1 +
+ 5 files changed, 6 insertions(+), 5 deletions(-)
 
-I assume it was just missed (?) and will do v2 later on.
+-- 
+2.17.2
 
-david
 
 _______________________________________________
 linux-riscv mailing list
