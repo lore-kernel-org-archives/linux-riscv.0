@@ -1,31 +1,44 @@
-From: david.abdurachmanov@gmail.com (David Abdurachmanov)
-Date: Tue, 30 Oct 2018 11:01:06 +0100
-Subject: [PATCH 1/2] riscv: add ARCH_HAS_SG_CHAIN
-In-Reply-To: <20181030100107.4590-1-david.abdurachmanov@gmail.com>
-References: <20181030100107.4590-1-david.abdurachmanov@gmail.com>
-Message-ID: <20181030100107.4590-2-david.abdurachmanov@gmail.com>
+From: kraxel@redhat.com (Gerd Hoffmann)
+Date: Tue, 30 Oct 2018 08:23:44 +0100
+Subject: virtio-gpu without ARCH_HAS_SG_CHAIN
+In-Reply-To: <CAGw6cBsWHB4aRf=kPoT+v-FbtL0ymeBtZNEwKYobFizc0cLeaQ@mail.gmail.com>
+References: <CAGw6cBsWHB4aRf=kPoT+v-FbtL0ymeBtZNEwKYobFizc0cLeaQ@mail.gmail.com>
+Message-ID: <20181030072344.sstmq6jxcmyzbqmr@sirius.home.kraxel.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This seems to be needed for virtio-gpu.
+On Mon, Oct 29, 2018 at 12:46:34PM -0700, Michael Forney wrote:
+> Hi,
+> 
+> I was looking at adding virtio-gpu support to tinyemu
+> (https://bellard.org/tinyemu/). I got it to work on x86, but just for
+> fun I tried it under riscv and ran into an issue with buffer
+> allocations (though, this should affect any arch without
+> ARCH_HAS_SG_CHAIN).
+> 
+> virtio-gpu uses ttm to allocate buffers, which swaps pages to ensure
+> that they aren't consecutive[0][1].
 
-Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
-Reported-by: Michael Forney <mforney@mforney.org>
----
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+Interesting.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a344980287a5..b54f2ade769b 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -44,6 +44,7 @@ config RISCV
- 	select RISCV_TIMER
- 	select GENERIC_IRQ_MULTI_HANDLER
- 	select ARCH_HAS_PTE_SPECIAL
-+	select ARCH_HAS_SG_CHAIN
- 
- config MMU
- 	def_bool y
--- 
-2.17.2
+While hacking the virtio-gpu ttm code I've already noticed that I get
+non-contignous memory even for small allocations (cursor, which is only
+4 pages), but havn't found the time yet to look at this.
+
+Christian, care to explain the background?  The commit message sounds a
+bit like it papers over a bug somewhere else.
+
+> However, this causes sg_alloc_table_from_pages to use a sg entry for
+> every single page, limiting buffers to only 170 pages (the number of
+> sg entries that can fit into a page). This is only 417x417 with 32bpp.
+> I believe the page swapping also makes TRANSFER_TO_HOST_2D inefficient
+> by forcing the host to do many memcpys instead of just a few.
+
+Probably not *that* bad, the amount of data copyed doesn't change after
+all.  But, yes, I'd prefer to have shorter sh lists too.
+
+cheers,
+  Gerd
+
+> [0] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/drivers/gpu/drm/ttm/ttm_page_alloc.c?id=fdb1a2236b07948e83e0a777e1795d4f07e52c33
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/drivers/gpu/drm/ttm/ttm_page_alloc.c?id=ae937fe19636067ec5e20d7f1fa10c6cc6000b52
