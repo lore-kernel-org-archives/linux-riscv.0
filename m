@@ -2,89 +2,85 @@ Return-Path: <SRS0=Wf4V=NL=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_SBL,
+	URIBL_SBL_A autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B389CECDE44
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Oct 2018 06:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 656ACC0044C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Oct 2018 08:49:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8292F20657
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Oct 2018 06:47:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 27F3B2081B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Oct 2018 08:49:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Y9g/Hfdn";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lixom-net.20150623.gappssmtp.com header.i=@lixom-net.20150623.gappssmtp.com header.b="RhhNkCD0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8292F20657
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lixom.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="L4cULtJq";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Gmek5rh3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 27F3B2081B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=8FdGrH5lYyFwLo5NZusna3L80JLxsg3524E/kQXYV/g=; b=Y9g/HfdnROI34BP4F/dBYHvB9X
-	APBc2SF4SFryZjpefmiXJ4hOCqqHYocPPdpMCfpmKnEGRyiOsK88Zq/uu/YM1fjTQfoL7VVC3Mj7S
-	/2nIeOl2O8CddVwZB1Z40W9AO+srA+QsbsxjaDbfb0eSg9jDICNI4lDbKLsa8B1kzN9l1U5cMmJav
-	gIixbp9RvRrZgyGyKtMraS6DddYuKc6WSfUgCmRoHfqcBrCxKuMC3HILgsRa3KIS67sGx2FyDpFpa
-	OhTc53x2EB568V4MMOzEtu2GtxzDQlve4yFvI5vD8bQ+tUZcEGDga2L6XlBfxkGW6d0ildXzQuxlJ
-	s6uJg/4g==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=whG4PwWQ0gNS06NR5EijUqwLWjxl/UYe8LF25S06PKI=; b=L4cULtJqLbw4qV
+	mORvChHeqV+FzEqoyurjbgAiAayA4uzXsgCXc/pbBKGO7AfF8ZSI33JEWpcOxo2LtAfdTRfLGqejn
+	P6kA/JmJ2g0SwhdKsfqfcSNAYBJ8UGUS5EpB6sVJlKSnE7zaEt/+nrX483k7fPwS63HZH+U4VIcYY
+	7DcYsAs8FZ1RSm5Ae0x69XB5JlEX8GfewarDBVzmEAUHSYSTq5KCYnR6BRL23m/vQ/ecTQ7d9QK3N
+	hAffsgl3wZF/mYtlc0CBREPL84U6nShF2yDfkMkaKbMkupKD4MAxZv2hJ/+ilrlV+gK5ro0h/lvaQ
+	XOvkkSWdsrPITsBQ/zOA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gHkHz-0005mD-LR; Wed, 31 Oct 2018 06:47:39 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1gHmBT-0005AG-Ij; Wed, 31 Oct 2018 08:49:03 +0000
+Received: from mail-oi1-x243.google.com ([2607:f8b0:4864:20::243])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gHkHx-0005fe-0m
- for linux-riscv@lists.infradead.org; Wed, 31 Oct 2018 06:47:38 +0000
-Received: by mail-pl1-x643.google.com with SMTP id f10-v6so6810767plr.1
- for <linux-riscv@lists.infradead.org>; Tue, 30 Oct 2018 23:47:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=lixom-net.20150623.gappssmtp.com; s=20150623;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=jbGses3kKLxFwMMziG7eRw5NjyQ3ctDmuG8/t+lyq1U=;
- b=RhhNkCD0ovQE6FKl+WOSHKOzLviG03HhGHMpt4zJl9WuK/YgK03wRgyPUsGH1L5RQ3
- vc7RJwXiLD6una6/S1hwTSxpC94cLlji32JKzOyw6XI+xxn1SI43F6k8WRqMHerDXjkS
- 57PqbAc8+B6Nz9hM2+TPn3fFgwIdYmUlTql/4pgs+qRkVW8oglCuZbwNftZHHce6J8DR
- KGTdpmbRC/GgP3vznlJ6A8IvJuVgf1ML44iV85niZyQY/M0dHi+fx3G1WEOF/e34Q1e0
- qtkKRYS8r95SC6FUZhztVW7ypB7Mxx4Fsx2ZwFUoSn7WzTW28ZMj9TneAIvlhTHt9T8k
- p9DA==
+ id 1gHmBQ-000591-Qd
+ for linux-riscv@lists.infradead.org; Wed, 31 Oct 2018 08:49:02 +0000
+Received: by mail-oi1-x243.google.com with SMTP id e3-v6so12930870oiy.6
+ for <linux-riscv@lists.infradead.org>; Wed, 31 Oct 2018 01:48:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=E38TYy/cdUwEN1z2VmhmbZ6MYoFHLlpu/aw0NuhFiAE=;
+ b=Gmek5rh30YVoC7Sy05Te0inedXqCYrAQOEAt+kYS8oBjxSJlW/0AvfpSUqE+vr/xyC
+ gzIfHmPWND+2BsDPLqW2L6OwMSI2+8NZrv6DmsGq+K7rfLJpLLbS5gBCLPaq+qo8JfOD
+ IPcK0ZD4+e5/qCG5eFBdZLcPv0KbbcwdjlxxHisOQoiE/KzQvmrwgidMLkZOW2fOAs2k
+ fg81vI7KPNAMw20GDg9OCoxZiirFFdZ/SgYTcDfci4EAd3CW8C2FU9qBviZslINLuf3C
+ E+BA4Zz09nby3gYMI8JARdm/BiWNoBQ36yAJ+xfAvGXWoGhvfVckrEkDvZsOMYVwId+n
+ LbuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=jbGses3kKLxFwMMziG7eRw5NjyQ3ctDmuG8/t+lyq1U=;
- b=tKNml5g8vdh1nQySyJep7pq1G9AspC7/ZpjieD7BJ+nJF83duiWqQblOTZ8fEUOlFv
- X4ZbicrheGaK5c2KyUE6qGY7eevjy3Drs/glJNPgLZY4FvkGhxlUPnyorJhM3Qxc943c
- t1ZTHyJkjrYHZUWeCJw4Yg0HbqnYgI5JwhcExRGAUOgoKUekLocGfkTfS355b695G/ku
- ak/1yAo95DEFIELAfiHb7nMlumqdv226z/98aSKs9L5qSUl+tZFfb5po+FzlPqqI8RRl
- NOeYVPXpEAFAKak24qpzQ4yEN3FAjxeJ7qmbNu1HRB79QrFLTYqLe1CLuUMWuVVFisbO
- PcVw==
-X-Gm-Message-State: AGRZ1gLnP6tLqIkj0If6fP/gl2xzI9vIaY9hphd3ptTgwQhVtE0mF6kh
- 6wi8uqohl29a8hAMpuKcXwdvkw==
-X-Google-Smtp-Source: AJdET5cyaXd7g3uo6iTIq8sGIDTN3KuSkaGfk6ArccNXVzRZCqdvpIyMORuYd/sfD7gbE3QA4V0o1g==
-X-Received: by 2002:a17:902:6ac7:: with SMTP id
- i7-v6mr2075226plt.268.1540968446360; 
- Tue, 30 Oct 2018 23:47:26 -0700 (PDT)
-Received: from localhost.localdomain
- (99-152-116-91.lightspeed.sntcca.sbcglobal.net. [99.152.116.91])
- by smtp.gmail.com with ESMTPSA id z7-v6sm12127306pgi.42.2018.10.30.23.47.24
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 30 Oct 2018 23:47:24 -0700 (PDT)
-From: Olof Johansson <olof@lixom.net>
-To: Palmer Dabbelt <palmer@sifive.com>
-Subject: [PATCH 3/3] RISC-V: Silence some module warnings on 32-bit
-Date: Tue, 30 Oct 2018 23:47:09 -0700
-Message-Id: <20181031064709.30981-4-olof@lixom.net>
-X-Mailer: git-send-email 2.11.0
-In-Reply-To: <20181031064709.30981-1-olof@lixom.net>
-References: <20181031064709.30981-1-olof@lixom.net>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=E38TYy/cdUwEN1z2VmhmbZ6MYoFHLlpu/aw0NuhFiAE=;
+ b=PEmAOyE9ZCuAEf9vxq/8K8znpd5pk2Xs0DSk3nhlTvON88N577GHy1peVFJvU0heLB
+ mwFc+Sb03Qdh+cY0687s/3j/Khc3CZGhl9o4cDnWjaAy6EsZXCSiWK4WKtQlz4ZWNlan
+ Q1GL7wqitGQ6yWhB6BQL759nqWy270btNSfyt1gjlCe6GJ3jVz9uTLk9FB2cTZrLioU6
+ E2M55IuKTC/tUbgGeOHQMAs5h+4d8PbfO28GObhWsLV5RLGMxx2Mp6lgXeJsDbUTrHOl
+ TrZdYkdPlUiOs5ed4i2AL8MgcJbXqzcnZz9Jou7Uyf58A/rfQ5Gzgm82UDA0tCaE9a68
+ wMbA==
+X-Gm-Message-State: AGRZ1gL4ByZ5dizwLyEgJStPbza1nE6JgUFR1q+YeLjNx1CZOdIF+uuL
+ qSHs4N49P24Pc6LsRJNEuOkIp9TrD33KJ91lK7o=
+X-Google-Smtp-Source: AJdET5cldKuh/ybgK8WH+I3UWbbluAL/xihZE76OF/HtjnvZTa0XdFrxw2OPYeT2YrYW+u9bmcqfEuHc5XEK4IL29gw=
+X-Received: by 2002:aca:7242:: with SMTP id
+ p63-v6mr1166264oic.169.1540975729508; 
+ Wed, 31 Oct 2018 01:48:49 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAGw6cBsWHB4aRf=kPoT+v-FbtL0ymeBtZNEwKYobFizc0cLeaQ@mail.gmail.com>
+ <CAEn-LTopspBXzoLZEFWQGxxC7uNJ9RZHiHyYmJPpWR4zKnj5zw@mail.gmail.com>
+ <CAGw6cBtMu7qs2in-=eX1J6bpPK-L-8cSa5pocQ6CA=en-ju3EA@mail.gmail.com>
+In-Reply-To: <CAGw6cBtMu7qs2in-=eX1J6bpPK-L-8cSa5pocQ6CA=en-ju3EA@mail.gmail.com>
+From: David Abdurachmanov <david.abdurachmanov@gmail.com>
+Date: Wed, 31 Oct 2018 09:48:38 +0100
+Message-ID:
+ <CAEn-LTpfFWO864brKCj_FyaBFQuy8wvxs5OdP7rAOziJLDKc4Q@mail.gmail.com>
+Subject: Re: virtio-gpu without ARCH_HAS_SG_CHAIN
+To: Michael Forney <mforney@mforney.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181030_234737_059183_66AC59EC 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20181031_014900_890242_E59496B0 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,103 +92,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Olof Johansson <olof@lixom.net>, linux-riscv@lists.infradead.org,
- Albert Ou <aou@eecs.berkeley.edu>, Zong Li <zongbox@gmail.com>,
- linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+Cc: linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ virtualization@lists.linux-foundation.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181031064709.5GZxXDVGuc-oQHRx5_xUodJ_7nE6a3SNKboArmOc81A@z>
+Message-ID: <20181031084838.I1TwfiftM4xaH2bNCyEJfj9aQECP_KxlxdiATDwAWkk@z>
 
-Fixes:
+On Tue, Oct 30, 2018 at 6:25 PM Michael Forney <mforney@mforney.org> wrote:
+>
+> On 2018-10-29, David Abdurachmanov <david.abdurachmanov@gmail.com> wrote:
+> > On Mon, Oct 29, 2018 at 8:47 PM Michael Forney <mforney@mforney.org> wrote:
+> >>
+> >> - Should riscv support ARCH_HAS_SG_CHAIN?
+> >
+> > Non-expert here, but it looks like ARCH_HAS_SG_CHAIN
+> > support is generic, and a number of well known architectures
+> > support it.
+> >
+> > So it's basically two line patch someone needs to send and
+> > at least make a test by building the kernel. I can do that if you want.
+>
+> If that's all there is to it, then yeah, that would be appreciated. Thanks!
+>
+> Though, I assume there's *some* architecture-specific consideration
+> that needs to be done, since it has to be selected on each
+> architecture that supports it.
 
-arch/riscv/kernel/module.c: In function 'apply_r_riscv_32_rela':
-./include/linux/kern_levels.h:5:18: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 3 has type 'Elf32_Addr' {aka 'unsigned int'} [-Wformat=]
-arch/riscv/kernel/module.c:23:27: note: format string is defined here
-arch/riscv/kernel/module.c: In function 'apply_r_riscv_pcrel_hi20_rela':
-./include/linux/kern_levels.h:5:18: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 3 has type 'Elf32_Addr' {aka 'unsigned int'} [-Wformat=]
-arch/riscv/kernel/module.c:104:23: note: format string is defined here
-arch/riscv/kernel/module.c: In function 'apply_r_riscv_hi20_rela':
-./include/linux/kern_levels.h:5:18: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 3 has type 'Elf32_Addr' {aka 'unsigned int'} [-Wformat=]
-arch/riscv/kernel/module.c:146:23: note: format string is defined here
-arch/riscv/kernel/module.c: In function 'apply_r_riscv_got_hi20_rela':
-./include/linux/kern_levels.h:5:18: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 3 has type 'Elf32_Addr' {aka 'unsigned int'} [-Wformat=]
-arch/riscv/kernel/module.c:190:60: note: format string is defined here
-arch/riscv/kernel/module.c: In function 'apply_r_riscv_call_plt_rela':
-./include/linux/kern_levels.h:5:18: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 3 has type 'Elf32_Addr' {aka 'unsigned int'} [-Wformat=]
-arch/riscv/kernel/module.c:214:24: note: format string is defined here
-arch/riscv/kernel/module.c: In function 'apply_r_riscv_call_rela':
-./include/linux/kern_levels.h:5:18: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 3 has type 'Elf32_Addr' {aka 'unsigned int'} [-Wformat=]
-arch/riscv/kernel/module.c:236:23: note: format string is defined here
+Done it yesterday morning. Compile-tested and I am running
+the kernel w/o any issues.
 
-Signed-off-by: Olof Johansson <olof@lixom.net>
----
- arch/riscv/kernel/module.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Btw, if you get virtio-gpu support in TinyEMU it would be interesting
+to see how that works with Fedora. I have some instructions about
+that here:
 
-diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index 3303ed2cd419..7dd308129b40 100644
---- a/arch/riscv/kernel/module.c
-+++ b/arch/riscv/kernel/module.c
-@@ -21,7 +21,7 @@ static int apply_r_riscv_32_rela(struct module *me, u32 *location, Elf_Addr v)
- {
- 	if (v != (u32)v) {
- 		pr_err("%s: value %016llx out of range for 32-bit field\n",
--		       me->name, v);
-+		       me->name, (long long)v);
- 		return -EINVAL;
- 	}
- 	*location = v;
-@@ -102,7 +102,7 @@ static int apply_r_riscv_pcrel_hi20_rela(struct module *me, u32 *location,
- 	if (offset != (s32)offset) {
- 		pr_err(
- 		  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
--		  me->name, v, location);
-+		  me->name, (long long)v, location);
- 		return -EINVAL;
- 	}
- 
-@@ -144,7 +144,7 @@ static int apply_r_riscv_hi20_rela(struct module *me, u32 *location,
- 	if (IS_ENABLED(CMODEL_MEDLOW)) {
- 		pr_err(
- 		  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
--		  me->name, v, location);
-+		  me->name, (long long)v, location);
- 		return -EINVAL;
- 	}
- 
-@@ -188,7 +188,7 @@ static int apply_r_riscv_got_hi20_rela(struct module *me, u32 *location,
- 	} else {
- 		pr_err(
- 		  "%s: can not generate the GOT entry for symbol = %016llx from PC = %p\n",
--		  me->name, v, location);
-+		  me->name, (long long)v, location);
- 		return -EINVAL;
- 	}
- 
-@@ -212,7 +212,7 @@ static int apply_r_riscv_call_plt_rela(struct module *me, u32 *location,
- 		} else {
- 			pr_err(
- 			  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
--			  me->name, v, location);
-+			  me->name, (long long)v, location);
- 			return -EINVAL;
- 		}
- 	}
-@@ -234,7 +234,7 @@ static int apply_r_riscv_call_rela(struct module *me, u32 *location,
- 	if (offset != fill_v) {
- 		pr_err(
- 		  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
--		  me->name, v, location);
-+		  me->name, (long long)v, location);
- 		return -EINVAL;
- 	}
- 
--- 
-2.11.0
+https://fedoraproject.org/wiki/Architectures/RISC-V/Installing#Boot_under_TinyEMU_.28RISCVEMU.29
 
+david
 
 _______________________________________________
 linux-riscv mailing list
