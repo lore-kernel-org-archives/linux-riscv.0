@@ -1,22 +1,47 @@
-From: schwab@suse.de (Andreas Schwab)
-Date: Wed, 31 Oct 2018 11:50:40 +0100
-Subject: riscv-linux-4.19
-In-Reply-To: <mhng-25d728a4-465f-4f0d-99ac-8d14d6548621@palmer-si-x1c4>
- (Palmer Dabbelt's message of "Mon, 29 Oct 2018 16:55:56 -0700 (PDT)")
-References: <mhng-25d728a4-465f-4f0d-99ac-8d14d6548621@palmer-si-x1c4>
-Message-ID: <mvmwopyl79b.fsf@suse.de>
+From: anup@brainfault.org (Anup Patel)
+Date: Wed, 31 Oct 2018 16:46:10 +0530
+Subject: [RFC 0/2] RISC-V: A proposal to add vendor-specific code
+In-Reply-To: <1540982130-28248-1-git-send-email-vincentc@andestech.com>
+References: <1540982130-28248-1-git-send-email-vincentc@andestech.com>
+Message-ID: <CAAhSdy0Y_jdc=2Lf8epof_+7HigCfhDxMNe8EF0fHfncqhs-zA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Okt 29 2018, Palmer Dabbelt <palmer@sifive.com> wrote:
+On Wed, Oct 31, 2018 at 4:06 PM Vincent Chen <vincentc@andestech.com> wrote:
+>
+>   RISC-V permits each vendor to develop respective extension ISA based
+> on RISC-V standard ISA. This means that these vendor-specific features
+> may be compatible to their compiler and CPU. Therefore, each vendor may
+> be considered a sub-architecture of RISC-V. Currently, vendors do not
+> have the appropriate examples to add these specific features to the
+> kernel. In this RFC set, we propose an infrastructure that vendor can
+> easily hook their specific features into kernel. The first commit is
+> the main body of this infrastructure. In the second commit, we provide
+> a solution that allows dma_map_ops() to work without cache coherent
+> agent support. Cache coherent agent is unsupported for low-end CPUs in
+> the AndeStar RISC-V series. In order for Linux to run on these CPUs, we
+> need this solution to overcome the limitation of cache coherent agent
+> support. Hence, it also can be used as an example for the first commit.
+>
+>   I am glad to discuss any ideas, so if you have any idea, please give
+> me some feedback.
+>
 
-> I just created riscv-linux-4.19
+I agree that we need a place for vendor-specific ISA extensions and
+having vendor-specific directories is also good.
 
-Did you forget to push it?
+What I don't support is the approach of having compile time selection
+of vendor-specific ISA extension.
 
-Andreas.
+We should have runtime probing for compatible vendor-specific ISA
+extension. Also, it should be possible to link multiple vendor-specific
+SA extensions to same kernel image. This way we can have a single
+kernel image (along with various vendor-specific ISA extensions) which
+works on variety of targets/hosts.
 
--- 
-Andreas Schwab, SUSE Labs, schwab at suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+As an example or runtime probing you can look at how IRQCHIP or
+CLOCKSOURCE drivers are probed. The vendor-specific ISA extension
+hooks should called in similar fashion.
+
+Regards,
+Anup
