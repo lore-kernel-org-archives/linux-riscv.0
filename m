@@ -6,79 +6,66 @@ X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 879D3C0044C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Oct 2018 17:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 072ADC0044C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Oct 2018 18:12:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5CFA62080A
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Oct 2018 17:53:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A75EA20664
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Oct 2018 18:12:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cDFyRfKA";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lixom-net.20150623.gappssmtp.com header.i=@lixom-net.20150623.gappssmtp.com header.b="ilDIcmkR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5CFA62080A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lixom.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="E5ev+3w4"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A75EA20664
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=deltatee.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4wtGkUK1MEXM8aiMZDvPMb/xeptTBaDE3iCThzbOuFo=; b=cDFyRfKAIt1gFz
-	b7zyMRlMJMDzV1xaycQ8lCQEYcuRj1mfupEhTT0SzHF6f7824wcDwyJi5gdOciW26z9xj38tK9upp
-	MMnK2qCZ0QUubBo2EI12OZB/ftA7Zm4fdOibBnuUg4KfLBKfIIJpX031W3W61lmf5n5yWARK0bdys
-	Flb8nknIzQ1+KgQM1WRCVm3D5Hiq2ahhFEf5EekRj9nVXiulSRYme5uBXdpeelJQkz2Wd6n8YPe2h
-	s4SBI0o6Lpr8Ty+OyhJwxZ1f/ai2o+jubNis9rzYRkZ6rGrJ0zJZA+tlwG9YORFqLUbIM6w89uPV3
-	dYGvnVTMZTuyrVZWKEtA==;
+	List-Owner; bh=X64KCmAp/qovvwaIfe+rM2/jg4/JzsSMZjCxG0ww3ec=; b=E5ev+3w4myUKMN
+	Gye+aACNWF/niGdNXSDv8AdQFJKrirna84W3FymQ5MP1VTOAKg6Lj0HgAa+DPUsuVRfFH7uJY2q+G
+	Geq2ORxhDVLf4sTWH2OcwDQNeNiT0WLVoZA1YkIE7mmWdBlEtCXGE13Wc8gnMEpW2YUeYaBUdK3XP
+	egcpTVXLDB9eEURgAxmAYYN7SKTIgq+qhq9UkXPgVhYjMbdMILGHK6Gm6lavu79lGpFxv9VX7OToj
+	UyoCoDdBdO7VCug35sP79v4+zDQPFKc/yyrp1t4zNeL+rFCx9XOJCasZa/q3H1EvoPFIOklTcGcY5
+	7+XsbFOMApq9c9wrUKlQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gHugD-0002wi-Fj; Wed, 31 Oct 2018 17:53:21 +0000
-Received: from mail-lf1-x141.google.com ([2a00:1450:4864:20::141])
+	id 1gHuz0-0003nX-5P; Wed, 31 Oct 2018 18:12:46 +0000
+Received: from ale.deltatee.com ([207.54.116.67])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gHugA-0002vE-FH
- for linux-riscv@lists.infradead.org; Wed, 31 Oct 2018 17:53:20 +0000
-Received: by mail-lf1-x141.google.com with SMTP id q6-v6so12318946lfh.9
- for <linux-riscv@lists.infradead.org>; Wed, 31 Oct 2018 10:53:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=lixom-net.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=g0IrHxduBcZHFMvoPRPZebBFVY7/ASRAbySjIVIKC2A=;
- b=ilDIcmkRI2jh7+drVrTBaREQk0chT/L0w5Awlan9QPVa6R4kZ3VMdvreLxSlSunKFW
- +SpiU13ANsBHAnrr0yN/KPuhG8XkndbEFP2YAr6qLTXtn7enXHf+yBNhTRvTHzXEPYo4
- aAXzPYdzFunV3Eo2sMUtdfokA8umAPrgXRsg3NOHNHVBNn/CSPAZ+WxZPYygfa2E5w4s
- 1XaRHm1pZ75wpNv77eU7lj9YfpQJIaFcqnwypL6QSI3y13rGPMYytJ6MKJ6SYwFtd/YE
- ohU2EM2hNXFzbEncHId0XSdFfznF1D3lN67VZ/fKQZIvfFr0L/niQZRUi2FlL/WLeNoN
- 0wmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=g0IrHxduBcZHFMvoPRPZebBFVY7/ASRAbySjIVIKC2A=;
- b=Te7+6DeHTD496kjb61ChSV24t1ael+WH6BVjqBGk8GE7axy0D4Jmoxs536b6TsKMLm
- WH3PrvxLD46AO+nZiDtxonkSAXnnDYxARYuBt7UREFThpO1PAsxoG6X9DT1wHaN2GNTL
- WCpUr1iHgjZY1ZlzbMEapHsbJ9J3HnSwFqVU9mIZccIvtlnrKm7agckxKcdukX5KgcAh
- vuoMBKAJrSQiHjNhtpBawIWPvBcUE+IVpOPM8jT1IUvQ+y9zkxWA7PUT8PFcW+gTfd6d
- egdk/HzidcHXwSQQNKzrnkFG85HJ8GMyzUdq4ZrQQdr7ysspYJMAmsNklrJgFX6S1SyJ
- g85Q==
-X-Gm-Message-State: AGRZ1gJbv5/EE0tAGOjykGm+My8Hj4Q9r7Zswg4sUn8UE9d/C+OhDn3D
- z3Kt0oYdOKOmQXHCFekLYNkJAJgI54BE4MTCWY4N6g==
-X-Google-Smtp-Source: AJdET5eO6mD6lP2Itc47/yOLIyL8e6knEwHpm5DofhD+vkwPtPQfUJZvJ3gC1WgdsL86wKOnxbnMw4EH/qZiGNCbs1A=
-X-Received: by 2002:a19:df41:: with SMTP id q1mr2582969lfj.25.1541008384704;
- Wed, 31 Oct 2018 10:53:04 -0700 (PDT)
-MIME-Version: 1.0
+ id 1gHuyw-0003ll-Oa
+ for linux-riscv@lists.infradead.org; Wed, 31 Oct 2018 18:12:44 +0000
+Received: from guinness.priv.deltatee.com ([172.16.1.162])
+ by ale.deltatee.com with esmtp (Exim 4.89)
+ (envelope-from <logang@deltatee.com>)
+ id 1gHuyd-0004UZ-EY; Wed, 31 Oct 2018 12:12:24 -0600
+To: Olof Johansson <olof@lixom.net>, Palmer Dabbelt <palmer@sifive.com>,
+ Fengguang Wu <fengguang.wu@intel.com>
 References: <20181031064709.30981-1-olof@lixom.net>
  <mhng-74b51433-1762-4741-935d-56ca1b3548a0@palmer-si-x1c4>
-In-Reply-To: <mhng-74b51433-1762-4741-935d-56ca1b3548a0@palmer-si-x1c4>
-From: Olof Johansson <olof@lixom.net>
-Date: Wed, 31 Oct 2018 10:52:51 -0700
-Message-ID:
  <CAOesGMgWDM+Etng3bNU-Yem6+WRJEu+TfddzKoN-htno1Az3=w@mail.gmail.com>
+From: Logan Gunthorpe <logang@deltatee.com>
+Message-ID: <861817b9-c5f3-e995-2e18-9526d89d6561@deltatee.com>
+Date: Wed, 31 Oct 2018 12:12:21 -0600
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.2.1
+MIME-Version: 1.0
+In-Reply-To: <CAOesGMgWDM+Etng3bNU-Yem6+WRJEu+TfddzKoN-htno1Az3=w@mail.gmail.com>
+Content-Language: en-CA
+X-SA-Exim-Connect-IP: 172.16.1.162
+X-SA-Exim-Rcpt-To: lkp@intel.com, kbuild@lists.01.org,
+ linux-kernel@vger.kernel.org, zongbox@gmail.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, fengguang.wu@intel.com, palmer@sifive.com,
+ olof@lixom.net
+X-SA-Exim-Mail-From: logang@deltatee.com
 Subject: Re: [PATCH 0/3] RISC-V: A few build/warning fixes and cleanup
-To: Palmer Dabbelt <palmer@sifive.com>
+X-SA-Exim-Version: 4.2.1 (built Tue, 02 Aug 2016 21:08:31 +0000)
+X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181031_105318_515213_4C643555 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20181031_111242_839472_32B33708 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,47 +77,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>,
- Zong Li <zongbox@gmail.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, kbuild test robot <lkp@intel.com>,
+ kbuild@lists.01.org, Zong Li <zongbox@gmail.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181031175251.kET1qi93EAgj7sOyJAPNXyg7yemAc_OeBQhlYv-b6u8@z>
-
-Hi,
-
-On Wed, Oct 31, 2018 at 10:09 AM Palmer Dabbelt <palmer@sifive.com> wrote:
->
-> On Tue, 30 Oct 2018 23:47:06 PDT (-0700), Olof Johansson wrote:
-> > A couple of fixes for build breakage or warnings, and a small whitespace/asm
-> > cleanup. The non-cleanups would be good to see in 4.20 to keep builds green.
->
-> I'm happy to just keep them all together, since the cleanups are non-functional
-> changes.  Patch 1/3 appears to have disappeared from my inbox and I can't get
-> to the infradead archives, do you mind re-sending it?
-
-Sure, check inbox in a few minutes.
-
-> This also brings up a bigger issue: I need to stop breaking the build,
-> particularly as we now support a bunch of configurations.  Is your CI stuff
-> still running?  It'd be great to have it run against some of our integration
-> branches so I can catch these before they make it upstream.  I haven't been
-> getting any emails.
-
-I've migrated machines to a new system and that CI is up and running.
-Right now the emails don't go anywhere but me, but let me know where
-you want them sent and I'll be happy to do so (probably not
-linux-riscv due to volume/noise). They're also uploaded to
-http://arm-soc.lixom.net/buildlogs/riscv/.
-
-Since you keep single-patch branches in your tree, and I compile
-everything for every branch, I've restricted what branches I poll and
-build. Right now it's "for*" and "riscv*".
+Message-ID: <20181031181221.6m3Yk4Y36utAHnnlba3IcBhCvvTGc9npGFnLmqSgG-c@z>
 
 
--Olof
+On 2018-10-31 11:52 a.m., Olof Johansson wrote:
+> I've migrated machines to a new system and that CI is up and running.
+> Right now the emails don't go anywhere but me, but let me know where
+> you want them sent and I'll be happy to do so (probably not
+> linux-riscv due to volume/noise). They're also uploaded to
+> http://arm-soc.lixom.net/buildlogs/riscv/.
+> 
+> Since you keep single-patch branches in your tree, and I compile
+> everything for every branch, I've restricted what branches I poll and
+> build. Right now it's "for*" and "riscv*".
+
+I think it would also be very nice to get the existing kbuild test robot
+to start compile testing a few riscv configs. It already does most of
+the other arches. This would help us catch these kinds of issues even
+earlier seeing that test robot tests patches on mailing lists and many
+other repos before Palmer would even pull them into his branch.
+(Including a repo I routinely push branches to before sending out patches.)
+
+I'm not sure who's currently responsible for the robot but I've copied
+Fenguang who, I believe, set it up originally as well as the kbuild
+lists. Hopefully he can point us in the right direction to help get this
+set up.
+
+Thanks,
+
+Logan
+
 
 _______________________________________________
 linux-riscv mailing list
