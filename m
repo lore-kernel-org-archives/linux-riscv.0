@@ -1,41 +1,56 @@
-From: david.abdurachmanov@gmail.com (David Abdurachmanov)
-Date: Wed, 31 Oct 2018 09:48:38 +0100
-Subject: virtio-gpu without ARCH_HAS_SG_CHAIN
-In-Reply-To: <CAGw6cBtMu7qs2in-=eX1J6bpPK-L-8cSa5pocQ6CA=en-ju3EA@mail.gmail.com>
-References: <CAGw6cBsWHB4aRf=kPoT+v-FbtL0ymeBtZNEwKYobFizc0cLeaQ@mail.gmail.com>
- <CAEn-LTopspBXzoLZEFWQGxxC7uNJ9RZHiHyYmJPpWR4zKnj5zw@mail.gmail.com>
- <CAGw6cBtMu7qs2in-=eX1J6bpPK-L-8cSa5pocQ6CA=en-ju3EA@mail.gmail.com>
-Message-ID: <CAEn-LTpfFWO864brKCj_FyaBFQuy8wvxs5OdP7rAOziJLDKc4Q@mail.gmail.com>
+From: vincentc@andestech.com (Vincent Chen)
+Date: Wed, 31 Oct 2018 18:35:28 +0800
+Subject: [RFC 0/2] RISC-V: A proposal to add vendor-specific code
+Message-ID: <1540982130-28248-1-git-send-email-vincentc@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, Oct 30, 2018 at 6:25 PM Michael Forney <mforney@mforney.org> wrote:
->
-> On 2018-10-29, David Abdurachmanov <david.abdurachmanov@gmail.com> wrote:
-> > On Mon, Oct 29, 2018 at 8:47 PM Michael Forney <mforney@mforney.org> wrote:
-> >>
-> >> - Should riscv support ARCH_HAS_SG_CHAIN?
-> >
-> > Non-expert here, but it looks like ARCH_HAS_SG_CHAIN
-> > support is generic, and a number of well known architectures
-> > support it.
-> >
-> > So it's basically two line patch someone needs to send and
-> > at least make a test by building the kernel. I can do that if you want.
->
-> If that's all there is to it, then yeah, that would be appreciated. Thanks!
->
-> Though, I assume there's *some* architecture-specific consideration
-> that needs to be done, since it has to be selected on each
-> architecture that supports it.
+  RISC-V permits each vendor to develop respective extension ISA based
+on RISC-V standard ISA. This means that these vendor-specific features
+may be compatible to their compiler and CPU. Therefore, each vendor may
+be considered a sub-architecture of RISC-V. Currently, vendors do not
+have the appropriate examples to add these specific features to the
+kernel. In this RFC set, we propose an infrastructure that vendor can
+easily hook their specific features into kernel. The first commit is
+the main body of this infrastructure. In the second commit, we provide
+a solution that allows dma_map_ops() to work without cache coherent
+agent support. Cache coherent agent is unsupported for low-end CPUs in
+the AndeStar RISC-V series. In order for Linux to run on these CPUs, we
+need this solution to overcome the limitation of cache coherent agent
+support. Hence, it also can be used as an example for the first commit.
 
-Done it yesterday morning. Compile-tested and I am running
-the kernel w/o any issues.
+  I am glad to discuss any ideas, so if you have any idea, please give
+me some feedback.
 
-Btw, if you get virtio-gpu support in TinyEMU it would be interesting
-to see how that works with Fedora. I have some instructions about
-that here:
+Vincent Chen (2):
+  RISC-V: An infrastructure to add vendor-specific code.
+  RISC-V: make dma_map_ops work without cache coherent agent
 
-https://fedoraproject.org/wiki/Architectures/RISC-V/Installing#Boot_under_TinyEMU_.28RISCVEMU.29
-
-david
+ arch/riscv/Kconfig                              |   49 +++++
+ arch/riscv/Makefile                             |    6 +
+ arch/riscv/include/asm/sbi.h                    |    6 +
+ arch/riscv/include/asm/vendor-hook.h            |   13 ++
+ arch/riscv/kernel/cpufeature.c                  |    5 +
+ arch/riscv/kernel/setup.c                       |    6 +-
+ arch/riscv/vendor-nds/Kconfig                   |   29 +++
+ arch/riscv/vendor-nds/Makefile                  |    1 +
+ arch/riscv/vendor-nds/cache.c                   |   83 ++++++++
+ arch/riscv/vendor-nds/include/asm/csr.h         |   32 +++
+ arch/riscv/vendor-nds/include/asm/dma-mapping.h |   24 +++
+ arch/riscv/vendor-nds/include/asm/proc.h        |   17 ++
+ arch/riscv/vendor-nds/include/asm/sbi.h         |   17 ++
+ arch/riscv/vendor-nds/include/asm/vendor-hook.h |    8 +
+ arch/riscv/vendor-nds/noncoherent_dma.c         |  254 +++++++++++++++++++++++
+ arch/riscv/vendor-nds/setup.c                   |   16 ++
+ 16 files changed, 565 insertions(+), 1 deletions(-)
+ create mode 100644 arch/riscv/include/asm/vendor-hook.h
+ create mode 100644 arch/riscv/vendor-nds/Kconfig
+ create mode 100644 arch/riscv/vendor-nds/Makefile
+ create mode 100644 arch/riscv/vendor-nds/cache.c
+ create mode 100644 arch/riscv/vendor-nds/include/asm/csr.h
+ create mode 100644 arch/riscv/vendor-nds/include/asm/dma-mapping.h
+ create mode 100644 arch/riscv/vendor-nds/include/asm/proc.h
+ create mode 100644 arch/riscv/vendor-nds/include/asm/sbi.h
+ create mode 100644 arch/riscv/vendor-nds/include/asm/vendor-hook.h
+ create mode 100644 arch/riscv/vendor-nds/noncoherent_dma.c
+ create mode 100644 arch/riscv/vendor-nds/setup.c
