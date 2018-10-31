@@ -1,143 +1,95 @@
 From: olof@lixom.net (Olof Johansson)
-Date: Tue, 30 Oct 2018 23:47:08 -0700
-Subject: [PATCH 2/3] RISC-V: lib: minor asm cleanup
+Date: Tue, 30 Oct 2018 23:47:09 -0700
+Subject: [PATCH 3/3] RISC-V: Silence some module warnings on 32-bit
 In-Reply-To: <20181031064709.30981-1-olof@lixom.net>
 References: <20181031064709.30981-1-olof@lixom.net>
-Message-ID: <20181031064709.30981-3-olof@lixom.net>
+Message-ID: <20181031064709.30981-4-olof@lixom.net>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Fix tab/space conversion and use ENTRY/ENDPROC macros.
+Fixes:
+
+arch/riscv/kernel/module.c: In function 'apply_r_riscv_32_rela':
+./include/linux/kern_levels.h:5:18: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 3 has type 'Elf32_Addr' {aka 'unsigned int'} [-Wformat=]
+arch/riscv/kernel/module.c:23:27: note: format string is defined here
+arch/riscv/kernel/module.c: In function 'apply_r_riscv_pcrel_hi20_rela':
+./include/linux/kern_levels.h:5:18: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 3 has type 'Elf32_Addr' {aka 'unsigned int'} [-Wformat=]
+arch/riscv/kernel/module.c:104:23: note: format string is defined here
+arch/riscv/kernel/module.c: In function 'apply_r_riscv_hi20_rela':
+./include/linux/kern_levels.h:5:18: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 3 has type 'Elf32_Addr' {aka 'unsigned int'} [-Wformat=]
+arch/riscv/kernel/module.c:146:23: note: format string is defined here
+arch/riscv/kernel/module.c: In function 'apply_r_riscv_got_hi20_rela':
+./include/linux/kern_levels.h:5:18: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 3 has type 'Elf32_Addr' {aka 'unsigned int'} [-Wformat=]
+arch/riscv/kernel/module.c:190:60: note: format string is defined here
+arch/riscv/kernel/module.c: In function 'apply_r_riscv_call_plt_rela':
+./include/linux/kern_levels.h:5:18: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 3 has type 'Elf32_Addr' {aka 'unsigned int'} [-Wformat=]
+arch/riscv/kernel/module.c:214:24: note: format string is defined here
+arch/riscv/kernel/module.c: In function 'apply_r_riscv_call_rela':
+./include/linux/kern_levels.h:5:18: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 3 has type 'Elf32_Addr' {aka 'unsigned int'} [-Wformat=]
+arch/riscv/kernel/module.c:236:23: note: format string is defined here
 
 Signed-off-by: Olof Johansson <olof@lixom.net>
 ---
- arch/riscv/lib/tishift.S | 59 +++++++++++++++++++++++++-----------------------
- arch/riscv/lib/udivdi3.S | 42 ++++++++++++++++++----------------
- 2 files changed, 53 insertions(+), 48 deletions(-)
+ arch/riscv/kernel/module.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/lib/tishift.S b/arch/riscv/lib/tishift.S
-index 69abb1277234..237bc9fd0763 100644
---- a/arch/riscv/lib/tishift.S
-+++ b/arch/riscv/lib/tishift.S
-@@ -10,33 +10,36 @@
-  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  *   GNU General Public License for more details.
-  */
--  .globl __lshrti3
--__lshrti3:
--  beqz  a2, .L1
--  li    a5,64
--  sub   a5,a5,a2
--  addi  sp,sp,-16
--  sext.w a4,a5
--  blez  a5, .L2
--  sext.w a2,a2
--  sll   a4,a1,a4
--  srl   a0,a0,a2
--  srl   a1,a1,a2
--  or    a0,a0,a4
--  sd    a1,8(sp)
--  sd    a0,0(sp)
--  ld    a0,0(sp)
--  ld    a1,8(sp)
--  addi  sp,sp,16
--  ret
-+
-+#include <linux/linkage.h>
-+
-+ENTRY(__lshrti3)
-+	beqz	a2, .L1
-+	li	a5,64
-+	sub	a5,a5,a2
-+	addi	sp,sp,-16
-+	sext.w	a4,a5
-+	blez	a5, .L2
-+	sext.w	a2,a2
-+	sll	a4,a1,a4
-+	srl	a0,a0,a2
-+	srl	a1,a1,a2
-+	or	a0,a0,a4
-+	sd	a1,8(sp)
-+	sd	a0,0(sp)
-+	ld	a0,0(sp)
-+	ld	a1,8(sp)
-+	addi	sp,sp,16
-+	ret
- .L1:
--  ret
-+	ret
- .L2:
--  negw  a4,a4
--  srl   a1,a1,a4
--  sd    a1,0(sp)
--  sd    zero,8(sp)
--  ld    a0,0(sp)
--  ld    a1,8(sp)
--  addi  sp,sp,16
--  ret
-+	negw	a4,a4
-+	srl	a1,a1,a4
-+	sd	a1,0(sp)
-+	sd	zero,8(sp)
-+	ld	a0,0(sp)
-+	ld	a1,8(sp)
-+	addi	sp,sp,16
-+	ret
-+ENDPROC(__lshrti3)
-diff --git a/arch/riscv/lib/udivdi3.S b/arch/riscv/lib/udivdi3.S
-index cb01ae5b181a..7f1c0af182a3 100644
---- a/arch/riscv/lib/udivdi3.S
-+++ b/arch/riscv/lib/udivdi3.S
-@@ -11,28 +11,30 @@
-  *   GNU General Public License for more details.
-  */
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 3303ed2cd419..7dd308129b40 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -21,7 +21,7 @@ static int apply_r_riscv_32_rela(struct module *me, u32 *location, Elf_Addr v)
+ {
+ 	if (v != (u32)v) {
+ 		pr_err("%s: value %016llx out of range for 32-bit field\n",
+-		       me->name, v);
++		       me->name, (long long)v);
+ 		return -EINVAL;
+ 	}
+ 	*location = v;
+@@ -102,7 +102,7 @@ static int apply_r_riscv_pcrel_hi20_rela(struct module *me, u32 *location,
+ 	if (offset != (s32)offset) {
+ 		pr_err(
+ 		  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
+-		  me->name, v, location);
++		  me->name, (long long)v, location);
+ 		return -EINVAL;
+ 	}
  
--  .globl __udivdi3
--__udivdi3:
--  mv    a2, a1
--  mv    a1, a0
--  li    a0, -1
--  beqz  a2, .L5
--  li    a3, 1
--  bgeu  a2, a1, .L2
-+#include <linux/linkage.h>
-+
-+ENTRY(__udivdi3)
-+	mv	a2, a1
-+	mv	a1, a0
-+	li	a0, -1
-+	beqz	a2, .L5
-+	li	a3, 1
-+	bgeu	a2, a1, .L2
- .L1:
--  blez  a2, .L2
--  slli  a2, a2, 1
--  slli  a3, a3, 1
--  bgtu  a1, a2, .L1
-+	blez	a2, .L2
-+	slli	a2, a2, 1
-+	slli	a3, a3, 1
-+	bgtu	a1, a2, .L1
- .L2:
--  li    a0, 0
-+	li	a0, 0
- .L3:
--  bltu  a1, a2, .L4
--  sub   a1, a1, a2
--  or    a0, a0, a3
-+	bltu	a1, a2, .L4
-+	sub	a1, a1, a2
-+	or	a0, a0, a3
- .L4:
--  srli  a3, a3, 1
--  srli  a2, a2, 1
--  bnez  a3, .L3
-+	srli	a3, a3, 1
-+	srli	a2, a2, 1
-+	bnez	a3, .L3
- .L5:
--  ret
-+	ret
-+ENDPROC(__udivdi3)
+@@ -144,7 +144,7 @@ static int apply_r_riscv_hi20_rela(struct module *me, u32 *location,
+ 	if (IS_ENABLED(CMODEL_MEDLOW)) {
+ 		pr_err(
+ 		  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
+-		  me->name, v, location);
++		  me->name, (long long)v, location);
+ 		return -EINVAL;
+ 	}
+ 
+@@ -188,7 +188,7 @@ static int apply_r_riscv_got_hi20_rela(struct module *me, u32 *location,
+ 	} else {
+ 		pr_err(
+ 		  "%s: can not generate the GOT entry for symbol = %016llx from PC = %p\n",
+-		  me->name, v, location);
++		  me->name, (long long)v, location);
+ 		return -EINVAL;
+ 	}
+ 
+@@ -212,7 +212,7 @@ static int apply_r_riscv_call_plt_rela(struct module *me, u32 *location,
+ 		} else {
+ 			pr_err(
+ 			  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
+-			  me->name, v, location);
++			  me->name, (long long)v, location);
+ 			return -EINVAL;
+ 		}
+ 	}
+@@ -234,7 +234,7 @@ static int apply_r_riscv_call_rela(struct module *me, u32 *location,
+ 	if (offset != fill_v) {
+ 		pr_err(
+ 		  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
+-		  me->name, v, location);
++		  me->name, (long long)v, location);
+ 		return -EINVAL;
+ 	}
+ 
 -- 
 2.11.0
