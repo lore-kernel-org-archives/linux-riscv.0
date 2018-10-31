@@ -2,84 +2,83 @@ Return-Path: <SRS0=Wf4V=NL=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D2AFCECDE44
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Oct 2018 22:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CC4D0ECDE46
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Oct 2018 23:07:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7F61E2080A
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Oct 2018 22:51:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 95FF520664
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Oct 2018 23:07:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LMKEBj5Q";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lixom-net.20150623.gappssmtp.com header.i=@lixom-net.20150623.gappssmtp.com header.b="YfeAw3mB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7F61E2080A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lixom.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="R5EEKuXK";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="HUSUWcyO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 95FF520664
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x22rRsToUM/2zJzGSg/g9Aa/SEcpBL3SvasrLBrCJWs=; b=LMKEBj5QmAtR1V
-	uF8WcroHSAsES4oUdD2hKZPAugFgd5yztBnsRBuanHqI08ZuClaFGw8vky39SbVp8NlOppEaxHSU9
-	0jcxQ4PMDPwxLoCmdyW1ZsZ+xS/oj5X+8FkGa7f9uUdRZ+WLNkTlVLzaDP88iMr0MQKbIVfZgGhzh
-	dqeaNN08g1i+IDLFYarxgTEqmDKuP9t8dCR2LVMMq+afzqZBFH3eumV1Tvc++B7dtqFJt32UlgJo8
-	1qvRxgow+im/yHlI5pq+ZWtnRkdOgyawrsoip6dqHvyvOamaix1v6+rV/xrw1W+/o/YuZJnqS6Gl3
-	BWk9dZQ8E4WhUIMZFGtw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=R6Bh29C8x8TqImieZRExqYgumNTN4h4GRItTlGRnF+c=; b=R5EEKuXKjn02Y1
+	lAL7B1ucUVxkgnTzG4jChhm6rDErN428oR/iqe0dk3aM/lfY6lYp20Us/mzsQa10ZvQ5rGIUHNZL5
+	o1ax6iC24ns13KDFCRlxkjTM0oD3XYwBL0hVqY6G+tCzUsXnDDBSyd7kKHExDkz5/CkxX9w9pBmzQ
+	ljhNYUIIwgsbvhu1IoDJ7+APX38YI533AsP6sPaO8StSbgypFkzjYwHecTEfwbTVmel/litV2T5TA
+	GS1STDdtHyKDQGpqaRCGcAyq+5sQiuugj8L7u159othns3YfJiYDgYiDqphLlIvqSIxp9H9ECH8yo
+	DXoiKU+FCwqFfNXhAnbw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gHzKM-0005gm-1x; Wed, 31 Oct 2018 22:51:06 +0000
-Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
+	id 1gHzaB-0002dc-Ho; Wed, 31 Oct 2018 23:07:27 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gHzKI-0005fT-Pr
- for linux-riscv@lists.infradead.org; Wed, 31 Oct 2018 22:51:04 +0000
-Received: by mail-lj1-x242.google.com with SMTP id u6-v6so44357ljd.1
- for <linux-riscv@lists.infradead.org>; Wed, 31 Oct 2018 15:50:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=lixom-net.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=o+AWPvS1ybMd/GJs1XxIzYJE6EQJCAlsQ6yYrHC9vYM=;
- b=YfeAw3mBtCZ4yDGaXX7TE94z3MlBGMx/dYwsWA6iZ7ElHyA7tv6KzqfFdKyMhE5IvP
- 1i070ldez/bVNUDR7JmYZVjU+ryUoOpjUsKL/WrdpZ6PuxBI3qcCLQv7VdOgHaCq/Irn
- LtpIo+HBKalo1KXDn8ZR05PfhL0UI9Ef1IJguHs+UBnBg9U9971sAtsp1QwKg+YhtIFW
- qVuocEyj8hvnSGdqkY+jBwZcjzU98uOylwaSOTsE08Wj66YZSNHfLnDoilDzgGb0blIg
- 592ep+Ngng3eXRP5kDFIazXR2+K8dXh7+1+wBLWKeVzvN16xp+bArH9IDeVQjPnPTjeQ
- w3ZQ==
+ id 1gHza9-0002as-KF
+ for linux-riscv@lists.infradead.org; Wed, 31 Oct 2018 23:07:27 +0000
+Received: by mail-pg1-x541.google.com with SMTP id c10-v6so8084855pgq.4
+ for <linux-riscv@lists.infradead.org>; Wed, 31 Oct 2018 16:07:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:cc:from:to:message-id;
+ bh=taxbZLCJehS6KXdYbTRFCpaWx1QA6noR3r+ATRV96No=;
+ b=HUSUWcyOf2qeYvt+325vt07Zwer09etmhSbPJMZSfHPLyT0xlH9O7VAEALUOh434PP
+ /Zco+y8vehgkxNfxWt+ob9s2mZgMGbNszzjULekfLRxEo6E6xPiiNXp3LCW196TRQ4kO
+ BmfZ4og379Huq91AE42k9jZEGJiHeZlhfMnjVKwOp31BgMwXbZHDDSftsg4HHosdmo6/
+ GwKDzCGWfCs6vft3J15qfNBceG2EHc+NHCnEbnZimZcUXcl3RdhZOElhRFgRqCUZFq65
+ 0lUtpmZxGu4tiwA+bLWwpnLmx7FKR2Oe3K+R6hV76A1FGF5IEGSuG1OFzq5h5LL48O1D
+ fpGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=o+AWPvS1ybMd/GJs1XxIzYJE6EQJCAlsQ6yYrHC9vYM=;
- b=o8l7YYuccFaZNWvC9GNo+lI/zz+6/Qhtmg6vQ+kf2Bm04ypogwzkL2FJP5J+wI3K1r
- iLIgC391EY0pjZBTZpR3X5QphtCpAlfC8NwcHYCxPbDyCLI9xwK2s2Eo9ON7w3J9g0cl
- h+hqYf2rIVyDw2HEaw69KEPKhiTk1DkB+5MnxB3//NhyRT0ydghX7cXPZ+7kENQwwWe0
- u6Y91WO2eYLFI5FilWJBQfBUj2Dk8yXTHy/4pfDr7CMLM756OBL51DL/s+SlCrLlh9Qz
- PB94lS2lq+cm9AhKbbfCE5Ad4Fhbw+Pvt0qXi7+ysr3xZGrwUp9KohgXB8kFQZQDOeLG
- OVTw==
-X-Gm-Message-State: AGRZ1gL9MS9suypBmMc6Ea3Xv4a8/jy37UEaXUGl9G/TRLoESvga9MAy
- r8wqWy3xxTkXqpExD2pRaEZAkVMdj5flaoW+t6/Ipw==
-X-Google-Smtp-Source: AJdET5edcUhXQKmMP/bWjCjEJ5/yit/gdLNG6PcEkDTk3JuPxcKFGkQSReAqIH4aLvicH8ohswXcJVA8PYzdheL6KrA=
-X-Received: by 2002:a2e:94ce:: with SMTP id
- r14-v6mr1531873ljh.34.1541026250462; 
- Wed, 31 Oct 2018 15:50:50 -0700 (PDT)
-MIME-Version: 1.0
-References: <CAOesGMjXZNURZ4SdKjssYCcFv3=4MYLBpBpzvvb1rNM-fo=QHQ@mail.gmail.com>
- <mhng-111820e6-59c0-479a-a10f-f3729007ba70@palmer-si-x1c4>
-In-Reply-To: <mhng-111820e6-59c0-479a-a10f-f3729007ba70@palmer-si-x1c4>
-From: Olof Johansson <olof@lixom.net>
-Date: Wed, 31 Oct 2018 15:50:38 -0700
-Message-ID:
- <CAOesGMj+wXcN_7yvakC=SvtYjO=TTqrs8YiVX1xT7-4p1pC_Mg@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: defconfig: Enable printk timestamps
-To: Palmer Dabbelt <palmer@sifive.com>
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=taxbZLCJehS6KXdYbTRFCpaWx1QA6noR3r+ATRV96No=;
+ b=aRHqPnyngWkTYOkl83w7lrjL5LRw5eAemIAkFE1mzwvtdkSbjlyLCjOnaM5hf15I5m
+ 3vQe4ou1w1sAo5dch3aQwJXDan8McNAZCETdEHUrMerzMD9n52oi5UcSN7k+Pi393Leq
+ tP2vcRRU/zg1/wG5GMhLavrCZQxEXWBdd0BrvMHoPU9djoTUg9LxwWhaXPQI6Dc8CoiQ
+ 7vjgPel21F1wi1J3t0VkC9Dau1NJ6YPhR9ZiPjpx+8HXSrFgHmfwayx/XUHuTc6yg5RF
+ 1anXLpYAhTWscA0ikLHjOpUdPUvf7VjtqGwiRnp0XdIh3UZtQkiJugz4KoejJZVWbWpt
+ X6pw==
+X-Gm-Message-State: AGRZ1gIBzV7GRfHzRUOQQBWTehcejSC4l62xtprLGuhHZ0thWN6KALhx
+ sMt7qbr0oPfA/g1/bALBxpafhIOiNko=
+X-Google-Smtp-Source: AJdET5cKmvN85ghIyrTumOyLVVuMKVBpw0c7DIdYFPoggROTIlRu5yLG5k86he6l0hI/CYdKHzdGtw==
+X-Received: by 2002:a62:dbc6:: with SMTP id
+ f189-v6mr5330004pfg.130.1541027234241; 
+ Wed, 31 Oct 2018 16:07:14 -0700 (PDT)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id o195-v6sm12075490pfg.112.2018.10.31.16.07.12
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 31 Oct 2018 16:07:13 -0700 (PDT)
+Date: Wed, 31 Oct 2018 16:07:13 -0700 (PDT)
+X-Google-Original-Date: Wed, 31 Oct 2018 16:07:06 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 4.20 Merge Window, Part 2 v2
+From: Palmer Dabbelt <palmer@sifive.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-ddfcf75a-ffa5-43b1-a785-23da232023ad@palmer-si-x1c4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181031_155102_840119_8D1D4B6F 
-X-CRM114-Status: GOOD (  31.00  )
+X-CRM114-CacheID: sfid-20181031_160725_676861_53A99E60 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,133 +90,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, anup@brainfault.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, atish.patra@wdc.com,
- davem@sunset.davemloft.net, linux-riscv@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181031225038.unAOgIbm1lAUlADG2ZZBwmrEU7DyZ15CH7ZnhysaJ_s@z>
+Message-ID: <20181031230713.jJNeS3ZZDrVlwrj-jtM1vQbqSM91e_w4lNGdd9k_zqg@z>
 
-On Wed, Oct 31, 2018 at 1:42 PM Palmer Dabbelt <palmer@sifive.com> wrote:
->
-> On Wed, 31 Oct 2018 12:20:40 PDT (-0700), Olof Johansson wrote:
-> > On Tue, Oct 30, 2018 at 5:37 AM Anup Patel <anup@brainfault.org> wrote:
-> >>
-> >> The printk timestamps are very useful information to visually see
-> >> where kernel is spending time during boot. It also helps us see
-> >> the timing of hotplug events at runtime.
-> >>
-> >> This patch enables printk timestamps in RISC-V defconfig so that
-> >> we have it enabled by default (similar to other architectures
-> >> such as x86_64, arm64, etc).
-> >>
-> >> Signed-off-by: Anup Patel <anup@brainfault.org>
-> >
-> > Acked-by: Olof Johansson <olof@lixom.net>
-> >
-> > For next time: doing a re-format of the defconfig (to shuffle config
-> > order), plus changes in the same patch, tends to be a bit fragile. For
-> > cases like these, I'd recommend hand-pruning to just flip the one
-> > option if needed, and then have Palmer or Andrew refresh the defconfig
-> > during a merge window if needed (usually quite rare).
->
-> I poked around and it looks like most architectures have this enabled for at
-> least one defconfig, with the big architectures having it enabled for all of
-> them.
+The following changes since commit d26c4bbf992463c043fdee4b3e5efa3f08990862:
 
-It's pretty convenient to have it on, and I think those who haven't
-probably don't use those defconfigs much.
+  RISC-V: SMP cleanup and new features (2018-10-22 17:41:43 -0700)
 
-> I decided to do a bit of a case study here to try and figure out why some
-> architectures have this enabled for some defconfigs but not for others, and as
-> far as I can tell it's just an oversight.  Specifically, looking at sparc32 (#
-> CONFIG_PRINTK_TIME is not set) vs sparc64 (CONFIG_PRINTK_TIME=y) I can't find
-> any reason for the difference.  sparc32's setting can be traced back to
+are available in the Git repository at:
 
-I'm not sure sparc32 is overly active these days, which might help explain it?
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.20-mw2
 
->     commit 216da721b881838d639a3987bf8a825e6b4aacdd
->     Author: David S. Miller <davem@sunset.davemloft.net>
->     Date:   Sun Dec 17 14:21:34 2006 -0800
->
->         [SPARC]: Update defconfig.
->
->         Signed-off-by: David S. Miller <davem@davemloft.net>
->
-> which changes everything in the defconfig, while the sparc64 version dates back to
->
->     commit 3ebc284d52757cf39788731f8fddd70a89f7fc23
->     Author: David S. Miller <davem@sunset.davemloft.net>
->     Date:   Mon Jan 9 14:36:49 2006 -0800
->
->         [SPARC64]: Update defconfig.
->
->         Signed-off-by: David S. Miller <davem@davemloft.net>
->
-> When we first submitted out port upstream we had an empty defconfig, with the
-> theory being that we should just pick whatever the default in Kconfig is for
-> everything.  That's obviously the wrong thing to do because most of those
-> options are bogus.  At the time I didn't care enough to look because I just
-> wanted something to work, but now I find myself asking the question "what goes
-> in a defconfig?"  Is it:
->
-> * What I, as the maintainer of arch/riscv, want?  That's essentially what it is
->   now, as we have things like "CONFIG_R8169=y" in there because I happened to
->   have one sitting around when we needed to plug in an Ethernet card to test
->   out PCIe.
-> * What distributions expect?  There's a major element of this in there right
->   now, as half this stuff was just selected because the Debian and Fedora guys
->   suggested we do so because adding things to the RISC-V defconfig made it
->   easier to put together their build scripts.  For example, we ended up with
->   "CONFIG_EXPERT=y" because some setting necessary for the distros was hidden
->   behind it -- that seems like an odd default.
-> * What users expect?  I'm not even sure who users are in this case, as from my
->   understating most people use distro kernels and don't twiddle Kconfig
->   options.
-> * What is necessary to work on RISC-V hardware?  This seems like the most
->   reasonable use for an arch-specific defconfig, and subsumes things like
->   "CONFIG_SIFIVE_PLIC=y" because without the PLIC driver nothing will work (but
->   the PLIC driver shouldn't be enabled by default for all architectures, as
->   it's useless everywhere else).
->
-> Maybe I've opened up a big can of worms here...  It just seems silly to have
-> most of our current defconfig be RISC-V specific.
+for you to fetch changes up to ef70696a63c773280ef46f5764a6cda39ef2f383:
 
-So, on 32-bit ARM we have heavy defconfig proliferation, and for arm64
-there was a push to only have one defconfig. I'm heavily in favor of
-the latter.
+  lib: Remove umoddi3 and udivmoddi4 (2018-10-31 12:13:54 -0700)
 
-On ARM64, the options turned on, are more or less "what makes the
-kernel useful on systems". Anything that would be needed to boot to a
-rootfs tends to be =y, while some other things that might be optional
-and not used everywhere tends to go in as modules.
+----------------------------------------------------------------
+RISC-V Patches for the 4.20 Merge Window, Part 2 v2
 
-Beyond that, for the most part it is maintainer preference. I've
-normally turned on platforms and drivers I need for my boot farm on
-the multi*defconfig configs on 32-bit ARM, and the same has been going
-for 64-bit.
+This tag contains the follow-on patches I'd like to target for the 4.20
+merge window.  I'm being somewhat conservative here, as while there are
+a few patches on the mailing list that were posted early in the merge
+window I'd like to let those bake for another round -- this was a fairly
+big release as far as RISC-V is concerened, and we need to walk before
+we can run.
 
-Distros will always want something different, for policy reasons or
-otherwise. Main purpose of mainline defconfigs is to make mainline
-kernels useful and bootable, so having more of a superset approach
-makes a lot of sense in my mind.
+As far as the patches that made it go:
 
-> Anyway, I'm happy with the change because it meets my "what I want" criteria
-> :).  I'll split it into two parts, though, as that way when someone else has to
-> go to some archaeology on our port they'll be less likely to get lost.
+* A patch to ignore offline CPUs when calculating AT_HWCAP.  This should
+  fix GDB on the HiFive unleashed, which has an embedded core for hart
+  0 which is exposed to Linux as an offline CPU.
+* A move of EM_RISCV to elf-em.h, which is where it should have been to
+  begin with.
+* I've also removed the 64-bit divide routines.  I know I'm not really
+  playing by my own rules here because I posted the patches this
+  morning, but since they shouldn't be in the kernel I think it's better
+  to err on the side of going too fast here.
 
-Sounds good to me. On ARM, we sometimes do the "refresh defconfig"
-runs across the board, but not for every release since it tends to get
-churny. Make sure you do it before -rc1 to avoid conflicts if
-contributors base branches on -rc1 and send them to you (probably not
-that common yet).
+I don't anticipate any more patch sets for the merge window.
 
+Changes since v1:
 
+* Use a consistent base to merge from so the history isn't a mess.
 
--Olof
+----------------------------------------------------------------
+Andreas Schwab (1):
+      RISC-V: properly determine hardware caps
+
+Palmer Dabbelt (4):
+      Revert "RISC-V: Select GENERIC_LIB_UMODDI3 on RV32"
+      Revert "lib: Add umoddi3 and udivmoddi4 of GCC library routines"
+      Move EM_RISCV into elf-em.h
+      lib: Remove umoddi3 and udivmoddi4
+
+ arch/riscv/Kconfig             |   1 -
+ arch/riscv/include/asm/elf.h   |   3 -
+ arch/riscv/kernel/cpufeature.c |   8 +-
+ include/uapi/linux/elf-em.h    |   1 +
+ lib/Kconfig                    |   3 -
+ lib/Makefile                   |   1 -
+ lib/udivmoddi4.c               | 310 -----------------------------------------
+ lib/umoddi3.c                  |  32 -----
+ 8 files changed, 6 insertions(+), 353 deletions(-)
+ delete mode 100644 lib/udivmoddi4.c
+ delete mode 100644 lib/umoddi3.c
 
 _______________________________________________
 linux-riscv mailing list
