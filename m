@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6FAC4C6786F
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Nov 2018 23:04:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DFF50C6786F
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Nov 2018 23:04:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3543620657
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Nov 2018 23:04:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A91B720657
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Nov 2018 23:04:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Fj5hO2Sx";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="j2JdHqFz"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3543620657
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Oyil0dnn";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="TeUvWklV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A91B720657
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,50 +27,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=JnmAPQWcz1fZGsjw6QQau31PAB3s1lMWlm97f2pT9yI=; b=Fj5hO2SxgHbB5PV0UJ07aix7aN
-	4l1SD9qMH/sSikIkU+CzfVGccsm0S+TZFnYLsdt7EXiHi0hKYRlAdzTlBRtxqbfsgpY3jxMfS6Buy
-	5C/0i4bfKF0XTVMS65GH0UwTzcAV7xGT9NgYxWhNi2XtRoZOZ8WsLh24wXcxCYZu25MTilRoBMlu+
-	ejcvehO9H8l7OJebYk7LWZz1tClIZgzqNYbdINJm1tbTKdHDXWbus5u4W8ShKK+ZTFVX/3rxu5mPZ
-	0/K3kHKwlGHYI2j+U97+oc4Dufeo5x3RMMkaeE/KzLdk59dF9sBSFlfYCrtsWr3l5nsx6jmcvGrrK
-	36z/sddA==;
+	bh=3UIPl33atSDY9KVaRvUmFDExqgIxfWKnScxFq0tQiYk=; b=Oyil0dnnEuLFrnsdtQfngRJfx4
+	mVqOZLR49UduJyDqeH8OvgFbIeXtDYCtYRjIekA2M6r2zq2JBKxZdbPKRkCp8xl7nSYIPw9XkbuoB
+	ZXSzQArbi6Xw7aCU244LMYNWn3lzms1NE9LAJdeDWLEGYSOH1s5ZCAD5TkxkTc+MxHzDWy9wRF9dy
+	KuiRRiXpCWIz3f3fSxpurPuCQ22MMfhIbS7wdOvw6BSyrC4Qy4WK24bW56SrczokYkwlsSmP5yoe7
+	NLO+b7HMa8DgaqV3VVrubAHjqzcFEugKQRdBhhdn5KemW6xuezVsNsEz2fhTh/lEZ0V3emR1m7H4J
+	iit+5OOQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gIM1A-0001cR-9g; Thu, 01 Nov 2018 23:04:48 +0000
+	id 1gIM1J-0001eo-QS; Thu, 01 Nov 2018 23:04:57 +0000
 Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gIM16-0001YS-5S
- for linux-riscv@lists.infradead.org; Thu, 01 Nov 2018 23:04:46 +0000
+ id 1gIM1G-0001a9-B3
+ for linux-riscv@lists.infradead.org; Thu, 01 Nov 2018 23:04:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1541113485; x=1572649485;
+ t=1541113495; x=1572649495;
  h=from:to:cc:subject:date:message-id:in-reply-to: references;
- bh=MSnFvpkFPZAzwuA5gKM2nIzAkb0BSzK0YZJ2uyOYJ8U=;
- b=j2JdHqFz9NwDHXRC9uxjInMdZxGPhT7chSBR8a8cZwgjA1s+9vZGz5sD
- fjX10fVhFmaiBFyiRCGLyXoVVhGhozlON7+1ZaygmIyf9d627vFFxlfHl
- 7rVUngjuNMCQfXF4ss+gsF5JAAZhelaG7nrGAIxU2UF1Mtlk7lJLy5gDX
- 2l+G3Fkqvqv9vcgbTvKL1Dcq32fwGE1hQD4yjhU+XjP5yGc831zSgZqEq
- AkSpLmxBi2H4ShyHCuBmhQ3NhVz8uE9bSoxgqjGtetwAwtTArhf8PR/3G
- jhFboqatIFR4LBBnRrT5WtYiIa7hLfsDpgxtadmPgcUlnlsNdFT+U/+Ej Q==;
-X-IronPort-AV: E=Sophos;i="5.54,454,1534780800"; d="scan'208";a="93332262"
+ bh=IrvmeNwmAXPQ6w9WW8c5cIIoJ3GqExvnYZ0ZjKV6/6Y=;
+ b=TeUvWklVRsUh1yQOE37CBO66SAkVTHdeTyn1SE71jEQtA4DBuOrpOPkm
+ egLltq2k+YjubiXfO1lRU1aJPIatpzJXZ5qegupqGqSzvOFDD9JV6SM8x
+ 4iEQLamyLm/xkSTwegSd7hiLi1QH9MBwtA+cvYsAU7pC91Pmomqu9MMjn
+ /pGt+LBavmx2wrTwammukhWEJqbpEL89p3mmTVRwpCMbt/PHDF2i1VA4j
+ 4m9A/fkuMaMdugzGX1WYfnwa1u/uRQAMOmV4uUKDgd/Y3SUnNjDq4fm/P
+ pTaVtxvDUU1lVjUzmdsbLTcXusWzaOoS2q70nyPWQz6NfKJLmoqYWYbXq Q==;
+X-IronPort-AV: E=Sophos;i="5.54,454,1534780800"; d="scan'208";a="93332265"
 Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 02 Nov 2018 07:04:29 +0800
+ by ob1.hgst.iphmx.com with ESMTP; 02 Nov 2018 07:04:30 +0800
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep02.wdc.com with ESMTP; 01 Nov 2018 15:48:13 -0700
+ by uls-op-cesaep02.wdc.com with ESMTP; 01 Nov 2018 15:48:14 -0700
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
  by uls-op-cesaip02.wdc.com with ESMTP; 01 Nov 2018 16:04:29 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
-Subject: [RFC 1/2] dt-bindings: topology: Add RISC-V cpu topology.
-Date: Thu,  1 Nov 2018 16:04:27 -0700
-Message-Id: <1541113468-22097-2-git-send-email-atish.patra@wdc.com>
+Subject: [RFC 2/2] RISC-V: Introduce cpu topology.
+Date: Thu,  1 Nov 2018 16:04:28 -0700
+Message-Id: <1541113468-22097-3-git-send-email-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1541113468-22097-1-git-send-email-atish.patra@wdc.com>
 References: <1541113468-22097-1-git-send-email-atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181101_160444_264975_CDA283A2 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20181101_160454_420361_432AC0EE 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,180 +91,310 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181101230427.MveVbjJj7aON3jBS1DSqOAB7RicotjoWuPI2Lgb_iSs@z>
+Message-ID: <20181101230428.M6AkWaVHQNt-WRg07TEJPptO600yQL5emABLzlwVhMo@z>
 
-Define a RISC-V cpu topology. This is based on cpu-map in ARM world.
-But it doesn't need a separate thread node for defining SMT systems.
-Multiple cpu phandle properties can be parsed to identify the sibling
-hardware threads. Moreover, we do not have cluster concept in RISC-V.
-So package is a better word choice than cluster for RISC-V.
+Currently, cpu topology is not defined for RISC-V.
+
+Parse cpu-topology from a new DT entry "cpu-topology"
+to create different cpu sibling maps.
+As of now, only bare minimum requirements are implemented
+but it is capable of describing any type of topology in future.
+
+CPU topology after applying the patch.
+$cat /sys/devices/system/cpu/cpu2/topology/core_siblings_list
+0-3
+$cat /sys/devices/system/cpu/cpu3/topology/core_siblings_list
+0-3
+$cat /sys/devices/system/cpu/cpu3/topology/physical_package_id
+0
+$cat /sys/devices/system/cpu/cpu3/topology/core_id
+3
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- .../devicetree/bindings/riscv/topology.txt         | 154 +++++++++++++++++++++
- 1 file changed, 154 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/riscv/topology.txt
+ arch/riscv/include/asm/topology.h |  28 ++++++
+ arch/riscv/kernel/Makefile        |   1 +
+ arch/riscv/kernel/smpboot.c       |   5 +-
+ arch/riscv/kernel/topology.c      | 194 ++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 227 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/topology.h
+ create mode 100644 arch/riscv/kernel/topology.c
 
-diff --git a/Documentation/devicetree/bindings/riscv/topology.txt b/Documentation/devicetree/bindings/riscv/topology.txt
+diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/topology.h
 new file mode 100644
-index 00000000..96039ed3
+index 00000000..d412edc8
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/topology.txt
-@@ -0,0 +1,154 @@
-+===========================================
-+RISC-V cpu topology binding description
-+===========================================
++++ b/arch/riscv/include/asm/topology.h
+@@ -0,0 +1,28 @@
++// SPDX-License-Identifier: GPL-2.0
 +
-+===========================================
-+1 - Introduction
-+===========================================
++#ifndef __ASM_TOPOLOGY_H
++#define __ASM_TOPOLOGY_H
 +
-+In a RISC-V system, the hierarchy of CPUs can be defined through following nodes that
-+are used to describe the layout of physical CPUs in the system:
++#include <linux/cpumask.h>
++#include <asm-generic/topology.h>
 +
-+- packages
-+- core
++struct riscv_cpu_topology {
++	int core_id;
++	int package_id;
++	int hart_id;
++	cpumask_t thread_sibling;
++	cpumask_t core_sibling;
++};
 +
-+The cpu nodes (bindings defined in [1]) represent the devices that
-+correspond to physical CPUs and are to be mapped to the hierarchy levels.
-+Simultaneous multi-threading (SMT) systems can also represent their topology
-+by defining multiple cpu phandles inside core node. The details are explained
-+in paragraph 3.
++extern struct riscv_cpu_topology cpu_topology[NR_CPUS];
 +
-+The remainder of this document provides the topology bindings for ARM, based
-+on the Devicetree Specification, available from:
++#define topology_physical_package_id(cpu)	(cpu_topology[cpu].package_id)
++#define topology_core_id(cpu)		(cpu_topology[cpu].core_id)
++#define topology_core_cpumask(cpu)	(&cpu_topology[cpu].core_sibling)
++#define topology_sibling_cpumask(cpu)	(&cpu_topology[cpu].thread_sibling)
 +
-+https://www.devicetree.org/specifications/
++void init_cpu_topology(void);
++void remove_cpu_topology(unsigned int cpuid);
++void set_topology_masks(unsigned int cpuid);
 +
-+If not stated otherwise, whenever a reference to a cpu node phandle is made its
-+value must point to a cpu node compliant with the cpu node bindings as
-+documented in [1].
-+A topology description containing phandles to cpu nodes that are not compliant
-+with bindings standardized in [1] is therefore considered invalid.
++#endif /* _ASM_RISCV_TOPOLOGY_H */
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index e1274fc0..128766f8 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -27,6 +27,7 @@ obj-y	+= riscv_ksyms.o
+ obj-y	+= stacktrace.o
+ obj-y	+= vdso.o
+ obj-y	+= cacheinfo.o
++obj-y	+= topology.o
+ obj-y	+= vdso/
+ 
+ CFLAGS_setup.o := -mcmodel=medany
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index 56abab6a..1324f4b2 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -45,6 +45,7 @@ void __init smp_prepare_boot_cpu(void)
+ 
+ void __init smp_prepare_cpus(unsigned int max_cpus)
+ {
++	init_cpu_topology();
+ }
+ 
+ void __init setup_smp(void)
+@@ -98,13 +99,15 @@ void __init smp_cpus_done(unsigned int max_cpus)
+ asmlinkage void __init smp_callin(void)
+ {
+ 	struct mm_struct *mm = &init_mm;
++	int cpu = smp_processor_id();
+ 
+ 	/* All kernel threads share the same mm context.  */
+ 	atomic_inc(&mm->mm_count);
+ 	current->active_mm = mm;
+ 
+ 	trap_init();
+-	notify_cpu_starting(smp_processor_id());
++	notify_cpu_starting(cpu);
++	set_topology_masks(cpu);
+ 	set_cpu_online(smp_processor_id(), 1);
+ 	local_flush_tlb_all();
+ 	local_irq_enable();
+diff --git a/arch/riscv/kernel/topology.c b/arch/riscv/kernel/topology.c
+new file mode 100644
+index 00000000..5195de14
+--- /dev/null
++++ b/arch/riscv/kernel/topology.c
+@@ -0,0 +1,194 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2018 Western Digital Corporation or its affiliates.
++ *
++ * Based on the arm64 version arch/arm64/kernel/topology.c
++ *
++ */
 +
-+This cpu topology binding description is mostly based on the topology defined
-+in ARM [2].
-+===========================================
-+2 - cpu-topology node
-+===========================================
++#include <linux/cpu.h>
++#include <linux/cpumask.h>
++#include <linux/of.h>
++#include <linux/smp.h>
++#include <linux/string.h>
 +
-+The RISC-V CPU topology is defined within the "cpu-topology" node, which is a direct
-+child of the "cpus" node and provides a container where the actual topology
-+nodes are listed.
++#include <asm/topology.h>
 +
-+- cpu-topology node
++/*
++ * cpu topology array
++ */
++struct riscv_cpu_topology cpu_topology[NR_CPUS];
++EXPORT_SYMBOL_GPL(cpu_topology);
 +
-+	Usage: Optional - RISC-V SMP systems need to provide CPUs topology to
-+			  the OS. RISC-V uniprocessor systems do not require a
-+			  topology description and therefore should not define a
-+			  cpu-topology node.
++void set_topology_masks(unsigned int cpuid)
++{
++	struct riscv_cpu_topology *ctopo, *cpuid_topo = &cpu_topology[cpuid];
++	int cpu;
 +
-+	Description: The cpu-topology node is just a container node where its
-+		     subnodes describe the CPU topology.
++	/* update core and thread sibling masks */
++	for_each_online_cpu(cpu) {
++		ctopo = &cpu_topology[cpu];
 +
-+	Node name must be "cpu-topology".
++		if (cpuid_topo->package_id != ctopo->package_id)
++			continue;
 +
-+	The cpu-topology node's parent node must be the cpus node.
++		cpumask_set_cpu(cpuid, &ctopo->core_sibling);
++		cpumask_set_cpu(cpu, &cpuid_topo->core_sibling);
 +
-+	The cpu-topology node's child nodes can be:
++		if (cpuid_topo->core_id != ctopo->core_id)
++			continue;
 +
-+	- one or more package nodes
++		cpumask_set_cpu(cpuid, &ctopo->thread_sibling);
++		cpumask_set_cpu(cpu, &cpuid_topo->thread_sibling);
++	}
++}
 +
-+	Any other configuration is considered invalid.
++static int __init get_hartid_for_cnode(struct device_node *node,
++				       unsigned int count)
++{
++	char name[10];
++	struct device_node *cpu_node;
++	int cpu;
 +
-+The cpu-topology node can only contain two types of child nodes:
++	snprintf(name, sizeof(name), "cpu%d", count);
++	cpu_node = of_parse_phandle(node, name, 0);
++	if (!cpu_node)
++		return -1;
 +
-+- package node
-+- core node
++	cpu = of_cpu_node_to_id(cpu_node);
++	if (cpu < 0)
++		pr_err("Unable to find CPU node for %pOF\n", cpu_node);
 +
-+whose bindings are described in paragraph 3.
++	of_node_put(cpu_node);
++	return cpu;
++}
 +
-+=================================================
-+2.1 - cpu-topology child nodes naming convention
-+=================================================
++static int __init parse_core(struct device_node *core, int pid)
++{
++	char name[10];
++	struct device_node *cnode;
++	int count, hid = 0;
++	int coreid = 0;
++	bool found_hart = false;
 +
-+cpu-topology child nodes must follow a naming convention where the node name
-+must be "packageN", "coreN" depending on the node type (i.e. package/core).
-+For SMT systems, coreN node can contain several cpuN to indicate individual
-+SMT harts (where N = {0, 1, ...} is the node number; nodes which are siblings
-+within a single common parent node must be given a unique and sequential N
-+value, starting from 0). cpu-topology child nodes which do not share a common
-+parent node can have the same name (i.e. same number N as other cpu-topology
-+child nodes at different device tree levels) since name uniqueness will be
-+guaranteed by the device tree hierarchy.
++	do {
++		snprintf(name, sizeof(name), "core%d", coreid);
++		cnode = of_get_child_by_name(core, name);
++		if (cnode) {
++			count = 0;
++			do {
++				hid = get_hartid_for_cnode(cnode, count);
++				if (hid >= 0) {
++					found_hart = true;
++					cpu_topology[hid].package_id = pid;
++					cpu_topology[hid].core_id = coreid;
++					cpu_topology[hid].hart_id = hid;
++				}
++				count++;
++			} while (hid >= 0);
++			coreid++;
++			of_node_put(cnode);
++		}
++	} while (cnode);
 +
-+===========================================
-+3 - package/core node bindings
-+===========================================
++	if (!found_hart) {
++		pr_err("%pOF: no hart found\n", cnode);
++		of_node_put(cnode);
++		return -EINVAL;
++	}
 +
-+Bindings for package/core nodes are defined as follows:
++	return 0;
++}
++static int __init parse_package(struct device_node *package)
++{
++	char name[10];
++	struct device_node *pnode;
++	int ret, package_id = 0;
 +
-+- package node
++	/*
++	 * Current RISC-V system doesn't have child package node. It has a
++	 * flat package hierarchy. Once, we have such a system, the following
++	 * code can be modified to support that.
++	 */
++	do {
++		snprintf(name, sizeof(name), "package%d", package_id);
++		pnode = of_get_child_by_name(package, name);
++		if (pnode) {
++			ret = parse_core(pnode, package_id);
++			if (ret < 0)
++				pr_warn("%pOF: empty package\n", package);
 +
-+	 Description: must be declared within a cpu-topology node, one node
-+		      per package. A system can contain several layers of
-+		      package nodes. It can also be contained in parent
-+		      package nodes.
++			package_id++;
++		}
++	} while (pnode);
 +
-+	The package node name must be "packageN" as described in 2.1 above.
-+	A package node can not be a leaf node.
++	return 0;
++}
 +
-+	A package node's child nodes must be:
++static int __init parse_dt_topology(void)
++{
++	struct device_node *cn, *map;
++	int ret = 0;
++	int cpu;
 +
-+	- one or more package nodes; or
-+	- one or more core nodes
++	cn = of_find_node_by_path("/cpus");
++	if (!cn) {
++		pr_err("No CPU information found in DT\n");
++		return 0;
++	}
 +
-+	Any other configuration is considered invalid.
++	map = of_get_child_by_name(cn, "cpu-topology");
++	if (!map)
++		goto out;
 +
-+- core node
++	ret = parse_package(map);
++	if (ret != 0)
++		goto out_map;
 +
-+	Description: must be declared in a package node, one node per core in
-+		     the package.
++	/*
++	 * Check that all cores are in the topology; the SMP code will
++	 * only mark cores described in the DT as possible.
++	 */
++	for_each_possible_cpu(cpu)
++		if (cpu_topology[cpu].package_id == -1)
++			ret = -EINVAL;
 +
-+	The core node name must be "coreN" as described in 2.1 above.
++out_map:
++	of_node_put(map);
++out:
++	of_node_put(cn);
++	return ret;
++}
 +
-+	A core node must always be a leaf node.
++static void clear_all_topology_masks(int cpu)
++{
++	struct riscv_cpu_topology *ctopo = &cpu_topology[cpu];
 +
-+	Properties for core nodes :
++	cpumask_clear(&ctopo->core_sibling);
++	cpumask_set_cpu(cpu, &ctopo->core_sibling);
++	cpumask_clear(&ctopo->thread_sibling);
++	cpumask_set_cpu(cpu, &ctopo->thread_sibling);
++}
 +
-+	- cpuN
-+		Usage: required
-+		Value type: <phandle>
-+		Definition: a phandle to the cpu node that corresponds to the
-+			    core node.
-+	For SMT systems, a core node will contain multiple cpuN phandles.
++static void __init reset_cpu_topology(void)
++{
++	unsigned int cpu;
 +
-+	Any other configuration is considered invalid.
++	for_each_possible_cpu(cpu) {
++		struct riscv_cpu_topology *ctopo = &cpu_topology[cpu];
 +
-+===========================================
-+4 - Example dts
-+===========================================
++		ctopo->hart_id = 0;
++		ctopo->core_id = 0;
++		ctopo->package_id = -1;
 +
-+Example : HiFive Unleashed (RISC-V 64 bit, 4 core system)
++		clear_all_topology_masks(cpu);
++	}
++}
 +
-+L100: cpu-topology {
-+	 package0 {
-+		 core0 {
-+			 cpu0 = <&L12>;
-+		 };
-+		 core1 {
-+			 cpu0 = <&L15>;
-+		 };
-+		 core2 {
-+			 cpu0 = <&L18>;
-+		 };
-+		 core3 {
-+			 cpu0 = <&L21>;
-+		 };
-+	 };
-+ };
-+===============================================================================
-+[1] RISC-V cpus documentation
-+    Documentation/devicetree/binding/riscv/cpus.txt
-+[2] ARM topology documentation
-+    Documentation/devicetree/binding/arm/topology.txt
++void __init init_cpu_topology(void)
++{
++	reset_cpu_topology();
 +
-+===============================================================================
++	if (of_have_populated_dt() && parse_dt_topology())
++		reset_cpu_topology();
++}
 -- 
 2.7.4
 
