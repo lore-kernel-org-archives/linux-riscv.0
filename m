@@ -2,90 +2,64 @@ Return-Path: <SRS0=CEwi=NM=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4766DC0044C
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Nov 2018 05:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2FD08C0044C
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Nov 2018 09:00:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1C76F2064C
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Nov 2018 05:11:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 002BC2081B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Nov 2018 09:00:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cF11RqzL";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="XavHgQ0t"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1C76F2064C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tHzO9Bnb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 002BC2081B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=bJBmsLr6MMw8oIqVzwtCDTMvCjXKqfGvsJUgqzhlRr0=; b=cF11RqzLU9zLkM2h3p9TAqu7XL
-	yISUXXgao7cxUOks7LWG/9e+MYgrWoiqOSnAN1yASvupmSYKwt4s/EN6ciA+Ng6wvKfqTp+znlh1N
-	thO5hRPejdSlplmMfwDvE5avtmtqXzCncok/tc0MybeqZnge5d0SwoGPDUsq6gAAH3lD0LYbM56yE
-	z3f+TGz+pjUEs1Sb4grf9XbLTYjKKs1wamZoCmh+YkCbXMYbezvgu1iv6t4y2ce7dOuM8Jv5Y1P2a
-	UoHKJEnVfExp9/XP+DsLDvI2zXURIPXr63T/VHcPNpa/QdD+EzmaPtxSTlWaLW4UNanH+4Z2mRrKC
-	nvgYuIeg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6Ny1BSOZnBVy1Vt/TWVnJbKexWrjUhLwJwvHxk+1pg0=; b=tHzO9BnbqwiAAs
+	nYvvOxLrhLZAQx86x9U2Ypz2BavJMSaAktKaRamDOIcAFhITyhtmOottMU6p7kwPNZeEYYxRIAI7B
+	uubgZCKF3LHZTZi9urPYnwt6AivuFTLN62VVA+ubUBHZbkYtUcbcsrVWDoDBxUfR5KW0xz6MxL0/6
+	HGCI0SeMaBsNwzS+XtDR5cKU6a+yH9d9Ng9Jp4e18THBeI2UzEWGGQS8aYI/uWlsrJafBFyZHGrdg
+	eFNzFErHzkeFV8xK8N43UKa3FbZKpOwbLRl9bueanLRuWevPcM62T9r9zMvuG7hbTtenbLZy8cG9z
+	KIkay8chsPnzsemekqtg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gI5G9-0007xd-8V; Thu, 01 Nov 2018 05:11:09 +0000
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
+	id 1gI8qG-0007Zn-Sv; Thu, 01 Nov 2018 09:00:40 +0000
+Received: from 59-120-53-16.hinet-ip.hinet.net ([59.120.53.16]
+ helo=ATCSQR.andestech.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gI5G7-0007ug-Co
- for linux-riscv@lists.infradead.org; Thu, 01 Nov 2018 05:11:08 +0000
-Received: by mail-pl1-x641.google.com with SMTP id b9-v6so8353345pls.7
- for <linux-riscv@lists.infradead.org>; Wed, 31 Oct 2018 22:10:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=ubKhKoPKckBfrs+izWAdzx1As6ZWGpwYQzLemVrm8W4=;
- b=XavHgQ0tiG+sL1Lqmp1jYFSlZW1h9lpV7Qg4z0FuK1KUlMNuCBfwWIAFtb2/5uM86F
- iDXH3hQ5889g5L4+R8RmQiDR7Xcosr9no3JTQnTdgX1mMmgRfMIl6dB51+NcG08Bk0m9
- jtlWAJ8FXZIeXO4ap+EkuVgayi0ycTmUahE1FMe9dNtrHztq74GcqRBNBaofWrJ1Uhcb
- I+yuT5tUKwF78jqCWQpTQslJRvZi2mxjMbH1hqthxjbdHde955aKXpRbMDe2zToaAV5f
- D//QfqC0c6otnf6edI7kVpU99PCsVc7jSv7Qo4ceghjj1Xa9ATNAE6/QSGHMgJOLCb19
- w2Tw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=ubKhKoPKckBfrs+izWAdzx1As6ZWGpwYQzLemVrm8W4=;
- b=c3yf9suQMbhjtN5B2Wj76npyHzfY9y41jr16lNcXYTqpkUYwr7yeUaXyReWXFQv0zd
- meO5JYFIAM6hgFfAqGhwAPlt/Lf/M+weDvwIMjHnsrlbcmjewPso6Q6dmq12Gi94UBgm
- JYMXvTQ5GSYchSog/H6FkGDc8rzCLHYRT344dImgOCAZQes2hsB2BQNMYKc2M0M3EbC/
- 2QeYhhRqRCWBIhKVYO5ovTCQgeo+8fPBligBFKRpLxReb7B5kzCHlBOkjsNMMkhzNeCx
- CQ7NcNeJNQHoR7A3xw5tVpPZyMEhUDxXRp9gG/VZReHghxh3DP566JkSYADAwLaLYBXo
- IBrw==
-X-Gm-Message-State: AGRZ1gKw7RvHGKCuOuAVTC2cSdoYHvKmvjBOu1oGUDs1qmACX0ORfLAO
- J0jwN4I5ZPkY3EfZYr8YqEeCI+cZXhQ=
-X-Google-Smtp-Source: AJdET5cexhv5tYBwfPxqcaSrBk5RsPm6d9IWLTe9sDjZ/dYZYEwyJtA7V6pfYTmNqQNGtQMLcWNlJA==
-X-Received: by 2002:a17:902:108a:: with SMTP id
- c10-v6mr6439201pla.49.1541049056282; 
- Wed, 31 Oct 2018 22:10:56 -0700 (PDT)
-Received: from anup-ubuntu64.qualcomm.com ([106.51.30.16])
- by smtp.googlemail.com with ESMTPSA id
- d65-v6sm40439166pfm.100.2018.10.31.22.10.50
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 31 Oct 2018 22:10:55 -0700 (PDT)
-From: Anup Patel <anup@brainfault.org>
-To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Olof Johansson <olof@lixom.net>
-Subject: [PATCH v2 2/2] RISC-V: defconfig: Enable printk timestamps
-Date: Thu,  1 Nov 2018 10:40:33 +0530
-Message-Id: <20181101051033.10089-2-anup@brainfault.org>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20181101051033.10089-1-anup@brainfault.org>
-References: <20181101051033.10089-1-anup@brainfault.org>
+ id 1gI8qD-0007Xy-1K
+ for linux-riscv@lists.infradead.org; Thu, 01 Nov 2018 09:00:38 +0000
+Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
+ by ATCSQR.andestech.com with ESMTP id wA1914AR084295;
+ Thu, 1 Nov 2018 17:01:04 +0800 (GMT-8)
+ (envelope-from alankao@andestech.com)
+Received: from andestech.com (10.0.15.65) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.123.3; Thu, 1 Nov 2018
+ 17:00:14 +0800
+Date: Thu, 1 Nov 2018 17:00:15 +0800
+From: Alan Kao <alankao@andestech.com>
+To: <linux-riscv@lists.infradead.org>, <sw-dev@groups.riscv.org>
+Subject: About the Use of sfence.vma in Kernel
+Message-ID: <20181101090015.GA6997@andestech.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-Originating-IP: [10.0.15.65]
+X-DNSRBL: 
+X-MAIL: ATCSQR.andestech.com wA1914AR084295
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181031_221107_437532_216D53C1 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20181101_020037_342193_B1143E20 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,43 +71,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Christoph Hellwig <hch@infradead.org>, Atish Patra <atish.patra@wdc.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Anup Patel <anup@brainfault.org>
-MIME-Version: 1.0
+Cc: greentime@andestech.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181101051033.oDRrnRA4qfiN06oj5wDRPX9l0Uvk-ZuqqNd5zkaIYxE@z>
+Message-ID: <20181101090015.QypuFlel1_dwIVENx3fFHircOGCChOGqZQ3Vd3s9AXE@z>
 
-The printk timestamps are very useful information to visually see
-where kernel is spending time during boot. It also helps us see
-the timing of hotplug events at runtime.
+Hi all,
 
-This patch enables printk timestamps in RISC-V defconfig so that
-we have it enabled by default (similar to other architectures
-such as x86_64, arm64, etc).
+As mentioned in the Privileged Spec about sfence.vma instruction:
 
-Signed-off-by: Anup Patel <anup@brainfault.org>
-Acked-by: Olof Johansson <olof@lixom.net>
----
- arch/riscv/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+> The supervisor memory-management fence instruction SFENCE.VMA is used
+> to synchronize updates to in-memory memory-management data structures 
+> with current execution.  Instruction execution causes implicit reads 
+> and writes to these data structures;  however, these implicit references
+> are ordinarily not ordered with respect to loads and stores in the instruction
+> stream.
+>
+> Executing an SFENCE.VMA instruction guarantees that any stores in the
+> instruction stream prior to the SFENCE.VMA are ordered before all implicit
+> references subsequent to the SFENCE.VMA.
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 07fa9ea75fea..ef4f15df9adf 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -76,4 +76,5 @@ CONFIG_NFS_V4_1=y
- CONFIG_NFS_V4_2=y
- CONFIG_ROOT_NFS=y
- CONFIG_CRYPTO_USER_API_HASH=y
-+CONFIG_PRINTK_TIME=y
- # CONFIG_RCU_TRACE is not set
--- 
-2.17.1
+It naturally follows that we should use sfence.vma once the page table is
+modified.  There are several examples in the kernel already, such as
 
+alloc_set_pte (in mm/memory.c):
+...
+        set_pte_at(vma->vm_mm, vmf->address, vmf->pte, entry);
+        /* no need to invalidate: a not-present page won't be cached */
+        update_mmu_cache(vma, vmf->address, vmf->pte);
+...
+where the update_mmu_cache function eventually issues a sfence.vma.
+
+I was interested if it is always the case and did some research.  RV64 uses
+3-level of page table entry, pud, pmd and pte, so I traced a little bit about
+the code flow after set_pud, set_pmd and set_pte.
+
+It turns out that some of the calls to them are not followed by a
+sfence.vma.  For an instance, in the vmalloc_fault region in do_page_fault,
+there is no sfence.vma or calls to it after set_pgd, which directs to set_pud
+later.
+
+Are they bugs or I just misunderstand the instruction?  As the kernel has
+already been stable for quite a while now, it is not likely to be a critical
+bug.
+
+Any clarification will highly appreciated.
+
+Many thanks,
+Alan Kao
 
 _______________________________________________
 linux-riscv mailing list
