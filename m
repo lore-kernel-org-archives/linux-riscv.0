@@ -1,61 +1,39 @@
-From: olof@lixom.net (Olof Johansson)
-Date: Thu, 1 Nov 2018 10:20:06 -0700
-Subject: [PATCH 0/3] RISC-V: A few build/warning fixes and cleanup
-In-Reply-To: <mhng-b2753147-e1db-4a2a-8dfb-710e71a38bed@palmer-si-x1c4>
-References: <da34ca57-ea7b-7fb9-bc45-4b315513e43f@deltatee.com>
- <mhng-b2753147-e1db-4a2a-8dfb-710e71a38bed@palmer-si-x1c4>
-Message-ID: <CAOesGMjOfE8KADq2hDORvVtYw8sa7GbL6MtbiDRRgPbWMiXQCA@mail.gmail.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Thu, 01 Nov 2018 10:50:04 -0700 (PDT)
+Subject: [RFC 0/2] RISC-V: A proposal to add vendor-specific code
+In-Reply-To: <20181101005541.GA25604@andestech.com>
+Message-ID: <mhng-22ded2c8-7f87-4acc-b017-627e369cf874@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Nov 1, 2018 at 9:17 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+On Wed, 31 Oct 2018 17:55:42 PDT (-0700), alankao at andestech.com wrote:
+> On Wed, Oct 31, 2018 at 07:17:45AM -0700, Christoph Hellwig wrote:
+>> On Wed, Oct 31, 2018 at 04:46:10PM +0530, Anup Patel wrote:
+>> > I agree that we need a place for vendor-specific ISA extensions and
+>> > having vendor-specific directories is also good.
+>>
+>> The only sensible answer is that we should not allow vendor specific
+>> extensions in the kernel at all.  ...
 >
-> On Thu, 01 Nov 2018 08:43:15 PDT (-0700), logang at deltatee.com wrote:
-> >
-> >
-> > On 2018-10-31 8:19 p.m., Li, Philip wrote:
-> >>>> I think it would also be very nice to get the existing kbuild test robot
-> >>>> to start compile testing a few riscv configs. It already does most of
-> >> thanks Logan, the support to riscv and nds32 has been in our TODO list for
-> >> a while, but whole team is blocked by other effort. We will focus on this soon
-> >> to complete it within 2-3 weeks.
-> >
-> > Thanks! Glad to hear it.
->
-> We should probably at least have builds for rv32imac, rv32imafdc, rv64imac, and
-> rv64imafdc.  It's probably also good to test SMP/non-SMP as well as
-> medlow/medany, as I doubt those get regularly tested.  If you'd like I can
-> write up the configs, just point me to something that describes what I should
-> do.
+> How can this even be possible if a extension includes an extra register
+> set as some domain-specific context?  In such a case, kernel should
+> at least process the context during any context switch, just like how it
+> deals with the FP context.
 
-It might make sense to either do a pseudo-arch for riscv32, or maybe a
-config snippet to generate these arch-specific configs.
+Ya, I think there are cases where vendor-specific extensions are going to be 
+necessary to handle within the kernel.  Right now the only one I can think of 
+is the performance counter stuff, where we explicitly allow vendor-specific 
+counters as part of the ISA spec.
 
-For the ISA options, it's a bit trickier. Ideally we want to build
-just one kernel that can boot everywhere, and enable the rest
-dynamically ('fd' in particular). Whether the kernel itself is built
-with 'c' could be a config option to enable (like THUMB kernel on
-32-bit ARM), but in general we probably want to watch out for
-explosions of combinations here.
+For stateful extensions, we currently have a standard mechanism where the XS 
+bits get set in sstatus and the actual save/restore code is hidden behind an 
+SBI call.  That call doesn't currently exist, but if we just go ahead and add 
+one it should be easy to support this from within Linux.  We'll need to figure 
+out how to enable these custom extensions from userspace, but that seems 
+tractable as well.  We'll probably also want some fast-path for the V extension 
+(and any other stateful standard extensions), but I think as long as the V 
+extension adds a quick check for dirtiness then it's not a big deal.
 
-Embedded/low-end users will want a way to disable whatever they don't
-need, so there's a balance to be found.
-
-FWIW, the configs I build today are:
-
-if [ -f arch/riscv/Makefile ] ; then
-        (grep -v "CONFIG_SMP=y" arch/riscv/configs/defconfig ; echo
-"CONFIG_SMP=n") > arch/riscv/configs/nosmp_defconfig
-        (grep -v "CONFIG_ARCH_RV32I is not"
-arch/riscv/configs/defconfig ; echo "CONFIG_ARCH_RV32I=y") >
-arch/riscv/configs/rv32_defconfig
-fi
-
-+ tinyconfig, allmodconfig, allnoconfig and in some cases
-allyesconfig. allmod and allyes take forever so I'm trying to figure
-out what targets to build those for. Maybe linux-next only or
-something. So doing allmod+ISA combinations would be quite a time
-addition for build turnarounds for me.
-
-
--Olof
+Do you guys have stateful extensions?  We're trying really hard to avoid them 
+at SiFive because they're a huge headache, so unless there's a compelling base 
+of software using one I don't want to go add support if we can avoid it.
