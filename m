@@ -2,73 +2,84 @@ Return-Path: <SRS0=CEwi=NM=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A8254C6786F
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Nov 2018 15:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E0171C0044C
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Nov 2018 16:11:20 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 778432064C
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Nov 2018 15:43:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8AB732081B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Nov 2018 16:11:20 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HPUCiRVd"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 778432064C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=deltatee.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="beRKL5kD";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="WXWEoFIk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8AB732081B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sMoAh3Lj4Ma/bu733yjnuvWpPOPMXTTIpTdiH78/H4E=; b=HPUCiRVdLT2zyi
-	PQ+b9xCLoRALF3V/AQWwyKAx5mB5fcajSaihpXz0+yr4ftM9sWeIfitlkWBIlbSCeAWV5riTN+Wn6
-	/orNPmpBemYLL32m2z3l1fTyynT7TJexgNlPZyA2lJEXO3hn8yKjSd2AVovKoRsA4uefcQdM6ibPj
-	j8CgBruTVmx5KU5EjJu6jVHwr4MClLLmzUeyIMSRIuLukm4db4nkG4/z1JAhgrjiITAFPGvu3Y1tQ
-	oZOXKVby4hNUxiAmAQCmTM0/ecaUoNOJCoqTcAemhEwSBWCZ2YyswXN1134L89v3W3jL+uwvv6E9Q
-	+qz4THnCNPGL0U5wPL5w==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:To:From:Message-Id:Date:
+	Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=s+g4SOPw7LJ6BuPmFdiKOnz340ni9+lhGXlNxqA/9ds=; b=beRKL5kDAR0Tsw
+	RBrx4nYPjrQeKRR03gUUqoOfXP9QwOBy0RNFmSKjQGkMF4RVtvxkfSMYJVXNkbJDwWRn0DNqXXgi3
+	Cf1BFJLbdWMBKqihHkEPC8/xK2JZrfbdklPKmoQGhiM/bYhJCKm6j3IdIp99slENPPttt1NAWooNx
+	DvQ7xZFCxM3C6vR4Ql8wkFJ1XNyIYju7QRgc6Jn7PKSzLrVmxTKepys7H2RGBMnEAB4NcOniRG0I/
+	esqXMb1jEioRcuVzZYQ1wvojyR9+whUvgMS3e9oxMdi5XIw42MGaTYbmnnEk6+d7l+jVrBfIHX1MS
+	pTJDKJ7PUR+KMb7/hQTA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gIF89-0004mc-Ef; Thu, 01 Nov 2018 15:43:33 +0000
-Received: from ale.deltatee.com ([207.54.116.67])
+	id 1gIFZ1-00023F-AF; Thu, 01 Nov 2018 16:11:19 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gIF86-0004lW-1K
- for linux-riscv@lists.infradead.org; Thu, 01 Nov 2018 15:43:31 +0000
-Received: from guinness.priv.deltatee.com ([172.16.1.162])
- by ale.deltatee.com with esmtp (Exim 4.89)
- (envelope-from <logang@deltatee.com>)
- id 1gIF7u-0003kF-Bw; Thu, 01 Nov 2018 09:43:19 -0600
-To: "Li, Philip" <philip.li@intel.com>, "Wu, Fengguang"
- <fengguang.wu@intel.com>
-References: <20181031064709.30981-1-olof@lixom.net>
- <mhng-74b51433-1762-4741-935d-56ca1b3548a0@palmer-si-x1c4>
- <CAOesGMgWDM+Etng3bNU-Yem6+WRJEu+TfddzKoN-htno1Az3=w@mail.gmail.com>
- <861817b9-c5f3-e995-2e18-9526d89d6561@deltatee.com>
- <20181101014345.cdlte4grtaexb234@wfg-t540p.sh.intel.com>
- <831EE4E5E37DCC428EB295A351E662495131B2E7@shsmsx102.ccr.corp.intel.com>
-From: Logan Gunthorpe <logang@deltatee.com>
-Message-ID: <da34ca57-ea7b-7fb9-bc45-4b315513e43f@deltatee.com>
-Date: Thu, 1 Nov 2018 09:43:15 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.2.1
-MIME-Version: 1.0
-In-Reply-To: <831EE4E5E37DCC428EB295A351E662495131B2E7@shsmsx102.ccr.corp.intel.com>
-Content-Language: en-CA
-X-SA-Exim-Connect-IP: 172.16.1.162
-X-SA-Exim-Rcpt-To: linux-riscv@lists.infradead.org, olof@lixom.net,
- linux-kernel@vger.kernel.org, zongbox@gmail.com, palmer@sifive.com,
- kbuild@lists.01.org, lkp@intel.com, aou@eecs.berkeley.edu,
- fengguang.wu@intel.com, philip.li@intel.com
-X-SA-Exim-Mail-From: logang@deltatee.com
-Subject: Re: [PATCH 0/3] RISC-V: A few build/warning fixes and cleanup
-X-SA-Exim-Version: 4.2.1 (built Tue, 02 Aug 2016 21:08:31 +0000)
-X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
+ id 1gIFYy-00021z-6G
+ for linux-riscv@lists.infradead.org; Thu, 01 Nov 2018 16:11:17 +0000
+Received: by mail-pf1-x435.google.com with SMTP id h4-v6so9549750pfi.10
+ for <linux-riscv@lists.infradead.org>; Thu, 01 Nov 2018 09:11:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=subject:date:message-id:from:to;
+ bh=oWrFOgEh9eqgWyKgTgI9lC/V+IkUGh9sKP0cKoTi8vc=;
+ b=WXWEoFIkDIaHiCZZa7TbjXodI82vIhkCsGta+aqgE/LFvHGnpK0A8WtS0FWqGFsM79
+ ZwLDFDDtIr69JkqF3bP8Hh9+snpwibXQnBYZGuBF/R4J+k3XyUpwfLx5khpJawvNHayT
+ cv7rnpXKLr0IGpUuafuaQ72MAsrbw8h9sQxVKQNN1GhKisCZPpinFpPXt9OegOt1eKpA
+ maGfMvnC6YcXyzxCqeo0Di/8LbCPEdZuPdzVf98Kvf15mz6z1JrOFhk71xJAdGds8pUg
+ oWz1HW6qbJpGfxuNbfjOu9o1tymQm34d4rB/OfaX0iz9QdNJFns2esN+VoY3n7guLWrA
+ MSMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:date:message-id:from:to;
+ bh=oWrFOgEh9eqgWyKgTgI9lC/V+IkUGh9sKP0cKoTi8vc=;
+ b=QRHuTi82xMVsjAKlZ7r67G8OeVRwj5QmtVhGWZq31ujFmfL5kbL6g8OTUCTS3g9zon
+ pceAw5FLgGJyHkqFfsxO6uXn2+o8/43ANB8vGFXsik7uPb06N+uaLQ3CV9foALkwqiPS
+ KBzf13IoGkRiqRmd2jlCmwM3a0cK+QUGUqPXJYESOQmB9fVAhPe3fXwVKwanEdH0Vza7
+ iYyYOyESa3C9v9QS2e/lejTy1GbMVAS8KGtTJGkMMvET33FVYbwAzI06ghu8PN+zFIvf
+ /3yEZiKMDYLEffH5z0QdVAdO9asH3ODVEzfTZG35VSZGtooZrbO68LCiRRt7C2QvhYwQ
+ ds2A==
+X-Gm-Message-State: AGRZ1gLgrqm4qQrGifesvzKZWD/rY4RoR8KwdIOn7WQD9Roupxdoiuxo
+ 5YBuzS2UNqb49TUlZ0CsKnxL+TO3DZQ=
+X-Google-Smtp-Source: AJdET5cS+gl89gof7psBASpxNRnxWV2iugRhq/bwjBM2wAu652eM1f1CHbqBUYuH8rV10i97ayBj/w==
+X-Received: by 2002:a63:fc22:: with SMTP id
+ j34-v6mr7840757pgi.434.1541088664526; 
+ Thu, 01 Nov 2018 09:11:04 -0700 (PDT)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id q123-v6sm87906930pfq.169.2018.11.01.09.11.02
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Thu, 01 Nov 2018 09:11:03 -0700 (PDT)
+Subject: [PATCH] RISC-V: Regenerate defconfig
+Date: Thu,  1 Nov 2018 09:10:40 -0700
+Message-Id: <20181101161041.3250-1-palmer@sifive.com>
+X-Mailer: git-send-email 2.18.1
+From: Palmer Dabbelt <palmer@sifive.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181101_084330_437483_A0075E86 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20181101_091116_256915_E9EDDB8C 
+X-CRM114-Status: UNSURE (   4.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -80,30 +91,17 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, lkp <lkp@intel.com>,
- "kbuild@lists.01.org" <kbuild@lists.01.org>,
- Palmer Dabbelt <palmer@sifive.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Zong Li <zongbox@gmail.com>, Olof Johansson <olof@lixom.net>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181101154315.sTCnkt0KXDOYYdr2mhvtX1VZcMSbnnVSIfQg7oZlmtk@z>
+Message-ID: <20181101161040.hv2NJEgFu9dAiaud_n541t1-BZVgjT5er2mLlv_i3K8@z>
+
+I intend to break my own rules here and submit this as part of the merge
+window.  Unless there are any objections, I'll send out a PR tonight.
 
 
-
-On 2018-10-31 8:19 p.m., Li, Philip wrote:
->>> I think it would also be very nice to get the existing kbuild test robot
->>> to start compile testing a few riscv configs. It already does most of
-> thanks Logan, the support to riscv and nds32 has been in our TODO list for
-> a while, but whole team is blocked by other effort. We will focus on this soon
-> to complete it within 2-3 weeks.
-
-Thanks! Glad to hear it.
-
-Logan
 
 _______________________________________________
 linux-riscv mailing list
