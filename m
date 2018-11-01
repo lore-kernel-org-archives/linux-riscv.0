@@ -1,50 +1,45 @@
-From: alankao@andestech.com (Alan Kao)
-Date: Thu, 1 Nov 2018 17:00:15 +0800
-Subject: About the Use of sfence.vma in Kernel
-Message-ID: <20181101090015.GA6997@andestech.com>
+From: anup@brainfault.org (Anup Patel)
+Date: Thu, 1 Nov 2018 15:05:51 +0530
+Subject: SBI extension proposal
+In-Reply-To: <CA+h06zgcyWz7WMbzQxjyc9V5S3CokqSoO1mGOaynJE3uJE5QSg@mail.gmail.com>
+References: <7f2a546a-6ebb-43c6-83a0-5e712ec2e2c7@wdc.com>
+ <CA+h06zgcyWz7WMbzQxjyc9V5S3CokqSoO1mGOaynJE3uJE5QSg@mail.gmail.com>
+Message-ID: <CAAhSdy3mC2-tLNF5jmsHEFrKR7pG6afbM-aYu-6q2LkB7mRG7A@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi all,
-
-As mentioned in the Privileged Spec about sfence.vma instruction:
-
-> The supervisor memory-management fence instruction SFENCE.VMA is used
-> to synchronize updates to in-memory memory-management data structures 
-> with current execution.  Instruction execution causes implicit reads 
-> and writes to these data structures;  however, these implicit references
-> are ordinarily not ordered with respect to loads and stores in the instruction
-> stream.
+On Thu, Nov 1, 2018 at 2:50 PM Philipp Hug <philipp@hug.cx> wrote:
 >
-> Executing an SFENCE.VMA instruction guarantees that any stores in the
-> instruction stream prior to the SFENCE.VMA are ordered before all implicit
-> references subsequent to the SFENCE.VMA.
+> Hi Atish,
+>
+> Am Mi., 31. Okt. 2018 um 19:24 Uhr schrieb Atish Patra <atish.patra@wdc.com>:
+>>
+>> -- u32 sbi_get_version(void):
+>> -- u32 sbi_check_api(unsigned long start_api_id, unsigned long count):
+>
+>
+> How about putting the version information into device tree and use the compatible string? This seems more reliable than probing.
+> e.g.
+> firmware {
+>         sbi {
+>                 compatible = "riscv,sbi-r0p1", "riscv,sbi-r0p2";
+>         };
+> };
 
-It naturally follows that we should use sfence.vma once the page table is
-modified.  There are several examples in the kernel already, such as
+If it was just DT then I think having this information in DT makes
+sense. In future,
+we might definitely see some ACPI support in RISC-V too (just like ARM64 world).
 
-alloc_set_pte (in mm/memory.c):
-...
-        set_pte_at(vma->vm_mm, vmf->address, vmf->pte, entry);
-        /* no need to invalidate: a not-present page won't be cached */
-        update_mmu_cache(vma, vmf->address, vmf->pte);
-...
-where the update_mmu_cache function eventually issues a sfence.vma.
+Of course, we cannot keep adding new SBI calls for static information but we can
+certainly have bare-minimum mandatory SBI calls for version and capabilities.
 
-I was interested if it is always the case and did some research.  RV64 uses
-3-level of page table entry, pud, pmd and pte, so I traced a little bit about
-the code flow after set_pud, set_pmd and set_pte.
+>
+> You could also add more information about the supported features to this sbi node.
+>
+> I'd also suggest that all functions can return an error code and are not of type void.
 
-It turns out that some of the calls to them are not followed by a
-sfence.vma.  For an instance, in the vmalloc_fault region in do_page_fault,
-there is no sfence.vma or calls to it after set_pgd, which directs to set_pud
-later.
+Yes, I agree. With SBI v0.2, existing SBI calls from v0.1 should
+return error code.
 
-Are they bugs or I just misunderstand the instruction?  As the kernel has
-already been stable for quite a while now, it is not likely to be a critical
-bug.
-
-Any clarification will highly appreciated.
-
-Many thanks,
-Alan Kao
+Regards,
+Anup
