@@ -2,65 +2,96 @@ Return-Path: <SRS0=t+eB=NN=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3919CC32789
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  2 Nov 2018 15:51:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E221C65C22
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  2 Nov 2018 15:52:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E05422081F
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  2 Nov 2018 15:51:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2117C20657
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  2 Nov 2018 15:52:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="R01jTyiE"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E05422081F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="u0QBzkQW";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="I+7bP+rH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2117C20657
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CNE4YmQRZx+fN1x61QExWciJ27eXOepYKbhPNd3CiGE=; b=R01jTyiEGCPfoM
-	2Vl3PaYspQeAZGYaes+3rmYO7gnEKAb6Phz8he4SRemVp+YzdqNi1BBHd9ssfYvAcamCWBPKlH2pz
-	DSe7wmrKLqzIW87/nk59eJwY7QW1eRQ5audISTvFKjA9k7czoMRIXxt7Wt4Dz3C6yFy0saRxOV9ht
-	v/sd+uLTipPH7Cz3UHIbzhVdM3OoOP2ubrPSz7l/iJUICECaGCxE/TBS4MGTWoqs1Rb0yVGDVSejo
-	3T8N5y62Q1k5eknlra7LE+0+wAAI0tcbbQH36syl9lMiRDv4qP4vInHdpS0PLbvxixXAhBo49mStK
-	EXyNWm+FobOo1FeAodCQ==;
+	List-Owner; bh=XMTPqCMYssdZqUGWlhM5vgxDPX1IMTPsLDAeR2fDSVk=; b=u0QBzkQWtjJ44P
+	h7rbMpeFSIjYpfkUuWnMcooIZ5hsQD7FH/6JGph5ycDKdS5+deT/4lLwIget+1ev0mL9ndO86jGF3
+	HanoYF/IBvWXprgjwZSbOsqZqA10NN53AJLf1LGwoPRw2iVudABuO2sjX/j3C9pQttQG7CTCk9ZkO
+	htVqRS/SqD5YV4izCkybfHDchT/7CfxHz1beAvIko80h66XG55gwx6rKFoUtdE9FliFKf30q57Ggd
+	OdjZ3QMCu3L2mNY991jXjDEs2ermqYIkqpWiqTRp013VMKRHSud2ofeAzS0TGq8Si1ler3o0yTn3q
+	E9C3s5hVUQ6O149sfzRg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gIbiy-0005pF-Nr; Fri, 02 Nov 2018 15:51:04 +0000
-Received: from usa-sjc-mx-foss1.foss.arm.com ([217.140.101.70]
- helo=foss.arm.com)
- by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gIbiw-0005nq-3o
- for linux-riscv@lists.infradead.org; Fri, 02 Nov 2018 15:51:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E40131596;
- Fri,  2 Nov 2018 08:50:46 -0700 (PDT)
-Received: from e107155-lin (e107155-lin.cambridge.arm.com [10.1.196.42])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72CDA3F718;
- Fri,  2 Nov 2018 08:50:44 -0700 (PDT)
-Date: Fri, 2 Nov 2018 15:50:38 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Rob Herring <robh+dt@kernel.org>
-Subject: Re: [RFC 1/2] dt-bindings: topology: Add RISC-V cpu topology.
-Message-ID: <20181102155038.GA21067@e107155-lin>
-References: <1541113468-22097-1-git-send-email-atish.patra@wdc.com>
- <1541113468-22097-2-git-send-email-atish.patra@wdc.com>
- <CAL_Jsq+wProNynprMjQnrz1jmbZT9TmmA-_=vPUxCEED_8xONg@mail.gmail.com>
- <20181102133100.GA13130@e107155-lin>
- <CAL_JsqLO+cOcHkr41ebPtONwrzOWGhksH1ypph+tihsuOVDOug@mail.gmail.com>
+	id 1gIbk6-0005vP-84; Fri, 02 Nov 2018 15:52:14 +0000
+Received: from mail-yb1-xb43.google.com ([2607:f8b0:4864:20::b43])
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gIbk3-0005so-GJ
+ for linux-riscv@lists.infradead.org; Fri, 02 Nov 2018 15:52:13 +0000
+Received: by mail-yb1-xb43.google.com with SMTP id v92-v6so975198ybi.5
+ for <linux-riscv@lists.infradead.org>; Fri, 02 Nov 2018 08:52:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=mime-version:in-reply-to:references:from:date:message-id:subject:to
+ :cc; bh=Qv7IoKjig1gc3J/CUecwIgnlYcDydbRPK8/Q8reJzlI=;
+ b=I+7bP+rHeE85DBmu6lxQ5yKDx+DptEnK9WuAdHJufCtjt77t0qTemmKCba9kll7Srj
+ UqZz2Dy4V6WpjNZVN2hV5FfGiUmBC/+BZA7RVp22aCBnW9zQWR2eMsMH4kNOv7EVmnwI
+ QC2Ba3fKhu7AHRKZdL77+iGgt2t3Au1IitAqM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+ :message-id:subject:to:cc;
+ bh=Qv7IoKjig1gc3J/CUecwIgnlYcDydbRPK8/Q8reJzlI=;
+ b=l5GUtFO98m4s5JfPX0e5wQu/Mxrc7LoNXGRN7768Ksf2wr3v+RLf2gyfBynoUWjvmV
+ hbLcqQRF/MFXrdCqoqvNo7QQHyDaxaSqYpmCXlek+IrzjHWhAOLJVmWO8TrybX9m7OXZ
+ K3Ovl3SOLcbmLGudh2DkdQqjO1hSwnTDOWNIAhUi5v4sjWpn1iJyxiwzRmtT6YLW4wvs
+ tjmD/j9EpY3AjEVTa70+c8u814GT4YHY35i2DEJERm0YU78I7hqh4ZGzAZzwxA0TD9Vj
+ LVoXzghVbnhOWifGeJDmzUWZ5KXLYPoIOZLEh1F/scW8HSum9IhDeDUMfnPwV3x+IOBP
+ d82g==
+X-Gm-Message-State: AGRZ1gIxX8BLmcFRnrnU2A9h10GRDk/XSo8Ja0OTsNErr7qRJMlqXeID
+ D0h5kvM2b+XU0OOwhRgGCkQeTUBU5cU=
+X-Google-Smtp-Source: AJdET5fxJc0YJewAOShpTRSxVAPM13uXq+zAZc1MGEuojdLEnsWl+os80JJA+Fi2JOo+Uec20jpqIA==
+X-Received: by 2002:a25:2984:: with SMTP id
+ p126-v6mr12053428ybp.381.1541173919434; 
+ Fri, 02 Nov 2018 08:51:59 -0700 (PDT)
+Received: from mail-yw1-f44.google.com (mail-yw1-f44.google.com.
+ [209.85.161.44])
+ by smtp.gmail.com with ESMTPSA id h186-v6sm11579867ywe.103.2018.11.02.08.51.57
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 02 Nov 2018 08:51:57 -0700 (PDT)
+Received: by mail-yw1-f44.google.com with SMTP id v1-v6so941079ywv.6
+ for <linux-riscv@lists.infradead.org>; Fri, 02 Nov 2018 08:51:57 -0700 (PDT)
+X-Received: by 2002:a0d:e984:: with SMTP id
+ s126-v6mr10100710ywe.47.1541173916399; 
+ Fri, 02 Nov 2018 08:51:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAL_JsqLO+cOcHkr41ebPtONwrzOWGhksH1ypph+tihsuOVDOug@mail.gmail.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+Received: by 2002:a25:3990:0:0:0:0:0 with HTTP;
+ Fri, 2 Nov 2018 08:51:55 -0700 (PDT)
+In-Reply-To: <CAEn-LTr6eTgy4HsxT2y_LhXXtQczJNZmQJdY-em-maDOcFL9fA@mail.gmail.com>
+References: <CAEn-LTonSqSG8GtgVmwt7ToJ2NZKsGEaWndmA0Q7Lzm316CFbA@mail.gmail.com>
+ <mhng-71c7a4db-432a-4f97-86cd-1fe16091a6c8@palmer-si-x1c4>
+ <CAEn-LTr6eTgy4HsxT2y_LhXXtQczJNZmQJdY-em-maDOcFL9fA@mail.gmail.com>
+From: Kees Cook <keescook@chromium.org>
+Date: Fri, 2 Nov 2018 08:51:55 -0700
+X-Gmail-Original-Message-ID: <CAGXu5jLhDxRHYe2kZ3wDJThsbkDMsZHt3ufM7YG_L0y0fU+brw@mail.gmail.com>
+Message-ID:
+ <CAGXu5jLhDxRHYe2kZ3wDJThsbkDMsZHt3ufM7YG_L0y0fU+brw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] RISC-V: Add support for SECCOMP
+To: David Abdurachmanov <david.abdurachmanov@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181102_085102_164230_6924E442 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20181102_085211_545016_9B5AF871 
+X-CRM114-Status: GOOD (  25.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -72,62 +103,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Damien.LeMoal@wdc.com, alankao@andestech.com, Zong Li <zong@andestech.com>,
- Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@sifive.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <atish.patra@wdc.com>,
- Sudeep Holla <sudeep.holla@arm.com>, linux-riscv@lists.infradead.org,
+Cc: Kate Stewart <kstewart@linuxfoundation.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Will Drewry <wad@chromium.org>,
+ Paul Moore <paul@paul-moore.com>, Greg KH <gregkh@linuxfoundation.org>,
+ Wesley Terpstra <wesley@sifive.com>, Palmer Dabbelt <palmer@sifive.com>,
+ LKML <linux-kernel@vger.kernel.org>, Eric Paris <eparis@redhat.com>,
+ Andy Lutomirski <luto@amacapital.net>, David Howells <dhowells@redhat.com>,
+ Linux Audit <linux-audit@redhat.com>,
+ Philippe Ombredanne <pombredanne@nexb.com>, linux-riscv@lists.infradead.org,
  Thomas Gleixner <tglx@linutronix.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181102155038.ly1eroI5mupGDdYZPMF-9vT1J6tw06b95E_ZRj46sJg@z>
+Message-ID: <20181102155155.JNuO5Lky1fWrohmLT9FZLh-toWMhKx5oSzAFDlgeNZI@z>
 
-On Fri, Nov 02, 2018 at 10:11:38AM -0500, Rob Herring wrote:
-> On Fri, Nov 2, 2018 at 8:31 AM Sudeep Holla <sudeep.holla@arm.com> wrote:
-> >
-> > On Fri, Nov 02, 2018 at 08:09:39AM -0500, Rob Herring wrote:
-> > > On Thu, Nov 1, 2018 at 6:04 PM Atish Patra <atish.patra@wdc.com> wrote:
-> > > >
-> > > > Define a RISC-V cpu topology. This is based on cpu-map in ARM world.
-> > > > But it doesn't need a separate thread node for defining SMT systems.
-> > > > Multiple cpu phandle properties can be parsed to identify the sibling
-> > > > hardware threads. Moreover, we do not have cluster concept in RISC-V.
-> > > > So package is a better word choice than cluster for RISC-V.
-> > >
-> > > There was a proposal to add package info for ARM recently. Not sure
-> > > what happened to that, but we don't need 2 different ways.
-> > >
-> >
-> > We still need that, I can brush it up and post what Lorenzo had previously
-> > proposed[1]. We want to keep both DT and ACPI CPU topology story aligned.
+On Fri, Nov 2, 2018 at 6:32 AM, David Abdurachmanov
+<david.abdurachmanov@gmail.com> wrote:
+> On Mon, Oct 29, 2018 at 9:27 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+>>
+>> On Sun, 28 Oct 2018 04:07:55 PDT (-0700), david.abdurachmanov@gmail.com wrote:
+>> > On Thu, Oct 25, 2018 at 10:36 PM Paul Moore <paul@paul-moore.com> wrote:
+>> >>
+>> >> On Thu, Oct 25, 2018 at 2:31 PM David Abdurachmanov
+>> >> <david.abdurachmanov@gmail.com> wrote:
+>> >> > On Wed, Oct 24, 2018 at 10:40 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+>> >> > > From: "Wesley W. Terpstra" <wesley@sifive.com>
+>> >>
+>> >> ...
+>> >>
+>> >> > Palmer,
+>> >> >
+>> >> > Half of the patch seems to touch audit parts. I started working on audit
+>> >> > support this morning, and I can boot Fedora with audit traces.
+>> >> >
+>> >> > [root@fedora-riscv ~]# dmesg | grep audit
+>> >> > [    0.312000] audit: initializing netlink subsys (disabled)
+>> >> > [    0.316000] audit: type=2000 audit(0.316:1): state=initialized
+>> >> > audit_enabled=0 res=1
+>> >> > [    7.288000] audit: type=1130 audit(1529665913.772:2): pid=1 uid=0
+>> >> > auid=4294967295 ses=4294967295 msg='unit=systemd-remount-fs
+>> >> > comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=?
+>> >> > terminal=? res=success'
+>> >> > [    7.684000] audit: type=1130 audit(1529665914.176:3): pid=1 uid=0
+>> >> > auid=4294967295 ses=4294967295 msg='unit=systemd-sysctl comm="systemd"
+>> >> > exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=?
+>> >> > res=success'
+>> >> > [..]
+>> >> >
+>> >> > I am still working on audit user-space support for better testing.
+>> >> >
+>> >> > I suggest we first implement audit and then seccomp.
+>> >>
+>> >> FYI, while small and far from comprehensive, we do have a test suite
+>> >> we use for basic validation of the audit kernel bits which may be
+>> >> helpful while you're working on the audit enablement:
+>> >>
+>> >> * https://github.com/linux-audit/audit-testsuite
+>> >
+>> > Currently I checked the following to work:
+>> > - /proc/self/loginuid (required by DNF [package manager])
+>> > - auditctl (checked several different example rules from internet)
+>> > - aulast
+>> > - aulastlog
+>> > - ausearch
+>> > - ausyscall
+>> > - aureport
+>> > - autrace (compared some syscalls to strace: order and
+>> >   return value/input arguments seems to be correct)
+>> >
+>> > I checked audit-testsuite yesterday and it seems to be only for
+>> > x86-64 / x86-32. After adjusting it (MODE, syscalls) I am at:
+>> >
+>> > Failed 4/14 test programs. 19/88 subtests failed.
+>> >
+>> > I don't plan to look further in the failure, e.g.:
+>> > - syscall_socketcall: that's an old stuff and not relevant to
+>> >   new arches
+>> > - syscall_module: Fedora kernel currently is not compiled
+>> >   with kernel loadable module support
+>> > - filter_exclude: two tests fail because id -Z doesn't print
+>> >   any categories, but "semanage login -l" output is identical
+>> >   between x86_64 and riscv64
+>> > - netfilter_pkt: don't have CONFIG_IP_NF_MANGLE enabled
+>> >
+>> > Fedora kernel currently has minimal CONFIG_* options
+>> > and is built without loadable module support.
+>> >
+>> > I will send the patches for review soon.
+>>
+>> Thanks!
 >
-> Frankly, I don't care what the ACPI story is. I care whether each cpu
+> I fixed the last issue I see with SECCOMP this morning.
 
-Sorry I meant feature parity with ACPI and didn't refer to the mechanics.
+Can you CC me on the series? I'd love to take a look.
 
-> arch does its own thing in DT or not. If a package prop works for
-> RISC-V folks and that happens to align with ACPI, then okay. Though I
-> tend to prefer a package represented as a node rather than a property
-> as I think that's more consistent.
+> I also have patch on top of libseccomp-2.3.3.
+
+Nice! If you toss it up on github I can review that too. :)
+
+-Kees
+
 >
-
-Sounds good. One of the reason for making it *optional* property is for
-backward compatibility. But we should be able to deal with that even with
-node.
-
-> Any comments on the thread aspect (whether it has ever been used)?
-> Though I think thread as a node level is more consistent with each
-> topology level being a node (same with package).
+> Testsuite results for SIM:
 >
-Not 100% sure, the only multi threaded core in the market I know is
-Cavium TX2 which is ACPI.
+> Regression Test Summary
+>  tests run: 4434
+>  tests skipped: 88
+>  tests passed: 4434
+>  tests failed: 0
+>  tests errored: 0
+>
+> Testsuite results for LIVE:
+>
+> Regression Test Summary
+>  tests run: 6
+>  tests skipped: 0
+>  tests passed: 6
+>  tests failed: 0
+>  tests errored: 0
+>
+> Then tested a couple examples manually w/ and w/o BPF and it
+> performed the same as on x86_64 (also checked exit codes &
+> strace output).
+>
+> Upstream libseccomp has now more tests. Once I rebase & re-test
+> with master of libseccomp, I will send both.
+>
+> david
 
---
-Regards,
-Sudeep
+
+
+-- 
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
