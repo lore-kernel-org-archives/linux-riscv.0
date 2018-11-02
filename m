@@ -1,73 +1,87 @@
-From: abner.chang@hpe.com (Chang, Abner (HPS SW/FW Technologist))
-Date: Fri, 2 Nov 2018 06:31:10 +0000
-Subject: SBI extension proposal
-In-Reply-To: <cf729ca1-3ad0-8fe8-5cfa-d09d6c28d831@wdc.com>
-References: <7f2a546a-6ebb-43c6-83a0-5e712ec2e2c7@wdc.com>
- <CAK-hmcQeiGa3BwnzEVB_dyhFiC7rXHFN-wTsJomg-jAo7a+v3Q@mail.gmail.com>
- <CAK-hmcSTg=AbXfDwx-O-8WuMsaVbJXP7Jd7HYoFh3jDJHGZ2iQ@mail.gmail.com>
- <cf729ca1-3ad0-8fe8-5cfa-d09d6c28d831@wdc.com>
-Message-ID: <TU4PR8401MB09581F92A2F7C0C7FFFA190EFFCF0@TU4PR8401MB0958.NAMPRD84.PROD.OUTLOOK.COM>
+From: robh+dt@kernel.org (Rob Herring)
+Date: Fri, 2 Nov 2018 08:09:39 -0500
+Subject: [RFC 1/2] dt-bindings: topology: Add RISC-V cpu topology.
+In-Reply-To: <1541113468-22097-2-git-send-email-atish.patra@wdc.com>
+References: <1541113468-22097-1-git-send-email-atish.patra@wdc.com>
+ <1541113468-22097-2-git-send-email-atish.patra@wdc.com>
+Message-ID: <CAL_Jsq+wProNynprMjQnrz1jmbZT9TmmA-_=vPUxCEED_8xONg@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
+On Thu, Nov 1, 2018 at 6:04 PM Atish Patra <atish.patra@wdc.com> wrote:
+>
+> Define a RISC-V cpu topology. This is based on cpu-map in ARM world.
+> But it doesn't need a separate thread node for defining SMT systems.
+> Multiple cpu phandle properties can be parsed to identify the sibling
+> hardware threads. Moreover, we do not have cluster concept in RISC-V.
+> So package is a better word choice than cluster for RISC-V.
 
-> >>> -- int sbi_hart_up(unsigned long hartid, unsigned long start,
-> >>> unsigned long priv)
-> >>>
-> >>> Brings up "hartid" either during initial boot or after a
-> >>> sbi_hart_down SBI call.
-> >>>
-> >>> "start" points to a runtime-specified address where a hart can enter
-> >>> into supervisor mode. This must be a physical address.
-> >>>
-> >>> "priv" is a private data that caller can use to pass information
-> >>> about execution context.
-> >>>
-> >>> Return the appropriate SBI error code.
-> >>>
-> >>> -- int sbi_hart_suspend(u32 state, unsigned long resume_entry,
-> >>> unsigned long priv)
-> >>>
-> >>> Suspends the calling hart to a particular power state. Suspended
-> >>> hart will automatically wake-up based on some wakeup events at
-> >>> resume_entry physical address.
-> >>>
-> >>> "priv" is a private data that caller can use to pass information
-> >>> about execution context. The SBI implementation must save a copy so
-> >>> that caller can reuse while restoring hart from suspend.
-> >>>
-> >>> Return the appropriate SBI error code.
-> >>>
-> >>> -- int sbi_hart_down()
-> >>>
-> >>> It powers off the hart and will be used in cpu-hotplug.
-> >>> Only individual hart can remove itself from supervisor mode. It can
-> >>> be moved to normal state only by sbi_hart_up function.
-> >>>
-> >>> Return the appropriate SBI error code.
-> >>>
-> >>> -- u32 sbi_hart_state(unsigned long hartid)
-> >>>
-> >>> Returns the RISCV_POWER_STATE for a specific hartid. This will help
-> >>> make kexec like functionality more robust.
-> >>>
-> >>> -- void sbi_system_shutdown()
-> >>>
-> >>> Powers off the entire system.
-> >>
-> >>
-> >> This is a slightly weird one to put in SBI. There's usually other actions
-> needed for _system_ level shutdown, such as external power regulators.
-> >>
-> 
-> This might be because of my limited knowledge on power management.
-In ACPI, it defines the register block to put processor into different levels of sleep mode (suspend mode). However, this requires additional power management controller or processor CSRs on RISC-V. If we don?t consider ACPI and H/W capabilities of power MGMT on RISC-V at this moment, then SBI for processor power management may be needed.
-My question is can SBI_hart_up () to execute "start" even the hart is not in Suspend or Down state? I am asking this because on UEFI we would like to have SBI for supervisor mode firmware to invoke functions provided by M-mode driver, just trying to leverage SBI_hart_up () for this intention. However, "Start" is defined as an address to entry into supervisor mode. We may need to add an additional parameter to this SBI which indicates the privilege to execute "Start" though.
-Forget this if this SBI is dedicated for processor power management. We can propose new SBI for above intention.
+There was a proposal to add package info for ARM recently. Not sure
+what happened to that, but we don't need 2 different ways.
 
-> We already have a system reset call in SBI & PSCI also had system shutdown
-Is system reset call defined in SBI spec as well? I don?t see this in Github.
+There's never going to be clusters for RISC-V? What prevents that?
+Seems shortsighted to me.
 
-> function. As per my understanding, this API will provide a way to handle all
-> common suspend related operations on machine mode.
-> In case of virtual OS, it will not result in any external power regulations.
+>
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+>  .../devicetree/bindings/riscv/topology.txt         | 154 +++++++++++++++++++++
+>  1 file changed, 154 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/topology.txt
+>
+> diff --git a/Documentation/devicetree/bindings/riscv/topology.txt b/Documentation/devicetree/bindings/riscv/topology.txt
+> new file mode 100644
+> index 00000000..96039ed3
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/riscv/topology.txt
+> @@ -0,0 +1,154 @@
+> +===========================================
+> +RISC-V cpu topology binding description
+> +===========================================
+> +
+> +===========================================
+> +1 - Introduction
+> +===========================================
+> +
+> +In a RISC-V system, the hierarchy of CPUs can be defined through following nodes that
+> +are used to describe the layout of physical CPUs in the system:
+> +
+> +- packages
+> +- core
+> +
+> +The cpu nodes (bindings defined in [1]) represent the devices that
+> +correspond to physical CPUs and are to be mapped to the hierarchy levels.
+> +Simultaneous multi-threading (SMT) systems can also represent their topology
+> +by defining multiple cpu phandles inside core node. The details are explained
+> +in paragraph 3.
+
+I don't see a reason to do this differently than ARM. That said, I
+don't think the thread part is in use on ARM, so it could possibly be
+changed.
+
+> +
+> +The remainder of this document provides the topology bindings for ARM, based
+
+for ARM?
+
+> +on the Devicetree Specification, available from:
+> +
+> +https://www.devicetree.org/specifications/
+> +
+> +If not stated otherwise, whenever a reference to a cpu node phandle is made its
+> +value must point to a cpu node compliant with the cpu node bindings as
+> +documented in [1].
+> +A topology description containing phandles to cpu nodes that are not compliant
+> +with bindings standardized in [1] is therefore considered invalid.
+> +
+> +This cpu topology binding description is mostly based on the topology defined
+> +in ARM [2].
+> +===========================================
+> +2 - cpu-topology node
+
+cpu-map. Why change this?
+
+What I would like to see is the ARM topology binding reworked to be
+common or some good reasons why it doesn't work for RISC-V as-is.
+
+Rob
