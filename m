@@ -6,18 +6,18 @@ X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F2E2C6786F
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  2 Nov 2018 03:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7F0A5ECDE44
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  2 Nov 2018 03:27:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D157F20666
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  2 Nov 2018 03:17:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2B9862081B
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  2 Nov 2018 03:27:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Gnvvk67l";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lixom-net.20150623.gappssmtp.com header.i=@lixom-net.20150623.gappssmtp.com header.b="FJRQZhL2"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D157F20666
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lixom.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fFrcpzFB";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="rd/DSHzg"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2B9862081B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -25,65 +25,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/Lj+ktWcGliaooiJAxOSw+9G9lZQky0wIWaSdW64JVA=; b=Gnvvk67lVoTwPX
-	C0Iqs3CeR56kyC5lkuL7Q4ooTie1MDtZrA7JDMrHzq2jzLYQGwDgxr1rrWXFP47rX7ZC2w01XfLeR
-	Y0ENb83VInmSY0lNW7rR0JnMmmYTbbeCIvZBbfQfBFYE0DbQ2H4yhlfX36Ao+npD434fqa6RJ8t0t
-	m9MQjK5UT9i1+A41ur8P8V2g13wc5pPuHvr6lOJUmGeulwK0n5dKk8lFJT6L/PifKjNerZboaNw/3
-	gL2pImmSlPaaqahCy08Uo83z4k14Tpjh8yXeOIE//QsNLmGsgDKE2zU8/SYCr51vz9vZdzuIoUwDl
-	kdpEpdNdH57bQOJRuFGQ==;
+	List-Owner; bh=tBfea2SdDcNtFhaTjvhxQl/K/Qhck04hPE5GQMhkei4=; b=fFrcpzFB4uG4sA
+	6n5svq7KJwA3s+joapqH89Gpnv0RVcf8AxaBF+CrNjd8TxOgK+Qrn28Ny2/ZYv7CxRW4SNoHlvLQ+
+	PkuuJafYQTvxuhrae6/6H/b+EJedQkqzCcOFVDk5/bsqcktKIwvzW4iHqRuR4PONj/qgLJjHlo7c5
+	ZRHA9QvtFfet1JlTpKcMgEhyMxIVs5xVY5nZ6PhOmPSy5GOtbX+Sn9iXA1WgaP0jrI5FhvfOitk94
+	gpQ+ylX8kOuYWvkrLnFU1G/yElWvWaJA5RkZtp2N/z/DrjoShc00yUJtaJHPbeWxJOkfF78IJttgP
+	nem+iZ6TaqVbLVFaDTkA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gIPxq-0003NW-4U; Fri, 02 Nov 2018 03:17:38 +0000
-Received: from mail-lf1-x143.google.com ([2a00:1450:4864:20::143])
+	id 1gIQ7U-0006UA-L5; Fri, 02 Nov 2018 03:27:36 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gIPxn-0003MI-6d
- for linux-riscv@lists.infradead.org; Fri, 02 Nov 2018 03:17:36 +0000
-Received: by mail-lf1-x143.google.com with SMTP id o2-v6so347097lfl.13
- for <linux-riscv@lists.infradead.org>; Thu, 01 Nov 2018 20:17:24 -0700 (PDT)
+ id 1gIQ7R-0006Sj-GL
+ for linux-riscv@lists.infradead.org; Fri, 02 Nov 2018 03:27:34 +0000
+Received: by mail-wm1-x342.google.com with SMTP id w7-v6so754753wmc.1
+ for <linux-riscv@lists.infradead.org>; Thu, 01 Nov 2018 20:27:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=lixom-net.20150623.gappssmtp.com; s=20150623;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=jRWFEyc5JkqaTYq/6LpKBSkL+jm4w4fxtvEpHb5YxqM=;
- b=FJRQZhL2pqHrikR9KwB6az0FMCTp0Si9F87pPPQSXaxBpdliloKC7rQWOgvm9dpJBf
- 7cHXtyK+sCEbDG8f+pUA9RzqaYPVH8KWNkrYfYfYWJULCrBt3ImvQ3R9dF8Kwy563fIa
- Zy0Vxa8kzwZKfd5KQCBqVas2oBgA4+UfGLmjRzwsTknbEAVmV/Q8V+MASVakJdXMnmXR
- 2nxncfyrm6p2QkqY4OaF6LCrT0hhjwETB06tSOB6bBzBAPe1evbe9Pjrdtcno4gcqxVQ
- DBxb0uRniba5ZuA4cJ5q5aoWGjcoC1hOrYgcC5uVuhYzcNbbTog/WL4VXcYWO2he4bkQ
- 2NnQ==
+ :cc; bh=sRagGAMPkzbphqW0Yk/5Gz4OPtSwJdcOQWJx8ZN3oZE=;
+ b=rd/DSHzgpmcBjtCbW0L22AcbUBg4qNf+pIez80KjBYcXQx78eoC0ngG8TF/2tamFA3
+ fxLLztVNVAtUjJaMh8i3kFU0PEFkgOxLXeIklrw9+lpiWeeci23cosYIHTChwYFI0YIu
+ BPIMIyG0h/oCz+UuumPlO1GkY+oXlCl8ilTa3pez7/Xm6CZIZcGIoMsf1d8I2bzsM4WU
+ 6+3kCw69N6xiMU4bDc/8tgY1PDMYe054PC6hM8GZL7axS4B8y2d5KgxQ/2AS4DPHq1J2
+ AlzYk8UKoi2FF9IHcxEOg+NruI59KSujOXnSd8bMCmk/D5yP2DgUVANjGKwhZ24pc8N1
+ j3AA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=jRWFEyc5JkqaTYq/6LpKBSkL+jm4w4fxtvEpHb5YxqM=;
- b=lCKmivYEhPuqKWHCfKaiTRGkTmpZSgALqL1rpz+Pla0t2GMQUCbzuoAdy4AOpVktjT
- Kaa7cysvqeWIIwH2jiYgQz1SBhTTxY+UUETVNCMtGXiTsOsu6nndxroqqfiURqGsCmr/
- At57tDiG9X9hcB0wI2JmDhUOF9fqKXPbDI9Eyblp+L/3UV/utL0bkqLIey+qSUJQL6Fe
- e0yCHSYe1eImucyHFkgLWvOGVRIGlhqOA8RnaJKp/dJdm0XKhCJmd4NmDNRkq4mscl5E
- iS5f4kWmJ9kT9VuyB3M+/3cAk3VoGkUNst33FsCWMfJ3vcXaBJIFUqi+rVAYOkuy/kL2
- 6znA==
-X-Gm-Message-State: AGRZ1gLxiKS4zzGfaU57O+Xn+9aZWOQ20EP/GtebE/EGHqWJSLclK/RH
- 8e7iI8VOlQFJrHphi8KZgzsV12duc8T2HyIKcW3p4A==
-X-Google-Smtp-Source: AJdET5ckdXxS5dOwf6FTK0QsMJzTpgCJVcLRU6QTeqmo4js2qhZB5Omx4dsZInDAVfdiuLUXRwUKeFbcrYJHt4Zqkxs=
-X-Received: by 2002:a19:4c02:: with SMTP id z2-v6mr5620297lfa.48.1541128643066; 
- Thu, 01 Nov 2018 20:17:23 -0700 (PDT)
+ bh=sRagGAMPkzbphqW0Yk/5Gz4OPtSwJdcOQWJx8ZN3oZE=;
+ b=cq+5ygQACBz5iXRSjHz8XsXZ6iE51OeVVX7Ejq6EzBbyW1JXJxrwPNEZauktrORPM3
+ tNGbHuZW/Lukf3FJzefxf6eT26JgX+31K5MmHiJCnaKgJxX26aLQiWID2NL0BU8GzBWn
+ T4/BFAf4rQY7KJ4vNqkScVdG2Q7HggkdNA3VLpD+QO1ZkD7Ecmayo+z1dEghzDcZZXIY
+ o8m6vPfnRHKBsyOCr3vftH31vrl4vet7BGG/FM0tEwU1Rnw0OfSBi45jLOj5/hNtPgSb
+ L3+AcgoEPWnD+gXrsZzbpMQvPuETfwGM957rS0289GI7pR/ZuODh1s1xg/alUT6Ay8Fs
+ O/Fg==
+X-Gm-Message-State: AGRZ1gLznVJpRb77rZEkXs1CmtnFXB3HiOxCkAYf3auOqiOYsHoab8CE
+ XIYW01onIH+TKw+oKPwaMx8uAN2DcGkM/IgELt4GSA==
+X-Google-Smtp-Source: AJdET5cULPLhJELIwCd8VnLkmVEPqFdu+pPPtBKYtF4hvYPFSNUvejffraG56d7VgjFLJiErIXoxXW9UxqzgVXp391o=
+X-Received: by 2002:a1c:3584:: with SMTP id
+ c126-v6mr7594415wma.120.1541129239251; 
+ Thu, 01 Nov 2018 20:27:19 -0700 (PDT)
 MIME-Version: 1.0
-References: <7f2a546a-6ebb-43c6-83a0-5e712ec2e2c7@wdc.com>
- <CA+h06zgcyWz7WMbzQxjyc9V5S3CokqSoO1mGOaynJE3uJE5QSg@mail.gmail.com>
- <CAAhSdy3mC2-tLNF5jmsHEFrKR7pG6afbM-aYu-6q2LkB7mRG7A@mail.gmail.com>
- <20181101094609.GE27120@redhat.com>
- <CA+h06zjY86e5UHa9HzSFvKNkT_oMz7sQWkBQY8ufg6x25CmsKQ@mail.gmail.com>
- <20181101112528.GH27120@redhat.com>
- <7c20c4d5-1726-d940-58ef-6541f0a117d2@wdc.com>
-In-Reply-To: <7c20c4d5-1726-d940-58ef-6541f0a117d2@wdc.com>
-From: Olof Johansson <olof@lixom.net>
-Date: Thu, 1 Nov 2018 20:17:09 -0700
+References: <20181101164205.l2bra3a6kihjpuib@excalibur.cnev.de>
+ <mhng-dd74f93c-74b1-4701-a73c-339d81aa0bd0@palmer-si-x1c4>
+In-Reply-To: <mhng-dd74f93c-74b1-4701-a73c-339d81aa0bd0@palmer-si-x1c4>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 2 Nov 2018 08:57:08 +0530
 Message-ID:
- <CAOesGMiRW=CHy7i3xWgEk2Oq8BGxRwd2Mvt8DWt96XNqBFB1HA@mail.gmail.com>
+ <CAAhSdy3ZX=BqMS-MYnTHNZ9hxkJbt8i5nf5rOTf41FJ6rUpWpA@mail.gmail.com>
 Subject: Re: SBI extension proposal
-To: atish.patra@wdc.com
+To: Palmer Dabbelt <palmer@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181101_201735_243260_DFE1311D 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20181101_202733_608467_299B488C 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -95,56 +91,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, zong@andestech.com,
- Damien.LeMoal@wdc.com, olof johansson <olof.johansson@gmail.com>,
- Andrew Waterman <andrew@sifive.com>, alankao@andestech.com, philipp@hug.cx,
- Palmer Dabbelt <palmer@sifive.com>, "Richard W.M. Jones" <rjones@redhat.com>,
- Christoph Hellwig <hch@infradead.org>, vincentc@andestech.com, mjc@sifive.com,
- Arnd Bergmann <arnd@arndb.de>, paul.walmsley@sifive.com,
- Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
- abner.chang@hpe.com, David.Abdurachmanov@cern.ch
+Cc: Mark Rutland <mark.rutland@arm.com>, Zong Li <zong@andestech.com>,
+ Damien Le Moal <Damien.LeMoal@wdc.com>,
+ Olof Johansson <olof.johansson@gmail.com>, Andrew Waterman <andrew@sifive.com>,
+ alankao@andestech.com, philipp@hug.cx, vincentc@andestech.com,
+ rjones@redhat.com, Christoph Hellwig <hch@infradead.org>,
+ Atish Patra <atish.patra@wdc.com>, Michael Clark <mjc@sifive.com>,
+ Arnd Bergmann <arnd@arndb.de>, paul.walmsley@sifive.com, merker@debian.org,
+ linux-riscv@lists.infradead.org, abner.chang@hpe.com,
+ David.Abdurachmanov@cern.ch
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181102031709.VCdLS4ipHqrdiWj8f4rAnl6fiIO0TdTstx1_E6fLoS0@z>
+Message-ID: <20181102032708.311L91KKlFu4IDTHOWjotomp2jzt_CB4aOR4LmnFImQ@z>
 
-On Thu, Nov 1, 2018 at 8:10 AM Atish Patra <atish.patra@wdc.com> wrote:
+On Fri, Nov 2, 2018 at 8:19 AM Palmer Dabbelt <palmer@sifive.com> wrote:
 >
-> On 11/1/18 4:25 AM, Richard W.M. Jones wrote:
-> > On Thu, Nov 01, 2018 at 12:03:49PM +0100, Philipp Hug wrote:
-> >> Am Do., 1. Nov. 2018 um 10:46 Uhr schrieb Richard W.M. Jones
-> >> <rjones@redhat.com>:
-> >>>
-> >>> I agree.  Please try not to make things that depend on DT, as it's a
-> >>> Linux-only description which isn't suitable for other OSes and has a
-> >>> poorly defined ABI.
-> >>>
-> >> You don't have to depend on DT. If you implement ACPI you'd put this
-> >> information in ACPI as well as you do with other information about the
-> >> platform.
-> >> What's the advantage of putting static information into an SBI call
-> >> instead of putting it in DT, ACPI, ...?
+> On Thu, 01 Nov 2018 09:42:05 PDT (-0700), merker@debian.org wrote:
+> > On Thu, Nov 01, 2018 at 09:46:09AM +0000, Richard W.M. Jones wrote:
+> >> On Thu, Nov 01, 2018 at 03:05:51PM +0530, Anup Patel wrote:
+> > [...]
+> >> > > How about putting the version information into device tree
+> >> > > and use the compatible string?  This seems more reliable
+> >> > > than probing.
+> >> > > e.g.
+> >> > > firmware {
+> >> > >         sbi {
+> >> > >                 compatible = "riscv,sbi-r0p1", "riscv,sbi-r0p2";
+> >> > >         };
+> >> > > };
+> >> >
+> >> > If it was just DT then I think having this information in DT makes
+> >> > sense. In future,
+> >> > we might definitely see some ACPI support in RISC-V too (just like ARM64 world).
+> >>
+> >> I agree.  Please try not to make things that depend on DT, as it's a
+> >> Linux-only description which isn't suitable for other OSes and has a
+> >> poorly defined ABI.
 > >
-> > You only have to put it in one place.
-> >
-> > Rich.
-> >
-> I agree with Richard. It is better to manage it in SBI implementation.
-> This version will not change in every kernel release or so. I think
-> having global SBI version in SBI spec is fine.
+> > the notion that DT is a "Linux-only" description and not suitable
+> > for other operating systems isn't correct.  Besides being used by
+> > Linux, device-tree is also used by at least U-Boot, FreeBSD and
+> > NetBSD.  Based on issues in the early days of DT one can surely
+> > discuss about device-tree ABI stability, but since then a lot of
+> > effort has been put into making DT ABI-stable, and in my
+> > experience this effort has been successful.  On the other hand I
+> > have experienced way more ACPI issues on x86-64 hardware than I
+> > would like to remember, so I tend to assume that in the ACPI
+> > world also not everything is nice and shining.
 >
-> However, we may need to put <function,version> for vendor specific APIs
-> in DT/ACPI as pointed by olof earlier. That will help to avoid conflicts.
->
-> I will update the proposal such that it is clear that we are not making
-> DT mandatory, ACPI is an option as well. SBI spec should independent of
-> OS specific spec.
+> I'm treating device tree as a stable interface, at least once it's written down
+> as a spec (like all our other interfaces).  At SiFive we're treating it as the
+> standard interface for static device discovery, so interface breaks will be a
+> huge pain.
 
-Please keep the ACPI mess out of it for now, there is no reason to go there.
+DT is a great HW description style (my opinion) but then there are
+ACPI fans too.
 
+I think SBI spec should be independent of DT or ACPI or any other HW
+description style. In fact, a simple bare-metal programs (without DT or
+ACPI support) should also be able to make complete use of SBI. This will
+allow us to develop baremetal test suit for SBI calls.
 
--Olof
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
