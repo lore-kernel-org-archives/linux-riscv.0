@@ -1,152 +1,92 @@
-From: mick@ics.forth.gr (Nick Kossifidis)
-Date: Sat, 03 Nov 2018 00:18:31 +0200
-Subject: [RFC 0/2] Add RISC-V cpu topology
-In-Reply-To: <9385b2eb-4729-8247-b0ae-1540793d078b@wdc.com>
-References: <1541113468-22097-1-git-send-email-atish.patra@wdc.com>
- <866dedbc78ab4fa0e3b040697e112106@mailhost.ics.forth.gr>
- <9385b2eb-4729-8247-b0ae-1540793d078b@wdc.com>
-Message-ID: <ffc68a79af6e981654bef5bcdb283161@mailhost.ics.forth.gr>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Fri, 2 Nov 2018 15:31:03 -0700
+Subject: SBI extension proposal
+In-Reply-To: <TU4PR8401MB09581F92A2F7C0C7FFFA190EFFCF0@TU4PR8401MB0958.NAMPRD84.PROD.OUTLOOK.COM>
+References: <7f2a546a-6ebb-43c6-83a0-5e712ec2e2c7@wdc.com>
+ <CAK-hmcQeiGa3BwnzEVB_dyhFiC7rXHFN-wTsJomg-jAo7a+v3Q@mail.gmail.com>
+ <CAK-hmcSTg=AbXfDwx-O-8WuMsaVbJXP7Jd7HYoFh3jDJHGZ2iQ@mail.gmail.com>
+ <cf729ca1-3ad0-8fe8-5cfa-d09d6c28d831@wdc.com>
+ <TU4PR8401MB09581F92A2F7C0C7FFFA190EFFCF0@TU4PR8401MB0958.NAMPRD84.PROD.OUTLOOK.COM>
+Message-ID: <7da86c7a-d06a-82ae-ef01-35efeeda7c3a@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-???? 2018-11-02 23:14, Atish Patra ??????:
-> On 11/2/18 11:59 AM, Nick Kossifidis wrote:
->> Hello All,
->> 
->> ???? 2018-11-02 01:04, Atish Patra ??????:
->>> This patch series adds the cpu topology for RISC-V. It contains
->>> both the DT binding and actual source code. It has been tested on
->>> QEMU & Unleashed board.
->>> 
->>> The idea is based on cpu-map in ARM with changes related to how
->>> we define SMT systems. The reason for adopting a similar approach
->>> to ARM as I feel it provides a very clear way of defining the
->>> topology compared to parsing cache nodes to figure out which cpus
->>> share the same package or core.  I am open to any other idea to
->>> implement cpu-topology as well.
->>> 
->> 
->> I was also about to start a discussion about CPU topology on RISC-V
->> after the last swtools group meeting. The goal is to provide the
->> scheduler with hints on how to distribute tasks more efficiently
->> between harts, by populating the scheduling domain topology levels
->> (https://elixir.bootlin.com/linux/v4.19/ident/sched_domain_topology_level).
->> What we want to do is define cpu groups and assign them to
->> scheduling domains with the appropriate SD_ flags
->> (https://github.com/torvalds/linux/blob/master/include/linux/sched/topology.h#L16).
->> 
+On 11/1/18 11:31 PM, Chang, Abner (HPS SW/FW Technologist) wrote:
 > 
-> Scheduler domain topology is already getting all the hints in the 
-> following way.
+>>>>> -- int sbi_hart_up(unsigned long hartid, unsigned long start,
+>>>>> unsigned long priv)
+>>>>>
+>>>>> Brings up "hartid" either during initial boot or after a
+>>>>> sbi_hart_down SBI call.
+>>>>>
+>>>>> "start" points to a runtime-specified address where a hart can enter
+>>>>> into supervisor mode. This must be a physical address.
+>>>>>
+>>>>> "priv" is a private data that caller can use to pass information
+>>>>> about execution context.
+>>>>>
+>>>>> Return the appropriate SBI error code.
+>>>>>
+>>>>> -- int sbi_hart_suspend(u32 state, unsigned long resume_entry,
+>>>>> unsigned long priv)
+>>>>>
+>>>>> Suspends the calling hart to a particular power state. Suspended
+>>>>> hart will automatically wake-up based on some wakeup events at
+>>>>> resume_entry physical address.
+>>>>>
+>>>>> "priv" is a private data that caller can use to pass information
+>>>>> about execution context. The SBI implementation must save a copy so
+>>>>> that caller can reuse while restoring hart from suspend.
+>>>>>
+>>>>> Return the appropriate SBI error code.
+>>>>>
+>>>>> -- int sbi_hart_down()
+>>>>>
+>>>>> It powers off the hart and will be used in cpu-hotplug.
+>>>>> Only individual hart can remove itself from supervisor mode. It can
+>>>>> be moved to normal state only by sbi_hart_up function.
+>>>>>
+>>>>> Return the appropriate SBI error code.
+>>>>>
+>>>>> -- u32 sbi_hart_state(unsigned long hartid)
+>>>>>
+>>>>> Returns the RISCV_POWER_STATE for a specific hartid. This will help
+>>>>> make kexec like functionality more robust.
+>>>>>
+>>>>> -- void sbi_system_shutdown()
+>>>>>
+>>>>> Powers off the entire system.
+>>>>
+>>>>
+>>>> This is a slightly weird one to put in SBI. There's usually other actions
+>> needed for _system_ level shutdown, such as external power regulators.
+>>>>
+>>
+>> This might be because of my limited knowledge on power management.
+> In ACPI, it defines the register block to put processor into different levels of sleep mode (suspend mode). However, this requires additional power management controller or processor CSRs on RISC-V. If we don?t consider ACPI and H/W capabilities of power MGMT on RISC-V at this moment, then SBI for processor power management may be needed.
+> My question is can SBI_hart_up () to execute "start" even the hart is not in Suspend or Down state? I am asking this because on UEFI we would like to have SBI for supervisor mode firmware to invoke functions provided by M-mode driver, just trying to leverage SBI_hart_up () for this intention. However, "Start" is defined as an address to entry into supervisor mode. We may need to add an additional parameter to this SBI which indicates the privilege to execute "Start" though.
+> Forget this if this SBI is dedicated for processor power management. We can propose new SBI for above intention.
 > 
-> static struct sched_domain_topology_level default_topology[] = {
-> #ifdef CONFIG_SCHED_SMT
->         { cpu_smt_mask, cpu_smt_flags, SD_INIT_NAME(SMT) },
-> #endif
-> #ifdef CONFIG_SCHED_MC
->         { cpu_coregroup_mask, cpu_core_flags, SD_INIT_NAME(MC) },
-> #endif
->         { cpu_cpu_mask, SD_INIT_NAME(DIE) },
->         { NULL, },
-> };
-> 
-> #ifdef CONFIG_SCHED_SMT
-> static inline const struct cpumask *cpu_smt_mask(int cpu)
-> {
->         return topology_sibling_cpumask(cpu);
-> }
-> #endif
-> 
-> const struct cpumask *cpu_coregroup_mask(int cpu)
-> {
->         return &cpu_topology[cpu].core_sibling;
-> }
-> 
-> 
+int sbi_hart_up(unsigned long hartid, unsigned long start, unsigned
+long priv)
 
-That's a static definition of two scheduling domains that only deal
-with SMT and MC, the only difference between them is the
-SD_SHARE_PKG_RESOURCES flag. You can't even have multiple levels
-of shared resources this way, whatever you have larger than a core
-is ignored (it just goes to the MC domain). There is also no handling
-of SD_SHARE_POWERDOMAIN or SD_SHARE_CPUCAPACITY.
+It has already a opaque third parameter that can be used to address your 
+case. Isn't it ?
 
->> So the cores that belong to a scheduling domain may share:
->> CPU capacity (SD_SHARE_CPUCAPACITY / SD_ASYM_CPUCAPACITY)
->> Package resources -e.g. caches, units etc- (SD_SHARE_PKG_RESOURCES)
->> Power domain (SD_SHARE_POWERDOMAIN)
->> 
->> In this context I believe using words like "core", "package",
->> "socket" etc can be misleading. For example the sample topology you
->> use on the documentation says that there are 4 cores that are part
->> of a package, however "package" has a different meaning to the
->> scheduler. Also we don't say anything in case they share a power
->> domain or if they have the same capacity or not. This mapping deals
->> only with cache hierarchy or other shared resources.
->> 
->> How about defining a dt scheme to describe the scheduler domain
->> topology levels instead ? e.g:
->> 
->> 2 sets (or clusters if you prefer) of 2 SMT cores, each set with
->> a different capacity and power domain:
->> 
->> sched_topology {
->>    level0 { // SMT
->>     shared = "power", "capacity", "resources";
->>     group0 {
->>      members = <&hart0>, <&hart1>;
->>     }
->>     group1 {
->>      members = <&hart2>, <&hart3>;
->>     }
->>     group2 {
->>      members = <&hart4>, <&hart5>;
->>     }
->>     group3 {
->>      members = <&hart6>, <&hart7>;
->>     }
->>    }
->>    level1 { // MC
->>     shared = "power", "capacity"
->>     group0 {
->>      members = <&hart0>, <&hart1>, <&hart2>, <&hart3>;
->>     }
->>     group1 {
->>      members = <&hart4>, <&hart5>, <&hart6>, <&hart7>;
->>     }
->>    }
->>    top_level { // A group with all harts in it
->>     shared = "" // There is nothing common for ALL harts, we could 
->> have
->> capacity here
->>    }
->> }
->> 
+>> We already have a system reset call in SBI & PSCI also had system shutdown
+> Is system reset call defined in SBI spec as well? I don?t see this in Github.
 > 
-> I agree that naming could have been better in the past. But it is what
-> it is now. I don't see any big advantages in this approach compared to
-> the existing approach where DT specifies what hardware looks like and
-> scheduler sets up it's domain based on different cpumasks.
-> 
+Sorry. I have made myself confused while writing. You are correct.
 
-It is what it is on ARM, it doesn't have to be the same on RISC-V, 
-anyway
-the name is a minor issue. The advantage of this approach is that you 
-define the
-scheduling domains on the device tree without needing a "translation" of 
-a
-topology map to scheduling domains. It can handle any scenario the 
-scheduler
-can handle, using all the available flags. In your approach no matter 
-what
-gets put to the device tree, the only hint the scheduler will get is one
-level of SMT, one level of MC and the rest of the system. No power 
-domain
-sharing, no asymmetric scheduling, no multiple levels possible. Many 
-features
-of the scheduler remain unused. This approach can also get extended more 
-easily
-to e.g. support NUMA nodes and associate memory regions with groups.
 
 Regards,
-Nick
+Atish
+>> function. As per my understanding, this API will provide a way to handle all
+>> common suspend related operations on machine mode.
+>> In case of virtual OS, it will not result in any external power regulations.
+> 
+> 
+> 
+> 
+> 
+> 
