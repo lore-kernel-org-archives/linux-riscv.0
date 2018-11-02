@@ -1,112 +1,75 @@
 From: atish.patra@wdc.com (Atish Patra)
-Date: Fri, 2 Nov 2018 13:34:06 -0700
+Date: Fri, 2 Nov 2018 13:53:51 -0700
 Subject: [RFC 1/2] dt-bindings: topology: Add RISC-V cpu topology.
-In-Reply-To: <CAL_Jsq+wProNynprMjQnrz1jmbZT9TmmA-_=vPUxCEED_8xONg@mail.gmail.com>
+In-Reply-To: <20181102155038.GA21067@e107155-lin>
 References: <1541113468-22097-1-git-send-email-atish.patra@wdc.com>
  <1541113468-22097-2-git-send-email-atish.patra@wdc.com>
  <CAL_Jsq+wProNynprMjQnrz1jmbZT9TmmA-_=vPUxCEED_8xONg@mail.gmail.com>
-Message-ID: <954ec7be-f7ba-4e00-70fe-130cb4b84e61@wdc.com>
+ <20181102133100.GA13130@e107155-lin>
+ <CAL_JsqLO+cOcHkr41ebPtONwrzOWGhksH1ypph+tihsuOVDOug@mail.gmail.com>
+ <20181102155038.GA21067@e107155-lin>
+Message-ID: <0c94f752-cc18-ae0c-36e7-7e0dd6b1d307@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 11/2/18 6:09 AM, Rob Herring wrote:
-> On Thu, Nov 1, 2018 at 6:04 PM Atish Patra <atish.patra@wdc.com> wrote:
+On 11/2/18 8:50 AM, Sudeep Holla wrote:
+> On Fri, Nov 02, 2018 at 10:11:38AM -0500, Rob Herring wrote:
+>> On Fri, Nov 2, 2018 at 8:31 AM Sudeep Holla <sudeep.holla@arm.com> wrote:
+>>>
+>>> On Fri, Nov 02, 2018 at 08:09:39AM -0500, Rob Herring wrote:
+>>>> On Thu, Nov 1, 2018 at 6:04 PM Atish Patra <atish.patra@wdc.com> wrote:
+>>>>>
+>>>>> Define a RISC-V cpu topology. This is based on cpu-map in ARM world.
+>>>>> But it doesn't need a separate thread node for defining SMT systems.
+>>>>> Multiple cpu phandle properties can be parsed to identify the sibling
+>>>>> hardware threads. Moreover, we do not have cluster concept in RISC-V.
+>>>>> So package is a better word choice than cluster for RISC-V.
+>>>>
+>>>> There was a proposal to add package info for ARM recently. Not sure
+>>>> what happened to that, but we don't need 2 different ways.
+>>>>
+>>>
+>>> We still need that, I can brush it up and post what Lorenzo had previously
+>>> proposed[1]. We want to keep both DT and ACPI CPU topology story aligned.
 >>
->> Define a RISC-V cpu topology. This is based on cpu-map in ARM world.
->> But it doesn't need a separate thread node for defining SMT systems.
->> Multiple cpu phandle properties can be parsed to identify the sibling
->> hardware threads. Moreover, we do not have cluster concept in RISC-V.
->> So package is a better word choice than cluster for RISC-V.
+>> Frankly, I don't care what the ACPI story is. I care whether each cpu
 > 
-> There was a proposal to add package info for ARM recently. Not sure
-> what happened to that, but we don't need 2 different ways.
+> Sorry I meant feature parity with ACPI and didn't refer to the mechanics.
 > 
-> There's never going to be clusters for RISC-V? What prevents that?
-> Seems shortsighted to me.
-> 
-
-Agreed. My intention was to keep it simple at first go.
-If package node is added, that would work for us as well.
-
+>> arch does its own thing in DT or not. If a package prop works for
+>> RISC-V folks and that happens to align with ACPI, then okay. Though I
+>> tend to prefer a package represented as a node rather than a property
+>> as I think that's more consistent.
 >>
->> Signed-off-by: Atish Patra <atish.patra@wdc.com>
->> ---
->>   .../devicetree/bindings/riscv/topology.txt         | 154 +++++++++++++++++++++
->>   1 file changed, 154 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/riscv/topology.txt
+> 
+> Sounds good. One of the reason for making it *optional* property is for
+> backward compatibility. But we should be able to deal with that even with
+> node.
+> 
+
+If you are introducing a package node, can we make cluster node 
+optional? I feel it is a redundant node for use cases where one doesn't 
+have a different grouped cpus in a package.
+
+We may have some architecture that requires cluster, it can be added to 
+the DT at that time, I believe.
+
+>> Any comments on the thread aspect (whether it has ever been used)?
+>> Though I think thread as a node level is more consistent with each
+>> topology level being a node (same with package).
 >>
->> diff --git a/Documentation/devicetree/bindings/riscv/topology.txt b/Documentation/devicetree/bindings/riscv/topology.txt
->> new file mode 100644
->> index 00000000..96039ed3
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/riscv/topology.txt
->> @@ -0,0 +1,154 @@
->> +===========================================
->> +RISC-V cpu topology binding description
->> +===========================================
->> +
->> +===========================================
->> +1 - Introduction
->> +===========================================
->> +
->> +In a RISC-V system, the hierarchy of CPUs can be defined through following nodes that
->> +are used to describe the layout of physical CPUs in the system:
->> +
->> +- packages
->> +- core
->> +
->> +The cpu nodes (bindings defined in [1]) represent the devices that
->> +correspond to physical CPUs and are to be mapped to the hierarchy levels.
->> +Simultaneous multi-threading (SMT) systems can also represent their topology
->> +by defining multiple cpu phandles inside core node. The details are explained
->> +in paragraph 3.
-> 
-> I don't see a reason to do this differently than ARM. That said, I
-> don't think the thread part is in use on ARM, so it could possibly be
-> changed.
-> 
->> +
->> +The remainder of this document provides the topology bindings for ARM, based
-> 
-> for ARM?
+> Not 100% sure, the only multi threaded core in the market I know is
+> Cavium TX2 which is ACPI.
 > 
 
-Sorry for the typo.
-
->> +on the Devicetree Specification, available from:
->> +
->> +https://www.devicetree.org/specifications/
->> +
->> +If not stated otherwise, whenever a reference to a cpu node phandle is made its
->> +value must point to a cpu node compliant with the cpu node bindings as
->> +documented in [1].
->> +A topology description containing phandles to cpu nodes that are not compliant
->> +with bindings standardized in [1] is therefore considered invalid.
->> +
->> +This cpu topology binding description is mostly based on the topology defined
->> +in ARM [2].
->> +===========================================
->> +2 - cpu-topology node
-> 
-> cpu-map. Why change this?
-> 
-To my ears, it felt a better name. But I don't mind dropping it in favor 
-of cpu-map if we are going to standardize cpu-map for both ARM & RISC-V.
-
-> What I would like to see is the ARM topology binding reworked to be
-> common or some good reasons why it doesn't work for RISC-V as-is.
-> 
-
-IMHO, ARM topology can be reworked and put it in a common place so that 
-RISC-V can leverage that.
-
-My intention for this RFC patch was to start the ball rolling on cpu 
-topology in RISC-V and see if DT approach is fine with everybody. I 
-would be happy to see ARM code to move it to a common code base where 
-RISC-V can reuse it.
+Any advantages of keeping thread node if it's not being used. If I am 
+not wrong, we can always use multiple cpuN phandles to represent SMT 
+nodes. It will result in less code and DT documentation as well.
 
 
 Regards,
 Atish
-> Rob
+> --
+> Regards,
+> Sudeep
 > 
