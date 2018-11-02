@@ -1,130 +1,152 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Fri, 2 Nov 2018 14:14:30 -0700
+From: mick@ics.forth.gr (Nick Kossifidis)
+Date: Sat, 03 Nov 2018 00:18:31 +0200
 Subject: [RFC 0/2] Add RISC-V cpu topology
-In-Reply-To: <866dedbc78ab4fa0e3b040697e112106@mailhost.ics.forth.gr>
+In-Reply-To: <9385b2eb-4729-8247-b0ae-1540793d078b@wdc.com>
 References: <1541113468-22097-1-git-send-email-atish.patra@wdc.com>
  <866dedbc78ab4fa0e3b040697e112106@mailhost.ics.forth.gr>
-Message-ID: <9385b2eb-4729-8247-b0ae-1540793d078b@wdc.com>
+ <9385b2eb-4729-8247-b0ae-1540793d078b@wdc.com>
+Message-ID: <ffc68a79af6e981654bef5bcdb283161@mailhost.ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 11/2/18 11:59 AM, Nick Kossifidis wrote:
-> Hello All,
+???? 2018-11-02 23:14, Atish Patra ??????:
+> On 11/2/18 11:59 AM, Nick Kossifidis wrote:
+>> Hello All,
+>> 
+>> ???? 2018-11-02 01:04, Atish Patra ??????:
+>>> This patch series adds the cpu topology for RISC-V. It contains
+>>> both the DT binding and actual source code. It has been tested on
+>>> QEMU & Unleashed board.
+>>> 
+>>> The idea is based on cpu-map in ARM with changes related to how
+>>> we define SMT systems. The reason for adopting a similar approach
+>>> to ARM as I feel it provides a very clear way of defining the
+>>> topology compared to parsing cache nodes to figure out which cpus
+>>> share the same package or core.  I am open to any other idea to
+>>> implement cpu-topology as well.
+>>> 
+>> 
+>> I was also about to start a discussion about CPU topology on RISC-V
+>> after the last swtools group meeting. The goal is to provide the
+>> scheduler with hints on how to distribute tasks more efficiently
+>> between harts, by populating the scheduling domain topology levels
+>> (https://elixir.bootlin.com/linux/v4.19/ident/sched_domain_topology_level).
+>> What we want to do is define cpu groups and assign them to
+>> scheduling domains with the appropriate SD_ flags
+>> (https://github.com/torvalds/linux/blob/master/include/linux/sched/topology.h#L16).
+>> 
 > 
-> ???? 2018-11-02 01:04, Atish Patra ??????:
->> This patch series adds the cpu topology for RISC-V. It contains
->> both the DT binding and actual source code. It has been tested on
->> QEMU & Unleashed board.
->>
->> The idea is based on cpu-map in ARM with changes related to how
->> we define SMT systems. The reason for adopting a similar approach
->> to ARM as I feel it provides a very clear way of defining the
->> topology compared to parsing cache nodes to figure out which cpus
->> share the same package or core.  I am open to any other idea to
->> implement cpu-topology as well.
->>
+> Scheduler domain topology is already getting all the hints in the 
+> following way.
 > 
-> I was also about to start a discussion about CPU topology on RISC-V
-> after the last swtools group meeting. The goal is to provide the
-> scheduler with hints on how to distribute tasks more efficiently
-> between harts, by populating the scheduling domain topology levels
-> (https://elixir.bootlin.com/linux/v4.19/ident/sched_domain_topology_level).
-> What we want to do is define cpu groups and assign them to
-> scheduling domains with the appropriate SD_ flags
-> (https://github.com/torvalds/linux/blob/master/include/linux/sched/topology.h#L16).
+> static struct sched_domain_topology_level default_topology[] = {
+> #ifdef CONFIG_SCHED_SMT
+>         { cpu_smt_mask, cpu_smt_flags, SD_INIT_NAME(SMT) },
+> #endif
+> #ifdef CONFIG_SCHED_MC
+>         { cpu_coregroup_mask, cpu_core_flags, SD_INIT_NAME(MC) },
+> #endif
+>         { cpu_cpu_mask, SD_INIT_NAME(DIE) },
+>         { NULL, },
+> };
 > 
-
-Scheduler domain topology is already getting all the hints in the 
-following way.
-
-static struct sched_domain_topology_level default_topology[] = {
-#ifdef CONFIG_SCHED_SMT
-         { cpu_smt_mask, cpu_smt_flags, SD_INIT_NAME(SMT) },
-#endif
-#ifdef CONFIG_SCHED_MC
-         { cpu_coregroup_mask, cpu_core_flags, SD_INIT_NAME(MC) },
-#endif
-         { cpu_cpu_mask, SD_INIT_NAME(DIE) },
-         { NULL, },
-};
-
-#ifdef CONFIG_SCHED_SMT
-static inline const struct cpumask *cpu_smt_mask(int cpu)
-{
-         return topology_sibling_cpumask(cpu);
-}
-#endif
-
-const struct cpumask *cpu_coregroup_mask(int cpu)
-{
-         return &cpu_topology[cpu].core_sibling;
-}
-
-
-> So the cores that belong to a scheduling domain may share:
-> CPU capacity (SD_SHARE_CPUCAPACITY / SD_ASYM_CPUCAPACITY)
-> Package resources -e.g. caches, units etc- (SD_SHARE_PKG_RESOURCES)
-> Power domain (SD_SHARE_POWERDOMAIN)
+> #ifdef CONFIG_SCHED_SMT
+> static inline const struct cpumask *cpu_smt_mask(int cpu)
+> {
+>         return topology_sibling_cpumask(cpu);
+> }
+> #endif
 > 
-> In this context I believe using words like "core", "package",
-> "socket" etc can be misleading. For example the sample topology you
-> use on the documentation says that there are 4 cores that are part
-> of a package, however "package" has a different meaning to the
-> scheduler. Also we don't say anything in case they share a power
-> domain or if they have the same capacity or not. This mapping deals
-> only with cache hierarchy or other shared resources.
-> 
-> How about defining a dt scheme to describe the scheduler domain
-> topology levels instead ? e.g:
-> 
-> 2 sets (or clusters if you prefer) of 2 SMT cores, each set with
-> a different capacity and power domain:
-> 
-> sched_topology {
->    level0 { // SMT
->     shared = "power", "capacity", "resources";
->     group0 {
->      members = <&hart0>, <&hart1>;
->     }
->     group1 {
->      members = <&hart2>, <&hart3>;
->     }
->     group2 {
->      members = <&hart4>, <&hart5>;
->     }
->     group3 {
->      members = <&hart6>, <&hart7>;
->     }
->    }
->    level1 { // MC
->     shared = "power", "capacity"
->     group0 {
->      members = <&hart0>, <&hart1>, <&hart2>, <&hart3>;
->     }
->     group1 {
->      members = <&hart4>, <&hart5>, <&hart6>, <&hart7>;
->     }
->    }
->    top_level { // A group with all harts in it
->     shared = "" // There is nothing common for ALL harts, we could have
-> capacity here
->    }
+> const struct cpumask *cpu_coregroup_mask(int cpu)
+> {
+>         return &cpu_topology[cpu].core_sibling;
 > }
 > 
+> 
 
-I agree that naming could have been better in the past. But it is what 
-it is now. I don't see any big advantages in this approach compared to 
-the existing approach where DT specifies what hardware looks like and 
-scheduler sets up it's domain based on different cpumasks.
+That's a static definition of two scheduling domains that only deal
+with SMT and MC, the only difference between them is the
+SD_SHARE_PKG_RESOURCES flag. You can't even have multiple levels
+of shared resources this way, whatever you have larger than a core
+is ignored (it just goes to the MC domain). There is also no handling
+of SD_SHARE_POWERDOMAIN or SD_SHARE_CPUCAPACITY.
 
+>> So the cores that belong to a scheduling domain may share:
+>> CPU capacity (SD_SHARE_CPUCAPACITY / SD_ASYM_CPUCAPACITY)
+>> Package resources -e.g. caches, units etc- (SD_SHARE_PKG_RESOURCES)
+>> Power domain (SD_SHARE_POWERDOMAIN)
+>> 
+>> In this context I believe using words like "core", "package",
+>> "socket" etc can be misleading. For example the sample topology you
+>> use on the documentation says that there are 4 cores that are part
+>> of a package, however "package" has a different meaning to the
+>> scheduler. Also we don't say anything in case they share a power
+>> domain or if they have the same capacity or not. This mapping deals
+>> only with cache hierarchy or other shared resources.
+>> 
+>> How about defining a dt scheme to describe the scheduler domain
+>> topology levels instead ? e.g:
+>> 
+>> 2 sets (or clusters if you prefer) of 2 SMT cores, each set with
+>> a different capacity and power domain:
+>> 
+>> sched_topology {
+>>    level0 { // SMT
+>>     shared = "power", "capacity", "resources";
+>>     group0 {
+>>      members = <&hart0>, <&hart1>;
+>>     }
+>>     group1 {
+>>      members = <&hart2>, <&hart3>;
+>>     }
+>>     group2 {
+>>      members = <&hart4>, <&hart5>;
+>>     }
+>>     group3 {
+>>      members = <&hart6>, <&hart7>;
+>>     }
+>>    }
+>>    level1 { // MC
+>>     shared = "power", "capacity"
+>>     group0 {
+>>      members = <&hart0>, <&hart1>, <&hart2>, <&hart3>;
+>>     }
+>>     group1 {
+>>      members = <&hart4>, <&hart5>, <&hart6>, <&hart7>;
+>>     }
+>>    }
+>>    top_level { // A group with all harts in it
+>>     shared = "" // There is nothing common for ALL harts, we could 
+>> have
+>> capacity here
+>>    }
+>> }
+>> 
+> 
+> I agree that naming could have been better in the past. But it is what
+> it is now. I don't see any big advantages in this approach compared to
+> the existing approach where DT specifies what hardware looks like and
+> scheduler sets up it's domain based on different cpumasks.
+> 
+
+It is what it is on ARM, it doesn't have to be the same on RISC-V, 
+anyway
+the name is a minor issue. The advantage of this approach is that you 
+define the
+scheduling domains on the device tree without needing a "translation" of 
+a
+topology map to scheduling domains. It can handle any scenario the 
+scheduler
+can handle, using all the available flags. In your approach no matter 
+what
+gets put to the device tree, the only hint the scheduler will get is one
+level of SMT, one level of MC and the rest of the system. No power 
+domain
+sharing, no asymmetric scheduling, no multiple levels possible. Many 
+features
+of the scheduler remain unused. This approach can also get extended more 
+easily
+to e.g. support NUMA nodes and associate memory regions with groups.
 
 Regards,
-Atish
-> Regards,
-> Nick
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv at lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+Nick
