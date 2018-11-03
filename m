@@ -1,80 +1,91 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 06 Nov 2018 16:08:12 -0800 (PST)
-Subject: [PATCH] riscv: add asm/unistd.h UAPI header
-In-Reply-To: <CAK8P3a3JcztCSYBuu5ZJXaV83VNLv_1v3v-EKMR+tC1oOsQesw@mail.gmail.com>
-Message-ID: <mhng-3c26b2fb-0c11-42f2-9026-1113b200a7b2@palmer-si-x1c4>
+From: lkp@intel.com (kbuild test robot)
+Date: Sun, 4 Nov 2018 00:45:41 +0800
+Subject: [PATCH -next 2/3] mm: speed up mremap by 20x on large regions (v4)
+In-Reply-To: <20181103040041.7085-3-joelaf@google.com>
+References: <20181103040041.7085-3-joelaf@google.com>
+Message-ID: <201811040030.qFOc57Ke%fengguang.wu@intel.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 05 Nov 2018 12:56:15 PST (-0800), Arnd Bergmann wrote:
-> On 11/5/18, David Abdurachmanov <david.abdurachmanov@gmail.com> wrote:
->> Marcin Juszkiewicz reported issues while generating syscall table for riscv
->> using 4.20-rc1. The patch refactors our unistd.h files to match some other
->> architectures.
->>
->> - Add asm/unistd.h UAPI header, which has __ARCH_WANT_NEW_STAT
->> - Remove asm/syscalls.h UAPI header and merge to asm/unistd.h
->> - Adjust kernel asm/unistd.h
->>
->> So now asm/unistd.h UAPI header should show all syscalls for riscv.
->>
->> Before this, Makefile simply put `#include <asm-generic/unistd.h>` into
->> generated asm/unistd.h UAPI header thus user didn't see:
->>
->> - __NR_riscv_flush_icache
->> - __NR_newfstatat
->> - __NR_fstat
->>
->> which are supported by riscv kernel.
->>
->> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
->> Cc: Arnd Bergmann <arnd@arndb.de>
->> Cc: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>
->> Cc: Guenter Roeck <linux@roeck-us.net>
->
-> Thanks for addressing this, your patch correctly fixes riscv64, and
-> I should have noticed the mistake when I originally merged the
-> broken patch.
->
-> However, looking closer I found another problem with the original
-> patch that your fix does not address:
->
-> __ARCH_WANT_NEW_STAT should only be set on 64-bit
-> architectures.
->
-> For a 32-bit architecture, we only want __ARCH_WANT_STAT64 if
-> any. For 64-bit architectures with compat mode, we still need to
-> set __ARCH_WANT_STAT64 from the non-uapi file so we get
-> the syscall implementation.
->
-> If we don't care about the riscv32 ABI changing yet, we can
-> decide to leave out __ARCH_WANT_STAT64 here, and require
-> glibc to implement it using statx() like any new architecture.
-> stat64 is not y2038 safe, and statx replaces it because of that.
+Hi Joel,
 
-Thanks for pointing this out.   A while ago we decided the rv32 ABI was 
-"slushy": it can change if it has a good reason to.  Right now the only planned 
-changes are the y2038 changes, which I consider this a part of.  For some 
-reason I thought we'd already done this, but since we haven't then I think it 
-should go in sooner rather than later -- that will help the glibc guys get 
-everything lined up.
+Thank you for the patch! Yet something to improve:
 
-The target is still the next glibc release (Feb 1st) for a stable RV32I ABI.  
-That's progressing well, with one last blocking issue related to some of our 
-floating-point emulation routines before we can submit the port.  This should 
-give us ample time to line up the ABIs correctly so everything works.
+[auto build test ERROR on next-20181102]
 
-So I think the correct answer here is to drop __ARCH_WANT_STAT64 from RISC-V.
+url:    https://github.com/0day-ci/linux/commits/Joel-Fernandes/Add-support-for-fast-mremap/20181103-224908
+config: xtensa-allmodconfig (attached as .config)
+compiler: xtensa-linux-gcc (GCC) 8.1.0
+reproduce:
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # save the attached .config to linux build tree
+        GCC_VERSION=8.1.0 make.cross ARCH=xtensa 
 
->> Fixes: 67314ec7b025
->
-> That line should be formatted as
->
-> Fixes: 67314ec7b025 ("RISC-V: Request newstat syscalls")
+All errors (new ones prefixed by >>):
 
-Yep, and I have 
+   mm/mremap.c: In function 'move_normal_pmd':
+>> mm/mremap.c:229:2: error: implicit declaration of function 'set_pmd_at'; did you mean 'set_pte_at'? [-Werror=implicit-function-declaration]
+     set_pmd_at(mm, new_addr, new_pmd, pmd);
+     ^~~~~~~~~~
+     set_pte_at
+   cc1: some warnings being treated as errors
 
-[pretty]
-	fixes = Fixes: %h (\"%s\")
+vim +229 mm/mremap.c
 
-to make that slightly easier for me to remember :).
+   193	
+   194	static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
+   195			  unsigned long new_addr, unsigned long old_end,
+   196			  pmd_t *old_pmd, pmd_t *new_pmd)
+   197	{
+   198		spinlock_t *old_ptl, *new_ptl;
+   199		struct mm_struct *mm = vma->vm_mm;
+   200		pmd_t pmd;
+   201	
+   202		if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
+   203		    || old_end - old_addr < PMD_SIZE)
+   204			return false;
+   205	
+   206		/*
+   207		 * The destination pmd shouldn't be established, free_pgtables()
+   208		 * should have release it.
+   209		 */
+   210		if (WARN_ON(!pmd_none(*new_pmd)))
+   211			return false;
+   212	
+   213		/*
+   214		 * We don't have to worry about the ordering of src and dst
+   215		 * ptlocks because exclusive mmap_sem prevents deadlock.
+   216		 */
+   217		old_ptl = pmd_lock(vma->vm_mm, old_pmd);
+   218		new_ptl = pmd_lockptr(mm, new_pmd);
+   219		if (new_ptl != old_ptl)
+   220			spin_lock_nested(new_ptl, SINGLE_DEPTH_NESTING);
+   221	
+   222		/* Clear the pmd */
+   223		pmd = *old_pmd;
+   224		pmd_clear(old_pmd);
+   225	
+   226		VM_BUG_ON(!pmd_none(*new_pmd));
+   227	
+   228		/* Set the new pmd */
+ > 229		set_pmd_at(mm, new_addr, new_pmd, pmd);
+   230		flush_tlb_range(vma, old_addr, old_addr + PMD_SIZE);
+   231		if (new_ptl != old_ptl)
+   232			spin_unlock(new_ptl);
+   233		spin_unlock(old_ptl);
+   234	
+   235		return true;
+   236	}
+   237	
+
+---
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: .config.gz
+Type: application/gzip
+Size: 55677 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20181104/8378032b/attachment.gz>
