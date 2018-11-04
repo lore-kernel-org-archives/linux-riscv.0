@@ -1,52 +1,128 @@
-From: william.kucharski@oracle.com (William Kucharski)
-Date: Sun, 4 Nov 2018 00:56:48 -0600
-Subject: [PATCH -next 0/3] Add support for fast mremap
-In-Reply-To: <20181103183208.GA56850@google.com>
-References: <20181103040041.7085-1-joelaf@google.com>
- <6886607.O3ZT5bM3Cy@blindfold>
- <e1d039a5-9c83-b9b9-98b5-d39bc48f04e0@kot-begemot.co.uk>
- <20181103183208.GA56850@google.com>
-Message-ID: <D6FB3C15-A8C1-4694-A434-A7489F590E05@oracle.com>
+From: abner.chang@hpe.com (Chang, Abner (HPS SW/FW Technologist))
+Date: Sun, 4 Nov 2018 14:36:04 +0000
+Subject: SBI extension proposal
+In-Reply-To: <7da86c7a-d06a-82ae-ef01-35efeeda7c3a@wdc.com>
+References: <7f2a546a-6ebb-43c6-83a0-5e712ec2e2c7@wdc.com>
+ <CAK-hmcQeiGa3BwnzEVB_dyhFiC7rXHFN-wTsJomg-jAo7a+v3Q@mail.gmail.com>
+ <CAK-hmcSTg=AbXfDwx-O-8WuMsaVbJXP7Jd7HYoFh3jDJHGZ2iQ@mail.gmail.com>
+ <cf729ca1-3ad0-8fe8-5cfa-d09d6c28d831@wdc.com>
+ <TU4PR8401MB09581F92A2F7C0C7FFFA190EFFCF0@TU4PR8401MB0958.NAMPRD84.PROD.OUTLOOK.COM>
+ <7da86c7a-d06a-82ae-ef01-35efeeda7c3a@wdc.com>
+Message-ID: <DF4PR8401MB0956729F215102E717E8AE27FFC90@DF4PR8401MB0956.NAMPRD84.PROD.OUTLOOK.COM>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
 
 
-> On Nov 3, 2018, at 12:32 PM, Joel Fernandes <joel@joelfernandes.org> wrote:
+> -----Original Message-----
+> From: Atish Patra [mailto:atish.patra at wdc.com]
+> Sent: Saturday, November 03, 2018 6:31 AM
+> To: Chang, Abner (HPS SW/FW Technologist) <abner.chang@hpe.com>; Olof
+> Johansson <olof.johansson@gmail.com>
+> Cc: linux-riscv at lists.infradead.org; Palmer Dabbelt <palmer@sifive.com>;
+> Andrew Waterman <andrew@sifive.com>; paul.walmsley at sifive.com;
+> hch at infradead.org; zong at andestech.com; anup at brainfault.org; Damien Le
+> Moal <Damien.LeMoal@wdc.com>; alankao at andestech.com; Arnd
+> Bergmann <arnd@arndb.de>; mark.rutland at arm.com;
+> vincentc at andestech.com; mjc at sifive.com; rjones at redhat.com; Chen,
+> Gilbert <gilbert.chen@hpe.com>
+> Subject: Re: SBI extension proposal
 > 
-> Looks like more architectures don't define set_pmd_at. I am thinking the
-> easiest way forward is to just do the following, instead of defining
-> set_pmd_at for every architecture that doesn't care about it. Thoughts?
+> On 11/1/18 11:31 PM, Chang, Abner (HPS SW/FW Technologist) wrote:
+> >
+> >>>>> -- int sbi_hart_up(unsigned long hartid, unsigned long start,
+> >>>>> unsigned long priv)
+> >>>>>
+> >>>>> Brings up "hartid" either during initial boot or after a
+> >>>>> sbi_hart_down SBI call.
+> >>>>>
+> >>>>> "start" points to a runtime-specified address where a hart can
+> >>>>> enter into supervisor mode. This must be a physical address.
+> >>>>>
+> >>>>> "priv" is a private data that caller can use to pass information
+> >>>>> about execution context.
+> >>>>>
+> >>>>> Return the appropriate SBI error code.
+> >>>>>
+> >>>>> -- int sbi_hart_suspend(u32 state, unsigned long resume_entry,
+> >>>>> unsigned long priv)
+> >>>>>
+> >>>>> Suspends the calling hart to a particular power state. Suspended
+> >>>>> hart will automatically wake-up based on some wakeup events at
+> >>>>> resume_entry physical address.
+> >>>>>
+> >>>>> "priv" is a private data that caller can use to pass information
+> >>>>> about execution context. The SBI implementation must save a copy
+> >>>>> so that caller can reuse while restoring hart from suspend.
+> >>>>>
+> >>>>> Return the appropriate SBI error code.
+> >>>>>
+> >>>>> -- int sbi_hart_down()
+> >>>>>
+> >>>>> It powers off the hart and will be used in cpu-hotplug.
+> >>>>> Only individual hart can remove itself from supervisor mode. It
+> >>>>> can be moved to normal state only by sbi_hart_up function.
+> >>>>>
+> >>>>> Return the appropriate SBI error code.
+> >>>>>
+> >>>>> -- u32 sbi_hart_state(unsigned long hartid)
+> >>>>>
+> >>>>> Returns the RISCV_POWER_STATE for a specific hartid. This will
+> >>>>> help make kexec like functionality more robust.
+> >>>>>
+> >>>>> -- void sbi_system_shutdown()
+> >>>>>
+> >>>>> Powers off the entire system.
+> >>>>
+> >>>>
+> >>>> This is a slightly weird one to put in SBI. There's usually other
+> >>>> actions
+> >> needed for _system_ level shutdown, such as external power regulators.
+> >>>>
+> >>
+> >> This might be because of my limited knowledge on power management.
+> > In ACPI, it defines the register block to put processor into different levels of
+> sleep mode (suspend mode). However, this requires additional power
+> management controller or processor CSRs on RISC-V. If we don?t consider
+> ACPI and H/W capabilities of power MGMT on RISC-V at this moment, then
+> SBI for processor power management may be needed.
+> > My question is can SBI_hart_up () to execute "start" even the hart is not in
+> Suspend or Down state? I am asking this because on UEFI we would like to
+> have SBI for supervisor mode firmware to invoke functions provided by M-
+> mode driver, just trying to leverage SBI_hart_up () for this intention.
+> However, "Start" is defined as an address to entry into supervisor mode. We
+> may need to add an additional parameter to this SBI which indicates the
+> privilege to execute "Start" though.
+> > Forget this if this SBI is dedicated for processor power management. We
+> can propose new SBI for above intention.
+> >
+> int sbi_hart_up(unsigned long hartid, unsigned long start, unsigned long priv)
 > 
-> diff --git a/mm/mremap.c b/mm/mremap.c
-> index 7cf6b0943090..31ad64dcdae6 100644
-> --- a/mm/mremap.c
-> +++ b/mm/mremap.c
-> @@ -281,7 +281,8 @@ unsigned long move_page_tables(struct vm_area_struct *vma,
-> 			split_huge_pmd(vma, old_pmd, old_addr);
-> 			if (pmd_trans_unstable(old_pmd))
-> 				continue;
-> -		} else if (extent == PMD_SIZE && IS_ENABLED(CONFIG_HAVE_MOVE_PMD)) {
-> +		} else if (extent == PMD_SIZE) {
-> +#ifdef CONFIG_HAVE_MOVE_PMD
-> 			/*
-> 			 * If the extent is PMD-sized, try to speed the move by
-> 			 * moving at the PMD level if possible.
-> @@ -296,6 +297,7 @@ unsigned long move_page_tables(struct vm_area_struct *vma,
-> 				drop_rmap_locks(vma);
-> 			if (moved)
-> 				continue;
-> +#endif
-> 		}
-> 
-> 		if (pte_alloc(new_vma->vm_mm, new_pmd))
-> 
+> It has already a opaque third parameter that can be used to address your
+> case. Isn't it ?
+According to the design you have for sbi_hart_up(), priv is prepared by caller and passed to start in supervisor mode. Means sbi_hart_up () is not necessary to understand the content of priv. The content of priv should be function-dependent and not able to be standardized. I think we can't use priv to address my case. We may need additional parameter which indicates  the privilege to execute "start". With this we can ask hart to run specific function in either m or s mode, and sbi_hart_up() will be more nice and powerful to firmware which has implementation of privilege levels during system boot.
 
-That seems reasonable as there are going to be a lot of architectures that never have
-mappings at the PMD level.
+> 
+> >> We already have a system reset call in SBI & PSCI also had system
+> >> shutdown
+> > Is system reset call defined in SBI spec as well? I don?t see this in Github.
+> >
+> Sorry. I have made myself confused while writing. You are correct.
+Is SBI spec of Shutdown() already freeze?  We may need parameter to indicate the shutdown type, for example
+- Power off
+- Cold reset
+- Warm reset
 
-Have you thought about what might be needed to extend this paradigm to be able to
-perform remaps at the PUD level, given many architectures already support PUD-mapped
-pages?
-
-    William Kucharski
+> 
+> 
+> Regards,
+> Atish
+> >> function. As per my understanding, this API will provide a way to
+> >> handle all common suspend related operations on machine mode.
+> >> In case of virtual OS, it will not result in any external power regulations.
+> >
+> >
+> >
+> >
+> >
+> >
