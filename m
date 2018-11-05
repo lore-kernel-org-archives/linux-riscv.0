@@ -1,31 +1,25 @@
 From: david.abdurachmanov@gmail.com (David Abdurachmanov)
-Date: Mon,  5 Nov 2018 15:40:04 +0100
-Subject: [PATCH] riscv: fix spacing in struct pt_regs
-Message-ID: <20181105144004.28267-1-david.abdurachmanov@gmail.com>
+Date: Mon, 5 Nov 2018 15:43:12 +0100
+Subject: [PATCH] riscv: add asm/unistd.h UAPI header
+In-Reply-To: <20181105142602.25750-1-david.abdurachmanov@gmail.com>
+References: <20181105142602.25750-1-david.abdurachmanov@gmail.com>
+Message-ID: <CAEn-LTrK2x3n9enzv=+CbCOFzVrX_RZXZ1wB_ktjkys=wzYfLw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Replace 8 spaces with tab to match styling.
+On Mon, Nov 5, 2018 at 3:26 PM David Abdurachmanov
+<david.abdurachmanov@gmail.com> wrote:
 
-Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
----
- arch/riscv/include/asm/ptrace.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+[..]
+> diff --git a/arch/riscv/include/uapi/asm/syscalls.h b/arch/riscv/include/uapi/asm/unistd.h
+> similarity index 54%
+> rename from arch/riscv/include/uapi/asm/syscalls.h
+> rename to arch/riscv/include/uapi/asm/unistd.h
+> index 206dc4b0f6ea..5545f498071d 100644
+[..]
 
-diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
-index 2c5df945d43c..bbe1862e8f80 100644
---- a/arch/riscv/include/asm/ptrace.h
-+++ b/arch/riscv/include/asm/ptrace.h
-@@ -56,8 +56,8 @@ struct pt_regs {
- 	unsigned long sstatus;
- 	unsigned long sbadaddr;
- 	unsigned long scause;
--        /* a0 value before the syscall */
--        unsigned long orig_a0;
-+	/* a0 value before the syscall */
-+	unsigned long orig_a0;
- };
- 
- #ifdef CONFIG_64BIT
--- 
-2.19.1
+I forgot to pass --no-renames to git format-patch.
+If you want I can resend it with --no-renames to make it
+a bit more readable.
+
+david
