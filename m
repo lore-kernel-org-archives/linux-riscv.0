@@ -1,123 +1,96 @@
-From: mick@ics.forth.gr (Nick Kossifidis)
-Date: Mon, 05 Nov 2018 21:39:29 +0200
-Subject: [RFC 0/2] RISC-V: A proposal to add vendor-specific code
-In-Reply-To: <1540982130-28248-1-git-send-email-vincentc@andestech.com>
-References: <1540982130-28248-1-git-send-email-vincentc@andestech.com>
-Message-ID: <cac10a0961274e3ac4674e945f9d9e90@mailhost.ics.forth.gr>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Mon, 05 Nov 2018 11:38:40 -0800 (PST)
+Subject: [RFC 1/2] dt-bindings: topology: Add RISC-V cpu topology.
+In-Reply-To: <CAL_Jsq+wProNynprMjQnrz1jmbZT9TmmA-_=vPUxCEED_8xONg@mail.gmail.com>
+Message-ID: <mhng-799bd6f4-e4af-481e-90d8-bdc0e30f2530@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hello Vincent,
+On Fri, 02 Nov 2018 06:09:39 PDT (-0700), robh+dt at kernel.org wrote:
+> On Thu, Nov 1, 2018 at 6:04 PM Atish Patra <atish.patra@wdc.com> wrote:
+>>
+>> Define a RISC-V cpu topology. This is based on cpu-map in ARM world.
+>> But it doesn't need a separate thread node for defining SMT systems.
+>> Multiple cpu phandle properties can be parsed to identify the sibling
+>> hardware threads. Moreover, we do not have cluster concept in RISC-V.
+>> So package is a better word choice than cluster for RISC-V.
+>
+> There was a proposal to add package info for ARM recently. Not sure
+> what happened to that, but we don't need 2 different ways.
+>
+> There's never going to be clusters for RISC-V? What prevents that?
+> Seems shortsighted to me.
+>
+>>
+>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+>> ---
+>>  .../devicetree/bindings/riscv/topology.txt         | 154 +++++++++++++++++++++
+>>  1 file changed, 154 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/riscv/topology.txt
+>>
+>> diff --git a/Documentation/devicetree/bindings/riscv/topology.txt b/Documentation/devicetree/bindings/riscv/topology.txt
+>> new file mode 100644
+>> index 00000000..96039ed3
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/riscv/topology.txt
+>> @@ -0,0 +1,154 @@
+>> +===========================================
+>> +RISC-V cpu topology binding description
+>> +===========================================
+>> +
+>> +===========================================
+>> +1 - Introduction
+>> +===========================================
+>> +
+>> +In a RISC-V system, the hierarchy of CPUs can be defined through following nodes that
+>> +are used to describe the layout of physical CPUs in the system:
+>> +
+>> +- packages
+>> +- core
+>> +
+>> +The cpu nodes (bindings defined in [1]) represent the devices that
+>> +correspond to physical CPUs and are to be mapped to the hierarchy levels.
+>> +Simultaneous multi-threading (SMT) systems can also represent their topology
+>> +by defining multiple cpu phandles inside core node. The details are explained
+>> +in paragraph 3.
+>
+> I don't see a reason to do this differently than ARM. That said, I
+> don't think the thread part is in use on ARM, so it could possibly be
+> changed.
+>
+>> +
+>> +The remainder of this document provides the topology bindings for ARM, based
+>
+> for ARM?
+>
+>> +on the Devicetree Specification, available from:
+>> +
+>> +https://www.devicetree.org/specifications/
+>> +
+>> +If not stated otherwise, whenever a reference to a cpu node phandle is made its
+>> +value must point to a cpu node compliant with the cpu node bindings as
+>> +documented in [1].
+>> +A topology description containing phandles to cpu nodes that are not compliant
+>> +with bindings standardized in [1] is therefore considered invalid.
+>> +
+>> +This cpu topology binding description is mostly based on the topology defined
+>> +in ARM [2].
+>> +===========================================
+>> +2 - cpu-topology node
+>
+> cpu-map. Why change this?
+>
+> What I would like to see is the ARM topology binding reworked to be
+> common or some good reasons why it doesn't work for RISC-V as-is.
 
-???? 2018-10-31 12:35, Vincent Chen ??????:
-> RISC-V permits each vendor to develop respective extension ISA based
-> on RISC-V standard ISA. This means that these vendor-specific features
-> may be compatible to their compiler and CPU. Therefore, each vendor may
-> be considered a sub-architecture of RISC-V. Currently, vendors do not
-> have the appropriate examples to add these specific features to the
-> kernel. In this RFC set, we propose an infrastructure that vendor can
-> easily hook their specific features into kernel. The first commit is
-> the main body of this infrastructure. In the second commit, we provide
-> a solution that allows dma_map_ops() to work without cache coherent
-> agent support. Cache coherent agent is unsupported for low-end CPUs in
-> the AndeStar RISC-V series. In order for Linux to run on these CPUs, we
-> need this solution to overcome the limitation of cache coherent agent
-> support. Hence, it also can be used as an example for the first commit.
-> 
->   I am glad to discuss any ideas, so if you have any idea, please give
-> me some feedback.
+I think it would be great if CPU topologies were not a RISC-V specific thing.  
+We don't really do anything different than anyone else, so it'd be great if we 
+could all share the same spec and code.  Looking quickly at the ARM cpu-map 
+bindings, I don't see any reason why we can't just use the same thing on RISC-V 
+-- it's not quite how I'd do it, but I don't think the differences are worth 
+having another implementation.  Mechanically I'm not sure how to do this: 
+should there just be a "Documentation/devicetree/bindings/cpu-map.txt"?
 
-So if I got this right, in your case you've added some CSRs 
-(ucctlbeginaddr
-and ucctlcommand) for marking regions as non-cacheable, and you provide 
-your
-own get_arch_dma_ops by overriding the default header files with your
-vendor-specific ones.
-
-Some things that are IMHO wrong with the proposed approach:
-
-a) By directly modifying your custom CSRs, it means that we will need
-compiler support in order to compile a kernel with your code in it. This
-will break CI systems and will introduce various issues on testing and
-reviewing your code. In general if we need custom toolchains to compile
-the kernel, that may be unavailable (vendors will not always open source
-their compiler support), we won't be able to maintain a decent level of
-code quality in the tree. How can the maintainer push your code on the
-repository if he/she can't even perform a basic compilation test ?
-
-In contrast with ARM and others that have a standard set of possible
-extensions (e.g. NEON, crc32 etc), and provide compiler support for 
-those,
-a similar approach is not valid for RISC-V. We could demand that vendors
-add compiler support e.g. on gcc before submitting a patch with custom
-assembly but I don't think this approach is feasible (one vendor's CSRs
-or custom instructions may overlap with another's). I believe we should
-just use SBI calls instead and let the firmware (and/or custom userspace
-libraries) handle the custom CSRs/assembly instructions.
-
-This is a concern also for lib/ and crypto/ where vendors might want to 
-use
-their own extensions for providing optimized assembly for their cores. 
-It's
-not a big deal to use SBI and handle vendor-specific stuff on firmware 
-and/or
-userspace, it's actually more flexible for the vendors since they can 
-have
-their own process for maintaining their firmware and releasing it in 
-their
-own terms/license etc. If we see that the SBI has too much overhead or 
-is not
-enough we can design it in a better way or extend it. It will still be
-standard and easier to maintain than a fragmented ecosystem of mostly
-unusable code, inside the mainline kernel.
-
-In case we need to save/store registers related to a custom extension, I
-guess we can also have an SBI call for saving/restoring custom registers
-to/from S-managed memory and we should be ok. It should also be possible
-to do any extra state handling in firmware if needed. I believe we can 
-and
-should avoid custom assembly on the kernel at all costs !
-
-
-b) By using CONFIG_VENDOR_FOLDER_NAME you add a compile time dependency 
-that
-allows this kernel image to be built for a specific vendor. This is 
-problematic
-in different ways. At first it's not possible to have a kernel image 
-that's
-generic and can be used for all RISC-V systems. That's what distros want
-and that's how they 've been working so far.
-
-Also in case a vendor has many different boards with different 
-implementation
-details how will this approach help ? It would make more sense to have 
-something
-like arch/riscv/<platform>. Also have in mind that some extensions might 
-be
-available as IP to vendors so multiple vendors might use the same 
-extension
-made/licensed from another vendor. I think arch/riscv/<extension> is 
-more
-appropriate. Since we can use mvendorid/marchid/mimpid to identify that
-at runtime maybe we can have some wrapper code that initializes a struct 
-of
-function pointers early on setup_arch(), allowing vendors to populate it
-according to the available extensions in their hw, based on the above 
-ids.
-
-We can also just use device-tree for that and mark the used extensions 
-there.
-We can even pass extension-specific parameters this way (e.g. to save 
-CSRs)
-in case of extensions that can be parametrized on hw design phase (I'm
-thinking of IPs sold from companies with licenses for unlocking the X 
-feature
-or for supporting up to Y channels/slots/instances/whatever).
-
-
-In any case it's an interesting subject that we definitely need to think 
-about,
-thanks for bringing this up !
-
-Regards,
-Nick
+If everyone is OK with that then I vote we just go ahead and genericise the ARM 
+"cpu-map" stuff for CPU topology.  Sharing the implementation looks fairly 
+straight-forward as well.
