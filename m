@@ -1,105 +1,59 @@
-From: robh+dt@kernel.org (Rob Herring)
-Date: Mon, 5 Nov 2018 14:10:36 -0600
-Subject: [RFC 1/2] dt-bindings: topology: Add RISC-V cpu topology.
-In-Reply-To: <mhng-799bd6f4-e4af-481e-90d8-bdc0e30f2530@palmer-si-x1c4>
-References: <CAL_Jsq+wProNynprMjQnrz1jmbZT9TmmA-_=vPUxCEED_8xONg@mail.gmail.com>
- <mhng-799bd6f4-e4af-481e-90d8-bdc0e30f2530@palmer-si-x1c4>
-Message-ID: <CAL_JsqJOxdE=gD4MyKuL5XZ57Z6UdM4_SU4qs26BNz6YcqM76A@mail.gmail.com>
+From: arnd@arndb.de (Arnd Bergmann)
+Date: Mon, 5 Nov 2018 21:56:15 +0100
+Subject: [PATCH] riscv: add asm/unistd.h UAPI header
+In-Reply-To: <20181105142602.25750-1-david.abdurachmanov@gmail.com>
+References: <20181105142602.25750-1-david.abdurachmanov@gmail.com>
+Message-ID: <CAK8P3a3JcztCSYBuu5ZJXaV83VNLv_1v3v-EKMR+tC1oOsQesw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Nov 5, 2018 at 1:39 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+On 11/5/18, David Abdurachmanov <david.abdurachmanov@gmail.com> wrote:
+> Marcin Juszkiewicz reported issues while generating syscall table for riscv
+> using 4.20-rc1. The patch refactors our unistd.h files to match some other
+> architectures.
 >
-> On Fri, 02 Nov 2018 06:09:39 PDT (-0700), robh+dt at kernel.org wrote:
-> > On Thu, Nov 1, 2018 at 6:04 PM Atish Patra <atish.patra@wdc.com> wrote:
-> >>
-> >> Define a RISC-V cpu topology. This is based on cpu-map in ARM world.
-> >> But it doesn't need a separate thread node for defining SMT systems.
-> >> Multiple cpu phandle properties can be parsed to identify the sibling
-> >> hardware threads. Moreover, we do not have cluster concept in RISC-V.
-> >> So package is a better word choice than cluster for RISC-V.
-> >
-> > There was a proposal to add package info for ARM recently. Not sure
-> > what happened to that, but we don't need 2 different ways.
-> >
-> > There's never going to be clusters for RISC-V? What prevents that?
-> > Seems shortsighted to me.
-> >
-> >>
-> >> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> >> ---
-> >>  .../devicetree/bindings/riscv/topology.txt         | 154 +++++++++++++++++++++
-> >>  1 file changed, 154 insertions(+)
-> >>  create mode 100644 Documentation/devicetree/bindings/riscv/topology.txt
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/riscv/topology.txt b/Documentation/devicetree/bindings/riscv/topology.txt
-> >> new file mode 100644
-> >> index 00000000..96039ed3
-> >> --- /dev/null
-> >> +++ b/Documentation/devicetree/bindings/riscv/topology.txt
-> >> @@ -0,0 +1,154 @@
-> >> +===========================================
-> >> +RISC-V cpu topology binding description
-> >> +===========================================
-> >> +
-> >> +===========================================
-> >> +1 - Introduction
-> >> +===========================================
-> >> +
-> >> +In a RISC-V system, the hierarchy of CPUs can be defined through following nodes that
-> >> +are used to describe the layout of physical CPUs in the system:
-> >> +
-> >> +- packages
-> >> +- core
-> >> +
-> >> +The cpu nodes (bindings defined in [1]) represent the devices that
-> >> +correspond to physical CPUs and are to be mapped to the hierarchy levels.
-> >> +Simultaneous multi-threading (SMT) systems can also represent their topology
-> >> +by defining multiple cpu phandles inside core node. The details are explained
-> >> +in paragraph 3.
-> >
-> > I don't see a reason to do this differently than ARM. That said, I
-> > don't think the thread part is in use on ARM, so it could possibly be
-> > changed.
-> >
-> >> +
-> >> +The remainder of this document provides the topology bindings for ARM, based
-> >
-> > for ARM?
-> >
-> >> +on the Devicetree Specification, available from:
-> >> +
-> >> +https://www.devicetree.org/specifications/
-> >> +
-> >> +If not stated otherwise, whenever a reference to a cpu node phandle is made its
-> >> +value must point to a cpu node compliant with the cpu node bindings as
-> >> +documented in [1].
-> >> +A topology description containing phandles to cpu nodes that are not compliant
-> >> +with bindings standardized in [1] is therefore considered invalid.
-> >> +
-> >> +This cpu topology binding description is mostly based on the topology defined
-> >> +in ARM [2].
-> >> +===========================================
-> >> +2 - cpu-topology node
-> >
-> > cpu-map. Why change this?
-> >
-> > What I would like to see is the ARM topology binding reworked to be
-> > common or some good reasons why it doesn't work for RISC-V as-is.
+> - Add asm/unistd.h UAPI header, which has __ARCH_WANT_NEW_STAT
+> - Remove asm/syscalls.h UAPI header and merge to asm/unistd.h
+> - Adjust kernel asm/unistd.h
 >
-> I think it would be great if CPU topologies were not a RISC-V specific thing.
-> We don't really do anything different than anyone else, so it'd be great if we
-> could all share the same spec and code.  Looking quickly at the ARM cpu-map
-> bindings, I don't see any reason why we can't just use the same thing on RISC-V
-> -- it's not quite how I'd do it, but I don't think the differences are worth
-> having another implementation.  Mechanically I'm not sure how to do this:
-> should there just be a "Documentation/devicetree/bindings/cpu-map.txt"?
+> So now asm/unistd.h UAPI header should show all syscalls for riscv.
+>
+> Before this, Makefile simply put `#include <asm-generic/unistd.h>` into
+> generated asm/unistd.h UAPI header thus user didn't see:
+>
+> - __NR_riscv_flush_icache
+> - __NR_newfstatat
+> - __NR_fstat
+>
+> which are supported by riscv kernel.
+>
+> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>
+> Cc: Guenter Roeck <linux@roeck-us.net>
 
-Yes, but ".../bindings/cpu/cpu-topology.txt".
+Thanks for addressing this, your patch correctly fixes riscv64, and
+I should have noticed the mistake when I originally merged the
+broken patch.
 
-And if we need $arch extensions, they can be moved there. (Really, I'd
-like to get rid of /bindings/$arch/* except for maybe a few things.)
+However, looking closer I found another problem with the original
+patch that your fix does not address:
 
-> If everyone is OK with that then I vote we just go ahead and genericise the ARM
-> "cpu-map" stuff for CPU topology.  Sharing the implementation looks fairly
-> straight-forward as well.
+__ARCH_WANT_NEW_STAT should only be set on 64-bit
+architectures.
+
+For a 32-bit architecture, we only want __ARCH_WANT_STAT64 if
+any. For 64-bit architectures with compat mode, we still need to
+set __ARCH_WANT_STAT64 from the non-uapi file so we get
+the syscall implementation.
+
+If we don't care about the riscv32 ABI changing yet, we can
+decide to leave out __ARCH_WANT_STAT64 here, and require
+glibc to implement it using statx() like any new architecture.
+stat64 is not y2038 safe, and statx replaces it because of that.
+
+> Fixes: 67314ec7b025
+
+That line should be formatted as
+
+Fixes: 67314ec7b025 ("RISC-V: Request newstat syscalls")
