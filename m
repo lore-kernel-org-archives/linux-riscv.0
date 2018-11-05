@@ -1,128 +1,65 @@
-From: abner.chang@hpe.com (Chang, Abner (HPS SW/FW Technologist))
-Date: Sun, 4 Nov 2018 14:36:04 +0000
-Subject: SBI extension proposal
-In-Reply-To: <7da86c7a-d06a-82ae-ef01-35efeeda7c3a@wdc.com>
-References: <7f2a546a-6ebb-43c6-83a0-5e712ec2e2c7@wdc.com>
- <CAK-hmcQeiGa3BwnzEVB_dyhFiC7rXHFN-wTsJomg-jAo7a+v3Q@mail.gmail.com>
- <CAK-hmcSTg=AbXfDwx-O-8WuMsaVbJXP7Jd7HYoFh3jDJHGZ2iQ@mail.gmail.com>
- <cf729ca1-3ad0-8fe8-5cfa-d09d6c28d831@wdc.com>
- <TU4PR8401MB09581F92A2F7C0C7FFFA190EFFCF0@TU4PR8401MB0958.NAMPRD84.PROD.OUTLOOK.COM>
- <7da86c7a-d06a-82ae-ef01-35efeeda7c3a@wdc.com>
-Message-ID: <DF4PR8401MB0956729F215102E717E8AE27FFC90@DF4PR8401MB0956.NAMPRD84.PROD.OUTLOOK.COM>
+From: alankao@andestech.com (Alan Kao)
+Date: Mon, 5 Nov 2018 08:49:29 +0800
+Subject: [sw-dev] About the Use of sfence.vma in Kernel
+In-Reply-To: <20181101090015.GA6997@andestech.com>
+References: <20181101090015.GA6997@andestech.com>
+Message-ID: <20181105004929.GA4735@andestech.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
+Hi Palmer,
 
+I believe the code in arch/riscv/mm/fault.c is mostly from you.
+Do you have any comments on this?
 
-> -----Original Message-----
-> From: Atish Patra [mailto:atish.patra at wdc.com]
-> Sent: Saturday, November 03, 2018 6:31 AM
-> To: Chang, Abner (HPS SW/FW Technologist) <abner.chang@hpe.com>; Olof
-> Johansson <olof.johansson@gmail.com>
-> Cc: linux-riscv at lists.infradead.org; Palmer Dabbelt <palmer@sifive.com>;
-> Andrew Waterman <andrew@sifive.com>; paul.walmsley at sifive.com;
-> hch at infradead.org; zong at andestech.com; anup at brainfault.org; Damien Le
-> Moal <Damien.LeMoal@wdc.com>; alankao at andestech.com; Arnd
-> Bergmann <arnd@arndb.de>; mark.rutland at arm.com;
-> vincentc at andestech.com; mjc at sifive.com; rjones at redhat.com; Chen,
-> Gilbert <gilbert.chen@hpe.com>
-> Subject: Re: SBI extension proposal
+On Thu, Nov 01, 2018 at 05:00:15PM +0800, Alan Kao wrote:
+> Hi all,
 > 
-> On 11/1/18 11:31 PM, Chang, Abner (HPS SW/FW Technologist) wrote:
-> >
-> >>>>> -- int sbi_hart_up(unsigned long hartid, unsigned long start,
-> >>>>> unsigned long priv)
-> >>>>>
-> >>>>> Brings up "hartid" either during initial boot or after a
-> >>>>> sbi_hart_down SBI call.
-> >>>>>
-> >>>>> "start" points to a runtime-specified address where a hart can
-> >>>>> enter into supervisor mode. This must be a physical address.
-> >>>>>
-> >>>>> "priv" is a private data that caller can use to pass information
-> >>>>> about execution context.
-> >>>>>
-> >>>>> Return the appropriate SBI error code.
-> >>>>>
-> >>>>> -- int sbi_hart_suspend(u32 state, unsigned long resume_entry,
-> >>>>> unsigned long priv)
-> >>>>>
-> >>>>> Suspends the calling hart to a particular power state. Suspended
-> >>>>> hart will automatically wake-up based on some wakeup events at
-> >>>>> resume_entry physical address.
-> >>>>>
-> >>>>> "priv" is a private data that caller can use to pass information
-> >>>>> about execution context. The SBI implementation must save a copy
-> >>>>> so that caller can reuse while restoring hart from suspend.
-> >>>>>
-> >>>>> Return the appropriate SBI error code.
-> >>>>>
-> >>>>> -- int sbi_hart_down()
-> >>>>>
-> >>>>> It powers off the hart and will be used in cpu-hotplug.
-> >>>>> Only individual hart can remove itself from supervisor mode. It
-> >>>>> can be moved to normal state only by sbi_hart_up function.
-> >>>>>
-> >>>>> Return the appropriate SBI error code.
-> >>>>>
-> >>>>> -- u32 sbi_hart_state(unsigned long hartid)
-> >>>>>
-> >>>>> Returns the RISCV_POWER_STATE for a specific hartid. This will
-> >>>>> help make kexec like functionality more robust.
-> >>>>>
-> >>>>> -- void sbi_system_shutdown()
-> >>>>>
-> >>>>> Powers off the entire system.
-> >>>>
-> >>>>
-> >>>> This is a slightly weird one to put in SBI. There's usually other
-> >>>> actions
-> >> needed for _system_ level shutdown, such as external power regulators.
-> >>>>
-> >>
-> >> This might be because of my limited knowledge on power management.
-> > In ACPI, it defines the register block to put processor into different levels of
-> sleep mode (suspend mode). However, this requires additional power
-> management controller or processor CSRs on RISC-V. If we don?t consider
-> ACPI and H/W capabilities of power MGMT on RISC-V at this moment, then
-> SBI for processor power management may be needed.
-> > My question is can SBI_hart_up () to execute "start" even the hart is not in
-> Suspend or Down state? I am asking this because on UEFI we would like to
-> have SBI for supervisor mode firmware to invoke functions provided by M-
-> mode driver, just trying to leverage SBI_hart_up () for this intention.
-> However, "Start" is defined as an address to entry into supervisor mode. We
-> may need to add an additional parameter to this SBI which indicates the
-> privilege to execute "Start" though.
-> > Forget this if this SBI is dedicated for processor power management. We
-> can propose new SBI for above intention.
-> >
-> int sbi_hart_up(unsigned long hartid, unsigned long start, unsigned long priv)
+> As mentioned in the Privileged Spec about sfence.vma instruction:
 > 
-> It has already a opaque third parameter that can be used to address your
-> case. Isn't it ?
-According to the design you have for sbi_hart_up(), priv is prepared by caller and passed to start in supervisor mode. Means sbi_hart_up () is not necessary to understand the content of priv. The content of priv should be function-dependent and not able to be standardized. I think we can't use priv to address my case. We may need additional parameter which indicates  the privilege to execute "start". With this we can ask hart to run specific function in either m or s mode, and sbi_hart_up() will be more nice and powerful to firmware which has implementation of privilege levels during system boot.
-
+> > The supervisor memory-management fence instruction SFENCE.VMA is used
+> > to synchronize updates to in-memory memory-management data structures 
+> > with current execution.  Instruction execution causes implicit reads 
+> > and writes to these data structures;  however, these implicit references
+> > are ordinarily not ordered with respect to loads and stores in the instruction
+> > stream.
+> >
+> > Executing an SFENCE.VMA instruction guarantees that any stores in the
+> > instruction stream prior to the SFENCE.VMA are ordered before all implicit
+> > references subsequent to the SFENCE.VMA.
 > 
-> >> We already have a system reset call in SBI & PSCI also had system
-> >> shutdown
-> > Is system reset call defined in SBI spec as well? I don?t see this in Github.
-> >
-> Sorry. I have made myself confused while writing. You are correct.
-Is SBI spec of Shutdown() already freeze?  We may need parameter to indicate the shutdown type, for example
-- Power off
-- Cold reset
-- Warm reset
-
+> It naturally follows that we should use sfence.vma once the page table is
+> modified.  There are several examples in the kernel already, such as
 > 
+> alloc_set_pte (in mm/memory.c):
+> ...
+>         set_pte_at(vma->vm_mm, vmf->address, vmf->pte, entry);
+>         /* no need to invalidate: a not-present page won't be cached */
+>         update_mmu_cache(vma, vmf->address, vmf->pte);
+> ...
+> where the update_mmu_cache function eventually issues a sfence.vma.
 > 
-> Regards,
-> Atish
-> >> function. As per my understanding, this API will provide a way to
-> >> handle all common suspend related operations on machine mode.
-> >> In case of virtual OS, it will not result in any external power regulations.
-> >
-> >
-> >
-> >
-> >
-> >
+> I was interested if it is always the case and did some research.  RV64 uses
+> 3-level of page table entry, pud, pmd and pte, so I traced a little bit about
+> the code flow after set_pud, set_pmd and set_pte.
+> 
+> It turns out that some of the calls to them are not followed by a
+> sfence.vma.  For an instance, in the vmalloc_fault region in do_page_fault,
+> there is no sfence.vma or calls to it after set_pgd, which directs to set_pud
+> later.
+> 
+> Are they bugs or I just misunderstand the instruction?  As the kernel has
+> already been stable for quite a while now, it is not likely to be a critical
+> bug.
+> 
+> Any clarification will highly appreciated.
+> 
+> Many thanks,
+> Alan Kao
+> 
+> -- 
+> You received this message because you are subscribed to the Google Groups "RISC-V SW Dev" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to sw-dev+unsubscribe at groups.riscv.org.
+> To post to this group, send email to sw-dev at groups.riscv.org.
+> Visit this group at https://groups.google.com/a/groups.riscv.org/group/sw-dev/.
+> To view this discussion on the web visit https://groups.google.com/a/groups.riscv.org/d/msgid/sw-dev/20181101090015.GA6997%40andestech.com.
