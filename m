@@ -1,59 +1,61 @@
 From: arnd@arndb.de (Arnd Bergmann)
-Date: Mon, 5 Nov 2018 21:56:15 +0100
-Subject: [PATCH] riscv: add asm/unistd.h UAPI header
-In-Reply-To: <20181105142602.25750-1-david.abdurachmanov@gmail.com>
-References: <20181105142602.25750-1-david.abdurachmanov@gmail.com>
-Message-ID: <CAK8P3a3JcztCSYBuu5ZJXaV83VNLv_1v3v-EKMR+tC1oOsQesw@mail.gmail.com>
+Date: Mon, 5 Nov 2018 22:02:09 +0100
+Subject: warning in ./arch/riscv/include/asm/module.h
+In-Reply-To: <CAEn-LToUoaA0H=_boLUi6SPXyo5Wfge293GbOhgxw2-JcZDKmg@mail.gmail.com>
+References: <CAEn-LToUoaA0H=_boLUi6SPXyo5Wfge293GbOhgxw2-JcZDKmg@mail.gmail.com>
+Message-ID: <CAK8P3a3KgBq72763QQauKNWdSv9ZRRUWMDxt1RycV6RxAJsCng@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
 On 11/5/18, David Abdurachmanov <david.abdurachmanov@gmail.com> wrote:
-> Marcin Juszkiewicz reported issues while generating syscall table for riscv
-> using 4.20-rc1. The patch refactors our unistd.h files to match some other
-> architectures.
+> Hi,
 >
-> - Add asm/unistd.h UAPI header, which has __ARCH_WANT_NEW_STAT
-> - Remove asm/syscalls.h UAPI header and merge to asm/unistd.h
-> - Adjust kernel asm/unistd.h
+> This happens once you enable "Module signature verification". E.g.,
 >
-> So now asm/unistd.h UAPI header should show all syscalls for riscv.
+> [..]
+> CONFIG_MODULE_SIG=y
+> CONFIG_MODULE_SIG_ALL=y
+> CONFIG_MODULE_SIG_SHA256=y
+> CONFIG_MODULE_SIG_HASH="sha256"
+> CONFIG_MODULE_SIG_KEY="certs/signing_key.pem"
+> [..]
 >
-> Before this, Makefile simply put `#include <asm-generic/unistd.h>` into
-> generated asm/unistd.h UAPI header thus user didn't see:
->
-> - __NR_riscv_flush_icache
-> - __NR_newfstatat
-> - __NR_fstat
->
-> which are supported by riscv kernel.
->
-> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>
-> Cc: Guenter Roeck <linux@roeck-us.net>
+> BUILDSTDERR: In file included from kernel/module-internal.h:13,
+> BUILDSTDERR:                  from kernel/module_signing.c:17:
+> BUILDSTDERR: ./arch/riscv/include/asm/module.h:11:34: warning: 'struct
+> module' declared inside parameter list will not be visible outside of
+> this definition or declaration
+> BUILDSTDERR:  u64 module_emit_got_entry(struct module *mod, u64 val);
+> BUILDSTDERR:                                   ^~~~~~
+> BUILDSTDERR: ./arch/riscv/include/asm/module.h:12:34: warning: 'struct
+> module' declared inside parameter list will not be visible outside of
+> this definition or declaration
+> BUILDSTDERR:  u64 module_emit_plt_entry(struct module *mod, u64 val);
+> BUILDSTDERR:                                   ^~~~~~
 
-Thanks for addressing this, your patch correctly fixes riscv64, and
-I should have noticed the mistake when I originally merged the
-broken patch.
+This is very easy to fix:
 
-However, looking closer I found another problem with the original
-patch that your fix does not address:
+diff --git a/arch/riscv/include/asm/module.h b/arch/riscv/include/asm/module.h
+index 349df33808c4..cd2af4b013e3 100644
+--- a/arch/riscv/include/asm/module.h
++++ b/arch/riscv/include/asm/module.h
+@@ -8,6 +8,7 @@
 
-__ARCH_WANT_NEW_STAT should only be set on 64-bit
-architectures.
+ #define MODULE_ARCH_VERMAGIC    "riscv"
 
-For a 32-bit architecture, we only want __ARCH_WANT_STAT64 if
-any. For 64-bit architectures with compat mode, we still need to
-set __ARCH_WANT_STAT64 from the non-uapi file so we get
-the syscall implementation.
++struct module;
+ u64 module_emit_got_entry(struct module *mod, u64 val);
+ u64 module_emit_plt_entry(struct module *mod, u64 val);
 
-If we don't care about the riscv32 ABI changing yet, we can
-decide to leave out __ARCH_WANT_STAT64 here, and require
-glibc to implement it using statx() like any new architecture.
-stat64 is not y2038 safe, and statx replaces it because of that.
+> BUILDSTDERR: net/core/rtnetlink.c: In function 'rtnl_newlink':
+> BUILDSTDERR: net/core/rtnetlink.c:3224:1: warning: the frame size of
+> 1280 bytes is larger than 1024 bytes [-Wframe-larger-than=]
+> BUILDSTDERR:  }
+> BUILDSTDERR:  ^
 
-> Fixes: 67314ec7b025
+This may be much harder. I've fixed this type of issue for arm and
+x86, but it requires a much more detailed analysis of what's going
+on. This is often a compiler bug. Which compiler version are you
+using?
 
-That line should be formatted as
-
-Fixes: 67314ec7b025 ("RISC-V: Request newstat syscalls")
+        Arnd
