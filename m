@@ -1,36 +1,36 @@
-From: david.abdurachmanov@gmail.com (David Abdurachmanov)
-Date: Mon, 5 Nov 2018 15:51:04 +0100
-Subject: warning in ./arch/riscv/include/asm/module.h
-Message-ID: <CAEn-LToUoaA0H=_boLUi6SPXyo5Wfge293GbOhgxw2-JcZDKmg@mail.gmail.com>
+From: marcin.juszkiewicz@linaro.org (Marcin Juszkiewicz)
+Date: Mon, 5 Nov 2018 17:02:59 +0100
+Subject: [PATCH] riscv: add asm/unistd.h UAPI header
+In-Reply-To: <20181105142602.25750-1-david.abdurachmanov@gmail.com>
+References: <20181105142602.25750-1-david.abdurachmanov@gmail.com>
+Message-ID: <10c6f266-12ce-9f1a-5859-52873ff329f1@linaro.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi,
+W dniu 05.11.2018 o?15:26, David Abdurachmanov pisze:
+> Marcin Juszkiewicz reported issues while generating syscall table for riscv
+> using 4.20-rc1. The patch refactors our unistd.h files to match some other
+> architectures.
+> 
+> - Add asm/unistd.h UAPI header, which has __ARCH_WANT_NEW_STAT
+> - Remove asm/syscalls.h UAPI header and merge to asm/unistd.h
+> - Adjust kernel asm/unistd.h
+> 
+> So now asm/unistd.h UAPI header should show all syscalls for riscv.
+> 
+> Before this, Makefile simply put `#include <asm-generic/unistd.h>` into
+> generated asm/unistd.h UAPI header thus user didn't see:
+> 
+> - __NR_riscv_flush_icache
+> - __NR_newfstatat
+> - __NR_fstat
+> 
+> which are supported by riscv kernel.
 
-This happens once you enable "Module signature verification". E.g.,
+Tested-by: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>
 
-[..]
-CONFIG_MODULE_SIG=y
-CONFIG_MODULE_SIG_ALL=y
-CONFIG_MODULE_SIG_SHA256=y
-CONFIG_MODULE_SIG_HASH="sha256"
-CONFIG_MODULE_SIG_KEY="certs/signing_key.pem"
-[..]
+With patch applied I got proper syscall data:
 
-BUILDSTDERR: In file included from kernel/module-internal.h:13,
-BUILDSTDERR:                  from kernel/module_signing.c:17:
-BUILDSTDERR: ./arch/riscv/include/asm/module.h:11:34: warning: 'struct
-module' declared inside parameter list will not be visible outside of
-this definition or declaration
-BUILDSTDERR:  u64 module_emit_got_entry(struct module *mod, u64 val);
-BUILDSTDERR:                                   ^~~~~~
-BUILDSTDERR: ./arch/riscv/include/asm/module.h:12:34: warning: 'struct
-module' declared inside parameter list will not be visible outside of
-this definition or declaration
-BUILDSTDERR:  u64 module_emit_plt_entry(struct module *mod, u64 val);
-BUILDSTDERR:                                   ^~~~~~
-BUILDSTDERR: net/core/rtnetlink.c: In function 'rtnl_newlink':
-BUILDSTDERR: net/core/rtnetlink.c:3224:1: warning: the frame size of
-1280 bytes is larger than 1024 bytes [-Wframe-larger-than=]
-BUILDSTDERR:  }
-BUILDSTDERR:  ^
+fstat  80
+newfstatat     79
+riscv_flush_icache     259
