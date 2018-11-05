@@ -1,30 +1,31 @@
 From: david.abdurachmanov@gmail.com (David Abdurachmanov)
-Date: Mon,  5 Nov 2018 15:35:37 +0100
-Subject: [PATCH] riscv: add missing vdso_install target
-Message-ID: <20181105143537.27396-1-david.abdurachmanov@gmail.com>
+Date: Mon,  5 Nov 2018 15:40:04 +0100
+Subject: [PATCH] riscv: fix spacing in struct pt_regs
+Message-ID: <20181105144004.28267-1-david.abdurachmanov@gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Building kernel 4.20 for Fedora as RPM fails, because riscv is missing
-vdso_install target in arch/riscv/Makefile.
+Replace 8 spaces with tab to match styling.
 
 Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
 ---
- arch/riscv/Makefile | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/include/asm/ptrace.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index d10146197533..4af153a182b0 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -77,4 +77,8 @@ core-y += arch/riscv/kernel/ arch/riscv/mm/
+diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
+index 2c5df945d43c..bbe1862e8f80 100644
+--- a/arch/riscv/include/asm/ptrace.h
++++ b/arch/riscv/include/asm/ptrace.h
+@@ -56,8 +56,8 @@ struct pt_regs {
+ 	unsigned long sstatus;
+ 	unsigned long sbadaddr;
+ 	unsigned long scause;
+-        /* a0 value before the syscall */
+-        unsigned long orig_a0;
++	/* a0 value before the syscall */
++	unsigned long orig_a0;
+ };
  
- libs-y += arch/riscv/lib/
- 
-+PHONY += vdso_install
-+vdso_install:
-+	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
-+
- all: vmlinux
+ #ifdef CONFIG_64BIT
 -- 
 2.19.1
