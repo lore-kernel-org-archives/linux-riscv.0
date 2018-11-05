@@ -1,318 +1,123 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Mon, 5 Nov 2018 10:51:42 -0800
-Subject: SBI extension proposal
-In-Reply-To: <f37befdbafe7e52efaf40f4435f55c9f@mailhost.ics.forth.gr>
-References: <7f2a546a-6ebb-43c6-83a0-5e712ec2e2c7@wdc.com>
- <3245c74a8dc9f651cb07e382585fa311@mailhost.ics.forth.gr>
- <5725574a-60c3-26f4-565b-4498c757a8f8@wdc.com>
- <f1d906752a74790f0c3e8ae3530858ad@mailhost.ics.forth.gr>
- <cfc5c651-6d5f-0c29-a96c-e403fe08dda2@wdc.com>
- <f37befdbafe7e52efaf40f4435f55c9f@mailhost.ics.forth.gr>
-Message-ID: <453c1060-b8d8-3be0-d1cb-586f8b62123c@wdc.com>
+From: mick@ics.forth.gr (Nick Kossifidis)
+Date: Mon, 05 Nov 2018 21:39:29 +0200
+Subject: [RFC 0/2] RISC-V: A proposal to add vendor-specific code
+In-Reply-To: <1540982130-28248-1-git-send-email-vincentc@andestech.com>
+References: <1540982130-28248-1-git-send-email-vincentc@andestech.com>
+Message-ID: <cac10a0961274e3ac4674e945f9d9e90@mailhost.ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 11/5/18 5:51 AM, Nick Kossifidis wrote:
-> ???? 2018-11-03 02:00, Atish Patra ??????:
->> On 11/2/18 4:45 PM, Nick Kossifidis wrote:
->>> ???? 2018-11-03 01:12, Atish Patra ??????:
->>>> On 11/2/18 8:25 AM, Nick Kossifidis wrote:
->>>>> Hello Atish and thanks for bringing this up,
->>>>>
->>>>> ???? 2018-10-31 20:23, Atish Patra ??????:
->>>>>> Here is a proposal to make SBI a flexible and extensible interface.
->>>>>> It is based on the foundation policy of RISC-V i.e. modularity and
->>>>>> openness. It is designed in such a way that it introduces very few
->>>>>> new
->>>>>> mandatory SBI APIs that are absolutely required to maintain
->>>>>> backward
->>>>>> compatibility. Everything else is optional so that it remains an
->>>>>> open
->>>>>> standard yet robust.
->>>>>>
->>>>>> 1. Introduction:
->>>>>> ----------------
->>>>>> The current RISC-V SBI only defines a few mandatory functions such
->>>>>> as
->>>>>> inter-processor interrupts (IPI) interface, reprogramming timer,
->>>>>> serial
->>>>>> console and memory barrier instructions. The existing SBI
->>>>>> documentation
->>>>>> can be found here [1]. Many important functionalities such as power
->>>>>> management/cpu-hotplug are not yet defined due to difficulties in
->>>>>> accommodating modifications without breaking the backward
->>>>>> compatibility
->>>>>> with the current interface.
->>>>>>
->>>>>> Its design is inspired by Power State Coordination Interface (PSCI)
->>>>>> from
->>>>>> ARM world. However, it adds only two new mandatory SBI calls
->>>>>> providing
->>>>>> version information and supported APIs, unlike PSCI where a
->>>>>> significant
->>>>>> number of functions are mandatory. The version of the existing SBI
->>>>>> will
->>>>>> be defined as a minimum version(0.1) which will always be backward
->>>>>> compatible. Similarly, any Linux kernel with newer feature will
->>>>>> fall
->>>>>> back if an older version of SBI does not support the updated
->>>>>> capabilities. Both the operating system and SEE can be implemented
->>>>>> to
->>>>>> be two way backward compatible.
->>>>>>
->>>>>> 2. New functions:
->>>>>> -----------------
->>>>>>
->>>>>> -- u32 sbi_get_version(void):
->>>>>>
->>>>>> Returns the current SBI version implemented by the firmware.
->>>>>> version: uint32: Bits[31:16] Major Version
->>>>>>                 Bits[15:0] Minor Version
->>>>>>
->>>>>> The existing SBI version can be 0.1. The proposed version will be
->>>>>> at
->>>>>> 0.2
->>>>>> A different major version may indicate possible incompatible
->>>>>> functions.
->>>>>> A different minor version must be compatible with each other even
->>>>>> if
->>>>>> they have a higher number of features.
->>>>>>
->>>>>> -- u32 sbi_check_api(unsigned long start_api_id, unsigned long
->>>>>> count):
->>>>>>
->>>>>> Accepts a start_api_id as an argument and returns if start_api_id
->>>>>> to
->>>>>> (start_api_id + count - 1) are supported or not.
->>>>>> The API numbering scheme is described in section 3.
->>>>>>
->>>>>> A count is introduced so that a range of APIs can be checked at one
->>>>>> SBI
->>>>>> call to minimize the M-mode traps.
->>>>>>
->>>>>
->>>>> Is this really needed ? We can determine the SBI version from
->>>>> sbi_get_version, why
->>>>> include an SBI call to perform a check that can easily be performed
->>>>> by
->>>>> the caller
->>>>> instead ?
->>>>>
->>>>
->>>> This API is still in discussion. Probably, an API returning bitmask
->>>> of
->>>> all the features make more sense ?
->>>>
->>>> However, I feel a separate API is required from sbi_get_version as
->>>> there vendors can choose not to implement some of the features that
->>>> is
->>>> specified by a version as most of the API set are optional.
->>>>
->>>
->>> We can always rely on the SBI_NOT_SUPPORTED error code you've already
->>> included ;-)
->>
->>
->> That's what sbi_check_api will return if a single API or set of API is
->> not supported. We potentially can return it from individual function
->> calls but having a separate API helps in avoiding making those calls
->> in first place from supervisor level.
->>
->> If we use a bitmask for capabilities we'll be limited by
->>> the encoding.
->>>
->> That was the reason sbi_check_api was introduced. But looking back, I
->> wonder if we ever have more than 24 SBI APIs to deal with!!
->>
->>
->>>>>> -- int sbi_hart_up(unsigned long hartid, unsigned long start,
->>>>>> unsigned
->>>>>> long priv)
->>>>>>
->>>>>> Brings up "hartid" either during initial boot or after a
->>>>>> sbi_hart_down
->>>>>> SBI call.
->>>>>>
->>>>>> "start" points to a runtime-specified address where a hart can
->>>>>> enter
->>>>>> into supervisor mode. This must be a physical address.
->>>>>>
->>>>>> "priv" is a private data that caller can use to pass information
->>>>>> about
->>>>>> execution context.
->>>>>>
->>>>>> Return the appropriate SBI error code.
->>>>>>
->>>>>> -- int sbi_hart_suspend(u32 state, unsigned long resume_entry,
->>>>>> unsigned
->>>>>> long priv)
->>>>>>
->>>>>> Suspends the calling hart to a particular power state. Suspended
->>>>>> hart
->>>>>> will automatically wake-up based on some wakeup events at
->>>>>> resume_entry
->>>>>> physical address.
->>>>>>
->>>>>> "priv" is a private data that caller can use to pass information
->>>>>> about
->>>>>> execution context. The SBI implementation must save a copy so that
->>>>>> caller can reuse while restoring hart from suspend.
->>>>>>
->>>>>> Return the appropriate SBI error code.
->>>>>>
->>>>>> -- int sbi_hart_down()
->>>>>>
->>>>>> It powers off the hart and will be used in cpu-hotplug.
->>>>>> Only individual hart can remove itself from supervisor mode. It can
->>>>>> be
->>>>>> moved to normal state only by sbi_hart_up function.
->>>>>>
->>>>>> Return the appropriate SBI error code.
->>>>>>
->>>>>> -- u32 sbi_hart_state(unsigned long hartid)
->>>>>>
->>>>>> Returns the RISCV_POWER_STATE for a specific hartid. This will help
->>>>>> make
->>>>>> kexec like functionality more robust.
->>>>>>
->>>>>
->>>>> Instead of the above I believe it would be cleaner and simpler to
->>>>> have
->>>>> an sbi_get_hart_state and an sbi_set_hart_state call. This way we
->>>>> can
->>>>> better handle state transitions and, handle ON/OFF/STANDBY/RETENTION
->>>>> and any other state we come up with, without adding extra sbi calls.
->>>>>
->>>>
->>>> When do you want to use sbi_set_hart_state ?
->>>> The power states will be modified as a part of sbi_hart_down or
->>>> sbi_shutdown/suspend calls anyways.
->>>>
->>>
->>> The idea is to have sbi_set_hart_state instead of
->>> sbi_hart_down/shutdown/suspend/etc.
->>> Instead of having different calls for different states we just have
->>> two
->>> calls, one
->>> to get the state and one to set it. This way we have fewer calls and
->>> if
->>> we add a
->>> new state we can add it without having to add a new call.
->>>
->> Ahh I see it now. IMHO, having explicit names makes more sense.
->>
->>
->>>>>> -- void sbi_system_shutdown()
->>>>>>
->>>>>> Powers off the entire system.
->>>>>>
->>>>>
->>>>> Don't we already have that ? What's the difference between
->>>>> sbi_system_shutdown
->>>>> and sbi_shutdown ? Does it make sense to use sbi_shutdown and leave
->>>>> the
->>>>> system
->>>>> on with all the harts down ? Maybe we can just say that sbi_shutdown
->>>>> also
->>>>> powers down the system and rename it to sbi_system_shutdown with the
->>>>> same
->>>>> function ID.
->>>>>
->>>>
->>>> Yeah. That's a better.
->>>>
->>>>
->>>>>> 3. SBI API ID numbering scheme:
->>>>>> ------------------------------
->>>>>> An API Set is a set of SBI APIs which collectively implement some
->>>>>> kind of feature/functionality.
->>>>>>
->>>>>> Let's say SBI API ID is u32  then
->>>>>> Bit[31:24] =  API Set Number
->>>>>> Bit[23:0] = API Number within API Set
->>>>>>
->>>>>> Here are few API Sets for SBI v0.2:
->>>>>> 1. Base APIs
->>>>>> API Set Number: 0x0
->>>>>> Description: Base APIs mandatory for any SBI version
->>>>>>
->>>>>> 2. HART PM APIs
->>>>>> API Set Number: 0x1
->>>>>> Description: Hart UP/Down/Suspend APIs for per-Hart
->>>>>> power management
->>>>>>
->>>>>> 3. System PM APIs
->>>>>> API Set Number; 0x2
->>>>>> Description: System Shutdown/Reboot/Suspend for system-level
->>>>>> power management
->>>>>>
->>>>>> 4. Vendor APIs
->>>>>> API Set Number: 0xff
->>>>>> Description: Vendor specific APIs.
->>>>>> There is a possibility that different vendors can choose to assign
->>>>>> same API numbers for different functionality. In that case, vendor
->>>>>> specific strings in Device Tree can be used to verify if a specific
->>>>>> API belongs to the intended vendor or not.
->>>>>>
->>>>>
->>>>> I understand the rationale behind this but I believe it's better to
->>>>> call them services or functions instead of APIs, they are not sets
->>>>> of APIs the way I see it. Also since we are moving that path why
->>>>> call
->>>>> it SBI and restrict it only to be used by the supervisor ? I'd love
->>>>> to
->>>>> have another category for the secure monitor calls for example,
->>>>> but on the software architecture that we are discussing on the TEE
->>>>> group, such calls can also originate from U mode or HS/HU modes.
->>>>> The same goes for vendor specific calls, there are lots of use case
->>>>> scenarios where vendors would like to be able to call their stuff
->>>>> from U mode for example (e.g. a user space library talking to a
->>>>> smart card directly).
->>>>>
->>>>> I suggest we rename it from SBI to something more generic that is
->>>>> not
->>>>> defined by who is calling it but by what we are calling, which in
->>>>> this
->>>>> case is the firmware (FBI?).
->>>>
->>>> possible conflict with a very famous law enforcement agency :) :).
->>>>
->>>> Jokes aside, renaming to something more generic is a good idea. But
->>>> it
->>>> will probably break a ton of documentation/spec in RISC-V which I
->>>> don't want to deal with right now. May be in future versions ?
->>>>
->>>
->>> I get that updating the documentation can be a pain, I can help with
->>> that if you want (and I promise I'll stay away from law enforcement
->>> agencies !). I suggest we do the renaming as early as possible
->>> because we are going to carry it for a long time instead and it'll
->>> only get harder to change later on.
->>>
->> Thanks. I guess we need Palmer/Andrew to pitch in first on this before
->> we decide anything.
->>
-> 
-> I just noticed that on privilege spec, SBI stands for System Binary
-> Interface,
-> not Supervisor Binary Interface as mentioned here:
-> https://github.com/riscv/riscv-sbi-doc/blob/master/riscv-sbi.md
-> 
-> "System" is broader than "supervisor" since it doesn't imply the mode
-> where
-> the calls originate from. On the other hand it doesn't say anything
-> about
-> who is calling or who it calls, it's very broad, it can be an interface
-> between anything.
-> 
-I guess you found a typo in privileged spec.
+Hello Vincent,
 
-It is mentioned as supervisor binary interface (SBI) in chapter 1
-(https://github.com/riscv/riscv-isa-manual/blob/master/src/intro.tex#L126)
-while system binary interface (SBI) in Chapter 4.
-(https://github.com/riscv/riscv-isa-manual/blob/master/src/supervisor.tex#L9)
+???? 2018-10-31 12:35, Vincent Chen ??????:
+> RISC-V permits each vendor to develop respective extension ISA based
+> on RISC-V standard ISA. This means that these vendor-specific features
+> may be compatible to their compiler and CPU. Therefore, each vendor may
+> be considered a sub-architecture of RISC-V. Currently, vendors do not
+> have the appropriate examples to add these specific features to the
+> kernel. In this RFC set, we propose an infrastructure that vendor can
+> easily hook their specific features into kernel. The first commit is
+> the main body of this infrastructure. In the second commit, we provide
+> a solution that allows dma_map_ops() to work without cache coherent
+> agent support. Cache coherent agent is unsupported for low-end CPUs in
+> the AndeStar RISC-V series. In order for Linux to run on these CPUs, we
+> need this solution to overcome the limitation of cache coherent agent
+> support. Hence, it also can be used as an example for the first commit.
+> 
+>   I am glad to discuss any ideas, so if you have any idea, please give
+> me some feedback.
 
-I have filed a bug in github for now.
+So if I got this right, in your case you've added some CSRs 
+(ucctlbeginaddr
+and ucctlcommand) for marking regions as non-cacheable, and you provide 
+your
+own get_arch_dma_ops by overriding the default header files with your
+vendor-specific ones.
+
+Some things that are IMHO wrong with the proposed approach:
+
+a) By directly modifying your custom CSRs, it means that we will need
+compiler support in order to compile a kernel with your code in it. This
+will break CI systems and will introduce various issues on testing and
+reviewing your code. In general if we need custom toolchains to compile
+the kernel, that may be unavailable (vendors will not always open source
+their compiler support), we won't be able to maintain a decent level of
+code quality in the tree. How can the maintainer push your code on the
+repository if he/she can't even perform a basic compilation test ?
+
+In contrast with ARM and others that have a standard set of possible
+extensions (e.g. NEON, crc32 etc), and provide compiler support for 
+those,
+a similar approach is not valid for RISC-V. We could demand that vendors
+add compiler support e.g. on gcc before submitting a patch with custom
+assembly but I don't think this approach is feasible (one vendor's CSRs
+or custom instructions may overlap with another's). I believe we should
+just use SBI calls instead and let the firmware (and/or custom userspace
+libraries) handle the custom CSRs/assembly instructions.
+
+This is a concern also for lib/ and crypto/ where vendors might want to 
+use
+their own extensions for providing optimized assembly for their cores. 
+It's
+not a big deal to use SBI and handle vendor-specific stuff on firmware 
+and/or
+userspace, it's actually more flexible for the vendors since they can 
+have
+their own process for maintaining their firmware and releasing it in 
+their
+own terms/license etc. If we see that the SBI has too much overhead or 
+is not
+enough we can design it in a better way or extend it. It will still be
+standard and easier to maintain than a fragmented ecosystem of mostly
+unusable code, inside the mainline kernel.
+
+In case we need to save/store registers related to a custom extension, I
+guess we can also have an SBI call for saving/restoring custom registers
+to/from S-managed memory and we should be ok. It should also be possible
+to do any extra state handling in firmware if needed. I believe we can 
+and
+should avoid custom assembly on the kernel at all costs !
+
+
+b) By using CONFIG_VENDOR_FOLDER_NAME you add a compile time dependency 
+that
+allows this kernel image to be built for a specific vendor. This is 
+problematic
+in different ways. At first it's not possible to have a kernel image 
+that's
+generic and can be used for all RISC-V systems. That's what distros want
+and that's how they 've been working so far.
+
+Also in case a vendor has many different boards with different 
+implementation
+details how will this approach help ? It would make more sense to have 
+something
+like arch/riscv/<platform>. Also have in mind that some extensions might 
+be
+available as IP to vendors so multiple vendors might use the same 
+extension
+made/licensed from another vendor. I think arch/riscv/<extension> is 
+more
+appropriate. Since we can use mvendorid/marchid/mimpid to identify that
+at runtime maybe we can have some wrapper code that initializes a struct 
+of
+function pointers early on setup_arch(), allowing vendors to populate it
+according to the available extensions in their hw, based on the above 
+ids.
+
+We can also just use device-tree for that and mark the used extensions 
+there.
+We can even pass extension-specific parameters this way (e.g. to save 
+CSRs)
+in case of extensions that can be parametrized on hw design phase (I'm
+thinking of IPs sold from companies with licenses for unlocking the X 
+feature
+or for supporting up to Y channels/slots/instances/whatever).
+
+
+In any case it's an interesting subject that we definitely need to think 
+about,
+thanks for bringing this up !
 
 Regards,
-Atish
+Nick
