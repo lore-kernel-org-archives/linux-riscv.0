@@ -4,18 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 11DD5ECDE44
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  5 Nov 2018 00:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1AAA7C0044C
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  5 Nov 2018 06:58:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DA6F320685
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  5 Nov 2018 00:50:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B6520204FD
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  5 Nov 2018 06:58:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="r/V6u32I"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA6F320685
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hA7g0pVu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B6520204FD
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,43 +25,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xsZImgHejerOm/xn3za8zDYZpcRi7AF7jAC6w9k01Ts=; b=r/V6u32I4YEbc5
-	aJA5ryvo+cNPTC/caHWbMQy2x1kD7OXNb/rU7LU0YJ6iyXitAZcgaGquGhJqf9da0ds657qawQKv8
-	fcLo+KodXVOqpEqE/kzKONr5aW2kXU6E7TzSAkA7t+xttUfqNvUIhwv0Ji7RcRYSWtSqaqS/Gfuqr
-	TaTFwZLNF+o7wpBqp9y6W0eea2I41DgONIDPikbE7mJAPg0DyC4e+RN15lwgt78DpyjFxjEd27mNY
-	GDANHFALg7LTQ5R6m9elh7Sr2Km4YF/iSTNFv7QZ5UiEbbB2NdfyYkc0m3RWSTrxHqmnVEvobmzRg
-	Un8OWxqlwbyTH6hduZJA==;
+	List-Owner; bh=ka4+h6fftB8WzK7LmkPdBLGBLeGy1LTnNBMx0jEjjWc=; b=hA7g0pVuHZMaSW
+	V2K9Oj8dfluGvt38+ZshwDjotNQroOWhC6Zq4tUzYd5C23Pd6TmaMJoUdMAFRxZWcU/n8WXUQYwSD
+	6RcG2adKTw5vy0YQU9SEsIwVcowUESNQ7S37h2VpDhvEkjqUPuHGi3dTYI8eAZ98N2m316Sk9wx8b
+	NHbfmaKRv+MBpXwvQ2KIuc24ei271muq5kpmunOyPjESsNGdVG49rEG1Vkt2RQjpmSyZ9+GU1kDWu
+	8cF0Y84tLruPD9kpAvPSseVE8SHqa0GOpZSQHpwEDxxw8IXlGUmfBE/n7tN/G2f4MhUfzrKKBrseW
+	QXHt1LReyRqG2GYsxKQg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gJT5j-0000bl-Cg; Mon, 05 Nov 2018 00:50:07 +0000
+	id 1gJYqX-0000Il-9p; Mon, 05 Nov 2018 06:58:49 +0000
 Received: from 59-120-53-16.hinet-ip.hinet.net ([59.120.53.16]
  helo=ATCSQR.andestech.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gJT5f-000813-V8
- for linux-riscv@lists.infradead.org; Mon, 05 Nov 2018 00:50:06 +0000
+ id 1gJYqT-0000Hv-EM
+ for linux-riscv@lists.infradead.org; Mon, 05 Nov 2018 06:58:47 +0000
 Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
- by ATCSQR.andestech.com with ESMTP id wA50o3BM057953;
- Mon, 5 Nov 2018 08:50:03 +0800 (GMT-8)
- (envelope-from alankao@andestech.com)
+ by ATCSQR.andestech.com with ESMTP id wA56webu007013;
+ Mon, 5 Nov 2018 14:58:40 +0800 (GMT-8)
+ (envelope-from vincentc@andestech.com)
 Received: from andestech.com (10.0.15.65) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.123.3; Mon, 5 Nov 2018
- 08:49:28 +0800
-Date: Mon, 5 Nov 2018 08:49:29 +0800
-From: Alan Kao <alankao@andestech.com>
-To: <palmer@sifive.com>
-Subject: Re: [sw-dev] About the Use of sfence.vma in Kernel
-Message-ID: <20181105004929.GA4735@andestech.com>
-References: <20181101090015.GA6997@andestech.com>
+ 14:58:10 +0800
+Date: Mon, 5 Nov 2018 14:58:07 +0800
+From: Vincent Chen <vincentc@andestech.com>
+To: <palmer@sifive.com>, <aou@eecs.berkeley.edu>
+Subject: Re: [RFC 0/2] RISC-V: A proposal to add vendor-specific code
+Message-ID: <20181105065807.GA1286@andestech.com>
+References: <CAAhSdy0Y_jdc=2Lf8epof_+7HigCfhDxMNe8EF0fHfncqhs-zA@mail.gmail.com>
+ <mhng-01f0ac6a-c2fd-41be-9d53-44d1c139d453@palmer-si-x1c4>
+ <20181101174857.du2zu4vnrhpu5asf@excalibur.cnev.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20181101090015.GA6997@andestech.com>
+In-Reply-To: <20181101174857.du2zu4vnrhpu5asf@excalibur.cnev.de>
 User-Agent: Mutt/1.5.24 (2015-08-30)
 X-Originating-IP: [10.0.15.65]
 X-DNSRBL: 
-X-MAIL: ATCSQR.andestech.com wA50o3BM057953
+X-MAIL: ATCSQR.andestech.com wA56webu007013
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181104_165004_265934_F141C86F 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20181104_225845_739320_D80704E4 
+X-CRM114-Status: GOOD (  31.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -72,70 +75,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, sw-dev@groups.riscv.org,
- greentime@andestech.com
+Cc: zong@andestech.com, arnd@arndb.de, alankao@andestech.com,
+ greentime@andestech.com, linux-kernel@vger.kernel.org, vincentc@andestech.com,
+ kito@andestech.com, linux-riscv@lists.infradead.org, deanbo422@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181105004929.6tg7icdY2YsJVH5dlW3Cado-PQuE7Cx7H-KEjJ8t0JA@z>
+Message-ID: <20181105065807.5C0okJFR6upk2ufpsBqp7-OueIYzhbLQslx4I1Q2nqI@z>
 
-Hi Palmer,
+On Fri, Nov 02, 2018 at 01:48:57AM +0800, Karsten Merker wrote:
+> On Wed, Oct 31, 2018 at 10:27:05AM -0700, Palmer Dabbelt wrote:
+> > On Wed, 31 Oct 2018 04:16:10 PDT (-0700), anup@brainfault.org wrote:
+> > > On Wed, Oct 31, 2018 at 4:06 PM Vincent Chen <vincentc@andestech.com> wrote:
+> > > > 
+> > > >   RISC-V permits each vendor to develop respective extension ISA based
+> > > > on RISC-V standard ISA. This means that these vendor-specific features
+> > > > may be compatible to their compiler and CPU. Therefore, each vendor may
+> > > > be considered a sub-architecture of RISC-V. Currently, vendors do not
+> > > > have the appropriate examples to add these specific features to the
+> > > > kernel. In this RFC set, we propose an infrastructure that vendor can
+> > > > easily hook their specific features into kernel. The first commit is
+> > > > the main body of this infrastructure. In the second commit, we provide
+> > > > a solution that allows dma_map_ops() to work without cache coherent
+> > > > agent support. Cache coherent agent is unsupported for low-end CPUs in
+> > > > the AndeStar RISC-V series. In order for Linux to run on these CPUs, we
+> > > > need this solution to overcome the limitation of cache coherent agent
+> > > > support. Hence, it also can be used as an example for the first commit.
+> > > > 
+> > > >   I am glad to discuss any ideas, so if you have any idea, please give
+> > > > me some feedback.
+> > > > 
+> > > I agree that we need a place for vendor-specific ISA extensions and
+> > > having vendor-specific directories is also good.
+> > > 
+> > > What I don't support is the approach of having compile time selection
+> > > of vendor-specific ISA extension.
+> > > 
+> > > We should have runtime probing for compatible vendor-specific ISA
+> > > extension. Also, it should be possible to link multiple vendor-specific
+> > > SA extensions to same kernel image. This way we can have a single
+> > > kernel image (along with various vendor-specific ISA extensions) which
+> > > works on variety of targets/hosts.
+> > > 
+> > > As an example or runtime probing you can look at how IRQCHIP or
+> > > CLOCKSOURCE drivers are probed. The vendor-specific ISA extension
+> > > hooks should called in similar fashion.
+> > 
+> > Yes, I agree.  My biggest concern here is that we ensure that
+> > one kernel can boot on implementations from all vendors.  I
+> > haven't had a chance to look at the patches yet, but it should
+> > be possible to:
+> > 
+> > * Build a kernel that has vendor-specific code from multiple vendors.
+> > * Detect the implementation an run time and select the correct extra
+> >   code.
+> 
+> From a distro point of view we definitely want to have one kernel
+> image that is bootable everywhere.  Debian won't support any
+> platform that requires a per-platform or per-vendor kernel, and I
+> assume that the same will be true for Fedora and Suse.
+> 
+> One thing that I have stumbled upon while looking at the patches
+> is that they seem to assume that X-type ISA extensions are
+> strictly per vendor.  Although that is probably true in the
+> majority of cases, it doesn't necessarily have to be - I could
+> e.g. imagine that the DSP extensions from the PULP cores might
+> be used by multiple vendors.  If such an extension would have
+> state that needs to be saved on context switch, it would need
+> corresponding kernel support.  Using "PULP" (or any other
+> open-source project) as the vendor in such a case leads to
+> another potential issue: the patches base everything on a JEDEC
+> vendor ID that is compared to the contents of the mvendorid CSR,
+> but such a JEDEC vendor ID usually doesn't exist for open-source
+> implementations; the majority of those have mvendorid set to
+> zero.
+>
+Many thanks for kinds of comments. I quickly synthesize the comments and
+list them as below.
+1. The kernel image shall include all vendor-specific code.
+2. This kernel image can only enable particular vendor-specific features
+   based on the CPU vendor in the running platform.
+   - The runtime probing mechanism can refer to arm32/arm64, powerpc,
+     IRQCHIP driver or CLOCKSOURCE driver
+   - For some cases, such as open-source projects, using CSR $mvendorid
+     to identify the compatibility is not appropriate.
+I think the above requirements are reasonable, but I have questions about
+the first requirement in practice. As far as I know, vendors are allowed
+to add specific instructions and CSRs which are incompatible with other
+vendors to their own ISA extensions. If I understand the first requirement
+correctly, it implies that we need a "super" RISC-V toolchain. This "super"
+RISC-V toolchain should recognize all kinds of vendor-specific instructions
+and CSRs, so that it can compile vendor sources into objects successfully;
+then it should recognize all kinds of vendor-specific relocations, so that
+it can link the objects successfully. Each of them is not trivial at the
+time of this proposal and in foreseeable future.
 
-I believe the code in arch/riscv/mm/fault.c is mostly from you.
-Do you have any comments on this?
+If it will take a long time to complete this "super" toolchain, I suppose
+the infrastructure in this RFC might be a temporary solution before it is
+ready. This scheme does not suffer the compilation problems caused by the
+lack of the super toolchain because the selection of vendor-specific ISA
+extension is determined at compile time. In addition, the mechanism for
+checking compatibility at runtime ensures that the kernel with
+vendor-specific feature runs on CPUs of other vendors just like pure
+RISC-V kernel. In other words, this scheme, to some extent, satisfies the
+requirements that one kernel image is bootable everywhere.
 
-On Thu, Nov 01, 2018 at 05:00:15PM +0800, Alan Kao wrote:
-> Hi all,
-> 
-> As mentioned in the Privileged Spec about sfence.vma instruction:
-> 
-> > The supervisor memory-management fence instruction SFENCE.VMA is used
-> > to synchronize updates to in-memory memory-management data structures 
-> > with current execution.  Instruction execution causes implicit reads 
-> > and writes to these data structures;  however, these implicit references
-> > are ordinarily not ordered with respect to loads and stores in the instruction
-> > stream.
-> >
-> > Executing an SFENCE.VMA instruction guarantees that any stores in the
-> > instruction stream prior to the SFENCE.VMA are ordered before all implicit
-> > references subsequent to the SFENCE.VMA.
-> 
-> It naturally follows that we should use sfence.vma once the page table is
-> modified.  There are several examples in the kernel already, such as
-> 
-> alloc_set_pte (in mm/memory.c):
-> ...
->         set_pte_at(vma->vm_mm, vmf->address, vmf->pte, entry);
->         /* no need to invalidate: a not-present page won't be cached */
->         update_mmu_cache(vma, vmf->address, vmf->pte);
-> ...
-> where the update_mmu_cache function eventually issues a sfence.vma.
-> 
-> I was interested if it is always the case and did some research.  RV64 uses
-> 3-level of page table entry, pud, pmd and pte, so I traced a little bit about
-> the code flow after set_pud, set_pmd and set_pte.
-> 
-> It turns out that some of the calls to them are not followed by a
-> sfence.vma.  For an instance, in the vmalloc_fault region in do_page_fault,
-> there is no sfence.vma or calls to it after set_pgd, which directs to set_pud
-> later.
-> 
-> Are they bugs or I just misunderstand the instruction?  As the kernel has
-> already been stable for quite a while now, it is not likely to be a critical
-> bug.
-> 
-> Any clarification will highly appreciated.
-> 
-> Many thanks,
-> Alan Kao
-> 
-> -- 
-> You received this message because you are subscribed to the Google Groups "RISC-V SW Dev" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to sw-dev+unsubscribe@groups.riscv.org.
-> To post to this group, send email to sw-dev@groups.riscv.org.
-> Visit this group at https://groups.google.com/a/groups.riscv.org/group/sw-dev/.
-> To view this discussion on the web visit https://groups.google.com/a/groups.riscv.org/d/msgid/sw-dev/20181101090015.GA6997%40andestech.com.
+Regards,
+Vincent
 
 _______________________________________________
 linux-riscv mailing list
