@@ -1,36 +1,318 @@
-From: marcin.juszkiewicz@linaro.org (Marcin Juszkiewicz)
-Date: Mon, 5 Nov 2018 17:02:59 +0100
-Subject: [PATCH] riscv: add asm/unistd.h UAPI header
-In-Reply-To: <20181105142602.25750-1-david.abdurachmanov@gmail.com>
-References: <20181105142602.25750-1-david.abdurachmanov@gmail.com>
-Message-ID: <10c6f266-12ce-9f1a-5859-52873ff329f1@linaro.org>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Mon, 5 Nov 2018 10:51:42 -0800
+Subject: SBI extension proposal
+In-Reply-To: <f37befdbafe7e52efaf40f4435f55c9f@mailhost.ics.forth.gr>
+References: <7f2a546a-6ebb-43c6-83a0-5e712ec2e2c7@wdc.com>
+ <3245c74a8dc9f651cb07e382585fa311@mailhost.ics.forth.gr>
+ <5725574a-60c3-26f4-565b-4498c757a8f8@wdc.com>
+ <f1d906752a74790f0c3e8ae3530858ad@mailhost.ics.forth.gr>
+ <cfc5c651-6d5f-0c29-a96c-e403fe08dda2@wdc.com>
+ <f37befdbafe7e52efaf40f4435f55c9f@mailhost.ics.forth.gr>
+Message-ID: <453c1060-b8d8-3be0-d1cb-586f8b62123c@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-W dniu 05.11.2018 o?15:26, David Abdurachmanov pisze:
-> Marcin Juszkiewicz reported issues while generating syscall table for riscv
-> using 4.20-rc1. The patch refactors our unistd.h files to match some other
-> architectures.
+On 11/5/18 5:51 AM, Nick Kossifidis wrote:
+> ???? 2018-11-03 02:00, Atish Patra ??????:
+>> On 11/2/18 4:45 PM, Nick Kossifidis wrote:
+>>> ???? 2018-11-03 01:12, Atish Patra ??????:
+>>>> On 11/2/18 8:25 AM, Nick Kossifidis wrote:
+>>>>> Hello Atish and thanks for bringing this up,
+>>>>>
+>>>>> ???? 2018-10-31 20:23, Atish Patra ??????:
+>>>>>> Here is a proposal to make SBI a flexible and extensible interface.
+>>>>>> It is based on the foundation policy of RISC-V i.e. modularity and
+>>>>>> openness. It is designed in such a way that it introduces very few
+>>>>>> new
+>>>>>> mandatory SBI APIs that are absolutely required to maintain
+>>>>>> backward
+>>>>>> compatibility. Everything else is optional so that it remains an
+>>>>>> open
+>>>>>> standard yet robust.
+>>>>>>
+>>>>>> 1. Introduction:
+>>>>>> ----------------
+>>>>>> The current RISC-V SBI only defines a few mandatory functions such
+>>>>>> as
+>>>>>> inter-processor interrupts (IPI) interface, reprogramming timer,
+>>>>>> serial
+>>>>>> console and memory barrier instructions. The existing SBI
+>>>>>> documentation
+>>>>>> can be found here [1]. Many important functionalities such as power
+>>>>>> management/cpu-hotplug are not yet defined due to difficulties in
+>>>>>> accommodating modifications without breaking the backward
+>>>>>> compatibility
+>>>>>> with the current interface.
+>>>>>>
+>>>>>> Its design is inspired by Power State Coordination Interface (PSCI)
+>>>>>> from
+>>>>>> ARM world. However, it adds only two new mandatory SBI calls
+>>>>>> providing
+>>>>>> version information and supported APIs, unlike PSCI where a
+>>>>>> significant
+>>>>>> number of functions are mandatory. The version of the existing SBI
+>>>>>> will
+>>>>>> be defined as a minimum version(0.1) which will always be backward
+>>>>>> compatible. Similarly, any Linux kernel with newer feature will
+>>>>>> fall
+>>>>>> back if an older version of SBI does not support the updated
+>>>>>> capabilities. Both the operating system and SEE can be implemented
+>>>>>> to
+>>>>>> be two way backward compatible.
+>>>>>>
+>>>>>> 2. New functions:
+>>>>>> -----------------
+>>>>>>
+>>>>>> -- u32 sbi_get_version(void):
+>>>>>>
+>>>>>> Returns the current SBI version implemented by the firmware.
+>>>>>> version: uint32: Bits[31:16] Major Version
+>>>>>>                 Bits[15:0] Minor Version
+>>>>>>
+>>>>>> The existing SBI version can be 0.1. The proposed version will be
+>>>>>> at
+>>>>>> 0.2
+>>>>>> A different major version may indicate possible incompatible
+>>>>>> functions.
+>>>>>> A different minor version must be compatible with each other even
+>>>>>> if
+>>>>>> they have a higher number of features.
+>>>>>>
+>>>>>> -- u32 sbi_check_api(unsigned long start_api_id, unsigned long
+>>>>>> count):
+>>>>>>
+>>>>>> Accepts a start_api_id as an argument and returns if start_api_id
+>>>>>> to
+>>>>>> (start_api_id + count - 1) are supported or not.
+>>>>>> The API numbering scheme is described in section 3.
+>>>>>>
+>>>>>> A count is introduced so that a range of APIs can be checked at one
+>>>>>> SBI
+>>>>>> call to minimize the M-mode traps.
+>>>>>>
+>>>>>
+>>>>> Is this really needed ? We can determine the SBI version from
+>>>>> sbi_get_version, why
+>>>>> include an SBI call to perform a check that can easily be performed
+>>>>> by
+>>>>> the caller
+>>>>> instead ?
+>>>>>
+>>>>
+>>>> This API is still in discussion. Probably, an API returning bitmask
+>>>> of
+>>>> all the features make more sense ?
+>>>>
+>>>> However, I feel a separate API is required from sbi_get_version as
+>>>> there vendors can choose not to implement some of the features that
+>>>> is
+>>>> specified by a version as most of the API set are optional.
+>>>>
+>>>
+>>> We can always rely on the SBI_NOT_SUPPORTED error code you've already
+>>> included ;-)
+>>
+>>
+>> That's what sbi_check_api will return if a single API or set of API is
+>> not supported. We potentially can return it from individual function
+>> calls but having a separate API helps in avoiding making those calls
+>> in first place from supervisor level.
+>>
+>> If we use a bitmask for capabilities we'll be limited by
+>>> the encoding.
+>>>
+>> That was the reason sbi_check_api was introduced. But looking back, I
+>> wonder if we ever have more than 24 SBI APIs to deal with!!
+>>
+>>
+>>>>>> -- int sbi_hart_up(unsigned long hartid, unsigned long start,
+>>>>>> unsigned
+>>>>>> long priv)
+>>>>>>
+>>>>>> Brings up "hartid" either during initial boot or after a
+>>>>>> sbi_hart_down
+>>>>>> SBI call.
+>>>>>>
+>>>>>> "start" points to a runtime-specified address where a hart can
+>>>>>> enter
+>>>>>> into supervisor mode. This must be a physical address.
+>>>>>>
+>>>>>> "priv" is a private data that caller can use to pass information
+>>>>>> about
+>>>>>> execution context.
+>>>>>>
+>>>>>> Return the appropriate SBI error code.
+>>>>>>
+>>>>>> -- int sbi_hart_suspend(u32 state, unsigned long resume_entry,
+>>>>>> unsigned
+>>>>>> long priv)
+>>>>>>
+>>>>>> Suspends the calling hart to a particular power state. Suspended
+>>>>>> hart
+>>>>>> will automatically wake-up based on some wakeup events at
+>>>>>> resume_entry
+>>>>>> physical address.
+>>>>>>
+>>>>>> "priv" is a private data that caller can use to pass information
+>>>>>> about
+>>>>>> execution context. The SBI implementation must save a copy so that
+>>>>>> caller can reuse while restoring hart from suspend.
+>>>>>>
+>>>>>> Return the appropriate SBI error code.
+>>>>>>
+>>>>>> -- int sbi_hart_down()
+>>>>>>
+>>>>>> It powers off the hart and will be used in cpu-hotplug.
+>>>>>> Only individual hart can remove itself from supervisor mode. It can
+>>>>>> be
+>>>>>> moved to normal state only by sbi_hart_up function.
+>>>>>>
+>>>>>> Return the appropriate SBI error code.
+>>>>>>
+>>>>>> -- u32 sbi_hart_state(unsigned long hartid)
+>>>>>>
+>>>>>> Returns the RISCV_POWER_STATE for a specific hartid. This will help
+>>>>>> make
+>>>>>> kexec like functionality more robust.
+>>>>>>
+>>>>>
+>>>>> Instead of the above I believe it would be cleaner and simpler to
+>>>>> have
+>>>>> an sbi_get_hart_state and an sbi_set_hart_state call. This way we
+>>>>> can
+>>>>> better handle state transitions and, handle ON/OFF/STANDBY/RETENTION
+>>>>> and any other state we come up with, without adding extra sbi calls.
+>>>>>
+>>>>
+>>>> When do you want to use sbi_set_hart_state ?
+>>>> The power states will be modified as a part of sbi_hart_down or
+>>>> sbi_shutdown/suspend calls anyways.
+>>>>
+>>>
+>>> The idea is to have sbi_set_hart_state instead of
+>>> sbi_hart_down/shutdown/suspend/etc.
+>>> Instead of having different calls for different states we just have
+>>> two
+>>> calls, one
+>>> to get the state and one to set it. This way we have fewer calls and
+>>> if
+>>> we add a
+>>> new state we can add it without having to add a new call.
+>>>
+>> Ahh I see it now. IMHO, having explicit names makes more sense.
+>>
+>>
+>>>>>> -- void sbi_system_shutdown()
+>>>>>>
+>>>>>> Powers off the entire system.
+>>>>>>
+>>>>>
+>>>>> Don't we already have that ? What's the difference between
+>>>>> sbi_system_shutdown
+>>>>> and sbi_shutdown ? Does it make sense to use sbi_shutdown and leave
+>>>>> the
+>>>>> system
+>>>>> on with all the harts down ? Maybe we can just say that sbi_shutdown
+>>>>> also
+>>>>> powers down the system and rename it to sbi_system_shutdown with the
+>>>>> same
+>>>>> function ID.
+>>>>>
+>>>>
+>>>> Yeah. That's a better.
+>>>>
+>>>>
+>>>>>> 3. SBI API ID numbering scheme:
+>>>>>> ------------------------------
+>>>>>> An API Set is a set of SBI APIs which collectively implement some
+>>>>>> kind of feature/functionality.
+>>>>>>
+>>>>>> Let's say SBI API ID is u32  then
+>>>>>> Bit[31:24] =  API Set Number
+>>>>>> Bit[23:0] = API Number within API Set
+>>>>>>
+>>>>>> Here are few API Sets for SBI v0.2:
+>>>>>> 1. Base APIs
+>>>>>> API Set Number: 0x0
+>>>>>> Description: Base APIs mandatory for any SBI version
+>>>>>>
+>>>>>> 2. HART PM APIs
+>>>>>> API Set Number: 0x1
+>>>>>> Description: Hart UP/Down/Suspend APIs for per-Hart
+>>>>>> power management
+>>>>>>
+>>>>>> 3. System PM APIs
+>>>>>> API Set Number; 0x2
+>>>>>> Description: System Shutdown/Reboot/Suspend for system-level
+>>>>>> power management
+>>>>>>
+>>>>>> 4. Vendor APIs
+>>>>>> API Set Number: 0xff
+>>>>>> Description: Vendor specific APIs.
+>>>>>> There is a possibility that different vendors can choose to assign
+>>>>>> same API numbers for different functionality. In that case, vendor
+>>>>>> specific strings in Device Tree can be used to verify if a specific
+>>>>>> API belongs to the intended vendor or not.
+>>>>>>
+>>>>>
+>>>>> I understand the rationale behind this but I believe it's better to
+>>>>> call them services or functions instead of APIs, they are not sets
+>>>>> of APIs the way I see it. Also since we are moving that path why
+>>>>> call
+>>>>> it SBI and restrict it only to be used by the supervisor ? I'd love
+>>>>> to
+>>>>> have another category for the secure monitor calls for example,
+>>>>> but on the software architecture that we are discussing on the TEE
+>>>>> group, such calls can also originate from U mode or HS/HU modes.
+>>>>> The same goes for vendor specific calls, there are lots of use case
+>>>>> scenarios where vendors would like to be able to call their stuff
+>>>>> from U mode for example (e.g. a user space library talking to a
+>>>>> smart card directly).
+>>>>>
+>>>>> I suggest we rename it from SBI to something more generic that is
+>>>>> not
+>>>>> defined by who is calling it but by what we are calling, which in
+>>>>> this
+>>>>> case is the firmware (FBI?).
+>>>>
+>>>> possible conflict with a very famous law enforcement agency :) :).
+>>>>
+>>>> Jokes aside, renaming to something more generic is a good idea. But
+>>>> it
+>>>> will probably break a ton of documentation/spec in RISC-V which I
+>>>> don't want to deal with right now. May be in future versions ?
+>>>>
+>>>
+>>> I get that updating the documentation can be a pain, I can help with
+>>> that if you want (and I promise I'll stay away from law enforcement
+>>> agencies !). I suggest we do the renaming as early as possible
+>>> because we are going to carry it for a long time instead and it'll
+>>> only get harder to change later on.
+>>>
+>> Thanks. I guess we need Palmer/Andrew to pitch in first on this before
+>> we decide anything.
+>>
 > 
-> - Add asm/unistd.h UAPI header, which has __ARCH_WANT_NEW_STAT
-> - Remove asm/syscalls.h UAPI header and merge to asm/unistd.h
-> - Adjust kernel asm/unistd.h
+> I just noticed that on privilege spec, SBI stands for System Binary
+> Interface,
+> not Supervisor Binary Interface as mentioned here:
+> https://github.com/riscv/riscv-sbi-doc/blob/master/riscv-sbi.md
 > 
-> So now asm/unistd.h UAPI header should show all syscalls for riscv.
+> "System" is broader than "supervisor" since it doesn't imply the mode
+> where
+> the calls originate from. On the other hand it doesn't say anything
+> about
+> who is calling or who it calls, it's very broad, it can be an interface
+> between anything.
 > 
-> Before this, Makefile simply put `#include <asm-generic/unistd.h>` into
-> generated asm/unistd.h UAPI header thus user didn't see:
-> 
-> - __NR_riscv_flush_icache
-> - __NR_newfstatat
-> - __NR_fstat
-> 
-> which are supported by riscv kernel.
+I guess you found a typo in privileged spec.
 
-Tested-by: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>
+It is mentioned as supervisor binary interface (SBI) in chapter 1
+(https://github.com/riscv/riscv-isa-manual/blob/master/src/intro.tex#L126)
+while system binary interface (SBI) in Chapter 4.
+(https://github.com/riscv/riscv-isa-manual/blob/master/src/supervisor.tex#L9)
 
-With patch applied I got proper syscall data:
+I have filed a bug in github for now.
 
-fstat  80
-newfstatat     79
-riscv_flush_icache     259
+Regards,
+Atish
