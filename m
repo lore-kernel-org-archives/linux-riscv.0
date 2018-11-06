@@ -1,115 +1,327 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Mon, 5 Nov 2018 16:12:11 -0800
-Subject: [RFC 1/2] dt-bindings: topology: Add RISC-V cpu topology.
-In-Reply-To: <CAL_JsqJOxdE=gD4MyKuL5XZ57Z6UdM4_SU4qs26BNz6YcqM76A@mail.gmail.com>
-References: <CAL_Jsq+wProNynprMjQnrz1jmbZT9TmmA-_=vPUxCEED_8xONg@mail.gmail.com>
- <mhng-799bd6f4-e4af-481e-90d8-bdc0e30f2530@palmer-si-x1c4>
- <CAL_JsqJOxdE=gD4MyKuL5XZ57Z6UdM4_SU4qs26BNz6YcqM76A@mail.gmail.com>
-Message-ID: <8b502dca-bf5f-50b8-e1b2-997c6e2ca260@wdc.com>
+From: zongbox@gmail.com (Zong Li)
+Date: Tue, 6 Nov 2018 09:55:05 +0800
+Subject: SBI extension proposal
+In-Reply-To: <453c1060-b8d8-3be0-d1cb-586f8b62123c@wdc.com>
+References: <7f2a546a-6ebb-43c6-83a0-5e712ec2e2c7@wdc.com>
+ <3245c74a8dc9f651cb07e382585fa311@mailhost.ics.forth.gr>
+ <5725574a-60c3-26f4-565b-4498c757a8f8@wdc.com>
+ <f1d906752a74790f0c3e8ae3530858ad@mailhost.ics.forth.gr>
+ <cfc5c651-6d5f-0c29-a96c-e403fe08dda2@wdc.com>
+ <f37befdbafe7e52efaf40f4435f55c9f@mailhost.ics.forth.gr>
+ <453c1060-b8d8-3be0-d1cb-586f8b62123c@wdc.com>
+Message-ID: <CA+ZOyai01F4pjBHW8LQ_NqsGha=a7XT=+s2qtV2aT5=TF6nnQw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 11/5/18 12:11 PM, Rob Herring wrote:
-> On Mon, Nov 5, 2018 at 1:39 PM Palmer Dabbelt <palmer@sifive.com> wrote:
->>
->> On Fri, 02 Nov 2018 06:09:39 PDT (-0700), robh+dt at kernel.org wrote:
->>> On Thu, Nov 1, 2018 at 6:04 PM Atish Patra <atish.patra@wdc.com> wrote:
->>>>
->>>> Define a RISC-V cpu topology. This is based on cpu-map in ARM world.
->>>> But it doesn't need a separate thread node for defining SMT systems.
->>>> Multiple cpu phandle properties can be parsed to identify the sibling
->>>> hardware threads. Moreover, we do not have cluster concept in RISC-V.
->>>> So package is a better word choice than cluster for RISC-V.
->>>
->>> There was a proposal to add package info for ARM recently. Not sure
->>> what happened to that, but we don't need 2 different ways.
->>>
->>> There's never going to be clusters for RISC-V? What prevents that?
->>> Seems shortsighted to me.
->>>
->>>>
->>>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
->>>> ---
->>>>   .../devicetree/bindings/riscv/topology.txt         | 154 +++++++++++++++++++++
->>>>   1 file changed, 154 insertions(+)
->>>>   create mode 100644 Documentation/devicetree/bindings/riscv/topology.txt
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/riscv/topology.txt b/Documentation/devicetree/bindings/riscv/topology.txt
->>>> new file mode 100644
->>>> index 00000000..96039ed3
->>>> --- /dev/null
->>>> +++ b/Documentation/devicetree/bindings/riscv/topology.txt
->>>> @@ -0,0 +1,154 @@
->>>> +===========================================
->>>> +RISC-V cpu topology binding description
->>>> +===========================================
->>>> +
->>>> +===========================================
->>>> +1 - Introduction
->>>> +===========================================
->>>> +
->>>> +In a RISC-V system, the hierarchy of CPUs can be defined through following nodes that
->>>> +are used to describe the layout of physical CPUs in the system:
->>>> +
->>>> +- packages
->>>> +- core
->>>> +
->>>> +The cpu nodes (bindings defined in [1]) represent the devices that
->>>> +correspond to physical CPUs and are to be mapped to the hierarchy levels.
->>>> +Simultaneous multi-threading (SMT) systems can also represent their topology
->>>> +by defining multiple cpu phandles inside core node. The details are explained
->>>> +in paragraph 3.
->>>
->>> I don't see a reason to do this differently than ARM. That said, I
->>> don't think the thread part is in use on ARM, so it could possibly be
->>> changed.
->>>
->>>> +
->>>> +The remainder of this document provides the topology bindings for ARM, based
->>>
->>> for ARM?
->>>
->>>> +on the Devicetree Specification, available from:
->>>> +
->>>> +https://www.devicetree.org/specifications/
->>>> +
->>>> +If not stated otherwise, whenever a reference to a cpu node phandle is made its
->>>> +value must point to a cpu node compliant with the cpu node bindings as
->>>> +documented in [1].
->>>> +A topology description containing phandles to cpu nodes that are not compliant
->>>> +with bindings standardized in [1] is therefore considered invalid.
->>>> +
->>>> +This cpu topology binding description is mostly based on the topology defined
->>>> +in ARM [2].
->>>> +===========================================
->>>> +2 - cpu-topology node
->>>
->>> cpu-map. Why change this?
->>>
->>> What I would like to see is the ARM topology binding reworked to be
->>> common or some good reasons why it doesn't work for RISC-V as-is.
->>
->> I think it would be great if CPU topologies were not a RISC-V specific thing.
->> We don't really do anything different than anyone else, so it'd be great if we
->> could all share the same spec and code.  Looking quickly at the ARM cpu-map
->> bindings, I don't see any reason why we can't just use the same thing on RISC-V
->> -- it's not quite how I'd do it, but I don't think the differences are worth
->> having another implementation.  Mechanically I'm not sure how to do this:
->> should there just be a "Documentation/devicetree/bindings/cpu-map.txt"?
-> 
-> Yes, but ".../bindings/cpu/cpu-topology.txt".
-> 
-> And if we need $arch extensions, they can be moved there. (Really, I'd
-> like to get rid of /bindings/$arch/* except for maybe a few things.)
-> 
->> If everyone is OK with that then I vote we just go ahead and genericise the ARM
->> "cpu-map" stuff for CPU topology.  Sharing the implementation looks fairly
->> straight-forward as well.
-> 
-+1 for a common code base. I am happy to take it up if nobody else has 
-not already started working on it.
+Atish Patra <atish.patra@wdc.com> ? 2018?11?6? ?? ??2:52???
+>
+> On 11/5/18 5:51 AM, Nick Kossifidis wrote:
+> > ???? 2018-11-03 02:00, Atish Patra ??????:
+> >> On 11/2/18 4:45 PM, Nick Kossifidis wrote:
+> >>> ???? 2018-11-03 01:12, Atish Patra ??????:
+> >>>> On 11/2/18 8:25 AM, Nick Kossifidis wrote:
+> >>>>> Hello Atish and thanks for bringing this up,
+> >>>>>
+> >>>>> ???? 2018-10-31 20:23, Atish Patra ??????:
+> >>>>>> Here is a proposal to make SBI a flexible and extensible interface.
+> >>>>>> It is based on the foundation policy of RISC-V i.e. modularity and
+> >>>>>> openness. It is designed in such a way that it introduces very few
+> >>>>>> new
+> >>>>>> mandatory SBI APIs that are absolutely required to maintain
+> >>>>>> backward
+> >>>>>> compatibility. Everything else is optional so that it remains an
+> >>>>>> open
+> >>>>>> standard yet robust.
+> >>>>>>
+> >>>>>> 1. Introduction:
+> >>>>>> ----------------
+> >>>>>> The current RISC-V SBI only defines a few mandatory functions such
+> >>>>>> as
+> >>>>>> inter-processor interrupts (IPI) interface, reprogramming timer,
+> >>>>>> serial
+> >>>>>> console and memory barrier instructions. The existing SBI
+> >>>>>> documentation
+> >>>>>> can be found here [1]. Many important functionalities such as power
+> >>>>>> management/cpu-hotplug are not yet defined due to difficulties in
+> >>>>>> accommodating modifications without breaking the backward
+> >>>>>> compatibility
+> >>>>>> with the current interface.
+> >>>>>>
+> >>>>>> Its design is inspired by Power State Coordination Interface (PSCI)
+> >>>>>> from
+> >>>>>> ARM world. However, it adds only two new mandatory SBI calls
+> >>>>>> providing
+> >>>>>> version information and supported APIs, unlike PSCI where a
+> >>>>>> significant
+> >>>>>> number of functions are mandatory. The version of the existing SBI
+> >>>>>> will
+> >>>>>> be defined as a minimum version(0.1) which will always be backward
+> >>>>>> compatible. Similarly, any Linux kernel with newer feature will
+> >>>>>> fall
+> >>>>>> back if an older version of SBI does not support the updated
+> >>>>>> capabilities. Both the operating system and SEE can be implemented
+> >>>>>> to
+> >>>>>> be two way backward compatible.
+> >>>>>>
+> >>>>>> 2. New functions:
+> >>>>>> -----------------
+> >>>>>>
+> >>>>>> -- u32 sbi_get_version(void):
+> >>>>>>
+> >>>>>> Returns the current SBI version implemented by the firmware.
+> >>>>>> version: uint32: Bits[31:16] Major Version
+> >>>>>>                 Bits[15:0] Minor Version
+> >>>>>>
+> >>>>>> The existing SBI version can be 0.1. The proposed version will be
+> >>>>>> at
+> >>>>>> 0.2
+> >>>>>> A different major version may indicate possible incompatible
+> >>>>>> functions.
+> >>>>>> A different minor version must be compatible with each other even
+> >>>>>> if
+> >>>>>> they have a higher number of features.
+> >>>>>>
+> >>>>>> -- u32 sbi_check_api(unsigned long start_api_id, unsigned long
+> >>>>>> count):
+> >>>>>>
+> >>>>>> Accepts a start_api_id as an argument and returns if start_api_id
+> >>>>>> to
+> >>>>>> (start_api_id + count - 1) are supported or not.
+> >>>>>> The API numbering scheme is described in section 3.
+> >>>>>>
+> >>>>>> A count is introduced so that a range of APIs can be checked at one
+> >>>>>> SBI
+> >>>>>> call to minimize the M-mode traps.
+> >>>>>>
+> >>>>>
+> >>>>> Is this really needed ? We can determine the SBI version from
+> >>>>> sbi_get_version, why
+> >>>>> include an SBI call to perform a check that can easily be performed
+> >>>>> by
+> >>>>> the caller
+> >>>>> instead ?
+> >>>>>
+> >>>>
+> >>>> This API is still in discussion. Probably, an API returning bitmask
+> >>>> of
+> >>>> all the features make more sense ?
+> >>>>
+> >>>> However, I feel a separate API is required from sbi_get_version as
+> >>>> there vendors can choose not to implement some of the features that
+> >>>> is
+> >>>> specified by a version as most of the API set are optional.
+> >>>>
+> >>>
+> >>> We can always rely on the SBI_NOT_SUPPORTED error code you've already
+> >>> included ;-)
+> >>
+> >>
+> >> That's what sbi_check_api will return if a single API or set of API is
+> >> not supported. We potentially can return it from individual function
+> >> calls but having a separate API helps in avoiding making those calls
+> >> in first place from supervisor level.
+> >>
+> >> If we use a bitmask for capabilities we'll be limited by
+> >>> the encoding.
+> >>>
+> >> That was the reason sbi_check_api was introduced. But looking back, I
+> >> wonder if we ever have more than 24 SBI APIs to deal with!!
+> >>
+> >>
+> >>>>>> -- int sbi_hart_up(unsigned long hartid, unsigned long start,
+> >>>>>> unsigned
+> >>>>>> long priv)
+> >>>>>>
+> >>>>>> Brings up "hartid" either during initial boot or after a
+> >>>>>> sbi_hart_down
+> >>>>>> SBI call.
+> >>>>>>
+> >>>>>> "start" points to a runtime-specified address where a hart can
+> >>>>>> enter
+> >>>>>> into supervisor mode. This must be a physical address.
+> >>>>>>
+> >>>>>> "priv" is a private data that caller can use to pass information
+> >>>>>> about
+> >>>>>> execution context.
+> >>>>>>
+> >>>>>> Return the appropriate SBI error code.
+> >>>>>>
+> >>>>>> -- int sbi_hart_suspend(u32 state, unsigned long resume_entry,
+> >>>>>> unsigned
+> >>>>>> long priv)
+> >>>>>>
+> >>>>>> Suspends the calling hart to a particular power state. Suspended
+> >>>>>> hart
+> >>>>>> will automatically wake-up based on some wakeup events at
+> >>>>>> resume_entry
+> >>>>>> physical address.
+> >>>>>>
+> >>>>>> "priv" is a private data that caller can use to pass information
+> >>>>>> about
+> >>>>>> execution context. The SBI implementation must save a copy so that
+> >>>>>> caller can reuse while restoring hart from suspend.
+> >>>>>>
+> >>>>>> Return the appropriate SBI error code.
+> >>>>>>
+> >>>>>> -- int sbi_hart_down()
+> >>>>>>
+> >>>>>> It powers off the hart and will be used in cpu-hotplug.
+> >>>>>> Only individual hart can remove itself from supervisor mode. It can
+> >>>>>> be
+> >>>>>> moved to normal state only by sbi_hart_up function.
+> >>>>>>
+> >>>>>> Return the appropriate SBI error code.
+> >>>>>>
+> >>>>>> -- u32 sbi_hart_state(unsigned long hartid)
+> >>>>>>
+> >>>>>> Returns the RISCV_POWER_STATE for a specific hartid. This will help
+> >>>>>> make
+> >>>>>> kexec like functionality more robust.
+> >>>>>>
+> >>>>>
+> >>>>> Instead of the above I believe it would be cleaner and simpler to
+> >>>>> have
+> >>>>> an sbi_get_hart_state and an sbi_set_hart_state call. This way we
+> >>>>> can
+> >>>>> better handle state transitions and, handle ON/OFF/STANDBY/RETENTION
+> >>>>> and any other state we come up with, without adding extra sbi calls.
+> >>>>>
+> >>>>
+> >>>> When do you want to use sbi_set_hart_state ?
+> >>>> The power states will be modified as a part of sbi_hart_down or
+> >>>> sbi_shutdown/suspend calls anyways.
+> >>>>
+> >>>
+> >>> The idea is to have sbi_set_hart_state instead of
+> >>> sbi_hart_down/shutdown/suspend/etc.
+> >>> Instead of having different calls for different states we just have
+> >>> two
+> >>> calls, one
+> >>> to get the state and one to set it. This way we have fewer calls and
+> >>> if
+> >>> we add a
+> >>> new state we can add it without having to add a new call.
+> >>>
+> >> Ahh I see it now. IMHO, having explicit names makes more sense.
+> >>
+> >>
+> >>>>>> -- void sbi_system_shutdown()
+> >>>>>>
+> >>>>>> Powers off the entire system.
+> >>>>>>
+> >>>>>
+> >>>>> Don't we already have that ? What's the difference between
+> >>>>> sbi_system_shutdown
+> >>>>> and sbi_shutdown ? Does it make sense to use sbi_shutdown and leave
+> >>>>> the
+> >>>>> system
+> >>>>> on with all the harts down ? Maybe we can just say that sbi_shutdown
+> >>>>> also
+> >>>>> powers down the system and rename it to sbi_system_shutdown with the
+> >>>>> same
+> >>>>> function ID.
+> >>>>>
+> >>>>
+> >>>> Yeah. That's a better.
+> >>>>
+> >>>>
+> >>>>>> 3. SBI API ID numbering scheme:
+> >>>>>> ------------------------------
+> >>>>>> An API Set is a set of SBI APIs which collectively implement some
+> >>>>>> kind of feature/functionality.
+> >>>>>>
+> >>>>>> Let's say SBI API ID is u32  then
+> >>>>>> Bit[31:24] =  API Set Number
+> >>>>>> Bit[23:0] = API Number within API Set
+> >>>>>>
+> >>>>>> Here are few API Sets for SBI v0.2:
+> >>>>>> 1. Base APIs
+> >>>>>> API Set Number: 0x0
+> >>>>>> Description: Base APIs mandatory for any SBI version
+> >>>>>>
+> >>>>>> 2. HART PM APIs
+> >>>>>> API Set Number: 0x1
+> >>>>>> Description: Hart UP/Down/Suspend APIs for per-Hart
+> >>>>>> power management
+> >>>>>>
+> >>>>>> 3. System PM APIs
+> >>>>>> API Set Number; 0x2
+> >>>>>> Description: System Shutdown/Reboot/Suspend for system-level
+> >>>>>> power management
+> >>>>>>
+> >>>>>> 4. Vendor APIs
+> >>>>>> API Set Number: 0xff
+> >>>>>> Description: Vendor specific APIs.
+> >>>>>> There is a possibility that different vendors can choose to assign
+> >>>>>> same API numbers for different functionality. In that case, vendor
+> >>>>>> specific strings in Device Tree can be used to verify if a specific
+> >>>>>> API belongs to the intended vendor or not.
+> >>>>>>
+> >>>>>
+> >>>>> I understand the rationale behind this but I believe it's better to
+> >>>>> call them services or functions instead of APIs, they are not sets
+> >>>>> of APIs the way I see it. Also since we are moving that path why
+> >>>>> call
+> >>>>> it SBI and restrict it only to be used by the supervisor ? I'd love
+> >>>>> to
+> >>>>> have another category for the secure monitor calls for example,
+> >>>>> but on the software architecture that we are discussing on the TEE
+> >>>>> group, such calls can also originate from U mode or HS/HU modes.
+> >>>>> The same goes for vendor specific calls, there are lots of use case
+> >>>>> scenarios where vendors would like to be able to call their stuff
+> >>>>> from U mode for example (e.g. a user space library talking to a
+> >>>>> smart card directly).
+> >>>>>
+> >>>>> I suggest we rename it from SBI to something more generic that is
+> >>>>> not
+> >>>>> defined by who is calling it but by what we are calling, which in
+> >>>>> this
+> >>>>> case is the firmware (FBI?).
+> >>>>
+> >>>> possible conflict with a very famous law enforcement agency :) :).
+> >>>>
+> >>>> Jokes aside, renaming to something more generic is a good idea. But
+> >>>> it
+> >>>> will probably break a ton of documentation/spec in RISC-V which I
+> >>>> don't want to deal with right now. May be in future versions ?
+> >>>>
+> >>>
+> >>> I get that updating the documentation can be a pain, I can help with
+> >>> that if you want (and I promise I'll stay away from law enforcement
+> >>> agencies !). I suggest we do the renaming as early as possible
+> >>> because we are going to carry it for a long time instead and it'll
+> >>> only get harder to change later on.
+> >>>
+> >> Thanks. I guess we need Palmer/Andrew to pitch in first on this before
+> >> we decide anything.
+> >>
+> >
+> > I just noticed that on privilege spec, SBI stands for System Binary
+> > Interface,
+> > not Supervisor Binary Interface as mentioned here:
+> > https://github.com/riscv/riscv-sbi-doc/blob/master/riscv-sbi.md
+> >
+> > "System" is broader than "supervisor" since it doesn't imply the mode
+> > where
+> > the calls originate from. On the other hand it doesn't say anything
+> > about
+> > who is calling or who it calls, it's very broad, it can be an interface
+> > between anything.
+> >
+> I guess you found a typo in privileged spec.
+>
+> It is mentioned as supervisor binary interface (SBI) in chapter 1
+> (https://github.com/riscv/riscv-isa-manual/blob/master/src/intro.tex#L126)
+> while system binary interface (SBI) in Chapter 4.
+> (https://github.com/riscv/riscv-isa-manual/blob/master/src/supervisor.tex#L9)
+>
+> I have filed a bug in github for now.
+>
 
-Is there a ARM hardware test farm that can be used to test such changes?
-
-Regards,
-Atish
+Which API set is suitable for trigger module use? We need to invoke a
+SBI call to set trigger module. We can use one SBI call for setting
+mcontrol, icount, itrigger and etrigger(decide which types inside this
+SBI), or four SBI calls for them respectively. On the other hand, I
+saw the perf branch in riscv-pk repository, maybe we should consider
+it together? But actually, to be exact, one is debugging use, and
+another one is tracing use.
