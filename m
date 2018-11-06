@@ -1,103 +1,124 @@
-From: mick@ics.forth.gr (Nick Kossifidis)
-Date: Tue, 06 Nov 2018 17:26:01 +0200
+From: sudeep.holla@arm.com (Sudeep Holla)
+Date: Tue, 6 Nov 2018 15:50:00 +0000
 Subject: [RFC 0/2] Add RISC-V cpu topology
-In-Reply-To: <20181106141331.GA28458@e107155-lin>
+In-Reply-To: <969fc2a5198984e0dfe8c3f585dc65f9@mailhost.ics.forth.gr>
 References: <1541113468-22097-1-git-send-email-atish.patra@wdc.com>
  <866dedbc78ab4fa0e3b040697e112106@mailhost.ics.forth.gr>
  <20181106141331.GA28458@e107155-lin>
-Message-ID: <969fc2a5198984e0dfe8c3f585dc65f9@mailhost.ics.forth.gr>
+ <969fc2a5198984e0dfe8c3f585dc65f9@mailhost.ics.forth.gr>
+Message-ID: <20181106155000.GA25372@e107155-lin>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-???? 2018-11-06 16:13, Sudeep Holla ??????:
-> On Fri, Nov 02, 2018 at 08:58:39PM +0200, Nick Kossifidis wrote:
->> Hello All,
->> 
->> ???? 2018-11-02 01:04, Atish Patra ??????:
->> > This patch series adds the cpu topology for RISC-V. It contains
->> > both the DT binding and actual source code. It has been tested on
->> > QEMU & Unleashed board.
->> >
->> > The idea is based on cpu-map in ARM with changes related to how
->> > we define SMT systems. The reason for adopting a similar approach
->> > to ARM as I feel it provides a very clear way of defining the
->> > topology compared to parsing cache nodes to figure out which cpus
->> > share the same package or core.  I am open to any other idea to
->> > implement cpu-topology as well.
->> >
->> 
->> I was also about to start a discussion about CPU topology on RISC-V
->> after the last swtools group meeting. The goal is to provide the
->> scheduler with hints on how to distribute tasks more efficiently
->> between harts, by populating the scheduling domain topology levels
->> (https://elixir.bootlin.com/linux/v4.19/ident/sched_domain_topology_level).
->> What we want to do is define cpu groups and assign them to
->> scheduling domains with the appropriate SD_ flags
->> (https://github.com/torvalds/linux/blob/master/include/linux/sched/topology.h#L16).
->> 
-> 
-> OK are we defining a CPU topology binding for Linux scheduler ?
-> NACK for all the approaches that assumes any knowledge of OS scheduler.
-> 
+On Tue, Nov 06, 2018 at 05:26:01PM +0200, Nick Kossifidis wrote:
+> ???? 2018-11-06 16:13, Sudeep Holla ??????:
+> > On Fri, Nov 02, 2018 at 08:58:39PM +0200, Nick Kossifidis wrote:
+> > > Hello All,
+> > >
+> > > ???? 2018-11-02 01:04, Atish Patra ??????:
+> > > > This patch series adds the cpu topology for RISC-V. It contains
+> > > > both the DT binding and actual source code. It has been tested on
+> > > > QEMU & Unleashed board.
+> > > >
+> > > > The idea is based on cpu-map in ARM with changes related to how
+> > > > we define SMT systems. The reason for adopting a similar approach
+> > > > to ARM as I feel it provides a very clear way of defining the
+> > > > topology compared to parsing cache nodes to figure out which cpus
+> > > > share the same package or core.  I am open to any other idea to
+> > > > implement cpu-topology as well.
+> > > >
+> > >
+> > > I was also about to start a discussion about CPU topology on RISC-V
+> > > after the last swtools group meeting. The goal is to provide the
+> > > scheduler with hints on how to distribute tasks more efficiently
+> > > between harts, by populating the scheduling domain topology levels
+> > > (https://elixir.bootlin.com/linux/v4.19/ident/sched_domain_topology_level).
+> > > What we want to do is define cpu groups and assign them to
+> > > scheduling domains with the appropriate SD_ flags
+> > > (https://github.com/torvalds/linux/blob/master/include/linux/sched/topology.h#L16).
+> > >
+> >
+> > OK are we defining a CPU topology binding for Linux scheduler ?
+> > NACK for all the approaches that assumes any knowledge of OS scheduler.
+> >
+>
+> Is there any standard regarding CPU topology on the device tree spec ? As
+> far as I know there is none. We are talking about a Linux-specific Device
+> Tree binding so I don't see why defining a binding for the Linux scheduler
+> is out of scope.
 
-Is there any standard regarding CPU topology on the device tree spec ? 
-As far as
-I know there is none. We are talking about a Linux-specific Device Tree 
-binding
-so I don't see why defining a binding for the Linux scheduler is out of 
-scope.
-Do you have cpu-map on other OSes as well ?
+There may not be much on CPU topology in device tree spec, but that
+doesn't mean we are defining something Linux specific here just because
+there's bunch of LKML are cc-ed. We do have dedicated device tree ML for
+a reason.
 
->> So the cores that belong to a scheduling domain may share:
->> CPU capacity (SD_SHARE_CPUCAPACITY / SD_ASYM_CPUCAPACITY)
->> Package resources -e.g. caches, units etc- (SD_SHARE_PKG_RESOURCES)
->> Power domain (SD_SHARE_POWERDOMAIN)
->> 
-> 
-> Too Linux kernel/scheduler specific to be part of $subject
-> 
+> Do you have cpu-map on other OSes as well ?
+>
 
-All lists on the cc list are Linux specific, again I don't see your 
-point here
-are we talking about defining a standard CPU topology scheme for the 
-device tree
-spec or a Linux-specific CPU topology binding such as cpu-map ?
+Nothing prevents them not to. I have seen increase in the projects
+relying on DT these days.
 
-Even on this case your point is not valid, the information of two harts 
-sharing
-a common power domain or having the same or not capacity/max frequency 
-(or maybe
-capabilities/extensions in the future), is not Linux specific. I just 
-used the
-Linux specific macros used by the Linux scheduler to point out the code 
-path.
-Even on other OSes we still need a way to include this information on 
-the CPU
-topology, and currently cpu-map doesn't. Also the Linux implementation 
-of cpu-map
-ignores multiple levels of shared resources, we only get one level for 
-SMT and
-one level for MC last time I checked.
+> > > So the cores that belong to a scheduling domain may share:
+> > > CPU capacity (SD_SHARE_CPUCAPACITY / SD_ASYM_CPUCAPACITY)
+> > > Package resources -e.g. caches, units etc- (SD_SHARE_PKG_RESOURCES)
+> > > Power domain (SD_SHARE_POWERDOMAIN)
+> > >
+> >
+> > Too Linux kernel/scheduler specific to be part of $subject
+> >
+>
+> All lists on the cc list are Linux specific, again I don't see your point
+> here are we talking about defining a standard CPU topology scheme for the
+> device tree spec or a Linux-specific CPU topology binding such as cpu-map ?
+>
 
->> In this context I believe using words like "core", "package",
->> "socket" etc can be misleading. For example the sample topology you
->> use on the documentation says that there are 4 cores that are part
->> of a package, however "package" has a different meaning to the
->> scheduler. Also we don't say anything in case they share a power
->> domain or if they have the same capacity or not. This mapping deals
->> only with cache hierarchy or other shared resources.
->> 
-> 
-> {Un,}fortunately those are terms used by hardware people.
-> 
+See above.
 
-And they are wrong, how the harts are physically packed doesn't imply 
-their
-actual topology. In general the "translation" is not always straight 
-forward,
-there are assumptions in place. We could use "cluster" of harts or 
-"group" of
-harts instead, they are more abstract.
+> Even on this case your point is not valid, the information of two harts
+> sharing a common power domain or having the same or not capacity/max
+> frequency (or maybe capabilities/extensions in the future), is not Linux
+> specific. I just used the Linux specific macros used by the Linux scheduler
+> to point out the code path.
 
+The CPU topology can be different from the frequency or the power domains
+and we do have specific bindings to provide those information. So let's
+try to keep that out of this discussion.
+
+> Even on other OSes we still need a way to include this information on the
+> CPU topology, and currently cpu-map doesn't. Also the Linux implementation
+> of cpu-map ignores multiple levels of shared resources, we only get one
+> level for SMT and one level for MC last time I checked.
+>
+
+But that doesn't make it any easy if you influence the bindings based on
+Linux scheduler. So just define how hardware is and allow each OS to
+choose it's own way to utilise that information. That's how most of the
+generic DT bindings are defined.
+
+> > > In this context I believe using words like "core", "package",
+> > > "socket" etc can be misleading. For example the sample topology you
+> > > use on the documentation says that there are 4 cores that are part
+> > > of a package, however "package" has a different meaning to the
+> > > scheduler. Also we don't say anything in case they share a power
+> > > domain or if they have the same capacity or not. This mapping deals
+> > > only with cache hierarchy or other shared resources.
+> > >
+> >
+> > {Un,}fortunately those are terms used by hardware people.
+> >
+>
+> And they are wrong, how the harts are physically packed doesn't imply
+> their actual topology. In general the "translation" is not always straight
+> forward, there are assumptions in place. We could use "cluster" of harts or
+> "group" of harts instead, they are more abstract.
+>
+
+Indeed. I agree those terminologies may not be best, but they are already
+used one. We need to map on to those generic ones, though the translations
+may not be simple. We do have the same issues on ARM. If we try to build
+in such information into DT, then it becomes more configuration file for
+OS than platform description IMO.
+
+--
 Regards,
-Nick
+Sudeep
