@@ -1,104 +1,94 @@
-From: david.abdurachmanov@gmail.com (David Abdurachmanov)
-Date: Tue, 6 Nov 2018 22:25:20 +0100
-Subject: [PATCH 0/2] riscv: add audit support
-In-Reply-To: <CAHC9VhSaGo0BmX5AsTcnppiVz2Lz8BFkjRA0jg_uuPix3Ziiog@mail.gmail.com>
-References: <20181029104854.17432-1-david.abdurachmanov@gmail.com>
- <CAHC9VhSaGo0BmX5AsTcnppiVz2Lz8BFkjRA0jg_uuPix3Ziiog@mail.gmail.com>
-Message-ID: <CAEn-LTqQgQkA1XyihEg0MpADLPQADf3Ej2noUp29UtbcEaf0RA@mail.gmail.com>
+From: olof@lixom.net (Olof Johansson)
+Date: Tue, 6 Nov 2018 14:16:27 -0800
+Subject: [TECH TOPIC] SoC maintainer group
+Message-ID: <CAOesGMgVPsK9YsV2nGoBptWwtHYv=3yMytLx2_tF_ujS5c5p3Q@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, Nov 6, 2018 at 9:06 PM Paul Moore <paul@paul-moore.com> wrote:
->
-> On Mon, Oct 29, 2018 at 6:49 AM David Abdurachmanov
-> <david.abdurachmanov@gmail.com> wrote:
-> > This patchset adds system call audit support on riscv (riscv32 &
-> > riscv64).
-> >
-> > The pachset was prepared on top of v4.19 tag.
-> >
-> > audit-userspace changes were submitted. See:
-> > https://github.com/linux-audit/audit-userspace/pull/73
-> >
-> > Tested the following manually:
-> > - auditctl (checked several different example rules from internet)
-> > - aulast
-> > - aulastlog
-> > - ausearch
-> > - ausyscall
-> > - aureport
-> > - autrace (compared some syscalls to strace: order and return
-> >   value/input arguments seem to be correct)
-> > - /proc/self/loginuid (required by DNF [package manager])
-> >
-> > I looked into audit-testsuite and with some adjustments results are:
-> >
-> > Failed 4/14 test programs. 19/88 subtests failed.
->
-> I realize that the test suite failures are likely not due to your
-> code, but rather shortcomings in the test suite itself, but I think it
-> is important to resolve these problems before we commit the kernel
-> changes.
->
-> You mention Fedora 29/RISCV below, is that the distro you are using
-> for testing?  Also, are you using a stock kernel config from the
-> distro or your own?
->
-> > The failing tests were due to missing CONFIG_IP_NF_MANGLE ...
->
-> Assuming a general purpose like Fedora, that seems like an odd
-> omission.  Any chance you can rebuild your kernel with the mangle
-> table?
+Hi KS organizers (and others),
 
-When we build Fedora, the kernel is not built in a standard way. It's only
-build statically and contains minimal setup. We also don't do loadable
-kernel modules, because there wasn't support for it months ago. It's
-not tested yet by us.
+This is a late topic proposal, hopefully there is still time on the agenda.
 
-I did rebuild with CONFIG_IP_NF_MANGLE, but I think, there was more
-stuff missing. Have to look again.
+We?ve recently been discussing some maintainer model changes as
+described below, and would like a slot to discuss the idea and solicit
+feedback/comments from the others there.
 
-I am experimenting on building kernel in normal Fedora way, but there
-are some issues right now. It also takes 12-24 hours for a single attempt.
 
->
-> > ... 'id -Z' not printing categories (don't know why) ...
->
-> Are you seeing the MLS/MCS sensitivity level, s0, or are you not
-> seeing any of the MLS/MCS fields?
+This started with Arnd and I finally being in one place at the same
+time, and talking about how we want to evolve arm-soc maintainership
+moving forward. We've been independently thinking of ways to expand
+the group and making it more self-service for everybody, but there's a
+bunch of tooling needed to make it run smoothly beyond the smaller
+group we have now.
 
-I boot my VM "selinux=1 enforcing=0".
+In the end, we ended up looking at it from a slightly different angle:
+Right now, when contributors show up with new platform support, the
+first hill they need to climb is figuring out how they need to carve
+up their platform among all the various maintainers, how to make sure
+they're all handshaking on keeping things stable, and get code
+submitted. It's awkward, not well documented and one of the biggest
+overheads we have on our side as well.
 
-[root at fedora-riscv ~]# semanage login -l
+When we started talking to other maintainers, we're also realizing
+that we are currently duplicating a lot of work. In particular, we
+often all get cc:d on patch series, so we all need to read and filter,
+and assume that other maintainers spot the right patches, etc.
 
-Login Name           SELinux User         MLS/MCS Range        Service
+We have discussed a few different options, and it seems like pooling
+more of the contribution flow to a group of co-maintainers is a useful
+approach. Initially, we're considering the arm-soc platforms, clock
+drivers and pinctrl drivers, which all tend to be affected by new
+platform contributions in this way, and often end up cross-cc:d on
+everything. Additionally, the flow for successfully merging a new
+platform or SoC needs to be documented and advertised. This is true
+whether or not we change the way that maintainers coordinate amongst
+themselves, or whether or not we change the current workflow used by
+platform contributors today.
 
-__default__          unconfined_u         s0-s0:c0.c1023       *
-root                 unconfined_u         s0-s0:c0.c1023       *
-[root at fedora-riscv ~]# id -Z
-unconfined_u:unconfined_r:unconfined_t:s0
+So, we're planning to change things up a bit. We're starting a new
+group that pools current arm-soc, clk and pinctrl drivers and
+maintainers into one funnel. We'll set up a new mail alias for the
+maintainer group, and one shared patchwork to collect contributions.
+We still expect developers to use existing mailing lists, and we still
+expect for example ARM platform maintainers to keep their workflow of
+collecting patches for their platform like they do today. Down the
+road it might make sense to incorporate other driver subsystems as
+well.
 
->
-> > ... not having loadable kernel module support enablled ...
->
-> Much like the netfilter config, any chance you can enable this in your kernel?
+Beyond this, we're going to keep a close eye on the drm-misc tree,
+which is exploring a move to gitlab (and working with gitlab on adding
+the features they need to move over). If they get a broad maintainer
+model working well in that environment it could be something we reuse
+for ourselves too.
 
-Experimenting, not sure if it works yet.
+This group will also take on the responsibility of putting together
+the documentation and expected patch flow for new platform/SoC
+contributors. That documentation will need to evolve a bit over time
+as we try out this new collaboration between maintainers.
 
->
-> > ... and syscall_socketcall not being relevant for new arches.
->
-> We will probably need to make that ABI dependent in the test suite.
->
-> > audit-testsuite with adjustments:
-> > https://github.com/davidlt/audit-testsuite/tree/riscv64
-> >
-> > Depends on:
-> > [PATCH 1/2] Move EM_RISCV into elf-em.h
-> > http://lists.infradead.org/pipermail/linux-riscv/2018-October/001885.html
-> >
-> > This should solve DNF issues in Fedora 29/RISCV.
->
-> --
-> paul moore
-> www.paul-moore.com
+To avoid an appearance of "ARM is taking over all architectures",
+we'll rename this to just the plain "SoC tree/group", and drop ARM
+from the name. As mentioned already initially we're anticipating
+covering ARM (32/64-bit like before) and RISC-V platform areas in a
+similar way. For other older/minor architectures that are
+semi-orphaned, we might pick up code as needed when it affects us,
+depending on maintainer status at the other end.
+
+We're doing the groundwork now, and will get trees/lists/patchworks
+setup for the next release cycle.
+
+
+People involved so far are:
+
+Olof Johansson (arm-soc)
+Arnd Bergmann (arm-soc)
+Kevin Hilman (arm-soc)
+Mike Turquette (clk)
+Stephen Boyd (clk)
+Linus Walleij (pinctrl + more)
+Mike Brown (gpio/regmap + more)
+
+
+Thanks!
+
+-Olof (on behalf of the group)
