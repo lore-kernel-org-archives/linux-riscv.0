@@ -1,39 +1,120 @@
-From: schwab@suse.de (Andreas Schwab)
-Date: Tue, 06 Nov 2018 09:03:19 +0100
-Subject: [sw-dev] About the Use of sfence.vma in Kernel
-In-Reply-To: <mhng-098e5d8e-3af1-4c5a-9c0d-2f2baba961da@palmer-si-x1c4>
- (Palmer Dabbelt's message of "Mon, 05 Nov 2018 18:33:23 -0800 (PST)")
-References: <mhng-098e5d8e-3af1-4c5a-9c0d-2f2baba961da@palmer-si-x1c4>
-Message-ID: <mvmk1lqk4zc.fsf@suse.de>
+From: mick@ics.forth.gr (Nick Kossifidis)
+Date: Tue, 06 Nov 2018 12:03:17 +0200
+Subject: [RFC 1/2] dt-bindings: topology: Add RISC-V cpu topology.
+In-Reply-To: <mhng-799bd6f4-e4af-481e-90d8-bdc0e30f2530@palmer-si-x1c4>
+References: <mhng-799bd6f4-e4af-481e-90d8-bdc0e30f2530@palmer-si-x1c4>
+Message-ID: <9e77989d6b868d914bc328401cd64557@mailhost.ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Perhaps that't the reason I sometimes get errors like this:
+???? 2018-11-05 21:38, Palmer Dabbelt ??????:
+> On Fri, 02 Nov 2018 06:09:39 PDT (-0700), robh+dt at kernel.org wrote:
+>> On Thu, Nov 1, 2018 at 6:04 PM Atish Patra <atish.patra@wdc.com> 
+>> wrote:
+>>> 
+>>> Define a RISC-V cpu topology. This is based on cpu-map in ARM world.
+>>> But it doesn't need a separate thread node for defining SMT systems.
+>>> Multiple cpu phandle properties can be parsed to identify the sibling
+>>> hardware threads. Moreover, we do not have cluster concept in RISC-V.
+>>> So package is a better word choice than cluster for RISC-V.
+>> 
+>> There was a proposal to add package info for ARM recently. Not sure
+>> what happened to that, but we don't need 2 different ways.
+>> 
+>> There's never going to be clusters for RISC-V? What prevents that?
+>> Seems shortsighted to me.
+>> 
+>>> 
+>>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+>>> ---
+>>>  .../devicetree/bindings/riscv/topology.txt         | 154 
+>>> +++++++++++++++++++++
+>>>  1 file changed, 154 insertions(+)
+>>>  create mode 100644 
+>>> Documentation/devicetree/bindings/riscv/topology.txt
+>>> 
+>>> diff --git a/Documentation/devicetree/bindings/riscv/topology.txt 
+>>> b/Documentation/devicetree/bindings/riscv/topology.txt
+>>> new file mode 100644
+>>> index 00000000..96039ed3
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/riscv/topology.txt
+>>> @@ -0,0 +1,154 @@
+>>> +===========================================
+>>> +RISC-V cpu topology binding description
+>>> +===========================================
+>>> +
+>>> +===========================================
+>>> +1 - Introduction
+>>> +===========================================
+>>> +
+>>> +In a RISC-V system, the hierarchy of CPUs can be defined through 
+>>> following nodes that
+>>> +are used to describe the layout of physical CPUs in the system:
+>>> +
+>>> +- packages
+>>> +- core
+>>> +
+>>> +The cpu nodes (bindings defined in [1]) represent the devices that
+>>> +correspond to physical CPUs and are to be mapped to the hierarchy 
+>>> levels.
+>>> +Simultaneous multi-threading (SMT) systems can also represent their 
+>>> topology
+>>> +by defining multiple cpu phandles inside core node. The details are 
+>>> explained
+>>> +in paragraph 3.
+>> 
+>> I don't see a reason to do this differently than ARM. That said, I
+>> don't think the thread part is in use on ARM, so it could possibly be
+>> changed.
+>> 
+>>> +
+>>> +The remainder of this document provides the topology bindings for 
+>>> ARM, based
+>> 
+>> for ARM?
+>> 
+>>> +on the Devicetree Specification, available from:
+>>> +
+>>> +https://www.devicetree.org/specifications/
+>>> +
+>>> +If not stated otherwise, whenever a reference to a cpu node phandle 
+>>> is made its
+>>> +value must point to a cpu node compliant with the cpu node bindings 
+>>> as
+>>> +documented in [1].
+>>> +A topology description containing phandles to cpu nodes that are not 
+>>> compliant
+>>> +with bindings standardized in [1] is therefore considered invalid.
+>>> +
+>>> +This cpu topology binding description is mostly based on the 
+>>> topology defined
+>>> +in ARM [2].
+>>> +===========================================
+>>> +2 - cpu-topology node
+>> 
+>> cpu-map. Why change this?
+>> 
+>> What I would like to see is the ARM topology binding reworked to be
+>> common or some good reasons why it doesn't work for RISC-V as-is.
+> 
+> I think it would be great if CPU topologies were not a RISC-V specific
+> thing.  We don't really do anything different than anyone else, so
+> it'd be great if we could all share the same spec and code.  Looking
+> quickly at the ARM cpu-map bindings, I don't see any reason why we
+> can't just use the same thing on RISC-V -- it's not quite how I'd do
+> it, but I don't think the differences are worth having another
+> implementation.  Mechanically I'm not sure how to do this: should
+> there just be a "Documentation/devicetree/bindings/cpu-map.txt"?
+> 
+> If everyone is OK with that then I vote we just go ahead and
+> genericise the ARM "cpu-map" stuff for CPU topology.  Sharing the
+> implementation looks fairly straight-forward as well.
+> 
 
-[303420.500000] swap_info_get: Bad swap file entry 2000000000df09b1
-[303420.500000] BUG: Bad page map in process struct-ret-3.ex  pte:6f84d8c0 pmd:8f579001
-[303420.510000] addr:000000008a1610cd vm_flags:00100173 anon_vma:0000000036036fc9 mapping:          (null) index:3ffffe7
-[303420.520000] file:          (null) fault:          (null) mmap:          (null) readpage:          (null)
-[303420.530000] CPU: 1 PID: 2054 Comm: struct-ret-3.ex Not tainted 4.19.0-00040-g2d5ee99e76 #42
-[303420.530000] Call Trace:
-[303420.530000] [<ffffffe000c847d4>] walk_stackframe+0x0/0xa4
-[303420.530000] [<ffffffe000c849d4>] show_stack+0x2a/0x34
-[303420.530000] [<ffffffe0011a6800>] dump_stack+0x62/0x7c
-[303420.530000] [<ffffffe000d55942>] print_bad_pte+0x146/0x18e
-[303420.530000] [<ffffffe000d56df6>] unmap_page_range+0x33a/0x5ea
-[303420.530000] [<ffffffe000d570d4>] unmap_single_vma+0x2e/0x40
-[303420.530000] [<ffffffe000d57278>] unmap_vmas+0x42/0x7a
-[303420.530000] [<ffffffe000d5cb92>] exit_mmap+0x7e/0x106
-[303420.530000] [<ffffffe000c872aa>] mmput.part.2+0x26/0xa0
-[303420.530000] [<ffffffe000c87344>] mmput+0x20/0x28
-[303420.530000] [<ffffffe000c8ba24>] do_exit+0x238/0x7c0
-[303420.530000] [<ffffffe000c8c006>] do_group_exit+0x2a/0x82
-[303420.530000] [<ffffffe000c8c076>] __wake_up_parent+0x0/0x22
-[303420.530000] [<ffffffe000c83722>] ret_from_syscall+0x0/0xe
+Please check this out...
+https://lkml.org/lkml/2018/11/3/99
 
-Andreas.
-
--- 
-Andreas Schwab, SUSE Labs, schwab at suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+It's also non arch-dependent and it can handle the scheduler's 
+capabilities
+better than cpu-map.
