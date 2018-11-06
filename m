@@ -2,23 +2,23 @@ Return-Path: <SRS0=W42x=NR=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 08F39C32789
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  6 Nov 2018 20:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F3E62C32789
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  6 Nov 2018 21:25:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CDBB5204FD
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  6 Nov 2018 20:06:30 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C3A87206BA
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  6 Nov 2018 21:25:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jXkUcMUg";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=paul-moore-com.20150623.gappssmtp.com header.i=@paul-moore-com.20150623.gappssmtp.com header.b="r/77uaws"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CDBB5204FD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=paul-moore.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Wf9TPRQj";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="euAJIe9M"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C3A87206BA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -26,60 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w700MVv5V5swQYTgVQnRkCX+iTz6GPBfiePgb/cOpTI=; b=jXkUcMUgFGqYbG
-	Yg3To6dk1+4nMeOEFz8JYAm5/aj6dcigc5hlIgx6fuRYzTbyUXG6vfuTHni8p3FIl7ozvyr727Ab6
-	ikEtBt8bbEJf7mWdUuzr4rCr8r1sB2ubMrH3imeSDYtpvpe8JvRBWH+ngwwkNtWgJvZQ5TZ36s+6s
-	1Uz6QwDwz5uzerQGC7jeUuXvHyQgwj4udHeHAn2neR4te5qGo+kNgUolmC+sDfuwt4R5R3Ka0bkal
-	V7qjaplIrjrgMAA64Lm40vml5P/AqzliULcp2ZqOMMjUCf8ndheBRvS6oe6XMqzkci9YdiRUzydpC
-	1Eo2nSmokShAv4wKIF3g==;
+	List-Owner; bh=Jht227SOR5yuATyrGXGXz6uMs/ePRV8d6uZbl8ThV9s=; b=Wf9TPRQj9n9MBa
+	FFpy2iACX17txMJqLeQQmq7wnMvmA0F20wsHcwox2hOcAuD3v8rGKXbLYnPd5y1LLk1pip7hVV0G6
+	1RTKb32nb5lF7XsQxA3F/3YFDdM9hYDS1a2HuTBjo1y7F6oZfxTEtnyjthn1ZGD6U/H5rw1lMqf/N
+	ma30NY4wvYE6VbNaufdekhLqT4w2GQmoIKhgtdoVBSTpG5KnL7Dlu+1Ig7MFfM6SrxYFZn6upN/Yf
+	1g/XEN19iNyyHIuY0Fm7H7wrpov7TpwSm2ulxBWZCyn7fz+ww87oXu9v6ajgJ1auBSRE4UYQDtrmy
+	ZO9lqe+6xBfRox7hC5Pw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gK7cL-00084i-FW; Tue, 06 Nov 2018 20:06:29 +0000
-Received: from mail-lj1-x244.google.com ([2a00:1450:4864:20::244])
+	id 1gK8r5-0002bz-8l; Tue, 06 Nov 2018 21:25:47 +0000
+Received: from mail-ot1-x344.google.com ([2607:f8b0:4864:20::344])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gK7cH-000846-Fw
- for linux-riscv@lists.infradead.org; Tue, 06 Nov 2018 20:06:27 +0000
-Received: by mail-lj1-x244.google.com with SMTP id t9-v6so9447095ljh.6
- for <linux-riscv@lists.infradead.org>; Tue, 06 Nov 2018 12:06:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=paul-moore-com.20150623.gappssmtp.com; s=20150623;
+ id 1gK8r1-0002b9-Pm
+ for linux-riscv@lists.infradead.org; Tue, 06 Nov 2018 21:25:45 +0000
+Received: by mail-ot1-x344.google.com with SMTP id c32so12862332otb.8
+ for <linux-riscv@lists.infradead.org>; Tue, 06 Nov 2018 13:25:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=o7KNBT5u2FpdE9ddKtjUHG9Vamfl6XScoxgvK/qV5gY=;
- b=r/77uawsFZbyZTeCVUbPwrZv505elxTg42SrdWG576eXWyWEWgygXWj8fF+jFAXATB
- qvPlpEAZoJ9aeYgfrElrw7mzcJsBGFcLCIukhSnZMpcejSxyAMROAZaAgVlnUZ93JPkt
- w/OuU+lN6ufozZzv9+Wf+23i0QPwXaLBGLqjZJz3BGUIv/woCes5f2Uh4eLRMbFxuB0I
- QdU6uNeTlIFWGNkVhXeykDCCdaswbO1FJaAMJLrRtE7VF3hGiXHg6ZiweUquEUw2S7c7
- mXlKJ39i4hY7/tM1NoiVHvJO0o4ai8i7B/H22Ms1FFDW1I0QN8a5jwtfjFpXbheP0HQU
- tbxg==
+ :cc; bh=6Fuve3pXzZ2+HQbAzrYsq43N10dVgg4dVpwsKvp6UQw=;
+ b=euAJIe9MTPuRD+2ksa5bVtfQuxADI2Z26U8PWtLUrLf2U/JHm5kW+XBbn1oCo7aw8I
+ ECiyQmNeY+xy3keAQlz0lzh1mAvZl92pshsQ1X5UJszj0uz+hphkpP1Tr63lGguW5cYP
+ VdmzIKFg4X58fQI+icUh1eYjnSwZ3K4zGbtkcIQz56NlffDyProJW1X7of0L8nCmn3oY
+ hPC0b2bYgHp8DnIHLdpfiTZecvT8Z/MWbCsmjFsG9c20ZxrCZSstlG2+6Jak4Xz1X/aH
+ NPwTKPuajXemwQ2Y14Z8ORi46Mxgpoe3/E2voYlbp+hR9XjSRxpiReZLLArc+dBYkjk2
+ a6HQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=o7KNBT5u2FpdE9ddKtjUHG9Vamfl6XScoxgvK/qV5gY=;
- b=DKy1y9MUSU1cAdoffKAwdIKwOY+GlI/Rj4Yahk3X0V6N5/ikR18OAi8GAZUvXAKIik
- NLuhfyqcggZe6VIH1yxLXV1lYF+mrBh+6vaN02lRdRvCZfDJANRyeFiN+ky28dH/ltYg
- 0bYz2uUzcLGQZbBupK1ntCnVtZyk8SJ+MWINPp5VVqCPN0L+BMTGU9tNqyizrY0utp7f
- AkSQ9iDc9pKfB8+grYU9pguvpYu73FyGHuD5XyT20uFKZTy5VU0wxfKarnzGV3AUPaqx
- EGAIGOWnHaPi6edb0tbiJ2aM5Pw6FPD1bJR+5AT8xJ0+NmJM9wWHT4x5MqnvuQXRT7yV
- nBNg==
-X-Gm-Message-State: AGRZ1gLh7za6UYBoxDfYPrXHu33GeAo97ekMSbYqAjNdzPfJmPqOVgfv
- pGWsbziwlqtz7RdJQfO2ERDoUBZs697+J6HF2LbE
-X-Google-Smtp-Source: AJdET5dkPxfA4aC5IeVlYNHaCx9ZzDlDvaPPkxZ6LDJnTWV+2dTY88dy4CRRtzq/LQ2q+2zfFr1Ck5t5rL92DAjejBw=
-X-Received: by 2002:a2e:8884:: with SMTP id
- k4-v6mr17773328lji.145.1541534772365; 
- Tue, 06 Nov 2018 12:06:12 -0800 (PST)
+ bh=6Fuve3pXzZ2+HQbAzrYsq43N10dVgg4dVpwsKvp6UQw=;
+ b=i28PYlAUJl9Qny3DmkjXi8Xh74jBUyjHMi8ycpCvcVOUecQMEryZdd+cvqxmek60hW
+ MIU/JpvixpXcJovqKA2Pu2+3btWEWXEEQpBbS/lPd8kdD/v0wDEEysmCqlvW5YqSKJsD
+ S/bl5nAX67QsU6DYQGY0+kADKyVxUI+9h/4ATWtHOaTJKgPa8A2W3YKtaxjmBJjlZOm7
+ bu48tKZHe88WvfkZdqB+3+RLhuEyO40Jg6xlk4rog5vKQT7ixI1K9m8ZsOW2TqGC0QNE
+ xtT1W8IasnCVTPeLumscZe69q7LbWSZrRwArepnaM+XFW71n/F2DCHqUMNQCyQ7eOs9r
+ GLDg==
+X-Gm-Message-State: AGRZ1gJdMl9AEIXo3DT4F9E/faC2iZhLXD3A/PHnYWQ2dDgIkmW6HmTm
+ 6XP0oBbmi+jvHBHLFfSLEhiSPBoHv9MOxVd2s6U=
+X-Google-Smtp-Source: AJdET5fO81U8WFWLm1XEpwNJ0RkiqNhf+rJDVjIfTFMv13mlhdRVywiILE82AydBZGGXYh3Cwj29So4+EZxDVRgxcZc=
+X-Received: by 2002:a9d:dc3:: with SMTP id 61mr8355261ots.345.1541539532360;
+ Tue, 06 Nov 2018 13:25:32 -0800 (PST)
 MIME-Version: 1.0
 References: <20181029104854.17432-1-david.abdurachmanov@gmail.com>
-In-Reply-To: <20181029104854.17432-1-david.abdurachmanov@gmail.com>
-From: Paul Moore <paul@paul-moore.com>
-Date: Tue, 6 Nov 2018 15:06:01 -0500
-Message-ID:
  <CAHC9VhSaGo0BmX5AsTcnppiVz2Lz8BFkjRA0jg_uuPix3Ziiog@mail.gmail.com>
+In-Reply-To: <CAHC9VhSaGo0BmX5AsTcnppiVz2Lz8BFkjRA0jg_uuPix3Ziiog@mail.gmail.com>
+From: David Abdurachmanov <david.abdurachmanov@gmail.com>
+Date: Tue, 6 Nov 2018 22:25:20 +0100
+Message-ID:
+ <CAEn-LTqQgQkA1XyihEg0MpADLPQADf3Ej2noUp29UtbcEaf0RA@mail.gmail.com>
 Subject: Re: [PATCH 0/2] riscv: add audit support
-To: david.abdurachmanov@gmail.com
+To: Paul Moore <paul@paul-moore.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181106_120625_526133_E3BF467D 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20181106_132543_835990_3E336603 
+X-CRM114-Status: GOOD (  23.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,79 +90,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, palmer@sifive.com,
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>,
  linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, linux-audit@redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181106200601.5560VZbjlSnu9rNnGeq4HFZeSfLuIBgd3UrX8nXg77c@z>
+Message-ID: <20181106212520.Aai_6lOhZ2JkfAOMc77HWzMty7N-zdylr8viIzOX1pM@z>
 
-On Mon, Oct 29, 2018 at 6:49 AM David Abdurachmanov
-<david.abdurachmanov@gmail.com> wrote:
-> This patchset adds system call audit support on riscv (riscv32 &
-> riscv64).
+On Tue, Nov 6, 2018 at 9:06 PM Paul Moore <paul@paul-moore.com> wrote:
 >
-> The pachset was prepared on top of v4.19 tag.
+> On Mon, Oct 29, 2018 at 6:49 AM David Abdurachmanov
+> <david.abdurachmanov@gmail.com> wrote:
+> > This patchset adds system call audit support on riscv (riscv32 &
+> > riscv64).
+> >
+> > The pachset was prepared on top of v4.19 tag.
+> >
+> > audit-userspace changes were submitted. See:
+> > https://github.com/linux-audit/audit-userspace/pull/73
+> >
+> > Tested the following manually:
+> > - auditctl (checked several different example rules from internet)
+> > - aulast
+> > - aulastlog
+> > - ausearch
+> > - ausyscall
+> > - aureport
+> > - autrace (compared some syscalls to strace: order and return
+> >   value/input arguments seem to be correct)
+> > - /proc/self/loginuid (required by DNF [package manager])
+> >
+> > I looked into audit-testsuite and with some adjustments results are:
+> >
+> > Failed 4/14 test programs. 19/88 subtests failed.
 >
-> audit-userspace changes were submitted. See:
-> https://github.com/linux-audit/audit-userspace/pull/73
+> I realize that the test suite failures are likely not due to your
+> code, but rather shortcomings in the test suite itself, but I think it
+> is important to resolve these problems before we commit the kernel
+> changes.
 >
-> Tested the following manually:
-> - auditctl (checked several different example rules from internet)
-> - aulast
-> - aulastlog
-> - ausearch
-> - ausyscall
-> - aureport
-> - autrace (compared some syscalls to strace: order and return
->   value/input arguments seem to be correct)
-> - /proc/self/loginuid (required by DNF [package manager])
+> You mention Fedora 29/RISCV below, is that the distro you are using
+> for testing?  Also, are you using a stock kernel config from the
+> distro or your own?
 >
-> I looked into audit-testsuite and with some adjustments results are:
+> > The failing tests were due to missing CONFIG_IP_NF_MANGLE ...
 >
-> Failed 4/14 test programs. 19/88 subtests failed.
+> Assuming a general purpose like Fedora, that seems like an odd
+> omission.  Any chance you can rebuild your kernel with the mangle
+> table?
 
-I realize that the test suite failures are likely not due to your
-code, but rather shortcomings in the test suite itself, but I think it
-is important to resolve these problems before we commit the kernel
-changes.
+When we build Fedora, the kernel is not built in a standard way. It's only
+build statically and contains minimal setup. We also don't do loadable
+kernel modules, because there wasn't support for it months ago. It's
+not tested yet by us.
 
-You mention Fedora 29/RISCV below, is that the distro you are using
-for testing?  Also, are you using a stock kernel config from the
-distro or your own?
+I did rebuild with CONFIG_IP_NF_MANGLE, but I think, there was more
+stuff missing. Have to look again.
 
-> The failing tests were due to missing CONFIG_IP_NF_MANGLE ...
+I am experimenting on building kernel in normal Fedora way, but there
+are some issues right now. It also takes 12-24 hours for a single attempt.
 
-Assuming a general purpose like Fedora, that seems like an odd
-omission.  Any chance you can rebuild your kernel with the mangle
-table?
-
-> ... 'id -Z' not printing categories (don't know why) ...
-
-Are you seeing the MLS/MCS sensitivity level, s0, or are you not
-seeing any of the MLS/MCS fields?
-
-> ... not having loadable kernel module support enablled ...
-
-Much like the netfilter config, any chance you can enable this in your kernel?
-
-> ... and syscall_socketcall not being relevant for new arches.
-
-We will probably need to make that ABI dependent in the test suite.
-
-> audit-testsuite with adjustments:
-> https://github.com/davidlt/audit-testsuite/tree/riscv64
 >
-> Depends on:
-> [PATCH 1/2] Move EM_RISCV into elf-em.h
-> http://lists.infradead.org/pipermail/linux-riscv/2018-October/001885.html
+> > ... 'id -Z' not printing categories (don't know why) ...
 >
-> This should solve DNF issues in Fedora 29/RISCV.
+> Are you seeing the MLS/MCS sensitivity level, s0, or are you not
+> seeing any of the MLS/MCS fields?
 
--- 
-paul moore
-www.paul-moore.com
+I boot my VM "selinux=1 enforcing=0".
+
+[root@fedora-riscv ~]# semanage login -l
+
+Login Name           SELinux User         MLS/MCS Range        Service
+
+__default__          unconfined_u         s0-s0:c0.c1023       *
+root                 unconfined_u         s0-s0:c0.c1023       *
+[root@fedora-riscv ~]# id -Z
+unconfined_u:unconfined_r:unconfined_t:s0
+
+>
+> > ... not having loadable kernel module support enablled ...
+>
+> Much like the netfilter config, any chance you can enable this in your kernel?
+
+Experimenting, not sure if it works yet.
+
+>
+> > ... and syscall_socketcall not being relevant for new arches.
+>
+> We will probably need to make that ABI dependent in the test suite.
+>
+> > audit-testsuite with adjustments:
+> > https://github.com/davidlt/audit-testsuite/tree/riscv64
+> >
+> > Depends on:
+> > [PATCH 1/2] Move EM_RISCV into elf-em.h
+> > http://lists.infradead.org/pipermail/linux-riscv/2018-October/001885.html
+> >
+> > This should solve DNF issues in Fedora 29/RISCV.
+>
+> --
+> paul moore
+> www.paul-moore.com
 
 _______________________________________________
 linux-riscv mailing list
