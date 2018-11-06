@@ -1,62 +1,22 @@
-From: joel@joelfernandes.org (Joel Fernandes)
-Date: Mon, 5 Nov 2018 20:36:00 -0800
-Subject: [PATCH -next 0/3] Add support for fast mremap
-In-Reply-To: <D6FB3C15-A8C1-4694-A434-A7489F590E05@oracle.com>
-References: <20181103040041.7085-1-joelaf@google.com>
- <6886607.O3ZT5bM3Cy@blindfold>
- <e1d039a5-9c83-b9b9-98b5-d39bc48f04e0@kot-begemot.co.uk>
- <20181103183208.GA56850@google.com>
- <D6FB3C15-A8C1-4694-A434-A7489F590E05@oracle.com>
-Message-ID: <20181106043600.GB139199@google.com>
+From: hch@infradead.org (Christoph Hellwig)
+Date: Mon, 5 Nov 2018 22:56:49 -0800
+Subject: [RFC 0/2] RISC-V: A proposal to add vendor-specific code
+In-Reply-To: <cac10a0961274e3ac4674e945f9d9e90@mailhost.ics.forth.gr>
+References: <1540982130-28248-1-git-send-email-vincentc@andestech.com>
+ <cac10a0961274e3ac4674e945f9d9e90@mailhost.ics.forth.gr>
+Message-ID: <20181106065649.GA13526@infradead.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sun, Nov 04, 2018 at 12:56:48AM -0600, William Kucharski wrote:
-> 
-> 
-> > On Nov 3, 2018, at 12:32 PM, Joel Fernandes <joel@joelfernandes.org> wrote:
-> > 
-> > Looks like more architectures don't define set_pmd_at. I am thinking the
-> > easiest way forward is to just do the following, instead of defining
-> > set_pmd_at for every architecture that doesn't care about it. Thoughts?
-> > 
-> > diff --git a/mm/mremap.c b/mm/mremap.c
-> > index 7cf6b0943090..31ad64dcdae6 100644
-> > --- a/mm/mremap.c
-> > +++ b/mm/mremap.c
-> > @@ -281,7 +281,8 @@ unsigned long move_page_tables(struct vm_area_struct *vma,
-> > 			split_huge_pmd(vma, old_pmd, old_addr);
-> > 			if (pmd_trans_unstable(old_pmd))
-> > 				continue;
-> > -		} else if (extent == PMD_SIZE && IS_ENABLED(CONFIG_HAVE_MOVE_PMD)) {
-> > +		} else if (extent == PMD_SIZE) {
-> > +#ifdef CONFIG_HAVE_MOVE_PMD
-> > 			/*
-> > 			 * If the extent is PMD-sized, try to speed the move by
-> > 			 * moving at the PMD level if possible.
-> > @@ -296,6 +297,7 @@ unsigned long move_page_tables(struct vm_area_struct *vma,
-> > 				drop_rmap_locks(vma);
-> > 			if (moved)
-> > 				continue;
-> > +#endif
-> > 		}
-> > 
-> > 		if (pte_alloc(new_vma->vm_mm, new_pmd))
-> > 
-> 
-> That seems reasonable as there are going to be a lot of architectures that never have
-> mappings at the PMD level.
+On Mon, Nov 05, 2018 at 09:39:29PM +0200, Nick Kossifidis wrote:
+> a) By directly modifying your custom CSRs, it means that we will need
+> compiler support in order to compile a kernel with your code in it. This
+> will break CI systems and will introduce various issues on testing and
+> reviewing your code. In general if we need custom toolchains to compile
+> the kernel, that may be unavailable (vendors will not always open source
+> their compiler support), we won't be able to maintain a decent level of
+> code quality in the tree. How can the maintainer push your code on the
+> repository if he/she can't even perform a basic compilation test ?
 
-Ok, I will do it like this and resend.
-
-> Have you thought about what might be needed to extend this paradigm to be able to
-> perform remaps at the PUD level, given many architectures already support PUD-mapped
-> pages?
-> 
-
-I have thought about this. I believe it is doable in the future. Off the top
-I don't see an issue doing it, and it will also reduce the number of flushes.
-
-thanks,
-
-- Joel
+And that (besides avoiding the wild growth of extensions) is the major
+reason why accepting vendor specific CSRs or instructions is a no-go.
