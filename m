@@ -6,94 +6,85 @@ X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 434F4C0044C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 20:35:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E1A9C0044C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 20:37:08 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 14FA82081D
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 20:35:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2D64B2081D
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 20:37:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="K2cBnOlb";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lixom-net.20150623.gappssmtp.com header.i=@lixom-net.20150623.gappssmtp.com header.b="Yq4V51bA"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14FA82081D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lixom.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hbp636ex";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="UHLcrR1c"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2D64B2081D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=deltatee.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=0Q+/1Ol4+ZNDUlKVP5qVTILocB7gyG2mHbgdkKhRBx4=; b=K2cBnOlbTNuKtmOu8Tn+T4oSmb
-	bTeo8BKpss5gfeqDyiqBSceB2y2Z+jzBxIHp77PZ/MXn0HLDvDMiVXkphJFboztm/vvSR7seu4fn2
-	iphZvN5We8hNz7sJRTTd7rLbKZ9nUBRHIMAe5JXgWnrE4/bRNB+oUEdHo4ezFkPuiUx6yTvsq8jBN
-	6WjqleV2GWw2efUKtKJMFLJ2wDYxurGylrYu7Rs23qo18LQBXlYPtkdxQGcwNyeUDDdipkVdUoCRY
-	GQyoEhQTZLDfCM7lm2Q+HOANb0x4Hr/pReNDjuXlqRPyeBU8CqPKQ3EZZ4UroFq1Rjn3JLYEuU8kI
-	xpgSfakQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3TKMlE5zUjfFLq4bE0Add5Os1jyKGZp69TY+v7lUrqY=; b=hbp636exbNVE6k
+	VB+IHI6kt9mB1wVEWj/n2BHiilhhzfvtGLeATxF9OVpItorTqw5Uoa0gv3FpLEjDRPFF858y1za6C
+	W3kmTPEAUYKmT0wRCj31Ej5etz+lHHQQ2o1ToZ5maGsUzcsDvdA271dckybagj6lPXOF4tiH2S2Qh
+	ae0n2qrflfleL3QBXnc+JdyfFgEQV2dWu1Ntualq9wNbC95D+7Z0axDKOHwc/JAWqvA5H5v6/+h5d
+	aiPZhHI2vToVT5JqMTkOtJMaViso4TBpG/PqgdMvj/x5PdFeM52nujlrWoHcEP3rSlvSTuEfDMt0C
+	VT9jUiRinNHCfGF0NVtQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gKUY2-0007rq-Ac; Wed, 07 Nov 2018 20:35:34 +0000
-Received: from mail-lj1-x241.google.com ([2a00:1450:4864:20::241])
+	id 1gKUZV-00006B-NE; Wed, 07 Nov 2018 20:37:05 +0000
+Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gKUXy-0007g0-TC
- for linux-riscv@lists.infradead.org; Wed, 07 Nov 2018 20:35:32 +0000
-Received: by mail-lj1-x241.google.com with SMTP id v15-v6so7336426ljh.13
- for <linux-riscv@lists.infradead.org>; Wed, 07 Nov 2018 12:35:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=lixom-net.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
- bh=f9k63G31/6joH9fmBOlrYi5nLWOfw2itPe2tz08+7yc=;
- b=Yq4V51bA1qv5ZMGJgpNcRAdekx8kfdzlkyvyZI0OpKAACotYw/oyOnkxf8yEFbz3pY
- taFChpw4UOb03Cy+gYefL/ZUTIOcWr5KYhRnCm80PCfr/pWvpTza8KMZAtOP7fuiHqMR
- vCxn2AoCbzWr1Jfjkc/xVy73YwPYagDM7r4s/Bz8Vs5yjljEYFU16x7mWePK6O35t8sA
- pQyMSUuvKg9neXQxKKehZwWVEyIH5xGIwAFa1QM1WcXx4wfFSDlR64o4X80wWy+xifZP
- +DqSln6BeVv/hz7P7zfd3iAB1demsJTuKkgAiMSoIIeAzb3425AaErr3m1AihjtWOWQK
- NpAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to;
- bh=f9k63G31/6joH9fmBOlrYi5nLWOfw2itPe2tz08+7yc=;
- b=hztXqOaXP7VOm3Ms1QSq4hWyUybTXwm8pXdIFnydRQRttzphwdmSbuh1xLj3HTdnbK
- mCYZ8sOd3frV3BwxBIuSJ46RNYdhGQ37CZO5BhDIM22QLCWFg7O9im90WKacmbAziEvO
- OgRKllPi9UpytdWBvzOrrPR9udqVRGPj0J7dO9icSm3zw3khxV45SNiXcEtjm7wlOi+J
- VUkTYyAI2UEO+DlUzA8Iwz5XbNCDoC5muabTFDvFeoUEjWLvBsIZtRK9rJi8Nk4zl3gR
- A1gjQhvsnnQvofK530v4qp31A4rEMVYXE68uD5yOvLoVUfukA91ZkXPUbJCA+7ByZQTq
- Qlog==
-X-Gm-Message-State: AGRZ1gLR9e8aBq2m7569b0IC33AoNZIcedYCJRmZThjPlGoOr3k2wNDz
- 9pCIGBIWLfNJyWAvGUsQfIFi023AbKeucoe6GbVl4Q==
-X-Google-Smtp-Source: AJdET5fbaGod6/puaG3t4AOklchVqQ7d9RBuc/vjBPFlGPGgzKWmqMAO/KuritPnuTm0EsPIOCoBK4fhMl5+JAd7NFo=
-X-Received: by 2002:a2e:94ce:: with SMTP id
- r14-v6mr1111712ljh.34.1541622918700; 
- Wed, 07 Nov 2018 12:35:18 -0800 (PST)
+ id 1gKUZM-0008Ps-J9; Wed, 07 Nov 2018 20:36:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=merlin.20170209; h=Subject:Content-Transfer-Encoding:
+ Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+ Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=NUkSsjJyzm5B8QJ2UuwJ65sDXyAt4Q9s3vle4Z3meqk=; b=UHLcrR1cDflyB9m6p8uXy9HDk+
+ Qe8+PKSYrqIqfKMAAXRmpkBTpXyI+48vtcd92p9iwX4CLaxJWTnZczOrWj2zIZ7DATJB+x12aB6pN
+ 2kJ3IWRmCYVxOEjyOEFreVwUntXx58YiJJ36m+w8yMcN8az4bqL/1d1X0px1R0LEVs0kwFW4ouNwT
+ 2j+5ejmxWwibTZHijhgKDqDkzdB+MS94GE8yh4l3kdYT9tJPNupD3TDh45VVd7FFOtIkuZ+QxFtIo
+ X/cUAAq6cqibwpTyPtP0I7P9RKTNfggYIuUEZPGlhS75GguOCe99cCkYQqysl/UIMY6zG7aOe4YP/
+ ycuJhfnQ==;
+Received: from ale.deltatee.com ([207.54.116.67])
+ by merlin.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gKUZK-0002ak-6c; Wed, 07 Nov 2018 20:36:54 +0000
+Received: from guinness.priv.deltatee.com ([172.16.1.162])
+ by ale.deltatee.com with esmtp (Exim 4.89)
+ (envelope-from <logang@deltatee.com>)
+ id 1gKUZ1-0005qg-46; Wed, 07 Nov 2018 13:36:35 -0700
+To: Thomas Gleixner <tglx@linutronix.de>
+References: <20181107173859.24096-1-logang@deltatee.com>
+ <20181107173859.24096-3-logang@deltatee.com>
+ <20181107121207.62cb37cf58484b7cc80a8fd8@linux-foundation.org>
+ <724be9bb-59b6-33f3-7b59-3ca644d59bf7@deltatee.com>
+ <alpine.DEB.2.21.1811072125280.1666@nanos.tec.linutronix.de>
+From: Logan Gunthorpe <logang@deltatee.com>
+Message-ID: <b1cc442e-7314-4a8e-3eec-9adc200d7582@deltatee.com>
+Date: Wed, 7 Nov 2018 13:36:34 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.2.1
 MIME-Version: 1.0
-References: <CAOesGMgVPsK9YsV2nGoBptWwtHYv=3yMytLx2_tF_ujS5c5p3Q@mail.gmail.com>
- <20181107171723.GI9919@thunk.org>
- <CAOesGMheCcvDQCd+7fyh4yOk4BYDfm2QRqsdawqA_fg8s9YYEQ@mail.gmail.com>
- <CAOesGMg+jW7SN2+E_FYbwi8GdNhc8KrEsahB-Nn+AseO6kLGXA@mail.gmail.com>
- <20181107203245.GK9919@thunk.org>
-In-Reply-To: <20181107203245.GK9919@thunk.org>
-From: Olof Johansson <olof@lixom.net>
-Date: Wed, 7 Nov 2018 12:35:06 -0800
-Message-ID:
- <CAOesGMhf-RHtjZGZ9D9i=7=C08zmT9=eW5qnYTO6foB=cz06vA@mail.gmail.com>
-Subject: Re: [TECH TOPIC] SoC maintainer group
-To: Theodore Tso <tytso@mit.edu>,
- ksummit <ksummit-discuss@lists.linuxfoundation.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv@lists.infradead.org, 
- linux-clk <linux-clk@vger.kernel.org>, linux-gpio@vger.kernel.org, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will.deacon@arm.com>, 
- Palmer Dabbelt <palmer@sifive.com>, Russell King <rmk@armlinux.org.uk>, 
- Linux ARM Mailing List <linux-arm-kernel@lists.infradead.org>,
- Arnd Bergmann <arnd@arndb.de>, 
- Mark Brown <broonie@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
- Kevin Hilman <khilman@kernel.org>, Stephen Boyd <sboyd@kernel.org>
+In-Reply-To: <alpine.DEB.2.21.1811072125280.1666@nanos.tec.linutronix.de>
+Content-Language: en-CA
+X-SA-Exim-Connect-IP: 172.16.1.162
+X-SA-Exim-Rcpt-To: osalvador@suse.de, vbabka@suse.cz, mhocko@suse.com,
+ arnd@arndb.de, hch@lst.de, aou@eecs.berkeley.edu, palmer@sifive.com,
+ sbates@raithlin.com, linux-sh@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ akpm@linux-foundation.org, tglx@linutronix.de
+X-SA-Exim-Mail-From: logang@deltatee.com
+Subject: Re: [PATCH 2/2] mm/sparse: add common helper to mark all memblocks
+ present
+X-SA-Exim-Version: 4.2.1 (built Tue, 02 Aug 2016 21:08:31 +0000)
+X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181107_123530_970759_C1D2A7FD 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20181107_153654_357276_849FFD00 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -105,38 +96,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: linux-arch@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>, linux-sh@vger.kernel.org,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Stephen Bates <sbates@raithlin.com>, linux-mm@kvack.org,
+ Michal Hocko <mhocko@suse.com>, Vlastimil Babka <vbabka@suse.cz>,
+ Andrew Morton <akpm@linux-foundation.org>, Christoph Hellwig <hch@lst.de>,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Oscar Salvador <osalvador@suse.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181107203506.8jVKPfhbWKSNvzFgTuf5YPBCUAR8NWAsOzhyg-OlRis@z>
-
-On Wed, Nov 7, 2018 at 12:33 PM Theodore Y. Ts'o <tytso@mit.edu> wrote:
->
-> On Wed, Nov 07, 2018 at 10:47:24AM -0800, Olof Johansson wrote:
-> >
-> > Can we have 3pm-3:30pm on Thursday? It seems relatively low on
-> > embedded-related conflicts and at 3  people would have time to migrate
-> > from Daniel Vetter's gitlab talk if needed.
->
-> I'd really like to keep the slots all 45 minutes, aligned with the LPC
-> referreed paper track, since that's what most MC runners were also
-> strongly encouraged to do.  (Although to be fair, it looks like most
-> of the MC runners haven't really stuck with that.)
->
-> The rooms are all fairly close to one another, and if you want to wait
-> a few minutes pack up and move next door or across the hall, that's
-> fine.  But it's going to be a lot simpler of we tell people that the
-> official starting time is 2:45pm.
-
-Thanks, we can definitely work with that and just start a few minutes
-late if there's a lot of movement between the rooms.
-
-(Previous email seems to have crossed in compose/flight, happy to move
-to the other thread but it seems like we're maybe mostly done?)
+Message-ID: <20181107203634.KWIyH6DSaXw6TnCDBKZMK5rmOXmPMtP4sGZczdikmQM@z>
 
 
--Olof
+
+On 2018-11-07 1:26 p.m., Thomas Gleixner wrote:
+> Logan,
+> 
+> On Wed, 7 Nov 2018, Logan Gunthorpe wrote:
+>> On 2018-11-07 1:12 p.m., Andrew Morton wrote:
+>>>> +void __init memblocks_present(void)
+>>>> +{
+>>>> +	struct memblock_region *reg;
+>>>> +
+>>>> +	for_each_memblock(memory, reg) {
+>>>> +		memory_present(memblock_get_region_node(reg),
+>>>> +			       memblock_region_memory_base_pfn(reg),
+>>>> +			       memblock_region_memory_end_pfn(reg));
+>>>> +	}
+>>>> +}
+>>>> +
+>>>
+>>> I don't like the name much.  To me, memblocks_present means "are
+>>> memblocks present" whereas this actually means "memblocks are present".
+>>> But whatever.  A little covering comment which describes what this
+>>> does and why it does it would be nice.
+>>
+>> The same argument can be made about the existing memory_present()
+>> function and I think it's worth keeping the naming consistent. I'll add
+>> a comment and resend shortly.
+> 
+> Actually if both names suck, then there also is the option to rename both
+> instead of adding a comment to explain the suckage.
+
+Ok, well, I wasn't expecting to take on a big rename like that as it
+would create a patch touching a bunch of arches and mm files... But if
+we can come to some agreement on a better name and someone is willing to
+take that patch without significant delay then I'd be happy to create
+the patch and add it to the start of my series.
+
+Some ideas for new names:
+
+mark_memory_present() / mark_memblocks_present()
+set_memory_present() / set_memblocks_present()
+memory_register() / memblocks_register()
+register_memory() / register_memblocks()
+
+Logan
 
 _______________________________________________
 linux-riscv mailing list
