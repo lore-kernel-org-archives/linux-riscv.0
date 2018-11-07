@@ -2,84 +2,87 @@ Return-Path: <SRS0=abkI=NS=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 27BA6C0044C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 12:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 602FAC0044C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 15:51:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ED90C2081D
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 12:28:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 33D202086C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 15:51:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ph1074W9";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="IGx7rear"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED90C2081D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jcEtM5ou";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="E4zu7wm7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 33D202086C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CgQH9fUfxhQJzIFw8szScpzwZDZnQ2tAdDyWYqOuqmo=; b=ph1074W9XtiZFI
-	E7thcFSJQzZm2dsEPTZJvyIoIi1uTfVzuHRNAqaAHit0HvOseBg7uWZqZu0eioL1r4mTaVAyGWK8N
-	FDbNicMPz+QUilxhXnfjoY7XSyQwWGJuEOfFsVHq0xxByTXzeYxZ4bvhrHpc41FkEnwOdy3y4anco
-	K8QF5hqAj9aSiR9tEKT6xaDCIVA4B/GY+9pjlosJn0xn4OpkEXSPUzry4aYddKsjU2sXuVH5ktnHX
-	jpshdBdL5Xx1NkUCya4GQHBoAGYYSFPjfPo4KebnCvXLoEbBiX0a2xBdsjpVDBM1qhgCi4T7wA/8p
-	UkDNnjthm0gE1ntUrPbw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=Y3VvvnowwoU6LvmaUW2W5eFVgEECqzdvSH+I29l2cTE=; b=jcEtM5ouekpxEs01KZgi6/0pM
+	TxHRyU3ZnqTqHapsJQZ+BBbhtPafJk5kEt/3tovnXQlpWLXVgNcg94SroYgIyOpTvCWMhUx8/KYCI
+	sCmR56oLTvFRL441MxAMYCmLSx2SvmP1nQuZ0PUtQHQvRS4Kts+NRHmU006A0TtISTYVJmohsmqIL
+	ES374gZeZZP/4Y7qptrMP4CwcHjQgR9496LRRr0X+Hpkth1x2KA1u7jwFIX+NQPyli/yIw7nzt72q
+	nZQKsr8Iyo12+OWrcJeTGeoGicwEO/BTWv1q73hD1pXtgJnryBcgDhUXxWdX+70v9OJEnn3ZckhPQ
+	ls2iSrCwQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gKMwd-000803-7u; Wed, 07 Nov 2018 12:28:27 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1gKQ7P-0008No-Nf; Wed, 07 Nov 2018 15:51:47 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gKMwc-0007zm-8T
- for linux-riscv@bombadil.infradead.org; Wed, 07 Nov 2018 12:28:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=6PSv/00Yi0e5x3l22ZQP6wGDEVVDGXgstkJnF3d+z1M=; b=IGx7rearEj9o6TE7EdAoouS93
- CKzMfgalG/pX56LsmmfjGPPrGxHGd9C8b+KQcna+86Ivx45Ltfzknbyk9nW4M53lveEw89Qxf979a
- xJ+H7Dq+QE/LCGya1SBXDCWht0KJwsl0PmKK1Cs0InnS8WD/h+dViwEu2Epqu6mSST6rRVSJriJ9F
- GPrN5+qPQF6i86pk0BE3sP2WPc9CQmv3lzRk+uOLoPKxu/hVrayvXQiWXhTo2GY2Nvy8TGP/clkIF
- x8BgxMMJRsr2+LX5AK+lR8nbDxPP45ZK9cv57WrOXrt1erVIOCEyGyUydqfc7+thqwtV9IJhTb/Si
- +GAhKljaQ==;
-Received: from usa-sjc-mx-foss1.foss.arm.com ([217.140.101.70]
- helo=foss.arm.com)
- by casper.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gKMwY-0007iq-PK
- for linux-riscv@lists.infradead.org; Wed, 07 Nov 2018 12:28:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF95580D;
- Wed,  7 Nov 2018 04:28:11 -0800 (PST)
-Received: from e107155-lin (e107155-lin.cambridge.arm.com [10.1.196.42])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6434E3F5CF;
- Wed,  7 Nov 2018 04:28:09 -0800 (PST)
-Date: Wed, 7 Nov 2018 12:28:03 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Nick Kossifidis <mick@ics.forth.gr>
-Subject: Re: [RFC 0/2] Add RISC-V cpu topology
-Message-ID: <20181107122803.GA8433@e107155-lin>
-References: <1541113468-22097-1-git-send-email-atish.patra@wdc.com>
- <866dedbc78ab4fa0e3b040697e112106@mailhost.ics.forth.gr>
- <20181106141331.GA28458@e107155-lin>
- <969fc2a5198984e0dfe8c3f585dc65f9@mailhost.ics.forth.gr>
- <20181106162051.w7fyweuxrl7ujzuz@lakrids.cambridge.arm.com>
- <abcae019e6ae749b17ecb0c721fd3177@mailhost.ics.forth.gr>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <abcae019e6ae749b17ecb0c721fd3177@mailhost.ics.forth.gr>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+ id 1gKQ7M-0008NN-3u
+ for linux-riscv@lists.infradead.org; Wed, 07 Nov 2018 15:51:45 +0000
+Received: by mail-pl1-x635.google.com with SMTP id b5-v6so8037928pla.6
+ for <linux-riscv@lists.infradead.org>; Wed, 07 Nov 2018 07:51:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=xJpzvwut0k+q2A+Nw6MrOxYocHY5VcH9qHpyIB4MGNI=;
+ b=E4zu7wm7PASm5Gvp6H2Z2a18rJcaKQJ4LCZZKuAT4rrzbjklfKz2lpktNwZX+I5FWq
+ Vgf0rA1NxicrU1ku3s2hFZ1ZFhloW9qIIeuJ6WUTd+hrZhRg6dS0wE3nVsEpM0Lr8ifM
+ eRxnliXFYqPIUpp3bJ5UnCWqqi6P39NEwm+iDPkQKfAPyWlKMXWvGYA1NYRsBNIH+aUW
+ c0pidd+GFy7SHzm5BOwdc2xpt9MgEsFv0w/al+AH9PPoV2K8j4/EpTSil77ACHnhSwRw
+ swl94nrkptjqtTLajhRJacT6yqLzNVbGkAX3CYoas8gjp0AQQ1PmYjK71PehkxD7zT1z
+ q4bQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=xJpzvwut0k+q2A+Nw6MrOxYocHY5VcH9qHpyIB4MGNI=;
+ b=FSoYXSVOXP155yqapoLR3HycHFJMSEtTpdaVQz4+WjlyAzMXnKOBCvItQWZE0sKr8Z
+ E/tgn7wHxwUL9GM7n6MhwpT7iiBrYzh2StmneVcwS0iJjW/5xQBKU87Hz6J9XKGjNHMw
+ iiQNEfscpYu3It3e+HWivaiSY7k8V8GfjOFQgkN8HfOxiFbIqUqGuzCvWgxQKTcu74h3
+ CRuJniVc7vpW8qSelADVyM7HHodnAy5pzvCKXWMtmlvsLzVc4ciHhVXYrOPHBD9oQzTI
+ WPed2CArt9UG7Ld1t54o2DTzhOxbsWk59o/Clh1INz/88rieOVTbgFTRyCEQ4Qx7bTDu
+ dn3w==
+X-Gm-Message-State: AGRZ1gJe2OWewNnWOh+tomaBk6av8Dhip7LlFM5vSGbxW80K4BNIwPUv
+ LF6SbtWICi29oEnQE1nvLzx7kbfGee4=
+X-Google-Smtp-Source: AJdET5fcvDV3wizYAHUfUNbm+7RH09KrNfSUCjpg+ZqufNsb9Hs1VkpOPDrDayqJ3wp4EzGpORrF+Q==
+X-Received: by 2002:a17:902:7108:: with SMTP id
+ a8-v6mr751816pll.290.1541605893153; 
+ Wed, 07 Nov 2018 07:51:33 -0800 (PST)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id u6sm1053800pgr.79.2018.11.07.07.51.32
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 07 Nov 2018 07:51:32 -0800 (PST)
+Date: Wed, 07 Nov 2018 07:51:32 -0800 (PST)
+X-Google-Original-Date: Tue, 06 Nov 2018 18:35:57 PST (-0800)
+Subject: Re: [sw-dev] About the Use of sfence.vma in Kernel
+In-Reply-To: <mvmk1lqk4zc.fsf@suse.de>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: schwab@suse.de
+Message-ID: <mhng-950be55f-c014-4dc5-bff5-dab3f27456c2@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181107_122823_162643_0BB7A3E0 
-X-CRM114-Status: GOOD (  49.37  )
+X-CRM114-CacheID: sfid-20181107_075144_161758_A6712926 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,225 +94,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Damien.LeMoal@wdc.com, alankao@andestech.com, hch@infradead.org,
- anup@brainfault.org, palmer@sifive.com, linux-kernel@vger.kernel.org,
- zong@andestech.com, Atish Patra <atish.patra@wdc.com>, robh+dt@kernel.org,
- Sudeep Holla <sudeep.holla@arm.com>, linux-riscv@lists.infradead.org,
- tglx@linutronix.de
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-riscv@lists.infradead.org, sw-dev@groups.riscv.org,
+ alankao@andestech.com, greentime@andestech.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181107122803.Qr37jBbrmj4jnKP8Z1IRoDhBKzq8kPJs-JS491Qjc4I@z>
+Message-ID: <20181107155132.Hy36sjee6XTfvis49cOlLv_rnEGbIRjainwvOvdJ-4w@z>
 
-On Wed, Nov 07, 2018 at 04:31:34AM +0200, Nick Kossifidis wrote:
-[...]
-
+On Tue, 06 Nov 2018 00:03:19 PST (-0800), schwab@suse.de wrote:
+> Perhaps that't the reason I sometimes get errors like this:
 >
-> Mark and Sudeep thanks a lot for your feedback, I guess you convinced me
-> that having a device tree binding for the scheduler is not a correct
-> approach.
->
+> [303420.500000] swap_info_get: Bad swap file entry 2000000000df09b1
+> [303420.500000] BUG: Bad page map in process struct-ret-3.ex  pte:6f84d8c0 pmd:8f579001
+> [303420.510000] addr:000000008a1610cd vm_flags:00100173 anon_vma:0000000036036fc9 mapping:          (null) index:3ffffe7
+> [303420.520000] file:          (null) fault:          (null) mmap:          (null) readpage:          (null)
+> [303420.530000] CPU: 1 PID: 2054 Comm: struct-ret-3.ex Not tainted 4.19.0-00040-g2d5ee99e76 #42
+> [303420.530000] Call Trace:
+> [303420.530000] [<ffffffe000c847d4>] walk_stackframe+0x0/0xa4
+> [303420.530000] [<ffffffe000c849d4>] show_stack+0x2a/0x34
+> [303420.530000] [<ffffffe0011a6800>] dump_stack+0x62/0x7c
+> [303420.530000] [<ffffffe000d55942>] print_bad_pte+0x146/0x18e
+> [303420.530000] [<ffffffe000d56df6>] unmap_page_range+0x33a/0x5ea
+> [303420.530000] [<ffffffe000d570d4>] unmap_single_vma+0x2e/0x40
+> [303420.530000] [<ffffffe000d57278>] unmap_vmas+0x42/0x7a
+> [303420.530000] [<ffffffe000d5cb92>] exit_mmap+0x7e/0x106
+> [303420.530000] [<ffffffe000c872aa>] mmput.part.2+0x26/0xa0
+> [303420.530000] [<ffffffe000c87344>] mmput+0x20/0x28
+> [303420.530000] [<ffffffe000c8ba24>] do_exit+0x238/0x7c0
+> [303420.530000] [<ffffffe000c8c006>] do_group_exit+0x2a/0x82
+> [303420.530000] [<ffffffe000c8c076>] __wake_up_parent+0x0/0x22
+> [303420.530000] [<ffffffe000c83722>] ret_from_syscall+0x0/0xe
 
-Thanks :)
+From my understanding of it, this should manifest as an infinite loop:
 
-> It's not a device after all and I agree that the device tree shouldn't
-> become an OS configuration file. Regarding multiple levels of shared
-> resources my point is that since cpu-map doesn't contain any information of
-> what is shared among the cluster/core members it's not easy to do any
-> further translation. Last time I checked the arm code that uses cpu-map, it
-> only defines one domain for SMT, one for MC and then everything else is
-> ignored. No matter how many clusters have been defined, anything above the
-> core level is the same (and then I guess you started talking about adding
-> "packages" on the representation side).
->
+* The implementation will raise an exception due to an unmapped page.
+* The trap handler will then go fix up that exception and attempt to re-execute 
+  the offending instruction.
+* The implementation will raise the exception again because its translation caches 
+  haven't been updated.
 
-Correct.
-
-> The reason I proposed to have a binding for the scheduler directly is not
-> only because it's simpler and closer to what really happens in the code, it
-> also makes more sense to me than the combination of cpu-map with all the
-> related mappings e.g. for numa or caches or power domains etc.
->
-
-Again you are just looking at it with Linux kernel perspective.
-
-> However you are right we could definitely augment cpu-map to include support
-> for what I'm saying and clean things up, and since you are open about
-> improving it here is a proposal that I hope you find interesting: At first
-> let's get rid of the <thread> nodes, they don't make sense:
->
-> thread0 {
->  cpu = <&CPU0>;
-> };
->
-
-Do you have any strong reasons to do so ?
-Since it's already there for some time, I believe we can't remove it for
-backward compatibility reasons.
-
-> A thread node can't have more than one cpu entry and any properties
-> should be on the cpu node itself, so it doesn't / can't add any
-> more information. We could just have an array of cpu nodes on the
-> <core> node, it's much cleaner this way.
->
-> core0 {
->  members = <&CPU0>, <&CPU1>;
-> };
->
-
-I agree, but we have kernel code using it(arm64/kernel/topology.c). It's
-too late to remove it. But we can always keep to optional if we move the
-ARM64 binding as generic to start with and mandate it for only ARM64.
-
-> Then let's allow the cluster and core nodes to accept attributes that are
-> common for the cpus they contain. Right now this is considered invalid.
->
-
-Yes, we have discussed in the past and decided not to. I am fine if we
-need to change it, but assuming the topology implies other information
-could be wrong. On ARM platforms we have learnt it, so we kept any
-information away from topology. I assume same with RISC-V, different
-vendors implement in different ways, so it's better to consider those
-factors.
-
-> For power domains we have a generic binding described on
-> Documentation/devicetree/bindings/power/power_domain.txt
-> which basically says that we need to put power-domains = <power domain
-> specifiers> attribute on each of the cpu nodes.
->
-
-OK, but what's wrong with that. I gives full flexibility.
-
-> The same happens with the capacity binding specified for arm on
-> Documentation/devicetree/bindings/arm/cpu-capacity.txt
-> which says we should add the capacity-dmips-mhz on each of the cpu nodes.
->
-
-Ditto, we may need this for our single cluster DSU systems.
-
-> The same also happens with the generic numa binding on
-> Documentation/devicetree/bindings/numa.txt
-> which says we should add the nuna-node-id on each of the cpu nodes.
->
-
-Yes, but again what's the problem ?
-
-> We could allow for these attributes to exist on cluster and core nodes
-> as well so that we can represent their properties better. It shouldn't
-> be a big deal and it can be done in a backwards-compatible way (if we
-> don't find them on the cpu node, climb up the topology hierarchy until
-> we find them / not find them at all). All I'm saying is that I prefer this:
->
-
-[...]
-
->
-> cluster0 {
->  cluster0 {
->   core0 {
->    power-domains = <&pdc 0>;
->    numa-node-id = <0>;
->    capacity-dmips-mhz = <578>;
->    members = <&cpu0>, <&cpu1>;
->   }
->  };
->  cluster1 {
->   capacity-dmips-mhz = <1024>;
->   core0 {
->    power-domains = <&pdc 1>;
->    numa-node-id = <1>;
->    members = <&cpu2>;
->   };
->   core1 {
->    power-domains = <&pdc 2>;
->    numa-node-id = <2>;
->    members = <&cpu3>;
->   };
->  };
-> }
->
-
-Why are you so keen on optimising the representation ?
-If you are worried about large systems, generate one instead of
-handcrafted.
-
-> When it comes to shared resources, the standard dt mappings we have are for
-> caches and are on the device spec standard (coming from power pc's ePAPR
-> standard I think). The below comes from HiFive unleashed's device tree
-> (U540Config.dts) that follows the spec:
->
-
-I don't understand what you are trying to explain, ePAPR does specify
-per CPU entries.
-
-[...]
-
-> Note that the cache-controller node that's common between the 4 cores can
-> exist anywhere BUT the cluster node ! However it's a property of the
-> cluster.
-> A quick search through the tree got me r8a77980.dtsi that defines the cache
-> on the cpus node and I'm sure there are other similar cases. Wouldn't this
-> be better ?
->
-> cluster0 {
->  core0 {
->   cache-controller@2010000 {
->    cache-block-size = <64>;
->    cache-level = <2>;
->    cache-sets = <2048>;
->    cache-size = <2097152>;
->    cache-unified;
->    compatible = "sifive,ccache0", "cache";
->    ...
->   };
->   members = <&cpu0>, <&cpu1>, <&cpu2>, <&cpu3>;
-
-Not a good idea IMO.
-
-> We could even remove next-level-cache from the cpu nodes and infer it from
-> the  topology (search the topology upwards until we get a node that's
-> "cache"-compatible), we can again make this backwards-compatible.
->
-
-Why are you assuming that they *have* to be so aligned with topology ?
-How do you deal with different kind of systems ?
-
->
-> Finally from the examples above I'd like to stress out that the distinction
-> between a cluster and a core doesn't make much sense and it also makes the
-> representation more complicated. To begin with, how would you call the setup
-> on HiFive Unleashed ? A cluster of 4 cores that share the same L3 cache ?
-> One core with 4 harts that share the same L3 cache ? We could represent it
-> like this instead:
->
-
-Just represent each physical cache and get the list of CPUs sharing it.
-Doesn't matter what it is: cluster or cluster of clusters or cluster of
-harts, blah, blah. It really doesn't matter.
-
->
-> We could e.g. keep only cluster nodes and allow them to contain either an
-> array of harts or other cluster sub-nodes + optionally a set of attributes,
-> common to the members/sub-nodes of the cluster. This way we'll get in the
-> first example:
->
-
-All these fancy new ideas you are proposing are good if vendors follow
-some things religiously, but I really doubt if that's true. So just
-have maximum flexibility so that we can represent maximum number of
-systems without having to redefine the bindings again and again for the
-same thing.
-
-So instead of finding ways to optimise, you should really come up with
-list of shortcomings in the existing bindings so that we cover more
-platforms with generic bindings. IMO you are too concerned on optimisation
-of DT representation which may defeat the purpose of generic bindings.
-
---
-Regards,
-Sudeep
+This requires an implementation that caches invalid mappings.  IIRC we don't do 
+that in QEMU or in Rocket.
 
 _______________________________________________
 linux-riscv mailing list
