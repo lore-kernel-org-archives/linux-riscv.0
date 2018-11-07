@@ -1,33 +1,38 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 06 Nov 2018 16:33:06 -0800 (PST)
-Subject: [PATCH] riscv: fix spacing in struct pt_regs
-In-Reply-To: <20181105144004.28267-1-david.abdurachmanov@gmail.com>
-Message-ID: <mhng-0fc17080-b4cc-4aa4-b269-b3140af7421d@palmer-si-x1c4>
+From: paul.walmsley@sifive.com (Paul Walmsley)
+Date: Wed, 7 Nov 2018 02:00:30 +0000 (UTC)
+Subject: [PATCH v2 2/3] dt-bindings: clk: add documentation for the SiFive
+ PRCI driver
+In-Reply-To: <154152561238.88331.13239370518226908068@swboyd.mtv.corp.google.com>
+References: <20181020135024.28573-1-paul.walmsley@sifive.com>
+ <20181020135024.28573-3-paul.walmsley@sifive.com>
+ <154152561238.88331.13239370518226908068@swboyd.mtv.corp.google.com>
+Message-ID: <alpine.DEB.2.21.999.1811070159350.29982@utopia.booyaka.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 05 Nov 2018 06:40:04 PST (-0800), david.abdurachmanov at gmail.com wrote:
-> Replace 8 spaces with tab to match styling.
->
-> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
-> ---
->  arch/riscv/include/asm/ptrace.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
-> index 2c5df945d43c..bbe1862e8f80 100644
-> --- a/arch/riscv/include/asm/ptrace.h
-> +++ b/arch/riscv/include/asm/ptrace.h
-> @@ -56,8 +56,8 @@ struct pt_regs {
->  	unsigned long sstatus;
->  	unsigned long sbadaddr;
->  	unsigned long scause;
-> -        /* a0 value before the syscall */
-> -        unsigned long orig_a0;
-> +	/* a0 value before the syscall */
-> +	unsigned long orig_a0;
->  };
->
->  #ifdef CONFIG_64BIT
+On Tue, 6 Nov 2018, Stephen Boyd wrote:
 
-Thanks.  I'll also include this for next week's PR.
+> Quoting Paul Walmsley (2018-10-20 06:50:23)
+> > diff --git a/Documentation/devicetree/bindings/clock/sifive/fu540-prci.txt b/Documentation/devicetree/bindings/clock/sifive/fu540-prci.txt
+> > new file mode 100644
+> > index 000000000000..d7c1e83fa5ed
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/clock/sifive/fu540-prci.txt
+> > @@ -0,0 +1,43 @@
+> > +SiFive FU540 PRCI bindings
+> > +
+> > +On the FU540 family of SoCs, most system-wide clock and reset integration
+> > +is via the PRCI IP block.
+> > +
+> > +Required properties:
+> > +- compatible: Should be "sifive,<chip>-prci<version>".  As of the time this
+> > +              file was written, only one value is supported:
+> 
+> I don't think we need the "As of the time" sentence. It will become out
+> of date almost immediately so why not just say "The list of supported
+> values is:"?
+
+Adopted this change.  Thanks for the review.
+
+
+- Paul
