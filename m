@@ -2,64 +2,91 @@ Return-Path: <SRS0=abkI=NS=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7FD5DC0044C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 20:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 902F5C0044C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 20:33:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 53C1F2081D
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 20:27:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5F4A820837
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 20:33:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="slJHHstG"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 53C1F2081D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linutronix.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ThnDND4i";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=thunk.org header.i=@thunk.org header.b="NQ9xzH1Z"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5F4A820837
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=mit.edu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OKcZ79GoLE8nsN4k9fL8B7AEuteWujNdKTmnBsV7ed0=; b=slJHHstGxN9/ci
-	bhgSDRCEJYxl0nIWTMFjsMPzM+alIwfLeMVSrXOcXm94o9VYP0IyEhON2LKq1+2XOE+aIsrxpnY7z
-	rd3TePBYlRKI4IsrhksDyTDhIgwQoC/uzY+eURUftCfEZGsSv/OE/RxTE3qiEUrNAac9LgzfKWKRo
-	EpWVpgEXOf4d9khkvhrmm6xQ6PPKM2bEwXxSsMSKJTVs2+TV8s6cumMhYmkevNenZb/Q1MRctFYts
-	c/mVFtLrGiMCyxShrT9g3ABf5E1IVj3rp0vRghWHcwUAvEpJuprb9dhDV6i+Duceq/bI+/tUKG+e0
-	1Wm9Akbp9fQw2gokVPxw==;
+	List-Owner; bh=J3uD3K01RqmtEvihLaXLnDwxixVsBZRzMf0PhGy3iiI=; b=ThnDND4il/U/bm
+	pRU63PEvC23i9donLgBQzitUzwqBtDU0dcBkkZTmsQ5x8O1U6EAmMkmL4qwkUGkvozxDWJZbIzKkY
+	Tpmu0C5AzeqANT4jMvvpf8iXD8O2iNkMw8q8G/YabjU3UVEKNNIyISAfoNZOOCfjdKirnFK4HTBnO
+	A8f8uY3D7IkWJTmHTVWQwbJNrKyTurA1v7wHpEUHj7qTHDro1FRZYaeRMrOzSfkXhB60+BsOykOhY
+	1JVno0tizuj3ujNpUwsuisAZdCCh58ZA1m4eFvMfe0Rg5CspXaWo84UzlUUmAJ/ZPJWLX3AF4/e4C
+	/g89M98oVVGyxawN1bAg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gKUPz-0004Ll-00; Wed, 07 Nov 2018 20:27:15 +0000
-Received: from galois.linutronix.de ([2a01:7a0:2:106d:700::1])
+	id 1gKUVs-0006CJ-U0; Wed, 07 Nov 2018 20:33:20 +0000
+Received: from imap.thunk.org ([2600:3c02::f03c:91ff:fe96:be03])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gKUPv-00045O-N4; Wed, 07 Nov 2018 20:27:13 +0000
-Received: from p5492fe24.dip0.t-ipconnect.de ([84.146.254.36] helo=nanos)
- by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
- (Exim 4.80) (envelope-from <tglx@linutronix.de>)
- id 1gKUPT-0007tu-1N; Wed, 07 Nov 2018 21:26:43 +0100
-Date: Wed, 7 Nov 2018 21:26:42 +0100 (CET)
-From: Thomas Gleixner <tglx@linutronix.de>
-To: Logan Gunthorpe <logang@deltatee.com>
-Subject: Re: [PATCH 2/2] mm/sparse: add common helper to mark all memblocks
- present
-In-Reply-To: <724be9bb-59b6-33f3-7b59-3ca644d59bf7@deltatee.com>
-Message-ID: <alpine.DEB.2.21.1811072125280.1666@nanos.tec.linutronix.de>
-References: <20181107173859.24096-1-logang@deltatee.com>
- <20181107173859.24096-3-logang@deltatee.com>
- <20181107121207.62cb37cf58484b7cc80a8fd8@linux-foundation.org>
- <724be9bb-59b6-33f3-7b59-3ca644d59bf7@deltatee.com>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+ id 1gKUVi-00061X-87; Wed, 07 Nov 2018 20:33:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=thunk.org; 
+ s=ef5046eb;
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=A3YRY3+QRbp9EyiO7Z7sJKOubxpVe9EveUMzGVqq/BI=; b=NQ9xzH1ZAVXIww9VmeJSDLkLy1
+ xdw41miKoiX+V1VnOzLVIFXFq4aa6U0HA35JOyVWrYJ3lh76zi/P9e684lGsLr1MZ8e2T3XPXus/j
+ EovqAb3kcufarQvINrY+vZdDwuVnU0H95GgW30/DldJqKnIge10LVb9EkrExGeG9edow=;
+Received: from root (helo=callcc.thunk.org)
+ by imap.thunk.org with local-esmtp (Exim 4.89)
+ (envelope-from <tytso@thunk.org>)
+ id 1gKUVK-0002pA-2r; Wed, 07 Nov 2018 20:32:46 +0000
+Received: by callcc.thunk.org (Postfix, from userid 15806)
+ id 4BCAF7A7D27; Wed,  7 Nov 2018 15:32:45 -0500 (EST)
+Date: Wed, 7 Nov 2018 15:32:45 -0500
+From: "Theodore Y. Ts'o" <tytso@mit.edu>
+To: Olof Johansson <olof@lixom.net>
+Subject: Re: [TECH TOPIC] SoC maintainer group
+Message-ID: <20181107203245.GK9919@thunk.org>
+Mail-Followup-To: "Theodore Y. Ts'o" <tytso@mit.edu>,
+ Olof Johansson <olof@lixom.net>,
+ ksummit <ksummit-discuss@lists.linuxfoundation.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv@lists.infradead.org,
+ linux-clk <linux-clk@vger.kernel.org>, linux-gpio@vger.kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will.deacon@arm.com>,
+ Palmer Dabbelt <palmer@sifive.com>,
+ Russell King <rmk@armlinux.org.uk>,
+ Linux ARM Mailing List <linux-arm-kernel@lists.infradead.org>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Brown <broonie@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Kevin Hilman <khilman@kernel.org>, Stephen Boyd <sboyd@kernel.org>
+References: <CAOesGMgVPsK9YsV2nGoBptWwtHYv=3yMytLx2_tF_ujS5c5p3Q@mail.gmail.com>
+ <20181107171723.GI9919@thunk.org>
+ <CAOesGMheCcvDQCd+7fyh4yOk4BYDfm2QRqsdawqA_fg8s9YYEQ@mail.gmail.com>
+ <CAOesGMg+jW7SN2+E_FYbwi8GdNhc8KrEsahB-Nn+AseO6kLGXA@mail.gmail.com>
 MIME-Version: 1.0
-X-Linutronix-Spam-Score: -1.0
-X-Linutronix-Spam-Level: -
-X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required, ALL_TRUSTED=-1,
- SHORTCIRCUIT=-0.0001
+Content-Disposition: inline
+In-Reply-To: <CAOesGMg+jW7SN2+E_FYbwi8GdNhc8KrEsahB-Nn+AseO6kLGXA@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-SA-Exim-Connect-IP: <locally generated>
+X-SA-Exim-Mail-From: tytso@thunk.org
+X-SA-Exim-Scanned: No (on imap.thunk.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181107_122711_895328_BC94B54A 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20181107_123310_351599_542B429E 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -71,51 +98,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Arnd Bergmann <arnd@arndb.de>, linux-sh@vger.kernel.org,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Stephen Bates <sbates@raithlin.com>, linux-mm@kvack.org,
- Michal Hocko <mhocko@suse.com>, Vlastimil Babka <vbabka@suse.cz>,
- Andrew Morton <akpm@linux-foundation.org>, Christoph Hellwig <hch@lst.de>,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Oscar Salvador <osalvador@suse.de>
+Cc: Russell King <rmk@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+ ksummit <ksummit-discuss@lists.linuxfoundation.org>,
+ Kevin Hilman <khilman@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Palmer Dabbelt <palmer@sifive.com>, Will Deacon <will.deacon@arm.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-gpio@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-clk <linux-clk@vger.kernel.org>,
+ Linux ARM Mailing List <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181107202642.ZnEpBZcS0yZaGu-jBFA8P7hEOWjcQ7_GY375WwPRubU@z>
+Message-ID: <20181107203245.FewBjXA9LpPsLfmSNIaXf7rxQNqOLwbS8UFO5zXV4kE@z>
 
-Logan,
-
-On Wed, 7 Nov 2018, Logan Gunthorpe wrote:
-> On 2018-11-07 1:12 p.m., Andrew Morton wrote:
-> >> +void __init memblocks_present(void)
-> >> +{
-> >> +	struct memblock_region *reg;
-> >> +
-> >> +	for_each_memblock(memory, reg) {
-> >> +		memory_present(memblock_get_region_node(reg),
-> >> +			       memblock_region_memory_base_pfn(reg),
-> >> +			       memblock_region_memory_end_pfn(reg));
-> >> +	}
-> >> +}
-> >> +
-> > 
-> > I don't like the name much.  To me, memblocks_present means "are
-> > memblocks present" whereas this actually means "memblocks are present".
-> > But whatever.  A little covering comment which describes what this
-> > does and why it does it would be nice.
+On Wed, Nov 07, 2018 at 10:47:24AM -0800, Olof Johansson wrote:
 > 
-> The same argument can be made about the existing memory_present()
-> function and I think it's worth keeping the naming consistent. I'll add
-> a comment and resend shortly.
+> Can we have 3pm-3:30pm on Thursday? It seems relatively low on
+> embedded-related conflicts and at 3  people would have time to migrate
+> from Daniel Vetter's gitlab talk if needed.
 
-Actually if both names suck, then there also is the option to rename both
-instead of adding a comment to explain the suckage.
+I'd really like to keep the slots all 45 minutes, aligned with the LPC
+referreed paper track, since that's what most MC runners were also
+strongly encouraged to do.  (Although to be fair, it looks like most
+of the MC runners haven't really stuck with that.)
 
-Thanks,
+The rooms are all fairly close to one another, and if you want to wait
+a few minutes pack up and move next door or across the hall, that's
+fine.  But it's going to be a lot simpler of we tell people that the
+official starting time is 2:45pm.
 
-	tglx
+						- Ted
 
 _______________________________________________
 linux-riscv mailing list
