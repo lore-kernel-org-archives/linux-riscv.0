@@ -1,39 +1,59 @@
-From: olof@lixom.net (Olof Johansson)
-Date: Wed, 7 Nov 2018 12:35:06 -0800
-Subject: [TECH TOPIC] SoC maintainer group
-In-Reply-To: <20181107203245.GK9919@thunk.org>
-References: <CAOesGMgVPsK9YsV2nGoBptWwtHYv=3yMytLx2_tF_ujS5c5p3Q@mail.gmail.com>
- <20181107171723.GI9919@thunk.org>
- <CAOesGMheCcvDQCd+7fyh4yOk4BYDfm2QRqsdawqA_fg8s9YYEQ@mail.gmail.com>
- <CAOesGMg+jW7SN2+E_FYbwi8GdNhc8KrEsahB-Nn+AseO6kLGXA@mail.gmail.com>
- <20181107203245.GK9919@thunk.org>
-Message-ID: <CAOesGMhf-RHtjZGZ9D9i=7=C08zmT9=eW5qnYTO6foB=cz06vA@mail.gmail.com>
+From: logang@deltatee.com (Logan Gunthorpe)
+Date: Wed, 7 Nov 2018 13:36:34 -0700
+Subject: [PATCH 2/2] mm/sparse: add common helper to mark all memblocks
+ present
+In-Reply-To: <alpine.DEB.2.21.1811072125280.1666@nanos.tec.linutronix.de>
+References: <20181107173859.24096-1-logang@deltatee.com>
+ <20181107173859.24096-3-logang@deltatee.com>
+ <20181107121207.62cb37cf58484b7cc80a8fd8@linux-foundation.org>
+ <724be9bb-59b6-33f3-7b59-3ca644d59bf7@deltatee.com>
+ <alpine.DEB.2.21.1811072125280.1666@nanos.tec.linutronix.de>
+Message-ID: <b1cc442e-7314-4a8e-3eec-9adc200d7582@deltatee.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Nov 7, 2018 at 12:33 PM Theodore Y. Ts'o <tytso@mit.edu> wrote:
->
-> On Wed, Nov 07, 2018 at 10:47:24AM -0800, Olof Johansson wrote:
-> >
-> > Can we have 3pm-3:30pm on Thursday? It seems relatively low on
-> > embedded-related conflicts and at 3  people would have time to migrate
-> > from Daniel Vetter's gitlab talk if needed.
->
-> I'd really like to keep the slots all 45 minutes, aligned with the LPC
-> referreed paper track, since that's what most MC runners were also
-> strongly encouraged to do.  (Although to be fair, it looks like most
-> of the MC runners haven't really stuck with that.)
->
-> The rooms are all fairly close to one another, and if you want to wait
-> a few minutes pack up and move next door or across the hall, that's
-> fine.  But it's going to be a lot simpler of we tell people that the
-> official starting time is 2:45pm.
-
-Thanks, we can definitely work with that and just start a few minutes
-late if there's a lot of movement between the rooms.
-
-(Previous email seems to have crossed in compose/flight, happy to move
-to the other thread but it seems like we're maybe mostly done?)
 
 
--Olof
+On 2018-11-07 1:26 p.m., Thomas Gleixner wrote:
+> Logan,
+> 
+> On Wed, 7 Nov 2018, Logan Gunthorpe wrote:
+>> On 2018-11-07 1:12 p.m., Andrew Morton wrote:
+>>>> +void __init memblocks_present(void)
+>>>> +{
+>>>> +	struct memblock_region *reg;
+>>>> +
+>>>> +	for_each_memblock(memory, reg) {
+>>>> +		memory_present(memblock_get_region_node(reg),
+>>>> +			       memblock_region_memory_base_pfn(reg),
+>>>> +			       memblock_region_memory_end_pfn(reg));
+>>>> +	}
+>>>> +}
+>>>> +
+>>>
+>>> I don't like the name much.  To me, memblocks_present means "are
+>>> memblocks present" whereas this actually means "memblocks are present".
+>>> But whatever.  A little covering comment which describes what this
+>>> does and why it does it would be nice.
+>>
+>> The same argument can be made about the existing memory_present()
+>> function and I think it's worth keeping the naming consistent. I'll add
+>> a comment and resend shortly.
+> 
+> Actually if both names suck, then there also is the option to rename both
+> instead of adding a comment to explain the suckage.
+
+Ok, well, I wasn't expecting to take on a big rename like that as it
+would create a patch touching a bunch of arches and mm files... But if
+we can come to some agreement on a better name and someone is willing to
+take that patch without significant delay then I'd be happy to create
+the patch and add it to the start of my series.
+
+Some ideas for new names:
+
+mark_memory_present() / mark_memblocks_present()
+set_memory_present() / set_memblocks_present()
+memory_register() / memblocks_register()
+register_memory() / register_memblocks()
+
+Logan
