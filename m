@@ -1,91 +1,38 @@
-From: lkp@intel.com (kbuild test robot)
-Date: Sun, 4 Nov 2018 00:45:41 +0800
-Subject: [PATCH -next 2/3] mm: speed up mremap by 20x on large regions (v4)
-In-Reply-To: <20181103040041.7085-3-joelaf@google.com>
-References: <20181103040041.7085-3-joelaf@google.com>
-Message-ID: <201811040030.qFOc57Ke%fengguang.wu@intel.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Tue, 06 Nov 2018 16:33:04 -0800 (PST)
+Subject: [PATCH] riscv: add missing vdso_install target
+In-Reply-To: <20181105143537.27396-1-david.abdurachmanov@gmail.com>
+Message-ID: <mhng-a44df3fe-5958-4566-a057-5e028be53203@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Joel,
+On Mon, 05 Nov 2018 06:35:37 PST (-0800), david.abdurachmanov at gmail.com wrote:
+> Building kernel 4.20 for Fedora as RPM fails, because riscv is missing
+> vdso_install target in arch/riscv/Makefile.
+>
+> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
+> ---
+>  arch/riscv/Makefile | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index d10146197533..4af153a182b0 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -77,4 +77,8 @@ core-y += arch/riscv/kernel/ arch/riscv/mm/
+>
+>  libs-y += arch/riscv/lib/
+>
+> +PHONY += vdso_install
+> +vdso_install:
+> +	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
+> +
+>  all: vmlinux
 
-Thank you for the patch! Yet something to improve:
+While this doesn't smell like it should be an arch-specific thing, it looks 
+like everyone else has a copy and they're all slightly different so it'd 
+probably be more complexity to merge them than duplicate them.
 
-[auto build test ERROR on next-20181102]
+I'll take this into my PR for next week.
 
-url:    https://github.com/0day-ci/linux/commits/Joel-Fernandes/Add-support-for-fast-mremap/20181103-224908
-config: xtensa-allmodconfig (attached as .config)
-compiler: xtensa-linux-gcc (GCC) 8.1.0
-reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # save the attached .config to linux build tree
-        GCC_VERSION=8.1.0 make.cross ARCH=xtensa 
-
-All errors (new ones prefixed by >>):
-
-   mm/mremap.c: In function 'move_normal_pmd':
->> mm/mremap.c:229:2: error: implicit declaration of function 'set_pmd_at'; did you mean 'set_pte_at'? [-Werror=implicit-function-declaration]
-     set_pmd_at(mm, new_addr, new_pmd, pmd);
-     ^~~~~~~~~~
-     set_pte_at
-   cc1: some warnings being treated as errors
-
-vim +229 mm/mremap.c
-
-   193	
-   194	static bool move_normal_pmd(struct vm_area_struct *vma, unsigned long old_addr,
-   195			  unsigned long new_addr, unsigned long old_end,
-   196			  pmd_t *old_pmd, pmd_t *new_pmd)
-   197	{
-   198		spinlock_t *old_ptl, *new_ptl;
-   199		struct mm_struct *mm = vma->vm_mm;
-   200		pmd_t pmd;
-   201	
-   202		if ((old_addr & ~PMD_MASK) || (new_addr & ~PMD_MASK)
-   203		    || old_end - old_addr < PMD_SIZE)
-   204			return false;
-   205	
-   206		/*
-   207		 * The destination pmd shouldn't be established, free_pgtables()
-   208		 * should have release it.
-   209		 */
-   210		if (WARN_ON(!pmd_none(*new_pmd)))
-   211			return false;
-   212	
-   213		/*
-   214		 * We don't have to worry about the ordering of src and dst
-   215		 * ptlocks because exclusive mmap_sem prevents deadlock.
-   216		 */
-   217		old_ptl = pmd_lock(vma->vm_mm, old_pmd);
-   218		new_ptl = pmd_lockptr(mm, new_pmd);
-   219		if (new_ptl != old_ptl)
-   220			spin_lock_nested(new_ptl, SINGLE_DEPTH_NESTING);
-   221	
-   222		/* Clear the pmd */
-   223		pmd = *old_pmd;
-   224		pmd_clear(old_pmd);
-   225	
-   226		VM_BUG_ON(!pmd_none(*new_pmd));
-   227	
-   228		/* Set the new pmd */
- > 229		set_pmd_at(mm, new_addr, new_pmd, pmd);
-   230		flush_tlb_range(vma, old_addr, old_addr + PMD_SIZE);
-   231		if (new_ptl != old_ptl)
-   232			spin_unlock(new_ptl);
-   233		spin_unlock(old_ptl);
-   234	
-   235		return true;
-   236	}
-   237	
-
----
-0-DAY kernel test infrastructure                Open Source Technology Center
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: .config.gz
-Type: application/gzip
-Size: 55677 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20181104/8378032b/attachment.gz>
+Thanks!
