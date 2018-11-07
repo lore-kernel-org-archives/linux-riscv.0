@@ -2,85 +2,84 @@ Return-Path: <SRS0=abkI=NS=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 32C18C0044C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 10:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BA3D9C0044C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 12:07:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D0AA120827
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 10:47:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8C2D62086B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 12:07:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YbYsKjQr";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="qcWCXRhN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D0AA120827
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="E3rxFw4p";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="MjoUHwEQ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8C2D62086B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WOMavHxnysz51TsbjBSE1ZvaFd8rFDSSSQ/qEg2e6qA=; b=YbYsKjQrzr1nbp
-	arNp3JGob7fWEglkYxPviCSkCOrBGbFATLPMeumG6NL2DvBBPyhZl68ruTlFhfhbgaxP7PkqiOM0V
-	Gp9cp+goL04uNdwHLTs9ipHG/rwv/Q0u2pCuo/x8j/ATZO80cgb5Hb2uMke2XJbgmmQKtl4NDtE5B
-	ix0zSXPlB7OvQzLVlHK6BJBeCKB8+IN5JPKFtwLLvHmwx7M4SD5W7dEVRlV578wSxnWwM/yDDq1x/
-	Lez+DlN1UhaQuWFHBsYEK6UCx+6F9gPAgai/4i49xqyHlGs8fhUqn3nz0g6q/XHwoC250GxZ5Y8id
-	MwkSIpaG4I1qTvS35SQw==;
+	List-Owner; bh=B5KaN4tGfWVeSjH4NQiQw5VbVmBBeonI3tz3jVGk66o=; b=E3rxFw4pdie07B
+	gTb9frbPA058TmV8A2uKvq8y+EW4XCgaoGZ2f//d4ZXn3jW+EfkaxNiFmjzIWaUyEt0WnZh9qjUtT
+	h32CfW35v3jkDSa5quV2MugzLW4QO4D/BWb508FBMx0JrlUjcaSnRqSnHFeYEb0LLrmbeQShHR++L
+	gjdf8f2Rsblh5lK0WaxhZ5G4UEqupbp47ELR83XrXRTZ2y5McJrrVMh/GKNQ2/cltUCEFdfqwwZih
+	3/+ofnHUitBnfZuhJqNhViIVpFSA9ihC1+KaQAqCz0Qu1NFzWzUQHTEN1dkQCKRfzhOlP7C2fj0LO
+	Ho24uV0yMJ56RNnZQ3Aw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gKLMo-0005Kc-Ty; Wed, 07 Nov 2018 10:47:22 +0000
-Received: from mail-ot1-x344.google.com ([2607:f8b0:4864:20::344])
+	id 1gKMby-0008TO-EI; Wed, 07 Nov 2018 12:07:06 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gKLLl-0003qr-25
- for linux-riscv@lists.infradead.org; Wed, 07 Nov 2018 10:46:18 +0000
-Received: by mail-ot1-x344.google.com with SMTP id n46so10107325otb.9
- for <linux-riscv@lists.infradead.org>; Wed, 07 Nov 2018 02:46:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=5d2sZmArluhobQqxaA/yYKQnmCmIhPyJnd73IUvKZvs=;
- b=qcWCXRhNFqra5eSKHEGVNR76q5Mk5vIjjPXZ8J2XvfNfq0TSMVqhabJNJGtfbTEIJt
- IWn7WHYXayi11Nq8N/UNFgX5TBdzemN3pYiNhSPn5ILYFnb6U9BagkLZMC9hWLEPvOzf
- prhxde3xSvytNcppJ4iOGREmKmPOoX1wU9G34ORrCV1F8mgsmhg5CwTCOtW4+jvRxZqq
- fmOuPGBz9nIBPkGDk/c5Y4IDQOS4B6jvNrwpqe/OQL1bA8WMtDa31K66ehfzSa4IzWMA
- OXIZue3b8IkxXRyfpvYPvtbswlVzujwk/I8zr5Gcv8aJnUph4RI44vadEkQlOxjBsLc3
- AfAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=5d2sZmArluhobQqxaA/yYKQnmCmIhPyJnd73IUvKZvs=;
- b=FZ0xTUtIzuRp63Eyjp9fBLI8oRjA8ak/xgLqD2LalKt6B/Rw6A1rjKpzB8Yr+Agl9W
- Mr8usxB6HAJzQcsucz3lbY68dUWf1lheWXeb/yZDampmQh106ADNOhqJB81tElezugLe
- WsHjF/wUXao5aaLmkj78S7plFg2VvcyYlXUqnLFURvUCGD9dnwwjsiaMLx4ZW4qoAf/V
- fIkrk8YU1kKTwimfEWHuPNpNpxn1FU81yS4+rLJedTnCraGqZtAQxn3XmAP4djLZ/1vy
- g32xjci4Qe+ezCg90By1hab1q7N0g2vK3b+ZL0S3CY7TMrJEyCkrzHYKoaIJjDmonPm/
- /5UA==
-X-Gm-Message-State: AGRZ1gLZbELAt02co5b7TMI+91p65c+8g0isDa9Jn7fvbbA6Q9/SxLJ4
- RaaUvZq0PJAMrcYKgDmo5pIvVUGmn+8oopSRoxs=
-X-Google-Smtp-Source: AJdET5c038ooSHvbDaMKGdwg7KTWkzu82ulEFj6Cxzqax0F3IAgtHQYDI8JaMoGi0jhxzCs6Kji0VL0DBu0pxwCSnqc=
-X-Received: by 2002:a9d:6315:: with SMTP id q21mr782901otk.174.1541587565520; 
- Wed, 07 Nov 2018 02:46:05 -0800 (PST)
+ id 1gKMbx-0008TD-K4
+ for linux-riscv@bombadil.infradead.org; Wed, 07 Nov 2018 12:07:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=MlWrYS4gh5L9tWoBzEvufh/mEjv1SlbltvsLd1PsEcg=; b=MjoUHwEQyHZUIsBDGl0zf9x+r
+ H7pdOBSKm4StdPPsFTv15FpvQyeh/IWskfiesgKGa+9MLWHnikfkXQGYc63vjubsUtftMb9yjhtZ7
+ QXUej78H+wtq96wPZ6QgXRv+43vhJoBoBMb+0lG9mQFCH5fvocdWYmVjU6WSwsIT9p+siHzHPvxSP
+ Jagw9OgjlwNyCKzp1uZ4MUR7s85Rn7E2pmXawg4/vJJLgkMfuqa968ElaCQkI9jlkixng8PZKvOpm
+ 1hfuzRVI/Sw32AejwRDbqBoJKnbhavDfUNauu5c+MghcT3OaK8plEqMOtEPjfma8PbfVHZ+RtqUps
+ Yotc7U+sA==;
+Received: from foss.arm.com ([217.140.101.70])
+ by casper.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gKMbu-0006uZ-8p
+ for linux-riscv@lists.infradead.org; Wed, 07 Nov 2018 12:07:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4C4ED80D;
+ Wed,  7 Nov 2018 04:06:51 -0800 (PST)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com
+ [10.72.51.249])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E639E3F5CF;
+ Wed,  7 Nov 2018 04:06:48 -0800 (PST)
+Date: Wed, 7 Nov 2018 12:06:46 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Nick Kossifidis <mick@ics.forth.gr>
+Subject: Re: [RFC 0/2] Add RISC-V cpu topology
+Message-ID: <20181107120645.sc3wjgr2yakvxktl@lakrids.cambridge.arm.com>
+References: <1541113468-22097-1-git-send-email-atish.patra@wdc.com>
+ <866dedbc78ab4fa0e3b040697e112106@mailhost.ics.forth.gr>
+ <20181106141331.GA28458@e107155-lin>
+ <969fc2a5198984e0dfe8c3f585dc65f9@mailhost.ics.forth.gr>
+ <20181106162051.w7fyweuxrl7ujzuz@lakrids.cambridge.arm.com>
+ <abcae019e6ae749b17ecb0c721fd3177@mailhost.ics.forth.gr>
 MIME-Version: 1.0
-References: <20181029104854.17432-1-david.abdurachmanov@gmail.com>
- <CAHC9VhSaGo0BmX5AsTcnppiVz2Lz8BFkjRA0jg_uuPix3Ziiog@mail.gmail.com>
- <CAEn-LTqQgQkA1XyihEg0MpADLPQADf3Ej2noUp29UtbcEaf0RA@mail.gmail.com>
-In-Reply-To: <CAEn-LTqQgQkA1XyihEg0MpADLPQADf3Ej2noUp29UtbcEaf0RA@mail.gmail.com>
-From: David Abdurachmanov <david.abdurachmanov@gmail.com>
-Date: Wed, 7 Nov 2018 11:45:53 +0100
-Message-ID:
- <CAEn-LTqizbzTkbE3vvdxKsb-cHOWbRStOZaNfNo5sNuC5LhxMQ@mail.gmail.com>
-Subject: Re: [PATCH 0/2] riscv: add audit support
-To: Paul Moore <paul@paul-moore.com>
+Content-Disposition: inline
+In-Reply-To: <abcae019e6ae749b17ecb0c721fd3177@mailhost.ics.forth.gr>
+User-Agent: NeoMutt/20170113 (1.7.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181107_024617_106794_A0E30205 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20181107_120702_602571_A8AABC0D 
+X-CRM114-Status: GOOD (  37.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,72 +91,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>,
- linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, linux-audit@redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, Damien.LeMoal@wdc.com, alankao@andestech.com,
+ hch@infradead.org, anup@brainfault.org, palmer@sifive.com,
+ linux-kernel@vger.kernel.org, zong@andestech.com,
+ Atish Patra <atish.patra@wdc.com>, robh+dt@kernel.org,
+ Sudeep Holla <sudeep.holla@arm.com>, linux-riscv@lists.infradead.org,
+ tglx@linutronix.de
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181107104553.gSbvG3NiOjkvz20IyOQSEpbiRu2u30gArud1Zhx6am8@z>
+Message-ID: <20181107120646.nnLQALMmpUWYG5_JXE77aDdzFjDFKK2n2R5H5thuNIQ@z>
 
-T24gVHVlLCBOb3YgNiwgMjAxOCBhdCAxMDoyNSBQTSBEYXZpZCBBYmR1cmFjaG1hbm92CjxkYXZp
-ZC5hYmR1cmFjaG1hbm92QGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiBPbiBUdWUsIE5vdiA2LCAyMDE4
-IGF0IDk6MDYgUE0gUGF1bCBNb29yZSA8cGF1bEBwYXVsLW1vb3JlLmNvbT4gd3JvdGU6Cj4gPgo+
-ID4gT24gTW9uLCBPY3QgMjksIDIwMTggYXQgNjo0OSBBTSBEYXZpZCBBYmR1cmFjaG1hbm92Cj4g
-PiA8ZGF2aWQuYWJkdXJhY2htYW5vdkBnbWFpbC5jb20+IHdyb3RlOgo+ID4gPiBUaGlzIHBhdGNo
-c2V0IGFkZHMgc3lzdGVtIGNhbGwgYXVkaXQgc3VwcG9ydCBvbiByaXNjdiAocmlzY3YzMiAmCj4g
-PiA+IHJpc2N2NjQpLgo+ID4gPgo+ID4gPiBUaGUgcGFjaHNldCB3YXMgcHJlcGFyZWQgb24gdG9w
-IG9mIHY0LjE5IHRhZy4KPiA+ID4KPiA+ID4gYXVkaXQtdXNlcnNwYWNlIGNoYW5nZXMgd2VyZSBz
-dWJtaXR0ZWQuIFNlZToKPiA+ID4gaHR0cHM6Ly9naXRodWIuY29tL2xpbnV4LWF1ZGl0L2F1ZGl0
-LXVzZXJzcGFjZS9wdWxsLzczCj4gPiA+Cj4gPiA+IFRlc3RlZCB0aGUgZm9sbG93aW5nIG1hbnVh
-bGx5Ogo+ID4gPiAtIGF1ZGl0Y3RsIChjaGVja2VkIHNldmVyYWwgZGlmZmVyZW50IGV4YW1wbGUg
-cnVsZXMgZnJvbSBpbnRlcm5ldCkKPiA+ID4gLSBhdWxhc3QKPiA+ID4gLSBhdWxhc3Rsb2cKPiA+
-ID4gLSBhdXNlYXJjaAo+ID4gPiAtIGF1c3lzY2FsbAo+ID4gPiAtIGF1cmVwb3J0Cj4gPiA+IC0g
-YXV0cmFjZSAoY29tcGFyZWQgc29tZSBzeXNjYWxscyB0byBzdHJhY2U6IG9yZGVyIGFuZCByZXR1
-cm4KPiA+ID4gICB2YWx1ZS9pbnB1dCBhcmd1bWVudHMgc2VlbSB0byBiZSBjb3JyZWN0KQo+ID4g
-PiAtIC9wcm9jL3NlbGYvbG9naW51aWQgKHJlcXVpcmVkIGJ5IERORiBbcGFja2FnZSBtYW5hZ2Vy
-XSkKPiA+ID4KPiA+ID4gSSBsb29rZWQgaW50byBhdWRpdC10ZXN0c3VpdGUgYW5kIHdpdGggc29t
-ZSBhZGp1c3RtZW50cyByZXN1bHRzIGFyZToKPiA+ID4KPiA+ID4gRmFpbGVkIDQvMTQgdGVzdCBw
-cm9ncmFtcy4gMTkvODggc3VidGVzdHMgZmFpbGVkLgo+ID4KPiA+IEkgcmVhbGl6ZSB0aGF0IHRo
-ZSB0ZXN0IHN1aXRlIGZhaWx1cmVzIGFyZSBsaWtlbHkgbm90IGR1ZSB0byB5b3VyCj4gPiBjb2Rl
-LCBidXQgcmF0aGVyIHNob3J0Y29taW5ncyBpbiB0aGUgdGVzdCBzdWl0ZSBpdHNlbGYsIGJ1dCBJ
-IHRoaW5rIGl0Cj4gPiBpcyBpbXBvcnRhbnQgdG8gcmVzb2x2ZSB0aGVzZSBwcm9ibGVtcyBiZWZv
-cmUgd2UgY29tbWl0IHRoZSBrZXJuZWwKPiA+IGNoYW5nZXMuCgpJIGRpZCBzb21lIGV4dHJhIHdv
-cmsgdGhpcyBldmVuaW5nICh3ZWxsLCBhZnRlciBtaWRuaWdodCkgYW5kIEkgYW0gcGFzc2luZwph
-bGwgYml0cyBJIHdvdWxkIGV4cGVjdCB0byBwYXNzLgoKVGVzdCBTdW1tYXJ5IFJlcG9ydAotLS0t
-LS0tLS0tLS0tLS0tLS0tCnN5c2NhbGxfc29ja2V0Y2FsbC90ZXN0IChXc3RhdDogMCBUZXN0czog
-MyBGYWlsZWQ6IDMpCiAgRmFpbGVkIHRlc3RzOiAgMS0zCkZpbGVzPTE0LCBUZXN0cz04OCwgMTA3
-IHdhbGxjbG9jayBzZWNzICggMS4wNyB1c3IgIDAuMzggc3lzICsgNTguNzcKY3VzciAxOS4zMiBj
-c3lzID0gNzkuNTQgQ1BVKQpSZXN1bHQ6IEZBSUwKRmFpbGVkIDEvMTQgdGVzdCBwcm9ncmFtcy4g
-My84OCBzdWJ0ZXN0cyBmYWlsZWQuCgpUaGUgb25seSBmYWlsaW5nIHRlc3Qgbm93IGlzIHN5c2Nh
-bGxfc29ja2V0Y2FsbCwgd2hpY2ggaXMgbm90IHN1cHBvcnRlZCBvbgpyaXNjdiBhbmQgb3RoZXJz
-LgoKRnJvbSBtYW4gcGFnZToKCk9uIGEgc29tZSBhcmNoaXRlY3R1cmVzLWZvciBleGFtcGxlLCB4
-ODYtNjQgYW5kIEFSTeKAlHRoZXJlIGlzIG5vCiAgICAgICBzb2NrZXRjYWxsKCkgc3lzdGVtIGNh
-bGw7IGluc3RlYWQgc29ja2V0KDIpLCBhY2NlcHQoMiksIGJpbmQoMiksIGFuZAogICAgICAgc28g
-b24gcmVhbGx5IGFyZSBpbXBsZW1lbnRlZCBhcyBzZXBhcmF0ZSBzeXN0ZW0gY2FsbHMuCgpUaGVu
-IEkgcmVkb25lIHN5c2NhbGxfc29ja2V0Y2FsbCB0ZXN0IHRvIGZpdCBuZXcgNjQtYml0IGFyY2hl
-cy4gSXQgc3RpbGwKbW9zdGx5IGNoZWNrcyB0aGUgc2FtZSB0aGluZywgYnV0IHVzZXMgZGlmZmVy
-ZW50IHN5c2NhbGwuIEluc3RlYWQgb2YKc29ja2V0Y2FsbChTWVNfQ09OTkVDVCwgLi4pIHdlIGNo
-ZWNrIGZvciBjb25uZWN0KC4uKS4gVGhpcyB3aWxsIG5vdApnZW5lcmF0ZSBTT0NLRVRDQUxMIHJl
-Y29yZCwgdGh1cyBpbnN0ZWFkIGNoZWNrIGZvciBTWVNDQUxMCnJlY29yZCB3aGVyZSBzeXNjYWxs
-PWNvbm5lY3QuCgpBbGwgaXMgaGVyZTogaHR0cHM6Ly9naXRodWIuY29tL2RhdmlkbHQvYXVkaXQt
-dGVzdHN1aXRlL2NvbW1pdHMvcmlzY3Y2NAoKV2l0aCB0aGF0OgoKUnVubmluZyBhcyAgIHVzZXIg
-ICAgcm9vdAogICAgICAgIHdpdGggY29udGV4dCB1bmNvbmZpbmVkX3U6dW5jb25maW5lZF9yOnVu
-Y29uZmluZWRfdDpzMC1zMDpjMC5jMTAyMwogICAgICAgIG9uICAgc3lzdGVtICBGZWRvcmEKCmV4
-ZWNfZXhlY3ZlL3Rlc3QgLi4uLi4uLi4uIG9rCmV4ZWNfbmFtZS90ZXN0IC4uLi4uLi4uLi4uIG9r
-CmZpbGVfY3JlYXRlL3Rlc3QgLi4uLi4uLi4uIG9rCmZpbGVfZGVsZXRlL3Rlc3QgLi4uLi4uLi4u
-IG9rCmZpbGVfcmVuYW1lL3Rlc3QgLi4uLi4uLi4uIG9rCmZpbHRlcl9leGNsdWRlL3Rlc3QgLi4u
-Li4uIG9rCmZpbHRlcl9zZXNzaW9uaWQvdGVzdCAuLi4uIG9rCmxvZ2luX3R0eS90ZXN0IC4uLi4u
-Li4uLi4uIG9rCmxvc3RfcmVzZXQvdGVzdCAuLi4uLi4uLi4uIG9rCm5ldGZpbHRlcl9wa3QvdGVz
-dCAuLi4uLi4uIG9rCnN5c2NhbGxzX2ZpbGUvdGVzdCAuLi4uLi4uIG9rCnN5c2NhbGxfbW9kdWxl
-L3Rlc3QgLi4uLi4uIG9rCnN5c2NhbGxfc29ja2V0Y2FsbC90ZXN0IC4uIG9rCnVzZXJfbXNnL3Rl
-c3QgLi4uLi4uLi4uLi4uIG9rCkFsbCB0ZXN0cyBzdWNjZXNzZnVsLgpGaWxlcz0xNCwgVGVzdHM9
-ODgsIDEyMyB3YWxsY2xvY2sgc2VjcyAoIDEuMjYgdXNyICAwLjU5IHN5cyArIDcwLjg1CmN1c3Ig
-MjIuNjAgY3N5cyA9IDk1LjMwIENQVSkKUmVzdWx0OiBQQVNTCgpTYW1lIGF1ZGl0IGtlcm5lbCBw
-YXRjaCBhbmQgbGliYXVkaXQsIG5vdGhpbmcgY2hhbmdlZCBoZXJlLgoKSG9wZWZ1bGx5IHRoaXMg
-YWxsb3dzIHRvIG1vdmUgZm9yd2FyZCBhcyBJIHdvdWxkIGxvdmUgdG8gaGF2ZQphdWRpdCAmIHNl
-Y2NvbXAgaW4gdGhlIG5leHQga2VybmVsIHZlcnNpb24gKGFuZCB0aHVzIEZlZG9yYSkuCgpUaGFu
-a3MsCmRhdmlkCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On Wed, Nov 07, 2018 at 04:31:34AM +0200, Nick Kossifidis wrote:
+> Mark and Sundeep thanks a lot for your feedback, I guess you convinced
+> me that having a device tree binding for the scheduler is not a
+> correct approach. It's not a device after all and I agree that the
+> device tree shouldn't become an OS configuration file.
+
+Good to hear.
+
+> Regarding multiple levels of shared resources my point is that since
+> cpu-map doesn't contain any information of what is shared among the
+> cluster/core members it's not easy to do any further translation. Last
+> time I checked the arm code that uses cpu-map, it only defines one
+> domain for SMT, one for MC and then everything else is ignored. No
+> matter how many clusters have been defined, anything above the core
+> level is the same (and then I guess you started talking about adding
+> "packages" on the representation side).
+
+While cpu-map doesn't contain that information today, we can *add* that
+information to the cpu-map binding if necessary.
+
+> The reason I proposed to have a binding for the scheduler directly is
+> not only because it's simpler and closer to what really happens in the
+> code, it also makes more sense to me than the combination of cpu-map
+> with all the related mappings e.g.  for numa or caches or power
+> domains etc.
+> 
+> However you are right we could definitely augment cpu-map to include
+> support for what I'm saying and clean things up, and since you are
+> open about improving it here is a proposal that I hope you find
+> interesting:
+> 
+> At first let's get rid of the <thread> nodes, they don't make sense:
+> 
+> thread0 {
+>  cpu = <&CPU0>;
+> };
+> 
+> A thread node can't have more than one cpu entry and any properties
+> should be on the cpu node itself, so it doesn't / can't add any
+> more information. We could just have an array of cpu nodes on the
+> <core> node, it's much cleaner this way.
+> 
+> core0 {
+>  members = <&CPU0>, <&CPU1>;
+> };
+
+Hold on. Rather than reinventing things from first principles, can we
+please discuss what you want to *achieve*, i.e. what information you
+need?
+
+Having a node is not a significant cost, and there are reasons we may
+want thread nodes. For example, it means that we can always refer to any
+level of topology with a phandle, and we might want to describe
+thread-affine devices in future.
+
+There are a tonne of existing bindings that are ugly, but re-inventing
+them for taste reasons alone is more costly to the ecosystem than simply
+using the existing bindings. We avoid re-inventing bindings unless there
+is a functional problem e.g. cases which they cannot possibly describe.
+
+> Then let's allow the cluster and core nodes to accept attributes that are
+> common for the cpus they contain. Right now this is considered invalid.
+> 
+> For power domains we have a generic binding described on
+> Documentation/devicetree/bindings/power/power_domain.txt
+> which basically says that we need to put power-domains = <power domain
+> specifiers>
+> attribute on each of the cpu nodes.
+
+FWIW, given this is arguably topological, I'm not personally averse to
+describing this in the cpu-map, if that actually gains us more than the
+complexity require to support it.
+
+Given we don't do this for device power domains, I suspect that it's
+simpler to stick with the existing binding.
+
+> The same happens with the capacity binding specified for arm on
+> Documentation/devicetree/bindings/arm/cpu-capacity.txt
+> which says we should add the capacity-dmips-mhz on each of the cpu nodes.
+
+The cpu-map was intended to expose topological dtails, and this isn't
+really a topological property. For example, Arm DynamIQ systems can have
+heterogeneous CPUs within clusters.
+
+I do not think it's worth moving this, tbh.
+
+> The same also happens with the generic numa binding on
+> Documentation/devicetree/bindings/numa.txt
+> which says we should add the nuna-node-id on each of the cpu nodes.
+
+Is there a strong gain from moving this?
+
+[...]
+
+> Finally from the examples above I'd like to stress out that the distinction
+> between a cluster and a core doesn't make much sense and it also makes the
+> representation more complicated. To begin with, how would you call the setup
+> on HiFive Unleashed ? A cluster of 4 cores that share the same L3 cache ?
+
+Not knowing much about the hardware, I can't really say.
+
+I'm not sure I follow why the distinction between a cluster and a core
+is non-sensical. A cluster is always a collection of cores.
+
+A hart could be a core in its own right, or it could be a thread under a
+core, which shares functional units with other harts within that core.
+
+Arguably, we could have mandated that the topology always needed to
+describe down to a thread, even if a core only had a single thread. That
+ship has sailed, however.
+
+Thanks,
+Mark.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
