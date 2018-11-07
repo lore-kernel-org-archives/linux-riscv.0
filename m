@@ -1,31 +1,44 @@
-From: tglx@linutronix.de (Thomas Gleixner)
-Date: Wed, 7 Nov 2018 21:56:21 +0100 (CET)
-Subject: [PATCH 2/2] mm/sparse: add common helper to mark all memblocks
- present
-In-Reply-To: <20181107123838.1b7234c98a87dec5a2b25e67@linux-foundation.org>
-References: <20181107173859.24096-1-logang@deltatee.com>
- <20181107173859.24096-3-logang@deltatee.com>
- <20181107121207.62cb37cf58484b7cc80a8fd8@linux-foundation.org>
- <724be9bb-59b6-33f3-7b59-3ca644d59bf7@deltatee.com>
- <alpine.DEB.2.21.1811072125280.1666@nanos.tec.linutronix.de>
- <b1cc442e-7314-4a8e-3eec-9adc200d7582@deltatee.com>
- <20181107123838.1b7234c98a87dec5a2b25e67@linux-foundation.org>
-Message-ID: <alpine.DEB.2.21.1811072153590.1666@nanos.tec.linutronix.de>
+From: arnd@arndb.de (Arnd Bergmann)
+Date: Wed, 7 Nov 2018 22:09:39 +0100
+Subject: [PATCH] riscv: add asm/unistd.h UAPI header
+In-Reply-To: <CAEn-LTpQ5uTte2bBrEs3uLKtsckkKPUOP+jHw5k-DFAwGCS3WA@mail.gmail.com>
+References: <CAK8P3a3JcztCSYBuu5ZJXaV83VNLv_1v3v-EKMR+tC1oOsQesw@mail.gmail.com>
+ <mhng-3c26b2fb-0c11-42f2-9026-1113b200a7b2@palmer-si-x1c4>
+ <CAEn-LTpQ5uTte2bBrEs3uLKtsckkKPUOP+jHw5k-DFAwGCS3WA@mail.gmail.com>
+Message-ID: <CAK8P3a30Dmq3vp-+=jvVu8VMe+GKc9dU=+ZF0rzhFiUq2NuJ_w@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 7 Nov 2018, Andrew Morton wrote:
-> On Wed, 7 Nov 2018 13:36:34 -0700 Logan Gunthorpe <logang@deltatee.com> wrote:
-> 
-> > > Actually if both names suck, then there also is the option to rename both
-> > > instead of adding a comment to explain the suckage.
-> > 
-> > Ok, well, I wasn't expecting to take on a big rename like that as it
-> > would create a patch touching a bunch of arches and mm files... But if
-> > we can come to some agreement on a better name and someone is willing to
-> > take that patch without significant delay then I'd be happy to create
-> > the patch and add it to the start of my series.
-> 
-> Some other time ;)
+On Wed, Nov 7, 2018 at 7:30 PM David Abdurachmanov
+<david.abdurachmanov@gmail.com> wrote:
+> On Wed, Nov 7, 2018 at 1:08 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+> > On Mon, 05 Nov 2018 12:56:15 PST (-0800), Arnd Bergmann wrote:
 
-More precise: Manjana. You live way too close to Mexico :)
+> > The target is still the next glibc release (Feb 1st) for a stable RV32I ABI.
+> > That's progressing well, with one last blocking issue related to some of our
+> > floating-point emulation routines before we can submit the port.  This should
+> > give us ample time to line up the ABIs correctly so everything works.
+> >
+> > So I think the correct answer here is to drop __ARCH_WANT_STAT64 from RISC-V.
+> >
+>
+> Then if you agree I could do and send v2:
+>
+> +#ifdef __LP64__
+> +#define __ARCH_WANT_NEW_STAT
+> +#endif /* __LP64__ */
+
+Looks good to me.
+
+> Cannot use CONFIG_64BIT as in user space nothing defines it.
+> Alternatively I could
+> check for __riscv_xlen == 64.
+>
+> I found _LP64 and __LP64__ being used in kernel, incl. include/uapi/linux/rseq.h
+
+I think older gcc versions were less consistent about those macros, which
+is why I introduced __BITS_PER_LONG a long time ago. We now support
+gcc-4.6 as the minimum, so using __LP64__ is reliable, and on RISC-V
+we obviously have a much newer compiler anyway.
+
+        Arnd
