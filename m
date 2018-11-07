@@ -2,89 +2,83 @@ Return-Path: <SRS0=abkI=NS=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A3446C0044C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 17:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 143E2C0044C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 18:26:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7A37820862
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 17:39:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DD76A20862
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Nov 2018 18:26:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="G+/M/KeS";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="n7Yo6UQ6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7A37820862
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=deltatee.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="c+UJxBVS";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="R2bylybD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DD76A20862
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:MIME-Version:References:
-	In-Reply-To:Message-Id:Date:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6HFVQR431xhZ0PzmrEDPgQOHxK/Xq2Rhd+kKwaXAbi8=; b=G+/M/KeSB4ynrX
-	A6CtsgTWKLaZZP7XzVQ9eoCZApjTMKzdCUcXgkyF3atHFsYzBtJqCQPbPkmV84Hb5KNL7e79o4ZCN
-	RiAJOzs2/wYEQvU7nrp3DQ3GVOLxtigP7PST/mMkQ7G9zae5GS/v2K94boYoCj95ZgeYcfhOLHmUo
-	eu0cDEIffHe44CqQ55T5uvH6SuvfDS5VJKAtQbfPMHhQQCAtymN54Jkyush2cZXIYrp8EGqfRhYX6
-	lQn2UCIGaZ29IphHt7qUYASCf4/fZ30T7mYp1i8Xw7GINCqARohJu5mX0A7KYFVoibXHwPpg/A47H
-	SnhH6jjmio4jnFyf8efA==;
+	List-Owner; bh=SgRjggOq5sdjlV2x58fHcCQkaeUZpsZS3wyPH7ODwU8=; b=c+UJxBVSlAFexv
+	B15ZjBgc2RMpoxnrm6Kj5yVl86SWI0n49/OjpFbkHBpHZyE9odEbtS85SBOLOuI1LcYMTMKE0MKxt
+	dz2cxQ6oC8x1/9SoO2Dkbc1TggG/v8xtSGkARTmFpoH6ADD8sU1ZOL+ORdYF1u4f3i//c+7NCQzoO
+	6HZp+u0FfoNQYed8CYEOfSRsydRyTnIrh0cE1y0HH4yqTlMuCl6ogTLdNM5eqIRxMaemyJ9bXYQed
+	Q9DjywZngGxRh6XjaO/7Jur52N7amPKuBuM/myuY3Ve+w9fHYULCniNVtFqzBxyMamP24P2RFRcSf
+	ybOhNmp5MOa2+ktU15ug==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gKRnt-0000qk-G6; Wed, 07 Nov 2018 17:39:45 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1gKSWy-0008Hh-OD; Wed, 07 Nov 2018 18:26:20 +0000
+Received: from mail-ot1-x342.google.com ([2607:f8b0:4864:20::342])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gKRnY-0000Hv-BG; Wed, 07 Nov 2018 17:39:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=Subject:Content-Transfer-Encoding:
- MIME-Version:References:In-Reply-To:Message-Id:Date:Cc:To:From:Sender:
- Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Izl7FQIjX6vtgzV3Bh7GUeX8NbhWtWlS4nwo7NYT9mE=; b=n7Yo6UQ6RvpxhpMsIN2sMhf0ZZ
- muiq8pY5Qug8Ii8LXnvczvy9M19b+WxQPdlGifP+Ax6UqZSRG6ovCbEwTi9n8EWC5KoI1NJG2gnS0
- IG5xMOowr55CswHeaA2CVYeqDlspL23DTCMUyc70LVrwXuh6cA0pBQGRwumtishG6lE4sKaOjTR3w
- mWNiDNhr9RZ9bbd8AzSEJ2hQAYVFp9m67nJ01JiC1gVS6H+kpiofh3pmn0z0ggElm12daOhwIwxff
- JBuYqZP9VfiUYVF5NP3vZ/f2r0asUFFFHcx8VhqNpucqqyM9SgDZsZn6gsPHOi72DJ1wBxUIBBEqP
- t0/Gh7qw==;
-Received: from ale.deltatee.com ([207.54.116.67])
- by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gKRnT-0003sv-Ms; Wed, 07 Nov 2018 17:39:22 +0000
-Received: from cgy1-donard.priv.deltatee.com ([172.16.1.31])
- by ale.deltatee.com with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.89) (envelope-from <gunthorp@deltatee.com>)
- id 1gKRnB-0003U5-I0; Wed, 07 Nov 2018 10:39:02 -0700
-Received: from gunthorp by cgy1-donard.priv.deltatee.com with local (Exim 4.89)
- (envelope-from <gunthorp@deltatee.com>)
- id 1gKRnA-0006HQ-Fv; Wed, 07 Nov 2018 10:39:00 -0700
-From: Logan Gunthorpe <logang@deltatee.com>
-To: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-sh@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>
-Date: Wed,  7 Nov 2018 10:38:58 -0700
-Message-Id: <20181107173859.24096-2-logang@deltatee.com>
-X-Mailer: git-send-email 2.19.0
-In-Reply-To: <20181107173859.24096-1-logang@deltatee.com>
-References: <20181107173859.24096-1-logang@deltatee.com>
+ id 1gKSWv-0008Gs-K0
+ for linux-riscv@lists.infradead.org; Wed, 07 Nov 2018 18:26:19 +0000
+Received: by mail-ot1-x342.google.com with SMTP id q5so15623812otl.13
+ for <linux-riscv@lists.infradead.org>; Wed, 07 Nov 2018 10:26:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=9NLvjBGObqubTwwxqbx0lqK0eMcF80ZZo46ca3Z0w8w=;
+ b=R2bylybDisRAZTdkOwDJE5GR8iZ/Cn03SD+9wpms01iVR/s2NsFj+fQllsnM0UpNCh
+ hg/RZQjkarvvJ5zVpa8Xi00b6qg6jSAZXXzs20QyblD0RueqGMesGFuZ7rpwGyUraS+R
+ nPHBEKky8c/Zqvtkg50eTe5Ga0EFQXc5Px5dGgNwSB1SZRGdTgD5jsJl06IRpns7zw30
+ JrncLD4LlofxKWXOG9vjzNvikJGBb8q498WA+S53Vpvyvrz8cfvZ6Je2j6QOR0vtDyjX
+ r7j6EhCxE3OPfIU5uq7RvTRGavnrvk2C63oV1teh5qMa1r9oqOsKHUaO5iRwJIhHxw62
+ Eo7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=9NLvjBGObqubTwwxqbx0lqK0eMcF80ZZo46ca3Z0w8w=;
+ b=ga4/4a28vPjUO0uZ4D8vQsSlVIMxj8yOR4AtKu2UHxpbf9GE9Jv8HdHfEuoLO5pXAI
+ S6ahC6qBeSEthKly5CfEe6YbAWdAAsFprnZoavkdnscS++mxMCejWkcVY4BfDL531rxl
+ OxBrz9gFwAhYY5QNsMlNPE0ZOQK9rOAal4TvOJRwzxTKknBLfz5upYJz8UgElNARbK9w
+ ZkxyElkBe8rnv7+otzQ8/2h0gZBnsMx03mPn/G11cSH6+jJ9kzMt8ZVWvz6cEC4HaV2O
+ EcYsNZ7OvA1/gKCkzJOkOrN3S5fhLL8qpYLW92DnwjHK+ChKRPl/hykJ3pPopnXwdYQe
+ L/eg==
+X-Gm-Message-State: AGRZ1gJEu6o5wg5uzl3yStY0XtJAYUueBPM7hroGDVC4pgRXJoXo/xAW
+ W0oVxrGRqlAG73WxYplToK1lSaKv6MD1mOQQ3iT6BJN2sVk=
+X-Google-Smtp-Source: AJdET5fWX0U0eTFQpP3H6pV0IQJgRfgpYX7m2mSz0wTZypEGUG6vtPqzd8JoWFil+lA1KxzKZomeZSEi40BAu9XBBmQ=
+X-Received: by 2002:a9d:3fb0:: with SMTP id r45mr786224otc.110.1541615166376; 
+ Wed, 07 Nov 2018 10:26:06 -0800 (PST)
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 172.16.1.31
-X-SA-Exim-Rcpt-To: linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-sh@vger.kernel.org,
- akpm@linux-foundation.org, sbates@raithlin.com, palmer@sifive.com,
- aou@eecs.berkeley.edu, hch@lst.de, arnd@arndb.de, logang@deltatee.com,
- catalin.marinas@arm.com
-X-SA-Exim-Mail-From: gunthorp@deltatee.com
-Subject: [PATCH 1/2] mm: Introduce common STRUCT_PAGE_MAX_SHIFT define
-X-SA-Exim-Version: 4.2.1 (built Tue, 02 Aug 2016 21:08:31 +0000)
-X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
+References: <CAEn-LToUoaA0H=_boLUi6SPXyo5Wfge293GbOhgxw2-JcZDKmg@mail.gmail.com>
+ <CAK8P3a3KgBq72763QQauKNWdSv9ZRRUWMDxt1RycV6RxAJsCng@mail.gmail.com>
+In-Reply-To: <CAK8P3a3KgBq72763QQauKNWdSv9ZRRUWMDxt1RycV6RxAJsCng@mail.gmail.com>
+From: David Abdurachmanov <david.abdurachmanov@gmail.com>
+Date: Wed, 7 Nov 2018 19:25:55 +0100
+Message-ID:
+ <CAEn-LTr__59kApb=kkm7aH0z4w-J9xG1rzhK1xDk3xCGSis9SQ@mail.gmail.com>
+Subject: Re: warning in ./arch/riscv/include/asm/module.h
+To: Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181107_173920_508617_0486A22A 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20181107_102617_683847_D5B5C629 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,107 +90,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
- Stephen Bates <sbates@raithlin.com>, Logan Gunthorpe <logang@deltatee.com>,
- Christoph Hellwig <hch@lst.de>
+Cc: linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181107173858.uQSLCuX8BvDF1Vy0UU7u2-dnlKjyoLt49lCapVisPNo@z>
+Message-ID: <20181107182555.lV9aDQRuEiCmWjJPnPzpIZvn3Um3jTR1A8zDny_DTts@z>
 
-This define is used by arm64 to calculate the size of the vmemmap
-region. It is defined as the log2 of the upper bound on the size
-of a struct page.
+On Mon, Nov 5, 2018 at 10:02 PM Arnd Bergmann <arnd@arndb.de> wrote:
+>
+> On 11/5/18, David Abdurachmanov <david.abdurachmanov@gmail.com> wrote:
+> > Hi,
+> >
+> > This happens once you enable "Module signature verification". E.g.,
+> >
+> > [..]
+> > CONFIG_MODULE_SIG=y
+> > CONFIG_MODULE_SIG_ALL=y
+> > CONFIG_MODULE_SIG_SHA256=y
+> > CONFIG_MODULE_SIG_HASH="sha256"
+> > CONFIG_MODULE_SIG_KEY="certs/signing_key.pem"
+> > [..]
+> >
+> > BUILDSTDERR: In file included from kernel/module-internal.h:13,
+> > BUILDSTDERR:                  from kernel/module_signing.c:17:
+> > BUILDSTDERR: ./arch/riscv/include/asm/module.h:11:34: warning: 'struct
+> > module' declared inside parameter list will not be visible outside of
+> > this definition or declaration
+> > BUILDSTDERR:  u64 module_emit_got_entry(struct module *mod, u64 val);
+> > BUILDSTDERR:                                   ^~~~~~
+> > BUILDSTDERR: ./arch/riscv/include/asm/module.h:12:34: warning: 'struct
+> > module' declared inside parameter list will not be visible outside of
+> > this definition or declaration
+> > BUILDSTDERR:  u64 module_emit_plt_entry(struct module *mod, u64 val);
+> > BUILDSTDERR:                                   ^~~~~~
+>
+> This is very easy to fix:
+>
+> diff --git a/arch/riscv/include/asm/module.h b/arch/riscv/include/asm/module.h
+> index 349df33808c4..cd2af4b013e3 100644
+> --- a/arch/riscv/include/asm/module.h
+> +++ b/arch/riscv/include/asm/module.h
+> @@ -8,6 +8,7 @@
+>
+>  #define MODULE_ARCH_VERMAGIC    "riscv"
+>
+> +struct module;
+>  u64 module_emit_got_entry(struct module *mod, u64 val);
+>  u64 module_emit_plt_entry(struct module *mod, u64 val);
+>
 
-We move it into mm_types.h so it can be defined properly instead of
-set and checked with a build bug. This also allows us to use the same
-define for riscv.
+True. Originally I was wondering if there is a bigger problem with
+header ordering. I will send the patch.
 
-Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-Acked-by: Will Deacon <will.deacon@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Christoph Hellwig <hch@lst.de>
----
- arch/arm64/include/asm/memory.h | 9 ---------
- arch/arm64/mm/init.c            | 8 --------
- include/asm-generic/fixmap.h    | 1 +
- include/linux/mm_types.h        | 5 +++++
- 4 files changed, 6 insertions(+), 17 deletions(-)
+> > BUILDSTDERR: net/core/rtnetlink.c: In function 'rtnl_newlink':
+> > BUILDSTDERR: net/core/rtnetlink.c:3224:1: warning: the frame size of
+> > 1280 bytes is larger than 1024 bytes [-Wframe-larger-than=]
+> > BUILDSTDERR:  }
+> > BUILDSTDERR:  ^
+>
+> This may be much harder. I've fixed this type of issue for arm and
+> x86, but it requires a much more detailed analysis of what's going
+> on. This is often a compiler bug. Which compiler version are you
+> using?
 
-diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
-index b96442960aea..f0a5c9531e8b 100644
---- a/arch/arm64/include/asm/memory.h
-+++ b/arch/arm64/include/asm/memory.h
-@@ -34,15 +34,6 @@
-  */
- #define PCI_IO_SIZE		SZ_16M
- 
--/*
-- * Log2 of the upper bound of the size of a struct page. Used for sizing
-- * the vmemmap region only, does not affect actual memory footprint.
-- * We don't use sizeof(struct page) directly since taking its size here
-- * requires its definition to be available at this point in the inclusion
-- * chain, and it may not be a power of 2 in the first place.
-- */
--#define STRUCT_PAGE_MAX_SHIFT	6
--
- /*
-  * VMEMMAP_SIZE - allows the whole linear region to be covered by
-  *                a struct page array
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 9d9582cac6c4..1a3e411a1d08 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -612,14 +612,6 @@ void __init mem_init(void)
- 	BUILD_BUG_ON(TASK_SIZE_32			> TASK_SIZE_64);
- #endif
- 
--#ifdef CONFIG_SPARSEMEM_VMEMMAP
--	/*
--	 * Make sure we chose the upper bound of sizeof(struct page)
--	 * correctly when sizing the VMEMMAP array.
--	 */
--	BUILD_BUG_ON(sizeof(struct page) > (1 << STRUCT_PAGE_MAX_SHIFT));
--#endif
--
- 	if (PAGE_SIZE >= 16384 && get_num_physpages() <= 128) {
- 		extern int sysctl_overcommit_memory;
- 		/*
-diff --git a/include/asm-generic/fixmap.h b/include/asm-generic/fixmap.h
-index 827e4d3bbc7a..8cc7b09c1bc7 100644
---- a/include/asm-generic/fixmap.h
-+++ b/include/asm-generic/fixmap.h
-@@ -16,6 +16,7 @@
- #define __ASM_GENERIC_FIXMAP_H
- 
- #include <linux/bug.h>
-+#include <linux/mm_types.h>
- 
- #define __fix_to_virt(x)	(FIXADDR_TOP - ((x) << PAGE_SHIFT))
- #define __virt_to_fix(x)	((FIXADDR_TOP - ((x)&PAGE_MASK)) >> PAGE_SHIFT)
-diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-index 5ed8f6292a53..2c471a2c43fa 100644
---- a/include/linux/mm_types.h
-+++ b/include/linux/mm_types.h
-@@ -206,6 +206,11 @@ struct page {
- #endif
- } _struct_page_alignment;
- 
-+/*
-+ * Used for sizing the vmemmap region on some architectures
-+ */
-+#define STRUCT_PAGE_MAX_SHIFT	(order_base_2(sizeof(struct page)))
-+
- #define PAGE_FRAG_CACHE_MAX_SIZE	__ALIGN_MASK(32768, ~PAGE_MASK)
- #define PAGE_FRAG_CACHE_MAX_ORDER	get_order(PAGE_FRAG_CACHE_MAX_SIZE)
- 
--- 
-2.19.0
+Ops. I didn't indent to copy this one. This one is expected as Fedora
+has CONFIG_FRAME_WARN set to 1024. Only couple architectures
+set that to higher number (2048).
 
+david
 
 _______________________________________________
 linux-riscv mailing list
