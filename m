@@ -1,99 +1,72 @@
-From: logang@deltatee.com (Logan Gunthorpe)
-Date: Wed,  7 Nov 2018 10:38:58 -0700
-Subject: [PATCH 1/2] mm: Introduce common STRUCT_PAGE_MAX_SHIFT define
-In-Reply-To: <20181107173859.24096-1-logang@deltatee.com>
-References: <20181107173859.24096-1-logang@deltatee.com>
-Message-ID: <20181107173859.24096-2-logang@deltatee.com>
+From: david.abdurachmanov@gmail.com (David Abdurachmanov)
+Date: Wed, 7 Nov 2018 19:25:55 +0100
+Subject: warning in ./arch/riscv/include/asm/module.h
+In-Reply-To: <CAK8P3a3KgBq72763QQauKNWdSv9ZRRUWMDxt1RycV6RxAJsCng@mail.gmail.com>
+References: <CAEn-LToUoaA0H=_boLUi6SPXyo5Wfge293GbOhgxw2-JcZDKmg@mail.gmail.com>
+ <CAK8P3a3KgBq72763QQauKNWdSv9ZRRUWMDxt1RycV6RxAJsCng@mail.gmail.com>
+Message-ID: <CAEn-LTr__59kApb=kkm7aH0z4w-J9xG1rzhK1xDk3xCGSis9SQ@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-This define is used by arm64 to calculate the size of the vmemmap
-region. It is defined as the log2 of the upper bound on the size
-of a struct page.
+On Mon, Nov 5, 2018 at 10:02 PM Arnd Bergmann <arnd@arndb.de> wrote:
+>
+> On 11/5/18, David Abdurachmanov <david.abdurachmanov@gmail.com> wrote:
+> > Hi,
+> >
+> > This happens once you enable "Module signature verification". E.g.,
+> >
+> > [..]
+> > CONFIG_MODULE_SIG=y
+> > CONFIG_MODULE_SIG_ALL=y
+> > CONFIG_MODULE_SIG_SHA256=y
+> > CONFIG_MODULE_SIG_HASH="sha256"
+> > CONFIG_MODULE_SIG_KEY="certs/signing_key.pem"
+> > [..]
+> >
+> > BUILDSTDERR: In file included from kernel/module-internal.h:13,
+> > BUILDSTDERR:                  from kernel/module_signing.c:17:
+> > BUILDSTDERR: ./arch/riscv/include/asm/module.h:11:34: warning: 'struct
+> > module' declared inside parameter list will not be visible outside of
+> > this definition or declaration
+> > BUILDSTDERR:  u64 module_emit_got_entry(struct module *mod, u64 val);
+> > BUILDSTDERR:                                   ^~~~~~
+> > BUILDSTDERR: ./arch/riscv/include/asm/module.h:12:34: warning: 'struct
+> > module' declared inside parameter list will not be visible outside of
+> > this definition or declaration
+> > BUILDSTDERR:  u64 module_emit_plt_entry(struct module *mod, u64 val);
+> > BUILDSTDERR:                                   ^~~~~~
+>
+> This is very easy to fix:
+>
+> diff --git a/arch/riscv/include/asm/module.h b/arch/riscv/include/asm/module.h
+> index 349df33808c4..cd2af4b013e3 100644
+> --- a/arch/riscv/include/asm/module.h
+> +++ b/arch/riscv/include/asm/module.h
+> @@ -8,6 +8,7 @@
+>
+>  #define MODULE_ARCH_VERMAGIC    "riscv"
+>
+> +struct module;
+>  u64 module_emit_got_entry(struct module *mod, u64 val);
+>  u64 module_emit_plt_entry(struct module *mod, u64 val);
+>
 
-We move it into mm_types.h so it can be defined properly instead of
-set and checked with a build bug. This also allows us to use the same
-define for riscv.
+True. Originally I was wondering if there is a bigger problem with
+header ordering. I will send the patch.
 
-Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-Acked-by: Will Deacon <will.deacon@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Christoph Hellwig <hch@lst.de>
----
- arch/arm64/include/asm/memory.h | 9 ---------
- arch/arm64/mm/init.c            | 8 --------
- include/asm-generic/fixmap.h    | 1 +
- include/linux/mm_types.h        | 5 +++++
- 4 files changed, 6 insertions(+), 17 deletions(-)
+> > BUILDSTDERR: net/core/rtnetlink.c: In function 'rtnl_newlink':
+> > BUILDSTDERR: net/core/rtnetlink.c:3224:1: warning: the frame size of
+> > 1280 bytes is larger than 1024 bytes [-Wframe-larger-than=]
+> > BUILDSTDERR:  }
+> > BUILDSTDERR:  ^
+>
+> This may be much harder. I've fixed this type of issue for arm and
+> x86, but it requires a much more detailed analysis of what's going
+> on. This is often a compiler bug. Which compiler version are you
+> using?
 
-diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
-index b96442960aea..f0a5c9531e8b 100644
---- a/arch/arm64/include/asm/memory.h
-+++ b/arch/arm64/include/asm/memory.h
-@@ -34,15 +34,6 @@
-  */
- #define PCI_IO_SIZE		SZ_16M
- 
--/*
-- * Log2 of the upper bound of the size of a struct page. Used for sizing
-- * the vmemmap region only, does not affect actual memory footprint.
-- * We don't use sizeof(struct page) directly since taking its size here
-- * requires its definition to be available at this point in the inclusion
-- * chain, and it may not be a power of 2 in the first place.
-- */
--#define STRUCT_PAGE_MAX_SHIFT	6
--
- /*
-  * VMEMMAP_SIZE - allows the whole linear region to be covered by
-  *                a struct page array
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 9d9582cac6c4..1a3e411a1d08 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -612,14 +612,6 @@ void __init mem_init(void)
- 	BUILD_BUG_ON(TASK_SIZE_32			> TASK_SIZE_64);
- #endif
- 
--#ifdef CONFIG_SPARSEMEM_VMEMMAP
--	/*
--	 * Make sure we chose the upper bound of sizeof(struct page)
--	 * correctly when sizing the VMEMMAP array.
--	 */
--	BUILD_BUG_ON(sizeof(struct page) > (1 << STRUCT_PAGE_MAX_SHIFT));
--#endif
--
- 	if (PAGE_SIZE >= 16384 && get_num_physpages() <= 128) {
- 		extern int sysctl_overcommit_memory;
- 		/*
-diff --git a/include/asm-generic/fixmap.h b/include/asm-generic/fixmap.h
-index 827e4d3bbc7a..8cc7b09c1bc7 100644
---- a/include/asm-generic/fixmap.h
-+++ b/include/asm-generic/fixmap.h
-@@ -16,6 +16,7 @@
- #define __ASM_GENERIC_FIXMAP_H
- 
- #include <linux/bug.h>
-+#include <linux/mm_types.h>
- 
- #define __fix_to_virt(x)	(FIXADDR_TOP - ((x) << PAGE_SHIFT))
- #define __virt_to_fix(x)	((FIXADDR_TOP - ((x)&PAGE_MASK)) >> PAGE_SHIFT)
-diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-index 5ed8f6292a53..2c471a2c43fa 100644
---- a/include/linux/mm_types.h
-+++ b/include/linux/mm_types.h
-@@ -206,6 +206,11 @@ struct page {
- #endif
- } _struct_page_alignment;
- 
-+/*
-+ * Used for sizing the vmemmap region on some architectures
-+ */
-+#define STRUCT_PAGE_MAX_SHIFT	(order_base_2(sizeof(struct page)))
-+
- #define PAGE_FRAG_CACHE_MAX_SIZE	__ALIGN_MASK(32768, ~PAGE_MASK)
- #define PAGE_FRAG_CACHE_MAX_ORDER	get_order(PAGE_FRAG_CACHE_MAX_SIZE)
- 
--- 
-2.19.0
+Ops. I didn't indent to copy this one. This one is expected as Fedora
+has CONFIG_FRAME_WARN set to 1024. Only couple architectures
+set that to higher number (2048).
+
+david
