@@ -4,81 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4D5ECECDE47
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Nov 2018 19:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5C805ECDE47
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Nov 2018 19:33:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 201212081C
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Nov 2018 19:14:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2C2DC2077B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Nov 2018 19:33:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eZ7MN8Ny";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linaro.org header.i=@linaro.org header.b="hYKBzT0d"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 201212081C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="l6pxMY7H";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="GSeGubkS"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2C2DC2077B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jUaw/xio6hrM/vpu9ZAfgAf/zr1Czi6aRLrhdsXsG3g=; b=eZ7MN8NydTTV3K
-	lNI6BY8Yu/4ZSezSzywsHm5eOCJnaShi5azb6SeWgkLyRAKgLehXKyeDYNJL5BWZDcj+Hamk98Jc6
-	0wKCWzcG8iifswEVFxYslmWraXkxLOc4jGN9ScRTa/VJwcjhqlsWFyVCK6X4RTqY+qPfz4aGT5zpd
-	BIQUlKMr+3VY+G2ZtiZOTrIC1jt4CExEjSzuR9/f7hPX7IU1cDN3rzBgk9N3tQigv3uS2tjbTW9Kt
-	DsQAtpie4cVf0wykE8VqUP5xILB/Xa1u8XkCaPfF+DclvRxaNka5txn3ctaPqnh9Z0jkQdwqzJQUJ
-	N3MN6lkgyOfnGo/mmR/A==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=p4lvrP2nfrsIOXWQTfqhOshh29gwUtOpBJNoRPxzvKk=; b=l6pxMY7HdHTtaSLF3UKkrquSH
+	FxyOMNlxDhI1lPwG2PlcnN5emvj7mONsAknnIPZQJGXl4EXvq5noD1xs3LGqjfEcjYxvWBJ17aL0U
+	15iWymPXm04d46AoPU1DOi9y1SHxmGLPVUKj+DcIUZztdCP6dobgGgizfMy7IIbNFS5XvAQ1w3cud
+	w/pMKv8UZr+1tHFtxJ4kOlQ5nceFZ+M0D/uKYBL70DJ+HbCotkTkksQwV6q+TPc8WuUY0dMTKu4Ip
+	uX4cFQt4b3CQBpy7iv+59haj+M4xdplt9rgB+aM4UjdekRvk/ieqMN57lhFATBF/N6MSnVbuKbj30
+	4J4xl2FSw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gKpkk-00061x-4Z; Thu, 08 Nov 2018 19:14:06 +0000
-Received: from mail-it1-x142.google.com ([2607:f8b0:4864:20::142])
+	id 1gKq3D-0005dm-SC; Thu, 08 Nov 2018 19:33:11 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gKpka-0005gH-6y
- for linux-riscv@lists.infradead.org; Thu, 08 Nov 2018 19:13:58 +0000
-Received: by mail-it1-x142.google.com with SMTP id b7-v6so3224942itd.5
- for <linux-riscv@lists.infradead.org>; Thu, 08 Nov 2018 11:13:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:in-reply-to:references:from:date:message-id:subject:to
- :cc; bh=9pqgH5iPyY9JT34F1WXkxY6gvLmgbkxVD023KV58pqA=;
- b=hYKBzT0deMlLz1oSe/c+8VVcDAGWbH40xIsshe0Azuk1a3dWEL9hqyHgk6vjfqNbw9
- wtVl4VxjSvJfAaLR7HkdiH6R+kAeRirTZqsHL0VlhPedgAEYtA84wGz14uNM+itrLbvf
- AGAZ6pOQyIQoQSzJ1Vchlr7mSs0m2zcPI5HrY=
+ id 1gKq3A-0005dA-NS
+ for linux-riscv@lists.infradead.org; Thu, 08 Nov 2018 19:33:10 +0000
+Received: by mail-pf1-x444.google.com with SMTP id v68-v6so6162005pfk.0
+ for <linux-riscv@lists.infradead.org>; Thu, 08 Nov 2018 11:32:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=TIK2R+2irgTzLBZnutnmO7Lc4vftZqOCApHzyog2wpk=;
+ b=GSeGubkSB+I4iOXXfYrgyGhmdpepc2pi4ErUd+gTvHpg6iaU1Cr2zplCKZ5rhqWYGj
+ vs0zeZcNqw6FiaIohWO/QBY1GffRWhj9seYod5IIOUcNWTku2fUkU7rDAWMMvB114k0J
+ 99mpw2lQ7SRp0xlbP6NyN5cqQr7yhdutsk7pr3zb9AE5R/8WPYOWdlvP8CM64HTcK30W
+ VS8SnOGSrAMtaNJdLkKjP8zGlMT686KUuWwt7SGM51tXg5RS+FdpGUqeyQYDl9Tpetj+
+ p5w6rGKu1WpmrUeJZY8Iy4upsBKzM+5o+FncLHxrZfbnXa9ESvMkdz3ImpNSi1iv04ko
+ Y6PA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:in-reply-to:references:from:date
- :message-id:subject:to:cc;
- bh=9pqgH5iPyY9JT34F1WXkxY6gvLmgbkxVD023KV58pqA=;
- b=mr9SMJHw9OzHZtLEXMXJxM7l7LEQVzQcOzTQivD7P6Fezk1vlgEJDRcTLJ+WsGhrJX
- StoWXhF43QQBDrA3BxCQzEGaUPtdP0JHqP4MPstZ6AfwRC6Bi1fPLLpuZhXBedgiW5X9
- Xha21tzAKIKRVOQ1cE6XOK5F/F2k6OGc5z77VV90fQEQGX5WloMP7wFmcNhzZ7YhnZAP
- JGNkc9hgbGohHGxb1zFw5aI0wyWVmmr/DGF83PBGGrD7oxEJCXTPRlDtdDrbLqc5ew+x
- J8xBKpBEwnnbosUMSc4jHNXFRLtp6c6e7LNrFfNqgFmdA1OcqEADUe/3j6NZ803rSo/+
- nzww==
-X-Gm-Message-State: AGRZ1gI2vImMJX3V20RjOY7+ZdRIPMECKt6ZlfHfFaGFfNrvkyQy5ck1
- CLcJWCSNZluqvfWT3xxCPxE5qAnoikrsc7qkso3cnw==
-X-Google-Smtp-Source: AJdET5dE0chaBu0v2SQgptNYxClMkGO6bEUA6+cpjcL20By1TijHErXIAIdTSRfiiNDIDXMed6ta2owj1PbcI+ZfJUQ=
-X-Received: by 2002:a24:7d8d:: with SMTP id
- b135-v6mr2079018itc.121.1541704425013; 
- Thu, 08 Nov 2018 11:13:45 -0800 (PST)
-MIME-Version: 1.0
-Received: by 2002:a6b:4f16:0:0:0:0:0 with HTTP;
- Thu, 8 Nov 2018 11:13:44 -0800 (PST)
-In-Reply-To: <20181107205433.3875-2-logang@deltatee.com>
-References: <20181107205433.3875-1-logang@deltatee.com>
- <20181107205433.3875-2-logang@deltatee.com>
-From: Ard Biesheuvel <ard.biesheuvel@linaro.org>
-Date: Thu, 8 Nov 2018 20:13:44 +0100
-Message-ID:
- <CAKv+Gu9c+img+yqpmG9HD_bOihXLzQ70W+5Wki0FTmx7wYj37w@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] mm: Introduce common STRUCT_PAGE_MAX_SHIFT define
-To: Logan Gunthorpe <logang@deltatee.com>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=TIK2R+2irgTzLBZnutnmO7Lc4vftZqOCApHzyog2wpk=;
+ b=fsDdSVSIuO9EUSNx0GtsUb4jqC0ezmi03RDLLWBbU/gujdG5PK+cfMTHop+ep+O7/f
+ k+sQAXcUTqhklfLdB5+v0C4ZreqSCa/CfK3lE91HaM8g786OHFhp2s9PtO66XA64L4B8
+ 44tjQhbUywjJU/PV8hHq9UfIGQrKMC19CuOFDle2Z87ykDDP9gW+/Rzzghd2UPcnC1Xm
+ SL13+FIRiIPuknSlo/wJSbigdOZtdlf4bfco8V6v7glxIHEb5TFF7i5vzU0o40rKIGKx
+ FTY9LxOHClWwcQAG1jfhzuIFNXuvFuDe6FetDa7LpJgnLC1wtbLQs2uaG7iFb928bJ4K
+ 36SA==
+X-Gm-Message-State: AGRZ1gJiV3QZ7YI0mIZcNgSiPrPeBgEfWf2OlDf9pyf4aTmhkPFh81TJ
+ x3y2iNbHyHJm2q54nyDj9rjcSg==
+X-Google-Smtp-Source: AJdET5d7IC22PPnlCqw2sFPla48l+0M4VDStY8BscG5Wi7dSvTRoNl4ETKw6Sy1MCDVTJeKMUlVuJg==
+X-Received: by 2002:a62:3241:: with SMTP id
+ y62-v6mr5921005pfy.218.1541705576361; 
+ Thu, 08 Nov 2018 11:32:56 -0800 (PST)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id f22-v6sm5046601pff.29.2018.11.08.11.32.55
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Thu, 08 Nov 2018 11:32:55 -0800 (PST)
+Date: Thu, 08 Nov 2018 11:32:55 -0800 (PST)
+X-Google-Original-Date: Thu, 08 Nov 2018 11:26:45 PST (-0800)
+Subject: Re: [PATCH] riscv: fix warning in arch/riscv/include/asm/module.h
+In-Reply-To: <20181108190700.30825-1-david.abdurachmanov@gmail.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: david.abdurachmanov@gmail.com
+Message-ID: <mhng-1888c072-5274-457c-aa26-b9fa9cb246dd@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181108_111356_281304_76A85A8E 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20181108_113308_773178_0C489ECF 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,120 +94,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch <linux-arch@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Arnd Bergmann <arnd@arndb.de>, linux-sh@vger.kernel.org,
- Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Stephen Bates <sbates@raithlin.com>, Linux-MM <linux-mm@kvack.org>,
- linux-riscv@lists.infradead.org, Christoph Hellwig <hch@lst.de>,
- Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
+ linux-kernel@vger.kernel.org, david.abdurachmanov@gmail.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181108191344.DJOyRiudHUJQ8os_aDFVwyACdSiJMUPMoaeQuDabmcE@z>
+Message-ID: <20181108193255.AqwnsPgxez5y9f8v_DEXyX3JkchlLFiXvjIl7VMd53o@z>
 
-On 7 November 2018 at 21:54, Logan Gunthorpe <logang@deltatee.com> wrote:
-> This define is used by arm64 to calculate the size of the vmemmap
-> region. It is defined as the log2 of the upper bound on the size
-> of a struct page.
+On Thu, 08 Nov 2018 11:07:00 PST (-0800), david.abdurachmanov@gmail.com wrote:
+> Fixes warning: 'struct module' declared inside parameter list will not be
+> visible outside of this definition or declaration
 >
-> We move it into mm_types.h so it can be defined properly instead of
-> set and checked with a build bug. This also allows us to use the same
-> define for riscv.
->
-> Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-> Acked-by: Will Deacon <will.deacon@arm.com>
-> Acked-by: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Christoph Hellwig <hch@lst.de>
-
-Acked-by: Ard Biesheuvel <ard.biesheuvel@linaro.org>
-
+> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
 > ---
->  arch/arm64/include/asm/memory.h | 9 ---------
->  arch/arm64/mm/init.c            | 8 --------
->  include/asm-generic/fixmap.h    | 1 +
->  include/linux/mm_types.h        | 5 +++++
->  4 files changed, 6 insertions(+), 17 deletions(-)
+>  arch/riscv/include/asm/module.h | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
-> index b96442960aea..f0a5c9531e8b 100644
-> --- a/arch/arm64/include/asm/memory.h
-> +++ b/arch/arm64/include/asm/memory.h
-> @@ -34,15 +34,6 @@
->   */
->  #define PCI_IO_SIZE            SZ_16M
+> diff --git a/arch/riscv/include/asm/module.h b/arch/riscv/include/asm/module.h
+> index 349df33808c4..cd2af4b013e3 100644
+> --- a/arch/riscv/include/asm/module.h
+> +++ b/arch/riscv/include/asm/module.h
+> @@ -8,6 +8,7 @@
 >
-> -/*
-> - * Log2 of the upper bound of the size of a struct page. Used for sizing
-> - * the vmemmap region only, does not affect actual memory footprint.
-> - * We don't use sizeof(struct page) directly since taking its size here
-> - * requires its definition to be available at this point in the inclusion
-> - * chain, and it may not be a power of 2 in the first place.
-> - */
-> -#define STRUCT_PAGE_MAX_SHIFT  6
-> -
->  /*
->   * VMEMMAP_SIZE - allows the whole linear region to be covered by
->   *                a struct page array
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 9d9582cac6c4..1a3e411a1d08 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -612,14 +612,6 @@ void __init mem_init(void)
->         BUILD_BUG_ON(TASK_SIZE_32                       > TASK_SIZE_64);
->  #endif
+>  #define MODULE_ARCH_VERMAGIC    "riscv"
 >
-> -#ifdef CONFIG_SPARSEMEM_VMEMMAP
-> -       /*
-> -        * Make sure we chose the upper bound of sizeof(struct page)
-> -        * correctly when sizing the VMEMMAP array.
-> -        */
-> -       BUILD_BUG_ON(sizeof(struct page) > (1 << STRUCT_PAGE_MAX_SHIFT));
-> -#endif
-> -
->         if (PAGE_SIZE >= 16384 && get_num_physpages() <= 128) {
->                 extern int sysctl_overcommit_memory;
->                 /*
-> diff --git a/include/asm-generic/fixmap.h b/include/asm-generic/fixmap.h
-> index 827e4d3bbc7a..8cc7b09c1bc7 100644
-> --- a/include/asm-generic/fixmap.h
-> +++ b/include/asm-generic/fixmap.h
-> @@ -16,6 +16,7 @@
->  #define __ASM_GENERIC_FIXMAP_H
->
->  #include <linux/bug.h>
-> +#include <linux/mm_types.h>
->
->  #define __fix_to_virt(x)       (FIXADDR_TOP - ((x) << PAGE_SHIFT))
->  #define __virt_to_fix(x)       ((FIXADDR_TOP - ((x)&PAGE_MASK)) >> PAGE_SHIFT)
-> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-> index 5ed8f6292a53..2c471a2c43fa 100644
-> --- a/include/linux/mm_types.h
-> +++ b/include/linux/mm_types.h
-> @@ -206,6 +206,11 @@ struct page {
->  #endif
->  } _struct_page_alignment;
->
-> +/*
-> + * Used for sizing the vmemmap region on some architectures
-> + */
-> +#define STRUCT_PAGE_MAX_SHIFT  (order_base_2(sizeof(struct page)))
-> +
->  #define PAGE_FRAG_CACHE_MAX_SIZE       __ALIGN_MASK(32768, ~PAGE_MASK)
->  #define PAGE_FRAG_CACHE_MAX_ORDER      get_order(PAGE_FRAG_CACHE_MAX_SIZE)
->
-> --
-> 2.19.0
->
->
-> _______________________________________________
-> linux-arm-kernel mailing list
-> linux-arm-kernel@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
+> +struct module;
+>  u64 module_emit_got_entry(struct module *mod, u64 val);
+>  u64 module_emit_plt_entry(struct module *mod, u64 val);
+
+Works for me.  Looks like arm64 might have exactly the same issue.  I'll roll 
+it up into the next RC.
+
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
