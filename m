@@ -1,53 +1,27 @@
-From: david.abdurachmanov@gmail.com (David Abdurachmanov)
-Date: Thu, 8 Nov 2018 11:38:22 +0100
-Subject: [PATCH] riscv: add asm/unistd.h UAPI header
-In-Reply-To: <mhng-23f94805-b961-4e68-a4c1-7d79b60bd925@palmer-si-x1c4>
-References: <CAK8P3a30Dmq3vp-+=jvVu8VMe+GKc9dU=+ZF0rzhFiUq2NuJ_w@mail.gmail.com>
- <mhng-23f94805-b961-4e68-a4c1-7d79b60bd925@palmer-si-x1c4>
-Message-ID: <CAEn-LTqCT-u0_QNdOSf3bLKYa5S2vz4T0X5yKmnS1AE4pDYOkg@mail.gmail.com>
+From: broonie@kernel.org (Mark Brown)
+Date: Thu, 8 Nov 2018 12:00:17 +0000
+Subject: [TECH TOPIC] SoC maintainer group
+In-Reply-To: <20181107171723.GI9919@thunk.org>
+References: <CAOesGMgVPsK9YsV2nGoBptWwtHYv=3yMytLx2_tF_ujS5c5p3Q@mail.gmail.com>
+ <20181107171723.GI9919@thunk.org>
+Message-ID: <20181108120017.GB6675@sirena.org.uk>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Nov 8, 2018 at 3:10 AM Palmer Dabbelt <palmer@sifive.com> wrote:
->
-> On Wed, 07 Nov 2018 13:09:39 PST (-0800), Arnd Bergmann wrote:
-> > On Wed, Nov 7, 2018 at 7:30 PM David Abdurachmanov
-> > <david.abdurachmanov@gmail.com> wrote:
-> >> On Wed, Nov 7, 2018 at 1:08 AM Palmer Dabbelt <palmer@sifive.com> wrote:
-> >> > On Mon, 05 Nov 2018 12:56:15 PST (-0800), Arnd Bergmann wrote:
-> >
-> >> > The target is still the next glibc release (Feb 1st) for a stable RV32I ABI.
-> >> > That's progressing well, with one last blocking issue related to some of our
-> >> > floating-point emulation routines before we can submit the port.  This should
-> >> > give us ample time to line up the ABIs correctly so everything works.
-> >> >
-> >> > So I think the correct answer here is to drop __ARCH_WANT_STAT64 from RISC-V.
-> >> >
-> >>
-> >> Then if you agree I could do and send v2:
-> >>
-> >> +#ifdef __LP64__
-> >> +#define __ARCH_WANT_NEW_STAT
-> >> +#endif /* __LP64__ */
-> >
-> > Looks good to me.
->
-> This is a bit pedantic, but I'm not sure what the right answer is here:
-> "-march=rv64gc -mabi=ilp32d" will not define __LP64__, but will define
-> "__riscv_xlen == 64".  I actually don't know enough about how an rv64gc/ilp32d
-> ABI would work to answer this: would we have "long long" all over our syscalls?
->
-> Probably not worth worrying about for now, as we'll have to go audit all of
-> these if we ever end up with an ilp32 ABI.  So just go for it and we'll throw
-> this on the pile to deal with later :)
+On Wed, Nov 07, 2018 at 12:17:23PM -0500, Theodore Y. Ts'o wrote:
 
-GCC will not allow "-march=rv64gc -mabi=ilp32d":
+> Could the poeple listed on this list please list potential schedule conflicts?
 
-    cc1: error: ABI requires -march=rv32
+> I'm going to assume we should avoid: Andriod uConf, RISC-V uConf,
+> Device Tree uConf.  What are other potential conflicts.  I'm going to
+> guess this might be "interesting" to schedule.  :-)
 
-I see that arch/riscv/include/uapi/asm/elf.h already use __riscv_xlen so to be
-consistent I will use it too (but I like __LP64__ more as it is well
-known macro).
-
-Looking at other UAPI headers I see that include/uapi/linux/rseq.h is using
-__LP64__ macro. This header is installed on riscv.
+The clang BoFs, RT and testing would be bad for me.  Possibly some other
+stuff but I've not seen the schedule yet.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 488 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20181108/0bae645f/attachment.sig>
