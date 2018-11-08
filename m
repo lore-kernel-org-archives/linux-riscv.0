@@ -1,57 +1,27 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 08 Nov 2018 08:57:24 -0800 (PST)
-Subject: [PATCH] riscv: add asm/unistd.h UAPI header
-In-Reply-To: <CAEn-LTqCT-u0_QNdOSf3bLKYa5S2vz4T0X5yKmnS1AE4pDYOkg@mail.gmail.com>
-Message-ID: <mhng-dc92b5a0-ee9f-4e63-a99e-34e77058c77a@palmer-si-x1c4>
+From: catalin.marinas@arm.com (Catalin Marinas)
+Date: Thu, 8 Nov 2018 18:04:33 +0000
+Subject: [PATCH v2 1/2] mm: Introduce common STRUCT_PAGE_MAX_SHIFT define
+In-Reply-To: <20181107205433.3875-2-logang@deltatee.com>
+References: <20181107205433.3875-1-logang@deltatee.com>
+ <20181107205433.3875-2-logang@deltatee.com>
+Message-ID: <20181108180432.GH144107@arrakis.emea.arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, 08 Nov 2018 02:38:22 PST (-0800), david.abdurachmanov at gmail.com wrote:
-> On Thu, Nov 8, 2018 at 3:10 AM Palmer Dabbelt <palmer@sifive.com> wrote:
->>
->> On Wed, 07 Nov 2018 13:09:39 PST (-0800), Arnd Bergmann wrote:
->> > On Wed, Nov 7, 2018 at 7:30 PM David Abdurachmanov
->> > <david.abdurachmanov@gmail.com> wrote:
->> >> On Wed, Nov 7, 2018 at 1:08 AM Palmer Dabbelt <palmer@sifive.com> wrote:
->> >> > On Mon, 05 Nov 2018 12:56:15 PST (-0800), Arnd Bergmann wrote:
->> >
->> >> > The target is still the next glibc release (Feb 1st) for a stable RV32I ABI.
->> >> > That's progressing well, with one last blocking issue related to some of our
->> >> > floating-point emulation routines before we can submit the port.  This should
->> >> > give us ample time to line up the ABIs correctly so everything works.
->> >> >
->> >> > So I think the correct answer here is to drop __ARCH_WANT_STAT64 from RISC-V.
->> >> >
->> >>
->> >> Then if you agree I could do and send v2:
->> >>
->> >> +#ifdef __LP64__
->> >> +#define __ARCH_WANT_NEW_STAT
->> >> +#endif /* __LP64__ */
->> >
->> > Looks good to me.
->>
->> This is a bit pedantic, but I'm not sure what the right answer is here:
->> "-march=rv64gc -mabi=ilp32d" will not define __LP64__, but will define
->> "__riscv_xlen == 64".  I actually don't know enough about how an rv64gc/ilp32d
->> ABI would work to answer this: would we have "long long" all over our syscalls?
->>
->> Probably not worth worrying about for now, as we'll have to go audit all of
->> these if we ever end up with an ilp32 ABI.  So just go for it and we'll throw
->> this on the pile to deal with later :)
->
-> GCC will not allow "-march=rv64gc -mabi=ilp32d":
->
->     cc1: error: ABI requires -march=rv32
->
-> I see that arch/riscv/include/uapi/asm/elf.h already use __riscv_xlen so to be
-> consistent I will use it too (but I like __LP64__ more as it is well
-> known macro).
->
-> Looking at other UAPI headers I see that include/uapi/linux/rseq.h is using
-> __LP64__ macro. This header is installed on riscv.
+On Wed, Nov 07, 2018 at 01:54:32PM -0700, Logan Gunthorpe wrote:
+> This define is used by arm64 to calculate the size of the vmemmap
+> region. It is defined as the log2 of the upper bound on the size
+> of a struct page.
+> 
+> We move it into mm_types.h so it can be defined properly instead of
+> set and checked with a build bug. This also allows us to use the same
+> define for riscv.
+> 
+> Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
+> Acked-by: Will Deacon <will.deacon@arm.com>
+> Acked-by: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Christoph Hellwig <hch@lst.de>
 
-Yes, it's not currently supported and there are no concrete plans to support 
-it.  Like Arnd mentioned, it's a big headache.  It was really more of a 
-question about how this might work than a concrete review, I'm happy with the 
-patch as it was suggested.
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
