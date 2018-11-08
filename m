@@ -1,369 +1,249 @@
-From: mick@ics.forth.gr (Nick Kossifidis)
-Date: Thu, 08 Nov 2018 16:52:30 +0200
+From: mark.rutland@arm.com (Mark Rutland)
+Date: Thu, 8 Nov 2018 15:54:05 +0000
 Subject: [RFC 0/2] Add RISC-V cpu topology
-In-Reply-To: <20181107122803.GA8433@e107155-lin>
+In-Reply-To: <b3a38a178699278c09a9c9ce6421ddd8@mailhost.ics.forth.gr>
 References: <1541113468-22097-1-git-send-email-atish.patra@wdc.com>
  <866dedbc78ab4fa0e3b040697e112106@mailhost.ics.forth.gr>
  <20181106141331.GA28458@e107155-lin>
  <969fc2a5198984e0dfe8c3f585dc65f9@mailhost.ics.forth.gr>
  <20181106162051.w7fyweuxrl7ujzuz@lakrids.cambridge.arm.com>
  <abcae019e6ae749b17ecb0c721fd3177@mailhost.ics.forth.gr>
- <20181107122803.GA8433@e107155-lin>
-Message-ID: <d04779705c47b59b94300365e805dbd3@mailhost.ics.forth.gr>
+ <20181107120645.sc3wjgr2yakvxktl@lakrids.cambridge.arm.com>
+ <b3a38a178699278c09a9c9ce6421ddd8@mailhost.ics.forth.gr>
+Message-ID: <20181108155404.32ja7bbxu62nyytt@lakrids.cambridge.arm.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-???? 2018-11-07 14:28, Sudeep Holla ??????:
-> On Wed, Nov 07, 2018 at 04:31:34AM +0200, Nick Kossifidis wrote:
-> [...]
+On Thu, Nov 08, 2018 at 03:45:36PM +0200, Nick Kossifidis wrote:
+> ???? 2018-11-07 14:06, Mark Rutland ??????:
+> > On Wed, Nov 07, 2018 at 04:31:34AM +0200, Nick Kossifidis wrote:
+> > > Mark and Sundeep thanks a lot for your feedback, I guess you convinced
+> > > me that having a device tree binding for the scheduler is not a
+> > > correct approach. It's not a device after all and I agree that the
+> > > device tree shouldn't become an OS configuration file.
+> > 
+> > Good to hear.
+> > 
+> > > Regarding multiple levels of shared resources my point is that since
+> > > cpu-map doesn't contain any information of what is shared among the
+> > > cluster/core members it's not easy to do any further translation. Last
+> > > time I checked the arm code that uses cpu-map, it only defines one
+> > > domain for SMT, one for MC and then everything else is ignored. No
+> > > matter how many clusters have been defined, anything above the core
+> > > level is the same (and then I guess you started talking about adding
+> > > "packages" on the representation side).
+> > 
+> > While cpu-map doesn't contain that information today, we can *add* that
+> > information to the cpu-map binding if necessary.
+> > 
+> > > The reason I proposed to have a binding for the scheduler directly is
+> > > not only because it's simpler and closer to what really happens in the
+> > > code, it also makes more sense to me than the combination of cpu-map
+> > > with all the related mappings e.g.  for numa or caches or power
+> > > domains etc.
+> > > 
+> > > However you are right we could definitely augment cpu-map to include
+> > > support for what I'm saying and clean things up, and since you are
+> > > open about improving it here is a proposal that I hope you find
+> > > interesting:
+> > > 
+> > > At first let's get rid of the <thread> nodes, they don't make sense:
+> > > 
+> > > thread0 {
+> > >  cpu = <&CPU0>;
+> > > };
+> > > 
+> > > A thread node can't have more than one cpu entry and any properties
+> > > should be on the cpu node itself, so it doesn't / can't add any
+> > > more information. We could just have an array of cpu nodes on the
+> > > <core> node, it's much cleaner this way.
+> > > 
+> > > core0 {
+> > >  members = <&CPU0>, <&CPU1>;
+> > > };
+> > 
+> > Hold on. Rather than reinventing things from first principles, can we
+> > please discuss what you want to *achieve*, i.e. what information you
+> > need?
+> > 
+> > Having a node is not a significant cost, and there are reasons we may
+> > want thread nodes. For example, it means that we can always refer to any
+> > level of topology with a phandle, and we might want to describe
+> > thread-affine devices in future.
 > 
->> 
->> Mark and Sudeep thanks a lot for your feedback, I guess you convinced 
->> me
->> that having a device tree binding for the scheduler is not a correct
->> approach.
->> 
-> 
-> Thanks :)
-> 
->> It's not a device after all and I agree that the device tree shouldn't
->> become an OS configuration file. Regarding multiple levels of shared
->> resources my point is that since cpu-map doesn't contain any 
->> information of
->> what is shared among the cluster/core members it's not easy to do any
->> further translation. Last time I checked the arm code that uses 
->> cpu-map, it
->> only defines one domain for SMT, one for MC and then everything else 
->> is
->> ignored. No matter how many clusters have been defined, anything above 
->> the
->> core level is the same (and then I guess you started talking about 
->> adding
->> "packages" on the representation side).
->> 
-> 
-> Correct.
-> 
->> The reason I proposed to have a binding for the scheduler directly is 
->> not
->> only because it's simpler and closer to what really happens in the 
->> code, it
->> also makes more sense to me than the combination of cpu-map with all 
->> the
->> related mappings e.g. for numa or caches or power domains etc.
->> 
-> 
-> Again you are just looking at it with Linux kernel perspective.
-> 
->> However you are right we could definitely augment cpu-map to include 
->> support
->> for what I'm saying and clean things up, and since you are open about
->> improving it here is a proposal that I hope you find interesting: At 
->> first
->> let's get rid of the <thread> nodes, they don't make sense:
->> 
->> thread0 {
->>  cpu = <&CPU0>;
->> };
->> 
-> 
-> Do you have any strong reasons to do so ?
-> Since it's already there for some time, I believe we can't remove it 
-> for
-> backward compatibility reasons.
-> 
->> A thread node can't have more than one cpu entry and any properties
->> should be on the cpu node itself, so it doesn't / can't add any
->> more information. We could just have an array of cpu nodes on the
->> <core> node, it's much cleaner this way.
->> 
->> core0 {
->>  members = <&CPU0>, <&CPU1>;
->> };
->> 
-> 
-> I agree, but we have kernel code using it(arm64/kernel/topology.c). 
-> It's
-> too late to remove it. But we can always keep to optional if we move 
-> the
-> ARM64 binding as generic to start with and mandate it for only ARM64.
-> 
+> You can use the phandle of the cpu node, the thread node doesn't add
+> anything more than complexity to the representation.
 
-That's my point as well, if we are going to define something to be used
-by everybody and in this case, at least for RISC-V, there is no need to
-carry this from the ARM64 binding. It shouldn't be that hard to fix this
-in the future for ARM64 as well, we may give the new mapping another 
-name,
-maybe cpu-map2 or cpu-topology to slowly move to the new one. Changing 
-the
-dts files shouldn't be this hard, we can provide a script for it. We can
-even contain some compatibility code that also understands <thread> 
-nodes
-and e.g. merges them together on a core node.
+That adds complexity elsewhere, because the phandle of a CPU node is not
+a child of the cpu-map node, and you can't simply walk up the tree
+hierarchy to find parent nodes.
 
->> Then let's allow the cluster and core nodes to accept attributes that 
->> are
->> common for the cpus they contain. Right now this is considered 
->> invalid.
->> 
-> 
-> Yes, we have discussed in the past and decided not to. I am fine if we
-> need to change it, but assuming the topology implies other information
-> could be wrong. On ARM platforms we have learnt it, so we kept any
-> information away from topology. I assume same with RISC-V, different
-> vendors implement in different ways, so it's better to consider those
-> factors.
-> 
->> For power domains we have a generic binding described on
->> Documentation/devicetree/bindings/power/power_domain.txt
->> which basically says that we need to put power-domains = <power domain
->> specifiers> attribute on each of the cpu nodes.
->> 
-> 
-> OK, but what's wrong with that. I gives full flexibility.
-> 
->> The same happens with the capacity binding specified for arm on
->> Documentation/devicetree/bindings/arm/cpu-capacity.txt
->> which says we should add the capacity-dmips-mhz on each of the cpu 
->> nodes.
->> 
-> 
-> Ditto, we may need this for our single cluster DSU systems.
-> 
->> The same also happens with the generic numa binding on
->> Documentation/devicetree/bindings/numa.txt
->> which says we should add the nuna-node-id on each of the cpu nodes.
->> 
-> 
-> Yes, but again what's the problem ?
-> 
+I see no reason to change this part of the binding. Given it's already
+out there, with existing parsing code, changing it only serves to add
+complexity to any common code which has to parse this.
 
-There is no problem with the above bindings, the problem is that we have
-to put them on each cpu node which is messy. We could instead put them
-(optionally) on the various groupings used on cpu-map. This would allow
-cpu-map to be more specific of what is shared across the members of each
-group (core/cluster/whatever).
+Can we please drop the idea of dropping the thread node?
 
-As I wrote on my answer to Mark previously, the bindings for infering
-the cache topology, numa topology, power domain topology etc are already
-there, they are in the devicet tree spec and provide very specific
-informations we can use. Much "stronger" hints of what's going on at
-the hw level. The cpu-map doesn't provide such information, it just
-provides a view of how the various harts/threads are "packed" on the 
-chip,
-not what they share inside each level of "packing". It's useful because
-it saves people from having to define a bunch of cache nodes and 
-describe
-the cache hierarchy on the device tree using the standard spec.
+> > There are a tonne of existing bindings that are ugly, but re-inventing
+> > them for taste reasons alone is more costly to the ecosystem than simply
+> > using the existing bindings. We avoid re-inventing bindings unless there
+> > is a functional problem e.g. cases which they cannot possibly describe.
+> 
+> We are talking about using something for RISC-V and possibly common across
+> different archs and, I don't see why we should keep the ugliness of a
+> binding spec plus in this case the <trhead> node can't possibly describe
+> anything else than a cpu=<node> alias, it's redundant.
 
-So since cpu-map is there for convenience let's make it more convenient 
-!
-What I'm saying is that cpu-map could be a more compact way of using the
-existing bindings for adding properties on groups of harts instead of
-putting them on each hart individually. It will simplify the 
-representation
-and may also optimize the implementation a bit (we may get the 
-information
-we need faster). I don't see any other reason for using cpu-map on 
-RISC-V
-or for making it global across archs.
+While it may be ugly, removing it only serves to add complexity for
+common parsing code, and removes flexibility that we may want in future.
+Its presence does not cause any technical problem.
 
->> We could allow for these attributes to exist on cluster and core nodes
->> as well so that we can represent their properties better. It shouldn't
->> be a big deal and it can be done in a backwards-compatible way (if we
->> don't find them on the cpu node, climb up the topology hierarchy until
->> we find them / not find them at all). All I'm saying is that I prefer 
->> this:
->> 
-> 
-> [...]
-> 
->> 
->> cluster0 {
->>  cluster0 {
->>   core0 {
->>    power-domains = <&pdc 0>;
->>    numa-node-id = <0>;
->>    capacity-dmips-mhz = <578>;
->>    members = <&cpu0>, <&cpu1>;
->>   }
->>  };
->>  cluster1 {
->>   capacity-dmips-mhz = <1024>;
->>   core0 {
->>    power-domains = <&pdc 1>;
->>    numa-node-id = <1>;
->>    members = <&cpu2>;
->>   };
->>   core1 {
->>    power-domains = <&pdc 2>;
->>    numa-node-id = <2>;
->>    members = <&cpu3>;
->>   };
->>  };
->> }
->> 
-> 
-> Why are you so keen on optimising the representation ?
-> If you are worried about large systems, generate one instead of
-> handcrafted.
-> 
+For better or worse we're all sharing the same codebase here. The common
+case matters, as does the complexity of the codebase as a whole.
 
-I don't see a reason not to try to optimize it, since we are talking
-about a binding to be used by RISC-V and potentially everybody, I think
-it makes sens to improve upon what we already have.
+I realise it can be frustrating to have to use something you feel is
+sub-optimal, but putting up with a few nodes which you personally feel
+are redundant is of much lower cost to the ecosystem than having
+incompatible bindings where we could have one. If you put up with that,
+you can focus your efforts on more worthwhile technical exercises.
 
->> When it comes to shared resources, the standard dt mappings we have 
->> are for
->> caches and are on the device spec standard (coming from power pc's 
->> ePAPR
->> standard I think). The below comes from HiFive unleashed's device tree
->> (U540Config.dts) that follows the spec:
->> 
+> > > Then let's allow the cluster and core nodes to accept attributes
+> > > that are
+> > > common for the cpus they contain. Right now this is considered
+> > > invalid.
+> > > 
+> > > For power domains we have a generic binding described on
+> > > Documentation/devicetree/bindings/power/power_domain.txt
+> > > which basically says that we need to put power-domains = <power domain
+> > > specifiers>
+> > > attribute on each of the cpu nodes.
+> > 
+> > FWIW, given this is arguably topological, I'm not personally averse to
+> > describing this in the cpu-map, if that actually gains us more than the
+> > complexity require to support it.
+> > 
+> > Given we don't do this for device power domains, I suspect that it's
+> > simpler to stick with the existing binding.
+> > 
+> > > The same happens with the capacity binding specified for arm on
+> > > Documentation/devicetree/bindings/arm/cpu-capacity.txt
+> > > which says we should add the capacity-dmips-mhz on each of the cpu
+> > > nodes.
+> > 
+> > The cpu-map was intended to expose topological dtails, and this isn't
+> > really a topological property. For example, Arm DynamIQ systems can have
+> > heterogeneous CPUs within clusters.
+> > 
+> > I do not think it's worth moving this, tbh.
+> > 
+> > > The same also happens with the generic numa binding on
+> > > Documentation/devicetree/bindings/numa.txt
+> > > which says we should add the nuna-node-id on each of the cpu nodes.
+> > 
+> > Is there a strong gain from moving this?
+> > 
+> > [...]
 > 
-> I don't understand what you are trying to explain, ePAPR does specify
-> per CPU entries.
+> Right now with the device tree spec and the above bindings we can
+> use the information from cpu nodes to infer the cache topology,
+> the memory topology, the power domain topology etc.
 > 
-> [...]
-> 
+> We have of_find_next_cache_node and of_find_last_cache_level for example
+> that use "next-level-cache" and are used on powerpc (where this spec comes
+> from), that we can further build on top of them (since this is now part
+> of the  device tree spec anyway), to e.g. populate the levels of cache,
+> the levels of shared cache and finally create cpu masks for the different
+> cache sharing levels.
 
-I'm saying we could allow moving these properties on the groupings of 
-cpu-map
-to simplify the representation and possibly optimize the implementation. 
-This
-way I believe cpu-map will be much more useful than it is now.
+The cpu-map binding does not describe cache topology. I never suggested
+that it did.
 
->> Note that the cache-controller node that's common between the 4 cores 
->> can
->> exist anywhere BUT the cluster node ! However it's a property of the
->> cluster.
->> A quick search through the tree got me r8a77980.dtsi that defines the 
->> cache
->> on the cpus node and I'm sure there are other similar cases. Wouldn't 
->> this
->> be better ?
->> 
->> cluster0 {
->>  core0 {
->>   cache-controller at 2010000 {
->>    cache-block-size = <64>;
->>    cache-level = <2>;
->>    cache-sets = <2048>;
->>    cache-size = <2097152>;
->>    cache-unified;
->>    compatible = "sifive,ccache0", "cache";
->>    ...
->>   };
->>   members = <&cpu0>, <&cpu1>, <&cpu2>, <&cpu3>;
+> This is standards-compliant, arch-independent (they are on of/base.c), and
+> it provides a concrete hint on CPU topology rather grouping harts to classes
+> like "core", "package", "socket", "cluster" etc that don't mean anything
+> specific and we assume to map to specific levels of cache sharing.
+
+Please note that I have never suggested "package", and I'm not sure what
+that's in response to.
+
+Please also not that while the cache topology and CPU topology are
+somewhat related, in general (this is at least true on ARM systems)
+there's no strict mapping between the two, which is why we have separate
+bindings in the first place.
+
+Distinct CPU topologies could look identical in cache topology, and
+vice-versa.
+
+> The same goes for the power domain topology, numa topology, or for
+> understanding how the cpus are grouped in terms of capacity, we can
+> always just use the above bindings on cpu nodes and be done with it.
 > 
-> Not a good idea IMO.
+> The way I see it cpu-map doesn't add anything new to the spec at this
+> point, it's just there for convenience so that people don't have to add all
+> these infos on the cpu nodes. Instead of adding cache nodes and use the
+> next-level-cache property like the device tree spec says, we have cpu-map
+> that presents how the harts are "packed" inside the chip, assuming that
+> their packing also aligns on how they share their caches (they say
+> nothing about how they share their power domain or other attributes).
+
+The cpu-map and cache bindings describe separate topological details,
+and neither is intended to replace the other. There are plenty of DT
+files with both.
+
+> In a sense it goes against your rule of "re-inventing them for taste
+> reasons alone is more costly to the ecosystem than simply using the
+> existing bindings", I fail to see anything else than "taste reasons"
+> when it comes to cpu-map, since there are existing bindings for
+> inferring the CPU topology already, they are just not that convenient.
+
+If you believe that's the case, then you can perfectly use the existing
+cache and NUMA bindings, and not describe the cpu topology at all, no
+need to change cpu-map or come up with a new binding.
+
+> I'm proposing to add the option (not enforce) of adding those
+> attributes that are meant to be used on cpu nodes, on the various
+> groups/classes of the cpu-map, this way cpu-map will provide something
+> more meaningful and at least improve the representation side of
+> things. On the implementation side it might save us the burden of
+> infering the topology from parsing all cpu nodes each time. It's also
+> backwards compatible with what you already have, the only thing that's
+> not backwards compatible is the removal of the <thread> node, which I
+> don't think is such a big deal to fix.
+
+Sorry, but as I have stated repeatedly, this complicates the common code
+for what you admit is a matter of taste. I would rather maintain the
+simplicity of this binding and existing parsing code, and not
+potentially break other parsers, if the only cost is a few nodes which
+you personally consider to be redundant.
+
+> > > Finally from the examples above I'd like to stress out that the
+> > > distinction between a cluster and a core doesn't make much sense
+> > > and it also makes the representation more complicated. To begin
+> > > with, how would you call the setup on HiFive Unleashed ? A cluster
+> > > of 4 cores that share the same L3 cache ?
+> > 
+> > Not knowing much about the hardware, I can't really say.
+> > 
+> > I'm not sure I follow why the distinction between a cluster and a core
+> > is non-sensical. A cluster is always a collection of cores.
+> > 
+> > A hart could be a core in its own right, or it could be a thread under a
+> > core, which shares functional units with other harts within that core.
+> > 
+> > Arguably, we could have mandated that the topology always needed to
+> > describe down to a thread, even if a core only had a single thread. That
+> > ship has sailed, however.
 > 
+> So we agree, the "core" doesn't say anything useful regarding the
+> topology, why keep using this distinction on a binding for RISC-V and
+> possibly other archs (since we are also talking on an arch-independent
+> approach) ?
 
-Where in your opinion should this cache node go ? On the first example 
-from
-a production dts it goes to the SoC node and on another production dts 
-it goes
-to the cpus/ node. I think it makes more sense to go to the core node or 
-the
-cluster node, depending on how it's shared. It makes it also easier
-for the implementation to understand the levels of shared caches and 
-creating
-cpu masks.
+We keep it because the binding has already been finalised and is use in
+practice. The existing binding and parsing code is *sufficient* for your
+needs. Personal taste and minor savings in the number of nodes in a DT
+are not compelling reasons to change this when the cost is complexity
+that we have to maintain *forever*.
 
->> We could even remove next-level-cache from the cpu nodes and infer it 
->> from
->> the  topology (search the topology upwards until we get a node that's
->> "cache"-compatible), we can again make this backwards-compatible.
->> 
-> 
-> Why are you assuming that they *have* to be so aligned with topology ?
-> How do you deal with different kind of systems ?
-> 
-
-It depends on how you define topology. I believe that the cache 
-hierarchy is
-a much "stronger" definition of the CPU topology than grouping 
-harts/threads
-on classes like "core", "socket", "packet" etc that don't provide any 
-information
-of what's going on inside the hardware. You can think of the question 
-the other
-way around, why are you assuming that the current topology as specified 
-on
-cpu-map is aligned with how the harts and cores share their "resources" 
-?
-Because that's what's going on at the implementation side of cpu-map.
-
->> 
->> Finally from the examples above I'd like to stress out that the 
->> distinction
->> between a cluster and a core doesn't make much sense and it also makes 
->> the
->> representation more complicated. To begin with, how would you call the 
->> setup
->> on HiFive Unleashed ? A cluster of 4 cores that share the same L3 
->> cache ?
->> One core with 4 harts that share the same L3 cache ? We could 
->> represent it
->> like this instead:
->> 
-> 
-> Just represent each physical cache and get the list of CPUs sharing it.
-> Doesn't matter what it is: cluster or cluster of clusters or cluster of
-> harts, blah, blah. It really doesn't matter.
-> 
-
-I totally agree with you, but in this case what's the reason of having
-cpu-map ? We can infer the topology from what we already have, at least
-cpu-map adds some convenience (but if we go all the way down the 
-"convinience"
-path we'll end up on something like my initial approach which was as we
-both agree now, wrong).
-
->> 
->> We could e.g. keep only cluster nodes and allow them to contain either 
->> an
->> array of harts or other cluster sub-nodes + optionally a set of 
->> attributes,
->> common to the members/sub-nodes of the cluster. This way we'll get in 
->> the
->> first example:
->> 
-> 
-> All these fancy new ideas you are proposing are good if vendors follow
-> some things religiously, but I really doubt if that's true. So just
-> have maximum flexibility so that we can represent maximum number of
-> systems without having to redefine the bindings again and again for the
-> same thing.
-> 
-> So instead of finding ways to optimise, you should really come up with
-> list of shortcomings in the existing bindings so that we cover more
-> platforms with generic bindings. IMO you are too concerned on 
-> optimisation
-> of DT representation which may defeat the purpose of generic bindings.
-> 
-
-I get your point, but if that's the case, isn't cpu-map an optimization 
-over
-the generic bindings for cpu nodes anyway ? As for the flexibility, what 
-I'm
-saying is to allow the flexibility of adding the properties that we 
-would
-otherwise add to cpu nodes, on the groups we use on cpu-map. Optionaly 
-so that
-we are also backwards compatible. I see this as more flexible, not less
-flexible. The same goes for removing the distinction between "core",
-"cluster" etc, having specific names for each of the topology levels is 
-IMHO
-less flexible than using abstract names.
-
-Also what's the point of defining a binding if vendors don't follow it ?
-I think it would be easier for the vendors to just use what's there 
-instead
-of defining a new binding and writing the code for it. On the other hand
-you are probably more experienced on this than I am, I haven't dealt 
-with
-various different vendors and their different ways.
-
-Regards,
-Nick
+Thanks,
+Mark.
