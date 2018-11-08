@@ -2,23 +2,23 @@ Return-Path: <SRS0=/DNs=NT=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-8.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,URIBL_SBL,URIBL_SBL_A,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 38C8DECDE47
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Nov 2018 19:03:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4ACF5ECDE4B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Nov 2018 19:07:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0C5C320825
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Nov 2018 19:03:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 16B562081C
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Nov 2018 19:07:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CagT1aWx";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="aDo/l2h4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0C5C320825
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uYC/u8Tb";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="rpXVov7h"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 16B562081C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,64 +27,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qte2x0UgfgNhSo25Q7Q780uwZ645B90cLBjokr6Fgf4=; b=CagT1aWxjusH6f
-	di/yLHQ9hJjQ+CcXzQGRzFQpkS69SRlwQ9Qh/fpcEtf+07v7nENRCmUlRrEmVVqGFfXPHMrrRYGuG
-	3bPhYxGXzFeEgiG3V64rTEcYsURWvftOdwFU1eLhzM0oAMqx0HAynlF3doTNodAFSwPqDNw/sxFjw
-	jhuBk/xxqgVLbpkLppe8cZ4jQ7JeoGeN00wqLV+2K6wuAmmcinYk9leopucKmtD4m7xnPUUVI8Vsx
-	iTqRfOiamuO1JAx/IxymgPYut+1IeYKzmBucfYZWE2Q47ZkNxCtG+T5DI+t30M9Qg+YeyxOWv3yT7
-	EewVfAdwl6a0Uif6NRZw==;
+	List-Owner; bh=OEvLI65lPj0RAUAiTLXOZqeyZCqZw8ioddM+hWd3Rbo=; b=uYC/u8TbCHwhKS
+	Ot8wI/Af62knBWlUEVL/iPaBOcenn0xtgtrTeA+Ip2qEzZcRRgmFm7hHyVUUsopprBtS1b7IFlpTF
+	MCPcmt2PEap2aNFP9NxsfH7fCjezDi5aqthLuxVO7sgxGkYcVgAcoNNI/UGmaL0pLRNmzIeJ1U86k
+	akCFjOu2Z1NHjHQo5z7MeGQ59wVUxUgcBym3kaQxjebfaB/wF8nX/3e5uVI4MLQF+IKKaOihc+MCi
+	NAQqaZrynbaC7dDZKPuzQYPyleA4IRGJMBopBQMwDjLLSFCO3oQCiN6nFm+K/vnBwtAK9h1w7f3Ze
+	rPWYIU9q9clj7JNWAVWQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gKpa6-0002kS-BZ; Thu, 08 Nov 2018 19:03:06 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1gKpeA-0004B0-3d; Thu, 08 Nov 2018 19:07:18 +0000
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gKpa3-0002jU-92
- for linux-riscv@lists.infradead.org; Thu, 08 Nov 2018 19:03:05 +0000
-Received: by mail-wm1-x342.google.com with SMTP id f19-v6so2199542wmb.0
- for <linux-riscv@lists.infradead.org>; Thu, 08 Nov 2018 11:02:51 -0800 (PST)
+ id 1gKpe7-0004AN-OG
+ for linux-riscv@lists.infradead.org; Thu, 08 Nov 2018 19:07:16 +0000
+Received: by mail-wr1-x441.google.com with SMTP id z16-v6so22442540wrv.2
+ for <linux-riscv@lists.infradead.org>; Thu, 08 Nov 2018 11:07:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=from:to:cc:subject:date:message-id:mime-version
  :content-transfer-encoding;
- bh=LJVLUDV11EDb2vbd+GFA7UxacxtSc2FBZExCPPIxd7g=;
- b=aDo/l2h4KNNUXOkCOFBackchxvkURX5rxDhACDcsSXBcMwLv+QkoAsyyASuNybud4P
- M8WPfiN5W2OqHvSGLqPnEF1P3Boct4Wmhy3STo3IVPQRwnb5boyPY+7Zik947jJURi2q
- 46LM8x8pIbnl4AKDojzaeHdCya76FnWn2g/ikl77l7KboGJIzndqhBcsEvXnmCF10otA
- IdMlCs6JMx7WkMei4ZVIBRuaQ5tO+aKdWUrsvKVKs7ZrP1mulAlie2V+Qa8hMbIuvynF
- BDcqnCpGL6MSKVaerxnPz3QscSmT4hEsN6W/t44TtOQ2VIVjy0g4wpI3tRFKOMS0uBdG
- wBmQ==
+ bh=tHsK0hhrKmdeeb3ghMdlBw0MAo3rlZFjyqHNm6Q0ZR0=;
+ b=rpXVov7hv6/psus9dpe+GRQrRwrJI6lSNw64tpPO97PeC/DUs5VBDTUMFjmHJ131Pg
+ oJVFCkIuAhOqE3RrExVlvVZsqpZlyrcCpJ7yJNgbNccOBbRT622zi5K1BDnxKyyzrYrT
+ 9Kqy/LMqJxqq+5F7DLPi3DGnVAtlHRjr6A9AKH283vEu2qMwgkIz2Ah4uyQc7lvv8Jc+
+ LXlmlv/yqQe/25jHzYhiI3UbQqRpHMK+kRbNn7vDzW5aYL6tD+T5TrKKbWSHcXJiLZyS
+ 74xhdl4xx0JRuEGP9mBPF3hW3JDRumRo+lC5kCL3uWdaTt9FV3kEemo4BGFZmXcUxPGb
+ HC3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
  :content-transfer-encoding;
- bh=LJVLUDV11EDb2vbd+GFA7UxacxtSc2FBZExCPPIxd7g=;
- b=Y4pWUJ8Hc0l+zcWrGDmBwet47W2UPVD5uJ8T/Q0N/+HtvbTBxevpamW97BRJBxeHpg
- awh1UHJa4HKxI8iDoWPpGUBP2xjEQCyjdjXHCyo4epTk/mN848MX+5xJzzStsEO8QcNb
- xyExtzUmXGXWMUqRMi5k5sII4LRUG3HHijTdWJrAYqpdRSnOph4ibw+WKFUt0asQSVnq
- kTUIsU+lkvyn3z9hK+Cm3OCDMfDqwzvZ5KUpmpsAulxJjs2t4+8Zk7Sabnuhy28xylVH
- k44AFFg+rpBn++So8T6pc3eVAGPYgaktDkpsfQlpVVG/7DStTPUeE8DW4WItLXtDWCN/
- sfZw==
-X-Gm-Message-State: AGRZ1gIrVxlqoZfX/EqQVC+0omp1+NCv/FDgNbTZ+ubr8ERdRsClfqNV
- vLWxCL70zoB/n++1JKJE1wc=
-X-Google-Smtp-Source: AJdET5diiZYe+nhWcj23oM+8Kjg3trjmO56SY0MXK0Ty7W3cZrLJNZzT+9rHb0EXPInB+mS0kqWaRQ==
-X-Received: by 2002:a1c:8a11:: with SMTP id
- m17-v6mr2147499wmd.15.1541703770065; 
- Thu, 08 Nov 2018 11:02:50 -0800 (PST)
+ bh=tHsK0hhrKmdeeb3ghMdlBw0MAo3rlZFjyqHNm6Q0ZR0=;
+ b=Eb6M76BBokTxUf4G3ATQlaMEg9JA6P4ce7J/l9R7F/09LVwEdi6uB7QFmCesVCS1LW
+ lKFnXdMHFb2zyeCsHtp8PjGY/wD1qSY9aUO8+P417assHgQ2Fsb3AKWJQuxKhdyexnM7
+ tmbPFFKNh6dqt60hgpd9ob4AYYfvKiMoVuOMJvtIInardYc8Vpp7WVUdFaAphBMlnF8C
+ 5xa4X3WFKAga8MxnCLHO9ZCNC0j0bi/axijOGxtM5twwCEuRmg+QoEEnV5MOeXf+oCD9
+ uf4IpkAh/a5SWzXO2vNi851lvtZedeAbQmT369w2jdNRLWDFAWjtTrWLlawYx90zCLQ/
+ azIQ==
+X-Gm-Message-State: AGRZ1gL0ixwgmrX3Aj/aWojcKbVvu6aJMm+iozentZNTq8KZzBpEh4o7
+ sgbMqnT4oTAEF78GYLzJo7E=
+X-Google-Smtp-Source: AJdET5fut7tiCpoKcNQEH1HIxdbI46PYanxIm3fghms0xgWRCgt93ADAyeh7ZaKotZnfe76NRAObsw==
+X-Received: by 2002:a5d:664e:: with SMTP id
+ f14-v6mr5398407wrw.218.1541704023838; 
+ Thu, 08 Nov 2018 11:07:03 -0800 (PST)
 Received: from localhost.localdomain (ip-76.net-89-3-178.rev.numericable.fr.
  [89.3.178.76])
- by smtp.gmail.com with ESMTPSA id q20-v6sm5110625wmc.33.2018.11.08.11.02.48
+ by smtp.gmail.com with ESMTPSA id e14-v6sm3010547wrv.93.2018.11.08.11.07.02
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Thu, 08 Nov 2018 11:02:49 -0800 (PST)
+ Thu, 08 Nov 2018 11:07:03 -0800 (PST)
 From: David Abdurachmanov <david.abdurachmanov@gmail.com>
 To: palmer@sifive.com, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [PATCH v2] riscv: add asm/unistd.h UAPI header
-Date: Thu,  8 Nov 2018 20:02:39 +0100
-Message-Id: <20181108190239.29633-1-david.abdurachmanov@gmail.com>
+Subject: [PATCH] riscv: fix warning in arch/riscv/include/asm/module.h
+Date: Thu,  8 Nov 2018 20:07:00 +0100
+Message-Id: <20181108190700.30825-1-david.abdurachmanov@gmail.com>
 X-Mailer: git-send-email 2.19.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181108_110303_318779_BD2E3ABD 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20181108_110715_790067_359F2B8E 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,147 +97,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>,
- Guenter Roeck <linux@roeck-us.net>, Arnd Bergmann <arnd@arndb.de>,
- David Abdurachmanov <david.abdurachmanov@gmail.com>
+Cc: David Abdurachmanov <david.abdurachmanov@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181108190239.4bUHJB0EWuGrDEfY8-tL1NAO-fZ9Y3mw3DRVC31StPA@z>
+Message-ID: <20181108190700.OSZfgOlW4M84W3yjnhh03PlwQsPaPkHULc8ydBQtkWc@z>
 
-Marcin Juszkiewicz reported issues while generating syscall table for riscv
-using 4.20-rc1. The patch refactors our unistd.h files to match some other
-architectures.
+Fixes warning: 'struct module' declared inside parameter list will not be
+visible outside of this definition or declaration
 
-- Add asm/unistd.h UAPI header, which has __ARCH_WANT_NEW_STAT only for 64-bit
-- Remove asm/syscalls.h UAPI header and merge to asm/unistd.h
-- Adjust kernel asm/unistd.h
-
-So now asm/unistd.h UAPI header should show all syscalls for riscv.
-
-Before this, Makefile simply put `#include <asm-generic/unistd.h>` into
-generated asm/unistd.h UAPI header thus user didn't see:
-
-- __NR_riscv_flush_icache
-- __NR_newfstatat
-- __NR_fstat
-
-which are supported by riscv kernel.
-
-Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>
-Cc: Guenter Roeck <linux@roeck-us.net>
-Fixes: 67314ec7b025 ("RISC-V: Request newstat syscalls")
 Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
 ---
- arch/riscv/include/asm/unistd.h        |  5 ++--
- arch/riscv/include/uapi/asm/syscalls.h | 29 ------------------
- arch/riscv/include/uapi/asm/unistd.h   | 41 ++++++++++++++++++++++++++
- 3 files changed, 43 insertions(+), 32 deletions(-)
- delete mode 100644 arch/riscv/include/uapi/asm/syscalls.h
- create mode 100644 arch/riscv/include/uapi/asm/unistd.h
+ arch/riscv/include/asm/module.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/include/asm/unistd.h b/arch/riscv/include/asm/unistd.h
-index eff7aa9aa163..fef96f117b4d 100644
---- a/arch/riscv/include/asm/unistd.h
-+++ b/arch/riscv/include/asm/unistd.h
-@@ -13,10 +13,9 @@
+diff --git a/arch/riscv/include/asm/module.h b/arch/riscv/include/asm/module.h
+index 349df33808c4..cd2af4b013e3 100644
+--- a/arch/riscv/include/asm/module.h
++++ b/arch/riscv/include/asm/module.h
+@@ -8,6 +8,7 @@
  
- /*
-  * There is explicitly no include guard here because this file is expected to
-- * be included multiple times.  See uapi/asm/syscalls.h for more info.
-+ * be included multiple times.
-  */
+ #define MODULE_ARCH_VERMAGIC    "riscv"
  
--#define __ARCH_WANT_NEW_STAT
- #define __ARCH_WANT_SYS_CLONE
-+
- #include <uapi/asm/unistd.h>
--#include <uapi/asm/syscalls.h>
-diff --git a/arch/riscv/include/uapi/asm/syscalls.h b/arch/riscv/include/uapi/asm/syscalls.h
-deleted file mode 100644
-index 206dc4b0f6ea..000000000000
---- a/arch/riscv/include/uapi/asm/syscalls.h
-+++ /dev/null
-@@ -1,29 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--/*
-- * Copyright (C) 2017-2018 SiFive
-- */
--
--/*
-- * There is explicitly no include guard here because this file is expected to
-- * be included multiple times in order to define the syscall macros via
-- * __SYSCALL.
-- */
--
--/*
-- * Allows the instruction cache to be flushed from userspace.  Despite RISC-V
-- * having a direct 'fence.i' instruction available to userspace (which we
-- * can't trap!), that's not actually viable when running on Linux because the
-- * kernel might schedule a process on another hart.  There is no way for
-- * userspace to handle this without invoking the kernel (as it doesn't know the
-- * thread->hart mappings), so we've defined a RISC-V specific system call to
-- * flush the instruction cache.
-- *
-- * __NR_riscv_flush_icache is defined to flush the instruction cache over an
-- * address range, with the flush applying to either all threads or just the
-- * caller.  We don't currently do anything with the address range, that's just
-- * in there for forwards compatibility.
-- */
--#ifndef __NR_riscv_flush_icache
--#define __NR_riscv_flush_icache (__NR_arch_specific_syscall + 15)
--#endif
--__SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
-diff --git a/arch/riscv/include/uapi/asm/unistd.h b/arch/riscv/include/uapi/asm/unistd.h
-new file mode 100644
-index 000000000000..1f3bd3ebbb0d
---- /dev/null
-+++ b/arch/riscv/include/uapi/asm/unistd.h
-@@ -0,0 +1,41 @@
-+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-+/*
-+ * Copyright (C) 2018 David Abdurachmanov <david.abdurachmanov@gmail.com>
-+ *
-+ * This program is free software; you can redistribute it and/or modify
-+ * it under the terms of the GNU General Public License version 2 as
-+ * published by the Free Software Foundation.
-+ *
-+ * This program is distributed in the hope that it will be useful,
-+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
-+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-+ * GNU General Public License for more details.
-+ *
-+ * You should have received a copy of the GNU General Public License
-+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-+ */
-+
-+#ifdef __LP64__
-+#define __ARCH_WANT_NEW_STAT
-+#endif /* __LP64__ */
-+
-+#include <asm-generic/unistd.h>
-+
-+/*
-+ * Allows the instruction cache to be flushed from userspace.  Despite RISC-V
-+ * having a direct 'fence.i' instruction available to userspace (which we
-+ * can't trap!), that's not actually viable when running on Linux because the
-+ * kernel might schedule a process on another hart.  There is no way for
-+ * userspace to handle this without invoking the kernel (as it doesn't know the
-+ * thread->hart mappings), so we've defined a RISC-V specific system call to
-+ * flush the instruction cache.
-+ *
-+ * __NR_riscv_flush_icache is defined to flush the instruction cache over an
-+ * address range, with the flush applying to either all threads or just the
-+ * caller.  We don't currently do anything with the address range, that's just
-+ * in there for forwards compatibility.
-+ */
-+#ifndef __NR_riscv_flush_icache
-+#define __NR_riscv_flush_icache (__NR_arch_specific_syscall + 15)
-+#endif
-+__SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
++struct module;
+ u64 module_emit_got_entry(struct module *mod, u64 val);
+ u64 module_emit_plt_entry(struct module *mod, u64 val);
+ 
 -- 
 2.19.1
 
