@@ -1,12 +1,12 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 08 Nov 2018 08:57:21 -0800 (PST)
+Date: Thu, 08 Nov 2018 08:57:24 -0800 (PST)
 Subject: [PATCH] riscv: add asm/unistd.h UAPI header
-In-Reply-To: <CAK8P3a2468O=MVXVaZ8_Vq6DuOYV2iwR98upqpWOH67z9Gh-6Q@mail.gmail.com>
-Message-ID: <mhng-9210a40d-eee0-4600-ae47-4fdff795f0a6@palmer-si-x1c4>
+In-Reply-To: <CAEn-LTqCT-u0_QNdOSf3bLKYa5S2vz4T0X5yKmnS1AE4pDYOkg@mail.gmail.com>
+Message-ID: <mhng-dc92b5a0-ee9f-4e63-a99e-34e77058c77a@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, 08 Nov 2018 02:30:02 PST (-0800), Arnd Bergmann wrote:
+On Thu, 08 Nov 2018 02:38:22 PST (-0800), david.abdurachmanov at gmail.com wrote:
 > On Thu, Nov 8, 2018 at 3:10 AM Palmer Dabbelt <palmer@sifive.com> wrote:
 >>
 >> On Wed, 07 Nov 2018 13:09:39 PST (-0800), Arnd Bergmann wrote:
@@ -40,26 +40,18 @@ On Thu, 08 Nov 2018 02:30:02 PST (-0800), Arnd Bergmann wrote:
 >> these if we ever end up with an ilp32 ABI.  So just go for it and we'll throw
 >> this on the pile to deal with later :)
 >
-> Short answer: it doesn't matter because an ilp32d ABI would use neither
-> newstat nor stat64, it would only need statx().
+> GCC will not allow "-march=rv64gc -mabi=ilp32d":
 >
-> Long answer: We've gone through multiple iterations on the question.
-> x86 uses long long in syscall interfaces and tries to reuse the native
-> 64-bit syscalls as much as possible. This turned out to cause endless
-> problems, so for the (never merged but still kept around as a patchset)
-> arm64 ABI, we went the opposite way, and made the syscalls use the
-> same ABI as the arm32 mode.
+>     cc1: error: ABI requires -march=rv32
 >
-> From the experience with both of the above, I'd say if you end up
-> having to do it, use the same method as arm64, but try to resist
-> doing it at all. Unlike arm64 and x86-64, there is no inherent benefit
-> to using the 64-bit instruction set (doubled register number etc),
-> so compared to the normal lp64 ABI you only gain a little dcache
-> space for the smaller pointers at the cost of a smaller address
-> space. For you as a maintainer however, the cost of supporting this
-> mode is that you are stuck with three user space ABIs instead of
-> just two (normal 32-bit and 64-bit).
-> If anyone really wants to run 32-bit code, they need a CPU that
-> allows switching modes.
+> I see that arch/riscv/include/uapi/asm/elf.h already use __riscv_xlen so to be
+> consistent I will use it too (but I like __LP64__ more as it is well
+> known macro).
+>
+> Looking at other UAPI headers I see that include/uapi/linux/rseq.h is using
+> __LP64__ macro. This header is installed on riscv.
 
-Thanks!
+Yes, it's not currently supported and there are no concrete plans to support 
+it.  Like Arnd mentioned, it's a big headache.  It was really more of a 
+question about how this might work than a concrete review, I'm happy with the 
+patch as it was suggested.
