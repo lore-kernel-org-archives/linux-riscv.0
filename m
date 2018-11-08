@@ -1,39 +1,38 @@
-From: arnd@arndb.de (Arnd Bergmann)
-Date: Wed, 7 Nov 2018 22:12:09 +0100
-Subject: warning in ./arch/riscv/include/asm/module.h
-In-Reply-To: <CAEn-LTr__59kApb=kkm7aH0z4w-J9xG1rzhK1xDk3xCGSis9SQ@mail.gmail.com>
-References: <CAEn-LToUoaA0H=_boLUi6SPXyo5Wfge293GbOhgxw2-JcZDKmg@mail.gmail.com>
- <CAK8P3a3KgBq72763QQauKNWdSv9ZRRUWMDxt1RycV6RxAJsCng@mail.gmail.com>
- <CAEn-LTr__59kApb=kkm7aH0z4w-J9xG1rzhK1xDk3xCGSis9SQ@mail.gmail.com>
-Message-ID: <CAK8P3a1hXOkL69qyu6PP3KM=ax1kVUtm5QQn1+xoExjONC_1fQ@mail.gmail.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Wed, 07 Nov 2018 18:10:09 -0800 (PST)
+Subject: [PATCH] riscv: add asm/unistd.h UAPI header
+In-Reply-To: <CAK8P3a30Dmq3vp-+=jvVu8VMe+GKc9dU=+ZF0rzhFiUq2NuJ_w@mail.gmail.com>
+Message-ID: <mhng-23f94805-b961-4e68-a4c1-7d79b60bd925@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, Nov 7, 2018 at 7:26 PM David Abdurachmanov
-<david.abdurachmanov@gmail.com> wrote:
-> On Mon, Nov 5, 2018 at 10:02 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> > On 11/5/18, David Abdurachmanov <david.abdurachmanov@gmail.com> wrote:
-> > > BUILDSTDERR: net/core/rtnetlink.c: In function 'rtnl_newlink':
-> > > BUILDSTDERR: net/core/rtnetlink.c:3224:1: warning: the frame size of
-> > > 1280 bytes is larger than 1024 bytes [-Wframe-larger-than=]
-> > > BUILDSTDERR:  }
-> > > BUILDSTDERR:  ^
-> >
-> > This may be much harder. I've fixed this type of issue for arm and
-> > x86, but it requires a much more detailed analysis of what's going
-> > on. This is often a compiler bug. Which compiler version are you
-> > using?
+On Wed, 07 Nov 2018 13:09:39 PST (-0800), Arnd Bergmann wrote:
+> On Wed, Nov 7, 2018 at 7:30 PM David Abdurachmanov
+> <david.abdurachmanov@gmail.com> wrote:
+>> On Wed, Nov 7, 2018 at 1:08 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+>> > On Mon, 05 Nov 2018 12:56:15 PST (-0800), Arnd Bergmann wrote:
 >
-> Ops. I didn't indent to copy this one. This one is expected as Fedora
-> has CONFIG_FRAME_WARN set to 1024. Only couple architectures
-> set that to higher number (2048).
+>> > The target is still the next glibc release (Feb 1st) for a stable RV32I ABI.
+>> > That's progressing well, with one last blocking issue related to some of our
+>> > floating-point emulation routines before we can submit the port.  This should
+>> > give us ample time to line up the ABIs correctly so everything works.
+>> >
+>> > So I think the correct answer here is to drop __ARCH_WANT_STAT64 from RISC-V.
+>> >
+>>
+>> Then if you agree I could do and send v2:
+>>
+>> +#ifdef __LP64__
+>> +#define __ARCH_WANT_NEW_STAT
+>> +#endif /* __LP64__ */
+>
+> Looks good to me.
 
-Om 64-bit architectures, setting it to 1024 causes lots of extra
-warnings, since we have certain functions that put an array of
-128 pointers on the stack. The default value in the kernel is 2048,
-but I've managed to reduce it to 1280 in the past. I never managed
-to get all the patches for that included, but I think that would be
-a useful number if Fedora really wants to have something lower
-than the default (and then fix the outliers).
+This is a bit pedantic, but I'm not sure what the right answer is here: 
+"-march=rv64gc -mabi=ilp32d" will not define __LP64__, but will define 
+"__riscv_xlen == 64".  I actually don't know enough about how an rv64gc/ilp32d 
+ABI would work to answer this: would we have "long long" all over our syscalls?
 
-       Arnd
+Probably not worth worrying about for now, as we'll have to go audit all of 
+these if we ever end up with an ilp32 ABI.  So just go for it and we'll throw 
+this on the pile to deal with later :)
