@@ -1,50 +1,93 @@
-From: gregkh@linuxfoundation.org (Greg Kroah-Hartman)
-Date: Fri, 9 Nov 2018 08:59:51 -0800
-Subject: [PATCH 2/2] tty: serial: add driver for the SiFive UART
-In-Reply-To: <20181018234352.26788-3-paul.walmsley@sifive.com>
-References: <20181018234352.26788-1-paul.walmsley@sifive.com>
- <20181018234352.26788-3-paul.walmsley@sifive.com>
-Message-ID: <20181109165951.GA13927@kroah.com>
+From: mick@ics.forth.gr (Nick Kossifidis)
+Date: Fri, 09 Nov 2018 20:34:00 +0200
+Subject: [PATCH] RISC-V: Update Kconfig to better handle CMDLINE
+In-Reply-To: <20181004113230.7995-1-mick@ics.forth.gr>
+References: <20181004113230.7995-1-mick@ics.forth.gr>
+Message-ID: <ebe1db4d71a42711acb212013fd0fc2b@mailhost.ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Oct 18, 2018 at 04:43:54PM -0700, Paul Walmsley wrote:
-> Add a serial driver for the SiFive UART, found on SiFive FU540 devices
-> (among others).
+Hello Palmer,
+
+???? 2018-10-04 14:32, Nick Kossifidis ??????:
+> Add a menu to chose how the built-in command line will be used and
+> add CMDLINE_EXTEND for compatibility with FDT code.
 > 
-> The underlying serial IP block is relatively basic, and currently does
-> not support serial break detection.  Further information on the IP
-> block can be found in the documentation and Chisel sources:
-> 
-> https://static.dev.sifive.com/FU540-C000-v1.0.pdf
-> 
-> https://github.com/sifive/sifive-blocks/tree/master/src/main/scala/devices/uart
-> 
-> This driver was written in collaboration with Wesley Terpstra
-> <wesley@sifive.com>.
-> 
-> Boot-tested on a SiFive HiFive Unleashed A00 board.
-> 
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: Jiri Slaby <jslaby@suse.com>
-> Cc: Palmer Dabbelt <palmer@sifive.com>
-> Cc: Wesley Terpstra <wesley@sifive.com>
-> Cc: linux-serial at vger.kernel.org
-> Cc: linux-riscv at lists.infradead.org
-> Cc: linux-kernel at vger.kernel.org
-> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-> Signed-off-by: Paul Walmsley <paul@pwsan.com>
+> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
 > ---
->  drivers/tty/serial/Kconfig       |   24 +
->  drivers/tty/serial/Makefile      |    1 +
->  drivers/tty/serial/sifive.c      | 1070 ++++++++++++++++++++++++++++++
->  include/uapi/linux/serial_core.h |    3 +
->  4 files changed, 1098 insertions(+)
->  create mode 100644 drivers/tty/serial/sifive.c
+>  arch/riscv/Kconfig | 45 ++++++++++++++++++++++++---------------------
+>  1 file changed, 24 insertions(+), 21 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 82172bf85..cce141552 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -218,39 +218,42 @@ endmenu
+> 
+>  menu "Boot options"
+> 
+> -config CMDLINE_BOOL
+> -	bool "Built-in kernel command line"
+> +config CMDLINE
+> +	string "Built-in kernel command line"
+>  	help
+>  	  For most platforms, it is firmware or second stage bootloader
+>  	  that by default specifies the kernel command line options.
+>  	  However, it might be necessary or advantageous to either override
+> -	  the default kernel command line or add a few extra options to it.
+> -	  For such cases, this option allows hardcoding command line options
+> -	  directly into the kernel.
+> +	  the provided kernel command line or add a few extra options to it.
+> +	  For such cases, it is possible to define a built-in command line
+> +	  here and chose how the kernel should use it later on.
+> 
+> -	  For that, choose 'Y' here and fill in the extra boot parameters
+> -	  in CONFIG_CMDLINE.
+> +choice
+> +	prompt "Built-in command line usage" if CMDLINE != ""
+> +	default CMDLINE_FALLBACK
+> +	help
+> +	  Chose how the kernel will handle the provided built-in command
+> +	  line.
+> 
+> -	  The built-in options will be concatenated to the default command
+> -	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
+> -	  command line will be ignored and replaced by the built-in string.
+> +config CMDLINE_FALLBACK
+> +	bool "Fallback"
+> +	help
+> +	  Use the built-in command line as fallback in case we get nothing
+> +	  from the boot loader.
+> 
+> -config CMDLINE
+> -	string "Built-in kernel command string"
+> -	depends on CMDLINE_BOOL
+> -	default ""
+> +config CMDLINE_EXTEND
+> +	bool "Extension"
+>  	help
+> -	  Supply command-line options at build time by entering them here.
+> +	  Use the built-in command line as an extension of the command line
+> +	  provided by the boot loader.
+> 
+>  config CMDLINE_FORCE
+> -	bool "Built-in command line overrides bootloader arguments"
+> -	depends on CMDLINE_BOOL
+> +	bool "Forced"
+>  	help
+> -	  Set this option to 'Y' to have the kernel ignore the bootloader
+> -	  or firmware command line.  Instead, the built-in command line
+> -	  will be used exclusively.
+> +	  Use the built-in command line in place of the command line
+> +	  provided by the boot loader.
+> 
+> -	  If you don't know what to do here, say N.
+> +endchoice
+> 
+>  endmenu
 
-Seems like the 0-day bot did not like this driver, can you fix up those
-build errors and resend?
-
-thanks,
-
-greg k-h
+Since we'll be using FDT only for handling cmdline, this one is still 
+needed
+because FDT code uses CMDLINE_EXTEND / FALLBACK instead. Do you want me 
+to
+re-send ?
