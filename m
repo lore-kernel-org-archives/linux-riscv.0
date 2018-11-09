@@ -1,96 +1,32 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 09 Nov 2018 13:05:43 -0800 (PST)
-Subject: [PATCH] RISC-V: Update Kconfig to better handle CMDLINE
-In-Reply-To: <ebe1db4d71a42711acb212013fd0fc2b@mailhost.ics.forth.gr>
-Message-ID: <mhng-3d2613a4-e6ec-447d-b6a0-eeb939091895@palmer-si-x1c4>
+Date: Fri, 09 Nov 2018 13:07:03 -0800 (PST)
+Subject: [PATCH] RISC-V: recognize S/U mode bits in print_isa
+In-Reply-To: <20181109193349.28179-1-me@packi.ch>
+Message-ID: <mhng-cff31d5f-053e-4e62-997c-232c8bdd5fd3@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, 09 Nov 2018 10:34:00 PST (-0800), mick at ics.forth.gr wrote:
-> Hello Palmer,
+On Fri, 09 Nov 2018 11:33:47 PST (-0800), me at packi.ch wrote:
+> Removes the warning about an unsupported ISA when reading /proc/cpuinfo
+> on QEMU.
 >
-> ???? 2018-10-04 14:32, Nick Kossifidis ??????:
->> Add a menu to chose how the built-in command line will be used and
->> add CMDLINE_EXTEND for compatibility with FDT code.
->>
->> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
->> ---
->>  arch/riscv/Kconfig | 45 ++++++++++++++++++++++++---------------------
->>  1 file changed, 24 insertions(+), 21 deletions(-)
->>
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index 82172bf85..cce141552 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -218,39 +218,42 @@ endmenu
->>
->>  menu "Boot options"
->>
->> -config CMDLINE_BOOL
->> -	bool "Built-in kernel command line"
->> +config CMDLINE
->> +	string "Built-in kernel command line"
->>  	help
->>  	  For most platforms, it is firmware or second stage bootloader
->>  	  that by default specifies the kernel command line options.
->>  	  However, it might be necessary or advantageous to either override
->> -	  the default kernel command line or add a few extra options to it.
->> -	  For such cases, this option allows hardcoding command line options
->> -	  directly into the kernel.
->> +	  the provided kernel command line or add a few extra options to it.
->> +	  For such cases, it is possible to define a built-in command line
->> +	  here and chose how the kernel should use it later on.
->>
->> -	  For that, choose 'Y' here and fill in the extra boot parameters
->> -	  in CONFIG_CMDLINE.
->> +choice
->> +	prompt "Built-in command line usage" if CMDLINE != ""
->> +	default CMDLINE_FALLBACK
->> +	help
->> +	  Chose how the kernel will handle the provided built-in command
->> +	  line.
->>
->> -	  The built-in options will be concatenated to the default command
->> -	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
->> -	  command line will be ignored and replaced by the built-in string.
->> +config CMDLINE_FALLBACK
->> +	bool "Fallback"
->> +	help
->> +	  Use the built-in command line as fallback in case we get nothing
->> +	  from the boot loader.
->>
->> -config CMDLINE
->> -	string "Built-in kernel command string"
->> -	depends on CMDLINE_BOOL
->> -	default ""
->> +config CMDLINE_EXTEND
->> +	bool "Extension"
->>  	help
->> -	  Supply command-line options at build time by entering them here.
->> +	  Use the built-in command line as an extension of the command line
->> +	  provided by the boot loader.
->>
->>  config CMDLINE_FORCE
->> -	bool "Built-in command line overrides bootloader arguments"
->> -	depends on CMDLINE_BOOL
->> +	bool "Forced"
->>  	help
->> -	  Set this option to 'Y' to have the kernel ignore the bootloader
->> -	  or firmware command line.  Instead, the built-in command line
->> -	  will be used exclusively.
->> +	  Use the built-in command line in place of the command line
->> +	  provided by the boot loader.
->>
->> -	  If you don't know what to do here, say N.
->> +endchoice
->>
->>  endmenu
+> Signed-off-by: Patrick St?hlin <me@packi.ch>
+> ---
+>  arch/riscv/kernel/cpu.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> Since we'll be using FDT only for handling cmdline, this one is still
-> needed
-> because FDT code uses CMDLINE_EXTEND / FALLBACK instead. Do you want me
-> to
-> re-send ?
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index 3a5a2ee31547..4029c7e6872b 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -64,7 +64,7 @@ int riscv_of_processor_hartid(struct device_node *node)
+>
+>  static void print_isa(struct seq_file *f, const char *orig_isa)
+>  {
+> -	static const char *ext = "mafdc";
+> +	static const char *ext = "mafdcsu";
+>  	const char *isa = orig_isa;
+>  	const char *e;
 
-That would be great, thanks.  I lost track of the discussion on the generic 
-fix.
+This is a bit pedantic, but the "S" extension should really be hidden from 
+userspace.
