@@ -1,88 +1,87 @@
-Return-Path: <SRS0=/DNs=NT=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=6doD=NU=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5C805ECDE47
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Nov 2018 19:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8CABEC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  9 Nov 2018 01:50:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2C2DC2077B
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Nov 2018 19:33:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 51D2F20840
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  9 Nov 2018 01:50:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="l6pxMY7H";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="GSeGubkS"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2C2DC2077B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aofwAW6P";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="LceStvsm";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ilZpeQ8j"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 51D2F20840
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=p4lvrP2nfrsIOXWQTfqhOshh29gwUtOpBJNoRPxzvKk=; b=l6pxMY7HdHTtaSLF3UKkrquSH
-	FxyOMNlxDhI1lPwG2PlcnN5emvj7mONsAknnIPZQJGXl4EXvq5noD1xs3LGqjfEcjYxvWBJ17aL0U
-	15iWymPXm04d46AoPU1DOi9y1SHxmGLPVUKj+DcIUZztdCP6dobgGgizfMy7IIbNFS5XvAQ1w3cud
-	w/pMKv8UZr+1tHFtxJ4kOlQ5nceFZ+M0D/uKYBL70DJ+HbCotkTkksQwV6q+TPc8WuUY0dMTKu4Ip
-	uX4cFQt4b3CQBpy7iv+59haj+M4xdplt9rgB+aM4UjdekRvk/ieqMN57lhFATBF/N6MSnVbuKbj30
-	4J4xl2FSw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=U//YK80af/KMOUipagRowlGpcWpgw12MlJImcfcUfo8=; b=aof
+	wAW6PMZsFu/I9ztwNl4XKEtQUFUN790Lk0pGFa+D2NVYj+cZFK+zOAVRgSI19tNkpIqY5fawSdtY8
+	47zEYawu90Lgoqbr2HRKGmkkCrz4LkNyX62SPgVk5rcOsaXXHLB7qQO/VGSqcY3b8zu4RUSLV7sBp
+	YZGOsPu6fjP446vAKDj1mXxN/5RkMl+JZQSL7XWmA+spZfjpK22EaYAqT1miVUSk9NG0ZkNF83G2K
+	seOnQjX2PqFSfkSTjDDH+101Ptv+9ejWq8Y5CxQmUZLhGW1TcGVDJJ9TRYPjaOERFcwOnhNB7H6Xl
+	nvV/K1P0j6IXrXyeZnerMZAQlZTQ2Ew==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gKq3D-0005dm-SC; Thu, 08 Nov 2018 19:33:11 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1gKvwL-0000FW-PT; Fri, 09 Nov 2018 01:50:29 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gKq3A-0005dA-NS
- for linux-riscv@lists.infradead.org; Thu, 08 Nov 2018 19:33:10 +0000
-Received: by mail-pf1-x444.google.com with SMTP id v68-v6so6162005pfk.0
- for <linux-riscv@lists.infradead.org>; Thu, 08 Nov 2018 11:32:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=TIK2R+2irgTzLBZnutnmO7Lc4vftZqOCApHzyog2wpk=;
- b=GSeGubkSB+I4iOXXfYrgyGhmdpepc2pi4ErUd+gTvHpg6iaU1Cr2zplCKZ5rhqWYGj
- vs0zeZcNqw6FiaIohWO/QBY1GffRWhj9seYod5IIOUcNWTku2fUkU7rDAWMMvB114k0J
- 99mpw2lQ7SRp0xlbP6NyN5cqQr7yhdutsk7pr3zb9AE5R/8WPYOWdlvP8CM64HTcK30W
- VS8SnOGSrAMtaNJdLkKjP8zGlMT686KUuWwt7SGM51tXg5RS+FdpGUqeyQYDl9Tpetj+
- p5w6rGKu1WpmrUeJZY8Iy4upsBKzM+5o+FncLHxrZfbnXa9ESvMkdz3ImpNSi1iv04ko
- Y6PA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=TIK2R+2irgTzLBZnutnmO7Lc4vftZqOCApHzyog2wpk=;
- b=fsDdSVSIuO9EUSNx0GtsUb4jqC0ezmi03RDLLWBbU/gujdG5PK+cfMTHop+ep+O7/f
- k+sQAXcUTqhklfLdB5+v0C4ZreqSCa/CfK3lE91HaM8g786OHFhp2s9PtO66XA64L4B8
- 44tjQhbUywjJU/PV8hHq9UfIGQrKMC19CuOFDle2Z87ykDDP9gW+/Rzzghd2UPcnC1Xm
- SL13+FIRiIPuknSlo/wJSbigdOZtdlf4bfco8V6v7glxIHEb5TFF7i5vzU0o40rKIGKx
- FTY9LxOHClWwcQAG1jfhzuIFNXuvFuDe6FetDa7LpJgnLC1wtbLQs2uaG7iFb928bJ4K
- 36SA==
-X-Gm-Message-State: AGRZ1gJiV3QZ7YI0mIZcNgSiPrPeBgEfWf2OlDf9pyf4aTmhkPFh81TJ
- x3y2iNbHyHJm2q54nyDj9rjcSg==
-X-Google-Smtp-Source: AJdET5d7IC22PPnlCqw2sFPla48l+0M4VDStY8BscG5Wi7dSvTRoNl4ETKw6Sy1MCDVTJeKMUlVuJg==
-X-Received: by 2002:a62:3241:: with SMTP id
- y62-v6mr5921005pfy.218.1541705576361; 
- Thu, 08 Nov 2018 11:32:56 -0800 (PST)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id f22-v6sm5046601pff.29.2018.11.08.11.32.55
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Thu, 08 Nov 2018 11:32:55 -0800 (PST)
-Date: Thu, 08 Nov 2018 11:32:55 -0800 (PST)
-X-Google-Original-Date: Thu, 08 Nov 2018 11:26:45 PST (-0800)
-Subject: Re: [PATCH] riscv: fix warning in arch/riscv/include/asm/module.h
-In-Reply-To: <20181108190700.30825-1-david.abdurachmanov@gmail.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: david.abdurachmanov@gmail.com
-Message-ID: <mhng-1888c072-5274-457c-aa26-b9fa9cb246dd@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ id 1gKvwK-0000FC-Ld; Fri, 09 Nov 2018 01:50:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Message-Id:Date:Subject:Cc:To:From:
+ Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=3gO6i754AHIiEy311pHr+AmmiKPxyBupSir5I8iCPH4=; b=LceStvsmT788Oz9xpQpiq892R
+ a1JW+PioplWWtAw96dHHq0nt8ilmiQ47nzSmBQeHxGOlR2YW1jb9wer9MDC3aPJjLJNjXoxcZ1mKy
+ fSsWXM6u52ggz+jiB8ODTsMBhhVs/hRpCEXO91gbfETRSiXQb8NlOgKIi8yEKpgZITmoU3CMiJUWH
+ +ChPFjeO2fi379aGrdhUS3vs9CqQv4svzsmNuAEUtFMp77QzKmqBbn0S0dXqEG7vnsPiTaqmqE41d
+ wY45n5n6HtSs3ATbRrVsopThK6L/QylEjry86dHLGHGfudkwSehJETPyYCZG/T8Xil87HUZ2IcVSc
+ 1BVmiFU1w==;
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gKvwG-0003pb-82; Fri, 09 Nov 2018 01:50:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1541728225; x=1573264225;
+ h=from:to:cc:subject:date:message-id;
+ bh=VF4xDTCd1cf9MNbFtsKdQRmCcMT129PQWO/5Qc0m0p0=;
+ b=ilZpeQ8jyyVFtFdn4Lc5JugewvC4kZiES8qraBhxNsx7lXFkiIiOZ5Sw
+ B1xq3auPPhzJ13GKVsC9CxoJ1SndGBoZUsMqsK82biTUVwuNpBLmmtYtA
+ l9wgz6gRRDMznwM+9/oi4FAkARb4WlUbrmePGH8v6KIAHE/vz53DUqGpM
+ XyeYMWG93hbwb49dwNaisN9qiAExg/zPLov5z3MIz4kinKUvohseUEWwS
+ p4IiF26AN9Rdb49TtGwIlrkYkHJQAJL6PMe6NMXLXpBQSFoNYnXwPlUMz
+ Ve0x5/CLplt4/T2cr/iRBGiwqXoAc9nVrmLA3iPPI+89/DkYW8rl+RRx0 A==;
+X-IronPort-AV: E=Sophos;i="5.54,481,1534780800"; d="scan'208";a="93844215"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 09 Nov 2018 09:50:10 +0800
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep02.wdc.com with ESMTP; 08 Nov 2018 17:33:43 -0800
+Received: from jedi-01.sdcorp.global.sandisk.com (HELO
+ jedi-01.int.fusionio.com) ([10.11.143.218])
+ by uls-op-cesaip02.wdc.com with ESMTP; 08 Nov 2018 17:50:10 -0800
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [RFC 0/3] Unify CPU topology across ARM64 & RISC-V 
+Date: Thu,  8 Nov 2018 17:50:06 -0800
+Message-Id: <1541728209-3224-1-git-send-email-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181108_113308_773178_0C489ECF 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20181109_015024_559797_430A72B4 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,39 +93,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
- linux-kernel@vger.kernel.org, david.abdurachmanov@gmail.com
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, Damien.LeMoal@wdc.com,
+ juri.lelli@arm.com, anup@brainfault.org, palmer@sifive.com,
+ jeremy.linton@arm.com, atish.patra@wdc.com, robh+dt@kernel.org,
+ sudeep.holla@arm.com, mick@ics.forth.gr, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181108193255.AqwnsPgxez5y9f8v_DEXyX3JkchlLFiXvjIl7VMd53o@z>
+Message-ID: <20181109015006.mPKfMT5CmxYGJTd3NEbAWVgkrGxNndcUwbH7kc4rtHM@z>
 
-On Thu, 08 Nov 2018 11:07:00 PST (-0800), david.abdurachmanov@gmail.com wrote:
-> Fixes warning: 'struct module' declared inside parameter list will not be
-> visible outside of this definition or declaration
->
-> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
-> ---
->  arch/riscv/include/asm/module.h | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/arch/riscv/include/asm/module.h b/arch/riscv/include/asm/module.h
-> index 349df33808c4..cd2af4b013e3 100644
-> --- a/arch/riscv/include/asm/module.h
-> +++ b/arch/riscv/include/asm/module.h
-> @@ -8,6 +8,7 @@
->
->  #define MODULE_ARCH_VERMAGIC    "riscv"
->
-> +struct module;
->  u64 module_emit_got_entry(struct module *mod, u64 val);
->  u64 module_emit_plt_entry(struct module *mod, u64 val);
+The cpu-map DT entry in ARM64 can describe the CPU topology in
+much better way compared to other existing approaches. RISC-V can
+easily adopt this binding to represent it's own CPU topology.
+Thus, both cpu-map DT binding and topology parsing code can be
+moved to a common location so that RISC-V or any other
+architecture can leverage that.
 
-Works for me.  Looks like arm64 might have exactly the same issue.  I'll roll 
-it up into the next RC.
+The relevant discussion regarding unifying cpu topology can be
+found in [1].
 
-Thanks!
+arch_topology seems to be a perfect place to move the common
+code. I have not introduced any functional changes in the moved
+to code. The only downside in this approach is that the capacity
+code will be executed for RISC-V as well. But, it will exit
+immediately after not able to find the appropriate DT node. If
+the overhead is considered too much, we can always compile out
+capacity related functions under a different config for the
+architectures that do not support them.
+
+The patches have been tested for RISC-V and compile tested for
+ARM64.
+
+The socket changes[2] can be merged on top of this series or vice
+versa.
+
+[1] https://lkml.org/lkml/2018/11/6/19
+[2] https://lkml.org/lkml/2018/11/7/918
+
+Atish Patra (3):
+  dt-binding: cpu-topology: Move cpu-map to a common binding.
+  cpu-topology: Move cpu topology code to common code.
+  RISC-V: Parse cpu topology during boot.
+
+ Documentation/devicetree/bindings/arm/topology.txt | 475 -------------------
+ .../devicetree/bindings/cpu/cpu-topology.txt       | 526 +++++++++++++++++++++
+ arch/arm64/include/asm/topology.h                  |  23 +-
+ arch/arm64/kernel/topology.c                       | 305 +-----------
+ arch/riscv/Kconfig                                 |   1 +
+ arch/riscv/kernel/smpboot.c                        |   6 +-
+ drivers/base/arch_topology.c                       | 303 ++++++++++++
+ include/linux/arch_topology.h                      |  23 +
+ include/linux/topology.h                           |   1 +
+ 9 files changed, 864 insertions(+), 799 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/arm/topology.txt
+ create mode 100644 Documentation/devicetree/bindings/cpu/cpu-topology.txt
+
+-- 
+2.7.4
+
 
 _______________________________________________
 linux-riscv mailing list
