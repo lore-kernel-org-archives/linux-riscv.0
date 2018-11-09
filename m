@@ -2,90 +2,104 @@ Return-Path: <SRS0=6doD=NU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 44CAAC43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  9 Nov 2018 02:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 27CAEC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  9 Nov 2018 02:38:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D5F3C2081D
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  9 Nov 2018 02:06:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E33EE20840
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  9 Nov 2018 02:38:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Pw/kB5iL";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="Az4r6BVH";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="GQmYED7B"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D5F3C2081D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="grjIb9EE";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="BasDCyW0"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E33EE20840
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ics.forth.gr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=3GBXCJK82NA3nTs9EU/Z9SfpQjTKiBfwTwlZ1QlvDjk=; b=Pw/kB5iLgzvrclDAkPW0H5cgkC
-	OwYRP3G349vNLSr2A7EHung2nm53OmLEtHnoogkNqxzewDIiazp80f5nwxZzJpaNnUwSciKA6Xqg/
-	E9xD+0TzPdWHwup7E1LbezXHBEcr468Hy+PrlMOJ4u17N3I1ciZUaT63bqvRuZ6h6TZQJlWeBLyH7
-	JhmWHTsG5jiqQl9cHXLpNKDWkp9BteFNuk2POhqqwhpBi+VEH/aMSVVC0oB2WIf4cqgM5zMsEXhDv
-	X31tuDTSGhq5wt09znXCRM9mNxcZZZ4dgnqLK8CCtbJ0otVKZeIRYfXGus9QsJh6+0Y58pgso8MrN
-	byTUTp1g==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:To:From:
+	Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=Mh6Rzmx3z19EHgCFIE/2yGXMaMxdVinll3kfGnA+IXs=; b=grjIb9EE9m+Byij2q/CKWavSB
+	6NwLWQXPRkcPuJev4LR++O0k7Kmpgv+DeIyFg3eptFJN3KbXDB81s+uh0vDlWleqBsOJQD6tbg1mw
+	plTmaeQdMApWwkjIDJH7dK+FXWV5XxcXhDXszXqd4ZG/X0Hwfh27A0wdfPqEdIUJvvcC/p55gXqN2
+	rFaDeaRBrej3pwQ4IV1XH/+efCRNICLEiMh32N5VptpOc5l0Qr46przVn4IViByOXExfRBDda94eK
+	JMBYe7FnwaJsrJyHHbUrnkcrbj92YD8wdhNhEiyaHLApCtKU/apLyoxoLe4n0hfLZZBA1QA//hOdt
+	+lCLxgJdg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gKwBX-0006Q0-Lo; Fri, 09 Nov 2018 02:06:11 +0000
+	id 1gKwgr-0007Dh-SQ; Fri, 09 Nov 2018 02:38:33 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gKvwY-0000cB-KH; Fri, 09 Nov 2018 01:50:42 +0000
+ id 1gKwgq-0007Db-Li
+ for linux-riscv@bombadil.infradead.org; Fri, 09 Nov 2018 02:38:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=References:In-Reply-To:Message-Id:Date:
- Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=osoEwjPIBZbYWm88yPn/zFEwmhib1qy51mLKI5maqpo=; b=Az4r6BVHoFGC4I5iiigIs3+lI
- O3p1QVpOhgTsfVgrs7JpDRqQ/6aK6z8rwtN4+tVU6ZwP4MkPYSd25Qax7UdsPQ8y44Se7aYpkxGFe
- gMlS4P8ZqBgw/9mNOl4210Et2M7dPwO6SBiUNeW0EyDDvwc07389aUwJM4DhAC3DlGpFaLziKs6eS
- VXX1BOcouqvbXJZA669ooZV5YCNmE6iW26uSBQr3MZvWRbx0YlJFuQCkIFt8iU0ojq7O1AqA+gd1x
- wwn8Xw/+URNWt5aBWyH84ZYQagrnE56OfoWo8KNNfwEDQ/vGNEz2v9PrWawZE+XK29Nk9ENsW5GXA
- Go5NISJxQ==;
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
- by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gKvwU-0003qv-Dv; Fri, 09 Nov 2018 01:50:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1541728239; x=1573264239;
- h=from:to:cc:subject:date:message-id:in-reply-to: references;
- bh=DH3ApSOHQ12nTg3hMtyUuuLvjMxMtGXhytzeYmo9dU0=;
- b=GQmYED7B3Y7QLCqDMmAsqLU80X713cO8sdNajBEiHCgoduQspSoaTb+u
- pts0cVijZwJ0tDaGVrgAymuzgiXj9zroXAYdeNzRdcKye6j1HsuIhnKue
- KZRxGzuvgZAefQpcbyRA4fT783Dl4tCVZtuL0TKkqvR8nxPKzJsosU5Xb
- on4hivwLz5pX/0xSvz6Oi7EckcOxEEivzneIvFaJZ3nFnlZYsb2dQvy1h
- W7zvgzGPC83kS/iSRzLPqluIwhazbYg9rK9X8kcS94GDt39LhPEKHywnp
- 95o+WZFsHTmhxJnG3zHq6DUVmdjmeWt8tXFo5JscLiU9CxhF2cat+ap1P w==;
-X-IronPort-AV: E=Sophos;i="5.54,481,1534780800"; d="scan'208";a="93844218"
-Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 09 Nov 2018 09:50:11 +0800
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep02.wdc.com with ESMTP; 08 Nov 2018 17:33:43 -0800
-Received: from jedi-01.sdcorp.global.sandisk.com (HELO
- jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 08 Nov 2018 17:50:10 -0800
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [RFC 2/3] cpu-topology: Move cpu topology code to common code.
-Date: Thu,  8 Nov 2018 17:50:08 -0800
-Message-Id: <1541728209-3224-3-git-send-email-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1541728209-3224-1-git-send-email-atish.patra@wdc.com>
-References: <1541728209-3224-1-git-send-email-atish.patra@wdc.com>
+ d=infradead.org; s=casper.20170209; h=Message-ID:References:In-Reply-To:
+ Subject:Cc:To:From:Date:Content-Transfer-Encoding:Content-Type:MIME-Version:
+ Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=faoR7Z4zRGgw2dGvOC9vRjUxbL4bCEDo0iIhRkm3k94=; b=BasDCyW05LM5tRLkg6PrGn7jPQ
+ yL2AUdDDOMLumOzTcNkbvzyXjyAK4PADG1gf+Ui4+EoZ3jO1v/GuN0DEI+EglNUZMoE1K07hnysf+
+ 97tmCNv9F8lzWoiQywyWW6/RRtPWbKOA1A9wkdKvyg5FQFsP+PAabrUN7uQpE8Ode7HY8T1Z8DwRr
+ Tf55KoOHMOxB81eOspfqswwiz6s3llSlQllxMJzAKESnIU0pqa26YZepglzrBN1+T0y2T1c1JFOWy
+ iaEiAXjpoBQvLRY4ZaEdcLd2K37ng+UVK8+rsMnC2+Q00X9Va+DNNJdN79xD1B3UexkUrPh6kxpnH
+ UfrVoceA==;
+Received: from mailgate-4.ics.forth.gr ([139.91.1.7])
+ by casper.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gKwgn-0005ct-6O
+ for linux-riscv@lists.infradead.org; Fri, 09 Nov 2018 02:38:31 +0000
+Received: from av1.ics.forth.gr (av3in.ics.forth.gr. [139.91.1.77])
+ by mailgate-4.ics.forth.gr (8.14.5/ICS-FORTH/V10-1.9-GATE-OUT) with ESMTP id
+ wA92aNJr016280; Fri, 9 Nov 2018 04:36:25 +0200 (EET)
+X-AuditID: 8b5b9d4d-903ff70000000e62-8d-5be4f2a5c8a7
+Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.1.35])
+ by av1.ics.forth.gr (SMTP Outbound / FORTH / ICS) with SMTP id
+ 91.2C.03682.5A2F4EB5; Fri,  9 Nov 2018 04:36:22 +0200 (EET)
+Received: from webmail.ics.forth.gr (localhost [127.0.0.1])
+ by enigma.ics.forth.gr (8.15.1//ICS-FORTH/V10.5.0C-EXTNULL-SSL-SASL) with
+ ESMTP id wA92aJwa012603; Fri, 9 Nov 2018 04:36:19 +0200
+X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
+MIME-Version: 1.0
+Date: Fri, 09 Nov 2018 04:36:19 +0200
+From: Nick Kossifidis <mick@ics.forth.gr>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Subject: Re: [RFC 0/2] Add RISC-V cpu topology
+Organization: FORTH
+In-Reply-To: <20181108164827.GB10953@e107155-lin>
+References: <1541113468-22097-1-git-send-email-atish.patra@wdc.com>
+ <866dedbc78ab4fa0e3b040697e112106@mailhost.ics.forth.gr>
+ <20181106141331.GA28458@e107155-lin>
+ <969fc2a5198984e0dfe8c3f585dc65f9@mailhost.ics.forth.gr>
+ <20181106162051.w7fyweuxrl7ujzuz@lakrids.cambridge.arm.com>
+ <abcae019e6ae749b17ecb0c721fd3177@mailhost.ics.forth.gr>
+ <20181107122803.GA8433@e107155-lin>
+ <d04779705c47b59b94300365e805dbd3@mailhost.ics.forth.gr>
+ <20181108164827.GB10953@e107155-lin>
+Message-ID: <b44d94e4a5575e2ce49344b50956bf8e@mailhost.ics.forth.gr>
+X-Sender: mick@mailhost.ics.forth.gr
+User-Agent: Roundcube Webmail/1.1.2
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrMIsWRmVeSWpSXmKPExsXSHc2orLvs05Nog7Zn6hbblqxmtWj58I7V
+ YtGK7ywWre3fmCzmHznHanF6wiImi8u75rBZbPvcwmax9PpFJovmd+fYLTZPWMBq0br3CLvF
+ 8lM7WCw2b5rKbPF8ZS+bA7/HntOzmD3WzFvD6DH19xkWj4ebLjF5bF6h5bFpVSebx7tz59g9
+ Ni+p97jUfJ3d4/MmOY/2A91MAdxRXDYpqTmZZalF+nYJXBmbX99mKvjsUvG3jaOBsdOsi5GT
+ Q0LARKLt62zmLkYuDiGBw4wS3z83sEI4Bxklrs6/zApRZSoxe28nI4jNKyAocXLmExYQm1nA
+ QmLqlf2MELa8RPNWkEmcHCwCqhIHX09hA7HZBDQl5l86CFYvIqAuseTsFkaQBcwC85glpu/Z
+ ArZAWEBPomnDTTCbX0BY4tPdi0A2BwengKHEgYPmEAc9ZJZ4/WcfE8QRLhK9p7cwQhynIvHh
+ 9wN2EFtUQFnixYnprBMYhWYhuXUWkltnIbl1ASPzKkaBxDJjvczkYr20/KKSDL30ok2M4Kic
+ 67uD8dwC+0OMAhyMSjy8KxqeRAuxJpYVV+YeYpTgYFYS4bXcBxTiTUmsrEotyo8vKs1JLT7E
+ KM3BoiTOe/hFeJCQQHpiSWp2ampBahFMlomDU6qBUavx/DsJhjyVso1Nec+fZrG/mury7cJm
+ lR0H351UmGL/Z/LN9oexF1jShQp6sx3NW95qmxwscDoq77kogGWp2iGB0Jj5MwWqTPvrEll3
+ xsnezJo285j8pLNV1wMWnKxdXHWcUWRZZd4aE7569+ZJTq2Ra7j/Tz197NYjdfsXlW1mSwsX
+ znY8p8RSnJFoqMVcVJwIAOq4b5PGAgAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181109_015038_912537_003A5244 
-X-CRM114-Status: GOOD (  29.05  )
+X-CRM114-CacheID: sfid-20181109_023829_466348_D126EB65 
+X-CRM114-Status: GOOD (  62.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,779 +111,169 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, Damien.LeMoal@wdc.com,
- juri.lelli@arm.com, anup@brainfault.org, palmer@sifive.com,
- jeremy.linton@arm.com, atish.patra@wdc.com, robh+dt@kernel.org,
- sudeep.holla@arm.com, mick@ics.forth.gr, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Damien.LeMoal@wdc.com, alankao@andestech.com, hch@infradead.org,
+ anup@brainfault.org, palmer@sifive.com, linux-kernel@vger.kernel.org,
+ zong@andestech.com, Atish Patra <atish.patra@wdc.com>, robh+dt@kernel.org,
+ Nick Kossifidis <mick@ics.forth.gr>, linux-riscv@lists.infradead.org,
+ tglx@linutronix.de
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181109015008.dbZLH-_wPCpb_3cFOpb7bM7h9rq3WHjQ74bWqmb_vqI@z>
+Message-ID: <20181109023619.GHt6bFIdYLUMPxsDVTOK8GuaGZEsTIOEfRG86dbsRsI@z>
 
-Both RISC-V & ARM64 are using cpu-map device tree to describe
-their cpu topology. It's better to move the relevant code to
-a common place instead of duplicate code.
-No functional changes done.
-
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/arm64/include/asm/topology.h |  23 +--
- arch/arm64/kernel/topology.c      | 305 +-------------------------------------
- drivers/base/arch_topology.c      | 303 +++++++++++++++++++++++++++++++++++++
- include/linux/arch_topology.h     |  23 +++
- include/linux/topology.h          |   1 +
- 5 files changed, 332 insertions(+), 323 deletions(-)
-
-diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
-index 0524f243..5371a8f7 100644
---- a/arch/arm64/include/asm/topology.h
-+++ b/arch/arm64/include/asm/topology.h
-@@ -4,29 +4,8 @@
- 
- #include <linux/cpumask.h>
- 
--struct cpu_topology {
--	int thread_id;
--	int core_id;
--	int package_id;
--	int llc_id;
--	cpumask_t thread_sibling;
--	cpumask_t core_sibling;
--	cpumask_t llc_sibling;
--};
--
--extern struct cpu_topology cpu_topology[NR_CPUS];
--
--#define topology_physical_package_id(cpu)	(cpu_topology[cpu].package_id)
--#define topology_core_id(cpu)		(cpu_topology[cpu].core_id)
--#define topology_core_cpumask(cpu)	(&cpu_topology[cpu].core_sibling)
--#define topology_sibling_cpumask(cpu)	(&cpu_topology[cpu].thread_sibling)
--#define topology_llc_cpumask(cpu)	(&cpu_topology[cpu].llc_sibling)
--
--void init_cpu_topology(void);
- void store_cpu_topology(unsigned int cpuid);
--void remove_cpu_topology(unsigned int cpuid);
--const struct cpumask *cpu_coregroup_mask(int cpu);
--
-+int parse_cpu_topology(void);
- #ifdef CONFIG_NUMA
- 
- struct pci_bus;
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index 0825c4a8..f28a710d 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -14,250 +14,13 @@
- #include <linux/acpi.h>
- #include <linux/arch_topology.h>
- #include <linux/cacheinfo.h>
--#include <linux/cpu.h>
--#include <linux/cpumask.h>
- #include <linux/init.h>
- #include <linux/percpu.h>
--#include <linux/node.h>
--#include <linux/nodemask.h>
--#include <linux/of.h>
--#include <linux/sched.h>
--#include <linux/sched/topology.h>
--#include <linux/slab.h>
--#include <linux/smp.h>
--#include <linux/string.h>
- 
- #include <asm/cpu.h>
- #include <asm/cputype.h>
- #include <asm/topology.h>
- 
--static int __init get_cpu_for_node(struct device_node *node)
--{
--	struct device_node *cpu_node;
--	int cpu;
--
--	cpu_node = of_parse_phandle(node, "cpu", 0);
--	if (!cpu_node)
--		return -1;
--
--	cpu = of_cpu_node_to_id(cpu_node);
--	if (cpu >= 0)
--		topology_parse_cpu_capacity(cpu_node, cpu);
--	else
--		pr_crit("Unable to find CPU node for %pOF\n", cpu_node);
--
--	of_node_put(cpu_node);
--	return cpu;
--}
--
--static int __init parse_core(struct device_node *core, int package_id,
--			     int core_id)
--{
--	char name[10];
--	bool leaf = true;
--	int i = 0;
--	int cpu;
--	struct device_node *t;
--
--	do {
--		snprintf(name, sizeof(name), "thread%d", i);
--		t = of_get_child_by_name(core, name);
--		if (t) {
--			leaf = false;
--			cpu = get_cpu_for_node(t);
--			if (cpu >= 0) {
--				cpu_topology[cpu].package_id = package_id;
--				cpu_topology[cpu].core_id = core_id;
--				cpu_topology[cpu].thread_id = i;
--			} else {
--				pr_err("%pOF: Can't get CPU for thread\n",
--				       t);
--				of_node_put(t);
--				return -EINVAL;
--			}
--			of_node_put(t);
--		}
--		i++;
--	} while (t);
--
--	cpu = get_cpu_for_node(core);
--	if (cpu >= 0) {
--		if (!leaf) {
--			pr_err("%pOF: Core has both threads and CPU\n",
--			       core);
--			return -EINVAL;
--		}
--
--		cpu_topology[cpu].package_id = package_id;
--		cpu_topology[cpu].core_id = core_id;
--	} else if (leaf) {
--		pr_err("%pOF: Can't get CPU for leaf core\n", core);
--		return -EINVAL;
--	}
--
--	return 0;
--}
--
--static int __init parse_cluster(struct device_node *cluster, int depth)
--{
--	char name[10];
--	bool leaf = true;
--	bool has_cores = false;
--	struct device_node *c;
--	static int package_id __initdata;
--	int core_id = 0;
--	int i, ret;
--
--	/*
--	 * First check for child clusters; we currently ignore any
--	 * information about the nesting of clusters and present the
--	 * scheduler with a flat list of them.
--	 */
--	i = 0;
--	do {
--		snprintf(name, sizeof(name), "cluster%d", i);
--		c = of_get_child_by_name(cluster, name);
--		if (c) {
--			leaf = false;
--			ret = parse_cluster(c, depth + 1);
--			of_node_put(c);
--			if (ret != 0)
--				return ret;
--		}
--		i++;
--	} while (c);
--
--	/* Now check for cores */
--	i = 0;
--	do {
--		snprintf(name, sizeof(name), "core%d", i);
--		c = of_get_child_by_name(cluster, name);
--		if (c) {
--			has_cores = true;
--
--			if (depth == 0) {
--				pr_err("%pOF: cpu-map children should be clusters\n",
--				       c);
--				of_node_put(c);
--				return -EINVAL;
--			}
--
--			if (leaf) {
--				ret = parse_core(c, package_id, core_id++);
--			} else {
--				pr_err("%pOF: Non-leaf cluster with core %s\n",
--				       cluster, name);
--				ret = -EINVAL;
--			}
--
--			of_node_put(c);
--			if (ret != 0)
--				return ret;
--		}
--		i++;
--	} while (c);
--
--	if (leaf && !has_cores)
--		pr_warn("%pOF: empty cluster\n", cluster);
--
--	if (leaf)
--		package_id++;
--
--	return 0;
--}
--
--static int __init parse_dt_topology(void)
--{
--	struct device_node *cn, *map;
--	int ret = 0;
--	int cpu;
--
--	cn = of_find_node_by_path("/cpus");
--	if (!cn) {
--		pr_err("No CPU information found in DT\n");
--		return 0;
--	}
--
--	/*
--	 * When topology is provided cpu-map is essentially a root
--	 * cluster with restricted subnodes.
--	 */
--	map = of_get_child_by_name(cn, "cpu-map");
--	if (!map)
--		goto out;
--
--	ret = parse_cluster(map, 0);
--	if (ret != 0)
--		goto out_map;
--
--	topology_normalize_cpu_scale();
--
--	/*
--	 * Check that all cores are in the topology; the SMP code will
--	 * only mark cores described in the DT as possible.
--	 */
--	for_each_possible_cpu(cpu)
--		if (cpu_topology[cpu].package_id == -1)
--			ret = -EINVAL;
--
--out_map:
--	of_node_put(map);
--out:
--	of_node_put(cn);
--	return ret;
--}
--
--/*
-- * cpu topology table
-- */
--struct cpu_topology cpu_topology[NR_CPUS];
--EXPORT_SYMBOL_GPL(cpu_topology);
--
--const struct cpumask *cpu_coregroup_mask(int cpu)
--{
--	const cpumask_t *core_mask = cpumask_of_node(cpu_to_node(cpu));
--
--	/* Find the smaller of NUMA, core or LLC siblings */
--	if (cpumask_subset(&cpu_topology[cpu].core_sibling, core_mask)) {
--		/* not numa in package, lets use the package siblings */
--		core_mask = &cpu_topology[cpu].core_sibling;
--	}
--	if (cpu_topology[cpu].llc_id != -1) {
--		if (cpumask_subset(&cpu_topology[cpu].llc_sibling, core_mask))
--			core_mask = &cpu_topology[cpu].llc_sibling;
--	}
--
--	return core_mask;
--}
--
--static void update_siblings_masks(unsigned int cpuid)
--{
--	struct cpu_topology *cpu_topo, *cpuid_topo = &cpu_topology[cpuid];
--	int cpu;
--
--	/* update core and thread sibling masks */
--	for_each_online_cpu(cpu) {
--		cpu_topo = &cpu_topology[cpu];
--
--		if (cpuid_topo->llc_id == cpu_topo->llc_id) {
--			cpumask_set_cpu(cpu, &cpuid_topo->llc_sibling);
--			cpumask_set_cpu(cpuid, &cpu_topo->llc_sibling);
--		}
--
--		if (cpuid_topo->package_id != cpu_topo->package_id)
--			continue;
--
--		cpumask_set_cpu(cpuid, &cpu_topo->core_sibling);
--		cpumask_set_cpu(cpu, &cpuid_topo->core_sibling);
--
--		if (cpuid_topo->core_id != cpu_topo->core_id)
--			continue;
--
--		cpumask_set_cpu(cpuid, &cpu_topo->thread_sibling);
--		cpumask_set_cpu(cpu, &cpuid_topo->thread_sibling);
--	}
--}
--
- void store_cpu_topology(unsigned int cpuid)
- {
- 	struct cpu_topology *cpuid_topo = &cpu_topology[cpuid];
-@@ -296,59 +59,18 @@ void store_cpu_topology(unsigned int cpuid)
- 	update_siblings_masks(cpuid);
- }
- 
--static void clear_cpu_topology(int cpu)
--{
--	struct cpu_topology *cpu_topo = &cpu_topology[cpu];
--
--	cpumask_clear(&cpu_topo->llc_sibling);
--	cpumask_set_cpu(cpu, &cpu_topo->llc_sibling);
--
--	cpumask_clear(&cpu_topo->core_sibling);
--	cpumask_set_cpu(cpu, &cpu_topo->core_sibling);
--	cpumask_clear(&cpu_topo->thread_sibling);
--	cpumask_set_cpu(cpu, &cpu_topo->thread_sibling);
--}
--
--static void __init reset_cpu_topology(void)
--{
--	unsigned int cpu;
--
--	for_each_possible_cpu(cpu) {
--		struct cpu_topology *cpu_topo = &cpu_topology[cpu];
--
--		cpu_topo->thread_id = -1;
--		cpu_topo->core_id = 0;
--		cpu_topo->package_id = -1;
--		cpu_topo->llc_id = -1;
--
--		clear_cpu_topology(cpu);
--	}
--}
--
--void remove_cpu_topology(unsigned int cpu)
--{
--	int sibling;
--
--	for_each_cpu(sibling, topology_core_cpumask(cpu))
--		cpumask_clear_cpu(cpu, topology_core_cpumask(sibling));
--	for_each_cpu(sibling, topology_sibling_cpumask(cpu))
--		cpumask_clear_cpu(cpu, topology_sibling_cpumask(sibling));
--	for_each_cpu(sibling, topology_llc_cpumask(cpu))
--		cpumask_clear_cpu(cpu, topology_llc_cpumask(sibling));
--
--	clear_cpu_topology(cpu);
--}
--
--#ifdef CONFIG_ACPI
- /*
-  * Propagate the topology information of the processor_topology_node tree to the
-  * cpu_topology array.
-  */
--static int __init parse_acpi_topology(void)
-+int __init parse_acpi_topology(void)
- {
- 	bool is_threaded;
- 	int cpu, topology_id;
- 
-+	if (acpi_disabled)
-+		return 0;
-+
- 	is_threaded = read_cpuid_mpidr() & MPIDR_MT_BITMASK;
- 
- 	for_each_possible_cpu(cpu) {
-@@ -385,23 +107,4 @@ static int __init parse_acpi_topology(void)
- 	return 0;
- }
- 
--#else
--static inline int __init parse_acpi_topology(void)
--{
--	return -EINVAL;
--}
--#endif
- 
--void __init init_cpu_topology(void)
--{
--	reset_cpu_topology();
--
--	/*
--	 * Discard anything that was parsed if we hit an error so we
--	 * don't use partial information.
--	 */
--	if (!acpi_disabled && parse_acpi_topology())
--		reset_cpu_topology();
--	else if (of_have_populated_dt() && parse_dt_topology())
--		reset_cpu_topology();
--}
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index edfcf8d9..1dc502ea 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -16,6 +16,11 @@
- #include <linux/string.h>
- #include <linux/sched/topology.h>
- #include <linux/cpuset.h>
-+#include <linux/cpumask.h>
-+#include <linux/init.h>
-+#include <linux/percpu.h>
-+#include <linux/sched.h>
-+#include <linux/smp.h>
- 
- DEFINE_PER_CPU(unsigned long, freq_scale) = SCHED_CAPACITY_SCALE;
- 
-@@ -278,3 +283,301 @@ static void parsing_done_workfn(struct work_struct *work)
- #else
- core_initcall(free_raw_capacity);
- #endif
-+
-+static int __init get_cpu_for_node(struct device_node *node)
-+{
-+	struct device_node *cpu_node;
-+	int cpu;
-+
-+	cpu_node = of_parse_phandle(node, "cpu", 0);
-+	if (!cpu_node)
-+		return -1;
-+
-+	cpu = of_cpu_node_to_id(cpu_node);
-+	if (cpu >= 0)
-+		topology_parse_cpu_capacity(cpu_node, cpu);
-+	else
-+		pr_crit("Unable to find CPU node for %pOF\n", cpu_node);
-+
-+	of_node_put(cpu_node);
-+	return cpu;
-+}
-+
-+static int __init parse_core(struct device_node *core, int package_id,
-+			     int core_id)
-+{
-+	char name[10];
-+	bool leaf = true;
-+	int i = 0;
-+	int cpu;
-+	struct device_node *t;
-+
-+	do {
-+		snprintf(name, sizeof(name), "thread%d", i);
-+		t = of_get_child_by_name(core, name);
-+		if (t) {
-+			leaf = false;
-+			cpu = get_cpu_for_node(t);
-+			if (cpu >= 0) {
-+				cpu_topology[cpu].package_id = package_id;
-+				cpu_topology[cpu].core_id = core_id;
-+				cpu_topology[cpu].thread_id = i;
-+			} else {
-+				pr_err("%pOF: Can't get CPU for thread\n",
-+				       t);
-+				of_node_put(t);
-+				return -EINVAL;
-+			}
-+			of_node_put(t);
-+		}
-+		i++;
-+	} while (t);
-+
-+	cpu = get_cpu_for_node(core);
-+	if (cpu >= 0) {
-+		if (!leaf) {
-+			pr_err("%pOF: Core has both threads and CPU\n",
-+			       core);
-+			return -EINVAL;
-+		}
-+
-+		cpu_topology[cpu].package_id = package_id;
-+		cpu_topology[cpu].core_id = core_id;
-+	} else if (leaf) {
-+		pr_err("%pOF: Can't get CPU for leaf core\n", core);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int __init parse_cluster(struct device_node *cluster, int depth)
-+{
-+	char name[10];
-+	bool leaf = true;
-+	bool has_cores = false;
-+	struct device_node *c;
-+	static int package_id __initdata;
-+	int core_id = 0;
-+	int i, ret;
-+
-+	/*
-+	 * First check for child clusters; we currently ignore any
-+	 * information about the nesting of clusters and present the
-+	 * scheduler with a flat list of them.
-+	 */
-+	i = 0;
-+	do {
-+		snprintf(name, sizeof(name), "cluster%d", i);
-+		c = of_get_child_by_name(cluster, name);
-+		if (c) {
-+			leaf = false;
-+			ret = parse_cluster(c, depth + 1);
-+			of_node_put(c);
-+			if (ret != 0)
-+				return ret;
-+		}
-+		i++;
-+	} while (c);
-+
-+	/* Now check for cores */
-+	i = 0;
-+	do {
-+		snprintf(name, sizeof(name), "core%d", i);
-+		c = of_get_child_by_name(cluster, name);
-+		if (c) {
-+			has_cores = true;
-+
-+			if (depth == 0) {
-+				pr_err("%pOF: cpu-map children should be clusters\n",
-+				       c);
-+				of_node_put(c);
-+				return -EINVAL;
-+			}
-+
-+			if (leaf) {
-+				ret = parse_core(c, package_id, core_id++);
-+			} else {
-+				pr_err("%pOF: Non-leaf cluster with core %s\n",
-+				       cluster, name);
-+				ret = -EINVAL;
-+			}
-+
-+			of_node_put(c);
-+			if (ret != 0)
-+				return ret;
-+		}
-+		i++;
-+	} while (c);
-+
-+	if (leaf && !has_cores)
-+		pr_warn("%pOF: empty cluster\n", cluster);
-+
-+	if (leaf)
-+		package_id++;
-+
-+	return 0;
-+}
-+
-+static int __init parse_dt_topology(void)
-+{
-+	struct device_node *cn, *map;
-+	int ret = 0;
-+	int cpu;
-+
-+	cn = of_find_node_by_path("/cpus");
-+	if (!cn) {
-+		pr_err("No CPU information found in DT\n");
-+		return 0;
-+	}
-+
-+	/*
-+	 * When topology is provided cpu-map is essentially a root
-+	 * cluster with restricted subnodes.
-+	 */
-+	map = of_get_child_by_name(cn, "cpu-map");
-+	if (!map)
-+		goto out;
-+
-+	ret = parse_cluster(map, 0);
-+	if (ret != 0)
-+		goto out_map;
-+
-+	topology_normalize_cpu_scale();
-+
-+	/*
-+	 * Check that all cores are in the topology; the SMP code will
-+	 * only mark cores described in the DT as possible.
-+	 */
-+	for_each_possible_cpu(cpu)
-+		if (cpu_topology[cpu].package_id == -1)
-+			ret = -EINVAL;
-+
-+out_map:
-+	of_node_put(map);
-+out:
-+	of_node_put(cn);
-+	return ret;
-+}
-+
-+/*
-+ * cpu topology table
-+ */
-+struct cpu_topology cpu_topology[NR_CPUS];
-+EXPORT_SYMBOL_GPL(cpu_topology);
-+
-+const struct cpumask *cpu_coregroup_mask(int cpu)
-+{
-+	const cpumask_t *core_mask = cpumask_of_node(cpu_to_node(cpu));
-+
-+	/* Find the smaller of NUMA, core or LLC siblings */
-+	if (cpumask_subset(&cpu_topology[cpu].core_sibling, core_mask)) {
-+		/* not numa in package, lets use the package siblings */
-+		core_mask = &cpu_topology[cpu].core_sibling;
-+	}
-+	if (cpu_topology[cpu].llc_id != -1) {
-+		if (cpumask_subset(&cpu_topology[cpu].llc_sibling, core_mask))
-+			core_mask = &cpu_topology[cpu].llc_sibling;
-+	}
-+
-+	return core_mask;
-+}
-+
-+void update_siblings_masks(unsigned int cpuid)
-+{
-+	struct cpu_topology *cpu_topo, *cpuid_topo = &cpu_topology[cpuid];
-+	int cpu;
-+
-+	/* update core and thread sibling masks */
-+	for_each_online_cpu(cpu) {
-+		cpu_topo = &cpu_topology[cpu];
-+
-+		if (cpuid_topo->llc_id == cpu_topo->llc_id) {
-+			cpumask_set_cpu(cpu, &cpuid_topo->llc_sibling);
-+			cpumask_set_cpu(cpuid, &cpu_topo->llc_sibling);
-+		}
-+
-+		if (cpuid_topo->package_id != cpu_topo->package_id)
-+			continue;
-+
-+		cpumask_set_cpu(cpuid, &cpu_topo->core_sibling);
-+		cpumask_set_cpu(cpu, &cpuid_topo->core_sibling);
-+
-+		if (cpuid_topo->core_id != cpu_topo->core_id)
-+			continue;
-+
-+		cpumask_set_cpu(cpuid, &cpu_topo->thread_sibling);
-+		cpumask_set_cpu(cpu, &cpuid_topo->thread_sibling);
-+	}
-+}
-+
-+static void clear_cpu_topology(int cpu)
-+{
-+	struct cpu_topology *cpu_topo = &cpu_topology[cpu];
-+
-+	cpumask_clear(&cpu_topo->llc_sibling);
-+	cpumask_set_cpu(cpu, &cpu_topo->llc_sibling);
-+
-+	cpumask_clear(&cpu_topo->core_sibling);
-+	cpumask_set_cpu(cpu, &cpu_topo->core_sibling);
-+	cpumask_clear(&cpu_topo->thread_sibling);
-+	cpumask_set_cpu(cpu, &cpu_topo->thread_sibling);
-+}
-+
-+static void __init reset_cpu_topology(void)
-+{
-+	unsigned int cpu;
-+
-+	for_each_possible_cpu(cpu) {
-+		struct cpu_topology *cpu_topo = &cpu_topology[cpu];
-+
-+		cpu_topo->thread_id = -1;
-+		cpu_topo->core_id = 0;
-+		cpu_topo->package_id = -1;
-+		cpu_topo->llc_id = -1;
-+
-+		clear_cpu_topology(cpu);
-+	}
-+}
-+
-+void remove_cpu_topology(unsigned int cpu)
-+{
-+	int sibling;
-+
-+	for_each_cpu(sibling, topology_core_cpumask(cpu))
-+		cpumask_clear_cpu(cpu, topology_core_cpumask(sibling));
-+	for_each_cpu(sibling, topology_sibling_cpumask(cpu))
-+		cpumask_clear_cpu(cpu, topology_sibling_cpumask(sibling));
-+	for_each_cpu(sibling, topology_llc_cpumask(cpu))
-+		cpumask_clear_cpu(cpu, topology_llc_cpumask(sibling));
-+
-+	clear_cpu_topology(cpu);
-+}
-+
-+
-+#ifdef CONFIG_ACPI
-+__weak int __init parse_acpi_topology(void)
-+{
-+	return 0;
-+}
-+
-+#else
-+static inline int __init parse_acpi_topology(void)
-+{
-+	return 0;
-+}
-+#endif
-+
-+void __init init_cpu_topology(void)
-+{
-+	reset_cpu_topology();
-+
-+	/*
-+	 * Discard anything that was parsed if we hit an error so we
-+	 * don't use partial information.
-+	 */
-+	if (parse_acpi_topology())
-+		reset_cpu_topology();
-+	else if (of_have_populated_dt() && parse_dt_topology())
-+		reset_cpu_topology();
-+}
-diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-index d9bdc1a7..8f412906 100644
---- a/include/linux/arch_topology.h
-+++ b/include/linux/arch_topology.h
-@@ -8,6 +8,29 @@
- #include <linux/types.h>
- #include <linux/percpu.h>
- 
-+struct cpu_topology {
-+	int thread_id;
-+	int core_id;
-+	int package_id;
-+	int llc_id;
-+	cpumask_t thread_sibling;
-+	cpumask_t core_sibling;
-+	cpumask_t llc_sibling;
-+};
-+
-+extern struct cpu_topology cpu_topology[NR_CPUS];
-+
-+#define topology_physical_package_id(cpu)	(cpu_topology[cpu].package_id)
-+#define topology_core_id(cpu)		(cpu_topology[cpu].core_id)
-+#define topology_core_cpumask(cpu)	(&cpu_topology[cpu].core_sibling)
-+#define topology_sibling_cpumask(cpu)	(&cpu_topology[cpu].thread_sibling)
-+#define topology_llc_cpumask(cpu)	(&cpu_topology[cpu].llc_sibling)
-+
-+void init_cpu_topology(void);
-+void update_siblings_masks(unsigned int cpu);
-+void remove_cpu_topology(unsigned int cpuid);
-+const struct cpumask *cpu_coregroup_mask(int cpu);
-+
- void topology_normalize_cpu_scale(void);
- int topology_update_cpu_topology(void);
- 
-diff --git a/include/linux/topology.h b/include/linux/topology.h
-index cb0775e1..81501fac 100644
---- a/include/linux/topology.h
-+++ b/include/linux/topology.h
-@@ -32,6 +32,7 @@
- #include <linux/mmzone.h>
- #include <linux/smp.h>
- #include <linux/percpu.h>
-+#include <linux/arch_topology.h>
- #include <asm/topology.h>
- 
- #ifndef nr_cpus_node
--- 
-2.7.4
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+zqPPhM65z4IgMjAxOC0xMS0wOCAxODo0OCwgU3VkZWVwIEhvbGxhIM6tzrPPgc6xz4jOtToKPiBP
+biBUaHUsIE5vdiAwOCwgMjAxOCBhdCAwNDo1MjozMFBNICswMjAwLCBOaWNrIEtvc3NpZmlkaXMg
+d3JvdGU6Cj4+IM6jz4TOuc+CIDIwMTgtMTEtMDcgMTQ6MjgsIFN1ZGVlcCBIb2xsYSDOrc6zz4HO
+sc+IzrU6Cj4+ID4KPj4gPiBJIGFncmVlLCBidXQgd2UgaGF2ZSBrZXJuZWwgY29kZSB1c2luZyBp
+dChhcm02NC9rZXJuZWwvdG9wb2xvZ3kuYykuIEl0J3MKPj4gPiB0b28gbGF0ZSB0byByZW1vdmUg
+aXQuIEJ1dCB3ZSBjYW4gYWx3YXlzIGtlZXAgdG8gb3B0aW9uYWwgaWYgd2UgbW92ZSB0aGUKPj4g
+PiBBUk02NCBiaW5kaW5nIGFzIGdlbmVyaWMgdG8gc3RhcnQgd2l0aCBhbmQgbWFuZGF0ZSBpdCBm
+b3Igb25seSBBUk02NC4KPj4gPgo+PiAKPj4gVGhhdCdzIG15IHBvaW50IGFzIHdlbGwsIGlmIHdl
+IGFyZSBnb2luZyB0byBkZWZpbmUgc29tZXRoaW5nIHRvIGJlIAo+PiB1c2VkCj4+IGJ5IGV2ZXJ5
+Ym9keSBhbmQgaW4gdGhpcyBjYXNlLCBhdCBsZWFzdCBmb3IgUklTQy1WLCB0aGVyZSBpcyBubyBu
+ZWVkIAo+PiB0bwo+PiBjYXJyeSB0aGlzIGZyb20gdGhlIEFSTTY0IGJpbmRpbmcuCj4gCj4gU3Vy
+ZSwgd2hhdGV2ZXIgeW91IGRvbid0IG5lZWQgaW4gUklTQy1WIHlvdSBjYW4gc2VlIGlmIHRoZXkg
+Y2FuIGJlIG1hZGUKPiBvcHRpb25hbC4gSSBkb24ndCB0aGluayB0aGF0IHNob3VsZCBiZSBhIHBy
+b2JsZW0uCj4gCj4+IEl0IHNob3VsZG4ndCBiZSB0aGF0IGhhcmQgdG8gZml4IHRoaXMKPj4gaW4g
+dGhlIGZ1dHVyZSBmb3IgQVJNNjQgYXMgd2VsbCwgd2UgbWF5IGdpdmUgdGhlIG5ldyBtYXBwaW5n
+IGFub3RoZXIgCj4+IG5hbWUsCj4+IG1heWJlIGNwdS1tYXAyIG9yIGNwdS10b3BvbG9neSB0byBz
+bG93bHkgbW92ZSB0byB0aGUgbmV3IG9uZS4KPiAKPiBObywgd2UgaGF2ZSBpdCBhbmQgd2Ugd2ls
+bCBjb250aW51ZSB0byBzdXBwb3J0IGl0LiBJdCdzIG5vdCBicm9rZW4gdG8KPiBmaXggb24gQVJN
+NjQuIFdoeSBkbyB5b3UgdGhpbmsgdGhhdCBpdCdzIGJyb2tlbiBvbiBBUk02NCA/Cj4gCgpJIG5l
+dmVyIHNhaWQgaXQncyBicm9rZW4sIEkganVzdCBhc3N1bWVkIHRoYXQgaWYgdGhpcyBiaW5kaW5n
+IGJlY29tZXMgCmNvbW1vbgphY3Jvc3MgYXJjaHMgeW91J2QgcHJvYmFibHkgbGlrZSB0byBzd2l0
+Y2ggdG8gaXQsIHNvIGl0IHNob3VsZCBlaXRoZXIgYmUKYmFja3dhcmRzIGNvbXBhdGlibGUgd2l0
+aCB3aGF0IHlvdSBoYXZlIChvciBhcyB5b3Ugc2FpZCAia2VlcCB0aGVtIApvcHRpb25hbCIpCm9y
+IHRha2Ugc3RlcHMgZm9yIHRoZSB0cmFuc2l0aW9uLiBJJ20gb2sgZWl0aGVyIHdheSwgSXQncyBu
+b3Qgc3VjaCBhIApzZXJpb3VzCnRoaW5nIHRvIGhhdmUgdGhlIDx0aHJlYWQ+IG5vZGVzIHN1cHBv
+cnRlZCBvciBrZWVwIHRoZSBkaXN0aW5jdGlvbiAKYmV0d2VlbgoiY29yZXMiLCAiY2x1c3RlcnMi
+IG9yIHdoYXRldmVyLCBJJ20gc29ycnkgaWYgaXQgbG9va2VkIHRoYXQgd2F5LiBJJ20gCmp1c3QK
+c2F5aW5nIHRoYXQgSSdkIGxpa2UgdG8gaGF2ZSBzb21ldGhpbmcgY2xlYW5lciBmb3IgUklTQy1W
+IGFuZC9vciBhIApiaW5kaW5nCnRoYXQncyBjb21tb24gZm9yIGFsbCwgd2UgY2FuIHN1cHBvcnQg
+Ym90aCBhbmQgYmUgYmFja3dhcmRzIGNvbXBhdGlibGUsIApvciB3ZQpjYW4ga2VlcCBpdCBhcyBp
+cyBhbmQgbWFuZGF0ZSB0aGUgPHRocmVhZD4gbm9kZXMgb25seSBmb3IgQVJNNjQgYXMgeW91CnN1
+Z2dlc3RlZC4KCj4+IENoYW5naW5nIHRoZQo+PiBkdHMgZmlsZXMgc2hvdWxkbid0IGJlIHRoaXMg
+aGFyZCwgd2UgY2FuIHByb3ZpZGUgYSBzY3JpcHQgZm9yIGl0LiBXZSAKPj4gY2FuCj4+IGV2ZW4g
+Y29udGFpbiBzb21lIGNvbXBhdGliaWxpdHkgY29kZSB0aGF0IGFsc28gdW5kZXJzdGFuZHMgPHRo
+cmVhZD4gCj4+IG5vZGVzCj4+IGFuZCBlLmcuIG1lcmdlcyB0aGVtIHRvZ2V0aGVyIG9uIGEgY29y
+ZSBub2RlLgo+PiAKPiAKPiBTdXJlLCBoYW5nIG9uIHRoaXMgaWRlYSBvZiBzY3JpcHRpbmcsIHdl
+IGNhbiBtYWtlIGEgYmV0dGVyIHVzZSBvZiBpdC4KPiBEZXRhaWxzIGxhdGVyIGZ1cnRoZXIgaW4g
+dGhlIG1haWwuCj4gCj4gWy4uLl0KPiAKPj4gPiA+IFRoZSBzYW1lIGFsc28gaGFwcGVucyB3aXRo
+IHRoZSBnZW5lcmljIG51bWEgYmluZGluZyBvbgo+PiA+ID4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0
+cmVlL2JpbmRpbmdzL251bWEudHh0Cj4+ID4gPiB3aGljaCBzYXlzIHdlIHNob3VsZCBhZGQgdGhl
+IG51bmEtbm9kZS1pZCBvbiBlYWNoIG9mIHRoZSBjcHUgbm9kZXMuCj4+ID4gPgo+PiA+Cj4+ID4g
+WWVzLCBidXQgYWdhaW4gd2hhdCdzIHRoZSBwcm9ibGVtID8KPj4gPgo+PiAKPj4gVGhlcmUgaXMg
+bm8gcHJvYmxlbSB3aXRoIHRoZSBhYm92ZSBiaW5kaW5ncywgdGhlIHByb2JsZW0gaXMgdGhhdCB3
+ZSAKPj4gaGF2ZQo+PiB0byBwdXQgdGhlbSBvbiBlYWNoIGNwdSBub2RlIHdoaWNoIGlzIG1lc3N5
+LiBXZSBjb3VsZCBpbnN0ZWFkIHB1dCB0aGVtCj4+IChvcHRpb25hbGx5KSBvbiB0aGUgdmFyaW91
+cyBncm91cGluZ3MgdXNlZCBvbiBjcHUtbWFwLiBUaGlzIHdvdWxkIAo+PiBhbGxvdwo+PiBjcHUt
+bWFwIHRvIGJlIG1vcmUgc3BlY2lmaWMgb2Ygd2hhdCBpcyBzaGFyZWQgYWNyb3NzIHRoZSBtZW1i
+ZXJzIG9mIAo+PiBlYWNoCj4+IGdyb3VwIChjb3JlL2NsdXN0ZXIvd2hhdGV2ZXIpLgo+PiAKPiAK
+PiBJIHRoaW5rIE1hcmsgaGFzIGFscmVhZHkgZXhwbGFpbiB3aHkvaG93IGdlbmVyaWMgYmluZGlu
+Z3MgYXJlIHVzZWZ1bC4KPiBJZiB5b3Ugc3RpbGwgaGF2ZSBjb25jZXJucywgdGFrZSBpdCB1cCBz
+ZXBhcmF0ZWx5IGFuZCBzZWUgaG93IHlvdSBjYW4KPiBidWlsZCAqcGVyZmVjdCogYmluZGluZ3Mg
+Zm9yIFJJU0MtViB0byBhdm9pZCBhbnkgbGVnYWN5IGJhZ2dhZ2UuCj4gCj4gV2UgaGF2ZSByZWFz
+b25zIHdoeSB3ZSBjYW4ndCBhc3N1bWUgaW5mb3JtYXRpb24gYWJvdXQgY2FjaGUgb3IgcG93ZXIK
+PiBkb21haW4gdG9wb2xvZ3kgZnJvbSBDUFUgdG9wb2xvZ3kuIEkgaGF2ZSBzdW1tYXJpc2VkIHRo
+ZW0gYWxyZWFkeSBhbmQKPiB3ZSBhcmUgbm90IGRpc2N1c3NpbmcuCgpCdXQgdGhhdCdzIHdoYXQg
+eW91IGRvIG9uIGFyY2gvYXJtL2tlcm5lbC90b3BvbG9neS5jLCB5b3UgYXNzdW1lCmluZm9ybWF0
+aW9uIG9uIHBvd2VyIGRvbWFpbiBhbmQgY2FjaGUgdG9wb2xvZ3kgYmFzZWQgb24gdGhlIENQVSB0
+b3BvbG9neQp3aGVuIHlvdSBkZWZpbmUgdGhlIHNjaGVkdWxpbmcgZG9tYWluIHRvcG9sb2d5IGxl
+dmVscy4KClBvd2VyUEMgYWxzbyBkb2VzIHRoZSBzYW1lIG9uIGFyY2gvcG93ZXJwYy9rZXJuZWwv
+c21wLmMgYW5kIGJhc2ljYWxseSBpZgp5b3UgdHJhY2sgdGhlIHVzYWdlIG9mIHN0cnVjdCBzY2hl
+ZF9kb21haW5fdG9wb2xvZ3lfbGV2ZWwgeW91J2xsIHNlZSAKdGhhdApldmVyeSBhcmNoIHRoYXQg
+dXNlcyBpdCB0byBpbnN0cnVjdCB0aGUgc2NoZWR1bGVyIGFib3V0IHRoZSBzY2hlZHVsaW5nCmRv
+bWFpbnMsIGRvZXMgaXQgYmFzZWQgb24gaXRzIENQVSB0b3BvbG9neSwgd2hpY2ggSSB0aGluayB3
+ZSBib3RoIGFncmVlCmlzIHdyb25nLgoKPiBUaGVyZSBtYXkgbm90IGJlIHBlcmZlY3QgYmluZGlu
+Z3MgYnV0IHRoZXJlIGFyZQo+IGFscmVhZHkgc3VwcG9ydGVkIGFuZCBub3RoaW5nIGlzIGJyb2tl
+biBoZXJlIHRvIGZpeC4gRFQgYmluZGluZ3MgYXJlCj4gKm5vdCogc2FtZSBhcyBjb2RlIHRvIGZp
+eCBpdCB3aXRoIGEgcGF0Y2ggdG8gdGhlIGJpbmRpbmdzIHRoZW1zZWx2ZXMuCj4gT25jZSBhZ3Jl
+ZWQgYW5kIG1lcmdlZCwgdGhleSBuZWVkIHRvIGJlIHRyZWF0ZWQgbGlrZSB1c2VyIEFCSS4KPiAK
+ClRoZSBvbmx5IHVzZSBvZiB0aGUgZGV2aWNldHJlZSBzcGVjIGJpbmRpbmdzIGZvciBjYWNoZXMg
+aWYgSSdtIG5vdAptaXN0YWtlbiBhcmUgdXNlZCBvbiB5b3VyIGNhY2hlaW5mbyBkcml2ZXIgZm9y
+IGV4cG9ydGluZyB0aGVtIHRvIAp1c2Vyc3BhY2UKdGhyb3VnaCBzeXNmcyAodGhhbmsgeW91IGZv
+ciBjbGVhbmluZyB0aGlzIHVwIGJ0dykuIEV2ZW4gaWYgd2UgaGF2ZSB0aGUKY2FjaGUgdG9wb2xv
+Z3kgIHVzaW5nIHRoZSBnZW5lcmljIGJpbmRpbmdzLCB3ZSBhcmUgbm90IGRvaW5nIGFueXRoaW5n
+IAp3aXRoCnRoYXQgaW5mb3JtYXRpb24gYnV0IGV4cG9ydCBpdCB0byB1c2Vyc3BhY2UuCgpBcyBm
+b3IgdGhlIHBvd2VyIGRvbWFpbiBiaW5kaW5ncywgd2UgaGF2ZSBkcml2ZXJzL2Jhc2UvcG93ZXIv
+ZG9tYWluLmMgCnRoYXQKaGFuZGxlcyB0aGUgZ2VuZXJpYyBiaW5kaW5ncyBhbmQgaXQncyBiZWlu
+ZyB1c2VkIGJ5IHNvbWUgZHJpdmVycyB0byBwdXQKZGV2aWNlcyB0byBwb3dlciBkb21haW5zIChz
+b21ldGhpbmcgdXNlZCBieSB0aGUgcG0gY29kZSksIGJ1dCBmcm9tIGEgCnF1aWNrCnNlYXJjaCBp
+dCdzIG5vdCB1c2VkIGZvciBjcHUgbm9kZXMgYW5kIEkgZGlkbid0IHNlZSB0aGlzIGluZm8gYmVp
+bmcgdXNlZApmb3IgcHJvdmlkaW5nIGhpbnRzIHRvIHRoZSBzY2hlZHVsZXIgZWl0aGVyLiBFdmVu
+IHdpdGggdGhlIGdlbmVyaWMgcG93ZXIKZG9tYWluIGJpbmRpbmdzIGluIHBsYWNlLCBmb3IgQ1BV
+IGlkbGUgc3RhdGVzLCBvbiBBUk0gd2UgaGF2ZSBhbm90aGVyCmJpbmRpbmcgdGhhdCdzIGJhc2lj
+YWxseSB0aGUgc2FtZSB3aXRoIHRoZSBhZGRpdGlvbiBvZiAKIndha2V1cC1sYXRlbmN5LXVzIi4K
+CkZvciBoYXZpbmcgZGlmZmVyZW50IGNhcGFjaXR5IHRoZXJlIGlzIG5vIGdlbmVyaWMgYmluZGlu
+ZyBidXQgSSBndWVzcyB3ZQpjb3VsZCB1c2UgQVJNJ3MuCgpPZiB0aGUgZ2VuZXJpYyBiaW5kaW5n
+cyB0aGF0IHJlbGF0ZSB0byB0aGUgc2NoZWR1bGVyJ3MgYmVoYXZpb3IsIG9ubHkgCnRoZQpudW1h
+IGJpbmRpbmcgaXMgdXNlZCBhcyBleHBlY3RlZCBhbmQgb25seSBieSBBUk02NCwgcG93ZXJwYyBh
+bmQgc3BhcmMgCnVzZQp0aGVpciBvd24gc3R1ZmYuCgpTbyB0aGVyZSBtYXkgYmUgbm90aGluZyBi
+cm9rZW4gcmVnYXJkaW5nIHRoZSBnZW5lcmljIC8gYWxyZWFkeSBleGlzdGluZwpiaW5kaW5ncywg
+YnV0IHRoZWlyIHN1cHBvcnQgbmVlZHMgZml4aW5nLiBUaGUgd2F5IHRoZXkgYXJlIG5vdyB3ZSBj
+YW4ndAp1c2UgdGhlbSBvbiBSSVNDLVYgZm9yIGNvbmZpZ3VyaW5nIHRoZSBzY2hlZHVsZXIgYW5k
+IHN1cHBvcnRpbmcgU01UIGFuZApNQyBwcm9wZXJseSArIEknbSBub3QgaW4gZmF2b3Igb2YgdXNp
+bmcgQ1BVIHRvcG9sb2d5IGJsaW5kbHkgYXMgdGhlCm90aGVyIGFyY2hzIGRvLgoKPj4gQXMgSSB3
+cm90ZSBvbiBteSBhbnN3ZXIgdG8gTWFyayBwcmV2aW91c2x5LCB0aGUgYmluZGluZ3MgZm9yIGlu
+ZmVyaW5nCj4+IHRoZSBjYWNoZSB0b3BvbG9neSwgbnVtYSB0b3BvbG9neSwgcG93ZXIgZG9tYWlu
+IHRvcG9sb2d5IGV0YyBhcmUgCj4+IGFscmVhZHkKPj4gdGhlcmUsIHRoZXkgYXJlIGluIHRoZSBk
+ZXZpY2V0IHRyZWUgc3BlYyBhbmQgcHJvdmlkZSB2ZXJ5IHNwZWNpZmljCj4+IGluZm9ybWF0aW9u
+cyB3ZSBjYW4gdXNlLiBNdWNoICJzdHJvbmdlciIgaGludHMgb2Ygd2hhdCdzIGdvaW5nIG9uIGF0
+Cj4+IHRoZSBodyBsZXZlbC4gVGhlIGNwdS1tYXAgZG9lc24ndCBwcm92aWRlIHN1Y2ggaW5mb3Jt
+YXRpb24sIGl0IGp1c3QKPj4gcHJvdmlkZXMgYSB2aWV3IG9mIGhvdyB0aGUgdmFyaW91cyBoYXJ0
+cy90aHJlYWRzIGFyZSAicGFja2VkIiBvbiB0aGUgCj4+IGNoaXAsCj4+IG5vdCB3aGF0IHRoZXkg
+c2hhcmUgaW5zaWRlIGVhY2ggbGV2ZWwgb2YgInBhY2tpbmciLiBJdCdzIHVzZWZ1bCAKPj4gYmVj
+YXVzZQo+PiBpdCBzYXZlcyBwZW9wbGUgZnJvbSBoYXZpbmcgdG8gZGVmaW5lIGEgYnVuY2ggb2Yg
+Y2FjaGUgbm9kZXMgYW5kIAo+PiBkZXNjcmliZQo+PiB0aGUgY2FjaGUgaGllcmFyY2h5IG9uIHRo
+ZSBkZXZpY2UgdHJlZSB1c2luZyB0aGUgc3RhbmRhcmQgc3BlYy4KPj4gCj4gCj4gQWgsIGhlcmUg
+Y29tZXMuIElmIHlvdSB3YW50IHRvIHNhdmUgcGVvcGxlJ3MgdGltZSBvciB3aGF0ZXZlciwgeW91
+IGNhbiAKPiB1c2UKPiB5b3VyIHNjcmlwdGluZyBtYWdpYyB5b3UgaGF2ZSBtZW50aW9uZWQgYWJv
+dmUgdG8gZGVmaW5lIHRob3NlIGJ1bmNoIG9mIAo+IG5vZGVzCj4geW91IHdhbnQgdG8gYXZvaWQu
+Cj4gCgpJIG1lbnRpb25lZCB0aGUgc2NyaXB0IGFzIGEgdHJhbnNpdGlvbmluZyBtZXRob2QsIGJ1
+dCB5b3UgYXJlIHJpZ2h0LCBpdCAKZ29lcwpib3RoIHdheXMuCgo+PiBTbyBzaW5jZSBjcHUtbWFw
+IGlzIHRoZXJlIGZvciBjb252ZW5pZW5jZSBsZXQncyBtYWtlIGl0IG1vcmUgCj4+IGNvbnZlbmll
+bnQgIQo+PiBXaGF0IEknbSBzYXlpbmcgaXMgdGhhdCBjcHUtbWFwIGNvdWxkIGJlIGEgbW9yZSBj
+b21wYWN0IHdheSBvZiB1c2luZyAKPj4gdGhlCj4+IGV4aXN0aW5nIGJpbmRpbmdzIGZvciBhZGRp
+bmcgcHJvcGVydGllcyBvbiBncm91cHMgb2YgaGFydHMgaW5zdGVhZCBvZgo+PiBwdXR0aW5nIHRo
+ZW0gb24gZWFjaCBoYXJ0IGluZGl2aWR1YWxseS4gSXQgd2lsbCBzaW1wbGlmeSB0aGUgCj4+IHJl
+cHJlc2VudGF0aW9uCj4+IGFuZCBtYXkgYWxzbyBvcHRpbWl6ZSB0aGUgaW1wbGVtZW50YXRpb24g
+YSBiaXQgKHdlIG1heSBnZXQgdGhlIAo+PiBpbmZvcm1hdGlvbgo+PiB3ZSBuZWVkIGZhc3Rlciku
+IEkgZG9uJ3Qgc2VlIGFueSBvdGhlciByZWFzb24gZm9yIHVzaW5nIGNwdS1tYXAgb24gCj4+IFJJ
+U0MtVgo+PiBvciBmb3IgbWFraW5nIGl0IGdsb2JhbCBhY3Jvc3MgYXJjaHMuCj4+IAo+IAo+IFN1
+cmUsIEkgZG9uJ3QgaGF2ZSBzdHJvbmcgb3BpbmlvbnMgdGhlcmUuIEp1c3Qgc3RvcCBtZW50aW9u
+aW5nIHRoYXQgCj4gdGhpcwo+IGlzIHRoZSBvbmx5IHNvbHV0aW9uIGFuZCBhbGwgZXhpc3Rpbmcg
+b25lcyBhcmUgYnJva2VuLiBUaGV5IGFyZSBub3QgYW5kCj4gbmVlZHMgdG8gYmUgc3VwcG9ydGVk
+IHVudGlsIHRoZXkgYXJlIGV4cGxpY2l0bHkgZGVwcmVjYXRlZCwgYmVjb21lcwo+IG9ic29sZXRl
+IGFuZCBmaW5hbGx5IHJlbW92ZWQuCj4gCj4gWy4uLl0KPiAKCkJ1dCBJIG5ldmVyIHNhaWQgdGhh
+dCdzICJ0aGUgb25seSBzb2x1dGlvbiBhbmQgZXZlcnl0aGluZyBlbHNlIGlzIApicm9rZW4iICEK
+SSdtIGp1c3QgcHJvcG9zaW5nIGFuIGV4dGVuc2lvbiB0byBjcHUtbWFwIHNpbmNlIE1hcmsgc3Vn
+Z2VzdGVkIHRoYXQgCml0J3MKcG9zc2libGUuIE15IGdvYWwgaXMgdG8gdHJ5IGFuZCBjb25zb2xp
+ZGF0ZSBjcHUtbWFwIHdpdGggd2hhdCBBdGlzaCAKcHJvcG9zZWQKZm9yIFJJU0MtViAoc28gdGhh
+dCB3ZSBjYW4gdXNlIHRoZSBzYW1lIGNvZGUpIGFuZCBwb2ludCBvdXQgc29tZSBpc3N1ZXMKb24g
+aG93IHdlIHVzZSBhbmQgZGVmaW5lIHRoZSBDUFUgdG9wb2xvZ3kuCgo+PiA+Cj4+ID4gV2h5IGFy
+ZSB5b3Ugc28ga2VlbiBvbiBvcHRpbWlzaW5nIHRoZSByZXByZXNlbnRhdGlvbiA/Cj4+ID4gSWYg
+eW91IGFyZSB3b3JyaWVkIGFib3V0IGxhcmdlIHN5c3RlbXMsIGdlbmVyYXRlIG9uZSBpbnN0ZWFk
+IG9mCj4+ID4gaGFuZGNyYWZ0ZWQuCj4+ID4KPj4gCj4+IEkgZG9uJ3Qgc2VlIGEgcmVhc29uIG5v
+dCB0byB0cnkgdG8gb3B0aW1pemUgaXQsIHNpbmNlIHdlIGFyZSB0YWxraW5nCj4+IGFib3V0IGEg
+YmluZGluZyB0byBiZSB1c2VkIGJ5IFJJU0MtViBhbmQgcG90ZW50aWFsbHkgZXZlcnlib2R5LCBJ
+IAo+PiB0aGluawo+PiBpdCBtYWtlcyBzZW5zIHRvIGltcHJvdmUgdXBvbiB3aGF0IHdlIGFscmVh
+ZHkgaGF2ZS4KPj4gCj4gCj4gU3VyZSwgeW91IGNhbiBhbHdheXMgdW5sZXNzIHlvdSBzdG9wIHRy
+ZWF0aW5nIGV4aXN0aW5nIG9uZXMgYXJlIGJyb2tlbi4KPiBJIGhhdmUgYWxyZWFkeSB0b2xkIERU
+IGJpbmRpbmdzIGFyZSBub3QgKm5vcm1hbCBjb2RlKi4gWW91IGNhbiBqdXN0Cj4gcmVwbGFjZSBl
+eGlzdGluZyBvbmVzIHdpdGggbmV3IG9wdGltaXNlZCBvbmVzLiBZb3UgY2FuIG9ubHkgYWRkIHRo
+ZSBuZXcKPiAoKm9wdGltaXNlZCopIG9uZXMgdG8gdGhlIGV4aXN0aW5nIG9uZXMuIFlvdSAqbmVl
+ZCogdG8gdW5kZXJzdGFuZCB0aGF0Cj4gY29uY2VwdCBmaXJzdCwgb3RoZXJ3aXNlIHRoZXJlJ3Mg
+bm90IHBvaW50IGluIHRoaXMgZW5kbGVzcyBkaXNjdXNzaW9uCj4gSU1PLgo+IAo+IEkgd2lsbCBz
+dG9wIGhlcmUgYXMgSSB3aWxsIGhhdmUgdG8gcmVwZWF0IHdoYXRldmVyIEkgaGF2ZSBhbHJlYWR5
+Cj4gbWVudGlvbmVkIHRvIGNvbW1lbnQgb24geW91ciBhcmd1bWVudHMgYmVsb3cuCj4gCj4gSW4g
+c3VtbWFyeSwgSSBhbSBub3QgYWdhaW5zdCBpbXByb3ZpbmcgdGhlIGJpbmRpbmdzIGlmIHlvdSB0
+aGluayBpdCdzCj4gcG9zc2libGUsIGJ1dCBJIGRvbid0IHNlZSBob3cgaXQncyBtb3JlIGJlbmVm
+aWNpYWxseSBlc3BlY2lhbGx5IGlmIHdlCj4gYXJlIGdvaW5nIHRvIHN1cHBvcnQgZXhpc3Rpbmcg
+b25lcyBhbHNvLiBNYXJrIGhhcyBhbHJlYWR5IGdpdmVuIGFsbCB0aGUKPiBkZXRhaWxzLgo+IAoK
+QUNLLCB0aGFua3MgYSBsb3QgZm9yIHlvdXIgdGltZSBhbmQgdGhlIGRpc2N1c3Npb24gc28gZmFy
+LCBJIHJlYWxseQphcHByZWNpYXRlIGl0LgoKUmVnYXJkcywKTmljawoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
