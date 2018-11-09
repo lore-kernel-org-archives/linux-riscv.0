@@ -1,10 +1,8 @@
 From: ldv@altlinux.org (Dmitry V. Levin)
-Date: Fri, 9 Nov 2018 06:13:04 +0300
-Subject: [PATCH 00/13] Prepare for PTRACE_GET_SYSCALL_INFO
-In-Reply-To: <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
-References: <20181107042751.3b519062@akathisia>
- <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
-Message-ID: <20181109031303.GA20906@altlinux.org>
+Date: Fri, 9 Nov 2018 06:17:13 +0300
+Subject: [PATCH 12/13] riscv: define syscall_get_arch()
+In-Reply-To: <20181109031303.GA20906@altlinux.org>
+Message-ID: <20181109031712.GL21511@altlinux.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
@@ -12,35 +10,45 @@ syscall_get_arch() is required to be implemented on all architectures
 that use tracehook_report_syscall_entry() in order to extend
 the generic ptrace API with PTRACE_GET_SYSCALL_INFO request.
 
-Dmitry V. Levin (13):
-  Move EM_HEXAGON to uapi/linux/elf-em.h
-  elf-em.h: add EM_ARC
-  elf-em.h: add EM_NDS32
-  elf-em.h: add EM_XTENSA
-  m68k: define syscall_get_arch()
-  arc: define syscall_get_arch()
-  c6x: define syscall_get_arch()
-  h8300: define syscall_get_arch()
-  hexagon: define syscall_get_arch()
-  nds32: define syscall_get_arch()
-  nios2: define syscall_get_arch()
-  riscv: define syscall_get_arch()
-  xtensa: define syscall_get_arch()
+Signed-off-by: Dmitry V. Levin <ldv@altlinux.org>
+---
+ arch/riscv/include/asm/syscall.h | 6 ++++++
+ include/uapi/linux/audit.h       | 1 +
+ 2 files changed, 7 insertions(+)
 
- arch/arc/include/asm/syscall.h     |  6 ++++++
- arch/c6x/include/asm/syscall.h     |  6 ++++++
- arch/h8300/include/asm/syscall.h   |  5 +++++
- arch/hexagon/include/asm/elf.h     |  6 +-----
- arch/hexagon/include/asm/syscall.h |  8 ++++++++
- arch/m68k/include/asm/syscall.h    | 12 ++++++++++++
- arch/nds32/include/asm/syscall.h   |  7 +++++++
- arch/nios2/include/asm/syscall.h   |  6 ++++++
- arch/riscv/include/asm/syscall.h   |  6 ++++++
- arch/xtensa/include/asm/syscall.h  |  7 +++++++
- include/uapi/linux/audit.h         |  8 ++++++++
- include/uapi/linux/elf-em.h        |  5 +++++
- 12 files changed, 77 insertions(+), 5 deletions(-)
- create mode 100644 arch/m68k/include/asm/syscall.h
-
+diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+index 8d25f8904c00..7e1e26ca7317 100644
+--- a/arch/riscv/include/asm/syscall.h
++++ b/arch/riscv/include/asm/syscall.h
+@@ -18,6 +18,7 @@
+ #ifndef _ASM_RISCV_SYSCALL_H
+ #define _ASM_RISCV_SYSCALL_H
+ 
++#include <uapi/linux/audit.h>
+ #include <linux/sched.h>
+ #include <linux/err.h>
+ 
+@@ -99,4 +100,9 @@ static inline void syscall_set_arguments(struct task_struct *task,
+ 	memcpy(&regs->a1 + i * sizeof(regs->a1), args, n * sizeof(regs->a0));
+ }
+ 
++static inline int syscall_get_arch(void)
++{
++	return AUDIT_ARCH_RISCV;
++}
++
+ #endif	/* _ASM_RISCV_SYSCALL_H */
+diff --git a/include/uapi/linux/audit.h b/include/uapi/linux/audit.h
+index c4c8b131af48..ad4105c602a1 100644
+--- a/include/uapi/linux/audit.h
++++ b/include/uapi/linux/audit.h
+@@ -405,6 +405,7 @@ enum {
+ /* do not define AUDIT_ARCH_PPCLE since it is not supported by audit */
+ #define AUDIT_ARCH_PPC64	(EM_PPC64|__AUDIT_ARCH_64BIT)
+ #define AUDIT_ARCH_PPC64LE	(EM_PPC64|__AUDIT_ARCH_64BIT|__AUDIT_ARCH_LE)
++#define AUDIT_ARCH_RISCV	(EM_RISCV|__AUDIT_ARCH_64BIT)
+ #define AUDIT_ARCH_S390		(EM_S390)
+ #define AUDIT_ARCH_S390X	(EM_S390|__AUDIT_ARCH_64BIT)
+ #define AUDIT_ARCH_SH		(EM_SH)
 -- 
 ldv
