@@ -1,25 +1,83 @@
-From: schwab@linux-m68k.org (Andreas Schwab)
-Date: Sat, 10 Nov 2018 10:27:36 +0100
-Subject: [PATCH 12/13] riscv: define syscall_get_arch()
-In-Reply-To: <20181109222839.GB2054@altlinux.org> (Dmitry V. Levin's message
- of "Sat, 10 Nov 2018 01:28:39 +0300")
-References: <20181109031303.GA20906@altlinux.org>
- <20181109031712.GL21511@altlinux.org>
- <CAEn-LTpbzdpeWv8wqo_ptBw2t3Ypzzp0JcB+TGMG4NZbEGBnkw@mail.gmail.com>
- <20181109222839.GB2054@altlinux.org>
-Message-ID: <m28t21jn93.fsf@linux-m68k.org>
+From: mick@ics.forth.gr (Nick Kossifidis)
+Date: Sat, 10 Nov 2018 16:50:36 +0200
+Subject: [sw-dev] SBI extension proposal v2
+In-Reply-To: <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
+References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
+ <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
+Message-ID: <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Nov 10 2018, "Dmitry V. Levin" <ldv@altlinux.org> wrote:
+???? 2018-11-10 07:12, Luke Kenneth Casson Leighton ??????:
+> On Sat, Nov 10, 2018 at 2:42 AM Atish Patra <atish.patra@wdc.com> 
+> wrote:
+> 
+>> ## Conclusion
+>> This proposal is far from perfect and absolutely any suggestion is
+>> welcome. Obviously, there are many other functionalities that can be
+>> added to this proposal. However, I just wanted to start with something
+>> that is an incremental change at best to kick off the discussion. The
+>> aim here is to initiate a discussion that can lead to a robust SBI
+>> specification.
+> 
+>  very cool, atish.
+> 
+>  i would very much like to see the optional addition of multiple
+> serial lines, by adding a getchar and putchar function that takes just
+> one extra argument: the serial line index.
+> 
+>  there are a lot of different uses to which mult-serial lines may be 
+> put:
+> 
+>  * boot message separation from console login
+>  * boot management separation from other purposes (u-boot/coreboot)
+>  * virtual /dev/ttyS0-3
+>  * clean UPS reporting and management
+>  * remote virtual machine power management (power-on / off)
+>  * simple bog-standard multiple virtual login consoles
+>  * separation of debug messages (stdout/stderr) to ease debugging and
+> development
+>  * remote and virtual OpenOCD and kernel debugging without disrupting
+> the main serial console
+>  * PPP serial links.
+> 
+> this latter is one that i am particularly interested in, as i would
+> like to be able to boot a full GNU/Linux OS on spike, given the lower
+> barrier to entry in making modifications and experimenting with spike
+> than it is with qemu.
+> 
+>  if spike were able, through a multi-serial SBI interface, to have a
+> PPP serial line, it would be possible to run a root NFS (or other
+> network block device) without having to sacrifice console access.  it
+> would be possible to create an initramfs from a lower-capability
+> system like buildroot, containing PPP, enable it, and pivot-root out
+> to a full stock GNU/Linux OS such as debian or fedora.
+> 
+>  so there are huge benefits, reducing the development barrier to entry
+> into RISC-V experimentation and debugging, and opening up a much wider
+> range of capabilities and possibilities for machine and virtual system
+> management.
+> 
+> l.
 
-> P.S. It would be great if you replied to me as well.
 
-You are explicitly forbidding that.
+The current SBI says that console_getchar/console_putchar are for the 
+debug
+console but on Linux we use them for the main console on earlyprintk. I
+think it's misleading and we should at least have an argument to chose
+between the main console and an optional debug console, or rename
+them to debug_console_getchar/debug_console_putchar and 
+main_console_getchar/
+main_console_putchar.
 
-Andreas.
+However I don't think that argument should be the serial line. Different
+vendors may use different serial lines for the main console / debug 
+console,
+the caller doesn't know which serial line maps to which console, so the 
+SBI
+should be more abstract and use something like a console id where e.g. 0 
+is
+main console an 1 is debug.
 
--- 
-Andreas Schwab, schwab at linux-m68k.org
-GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-"And now for something completely different."
+Regards,
+Nick
