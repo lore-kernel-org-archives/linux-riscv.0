@@ -1,68 +1,108 @@
-From: mick@ics.forth.gr (Nick Kossifidis)
-Date: Sat, 10 Nov 2018 17:09:03 +0200
+From: lkcl@lkcl.net (Luke Kenneth Casson Leighton)
+Date: Sat, 10 Nov 2018 15:48:19 +0000
 Subject: [sw-dev] SBI extension proposal v2
-In-Reply-To: <CA++6G0BTdybjhqaXm9EhAz0HsgpwfozK6OEL7DuzbS48RbEChA@mail.gmail.com>
+In-Reply-To: <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
 References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
- <CAEn-LTo1gKtuDpH6iZVT_-ixaQHh79gJ6oDbEsP4yAawriXeEw@mail.gmail.com>
- <CA++6G0BTdybjhqaXm9EhAz0HsgpwfozK6OEL7DuzbS48RbEChA@mail.gmail.com>
-Message-ID: <c1e5487d6071af143bf9e829c3fd1aa8@mailhost.ics.forth.gr>
+ <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
+ <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
+Message-ID: <CAPweEDz-7oRg2UWPkvTDdfi36Z4PQLAuLdL3-Sy-kmkGEJ=44A@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-???? 2018-11-10 07:47, Andrew Waterman ??????:
-> On Fri, Nov 9, 2018 at 9:37 PM David Abdurachmanov
-> <david.abdurachmanov@gmail.com> wrote:
-> 
->> On Sat, Nov 10, 2018 at 3:42 AM Atish Patra <atish.patra@wdc.com>
->> wrote:
->>> 
->> [..]
->> 
->>> 2. Every SBI function call may return the following structure
->>> ```
->>> struct valerr {
->>> long value;
->>> long error;
->>> };
->>> ```
->> 
->> [..]
->> 
->>> int sbi_hart_suspend(u32 state, unsigned long resume_entry,
->> unsigned
->>> long priv)
->> 
->> A small nictpick, but could we have consistent typing/language in
->> the document?
->> I see you use "long", and even mix "int" and "u32" in a single
->> definition.
->> 
->> If I look into PSCI I see:
->> ```
->> SMC32 uint32
->> SMC64 uint64
->> entry_point_address
->> ```
->> which leaves less interpretation for my eyes. For example, "long"
->> can be
->> 32-bit or 64-bit long depending on a few things and thus easier to
->> make
->> mistake interpreting the spec.
->> 
->> I would suggest to use (u)int32/(u)uint64/friends and something
->> similar to SMC{32,64}
->> if needed.
-> 
-> Note, however, that the same spec is meant to be used for both RV32
-> and RV64 systems, so some degree of type parameterization is
-> necessary.
-> 
->> david
+---
+crowd-funded eco-conscious hardware: https://www.crowdsupply.com/eoma68
 
-We should definitely use typed integers for clarity but there is no
-issue on how the structs will be formatted since the current calling
-convention provides a pointer to the struct (so it's type is void*)
-and the numbers passed through the SBI are 32bit ints (u32) so they
-fit on both 32, 64 and 128bit registers. As long as we stick with
-this calling convention of passing pointers and 32bit ints, we
-should be fine.
+On Sat, Nov 10, 2018 at 3:31 PM Nick Kossifidis <mick@ics.forth.gr> wrote:
+>
+> ???? 2018-11-10 07:12, Luke Kenneth Casson Leighton ??????:
+> > On Sat, Nov 10, 2018 at 2:42 AM Atish Patra <atish.patra@wdc.com>
+> > wrote:
+> >
+> >> ## Conclusion
+> >> This proposal is far from perfect and absolutely any suggestion is
+> >> welcome. Obviously, there are many other functionalities that can be
+> >> added to this proposal. However, I just wanted to start with something
+> >> that is an incremental change at best to kick off the discussion. The
+> >> aim here is to initiate a discussion that can lead to a robust SBI
+> >> specification.
+> >
+> >  very cool, atish.
+> >
+> >  i would very much like to see the optional addition of multiple
+> > serial lines, by adding a getchar and putchar function that takes just
+> > one extra argument: the serial line index.
+> >
+> >  there are a lot of different uses to which mult-serial lines may be
+> > put:
+> >
+> >  * boot message separation from console login
+> >  * boot management separation from other purposes (u-boot/coreboot)
+> >  * virtual /dev/ttyS0-3
+> >  * clean UPS reporting and management
+> >  * remote virtual machine power management (power-on / off)
+> >  * simple bog-standard multiple virtual login consoles
+> >  * separation of debug messages (stdout/stderr) to ease debugging and
+> > development
+> >  * remote and virtual OpenOCD and kernel debugging without disrupting
+> > the main serial console
+> >  * PPP serial links.
+> >
+> > this latter is one that i am particularly interested in, as i would
+> > like to be able to boot a full GNU/Linux OS on spike, given the lower
+> > barrier to entry in making modifications and experimenting with spike
+> > than it is with qemu.
+> >
+> >  if spike were able, through a multi-serial SBI interface, to have a
+> > PPP serial line, it would be possible to run a root NFS (or other
+> > network block device) without having to sacrifice console access.  it
+> > would be possible to create an initramfs from a lower-capability
+> > system like buildroot, containing PPP, enable it, and pivot-root out
+> > to a full stock GNU/Linux OS such as debian or fedora.
+> >
+> >  so there are huge benefits, reducing the development barrier to entry
+> > into RISC-V experimentation and debugging, and opening up a much wider
+> > range of capabilities and possibilities for machine and virtual system
+> > management.
+> >
+> > l.
+>
+>
+> The current SBI says that console_getchar/console_putchar are for the
+> debug
+> console but on Linux we use them for the main console on earlyprintk.
+
+ ... yeah exactly.  and what if something goes wrong, you want to be
+able to interact over openocd without interfering with that
+earlyprintk, particularly during that critical first bringup phase of
+real-world silicon?
+
+> I
+> think it's misleading and we should at least have an argument to chose
+> between the main console and an optional debug console, or rename
+> them to debug_console_getchar/debug_console_putchar and
+> main_console_getchar/
+> main_console_putchar.
+
+ i initially thought of proposing that, however:
+
+ (1) the API already exists with "single console". it would therefore
+be disruptive to change that
+
+ (2) if adding something called debug_console_{get/put}char, it might
+as well take advantage of the opportunity to be extended and made
+generic, and have the extra argument added
+
+> However I don't think that argument should be the serial line. Different
+> vendors may use different serial lines for the main console / debug
+> console,
+> the caller doesn't know which serial line maps to which console, so the
+> SBI
+> should be more abstract and use something like a console id where e.g. 0
+> is
+> main console an 1 is debug.
+
+ yes, it should [have]: my feeling is, it's a little late in the game
+given that it's almost certainly baked into pre-existing hardware, by
+now, so the next best thing is a new function call.
+
+l.
