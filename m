@@ -6,18 +6,19 @@ X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F3CD6C43610
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 10 Nov 2018 17:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 17887C43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 10 Nov 2018 17:43:29 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C76AE20854
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 10 Nov 2018 17:42:18 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DD7E120854
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 10 Nov 2018 17:43:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uvkm051C";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lixom-net.20150623.gappssmtp.com header.i=@lixom-net.20150623.gappssmtp.com header.b="0AHnMo35"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C76AE20854
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lixom.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GBmHF8tG";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="plud3BPy";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=lkcl.net header.i=@lkcl.net header.b="AXT9W1oY"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DD7E120854
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lkcl.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -25,64 +26,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nc41dSocklRlzuLEYIhAKYzhWIf7IK3HZ78tUeQgC9M=; b=uvkm051CMqtZWl
-	L0lq4hXQ1Tbzzvc8rosYe5hqF0CEVCYj9caA4MSUO3FaRK21iglQB4DanNwMZBYqqVH0v/OZS+5CO
-	svzp7zrCq8uFGPnCKrkK3RZU2/4BI5cNJjOdjGOBFq4+HCHj03xgOCusMv1690VU+RNPDD8vbbBWi
-	N3fRnCse6s3Cbdi8hn7JNw9KDIoilJyVHHIBVjF+9U0Hz8eYj/63Zudd53coQ3EvF1Mb+CzLLcgk4
-	D9qocVT7O4pPmqlS1+03zE0eMC0X57EjaiywZILwiMhL1UpZzm2z6McN7SMPFuMD/BOUQ/y10O1ho
-	maXi44m2D+zd+uIfzL0g==;
+	List-Owner; bh=HMzUWR4O0FA/vHYciF8Zxid4mqyIFT9iJj45RsEIzoE=; b=GBmHF8tGfnScs4
+	UAVM0iRbtqY7NFfZ7U6/5bLaCeaAeo8F09ppC9cIgBK3wUmFG0KB3DCkiXdrFzdUBvoMWWYncOQMp
+	47MQthJqleRixVvAmrv0Z9c5xM5MpkOfbGz/OlPxlxJF65A1n7Fw9IWoGsTx5NEDKBZj5MJEl/NQP
+	cr7lT6tES+36ytwOTOOpd0HV1jbRpxS0rc8ERXVWNdQWfA6yCXmx2SXY2MNoSpkCnQrMXngSL2/Za
+	GN+X0LPaqvybW9H2zsQAtaCVwC7vG6yt597jhZiwM+j/br0+QAyAyDPo3jYQ9DAvP4QYYmRxWzk0u
+	65zPapWaWFjgCWDPpTWA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gLXGz-0005Qz-UP; Sat, 10 Nov 2018 17:42:17 +0000
-Received: from mail-it1-x142.google.com ([2607:f8b0:4864:20::142])
+	id 1gLXI7-0005WC-OB; Sat, 10 Nov 2018 17:43:27 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gLXGw-0005QM-Mi
- for linux-riscv@lists.infradead.org; Sat, 10 Nov 2018 17:42:16 +0000
-Received: by mail-it1-x142.google.com with SMTP id m34-v6so7367354iti.1
- for <linux-riscv@lists.infradead.org>; Sat, 10 Nov 2018 09:42:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=lixom-net.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=aZTlrFuBCQ0IqovWd+IYxQGwpyr5PrFzXU5r9xLY1co=;
- b=0AHnMo35ww3Kix6pb+fq/3v8h62QOyb4Vs9Qf+oyWjSk9HpsvIyFbVCjqEVqJ3Bce8
- t579lgzaI5opQhzN8J3NEM0YT9RGzI62qAmMwmwZvIV1FyJNZcyikksr7z1JRuug5SlH
- sMUVkCjzsBKl8PDPq/C05XXG4spslae6vOwWm99mfPGHTyY/w/Nyz6KXDelTSWl8/Hdq
- 1Su9LcOr9qQxotAHUZ+/h+42T6c5tVm/d6yOWozNd55ircwPRbHqHcKZqhBGJaMqW7L9
- GPgVxLJ1u8T6IQTieJ6R1UkMLuHXMOBvMtRPv7YJvdYsFj24MtS/P49OS7lIShRvC9+B
- t3lA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=aZTlrFuBCQ0IqovWd+IYxQGwpyr5PrFzXU5r9xLY1co=;
- b=BXEB9So2qNSdVgf+jNSHVNM47GGiuIqaxPVVVcu0YkR0zDUGttPR27iouTTfpW2Gq5
- 1hYGGiwddwo9MioMajWbbD+ZG+jx/mU7S5HOizJfDGWBihzOH+NzCnIvvpkimeVTpMlu
- 4Homq3OCc5YQ9CNfeUDnVERzR3hXYhp2uZbX76eo7dTszea0GJQ7iJiTfNjMRi64gIBB
- uWod0d/2Yl9qRncu1YVX/xRN4M2bPNXher15P2lGyisdna2CiE9LxMjbrMtSQxLfClqt
- UfmCaGotSD/9+xjL7urE9MpnCA1uZvb5rGPUri8qsojeYp5LCZ1UFzAtHwpT5BgVAuuQ
- HKxw==
-X-Gm-Message-State: AGRZ1gLg1Aj/1+6esXkuyyEwMXKvDNEDfQHFEfwS/IyxdAGO66pDLJ6Y
- 9x+/IBm1rIjym7FSuBgwB2kxN8oMDLU+UrVfphdDig==
-X-Google-Smtp-Source: AJdET5dBg529iiLm7cSqcWRkNYRl21s/N/J4lQmIg90H6ayoL75b40y6C5urKCJvRaWQq2LvzB71zma9zFC83gXZPts=
-X-Received: by 2002:a24:70ca:: with SMTP id
- f193-v6mr6132551itc.59.1541871723569; 
- Sat, 10 Nov 2018 09:42:03 -0800 (PST)
+ id 1gLXI7-0005Vu-02
+ for linux-riscv@bombadil.infradead.org; Sat, 10 Nov 2018 17:43:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:Subject:Message-ID:
+ Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=XdBhzLXBD5MsGGeRVjc/5S98w1F6/IPwcy9jZtlDuAs=; b=plud3BPysUpN2z8Ss6MP52Zob
+ TV4FTbqpp7ixqdSzFaDXZQS5xQECmtZUkcHnQ8XmU3KQ5zEdWQUDiISd3MkzVKFwQ2PZUih/EZlZ6
+ w/f4Ee0ydfKf7D2UDRbruoTPC0//cfIXyPMtss8HyBkgz7NZvZEVuKAqRnOkArcqyarf8Rwmq/m3F
+ I0NbNLygHgMIS8QDkCKAVw9m7H2RhMav3n1dnYshC9pg6HyBURZ3whqamOSIKKtALiqB9ZowflEzj
+ LqKrIs9Ac4OopgAYDtzWEZY069q8srq0Ix2ah5jvOA9BWaao2qeoe4oTjY4FeAzkjnN11zPOgISXW
+ 4jxQe8Qrw==;
+Received: from lkcl.net ([217.147.94.29])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gLXI4-0001K4-8U
+ for linux-riscv@lists.infradead.org; Sat, 10 Nov 2018 17:43:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lkcl.net;
+ s=201607131; 
+ h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version;
+ bh=XdBhzLXBD5MsGGeRVjc/5S98w1F6/IPwcy9jZtlDuAs=; 
+ b=AXT9W1oYt9UEHWBLB1Lv4wzL+ac64yg3ptgq1aKP6bjUSR94m5v3zsJ1EFxPw+DPtvQDvm3o7kbq3zL+qtt7qWDJcSzbd4N70ye++S9wrE/kwzBC+JaBCkdwfn6thlVyzLedzu+JNORV92L7XbeimT3zbtpRDCW9TcYu5pYfQDU=;
+Received: from mail-lj1-f169.google.com ([209.85.208.169])
+ by lkcl.net with esmtpsa (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128)
+ (Exim 4.84_2) (envelope-from <lkcl@lkcl.net>) id 1gLXHt-0008Cn-GI
+ for linux-riscv@lists.infradead.org; Sat, 10 Nov 2018 17:43:13 +0000
+Received: by mail-lj1-f169.google.com with SMTP id x85-v6so4231588ljb.2
+ for <linux-riscv@lists.infradead.org>; Sat, 10 Nov 2018 09:42:52 -0800 (PST)
+X-Gm-Message-State: AGRZ1gI7lNIqT4VFdwDs1s/fmJOWx9RH6H7zg9FZXL8Ai5ln5IxDmKvO
+ FUxIYglTcHCTq0AQHHeIXhP0/gdZenUJ/6QhwR0=
+X-Google-Smtp-Source: AJdET5fbzYj7cUum03P/BaxO/GMJqBiUs54/Vna25FKIkO1/oFn1MPjsMPy/tpCGl/FWev3QAvbLTFIa5z/Recs/Uy0=
+X-Received: by 2002:a2e:2281:: with SMTP id
+ i123-v6mr7219396lji.154.1541871767176; 
+ Sat, 10 Nov 2018 09:42:47 -0800 (PST)
 MIME-Version: 1.0
 References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
  <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
  <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
  <CAPweEDz-7oRg2UWPkvTDdfi36Z4PQLAuLdL3-Sy-kmkGEJ=44A@mail.gmail.com>
  <CAP6exYKfhtgXz4nVSwXasicbE+8ZbKwp-15_xGFHfFoK9yi9-g@mail.gmail.com>
-In-Reply-To: <CAP6exYKfhtgXz4nVSwXasicbE+8ZbKwp-15_xGFHfFoK9yi9-g@mail.gmail.com>
-From: Olof Johansson <olof@lixom.net>
-Date: Sat, 10 Nov 2018 09:41:51 -0800
+ <CAEz=sokxTJk=0EnRnLeG6LkaZiW-Dr4nmz=2JDgZm893NM-adQ@mail.gmail.com>
+In-Reply-To: <CAEz=sokxTJk=0EnRnLeG6LkaZiW-Dr4nmz=2JDgZm893NM-adQ@mail.gmail.com>
+From: Luke Kenneth Casson Leighton <lkcl@lkcl.net>
+Date: Sat, 10 Nov 2018 17:42:35 +0000
+X-Gmail-Original-Message-ID: <CAPweEDzZGEi87o5bBPeU6c7qHCtCJNcOHL0Uz1uUOPQak56X_Q@mail.gmail.com>
 Message-ID:
- <CAOesGMjVFGLfqVqmsK6V88cdTxmN_CAEhDey8nxKOeTYHC69jA@mail.gmail.com>
+ <CAPweEDzZGEi87o5bBPeU6c7qHCtCJNcOHL0Uz1uUOPQak56X_Q@mail.gmail.com>
 Subject: Re: [sw-dev] SBI extension proposal v2
-To: rminnich@gmail.com
+To: Samuel Falvo II <sam.falvo@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181110_094214_741341_59A8AFAE 
-X-CRM114-Status: GOOD (  21.57  )
+X-CRM114-CacheID: sfid-20181110_174324_314525_FCB1AB59 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,93 +102,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Christoph Hellwig <hch@infradead.org>,
- Damien.LeMoal@wdc.com, olof johansson <olof.johansson@gmail.com>,
- alankao@andestech.com, abner.chang@hpe.com, Anup Patel <anup@brainfault.org>,
+Cc: mark.rutland@arm.com, hch@infradead.org, Damien.LeMoal@wdc.com,
+ Olof Johansson <olof.johansson@gmail.com>, alankao@andestech.com,
+ abner.chang@hpe.com, atish.patra@wdc.com, Anup Patel <anup@brainfault.org>,
  Palmer Dabbelt <palmer@sifive.com>, Alexander Graf <agraf@suse.de>,
- zong@andestech.com, atish.patra@wdc.com, sw-dev@groups.riscv.org,
+ zong@andestech.com, ron minnich <rminnich@gmail.com>, sw-dev@groups.riscv.org,
  paul.walmsley@sifive.com, mick@ics.forth.gr, Alistair.Francis@wdc.com,
- lkcl@lkcl.net, linux-riscv@lists.infradead.org,
- Andrew Waterman <andrew@sifive.com>
+ linux-riscv@lists.infradead.org, Andrew Waterman <andrew@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181110174151.oj9KXzn9rPoPJTqr4FJULynTndq2zDOj_paDBg75L1Y@z>
+Message-ID: <20181110174235.4FEINuQxt7t2PZX7kWYeFOv4fz2tDUpPS8og_ZY9S8U@z>
 
-On Sat, Nov 10, 2018 at 8:46 AM ron minnich <rminnich@gmail.com> wrote:
+On Sat, Nov 10, 2018 at 5:39 PM Samuel Falvo II <sam.falvo@gmail.com> wrote:
+
+> on sat, nov 10, 2018 at 8:46 am ron minnich <rminnich@gmail.com> wrote:
+> > which is why i'm a bit unhappy to see this (to me) cancerous growth in
+> > proposals for m- mode code. ppp in firmware? really? multiple serial
 >
-> At Google and other places, we've been struggling now for years with
-> overly complex firmware that is implemented incorrectly, enabling
-> exploits and other bad things. The list of things vendors get wrong in
-> firmware, both enabling exploits and enabling others to enable
-> exploits, is long and it continues to this day. There is an
-> unbelievable amount of money out there all involving firmware
-> exploits, very little of it involving nice people.
->
-> I'm currently working on deleting all use of the x86 version of M
-> mode, i.e. SMM. There are many proposals out there for deleting SMM
-> from the architecture. I've also shown at a talk in 2017 how we could
-> redirect SMM interrupts back into the kernel. We're also removing all
-> use of callbacks into UEFI on x86. We're almost there.
->
-> Which is why I'm a bit unhappy to see this (to me) cancerous growth in
-> proposals for M- mode code. PPP in firmware? Really? multiple serial
-> devices? really? We've been here before, in the 1970s, with something
-> called the BIOS. If you're not familiar with it, go take a look, or
-> you can take my word for it that these proposals implement that idea.
-> We spent over 20 years freeing ourselves from it on x86. Why go back
-> to a 50 year old model on a CPU designed to be in use for 50 years?
->
-> My early understanding of M mode was that it was an Alpha PALCode like
-> thing, enabling access to resources that were behind a privilege wall.
-> I did not like it that much, but I was OK: it was very limited in
-> function, and the kernel could replace it, or at least measure it. I
-> also accept that every cpu vendor uses m mode like things (e.g. ARM
-> TF) for reasonable purposes and also (let's be honest here)  for
-> dealing with chipset mistakes. But that does not mean you need to
-> recreate BIOS.
->
-> The SBI should be hard to add to, deliberately. It should be used only
-> when there are no possible alternatives. It needs to be open source
-> and held in common. It should be possible for a kernel to replace or
-> at least measure it. And, further, there needs to be some work done on
-> why you add to it, and why you don't, with bias against adding to it.
-> This proposal works against those ideals, as it explicitly enables
-> vendor-specific forks of the SBI. Sure, this can happen, but why make
-> it so easy?
+> i'm inclined to agree with the overall sentiment of the concerns
+> raised herein (omitted for brevity), but i feel that it might go a bit
+> too far.
 
-There's a tension between letting people do the messy things that real
-hardware sometimes needs without polluting higher layers in the
-software stack, and letting them do too much of things that _should_
-be handled in the upper layers. I have yet to find a solution that
-doesn't need tweaking over time, the pendulum tends to swing back and
-forth into "too far" in both directions sometimes.
+ it's also not an appropriate argument.  nobody sensible would port a
+POSIX pppd from userspace into boot-level firmware.  the argument also
+ignores the dozens of other advantageous potential use-cases.
 
-The case of console is in this case pretty simple: It's intended for
-early boot for very simplistic environments (before the rest of the
-kernel is up, etc). Keeping the SBI console around beyond early boot,
-and somehow trying to optimize for it for those use cases is a
-misdirected effort; that's what native drivers are for.
-
-Having to do fine-grained arbitration of device ownership between
-firmware and kernel at runtime is usually error prone and awkward and
-best to avoid.
-
-
-> p.s. For interleaving debug and console output firmware, use the
-> oldest trick in the book: ASCII is 7 bits. Since console out is 8
-> bits, reserve 128 values for console out, and 128 for debug stream,
-> and if the debug stream needs 8 bit for some words, you know what to
-> do. It's very easy and doesn't require that we add multiple UART
-> support to SBI.
-
-Sure, it helps for 2 channels. And then beyond that you need a more
-complex protocol. Either way, it's not a problem we need to solve here
-and now.
-
-
--Olof
+l.
 
 _______________________________________________
 linux-riscv mailing list
