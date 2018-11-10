@@ -1,7 +1,7 @@
-From: olof@lixom.net (Olof Johansson)
-Date: Sat, 10 Nov 2018 10:02:53 -0800
+From: lkcl@lkcl.net (Luke Kenneth Casson Leighton)
+Date: Sat, 10 Nov 2018 19:33:21 +0000
 Subject: [sw-dev] SBI extension proposal v2
-In-Reply-To: <CAPweEDwDApbFofs689xvPBjoqODCeMyaYQWpgo3CuqSjQjYTvw@mail.gmail.com>
+In-Reply-To: <CAP6exYLbZ5yBKJduU468MwXSqA+Nm6dYKj9ig=yM9e0d64nK0g@mail.gmail.com>
 References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
  <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
  <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
@@ -9,33 +9,27 @@ References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
  <CAP6exYKfhtgXz4nVSwXasicbE+8ZbKwp-15_xGFHfFoK9yi9-g@mail.gmail.com>
  <CAOesGMjVFGLfqVqmsK6V88cdTxmN_CAEhDey8nxKOeTYHC69jA@mail.gmail.com>
  <CAPweEDwDApbFofs689xvPBjoqODCeMyaYQWpgo3CuqSjQjYTvw@mail.gmail.com>
-Message-ID: <CAOesGMic7iV69zeBFPDo6P+WwSGcogKG1DE-rOS_U9VCoC209A@mail.gmail.com>
+ <84838217ee26d70634368ef63d43427d@mailhost.ics.forth.gr>
+ <CAP6exYLbZ5yBKJduU468MwXSqA+Nm6dYKj9ig=yM9e0d64nK0g@mail.gmail.com>
+Message-ID: <CAPweEDy0804DsQeXt0qHBvwxGQ=gbfb+x+Hz7duXQ+_uA=u=5w@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sat, Nov 10, 2018 at 9:47 AM Luke Kenneth Casson Leighton
-<lkcl@lkcl.net> wrote:
->
-> On Sat, Nov 10, 2018 at 5:42 PM Olof Johansson <olof@lixom.net> wrote:
->
-> > The case of console is in this case pretty simple: It's intended for
-> > early boot for very simplistic environments (before the rest of the
-> > kernel is up, etc). Keeping the SBI console around beyond early boot,
-> > and somehow trying to optimize for it for those use cases is a
-> > misdirected effort; that's what native drivers are for.
->
->  spike (which is only around 7,000 lines of code) doesn't have native
-> drivers, and qemu is too heavy-duty to consider adding custom
-> extensions and experimental research onto.
->
->  with nothing in spike *other* than the serial console, it's the only
-> way in and out.
+On Sat, Nov 10, 2018 at 6:02 PM ron minnich <rminnich@gmail.com> wrote:
 
-I'll repeat myself:
+> Actually, as long as the option remains to let the kernel replace the
+> SBI with something else, I'm not that worried about what vendors put
+> in it. But that option needs to remain there.
 
-"trying to optimize for those use cases is a misdirected effort".
-Trying to optimize your experience on spike at the cost of simplicity
-for everybody else is the wrong thing to do.
+ i remember you saying, when the boot discussion came up a couple
+weeks ago, and agree absolutely: the option in real hardware to shut
+off and replace whatever's got you up and running is critical.
 
+ there's a huge range of uses to which SBI is (and can be) put: i
+threw some ideas out there, i feel it's important to bear that in
+mind.  it's not just used for booting, it's also got simulation,
+debugging, development and critical first silicon bring-up potential,
+out-of-band remote power management potential uses, virtual management
+potential, and shed-loads more.
 
--Olof
+l.
