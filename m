@@ -1,25 +1,25 @@
-From: me@packi.ch (Patrick Staehlin)
-Date: Sat, 10 Nov 2018 09:35:15 +0100
-Subject: [PATCH] riscv: add S and U modes to ISA string
-In-Reply-To: <20181110064543.12411-1-david.abdurachmanov@gmail.com>
-References: <20181110064543.12411-1-david.abdurachmanov@gmail.com>
-Message-ID: <7958aa50-8808-e909-753c-e232b3d1f84e@packi.ch>
+From: schwab@linux-m68k.org (Andreas Schwab)
+Date: Sat, 10 Nov 2018 10:27:36 +0100
+Subject: [PATCH 12/13] riscv: define syscall_get_arch()
+In-Reply-To: <20181109222839.GB2054@altlinux.org> (Dmitry V. Levin's message
+ of "Sat, 10 Nov 2018 01:28:39 +0300")
+References: <20181109031303.GA20906@altlinux.org>
+ <20181109031712.GL21511@altlinux.org>
+ <CAEn-LTpbzdpeWv8wqo_ptBw2t3Ypzzp0JcB+TGMG4NZbEGBnkw@mail.gmail.com>
+ <20181109222839.GB2054@altlinux.org>
+Message-ID: <m28t21jn93.fsf@linux-m68k.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 10.11.18 07:45, David Abdurachmanov wrote:
-> 
-> The patch adds the missing S and U modes.
+On Nov 10 2018, "Dmitry V. Levin" <ldv@altlinux.org> wrote:
 
-This is the same patch I submitted earlier (see v2 here [1], based on
-Palmer's feedback). Palmer stated that the "S" extension should not be
-exposed to usermode.
+> P.S. It would be great if you replied to me as well.
 
-Since two people arrived at the same solution, I wonder if the
-supervisor mode should really be hidden from userspace, as it's about
-the CPU information, not about the environment the calling code is
-running as.
+You are explicitly forbidding that.
 
-[1] https://lkml.org/lkml/2018/11/10/96
+Andreas.
 
-Patrick
+-- 
+Andreas Schwab, schwab at linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
