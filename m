@@ -1,38 +1,41 @@
 From: lkcl@lkcl.net (Luke Kenneth Casson Leighton)
-Date: Sat, 10 Nov 2018 17:51:47 +0000
+Date: Sat, 10 Nov 2018 17:55:07 +0000
 Subject: [sw-dev] SBI extension proposal v2
-In-Reply-To: <70910d55a0046d9ddc7d4308cb56e581@mailhost.ics.forth.gr>
+In-Reply-To: <CAEz=songRyvbEgYfxKP0WyuAdZnKsqfrCk8CCxSsCGGHeUFixA@mail.gmail.com>
 References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
  <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
  <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
  <CAPweEDz-7oRg2UWPkvTDdfi36Z4PQLAuLdL3-Sy-kmkGEJ=44A@mail.gmail.com>
- <70910d55a0046d9ddc7d4308cb56e581@mailhost.ics.forth.gr>
-Message-ID: <CAPweEDyEk4=hd3_o2g3L4azcuZxB0KnFGBn3jWz9AT1F+mFwgQ@mail.gmail.com>
+ <CAP6exYKfhtgXz4nVSwXasicbE+8ZbKwp-15_xGFHfFoK9yi9-g@mail.gmail.com>
+ <CAEz=sokxTJk=0EnRnLeG6LkaZiW-Dr4nmz=2JDgZm893NM-adQ@mail.gmail.com>
+ <CAPweEDzZGEi87o5bBPeU6c7qHCtCJNcOHL0Uz1uUOPQak56X_Q@mail.gmail.com>
+ <CAEz=songRyvbEgYfxKP0WyuAdZnKsqfrCk8CCxSsCGGHeUFixA@mail.gmail.com>
+Message-ID: <CAPweEDw=5sy5d-LA5hLQEu+oyf9T5GCkMxDEut9q06zff_-9qQ@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Sat, Nov 10, 2018 at 5:45 PM Nick Kossifidis <mick@ics.forth.gr> wrote:
+On Sat, Nov 10, 2018 at 5:48 PM Samuel Falvo II <sam.falvo@gmail.com> wrote:
 
-> >  yes, it should [have]: my feeling is, it's a little late in the game
-> > given that it's almost certainly baked into pre-existing hardware, by
-> > now, so the next best thing is a new function call.
-> >
-> > l.
+> On Sat, Nov 10, 2018 at 9:43 AM Luke Kenneth Casson Leighton
+> <lkcl@lkcl.net> wrote:
+> >  it's also not an appropriate argument.  nobody sensible would port a
+> > POSIX pppd from userspace into boot-level firmware.  the argument also
+> > ignores the dozens of other advantageous potential use-cases.
 >
-> Late in the game ? Who's game ? Is there any "standard" way out there
-> for mapping consoles to serial line indices ?
+> Regrettably, if it's one thing we've all learned from PC clone
+> manufacturers and BIOS vendors, it's that they're not sensible.
+> They're not reasonable.  And they're anything but sane.
+>
+> Servers designed for use in data centers are on the market right now
+> with adapters fully equipped with TCP/IP stacks in firmware *just* to
+> give a remote operator control over a computer's PS/2 or serial ports,
+> for instance.
+>
+> You can bank that it'll happen with RISC-V as well.
 
- any implementor that has put a SBI v1.0 into a boot ROM in production
-silicon (or even has put it into a design that's already had USD $5m+
-of engineering time and testing done), would be absolutely screwed by
-changes to v1.0 SBI.
-
- if however... if a way could be found to negotiate v1.0 being as-is,
-and v2.0 declaring that there was an extra argument? yeah that would
-work.
-
- i don't mind either way: i just really need to not have to have the
-financial burden of augmenting and maintaining special ports of half a
-dozen applications including minicom.
+ *snort* yeah.  is that a good enough reason to terminate all and any
+discussion of enhancing a general-purpose generic API that has several
+other beneficial use-cases?  reminds me of the adage "guns don't kill
+people: people kill people".
 
 l.
