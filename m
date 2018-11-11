@@ -1,60 +1,32 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Sun, 11 Nov 2018 13:52:06 -0800 (PST)
-Subject: [PATCH] OF: Add a warning in case chosen node is not present
-In-Reply-To: <20181110005317.5631-1-mick@ics.forth.gr>
-Message-ID: <mhng-e3979636-81f8-42d6-b810-eeed6786d4bb@palmer-si-x1c4>
+Date: Sun, 11 Nov 2018 14:14:12 -0800 (PST)
+Subject: [PATCH] riscv: add S and U modes to ISA string
+In-Reply-To: <7958aa50-8808-e909-753c-e232b3d1f84e@packi.ch>
+Message-ID: <mhng-58f419dd-47a6-4540-91b6-08be173d4216@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, 09 Nov 2018 16:53:17 PST (-0800), mick at ics.forth.gr wrote:
-> On architectures that only get their bootargs through devicetree's
-> chosen node (such as RISC-V), that node is mandatory. After a
-> discussion with Rob [1] I'm adding a warning in case chosen node
-> is not present, to let users know about it.
+On Sat, 10 Nov 2018 00:35:15 PST (-0800), me at packi.ch wrote:
+> On 10.11.18 07:45, David Abdurachmanov wrote:
+>>
+>> The patch adds the missing S and U modes.
 >
-> [1]: https://patchwork.ozlabs.org/patch/984224/#2016136
+> This is the same patch I submitted earlier (see v2 here [1], based on
+> Palmer's feedback). Palmer stated that the "S" extension should not be
+> exposed to usermode.
 >
-> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
-> ---
->  drivers/of/fdt.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
+> Since two people arrived at the same solution, I wonder if the
+> supervisor mode should really be hidden from userspace, as it's about
+> the CPU information, not about the environment the calling code is
+> running as.
 >
-> diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-> index bb532aae0d92..7ff67bf1f6d6 100644
-> --- a/drivers/of/fdt.c
-> +++ b/drivers/of/fdt.c
-> @@ -1200,8 +1200,12 @@ bool __init early_init_dt_verify(void *params)
->
->  void __init early_init_dt_scan_nodes(void)
->  {
-> +	int rc = 0;
-> +
->  	/* Retrieve various information from the /chosen node */
-> -	of_scan_flat_dt(early_init_dt_scan_chosen, boot_command_line);
-> +	rc = of_scan_flat_dt(early_init_dt_scan_chosen, boot_command_line);
-> +	if (!rc)
-> +		pr_warn("No chosen node found, continuing without\n");
->
->  	/* Initialize {size,address}-cells info */
->  	of_scan_flat_dt(early_init_dt_scan_root, NULL);
+> [1] https://lkml.org/lkml/2018/11/10/96
 
-Thanks!  Note that in our case we actually ignore the built-in boot arguments 
-without a /chosen node, which isn't clear to me from the message.  I'm not sure 
-if it's sane to warn everyone of this, but it was decided that RISC-V should 
-have this behavior because it's all standard code.
+I still think S should be hidden from applications.  This patch was fairly 
+mechanical, so it probably just wasn't though about twice -- that's the problem 
+with user ABI stuff, lots of times the obvious answer isn't the correct one :).
 
-In other words, it might be worth adding some sort of 
+I'll take your second patch, I just haven't gotten around to actually fully 
+reviewing patches yet as I'm still in my email triage phase.
 
-    #ifdef CONFIG_CMDLINE
-        pr_warn("Due to the lack of a /chosen node, we're also ignoring your builtin kernel command-line\n");
-    #endif
-
-though that wording is, of course, a bit poor :).
-
-Either way, 
-
-Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
-
-as this is better than nothing!  Now I can just point users to the error and 
-tell them that, obviously, they should know what it means --  I just hope I can 
-remember :)
+Thanks!
