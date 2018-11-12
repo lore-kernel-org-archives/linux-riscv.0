@@ -1,49 +1,42 @@
 From: david.abdurachmanov@gmail.com (David Abdurachmanov)
-Date: Mon, 12 Nov 2018 07:19:02 +0100
-Subject: [PATCH 1/2] RISC-V: Request stat64 on RV32
-In-Reply-To: <41e8cb18d321244ab7000f7dc0467b6ebc5cab8f.1541995312.git.zongbox@gmail.com>
-References: <cover.1541995312.git.zongbox@gmail.com>
- <41e8cb18d321244ab7000f7dc0467b6ebc5cab8f.1541995312.git.zongbox@gmail.com>
-Message-ID: <CAEn-LTpXnzSG-rVVvv_2cbxqY2vTchOKn6M0isRBovoq4jpZGw@mail.gmail.com>
+Date: Mon, 12 Nov 2018 07:29:13 +0100
+Subject: [PATCH] riscv: add S and U modes to ISA string
+In-Reply-To: <mhng-58f419dd-47a6-4540-91b6-08be173d4216@palmer-si-x1c4>
+References: <7958aa50-8808-e909-753c-e232b3d1f84e@packi.ch>
+ <mhng-58f419dd-47a6-4540-91b6-08be173d4216@palmer-si-x1c4>
+Message-ID: <CAEn-LTqd3+t+zhmbbZ3CjPMnFOsUxy0pVNUkgvU5T7yQU_DkcQ@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, Nov 12, 2018 at 5:10 AM Zong Li <zongbox@gmail.com> wrote:
+On Sun, Nov 11, 2018 at 11:14 PM Palmer Dabbelt <palmer@sifive.com> wrote:
 >
-> The stat64 family that is used on 32-bit architectures to replace
-> newstat.
+> On Sat, 10 Nov 2018 00:35:15 PST (-0800), me at packi.ch wrote:
+> > On 10.11.18 07:45, David Abdurachmanov wrote:
+> >>
+> >> The patch adds the missing S and U modes.
+> >
+> > This is the same patch I submitted earlier (see v2 here [1], based on
+> > Palmer's feedback). Palmer stated that the "S" extension should not be
+> > exposed to usermode.
+> >
+> > Since two people arrived at the same solution, I wonder if the
+> > supervisor mode should really be hidden from userspace, as it's about
+> > the CPU information, not about the environment the calling code is
+> > running as.
+> >
+> > [1] https://lkml.org/lkml/2018/11/10/96
 >
-> Since commit 67314ec7b0250290cc85eaa7a2f88a8ddb9e8547 ("RISC-V: Request
-> newstat syscalls"), the RV32 build fail with undeclared 'sys_fstatat64'
+> I still think S should be hidden from applications.  This patch was fairly
+> mechanical, so it probably just wasn't though about twice -- that's the problem
+> with user ABI stuff, lots of times the obvious answer isn't the correct one :).
 >
-> Signed-off-by: Zong Li <zong@andestech.com>
-> ---
->  arch/riscv/include/asm/unistd.h | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/arch/riscv/include/asm/unistd.h b/arch/riscv/include/asm/unistd.h
-> index eff7aa9..a4aade9 100644
-> --- a/arch/riscv/include/asm/unistd.h
-> +++ b/arch/riscv/include/asm/unistd.h
-> @@ -18,5 +18,6 @@
->
->  #define __ARCH_WANT_NEW_STAT
->  #define __ARCH_WANT_SYS_CLONE
-> +#define __ARCH_WANT_STAT64
->  #include <uapi/asm/unistd.h>
->  #include <uapi/asm/syscalls.h>
-> --
+True. It was mechanical based on warnings I noticed while booting Fedora
+with latest kernel and BBL.
 
-See: http://lists.infradead.org/pipermail/linux-riscv/2018-November/002087.html
+Also true, that /proc/cpuinfo doesn't need to reveal all things to user space
+(especially if you don't want various programs to depend on it as some
+tend to parse /proc/cpuinfo).
 
-The plan is not to have old stat syscalls and support statx on
-riscv32, which is y2038 safe.
-
-The issue you see is a bug in include/uapi/asm-generic/unistd.h.
-Marcin (CC) already sent a patch to Arnd (CC) IIRC. Basically without
-__ARCH_WANT_NEW_STAT or __ARCH_WANT_STAT64 two macros are not defined:
-__NR3264_fstatat and __NR3264_fstat. Which is later used (without any
-guards):
-
-763 #define __NR_newfstatat __NR3264_fstatat
-764 #define __NR_fstat __NR3264_fstat
+Note, that on server systems which probably would implement SMBIOS
+(based on the current proposal for RISC-V) the administrator could
+check for S mode.
