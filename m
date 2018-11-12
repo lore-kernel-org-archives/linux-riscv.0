@@ -2,23 +2,22 @@ Return-Path: <SRS0=EHGE=NX=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E6A2EC43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 12 Nov 2018 08:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7DF8DC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 12 Nov 2018 12:34:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AC60B216FD
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 12 Nov 2018 08:30:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 50E8820868
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 12 Nov 2018 12:34:14 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pLfLA3IX";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="fmCr9lPe"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AC60B216FD
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZruSY42p";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Cp1nenxM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 50E8820868
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -26,61 +25,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DPPl//IQl2jPWAnRmrjHVXrZWNVvS5bNNBOEde3zExM=; b=pLfLA3IXDxTnPR
-	H7st7lADmK2QlLT7eYSxUdhVPXXGUxpx3jsMZ9I/cL6h4oo121MyNTL7hcklWgdLYDAua+5zlBCuf
-	+WqAPJdJVVWoB9JCtdX/GYIIRkspME8Ou6gSnmdYvwEeqTrNkXaWcWmkJcuaIP3cnPykhi+PRyzSe
-	220T/oZMQZApq69x4nyO9heX2ccweg01MOOZnOEEyEUT5ajSoO69wArDKI3nsfOdokjxC/xeO4/oZ
-	3WH8nn4DRHygYZd9J/9LXQ8j36syGfirtqiElD1jtrtsAojO5uAU2ooTvtVLwUY1So5fR0pJtuoF5
-	7fvBZVoTQM/OB38L+o9g==;
+	List-Owner; bh=vY/pKvSLjDAu3bkErfMIhapfxKCBXpysDjSExV9FJ/8=; b=ZruSY42pnLJi73
+	KBiHENFlkgAxIDDQ0jysnte/XpHnOf+qQJZV13IPYrqVEBazR0gs+DAz5baHEnGDdlMbKNxUQ7OM0
+	m19h/HOyycgcZ3zHIWhh1tXmQPlN+u4PvCh7NuvrHsDXrnNA2G36v67rf7Aux+A4mK+ZyhdQCVX1U
+	iv4hePkRlA/qUL47pCIJJ/KzEljRDWtT+UH6elj6PgLhUoNzBFLNH0/1O8vdHEO8M/7+FcTHfrR0F
+	YtZChXbgAHeKpO7ix1kVrucBgtpu1gdKjmU0jdwBwP0+w3H1JZtXc4uo9TkKyE/JyiNplTu5IbAdo
+	uw/mhVIvALM7+kKyMVbA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gM7bz-0005br-R5; Mon, 12 Nov 2018 08:30:23 +0000
-Received: from mail-it1-x144.google.com ([2607:f8b0:4864:20::144])
+	id 1gMBPu-0008Ii-VS; Mon, 12 Nov 2018 12:34:11 +0000
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gM7bc-00059a-Dl
- for linux-riscv@lists.infradead.org; Mon, 12 Nov 2018 08:30:02 +0000
-Received: by mail-it1-x144.google.com with SMTP id r12-v6so11429368ita.3
- for <linux-riscv@lists.infradead.org>; Mon, 12 Nov 2018 00:29:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ id 1gMBPH-0007WG-45
+ for linux-riscv@lists.infradead.org; Mon, 12 Nov 2018 12:33:33 +0000
+Received: by mail-wr1-x441.google.com with SMTP id j17-v6so9115080wrq.11
+ for <linux-riscv@lists.infradead.org>; Mon, 12 Nov 2018 04:33:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=vWwgY24tNZCmJOla7YZMR1NXSyj4vVK1UI+xPsr+gdI=;
- b=fmCr9lPebYBgYwuy1FyJfU8E4Hcwk0Ky83FtvvWlAOHptc26nOfVGRmE0//yJZ6iat
- tNf3+syo0nr8UZVd6fADJwNGiF4ZI1bKzq8EeAsH1UWf/WRyZ82Ic1IbNY16EMr8M3XW
- LU2Z/AgKdwT5iGon/Ok1EVKJgitK+Ud2g3G25aRYof2MYkHvXir6ror9p7vvvPoQ6Xtk
- 2J/ALQCa9ngCWx5DREU2RNXBiYG1NR7ZQVXRLvi5lVU4lAbmMdVdhqwZNkwxVlJ/voXi
- QXimZGMBen2PJdC7KjlH9Nm5yRFys97yr4WKbCywvXM/gRGk7lsEbWdxWXs/A4UlMdmj
- 5hCw==
+ :cc; bh=mxm/KaMXvT8Da/hEWc3PaitzyuswF/hYKIpA34uqooE=;
+ b=Cp1nenxME6xAc86TcP0Ddsvc6qVwB3bUNOthi8wCCVeYxFnKnCT6TCot0OmCS6ga9y
+ g9AjJYafC+0+649fzZEyukSbuD2H5F2oK3URWz+TcUkZVwgI52R7VjuMbWfclIAAFex0
+ zKwr4HpWnSuGkUpLnlCrkfMcS+qPkUoZCRwcRgnobUcPvoxXnYjkPBK6H/5SV4A8+B3P
+ /9fZxMDXOy17Dx5ub9ZUy1PYWsjbM9N0f8ipqsmljk9mu0xuHtKGPYNAnFSvcUC4cgcP
+ FOL5FCsLSBGZAqb+Y/YPBuOHDAINIgiSagmvfqI6x8Rx8CD39qJDzjEdVY3GpirX7/Jd
+ P4Ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=vWwgY24tNZCmJOla7YZMR1NXSyj4vVK1UI+xPsr+gdI=;
- b=VnZXUCb33N2Y6XATpuQUCdao0wkT1LJj1103mr/4DGe1cmLGJbpTeY4/Xldu8RMQT0
- BWkApjRk7oCdrfcoMLtNvf15N3UYes7f5E41va3Q81qBk7XT/eykBX4o5Elmbtyj3FYB
- 0EnOfN9xBnsWd8HNvlInTNnO7vGH5XrbG7xw8OpQP62smkQBBMWzqQiGrIxF2rtcuCDW
- y35YTgAw+Ck6kfwl68UZBo3uVj7rGneNlpcFmgSpy5kbMiUIfcxr8eXi+xQ+vALFNjez
- zjrRj+KrdCFM4PddSjq8bN+gVbSlU/qAjnzeXDHKEb1uew1nClYd9u0R/wKjt42NrnIv
- 9fTA==
-X-Gm-Message-State: AGRZ1gLo6ksCk7fFzh5Dk9eeWHSyshv0OcdO5WLbjxOlfQHgpYVFIzty
- xS1J3qgVkSkw5W66An8N4lCflOwJVHjfAJQ/mgk=
-X-Google-Smtp-Source: AJdET5dHXRV9SYyOgZmzgAPq4r7rjt81X3FpXad+g87yG4jooczDeUXZ++E4T2t+RJF8vzYu0xancG2GcRP1Tew9iko=
-X-Received: by 2002:a24:1458:: with SMTP id 85-v6mr9748709itg.40.1542011368945; 
- Mon, 12 Nov 2018 00:29:28 -0800 (PST)
+ :message-id:subject:to:cc;
+ bh=mxm/KaMXvT8Da/hEWc3PaitzyuswF/hYKIpA34uqooE=;
+ b=IvW91APAK6tloZejoqQOUFIV+tf7euK4uUB9DEzoERzAXruw0fa+tAL/NmsXRtNcyT
+ 0Fq5DhE6RGyKjHvTaUVCiTszLx9PFDRrGiqYPaSnTIGsN+ZcTLsGaZMc9hcVKAnIFXo6
+ UwB7BqZUyq7BqxyX3GnKJILKApehPytCBISJMD1r2hgvNLu4f4YGRLe7z1T2JYva9MPn
+ I44e7BdcVoJV92SM7a+PQ0MPnG8XcTqozPMng8juHan8HfW3UD5Js9qyuyyC3+TJAEpT
+ tFTUoHZ18eDqvo4SDa4XSU8htvkIh/lPjVAYrt4DO2bqzMg1NWdqFd0graLo9JaepnIR
+ 1emg==
+X-Gm-Message-State: AGRZ1gInqikhD2C1nz4TPLSW5QUknXrek9VxeHEZv3Y3NyCL0cUKIiTs
+ 6KzQUH7utHS1Zm1H4NCIF8GA9PD10CVFqSd6eq1SbQ==
+X-Google-Smtp-Source: AJdET5c1wbXO6MMpWlHs2uETqeWeZ4GWdiQizqlVptUahZhmV2sKT0/ZR98T59mRCBsHBQCTd6lo0MK2WFgptClgPz8=
+X-Received: by 2002:a5d:5544:: with SMTP id g4-v6mr812975wrw.222.1542025998895; 
+ Mon, 12 Nov 2018 04:33:18 -0800 (PST)
 MIME-Version: 1.0
-References: <cover.1541995312.git.zongbox@gmail.com>
- <41e8cb18d321244ab7000f7dc0467b6ebc5cab8f.1541995312.git.zongbox@gmail.com>
- <CAEn-LTpXnzSG-rVVvv_2cbxqY2vTchOKn6M0isRBovoq4jpZGw@mail.gmail.com>
-In-Reply-To: <CAEn-LTpXnzSG-rVVvv_2cbxqY2vTchOKn6M0isRBovoq4jpZGw@mail.gmail.com>
-From: Zong Li <zongbox@gmail.com>
-Date: Mon, 12 Nov 2018 16:29:17 +0800
+References: <20181022114517.22748-1-anup@brainfault.org>
+ <20181022114517.22748-3-anup@brainfault.org>
+ <20181109084338.GB6508@infradead.org>
+In-Reply-To: <20181109084338.GB6508@infradead.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 12 Nov 2018 18:03:09 +0530
 Message-ID:
- <CA+ZOyahQ-6biJazXCYr539-rCQHuJOz6QFuVB_Jv5EpfYuPrwg@mail.gmail.com>
-Subject: Re: [PATCH 1/2] RISC-V: Request stat64 on RV32
-To: david.abdurachmanov@gmail.com
+ <CAAhSdy20zU=GeaePQfYW_FKH-wmsYgvK3-6ouc3S8QpwWH-Z+w@mail.gmail.com>
+Subject: Re: [PATCH 2/4] irqchip: sifive-plic: More flexible plic_irq_toggle()
+To: Christoph Hellwig <hch@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181112_003000_464858_6941B990 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20181112_043331_176542_F9AFAF7D 
+X-CRM114-Status: UNSURE (   7.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,44 +92,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: marcin.juszkiewicz@linaro.org, aou@eecs.berkeley.edu,
- Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@sifive.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Zong Li <zong@andestech.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Jason Cooper <jason@lakedaemon.net>, Marc Zyngier <marc.zyngier@arm.com>,
+ Palmer Dabbelt <palmer@sifive.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181112082917.1dRWZ-NbYHyyOf_8NenY2-1mElaIZmoMXhzH9vipPOo@z>
+Message-ID: <20181112123309.D7DgIuj4XY-t8ODyzWb5ygExeOV4KjroF7-l9LbPVnE@z>
 
-RGF2aWQgQWJkdXJhY2htYW5vdiA8ZGF2aWQuYWJkdXJhY2htYW5vdkBnbWFpbC5jb20+IOaWvCAy
-MDE45bm0MTHmnIgxMuaXpSDpgLHkuIAg5LiL5Y2IMjoxOeWvq+mBk++8mgo+Cj4gT24gTW9uLCBO
-b3YgMTIsIDIwMTggYXQgNToxMCBBTSBab25nIExpIDx6b25nYm94QGdtYWlsLmNvbT4gd3JvdGU6
-Cj4gPgo+ID4gVGhlIHN0YXQ2NCBmYW1pbHkgdGhhdCBpcyB1c2VkIG9uIDMyLWJpdCBhcmNoaXRl
-Y3R1cmVzIHRvIHJlcGxhY2UKPiA+IG5ld3N0YXQuCj4gPgo+ID4gU2luY2UgY29tbWl0IDY3MzE0
-ZWM3YjAyNTAyOTBjYzg1ZWFhN2EyZjg4YThkZGI5ZTg1NDcgKCJSSVNDLVY6IFJlcXVlc3QKPiA+
-IG5ld3N0YXQgc3lzY2FsbHMiKSwgdGhlIFJWMzIgYnVpbGQgZmFpbCB3aXRoIHVuZGVjbGFyZWQg
-J3N5c19mc3RhdGF0NjQnCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogWm9uZyBMaSA8em9uZ0BhbmRl
-c3RlY2guY29tPgo+ID4gLS0tCj4gPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS91bmlzdGQuaCB8
-IDEgKwo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKQo+ID4KPiA+IGRpZmYgLS1n
-aXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3VuaXN0ZC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS91bmlzdGQuaAo+ID4gaW5kZXggZWZmN2FhOS4uYTRhYWRlOSAxMDA2NDQKPiA+IC0tLSBh
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdW5pc3RkLmgKPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vdW5pc3RkLmgKPiA+IEBAIC0xOCw1ICsxOCw2IEBACj4gPgo+ID4gICNkZWZpbmUg
-X19BUkNIX1dBTlRfTkVXX1NUQVQKPiA+ICAjZGVmaW5lIF9fQVJDSF9XQU5UX1NZU19DTE9ORQo+
-ID4gKyNkZWZpbmUgX19BUkNIX1dBTlRfU1RBVDY0Cj4gPiAgI2luY2x1ZGUgPHVhcGkvYXNtL3Vu
-aXN0ZC5oPgo+ID4gICNpbmNsdWRlIDx1YXBpL2FzbS9zeXNjYWxscy5oPgo+ID4gLS0KPgo+IFNl
-ZTogaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvcGlwZXJtYWlsL2xpbnV4LXJpc2N2LzIwMTgt
-Tm92ZW1iZXIvMDAyMDg3Lmh0bWwKPgo+IFRoZSBwbGFuIGlzIG5vdCB0byBoYXZlIG9sZCBzdGF0
-IHN5c2NhbGxzIGFuZCBzdXBwb3J0IHN0YXR4IG9uCj4gcmlzY3YzMiwgd2hpY2ggaXMgeTIwMzgg
-c2FmZS4KPgo+IFRoZSBpc3N1ZSB5b3Ugc2VlIGlzIGEgYnVnIGluIGluY2x1ZGUvdWFwaS9hc20t
-Z2VuZXJpYy91bmlzdGQuaC4KPiBNYXJjaW4gKENDKSBhbHJlYWR5IHNlbnQgYSBwYXRjaCB0byBB
-cm5kIChDQykgSUlSQy4gQmFzaWNhbGx5IHdpdGhvdXQKPiBfX0FSQ0hfV0FOVF9ORVdfU1RBVCBv
-ciBfX0FSQ0hfV0FOVF9TVEFUNjQgdHdvIG1hY3JvcyBhcmUgbm90IGRlZmluZWQ6Cj4gX19OUjMy
-NjRfZnN0YXRhdCBhbmQgX19OUjMyNjRfZnN0YXQuIFdoaWNoIGlzIGxhdGVyIHVzZWQgKHdpdGhv
-dXQgYW55Cj4gZ3VhcmRzKToKPgo+IDc2MyAjZGVmaW5lIF9fTlJfbmV3ZnN0YXRhdCBfX05SMzI2
-NF9mc3RhdGF0Cj4gNzY0ICNkZWZpbmUgX19OUl9mc3RhdCBfX05SMzI2NF9mc3RhdAoKTmljZS4g
-VGhhbmsgeW91LgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+On Fri, Nov 9, 2018 at 2:13 PM Christoph Hellwig <hch@infradead.org> wrote:
+>
+> > -
+> >  struct plic_handler {
+> >       bool                    present;
+> > -     int                     ctxid;
+> >       void __iomem            *hart_base;
+> >       raw_spinlock_t          enable_lock;
+> >       void __iomem            *enable_base;
+> >  };
+> > -static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
+>
+> This does not match the changelog at all.
+
+My bad. I should have put this change into separate patch.
+
+I will refactor this patch.
+
+Regards,
+Anup
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
