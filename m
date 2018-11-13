@@ -2,102 +2,85 @@ Return-Path: <SRS0=fXqm=NY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DE287C43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 01:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 99F0BC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 01:52:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ABC852245E
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 01:23:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6974422360
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 01:52:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HaiU6qjL";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="VTlRQnBE";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=mac.com header.i=@mac.com header.b="Roe6Vvbg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ABC852245E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mac.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="V6mqy3CN";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="WTjtQjh7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6974422360
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-id:Date:
-	In-reply-to:From:Subject:MIME-version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eQvjCYvtHJPdwaVRyrsn3f32LVCHKbAMj9r/TP7L4kw=; b=HaiU6qjLwK/BbW
-	2/Qn0oPqcWZ7aLBAjUAp0tPj2E9dyDtxbk/FL7BO79T2FV5MmrZhSpj1+z5/qr8zAnp/QHgelSTRQ
-	eHUwa6t8lcrsMs9gANyDrLKZ1938vxuhktAD2u8a10weA88+pbUQQyDvc+WtikG351M1t9JPr5X7+
-	hiwMV9wRo05FIEXcC+kfDln/ClwOIquQEgAWT6QhdiBSn251Ubee5fDnFhHXvJ5FuTAz9IJR6UWpR
-	wE/fGiITTYhH/rnRJ15qIVxoqz33lw/Ltbz8HXxHT9x/5aLO6XOi7Peg2YM4NJql2CRb8a5bOGwKG
-	9R8XI4IPU3IKcLf+7NWQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=HlVBwjcAeFpQ/a+B7jkmLO7n6kU4Ad4BkxLnwdtA5sI=; b=V6mqy3CNIFJyQzGsHiNn9afCD
+	XvtJPIZDu9LNZswVRHCMIKJrpFsn0THcFvc+ZFKCMaDprFXMUsv4Gr7DN6sW+u/3RsUz35h53qF+5
+	rqjdPYQwmwGBaFDcIvA2jbLp4hmIIbi8gtrwGsMphnrP+nbM0OPrkNLniDbo1/ewDZxd8on2G/tPE
+	nRVtNBSSzF3uLWduA6f0wcUBXMHtuOzv6yd7924KxcENZA7uY8dh/HASTftGGxXmsn097vb0VPCKn
+	6fqcYA0vNtKv9//UaRJcuQFBTS6mvKOt2G1S+5hdRKVQTUuQTX9ktl/Yn420zCuzMQqnZJ0zeYlLD
+	LaQCfzR2g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gMNQA-0000Cf-Qa; Tue, 13 Nov 2018 01:23:14 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1gMNsb-0001JC-Az; Tue, 13 Nov 2018 01:52:37 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gMNQ4-0000BK-U3
- for linux-riscv@bombadil.infradead.org; Tue, 13 Nov 2018 01:23:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=To:References:Message-id:
- Content-transfer-encoding:Cc:Date:In-reply-to:From:Subject:MIME-version:
- Content-type:Sender:Reply-To:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=zg7Yj/h/pkupKwFF5oGH9XVJgOIIwbP44xmqDwV6Ki0=; b=VTlRQnBES7gm/8YqktdHD1kKl
- ifkQndbD71TLIdx0PYiCs/25MnJHAVk38HPZCWvzSA0NYBxsWG2YYvsjL8rzW3lHZ3AulKKanglWB
- /BJoTHQ+fYjvB8Bhq5PBbucpaff/lMcotnH4K8GpKuqi115XyOJQuPuALNGVnBt1a5igPbfujApiq
- gBdFrO4PxbxPJStEdXuChNEKaHQsQ/YcKE+6dpT760dpK6bQoFzWg5Hq+A3ECxktaBnAjpxPc5tmy
- tRBSmCf4QESoA4ZnhASrCxjr7fhwJjwrdiXpjU2Pn1voYIo/4KxUQ5N8WxKGS7ay842bWalq9ah8o
- Zksjy8WRg==;
-Received: from st13p15im-asmtp003.me.com ([17.164.72.57])
- by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gMNQ0-0001RL-Lr
- for linux-riscv@lists.infradead.org; Tue, 13 Nov 2018 01:23:06 +0000
-Received: from process-dkim-sign-daemon.st13p15im-asmtp003.me.com by
- st13p15im-asmtp003.me.com
- (Oracle Communications Messaging Server 8.0.2.2.20180531 64bit (built May 31
- 2018)) id <0PI301C00YE1MM00@st13p15im-asmtp003.me.com> for
- linux-riscv@lists.infradead.org; Tue, 13 Nov 2018 01:22:49 +0000 (GMT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mac.com; s=04042017;
- t=1542072169; bh=zg7Yj/h/pkupKwFF5oGH9XVJgOIIwbP44xmqDwV6Ki0=;
- h=Content-type:MIME-version:Subject:From:Date:Message-id:To;
- b=Roe6VvbgK0mQYs1dP2571qVKmqJEGkZFYXXTe+df/G7kewp9lXzHxZIL0JfxVkXCi
- lSL/XMMC0+hwb2bl/cTZNhCG6pEjUySJ6dlbOcbCNbRUIogQfOo9s+3MnfJ8pLw+6p
- Sa0y6t0J8lYSdAHFUi4j9A0fgsobwXEkxAVKRl2jWDl4967Ef58p5LcSMpUJG5QCUW
- W/utaSGTxQmiG/feqHTyKoSxdH2v5qxKgZT3OQ+jxbBGfnVCqC8Wao7SoBpu2F5GTA
- Mq8UOwaO5ype35kZ9/stkRvEwKQzd61R/hA/kYV4i3C0mOymKoh44yeYt0dSCiACkm
- Grp9ecp97FoQg==
-Received: from icloud.com ([127.0.0.1]) by st13p15im-asmtp003.me.com
- (Oracle Communications Messaging Server 8.0.2.2.20180531 64bit (built May 31
- 2018)) with ESMTPSA id <0PI300U6XYHVRN40@st13p15im-asmtp003.me.com>; Tue,
- 13 Nov 2018 01:22:47 +0000 (GMT)
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
- malwarescore=0 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1011 mlxscore=0
- mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.0.1-1807170000 definitions=main-1811130011
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:,,
- definitions=2018-11-12_16:,, signatures=0
-MIME-version: 1.0 (1.0)
-Subject: Re: [sw-dev] SBI extension proposal v2
-From: Michael Clark <michaeljclark@mac.com>
-X-Mailer: iPhone Mail (16B93)
-In-reply-to: <CAPweEDwDApbFofs689xvPBjoqODCeMyaYQWpgo3CuqSjQjYTvw@mail.gmail.com>
-Date: Tue, 13 Nov 2018 14:22:42 +1300
-Message-id: <36B37F85-C952-4D2E-912C-B2BDA34430DA@mac.com>
-References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
- <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
- <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
- <CAPweEDz-7oRg2UWPkvTDdfi36Z4PQLAuLdL3-Sy-kmkGEJ=44A@mail.gmail.com>
- <CAP6exYKfhtgXz4nVSwXasicbE+8ZbKwp-15_xGFHfFoK9yi9-g@mail.gmail.com>
- <CAOesGMjVFGLfqVqmsK6V88cdTxmN_CAEhDey8nxKOeTYHC69jA@mail.gmail.com>
- <CAPweEDwDApbFofs689xvPBjoqODCeMyaYQWpgo3CuqSjQjYTvw@mail.gmail.com>
-To: Luke Kenneth Casson Leighton <lkcl@lkcl.net>
+ id 1gMNsY-0001Eb-6C
+ for linux-riscv@lists.infradead.org; Tue, 13 Nov 2018 01:52:35 +0000
+Received: by mail-pg1-x543.google.com with SMTP id z17-v6so4900910pgv.3
+ for <linux-riscv@lists.infradead.org>; Mon, 12 Nov 2018 17:52:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=m08GPIhbf4ltnloi8Bvuq8fihG84S3i5gSmiwPKBTXU=;
+ b=WTjtQjh7GomXM/yfcf7OZomVFZLPzZv1T8qnGiHPioFuBqvRFoYAwhE6w6tsK7Wc7f
+ /dyxhMQynCJQizhKkgXtSSB3+3XxIkg1GDiFIXmEvKLz6xabgB/ECkH6diMalgdn0XZ+
+ nm2sshwFcuQZpcfDhw6NF3JTDBX69485MZYmkBJ29L/mUGboH56yj/2SnCg4HzHNlkNQ
+ 8sRi+6RXFyI5k6DeLJIysHjCcMSd2e/DhtoQmDpQX1u19lZsxm31MzdvwHaNlpNvWEfu
+ N/8T2qyHZG9IV5+ZKhEYfqrIY93Ev5pQiM2u6MpYEbwA4LFFF4brHQY9pjvkALK1rpvh
+ P+TA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=m08GPIhbf4ltnloi8Bvuq8fihG84S3i5gSmiwPKBTXU=;
+ b=dRvoNRbDxqY05OONHW3hLKyCiVHmmJUvLCZC2Rjz/zsNNe1C68Ql9ou2efte7IKwh9
+ 9RPgu07/aCnzvZQJ0pINCir+8B4uxXcwKvrbwc6hZEZVaMjy51VKF9kKCv3krrWsUZBi
+ MzXmDdMnIhZtTz8jI1JzY91Q8OwwM+lyqEERfemUl9YCb/8b6qWW0Grn1K+kgWDHersO
+ nRrhwd9lS5E7mPMT7pssRWFEMin+L3bEEagJ5QAJ/wOzzUuXhcjBA7+vEraX95WFX0Ny
+ VXK2bFvgxca9ZcZ7lQxT9xuK9ydOxzGsVJeRwKtsEDKHHqgPqxJpxdm9EBs4xxCPLYNI
+ zERw==
+X-Gm-Message-State: AGRZ1gLvrhvPAFwjlJlGy3jslms/QpTYz1i9mLokFwySOZwK56h4juyT
+ +aazINys0h4Iej0DsY7hh0JoDmuq/v4=
+X-Google-Smtp-Source: AJdET5cQ0lBUOgmFquwnt12ctTRX3noGBwCzZfBjl1c7qCnMGt+6izqxcbKIk5BOjEqDEYnp+yU5AA==
+X-Received: by 2002:a63:4187:: with SMTP id o129mr2770731pga.370.1542073941870; 
+ Mon, 12 Nov 2018 17:52:21 -0800 (PST)
+Received: from localhost ([216.9.110.3])
+ by smtp.gmail.com with ESMTPSA id t21sm7783826pgg.24.2018.11.12.17.52.20
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 12 Nov 2018 17:52:20 -0800 (PST)
+Date: Mon, 12 Nov 2018 17:52:20 -0800 (PST)
+X-Google-Original-Date: Mon, 12 Nov 2018 17:38:18 PST (-0800)
+Subject: Re: [PATCH 1/2] riscv: add audit support
+In-Reply-To: <20181029104854.17432-2-david.abdurachmanov@gmail.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: david.abdurachmanov@gmail.com
+Message-ID: <mhng-ea3feb87-2525-4cb8-be30-f73729d6a092@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181113_012304_803511_620F52FC 
-X-CRM114-Status: GOOD (  29.27  )
+X-CRM114-CacheID: sfid-20181112_175234_230683_B57DB3A2 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -109,121 +92,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, hch@infradead.org, Damien.LeMoal@wdc.com,
- Olof Johansson <olof.johansson@gmail.com>, alankao@andestech.com,
- abner.chang@hpe.com, atish.patra@wdc.com, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmer@sifive.com>, Alexander Graf <agraf@suse.de>,
- zong@andestech.com, ron minnich <rminnich@gmail.com>, mick@ics.forth.gr,
- sw-dev@groups.riscv.org, paul.walmsley@sifive.com,
- Olof Johansson <olof@lixom.net>, Alistair.Francis@wdc.com,
- linux-riscv@lists.infradead.org, Andrew Waterman <andrew@sifive.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: david.abdurachmanov@gmail.com, linux-riscv@lists.infradead.org,
+ aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, linux-audit@redhat.com
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181113012242.QrsA4D_wTpm53hkzReNpAqCwVVG_FVftYMmPZdxkNaA@z>
+Message-ID: <20181113015220.7bc6_LXGZ2_q_MeHuWjwVScHBpNciJV7dm37ormUPiw@z>
 
-Cgo+PiBPbiAxMS8xMS8yMDE4LCBhdCA2OjQ3IEFNLCBMdWtlIEtlbm5ldGggQ2Fzc29uIExlaWdo
-dG9uIDxsa2NsQGxrY2wubmV0PiB3cm90ZToKPj4gCj4+IE9uIFNhdCwgTm92IDEwLCAyMDE4IGF0
-IDU6NDIgUE0gT2xvZiBKb2hhbnNzb24gPG9sb2ZAbGl4b20ubmV0PiB3cm90ZToKPj4gCj4+IFRo
-ZSBjYXNlIG9mIGNvbnNvbGUgaXMgaW4gdGhpcyBjYXNlIHByZXR0eSBzaW1wbGU6IEl0J3MgaW50
-ZW5kZWQgZm9yCj4+IGVhcmx5IGJvb3QgZm9yIHZlcnkgc2ltcGxpc3RpYyBlbnZpcm9ubWVudHMg
-KGJlZm9yZSB0aGUgcmVzdCBvZiB0aGUKPj4ga2VybmVsIGlzIHVwLCBldGMpLiBLZWVwaW5nIHRo
-ZSBTQkkgY29uc29sZSBhcm91bmQgYmV5b25kIGVhcmx5IGJvb3QsCj4+IGFuZCBzb21laG93IHRy
-eWluZyB0byBvcHRpbWl6ZSBmb3IgaXQgZm9yIHRob3NlIHVzZSBjYXNlcyBpcyBhCj4+IG1pc2Rp
-cmVjdGVkIGVmZm9ydDsgdGhhdCdzIHdoYXQgbmF0aXZlIGRyaXZlcnMgYXJlIGZvci4KPiAKPiBz
-cGlrZSAod2hpY2ggaXMgb25seSBhcm91bmQgNywwMDAgbGluZXMgb2YgY29kZSkgZG9lc24ndCBo
-YXZlIG5hdGl2ZQo+IGRyaXZlcnMsIGFuZCBxZW11IGlzIHRvbyBoZWF2eS1kdXR5IHRvIGNvbnNp
-ZGVyIGFkZGluZyBjdXN0b20KPiBleHRlbnNpb25zIGFuZCBleHBlcmltZW50YWwgcmVzZWFyY2gg
-b250by4KCk5laXRoZXIgb2YgdGhvc2Ugc3RhdGVtZW50cyBhcmUgY29tcGxldGVseSB0cnVlLiBT
-cGlrZSBjYW4gaGF2ZSBpdHMgaGFyZHdhcmUgZW11bGF0aW9uIGNhcGFiaWxpdGllcyBleHBhbmRl
-ZCBhbmQgUUVNVSBpcyBub3QgdW5zdWl0YWJsZSBmb3IgZXhwZXJpbWVudGFsIHJlc2VhcmNoLiBG
-b3IgZXhhbXBsZSwgd2UgaGF2ZSBiZWVuIGRldmVsb3BpbmcgdGhlIENMSUMgaW50ZXJydXB0IGNv
-bnRyb2xsZXIgbW9kZWwgaW4gUUVNVS4KCldlIGFsc28gY291bGQgcG9ydCBWaXJ0SU8gZnJvbSBS
-SVNDVkVNVSB0byBzcGlrZS4gSXQgd291bGQgYmUgbmljZSB0byBhZGQgdGhlIFBMSUMsIENMSUMg
-YW5kIGFuIE5TMTY1NTBBIFVBUlQgdG8gc3Bpa2Ugc28gd2UgY2FuIG1vZGVsIHRoZSBSSVNDLVYg
-4oCcdmlydOKAnSBtYWNoaW5lIHRoYXQgaXMgY3VycmVudGx5IGluIFFFTVUuCgpUaGF0IHNhaWQs
-IHlvdSBhcmUgcHJvYmFibHkgY29ycmVjdC4gQSBzaW11bGF0b3IgbGlrZSBzcGlrZSBtYWtlcyBh
-IGxpdHRsZSBtb3JlIHNlbnNlIGZvciBldm9sdmluZyB0aGUgaGFyZHdhcmUgbW9kZWxzIHZlcnN1
-cyBhIGhlYXZ5LXdlaWdodCBmYXN0LW1vZGVsIGVtdWxhdG9yIGxpa2UgUUVNVS4KCj4gd2l0aCBu
-b3RoaW5nIGluIHNwaWtlICpvdGhlciogdGhhbiB0aGUgc2VyaWFsIGNvbnNvbGUsIGl0J3MgdGhl
-IG9ubHkKPiB3YXkgaW4gYW5kIG91dC4KClRoYXTigJlzIGxpa2VseSB0byBjaGFuZ2UuCgpUaGVy
-ZSBpcyBiYXJlIG1ldGFsIGNvZGUgaW4gQkJMIHRvIHN1cHBvcnQgc2V2ZXJhbCBjb25zb2xlIHR5
-cGVzIChIVElGLCBTaUZpdmUgVUFSVCwgTlMxNjU1MEEpLiBBbGwgb2YgdGhlc2UgZXhjZXB0IGZv
-ciBIVElGIGhhdmUga2VybmVsIGRldmljZSBkcml2ZXJzLiBUaGUgbWFpbiByZWFzb24gZm9yIHRo
-ZSBTQkkgY29uc29sZSBpcyB0byBiZSB1c2VkIGFzIGEgYnJpbmctdXAgY29uc29sZSBiZWZvcmUg
-ZnVsbCBkZXZpY2UgZHJpdmVycyBoYXZlIGJlZW4gZGV2ZWxvcGVkIGFuZCBmb3Igc2ltdWxhdGlv
-biB1c2UtY2FzZXMgKHJ1bm5pbmcgTGludXggaW4gc3Bpa2UgYW5kIEhETCBzaW11bGF0b3JzKS4K
-ClNwaWtlIGN1cnJlbnRseSByZWxpZXMgb24gSFRJRiBmb3IgY29uc29sZSBhbmQgSFRJRiBpcyBu
-b3QgYXBwcm9wcmlhdGUgYXMgYSBrZXJuZWwgZGV2aWNlIGludGVyZmFjZS4gSFRJRiBpcyBkZXNp
-Z25lZCBmb3IgdGV0aGVyZWQgc2ltdWxhdGlvbiBhcyBpdCByZWxpZXMgb24gYSBmcm9udC1lbmQg
-ZmluZGluZyBzcGVjaWFsIEVMRiBzeW1ib2xzIHVzZWQgZm9yIGhvc3QgPC0+IHRhcmdldCBjb21t
-dW5pY2F0aW9ucy4KCkEgcG9sbGVkLW1vZGUgY29uc29sZSBpbnRlcmZhY2UgaXMgZmluZSBmb3Ig
-ZGVidWcgYnV0IG5vdCBhcHByb3ByaWF0ZSBmb3IgcnVubmluZyBzb21ldGhpbmcgbGlrZSBwcHBk
-LiBBZGRpbmcgYSB0dHkgbGF5ZXIgKHNiaV9pb2N0bCkgdG8gU0JJIGlzIG5vdCBhIGdvb2QgaWRl
-YS4gTm90ZTogYW4gYWN0dWFsIHNlcmlhbCBpbnRlcmZhY2UgaGFzIHNldmVyYWwgb3V0LW9mLWJh
-bmQgaW50ZXJmYWNlIHRvIGNoZWNrIGxpbmsgc3RhdHVzIGFuZCBzZXQgYmF1ZCByYXRlcywgZXRj
-IChhcyBkbyB0aGUgc2ltcGxlIFNCSSBkcml2ZXJzIHdoaWNoIGhhdmUgdGhlc2UgZGV0YWlscyBo
-YXJkY29kZWQpLiBJdOKAmXMgYSBzaW1wbGUgYm9vdCBjb25zb2xlLgoKQXBvbG9naWVzIEx1a2Us
-IHRoaXMgaXMgbm90IGRpcmVjdGVkIGF0IHlvdSwgcmF0aGVyIGl0IGlzIGRpcmVjdGVkIGF0IFNC
-SS4KCkkgdGhpbmsgd2Ugc2hvdWxkIHNlcmlvdXNseSBxdWVzdGlvbiBhbnkgaW50ZXJmYWNlIHdl
-IGFkZCB0byBTQkkuCgotIE1ha2luZyBTQkkgYSBsaWJyYXJ5IEFQSSBpcyBhbiBpbnZpdGF0aW9u
-IGZvciBiaW5hcnkgYmxvYnMuIEl0IHNob3VsZCByZW1haW4gYW4gRUNBTEwgaW50ZXJmYWNlIHRv
-IGZpbGwgaW4gcHJpdmlsZWdlIGJvdW5kYXJ5IHZpcnR1YWxpemF0aW9uIGdhcHMgaS5lLiBmdW5j
-dGlvbnMgdGhhdCByZXF1aXJlIE0tbW9kZSBwcml2aWxlZ2VzLiBJdCBjYW7igJl0IG9yIHNob3Vs
-ZG7igJl0IGRvIHRoaXMgaWYgaXQgaXMgbGlua2VkIHRvIHRoZSBrZXJuZWwgYXMgYSBsaWJyYXJ5
-LiBJbiB0aGUgY2FzZSBpdCB3ZXJlIGEgbGlicmFyeSB0aGUgcXVlc3Rpb24gaXMgd2h5IG5vdCBq
-dXN0IGRvY3VtZW50IHRoZSBoYXJkd2FyZSBpbnRlcmZhY2UgYW5kIGFkZCBhIGRyaXZlciB0byB0
-aGUga2VybmVsLiBGb3IgYW55dGhpbmcgZWxzZSwgc3VjaCBhcyBmb3IgdmlydHVhbGl6YXRpb247
-IHdlIHNob3VsZCBtaW5pbWl6ZSBhZGRyZXNzIHNwYWNlIGZvb3RwcmludCBmb3IgYW55dGhpbmcg
-dGhhdCBpcyBub3QgYSBkZXZpY2UuIE90aGVyd2lzZSB3ZSBzaG91bGQgc3BlbmQgZWZmb3J0IG9u
-IGRlZmluaW5nIHN0YW5kYXJkIGhhcmR3YXJlIGludGVyZmFjZXMgc3VjaCBhcyB2aXJ0dWFsaXph
-YmxlIGludGVycnVwdCBjb250cm9sbGVycyBvciBQTVVzLgoKLSBTQkkgc2hvdWxkbuKAmXQgYmUg
-dXNlZCBhcyBhIHdyYXBwZXIgdG8gaGlkZSAoYXMgeWV0IHVuc3BlY2lmaWVkKSBoYXJkd2FyZSBp
-bnRlcmZhY2VzIGZyb20gdGhlIGtlcm5lbC4gaS5lLiBmb3IgZXhhbXBsZSB0byBoaWRlIGEgZGV2
-aWNlIGFwZXJ0dXJlIHRoYXQgY29udGFpbnMgY29uZmlndXJhdGlvbiBmb3IgYm90aCBNLW1vZGUg
-YW5kIFMtbW9kZSBpbnRlcnJ1cHRzIG9yIGFuIGludGVyZmFjZSBmb3IgYSBmdW5jdGlvbiB0aGF0
-IHdlIGRvbuKAmXQgeWV0IGhhdmUgaGFyZHdhcmUgZm9yLiBJdOKAmXMgZXF1YWxseSBwb3NzaWJs
-ZSB0aGF0IHdlIGNhbiBtYWtlIGJhZCBzb2Z0d2FyZSBpbnRlcmZhY2VzLgoKVGhlcmUgYXJlIHNv
-bWUgcG9pbnRzIHVwIGZvciBkaXNjdXNzaW9uIHJlZ2FyZHMgSEFMcy4KClRoZXJlIGlzIGEgcHJp
-bmNpcGxlIHRoYXQgZnVuY3Rpb25zIHRoYXQgaGF2ZSB0eXBpY2FsbHkgYmVlbiBkb25lIGluIGhh
-cmR3YXJlIGNhbiBiZSBzaW1wbGlmaWVkIGlmIGNlcnRhaW4gYXNwZWN0cyBhcmUgZGV2b2x2ZWQg
-dG8gc29mdHdhcmUuIFRoaXMgaXMgdmFsaWQuCgpXZSBoYXZlIHRoaXMgd2l0aCBTLW1vZGUgdGlt
-ZXIgYW5kIHNvZnR3YXJlIGludGVycnVwdHMgd2hpY2ggcHJlc2VudGx5IGFyZSBkZWxlZ2F0ZWQg
-YnkgdGhlIG1vbml0b3Igd2hvIGltcGxlbWVudHMgdGhlIFNCSSBpbnRlcmZhY2UgdG8gY29uZmln
-dXJlIG9yIGluaXRpYXRlIHRoZW0uIFRoaXMgaXMgbm90IHN0cmljdGx5IGJlY2F1c2Ugd2UgZG9u
-4oCZdCB3YW50IHRvIGV4cG9zZSB0aGUgaGFyZHdhcmUgdG8gTGludXggaS5lLiB3aHkgbm90IGp1
-c3Qgd3JpdGUgYSBkcml2ZXIgaW4gTGludXg/IFNCSSBpcyByZXF1aXJlZCBoZXJlIGJlY2F1c2Ug
-dGhlc2UgZnVuY3Rpb25zIHdlcmUgaW5pdGlhbGx5IG9ubHkgYWJsZSB0byBiZSBleGVjdXRlZCBp
-biBNLW1vZGUgYW5kIGl0IHdvdWxkIHZpb2xhdGUgYSBwcml2aWxlZ2UgYm91bmRhcnkgZm9yIExp
-bnV4IHRvIHJ1biB0aGVpciBjb2RlIGFzIExpbnV4IGlzIGEgU3VwZXJ2aXNvci4gaS5lLiB0aGVy
-ZSB3YXMgbm8gZGlyZWN0IGludGVyZmFjZSBmb3IgUy1tb2RlIHRvIGNvbmZpZ3VyZSBvciBpbml0
-aWF0ZSBzb2Z0d2FyZSBvciB0aW1lciBpbnRlcnJ1cHRzLgoKSSB0aGluayB0aGUgYmVzdCBhcHBy
-b2FjaCBpcyBmb3IgZm9sayB0byBzaGFyZSB0aGVpciBoYXJkd2FyZSBpbnRlcmZhY2VzIGFuZCBl
-eHBsb3JlIGFwcHJvYWNoZXMgdGhhdCBhbGxvdyBTLW1vZGUgdG8gb3BlcmF0ZSBhdXRvbm9tb3Vz
-bHkgd2hldGhlciBNLW1vZGUgZXhpc3RzIG9yIG5vdC4gSS5lLiBzb21lIG1vZGVscyBtYXkgcmVx
-dWlyZSBNLW1vZGUsIGFuZCBzb21lIG1vZGVscyBtYXkgc3VwcG9ydCBmdWxseSBhdXRvbm9tb3Vz
-IFMtbW9kZSAodGhlIG9ubHkgTS1tb2RlIGZ1bmN0aW9uIHRoYXQgZXhpc3RzIGlzIHJ1bm5pbmcg
-b24gYW5vdGhlciBjb3JlKS4gZS5nLiBSZWFsLXRpbWUuCgpPZiBjb3Vyc2UgdmlydHVhbGl6YXRp
-b24gYW5kIHJlYWwtdGltZSBjYW4gYmUgY29tYmluZWQgaWYgdGhlIE0tbW9kZSBjb3JlIGNhbiBj
-b250cm9sIGludGVycnVwdCByb3V0aW5nIHRhYmxlcyBvbiBiZWhhbGYgb2YgdGhlIHJ1bm5pbmcg
-U3VwZXJ2aXNvcnMuIFdlIGNvdWxkIGhhdmUgbXVsdGlwbGUgUlRPUyBydW5uaW5nIHdpdGggU3Vw
-ZXJ2aXNvcnMgdGhhdCBoYXZlIHByZS1lbXB0YWJsZSBVc2VyIHRhc2tzIGFuZCB0aGUgdmlydHVh
-bCBkb21haW5zIG5ldmVyIG5lZWQgdG8gZW50ZXIgTS1tb2RlLCBleGNlcHQgcGVyaGFwcyBmb3Ig
-cG93ZXIgb24gYW5kIHBvd2VyIG9mZi4gTWF5YmUgcG93ZXIgbWFuYWdlbWVudCBpcyBpbiBzY29w
-ZS4gT25lIHNob3VsZCBwcm9iYWJseSBjaGF0IHRvIExpbnVzIGFib3V0IHdoYXQgaGXigJlkIGxp
-a2UgdG8gc2VlLi4uIHBvc3NpYmx5IG5vdCBhbiBpbi1rZXJuZWwgYnl0ZS1jb2RlIGludGVycHJl
-dGVyLi4uCgoKQlRXIFBsZWFzZSBkbyBub3Qgc3dlYXIgb24gdGhlIGxpc3QuIEFsZXgsIEJydWNl
-LCBteXNlbGYgYW5kIHRoZSBvdGhlciBwb3N0ZXJzIGhhdmUgbm90IHdyaXR0ZW4gYW55dGhpbmcg
-dGhhdCB3YXJyYW50cyBzd2VhcmluZyBhdCB1cy4gTWFueSBmb2xrIGhhdmUgYmVlbiB3b3JraW5n
-IGF3YXkgcXVpZXRseSBpbiB0aGUgb3BlbiBhbmQgdGhlIG1lc3NhZ2VzIHRvIHRoZSBjb250cmFy
-eSBhcmUgY29tcGxldGVseSB1bmZvdW5kZWQuIEFueXdheSB0aGlzIGdvZXMgd2l0aG91dCBzYXlp
-bmcuIFRoZXJlIGlzIG9ubHkgb25lIHBlcnNvbiBzd2VhcmluZyBhbmQgc2hvdXRpbmcgb24gdGhp
-cyBsaXN0LgoKTHVrZSwgeW91IGFyZSBpbmNvcnJpZ2libGUuIFdoZXRoZXIgeW91IGFyZSBhIGJ1
-bGx5IG9yIG5vdCBpcyBuZWl0aGVyIGhlcmUgbm9yIHRoZXJlLiBZb3VyIGJlaGF2aW91ciBvbiB0
-aGlzIG1haWxpbmcgbGlzdCBpcyBub3QgYWNjZXB0YWJsZS4gVHJ5IG5vIHNob3V0aW5nIG9yIHN3
-ZWFyaW5nLiBNYW55IGhhdmUgYWR2aXNlZCB0aGlzIGJlZm9yZSBidXQgdGhlcmUgaGFzIGJlZW4g
-bm8gY2hhbmdlLgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On Mon, 29 Oct 2018 03:48:53 PDT (-0700), david.abdurachmanov@gmail.com wrote:
+> On RISC-V (riscv) audit is supported through generic lib/audit.c.
+> The patch adds required arch specific definitions.
+>
+> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
+> ---
+>  arch/riscv/Kconfig                   |  1 +
+>  arch/riscv/include/asm/ptrace.h      |  5 +++++
+>  arch/riscv/include/asm/syscall.h     | 10 ++++++++++
+>  arch/riscv/include/asm/thread_info.h |  6 ++++++
+>  arch/riscv/kernel/entry.S            |  4 ++--
+>  include/uapi/linux/audit.h           |  2 ++
+>  6 files changed, 26 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index a344980287a5..8e6d404a4ed0 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -28,6 +28,7 @@ config RISCV
+>  	select GENERIC_STRNLEN_USER
+>  	select GENERIC_SMP_IDLE_THREAD
+>  	select GENERIC_ATOMIC64 if !64BIT || !RISCV_ISA_A
+> +	select HAVE_ARCH_AUDITSYSCALL
+>  	select HAVE_MEMBLOCK
+>  	select HAVE_MEMBLOCK_NODE_MAP
+>  	select HAVE_DMA_CONTIGUOUS
+> diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
+> index 2c5df945d43c..62c5e9d35596 100644
+> --- a/arch/riscv/include/asm/ptrace.h
+> +++ b/arch/riscv/include/asm/ptrace.h
+> @@ -113,6 +113,11 @@ static inline void frame_pointer_set(struct pt_regs *regs,
+>  	SET_FP(regs, val);
+>  }
+>
+> +static inline unsigned long regs_return_value(struct pt_regs *regs)
+> +{
+> +	return regs->a0;
+> +}
+> +
+>  #endif /* __ASSEMBLY__ */
+>
+>  #endif /* _ASM_RISCV_PTRACE_H */
+> diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+> index 8d25f8904c00..bba3da6ef157 100644
+> --- a/arch/riscv/include/asm/syscall.h
+> +++ b/arch/riscv/include/asm/syscall.h
+> @@ -18,6 +18,7 @@
+>  #ifndef _ASM_RISCV_SYSCALL_H
+>  #define _ASM_RISCV_SYSCALL_H
+>
+> +#include <uapi/linux/audit.h>
+>  #include <linux/sched.h>
+>  #include <linux/err.h>
+>
+> @@ -99,4 +100,13 @@ static inline void syscall_set_arguments(struct task_struct *task,
+>  	memcpy(&regs->a1 + i * sizeof(regs->a1), args, n * sizeof(regs->a0));
+>  }
+>
+> +static inline int syscall_get_arch(void)
+> +{
+> +#ifdef CONFIG_64BIT
+> +	return AUDIT_ARCH_RISCV64;
+> +#else
+> +	return AUDIT_ARCH_RISCV32;
+> +#endif
+> +}
+> +
+>  #endif	/* _ASM_RISCV_SYSCALL_H */
+> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+> index f8fa1cd2dad9..1c9cc8389928 100644
+> --- a/arch/riscv/include/asm/thread_info.h
+> +++ b/arch/riscv/include/asm/thread_info.h
+> @@ -80,13 +80,19 @@ struct thread_info {
+>  #define TIF_RESTORE_SIGMASK	4	/* restore signal mask in do_signal() */
+>  #define TIF_MEMDIE		5	/* is terminating due to OOM killer */
+>  #define TIF_SYSCALL_TRACEPOINT  6       /* syscall tracepoint instrumentation */
+> +#define TIF_SYSCALL_AUDIT	7	/* syscall auditing */
+>
+>  #define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
+>  #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
+>  #define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
+>  #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
+> +#define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
+> +#define _TIF_SYSCALL_AUDIT	(1 << TIF_SYSCALL_AUDIT)
+>
+>  #define _TIF_WORK_MASK \
+>  	(_TIF_NOTIFY_RESUME | _TIF_SIGPENDING | _TIF_NEED_RESCHED)
+>
+> +#define _TIF_SYSCALL_WORK \
+> +	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_TRACEPOINT | _TIF_SYSCALL_AUDIT)
+> +
+>  #endif /* _ASM_RISCV_THREAD_INFO_H */
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index fa2c08e3c05e..2a6c2e7aaff3 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -202,7 +202,7 @@ handle_syscall:
+>  	REG_S s2, PT_SEPC(sp)
+>  	/* Trace syscalls, but only if requested by the user. */
+>  	REG_L t0, TASK_TI_FLAGS(tp)
+> -	andi t0, t0, _TIF_SYSCALL_TRACE
+> +	andi t0, t0, _TIF_SYSCALL_WORK
+>  	bnez t0, handle_syscall_trace_enter
+>  check_syscall_nr:
+>  	/* Check to make sure we don't jump to a bogus syscall number. */
+> @@ -222,7 +222,7 @@ ret_from_syscall:
+>  	REG_S a0, PT_A0(sp)
+>  	/* Trace syscalls, but only if requested by the user. */
+>  	REG_L t0, TASK_TI_FLAGS(tp)
+> -	andi t0, t0, _TIF_SYSCALL_TRACE
+> +	andi t0, t0, _TIF_SYSCALL_WORK
+>  	bnez t0, handle_syscall_trace_exit
+>
+>  ret_from_exception:
+> diff --git a/include/uapi/linux/audit.h b/include/uapi/linux/audit.h
+> index 818ae690ab79..d0e037a96a7b 100644
+> --- a/include/uapi/linux/audit.h
+> +++ b/include/uapi/linux/audit.h
+> @@ -399,6 +399,8 @@ enum {
+>  /* do not define AUDIT_ARCH_PPCLE since it is not supported by audit */
+>  #define AUDIT_ARCH_PPC64	(EM_PPC64|__AUDIT_ARCH_64BIT)
+>  #define AUDIT_ARCH_PPC64LE	(EM_PPC64|__AUDIT_ARCH_64BIT|__AUDIT_ARCH_LE)
+> +#define AUDIT_ARCH_RISCV32	(EM_RISCV|__AUDIT_ARCH_LE)
+> +#define AUDIT_ARCH_RISCV64	(EM_RISCV|__AUDIT_ARCH_64BIT|__AUDIT_ARCH_LE)
+>  #define AUDIT_ARCH_S390		(EM_S390)
+>  #define AUDIT_ARCH_S390X	(EM_S390|__AUDIT_ARCH_64BIT)
+>  #define AUDIT_ARCH_SH		(EM_SH)
+
+I can't seem to figure out how to dig the rest of the thread out of my inbox 
+(I'm in an airport), so I'm just replying here.
+
+I've added this to next-audit, which will soon filter into for-next.  I'm not 
+sure if this is 100% settled, but I can't find any issues with it so I think 
+it's best to get this out for testing.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
