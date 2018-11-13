@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A24CCC43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 02:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6461EC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 02:04:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 731712243E
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 02:04:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2FBEE2243E
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 02:04:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="t6gykgrR";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="dHDtII3S"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 731712243E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="o4hM5UzY";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="PJcGYpju"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2FBEE2243E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,60 +26,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:From:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iuunuSOU6KCsHfwwBdnseNiPfejcy3Wdei6Pn+K81Hw=; b=t6gykgrRi1oxmM
-	MhqXgkuz6r/u4SkmJ6tsrSSG+7MTjfGkmUI0GBfBwIPo6d0U6eK6lRpfkdmkjCtnCY2g4bv7v5txp
-	H7H7BH42TeGTwo5LroVxYSLrYTZKuD4WQCuVlk8O06VH8IRQ7D3wkT/fVWd0U5M54K8o1a0RbicZo
-	ahBi8D4Lc3lKkzJ8uKrTjLpXVzXYCJQeAuWZxMqCR2t1SVuzvnmWxy5A5r5Y//VaoRtoVxG2gFyar
-	VGdW8r11nvROitQ4Ny94l0uGJpmmmX/ZvjMKaEhjoVCe7EEINNFvIAMZ58mBzUSPWzL5cerPTExGw
-	yv52shbFm5IAHfv591ew==;
+	List-Owner; bh=Ru+Ds7vgcIc5huGjPCbiyH14wQQ6wasEoXFvi18I56g=; b=o4hM5UzYfsYrFs
+	uAqE4Tvk2bkxrK3kyrMTftoVwov/Ld5d0giIcjBVivr441n1T0Kj4UC0cdDjgAoW657AQq0SAogCL
+	hNPZeRtJ+0dT4vECj3chHu54YZ5zXjgVYd7mm/7d4/lYFLjhgygZuSOknfqmtH75j9FxNjmNbA12o
+	UC/+APMp4RzDnnjHSW4Q96GBtasH1c19C/T4n5+PRYJR9llRDIi1KGdL4rN/ObzObHeiRUXWLnU7E
+	tWqSwbDYbsrzN5r5Wdttx2I70QD/UPjGflod9LQ3zwUCzB8LBbjAmXLWLPHCmmDcWb+hmP/tKx/OR
+	qByvkteeNddFsqjF+ZpA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gMO3b-00064q-UD; Tue, 13 Nov 2018 02:03:59 +0000
+	id 1gMO3d-00065y-2d; Tue, 13 Nov 2018 02:04:01 +0000
 Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gMO3Y-0005qB-VB
+ id 1gMO3Y-0005rn-Ve
  for linux-riscv@lists.infradead.org; Tue, 13 Nov 2018 02:03:58 +0000
-Received: by mail-pf1-x443.google.com with SMTP id b81-v6so4711832pfe.11
- for <linux-riscv@lists.infradead.org>; Mon, 12 Nov 2018 18:03:46 -0800 (PST)
+Received: by mail-pf1-x443.google.com with SMTP id s9-v6so5195744pfm.13
+ for <linux-riscv@lists.infradead.org>; Mon, 12 Nov 2018 18:03:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=subject:date:message-id:in-reply-to:references:cc:from:to;
- bh=KwRK/8QusrPt9E60VsZ+F/UZc9LhXH3dVrppBh4GkT0=;
- b=dHDtII3SPhynR8V8WQ6RhY4iIrwmmAHy+ZinjdkXtAm6sTkEaaNuEfub+dqf8SZI3B
- dTR9Mi7Ofc/EDidTtGRZGq2FOn2yrZ5AjhcKGCXlipf7oXVnGNVQ5D9IZlZ8qkS29ZDZ
- vLBb1DTN8fTFH2mUvlsCLTryVkC5RaACkNLhkGdoesX76++l56Rec0ivX5NQwfxlFEEF
- XFylgfi91mBrEPDtddjEdg9ZGYDi8/twxrOKKwpUlSs3OyQLPqnEL1kymjS/P5AK6LGK
- uSPu7xhD6XsiKqEDE2xJmtLfJsmnY0Eqvolu66Rsj3rVTchSqEFlVYLHuRSEju2ldVkY
- Idjw==
+ bh=z1/UIs3s95nj4fpqBhO0b+gijTrwfsBw2mC/yrzV+uw=;
+ b=PJcGYpjuiJEgki1sUH6Ps/OxW+uKZsZpdT8/5VFUfLtccEhdI4hEe7LQ4gJ/344Sje
+ velnDB2Ci9clB3U8RmC6LUpwODoM9pOCDZuMGCQx2VSuoAwKNu3kCdG4cbG7HtQ2ybid
+ vBfpuBSVXWNOMFOyhYdSCoaLmlQsBHLXU/acI20NUSC3IDI0e2lFUr0zksycuTao/O2I
+ U0Z5TlMeSGKZS6RYv49+zvJGhFTH7V44wph+Pa4LM6I+ANjViJLl38AkocErnYfTKqyI
+ fifq0V+oFxf1bQL6mNp+LG53CAJ6j1Vnd4w5qAQVnJYCzX1Qc1VvxxJOsrqZE0/p8GOM
+ yhpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:date:message-id:in-reply-to:references
  :cc:from:to;
- bh=KwRK/8QusrPt9E60VsZ+F/UZc9LhXH3dVrppBh4GkT0=;
- b=iMcIcOg+NrHEpurpoHqnMG4k+f51oogF84dGSM0qjAoqKy5fQARguyXT1CiNKj1xgw
- XKMFSG+xs4Oc6CBVFEVZhMtl8MFEsp7TaDmdU5J7jyn/ornY9zJlPp7Ik15N3gL/G6RB
- UJGfVx7owZSp6ZScpmkRTM78Cu4+SAXhv4tdfM7jT16fgY8tYF7q3l2n40jiolNJ9guB
- OI0XcE2K7xUkhLuKH5HijZ0fXUmi1MR/tobXyxZpaFAwYpX2pKsFbd9jT7wo+Cr83sn1
- dPjCT/2SD8wq8ub1+LXR4AfdVd27pJZbMeemzqKMby8OSISofKCm5bmBQbNLLHVw4Jzt
- o7Lg==
-X-Gm-Message-State: AGRZ1gL2NVUUhLAIS4hC/w+vH08xQ+bw251NzftOYZHqnHqgNWO1e2Jc
- u2gkqsYjyPoV1X6y1WVJJfdKaA==
-X-Google-Smtp-Source: AJdET5eNU9kgcQE7rm+1rijBilcpE7dY75n5yG5XoGYN5pAdXkENPvN/pzgS0E8cPu4WG9WX/bx8Aw==
-X-Received: by 2002:a63:8043:: with SMTP id j64mr3036868pgd.405.1542074626048; 
- Mon, 12 Nov 2018 18:03:46 -0800 (PST)
-Received: from localhost ([216.9.110.1])
- by smtp.gmail.com with ESMTPSA id f10-v6sm11693569pfa.188.2018.11.12.18.03.44
+ bh=z1/UIs3s95nj4fpqBhO0b+gijTrwfsBw2mC/yrzV+uw=;
+ b=GK2NW1oPbe8DfpnLLiLEzSG2IChO5AAHPGZ4Jz+qkj4j3KS4giWF+sTcmCtdtKVwTz
+ 5LtXgTJHh6iTV5Chi8LctmJqoVNIuqo2aq5tdFCRZofy/nE6gTT/yWXJCRQAuPrl805M
+ GC5ovb3XgXrhxDRU8XbXwIfb3mD8XdFAPoWLZwap2Jd6TrBhQgIbgrgP3N6iw1BjCIPF
+ BL7HaQuxizAZQsZFSnXsLrx0hP/bweZFM3WV9o6oNoV07+iGgWb/P5zWZkIrqOCfBGCQ
+ W5g7/4gw3btcPUBKTA224YvYkJ22dgvs2+O86ChDq2hIhO1qO7rele3P2UMdGC6C+FKC
+ xAVQ==
+X-Gm-Message-State: AGRZ1gLIWK9X2JQbFeXDAFfTaefzBfAk5t8i9111rQrJu7kAYtqg10e2
+ ydQiAe/Uu76VhKEMWXIr0uxq+A==
+X-Google-Smtp-Source: AJdET5ct8ctnBfDREcAnPKrFHawmpructpZQJT2RsxPhQnRrzxVtPOBTDDjCdJ6kSMH5pN66S4Z/hw==
+X-Received: by 2002:a65:560e:: with SMTP id l14mr3024951pgs.168.1542074629519; 
+ Mon, 12 Nov 2018 18:03:49 -0800 (PST)
+Received: from localhost ([216.9.110.13])
+ by smtp.gmail.com with ESMTPSA id d3sm16479347pgl.64.2018.11.12.18.03.48
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 12 Nov 2018 18:03:45 -0800 (PST)
-Subject: [PATCH 5/7] doc: Indicate that arm64 support queued-spinlocks
-Date: Mon, 12 Nov 2018 18:01:11 -0800
-Message-Id: <20181113020113.29640-6-palmer@sifive.com>
+ Mon, 12 Nov 2018 18:03:48 -0800 (PST)
+Subject: [PATCH 7/7] doc: Indicate that RISC-V support pte_special
+Date: Mon, 12 Nov 2018 18:01:13 -0800
+Message-Id: <20181113020113.29640-8-palmer@sifive.com>
 X-Mailer: git-send-email 2.18.1
 In-Reply-To: <20181113020113.29640-1-palmer@sifive.com>
 References: <20181113020113.29640-1-palmer@sifive.com>
 From: Palmer Dabbelt <palmer@sifive.com>
 To: linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181112_180357_002722_37416E25 
+X-CRM114-CacheID: sfid-20181112_180357_017946_D2079566 
 X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -106,28 +106,28 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181113020111.k-TdSkXnq0LoghUHo1M4C6P3-rwg5h6EKbclC5EHHKM@z>
+Message-ID: <20181113020113.gOnMVhpCuHm9ZOn5fXqY54b6S7Mi7_NB2Z4gvgGC5BE@z>
 
 This was suggested by features-refresh.sh
 
 Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 ---
- .../features/locking/queued-spinlocks/arch-support.txt          | 2 +-
+ Documentation/features/vm/pte_special/arch-support.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/features/locking/queued-spinlocks/arch-support.txt b/Documentation/features/locking/queued-spinlocks/arch-support.txt
-index e3080b82aefd..743aa6691715 100644
---- a/Documentation/features/locking/queued-spinlocks/arch-support.txt
-+++ b/Documentation/features/locking/queued-spinlocks/arch-support.txt
-@@ -9,7 +9,7 @@
-     |       alpha: | TODO |
-     |         arc: | TODO |
-     |         arm: | TODO |
--    |       arm64: | TODO |
-+    |       arm64: |  ok  |
-     |         c6x: | TODO |
-     |        csky: | TODO |
-     |       h8300: | TODO |
+diff --git a/Documentation/features/vm/pte_special/arch-support.txt b/Documentation/features/vm/pte_special/arch-support.txt
+index 2dc5df6a1cf5..3d492a34c8ee 100644
+--- a/Documentation/features/vm/pte_special/arch-support.txt
++++ b/Documentation/features/vm/pte_special/arch-support.txt
+@@ -23,7 +23,7 @@
+     |    openrisc: | TODO |
+     |      parisc: | TODO |
+     |     powerpc: |  ok  |
+-    |       riscv: | TODO |
++    |       riscv: |  ok  |
+     |        s390: |  ok  |
+     |          sh: |  ok  |
+     |       sparc: |  ok  |
 -- 
 2.18.1
 
