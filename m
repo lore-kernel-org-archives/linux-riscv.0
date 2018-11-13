@@ -2,89 +2,57 @@ Return-Path: <SRS0=fXqm=NY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 73A1EC43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 19:49:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 83F3FC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 19:58:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 40068216FD
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 19:49:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5323C223C8
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 19:58:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gWVfv3U0";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="DpwPsqTE"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 40068216FD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ig5M+S0m"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5323C223C8
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=packi.ch
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8OjLRWoKWHfTYl+6GkPri3V+Clu21c1Aykx02utcT8A=; b=gWVfv3U0Dz5k8v
-	1/EDp5T7dRqVMagfl+gQvx1hO7R+BF3rD7KRsGIEx7TZPiVibAwP2n3xZYRd4pNpLVGJSgR3w9w2G
-	BHgnJMdD8qZPdQLB0hi+lHUheIc+sb7kieCvmkA7N50MWLolbFXGwZUzhIsK4v8Gj8veYQHSTjJK3
-	QwbGpgaDXxZO+1t2urclL8Y5NndDjDB9kqCp8Nu6sYyy/kd6aueUWXDlOCACuwfsoffG52WQ2ay2X
-	bnIGUeaTuhOF0+bcmLM5u0ugzF5C55AB3W/r1yjju2b5iuM/khcNek4JIfi5oq5th5XGN/yaKo1t4
-	OKjBKakhhmW06LYOB8kA==;
+	List-Owner; bh=vj5YlXD4DKTw5CedgWlUmHixtsMmpGGKezr/FAFm2aw=; b=Ig5M+S0mWjFLYM
+	ex/bdaBkZ5jziG2KBgAtFgayi/DSCWe3iJPkYxMzEbl8dSv3BjCAqo1wIXxRW4hSsrBYoiuxlsBU5
+	ETT3HISwb7+cw1p4KMRsNcoFUwWT7pdGmNLbFaNyiW4WCHxLS0IeOVSzZlloNTZNz8nRBFsiQUQrc
+	KKryFjzcpFIQwd+w/KmDwztQl9FnKDAq+eoHXZnsZZVWQwuGazBTLFq8qmiPQpOjM3a6weNqu1vr/
+	NtZADVOP1eqqOupEKhA8IvF/ya6/9CVV1r7oaB9uIGbOzBcalm/i+2mUZAM1fl7wwPm+JvQqA3SpE
+	ZvN7hY3cgu6N99ZcSS+Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gMegT-00074x-8h; Tue, 13 Nov 2018 19:49:13 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
+	id 1gMepY-0002eD-9h; Tue, 13 Nov 2018 19:58:36 +0000
+Received: from mail.binarylogic.ch ([2a01:4f8:222:24c1::ff02])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gMegS-00074U-1I
- for linux-riscv@bombadil.infradead.org; Tue, 13 Nov 2018 19:49:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Type:Cc:To:Subject:Message-ID:
- Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=FTYl1YEZsWlo48zpcSGeS0opwdJMNJLCJODJ4Tvr1/E=; b=DpwPsqTEPVeWSYveTiKUHWUSm
- +q4WHPhcRfhgQZdNS/7n1g+opG1rIsOGVD9wFolE0vakX4bxsG3fglpl7ipwQAwzN2EelQCsseBAA
- kl1Y6mcqTPLd4xRvJG52+c/tKnv/x12RJQJOkIdr8xtU0KImX4p2bmSuAw+adBI+3SSvb84RZgGUU
- J3LCcIfBhE1ngtyK4g0lN1ODyJEziYBCneQSrqGaAfNq3M45x7p6iNmxjO08j80hUW00ymgCfULWN
- KTrStnLFa736LeXRIBIYgCAoqhwPvK3eM3x4XUXwlH+nOLrX/8rJvbQTIGP15ws5yS16otV1AbD7X
- viZMMcy7Q==;
-Received: from mail-pg1-f193.google.com ([209.85.215.193])
- by merlin.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gMegN-0000Rr-St
- for linux-riscv@lists.infradead.org; Tue, 13 Nov 2018 19:49:10 +0000
-Received: by mail-pg1-f193.google.com with SMTP id n10-v6so6169734pgv.10
- for <linux-riscv@lists.infradead.org>; Tue, 13 Nov 2018 11:48:55 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=FTYl1YEZsWlo48zpcSGeS0opwdJMNJLCJODJ4Tvr1/E=;
- b=dmXec06tW6hEaHemI91BaLDnghioSm6J103DxaJaZ1v3zo0IF0E8mBcRsdAapGdTGC
- 2zAfqBq4IqFkDVY+XdH3VLpwdzDo9ggGCBcZ0/ytcrGEU+7f5ELNejFKISRHfnLHI2hm
- K2ARNgDIcxPPyBJtMuqJGHM1BAc2cokuGxQjWvJNXb1MSlrBTU9fvzxT6qCLsz+bx3tF
- boM6YgpEwEbrnqm7PVzBg2P9tHBgaPDO0lq1JdorOOrSaig1ADj2tmwWo5XBXRr+9jDa
- xs9CI/kMufQugsroh30KkSJHjEKdqTbjjn0EfGWM4+IcR4xGLj/0vsnWKK0EqrtLD+9W
- r1Xg==
-X-Gm-Message-State: AGRZ1gL1ULKGSnvF4MffIaeuwuyDbS8XApVLiO1FJB+kg96tSaH1Fu9/
- Xzb+a3PsZ9cJ/BlrBzM5jjXH77VdvEr95LtIA8zqjA==
-X-Google-Smtp-Source: AJdET5fv0h02rVrg3ksvYPdjXrHayvNi6L92+6zAvOEynNaI9fIqUqaIHqPc5ebAXyWjZR3YSE35fw+qMsK3F4ft6Y0=
-X-Received: by 2002:a62:de06:: with SMTP id h6-v6mr6554715pfg.36.1542138534634; 
- Tue, 13 Nov 2018 11:48:54 -0800 (PST)
+ id 1gMepU-0002cB-AI
+ for linux-riscv@lists.infradead.org; Tue, 13 Nov 2018 19:58:34 +0000
+Received: from fortknox.localdomain (unknown [192.168.122.1])
+ by mail.binarylogic.ch (Postfix) with ESMTP id 0B4CEDF6FF;
+ Tue, 13 Nov 2018 20:58:23 +0100 (CET)
+From: =?UTF-8?q?Patrick=20St=C3=A4hlin?= <me@packi.ch>
+To: linux-riscv@lists.infradead.org
+Subject: [RFC/RFT 1/2] RISC-V: Implement ptrace regs and stack API
+Date: Tue, 13 Nov 2018 20:58:03 +0100
+Message-Id: <20181113195804.22825-2-me@packi.ch>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20181113195804.22825-1-me@packi.ch>
+References: <20181113195804.22825-1-me@packi.ch>
 MIME-Version: 1.0
-References: <20181112142736.15009-1-kernel@esmil.dk>
- <20181113183527.GG2089@sirena.org.uk>
-In-Reply-To: <20181113183527.GG2089@sirena.org.uk>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Tue, 13 Nov 2018 20:48:43 +0100
-Message-ID:
- <CANBLGcxF-WgsBVFHf4jGRR+Ox2vz=ewzhwGP1CZX-R5HpDAVBg@mail.gmail.com>
-Subject: Re: [RFC PATCH] spi: add driver for the SiFive SPI controller
-To: Mark Brown <broonie@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181113_144907_949658_20E571D0 
-X-CRM114-Status: GOOD (  34.22  )
+X-CRM114-CacheID: sfid-20181113_115832_892236_8D1E0FBE 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,160 +64,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Palmer Dabbelt <palmer@sifive.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-spi@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: =?UTF-8?q?Patrick=20St=C3=A4hlin?= <me@packi.ch>,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Albert Ou <aou@eecs.berkeley.edu>, Oleg Nesterov <oleg@redhat.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181113194843.tTRXAgjeryNJGGjsB3O_LmzBMAfIvnGRkHJ8TWKXj3E@z>
+Message-ID: <20181113195803.CjtBCsUcG9czwiqmPBGKUjvl5Ojxq2SIPaioQUHXFI0@z>
 
-Hi Mark,
-On Tue, 13 Nov 2018 at 19:35, Mark Brown <broonie@kernel.org> wrote:
-> On Mon, Nov 12, 2018 at 03:27:36PM +0100, Emil Renner Berthing wrote:
->
-> > I know the discussions about the sifive devicetree compatible
-> > strings haven't come to a conclusion, so I'm sending this as
-> > an RFC to get some feedback on the rest of the code.
->
-> I've not seen any of these discussions or earlier versions of this
-> driver so I've no idea what's going on here :(
-
-No, sorry. This has been discussed on linux-riscv for other drivers
-like the uart. See my last answer.
-
-> > +Optional properties:
-> > +- sifive,fifo-depth          : Depth of hardware queues; defaults to 8
-> > +- sifive,max-bits-per-word   : Maximum bits per word; defaults to 8
-> > +
->
-> If the hardware isn't fixed yet making these enumerable from the
-> hardware would be good...
-
-Agreed, but unfortunately this is already in the FU540-C000 chip on
-the HiFive Unleashed board sold by SiFive.
-
-> > @@ -0,0 +1,442 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * SiFive SPI controller driver (master mode only)
-> > + *
->
-> Please make the entire comment a C++ one to make this look more
-> intentinal.
-
-Will do.
-
-> > +/* for consistency we need this symbol */
-> > +#ifdef REG_FMT
-> > +#undef REG_FMT
-> > +#endif
->
-> We do?  For consistency with what?
-
-Below all the register offsets are defined as
-REG_<register name>. This is is a pattern I
-copied from other drivers, but here we have a
-register called "fmt" - hence REG_FMT.
-If you have a better pattern that doesn't clash
-with REG_FMT please let me know.
-
-> > +static void sifive_spi_init(struct sifive_spi *spi)
-> > +{
->
-> > +     /* Set CS/SCK Delays and Inactive Time to defaults */
-> > +
-> > +     /* Exit specialized memory-mapped SPI flash mode */
->
-> ...or not?
-
-Right. Will add that or just delete the comment.
-
-> > +     /* Set frame format */
-> > +     cr = FMT_LEN(t->bits_per_word);
-> > +     switch (mode) {
-> > +     case SPI_NBITS_QUAD:
-> > +             cr |= FMT_PROTO_QUAD;
-> > +             break;
->
-> Some namespacing on the driver #defines would be a bit safer against the
-> possibility of collision with future changes in headers.
-
-Right.
-
-> > +static void sifive_spi_wait(struct sifive_spi *spi, u32 bit, int poll)
-> > +{
-> > +     if (poll) {
-> > +             u32 cr;
-> > +             do cr = sifive_spi_read(spi, REG_IP);
-> > +             while (!(cr & bit));
->
-> Please add some braces, indentation or something to make it more clear
-> that the read is part of a do/while loop - right now it's not
-> immediately obvious that this is correct.
-
-Good point. Will do.
-
-> > +static int sifive_spi_transfer_one(struct spi_master *master,
-> > +             struct spi_device *device, struct spi_transfer *t)
-> > +{
-> > +     struct sifive_spi *spi = spi_master_get_devdata(master);
-> > +     int poll = sifive_spi_prep_transfer(spi, device, t);
-> > +
-> > +     sifive_spi_execute(spi, t, poll);
-> > +
->
-> Why not just inline the execute function here?  It's the only caller
-> AFAICT.
-
-Yeah, it is. Will do.
-
-> > +static void sifive_spi_set_cs(struct spi_device *device, bool is_high)
-> > +{
-> > +     struct sifive_spi *spi = spi_master_get_devdata(device->master);
-> > +
-> > +     /* Reverse polarity is handled by SCMR/CPOL. Not inverted CS. */
-> > +     if (device->mode & SPI_CS_HIGH)
-> > +             is_high = !is_high;
->
-> spi_set_cs() will handle CS_HIGH for you.
->
-> > +     master->bits_per_word_mask = SPI_BPW_MASK(8);
->
-> I thought the device supported other bits per word values?
-
-It does, but the driver doesn't yet. When bits per word is < 8
-we need to shift the bits in each byte to be "left-aligned"
-(unless SPI_LSB_FIRST is set).
-
-> > +     /* If mmc_spi sees a dma_mask, it starts using dma mapped buffers.
-> > +      * Probably it should rely on the SPI core auto mapping instead.
-> > +      */
-> > +     pdev->dev.dma_mask = NULL;
->
-> If this is a problem please fix it in the MMC core, don't bodge it like
-> this.
-
-Gotcha. Will remove this.
-
-> > +static const struct of_device_id sifive_spi_of_match[] = {
-> > +     { .compatible = "sifive,spi0", },
-> > +     {}
-> > +};
-> > +MODULE_DEVICE_TABLE(of, sifive_spi_of_match);
->
-> spi0 is a *weird* compatible name.
-
-Exactly. Hence the discussion about the compatible strings.
-Once this discussion comes to a conclusion I'll update this.
-
-Thank you for the review!
-/Emil
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+TmVlZGVkIGZvciBrcHJvYmVzIHN1cHBvcnQuIENvcGllZCBhbmQgYWRhcHRlZCBmcm9tIGFybTY0
+IGNvZGUuCgpTaWduZWQtb2ZmLWJ5OiBQYXRyaWNrIFN0w6RobGluIDxtZUBwYWNraS5jaD4KLS0t
+CiBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgIHwgIDEgKwogYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS9wdHJhY2UuaCB8IDM0ICsrKysrKysrKysrCiBhcmNoL3Jpc2N2L2tlcm5lbC9wdHJh
+Y2UuYyAgICAgIHwgOTkgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCiAzIGZpbGVz
+IGNoYW5nZWQsIDEzNCBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9LY29u
+ZmlnIGIvYXJjaC9yaXNjdi9LY29uZmlnCmluZGV4IDU1ZGE5M2Y0ZTgxOC4uYjE1N2FjODJkNDg2
+IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKKysrIGIvYXJjaC9yaXNjdi9LY29uZmln
+CkBAIC00Myw2ICs0Myw3IEBAIGNvbmZpZyBSSVNDVgogCXNlbGVjdCBSSVNDVl9USU1FUgogCXNl
+bGVjdCBHRU5FUklDX0lSUV9NVUxUSV9IQU5ETEVSCiAJc2VsZWN0IEFSQ0hfSEFTX1BURV9TUEVD
+SUFMCisJc2VsZWN0IEhBVkVfUkVHU19BTkRfU1RBQ0tfQUNDRVNTX0FQSQogCiBjb25maWcgTU1V
+CiAJZGVmX2Jvb2wgeQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wdHJhY2Uu
+aCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHRyYWNlLmgKaW5kZXggMmM1ZGY5NDVkNDNjLi43
+MGMwYWQwOGFjMDggMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHRyYWNlLmgK
+KysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wdHJhY2UuaApAQCAtMTYsNiArMTYsNyBAQAog
+CiAjaW5jbHVkZSA8dWFwaS9hc20vcHRyYWNlLmg+CiAjaW5jbHVkZSA8YXNtL2Nzci5oPgorI2lu
+Y2x1ZGUgPGxpbnV4L2NvbXBpbGVyLmg+CiAKICNpZm5kZWYgX19BU1NFTUJMWV9fCiAKQEAgLTY4
+LDYgKzY5LDcgQEAgc3RydWN0IHB0X3JlZ3MgewogCiAjZGVmaW5lIHVzZXJfbW9kZShyZWdzKSAo
+KChyZWdzKS0+c3N0YXR1cyAmIFNSX1NQUCkgPT0gMCkKIAorI2RlZmluZSBNQVhfUkVHX09GRlNF
+VCBvZmZzZXRvZihzdHJ1Y3QgcHRfcmVncywgb3JpZ19hMCkKIAogLyogSGVscGVycyBmb3Igd29y
+a2luZyB3aXRoIHRoZSBpbnN0cnVjdGlvbiBwb2ludGVyICovCiAjZGVmaW5lIEdFVF9JUChyZWdz
+KSAoKHJlZ3MpLT5zZXBjKQpAQCAtOTksNiArMTAxLDE3IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCB1
+c2VyX3N0YWNrX3BvaW50ZXJfc2V0KHN0cnVjdCBwdF9yZWdzICpyZWdzLAogCVNFVF9VU1AocmVn
+cywgdmFsKTsKIH0KIAorLyogVmFsaWQgb25seSBmb3IgS2VybmVsIG1vZGUgdHJhcHMuICovCitz
+dGF0aWMgaW5saW5lIHVuc2lnbmVkIGxvbmcga2VybmVsX3N0YWNrX3BvaW50ZXIoc3RydWN0IHB0
+X3JlZ3MgKnJlZ3MpCit7CisJcmV0dXJuIHJlZ3MtPnNwOworfQorCitzdGF0aWMgaW5saW5lIHVu
+c2lnbmVkIGxvbmcgcmVnc19yZXR1cm5fdmFsdWUoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCit7CisJ
+cmV0dXJuIHJlZ3MtPmEwOworfQorCiAvKiBIZWxwZXJzIGZvciB3b3JraW5nIHdpdGggdGhlIGZy
+YW1lIHBvaW50ZXIgKi8KICNkZWZpbmUgR0VUX0ZQKHJlZ3MpICgocmVncyktPnMwKQogI2RlZmlu
+ZSBTRVRfRlAocmVncywgdmFsKSAoR0VUX0ZQKHJlZ3MpID0gKHZhbCkpCkBAIC0xMTMsNiArMTI2
+LDI3IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBmcmFtZV9wb2ludGVyX3NldChzdHJ1Y3QgcHRfcmVn
+cyAqcmVncywKIAlTRVRfRlAocmVncywgdmFsKTsKIH0KIAorZXh0ZXJuIGludCByZWdzX3F1ZXJ5
+X3JlZ2lzdGVyX29mZnNldChjb25zdCBjaGFyICpuYW1lKTsKK2V4dGVybiB1bnNpZ25lZCBsb25n
+IHJlZ3NfZ2V0X2tlcm5lbF9zdGFja19udGgoc3RydWN0IHB0X3JlZ3MgKnJlZ3MsCisJCQkJCSAg
+ICAgICB1bnNpZ25lZCBpbnQgbik7CisKKy8qKgorICogcmVnc19nZXRfcmVnaXN0ZXIoKSAtIGdl
+dCByZWdpc3RlciB2YWx1ZSBmcm9tIGl0cyBvZmZzZXQKKyAqIEByZWdzOglwdF9yZWdzIGZyb20g
+d2hpY2ggcmVnaXN0ZXIgdmFsdWUgaXMgZ290dGVuCisgKiBAb2Zmc2V0OglvZmZzZXQgb2YgdGhl
+IHJlZ2lzdGVyLgorICoKKyAqIHJlZ3NfZ2V0X3JlZ2lzdGVyIHJldHVybnMgdGhlIHZhbHVlIG9m
+IGEgcmVnaXN0ZXIgd2hvc2Ugb2Zmc2V0IGZyb20gQHJlZ3MuCisgKiBUaGUgQG9mZnNldCBpcyB0
+aGUgb2Zmc2V0IG9mIHRoZSByZWdpc3RlciBpbiBzdHJ1Y3QgcHRfcmVncy4KKyAqIElmIEBvZmZz
+ZXQgaXMgYmlnZ2VyIHRoYW4gTUFYX1JFR19PRkZTRVQsIHRoaXMgcmV0dXJucyAwLgorICovCitz
+dGF0aWMgaW5saW5lIHVuc2lnbmVkIGxvbmcgcmVnc19nZXRfcmVnaXN0ZXIoc3RydWN0IHB0X3Jl
+Z3MgKnJlZ3MsCisJCQkJCSAgICAgIHVuc2lnbmVkIGludCBvZmZzZXQpCit7CisJaWYgKHVubGlr
+ZWx5KG9mZnNldCA+IE1BWF9SRUdfT0ZGU0VUKSkKKwkJcmV0dXJuIDA7CisKKwlyZXR1cm4gKih1
+bnNpZ25lZCBsb25nICopKCh1bnNpZ25lZCBsb25nKXJlZ3MgKyBvZmZzZXQpOworfQogI2VuZGlm
+IC8qIF9fQVNTRU1CTFlfXyAqLwogCiAjZW5kaWYgLyogX0FTTV9SSVNDVl9QVFJBQ0VfSCAqLwpk
+aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHRyYWNlLmMgYi9hcmNoL3Jpc2N2L2tlcm5l
+bC9wdHJhY2UuYwppbmRleCA2MGYxZTAyZWVkMzYuLjViNjg0ZTRmZmMxMCAxMDA2NDQKLS0tIGEv
+YXJjaC9yaXNjdi9rZXJuZWwvcHRyYWNlLmMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHRyYWNl
+LmMKQEAgLTEzMCw2ICsxMzAsMTA1IEBAIGNvbnN0IHN0cnVjdCB1c2VyX3JlZ3NldF92aWV3ICp0
+YXNrX3VzZXJfcmVnc2V0X3ZpZXcoc3RydWN0IHRhc2tfc3RydWN0ICp0YXNrKQogCXJldHVybiAm
+cmlzY3ZfdXNlcl9uYXRpdmVfdmlldzsKIH0KIAorc3RydWN0IHB0X3JlZ3Nfb2Zmc2V0IHsKKwlj
+b25zdCBjaGFyICpuYW1lOworCWludCBvZmZzZXQ7Cit9OworCisjZGVmaW5lIFJFR19PRkZTRVRf
+TkFNRShyKSB7Lm5hbWUgPSAjciwgLm9mZnNldCA9IG9mZnNldG9mKHN0cnVjdCBwdF9yZWdzLCBy
+KX0KKyNkZWZpbmUgUkVHX09GRlNFVF9FTkQgey5uYW1lID0gTlVMTCwgLm9mZnNldCA9IDB9CisK
+K3N0YXRpYyBjb25zdCBzdHJ1Y3QgcHRfcmVnc19vZmZzZXQgcmVnb2Zmc2V0X3RhYmxlW10gPSB7
+CisJUkVHX09GRlNFVF9OQU1FKHNlcGMpLAorCVJFR19PRkZTRVRfTkFNRShyYSksCisJUkVHX09G
+RlNFVF9OQU1FKHNwKSwKKwlSRUdfT0ZGU0VUX05BTUUoZ3ApLAorCVJFR19PRkZTRVRfTkFNRSh0
+cCksCisJUkVHX09GRlNFVF9OQU1FKHQwKSwKKwlSRUdfT0ZGU0VUX05BTUUodDEpLAorCVJFR19P
+RkZTRVRfTkFNRSh0MiksCisJUkVHX09GRlNFVF9OQU1FKHMwKSwKKwlSRUdfT0ZGU0VUX05BTUUo
+czEpLAorCVJFR19PRkZTRVRfTkFNRShhMCksCisJUkVHX09GRlNFVF9OQU1FKGExKSwKKwlSRUdf
+T0ZGU0VUX05BTUUoYTIpLAorCVJFR19PRkZTRVRfTkFNRShhMyksCisJUkVHX09GRlNFVF9OQU1F
+KGE0KSwKKwlSRUdfT0ZGU0VUX05BTUUoYTUpLAorCVJFR19PRkZTRVRfTkFNRShhNiksCisJUkVH
+X09GRlNFVF9OQU1FKGE3KSwKKwlSRUdfT0ZGU0VUX05BTUUoczIpLAorCVJFR19PRkZTRVRfTkFN
+RShzMyksCisJUkVHX09GRlNFVF9OQU1FKHM0KSwKKwlSRUdfT0ZGU0VUX05BTUUoczUpLAorCVJF
+R19PRkZTRVRfTkFNRShzNiksCisJUkVHX09GRlNFVF9OQU1FKHM3KSwKKwlSRUdfT0ZGU0VUX05B
+TUUoczgpLAorCVJFR19PRkZTRVRfTkFNRShzOSksCisJUkVHX09GRlNFVF9OQU1FKHMxMCksCisJ
+UkVHX09GRlNFVF9OQU1FKHMxMSksCisJUkVHX09GRlNFVF9OQU1FKHQzKSwKKwlSRUdfT0ZGU0VU
+X05BTUUodDQpLAorCVJFR19PRkZTRVRfTkFNRSh0NSksCisJUkVHX09GRlNFVF9OQU1FKHQ2KSwK
+KwlSRUdfT0ZGU0VUX05BTUUoc3N0YXR1cyksCisJUkVHX09GRlNFVF9OQU1FKHNiYWRhZGRyKSwK
+KwlSRUdfT0ZGU0VUX05BTUUoc2NhdXNlKSwKKwlSRUdfT0ZGU0VUX05BTUUob3JpZ19hMCksCisJ
+UkVHX09GRlNFVF9FTkQsCit9OworCisvKioKKyAqIHJlZ3NfcXVlcnlfcmVnaXN0ZXJfb2Zmc2V0
+KCkgLSBxdWVyeSByZWdpc3RlciBvZmZzZXQgZnJvbSBpdHMgbmFtZQorICogQG5hbWU6CXRoZSBu
+YW1lIG9mIGEgcmVnaXN0ZXIKKyAqCisgKiByZWdzX3F1ZXJ5X3JlZ2lzdGVyX29mZnNldCgpIHJl
+dHVybnMgdGhlIG9mZnNldCBvZiBhIHJlZ2lzdGVyIGluIHN0cnVjdAorICogcHRfcmVncyBmcm9t
+IGl0cyBuYW1lLiBJZiB0aGUgbmFtZSBpcyBpbnZhbGlkLCB0aGlzIHJldHVybnMgLUVJTlZBTDsK
+KyAqLworaW50IHJlZ3NfcXVlcnlfcmVnaXN0ZXJfb2Zmc2V0KGNvbnN0IGNoYXIgKm5hbWUpCit7
+CisJY29uc3Qgc3RydWN0IHB0X3JlZ3Nfb2Zmc2V0ICpyb2ZmOworCisJZm9yIChyb2ZmID0gcmVn
+b2Zmc2V0X3RhYmxlOyByb2ZmLT5uYW1lICE9IE5VTEw7IHJvZmYrKykKKwkJaWYgKCFzdHJjbXAo
+cm9mZi0+bmFtZSwgbmFtZSkpCisJCQlyZXR1cm4gcm9mZi0+b2Zmc2V0OworCXJldHVybiAtRUlO
+VkFMOworfQorCisvKioKKyAqIHJlZ3Nfd2l0aGluX2tlcm5lbF9zdGFjaygpIC0gY2hlY2sgdGhl
+IGFkZHJlc3MgaW4gdGhlIHN0YWNrCisgKiBAcmVnczogICAgICBwdF9yZWdzIHdoaWNoIGNvbnRh
+aW5zIGtlcm5lbCBzdGFjayBwb2ludGVyLgorICogQGFkZHI6ICAgICAgYWRkcmVzcyB3aGljaCBp
+cyBjaGVja2VkLgorICoKKyAqIHJlZ3Nfd2l0aGluX2tlcm5lbF9zdGFjaygpIGNoZWNrcyBAYWRk
+ciBpcyB3aXRoaW4gdGhlIGtlcm5lbCBzdGFjayBwYWdlKHMpLgorICogSWYgQGFkZHIgaXMgd2l0
+aGluIHRoZSBrZXJuZWwgc3RhY2ssIGl0IHJldHVybnMgdHJ1ZS4gSWYgbm90LCByZXR1cm5zIGZh
+bHNlLgorICovCitzdGF0aWMgYm9vbCByZWdzX3dpdGhpbl9rZXJuZWxfc3RhY2soc3RydWN0IHB0
+X3JlZ3MgKnJlZ3MsIHVuc2lnbmVkIGxvbmcgYWRkcikKK3sKKwlyZXR1cm4gKGFkZHIgJiB+KFRI
+UkVBRF9TSVpFIC0gMSkpICA9PQorCQkoa2VybmVsX3N0YWNrX3BvaW50ZXIocmVncykgJiB+KFRI
+UkVBRF9TSVpFIC0gMSkpOworfQorCisvKioKKyAqIHJlZ3NfZ2V0X2tlcm5lbF9zdGFja19udGgo
+KSAtIGdldCBOdGggZW50cnkgb2YgdGhlIHN0YWNrCisgKiBAcmVnczoJcHRfcmVncyB3aGljaCBj
+b250YWlucyBrZXJuZWwgc3RhY2sgcG9pbnRlci4KKyAqIEBuOgkJc3RhY2sgZW50cnkgbnVtYmVy
+LgorICoKKyAqIHJlZ3NfZ2V0X2tlcm5lbF9zdGFja19udGgoKSByZXR1cm5zIEBuIHRoIGVudHJ5
+IG9mIHRoZSBrZXJuZWwgc3RhY2sgd2hpY2gKKyAqIGlzIHNwZWNpZmllZCBieSBAcmVncy4gSWYg
+dGhlIEBuIHRoIGVudHJ5IGlzIE5PVCBpbiB0aGUga2VybmVsIHN0YWNrLAorICogdGhpcyByZXR1
+cm5zIDAuCisgKi8KK3Vuc2lnbmVkIGxvbmcgcmVnc19nZXRfa2VybmVsX3N0YWNrX250aChzdHJ1
+Y3QgcHRfcmVncyAqcmVncywgdW5zaWduZWQgaW50IG4pCit7CisJdW5zaWduZWQgbG9uZyAqYWRk
+ciA9ICh1bnNpZ25lZCBsb25nICopa2VybmVsX3N0YWNrX3BvaW50ZXIocmVncyk7CisKKwlhZGRy
+ICs9IG47CisJaWYgKHJlZ3Nfd2l0aGluX2tlcm5lbF9zdGFjayhyZWdzLCAodW5zaWduZWQgbG9u
+ZylhZGRyKSkKKwkJcmV0dXJuICphZGRyOworCWVsc2UKKwkJcmV0dXJuIDA7Cit9CisKIHZvaWQg
+cHRyYWNlX2Rpc2FibGUoc3RydWN0IHRhc2tfc3RydWN0ICpjaGlsZCkKIHsKIAljbGVhcl90c2tf
+dGhyZWFkX2ZsYWcoY2hpbGQsIFRJRl9TWVNDQUxMX1RSQUNFKTsKLS0gCjIuMTcuMQoKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
