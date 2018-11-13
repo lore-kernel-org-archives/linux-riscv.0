@@ -1,151 +1,70 @@
-From: kernel@esmil.dk (Emil Renner Berthing)
-Date: Tue, 13 Nov 2018 20:48:43 +0100
-Subject: [RFC PATCH] spi: add driver for the SiFive SPI controller
-In-Reply-To: <20181113183527.GG2089@sirena.org.uk>
-References: <20181112142736.15009-1-kernel@esmil.dk>
- <20181113183527.GG2089@sirena.org.uk>
-Message-ID: <CANBLGcxF-WgsBVFHf4jGRR+Ox2vz=ewzhwGP1CZX-R5HpDAVBg@mail.gmail.com>
+From: me@packi.ch (=?UTF-8?q?Patrick=20St=C3=A4hlin?=)
+Date: Tue, 13 Nov 2018 20:58:02 +0100
+Subject: [RFC/RFT 0/2] RISC-V: kprobes/kretprobe support
+Message-ID: <20181113195804.22825-1-me@packi.ch>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Mark,
-On Tue, 13 Nov 2018 at 19:35, Mark Brown <broonie@kernel.org> wrote:
-> On Mon, Nov 12, 2018 at 03:27:36PM +0100, Emil Renner Berthing wrote:
->
-> > I know the discussions about the sifive devicetree compatible
-> > strings haven't come to a conclusion, so I'm sending this as
-> > an RFC to get some feedback on the rest of the code.
->
-> I've not seen any of these discussions or earlier versions of this
-> driver so I've no idea what's going on here :(
+Hi,
 
-No, sorry. This has been discussed on linux-riscv for other drivers
-like the uart. See my last answer.
+this is first version of kprobes/kretprobe support for RISC-V. Most of
+the code is based on arm64 but obviously without the single-step
+functionality.
 
-> > +Optional properties:
-> > +- sifive,fifo-depth          : Depth of hardware queues; defaults to 8
-> > +- sifive,max-bits-per-word   : Maximum bits per word; defaults to 8
-> > +
->
-> If the hardware isn't fixed yet making these enumerable from the
-> hardware would be good...
+It will insert a C.EBREAK instruction that is later being captured. The
+only instruction supported at the moment is C.ADDISP16 as this sets-up
+the stack frames for all the functions I've tested.
 
-Agreed, but unfortunately this is already in the FU540-C000 chip on
-the HiFive Unleashed board sold by SiFive.
+I've tested this on QEMU with multiple CPUs but don't have any real
+hardware available for testing, and from experience that's when things
+start breaking.
 
-> > @@ -0,0 +1,442 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * SiFive SPI controller driver (master mode only)
-> > + *
->
-> Please make the entire comment a C++ one to make this look more
-> intentinal.
+The plan is to expand compressed instructions to full ones and simulate
+those to reduce the decoding overhead per intercepted call.
 
-Will do.
+Please let me know if you have any objections to path I've chosen and
+which instructions you absolutely need for a first version.
 
-> > +/* for consistency we need this symbol */
-> > +#ifdef REG_FMT
-> > +#undef REG_FMT
-> > +#endif
->
-> We do?  For consistency with what?
+To enable this you need the following defines:
 
-Below all the register offsets are defined as
-REG_<register name>. This is is a pattern I
-copied from other drivers, but here we have a
-register called "fmt" - hence REG_FMT.
-If you have a better pattern that doesn't clash
-with REG_FMT please let me know.
+CONFIG_FUNCTION_TRACER=y
+CONFIG_KPROBES=y
+CONFIG_MODULES=y
 
-> > +static void sifive_spi_init(struct sifive_spi *spi)
-> > +{
->
-> > +     /* Set CS/SCK Delays and Inactive Time to defaults */
-> > +
-> > +     /* Exit specialized memory-mapped SPI flash mode */
->
-> ...or not?
+The CONFIG_FUNCTION_TRACER is not strictly needed but makes testing
+easier using debugfs.
 
-Right. Will add that or just delete the comment.
+After that, any example documented in 
+Documentation/trace/kprobetrace.rst should work.
 
-> > +     /* Set frame format */
-> > +     cr = FMT_LEN(t->bits_per_word);
-> > +     switch (mode) {
-> > +     case SPI_NBITS_QUAD:
-> > +             cr |= FMT_PROTO_QUAD;
-> > +             break;
->
-> Some namespacing on the driver #defines would be a bit safer against the
-> possibility of collision with future changes in headers.
+Patrick St?hlin (2):
+  RISC-V: Implement ptrace regs and stack API
+  RISC-V: kprobes/kretprobe support
 
-Right.
+ arch/riscv/Kconfig                            |   6 +-
+ arch/riscv/include/asm/kprobes.h              |  30 ++
+ arch/riscv/include/asm/probes.h               |  26 ++
+ arch/riscv/include/asm/ptrace.h               |  34 ++
+ arch/riscv/kernel/Makefile                    |   1 +
+ arch/riscv/kernel/probes/Makefile             |   3 +
+ arch/riscv/kernel/probes/decode-insn.c        |  38 ++
+ arch/riscv/kernel/probes/decode-insn.h        |  23 +
+ arch/riscv/kernel/probes/kprobes.c            | 401 ++++++++++++++++++
+ arch/riscv/kernel/probes/kprobes_trampoline.S |  91 ++++
+ arch/riscv/kernel/probes/simulate-insn.c      |  33 ++
+ arch/riscv/kernel/probes/simulate-insn.h      |   8 +
+ arch/riscv/kernel/ptrace.c                    |  99 +++++
+ arch/riscv/kernel/traps.c                     |  13 +-
+ arch/riscv/mm/fault.c                         |  28 +-
+ 15 files changed, 828 insertions(+), 6 deletions(-)
+ create mode 100644 arch/riscv/include/asm/probes.h
+ create mode 100644 arch/riscv/kernel/probes/Makefile
+ create mode 100644 arch/riscv/kernel/probes/decode-insn.c
+ create mode 100644 arch/riscv/kernel/probes/decode-insn.h
+ create mode 100644 arch/riscv/kernel/probes/kprobes.c
+ create mode 100644 arch/riscv/kernel/probes/kprobes_trampoline.S
+ create mode 100644 arch/riscv/kernel/probes/simulate-insn.c
+ create mode 100644 arch/riscv/kernel/probes/simulate-insn.h
 
-> > +static void sifive_spi_wait(struct sifive_spi *spi, u32 bit, int poll)
-> > +{
-> > +     if (poll) {
-> > +             u32 cr;
-> > +             do cr = sifive_spi_read(spi, REG_IP);
-> > +             while (!(cr & bit));
->
-> Please add some braces, indentation or something to make it more clear
-> that the read is part of a do/while loop - right now it's not
-> immediately obvious that this is correct.
-
-Good point. Will do.
-
-> > +static int sifive_spi_transfer_one(struct spi_master *master,
-> > +             struct spi_device *device, struct spi_transfer *t)
-> > +{
-> > +     struct sifive_spi *spi = spi_master_get_devdata(master);
-> > +     int poll = sifive_spi_prep_transfer(spi, device, t);
-> > +
-> > +     sifive_spi_execute(spi, t, poll);
-> > +
->
-> Why not just inline the execute function here?  It's the only caller
-> AFAICT.
-
-Yeah, it is. Will do.
-
-> > +static void sifive_spi_set_cs(struct spi_device *device, bool is_high)
-> > +{
-> > +     struct sifive_spi *spi = spi_master_get_devdata(device->master);
-> > +
-> > +     /* Reverse polarity is handled by SCMR/CPOL. Not inverted CS. */
-> > +     if (device->mode & SPI_CS_HIGH)
-> > +             is_high = !is_high;
->
-> spi_set_cs() will handle CS_HIGH for you.
->
-> > +     master->bits_per_word_mask = SPI_BPW_MASK(8);
->
-> I thought the device supported other bits per word values?
-
-It does, but the driver doesn't yet. When bits per word is < 8
-we need to shift the bits in each byte to be "left-aligned"
-(unless SPI_LSB_FIRST is set).
-
-> > +     /* If mmc_spi sees a dma_mask, it starts using dma mapped buffers.
-> > +      * Probably it should rely on the SPI core auto mapping instead.
-> > +      */
-> > +     pdev->dev.dma_mask = NULL;
->
-> If this is a problem please fix it in the MMC core, don't bodge it like
-> this.
-
-Gotcha. Will remove this.
-
-> > +static const struct of_device_id sifive_spi_of_match[] = {
-> > +     { .compatible = "sifive,spi0", },
-> > +     {}
-> > +};
-> > +MODULE_DEVICE_TABLE(of, sifive_spi_of_match);
->
-> spi0 is a *weird* compatible name.
-
-Exactly. Hence the discussion about the compatible strings.
-Once this discussion comes to a conclusion I'll update this.
-
-Thank you for the review!
-/Emil
+-- 
+2.17.1
