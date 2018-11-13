@@ -2,86 +2,86 @@ Return-Path: <SRS0=fXqm=NY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.2 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	FROM_LOCAL_NOVOWEL,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8884AC43610
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 02:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D2237C43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 02:14:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5AB8E2243E
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 02:04:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A16772245E
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 02:14:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="I6tRA07f";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="bBYkVoYU"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5AB8E2243E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gFcsCdBl";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="aTUdkwgS"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A16772245E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:From:References:
-	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JqsSanmUdDB7mmrJpjZaK950WqJlAsboaJdp49YI9k4=; b=I6tRA07feMoTFW
-	6rwLKpJSX3HAsUZS1pqqpt04+Qa5J2O10bFyB6m4xD1LcPeCIwn7OaT63Nc+Fg52DuS9rmAOj/laB
-	gD50MzAXPyUidlDsgTI81oeFIpuBJCca+Y3fc/3iKutqJJh2392o2g8FynJszi2JJvQFcMnKPs/8S
-	LxM4wpldXrE32BPTN4FRBepPzzt70yDt2IdIimjr6/nURZLpqLkEsYBbhN3iaTgIoQtb9IBuqe+7g
-	2fQ4sHO2l3W+n3DV/kIFCYuxcNkoAXqRyl81jhTaMgnxqgG61mL9JLyipn7sobx2fLA2kB9hsWTuh
-	LY97WNSbMdTE6VmRXulw==;
+	List-Owner; bh=3znYuMZUxZ0gC0i4ZdGOMwHQQ7MHRhFnhKcOsXwso/c=; b=gFcsCdBlcZkReR
+	lRe5Xze1+vydgH4slLPoMfe3TjbtL+EctEoHabyctG6aoVLG/FQ0YNfxig7+/ZeBjvGKcxdYD9ip9
+	xTkpA3vaKeNuYtcJLWv/vfj9/f7WLBKJWD+hvS0fr5EDkUuTIU06KVkhJQCvpkAPTqHnN/rvsD19B
+	p4MotVw4Syut4RK2xpMdvR9K2FOAA3hwpOxZGXsKK4KLU4WQYOooNiPIGrlqhHShz8FU/2b/Ciz51
+	UpoihRjpe4jDkDaXn4UsRfyZnL2XOdYBkkHPlmhg9hyEctofDji7tLFb+UdpJVmfpLwsXl4Ktw3pz
+	1Z9dv0VOqpIpD52yE1xA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gMO3f-00068z-Jd; Tue, 13 Nov 2018 02:04:03 +0000
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
+	id 1gMODZ-0003Rv-3L; Tue, 13 Nov 2018 02:14:17 +0000
+Received: from mail-yw1-xc41.google.com ([2607:f8b0:4864:20::c41])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gMO3b-0005qf-H0
- for linux-riscv@lists.infradead.org; Tue, 13 Nov 2018 02:04:00 +0000
-Received: by mail-pl1-x641.google.com with SMTP id p6-v6so5204108pll.4
- for <linux-riscv@lists.infradead.org>; Mon, 12 Nov 2018 18:03:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=subject:date:message-id:in-reply-to:references:cc:from:to;
- bh=j6C7eYKMwxezR19YXqvK92VNNRr0E9JdHBvUwbh35IA=;
- b=bBYkVoYUDtAp6Y66U4BYhcgc+83bly87dtKJMmfVJYGLAB8LMUZSvjOhPhvlF2u8La
- uzPM40fBm5mj22GE1Mjc/s8aEnaGulJmN5I642GTsYcrusQHq71nMqjPewR5WBWusTyO
- +bGAWDyje/cgkuIvnOmiCYV6ivM9/mcKDwYdN/vuVruk6MouzfRcosCRFCDd93SaoFx6
- TBNaF8RfLpbR1KacAGTSTsAM3jfPeLrgOwkWmw9AnXPtaKWK822lLCFN0wgau9hrE6Ev
- geNwE6jQdYNuRm73ibv2w8mK+U73eUs4Oz/bh0QCEdYy0yIJVcQ9KJNG5Oy43wHey+1D
- xoXw==
+ id 1gMODS-00034G-W6
+ for linux-riscv@lists.infradead.org; Tue, 13 Nov 2018 02:14:12 +0000
+Received: by mail-yw1-xc41.google.com with SMTP id t13so992828ywe.13
+ for <linux-riscv@lists.infradead.org>; Mon, 12 Nov 2018 18:14:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=woqON29sDppaFa7PHsMdLKhOo9G+cuc/+i8sqgC63/4=;
+ b=aTUdkwgSmSjE9qcgRTjRfpDzQBhQ8uesbOQjNfzpjY+xLxH+2lo/lzdU0U4MAbFmkI
+ 5/aI2z3Ehf4Yz4L42xS2cyxI71kC1qxPFut3vrcWTKkALuxlEvqOY+GAW0s8j6YohK7V
+ BJqU0MH6fqYt3IgL1N6yNbKC6MPIT2Phw/WqZsBoIVvP9yvkKBqft1dKs2bGx1RGKhru
+ i4+gcOX4nR5s4itFYfjfbD5mF+iIthWHl3UTUbOLP9X1xC/9t4U06kGvGHVl5sxVGZ8p
+ x2TQE5xggqf3UBeqyAiNvzP5zIYKrBsi/5DdY8GHmHL3S2Af7JuCJBkeW8vyRpEMJjXh
+ 7GRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:in-reply-to:references
- :cc:from:to;
- bh=j6C7eYKMwxezR19YXqvK92VNNRr0E9JdHBvUwbh35IA=;
- b=DjR8Yt/iDhHkxEF3ZitkQ13kC2Is7HzguCCg6dhb3ytozOMouxQeJztKHpjg2ytPln
- OJAE1JVkOAEWiA6Jst6++ZwLgg8pLG9f1VAXybIZMCSheONOd842/UKKQgdywUvc1bpn
- k14u1BChCltW1Qqy9aDc1hjVZhGICbkczz0Klz7hgkG75X7QKrJSrF7S3spTo98jTV1y
- v0VAeARxNc/GumNzkKCT464J4MYNnvZvOx5ya5JzfGu9flZSGgiSnm/RZVkM+wYb3uRJ
- Sy5bu532GPSFsCsicMc0w0TLFMt3rxLnnIqahm06wlwpYh0py2oVzJVk3kZzVzvjWDrS
- tDqg==
-X-Gm-Message-State: AGRZ1gIvrV5s/MrCXasDV98zF3GgXEpbs+dnSFd/gWVohzYxvnnqWk50
- zhaqyuOns6amZyUSR0du5qCfeg==
-X-Google-Smtp-Source: AJdET5f+IeCOUgwYtlZJXefJNCayYufuSc+tWahuDcPnWC0vkagfmB4Zozi4VPBeLuKRXlIHmdsRlw==
-X-Received: by 2002:a17:902:9886:: with SMTP id
- s6-v6mr3233545plp.55.1542074627796; 
- Mon, 12 Nov 2018 18:03:47 -0800 (PST)
-Received: from localhost ([216.9.110.2])
- by smtp.gmail.com with ESMTPSA id m17-v6sm20195855pfi.102.2018.11.12.18.03.46
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 12 Nov 2018 18:03:47 -0800 (PST)
-Subject: [PATCH 6/7] doc: Indicate that parisc supports kprobes-events
-Date: Mon, 12 Nov 2018 18:01:12 -0800
-Message-Id: <20181113020113.29640-7-palmer@sifive.com>
-X-Mailer: git-send-email 2.18.1
-In-Reply-To: <20181113020113.29640-1-palmer@sifive.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=woqON29sDppaFa7PHsMdLKhOo9G+cuc/+i8sqgC63/4=;
+ b=EzuR4Bn61CbkX2T6qX8JuFnFrVORAZW/piByR9X7jlTKxyYkEl4ufodIn1enLBUqsB
+ j2UbYq1DztCwBLK1dmIcKU5anxxoOa6Y1Gxw5LCh415Jj7y1jLCE9qtSN8/4KL5tEQs9
+ 1EIskbhHqyqO899je72nlcvaRaLr8wQJtfHfmJcIlBQFb9O8+M0vVXLb8U6yPpkvcoDD
+ 1YrG1+OD8LzG80ZpGechmH73n1WcNvE/RX3mPSPe+ZqKTU9/e8P/GMt1iXHrzJjFczz9
+ vffiCbIMO9iYoI+C0VhfL8w2RUkmcFNo/fZbh9nxCUO1ck+zqNorweo3jL8Ovihw+IFp
+ d1WA==
+X-Gm-Message-State: AGRZ1gIxJiBB3vaksyi/1VSF7j4B9phXhRZ4lRvRtKHAxru0UN91JSPd
+ xlUM+JOGBLYkJ+GX73Q1rKAaKATb4AhAkp5ZUsI=
+X-Google-Smtp-Source: AJdET5fbNyLcvl1IZ8mMyx6KwQQOM8BjI7VXaqEkiQAppQy/dk+vzes/LPNrI/CXuYj+w8nDHyVOeJQh08HRniHOExY=
+X-Received: by 2002:a0d:f103:: with SMTP id
+ a3-v6mr3352562ywf.468.1542075239590; 
+ Mon, 12 Nov 2018 18:13:59 -0800 (PST)
+MIME-Version: 1.0
 References: <20181113020113.29640-1-palmer@sifive.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: linux-kernel@vger.kernel.org
+ <20181113020113.29640-5-palmer@sifive.com>
+In-Reply-To: <20181113020113.29640-5-palmer@sifive.com>
+From: Max Filippov <jcmvbkbc@gmail.com>
+Date: Mon, 12 Nov 2018 18:13:48 -0800
+Message-ID:
+ <CAMo8BfJWaO6vyikaTRurX3wsMneBr0wWuq+eCgutOAG-Uv8EDw@mail.gmail.com>
+Subject: Re: [PATCH 4/7] doc: Indicate that xtensa supports sg-chain
+To: palmer@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181112_180359_569284_4EC74221 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20181112_181411_040044_7BE74254 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,44 +94,35 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: andrea.parri@amarulasolutions.com, aou@eecs.berkeley.edu,
- keescook@chromium.org, Arnd Bergmann <arnd@arndb.de>, corbet@lwn.net,
- yamada.masahiro@socionext.com, jhogan@kernel.org,
- Palmer Dabbelt <palmer@sifive.com>, Will Deacon <will.deacon@arm.com>,
- jglisse@redhat.com, linux-doc@vger.kernel.org, dhowells@redhat.com,
- jcmvbkbc@gmail.com, rmk+kernel@armlinux.org.uk, mathieu.desnoyers@efficios.com,
- ren_guo@c-sky.com, david.abdurachmanov@gmail.com,
- linux-riscv@lists.infradead.org, mingo@kernel.org,
- linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+ Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
+ Jonathan Corbet <corbet@lwn.net>, James Hogan <jhogan@kernel.org>,
+ linux-doc@vger.kernel.org, Will Deacon <will.deacon@arm.com>,
+ LKML <linux-kernel@vger.kernel.org>, david.abdurachmanov@gmail.com,
+ David Howells <dhowells@redhat.com>,
+ Masahiro Yamada <yamada.masahiro@socionext.com>, rmk+kernel@armlinux.org.uk,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ ren_guo <ren_guo@c-sky.com>, jglisse@redhat.com,
+ linux-riscv@lists.infradead.org, Ingo Molnar <mingo@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181113020112.lK_bYa56_ylUYV6E5MVhZ5enhVHJT5t0_WHcno1WHvw@z>
+Message-ID: <20181113021348.S56GfeRY2neKb1_f_hrw5iuihQWoDFpe_JPLZEuPGqk@z>
 
-This was suggested by features-refresh.sh
+On Mon, Nov 12, 2018 at 6:03 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+>
+> This was suggested by features-refresh.sh
+>
+> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+> ---
+>  Documentation/features/io/sg-chain/arch-support.txt | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- Documentation/features/perf/kprobes-event/arch-support.txt | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Acked-by: Max Filippov <jcmvbkbc@gmail.com>
 
-diff --git a/Documentation/features/perf/kprobes-event/arch-support.txt b/Documentation/features/perf/kprobes-event/arch-support.txt
-index d8278bf62b85..86ae33c70475 100644
---- a/Documentation/features/perf/kprobes-event/arch-support.txt
-+++ b/Documentation/features/perf/kprobes-event/arch-support.txt
-@@ -21,7 +21,7 @@
-     |       nds32: |  ok  |
-     |       nios2: | TODO |
-     |    openrisc: | TODO |
--    |      parisc: | TODO |
-+    |      parisc: |  ok  |
-     |     powerpc: |  ok  |
-     |       riscv: | TODO |
-     |        s390: |  ok  |
 -- 
-2.18.1
-
+Thanks.
+-- Max
 
 _______________________________________________
 linux-riscv mailing list
