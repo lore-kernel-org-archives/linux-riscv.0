@@ -1,55 +1,120 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 13 Nov 2018 09:20:38 -0800 (PST)
-Subject: [PULL RFC] RISC-V Patches for 4.20-rc2
-Message-ID: <mhng-2b0cf1d3-ff52-41e3-a683-5875c687984e@palmer-si-x1c4>
+From: broonie@kernel.org (Mark Brown)
+Date: Tue, 13 Nov 2018 10:35:27 -0800
+Subject: [RFC PATCH] spi: add driver for the SiFive SPI controller
+In-Reply-To: <20181112142736.15009-1-kernel@esmil.dk>
+References: <20181112142736.15009-1-kernel@esmil.dk>
+Message-ID: <20181113183527.GG2089@sirena.org.uk>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The following changes since commit ccda4af0f4b92f7b4c308d3acc262f4a7e3affad:
+On Mon, Nov 12, 2018 at 03:27:36PM +0100, Emil Renner Berthing wrote:
 
-  Linux 4.20-rc2 (2018-11-11 17:12:31 -0600)
+> I know the discussions about the sifive devicetree compatible
+> strings haven't come to a conclusion, so I'm sending this as
+> an RFC to get some feedback on the rest of the code.
 
-are available in the Git repository at:
+I've not seen any of these discussions or earlier versions of this
+driver so I've no idea what's going on here :(
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.20-rc2
+> +Optional properties:
+> +- sifive,fifo-depth		: Depth of hardware queues; defaults to 8
+> +- sifive,max-bits-per-word	: Maximum bits per word; defaults to 8
+> +
 
-for you to fetch changes up to ef3a61406618291c46da168ff91acaa28d85944c:
+If the hardware isn't fixed yet making these enumerable from the
+hardware would be good...
 
-  RISC-V: Silence some module warnings on 32-bit (2018-11-12 18:12:24 -0800)
+> @@ -0,0 +1,442 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * SiFive SPI controller driver (master mode only)
+> + *
 
-----------------------------------------------------------------
-RISC-V Patches for 4.20-rc2
+Please make the entire comment a C++ one to make this look more
+intentinal.
 
-This pull request contains a for unrelated patches that fix various
-issues in the RISC-V port:
+> +/* for consistency we need this symbol */
+> +#ifdef REG_FMT
+> +#undef REG_FMT
+> +#endif
 
-* A patch that enables printk timestamps in the RISC-V defconfig.
-* A whitespace fix to "struct pt_regs".
-* A patch that adds a "vdso_install" target for RISC-V.
-* A pair of build fixes: one to fix a typo in our makefile, and one to
-  clean up some warnings.
+We do?  For consistency with what?
 
-There will probably be more patches from us for 4.20, but I don't have
-anything that's ready to go right now so I'm going to hold off a bit.
-Right now the only concrete thing I know I want to make sure gets sorted
-out is our 32-bit stat interface, which I don't want sitting in limbo
-for another cycle as we have to get RV32I glibc sone.
+> +static void sifive_spi_init(struct sifive_spi *spi)
+> +{
 
-----------------------------------------------------------------
-Anup Patel (1):
-      RISC-V: defconfig: Enable printk timestamps
+> +	/* Set CS/SCK Delays and Inactive Time to defaults */
+> +
+> +	/* Exit specialized memory-mapped SPI flash mode */
 
-David Abdurachmanov (2):
-      riscv: fix spacing in struct pt_regs
-      riscv: add missing vdso_install target
+...or not?
 
-Olof Johansson (2):
-      RISC-V: lib: Fix build error for 64-bit
-      RISC-V: Silence some module warnings on 32-bit
+> +	/* Set frame format */
+> +	cr = FMT_LEN(t->bits_per_word);
+> +	switch (mode) {
+> +	case SPI_NBITS_QUAD:
+> +		cr |= FMT_PROTO_QUAD;
+> +		break;
 
- arch/riscv/Makefile             |  4 ++++
- arch/riscv/configs/defconfig    |  1 +
- arch/riscv/include/asm/ptrace.h |  4 ++--
- arch/riscv/kernel/module.c      | 12 ++++++------
- arch/riscv/lib/Makefile         |  2 +-
- 5 files changed, 14 insertions(+), 9 deletions(-)
+Some namespacing on the driver #defines would be a bit safer against the
+possibility of collision with future changes in headers.
+
+> +static void sifive_spi_wait(struct sifive_spi *spi, u32 bit, int poll)
+> +{
+> +	if (poll) {
+> +		u32 cr;
+> +		do cr = sifive_spi_read(spi, REG_IP);
+> +		while (!(cr & bit));
+
+Please add some braces, indentation or something to make it more clear
+that the read is part of a do/while loop - right now it's not
+immediately obvious that this is correct.
+
+> +static int sifive_spi_transfer_one(struct spi_master *master,
+> +		struct spi_device *device, struct spi_transfer *t)
+> +{
+> +	struct sifive_spi *spi = spi_master_get_devdata(master);
+> +	int poll = sifive_spi_prep_transfer(spi, device, t);
+> +
+> +	sifive_spi_execute(spi, t, poll);
+> +
+
+Why not just inline the execute function here?  It's the only caller
+AFAICT.
+
+> +static void sifive_spi_set_cs(struct spi_device *device, bool is_high)
+> +{
+> +	struct sifive_spi *spi = spi_master_get_devdata(device->master);
+> +
+> +	/* Reverse polarity is handled by SCMR/CPOL. Not inverted CS. */
+> +	if (device->mode & SPI_CS_HIGH)
+> +		is_high = !is_high;
+
+spi_set_cs() will handle CS_HIGH for you.
+
+> +	master->bits_per_word_mask = SPI_BPW_MASK(8);
+
+I thought the device supported other bits per word values?
+
+> +	/* If mmc_spi sees a dma_mask, it starts using dma mapped buffers.
+> +	 * Probably it should rely on the SPI core auto mapping instead.
+> +	 */
+> +	pdev->dev.dma_mask = NULL;
+
+If this is a problem please fix it in the MMC core, don't bodge it like
+this.
+
+> +static const struct of_device_id sifive_spi_of_match[] = {
+> +	{ .compatible = "sifive,spi0", },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, sifive_spi_of_match);
+
+spi0 is a *weird* compatible name.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 488 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20181113/cc9de2da/attachment.sig>
