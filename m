@@ -2,84 +2,71 @@ Return-Path: <SRS0=fXqm=NY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
+	MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 51DC6C43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 17:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DEAFAC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 18:35:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 23BB7223DD
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 17:20:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B1B602175B
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Nov 2018 18:35:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Nckk77VX";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="QompLoRk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 23BB7223DD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="akUad2Mt";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sirena.org.uk header.i=@sirena.org.uk header.b="bCPKtJt1"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B1B602175B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:Subject:
-	Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GNz3KTZbqHk+F9XpsobOFmNlR1HrwubEi2AZj0edwi4=; b=Nckk77VXjEF/y9
-	IjrS09IbvcvtGzSq4vTAbBrS84W1oPo7PM1eAr1mSq/C/YoIWRcoKhw7+Fim5vrJZ0v95ZdNkVJht
-	Z3cHFiSbeqLAfYiSV+oDv4UuSAFVhFKdbMepTFFDBMG6iokGQsOxVw1PTkkyJNsj7i0Zn0yUXWVR9
-	9XO4ZTDKRAcuOphoFJ6cIdd2LlvCXXUh8nank6GjBxcPOEwl8rNFE9JjFOzqd/fWwolOVR3PwjVss
-	98aSHF43kT9+NY3Cso+9o06m7tTmfTlCELV8Br5/uUkFR/00CBGdqeiGKp6NCRsVsye9Z4txB/J6/
-	cvIqEnyOmcz7VXQlwHJw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=k3U18Ko/nu6MPwTawmsDmEWOYirsfymAuj6vgdwunIQ=; b=akUad2MtL1mhrOPOSVehQGPhX
+	Hv4j1aGgKxJfEba5IaOPgJOuprHCGCOZGsFiyM7JAR1ghXRQLXyjgEOIY+mZDJ3RlZox5/7/R93A0
+	D+J7Kq4ztkv3CoXJbGg+J+IYZ5ZmO2Kmc13ibKKrcT5At+HoQInVV4QbKHsT4hU19LPBs12sCcTQ2
+	AkFHB4PbDSX1tTF/yZo5HDHWZ3S/hdwDAw0Em16K2z1z3uskCP725DUvsndtB5pzb20BnOVHXjrRy
+	YLfYwpMnrzqfWJgObH2kuWNH05E2ukvKNZmlBqZ+gmJCSbiRCXDTGS3aluYTKQb6l+GvzetWMZAjT
+	arTh+AAkA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gMcMv-0001K2-81; Tue, 13 Nov 2018 17:20:53 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1gMdXS-0008Mb-KD; Tue, 13 Nov 2018 18:35:50 +0000
+Received: from heliosphere.sirena.org.uk ([2a01:7e01::f03c:91ff:fed4:a3b6])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gMcMs-0001JS-JD
- for linux-riscv@lists.infradead.org; Tue, 13 Nov 2018 17:20:52 +0000
-Received: by mail-pg1-x542.google.com with SMTP id f8-v6so5987400pgq.5
- for <linux-riscv@lists.infradead.org>; Tue, 13 Nov 2018 09:20:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:from:to:message-id;
- bh=u/XePtUsRUUDJQjtgzZMzPn6KEZuMMtP7D29RTEGn8s=;
- b=QompLoRkwJ9/fnQ27aoQZxGWkoU+9XbelLRcHlyNWVqq8NQNnm3E2vE3OvlCC1tG+Y
- M19AyuP/ZLbEszvXDxOQRRE29qXN1RIMLFA2rpixjAcSW7NNnB9z9VTp2rwKCtM6jyuM
- t32UhUbQ8HNryWBH22N/YkhgbQMkY5/ENQzc2IPxeh8xqLDkDy0r8yPpdKBxr4DujMYB
- mwnjnWubDDG8K/DMh+AdEAH5tnK8qxGCQk8uGvZ35llNdpQMQRFJQmzJbKcKkS98T2Tb
- hFF7bDzj0AI6hWn4tiYNTkch1P2PXJe18iFj76hAsooWCKC4BjwsVhdztixcgqRkYmCh
- X6cQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:from:to:message-id;
- bh=u/XePtUsRUUDJQjtgzZMzPn6KEZuMMtP7D29RTEGn8s=;
- b=dC2yp6XsV8zrZUBLyf5kqfJATZ6C1iHaaJH8qwPfV4vzg6VfFEaZ/Ewy4fF6mHkLJZ
- euEODkVWA6bjYEQsuYcZfdeyZbylzZ+JllALBHCWWxkIxup3R13jubbmDAJ5hmvRr2Gp
- 9vkWkuzgIHCrj/KYD75ZHC7ypaO5sLz5rNfrcn2ZCf7Oe3bkZW9ne8YPRkeXdJrk1Wau
- BTvePogv73VyyS2MT3dfTasQjAExUmP51QHvzm9Xob8mZnNT/h9ys5fsOtaDnywAZxX0
- H9+HX9Eux3F2amNBBbyo2FFTRxrMLd7bdA/7S1sAqJg3AktyhsM2WW3Dkw2soRQxqXq0
- 6kJA==
-X-Gm-Message-State: AGRZ1gLxUr+DpJ6uaHY6845s1Pl8QY0d0jjfP0r7bFDfpUputdbZLWjU
- rv60QvmFwdaFGlzbWzzHsn9bpZ2mmo9GcA==
-X-Google-Smtp-Source: AJdET5crePwuX3iWAcG6Sk5Iwc/G42BBcG1N6h9rWiyc9OekrzSMXg9zmHXm3iGYiEebUcjgBWLFGQ==
-X-Received: by 2002:a62:5fc5:: with SMTP id
- t188-v6mr6017356pfb.84.1542129639257; 
- Tue, 13 Nov 2018 09:20:39 -0800 (PST)
-Received: from localhost ([64.114.255.97])
- by smtp.gmail.com with ESMTPSA id x123-v6sm28284916pfb.124.2018.11.13.09.20.38
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 13 Nov 2018 09:20:38 -0800 (PST)
-Date: Tue, 13 Nov 2018 09:20:38 -0800 (PST)
-X-Google-Original-Date: Tue, 13 Nov 2018 09:20:29 PST (-0800)
-Subject: [PULL RFC] RISC-V Patches for 4.20-rc2
-From: Palmer Dabbelt <palmer@sifive.com>
-To: linux-riscv@lists.infradead.org
-Message-ID: <mhng-2b0cf1d3-ff52-41e3-a683-5875c687984e@palmer-si-x1c4>
+ id 1gMdXP-0008E2-BZ
+ for linux-riscv@lists.infradead.org; Tue, 13 Nov 2018 18:35:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=sirena.org.uk; s=20170815-heliosphere; h=In-Reply-To:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=OSuenFzkZBtgaOD9SE04NZNOhTdUroCJUkTcTsREdRI=; b=bCPKtJt10Xl/c+Cj9V//7CpD/
+ cZbgYJ9vw9srwwsa38ojtiIwnjLTJ5bUmn/n6+sSM5qDt8GH75lpPLLzDouhSqutvDZ9qPXVAziI3
+ k0rSG+zszLdEkmPrTrdTEjw9TZ215ITX/O3TvMPghgbWPu5On1nO/FbI5q9b97KXCvn9k=;
+Received: from [64.114.255.97] (helo=finisterre.ee.mobilebroadband)
+ by heliosphere.sirena.org.uk with esmtpsa
+ (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
+ (envelope-from <broonie@sirena.org.uk>)
+ id 1gMdXB-0002QI-MP; Tue, 13 Nov 2018 18:35:33 +0000
+Received: by finisterre.ee.mobilebroadband (Postfix, from userid 1000)
+ id 5C6B3440078; Tue, 13 Nov 2018 18:35:27 +0000 (GMT)
+Date: Tue, 13 Nov 2018 10:35:27 -0800
+From: Mark Brown <broonie@kernel.org>
+To: Emil Renner Berthing <kernel@esmil.dk>
+Subject: Re: [RFC PATCH] spi: add driver for the SiFive SPI controller
+Message-ID: <20181113183527.GG2089@sirena.org.uk>
+References: <20181112142736.15009-1-kernel@esmil.dk>
+MIME-Version: 1.0
+In-Reply-To: <20181112142736.15009-1-kernel@esmil.dk>
+X-Cookie: No Canadian coins.
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181113_092050_641488_78EB4A32 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20181113_103547_538253_E6413885 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,63 +78,159 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ linux-spi@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+ linux-riscv@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============1329573162419404625=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181113172038.4rDko9s4n11bLuKWfU4rW5cPlLx7aHkloNgoiobL7II@z>
+Message-ID: <20181113183527.1qcH7tBQCdACjkzbtqZz0CovTkSxY13pqDP939v9F3Y@z>
 
-The following changes since commit ccda4af0f4b92f7b4c308d3acc262f4a7e3affad:
 
-  Linux 4.20-rc2 (2018-11-11 17:12:31 -0600)
+--===============1329573162419404625==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="df+09Je9rNq3P+GE"
+Content-Disposition: inline
 
-are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.20-rc2
+--df+09Je9rNq3P+GE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-for you to fetch changes up to ef3a61406618291c46da168ff91acaa28d85944c:
+On Mon, Nov 12, 2018 at 03:27:36PM +0100, Emil Renner Berthing wrote:
 
-  RISC-V: Silence some module warnings on 32-bit (2018-11-12 18:12:24 -0800)
+> I know the discussions about the sifive devicetree compatible
+> strings haven't come to a conclusion, so I'm sending this as
+> an RFC to get some feedback on the rest of the code.
 
-----------------------------------------------------------------
-RISC-V Patches for 4.20-rc2
+I've not seen any of these discussions or earlier versions of this
+driver so I've no idea what's going on here :(
 
-This pull request contains a for unrelated patches that fix various
-issues in the RISC-V port:
+> +Optional properties:
+> +- sifive,fifo-depth		: Depth of hardware queues; defaults to 8
+> +- sifive,max-bits-per-word	: Maximum bits per word; defaults to 8
+> +
 
-* A patch that enables printk timestamps in the RISC-V defconfig.
-* A whitespace fix to "struct pt_regs".
-* A patch that adds a "vdso_install" target for RISC-V.
-* A pair of build fixes: one to fix a typo in our makefile, and one to
-  clean up some warnings.
+If the hardware isn't fixed yet making these enumerable from the
+hardware would be good...
 
-There will probably be more patches from us for 4.20, but I don't have
-anything that's ready to go right now so I'm going to hold off a bit.
-Right now the only concrete thing I know I want to make sure gets sorted
-out is our 32-bit stat interface, which I don't want sitting in limbo
-for another cycle as we have to get RV32I glibc sone.
+> @@ -0,0 +1,442 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * SiFive SPI controller driver (master mode only)
+> + *
 
-----------------------------------------------------------------
-Anup Patel (1):
-      RISC-V: defconfig: Enable printk timestamps
+Please make the entire comment a C++ one to make this look more
+intentinal.
 
-David Abdurachmanov (2):
-      riscv: fix spacing in struct pt_regs
-      riscv: add missing vdso_install target
+> +/* for consistency we need this symbol */
+> +#ifdef REG_FMT
+> +#undef REG_FMT
+> +#endif
 
-Olof Johansson (2):
-      RISC-V: lib: Fix build error for 64-bit
-      RISC-V: Silence some module warnings on 32-bit
+We do?  For consistency with what?
 
- arch/riscv/Makefile             |  4 ++++
- arch/riscv/configs/defconfig    |  1 +
- arch/riscv/include/asm/ptrace.h |  4 ++--
- arch/riscv/kernel/module.c      | 12 ++++++------
- arch/riscv/lib/Makefile         |  2 +-
- 5 files changed, 14 insertions(+), 9 deletions(-)
+> +static void sifive_spi_init(struct sifive_spi *spi)
+> +{
+
+> +	/* Set CS/SCK Delays and Inactive Time to defaults */
+> +
+> +	/* Exit specialized memory-mapped SPI flash mode */
+
+...or not?
+
+> +	/* Set frame format */
+> +	cr = FMT_LEN(t->bits_per_word);
+> +	switch (mode) {
+> +	case SPI_NBITS_QUAD:
+> +		cr |= FMT_PROTO_QUAD;
+> +		break;
+
+Some namespacing on the driver #defines would be a bit safer against the
+possibility of collision with future changes in headers.
+
+> +static void sifive_spi_wait(struct sifive_spi *spi, u32 bit, int poll)
+> +{
+> +	if (poll) {
+> +		u32 cr;
+> +		do cr = sifive_spi_read(spi, REG_IP);
+> +		while (!(cr & bit));
+
+Please add some braces, indentation or something to make it more clear
+that the read is part of a do/while loop - right now it's not
+immediately obvious that this is correct.
+
+> +static int sifive_spi_transfer_one(struct spi_master *master,
+> +		struct spi_device *device, struct spi_transfer *t)
+> +{
+> +	struct sifive_spi *spi = spi_master_get_devdata(master);
+> +	int poll = sifive_spi_prep_transfer(spi, device, t);
+> +
+> +	sifive_spi_execute(spi, t, poll);
+> +
+
+Why not just inline the execute function here?  It's the only caller
+AFAICT.
+
+> +static void sifive_spi_set_cs(struct spi_device *device, bool is_high)
+> +{
+> +	struct sifive_spi *spi = spi_master_get_devdata(device->master);
+> +
+> +	/* Reverse polarity is handled by SCMR/CPOL. Not inverted CS. */
+> +	if (device->mode & SPI_CS_HIGH)
+> +		is_high = !is_high;
+
+spi_set_cs() will handle CS_HIGH for you.
+
+> +	master->bits_per_word_mask = SPI_BPW_MASK(8);
+
+I thought the device supported other bits per word values?
+
+> +	/* If mmc_spi sees a dma_mask, it starts using dma mapped buffers.
+> +	 * Probably it should rely on the SPI core auto mapping instead.
+> +	 */
+> +	pdev->dev.dma_mask = NULL;
+
+If this is a problem please fix it in the MMC core, don't bodge it like
+this.
+
+> +static const struct of_device_id sifive_spi_of_match[] = {
+> +	{ .compatible = "sifive,spi0", },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, sifive_spi_of_match);
+
+spi0 is a *weird* compatible name.
+
+--df+09Je9rNq3P+GE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAlvrGW4ACgkQJNaLcl1U
+h9Afuwf/Y1cjBT6JU+ydckCZJW0OKyMIVU51jBKHs7/iW9J/d/All96iTXJxDSik
+NwWuGbuQ9J0npiReDRWdPFv86Cx+vaDJP7W4Sh5n0t65wgIsYe2/GF47guIRTaaz
+6Z1s0inTYuu50N35m8rIfstMtkPVb42BRpEYnSZV1t1eGBEl8K/tDoxgxDv6ecHv
+ohTAo3k/4Ol4XFYfcIN4rYqL83e+dg1AMfNfdPqxPSWDuKbLh5/23jrhdqmaJIsf
+gEtyDHuRoEmC2Jud3Upt7iGtbA3Ezfa11yZ+wlAG6nBnB53FjusLylyrlDlsp0om
+qX/8rsCTyN0pMK1cCu1sDzOsVfn+SA==
+=fZ/2
+-----END PGP SIGNATURE-----
+
+--df+09Je9rNq3P+GE--
+
+
+--===============1329573162419404625==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1329573162419404625==--
+
