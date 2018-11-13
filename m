@@ -1,70 +1,142 @@
-From: michaeljclark@mac.com (Michael Clark)
-Date: Tue, 13 Nov 2018 14:22:42 +1300
-Subject: [sw-dev] SBI extension proposal v2
-In-Reply-To: <CAPweEDwDApbFofs689xvPBjoqODCeMyaYQWpgo3CuqSjQjYTvw@mail.gmail.com>
-References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
- <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
- <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
- <CAPweEDz-7oRg2UWPkvTDdfi36Z4PQLAuLdL3-Sy-kmkGEJ=44A@mail.gmail.com>
- <CAP6exYKfhtgXz4nVSwXasicbE+8ZbKwp-15_xGFHfFoK9yi9-g@mail.gmail.com>
- <CAOesGMjVFGLfqVqmsK6V88cdTxmN_CAEhDey8nxKOeTYHC69jA@mail.gmail.com>
- <CAPweEDwDApbFofs689xvPBjoqODCeMyaYQWpgo3CuqSjQjYTvw@mail.gmail.com>
-Message-ID: <36B37F85-C952-4D2E-912C-B2BDA34430DA@mac.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Mon, 12 Nov 2018 17:52:20 -0800 (PST)
+Subject: [PATCH 1/2] riscv: add audit support
+In-Reply-To: <20181029104854.17432-2-david.abdurachmanov@gmail.com>
+Message-ID: <mhng-ea3feb87-2525-4cb8-be30-f73729d6a092@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
+On Mon, 29 Oct 2018 03:48:53 PDT (-0700), david.abdurachmanov at gmail.com wrote:
+> On RISC-V (riscv) audit is supported through generic lib/audit.c.
+> The patch adds required arch specific definitions.
+>
+> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
+> ---
+>  arch/riscv/Kconfig                   |  1 +
+>  arch/riscv/include/asm/ptrace.h      |  5 +++++
+>  arch/riscv/include/asm/syscall.h     | 10 ++++++++++
+>  arch/riscv/include/asm/thread_info.h |  6 ++++++
+>  arch/riscv/kernel/entry.S            |  4 ++--
+>  include/uapi/linux/audit.h           |  2 ++
+>  6 files changed, 26 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index a344980287a5..8e6d404a4ed0 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -28,6 +28,7 @@ config RISCV
+>  	select GENERIC_STRNLEN_USER
+>  	select GENERIC_SMP_IDLE_THREAD
+>  	select GENERIC_ATOMIC64 if !64BIT || !RISCV_ISA_A
+> +	select HAVE_ARCH_AUDITSYSCALL
+>  	select HAVE_MEMBLOCK
+>  	select HAVE_MEMBLOCK_NODE_MAP
+>  	select HAVE_DMA_CONTIGUOUS
+> diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
+> index 2c5df945d43c..62c5e9d35596 100644
+> --- a/arch/riscv/include/asm/ptrace.h
+> +++ b/arch/riscv/include/asm/ptrace.h
+> @@ -113,6 +113,11 @@ static inline void frame_pointer_set(struct pt_regs *regs,
+>  	SET_FP(regs, val);
+>  }
+>
+> +static inline unsigned long regs_return_value(struct pt_regs *regs)
+> +{
+> +	return regs->a0;
+> +}
+> +
+>  #endif /* __ASSEMBLY__ */
+>
+>  #endif /* _ASM_RISCV_PTRACE_H */
+> diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+> index 8d25f8904c00..bba3da6ef157 100644
+> --- a/arch/riscv/include/asm/syscall.h
+> +++ b/arch/riscv/include/asm/syscall.h
+> @@ -18,6 +18,7 @@
+>  #ifndef _ASM_RISCV_SYSCALL_H
+>  #define _ASM_RISCV_SYSCALL_H
+>
+> +#include <uapi/linux/audit.h>
+>  #include <linux/sched.h>
+>  #include <linux/err.h>
+>
+> @@ -99,4 +100,13 @@ static inline void syscall_set_arguments(struct task_struct *task,
+>  	memcpy(&regs->a1 + i * sizeof(regs->a1), args, n * sizeof(regs->a0));
+>  }
+>
+> +static inline int syscall_get_arch(void)
+> +{
+> +#ifdef CONFIG_64BIT
+> +	return AUDIT_ARCH_RISCV64;
+> +#else
+> +	return AUDIT_ARCH_RISCV32;
+> +#endif
+> +}
+> +
+>  #endif	/* _ASM_RISCV_SYSCALL_H */
+> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+> index f8fa1cd2dad9..1c9cc8389928 100644
+> --- a/arch/riscv/include/asm/thread_info.h
+> +++ b/arch/riscv/include/asm/thread_info.h
+> @@ -80,13 +80,19 @@ struct thread_info {
+>  #define TIF_RESTORE_SIGMASK	4	/* restore signal mask in do_signal() */
+>  #define TIF_MEMDIE		5	/* is terminating due to OOM killer */
+>  #define TIF_SYSCALL_TRACEPOINT  6       /* syscall tracepoint instrumentation */
+> +#define TIF_SYSCALL_AUDIT	7	/* syscall auditing */
+>
+>  #define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
+>  #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
+>  #define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
+>  #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
+> +#define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
+> +#define _TIF_SYSCALL_AUDIT	(1 << TIF_SYSCALL_AUDIT)
+>
+>  #define _TIF_WORK_MASK \
+>  	(_TIF_NOTIFY_RESUME | _TIF_SIGPENDING | _TIF_NEED_RESCHED)
+>
+> +#define _TIF_SYSCALL_WORK \
+> +	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_TRACEPOINT | _TIF_SYSCALL_AUDIT)
+> +
+>  #endif /* _ASM_RISCV_THREAD_INFO_H */
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index fa2c08e3c05e..2a6c2e7aaff3 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -202,7 +202,7 @@ handle_syscall:
+>  	REG_S s2, PT_SEPC(sp)
+>  	/* Trace syscalls, but only if requested by the user. */
+>  	REG_L t0, TASK_TI_FLAGS(tp)
+> -	andi t0, t0, _TIF_SYSCALL_TRACE
+> +	andi t0, t0, _TIF_SYSCALL_WORK
+>  	bnez t0, handle_syscall_trace_enter
+>  check_syscall_nr:
+>  	/* Check to make sure we don't jump to a bogus syscall number. */
+> @@ -222,7 +222,7 @@ ret_from_syscall:
+>  	REG_S a0, PT_A0(sp)
+>  	/* Trace syscalls, but only if requested by the user. */
+>  	REG_L t0, TASK_TI_FLAGS(tp)
+> -	andi t0, t0, _TIF_SYSCALL_TRACE
+> +	andi t0, t0, _TIF_SYSCALL_WORK
+>  	bnez t0, handle_syscall_trace_exit
+>
+>  ret_from_exception:
+> diff --git a/include/uapi/linux/audit.h b/include/uapi/linux/audit.h
+> index 818ae690ab79..d0e037a96a7b 100644
+> --- a/include/uapi/linux/audit.h
+> +++ b/include/uapi/linux/audit.h
+> @@ -399,6 +399,8 @@ enum {
+>  /* do not define AUDIT_ARCH_PPCLE since it is not supported by audit */
+>  #define AUDIT_ARCH_PPC64	(EM_PPC64|__AUDIT_ARCH_64BIT)
+>  #define AUDIT_ARCH_PPC64LE	(EM_PPC64|__AUDIT_ARCH_64BIT|__AUDIT_ARCH_LE)
+> +#define AUDIT_ARCH_RISCV32	(EM_RISCV|__AUDIT_ARCH_LE)
+> +#define AUDIT_ARCH_RISCV64	(EM_RISCV|__AUDIT_ARCH_64BIT|__AUDIT_ARCH_LE)
+>  #define AUDIT_ARCH_S390		(EM_S390)
+>  #define AUDIT_ARCH_S390X	(EM_S390|__AUDIT_ARCH_64BIT)
+>  #define AUDIT_ARCH_SH		(EM_SH)
 
+I can't seem to figure out how to dig the rest of the thread out of my inbox 
+(I'm in an airport), so I'm just replying here.
 
->> On 11/11/2018, at 6:47 AM, Luke Kenneth Casson Leighton <lkcl@lkcl.net> wrote:
->> 
->> On Sat, Nov 10, 2018 at 5:42 PM Olof Johansson <olof@lixom.net> wrote:
->> 
->> The case of console is in this case pretty simple: It's intended for
->> early boot for very simplistic environments (before the rest of the
->> kernel is up, etc). Keeping the SBI console around beyond early boot,
->> and somehow trying to optimize for it for those use cases is a
->> misdirected effort; that's what native drivers are for.
-> 
-> spike (which is only around 7,000 lines of code) doesn't have native
-> drivers, and qemu is too heavy-duty to consider adding custom
-> extensions and experimental research onto.
-
-Neither of those statements are completely true. Spike can have its hardware emulation capabilities expanded and QEMU is not unsuitable for experimental research. For example, we have been developing the CLIC interrupt controller model in QEMU.
-
-We also could port VirtIO from RISCVEMU to spike. It would be nice to add the PLIC, CLIC and an NS16550A UART to spike so we can model the RISC-V ?virt? machine that is currently in QEMU.
-
-That said, you are probably correct. A simulator like spike makes a little more sense for evolving the hardware models versus a heavy-weight fast-model emulator like QEMU.
-
-> with nothing in spike *other* than the serial console, it's the only
-> way in and out.
-
-That?s likely to change.
-
-There is bare metal code in BBL to support several console types (HTIF, SiFive UART, NS16550A). All of these except for HTIF have kernel device drivers. The main reason for the SBI console is to be used as a bring-up console before full device drivers have been developed and for simulation use-cases (running Linux in spike and HDL simulators).
-
-Spike currently relies on HTIF for console and HTIF is not appropriate as a kernel device interface. HTIF is designed for tethered simulation as it relies on a front-end finding special ELF symbols used for host <-> target communications.
-
-A polled-mode console interface is fine for debug but not appropriate for running something like pppd. Adding a tty layer (sbi_ioctl) to SBI is not a good idea. Note: an actual serial interface has several out-of-band interface to check link status and set baud rates, etc (as do the simple SBI drivers which have these details hardcoded). It?s a simple boot console.
-
-Apologies Luke, this is not directed at you, rather it is directed at SBI.
-
-I think we should seriously question any interface we add to SBI.
-
-- Making SBI a library API is an invitation for binary blobs. It should remain an ECALL interface to fill in privilege boundary virtualization gaps i.e. functions that require M-mode privileges. It can?t or shouldn?t do this if it is linked to the kernel as a library. In the case it were a library the question is why not just document the hardware interface and add a driver to the kernel. For anything else, such as for virtualization; we should minimize address space footprint for anything that is not a device. Otherwise we should spend effort on defining standard hardware interfaces such as virtualizable interrupt controllers or PMUs.
-
-- SBI shouldn?t be used as a wrapper to hide (as yet unspecified) hardware interfaces from the kernel. i.e. for example to hide a device aperture that contains configuration for both M-mode and S-mode interrupts or an interface for a function that we don?t yet have hardware for. It?s equally possible that we can make bad software interfaces.
-
-There are some points up for discussion regards HALs.
-
-There is a principle that functions that have typically been done in hardware can be simplified if certain aspects are devolved to software. This is valid.
-
-We have this with S-mode timer and software interrupts which presently are delegated by the monitor who implements the SBI interface to configure or initiate them. This is not strictly because we don?t want to expose the hardware to Linux i.e. why not just write a driver in Linux? SBI is required here because these functions were initially only able to be executed in M-mode and it would violate a privilege boundary for Linux to run their code as Linux is a Supervisor. i.e. there was no direct interface for S-mode to configure or initiate software or timer interrupts.
-
-I think the best approach is for folk to share their hardware interfaces and explore approaches that allow S-mode to operate autonomously whether M-mode exists or not. I.e. some models may require M-mode, and some models may support fully autonomous S-mode (the only M-mode function that exists is running on another core). e.g. Real-time.
-
-Of course virtualization and real-time can be combined if the M-mode core can control interrupt routing tables on behalf of the running Supervisors. We could have multiple RTOS running with Supervisors that have pre-emptable User tasks and the virtual domains never need to enter M-mode, except perhaps for power on and power off. Maybe power management is in scope. One should probably chat to Linus about what he?d like to see... possibly not an in-kernel byte-code interpreter...
-
-
-BTW Please do not swear on the list. Alex, Bruce, myself and the other posters have not written anything that warrants swearing at us. Many folk have been working away quietly in the open and the messages to the contrary are completely unfounded. Anyway this goes without saying. There is only one person swearing and shouting on this list.
-
-Luke, you are incorrigible. Whether you are a bully or not is neither here nor there. Your behaviour on this mailing list is not acceptable. Try no shouting or swearing. Many have advised this before but there has been no change.
+I've added this to next-audit, which will soon filter into for-next.  I'm not 
+sure if this is 100% settled, but I can't find any issues with it so I think 
+it's best to get this out for testing.
