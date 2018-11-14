@@ -4,104 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 749FEC43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 14 Nov 2018 18:26:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 10BBFC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 14 Nov 2018 20:53:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3787B223DD
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 14 Nov 2018 18:26:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D251D22360
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 14 Nov 2018 20:53:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oN7/0fcS";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="wjyhiqiQ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="VJ7Dm0WB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3787B223DD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rR3/Gv8m"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D251D22360
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=packi.ch
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=YFw2vuNrhAHpHIOu3TlEGspcMkERIFNPvszGmMOOHb0=; b=oN7/0fcSwWl5iixLSXpN4ElAO
-	YqhV/4nW0A/mQG2O0qCcxEIzilT/IIiAHxXa7r2FGBk65IJsi0A2ID9sar+UYG2/IoEa+3JnYHHDM
-	/OQNXUUkal0djHZ4rkscPafTq0a4IksrzHfnD8P3ldy+69TzK9DhiHRFYTWnbvkAeluMHWtuiLjQY
-	8EgVu9J6oKq4jMnq/Ukgb1QVn1s2axK2LRpQFGs1mkDEEl4f3VGjt6fmTVlP+EVQYgDwq/x0riw+h
-	dIrVeksfJn2zlpWdtvtd0s1PMc/56S0ys8zRzKcACEgn5WTPByLCRwLdVrZXJPkxJeRj1RkYEdR5O
-	yVep07myA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8pfoqDbEtQYSBmNiGOT7Oo4NoCuOUk+oYkeTJ9JaTTU=; b=rR3/Gv8mY3StM5
+	nZ7tOeih+SxL4O6ftMTBNstoVlK1e2/CkWJFViXF5JPtYweB1Ck9Ur26Ee6Iu4d9BRwUjqIG/9lIy
+	XXB42h0l8//LM6Xnsl2XURr0ExOKPVgoV34UrxQT/W6cEqH/GLIiX9JkCBGO6qDMZVPAdBSWWPtHr
+	psLcvPB9FmmRzAAHVT/63EhxD8OdcIxpFQaFdVoJvrHdOYjzGwiUeEnwXWrpyO9BBdGfr1O3B2Woj
+	xmObopfnuc1j0lDEmjcpvvlljG5IoRYPIzqSQK6Sea6bdIiLG1A9c5VA8bAPTbpLGOeDe5sxM3Onf
+	CCsQ2+6FvCrkPI2cz4EQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gMzsF-0003v8-Pe
-	for infradead-linux-riscv@archiver.kernel.org; Wed, 14 Nov 2018 18:26:47 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
+	id 1gN2AG-0005DE-31; Wed, 14 Nov 2018 20:53:32 +0000
+Received: from mail.binarylogic.ch ([2a01:4f8:222:24c1::ff02])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gMzsC-0003sj-Nr
- for linux-riscv@bombadil.infradead.org; Wed, 14 Nov 2018 18:26:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Transfer-Encoding:Content-Type:
- Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:References:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=dteW8bxQfEJqrpEosvTBzHpQTsd0xkuxcAyNNvwqN9A=; b=wjyhiqiQ32xNs2wkoVJexBttA6
- WnqQTqdKXx2N0pCuxOye5QHErlHAQhYk4BpDeZgSwKOQ9+vhO87vHAAQG6FsaR0KZy/ZIq5BAL4+v
- lpJWpP0LqVDdH8JCtqssecSpPQ+yaFIdIqD0yaWg2AxLMm4r7b/NaBUQ/42qEp9X47CzCisQbbsGI
- FF18rTBXBFrHmesGZJQ6QMRm1XVgIheMZm1NFHWq5VZRBVdNLh5W68tABbPu59gBMJoRIp4I6FRqb
- Typ5h+LHdXtvisTBCsPykp8xdKRQyKAyV5YILTDID/RjNr/7RmUP3l0s2qJEEJnek0m4itqZKpMjl
- VnLmbBkg==;
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
- by merlin.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gMzMQ-0000iX-56
- for linux-riscv@lists.infradead.org; Wed, 14 Nov 2018 17:53:55 +0000
-Received: by mail-pl1-x641.google.com with SMTP id v1-v6so992474plo.2
- for <linux-riscv@lists.infradead.org>; Wed, 14 Nov 2018 09:53:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=dteW8bxQfEJqrpEosvTBzHpQTsd0xkuxcAyNNvwqN9A=;
- b=VJ7Dm0WBXSUIqArh4bFM5A7h6n+1S5AmP77BmD1NYMcUwCW+BM2KOP8NRQ7OZVWpEN
- cDOCsGsu88sCFhzWq/bV8pe9Dq3+lUhuYuHviXaEPFY72bDZZZ4i/X4nXKss4yQhXuu9
- I2pqV1/9tKH4ARuaUV8faQO2Wh1Xij62nraaQLKQALLjb15o6hFjHv9kWenf8oaf67Ml
- hVfW9PVeL4Wt7UWh8ppa+wl/5MSEmZLROd2O5WUr/JR9JXhNu0cjQ3SdNznETZJ+kbcC
- ElmSYjj2hKkBjZCtyX3nhSsXUlJHbY7TPiQP4qh04ysMWXAvq39h5TT2nF9auOcM4Rr4
- YYpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=dteW8bxQfEJqrpEosvTBzHpQTsd0xkuxcAyNNvwqN9A=;
- b=SRKtB9zkyXHpIThtGZNUH689ySjiT16uRLeBnG/Jf/wvjwxo9dmGLnPcdJkDeDp4xc
- ALD99in9mS1hLL+1kW3xDLcEUdc61/ANrXDvrrLzlpxT3Gsf9RGN+68HL6sVv+iPciQZ
- A8fUE2SombIv5yVuFfOUUMxbuR4LVHf1hej+cHqFTpTZPKEvPW8P+/lGCQvNajknT/Mo
- bagEzlgFw2fK3LvlUqy2dDnCeDUs2ZnwM6+qeiSx4lAiQVP07Oa3295ET/bF2m/DHIO9
- Ubb6SD7spalTZ7qYNgtifTzj/DxL8bxAuQ0zd2/Koa5sn5t2ZjD+QOZpKm0Ug9atpGKo
- Ianw==
-X-Gm-Message-State: AGRZ1gLIJDIo5sAnF4oMZPiA75mNKYox0L4fMSA2vgh2tEjQvcGY6BHT
- cL34u+rlC9ld0mo1gSYz0wmIVQ==
-X-Google-Smtp-Source: AJdET5celzUP12/pL5GAD3EmRBGIAH3aK8LY+4Jqavw5aBEifoOJ78ONxwPFIOtERpwlmZ3AyYIGqg==
-X-Received: by 2002:a17:902:64:: with SMTP id
- 91-v6mr2877078pla.161.1542218018661; 
- Wed, 14 Nov 2018 09:53:38 -0800 (PST)
-Received: from localhost ([64.114.255.114])
- by smtp.gmail.com with ESMTPSA id e126-v6sm14694702pfe.67.2018.11.14.09.53.37
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 14 Nov 2018 09:53:37 -0800 (PST)
-Date: Wed, 14 Nov 2018 09:53:37 -0800 (PST)
-X-Google-Original-Date: Wed, 14 Nov 2018 08:39:22 PST (-0800)
-Subject: Re: [PATCH] Documentation/features: Refresh the features list to
- v4.20-rc2
-In-Reply-To: <20181113112507.GA14028@gmail.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: mingo@kernel.org
-Message-ID: <mhng-0a49153a-3f84-4939-98ac-4d68b7cec647@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ id 1gN2AB-0005CF-Tx
+ for linux-riscv@lists.infradead.org; Wed, 14 Nov 2018 20:53:31 +0000
+Received: from [IPv6:2001:8e0:2002:7300:94d1:5a64:c83e:664b] (unknown
+ [IPv6:2001:8e0:2002:7300:94d1:5a64:c83e:664b])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.binarylogic.ch (Postfix) with ESMTPSA id 86BD3DF386;
+ Wed, 14 Nov 2018 21:53:08 +0100 (CET)
+Subject: Re: [RFC/RFT 2/2] RISC-V: kprobes/kretprobe support
+To: Masami Hiramatsu <mhiramat@kernel.org>
+References: <20181113195804.22825-1-me@packi.ch>
+ <20181113195804.22825-3-me@packi.ch>
+ <20181114003730.06f810517a270070734df4ce@kernel.org>
+From: Patrick Staehlin <me@packi.ch>
+Openpgp: preference=signencrypt
+Autocrypt: addr=me@packi.ch; prefer-encrypt=mutual; keydata=
+ xsBNBFIh6GYBCADTiConXKy4X5gl7xi6gaNfLvvl6mZ+GVAhlVQtMgpkkO7D8+YQuBiuYAFj
+ 6btXXI5Y7hrbHkokyknGLFUcMEXCI/L2+W8ta+2iCpVv++oLzD6h0FxiabKBOTdA60upmBdr
+ MBMdG8jBfm3D4gE/2grhvLL7SmHMEtF2F4lxykwon6cdvuDBL5Jkkvv0/YROC4QIGHFIOUVP
+ GJxS1YWVi4pCVhju9fsrXh2C9GEpKVL53t3ixj7VpaogwfTKkCweb7mSKmUOHnJE6i9pvBNg
+ x77WSnefzbz4yQFl0dfcD7mCbPegWXQGs1gNaJLhxV+i+FOXMibFZfF4p9ieTYBube0VABEB
+ AAHNNFBhdHJpY2sgU3TDpGhsaW4gPHBhdHJpY2suc3RhZWhsaW5AcGlyYXRlbnBhcnRlaS5j
+ aD7CwJUEEwEKAD8CGyMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAFiEEfciCiUFtndCClBg4
+ Cw4h62a/FhMFAltQMSUFCQsPfD8ACgkQCw4h62a/FhNSfwgAn6LTgAp7Fq705uTo8YVqvLj6
+ V1Pizy4UOxfN+y7DCYIhtUz0JMEF9sVKB5CrDhmy44G5Di8FofLcggmS9sfmWwma5GtQ7zZK
+ 3s8Lq8QEkC5EQpET/TwBSf6GwWnMKG/iKm2FkG+51o9koW0Kpkb3Plc23h3YYDHZiwmGuiSI
+ 7JmrE2F+EItcshSXbjEOBpcBESsslBjRM7fQkYyuG/F02aNKN2VY9cIy5As5ITApKQqqJHdA
+ GHGZia0QUInFsc564eC9lj5jDs4p/NAE8QKOwEonLnx7g0wfLM/15ZwH68fFHoniZ6QO72TF
+ gDYru2+9ql9XEJLT3J9lI6tmMZS2Y87ATQRSIehmAQgAtymCUNjSptT9H/QssMuYl1D6D6B4
+ jDGUELVNxrpPSg3LpBd7CyXO9wckS/+t4ZH99dA0nRD4BE1qXzfuqYkAkw5HaDXBN9znTr7C
+ 2hxxlwymLnXQtaK88ZKm+cBgshCl9xXu3DuiB7UcIUvcTtNpp3JRqKmflUNK6I0vVXux0k+1
+ qbWWm/zEyYVabmlkK2X6wkWei0L2E6fSaM8Wb9D4H+m57VajD4THv3WXWi/7YvpAZPOmMnpi
+ scliuUOa0TMUvKgxLrye5XPNMtCtgW44op/DUtucWead9JhyzGLzi49JEh9KBkLM0Z+ntc/i
+ jZaCApOwPg8pDriVo3EgMsQxXQARAQABwsBlBBgBCgAPAhsMBQJZcGB7BQkJL6uVAAoJEAsO
+ IetmvxYTXWQH/24Cxzhcbq5pn8W97VAnG0yF9HUKtbWJgqScBvnF8AL62s8+u2Pw5lMvCz9Y
+ lkhol26QIdGd06ol0mXG1EwbxwHHNqFm2/v7s8E4/q0clGtXz8nJ3yzQ3HaDdfpx9MR5JnK1
+ Jc5PkhUfMi+GuRujDMt9wEf7N2mscRxQVdN4IhZ08zL9qqnHUMz8GUwnPR93Yv2cSIxszSis
+ h2LJf4JJ600pAYbW6E9tIqmMNxqndPQNuD1MlillUpXPBHjAHOkejLWUwpH2lxgNOzRaRfkB
+ DspWO6nUshnsgHtFc/15M2k++EVuuiXUQZ7wprsaHo+S754jLHVkXcjhul/psshZ7nfCwHwE
+ GAEKACYCGwwWIQR9yIKJQW2d0IKUGDgLDiHrZr8WEwUCW1AxJQUJCw98PwAKCRALDiHrZr8W
+ E+7xB/9I0MhfuJZkVy42ApQpRJljHg6bRlt8kfbj31t/9/qG5oy1DU6DtsZQjChVJUrowoxl
+ MecLhIHHkwqrX9xcz+YxZTWp5qbalZ+au1JxzjJPDIyeImx0Emg41NVzcxNrTfQD+Vu7sIG5
+ 7U8aIltJPIvg1KvAg6LA2XAM2iz4JgRKFtxPt6R5uFuwVy5AJGOKYLtBVDIMCXehQblQSwsz
+ FmlErg1xDqp2ynUvgpq67x8ushAKyOnLfb/T5CFBW0Xg2igZYx+UQAOduZfi3NQiBnOM4Yr7
+ WWVPQ5GCckYX0KxVBbxm4PgwQyPWZ9Ya6T4UKJNiXAIhDWBNV+CsOTxPFtI5
+Message-ID: <a6abc4ce-4398-5ca6-992b-efb31e01c5ca@packi.ch>
+Date: Wed, 14 Nov 2018 21:52:57 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.2.1
+MIME-Version: 1.0
+In-Reply-To: <20181114003730.06f810517a270070734df4ce@kernel.org>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181114_125354_240628_72E138FC 
-X-CRM114-Status: GOOD (  28.09  )
+X-CRM114-CacheID: sfid-20181114_125328_281432_2EE41584 
+X-CRM114-Status: GOOD (  27.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -113,667 +102,540 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: andrea.parri@amarulasolutions.com, aou@eecs.berkeley.edu,
- keescook@chromium.org, Arnd Bergmann <arnd@arndb.de>, corbet@lwn.net,
- yamada.masahiro@socionext.com, jhogan@kernel.org, linux-doc@vger.kernel.org,
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Anders Roxell <anders.roxell@linaro.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Alan Kao <alankao@andestech.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
  Will Deacon <will.deacon@arm.com>, linux-kernel@vger.kernel.org,
- david.abdurachmanov@gmail.com, dhowells@redhat.com, jcmvbkbc@gmail.com,
- rmk+kernel@armlinux.org.uk, mathieu.desnoyers@efficios.com, ren_guo@c-sky.com,
- jglisse@redhat.com, linux-riscv@lists.infradead.org
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+ Al Viro <viro@zeniv.linux.org.uk>, Souptick Joarder <jrdr.linux@gmail.com>,
+ Zong Li <zong@andestech.com>, Thomas Gleixner <tglx@linutronix.de>,
+ "Eric W. Biederman" <ebiederm@xmission.com>, linux-riscv@lists.infradead.org,
+ zhong jiang <zhongjiang@huawei.com>, Ingo Molnar <mingo@kernel.org>,
+ Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Jim Wilson <jimw@sifive.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181114175337.N4e-OQ-mZnIqUn2lFCQAnsmwfLHwWiUAcnL_Ley1YWE@z>
+Message-ID: <20181114205257.47iO0sMVM7doYiUSCeocrUipL2Z-PTXMLA50RNrNkk4@z>
 
-On Tue, 13 Nov 2018 03:25:07 PST (-0800), mingo@kernel.org wrote:
->
-> * Palmer Dabbelt <palmer@sifive.com> wrote:
->
->> I didn't even know this existed until David submitted a patch set that
->> included updates to the documentation as a result of some features he
->> added to RISC-V.  It looks like there may be a handful of other people
->> who don't know this exists either, so I figured I'd just mail out a
->> patch set containing all the updates split out as well as I can.
->>
->> This smells like something that sholud be automatic, so if I'm jumping
->> the gun here then feel free to drop this.  If nobody says anything then
->> I guess I'll submit this as a separate PR to Linus from my personal
->> tree, as it's not really a RISC-V thing but it seems like it's worth
->> having docs that match the code where it's trivial -- I assume that's
->> what this does, I didn't actually read anything but the diff because I
->> never trust documentation to be up to date...
->>
->> I feel compelled to say something like "maybe this should be part of
->> checkpatch?", but I'm definately not looking to learn perl :)
->
-> I don't think it should be automated or part of checkpatch, but I
-> (obviously) agree with the changes, except that I think it should be a
-> single patch (combined patch attached below).
-
-I'm happy with a single patch.  Does this mean you own it, or do you want me to 
-PR it?
-
-> Thanks,
->
-> 	Ingo
->
-> Subject: Documentation/features: Refresh the features list to v4.20-rc2
-> From: Palmer Dabbelt <palmer@sifive.com>
->
-> Run Documentation/features/scripts/feature-refresh.sh to refresh the
-> kernel features support matrix list:
->
->  - The new 'csky' architecture was added
->  - s390    now supports KASAN
->  - powerpc now supports stackprotector
->  - xtensa  now supports sg-chain
->  - arm64   now supports queued-spinlocks
->  - parisc  now supports kprobes-events
->  - RISC-V  now supports pte_special
->
-> [ mingo: combined the patches and the changelogs. ]
->
-> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-> Signed-off-by: Ingo Molnar <mingo@kernel.org>
-> ---
->
->  Documentation/features/core/cBPF-JIT/arch-support.txt              | 1 +
->  Documentation/features/core/eBPF-JIT/arch-support.txt              | 1 +
->  Documentation/features/core/generic-idle-thread/arch-support.txt   | 1 +
->  Documentation/features/core/jump-labels/arch-support.txt           | 1 +
->  Documentation/features/core/tracehook/arch-support.txt             | 1 +
->  Documentation/features/debug/KASAN/arch-support.txt                | 3 ++-
->  Documentation/features/debug/gcov-profile-all/arch-support.txt     | 1 +
->  Documentation/features/debug/kgdb/arch-support.txt                 | 1 +
->  Documentation/features/debug/kprobes-on-ftrace/arch-support.txt    | 1 +
->  Documentation/features/debug/kprobes/arch-support.txt              | 1 +
->  Documentation/features/debug/kretprobes/arch-support.txt           | 1 +
->  Documentation/features/debug/optprobes/arch-support.txt            | 1 +
->  Documentation/features/debug/stackprotector/arch-support.txt       | 3 ++-
->  Documentation/features/debug/uprobes/arch-support.txt              | 1 +
->  Documentation/features/debug/user-ret-profiler/arch-support.txt    | 1 +
->  Documentation/features/io/dma-contiguous/arch-support.txt          | 1 +
->  Documentation/features/io/sg-chain/arch-support.txt                | 3 ++-
->  Documentation/features/locking/cmpxchg-local/arch-support.txt      | 1 +
->  Documentation/features/locking/lockdep/arch-support.txt            | 1 +
->  Documentation/features/locking/queued-rwlocks/arch-support.txt     | 1 +
->  Documentation/features/locking/queued-spinlocks/arch-support.txt   | 3 ++-
->  Documentation/features/locking/rwsem-optimized/arch-support.txt    | 1 +
->  Documentation/features/perf/kprobes-event/arch-support.txt         | 3 ++-
->  Documentation/features/perf/perf-regs/arch-support.txt             | 1 +
->  Documentation/features/perf/perf-stackdump/arch-support.txt        | 1 +
->  Documentation/features/sched/membarrier-sync-core/arch-support.txt | 1 +
->  Documentation/features/sched/numa-balancing/arch-support.txt       | 1 +
->  Documentation/features/seccomp/seccomp-filter/arch-support.txt     | 1 +
->  Documentation/features/time/arch-tick-broadcast/arch-support.txt   | 1 +
->  Documentation/features/time/clockevents/arch-support.txt           | 1 +
->  Documentation/features/time/context-tracking/arch-support.txt      | 1 +
->  Documentation/features/time/irq-time-acct/arch-support.txt         | 1 +
->  Documentation/features/time/modern-timekeeping/arch-support.txt    | 1 +
->  Documentation/features/time/virt-cpuacct/arch-support.txt          | 1 +
->  Documentation/features/vm/ELF-ASLR/arch-support.txt                | 1 +
->  Documentation/features/vm/PG_uncached/arch-support.txt             | 1 +
->  Documentation/features/vm/THP/arch-support.txt                     | 1 +
->  Documentation/features/vm/TLB/arch-support.txt                     | 1 +
->  Documentation/features/vm/huge-vmap/arch-support.txt               | 1 +
->  Documentation/features/vm/ioremap_prot/arch-support.txt            | 1 +
->  Documentation/features/vm/numa-memblock/arch-support.txt           | 1 +
->  Documentation/features/vm/pte_special/arch-support.txt             | 3 ++-
->  42 files changed, 48 insertions(+), 6 deletions(-)
->
-> diff --git a/Documentation/features/core/cBPF-JIT/arch-support.txt b/Documentation/features/core/cBPF-JIT/arch-support.txt
-> index 90459cdde314..8620c38d4db0 100644
-> --- a/Documentation/features/core/cBPF-JIT/arch-support.txt
-> +++ b/Documentation/features/core/cBPF-JIT/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: | TODO |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/core/eBPF-JIT/arch-support.txt b/Documentation/features/core/eBPF-JIT/arch-support.txt
-> index c90a0382fe66..9ae6e8d0d10d 100644
-> --- a/Documentation/features/core/eBPF-JIT/arch-support.txt
-> +++ b/Documentation/features/core/eBPF-JIT/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/core/generic-idle-thread/arch-support.txt b/Documentation/features/core/generic-idle-thread/arch-support.txt
-> index 0ef6acdb991c..365df2c2ff0b 100644
-> --- a/Documentation/features/core/generic-idle-thread/arch-support.txt
-> +++ b/Documentation/features/core/generic-idle-thread/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: |  ok  |
->      |       h8300: | TODO |
->      |     hexagon: |  ok  |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/core/jump-labels/arch-support.txt b/Documentation/features/core/jump-labels/arch-support.txt
-> index 27cbd63abfd2..c29146c5741e 100644
-> --- a/Documentation/features/core/jump-labels/arch-support.txt
-> +++ b/Documentation/features/core/jump-labels/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/core/tracehook/arch-support.txt b/Documentation/features/core/tracehook/arch-support.txt
-> index f44c274e40ed..d344b99aae1e 100644
-> --- a/Documentation/features/core/tracehook/arch-support.txt
-> +++ b/Documentation/features/core/tracehook/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: |  ok  |
-> +    |        csky: |  ok  |
->      |       h8300: | TODO |
->      |     hexagon: |  ok  |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/debug/KASAN/arch-support.txt b/Documentation/features/debug/KASAN/arch-support.txt
-> index 282ecc8ea1da..c68adfc1db0e 100644
-> --- a/Documentation/features/debug/KASAN/arch-support.txt
-> +++ b/Documentation/features/debug/KASAN/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> @@ -23,7 +24,7 @@
->      |      parisc: | TODO |
->      |     powerpc: | TODO |
->      |       riscv: | TODO |
-> -    |        s390: | TODO |
-> +    |        s390: |  ok  |
->      |          sh: | TODO |
->      |       sparc: | TODO |
->      |          um: | TODO |
-> diff --git a/Documentation/features/debug/gcov-profile-all/arch-support.txt b/Documentation/features/debug/gcov-profile-all/arch-support.txt
-> index 01b2b3004e0a..059d58a549c7 100644
-> --- a/Documentation/features/debug/gcov-profile-all/arch-support.txt
-> +++ b/Documentation/features/debug/gcov-profile-all/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/debug/kgdb/arch-support.txt b/Documentation/features/debug/kgdb/arch-support.txt
-> index 3b4dff22329f..3e6b8f07d5d0 100644
-> --- a/Documentation/features/debug/kgdb/arch-support.txt
-> +++ b/Documentation/features/debug/kgdb/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: |  ok  |
->      |     hexagon: |  ok  |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/debug/kprobes-on-ftrace/arch-support.txt b/Documentation/features/debug/kprobes-on-ftrace/arch-support.txt
-> index 7e963d0ae646..68f266944d5f 100644
-> --- a/Documentation/features/debug/kprobes-on-ftrace/arch-support.txt
-> +++ b/Documentation/features/debug/kprobes-on-ftrace/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: | TODO |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/debug/kprobes/arch-support.txt b/Documentation/features/debug/kprobes/arch-support.txt
-> index 4ada027faf16..f4e45bd58fea 100644
-> --- a/Documentation/features/debug/kprobes/arch-support.txt
-> +++ b/Documentation/features/debug/kprobes/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/debug/kretprobes/arch-support.txt b/Documentation/features/debug/kretprobes/arch-support.txt
-> index 044e13fcca5d..1d5651ef11f8 100644
-> --- a/Documentation/features/debug/kretprobes/arch-support.txt
-> +++ b/Documentation/features/debug/kretprobes/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/debug/optprobes/arch-support.txt b/Documentation/features/debug/optprobes/arch-support.txt
-> index dce7669c918f..fb297a88f62c 100644
-> --- a/Documentation/features/debug/optprobes/arch-support.txt
-> +++ b/Documentation/features/debug/optprobes/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: | TODO |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/debug/stackprotector/arch-support.txt b/Documentation/features/debug/stackprotector/arch-support.txt
-> index 954ac1c95553..32bbdfc64c32 100644
-> --- a/Documentation/features/debug/stackprotector/arch-support.txt
-> +++ b/Documentation/features/debug/stackprotector/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> @@ -21,7 +22,7 @@
->      |       nios2: | TODO |
->      |    openrisc: | TODO |
->      |      parisc: | TODO |
-> -    |     powerpc: | TODO |
-> +    |     powerpc: |  ok  |
->      |       riscv: | TODO |
->      |        s390: | TODO |
->      |          sh: |  ok  |
-> diff --git a/Documentation/features/debug/uprobes/arch-support.txt b/Documentation/features/debug/uprobes/arch-support.txt
-> index 1a3f9d3229bf..1c577d0cfc7f 100644
-> --- a/Documentation/features/debug/uprobes/arch-support.txt
-> +++ b/Documentation/features/debug/uprobes/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/debug/user-ret-profiler/arch-support.txt b/Documentation/features/debug/user-ret-profiler/arch-support.txt
-> index 1d78d1069a5f..6bfa36b0e017 100644
-> --- a/Documentation/features/debug/user-ret-profiler/arch-support.txt
-> +++ b/Documentation/features/debug/user-ret-profiler/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: | TODO |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/io/dma-contiguous/arch-support.txt b/Documentation/features/io/dma-contiguous/arch-support.txt
-> index 30c072d2b67c..eb28b5c97ca6 100644
-> --- a/Documentation/features/io/dma-contiguous/arch-support.txt
-> +++ b/Documentation/features/io/dma-contiguous/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: |  ok  |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/io/sg-chain/arch-support.txt b/Documentation/features/io/sg-chain/arch-support.txt
-> index 6554f0372c3f..3c85efb8bc8d 100644
-> --- a/Documentation/features/io/sg-chain/arch-support.txt
-> +++ b/Documentation/features/io/sg-chain/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ok  |
-> @@ -29,5 +30,5 @@
->      |          um: | TODO |
->      |   unicore32: | TODO |
->      |         x86: |  ok  |
-> -    |      xtensa: | TODO |
-> +    |      xtensa: |  ok  |
->      -----------------------
-> diff --git a/Documentation/features/locking/cmpxchg-local/arch-support.txt b/Documentation/features/locking/cmpxchg-local/arch-support.txt
-> index 51704a2dc8d1..242ff5a6586e 100644
-> --- a/Documentation/features/locking/cmpxchg-local/arch-support.txt
-> +++ b/Documentation/features/locking/cmpxchg-local/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/locking/lockdep/arch-support.txt b/Documentation/features/locking/lockdep/arch-support.txt
-> index bd39c5edd460..941fd5b1094d 100644
-> --- a/Documentation/features/locking/lockdep/arch-support.txt
-> +++ b/Documentation/features/locking/lockdep/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: |  ok  |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/locking/queued-rwlocks/arch-support.txt b/Documentation/features/locking/queued-rwlocks/arch-support.txt
-> index da7aff3bee0b..c683da198f31 100644
-> --- a/Documentation/features/locking/queued-rwlocks/arch-support.txt
-> +++ b/Documentation/features/locking/queued-rwlocks/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: |  ok  |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/locking/queued-spinlocks/arch-support.txt b/Documentation/features/locking/queued-spinlocks/arch-support.txt
-> index 478e9101322c..743aa6691715 100644
-> --- a/Documentation/features/locking/queued-spinlocks/arch-support.txt
-> +++ b/Documentation/features/locking/queued-spinlocks/arch-support.txt
-> @@ -9,8 +9,9 @@
->      |       alpha: | TODO |
->      |         arc: | TODO |
->      |         arm: | TODO |
-> -    |       arm64: | TODO |
-> +    |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/locking/rwsem-optimized/arch-support.txt b/Documentation/features/locking/rwsem-optimized/arch-support.txt
-> index e54b1f1a8091..7521d7500fbe 100644
-> --- a/Documentation/features/locking/rwsem-optimized/arch-support.txt
-> +++ b/Documentation/features/locking/rwsem-optimized/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/perf/kprobes-event/arch-support.txt b/Documentation/features/perf/kprobes-event/arch-support.txt
-> index 7331402d1887..86ae33c70475 100644
-> --- a/Documentation/features/perf/kprobes-event/arch-support.txt
-> +++ b/Documentation/features/perf/kprobes-event/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: |  ok  |
->      |        ia64: | TODO |
-> @@ -20,7 +21,7 @@
->      |       nds32: |  ok  |
->      |       nios2: | TODO |
->      |    openrisc: | TODO |
-> -    |      parisc: | TODO |
-> +    |      parisc: |  ok  |
->      |     powerpc: |  ok  |
->      |       riscv: | TODO |
->      |        s390: |  ok  |
-> diff --git a/Documentation/features/perf/perf-regs/arch-support.txt b/Documentation/features/perf/perf-regs/arch-support.txt
-> index 53feeee6cdad..687d049d9cee 100644
-> --- a/Documentation/features/perf/perf-regs/arch-support.txt
-> +++ b/Documentation/features/perf/perf-regs/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/perf/perf-stackdump/arch-support.txt b/Documentation/features/perf/perf-stackdump/arch-support.txt
-> index 16164348e0ea..90996e3d18a8 100644
-> --- a/Documentation/features/perf/perf-stackdump/arch-support.txt
-> +++ b/Documentation/features/perf/perf-stackdump/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/sched/membarrier-sync-core/arch-support.txt b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-> index c7858dd1ea8f..8a521a622966 100644
-> --- a/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-> +++ b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-> @@ -34,6 +34,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/sched/numa-balancing/arch-support.txt b/Documentation/features/sched/numa-balancing/arch-support.txt
-> index c68bb2c2cb62..305601da4c05 100644
-> --- a/Documentation/features/sched/numa-balancing/arch-support.txt
-> +++ b/Documentation/features/sched/numa-balancing/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ..  |
->      |       arm64: |  ok  |
->      |         c6x: |  ..  |
-> +    |        csky: | TODO |
->      |       h8300: |  ..  |
->      |     hexagon: |  ..  |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/seccomp/seccomp-filter/arch-support.txt b/Documentation/features/seccomp/seccomp-filter/arch-support.txt
-> index d4271b493b41..4fe6c3c3be5c 100644
-> --- a/Documentation/features/seccomp/seccomp-filter/arch-support.txt
-> +++ b/Documentation/features/seccomp/seccomp-filter/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/time/arch-tick-broadcast/arch-support.txt b/Documentation/features/time/arch-tick-broadcast/arch-support.txt
-> index 83d9e68462bb..593536f7925b 100644
-> --- a/Documentation/features/time/arch-tick-broadcast/arch-support.txt
-> +++ b/Documentation/features/time/arch-tick-broadcast/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/time/clockevents/arch-support.txt b/Documentation/features/time/clockevents/arch-support.txt
-> index 3d4908fce6da..7a27157da408 100644
-> --- a/Documentation/features/time/clockevents/arch-support.txt
-> +++ b/Documentation/features/time/clockevents/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: |  ok  |
-> +    |        csky: |  ok  |
->      |       h8300: |  ok  |
->      |     hexagon: |  ok  |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/time/context-tracking/arch-support.txt b/Documentation/features/time/context-tracking/arch-support.txt
-> index c29974afffaa..048bfb6d3872 100644
-> --- a/Documentation/features/time/context-tracking/arch-support.txt
-> +++ b/Documentation/features/time/context-tracking/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/time/irq-time-acct/arch-support.txt b/Documentation/features/time/irq-time-acct/arch-support.txt
-> index 8d73c463ec27..a14bbad8e948 100644
-> --- a/Documentation/features/time/irq-time-acct/arch-support.txt
-> +++ b/Documentation/features/time/irq-time-acct/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ..  |
-> diff --git a/Documentation/features/time/modern-timekeeping/arch-support.txt b/Documentation/features/time/modern-timekeeping/arch-support.txt
-> index e7c6ea6b8fb3..2855dfe2464d 100644
-> --- a/Documentation/features/time/modern-timekeeping/arch-support.txt
-> +++ b/Documentation/features/time/modern-timekeeping/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: |  ok  |
->      |         c6x: |  ok  |
-> +    |        csky: |  ok  |
->      |       h8300: |  ok  |
->      |     hexagon: |  ok  |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/time/virt-cpuacct/arch-support.txt b/Documentation/features/time/virt-cpuacct/arch-support.txt
-> index 4646457461cf..fb0d0cab9cab 100644
-> --- a/Documentation/features/time/virt-cpuacct/arch-support.txt
-> +++ b/Documentation/features/time/virt-cpuacct/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/vm/ELF-ASLR/arch-support.txt b/Documentation/features/vm/ELF-ASLR/arch-support.txt
-> index 1f71d090ff2c..adc25878d217 100644
-> --- a/Documentation/features/vm/ELF-ASLR/arch-support.txt
-> +++ b/Documentation/features/vm/ELF-ASLR/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/vm/PG_uncached/arch-support.txt b/Documentation/features/vm/PG_uncached/arch-support.txt
-> index fbd5aa463b0a..f05588f9e4b4 100644
-> --- a/Documentation/features/vm/PG_uncached/arch-support.txt
-> +++ b/Documentation/features/vm/PG_uncached/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: | TODO |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/vm/THP/arch-support.txt b/Documentation/features/vm/THP/arch-support.txt
-> index 5d7ecc378f29..cf0393711cbe 100644
-> --- a/Documentation/features/vm/THP/arch-support.txt
-> +++ b/Documentation/features/vm/THP/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: |  ..  |
-> +    |        csky: | TODO |
->      |       h8300: |  ..  |
->      |     hexagon: |  ..  |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/vm/TLB/arch-support.txt b/Documentation/features/vm/TLB/arch-support.txt
-> index f7af9678eb66..2bdd3b6cee3c 100644
-> --- a/Documentation/features/vm/TLB/arch-support.txt
-> +++ b/Documentation/features/vm/TLB/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: | TODO |
->      |         c6x: |  ..  |
-> +    |        csky: | TODO |
->      |       h8300: |  ..  |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/vm/huge-vmap/arch-support.txt b/Documentation/features/vm/huge-vmap/arch-support.txt
-> index d0713ccc7117..019131c5acce 100644
-> --- a/Documentation/features/vm/huge-vmap/arch-support.txt
-> +++ b/Documentation/features/vm/huge-vmap/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/vm/ioremap_prot/arch-support.txt b/Documentation/features/vm/ioremap_prot/arch-support.txt
-> index 8527601a3739..c6f3e4d68152 100644
-> --- a/Documentation/features/vm/ioremap_prot/arch-support.txt
-> +++ b/Documentation/features/vm/ioremap_prot/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: | TODO |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/vm/numa-memblock/arch-support.txt b/Documentation/features/vm/numa-memblock/arch-support.txt
-> index 1a988052cd24..e51cb9f7d166 100644
-> --- a/Documentation/features/vm/numa-memblock/arch-support.txt
-> +++ b/Documentation/features/vm/numa-memblock/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ..  |
->      |       arm64: |  ok  |
->      |         c6x: |  ..  |
-> +    |        csky: | TODO |
->      |       h8300: |  ..  |
->      |     hexagon: |  ..  |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/vm/pte_special/arch-support.txt b/Documentation/features/vm/pte_special/arch-support.txt
-> index a8378424bc98..3d492a34c8ee 100644
-> --- a/Documentation/features/vm/pte_special/arch-support.txt
-> +++ b/Documentation/features/vm/pte_special/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> @@ -22,7 +23,7 @@
->      |    openrisc: | TODO |
->      |      parisc: | TODO |
->      |     powerpc: |  ok  |
-> -    |       riscv: | TODO |
-> +    |       riscv: |  ok  |
->      |        s390: |  ok  |
->      |          sh: |  ok  |
->      |       sparc: |  ok  |
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgTWFzYW1pLAoKdGhhbmsgeW91IGZvciB5b3VyIHJlbWFya3MuCgpPbiAxNC4xMS4xOCAwOToz
+NywgTWFzYW1pIEhpcmFtYXRzdSB3cm90ZT4KPiBUaGFuayB5b3UgdmVyeSBtdWNoIGZvciBpbXBs
+ZW1lbnRpbmcga3Byb2JlcyBvbiBSSVNDLVYgOikKPiAKPiBPbiBUdWUsIDEzIE5vdiAyMDE4IDIw
+OjU4OjA0ICswMTAwCj4gUGF0cmljayBTdMOkaGxpbiA8bWVAcGFja2kuY2g+IHdyb3RlOgo+IAo+
+PiBGaXJzdCBpbXBsZW1lbnRhdGlvbiwgYWRhcHRlZCBmcm9tIGFybTY0LiBUaGUgQy5BRERJU1Ax
+NiBpbnN0cnVjdGlvbgo+PiBnZXRzIHNpbXVsYXRlZCBhbmQgdGhlIGtwcm9iZXMtaGFuZGxlciBj
+YWxsZWQgYnkgaW5zZXJ0aW5nIGEgQy5FQlJFQUsKPj4gaW5zdHJ1Y3Rpb24uCj4+Cj4+IEMuQURE
+SVNQMTYgd2FzIGNob3NlbiBhcyBpdCBzZXRzLXVwIHRoZSBzdGFjayBmcmFtZSBmb3IgZnVuY3Rp
+b25zLgo+PiBTb21lIHdvcmsgaGFzIGJlZW4gZG9uZSB0byBzdXBwb3J0IHByb2JlcyBvbiBub24t
+Y29tcHJlc3NlZAo+PiBpbnN0cnVjdGlvbnMgYnV0IHRoZXJlIGlzIG5vIHN1cHBvcnQgeWV0IGZv
+ciBkZWNvZGluZyB0aG9zZS4KPiAKPiBEb2VzIHRoaXMgb25seSBzdXBwb3J0IEMuQURESVNQMTY/
+IE5vIG90aGVyIGluc25zIGFyZSBzdXBwb3J0ZWQ/Cj4gU3VwcG9ydGluZyAxIGluc24gaXMgdG9v
+IGZldyBJIHRoaW5rLgoKQXQgdGhlIG1vbWVudCwgeWVzLiBJJ20gd2FpdGluZyBmb3Igc29tZSBp
+bnB1dCBmcm9tIHNvbWVib2R5IHdpdGggZGVlcGVyCmluc2lnaHRzIGludG8gdGhlIFJJU0MtViBh
+cmNoaXRlY3R1cmUgdGhhbiBtZSBiZWZvcmUgaW1wbGVtZW50aW5nIG1vcmUKaW5zdHJ1Y3Rpb25z
+LCBzaG91bGQgc29sdXRpb24gSSd2ZSBjaG9zZW4gYmUgd29lZnVsbHkgaW5hZGVxdWF0ZS4KCj4g
+Q2FuIFJJU0MtViBkbyBzaW5nbGUgc3RlcHBpbmc/IElmIG5vdCwgd2UgbmVlZCB0byBwcmVwYXJl
+IGVtdWxhdG9yCj4gYXMgbWF0Y2ggYXMgcG9zc2libGUsIG9yIGZvciBBTFUgaW5zdHJ1Y3Rpb25z
+LCB3ZSBjYW4gcnVuIGl0IG9uCj4gYnVmZmVyIGFuZCBob29rIGl0LgoKVGhlIGRlYnVnLXNwZWNp
+ZmljYXRpb24gaXMgc3RpbGwgYSBkcmFmdCBidXQgdGhlcmUgYXJlIHNvbWUgc29mdGNvcmVzCnRo
+YXQgaW1wbGVtZW50IGl0LiBCdXQgZXZlbiBpZiBpdCB3YXMgZmluYWxpemVkIEkgZG9uJ3QgdGhp
+bmsgdGhpcyB3aWxsCmJlIG1hZGUgYSBtYW5kYXRvcnkgZXh0ZW5zaW9uIHNvIHdlIG5lZWQgdG8g
+c2ltdWxhdGUvZW11bGF0ZSBhIGdvb2QgcGFydApvZiB0aGUgaW5zdHJ1Y3Rpb24gc2V0IGFueXdh
+eS4KCj4+IFRoZSB3YXkgZm9yd2FyZCBzaG91bGQgYmUgdG8gdW5jb21wcmVzcyB0aGUgaW5zdHJ1
+Y3Rpb25zIGZvciBzaW11bGF0aW9uCj4+IHRvIHJlZHVjZSB0aGUgbnVtYmVyIG9mIGluc3RydWN0
+aW9ucyB1c2VkIHRvIGRlY29kZSAgdGhlIGltbWVkaWF0ZQo+PiB2YWx1ZXMgb24gcHJvYmUgaGl0
+Lgo+IAo+IEkgaGF2ZSBzb21lIGNvbW1lbnRzIG9uIHRoZSBwYXRjaCwgcGxlYXNlIHJldmlldy4K
+PiAKPj4KPj4gU2lnbmVkLW9mZi1ieTogUGF0cmljayBTdMOkaGxpbiA8bWVAcGFja2kuY2g+Cj4+
+IC0tLQo+PiAgYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwg
+ICA1ICstCj4+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaCAgICAgICAgICAgICAg
+fCAgMzAgKysKPj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvYmVzLmggICAgICAgICAgICAg
+ICB8ICAyNiArKwo+PiAgYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUgICAgICAgICAgICAgICAg
+ICAgIHwgICAxICsKPj4gIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9NYWtlZmlsZSAgICAgICAg
+ICAgICB8ICAgMyArCj4+ICBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvZGVjb2RlLWluc24uYyAg
+ICAgICAgfCAgMzggKysKPj4gIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9kZWNvZGUtaW5zbi5o
+ICAgICAgICB8ICAyMyArCj4+ICBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jICAg
+ICAgICAgICAgfCA0MDEgKysrKysrKysrKysrKysrKysrCj4+ICBhcmNoL3Jpc2N2L2tlcm5lbC9w
+cm9iZXMva3Byb2Jlc190cmFtcG9saW5lLlMgfCAgOTEgKysrKwo+PiAgYXJjaC9yaXNjdi9rZXJu
+ZWwvcHJvYmVzL3NpbXVsYXRlLWluc24uYyAgICAgIHwgIDMzICsrCj4+ICBhcmNoL3Jpc2N2L2tl
+cm5lbC9wcm9iZXMvc2ltdWxhdGUtaW5zbi5oICAgICAgfCAgIDggKwo+PiAgYXJjaC9yaXNjdi9r
+ZXJuZWwvdHJhcHMuYyAgICAgICAgICAgICAgICAgICAgIHwgIDEzICstCj4+ICBhcmNoL3Jpc2N2
+L21tL2ZhdWx0LmMgICAgICAgICAgICAgICAgICAgICAgICAgfCAgMjggKy0KPj4gIDEzIGZpbGVz
+IGNoYW5nZWQsIDY5NCBpbnNlcnRpb25zKCspLCA2IGRlbGV0aW9ucygtKQo+PiAgY3JlYXRlIG1v
+ZGUgMTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvYmVzLmgKPj4gIGNyZWF0ZSBtb2Rl
+IDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvTWFrZWZpbGUKPj4gIGNyZWF0ZSBtb2Rl
+IDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvZGVjb2RlLWluc24uYwo+PiAgY3JlYXRl
+IG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9kZWNvZGUtaW5zbi5oCj4+ICBj
+cmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYwo+PiAg
+Y3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVzX3RyYW1w
+b2xpbmUuUwo+PiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9z
+aW11bGF0ZS1pbnNuLmMKPj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9w
+cm9iZXMvc2ltdWxhdGUtaW5zbi5oCj4+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25m
+aWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gaW5kZXggYjE1N2FjODJkNDg2Li4xMWVmNDAzMGU4
+ZjIgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+PiArKysgYi9hcmNoL3Jpc2N2
+L0tjb25maWcKPj4gQEAgLTQ0LDYgKzQ0LDggQEAgY29uZmlnIFJJU0NWCj4+ICAJc2VsZWN0IEdF
+TkVSSUNfSVJRX01VTFRJX0hBTkRMRVIKPj4gIAlzZWxlY3QgQVJDSF9IQVNfUFRFX1NQRUNJQUwK
+Pj4gIAlzZWxlY3QgSEFWRV9SRUdTX0FORF9TVEFDS19BQ0NFU1NfQVBJCj4+ICsJc2VsZWN0IEhB
+VkVfS1BST0JFUwo+PiArCXNlbGVjdCBIQVZFX0tSRVRQUk9CRVMKPj4gIAo+PiAgY29uZmlnIE1N
+VQo+PiAgCWRlZl9ib29sIHkKPj4gQEAgLTg5LDkgKzkxLDYgQEAgY29uZmlnIFBHVEFCTEVfTEVW
+RUxTCj4+ICAJZGVmYXVsdCAzIGlmIDY0QklUCj4+ICAJZGVmYXVsdCAyCj4+ICAKPj4gLWNvbmZp
+ZyBIQVZFX0tQUk9CRVMKPj4gLQlkZWZfYm9vbCBuCj4+IC0KPj4gIG1lbnUgIlBsYXRmb3JtIHR5
+cGUiCj4+ICAKPj4gIGNob2ljZQo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9rcHJvYmVzLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaAo+PiBpbmRleCBj
+N2ViMDEwZDE1MjguLjY1N2FkY2QzNWEzZCAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS9rcHJvYmVzLmgKPj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rcHJvYmVz
+LmgKPj4gQEAgLTE5LDQgKzE5LDM0IEBACj4+ICAKPj4gICNpbmNsdWRlIDxhc20tZ2VuZXJpYy9r
+cHJvYmVzLmg+Cj4+ICAKPj4gKyNpZmRlZiBDT05GSUdfS1BST0JFUwo+PiArI2luY2x1ZGUgPGxp
+bnV4L3R5cGVzLmg+Cj4+ICsjaW5jbHVkZSA8bGludXgvcHRyYWNlLmg+Cj4+ICsjaW5jbHVkZSA8
+bGludXgvcGVyY3B1Lmg+Cj4+ICsKPj4gKyNkZWZpbmUgZmx1c2hfaW5zbl9zbG90KHApCQlkbyB7
+IH0gd2hpbGUgKDApCj4+ICsjZGVmaW5lIGtyZXRwcm9iZV9ibGFja2xpc3Rfc2l6ZQkwCj4+ICsK
+Pj4gKyNpbmNsdWRlIDxhc20vcHJvYmVzLmg+Cj4+ICsKPj4gK3N0cnVjdCBwcmV2X2twcm9iZSB7
+Cj4+ICsJc3RydWN0IGtwcm9iZSAqa3A7Cj4+ICsJdW5zaWduZWQgaW50IHN0YXR1czsKPj4gK307
+Cj4+ICsKPj4gKy8qIHBlci1jcHUga3Byb2JlIGNvbnRyb2wgYmxvY2sgKi8KPj4gK3N0cnVjdCBr
+cHJvYmVfY3RsYmxrIHsKPj4gKwl1bnNpZ25lZCBpbnQga3Byb2JlX3N0YXR1czsKPj4gKwlzdHJ1
+Y3QgcHJldl9rcHJvYmUgcHJldl9rcHJvYmU7Cj4+ICt9Owo+PiArCj4+ICt2b2lkIGFyY2hfcmVt
+b3ZlX2twcm9iZShzdHJ1Y3Qga3Byb2JlICpwKTsKPj4gK2ludCBrcHJvYmVfZmF1bHRfaGFuZGxl
+cihzdHJ1Y3QgcHRfcmVncyAqcmVncywgdW5zaWduZWQgaW50IGNhdXNlKTsKPj4gK2ludCBrcHJv
+YmVfZXhjZXB0aW9uc19ub3RpZnkoc3RydWN0IG5vdGlmaWVyX2Jsb2NrICpzZWxmLAo+PiArCQkJ
+ICAgICB1bnNpZ25lZCBsb25nIHZhbCwgdm9pZCAqZGF0YSk7Cj4+ICtpbnQga3Byb2JlX2JyZWFr
+cG9pbnRfaGFuZGxlcihzdHJ1Y3QgcHRfcmVncyAqcmVncyk7Cj4+ICt2b2lkIGtyZXRwcm9iZV90
+cmFtcG9saW5lKHZvaWQpOwo+PiArdm9pZCBfX2twcm9iZXMgKnRyYW1wb2xpbmVfcHJvYmVfaGFu
+ZGxlcihzdHJ1Y3QgcHRfcmVncyAqcmVncyk7Cj4+ICsKPj4gKyNlbmRpZiAvKiBDT05GSUdfS1BS
+T0JFUyAqLwo+PiAgI2VuZGlmIC8qIF9SSVNDVl9LUFJPQkVTX0ggKi8KPj4gZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvYmVzLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L3Byb2Jlcy5oCj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4+IGluZGV4IDAwMDAwMDAwMDAwMC4u
+NjRjZjEyNTY3NTM5Cj4+IC0tLSAvZGV2L251bGwKPj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9wcm9iZXMuaAo+PiBAQCAtMCwwICsxLDI2IEBACj4+ICsvKiBTUERYLUxpY2Vuc2UtSWRl
+bnRpZmllcjogR1BMLTIuMCAqLwo+PiArLyoKPj4gKyAqIEJhc2VkIG9uIGFyY2gvYXJtNjQvaW5j
+bHVkZS9hc20vcHJvYmVzLmgKPj4gKyAqCj4+ICsgKiBDb3B5cmlnaHQgKEMpIDIwMTMgTGluYXJv
+IExpbWl0ZWQKPj4gKyAqLwo+PiArI2lmbmRlZiBfUklTQ1ZfUFJPQkVTX0gKPj4gKyNkZWZpbmUg
+X1JJU0NWX1BST0JFU19ICj4+ICsKPj4gK3R5cGVkZWYgdTMyIHByb2JlX29wY29kZV90Owo+PiAr
+dHlwZWRlZiB2b2lkIChwcm9iZXNfaGFuZGxlcl90KSAodTMyIG9wY29kZSwgbG9uZyBhZGRyLCBz
+dHJ1Y3QgcHRfcmVncyAqKTsKPj4gKwo+PiArLyogYXJjaGl0ZWN0dXJlIHNwZWNpZmljIGNvcHkg
+b2Ygb3JpZ2luYWwgaW5zdHJ1Y3Rpb24gKi8KPj4gK3N0cnVjdCBhcmNoX3Byb2JlX2luc24gewo+
+PiArCXByb2Jlc19oYW5kbGVyX3QgKmhhbmRsZXI7Cj4+ICsJLyogcmVzdG9yZSBhZGRyZXNzIGFm
+dGVyIHNpbXVsYXRpb24gKi8KPj4gKwl1bnNpZ25lZCBsb25nIHJlc3RvcmU7Cj4+ICt9Owo+PiAr
+I2lmZGVmIENPTkZJR19LUFJPQkVTCj4+ICt0eXBlZGVmIHUzMiBrcHJvYmVfb3Bjb2RlX3Q7Cj4+
+ICtzdHJ1Y3QgYXJjaF9zcGVjaWZpY19pbnNuIHsKPj4gKwlzdHJ1Y3QgYXJjaF9wcm9iZV9pbnNu
+IGFwaTsKPj4gK307Cj4+ICsjZW5kaWYKPiAKPiBBcmUgdGhlcmUgYW55IHJlYXNvbiBvZiBwdXR0
+aW5nIHRoaXMga3Byb2JlcyBkZWRpY2F0ZWQgZGF0YSBzdHJ1Y3R1cmUgaGVyZT8KCk5vLCB0aGlz
+IGlzIGZyb20gdGhlIGFybTY0IGltcGxlbWVudGF0aW9uIGFzIHRoZXkgc2hhcmUgdGhlIGluc3Ry
+dWN0aW9uCmRlY29kaW5nIHdpdGggdXByb2Jlcy4gRm9yZ290IHRvIGNsZWFuIHRoYXQgdXAuCgo+
+IAo+PiArCj4+ICsjZW5kaWYgLyogX1JJU0NWX1BST0JFU19IICovCj4+IGRpZmYgLS1naXQgYS9h
+cmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZSBiL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlCj4+
+IGluZGV4IGYxM2Y3ZjI3NjYzOS4uNTM2MGE0NDViOWQzIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jp
+c2N2L2tlcm5lbC9NYWtlZmlsZQo+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQo+
+PiBAQCAtMjgsNiArMjgsNyBAQCBvYmoteQkrPSBzdGFja3RyYWNlLm8KPj4gIG9iai15CSs9IHZk
+c28ubwo+PiAgb2JqLXkJKz0gY2FjaGVpbmZvLm8KPj4gIG9iai15CSs9IHZkc28vCj4+ICtvYmot
+eQkrPSBwcm9iZXMvCj4+ICAKPj4gIENGTEFHU19zZXR1cC5vIDo9IC1tY21vZGVsPW1lZGFueQo+
+PiAgCj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvTWFrZWZpbGUgYi9h
+cmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvTWFrZWZpbGUKPj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQK
+Pj4gaW5kZXggMDAwMDAwMDAwMDAwLi4xNDRkMWMxNzQzZmIKPj4gLS0tIC9kZXYvbnVsbAo+PiAr
+KysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvTWFrZWZpbGUKPj4gQEAgLTAsMCArMSwzIEBA
+Cj4+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wCj4+ICtvYmotJChDT05GSUdf
+S1BST0JFUykJCSs9IGtwcm9iZXMubyBrcHJvYmVzX3RyYW1wb2xpbmUubyBcCj4+ICsJCQkJICAg
+ZGVjb2RlLWluc24ubyBzaW11bGF0ZS1pbnNuLm8KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+a2VybmVsL3Byb2Jlcy9kZWNvZGUtaW5zbi5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2Rl
+Y29kZS1pbnNuLmMKPj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPj4gaW5kZXggMDAwMDAwMDAwMDAw
+Li4yZDhmNDZmNGMyZTcKPj4gLS0tIC9kZXYvbnVsbAo+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5l
+bC9wcm9iZXMvZGVjb2RlLWluc24uYwo+PiBAQCAtMCwwICsxLDM4IEBACj4+ICsvLyBTUERYLUxp
+Y2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCsKPj4gKwo+PiArI2luY2x1ZGUgPGxpbnV4L2tlcm5l
+bC5oPgo+PiArI2luY2x1ZGUgPGxpbnV4L2twcm9iZXMuaD4KPj4gKyNpbmNsdWRlIDxsaW51eC9t
+b2R1bGUuaD4KPj4gKyNpbmNsdWRlIDxsaW51eC9rYWxsc3ltcy5oPgo+PiArI2luY2x1ZGUgPGFz
+bS9zZWN0aW9ucy5oPgo+PiArCj4+ICsjaW5jbHVkZSAiZGVjb2RlLWluc24uaCIKPj4gKyNpbmNs
+dWRlICJzaW11bGF0ZS1pbnNuLmgiCj4+ICsKPj4gKyNkZWZpbmUgQ19BRERJU1AxNl9NQVNLIDB4
+NkY4Mwo+PiArI2RlZmluZSBDX0FERElTUDE2X1ZBTCAgMHg2MTAxCj4+ICsKPj4gKy8qIFJldHVy
+bjoKPj4gKyAqICAgSU5TTl9SRUpFQ1RFRCAgICAgSWYgaW5zdHJ1Y3Rpb24gaXMgb25lIG5vdCBh
+bGxvd2VkIHRvIGtwcm9iZSwKPj4gKyAqICAgSU5TTl9HT09EX05PX1NMT1QgSWYgaW5zdHJ1Y3Rp
+b24gaXMgc3VwcG9ydGVkIGJ1dCBkb2Vzbid0IHVzZSBpdHMgc2xvdC4KPj4gKyAqLwo+PiArZW51
+bSBwcm9iZV9pbnNuIF9fa3Byb2Jlcwo+PiArcmlzY3ZfcHJvYmVfZGVjb2RlX2luc24oa3Byb2Jl
+X29wY29kZV90ICphZGRyLCBzdHJ1Y3QgYXJjaF9wcm9iZV9pbnNuICphcGkpCj4gCj4gUGxlYXNl
+IGRvbid0IHVzZSBfX2twcm9iZXMgYW55bW9yZS4gVGhhdCBpcyBvbGQgc3RseWUsIGluc3RlYWQs
+IHBsZWFzZQo+IHVzZSBOT0tQUk9CRV9TWU1CT0woKSBvciBub2twcm9iZV9pbmxpbmUgZm9yIHN0
+YXRpYy1pbmxpbmUgZnVuY3Rpb24uCj4gKE5PS1BST0JFX1NZTUJPTCgpIHdpbGwgbWFrZSB0aGUg
+c3ltYm9sIG5vbi1pbmxpbmUgYWx3YXlzKQoKT0ssIHNob3VsZCBJIG1ha2UgYSBub3RlIHRvIGNo
+YW5nZSB0aGF0IGluIHRoZSBhcm02NCBwb3J0IGFzIHdlbGwgaW4gYQpzZXBhcmF0ZSBwYXRjaD8K
+Cj4gCj4+ICt7Cj4+ICsJcHJvYmVfb3Bjb2RlX3QgaW5zbiA9IGxlMzJfdG9fY3B1KCphZGRyKTsK
+Pj4gKwo+PiArCWlmICghaXNfY29tcHJlc3NlZF9pbnNuKGluc24pKSB7Cj4+ICsJCXByX3dhcm4o
+IkNhbid0IGhhbmRsZSBub24tY29tcHJlc3NlZCBpbnN0cnVjdGlvbiAleFxuIiwgaW5zbik7Cj4+
+ICsJCXJldHVybiBJTlNOX1JFSkVDVEVEOwo+PiArCX0KPj4gKwo+PiArCS8qIGMuYWRkaXNwMTYg
+aW1tICovCj4+ICsJaWYgKChpbnNuICYgQ19BRERJU1AxNl9NQVNLKSA9PSBDX0FERElTUDE2X1ZB
+TCkgewo+PiArCQlhcGktPmhhbmRsZXIgPSBzaW11bGF0ZV9jYWRkaXNwMTY7Cj4+ICsJfSBlbHNl
+IHsKPj4gKwkJcHJfd2FybigiUmVqZWN0ZWQgdW5rbm93biBpbnN0cnVjdGlvbiAleFxuIiwgaW5z
+bik7Cj4+ICsJCXJldHVybiBJTlNOX1JFSkVDVEVEOwo+PiArCX0KPj4gKwo+PiArCXJldHVybiBJ
+TlNOX0dPT0RfTk9fU0xPVDsKPj4gK30KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVs
+L3Byb2Jlcy9kZWNvZGUtaW5zbi5oIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2RlY29kZS1p
+bnNuLmgKPj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPj4gaW5kZXggMDAwMDAwMDAwMDAwLi4wMDUz
+ZWQ2YTMwOGEKPj4gLS0tIC9kZXYvbnVsbAo+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9i
+ZXMvZGVjb2RlLWluc24uaAo+PiBAQCAtMCwwICsxLDIzIEBACj4+ICsvKiBTUERYLUxpY2Vuc2Ut
+SWRlbnRpZmllcjogR1BMLTIuMCsgKi8KPj4gKyNpZm5kZWYgX1JJU0NWX0tFUk5FTF9LUFJPQkVT
+X0RFQ09ERV9JTlNOX0gKPj4gKyNkZWZpbmUgX1JJU0NWX0tFUk5FTF9LUFJPQkVTX0RFQ09ERV9J
+TlNOX0gKPj4gKwo+PiArI2luY2x1ZGUgPGFzbS9zZWN0aW9ucy5oPgo+PiArI2luY2x1ZGUgPGFz
+bS9rcHJvYmVzLmg+Cj4+ICsKPj4gK2VudW0gcHJvYmVfaW5zbiB7Cj4+ICsJSU5TTl9SRUpFQ1RF
+RCwKPj4gKwlJTlNOX0dPT0RfTk9fU0xPVCwKPj4gK307Cj4+ICsKPj4gKy8qCj4+ICsgKiBDb21w
+cmVzc2VkIGluc3RydWN0aW9uIGZvcm1hdDoKPj4gKyAqIHh4eHh4eHh4eHh4eHh4YWEgd2hlcmUg
+YWEgIT0gMTEKPj4gKyAqLwo+PiArI2RlZmluZSBpc19jb21wcmVzc2VkX2luc24oaW5zbikgKChp
+bnNuICYgMHgzKSAhPSAweDMpCj4+ICsKPj4gKyNpZmRlZiBDT05GSUdfS1BST0JFUwo+PiArZW51
+bSBwcm9iZV9pbnNuIF9fa3Byb2Jlcwo+PiArcmlzY3ZfcHJvYmVfZGVjb2RlX2luc24oa3Byb2Jl
+X29wY29kZV90ICphZGRyLCBzdHJ1Y3QgYXJjaF9wcm9iZV9pbnNuICphc2kpOwo+PiArI2VuZGlm
+Cj4+ICsjZW5kaWYgLyogX1JJU0NWX0tFUk5FTF9LUFJPQkVTX0RFQ09ERV9JTlNOX0ggKi8KPj4g
+ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVzLmMgYi9hcmNoL3Jp
+c2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jCj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4+IGlu
+ZGV4IDAwMDAwMDAwMDAwMC4uM2M3YjVjZjcyZWUxCj4+IC0tLSAvZGV2L251bGwKPj4gKysrIGIv
+YXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYwo+PiBAQCAtMCwwICsxLDQwMSBAQAo+
+PiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjArCj4+ICsKPj4gKy8qCj4+ICsg
+KiBLcHJvYmVzIHN1cHBvcnQgZm9yIFJJU0MtVgo+PiArICoKPj4gKyAqIEF1dGhvcjogUGF0cmlj
+ayBTdMOkaGxpbiA8bWVAcGFja2kuY2g+Cj4+ICsgKi8KPj4gKyNpbmNsdWRlIDxsaW51eC9rcHJv
+YmVzLmg+Cj4+ICsjaW5jbHVkZSA8bGludXgvZXh0YWJsZS5oPgo+PiArI2luY2x1ZGUgPGxpbnV4
+L3NsYWIuaD4KPj4gKyNpbmNsdWRlIDxhc20vcHRyYWNlLmg+Cj4+ICsjaW5jbHVkZSA8bGludXgv
+dWFjY2Vzcy5oPgo+PiArI2luY2x1ZGUgPGFzbS9zZWN0aW9ucy5oPgo+PiArCj4+ICsjaW5jbHVk
+ZSAiZGVjb2RlLWluc24uaCIKPj4gKwo+PiArREVGSU5FX1BFUl9DUFUoc3RydWN0IGtwcm9iZSAq
+LCBjdXJyZW50X2twcm9iZSkgPSBOVUxMOwo+PiArREVGSU5FX1BFUl9DUFUoc3RydWN0IGtwcm9i
+ZV9jdGxibGssIGtwcm9iZV9jdGxibGspOwo+PiArCj4+ICtzdGF0aWMgdm9pZCBfX2twcm9iZXMK
+Pj4gK3Bvc3Rfa3Byb2JlX2hhbmRsZXIoc3RydWN0IGtwcm9iZV9jdGxibGsgKiwgc3RydWN0IHB0
+X3JlZ3MgKik7Cj4+ICsKPj4gK3N0YXRpYyBpbnQgX19rcHJvYmVzIHBhdGNoX3RleHQoa3Byb2Jl
+X29wY29kZV90ICphZGRyLCB1MzIgb3Bjb2RlKQo+PiArewo+PiArCWlmIChpc19jb21wcmVzc2Vk
+X2luc24ob3Bjb2RlKSkKPj4gKwkJKih1MTYgKilhZGRyID0gY3B1X3RvX2xlMTYob3Bjb2RlKTsK
+Pj4gKwllbHNlCj4+ICsJCSphZGRyID0gY3B1X3RvX2xlMzIob3Bjb2RlKTsKPj4gKwo+PiArCXJl
+dHVybiAwOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgdm9pZCBfX2twcm9iZXMgYXJjaF9wcmVwYXJl
+X3NpbXVsYXRlKHN0cnVjdCBrcHJvYmUgKnApCj4+ICt7Cj4+ICsJdW5zaWduZWQgbG9uZyBvZmZz
+ZXQgPSBpc19jb21wcmVzc2VkX2luc24ocC0+b3Bjb2RlKSA/IDIgOiA0Owo+PiArCj4+ICsJcC0+
+YWluc24uYXBpLnJlc3RvcmUgPSAodW5zaWduZWQgbG9uZylwLT5hZGRyICsgb2Zmc2V0Owo+PiAr
+fQo+PiArCj4+ICtzdGF0aWMgdm9pZCBfX2twcm9iZXMgYXJjaF9zaW11bGF0ZV9pbnNuKHN0cnVj
+dCBrcHJvYmUgKnAsIHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+PiArewo+PiArCXN0cnVjdCBrcHJv
+YmVfY3RsYmxrICprY2IgPSBnZXRfa3Byb2JlX2N0bGJsaygpOwo+PiArCj4+ICsJaWYgKHAtPmFp
+bnNuLmFwaS5oYW5kbGVyKQo+PiArCQlwLT5haW5zbi5hcGkuaGFuZGxlcigodTMyKXAtPm9wY29k
+ZSwgKGxvbmcpcC0+YWRkciwgcmVncyk7Cj4gCj4gaXQgc2VlbXMgYXBpLmhhbmRsZXIgbXVzdCBi
+ZSBoZXJlLCAKCnRydWUKCj4gCj4+ICsKPj4gKwkvKiBzaW5nbGUgaW5zdHJ1Y3Rpb24gc2ltdWxh
+dGVkLCBub3cgZ28gZm9yIHBvc3QgcHJvY2Vzc2luZyAqLwo+PiArCXBvc3Rfa3Byb2JlX2hhbmRs
+ZXIoa2NiLCByZWdzKTsKPj4gK30KPj4gKwo+PiAraW50IF9fa3Byb2JlcyBhcmNoX3ByZXBhcmVf
+a3Byb2JlKHN0cnVjdCBrcHJvYmUgKnApCj4+ICt7Cj4+ICsJdW5zaWduZWQgbG9uZyBwcm9iZV9h
+ZGRyID0gKHVuc2lnbmVkIGxvbmcpcC0+YWRkcjsKPj4gKwlleHRlcm4gY2hhciBfX3N0YXJ0X3Jv
+ZGF0YVtdOwo+PiArCWV4dGVybiBjaGFyIF9fZW5kX3JvZGF0YVtdOwo+PiArCj4+ICsJaWYgKHBy
+b2JlX2FkZHIgJiAweDEpIHsKPj4gKwkJcHJfd2FybigiQWRkcmVzcyBub3QgYWxpZ25lZC5cbiIp
+Owo+PiArCQlyZXR1cm4gLUVJTlZBTDsKPj4gKwl9Cj4+ICsKPj4gKwkvKiBjb3B5IGluc3RydWN0
+aW9uICovCj4+ICsJcC0+b3Bjb2RlID0gbGUzMl90b19jcHUoKnAtPmFkZHIpOwo+PiArCj4+ICsJ
+aWYgKHByb2JlX2FkZHIgPj0gKHVuc2lnbmVkIGxvbmcpIF9fc3RhcnRfcm9kYXRhICYmCj4+ICsJ
+ICAgIHByb2JlX2FkZHIgPD0gKHVuc2lnbmVkIGxvbmcpIF9fZW5kX3JvZGF0YSkgewo+PiArCQly
+ZXR1cm4gLUVJTlZBTDsKPj4gKwl9Cj4+ICsKPj4gKwkvKiBkZWNvZGUgaW5zdHJ1Y3Rpb24gKi8K
+Pj4gKwlzd2l0Y2ggKHJpc2N2X3Byb2JlX2RlY29kZV9pbnNuKHAtPmFkZHIsICZwLT5haW5zbi5h
+cGkpKSB7Cj4+ICsJY2FzZSBJTlNOX1JFSkVDVEVEOgkvKiBpbnNuIG5vdCBzdXBwb3J0ZWQgKi8K
+Pj4gKwkJcmV0dXJuIC1FSU5WQUw7Cj4+ICsKPj4gKwljYXNlIElOU05fR09PRF9OT19TTE9UOgkv
+KiBpbnNuIG5lZWRzIHNpbXVsYXRpb24gKi8KPj4gKwkJYnJlYWs7Cj4+ICsJfQo+PiArCj4+ICsJ
+YXJjaF9wcmVwYXJlX3NpbXVsYXRlKHApOwo+PiArCj4+ICsJcmV0dXJuIDA7Cj4+ICt9Cj4+ICsK
+Pj4gKyNkZWZpbmUgQ19FQlJFQUtfT1BDT0RFIDB4OTAwMgo+PiArCj4+ICsvKiBhcm0ga3Byb2Jl
+OiBpbnN0YWxsIGJyZWFrcG9pbnQgaW4gdGV4dCAqLwo+PiArdm9pZCBfX2twcm9iZXMgYXJjaF9h
+cm1fa3Byb2JlKHN0cnVjdCBrcHJvYmUgKnApCj4+ICt7Cj4+ICsJcGF0Y2hfdGV4dChwLT5hZGRy
+LCBDX0VCUkVBS19PUENPREUpOwo+PiArfQo+PiArCj4+ICsvKiBkaXNhcm0ga3Byb2JlOiByZW1v
+dmUgYnJlYWtwb2ludCBmcm9tIHRleHQgKi8KPj4gK3ZvaWQgX19rcHJvYmVzIGFyY2hfZGlzYXJt
+X2twcm9iZShzdHJ1Y3Qga3Byb2JlICpwKQo+PiArewo+PiArCXBhdGNoX3RleHQocC0+YWRkciwg
+cC0+b3Bjb2RlKTsKPj4gK30KPj4gKwo+PiArdm9pZCBfX2twcm9iZXMgYXJjaF9yZW1vdmVfa3By
+b2JlKHN0cnVjdCBrcHJvYmUgKnApCj4+ICt7Cj4+ICt9Cj4+ICsKPj4gK3N0YXRpYyB2b2lkIF9f
+a3Byb2JlcyBzYXZlX3ByZXZpb3VzX2twcm9iZShzdHJ1Y3Qga3Byb2JlX2N0bGJsayAqa2NiKQo+
+PiArewo+PiArCWtjYi0+cHJldl9rcHJvYmUua3AgPSBrcHJvYmVfcnVubmluZygpOwo+PiArCWtj
+Yi0+cHJldl9rcHJvYmUuc3RhdHVzID0ga2NiLT5rcHJvYmVfc3RhdHVzOwo+PiArfQo+PiArCj4+
+ICtzdGF0aWMgdm9pZCBfX2twcm9iZXMgcmVzdG9yZV9wcmV2aW91c19rcHJvYmUoc3RydWN0IGtw
+cm9iZV9jdGxibGsgKmtjYikKPj4gK3sKPj4gKwlfX3RoaXNfY3B1X3dyaXRlKGN1cnJlbnRfa3By
+b2JlLCBrY2ItPnByZXZfa3Byb2JlLmtwKTsKPj4gKwlrY2ItPmtwcm9iZV9zdGF0dXMgPSBrY2It
+PnByZXZfa3Byb2JlLnN0YXR1czsKPj4gK30KPj4gKwo+PiArc3RhdGljIHZvaWQgX19rcHJvYmVz
+IHNldF9jdXJyZW50X2twcm9iZShzdHJ1Y3Qga3Byb2JlICpwKQo+PiArewo+PiArCV9fdGhpc19j
+cHVfd3JpdGUoY3VycmVudF9rcHJvYmUsIHApOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgdm9pZCBf
+X2twcm9iZXMgc2ltdWxhdGUoc3RydWN0IGtwcm9iZSAqcCwKPj4gKwkJCSAgICAgICBzdHJ1Y3Qg
+cHRfcmVncyAqcmVncywKPj4gKwkJCSAgICAgICBzdHJ1Y3Qga3Byb2JlX2N0bGJsayAqa2NiLCBp
+bnQgcmVlbnRlcikKPj4gK3sKPj4gKwlpZiAocmVlbnRlcikgewo+PiArCQlzYXZlX3ByZXZpb3Vz
+X2twcm9iZShrY2IpOwo+PiArCQlzZXRfY3VycmVudF9rcHJvYmUocCk7Cj4+ICsJCWtjYi0+a3By
+b2JlX3N0YXR1cyA9IEtQUk9CRV9SRUVOVEVSOwo+PiArCX0gZWxzZSB7Cj4+ICsJCWtjYi0+a3By
+b2JlX3N0YXR1cyA9IEtQUk9CRV9ISVRfU1M7Cj4+ICsJfQo+PiArCj4+ICsJYXJjaF9zaW11bGF0
+ZV9pbnNuKHAsIHJlZ3MpOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgaW50IF9fa3Byb2JlcyByZWVu
+dGVyX2twcm9iZShzdHJ1Y3Qga3Byb2JlICpwLAo+PiArCQkJCSAgICBzdHJ1Y3QgcHRfcmVncyAq
+cmVncywKPj4gKwkJCQkgICAgc3RydWN0IGtwcm9iZV9jdGxibGsgKmtjYikKPj4gK3sKPj4gKwlz
+d2l0Y2ggKGtjYi0+a3Byb2JlX3N0YXR1cykgewo+PiArCWNhc2UgS1BST0JFX0hJVF9TU0RPTkU6
+Cj4+ICsJY2FzZSBLUFJPQkVfSElUX0FDVElWRToKPj4gKwkJa3Byb2Jlc19pbmNfbm1pc3NlZF9j
+b3VudChwKTsKPj4gKwkJc2ltdWxhdGUocCwgcmVncywga2NiLCAxKTsKPj4gKwkJYnJlYWs7Cj4+
+ICsJY2FzZSBLUFJPQkVfSElUX1NTOgo+PiArCWNhc2UgS1BST0JFX1JFRU5URVI6Cj4+ICsJCXBy
+X3dhcm4oIlVucmVjb3ZlcmFibGUga3Byb2JlIGRldGVjdGVkLlxuIik7Cj4+ICsJCWR1bXBfa3By
+b2JlKHApOwo+PiArCQlCVUcoKTsKPj4gKwkJYnJlYWs7Cj4+ICsJZGVmYXVsdDoKPj4gKwkJV0FS
+Tl9PTigxKTsKPj4gKwkJcmV0dXJuIDA7Cj4+ICsJfQo+PiArCj4+ICsJcmV0dXJuIDE7Cj4gCj4g
+SWYgdGhpcyBhbHdheXMgcmV0dXJuIDEsIHdlIGNhbiBtYWtlIGl0IHZvaWQgcmV0dXJuLgoKQWdy
+ZWVkLCBJJ2xsIGNoYW5nZSB0aGF0LgoKPiAKPj4gK30KPj4gKwo+PiArc3RhdGljIHZvaWQgX19r
+cHJvYmVzCj4+ICtwb3N0X2twcm9iZV9oYW5kbGVyKHN0cnVjdCBrcHJvYmVfY3RsYmxrICprY2Is
+IHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+PiArewo+PiArCXN0cnVjdCBrcHJvYmUgKmN1ciA9IGtw
+cm9iZV9ydW5uaW5nKCk7Cj4+ICsKPj4gKwlpZiAoIWN1cikKPj4gKwkJcmV0dXJuOwo+PiArCj4+
+ICsJLyogcmV0dXJuIGFkZHIgcmVzdG9yZSBpZiBub24tYnJhbmNoaW5nIGluc24gKi8KPj4gKwlp
+ZiAoY3VyLT5haW5zbi5hcGkucmVzdG9yZSAhPSAwKQo+PiArCQlpbnN0cnVjdGlvbl9wb2ludGVy
+X3NldChyZWdzLCBjdXItPmFpbnNuLmFwaS5yZXN0b3JlKTsKPj4gKwo+PiArCS8qIHJlc3RvcmUg
+YmFjayBvcmlnaW5hbCBzYXZlZCBrcHJvYmUgdmFyaWFibGVzIGFuZCBjb250aW51ZSAqLwo+PiAr
+CWlmIChrY2ItPmtwcm9iZV9zdGF0dXMgPT0gS1BST0JFX1JFRU5URVIpIHsKPj4gKwkJcmVzdG9y
+ZV9wcmV2aW91c19rcHJvYmUoa2NiKTsKPj4gKwkJcmV0dXJuOwo+PiArCX0KPj4gKwkvKiBjYWxs
+IHBvc3QgaGFuZGxlciAqLwo+PiArCWtjYi0+a3Byb2JlX3N0YXR1cyA9IEtQUk9CRV9ISVRfU1NE
+T05FOwo+PiArCWlmIChjdXItPnBvc3RfaGFuZGxlcikJewo+PiArCQkvKiBwb3N0X2hhbmRsZXIg
+Y2FuIGhpdCBicmVha3BvaW50IGFuZCBzaW5nbGUgc3RlcAo+PiArCQkgKiBhZ2Fpbiwgc28gd2Ug
+ZW5hYmxlIEQtZmxhZyBmb3IgcmVjdXJzaXZlIGV4Y2VwdGlvbi4KPj4gKwkJICovCj4+ICsJCWN1
+ci0+cG9zdF9oYW5kbGVyKGN1ciwgcmVncywgMCk7Cj4+ICsJfQo+PiArCj4+ICsJcmVzZXRfY3Vy
+cmVudF9rcHJvYmUoKTsKPj4gK30KPj4gKwo+PiAraW50IF9fa3Byb2JlcyBrcHJvYmVfZmF1bHRf
+aGFuZGxlcihzdHJ1Y3QgcHRfcmVncyAqcmVncywgdW5zaWduZWQgaW50IGNhdXNlKQo+PiArewo+
+PiArCXN0cnVjdCBrcHJvYmUgKmN1ciA9IGtwcm9iZV9ydW5uaW5nKCk7Cj4+ICsJc3RydWN0IGtw
+cm9iZV9jdGxibGsgKmtjYiA9IGdldF9rcHJvYmVfY3RsYmxrKCk7Cj4+ICsKPj4gKwlzd2l0Y2gg
+KGtjYi0+a3Byb2JlX3N0YXR1cykgewo+PiArCWNhc2UgS1BST0JFX0hJVF9TUzoKPj4gKwljYXNl
+IEtQUk9CRV9SRUVOVEVSOgo+PiArCQkvKgo+PiArCQkgKiBXZSBhcmUgaGVyZSBiZWNhdXNlIHRo
+ZSBpbnN0cnVjdGlvbiBiZWluZyBzaW5nbGUKPj4gKwkJICogc3RlcHBlZCBjYXVzZWQgYSBwYWdl
+IGZhdWx0LiBXZSByZXNldCB0aGUgY3VycmVudAo+PiArCQkgKiBrcHJvYmUgYW5kIHRoZSBpcCBw
+b2ludHMgYmFjayB0byB0aGUgcHJvYmUgYWRkcmVzcwo+PiArCQkgKiBhbmQgYWxsb3cgdGhlIHBh
+Z2UgZmF1bHQgaGFuZGxlciB0byBjb250aW51ZSBhcyBhCj4+ICsJCSAqIG5vcm1hbCBwYWdlIGZh
+dWx0Lgo+PiArCQkgKi8KPj4gKwkJaW5zdHJ1Y3Rpb25fcG9pbnRlcl9zZXQocmVncywgKHVuc2ln
+bmVkIGxvbmcpIGN1ci0+YWRkcik7Cj4+ICsJCWlmICghaW5zdHJ1Y3Rpb25fcG9pbnRlcihyZWdz
+KSkKPj4gKwkJCUJVRygpOwo+IAo+IFVzZSBCVUdfT04oKS4KCk9LCgo+IAo+PiArCj4+ICsJCWlm
+IChrY2ItPmtwcm9iZV9zdGF0dXMgPT0gS1BST0JFX1JFRU5URVIpCj4+ICsJCQlyZXN0b3JlX3By
+ZXZpb3VzX2twcm9iZShrY2IpOwo+PiArCQllbHNlCj4+ICsJCQlyZXNldF9jdXJyZW50X2twcm9i
+ZSgpOwo+PiArCj4+ICsJCWJyZWFrOwo+PiArCWNhc2UgS1BST0JFX0hJVF9BQ1RJVkU6Cj4+ICsJ
+Y2FzZSBLUFJPQkVfSElUX1NTRE9ORToKPj4gKwkJLyoKPj4gKwkJICogV2UgaW5jcmVtZW50IHRo
+ZSBubWlzc2VkIGNvdW50IGZvciBhY2NvdW50aW5nLAo+PiArCQkgKiB3ZSBjYW4gYWxzbyB1c2Ug
+bnByZS9ucG9zdGZhdWx0IGNvdW50IGZvciBhY2NvdW50aW5nCj4+ICsJCSAqIHRoZXNlIHNwZWNp
+ZmljIGZhdWx0IGNhc2VzLgo+PiArCQkgKi8KPj4gKwkJa3Byb2Jlc19pbmNfbm1pc3NlZF9jb3Vu
+dChjdXIpOwo+PiArCj4+ICsJCS8qCj4+ICsJCSAqIFdlIGNvbWUgaGVyZSBiZWNhdXNlIGluc3Ry
+dWN0aW9ucyBpbiB0aGUgcHJlL3Bvc3QKPj4gKwkJICogaGFuZGxlciBjYXVzZWQgdGhlIHBhZ2Vf
+ZmF1bHQsIHRoaXMgY291bGQgaGFwcGVuCj4+ICsJCSAqIGlmIGhhbmRsZXIgdHJpZXMgdG8gYWNj
+ZXNzIHVzZXIgc3BhY2UgYnkKPj4gKwkJICogY29weV9mcm9tX3VzZXIoKSwgZ2V0X3VzZXIoKSBl
+dGMuIExldCB0aGUKPj4gKwkJICogdXNlci1zcGVjaWZpZWQgaGFuZGxlciB0cnkgdG8gZml4IGl0
+IGZpcnN0Lgo+PiArCQkgKi8KPj4gKwkJaWYgKGN1ci0+ZmF1bHRfaGFuZGxlciAmJiBjdXItPmZh
+dWx0X2hhbmRsZXIoY3VyLCByZWdzLCBjYXVzZSkpCj4+ICsJCQlyZXR1cm4gMTsKPj4gKwo+PiAr
+CQkvKgo+PiArCQkgKiBJbiBjYXNlIHRoZSB1c2VyLXNwZWNpZmllZCBmYXVsdCBoYW5kbGVyIHJl
+dHVybmVkCj4+ICsJCSAqIHplcm8sIHRyeSB0byBmaXggdXAuCj4+ICsJCSAqLwo+PiArCQlpZiAo
+Zml4dXBfZXhjZXB0aW9uKHJlZ3MpKQo+PiArCQkJcmV0dXJuIDE7Cj4+ICsJfQo+PiArCXJldHVy
+biAwOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgdm9pZCBfX2twcm9iZXMga3Byb2JlX2hhbmRsZXIo
+c3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4+ICt7Cj4gCj4gRG9lcyB0aGlzIGhhbmRsZXIgcnVuIHVu
+ZGVyIGxvY2FsIElSUSBkaXNhYmxlZD8gKGZvciBtYWtpbmcgc3VyZSkKCkV4Y2VwdGlvbnMgYXJl
+IGJlaW5nIGhhbmRsZWQgd2l0aCBsb2NhbHMgSVJRcyBfZW5hYmxlZF8uIEFzIHdlJ3ZlIG5vdApp
+bXBsZW1lbnRlZCBhbnkgc2ltdWxhdGVkIGluc3RydWN0aW9ucyB0byBtb2RpZnkgdGhlIGluc3Ry
+dWN0aW9uCnBvaW50ZXIsIEkgdGhpbmsgdGhpcyBpcyBzYWZlPyBUaGVuIGFnYWluLCBJJ20gbmV3
+IHRvIHRoaXMsIHNvIHBsZWFzZQpiZWFyIHdpdGggbWUuCgo+IAo+PiArCXN0cnVjdCBrcHJvYmUg
+KnAsICpjdXJfa3Byb2JlOwo+PiArCXN0cnVjdCBrcHJvYmVfY3RsYmxrICprY2I7Cj4+ICsJdW5z
+aWduZWQgbG9uZyBhZGRyID0gaW5zdHJ1Y3Rpb25fcG9pbnRlcihyZWdzKTsKPj4gKwo+PiArCWtj
+YiA9IGdldF9rcHJvYmVfY3RsYmxrKCk7Cj4+ICsJY3VyX2twcm9iZSA9IGtwcm9iZV9ydW5uaW5n
+KCk7Cj4+ICsKPj4gKwlwID0gZ2V0X2twcm9iZSgoa3Byb2JlX29wY29kZV90ICopIGFkZHIpOwo+
+PiArCj4+ICsJaWYgKHApIHsKPj4gKwkJaWYgKGN1cl9rcHJvYmUpIHsKPj4gKwkJCWlmIChyZWVu
+dGVyX2twcm9iZShwLCByZWdzLCBrY2IpKQo+PiArCQkJCXJldHVybjsKPj4gKwkJfSBlbHNlIHsK
+Pj4gKwkJCS8qIFByb2JlIGhpdCAqLwo+PiArCQkJc2V0X2N1cnJlbnRfa3Byb2JlKHApOwo+PiAr
+CQkJa2NiLT5rcHJvYmVfc3RhdHVzID0gS1BST0JFX0hJVF9BQ1RJVkU7Cj4+ICsKPj4gKwkJCS8q
+Cj4+ICsJCQkgKiBJZiB3ZSBoYXZlIG5vIHByZS1oYW5kbGVyIG9yIGl0IHJldHVybmVkIDAsIHdl
+Cj4+ICsJCQkgKiBjb250aW51ZSB3aXRoIG5vcm1hbCBwcm9jZXNzaW5nLiAgSWYgd2UgaGF2ZSBh
+Cj4+ICsJCQkgKiBwcmUtaGFuZGxlciBhbmQgaXQgcmV0dXJuZWQgbm9uLXplcm8sIGl0IHdpbGwK
+Pj4gKwkJCSAqIG1vZGlmeSB0aGUgZXhlY3V0aW9uIHBhdGggYW5kIG5vIG5lZWQgdG8gc2luZ2xl
+Cj4+ICsJCQkgKiBzdGVwcGluZy4gTGV0J3MganVzdCByZXNldCBjdXJyZW50IGtwcm9iZSBhbmQg
+ZXhpdC4KPj4gKwkJCSAqCj4+ICsJCQkgKiBwcmVfaGFuZGxlciBjYW4gaGl0IGEgYnJlYWtwb2lu
+dCBhbmQgY2FuIHN0ZXAgdGhydQo+PiArCQkJICogYmVmb3JlIHJldHVybiwga2VlcCBQU1RBVEUg
+RC1mbGFnIGVuYWJsZWQgdW50aWwKPj4gKwkJCSAqIHByZV9oYW5kbGVyIHJldHVybiBiYWNrLgo+
+IAo+IElzIHRoaXMgdHJ1ZSBvbiBSSVNDLVYgdG9vPwoKSXQncyBub3QgYXMgd2UgZG9uJ3QgaGF2
+ZSBhIGRlYnVnLXVuaXQgYXQgdGhlIG1vbWVudC4gSSdsbCByZW1vdmUgdGhlCnNlY29uZCBwYXJ0
+IG9mIHRoZSBjb21tZW50IGJsb2NrLgoKPiAKPj4gKwkJCSAqLwo+PiArCQkJaWYgKCFwLT5wcmVf
+aGFuZGxlciB8fCAhcC0+cHJlX2hhbmRsZXIocCwgcmVncykpCj4+ICsJCQkJc2ltdWxhdGUocCwg
+cmVncywga2NiLCAwKTsKPj4gKwkJCWVsc2UKPj4gKwkJCQlyZXNldF9jdXJyZW50X2twcm9iZSgp
+Owo+PiArCQl9Cj4+ICsJfQo+PiArCS8qCj4+ICsJICogVGhlIGJyZWFrcG9pbnQgaW5zdHJ1Y3Rp
+b24gd2FzIHJlbW92ZWQgcmlnaHQKPj4gKwkgKiBhZnRlciB3ZSBoaXQgaXQuICBBbm90aGVyIGNw
+dSBoYXMgcmVtb3ZlZAo+PiArCSAqIGVpdGhlciBhIHByb2JlcG9pbnQgb3IgYSBkZWJ1Z2dlciBi
+cmVha3BvaW50Cj4+ICsJICogYXQgdGhpcyBhZGRyZXNzLiAgSW4gZWl0aGVyIGNhc2UsIG5vIGZ1
+cnRoZXIKPj4gKwkgKiBoYW5kbGluZyBvZiB0aGlzIGludGVycnVwdCBpcyBhcHByb3ByaWF0ZS4K
+Pj4gKwkgKiBSZXR1cm4gYmFjayB0byBvcmlnaW5hbCBpbnN0cnVjdGlvbiwgYW5kIGNvbnRpbnVl
+Lgo+PiArCSAqLwo+IAo+IFRoaXMgc2hvdWxkIHJldHVybiAwIGlmIGl0IGRvZXNuJ3QgaGFuZGxl
+IGFueXRoaW5nLCBidXQgaWYgaXQgaGFuZGxlcyBjLmJyZWFrCj4gc2hvdWxkIHJldHVybiAxLgoK
+SSB0aG91Z2h0IHNvIHRvbywgYnV0IGRpZG4ndCBpbnNlcnQgb25lIGJlY2F1c2Ugb2YgdGhlIGNv
+bW1lbnQgKGFnYWluLApjb3BpZWQgZnJvbSBhcm02NCkuIElmIGdldF9rcHJvYmUgZG9lc24ndCBy
+ZXR1cm4gYSByZXN1bHQsIGl0IGNvdWxkIGhhdmUKYmVlbiByZW1vdmVkIGJldHdlZW4gdGhlIHRp
+bWUgdGhlIGV4Y2VwdGlvbiBnb3QgcmFpc2VkIG9yIGlzIHRoZSBjb21tZW50Cmp1c3Qgd3Jvbmc/
+IE9uIHRoZSBvdGhlciBoYW5kLCBzb2x2aW5nIGl0IHRoaXMgd2F5IGVmZmVjdGl2ZWx5IG1lYW5z
+CnRoYXQgd2UnbGwgc2lsZW50bHkgZHJvcCBhbnkgb3RoZXIgZXhjZXB0aW9ucy4KCj4+ICt9Cj4+
+ICsKPj4gK2ludCBfX2twcm9iZXMKPj4gK2twcm9iZV9icmVha3BvaW50X2hhbmRsZXIoc3RydWN0
+IHB0X3JlZ3MgKnJlZ3MpCj4+ICt7Cj4+ICsJa3Byb2JlX2hhbmRsZXIocmVncyk7Cj4+ICsJcmV0
+dXJuIDE7Cj4gCj4gV2h5IGRvbid0IHlvdSBjYWxsIGtwcm9iZV9oYW5kbGVyIGRpcmVjdGx5PwoK
+SSBzaG91bGQuCgo+IAo+PiArfQo+PiArCj4+ICtib29sIGFyY2hfd2l0aGluX2twcm9iZV9ibGFj
+a2xpc3QodW5zaWduZWQgbG9uZyBhZGRyKQo+PiArewo+PiArCWlmICgoYWRkciA+PSAodW5zaWdu
+ZWQgbG9uZylfX2twcm9iZXNfdGV4dF9zdGFydCAmJgo+PiArCSAgICBhZGRyIDwgKHVuc2lnbmVk
+IGxvbmcpX19rcHJvYmVzX3RleHRfZW5kKSB8fAo+PiArCSAgICAoYWRkciA+PSAodW5zaWduZWQg
+bG9uZylfX2VudHJ5X3RleHRfc3RhcnQgJiYKPj4gKwkgICAgYWRkciA8ICh1bnNpZ25lZCBsb25n
+KV9fZW50cnlfdGV4dF9lbmQpIHx8Cj4+ICsJICAgICEhc2VhcmNoX2V4Y2VwdGlvbl90YWJsZXMo
+YWRkcikpCj4+ICsJCXJldHVybiB0cnVlOwo+PiArCj4+ICsJcmV0dXJuIGZhbHNlOwo+PiArfQo+
+PiArCj4+ICt2b2lkIF9fa3Byb2JlcyBfX3VzZWQgKnRyYW1wb2xpbmVfcHJvYmVfaGFuZGxlcihz
+dHJ1Y3QgcHRfcmVncyAqcmVncykKPj4gK3sKPj4gKwlzdHJ1Y3Qga3JldHByb2JlX2luc3RhbmNl
+ICpyaSA9IE5VTEw7Cj4+ICsJc3RydWN0IGhsaXN0X2hlYWQgKmhlYWQsIGVtcHR5X3JwOwo+PiAr
+CXN0cnVjdCBobGlzdF9ub2RlICp0bXA7Cj4+ICsJdW5zaWduZWQgbG9uZyBmbGFncywgb3JpZ19y
+ZXRfYWRkcmVzcyA9IDA7Cj4+ICsJdW5zaWduZWQgbG9uZyB0cmFtcG9saW5lX2FkZHJlc3MgPQo+
+PiArCQkodW5zaWduZWQgbG9uZykma3JldHByb2JlX3RyYW1wb2xpbmU7Cj4+ICsJa3Byb2JlX29w
+Y29kZV90ICpjb3JyZWN0X3JldF9hZGRyID0gTlVMTDsKPj4gKwo+IAo+IAlJdCBzZWVtcyB5b3Ug
+ZG9uJ3Qgc2V0dXAgaW5zdHJ1Y3Rpb25fcG9pbnRlci4KCkkgZG9uJ3QgdGhpbmsgSSBnZXQgd2hh
+dCB5b3UgbWVhbiBieSB0aGF0LiBUaGUgaW5zdHJ1Y3Rpb24gcG9pbnRlciAob3IKcmF0aGVyIHRo
+ZSByZXR1cm4gYWRkcmVzcyByZWdpc3RlcikgZ2V0cyBzZXQgYnkga3JldHByb2JlX3RyYW1wb2xp
+bmUuUwp0byB0aGUgYWRkcmVzcyByZXR1cm5lZCBmcm9tIHRoaXMgZnVuY3Rpb24uCgo+IAo+PiAr
+CUlOSVRfSExJU1RfSEVBRCgmZW1wdHlfcnApOwo+PiArCWtyZXRwcm9iZV9oYXNoX2xvY2soY3Vy
+cmVudCwgJmhlYWQsICZmbGFncyk7Cj4+ICsKPj4gKwkvKgo+PiArCSAqIEl0IGlzIHBvc3NpYmxl
+IHRvIGhhdmUgbXVsdGlwbGUgaW5zdGFuY2VzIGFzc29jaWF0ZWQgd2l0aCBhIGdpdmVuCj4+ICsJ
+ICogdGFzayBlaXRoZXIgYmVjYXVzZSBtdWx0aXBsZSBmdW5jdGlvbnMgaW4gdGhlIGNhbGwgcGF0
+aCBoYXZlCj4+ICsJICogcmV0dXJuIHByb2JlcyBpbnN0YWxsZWQgb24gdGhlbSwgYW5kL29yIG1v
+cmUgdGhhbiBvbmUKPj4gKwkgKiByZXR1cm4gcHJvYmUgd2FzIHJlZ2lzdGVyZWQgZm9yIGEgdGFy
+Z2V0IGZ1bmN0aW9uLgo+PiArCSAqCj4+ICsJICogV2UgY2FuIGhhbmRsZSB0aGlzIGJlY2F1c2U6
+Cj4+ICsJICogICAgIC0gaW5zdGFuY2VzIGFyZSBhbHdheXMgcHVzaGVkIGludG8gdGhlIGhlYWQg
+b2YgdGhlIGxpc3QKPj4gKwkgKiAgICAgLSB3aGVuIG11bHRpcGxlIHJldHVybiBwcm9iZXMgYXJl
+IHJlZ2lzdGVyZWQgZm9yIHRoZSBzYW1lCj4+ICsJICoJIGZ1bmN0aW9uLCB0aGUgKGNocm9ub2xv
+Z2ljYWxseSkgZmlyc3QgaW5zdGFuY2UncyByZXRfYWRkcgo+PiArCSAqCSB3aWxsIGJlIHRoZSBy
+ZWFsIHJldHVybiBhZGRyZXNzLCBhbmQgYWxsIHRoZSByZXN0IHdpbGwKPj4gKwkgKgkgcG9pbnQg
+dG8ga3JldHByb2JlX3RyYW1wb2xpbmUuCj4+ICsJICovCj4+ICsJaGxpc3RfZm9yX2VhY2hfZW50
+cnlfc2FmZShyaSwgdG1wLCBoZWFkLCBobGlzdCkgewo+PiArCQlpZiAocmktPnRhc2sgIT0gY3Vy
+cmVudCkKPj4gKwkJCS8qIGFub3RoZXIgdGFzayBpcyBzaGFyaW5nIG91ciBoYXNoIGJ1Y2tldCAq
+Lwo+PiArCQkJY29udGludWU7Cj4+ICsKPj4gKwkJb3JpZ19yZXRfYWRkcmVzcyA9ICh1bnNpZ25l
+ZCBsb25nKXJpLT5yZXRfYWRkcjsKPj4gKwo+PiArCQlpZiAob3JpZ19yZXRfYWRkcmVzcyAhPSB0
+cmFtcG9saW5lX2FkZHJlc3MpCj4+ICsJCQkvKgo+PiArCQkJICogVGhpcyBpcyB0aGUgcmVhbCBy
+ZXR1cm4gYWRkcmVzcy4gQW55IG90aGVyCj4+ICsJCQkgKiBpbnN0YW5jZXMgYXNzb2NpYXRlZCB3
+aXRoIHRoaXMgdGFzayBhcmUgZm9yCj4+ICsJCQkgKiBvdGhlciBjYWxscyBkZWVwZXIgb24gdGhl
+IGNhbGwgc3RhY2sKPj4gKwkJCSAqLwo+PiArCQkJYnJlYWs7Cj4+ICsJfQo+PiArCj4+ICsJa3Jl
+dHByb2JlX2Fzc2VydChyaSwgb3JpZ19yZXRfYWRkcmVzcywgdHJhbXBvbGluZV9hZGRyZXNzKTsK
+Pj4gKwo+PiArCWNvcnJlY3RfcmV0X2FkZHIgPSByaS0+cmV0X2FkZHI7Cj4+ICsJaGxpc3RfZm9y
+X2VhY2hfZW50cnlfc2FmZShyaSwgdG1wLCBoZWFkLCBobGlzdCkgewo+PiArCQlpZiAocmktPnRh
+c2sgIT0gY3VycmVudCkKPj4gKwkJCS8qIGFub3RoZXIgdGFzayBpcyBzaGFyaW5nIG91ciBoYXNo
+IGJ1Y2tldCAqLwo+PiArCQkJY29udGludWU7Cj4+ICsKPj4gKwkJb3JpZ19yZXRfYWRkcmVzcyA9
+ICh1bnNpZ25lZCBsb25nKXJpLT5yZXRfYWRkcjsKPj4gKwkJaWYgKHJpLT5ycCAmJiByaS0+cnAt
+PmhhbmRsZXIpIHsKPj4gKwkJCV9fdGhpc19jcHVfd3JpdGUoY3VycmVudF9rcHJvYmUsICZyaS0+
+cnAtPmtwKTsKPj4gKwkJCWdldF9rcHJvYmVfY3RsYmxrKCktPmtwcm9iZV9zdGF0dXMgPSBLUFJP
+QkVfSElUX0FDVElWRTsKPj4gKwkJCXJpLT5yZXRfYWRkciA9IGNvcnJlY3RfcmV0X2FkZHI7Cj4+
+ICsJCQlyaS0+cnAtPmhhbmRsZXIocmksIHJlZ3MpOwo+PiArCQkJX190aGlzX2NwdV93cml0ZShj
+dXJyZW50X2twcm9iZSwgTlVMTCk7Cj4+ICsJCX0KPj4gKwo+PiArCQlyZWN5Y2xlX3JwX2luc3Qo
+cmksICZlbXB0eV9ycCk7Cj4+ICsKPj4gKwkJaWYgKG9yaWdfcmV0X2FkZHJlc3MgIT0gdHJhbXBv
+bGluZV9hZGRyZXNzKQo+PiArCQkJLyoKPj4gKwkJCSAqIFRoaXMgaXMgdGhlIHJlYWwgcmV0dXJu
+IGFkZHJlc3MuIEFueSBvdGhlcgo+PiArCQkJICogaW5zdGFuY2VzIGFzc29jaWF0ZWQgd2l0aCB0
+aGlzIHRhc2sgYXJlIGZvcgo+PiArCQkJICogb3RoZXIgY2FsbHMgZGVlcGVyIG9uIHRoZSBjYWxs
+IHN0YWNrCj4+ICsJCQkgKi8KPj4gKwkJCWJyZWFrOwo+PiArCX0KPj4gKwo+PiArCWtyZXRwcm9i
+ZV9oYXNoX3VubG9jayhjdXJyZW50LCAmZmxhZ3MpOwo+PiArCj4+ICsJaGxpc3RfZm9yX2VhY2hf
+ZW50cnlfc2FmZShyaSwgdG1wLCAmZW1wdHlfcnAsIGhsaXN0KSB7Cj4+ICsJCWhsaXN0X2RlbCgm
+cmktPmhsaXN0KTsKPj4gKwkJa2ZyZWUocmkpOwo+PiArCX0KPj4gKwlyZXR1cm4gKHZvaWQgKilv
+cmlnX3JldF9hZGRyZXNzOwo+PiArfQo+PiArCj4+ICt2b2lkIF9fa3Byb2JlcyBhcmNoX3ByZXBh
+cmVfa3JldHByb2JlKHN0cnVjdCBrcmV0cHJvYmVfaW5zdGFuY2UgKnJpLAo+PiArCQkJCSAgICAg
+IHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+PiArewo+PiArCXJpLT5yZXRfYWRkciA9IChrcHJvYmVf
+b3Bjb2RlX3QgKilyZWdzLT5yYTsKPj4gKwlyZWdzLT5yYSA9IChsb25nKSZrcmV0cHJvYmVfdHJh
+bXBvbGluZTsKPj4gK30KPj4gKwo+PiAraW50IF9fa3Byb2JlcyBhcmNoX3RyYW1wb2xpbmVfa3By
+b2JlKHN0cnVjdCBrcHJvYmUgKnApCj4+ICt7Cj4+ICsJcmV0dXJuIDA7Cj4+ICt9Cj4+ICsKPj4g
+K2ludCBfX2luaXQgYXJjaF9pbml0X2twcm9iZXModm9pZCkKPj4gK3sKPj4gKwlyZXR1cm4gMDsK
+Pj4gK30KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVzX3Ry
+YW1wb2xpbmUuUyBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVzX3RyYW1wb2xpbmUu
+Uwo+PiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+PiBpbmRleCAwMDAwMDAwMDAwMDAuLmM3Y2VkYTk1
+NTZhMwo+PiAtLS0gL2Rldi9udWxsCj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9r
+cHJvYmVzX3RyYW1wb2xpbmUuUwo+PiBAQCAtMCwwICsxLDkxIEBACj4+ICsvKiBTUERYLUxpY2Vu
+c2UtSWRlbnRpZmllcjogR1BMLTIuMCsgKi8KPj4gKwo+PiArI2luY2x1ZGUgPGxpbnV4L2xpbmth
+Z2UuaD4KPj4gKwo+PiArI2luY2x1ZGUgPGFzbS9hc20uaD4KPj4gKyNpbmNsdWRlIDxhc20vYXNt
+LW9mZnNldHMuaD4KPj4gKwo+PiArCS50ZXh0Cj4+ICsJLmFsdG1hY3JvCj4+ICsKPj4gKwkubWFj
+cm8gc2F2ZV9hbGxfYmFzZV9yZWdzCj4+ICsJUkVHX1MgeDEsICBQVF9SQShzcCkKPj4gKwlSRUdf
+UyB4MywgIFBUX0dQKHNwKQo+PiArCVJFR19TIHg0LCAgUFRfVFAoc3ApCj4+ICsJUkVHX1MgeDUs
+ICBQVF9UMChzcCkKPj4gKwlSRUdfUyB4NiwgIFBUX1QxKHNwKQo+PiArCVJFR19TIHg3LCAgUFRf
+VDIoc3ApCj4+ICsJUkVHX1MgeDgsICBQVF9TMChzcCkKPj4gKwlSRUdfUyB4OSwgIFBUX1MxKHNw
+KQo+PiArCVJFR19TIHgxMCwgUFRfQTAoc3ApCj4+ICsJUkVHX1MgeDExLCBQVF9BMShzcCkKPj4g
+KwlSRUdfUyB4MTIsIFBUX0EyKHNwKQo+PiArCVJFR19TIHgxMywgUFRfQTMoc3ApCj4+ICsJUkVH
+X1MgeDE0LCBQVF9BNChzcCkKPj4gKwlSRUdfUyB4MTUsIFBUX0E1KHNwKQo+PiArCVJFR19TIHgx
+NiwgUFRfQTYoc3ApCj4+ICsJUkVHX1MgeDE3LCBQVF9BNyhzcCkKPj4gKwlSRUdfUyB4MTgsIFBU
+X1MyKHNwKQo+PiArCVJFR19TIHgxOSwgUFRfUzMoc3ApCj4+ICsJUkVHX1MgeDIwLCBQVF9TNChz
+cCkKPj4gKwlSRUdfUyB4MjEsIFBUX1M1KHNwKQo+PiArCVJFR19TIHgyMiwgUFRfUzYoc3ApCj4+
+ICsJUkVHX1MgeDIzLCBQVF9TNyhzcCkKPj4gKwlSRUdfUyB4MjQsIFBUX1M4KHNwKQo+PiArCVJF
+R19TIHgyNSwgUFRfUzkoc3ApCj4+ICsJUkVHX1MgeDI2LCBQVF9TMTAoc3ApCj4+ICsJUkVHX1Mg
+eDI3LCBQVF9TMTEoc3ApCj4+ICsJUkVHX1MgeDI4LCBQVF9UMyhzcCkKPj4gKwlSRUdfUyB4Mjks
+IFBUX1Q0KHNwKQo+PiArCVJFR19TIHgzMCwgUFRfVDUoc3ApCj4+ICsJUkVHX1MgeDMxLCBQVF9U
+NihzcCkKPj4gKwkuZW5kbQo+PiArCj4+ICsJLm1hY3JvIHJlc3RvcmVfYWxsX2Jhc2VfcmVncwo+
+PiArCVJFR19MIHgzLCAgUFRfR1Aoc3ApCj4+ICsJUkVHX0wgeDQsICBQVF9UUChzcCkKPj4gKwlS
+RUdfTCB4NSwgIFBUX1QwKHNwKQo+PiArCVJFR19MIHg2LCAgUFRfVDEoc3ApCj4+ICsJUkVHX0wg
+eDcsICBQVF9UMihzcCkKPj4gKwlSRUdfTCB4OCwgIFBUX1MwKHNwKQo+PiArCVJFR19MIHg5LCAg
+UFRfUzEoc3ApCj4+ICsJUkVHX0wgeDEwLCBQVF9BMChzcCkKPj4gKwlSRUdfTCB4MTEsIFBUX0Ex
+KHNwKQo+PiArCVJFR19MIHgxMiwgUFRfQTIoc3ApCj4+ICsJUkVHX0wgeDEzLCBQVF9BMyhzcCkK
+Pj4gKwlSRUdfTCB4MTQsIFBUX0E0KHNwKQo+PiArCVJFR19MIHgxNSwgUFRfQTUoc3ApCj4+ICsJ
+UkVHX0wgeDE2LCBQVF9BNihzcCkKPj4gKwlSRUdfTCB4MTcsIFBUX0E3KHNwKQo+PiArCVJFR19M
+IHgxOCwgUFRfUzIoc3ApCj4+ICsJUkVHX0wgeDE5LCBQVF9TMyhzcCkKPj4gKwlSRUdfTCB4MjAs
+IFBUX1M0KHNwKQo+PiArCVJFR19MIHgyMSwgUFRfUzUoc3ApCj4+ICsJUkVHX0wgeDIyLCBQVF9T
+NihzcCkKPj4gKwlSRUdfTCB4MjMsIFBUX1M3KHNwKQo+PiArCVJFR19MIHgyNCwgUFRfUzgoc3Ap
+Cj4+ICsJUkVHX0wgeDI1LCBQVF9TOShzcCkKPj4gKwlSRUdfTCB4MjYsIFBUX1MxMChzcCkKPj4g
+KwlSRUdfTCB4MjcsIFBUX1MxMShzcCkKPj4gKwlSRUdfTCB4MjgsIFBUX1QzKHNwKQo+PiArCVJF
+R19MIHgyOSwgUFRfVDQoc3ApCj4+ICsJUkVHX0wgeDMwLCBQVF9UNShzcCkKPj4gKwlSRUdfTCB4
+MzEsIFBUX1Q2KHNwKQo+PiArCS5lbmRtCj4+ICsKPj4gK0VOVFJZKGtyZXRwcm9iZV90cmFtcG9s
+aW5lKQo+PiArCWFkZGkgc3AsIHNwLCAtKFBUX1NJWkVfT05fU1RBQ0spCj4+ICsJc2F2ZV9hbGxf
+YmFzZV9yZWdzCj4+ICsKPj4gKwltb3ZlIGEwLCBzcCAvKiBwdF9yZWdzICovCj4+ICsKPj4gKwlj
+YWxsIHRyYW1wb2xpbmVfcHJvYmVfaGFuZGxlcgo+PiArCj4+ICsJLyogdXNlIHRoZSByZXN1bHQg
+YXMgdGhlIHJldHVybi1hZGRyZXNzICovCj4+ICsJbW92ZSByYSwgYTAKPj4gKwo+PiArCXJlc3Rv
+cmVfYWxsX2Jhc2VfcmVncwo+PiArCWFkZGkgc3AsIHNwLCBQVF9TSVpFX09OX1NUQUNLCj4+ICsK
+Pj4gKwlyZXQKPj4gK0VORFBST0Moa3JldHByb2JlX3RyYW1wb2xpbmUpCj4+IGRpZmYgLS1naXQg
+YS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvc2ltdWxhdGUtaW5zbi5jIGIvYXJjaC9yaXNjdi9r
+ZXJuZWwvcHJvYmVzL3NpbXVsYXRlLWluc24uYwo+PiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+PiBp
+bmRleCAwMDAwMDAwMDAwMDAuLjU3MzRkOWJhZTIyZgo+PiAtLS0gL2Rldi9udWxsCj4+ICsrKyBi
+L2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9zaW11bGF0ZS1pbnNuLmMKPj4gQEAgLTAsMCArMSwz
+MyBAQAo+PiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjArCj4+ICsKPj4gKyNp
+bmNsdWRlIDxsaW51eC9iaXRvcHMuaD4KPj4gKyNpbmNsdWRlIDxsaW51eC9rZXJuZWwuaD4KPj4g
+KyNpbmNsdWRlIDxsaW51eC9rcHJvYmVzLmg+Cj4+ICsKPj4gKyNpbmNsdWRlICJzaW11bGF0ZS1p
+bnNuLmgiCj4+ICsKPj4gKyNkZWZpbmUgYml0X2F0KHZhbHVlLCBiaXQpCQkoKHZhbHVlKSAmICgx
+IDw8IChiaXQpKSkKPj4gKyNkZWZpbmUgbW92ZV9iaXRfYXQodmFsdWUsIGJpdCwgdG8pCSgoYml0
+X2F0KHZhbHVlLCBiaXQpID4+IGJpdCkgPDwgdG8pCj4+ICsKPj4gK3ZvaWQgX19rcHJvYmVzCj4+
+ICtzaW11bGF0ZV9jYWRkaXNwMTYodTMyIG9wY29kZSwgbG9uZyBhZGRyLCBzdHJ1Y3QgcHRfcmVn
+cyAqcmVncykKPj4gK3sKPj4gKwlzMTYgaW1tOwo+PiArCj4+ICsJLyoKPj4gKwkgKiBJbW1lZGlh
+dGUgdmFsdWUgbGF5b3V0IGluIGMuYWRkaXNwMTY6Cj4+ICsJICogeHh4OSB4eHh4IHg0NjggNzV4
+eAo+PiArCSAqIDEgIDEgICAgOCAgICA0ICAgIDAKPj4gKwkgKiA1ICAyCj4+ICsJICovCj4+ICsJ
+aW1tID0gc2lnbl9leHRlbmQzMigKPj4gKwkJbW92ZV9iaXRfYXQob3Bjb2RlLCAxMiwgOSkgfAo+
+PiArCQltb3ZlX2JpdF9hdChvcGNvZGUsIDYsIDQpIHwKPj4gKwkJbW92ZV9iaXRfYXQob3Bjb2Rl
+LCA1LCA2KSB8Cj4+ICsJCW1vdmVfYml0X2F0KG9wY29kZSwgNCwgOCkgfAo+PiArCQltb3ZlX2Jp
+dF9hdChvcGNvZGUsIDMsIDcpIHwKPj4gKwkJbW92ZV9iaXRfYXQob3Bjb2RlLCAyLCA1KSwKPj4g
+KwkJOSk7Cj4+ICsKPj4gKwlyZWdzLT5zcCArPSBpbW07Cj4gCj4gV2hhdCBhYm91dCB1cGRhdGlu
+ZyByZWdzLT5zZXBjPwoKc2VwYyBnZXRzIHVwZGF0ZWQgYnkgaW5zdHJ1Y3Rpb25fcG9pbnRlcl9z
+ZXQgaW4ga3Byb2JlX2hhbmRsZXIKCj4gCj4+ICt9Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L2tlcm5lbC9wcm9iZXMvc2ltdWxhdGUtaW5zbi5oIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVz
+L3NpbXVsYXRlLWluc24uaAo+PiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+PiBpbmRleCAwMDAwMDAw
+MDAwMDAuLmRjMmMwNmMzMDE2Nwo+PiAtLS0gL2Rldi9udWxsCj4+ICsrKyBiL2FyY2gvcmlzY3Yv
+a2VybmVsL3Byb2Jlcy9zaW11bGF0ZS1pbnNuLmgKPj4gQEAgLTAsMCArMSw4IEBACj4+ICsvKiBT
+UERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCsgKi8KPj4gKwo+PiArI2lmbmRlZiBfUklT
+Q1ZfS0VSTkVMX0tQUk9CRVNfU0lNVUxBVEVfSU5TTl9ICj4+ICsjZGVmaW5lIF9SSVNDVl9LRVJO
+RUxfS1BST0JFU19TSU1VTEFURV9JTlNOX0gKPj4gKwo+PiArdm9pZCBzaW11bGF0ZV9jYWRkaXNw
+MTYodTMyIG9wY29kZSwgbG9uZyBhZGRyLCBzdHJ1Y3QgcHRfcmVncyAqcmVncyk7Cj4+ICsKPj4g
+KyNlbmRpZiAvKiBfUklTQ1ZfS0VSTkVMX0tQUk9CRVNfU0lNVUxBVEVfSU5TTl9IICovCj4+IGRp
+ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jIGIvYXJjaC9yaXNjdi9rZXJuZWwv
+dHJhcHMuYwo+PiBpbmRleCAyNGE5MzMzZGRhMmMuLmQ3MTEzMTc4ZDQwMSAxMDA2NDQKPj4gLS0t
+IGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwo+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC90
+cmFwcy5jCj4+IEBAIC0xOCw2ICsxOCw3IEBACj4+ICAjaW5jbHVkZSA8bGludXgvc2NoZWQvc2ln
+bmFsLmg+Cj4+ICAjaW5jbHVkZSA8bGludXgvc2lnbmFsLmg+Cj4+ICAjaW5jbHVkZSA8bGludXgv
+a2RlYnVnLmg+Cj4+ICsjaW5jbHVkZSA8bGludXgva3Byb2Jlcy5oPgo+PiAgI2luY2x1ZGUgPGxp
+bnV4L3VhY2Nlc3MuaD4KPj4gICNpbmNsdWRlIDxsaW51eC9tbS5oPgo+PiAgI2luY2x1ZGUgPGxp
+bnV4L21vZHVsZS5oPgo+PiBAQCAtMTIwLDggKzEyMSwxNCBAQCBET19FUlJPUl9JTkZPKGRvX3Ry
+YXBfZWNhbGxfbSwKPj4gIAo+PiAgYXNtbGlua2FnZSB2b2lkIGRvX3RyYXBfYnJlYWsoc3RydWN0
+IHB0X3JlZ3MgKnJlZ3MpCj4+ICB7Cj4+ICsJYm9vbCBoYW5kbGVyX2ZvdW5kID0gZmFsc2U7Cj4+
+ICsKPj4gKyNpZmRlZiBDT05GSUdfS1BST0JFUwo+PiArCWlmIChrcHJvYmVfYnJlYWtwb2ludF9o
+YW5kbGVyKHJlZ3MpKQo+PiArCQloYW5kbGVyX2ZvdW5kID0gMTsKPiAKPiBXaHkgZG9uJ3QgeW91
+IGp1c3QgcmV0dXJuIGZyb20gaGVyZT8KCkZvbGxvd2luZyB0aGUgcGF0dGVybiBJJ3ZlIHNlZW4g
+aW4gb3RoZXIgcGxhY2VzLCBJIGNhbiBjaGFuZ2UgdGhhdC4KCj4gCj4+ICsjZW5kaWYKPj4gICNp
+ZmRlZiBDT05GSUdfR0VORVJJQ19CVUcKPj4gLQlpZiAoIXVzZXJfbW9kZShyZWdzKSkgewo+PiAr
+CWlmICghaGFuZGxlcl9mb3VuZCAmJiAhdXNlcl9tb2RlKHJlZ3MpKSB7Cj4+ICAJCWVudW0gYnVn
+X3RyYXBfdHlwZSB0eXBlOwo+PiAgCj4+ICAJCXR5cGUgPSByZXBvcnRfYnVnKHJlZ3MtPnNlcGMs
+IHJlZ3MpOwo+PiBAQCAtMTM3LDcgKzE0NCw5IEBAIGFzbWxpbmthZ2Ugdm9pZCBkb190cmFwX2Jy
+ZWFrKHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+PiAgCX0KPj4gICNlbmRpZiAvKiBDT05GSUdfR0VO
+RVJJQ19CVUcgKi8KPj4gIAo+PiAtCWZvcmNlX3NpZ19mYXVsdChTSUdUUkFQLCBUUkFQX0JSS1BU
+LCAodm9pZCBfX3VzZXIgKikocmVncy0+c2VwYyksIGN1cnJlbnQpOwo+PiArCWlmICghaGFuZGxl
+cl9mb3VuZCkKPj4gKwkJZm9yY2Vfc2lnX2ZhdWx0KFNJR1RSQVAsIFRSQVBfQlJLUFQsCj4+ICsJ
+CQkodm9pZCBfX3VzZXIgKikocmVncy0+c2VwYyksIGN1cnJlbnQpOwo+PiAgfQo+PiAgCj4+ICAj
+aWZkZWYgQ09ORklHX0dFTkVSSUNfQlVHCj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL2Zh
+dWx0LmMgYi9hcmNoL3Jpc2N2L21tL2ZhdWx0LmMKPj4gaW5kZXggODg0MDFkNTEyNWJjLi5lZmY4
+MTZlMzM0NzkgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3YvbW0vZmF1bHQuYwo+PiArKysgYi9h
+cmNoL3Jpc2N2L21tL2ZhdWx0LmMKPj4gQEAgLTIyLDYgKzIyLDcgQEAKPj4gIAo+PiAgI2luY2x1
+ZGUgPGxpbnV4L21tLmg+Cj4+ICAjaW5jbHVkZSA8bGludXgva2VybmVsLmg+Cj4+ICsjaW5jbHVk
+ZSA8bGludXgva3Byb2Jlcy5oPgo+PiAgI2luY2x1ZGUgPGxpbnV4L2ludGVycnVwdC5oPgo+PiAg
+I2luY2x1ZGUgPGxpbnV4L3BlcmZfZXZlbnQuaD4KPj4gICNpbmNsdWRlIDxsaW51eC9zaWduYWwu
+aD4KPj4gQEAgLTMwLDExICszMSwzMyBAQAo+PiAgI2luY2x1ZGUgPGFzbS9wZ2FsbG9jLmg+Cj4+
+ICAjaW5jbHVkZSA8YXNtL3B0cmFjZS5oPgo+PiAgCj4+ICsjaWZkZWYgQ09ORklHX0tQUk9CRVMK
+Pj4gK3N0YXRpYyBpbmxpbmUgaW50IG5vdGlmeV9wYWdlX2ZhdWx0KHN0cnVjdCBwdF9yZWdzICpy
+ZWdzLCB1bnNpZ25lZCBpbnQgY2F1c2UpCj4gCj4gcGxlYXNlIHVzZSBub2twcm9iZV9pbmxpbmUu
+CgpPSy4KCj4gCj4+ICt7Cj4+ICsJaW50IHJldCA9IDA7Cj4+ICsKPj4gKwkvKiBrcHJvYmVfcnVu
+bmluZygpIG5lZWRzIHNtcF9wcm9jZXNzb3JfaWQoKSAqLwo+PiArCWlmICghdXNlcl9tb2RlKHJl
+Z3MpKSB7Cj4+ICsJCXByZWVtcHRfZGlzYWJsZSgpOwo+PiArCQlpZiAoa3Byb2JlX3J1bm5pbmco
+KSAmJiBrcHJvYmVfZmF1bHRfaGFuZGxlcihyZWdzLCBjYXVzZSkpCj4+ICsJCQlyZXQgPSAxOwo+
+PiArCQlwcmVlbXB0X2VuYWJsZSgpOwo+PiArCX0KPj4gKwo+PiArCXJldHVybiByZXQ7Cj4+ICt9
+Cj4+ICsjZWxzZQo+PiArc3RhdGljIGlubGluZSBpbnQgbm90aWZ5X3BhZ2VfZmF1bHQoc3RydWN0
+IHB0X3JlZ3MgKnJlZ3MsIHVuc2lnbmVkIGludCBjYXVzZSkKPj4gK3sKPj4gKwlyZXR1cm4gMDsK
+Pj4gK30KPj4gKyNlbmRpZgo+PiArCj4+ICAvKgo+PiAgICogVGhpcyByb3V0aW5lIGhhbmRsZXMg
+cGFnZSBmYXVsdHMuICBJdCBkZXRlcm1pbmVzIHRoZSBhZGRyZXNzIGFuZCB0aGUKPj4gICAqIHBy
+b2JsZW0sIGFuZCB0aGVuIHBhc3NlcyBpdCBvZmYgdG8gb25lIG9mIHRoZSBhcHByb3ByaWF0ZSBy
+b3V0aW5lcy4KPj4gICAqLwo+PiAtYXNtbGlua2FnZSB2b2lkIGRvX3BhZ2VfZmF1bHQoc3RydWN0
+IHB0X3JlZ3MgKnJlZ3MpCj4+ICthc21saW5rYWdlIHZvaWQgX19rcHJvYmVzIGRvX3BhZ2VfZmF1
+bHQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4+ICB7Cj4+ICAJc3RydWN0IHRhc2tfc3RydWN0ICp0
+c2s7Cj4+ICAJc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWE7Cj4+IEBAIC00Nyw2ICs3MCw5IEBA
+IGFzbWxpbmthZ2Ugdm9pZCBkb19wYWdlX2ZhdWx0KHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+PiAg
+CWNhdXNlID0gcmVncy0+c2NhdXNlOwo+PiAgCWFkZHIgPSByZWdzLT5zYmFkYWRkcjsKPj4gIAo+
+PiArCWlmIChub3RpZnlfcGFnZV9mYXVsdChyZWdzLCBjYXVzZSkpCj4+ICsJCXJldHVybjsKPj4g
+Kwo+PiAgCXRzayA9IGN1cnJlbnQ7Cj4+ICAJbW0gPSB0c2stPm1tOwo+PiAgCj4+IC0tIAo+PiAy
+LjE3LjEKPj4KPiAKPiBUaGFuayB5b3UsCj4gCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2Cg==
