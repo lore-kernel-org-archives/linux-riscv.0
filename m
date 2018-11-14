@@ -2,84 +2,95 @@ Return-Path: <SRS0=rRaS=NZ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_INVALID,DKIM_SIGNED,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 224FFC43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 14 Nov 2018 21:09:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6173BC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 14 Nov 2018 21:11:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E95372175B
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 14 Nov 2018 21:09:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 327D52175B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 14 Nov 2018 21:11:18 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jk9Pcq9+";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="R65cjeKq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E95372175B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oNw1P4LV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 327D52175B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=packi.ch
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eAgmFD1vq6tXSD6hmhlXsrRw9lz+JPaOWmkTz9Vz2Bs=; b=jk9Pcq9+2gCDfP
-	fbGYoy1bsYh1FnS3+9vSLXRB1t01sXiEmW4KLpztkfnwXQYSxePi+cIABacXp2BNz7eSCDSAhamIZ
-	Cym6F2iMPC++X/Cvw2nOZ7rgfLArGbFOWB+n9JUUJermKFiLxyavYgDUOR/og2ZsP9sk4qH2sLUPz
-	dudXsQbILEkZBGSsuaKp2bWwyQT90jt4OLR7IF87Xkw30BRKY81miBsWwSAR/VMkXj1aTqhuZXQP+
-	f41QGOLAeTee4LWgsUxT8z5pXwfGhhFQeBcLvWP6dEQtdA4zsk4L6uGP3MCOLm3dvL0Kj6obEx3Bp
-	sR5ftaUScc1FWnciJ1fw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JHbF0SLy5/dhQxGC1UZzbQb6zJZKIlG6tTy9WJ2pQIY=; b=oNw1P4LV4/JrPB
+	OIlWRj32mvp8TxhT/0rfJJUyGx7KdpMPOn2cVC/9l0wzAKbnedy+dwh2SZFBrJ95XM87SJm2UvS53
+	ry6nqhuLtVcnHKmYiev6wI5aWiHjVfu7oQ2GWMirQ8A6UbyHMxiQVrwz/nNuKa5ZVWPLj5D/qiN2m
+	PC1Ie11FtZrX/Fv7gpALVxM6ojM4iceWtzfbJIEIj0sWoaYBrJzFy6cT7lKZpg7A44OeGQvYnKnLL
+	NA8E1x3/TfyuWO6c9P1HJzJYhXjVeYGXFRR4RlKm2njVGrssFV/MCeExFEFAGaW39EESbHKjQ2TiU
+	VK0yOZhdeGDBiezx+7wQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gN2PT-0001OL-9E; Wed, 14 Nov 2018 21:09:15 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1gN2RI-0002la-P0; Wed, 14 Nov 2018 21:11:08 +0000
+Received: from mail.binarylogic.ch ([2a01:4f8:222:24c1::ff02])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gN2PP-0001NL-SS
- for linux-riscv@lists.infradead.org; Wed, 14 Nov 2018 21:09:13 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id x21-v6so5639080pln.9
- for <linux-riscv@lists.infradead.org>; Wed, 14 Nov 2018 13:08:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=fgtKLH6ZCLB8hOtEUGHvxQMy3+HGo+5u1P0VcBxufNw=;
- b=R65cjeKqYv6FyWtEKPUq/FhFmR/1d2+pAKG2vyN7PzwBIbTtlM/ugoCj06IE3JK2jo
- e9mZtxH2skFUELvKfHdmW2CSOa3CL2jkxo/lP2EW0k2h8io+Wv+rAZywhZ2FDwsjI4CT
- g6v4vfP52MZJ00tTF+IoTzjzbS3xo0nmwp5BIy4mJrmRNMEzpj/pnMeHq68PPUZigJ0X
- l8c/ZrHrBjDO6CrUj2UG0/T/zDngy9KqCK2iNHIV2g1oHEAYIFMcP0Lf2jVuPQMkMMju
- 9uidHH4p3bw6lDXSg2FFYuQcsZGDLjtd7hd9rvQ6ue2UbnrQ/LBQKUcVRAU20wCCnnr7
- Zplw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=fgtKLH6ZCLB8hOtEUGHvxQMy3+HGo+5u1P0VcBxufNw=;
- b=EWKKJzQxHUeqbTDLNKJPu/tAX98DshkGUWwBBeMw574SJ1S0Llab5dHIn30quqypk+
- hz7AIMjwDdn76V3SYYiB5bS98kArZyxSg9Jc2L7YQj4dqjd2mGSRJxv5XpX33xajHEef
- JAC0NnSpn1UZWv3bcTYHXSh/qO5IPNYUhIPfXnaZz/24UUhvZgPzXg7auOKks+djQRyi
- +d+UddskG7Twwzy9qOxcERBYuLVtjClm0e/04Ospq4VMfPeGwXj7w3/GXnJvzl8CXNya
- uAvybiDmiekmPg7UTmnZIyYIbWP4XQNCh0cCkCI6380t8yYL0vU3A15/31QKmVoue2Fk
- atDQ==
-X-Gm-Message-State: AGRZ1gJHaHU46asBiHHaUbh/ceqBJ0RwPyFOM8jYj3/VbBCda8kYNUUW
- GJY98o5aVAG5HFxz7qF+W50cYXRjppI7wup++uugyyE4wPc=
-X-Google-Smtp-Source: AJdET5doWLEyt7XQU8lu13r/LryCNYu1WEWTK7ImMqrYurlN17Dlh6jeWDlS5D9ZlKRTNejjfo5l2O8vS2EnYAVznY4=
-X-Received: by 2002:a17:902:a40f:: with SMTP id
- p15mr3557930plq.286.1542229738744; 
- Wed, 14 Nov 2018 13:08:58 -0800 (PST)
+ id 1gN2RF-0002kV-7J
+ for linux-riscv@lists.infradead.org; Wed, 14 Nov 2018 21:11:06 +0000
+Received: from [IPv6:2001:8e0:2002:7300:94d1:5a64:c83e:664b] (unknown
+ [IPv6:2001:8e0:2002:7300:94d1:5a64:c83e:664b])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.binarylogic.ch (Postfix) with ESMTPSA id 52079DF386;
+ Wed, 14 Nov 2018 22:10:53 +0100 (CET)
+Subject: Re: [RFC/RFT 2/2] RISC-V: kprobes/kretprobe support
+To: Masami Hiramatsu <mhiramat@kernel.org>
+References: <20181113195804.22825-1-me@packi.ch>
+ <20181113195804.22825-3-me@packi.ch>
+ <20181114003730.06f810517a270070734df4ce@kernel.org>
+ <20181114074951.0902699286fdf8652f2878a4@kernel.org>
+From: Patrick Staehlin <me@packi.ch>
+Openpgp: preference=signencrypt
+Autocrypt: addr=me@packi.ch; prefer-encrypt=mutual; keydata=
+ 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
+Message-ID: <05082ba4-33d6-a95c-e049-78791dafc009@packi.ch>
+Date: Wed, 14 Nov 2018 22:10:52 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.2.1
 MIME-Version: 1.0
-References: <mvmwopffwlo.fsf@suse.de>
-In-Reply-To: <mvmwopffwlo.fsf@suse.de>
-From: Emil Renner Berthing <emil.renner.berthing@gmail.com>
-Date: Wed, 14 Nov 2018 22:08:47 +0100
-Message-ID:
- <CANBLGcxSA0GYd+D0Ofe0mAJhGQcqdi-4jCWGWk=EUqnqK-4v1A@mail.gmail.com>
-Subject: Re: MACB in 4.20-rc2
-To: schwab@suse.de
+In-Reply-To: <20181114074951.0902699286fdf8652f2878a4@kernel.org>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181114_130911_944871_91733F2C 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181114_131105_570337_190B19F5 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,39 +102,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Anders Roxell <anders.roxell@linaro.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Alan Kao <alankao@andestech.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>, linux-kernel@vger.kernel.org,
+ Al Viro <viro@zeniv.linux.org.uk>, Souptick Joarder <jrdr.linux@gmail.com>,
+ Zong Li <zong@andestech.com>, Thomas Gleixner <tglx@linutronix.de>,
+ "Eric W. Biederman" <ebiederm@xmission.com>, linux-riscv@lists.infradead.org,
+ zhong jiang <zhongjiang@huawei.com>, Ingo Molnar <mingo@kernel.org>,
+ Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Jim Wilson <jimw@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181114210847.A3zWTGMBkq_dbBJR3C8YKgh2Gg_zRCEPiD_ZKcbFNnw@z>
+Message-ID: <20181114211052.2v4UuvlOTh2OkX6fa61SonCw9u5-0sxRzHyKA1LpzF8@z>
 
-Hi Andreas,
+On 14.11.18 16:49, Masami Hiramatsu wrote:
+> On Wed, 14 Nov 2018 00:37:30 -0800
+> Masami Hiramatsu <mhiramat@kernel.org> wrote:
+> 
+>>> +
+>>> +static int __kprobes patch_text(kprobe_opcode_t *addr, u32 opcode)
+>>> +{
+>>> +	if (is_compressed_insn(opcode))
+>>> +		*(u16 *)addr = cpu_to_le16(opcode);
+>>> +	else
+>>> +		*addr = cpu_to_le32(opcode);
+>>> +
+> 
+> BTW, don't RISC-V need any i-cache flush and per-core serialization
+> for patching the text area? (and no text_mutex protection?)
 
-On Wed, 14 Nov 2018 at 17:33, Andreas Schwab <schwab@suse.de> wrote:
->
-> It looks like the MACB driver is broken in 4.20-rc2.  I can see these
-> two messages:
->
-> [   38.530000] macb: GEM doesn't support hardware ptp.
-> [   38.540000] libphy: MACB_mii_bus: probed
->
-> but appears to be stuck without ever reaching this message:
->
-> [   38.750000] Microsemi VSC8541 SyncE 10090000.ethernet-ffffffff:00: attached PHY driver [Microsemi VSC8541 SyncE] (mii_bus:phy_addr=10090000.ethernet-ffffffff:00, irq=POLL)
->
-> The module never finishes initializing.
+Yes, we should probably call flush_icache_all. This code works on
+QEMU/virt but I guess on real hardware you may run into problems,
+especially when disarming the kprobe. I'll have a look at the arm64 code
+again to see what's missing.
 
-That's funny. I _just_ came to the same conclusion.
-Here is my bootlog with a backtrace:
-http://ix.io/1rTR
+> 
+>>> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.S b/arch/riscv/kernel/probes/kprobes_trampoline.S
+>>> new file mode 100644
+>>> index 000000000000..c7ceda9556a3
+>>> --- /dev/null
+>>> +++ b/arch/riscv/kernel/probes/kprobes_trampoline.S
+>>> @@ -0,0 +1,91 @@
+>>> +/* SPDX-License-Identifier: GPL-2.0+ */
+>>> +
+>>> +#include <linux/linkage.h>
+>>> +
+>>> +#include <asm/asm.h>
+>>> +#include <asm/asm-offsets.h>
+>>> +
+>>> +	.text
+>>> +	.altmacro
+>>> +
+>>> +	.macro save_all_base_regs
+>>> +	REG_S x1,  PT_RA(sp)
+>>> +	REG_S x3,  PT_GP(sp)
+>>> +	REG_S x4,  PT_TP(sp)
+>>> +	REG_S x5,  PT_T0(sp)
+>>> +	REG_S x6,  PT_T1(sp)
+>>> +	REG_S x7,  PT_T2(sp)
+>>> +	REG_S x8,  PT_S0(sp)
+>>> +	REG_S x9,  PT_S1(sp)
+>>> +	REG_S x10, PT_A0(sp)
+>>> +	REG_S x11, PT_A1(sp)
+>>> +	REG_S x12, PT_A2(sp)
+>>> +	REG_S x13, PT_A3(sp)
+>>> +	REG_S x14, PT_A4(sp)
+>>> +	REG_S x15, PT_A5(sp)
+>>> +	REG_S x16, PT_A6(sp)
+>>> +	REG_S x17, PT_A7(sp)
+>>> +	REG_S x18, PT_S2(sp)
+>>> +	REG_S x19, PT_S3(sp)
+>>> +	REG_S x20, PT_S4(sp)
+>>> +	REG_S x21, PT_S5(sp)
+>>> +	REG_S x22, PT_S6(sp)
+>>> +	REG_S x23, PT_S7(sp)
+>>> +	REG_S x24, PT_S8(sp)
+>>> +	REG_S x25, PT_S9(sp)
+>>> +	REG_S x26, PT_S10(sp)
+>>> +	REG_S x27, PT_S11(sp)
+>>> +	REG_S x28, PT_T3(sp)
+>>> +	REG_S x29, PT_T4(sp)
+>>> +	REG_S x30, PT_T5(sp)
+>>> +	REG_S x31, PT_T6(sp)
+>>> +	.endm
+>>> +
+>>> +	.macro restore_all_base_regs
+>>> +	REG_L x3,  PT_GP(sp)
+>>> +	REG_L x4,  PT_TP(sp)
+>>> +	REG_L x5,  PT_T0(sp)
+>>> +	REG_L x6,  PT_T1(sp)
+>>> +	REG_L x7,  PT_T2(sp)
+>>> +	REG_L x8,  PT_S0(sp)
+>>> +	REG_L x9,  PT_S1(sp)
+>>> +	REG_L x10, PT_A0(sp)
+>>> +	REG_L x11, PT_A1(sp)
+>>> +	REG_L x12, PT_A2(sp)
+>>> +	REG_L x13, PT_A3(sp)
+>>> +	REG_L x14, PT_A4(sp)
+>>> +	REG_L x15, PT_A5(sp)
+>>> +	REG_L x16, PT_A6(sp)
+>>> +	REG_L x17, PT_A7(sp)
+>>> +	REG_L x18, PT_S2(sp)
+>>> +	REG_L x19, PT_S3(sp)
+>>> +	REG_L x20, PT_S4(sp)
+>>> +	REG_L x21, PT_S5(sp)
+>>> +	REG_L x22, PT_S6(sp)
+>>> +	REG_L x23, PT_S7(sp)
+>>> +	REG_L x24, PT_S8(sp)
+>>> +	REG_L x25, PT_S9(sp)
+>>> +	REG_L x26, PT_S10(sp)
+>>> +	REG_L x27, PT_S11(sp)
+>>> +	REG_L x28, PT_T3(sp)
+>>> +	REG_L x29, PT_T4(sp)
+>>> +	REG_L x30, PT_T5(sp)
+>>> +	REG_L x31, PT_T6(sp)
+>>> +	.endm
+> 
+> 
+> It seems thses macros can be (partially?) shared with entry.S
 
-..and the code I'm building:
-https://github.com/esmil/linux/commits/hfu
-
-I tried reverting Atish' hack, but that's not it.
-
-/Emil
+Yes, I wanted to avoid somebody changing the shared code and breaking
+random things. But that's what reviews are for. I'll think of something
+for v2.
 
 _______________________________________________
 linux-riscv mailing list
