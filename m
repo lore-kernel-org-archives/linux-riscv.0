@@ -1,121 +1,55 @@
-From: me@packi.ch (Patrick Staehlin)
-Date: Wed, 14 Nov 2018 22:10:52 +0100
-Subject: [RFC/RFT 2/2] RISC-V: kprobes/kretprobe support
-In-Reply-To: <20181114074951.0902699286fdf8652f2878a4@kernel.org>
-References: <20181113195804.22825-1-me@packi.ch>
- <20181113195804.22825-3-me@packi.ch>
- <20181114003730.06f810517a270070734df4ce@kernel.org>
- <20181114074951.0902699286fdf8652f2878a4@kernel.org>
-Message-ID: <05082ba4-33d6-a95c-e049-78791dafc009@packi.ch>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Wed, 14 Nov 2018 14:35:54 -0800 (PST)
+Subject: [GIT PULL] RISC-V Patches for 4.20-rc2
+Message-ID: <mhng-abc25686-4eaa-4d2a-bb97-2306b418b9fe@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 14.11.18 16:49, Masami Hiramatsu wrote:
-> On Wed, 14 Nov 2018 00:37:30 -0800
-> Masami Hiramatsu <mhiramat@kernel.org> wrote:
-> 
->>> +
->>> +static int __kprobes patch_text(kprobe_opcode_t *addr, u32 opcode)
->>> +{
->>> +	if (is_compressed_insn(opcode))
->>> +		*(u16 *)addr = cpu_to_le16(opcode);
->>> +	else
->>> +		*addr = cpu_to_le32(opcode);
->>> +
-> 
-> BTW, don't RISC-V need any i-cache flush and per-core serialization
-> for patching the text area? (and no text_mutex protection?)
+The following changes since commit ccda4af0f4b92f7b4c308d3acc262f4a7e3affad:
 
-Yes, we should probably call flush_icache_all. This code works on
-QEMU/virt but I guess on real hardware you may run into problems,
-especially when disarming the kprobe. I'll have a look at the arm64 code
-again to see what's missing.
+  Linux 4.20-rc2 (2018-11-11 17:12:31 -0600)
 
-> 
->>> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.S b/arch/riscv/kernel/probes/kprobes_trampoline.S
->>> new file mode 100644
->>> index 000000000000..c7ceda9556a3
->>> --- /dev/null
->>> +++ b/arch/riscv/kernel/probes/kprobes_trampoline.S
->>> @@ -0,0 +1,91 @@
->>> +/* SPDX-License-Identifier: GPL-2.0+ */
->>> +
->>> +#include <linux/linkage.h>
->>> +
->>> +#include <asm/asm.h>
->>> +#include <asm/asm-offsets.h>
->>> +
->>> +	.text
->>> +	.altmacro
->>> +
->>> +	.macro save_all_base_regs
->>> +	REG_S x1,  PT_RA(sp)
->>> +	REG_S x3,  PT_GP(sp)
->>> +	REG_S x4,  PT_TP(sp)
->>> +	REG_S x5,  PT_T0(sp)
->>> +	REG_S x6,  PT_T1(sp)
->>> +	REG_S x7,  PT_T2(sp)
->>> +	REG_S x8,  PT_S0(sp)
->>> +	REG_S x9,  PT_S1(sp)
->>> +	REG_S x10, PT_A0(sp)
->>> +	REG_S x11, PT_A1(sp)
->>> +	REG_S x12, PT_A2(sp)
->>> +	REG_S x13, PT_A3(sp)
->>> +	REG_S x14, PT_A4(sp)
->>> +	REG_S x15, PT_A5(sp)
->>> +	REG_S x16, PT_A6(sp)
->>> +	REG_S x17, PT_A7(sp)
->>> +	REG_S x18, PT_S2(sp)
->>> +	REG_S x19, PT_S3(sp)
->>> +	REG_S x20, PT_S4(sp)
->>> +	REG_S x21, PT_S5(sp)
->>> +	REG_S x22, PT_S6(sp)
->>> +	REG_S x23, PT_S7(sp)
->>> +	REG_S x24, PT_S8(sp)
->>> +	REG_S x25, PT_S9(sp)
->>> +	REG_S x26, PT_S10(sp)
->>> +	REG_S x27, PT_S11(sp)
->>> +	REG_S x28, PT_T3(sp)
->>> +	REG_S x29, PT_T4(sp)
->>> +	REG_S x30, PT_T5(sp)
->>> +	REG_S x31, PT_T6(sp)
->>> +	.endm
->>> +
->>> +	.macro restore_all_base_regs
->>> +	REG_L x3,  PT_GP(sp)
->>> +	REG_L x4,  PT_TP(sp)
->>> +	REG_L x5,  PT_T0(sp)
->>> +	REG_L x6,  PT_T1(sp)
->>> +	REG_L x7,  PT_T2(sp)
->>> +	REG_L x8,  PT_S0(sp)
->>> +	REG_L x9,  PT_S1(sp)
->>> +	REG_L x10, PT_A0(sp)
->>> +	REG_L x11, PT_A1(sp)
->>> +	REG_L x12, PT_A2(sp)
->>> +	REG_L x13, PT_A3(sp)
->>> +	REG_L x14, PT_A4(sp)
->>> +	REG_L x15, PT_A5(sp)
->>> +	REG_L x16, PT_A6(sp)
->>> +	REG_L x17, PT_A7(sp)
->>> +	REG_L x18, PT_S2(sp)
->>> +	REG_L x19, PT_S3(sp)
->>> +	REG_L x20, PT_S4(sp)
->>> +	REG_L x21, PT_S5(sp)
->>> +	REG_L x22, PT_S6(sp)
->>> +	REG_L x23, PT_S7(sp)
->>> +	REG_L x24, PT_S8(sp)
->>> +	REG_L x25, PT_S9(sp)
->>> +	REG_L x26, PT_S10(sp)
->>> +	REG_L x27, PT_S11(sp)
->>> +	REG_L x28, PT_T3(sp)
->>> +	REG_L x29, PT_T4(sp)
->>> +	REG_L x30, PT_T5(sp)
->>> +	REG_L x31, PT_T6(sp)
->>> +	.endm
-> 
-> 
-> It seems thses macros can be (partially?) shared with entry.S
+are available in the Git repository at:
 
-Yes, I wanted to avoid somebody changing the shared code and breaking
-random things. But that's what reviews are for. I'll think of something
-for v2.
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.20-rc2
+
+for you to fetch changes up to ef3a61406618291c46da168ff91acaa28d85944c:
+
+  RISC-V: Silence some module warnings on 32-bit (2018-11-12 18:12:24 -0800)
+
+----------------------------------------------------------------
+RISC-V Patches for 4.20-rc2
+
+This pull request contains a for unrelated patches that fix various
+issues in the RISC-V port:
+
+* A patch that enables printk timestamps in the RISC-V defconfig.
+* A whitespace fix to "struct pt_regs".
+* A patch that adds a "vdso_install" target for RISC-V.
+* A pair of build fixes: one to fix a typo in our makefile, and one to
+  clean up some warnings.
+
+There will probably be more patches from us for 4.20, but I don't have
+anything that's ready to go right now so I'm going to hold off a bit.
+Right now the only concrete thing I know I want to make sure gets sorted
+out is our 32-bit stat interface, which I don't want sitting in limbo
+for another cycle as we have to get RV32I glibc done.
+
+----------------------------------------------------------------
+Anup Patel (1):
+      RISC-V: defconfig: Enable printk timestamps
+
+David Abdurachmanov (2):
+      riscv: fix spacing in struct pt_regs
+      riscv: add missing vdso_install target
+
+Olof Johansson (2):
+      RISC-V: lib: Fix build error for 64-bit
+      RISC-V: Silence some module warnings on 32-bit
+
+ arch/riscv/Makefile             |  4 ++++
+ arch/riscv/configs/defconfig    |  1 +
+ arch/riscv/include/asm/ptrace.h |  4 ++--
+ arch/riscv/kernel/module.c      | 12 ++++++------
+ arch/riscv/lib/Makefile         |  2 +-
+ 5 files changed, 14 insertions(+), 9 deletions(-)
