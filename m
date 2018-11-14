@@ -1,655 +1,1016 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 14 Nov 2018 09:53:37 -0800 (PST)
-Subject: [PATCH] Documentation/features: Refresh the features list to
- v4.20-rc2
-In-Reply-To: <20181113112507.GA14028@gmail.com>
-Message-ID: <mhng-0a49153a-3f84-4939-98ac-4d68b7cec647@palmer-si-x1c4>
+From: me@packi.ch (Patrick Staehlin)
+Date: Wed, 14 Nov 2018 21:52:57 +0100
+Subject: [RFC/RFT 2/2] RISC-V: kprobes/kretprobe support
+In-Reply-To: <20181114003730.06f810517a270070734df4ce@kernel.org>
+References: <20181113195804.22825-1-me@packi.ch>
+ <20181113195804.22825-3-me@packi.ch>
+ <20181114003730.06f810517a270070734df4ce@kernel.org>
+Message-ID: <a6abc4ce-4398-5ca6-992b-efb31e01c5ca@packi.ch>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 13 Nov 2018 03:25:07 PST (-0800), mingo at kernel.org wrote:
->
-> * Palmer Dabbelt <palmer@sifive.com> wrote:
->
->> I didn't even know this existed until David submitted a patch set that
->> included updates to the documentation as a result of some features he
->> added to RISC-V.  It looks like there may be a handful of other people
->> who don't know this exists either, so I figured I'd just mail out a
->> patch set containing all the updates split out as well as I can.
->>
->> This smells like something that sholud be automatic, so if I'm jumping
->> the gun here then feel free to drop this.  If nobody says anything then
->> I guess I'll submit this as a separate PR to Linus from my personal
->> tree, as it's not really a RISC-V thing but it seems like it's worth
->> having docs that match the code where it's trivial -- I assume that's
->> what this does, I didn't actually read anything but the diff because I
->> never trust documentation to be up to date...
->>
->> I feel compelled to say something like "maybe this should be part of
->> checkpatch?", but I'm definately not looking to learn perl :)
->
-> I don't think it should be automated or part of checkpatch, but I
-> (obviously) agree with the changes, except that I think it should be a
-> single patch (combined patch attached below).
+Hi Masami,
 
-I'm happy with a single patch.  Does this mean you own it, or do you want me to 
-PR it?
+thank you for your remarks.
 
-> Thanks,
->
-> 	Ingo
->
-> Subject: Documentation/features: Refresh the features list to v4.20-rc2
-> From: Palmer Dabbelt <palmer@sifive.com>
->
-> Run Documentation/features/scripts/feature-refresh.sh to refresh the
-> kernel features support matrix list:
->
->  - The new 'csky' architecture was added
->  - s390    now supports KASAN
->  - powerpc now supports stackprotector
->  - xtensa  now supports sg-chain
->  - arm64   now supports queued-spinlocks
->  - parisc  now supports kprobes-events
->  - RISC-V  now supports pte_special
->
-> [ mingo: combined the patches and the changelogs. ]
->
-> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-> Signed-off-by: Ingo Molnar <mingo@kernel.org>
-> ---
->
->  Documentation/features/core/cBPF-JIT/arch-support.txt              | 1 +
->  Documentation/features/core/eBPF-JIT/arch-support.txt              | 1 +
->  Documentation/features/core/generic-idle-thread/arch-support.txt   | 1 +
->  Documentation/features/core/jump-labels/arch-support.txt           | 1 +
->  Documentation/features/core/tracehook/arch-support.txt             | 1 +
->  Documentation/features/debug/KASAN/arch-support.txt                | 3 ++-
->  Documentation/features/debug/gcov-profile-all/arch-support.txt     | 1 +
->  Documentation/features/debug/kgdb/arch-support.txt                 | 1 +
->  Documentation/features/debug/kprobes-on-ftrace/arch-support.txt    | 1 +
->  Documentation/features/debug/kprobes/arch-support.txt              | 1 +
->  Documentation/features/debug/kretprobes/arch-support.txt           | 1 +
->  Documentation/features/debug/optprobes/arch-support.txt            | 1 +
->  Documentation/features/debug/stackprotector/arch-support.txt       | 3 ++-
->  Documentation/features/debug/uprobes/arch-support.txt              | 1 +
->  Documentation/features/debug/user-ret-profiler/arch-support.txt    | 1 +
->  Documentation/features/io/dma-contiguous/arch-support.txt          | 1 +
->  Documentation/features/io/sg-chain/arch-support.txt                | 3 ++-
->  Documentation/features/locking/cmpxchg-local/arch-support.txt      | 1 +
->  Documentation/features/locking/lockdep/arch-support.txt            | 1 +
->  Documentation/features/locking/queued-rwlocks/arch-support.txt     | 1 +
->  Documentation/features/locking/queued-spinlocks/arch-support.txt   | 3 ++-
->  Documentation/features/locking/rwsem-optimized/arch-support.txt    | 1 +
->  Documentation/features/perf/kprobes-event/arch-support.txt         | 3 ++-
->  Documentation/features/perf/perf-regs/arch-support.txt             | 1 +
->  Documentation/features/perf/perf-stackdump/arch-support.txt        | 1 +
->  Documentation/features/sched/membarrier-sync-core/arch-support.txt | 1 +
->  Documentation/features/sched/numa-balancing/arch-support.txt       | 1 +
->  Documentation/features/seccomp/seccomp-filter/arch-support.txt     | 1 +
->  Documentation/features/time/arch-tick-broadcast/arch-support.txt   | 1 +
->  Documentation/features/time/clockevents/arch-support.txt           | 1 +
->  Documentation/features/time/context-tracking/arch-support.txt      | 1 +
->  Documentation/features/time/irq-time-acct/arch-support.txt         | 1 +
->  Documentation/features/time/modern-timekeeping/arch-support.txt    | 1 +
->  Documentation/features/time/virt-cpuacct/arch-support.txt          | 1 +
->  Documentation/features/vm/ELF-ASLR/arch-support.txt                | 1 +
->  Documentation/features/vm/PG_uncached/arch-support.txt             | 1 +
->  Documentation/features/vm/THP/arch-support.txt                     | 1 +
->  Documentation/features/vm/TLB/arch-support.txt                     | 1 +
->  Documentation/features/vm/huge-vmap/arch-support.txt               | 1 +
->  Documentation/features/vm/ioremap_prot/arch-support.txt            | 1 +
->  Documentation/features/vm/numa-memblock/arch-support.txt           | 1 +
->  Documentation/features/vm/pte_special/arch-support.txt             | 3 ++-
->  42 files changed, 48 insertions(+), 6 deletions(-)
->
-> diff --git a/Documentation/features/core/cBPF-JIT/arch-support.txt b/Documentation/features/core/cBPF-JIT/arch-support.txt
-> index 90459cdde314..8620c38d4db0 100644
-> --- a/Documentation/features/core/cBPF-JIT/arch-support.txt
-> +++ b/Documentation/features/core/cBPF-JIT/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: | TODO |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/core/eBPF-JIT/arch-support.txt b/Documentation/features/core/eBPF-JIT/arch-support.txt
-> index c90a0382fe66..9ae6e8d0d10d 100644
-> --- a/Documentation/features/core/eBPF-JIT/arch-support.txt
-> +++ b/Documentation/features/core/eBPF-JIT/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/core/generic-idle-thread/arch-support.txt b/Documentation/features/core/generic-idle-thread/arch-support.txt
-> index 0ef6acdb991c..365df2c2ff0b 100644
-> --- a/Documentation/features/core/generic-idle-thread/arch-support.txt
-> +++ b/Documentation/features/core/generic-idle-thread/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: |  ok  |
->      |       h8300: | TODO |
->      |     hexagon: |  ok  |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/core/jump-labels/arch-support.txt b/Documentation/features/core/jump-labels/arch-support.txt
-> index 27cbd63abfd2..c29146c5741e 100644
-> --- a/Documentation/features/core/jump-labels/arch-support.txt
-> +++ b/Documentation/features/core/jump-labels/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/core/tracehook/arch-support.txt b/Documentation/features/core/tracehook/arch-support.txt
-> index f44c274e40ed..d344b99aae1e 100644
-> --- a/Documentation/features/core/tracehook/arch-support.txt
-> +++ b/Documentation/features/core/tracehook/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: |  ok  |
-> +    |        csky: |  ok  |
->      |       h8300: | TODO |
->      |     hexagon: |  ok  |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/debug/KASAN/arch-support.txt b/Documentation/features/debug/KASAN/arch-support.txt
-> index 282ecc8ea1da..c68adfc1db0e 100644
-> --- a/Documentation/features/debug/KASAN/arch-support.txt
-> +++ b/Documentation/features/debug/KASAN/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> @@ -23,7 +24,7 @@
->      |      parisc: | TODO |
->      |     powerpc: | TODO |
->      |       riscv: | TODO |
-> -    |        s390: | TODO |
-> +    |        s390: |  ok  |
->      |          sh: | TODO |
->      |       sparc: | TODO |
->      |          um: | TODO |
-> diff --git a/Documentation/features/debug/gcov-profile-all/arch-support.txt b/Documentation/features/debug/gcov-profile-all/arch-support.txt
-> index 01b2b3004e0a..059d58a549c7 100644
-> --- a/Documentation/features/debug/gcov-profile-all/arch-support.txt
-> +++ b/Documentation/features/debug/gcov-profile-all/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/debug/kgdb/arch-support.txt b/Documentation/features/debug/kgdb/arch-support.txt
-> index 3b4dff22329f..3e6b8f07d5d0 100644
-> --- a/Documentation/features/debug/kgdb/arch-support.txt
-> +++ b/Documentation/features/debug/kgdb/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: |  ok  |
->      |     hexagon: |  ok  |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/debug/kprobes-on-ftrace/arch-support.txt b/Documentation/features/debug/kprobes-on-ftrace/arch-support.txt
-> index 7e963d0ae646..68f266944d5f 100644
-> --- a/Documentation/features/debug/kprobes-on-ftrace/arch-support.txt
-> +++ b/Documentation/features/debug/kprobes-on-ftrace/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: | TODO |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/debug/kprobes/arch-support.txt b/Documentation/features/debug/kprobes/arch-support.txt
-> index 4ada027faf16..f4e45bd58fea 100644
-> --- a/Documentation/features/debug/kprobes/arch-support.txt
-> +++ b/Documentation/features/debug/kprobes/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/debug/kretprobes/arch-support.txt b/Documentation/features/debug/kretprobes/arch-support.txt
-> index 044e13fcca5d..1d5651ef11f8 100644
-> --- a/Documentation/features/debug/kretprobes/arch-support.txt
-> +++ b/Documentation/features/debug/kretprobes/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/debug/optprobes/arch-support.txt b/Documentation/features/debug/optprobes/arch-support.txt
-> index dce7669c918f..fb297a88f62c 100644
-> --- a/Documentation/features/debug/optprobes/arch-support.txt
-> +++ b/Documentation/features/debug/optprobes/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: | TODO |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/debug/stackprotector/arch-support.txt b/Documentation/features/debug/stackprotector/arch-support.txt
-> index 954ac1c95553..32bbdfc64c32 100644
-> --- a/Documentation/features/debug/stackprotector/arch-support.txt
-> +++ b/Documentation/features/debug/stackprotector/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> @@ -21,7 +22,7 @@
->      |       nios2: | TODO |
->      |    openrisc: | TODO |
->      |      parisc: | TODO |
-> -    |     powerpc: | TODO |
-> +    |     powerpc: |  ok  |
->      |       riscv: | TODO |
->      |        s390: | TODO |
->      |          sh: |  ok  |
-> diff --git a/Documentation/features/debug/uprobes/arch-support.txt b/Documentation/features/debug/uprobes/arch-support.txt
-> index 1a3f9d3229bf..1c577d0cfc7f 100644
-> --- a/Documentation/features/debug/uprobes/arch-support.txt
-> +++ b/Documentation/features/debug/uprobes/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/debug/user-ret-profiler/arch-support.txt b/Documentation/features/debug/user-ret-profiler/arch-support.txt
-> index 1d78d1069a5f..6bfa36b0e017 100644
-> --- a/Documentation/features/debug/user-ret-profiler/arch-support.txt
-> +++ b/Documentation/features/debug/user-ret-profiler/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: | TODO |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/io/dma-contiguous/arch-support.txt b/Documentation/features/io/dma-contiguous/arch-support.txt
-> index 30c072d2b67c..eb28b5c97ca6 100644
-> --- a/Documentation/features/io/dma-contiguous/arch-support.txt
-> +++ b/Documentation/features/io/dma-contiguous/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: |  ok  |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/io/sg-chain/arch-support.txt b/Documentation/features/io/sg-chain/arch-support.txt
-> index 6554f0372c3f..3c85efb8bc8d 100644
-> --- a/Documentation/features/io/sg-chain/arch-support.txt
-> +++ b/Documentation/features/io/sg-chain/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ok  |
-> @@ -29,5 +30,5 @@
->      |          um: | TODO |
->      |   unicore32: | TODO |
->      |         x86: |  ok  |
-> -    |      xtensa: | TODO |
-> +    |      xtensa: |  ok  |
->      -----------------------
-> diff --git a/Documentation/features/locking/cmpxchg-local/arch-support.txt b/Documentation/features/locking/cmpxchg-local/arch-support.txt
-> index 51704a2dc8d1..242ff5a6586e 100644
-> --- a/Documentation/features/locking/cmpxchg-local/arch-support.txt
-> +++ b/Documentation/features/locking/cmpxchg-local/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/locking/lockdep/arch-support.txt b/Documentation/features/locking/lockdep/arch-support.txt
-> index bd39c5edd460..941fd5b1094d 100644
-> --- a/Documentation/features/locking/lockdep/arch-support.txt
-> +++ b/Documentation/features/locking/lockdep/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: |  ok  |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/locking/queued-rwlocks/arch-support.txt b/Documentation/features/locking/queued-rwlocks/arch-support.txt
-> index da7aff3bee0b..c683da198f31 100644
-> --- a/Documentation/features/locking/queued-rwlocks/arch-support.txt
-> +++ b/Documentation/features/locking/queued-rwlocks/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: |  ok  |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/locking/queued-spinlocks/arch-support.txt b/Documentation/features/locking/queued-spinlocks/arch-support.txt
-> index 478e9101322c..743aa6691715 100644
-> --- a/Documentation/features/locking/queued-spinlocks/arch-support.txt
-> +++ b/Documentation/features/locking/queued-spinlocks/arch-support.txt
-> @@ -9,8 +9,9 @@
->      |       alpha: | TODO |
->      |         arc: | TODO |
->      |         arm: | TODO |
-> -    |       arm64: | TODO |
-> +    |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/locking/rwsem-optimized/arch-support.txt b/Documentation/features/locking/rwsem-optimized/arch-support.txt
-> index e54b1f1a8091..7521d7500fbe 100644
-> --- a/Documentation/features/locking/rwsem-optimized/arch-support.txt
-> +++ b/Documentation/features/locking/rwsem-optimized/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/perf/kprobes-event/arch-support.txt b/Documentation/features/perf/kprobes-event/arch-support.txt
-> index 7331402d1887..86ae33c70475 100644
-> --- a/Documentation/features/perf/kprobes-event/arch-support.txt
-> +++ b/Documentation/features/perf/kprobes-event/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: |  ok  |
->      |        ia64: | TODO |
-> @@ -20,7 +21,7 @@
->      |       nds32: |  ok  |
->      |       nios2: | TODO |
->      |    openrisc: | TODO |
-> -    |      parisc: | TODO |
-> +    |      parisc: |  ok  |
->      |     powerpc: |  ok  |
->      |       riscv: | TODO |
->      |        s390: |  ok  |
-> diff --git a/Documentation/features/perf/perf-regs/arch-support.txt b/Documentation/features/perf/perf-regs/arch-support.txt
-> index 53feeee6cdad..687d049d9cee 100644
-> --- a/Documentation/features/perf/perf-regs/arch-support.txt
-> +++ b/Documentation/features/perf/perf-regs/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/perf/perf-stackdump/arch-support.txt b/Documentation/features/perf/perf-stackdump/arch-support.txt
-> index 16164348e0ea..90996e3d18a8 100644
-> --- a/Documentation/features/perf/perf-stackdump/arch-support.txt
-> +++ b/Documentation/features/perf/perf-stackdump/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/sched/membarrier-sync-core/arch-support.txt b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-> index c7858dd1ea8f..8a521a622966 100644
-> --- a/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-> +++ b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-> @@ -34,6 +34,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/sched/numa-balancing/arch-support.txt b/Documentation/features/sched/numa-balancing/arch-support.txt
-> index c68bb2c2cb62..305601da4c05 100644
-> --- a/Documentation/features/sched/numa-balancing/arch-support.txt
-> +++ b/Documentation/features/sched/numa-balancing/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ..  |
->      |       arm64: |  ok  |
->      |         c6x: |  ..  |
-> +    |        csky: | TODO |
->      |       h8300: |  ..  |
->      |     hexagon: |  ..  |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/seccomp/seccomp-filter/arch-support.txt b/Documentation/features/seccomp/seccomp-filter/arch-support.txt
-> index d4271b493b41..4fe6c3c3be5c 100644
-> --- a/Documentation/features/seccomp/seccomp-filter/arch-support.txt
-> +++ b/Documentation/features/seccomp/seccomp-filter/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/time/arch-tick-broadcast/arch-support.txt b/Documentation/features/time/arch-tick-broadcast/arch-support.txt
-> index 83d9e68462bb..593536f7925b 100644
-> --- a/Documentation/features/time/arch-tick-broadcast/arch-support.txt
-> +++ b/Documentation/features/time/arch-tick-broadcast/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/time/clockevents/arch-support.txt b/Documentation/features/time/clockevents/arch-support.txt
-> index 3d4908fce6da..7a27157da408 100644
-> --- a/Documentation/features/time/clockevents/arch-support.txt
-> +++ b/Documentation/features/time/clockevents/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: |  ok  |
-> +    |        csky: |  ok  |
->      |       h8300: |  ok  |
->      |     hexagon: |  ok  |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/time/context-tracking/arch-support.txt b/Documentation/features/time/context-tracking/arch-support.txt
-> index c29974afffaa..048bfb6d3872 100644
-> --- a/Documentation/features/time/context-tracking/arch-support.txt
-> +++ b/Documentation/features/time/context-tracking/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/time/irq-time-acct/arch-support.txt b/Documentation/features/time/irq-time-acct/arch-support.txt
-> index 8d73c463ec27..a14bbad8e948 100644
-> --- a/Documentation/features/time/irq-time-acct/arch-support.txt
-> +++ b/Documentation/features/time/irq-time-acct/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ..  |
-> diff --git a/Documentation/features/time/modern-timekeeping/arch-support.txt b/Documentation/features/time/modern-timekeeping/arch-support.txt
-> index e7c6ea6b8fb3..2855dfe2464d 100644
-> --- a/Documentation/features/time/modern-timekeeping/arch-support.txt
-> +++ b/Documentation/features/time/modern-timekeeping/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: |  ok  |
->      |         c6x: |  ok  |
-> +    |        csky: |  ok  |
->      |       h8300: |  ok  |
->      |     hexagon: |  ok  |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/time/virt-cpuacct/arch-support.txt b/Documentation/features/time/virt-cpuacct/arch-support.txt
-> index 4646457461cf..fb0d0cab9cab 100644
-> --- a/Documentation/features/time/virt-cpuacct/arch-support.txt
-> +++ b/Documentation/features/time/virt-cpuacct/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/vm/ELF-ASLR/arch-support.txt b/Documentation/features/vm/ELF-ASLR/arch-support.txt
-> index 1f71d090ff2c..adc25878d217 100644
-> --- a/Documentation/features/vm/ELF-ASLR/arch-support.txt
-> +++ b/Documentation/features/vm/ELF-ASLR/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/vm/PG_uncached/arch-support.txt b/Documentation/features/vm/PG_uncached/arch-support.txt
-> index fbd5aa463b0a..f05588f9e4b4 100644
-> --- a/Documentation/features/vm/PG_uncached/arch-support.txt
-> +++ b/Documentation/features/vm/PG_uncached/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: | TODO |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/vm/THP/arch-support.txt b/Documentation/features/vm/THP/arch-support.txt
-> index 5d7ecc378f29..cf0393711cbe 100644
-> --- a/Documentation/features/vm/THP/arch-support.txt
-> +++ b/Documentation/features/vm/THP/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: |  ..  |
-> +    |        csky: | TODO |
->      |       h8300: |  ..  |
->      |     hexagon: |  ..  |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/vm/TLB/arch-support.txt b/Documentation/features/vm/TLB/arch-support.txt
-> index f7af9678eb66..2bdd3b6cee3c 100644
-> --- a/Documentation/features/vm/TLB/arch-support.txt
-> +++ b/Documentation/features/vm/TLB/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: | TODO |
->      |         c6x: |  ..  |
-> +    |        csky: | TODO |
->      |       h8300: |  ..  |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/vm/huge-vmap/arch-support.txt b/Documentation/features/vm/huge-vmap/arch-support.txt
-> index d0713ccc7117..019131c5acce 100644
-> --- a/Documentation/features/vm/huge-vmap/arch-support.txt
-> +++ b/Documentation/features/vm/huge-vmap/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/vm/ioremap_prot/arch-support.txt b/Documentation/features/vm/ioremap_prot/arch-support.txt
-> index 8527601a3739..c6f3e4d68152 100644
-> --- a/Documentation/features/vm/ioremap_prot/arch-support.txt
-> +++ b/Documentation/features/vm/ioremap_prot/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: | TODO |
->      |       arm64: | TODO |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> diff --git a/Documentation/features/vm/numa-memblock/arch-support.txt b/Documentation/features/vm/numa-memblock/arch-support.txt
-> index 1a988052cd24..e51cb9f7d166 100644
-> --- a/Documentation/features/vm/numa-memblock/arch-support.txt
-> +++ b/Documentation/features/vm/numa-memblock/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ..  |
->      |       arm64: |  ok  |
->      |         c6x: |  ..  |
-> +    |        csky: | TODO |
->      |       h8300: |  ..  |
->      |     hexagon: |  ..  |
->      |        ia64: |  ok  |
-> diff --git a/Documentation/features/vm/pte_special/arch-support.txt b/Documentation/features/vm/pte_special/arch-support.txt
-> index a8378424bc98..3d492a34c8ee 100644
-> --- a/Documentation/features/vm/pte_special/arch-support.txt
-> +++ b/Documentation/features/vm/pte_special/arch-support.txt
-> @@ -11,6 +11,7 @@
->      |         arm: |  ok  |
->      |       arm64: |  ok  |
->      |         c6x: | TODO |
-> +    |        csky: | TODO |
->      |       h8300: | TODO |
->      |     hexagon: | TODO |
->      |        ia64: | TODO |
-> @@ -22,7 +23,7 @@
->      |    openrisc: | TODO |
->      |      parisc: | TODO |
->      |     powerpc: |  ok  |
-> -    |       riscv: | TODO |
-> +    |       riscv: |  ok  |
->      |        s390: |  ok  |
->      |          sh: |  ok  |
->      |       sparc: |  ok  |
+On 14.11.18 09:37, Masami Hiramatsu wrote>
+> Thank you very much for implementing kprobes on RISC-V :)
+> 
+> On Tue, 13 Nov 2018 20:58:04 +0100
+> Patrick St?hlin <me@packi.ch> wrote:
+> 
+>> First implementation, adapted from arm64. The C.ADDISP16 instruction
+>> gets simulated and the kprobes-handler called by inserting a C.EBREAK
+>> instruction.
+>>
+>> C.ADDISP16 was chosen as it sets-up the stack frame for functions.
+>> Some work has been done to support probes on non-compressed
+>> instructions but there is no support yet for decoding those.
+> 
+> Does this only support C.ADDISP16? No other insns are supported?
+> Supporting 1 insn is too few I think.
+
+At the moment, yes. I'm waiting for some input from somebody with deeper
+insights into the RISC-V architecture than me before implementing more
+instructions, should solution I've chosen be woefully inadequate.
+
+> Can RISC-V do single stepping? If not, we need to prepare emulator
+> as match as possible, or for ALU instructions, we can run it on
+> buffer and hook it.
+
+The debug-specification is still a draft but there are some softcores
+that implement it. But even if it was finalized I don't think this will
+be made a mandatory extension so we need to simulate/emulate a good part
+of the instruction set anyway.
+
+>> The way forward should be to uncompress the instructions for simulation
+>> to reduce the number of instructions used to decode  the immediate
+>> values on probe hit.
+> 
+> I have some comments on the patch, please review.
+> 
+>>
+>> Signed-off-by: Patrick St?hlin <me@packi.ch>
+>> ---
+>>  arch/riscv/Kconfig                            |   5 +-
+>>  arch/riscv/include/asm/kprobes.h              |  30 ++
+>>  arch/riscv/include/asm/probes.h               |  26 ++
+>>  arch/riscv/kernel/Makefile                    |   1 +
+>>  arch/riscv/kernel/probes/Makefile             |   3 +
+>>  arch/riscv/kernel/probes/decode-insn.c        |  38 ++
+>>  arch/riscv/kernel/probes/decode-insn.h        |  23 +
+>>  arch/riscv/kernel/probes/kprobes.c            | 401 ++++++++++++++++++
+>>  arch/riscv/kernel/probes/kprobes_trampoline.S |  91 ++++
+>>  arch/riscv/kernel/probes/simulate-insn.c      |  33 ++
+>>  arch/riscv/kernel/probes/simulate-insn.h      |   8 +
+>>  arch/riscv/kernel/traps.c                     |  13 +-
+>>  arch/riscv/mm/fault.c                         |  28 +-
+>>  13 files changed, 694 insertions(+), 6 deletions(-)
+>>  create mode 100644 arch/riscv/include/asm/probes.h
+>>  create mode 100644 arch/riscv/kernel/probes/Makefile
+>>  create mode 100644 arch/riscv/kernel/probes/decode-insn.c
+>>  create mode 100644 arch/riscv/kernel/probes/decode-insn.h
+>>  create mode 100644 arch/riscv/kernel/probes/kprobes.c
+>>  create mode 100644 arch/riscv/kernel/probes/kprobes_trampoline.S
+>>  create mode 100644 arch/riscv/kernel/probes/simulate-insn.c
+>>  create mode 100644 arch/riscv/kernel/probes/simulate-insn.h
+>>
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index b157ac82d486..11ef4030e8f2 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -44,6 +44,8 @@ config RISCV
+>>  	select GENERIC_IRQ_MULTI_HANDLER
+>>  	select ARCH_HAS_PTE_SPECIAL
+>>  	select HAVE_REGS_AND_STACK_ACCESS_API
+>> +	select HAVE_KPROBES
+>> +	select HAVE_KRETPROBES
+>>  
+>>  config MMU
+>>  	def_bool y
+>> @@ -89,9 +91,6 @@ config PGTABLE_LEVELS
+>>  	default 3 if 64BIT
+>>  	default 2
+>>  
+>> -config HAVE_KPROBES
+>> -	def_bool n
+>> -
+>>  menu "Platform type"
+>>  
+>>  choice
+>> diff --git a/arch/riscv/include/asm/kprobes.h b/arch/riscv/include/asm/kprobes.h
+>> index c7eb010d1528..657adcd35a3d 100644
+>> --- a/arch/riscv/include/asm/kprobes.h
+>> +++ b/arch/riscv/include/asm/kprobes.h
+>> @@ -19,4 +19,34 @@
+>>  
+>>  #include <asm-generic/kprobes.h>
+>>  
+>> +#ifdef CONFIG_KPROBES
+>> +#include <linux/types.h>
+>> +#include <linux/ptrace.h>
+>> +#include <linux/percpu.h>
+>> +
+>> +#define flush_insn_slot(p)		do { } while (0)
+>> +#define kretprobe_blacklist_size	0
+>> +
+>> +#include <asm/probes.h>
+>> +
+>> +struct prev_kprobe {
+>> +	struct kprobe *kp;
+>> +	unsigned int status;
+>> +};
+>> +
+>> +/* per-cpu kprobe control block */
+>> +struct kprobe_ctlblk {
+>> +	unsigned int kprobe_status;
+>> +	struct prev_kprobe prev_kprobe;
+>> +};
+>> +
+>> +void arch_remove_kprobe(struct kprobe *p);
+>> +int kprobe_fault_handler(struct pt_regs *regs, unsigned int cause);
+>> +int kprobe_exceptions_notify(struct notifier_block *self,
+>> +			     unsigned long val, void *data);
+>> +int kprobe_breakpoint_handler(struct pt_regs *regs);
+>> +void kretprobe_trampoline(void);
+>> +void __kprobes *trampoline_probe_handler(struct pt_regs *regs);
+>> +
+>> +#endif /* CONFIG_KPROBES */
+>>  #endif /* _RISCV_KPROBES_H */
+>> diff --git a/arch/riscv/include/asm/probes.h b/arch/riscv/include/asm/probes.h
+>> new file mode 100644
+>> index 000000000000..64cf12567539
+>> --- /dev/null
+>> +++ b/arch/riscv/include/asm/probes.h
+>> @@ -0,0 +1,26 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +/*
+>> + * Based on arch/arm64/include/asm/probes.h
+>> + *
+>> + * Copyright (C) 2013 Linaro Limited
+>> + */
+>> +#ifndef _RISCV_PROBES_H
+>> +#define _RISCV_PROBES_H
+>> +
+>> +typedef u32 probe_opcode_t;
+>> +typedef void (probes_handler_t) (u32 opcode, long addr, struct pt_regs *);
+>> +
+>> +/* architecture specific copy of original instruction */
+>> +struct arch_probe_insn {
+>> +	probes_handler_t *handler;
+>> +	/* restore address after simulation */
+>> +	unsigned long restore;
+>> +};
+>> +#ifdef CONFIG_KPROBES
+>> +typedef u32 kprobe_opcode_t;
+>> +struct arch_specific_insn {
+>> +	struct arch_probe_insn api;
+>> +};
+>> +#endif
+> 
+> Are there any reason of putting this kprobes dedicated data structure here?
+
+No, this is from the arm64 implementation as they share the instruction
+decoding with uprobes. Forgot to clean that up.
+
+> 
+>> +
+>> +#endif /* _RISCV_PROBES_H */
+>> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+>> index f13f7f276639..5360a445b9d3 100644
+>> --- a/arch/riscv/kernel/Makefile
+>> +++ b/arch/riscv/kernel/Makefile
+>> @@ -28,6 +28,7 @@ obj-y	+= stacktrace.o
+>>  obj-y	+= vdso.o
+>>  obj-y	+= cacheinfo.o
+>>  obj-y	+= vdso/
+>> +obj-y	+= probes/
+>>  
+>>  CFLAGS_setup.o := -mcmodel=medany
+>>  
+>> diff --git a/arch/riscv/kernel/probes/Makefile b/arch/riscv/kernel/probes/Makefile
+>> new file mode 100644
+>> index 000000000000..144d1c1743fb
+>> --- /dev/null
+>> +++ b/arch/riscv/kernel/probes/Makefile
+>> @@ -0,0 +1,3 @@
+>> +# SPDX-License-Identifier: GPL-2.0
+>> +obj-$(CONFIG_KPROBES)		+= kprobes.o kprobes_trampoline.o \
+>> +				   decode-insn.o simulate-insn.o
+>> diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
+>> new file mode 100644
+>> index 000000000000..2d8f46f4c2e7
+>> --- /dev/null
+>> +++ b/arch/riscv/kernel/probes/decode-insn.c
+>> @@ -0,0 +1,38 @@
+>> +// SPDX-License-Identifier: GPL-2.0+
+>> +
+>> +#include <linux/kernel.h>
+>> +#include <linux/kprobes.h>
+>> +#include <linux/module.h>
+>> +#include <linux/kallsyms.h>
+>> +#include <asm/sections.h>
+>> +
+>> +#include "decode-insn.h"
+>> +#include "simulate-insn.h"
+>> +
+>> +#define C_ADDISP16_MASK 0x6F83
+>> +#define C_ADDISP16_VAL  0x6101
+>> +
+>> +/* Return:
+>> + *   INSN_REJECTED     If instruction is one not allowed to kprobe,
+>> + *   INSN_GOOD_NO_SLOT If instruction is supported but doesn't use its slot.
+>> + */
+>> +enum probe_insn __kprobes
+>> +riscv_probe_decode_insn(kprobe_opcode_t *addr, struct arch_probe_insn *api)
+> 
+> Please don't use __kprobes anymore. That is old stlye, instead, please
+> use NOKPROBE_SYMBOL() or nokprobe_inline for static-inline function.
+> (NOKPROBE_SYMBOL() will make the symbol non-inline always)
+
+OK, should I make a note to change that in the arm64 port as well in a
+separate patch?
+
+> 
+>> +{
+>> +	probe_opcode_t insn = le32_to_cpu(*addr);
+>> +
+>> +	if (!is_compressed_insn(insn)) {
+>> +		pr_warn("Can't handle non-compressed instruction %x\n", insn);
+>> +		return INSN_REJECTED;
+>> +	}
+>> +
+>> +	/* c.addisp16 imm */
+>> +	if ((insn & C_ADDISP16_MASK) == C_ADDISP16_VAL) {
+>> +		api->handler = simulate_caddisp16;
+>> +	} else {
+>> +		pr_warn("Rejected unknown instruction %x\n", insn);
+>> +		return INSN_REJECTED;
+>> +	}
+>> +
+>> +	return INSN_GOOD_NO_SLOT;
+>> +}
+>> diff --git a/arch/riscv/kernel/probes/decode-insn.h b/arch/riscv/kernel/probes/decode-insn.h
+>> new file mode 100644
+>> index 000000000000..0053ed6a308a
+>> --- /dev/null
+>> +++ b/arch/riscv/kernel/probes/decode-insn.h
+>> @@ -0,0 +1,23 @@
+>> +/* SPDX-License-Identifier: GPL-2.0+ */
+>> +#ifndef _RISCV_KERNEL_KPROBES_DECODE_INSN_H
+>> +#define _RISCV_KERNEL_KPROBES_DECODE_INSN_H
+>> +
+>> +#include <asm/sections.h>
+>> +#include <asm/kprobes.h>
+>> +
+>> +enum probe_insn {
+>> +	INSN_REJECTED,
+>> +	INSN_GOOD_NO_SLOT,
+>> +};
+>> +
+>> +/*
+>> + * Compressed instruction format:
+>> + * xxxxxxxxxxxxxxaa where aa != 11
+>> + */
+>> +#define is_compressed_insn(insn) ((insn & 0x3) != 0x3)
+>> +
+>> +#ifdef CONFIG_KPROBES
+>> +enum probe_insn __kprobes
+>> +riscv_probe_decode_insn(kprobe_opcode_t *addr, struct arch_probe_insn *asi);
+>> +#endif
+>> +#endif /* _RISCV_KERNEL_KPROBES_DECODE_INSN_H */
+>> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+>> new file mode 100644
+>> index 000000000000..3c7b5cf72ee1
+>> --- /dev/null
+>> +++ b/arch/riscv/kernel/probes/kprobes.c
+>> @@ -0,0 +1,401 @@
+>> +// SPDX-License-Identifier: GPL-2.0+
+>> +
+>> +/*
+>> + * Kprobes support for RISC-V
+>> + *
+>> + * Author: Patrick St?hlin <me@packi.ch>
+>> + */
+>> +#include <linux/kprobes.h>
+>> +#include <linux/extable.h>
+>> +#include <linux/slab.h>
+>> +#include <asm/ptrace.h>
+>> +#include <linux/uaccess.h>
+>> +#include <asm/sections.h>
+>> +
+>> +#include "decode-insn.h"
+>> +
+>> +DEFINE_PER_CPU(struct kprobe *, current_kprobe) = NULL;
+>> +DEFINE_PER_CPU(struct kprobe_ctlblk, kprobe_ctlblk);
+>> +
+>> +static void __kprobes
+>> +post_kprobe_handler(struct kprobe_ctlblk *, struct pt_regs *);
+>> +
+>> +static int __kprobes patch_text(kprobe_opcode_t *addr, u32 opcode)
+>> +{
+>> +	if (is_compressed_insn(opcode))
+>> +		*(u16 *)addr = cpu_to_le16(opcode);
+>> +	else
+>> +		*addr = cpu_to_le32(opcode);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static void __kprobes arch_prepare_simulate(struct kprobe *p)
+>> +{
+>> +	unsigned long offset = is_compressed_insn(p->opcode) ? 2 : 4;
+>> +
+>> +	p->ainsn.api.restore = (unsigned long)p->addr + offset;
+>> +}
+>> +
+>> +static void __kprobes arch_simulate_insn(struct kprobe *p, struct pt_regs *regs)
+>> +{
+>> +	struct kprobe_ctlblk *kcb = get_kprobe_ctlblk();
+>> +
+>> +	if (p->ainsn.api.handler)
+>> +		p->ainsn.api.handler((u32)p->opcode, (long)p->addr, regs);
+> 
+> it seems api.handler must be here, 
+
+true
+
+> 
+>> +
+>> +	/* single instruction simulated, now go for post processing */
+>> +	post_kprobe_handler(kcb, regs);
+>> +}
+>> +
+>> +int __kprobes arch_prepare_kprobe(struct kprobe *p)
+>> +{
+>> +	unsigned long probe_addr = (unsigned long)p->addr;
+>> +	extern char __start_rodata[];
+>> +	extern char __end_rodata[];
+>> +
+>> +	if (probe_addr & 0x1) {
+>> +		pr_warn("Address not aligned.\n");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	/* copy instruction */
+>> +	p->opcode = le32_to_cpu(*p->addr);
+>> +
+>> +	if (probe_addr >= (unsigned long) __start_rodata &&
+>> +	    probe_addr <= (unsigned long) __end_rodata) {
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	/* decode instruction */
+>> +	switch (riscv_probe_decode_insn(p->addr, &p->ainsn.api)) {
+>> +	case INSN_REJECTED:	/* insn not supported */
+>> +		return -EINVAL;
+>> +
+>> +	case INSN_GOOD_NO_SLOT:	/* insn needs simulation */
+>> +		break;
+>> +	}
+>> +
+>> +	arch_prepare_simulate(p);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +#define C_EBREAK_OPCODE 0x9002
+>> +
+>> +/* arm kprobe: install breakpoint in text */
+>> +void __kprobes arch_arm_kprobe(struct kprobe *p)
+>> +{
+>> +	patch_text(p->addr, C_EBREAK_OPCODE);
+>> +}
+>> +
+>> +/* disarm kprobe: remove breakpoint from text */
+>> +void __kprobes arch_disarm_kprobe(struct kprobe *p)
+>> +{
+>> +	patch_text(p->addr, p->opcode);
+>> +}
+>> +
+>> +void __kprobes arch_remove_kprobe(struct kprobe *p)
+>> +{
+>> +}
+>> +
+>> +static void __kprobes save_previous_kprobe(struct kprobe_ctlblk *kcb)
+>> +{
+>> +	kcb->prev_kprobe.kp = kprobe_running();
+>> +	kcb->prev_kprobe.status = kcb->kprobe_status;
+>> +}
+>> +
+>> +static void __kprobes restore_previous_kprobe(struct kprobe_ctlblk *kcb)
+>> +{
+>> +	__this_cpu_write(current_kprobe, kcb->prev_kprobe.kp);
+>> +	kcb->kprobe_status = kcb->prev_kprobe.status;
+>> +}
+>> +
+>> +static void __kprobes set_current_kprobe(struct kprobe *p)
+>> +{
+>> +	__this_cpu_write(current_kprobe, p);
+>> +}
+>> +
+>> +static void __kprobes simulate(struct kprobe *p,
+>> +			       struct pt_regs *regs,
+>> +			       struct kprobe_ctlblk *kcb, int reenter)
+>> +{
+>> +	if (reenter) {
+>> +		save_previous_kprobe(kcb);
+>> +		set_current_kprobe(p);
+>> +		kcb->kprobe_status = KPROBE_REENTER;
+>> +	} else {
+>> +		kcb->kprobe_status = KPROBE_HIT_SS;
+>> +	}
+>> +
+>> +	arch_simulate_insn(p, regs);
+>> +}
+>> +
+>> +static int __kprobes reenter_kprobe(struct kprobe *p,
+>> +				    struct pt_regs *regs,
+>> +				    struct kprobe_ctlblk *kcb)
+>> +{
+>> +	switch (kcb->kprobe_status) {
+>> +	case KPROBE_HIT_SSDONE:
+>> +	case KPROBE_HIT_ACTIVE:
+>> +		kprobes_inc_nmissed_count(p);
+>> +		simulate(p, regs, kcb, 1);
+>> +		break;
+>> +	case KPROBE_HIT_SS:
+>> +	case KPROBE_REENTER:
+>> +		pr_warn("Unrecoverable kprobe detected.\n");
+>> +		dump_kprobe(p);
+>> +		BUG();
+>> +		break;
+>> +	default:
+>> +		WARN_ON(1);
+>> +		return 0;
+>> +	}
+>> +
+>> +	return 1;
+> 
+> If this always return 1, we can make it void return.
+
+Agreed, I'll change that.
+
+> 
+>> +}
+>> +
+>> +static void __kprobes
+>> +post_kprobe_handler(struct kprobe_ctlblk *kcb, struct pt_regs *regs)
+>> +{
+>> +	struct kprobe *cur = kprobe_running();
+>> +
+>> +	if (!cur)
+>> +		return;
+>> +
+>> +	/* return addr restore if non-branching insn */
+>> +	if (cur->ainsn.api.restore != 0)
+>> +		instruction_pointer_set(regs, cur->ainsn.api.restore);
+>> +
+>> +	/* restore back original saved kprobe variables and continue */
+>> +	if (kcb->kprobe_status == KPROBE_REENTER) {
+>> +		restore_previous_kprobe(kcb);
+>> +		return;
+>> +	}
+>> +	/* call post handler */
+>> +	kcb->kprobe_status = KPROBE_HIT_SSDONE;
+>> +	if (cur->post_handler)	{
+>> +		/* post_handler can hit breakpoint and single step
+>> +		 * again, so we enable D-flag for recursive exception.
+>> +		 */
+>> +		cur->post_handler(cur, regs, 0);
+>> +	}
+>> +
+>> +	reset_current_kprobe();
+>> +}
+>> +
+>> +int __kprobes kprobe_fault_handler(struct pt_regs *regs, unsigned int cause)
+>> +{
+>> +	struct kprobe *cur = kprobe_running();
+>> +	struct kprobe_ctlblk *kcb = get_kprobe_ctlblk();
+>> +
+>> +	switch (kcb->kprobe_status) {
+>> +	case KPROBE_HIT_SS:
+>> +	case KPROBE_REENTER:
+>> +		/*
+>> +		 * We are here because the instruction being single
+>> +		 * stepped caused a page fault. We reset the current
+>> +		 * kprobe and the ip points back to the probe address
+>> +		 * and allow the page fault handler to continue as a
+>> +		 * normal page fault.
+>> +		 */
+>> +		instruction_pointer_set(regs, (unsigned long) cur->addr);
+>> +		if (!instruction_pointer(regs))
+>> +			BUG();
+> 
+> Use BUG_ON().
+
+OK
+
+> 
+>> +
+>> +		if (kcb->kprobe_status == KPROBE_REENTER)
+>> +			restore_previous_kprobe(kcb);
+>> +		else
+>> +			reset_current_kprobe();
+>> +
+>> +		break;
+>> +	case KPROBE_HIT_ACTIVE:
+>> +	case KPROBE_HIT_SSDONE:
+>> +		/*
+>> +		 * We increment the nmissed count for accounting,
+>> +		 * we can also use npre/npostfault count for accounting
+>> +		 * these specific fault cases.
+>> +		 */
+>> +		kprobes_inc_nmissed_count(cur);
+>> +
+>> +		/*
+>> +		 * We come here because instructions in the pre/post
+>> +		 * handler caused the page_fault, this could happen
+>> +		 * if handler tries to access user space by
+>> +		 * copy_from_user(), get_user() etc. Let the
+>> +		 * user-specified handler try to fix it first.
+>> +		 */
+>> +		if (cur->fault_handler && cur->fault_handler(cur, regs, cause))
+>> +			return 1;
+>> +
+>> +		/*
+>> +		 * In case the user-specified fault handler returned
+>> +		 * zero, try to fix up.
+>> +		 */
+>> +		if (fixup_exception(regs))
+>> +			return 1;
+>> +	}
+>> +	return 0;
+>> +}
+>> +
+>> +static void __kprobes kprobe_handler(struct pt_regs *regs)
+>> +{
+> 
+> Does this handler run under local IRQ disabled? (for making sure)
+
+Exceptions are being handled with locals IRQs _enabled_. As we've not
+implemented any simulated instructions to modify the instruction
+pointer, I think this is safe? Then again, I'm new to this, so please
+bear with me.
+
+> 
+>> +	struct kprobe *p, *cur_kprobe;
+>> +	struct kprobe_ctlblk *kcb;
+>> +	unsigned long addr = instruction_pointer(regs);
+>> +
+>> +	kcb = get_kprobe_ctlblk();
+>> +	cur_kprobe = kprobe_running();
+>> +
+>> +	p = get_kprobe((kprobe_opcode_t *) addr);
+>> +
+>> +	if (p) {
+>> +		if (cur_kprobe) {
+>> +			if (reenter_kprobe(p, regs, kcb))
+>> +				return;
+>> +		} else {
+>> +			/* Probe hit */
+>> +			set_current_kprobe(p);
+>> +			kcb->kprobe_status = KPROBE_HIT_ACTIVE;
+>> +
+>> +			/*
+>> +			 * If we have no pre-handler or it returned 0, we
+>> +			 * continue with normal processing.  If we have a
+>> +			 * pre-handler and it returned non-zero, it will
+>> +			 * modify the execution path and no need to single
+>> +			 * stepping. Let's just reset current kprobe and exit.
+>> +			 *
+>> +			 * pre_handler can hit a breakpoint and can step thru
+>> +			 * before return, keep PSTATE D-flag enabled until
+>> +			 * pre_handler return back.
+> 
+> Is this true on RISC-V too?
+
+It's not as we don't have a debug-unit at the moment. I'll remove the
+second part of the comment block.
+
+> 
+>> +			 */
+>> +			if (!p->pre_handler || !p->pre_handler(p, regs))
+>> +				simulate(p, regs, kcb, 0);
+>> +			else
+>> +				reset_current_kprobe();
+>> +		}
+>> +	}
+>> +	/*
+>> +	 * The breakpoint instruction was removed right
+>> +	 * after we hit it.  Another cpu has removed
+>> +	 * either a probepoint or a debugger breakpoint
+>> +	 * at this address.  In either case, no further
+>> +	 * handling of this interrupt is appropriate.
+>> +	 * Return back to original instruction, and continue.
+>> +	 */
+> 
+> This should return 0 if it doesn't handle anything, but if it handles c.break
+> should return 1.
+
+I thought so too, but didn't insert one because of the comment (again,
+copied from arm64). If get_kprobe doesn't return a result, it could have
+been removed between the time the exception got raised or is the comment
+just wrong? On the other hand, solving it this way effectively means
+that we'll silently drop any other exceptions.
+
+>> +}
+>> +
+>> +int __kprobes
+>> +kprobe_breakpoint_handler(struct pt_regs *regs)
+>> +{
+>> +	kprobe_handler(regs);
+>> +	return 1;
+> 
+> Why don't you call kprobe_handler directly?
+
+I should.
+
+> 
+>> +}
+>> +
+>> +bool arch_within_kprobe_blacklist(unsigned long addr)
+>> +{
+>> +	if ((addr >= (unsigned long)__kprobes_text_start &&
+>> +	    addr < (unsigned long)__kprobes_text_end) ||
+>> +	    (addr >= (unsigned long)__entry_text_start &&
+>> +	    addr < (unsigned long)__entry_text_end) ||
+>> +	    !!search_exception_tables(addr))
+>> +		return true;
+>> +
+>> +	return false;
+>> +}
+>> +
+>> +void __kprobes __used *trampoline_probe_handler(struct pt_regs *regs)
+>> +{
+>> +	struct kretprobe_instance *ri = NULL;
+>> +	struct hlist_head *head, empty_rp;
+>> +	struct hlist_node *tmp;
+>> +	unsigned long flags, orig_ret_address = 0;
+>> +	unsigned long trampoline_address =
+>> +		(unsigned long)&kretprobe_trampoline;
+>> +	kprobe_opcode_t *correct_ret_addr = NULL;
+>> +
+> 
+> 	It seems you don't setup instruction_pointer.
+
+I don't think I get what you mean by that. The instruction pointer (or
+rather the return address register) gets set by kretprobe_trampoline.S
+to the address returned from this function.
+
+> 
+>> +	INIT_HLIST_HEAD(&empty_rp);
+>> +	kretprobe_hash_lock(current, &head, &flags);
+>> +
+>> +	/*
+>> +	 * It is possible to have multiple instances associated with a given
+>> +	 * task either because multiple functions in the call path have
+>> +	 * return probes installed on them, and/or more than one
+>> +	 * return probe was registered for a target function.
+>> +	 *
+>> +	 * We can handle this because:
+>> +	 *     - instances are always pushed into the head of the list
+>> +	 *     - when multiple return probes are registered for the same
+>> +	 *	 function, the (chronologically) first instance's ret_addr
+>> +	 *	 will be the real return address, and all the rest will
+>> +	 *	 point to kretprobe_trampoline.
+>> +	 */
+>> +	hlist_for_each_entry_safe(ri, tmp, head, hlist) {
+>> +		if (ri->task != current)
+>> +			/* another task is sharing our hash bucket */
+>> +			continue;
+>> +
+>> +		orig_ret_address = (unsigned long)ri->ret_addr;
+>> +
+>> +		if (orig_ret_address != trampoline_address)
+>> +			/*
+>> +			 * This is the real return address. Any other
+>> +			 * instances associated with this task are for
+>> +			 * other calls deeper on the call stack
+>> +			 */
+>> +			break;
+>> +	}
+>> +
+>> +	kretprobe_assert(ri, orig_ret_address, trampoline_address);
+>> +
+>> +	correct_ret_addr = ri->ret_addr;
+>> +	hlist_for_each_entry_safe(ri, tmp, head, hlist) {
+>> +		if (ri->task != current)
+>> +			/* another task is sharing our hash bucket */
+>> +			continue;
+>> +
+>> +		orig_ret_address = (unsigned long)ri->ret_addr;
+>> +		if (ri->rp && ri->rp->handler) {
+>> +			__this_cpu_write(current_kprobe, &ri->rp->kp);
+>> +			get_kprobe_ctlblk()->kprobe_status = KPROBE_HIT_ACTIVE;
+>> +			ri->ret_addr = correct_ret_addr;
+>> +			ri->rp->handler(ri, regs);
+>> +			__this_cpu_write(current_kprobe, NULL);
+>> +		}
+>> +
+>> +		recycle_rp_inst(ri, &empty_rp);
+>> +
+>> +		if (orig_ret_address != trampoline_address)
+>> +			/*
+>> +			 * This is the real return address. Any other
+>> +			 * instances associated with this task are for
+>> +			 * other calls deeper on the call stack
+>> +			 */
+>> +			break;
+>> +	}
+>> +
+>> +	kretprobe_hash_unlock(current, &flags);
+>> +
+>> +	hlist_for_each_entry_safe(ri, tmp, &empty_rp, hlist) {
+>> +		hlist_del(&ri->hlist);
+>> +		kfree(ri);
+>> +	}
+>> +	return (void *)orig_ret_address;
+>> +}
+>> +
+>> +void __kprobes arch_prepare_kretprobe(struct kretprobe_instance *ri,
+>> +				      struct pt_regs *regs)
+>> +{
+>> +	ri->ret_addr = (kprobe_opcode_t *)regs->ra;
+>> +	regs->ra = (long)&kretprobe_trampoline;
+>> +}
+>> +
+>> +int __kprobes arch_trampoline_kprobe(struct kprobe *p)
+>> +{
+>> +	return 0;
+>> +}
+>> +
+>> +int __init arch_init_kprobes(void)
+>> +{
+>> +	return 0;
+>> +}
+>> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.S b/arch/riscv/kernel/probes/kprobes_trampoline.S
+>> new file mode 100644
+>> index 000000000000..c7ceda9556a3
+>> --- /dev/null
+>> +++ b/arch/riscv/kernel/probes/kprobes_trampoline.S
+>> @@ -0,0 +1,91 @@
+>> +/* SPDX-License-Identifier: GPL-2.0+ */
+>> +
+>> +#include <linux/linkage.h>
+>> +
+>> +#include <asm/asm.h>
+>> +#include <asm/asm-offsets.h>
+>> +
+>> +	.text
+>> +	.altmacro
+>> +
+>> +	.macro save_all_base_regs
+>> +	REG_S x1,  PT_RA(sp)
+>> +	REG_S x3,  PT_GP(sp)
+>> +	REG_S x4,  PT_TP(sp)
+>> +	REG_S x5,  PT_T0(sp)
+>> +	REG_S x6,  PT_T1(sp)
+>> +	REG_S x7,  PT_T2(sp)
+>> +	REG_S x8,  PT_S0(sp)
+>> +	REG_S x9,  PT_S1(sp)
+>> +	REG_S x10, PT_A0(sp)
+>> +	REG_S x11, PT_A1(sp)
+>> +	REG_S x12, PT_A2(sp)
+>> +	REG_S x13, PT_A3(sp)
+>> +	REG_S x14, PT_A4(sp)
+>> +	REG_S x15, PT_A5(sp)
+>> +	REG_S x16, PT_A6(sp)
+>> +	REG_S x17, PT_A7(sp)
+>> +	REG_S x18, PT_S2(sp)
+>> +	REG_S x19, PT_S3(sp)
+>> +	REG_S x20, PT_S4(sp)
+>> +	REG_S x21, PT_S5(sp)
+>> +	REG_S x22, PT_S6(sp)
+>> +	REG_S x23, PT_S7(sp)
+>> +	REG_S x24, PT_S8(sp)
+>> +	REG_S x25, PT_S9(sp)
+>> +	REG_S x26, PT_S10(sp)
+>> +	REG_S x27, PT_S11(sp)
+>> +	REG_S x28, PT_T3(sp)
+>> +	REG_S x29, PT_T4(sp)
+>> +	REG_S x30, PT_T5(sp)
+>> +	REG_S x31, PT_T6(sp)
+>> +	.endm
+>> +
+>> +	.macro restore_all_base_regs
+>> +	REG_L x3,  PT_GP(sp)
+>> +	REG_L x4,  PT_TP(sp)
+>> +	REG_L x5,  PT_T0(sp)
+>> +	REG_L x6,  PT_T1(sp)
+>> +	REG_L x7,  PT_T2(sp)
+>> +	REG_L x8,  PT_S0(sp)
+>> +	REG_L x9,  PT_S1(sp)
+>> +	REG_L x10, PT_A0(sp)
+>> +	REG_L x11, PT_A1(sp)
+>> +	REG_L x12, PT_A2(sp)
+>> +	REG_L x13, PT_A3(sp)
+>> +	REG_L x14, PT_A4(sp)
+>> +	REG_L x15, PT_A5(sp)
+>> +	REG_L x16, PT_A6(sp)
+>> +	REG_L x17, PT_A7(sp)
+>> +	REG_L x18, PT_S2(sp)
+>> +	REG_L x19, PT_S3(sp)
+>> +	REG_L x20, PT_S4(sp)
+>> +	REG_L x21, PT_S5(sp)
+>> +	REG_L x22, PT_S6(sp)
+>> +	REG_L x23, PT_S7(sp)
+>> +	REG_L x24, PT_S8(sp)
+>> +	REG_L x25, PT_S9(sp)
+>> +	REG_L x26, PT_S10(sp)
+>> +	REG_L x27, PT_S11(sp)
+>> +	REG_L x28, PT_T3(sp)
+>> +	REG_L x29, PT_T4(sp)
+>> +	REG_L x30, PT_T5(sp)
+>> +	REG_L x31, PT_T6(sp)
+>> +	.endm
+>> +
+>> +ENTRY(kretprobe_trampoline)
+>> +	addi sp, sp, -(PT_SIZE_ON_STACK)
+>> +	save_all_base_regs
+>> +
+>> +	move a0, sp /* pt_regs */
+>> +
+>> +	call trampoline_probe_handler
+>> +
+>> +	/* use the result as the return-address */
+>> +	move ra, a0
+>> +
+>> +	restore_all_base_regs
+>> +	addi sp, sp, PT_SIZE_ON_STACK
+>> +
+>> +	ret
+>> +ENDPROC(kretprobe_trampoline)
+>> diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
+>> new file mode 100644
+>> index 000000000000..5734d9bae22f
+>> --- /dev/null
+>> +++ b/arch/riscv/kernel/probes/simulate-insn.c
+>> @@ -0,0 +1,33 @@
+>> +// SPDX-License-Identifier: GPL-2.0+
+>> +
+>> +#include <linux/bitops.h>
+>> +#include <linux/kernel.h>
+>> +#include <linux/kprobes.h>
+>> +
+>> +#include "simulate-insn.h"
+>> +
+>> +#define bit_at(value, bit)		((value) & (1 << (bit)))
+>> +#define move_bit_at(value, bit, to)	((bit_at(value, bit) >> bit) << to)
+>> +
+>> +void __kprobes
+>> +simulate_caddisp16(u32 opcode, long addr, struct pt_regs *regs)
+>> +{
+>> +	s16 imm;
+>> +
+>> +	/*
+>> +	 * Immediate value layout in c.addisp16:
+>> +	 * xxx9 xxxx x468 75xx
+>> +	 * 1  1    8    4    0
+>> +	 * 5  2
+>> +	 */
+>> +	imm = sign_extend32(
+>> +		move_bit_at(opcode, 12, 9) |
+>> +		move_bit_at(opcode, 6, 4) |
+>> +		move_bit_at(opcode, 5, 6) |
+>> +		move_bit_at(opcode, 4, 8) |
+>> +		move_bit_at(opcode, 3, 7) |
+>> +		move_bit_at(opcode, 2, 5),
+>> +		9);
+>> +
+>> +	regs->sp += imm;
+> 
+> What about updating regs->sepc?
+
+sepc gets updated by instruction_pointer_set in kprobe_handler
+
+> 
+>> +}
+>> diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
+>> new file mode 100644
+>> index 000000000000..dc2c06c30167
+>> --- /dev/null
+>> +++ b/arch/riscv/kernel/probes/simulate-insn.h
+>> @@ -0,0 +1,8 @@
+>> +/* SPDX-License-Identifier: GPL-2.0+ */
+>> +
+>> +#ifndef _RISCV_KERNEL_KPROBES_SIMULATE_INSN_H
+>> +#define _RISCV_KERNEL_KPROBES_SIMULATE_INSN_H
+>> +
+>> +void simulate_caddisp16(u32 opcode, long addr, struct pt_regs *regs);
+>> +
+>> +#endif /* _RISCV_KERNEL_KPROBES_SIMULATE_INSN_H */
+>> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+>> index 24a9333dda2c..d7113178d401 100644
+>> --- a/arch/riscv/kernel/traps.c
+>> +++ b/arch/riscv/kernel/traps.c
+>> @@ -18,6 +18,7 @@
+>>  #include <linux/sched/signal.h>
+>>  #include <linux/signal.h>
+>>  #include <linux/kdebug.h>
+>> +#include <linux/kprobes.h>
+>>  #include <linux/uaccess.h>
+>>  #include <linux/mm.h>
+>>  #include <linux/module.h>
+>> @@ -120,8 +121,14 @@ DO_ERROR_INFO(do_trap_ecall_m,
+>>  
+>>  asmlinkage void do_trap_break(struct pt_regs *regs)
+>>  {
+>> +	bool handler_found = false;
+>> +
+>> +#ifdef CONFIG_KPROBES
+>> +	if (kprobe_breakpoint_handler(regs))
+>> +		handler_found = 1;
+> 
+> Why don't you just return from here?
+
+Following the pattern I've seen in other places, I can change that.
+
+> 
+>> +#endif
+>>  #ifdef CONFIG_GENERIC_BUG
+>> -	if (!user_mode(regs)) {
+>> +	if (!handler_found && !user_mode(regs)) {
+>>  		enum bug_trap_type type;
+>>  
+>>  		type = report_bug(regs->sepc, regs);
+>> @@ -137,7 +144,9 @@ asmlinkage void do_trap_break(struct pt_regs *regs)
+>>  	}
+>>  #endif /* CONFIG_GENERIC_BUG */
+>>  
+>> -	force_sig_fault(SIGTRAP, TRAP_BRKPT, (void __user *)(regs->sepc), current);
+>> +	if (!handler_found)
+>> +		force_sig_fault(SIGTRAP, TRAP_BRKPT,
+>> +			(void __user *)(regs->sepc), current);
+>>  }
+>>  
+>>  #ifdef CONFIG_GENERIC_BUG
+>> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+>> index 88401d5125bc..eff816e33479 100644
+>> --- a/arch/riscv/mm/fault.c
+>> +++ b/arch/riscv/mm/fault.c
+>> @@ -22,6 +22,7 @@
+>>  
+>>  #include <linux/mm.h>
+>>  #include <linux/kernel.h>
+>> +#include <linux/kprobes.h>
+>>  #include <linux/interrupt.h>
+>>  #include <linux/perf_event.h>
+>>  #include <linux/signal.h>
+>> @@ -30,11 +31,33 @@
+>>  #include <asm/pgalloc.h>
+>>  #include <asm/ptrace.h>
+>>  
+>> +#ifdef CONFIG_KPROBES
+>> +static inline int notify_page_fault(struct pt_regs *regs, unsigned int cause)
+> 
+> please use nokprobe_inline.
+
+OK.
+
+> 
+>> +{
+>> +	int ret = 0;
+>> +
+>> +	/* kprobe_running() needs smp_processor_id() */
+>> +	if (!user_mode(regs)) {
+>> +		preempt_disable();
+>> +		if (kprobe_running() && kprobe_fault_handler(regs, cause))
+>> +			ret = 1;
+>> +		preempt_enable();
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+>> +#else
+>> +static inline int notify_page_fault(struct pt_regs *regs, unsigned int cause)
+>> +{
+>> +	return 0;
+>> +}
+>> +#endif
+>> +
+>>  /*
+>>   * This routine handles page faults.  It determines the address and the
+>>   * problem, and then passes it off to one of the appropriate routines.
+>>   */
+>> -asmlinkage void do_page_fault(struct pt_regs *regs)
+>> +asmlinkage void __kprobes do_page_fault(struct pt_regs *regs)
+>>  {
+>>  	struct task_struct *tsk;
+>>  	struct vm_area_struct *vma;
+>> @@ -47,6 +70,9 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+>>  	cause = regs->scause;
+>>  	addr = regs->sbadaddr;
+>>  
+>> +	if (notify_page_fault(regs, cause))
+>> +		return;
+>> +
+>>  	tsk = current;
+>>  	mm = tsk->mm;
+>>  
+>> -- 
+>> 2.17.1
+>>
+> 
+> Thank you,
+> 
