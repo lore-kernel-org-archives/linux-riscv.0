@@ -1,25 +1,25 @@
-From: schwab@suse.de (Andreas Schwab)
-Date: Wed, 14 Nov 2018 17:32:51 +0100
-Subject: MACB in 4.20-rc2
-Message-ID: <mvmwopffwlo.fsf@suse.de>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Wed, 14 Nov 2018 10:06:24 -0800 (PST)
+Subject: [PATCH v2 0/2] Introduce common code for risc-v sparsemem support
+In-Reply-To: <20181107205433.3875-1-logang@deltatee.com>
+Message-ID: <mhng-dfc065e5-80c6-4a9d-b95b-95170df42969@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-It looks like the MACB driver is broken in 4.20-rc2.  I can see these
-two messages:
+On Wed, 07 Nov 2018 12:54:31 PST (-0800), logang at deltatee.com wrote:
+> These are the first two common patches in my series to introduce
+> sparsemem support to RISC-V. The full series was posted last cycle
+> here [1] and the latest version can be found here [2].
+>
+> As recommended by Palmer, I'd like to get the changes to common code
+> merged and then I will pursue the cleanups in the individual arches (arm,
+> arm64, and sh) as well as add the new feature to riscv.
+>
+> I would suggest we merge these two patches through Andrew's mm tree.
 
-[   38.530000] macb: GEM doesn't support hardware ptp.
-[   38.540000] libphy: MACB_mii_bus: probed
+I haven't seen any review on this.  It looks fine to me, but I'm not qualified 
+to review it as I don't really know anything about core MM stuff -- and I 
+certainly don't feel comfortable taking this through my tree.
 
-but appears to be stuck without ever reaching this message:
-
-[   38.750000] Microsemi VSC8541 SyncE 10090000.ethernet-ffffffff:00: attached PHY driver [Microsemi VSC8541 SyncE] (mii_bus:phy_addr=10090000.ethernet-ffffffff:00, irq=POLL) 
-
-The module never finishes initializing.
-
-Andreas.
-
--- 
-Andreas Schwab, SUSE Labs, schwab at suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+I've To'd linux-mm, hopefully it just got lost in the shuffle during the merge 
+window.
