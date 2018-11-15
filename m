@@ -2,87 +2,100 @@ Return-Path: <SRS0=n0wm=N2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4EEBDC43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 15 Nov 2018 14:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D7B42C43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 15 Nov 2018 18:32:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 20DF02145D
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 15 Nov 2018 14:59:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AA42621780
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 15 Nov 2018 18:32:03 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Aw36m16p";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="SEk+Wt4W"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 20DF02145D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="egllRXzB";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="We0OaskB";
+	dkim=fail reason="key not found in DNS" (0-bit key) header.d=codeaurora.org header.i=@codeaurora.org header.b="KCuNC0LM";
+	dkim=neutral (0-bit key) header.d=codeaurora.org header.i=@codeaurora.org header.b="QKu1W79e"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AA42621780
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=codeaurora.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=vs73hPDrnJWzIsGpdRqhnbv74dw3OQN0HGUiipwKvww=; b=Aw36m16puI24vCChV3mRzFCPc
-	xIsGy/yAkMhnuh04ZmM+sLSsf92UKUF1u2Xhknys4TV7PumT+0RX1Q6PddBA3aalzEH6eKAvcjTYL
-	jYcZd0Tak87rjG4Hum87kfN0MAddU3A7AhXnt7/Yz8wvh/8hgodRElHQtmAuIPp15FDRUZXUXBL+/
-	o/iZR++5N8kF5BNqLGZYWB9LkMIV3FQZuFkXehq1X0X/w1MhmXX+MwuwluvAAudtzR9qU5m/XFk2J
-	hHpyyfNj3jjrbcS3uXrRqFb+hQ8kTVaeZDqWPEFVewOhObOmx6Ey+N3Ib4suMDY1eCJXn3J5EMxvQ
-	dhAd5cHCg==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=Z9rSIF/2lRSk6Oi8jpvAAoj3GLmHm2VVTU3J16VPf2o=; b=egllRXzBSSlqOGUlfN2lUvpyz
+	s/612Yf2o2alvjLaTXKcVf6N2fXWRnL8Aa/k0Hxn4d3jDt1ivJwt4smtlPKFcl0w8zXlVmI6BCAQp
+	ae/Qj0OC/carmF8RDrLkSnVgP+R1PzAb9KKur169OG2ngiA2hd2Kf4QN5MZyHY9v3xATCjuJolJH6
+	/NicA/+nVFkxH73S+cGa8Dd+eA67wp65oW5WPNMTdenkDRc5Mwl7MfaUJbcAyCDA5uCZnh1BaD86x
+	psMPH7dPJMGKbr2Fecfz9tch2WqUbbkGYPReoVl9wDg/NJg6vvDw04guwiQH90ZH9UhMS5KaOxCAv
+	WdO0CI0nA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gNJ72-0000LH-30; Thu, 15 Nov 2018 14:59:20 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1gNMQs-0007so-Dd
+	for infradead-linux-riscv@archiver.kernel.org; Thu, 15 Nov 2018 18:32:02 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gNJ6z-0000Km-9c
- for linux-riscv@lists.infradead.org; Thu, 15 Nov 2018 14:59:18 +0000
-Received: by mail-pf1-x441.google.com with SMTP id v68-v6so9832812pfk.0
- for <linux-riscv@lists.infradead.org>; Thu, 15 Nov 2018 06:59:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=24JG3cUKzQWrcKQyIOLhenCWTe3cRMt7frjOX9/e/2U=;
- b=SEk+Wt4WCYLIr1NCgAvQlQB97RcZg4cCG5VKofuQ3NE1+GDriRyCBm/xgY+uLLsnt2
- IO+miovqipaPJ2Hz3fT2L5KXCc6HYr1rWAM7JtRQe0h0SiGBSwbIWrXnmgZiKGJaXPJy
- aiEybmsg95bXcrBeKNwMdfbZta+v3nz8zQsSJeeGJ0K523T0hSGV1EHGsyYBzOIksaIE
- g/WvFh6LrnAco18uNvzDAJVEJkc7eD9dB7Wn9fjjUEdjjWChOOoi0L4LFj2zOa8I3a10
- gnq+msRduQHYJnildlvMAXEMIVxTEwGqYFcalh4RutEev7g2feee3Y8GTvmJEQhiYG/g
- xCVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=24JG3cUKzQWrcKQyIOLhenCWTe3cRMt7frjOX9/e/2U=;
- b=m/76V43el1ViHLNSnVwoRX0wunI+/TqdSgyppj0IsSFpVKlkSgbu18tLHIAORntiji
- Etv/dtFVPC74leNDr61nmkcurLI5w3Fe8yGYKr1UyYclh8v59wTS70QmyuPs2PLkzhZ2
- 1D06zYUJOK9SgDx5RW53hyMfwhmSLVnxLnHSAH/sEd/yW4eMbOXeHmILhXvCwnrmD/Ah
- /HeJES2qV8ZImPMXNLiWbZssNu8OF/Al1l82NzzEGpJBm3pQlbNw8l3Gf5Rcz3MOiKEM
- gfkCn/dB3eppIAH/WiHsl0pnjOnfmPRmChRWLtPWtVfJNHWecnMIG4J4INXlJjTV6s1A
- t8+A==
-X-Gm-Message-State: AGRZ1gKgDi16zo/LS908547AJ4qZRHfhOuF9NHSQEVZiFevQis914cEp
- hmsoXme0DTM59kAJvzHosebmog==
-X-Google-Smtp-Source: AJdET5fikEuezpg+8evxWbxaEoQI4neyR57oXZ0MoazVwAMbfZoTNas87zquQZ6VLDC/WpZ0imazwg==
-X-Received: by 2002:a63:af45:: with SMTP id
- s5-v6mr6101120pgo.125.1542293946495; 
- Thu, 15 Nov 2018 06:59:06 -0800 (PST)
-Received: from localhost ([64.114.255.114])
- by smtp.gmail.com with ESMTPSA id g5sm23690020pgu.57.2018.11.15.06.59.05
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Thu, 15 Nov 2018 06:59:05 -0800 (PST)
-Date: Thu, 15 Nov 2018 06:59:05 -0800 (PST)
-X-Google-Original-Date: Wed, 14 Nov 2018 16:50:43 PST (-0800)
-Subject: Re: [PATCH] RISC-V: Fix raw_copy_{to,from}_user()
-In-Reply-To: <20181115002755.24195-1-olof@lixom.net>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: Olof Johansson <olof@lixom.net>
-Message-ID: <mhng-4c28d7f1-e034-4506-9ace-40fc2abd1668@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ id 1gNMQj-0007kf-Tf; Thu, 15 Nov 2018 18:31:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+ In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
+ :Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=lXw2pducNMEGg8LXDNCXyPXT1w0YwfN9VZ5vMvLas3g=; b=We0OaskBE/MhHEjjVAYYrRwmsl
+ qOMfAGNxtLAsmRwnjsZULnNsQS1Mz+o23O6Lh/+QuTMaA6yYvzfUdI4MkUKCF8gQTGY2LaTxya34e
+ sRAJ78z7xbYJ2EfkUTxuBMHVLfnemRptamnlL2MtB3MKL8hNuhC8kvMYZTIxxypMGOOMgP9rAQl/l
+ 4KIfHL8Gg9njYox7I9xrxOURsaxdjXTVtitTFhIrmJo2kslQZ3SrzGTepr/wyIC9fhyK+dcNOw+Py
+ td0vFS73o5WKSTWGWCDB9ZUZVmQFi/gj1jEzCqOkI6Sezmw7p/XSWoJHL9KXL1zNpeV8VrMjtoyho
+ z0b/f3lQ==;
+Received: from smtp.codeaurora.org ([198.145.29.96])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gNMQg-00016a-Fi; Thu, 15 Nov 2018 18:31:52 +0000
+Received: by smtp.codeaurora.org (Postfix, from userid 1000)
+ id 6276E60764; Thu, 15 Nov 2018 18:31:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=codeaurora.org;
+ s=default; t=1542306695;
+ bh=jpEIkjvcZ8jlQzVWhG3nb8LE1eYiqzJG4XzJilQuduI=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=KCuNC0LMz7AfCGu/kdvTHh7oblZPtonfPdbiEoVPpiJzyGShTBzNZX2QvIvzHPaoq
+ Q/jlFSmTdBpsN/3MuO82Fg+dFlNlhnhFDJzq82AW4FzLL5bV03x8AA4WPZcimFFxxG
+ 9xKiMOIrZhhNwcB9BnhdRkM6vxS6tu8mVVSOGw24=
+Received: from [10.226.60.81] (i-global254.qualcomm.com [199.106.103.254])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ (Authenticated sender: jhugo@smtp.codeaurora.org)
+ by smtp.codeaurora.org (Postfix) with ESMTPSA id 909E96044B;
+ Thu, 15 Nov 2018 18:31:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=codeaurora.org;
+ s=default; t=1542306694;
+ bh=jpEIkjvcZ8jlQzVWhG3nb8LE1eYiqzJG4XzJilQuduI=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=QKu1W79eS6Bw8yuhfurqGZFSHwzm/7sD/nYeABUsCmytWancBGfZ6zLl2EvyszIyd
+ zX5w9mkzJJaO+prs6AEWlVgKsn1jNkoZ58EchcUTq2w4dwishZ12L2ze90yQ0U3WCw
+ pGo2DvmiAn2FUcL1QafDrEo8TfMrYqzA4pmAvftY=
+DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org 909E96044B
+Authentication-Results: pdx-caf-mail.web.codeaurora.org;
+ dmarc=none (p=none dis=none) header.from=codeaurora.org
+Authentication-Results: pdx-caf-mail.web.codeaurora.org;
+ spf=none smtp.mailfrom=jhugo@codeaurora.org
+Subject: Re: [RFC 0/3] Unify CPU topology across ARM64 & RISC-V
+To: Atish Patra <atish.patra@wdc.com>, linux-kernel@vger.kernel.org
+References: <1541728209-3224-1-git-send-email-atish.patra@wdc.com>
+From: Jeffrey Hugo <jhugo@codeaurora.org>
+Message-ID: <07d92dd4-f943-47ee-e168-46bfaf4ed755@codeaurora.org>
+Date: Thu, 15 Nov 2018 11:31:33 -0700
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.0) Gecko/20100101
+ Thunderbird/52.9.1
+MIME-Version: 1.0
+In-Reply-To: <1541728209-3224-1-git-send-email-atish.patra@wdc.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181115_065917_356815_A4699A3D 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20181115_183150_780883_CE1C4B11 
+X-CRM114-Status: GOOD (  25.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,55 +107,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Olof Johansson <olof@lixom.net>, linux-riscv@lists.infradead.org,
- aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, Damien.LeMoal@wdc.com,
+ juri.lelli@arm.com, anup@brainfault.org, palmer@sifive.com,
+ jeremy.linton@arm.com, robh+dt@kernel.org, sudeep.holla@arm.com,
+ mick@ics.forth.gr, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181115145905.hQRshc_lJDKB1pQ3_cD-ZzFhuAeWpYzcB7KMvpi8Aug@z>
+Message-ID: <20181115183133.ek03hSxJIRLj5o9AG6jdZegEz5z3YxiOH8SFQatTnqk@z>
 
-On Wed, 14 Nov 2018 16:27:55 PST (-0800), Olof Johansson wrote:
-> Sparse highlighted it, and appears to be a pure bug (from vs to).
->
-> ./arch/riscv/include/asm/uaccess.h:403:35: warning: incorrect type in argument 1 (different address spaces)
-> ./arch/riscv/include/asm/uaccess.h:403:39: warning: incorrect type in argument 2 (different address spaces)
-> ./arch/riscv/include/asm/uaccess.h:409:37: warning: incorrect type in argument 1 (different address spaces)
-> ./arch/riscv/include/asm/uaccess.h:409:41: warning: incorrect type in argument 2 (different address spaces)
->
-> Signed-off-by: Olof Johansson <olof@lixom.net>
-> ---
->  arch/riscv/include/asm/uaccess.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-> index 473cfc84e412f..8c3e3e3c8be12 100644
-> --- a/arch/riscv/include/asm/uaccess.h
-> +++ b/arch/riscv/include/asm/uaccess.h
-> @@ -400,13 +400,13 @@ extern unsigned long __must_check __asm_copy_from_user(void *to,
->  static inline unsigned long
->  raw_copy_from_user(void *to, const void __user *from, unsigned long n)
->  {
-> -	return __asm_copy_to_user(to, from, n);
-> +	return __asm_copy_from_user(to, from, n);
->  }
->
->  static inline unsigned long
->  raw_copy_to_user(void __user *to, const void *from, unsigned long n)
->  {
-> -	return __asm_copy_from_user(to, from, n);
-> +	return __asm_copy_to_user(to, from, n);
->  }
->
->  extern long strncpy_from_user(char *dest, const char __user *src, long count);
+On 11/8/2018 6:50 PM, Atish Patra wrote:
+> The cpu-map DT entry in ARM64 can describe the CPU topology in
+> much better way compared to other existing approaches. RISC-V can
+> easily adopt this binding to represent it's own CPU topology.
+> Thus, both cpu-map DT binding and topology parsing code can be
+> moved to a common location so that RISC-V or any other
+> architecture can leverage that.
+> 
+> The relevant discussion regarding unifying cpu topology can be
+> found in [1].
+> 
+> arch_topology seems to be a perfect place to move the common
+> code. I have not introduced any functional changes in the moved
+> to code. The only downside in this approach is that the capacity
+> code will be executed for RISC-V as well. But, it will exit
+> immediately after not able to find the appropriate DT node. If
+> the overhead is considered too much, we can always compile out
+> capacity related functions under a different config for the
+> architectures that do not support them.
+> 
+> The patches have been tested for RISC-V and compile tested for
+> ARM64.
+> 
+> The socket changes[2] can be merged on top of this series or vice
+> versa.
+> 
+> [1] https://lkml.org/lkml/2018/11/6/19
+> [2] https://lkml.org/lkml/2018/11/7/918
+> 
+> Atish Patra (3):
+>    dt-binding: cpu-topology: Move cpu-map to a common binding.
+>    cpu-topology: Move cpu topology code to common code.
+>    RISC-V: Parse cpu topology during boot.
+> 
+>   Documentation/devicetree/bindings/arm/topology.txt | 475 -------------------
+>   .../devicetree/bindings/cpu/cpu-topology.txt       | 526 +++++++++++++++++++++
+>   arch/arm64/include/asm/topology.h                  |  23 +-
+>   arch/arm64/kernel/topology.c                       | 305 +-----------
+>   arch/riscv/Kconfig                                 |   1 +
+>   arch/riscv/kernel/smpboot.c                        |   6 +-
+>   drivers/base/arch_topology.c                       | 303 ++++++++++++
+>   include/linux/arch_topology.h                      |  23 +
+>   include/linux/topology.h                           |   1 +
+>   9 files changed, 864 insertions(+), 799 deletions(-)
+>   delete mode 100644 Documentation/devicetree/bindings/arm/topology.txt
+>   create mode 100644 Documentation/devicetree/bindings/cpu/cpu-topology.txt
+> 
 
-Oh, no idea how I missed that one.  This looks like it's been in for a long 
-time, so I'm surprised anything works at all!
+I was interested in testing these on QDF2400, an ARM64 platform, since 
+this series touches core ARM64 code and I'd hate to see a regression. 
+However, I can't figure out what baseline to use to apply these. 
+Different patches cause different conflicts of a variety of baselines I 
+attempted.
 
-I'm going to add a stable CC and PR this to Linus this week, assuming I get 
-some time to at least give it a minimal test.
+What are these intended to apply to?
 
-Thanks for catching this!
+Also, you might want to run them through checkpatch next time.  There 
+are several whitespace errors.
+
+-- 
+Jeffrey Hugo
+Qualcomm Datacenter Technologies as an affiliate of Qualcomm 
+Technologies, Inc.
+Qualcomm Technologies, Inc. is a member of the
+Code Aurora Forum, a Linux Foundation Collaborative Project.
 
 _______________________________________________
 linux-riscv mailing list
