@@ -1,74 +1,98 @@
-From: jhugo@codeaurora.org (Jeffrey Hugo)
-Date: Thu, 15 Nov 2018 11:31:33 -0700
-Subject: [RFC 0/3] Unify CPU topology across ARM64 & RISC-V
-In-Reply-To: <1541728209-3224-1-git-send-email-atish.patra@wdc.com>
-References: <1541728209-3224-1-git-send-email-atish.patra@wdc.com>
-Message-ID: <07d92dd4-f943-47ee-e168-46bfaf4ed755@codeaurora.org>
+From: paul.walmsley@sifive.com (Paul Walmsley)
+Date: Thu, 15 Nov 2018 12:11:12 -0800 (PST)
+Subject: [PATCH v3 2/2] tty: serial: add driver for the SiFive UART
+In-Reply-To: <CANBLGcy9WoBqBKQnvz-YGQpXossP2HDmW_go8WZD7FfBZdr5VQ@mail.gmail.com>
+References: <20181020101045.15991-1-paul.walmsley@sifive.com>
+ <20181020101045.15991-3-paul.walmsley@sifive.com>
+ <CANBLGcy9WoBqBKQnvz-YGQpXossP2HDmW_go8WZD7FfBZdr5VQ@mail.gmail.com>
+Message-ID: <alpine.DEB.2.21.9999.1811151146530.25598@viisi.sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 11/8/2018 6:50 PM, Atish Patra wrote:
-> The cpu-map DT entry in ARM64 can describe the CPU topology in
-> much better way compared to other existing approaches. RISC-V can
-> easily adopt this binding to represent it's own CPU topology.
-> Thus, both cpu-map DT binding and topology parsing code can be
-> moved to a common location so that RISC-V or any other
-> architecture can leverage that.
-> 
-> The relevant discussion regarding unifying cpu topology can be
-> found in [1].
-> 
-> arch_topology seems to be a perfect place to move the common
-> code. I have not introduced any functional changes in the moved
-> to code. The only downside in this approach is that the capacity
-> code will be executed for RISC-V as well. But, it will exit
-> immediately after not able to find the appropriate DT node. If
-> the overhead is considered too much, we can always compile out
-> capacity related functions under a different config for the
-> architectures that do not support them.
-> 
-> The patches have been tested for RISC-V and compile tested for
-> ARM64.
-> 
-> The socket changes[2] can be merged on top of this series or vice
-> versa.
-> 
-> [1] https://lkml.org/lkml/2018/11/6/19
-> [2] https://lkml.org/lkml/2018/11/7/918
-> 
-> Atish Patra (3):
->    dt-binding: cpu-topology: Move cpu-map to a common binding.
->    cpu-topology: Move cpu topology code to common code.
->    RISC-V: Parse cpu topology during boot.
-> 
->   Documentation/devicetree/bindings/arm/topology.txt | 475 -------------------
->   .../devicetree/bindings/cpu/cpu-topology.txt       | 526 +++++++++++++++++++++
->   arch/arm64/include/asm/topology.h                  |  23 +-
->   arch/arm64/kernel/topology.c                       | 305 +-----------
->   arch/riscv/Kconfig                                 |   1 +
->   arch/riscv/kernel/smpboot.c                        |   6 +-
->   drivers/base/arch_topology.c                       | 303 ++++++++++++
->   include/linux/arch_topology.h                      |  23 +
->   include/linux/topology.h                           |   1 +
->   9 files changed, 864 insertions(+), 799 deletions(-)
->   delete mode 100644 Documentation/devicetree/bindings/arm/topology.txt
->   create mode 100644 Documentation/devicetree/bindings/cpu/cpu-topology.txt
-> 
+Hi Emil,
 
-I was interested in testing these on QDF2400, an ARM64 platform, since 
-this series touches core ARM64 code and I'd hate to see a regression. 
-However, I can't figure out what baseline to use to apply these. 
-Different patches cause different conflicts of a variety of baselines I 
-attempted.
+On Thu, 15 Nov 2018, Emil Renner Berthing wrote:
 
-What are these intended to apply to?
+> Thanks for the patch!
 
-Also, you might want to run them through checkpatch next time.  There 
-are several whitespace errors.
+Thanks for your comments!
 
--- 
-Jeffrey Hugo
-Qualcomm Datacenter Technologies as an affiliate of Qualcomm 
-Technologies, Inc.
-Qualcomm Technologies, Inc. is a member of the
-Code Aurora Forum, a Linux Foundation Collaborative Project.
+> On Sat, 20 Oct 2018 at 12:12, Paul Walmsley <paul.walmsley@sifive.com> wrote:
+>
+>> +static int __init sifive_serial_console_setup(struct console *co, char *options)
+>
+> Unfortunately I get this error unless I remove the __init:
+> ...
+>  GEN     .version
+>  CHK     include/generated/compile.h
+>  AR      built-in.a
+>  LD      vmlinux.o
+>  MODPOST vmlinux.o
+> WARNING: vmlinux.o(.data+0x14e48): Section mismatch in reference from
+> the variable .LANCHOR0 to the function
+> .init.text:sifive_serial_console_setup()
+> The variable .LANCHOR0 references
+> the function __init sifive_serial_console_setup()
+> If the reference is valid then annotate the
+> variable with __init* or __refdata (see linux/init.h) or name the variable:
+> *_template, *_timer, *_sht, *_ops, *_probe, *_probe_one, *_console
+>
+> FATAL: modpost: Section mismatches detected.
+> Set CONFIG_SECTION_MISMATCH_WARN_ONLY=y to allow them.
+> make[1]: *** [scripts/Makefile.modpost:98: vmlinux.o] Error 1
+> make: *** [Makefile:1040: vmlinux] Error 2
+>
+> I have
+> CONFIG_SERIAL_CORE=y
+> CONFIG_SERIAL_CORE_CONSOLE=y
+> CONFIG_SERIAL_SIFIVE=y
+> CONFIG_SERIAL_SIFIVE_CONSOLE=y
+> and it happens both on v4.20-rc2 and v4.19.
+> Without the __init everything seems to work fine though.
+
+Thanks for the report.  There are some patches to address this:
+
+https://lore.kernel.org/lkml/20181115005602.30746-1-paul.walmsley at sifive.com/
+
+>> +#else
+>> +
+>> +#define SIFIVE_SERIAL_CONSOLE  NULL
+>> +
+>> +static inline void __ssp_add_console_port(struct sifive_serial_port *ssp)
+>> +{}
+>> +static void __ssp_remove_console_port(struct sifive_serial_port *ssp)
+>> +{}
+>
+> Missing "inline"?
+
+That is indeed an error, but the other way around: I didn't mean for that 
+inline to be there.
+
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/coding-style.rst
+
+I've dropped the inline; thanks for pointing the situation out.
+
+>> +static int __init sifive_serial_init(void)
+>> +{
+>> +       int r;
+>
+> If you're sending a v4 anyway, here and in the the probe function
+> using int ret; for this kind of variable is a common idiom and
+> hence easier to read.
+
+Precedent exists in the kernel for using "r" as a return value also:
+
+$ fgrep -r 'return r;' linux/
+4491
+$
+
+which probably traces back ultimately to Torvalds' guidance to keep 
+variable names short:
+
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/coding-style.rst#n284
+
+But I am not religious about it.   So if this is a big deal for you, I 
+guess reply back, and it can be changed.
+
+
+- Paul
