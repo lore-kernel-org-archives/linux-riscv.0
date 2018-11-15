@@ -1,49 +1,74 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Thu, 15 Nov 2018 06:59:05 -0800 (PST)
-Subject: [PATCH] RISC-V: Fix raw_copy_{to,from}_user()
-In-Reply-To: <20181115002755.24195-1-olof@lixom.net>
-Message-ID: <mhng-4c28d7f1-e034-4506-9ace-40fc2abd1668@palmer-si-x1c4>
+From: jhugo@codeaurora.org (Jeffrey Hugo)
+Date: Thu, 15 Nov 2018 11:31:33 -0700
+Subject: [RFC 0/3] Unify CPU topology across ARM64 & RISC-V
+In-Reply-To: <1541728209-3224-1-git-send-email-atish.patra@wdc.com>
+References: <1541728209-3224-1-git-send-email-atish.patra@wdc.com>
+Message-ID: <07d92dd4-f943-47ee-e168-46bfaf4ed755@codeaurora.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 14 Nov 2018 16:27:55 PST (-0800), Olof Johansson wrote:
-> Sparse highlighted it, and appears to be a pure bug (from vs to).
->
-> ./arch/riscv/include/asm/uaccess.h:403:35: warning: incorrect type in argument 1 (different address spaces)
-> ./arch/riscv/include/asm/uaccess.h:403:39: warning: incorrect type in argument 2 (different address spaces)
-> ./arch/riscv/include/asm/uaccess.h:409:37: warning: incorrect type in argument 1 (different address spaces)
-> ./arch/riscv/include/asm/uaccess.h:409:41: warning: incorrect type in argument 2 (different address spaces)
->
-> Signed-off-by: Olof Johansson <olof@lixom.net>
-> ---
->  arch/riscv/include/asm/uaccess.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-> index 473cfc84e412f..8c3e3e3c8be12 100644
-> --- a/arch/riscv/include/asm/uaccess.h
-> +++ b/arch/riscv/include/asm/uaccess.h
-> @@ -400,13 +400,13 @@ extern unsigned long __must_check __asm_copy_from_user(void *to,
->  static inline unsigned long
->  raw_copy_from_user(void *to, const void __user *from, unsigned long n)
->  {
-> -	return __asm_copy_to_user(to, from, n);
-> +	return __asm_copy_from_user(to, from, n);
->  }
->
->  static inline unsigned long
->  raw_copy_to_user(void __user *to, const void *from, unsigned long n)
->  {
-> -	return __asm_copy_from_user(to, from, n);
-> +	return __asm_copy_to_user(to, from, n);
->  }
->
->  extern long strncpy_from_user(char *dest, const char __user *src, long count);
+On 11/8/2018 6:50 PM, Atish Patra wrote:
+> The cpu-map DT entry in ARM64 can describe the CPU topology in
+> much better way compared to other existing approaches. RISC-V can
+> easily adopt this binding to represent it's own CPU topology.
+> Thus, both cpu-map DT binding and topology parsing code can be
+> moved to a common location so that RISC-V or any other
+> architecture can leverage that.
+> 
+> The relevant discussion regarding unifying cpu topology can be
+> found in [1].
+> 
+> arch_topology seems to be a perfect place to move the common
+> code. I have not introduced any functional changes in the moved
+> to code. The only downside in this approach is that the capacity
+> code will be executed for RISC-V as well. But, it will exit
+> immediately after not able to find the appropriate DT node. If
+> the overhead is considered too much, we can always compile out
+> capacity related functions under a different config for the
+> architectures that do not support them.
+> 
+> The patches have been tested for RISC-V and compile tested for
+> ARM64.
+> 
+> The socket changes[2] can be merged on top of this series or vice
+> versa.
+> 
+> [1] https://lkml.org/lkml/2018/11/6/19
+> [2] https://lkml.org/lkml/2018/11/7/918
+> 
+> Atish Patra (3):
+>    dt-binding: cpu-topology: Move cpu-map to a common binding.
+>    cpu-topology: Move cpu topology code to common code.
+>    RISC-V: Parse cpu topology during boot.
+> 
+>   Documentation/devicetree/bindings/arm/topology.txt | 475 -------------------
+>   .../devicetree/bindings/cpu/cpu-topology.txt       | 526 +++++++++++++++++++++
+>   arch/arm64/include/asm/topology.h                  |  23 +-
+>   arch/arm64/kernel/topology.c                       | 305 +-----------
+>   arch/riscv/Kconfig                                 |   1 +
+>   arch/riscv/kernel/smpboot.c                        |   6 +-
+>   drivers/base/arch_topology.c                       | 303 ++++++++++++
+>   include/linux/arch_topology.h                      |  23 +
+>   include/linux/topology.h                           |   1 +
+>   9 files changed, 864 insertions(+), 799 deletions(-)
+>   delete mode 100644 Documentation/devicetree/bindings/arm/topology.txt
+>   create mode 100644 Documentation/devicetree/bindings/cpu/cpu-topology.txt
+> 
 
-Oh, no idea how I missed that one.  This looks like it's been in for a long 
-time, so I'm surprised anything works at all!
+I was interested in testing these on QDF2400, an ARM64 platform, since 
+this series touches core ARM64 code and I'd hate to see a regression. 
+However, I can't figure out what baseline to use to apply these. 
+Different patches cause different conflicts of a variety of baselines I 
+attempted.
 
-I'm going to add a stable CC and PR this to Linus this week, assuming I get 
-some time to at least give it a minimal test.
+What are these intended to apply to?
 
-Thanks for catching this!
+Also, you might want to run them through checkpatch next time.  There 
+are several whitespace errors.
+
+-- 
+Jeffrey Hugo
+Qualcomm Datacenter Technologies as an affiliate of Qualcomm 
+Technologies, Inc.
+Qualcomm Technologies, Inc. is a member of the
+Code Aurora Forum, a Linux Foundation Collaborative Project.
