@@ -2,89 +2,87 @@ Return-Path: <SRS0=n0wm=N2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8DE0CC43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 15 Nov 2018 11:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4EEBDC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 15 Nov 2018 14:59:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5FB4020825
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 15 Nov 2018 11:02:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 20DF02145D
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 15 Nov 2018 14:59:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iJIYE+5b";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="p3FsYjKD"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5FB4020825
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Aw36m16p";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="SEk+Wt4W"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 20DF02145D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M6Ijfln0sjjTPn+W0LNvd+iD+OmWePJnQ6yQJka6UbA=; b=iJIYE+5bKTwUm8
-	vq3D/4ieloi6VSmzXMCDpasItf/lmkLnr9IHabH6/N9dhuXVmLv5PD+7pNt/Vz8LWI0rb5F41KJCE
-	XawI865NKZIsmujd3uklN4LdQrHCeWt9dkIDZMI/eSEFIY3Th/7qmjFbxwMScGXRHrAtnxdMsydwf
-	dt5IaX4KhneCvoQegMCtk7Bqmc1RXscNJjSVvKIGXImYo8gynVzwh+GbazTYK/35Vc47un092jgQK
-	crlZ18GtN1q5R6PZQlicPb6YY/0hH2pwP8KxN118CBVVHmCTSGL811YpMcF+h+kEstfj+JnbN52ml
-	5eVyvsVNF68HtSVSXEtQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=vs73hPDrnJWzIsGpdRqhnbv74dw3OQN0HGUiipwKvww=; b=Aw36m16puI24vCChV3mRzFCPc
+	xIsGy/yAkMhnuh04ZmM+sLSsf92UKUF1u2Xhknys4TV7PumT+0RX1Q6PddBA3aalzEH6eKAvcjTYL
+	jYcZd0Tak87rjG4Hum87kfN0MAddU3A7AhXnt7/Yz8wvh/8hgodRElHQtmAuIPp15FDRUZXUXBL+/
+	o/iZR++5N8kF5BNqLGZYWB9LkMIV3FQZuFkXehq1X0X/w1MhmXX+MwuwluvAAudtzR9qU5m/XFk2J
+	hHpyyfNj3jjrbcS3uXrRqFb+hQ8kTVaeZDqWPEFVewOhObOmx6Ey+N3Ib4suMDY1eCJXn3J5EMxvQ
+	dhAd5cHCg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gNFPU-0001HW-SF; Thu, 15 Nov 2018 11:02:09 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
+	id 1gNJ72-0000LH-30; Thu, 15 Nov 2018 14:59:20 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gNFPE-00019s-4a
- for linux-riscv@bombadil.infradead.org; Thu, 15 Nov 2018 11:01:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Type:Cc:To:Subject:Message-ID:
- Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=h3FHK8EvY+Zjy0akwJHZcKL9VGkiMyUmpn5Xcm9XYl0=; b=p3FsYjKDXRG/mcbNEknI2RS+S
- KQJg710mapQMBkfM02InzAH1eHPSiEFgJdgrhCB5ccSbAq64R5tATi9ibqpfru87YU9RdDdDObJNb
- 0mSdm/1rwFd9KWmhsopFIOjtFPB0XtwHS6H+sKeRT+XwwerS123HQCeXn5aCISqXyCofjdwJnaZmC
- 0r3yt9A5mYrFI6YdvCorE8HKI97USmbC6Yio315JFc9uiSLQbyli8SQ+IjzlKDjxW2xg4vvzxQVg9
- bBOhugPxbz5ToT9Was/dh+e5mrPs+7+r9TiAfyPyveEAONpo3q6geMD7mKZsHKxVZc476LuDj+esX
- dSbHJwhkQ==;
-Received: from mail-pf1-f196.google.com ([209.85.210.196])
- by merlin.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gNFPA-0001lj-WA
- for linux-riscv@lists.infradead.org; Thu, 15 Nov 2018 11:01:50 +0000
-Received: by mail-pf1-f196.google.com with SMTP id v9-v6so9531859pff.2
- for <linux-riscv@lists.infradead.org>; Thu, 15 Nov 2018 03:01:37 -0800 (PST)
+ id 1gNJ6z-0000Km-9c
+ for linux-riscv@lists.infradead.org; Thu, 15 Nov 2018 14:59:18 +0000
+Received: by mail-pf1-x441.google.com with SMTP id v68-v6so9832812pfk.0
+ for <linux-riscv@lists.infradead.org>; Thu, 15 Nov 2018 06:59:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=24JG3cUKzQWrcKQyIOLhenCWTe3cRMt7frjOX9/e/2U=;
+ b=SEk+Wt4WCYLIr1NCgAvQlQB97RcZg4cCG5VKofuQ3NE1+GDriRyCBm/xgY+uLLsnt2
+ IO+miovqipaPJ2Hz3fT2L5KXCc6HYr1rWAM7JtRQe0h0SiGBSwbIWrXnmgZiKGJaXPJy
+ aiEybmsg95bXcrBeKNwMdfbZta+v3nz8zQsSJeeGJ0K523T0hSGV1EHGsyYBzOIksaIE
+ g/WvFh6LrnAco18uNvzDAJVEJkc7eD9dB7Wn9fjjUEdjjWChOOoi0L4LFj2zOa8I3a10
+ gnq+msRduQHYJnildlvMAXEMIVxTEwGqYFcalh4RutEev7g2feee3Y8GTvmJEQhiYG/g
+ xCVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=h3FHK8EvY+Zjy0akwJHZcKL9VGkiMyUmpn5Xcm9XYl0=;
- b=Bg8E4+tw4gptpv3+N6tOEiCBsLopy1GsT9IYkQQxn4r2EzGtCP/OggXHW2i+7JunLv
- 6P+bs1nwEFR1S8j33fzZ3AmLCkJG0/W9Z9bxl+m/Vc8GzqrSoS7V4LEwmGdCOtxFWOZ+
- bDD+MISDJtC2hoHFhvJMUnKRexpxQHhxBA/7v4JS9kjE1Q1+XI3EzNbgUhFfeNJEYt7S
- OJvMhhm4MWK9NzQ16tCj7+/ofH/TLsRekOKbX6ACSSTgMNYgXRvtuc+EHg7ZOFmDfT9z
- 8MEIaQunj5vE5p0xe9mZjtwc4l9qSVgsVjSLHRR03J2kaJ9BGvvlUfJ5+zar0wR/wCU2
- 6MqQ==
-X-Gm-Message-State: AGRZ1gL3SyqbsiXI1NCjCT08wuPbt+mHNcdRI/oEa9kOZYRJNlN23xdP
- xBNd6SNN4Nn7ZnLef1B0PmipRcwQSMY863GTO0iHU44dp64=
-X-Google-Smtp-Source: AJdET5fbeO0WaXg34yZQJO9Sbkjzuh12ApiHQEVArRCqI6Y/VHA4n/h2Hk2784LD4/8Nerrojw2bcaUoZZA/7E2Vtxo=
-X-Received: by 2002:a62:302:: with SMTP id 2-v6mr6085108pfd.135.1542279696518; 
- Thu, 15 Nov 2018 03:01:36 -0800 (PST)
-MIME-Version: 1.0
-References: <20181020101045.15991-1-paul.walmsley@sifive.com>
- <20181020101045.15991-3-paul.walmsley@sifive.com>
-In-Reply-To: <20181020101045.15991-3-paul.walmsley@sifive.com>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Thu, 15 Nov 2018 12:01:25 +0100
-Message-ID:
- <CANBLGcy9WoBqBKQnvz-YGQpXossP2HDmW_go8WZD7FfBZdr5VQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] tty: serial: add driver for the SiFive UART
-To: paul.walmsley@sifive.com
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=24JG3cUKzQWrcKQyIOLhenCWTe3cRMt7frjOX9/e/2U=;
+ b=m/76V43el1ViHLNSnVwoRX0wunI+/TqdSgyppj0IsSFpVKlkSgbu18tLHIAORntiji
+ Etv/dtFVPC74leNDr61nmkcurLI5w3Fe8yGYKr1UyYclh8v59wTS70QmyuPs2PLkzhZ2
+ 1D06zYUJOK9SgDx5RW53hyMfwhmSLVnxLnHSAH/sEd/yW4eMbOXeHmILhXvCwnrmD/Ah
+ /HeJES2qV8ZImPMXNLiWbZssNu8OF/Al1l82NzzEGpJBm3pQlbNw8l3Gf5Rcz3MOiKEM
+ gfkCn/dB3eppIAH/WiHsl0pnjOnfmPRmChRWLtPWtVfJNHWecnMIG4J4INXlJjTV6s1A
+ t8+A==
+X-Gm-Message-State: AGRZ1gKgDi16zo/LS908547AJ4qZRHfhOuF9NHSQEVZiFevQis914cEp
+ hmsoXme0DTM59kAJvzHosebmog==
+X-Google-Smtp-Source: AJdET5fikEuezpg+8evxWbxaEoQI4neyR57oXZ0MoazVwAMbfZoTNas87zquQZ6VLDC/WpZ0imazwg==
+X-Received: by 2002:a63:af45:: with SMTP id
+ s5-v6mr6101120pgo.125.1542293946495; 
+ Thu, 15 Nov 2018 06:59:06 -0800 (PST)
+Received: from localhost ([64.114.255.114])
+ by smtp.gmail.com with ESMTPSA id g5sm23690020pgu.57.2018.11.15.06.59.05
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Thu, 15 Nov 2018 06:59:05 -0800 (PST)
+Date: Thu, 15 Nov 2018 06:59:05 -0800 (PST)
+X-Google-Original-Date: Wed, 14 Nov 2018 16:50:43 PST (-0800)
+Subject: Re: [PATCH] RISC-V: Fix raw_copy_{to,from}_user()
+In-Reply-To: <20181115002755.24195-1-olof@lixom.net>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: Olof Johansson <olof@lixom.net>
+Message-ID: <mhng-4c28d7f1-e034-4506-9ace-40fc2abd1668@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181115_060149_057564_6EE64563 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20181115_065917_356815_A4699A3D 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,78 +94,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: paul@pwsan.com, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- wesley@sifive.com, Palmer Dabbelt <palmer@sifive.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, julia.lawall@lip6.fr,
- linux-serial@vger.kernel.org, jslaby@suse.com, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: Olof Johansson <olof@lixom.net>, linux-riscv@lists.infradead.org,
+ aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181115110125.vbqNDlBRcGztu1hQPSoMRePiOaQeBPxo2gtrtj3ljZg@z>
+Message-ID: <20181115145905.hQRshc_lJDKB1pQ3_cD-ZzFhuAeWpYzcB7KMvpi8Aug@z>
 
-Hi Paul,
+On Wed, 14 Nov 2018 16:27:55 PST (-0800), Olof Johansson wrote:
+> Sparse highlighted it, and appears to be a pure bug (from vs to).
+>
+> ./arch/riscv/include/asm/uaccess.h:403:35: warning: incorrect type in argument 1 (different address spaces)
+> ./arch/riscv/include/asm/uaccess.h:403:39: warning: incorrect type in argument 2 (different address spaces)
+> ./arch/riscv/include/asm/uaccess.h:409:37: warning: incorrect type in argument 1 (different address spaces)
+> ./arch/riscv/include/asm/uaccess.h:409:41: warning: incorrect type in argument 2 (different address spaces)
+>
+> Signed-off-by: Olof Johansson <olof@lixom.net>
+> ---
+>  arch/riscv/include/asm/uaccess.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+> index 473cfc84e412f..8c3e3e3c8be12 100644
+> --- a/arch/riscv/include/asm/uaccess.h
+> +++ b/arch/riscv/include/asm/uaccess.h
+> @@ -400,13 +400,13 @@ extern unsigned long __must_check __asm_copy_from_user(void *to,
+>  static inline unsigned long
+>  raw_copy_from_user(void *to, const void __user *from, unsigned long n)
+>  {
+> -	return __asm_copy_to_user(to, from, n);
+> +	return __asm_copy_from_user(to, from, n);
+>  }
+>
+>  static inline unsigned long
+>  raw_copy_to_user(void __user *to, const void *from, unsigned long n)
+>  {
+> -	return __asm_copy_from_user(to, from, n);
+> +	return __asm_copy_to_user(to, from, n);
+>  }
+>
+>  extern long strncpy_from_user(char *dest, const char __user *src, long count);
 
-Thanks for the patch!
+Oh, no idea how I missed that one.  This looks like it's been in for a long 
+time, so I'm surprised anything works at all!
 
-On Sat, 20 Oct 2018 at 12:12, Paul Walmsley <paul.walmsley@sifive.com> wrote:
-> +/*
-> + *
-> + */
+I'm going to add a stable CC and PR this to Linus this week, assuming I get 
+some time to at least give it a minimal test.
 
-Interesting comment ;)
-
-> +static int __init sifive_serial_console_setup(struct console *co, char *options)
-
-Unfortunately I get this error unless I remove the __init:
-...
-  GEN     .version
-  CHK     include/generated/compile.h
-  AR      built-in.a
-  LD      vmlinux.o
-  MODPOST vmlinux.o
-WARNING: vmlinux.o(.data+0x14e48): Section mismatch in reference from
-the variable .LANCHOR0 to the function
-.init.text:sifive_serial_console_setup()
-The variable .LANCHOR0 references
-the function __init sifive_serial_console_setup()
-If the reference is valid then annotate the
-variable with __init* or __refdata (see linux/init.h) or name the variable:
-*_template, *_timer, *_sht, *_ops, *_probe, *_probe_one, *_console
-
-FATAL: modpost: Section mismatches detected.
-Set CONFIG_SECTION_MISMATCH_WARN_ONLY=y to allow them.
-make[1]: *** [scripts/Makefile.modpost:98: vmlinux.o] Error 1
-make: *** [Makefile:1040: vmlinux] Error 2
-
-I have
-CONFIG_SERIAL_CORE=y
-CONFIG_SERIAL_CORE_CONSOLE=y
-CONFIG_SERIAL_SIFIVE=y
-CONFIG_SERIAL_SIFIVE_CONSOLE=y
-and it happens both on v4.20-rc2 and v4.19.
-Without the __init everything seems to work fine though.
-
-> +#else
-> +
-> +#define SIFIVE_SERIAL_CONSOLE  NULL
-> +
-> +static inline void __ssp_add_console_port(struct sifive_serial_port *ssp)
-> +{}
-> +static void __ssp_remove_console_port(struct sifive_serial_port *ssp)
-> +{}
-
-Missing "inline"?
-
-> +static int __init sifive_serial_init(void)
-> +{
-> +       int r;
-
-If you're sending a v4 anyway, here and in the the probe function
-using int ret; for this kind of variable is a common idiom and
-hence easier to read.
-
-/Emil
+Thanks for catching this!
 
 _______________________________________________
 linux-riscv mailing list
