@@ -2,86 +2,87 @@ Return-Path: <SRS0=n0wm=N2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3140CC43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 15 Nov 2018 00:28:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D54CC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 15 Nov 2018 07:50:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 03242208A3
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 15 Nov 2018 00:28:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D3AB8223DD
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 15 Nov 2018 07:50:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QsDFpyqC";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lixom-net.20150623.gappssmtp.com header.i=@lixom-net.20150623.gappssmtp.com header.b="ZGqqP+Gv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 03242208A3
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lixom.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FYq1CkJD";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="endZulJC";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="jS60Gwj9"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D3AB8223DD
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=IeJxLt/6h+3fghlTVWuMq48clLrvsgGa+7acYqja1rU=; b=QsD
-	FpyqC/kCJGeOHw8hGtaxgoi8IasShErRCGngLX2z7Y+zfZ+9QsT1qDIChqwC+L60uQzzbAQqQhA3S
-	7viS8ts4sQ/A9GZILKnLjPYnu1EVP/nsV8eRAtKg0/YrD2fC/tW2tvDzt354/Ybq9N0Rhux03Gq4y
-	xE4XVwEq79QEYjluZx3dMllfQ8IRkHal1L5BdQvZLYGEBGygrzjFMft/0/X7ZJKbUj+qymHGa7dkD
-	abQbtZ53TTf1Qx0ccUaxEMfikqvnKNXGrkwB0+bNZAenGCOMRlFIjmJ3UZb6hzwSgShEtN77evF5t
-	qgLa2Cb7XKHUHMZN9WMwVccZyJtVJzA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VSwvxYVtyav1KuuZa3fdjzWCyhfCTHz1kilizca8F38=; b=FYq1CkJDitSoCG
+	pv1Jzp5yV3Q2w4cj6kmOwdzbRT2XW8k8jbb3TcTzabnEGSaKYZ70Md9mpSDvJ7d52Y6KS3Cx21vW8
+	RxRmLZpdG3OV0LKl0yF7gwdvawq2BPLOr5woLLBd925D6OWFJbA3jYOn10Uir/wtNoLEfhCZiFMJx
+	KP23vsrPMrvW2HwWkwiUpgxnyMuli6r25chy7j2ngmVI71w4b4IBABD9xEGjY5TC8XIjV53J47O+0
+	PFA/FB90/ZFjLFPnY26eVUkeziIQkwjFdC4LyFPj5phE3TwvVondZ/ZVgapGNwS/Yip0vOhlBGdFF
+	JIcF6fakMTVbLL1zIOgw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gN5WA-0006Jc-4u; Thu, 15 Nov 2018 00:28:22 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1gNCPs-0000Fq-PC; Thu, 15 Nov 2018 07:50:20 +0000
+Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gN5W7-0006In-IF
- for linux-riscv@lists.infradead.org; Thu, 15 Nov 2018 00:28:20 +0000
-Received: by mail-pl1-x643.google.com with SMTP id b5so2164797plr.4
- for <linux-riscv@lists.infradead.org>; Wed, 14 Nov 2018 16:28:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=lixom-net.20150623.gappssmtp.com; s=20150623;
- h=from:to:cc:subject:date:message-id;
- bh=+YBnNurkqDo7ErqUbtfeyI5S4n0SWhVxEZNF1H10U08=;
- b=ZGqqP+Gvxz89We5VkbQ98KgKuA8EiRmJF5fF7P2tmTEExGi1Nixn2oUtDSHqacP3RL
- NTApvPwGWQC5u87ShFaZXdKXJYQswrMp4IM0nqPq1jjRiH96XXkhGfPMu7em6ni6X+9z
- tsPn4I1sMPT2rohyuxsCc5rZgtx9EnZXSGk4SnCDMiU8njE/LNER+GWM8CjxCqLtmGAx
- 7raXT5d4a5vtCMvd7v/87zwvVm7V4YOqItL2d6UeLLEldS93epH6Y4Afwmy1Aw/XjUhY
- +B8YHBJUqaetNzdo5y5+Aocyusw8tjgm/bif5T9km2t4y0RDwgmqh4pD9PVFsE4NJbb5
- kYGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=+YBnNurkqDo7ErqUbtfeyI5S4n0SWhVxEZNF1H10U08=;
- b=aBMx6LJx+GsXJH47oLds0WY0pmWwmEeblcbqr2dhvGNvGn99kgoA+x9jwoL/4Qbgzc
- 7yC+q8/ekQF0TT/Fm1aznGaLcxvbEymHw4NJxWMlX5DoxRGvLuW2HAClpyouOUY7P1hR
- TH8hvftvPveA/fnv7wBKBSn5bNSyNM2EZ+kpNFQkUmOZ+NrXGgJiBhuG5/GEXDV8YcVb
- iV2852Tt9sMzxAEgg3weL26Qio9HOejtasRw2LVCR3AhLjmINcM2PL1CF1SG9s9PRLeD
- MOcQZhM7OoOl2fiJslxfMtsIGuTuVwDpfeB7VTR+tezGHnQiBqmNlx2LhMC+qNG+HM4B
- wgTw==
-X-Gm-Message-State: AGRZ1gIrNK+gHOfB5x9/1KJTUIpWgzHqrceiouUns71LTHEDWJeZmK8D
- /aA1vCrnzaYSE59H6HIdRqy7fw==
-X-Google-Smtp-Source: AJdET5ccpmVeWWLqZ5C55DH4IVPkwN3PoT+a9D7VZaSk6mMTs9/6/VsYBH5ZsVBy4YmTgd8MRpDaxg==
-X-Received: by 2002:a17:902:bb83:: with SMTP id
- m3-v6mr3957902pls.144.1542241688346; 
- Wed, 14 Nov 2018 16:28:08 -0800 (PST)
-Received: from localhost.localdomain
- (99-152-116-91.lightspeed.sntcca.sbcglobal.net. [99.152.116.91])
- by smtp.gmail.com with ESMTPSA id d8-v6sm29159472pfj.106.2018.11.14.16.28.06
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 14 Nov 2018 16:28:07 -0800 (PST)
-From: Olof Johansson <olof@lixom.net>
-To: Palmer Dabbelt <palmer@sifive.com>
-Subject: [PATCH] RISC-V: Fix raw_copy_{to,from}_user()
-Date: Wed, 14 Nov 2018 16:27:55 -0800
-Message-Id: <20181115002755.24195-1-olof@lixom.net>
-X-Mailer: git-send-email 2.11.0
+ id 1gNCPr-0000Fh-DQ
+ for linux-riscv@bombadil.infradead.org; Thu, 15 Nov 2018 07:50:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=merlin.20170209; h=Content-Transfer-Encoding:Content-Type:
+ Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:From:Date:Sender
+ :Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=oYC/7J7gGNYb8UkNj3SVw8ivp88hbhEsohKFYwXtOQM=; b=endZulJCT55FSAfiuKHL9dqZJG
+ ojXH0F9hvT8xcvjdsZbkz0rLIERsQLl8zXJQFgW5BIK3yTJZrqB/xx4VbBgw2fruzeW6o+asTEp+A
+ qoilImJul/+zjgzRF+6p6YmZTr0K0ZrLwuJyxYylQekFV01s16JmH0Az+c0ixgzXSgbtUHyg9xNRX
+ /28BOuyIH1yx3Z8RDLEX+Qz240pKq281DY8qfnmDORl79j/LizWp02e/gz1D5yV+1ZLosGwX0hf0P
+ roNie0oTH4pT5YoFWsYq+nXFmUqIVTUbgHQHW2wxUaaOPGsQiNgt+Thf5SDsOJ8JD0lZ8SNuLgm15
+ G2ixlPbQ==;
+Received: from mail.kernel.org ([198.145.29.99])
+ by merlin.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gNCPo-0008Id-LI
+ for linux-riscv@lists.infradead.org; Thu, 15 Nov 2018 07:50:17 +0000
+Received: from devnote (unknown [64.114.255.114])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id B65B921582;
+ Thu, 15 Nov 2018 07:50:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1542268205;
+ bh=7XF1fezt0O4sBhR1B3rFJZPqT8zuYrpGPjBU7AFtfVk=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=jS60Gwj9r2E30VJAwmTJLaRMKpOngFEOs3p1uRfYwwZIyd2Z47qkL2fDbQ7rR9Vpm
+ Hqnhc7GtrDkcAi7uKIP/aMXogmy09sKrUXuf/cjgZv/tRSkUJ3xnkFXYIjo2zWnahO
+ UfKliDkgZDf7emclSTPg8fclyO+fzKXrDlVpyO74=
+Date: Wed, 14 Nov 2018 23:50:04 -0800
+From: Masami Hiramatsu <mhiramat@kernel.org>
+To: Patrick Staehlin <me@packi.ch>
+Subject: Re: [RFC/RFT 2/2] RISC-V: kprobes/kretprobe support
+Message-Id: <20181114235004.1d57d911e15efaa8f18fa75e@kernel.org>
+In-Reply-To: <05082ba4-33d6-a95c-e049-78791dafc009@packi.ch>
+References: <20181113195804.22825-1-me@packi.ch>
+ <20181113195804.22825-3-me@packi.ch>
+ <20181114003730.06f810517a270070734df4ce@kernel.org>
+ <20181114074951.0902699286fdf8652f2878a4@kernel.org>
+ <05082ba4-33d6-a95c-e049-78791dafc009@packi.ch>
+X-Mailer: Sylpheed 3.5.0 (GTK+ 2.24.30; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181114_162819_605253_0C558A94 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181115_025016_847508_6A877229 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,50 +94,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Olof Johansson <olof@lixom.net>, linux-riscv@lists.infradead.org,
- Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Anders Roxell <anders.roxell@linaro.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Alan Kao <alankao@andestech.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>, linux-kernel@vger.kernel.org,
+ Al Viro <viro@zeniv.linux.org.uk>, Souptick Joarder <jrdr.linux@gmail.com>,
+ Zong Li <zong@andestech.com>, Thomas Gleixner <tglx@linutronix.de>,
+ "Eric W. Biederman" <ebiederm@xmission.com>, linux-riscv@lists.infradead.org,
+ zhong jiang <zhongjiang@huawei.com>, Ingo Molnar <mingo@kernel.org>,
+ Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Jim Wilson <jimw@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181115002755.d1cZI3o7bpJLPdOhLcest5wD0q85OrBP2eGuxrw-PBs@z>
+Message-ID: <20181115075004.H4nqx6ml9mPkFSCqKy4YaTlgz2gz-21xusQ1VcZfNCk@z>
 
-Sparse highlighted it, and appears to be a pure bug (from vs to).
+On Wed, 14 Nov 2018 22:10:52 +0100
+Patrick Staehlin <me@packi.ch> wrote:
 
-./arch/riscv/include/asm/uaccess.h:403:35: warning: incorrect type in argument 1 (different address spaces)
-./arch/riscv/include/asm/uaccess.h:403:39: warning: incorrect type in argument 2 (different address spaces)
-./arch/riscv/include/asm/uaccess.h:409:37: warning: incorrect type in argument 1 (different address spaces)
-./arch/riscv/include/asm/uaccess.h:409:41: warning: incorrect type in argument 2 (different address spaces)
+> On 14.11.18 16:49, Masami Hiramatsu wrote:
+> > On Wed, 14 Nov 2018 00:37:30 -0800
+> > Masami Hiramatsu <mhiramat@kernel.org> wrote:
+> > 
+> >>> +
+> >>> +static int __kprobes patch_text(kprobe_opcode_t *addr, u32 opcode)
+> >>> +{
+> >>> +	if (is_compressed_insn(opcode))
+> >>> +		*(u16 *)addr = cpu_to_le16(opcode);
+> >>> +	else
+> >>> +		*addr = cpu_to_le32(opcode);
+> >>> +
+> > 
+> > BTW, don't RISC-V need any i-cache flush and per-core serialization
+> > for patching the text area? (and no text_mutex protection?)
+> 
+> Yes, we should probably call flush_icache_all. This code works on
+> QEMU/virt but I guess on real hardware you may run into problems,
+> especially when disarming the kprobe. I'll have a look at the arm64 code
+> again to see what's missing.
 
-Signed-off-by: Olof Johansson <olof@lixom.net>
----
- arch/riscv/include/asm/uaccess.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Note that self code-modifying is a special case for any processors, especially
+if that is multi-processor. In general, this may depend on the circuit desgin,
+not ISA.
+Some processor implementation will do in-order and no i-cache, no SMP, that will
+be simple, but if it is out-of-order, deep pipeline, huge i-cache, and many-core,
+you might have to care many things. We have to talk with someone who is designing
+real hardware, and maybe better to make the patch_text pluggable for variants.
+(or choose the safest way)
 
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 473cfc84e412f..8c3e3e3c8be12 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -400,13 +400,13 @@ extern unsigned long __must_check __asm_copy_from_user(void *to,
- static inline unsigned long
- raw_copy_from_user(void *to, const void __user *from, unsigned long n)
- {
--	return __asm_copy_to_user(to, from, n);
-+	return __asm_copy_from_user(to, from, n);
- }
- 
- static inline unsigned long
- raw_copy_to_user(void __user *to, const void *from, unsigned long n)
- {
--	return __asm_copy_from_user(to, from, n);
-+	return __asm_copy_to_user(to, from, n);
- }
- 
- extern long strncpy_from_user(char *dest, const char __user *src, long count);
+> >>> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.S b/arch/riscv/kernel/probes/kprobes_trampoline.S
+> >>> new file mode 100644
+> >>> index 000000000000..c7ceda9556a3
+> >>> --- /dev/null
+> >>> +++ b/arch/riscv/kernel/probes/kprobes_trampoline.S
+> >>> @@ -0,0 +1,91 @@
+> >>> +/* SPDX-License-Identifier: GPL-2.0+ */
+> >>> +
+> >>> +#include <linux/linkage.h>
+> >>> +
+> >>> +#include <asm/asm.h>
+> >>> +#include <asm/asm-offsets.h>
+> >>> +
+> >>> +	.text
+> >>> +	.altmacro
+> >>> +
+> >>> +	.macro save_all_base_regs
+> >>> +	REG_S x1,  PT_RA(sp)
+> >>> +	REG_S x3,  PT_GP(sp)
+> >>> +	REG_S x4,  PT_TP(sp)
+> >>> +	REG_S x5,  PT_T0(sp)
+> >>> +	REG_S x6,  PT_T1(sp)
+> >>> +	REG_S x7,  PT_T2(sp)
+> >>> +	REG_S x8,  PT_S0(sp)
+> >>> +	REG_S x9,  PT_S1(sp)
+> >>> +	REG_S x10, PT_A0(sp)
+> >>> +	REG_S x11, PT_A1(sp)
+> >>> +	REG_S x12, PT_A2(sp)
+> >>> +	REG_S x13, PT_A3(sp)
+> >>> +	REG_S x14, PT_A4(sp)
+> >>> +	REG_S x15, PT_A5(sp)
+> >>> +	REG_S x16, PT_A6(sp)
+> >>> +	REG_S x17, PT_A7(sp)
+> >>> +	REG_S x18, PT_S2(sp)
+> >>> +	REG_S x19, PT_S3(sp)
+> >>> +	REG_S x20, PT_S4(sp)
+> >>> +	REG_S x21, PT_S5(sp)
+> >>> +	REG_S x22, PT_S6(sp)
+> >>> +	REG_S x23, PT_S7(sp)
+> >>> +	REG_S x24, PT_S8(sp)
+> >>> +	REG_S x25, PT_S9(sp)
+> >>> +	REG_S x26, PT_S10(sp)
+> >>> +	REG_S x27, PT_S11(sp)
+> >>> +	REG_S x28, PT_T3(sp)
+> >>> +	REG_S x29, PT_T4(sp)
+> >>> +	REG_S x30, PT_T5(sp)
+> >>> +	REG_S x31, PT_T6(sp)
+> >>> +	.endm
+> >>> +
+> >>> +	.macro restore_all_base_regs
+> >>> +	REG_L x3,  PT_GP(sp)
+> >>> +	REG_L x4,  PT_TP(sp)
+> >>> +	REG_L x5,  PT_T0(sp)
+> >>> +	REG_L x6,  PT_T1(sp)
+> >>> +	REG_L x7,  PT_T2(sp)
+> >>> +	REG_L x8,  PT_S0(sp)
+> >>> +	REG_L x9,  PT_S1(sp)
+> >>> +	REG_L x10, PT_A0(sp)
+> >>> +	REG_L x11, PT_A1(sp)
+> >>> +	REG_L x12, PT_A2(sp)
+> >>> +	REG_L x13, PT_A3(sp)
+> >>> +	REG_L x14, PT_A4(sp)
+> >>> +	REG_L x15, PT_A5(sp)
+> >>> +	REG_L x16, PT_A6(sp)
+> >>> +	REG_L x17, PT_A7(sp)
+> >>> +	REG_L x18, PT_S2(sp)
+> >>> +	REG_L x19, PT_S3(sp)
+> >>> +	REG_L x20, PT_S4(sp)
+> >>> +	REG_L x21, PT_S5(sp)
+> >>> +	REG_L x22, PT_S6(sp)
+> >>> +	REG_L x23, PT_S7(sp)
+> >>> +	REG_L x24, PT_S8(sp)
+> >>> +	REG_L x25, PT_S9(sp)
+> >>> +	REG_L x26, PT_S10(sp)
+> >>> +	REG_L x27, PT_S11(sp)
+> >>> +	REG_L x28, PT_T3(sp)
+> >>> +	REG_L x29, PT_T4(sp)
+> >>> +	REG_L x30, PT_T5(sp)
+> >>> +	REG_L x31, PT_T6(sp)
+> >>> +	.endm
+> > 
+> > 
+> > It seems thses macros can be (partially?) shared with entry.S
+> 
+> Yes, I wanted to avoid somebody changing the shared code and breaking
+> random things. But that's what reviews are for. I'll think of something
+> for v2.
+
+Ah, OK. So for the first version, we introduce this separated code until
+someone complains it.
+
+
+Thank you,
+
 -- 
-2.11.0
-
+Masami Hiramatsu <mhiramat@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
