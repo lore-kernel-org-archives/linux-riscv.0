@@ -1,53 +1,128 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Fri, 16 Nov 2018 08:52:16 -0800 (PST)
-Subject: [PATCH v2] RISC-V: recognize S/U mode bits in print_isa
-In-Reply-To: <20181109214217.27494-1-me@packi.ch>
-Message-ID: <mhng-e9ecd06a-7b9c-4b0f-af31-2c4c3b64c1a5@palmer-si-x1c4>
+Date: Fri, 16 Nov 2018 08:52:18 -0800 (PST)
+Subject: [PATCH] RISC-V: Update Kconfig to better handle CMDLINE
+In-Reply-To: <20181110010244.5837-1-mick@ics.forth.gr>
+Message-ID: <mhng-314e946b-3b14-467c-ad23-85983b75cd8d@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Fri, 09 Nov 2018 13:42:16 PST (-0800), me at packi.ch wrote:
-> Removes the warning about an unsupported ISA when reading /proc/cpuinfo
-> on QEMU. The "S" extension is not being returned as it is not accessible
-> from userspace.
+On Fri, 09 Nov 2018 17:02:44 PST (-0800), mick at ics.forth.gr wrote:
+> Add a menu to chose how the built-in command line will be
+> used and add CMDLINE_EXTEND for compatibility with FDT code.
 >
-> Signed-off-by: Patrick St?hlin <me@packi.ch>
+> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
 > ---
->  arch/riscv/kernel/cpu.c | 9 ++++++---
->  1 file changed, 6 insertions(+), 3 deletions(-)
+>  arch/riscv/Kconfig | 45 ++++++++++++++++++++++++---------------------
+>  1 file changed, 24 insertions(+), 21 deletions(-)
 >
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index 3a5a2ee31547..b4a7d4427fbb 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -64,7 +64,7 @@ int riscv_of_processor_hartid(struct device_node *node)
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 55da93f4e818..81f884164b52 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -227,39 +227,42 @@ endmenu
 >
->  static void print_isa(struct seq_file *f, const char *orig_isa)
->  {
-> -	static const char *ext = "mafdc";
-> +	static const char *ext = "mafdcsu";
->  	const char *isa = orig_isa;
->  	const char *e;
+>  menu "Boot options"
 >
-> @@ -88,11 +88,14 @@ static void print_isa(struct seq_file *f, const char *orig_isa)
->  	/*
->  	 * Check the rest of the ISA string for valid extensions, printing those
->  	 * we find.  RISC-V ISA strings define an order, so we only print the
-> -	 * extension bits when they're in order.
-> +	 * extension bits when they're in order. Hide the supervisor (S)
-> +	 * extension from userspace as it's not accessible from there.
->  	 */
->  	for (e = ext; *e != '\0'; ++e) {
->  		if (isa[0] == e[0]) {
-> -			seq_write(f, isa, 1);
-> +			if (isa[0] != 's')
-> +				seq_write(f, isa, 1);
-> +
->  			isa++;
->  		}
->  	}
+> -config CMDLINE_BOOL
+> -	bool "Built-in kernel command line"
+> +config CMDLINE
+> +	string "Built-in kernel command line"
+>  	help
+>  	  For most platforms, it is firmware or second stage bootloader
+>  	  that by default specifies the kernel command line options.
+>  	  However, it might be necessary or advantageous to either override
+> -	  the default kernel command line or add a few extra options to it.
+> -	  For such cases, this option allows hardcoding command line options
+> -	  directly into the kernel.
+> +	  the provided kernel command line or add a few extra options to it.
+> +	  For such cases, it is possible to define a built-in command line
+> +	  here and chose how the kernel should use it later on.
+>
+> -	  For that, choose 'Y' here and fill in the extra boot parameters
+> -	  in CONFIG_CMDLINE.
+> +choice
+> +	prompt "Built-in command line usage" if CMDLINE != ""
+> +	default CMDLINE_FALLBACK
+> +	help
+> +	  Chose how the kernel will handle the provided built-in command
+> +	  line.
+>
+> -	  The built-in options will be concatenated to the default command
+> -	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
+> -	  command line will be ignored and replaced by the built-in string.
+> +config CMDLINE_FALLBACK
+> +	bool "Fallback"
+> +	help
+> +	  Use the built-in command line as fallback in case we get nothing
+> +	  from the boot loader.
+>
+> -config CMDLINE
+> -	string "Built-in kernel command string"
+> -	depends on CMDLINE_BOOL
+> -	default ""
+> +config CMDLINE_EXTEND
+> +	bool "Extension"
+>  	help
+> -	  Supply command-line options at build time by entering them here.
+> +	  Use the built-in command line as an extension of the command line
+> +	  provided by the boot loader.
+>
+>  config CMDLINE_FORCE
+> -	bool "Built-in command line overrides bootloader arguments"
+> -	depends on CMDLINE_BOOL
+> +	bool "Forced"
+>  	help
+> -	  Set this option to 'Y' to have the kernel ignore the bootloader
+> -	  or firmware command line.  Instead, the built-in command line
+> -	  will be used exclusively.
+> +	  Use the built-in command line in place of the command line
+> +	  provided by the boot loader.
+>
+> -	  If you don't know what to do here, say N.
+> +endchoice
+>
+>  endmenu
 
-This looks good to me.  I'll target it for the RCs, as it's fairly small and 
-that warning fires too often.
+It looks like this is functionally equivalent to what ARM has, but the polarity 
+is a bit different and the help strings aren't as easy to read.  Is there a 
+reason we can't just copy what they do?
 
-Thanks!
+    config CMDLINE
+            string "Default kernel command string"
+            default ""
+            help
+              On some architectures (EBSA110 and CATS), there is currently no way
+              for the boot loader to pass arguments to the kernel. For these
+              architectures, you should supply some command-line options at build
+              time by entering them here. As a minimum, you should specify the
+              memory size and the root device (e.g., mem=64M root=/dev/nfs).
+    
+    choice
+            prompt "Kernel command line type" if CMDLINE != ""
+            default CMDLINE_FROM_BOOTLOADER
+            depends on ATAGS
+    
+    config CMDLINE_FROM_BOOTLOADER
+            bool "Use bootloader kernel arguments if available"
+            help
+              Uses the command-line options passed by the boot loader. If
+              the boot loader doesn't provide any, the default kernel command
+              string provided in CMDLINE will be used.
+    
+    config CMDLINE_EXTEND
+            bool "Extend bootloader kernel arguments"
+            help
+              The command-line arguments provided by the boot loader will be
+              appended to the default kernel command string.
+    
+    config CMDLINE_FORCE
+            bool "Always use the default kernel command string"
+            help
+              Always use the default kernel command string, even if the boot
+              loader passes other arguments to the kernel.
+              This is useful if you cannot or don't want to change the
+              command-line options your boot loader passes to the kernel.
+    endchoice
+    
+I'm not really opposed to your solution, I'm just trying to avoid being 
+different without a reason.
