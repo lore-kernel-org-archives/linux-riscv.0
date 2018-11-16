@@ -1,62 +1,53 @@
-From: olof@lixom.net (Olof Johansson)
-Date: Thu, 15 Nov 2018 12:27:42 -0800
-Subject: [PATCH] RISC-V: Fix raw_copy_{to,from}_user()
-In-Reply-To: <mhng-4c28d7f1-e034-4506-9ace-40fc2abd1668@palmer-si-x1c4>
-References: <20181115002755.24195-1-olof@lixom.net>
- <mhng-4c28d7f1-e034-4506-9ace-40fc2abd1668@palmer-si-x1c4>
-Message-ID: <CAOesGMgCM57JNn2_MV8PL+zu6h2i3=saawbdmA3rgEJBUOfreQ@mail.gmail.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Fri, 16 Nov 2018 08:52:16 -0800 (PST)
+Subject: [PATCH v2] RISC-V: recognize S/U mode bits in print_isa
+In-Reply-To: <20181109214217.27494-1-me@packi.ch>
+Message-ID: <mhng-e9ecd06a-7b9c-4b0f-af31-2c4c3b64c1a5@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Thu, Nov 15, 2018 at 6:59 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+On Fri, 09 Nov 2018 13:42:16 PST (-0800), me at packi.ch wrote:
+> Removes the warning about an unsupported ISA when reading /proc/cpuinfo
+> on QEMU. The "S" extension is not being returned as it is not accessible
+> from userspace.
 >
-> On Wed, 14 Nov 2018 16:27:55 PST (-0800), Olof Johansson wrote:
-> > Sparse highlighted it, and appears to be a pure bug (from vs to).
-> >
-> > ./arch/riscv/include/asm/uaccess.h:403:35: warning: incorrect type in argument 1 (different address spaces)
-> > ./arch/riscv/include/asm/uaccess.h:403:39: warning: incorrect type in argument 2 (different address spaces)
-> > ./arch/riscv/include/asm/uaccess.h:409:37: warning: incorrect type in argument 1 (different address spaces)
-> > ./arch/riscv/include/asm/uaccess.h:409:41: warning: incorrect type in argument 2 (different address spaces)
-> >
-> > Signed-off-by: Olof Johansson <olof@lixom.net>
-> > ---
-> >  arch/riscv/include/asm/uaccess.h | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-> > index 473cfc84e412f..8c3e3e3c8be12 100644
-> > --- a/arch/riscv/include/asm/uaccess.h
-> > +++ b/arch/riscv/include/asm/uaccess.h
-> > @@ -400,13 +400,13 @@ extern unsigned long __must_check __asm_copy_from_user(void *to,
-> >  static inline unsigned long
-> >  raw_copy_from_user(void *to, const void __user *from, unsigned long n)
-> >  {
-> > -     return __asm_copy_to_user(to, from, n);
-> > +     return __asm_copy_from_user(to, from, n);
-> >  }
-> >
-> >  static inline unsigned long
-> >  raw_copy_to_user(void __user *to, const void *from, unsigned long n)
-> >  {
-> > -     return __asm_copy_from_user(to, from, n);
-> > +     return __asm_copy_to_user(to, from, n);
-> >  }
-> >
-> >  extern long strncpy_from_user(char *dest, const char __user *src, long count);
+> Signed-off-by: Patrick St?hlin <me@packi.ch>
+> ---
+>  arch/riscv/kernel/cpu.c | 9 ++++++---
+>  1 file changed, 6 insertions(+), 3 deletions(-)
 >
-> Oh, no idea how I missed that one.  This looks like it's been in for a long
-> time, so I'm surprised anything works at all!
-
-Actually, it boils down to a memcpy either way, it's just that
-exceptions and access control isn't handled right. So as long as you
-always do valid copying you'll luck out.
-
-> I'm going to add a stable CC and PR this to Linus this week, assuming I get
-> some time to at least give it a minimal test.
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index 3a5a2ee31547..b4a7d4427fbb 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -64,7 +64,7 @@ int riscv_of_processor_hartid(struct device_node *node)
 >
-> Thanks for catching this!
+>  static void print_isa(struct seq_file *f, const char *orig_isa)
+>  {
+> -	static const char *ext = "mafdc";
+> +	static const char *ext = "mafdcsu";
+>  	const char *isa = orig_isa;
+>  	const char *e;
+>
+> @@ -88,11 +88,14 @@ static void print_isa(struct seq_file *f, const char *orig_isa)
+>  	/*
+>  	 * Check the rest of the ISA string for valid extensions, printing those
+>  	 * we find.  RISC-V ISA strings define an order, so we only print the
+> -	 * extension bits when they're in order.
+> +	 * extension bits when they're in order. Hide the supervisor (S)
+> +	 * extension from userspace as it's not accessible from there.
+>  	 */
+>  	for (e = ext; *e != '\0'; ++e) {
+>  		if (isa[0] == e[0]) {
+> -			seq_write(f, isa, 1);
+> +			if (isa[0] != 's')
+> +				seq_write(f, isa, 1);
+> +
+>  			isa++;
+>  		}
+>  	}
 
-Cool, sounds good.
+This looks good to me.  I'll target it for the RCs, as it's fairly small and 
+that warning fires too often.
 
-
--Olof
+Thanks!
