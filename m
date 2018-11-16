@@ -1,136 +1,107 @@
 From: paul.walmsley@sifive.com (Paul Walmsley)
-Date: Fri, 16 Nov 2018 15:10:35 -0800 (PST)
-Subject: [PATCH v2 1/2] dt-bindings: serial: add documentation for the
- SiFive UART driver
-In-Reply-To: <20181024173232.GB5652@bogus>
-References: <20181019184827.12351-1-paul.walmsley@sifive.com>
- <20181019184827.12351-2-paul.walmsley@sifive.com>
- <CAL_JsqJBSqaxnETdJg1Mdp+H2ay+WKT0JaxLe6D4Fwo_99qUkw@mail.gmail.com>
- <4317548d-f831-29ba-3be9-35f080587db9@sifive.com>
- <CAL_JsqLagTgjDhZ02X=wPFDB4WF2bR7=LyzSW9D=ooo_XB_zOg@mail.gmail.com>
- <6571bb0e-b36a-1196-4d90-8aa62d8a2a90@sifive.com>
- <20181024173232.GB5652@bogus>
-Message-ID: <alpine.DEB.2.21.9999.1811161505240.25712@viisi.sifive.com>
+Date: Fri, 16 Nov 2018 15:18:59 -0800 (PST)
+Subject: [PATCH v2 2/3] dt-bindings: clk: add documentation for the SiFive
+ PRCI driver
+In-Reply-To: <20181024184757.GA22367@bogus>
+References: <20181020135024.28573-1-paul.walmsley@sifive.com>
+ <20181020135024.28573-3-paul.walmsley@sifive.com>
+ <20181024184757.GA22367@bogus>
+Message-ID: <alpine.DEB.2.21.9999.1811161510590.25712@viisi.sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
 On Wed, 24 Oct 2018, Rob Herring wrote:
 
-> On Tue, Oct 23, 2018 at 10:05:40AM -0700, Paul Walmsley wrote:
->> On 10/20/18 7:21 AM, Rob Herring wrote:
->>> On Fri, Oct 19, 2018 at 5:06 PM Paul Walmsley <paul.walmsley@sifive.com> wrote:
->>>> On 10/19/18 1:45 PM, Rob Herring wrote:
->>>>> On Fri, Oct 19, 2018 at 1:48 PM Paul Walmsley <paul.walmsley@sifive.com> wrote:
->>>>>> Add DT binding documentation for the Linux driver for the SiFive
->>>>>> asynchronous serial IP block.  Nothing too exotic.
->>>>>>
->>>>>> Cc: linux-serial at vger.kernel.org
->>>>>> Cc: devicetree at vger.kernel.org
->>>>>> Cc: linux-riscv at lists.infradead.org
->>>>>> Cc: linux-kernel at vger.kernel.org
->>>>>> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
->>>>>> Cc: Rob Herring <robh+dt@kernel.org>
->>>>>> Cc: Mark Rutland <mark.rutland@arm.com>
->>>>>> Cc: Palmer Dabbelt <palmer@sifive.com>
->>>>>> Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
->>>>>> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
->>>>>> Signed-off-by: Paul Walmsley <paul@pwsan.com>
->>>>>> ---
->>>>>>    .../bindings/serial/sifive-serial.txt         | 21 +++++++++++++++++++
->>>>>>    1 file changed, 21 insertions(+)
->>>>>>    create mode 100644 Documentation/devicetree/bindings/serial/sifive-serial.txt
->>>>>>
->>>>>> diff --git a/Documentation/devicetree/bindings/serial/sifive-serial.txt b/Documentation/devicetree/bindings/serial/sifive-serial.txt
->>>>>> new file mode 100644
->>>>>> index 000000000000..8982338512f5
->>>>>> --- /dev/null
->>>>>> +++ b/Documentation/devicetree/bindings/serial/sifive-serial.txt
->>>>>> @@ -0,0 +1,21 @@
->>>>>> +SiFive asynchronous serial interface (UART)
->>>>>> +
->>>>>> +Required properties:
->>>>>> +
->>>>>> +- compatible: should be "sifive,fu540-c000-uart0" or "sifive,uart0"
->>>>>>
->>>>> As I mentioned for the
->>>>> intc and now the pwm block bindings, if you are going to do version
->>>>> numbers please document the versioning scheme.
->>>>>
->>>>>
->>>>> Will add that to the binding document.
->>> I don't seem to be making my point clear. I don't want any of this
->>> added to a binding doc for particular IP blocks. Write a common doc
->>> that explains the scheme and addresses the questions I asked. Then
->>> just reference that doc here.
->>>
->>> Maybe this is documented somewhere already? Otherwise, if one is
->>> creating a new IP block, how do they know what the versioning scheme
->>> is or what goes in the DT ROM?
+> On Sat, Oct 20, 2018 at 06:50:23AM -0700, Paul Walmsley wrote:
+>> Add DT binding documentation for the Linux driver for the SiFive
+>> PRCI clock & reset control IP block, as found on the SiFive
+>> FU540 chip.
 >>
+>> Cc: Michael Turquette <mturquette@baylibre.com>
+>> Cc: Stephen Boyd <sboyd@kernel.org>
+>> Cc: Rob Herring <robh+dt@kernel.org>
+>> Cc: Mark Rutland <mark.rutland@arm.com>
+>> Cc: Palmer Dabbelt <palmer@sifive.com>
+>> Cc: Megan Wachs <megan@sifive.com>
+>> Cc: linux-clk at vger.kernel.org
+>> Cc: devicetree at vger.kernel.org
+>> Cc: linux-riscv at lists.infradead.org
+>> Cc: linux-kernel at vger.kernel.org
+>> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+>> Signed-off-by: Paul Walmsley <paul@pwsan.com>
+>> ---
+>> v2: remove out-of-date example, add documentation for the compatible
+>>     string and for the required PCB clock nodes
 >>
->> Seems like there might be some confusion between IP blocks as integrated on
->> an SoC vs. IP blocks in isolation.? It's not necessarily the SoC integrator
->> that sets an IP block version number; this can come from the IP block vendor
->> itself.? So each IP block may have its own version numbering practices for
->> the IP block alone.
+>> .../bindings/clock/sifive/fu540-prci.txt      | 43 +++++++++++++++++++
+>>  1 file changed, 43 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/clock/sifive/fu540-prci.txt
 >>
->>
->> For SiFive IP blocks, we at SiFive could probably align on a common version
->> numbering structure for what's in the sifive-blocks repository.
+>> diff --git a/Documentation/devicetree/bindings/clock/sifive/fu540-prci.txt b/Documentation/devicetree/bindings/clock/sifive/fu540-prci.txt
+>> new file mode 100644
+>> index 000000000000..d7c1e83fa5ed
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/clock/sifive/fu540-prci.txt
+>> @@ -0,0 +1,43 @@
+>> +SiFive FU540 PRCI bindings
+>> +
+>> +On the FU540 family of SoCs, most system-wide clock and reset integration
+>> +is via the PRCI IP block.
+>> +
+>> +Required properties:
+>> +- compatible: Should be "sifive,<chip>-prci<version>".  As of the time this
+>> +              file was written, only one value is supported:
+>> +	      "sifive,fu540-c000-prci0"
 >
-> I thought you had that from what Palmer said and what I've seen so far.
-> You have at least 3 bindings so far it seems.
+> What happens with this depends on the discussion on the other bindings.
 
-Yep.
+We'll drop the trailing 0 since the SoC identifier prefix should be 
+sufficiently precise.
 
->> But other IP blocks from other vendors may not align to that, or may not
->> have version numbers exposed at all.? In those cases there's no way for
->> software folks to find out what they are,? as you pointed out earlier.? This
->> is the case with most DT compatible strings in the kernel tree.
->>
->> For example, we've integrated the NVDLA IP block, from NVIDIA, on some
->> designs.? Any NVIDIA version numbers in that IP block will probably not
->> follow the SiFive version numbering scheme.? I'd propose the right thing to
->> do for an IP block compatible string is to follow the vendor's practice, and
->> then use the SoC integrator's version numbering practice for the
->> SoC-integrated compatible string.
+> Though here you are inconsistent without a fallback. Of course, I've
+> never seen a clock controller be the same across SoCs.
+
+As you write, the assumption is that chip integration IP blocks like this 
+one are likely to be specific to individual SoCs.
+
+This may not be universally true for SiFive looking into the future, but 
+since we don't yet have a clear sense of the extent of exact reuse (i.e. 
+chip "families"), am not yet comfortable with advocating something like 
+"sifive,prci0" yet, as we do with the sifive-blocks.
+
+>> +- reg: Should describe the PRCI's register target physical address region
+>> +- clocks: Should point to the hfclk device tree node and the rtcclk
+>> +          device tree node.  The RTC clock here is not a time-of-day clock,
+>> +	  but is instead a high-stability clock source for system timers
+>> +	  and cycle counters.
+>> +- #clock-cells: Should be <1>
+>> +
+>> +The clock consumer should specify the desired clock via the clock ID
+>> +macros defined in include/linux/clk/sifive-fu540-prci.h.  These macros
+>> +begin with PRCI_CLK_.
+>> +
+>> +The hfclk and rtcclk nodes are required, and represent physical
+>> +crystals or resonators located on the PCB.
+>> +
+>> +Examples:
+>> +
+>> +hfclk: hfclk {
+>> +	#clock-cells = <0>;
+>> +	compatible = "fixed-clock";
+>> +	clock-frequency = <33333333>;
+>> +	clock-output-names = "hfclk";
+>> +};
+>> +rtcclk: rtcclk {
+>> +	#clock-cells = <0>;
+>> +	compatible = "fixed-clock";
+>> +	clock-frequency = <1000000>;
+>> +	clock-output-names = "rtcclk";
+>> +};
+>> +prci0: prci at 10000000 {
 >
-> Experience has shown that using compatible strings only specific to
-> vendor IP blocks (with or without version numbers) is pretty useless.
->
-> For licensed IP, I'd suggest you follow standard practices.
+> clock-controller at ...
 
-OK
-
-> A genericish fallback is generally only used when there's lots of SoCs 
-> sharing a block.
->
-> In these cases though it needs to be clear what bindings follow some
-> common versioning scheme and which don't. That's accomplished
-> by referencing what the version scheme is. Otherwise, I'd expect I'll
-> see the versioning scheme copied when in fact the source IP in no way
-> follows it.
->
->> In effect, an SoC integration DT compatible string like
->> "sifive,fu540-c000-uart" implicitly states an IP block version number:
->> "whatever came out of the fab on the chip"[**].?? I'd propose that even in
->> these cases, there's an advantage to keeping the "0" on the end, since it
->> uniquely identifies an SoC-independent IP block, rather than just the type
->> of the IP block. ? But if the "0" on the end of the SoC integration DT
->> compatible string is problematic for you, we can certainly drop that last 0
->> from the SoC integration DT compatible string, and only suffer a slight lack
->> of clarity as to what version was integrated on that chip.
->
-> Personally I'd leave it off, but I'm fine with either way. It just needs
-> to be the way you document for SiFive IP blocks.
-
-OK, we'll leave it off.
-
-> Really, I'd just like to see folks get better at putting version and
-> configuration information into registers. We only need DT for what we
-> can't discover.
-
-Yep, agreed.
+Thanks; fixed.
 
 
 - Paul
