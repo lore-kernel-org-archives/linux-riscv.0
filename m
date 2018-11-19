@@ -1,29 +1,55 @@
-From: schwab@suse.de (Andreas Schwab)
-Date: Mon, 19 Nov 2018 17:32:14 +0100
+From: andrew@lunn.ch (Andrew Lunn)
+Date: Mon, 19 Nov 2018 17:44:42 +0100
 Subject: [PATCH net-next v3 1/6] net: phy: mscc: migrate to
  phy_select/restore_page functions
-In-Reply-To: <20181119162529.GA31955@lunn.ch> (Andrew Lunn's message of "Mon,
- 19 Nov 2018 17:25:29 +0100")
-References: <20181008100728.24959-1-quentin.schulz@bootlin.com>
- <20181008100728.24959-2-quentin.schulz@bootlin.com>
- <mvm8t1pazea.fsf@suse.de> <20181119151057.GC26852@lunn.ch>
+In-Reply-To: <mvmo9al9gfl.fsf@suse.de>
+References: <mvm8t1pazea.fsf@suse.de> <20181119151057.GC26852@lunn.ch>
  <mvm4lcdaynt.fsf@suse.de> <20181119152830.GE26852@lunn.ch>
  <20181119154005.GA8367@piout.net> <mvmzhu59idl.fsf@suse.de>
  <20181119161204.GC2393@lunn.ch> <mvmva4t9h8x.fsf@suse.de>
- <20181119162529.GA31955@lunn.ch>
-Message-ID: <mvmo9al9gfl.fsf@suse.de>
+ <20181119162529.GA31955@lunn.ch> <mvmo9al9gfl.fsf@suse.de>
+Message-ID: <20181119164442.GB31955@lunn.ch>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Nov 19 2018, Andrew Lunn <andrew@lunn.ch> wrote:
+On Mon, Nov 19, 2018 at 05:32:14PM +0100, Andreas Schwab wrote:
+> On Nov 19 2018, Andrew Lunn <andrew@lunn.ch> wrote:
+> 
+> > Lock debugging: prove locking correctness
+> 
 
-> Lock debugging: prove locking correctness
+Lets see how much this gets messed up by email...
 
-404
+.config - Linux/arm 4.20.0-rc2 Kernel Configuration
+ > Kernel hacking > Lock Debugging (spinlocks, mutexes, etc...) ??????
+  ?????????? Lock Debugging (spinlocks, mutexes, etc...) ???????????
+  ?  Arrow keys navigate the menu.  <Enter> selects submenus --->  ?  
+  ?  (or empty submenus ----).  Highlighted letters are hotkeys.   ?  
+  ?  Pressing <Y> includes, <N> excludes, <M> modularizes          ?  
+  ?  features.  Press <Esc><Esc> to exit, <?> for Help, </> for    ?  
+  ? ?????????????????????????????????????????????????????????????? ?  
+  ? ?    [*] Lock debugging: prove locking correctness           ? ?  
+  ? ?    [ ] Lock usage statistics                               ? ?  
+  ? ?    -*- RT Mutex debugging, deadlock detection              ? ?  
+  ? ?    -*- Spinlock and rw-lock debugging: basic checks        ? ?  
+  ? ?    -*- Mutex debugging: basic checks                       ? ?  
+  ? ?    -*- Wait/wound mutex debugging: Slowpath testing        ? ?  
+  ? ?    -*- RW Semaphore debugging: basic checks                ? ?  
+  ? ?    -*- Lock debugging: detect incorrect freeing of live loc? ?  
+  ? ?    [ ] Lock dependency engine debugging                    ? ?  
+  ? ?    [*] Sleep inside atomic section checking                ? ?  
+  ? ?    [ ] Locking API boot-time self-tests                    ? ?  
+  ? ?    < > torture tests for locking                           ? ?  
+  ? ?    < > Wait/wound mutex selftests                          ? ?  
+  ? ?????????????????????????????????????????????????????????????? ?  
+  ??????????????????????????????????????????????????????????????????  
+  ?    <Select>    < Exit >    < Help >    < Save >    < Load >    ?  
+  ??????????????????????????????????????????????????????????????????  
+    
+If you cannot see it at all, it probably means you are missing a
+dependency:
 
-Andreas.
+  ?   Depends on: DEBUG_KERNEL [=y] && \                           ?  
+  ? LOCK_DEBUGGING_SUPPORT [=y]                                    ?  
 
--- 
-Andreas Schwab, SUSE Labs, schwab at suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+    Andrew
