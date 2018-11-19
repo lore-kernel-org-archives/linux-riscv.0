@@ -2,86 +2,82 @@ Return-Path: <SRS0=mq7p=N6=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B4572C43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 20:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E2CE2C43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 21:06:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 72B272086A
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 20:10:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B144020823
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 21:06:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OmbppL0n";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="bFPKnxaB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 72B272086A
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="i2PAkcn/";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="jeoV0Q6a"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B144020823
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=KCJJuA8nHplVf7zPMQgyabTYEPSezqpm7tNK1PKPcbs=; b=OmbppL0n5QQyJ06bKCjf/6xL2
-	XS0lX3OZdn1xiU4kum2SHsQk0o+o0Uzo2qYEYtqSLGlvqdMa87m8yoBxRfmceRGKiVG0vygV3otB2
-	eNlxzdP72jmoxqQq3BVtgHY7e2ks7BIOM4yYEtT1Df8FzujfIGC4qxR+jkQdX4knTRLC2F1jNWmal
-	W/u/K3p1Tmk75vUyyvbyUu2e9bywB9SvFFf8uM6EsWfO3KL9UDJ7zycg8LZXOK1ylKgABz9bCLB6X
-	KrVnXe4MQIaDTQTjYTY+EL5kMd/m0oKn+MHbpUPWQerSXtjOEA4Symh+/qREjGU6r12qy8Q5VfHFC
-	dArGhnRGw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:From:Message-Id:
+	Date:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xorGm/ggFY0d6/rDuq/GrX37CCBhL1FUbPvNxAxiEmg=; b=i2PAkcn/SuA9W8
+	/2r3M8YSvc4Cgr6G1CH124jynpmmERs0fqO4UCs4FxyX7fc9DmXg108P6pajM+tDgSHi//Zq5H4oH
+	ikIOc+mxBU+4VlwCrHhiabsqp3Wk3zU3LbU+x8fMYgtYnqqBAXZiMP3emnxfwsj+9MNU5tLD5OQFj
+	kHOm1WdmWpjEUgJzYTppVIM4J2sqOzNks8wviaSXPKS8V1ZLi0mjYY5qVrnqIhxuWRk2LNJ5v5I6R
+	FyahK3XjAGaGFxDY9+BxtF00B7dC/d2Eu+k8RK77+VhMfnO+KTBw7sO6j6xzVpr+Swlu7fhJbjNZ4
+	16HnkoZadhvjLOe/jBdg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gOps6-0007gU-Vk; Mon, 19 Nov 2018 20:10:14 +0000
+	id 1gOqkC-0002fm-10; Mon, 19 Nov 2018 21:06:08 +0000
 Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gOps3-0006Oo-WC
- for linux-riscv@lists.infradead.org; Mon, 19 Nov 2018 20:10:13 +0000
-Received: by mail-pf1-x443.google.com with SMTP id c73so667194pfe.13
- for <linux-riscv@lists.infradead.org>; Mon, 19 Nov 2018 12:10:01 -0800 (PST)
+ id 1gOqk4-0002Tc-My
+ for linux-riscv@lists.infradead.org; Mon, 19 Nov 2018 21:06:02 +0000
+Received: by mail-pf1-x443.google.com with SMTP id b7so2206001pfi.8
+ for <linux-riscv@lists.infradead.org>; Mon, 19 Nov 2018 13:05:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=gESZYH9uiBuTpB4Wq0Lob5Bt7Wx29khIhQqa01TkGDg=;
- b=bFPKnxaBTM0vaQcV98BkEz6gOgVil5ECTGfem5a5sSbKk03HFxS9KG/2qc8z9kYsc7
- Qmb7A/DEYpvtPclbv4569i59LM/fiVJT5PX7GdlwXzcsfk3OM4lCMoHMN+V6CZiPBpvO
- 8wkhqExAiWaGuD+YHH7s/XTQ1fM0nSRUujCN1eO1w2ClFFGuxx+2+lJyL8ku2cgXkESH
- BSGvxvAL9qvOPRIpSK4iLTeaQto3fVSEttYIcTLr9xCdC3CnOoi2ki0nx1UR7aHRD2kl
- pY2CXENwlQqi31U7qmoEJjG2aKiM+v+i0gi02SLfbRYPCaJlHBPi1nC+jyj8KanQ1MRK
- jmOA==
+ h=subject:date:message-id:cc:from:to;
+ bh=L5wwL34PyGgziVwXHLMgtJ9ExyAFaIYBQz/zqSoClbQ=;
+ b=jeoV0Q6aujVbRyVxYh91E1XGfPzssLWAE04uK27j2LhMqlapvBwwl5/ms6ZayZbCNx
+ 4u2PVHRFT8Ji8cVG8X5Tkxl7c7tExmujZPwJmXagLLfgXNITwkKTILjcNgdVTdNwqycQ
+ hv/51B+IdUJAyr/c9iZNfbNnJ7fi9mtUKqsmD2AQAHvpvhJhV1D8460747SNoAnxrsbK
+ q1WfH3oSlippF0nurpxogRAgxj2PofR82a9fRFbZSyF2Um4ydKlZreKJ4nu/IpIZYW9B
+ hs2Z4iyA1DpSjJTABuIcmc/S+yoMhxYbrSBQs8cDyW2oJ8vCuGSAQD8K9ttQFywq4W53
+ WTIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=gESZYH9uiBuTpB4Wq0Lob5Bt7Wx29khIhQqa01TkGDg=;
- b=ZZEP3nqTZ2Fr4hkAF96jZXcIIMi8dYMoQvVDK78C2nGgva8Rti4W526ALoE2IFK+Tr
- piovSvwQKVXoIkiN1b7Ojw1CyIWJ+Xd2TZsALBrLFI0dGWq3c/KBxSee95c1i0gYQWTs
- GVOdS58EWnMyjNlcDO5D7IY9d6GbG4FaidlArVcFjISxmpQ2UhN/ZJyDMYE78gSG4h81
- I2iGgd4EP8wwUgOu+WmlMX7tqHfUiK0YhHHgTmFPUeLAfmoJwrDo+xLQRdoDdGg1F+MJ
- fmYNV5tiBPuERfsByeCtvCo/+WQy1J8V7pwh5jBxIr5gz7gLYuRhbFBNYInHjiwGsZV+
- ELhQ==
-X-Gm-Message-State: AA+aEWaPSaYHQ9Eq1q9bO1fg0bjImpHMdJS52HOvgh+shvaLUnLEgk3v
- hNyl5p1RNIF/8Uuz44fa951GQw==
-X-Google-Smtp-Source: AFSGD/XPoc0UFoFzE79tPFfK5JxXElpTAqQjQbRxXNl9Gdl1M8B7JHEzoFcHyVxNlw75uJACXLGp+w==
-X-Received: by 2002:a65:534b:: with SMTP id w11mr12021136pgr.125.1542658201074; 
- Mon, 19 Nov 2018 12:10:01 -0800 (PST)
+ h=x-gm-message-state:subject:date:message-id:cc:from:to;
+ bh=L5wwL34PyGgziVwXHLMgtJ9ExyAFaIYBQz/zqSoClbQ=;
+ b=NkDP7vKVdQq4Fir/7nKdTZtgUqhfQc6LWWQCQKhoDDY1Jdof+HetaC8I1aYqzqEDF5
+ pnkC0gOnYfpNHrs7PIVjboNe0HJesMSbKOyo7w34J28TX/AKJf9oA0HbttCzBJNctxcM
+ HJfCvNhzzr08GWx4xJl/k6FuiOZHjX/fjJ8dIVDbtzv/JtLyn06z6Y8hQ8ZRbIk6NKz4
+ +aJiCTZbqf+M3QEBXXPhL5ECWuSUTSL0sgzc/1OW9351o7Xp6l1CyjcefBvUpBjk3RrN
+ h9XMU+t9EG8p6TEBwzTWbYLoo2y74Jhf6Zf9/bk9R52WJty8gm2WyUPHF2sw73iUAtb9
+ oOxA==
+X-Gm-Message-State: AGRZ1gJouHS/faR2uJjmm0IEY8g1cnqXqpcS1INI6377yiLl7pN5wGIb
+ dRfosvWZLYV6t8FuByzKq5l5U98gZvc=
+X-Google-Smtp-Source: AJdET5fzJq/y0S3WszGVKXyL4yNS0yWlsTo7Euf/zsSyvPg7iBuv5Y26kb2725qQsiTLhd2Yrr8lGQ==
+X-Received: by 2002:a63:5a57:: with SMTP id k23mr21339648pgm.5.1542661549676; 
+ Mon, 19 Nov 2018 13:05:49 -0800 (PST)
 Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id h7sm40028851pfa.105.2018.11.19.12.09.59
+ by smtp.gmail.com with ESMTPSA id 123sm43698387pgd.75.2018.11.19.13.05.48
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 19 Nov 2018 12:10:00 -0800 (PST)
-Date: Mon, 19 Nov 2018 12:10:00 -0800 (PST)
-X-Google-Original-Date: Mon, 19 Nov 2018 12:09:55 PST (-0800)
-Subject: Re: [PATCH] RISC-V: Build flat and compressed kernel images
-In-Reply-To: <CAAhSdy3+w7xQ9=VdqvKa7HZX3FbcAbu4nJ0zXSKi9-4U0_2cNQ@mail.gmail.com>
+ Mon, 19 Nov 2018 13:05:48 -0800 (PST)
+Subject: [PATCH v4] RISC-V: Update Kconfig to better handle CMDLINE
+Date: Mon, 19 Nov 2018 13:04:02 -0800
+Message-Id: <20181119210402.8176-1-palmer@sifive.com>
+X-Mailer: git-send-email 2.18.1
 From: Palmer Dabbelt <palmer@sifive.com>
-To: anup@brainfault.org
-Message-ID: <mhng-76297324-9bc5-47a8-8be2-73cc11e38138@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+To: mick@ics.forth.gr, dmaliotaki@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181119_121012_041107_07489470 
-X-CRM114-Status: GOOD (  29.92  )
+X-CRM114-CacheID: sfid-20181119_130600_844835_A3DE8BD8 
+X-CRM114-Status: GOOD (  16.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,257 +89,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Christoph Hellwig <hch@infradead.org>, atish.patra@wdc.com,
- linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
- linux-kernel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181119201000.YkkFZ64Q2fOSxHSKtIRJ3DhnaLCHqIC_5MSM44GTmJ8@z>
+Message-ID: <20181119210402.j13QTcfYvfPQwsRf5Q4itFoyo2ZaJc4FdhuPjRof8Z4@z>
 
-On Fri, 16 Nov 2018 19:32:04 PST (-0800), anup@brainfault.org wrote:
-> On Sat, Nov 17, 2018 at 2:43 AM Palmer Dabbelt <palmer@sifive.com> wrote:
->>
->> On Sun, 11 Nov 2018 21:55:15 PST (-0800), anup@brainfault.org wrote:
->> > This patch extends Linux RISC-V build system to build and install:
->> > Image - Flat uncompressed kernel image
->> > Image.gz - Flat and GZip compressed kernel image
->> >
->> > Quiet a few bootloaders (such as Uboot, UEFI, etc) are capable of
->> > booting flat and compressed kernel images. In case of Uboot, booting
->> > Image or Image.gz is achieved using bootm command.
->> >
->> > The flat and uncompressed kernel image (i.e. Image) is very useful
->> > in pre-silicon developent and testing because we can create back-door
->> > HEX files for RAM on FPGAs from Image.
->> >
->> > Signed-off-by: Anup Patel <anup@brainfault.org>
->> > ---
->> >  arch/riscv/Makefile             | 15 ++++++++-
->> >  arch/riscv/boot/.gitignore      |  2 ++
->> >  arch/riscv/boot/Makefile        | 33 ++++++++++++++++++
->> >  arch/riscv/boot/install.sh      | 60 +++++++++++++++++++++++++++++++++
->> >  arch/riscv/kernel/head.S        | 10 ++++++
->> >  arch/riscv/kernel/vmlinux.lds.S |  2 +-
->> >  6 files changed, 120 insertions(+), 2 deletions(-)
->> >  create mode 100644 arch/riscv/boot/.gitignore
->> >  create mode 100644 arch/riscv/boot/Makefile
->> >  create mode 100644 arch/riscv/boot/install.sh
->> >
->> > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
->> > index d10146197533..d117a60362eb 100644
->> > --- a/arch/riscv/Makefile
->> > +++ b/arch/riscv/Makefile
->> > @@ -71,10 +71,23 @@ KBUILD_CFLAGS += $(call cc-option,-mstrict-align)
->> >  # arch specific predefines for sparse
->> >  CHECKFLAGS += -D__riscv -D__riscv_xlen=$(BITS)
->> >
->> > +# Default target when executing plain make
->> > +boot         := arch/riscv/boot
->> > +KBUILD_IMAGE := $(boot)/Image.gz
->> > +
->> >  head-y := arch/riscv/kernel/head.o
->> >
->> >  core-y += arch/riscv/kernel/ arch/riscv/mm/
->> >
->> >  libs-y += arch/riscv/lib/
->> >
->> > -all: vmlinux
->> > +all: Image.gz
->> > +
->> > +Image: vmlinux
->> > +     $(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
->> > +
->> > +Image.%: Image
->> > +     $(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
->> > +
->> > +zinstall install:
->> > +     $(Q)$(MAKE) $(build)=$(boot) $@
->> > diff --git a/arch/riscv/boot/.gitignore b/arch/riscv/boot/.gitignore
->> > new file mode 100644
->> > index 000000000000..8dab0bb6ae66
->> > --- /dev/null
->> > +++ b/arch/riscv/boot/.gitignore
->> > @@ -0,0 +1,2 @@
->> > +Image
->> > +Image.gz
->> > diff --git a/arch/riscv/boot/Makefile b/arch/riscv/boot/Makefile
->> > new file mode 100644
->> > index 000000000000..0990a9fdbe5d
->> > --- /dev/null
->> > +++ b/arch/riscv/boot/Makefile
->> > @@ -0,0 +1,33 @@
->> > +#
->> > +# arch/riscv/boot/Makefile
->> > +#
->> > +# This file is included by the global makefile so that you can add your own
->> > +# architecture-specific flags and dependencies.
->> > +#
->> > +# This file is subject to the terms and conditions of the GNU General Public
->> > +# License.  See the file "COPYING" in the main directory of this archive
->> > +# for more details.
->> > +#
->> > +# Copyright (C) 2018, Anup Patel.
->> > +# Author: Anup Patel <anup@brainfault.org>
->> > +#
->> > +# Based on the ia64 and arm64 boot/Makefile.
->> > +#
->> > +
->> > +OBJCOPYFLAGS_Image :=-O binary -R .note -R .note.gnu.build-id -R .comment -S
->> > +
->> > +targets := Image
->> > +
->> > +$(obj)/Image: vmlinux FORCE
->> > +     $(call if_changed,objcopy)
->> > +
->> > +$(obj)/Image.gz: $(obj)/Image FORCE
->> > +     $(call if_changed,gzip)
->> > +
->> > +install:
->> > +     $(CONFIG_SHELL) $(srctree)/$(src)/install.sh $(KERNELRELEASE) \
->> > +     $(obj)/Image System.map "$(INSTALL_PATH)"
->> > +
->> > +zinstall:
->> > +     $(CONFIG_SHELL) $(srctree)/$(src)/install.sh $(KERNELRELEASE) \
->> > +     $(obj)/Image.gz System.map "$(INSTALL_PATH)"
->> > diff --git a/arch/riscv/boot/install.sh b/arch/riscv/boot/install.sh
->> > new file mode 100644
->> > index 000000000000..18c39159c0ff
->> > --- /dev/null
->> > +++ b/arch/riscv/boot/install.sh
->> > @@ -0,0 +1,60 @@
->> > +#!/bin/sh
->> > +#
->> > +# arch/riscv/boot/install.sh
->> > +#
->> > +# This file is subject to the terms and conditions of the GNU General Public
->> > +# License.  See the file "COPYING" in the main directory of this archive
->> > +# for more details.
->> > +#
->> > +# Copyright (C) 1995 by Linus Torvalds
->> > +#
->> > +# Adapted from code in arch/i386/boot/Makefile by H. Peter Anvin
->> > +# Adapted from code in arch/i386/boot/install.sh by Russell King
->> > +#
->> > +# "make install" script for the RISC-V Linux port
->> > +#
->> > +# Arguments:
->> > +#   $1 - kernel version
->> > +#   $2 - kernel image file
->> > +#   $3 - kernel map file
->> > +#   $4 - default install path (blank if root directory)
->> > +#
->> > +
->> > +verify () {
->> > +     if [ ! -f "$1" ]; then
->> > +             echo ""                                                   1>&2
->> > +             echo " *** Missing file: $1"                              1>&2
->> > +             echo ' *** You need to run "make" before "make install".' 1>&2
->> > +             echo ""                                                   1>&2
->> > +             exit 1
->> > +     fi
->> > +}
->> > +
->> > +# Make sure the files actually exist
->> > +verify "$2"
->> > +verify "$3"
->> > +
->> > +# User may have a custom install script
->> > +if [ -x ~/bin/${INSTALLKERNEL} ]; then exec ~/bin/${INSTALLKERNEL} "$@"; fi
->> > +if [ -x /sbin/${INSTALLKERNEL} ]; then exec /sbin/${INSTALLKERNEL} "$@"; fi
->> > +
->> > +if [ "$(basename $2)" = "Image.gz" ]; then
->> > +# Compressed install
->> > +  echo "Installing compressed kernel"
->> > +  base=vmlinuz
->> > +else
->> > +# Normal install
->> > +  echo "Installing normal kernel"
->> > +  base=vmlinux
->> > +fi
->> > +
->> > +if [ -f $4/$base-$1 ]; then
->> > +  mv $4/$base-$1 $4/$base-$1.old
->> > +fi
->> > +cat $2 > $4/$base-$1
->> > +
->> > +# Install system map file
->> > +if [ -f $4/System.map-$1 ]; then
->> > +  mv $4/System.map-$1 $4/System.map-$1.old
->> > +fi
->> > +cp $3 $4/System.map-$1
->> > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
->> > index 711190d473d4..fe884cd69abd 100644
->> > --- a/arch/riscv/kernel/head.S
->> > +++ b/arch/riscv/kernel/head.S
->> > @@ -44,6 +44,16 @@ ENTRY(_start)
->> >       amoadd.w a3, a2, (a3)
->> >       bnez a3, .Lsecondary_start
->> >
->> > +     /* Clear BSS for flat non-ELF images */
->> > +     la a3, __bss_start
->> > +     la a4, __bss_stop
->> > +     ble a4, a3, clear_bss_done
->> > +clear_bss:
->> > +     REG_S zero, (a3)
->> > +     add a3, a3, RISCV_SZPTR
->> > +     blt a3, a4, clear_bss
->> > +clear_bss_done:
->> > +
->> >       /* Save hart ID and DTB physical address */
->> >       mv s0, a0
->> >       mv s1, a1
->> > diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
->> > index ece84991609c..65df1dfdc303 100644
->> > --- a/arch/riscv/kernel/vmlinux.lds.S
->> > +++ b/arch/riscv/kernel/vmlinux.lds.S
->> > @@ -74,7 +74,7 @@ SECTIONS
->> >               *(.sbss*)
->> >       }
->> >
->> > -     BSS_SECTION(0, 0, 0)
->> > +     BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
->>
->> What does this do?
->
-> If bootloader is loading vmlinux ELF then it will take care of
-> zeroing BSS and SBSS section.
->
-> If we have FLAT image then the head.S has to zero-out BSS
-> and SBSS on boot HART. The secondary/non-boot HART
-> don't need to clear BSS and SBSS.
->
-> Now with BSS_SECTION(0, 0, 0), there is no alignment
-> constraint on start of BSS and SBSS section so the BSS
-> zeroing code in head.S has handle unaligned BSS and
-> SBSS (i.e. not aligned to XLEN / 8 bytes). To simplify, I have
-> made BSS and SBSS start as page aligned and put a simple
-> assembly code in head.S to zero-out BSS and SBSS.
->
-> Of course, we can also use BSS_SECTION(16, 16, 0)
-> but I thought of avoiding magic values and made it
-> page aligned (like few other architectures).
+From: Nick Kossifidis <mick@ics.forth.gr>
 
-Makes sense, at least for now.  We might want to default to alignment to a 
-larger alignment (2MiB on rv64i, 4MiB on rv32i) at some point, but that's a 
-larger discussion.
+Added a menu to choose how the built-in command line will be
+used and CMDLINE_EXTEND for compatibility with FDT code.
 
-I've already queued this up for this week's PR, which I'll tag as soon as I 
-managed to get through my email :)
+v2: Improved help messages, removed references to bootloader
+and made them more descriptive. I also asked help from a
+friend who's a language expert just in case.
 
->
->>
->> >
->> >       EXCEPTION_TABLE(0x10)
->> >       NOTES
->>
->> Thanks!  I'm going to target this for the RCs as well: it's technically a new
->> feature, but it seems pretty safe -- assuming the BSS_SECTION change can be
->> explained to me :)
->
-> Thanks,
-> Anup
+v3: This time used the corrected text
+
+v4: Copy the config strings from the arm32 port.
+
+Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
+Signed-off-by: Debbie Maliotaki <dmaliotaki@gmail.com>
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+---
+ arch/riscv/Kconfig | 57 +++++++++++++++++++++++++++-------------------
+ 1 file changed, 33 insertions(+), 24 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 55da93f4e818..808624f6b906 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -227,39 +227,48 @@ endmenu
+ 
+ menu "Boot options"
+ 
+-config CMDLINE_BOOL
+-	bool "Built-in kernel command line"
++config CMDLINE
++	string "Built-in kernel command line"
+ 	help
+-	  For most platforms, it is firmware or second stage bootloader
+-	  that by default specifies the kernel command line options.
+-	  However, it might be necessary or advantageous to either override
+-	  the default kernel command line or add a few extra options to it.
+-	  For such cases, this option allows hardcoding command line options
+-	  directly into the kernel.
++	  For most platforms, the arguments for the kernel's command line
++	  are provided at run-time, during boot. However, there are cases
++	  where either no arguments are being provided or the provided
++	  arguments are insufficient or even invalid.
+ 
+-	  For that, choose 'Y' here and fill in the extra boot parameters
+-	  in CONFIG_CMDLINE.
++	  When that occurs, it is possible to define a built-in command
++	  line here and choose how the kernel should use it later on.
+ 
+-	  The built-in options will be concatenated to the default command
+-	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
+-	  command line will be ignored and replaced by the built-in string.
++choice
++	prompt "Built-in command line usage" if CMDLINE != ""
++	default CMDLINE_FALLBACK
++	help
++	  Choose how the kernel will handle the provided built-in command
++	  line.
+ 
+-config CMDLINE
+-	string "Built-in kernel command string"
+-	depends on CMDLINE_BOOL
+-	default ""
++config CMDLINE_FALLBACK
++	bool "Fallback"
+ 	help
+-	  Supply command-line options at build time by entering them here.
++	  Use the built-in command line as fallback in case we get nothing
++	  during boot. This is the default behaviour.
++
++config CMDLINE_EXTEND
++	bool "Extension"
++	help
++	  The command-line arguments provided during boot will be
++	  appended to the built-in command line. This is useful in
++	  cases where the provided arguments are insufficient and
++	  you don't want to or cannot modify them.
++
+ 
+ config CMDLINE_FORCE
+-	bool "Built-in command line overrides bootloader arguments"
+-	depends on CMDLINE_BOOL
++	bool "Forced"
+ 	help
+-	  Set this option to 'Y' to have the kernel ignore the bootloader
+-	  or firmware command line.  Instead, the built-in command line
+-	  will be used exclusively.
++	  Always use the built-in command line, even if we get one during
++	  boot. This is useful in case you need to override the provided
++	  command line on systems where you don't have or want control
++	  over it.
+ 
+-	  If you don't know what to do here, say N.
++endchoice
+ 
+ endmenu
+ 
+-- 
+2.18.1
+
 
 _______________________________________________
 linux-riscv mailing list
