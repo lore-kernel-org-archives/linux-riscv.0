@@ -1,185 +1,65 @@
-From: mick@ics.forth.gr (Nick Kossifidis)
-Date: Sun, 18 Nov 2018 03:49:49 +0200
-Subject: [PATCH v2] riscv: add asm/unistd.h UAPI header
-In-Reply-To: <20181108190239.29633-1-david.abdurachmanov@gmail.com>
-References: <20181108190239.29633-1-david.abdurachmanov@gmail.com>
-Message-ID: <853e56348a89887d31b6b1866eed6d38@mailhost.ics.forth.gr>
+From: schwab@suse.de (Andreas Schwab)
+Date: Mon, 19 Nov 2018 12:23:14 +0100
+Subject: Kernel panic - not syncing: corrupted stack end detected inside
+ scheduler
+Message-ID: <mvmo9alb9b1.fsf@suse.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hello David,
+Could this be a stack overflow?
 
-???? 2018-11-08 21:02, David Abdurachmanov ??????:
-> Marcin Juszkiewicz reported issues while generating syscall table for 
-> riscv
-> using 4.20-rc1. The patch refactors our unistd.h files to match some 
-> other
-> architectures.
-> 
-> - Add asm/unistd.h UAPI header, which has __ARCH_WANT_NEW_STAT only for 
-> 64-bit
-> - Remove asm/syscalls.h UAPI header and merge to asm/unistd.h
-> - Adjust kernel asm/unistd.h
-> 
-> So now asm/unistd.h UAPI header should show all syscalls for riscv.
-> 
-> Before this, Makefile simply put `#include <asm-generic/unistd.h>` into
-> generated asm/unistd.h UAPI header thus user didn't see:
-> 
-> - __NR_riscv_flush_icache
-> - __NR_newfstatat
-> - __NR_fstat
-> 
-> which are supported by riscv kernel.
-> 
-> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>
-> Cc: Guenter Roeck <linux@roeck-us.net>
-> Fixes: 67314ec7b025 ("RISC-V: Request newstat syscalls")
-> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
-> ---
->  arch/riscv/include/asm/unistd.h        |  5 ++--
->  arch/riscv/include/uapi/asm/syscalls.h | 29 ------------------
->  arch/riscv/include/uapi/asm/unistd.h   | 41 ++++++++++++++++++++++++++
->  3 files changed, 43 insertions(+), 32 deletions(-)
->  delete mode 100644 arch/riscv/include/uapi/asm/syscalls.h
->  create mode 100644 arch/riscv/include/uapi/asm/unistd.h
-> 
-> diff --git a/arch/riscv/include/asm/unistd.h 
-> b/arch/riscv/include/asm/unistd.h
-> index eff7aa9aa163..fef96f117b4d 100644
-> --- a/arch/riscv/include/asm/unistd.h
-> +++ b/arch/riscv/include/asm/unistd.h
-> @@ -13,10 +13,9 @@
-> 
->  /*
->   * There is explicitly no include guard here because this file is 
-> expected to
-> - * be included multiple times.  See uapi/asm/syscalls.h for more info.
-> + * be included multiple times.
->   */
-> 
-> -#define __ARCH_WANT_NEW_STAT
->  #define __ARCH_WANT_SYS_CLONE
-> +
->  #include <uapi/asm/unistd.h>
-> -#include <uapi/asm/syscalls.h>
-> diff --git a/arch/riscv/include/uapi/asm/syscalls.h
-> b/arch/riscv/include/uapi/asm/syscalls.h
-> deleted file mode 100644
-> index 206dc4b0f6ea..000000000000
-> --- a/arch/riscv/include/uapi/asm/syscalls.h
-> +++ /dev/null
-> @@ -1,29 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -/*
-> - * Copyright (C) 2017-2018 SiFive
-> - */
-> -
-> -/*
-> - * There is explicitly no include guard here because this file is 
-> expected to
-> - * be included multiple times in order to define the syscall macros 
-> via
-> - * __SYSCALL.
-> - */
-> -
-> -/*
-> - * Allows the instruction cache to be flushed from userspace.  Despite 
-> RISC-V
-> - * having a direct 'fence.i' instruction available to userspace (which 
-> we
-> - * can't trap!), that's not actually viable when running on Linux 
-> because the
-> - * kernel might schedule a process on another hart.  There is no way 
-> for
-> - * userspace to handle this without invoking the kernel (as it doesn't 
-> know the
-> - * thread->hart mappings), so we've defined a RISC-V specific system 
-> call to
-> - * flush the instruction cache.
-> - *
-> - * __NR_riscv_flush_icache is defined to flush the instruction cache 
-> over an
-> - * address range, with the flush applying to either all threads or 
-> just the
-> - * caller.  We don't currently do anything with the address range, 
-> that's just
-> - * in there for forwards compatibility.
-> - */
-> -#ifndef __NR_riscv_flush_icache
-> -#define __NR_riscv_flush_icache (__NR_arch_specific_syscall + 15)
-> -#endif
-> -__SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
-> diff --git a/arch/riscv/include/uapi/asm/unistd.h
-> b/arch/riscv/include/uapi/asm/unistd.h
-> new file mode 100644
-> index 000000000000..1f3bd3ebbb0d
-> --- /dev/null
-> +++ b/arch/riscv/include/uapi/asm/unistd.h
-> @@ -0,0 +1,41 @@
-> +/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-> +/*
-> + * Copyright (C) 2018 David Abdurachmanov 
-> <david.abdurachmanov@gmail.com>
-> + *
-> + * This program is free software; you can redistribute it and/or 
-> modify
-> + * it under the terms of the GNU General Public License version 2 as
-> + * published by the Free Software Foundation.
-> + *
-> + * This program is distributed in the hope that it will be useful,
-> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
-> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-> + * GNU General Public License for more details.
-> + *
-> + * You should have received a copy of the GNU General Public License
-> + * along with this program.  If not, see 
-> <http://www.gnu.org/licenses/>.
-> + */
-> +
-> +#ifdef __LP64__
-> +#define __ARCH_WANT_NEW_STAT
-> +#endif /* __LP64__ */
-> +
-> +#include <asm-generic/unistd.h>
-> +
-> +/*
-> + * Allows the instruction cache to be flushed from userspace.  Despite 
-> RISC-V
-> + * having a direct 'fence.i' instruction available to userspace (which 
-> we
-> + * can't trap!), that's not actually viable when running on Linux 
-> because the
-> + * kernel might schedule a process on another hart.  There is no way 
-> for
-> + * userspace to handle this without invoking the kernel (as it doesn't 
-> know the
-> + * thread->hart mappings), so we've defined a RISC-V specific system 
-> call to
-> + * flush the instruction cache.
-> + *
-> + * __NR_riscv_flush_icache is defined to flush the instruction cache 
-> over an
-> + * address range, with the flush applying to either all threads or 
-> just the
-> + * caller.  We don't currently do anything with the address range, 
-> that's just
-> + * in there for forwards compatibility.
-> + */
-> +#ifndef __NR_riscv_flush_icache
-> +#define __NR_riscv_flush_icache (__NR_arch_specific_syscall + 15)
-> +#endif
-> +__SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
+[ 2427.690000] Kernel panic - not syncing: corrupted stack end detected inside scheduler
+[ 2427.690000]
+[ 2427.690000] CPU: 1 PID: 3540 Comm: kworker/u8:2 Not tainted 4.19.0-00014-g978b77fe75 #6
+[ 2427.690000] Workqueue: writeback wb_workfn (flush-179:0)
+[ 2427.690000] Call Trace:
+[ 2427.690000] [<ffffffe000c867d4>] walk_stackframe+0x0/0xa4
+[ 2427.690000] [<ffffffe000c869d4>] show_stack+0x2a/0x34
+[ 2427.690000] [<ffffffe0011a8800>] dump_stack+0x62/0x7c
+[ 2427.690000] [<ffffffe000c8b542>] panic+0xd2/0x1f0
+[ 2427.690000] [<ffffffe0011bb25c>] schedule+0x0/0x58
+[ 2427.690000] [<ffffffe0011bb470>] preempt_schedule_common+0xe/0x1e
+[ 2427.690000] [<ffffffe0011bb4b4>] _cond_resched+0x34/0x40
+[ 2427.690000] [<ffffffe001025694>] __spi_pump_messages+0x29e/0x40e
+[ 2427.690000] [<ffffffe001025986>] __spi_sync+0x168/0x16a
+[ 2427.690000] [<ffffffe001025b86>] spi_sync_locked+0xc/0x14
+[ 2427.690000] [<ffffffe001077e8e>] mmc_spi_data_do.isra.2+0x568/0xa7c
+[ 2427.690000] [<ffffffe0010783fa>] mmc_spi_request+0x58/0xc6
+[ 2427.690000] [<ffffffe001068bbe>] __mmc_start_request+0x4e/0xe2
+[ 2427.690000] [<ffffffe001069902>] mmc_start_request+0x78/0xa4
+[ 2427.690000] [<ffffffd008307394>] mmc_blk_mq_issue_rq+0x21e/0x64e [mmc_block]
+[ 2427.690000] [<ffffffd008307b46>] mmc_mq_queue_rq+0x11a/0x1f0 [mmc_block]
+[ 2427.690000] [<ffffffe000ebbf60>] __blk_mq_try_issue_directly+0xca/0x146
+[ 2427.690000] [<ffffffe000ebca2c>] blk_mq_request_issue_directly+0x42/0x92
+[ 2427.690000] [<ffffffe000ebcaac>] blk_mq_try_issue_list_directly+0x30/0x6e
+[ 2427.690000] [<ffffffe000ebfdc2>] blk_mq_sched_insert_requests+0x56/0x80
+[ 2427.690000] [<ffffffe000ebc9da>] blk_mq_flush_plug_list+0xd6/0xe6
+[ 2427.690000] [<ffffffe000eb3498>] blk_flush_plug_list+0x9e/0x17c
+[ 2427.690000] [<ffffffe000ebc2f8>] blk_mq_make_request+0x282/0x2d8
+[ 2427.690000] [<ffffffe000eb1d02>] generic_make_request+0xee/0x27a
+[ 2427.690000] [<ffffffe000eb1f6e>] submit_bio+0xe0/0x136
+[ 2427.690000] [<ffffffe000db10da>] submit_bh_wbc+0x130/0x176
+[ 2427.690000] [<ffffffe000db12c6>] __block_write_full_page+0x1a6/0x3a8
+[ 2427.690000] [<ffffffe000db167c>] block_write_full_page+0xce/0xe0
+[ 2427.690000] [<ffffffe000db40f0>] blkdev_writepage+0x16/0x1e
+[ 2427.690000] [<ffffffe000d3c7ca>] __writepage+0x14/0x4c
+[ 2427.690000] [<ffffffe000d3d142>] write_cache_pages+0x15c/0x306
+[ 2427.690000] [<ffffffe000d3e8a4>] generic_writepages+0x36/0x52
+[ 2427.690000] [<ffffffe000db40b4>] blkdev_writepages+0xc/0x14
+[ 2427.690000] [<ffffffe000d3f0ec>] do_writepages+0x36/0xa6
+[ 2427.690000] [<ffffffe000da96ca>] __writeback_single_inode+0x2e/0x174
+[ 2427.690000] [<ffffffe000da9c08>] writeback_sb_inodes+0x1ac/0x33e
+[ 2427.690000] [<ffffffe000da9dea>] __writeback_inodes_wb+0x50/0x96
+[ 2427.690000] [<ffffffe000daa052>] wb_writeback+0x182/0x186
+[ 2427.690000] [<ffffffe000daa67c>] wb_workfn+0x242/0x270
+[ 2427.690000] [<ffffffe000c9bb08>] process_one_work+0x16e/0x2ee
+[ 2427.690000] [<ffffffe000c9bcde>] worker_thread+0x56/0x42a
+[ 2427.690000] [<ffffffe000ca0bdc>] kthread+0xda/0xe8
+[ 2427.690000] [<ffffffe000c85730>] ret_from_exception+0x0/0xc
 
-You are copying content from arch/riscv/include/uapi/asm/syscalls.h to
-arch/riscv/include/uapi/asm/unistd.h without keeping the copyright of
-the original contributor (in this case SiFive). Also since you use
-SPDX-License-Identifier, you don't have to put the GPLv2 preamble there.
+Andreas.
 
-Other than that I can also verify that this patch fixes compilation for 
-RV32.
-
-Regards,
-Nick
+-- 
+Andreas Schwab, SUSE Labs, schwab at suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
