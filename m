@@ -1,61 +1,62 @@
 From: schwab@suse.de (Andreas Schwab)
-Date: Mon, 19 Nov 2018 12:23:14 +0100
-Subject: Kernel panic - not syncing: corrupted stack end detected inside
- scheduler
-Message-ID: <mvmo9alb9b1.fsf@suse.de>
+Date: Mon, 19 Nov 2018 15:57:17 +0100
+Subject: [PATCH net-next v3 1/6] net: phy: mscc: migrate to
+ phy_select/restore_page functions
+In-Reply-To: <20181008100728.24959-2-quentin.schulz@bootlin.com> (Quentin
+ Schulz's message of "Mon, 8 Oct 2018 12:07:23 +0200")
+References: <20181008100728.24959-1-quentin.schulz@bootlin.com>
+ <20181008100728.24959-2-quentin.schulz@bootlin.com>
+Message-ID: <mvm8t1pazea.fsf@suse.de>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Could this be a stack overflow?
+On Okt 08 2018, Quentin Schulz <quentin.schulz@bootlin.com> wrote:
 
-[ 2427.690000] Kernel panic - not syncing: corrupted stack end detected inside scheduler
-[ 2427.690000]
-[ 2427.690000] CPU: 1 PID: 3540 Comm: kworker/u8:2 Not tainted 4.19.0-00014-g978b77fe75 #6
-[ 2427.690000] Workqueue: writeback wb_workfn (flush-179:0)
-[ 2427.690000] Call Trace:
-[ 2427.690000] [<ffffffe000c867d4>] walk_stackframe+0x0/0xa4
-[ 2427.690000] [<ffffffe000c869d4>] show_stack+0x2a/0x34
-[ 2427.690000] [<ffffffe0011a8800>] dump_stack+0x62/0x7c
-[ 2427.690000] [<ffffffe000c8b542>] panic+0xd2/0x1f0
-[ 2427.690000] [<ffffffe0011bb25c>] schedule+0x0/0x58
-[ 2427.690000] [<ffffffe0011bb470>] preempt_schedule_common+0xe/0x1e
-[ 2427.690000] [<ffffffe0011bb4b4>] _cond_resched+0x34/0x40
-[ 2427.690000] [<ffffffe001025694>] __spi_pump_messages+0x29e/0x40e
-[ 2427.690000] [<ffffffe001025986>] __spi_sync+0x168/0x16a
-[ 2427.690000] [<ffffffe001025b86>] spi_sync_locked+0xc/0x14
-[ 2427.690000] [<ffffffe001077e8e>] mmc_spi_data_do.isra.2+0x568/0xa7c
-[ 2427.690000] [<ffffffe0010783fa>] mmc_spi_request+0x58/0xc6
-[ 2427.690000] [<ffffffe001068bbe>] __mmc_start_request+0x4e/0xe2
-[ 2427.690000] [<ffffffe001069902>] mmc_start_request+0x78/0xa4
-[ 2427.690000] [<ffffffd008307394>] mmc_blk_mq_issue_rq+0x21e/0x64e [mmc_block]
-[ 2427.690000] [<ffffffd008307b46>] mmc_mq_queue_rq+0x11a/0x1f0 [mmc_block]
-[ 2427.690000] [<ffffffe000ebbf60>] __blk_mq_try_issue_directly+0xca/0x146
-[ 2427.690000] [<ffffffe000ebca2c>] blk_mq_request_issue_directly+0x42/0x92
-[ 2427.690000] [<ffffffe000ebcaac>] blk_mq_try_issue_list_directly+0x30/0x6e
-[ 2427.690000] [<ffffffe000ebfdc2>] blk_mq_sched_insert_requests+0x56/0x80
-[ 2427.690000] [<ffffffe000ebc9da>] blk_mq_flush_plug_list+0xd6/0xe6
-[ 2427.690000] [<ffffffe000eb3498>] blk_flush_plug_list+0x9e/0x17c
-[ 2427.690000] [<ffffffe000ebc2f8>] blk_mq_make_request+0x282/0x2d8
-[ 2427.690000] [<ffffffe000eb1d02>] generic_make_request+0xee/0x27a
-[ 2427.690000] [<ffffffe000eb1f6e>] submit_bio+0xe0/0x136
-[ 2427.690000] [<ffffffe000db10da>] submit_bh_wbc+0x130/0x176
-[ 2427.690000] [<ffffffe000db12c6>] __block_write_full_page+0x1a6/0x3a8
-[ 2427.690000] [<ffffffe000db167c>] block_write_full_page+0xce/0xe0
-[ 2427.690000] [<ffffffe000db40f0>] blkdev_writepage+0x16/0x1e
-[ 2427.690000] [<ffffffe000d3c7ca>] __writepage+0x14/0x4c
-[ 2427.690000] [<ffffffe000d3d142>] write_cache_pages+0x15c/0x306
-[ 2427.690000] [<ffffffe000d3e8a4>] generic_writepages+0x36/0x52
-[ 2427.690000] [<ffffffe000db40b4>] blkdev_writepages+0xc/0x14
-[ 2427.690000] [<ffffffe000d3f0ec>] do_writepages+0x36/0xa6
-[ 2427.690000] [<ffffffe000da96ca>] __writeback_single_inode+0x2e/0x174
-[ 2427.690000] [<ffffffe000da9c08>] writeback_sb_inodes+0x1ac/0x33e
-[ 2427.690000] [<ffffffe000da9dea>] __writeback_inodes_wb+0x50/0x96
-[ 2427.690000] [<ffffffe000daa052>] wb_writeback+0x182/0x186
-[ 2427.690000] [<ffffffe000daa67c>] wb_workfn+0x242/0x270
-[ 2427.690000] [<ffffffe000c9bb08>] process_one_work+0x16e/0x2ee
-[ 2427.690000] [<ffffffe000c9bcde>] worker_thread+0x56/0x42a
-[ 2427.690000] [<ffffffe000ca0bdc>] kthread+0xda/0xe8
-[ 2427.690000] [<ffffffe000c85730>] ret_from_exception+0x0/0xc
+> The Microsemi PHYs have multiple banks of registers (called pages).
+> Registers can only be accessed from one page, if we need a register from
+> another page, we need to switch the page and the registers of all other
+> pages are not accessible anymore.
+>
+> Basically, to read register 5 from page 0, 1, 2, etc., you do the same
+> phy_read(phydev, 5); but you need to set the desired page beforehand.
+>
+> In order to guarantee that two concurrent functions do not change the
+> page, we need to do some locking per page. This can be achieved with the
+> use of phy_select_page and phy_restore_page functions but phy_write/read
+> calls in-between those two functions shall be replaced by their
+> lock-free alternative __phy_write/read.
+>
+> Let's migrate this driver to those functions.
+
+This has some serious locking problem.
+
+[<0>] __schedule+0x25e/0x74c
+[<0>] schedule+0x1a/0x58
+[<0>] schedule_preempt_disabled+0xc/0x14
+[<0>] __mutex_lock.isra.0+0x10e/0x22e
+[<0>] __mutex_lock_slowpath+0xe/0x16
+[<0>] mutex_lock+0x22/0x2a
+[<0>] mdiobus_read+0x36/0x60
+[<0>] vsc85xx_config_init+0x4c/0x1e2
+[<0>] phy_init_hw+0x3c/0x52
+[<0>] phy_attach_direct+0xec/0x1dc
+[<0>] phy_connect_direct+0x1a/0x56
+[<0>] macb_probe+0x800/0xb5e [macb]
+[<0>] platform_drv_probe+0x3e/0x7e
+[<0>] really_probe+0xba/0x310
+[<0>] driver_probe_device+0x54/0xf2
+[<0>] __driver_attach+0xde/0x106
+[<0>] bus_for_each_dev+0x4a/0x72
+[<0>] driver_attach+0x1a/0x22
+[<0>] bus_add_driver+0x1ce/0x212
+[<0>] driver_register+0x3a/0xd0
+[<0>] __platform_driver_register+0x3a/0x42
+[<0>] macb_driver_init+0x20/0x28 [macb]
+[<0>] do_one_initcall+0x48/0x128
+[<0>] do_init_module+0x4a/0x186
+[<0>] load_module+0xd6a/0xe6a
+[<0>] sys_finit_module+0xc6/0xfc
+[<0>] check_syscall_nr+0x22/0x22
 
 Andreas.
 
