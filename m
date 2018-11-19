@@ -2,82 +2,86 @@ Return-Path: <SRS0=mq7p=N6=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E2CE2C43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 21:06:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1BFD0C43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 21:06:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B144020823
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 21:06:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E128B20823
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 21:06:10 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="i2PAkcn/";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="jeoV0Q6a"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B144020823
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aMv16XVE";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="ZVs3+0yz"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E128B20823
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:From:Message-Id:
-	Date:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xorGm/ggFY0d6/rDuq/GrX37CCBhL1FUbPvNxAxiEmg=; b=i2PAkcn/SuA9W8
-	/2r3M8YSvc4Cgr6G1CH124jynpmmERs0fqO4UCs4FxyX7fc9DmXg108P6pajM+tDgSHi//Zq5H4oH
-	ikIOc+mxBU+4VlwCrHhiabsqp3Wk3zU3LbU+x8fMYgtYnqqBAXZiMP3emnxfwsj+9MNU5tLD5OQFj
-	kHOm1WdmWpjEUgJzYTppVIM4J2sqOzNks8wviaSXPKS8V1ZLi0mjYY5qVrnqIhxuWRk2LNJ5v5I6R
-	FyahK3XjAGaGFxDY9+BxtF00B7dC/d2Eu+k8RK77+VhMfnO+KTBw7sO6j6xzVpr+Swlu7fhJbjNZ4
-	16HnkoZadhvjLOe/jBdg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=WKXwbPt6+yddZMHiNOHGffewX/M6N7mAILgR2VeRN14=; b=aMv16XVEWhYwjlSIslb5XUxGB
+	OWElTqiYNO4UQMLzcpkfhRA7VBOuEFEqac9l8hrtxC3WtIZAmfJovecixKJC1rwC6GIUo3SvOU3eI
+	W2VLalE8cg5PV08reeRtAux5HpJIXQcXT7SQlFyXHoqU49zoIGPDcEYJeAzROw1qXmaoBL3Xb1zqp
+	LoP0ZmPUpsFSlTSlxmS02Q/3Hr67v7A5/hPOSsKWEJ6YGJyT2AW46b4qmiSO+O4jH7DL+MOCaQJkk
+	XamEeqVJhyVUcCx4VE6EPmTo+3zyzTgCWZxQM2f/DhA/9YFb8QwY0SNFa/3zRdLvc6D8ChvR7vUvG
+	svJ2E7dsg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gOqkC-0002fm-10; Mon, 19 Nov 2018 21:06:08 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1gOqkD-0002hH-B3; Mon, 19 Nov 2018 21:06:09 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gOqk4-0002Tc-My
- for linux-riscv@lists.infradead.org; Mon, 19 Nov 2018 21:06:02 +0000
-Received: by mail-pf1-x443.google.com with SMTP id b7so2206001pfi.8
- for <linux-riscv@lists.infradead.org>; Mon, 19 Nov 2018 13:05:50 -0800 (PST)
+ id 1gOqk6-0002Td-NW
+ for linux-riscv@lists.infradead.org; Mon, 19 Nov 2018 21:06:04 +0000
+Received: by mail-pg1-x544.google.com with SMTP id 17so14103224pgg.1
+ for <linux-riscv@lists.infradead.org>; Mon, 19 Nov 2018 13:05:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=subject:date:message-id:cc:from:to;
- bh=L5wwL34PyGgziVwXHLMgtJ9ExyAFaIYBQz/zqSoClbQ=;
- b=jeoV0Q6aujVbRyVxYh91E1XGfPzssLWAE04uK27j2LhMqlapvBwwl5/ms6ZayZbCNx
- 4u2PVHRFT8Ji8cVG8X5Tkxl7c7tExmujZPwJmXagLLfgXNITwkKTILjcNgdVTdNwqycQ
- hv/51B+IdUJAyr/c9iZNfbNnJ7fi9mtUKqsmD2AQAHvpvhJhV1D8460747SNoAnxrsbK
- q1WfH3oSlippF0nurpxogRAgxj2PofR82a9fRFbZSyF2Um4ydKlZreKJ4nu/IpIZYW9B
- hs2Z4iyA1DpSjJTABuIcmc/S+yoMhxYbrSBQs8cDyW2oJ8vCuGSAQD8K9ttQFywq4W53
- WTIA==
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=BtD4svlrQqGPV0Kw06sYaPGAZsYJA/DL+P+MY8Zh6bw=;
+ b=ZVs3+0yz24g5ilrdLRprldRnG6fD1XKKU8hp5uBIm7Xfh6C1QuEa/YqqgQKH34xqmL
+ y2wD9IItCp3wlu3KUFk+O5i1YpDScO3aMkpfD3ebIrn4livcU2tsQ0itmOfGGTMsJGyV
+ swKOtEj/s8f65JkvSpBHaECZLc4StG3lpblOYI716FhPR6OuM3J1/vz4iQpVchYiTr4s
+ A+WNKxMWyj8VBCGXY6DkW3qdhHB21W0ALnr6W3nSjv69WMmauglw2VizsKwxqiwp/FJU
+ lMoAr6RDZL0vWKWs5hd+K75bH45KLMjP2cjNnS3CnJ5n3ZPK+p/lIX5fm2cw0e7xsTRQ
+ NnnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:cc:from:to;
- bh=L5wwL34PyGgziVwXHLMgtJ9ExyAFaIYBQz/zqSoClbQ=;
- b=NkDP7vKVdQq4Fir/7nKdTZtgUqhfQc6LWWQCQKhoDDY1Jdof+HetaC8I1aYqzqEDF5
- pnkC0gOnYfpNHrs7PIVjboNe0HJesMSbKOyo7w34J28TX/AKJf9oA0HbttCzBJNctxcM
- HJfCvNhzzr08GWx4xJl/k6FuiOZHjX/fjJ8dIVDbtzv/JtLyn06z6Y8hQ8ZRbIk6NKz4
- +aJiCTZbqf+M3QEBXXPhL5ECWuSUTSL0sgzc/1OW9351o7Xp6l1CyjcefBvUpBjk3RrN
- h9XMU+t9EG8p6TEBwzTWbYLoo2y74Jhf6Zf9/bk9R52WJty8gm2WyUPHF2sw73iUAtb9
- oOxA==
-X-Gm-Message-State: AGRZ1gJouHS/faR2uJjmm0IEY8g1cnqXqpcS1INI6377yiLl7pN5wGIb
- dRfosvWZLYV6t8FuByzKq5l5U98gZvc=
-X-Google-Smtp-Source: AJdET5fzJq/y0S3WszGVKXyL4yNS0yWlsTo7Euf/zsSyvPg7iBuv5Y26kb2725qQsiTLhd2Yrr8lGQ==
-X-Received: by 2002:a63:5a57:: with SMTP id k23mr21339648pgm.5.1542661549676; 
- Mon, 19 Nov 2018 13:05:49 -0800 (PST)
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=BtD4svlrQqGPV0Kw06sYaPGAZsYJA/DL+P+MY8Zh6bw=;
+ b=TNUPQIWBFt+obHZ3WrC9ZRORAmFHBYkMck4yXl3lFbsS1k9PobmCUFu9E0f0JAuEnY
+ Rs0Nw8Vq/a9YgN2cc5glYlWYzFdFkC/B/qiFpjGVxkuV4zMqXmFsdIfdMhHHUZNVWC5y
+ xCfzrUN77/2mFAPsMwH7yELdRO5Iuazs99rxFWyAHGu+uNoKx0CnkXApa0DG4IVftRng
+ YiAJvsZO+OeHUCPDocsJVWRWFHZ1YQa5qSEtJhFfV4ZLhyuPwNVygc4azIkSST6LDtzY
+ Yl5Y7aHPzk31Ix60YJnyYczs5oI9CfAQK8UBAfUCThPhzOx11n+CKsA8/fFa24ECv1Ak
+ YV3Q==
+X-Gm-Message-State: AGRZ1gKuurY1h+Zv8n2pp5jJpmip5vvvR+Muo26kMpKfkJ4pcQ68/Ha9
+ SnTu46SfseEwPavRBee1KAqOtPRuvNw=
+X-Google-Smtp-Source: AJdET5ev+zHT+05kMNSCFndFkEvUz00cQFfUoPrXGOf01BY2SrXMYCRBgzCZAGi/1NknJI1bkm78AA==
+X-Received: by 2002:a62:2292:: with SMTP id p18mr21991399pfj.9.1542661551459; 
+ Mon, 19 Nov 2018 13:05:51 -0800 (PST)
 Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id 123sm43698387pgd.75.2018.11.19.13.05.48
+ by smtp.gmail.com with ESMTPSA id k38sm90303617pgb.33.2018.11.19.13.05.50
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 19 Nov 2018 13:05:48 -0800 (PST)
-Subject: [PATCH v4] RISC-V: Update Kconfig to better handle CMDLINE
-Date: Mon, 19 Nov 2018 13:04:02 -0800
-Message-Id: <20181119210402.8176-1-palmer@sifive.com>
-X-Mailer: git-send-email 2.18.1
+ Mon, 19 Nov 2018 13:05:50 -0800 (PST)
+Date: Mon, 19 Nov 2018 13:05:50 -0800 (PST)
+X-Google-Original-Date: Mon, 19 Nov 2018 13:05:40 PST (-0800)
+Subject: Re: [PATCH v3] RISC-V: Update Kconfig to better handle CMDLINE
+In-Reply-To: <20181118000656.15656-1-mick@ics.forth.gr>
 From: Palmer Dabbelt <palmer@sifive.com>
-To: mick@ics.forth.gr, dmaliotaki@gmail.com
+To: mick@ics.forth.gr
+Message-ID: <mhng-236f884c-259b-4653-8aa0-5af7ffc205f7@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181119_130600_844835_A3DE8BD8 
-X-CRM114-Status: GOOD (  16.99  )
+X-CRM114-CacheID: sfid-20181119_130602_773570_3D476D26 
+X-CRM114-Status: GOOD (  27.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -89,114 +93,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Cc: mick@ics.forth.gr, dmaliotaki@gmail.com, linux-riscv@lists.infradead.org,
+ aou@eecs.berkeley.edu
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181119210402.j13QTcfYvfPQwsRf5Q4itFoyo2ZaJc4FdhuPjRof8Z4@z>
+Message-ID: <20181119210550.drltEi5JfyXo3d1brFGhJw99nmutQqgwz5l-lYMhw-U@z>
 
-From: Nick Kossifidis <mick@ics.forth.gr>
+On Sat, 17 Nov 2018 16:06:56 PST (-0800), mick@ics.forth.gr wrote:
+> Added a menu to choose how the built-in command line will be
+> used and CMDLINE_EXTEND for compatibility with FDT code.
+>
+> v2: Improved help messages, removed references to bootloader
+> and made them more descriptive. I also asked help from a
+> friend who's a language expert just in case.
+>
+> v3: This time used the corrected text
+>
+> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
+> Signed-off-by: Debbie Maliotaki <dmaliotaki@gmail.com>
+> ---
+>  arch/riscv/Kconfig | 57 +++++++++++++++++++++++++++++++-----------------------
+>  1 file changed, 33 insertions(+), 24 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 55da93f4e..808624f6b 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -227,39 +227,48 @@ endmenu
+>
+>  menu "Boot options"
+>
+> -config CMDLINE_BOOL
+> -	bool "Built-in kernel command line"
+> +config CMDLINE
+> +	string "Built-in kernel command line"
+>  	help
+> -	  For most platforms, it is firmware or second stage bootloader
+> -	  that by default specifies the kernel command line options.
+> -	  However, it might be necessary or advantageous to either override
+> -	  the default kernel command line or add a few extra options to it.
+> -	  For such cases, this option allows hardcoding command line options
+> -	  directly into the kernel.
+> +	  For most platforms, the arguments for the kernel's command line
+> +	  are provided at run-time, during boot. However, there are cases
+> +	  where either no arguments are being provided or the provided
+> +	  arguments are insufficient or even invalid.
+>
+> -	  For that, choose 'Y' here and fill in the extra boot parameters
+> -	  in CONFIG_CMDLINE.
+> +	  When that occurs, it is possible to define a built-in command
+> +	  line here and choose how the kernel should use it later on.
+>
+> -	  The built-in options will be concatenated to the default command
+> -	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
+> -	  command line will be ignored and replaced by the built-in string.
+> +choice
+> +	prompt "Built-in command line usage" if CMDLINE != ""
+> +	default CMDLINE_FALLBACK
+> +	help
+> +	  Choose how the kernel will handle the provided built-in command
+> +	  line.
+>
+> -config CMDLINE
+> -	string "Built-in kernel command string"
+> -	depends on CMDLINE_BOOL
+> -	default ""
+> +config CMDLINE_FALLBACK
+> +	bool "Fallback"
+>  	help
+> -	  Supply command-line options at build time by entering them here.
+> +	  Use the built-in command line as fallback in case we get nothing
+> +	  during boot. This is the default behaviour.
+> +
+> +config CMDLINE_EXTEND
+> +	bool "Extension"
+> +	help
+> +	  The command-line arguments provided during boot will be
+> +	  appended to the built-in command line. This is useful in
+> +	  cases where the provided arguments are insufficient and
+> +	  you don't want to or cannot modify them.
+> +
+>
+>  config CMDLINE_FORCE
+> -	bool "Built-in command line overrides bootloader arguments"
+> -	depends on CMDLINE_BOOL
+> +	bool "Forced"
+>  	help
+> -	  Set this option to 'Y' to have the kernel ignore the bootloader
+> -	  or firmware command line.  Instead, the built-in command line
+> -	  will be used exclusively.
+> +	  Always use the built-in command line, even if we get one during
+> +	  boot. This is useful in case you need to override the provided
+> +	  command line on systems where you don't have or want control
+> +	  over it.
+>
+> -	  If you don't know what to do here, say N.
+> +endchoice
+>
+>  endmenu
 
-Added a menu to choose how the built-in command line will be
-used and CMDLINE_EXTEND for compatibility with FDT code.
-
-v2: Improved help messages, removed references to bootloader
-and made them more descriptive. I also asked help from a
-friend who's a language expert just in case.
-
-v3: This time used the corrected text
-
-v4: Copy the config strings from the arm32 port.
-
-Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
-Signed-off-by: Debbie Maliotaki <dmaliotaki@gmail.com>
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- arch/riscv/Kconfig | 57 +++++++++++++++++++++++++++-------------------
- 1 file changed, 33 insertions(+), 24 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 55da93f4e818..808624f6b906 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -227,39 +227,48 @@ endmenu
- 
- menu "Boot options"
- 
--config CMDLINE_BOOL
--	bool "Built-in kernel command line"
-+config CMDLINE
-+	string "Built-in kernel command line"
- 	help
--	  For most platforms, it is firmware or second stage bootloader
--	  that by default specifies the kernel command line options.
--	  However, it might be necessary or advantageous to either override
--	  the default kernel command line or add a few extra options to it.
--	  For such cases, this option allows hardcoding command line options
--	  directly into the kernel.
-+	  For most platforms, the arguments for the kernel's command line
-+	  are provided at run-time, during boot. However, there are cases
-+	  where either no arguments are being provided or the provided
-+	  arguments are insufficient or even invalid.
- 
--	  For that, choose 'Y' here and fill in the extra boot parameters
--	  in CONFIG_CMDLINE.
-+	  When that occurs, it is possible to define a built-in command
-+	  line here and choose how the kernel should use it later on.
- 
--	  The built-in options will be concatenated to the default command
--	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
--	  command line will be ignored and replaced by the built-in string.
-+choice
-+	prompt "Built-in command line usage" if CMDLINE != ""
-+	default CMDLINE_FALLBACK
-+	help
-+	  Choose how the kernel will handle the provided built-in command
-+	  line.
- 
--config CMDLINE
--	string "Built-in kernel command string"
--	depends on CMDLINE_BOOL
--	default ""
-+config CMDLINE_FALLBACK
-+	bool "Fallback"
- 	help
--	  Supply command-line options at build time by entering them here.
-+	  Use the built-in command line as fallback in case we get nothing
-+	  during boot. This is the default behaviour.
-+
-+config CMDLINE_EXTEND
-+	bool "Extension"
-+	help
-+	  The command-line arguments provided during boot will be
-+	  appended to the built-in command line. This is useful in
-+	  cases where the provided arguments are insufficient and
-+	  you don't want to or cannot modify them.
-+
- 
- config CMDLINE_FORCE
--	bool "Built-in command line overrides bootloader arguments"
--	depends on CMDLINE_BOOL
-+	bool "Forced"
- 	help
--	  Set this option to 'Y' to have the kernel ignore the bootloader
--	  or firmware command line.  Instead, the built-in command line
--	  will be used exclusively.
-+	  Always use the built-in command line, even if we get one during
-+	  boot. This is useful in case you need to override the provided
-+	  command line on systems where you don't have or want control
-+	  over it.
- 
--	  If you don't know what to do here, say N.
-+endchoice
- 
- endmenu
- 
--- 
-2.18.1
-
+Thanks, but I still don't like the names of the options.  I've just gone ahead 
+and sent a v4, let me know if that looks OK to you -- that's what I was trying 
+to say the first time.
 
 _______________________________________________
 linux-riscv mailing list
