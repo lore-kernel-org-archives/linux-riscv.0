@@ -1,17 +1,14 @@
 From: mick@ics.forth.gr (Nick Kossifidis)
-Date: Tue, 20 Nov 2018 00:48:24 +0200
-Subject: [PATCH v5] RISC-V: Update Kconfig to better handle CMDLINE
-In-Reply-To: <95449dce-5bca-1034-e6ed-947055a37abd@wdc.com>
-References: <20181119210907.12040-1-palmer@sifive.com>
- <95449dce-5bca-1034-e6ed-947055a37abd@wdc.com>
-Message-ID: <32feca21cac15e84893eb1e39a5cf684@mailhost.ics.forth.gr>
+Date: Tue, 20 Nov 2018 00:50:18 +0200
+Subject: [PATCH v3] RISC-V: Update Kconfig to better handle CMDLINE
+In-Reply-To: <mhng-236f884c-259b-4653-8aa0-5af7ffc205f7@palmer-si-x1c4>
+References: <mhng-236f884c-259b-4653-8aa0-5af7ffc205f7@palmer-si-x1c4>
+Message-ID: <0a4077db535beddb2fcb251cad9380ac@mailhost.ics.forth.gr>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-???? 2018-11-20 00:37, Atish Patra ??????:
-> On 11/19/18 1:10 PM, Palmer Dabbelt wrote:
->> From: Nick Kossifidis <mick@ics.forth.gr>
->> 
+???? 2018-11-19 23:05, Palmer Dabbelt ??????:
+> On Sat, 17 Nov 2018 16:06:56 PST (-0800), mick at ics.forth.gr wrote:
 >> Added a menu to choose how the built-in command line will be
 >> used and CMDLINE_EXTEND for compatibility with FDT code.
 >> 
@@ -21,53 +18,26 @@ List-Id: linux-riscv.lists.infradead.org
 >> 
 >> v3: This time used the corrected text
 >> 
->> v4: Copy the config strings from the arm32 port.
->> 
->> v5: Actually copy the config strings from the arm32 port.
-> 
-> Why not use CMDLINE_FROM_BOOTLOADER instead of CMDLINE_FALLBACK in
-> that case? To my ears, CMDLINE_FROM_BOOTLOADER made more sense given
-> the description. If CMDLINE_FALLBACK is retained intentionally, then
-> it's ok.
-> 
-> Regards,
-> Atish
-
-They are both used as placeholders so that we don't trigger
-CMDLINE_EXTEND or CMDLINE_FORCE so it doesn't really matter
-how we call them. To me CMDLINE_FROM_BOOTLOADER implies that
-we get the command line from the bootloader where in fact we
-get it from the device tree and we might get it from other
-channels in the future (e.g. kexec). I think it's misleading
-to have any references on how we get the command line, that's
-why I removed any references to the bootloader from the text
-as well, CMDLINE_FALLBACK on the other hand describes how
-we use the provided command line, which is more appropriate
-IMHO.
-
-Regards,
-Nick
-
->> 
 >> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
 >> Signed-off-by: Debbie Maliotaki <dmaliotaki@gmail.com>
->> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 >> ---
->>   arch/riscv/Kconfig | 57 
->> +++++++++++++++++++++++++++-------------------
->>   1 file changed, 33 insertions(+), 24 deletions(-)
+>>  arch/riscv/Kconfig | 57 
+>> +++++++++++++++++++++++++++++++-----------------------
+>>  1 file changed, 33 insertions(+), 24 deletions(-)
 >> 
 >> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index 55da93f4e818..23ac6d6f9ab2 100644
+>> index 55da93f4e..808624f6b 100644
 >> --- a/arch/riscv/Kconfig
 >> +++ b/arch/riscv/Kconfig
 >> @@ -227,39 +227,48 @@ endmenu
->>     menu "Boot options"
->>   -config CMDLINE_BOOL
+>> 
+>>  menu "Boot options"
+>> 
+>> -config CMDLINE_BOOL
 >> -	bool "Built-in kernel command line"
 >> +config CMDLINE
 >> +	string "Built-in kernel command line"
->>   	help
+>>  	help
 >> -	  For most platforms, it is firmware or second stage bootloader
 >> -	  that by default specifies the kernel command line options.
 >> -	  However, it might be necessary or advantageous to either override
@@ -78,11 +48,13 @@ Nick
 >> +	  are provided at run-time, during boot. However, there are cases
 >> +	  where either no arguments are being provided or the provided
 >> +	  arguments are insufficient or even invalid.
->>   -	  For that, choose 'Y' here and fill in the extra boot parameters
+>> 
+>> -	  For that, choose 'Y' here and fill in the extra boot parameters
 >> -	  in CONFIG_CMDLINE.
 >> +	  When that occurs, it is possible to define a built-in command
 >> +	  line here and choose how the kernel should use it later on.
->>   -	  The built-in options will be concatenated to the default command
+>> 
+>> -	  The built-in options will be concatenated to the default command
 >> -	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
 >> -	  command line will be ignored and replaced by the built-in string.
 >> +choice
@@ -91,30 +63,32 @@ Nick
 >> +	help
 >> +	  Choose how the kernel will handle the provided built-in command
 >> +	  line.
->>   -config CMDLINE
+>> 
+>> -config CMDLINE
 >> -	string "Built-in kernel command string"
 >> -	depends on CMDLINE_BOOL
 >> -	default ""
 >> +config CMDLINE_FALLBACK
->> +	bool "Use bootloader kernel arguments if available"
->>   	help
+>> +	bool "Fallback"
+>>  	help
 >> -	  Supply command-line options at build time by entering them here.
 >> +	  Use the built-in command line as fallback in case we get nothing
 >> +	  during boot. This is the default behaviour.
->> 
+>> +
 >> +config CMDLINE_EXTEND
->> +	bool "Extend bootloader kernel arguments"
+>> +	bool "Extension"
 >> +	help
 >> +	  The command-line arguments provided during boot will be
 >> +	  appended to the built-in command line. This is useful in
 >> +	  cases where the provided arguments are insufficient and
 >> +	  you don't want to or cannot modify them.
 >> +
->>     config CMDLINE_FORCE
+>> 
+>>  config CMDLINE_FORCE
 >> -	bool "Built-in command line overrides bootloader arguments"
 >> -	depends on CMDLINE_BOOL
->> +	bool "Always use the default kernel command string"
->>   	help
+>> +	bool "Forced"
+>>  	help
 >> -	  Set this option to 'Y' to have the kernel ignore the bootloader
 >> -	  or firmware command line.  Instead, the built-in command line
 >> -	  will be used exclusively.
@@ -122,7 +96,14 @@ Nick
 >> +	  boot. This is useful in case you need to override the provided
 >> +	  command line on systems where you don't have or want control
 >> +	  over it.
->>   -	  If you don't know what to do here, say N.
->> +endchoice
->>     endmenu
 >> 
+>> -	  If you don't know what to do here, say N.
+>> +endchoice
+>> 
+>>  endmenu
+> 
+> Thanks, but I still don't like the names of the options.  I've just
+> gone ahead and sent a v4, let me know if that looks OK to you --
+> that's what I was trying to say the first time.
+
+ACK, much better indeed, sorry for the mess...
