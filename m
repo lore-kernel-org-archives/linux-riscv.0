@@ -1,143 +1,68 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Mon, 19 Nov 2018 14:58:31 -0800
-Subject: [PATCH v5] RISC-V: Update Kconfig to better handle CMDLINE
-In-Reply-To: <32feca21cac15e84893eb1e39a5cf684@mailhost.ics.forth.gr>
-References: <20181119210907.12040-1-palmer@sifive.com>
- <95449dce-5bca-1034-e6ed-947055a37abd@wdc.com>
- <32feca21cac15e84893eb1e39a5cf684@mailhost.ics.forth.gr>
-Message-ID: <28d6d712-25d2-8109-f4ba-5be6af7983d1@wdc.com>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Mon, 19 Nov 2018 15:46:37 -0800 (PST)
+Subject: Kernel panic - not syncing: corrupted stack end detected inside
+ scheduler
+In-Reply-To: <mvmo9alb9b1.fsf@suse.de>
+Message-ID: <mhng-ce3ee330-9ac5-41c3-9890-ee9d6dabe105@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 11/19/18 2:50 PM, Nick Kossifidis wrote:
-> ???? 2018-11-20 00:37, Atish Patra ??????:
->> On 11/19/18 1:10 PM, Palmer Dabbelt wrote:
->>> From: Nick Kossifidis <mick@ics.forth.gr>
->>>
->>> Added a menu to choose how the built-in command line will be
->>> used and CMDLINE_EXTEND for compatibility with FDT code.
->>>
->>> v2: Improved help messages, removed references to bootloader
->>> and made them more descriptive. I also asked help from a
->>> friend who's a language expert just in case.
->>>
->>> v3: This time used the corrected text
->>>
->>> v4: Copy the config strings from the arm32 port.
->>>
->>> v5: Actually copy the config strings from the arm32 port.
->>
->> Why not use CMDLINE_FROM_BOOTLOADER instead of CMDLINE_FALLBACK in
->> that case? To my ears, CMDLINE_FROM_BOOTLOADER made more sense given
->> the description. If CMDLINE_FALLBACK is retained intentionally, then
->> it's ok.
->>
->> Regards,
->> Atish
-> 
-> They are both used as placeholders so that we don't trigger
-> CMDLINE_EXTEND or CMDLINE_FORCE so it doesn't really matter
-> how we call them. To me CMDLINE_FROM_BOOTLOADER implies that
-> we get the command line from the bootloader where in fact we
-> get it from the device tree and we might get it from other
-> channels in the future (e.g. kexec). I think it's misleading
-> to have any references on how we get the command line, that's
-> why I removed any references to the bootloader from the text
-> as well, CMDLINE_FALLBACK on the other hand describes how
-> we use the provided command line, which is more appropriate
-> IMHO.
-> 
+On Mon, 19 Nov 2018 03:23:14 PST (-0800), schwab at suse.de wrote:
+> Could this be a stack overflow?
 
-I am not too pedantic about the names either. But the description says
-"bool Use bootloader kernel arguments if available"
+Yes.
 
-This was the exact one used for arm32 as well and indicates that we 
-prefer to get it from bootloader if this option is set. Hence the 
-comment. May be revise the description ?
+> [ 2427.690000] Kernel panic - not syncing: corrupted stack end detected inside scheduler
+> [ 2427.690000]
+> [ 2427.690000] CPU: 1 PID: 3540 Comm: kworker/u8:2 Not tainted 4.19.0-00014-g978b77fe75 #6
+> [ 2427.690000] Workqueue: writeback wb_workfn (flush-179:0)
+> [ 2427.690000] Call Trace:
+> [ 2427.690000] [<ffffffe000c867d4>] walk_stackframe+0x0/0xa4
+> [ 2427.690000] [<ffffffe000c869d4>] show_stack+0x2a/0x34
+> [ 2427.690000] [<ffffffe0011a8800>] dump_stack+0x62/0x7c
+> [ 2427.690000] [<ffffffe000c8b542>] panic+0xd2/0x1f0
+> [ 2427.690000] [<ffffffe0011bb25c>] schedule+0x0/0x58
+> [ 2427.690000] [<ffffffe0011bb470>] preempt_schedule_common+0xe/0x1e
+> [ 2427.690000] [<ffffffe0011bb4b4>] _cond_resched+0x34/0x40
+> [ 2427.690000] [<ffffffe001025694>] __spi_pump_messages+0x29e/0x40e
+> [ 2427.690000] [<ffffffe001025986>] __spi_sync+0x168/0x16a
+> [ 2427.690000] [<ffffffe001025b86>] spi_sync_locked+0xc/0x14
+> [ 2427.690000] [<ffffffe001077e8e>] mmc_spi_data_do.isra.2+0x568/0xa7c
+> [ 2427.690000] [<ffffffe0010783fa>] mmc_spi_request+0x58/0xc6
+> [ 2427.690000] [<ffffffe001068bbe>] __mmc_start_request+0x4e/0xe2
+> [ 2427.690000] [<ffffffe001069902>] mmc_start_request+0x78/0xa4
+> [ 2427.690000] [<ffffffd008307394>] mmc_blk_mq_issue_rq+0x21e/0x64e [mmc_block]
+> [ 2427.690000] [<ffffffd008307b46>] mmc_mq_queue_rq+0x11a/0x1f0 [mmc_block]
+> [ 2427.690000] [<ffffffe000ebbf60>] __blk_mq_try_issue_directly+0xca/0x146
+> [ 2427.690000] [<ffffffe000ebca2c>] blk_mq_request_issue_directly+0x42/0x92
+> [ 2427.690000] [<ffffffe000ebcaac>] blk_mq_try_issue_list_directly+0x30/0x6e
+> [ 2427.690000] [<ffffffe000ebfdc2>] blk_mq_sched_insert_requests+0x56/0x80
+> [ 2427.690000] [<ffffffe000ebc9da>] blk_mq_flush_plug_list+0xd6/0xe6
+> [ 2427.690000] [<ffffffe000eb3498>] blk_flush_plug_list+0x9e/0x17c
+> [ 2427.690000] [<ffffffe000ebc2f8>] blk_mq_make_request+0x282/0x2d8
+> [ 2427.690000] [<ffffffe000eb1d02>] generic_make_request+0xee/0x27a
+> [ 2427.690000] [<ffffffe000eb1f6e>] submit_bio+0xe0/0x136
+> [ 2427.690000] [<ffffffe000db10da>] submit_bh_wbc+0x130/0x176
+> [ 2427.690000] [<ffffffe000db12c6>] __block_write_full_page+0x1a6/0x3a8
+> [ 2427.690000] [<ffffffe000db167c>] block_write_full_page+0xce/0xe0
+> [ 2427.690000] [<ffffffe000db40f0>] blkdev_writepage+0x16/0x1e
+> [ 2427.690000] [<ffffffe000d3c7ca>] __writepage+0x14/0x4c
+> [ 2427.690000] [<ffffffe000d3d142>] write_cache_pages+0x15c/0x306
+> [ 2427.690000] [<ffffffe000d3e8a4>] generic_writepages+0x36/0x52
+> [ 2427.690000] [<ffffffe000db40b4>] blkdev_writepages+0xc/0x14
+> [ 2427.690000] [<ffffffe000d3f0ec>] do_writepages+0x36/0xa6
+> [ 2427.690000] [<ffffffe000da96ca>] __writeback_single_inode+0x2e/0x174
+> [ 2427.690000] [<ffffffe000da9c08>] writeback_sb_inodes+0x1ac/0x33e
+> [ 2427.690000] [<ffffffe000da9dea>] __writeback_inodes_wb+0x50/0x96
+> [ 2427.690000] [<ffffffe000daa052>] wb_writeback+0x182/0x186
+> [ 2427.690000] [<ffffffe000daa67c>] wb_workfn+0x242/0x270
+> [ 2427.690000] [<ffffffe000c9bb08>] process_one_work+0x16e/0x2ee
+> [ 2427.690000] [<ffffffe000c9bcde>] worker_thread+0x56/0x42a
+> [ 2427.690000] [<ffffffe000ca0bdc>] kthread+0xda/0xe8
+> [ 2427.690000] [<ffffffe000c85730>] ret_from_exception+0x0/0xc
 
+It smells like the issue is somewhere in the SPI driver, which is known to be 
+buggy.  I don't see anything specific to indicate this is a stack overflow in 
+this stack trace (the stack stuff above panic is just part of the printing).
 
-Regards,
-Atish
-> Regards,
-> Nick
-> 
->>>
->>> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
->>> Signed-off-by: Debbie Maliotaki <dmaliotaki@gmail.com>
->>> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
->>> ---
->>>    arch/riscv/Kconfig | 57
->>> +++++++++++++++++++++++++++-------------------
->>>    1 file changed, 33 insertions(+), 24 deletions(-)
->>>
->>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->>> index 55da93f4e818..23ac6d6f9ab2 100644
->>> --- a/arch/riscv/Kconfig
->>> +++ b/arch/riscv/Kconfig
->>> @@ -227,39 +227,48 @@ endmenu
->>>      menu "Boot options"
->>>    -config CMDLINE_BOOL
->>> -	bool "Built-in kernel command line"
->>> +config CMDLINE
->>> +	string "Built-in kernel command line"
->>>    	help
->>> -	  For most platforms, it is firmware or second stage bootloader
->>> -	  that by default specifies the kernel command line options.
->>> -	  However, it might be necessary or advantageous to either override
->>> -	  the default kernel command line or add a few extra options to it.
->>> -	  For such cases, this option allows hardcoding command line options
->>> -	  directly into the kernel.
->>> +	  For most platforms, the arguments for the kernel's command line
->>> +	  are provided at run-time, during boot. However, there are cases
->>> +	  where either no arguments are being provided or the provided
->>> +	  arguments are insufficient or even invalid.
->>>    -	  For that, choose 'Y' here and fill in the extra boot parameters
->>> -	  in CONFIG_CMDLINE.
->>> +	  When that occurs, it is possible to define a built-in command
->>> +	  line here and choose how the kernel should use it later on.
->>>    -	  The built-in options will be concatenated to the default command
->>> -	  line if CMDLINE_FORCE is set to 'N'. Otherwise, the default
->>> -	  command line will be ignored and replaced by the built-in string.
->>> +choice
->>> +	prompt "Built-in command line usage" if CMDLINE != ""
->>> +	default CMDLINE_FALLBACK
->>> +	help
->>> +	  Choose how the kernel will handle the provided built-in command
->>> +	  line.
->>>    -config CMDLINE
->>> -	string "Built-in kernel command string"
->>> -	depends on CMDLINE_BOOL
->>> -	default ""
->>> +config CMDLINE_FALLBACK
->>> +	bool "Use bootloader kernel arguments if available"
->>>    	help
->>> -	  Supply command-line options at build time by entering them here.
->>> +	  Use the built-in command line as fallback in case we get nothing
->>> +	  during boot. This is the default behaviour.
->>>
->>> +config CMDLINE_EXTEND
->>> +	bool "Extend bootloader kernel arguments"
->>> +	help
->>> +	  The command-line arguments provided during boot will be
->>> +	  appended to the built-in command line. This is useful in
->>> +	  cases where the provided arguments are insufficient and
->>> +	  you don't want to or cannot modify them.
->>> +
->>>      config CMDLINE_FORCE
->>> -	bool "Built-in command line overrides bootloader arguments"
->>> -	depends on CMDLINE_BOOL
->>> +	bool "Always use the default kernel command string"
->>>    	help
->>> -	  Set this option to 'Y' to have the kernel ignore the bootloader
->>> -	  or firmware command line.  Instead, the built-in command line
->>> -	  will be used exclusively.
->>> +	  Always use the built-in command line, even if we get one during
->>> +	  boot. This is useful in case you need to override the provided
->>> +	  command line on systems where you don't have or want control
->>> +	  over it.
->>>    -	  If you don't know what to do here, say N.
->>> +endchoice
->>>      endmenu
->>>
-> 
-> 
+Sorry I can't be more specific.  Does this require hardware to manifest?
