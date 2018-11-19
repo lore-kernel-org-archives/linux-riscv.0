@@ -2,86 +2,87 @@ Return-Path: <SRS0=mq7p=N6=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED,URIBL_SBL,URIBL_SBL_A autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 95628C04EBA
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 16:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 163ECC43610
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 16:54:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5CFE0214DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 16:45:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DE0CE208E3
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 16:54:03 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RKxLsyAe";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="vYtxbIFH";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.b="1mHTuXE+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5CFE0214DA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lunn.ch
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JcFdGlOQ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="B/L0wwy+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DE0CE208E3
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nzHBeX9A7Xv90BKeseV4e+Pz7b/Jz0SyWWGH2SqT6pU=; b=RKxLsyAeNzyxG8
-	qczaFfYDYmTnfw0HJ7xAbCKcODlFnHZW6yU9j/wSc/v4Dlo6wBmXVA/uR30pghPIaLuggB7r2Wbb+
-	3K68oEzBx/TFBHPrleF1idOvcpt73dZUYZsxkP5SSg6wNLkrQVJSb3ijC0a26f151Ibn1QWa8cdkH
-	pLc5N1WQ8/NbNwpxm8PiJxuQ+tsHG2p42Hwem6Fl7ZHWrtJ5p6V9cMQG4/Do2fdAHyuOwX4/2ir0M
-	paYpnCHrGyaPgWwls13B/9/Vpa5zzX7BtRMX8NY6E44WCqBIkwuH2SF+YKpRmwpgx76bPlW0XyKE4
-	CbZKF2+6x5ARwJTgJg/Q==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=Bedq8xVTIXRenZrPpFdBvwrdnNJuj6wDKfTkeTqxfoo=; b=JcFdGlOQt2tl0Rr08iRNx0dhj
+	9qLCv/hpBc9TV3P1Yv4WYsL31/vOcRwyuM07kzm/06MOzmoQhq/WVO/RgSATMdMsU5iAI+RodU0JP
+	rqaq8TMU/eOFo2uAwl7doFaPK1hxKy5ZRsOoFjaZTVodf9cRbnMRbbPcT0gG3YgpxPjjgaHvVi7eN
+	hmlDEhDtJrTsusqsaCvC10Irv+F6eHF2cDhg9Xnlt0bMLnhWf9t/0VatIBz7rpAh0XdCLkLRu77Em
+	q66FlxOq0fr6+mWticJ5nSj5hP8RqphoGrg5Zw9RRd1d1dk8rZmnsX+mB8XVxRcePl3wzjvKvuGbC
+	g2wFYkcIA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gOmfX-00033o-2d; Mon, 19 Nov 2018 16:45:03 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1gOmo1-0007Ye-LK; Mon, 19 Nov 2018 16:53:49 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gOmfV-0002qd-C0
- for linux-riscv@bombadil.infradead.org; Mon, 19 Nov 2018 16:45:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
- Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
- Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=1ADKlYvoqStJ6xtgbjELNxSEP+2pBGdk3EwQEUhmNpA=; b=vYtxbIFHn4hS8dsoUz3WQohcrE
- z+0tL6KP0rgVqQ2eemsHZysNzOAdhbV6ryktlm9YHwh4xjswxl7uShhpw8lavA0Vi7VMjFnSEOn7w
- nG2OyPFjQ4a5uU5A/nvKvoW1xR8UzhqYqpMUURAWmNQWG7rp5YgAztuowcxs0jcB7LaTDJlUcb1ZO
- IBeEkwt1geRYZ/sqkbvQs8PaNb75ycJR42Q/qxlmpjH2wdgq5OLoeyZVWF9GeRAGVTfQorkXNvbvb
- HW1qAArecc6bbQJ+5YZD8Cn0y+dQe2qPvB/l4CVPfhvKsVrlfyMHaorgYxnyiyry/TtBiZbpazYFS
- FIDLly8A==;
-Received: from vps0.lunn.ch ([185.16.172.187])
- by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gOmfS-0001zx-Go
- for linux-riscv@lists.infradead.org; Mon, 19 Nov 2018 16:45:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
- s=20171124; 
- h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date;
- bh=1ADKlYvoqStJ6xtgbjELNxSEP+2pBGdk3EwQEUhmNpA=; 
- b=1mHTuXE+gvQxc3bvCyJ7ustNyHQV8cqH8uO/yLvQyg43xU8GwwYDNm+UL6B/ZGoTjPBxBd+tvoemh4u6TIggW6fRF+ygyaCvwxI6AsbmYBqGa/s/kRFXcdqbN/LiupU/G9friRtj5LjcHHzxrJgrOdqXpD+9Dnf0jezqLq//AuU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.84_2)
- (envelope-from <andrew@lunn.ch>)
- id 1gOmfC-0008WJ-Ba; Mon, 19 Nov 2018 17:44:42 +0100
-Date: Mon, 19 Nov 2018 17:44:42 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Andreas Schwab <schwab@suse.de>
-Subject: Re: [PATCH net-next v3 1/6] net: phy: mscc: migrate to
- phy_select/restore_page functions
-Message-ID: <20181119164442.GB31955@lunn.ch>
-References: <mvm8t1pazea.fsf@suse.de> <20181119151057.GC26852@lunn.ch>
- <mvm4lcdaynt.fsf@suse.de> <20181119152830.GE26852@lunn.ch>
- <20181119154005.GA8367@piout.net> <mvmzhu59idl.fsf@suse.de>
- <20181119161204.GC2393@lunn.ch> <mvmva4t9h8x.fsf@suse.de>
- <20181119162529.GA31955@lunn.ch> <mvmo9al9gfl.fsf@suse.de>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mvmo9al9gfl.fsf@suse.de>
-User-Agent: Mutt/1.5.23 (2014-03-12)
+ id 1gOmnz-0007WL-BL
+ for linux-riscv@lists.infradead.org; Mon, 19 Nov 2018 16:53:49 +0000
+Received: by mail-pl1-x644.google.com with SMTP id e5so4826986plb.5
+ for <linux-riscv@lists.infradead.org>; Mon, 19 Nov 2018 08:53:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=ttZHNaBnbF4lntgoxBzHeh1qXjFVZdLtS6IDRkan10U=;
+ b=B/L0wwy+dn5vG7fJT6SsYdHfRWRPp8b15m3T12pcYKj2IKGP2gNyt+NwZglKJRldb3
+ 4bsOoCOwkcU8ufzTG3flJg44d/ei51J0PbL900IvIbL4JB7T9gCmHc94YMXVh9E5jGP6
+ YK7YMDZUkjQl+GcEpF3OOS9nKAXYh9WgLUc+X+k0nRb/b1/cXGakwgNYRDNJAIt+5mLO
+ vqEPL3pby20Yf7ppz0lJxMIv/O0KiTFpO9p1N6dT5CH4VsIxKN8tniHAIF7D5jpvKJjm
+ aT10/GFiEiUnGAlvjMfwxOVDVSdsBeKsYV5JSSzY4iHWNxCZ84A+9ERQyPbcGcaS8exB
+ yyjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=ttZHNaBnbF4lntgoxBzHeh1qXjFVZdLtS6IDRkan10U=;
+ b=k0RWzWeuAte4mZTFxQjNyAbPwMfvR1CCC7J0A+9PY24mgiI1vSAr/+BBy8Kb44oaAT
+ AqtqJ37fkEpQ2MIzmVSzsVOpgWwUWFj68bQJxJ6suPuGtCJUwfuFss/ag3SGO49I1oNc
+ pL+hyA1zExXUCcz9hB4oHjEi5zQY1j2/JvRuQEosyHKfaiO0w1xqpfXuC5MiMdV1hFe1
+ MDn/Ej/tmbrhImhI0eeWFoxu6KJEVuJ2++EbZTjfsMqQG4VhYuYGWdbEOyEAabM6fInq
+ WXucozqYKvxwxzTqIdjIXAxmktXIg1jvLYXYCDMf6YmQxHD+EvZwdPvm0EkomCxDwJct
+ 2lyg==
+X-Gm-Message-State: AGRZ1gKac54aGlIjhYxF1YIAkjEdp/RsR4xucHCHd1nWrT3rn79M5h41
+ OL2xyNybwKKBO/+IlJzRzEKPTQ==
+X-Google-Smtp-Source: AJdET5em3zKbfoXv8oC8+p3p6i+9Vhm6QtVoW5kPLxknBqqopSyOoNFN4nTmRHB2EWBH1v/hs98OKg==
+X-Received: by 2002:a17:902:6b82:: with SMTP id
+ p2-v6mr23315505plk.50.1542646416393; 
+ Mon, 19 Nov 2018 08:53:36 -0800 (PST)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id u76-v6sm59747963pfa.176.2018.11.19.08.53.35
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 19 Nov 2018 08:53:35 -0800 (PST)
+Date: Mon, 19 Nov 2018 08:53:35 -0800 (PST)
+X-Google-Original-Date: Mon, 19 Nov 2018 08:52:10 PST (-0800)
+Subject: Re: [PATCH v2] riscv: add asm/unistd.h UAPI header
+In-Reply-To: <CAOesGMhgBxu+L-R5OaEdBjv4jGSY3AnB9LqaKvWKKUgEKBabjw@mail.gmail.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: Olof Johansson <olof@lixom.net>
+Message-ID: <mhng-b667387d-ef0f-45aa-8e22-ed828d410161@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181119_164458_584653_2A4C0EFC 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181119_085347_385304_D0BBB735 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,69 +94,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, f.fainelli@gmail.com,
- Quentin Schulz <quentin.schulz@bootlin.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, allan.nielsen@microchip.com,
- thomas.petazzoni@bootlin.com, linux-riscv@lists.infradead.org,
- davem@davemloft.net
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: aou@eecs.berkeley.edu, Arnd Bergmann <arnd@arndb.de>,
+ david.abdurachmanov@gmail.com, linux-kernel@vger.kernel.org,
+ marcin.juszkiewicz@linaro.org, linux-riscv@lists.infradead.org,
+ linux@roeck-us.net
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181119164442.lpLOijc7iIjfO8iGS2XSRCzSrTh5WK7dD7Y9J8xTnSc@z>
+Message-ID: <20181119165335.zADeY5b9dgOAbbkc5TgDuU4XajnORD8Ot1sI1awfnGA@z>
 
-T24gTW9uLCBOb3YgMTksIDIwMTggYXQgMDU6MzI6MTRQTSArMDEwMCwgQW5kcmVhcyBTY2h3YWIg
-d3JvdGU6Cj4gT24gTm92IDE5IDIwMTgsIEFuZHJldyBMdW5uIDxhbmRyZXdAbHVubi5jaD4gd3Jv
-dGU6Cj4gCj4gPiBMb2NrIGRlYnVnZ2luZzogcHJvdmUgbG9ja2luZyBjb3JyZWN0bmVzcwo+IAoK
-TGV0cyBzZWUgaG93IG11Y2ggdGhpcyBnZXRzIG1lc3NlZCB1cCBieSBlbWFpbC4uLgoKLmNvbmZp
-ZyAtIExpbnV4L2FybSA0LjIwLjAtcmMyIEtlcm5lbCBDb25maWd1cmF0aW9uCiA+IEtlcm5lbCBo
-YWNraW5nID4gTG9jayBEZWJ1Z2dpbmcgKHNwaW5sb2NrcywgbXV0ZXhlcywgZXRjLi4uKSDilIDi
-lIDilIDilIDilIDilIAKICDilIzilIDilIDilIDilIDilIDilIDilIDilIDilIAgTG9jayBEZWJ1
-Z2dpbmcgKHNwaW5sb2NrcywgbXV0ZXhlcywgZXRjLi4uKSDilIDilIDilIDilIDilIDilIDilIDi
-lIDilIDilIDilJAKICDilIIgIEFycm93IGtleXMgbmF2aWdhdGUgdGhlIG1lbnUuICA8RW50ZXI+
-IHNlbGVjdHMgc3VibWVudXMgLS0tPiAg4pSCICAKICDilIIgIChvciBlbXB0eSBzdWJtZW51cyAt
-LS0tKS4gIEhpZ2hsaWdodGVkIGxldHRlcnMgYXJlIGhvdGtleXMuICAg4pSCICAKICDilIIgIFBy
-ZXNzaW5nIDxZPiBpbmNsdWRlcywgPE4+IGV4Y2x1ZGVzLCA8TT4gbW9kdWxhcml6ZXMgICAgICAg
-ICAg4pSCICAKICDilIIgIGZlYXR1cmVzLiAgUHJlc3MgPEVzYz48RXNjPiB0byBleGl0LCA8Pz4g
-Zm9yIEhlbHAsIDwvPiBmb3IgICAg4pSCICAKICDilIIg4pSM4pSA4pSA4pSA4pSA4pSA4pSA4pSA
-4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA
-4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA
-4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSQIOKUgiAgCiAg
-4pSCIOKUgiAgICBbKl0gTG9jayBkZWJ1Z2dpbmc6IHByb3ZlIGxvY2tpbmcgY29ycmVjdG5lc3Mg
-ICAgICAgICAgIOKUgiDilIIgIAogIOKUgiDilIIgICAgWyBdIExvY2sgdXNhZ2Ugc3RhdGlzdGlj
-cyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDilIIg4pSCICAKICDilIIg4pSCICAgIC0q
-LSBSVCBNdXRleCBkZWJ1Z2dpbmcsIGRlYWRsb2NrIGRldGVjdGlvbiAgICAgICAgICAgICAg4pSC
-IOKUgiAgCiAg4pSCIOKUgiAgICAtKi0gU3BpbmxvY2sgYW5kIHJ3LWxvY2sgZGVidWdnaW5nOiBi
-YXNpYyBjaGVja3MgICAgICAgIOKUgiDilIIgIAogIOKUgiDilIIgICAgLSotIE11dGV4IGRlYnVn
-Z2luZzogYmFzaWMgY2hlY2tzICAgICAgICAgICAgICAgICAgICAgICDilIIg4pSCICAKICDilIIg
-4pSCICAgIC0qLSBXYWl0L3dvdW5kIG11dGV4IGRlYnVnZ2luZzogU2xvd3BhdGggdGVzdGluZyAg
-ICAgICAg4pSCIOKUgiAgCiAg4pSCIOKUgiAgICAtKi0gUlcgU2VtYXBob3JlIGRlYnVnZ2luZzog
-YmFzaWMgY2hlY2tzICAgICAgICAgICAgICAgIOKUgiDilIIgIAogIOKUgiDilIIgICAgLSotIExv
-Y2sgZGVidWdnaW5nOiBkZXRlY3QgaW5jb3JyZWN0IGZyZWVpbmcgb2YgbGl2ZSBsb2PilIIg4pSC
-ICAKICDilIIg4pSCICAgIFsgXSBMb2NrIGRlcGVuZGVuY3kgZW5naW5lIGRlYnVnZ2luZyAgICAg
-ICAgICAgICAgICAgICAg4pSCIOKUgiAgCiAg4pSCIOKUgiAgICBbKl0gU2xlZXAgaW5zaWRlIGF0
-b21pYyBzZWN0aW9uIGNoZWNraW5nICAgICAgICAgICAgICAgIOKUgiDilIIgIAogIOKUgiDilIIg
-ICAgWyBdIExvY2tpbmcgQVBJIGJvb3QtdGltZSBzZWxmLXRlc3RzICAgICAgICAgICAgICAgICAg
-ICDilIIg4pSCICAKICDilIIg4pSCICAgIDwgPiB0b3J0dXJlIHRlc3RzIGZvciBsb2NraW5nICAg
-ICAgICAgICAgICAgICAgICAgICAgICAg4pSCIOKUgiAgCiAg4pSCIOKUgiAgICA8ID4gV2FpdC93
-b3VuZCBtdXRleCBzZWxmdGVzdHMgICAgICAgICAgICAgICAgICAgICAgICAgIOKUgiDilIIgIAog
-IOKUgiDilJTilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDi
-lIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDi
-lIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDi
-lIDilIDilIDilIDilIDilIDilJgg4pSCICAKICDilJzilIDilIDilIDilIDilIDilIDilIDilIDi
-lIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDi
-lIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDi
-lIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilKQg
-IAogIOKUgiAgICA8U2VsZWN0PiAgICA8IEV4aXQgPiAgICA8IEhlbHAgPiAgICA8IFNhdmUgPiAg
-ICA8IExvYWQgPiAgICDilIIgIAogIOKUlOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKU
-gOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKU
-gOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKU
-gOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUmCAgCiAgICAK
-SWYgeW91IGNhbm5vdCBzZWUgaXQgYXQgYWxsLCBpdCBwcm9iYWJseSBtZWFucyB5b3UgYXJlIG1p
-c3NpbmcgYQpkZXBlbmRlbmN5OgoKICDilIIgICBEZXBlbmRzIG9uOiBERUJVR19LRVJORUwgWz15
-XSAmJiBcICAgICAgICAgICAgICAgICAgICAgICAgICAg4pSCICAKICDilIIgTE9DS19ERUJVR0dJ
-TkdfU1VQUE9SVCBbPXldICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg4pSCICAK
-CiAgICBBbmRyZXcKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On Fri, 16 Nov 2018 18:39:45 PST (-0800), Olof Johansson wrote:
+> On Thu, Nov 8, 2018 at 11:02 AM David Abdurachmanov
+> <david.abdurachmanov@gmail.com> wrote:
+>>
+>> Marcin Juszkiewicz reported issues while generating syscall table for riscv
+>> using 4.20-rc1. The patch refactors our unistd.h files to match some other
+>> architectures.
+>>
+>> - Add asm/unistd.h UAPI header, which has __ARCH_WANT_NEW_STAT only for 64-bit
+>> - Remove asm/syscalls.h UAPI header and merge to asm/unistd.h
+>> - Adjust kernel asm/unistd.h
+>>
+>> So now asm/unistd.h UAPI header should show all syscalls for riscv.
+>>
+>> Before this, Makefile simply put `#include <asm-generic/unistd.h>` into
+>> generated asm/unistd.h UAPI header thus user didn't see:
+>>
+>> - __NR_riscv_flush_icache
+>> - __NR_newfstatat
+>> - __NR_fstat
+>>
+>> which are supported by riscv kernel.
+>>
+>> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
+>> Cc: Arnd Bergmann <arnd@arndb.de>
+>> Cc: Marcin Juszkiewicz <marcin.juszkiewicz@linaro.org>
+>> Cc: Guenter Roeck <linux@roeck-us.net>
+>> Fixes: 67314ec7b025 ("RISC-V: Request newstat syscalls")
+>> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
+>
+> Acked-by: Olof Johansson <olof@lixom,net>
+>
+> This fixes the 32-bit build error I'm seeing here as well. Palmer, it
+> would be nice to have 4.20 compile 32-bit kernels still.
+>
+> Per builder logs:
+> http://arm-soc.lixom.net/buildlogs/mainline/v4.20-rc2-133-g1ce80e0fe98e7/buildall.riscv.rv32_defconfig.log.failed,
+> actual errors are:
+>
+> include/uapi/asm-generic/unistd.h:247:29: error: 'sys_fstatat64'
+> undeclared here (not in a function); did you mean 'sys_fstatfs64'?
+> include/uapi/asm-generic/unistd.h:249:27: error: 'sys_fstat64'
+> undeclared here (not in a function); did you mean 'sys_fstatat64'?
+
+Sorry, I missed the v2 here.  I'll include it as part of this week's PR.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
