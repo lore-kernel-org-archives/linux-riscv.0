@@ -2,83 +2,86 @@ Return-Path: <SRS0=mq7p=N6=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C99D6C43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 16:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 377C3C43610
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 16:26:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8712F20851
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 16:15:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0A6E5206B2
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Nov 2018 16:26:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="d/MIFncO";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="N5RNAHQQ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8712F20851
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="O/2Dz0AI";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="XUxh5osv";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.b="araiZIVi"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0A6E5206B2
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lunn.ch
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/rvv0FPHvhu5G/0gQjyYUTDPWfjugsv8ERV3WJpVgy0=; b=d/MIFncOA2J38P
-	ITLmU9yWrNDP5/pBIQVlU/8yzd0G8cnIHbqTAWrzFd2mmd4K2u/W1UFaDwebjYcpyszJ0UtiQHYaj
-	6hIlPHCJMFd1z0I+ewjFgj4KCgg1CI4Paou7+IZ19PrPGRfOlC8djWvphO+2vSfq3c8gQXN/KGADi
-	ZBaPyg7DvIM+hBryMCnXdPPcVUxuiybHe7b7fSghCUG6t7oa5sKnTC3OyPjk4y4SPaN5epryd/L48
-	MaUA7sLfFxCRSRXrAQ4lO53aHfc5Mb/8NpbFtaaZ3IKBmYaFFbk3BlAv76ZE5e7E/DLJPsY07qdIk
-	rRcJ0/Onpt/pDBcEEeYQ==;
+	List-Owner; bh=cPy0UEMCzfOmFNFrOSPD5MpS9IuE9hK53SwG//cAbbo=; b=O/2Dz0AIk/1gSS
+	lPPBywDqPaEY8JPUZyjcDIu1Ra6wd2loZ9sEi73PTT+jURM12g70baPgDcmmyLfwjlgXpTQsqUWtz
+	WLlo0PEFUO9dGom0Jys+CY95K9jaUoJYwctAE5Tt9DolGtr4+ybHoZUDIT8SNo2bewkpPOqmhJr69
+	ZXZSmSBdB5pfwD4BX2klHDJgTLa+gnMnfRFOnXnHRJgQg34igRdz7Tr/jjB44WCkPhxM7Aw2NZlu2
+	l2haPtjJb7OW3Ttxnhp85TemV+LQiobDODXDN/IT/WzYtvwAZrcMyfyKWeFK89K6OBAS4sbLHarwV
+	EezdswVDNzkhNIaNYYCw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gOmCO-0007RS-2W; Mon, 19 Nov 2018 16:14:56 +0000
+	id 1gOmN6-0004QM-CY; Mon, 19 Nov 2018 16:26:00 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gOmCM-0007RI-5J
- for linux-riscv@bombadil.infradead.org; Mon, 19 Nov 2018 16:14:54 +0000
+ id 1gOmMu-00046k-0s
+ for linux-riscv@bombadil.infradead.org; Mon, 19 Nov 2018 16:25:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:Message-ID:
- In-Reply-To:Date:References:Subject:Cc:To:From:Sender:Reply-To:
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
  Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
  List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=J3nUhBawPt+rUacDMyMVJTOVRS5ORgO0xkhcENQtNeE=; b=N5RNAHQQd5WwXDBru6i9jOLpM
- xf3S6Q0qXYGjCpyRUiBgjcDAPU5lPOBOgaIbIWm2WJQw0vZY7EOd6784Vs2MRyFix24keSGH0hYbB
- NsiMwtiHSqXocyGI8CsTqJ2xGEa2cQzCG2WNAf8ws/9EqOAfljz9amQCHylRCwkV/7cKKBxEN3+bU
- ahrj+DUNM/UzD7nopl4EeI9C6VfNlKmVplj44+EfFQA62pJruFeLQlXzQtAvwov0FqcWOWgnlyVKw
- /A+6hHBhBykciV+VBtiRzVQ+LqD/xygi1Ireav59vged39Ou71sHwAm5GMBXtluNi4vvJJ6ZXRXc1
- ujV7XNU+Q==;
-Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+ bh=rdekz2H73urYUl46tjJrWPKjwUS/lIfEs52H5sjj36Q=; b=XUxh5osvi0v0aq3Uy8U3tRAyU
+ 5GCQzl52xXMTahSvGv7wYzVIsNAkyab3lLh54IYzIyqTxquop8ZZr2PqI2QEDLPe1ByfYPPsl3ET3
+ EvVHMbekblh4EWuhk87K23FpWZB8GRaNfBCWt7q2jNxAEhDy2gRFo8tiu0XimvTH9EgUGqzCvbHUm
+ Bnia6KEl1Ks9m80++gXKmWXN0F8Ystx6yzl2A7A+kaGpcrYCU/xlUC/dyCH4AT+gByS2Fx8mF8Z2l
+ jUnKQxnsc7J8LJAACb6Ese33UVl+NLq3B6H0uCMHFjq7scSOdZl8p2Mwu0XNxSb6tN3wLcjgbTM8Y
+ j3A/jLglA==;
+Received: from vps0.lunn.ch ([185.16.172.187])
  by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gOmCJ-0008Vw-3v
- for linux-riscv@lists.infradead.org; Mon, 19 Nov 2018 16:14:52 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id CA978ADF1;
- Mon, 19 Nov 2018 16:14:39 +0000 (UTC)
-From: Andreas Schwab <schwab@suse.de>
-To: Andrew Lunn <andrew@lunn.ch>
+ id 1gOmMr-0000VY-5w
+ for linux-riscv@lists.infradead.org; Mon, 19 Nov 2018 16:25:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+ s=20171124; 
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date;
+ bh=rdekz2H73urYUl46tjJrWPKjwUS/lIfEs52H5sjj36Q=; 
+ b=araiZIVi1P73XEaIUBHuKiOWgqN1773W+hEnDCzf361tFM0IRyNQAAlzFTol1d+7XEUvaIVYLMA10zvTPSdzEDzqNHXmrVBce4KSqnQgrupCFzicF57WTO048ycv6cO4MfInBhJrKV3bNvjbuivXDoutYPVTZ690vYPfCsnfsdI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.84_2)
+ (envelope-from <andrew@lunn.ch>)
+ id 1gOmMb-0008Lk-Ug; Mon, 19 Nov 2018 17:25:29 +0100
+Date: Mon, 19 Nov 2018 17:25:29 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Andreas Schwab <schwab@suse.de>
 Subject: Re: [PATCH net-next v3 1/6] net: phy: mscc: migrate to
  phy_select/restore_page functions
+Message-ID: <20181119162529.GA31955@lunn.ch>
 References: <20181008100728.24959-1-quentin.schulz@bootlin.com>
  <20181008100728.24959-2-quentin.schulz@bootlin.com>
  <mvm8t1pazea.fsf@suse.de> <20181119151057.GC26852@lunn.ch>
  <mvm4lcdaynt.fsf@suse.de> <20181119152830.GE26852@lunn.ch>
  <20181119154005.GA8367@piout.net> <mvmzhu59idl.fsf@suse.de>
- <20181119161204.GC2393@lunn.ch>
-X-Yow: Used staples are good with SOY SAUCE!
-Date: Mon, 19 Nov 2018 17:14:38 +0100
-In-Reply-To: <20181119161204.GC2393@lunn.ch> (Andrew Lunn's message of "Mon,
- 19 Nov 2018 17:12:04 +0100")
-Message-ID: <mvmva4t9h8x.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1 (gnu/linux)
+ <20181119161204.GC2393@lunn.ch> <mvmva4t9h8x.fsf@suse.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <mvmva4t9h8x.fsf@suse.de>
+User-Agent: Mutt/1.5.23 (2014-03-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181119_161451_168028_E3A41144 
-X-CRM114-Status: UNSURE (   6.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181119_162545_262554_B4838DD4 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -99,20 +102,25 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181119161438.enEGNV5Kskv9u7BHaAT_jkSmO729VpNhvuYc_bFx1ak@z>
+Message-ID: <20181119162529.jJ9S7kvqtDYXvsbq1GhcFB5HBoTGwzVlY0hY3rQ2ZBo@z>
 
-On Nov 19 2018, Andrew Lunn <andrew@lunn.ch> wrote:
+On Mon, Nov 19, 2018 at 05:14:38PM +0100, Andreas Schwab wrote:
+> On Nov 19 2018, Andrew Lunn <andrew@lunn.ch> wrote:
+> 
+> > Could you turn on lockdep and see if it reports a deadlock.
+> 
+> How do I "turn on lockdep"?
 
-> Could you turn on lockdep and see if it reports a deadlock.
+make menuconfig
+Kernel hacking
+Lock Debugging (spinlocks, mutexes, etc...) 
+Lock debugging: prove locking correctness
 
-How do I "turn on lockdep"?
+It has changes its name at some point. it used to be called
+CONFIG_LOCKDEP, for locking dependencies. Anybody who has been kernel
+hacking for a while still calls it lockdep.
 
-Andreas.
-
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+	Andrew
 
 _______________________________________________
 linux-riscv mailing list
