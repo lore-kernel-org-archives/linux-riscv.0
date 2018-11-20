@@ -2,76 +2,85 @@ Return-Path: <SRS0=wErq=N7=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 82719C43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 00:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5853CC28CF8
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 15:28:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4B7B52089F
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 00:16:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2D99B2087E
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 15:28:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="evAcc0VR";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="hk7EUp70"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4B7B52089F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=altlinux.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EXhVQd7n";
+	dkim=fail reason="key not found in DNS" (0-bit key) header.d=codeaurora.org header.i=@codeaurora.org header.b="JAIvCevJ";
+	dkim=fail reason="key not found in DNS" (0-bit key) header.d=codeaurora.org header.i=@codeaurora.org header.b="JAIvCevJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2D99B2087E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=codeaurora.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=ZSZkn+9y/I7QvX/Q+IgG8sHKEyzbZRk4v1nil6rrsrQ=; b=evAcc0VRvrT4hf
-	R57s0BSUOtniQb1oT8tRJEgWo8mQ0X+W1iVDUDt64WBuyfrPsmVgYsgOdJ19I+kodqyMCTRQpobZV
-	9EhfDhFkM6qoiEXJTNDGWroANq6ZnyyBNWdldjp32JBqOjhwY8m4Itm1Kq+gS6lSKbjeSBUALQ1ue
-	SoZyPF/IH1yHpvBDXgqPxAlRWt8I285GhBshQIi/IfMMyPJ0mvbSuUZDyGNdNxPWx3L3G93C2akCF
-	VAK6pkosll7kH67oK+kdTzDL/pFzzFiRvlXrfViZdNLaXfZUHXt9JbEL+An+dts7Aq+DW5JUGRD8i
-	Lhp602t3YAgfIqlTD4tw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=TI7IbYY0br+eISzgHebXVFWpX7mV4o25WhwHbAiD+ts=; b=EXhVQd7nhSAahCRgGqekaBzx0
+	bOX80DItFLaj0Bp5ZsJSwwiSuwR5UmesfoCqkKbjFfngET4dAQzGXBnYFnSqDAXXPievIOsd1glji
+	rV5OzB3TuVjTeXKCR8OrgMhLS0R4WxN7OEB6d1f10CEdT2Sh4shpMwt6nQIP+H4gXLO1C9E7DSzhr
+	buETtgDVjDjZOT9ThmtA3oQ40eosQUIu3NGg2h1bWX4bhdoniPcU+1Sbd0VhNTgDu7rVZfR8WTZsL
+	v9cqnyTUJFFIQNdhth2aSQm0waCEcwtq4uL2qBhd8mK8CQBF/uGeXKZ+rb3s9yTnF4sibt4O2So8V
+	Q0guzjhnw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gOtir-000838-AV; Tue, 20 Nov 2018 00:16:57 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1gP7x9-0002H4-G4; Tue, 20 Nov 2018 15:28:39 +0000
+Received: from smtp.codeaurora.org ([198.145.29.96])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gOtip-00082z-DS
- for linux-riscv@bombadil.infradead.org; Tue, 20 Nov 2018 00:16:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:References:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=ehTRxzukPmODtpRsfdRxOlXwC3M/fCALbPJAOOE6THY=; b=hk7EUp70zoRnvyKEMk8Qi4Bk8F
- YsRaHNBVE/RTdEqQ0xGJMbIvJdN8Jmh4vX4K1VGkQol40zCEASIaDTXurR1B09ZRXzxVC6f1sl1gm
- BxUIGYqBEIbBQqrZdSwfpQoh/Wsm+ht22NNUHOWh42mm1FxNeWh/7PhXIKAW33dvXGI4pkXcHhD7C
- piMhThT0Qf78+BqEYvEQ8eS6dqiOhQDNekDX7XsZE0H5SolrerBvIBEmZnK3PZKzTqEACSPnxMju9
- Pz3GU2HNHgqxDXmefdP1XbVku5oNiar1GfqpOW5cX+Cy24DPYA0YsTz/2H32NZctW7pAfD0GxlEHJ
- Hr7Bv3Zw==;
-Received: from vmicros1.altlinux.org ([194.107.17.57])
- by casper.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gOtim-00067y-3O
- for linux-riscv@lists.infradead.org; Tue, 20 Nov 2018 00:16:53 +0000
-Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
- by vmicros1.altlinux.org (Postfix) with ESMTP id 6D2E172CA65;
- Tue, 20 Nov 2018 03:16:41 +0300 (MSK)
-Received: by mua.local.altlinux.org (Postfix, from userid 508)
- id 359517CD1FF; Tue, 20 Nov 2018 03:16:40 +0300 (MSK)
-Date: Tue, 20 Nov 2018 03:16:40 +0300
-From: "Dmitry V. Levin" <ldv@altlinux.org>
-To: Andy Lutomirski <luto@kernel.org>, Palmer Dabbelt <palmer@sifive.com>
-Subject: [PATCH v2 13/15] riscv: define syscall_get_arch()
-Message-ID: <20181120001640.GM11387@altlinux.org>
+ id 1gP7x1-0001tn-JL; Tue, 20 Nov 2018 15:28:32 +0000
+Received: by smtp.codeaurora.org (Postfix, from userid 1000)
+ id C35786020B; Tue, 20 Nov 2018 15:28:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=codeaurora.org;
+ s=default; t=1542727700;
+ bh=m0p22JJsxKd1q1uJL2YmVOjRbHzUu7zoN5ew8++y+/4=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=JAIvCevJmrHjMXj8BdPXVHS/bVRpbtJsXKq1GVCKoHj4mn/j+ow3kWXvVLl4nfohk
+ nGxgN4NtSQMLluzPLxiVLNcMe7raLg2wijZ0uq0sGAZ2eI9uAQyznjaL+A9AJiOLXx
+ O9OVQEDPAxpaxlCTo3hlI4Dq7+brXM1EyGbPsi4E=
+Received: from [10.226.60.81] (i-global254.qualcomm.com [199.106.103.254])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ (Authenticated sender: jhugo@smtp.codeaurora.org)
+ by smtp.codeaurora.org (Postfix) with ESMTPSA id 0D04B6020B;
+ Tue, 20 Nov 2018 15:28:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=codeaurora.org;
+ s=default; t=1542727700;
+ bh=m0p22JJsxKd1q1uJL2YmVOjRbHzUu7zoN5ew8++y+/4=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=JAIvCevJmrHjMXj8BdPXVHS/bVRpbtJsXKq1GVCKoHj4mn/j+ow3kWXvVLl4nfohk
+ nGxgN4NtSQMLluzPLxiVLNcMe7raLg2wijZ0uq0sGAZ2eI9uAQyznjaL+A9AJiOLXx
+ O9OVQEDPAxpaxlCTo3hlI4Dq7+brXM1EyGbPsi4E=
+DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org 0D04B6020B
+Authentication-Results: pdx-caf-mail.web.codeaurora.org;
+ dmarc=none (p=none dis=none) header.from=codeaurora.org
+Authentication-Results: pdx-caf-mail.web.codeaurora.org;
+ spf=none smtp.mailfrom=jhugo@codeaurora.org
+Subject: Re: [RFC 0/3] Unify CPU topology across ARM64 & RISC-V
+To: Sudeep Holla <sudeep.holla@arm.com>
+References: <1541728209-3224-1-git-send-email-atish.patra@wdc.com>
+ <07d92dd4-f943-47ee-e168-46bfaf4ed755@codeaurora.org>
+ <20181120111146.GA6497@e107155-lin>
+From: Jeffrey Hugo <jhugo@codeaurora.org>
+Message-ID: <35b92f83-dbbf-fad2-561f-49b0933ffe19@codeaurora.org>
+Date: Tue, 20 Nov 2018 08:28:18 -0700
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.3.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20181120001128.GA11300@altlinux.org>
+In-Reply-To: <20181120111146.GA6497@e107155-lin>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181120_001652_185638_145E382A 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181120_072831_672158_43D8F289 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -83,72 +92,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Paul Moore <paul@paul-moore.com>,
- David Abdurachmanov <david.abdurachmanov@gmail.com>,
- linux-kernel@vger.kernel.org, Eric Paris <eparis@redhat.com>,
- Elvira Khabirova <lineprinter@altlinux.org>, linux-audit@redhat.com,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, Damien.LeMoal@wdc.com,
+ juri.lelli@arm.com, anup@brainfault.org, palmer@sifive.com,
+ linux-kernel@vger.kernel.org, jeremy.linton@arm.com,
+ Atish Patra <atish.patra@wdc.com>, robh+dt@kernel.org, mick@ics.forth.gr,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181120001640.LYve_PGyNh5pFpdd3kpPmGiYF8bKrdGu1ULU9aDFuZ0@z>
+Message-ID: <20181120152818.zd4Vz2mNt4nHbe95XyH0xaQo9zC7AKqGv9jeonbY3Ko@z>
 
-syscall_get_arch() is required to be implemented on all architectures
-in order to extend the generic ptrace API with PTRACE_GET_SYSCALL_INFO
-request.
+On 11/20/2018 4:11 AM, Sudeep Holla wrote:
+> On Thu, Nov 15, 2018 at 11:31:33AM -0700, Jeffrey Hugo wrote:
+> 
+> [...]
+> 
+>>
+>> I was interested in testing these on QDF2400, an ARM64 platform, since this
+>> series touches core ARM64 code and I'd hate to see a regression. However, I
+>> can't figure out what baseline to use to apply these. Different patches
+>> cause different conflicts of a variety of baselines I attempted.
+>>
+> 
+> Good to know that we can test DT configuration on QDF2400. I always assumed
+> it's ACPI only.
 
-Based-on-patch-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
-Signed-off-by: Dmitry V. Levin <ldv@altlinux.org>
-Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
----
-v2: added Reviewed-by to [PATCH 12/13 v2]
+It is ACPI only in the production configuration.  I suppose we could 
+hack things up to do basic DT sanity, but I expect it would be nasty and 
+non-trivial.
 
- arch/riscv/include/asm/syscall.h | 10 ++++++++++
- include/uapi/linux/audit.h       |  2 ++
- 2 files changed, 12 insertions(+)
+> 
+>> What are these intended to apply to?
+>>
+> 
+> The series alone may not get the package/socket ids correct on QDF2400.
+> I have not yet added support for the same as I wanted to get the initial
+> feedback on DT bindings. The movement of DT binding and corresponding
+> code should not regress and you should be able to validate only that
+> part.
+> 
 
-diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
-index 8d25f8904c00..bba3da6ef157 100644
---- a/arch/riscv/include/asm/syscall.h
-+++ b/arch/riscv/include/asm/syscall.h
-@@ -18,6 +18,7 @@
- #ifndef _ASM_RISCV_SYSCALL_H
- #define _ASM_RISCV_SYSCALL_H
- 
-+#include <uapi/linux/audit.h>
- #include <linux/sched.h>
- #include <linux/err.h>
- 
-@@ -99,4 +100,13 @@ static inline void syscall_set_arguments(struct task_struct *task,
- 	memcpy(&regs->a1 + i * sizeof(regs->a1), args, n * sizeof(regs->a0));
- }
- 
-+static inline int syscall_get_arch(void)
-+{
-+#ifdef CONFIG_64BIT
-+	return AUDIT_ARCH_RISCV64;
-+#else
-+	return AUDIT_ARCH_RISCV32;
-+#endif
-+}
-+
- #endif	/* _ASM_RISCV_SYSCALL_H */
-diff --git a/include/uapi/linux/audit.h b/include/uapi/linux/audit.h
-index 205aa32d81ed..a97a29922de0 100644
---- a/include/uapi/linux/audit.h
-+++ b/include/uapi/linux/audit.h
-@@ -410,6 +410,8 @@ enum {
- /* do not define AUDIT_ARCH_PPCLE since it is not supported by audit */
- #define AUDIT_ARCH_PPC64	(EM_PPC64|__AUDIT_ARCH_64BIT)
- #define AUDIT_ARCH_PPC64LE	(EM_PPC64|__AUDIT_ARCH_64BIT|__AUDIT_ARCH_LE)
-+#define AUDIT_ARCH_RISCV32	(EM_RISCV|__AUDIT_ARCH_LE)
-+#define AUDIT_ARCH_RISCV64	(EM_RISCV|__AUDIT_ARCH_64BIT|__AUDIT_ARCH_LE)
- #define AUDIT_ARCH_S390		(EM_S390)
- #define AUDIT_ARCH_S390X	(EM_S390|__AUDIT_ARCH_64BIT)
- #define AUDIT_ARCH_SH		(EM_SH)
+On a cursory glance, it looks like some of the reorganized code would 
+also be used in the ACPI path (things that are common between DT and 
+ACPI).  I do not expect problems, but I still feel its prudent to do a 
+sanity check on actual hardware.
+
 -- 
-ldv
+Jeffrey Hugo
+Qualcomm Datacenter Technologies as an affiliate of Qualcomm 
+Technologies, Inc.
+Qualcomm Technologies, Inc. is a member of the
+Code Aurora Forum, a Linux Foundation Collaborative Project.
 
 _______________________________________________
 linux-riscv mailing list
