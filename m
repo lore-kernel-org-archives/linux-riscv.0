@@ -2,85 +2,72 @@ Return-Path: <SRS0=wErq=N7=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CDA66C46466
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 20:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2640DC43610
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 23:08:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EE1AC214D9
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 20:30:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 955AB21479
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 23:08:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jqYBIUSl";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=paul-moore-com.20150623.gappssmtp.com header.i=@paul-moore-com.20150623.gappssmtp.com header.b="K52MWwN4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EE1AC214D9
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=paul-moore.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eepZBFTi";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="BjdmrdUY"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 955AB21479
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iQNG/hRxjGzHzNvWTyK1vr+k8D8EOMGygXbOmFRS9os=; b=jqYBIUSlLR+HX6
-	a1sHD7uWZxFLfvxKCeCVk25LvVC2U6J31TtOQWoGcODl450Y7hzI0VVUOsulVTpPc1LE2+fyy3GRa
-	ohKpjQ5Pg3vfma2Bz8J40MiwGLQJsofjAD8E/vR6umVNcWu+vsNmly9XzkoS7aBrFCIOGp+cF2KfC
-	Qu5nHi+HxCaQ87QUXYD3kN2kDcyIQnPkSZklIed7ly1jVzvNmPHPDfQMgTevI9pZNPG6jfw9fShf6
-	DW5LqobR7DmDizvRlKVhFOTuxdcWZDo3YMUHb5RgKwvuxbkiaQMuLv/f5/hVP7vfRpZikULzOBrjv
-	UTDCf23aiI0rvS2yk8xQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=LrtPtZ7WnqZfLCEbxKuVHMa5R/FiF8OyebbfP1dj0RI=; b=eep
+	ZBFTiTlAFWLIm5QS3U9NbHX73fZ68jXRfMWRdfx+R+8V1t6McHQXHdKkwen6WcU7gZ+qf4Jc1ZHld
+	+q6bqxLKz+jU4kQu3hAPdM7Z/qxPcjPR+hPckoVMuDRYIY4F5T6Wgfna3VlcH6X6vvtDXPZeBwhku
+	mPXlfFP532Re/immq60/skdxdqiDFI+CBYFt/wjX+KEDp92GxwRkhP3osb6LnpZx53NW2Ia1EGQV8
+	MGe1pPZ/8tHD58sS1Rs5C35VyhY58rFqnF1UUbXUSUuYi3zY3OhPer4j66wLG2hW6fISANhHcL+7M
+	+MPXLZoO2yG6B07N42c/DuAI+Xr6AYw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gPCfG-0004lL-S1; Tue, 20 Nov 2018 20:30:30 +0000
-Received: from mail-lj1-f195.google.com ([209.85.208.195])
+	id 1gPF7v-00021t-Jy; Tue, 20 Nov 2018 23:08:15 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gPCfC-00032b-U2
- for linux-riscv@lists.infradead.org; Tue, 20 Nov 2018 20:30:28 +0000
-Received: by mail-lj1-f195.google.com with SMTP id g11-v6so2826525ljk.3
- for <linux-riscv@lists.infradead.org>; Tue, 20 Nov 2018 12:28:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=paul-moore-com.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=UHQXYBlESi9ND8yKpEZyLeSHKrDeqYCCB7KMnHp3wz4=;
- b=K52MWwN4ZRoyx9SF9Eyvj7Jyts2CQ+MEZqbNVDhDyXca4haI0UcJ8Lkv/y+FtDmeBg
- ohcKHtN2IjxdDLDpBRPD7AFse9UtwiEA94kml4bF4TUQWF7VWx61mZjG6u6eVwdgz99r
- cTeTnZ6nV5Yb13wJTsU24NsYf0VUc8cUxq0D8ixW/k9/g9/v7t2HAp90YOdTYDSj9UDX
- Wni1FGeW6cI9ru3Co79/zgQ+VgxuGTMwy7IGH/LW4r0ikbdl/DVX+Ym/ERLrPFfZzGHV
- jx0AGwlpzcd4t7SVezhAVB4p+SeQGhOiHsRRqrvCa7W2q3+FgrimddCpRPAqoRvd+qhC
- 3g9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=UHQXYBlESi9ND8yKpEZyLeSHKrDeqYCCB7KMnHp3wz4=;
- b=X+890a3rKRJmCoYguJ8TDlzBinBudHlLH7+dJS7xEvI1aNpJIxeW6FHDHcUTSUg0DE
- MqrZ9tRfx3wCBaurokjAjAehJ20blAkBvqOU9rwcOny2BJIo459t+hOHPzMRzun6e9NI
- EYUzQQRwOt2nUZBi9dowY7YONACLcyk9PtWGqalhBK6u80NPQNjhSkoKDhHStRUGctcr
- rAvONyIRKIX2UnLvwRJxHbXSRReWvSlL1Q1CR5zL3Cd69MotGPOFQtVgQy77tMcaYKEo
- 5xhNmCVFWFp6bEB6gkosBu0aLgqVgXdj4yTITHOTkgsk+MJpoEaUscn8PvhS0Yh/U9WQ
- pFzw==
-X-Gm-Message-State: AA+aEWZGuMNYGpp9aoWtR6jLEJAIPCvofADWj2JvOBGyitVgYkFLkP3/
- YaCNNVf1ivZR2VY3/ZU6pC2zOAZMPpZMoXdxeCjX
-X-Google-Smtp-Source: AFSGD/Vjo/03rvJteIUMyZJbMDf3noXyS/ACKuTjL1Fh3U1WmHdq7tSloilfxqKgkN3vsbGJDe+TI+5dV52N61TibjE=
-X-Received: by 2002:a2e:93ce:: with SMTP id
- p14-v6mr2054929ljh.42.1542745624786; 
- Tue, 20 Nov 2018 12:27:04 -0800 (PST)
-MIME-Version: 1.0
-References: <20181107042751.3b519062@akathisia>
- <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
- <20181120001128.GA11300@altlinux.org>
-In-Reply-To: <20181120001128.GA11300@altlinux.org>
-From: Paul Moore <paul@paul-moore.com>
-Date: Tue, 20 Nov 2018 15:26:53 -0500
-Message-ID:
- <CAHC9VhQDs8cMuR4PXDB2VZ9TEtDydyBF_EqBGvjML+NN8+2LNw@mail.gmail.com>
-Subject: Re: [PATCH v2 00/15] Prepare for PTRACE_GET_SYSCALL_INFO
-To: ldv@altlinux.org
+ id 1gPF7s-000215-JU
+ for linux-riscv@lists.infradead.org; Tue, 20 Nov 2018 23:08:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1542755293; x=1574291293;
+ h=from:to:cc:subject:date:message-id;
+ bh=gWNVaT5q2FRSp5GUYA68hoc8M4aM1LrstfAQE97W0LA=;
+ b=BjdmrdUYsP0tXIpf7uHBELB60hlxOAbHoqyAC/Jb2b0VCC7UKE7t/kE9
+ 5Gaw4P/rMd8L5TOPO6PNPxa/vNJINdfJIvT6eTOx/R+LuQtTFPvQ8NRUT
+ UtqrX5UmJfga5sUTGQ+FsxrgGZ/G8MAmlW3c5QeGzU6GdU8vd8RbXKoOf
+ oNq/L10ougvv/ZW1/f+3grSgM5mnqw15HVEPFntMdFVg+eoW8q3AK4DdY
+ gScMSZhy2XoH8Q7cqWOVBHKCPX4p54+SSaZxwccTMbesOoXTglnUsjNrB
+ vdrKrbg6VTmjFE7iuCgLVqB1i20qAGSXA2vb6Oa/InswQ1UIdpKe9kMDT g==;
+X-IronPort-AV: E=Sophos;i="5.56,258,1539619200"; d="scan'208";a="95916969"
+Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 21 Nov 2018 07:07:52 +0800
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP; 20 Nov 2018 14:50:37 -0800
+Received: from jedi-01.sdcorp.global.sandisk.com (HELO
+ jedi-01.int.fusionio.com) ([10.11.143.218])
+ by uls-op-cesaip02.wdc.com with ESMTP; 20 Nov 2018 15:07:52 -0800
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH] RISC-V: Fix of_node_* refcount
+Date: Tue, 20 Nov 2018 15:07:50 -0800
+Message-Id: <1542755270-10433-1-git-send-email-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181120_123026_964232_984631E2 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20181120_150812_747704_CBE9CA67 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,78 +79,159 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: alexey.brodkin@synopsys.com, jcmvbkbc@gmail.com,
- linux-riscv@lists.infradead.org, deanbo422@gmail.com,
- linux-c6x-dev@linux-c6x.org, ysato@users.sourceforge.jp,
- linux-hexagon@vger.kernel.org, lineprinter@altlinux.org, palmer@sifive.com,
- msalter@redhat.com, geert@linux-m68k.org, linux-snps-arc@lists.infradead.org,
- uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
- aou@eecs.berkeley.edu, jacquiot.aurelien@gmail.com,
- linux-m68k@lists.linux-m68k.org, green.hu@gmail.com, luto@kernel.org,
- nios2-dev@lists.rocketboards.org, chris@zankel.net, vgupta@synopsys.com,
- linux-kernel@vger.kernel.org, Eric Paris <eparis@redhat.com>,
- rkuo@codeaurora.org, linux-audit@redhat.com, lftan@altera.com
+Cc: anup@brainfault.org, palmer@sifive.com, linux-kernel@vger.kernel.org,
+ jeremy.linton@arm.com, atish.patra@wdc.com, sudeep.holla@arm.com,
+ schwab@suse.de
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181120202653.YddIJSzHoMQD2_jDqLIw3b_7zIUVCFd_W23JJXHhBqY@z>
+Message-ID: <20181120230750.5M-JfVedkhLJxIZvpnwYTbkeu564PFFpwGT1WvzkIZM@z>
 
-On Mon, Nov 19, 2018 at 7:11 PM Dmitry V. Levin <ldv@altlinux.org> wrote:
->
-> syscall_get_arch() is required to be implemented on all architectures
-> in order to extend the generic ptrace API with PTRACE_GET_SYSCALL_INFO
-> request.
->
-> The primary intent is that the triple (audit_arch, syscall_nr, arg1..arg6)
-> should describe what system call is being called and what its arguments are.
+Fix of_node* refcount at various places by using of_node_put.
 
-No real comment from me, most of this is arch specific code so I'll
-let the individual arch folks comment on that; they know far better
-than I do what is correct.
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ arch/riscv/kernel/cacheinfo.c  | 11 +++++++++++
+ arch/riscv/kernel/cpu.c        |  1 +
+ arch/riscv/kernel/cpufeature.c |  2 ++
+ arch/riscv/kernel/perf_event.c |  1 +
+ arch/riscv/kernel/smpboot.c    |  6 +++++-
+ 5 files changed, 20 insertions(+), 1 deletion(-)
 
-That said, anything that gets us closer to being able to offer syscall
-auditing for these arches gets a big thumbs up from me - thanks!
-
-> Dmitry V. Levin (15):
->   Move EM_HEXAGON to uapi/linux/elf-em.h
->   Move EM_ARCOMPACT and EM_ARCV2 to uapi/linux/elf-em.h
->   Move EM_UNICORE to uapi/linux/elf-em.h
->   elf-em.h: add EM_NDS32
->   elf-em.h: add EM_XTENSA
->   m68k: define syscall_get_arch()
->   arc: define syscall_get_arch()
->   c6x: define syscall_get_arch()
->   h8300: define syscall_get_arch()
->   hexagon: define syscall_get_arch()
->   nds32: define syscall_get_arch()
->   nios2: define syscall_get_arch()
->   riscv: define syscall_get_arch()
->   unicore32: define syscall_get_arch()
->   xtensa: define syscall_get_arch()
->
->  arch/arc/include/asm/elf.h           |  6 +-----
->  arch/arc/include/asm/syscall.h       | 10 ++++++++++
->  arch/c6x/include/asm/syscall.h       |  7 +++++++
->  arch/h8300/include/asm/syscall.h     |  5 +++++
->  arch/hexagon/include/asm/elf.h       |  6 +-----
->  arch/hexagon/include/asm/syscall.h   |  8 ++++++++
->  arch/m68k/include/asm/syscall.h      | 12 ++++++++++++
->  arch/nds32/include/asm/syscall.h     |  8 ++++++++
->  arch/nios2/include/asm/syscall.h     |  6 ++++++
->  arch/riscv/include/asm/syscall.h     | 10 ++++++++++
->  arch/unicore32/include/asm/elf.h     |  3 +--
->  arch/unicore32/include/asm/syscall.h | 12 ++++++++++++
->  arch/xtensa/include/asm/syscall.h    |  7 +++++++
->  include/uapi/linux/audit.h           | 15 +++++++++++++++
->  include/uapi/linux/elf-em.h          |  7 +++++++
->  15 files changed, 110 insertions(+), 12 deletions(-)
->  create mode 100644 arch/m68k/include/asm/syscall.h
->  create mode 100644 arch/unicore32/include/asm/syscall.h
-
+diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+index cb35ffd8..638dee3f 100644
+--- a/arch/riscv/kernel/cacheinfo.c
++++ b/arch/riscv/kernel/cacheinfo.c
+@@ -28,6 +28,7 @@ static int __init_cache_level(unsigned int cpu)
+ {
+ 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+ 	struct device_node *np = of_cpu_device_node_get(cpu);
++	struct device_node *prev = NULL;
+ 	int levels = 0, leaves = 0, level;
+ 
+ 	if (of_property_read_bool(np, "cache-size"))
+@@ -39,7 +40,10 @@ static int __init_cache_level(unsigned int cpu)
+ 	if (leaves > 0)
+ 		levels = 1;
+ 
++	prev = np;
+ 	while ((np = of_find_next_cache_node(np))) {
++		of_node_put(prev);
++		prev = np;
+ 		if (!of_device_is_compatible(np, "cache"))
+ 			break;
+ 		if (of_property_read_u32(np, "cache-level", &level))
+@@ -55,8 +59,10 @@ static int __init_cache_level(unsigned int cpu)
+ 		levels = level;
+ 	}
+ 
++	of_node_put(np);
+ 	this_cpu_ci->num_levels = levels;
+ 	this_cpu_ci->num_leaves = leaves;
++
+ 	return 0;
+ }
+ 
+@@ -65,6 +71,7 @@ static int __populate_cache_leaves(unsigned int cpu)
+ 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+ 	struct cacheinfo *this_leaf = this_cpu_ci->info_list;
+ 	struct device_node *np = of_cpu_device_node_get(cpu);
++	struct device_node *prev = NULL;
+ 	int levels = 1, level = 1;
+ 
+ 	if (of_property_read_bool(np, "cache-size"))
+@@ -74,7 +81,10 @@ static int __populate_cache_leaves(unsigned int cpu)
+ 	if (of_property_read_bool(np, "d-cache-size"))
+ 		ci_leaf_init(this_leaf++, np, CACHE_TYPE_DATA, level);
+ 
++	prev = np;
+ 	while ((np = of_find_next_cache_node(np))) {
++		of_node_put(prev);
++		prev = np;
+ 		if (!of_device_is_compatible(np, "cache"))
+ 			break;
+ 		if (of_property_read_u32(np, "cache-level", &level))
+@@ -89,6 +99,7 @@ static int __populate_cache_leaves(unsigned int cpu)
+ 			ci_leaf_init(this_leaf++, np, CACHE_TYPE_DATA, level);
+ 		levels = level;
+ 	}
++	of_node_put(np);
+ 
+ 	return 0;
+ }
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 3a5a2ee3..7b3eb970 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -155,6 +155,7 @@ static int c_show(struct seq_file *m, void *v)
+ 	    && strcmp(compat, "riscv"))
+ 		seq_printf(m, "uarch\t\t: %s\n", compat);
+ 	seq_puts(m, "\n");
++	of_node_put(node);
+ 
+ 	return 0;
+ }
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 0339087a..a6e369ed 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -56,8 +56,10 @@ void riscv_fill_hwcap(void)
+ 
+ 	if (of_property_read_string(node, "riscv,isa", &isa)) {
+ 		pr_warning("Unable to find \"riscv,isa\" devicetree entry");
++		of_node_put(node);
+ 		return;
+ 	}
++	of_node_put(node);
+ 
+ 	for (i = 0; i < strlen(isa); ++i)
+ 		elf_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
+diff --git a/arch/riscv/kernel/perf_event.c b/arch/riscv/kernel/perf_event.c
+index a243fae1..667ee70d 100644
+--- a/arch/riscv/kernel/perf_event.c
++++ b/arch/riscv/kernel/perf_event.c
+@@ -476,6 +476,7 @@ int __init init_hw_perf_events(void)
+ 
+ 		if (of_id)
+ 			riscv_pmu = of_id->data;
++		of_node_put(node);
+ 	}
+ 
+ 	perf_pmu_register(riscv_pmu->pmu, "cpu", PERF_TYPE_RAW);
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index 18cda0e8..fc185eca 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -57,12 +57,15 @@ void __init setup_smp(void)
+ 
+ 	while ((dn = of_find_node_by_type(dn, "cpu"))) {
+ 		hart = riscv_of_processor_hartid(dn);
+-		if (hart < 0)
++		if (hart < 0) {
++			of_node_put(dn);
+ 			continue;
++		}
+ 
+ 		if (hart == cpuid_to_hartid_map(0)) {
+ 			BUG_ON(found_boot_cpu);
+ 			found_boot_cpu = 1;
++			of_node_put(dn);
+ 			continue;
+ 		}
+ 
+@@ -70,6 +73,7 @@ void __init setup_smp(void)
+ 		set_cpu_possible(cpuid, true);
+ 		set_cpu_present(cpuid, true);
+ 		cpuid++;
++		of_node_put(dn);
+ 	}
+ 
+ 	BUG_ON(!found_boot_cpu);
 -- 
-paul moore
-www.paul-moore.com
+2.7.4
+
 
 _______________________________________________
 linux-riscv mailing list
