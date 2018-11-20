@@ -1,67 +1,39 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 20 Nov 2018 10:10:04 -0800 (PST)
-Subject: [PULL RFC] RISC-V Patches for 4.20-rc4
-Message-ID: <mhng-c4f4aebd-afe6-42f8-a2e0-a0c6ff3dc001@palmer-si-x1c4>
+From: atish.patra@wdc.com (Atish Patra)
+Date: Tue, 20 Nov 2018 10:23:18 -0800
+Subject: RISC-V Patchwork
+In-Reply-To: <mhng-f1f11265-f6fe-4284-8dc0-a28ac937fdb4@palmer-si-x1c4>
+References: <mhng-f1f11265-f6fe-4284-8dc0-a28ac937fdb4@palmer-si-x1c4>
+Message-ID: <7b7de9a4-42f7-59d2-c952-bbc5ec023e56@wdc.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The following changes since commit 9ff01193a20d391e8dbce4403dd5ef87c7eaaca6:
+On 11/20/18 8:21 AM, Palmer Dabbelt wrote:
+> Atish tracked down the documentation for creating a patchwork, which now lives
+> here
+> 
+>      https://patchwork.kernel.org/project/linux-riscv/list/
+> 
+> I have no idea how to use it, so we can all learn together :)
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv at lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+Awesome. I think you can change the status of the patch from a dropdown 
+box, after you logged in with your patchwork id. The available options 
+looks pretty much self explanatory unless there is a hidden meaning to 
+it ;) ;). As a contributor, we can take a look at the patchwork to for 
+the status of the patch. No need of email replies :).
 
-  Linux 4.20-rc3 (2018-11-18 13:33:44 -0800)
+pwclient was helpful in applying the patches directly in case lkml was 
+not cc'd on the patch.
 
-are available in the Git repository at:
+https://patchwork.kernel.org/project/linux-riscv/
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.20-rc4
+There is git-pw also. However, I could not get it to working for 
+linux-riscv.
 
-for you to fetch changes up to 5d8f81ba1da55210123b9595e87b913c79579d02:
 
-  RISC-V: recognize S/U mode bits in print_isa (2018-11-20 05:19:28 -0800)
-
-----------------------------------------------------------------
-RISC-V Patches for 4.20-rc4
-
-This week is a bit bigger than I expected.  That's my fault, as I missed
-a few patches while I was at Plumbers last week.  We have:
-
-* A fix to a quite embarassing issue where raw_copy_to_user() was
-  implemented with asm_copy_from_user() (and vice versa).
-* Improvements to our makefile to allow flat binaries to be generated.
-* A build fix that predeclares "struct module" at the top of
-  <asm/module.h>, which triggers warnings later in that header.
-* The addition of our own <uapi/asm/unistd> header, which is necessary
-  to align our stat ABI on 32-bit systems.
-* A fix to avoid printing a warning when the S or U bits are set in
-  print_isa().
-
-I already have one patch in the queue for next week.
-
-----------------------------------------------------------------
-Anup Patel (1):
-      RISC-V: Build flat and compressed kernel images
-
-David Abdurachmanov (2):
-      riscv: fix warning in arch/riscv/include/asm/module.h
-      riscv: add asm/unistd.h UAPI header
-
-Olof Johansson (1):
-      RISC-V: Fix raw_copy_{to,from}_user()
-
-Patrick St??hlin (1):
-      RISC-V: recognize S/U mode bits in print_isa
-
- arch/riscv/Makefile                                | 15 +++++-
- arch/riscv/boot/.gitignore                         |  2 +
- arch/riscv/boot/Makefile                           | 33 ++++++++++++
- arch/riscv/boot/install.sh                         | 60 ++++++++++++++++++++++
- arch/riscv/include/asm/module.h                    |  1 +
- arch/riscv/include/asm/uaccess.h                   |  4 +-
- arch/riscv/include/asm/unistd.h                    |  5 +-
- .../include/uapi/asm/{syscalls.h => unistd.h}      | 26 +++++++---
- arch/riscv/kernel/cpu.c                            |  9 ++--
- arch/riscv/kernel/head.S                           | 10 ++++
- arch/riscv/kernel/vmlinux.lds.S                    |  2 +-
- 11 files changed, 150 insertions(+), 17 deletions(-)
- create mode 100644 arch/riscv/boot/.gitignore
- create mode 100644 arch/riscv/boot/Makefile
- create mode 100644 arch/riscv/boot/install.sh
- rename arch/riscv/include/uapi/asm/{syscalls.h => unistd.h} (53%)
+Regards,
+Atish
