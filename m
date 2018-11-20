@@ -2,83 +2,77 @@ Return-Path: <SRS0=wErq=N7=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D7A0CC4161D
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 18:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 04475C46462
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 18:23:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 77D3820685
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 18:13:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C463120684
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 18:23:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="U8sIi3zp";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Xfoqh7T7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 77D3820685
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kqmAW9eS";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="SxnDDkEJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C463120684
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:Message-ID:To:From:Subject:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=Xah8RwK/xewWdGS7aQ8MapnvhVJZm4IWSAlVgfvbvrA=; b=U8s
-	Ii3zpQceXuPlpCtCLr0vFyq8y/zf585/Qs8zgACU63q+Uv0higFWCKKeM5hG2uJ+FHRpgd4AxetKc
-	JIN5+Q/GnDsjy3I1GE52mSg2lFNCpU5iPHGhfZypkbb94bn7LYeRa7co12gd8dNdvgm6hTLHb/INF
-	C7OLZeni/F47TTeS8AUD5is/eLxXVsskZpaTdhNrp+J81b5uigEGxaRpO+498FlqzZUK/u2cy9Gyx
-	iR57LUbJYbVMdJ8KB0F48TWyqvHrTIwXWK3nnLQnWRmZ5oD5GCUTaZa4gKJlDdNPYtZyOylXq5LQD
-	Arl0RjFMGYoST89koEi50MFiVJ6hx9A==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=eL6Irew8d6meaubM6i1RViGBen2ptDnmZGL3UrUr5nw=; b=kqmAW9eSYhZdPL/1a+ANONwry
+	rS2CwTyfpfG2PSNJtgmMaBkIa+3BpDAVPiu72YX+GoJZB6kRL80iPz+TsgqJ+55p+0ri5J7HnmMHu
+	flTUAm62wPk0M4k4NjsdTbWsdbRBjcccViM77yiqdiIQNQ/yWHSffSeMrF/hHcOYe1peiy9VaqrEd
+	dG9R+pRsQiAZkDuSgCf01FcFc9CcfzHFXvYE17LKx3qn4bmAmlN35d8m0Mz5deAAqFUAR4Yjvy+yr
+	7Y+SidKoDN59RfUFsOqPg/vEgvOVGmq20of6CjQ082zXr8WOYPknVlBJL1beITiimWIpxHNVnVl0b
+	HMLbIwHHA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gPAWW-00072y-IR; Tue, 20 Nov 2018 18:13:20 +0000
-Received: from mail-pl1-f196.google.com ([209.85.214.196])
+	id 1gPAgQ-0001q8-Ae; Tue, 20 Nov 2018 18:23:34 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gPAWS-0006rt-SH
- for linux-riscv@lists.infradead.org; Tue, 20 Nov 2018 18:13:18 +0000
-Received: by mail-pl1-f196.google.com with SMTP id t13so1456893ply.13
- for <linux-riscv@lists.infradead.org>; Tue, 20 Nov 2018 10:11:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:from:to:message-id;
- bh=/Fq2fZ3g4tO8cLi7l7ZQnzHDNqLRx8Ri8AeakBIke4Y=;
- b=Xfoqh7T7EZgUWy+Hy/5wzjZ2FNC9eBX9FQ+07qkV7Xks2fX1uCpvW28X9MgSoFjFCQ
- +sVY8YNdvPfUqcnv5DfQfRdF7h55c+dYJU4dYx6odvDtiMCp9qmAG+P55z9Y9glSZIys
- rgaRL5oo+6TzSesFQZM0ybW2gKGnbtUWxo3/7jKkSdNBkJl/FOb7ZxqrCUhWwpNDHZjy
- j+zNx7JvBKndg5QrN08xew4Ig4DJpixAhiiH446JM5r6zuudgovQdw8G/wJueSBmHCGu
- usYk/EJdDs5lSWcjGzGkuX+Gr9qbWFrjJvb392mZ40Fj0igQATzfj8y1izlFqgnRrJ6J
- Rcqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:from:to:message-id;
- bh=/Fq2fZ3g4tO8cLi7l7ZQnzHDNqLRx8Ri8AeakBIke4Y=;
- b=td0p2CTas4D7mGOVxpNe5bU2EW7IDWxGVZpWPaVq/5SCL5eh9ZE3XazO+Nm4FhNOeq
- rvwQzQR37MlycVnFqS6OnSQK59JdaEgHqfBykQG+abIBQFS+EAxStdRvOTP1evOy9oqv
- 4Q628lRzUoc+Klohc+Wi2v4XHEEM7DGGTy+5gXVSAo7sdp0OkN0asTsNbgirl2DdGh9Y
- zR0vauo7lniFxuKnuBr7DboxqfMD2cTvSGhROtWurc5dGN0wOfbYRJo5KFh71p1Kg/Zp
- +7k+9iPnv4j2xRsOYb7PqGaItK4QQxmoWsla9O40MmJEjgfQnKBbBY2TR7Fl4L+L1VV1
- +VQA==
-X-Gm-Message-State: AGRZ1gJBiVkcqQMsNRwC6AeuqLt14y2mvhksLlslYuyJWcCz9/2t8a7n
- 5rq3XrB/zg7BZaYvBAoFmBS1TMhKHag=
-X-Google-Smtp-Source: AJdET5fTNTngQs/+5oy2HLA+uyo/HohekStOLRplO4cFmuDMl8iii2JoDgaL2S6McrS20GHUwGB4Yw==
-X-Received: by 2002:a62:42d4:: with SMTP id h81mr3198051pfd.259.1542737405094; 
- Tue, 20 Nov 2018 10:10:05 -0800 (PST)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id k129sm51840213pgk.29.2018.11.20.10.10.03
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 20 Nov 2018 10:10:04 -0800 (PST)
-Date: Tue, 20 Nov 2018 10:10:04 -0800 (PST)
-X-Google-Original-Date: Tue, 20 Nov 2018 10:06:41 PST (-0800)
-Subject: [PULL RFC] RISC-V Patches for 4.20-rc4
-From: Palmer Dabbelt <palmer@sifive.com>
-To: linux-riscv@lists.infradead.org
-Message-ID: <mhng-c4f4aebd-afe6-42f8-a2e0-a0c6ff3dc001@palmer-si-x1c4>
+ id 1gPAgM-0001ok-So
+ for linux-riscv@lists.infradead.org; Tue, 20 Nov 2018 18:23:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1542738212; x=1574274212;
+ h=subject:to:references:from:message-id:date:mime-version:
+ in-reply-to:content-transfer-encoding;
+ bh=o9Ly71lAr+EGKbfDA2D/2K8CEGUQSVMePF2krACBSIM=;
+ b=SxnDDkEJIMWGDRYCzkZMjcrX6wC/PbUxAA+AMd8v11RyfNXXsrWYjhhr
+ UUvEHsfTCw4gKU0uI8d513M2+Ct4zkTwCpT1Ey6XjFzPlFNPmLNdPgqk9
+ G4KAKVR5EwR//8Rak8LSb+mxg9lp/UeBiE7rWuIm9yfuuYGhJs4Vb7txt
+ jU489kppOTJu1W1ntzjLUNb/0BT9fC9Vmm0IS+G422sov8EMiTaYnenmM
+ eA6JWvVCrXyGzbxg4mXgwqdwUKG0IVmDlt85AnWj5xcqSjCUmqpnPWmDN
+ dUUAJGNySXuDpb0Pk2Da2ezgGViFpiqJ9irlrNIB3ggDDGCqdET5K5Rt/ w==;
+X-IronPort-AV: E=Sophos;i="5.56,258,1539619200"; d="scan'208";a="95896101"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 21 Nov 2018 02:23:20 +0800
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep02.wdc.com with ESMTP; 20 Nov 2018 10:06:34 -0800
+Received: from cnf003109.ad.shared (HELO [10.86.54.248]) ([10.86.54.248])
+ by uls-op-cesaip02.wdc.com with ESMTP; 20 Nov 2018 10:23:19 -0800
+Subject: Re: RISC-V Patchwork
+To: Palmer Dabbelt <palmer@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+References: <mhng-f1f11265-f6fe-4284-8dc0-a28ac937fdb4@palmer-si-x1c4>
+From: Atish Patra <atish.patra@wdc.com>
+Message-ID: <7b7de9a4-42f7-59d2-c952-bbc5ec023e56@wdc.com>
+Date: Tue, 20 Nov 2018 10:23:18 -0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0)
+ Gecko/20100101 Thunderbird/60.3.0
+MIME-Version: 1.0
+In-Reply-To: <mhng-f1f11265-f6fe-4284-8dc0-a28ac937fdb4@palmer-si-x1c4>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181120_101316_979164_5012F089 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20181120_102330_965178_C9FA56C7 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,86 +84,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============1014266635812450242=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181120181004.4Ds5sejlgUtbG4WQK6wYwSUxtQQzB478cOAXkQuEOXo@z>
+Message-ID: <20181120182318.EktLX7hSAHWf1_QjYPLnagM8ApG6eDNIRA14PcBIYeI@z>
 
---===============1014266635812450242==
-Content-Type: text/plain
+On 11/20/18 8:21 AM, Palmer Dabbelt wrote:
+> Atish tracked down the documentation for creating a patchwork, which now lives
+> here
+> 
+>      https://patchwork.kernel.org/project/linux-riscv/list/
+> 
+> I have no idea how to use it, so we can all learn together :)
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+Awesome. I think you can change the status of the patch from a dropdown 
+box, after you logged in with your patchwork id. The available options 
+looks pretty much self explanatory unless there is a hidden meaning to 
+it ;) ;). As a contributor, we can take a look at the patchwork to for 
+the status of the patch. No need of email replies :).
 
-The following changes since commit 9ff01193a20d391e8dbce4403dd5ef87c7eaaca6:
+pwclient was helpful in applying the patches directly in case lkml was 
+not cc'd on the patch.
 
-  Linux 4.20-rc3 (2018-11-18 13:33:44 -0800)
+https://patchwork.kernel.org/project/linux-riscv/
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-4.20-rc4
-
-for you to fetch changes up to 5d8f81ba1da55210123b9595e87b913c79579d02:
-
-  RISC-V: recognize S/U mode bits in print_isa (2018-11-20 05:19:28 -0800)
-
-----------------------------------------------------------------
-RISC-V Patches for 4.20-rc4
-
-This week is a bit bigger than I expected.  That's my fault, as I missed
-a few patches while I was at Plumbers last week.  We have:
-
-* A fix to a quite embarassing issue where raw_copy_to_user() was
-  implemented with asm_copy_from_user() (and vice versa).
-* Improvements to our makefile to allow flat binaries to be generated.
-* A build fix that predeclares "struct module" at the top of
-  <asm/module.h>, which triggers warnings later in that header.
-* The addition of our own <uapi/asm/unistd> header, which is necessary
-  to align our stat ABI on 32-bit systems.
-* A fix to avoid printing a warning when the S or U bits are set in
-  print_isa().
-
-I already have one patch in the queue for next week.
-
-----------------------------------------------------------------
-Anup Patel (1):
-      RISC-V: Build flat and compressed kernel images
-
-David Abdurachmanov (2):
-      riscv: fix warning in arch/riscv/include/asm/module.h
-      riscv: add asm/unistd.h UAPI header
-
-Olof Johansson (1):
-      RISC-V: Fix raw_copy_{to,from}_user()
-
-Patrick Stählin (1):
-      RISC-V: recognize S/U mode bits in print_isa
-
- arch/riscv/Makefile                                | 15 +++++-
- arch/riscv/boot/.gitignore                         |  2 +
- arch/riscv/boot/Makefile                           | 33 ++++++++++++
- arch/riscv/boot/install.sh                         | 60 ++++++++++++++++++++++
- arch/riscv/include/asm/module.h                    |  1 +
- arch/riscv/include/asm/uaccess.h                   |  4 +-
- arch/riscv/include/asm/unistd.h                    |  5 +-
- .../include/uapi/asm/{syscalls.h => unistd.h}      | 26 +++++++---
- arch/riscv/kernel/cpu.c                            |  9 ++--
- arch/riscv/kernel/head.S                           | 10 ++++
- arch/riscv/kernel/vmlinux.lds.S                    |  2 +-
- 11 files changed, 150 insertions(+), 17 deletions(-)
- create mode 100644 arch/riscv/boot/.gitignore
- create mode 100644 arch/riscv/boot/Makefile
- create mode 100644 arch/riscv/boot/install.sh
- rename arch/riscv/include/uapi/asm/{syscalls.h => unistd.h} (53%)
+There is git-pw also. However, I could not get it to working for 
+linux-riscv.
 
 
---===============1014266635812450242==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1014266635812450242==--
