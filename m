@@ -1,68 +1,56 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 19 Nov 2018 15:46:37 -0800 (PST)
-Subject: Kernel panic - not syncing: corrupted stack end detected inside
- scheduler
-In-Reply-To: <mvmo9alb9b1.fsf@suse.de>
-Message-ID: <mhng-ce3ee330-9ac5-41c3-9890-ee9d6dabe105@palmer-si-x1c4>
+From: ldv@altlinux.org (Dmitry V. Levin)
+Date: Tue, 20 Nov 2018 03:11:29 +0300
+Subject: [PATCH v2 00/15] Prepare for PTRACE_GET_SYSCALL_INFO
+In-Reply-To: <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
+References: <20181107042751.3b519062@akathisia>
+ <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
+Message-ID: <20181120001128.GA11300@altlinux.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Mon, 19 Nov 2018 03:23:14 PST (-0800), schwab at suse.de wrote:
-> Could this be a stack overflow?
+syscall_get_arch() is required to be implemented on all architectures
+in order to extend the generic ptrace API with PTRACE_GET_SYSCALL_INFO
+request.
 
-Yes.
+The primary intent is that the triple (audit_arch, syscall_nr, arg1..arg6)
+should describe what system call is being called and what its arguments are.
 
-> [ 2427.690000] Kernel panic - not syncing: corrupted stack end detected inside scheduler
-> [ 2427.690000]
-> [ 2427.690000] CPU: 1 PID: 3540 Comm: kworker/u8:2 Not tainted 4.19.0-00014-g978b77fe75 #6
-> [ 2427.690000] Workqueue: writeback wb_workfn (flush-179:0)
-> [ 2427.690000] Call Trace:
-> [ 2427.690000] [<ffffffe000c867d4>] walk_stackframe+0x0/0xa4
-> [ 2427.690000] [<ffffffe000c869d4>] show_stack+0x2a/0x34
-> [ 2427.690000] [<ffffffe0011a8800>] dump_stack+0x62/0x7c
-> [ 2427.690000] [<ffffffe000c8b542>] panic+0xd2/0x1f0
-> [ 2427.690000] [<ffffffe0011bb25c>] schedule+0x0/0x58
-> [ 2427.690000] [<ffffffe0011bb470>] preempt_schedule_common+0xe/0x1e
-> [ 2427.690000] [<ffffffe0011bb4b4>] _cond_resched+0x34/0x40
-> [ 2427.690000] [<ffffffe001025694>] __spi_pump_messages+0x29e/0x40e
-> [ 2427.690000] [<ffffffe001025986>] __spi_sync+0x168/0x16a
-> [ 2427.690000] [<ffffffe001025b86>] spi_sync_locked+0xc/0x14
-> [ 2427.690000] [<ffffffe001077e8e>] mmc_spi_data_do.isra.2+0x568/0xa7c
-> [ 2427.690000] [<ffffffe0010783fa>] mmc_spi_request+0x58/0xc6
-> [ 2427.690000] [<ffffffe001068bbe>] __mmc_start_request+0x4e/0xe2
-> [ 2427.690000] [<ffffffe001069902>] mmc_start_request+0x78/0xa4
-> [ 2427.690000] [<ffffffd008307394>] mmc_blk_mq_issue_rq+0x21e/0x64e [mmc_block]
-> [ 2427.690000] [<ffffffd008307b46>] mmc_mq_queue_rq+0x11a/0x1f0 [mmc_block]
-> [ 2427.690000] [<ffffffe000ebbf60>] __blk_mq_try_issue_directly+0xca/0x146
-> [ 2427.690000] [<ffffffe000ebca2c>] blk_mq_request_issue_directly+0x42/0x92
-> [ 2427.690000] [<ffffffe000ebcaac>] blk_mq_try_issue_list_directly+0x30/0x6e
-> [ 2427.690000] [<ffffffe000ebfdc2>] blk_mq_sched_insert_requests+0x56/0x80
-> [ 2427.690000] [<ffffffe000ebc9da>] blk_mq_flush_plug_list+0xd6/0xe6
-> [ 2427.690000] [<ffffffe000eb3498>] blk_flush_plug_list+0x9e/0x17c
-> [ 2427.690000] [<ffffffe000ebc2f8>] blk_mq_make_request+0x282/0x2d8
-> [ 2427.690000] [<ffffffe000eb1d02>] generic_make_request+0xee/0x27a
-> [ 2427.690000] [<ffffffe000eb1f6e>] submit_bio+0xe0/0x136
-> [ 2427.690000] [<ffffffe000db10da>] submit_bh_wbc+0x130/0x176
-> [ 2427.690000] [<ffffffe000db12c6>] __block_write_full_page+0x1a6/0x3a8
-> [ 2427.690000] [<ffffffe000db167c>] block_write_full_page+0xce/0xe0
-> [ 2427.690000] [<ffffffe000db40f0>] blkdev_writepage+0x16/0x1e
-> [ 2427.690000] [<ffffffe000d3c7ca>] __writepage+0x14/0x4c
-> [ 2427.690000] [<ffffffe000d3d142>] write_cache_pages+0x15c/0x306
-> [ 2427.690000] [<ffffffe000d3e8a4>] generic_writepages+0x36/0x52
-> [ 2427.690000] [<ffffffe000db40b4>] blkdev_writepages+0xc/0x14
-> [ 2427.690000] [<ffffffe000d3f0ec>] do_writepages+0x36/0xa6
-> [ 2427.690000] [<ffffffe000da96ca>] __writeback_single_inode+0x2e/0x174
-> [ 2427.690000] [<ffffffe000da9c08>] writeback_sb_inodes+0x1ac/0x33e
-> [ 2427.690000] [<ffffffe000da9dea>] __writeback_inodes_wb+0x50/0x96
-> [ 2427.690000] [<ffffffe000daa052>] wb_writeback+0x182/0x186
-> [ 2427.690000] [<ffffffe000daa67c>] wb_workfn+0x242/0x270
-> [ 2427.690000] [<ffffffe000c9bb08>] process_one_work+0x16e/0x2ee
-> [ 2427.690000] [<ffffffe000c9bcde>] worker_thread+0x56/0x42a
-> [ 2427.690000] [<ffffffe000ca0bdc>] kthread+0xda/0xe8
-> [ 2427.690000] [<ffffffe000c85730>] ret_from_exception+0x0/0xc
 
-It smells like the issue is somewhere in the SPI driver, which is known to be 
-buggy.  I don't see anything specific to indicate this is a stack overflow in 
-this stack trace (the stack stuff above panic is just part of the printing).
+Dmitry V. Levin (15):
+  Move EM_HEXAGON to uapi/linux/elf-em.h
+  Move EM_ARCOMPACT and EM_ARCV2 to uapi/linux/elf-em.h
+  Move EM_UNICORE to uapi/linux/elf-em.h
+  elf-em.h: add EM_NDS32
+  elf-em.h: add EM_XTENSA
+  m68k: define syscall_get_arch()
+  arc: define syscall_get_arch()
+  c6x: define syscall_get_arch()
+  h8300: define syscall_get_arch()
+  hexagon: define syscall_get_arch()
+  nds32: define syscall_get_arch()
+  nios2: define syscall_get_arch()
+  riscv: define syscall_get_arch()
+  unicore32: define syscall_get_arch()
+  xtensa: define syscall_get_arch()
 
-Sorry I can't be more specific.  Does this require hardware to manifest?
+ arch/arc/include/asm/elf.h           |  6 +-----
+ arch/arc/include/asm/syscall.h       | 10 ++++++++++
+ arch/c6x/include/asm/syscall.h       |  7 +++++++
+ arch/h8300/include/asm/syscall.h     |  5 +++++
+ arch/hexagon/include/asm/elf.h       |  6 +-----
+ arch/hexagon/include/asm/syscall.h   |  8 ++++++++
+ arch/m68k/include/asm/syscall.h      | 12 ++++++++++++
+ arch/nds32/include/asm/syscall.h     |  8 ++++++++
+ arch/nios2/include/asm/syscall.h     |  6 ++++++
+ arch/riscv/include/asm/syscall.h     | 10 ++++++++++
+ arch/unicore32/include/asm/elf.h     |  3 +--
+ arch/unicore32/include/asm/syscall.h | 12 ++++++++++++
+ arch/xtensa/include/asm/syscall.h    |  7 +++++++
+ include/uapi/linux/audit.h           | 15 +++++++++++++++
+ include/uapi/linux/elf-em.h          |  7 +++++++
+ 15 files changed, 110 insertions(+), 12 deletions(-)
+ create mode 100644 arch/m68k/include/asm/syscall.h
+ create mode 100644 arch/unicore32/include/asm/syscall.h
+
+-- 
+ldv
