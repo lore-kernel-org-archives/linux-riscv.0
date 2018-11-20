@@ -1,32 +1,41 @@
-From: schwab@suse.de (Andreas Schwab)
-Date: Tue, 20 Nov 2018 12:39:51 +0100
-Subject: [PATCH net-next v3 1/6] net: phy: mscc: migrate to
- phy_select/restore_page functions
-In-Reply-To: <20181119161204.GC2393@lunn.ch> (Andrew Lunn's message of "Mon,
- 19 Nov 2018 17:12:04 +0100")
+From: quentin.schulz@bootlin.com (Quentin Schulz)
+Date: Tue, 20 Nov 2018 14:55:08 +0100
+Subject: [PATCH] net: phy: mscc: fix locking in vsc85xx_default_config
+In-Reply-To: <mvma7m3n9l6.fsf_-_@suse.de>
 References: <20181008100728.24959-1-quentin.schulz@bootlin.com>
  <20181008100728.24959-2-quentin.schulz@bootlin.com>
- <mvm8t1pazea.fsf@suse.de> <20181119151057.GC26852@lunn.ch>
- <mvm4lcdaynt.fsf@suse.de> <20181119152830.GE26852@lunn.ch>
- <20181119154005.GA8367@piout.net> <mvmzhu59idl.fsf@suse.de>
- <20181119161204.GC2393@lunn.ch>
-Message-ID: <mvmefbgm0zc.fsf@suse.de>
+ <mvm8t1pazea.fsf@suse.de> <mvma7m3n9l6.fsf_-_@suse.de>
+Message-ID: <20181120135508.paxzs63cqy2llc7d@qschulz>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Nov 19 2018, Andrew Lunn <andrew@lunn.ch> wrote:
+Hi Andreas,
 
-> I still don't see why that would cause a hang.
+On Tue, Nov 20, 2018 at 02:48:37PM +0100, Andreas Schwab wrote:
+> Don't use locking phy_read/phy_write functions while inside
+> phy_select_patch/phy_restore_page region.
+> 
+> Fixes: 6a0bfbbe20 ("net: phy: mscc: migrate to phy_select/restore_page functions")
+> Signed-off-by: Andreas Schwab <schwab@suse.de>
 
-[  996.370000] [<ffffffe0011d7324>] mutex_lock+0x22/0x2a
-[  996.380000] [<ffffffe001039ba0>] mdiobus_read+0x36/0x60
-[  996.380000] [<ffffffe00103b82c>] vsc85xx_config_init+0x4c/0x1e2
+Have you tested this patch? Does it solve your issue?
 
-vsc85xx_config_init is calling mdiobus_read while holding the mdio_lock.
+Reviewed-by: Quentin Schulz <quentin.schulz@bootlin.com>
+anyway since it's to be done.
 
-Andreas.
+You need to send your patch as a mail separate to this patch series.
+You also need to prefix your patch with [PATCH net-next] instead of only
+[PATCH]. This is specific to the net subsystem.
 
--- 
-Andreas Schwab, SUSE Labs, schwab at suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+Use scripts/get_maintainer.pl on your patch to get the people to put in
+Cc and in To.
+
+Thanks,
+Quentin
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: not available
+URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20181120/eae2d892/attachment.sig>
