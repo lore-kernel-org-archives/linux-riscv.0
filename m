@@ -2,21 +2,22 @@ Return-Path: <SRS0=wErq=N7=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1621DC41536
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 16:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 622B3C41536
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 16:05:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DEFED206BA
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 16:02:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CFE6420851
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Nov 2018 16:05:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Gefmn5e8";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="WvNsmnGb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DEFED206BA
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cISaKW7Z";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="KiSi9Hzu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CFE6420851
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,56 +26,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
 	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hxhSTrjEriGE0RYDg52qexEIJ6y81ACEVLFsy40yO4Y=; b=Gefmn5e8X4RYYm
-	3rA149VxNBWx4p3iziR34u2ZLQvzlSYCyjVr7BlNdSN+i5xx3NUBIoYNu4Cl2F9Gs6mqSZsOKRf/+
-	UeReYsKu7IWJCO3SkrwWm0hjuT4RJSo6KrdLrQPsujn1txdklCdwhpcHCOIABRfhk5KWWMAv+NdHN
-	rhSWAwA8mEIJsgB8K1sN9mXy7LzUAvLjF7qqMk1Ud7ViqrfHKOoF4xH7jQyPNBrLymeCkjIL/3Zpa
-	44tYNViDXe+ZYdpLWVguwLV3dSuirdL7LpbdTr1fAzBLceisbmRTIZRLX5t4Q6AczJMXsAmE3Kkkv
-	W1hK9ix5rUsxrl8ba+Vw==;
+	List-Owner; bh=P5gH36qNYhm6pVfN0PjvBC5X+XWtKt7b05H/e7ghdks=; b=cISaKW7ZvO3Ba1
+	F5SDcasIlwUx0PKF0HdP/d9eQxx0HqTJSykmcvI0LcjRcqrDEvZHRtF029tUEVCS4e2CV0vs9YDJ0
+	nwuEuhdN9e8oiv8Gcpmia0Ggqcr8hZOi8a6S+w1G5F69b7iC+CUyshJQl782v5Hlzz2ADSdVAILOj
+	aBtja4fAY7MxplJSuqyKHeIkxV4FiowjvGOZOnYnzs8hXnWO0zreYrxZ3/XYgHl58ugvQGH35RPOh
+	vFn2J8/XoAZBcRQO+loJlldCKFYhQfL/eUU3VmEhk6A7n9Xf1ItPQUo9PlRPz8yZJ3GuYdmHeukAY
+	9b2n3jvxDxBK1U7NGcmw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gP8UB-000848-Vt; Tue, 20 Nov 2018 16:02:47 +0000
+	id 1gP8Ui-0000Fh-15; Tue, 20 Nov 2018 16:03:20 +0000
 Received: from merlin.infradead.org ([205.233.59.134])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gP8HC-0003nl-KU
- for linux-riscv@bombadil.infradead.org; Tue, 20 Nov 2018 15:49:22 +0000
+ id 1gP8G0-0003nl-Qr
+ for linux-riscv@bombadil.infradead.org; Tue, 20 Nov 2018 15:48:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=merlin.20170209; h=Content-Type:MIME-Version:Message-ID:
  In-Reply-To:Date:References:Subject:Cc:To:From:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
  Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
  List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=74q9uDQjAXYHXuBE1tgXhgtKwry9hENawp5LvfrG424=; b=WvNsmnGbZLZNw3kRHlbdxD9rE
- IoaVIulBBYjfmivazhS0+E4GPFtotIc9tyaFyQXq1e9ZE7lnuvRRgsTUOSdj5Avq89vUlfkanne5M
- t8NWZsxxVi8p9ehy1mQgqqMIbuvN9v/iV2DBRBASJsuzBlT6WfRNDOM51lZPISpfBMkD+jRYiQjA8
- I7gCVHiZQ6c4WuyPUsg5B0ppuqXt+GCMBp2uLj4n9qbgUlUhnjbWZE2cKCeHF3qQoCNqLqjA+3QfT
- yPf+xJvW6YAZnHlXovNVvAXRprwh3vRYQ5GFqwPdSk+nKm7ztmJKV6qxtHEdyPmXJrVMUtz87VS5p
- jV/DH2ekw==;
+ bh=2aDgQmmAki+1b6QuHGOOpLmZzJGNea2i3A2I+I8X+Ss=; b=KiSi9HzuD1flTNAkfQF8XoNR0
+ cTrDmy89W2MzDACixSjbvKlPO9fSCrZe0dhrFRAL0ks5vuwt0NpcpjO1X2Kw0nhHV7OcWh30jwrzF
+ XaoVFi5zN5R3NFtoZIQ/suqnPe3YD9pSIdiwiYgQlI2aVthMocAmNvZ+ajn0H6cf5uGqPhMo4PRY8
+ mo+ZDQo/qkyBBPT3A4NFHefydhqKsQ6Ytyop5LUFqZ3WQ9zl2yFnNP10q5NqaxFq3ROx0xoAzQzC1
+ xA0mXRxSwt7cBHEXX2Uu7VLCxY+cRvF+0Hc3/wzL2Q77vb9X5ISaQD7d0BxJve4Wh2NK5Um0rjBbx
+ GY0YPiBzw==;
 Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by merlin.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gP1mB-0005VM-Ud
- for linux-riscv@lists.infradead.org; Tue, 20 Nov 2018 08:52:57 +0000
+ id 1gP6OY-0008Bz-Rw
+ for linux-riscv@lists.infradead.org; Tue, 20 Nov 2018 13:48:51 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 74397AE56;
- Tue, 20 Nov 2018 08:52:43 +0000 (UTC)
+Received: from relay1.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id 6FACDAFE5;
+ Tue, 20 Nov 2018 13:48:38 +0000 (UTC)
 From: Andreas Schwab <schwab@suse.de>
-To: Palmer Dabbelt <palmer@sifive.com>
-Subject: Re: Kernel panic - not syncing: corrupted stack end detected inside
- scheduler
-References: <mhng-ce3ee330-9ac5-41c3-9890-ee9d6dabe105@palmer-si-x1c4>
-X-Yow: Yow! Now I get to think about all the BAD THINGS I did to a BOWLING BALL
- when I was in JUNIOR HIGH SCHOOL!
-Date: Tue, 20 Nov 2018 09:52:42 +0100
-In-Reply-To: <mhng-ce3ee330-9ac5-41c3-9890-ee9d6dabe105@palmer-si-x1c4>
- (Palmer Dabbelt's message of "Mon, 19 Nov 2018 15:46:37 -0800 (PST)")
-Message-ID: <mvmftvw9llx.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1 (gnu/linux)
+To: Quentin Schulz <quentin.schulz@bootlin.com>
+Subject: [PATCH] net: phy: mscc: fix locking in vsc85xx_default_config
+References: <20181008100728.24959-1-quentin.schulz@bootlin.com>
+ <20181008100728.24959-2-quentin.schulz@bootlin.com>
+ <mvm8t1pazea.fsf@suse.de>
+X-Yow: Did you GAIN WEIGHT in th' past 5 MINUTES or am I just DREAMING of two
+ BROCCOLI FLORETS lying in an empty GAS TANK?
+Date: Tue, 20 Nov 2018 14:48:37 +0100
+In-Reply-To: <mvm8t1pazea.fsf@suse.de> (Andreas Schwab's message of "Mon, 19
+ Nov 2018 15:57:17 +0100")
+Message-ID: <mvma7m3n9l6.fsf_-_@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.90 (gnu/linux)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181120_035256_138930_DE6B1465 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181120_084851_030825_7C2C990A 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -86,20 +87,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org
+Cc: andrew@lunn.ch, alexandre.belloni@bootlin.com, f.fainelli@gmail.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ allan.nielsen@microchip.com, thomas.petazzoni@bootlin.com,
+ linux-riscv@lists.infradead.org, davem@davemloft.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181120085242.IE1n8ZdwIkEDlUMrjqVXswKqGX0Fz74eABbvwnfGaTI@z>
+Message-ID: <20181120134837.pgkuQLwBDO4kPfnAnseaTtwTP-DQKbjbDA-H8-UJ74w@z>
 
-On Nov 19 2018, Palmer Dabbelt <palmer@sifive.com> wrote:
+Don't use locking phy_read/phy_write functions while inside
+phy_select_patch/phy_restore_page region.
 
-> Sorry I can't be more specific.  Does this require hardware to manifest?
+Fixes: 6a0bfbbe20 ("net: phy: mscc: migrate to phy_select/restore_page functions")
+Signed-off-by: Andreas Schwab <schwab@suse.de>
+---
+ drivers/net/phy/mscc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-This was on the hifive.
+diff --git a/drivers/net/phy/mscc.c b/drivers/net/phy/mscc.c
+index a2e59f4f6f..a398ab9410 100644
+--- a/drivers/net/phy/mscc.c
++++ b/drivers/net/phy/mscc.c
+@@ -814,10 +814,10 @@ static int vsc85xx_default_config(struct phy_device *phydev)
+ 	if (rc < 0)
+ 		goto out_unlock;
+ 
+-	reg_val = phy_read(phydev, MSCC_PHY_RGMII_CNTL);
++	reg_val = __phy_read(phydev, MSCC_PHY_RGMII_CNTL);
+ 	reg_val &= ~(RGMII_RX_CLK_DELAY_MASK);
+ 	reg_val |= (RGMII_RX_CLK_DELAY_1_1_NS << RGMII_RX_CLK_DELAY_POS);
+-	phy_write(phydev, MSCC_PHY_RGMII_CNTL, reg_val);
++	__phy_write(phydev, MSCC_PHY_RGMII_CNTL, reg_val);
+ 
+ out_unlock:
+ 	rc = phy_restore_page(phydev, rc, rc > 0 ? 0 : rc);
+-- 
+2.19.1
 
-Andreas.
 
 -- 
 Andreas Schwab, SUSE Labs, schwab@suse.de
