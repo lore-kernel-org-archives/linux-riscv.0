@@ -1,59 +1,36 @@
-From: quentin.schulz@bootlin.com (Quentin Schulz)
-Date: Tue, 20 Nov 2018 14:20:58 +0100
-Subject: [PATCH net-next v3 1/6] net: phy: mscc: migrate to
- phy_select/restore_page functions
-In-Reply-To: <mvmefbgm0zc.fsf@suse.de>
-References: <20181008100728.24959-1-quentin.schulz@bootlin.com>
- <20181008100728.24959-2-quentin.schulz@bootlin.com>
- <mvm8t1pazea.fsf@suse.de> <20181119151057.GC26852@lunn.ch>
- <mvm4lcdaynt.fsf@suse.de> <20181119152830.GE26852@lunn.ch>
- <20181119154005.GA8367@piout.net> <mvmzhu59idl.fsf@suse.de>
- <20181119161204.GC2393@lunn.ch> <mvmefbgm0zc.fsf@suse.de>
-Message-ID: <20181120132058.l3g37jpmac7ltclt@qschulz>
+From: sudeep.holla@arm.com (Sudeep Holla)
+Date: Tue, 20 Nov 2018 11:11:46 +0000
+Subject: [RFC 0/3] Unify CPU topology across ARM64 & RISC-V
+In-Reply-To: <07d92dd4-f943-47ee-e168-46bfaf4ed755@codeaurora.org>
+References: <1541728209-3224-1-git-send-email-atish.patra@wdc.com>
+ <07d92dd4-f943-47ee-e168-46bfaf4ed755@codeaurora.org>
+Message-ID: <20181120111146.GA6497@e107155-lin>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Andreas,
+On Thu, Nov 15, 2018 at 11:31:33AM -0700, Jeffrey Hugo wrote:
 
-On Tue, Nov 20, 2018 at 12:39:51PM +0100, Andreas Schwab wrote:
-> On Nov 19 2018, Andrew Lunn <andrew@lunn.ch> wrote:
-> 
-> > I still don't see why that would cause a hang.
-> 
-> [  996.370000] [<ffffffe0011d7324>] mutex_lock+0x22/0x2a
-> [  996.380000] [<ffffffe001039ba0>] mdiobus_read+0x36/0x60
-> [  996.380000] [<ffffffe00103b82c>] vsc85xx_config_init+0x4c/0x1e2
-> 
-> vsc85xx_config_init is calling mdiobus_read while holding the mdio_lock.
-> 
+[...]
 
-Thanks for reporting the bug. However, it could be nice the next time
-you report a bug to give as much info as you can, such as the device
-you're using. Architecture of your platform (or the board itself if it's
-a DT in the Linux kernel), the MAC and the PHY IPs (the Microsemi PHY
-driver now supports 6 different PHYs that do not work the same way so I
-can't guess the one you're using), they all matter and help to
-understand your bug. Also, if you could give a full bootlog of the
-kernel and how it's possible to reproduce your issue (.config of your
-kernel, on which commit on which branch you built your kernel).
-Otherwise, you might not have any answer or considerably slow down the
-bug identifying and fixing processes, which is annoying to you,
-the users, the developers and the maintainers: a lot of upset people :)
+>
+> I was interested in testing these on QDF2400, an ARM64 platform, since this
+> series touches core ARM64 code and I'd hate to see a regression. However, I
+> can't figure out what baseline to use to apply these. Different patches
+> cause different conflicts of a variety of baselines I attempted.
+>
 
-Could you try something please? I'm pretty sure I found an issue (I
-don't know if it's fixing your issue or not, but it might be).
+Good to know that we can test DT configuration on QDF2400. I always assumed
+it's ACPI only.
 
-Please replace in vsc85xx_default_config() the phy_read and phy_write by
-respectively __phy_read and __phy_write (note the __ in front).
+> What are these intended to apply to?
+>
 
-Let me know if you need help with this.
+The series alone may not get the package/socket ids correct on QDF2400.
+I have not yet added support for the same as I wanted to get the initial
+feedback on DT bindings. The movement of DT binding and corresponding
+code should not regress and you should be able to validate only that
+part.
 
-Thanks,
-Quentin
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: signature.asc
-Type: application/pgp-signature
-Size: 833 bytes
-Desc: not available
-URL: <http://lists.infradead.org/pipermail/linux-riscv/attachments/20181120/305099c4/attachment.sig>
+--
+Regards,
+Sudeep
