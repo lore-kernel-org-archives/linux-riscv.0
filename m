@@ -1,30 +1,23 @@
 From: palmer@sifive.com (Palmer Dabbelt)
-Date: Tue, 20 Nov 2018 09:29:50 -0800 (PST)
-Subject: [PATCH] RISC-V: add of_node_put()
-In-Reply-To: <20181120141102.20534-1-tiny.windzz@gmail.com>
-Message-ID: <mhng-f6900077-f39d-46e8-8fce-e5f7af872ced@palmer-si-x1c4>
+Date: Tue, 20 Nov 2018 09:29:48 -0800 (PST)
+Subject: Kernel panic - not syncing: corrupted stack end detected inside
+ scheduler
+In-Reply-To: <mvmftvw9llx.fsf@suse.de>
+Message-ID: <mhng-a200fe90-01a6-444d-9f76-0b00c22249e8@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Tue, 20 Nov 2018 06:11:02 PST (-0800), tiny.windzz at gmail.com wrote:
-> use of_node_put() to release the refcount.
+On Tue, 20 Nov 2018 00:52:42 PST (-0800), schwab at suse.de wrote:
+> On Nov 19 2018, Palmer Dabbelt <palmer@sifive.com> wrote:
 >
-> Signed-off-by: Yangtao Li <tiny.windzz@gmail.com>
-> ---
->  arch/riscv/kernel/time.c | 1 +
->  1 file changed, 1 insertion(+)
+>> Sorry I can't be more specific.  Does this require hardware to manifest?
 >
-> diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
-> index 1911c8f6b8a6..40470e669a35 100644
-> --- a/arch/riscv/kernel/time.c
-> +++ b/arch/riscv/kernel/time.c
-> @@ -26,6 +26,7 @@ void __init time_init(void)
->  	cpu = of_find_node_by_path("/cpus");
->  	if (!cpu || of_property_read_u32(cpu, "timebase-frequency", &prop))
->  		panic(KERN_WARNING "RISC-V system with no 'timebase-frequency' in DTS\n");
-> +	of_node_put(cpu);
->  	riscv_timebase = prop;
->
->  	lpj_fine = riscv_timebase / HZ;
+> This was on the hifive.
 
-Thanks.  I'm going to target this for next week's PR.
+OK, well, we know there are at least some issues when using an SD card via the 
+SPI interface as a disk, but nobody has had time to track it down yet.  Right 
+now the only reproducer is to just write a lot of data, which is a pain to 
+debug.  The current issue manifests as a hang in some kernel thread that has a 
+MMC-like name.  What you're seeing may be the same or a different issue.
+
+Do you have a better way to reproduce this than to just hammer the filesystem?
