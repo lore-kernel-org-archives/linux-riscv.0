@@ -1,39 +1,66 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Tue, 20 Nov 2018 10:23:18 -0800
-Subject: RISC-V Patchwork
-In-Reply-To: <mhng-f1f11265-f6fe-4284-8dc0-a28ac937fdb4@palmer-si-x1c4>
-References: <mhng-f1f11265-f6fe-4284-8dc0-a28ac937fdb4@palmer-si-x1c4>
-Message-ID: <7b7de9a4-42f7-59d2-c952-bbc5ec023e56@wdc.com>
+From: paul@paul-moore.com (Paul Moore)
+Date: Tue, 20 Nov 2018 15:26:53 -0500
+Subject: [PATCH v2 00/15] Prepare for PTRACE_GET_SYSCALL_INFO
+In-Reply-To: <20181120001128.GA11300@altlinux.org>
+References: <20181107042751.3b519062@akathisia>
+ <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
+ <20181120001128.GA11300@altlinux.org>
+Message-ID: <CAHC9VhQDs8cMuR4PXDB2VZ9TEtDydyBF_EqBGvjML+NN8+2LNw@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 11/20/18 8:21 AM, Palmer Dabbelt wrote:
-> Atish tracked down the documentation for creating a patchwork, which now lives
-> here
-> 
->      https://patchwork.kernel.org/project/linux-riscv/list/
-> 
-> I have no idea how to use it, so we can all learn together :)
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv at lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
-Awesome. I think you can change the status of the patch from a dropdown 
-box, after you logged in with your patchwork id. The available options 
-looks pretty much self explanatory unless there is a hidden meaning to 
-it ;) ;). As a contributor, we can take a look at the patchwork to for 
-the status of the patch. No need of email replies :).
+On Mon, Nov 19, 2018 at 7:11 PM Dmitry V. Levin <ldv@altlinux.org> wrote:
+>
+> syscall_get_arch() is required to be implemented on all architectures
+> in order to extend the generic ptrace API with PTRACE_GET_SYSCALL_INFO
+> request.
+>
+> The primary intent is that the triple (audit_arch, syscall_nr, arg1..arg6)
+> should describe what system call is being called and what its arguments are.
 
-pwclient was helpful in applying the patches directly in case lkml was 
-not cc'd on the patch.
+No real comment from me, most of this is arch specific code so I'll
+let the individual arch folks comment on that; they know far better
+than I do what is correct.
 
-https://patchwork.kernel.org/project/linux-riscv/
+That said, anything that gets us closer to being able to offer syscall
+auditing for these arches gets a big thumbs up from me - thanks!
 
-There is git-pw also. However, I could not get it to working for 
-linux-riscv.
+> Dmitry V. Levin (15):
+>   Move EM_HEXAGON to uapi/linux/elf-em.h
+>   Move EM_ARCOMPACT and EM_ARCV2 to uapi/linux/elf-em.h
+>   Move EM_UNICORE to uapi/linux/elf-em.h
+>   elf-em.h: add EM_NDS32
+>   elf-em.h: add EM_XTENSA
+>   m68k: define syscall_get_arch()
+>   arc: define syscall_get_arch()
+>   c6x: define syscall_get_arch()
+>   h8300: define syscall_get_arch()
+>   hexagon: define syscall_get_arch()
+>   nds32: define syscall_get_arch()
+>   nios2: define syscall_get_arch()
+>   riscv: define syscall_get_arch()
+>   unicore32: define syscall_get_arch()
+>   xtensa: define syscall_get_arch()
+>
+>  arch/arc/include/asm/elf.h           |  6 +-----
+>  arch/arc/include/asm/syscall.h       | 10 ++++++++++
+>  arch/c6x/include/asm/syscall.h       |  7 +++++++
+>  arch/h8300/include/asm/syscall.h     |  5 +++++
+>  arch/hexagon/include/asm/elf.h       |  6 +-----
+>  arch/hexagon/include/asm/syscall.h   |  8 ++++++++
+>  arch/m68k/include/asm/syscall.h      | 12 ++++++++++++
+>  arch/nds32/include/asm/syscall.h     |  8 ++++++++
+>  arch/nios2/include/asm/syscall.h     |  6 ++++++
+>  arch/riscv/include/asm/syscall.h     | 10 ++++++++++
+>  arch/unicore32/include/asm/elf.h     |  3 +--
+>  arch/unicore32/include/asm/syscall.h | 12 ++++++++++++
+>  arch/xtensa/include/asm/syscall.h    |  7 +++++++
+>  include/uapi/linux/audit.h           | 15 +++++++++++++++
+>  include/uapi/linux/elf-em.h          |  7 +++++++
+>  15 files changed, 110 insertions(+), 12 deletions(-)
+>  create mode 100644 arch/m68k/include/asm/syscall.h
+>  create mode 100644 arch/unicore32/include/asm/syscall.h
 
-
-Regards,
-Atish
+-- 
+paul moore
+www.paul-moore.com
