@@ -1,24 +1,24 @@
-From: schwab@suse.de (Andreas Schwab)
-Date: Wed, 21 Nov 2018 09:55:14 +0100
-Subject: Kernel panic - not syncing: corrupted stack end detected inside
- scheduler
-In-Reply-To: <mhng-a200fe90-01a6-444d-9f76-0b00c22249e8@palmer-si-x1c4>
- (Palmer Dabbelt's message of "Tue, 20 Nov 2018 09:29:48 -0800 (PST)")
-References: <mhng-a200fe90-01a6-444d-9f76-0b00c22249e8@palmer-si-x1c4>
-Message-ID: <mvmmuq2lsi5.fsf@suse.de>
+From: luto@kernel.org (Andy Lutomirski)
+Date: Wed, 21 Nov 2018 07:15:15 -0800
+Subject: [PATCH v2 16/15] syscall_get_arch: add "struct task_struct *"
+ argument
+In-Reply-To: <20181121004422.GA29053@altlinux.org>
+References: <20181107042751.3b519062@akathisia>
+ <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
+ <20181120001128.GA11300@altlinux.org> <20181121004422.GA29053@altlinux.org>
+Message-ID: <CALCETrV8AJPkZF7TzhXSte_wJgNXH+-s7-tPM-8xjcAfYgzdhg@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Nov 20 2018, Palmer Dabbelt <palmer@sifive.com> wrote:
+On Tue, Nov 20, 2018 at 4:44 PM Dmitry V. Levin <ldv@altlinux.org> wrote:
+>
+> This argument is required to extend the generic ptrace API
+> with PTRACE_GET_SYSCALL_INFO request: syscall_get_arch() is going to be
+> called from ptrace_request() along with other syscall_get_* functions
+> with a tracee as their argument.
+>
+> This change partially reverts commit 5e937a9ae913 ("syscall_get_arch:
+> remove useless function arguments").
+>
 
-> Do you have a better way to reproduce this than to just hammer the filesystem?
-
-I don't hammer the filesystem.  Most of the data is on nfs and /tmp is
-on tmpfs.
-
-Andreas.
-
--- 
-Andreas Schwab, SUSE Labs, schwab at suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+Reviewed-by: Andy Lutomirski <luto@kernel.org> # for x86
