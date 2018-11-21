@@ -2,79 +2,86 @@ Return-Path: <SRS0=BHV5=OA=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E0E2C43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 21 Nov 2018 15:15:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 60BF7C43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 21 Nov 2018 15:47:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D2BD820878
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 21 Nov 2018 15:15:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3027821479
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 21 Nov 2018 15:47:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NOi1pvIS";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="khcwjnN3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D2BD820878
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Xqw75a9Q";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="OwVpQ43C"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3027821479
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sCbCcKzuamBNHQ7qnlh/cQDE+dCDqzkxUu6ueu8P4aY=; b=NOi1pvISMz4dIT
-	bjYwcl4e1sJ80+S/nQgD4Vn2FNceNyTgVIBTBIN7c6prAm6bD4Qarq9eQs7cfUPc38QnJJBGOHK2j
-	aJYrDpgJSgYFlXpQ/ln3lUjDI4BuqAAndBiFj8f5aKJXU1uUkcJZcZ5nD9G1SPOGONiZKhLAThybE
-	fs9lD6ubzj9qJ/yWsWgkW5sp1fJyIkLbWqoAvYM/hmCc2Y5hQZWLrSh5xVIVvf8nLZUaLbwBtl6VL
-	NYRNi0URlC1I5n+wTHSU1zhwB5PBVXrVIaaSyovrbW0C1/1pOpo/fpoFLtdE2JofkjIHO42dy1A9f
-	0BWLXxbRXzBzipJv7p+g==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=OIeL1Plz3cbyUeSKEUtwSu5aohAkSVsk9va/txOvu+0=; b=Xqw75a9QLNmEskXwkkqhesj+x
+	yoGyIZAHfFRxfTB849YpP2BHtb2crGlX0JLgkkKRK9qL4pCvt543mK4j15rPb9MxFNKDWXY2guYz+
+	1p3aA083stN7mpdyo2fASbcZGp45+qO4V6nHhY5FCvs7ffMUWbzf/d5pcSUsvqql0PjSAH41rDAVv
+	3CmVYusiKXN4fD03N2pSF4ZlujDjfudM4uwRwBPY/6sIrcdnbUSwq7B/75T63OD2Wbb/sznwL9g8p
+	X1/lrkj1p9/wq4e9kK04DnK5F+Kd/N8s/hJ3Xwf22MPVDgBSXMWLhioGk39Xv1gjTD9HSzFZMlBbp
+	yGT5X4PZQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gPUEJ-0005SO-1g; Wed, 21 Nov 2018 15:15:51 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1gPUiv-0001xD-Jc; Wed, 21 Nov 2018 15:47:29 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gPUE9-0005Hw-F5
- for linux-riscv@lists.infradead.org; Wed, 21 Nov 2018 15:15:43 +0000
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com
- [209.85.128.42])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id A7DD022419
- for <linux-riscv@lists.infradead.org>; Wed, 21 Nov 2018 15:15:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1542813329;
- bh=kpH9lcQ8P8XV+NLvUJEbt/IT04dFbPXjvuI1ObcBYAw=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=khcwjnN3W8oiolVzWdkYwOXyQRAs6P6ySgIXzjCPjOfIH1gHQVWNjJgtidXHIgPRn
- CwCuMol6mW0iA++aIbUocbisf9NKWSLOFkbGX1rEZ7ryIkIhgsKBtW6vWIB93TttT3
- WJlKpw3MsAUNHkwWqZMq8hXPUuneSjETHOFSDLJU=
-Received: by mail-wm1-f42.google.com with SMTP id q26so6095148wmf.5
- for <linux-riscv@lists.infradead.org>; Wed, 21 Nov 2018 07:15:29 -0800 (PST)
-X-Gm-Message-State: AGRZ1gJbsV/FAnB9ynoDIKEmuNloxlQ+WbB/JBr4B+0eAjOMT/yydE20
- OUYWwg9cS4lPTk3XPwwxOWkSg9k9RbWHRzuF2pxK7Q==
-X-Google-Smtp-Source: AJdET5fCl28jWGxXnQdRFKVSpliKHyZtnaunTTizhHy0FVmzumF0Lqgw2R8mpyFkm2xs/3yb8DPm2VruOfQ2rmi5vtI=
-X-Received: by 2002:a1c:f112:: with SMTP id p18mr5957608wmh.83.1542813327926; 
- Wed, 21 Nov 2018 07:15:27 -0800 (PST)
-MIME-Version: 1.0
-References: <20181107042751.3b519062@akathisia>
- <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
- <20181120001128.GA11300@altlinux.org> <20181121004422.GA29053@altlinux.org>
-In-Reply-To: <20181121004422.GA29053@altlinux.org>
-From: Andy Lutomirski <luto@kernel.org>
-Date: Wed, 21 Nov 2018 07:15:15 -0800
-X-Gmail-Original-Message-ID: <CALCETrV8AJPkZF7TzhXSte_wJgNXH+-s7-tPM-8xjcAfYgzdhg@mail.gmail.com>
-Message-ID:
- <CALCETrV8AJPkZF7TzhXSte_wJgNXH+-s7-tPM-8xjcAfYgzdhg@mail.gmail.com>
+ id 1gPUil-0001gZ-9U
+ for linux-riscv@lists.infradead.org; Wed, 21 Nov 2018 15:47:22 +0000
+Received: by mail-pl1-x641.google.com with SMTP id gn14so6072906plb.10
+ for <linux-riscv@lists.infradead.org>; Wed, 21 Nov 2018 07:47:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=U/lY5CfdHLl3xwIXaQIRba/GPl3Jxhihr4NwbiVFjPo=;
+ b=OwVpQ43CSWic4u6uy8EiX4jKWC+6GbIh1hQ2uLHBOxn55J2QmK/J9y7M7VBuV57UnY
+ K/Y6wWyqTxEs/+0mJvSl8oBTR6DdKAncImadulVokxekAe/3eCZLhsPDMsVBkEGmRTim
+ VhMmMIQ9LawdPvEMc+/jfP0vfTT5sGMvpwgW7YjNSR91NsdRxsY5l6VfXtoiH6n1bQhs
+ 4YWv+W4y84c8A81ySRAZ1JpUgGb+HJc+cxmhCe3H5swS7n4mRu0Do2Lv9ndTy+WsWV05
+ aZWRazf5kGQCMZ2XjKUVV87al9jhGC6U6i14pP/eWICsOqELVHsriFVZmXp6TenE+Gp4
+ c6Lg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=U/lY5CfdHLl3xwIXaQIRba/GPl3Jxhihr4NwbiVFjPo=;
+ b=o0QR9Oe385jdE8nBXgp5RISyGZsEuA3rCd9tYI5sv2A51yltLdalZGhdQA+l860i0H
+ +sqk7h0eRK15TUCuIe2ox0j09vbJ1GUWQApu03NIjxSxSeIoG/Uc0hAWQnTmdFTQ2nvr
+ +RyLEixXFB7r77nX9CwkYtIzt4N2mr2w4QlKiRdN1+nm46O0XAnx7ghGTbkjUVSKDsBf
+ shpUnb2gEGj27zutPTw2TiR+OU4q4qJKa3k6m+rSqIIIqlTOuIPUBAnetVbKFDGBVEek
+ C97XfkH0wa/dpkeCbTxpiqoXQFxpQngN6kxP4CcKJpSD5AyNFwpQpjZbN0Eaj9q8ZrLJ
+ htJA==
+X-Gm-Message-State: AA+aEWb7Po9qUC612UHvxG70lXAiquKRXPNt3OL/MchVDtwZXpJvuPuY
+ TPzuRVcMk6SwyDtBDKV1RwjbMg==
+X-Google-Smtp-Source: AFSGD/UAi/NJ3PgiFeWjX4A041/WQ8nt8aNRCdGUah1xwxILNe5t4KPPa+Rg/oymu/oVkz81KUiVUQ==
+X-Received: by 2002:a63:7f4f:: with SMTP id p15mr6498437pgn.296.1542815228599; 
+ Wed, 21 Nov 2018 07:47:08 -0800 (PST)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id r6sm65610040pgk.91.2018.11.21.07.47.07
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 21 Nov 2018 07:47:07 -0800 (PST)
+Date: Wed, 21 Nov 2018 07:47:07 -0800 (PST)
+X-Google-Original-Date: Wed, 21 Nov 2018 07:44:37 PST (-0800)
 Subject: Re: [PATCH v2 16/15] syscall_get_arch: add "struct task_struct *"
  argument
-To: "Dmitry V. Levin" <ldv@altlinux.org>
+In-Reply-To: <20181121004422.GA29053@altlinux.org>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: ldv@altlinux.org
+Message-ID: <mhng-c75e14b8-b36c-46c2-8ffc-914312ed0cef@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181121_071541_527161_5DB15E3A 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181121_074719_352603_69114B11 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -86,31 +93,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Linux MIPS Mailing List <linux-mips@linux-mips.org>,
- linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arch <linux-arch@vger.kernel.org>,
- linux-s390 <linux-s390@vger.kernel.org>, Paul Moore <paul@paul-moore.com>,
- linux-hexagon@vger.kernel.org, X86 ML <x86@kernel.org>,
- Eugene Syromiatnikov <esyr@redhat.com>,
- Elvira Khabirova <lineprinter@altlinux.org>,
- arcml <linux-snps-arc@lists.infradead.org>,
- uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
- linux-um@lists.infradead.org, linux-m68k@lists.linux-m68k.org,
- openrisc@lists.librecores.org, Andrew Lutomirski <luto@kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-c6x-dev@linux-c6x.org, linux-parisc@vger.kernel.org,
- Oleg Nesterov <oleg@redhat.com>, Eric Paris <eparis@redhat.com>,
- linux-audit@redhat.com, linux-alpha@vger.kernel.org,
- nios2-dev@lists.rocketboards.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-mips@linux-mips.org, linux-ia64@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-s390@vger.kernel.org, paul@paul-moore.com, linux-hexagon@vger.kernel.org,
+ x86@kernel.org, esyr@redhat.com, lineprinter@altlinux.org,
+ linux-snps-arc@lists.infradead.org, uclinux-h8-devel@lists.sourceforge.jp,
+ linux-xtensa@linux-xtensa.org, linux-um@lists.infradead.org,
+ linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
+ luto@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-c6x-dev@linux-c6x.org, linux-parisc@vger.kernel.org, oleg@redhat.com,
+ eparis@redhat.com, linux-audit@redhat.com, linux-alpha@vger.kernel.org,
+ nios2-dev@lists.rocketboards.org, linuxppc-dev@lists.ozlabs.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181121151515.Qno7FvmXuJSJIEjO7QCGdLKDLf3xlf8bXJa6655Y64U@z>
+Message-ID: <20181121154707.jlDhfa78e-ybFSbW6cBw58S6FApcGiej3RdzDR4i-qk@z>
 
-On Tue, Nov 20, 2018 at 4:44 PM Dmitry V. Levin <ldv@altlinux.org> wrote:
->
+On Tue, 20 Nov 2018 16:44:22 PST (-0800), ldv@altlinux.org wrote:
 > This argument is required to extend the generic ptrace API
 > with PTRACE_GET_SYSCALL_INFO request: syscall_get_arch() is going to be
 > called from ptrace_request() along with other syscall_get_* functions
@@ -119,8 +120,31 @@ On Tue, Nov 20, 2018 at 4:44 PM Dmitry V. Levin <ldv@altlinux.org> wrote:
 > This change partially reverts commit 5e937a9ae913 ("syscall_get_arch:
 > remove useless function arguments").
 >
+> Cc: linux-alpha@vger.kernel.org
+> Cc: linux-arch@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-audit@redhat.com
+> Cc: linux-c6x-dev@linux-c6x.org
+> Cc: linux-hexagon@vger.kernel.org
+> Cc: linux-ia64@vger.kernel.org
+> Cc: linux-m68k@lists.linux-m68k.org
+> Cc: linux-mips@linux-mips.org
+> Cc: linux-parisc@vger.kernel.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-s390@vger.kernel.org
+> Cc: linux-sh@vger.kernel.org
+> Cc: linux-snps-arc@lists.infradead.org
+> Cc: linux-um@lists.infradead.org
+> Cc: linux-xtensa@linux-xtensa.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: nios2-dev@lists.rocketboards.org
+> Cc: openrisc@lists.librecores.org
+> Cc: sparclinux@vger.kernel.org
+> Cc: uclinux-h8-devel@lists.sourceforge.jp
+> Cc: x86@kernel.org
+> Signed-off-by: Dmitry V. Levin <ldv@altlinux.org>
 
-Reviewed-by: Andy Lutomirski <luto@kernel.org> # for x86
+Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
 
 _______________________________________________
 linux-riscv mailing list
