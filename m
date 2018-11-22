@@ -1,62 +1,78 @@
-From: paul.burton@mips.com (Paul Burton)
-Date: Wed, 21 Nov 2018 19:45:51 +0000
-Subject: [PATCH v2 16/15 v2] syscall_get_arch: add "struct task_struct *"
- argument
-In-Reply-To: <20181121193512.GA11297@altlinux.org>
-References: <20181107042751.3b519062@akathisia>
- <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
- <20181120001128.GA11300@altlinux.org> <20181121004422.GA29053@altlinux.org>
- <20181121184004.jro532jopnbmru2m@pburton-laptop>
- <20181121190009.GA10301@altlinux.org> <20181121193512.GA11297@altlinux.org>
-Message-ID: <20181121194549.4glznckje73z2uxk@pburton-laptop>
+From: paul.walmsley@sifive.com (Paul Walmsley)
+Date: Wed, 21 Nov 2018 17:06:56 -0800 (PST)
+Subject: [PATCH] dt-bindings: sifive: describe sifive-blocks versioning
+Message-ID: <alpine.DEB.2.21.9999.1811211704520.16271@viisi.sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi Dmitry,
 
-On Wed, Nov 21, 2018 at 10:35:12PM +0300, Dmitry V. Levin wrote:
-> This argument is required to extend the generic ptrace API with
-> PTRACE_GET_SYSCALL_INFO request: syscall_get_arch() is going to be
-> called from ptrace_request() along with other syscall_get_* functions
-> with a tracee as their argument.
-> 
-> This change partially reverts commit 5e937a9ae913 ("syscall_get_arch:
-> remove useless function arguments").
-> 
-> Reviewed-by: Andy Lutomirski <luto@kernel.org> # for x86
-> Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
-> Cc: linux-audit at redhat.com
-> Cc: linux-alpha at vger.kernel.org
-> Cc: linux-arch at vger.kernel.org
-> Cc: linux-arm-kernel at lists.infradead.org
-> Cc: linux-c6x-dev at linux-c6x.org
-> Cc: linux-hexagon at vger.kernel.org
-> Cc: linux-ia64 at vger.kernel.org
-> Cc: linux-m68k at lists.linux-m68k.org
-> Cc: linux-mips at linux-mips.org
-> Cc: linux-parisc at vger.kernel.org
-> Cc: linux-riscv at lists.infradead.org
-> Cc: linux-s390 at vger.kernel.org
-> Cc: linux-sh at vger.kernel.org
-> Cc: linux-snps-arc at lists.infradead.org
-> Cc: linux-um at lists.infradead.org
-> Cc: linux-xtensa at linux-xtensa.org
-> Cc: linuxppc-dev at lists.ozlabs.org
-> Cc: nios2-dev at lists.rocketboards.org
-> Cc: openrisc at lists.librecores.org
-> Cc: sparclinux at vger.kernel.org
-> Cc: uclinux-h8-devel at lists.sourceforge.jp
-> Cc: x86 at kernel.org
-> Signed-off-by: Dmitry V. Levin <ldv@altlinux.org>
-> ---
-> 
-> v2: cleaned up mips part, added Reviewed-by
+For IP blocks that are generated from the public, open-source
+sifive-blocks repository, describe the version numbering policy
+that its maintainers intend to use, upon request from Rob
+Herring <robh@kernel.org>.
 
-I thought the last one was v2? :)
+Cc: Rob Herring <robh+dt@kernel.org>
+Cc: Palmer Dabbelt <palmer@sifive.com>
+Cc: Megan Wachs <megan@sifive.com>
+Cc: Wesley Terpstra <wesley@sifive.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: devicetree at vger.kernel.org
+Cc: linux-riscv at lists.infradead.org
+Cc: linux-kernel at vger.kernel.org
+Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+Signed-off-by: Paul Walmsley <paul@pwsan.com>
+---
 
-Anyway, this looks fine to me now:
+Hi Rob, please let me know if this document works with your
+requirements, or if some changes are needed.  - Paul
 
-    Acked-by: Paul Burton <paul.burton@mips.com> # MIPS parts
+ .../sifive/sifive-blocks-ip-versioning.txt    | 38 +++++++++++++++++++
+ 1 file changed, 38 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
 
-Thanks,
-    Paul
+diff --git a/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt b/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
+new file mode 100644
+index 000000000000..b899e5c6e00c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
+@@ -0,0 +1,38 @@
++DT compatible string versioning for SiFive open-source IP blocks
++
++This document describes the version specification for DT "compatible"
++strings for open-source SiFive IP blocks.  HDL for these IP blocks
++can be found in this public repository:
++
++https://github.com/sifive/sifive-blocks
++
++IP block-specific DT compatible strings are contained within the HDL,
++in the form "sifive,<ip-block-name><integer version number>".
++
++An example is "sifive,uart0" from:
++
++https://github.com/sifive/sifive-blocks/blob/master/src/main/scala/devices/uart/UART.scala#L43
++
++Until these IP blocks (or IP integration) support version
++autodiscovery, the maintainers of these IP blocks intend to increment
++the suffixed number in the compatible string whenever the software
++interface to these IP blocks changes, or when the functionality of the
++underlying IP blocks changes in a way that software should be aware of.
++
++Driver developers can use compatible string "match" values such as
++"sifive,uart0" to indicate that their driver is compatible with the
++register interface and functionality associated with the relevant
++upstream sifive-blocks commits.  It is expected that most drivers will
++match on these IP block-specific compatible strings.
++
++DT data authors, when writing data for a particular SoC, should
++continue to specify an SoC-specific compatible string value, such as
++"sifive,fu540-c000-uart".  This way, if SoC-specific
++integration-specific bug fixes or workarounds are needed, the kernel
++or other system software can match on this string to apply them.  The
++IP block-specific compatible string (such as "sifive,uart0") should
++then be specified as a subsequent value.
++
++An example of this style:
++
++    compatible = "sifive,fu540-c000-uart", "sifive,uart0";
+-- 
+2.19.1
