@@ -1,123 +1,87 @@
-Return-Path: <SRS0=BHV5=OA=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=rW/4=OB=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-13.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9B5ABC43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 21 Nov 2018 19:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AD7F8C43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 22 Nov 2018 01:07:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6EA96214C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 21 Nov 2018 19:46:18 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7C802206BA
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 22 Nov 2018 01:07:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SvMesPxi";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=wavesemi.onmicrosoft.com header.i=@wavesemi.onmicrosoft.com header.b="D1Sb+13g"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6EA96214C4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=mips.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dtiM4BJl";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="X976QnPF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7C802206BA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YUAPvGT8P8ztManTo3JjA9k7+fSvot0Hwq0Zx5L5bFk=; b=SvMesPxi8dcbrG
-	L82t/KFoVI+0hmrSPX78JeJZBuJhSM2ZXcMaVRma2anvpIbSIq3Wh5y2dG/mm1FxOESmpIlAQo4J6
-	/Jn9xFDxNIu06gQWpsp3mE2ncvMsli3wk/JIs+0HX00tdtNV331T+qix4HaL+vhbsuz1zzNZ8Pz6J
-	S6tJG5OAgG3e4C5sv79odYZNrjaw5DLizwE9ZCBxjCacXSClu/WhAVFFsubsukoqNQakJIFIY3PWp
-	dC2yA3iDsYCNlq7FAEHFHrQXF3BmA8dRwnOwClPjoZd919V6CtrbZD/TUCQGwrnesHls2AbmW3GF4
-	ObHx7zQaD1Q3E4lwebHg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:Date
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FP9LgVyJUdnBt+hAyrSNYO4/Oov2N0CxV155K9NHB1A=; b=dtiM4BJl1k44ut
+	QeF9QCfkRqMxAkFXtnlELEZYq8vCYlfVDJIsNmN58sscMIAVAcsgD1pDa24AcExsNjxKDJ9uyVQG3
+	z08jrL+otlGa3Xkclb0nsizXaq4QE1Nh5F3ZfIcXnuNwzn+NAfv8t+BwKqc1KFwYL7VTAW9ifgv8W
+	393Eulb4OT5ANEN9uCqBKSwlK+D4TQ2c7vKRzZlb4zwyvxJ2nNnvtZqtfYj/fSfD4NOgmhsOFNmQL
+	PJMWVKUmnME868WRV8WOiH1g2nsuXlerQ4O7gkiu+cZI4ecNlaZzfVHQMS331j10W9qxIbNcPnuCN
+	tCD0qFHv6Vm/SXVDZC/w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gPYS0-0002qb-KG; Wed, 21 Nov 2018 19:46:16 +0000
-Received: from mail-eopbgr780108.outbound.protection.outlook.com
- ([40.107.78.108] helo=NAM03-BY2-obe.outbound.protection.outlook.com)
+	id 1gPdSa-0007Iz-4y; Thu, 22 Nov 2018 01:07:12 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gPYRr-0002ht-Uf; Wed, 21 Nov 2018 19:46:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=wavesemi.onmicrosoft.com; s=selector1-wavecomp-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eWkvJQbIhorjLQqxD5SOKS1mSUyFdmHff425N3CIyT0=;
- b=D1Sb+13g3goV2vy/b8bQtxOF30aeX4I+0yz+qUKQr1dnEsxhZLiGzOkARlKjaLaSIbq7gEr4GMfv/aDcaatHTHASlKj+sNk1KD0/BcLKPhk0XBDQ/zxRG54CCQntVgyu882C0CsZ603/2hH31LhYDNC7bs5hWyGQhhXirIywIHs=
-Received: from MWHPR2201MB1277.namprd22.prod.outlook.com (10.174.162.17) by
- MWHPR2201MB1054.namprd22.prod.outlook.com (10.174.169.140) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1294.31; Wed, 21 Nov 2018 19:45:51 +0000
-Received: from MWHPR2201MB1277.namprd22.prod.outlook.com
- ([fe80::690f:b86d:7c2:e105]) by MWHPR2201MB1277.namprd22.prod.outlook.com
- ([fe80::690f:b86d:7c2:e105%6]) with mapi id 15.20.1339.027; Wed, 21 Nov 2018
- 19:45:51 +0000
-From: Paul Burton <paul.burton@mips.com>
-To: "Dmitry V. Levin" <ldv@altlinux.org>
-Subject: Re: [PATCH v2 16/15 v2] syscall_get_arch: add "struct task_struct *"
- argument
-Thread-Topic: [PATCH v2 16/15 v2] syscall_get_arch: add "struct task_struct *"
- argument
-Thread-Index: AQHUgdFVNht9C6cLakeqWf7v58LJOqVaofiA
-Date: Wed, 21 Nov 2018 19:45:51 +0000
-Message-ID: <20181121194549.4glznckje73z2uxk@pburton-laptop>
-References: <20181107042751.3b519062@akathisia>
- <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
- <20181120001128.GA11300@altlinux.org> <20181121004422.GA29053@altlinux.org>
- <20181121184004.jro532jopnbmru2m@pburton-laptop>
- <20181121190009.GA10301@altlinux.org> <20181121193512.GA11297@altlinux.org>
-In-Reply-To: <20181121193512.GA11297@altlinux.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: MWHPR1401CA0002.namprd14.prod.outlook.com
- (2603:10b6:301:4b::12) To MWHPR2201MB1277.namprd22.prod.outlook.com
- (2603:10b6:301:24::17)
-user-agent: NeoMutt/20180716
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=pburton@wavecomp.com; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [4.16.204.77]
-x-ms-publictraffictype: Email
-x-microsoft-exchange-diagnostics: 1; MWHPR2201MB1054;
- 6:iefVsIiWh3uSZ2Iht040SAjaQCtvchxT03wgPvh+VpGX1p3R3M6+3gJ3Hwtdu7YcJKw9PyRr8gQIk9mHGTMTzV6a0IcNPM00sUAsExcuo7uDmKFRjpAQdFgBZcChE1RRQV9vaCJiK1IZXBbphlY+esioMe/wGR5RSel9WwpVTVfvZNCH8cQve75J5ZIfxWm9NfCbE1tqoGH4VPNl0hChacriOFT41p2gvHVTvEJVLjKVrCMyisIQj/eyAukWS9c3jw1njeqKRWKOWeyhB6ukoxNn5GTSaZLmyc8hren3fYi8T871H/FxJ9n5bURg/73zDuY75TgzNE9p+sraTEFqVZ28jMrcraQBC5KdBXqVXShlJ4ZV7y7LIeKDRcKnGTp7NK735Wksiw/FFy5mXD9JHr6FewBxqFHsjWmrfKqTayq49Z7anaAR0+KAGylHU3bahQFOr3Z2GYI7arhkJ/nBAQ==;
- 5:VlvW9W3grT5+p8yxno+MzGJblhCfWx7Okt26ECM4e2cLqr807DLbCLViPwMI1L2hi7WUCNYUBSjFukQ1xvmPFXJqt5pHT033H+x4KOLm0nE8Sd0u8ZFP4EZ6TpwvKK3O/pexdeAV0BxWk+FptLXaiSbQV4cBaxdPO5aT28AB+ac=;
- 7:xkfgEy3twUi7UxOk2pOtmgmzIvDV1hPoLLl2uwb8BglgW7hDDdJZ9u6tWW7of4UqC72r8CsNGUebv7W8Po6TwXCzjSdeTpCfzKhheybyD1NmqOFrArGPChMS2RnZKIRR9gOPWyieZ5SvlBl2OdEgAA==
-x-ms-office365-filtering-correlation-id: 5ad994e2-1dd3-4947-a468-08d64fe9f0fe
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390098)(7020095)(4652040)(7021145)(8989299)(4534185)(7022145)(4603075)(4627221)(201702281549075)(8990200)(7048125)(7024125)(7027125)(7023125)(5600074)(711020)(2017052603328)(7153060)(7193020);
- SRVR:MWHPR2201MB1054; 
-x-ms-traffictypediagnostic: MWHPR2201MB1054:
-x-microsoft-antispam-prvs: <MWHPR2201MB10549F70E8677210F41C11F1C1DA0@MWHPR2201MB1054.namprd22.prod.outlook.com>
-x-exchange-antispam-report-test: UriScan:(9452136761055)(258649278758335)(65623756079841)(197064567915663); 
-x-ms-exchange-senderadcheck: 1
-x-exchange-antispam-report-cfa-test: BCL:0; PCL:0;
- RULEID:(6040522)(2401047)(5005006)(8121501046)(10201501046)(3002001)(93006095)(3231442)(944501410)(52105112)(148016)(149066)(150057)(6041310)(20161123564045)(20161123560045)(20161123562045)(20161123558120)(2016111802025)(6043046)(201708071742011)(7699051)(76991095);
- SRVR:MWHPR2201MB1054; BCL:0; PCL:0; RULEID:; SRVR:MWHPR2201MB1054; 
-x-forefront-prvs: 08635C03D4
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(7916004)(366004)(39840400004)(396003)(136003)(346002)(376002)(189003)(199004)(52314003)(3846002)(1076002)(6116002)(53936002)(71190400001)(71200400001)(8936002)(81166006)(81156014)(54906003)(2900100001)(8676002)(33896004)(58126008)(7736002)(44832011)(476003)(11346002)(7416002)(7406005)(6486002)(14454004)(2906002)(6436002)(68736007)(5660300001)(229853002)(6512007)(9686003)(508600001)(6916009)(6506007)(386003)(102836004)(6246003)(256004)(14444005)(305945005)(97736004)(26005)(66066001)(111086002)(33716001)(105586002)(76176011)(42882007)(52116002)(4326008)(486006)(99286004)(316002)(25786009)(93886005)(106356001)(446003)(186003);
- DIR:OUT; SFP:1102; SCL:1; SRVR:MWHPR2201MB1054;
- H:MWHPR2201MB1277.namprd22.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-received-spf: None (protection.outlook.com: wavecomp.com does not designate
- permitted sender hosts)
-x-microsoft-antispam-message-info: TnJ/L4eKAimvBE9ftH/a91H2VNANF6dEdMp7boUv+FixxuPeKRiVZWlMLr3BvCFisnZYsgVVV5RN4WavQtyGmktvXjfkdyv6ju1ceUxE0mZk5aMouRezI9yHpQ37N9grPRaJWLm9urjsCobOj7RQsTolRkr0sDtd2JlxC7pmTDrIZG+c5zu6nU3qJVznF2oa9GPWQ9BOQlvf3CLOGC9z85AAwQyQpiGSmTiKUhE7kH155Zf3vpqRKmvoNgvE3YgWD/ICcFuSvcbFjHd+9RcpeV58NRwxXXINverEBDuwBDPr2B0tpPxWkFM4o1G8wGiYyRSO9hmJ30gAQe4aKPP6ZxrcMM5FZLiSp/9xM3l8YDk=
-spamdiagnosticoutput: 1:99
-spamdiagnosticmetadata: NSPM
-Content-ID: <708ADDE084183B41A3B884270BF84771@namprd22.prod.outlook.com>
+ id 1gPdSX-0007Hs-8B
+ for linux-riscv@lists.infradead.org; Thu, 22 Nov 2018 01:07:10 +0000
+Received: by mail-pl1-x642.google.com with SMTP id a14so7873758plm.12
+ for <linux-riscv@lists.infradead.org>; Wed, 21 Nov 2018 17:06:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:date:to:cc:subject:message-id:user-agent:mime-version;
+ bh=mmYitqJ/Zox8bJAkxiDoh3xH7YY9MHO4cNepwjP4x0A=;
+ b=X976QnPFfIpL3DIJAb1vzf1c+/eGCHKL1ONtI2Dgrx2PVp6HM1SZcwBc36D3vl0CBo
+ F5OpdQX653N1Wzhr/4JHMYdwEOvL8/uunqLGuA21TeV4P34+ySZvpKTu5aAKLEtbzb6+
+ pm2pFhk+n9vUDUr1fX9plh0Ado/+VIHgACeMG/EpfXH6e3K1JZ3ZrignwzQcr3WFUhpv
+ +Yi9jJgLARznTcps0O8PlhFrnuHSGMeIfzfrnPTOd1oT8Tr3eGiUG8z0P7qFTNK53+kP
+ WASIU38xRVMDECc0Kwaxi9CkqiNOzsvQFev2AYwA7zdg/eYWI/2MVi5uLsHDalopolSr
+ E8Ng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:date:to:cc:subject:message-id:user-agent
+ :mime-version;
+ bh=mmYitqJ/Zox8bJAkxiDoh3xH7YY9MHO4cNepwjP4x0A=;
+ b=GGe02+k464rlOCYIB39BmjwX2lGZ2AxaPe9IBnpqsigt+r0kHPS/w8W5E32+/GzuUL
+ fnfTyzWxxX3Sso1l8noEYf+tT5/NVviWIVpTAUawMwSBw2nGN1K91Klq/THRwyj1N3rC
+ gyWSfHT9DuAsger+i2ZNDAb8vmXWlDQ2dTSnBYLWdZK+3rlPJI4Bi8ipQFyNpRH4L1hC
+ YIQ66oK/qF7FHyncy3aqNXWrUpT8L32PIhMk5X3sEnyybGWBgWW7+Eplx/AN0YqVI0K5
+ NiDqA1bEO+vUpiMZgmsxyc/aifDJyeDNzfrYoPC32y01BLJrblBD4p3Y/CQjX37DSD6T
+ 0Ktg==
+X-Gm-Message-State: AA+aEWaTsNEvAm02E4yi5iKyV87L/1iICM0IX7MgfTDbme76uXtVCjd9
+ LEPuRDcQq8t7MSM6jWy74qJz/g==
+X-Google-Smtp-Source: AFSGD/Xqt6mZlf4jp353uPu8viMDnnN9heXTh6lHKIrscPrGtlQDaXICdn6Lj3mz9tYli5ps5sETNw==
+X-Received: by 2002:a17:902:4c08:: with SMTP id
+ a8mr9219265ple.74.1542848818261; 
+ Wed, 21 Nov 2018 17:06:58 -0800 (PST)
+Received: from localhost (97-120-243-143.ptld.qwest.net. [97.120.243.143])
+ by smtp.gmail.com with ESMTPSA id m9sm43230248pgd.32.2018.11.21.17.06.57
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Wed, 21 Nov 2018 17:06:57 -0800 (PST)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+X-Google-Original-From: Paul Walmsley <paulw@sifive.com>
+Date: Wed, 21 Nov 2018 17:06:56 -0800 (PST)
+To: Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org
+Subject: [PATCH] dt-bindings: sifive: describe sifive-blocks versioning
+Message-ID: <alpine.DEB.2.21.9999.1811211704520.16271@viisi.sifive.com>
+User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
-X-OriginatorOrg: mips.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5ad994e2-1dd3-4947-a468-08d64fe9f0fe
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Nov 2018 19:45:51.5163 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 463607d3-1db3-40a0-8a29-970c56230104
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR2201MB1054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181121_114607_987144_3E4BABFE 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181121_170709_291074_B33991B0 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -129,88 +93,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-mips@linux-mips.org" <linux-mips@linux-mips.org>,
- "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- Paul Moore <paul@paul-moore.com>,
- "linux-hexagon@vger.kernel.org" <linux-hexagon@vger.kernel.org>,
- "x86@kernel.org" <x86@kernel.org>, Eugene Syromyatnikov <esyr@redhat.com>,
- Elvira Khabirova <lineprinter@altlinux.org>,
- "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
- "uclinux-h8-devel@lists.sourceforge.jp"
- <uclinux-h8-devel@lists.sourceforge.jp>,
- "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>,
- "linux-um@lists.infradead.org" <linux-um@lists.infradead.org>,
- "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
- "openrisc@lists.librecores.org" <openrisc@lists.librecores.org>,
- Andy Lutomirski <luto@kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "linux-c6x-dev@linux-c6x.org" <linux-c6x-dev@linux-c6x.org>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- Oleg Nesterov <oleg@redhat.com>, Eric Paris <eparis@redhat.com>,
- "linux-audit@redhat.com" <linux-audit@redhat.com>,
- "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
- "nios2-dev@lists.rocketboards.org" <nios2-dev@lists.rocketboards.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ paul@pwsan.com, Megan Wachs <megan@sifive.com>,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Wesley Terpstra <wesley@sifive.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181121194551.rqBdXGNxZBlPalD-Bx00izPPNcjcTDBQNjUULMJ63LQ@z>
+Message-ID: <20181122010656.2Cf15zSBhaxKLDEWSX90C2qtpNExBlNjCkZwlRGihN8@z>
 
-Hi Dmitry,
 
-On Wed, Nov 21, 2018 at 10:35:12PM +0300, Dmitry V. Levin wrote:
-> This argument is required to extend the generic ptrace API with
-> PTRACE_GET_SYSCALL_INFO request: syscall_get_arch() is going to be
-> called from ptrace_request() along with other syscall_get_* functions
-> with a tracee as their argument.
-> 
-> This change partially reverts commit 5e937a9ae913 ("syscall_get_arch:
-> remove useless function arguments").
-> 
-> Reviewed-by: Andy Lutomirski <luto@kernel.org> # for x86
-> Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
-> Cc: linux-audit@redhat.com
-> Cc: linux-alpha@vger.kernel.org
-> Cc: linux-arch@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-c6x-dev@linux-c6x.org
-> Cc: linux-hexagon@vger.kernel.org
-> Cc: linux-ia64@vger.kernel.org
-> Cc: linux-m68k@lists.linux-m68k.org
-> Cc: linux-mips@linux-mips.org
-> Cc: linux-parisc@vger.kernel.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-s390@vger.kernel.org
-> Cc: linux-sh@vger.kernel.org
-> Cc: linux-snps-arc@lists.infradead.org
-> Cc: linux-um@lists.infradead.org
-> Cc: linux-xtensa@linux-xtensa.org
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: nios2-dev@lists.rocketboards.org
-> Cc: openrisc@lists.librecores.org
-> Cc: sparclinux@vger.kernel.org
-> Cc: uclinux-h8-devel@lists.sourceforge.jp
-> Cc: x86@kernel.org
-> Signed-off-by: Dmitry V. Levin <ldv@altlinux.org>
-> ---
-> 
-> v2: cleaned up mips part, added Reviewed-by
+For IP blocks that are generated from the public, open-source
+sifive-blocks repository, describe the version numbering policy
+that its maintainers intend to use, upon request from Rob
+Herring <robh@kernel.org>.
 
-I thought the last one was v2? :)
+Cc: Rob Herring <robh+dt@kernel.org>
+Cc: Palmer Dabbelt <palmer@sifive.com>
+Cc: Megan Wachs <megan@sifive.com>
+Cc: Wesley Terpstra <wesley@sifive.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: devicetree@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+Signed-off-by: Paul Walmsley <paul@pwsan.com>
+---
 
-Anyway, this looks fine to me now:
+Hi Rob, please let me know if this document works with your
+requirements, or if some changes are needed.  - Paul
 
-    Acked-by: Paul Burton <paul.burton@mips.com> # MIPS parts
+ .../sifive/sifive-blocks-ip-versioning.txt    | 38 +++++++++++++++++++
+ 1 file changed, 38 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
 
-Thanks,
-    Paul
+diff --git a/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt b/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
+new file mode 100644
+index 000000000000..b899e5c6e00c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
+@@ -0,0 +1,38 @@
++DT compatible string versioning for SiFive open-source IP blocks
++
++This document describes the version specification for DT "compatible"
++strings for open-source SiFive IP blocks.  HDL for these IP blocks
++can be found in this public repository:
++
++https://github.com/sifive/sifive-blocks
++
++IP block-specific DT compatible strings are contained within the HDL,
++in the form "sifive,<ip-block-name><integer version number>".
++
++An example is "sifive,uart0" from:
++
++https://github.com/sifive/sifive-blocks/blob/master/src/main/scala/devices/uart/UART.scala#L43
++
++Until these IP blocks (or IP integration) support version
++autodiscovery, the maintainers of these IP blocks intend to increment
++the suffixed number in the compatible string whenever the software
++interface to these IP blocks changes, or when the functionality of the
++underlying IP blocks changes in a way that software should be aware of.
++
++Driver developers can use compatible string "match" values such as
++"sifive,uart0" to indicate that their driver is compatible with the
++register interface and functionality associated with the relevant
++upstream sifive-blocks commits.  It is expected that most drivers will
++match on these IP block-specific compatible strings.
++
++DT data authors, when writing data for a particular SoC, should
++continue to specify an SoC-specific compatible string value, such as
++"sifive,fu540-c000-uart".  This way, if SoC-specific
++integration-specific bug fixes or workarounds are needed, the kernel
++or other system software can match on this string to apply them.  The
++IP block-specific compatible string (such as "sifive,uart0") should
++then be specified as a subsequent value.
++
++An example of this style:
++
++    compatible = "sifive,fu540-c000-uart", "sifive,uart0";
+-- 
+2.19.1
+
 
 _______________________________________________
 linux-riscv mailing list
