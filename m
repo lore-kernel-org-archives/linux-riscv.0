@@ -2,84 +2,81 @@ Return-Path: <SRS0=rW/4=OB=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 82A7EC43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 22 Nov 2018 01:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 266EAC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 22 Nov 2018 07:34:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5201E206B2
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 22 Nov 2018 01:43:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DD9D420820
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 22 Nov 2018 07:34:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fEDzgvIX";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="jLNyMMWu"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5201E206B2
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MBUg2KyU";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Ie5m9BK8"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DD9D420820
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xEfErjzTKRRBiQTXQPPUjDyWKHBCKRtavOkg7FZuFM4=; b=fEDzgvIXZ0ncOP
-	gqnUlgajJgoQS25vZVSkWtw8pWMI+n5aQul9bAp+Owq/BRhBuGG+uuGaOoTik6nZ4DD8HwCIIa6x6
-	cAbPkaBnhD/SLy3i71wAREAdb1ImiJPyxX/DBax3KKflcpVkzLtiJh8ZKTmodgOkVmwjnnd+WRNlF
-	9XbSYy6rinLsPXaQ5mGfKtpkEWrKX7ON1OPxikUkwGHMauJ2/f7PMvQKNgJsll2m9SMk5zzU1V5zv
-	wpaNtUzXCsjnwj16QvgAe7F71aTiU/7/b5ycSRGtpbqqn5eOOShtPhrFbKnyxcQYHo8yt/TVsmk2c
-	ld0tqGwgRvbV5eXmH4QQ==;
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=ybXblko6nw0dm/0DAmMASZwXZDy7HInRgLub4zOAQSs=; b=MBU
+	g2KyUPe8L0D4KkHHd4VLyDmEA7q7HDbDcqdWiW864eHIDgxGxChKZJ51fkmJs5UuLAs4B3VVV0L4L
+	Hn/P9ZnLCHCDHPU4Ewv/DXyS9cau7BOf2pOx6KUi4MfZCtYy9yWMR9auGHoEzlErNsnZDmu0ZQo9j
+	zn9Vl4gqyeLXOktNsLSS6HOTSLB2eUWWIBG2VjjYkFUyxcSk2FjrDHUNvmNzobCAsac8ONoDIaZ+7
+	WN85oEoBqWLQhXoGVwPm1tJpeeRnXKXEz1XCo7jUTaC0UwRATtnvmV58SaOuE28BHeSIhS7BFMHJ5
+	EpFoxzE4Oo7BuOlidGpPQTh3PtkMYvg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gPe1q-000193-RZ; Thu, 22 Nov 2018 01:43:38 +0000
-Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
+	id 1gPjVP-00086h-B5; Thu, 22 Nov 2018 07:34:31 +0000
+Received: from mail-vk1-xa2e.google.com ([2607:f8b0:4864:20::a2e])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gPe1n-000186-Vw
- for linux-riscv@lists.infradead.org; Thu, 22 Nov 2018 01:43:37 +0000
-Received: by mail-ed1-x543.google.com with SMTP id y56so6376498edd.11
- for <linux-riscv@lists.infradead.org>; Wed, 21 Nov 2018 17:43:25 -0800 (PST)
+ id 1gPjVM-00086H-Nr
+ for linux-riscv@lists.infradead.org; Thu, 22 Nov 2018 07:34:30 +0000
+Received: by mail-vk1-xa2e.google.com with SMTP id y14so1799752vky.9
+ for <linux-riscv@lists.infradead.org>; Wed, 21 Nov 2018 23:34:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=P363Lg+jXnBBHKFhYj0vs1K5DJ4vndbvmT+bFNVwpkI=;
- b=jLNyMMWu0wB2KD1+OWMd1NlsmOFZT6wqCRpxMJSY2lsVQzeeDrJLt12PlzDX1e1Tuz
- oAW85ufjPQxu+c2EEDNHx/fTrMgzXvvqB8yG1rXcnf2nDn4q6rUQHkSQmz3s0riaXYCH
- Gn3xaSWvnXzdepqjfskXgYymawBRQ4a8SgtmNCRmH+RCmHsGwE/PcdtchTBTmVq0j1eG
- BB+JltSQHejt2DM2bMYdxOQbZYLhDtf4FUbdTFosxhuKXzErtWnE7kODdsKgeeJvq2tz
- TpxhnhOCNGYG3YvY1o93REAvswGaDKmRR++vHBssNGZJj8CqGmcjjqz3BtAE7BOlVcpT
- Accg==
+ h=mime-version:from:date:message-id:subject:to;
+ bh=rP1gIWRMl3uqbvG4b8kTkQRRCOgDV34GQRn8ye7ClCQ=;
+ b=Ie5m9BK87zGrwZacQxTP/rXR/IWiWR1x0twMnkKyU9MeyULpVYG2vraVkaGnpoQs60
+ zIfpgbf2Utj6KNg7IteQSzRTY8twDU8lE0dHKGC+DVVrqJw/ioG6yPX49KiWAnFtDANt
+ 8FHRs2dzrwjbDHrSAw7LIGKdKlprU/kRvh5UWxoVTHznMqHJoXom8qPxIuOgLqxDA1jy
+ 281C3pN6M53oBmAPOv4JqeFOGM8waxBXPiwWVwguC8jM55NAhHIoxxTsVVpso6aJ/PvH
+ ECaPzGphKadc7SnW4idZpt0CFFbRUrgs4ZiBhKXOlhvLnvm82dgQ/cOGIotJ9BGXbcJs
+ sAbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=P363Lg+jXnBBHKFhYj0vs1K5DJ4vndbvmT+bFNVwpkI=;
- b=e0ZNVtOcNaHBHzveaeb1OxaFcSaSNTiJ1x41zL9Jww1zYHHLHWDDLTW8latX/FgadG
- 9+76s5eT9Fl7GXX2790+5+sXvgQZcaR22gDPs5NMwDWFlWuycDfNFasw/XEcONKQPRYT
- Mlgbp3rbDCl9mjzh3txbpjYvQxhVdeForL/rv+0lxCFi4qajXYZKYxJf525ahtYzGXo/
- k8i6cM7rp3KIi5LWxDDahJYVHM7JCZiddNQKxpJWMrm4jBgns3GYDj0QBZukfrATbGiU
- UXrBoPTXWu0TZ0K1UPFFBEP9tJ8suEsRFGUlCCue+fNMZNgiIgukEACOfM4JZXZbtMtQ
- TCMQ==
-X-Gm-Message-State: AA+aEWYHWZ7r1ch6KlKgqVAvZH6eT2jkpWrOIz94NmEHeUJT30+wftYZ
- QnBfGmbSzp5wV1TvNSn40fZYZGQTW7C5NXtgcE4=
-X-Google-Smtp-Source: AFSGD/X88L9Kxp/o7S1/GY4bnX+y6u2KAOXfVUnoNy8fn5sajQdGDPqFT+4JUY00erTGEaFkBaQ1ZhHrR7iGE4D3Ydo=
-X-Received: by 2002:a05:6402:1347:: with SMTP id
- y7mr7611683edw.114.1542851004266; 
- Wed, 21 Nov 2018 17:43:24 -0800 (PST)
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+ bh=rP1gIWRMl3uqbvG4b8kTkQRRCOgDV34GQRn8ye7ClCQ=;
+ b=Zzls/XdR4lC5VEJBbcxJ8qELjbF8ImKohnufWG3lKkLq0/2WIXKN43JcIknZUAMquK
+ lyVQYvkQoSi4ro0J0lQwbabEqrkT3/EYM5wdo3A4jeKPVELavvPRDFnxtIoOFUA+iWT2
+ p1lQnExpD9tY5vMHpLo7GvT4lYyAEMbayh3iTbmocHVSWr4iWqxmA0JoGQdf5sLCcWy9
+ mH74pqYg94tiJ6pMl5zv5yKd9EtnGaItmExi5Zleoq4G3/2kuRBL1C9KYfkleaEH0HNT
+ jdO+CPq1U9SawZ3nsVdARRJlSqI+OwGlfjZRxmNOAXOcAM0b9gMO3Y2E2V6E/hjPX/Kf
+ Rkdg==
+X-Gm-Message-State: AA+aEWbx3HdSfe5jqVe0CVfHnakKvYiyOmVoy0KrQ1rZYx3H3+kkIVnM
+ 1aerZd9vf1OZow1Bas268r30PTMjc8d1yCtQlxg=
+X-Google-Smtp-Source: AFSGD/UCp4bnUP/JlyrpYWBgPi87BDjDem1CdMRJABfyDYdtE4MN1hb4T4ZE+V97Vjk3tn5cy6dgQDcHfVwRLH3XdLc=
+X-Received: by 2002:a1f:f0d:: with SMTP id 13mr4127581vkp.21.1542872054776;
+ Wed, 21 Nov 2018 23:34:14 -0800 (PST)
 MIME-Version: 1.0
-References: <CAEUhbmWskEtQR-kAuAYx=SHOJ4-MrCRUchSQ68WwZ62hxsTQyQ@mail.gmail.com>
- <mhng-7be4f47d-bc3a-4073-a6db-dc5588304d2d@palmer-si-x1c4>
-In-Reply-To: <mhng-7be4f47d-bc3a-4073-a6db-dc5588304d2d@palmer-si-x1c4>
-From: Bin Meng <bmeng.cn@gmail.com>
-Date: Thu, 22 Nov 2018 09:43:12 +0800
+From: Pintu Agarwal <pintu.ping@gmail.com>
+Date: Thu, 22 Nov 2018 13:04:03 +0530
 Message-ID:
- <CAEUhbmW08WfTQRVSAaC6SRWhZmrUTAm9b8wefuMMbg8dGeKZVA@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Build flat and compressed kernel images
-To: palmer@sifive.com
+ <CAOuPNLiQWiqwkhKXyKV08mWz-Zfis8O3dHB0W5UVfroLU=W4Rw@mail.gmail.com>
+Subject: RISCV64 SoC Architecture diagram
+To: isa-dev@groups.riscv.org, linux-riscv@lists.infradead.org, 
+ sw-dev@groups.riscv.org, Gurucharan Kaur Saluja <gurucharankaurs@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181121_174336_027072_06ADA48F 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20181121_233428_810218_9825F6E3 
+X-CRM114-Status: UNSURE (   3.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,74 +88,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, Anup Patel <anup@brainfault.org>,
- linux-kernel <linux-kernel@vger.kernel.org>, hch@infradead.org,
- atish.patra@wdc.com, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181122014312.MTM1i0iMYk1hsD58Uy_NzlzCr2TgsjEgSBAOaZOMN7w@z>
+Message-ID: <20181122073403.i3245wklLxAU5qdumn9k9PlaQx61oGd8n0FSlbwlsks@z>
 
-Hi Palmer,
+Hi All,
 
-On Thu, Nov 22, 2018 at 12:28 AM Palmer Dabbelt <palmer@sifive.com> wrote:
->
-> On Tue, 20 Nov 2018 21:06:18 PST (-0800), bmeng.cn@gmail.com wrote:
-> > On Mon, Nov 12, 2018 at 1:55 PM Anup Patel <anup@brainfault.org> wrote:
-> >>
-> >> This patch extends Linux RISC-V build system to build and install:
-> >> Image - Flat uncompressed kernel image
-> >> Image.gz - Flat and GZip compressed kernel image
-> >>
-> >> Quiet a few bootloaders (such as Uboot, UEFI, etc) are capable of
-> >
-> > nits: U-Boot
-> >
-> >> booting flat and compressed kernel images. In case of Uboot, booting
-> >
-> > nits: U-Boot
->
-> Thanks for the review.  The PR has already been tagged, but it's not scheduled
-> to be sent out until later today.  I generally try to avoid rewriting the tags
-> unless there's something major that's wrong, so unless you feel very strongly
-> about this then I think I'll let it stand.
->
-> Let me know if this is a big deal for you, I can rewrite things.
->
-> >> Image or Image.gz is achieved using bootm command.
-> >>
-> >> The flat and uncompressed kernel image (i.e. Image) is very useful
-> >> in pre-silicon developent and testing because we can create back-door
-> >> HEX files for RAM on FPGAs from Image.
-> >>
-> >> Signed-off-by: Anup Patel <anup@brainfault.org>
-> >> ---
-> >>  arch/riscv/Makefile             | 15 ++++++++-
-> >>  arch/riscv/boot/.gitignore      |  2 ++
-> >>  arch/riscv/boot/Makefile        | 33 ++++++++++++++++++
-> >>  arch/riscv/boot/install.sh      | 60 +++++++++++++++++++++++++++++++++
-> >>  arch/riscv/kernel/head.S        | 10 ++++++
-> >>  arch/riscv/kernel/vmlinux.lds.S |  2 +-
-> >>  6 files changed, 120 insertions(+), 2 deletions(-)
-> >>  create mode 100644 arch/riscv/boot/.gitignore
-> >>  create mode 100644 arch/riscv/boot/Makefile
-> >>  create mode 100644 arch/riscv/boot/install.sh
-> >>
-> >
-> > Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
-> >
-> > Tested with U-Boot s-mode on QEMU virt, using bootm to boot the kernel
-> > Tested-by: Bin Meng <bmeng.cn@gmail.com>
->
-> I also won't include the tags unless I rewrite the tags.
->
-> Thanks for the review!
+For the education purpose, we need RISCV SoC internal architecture
+diagram which can give a pictorial overview of RISCV internals.
+As part of study, we want to compare this with ARMv8 architecture.
 
-Thanks. Let's go with this as it's a minor nits.
+If anybody have it please share.
 
-Regards,
-Bin
+Also, if anybody have risv64 benchmarking data with arm64, please
+share this as well.
+
+
+Thanks,
+Pintu
 
 _______________________________________________
 linux-riscv mailing list
