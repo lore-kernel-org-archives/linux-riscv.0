@@ -1,94 +1,69 @@
-From: atish.patra@wdc.com (Atish Patra)
-Date: Wed, 21 Nov 2018 17:33:02 -0800
-Subject: [PATCH] dt-bindings: sifive: describe sifive-blocks versioning
-In-Reply-To: <alpine.DEB.2.21.9999.1811211704520.16271@viisi.sifive.com>
-References: <alpine.DEB.2.21.9999.1811211704520.16271@viisi.sifive.com>
-Message-ID: <eda63b4a-4371-7d34-38a0-d7136dfc417f@wdc.com>
+From: bmeng.cn@gmail.com (Bin Meng)
+Date: Thu, 22 Nov 2018 09:43:12 +0800
+Subject: [PATCH] RISC-V: Build flat and compressed kernel images
+In-Reply-To: <mhng-7be4f47d-bc3a-4073-a6db-dc5588304d2d@palmer-si-x1c4>
+References: <CAEUhbmWskEtQR-kAuAYx=SHOJ4-MrCRUchSQ68WwZ62hxsTQyQ@mail.gmail.com>
+ <mhng-7be4f47d-bc3a-4073-a6db-dc5588304d2d@palmer-si-x1c4>
+Message-ID: <CAEUhbmW08WfTQRVSAaC6SRWhZmrUTAm9b8wefuMMbg8dGeKZVA@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On 11/21/18 5:07 PM, Paul Walmsley wrote:
-> 
-> For IP blocks that are generated from the public, open-source
-> sifive-blocks repository, describe the version numbering policy
-> that its maintainers intend to use, upon request from Rob
-> Herring <robh@kernel.org>.
-> 
-> Cc: Rob Herring <robh+dt@kernel.org>
-> Cc: Palmer Dabbelt <palmer@sifive.com>
-> Cc: Megan Wachs <megan@sifive.com>
-> Cc: Wesley Terpstra <wesley@sifive.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: devicetree at vger.kernel.org
-> Cc: linux-riscv at lists.infradead.org
-> Cc: linux-kernel at vger.kernel.org
-> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-> Signed-off-by: Paul Walmsley <paul@pwsan.com>
-> ---
-> 
-> Hi Rob, please let me know if this document works with your
-> requirements, or if some changes are needed.  - Paul
-> 
->   .../sifive/sifive-blocks-ip-versioning.txt    | 38 +++++++++++++++++++
->   1 file changed, 38 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
-> 
-> diff --git a/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt b/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
-> new file mode 100644
-> index 000000000000..b899e5c6e00c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
+Hi Palmer,
 
-It should be be under 
-Documentation/devicetree/bindings/riscv/sifive/sifive-blocks-ip-versioning.txt 
-?
+On Thu, Nov 22, 2018 at 12:28 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+>
+> On Tue, 20 Nov 2018 21:06:18 PST (-0800), bmeng.cn at gmail.com wrote:
+> > On Mon, Nov 12, 2018 at 1:55 PM Anup Patel <anup@brainfault.org> wrote:
+> >>
+> >> This patch extends Linux RISC-V build system to build and install:
+> >> Image - Flat uncompressed kernel image
+> >> Image.gz - Flat and GZip compressed kernel image
+> >>
+> >> Quiet a few bootloaders (such as Uboot, UEFI, etc) are capable of
+> >
+> > nits: U-Boot
+> >
+> >> booting flat and compressed kernel images. In case of Uboot, booting
+> >
+> > nits: U-Boot
+>
+> Thanks for the review.  The PR has already been tagged, but it's not scheduled
+> to be sent out until later today.  I generally try to avoid rewriting the tags
+> unless there's something major that's wrong, so unless you feel very strongly
+> about this then I think I'll let it stand.
+>
+> Let me know if this is a big deal for you, I can rewrite things.
+>
+> >> Image or Image.gz is achieved using bootm command.
+> >>
+> >> The flat and uncompressed kernel image (i.e. Image) is very useful
+> >> in pre-silicon developent and testing because we can create back-door
+> >> HEX files for RAM on FPGAs from Image.
+> >>
+> >> Signed-off-by: Anup Patel <anup@brainfault.org>
+> >> ---
+> >>  arch/riscv/Makefile             | 15 ++++++++-
+> >>  arch/riscv/boot/.gitignore      |  2 ++
+> >>  arch/riscv/boot/Makefile        | 33 ++++++++++++++++++
+> >>  arch/riscv/boot/install.sh      | 60 +++++++++++++++++++++++++++++++++
+> >>  arch/riscv/kernel/head.S        | 10 ++++++
+> >>  arch/riscv/kernel/vmlinux.lds.S |  2 +-
+> >>  6 files changed, 120 insertions(+), 2 deletions(-)
+> >>  create mode 100644 arch/riscv/boot/.gitignore
+> >>  create mode 100644 arch/riscv/boot/Makefile
+> >>  create mode 100644 arch/riscv/boot/install.sh
+> >>
+> >
+> > Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
+> >
+> > Tested with U-Boot s-mode on QEMU virt, using bootm to boot the kernel
+> > Tested-by: Bin Meng <bmeng.cn@gmail.com>
+>
+> I also won't include the tags unless I rewrite the tags.
+>
+> Thanks for the review!
 
-> @@ -0,0 +1,38 @@
-> +DT compatible string versioning for SiFive open-source IP blocks
-> +
-> +This document describes the version specification for DT "compatible"
-> +strings for open-source SiFive IP blocks.  HDL for these IP blocks
-> +can be found in this public repository:
-> +
-> +https://github.com/sifive/sifive-blocks
-> +
-> +IP block-specific DT compatible strings are contained within the HDL,
-> +in the form "sifive,<ip-block-name><integer version number>".
-> +
-> +An example is "sifive,uart0" from:
-> +
-> +https://github.com/sifive/sifive-blocks/blob/master/src/main/scala/devices/uart/UART.scala#L43
-> +
-> +Until these IP blocks (or IP integration) support version
-> +autodiscovery, the maintainers of these IP blocks intend to increment
-
-/s/autodiscovery/auto discovery
-
-> +the suffixed number in the compatible string whenever the software
-> +interface to these IP blocks changes, or when the functionality of the
-> +underlying IP blocks changes in a way that software should be aware of.
-> +
-> +Driver developers can use compatible string "match" values such as
-> +"sifive,uart0" to indicate that their driver is compatible with the
-> +register interface and functionality associated with the relevant
-> +upstream sifive-blocks commits.  It is expected that most drivers will
-> +match on these IP block-specific compatible strings.
-> +
-> +DT data authors, when writing data for a particular SoC, should
-> +continue to specify an SoC-specific compatible string value, such as
-> +"sifive,fu540-c000-uart".  This way, if SoC-specific
-> +integration-specific bug fixes or workarounds are needed, the kernel
-> +or other system software can match on this string to apply them.  The
-> +IP block-specific compatible string (such as "sifive,uart0") should
-> +then be specified as a subsequent value.
-> +
-> +An example of this style:
-> +
-> +    compatible = "sifive,fu540-c000-uart", "sifive,uart0";
-> 
-
-Just for the sake of completion, should this document also specify what 
-should be the style of any possible closed IP as well?
+Thanks. Let's go with this as it's a minor nits.
 
 Regards,
-Atish
+Bin
