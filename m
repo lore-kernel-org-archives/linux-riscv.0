@@ -1,21 +1,38 @@
-From: pintu.ping@gmail.com (Pintu Agarwal)
-Date: Thu, 22 Nov 2018 13:04:03 +0530
-Subject: RISCV64 SoC Architecture diagram
-Message-ID: <CAOuPNLiQWiqwkhKXyKV08mWz-Zfis8O3dHB0W5UVfroLU=W4Rw@mail.gmail.com>
+From: sashal@kernel.org (Sasha Levin)
+Date: Thu, 22 Nov 2018 14:52:30 -0500
+Subject: [PATCH AUTOSEL 4.19 26/36] riscv: add missing vdso_install target
+In-Reply-To: <20181122195240.13123-1-sashal@kernel.org>
+References: <20181122195240.13123-1-sashal@kernel.org>
+Message-ID: <20181122195240.13123-26-sashal@kernel.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Hi All,
+From: David Abdurachmanov <david.abdurachmanov@gmail.com>
 
-For the education purpose, we need RISCV SoC internal architecture
-diagram which can give a pictorial overview of RISCV internals.
-As part of study, we want to compare this with ARMv8 architecture.
+[ Upstream commit f157d411a9eb170d2ee6b766da7a381962017cc9 ]
 
-If anybody have it please share.
+Building kernel 4.20 for Fedora as RPM fails, because riscv is missing
+vdso_install target in arch/riscv/Makefile.
 
-Also, if anybody have risv64 benchmarking data with arm64, please
-share this as well.
+Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/riscv/Makefile | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-
-Thanks,
-Pintu
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 61ec42405ec9..110be14e6122 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -82,4 +82,8 @@ core-y += arch/riscv/kernel/ arch/riscv/mm/
+ 
+ libs-y += arch/riscv/lib/
+ 
++PHONY += vdso_install
++vdso_install:
++	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
++
+ all: vmlinux
+-- 
+2.17.1
