@@ -1,53 +1,80 @@
-From: anup@brainfault.org (Anup Patel)
-Date: Mon, 26 Nov 2018 11:38:02 +0530
-Subject: [PATCH] RISC-V: Make BSS section as the last section in vmlinux.lds.S
-Message-ID: <20181126060802.19314-1-anup@brainfault.org>
+From: palmer@sifive.com (Palmer Dabbelt)
+Date: Mon, 26 Nov 2018 11:02:48 -0800 (PST)
+Subject: [PATCH] dt-bindings: sifive: describe sifive-blocks versioning
+In-Reply-To: <alpine.DEB.2.21.9999.1811211704520.16271@viisi.sifive.com>
+Message-ID: <mhng-197c28a9-6763-40df-988b-3494dfe124d4@palmer-si-x1c4>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-The objcopy only emits loadable sections when creating flat kernel
-Image. To have minimal possible size of flat kernel Image, we should
-have all non-loadable sections after loadable sections.
+On Wed, 21 Nov 2018 17:06:56 PST (-0800), Paul Walmsley wrote:
+>
+> For IP blocks that are generated from the public, open-source
+> sifive-blocks repository, describe the version numbering policy
+> that its maintainers intend to use, upon request from Rob
+> Herring <robh@kernel.org>.
+>
+> Cc: Rob Herring <robh+dt@kernel.org>
+> Cc: Palmer Dabbelt <palmer@sifive.com>
+> Cc: Megan Wachs <megan@sifive.com>
+> Cc: Wesley Terpstra <wesley@sifive.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: devicetree at vger.kernel.org
+> Cc: linux-riscv at lists.infradead.org
+> Cc: linux-kernel at vger.kernel.org
+> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+> Signed-off-by: Paul Walmsley <paul@pwsan.com>
+> ---
+>
+> Hi Rob, please let me know if this document works with your
+> requirements, or if some changes are needed.  - Paul
+>
+>  .../sifive/sifive-blocks-ip-versioning.txt    | 38 +++++++++++++++++++
+>  1 file changed, 38 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
+>
+> diff --git a/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt b/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
+> new file mode 100644
+> index 000000000000..b899e5c6e00c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
+> @@ -0,0 +1,38 @@
+> +DT compatible string versioning for SiFive open-source IP blocks
+> +
+> +This document describes the version specification for DT "compatible"
+> +strings for open-source SiFive IP blocks.  HDL for these IP blocks
+> +can be found in this public repository:
+> +
+> +https://github.com/sifive/sifive-blocks
+> +
+> +IP block-specific DT compatible strings are contained within the HDL,
+> +in the form "sifive,<ip-block-name><integer version number>".
+> +
+> +An example is "sifive,uart0" from:
+> +
+> +https://github.com/sifive/sifive-blocks/blob/master/src/main/scala/devices/uart/UART.scala#L43
+> +
+> +Until these IP blocks (or IP integration) support version
+> +autodiscovery, the maintainers of these IP blocks intend to increment
+> +the suffixed number in the compatible string whenever the software
+> +interface to these IP blocks changes, or when the functionality of the
+> +underlying IP blocks changes in a way that software should be aware of.
+> +
+> +Driver developers can use compatible string "match" values such as
+> +"sifive,uart0" to indicate that their driver is compatible with the
+> +register interface and functionality associated with the relevant
+> +upstream sifive-blocks commits.  It is expected that most drivers will
+> +match on these IP block-specific compatible strings.
+> +
+> +DT data authors, when writing data for a particular SoC, should
+> +continue to specify an SoC-specific compatible string value, such as
+> +"sifive,fu540-c000-uart".  This way, if SoC-specific
+> +integration-specific bug fixes or workarounds are needed, the kernel
+> +or other system software can match on this string to apply them.  The
+> +IP block-specific compatible string (such as "sifive,uart0") should
+> +then be specified as a subsequent value.
+> +
+> +An example of this style:
+> +
+> +    compatible = "sifive,fu540-c000-uart", "sifive,uart0";
 
-Currently, execption table section (loadable section) is after BSS
-section (non-loadable section) in the RISC-V vmlinux.lds.S. This
-is not optimal for having minimal flat kernel Image size hence this
-patch makes BSS section as the last section in RISC-V vmlinux.lds.S.
-
-In addition, we make BSS section aligned to 16byte instead of PAGE
-aligned which further reduces flat kernel Image size by few KBs.
-
-The flat kernel Image size of Linux-4.20-rc4 using GCC 8.2.0 is
-8819980 bytes with current RISC-V vmlinux.lds.S and it reduces to
-7991740 bytes with this patch applied using GCC 8.2.0. In summary,
-this patch reduces Linux-4.20-rc4 flat kernel Image size by 809 KB.
-
-Signed-off-by: Anup Patel <anup@brainfault.org>
----
- arch/riscv/kernel/vmlinux.lds.S | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 65df1dfdc303..cc99eed44931 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -74,8 +74,6 @@ SECTIONS
- 		*(.sbss*)
- 	}
- 
--	BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
--
- 	EXCEPTION_TABLE(0x10)
- 	NOTES
- 
-@@ -83,6 +81,8 @@ SECTIONS
- 		*(.rel.dyn*)
- 	}
- 
-+	BSS_SECTION(0x10, 0x10, 0x10)
-+
- 	_end = .;
- 
- 	STABS_DEBUG
--- 
-2.17.1
+Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
