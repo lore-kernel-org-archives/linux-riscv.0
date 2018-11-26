@@ -1,42 +1,53 @@
-From: olof@lixom.net (Olof Johansson)
-Date: Sun, 25 Nov 2018 14:51:21 -0800
-Subject: [PATCH] riscv: perf: fix build warning
-Message-ID: <20181125225121.4454-1-olof@lixom.net>
+From: anup@brainfault.org (Anup Patel)
+Date: Mon, 26 Nov 2018 11:38:02 +0530
+Subject: [PATCH] RISC-V: Make BSS section as the last section in vmlinux.lds.S
+Message-ID: <20181126060802.19314-1-anup@brainfault.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Due to the -ENOENT return, the variables can't actually be used
-uninitialized, but the compiler isn't smart enough in this case.
+The objcopy only emits loadable sections when creating flat kernel
+Image. To have minimal possible size of flat kernel Image, we should
+have all non-loadable sections after loadable sections.
 
-Let's just set them before returning with the error for now, it'll be
-filled in once implemented.
+Currently, execption table section (loadable section) is after BSS
+section (non-loadable section) in the RISC-V vmlinux.lds.S. This
+is not optimal for having minimal flat kernel Image size hence this
+patch makes BSS section as the last section in RISC-V vmlinux.lds.S.
 
-arch/riscv/kernel/perf_event.c:166:5: warning: 'type' may be used uninitialized in this function [-Wmaybe-uninitialized]
-arch/riscv/kernel/perf_event.c:166:38: warning: 'op' may be used uninitialized in this function [-Wmaybe-uninitialized]
-arch/riscv/kernel/perf_event.c:167:39: warning: 'result' may be used uninitialized in this function [-Wmaybe-uninitialized]
+In addition, we make BSS section aligned to 16byte instead of PAGE
+aligned which further reduces flat kernel Image size by few KBs.
 
-Signed-off-by: Olof Johansson <olof@lixom.net>
+The flat kernel Image size of Linux-4.20-rc4 using GCC 8.2.0 is
+8819980 bytes with current RISC-V vmlinux.lds.S and it reduces to
+7991740 bytes with this patch applied using GCC 8.2.0. In summary,
+this patch reduces Linux-4.20-rc4 flat kernel Image size by 809 KB.
+
+Signed-off-by: Anup Patel <anup@brainfault.org>
 ---
+ arch/riscv/kernel/vmlinux.lds.S | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-I swear I posted this exact fix just last week, but can't find a reference
-to it anywhere.
-
- arch/riscv/kernel/perf_event.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/riscv/kernel/perf_event.c b/arch/riscv/kernel/perf_event.c
-index a243fae1c1dbb..81f3ba76f1dbc 100644
---- a/arch/riscv/kernel/perf_event.c
-+++ b/arch/riscv/kernel/perf_event.c
-@@ -150,6 +150,9 @@ static int riscv_map_hw_event(u64 config)
- int riscv_map_cache_decode(u64 config, unsigned int *type,
- 			   unsigned int *op, unsigned int *result)
- {
-+	*type = 0;
-+	*op = 0;
-+	*result = 0;
- 	return -ENOENT;
- }
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index 65df1dfdc303..cc99eed44931 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -74,8 +74,6 @@ SECTIONS
+ 		*(.sbss*)
+ 	}
  
+-	BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
+-
+ 	EXCEPTION_TABLE(0x10)
+ 	NOTES
+ 
+@@ -83,6 +81,8 @@ SECTIONS
+ 		*(.rel.dyn*)
+ 	}
+ 
++	BSS_SECTION(0x10, 0x10, 0x10)
++
+ 	_end = .;
+ 
+ 	STABS_DEBUG
 -- 
-2.11.0
+2.17.1
