@@ -1,42 +1,529 @@
-From: mpe@ellerman.id.au (Michael Ellerman)
-Date: Tue, 27 Nov 2018 21:34:29 +1100
-Subject: [PATCH v2 16/15] syscall_get_arch: add "struct task_struct *"
- argument
-In-Reply-To: <20181121004422.GA29053@altlinux.org>
-References: <20181107042751.3b519062@akathisia>
- <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
- <20181120001128.GA11300@altlinux.org> <20181121004422.GA29053@altlinux.org>
-Message-ID: <87in0ihkqy.fsf@concordia.ellerman.id.au>
+From: paul.walmsley@sifive.com (Paul Walmsley)
+Date: Tue, 27 Nov 2018 15:24:11 -0800 (PST)
+Subject: [PATCH v2 3/3] clk: sifive: add a driver for the SiFive FU540
+ PRCI IP block
+In-Reply-To: <154281815686.88331.17857751098132553261@swboyd.mtv.corp.google.com>
+References: <20181020135024.28573-1-paul.walmsley@sifive.com>
+ <20181020135024.28573-4-paul.walmsley@sifive.com>
+ <154281815686.88331.17857751098132553261@swboyd.mtv.corp.google.com>
+Message-ID: <alpine.DEB.2.21.9999.1811261919130.16271@viisi.sifive.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-"Dmitry V. Levin" <ldv@altlinux.org> writes:
+On Wed, 21 Nov 2018, Stephen Boyd wrote:
 
-> diff --git a/arch/powerpc/include/asm/syscall.h b/arch/powerpc/include/asm/syscall.h
-> index ab9f3f0a8637..d88b34179118 100644
-> --- a/arch/powerpc/include/asm/syscall.h
-> +++ b/arch/powerpc/include/asm/syscall.h
-> @@ -100,9 +100,15 @@ static inline void syscall_set_arguments(struct task_struct *task,
->  		regs->orig_gpr3 = args[0];
->  }
->  
-> -static inline int syscall_get_arch(void)
-> +static inline int syscall_get_arch(struct task_struct *task)
->  {
-> -	int arch = is_32bit_task() ? AUDIT_ARCH_PPC : AUDIT_ARCH_PPC64;
-> +	int arch;
-> +
-> +	if (IS_ENABLED(CONFIG_PPC64) && !test_tsk_thread_flag(task, TIF_32BIT))
-> +		arch = AUDIT_ARCH_PPC64;
-> +	else
-> +		arch = AUDIT_ARCH_PPC;
-> +
->  #ifdef __LITTLE_ENDIAN__
->  	arch |= __AUDIT_ARCH_LE;
->  #endif
+> Quoting Paul Walmsley (2018-10-20 06:50:24)
+> > diff --git a/drivers/clk/sifive/fu540-prci.c b/drivers/clk/sifive/fu540-prci.c
+> > new file mode 100644
+> > index 000000000000..870cb8333648
+> > --- /dev/null
+> > +++ b/drivers/clk/sifive/fu540-prci.c
+> > @@ -0,0 +1,634 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> [...]
+> > +
+> > +#include <linux/clkdev.h>
+> > +#include <linux/clk-provider.h>
+> > +#include <linux/clk.h>
+> 
+> Is this for of_clk_get_parent_count()? Use of_clk.h include for that,
+> and drop this clk.h include if possible.
 
-LGTM.
+Done.
 
-Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
+> > +#include <linux/clk/analogbits-wrpll-cln28hpc.h>
+> > +#include <linux/delay.h>
+> > +#include <linux/err.h>
+> > +#include <linux/log2.h>
+> 
+> Is this used?
 
-cheers
+It isn't.  Dropped.
+
+> > +#include <linux/of.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/slab.h>
+> > +#include <linux/clk/sifive-fu540-prci.h>
+> 
+> Can you sort these at least by path includes so that linux/clk/ is
+> somewhere together?
+
+Done.
+
+> > +/**
+> > + * struct __prci_data - per-device-instance data
+> > + * @va: base virtual address of the PRCI IP block
+> > + * @hw_clks: encapsulates struct clk_hw records
+> > + *
+> > + * PRCI per-device instance data
+> > + */
+> > +struct __prci_data {
+> > +       void __iomem *va;
+> 
+> Usually this is called 'base', but 'va' is fine too. 
+
+OK
+
+> What happens with NOMMU? Then it's not a VA anymore?
+
+It's similar to other Linux code that refers to virtual addresses:
+
+$ fgrep -r va linux/ | fgrep __iomem | egrep -iv '(val|riva)' | wc -l
+270
+$
+
+(as a first-order approximation)
+
+> > +/**
+> > + * struct __prci_wrpll_data - WRPLL configuration and integration data
+> > + * @c: WRPLL current configuration record
+> > + * @bypass: fn ptr to code to bypass the WRPLL (if applicable; else NULL)
+> > + * @no_bypass: fn ptr to code to not bypass the WRPLL (if applicable; else NULL)
+> > + * @cfg0_offs: WRPLL CFG0 register offset (in bytes) from the PRCI base address
+> > + *
+> > + * @bypass and @no_bypass are used for WRPLL instances that contain a separate
+> > + * external glitchless clock mux downstream from the PLL.  The WRPLL internal
+> > + * bypass mux is not glitchless.
+> > + */
+> > +struct __prci_wrpll_data {
+> > +       struct analogbits_wrpll_cfg c;
+> > +       void (*bypass)(struct __prci_data *pd);
+> > +       void (*no_bypass)(struct __prci_data *pd);
+> > +       u8 cfg0_offs;
+> > +};
+> 
+> Why do we have this struct? Why not fold it into the prci_clock
+> structure?
+
+The code was written to be extensible to non-PLL clock tree elements.
+
+> As far as I can tell it's a one to one correlation right now.
+
+Certainly true at the moment.  Do you want them combined?
+
+> > +/**
+> > + * __prci_readl() - read from a PRCI register
+> > + * @pd: PRCI context
+> > + * @offs: register offset to read from (in bytes, from PRCI base address)
+> > + *
+> > + * Read the register located at offset @offs from the base virtual
+> > + * address of the PRCI register target described by @pd, and return
+> > + * the value to the caller.
+> > + *
+> > + * Context: Any context.
+> > + *
+> > + * Return: the contents of the register described by @pd and @offs.
+> > + */
+> > +static u32 __prci_readl(struct __prci_data *pd, u32 offs)
+> > +{
+> > +       return readl_relaxed(pd->va + offs);
+> > +}
+> > +
+> > +static void __prci_writel(u32 v, u32 offs, struct __prci_data *pd)
+> > +{
+> > +       return writel_relaxed(v, pd->va + offs);
+> > +}
+> 
+> Please remove these wrappers. The lines are only barely shorter with
+> them, they mostly obfuscate the code,
+
+Isn't the use of wrappers fairly common CCF and Linux device driver 
+practice?
+
+$ pcregrep -r \\wwritel drivers/clk | fgrep -v __raw | fgrep -v clk_writel | wc -l
+148
+$ pcregrep --buffer-size 65536 -r \\wwritel drivers/ | fgrep -v __raw | wc -l
+8526
+$
+
+The usual motivation is not so much to shorten lines, but to have a 
+centralized place for adding IP block-specific I/O barriers, register 
+logging, and other debug.
+
+> and writel swaps 'offs' and 'pd' vs readl (why?).
+
+Yeah.  The include/asm-generic/io.h write*() functions invert the argument 
+order from the read*() argument order.  There doesn't appear to be a 
+strong idiom for device driver write*() argument order in the kernel, so I 
+just picked one when I wrote them.
+
+>       __prci_wrpll_unpack(&pwd->c, __prci_readl(pd, pwd->cfg0_offs));
+> 
+> vs.
+> 
+>       __prci_wrpll_unpack(&pwd->c, readl_relaxed(pd->va + pwd->cfg0_offs));
+
+In any case, I am fine with removing them if that is the standard practice 
+going forward for drivers/clk.
+
+> > +/**
+> > + * __prci_wrpll_pack() - pack PLL configuration parameters into a register value
+> > + * @c: pointer to a struct analogbits_wrpll_cfg record containing the PLL's cfg
+> > + *
+> > + * Using a set of WRPLL configuration values pointed to by @c,
+> > + * assemble a PRCI PLL configuration register value, and return it to
+> > + * the caller.
+> > + *
+> > + * Context: Any context.  Caller must ensure that the contents of the
+> > + *          record pointed to by @c do not change during the execution
+> > + *          of this function.
+> > + *
+> > + * Returns: a value suitable for writing into a PRCI PLL configuration
+> > + *          register
+> > + */
+> > +static u32 __prci_wrpll_pack(struct analogbits_wrpll_cfg *c)
+> 
+> const c?
+
+Changed.
+
+> > +/**
+> > + * __prci_wrpll_write_cfg() - write WRPLL configuration into the PRCI
+> > + * @pd: PRCI context
+> > + * @pwd: PRCI WRPLL metadata
+> > + * @c: WRPLL configuration record to write
+> > + *
+> > + * Write the WRPLL configuration described by @c into the WRPLL
+> > + * configuration register identified by @pwd in the PRCI instance
+> > + * described by @c.  Make a cached copy of the WRPLL's current
+> > + * configuration so it can be used by other code.
+> > + *
+> > + * Context: Any context.  Caller must prevent the records pointed to by
+> > + *          @pd and @pwd from changing during execution.
+> > + */
+> > +static void __prci_wrpll_write_cfg(struct __prci_data *pd,
+> > +                                  struct __prci_wrpll_data *pwd,
+> > +                                  struct analogbits_wrpll_cfg *c)
+> > +{
+> > +       __prci_writel(__prci_wrpll_pack(c), pwd->cfg0_offs, pd);
+> > +
+> > +       memcpy(&pwd->c, c, sizeof(struct analogbits_wrpll_cfg));
+> 
+> I'm trying to understand what all the memcpy() calls in this driver are
+> doing. What is being optimized by storing the values in software? Is I/O
+> access really that bad that we need to use memcpy()? Can you remove it
+> all and just read and write registers when we need them? It would make
+> things clearer and shorter. If you need caching, I would suggest you use
+> regmap and all the caching features therein.
+
+The primary goal is to minimize the number of CPU instructions executed by 
+this driver when the CPU is running at a low clock rate.  This is 
+important on the FU540 since the PLL bypass clock is slow.  Switching to 
+regmap wouldn't help here, since the driver would still need to do the 
+computation.
+
+As a secondary goal, the shadow copy of the PLL configuration also 
+allows the driver to avoid unnecessary PRCI register reads.
+
+> > +/**
+> > + * __prci_coreclksel_use_hfclk() - switch the CORECLK mux to output HFCLK
+> > + * @pd: struct __prci_data * for the PRCI containing the CORECLK mux reg
+> > + *
+> > + * Switch the CORECLK mux to the HFCLK input source; return once complete.
+> > + *
+> > + * Context: Any context.  Caller must prevent concurrent changes to the
+> > + *          PRCI_CORECLKSEL_OFFSET register.
+> > + */
+> > +static void __prci_coreclksel_use_hfclk(struct __prci_data *pd)
+> > +{
+> > +       u32 r;
+> > +
+> > +       r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);
+> > +       r |= PRCI_CORECLKSEL_CORECLKSEL_MASK;
+> > +       __prci_writel(r, PRCI_CORECLKSEL_OFFSET, pd);
+> > +
+> > +       r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET); /* barrier */
+> 
+> Barrier with what? 
+
+That's an I/O barrier.  
+
+> What are we synchronizing with?
+
+The completion of the preceding write to the PRCI.
+
+> > +/*
+> > + * Linux clock framework integration
+> > + *
+> > + * See the Linux clock framework documentation for more information on
+> > + * these functions.
+> > + */
+> > +
+> > +static unsigned long sifive_fu540_prci_wrpll_recalc_rate(struct clk_hw *hw,
+> > +                                                        unsigned long parent_rate)
+> > +{
+> > +       struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+> > +       struct __prci_wrpll_data *pwd = pc->pwd;
+> > +
+> > +       return analogbits_wrpll_calc_output_rate(&pwd->c, parent_rate);
+> 
+> I suppose this is one place where the caching must have gone wrong, so 
+> then we needed to add __prci_wrpll_read_cfg() to make sure we've kept 
+> things in sync with our memcpy? Please don't do that. Just read the 
+> hardware in recalc_rate() so that we don't have to worry about syncing 
+> framework state with this driver state.
+
+The code is written to the usual Linux principle that the driver has 
+exclusive access to the PRCI IP block.  Thus the shadow copy should be in 
+sync with the hardware at all times. The only time that the PLL 
+configuration needs to be read from the hardware is when the driver 
+initializes.
+
+Of course, the code could be changed to read the hardware directly. I'd be 
+curious to know what advantage you see in making that change.  MMIO reads 
+from a leaf IP block are slow, and the CPU cores on this chip are 
+in-order.  The PRCI driver already maintains an up-to-date shadow copy of 
+the PLL data to avoid unnecessary computation (as mentioned above).  Thus 
+since the shadow copy is already there, it makes sense to use it.  But 
+perhaps I am misunderstanding your comment?
+
+> > +static int sifive_fu540_prci_wrpll_set_rate(struct clk_hw *hw,
+> > +                                           unsigned long rate,
+> > +                                           unsigned long parent_rate)
+> > +{
+> > +       struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+> > +       struct __prci_wrpll_data *pwd = pc->pwd;
+> > +       struct __prci_data *pd = pc->pd;
+> > +       int r;
+> > +
+> > +       r = analogbits_wrpll_configure_for_rate(&pwd->c, rate, parent_rate);
+> > +       if (r)
+> > +               return -ERANGE;
+> 
+> Why not return the value of 'r'?
+
+Changed.
+
+> > +
+> > +       if (pwd->bypass)
+> > +               pwd->bypass(pd);
+> > +
+> > +       __prci_wrpll_write_cfg(pd, pwd, &pwd->c);
+> > +
+> > +       udelay(analogbits_wrpll_calc_max_lock_us(&pwd->c));
+> > +
+> > +       if (pwd->no_bypass)
+> > +               pwd->no_bypass(pd);
+> 
+> Maybe call it enable/disable_bypass() instead? no_bypass sounds like
+> it's doing something if there isn't a bypass.
+
+Changed.
+
+> > +
+> > +       return 0;
+> > +}
+> [...]
+> > +
+> > +/**
+> > + * __prci_register_clocks() - register clock controls in the PRCI with Linux
+> > + * @dev: Linux struct device *
+> > + *
+> > + * Register the list of clock controls described in __prci_init_plls[] with
+> > + * the Linux clock framework.
+> > + *
+> > + * Return: 0 upon success or a negative Linux error code upon failure.
+> 
+> This is all Linux, so drop the "Linux" part?
+
+Done.
+
+> > + */
+> > +static int __prci_register_clocks(struct device *dev)
+> > +{
+> > +       struct __prci_data *pd = dev_get_drvdata(dev);
+> > +       struct clk_init_data init;
+> > +       struct __prci_clock *pic;
+> > +       int parent_count, i, clk_hw_count, r;
+> > +
+> > +       parent_count = of_clk_get_parent_count(dev->of_node);
+> > +       if (parent_count != EXPECTED_CLK_PARENT_COUNT) {
+> > +               dev_err(dev, "expected two parent clocks, only found %d\n",
+> > +                       parent_count);
+> 
+> Heh, this would read funny if it says "expected two parent clocks, only
+> found 50". 
+
+Thanks, I've moved the "only" to appear earlier in the message.
+
+> Can this be enforced with DT schema instead of checking at runtime in 
+> the driver? We don't typically validate DT in the kernel because the 
+> kernel is not a DT validator.
+
+Doesn't most code that calls of_*() functions in the kernel check the 
+result?  Looks like it based on a brief glance through the output of:
+
+$ fgrep -rA 3 =\ of_ linux/
+
+> > +               return -EINVAL;
+> > +       }
+> > +
+> > +       memset(&init, 0, sizeof(struct clk_init_data));
+> > +
+> > +       /* Register PLLs */
+> > +       clk_hw_count = sizeof(__prci_init_clocks) / sizeof(struct __prci_clock);
+> > +
+> > +       for (i = 0; i < clk_hw_count; ++i) {
+> > +               pic = &__prci_init_clocks[i];
+> > +
+> > +               init.name = pic->name;
+> > +               init.parent_names = (const char *[]) { pic->parent_name };
+> 
+> Just use &pic->parent_name instead?
+
+Done.
+
+> > +               init.num_parents = 1;
+> > +               init.ops = pic->ops;
+> > +               init.flags = CLK_IGNORE_UNUSED;
+> 
+> Why? Can you remove it? Or add a comment indicating why you need to have
+> it here?
+
+It's mostly prophylactic until the device driver code for this SoC 
+matures.  It should be possible to remove it.
+
+> > +               pic->hw.init = &init;
+> > +
+> > +               pic->pd = pd;
+> > +
+> > +               if (pic->pwd)
+> > +                       __prci_wrpll_read_cfg(pd, pic->pwd);
+> > +
+> > +               r = devm_clk_hw_register(dev, &pic->hw);
+> > +               if (r) {
+> > +                       dev_warn(dev, "Failed to register clock %s: %d\n",
+> > +                                init.name, r);
+> > +                       return r;
+> > +               }
+> > +
+> > +               r = clk_hw_register_clkdev(&pic->hw, pic->name, dev_name(dev));
+> 
+> Do you need clkdev? I would avoid clkdev if possible and just use DT
+> based lookups until you need clkdev.
+
+For debugging and sysfs code external to this patch, it's pleasant to be 
+able to use clk_get_sys() et al.  Does the use of clkdev cause problems?
+
+> > +       r = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
+> > +                                       &pd->hw_clks);
+> > +       if (r) {
+> > +               dev_err(dev, "could not add hw_provider: %d\n", r);
+> > +               return -EINVAL;
+> 
+> Why override error code?
+
+Changed.
+
+> > +       }
+> > +
+> > +       return 0;
+> > +}
+> > +
+> > +/*
+> > + * Linux device model integration
+> > + *
+> > + * See the Linux device model documentation for more information about
+> > + * these functions.
+> > + */
+> > +static int sifive_fu540_prci_probe(struct platform_device *pdev)
+> > +{
+> > +       struct device *dev = &pdev->dev;
+> > +       struct resource *res;
+> > +       struct __prci_data *pd;
+> > +       int r;
+> > +
+> > +       pd = devm_kzalloc(dev, sizeof(struct __prci_data), GFP_KERNEL);
+> 
+> sizeof(*pd) please, makes shorter lines and avoids types changing.
+
+Changed.
+
+> > +       if (!pd)
+> > +               return -ENOMEM;
+> > +
+> > +       dev_set_drvdata(dev, pd);
+> 
+> Why not just pass the pd to __prci_register_clocks() and not have any
+> driver data?
+
+Changed.
+
+> > +
+> > +       r = __prci_register_clocks(dev);
+> > +       if (r) {
+> > +               dev_err(dev, "could not register clocks: %d\n", r);
+> > +               return -EINVAL;
+> 
+> But we override return value and always return -EINVAL? Why not return
+> r?
+
+Changed.
+
+> > +       }
+> > +
+> > +       dev_info(dev, "SiFive FU540 PRCI probed\n");
+> 
+> Please no "I'm alive!" messages.
+
+Converted this to a dev_dbg(), since I still find it useful during debug.  
+Let me know if that's not enough.
+
+> > +
+> > +       return 0;
+> > +}
+> > +
+> > +static const struct of_device_id sifive_fu540_prci_of_match[] = {
+> > +       { .compatible = "sifive,fu540-c000-prci0", },
+> > +       {}
+> > +};
+> 
+> Can it be a module? If so, add an MODULE_DEVICE_TABLE(of, ...) here.
+
+Added.
+
+> > +
+> > +static struct platform_driver sifive_fu540_prci_driver = {
+> > +       .driver = {
+> > +               .name = "sifive-fu540-prci",
+> > +               .of_match_table = sifive_fu540_prci_of_match,
+> 
+> And consider suppressing unbind from sysfs here if you don't want that
+> feature.
+
+I'm OK with someone trying to unbind it.
+
+> > +       },
+> > +       .probe = sifive_fu540_prci_probe,
+> 
+> Especially because there isn't a remove function.
+
+Added one, based on other remove functions in drivers/clk.
+
+> > diff --git a/include/linux/clk/sifive-fu540-prci.h b/include/linux/clk/sifive-fu540-prci.h
+> > new file mode 100644
+> > index 000000000000..5d03eae7d4ef
+> > --- /dev/null
+> > +++ b/include/linux/clk/sifive-fu540-prci.h
+> > @@ -0,0 +1,27 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +/*
+> > + * Copyright (C) 2018 SiFive, Inc.
+> > + * Wesley Terpstra
+> > + * Paul Walmsley
+> > + *
+> > + * This program is free software; you can redistribute it and/or modify
+> > + * it under the terms of the GNU General Public License version 2 as
+> > + * published by the Free Software Foundation.
+> > + *
+> > + * This program is distributed in the hope that it will be useful,
+> > + * but WITHOUT ANY WARRANTY; without even the implied warranty of
+> > + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+> > + * GNU General Public License for more details.
+> 
+> Same SPDX comments apply here.
+
+Done.
+
+
+- Paul
