@@ -1,110 +1,109 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Mon, 26 Nov 2018 11:02:50 -0800 (PST)
-Subject: [PATCH] dt-bindings: sifive: describe sifive-blocks versioning
-In-Reply-To: <eda63b4a-4371-7d34-38a0-d7136dfc417f@wdc.com>
-Message-ID: <mhng-9dfdf5d7-fe41-4418-ba3d-d03ed9b2265c@palmer-si-x1c4>
+From: anup@brainfault.org (Anup Patel)
+Date: Tue, 27 Nov 2018 15:33:14 +0530
+Subject: [PATCH v2 1/4] irqchip: sifive-plic: Pre-compute context hart base
+ and enable base
+In-Reply-To: <20181127100317.12809-1-anup@brainfault.org>
+References: <20181127100317.12809-1-anup@brainfault.org>
+Message-ID: <20181127100317.12809-2-anup@brainfault.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 21 Nov 2018 17:33:02 PST (-0800), atish.patra at wdc.com wrote:
-> On 11/21/18 5:07 PM, Paul Walmsley wrote:
->>
->> For IP blocks that are generated from the public, open-source
->> sifive-blocks repository, describe the version numbering policy
->> that its maintainers intend to use, upon request from Rob
->> Herring <robh@kernel.org>.
->>
->> Cc: Rob Herring <robh+dt@kernel.org>
->> Cc: Palmer Dabbelt <palmer@sifive.com>
->> Cc: Megan Wachs <megan@sifive.com>
->> Cc: Wesley Terpstra <wesley@sifive.com>
->> Cc: Mark Rutland <mark.rutland@arm.com>
->> Cc: devicetree at vger.kernel.org
->> Cc: linux-riscv at lists.infradead.org
->> Cc: linux-kernel at vger.kernel.org
->> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
->> Signed-off-by: Paul Walmsley <paul@pwsan.com>
->> ---
->>
->> Hi Rob, please let me know if this document works with your
->> requirements, or if some changes are needed.  - Paul
->>
->>   .../sifive/sifive-blocks-ip-versioning.txt    | 38 +++++++++++++++++++
->>   1 file changed, 38 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
->>
->> diff --git a/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt b/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
->> new file mode 100644
->> index 000000000000..b899e5c6e00c
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
->
-> It should be be under
-> Documentation/devicetree/bindings/riscv/sifive/sifive-blocks-ip-versioning.txt
-> ?
->
->> @@ -0,0 +1,38 @@
->> +DT compatible string versioning for SiFive open-source IP blocks
->> +
->> +This document describes the version specification for DT "compatible"
->> +strings for open-source SiFive IP blocks.  HDL for these IP blocks
->> +can be found in this public repository:
->> +
->> +https://github.com/sifive/sifive-blocks
->> +
->> +IP block-specific DT compatible strings are contained within the HDL,
->> +in the form "sifive,<ip-block-name><integer version number>".
->> +
->> +An example is "sifive,uart0" from:
->> +
->> +https://github.com/sifive/sifive-blocks/blob/master/src/main/scala/devices/uart/UART.scala#L43
->> +
->> +Until these IP blocks (or IP integration) support version
->> +autodiscovery, the maintainers of these IP blocks intend to increment
->
-> /s/autodiscovery/auto discovery
->
->> +the suffixed number in the compatible string whenever the software
->> +interface to these IP blocks changes, or when the functionality of the
->> +underlying IP blocks changes in a way that software should be aware of.
->> +
->> +Driver developers can use compatible string "match" values such as
->> +"sifive,uart0" to indicate that their driver is compatible with the
->> +register interface and functionality associated with the relevant
->> +upstream sifive-blocks commits.  It is expected that most drivers will
->> +match on these IP block-specific compatible strings.
->> +
->> +DT data authors, when writing data for a particular SoC, should
->> +continue to specify an SoC-specific compatible string value, such as
->> +"sifive,fu540-c000-uart".  This way, if SoC-specific
->> +integration-specific bug fixes or workarounds are needed, the kernel
->> +or other system software can match on this string to apply them.  The
->> +IP block-specific compatible string (such as "sifive,uart0") should
->> +then be specified as a subsequent value.
->> +
->> +An example of this style:
->> +
->> +    compatible = "sifive,fu540-c000-uart", "sifive,uart0";
->>
->
-> Just for the sake of completion, should this document also specify what
-> should be the style of any possible closed IP as well?
+This patch does following optimizations:
+1. Pre-compute hart base for each context handler
+2. Pre-compute enable base for each context handler
+3. Have enable lock for each context handler instead
+of global plic_toggle_lock
 
-Let's restrict ourselves to the open-source IP for now, as versioning the 
-closed source stuff is a bit of a different problem -- when everyone can see 
-the source it's easier because we can all agree on exactly what a version 
-string means.
+Signed-off-by: Anup Patel <anup@brainfault.org>
+---
+ drivers/irqchip/irq-sifive-plic.c | 41 +++++++++++++------------------
+ 1 file changed, 17 insertions(+), 24 deletions(-)
 
-For the closed source stuff we currently have just the chip-specific strings, 
-as all that stuff is very chip specific (all sorts of special clocking 
-constraints).  Essentially you'll have to just trust us as to what's compatible 
-with what -- FWIW, since this is mostly driven by the chip process we really 
-just have to trust the hardware designers, so we're kind of in the same boat 
-(though we can at least peek under the covers if we want to).  Any versioning 
-scheme here is doubly complicated because it's closed source and it's chip 
-specific, so trying to match this up with the open source stuff seems like too 
-much work.
-
-For now we can at least get everyone on the same page as to how we're 
-versioning the open-source blocks, which is more important because anyone can 
-build a chip with those so we need a well defined scheme.
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index 357e9daf94ae..56fce648a901 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -60,36 +60,24 @@ static void __iomem *plic_regs;
+ struct plic_handler {
+ 	bool			present;
+ 	int			ctxid;
++	void __iomem		*hart_base;
++	raw_spinlock_t		enable_lock;
++	void __iomem		*enable_base;
+ };
+ static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
+ 
+-static inline void __iomem *plic_hart_offset(int ctxid)
++static inline void plic_toggle(struct plic_handler *handler,
++				int hwirq, int enable)
+ {
+-	return plic_regs + CONTEXT_BASE + ctxid * CONTEXT_PER_HART;
+-}
+-
+-static inline u32 __iomem *plic_enable_base(int ctxid)
+-{
+-	return plic_regs + ENABLE_BASE + ctxid * ENABLE_PER_HART;
+-}
+-
+-/*
+- * Protect mask operations on the registers given that we can't assume that
+- * atomic memory operations work on them.
+- */
+-static DEFINE_RAW_SPINLOCK(plic_toggle_lock);
+-
+-static inline void plic_toggle(int ctxid, int hwirq, int enable)
+-{
+-	u32 __iomem *reg = plic_enable_base(ctxid) + (hwirq / 32);
++	u32 __iomem *reg = handler->enable_base + (hwirq / 32);
+ 	u32 hwirq_mask = 1 << (hwirq % 32);
+ 
+-	raw_spin_lock(&plic_toggle_lock);
++	raw_spin_lock(&handler->enable_lock);
+ 	if (enable)
+ 		writel(readl(reg) | hwirq_mask, reg);
+ 	else
+ 		writel(readl(reg) & ~hwirq_mask, reg);
+-	raw_spin_unlock(&plic_toggle_lock);
++	raw_spin_unlock(&handler->enable_lock);
+ }
+ 
+ static inline void plic_irq_toggle(struct irq_data *d, int enable)
+@@ -101,7 +89,7 @@ static inline void plic_irq_toggle(struct irq_data *d, int enable)
+ 		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+ 
+ 		if (handler->present)
+-			plic_toggle(handler->ctxid, d->hwirq, enable);
++			plic_toggle(handler, d->hwirq, enable);
+ 	}
+ }
+ 
+@@ -150,7 +138,7 @@ static struct irq_domain *plic_irqdomain;
+ static void plic_handle_irq(struct pt_regs *regs)
+ {
+ 	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+-	void __iomem *claim = plic_hart_offset(handler->ctxid) + CONTEXT_CLAIM;
++	void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
+ 	irq_hw_number_t hwirq;
+ 
+ 	WARN_ON_ONCE(!handler->present);
+@@ -240,11 +228,16 @@ static int __init plic_init(struct device_node *node,
+ 		handler = per_cpu_ptr(&plic_handlers, cpu);
+ 		handler->present = true;
+ 		handler->ctxid = i;
++		handler->hart_base =
++			plic_regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
++		raw_spin_lock_init(&handler->enable_lock);
++		handler->enable_base =
++			plic_regs + ENABLE_BASE + i * ENABLE_PER_HART;
+ 
+ 		/* priority must be > threshold to trigger an interrupt */
+-		writel(0, plic_hart_offset(i) + CONTEXT_THRESHOLD);
++		writel(0, handler->hart_base + CONTEXT_THRESHOLD);
+ 		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+-			plic_toggle(i, hwirq, 0);
++			plic_toggle(handler, hwirq, 0);
+ 		nr_mapped++;
+ 	}
+ 
+-- 
+2.17.1
