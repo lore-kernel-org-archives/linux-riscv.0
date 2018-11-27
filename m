@@ -1,113 +1,42 @@
-From: anup@brainfault.org (Anup Patel)
-Date: Tue, 27 Nov 2018 15:33:17 +0530
-Subject: [PATCH v2 4/4] irqchip: sifive-plic: Implement irq_set_affinity() for
- SMP host
-In-Reply-To: <20181127100317.12809-1-anup@brainfault.org>
-References: <20181127100317.12809-1-anup@brainfault.org>
-Message-ID: <20181127100317.12809-5-anup@brainfault.org>
+From: mpe@ellerman.id.au (Michael Ellerman)
+Date: Tue, 27 Nov 2018 21:34:29 +1100
+Subject: [PATCH v2 16/15] syscall_get_arch: add "struct task_struct *"
+ argument
+In-Reply-To: <20181121004422.GA29053@altlinux.org>
+References: <20181107042751.3b519062@akathisia>
+ <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
+ <20181120001128.GA11300@altlinux.org> <20181121004422.GA29053@altlinux.org>
+Message-ID: <87in0ihkqy.fsf@concordia.ellerman.id.au>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-Currently on SMP host, all CPUs take external interrupts routed via
-PLIC. All CPUs will try to claim a given external interrupt but only
-one of them will succeed while other CPUs would simply resume whatever
-they were doing before. This means if we have N CPUs then for every
-external interrupt N-1 CPUs will always fail to claim it and waste
-their CPU time.
+"Dmitry V. Levin" <ldv@altlinux.org> writes:
 
-Instead of above, external interrupts should be taken by only one CPU
-and we should have provision to explicity specify IRQ affinity from
-kernel-space or user-space.
+> diff --git a/arch/powerpc/include/asm/syscall.h b/arch/powerpc/include/asm/syscall.h
+> index ab9f3f0a8637..d88b34179118 100644
+> --- a/arch/powerpc/include/asm/syscall.h
+> +++ b/arch/powerpc/include/asm/syscall.h
+> @@ -100,9 +100,15 @@ static inline void syscall_set_arguments(struct task_struct *task,
+>  		regs->orig_gpr3 = args[0];
+>  }
+>  
+> -static inline int syscall_get_arch(void)
+> +static inline int syscall_get_arch(struct task_struct *task)
+>  {
+> -	int arch = is_32bit_task() ? AUDIT_ARCH_PPC : AUDIT_ARCH_PPC64;
+> +	int arch;
+> +
+> +	if (IS_ENABLED(CONFIG_PPC64) && !test_tsk_thread_flag(task, TIF_32BIT))
+> +		arch = AUDIT_ARCH_PPC64;
+> +	else
+> +		arch = AUDIT_ARCH_PPC;
+> +
+>  #ifdef __LITTLE_ENDIAN__
+>  	arch |= __AUDIT_ARCH_LE;
+>  #endif
 
-This patch provides irq_set_affinity() implementation for PLIC driver.
-It also updates irq_enable() such that PLIC interrupts are only enabled
-for one of CPUs specified in IRQ affinity mask.
+LGTM.
 
-With this patch in-place, we can change IRQ affinity at any-time from
-user-space using procfs.
+Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
 
-Example:
-
-/ # cat /proc/interrupts
-           CPU0       CPU1       CPU2       CPU3
-  8:         44          0          0          0  SiFive PLIC   8  virtio0
- 10:         48          0          0          0  SiFive PLIC  10  ttyS0
-IPI0:        55        663         58        363  Rescheduling interrupts
-IPI1:         0          1          3         16  Function call interrupts
-/ #
-/ #
-/ # echo 4 > /proc/irq/10/smp_affinity
-/ #
-/ # cat /proc/interrupts
-           CPU0       CPU1       CPU2       CPU3
-  8:         45          0          0          0  SiFive PLIC   8  virtio0
- 10:        160          0         17          0  SiFive PLIC  10  ttyS0
-IPI0:        68        693         77        410  Rescheduling interrupts
-IPI1:         0          2          3         16  Function call interrupts
-
-Signed-off-by: Anup Patel <anup@brainfault.org>
----
- drivers/irqchip/irq-sifive-plic.c | 35 +++++++++++++++++++++++++++++--
- 1 file changed, 33 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index ffd4deaca057..fec7da3797fa 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -98,14 +98,42 @@ static void plic_irq_toggle(const struct cpumask *mask, int hwirq, int enable)
- 
- static void plic_irq_enable(struct irq_data *d)
- {
--	plic_irq_toggle(irq_data_get_affinity_mask(d), d->hwirq, 1);
-+	unsigned int cpu = cpumask_any_and(irq_data_get_affinity_mask(d),
-+					   cpu_online_mask);
-+	WARN_ON(cpu >= nr_cpu_ids);
-+	plic_irq_toggle(cpumask_of(cpu), d->hwirq, 1);
- }
- 
- static void plic_irq_disable(struct irq_data *d)
- {
--	plic_irq_toggle(irq_data_get_affinity_mask(d), d->hwirq, 0);
-+	plic_irq_toggle(cpu_possible_mask, d->hwirq, 0);
- }
- 
-+#ifdef CONFIG_SMP
-+static int plic_set_affinity(struct irq_data *d, const struct cpumask *mask_val,
-+			    bool force)
-+{
-+	unsigned int cpu;
-+
-+	if (!force)
-+		cpu = cpumask_any_and(mask_val, cpu_online_mask);
-+	else
-+		cpu = cpumask_first(mask_val);
-+
-+	if (cpu >= nr_cpu_ids)
-+		return -EINVAL;
-+
-+	if (!irqd_irq_disabled(d)) {
-+		plic_irq_toggle(cpu_possible_mask, d->hwirq, 0);
-+		plic_irq_toggle(cpumask_of(cpu), d->hwirq, 1);
-+	}
-+
-+	irq_data_update_effective_affinity(d, cpumask_of(cpu));
-+
-+	return IRQ_SET_MASK_OK_DONE;
-+}
-+#endif
-+
- static struct irq_chip plic_chip = {
- 	.name		= "SiFive PLIC",
- 	/*
-@@ -114,6 +142,9 @@ static struct irq_chip plic_chip = {
- 	 */
- 	.irq_enable	= plic_irq_enable,
- 	.irq_disable	= plic_irq_disable,
-+#ifdef CONFIG_SMP
-+	.irq_set_affinity = plic_set_affinity,
-+#endif
- };
- 
- static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
--- 
-2.17.1
+cheers
