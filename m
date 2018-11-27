@@ -4,61 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DE403C43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 27 Nov 2018 10:35:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ECBC9C43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 27 Nov 2018 23:40:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B1A9520817
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 27 Nov 2018 10:35:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AB818205C9
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 27 Nov 2018 23:40:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qVunzzNO"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B1A9520817
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ellerman.id.au
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XEqpEf3u";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="Wejb46AU";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="AcOLyZ0i"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AB818205C9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:To:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ydKTIxDR3CCROF8VgMM35h6hsUh92aafzvQjXvAG4D8=; b=qVunzzNOdp72sg
-	HnaRnou8I4pTNkYfRYZXUgKJJIm8JCBtCu/J2m+QavDGVwZOE6VrNyKYP4qiVaj0c9qAg3I2XkZ8J
-	/Q6wegI4FqRpzJkfMHpShA+Q4OQV3fs6Xj8nqkmA8HZz0xwcxkfWk0Qy+0i8rC7U8fbi1OHtwgk9D
-	58EPgLUEtKzpj2jZIgN6CSzrmXqffLoOhbku+FtFzpyX89xtuAzTagv+8i72ckk36GrfG2W2rbPk5
-	BmQ+0R080q6Q7kn6IHew1q28r9KC4r6DbyittWiuv6wcy+qjVpOVX9oJGqejykwqnPddPv7rDNskJ
-	63gqph8Cmg90YTJ5K7Eg==;
+	List-Owner; bh=WeaSiUGPUse4hrdnxQ+/lI5DyqtQFcZv7TrstoFG0Rc=; b=XEqpEf3uwWVPOZ
+	YbIDjjk9sFLT5RIfBsVOrtQ7sVgMgZRJBbhazYUxBCG18HnkrBRh7/SbCKtaNi4TsN434Cu5840K8
+	g7oOz/NP5h3DWPQKJhDYneJbkBJbO0Il+xAHVjBxmIfh6IWCDfqZVGhtYGtd6kTJln2U2xHb25KkP
+	BtVhgM5Fejvr8MmqJk7O9ZVAMwL9FAekYLyzgUR1kl+dwCYI8AFLzR4xedBf1YuAZzlOvrk1bd9O8
+	HbiGo2E7sNibP/294fGDFRtODJMs61feiA5UfVCr0ebW21LPsUcrUOYaA7Ll0C1i4H2WmvGglVYcs
+	x+HsU1/KGuk2HoSSZC6g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gRahv-0008B1-Vr; Tue, 27 Nov 2018 10:35:08 +0000
-Received: from ozlabs.org ([203.11.71.1])
+	id 1gRmxs-0000ZM-Uz; Tue, 27 Nov 2018 23:40:24 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gRahg-0007gc-2O; Tue, 27 Nov 2018 10:34:53 +0000
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ozlabs.org (Postfix) with ESMTPSA id 4340X95kDkz9s29;
- Tue, 27 Nov 2018 21:34:33 +1100 (AEDT)
-Authentication-Results: ozlabs.org; dmarc=none (p=none dis=none)
- header.from=ellerman.id.au
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: "Dmitry V. Levin" <ldv@altlinux.org>, Andy Lutomirski <luto@kernel.org>,
- Eric Paris <eparis@redhat.com>, Paul Moore <paul@paul-moore.com>
-Subject: Re: [PATCH v2 16/15] syscall_get_arch: add "struct task_struct *"
- argument
-In-Reply-To: <20181121004422.GA29053@altlinux.org>
-References: <20181107042751.3b519062@akathisia>
- <CALCETrV1v-DPRfDRwiH=xn29bxWxiHdZtAH1nw=dsmDtnT0YGQ@mail.gmail.com>
- <20181120001128.GA11300@altlinux.org> <20181121004422.GA29053@altlinux.org>
-Date: Tue, 27 Nov 2018 21:34:29 +1100
-Message-ID: <87in0ihkqy.fsf@concordia.ellerman.id.au>
+ id 1gRmxr-0007bZ-Lv
+ for linux-riscv@bombadil.infradead.org; Tue, 27 Nov 2018 23:40:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
+ Message-ID:In-Reply-To:Subject:cc:To:Date:From:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=ktWiST3J0PhkcLNl8DSIkRY00GReKyTxaVr1/SUY75g=; b=Wejb46AU3wWlSvy+FmjDiwZvS
+ N/iWjoe+yf9fVx/xX4rKeWfyS7moab2fuVLYzGk92YEO7TKk4ECqRLr/6STv51s+9a7ciQAGcHsaZ
+ 1JaD6pFJNecvWm9ZzAEMx4Dtv3Dx2vr35ARIhi3uy9Tbsnkn0oZ6ZI62Xy8QDEdxuFAFZor9b1hRb
+ 2juv/DlNav6bVV+fDQf8Mc9M9XeKAELEUFk4WnQKwmQdtJEeqQsgfZ2b/yfeX3EK7n4cAyQho5br0
+ 1oZMx0efI7ZPuY5KA36EI1UEFeHZ6atmT/jSYO+/Ce8loSePVl1gQoSeArvz78PpuGK+dJKmh4LHZ
+ tAVkRZHEQ==;
+Received: from mail-it1-x142.google.com ([2607:f8b0:4864:20::142])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gRmiT-000551-QP
+ for linux-riscv@lists.infradead.org; Tue, 27 Nov 2018 23:24:35 +0000
+Received: by mail-it1-x142.google.com with SMTP id b5so1394206iti.2
+ for <linux-riscv@lists.infradead.org>; Tue, 27 Nov 2018 15:24:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:date:to:cc:subject:in-reply-to:message-id:references
+ :user-agent:mime-version;
+ bh=ktWiST3J0PhkcLNl8DSIkRY00GReKyTxaVr1/SUY75g=;
+ b=AcOLyZ0iAm8vhmPJ0XO5e3qik9vjUAJ6C9VpXC/X8JZIr9FDNl9WrkPZ7GV+SIOz9x
+ NWKsC0AEbX4cbX7tKi8eQ4e5y7JL1o1BcxcgMQ9DjdTZOAksAvalWknsZ915f/4Tv6T9
+ lLVJ/lP8ff1ucZfIlkSieW0WcELHmnR3ObsQSPYqKMdlZeZPnTBrdGezKeDzO3vTgarC
+ 4pKsR+Hy3aYy6eJa+aXNwqc7DjRj85tvw/ykpSBzUXjstGPfQbVZPQ+z3iGfSPJV3+PV
+ v8yCS8lq6JdbooLf1BHTO2ZiSl7gizj1yHgoysJ90jpcEu4P7xTGQBBx8M8rOZZncopv
+ rWQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:date:to:cc:subject:in-reply-to:message-id
+ :references:user-agent:mime-version;
+ bh=ktWiST3J0PhkcLNl8DSIkRY00GReKyTxaVr1/SUY75g=;
+ b=rWLYGJv+0JpgL3cNWnf8uBH+FZo+SXtu/0fZ6LNfsqyKNiizhDCAFHl4ReYMuQt1cw
+ rZ31vQ7vKTl5kAE9f152lqe/EUa6fDjPniJZ7W/LPvN1f1/4B+iF4CiF0/W9UTJwZadH
+ DOS5jdxQB9aSHmGOZYrtAYspaXYLW3OdpT+L1o1lpWxmhco2nTSb1kliGgrs+K2wm/tw
+ buSJbvFXCYo3pd927W5yBnTFb7Vuo1BA4vjYkkHmQIvg2VGrN/tLQkjozYVbrMtnfwiu
+ x027pajfGbuBeO4sDPFP7tggspaR2/ylktiPcrK81ZpDZPA/IBe2L8nsL92Qd/p5kR/n
+ QM5g==
+X-Gm-Message-State: AA+aEWYWRRe6E6s4NJ3M+JPmAeY9KX9BeDazskKWtKls2V8hBuB3HIe7
+ DhD6GZWWdv5fILn/lMPK62BjBg==
+X-Google-Smtp-Source: AFSGD/XKx9HgNDUEgx4Btw0dCOs/ob0C9YnVzPPr0qC4kuElvxozA0udjl1csfsx0Zz4CzZHsCwjzQ==
+X-Received: by 2002:a24:b305:: with SMTP id e5-v6mr953407itf.128.1543361053249; 
+ Tue, 27 Nov 2018 15:24:13 -0800 (PST)
+Received: from localhost (230.sub-174-209-19.myvzw.com. [174.209.19.230])
+ by smtp.gmail.com with ESMTPSA id 195sm346748itm.2.2018.11.27.15.24.12
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Tue, 27 Nov 2018 15:24:12 -0800 (PST)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+X-Google-Original-From: Paul Walmsley <paulw@sifive.com>
+Date: Tue, 27 Nov 2018 15:24:11 -0800 (PST)
+To: Stephen Boyd <sboyd@kernel.org>
+Subject: Re: [PATCH v2 3/3] clk: sifive: add a driver for the SiFive FU540
+ PRCI IP block
+In-Reply-To: <154281815686.88331.17857751098132553261@swboyd.mtv.corp.google.com>
+Message-ID: <alpine.DEB.2.21.9999.1811261919130.16271@viisi.sifive.com>
+References: <20181020135024.28573-1-paul.walmsley@sifive.com>
+ <20181020135024.28573-4-paul.walmsley@sifive.com>
+ <154281815686.88331.17857751098132553261@swboyd.mtv.corp.google.com>
+User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181127_023452_294115_4BDA89AE 
-X-CRM114-Status: UNSURE (   8.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181127_232429_920719_A159C665 
+X-CRM114-Status: GOOD (  69.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -70,57 +114,535 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mips@linux-mips.org, linux-ia64@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-c6x-dev@linux-c6x.org,
- linux-hexagon@vger.kernel.org, x86@kernel.org,
- Eugene Syromyatnikov <esyr@redhat.com>,
- Elvira Khabirova <lineprinter@altlinux.org>,
- linux-snps-arc@lists.infradead.org, uclinux-h8-devel@lists.sourceforge.jp,
- linux-xtensa@linux-xtensa.org, linux-um@lists.infradead.org,
- linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
- linux-arm-kernel@lists.infradead.org, linux-parisc@vger.kernel.org,
- Oleg Nesterov <oleg@redhat.com>, linux-audit@redhat.com,
- linux-alpha@vger.kernel.org, nios2-dev@lists.rocketboards.org,
- linuxppc-dev@lists.ozlabs.org
+Cc: devicetree@vger.kernel.org, Paul Walmsley <paul@pwsan.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, "Wesley W. Terpstra" <wesley@sifive.com>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Megan Wachs <megan@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181127103429.fsPSlzSvgWOhARD-LziglIKOpxgljXu05a9Y0hJ686A@z>
+Message-ID: <20181127232411.oCUAQu2INSbQZbSdZp0h63RbsH1lpkswVc33TsmZaUc@z>
 
-"Dmitry V. Levin" <ldv@altlinux.org> writes:
+On Wed, 21 Nov 2018, Stephen Boyd wrote:
 
-> diff --git a/arch/powerpc/include/asm/syscall.h b/arch/powerpc/include/asm/syscall.h
-> index ab9f3f0a8637..d88b34179118 100644
-> --- a/arch/powerpc/include/asm/syscall.h
-> +++ b/arch/powerpc/include/asm/syscall.h
-> @@ -100,9 +100,15 @@ static inline void syscall_set_arguments(struct task_struct *task,
->  		regs->orig_gpr3 = args[0];
->  }
->  
-> -static inline int syscall_get_arch(void)
-> +static inline int syscall_get_arch(struct task_struct *task)
->  {
-> -	int arch = is_32bit_task() ? AUDIT_ARCH_PPC : AUDIT_ARCH_PPC64;
-> +	int arch;
-> +
-> +	if (IS_ENABLED(CONFIG_PPC64) && !test_tsk_thread_flag(task, TIF_32BIT))
-> +		arch = AUDIT_ARCH_PPC64;
-> +	else
-> +		arch = AUDIT_ARCH_PPC;
-> +
->  #ifdef __LITTLE_ENDIAN__
->  	arch |= __AUDIT_ARCH_LE;
->  #endif
+> Quoting Paul Walmsley (2018-10-20 06:50:24)
+> > diff --git a/drivers/clk/sifive/fu540-prci.c b/drivers/clk/sifive/fu540-prci.c
+> > new file mode 100644
+> > index 000000000000..870cb8333648
+> > --- /dev/null
+> > +++ b/drivers/clk/sifive/fu540-prci.c
+> > @@ -0,0 +1,634 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> [...]
+> > +
+> > +#include <linux/clkdev.h>
+> > +#include <linux/clk-provider.h>
+> > +#include <linux/clk.h>
+> 
+> Is this for of_clk_get_parent_count()? Use of_clk.h include for that,
+> and drop this clk.h include if possible.
 
-LGTM.
+Done.
 
-Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
+> > +#include <linux/clk/analogbits-wrpll-cln28hpc.h>
+> > +#include <linux/delay.h>
+> > +#include <linux/err.h>
+> > +#include <linux/log2.h>
+> 
+> Is this used?
 
-cheers
+It isn't.  Dropped.
 
+> > +#include <linux/of.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/slab.h>
+> > +#include <linux/clk/sifive-fu540-prci.h>
+> 
+> Can you sort these at least by path includes so that linux/clk/ is
+> somewhere together?
+
+Done.
+
+> > +/**
+> > + * struct __prci_data - per-device-instance data
+> > + * @va: base virtual address of the PRCI IP block
+> > + * @hw_clks: encapsulates struct clk_hw records
+> > + *
+> > + * PRCI per-device instance data
+> > + */
+> > +struct __prci_data {
+> > +       void __iomem *va;
+> 
+> Usually this is called 'base', but 'va' is fine too. 
+
+OK
+
+> What happens with NOMMU? Then it's not a VA anymore?
+
+It's similar to other Linux code that refers to virtual addresses:
+
+$ fgrep -r va linux/ | fgrep __iomem | egrep -iv '(val|riva)' | wc -l
+270
+$
+
+(as a first-order approximation)
+
+> > +/**
+> > + * struct __prci_wrpll_data - WRPLL configuration and integration data
+> > + * @c: WRPLL current configuration record
+> > + * @bypass: fn ptr to code to bypass the WRPLL (if applicable; else NULL)
+> > + * @no_bypass: fn ptr to code to not bypass the WRPLL (if applicable; else NULL)
+> > + * @cfg0_offs: WRPLL CFG0 register offset (in bytes) from the PRCI base address
+> > + *
+> > + * @bypass and @no_bypass are used for WRPLL instances that contain a separate
+> > + * external glitchless clock mux downstream from the PLL.  The WRPLL internal
+> > + * bypass mux is not glitchless.
+> > + */
+> > +struct __prci_wrpll_data {
+> > +       struct analogbits_wrpll_cfg c;
+> > +       void (*bypass)(struct __prci_data *pd);
+> > +       void (*no_bypass)(struct __prci_data *pd);
+> > +       u8 cfg0_offs;
+> > +};
+> 
+> Why do we have this struct? Why not fold it into the prci_clock
+> structure?
+
+The code was written to be extensible to non-PLL clock tree elements.
+
+> As far as I can tell it's a one to one correlation right now.
+
+Certainly true at the moment.  Do you want them combined?
+
+> > +/**
+> > + * __prci_readl() - read from a PRCI register
+> > + * @pd: PRCI context
+> > + * @offs: register offset to read from (in bytes, from PRCI base address)
+> > + *
+> > + * Read the register located at offset @offs from the base virtual
+> > + * address of the PRCI register target described by @pd, and return
+> > + * the value to the caller.
+> > + *
+> > + * Context: Any context.
+> > + *
+> > + * Return: the contents of the register described by @pd and @offs.
+> > + */
+> > +static u32 __prci_readl(struct __prci_data *pd, u32 offs)
+> > +{
+> > +       return readl_relaxed(pd->va + offs);
+> > +}
+> > +
+> > +static void __prci_writel(u32 v, u32 offs, struct __prci_data *pd)
+> > +{
+> > +       return writel_relaxed(v, pd->va + offs);
+> > +}
+> 
+> Please remove these wrappers. The lines are only barely shorter with
+> them, they mostly obfuscate the code,
+
+Isn't the use of wrappers fairly common CCF and Linux device driver 
+practice?
+
+$ pcregrep -r \\wwritel drivers/clk | fgrep -v __raw | fgrep -v clk_writel | wc -l
+148
+$ pcregrep --buffer-size 65536 -r \\wwritel drivers/ | fgrep -v __raw | wc -l
+8526
+$
+
+The usual motivation is not so much to shorten lines, but to have a 
+centralized place for adding IP block-specific I/O barriers, register 
+logging, and other debug.
+
+> and writel swaps 'offs' and 'pd' vs readl (why?).
+
+Yeah.  The include/asm-generic/io.h write*() functions invert the argument 
+order from the read*() argument order.  There doesn't appear to be a 
+strong idiom for device driver write*() argument order in the kernel, so I 
+just picked one when I wrote them.
+
+>       __prci_wrpll_unpack(&pwd->c, __prci_readl(pd, pwd->cfg0_offs));
+> 
+> vs.
+> 
+>       __prci_wrpll_unpack(&pwd->c, readl_relaxed(pd->va + pwd->cfg0_offs));
+
+In any case, I am fine with removing them if that is the standard practice 
+going forward for drivers/clk.
+
+> > +/**
+> > + * __prci_wrpll_pack() - pack PLL configuration parameters into a register value
+> > + * @c: pointer to a struct analogbits_wrpll_cfg record containing the PLL's cfg
+> > + *
+> > + * Using a set of WRPLL configuration values pointed to by @c,
+> > + * assemble a PRCI PLL configuration register value, and return it to
+> > + * the caller.
+> > + *
+> > + * Context: Any context.  Caller must ensure that the contents of the
+> > + *          record pointed to by @c do not change during the execution
+> > + *          of this function.
+> > + *
+> > + * Returns: a value suitable for writing into a PRCI PLL configuration
+> > + *          register
+> > + */
+> > +static u32 __prci_wrpll_pack(struct analogbits_wrpll_cfg *c)
+> 
+> const c?
+
+Changed.
+
+> > +/**
+> > + * __prci_wrpll_write_cfg() - write WRPLL configuration into the PRCI
+> > + * @pd: PRCI context
+> > + * @pwd: PRCI WRPLL metadata
+> > + * @c: WRPLL configuration record to write
+> > + *
+> > + * Write the WRPLL configuration described by @c into the WRPLL
+> > + * configuration register identified by @pwd in the PRCI instance
+> > + * described by @c.  Make a cached copy of the WRPLL's current
+> > + * configuration so it can be used by other code.
+> > + *
+> > + * Context: Any context.  Caller must prevent the records pointed to by
+> > + *          @pd and @pwd from changing during execution.
+> > + */
+> > +static void __prci_wrpll_write_cfg(struct __prci_data *pd,
+> > +                                  struct __prci_wrpll_data *pwd,
+> > +                                  struct analogbits_wrpll_cfg *c)
+> > +{
+> > +       __prci_writel(__prci_wrpll_pack(c), pwd->cfg0_offs, pd);
+> > +
+> > +       memcpy(&pwd->c, c, sizeof(struct analogbits_wrpll_cfg));
+> 
+> I'm trying to understand what all the memcpy() calls in this driver are
+> doing. What is being optimized by storing the values in software? Is I/O
+> access really that bad that we need to use memcpy()? Can you remove it
+> all and just read and write registers when we need them? It would make
+> things clearer and shorter. If you need caching, I would suggest you use
+> regmap and all the caching features therein.
+
+The primary goal is to minimize the number of CPU instructions executed by 
+this driver when the CPU is running at a low clock rate.  This is 
+important on the FU540 since the PLL bypass clock is slow.  Switching to 
+regmap wouldn't help here, since the driver would still need to do the 
+computation.
+
+As a secondary goal, the shadow copy of the PLL configuration also 
+allows the driver to avoid unnecessary PRCI register reads.
+
+> > +/**
+> > + * __prci_coreclksel_use_hfclk() - switch the CORECLK mux to output HFCLK
+> > + * @pd: struct __prci_data * for the PRCI containing the CORECLK mux reg
+> > + *
+> > + * Switch the CORECLK mux to the HFCLK input source; return once complete.
+> > + *
+> > + * Context: Any context.  Caller must prevent concurrent changes to the
+> > + *          PRCI_CORECLKSEL_OFFSET register.
+> > + */
+> > +static void __prci_coreclksel_use_hfclk(struct __prci_data *pd)
+> > +{
+> > +       u32 r;
+> > +
+> > +       r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);
+> > +       r |= PRCI_CORECLKSEL_CORECLKSEL_MASK;
+> > +       __prci_writel(r, PRCI_CORECLKSEL_OFFSET, pd);
+> > +
+> > +       r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET); /* barrier */
+> 
+> Barrier with what? 
+
+That's an I/O barrier.  
+
+> What are we synchronizing with?
+
+The completion of the preceding write to the PRCI.
+
+> > +/*
+> > + * Linux clock framework integration
+> > + *
+> > + * See the Linux clock framework documentation for more information on
+> > + * these functions.
+> > + */
+> > +
+> > +static unsigned long sifive_fu540_prci_wrpll_recalc_rate(struct clk_hw *hw,
+> > +                                                        unsigned long parent_rate)
+> > +{
+> > +       struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+> > +       struct __prci_wrpll_data *pwd = pc->pwd;
+> > +
+> > +       return analogbits_wrpll_calc_output_rate(&pwd->c, parent_rate);
+> 
+> I suppose this is one place where the caching must have gone wrong, so 
+> then we needed to add __prci_wrpll_read_cfg() to make sure we've kept 
+> things in sync with our memcpy? Please don't do that. Just read the 
+> hardware in recalc_rate() so that we don't have to worry about syncing 
+> framework state with this driver state.
+
+The code is written to the usual Linux principle that the driver has 
+exclusive access to the PRCI IP block.  Thus the shadow copy should be in 
+sync with the hardware at all times. The only time that the PLL 
+configuration needs to be read from the hardware is when the driver 
+initializes.
+
+Of course, the code could be changed to read the hardware directly. I'd be 
+curious to know what advantage you see in making that change.  MMIO reads 
+from a leaf IP block are slow, and the CPU cores on this chip are 
+in-order.  The PRCI driver already maintains an up-to-date shadow copy of 
+the PLL data to avoid unnecessary computation (as mentioned above).  Thus 
+since the shadow copy is already there, it makes sense to use it.  But 
+perhaps I am misunderstanding your comment?
+
+> > +static int sifive_fu540_prci_wrpll_set_rate(struct clk_hw *hw,
+> > +                                           unsigned long rate,
+> > +                                           unsigned long parent_rate)
+> > +{
+> > +       struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+> > +       struct __prci_wrpll_data *pwd = pc->pwd;
+> > +       struct __prci_data *pd = pc->pd;
+> > +       int r;
+> > +
+> > +       r = analogbits_wrpll_configure_for_rate(&pwd->c, rate, parent_rate);
+> > +       if (r)
+> > +               return -ERANGE;
+> 
+> Why not return the value of 'r'?
+
+Changed.
+
+> > +
+> > +       if (pwd->bypass)
+> > +               pwd->bypass(pd);
+> > +
+> > +       __prci_wrpll_write_cfg(pd, pwd, &pwd->c);
+> > +
+> > +       udelay(analogbits_wrpll_calc_max_lock_us(&pwd->c));
+> > +
+> > +       if (pwd->no_bypass)
+> > +               pwd->no_bypass(pd);
+> 
+> Maybe call it enable/disable_bypass() instead? no_bypass sounds like
+> it's doing something if there isn't a bypass.
+
+Changed.
+
+> > +
+> > +       return 0;
+> > +}
+> [...]
+> > +
+> > +/**
+> > + * __prci_register_clocks() - register clock controls in the PRCI with Linux
+> > + * @dev: Linux struct device *
+> > + *
+> > + * Register the list of clock controls described in __prci_init_plls[] with
+> > + * the Linux clock framework.
+> > + *
+> > + * Return: 0 upon success or a negative Linux error code upon failure.
+> 
+> This is all Linux, so drop the "Linux" part?
+
+Done.
+
+> > + */
+> > +static int __prci_register_clocks(struct device *dev)
+> > +{
+> > +       struct __prci_data *pd = dev_get_drvdata(dev);
+> > +       struct clk_init_data init;
+> > +       struct __prci_clock *pic;
+> > +       int parent_count, i, clk_hw_count, r;
+> > +
+> > +       parent_count = of_clk_get_parent_count(dev->of_node);
+> > +       if (parent_count != EXPECTED_CLK_PARENT_COUNT) {
+> > +               dev_err(dev, "expected two parent clocks, only found %d\n",
+> > +                       parent_count);
+> 
+> Heh, this would read funny if it says "expected two parent clocks, only
+> found 50". 
+
+Thanks, I've moved the "only" to appear earlier in the message.
+
+> Can this be enforced with DT schema instead of checking at runtime in 
+> the driver? We don't typically validate DT in the kernel because the 
+> kernel is not a DT validator.
+
+Doesn't most code that calls of_*() functions in the kernel check the 
+result?  Looks like it based on a brief glance through the output of:
+
+$ fgrep -rA 3 =\ of_ linux/
+
+> > +               return -EINVAL;
+> > +       }
+> > +
+> > +       memset(&init, 0, sizeof(struct clk_init_data));
+> > +
+> > +       /* Register PLLs */
+> > +       clk_hw_count = sizeof(__prci_init_clocks) / sizeof(struct __prci_clock);
+> > +
+> > +       for (i = 0; i < clk_hw_count; ++i) {
+> > +               pic = &__prci_init_clocks[i];
+> > +
+> > +               init.name = pic->name;
+> > +               init.parent_names = (const char *[]) { pic->parent_name };
+> 
+> Just use &pic->parent_name instead?
+
+Done.
+
+> > +               init.num_parents = 1;
+> > +               init.ops = pic->ops;
+> > +               init.flags = CLK_IGNORE_UNUSED;
+> 
+> Why? Can you remove it? Or add a comment indicating why you need to have
+> it here?
+
+It's mostly prophylactic until the device driver code for this SoC 
+matures.  It should be possible to remove it.
+
+> > +               pic->hw.init = &init;
+> > +
+> > +               pic->pd = pd;
+> > +
+> > +               if (pic->pwd)
+> > +                       __prci_wrpll_read_cfg(pd, pic->pwd);
+> > +
+> > +               r = devm_clk_hw_register(dev, &pic->hw);
+> > +               if (r) {
+> > +                       dev_warn(dev, "Failed to register clock %s: %d\n",
+> > +                                init.name, r);
+> > +                       return r;
+> > +               }
+> > +
+> > +               r = clk_hw_register_clkdev(&pic->hw, pic->name, dev_name(dev));
+> 
+> Do you need clkdev? I would avoid clkdev if possible and just use DT
+> based lookups until you need clkdev.
+
+For debugging and sysfs code external to this patch, it's pleasant to be 
+able to use clk_get_sys() et al.  Does the use of clkdev cause problems?
+
+> > +       r = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
+> > +                                       &pd->hw_clks);
+> > +       if (r) {
+> > +               dev_err(dev, "could not add hw_provider: %d\n", r);
+> > +               return -EINVAL;
+> 
+> Why override error code?
+
+Changed.
+
+> > +       }
+> > +
+> > +       return 0;
+> > +}
+> > +
+> > +/*
+> > + * Linux device model integration
+> > + *
+> > + * See the Linux device model documentation for more information about
+> > + * these functions.
+> > + */
+> > +static int sifive_fu540_prci_probe(struct platform_device *pdev)
+> > +{
+> > +       struct device *dev = &pdev->dev;
+> > +       struct resource *res;
+> > +       struct __prci_data *pd;
+> > +       int r;
+> > +
+> > +       pd = devm_kzalloc(dev, sizeof(struct __prci_data), GFP_KERNEL);
+> 
+> sizeof(*pd) please, makes shorter lines and avoids types changing.
+
+Changed.
+
+> > +       if (!pd)
+> > +               return -ENOMEM;
+> > +
+> > +       dev_set_drvdata(dev, pd);
+> 
+> Why not just pass the pd to __prci_register_clocks() and not have any
+> driver data?
+
+Changed.
+
+> > +
+> > +       r = __prci_register_clocks(dev);
+> > +       if (r) {
+> > +               dev_err(dev, "could not register clocks: %d\n", r);
+> > +               return -EINVAL;
+> 
+> But we override return value and always return -EINVAL? Why not return
+> r?
+
+Changed.
+
+> > +       }
+> > +
+> > +       dev_info(dev, "SiFive FU540 PRCI probed\n");
+> 
+> Please no "I'm alive!" messages.
+
+Converted this to a dev_dbg(), since I still find it useful during debug.  
+Let me know if that's not enough.
+
+> > +
+> > +       return 0;
+> > +}
+> > +
+> > +static const struct of_device_id sifive_fu540_prci_of_match[] = {
+> > +       { .compatible = "sifive,fu540-c000-prci0", },
+> > +       {}
+> > +};
+> 
+> Can it be a module? If so, add an MODULE_DEVICE_TABLE(of, ...) here.
+
+Added.
+
+> > +
+> > +static struct platform_driver sifive_fu540_prci_driver = {
+> > +       .driver = {
+> > +               .name = "sifive-fu540-prci",
+> > +               .of_match_table = sifive_fu540_prci_of_match,
+> 
+> And consider suppressing unbind from sysfs here if you don't want that
+> feature.
+
+I'm OK with someone trying to unbind it.
+
+> > +       },
+> > +       .probe = sifive_fu540_prci_probe,
+> 
+> Especially because there isn't a remove function.
+
+Added one, based on other remove functions in drivers/clk.
+
+> > diff --git a/include/linux/clk/sifive-fu540-prci.h b/include/linux/clk/sifive-fu540-prci.h
+> > new file mode 100644
+> > index 000000000000..5d03eae7d4ef
+> > --- /dev/null
+> > +++ b/include/linux/clk/sifive-fu540-prci.h
+> > @@ -0,0 +1,27 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +/*
+> > + * Copyright (C) 2018 SiFive, Inc.
+> > + * Wesley Terpstra
+> > + * Paul Walmsley
+> > + *
+> > + * This program is free software; you can redistribute it and/or modify
+> > + * it under the terms of the GNU General Public License version 2 as
+> > + * published by the Free Software Foundation.
+> > + *
+> > + * This program is distributed in the hope that it will be useful,
+> > + * but WITHOUT ANY WARRANTY; without even the implied warranty of
+> > + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+> > + * GNU General Public License for more details.
+> 
+> Same SPDX comments apply here.
+
+Done.
+
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
