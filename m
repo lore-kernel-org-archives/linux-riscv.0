@@ -1,50 +1,118 @@
-From: andrew@lunn.ch (Andrew Lunn)
-Date: Thu, 29 Nov 2018 06:55:10 +0100
-Subject: macb: probe of 10090000.ethernet failed with error -110
-In-Reply-To: <mhng-0ddf5852-8900-4131-b3e0-81c5cc7de2eb@palmer-si-x1c4>
-References: <2e17bba6-d932-37b2-5dca-0963fc50f5e6@gmail.com>
- <mhng-0ddf5852-8900-4131-b3e0-81c5cc7de2eb@palmer-si-x1c4>
-Message-ID: <20181129055510.GB17675@lunn.ch>
+From: sashal@kernel.org (Sasha Levin)
+Date: Thu, 29 Nov 2018 00:55:28 -0500
+Subject: [PATCH AUTOSEL 4.19 37/68] mtd: rawnand: qcom: Namespace prefix some
+ commands
+In-Reply-To: <20181129055559.159228-1-sashal@kernel.org>
+References: <20181129055559.159228-1-sashal@kernel.org>
+Message-ID: <20181129055559.159228-37-sashal@kernel.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
->    diff --git a/drivers/net/phy/mscc.c b/drivers/net/phy/mscc.c
->    index 7cae17517744..8e0a71ee6bab 100644
->    --- a/drivers/net/phy/mscc.c
->    +++ b/drivers/net/phy/mscc.c
->    @@ -1822,6 +1822,24 @@ static int vsc85xx_probe(struct phy_device *phydev)
->     	return vsc85xx_dt_led_modes_get(phydev, default_mode);
->     }
->    +static int vsc8541_reset(struct phy_device *phydev, int value)
->    +{
->    +	WARN_ON(value != 0 || value != 1);
->    +	mdio_device_reset(&phydev->mdio, value);
->    +	if (value == 1) {
->    +		/* The VSC8541 has an unexpected feature where a single reset
->    +		 * rising edge can only be used to enter managed mode.  For
->    +		 * unmanaged mode a pair of reset rising edges is necessary.
->    +		 * */
->    +		mdio_device_reset(&phydev_mdio, 0);
->    +		mdio_device_reset(&phydev_mdio, 1);
->    +
->    +		/* After this pair of reset rising edges we must wait at least
->    +		 * 15ms before writing any phy registers. */
->    +		msleep(15);
->    +	}
->    +}
->    +
->     /* Microsemi VSC85xx PHYs */
->     static struct phy_driver vsc85xx_driver[] = {
->     {
->    @@ -1927,6 +1945,7 @@ static struct phy_driver vsc85xx_driver[] = {
->     	.get_sset_count = &vsc85xx_get_sset_count,
->     	.get_strings    = &vsc85xx_get_strings,
->     	.get_stats      = &vsc85xx_get_stats,
->    +	.reset          = &vsc8541_reset,
+From: Olof Johansson <olof@lixom.net>
 
-So if we assume you can identify the PHY using its ID registers, you
-can put this reset code into the soft_reset call. That gets called
-first before anything else. There is no need to add a new function to
-phy_driver.
+[ Upstream commit 33bf5519ae5dd356b182a94e3622f42860274a38 ]
 
-	Andrew
+PAGE_READ is used by RISC-V arch code included through mm headers,
+and it makes sense to bring in a prefix on these in the driver.
+
+drivers/mtd/nand/raw/qcom_nandc.c:153: warning: "PAGE_READ" redefined
+ #define PAGE_READ   0x2
+In file included from include/linux/memremap.h:7,
+                 from include/linux/mm.h:27,
+                 from include/linux/scatterlist.h:8,
+                 from include/linux/dma-mapping.h:11,
+                 from drivers/mtd/nand/raw/qcom_nandc.c:17:
+arch/riscv/include/asm/pgtable.h:48: note: this is the location of the previous definition
+
+Caught by riscv allmodconfig.
+
+Signed-off-by: Olof Johansson <olof@lixom.net>
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Signed-off-by: Boris Brezillon <boris.brezillon@bootlin.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/mtd/nand/raw/qcom_nandc.c | 32 +++++++++++++++----------------
+ 1 file changed, 16 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/mtd/nand/raw/qcom_nandc.c b/drivers/mtd/nand/raw/qcom_nandc.c
+index d1d470bb32e4..8815f3e2b718 100644
+--- a/drivers/mtd/nand/raw/qcom_nandc.c
++++ b/drivers/mtd/nand/raw/qcom_nandc.c
+@@ -151,15 +151,15 @@
+ #define	NAND_VERSION_MINOR_SHIFT	16
+ 
+ /* NAND OP_CMDs */
+-#define	PAGE_READ			0x2
+-#define	PAGE_READ_WITH_ECC		0x3
+-#define	PAGE_READ_WITH_ECC_SPARE	0x4
+-#define	PROGRAM_PAGE			0x6
+-#define	PAGE_PROGRAM_WITH_ECC		0x7
+-#define	PROGRAM_PAGE_SPARE		0x9
+-#define	BLOCK_ERASE			0xa
+-#define	FETCH_ID			0xb
+-#define	RESET_DEVICE			0xd
++#define	OP_PAGE_READ			0x2
++#define	OP_PAGE_READ_WITH_ECC		0x3
++#define	OP_PAGE_READ_WITH_ECC_SPARE	0x4
++#define	OP_PROGRAM_PAGE			0x6
++#define	OP_PAGE_PROGRAM_WITH_ECC	0x7
++#define	OP_PROGRAM_PAGE_SPARE		0x9
++#define	OP_BLOCK_ERASE			0xa
++#define	OP_FETCH_ID			0xb
++#define	OP_RESET_DEVICE			0xd
+ 
+ /* Default Value for NAND_DEV_CMD_VLD */
+ #define NAND_DEV_CMD_VLD_VAL		(READ_START_VLD | WRITE_START_VLD | \
+@@ -692,11 +692,11 @@ static void update_rw_regs(struct qcom_nand_host *host, int num_cw, bool read)
+ 
+ 	if (read) {
+ 		if (host->use_ecc)
+-			cmd = PAGE_READ_WITH_ECC | PAGE_ACC | LAST_PAGE;
++			cmd = OP_PAGE_READ_WITH_ECC | PAGE_ACC | LAST_PAGE;
+ 		else
+-			cmd = PAGE_READ | PAGE_ACC | LAST_PAGE;
++			cmd = OP_PAGE_READ | PAGE_ACC | LAST_PAGE;
+ 	} else {
+-			cmd = PROGRAM_PAGE | PAGE_ACC | LAST_PAGE;
++		cmd = OP_PROGRAM_PAGE | PAGE_ACC | LAST_PAGE;
+ 	}
+ 
+ 	if (host->use_ecc) {
+@@ -1170,7 +1170,7 @@ static int nandc_param(struct qcom_nand_host *host)
+ 	 * in use. we configure the controller to perform a raw read of 512
+ 	 * bytes to read onfi params
+ 	 */
+-	nandc_set_reg(nandc, NAND_FLASH_CMD, PAGE_READ | PAGE_ACC | LAST_PAGE);
++	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_PAGE_READ | PAGE_ACC | LAST_PAGE);
+ 	nandc_set_reg(nandc, NAND_ADDR0, 0);
+ 	nandc_set_reg(nandc, NAND_ADDR1, 0);
+ 	nandc_set_reg(nandc, NAND_DEV0_CFG0, 0 << CW_PER_PAGE
+@@ -1224,7 +1224,7 @@ static int erase_block(struct qcom_nand_host *host, int page_addr)
+ 	struct qcom_nand_controller *nandc = get_qcom_nand_controller(chip);
+ 
+ 	nandc_set_reg(nandc, NAND_FLASH_CMD,
+-		      BLOCK_ERASE | PAGE_ACC | LAST_PAGE);
++		      OP_BLOCK_ERASE | PAGE_ACC | LAST_PAGE);
+ 	nandc_set_reg(nandc, NAND_ADDR0, page_addr);
+ 	nandc_set_reg(nandc, NAND_ADDR1, 0);
+ 	nandc_set_reg(nandc, NAND_DEV0_CFG0,
+@@ -1255,7 +1255,7 @@ static int read_id(struct qcom_nand_host *host, int column)
+ 	if (column == -1)
+ 		return 0;
+ 
+-	nandc_set_reg(nandc, NAND_FLASH_CMD, FETCH_ID);
++	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_FETCH_ID);
+ 	nandc_set_reg(nandc, NAND_ADDR0, column);
+ 	nandc_set_reg(nandc, NAND_ADDR1, 0);
+ 	nandc_set_reg(nandc, NAND_FLASH_CHIP_SELECT,
+@@ -1276,7 +1276,7 @@ static int reset(struct qcom_nand_host *host)
+ 	struct nand_chip *chip = &host->chip;
+ 	struct qcom_nand_controller *nandc = get_qcom_nand_controller(chip);
+ 
+-	nandc_set_reg(nandc, NAND_FLASH_CMD, RESET_DEVICE);
++	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_RESET_DEVICE);
+ 	nandc_set_reg(nandc, NAND_EXEC_CMD, 1);
+ 
+ 	write_reg_dma(nandc, NAND_FLASH_CMD, 1, NAND_BAM_NEXT_SGL);
+-- 
+2.17.1
