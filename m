@@ -2,61 +2,56 @@ Return-Path: <SRS0=kIcs=OI=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 41492C43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 11:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F1B41C43610
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 16:32:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 113C321479
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 11:56:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BF91D20863
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 16:32:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aGFm80qV"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 113C321479
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KvhWpDFl"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BF91D20863
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=usiCaapqFw+Uvo0UUVo9JTxNbWHRRhQEX+bmOtq7BYY=; b=aGFm80qV+hcZNn
-	sj5KQsxNp89XwDpz64zD7Kxt4wBdTUFtLN6ZG1/WKsvXRupxPlcudy/JBirjkL3mrYVLUAQb+x1Ng
-	vZR+KQ3TzFOGuhC3zs4mgEmKVY2psKQS1HBcRnupu0Uej2TpZtyrlH+FKbrwcp7ZV0jjmesLEIkj3
-	d8jms3CN6ScRJvgKjfarl04Z8+TxAh6Fs1m3DAkoqwwl45jXbs+mbUQIJBIhvJki+Na1PylxtUFFj
-	bQITVF7UWZD2Ck3CmtA/fnqqa+iREEFxtmWGBnyLQhGHX94UIKfE/OX7EjxGswhPmx3lm2E32S2yV
-	/d4dVDTS3+nFL3QiL0lg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wvMJOexd1ChXm4RxlCRb0Cy9S7axzrQcSqHJQdOHK/Y=; b=KvhWpDFl2MqxPg
+	q5nPXg38RHoBU2TBrxiGpeAdbXIrnL3K4/ydbYsgm3Ujiak0iheuBhljECEKn/dEKoE+wfmrUMHdk
+	1m/qI/x7zkiOk3Sxn72VsLQpmqBgJYi5vUe+dortRq9WdEXg2pg8s84apIx1rwfKEjzMO24gJ6YOa
+	0XPe7MYqDfk7EKw46tzq8S010q/1EWWnhRvQTkVp93vAKQJHu96pud2jcgePfDvDPL9rFsbe95jvT
+	u5uMjnJ1AlDVETtUCxtaWw+2DlAx6FbyF3glHD6yFy5FFGIo2zdp8eQmh6gyy61qzYOk1QM1LpUkP
+	jERjdUfWyJe6jz7HByGw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gSKvJ-0007HF-Dn; Thu, 29 Nov 2018 11:56:01 +0000
+	id 1gSPEi-0000qz-Tg; Thu, 29 Nov 2018 16:32:20 +0000
 Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gSKvG-0007Fk-2u
- for linux-riscv@lists.infradead.org; Thu, 29 Nov 2018 11:55:59 +0000
+ id 1gSPEf-0000qL-SD
+ for linux-riscv@lists.infradead.org; Thu, 29 Nov 2018 16:32:19 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay1.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 40324ACC8;
- Thu, 29 Nov 2018 11:55:44 +0000 (UTC)
+ by mx1.suse.de (Postfix) with ESMTP id 30C16B00C
+ for <linux-riscv@lists.infradead.org>; Thu, 29 Nov 2018 16:32:04 +0000 (UTC)
 From: Andreas Schwab <schwab@suse.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Subject: Re: macb: probe of 10090000.ethernet failed with error -110
-References: <2e17bba6-d932-37b2-5dca-0963fc50f5e6@gmail.com>
- <mhng-0ddf5852-8900-4131-b3e0-81c5cc7de2eb@palmer-si-x1c4>
- <20181129055510.GB17675@lunn.ch>
-X-Yow: Can you MAIL a BEAN CAKE?
-Date: Thu, 29 Nov 2018 12:55:42 +0100
-In-Reply-To: <20181129055510.GB17675@lunn.ch> (Andrew Lunn's message of "Thu, 
- 29 Nov 2018 06:55:10 +0100")
-Message-ID: <mvmtvk0drnl.fsf@suse.de>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH] riscv: don't stop itself in smp_send_stop
+X-Yow: It's a lot of fun being alive...  I wonder if my bed is made?!?
+Date: Thu, 29 Nov 2018 17:32:03 +0100
+Message-ID: <mvmbm67etfg.fsf@suse.de>
 User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.90 (gnu/linux)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181129_035558_276445_6AF97BAC 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20181129_083218_054908_23095D59 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -68,64 +63,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: f.fainelli@gmail.com, sergei.shtylyov@cogentembedded.com,
- netdev@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>,
- nicolas.ferre@microchip.com, linux-kernel@vger.kernel.org, atish.patra@wdc.com,
- linux-riscv@lists.infradead.org, hkallweit1@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Nov 29 2018, Andrew Lunn <andrew@lunn.ch> wrote:
+Only run ipi_stop on other cpus, not itself.  Don't wait for ipi_stop to
+return, since it never does.  Also, mark each cpu offline.
 
-> So if we assume you can identify the PHY using its ID registers, you
-> can put this reset code into the soft_reset call. That gets called
-> first before anything else. There is no need to add a new function to
-> phy_driver.
+Signed-off-by: Andreas Schwab <schwab@suse.de>
+---
+ arch/riscv/kernel/smp.c | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
 
-I've tried the following, but it made things only worse, with the
-probing not working at all.
-
-Andreas.
-
-diff --git a/drivers/net/phy/mscc.c b/drivers/net/phy/mscc.c
-index 7cae175177..65baf31331 100644
---- a/drivers/net/phy/mscc.c
-+++ b/drivers/net/phy/mscc.c
-@@ -1822,6 +1822,23 @@ static int vsc85xx_probe(struct phy_device *phydev)
- 	return vsc85xx_dt_led_modes_get(phydev, default_mode);
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 57b1383e5e..5c6bb5fe5a 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -23,6 +23,7 @@
+ #include <linux/smp.h>
+ #include <linux/sched.h>
+ #include <linux/seq_file.h>
++#include <linux/delay.h>
+ 
+ #include <asm/sbi.h>
+ #include <asm/tlbflush.h>
+@@ -148,13 +149,27 @@ void arch_send_call_function_single_ipi(int cpu)
+ 
+ static void ipi_stop(void *unused)
+ {
++	set_cpu_online (smp_processor_id(), false);
+ 	while (1)
+ 		wait_for_interrupt();
  }
  
-+static int vsc8541_soft_reset(struct phy_device *phydev)
-+{
-+	/* The VSC8541 has an unexpected feature where a single reset
-+	 * rising edge can only be used to enter managed mode.  For
-+	 * unmanaged mode a pair of reset rising edges is necessary.
-+	 */
-+	mdio_device_reset(&phydev->mdio, 0);
-+	mdio_device_reset(&phydev->mdio, 1);
-+
-+	/* After this pair of reset rising edges we must wait at least
-+	 * 15ms before writing any phy registers.
-+	 */
-+	msleep(15);
-+
-+	return genphy_soft_reset(phydev);
-+}
-+
- /* Microsemi VSC85xx PHYs */
- static struct phy_driver vsc85xx_driver[] = {
+ void smp_send_stop(void)
  {
-@@ -1908,7 +1925,7 @@ static struct phy_driver vsc85xx_driver[] = {
- 	.phy_id_mask    = 0xfffffff0,
- 	.features	= PHY_GBIT_FEATURES,
- 	.flags		= PHY_HAS_INTERRUPT,
--	.soft_reset	= &genphy_soft_reset,
-+	.soft_reset	= &vsc8541_soft_reset,
- 	.config_init    = &vsc85xx_config_init,
- 	.config_aneg    = &vsc85xx_config_aneg,
- 	.aneg_done	= &genphy_aneg_done,
+-	on_each_cpu(ipi_stop, NULL, 1);
++	unsigned long timeout;
++	struct cpumask mask;
++
++	cpumask_copy (&mask, cpu_online_mask);
++	cpumask_clear_cpu (smp_processor_id (), &mask);
++	on_each_cpu_mask(&mask, ipi_stop, NULL, 0);
++
++	/* Wait up to one second for other CPUs to stop */
++	timeout = USEC_PER_SEC;
++	while (num_online_cpus() > 1 && timeout--)
++		udelay(1);
++
++	if (num_online_cpus() > 1)
++		pr_warn("SMP: failed to stop secondary CPUs\n");
+ }
+ 
+ void smp_send_reschedule(int cpu)
 -- 
 2.19.2
 
