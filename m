@@ -4,19 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 10A71C43610
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 06:00:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BFCEFC43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 06:04:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D297D21104
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 06:00:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 915D52086B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 06:04:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sP/ZC6Ft";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="y3BYC6dv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D297D21104
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZNhhQz0t";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="sEfPYvG3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 915D52086B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,45 +27,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=VpxGhy1DvSPYFdTiDv7l3bam4TriqoalLxx/lfBbYAU=; b=sP/ZC6FtRzBPlfTl3YH1mlIjaP
-	yFfjrZB6M4ktTP8R6bBEGbGTHsnmi1Fklj/rMTGpSO8COpFmhvDTcaTytboBdPhvfrLtbLzHx18xW
-	gapKrtFua4Fo+Lo74sAHP9IEIZhiumtxoW+f35Gilahy4nrYerr8+op+QBolyoIkR9S3rxeOuAPoO
-	1B/6jrezdQphyKu8v51T1SfvLY1MIP2u5t6xaLdJQQMEEafA9AuD3sUSpy/tjL0LiAkQ8nEmTJhiE
-	bD3xz5Hbwzt6zMri2WdjNBbXKd543kA+sJty9vnGfp24IFNniCoeUAQ2qVqIprY4tCHUpkEjqM01P
-	26mPhUuA==;
+	bh=bNycxOy6YZjrB186QbH1St8kCAMZtlVpQTsL8u/74S8=; b=ZNhhQz0tvRZit0JaFLwnLt4Dt8
+	apITWe7rhQMPQpAXKl9/wJDNB2gW7T+/UXucizqGF9Atb4ejqDz5JsUyVQ1CTD6k/dpwN67D9o/fB
+	gz6xc34Pi6Dwdu1yHnusREQ3kUtNj+SCRxYWwmAhnoEZTqPKCZqsBd2h5cBY3m2i4eAU03xIaBbiU
+	NWBMJRvGrrmdkj7pMjxmZKpmC09p/3DtSz3NsFq6otBGYCl445mrJwVPKvIVtb+oJs53OZu2bsH+a
+	XI+uVwBmT/DOnrkgfR/C0TtXjgLNKXa/SpvwD3I16d/F3qlzKEj0IETphVqZjmvLMFMLToPlDH2lA
+	aVlw5SLQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gSFN2-00031L-8o; Thu, 29 Nov 2018 06:00:16 +0000
+	id 1gSFRP-00049z-IC; Thu, 29 Nov 2018 06:04:47 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gSFMv-0001lk-Q4
- for linux-riscv@lists.infradead.org; Thu, 29 Nov 2018 06:00:14 +0000
+ id 1gSFRD-0003zj-Vn; Thu, 29 Nov 2018 06:04:37 +0000
 Received: from sasha-vm.mshome.net (unknown [37.142.5.207])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 6136E208E7;
- Thu, 29 Nov 2018 05:59:57 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 2DFD720834;
+ Thu, 29 Nov 2018 06:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1543471199;
- bh=S6M8p64PUl2ROx9FC8sH5EyjA4yqz1pTef73TT8mleY=;
+ s=default; t=1543471465;
+ bh=e7AXpmQUl0xl6lDO1475rXz11048w9mk8zM03J4rgUw=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=y3BYC6dvWI0MaRSMDbcAvpTfNEmZ3vKjNV3zPDq2OSljB2E2E9aqR2xD5YK4lUxob
- SieOArvV9/oqeqVlBHflABAc6Fqd9vSq8uHLOrWwoPO+ny5/yX/a80zWgzCxV+Wu5k
- CKrrzCEzeVzX/IgmfTWZYFnteQ7yovTc5SINPERY=
+ b=sEfPYvG3JlPiQApvLxFg68Aw4Qwisn3W8gTDKTTEo0JVwFyxQZIKlDCetMw6CJLiB
+ OvWdCqs7F1kj32QJshbetN5eCxdZageSXJFLeoqxDUmVivroRUDnab6DChDkAaE2Hu
+ KUOPnDbG03DD/UA5lJsEE90olQFQOE+KcbAEHqT8=
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 4.19 50/68] riscv: fix warning in
- arch/riscv/include/asm/module.h
-Date: Thu, 29 Nov 2018 00:55:41 -0500
-Message-Id: <20181129055559.159228-50-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.9 14/18] mtd: rawnand: qcom: Namespace prefix some
+ commands
+Date: Thu, 29 Nov 2018 01:03:26 -0500
+Message-Id: <20181129060331.160224-14-sashal@kernel.org>
 X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20181129055559.159228-1-sashal@kernel.org>
-References: <20181129055559.159228-1-sashal@kernel.org>
+In-Reply-To: <20181129060331.160224-1-sashal@kernel.org>
+References: <20181129060331.160224-1-sashal@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181128_220010_670853_A5A76B43 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181128_220436_052120_8E5E4C4E 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -76,43 +75,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, linux-riscv@lists.infradead.org,
- Palmer Dabbelt <palmer@sifive.com>,
- David Abdurachmanov <david.abdurachmanov@gmail.com>
+Cc: Olof Johansson <olof@lixom.net>,
+ Boris Brezillon <boris.brezillon@bootlin.com>, linux-riscv@lists.infradead.org,
+ linux-mtd@lists.infradead.org, Sasha Levin <sashal@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181129055541.ZkEonsprJ0-ur2fiNq8jeZh0a4IcBZtuIWyiqTTjevg@z>
+Message-ID: <20181129060326.ZgMVCfUu6YTE6gkBlTsZ5oX7OFmnKxHuamta20xEPpg@z>
 
-From: David Abdurachmanov <david.abdurachmanov@gmail.com>
+From: Olof Johansson <olof@lixom.net>
 
-[ Upstream commit 0138ebb90c633f76bc71617f8f23635ce41c84fd ]
+[ Upstream commit 33bf5519ae5dd356b182a94e3622f42860274a38 ]
 
-Fixes warning: 'struct module' declared inside parameter list will not be
-visible outside of this definition or declaration
+PAGE_READ is used by RISC-V arch code included through mm headers,
+and it makes sense to bring in a prefix on these in the driver.
 
-Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
-Acked-by: Olof Johansson <olof@lixom.net>
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+drivers/mtd/nand/raw/qcom_nandc.c:153: warning: "PAGE_READ" redefined
+ #define PAGE_READ   0x2
+In file included from include/linux/memremap.h:7,
+                 from include/linux/mm.h:27,
+                 from include/linux/scatterlist.h:8,
+                 from include/linux/dma-mapping.h:11,
+                 from drivers/mtd/nand/raw/qcom_nandc.c:17:
+arch/riscv/include/asm/pgtable.h:48: note: this is the location of the previous definition
+
+Caught by riscv allmodconfig.
+
+Signed-off-by: Olof Johansson <olof@lixom.net>
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Signed-off-by: Boris Brezillon <boris.brezillon@bootlin.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/riscv/include/asm/module.h | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/mtd/nand/qcom_nandc.c | 32 ++++++++++++++++----------------
+ 1 file changed, 16 insertions(+), 16 deletions(-)
 
-diff --git a/arch/riscv/include/asm/module.h b/arch/riscv/include/asm/module.h
-index 349df33808c4..cd2af4b013e3 100644
---- a/arch/riscv/include/asm/module.h
-+++ b/arch/riscv/include/asm/module.h
-@@ -8,6 +8,7 @@
+diff --git a/drivers/mtd/nand/qcom_nandc.c b/drivers/mtd/nand/qcom_nandc.c
+index dc4943134649..9f6c9a34b9eb 100644
+--- a/drivers/mtd/nand/qcom_nandc.c
++++ b/drivers/mtd/nand/qcom_nandc.c
+@@ -142,15 +142,15 @@
+ #define	NAND_VERSION_MINOR_SHIFT	16
  
- #define MODULE_ARCH_VERMAGIC    "riscv"
+ /* NAND OP_CMDs */
+-#define	PAGE_READ			0x2
+-#define	PAGE_READ_WITH_ECC		0x3
+-#define	PAGE_READ_WITH_ECC_SPARE	0x4
+-#define	PROGRAM_PAGE			0x6
+-#define	PAGE_PROGRAM_WITH_ECC		0x7
+-#define	PROGRAM_PAGE_SPARE		0x9
+-#define	BLOCK_ERASE			0xa
+-#define	FETCH_ID			0xb
+-#define	RESET_DEVICE			0xd
++#define	OP_PAGE_READ			0x2
++#define	OP_PAGE_READ_WITH_ECC		0x3
++#define	OP_PAGE_READ_WITH_ECC_SPARE	0x4
++#define	OP_PROGRAM_PAGE			0x6
++#define	OP_PAGE_PROGRAM_WITH_ECC	0x7
++#define	OP_PROGRAM_PAGE_SPARE		0x9
++#define	OP_BLOCK_ERASE			0xa
++#define	OP_FETCH_ID			0xb
++#define	OP_RESET_DEVICE			0xd
  
-+struct module;
- u64 module_emit_got_entry(struct module *mod, u64 val);
- u64 module_emit_plt_entry(struct module *mod, u64 val);
+ /* Default Value for NAND_DEV_CMD_VLD */
+ #define NAND_DEV_CMD_VLD_VAL		(READ_START_VLD | WRITE_START_VLD | \
+@@ -425,11 +425,11 @@ static void update_rw_regs(struct qcom_nand_host *host, int num_cw, bool read)
  
+ 	if (read) {
+ 		if (host->use_ecc)
+-			cmd = PAGE_READ_WITH_ECC | PAGE_ACC | LAST_PAGE;
++			cmd = OP_PAGE_READ_WITH_ECC | PAGE_ACC | LAST_PAGE;
+ 		else
+-			cmd = PAGE_READ | PAGE_ACC | LAST_PAGE;
++			cmd = OP_PAGE_READ | PAGE_ACC | LAST_PAGE;
+ 	} else {
+-			cmd = PROGRAM_PAGE | PAGE_ACC | LAST_PAGE;
++		cmd = OP_PROGRAM_PAGE | PAGE_ACC | LAST_PAGE;
+ 	}
+ 
+ 	if (host->use_ecc) {
+@@ -662,7 +662,7 @@ static int nandc_param(struct qcom_nand_host *host)
+ 	 * in use. we configure the controller to perform a raw read of 512
+ 	 * bytes to read onfi params
+ 	 */
+-	nandc_set_reg(nandc, NAND_FLASH_CMD, PAGE_READ | PAGE_ACC | LAST_PAGE);
++	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_PAGE_READ | PAGE_ACC | LAST_PAGE);
+ 	nandc_set_reg(nandc, NAND_ADDR0, 0);
+ 	nandc_set_reg(nandc, NAND_ADDR1, 0);
+ 	nandc_set_reg(nandc, NAND_DEV0_CFG0, 0 << CW_PER_PAGE
+@@ -715,7 +715,7 @@ static int erase_block(struct qcom_nand_host *host, int page_addr)
+ 	struct qcom_nand_controller *nandc = get_qcom_nand_controller(chip);
+ 
+ 	nandc_set_reg(nandc, NAND_FLASH_CMD,
+-		      BLOCK_ERASE | PAGE_ACC | LAST_PAGE);
++		      OP_BLOCK_ERASE | PAGE_ACC | LAST_PAGE);
+ 	nandc_set_reg(nandc, NAND_ADDR0, page_addr);
+ 	nandc_set_reg(nandc, NAND_ADDR1, 0);
+ 	nandc_set_reg(nandc, NAND_DEV0_CFG0,
+@@ -746,7 +746,7 @@ static int read_id(struct qcom_nand_host *host, int column)
+ 	if (column == -1)
+ 		return 0;
+ 
+-	nandc_set_reg(nandc, NAND_FLASH_CMD, FETCH_ID);
++	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_FETCH_ID);
+ 	nandc_set_reg(nandc, NAND_ADDR0, column);
+ 	nandc_set_reg(nandc, NAND_ADDR1, 0);
+ 	nandc_set_reg(nandc, NAND_FLASH_CHIP_SELECT, DM_EN);
+@@ -766,7 +766,7 @@ static int reset(struct qcom_nand_host *host)
+ 	struct nand_chip *chip = &host->chip;
+ 	struct qcom_nand_controller *nandc = get_qcom_nand_controller(chip);
+ 
+-	nandc_set_reg(nandc, NAND_FLASH_CMD, RESET_DEVICE);
++	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_RESET_DEVICE);
+ 	nandc_set_reg(nandc, NAND_EXEC_CMD, 1);
+ 
+ 	write_reg_dma(nandc, NAND_FLASH_CMD, 1);
 -- 
 2.17.1
 
