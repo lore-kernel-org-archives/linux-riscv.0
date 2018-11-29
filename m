@@ -1,44 +1,50 @@
-From: palmer@sifive.com (Palmer Dabbelt)
-Date: Wed, 28 Nov 2018 19:01:14 -0800 (PST)
+From: andrew@lunn.ch (Andrew Lunn)
+Date: Thu, 29 Nov 2018 06:55:10 +0100
 Subject: macb: probe of 10090000.ethernet failed with error -110
-In-Reply-To: <20181129022858.GG5037@lunn.ch>
-Message-ID: <mhng-0f0b5208-8aac-4563-a2c0-921a0f5d9084@palmer-si-x1c4>
+In-Reply-To: <mhng-0ddf5852-8900-4131-b3e0-81c5cc7de2eb@palmer-si-x1c4>
+References: <2e17bba6-d932-37b2-5dca-0963fc50f5e6@gmail.com>
+ <mhng-0ddf5852-8900-4131-b3e0-81c5cc7de2eb@palmer-si-x1c4>
+Message-ID: <20181129055510.GB17675@lunn.ch>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-On Wed, 28 Nov 2018 18:28:58 PST (-0800), andrew at lunn.ch wrote:
->> This is all fine as long as Linux doesn't go and reset the phy again. Until
->> bafbdd527d56 ("phylib: Add device reset GPIO support") was the case.  After
->> that commit I believe phylib is resetting the phy while attempting to enter
->> unmanaged mode, which is now allowed in this particular chip.
->>
->> Since it appears the phy is not usually described by the device tree but is
->> instead discovered by probing a MII-based ID register, it seems the best
->> place to put this is within the phy driver itself.  I find it's usually best
->> to describe things with code, so I hacked up something like
->
-> Talking to Florian, i was under the impression that you could not even
-> discover the device when its reset state what wrong. You could not
-> read the ID registers.
->
-> Your suggested change assumed you can discover the device. Is this
-> true?
+>    diff --git a/drivers/net/phy/mscc.c b/drivers/net/phy/mscc.c
+>    index 7cae17517744..8e0a71ee6bab 100644
+>    --- a/drivers/net/phy/mscc.c
+>    +++ b/drivers/net/phy/mscc.c
+>    @@ -1822,6 +1822,24 @@ static int vsc85xx_probe(struct phy_device *phydev)
+>     	return vsc85xx_dt_led_modes_get(phydev, default_mode);
+>     }
+>    +static int vsc8541_reset(struct phy_device *phydev, int value)
+>    +{
+>    +	WARN_ON(value != 0 || value != 1);
+>    +	mdio_device_reset(&phydev->mdio, value);
+>    +	if (value == 1) {
+>    +		/* The VSC8541 has an unexpected feature where a single reset
+>    +		 * rising edge can only be used to enter managed mode.  For
+>    +		 * unmanaged mode a pair of reset rising edges is necessary.
+>    +		 * */
+>    +		mdio_device_reset(&phydev_mdio, 0);
+>    +		mdio_device_reset(&phydev_mdio, 1);
+>    +
+>    +		/* After this pair of reset rising edges we must wait at least
+>    +		 * 15ms before writing any phy registers. */
+>    +		msleep(15);
+>    +	}
+>    +}
+>    +
+>     /* Microsemi VSC85xx PHYs */
+>     static struct phy_driver vsc85xx_driver[] = {
+>     {
+>    @@ -1927,6 +1945,7 @@ static struct phy_driver vsc85xx_driver[] = {
+>     	.get_sset_count = &vsc85xx_get_sset_count,
+>     	.get_strings    = &vsc85xx_get_strings,
+>     	.get_stats      = &vsc85xx_get_stats,
+>    +	.reset          = &vsc8541_reset,
 
-Sorry, I can't tell that from reading the code.  Since our bootloader resets 
-the phy into unmanaged mode I think that just deasserting reset should be OK, 
-but I don't have much confidence in that -- once I run into one unexpected 
-feature I start to expect more :)
+So if we assume you can identify the PHY using its ID registers, you
+can put this reset code into the soft_reset call. That gets called
+first before anything else. There is no need to add a new function to
+phy_driver.
 
-It looks like there's already an expectation that at least the phy ID registers 
-can be read between falling and rising edges of a reset, as that's how the 
-fixups are handled.  Since the error message that shows up with a single 
-(single as far as Linux is concerned, triple since a cold boot) reset rising 
-edge still lists the phy by name I think that probing is working well enough, 
-but I wouldn't be surprised if there's something in the middle that's gone 
-wrong.  It's possible registering a fixup that does the double reset can get us 
-through the probing sequence.
-
-Maybe Atish or Paul can help out?  I'm a bit embarrassed to admit that I can't 
-actually figure out how to boot the board any more, it's been a year since it's 
-been my primary target and since I just to arch/riscv stuff now I rely them to 
-test on the board...
+	Andrew
