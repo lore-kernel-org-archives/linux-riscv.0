@@ -1,118 +1,37 @@
-From: sashal@kernel.org (Sasha Levin)
-Date: Thu, 29 Nov 2018 01:03:26 -0500
-Subject: [PATCH AUTOSEL 4.9 14/18] mtd: rawnand: qcom: Namespace prefix some
- commands
-In-Reply-To: <20181129060331.160224-1-sashal@kernel.org>
-References: <20181129060331.160224-1-sashal@kernel.org>
-Message-ID: <20181129060331.160224-14-sashal@kernel.org>
+From: bmeng.cn@gmail.com (Bin Meng)
+Date: Thu, 29 Nov 2018 15:36:41 +0800
+Subject: [PATCH] RISC-V: Make BSS section as the last section in
+ vmlinux.lds.S
+In-Reply-To: <20181126060802.19314-1-anup@brainfault.org>
+References: <20181126060802.19314-1-anup@brainfault.org>
+Message-ID: <CAEUhbmXMZj68FyANeqP4jo2Pvk4ihEqPG2+g1gQAFMSqppNq-Q@mail.gmail.com>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
-From: Olof Johansson <olof@lixom.net>
+On Mon, Nov 26, 2018 at 2:12 PM Anup Patel <anup@brainfault.org> wrote:
+>
+> The objcopy only emits loadable sections when creating flat kernel
+> Image. To have minimal possible size of flat kernel Image, we should
+> have all non-loadable sections after loadable sections.
+>
+> Currently, execption table section (loadable section) is after BSS
+> section (non-loadable section) in the RISC-V vmlinux.lds.S. This
+> is not optimal for having minimal flat kernel Image size hence this
+> patch makes BSS section as the last section in RISC-V vmlinux.lds.S.
+>
+> In addition, we make BSS section aligned to 16byte instead of PAGE
+> aligned which further reduces flat kernel Image size by few KBs.
+>
+> The flat kernel Image size of Linux-4.20-rc4 using GCC 8.2.0 is
+> 8819980 bytes with current RISC-V vmlinux.lds.S and it reduces to
+> 7991740 bytes with this patch applied using GCC 8.2.0. In summary,
+> this patch reduces Linux-4.20-rc4 flat kernel Image size by 809 KB.
+>
+> Signed-off-by: Anup Patel <anup@brainfault.org>
+> ---
+>  arch/riscv/kernel/vmlinux.lds.S | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
 
-[ Upstream commit 33bf5519ae5dd356b182a94e3622f42860274a38 ]
-
-PAGE_READ is used by RISC-V arch code included through mm headers,
-and it makes sense to bring in a prefix on these in the driver.
-
-drivers/mtd/nand/raw/qcom_nandc.c:153: warning: "PAGE_READ" redefined
- #define PAGE_READ   0x2
-In file included from include/linux/memremap.h:7,
-                 from include/linux/mm.h:27,
-                 from include/linux/scatterlist.h:8,
-                 from include/linux/dma-mapping.h:11,
-                 from drivers/mtd/nand/raw/qcom_nandc.c:17:
-arch/riscv/include/asm/pgtable.h:48: note: this is the location of the previous definition
-
-Caught by riscv allmodconfig.
-
-Signed-off-by: Olof Johansson <olof@lixom.net>
-Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
-Signed-off-by: Boris Brezillon <boris.brezillon@bootlin.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/mtd/nand/qcom_nandc.c | 32 ++++++++++++++++----------------
- 1 file changed, 16 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/mtd/nand/qcom_nandc.c b/drivers/mtd/nand/qcom_nandc.c
-index dc4943134649..9f6c9a34b9eb 100644
---- a/drivers/mtd/nand/qcom_nandc.c
-+++ b/drivers/mtd/nand/qcom_nandc.c
-@@ -142,15 +142,15 @@
- #define	NAND_VERSION_MINOR_SHIFT	16
- 
- /* NAND OP_CMDs */
--#define	PAGE_READ			0x2
--#define	PAGE_READ_WITH_ECC		0x3
--#define	PAGE_READ_WITH_ECC_SPARE	0x4
--#define	PROGRAM_PAGE			0x6
--#define	PAGE_PROGRAM_WITH_ECC		0x7
--#define	PROGRAM_PAGE_SPARE		0x9
--#define	BLOCK_ERASE			0xa
--#define	FETCH_ID			0xb
--#define	RESET_DEVICE			0xd
-+#define	OP_PAGE_READ			0x2
-+#define	OP_PAGE_READ_WITH_ECC		0x3
-+#define	OP_PAGE_READ_WITH_ECC_SPARE	0x4
-+#define	OP_PROGRAM_PAGE			0x6
-+#define	OP_PAGE_PROGRAM_WITH_ECC	0x7
-+#define	OP_PROGRAM_PAGE_SPARE		0x9
-+#define	OP_BLOCK_ERASE			0xa
-+#define	OP_FETCH_ID			0xb
-+#define	OP_RESET_DEVICE			0xd
- 
- /* Default Value for NAND_DEV_CMD_VLD */
- #define NAND_DEV_CMD_VLD_VAL		(READ_START_VLD | WRITE_START_VLD | \
-@@ -425,11 +425,11 @@ static void update_rw_regs(struct qcom_nand_host *host, int num_cw, bool read)
- 
- 	if (read) {
- 		if (host->use_ecc)
--			cmd = PAGE_READ_WITH_ECC | PAGE_ACC | LAST_PAGE;
-+			cmd = OP_PAGE_READ_WITH_ECC | PAGE_ACC | LAST_PAGE;
- 		else
--			cmd = PAGE_READ | PAGE_ACC | LAST_PAGE;
-+			cmd = OP_PAGE_READ | PAGE_ACC | LAST_PAGE;
- 	} else {
--			cmd = PROGRAM_PAGE | PAGE_ACC | LAST_PAGE;
-+		cmd = OP_PROGRAM_PAGE | PAGE_ACC | LAST_PAGE;
- 	}
- 
- 	if (host->use_ecc) {
-@@ -662,7 +662,7 @@ static int nandc_param(struct qcom_nand_host *host)
- 	 * in use. we configure the controller to perform a raw read of 512
- 	 * bytes to read onfi params
- 	 */
--	nandc_set_reg(nandc, NAND_FLASH_CMD, PAGE_READ | PAGE_ACC | LAST_PAGE);
-+	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_PAGE_READ | PAGE_ACC | LAST_PAGE);
- 	nandc_set_reg(nandc, NAND_ADDR0, 0);
- 	nandc_set_reg(nandc, NAND_ADDR1, 0);
- 	nandc_set_reg(nandc, NAND_DEV0_CFG0, 0 << CW_PER_PAGE
-@@ -715,7 +715,7 @@ static int erase_block(struct qcom_nand_host *host, int page_addr)
- 	struct qcom_nand_controller *nandc = get_qcom_nand_controller(chip);
- 
- 	nandc_set_reg(nandc, NAND_FLASH_CMD,
--		      BLOCK_ERASE | PAGE_ACC | LAST_PAGE);
-+		      OP_BLOCK_ERASE | PAGE_ACC | LAST_PAGE);
- 	nandc_set_reg(nandc, NAND_ADDR0, page_addr);
- 	nandc_set_reg(nandc, NAND_ADDR1, 0);
- 	nandc_set_reg(nandc, NAND_DEV0_CFG0,
-@@ -746,7 +746,7 @@ static int read_id(struct qcom_nand_host *host, int column)
- 	if (column == -1)
- 		return 0;
- 
--	nandc_set_reg(nandc, NAND_FLASH_CMD, FETCH_ID);
-+	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_FETCH_ID);
- 	nandc_set_reg(nandc, NAND_ADDR0, column);
- 	nandc_set_reg(nandc, NAND_ADDR1, 0);
- 	nandc_set_reg(nandc, NAND_FLASH_CHIP_SELECT, DM_EN);
-@@ -766,7 +766,7 @@ static int reset(struct qcom_nand_host *host)
- 	struct nand_chip *chip = &host->chip;
- 	struct qcom_nand_controller *nandc = get_qcom_nand_controller(chip);
- 
--	nandc_set_reg(nandc, NAND_FLASH_CMD, RESET_DEVICE);
-+	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_RESET_DEVICE);
- 	nandc_set_reg(nandc, NAND_EXEC_CMD, 1);
- 
- 	write_reg_dma(nandc, NAND_FLASH_CMD, 1);
--- 
-2.17.1
+Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
+Tested-by: Bin Meng <bmeng.cn@gmail.com>
