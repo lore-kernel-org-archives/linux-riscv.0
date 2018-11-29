@@ -2,68 +2,84 @@ Return-Path: <SRS0=kIcs=OI=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-3.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BE4A4C43441
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 06:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CB136C43441
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 07:37:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8F7612081C
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 06:09:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 973F82081C
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 07:37:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QaVo2WV7";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="CzrS9n/a"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8F7612081C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LwiUPw86";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="HCBtiLz7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 973F82081C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=DtqdWAGUcac1LL8hhaSVtJf8J5Jt9gD7MgOKd7NBOIs=; b=QaVo2WV7MvMXSA630p2QfDUIVX
-	bZ5RYYKl7pSHIgqwl7DLvvAtcbpFoTEmn/Z5mY7UEHVXET+GY5Ssmj5rUGNnAEw9qPPYGx2290c/S
-	YTgYpy0QR65JQuQIoZ9T1aOsmW0XYTcKqUKEsf2XfEqd0G0DMxCU/9J1hGWcoe1OLfKcl773wo9ld
-	kyrOSS2dZvmZL6rxLfHGR1W9LwTttp995TkJPUa6htN+0CImDsV3DDjKFVmfsZLmr5iPQIKE3CKfd
-	eo2E+10STdlfhMPlbsaEuQpZxyIv5aSV+vgw/GZ1SKrxMGXrbFFno/mRtD/tGwL3ZMIl9iiRAuoi1
-	U+IKFEXQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Sx4hriJmN/fbzTyqx2Mcu4p74W8GM4sGInHhdWsS23Y=; b=LwiUPw86q+Rva9
+	RevDWoCo8MF67v+ddXCwUZ4YiU2Rj/hjcgzmxs5ZO688MYmnbniYR8mMPTzG4NGDnTHYXrxsGLsJY
+	/kClkhloSAmZXchVRsKe6/xkqoVLuKNcB1aTOW90inkSaa8mSGM2Ah+C5jqTYkuVOSRSthWMldMRD
+	vO8XLyFfsT96kyZO6UL5ygCQsKVkURJaVJhs5Sq/LoaNjrIXM0eYaWLG1Qm9+4jbu1JZdjG0HmlZn
+	wkCKlPOnj5Bdi7AuTnlXlt0a7VLJhJGYSms/PYT3KB6WC6a74D+LllCLjoUI3iovnWN8K+HY1Hpbl
+	5ZRH/cNmMg0vIb+jqvFw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gSFWO-00064T-Ez; Thu, 29 Nov 2018 06:09:56 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1gSGsm-000533-Uq; Thu, 29 Nov 2018 07:37:08 +0000
+Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gSFPJ-0003MH-1K; Thu, 29 Nov 2018 06:02:38 +0000
-Received: from sasha-vm.mshome.net (unknown [37.142.5.207])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 57269208E7;
- Thu, 29 Nov 2018 06:02:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1543471346;
- bh=xWHJq2UDbOchUDMYBSMAr+iRwmU8yDDiEzVoJ5PTCJQ=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=CzrS9n/a8odqEL2xAjfgVxaSxpPYE/7wzc6Rbuym3cM+C9Ine3TRWmDuXTvAP68Zx
- cgietgRaa/MUruZa/ok3Ue0/NLVCWvQTSxmqhypEru9+vgKFTIh2NLkM94WHeim0tL
- /KKHaQYLzKVyjdoxhNgh2CxH81JAeZkuVg8F4hyk=
-From: Sasha Levin <sashal@kernel.org>
-To: stable@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 4.14 19/35] mtd: rawnand: qcom: Namespace prefix some
- commands
-Date: Thu, 29 Nov 2018 01:00:53 -0500
-Message-Id: <20181129060110.159878-19-sashal@kernel.org>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20181129060110.159878-1-sashal@kernel.org>
-References: <20181129060110.159878-1-sashal@kernel.org>
+ id 1gSGsj-000526-Tl
+ for linux-riscv@lists.infradead.org; Thu, 29 Nov 2018 07:37:07 +0000
+Received: by mail-ed1-x544.google.com with SMTP id z28so1035114edi.8
+ for <linux-riscv@lists.infradead.org>; Wed, 28 Nov 2018 23:36:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=+YoVQTqH3vy5mPd37GsUvR97cQgim6z/Pdh8hSKwkaw=;
+ b=HCBtiLz7Z8e2fAHeBaeyI6yMUWugVwbf3Vzx7hDnSoALdYCEkW9rLI/gi9RxJ3VwdE
+ /yKevyOCIlw/NxgwyPGKHvNdd1ielrwejYJxoAILXV8axKeJVoBtHm/CmYnOT/SVB/rd
+ 3tLq99Bt4Pb721AKciyi8DzhEXCk2IGyG0PT+ABj0wblejrKEclOzRh9q3XIhK1v8pkc
+ knv8V6fe2t/PYZknH3kvzKMNG+43Gzmct+dryTMZyM7YCdlMWpsgd5puW+fdbQUWDzZ5
+ CEigu7F4IIC7CPrdoGNrx4g/OywAj51TMe9ALCXXVgymRRnqopJf2SthVV7+bbFeD5DJ
+ jeZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=+YoVQTqH3vy5mPd37GsUvR97cQgim6z/Pdh8hSKwkaw=;
+ b=eWsJ8YmX9dkqwsDwIOo18waxDUNdFUvI9jDy9i8CFMYIMXgCDElli+LafojLaE5gGw
+ EU4OAEYqBFWq7C1kZstCCrSuG62Mr2rz1QpO1QbGTrxptDg0sZniyVNRPflFvQKosRVm
+ RMuaZzEJYop4YVPhVWx6grB3EkqTfZGdLHvQ3S2LL31xEeqrTmzbzthQSZOFXRBvvoMN
+ 1qD+rIkoCZgh77xgy55kh0SCri/QszYQu1YYz8+kczojiE8lRtIBRynsNlW5Iiyz9F+8
+ uKiJTA0JqX4fYRy+Il5JKr6L2rNrPqqFdo1ElY3YgKShANrLLSM/W3d9z2zNdvUHpj/A
+ Se1Q==
+X-Gm-Message-State: AA+aEWb7YvdHS74+0l9R0nfvjHYuqXGuo6MOQsqFcg/fH5EmgNnsNo2t
+ 4lHRYrvocY6EJveYoTqg7qjHbFfiC9dDwlmIfu8=
+X-Google-Smtp-Source: AFSGD/XaC2/HYejm4OWtUq1E5HNkUx2dKSETgXLDJkJK44hDJjfusvM7w891+z1Fr4f6fEWAebd5X+xjMX6rbk4jGD4=
+X-Received: by 2002:a17:906:7c52:: with SMTP id
+ g18-v6mr696479ejp.77.1543477012342; 
+ Wed, 28 Nov 2018 23:36:52 -0800 (PST)
+MIME-Version: 1.0
+References: <20181126060802.19314-1-anup@brainfault.org>
+In-Reply-To: <20181126060802.19314-1-anup@brainfault.org>
+From: Bin Meng <bmeng.cn@gmail.com>
+Date: Thu, 29 Nov 2018 15:36:41 +0800
+Message-ID:
+ <CAEUhbmXMZj68FyANeqP4jo2Pvk4ihEqPG2+g1gQAFMSqppNq-Q@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Make BSS section as the last section in
+ vmlinux.lds.S
+To: Anup Patel <anup@brainfault.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181128_220237_182362_8AE3B39E 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20181128_233705_959036_F7765A62 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -75,125 +91,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Olof Johansson <olof@lixom.net>,
- Boris Brezillon <boris.brezillon@bootlin.com>, linux-riscv@lists.infradead.org,
- linux-mtd@lists.infradead.org, Sasha Levin <sashal@kernel.org>
-MIME-Version: 1.0
+Cc: aou@eecs.berkeley.edu, palmer@sifive.com,
+ linux-kernel <linux-kernel@vger.kernel.org>, hch@infradead.org,
+ atish.patra@wdc.com, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20181129060053.jOCpDNA13bqGwsqesr0cx_Q9kxzjQfPx5v1mgWmwSdE@z>
+Message-ID: <20181129073641.APrX1f8QCvPCqx4LCJWY0JFIXNgaHlZ3tFOV16dOK5Q@z>
 
-From: Olof Johansson <olof@lixom.net>
+On Mon, Nov 26, 2018 at 2:12 PM Anup Patel <anup@brainfault.org> wrote:
+>
+> The objcopy only emits loadable sections when creating flat kernel
+> Image. To have minimal possible size of flat kernel Image, we should
+> have all non-loadable sections after loadable sections.
+>
+> Currently, execption table section (loadable section) is after BSS
+> section (non-loadable section) in the RISC-V vmlinux.lds.S. This
+> is not optimal for having minimal flat kernel Image size hence this
+> patch makes BSS section as the last section in RISC-V vmlinux.lds.S.
+>
+> In addition, we make BSS section aligned to 16byte instead of PAGE
+> aligned which further reduces flat kernel Image size by few KBs.
+>
+> The flat kernel Image size of Linux-4.20-rc4 using GCC 8.2.0 is
+> 8819980 bytes with current RISC-V vmlinux.lds.S and it reduces to
+> 7991740 bytes with this patch applied using GCC 8.2.0. In summary,
+> this patch reduces Linux-4.20-rc4 flat kernel Image size by 809 KB.
+>
+> Signed-off-by: Anup Patel <anup@brainfault.org>
+> ---
+>  arch/riscv/kernel/vmlinux.lds.S | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
 
-[ Upstream commit 33bf5519ae5dd356b182a94e3622f42860274a38 ]
-
-PAGE_READ is used by RISC-V arch code included through mm headers,
-and it makes sense to bring in a prefix on these in the driver.
-
-drivers/mtd/nand/raw/qcom_nandc.c:153: warning: "PAGE_READ" redefined
- #define PAGE_READ   0x2
-In file included from include/linux/memremap.h:7,
-                 from include/linux/mm.h:27,
-                 from include/linux/scatterlist.h:8,
-                 from include/linux/dma-mapping.h:11,
-                 from drivers/mtd/nand/raw/qcom_nandc.c:17:
-arch/riscv/include/asm/pgtable.h:48: note: this is the location of the previous definition
-
-Caught by riscv allmodconfig.
-
-Signed-off-by: Olof Johansson <olof@lixom.net>
-Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
-Signed-off-by: Boris Brezillon <boris.brezillon@bootlin.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/mtd/nand/qcom_nandc.c | 32 ++++++++++++++++----------------
- 1 file changed, 16 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/mtd/nand/qcom_nandc.c b/drivers/mtd/nand/qcom_nandc.c
-index b49ca02b399d..09d5f7df6023 100644
---- a/drivers/mtd/nand/qcom_nandc.c
-+++ b/drivers/mtd/nand/qcom_nandc.c
-@@ -149,15 +149,15 @@
- #define	NAND_VERSION_MINOR_SHIFT	16
- 
- /* NAND OP_CMDs */
--#define	PAGE_READ			0x2
--#define	PAGE_READ_WITH_ECC		0x3
--#define	PAGE_READ_WITH_ECC_SPARE	0x4
--#define	PROGRAM_PAGE			0x6
--#define	PAGE_PROGRAM_WITH_ECC		0x7
--#define	PROGRAM_PAGE_SPARE		0x9
--#define	BLOCK_ERASE			0xa
--#define	FETCH_ID			0xb
--#define	RESET_DEVICE			0xd
-+#define	OP_PAGE_READ			0x2
-+#define	OP_PAGE_READ_WITH_ECC		0x3
-+#define	OP_PAGE_READ_WITH_ECC_SPARE	0x4
-+#define	OP_PROGRAM_PAGE			0x6
-+#define	OP_PAGE_PROGRAM_WITH_ECC	0x7
-+#define	OP_PROGRAM_PAGE_SPARE		0x9
-+#define	OP_BLOCK_ERASE			0xa
-+#define	OP_FETCH_ID			0xb
-+#define	OP_RESET_DEVICE			0xd
- 
- /* Default Value for NAND_DEV_CMD_VLD */
- #define NAND_DEV_CMD_VLD_VAL		(READ_START_VLD | WRITE_START_VLD | \
-@@ -629,11 +629,11 @@ static void update_rw_regs(struct qcom_nand_host *host, int num_cw, bool read)
- 
- 	if (read) {
- 		if (host->use_ecc)
--			cmd = PAGE_READ_WITH_ECC | PAGE_ACC | LAST_PAGE;
-+			cmd = OP_PAGE_READ_WITH_ECC | PAGE_ACC | LAST_PAGE;
- 		else
--			cmd = PAGE_READ | PAGE_ACC | LAST_PAGE;
-+			cmd = OP_PAGE_READ | PAGE_ACC | LAST_PAGE;
- 	} else {
--			cmd = PROGRAM_PAGE | PAGE_ACC | LAST_PAGE;
-+		cmd = OP_PROGRAM_PAGE | PAGE_ACC | LAST_PAGE;
- 	}
- 
- 	if (host->use_ecc) {
-@@ -1030,7 +1030,7 @@ static int nandc_param(struct qcom_nand_host *host)
- 	 * in use. we configure the controller to perform a raw read of 512
- 	 * bytes to read onfi params
- 	 */
--	nandc_set_reg(nandc, NAND_FLASH_CMD, PAGE_READ | PAGE_ACC | LAST_PAGE);
-+	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_PAGE_READ | PAGE_ACC | LAST_PAGE);
- 	nandc_set_reg(nandc, NAND_ADDR0, 0);
- 	nandc_set_reg(nandc, NAND_ADDR1, 0);
- 	nandc_set_reg(nandc, NAND_DEV0_CFG0, 0 << CW_PER_PAGE
-@@ -1084,7 +1084,7 @@ static int erase_block(struct qcom_nand_host *host, int page_addr)
- 	struct qcom_nand_controller *nandc = get_qcom_nand_controller(chip);
- 
- 	nandc_set_reg(nandc, NAND_FLASH_CMD,
--		      BLOCK_ERASE | PAGE_ACC | LAST_PAGE);
-+		      OP_BLOCK_ERASE | PAGE_ACC | LAST_PAGE);
- 	nandc_set_reg(nandc, NAND_ADDR0, page_addr);
- 	nandc_set_reg(nandc, NAND_ADDR1, 0);
- 	nandc_set_reg(nandc, NAND_DEV0_CFG0,
-@@ -1115,7 +1115,7 @@ static int read_id(struct qcom_nand_host *host, int column)
- 	if (column == -1)
- 		return 0;
- 
--	nandc_set_reg(nandc, NAND_FLASH_CMD, FETCH_ID);
-+	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_FETCH_ID);
- 	nandc_set_reg(nandc, NAND_ADDR0, column);
- 	nandc_set_reg(nandc, NAND_ADDR1, 0);
- 	nandc_set_reg(nandc, NAND_FLASH_CHIP_SELECT,
-@@ -1136,7 +1136,7 @@ static int reset(struct qcom_nand_host *host)
- 	struct nand_chip *chip = &host->chip;
- 	struct qcom_nand_controller *nandc = get_qcom_nand_controller(chip);
- 
--	nandc_set_reg(nandc, NAND_FLASH_CMD, RESET_DEVICE);
-+	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_RESET_DEVICE);
- 	nandc_set_reg(nandc, NAND_EXEC_CMD, 1);
- 
- 	write_reg_dma(nandc, NAND_FLASH_CMD, 1, NAND_BAM_NEXT_SGL);
--- 
-2.17.1
-
+Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
+Tested-by: Bin Meng <bmeng.cn@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
