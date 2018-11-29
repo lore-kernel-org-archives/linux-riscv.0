@@ -1,10 +1,10 @@
 From: sashal@kernel.org (Sasha Levin)
-Date: Thu, 29 Nov 2018 01:00:53 -0500
-Subject: [PATCH AUTOSEL 4.14 19/35] mtd: rawnand: qcom: Namespace prefix some
+Date: Thu, 29 Nov 2018 01:03:26 -0500
+Subject: [PATCH AUTOSEL 4.9 14/18] mtd: rawnand: qcom: Namespace prefix some
  commands
-In-Reply-To: <20181129060110.159878-1-sashal@kernel.org>
-References: <20181129060110.159878-1-sashal@kernel.org>
-Message-ID: <20181129060110.159878-19-sashal@kernel.org>
+In-Reply-To: <20181129060331.160224-1-sashal@kernel.org>
+References: <20181129060331.160224-1-sashal@kernel.org>
+Message-ID: <20181129060331.160224-14-sashal@kernel.org>
 To: linux-riscv@lists.infradead.org
 List-Id: linux-riscv.lists.infradead.org
 
@@ -35,10 +35,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 16 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/mtd/nand/qcom_nandc.c b/drivers/mtd/nand/qcom_nandc.c
-index b49ca02b399d..09d5f7df6023 100644
+index dc4943134649..9f6c9a34b9eb 100644
 --- a/drivers/mtd/nand/qcom_nandc.c
 +++ b/drivers/mtd/nand/qcom_nandc.c
-@@ -149,15 +149,15 @@
+@@ -142,15 +142,15 @@
  #define	NAND_VERSION_MINOR_SHIFT	16
  
  /* NAND OP_CMDs */
@@ -63,7 +63,7 @@ index b49ca02b399d..09d5f7df6023 100644
  
  /* Default Value for NAND_DEV_CMD_VLD */
  #define NAND_DEV_CMD_VLD_VAL		(READ_START_VLD | WRITE_START_VLD | \
-@@ -629,11 +629,11 @@ static void update_rw_regs(struct qcom_nand_host *host, int num_cw, bool read)
+@@ -425,11 +425,11 @@ static void update_rw_regs(struct qcom_nand_host *host, int num_cw, bool read)
  
  	if (read) {
  		if (host->use_ecc)
@@ -78,7 +78,7 @@ index b49ca02b399d..09d5f7df6023 100644
  	}
  
  	if (host->use_ecc) {
-@@ -1030,7 +1030,7 @@ static int nandc_param(struct qcom_nand_host *host)
+@@ -662,7 +662,7 @@ static int nandc_param(struct qcom_nand_host *host)
  	 * in use. we configure the controller to perform a raw read of 512
  	 * bytes to read onfi params
  	 */
@@ -87,7 +87,7 @@ index b49ca02b399d..09d5f7df6023 100644
  	nandc_set_reg(nandc, NAND_ADDR0, 0);
  	nandc_set_reg(nandc, NAND_ADDR1, 0);
  	nandc_set_reg(nandc, NAND_DEV0_CFG0, 0 << CW_PER_PAGE
-@@ -1084,7 +1084,7 @@ static int erase_block(struct qcom_nand_host *host, int page_addr)
+@@ -715,7 +715,7 @@ static int erase_block(struct qcom_nand_host *host, int page_addr)
  	struct qcom_nand_controller *nandc = get_qcom_nand_controller(chip);
  
  	nandc_set_reg(nandc, NAND_FLASH_CMD,
@@ -96,7 +96,7 @@ index b49ca02b399d..09d5f7df6023 100644
  	nandc_set_reg(nandc, NAND_ADDR0, page_addr);
  	nandc_set_reg(nandc, NAND_ADDR1, 0);
  	nandc_set_reg(nandc, NAND_DEV0_CFG0,
-@@ -1115,7 +1115,7 @@ static int read_id(struct qcom_nand_host *host, int column)
+@@ -746,7 +746,7 @@ static int read_id(struct qcom_nand_host *host, int column)
  	if (column == -1)
  		return 0;
  
@@ -104,8 +104,8 @@ index b49ca02b399d..09d5f7df6023 100644
 +	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_FETCH_ID);
  	nandc_set_reg(nandc, NAND_ADDR0, column);
  	nandc_set_reg(nandc, NAND_ADDR1, 0);
- 	nandc_set_reg(nandc, NAND_FLASH_CHIP_SELECT,
-@@ -1136,7 +1136,7 @@ static int reset(struct qcom_nand_host *host)
+ 	nandc_set_reg(nandc, NAND_FLASH_CHIP_SELECT, DM_EN);
+@@ -766,7 +766,7 @@ static int reset(struct qcom_nand_host *host)
  	struct nand_chip *chip = &host->chip;
  	struct qcom_nand_controller *nandc = get_qcom_nand_controller(chip);
  
@@ -113,6 +113,6 @@ index b49ca02b399d..09d5f7df6023 100644
 +	nandc_set_reg(nandc, NAND_FLASH_CMD, OP_RESET_DEVICE);
  	nandc_set_reg(nandc, NAND_EXEC_CMD, 1);
  
- 	write_reg_dma(nandc, NAND_FLASH_CMD, 1, NAND_BAM_NEXT_SGL);
+ 	write_reg_dma(nandc, NAND_FLASH_CMD, 1);
 -- 
 2.17.1
