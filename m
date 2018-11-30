@@ -1,76 +1,84 @@
-Return-Path: <SRS0=kIcs=OI=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=zN4P=OJ=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2D21AC04EB9
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 23:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E52D6C04EB9
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 30 Nov 2018 00:35:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ED42720863
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Nov 2018 23:40:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AEE892080A
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 30 Nov 2018 00:35:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VdPmb9+P";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="rH3PTbLn"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED42720863
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="unhLbGIN";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="KkJdeESs"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AEE892080A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=AP+TguhxiRO9gg4uwWJEGgrpLk1uvOQWpWb/Gdqg3ic=; b=VdPmb9+P36sOVIBom1mOMbm81s
-	yl4QLe+5GhtPzquqqPx3cWspnJ4l4ZhLJq4qyIvDavAzIk6++KJoh+C42RWjFvzlGCIkuQgYbQZMV
-	+Slo0hrhVVXJh6Ri1gkUPALlbsbdNMVpgHRaYSgDkv9iY6KqeKUD4faKH11cTo0PfxSyG4NsYfo7Q
-	uMTKGa/FBQoZLhMy0WHM1bh7B7slzMdLqC6p5/ZkKAI7eCDzvtS5RrVEayJPBAFKdOHit9uPlVDtw
-	ypz309j2VeOs6wV4G0YhMNEocWkIGtCixSW9OBxuup9MTZzBJB5WH1OejpkxMrgKSnvIBY1wdtEbi
-	5ExHyZPQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=re611bCoAmwVFtquUumNjJICZIbq5NFptEnzVSWxYiU=; b=unhLbGINOPcx31GPps0qtrueQ
+	0rfYNDQmPSLzY9lH6rdOUPytJWpfBYVfv3lEOnchh27GqaB8SHH0YY43gGU+uqFXD0kxU6y5zX/cI
+	u3yGGGnw5+21XdbAu9zLzHgPJ4ofiq29DPo3YyBGJAk1qoTCL7QyFyUdVom7o16zsqSjWn+zR+fmP
+	q3bWd81Dr0okbqDnXj3LtnhFVERWB0mUSLX7yReihLx/BtFqRiiJkMSALYRIJQxClDq72geKKrtDz
+	C+/M+XGEP83ck9KEfn737gG0aeSa0pmbip4/QvtqnxKSWneHwbJZw2+bxoYcZz/8sditWhbgosoCz
+	HH+pH6s3g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gSVui-0002fv-M6; Thu, 29 Nov 2018 23:40:08 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1gSWmP-0007Ct-Qa; Fri, 30 Nov 2018 00:35:37 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gSVja-0004vE-U3; Thu, 29 Nov 2018 23:28:42 +0000
+ id 1gSWmN-0007CB-2b
+ for linux-riscv@lists.infradead.org; Fri, 30 Nov 2018 00:35:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1543534309; x=1575070309;
- h=from:to:cc:subject:date:message-id:in-reply-to: references;
- bh=AYMd4SewaG0Q02XlqjXMaFjc2G4H12uRnUc4XgGDUec=;
- b=rH3PTbLn514XuN3Afdd+io8Q0wE1GgIAbrJiP5+K5EhKuqy92rs20Nf/
- z35QBu07p8nWgO4Jsii/7b61Z0+hXmN8xv353jAsfbbtIEPAoE0ilfzIh
- lrAqI1jlXsHc7UqXO6IKax9jjmcA7ppvSzqW089+SQzpYjOit5+CLdsRq
- yzcNvknSnyjPwU2TlofCc1zYEgNOUbnduyt8DpSiTxaScBDHbb7oakr8c
- AjUuaW9cK+VlXg51vHGOFl829k0XsGcDLX5ei4OqUZgyCFxCfySZgfN9X
- ZRQOEFOimXnfwoFefmMkgrCzkgkqHTw1McR8b63VoqrE+62s1kqazeUDs w==;
-X-IronPort-AV: E=Sophos;i="5.56,296,1539619200"; d="scan'208";a="193267105"
-Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ t=1543538135; x=1575074135;
+ h=subject:to:cc:references:from:message-id:date:
+ mime-version:in-reply-to:content-transfer-encoding;
+ bh=dFl/zZLgSDqemqPv+7eT/OSLd89e2+sy3YtrTSVl/Ck=;
+ b=KkJdeESsqmpLDqypTHnpGHPizYiEa/KXtQwXD6L1SEXmDCwP2OgcXG3K
+ X4B5u7/8yM/GsxSXRQwsvRaou0HU0/eY53g3EKYa4G6j4tjgtlsK+W7I6
+ +YJqmAYZpXNkMgk9jiHBz74jXFBawrBlDowq/b70EMBrQIjnox6TKY3MT
+ ML0epCJbYyPs0QorUArPbBhQjQGDBfoOHGWN0kykg7wQLgBtWIvQgxfcQ
+ hikbuJxpHlICbRKDTWY6sjZ+5ustN7AXScixQ8NZLucHnxM5u881ZS+C3
+ /k/PthX0hP2aTNZl8uvCfakc/+NDmg78x7KunOnMqmxDkIPZaB2Rq2J/5 g==;
+X-IronPort-AV: E=Sophos;i="5.56,296,1539619200"; d="scan'208";a="100284419"
+Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 30 Nov 2018 07:31:35 +0800
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep02.wdc.com with ESMTP; 29 Nov 2018 15:11:26 -0800
-Received: from jedi-01.sdcorp.global.sandisk.com (HELO
- jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 29 Nov 2018 15:28:29 -0800
+ by ob1.hgst.iphmx.com with ESMTP; 30 Nov 2018 08:35:23 +0800
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep02.wdc.com with ESMTP; 29 Nov 2018 16:18:19 -0800
+Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.72.98])
+ ([10.111.72.98])
+ by uls-op-cesaip01.wdc.com with ESMTP; 29 Nov 2018 16:35:22 -0800
+Subject: Re: [PATCH v2 1/4] irqchip: sifive-plic: Pre-compute context hart
+ base and enable base
+To: Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano
+ <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Jason Cooper <jason@lakedaemon.net>, Marc Zyngier <marc.zyngier@arm.com>
+References: <20181127100317.12809-1-anup@brainfault.org>
+ <20181127100317.12809-2-anup@brainfault.org>
 From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [RFT PATCH v1 1/4] Documentation: DT: arm: add support for sockets
- defining package boundaries
-Date: Thu, 29 Nov 2018 15:28:17 -0800
-Message-Id: <1543534100-3654-2-git-send-email-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1543534100-3654-1-git-send-email-atish.patra@wdc.com>
-References: <1543534100-3654-1-git-send-email-atish.patra@wdc.com>
+Message-ID: <b6ff2593-9113-9b95-ade5-09e7e9fa1be5@wdc.com>
+Date: Thu, 29 Nov 2018 16:35:21 -0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0)
+ Gecko/20100101 Thunderbird/60.3.0
+MIME-Version: 1.0
+In-Reply-To: <20181127100317.12809-2-anup@brainfault.org>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181129_152839_052065_BB747313 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20181129_163535_129964_EE2EDCE9 
+X-CRM114-Status: GOOD (  21.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -82,174 +90,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- "Peter Zijlstra \(Intel\)" <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
- Will Deacon <will.deacon@arm.com>, Atish Patra <atish.patra@wdc.com>,
- linux-riscv@lists.infradead.org, Morten Rasmussen <morten.rasmussen@arm.com>,
- Juri Lelli <juri.lelli@arm.com>, Dmitriy Cherkasov <dmitriy@oss-tech.org>,
- Anup Patel <anup@brainfault.org>, Ingo Molnar <mingo@kernel.org>,
- devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Rob Herring <robh+dt@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- "moderated list:ARM64 PORT AARCH64 ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- Ard Biesheuvel <ard.biesheuvel@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jeremy Linton <jeremy.linton@arm.com>, Sudeep Holla <sudeep.holla@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Cc: Christoph Hellwig <hch@infradead.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Sudeep Holla <sudeep.holla@arm.com>
+On 11/27/18 2:03 AM, Anup Patel wrote:
+> This patch does following optimizations:
+> 1. Pre-compute hart base for each context handler
+> 2. Pre-compute enable base for each context handler
+> 3. Have enable lock for each context handler instead
+> of global plic_toggle_lock
+> 
+> Signed-off-by: Anup Patel <anup@brainfault.org>
+> ---
+>   drivers/irqchip/irq-sifive-plic.c | 41 +++++++++++++------------------
+>   1 file changed, 17 insertions(+), 24 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index 357e9daf94ae..56fce648a901 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -60,36 +60,24 @@ static void __iomem *plic_regs;
+>   struct plic_handler {
+>   	bool			present;
+>   	int			ctxid;
+> +	void __iomem		*hart_base;
+> +	raw_spinlock_t		enable_lock;
+> +	void __iomem		*enable_base;
 
-The current ARM DT topology description provides the operating system
-with a topological view of the system that is based on leaf nodes
-representing either cores or threads (in an SMT system) and a
-hierarchical set of cluster nodes that creates a hierarchical topology
-view of how those cores and threads are grouped.
+It should be u32. Otherwise, plic_toggle calculates incorrect address 
+and it does not boot on Unlheased.
 
-However this hierarchical representation of clusters does not allow to
-describe what topology level actually represents the physical package or
-the socket boundary, which is a key piece of information to be used by
-an operating system to optimize resource allocation and scheduling.
+>   };
+>   static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
+>   
+> -static inline void __iomem *plic_hart_offset(int ctxid)
+> +static inline void plic_toggle(struct plic_handler *handler,
+> +				int hwirq, int enable)
+>   {
+> -	return plic_regs + CONTEXT_BASE + ctxid * CONTEXT_PER_HART;
+> -}
+> -
+> -static inline u32 __iomem *plic_enable_base(int ctxid)
+> -{
+> -	return plic_regs + ENABLE_BASE + ctxid * ENABLE_PER_HART;
+> -}
+> -
+> -/*
+> - * Protect mask operations on the registers given that we can't assume that
+> - * atomic memory operations work on them.
+> - */
 
-Lets add a new "socket" node type in the cpu-map node to describe the
-same.
+Should we keep the comment for enable_lock ?
 
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
----
- Documentation/devicetree/bindings/arm/topology.txt | 52 ++++++++++++++++------
- 1 file changed, 39 insertions(+), 13 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/arm/topology.txt b/Documentation/devicetree/bindings/arm/topology.txt
-index de9eb048..66848355 100644
---- a/Documentation/devicetree/bindings/arm/topology.txt
-+++ b/Documentation/devicetree/bindings/arm/topology.txt
-@@ -9,6 +9,7 @@ ARM topology binding description
- In an ARM system, the hierarchy of CPUs is defined through three entities that
- are used to describe the layout of physical CPUs in the system:
- 
-+- socket
- - cluster
- - core
- - thread
-@@ -63,21 +64,23 @@ nodes are listed.
- 
- 	The cpu-map node's child nodes can be:
- 
--	- one or more cluster nodes
-+	- one or more cluster nodes or
-+	- one or more socket nodes in a multi-socket system
- 
- 	Any other configuration is considered invalid.
- 
--The cpu-map node can only contain three types of child nodes:
-+The cpu-map node can only contain 4 types of child nodes:
- 
-+- socket node
- - cluster node
- - core node
- - thread node
- 
- whose bindings are described in paragraph 3.
- 
--The nodes describing the CPU topology (cluster/core/thread) can only
--be defined within the cpu-map node and every core/thread in the system
--must be defined within the topology.  Any other configuration is
-+The nodes describing the CPU topology (socket/cluster/core/thread) can
-+only be defined within the cpu-map node and every core/thread in the
-+system must be defined within the topology.  Any other configuration is
- invalid and therefore must be ignored.
- 
- ===========================================
-@@ -85,26 +88,44 @@ invalid and therefore must be ignored.
- ===========================================
- 
- cpu-map child nodes must follow a naming convention where the node name
--must be "clusterN", "coreN", "threadN" depending on the node type (ie
--cluster/core/thread) (where N = {0, 1, ...} is the node number; nodes which
--are siblings within a single common parent node must be given a unique and
-+must be "socketN", "clusterN", "coreN", "threadN" depending on the node type
-+(ie socket/cluster/core/thread) (where N = {0, 1, ...} is the node number; nodes
-+which are siblings within a single common parent node must be given a unique and
- sequential N value, starting from 0).
- cpu-map child nodes which do not share a common parent node can have the same
- name (ie same number N as other cpu-map child nodes at different device tree
- levels) since name uniqueness will be guaranteed by the device tree hierarchy.
- 
- ===========================================
--3 - cluster/core/thread node bindings
-+3 - socket/cluster/core/thread node bindings
- ===========================================
- 
--Bindings for cluster/cpu/thread nodes are defined as follows:
-+Bindings for socket/cluster/cpu/thread nodes are defined as follows:
-+
-+- socket node
-+
-+	 Description: must be declared within a cpu-map node, one node
-+		      per physical socket in the system. A system can
-+		      contain single or multiple physical socket.
-+		      The association of sockets and NUMA nodes is beyond
-+		      the scope of this bindings, please refer [2] for
-+		      NUMA bindings.
-+
-+	This node is optional for a single socket system.
-+
-+	The socket node name must be "socketN" as described in 2.1 above.
-+	A socket node can not be a leaf node.
-+
-+	A socket node's child nodes must be one or more cluster nodes.
-+
-+	Any other configuration is considered invalid.
- 
- - cluster node
- 
- 	 Description: must be declared within a cpu-map node, one node
- 		      per cluster. A system can contain several layers of
--		      clustering and cluster nodes can be contained in parent
--		      cluster nodes.
-+		      clustering within a single physical socket and cluster
-+		      nodes can be contained in parent cluster nodes.
- 
- 	The cluster node name must be "clusterN" as described in 2.1 above.
- 	A cluster node can not be a leaf node.
-@@ -164,13 +185,15 @@ Bindings for cluster/cpu/thread nodes are defined as follows:
- 4 - Example dts
- ===========================================
- 
--Example 1 (ARM 64-bit, 16-cpu system, two clusters of clusters):
-+Example 1 (ARM 64-bit, 16-cpu system, two clusters of clusters in a single
-+physical socket):
- 
- cpus {
- 	#size-cells = <0>;
- 	#address-cells = <2>;
- 
- 	cpu-map {
-+		socket0 {
- 			cluster0 {
- 				cluster0 {
- 					core0 {
-@@ -253,6 +276,7 @@ cpus {
- 				};
- 			};
- 		};
-+	};
- 
- 	CPU0: cpu@0 {
- 		device_type = "cpu";
-@@ -473,3 +497,5 @@ cpus {
- ===============================================================================
- [1] ARM Linux kernel documentation
-     Documentation/devicetree/bindings/arm/cpus.txt
-+[2] Devicetree NUMA binding description
-+    Documentation/devicetree/bindings/numa.txt
--- 
-2.7.4
+> -static DEFINE_RAW_SPINLOCK(plic_toggle_lock);
+> -
+> -static inline void plic_toggle(int ctxid, int hwirq, int enable)
+> -{
+> -	u32 __iomem *reg = plic_enable_base(ctxid) + (hwirq / 32);
+> +	u32 __iomem *reg = handler->enable_base + (hwirq / 32);
+>   	u32 hwirq_mask = 1 << (hwirq % 32);
+>   
+> -	raw_spin_lock(&plic_toggle_lock);
+> +	raw_spin_lock(&handler->enable_lock);
+>   	if (enable)
+>   		writel(readl(reg) | hwirq_mask, reg);
+>   	else
+>   		writel(readl(reg) & ~hwirq_mask, reg);
+> -	raw_spin_unlock(&plic_toggle_lock);
+> +	raw_spin_unlock(&handler->enable_lock);
+>   }
+>   
+>   static inline void plic_irq_toggle(struct irq_data *d, int enable)
+> @@ -101,7 +89,7 @@ static inline void plic_irq_toggle(struct irq_data *d, int enable)
+>   		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+>   
+>   		if (handler->present)
+> -			plic_toggle(handler->ctxid, d->hwirq, enable);
+> +			plic_toggle(handler, d->hwirq, enable);
+>   	}
+>   }
+>   
+> @@ -150,7 +138,7 @@ static struct irq_domain *plic_irqdomain;
+>   static void plic_handle_irq(struct pt_regs *regs)
+>   {
+>   	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> -	void __iomem *claim = plic_hart_offset(handler->ctxid) + CONTEXT_CLAIM;
+> +	void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
+>   	irq_hw_number_t hwirq;
+>   
+>   	WARN_ON_ONCE(!handler->present);
+> @@ -240,11 +228,16 @@ static int __init plic_init(struct device_node *node,
+>   		handler = per_cpu_ptr(&plic_handlers, cpu);
+>   		handler->present = true;
+>   		handler->ctxid = i;
+> +		handler->hart_base =
+> +			plic_regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
+> +		raw_spin_lock_init(&handler->enable_lock);
+> +		handler->enable_base =
+> +			plic_regs + ENABLE_BASE + i * ENABLE_PER_HART;
+>   
+>   		/* priority must be > threshold to trigger an interrupt */
+> -		writel(0, plic_hart_offset(i) + CONTEXT_THRESHOLD);
+> +		writel(0, handler->hart_base + CONTEXT_THRESHOLD);
+>   		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+> -			plic_toggle(i, hwirq, 0);
+> +			plic_toggle(handler, hwirq, 0);
+>   		nr_mapped++;
+>   	}
+>   
+> 
 
 
 _______________________________________________
