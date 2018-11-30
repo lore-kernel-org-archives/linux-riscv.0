@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E52D6C04EB9
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 30 Nov 2018 00:35:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A84E1C04EB9
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 30 Nov 2018 01:40:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AEE892080A
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 30 Nov 2018 00:35:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 78D5520868
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 30 Nov 2018 01:40:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="unhLbGIN";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="KkJdeESs"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AEE892080A
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Zy4sLM/w";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="BaGmQXf6"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 78D5520868
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,59 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=re611bCoAmwVFtquUumNjJICZIbq5NFptEnzVSWxYiU=; b=unhLbGINOPcx31GPps0qtrueQ
-	0rfYNDQmPSLzY9lH6rdOUPytJWpfBYVfv3lEOnchh27GqaB8SHH0YY43gGU+uqFXD0kxU6y5zX/cI
-	u3yGGGnw5+21XdbAu9zLzHgPJ4ofiq29DPo3YyBGJAk1qoTCL7QyFyUdVom7o16zsqSjWn+zR+fmP
-	q3bWd81Dr0okbqDnXj3LtnhFVERWB0mUSLX7yReihLx/BtFqRiiJkMSALYRIJQxClDq72geKKrtDz
-	C+/M+XGEP83ck9KEfn737gG0aeSa0pmbip4/QvtqnxKSWneHwbJZw2+bxoYcZz/8sditWhbgosoCz
-	HH+pH6s3g==;
+	 bh=jAUpGBTTxBwVkMExx6j0rm/80RDM0ZJw1KYgvjzaE8E=; b=Zy4sLM/wHL8u/YKdP80PnzK3w
+	nHUaw0Zlghr7Rxi5t0KGdnIibFwzvRwxw3gQgD32c3Le7JlPOTrbHEiUoi5D0FrFKfgwa0zPAqWmQ
+	wjUYBVrldxw7rTUAP+9xyVqOBgMp7ixY/ys8kUVEY/GIXudyOv2o1dj8EYDXDJl/KlS7vtiAmbrqu
+	dSIT4669QT0ZbkqGABWesW47lhl6bSYaeY130ZIKkD6cYwiCbde1+FRl+/zRhBX61REqmxJAJr+ZX
+	bZoxkBNVFIy7fduFu9AOEBNGbcnehFgCnHktijwhswedlxukoZFOTa2PEKCi7KRGqyxdKL8VjPRxP
+	IW7QN8KEQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gSWmP-0007Ct-Qa; Fri, 30 Nov 2018 00:35:37 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1gSXmj-0004tQ-Jd; Fri, 30 Nov 2018 01:40:01 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gSWmN-0007CB-2b
- for linux-riscv@lists.infradead.org; Fri, 30 Nov 2018 00:35:36 +0000
+ id 1gSXmh-0004qT-2I
+ for linux-riscv@lists.infradead.org; Fri, 30 Nov 2018 01:40:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1543538135; x=1575074135;
+ t=1543542008; x=1575078008;
  h=subject:to:cc:references:from:message-id:date:
  mime-version:in-reply-to:content-transfer-encoding;
- bh=dFl/zZLgSDqemqPv+7eT/OSLd89e2+sy3YtrTSVl/Ck=;
- b=KkJdeESsqmpLDqypTHnpGHPizYiEa/KXtQwXD6L1SEXmDCwP2OgcXG3K
- X4B5u7/8yM/GsxSXRQwsvRaou0HU0/eY53g3EKYa4G6j4tjgtlsK+W7I6
- +YJqmAYZpXNkMgk9jiHBz74jXFBawrBlDowq/b70EMBrQIjnox6TKY3MT
- ML0epCJbYyPs0QorUArPbBhQjQGDBfoOHGWN0kykg7wQLgBtWIvQgxfcQ
- hikbuJxpHlICbRKDTWY6sjZ+5ustN7AXScixQ8NZLucHnxM5u881ZS+C3
- /k/PthX0hP2aTNZl8uvCfakc/+NDmg78x7KunOnMqmxDkIPZaB2Rq2J/5 g==;
-X-IronPort-AV: E=Sophos;i="5.56,296,1539619200"; d="scan'208";a="100284419"
+ bh=nuBQjkoNBHnA8e5JkbiKnr8fvMi+LuXfed+OuvM9GEI=;
+ b=BaGmQXf6hVs8thXvkyezus2ClULbowAQSnvDXMeXt38Jn+nFq8FuGz+v
+ dwL1K6dDYYNWwhvDXiZUoxSXetO9RhWFjzL3muxK81JMVHUz6a0AgibmP
+ xADOPW/cHTOMLC9v38GbpJ090t8PC8ylTumQEYzrevj6tgAY6nZqI2hsq
+ ngLH5Bo33qbuYdb1fzXZn098fcDs3ZQzBtrtrTe5UCAwhkh0+skj79dz+
+ OD8mSKN8RDKdnnXCjgOqMhJjrBsl3nLRzGyNUrGNHmwUFZrU6D+bAmAbI
+ H2n84VFqh4qTZFYFj1688PO81cPzxQujE7gnKTYfhh/Zg8+vXk3IPnep4 Q==;
+X-IronPort-AV: E=Sophos;i="5.56,297,1539619200"; d="scan'208";a="193278884"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 30 Nov 2018 08:35:23 +0800
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep02.wdc.com with ESMTP; 29 Nov 2018 16:18:19 -0800
+ by ob1.hgst.iphmx.com with ESMTP; 30 Nov 2018 09:39:48 +0800
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep02.wdc.com with ESMTP; 29 Nov 2018 17:22:42 -0800
 Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.72.98])
  ([10.111.72.98])
- by uls-op-cesaip01.wdc.com with ESMTP; 29 Nov 2018 16:35:22 -0800
-Subject: Re: [PATCH v2 1/4] irqchip: sifive-plic: Pre-compute context hart
- base and enable base
+ by uls-op-cesaip02.wdc.com with ESMTP; 29 Nov 2018 17:39:46 -0800
+Subject: Re: [PATCH v2 2/4] irqchip: sifive-plic: More flexible
+ plic_irq_toggle()
 To: Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@sifive.com>,
  Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano
  <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
  Jason Cooper <jason@lakedaemon.net>, Marc Zyngier <marc.zyngier@arm.com>
 References: <20181127100317.12809-1-anup@brainfault.org>
- <20181127100317.12809-2-anup@brainfault.org>
+ <20181127100317.12809-3-anup@brainfault.org>
 From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <b6ff2593-9113-9b95-ade5-09e7e9fa1be5@wdc.com>
-Date: Thu, 29 Nov 2018 16:35:21 -0800
+Message-ID: <25c2fafc-a479-911f-a7df-704108da5dc7@wdc.com>
+Date: Thu, 29 Nov 2018 17:39:45 -0800
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0)
  Gecko/20100101 Thunderbird/60.3.0
 MIME-Version: 1.0
-In-Reply-To: <20181127100317.12809-2-anup@brainfault.org>
+In-Reply-To: <20181127100317.12809-3-anup@brainfault.org>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181129_163535_129964_EE2EDCE9 
-X-CRM114-Status: GOOD (  21.52  )
+X-CRM114-CacheID: sfid-20181129_173959_144057_5C564457 
+X-CRM114-Status: GOOD (  26.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -99,109 +99,210 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 11/27/18 2:03 AM, Anup Patel wrote:
-> This patch does following optimizations:
-> 1. Pre-compute hart base for each context handler
-> 2. Pre-compute enable base for each context handler
-> 3. Have enable lock for each context handler instead
-> of global plic_toggle_lock
+> We make plic_irq_toggle() more generic so that we can enable/disable
+> hwirq for given cpumask. This generic plic_irq_toggle() will be
+> eventually used to implement set_affinity for PLIC driver.
 > 
 > Signed-off-by: Anup Patel <anup@brainfault.org>
 > ---
->   drivers/irqchip/irq-sifive-plic.c | 41 +++++++++++++------------------
->   1 file changed, 17 insertions(+), 24 deletions(-)
+>   drivers/irqchip/irq-sifive-plic.c | 79 +++++++++++++++----------------
+>   1 file changed, 39 insertions(+), 40 deletions(-)
 > 
 > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index 357e9daf94ae..56fce648a901 100644
+> index 56fce648a901..95b4b92ca9b8 100644
 > --- a/drivers/irqchip/irq-sifive-plic.c
 > +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -60,36 +60,24 @@ static void __iomem *plic_regs;
+> @@ -55,19 +55,26 @@
+>   #define     CONTEXT_THRESHOLD		0x00
+>   #define     CONTEXT_CLAIM		0x04
+>   
+> -static void __iomem *plic_regs;
+> -
 >   struct plic_handler {
 >   	bool			present;
->   	int			ctxid;
-> +	void __iomem		*hart_base;
-> +	raw_spinlock_t		enable_lock;
-> +	void __iomem		*enable_base;
-
-It should be u32. Otherwise, plic_toggle calculates incorrect address 
-and it does not boot on Unlheased.
-
+> -	int			ctxid;
+>   	void __iomem		*hart_base;
+>   	raw_spinlock_t		enable_lock;
+>   	void __iomem		*enable_base;
 >   };
+> +
 >   static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
 >   
-> -static inline void __iomem *plic_hart_offset(int ctxid)
-> +static inline void plic_toggle(struct plic_handler *handler,
-> +				int hwirq, int enable)
+> -static inline void plic_toggle(struct plic_handler *handler,
+> -				int hwirq, int enable)
+> +struct plic_hw {
+> +	u32			nr_irqs;
+> +	u32			nr_handlers;
+> +	u32			nr_mapped;
+
+Why these three are moved inside a structure? I don't see them being 
+used outside plic_init. Am I missing something ?
+
+> +	void __iomem		*regs;
+> +	struct irq_domain	*irqdomain;
+> +};
+> +
+> +static struct plic_hw plic;
+> +
+> +static void plic_toggle(struct plic_handler *handler, int hwirq, int enable)
 >   {
-> -	return plic_regs + CONTEXT_BASE + ctxid * CONTEXT_PER_HART;
-> -}
-> -
-> -static inline u32 __iomem *plic_enable_base(int ctxid)
-> -{
-> -	return plic_regs + ENABLE_BASE + ctxid * ENABLE_PER_HART;
-> -}
-> -
-> -/*
-> - * Protect mask operations on the registers given that we can't assume that
-> - * atomic memory operations work on them.
-> - */
-
-Should we keep the comment for enable_lock ?
-
-> -static DEFINE_RAW_SPINLOCK(plic_toggle_lock);
-> -
-> -static inline void plic_toggle(int ctxid, int hwirq, int enable)
-> -{
-> -	u32 __iomem *reg = plic_enable_base(ctxid) + (hwirq / 32);
-> +	u32 __iomem *reg = handler->enable_base + (hwirq / 32);
+>   	u32 __iomem *reg = handler->enable_base + (hwirq / 32);
 >   	u32 hwirq_mask = 1 << (hwirq % 32);
->   
-> -	raw_spin_lock(&plic_toggle_lock);
-> +	raw_spin_lock(&handler->enable_lock);
->   	if (enable)
->   		writel(readl(reg) | hwirq_mask, reg);
->   	else
->   		writel(readl(reg) & ~hwirq_mask, reg);
-> -	raw_spin_unlock(&plic_toggle_lock);
-> +	raw_spin_unlock(&handler->enable_lock);
+> @@ -80,27 +87,23 @@ static inline void plic_toggle(struct plic_handler *handler,
+>   	raw_spin_unlock(&handler->enable_lock);
 >   }
 >   
->   static inline void plic_irq_toggle(struct irq_data *d, int enable)
-> @@ -101,7 +89,7 @@ static inline void plic_irq_toggle(struct irq_data *d, int enable)
->   		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
->   
->   		if (handler->present)
-> -			plic_toggle(handler->ctxid, d->hwirq, enable);
-> +			plic_toggle(handler, d->hwirq, enable);
->   	}
->   }
->   
-> @@ -150,7 +138,7 @@ static struct irq_domain *plic_irqdomain;
->   static void plic_handle_irq(struct pt_regs *regs)
+> -static inline void plic_irq_toggle(struct irq_data *d, int enable)
+> +static void plic_irq_toggle(const struct cpumask *mask, int hwirq, int enable)
 >   {
->   	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-> -	void __iomem *claim = plic_hart_offset(handler->ctxid) + CONTEXT_CLAIM;
-> +	void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
->   	irq_hw_number_t hwirq;
+>   	int cpu;
 >   
->   	WARN_ON_ONCE(!handler->present);
-> @@ -240,11 +228,16 @@ static int __init plic_init(struct device_node *node,
+> -	writel(enable, plic_regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
+> -	for_each_cpu(cpu, irq_data_get_affinity_mask(d)) {
+> -		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+> -
+> -		if (handler->present)
+> -			plic_toggle(handler, d->hwirq, enable);
+> -	}
+> +	writel(enable, plic.regs + PRIORITY_BASE + hwirq * PRIORITY_PER_ID);
+> +	for_each_cpu(cpu, mask)
+> +		plic_toggle(per_cpu_ptr(&plic_handlers, cpu), hwirq, enable);
+
+Any specific reason to remove the handler->present check.
+
+Moreover, only this part matches commit text. Most of the other changes 
+looks like cosmetic cleanup because of variable is moved to a structure.
+May be separate patch for those changes if they are are required at all.
+
+>   }
+>   
+>   static void plic_irq_enable(struct irq_data *d)
+>   {
+> -	plic_irq_toggle(d, 1);
+> +	plic_irq_toggle(irq_data_get_affinity_mask(d), d->hwirq, 1);
+>   }
+>   
+>   static void plic_irq_disable(struct irq_data *d)
+>   {
+> -	plic_irq_toggle(d, 0);
+> +	plic_irq_toggle(irq_data_get_affinity_mask(d), d->hwirq, 0);
+>   }
+>   
+>   static struct irq_chip plic_chip = {
+> @@ -127,8 +130,6 @@ static const struct irq_domain_ops plic_irqdomain_ops = {
+>   	.xlate		= irq_domain_xlate_onecell,
+>   };
+>   
+> -static struct irq_domain *plic_irqdomain;
+> -
+>   /*
+>    * Handling an interrupt is a two-step process: first you claim the interrupt
+>    * by reading the claim register, then you complete the interrupt by writing
+> @@ -145,7 +146,7 @@ static void plic_handle_irq(struct pt_regs *regs)
+>   
+>   	csr_clear(sie, SIE_SEIE);
+>   	while ((hwirq = readl(claim))) {
+> -		int irq = irq_find_mapping(plic_irqdomain, hwirq);
+> +		int irq = irq_find_mapping(plic.irqdomain, hwirq);
+>   
+>   		if (unlikely(irq <= 0))
+>   			pr_warn_ratelimited("can't find mapping for hwirq %lu\n",
+> @@ -174,36 +175,34 @@ static int plic_find_hart_id(struct device_node *node)
+>   static int __init plic_init(struct device_node *node,
+>   		struct device_node *parent)
+>   {
+> -	int error = 0, nr_handlers, nr_mapped = 0, i;
+> -	u32 nr_irqs;
+> +	int error = 0, i;
+>   
+> -	if (plic_regs) {
+> +	if (plic.regs) {
+>   		pr_warn("PLIC already present.\n");
+>   		return -ENXIO;
+>   	}
+>   
+> -	plic_regs = of_iomap(node, 0);
+> -	if (WARN_ON(!plic_regs))
+> +	plic.regs = of_iomap(node, 0);
+> +	if (WARN_ON(!plic.regs))
+>   		return -EIO;
+>   
+>   	error = -EINVAL;
+> -	of_property_read_u32(node, "riscv,ndev", &nr_irqs);
+> -	if (WARN_ON(!nr_irqs))
+> +	of_property_read_u32(node, "riscv,ndev", &plic.nr_irqs);
+> +	if (WARN_ON(!plic.nr_irqs))
+>   		goto out_iounmap;
+>   
+> -	nr_handlers = of_irq_count(node);
+> -	if (WARN_ON(!nr_handlers))
+> +	plic.nr_handlers = of_irq_count(node);
+> +	if (WARN_ON(!plic.nr_handlers))
+>   		goto out_iounmap;
+> -	if (WARN_ON(nr_handlers < num_possible_cpus()))
+> +	if (WARN_ON(plic.nr_handlers < num_possible_cpus()))
+>   		goto out_iounmap;
+>   
+> -	error = -ENOMEM;
+> -	plic_irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
+> -			&plic_irqdomain_ops, NULL);
+> -	if (WARN_ON(!plic_irqdomain))
+> +	plic.irqdomain = irq_domain_add_linear(node, plic.nr_irqs + 1,
+> +						&plic_irqdomain_ops, NULL);
+> +	if (WARN_ON(!plic.irqdomain))
+>   		goto out_iounmap;
+>   
+
+Should we return EINVAL if irq_domain_add_linear fails ? Earlier, it was 
+returning ENOMEM.
+
+> -	for (i = 0; i < nr_handlers; i++) {
+> +	for (i = 0; i < plic.nr_handlers; i++) {
+>   		struct of_phandle_args parent;
+>   		struct plic_handler *handler;
+>   		irq_hw_number_t hwirq;
+> @@ -227,27 +226,27 @@ static int __init plic_init(struct device_node *node,
+>   		cpu = riscv_hartid_to_cpuid(hartid);
 >   		handler = per_cpu_ptr(&plic_handlers, cpu);
 >   		handler->present = true;
->   		handler->ctxid = i;
-> +		handler->hart_base =
-> +			plic_regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
-> +		raw_spin_lock_init(&handler->enable_lock);
-> +		handler->enable_base =
-> +			plic_regs + ENABLE_BASE + i * ENABLE_PER_HART;
+> -		handler->ctxid = i;
+
+
+The previous patch removed all the usage of ctxid. So this line also can 
+be included in that patch as well to make it more coherent.
+
+
+Regards,
+Atish
+>   		handler->hart_base =
+> -			plic_regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
+> +			plic.regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
+>   		raw_spin_lock_init(&handler->enable_lock);
+>   		handler->enable_base =
+> -			plic_regs + ENABLE_BASE + i * ENABLE_PER_HART;
+> +			plic.regs + ENABLE_BASE + i * ENABLE_PER_HART;
 >   
 >   		/* priority must be > threshold to trigger an interrupt */
-> -		writel(0, plic_hart_offset(i) + CONTEXT_THRESHOLD);
-> +		writel(0, handler->hart_base + CONTEXT_THRESHOLD);
->   		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
-> -			plic_toggle(i, hwirq, 0);
-> +			plic_toggle(handler, hwirq, 0);
->   		nr_mapped++;
+>   		writel(0, handler->hart_base + CONTEXT_THRESHOLD);
+> -		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+> +		for (hwirq = 1; hwirq <= plic.nr_irqs; hwirq++)
+>   			plic_toggle(handler, hwirq, 0);
+> -		nr_mapped++;
+> +
+> +		plic.nr_mapped++;
 >   	}
+>   
+>   	pr_info("mapped %d interrupts to %d (out of %d) handlers.\n",
+> -		nr_irqs, nr_mapped, nr_handlers);
+> +		plic.nr_irqs, plic.nr_mapped, plic.nr_handlers);
+>   	set_handle_irq(plic_handle_irq);
+>   	return 0;
+>   
+>   out_iounmap:
+> -	iounmap(plic_regs);
+> +	iounmap(plic.regs);
+>   	return error;
+>   }
 >   
 > 
 
