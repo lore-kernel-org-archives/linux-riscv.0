@@ -7,78 +7,80 @@ X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D976C64EB4
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 30 Nov 2018 01:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A91DFC04EB9
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 30 Nov 2018 03:35:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D86C320863
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 30 Nov 2018 01:57:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6A49920868
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 30 Nov 2018 03:35:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IMf2bud0";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="EQLdEsgj"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D86C320863
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cp8vqe2Q";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Aa8CTtoA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6A49920868
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7KoqdSfFBESj3EiE1sZgTIMZk7yVzdq9ntAd1DnATvc=; b=IMf2bud0+FDAtym/AOx+wnM6M
-	rC7DOwxkDDI5r97g9tbDu3WIRRhPKTUOuH6A8MDl5dFb85i3ebj9mqZSqyM8xUK43L2BMhEIIfOTX
-	NS06jUQ/R3mWzUf9MCV4Gkpo6m5YLQQXFU5n4FX6UVlhx6WihFZEe88GDwbphZFyG0Vxg0SSZzTL5
-	NwBR1rdjSt3jiRNQfVD3ztqlOW4Fyt6f5biG700+QyX71KUwWEtYEQQnVZXd+DzUBbPwBHaY/hzIb
-	jFlystKYqZrF6InCHyd8GTPKdZJTsHySknpI+lOxnlngOuQKWhxoTZTN1avO8PnlPFvkZ1XG7OwGG
-	xmo+356mw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nD/78HglaYooBC69R36zjS8vdMNr/onQwajnEDZfAFw=; b=cp8vqe2Qt234D9
+	tVE9NdrZcEBq7vnoL/jjGzOKkhN7/1y1ryRhQDCp9Xx57Dm7MzmEEfXMw2rF7FxWDukxyoh0paQjV
+	OrM4tPh8OYMdg6Qp/fKM8ErXpu2LSMarN9Sa0VE6LYM5azI8luFxlrWjYXcz83gzekYsssShlT8il
+	tUqufz3LkJgIqOSJSPU69jK/vuSN/Rcdp5Y5JCDg2N728O5pIFb/qp33Y4ksA40SwsRpqV35O1dIP
+	OeYbQCVM1ZOjGG5bNuUrumxvL3eomC4Z3X8L51qeMpbIQ6U4/PtX/Hlelke64aOozSQM4BPiZ99Ky
+	icqcvt+ETNb63zOxnn3Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gSY3y-0002b9-9T; Fri, 30 Nov 2018 01:57:50 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1gSZa6-0002cH-Op; Fri, 30 Nov 2018 03:35:06 +0000
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gSY3v-0002aM-Ls
- for linux-riscv@lists.infradead.org; Fri, 30 Nov 2018 01:57:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1543543100; x=1575079100;
- h=subject:to:cc:references:from:message-id:date:
- mime-version:in-reply-to:content-transfer-encoding;
- bh=FUgCmVQ2VKNgaCsb1HVvTlj5dWNTY50OFk8kPVfHZIc=;
- b=EQLdEsgjuI4xyPugjfO6x+8i/GUWDu1BPQULMBAg9qT7imIlj9VIjleA
- u/V3sLNEG6wJ79ZXTIQ/iKLgxYsYpwsnPWC8RDGX3kO3ZLNw4sxWmkcbq
- KYrWDlwPY0lrWQ9JebOxXvR2SSfop6NC/zfu4ezTEZ+OLa44U8i8j1dx3
- sb0wr5/Hh2v4ZZgfSxK1DkaQhrcN7fK2ONOfUUfACXDMD/Z1kTJtPuOwO
- i5fDRSQa98pbICw5xf8nX4JdyVEotEU4Z7KtgOPLhzrtKzo1a9bZRr4f5
- ftHunvj2T9Oatc1kAjjlLB8YvN0Wy4RYk/EHN60feeffaVUFQVv1Vi/NN Q==;
-X-IronPort-AV: E=Sophos;i="5.56,297,1539619200"; d="scan'208";a="193279985"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 30 Nov 2018 09:58:05 +0800
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep02.wdc.com with ESMTP; 29 Nov 2018 17:40:33 -0800
-Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.72.98])
- ([10.111.72.98])
- by uls-op-cesaip01.wdc.com with ESMTP; 29 Nov 2018 17:57:38 -0800
-Subject: Re: [PATCH v2 3/4] irqchip: sifive-plic: Differentiate between PLIC
- handler and context
-To: Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano
- <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
- Jason Cooper <jason@lakedaemon.net>, Marc Zyngier <marc.zyngier@arm.com>
-References: <20181127100317.12809-1-anup@brainfault.org>
- <20181127100317.12809-4-anup@brainfault.org>
-From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <93356e4f-ccd9-39ba-6afe-88dcdc72945d@wdc.com>
-Date: Thu, 29 Nov 2018 17:57:36 -0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0)
- Gecko/20100101 Thunderbird/60.3.0
+ id 1gSZa3-0001tn-Gh
+ for linux-riscv@lists.infradead.org; Fri, 30 Nov 2018 03:35:05 +0000
+Received: by mail-wr1-x441.google.com with SMTP id x10so3876019wrs.8
+ for <linux-riscv@lists.infradead.org>; Thu, 29 Nov 2018 19:34:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=px///lnI5nlBDxtHhYbqL3fKd6VwAKuL64n/fMX7EZg=;
+ b=Aa8CTtoAN+jIf3mFA3F9tryFcVj5Vj+1+dWCrzYkK5g+RduHKBV9AXQwWhu7cN8+Bf
+ /LBTi0IsoOs6Oc89V1qskRR/+BciLG7fBzCUo90peVTWkSLFBHpScjAI+cqQDOBVXmuO
+ IG6o95LsPwQaRr7lwCrCXkfODpUBIEoMb0BrbHjTHN7NGEjCNDJ7hb05+yKYXD8SsJ4H
+ zJjaIMGeNM1M3xgw1Fv1VzMky6WvgDMhASRa3Skr1/oZaA51f9CXy8f7V4/yvyNSnjox
+ rAGLY0fq0DB5dqDWK1Xwde7uy/LGjvbpMmNndt9rT0AWwNEQs3MSExL1tJOLNkuquEAV
+ 0r7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=px///lnI5nlBDxtHhYbqL3fKd6VwAKuL64n/fMX7EZg=;
+ b=dAnhUPIi1BozOa15GHW2A9ZE8xL+p2wiU/h0BqBP41end0asov8WQTnbyJ2kTbr7p1
+ J/6565dL2gRUSg22sJgs+TewlvYcmHubkKon08ZcZUZaDZI4mLuH17QDOrK+e96rKDHL
+ 43OtETuhjh9tSBPGVXOwyMAos739nikexDEvjgcyGtCLJl1knJGVjtDSPan2dnw5yVTi
+ JSnStkm8IbKfE3YyN+V8qJoOoWvWaRsRud0H7ltK0Kj6UHx29iwzL203ShSxbJSmozu2
+ hmAMLKgPMeyoWr9Dlv7OXGVpvbn+vODF9CEkWHbnzmdBfl8KLCUzCkfG26TeYf4bt/Wk
+ 2EeA==
+X-Gm-Message-State: AA+aEWYU/9qLp45eIupBBtZ9NaN5Scvi13Pv7JBJow3JNsCcL9EMFs9A
+ NVB5YJr4UzeeGx6tZtGNu53mxvmP72EkN76qkLgZW+XR
+X-Google-Smtp-Source: AFSGD/WXjjnHpKx3qk9Q5BFnMON4UeWnsdYtpQb3Q/2k0/5XnK9ISMruMdx+Dr1iIiMox1LCIw80GfT3aZi9JeuYyjY=
+X-Received: by 2002:adf:91a3:: with SMTP id 32mr3155796wri.99.1543548891044;
+ Thu, 29 Nov 2018 19:34:51 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20181127100317.12809-4-anup@brainfault.org>
-Content-Language: en-US
+References: <20181127100317.12809-1-anup@brainfault.org>
+ <20181127100317.12809-2-anup@brainfault.org>
+ <b6ff2593-9113-9b95-ade5-09e7e9fa1be5@wdc.com>
+In-Reply-To: <b6ff2593-9113-9b95-ade5-09e7e9fa1be5@wdc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 30 Nov 2018 09:04:46 +0530
+Message-ID: <CAAhSdy0CDxoV2qJ-Xh-4udhh_jEz2KWKPfC_5QSo79VRo4EwUg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] irqchip: sifive-plic: Pre-compute context hart
+ base and enable base
+To: Atish Patra <atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181129_175747_749330_D527871D 
-X-CRM114-Status: GOOD (  20.72  )
+X-CRM114-CacheID: sfid-20181129_193503_562184_43236A07 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,102 +92,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Christoph Hellwig <hch@infradead.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Jason Cooper <jason@lakedaemon.net>, Marc Zyngier <marc.zyngier@arm.com>,
+ Palmer Dabbelt <palmer@sifive.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Christoph Hellwig <hch@infradead.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/27/18 2:04 AM, Anup Patel wrote:
-> We explicitly differentiate between PLIC handler and context because
-> PLIC context is for given mode of HART whereas PLIC handler is per-CPU
-> software construct meant for handling interrupts from a particular
-> PLIC context.
-> 
-> Signed-off-by: Anup Patel <anup@brainfault.org>
-> ---
->   drivers/irqchip/irq-sifive-plic.c | 21 +++++++++++++--------
->   1 file changed, 13 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index 95b4b92ca9b8..ffd4deaca057 100644
-> --- a/drivers/irqchip/irq-sifive-plic.c
-> +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -66,8 +66,8 @@ static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
->   
->   struct plic_hw {
->   	u32			nr_irqs;
-> +	u32			nr_contexts;
->   	u32			nr_handlers;
-> -	u32			nr_mapped;
->   	void __iomem		*regs;
->   	struct irq_domain	*irqdomain;
->   };
-> @@ -191,10 +191,10 @@ static int __init plic_init(struct device_node *node,
->   	if (WARN_ON(!plic.nr_irqs))
->   		goto out_iounmap;
->   
-> -	plic.nr_handlers = of_irq_count(node);
-> -	if (WARN_ON(!plic.nr_handlers))
-> +	plic.nr_contexts = of_irq_count(node);
-> +	if (WARN_ON(!plic.nr_contexts))
->   		goto out_iounmap;
-> -	if (WARN_ON(plic.nr_handlers < num_possible_cpus()))
-> +	if (WARN_ON(plic.nr_contexts < num_possible_cpus()))
->   		goto out_iounmap;
->   
->   	plic.irqdomain = irq_domain_add_linear(node, plic.nr_irqs + 1,
-> @@ -202,7 +202,7 @@ static int __init plic_init(struct device_node *node,
->   	if (WARN_ON(!plic.irqdomain))
->   		goto out_iounmap;
->   
-> -	for (i = 0; i < plic.nr_handlers; i++) {
-> +	for (i = 0; i < plic.nr_contexts; i++) {
->   		struct of_phandle_args parent;
->   		struct plic_handler *handler;
->   		irq_hw_number_t hwirq;
-> @@ -225,6 +225,11 @@ static int __init plic_init(struct device_node *node,
->   
->   		cpu = riscv_hartid_to_cpuid(hartid);
->   		handler = per_cpu_ptr(&plic_handlers, cpu);
-> +		if (handler->present) {
-> +			pr_warn("handler not available for context %d.\n", i);
-> +			continue;
-> +		}
-> +
+On Fri, Nov 30, 2018 at 6:05 AM Atish Patra <atish.patra@wdc.com> wrote:
+>
+> On 11/27/18 2:03 AM, Anup Patel wrote:
+> > This patch does following optimizations:
+> > 1. Pre-compute hart base for each context handler
+> > 2. Pre-compute enable base for each context handler
+> > 3. Have enable lock for each context handler instead
+> > of global plic_toggle_lock
+> >
+> > Signed-off-by: Anup Patel <anup@brainfault.org>
+> > ---
+> >   drivers/irqchip/irq-sifive-plic.c | 41 +++++++++++++------------------
+> >   1 file changed, 17 insertions(+), 24 deletions(-)
+> >
+> > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> > index 357e9daf94ae..56fce648a901 100644
+> > --- a/drivers/irqchip/irq-sifive-plic.c
+> > +++ b/drivers/irqchip/irq-sifive-plic.c
+> > @@ -60,36 +60,24 @@ static void __iomem *plic_regs;
+> >   struct plic_handler {
+> >       bool                    present;
+> >       int                     ctxid;
+> > +     void __iomem            *hart_base;
+> > +     raw_spinlock_t          enable_lock;
+> > +     void __iomem            *enable_base;
+>
+> It should be u32. Otherwise, plic_toggle calculates incorrect address
+> and it does not boot on Unlheased.
 
-Ahh you have the handler->present check here in this patch. This should 
-be in the 2nd patch. This change doesn't match the commit text anyways.
+Good catch. I did not see this issue on QEMU because we have
+very IRQs over there.
 
-Everything else just variable renaming which can be separated.
-nr_handlers->nr_contexts
-nr_mapped->nr_handlers
+>
+> >   };
+> >   static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
+> >
+> > -static inline void __iomem *plic_hart_offset(int ctxid)
+> > +static inline void plic_toggle(struct plic_handler *handler,
+> > +                             int hwirq, int enable)
+> >   {
+> > -     return plic_regs + CONTEXT_BASE + ctxid * CONTEXT_PER_HART;
+> > -}
+> > -
+> > -static inline u32 __iomem *plic_enable_base(int ctxid)
+> > -{
+> > -     return plic_regs + ENABLE_BASE + ctxid * ENABLE_PER_HART;
+> > -}
+> > -
+> > -/*
+> > - * Protect mask operations on the registers given that we can't assume that
+> > - * atomic memory operations work on them.
+> > - */
+>
+> Should we keep the comment for enable_lock ?
 
+Sure, I will retain the comment for enable_lock.
 
-Regards,
-Atish
->   		handler->present = true;
->   		handler->hart_base =
->   			plic.regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
-> @@ -237,11 +242,11 @@ static int __init plic_init(struct device_node *node,
->   		for (hwirq = 1; hwirq <= plic.nr_irqs; hwirq++)
->   			plic_toggle(handler, hwirq, 0);
->   
-> -		plic.nr_mapped++;
-> +		plic.nr_handlers++;
->   	}
->   
-> -	pr_info("mapped %d interrupts to %d (out of %d) handlers.\n",
-> -		plic.nr_irqs, plic.nr_mapped, plic.nr_handlers);
-> +	pr_info("mapped %d interrupts with %d handlers for %d contexts.\n",
-> +		plic.nr_irqs, plic.nr_handlers, plic.nr_contexts);
->   	set_handle_irq(plic_handle_irq);
->   	return 0;
->   
-> 
+>
+> > -static DEFINE_RAW_SPINLOCK(plic_toggle_lock);
+> > -
+> > -static inline void plic_toggle(int ctxid, int hwirq, int enable)
+> > -{
+> > -     u32 __iomem *reg = plic_enable_base(ctxid) + (hwirq / 32);
+> > +     u32 __iomem *reg = handler->enable_base + (hwirq / 32);
+> >       u32 hwirq_mask = 1 << (hwirq % 32);
+> >
+> > -     raw_spin_lock(&plic_toggle_lock);
+> > +     raw_spin_lock(&handler->enable_lock);
+> >       if (enable)
+> >               writel(readl(reg) | hwirq_mask, reg);
+> >       else
+> >               writel(readl(reg) & ~hwirq_mask, reg);
+> > -     raw_spin_unlock(&plic_toggle_lock);
+> > +     raw_spin_unlock(&handler->enable_lock);
+> >   }
+> >
+> >   static inline void plic_irq_toggle(struct irq_data *d, int enable)
+> > @@ -101,7 +89,7 @@ static inline void plic_irq_toggle(struct irq_data *d, int enable)
+> >               struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+> >
+> >               if (handler->present)
+> > -                     plic_toggle(handler->ctxid, d->hwirq, enable);
+> > +                     plic_toggle(handler, d->hwirq, enable);
+> >       }
+> >   }
+> >
+> > @@ -150,7 +138,7 @@ static struct irq_domain *plic_irqdomain;
+> >   static void plic_handle_irq(struct pt_regs *regs)
+> >   {
+> >       struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> > -     void __iomem *claim = plic_hart_offset(handler->ctxid) + CONTEXT_CLAIM;
+> > +     void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
+> >       irq_hw_number_t hwirq;
+> >
+> >       WARN_ON_ONCE(!handler->present);
+> > @@ -240,11 +228,16 @@ static int __init plic_init(struct device_node *node,
+> >               handler = per_cpu_ptr(&plic_handlers, cpu);
+> >               handler->present = true;
+> >               handler->ctxid = i;
+> > +             handler->hart_base =
+> > +                     plic_regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
+> > +             raw_spin_lock_init(&handler->enable_lock);
+> > +             handler->enable_base =
+> > +                     plic_regs + ENABLE_BASE + i * ENABLE_PER_HART;
+> >
+> >               /* priority must be > threshold to trigger an interrupt */
+> > -             writel(0, plic_hart_offset(i) + CONTEXT_THRESHOLD);
+> > +             writel(0, handler->hart_base + CONTEXT_THRESHOLD);
+> >               for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+> > -                     plic_toggle(i, hwirq, 0);
+> > +                     plic_toggle(handler, hwirq, 0);
+> >               nr_mapped++;
+> >       }
+> >
+> >
+>
 
+--
+Anup
 
 _______________________________________________
 linux-riscv mailing list
