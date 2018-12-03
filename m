@@ -2,75 +2,77 @@ Return-Path: <SRS0=qdQm=OM=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9A3FEC04EB9
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Dec 2018 20:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4C28BC04EB9
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Dec 2018 23:42:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6729420850
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Dec 2018 20:58:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2129A20850
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Dec 2018 23:42:01 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ry4o5B1H";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="SYZxwrfW"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6729420850
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="K8sb6Pam"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2129A20850
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=qKu+HUhTkUM/m4PvSetyRERBVYZ3JjkfGD/JkGQEesY=; b=Ry4o5B1HbdqU74dzJ/Wrax84uw
-	/tjyXp/PtJinNT0sT4RbiTfnF6yjHYyjZX4p0cjFtRf0qWsZtzz7uoaZAH+t+D9qsrUcBoSkeBawY
-	4w0X56QQm7DsZvZ3O2eRPfPNn/h5h5/N5283hrQ91UuqABEKje0+/bCu1TaId9mPnHMV9etKmt5x3
-	h8DbeOri3eIBrDIZ904Q1qmxHbwhZMoCbO0VWubLn/derT6EM68yxTUjV6VJB8R5eqHkjPI9fjGlZ
-	ON0UUj/eTd9hZuv9BPuaxSvHtaJPEWs1Et+lXy2efWGeB1SPb7LN+FU73r65iiJiCp3MDWEG8fFNR
-	Ts6h/ERQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sDRgV86l7Dx5oyIaFBebFQDHD0hwa111UNtoTAphzDg=; b=K8sb6Pamu9ptBF
+	DzJlX4v90M9iuD3olsN4wDzfh15uNRJCdYNBQ8gG5UN8RS0bdqCunHjQuNFO6osXgLeQnEyNI3ENY
+	I+GtII6MconYFGJNmvDSNSwwhbiE4ztVjP/SpYKiTwnccslkoY+ZlJn5zVkJhFWkfg0QV7WkxtgBX
+	qzOTyN9wjyPww8Bz+dIJYyfpwqrwIysK+dlBguOER8f7/OFOHDoOSNxZ6q6I1YU0ThwP/YSErwiLk
+	jSidaTO/cq0X+pLrBN1Jf4hHxRhi5anYjQtZUMr6nssWT4XMAbX6t0jSC/pYlJ91QpHlIL4KkxXvH
+	/NHNdgVO0U5K66rXtBUA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gTvI4-0002sh-QO; Mon, 03 Dec 2018 20:58:04 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1gTxqi-0003yQ-B7; Mon, 03 Dec 2018 23:42:00 +0000
+Received: from mail-oi1-f196.google.com ([209.85.167.196])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gTvI1-0002k7-KI
- for linux-riscv@lists.infradead.org; Mon, 03 Dec 2018 20:58:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1543870682; x=1575406682;
- h=from:to:cc:subject:date:message-id:in-reply-to: references;
- bh=BSOlOVz1k4WQ8zp+c29OSEXPkk6Skbx3t6enWZR9980=;
- b=SYZxwrfWoAvnQy5T6DA1S9yDEDqc0XANwk0dke/iLRl/GPazTsTSAUkF
- nm+pygSg7mTVBmWd0VxEpNdBeM8lCqvmmX+M3wwYfN5tyMj4ZUfdircrw
- 3+Dz/Mc+ZbfOxLoQCvsxzyrUrenmGEXXVFeofUNhpld7PlTQj0wNIF6V+
- utVSUFlNYRqpsEy+9Hje4Zsp97zYAObUzP/VnO2JwUro2kRZQ/C8ACxVm
- Y2MOOmeDlky9WTGhByfCu8yLnlt8iHV1KrkmTM9XRjDWMx0sfkcSHIz7U
- gSnxEWGpiTjuw2zBszco+IoOp7hmhe6cvJZFuMlrnYRq8/I8+7wivKrGp Q==;
-X-IronPort-AV: E=Sophos;i="5.56,311,1539619200"; d="scan'208";a="95690462"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 04 Dec 2018 04:57:40 +0800
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP; 03 Dec 2018 12:39:56 -0800
-Received: from jedi-01.sdcorp.global.sandisk.com (HELO
- jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 03 Dec 2018 12:57:40 -0800
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] RISC-V: Fix non-smp kernel boot on SMP systems
-Date: Mon,  3 Dec 2018 12:57:31 -0800
-Message-Id: <1543870651-16669-5-git-send-email-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1543870651-16669-1-git-send-email-atish.patra@wdc.com>
-References: <1543870651-16669-1-git-send-email-atish.patra@wdc.com>
+ id 1gTxqg-0003xH-D3
+ for linux-riscv@lists.infradead.org; Mon, 03 Dec 2018 23:41:59 +0000
+Received: by mail-oi1-f196.google.com with SMTP id w13so12632038oiw.9
+ for <linux-riscv@lists.infradead.org>; Mon, 03 Dec 2018 15:41:48 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=TN/ZO8mjHjBktG8OGuxPfshMg6Bvd8EI7N6X3Ulsv0Q=;
+ b=oSqF4qrahDh0b1yeLa68XTP/s+rMB6FH8YhChkB1Sr8wm5zBctAV3QANKRLPLOqSyi
+ JfaPYMKgvL1AeWmWKgbjWRForEtf1Q3Kg3IGFEjL/xVFRUN1o3pe4mN8802PtW9PTC+K
+ QCFBa3TWTDM2IAsqBlWfjWtT5v2s4q6VAyrg5YWUP+cX1cIbDHw3vouTxiD7OG4B8r71
+ BgPMYdaKb4JqsGXq/E9II/2QVM27IAk/UacV24P8tzBWW2VRz/G4CM6BkmIsU00M2uId
+ LtoTsflBts0FnGm4YlrAEpwc4osRW6PQ+5migD9199ilYEBscTXluG5fQhGlafftVPf/
+ dL6Q==
+X-Gm-Message-State: AA+aEWbBytdA7/2knPn50DVDUlS7NKE5UnUqv5SElFxwf3CWuT/HHrqH
+ APBCNb0WsXr6jmXPG7nRwg==
+X-Google-Smtp-Source: AFSGD/Xrn9OycOyNl9xAt5CxGTbUgJBehC7KGGv8umJTXOc8j/ZAuFcLA6eWBzgpKMd/QcdwEEpoeg==
+X-Received: by 2002:aca:bd41:: with SMTP id n62mr11603763oif.348.1543880507469; 
+ Mon, 03 Dec 2018 15:41:47 -0800 (PST)
+Received: from localhost (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id d10sm6627823otl.62.2018.12.03.15.41.46
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Mon, 03 Dec 2018 15:41:46 -0800 (PST)
+Date: Mon, 3 Dec 2018 17:41:46 -0600
+From: Rob Herring <robh@kernel.org>
+To: Nick Kossifidis <mick@ics.forth.gr>
+Subject: Re: [PATCH] OF: Add a warning in case chosen node is not present
+Message-ID: <20181203234146.GA26602@bogus>
+References: <20181110005317.5631-1-mick@ics.forth.gr>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20181110005317.5631-1-mick@ics.forth.gr>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181203_125801_710435_CA79D8B5 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20181203_154158_439943_25BCE7FD 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -82,69 +84,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Damien Le Moal <Damien.LeMoal@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Dmitriy Cherkasov <dmitriy@oss-tech.org>, Anup Patel <anup@brainfault.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Atish Patra <atish.patra@wdc.com>,
- Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@sifive.com>,
- linux-riscv@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>
-MIME-Version: 1.0
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ palmer@sifive.com, frowand.list@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, clocksource registration happens for an invalid cpu
-for non-smp kernels. This lead to kernel panic as cpu hotplug
-registration will fail for those cpus.
+On Sat, Nov 10, 2018 at 02:53:17AM +0200, Nick Kossifidis wrote:
+> On architectures that only get their bootargs through devicetree's
+> chosen node (such as RISC-V), that node is mandatory. After a
+> discussion with Rob [1] I'm adding a warning in case chosen node
+> is not present, to let users know about it.
+> 
+> [1]: https://patchwork.ozlabs.org/patch/984224/#2016136
+> 
+> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
+> ---
+>  drivers/of/fdt.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
 
-Do not proceed if hartid is invalid. Take this opprtunity to
-print appropriate error strings for different failure cases.
-
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- drivers/clocksource/riscv_timer.c | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
-index 39de6e49..4af4af47 100644
---- a/drivers/clocksource/riscv_timer.c
-+++ b/drivers/clocksource/riscv_timer.c
-@@ -108,6 +108,8 @@ static int __init riscv_timer_init_dt(struct device_node *n)
- 	int cpuid, hartid, error;
- 
- 	hartid = riscv_of_processor_hartid(n);
-+	if (hartid < 0)
-+		return hartid;
- 	cpuid = riscv_hartid_to_cpuid(hartid);
- 
- 	if (cpuid != smp_processor_id())
-@@ -115,14 +117,19 @@ static int __init riscv_timer_init_dt(struct device_node *n)
- 
- 	/* This should be called only for boot cpu */
- 	riscv_timebase = riscv_timebase_frequency(n);
--	clocksource_register_hz(&riscv_clocksource, riscv_timebase);
-+	error = clocksource_register_hz(&riscv_clocksource, riscv_timebase);
- 
-+	if (error) {
-+		pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
-+		       error, cpuid);
-+		return error;
-+	}
- 	error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
- 			 "clockevents/riscv/timer:starting",
- 			 riscv_timer_starting_cpu, riscv_timer_dying_cpu);
- 	if (error)
--		pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
--		       error, cpuid);
-+		pr_err("cpu hp setup state failed for RISCV timer [%d]\n",
-+		       error);
- 	return error;
- }
- 
--- 
-2.7.4
-
+Applied.
 
 _______________________________________________
 linux-riscv mailing list
