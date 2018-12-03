@@ -2,62 +2,80 @@ Return-Path: <SRS0=qdQm=OM=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-13.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A0E2CC04EB9
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Dec 2018 17:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5ED6C04EB9
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Dec 2018 17:24:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 769F220848
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Dec 2018 17:16:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8ACAF20850
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Dec 2018 17:24:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dEZz+Pju"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 769F220848
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JEdLQ94d";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="KIfJcYt3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8ACAF20850
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zAqqg4fnz8egLBhjC7oyKbhKikpUOObL7S+baCGeZ/E=; b=dEZz+PjuVGIqR2
-	WFuAluXG0+FaRPfJrLkKDVXePlufuHn04XWKyEI/m3c5MC7oSByiuMy1HYJF8UnCPWzox1vOKSXDJ
-	dqaTLALnpYzEqnpbpEYuHiojxU+gvvqeFN4NdDfg2YU+nhPM+JrIVm3l8SRWITFYDKS1V/3lOS3s6
-	G/j29GZn3m9ynNC4vLfDyzk5JqoaclNIBHbwZQbBocOj88TS3WkUQolTcygzPmbBCVF49MlD3384C
-	AGbFs019xDBYCFQAaPgY6vQic8Lc9Uu1ZYKJ+LRGe2LcIVL0hdOI6B35ENl+K9FVbE9Sje9wRy9ql
-	Z6fzWrbN5z88PpOjvXSA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=BbZED5Z8jmmg8OvGjVkPAGqdhLrnKP9AMw921u9JZI8=; b=JEdLQ94dcnBoBl2brOyyXBdW3
+	CXyuEHIgfyUEn+uyYHivYdF6DfiMBKxMDiAGIWQkwMD8CJgXXQVgRe9jb95u9KvwcEHGoBT7ocqUr
+	TzRoy6ZdzCo6VCK7YreEp0JRMLoPakh107/EMesjLgz/z+5m5FRgixGTMDmi2ZM/PmYgi7ifcwXmt
+	U1KQqgbBKPzW39HXpnVVtPrHdT6qEBrb6F2ie53By9iM5GuqvmefFm5Yzew1ljYpJ9xcORI9k5iiu
+	+IW/OW0uhmKds8X2wPU8B+FUtwXqfXW0hSXlN2Z+VPMVkj9/v+YHHQqjSd5UmXYKjBe52sAzzKSkM
+	yOqr3Ap0g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gTrpu-0004n9-Nc; Mon, 03 Dec 2018 17:16:46 +0000
-Received: from foss.arm.com ([217.140.101.70])
- by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gTrpk-0004dj-EO; Mon, 03 Dec 2018 17:16:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 797CE1682;
- Mon,  3 Dec 2018 09:16:25 -0800 (PST)
-Received: from e107155-lin (e107155-lin.cambridge.arm.com [10.1.196.42])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBA883F59C;
- Mon,  3 Dec 2018 09:16:21 -0800 (PST)
-Date: Mon, 3 Dec 2018 17:16:19 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [RFT PATCH v1 3/4] cpu-topology: Move cpu topology code to
- common code.
-Message-ID: <20181203171619.GE17883@e107155-lin>
+	id 1gTrxF-0000qk-5J; Mon, 03 Dec 2018 17:24:21 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gTrxB-0000oO-8Z; Mon, 03 Dec 2018 17:24:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1543857857; x=1575393857;
+ h=subject:to:cc:references:from:message-id:date:
+ mime-version:in-reply-to:content-transfer-encoding;
+ bh=4EqweSzMdWtekz2FYxHTJ7tD2RlVzKJ2fl3ssPAyUoc=;
+ b=KIfJcYt3Xq6KiTdwhGdTaxERFt1eBo9DoYS5x16iOnhH5DGH7dBHJU3l
+ t2kkJDTqkFb897a2B8S+lxJGcGi5tcxc/lQS7svm0oMiCCbnnuWNmAgpT
+ iT7QyLkG32llQAFnDr9DkBtAuu0wS5/w4IAAkB8K9h5+15qJyyxRlzUGF
+ jdEa/F/ddkVuVz0UKm9/5u3BJdQVHA4E+fpJAB/rzzrz5lybfA68PjEFM
+ habai7EoYVo/ywaSx0gwspRCOJtefcEx8F3WMYIPQaAxKRq4ftqPyum1B
+ orQyoMe37mWEBE+hXD5a3EKv5g3Nxy/GPC3Go04wxfZq11RslL0eTB56X A==;
+X-IronPort-AV: E=Sophos;i="5.56,311,1539619200"; d="scan'208";a="100505426"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 04 Dec 2018 01:23:44 +0800
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP; 03 Dec 2018 09:06:00 -0800
+Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.72.98])
+ ([10.111.72.98])
+ by uls-op-cesaip02.wdc.com with ESMTP; 03 Dec 2018 09:23:43 -0800
+Subject: Re: [RFT PATCH v1 2/4] dt-binding: cpu-topology: Move cpu-map to a
+ common binding.
+To: Sudeep Holla <sudeep.holla@arm.com>
 References: <1543534100-3654-1-git-send-email-atish.patra@wdc.com>
- <1543534100-3654-4-git-send-email-atish.patra@wdc.com>
+ <1543534100-3654-3-git-send-email-atish.patra@wdc.com>
+ <20181203165521.GB17883@e107155-lin>
+From: Atish Patra <atish.patra@wdc.com>
+Message-ID: <f902086b-09e1-ad85-d191-137708f5b105@wdc.com>
+Date: Mon, 3 Dec 2018 09:23:42 -0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0)
+ Gecko/20100101 Thunderbird/60.3.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1543534100-3654-4-git-send-email-atish.patra@wdc.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+In-Reply-To: <20181203165521.GB17883@e107155-lin>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181203_091636_485552_CB2DA58D 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20181203_092418_282919_2BB55D6B 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -69,49 +87,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
  Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>,
  Juri Lelli <juri.lelli@arm.com>, Ard Biesheuvel <ard.biesheuvel@linaro.org>,
  Dmitriy Cherkasov <dmitriy@oss-tech.org>, Anup Patel <anup@brainfault.org>,
  Palmer Dabbelt <palmer@sifive.com>, Will Deacon <will.deacon@arm.com>,
- linux-kernel@vger.kernel.org, Jeremy Linton <jeremy.linton@arm.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Jeremy Linton <jeremy.linton@arm.com>,
  Morten Rasmussen <morten.rasmussen@arm.com>,
  "Peter Zijlstra \(Intel\)" <peterz@infradead.org>,
  Rob Herring <robh+dt@kernel.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Catalin Marinas <catalin.marinas@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, linux-riscv@lists.infradead.org,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
  Ingo Molnar <mingo@kernel.org>,
  "moderated list:ARM64 PORT \(AARCH64 ARCHITECTURE\)"
  <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 29, 2018 at 03:28:19PM -0800, Atish Patra wrote:
-> Both RISC-V & ARM64 are using cpu-map device tree to describe
-> their cpu topology. It's better to move the relevant code to
-> a common place instead of duplicate code.
->
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> ---
->  arch/arm64/include/asm/topology.h |  22 ---
->  arch/arm64/kernel/topology.c      | 303 +-------------------------------------
->  drivers/base/arch_topology.c      | 294 ++++++++++++++++++++++++++++++++++++
->  include/linux/arch_topology.h     |  26 ++++
->  include/linux/topology.h          |   1 +
->  5 files changed, 325 insertions(+), 321 deletions(-)
->
-From a quick look and diffstat, it looks like a simple move. However
-I would like to throw this at 0-day bot to test various build configurations
-so that it's not breaking anything. I can push to a branch in my git
-@kernel.org but not sure on the build coverage. Anyways will update
-with any results on build and testing on my side ASAP.
+On 12/3/18 8:55 AM, Sudeep Holla wrote:
+> On Thu, Nov 29, 2018 at 03:28:18PM -0800, Atish Patra wrote:
+>> cpu-map binding can be used to described cpu topology for both
+>> RISC-V & ARM. It makes more sense to move the binding to document
+>> to a common place.
+>>
+>> The relevant discussion can be found here.
+>> https://lkml.org/lkml/2018/11/6/19
+>>
+> 
+> Looks good to me apart from a minor query below in the example.
+> 
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> 
+>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+>> ---
+>>   .../{arm/topology.txt => cpu/cpu-topology.txt}     | 81 ++++++++++++++++++----
+>>   1 file changed, 67 insertions(+), 14 deletions(-)
+>>   rename Documentation/devicetree/bindings/{arm/topology.txt => cpu/cpu-topology.txt} (86%)
+>>
+>> diff --git a/Documentation/devicetree/bindings/arm/topology.txt b/Documentation/devicetree/bindings/cpu/cpu-topology.txt
+>> similarity index 86%
+>> rename from Documentation/devicetree/bindings/arm/topology.txt
+>> rename to Documentation/devicetree/bindings/cpu/cpu-topology.txt
+>> index 66848355..1de6fbce 100644
+>> --- a/Documentation/devicetree/bindings/arm/topology.txt
+>> +++ b/Documentation/devicetree/bindings/cpu/cpu-topology.txt
+> 
+> [...]
+> 
+>> +Example 3: HiFive Unleashed (RISC-V 64 bit, 4 core system)
+>> +
+>> +cpus {
+>> +	#address-cells = <2>;
+>> +	#size-cells = <2>;
+>> +	compatible = "sifive,fu540g", "sifive,fu500";
+>> +	model = "sifive,hifive-unleashed-a00";
+>> +
+>> +	...
+>> +
+>> +	cpu-map {
+>> +		cluster0 {
+>> +			core0 {
+>> +				cpu = <&L12>;
+>> +		 	};
+>> +			core1 {
+>> +				cpu = <&L15>;
+>> +			};
+>> +			core2 {
+>> +				cpu0 = <&L18>;
+>> +			};
+>> +			core3 {
+>> +				cpu0 = <&L21>;
+>> +			};
+>> +		};
+>> + 	};
+>> +
+>> +	L12: cpu@1 {
+>> +		device_type = "cpu";
+>> +		compatible = "sifive,rocket0", "riscv";
+>> +		reg = <0x1>;
+>> +	}
+>> +
+>> +	L15: cpu@2 {
+>> +		device_type = "cpu";
+>> +		compatible = "sifive,rocket0", "riscv";
+>> +		reg = <0x2>;
+>> +	}
+>> +	L18: cpu@3 {
+>> +		device_type = "cpu";
+>> +		compatible = "sifive,rocket0", "riscv";
+>> +		reg = <0x3>;
+>> +	}
+>> +	L21: cpu@4 {
+>> +		device_type = "cpu";
+>> +		compatible = "sifive,rocket0", "riscv";
+>> +		reg = <0x4>;
+>> +	}
+>> +};
+> 
+> The labels for the CPUs drew my attention. Is it intentionally random
+> (or even specific) or just chosen to show anything can be used as labels ?
 
---
+SiFive generates the device tree from RTL directly. So I am not sure if 
+they assign random numbers or a particular algorithm chooses the label. 
+I tried to put the exact ones that is available publicly.
+
+https://github.com/riscv/riscv-device-tree-doc/blob/master/examples/sifive-hifive_unleashed-microsemi.dts 
+
+
 Regards,
-Sudeep
+Atish
+> The reason I ask is people tend to copy from existing DT or examples
+> like here and so want to make sure if it can be kept as generic as
+> possible in the example. Just my opinion and I am fine if you want to
+> keep it as is, thought of checking the intentions here.
+> 
+
+
+
+> --
+> Regards,
+> Sudeep
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
