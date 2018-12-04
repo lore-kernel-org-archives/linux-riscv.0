@@ -2,86 +2,91 @@ Return-Path: <SRS0=2eJe=ON=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C09C9C04EBF
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  4 Dec 2018 14:11:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A351C04EB8
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  4 Dec 2018 14:11:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 92DCB2081B
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  4 Dec 2018 14:11:03 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id ED8452081B
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  4 Dec 2018 14:11:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UTPnm/gd";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="bzkGSdoH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 92DCB2081B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NV1vqUuv";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="joVYPGyf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED8452081B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=W3pfOCLMWWVuvisPB6iofr3qNfrJPRL+fOhQpRKkRn0=; b=UTP
-	nm/gdpkZooJsC6AX2FPtd7iLx1IuRXVppDEFtc9xjrVIxRlpRMyk3mND+DEdnqrWW3n+4wKl2HVu/
-	wBdGnhYGlCVEWlPpbIHYEFt5SkXugH5aApouuuWXrAqxa3mdNuRpQvuaUBN2LvayIDAcy8VvcMwFw
-	Jx7Kak4oAsU/E7zKb9/kmpHDc0yLs6u9BY4h2zBFbDxOFzTWxYhsFbnf7PhRTtEqD6NPinV874F3U
-	gWX7ybO/4sGmu1bxvP0r0bQxw20xEA08yPoHJ1rYt4QK8sK+V9uZtHdKb49X5AuZFRE8qQeJ7v3hn
-	7I16Vk/FgYbEszshdQtWxT8ZlUMVvfw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=Y1bwNyFWWGQtSoVbo3fFUwcIpgipprX0Ot0qjpoBgdc=; b=NV1vqUuv1WxnPNlJ9JyMsKuuzb
+	TavOxoEl6Be8WXk+tnnej5HMu1OaiY3WPknOjjMXrbW5P70uWjfdFGAHwLtGvbBH3FbNi/Y/qdhvr
+	oMqY9TKbBTKmObgCvAZxNbMiF3xnR5/SiQ4VKx6JL5ZcagPCKRZQiDs/UKit/5GsdekfLriiZ4ItV
+	I+kqWxSb9YyijOLqqxlfS2/Z2h3FXld/XHWL4qfXyOxZ0aNfeUeVwTixQmFTk9HgOxlHJVLrxI3sF
+	+6ht4tE7Q3WGAJqb0mf94e5w0gPaXteOPu2OaT3cfNs3F4GgJNWKYQ9t5XNO1qfOPlOJ6iGzCF+Lt
+	8DGiGUWA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gUBPi-0006zn-W8; Tue, 04 Dec 2018 14:11:03 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1gUBPo-00071o-ER; Tue, 04 Dec 2018 14:11:08 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gUBPf-0006y5-LR
- for linux-riscv@lists.infradead.org; Tue, 04 Dec 2018 14:11:01 +0000
-Received: by mail-pf1-x442.google.com with SMTP id 64so8261712pfr.9
- for <linux-riscv@lists.infradead.org>; Tue, 04 Dec 2018 06:10:48 -0800 (PST)
+ id 1gUBPl-0006ys-MA
+ for linux-riscv@lists.infradead.org; Tue, 04 Dec 2018 14:11:07 +0000
+Received: by mail-pl1-x643.google.com with SMTP id gn14so8350153plb.10
+ for <linux-riscv@lists.infradead.org>; Tue, 04 Dec 2018 06:10:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=from:to:cc:subject:date:message-id;
- bh=OgI1Biz216dTM0OsrwyzMGJvKRXra4cITiLXHfMziwU=;
- b=bzkGSdoHurfqVV+cCDhQg/vyockM4Lxh2yBA8Rqhpm5PNqHggJwGmJB5uasnUHOsi+
- e/5NO+FBaKF/a9WjmI2wNqB+fBeclgQ5U8cmT1wqfsj2L/OvseftewzLw6xQaUHoTGWu
- mQ/1SBJtm/nGr766Ar0USHwioVdaR0tD6Kwb9T6OhesCXiiKaBs4CWX8M88Ru/eRQP5w
- rgltm6aOdBD+Kw/wGZLCleeCqZcxSna37TR10lx3MQlEAqzNTYVeq2YTlIr69IH8r6T1
- yzUCxnf1tHzLVAeDbBcS20I0y3KQwQV5F4q/xAkUiGoVGYtDvUqZYwN+viwC/2ctgRcN
- QwKA==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references;
+ bh=BTPdu0Dl5dI9f0RvwZ4b3FQV4mVlXTL1ZWm0hIO3Dcg=;
+ b=joVYPGyfS51dy2YuZIbN92mHTKVXiz11syOtUFtSzZNvPzULvzC/elLQ2QeqDxFeNa
+ ces1AMrzpGS3kukOEVdgUjdCO05TiDmOQT53uKDD8EVDx9LJ0BaFi7oS2wFge0dp5qXt
+ ZyZxRslRHXio/przej1AHS1Y/GxS5QNpzXkfJ7vaFbc9jbdS+0Nm8yA+fJn7jmod9yvn
+ 7c3T9KLAIingr1zzA5osaqvaCgtf7YV8Gqv8OxbHOd8av23iYyEp0+NQYWc+2qNYFf6G
+ AdCqccFC3JtH1BAMbx/Nz/cpWR6qBZK71DtjgEb3JhtrGJ95x56mTZt5ib+KP9FqbTEr
+ fJkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=OgI1Biz216dTM0OsrwyzMGJvKRXra4cITiLXHfMziwU=;
- b=SgfPiBJLFJCQA/qh5Y2N++t8d8Je+9F+yElDNzda1ihPRSLEpuyQMEJ8KBQA8zXnZO
- MnlgwppzfOuwMjakKL2rlsz/0WYz/W/Ks3JYkW1Wbxs7xT803dUFXHcFUZI1UBTqM7wm
- BH/3nSLeWaF4Lx+HvoUnxqeGJ2NFy9oGTjX9ltT0OlnnPzVbyVuzdQOU8ZEXberoR882
- Ui5vQP3g2vmcQomI+KUfqrV6Q8/JYF/NvhXLJLY5CwdNvyZfAWv8lHvbqIBPlg3DtIDT
- HVZ5/xFm26ZzWnU+FvKlmwD/sZiPss7+irtA+V3GC2fztBFUWKqC8vN98DEinGkfidTh
- usjw==
-X-Gm-Message-State: AA+aEWaBhdxPcBKvYDT2TTo5mxn4D8gwIKcmTAkjFFF7Y/fiUlFOcqJz
- R3FMWxc3uPmcKU+b1VmGxwGO2g==
-X-Google-Smtp-Source: AFSGD/VOE0dTE1stKeXyqSc9tQDatJthKkd9vkpV86uxpqbSW8qOAgrhfs8dKJl+f+D4pqMxQT5uXA==
-X-Received: by 2002:a63:4706:: with SMTP id u6mr15984635pga.95.1543932647480; 
- Tue, 04 Dec 2018 06:10:47 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references;
+ bh=BTPdu0Dl5dI9f0RvwZ4b3FQV4mVlXTL1ZWm0hIO3Dcg=;
+ b=Qj8oT9DfrCNTD/NBZN7veF0uRO1V4q1SYzaqR9bG3zRAcnaNOjyfOqQsx0PvJKbldO
+ ANK5l1ZMLKBn0TuygmGGCPgbQjX5FihFKIVZsWxVfCPvIJ5+gYqrxvnWv4vzLBtuVNNH
+ wfgTiY6uBh+qEzofXzySA+2qG72bDzLLxOGgLlRjYvdPb3arKmNuTS/mhiDIz+K8ijZo
+ Hm8YPm5zBDaFGt5qWDaEGWfFKI7G5ouQgcZeE2JlWGdndT+hysPjNMsIl2NCSc1ctE2K
+ dYBU0PhtzHU8LZf1mJydEirYYP9CGN+ceP7/TzUVSrUpJn5YGEUzBTUkpISH02R+m1xb
+ lp6w==
+X-Gm-Message-State: AA+aEWYF8stfpGBEr1uTLLgLMUxgeAUoQsOHH0jz56NPOJsKejf6As9n
+ a+QNANUKVvBnPINzahEly3lfmg==
+X-Google-Smtp-Source: AFSGD/VmR50lnvpHU80Xag/uZ2hvS+h9ZbY6ijbVgs6o5BV0WQTIdzab5I/fpvMnhrFib84FA8tvkw==
+X-Received: by 2002:a17:902:1102:: with SMTP id
+ d2mr15988999pla.138.1543932654889; 
+ Tue, 04 Dec 2018 06:10:54 -0800 (PST)
 Received: from anup-ubuntu64.qualcomm.com ([49.207.53.58])
  by smtp.googlemail.com with ESMTPSA id
- k129sm31298884pgk.29.2018.12.04.06.10.43
+ k129sm31298884pgk.29.2018.12.04.06.10.51
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 04 Dec 2018 06:10:46 -0800 (PST)
+ Tue, 04 Dec 2018 06:10:54 -0800 (PST)
 From: Anup Patel <anup@brainfault.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Jiri Slaby <jslaby@suse.com>, Palmer Dabbelt <palmer@sifive.com>,
  Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH 0/3] RISC-V SBI earlycon
-Date: Tue,  4 Dec 2018 19:25:04 +0530
-Message-Id: <20181204135507.3706-1-anup@brainfault.org>
+Subject: [PATCH 1/3] tty/serial: Add RISC-V SBI earlycon support
+Date: Tue,  4 Dec 2018 19:25:05 +0530
+Message-Id: <20181204135507.3706-2-anup@brainfault.org>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20181204135507.3706-1-anup@brainfault.org>
+References: <20181204135507.3706-1-anup@brainfault.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181204_061059_704122_5A10BC9C 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20181204_061105_728569_CE036669 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -103,34 +108,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds RISC-V SBI earlycon and removes RISC-V EARLY_PRINTK.
+In RISC-V, the M-mode runtime firmware provide SBI calls for
+debug prints. This patch adds earlycon support using RISC-V
+SBI console calls. To enable it, just pass "earlycon=sbi" in
+kernel parameters.
 
-We should use earlycon over existing EARLY_PRINTK for SBI console because:
-1. It's a more generic way of implementing early console for debugging
-2. Current RISC-V EARLY_PRINTK is a compile-time option whereas earlycon
-   is enabled at run-time via kernel parameters.
-3. To use earlycon with SBI, we have to pass "earlycon=sbi" in kernel
-   parameters. If earlycon kernel parameter is not provided then kernel
-   boots much faster which is very useful in real-world RISC-V deployments.
-
-The patchset is tested on QEMU virt machine. It is based on Linux-4.20-rc5
-and can be found at riscv_earlycon_v1 branch of:
-https://github.com/avpatel/linux.git
-
-Anup Patel (3):
-  tty/serial: Add RISC-V SBI earlycon support
-  RISC-V: defconfig: Enable RISC-V SBI earlycon support
-  RISC-V: Remove EARLY_PRINTK support
-
- arch/riscv/Kconfig.debug                |  2 --
- arch/riscv/configs/defconfig            |  1 +
- arch/riscv/kernel/setup.c               | 28 -------------------------
+Signed-off-by: Anup Patel <anup@brainfault.org>
+---
  drivers/tty/serial/Kconfig              | 12 +++++++++++
  drivers/tty/serial/Makefile             |  1 +
  drivers/tty/serial/earlycon-riscv-sbi.c | 28 +++++++++++++++++++++++++
- 6 files changed, 42 insertions(+), 30 deletions(-)
+ 3 files changed, 41 insertions(+)
  create mode 100644 drivers/tty/serial/earlycon-riscv-sbi.c
 
+diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
+index 32886c304641..287bb41ac814 100644
+--- a/drivers/tty/serial/Kconfig
++++ b/drivers/tty/serial/Kconfig
+@@ -85,6 +85,18 @@ config SERIAL_EARLYCON_ARM_SEMIHOST
+ 	  with "earlycon=smh" on the kernel command line. The console is
+ 	  enabled when early_param is processed.
+ 
++config SERIAL_EARLYCON_RISCV_SBI
++	bool "Early console using RISC-V SBI"
++	depends on RISCV
++	select SERIAL_CORE
++	select SERIAL_CORE_CONSOLE
++	select SERIAL_EARLYCON
++	help
++	  Support for early debug console using RISC-V SBI. This enables
++	  the console before standard serial driver is probed. This is enabled
++	  with "earlycon=sbi" on the kernel command line. The console is
++	  enabled when early_param is processed.
++
+ config SERIAL_SB1250_DUART
+ 	tristate "BCM1xxx on-chip DUART serial support"
+ 	depends on SIBYTE_SB1xxx_SOC=y
+diff --git a/drivers/tty/serial/Makefile b/drivers/tty/serial/Makefile
+index daac675612df..3ce26ce08616 100644
+--- a/drivers/tty/serial/Makefile
++++ b/drivers/tty/serial/Makefile
+@@ -7,6 +7,7 @@ obj-$(CONFIG_SERIAL_CORE) += serial_core.o
+ 
+ obj-$(CONFIG_SERIAL_EARLYCON) += earlycon.o
+ obj-$(CONFIG_SERIAL_EARLYCON_ARM_SEMIHOST) += earlycon-arm-semihost.o
++obj-$(CONFIG_SERIAL_EARLYCON_RISCV_SBI) += earlycon-riscv-sbi.o
+ 
+ # These Sparc drivers have to appear before others such as 8250
+ # which share ttySx minor node space.  Otherwise console device
+diff --git a/drivers/tty/serial/earlycon-riscv-sbi.c b/drivers/tty/serial/earlycon-riscv-sbi.c
+new file mode 100644
+index 000000000000..e1a551aae336
+--- /dev/null
++++ b/drivers/tty/serial/earlycon-riscv-sbi.c
+@@ -0,0 +1,28 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * RISC-V SBI based earlycon
++ *
++ * Copyright (C) 2018 Anup Patel <anup@brainfault.org>
++ */
++#include <linux/kernel.h>
++#include <linux/console.h>
++#include <linux/init.h>
++#include <linux/serial_core.h>
++#include <asm/sbi.h>
++
++static void sbi_console_write(struct console *con,
++			      const char *s, unsigned int n)
++{
++	int i;
++
++	for (i = 0; i < n; ++i)
++		sbi_console_putchar(s[i]);
++}
++
++static int __init early_sbi_setup(struct earlycon_device *device,
++				  const char *opt)
++{
++	device->con->write = sbi_console_write;
++	return 0;
++}
++EARLYCON_DECLARE(sbi, early_sbi_setup);
 -- 
 2.17.1
 
