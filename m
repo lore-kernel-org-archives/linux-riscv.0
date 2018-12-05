@@ -4,19 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-8.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 77E3AC07E85
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 12:32:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5138AC04EB9
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 12:32:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2A38B2084C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 12:32:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1F8D72084C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 12:32:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Bc3jESb4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2A38B2084C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CbLg71Jr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1F8D72084C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,40 +26,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=dckDjU9/MuYkM5HwpFsSxr7tpA7dgFTiBRzS4pWqTtQ=; b=Bc3jESb4drGo8qYq9z4CLv05Pq
-	lMWo/YejBkFSDdGMbTs9Wl38PW9svwPcMgM4k9UvGTOaBsfDyYhCqCZDIEa7qULjR6NQXsZGEwxZj
-	D+7yL1kOWQm77kH+J7VJ/D1cKqKaedFcs57YmQJ0bpY1okaFgpRYHRFo4AYRWkD8j+x5WyDTMmmnk
-	LPipVhtiLc0hVk4sfgJZPoqwAdRkZYhM+VNWVGF8mlHQBdFGA1uxj+8aqzJ1md9Rnt61hXmvJeKnU
-	t9Z2OSP9yMQTY/4jgsnLSgmBenfFvznZpm23IMDmozKNRcrX66z7gwwCPjPY5wP1G5hIrqScVntvA
-	TYmb8DDA==;
+	bh=JVSNYjxuyXQT2c4ZglFwj2+8bh4dlTKHehjd3izHcHI=; b=CbLg71Jr7Y/wpVX8N4nnpqO30j
+	qmZcDQXu1yOa4iQ4X4RUeEr8+jzl1zy/MSxcn8Ou4wHMFb/LkXjpou6g2ESpKdDiCkAnNX7C/RLIW
+	njIPmjmsQYTRNuFi9vjW4xYYH3dvzK6pjcpzMOIaDN7XMr9t8mq7mDKq4FVFblv+A6OZ1p5nRb2P6
+	dZFCqQC6fpP5/Gqv9hnm0t3aGDfTRxgucSGXHLCNz4rK5Eb0KNOJ3aLkJy2oFD6Zf/BQpL4LQ1OD2
+	FTWRxRNQK9nz4wtnTXplrBhDG91Va6YdwK8nkjlh1NXnve0G7z5/JoxOMpwrI3RaMX5k9e1IpVatk
+	Oehsa0Bw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gUWLY-0004Q2-G3; Wed, 05 Dec 2018 12:32:08 +0000
+	id 1gUWLr-0004jA-RK; Wed, 05 Dec 2018 12:32:27 +0000
 Received: from mx1.redhat.com ([209.132.183.28])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gUWJn-00025Y-Qv; Wed, 05 Dec 2018 12:30:32 +0000
+ id 1gUWJo-0002JH-I2; Wed, 05 Dec 2018 12:30:39 +0000
 Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
  [10.5.11.12])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id 308583002315;
- Wed,  5 Dec 2018 12:30:09 +0000 (UTC)
+ by mx1.redhat.com (Postfix) with ESMTPS id B69453078A25;
+ Wed,  5 Dec 2018 12:30:19 +0000 (UTC)
 Received: from t460s.redhat.com (ovpn-117-65.ams2.redhat.com [10.36.117.65])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 4AA5C60F89;
- Wed,  5 Dec 2018 12:30:06 +0000 (UTC)
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 3C16E183D2;
+ Wed,  5 Dec 2018 12:30:16 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-mm@kvack.org
-Subject: [PATCH RFC 4/7] riscv/vdso: don't clear PG_reserved
-Date: Wed,  5 Dec 2018 13:28:48 +0100
-Message-Id: <20181205122851.5891-5-david@redhat.com>
+Subject: [PATCH RFC 7/7] mm: better document PG_reserved
+Date: Wed,  5 Dec 2018 13:28:51 +0100
+Message-Id: <20181205122851.5891-8-david@redhat.com>
 In-Reply-To: <20181205122851.5891-1-david@redhat.com>
 References: <20181205122851.5891-1-david@redhat.com>
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.43]); Wed, 05 Dec 2018 12:30:09 +0000 (UTC)
+ (mx1.redhat.com [10.5.110.43]); Wed, 05 Dec 2018 12:30:20 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181205_043020_546782_30D5C4E0 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20181205_043021_379489_A2FF4589 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -71,13 +71,16 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-s390@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>, Palmer Dabbelt <palmer@sifive.com>,
- linux-kernel@vger.kernel.org, Matthew Wilcox <willy@infradead.org>,
- Michal Hocko <mhocko@kernel.org>, linux-m68k@lists.linux-m68k.org,
- linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, Tobias Klauser <tklauser@distanz.ch>,
+Cc: linux-s390@vger.kernel.org, Michal Hocko <mhocko@suse.com>,
+ Miles Chen <miles.chen@mediatek.com>, David Hildenbrand <david@redhat.com>,
+ Alexander Duyck <alexander.h.duyck@linux.intel.com>,
+ Dan Williams <dan.j.williams@intel.com>, linux-kernel@vger.kernel.org,
+ Matthew Wilcox <willy@infradead.org>,
+ Pavel Tatashin <pasha.tatashin@oracle.com>, yi.z.zhang@linux.intel.com,
+ linux-m68k@lists.linux-m68k.org, linux-mediatek@lists.infradead.org,
+ Anthony Yznaga <anthony.yznaga@oracle.com>,
+ Stephen Rothwell <sfr@canb.auug.org.au>, linux-riscv@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, Andrew Morton <akpm@linux-foundation.org>,
  linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
@@ -85,36 +88,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The VDSO is part of the kernel image and therefore the struct pages are
-marked as reserved during boot.
+The usage of PG_reserved and how PG_reserved pages are to be treated is
+burried deep down in different parts of the kernel. Let's shine some light
+onto these details by documenting (most?) current users and expected
+behavior.
 
-As we install a special mapping, the actual struct pages will never be
-exposed to MM via the page tables. We can therefore leave the pages
-marked as reserved.
+I don't see a reason why we have to document "Some of them might not even
+exist". If there is a user, we should document it. E.g. for balloon
+drivers we now use PG_offline to indicate that a page might currently
+not be backed by memory in the hypervisor. And that is independent from
+PG_reserved.
 
-Cc: Palmer Dabbelt <palmer@sifive.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Tobias Klauser <tklauser@distanz.ch>
 Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Michal Hocko <mhocko@kernel.org>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>
+Cc: Pavel Tatashin <pasha.tatashin@oracle.com>
+Cc: Michal Hocko <mhocko@suse.com>
+Cc: Alexander Duyck <alexander.h.duyck@linux.intel.com>
 Cc: Matthew Wilcox <willy@infradead.org>
+Cc: Anthony Yznaga <anthony.yznaga@oracle.com>
+Cc: Miles Chen <miles.chen@mediatek.com>
+Cc: yi.z.zhang@linux.intel.com
+Cc: Dan Williams <dan.j.williams@intel.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- arch/riscv/kernel/vdso.c | 1 -
- 1 file changed, 1 deletion(-)
+ include/linux/page-flags.h | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-index 582cb153eb24..0cd044122234 100644
---- a/arch/riscv/kernel/vdso.c
-+++ b/arch/riscv/kernel/vdso.c
-@@ -54,7 +54,6 @@ static int __init vdso_init(void)
- 		struct page *pg;
- 
- 		pg = virt_to_page(vdso_start + (i << PAGE_SHIFT));
--		ClearPageReserved(pg);
- 		vdso_pagelist[i] = pg;
- 	}
- 	vdso_pagelist[i] = virt_to_page(vdso_data);
+diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
+index 68b8495e2fbc..112526f5ba61 100644
+--- a/include/linux/page-flags.h
++++ b/include/linux/page-flags.h
+@@ -17,8 +17,22 @@
+ /*
+  * Various page->flags bits:
+  *
+- * PG_reserved is set for special pages, which can never be swapped out. Some
+- * of them might not even exist...
++ * PG_reserved is set for special pages. The "struct page" of such a page
++ * should in general not be touched (e.g. set dirty) except by their owner.
++ * Pages marked as PG_reserved include:
++ * - Kernel image (including vDSO) and similar (e.g. BIOS, initrd)
++ * - Pages allocated early during boot (bootmem, memblock)
++ * - Zero pages
++ * - Pages that have been associated with a zone but are not available for
++ *   the page allocator (e.g. excluded via online_page_callback())
++ * - Pages to exclude from the hibernation image (e.g. loaded kexec images)
++ * - MMIO pages (communicate with a device, special caching strategy needed)
++ * - MCA pages on ia64 (pages with memory errors)
++ * - Device memory (e.g. PMEM, DAX, HMM)
++ * Some architectures don't allow to ioremap pages that are not marked
++ * PG_reserved (as they might be in use by somebody else who does not respect
++ * the caching strategy). Consequently, PG_reserved for a page mapped into
++ * user space can indicate the zero page, the vDSO, MMIO pages or device memory.
+  *
+  * The PG_private bitflag is set on pagecache pages if they contain filesystem
+  * specific data (which is normally at page->private). It can be used by
 -- 
 2.17.2
 
