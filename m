@@ -2,71 +2,60 @@ Return-Path: <SRS0=aNP4=OO=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-2.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 49328C04EB9
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 11:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 84868C04EB9
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 12:29:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 161FC20659
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 11:29:44 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 55BA02084C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 12:29:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rR+ynrgx";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=nifty.com header.i=@nifty.com header.b="gA9OqMQe"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 161FC20659
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=socionext.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uOW+C8kD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 55BA02084C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=KjggBL+yBa3Yjf8VSJGf5ZR8iA5BFYaOE2CzMZGwA3w=; b=rR+ynrgx2G7elQ6O8Z0RYvkWUx
-	tzB+e5upsyTW8pJtQqgxiuj2yIdlFZDwWXUlK2vP0ySkGprJym8VfWHBs+Yf0OYEg1hx00T3vfDm1
-	LvrFubxeI0gAx9mypxzu2ReSvmbDGoqTy9bWnyOt3+wmjXjThVw+bj8cLL6sm/Urj1At+BC7jqJBH
-	HmbCo9YdWwdnYq82bEH3328c1tCHAkn+TTD+celrBd437Rx1e+X6Q/r3isLCOtUnyaPYiz2rKudiL
-	BP52m77y2TCkYVXHHf1HzWFdSwDyJn9chQpeKCwnqsOpkPghruTp1rnr24V8JYftxhR9A1zDcHCj+
-	GhxAu9nQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=PPKy3iOfFzv1bGN+X64ecuhBcBYRU1ALdZrpSDYx9rE=; b=uOW
+	+C8kDav5GtYclA0E1eEwFoJPHkt9bBBKoset7w88JStPaHHp4a91z3y/lvDdC+eA/6CHzdXadYSe/
+	OEappfe2exScjFbWCX+hkg9b2GwNniamTGSn9R98rLQUukMO0HdMHpEM1Lfqp6E1AV+lkuzKK19Dr
+	UHAyAztz1dcrcQaSyaCifzq6Edq1etUhAY6WoFjIcPf/oDpatV/XhrE60QfRJrtPlx7e5OKQnrmi4
+	u+PvfelVGsDVLQjp6UrKnrrjQG5UiWL58ZRv1NlBHge5rCl/9u3x/UCJ3d44iebnDdzltFxnLNMa+
+	OHPety83FlhF1qVE2vFbe/4VM6tcF5Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gUVN9-00029w-B2; Wed, 05 Dec 2018 11:29:43 +0000
-Received: from conuserg-08.nifty.com ([210.131.2.75])
+	id 1gUWJ7-0000iz-MZ; Wed, 05 Dec 2018 12:29:37 +0000
+Received: from mx1.redhat.com ([209.132.183.28])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gUVN5-00028e-23; Wed, 05 Dec 2018 11:29:41 +0000
-Received: from pug.e01.socionext.com (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp
- [153.142.97.92]) (authenticated)
- by conuserg-08.nifty.com with ESMTP id wB5BSBlX028064;
- Wed, 5 Dec 2018 20:28:12 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-08.nifty.com wB5BSBlX028064
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1544009297;
- bh=xrb0PNo5pw/YPjt31K6EqFjYwJsZcMHyXIulbXaDXq8=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=gA9OqMQeKbZz4K3aUZbxGPRafiVZ7f+fi9LF6c0zMWmQUWZ0+9LC/t4HkagPLAddC
- Kp6zfCNRAhf6KwSvvJecBgIGya47w6yxGE+yYWyGghD8/v+X+rymb8HBLWmM0eDLD2
- 6FnDuVbsB7sqVuNJsL9KZHX6zg3d4gIZgUeqUP97ElFxELr8GEDyfy056JlCyHCbG2
- NRGFxob3tzmOB9Epk71KfdQk0GuXKCUwLWlc6LTWlVXO70TC2xllCpmQ0gcvzbqMie
- 87fh9te2CSWgtxpsgCqtinq882SjKF/63O6CZqxQkkj6UrlFUly7PDVy0Of+PeWgP6
- Wr0R51bhN1tXw==
-X-Nifty-SrcIP: [153.142.97.92]
-From: Masahiro Yamada <yamada.masahiro@socionext.com>
-To: linux-kbuild@vger.kernel.org
-Subject: [PATCH 3/3] arch: remove redundant generic-y defines
-Date: Wed,  5 Dec 2018 20:28:06 +0900
-Message-Id: <1544009286-15705-3-git-send-email-yamada.masahiro@socionext.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1544009286-15705-1-git-send-email-yamada.masahiro@socionext.com>
-References: <1544009286-15705-1-git-send-email-yamada.masahiro@socionext.com>
+ id 1gUWIu-0000KV-Qp; Wed, 05 Dec 2018 12:29:26 +0000
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
+ [10.5.11.12])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mx1.redhat.com (Postfix) with ESMTPS id 6A6FB307D975;
+ Wed,  5 Dec 2018 12:29:11 +0000 (UTC)
+Received: from t460s.redhat.com (ovpn-117-65.ams2.redhat.com [10.36.117.65])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 6BC0A82719;
+ Wed,  5 Dec 2018 12:28:52 +0000 (UTC)
+From: David Hildenbrand <david@redhat.com>
+To: linux-mm@kvack.org
+Subject: [PATCH RFC 0/7] mm: PG_reserved cleanups and documentation
+Date: Wed,  5 Dec 2018 13:28:44 +0100
+Message-Id: <20181205122851.5891-1-david@redhat.com>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+ (mx1.redhat.com [10.5.110.48]); Wed, 05 Dec 2018 12:29:13 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181205_032939_338376_CBA6EF9E 
-X-CRM114-Status: UNSURE (   7.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181205_042924_892007_6F7B366C 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -78,666 +67,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rich Felker <dalias@libc.org>, linux-ia64@vger.kernel.org,
- linux-sh@vger.kernel.org, James Hogan <jhogan@kernel.org>,
- Palmer Dabbelt <palmer@sifive.com>, Will Deacon <will.deacon@arm.com>,
- Alexei Starovoitov <ast@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Masahiro Yamada <yamada.masahiro@socionext.com>,
- Hendrik Brueckner <brueckner@linux.vnet.ibm.com>,
- Paul Mackerras <paulus@samba.org>, "H. Peter Anvin" <hpa@zytor.com>,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- Vincent Chen <deanbo422@gmail.com>, Sam Ravnborg <sam@ravnborg.org>,
- Stafford Horne <shorne@gmail.com>, Jonas Bonn <jonas@southpole.se>,
- linux-s390@vger.kernel.org, linux-c6x-dev@linux-c6x.org,
- Daniel Borkmann <daniel@iogearbox.net>, linux-hexagon@vger.kernel.org,
- Helge Deller <deller@gmx.de>, x86@kernel.org,
- "James E.J. Bottomley" <jejb@parisc-linux.org>, linux-alpha@vger.kernel.org,
- Ingo Molnar <mingo@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Matt Turner <mattst88@gmail.com>,
- linux-snps-arc@lists.infradead.org, uclinux-h8-devel@lists.sourceforge.jp,
- Fenghua Yu <fenghua.yu@intel.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Arnd Bergmann <arnd@arndb.de>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, linux-xtensa@linux-xtensa.org,
- Mark Salter <msalter@redhat.com>,
- Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
- linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
- Borislav Petkov <bp@alien8.de>, Greentime Hu <green.hu@gmail.com>,
- nios2-dev@lists.rocketboards.org, Thomas Gleixner <tglx@linutronix.de>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Guan Xuetao <gxt@pku.edu.cn>, linux-arm-kernel@lists.infradead.org,
- Richard Henderson <rth@twiddle.net>, Chris Zankel <chris@zankel.net>,
- Michal Simek <monstr@monstr.eu>, Tony Luck <tony.luck@intel.com>,
- linux-mips@vger.kernel.org, Yoshinori Sato <ysato@users.sourceforge.jp>,
- linux-parisc@vger.kernel.org, Max Filippov <jcmvbkbc@gmail.com>,
- Vineet Gupta <vgupta@synopsys.com>, linux-kernel@vger.kernel.org,
- Ralf Baechle <ralf@linux-mips.org>, Richard Kuo <rkuo@codeaurora.org>,
- Paul Burton <paul.burton@mips.com>,
+Cc: Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
+ David Hildenbrand <david@redhat.com>, David Airlie <airlied@linux.ie>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- "Eric W. Biederman" <ebiederm@xmission.com>,
+ Bhupesh Sharma <bhsharma@redhat.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, Michal Hocko <mhocko@kernel.org>,
+ Paul Mackerras <paulus@samba.org>, linux-riscv@lists.infradead.org,
+ Alexander Duyck <alexander.h.duyck@linux.intel.com>,
+ linux-s390@vger.kernel.org, Vasily Gorbik <gor@linux.ibm.com>,
  Michael Ellerman <mpe@ellerman.id.au>,
- Martin Schwidefsky <schwidefsky@de.ibm.com>, Ley Foon Tan <lftan@altera.com>,
- linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>
+ Pavel Tatashin <pasha.tatashin@oracle.com>,
+ Matthew Wilcox <willy@infradead.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Anthony Yznaga <anthony.yznaga@oracle.com>,
+ Tobias Klauser <tklauser@distanz.ch>, Albert Ou <aou@eecs.berkeley.edu>,
+ Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
+ Stephen Rothwell <sfr@canb.auug.org.au>, Marc Zyngier <marc.zyngier@arm.com>,
+ Will Deacon <will.deacon@arm.com>, linux-m68k@lists.linux-m68k.org,
+ Dave Kleikamp <dave.kleikamp@oracle.com>, linux-mediatek@lists.infradead.org,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@c-s.fr>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ Miles Chen <miles.chen@mediatek.com>, Mike Rapoport <rppt@linux.vnet.ibm.com>,
+ James Morse <james.morse@arm.com>, Souptick Joarder <jrdr.linux@gmail.com>,
+ Martin Schwidefsky <schwidefsky@de.ibm.com>,
+ Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that Kbuild automatically creates asm-generic wrappers for missing
-mandatory headers, it is redundant to list the same headers in
-generic-y and mandatory-y.
+I was recently going over all users of PG_reserved. Short story: it is
+difficult and sometimes not really clear if setting/checking for
+PG_reserved is only a relict from the past. Easy to break things.
 
-Suggested-by: Sam Ravnborg <sam@ravnborg.org>
-Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
----
+I had way more cleanups in this series inititally,
+but some architectures take PG_reserved as a way to apply a different
+caching strategy (for MMIO pages). So I decided to only include the most
+obvious changes (that are less likely to break something).
 
- arch/alpha/include/uapi/asm/Kbuild      |  5 -----
- arch/arc/include/uapi/asm/Kbuild        | 23 -----------------------
- arch/arm/include/uapi/asm/Kbuild        | 15 ---------------
- arch/arm64/include/uapi/asm/Kbuild      | 17 -----------------
- arch/c6x/include/uapi/asm/Kbuild        | 25 -------------------------
- arch/h8300/include/uapi/asm/Kbuild      | 25 -------------------------
- arch/hexagon/include/uapi/asm/Kbuild    | 22 ----------------------
- arch/ia64/include/uapi/asm/Kbuild       |  5 -----
- arch/m68k/include/uapi/asm/Kbuild       | 18 ------------------
- arch/microblaze/include/uapi/asm/Kbuild | 24 ------------------------
- arch/mips/include/uapi/asm/Kbuild       |  1 -
- arch/nds32/include/uapi/asm/Kbuild      | 24 ------------------------
- arch/nios2/include/uapi/asm/Kbuild      | 24 ------------------------
- arch/openrisc/include/uapi/asm/Kbuild   | 26 --------------------------
- arch/parisc/include/uapi/asm/Kbuild     |  5 -----
- arch/powerpc/include/uapi/asm/Kbuild    |  6 ------
- arch/riscv/include/uapi/asm/Kbuild      | 25 -------------------------
- arch/s390/include/uapi/asm/Kbuild       | 14 --------------
- arch/sh/include/uapi/asm/Kbuild         | 17 -----------------
- arch/sparc/include/uapi/asm/Kbuild      |  1 -
- arch/unicore32/include/uapi/asm/Kbuild  | 27 ---------------------------
- arch/x86/include/uapi/asm/Kbuild        |  1 -
- arch/xtensa/include/uapi/asm/Kbuild     |  8 --------
- 23 files changed, 358 deletions(-)
+So let's see if the documentation update for PG_reserved I crafted
+actually covers most cases or if there is plenty more.
 
-diff --git a/arch/alpha/include/uapi/asm/Kbuild b/arch/alpha/include/uapi/asm/Kbuild
-index 1a5b753..14a2e9a 100644
---- a/arch/alpha/include/uapi/asm/Kbuild
-+++ b/arch/alpha/include/uapi/asm/Kbuild
-@@ -2,8 +2,3 @@
- include include/uapi/asm-generic/Kbuild.asm
- 
- generic-y += bpf_perf_event.h
--generic-y += ipcbuf.h
--generic-y += msgbuf.h
--generic-y += poll.h
--generic-y += sembuf.h
--generic-y += shmbuf.h
-diff --git a/arch/arc/include/uapi/asm/Kbuild b/arch/arc/include/uapi/asm/Kbuild
-index 170b5db..f53f8e4 100644
---- a/arch/arc/include/uapi/asm/Kbuild
-+++ b/arch/arc/include/uapi/asm/Kbuild
-@@ -1,29 +1,6 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += auxvec.h
--generic-y += bitsperlong.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += fcntl.h
--generic-y += ioctl.h
--generic-y += ioctls.h
--generic-y += ipcbuf.h
- generic-y += kvm_para.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += param.h
--generic-y += poll.h
--generic-y += posix_types.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += shmbuf.h
--generic-y += siginfo.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += stat.h
--generic-y += statfs.h
--generic-y += termbits.h
--generic-y += termios.h
--generic-y += types.h
- generic-y += ucontext.h
-diff --git a/arch/arm/include/uapi/asm/Kbuild b/arch/arm/include/uapi/asm/Kbuild
-index 4d1cc18..279edb1 100644
---- a/arch/arm/include/uapi/asm/Kbuild
-+++ b/arch/arm/include/uapi/asm/Kbuild
-@@ -6,19 +6,4 @@ generated-y += unistd-common.h
- generated-y += unistd-oabi.h
- generated-y += unistd-eabi.h
- 
--generic-y += bitsperlong.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += ioctl.h
--generic-y += ipcbuf.h
--generic-y += msgbuf.h
--generic-y += param.h
--generic-y += poll.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += shmbuf.h
--generic-y += siginfo.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += termbits.h
--generic-y += termios.h
-diff --git a/arch/arm64/include/uapi/asm/Kbuild b/arch/arm64/include/uapi/asm/Kbuild
-index 6c5adf4..bca548a 100644
---- a/arch/arm64/include/uapi/asm/Kbuild
-+++ b/arch/arm64/include/uapi/asm/Kbuild
-@@ -2,21 +2,4 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += errno.h
--generic-y += ioctl.h
--generic-y += ioctls.h
--generic-y += ipcbuf.h
- generic-y += kvm_para.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += poll.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += shmbuf.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += swab.h
--generic-y += termbits.h
--generic-y += termios.h
--generic-y += types.h
--generic-y += siginfo.h
-diff --git a/arch/c6x/include/uapi/asm/Kbuild b/arch/c6x/include/uapi/asm/Kbuild
-index 26644e1..f53f8e4 100644
---- a/arch/c6x/include/uapi/asm/Kbuild
-+++ b/arch/c6x/include/uapi/asm/Kbuild
-@@ -1,31 +1,6 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += auxvec.h
--generic-y += bitsperlong.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += fcntl.h
--generic-y += ioctl.h
--generic-y += ioctls.h
--generic-y += ipcbuf.h
- generic-y += kvm_para.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += param.h
--generic-y += poll.h
--generic-y += posix_types.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += shmbuf.h
--generic-y += shmparam.h
--generic-y += siginfo.h
--generic-y += signal.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += stat.h
--generic-y += statfs.h
--generic-y += termbits.h
--generic-y += termios.h
--generic-y += types.h
- generic-y += ucontext.h
-diff --git a/arch/h8300/include/uapi/asm/Kbuild b/arch/h8300/include/uapi/asm/Kbuild
-index 2f65f78..f53f8e4 100644
---- a/arch/h8300/include/uapi/asm/Kbuild
-+++ b/arch/h8300/include/uapi/asm/Kbuild
-@@ -1,31 +1,6 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += auxvec.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += fcntl.h
--generic-y += ioctl.h
--generic-y += ioctls.h
--generic-y += ipcbuf.h
- generic-y += kvm_para.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += param.h
--generic-y += poll.h
--generic-y += posix_types.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += setup.h
--generic-y += shmbuf.h
--generic-y += shmparam.h
--generic-y += siginfo.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += stat.h
--generic-y += statfs.h
--generic-y += swab.h
--generic-y += termbits.h
--generic-y += termios.h
--generic-y += types.h
- generic-y += ucontext.h
-diff --git a/arch/hexagon/include/uapi/asm/Kbuild b/arch/hexagon/include/uapi/asm/Kbuild
-index 41a176d..c0488dc 100644
---- a/arch/hexagon/include/uapi/asm/Kbuild
-+++ b/arch/hexagon/include/uapi/asm/Kbuild
-@@ -1,27 +1,5 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += auxvec.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += fcntl.h
--generic-y += ioctl.h
--generic-y += ioctls.h
--generic-y += ipcbuf.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += poll.h
--generic-y += posix_types.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += shmbuf.h
--generic-y += shmparam.h
--generic-y += siginfo.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += stat.h
--generic-y += statfs.h
--generic-y += termbits.h
--generic-y += termios.h
--generic-y += types.h
- generic-y += ucontext.h
-diff --git a/arch/ia64/include/uapi/asm/Kbuild b/arch/ia64/include/uapi/asm/Kbuild
-index 3982e67..f5c6967 100644
---- a/arch/ia64/include/uapi/asm/Kbuild
-+++ b/arch/ia64/include/uapi/asm/Kbuild
-@@ -2,9 +2,4 @@
- include include/uapi/asm-generic/Kbuild.asm
- 
- generic-y += bpf_perf_event.h
--generic-y += ipcbuf.h
- generic-y += kvm_para.h
--generic-y += msgbuf.h
--generic-y += poll.h
--generic-y += sembuf.h
--generic-y += shmbuf.h
-diff --git a/arch/m68k/include/uapi/asm/Kbuild b/arch/m68k/include/uapi/asm/Kbuild
-index c2e26a4..f5c6967 100644
---- a/arch/m68k/include/uapi/asm/Kbuild
-+++ b/arch/m68k/include/uapi/asm/Kbuild
-@@ -1,23 +1,5 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += auxvec.h
--generic-y += bitsperlong.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += ioctl.h
--generic-y += ipcbuf.h
- generic-y += kvm_para.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += shmbuf.h
--generic-y += shmparam.h
--generic-y += siginfo.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += statfs.h
--generic-y += termbits.h
--generic-y += termios.h
--generic-y += types.h
-diff --git a/arch/microblaze/include/uapi/asm/Kbuild b/arch/microblaze/include/uapi/asm/Kbuild
-index 2c6a6bf..f53f8e4 100644
---- a/arch/microblaze/include/uapi/asm/Kbuild
-+++ b/arch/microblaze/include/uapi/asm/Kbuild
-@@ -1,30 +1,6 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += bitsperlong.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += fcntl.h
--generic-y += ioctl.h
--generic-y += ioctls.h
--generic-y += ipcbuf.h
- generic-y += kvm_para.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += param.h
--generic-y += poll.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += shmbuf.h
--generic-y += shmparam.h
--generic-y += siginfo.h
--generic-y += signal.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += stat.h
--generic-y += statfs.h
--generic-y += swab.h
--generic-y += termbits.h
--generic-y += termios.h
--generic-y += types.h
- generic-y += ucontext.h
-diff --git a/arch/mips/include/uapi/asm/Kbuild b/arch/mips/include/uapi/asm/Kbuild
-index 7a4becd..14a2e9a 100644
---- a/arch/mips/include/uapi/asm/Kbuild
-+++ b/arch/mips/include/uapi/asm/Kbuild
-@@ -2,4 +2,3 @@
- include include/uapi/asm-generic/Kbuild.asm
- 
- generic-y += bpf_perf_event.h
--generic-y += ipcbuf.h
-diff --git a/arch/nds32/include/uapi/asm/Kbuild b/arch/nds32/include/uapi/asm/Kbuild
-index 40be972..c0488dc 100644
---- a/arch/nds32/include/uapi/asm/Kbuild
-+++ b/arch/nds32/include/uapi/asm/Kbuild
-@@ -2,28 +2,4 @@
- include include/uapi/asm-generic/Kbuild.asm
- 
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += ioctl.h
--generic-y += ioctls.h
--generic-y += ipcbuf.h
--generic-y += shmbuf.h
--generic-y += bitsperlong.h
--generic-y += fcntl.h
--generic-y += stat.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += poll.h
--generic-y += posix_types.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += setup.h
--generic-y += siginfo.h
--generic-y += signal.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += swab.h
--generic-y += statfs.h
--generic-y += termbits.h
--generic-y += termios.h
--generic-y += types.h
- generic-y += ucontext.h
-diff --git a/arch/nios2/include/uapi/asm/Kbuild b/arch/nios2/include/uapi/asm/Kbuild
-index 13a3d77..f53f8e4 100644
---- a/arch/nios2/include/uapi/asm/Kbuild
-+++ b/arch/nios2/include/uapi/asm/Kbuild
-@@ -1,30 +1,6 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += auxvec.h
--generic-y += bitsperlong.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += fcntl.h
--generic-y += ioctl.h
--generic-y += ioctls.h
--generic-y += ipcbuf.h
- generic-y += kvm_para.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += param.h
--generic-y += poll.h
--generic-y += posix_types.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += setup.h
--generic-y += shmbuf.h
--generic-y += siginfo.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += stat.h
--generic-y += statfs.h
--generic-y += termbits.h
--generic-y += termios.h
--generic-y += types.h
- generic-y += ucontext.h
-diff --git a/arch/openrisc/include/uapi/asm/Kbuild b/arch/openrisc/include/uapi/asm/Kbuild
-index 130c16c..f53f8e4 100644
---- a/arch/openrisc/include/uapi/asm/Kbuild
-+++ b/arch/openrisc/include/uapi/asm/Kbuild
-@@ -1,32 +1,6 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += auxvec.h
--generic-y += bitsperlong.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += fcntl.h
--generic-y += ioctl.h
--generic-y += ioctls.h
--generic-y += ipcbuf.h
- generic-y += kvm_para.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += poll.h
--generic-y += posix_types.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += setup.h
--generic-y += shmbuf.h
--generic-y += shmparam.h
--generic-y += siginfo.h
--generic-y += signal.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += stat.h
--generic-y += statfs.h
--generic-y += swab.h
--generic-y += termbits.h
--generic-y += termios.h
--generic-y += types.h
- generic-y += ucontext.h
-diff --git a/arch/parisc/include/uapi/asm/Kbuild b/arch/parisc/include/uapi/asm/Kbuild
-index adb5c64..f5c6967 100644
---- a/arch/parisc/include/uapi/asm/Kbuild
-+++ b/arch/parisc/include/uapi/asm/Kbuild
-@@ -1,10 +1,5 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += auxvec.h
- generic-y += bpf_perf_event.h
- generic-y += kvm_para.h
--generic-y += param.h
--generic-y += poll.h
--generic-y += resource.h
--generic-y += siginfo.h
-diff --git a/arch/powerpc/include/uapi/asm/Kbuild b/arch/powerpc/include/uapi/asm/Kbuild
-index a658091..14a2e9a 100644
---- a/arch/powerpc/include/uapi/asm/Kbuild
-+++ b/arch/powerpc/include/uapi/asm/Kbuild
-@@ -2,9 +2,3 @@
- include include/uapi/asm-generic/Kbuild.asm
- 
- generic-y += bpf_perf_event.h
--generic-y += param.h
--generic-y += poll.h
--generic-y += resource.h
--generic-y += sockios.h
--generic-y += statfs.h
--generic-y += siginfo.h
-diff --git a/arch/riscv/include/uapi/asm/Kbuild b/arch/riscv/include/uapi/asm/Kbuild
-index 5511b99..14a2e9a 100644
---- a/arch/riscv/include/uapi/asm/Kbuild
-+++ b/arch/riscv/include/uapi/asm/Kbuild
-@@ -1,29 +1,4 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += setup.h
--generic-y += unistd.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += fcntl.h
--generic-y += ioctl.h
--generic-y += ioctls.h
--generic-y += ipcbuf.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += param.h
--generic-y += poll.h
--generic-y += posix_types.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += shmbuf.h
--generic-y += signal.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += stat.h
--generic-y += statfs.h
--generic-y += swab.h
--generic-y += termbits.h
--generic-y += termios.h
--generic-y += types.h
--generic-y += siginfo.h
-diff --git a/arch/s390/include/uapi/asm/Kbuild b/arch/s390/include/uapi/asm/Kbuild
-index dc38a90..3e1b12d 100644
---- a/arch/s390/include/uapi/asm/Kbuild
-+++ b/arch/s390/include/uapi/asm/Kbuild
-@@ -5,17 +5,3 @@ include include/uapi/asm-generic/Kbuild.asm
- generated-y += unistd_32.h
- generated-y += unistd_64.h
- 
--generic-y += errno.h
--generic-y += fcntl.h
--generic-y += ioctl.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += param.h
--generic-y += poll.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += shmbuf.h
--generic-y += sockios.h
--generic-y += swab.h
--generic-y += termbits.h
--generic-y += siginfo.h
-\ No newline at end of file
-diff --git a/arch/sh/include/uapi/asm/Kbuild b/arch/sh/include/uapi/asm/Kbuild
-index ba4d39c..f53f8e4 100644
---- a/arch/sh/include/uapi/asm/Kbuild
-+++ b/arch/sh/include/uapi/asm/Kbuild
-@@ -1,23 +1,6 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += bitsperlong.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += fcntl.h
--generic-y += ioctl.h
--generic-y += ipcbuf.h
- generic-y += kvm_para.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += param.h
--generic-y += poll.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += shmbuf.h
--generic-y += siginfo.h
--generic-y += socket.h
--generic-y += statfs.h
--generic-y += termbits.h
--generic-y += termios.h
- generic-y += ucontext.h
-diff --git a/arch/sparc/include/uapi/asm/Kbuild b/arch/sparc/include/uapi/asm/Kbuild
-index 4680ba2..14a2e9a 100644
---- a/arch/sparc/include/uapi/asm/Kbuild
-+++ b/arch/sparc/include/uapi/asm/Kbuild
-@@ -2,4 +2,3 @@
- include include/uapi/asm-generic/Kbuild.asm
- 
- generic-y += bpf_perf_event.h
--generic-y += types.h
-diff --git a/arch/unicore32/include/uapi/asm/Kbuild b/arch/unicore32/include/uapi/asm/Kbuild
-index 8611ef9..f53f8e4 100644
---- a/arch/unicore32/include/uapi/asm/Kbuild
-+++ b/arch/unicore32/include/uapi/asm/Kbuild
-@@ -1,33 +1,6 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += auxvec.h
--generic-y += bitsperlong.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += fcntl.h
--generic-y += ioctl.h
--generic-y += ioctls.h
--generic-y += ipcbuf.h
- generic-y += kvm_para.h
--generic-y += mman.h
--generic-y += msgbuf.h
--generic-y += param.h
--generic-y += poll.h
--generic-y += posix_types.h
--generic-y += resource.h
--generic-y += sembuf.h
--generic-y += setup.h
--generic-y += shmbuf.h
--generic-y += shmparam.h
--generic-y += siginfo.h
--generic-y += signal.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += stat.h
--generic-y += statfs.h
--generic-y += swab.h
--generic-y += termbits.h
--generic-y += termios.h
--generic-y += types.h
- generic-y += ucontext.h
-diff --git a/arch/x86/include/uapi/asm/Kbuild b/arch/x86/include/uapi/asm/Kbuild
-index 3226816..1e901e4 100644
---- a/arch/x86/include/uapi/asm/Kbuild
-+++ b/arch/x86/include/uapi/asm/Kbuild
-@@ -5,4 +5,3 @@ generic-y += bpf_perf_event.h
- generated-y += unistd_32.h
- generated-y += unistd_64.h
- generated-y += unistd_x32.h
--generic-y += poll.h
-diff --git a/arch/xtensa/include/uapi/asm/Kbuild b/arch/xtensa/include/uapi/asm/Kbuild
-index 837d4dd..f5c6967 100644
---- a/arch/xtensa/include/uapi/asm/Kbuild
-+++ b/arch/xtensa/include/uapi/asm/Kbuild
-@@ -1,13 +1,5 @@
- # UAPI Header export list
- include include/uapi/asm-generic/Kbuild.asm
- 
--generic-y += bitsperlong.h
- generic-y += bpf_perf_event.h
--generic-y += errno.h
--generic-y += fcntl.h
--generic-y += ioctl.h
- generic-y += kvm_para.h
--generic-y += resource.h
--generic-y += siginfo.h
--generic-y += statfs.h
--generic-y += termios.h
+Most notably, for device memory we can hopefully soon stop setting
+it PG_reserved
+
+I only briefly tested this on s390x.
+
+David Hildenbrand (7):
+  agp: efficeon: no need to set PG_reserved on GATT tables
+  s390/vdso: don't clear PG_reserved
+  powerpc/vdso: don't clear PG_reserved
+  riscv/vdso: don't clear PG_reserved
+  m68k/mm: use __ClearPageReserved()
+  arm64: kexec: no need to ClearPageReserved()
+  mm: better document PG_reserved
+
+ arch/arm64/kernel/machine_kexec.c |  1 -
+ arch/m68k/mm/memory.c             |  2 +-
+ arch/powerpc/kernel/vdso.c        |  2 --
+ arch/riscv/kernel/vdso.c          |  1 -
+ arch/s390/kernel/vdso.c           |  2 --
+ drivers/char/agp/efficeon-agp.c   |  2 --
+ include/linux/page-flags.h        | 18 ++++++++++++++++--
+ 7 files changed, 17 insertions(+), 11 deletions(-)
+
 -- 
-2.7.4
+2.17.2
 
 
 _______________________________________________
