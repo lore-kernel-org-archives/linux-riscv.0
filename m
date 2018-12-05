@@ -2,20 +2,21 @@ Return-Path: <SRS0=aNP4=OO=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	USER_AGENT_MUTT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3220DC04EBF
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 14:35:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A2CC2C04EB9
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 14:44:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F222F20850
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 14:35:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6FA6420878
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 14:44:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QKhkhpvM"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F222F20850
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OfTRwIJq"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6FA6420878
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,27 +25,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LOnRbr+C78oaSt2WQYiKSvJcRlDhPjdxhe67qEuL9ew=; b=QKhkhpvMbAkfCz
-	E03kf1PKIaN2ww8YUK7RnL79oe+nWQXltNlT264nS3J6pm6+ob1Aw5NJTRBXe+aqIuR1fDPXBp1/t
-	zZ5tKV9QRWF3fHHmMleT7iRPJ16Db+YknvVTLqxL/jPlc7NwBleCGfJZbAwUJBekjxVYiw6Ge6vZx
-	MLYvHPk6ZbHAsuMXTFA95TPzVUEAt3xp6wFwm16ceumM9hw2CioZnPY/FmPeVcDZOXELWj9laWGfm
-	rM6c1P5IbK9Lqi1zwGwGvXdHBUMgp/BxQ5x4BhA2nGCT1ATdcDY+R4EVerENt0zRq2D6arS62G+jW
-	JiU9fI60T73kmGBsc31g==;
+	List-Owner; bh=iqPl+LhXWpCFh+JlWWlRkImDNUomRWOoqtwuYxWG0v4=; b=OfTRwIJqpZqemY
+	ChrLW5HNH7i+P4MZEootMWK04MMsJ1ae0r4sdK7jUdPAK1izrsM8jUhhWPz3UJCVM7dKsfwMLwGaU
+	/tzzNGKb44Oncji74q6AIMzhXUtfenxXzvtwW0RuvK4eEIkVyc4aHEULjol/7nDj+BZ6fB8zbV0Mr
+	K2UsmPgGnCqY/ltw5YTWTEJafwNFwRr/fqkEskNJ7N9w4jtB0RlY8RLy2ntI6I64vTEJxrHLJVU5b
+	nvqZ75YU89KLUq95xKP2JJk+fqXAJJrkuKV8C2J9nhaYLRVn4m/cRjCZPD/V6bsoWd3c2rQncbDI+
+	+afMp1IPsIlXLIbrfeHQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gUYGn-0003iS-G6; Wed, 05 Dec 2018 14:35:21 +0000
-Received: from willy by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1gUYGc-0003YG-8t; Wed, 05 Dec 2018 14:35:10 +0000
-Date: Wed, 5 Dec 2018 06:35:10 -0800
-From: Matthew Wilcox <willy@infradead.org>
-To: David Hildenbrand <david@redhat.com>
-Subject: Re: [PATCH RFC 7/7] mm: better document PG_reserved
-Message-ID: <20181205143510.GA17232@bombadil.infradead.org>
-References: <20181205122851.5891-1-david@redhat.com>
- <20181205122851.5891-8-david@redhat.com>
+	id 1gUYPx-00082u-Rf; Wed, 05 Dec 2018 14:44:49 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
+ Hat Linux)) id 1gUYPm-000829-8M; Wed, 05 Dec 2018 14:44:38 +0000
+Date: Wed, 5 Dec 2018 06:44:38 -0800
+From: Christoph Hellwig <hch@infradead.org>
+To: Masahiro Yamada <yamada.masahiro@socionext.com>
+Subject: Re: [PATCH 3/3] arch: remove redundant generic-y defines
+Message-ID: <20181205144438.GA30692@infradead.org>
+References: <1544009286-15705-1-git-send-email-yamada.masahiro@socionext.com>
+ <1544009286-15705-3-git-send-email-yamada.masahiro@socionext.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20181205122851.5891-8-david@redhat.com>
+In-Reply-To: <1544009286-15705-3-git-send-email-yamada.masahiro@socionext.com>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -57,59 +58,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-s390@vger.kernel.org, Michal Hocko <mhocko@suse.com>,
- yi.z.zhang@linux.intel.com, Stephen Rothwell <sfr@canb.auug.org.au>,
- Alexander Duyck <alexander.h.duyck@linux.intel.com>,
- Dan Williams <dan.j.williams@intel.com>, linux-kernel@vger.kernel.org,
- Pavel Tatashin <pasha.tatashin@oracle.com>, linux-mm@kvack.org,
- linux-m68k@lists.linux-m68k.org, linux-mediatek@lists.infradead.org,
- Miles Chen <miles.chen@mediatek.com>,
- Anthony Yznaga <anthony.yznaga@oracle.com>, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org
+Cc: Rich Felker <dalias@libc.org>, linux-ia64@vger.kernel.org,
+ linux-sh@vger.kernel.org, James Hogan <jhogan@kernel.org>,
+ Palmer Dabbelt <palmer@sifive.com>, Will Deacon <will.deacon@arm.com>,
+ Alexei Starovoitov <ast@kernel.org>,
+ "James E.J. Bottomley" <jejb@parisc-linux.org>,
+ Max Filippov <jcmvbkbc@gmail.com>,
+ Hendrik Brueckner <brueckner@linux.vnet.ibm.com>,
+ Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Vincent Chen <deanbo422@gmail.com>,
+ Sam Ravnborg <sam@ravnborg.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Jonas Bonn <jonas@southpole.se>, linux-s390@vger.kernel.org,
+ linux-c6x-dev@linux-c6x.org, Daniel Borkmann <daniel@iogearbox.net>,
+ linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>, x86@kernel.org,
+ Russell King <linux@armlinux.org.uk>, Ingo Molnar <mingo@redhat.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Matt Turner <mattst88@gmail.com>,
+ linux-snps-arc@lists.infradead.org, uclinux-h8-devel@lists.sourceforge.jp,
+ Fenghua Yu <fenghua.yu@intel.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>, linux-kbuild@vger.kernel.org,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, linux-xtensa@linux-xtensa.org,
+ Mark Salter <msalter@redhat.com>,
+ Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
+ linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Greentime Hu <green.hu@gmail.com>,
+ nios2-dev@lists.rocketboards.org, Stafford Horne <shorne@gmail.com>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Guan Xuetao <gxt@pku.edu.cn>, linux-arm-kernel@lists.infradead.org,
+ Richard Henderson <rth@twiddle.net>, Chris Zankel <chris@zankel.net>,
+ Michal Simek <monstr@monstr.eu>, Tony Luck <tony.luck@intel.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, linux-parisc@vger.kernel.org,
+ Vineet Gupta <vgupta@synopsys.com>, Richard Kuo <rkuo@codeaurora.org>,
+ linux-mips@vger.kernel.org, Ralf Baechle <ralf@linux-mips.org>,
+ linux-kernel@vger.kernel.org, Paul Burton <paul.burton@mips.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ "Eric W. Biederman" <ebiederm@xmission.com>, linux-alpha@vger.kernel.org,
+ Martin Schwidefsky <schwidefsky@de.ibm.com>, Borislav Petkov <bp@alien8.de>,
+ linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>,
+ Ley Foon Tan <lftan@altera.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 05, 2018 at 01:28:51PM +0100, David Hildenbrand wrote:
-> I don't see a reason why we have to document "Some of them might not even
-> exist". If there is a user, we should document it. E.g. for balloon
-> drivers we now use PG_offline to indicate that a page might currently
-> not be backed by memory in the hypervisor. And that is independent from
-> PG_reserved.
+On Wed, Dec 05, 2018 at 08:28:06PM +0900, Masahiro Yamada wrote:
+> Now that Kbuild automatically creates asm-generic wrappers for missing
+> mandatory headers, it is redundant to list the same headers in
+> generic-y and mandatory-y.
+> 
+> Suggested-by: Sam Ravnborg <sam@ravnborg.org>
+> Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
 
-I think you're confused by the meaning of "some of them might not even
-exist".  What this means is that there might not be memory there; maybe
-writes to that memory will be discarded, or maybe they'll cause a machine
-check.  Maybe reads will return ~0, or 0, or cause a machine check.
-We just don't know what's there, and we shouldn't try touching the memory.
+Oh, that is very useful, especially as maintainance of those
+generic-y lines has been a mess!
 
-> +++ b/include/linux/page-flags.h
-> @@ -17,8 +17,22 @@
->  /*
->   * Various page->flags bits:
->   *
-> - * PG_reserved is set for special pages, which can never be swapped out. Some
-> - * of them might not even exist...
-> + * PG_reserved is set for special pages. The "struct page" of such a page
-> + * should in general not be touched (e.g. set dirty) except by their owner.
-> + * Pages marked as PG_reserved include:
-> + * - Kernel image (including vDSO) and similar (e.g. BIOS, initrd)
-> + * - Pages allocated early during boot (bootmem, memblock)
-> + * - Zero pages
-> + * - Pages that have been associated with a zone but are not available for
-> + *   the page allocator (e.g. excluded via online_page_callback())
-> + * - Pages to exclude from the hibernation image (e.g. loaded kexec images)
-> + * - MMIO pages (communicate with a device, special caching strategy needed)
-> + * - MCA pages on ia64 (pages with memory errors)
-> + * - Device memory (e.g. PMEM, DAX, HMM)
-> + * Some architectures don't allow to ioremap pages that are not marked
-> + * PG_reserved (as they might be in use by somebody else who does not respect
-> + * the caching strategy). Consequently, PG_reserved for a page mapped into
-> + * user space can indicate the zero page, the vDSO, MMIO pages or device memory.
-
-So maybe just add one more option to the list.
+Acked-by: Christoph Hellwig <hch@lst.de>
 
 _______________________________________________
 linux-riscv mailing list
