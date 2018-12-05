@@ -2,62 +2,50 @@ Return-Path: <SRS0=aNP4=OO=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	USER_AGENT_MUTT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6937CC04EBF
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 14:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3220DC04EBF
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 14:35:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 384032084C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 14:01:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F222F20850
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 14:35:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="O97H2zNU"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 384032084C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QKhkhpvM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F222F20850
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8QGSJHxVtLvCuoLC/zEPafs6zXsNxchOw1KHwvUKwHc=; b=O97H2zNUrKo63t
-	MOCwea1r6MSoYdEJBE7MdTCkf5yKCSquv935Wkuh9CskC7Y7aZn3OIzwB9k4aA3fdo3uMRHt2NzPY
-	nauxr8HZokYCZWabwJIRB+cflqrpuR5HFtmEN8ysf2PXsHRzwXlbfpzUXBl75X+VEeM5PzLzF9KNM
-	TY8gKYg/ppyHTRayPonAcF2UOFBUQjqfq/jsQphHOzATx4ku2farEhP08aTiT3sIAjpODJY4ENDEP
-	7BS26L+HaZeWGU8HWSFeXTySdD1BXk3ABL+JNf7jMA1T3gjH9+9XIatCBNEdQpNX9fRYl4i+9XrzG
-	BDVLJJgW7efMQLAHVuhw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LOnRbr+C78oaSt2WQYiKSvJcRlDhPjdxhe67qEuL9ew=; b=QKhkhpvMbAkfCz
+	E03kf1PKIaN2ww8YUK7RnL79oe+nWQXltNlT264nS3J6pm6+ob1Aw5NJTRBXe+aqIuR1fDPXBp1/t
+	zZ5tKV9QRWF3fHHmMleT7iRPJ16Db+YknvVTLqxL/jPlc7NwBleCGfJZbAwUJBekjxVYiw6Ge6vZx
+	MLYvHPk6ZbHAsuMXTFA95TPzVUEAt3xp6wFwm16ceumM9hw2CioZnPY/FmPeVcDZOXELWj9laWGfm
+	rM6c1P5IbK9Lqi1zwGwGvXdHBUMgp/BxQ5x4BhA2nGCT1ATdcDY+R4EVerENt0zRq2D6arS62G+jW
+	JiU9fI60T73kmGBsc31g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gUXjc-0002r6-2Y; Wed, 05 Dec 2018 14:01:04 +0000
-Received: from usa-sjc-mx-foss1.foss.arm.com ([217.140.101.70]
- helo=foss.arm.com)
- by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gUXjO-0002gF-Pm; Wed, 05 Dec 2018 14:00:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A5C7080D;
- Wed,  5 Dec 2018 06:00:39 -0800 (PST)
-Received: from [10.1.196.105] (eglon.cambridge.arm.com [10.1.196.105])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AE3303F59C;
- Wed,  5 Dec 2018 06:00:36 -0800 (PST)
-Subject: Re: [PATCH RFC 6/7] arm64: kexec: no need to ClearPageReserved()
+	id 1gUYGn-0003iS-G6; Wed, 05 Dec 2018 14:35:21 +0000
+Received: from willy by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
+ Hat Linux)) id 1gUYGc-0003YG-8t; Wed, 05 Dec 2018 14:35:10 +0000
+Date: Wed, 5 Dec 2018 06:35:10 -0800
+From: Matthew Wilcox <willy@infradead.org>
 To: David Hildenbrand <david@redhat.com>
+Subject: Re: [PATCH RFC 7/7] mm: better document PG_reserved
+Message-ID: <20181205143510.GA17232@bombadil.infradead.org>
 References: <20181205122851.5891-1-david@redhat.com>
- <20181205122851.5891-7-david@redhat.com>
-From: James Morse <james.morse@arm.com>
-Message-ID: <ce6a4c28-3c3b-329e-df01-325294bd9b2e@arm.com>
-Date: Wed, 5 Dec 2018 14:00:35 +0000
-User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:60.0) Gecko/20100101
- Thunderbird/60.3.0
+ <20181205122851.5891-8-david@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <20181205122851.5891-7-david@redhat.com>
-Content-Language: en-GB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181205_060050_835478_25692301 
-X-CRM114-Status: GOOD (  13.29  )
+Content-Disposition: inline
+In-Reply-To: <20181205122851.5891-8-david@redhat.com>
+User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -69,14 +57,14 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, linux-s390@vger.kernel.org,
- AKASHI Takahiro <takahiro.akashi@linaro.org>,
- Marc Zyngier <marc.zyngier@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Bhupesh Sharma <bhsharma@redhat.com>, Will Deacon <will.deacon@arm.com>,
- linux-kernel@vger.kernel.org, Matthew Wilcox <willy@infradead.org>,
- Michal Hocko <mhocko@kernel.org>, linux-mm@kvack.org,
- linux-m68k@lists.linux-m68k.org, Dave Kleikamp <dave.kleikamp@oracle.com>,
- linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+Cc: linux-s390@vger.kernel.org, Michal Hocko <mhocko@suse.com>,
+ yi.z.zhang@linux.intel.com, Stephen Rothwell <sfr@canb.auug.org.au>,
+ Alexander Duyck <alexander.h.duyck@linux.intel.com>,
+ Dan Williams <dan.j.williams@intel.com>, linux-kernel@vger.kernel.org,
+ Pavel Tatashin <pasha.tatashin@oracle.com>, linux-mm@kvack.org,
+ linux-m68k@lists.linux-m68k.org, linux-mediatek@lists.infradead.org,
+ Miles Chen <miles.chen@mediatek.com>,
+ Anthony Yznaga <anthony.yznaga@oracle.com>, linux-riscv@lists.infradead.org,
  linuxppc-dev@lists.ozlabs.org, Andrew Morton <akpm@linux-foundation.org>,
  linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
@@ -84,38 +72,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+On Wed, Dec 05, 2018 at 01:28:51PM +0100, David Hildenbrand wrote:
+> I don't see a reason why we have to document "Some of them might not even
+> exist". If there is a user, we should document it. E.g. for balloon
+> drivers we now use PG_offline to indicate that a page might currently
+> not be backed by memory in the hypervisor. And that is independent from
+> PG_reserved.
 
-(CC: +Akashi)
+I think you're confused by the meaning of "some of them might not even
+exist".  What this means is that there might not be memory there; maybe
+writes to that memory will be discarded, or maybe they'll cause a machine
+check.  Maybe reads will return ~0, or 0, or cause a machine check.
+We just don't know what's there, and we shouldn't try touching the memory.
 
-On 05/12/2018 12:28, David Hildenbrand wrote:
-> This will already be done by free_reserved_page().
+> +++ b/include/linux/page-flags.h
+> @@ -17,8 +17,22 @@
+>  /*
+>   * Various page->flags bits:
+>   *
+> - * PG_reserved is set for special pages, which can never be swapped out. Some
+> - * of them might not even exist...
+> + * PG_reserved is set for special pages. The "struct page" of such a page
+> + * should in general not be touched (e.g. set dirty) except by their owner.
+> + * Pages marked as PG_reserved include:
+> + * - Kernel image (including vDSO) and similar (e.g. BIOS, initrd)
+> + * - Pages allocated early during boot (bootmem, memblock)
+> + * - Zero pages
+> + * - Pages that have been associated with a zone but are not available for
+> + *   the page allocator (e.g. excluded via online_page_callback())
+> + * - Pages to exclude from the hibernation image (e.g. loaded kexec images)
+> + * - MMIO pages (communicate with a device, special caching strategy needed)
+> + * - MCA pages on ia64 (pages with memory errors)
+> + * - Device memory (e.g. PMEM, DAX, HMM)
+> + * Some architectures don't allow to ioremap pages that are not marked
+> + * PG_reserved (as they might be in use by somebody else who does not respect
+> + * the caching strategy). Consequently, PG_reserved for a page mapped into
+> + * user space can indicate the zero page, the vDSO, MMIO pages or device memory.
 
-(will already be -> will be ?)
-
-So it does!
-
-
-> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-> index 922add8adb74..0ef4ea73aa54 100644
-> --- a/arch/arm64/kernel/machine_kexec.c
-> +++ b/arch/arm64/kernel/machine_kexec.c
-> @@ -353,7 +353,6 @@ void crash_free_reserved_phys_range(unsigned long begin, unsigned long end)
->  
->  	for (addr = begin; addr < end; addr += PAGE_SIZE) {
->  		page = phys_to_page(addr);
-> -		ClearPageReserved(page);
->  		free_reserved_page(page);
->  	}
->  }
-> 
-
-Acked-by: James Morse <james.morse@arm.com>
-
-
-Thanks,
-
-James
+So maybe just add one more option to the list.
 
 _______________________________________________
 linux-riscv mailing list
