@@ -2,52 +2,84 @@ Return-Path: <SRS0=aNP4=OO=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B3564C04EBF
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 17:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3EC4FC04EBF
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 17:53:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8817B206B7
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 17:32:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 04636213A2
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  5 Dec 2018 17:53:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VaiyVS5Z"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8817B206B7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UQqOneF0";
+	dkim=fail reason="key not found in DNS" (0-bit key) header.d=codeaurora.org header.i=@codeaurora.org header.b="jEPlZuZN";
+	dkim=fail reason="key not found in DNS" (0-bit key) header.d=codeaurora.org header.i=@codeaurora.org header.b="afjxP2At"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 04636213A2
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=codeaurora.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pxoUh02WRoYdzdm+DJTqXqGN8tNheZODpCVZu5Qf+6I=; b=VaiyVS5ZWa6VzB
-	lg29Le/W9fx3LGsCtAKBKuso4qRrrtPjW4b+lpXZzNI/aaxW5ZUCiPAnf0H67r0txsJHBNm6BMD6Q
-	D/5004QyviVianFn6ecSFPFuHUSeK8r9mK12gNf6BqkslzH/HH7f80RXQD1VJ5DNIIScud9YLk9Nm
-	nELblScb4uB7Dw+uPUN6K/v8pi+/1k0gtyJ5p+BVZgPOtTpvNOY8Wn58/j1qy6zCcrOIsjTpeoWuM
-	dvxtZYRgwtSrvJZJelwz3XLgMjhULFaQ21QnxUYXIXa3mBWZ3f8MQQ9Ia40uPDvtWV3Hrd/vTzz4K
-	myu34ihMmfzXUJsjLhEg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=yw34pVbOi8Ra/x0igAEC1aSavFu798/AmkV9q1BN3wA=; b=UQqOneF0W7/UrxPoq2OqCd7ZQ
+	iQXHvfWvDlutf/0/oh72uiEZunWT6zZR0qULgm+8KxXs1NJUTtdyCs90ZOW2zFGYobD3jDxoibo97
+	HhUochcDOtiGrT7rLLjFZQj8pCLBcQf99Fsr2bDp4QR3t2k2laES2hCRRwAnetek1VBV5dYHHjdrz
+	w87DVLGZgOUB+FAONZGDhdhlcKPGI+bKVZ3wZG1ZVCUtKRKgrLAqTIFSjfb072K01g2UMF7zee0tk
+	JBj3XMFObqwnVQLUGGkgO6YZHC3RmYX4hc7lj0WblRtPQd9LlDZLej4gZ0H0d0d5z7OPGSy6fLXcd
+	yQFtKb1yA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gUb1x-0008I0-D8; Wed, 05 Dec 2018 17:32:13 +0000
-Received: from willy by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1gUb1l-00088G-HT; Wed, 05 Dec 2018 17:32:01 +0000
-Date: Wed, 5 Dec 2018 09:32:01 -0800
-From: Matthew Wilcox <willy@infradead.org>
-To: David Hildenbrand <david@redhat.com>
-Subject: Re: [PATCH RFC 7/7] mm: better document PG_reserved
-Message-ID: <20181205173201.GA11646@bombadil.infradead.org>
-References: <20181205122851.5891-1-david@redhat.com>
- <20181205122851.5891-8-david@redhat.com>
- <20181205143510.GA17232@bombadil.infradead.org>
- <46d0e90f-f0bb-815e-7a5b-4429de1c502a@redhat.com>
+	id 1gUbMZ-0001UQ-4c; Wed, 05 Dec 2018 17:53:31 +0000
+Received: from smtp.codeaurora.org ([198.145.29.96])
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gUbMJ-0001GQ-Tc; Wed, 05 Dec 2018 17:53:19 +0000
+Received: by smtp.codeaurora.org (Postfix, from userid 1000)
+ id 40A5D60B62; Wed,  5 Dec 2018 17:53:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=codeaurora.org;
+ s=default; t=1544032385;
+ bh=G9oKZZilgO3BZDnZaaI7leZn+vuaR+/z1msJ6vBFp9A=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=jEPlZuZNYIIBzg2wJoqu5gC0si2wBNHbxujQrzWXruOAfLgEcvEcswnjVBc/zOilo
+ 0WhaPpR1T1BiADrAiTZGgbT1HyuzjQUJNm9AFxTKIsto4U3d98zlyHJVEhULwWXzHk
+ cWAfLqzJ7fgKb7IeYqmaW2Xwicrv8gQ/1GOjDt3Q=
+Received: from [10.226.60.81] (i-global254.qualcomm.com [199.106.103.254])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ (Authenticated sender: jhugo@smtp.codeaurora.org)
+ by smtp.codeaurora.org (Postfix) with ESMTPSA id 90C3B60D92;
+ Wed,  5 Dec 2018 17:53:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=codeaurora.org;
+ s=default; t=1544032384;
+ bh=G9oKZZilgO3BZDnZaaI7leZn+vuaR+/z1msJ6vBFp9A=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=afjxP2AtqzEG66du9V2DUvphy8q1rLvutgJTTlCLSMGSGgQ53D8nwK8VeqPeoat6b
+ zzsVdTPIUCUzmvZJPkW1pt0VykUsL38kMcZiN/54Ck2qXkRHOOzgq/V8PVv/9/YIx/
+ 7xqzyb4GdUcR8UtQflOnT4JTMr5gn4AUc3pvJ6FU=
+DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org 90C3B60D92
+Authentication-Results: pdx-caf-mail.web.codeaurora.org;
+ dmarc=none (p=none dis=none) header.from=codeaurora.org
+Authentication-Results: pdx-caf-mail.web.codeaurora.org;
+ spf=none smtp.mailfrom=jhugo@codeaurora.org
+Subject: Re: [RFT PATCH v1 0/4] Unify CPU topology across ARM64 & RISC-V
+To: Atish Patra <atish.patra@wdc.com>, linux-kernel@vger.kernel.org
+References: <1543534100-3654-1-git-send-email-atish.patra@wdc.com>
+From: Jeffrey Hugo <jhugo@codeaurora.org>
+Message-ID: <d72a87f4-8dc1-2ec7-b602-0135c5e4c3a7@codeaurora.org>
+Date: Wed, 5 Dec 2018 10:53:01 -0700
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.3.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <46d0e90f-f0bb-815e-7a5b-4429de1c502a@redhat.com>
-User-Agent: Mutt/1.9.2 (2017-12-15)
+In-Reply-To: <1543534100-3654-1-git-send-email-atish.patra@wdc.com>
+Content-Language: en-US
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20181205_095315_993516_563BB18C 
+X-CRM114-Status: GOOD (  25.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -59,63 +91,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-s390@vger.kernel.org, Michal Hocko <mhocko@suse.com>,
- yi.z.zhang@linux.intel.com, Stephen Rothwell <sfr@canb.auug.org.au>,
- Alexander Duyck <alexander.h.duyck@linux.intel.com>,
- Dan Williams <dan.j.williams@intel.com>, linux-kernel@vger.kernel.org,
- Pavel Tatashin <pasha.tatashin@oracle.com>, linux-mm@kvack.org,
- linux-m68k@lists.linux-m68k.org, linux-mediatek@lists.infradead.org,
- Miles Chen <miles.chen@mediatek.com>,
- Anthony Yznaga <anthony.yznaga@oracle.com>, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Albert Ou <aou@eecs.berkeley.edu>, Juri Lelli <juri.lelli@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Peter Zijlstra \(Intel\)" <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jeremy Linton <jeremy.linton@arm.com>, Ingo Molnar <mingo@kernel.org>,
+ Ard Biesheuvel <ard.biesheuvel@linaro.org>,
+ Dmitriy Cherkasov <dmitriy@oss-tech.org>, Rob Herring <robh+dt@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Sudeep Holla <sudeep.holla@arm.com>,
+ Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+ Morten Rasmussen <morten.rasmussen@arm.com>,
+ "moderated list:ARM64 PORT AARCH64 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 05, 2018 at 04:05:12PM +0100, David Hildenbrand wrote:
-> On 05.12.18 15:35, Matthew Wilcox wrote:
-> > On Wed, Dec 05, 2018 at 01:28:51PM +0100, David Hildenbrand wrote:
-> >> I don't see a reason why we have to document "Some of them might not even
-> >> exist". If there is a user, we should document it. E.g. for balloon
-> >> drivers we now use PG_offline to indicate that a page might currently
-> >> not be backed by memory in the hypervisor. And that is independent from
-> >> PG_reserved.
-> > 
-> > I think you're confused by the meaning of "some of them might not even
-> > exist".  What this means is that there might not be memory there; maybe
-> > writes to that memory will be discarded, or maybe they'll cause a machine
-> > check.  Maybe reads will return ~0, or 0, or cause a machine check.
-> > We just don't know what's there, and we shouldn't try touching the memory.
+On 11/29/2018 4:28 PM, Atish Patra wrote:
+> The cpu-map DT entry in ARM64 can describe the CPU topology in
+> much better way compared to other existing approaches. RISC-V can
+> easily adopt this binding to represent it's own CPU topology.
+> Thus, both cpu-map DT binding and topology parsing code can be
+> moved to a common location so that RISC-V or any other
+> architecture can leverage that.
 > 
-> If there are users, let's document it. And I need more details for that :)
+> The relevant discussion regarding unifying cpu topology can be
+> found in [1].
 > 
-> 1. machine check: if there is a HW error, we set PG_hwpoison (except
-> ia64 MCA, see the list)
+> arch_topology seems to be a perfect place to move the common
+> code. I have not introduced any functional changes in the moved
+> code. The only downside in this approach is that the capacity
+> code will be executed for RISC-V as well. But, it will exit
+> immediately after not able to find the appropriate DT node. If
+> the overhead is considered too much, we can always compile out
+> capacity related functions under a different config for the
+> architectures that do not support them.
 > 
-> 2. Writes to that memory will be discarded
+> The patches have been tested for RISC-V and compile tested for
+> ARM64 & x86.
 > 
-> Who is the user of that? When will we have such pages right now?
+> The socket change[2] is also now part of this series.
 > 
-> 3. Reads will return ~0, / 0?
+> [1] https://lkml.org/lkml/2018/11/6/19
+> [2] https://lkml.org/lkml/2018/11/7/918
 > 
-> I think this is a special case of e.g. x86? But where do we have that,
-> are there any user?
+> QEMU changes for RISC-V topology are available at
+> 
+> https://github.com/atishp04/riscv-qemu/tree/cpu_topo
+> 
+> Apologies for the previous patch series with incorrect title and
+> was sent only to kernel mailing list due to a bug in my config.
+> Please ignore that.
+> 
+> Atish Patra (3):
+> dt-binding: cpu-topology: Move cpu-map to a common binding.
+> cpu-topology: Move cpu topology code to common code.
+> RISC-V: Parse cpu topology during boot.
+> 
+> Sudeep Holla (1):
+> Documentation: DT: arm: add support for sockets defining package
+> boundaries
+> 
+> .../{arm/topology.txt => cpu/cpu-topology.txt}     | 133 +++++++--
+> arch/arm64/include/asm/topology.h                  |  22 --
+> arch/arm64/kernel/topology.c                       | 303 +--------------------
+> arch/riscv/Kconfig                                 |   1 +
+> arch/riscv/kernel/smpboot.c                        |   3 +
+> drivers/base/arch_topology.c                       | 294 ++++++++++++++++++++
+> include/linux/arch_topology.h                      |  26 ++
+> include/linux/topology.h                           |   1 +
+> 8 files changed, 435 insertions(+), 348 deletions(-)
+> rename Documentation/devicetree/bindings/{arm/topology.txt => cpu/cpu-topology.txt} (66%)
+> 
+> --
+> 2.7.4
+> 
 
-When there are gaps in the physical memory.  As in, if you put that
-physical address on the bus (or in a packet), no device will respond
-to it.  Look:
+Seems to test fine on QDF2400.
 
-00000000-00000fff : Reserved
-00001000-00057fff : System RAM
-00058000-00058fff : Reserved
-00059000-0009dfff : System RAM
-0009e000-000fffff : Reserved
+Tested-by: Jeffrey Hugo <jhugo@codeaurora.org>
 
-Those examples I gave are examples of how various different architectures
-respond to "no device responded to this memory access".
+I did see that git am complained about patch #2 -
 
+patch:103: space before tab in indent.
+                         };
+patch:114: space before tab in indent.
+         };
+warning: 2 lines add whitespace errors.
+
+
+-- 
+Jeffrey Hugo
+Qualcomm Datacenter Technologies as an affiliate of Qualcomm 
+Technologies, Inc.
+Qualcomm Technologies, Inc. is a member of the
+Code Aurora Forum, a Linux Foundation Collaborative Project.
 
 _______________________________________________
 linux-riscv mailing list
