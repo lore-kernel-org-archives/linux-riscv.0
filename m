@@ -2,22 +2,21 @@ Return-Path: <SRS0=vQx5=OP=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-2.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B279BC64EB1
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  6 Dec 2018 16:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A82B2C04EB8
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  6 Dec 2018 17:07:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6624820868
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  6 Dec 2018 16:52:08 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7AC8220661
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  6 Dec 2018 17:07:14 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="O7pRnWTW";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="BHdf0pTD"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6624820868
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ymg7Q4fk";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="nUEtgp4X"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7AC8220661
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,66 +25,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=owxugn6FPzil4IguTz6iDFnHsMVqymB5csZKVsIdbxA=; b=O7pRnWTW1A+C+E
-	K8FaBDNBhkgPR+CAW8zmwBeN0jJKd3yxykic2jQFkojmWtELpLWRmbENI7cKT0yvgF50Hl/K/BTZu
-	KkF7p7UH+qlzccd9iP3ca5FsEqU+XH942yfp/38kZddys6yBIJxPCjh7LHPm3yIpvrxDYvgmbVYgp
-	qEuMw9PQKFQzvdp50ohBzUioilk+QKxwX7xEux/m3B9BUHyUev2b0ex9doZlFxetb86LB+QA7s6WB
-	nTa1bpLoVZtPg0KmM28V5/ou9AHyTqJY0hAV+ZA5+LH0Dwf4OBkI8H7G9ypyDYsxSojjvwXk/Rcvp
-	OfzQeUkbf0jM53ZDBtrg==;
+	List-Owner; bh=ttegHw8/LinT+NfAYErCJzl5Qpvuhddy2CUJ9uel0KY=; b=Ymg7Q4fkzAQjXd
+	UQAhEZj9ebSkmxXvgg18rRz9BcKY1q5FFrQW+wGz9sPCDP9Wp4/yVFpFh84asEJJGuFNp3ufWURI3
+	MoRzx9ey5aGRvTXDHs+c5E7zRYT6KdU4FBA+9G+uHra9Ch1hlz4PcKPdozAWTx3nr0L2jUIbYddub
+	hyavTZVipMkiPLRtoBnUVkbxNnWeybcA3cs0nLPrPzLubhOFwr8CvAB2xTgQsRxGQO3XeHemBIb7e
+	q/7GvSLSxp5hEXczsHGWOf5K+nDVTD8cZ7n/sYxAC+jguKJHmmzjVRWUkmYnVbdfhVZWmRQCkr7z7
+	oQuJU8GCut8msFCT5mdg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gUwsf-0005M9-Dr; Thu, 06 Dec 2018 16:52:05 +0000
-Received: from mail-yb1-xb41.google.com ([2607:f8b0:4864:20::b41])
+	id 1gUx7J-0005CR-Rm; Thu, 06 Dec 2018 17:07:13 +0000
+Received: from mail-yb1-xb42.google.com ([2607:f8b0:4864:20::b42])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gUwq1-0001Fg-7D
- for linux-riscv@lists.infradead.org; Thu, 06 Dec 2018 16:50:01 +0000
-Received: by mail-yb1-xb41.google.com with SMTP id c15so921525ybf.7
- for <linux-riscv@lists.infradead.org>; Thu, 06 Dec 2018 08:49:10 -0800 (PST)
+ id 1gUx7G-0005Bv-UN
+ for linux-riscv@lists.infradead.org; Thu, 06 Dec 2018 17:07:12 +0000
+Received: by mail-yb1-xb42.google.com with SMTP id l126so947226ybf.13
+ for <linux-riscv@lists.infradead.org>; Thu, 06 Dec 2018 09:07:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=f6ZhIgPxb5JuEi5w65rXIUYHXmApKJnwNsBxtTH3yT4=;
- b=BHdf0pTDh1fcUnEzAb5K2S1oG8rWk/mh7j7WM6Hni5W9pp++25RnRnYhX7ZmgqV3pH
- FerZn5Pq+xwK7tSjDNXjUrrH5t2BXhEmc61Y5RkWSDB33VRt6QRnimqH5p3bCsC5JLpP
- a1aIWFjjcvTJ/r+u25H3UuIRad4UFcdTFgyLE=
+ :cc; bh=St5x4BajvjzpktTvJ9fGLPnVf1FbO6rxvCZkxwXohoc=;
+ b=nUEtgp4XO8Oi5L3FZYbrD5Gmy8ugvfSOxMLYU/EmcLtO3rPGlfOVeMu3t40Es9ORMv
+ /4C2LTxdM3hPTGglD2wLoxNyaZ0fZ3i0jdtGiv/L1ddRojVlWnJI7wU6io1t3lxBbrfF
+ hVLd1nZFPZEaYHq3dB1Xcc6XYWNLPJuBqzNKk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=f6ZhIgPxb5JuEi5w65rXIUYHXmApKJnwNsBxtTH3yT4=;
- b=cLnC8KHH0TpjPR7UDjUUgb7hkSKNMTIv3xWSBKSqHF3l5kHrTvRiCVzkMAxQGbmZwG
- BIU9U04n2PY+6fjB5j1T/Gl81kCWoavn2w9FMkasCxhrnvcqQx9lkOp7xvG2qVTxSCjo
- 1oFuQquwKEkvEPD3neJMXKlo8qkkbMWMgQuNY1NuDNhGKrkuPnLZyQ1fwP2Tp8Vg90cw
- O1++9DdyiZbycVDYlqkgYFZr5vPvCfDRVQbmvKwkrG5AxB/SJxoMpF7JbI8LTHlzOZm4
- F+wNXpxJr283wGLGDbngPupHv3/Aj5IUWTBN/jhc9RjW29XNmhjJhfpc02dXsXbN9qHH
- 8Rjw==
-X-Gm-Message-State: AA+aEWYoPho42wLbmrMpXT663hL+Y2zhKuAwOPDXF7ycvKSz1HUtTV+9
- rCu0Ovs39QBqGYew08ohLXVGDK3HaSM=
-X-Google-Smtp-Source: AFSGD/WluVOCoalxUMQnQ5f7osppiM+G/+wmgDmlN/ueJlVl/Q1fWVkAfKjblGdo/7DXalT0sp/fyQ==
-X-Received: by 2002:a0d:e1d6:: with SMTP id k205mr29312289ywe.78.1544114949249; 
- Thu, 06 Dec 2018 08:49:09 -0800 (PST)
-Received: from mail-yb1-f178.google.com (mail-yb1-f178.google.com.
- [209.85.219.178])
- by smtp.gmail.com with ESMTPSA id 139sm194356ywt.78.2018.12.06.08.49.07
+ bh=St5x4BajvjzpktTvJ9fGLPnVf1FbO6rxvCZkxwXohoc=;
+ b=jGB2+qVSVpP8zF702DgAh+R5S09/bSHCkfePVWGyZ3WzUHi/XAY+5SeMT6CTvrQ969
+ RTXAApRa+On4pb9E/h0iJOO6w6Ra4iV99/UD2v8B1KB5pU8X385PPi2RdzQ4N0VJXRG9
+ GRSXhac+IGcZv7v69+qT+eH0uMZTc4KPqjSNtMCeXK/zbETHqacI0+X0RwjQdyeB+Ews
+ rrQstcReEKVWZUreeT0I2j2zcIzg2EgWL70IZj4wUbQ0NK/wlcorpFQr48Xd9UxO81ZI
+ /ob/IYkhCE6QYKTv+/e3kBRx1CfST8RLiOuLKFUu0rIQvFoTjKxxpTyOirUzYigdLneS
+ 26Ew==
+X-Gm-Message-State: AA+aEWb5R17ElU+VVTYYWuEtavAqAIIKpOD0UpXzlzgAiQegnyfET4B2
+ FGWS1o1yfZHn2G05SejF3L60QuVQga8=
+X-Google-Smtp-Source: AFSGD/Wbaxwk9H1PKbB0Mlu3AocMqGpVT3J+bFx4EJvknh+1dL74l77bO9xFn0eVEI/KCE9MMGKkwQ==
+X-Received: by 2002:a25:9381:: with SMTP id
+ a1-v6mr27411712ybm.386.1544116019311; 
+ Thu, 06 Dec 2018 09:06:59 -0800 (PST)
+Received: from mail-yb1-f175.google.com (mail-yb1-f175.google.com.
+ [209.85.219.175])
+ by smtp.gmail.com with ESMTPSA id j134sm215673ywb.91.2018.12.06.09.06.57
  for <linux-riscv@lists.infradead.org>
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Thu, 06 Dec 2018 08:49:08 -0800 (PST)
-Received: by mail-yb1-f178.google.com with SMTP id s15so924532ybk.6
- for <linux-riscv@lists.infradead.org>; Thu, 06 Dec 2018 08:49:07 -0800 (PST)
-X-Received: by 2002:a81:98e:: with SMTP id 136mr28855840ywj.47.1544114947295; 
- Thu, 06 Dec 2018 08:49:07 -0800 (PST)
+ Thu, 06 Dec 2018 09:06:58 -0800 (PST)
+Received: by mail-yb1-f175.google.com with SMTP id l126so947122ybf.13
+ for <linux-riscv@lists.infradead.org>; Thu, 06 Dec 2018 09:06:57 -0800 (PST)
+X-Received: by 2002:a81:c446:: with SMTP id s6mr30380855ywj.237.1544116017182; 
+ Thu, 06 Dec 2018 09:06:57 -0800 (PST)
 MIME-Version: 1.0
 References: <20181206150156.28210-1-david.abdurachmanov@gmail.com>
- <20181206150156.28210-3-david.abdurachmanov@gmail.com>
-In-Reply-To: <20181206150156.28210-3-david.abdurachmanov@gmail.com>
+ <20181206150156.28210-2-david.abdurachmanov@gmail.com>
+In-Reply-To: <20181206150156.28210-2-david.abdurachmanov@gmail.com>
 From: Kees Cook <keescook@chromium.org>
-Date: Thu, 6 Dec 2018 08:48:55 -0800
-X-Gmail-Original-Message-ID: <CAGXu5jJT4wY9wgCF8gB+tjgH+YQps4eUDVwZoGY=GVmLMpLPxw@mail.gmail.com>
-Message-ID: <CAGXu5jJT4wY9wgCF8gB+tjgH+YQps4eUDVwZoGY=GVmLMpLPxw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] riscv: fix syscall_{get,set}_arguments
+Date: Thu, 6 Dec 2018 09:06:45 -0800
+X-Gmail-Original-Message-ID: <CAGXu5jKevZHDW8hRAAh_muFUXsg-WOVCYh3HczjY5qKtR=wYNg@mail.gmail.com>
+Message-ID: <CAGXu5jKevZHDW8hRAAh_muFUXsg-WOVCYh3HczjY5qKtR=wYNg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] riscv: add support for SECCOMP incl. filters
 To: David Abdurachmanov <david.abdurachmanov@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181206_084922_233773_C68A5FBA 
-X-CRM114-Status: GOOD (  18.28  )
+X-CRM114-CacheID: sfid-20181206_090710_978916_79FE337F 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -108,103 +109,19 @@ Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.i
 
 On Thu, Dec 6, 2018 at 7:02 AM David Abdurachmanov
 <david.abdurachmanov@gmail.com> wrote:
->
-> Testing with libseccomp master branch revealed that testcases with
-> filters on syscall arguments were failing due to wrong values. Seccomp
-> uses syscall_get_argumentsi() to copy syscall arguments, and there is a
-> bug in pointer arithmetics in memcpy() call.
->
-> Two alternative implementation were tested: the one in this patch and
-> another one based on while-break loop. Both delivered the same results.
->
-> This implementation is also used in arm, arm64 and nds32 arches.
+> The patch adds support for SECCOMP and SECCOMP_FILTER (BPF).
 
-Minor nit: can you make this the first patch? That way seccomp works
-correctly from the point of introduction. :)
+I built this against linux-next but it's missing seccomp.h. Was that
+accidentally left out of the commit?
 
--Kees
 
->
-> Signed-off-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
-> ---
->  arch/riscv/include/asm/syscall.h | 42 ++++++++++++++++++++++++--------
->  1 file changed, 32 insertions(+), 10 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
-> index bba3da6ef157..26ceb434a433 100644
-> --- a/arch/riscv/include/asm/syscall.h
-> +++ b/arch/riscv/include/asm/syscall.h
-> @@ -70,19 +70,32 @@ static inline void syscall_set_return_value(struct task_struct *task,
->         regs->a0 = (long) error ?: val;
->  }
->
-> +#define SYSCALL_MAX_ARGS 6
-> +
->  static inline void syscall_get_arguments(struct task_struct *task,
->                                          struct pt_regs *regs,
->                                          unsigned int i, unsigned int n,
->                                          unsigned long *args)
->  {
-> -       BUG_ON(i + n > 6);
-> +       if (n == 0)
-> +               return;
-> +
-> +       if (i + n > SYSCALL_MAX_ARGS) {
-> +               unsigned long *args_bad = args + SYSCALL_MAX_ARGS - i;
-> +               unsigned int n_bad = n + i - SYSCALL_MAX_ARGS;
-> +               pr_warning("%s called with max args %d, handling only %d\n",
-> +                       __func__, i + n, SYSCALL_MAX_ARGS);
-> +               memset(args_bad, 0, n_bad * sizeof(args[0]));
-> +       }
-> +
->         if (i == 0) {
->                 args[0] = regs->orig_a0;
->                 args++;
->                 i++;
->                 n--;
->         }
-> -       memcpy(args, &regs->a1 + i * sizeof(regs->a1), n * sizeof(args[0]));
-> +
-> +       memcpy(args, &regs->a0 + i, n * sizeof(args[0]));
->  }
->
->  static inline void syscall_set_arguments(struct task_struct *task,
-> @@ -90,14 +103,23 @@ static inline void syscall_set_arguments(struct task_struct *task,
->                                          unsigned int i, unsigned int n,
->                                          const unsigned long *args)
->  {
-> -       BUG_ON(i + n > 6);
-> -        if (i == 0) {
-> -                regs->orig_a0 = args[0];
-> -                args++;
-> -                i++;
-> -                n--;
-> -        }
-> -       memcpy(&regs->a1 + i * sizeof(regs->a1), args, n * sizeof(regs->a0));
-> +       if (n == 0)
-> +               return;
-> +
-> +       if (i + n > SYSCALL_MAX_ARGS) {
-> +               pr_warning("%s called with max args %d, handling only %d\n",
-> +                       __func__, i + n, SYSCALL_MAX_ARGS);
-> +               n = SYSCALL_MAX_ARGS - i;
-> +       }
-> +
-> +       if (i == 0) {
-> +               regs->orig_a0 = args[0];
-> +               args++;
-> +               i++;
-> +               n--;
-> +       }
-> +
-> +       memcpy(&regs->a0 + i, args, n * sizeof(args[0]));
->  }
->
->  static inline int syscall_get_arch(void)
-> --
-> 2.19.2
->
-
+  CC      arch/riscv/kernel/asm-offsets.s
+In file included from ./include/linux/sched.h:21:0,
+                 from arch/riscv/kernel/asm-offsets.c:18:
+./include/linux/seccomp.h:14:10: fatal error: asm/seccomp.h: No such
+file or directory
+ #include <asm/seccomp.h>
+          ^~~~~~~~~~~~~~~
 
 -- 
 Kees Cook
