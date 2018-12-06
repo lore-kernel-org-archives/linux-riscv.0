@@ -2,116 +2,91 @@ Return-Path: <SRS0=vQx5=OP=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.9 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 70854C04EB9
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  6 Dec 2018 10:47:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9CA79C64EB1
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  6 Dec 2018 15:02:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 42F16208E7
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  6 Dec 2018 10:47:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6BBEB20850
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  6 Dec 2018 15:02:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AVbRQ/vI"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 42F16208E7
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZTvwOmcc";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="N/EHpjkq"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6BBEB20850
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:References:To:From:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=knaElmi+YrDeuouFSiQP3TcUNbqO/+7tKsc3ODm4OJ4=; b=AVbRQ/vI1j+XZt
-	lcDk3msgDpZetByYuwKQ8UBAwl1mAQKmTyv+tLsJhkC66jYSS1ET96DvD+xax+NBfnEv78ro9dCrK
-	BcWfOqtnqEuQCw0PHnz4dwi50pmeO3+6IR2IDyjvr/JF424SbpaRvQsOO6u8h0jRHdxBAiUFzouv3
-	KUQ5nvU6yOhuBf8lpaJ5dVo2u7vYANdBAyuZdBZEVAvwjKON0yIR5P7nj07e8oyRpMBXEk+VFzJ7R
-	mSKJ9YUBIkIPDjRoOECqKCF0zJpr6emMUBbsGdHP+HuYjIka16yDo56ah2OcVCq0cgFkLwPiIrXdU
-	7XSmFs46XEiCI9S9wDaQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SNtCS9RWlvYoufs8HFtvBbODBstlubm8gF+pGz70UOM=; b=ZTvwOmccMnplGD
+	4+Yun2fAYyGfnFPtnTo7Nd/eTy/wAEgAmuUkiwuFbLgsC9ya0A/Jao0itcDI9UQ7co6gntWHCI0xi
+	zpREtHxI31tDBn9t7322h0r/xYo2vimQtYYb5figB3m8GPm1fdLsD3SZ5dur2nUFONa0ACbtkow3+
+	GNld8lAGGjuhdoaqiisFyzVEf4Vi/rDQLBHFZnsXambSgEU2lr/PaWl5VFG+62fW+EbyC0q1jOwH6
+	Q5aPrKADytTURpqayPZutRCnF/MwShKgG9o4K99qbHhJW0bcNRLm2fLHx1MvrJvE0EKLA7l7krmKL
+	NekAXv2omK2Q55kewDWA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gUrBW-0003kK-Au; Thu, 06 Dec 2018 10:47:10 +0000
-Received: from mx1.redhat.com ([209.132.183.28])
+	id 1gUvAS-0000jB-Rm; Thu, 06 Dec 2018 15:02:20 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gUrBJ-0003ZZ-Uq; Thu, 06 Dec 2018 10:46:59 +0000
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
- [10.5.11.11])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id 65FEC30842AE;
- Thu,  6 Dec 2018 10:46:46 +0000 (UTC)
-Received: from [10.36.117.102] (ovpn-117-102.ams2.redhat.com [10.36.117.102])
- by smtp.corp.redhat.com (Postfix) with ESMTP id AECF12C161;
- Thu,  6 Dec 2018 10:46:42 +0000 (UTC)
-Subject: Re: [PATCH RFC 7/7] mm: better document PG_reserved
-From: David Hildenbrand <david@redhat.com>
-To: Matthew Wilcox <willy@infradead.org>
-References: <20181205122851.5891-1-david@redhat.com>
- <20181205122851.5891-8-david@redhat.com>
- <20181205143510.GA17232@bombadil.infradead.org>
- <46d0e90f-f0bb-815e-7a5b-4429de1c502a@redhat.com>
- <20181205173201.GA11646@bombadil.infradead.org>
- <35689ede-d86e-d692-adae-bc2f1adfb2ab@redhat.com>
-Openpgp: preference=signencrypt
-Autocrypt: addr=david@redhat.com; prefer-encrypt=mutual; keydata=
- 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
- SE+xAvmumFBY
-Organization: Red Hat GmbH
-Message-ID: <a395c1af-9220-772b-df85-52b8de33bbc9@redhat.com>
-Date: Thu, 6 Dec 2018 11:46:41 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.3.1
+ id 1gUvAO-0000hE-3k
+ for linux-riscv@lists.infradead.org; Thu, 06 Dec 2018 15:02:18 +0000
+Received: by mail-wm1-x343.google.com with SMTP id r24so14330786wmh.0
+ for <linux-riscv@lists.infradead.org>; Thu, 06 Dec 2018 07:02:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=wk8Tnme4bbqG3+h4d86EKaBi7wPmuDTPdXEEnReXJ4A=;
+ b=N/EHpjkqTWKjgqSkOlTjkDXo/pwUWieIGKYO4EpsKf4t59q24pnoEftZU0NmDrvNBC
+ HQjJuJOypbvOX9wZSTvZOLQJffPAWvZR0yY1J+Fuhm09ZhvEf3WX69iGs9W0gowXbqIN
+ mC9njeuRVySLafFGDwYpyhWQ0C8MHONm9mR5P9sD6n5u6YjFY7Bl8Mj5wofjeRWDrltD
+ IEltuc38IR6MV7cadiKoQ2PY0K8yr393HEHRkHsyXNaDYVOxGV+BjpET7jGZGeK003xy
+ U3PvMI3MJHZJ4VDqokwub3zJTtaT5NkhczmnPzFKDBynapoFXlyFDTTTXr19FEK998+b
+ 9zRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=wk8Tnme4bbqG3+h4d86EKaBi7wPmuDTPdXEEnReXJ4A=;
+ b=HCAqE9rWo05dZo7POxgj/tQbs4lq6goRbzASin5PEPk8r5GlAA1JeoVnW7jRnvtjc1
+ oIy7CVZqpS3jBMd1Og3utFaLrlEQowxL76tAUd3NkYdub5ZeJm0pQvR1j3JlQ2ZNcj81
+ L5jXsgYHPmBs3sBPF6R+TGTEd24lBgqcPszfWfIcEwjU+ggY2SqUn1cOkFJMh9IJYw3L
+ pc7Xb9juxGGw3uIJj4aV6AVOsu8O5Ta0seP/HA+R4mhKZPK1EnHIidrUt0GBzZDPQJtA
+ Qw7+7JhxgwoEo61eGXwLm641hU3UnRmmekmvbucu7eH0dz0rGxs3d44srzXw9GsFONq1
+ qI7g==
+X-Gm-Message-State: AA+aEWbi2i06jNm2DkHvoKkLNdO3UbebfrEOYF594V7NW08wtuvhYswb
+ ab3GXKs2XSgtXh4JOVi9Ol4=
+X-Google-Smtp-Source: AFSGD/UVOJM66XYYaUjPwVXWLk9eVU1L6NjBdcIUR9aVX4TEFGE9dvix3M+yZx1VCJNY+uM0ALZtbQ==
+X-Received: by 2002:a1c:d7d3:: with SMTP id
+ o202mr13863733wmg.135.1544108524137; 
+ Thu, 06 Dec 2018 07:02:04 -0800 (PST)
+Received: from localhost.localdomain (ip-76.net-89-3-178.rev.numericable.fr.
+ [89.3.178.76])
+ by smtp.gmail.com with ESMTPSA id 14sm1629981wmv.36.2018.12.06.07.02.02
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Thu, 06 Dec 2018 07:02:02 -0800 (PST)
+From: David Abdurachmanov <david.abdurachmanov@gmail.com>
+To: palmer@sifive.com, aou@eecs.berkeley.edu, keescook@chromium.org,
+ luto@amacapital.net, wad@chromium.org, green.hu@gmail.com,
+ deanbo422@gmail.com, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: [PATCH 0/2] riscv: add support for SECCOMP and SECCOMP_FILTER
+Date: Thu,  6 Dec 2018 16:01:54 +0100
+Message-Id: <20181206150156.28210-1-david.abdurachmanov@gmail.com>
+X-Mailer: git-send-email 2.19.2
 MIME-Version: 1.0
-In-Reply-To: <35689ede-d86e-d692-adae-bc2f1adfb2ab@redhat.com>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.40]); Thu, 06 Dec 2018 10:46:47 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181206_024658_034786_2E9B2926 
-X-CRM114-Status: GOOD (  24.27  )
+X-CRM114-CacheID: sfid-20181206_070216_206010_87F5E0B6 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -123,104 +98,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-s390@vger.kernel.org, Michal Hocko <mhocko@suse.com>,
- yi.z.zhang@linux.intel.com, Stephen Rothwell <sfr@canb.auug.org.au>,
- Alexander Duyck <alexander.h.duyck@linux.intel.com>,
- Dan Williams <dan.j.williams@intel.com>, linux-kernel@vger.kernel.org,
- Pavel Tatashin <pasha.tatashin@oracle.com>, linux-mm@kvack.org,
- linux-m68k@lists.linux-m68k.org, linux-mediatek@lists.infradead.org,
- Miles Chen <miles.chen@mediatek.com>,
- Anthony Yznaga <anthony.yznaga@oracle.com>, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org
+Cc: David Abdurachmanov <david.abdurachmanov@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 05.12.18 19:13, David Hildenbrand wrote:
-> On 05.12.18 18:32, Matthew Wilcox wrote:
->> On Wed, Dec 05, 2018 at 04:05:12PM +0100, David Hildenbrand wrote:
->>> On 05.12.18 15:35, Matthew Wilcox wrote:
->>>> On Wed, Dec 05, 2018 at 01:28:51PM +0100, David Hildenbrand wrote:
->>>>> I don't see a reason why we have to document "Some of them might not even
->>>>> exist". If there is a user, we should document it. E.g. for balloon
->>>>> drivers we now use PG_offline to indicate that a page might currently
->>>>> not be backed by memory in the hypervisor. And that is independent from
->>>>> PG_reserved.
->>>>
->>>> I think you're confused by the meaning of "some of them might not even
->>>> exist".  What this means is that there might not be memory there; maybe
->>>> writes to that memory will be discarded, or maybe they'll cause a machine
->>>> check.  Maybe reads will return ~0, or 0, or cause a machine check.
->>>> We just don't know what's there, and we shouldn't try touching the memory.
->>>
->>> If there are users, let's document it. And I need more details for that :)
->>>
->>> 1. machine check: if there is a HW error, we set PG_hwpoison (except
->>> ia64 MCA, see the list)
->>>
->>> 2. Writes to that memory will be discarded
->>>
->>> Who is the user of that? When will we have such pages right now?
->>>
->>> 3. Reads will return ~0, / 0?
->>>
->>> I think this is a special case of e.g. x86? But where do we have that,
->>> are there any user?
->>
->> When there are gaps in the physical memory.  As in, if you put that
->> physical address on the bus (or in a packet), no device will respond
->> to it.  Look:
->>
->> 00000000-00000fff : Reserved
->> 00001000-00057fff : System RAM
->> 00058000-00058fff : Reserved
->> 00059000-0009dfff : System RAM
->> 0009e000-000fffff : Reserved
->>
->> Those examples I gave are examples of how various different architectures
->> respond to "no device responded to this memory access".
->>
-> 
-> Okay, so for this memory we will have
-> a) vmmaps
-> b) Memory block devices
-> c) A sections that is online
-> 
-> So essentially "Gaps in physical memory" which is part of a online section.
-> 
-> This might be a candidate for PG_offline as well.
-> 
-> Thanks for the info, I'll try to find out how such things are handled.
-> In general I assume this memory has to be readable, because otherwise
-> kdump and friends would crash already when trying to dump?
-> 
+This was originally tested on 4.19 kernel with Fedora 29/RISCV. 
+Depends on audit patches (already in linux-next).
 
-So I finally understood how physical memory holes in online sections are
-handled when dumping. They won't be dumped because the list of dumpable
-chunks (contained in /proc/kcore and after a crash /proc/vmcore) is
-built using walk_system_ram_range(). So anything not listed as RAM will
-be ignored.
+The patches are on top of linux-next next-20181206 tag.
 
-I will update the documentation, describing that if we have an online
-section that is not completely IORESOURCE_SYSTEM_RAM, that the physical
-memory gaps will also be set to PG_reserved.
+Validation was done using libseccomp (at 
+1e64feb5f1a9ea02687228e3073e8b784a04ce46, which is master at this 
+date). See PR: https://github.com/seccomp/libseccomp/pull/134
 
-Trying to touch this memory is indeed dangerous, luckily dumping is
-properly handled.
+Test results:
 
-I'll think about if marking these ranges as PG_offline might make sense
-(and if it can be easily added). Then we directly know when seeing that
-page type that we should not touch it. Ever.
+# ./regression -T live
 
-That hint was really helpful :)
+Regression Test Summary
+tests run: 8
+tests skipped: 0
+tests passed: 8
+tests failed: 0
+tests errored: 0
+
+# ./regression
+
+Regression Test Summary
+tests run: 5129
+tests skipped: 104
+tests passed: 5129
+tests failed: 0
+tests errored: 0
+
+David Abdurachmanov (2):
+  riscv: add support for SECCOMP incl. filters
+  riscv: fix syscall_{get,set}_arguments
+
+ arch/riscv/Kconfig                   | 14 ++++++++++
+ arch/riscv/include/asm/syscall.h     | 42 +++++++++++++++++++++-------
+ arch/riscv/include/asm/thread_info.h |  5 +++-
+ arch/riscv/kernel/entry.S            | 27 ++++++++++++++++--
+ arch/riscv/kernel/ptrace.c           |  8 ++++++
+ 5 files changed, 83 insertions(+), 13 deletions(-)
 
 -- 
+2.19.2
 
-Thanks,
-
-David / dhildenb
 
 _______________________________________________
 linux-riscv mailing list
