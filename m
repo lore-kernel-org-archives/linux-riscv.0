@@ -2,86 +2,60 @@ Return-Path: <SRS0=gWek=OQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,T_DKIMWL_WL_HIGH,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0EA9BC64EB1
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 18:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B1F8BC64EB1
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 19:59:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D36A82082D
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 18:45:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7E0D220868
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 19:59:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TCMNgKbM";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="ZZVrDpHf"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D36A82082D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IDG0v/QM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7E0D220868
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=uTqBuHsV9lHFMFMdPI4vcAXD/rbXjdkVTyGMmeddqhY=; b=TCMNgKbMxCQVNFnx8jmJxtYYM
-	voLa/W3vW+62UuzwgKT9E7zGWUyvj572CizxREobJupPd54kfFsF6dKZXGlRSGhJyH4mDfWtlaSKC
-	4nqtVKaJ1XNCjKbYU0MGkR68cjfg3vvjhTLBO5g5jKcu299/l/NCMXc/TEpupgu/QzF0tCFtB2maw
-	a4pIsLCGSfEVgBQMdsXz43rcRS6+OLMUP6dxF7i/J7HnXOivA6Goqrw1rNdlBjFJhC+rpvJEzH+OE
-	58s+rihQiJydMW7jQdRDFCYn+cs0kE9m94cOQ+V7uJLQbH2YxNNqKFRqXPNrZ6VUapIdQ4sMdngPE
-	dwUxgYydw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4PqE5C0V8JA17gwujGqw3N30FERufvkAJHwnv0Axl2s=; b=IDG0v/QMea6Wyz
+	UZdkJeVHyD2qW+FGjWhsOlLG2OslxsGRCl5lPRB1CP7siNSSMGZPoPa1WZKLj3A3bj3dqLkIfPeH/
+	2KSOejy/9MTIsOwez7n171ro8kvZeINsQW+mnHvpjx7M0GbHRMXA1OFIaDXecV4aeenk2aJHOkqPa
+	elLOqVnZZUL1jsraVFoqhgd8beCdNmQykcJ2yVmfJo64qQ4mxRkddbEm6cMCUiA/6teW9GAhDU4S3
+	xMh4S2xp1EDEEGnZZnzEfKKZQFBAnRG7TNkiHfNj5T+ydO2wttHdCV6V1cNSF1Jj6CApTQYKQMhjY
+	g+T8hzkcKwjtlCqvZuFg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gVL7w-0002Lu-NX; Fri, 07 Dec 2018 18:45:28 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1gVMHm-0003uI-Gr; Fri, 07 Dec 2018 19:59:42 +0000
+Received: from mail.linuxfoundation.org ([140.211.169.12])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gVL7s-0002GM-D4
- for linux-riscv@lists.infradead.org; Fri, 07 Dec 2018 18:45:25 +0000
-Received: by mail-pg1-x544.google.com with SMTP id w6so2085896pgl.6
- for <linux-riscv@lists.infradead.org>; Fri, 07 Dec 2018 10:45:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=klopY/IsuJEDowTc4qrt4dyez0fGpBDt1xs5/j2mVbY=;
- b=ZZVrDpHfZs52iuETgv3m44IeOtThlIBsuU8+93Vxx7aBcyIR3CfRT2lS31h8wJewmV
- Tki/oz/jT6A7N4MGx481OP3Ps6TfITealhGoP+JTLC5p3O6m82JGXuTjm4MWJPiDDJCd
- 9EM9eqL6VYHHdGU1Bbtl+2lYmINTz3fkchPJj6pBGjTeh2ZntnCGYTTqejWBvjffftmA
- toRKjgdsx+CHfywJWPgM5ghK05Brr0Nyal9TZfyhadDDwN7cBZzDrkwfdK203vs0gGwr
- AjaKi368ZuHFSEclC49QQ0orgjY0eyXcBcs8mUkDr49hFKBs8OxYP3kz6S111fXbWDUC
- Z4zQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=klopY/IsuJEDowTc4qrt4dyez0fGpBDt1xs5/j2mVbY=;
- b=pMVHtkc0nKlw2De3cVt+F8ag+YnPIDdbPhG0/xwvPrr9GaXUIXOBpdYDraL8/XcVGa
- MwSOvwsC5+pSdqc5xWuu71d4ECi0ywZiNehafBBz/nwfImRDSEWkFv8NXauHFmU+2cg7
- 4Tscuxy9BixaE38oC5VBHFoRACIJjMp8fBWPeO+XMZ7FrAA4TGxGbDwFKZ8JlLgZ3XYw
- O1FyBiUcdKQvJjzLnfCOw/V0BaENs090kQaPhVacoiIPOoZ092uupGa9cvyMn9jOM614
- NaO5KMdmVvx06ZghL8vpE6E44QcowcSFMJBfYdSjmVVaHtj5FEEhfRstXA0NQc/Wtar4
- HqxQ==
-X-Gm-Message-State: AA+aEWaSt8peKhcF7qrFbRmzbdElSa+opAfN+bU0rfESxl6faMSErEpB
- pvtSs5m0VLlUelzKvw5oNcWsgA==
-X-Google-Smtp-Source: AFSGD/XwDgPF73po7jcMK0WLUnbQk9jaegnMO7Qp7EVNMCgsiulHRkkPkb3v6ey4N4xdmNlmrKTYkg==
-X-Received: by 2002:a63:f515:: with SMTP id w21mr2938694pgh.220.1544208313756; 
- Fri, 07 Dec 2018 10:45:13 -0800 (PST)
-Received: from localhost ([216.3.10.7])
- by smtp.gmail.com with ESMTPSA id y89sm6257168pfa.136.2018.12.07.10.45.12
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 07 Dec 2018 10:45:13 -0800 (PST)
-Date: Fri, 07 Dec 2018 10:45:13 -0800 (PST)
-X-Google-Original-Date: Fri, 07 Dec 2018 10:44:39 PST (-0800)
-Subject: Re: [PATCH RFC 4/7] riscv/vdso: don't clear PG_reserved
-In-Reply-To: <20181205122851.5891-5-david@redhat.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: david@redhat.com
-Message-ID: <mhng-3e6b4869-d5d7-42f4-a9d8-789a6772f52a@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ id 1gVMHc-0003j3-Kc; Fri, 07 Dec 2018 19:59:33 +0000
+Received: from akpm3.svl.corp.google.com (unknown [104.133.8.65])
+ by mail.linuxfoundation.org (Postfix) with ESMTPSA id C0002BAF;
+ Fri,  7 Dec 2018 19:56:27 +0000 (UTC)
+Date: Fri, 7 Dec 2018 11:56:26 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Logan Gunthorpe <logang@deltatee.com>
+Subject: Re: [PATCH 2/2] mm/sparse: add common helper to mark all memblocks
+ present
+Message-Id: <20181207115626.dd578402f407e3df798aad0c@linux-foundation.org>
+In-Reply-To: <71168447-7470-d2ba-d30e-200ff6202b35@deltatee.com>
+References: <20181107173859.24096-1-logang@deltatee.com>
+ <20181107173859.24096-3-logang@deltatee.com>
+ <20181107121207.62cb37cf58484b7cc80a8fd8@linux-foundation.org>
+ <71168447-7470-d2ba-d30e-200ff6202b35@deltatee.com>
+X-Mailer: Sylpheed 3.6.0 (GTK+ 2.24.31; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181207_104524_461455_1D893EFC 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20181207_115932_690955_246BF451 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,55 +67,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-s390@vger.kernel.org, aou@eecs.berkeley.edu,
- akpm@linux-foundation.org, david@redhat.com, linux-kernel@vger.kernel.org,
- willy@infradead.org, mhocko@kernel.org, linux-mm@kvack.org,
- linux-m68k@lists.linux-m68k.org, linux-mediatek@lists.infradead.org,
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- tklauser@distanz.ch, linux-arm-kernel@lists.infradead.org
+Cc: linux-arch@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>, linux-sh@vger.kernel.org,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Stephen Bates <sbates@raithlin.com>, linux-mm@kvack.org,
+ Michal Hocko <mhocko@suse.com>, Vlastimil Babka <vbabka@suse.cz>,
+ linux-riscv@lists.infradead.org, Christoph Hellwig <hch@lst.de>,
+ linux-arm-kernel@lists.infradead.org, Oscar Salvador <osalvador@suse.de>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 05 Dec 2018 04:28:48 PST (-0800), david@redhat.com wrote:
-> The VDSO is part of the kernel image and therefore the struct pages are
-> marked as reserved during boot.
->
-> As we install a special mapping, the actual struct pages will never be
-> exposed to MM via the page tables. We can therefore leave the pages
-> marked as reserved.
->
-> Cc: Palmer Dabbelt <palmer@sifive.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Tobias Klauser <tklauser@distanz.ch>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Michal Hocko <mhocko@kernel.org>
-> Cc: Matthew Wilcox <willy@infradead.org>
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-> ---
->  arch/riscv/kernel/vdso.c | 1 -
->  1 file changed, 1 deletion(-)
->
-> diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-> index 582cb153eb24..0cd044122234 100644
-> --- a/arch/riscv/kernel/vdso.c
-> +++ b/arch/riscv/kernel/vdso.c
-> @@ -54,7 +54,6 @@ static int __init vdso_init(void)
->  		struct page *pg;
->
->  		pg = virt_to_page(vdso_start + (i << PAGE_SHIFT));
-> -		ClearPageReserved(pg);
->  		vdso_pagelist[i] = pg;
->  	}
->  	vdso_pagelist[i] = virt_to_page(vdso_data);
+On Thu, 6 Dec 2018 10:40:31 -0700 Logan Gunthorpe <logang@deltatee.com> wrote:
 
-I'm going to assume this will go in through another tree along with the rest of 
-the set assuming everyone else is happy with it.
+> Hey Andrew,
+> 
+> On 2018-11-07 1:12 p.m., Andrew Morton wrote:
+> > Acked-by: Andrew Morton <akpm@linux-foundation.org>
+> > 
+> > I can grab both patches and shall sneak them into 4.20-rcX, but feel
+> > free to merge them into some git tree if you'd prefer.  If I see them
+> > turn up in linux-next I shall drop my copy.
+> 
+> Just wanted to check if you are still planning to get these patches into
+> 4.20-rcX. It would really help us if you can do this seeing we then
+> won't have to delay a cycle and can target the riscv sparsemem code for
+> 4.21.
+> 
 
-Acked-by: Palmer Dabbelt <palmer@sifive.com>
+Ah, OK, I assumed that it would be merged via an arm tree.
 
-Thanks!
+I moved 
+
+mm-introduce-common-struct_page_max_shift-define.patch
+mm-sparse-add-common-helper-to-mark-all-memblocks-present.patch
+
+to head-of-queue.  Shall send to Linus next week.
 
 _______________________________________________
 linux-riscv mailing list
