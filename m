@@ -2,21 +2,22 @@ Return-Path: <SRS0=gWek=OQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
-	T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F263CC64EB1
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 18:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0EA9BC64EB1
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 18:45:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BF2D820659
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 18:45:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D36A82082D
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 18:45:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nw/gxWcM";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="mxXiZnLi"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BF2D820659
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TCMNgKbM";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="ZZVrDpHf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D36A82082D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,63 +26,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=6J3/EIjPIAdFlAt4F3tGnj340TvOcJyWCqXwZSQjO44=; b=nw/gxWcMtM9vwrFAa7q3VmDx3
-	1dPitp5lhZ2j/UNC+l0HCdURc1yElkt3geeKUZ0syhJh2SscQyHfIWwog4KKEJXMxKQb9eYwp/pM4
-	aoloWLww1DdcCsqotXsbtiCwkK7BYFAj2yx6hEZueCVxgZ7qreBCGgN31pEGCZW1QRe7E6CLg0+ee
-	kCQ0e1rA3IZdYlCJFCsxrv+YP95x+AjoNEB/WVeYYJz2x0PEh2Y+U+xUmBCwBPaxlXpfV79GeY/ax
-	EBFFlH7J43m0YMBT28BGmvUROqUM3ZotT1dfmIP6x9KVvCowl9izbMl3Tib/nNzniMcgw15tirLId
-	mW0I2E+5A==;
+	 bh=uTqBuHsV9lHFMFMdPI4vcAXD/rbXjdkVTyGMmeddqhY=; b=TCMNgKbMxCQVNFnx8jmJxtYYM
+	voLa/W3vW+62UuzwgKT9E7zGWUyvj572CizxREobJupPd54kfFsF6dKZXGlRSGhJyH4mDfWtlaSKC
+	4nqtVKaJ1XNCjKbYU0MGkR68cjfg3vvjhTLBO5g5jKcu299/l/NCMXc/TEpupgu/QzF0tCFtB2maw
+	a4pIsLCGSfEVgBQMdsXz43rcRS6+OLMUP6dxF7i/J7HnXOivA6Goqrw1rNdlBjFJhC+rpvJEzH+OE
+	58s+rihQiJydMW7jQdRDFCYn+cs0kE9m94cOQ+V7uJLQbH2YxNNqKFRqXPNrZ6VUapIdQ4sMdngPE
+	dwUxgYydw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gVL7t-0002JF-BM; Fri, 07 Dec 2018 18:45:25 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1gVL7w-0002Lu-NX; Fri, 07 Dec 2018 18:45:28 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gVL7q-0002G0-LS
- for linux-riscv@lists.infradead.org; Fri, 07 Dec 2018 18:45:24 +0000
-Received: by mail-pl1-x644.google.com with SMTP id y1so2201382plp.9
- for <linux-riscv@lists.infradead.org>; Fri, 07 Dec 2018 10:45:12 -0800 (PST)
+ id 1gVL7s-0002GM-D4
+ for linux-riscv@lists.infradead.org; Fri, 07 Dec 2018 18:45:25 +0000
+Received: by mail-pg1-x544.google.com with SMTP id w6so2085896pgl.6
+ for <linux-riscv@lists.infradead.org>; Fri, 07 Dec 2018 10:45:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=NNDKygG0WX9igZsqFZ4iPyF5LpJxmo5sA54/xkrjpjI=;
- b=mxXiZnLitdrHnq22Nq8YRSCL++2I+yp2I1Wp+rhZAC2Ll/kMbtW3xGbqrbwv3rmxRx
- bp8qlisSxMY0S+lMrHpl2XZ7eCj+vUXoABRIcvVbFULRxPUX5m3sV8hTfeGE/JhYJozc
- /yV2VXYQT4kO/lTvWz5eYyzx2boKoO9jo4KKoUukpTzcbNng1cD5qPMd0MnM+LTJD7kL
- dmumrdrYTOEf/KHoCXuRvqIkURR/1xxZ0kqUKSd3jQorfVB+0kiCAfcEZXBDXtZv0s2m
- 0Gr3CRmQ1azvjYXTninXQTbih0ghtLT4w3VvE3sGvaidFNLYEdCuiDbFfJfHGPoSM1cX
- Xz6Q==
+ bh=klopY/IsuJEDowTc4qrt4dyez0fGpBDt1xs5/j2mVbY=;
+ b=ZZVrDpHfZs52iuETgv3m44IeOtThlIBsuU8+93Vxx7aBcyIR3CfRT2lS31h8wJewmV
+ Tki/oz/jT6A7N4MGx481OP3Ps6TfITealhGoP+JTLC5p3O6m82JGXuTjm4MWJPiDDJCd
+ 9EM9eqL6VYHHdGU1Bbtl+2lYmINTz3fkchPJj6pBGjTeh2ZntnCGYTTqejWBvjffftmA
+ toRKjgdsx+CHfywJWPgM5ghK05Brr0Nyal9TZfyhadDDwN7cBZzDrkwfdK203vs0gGwr
+ AjaKi368ZuHFSEclC49QQ0orgjY0eyXcBcs8mUkDr49hFKBs8OxYP3kz6S111fXbWDUC
+ Z4zQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=NNDKygG0WX9igZsqFZ4iPyF5LpJxmo5sA54/xkrjpjI=;
- b=ZgtoJx7kQgsUB+5FQPe0HVuF+TSfCP1Gt589c/oOMRLAp/itukIhKV7SS8gDCiCDkM
- rxG4D7NCvT1K+8gaAIril5Q/Kp4XQjhv1wTrsEAWUiO1AIOzIP2PsBylgcHpEsTPBcCS
- FI2Xc4SIqjBOTj9/3D33nLPkWC1zZbzCdYJuvxqW0Hql+OAnUH90RqKYp46oR+2tWwG9
- MYJbcUUQ0PGttS79+avsjeQBboNXdPo3MP8H4nP4yR7HMZ0eXZvAXYInKupy9xHlTSOp
- XTH7OQzBN8u2bo1AG1jwL498YN+R7bIHW+bAlkiCxkiIYs+nqpRWGKPCPu/4SVwm8Agh
- EjBg==
-X-Gm-Message-State: AA+aEWaRsTYrXKi9y/hA+7FHTW/VcIEvXpIQ15+syBtTsXtGbIVBkM2n
- 504rvGbm5xDlszvTX3Ekw/DTtg==
-X-Google-Smtp-Source: AFSGD/WCcCsZa5P1415ERxz/08fdE7JNfiI8/LYm5k/Mg2iZ/ywuZ2XvHuADtSp9XAy7PaCZ2is06Q==
-X-Received: by 2002:a17:902:720c:: with SMTP id
- ba12mr3193243plb.79.1544208311926; 
- Fri, 07 Dec 2018 10:45:11 -0800 (PST)
+ bh=klopY/IsuJEDowTc4qrt4dyez0fGpBDt1xs5/j2mVbY=;
+ b=pMVHtkc0nKlw2De3cVt+F8ag+YnPIDdbPhG0/xwvPrr9GaXUIXOBpdYDraL8/XcVGa
+ MwSOvwsC5+pSdqc5xWuu71d4ECi0ywZiNehafBBz/nwfImRDSEWkFv8NXauHFmU+2cg7
+ 4Tscuxy9BixaE38oC5VBHFoRACIJjMp8fBWPeO+XMZ7FrAA4TGxGbDwFKZ8JlLgZ3XYw
+ O1FyBiUcdKQvJjzLnfCOw/V0BaENs090kQaPhVacoiIPOoZ092uupGa9cvyMn9jOM614
+ NaO5KMdmVvx06ZghL8vpE6E44QcowcSFMJBfYdSjmVVaHtj5FEEhfRstXA0NQc/Wtar4
+ HqxQ==
+X-Gm-Message-State: AA+aEWaSt8peKhcF7qrFbRmzbdElSa+opAfN+bU0rfESxl6faMSErEpB
+ pvtSs5m0VLlUelzKvw5oNcWsgA==
+X-Google-Smtp-Source: AFSGD/XwDgPF73po7jcMK0WLUnbQk9jaegnMO7Qp7EVNMCgsiulHRkkPkb3v6ey4N4xdmNlmrKTYkg==
+X-Received: by 2002:a63:f515:: with SMTP id w21mr2938694pgh.220.1544208313756; 
+ Fri, 07 Dec 2018 10:45:13 -0800 (PST)
 Received: from localhost ([216.3.10.7])
- by smtp.gmail.com with ESMTPSA id 125sm8970983pfd.124.2018.12.07.10.45.10
+ by smtp.gmail.com with ESMTPSA id y89sm6257168pfa.136.2018.12.07.10.45.12
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 07 Dec 2018 10:45:11 -0800 (PST)
-Date: Fri, 07 Dec 2018 10:45:11 -0800 (PST)
-X-Google-Original-Date: Fri, 07 Dec 2018 10:42:13 PST (-0800)
-Subject: Re: [PATCH 1/3] tty/serial: Add RISC-V SBI earlycon support
-In-Reply-To: <20181205095846.GA9847@kroah.com>
+ Fri, 07 Dec 2018 10:45:13 -0800 (PST)
+Date: Fri, 07 Dec 2018 10:45:13 -0800 (PST)
+X-Google-Original-Date: Fri, 07 Dec 2018 10:44:39 PST (-0800)
+Subject: Re: [PATCH RFC 4/7] riscv/vdso: don't clear PG_reserved
+In-Reply-To: <20181205122851.5891-5-david@redhat.com>
 From: Palmer Dabbelt <palmer@sifive.com>
-To: Greg KH <gregkh@linuxfoundation.org>
-Message-ID: <mhng-114b47e6-1722-4cae-9132-5998c74eef66@palmer-si-x1c4>
+To: david@redhat.com
+Message-ID: <mhng-3e6b4869-d5d7-42f4-a9d8-789a6772f52a@palmer-si-x1c4>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181207_104522_733577_DA827F87 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20181207_104524_461455_1D893EFC 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,32 +93,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: robh@kernel.org, aou@eecs.berkeley.edu, anup@brainfault.org,
- linux-kernel@vger.kernel.org, Christoph Hellwig <hch@infradead.org>,
- atish.patra@wdc.com, linux-serial@vger.kernel.org, jslaby@suse.com,
- linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org, aou@eecs.berkeley.edu,
+ akpm@linux-foundation.org, david@redhat.com, linux-kernel@vger.kernel.org,
+ willy@infradead.org, mhocko@kernel.org, linux-mm@kvack.org,
+ linux-m68k@lists.linux-m68k.org, linux-mediatek@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ tklauser@distanz.ch, linux-arm-kernel@lists.infradead.org
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 05 Dec 2018 01:58:46 PST (-0800), Greg KH wrote:
-> On Tue, Dec 04, 2018 at 07:25:05PM +0530, Anup Patel wrote:
->> In RISC-V, the M-mode runtime firmware provide SBI calls for
->> debug prints. This patch adds earlycon support using RISC-V
->> SBI console calls. To enable it, just pass "earlycon=sbi" in
->> kernel parameters.
->>
->> Signed-off-by: Anup Patel <anup@brainfault.org>
+On Wed, 05 Dec 2018 04:28:48 PST (-0800), david@redhat.com wrote:
+> The VDSO is part of the kernel image and therefore the struct pages are
+> marked as reserved during boot.
 >
-> This makes more sense to take through the riscv tree, so feel free to
-> add:
+> As we install a special mapping, the actual struct pages will never be
+> exposed to MM via the page tables. We can therefore leave the pages
+> marked as reserved.
 >
-> Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Cc: Palmer Dabbelt <palmer@sifive.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Tobias Klauser <tklauser@distanz.ch>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Michal Hocko <mhocko@kernel.org>
+> Cc: Matthew Wilcox <willy@infradead.org>
+> Signed-off-by: David Hildenbrand <david@redhat.com>
+> ---
+>  arch/riscv/kernel/vdso.c | 1 -
+>  1 file changed, 1 deletion(-)
 >
-> to it and take it that way.
+> diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
+> index 582cb153eb24..0cd044122234 100644
+> --- a/arch/riscv/kernel/vdso.c
+> +++ b/arch/riscv/kernel/vdso.c
+> @@ -54,7 +54,6 @@ static int __init vdso_init(void)
+>  		struct page *pg;
+>
+>  		pg = virt_to_page(vdso_start + (i << PAGE_SHIFT));
+> -		ClearPageReserved(pg);
+>  		vdso_pagelist[i] = pg;
+>  	}
+>  	vdso_pagelist[i] = virt_to_page(vdso_data);
 
-It should be in my for-next now.
+I'm going to assume this will go in through another tree along with the rest of 
+the set assuming everyone else is happy with it.
+
+Acked-by: Palmer Dabbelt <palmer@sifive.com>
 
 Thanks!
 
