@@ -2,78 +2,87 @@ Return-Path: <SRS0=gWek=OQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	MAILING_LIST_MULTI,SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,T_DKIMWL_WL_HIGH autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7E737C07E85
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 15:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 73CE3C64EB1
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 16:29:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 486B820837
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 15:19:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 41ACB20837
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 16:29:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZIK9gcnT";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="hxdymbnM"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 486B820837
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YD1oqphm";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="QqWh8jvD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 41ACB20837
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5RV/A7VP4+LzVPYgRQs2lbsl3bZMP45YqF+Fwbibim0=; b=ZIK9gcnTQlmxlF
-	Bwj++kHNEfnNux0vEm8la5iBYYP4b2oAurPecf8QGJNepARxtnAYdKjSRHD9yItSwNk4eHCS4CTAK
-	UBGpSF3P7l2GsF08OypTtisJab3n8WcdJdwQXMTcbYvshuT5Ujfs3+Lv1sswUpGVKqRjWGcx0HPai
-	UYzSjfLloo8oWuyFiD9+5DE3p7D8MA35x3bq4iUFaPvRlgxz4yd6U8AWMqsxKt3WaFo/F0Nb4MBLw
-	OXk6pWLOxiYIQB+NRoDOMZKHZt+uSZkMolaPcI0Lg8mrfoENiGsTPw2wVTehiFdjaBDue/tPBHyYe
-	xBdH/l45p1WLkceufKpQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=IlQDG/IBBlf4McJ8/2EOQH0hI5sp1tL7w9nhMRlTkUA=; b=YD1oqphmQH90ekiSl75LsoLnx
+	acvJEY9aO9RPbnA2GAQ07YY5cyuEa/gDceu5n/g65dDhefEhzuFoh9UPsXD1ybV1fDxKC7AlUsEj5
+	j3nHVyE+SBj78dQC0Mm0cWEEzpK/iwO+bkANPrZyfHyBTGtZU3lRnNEpDWyWDDW7KFwf+6uZcT+r2
+	7F5Y+wQAkhCNZalMvzb/U61CVNcOsMtT+itNMGotXrTifKh1l8GmTrfD7YnjesOvaxDb6drCBai1C
+	l8LpxSP1kX9Rgm8PTnwnqADbdwqeBOorc0aPEZuXzZuYil38fCZYCOgvPBuoFW2jYxqITfAHVpRNl
+	mRTXpF7hA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gVHun-00007i-GH; Fri, 07 Dec 2018 15:19:41 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1gVJ0V-0005em-NV; Fri, 07 Dec 2018 16:29:39 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gVHuk-00006M-PA
- for linux-riscv@lists.infradead.org; Fri, 07 Dec 2018 15:19:40 +0000
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com
- [209.85.128.42])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id BE23720837
- for <linux-riscv@lists.infradead.org>; Fri,  7 Dec 2018 15:19:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1544195968;
- bh=GgQpZyggwvg1c0v49la1/Do0wIB1W4l6a9s+oeWC3Nk=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=hxdymbnMnfE9jqddXW+qQm04hAtP4VehwN1GOT9aMrVRtDNMvIQ/do8yIYUKPynyc
- h945N9F9juBjJHyeoLiLkC7HoBLhC6qUtlRhiyHyUCyyNkY8kKju3yatykceHMJBeF
- 3zQwNNMQPrfeSkBBJ3WwERmlwGRW2xyBx4jN9zUM=
-Received: by mail-wm1-f42.google.com with SMTP id y139so4698446wmc.5
- for <linux-riscv@lists.infradead.org>; Fri, 07 Dec 2018 07:19:27 -0800 (PST)
-X-Gm-Message-State: AA+aEWZCsA0MvVqOn72N5VKOUALpQEYKrbNlioLyUIpDZrlEOG50tW7x
- GvLAfrHlttfj1uH4sBNygYgFxeb2y/t32ZP7VO4f9g==
-X-Google-Smtp-Source: AFSGD/U8lJakSrxUD2N+1NYCVYC5+M6Wc1YI0Km9KFosyibzJNEgDZRzTD7kyaYrAMCKJWNR/Gz4KXE4yvyC5V+lLDc=
-X-Received: by 2002:a1c:b687:: with SMTP id g129mr2543595wmf.59.1544195966260; 
- Fri, 07 Dec 2018 07:19:26 -0800 (PST)
-MIME-Version: 1.0
-References: <alpine.DEB.2.21.9999.1811211704520.16271@viisi.sifive.com>
- <20181207000104.GA10814@bogus>
- <alpine.DEB.2.21.9999.1812061645070.29609@viisi.sifive.com>
- <CAL_JsqJgt3VxHLcxY54Ojpqz_bLwGSySZ9meowgy6pnLPdXuLQ@mail.gmail.com>
- <alpine.DEB.2.21.9999.1812070624180.16511@viisi.sifive.com>
-In-Reply-To: <alpine.DEB.2.21.9999.1812070624180.16511@viisi.sifive.com>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 7 Dec 2018 09:19:14 -0600
-X-Gmail-Original-Message-ID: <CABGGisyc-nLZkxtJAr5-BT4ziJO1AW6MU-4ChgBV73No67y0PA@mail.gmail.com>
-Message-ID: <CABGGisyc-nLZkxtJAr5-BT4ziJO1AW6MU-4ChgBV73No67y0PA@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: sifive: describe sifive-blocks versioning
-To: paul.walmsley@sifive.com
+ id 1gVJ0R-0005TO-7D
+ for linux-riscv@lists.infradead.org; Fri, 07 Dec 2018 16:29:38 +0000
+Received: by mail-pl1-x644.google.com with SMTP id gn14so2045726plb.10
+ for <linux-riscv@lists.infradead.org>; Fri, 07 Dec 2018 08:29:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=X2pu8p3WZy3f+AE9epItTKGjPmNG8+ItYYTRAcx7W+g=;
+ b=QqWh8jvDePAOhofuVQh0swZUyA8wlLQxcP6G07/2c8ZcESSxdI9GUqiDoXsymf8GQl
+ rMN5a73555bUpsR0RbLU2GK7F2K9gGwnOwB4Kt3ZjdV3vb2t9Y8FBrmjFQlsCh1r9Cec
+ vokBs5WxtgwVmFlt1gzu23Anf6ODsjc08PotZzDOn588ukXJYHrd7MocKk7z+m5kxeh7
+ tmg1ZdxjC6EhHhP1TxKTjK+/ROTYEoGJta3Z9XdlGuQjtiknQWKbGpi1Fgk3FVfzh7zX
+ +U0oHPhdmIpRjbhUAxLKZP+UHBrVnTcMxLffnOtc/5GdETNFyp3YMr+P9XJBrcMLytud
+ YnFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=X2pu8p3WZy3f+AE9epItTKGjPmNG8+ItYYTRAcx7W+g=;
+ b=iHn9VsI4bKLc+fpjf7VJTXDv9npNE/pean2sl4/0w9xZS3mILkQGDMpJdMnt/ZiQGc
+ wLxVDO8nXKd5TmM54YV9DuAlLTVwbVGMUJ6da5rsCz9+BObKBbgJC73nw6XOOssDTsEl
+ AmZ27+lpwMnQLH0v6D2G0UKE6lPukLBCAMbAkNbc4V6B8DgQBzjg2O624b241HwaiU14
+ jnEo7N+dHeOcAq8giNnM2y/JMlHTdCF1cLIp41WCk3CZoQpWEJMYSAa5yZ2NhIzF6Uq/
+ uB767tpiaEFdYhq1Fdug2ppnS4M4zXm8YbRwFx1cG8BLtxwGHRONI5wk+Ue5X5YEaha8
+ N1fw==
+X-Gm-Message-State: AA+aEWZJlSu9bDb+nQBdQGIjDbFQiQeUMhDSzfxwRJ+nH+0L/iCNpVrI
+ P2iTiwx0Fm4OiU4VH+pXfIqaBA==
+X-Google-Smtp-Source: AFSGD/VPQK3YjMW5KcYamItmXPt3ZkU3p4hQQuC7lNu6PLyR5sqQ/VdrhMHUbVoUIHb/ETybuLhMrw==
+X-Received: by 2002:a17:902:a6:: with SMTP id
+ a35mr2734632pla.201.1544200164102; 
+ Fri, 07 Dec 2018 08:29:24 -0800 (PST)
+Received: from localhost ([216.3.10.7])
+ by smtp.gmail.com with ESMTPSA id g2sm4750135pfi.95.2018.12.07.08.29.22
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 07 Dec 2018 08:29:23 -0800 (PST)
+Date: Fri, 07 Dec 2018 08:29:23 -0800 (PST)
+X-Google-Original-Date: Fri, 07 Dec 2018 08:23:54 PST (-0800)
+Subject: Re: [PATCH 1/4] dt-bindings: Correct RISC-V's timebase-frequency
+In-Reply-To: <1543870651-16669-2-git-send-email-atish.patra@wdc.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: atish.patra@wdc.com
+Message-ID: <mhng-a15b587e-3bfe-4568-8262-dc421585bc36@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181207_071938_837873_6FA97624 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20181207_082935_376078_C938D799 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -85,42 +94,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- paul@pwsan.com, wesley@sifive.com, palmer@sifive.com,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, megan@sifive.com,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, Damien.LeMoal@wdc.com,
+ aou@eecs.berkeley.edu, dmitriy@oss-tech.org, anup@brainfault.org,
+ daniel.lezcano@linaro.org, linux-kernel@vger.kernel.org, atish.patra@wdc.com,
+ robh+dt@kernel.org, tglx@linutronix.de, linux-riscv@lists.infradead.org,
+ Christoph Hellwig <hch@lst.de>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 7, 2018 at 8:31 AM Paul Walmsley <paul.walmsley@sifive.com> wrote:
+On Mon, 03 Dec 2018 12:57:28 PST (-0800), atish.patra@wdc.com wrote:
+> From: Palmer Dabbelt <palmer@sifive.com>
 >
+> Someone must have read the device tree specification incorrectly,
+> because we were putting timebase-frequency in the wrong place.  This
+> corrects the issue, moving it from
 >
-> On Fri, 7 Dec 2018, Rob Herring wrote:
+> / {
+>         cpus {
+>                 timebase-frequency = X;
+>         }
+> }
 >
-> > On Thu, Dec 6, 2018 at 6:46 PM Paul Walmsley <paul.walmsley@sifive.com> wrote:
-> > > On Thu, 6 Dec 2018, Rob Herring wrote:
-> > > > On Wed, Nov 21, 2018 at 05:06:56PM -0800, Paul Walmsley wrote:
-> > > >
-> > > > >  .../sifive/sifive-blocks-ip-versioning.txt    | 38 +++++++++++++++++++
-> > > > >  1 file changed, 38 insertions(+)
-> > > > >  create mode 100644 Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
-> > > >
-> > > > Use the path that was suggested.
-> > >
-> > > Could you remind me which one that is?
-> >
-> > In this thread: bindings/riscv/sifive/
+> to
 >
-> SiFive also produces ARM-based SoCs.  Some of those ARM SoCs may use these
-> IP blocks from sifive-blocks as well.  As far as I know, there's nothing
-> RISC-V-specific about most of these IP blocks.  (As an example, there's
-> nothing CPU architecture-specific about a UART.)
+> / {
+>         cpus {
+>                 cpu@0 {
+>                         timebase-frequency = X;
+>                 }
+>         }
+> }
+>
+> This is great, because the timer's frequency should really be a per-cpu
+> quantity on RISC-V systems since there's a timer per CPU.  This should
+> lead to some cleanups in our timer driver.
 
-Fair enough. As-is is fine.
+I think I was actually wrong here: the top version is preferred if 
+timebase-frequency is the same between all CPUs, while the bottom is if it's 
+different.
 
-Rob
+Updating the documentation is still good, because it matches the hardware, but 
+the commit message should be a bit less assertive... :)
+
+> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> Reviewed-by: Rob Herring <robh@kernel.org>
+> ---
+>  Documentation/devicetree/bindings/riscv/cpus.txt | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/Documentation/devicetree/bindings/riscv/cpus.txt b/Documentation/devicetree/bindings/riscv/cpus.txt
+> index adf7b7af..b0b038d6 100644
+> --- a/Documentation/devicetree/bindings/riscv/cpus.txt
+> +++ b/Documentation/devicetree/bindings/riscv/cpus.txt
+> @@ -93,9 +93,9 @@ Linux is allowed to run on.
+>          cpus {
+>                  #address-cells = <1>;
+>                  #size-cells = <0>;
+> -                timebase-frequency = <1000000>;
+>                  cpu@0 {
+>                          clock-frequency = <1600000000>;
+> +                        timebase-frequency = <1000000>;
+>                          compatible = "sifive,rocket0", "riscv";
+>                          device_type = "cpu";
+>                          i-cache-block-size = <64>;
+> @@ -113,6 +113,7 @@ Linux is allowed to run on.
+>                  };
+>                  cpu@1 {
+>                          clock-frequency = <1600000000>;
+> +                        timebase-frequency = <1000000>;
+>                          compatible = "sifive,rocket0", "riscv";
+>                          d-cache-block-size = <64>;
+>                          d-cache-sets = <64>;
+> @@ -145,6 +146,7 @@ Example: Spike ISA Simulator with 1 Hart
+>  This device tree matches the Spike ISA golden model as run with `spike -p1`.
+>
+>          cpus {
+> +                timebase-frequency = <1000000>;
+>                  cpu@0 {
+>                          device_type = "cpu";
+>                          reg = <0x00000000>;
 
 _______________________________________________
 linux-riscv mailing list
