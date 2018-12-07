@@ -4,20 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,T_DKIMWL_WL_HIGH autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 73CE3C64EB1
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 16:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F21B1C07E85
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 16:42:46 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 41ACB20837
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 16:29:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BF84E2081C
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 16:42:46 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YD1oqphm";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="QqWh8jvD"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 41ACB20837
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CL34n3Wh";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Ng+pLLfl"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BF84E2081C
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,63 +26,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=IlQDG/IBBlf4McJ8/2EOQH0hI5sp1tL7w9nhMRlTkUA=; b=YD1oqphmQH90ekiSl75LsoLnx
-	acvJEY9aO9RPbnA2GAQ07YY5cyuEa/gDceu5n/g65dDhefEhzuFoh9UPsXD1ybV1fDxKC7AlUsEj5
-	j3nHVyE+SBj78dQC0Mm0cWEEzpK/iwO+bkANPrZyfHyBTGtZU3lRnNEpDWyWDDW7KFwf+6uZcT+r2
-	7F5Y+wQAkhCNZalMvzb/U61CVNcOsMtT+itNMGotXrTifKh1l8GmTrfD7YnjesOvaxDb6drCBai1C
-	l8LpxSP1kX9Rgm8PTnwnqADbdwqeBOorc0aPEZuXzZuYil38fCZYCOgvPBuoFW2jYxqITfAHVpRNl
-	mRTXpF7hA==;
+	 bh=0bqP0Vta3BXWYl+o3USC6cnIeFV8bP3KUQmf61YoKnc=; b=CL34n3WhhDnzS1On7BRbeKOfV
+	zl5mmQXZXmIXXiQ1e+oQpslSzTBcp15XnlFTCW1FM+8o37rC3Tkn2+J9lQwsCLEuPFR2pHmYPQph1
+	mQZjvvMx5fX/JdenD+8TRpRVuPiQxht8JDHTbh1nno59JKsHJFiUrPTXWAEj7wLlumT0P4R12uOg2
+	nqLWM4KqLb69lu50tpfy7CVApJ/6VWKBS0E+nBpjUzS4+HHuQ/mf61Ai6DQB23G51KOTPiAIXw94T
+	CpOLmNOkjX/z91Il7sq/sA4KJBodujsAhD0Q1A2MdIF2vnW8Jdgu5ZCGkYCEiweGIjAJp/SQI51lZ
+	jRtFy/10Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gVJ0V-0005em-NV; Fri, 07 Dec 2018 16:29:39 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1gVJDB-0004bN-Uz; Fri, 07 Dec 2018 16:42:45 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gVJ0R-0005TO-7D
- for linux-riscv@lists.infradead.org; Fri, 07 Dec 2018 16:29:38 +0000
-Received: by mail-pl1-x644.google.com with SMTP id gn14so2045726plb.10
- for <linux-riscv@lists.infradead.org>; Fri, 07 Dec 2018 08:29:24 -0800 (PST)
+ id 1gVJD8-0004as-4x
+ for linux-riscv@lists.infradead.org; Fri, 07 Dec 2018 16:42:43 +0000
+Received: by mail-pf1-x444.google.com with SMTP id z9so2204644pfi.2
+ for <linux-riscv@lists.infradead.org>; Fri, 07 Dec 2018 08:42:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=X2pu8p3WZy3f+AE9epItTKGjPmNG8+ItYYTRAcx7W+g=;
- b=QqWh8jvDePAOhofuVQh0swZUyA8wlLQxcP6G07/2c8ZcESSxdI9GUqiDoXsymf8GQl
- rMN5a73555bUpsR0RbLU2GK7F2K9gGwnOwB4Kt3ZjdV3vb2t9Y8FBrmjFQlsCh1r9Cec
- vokBs5WxtgwVmFlt1gzu23Anf6ODsjc08PotZzDOn588ukXJYHrd7MocKk7z+m5kxeh7
- tmg1ZdxjC6EhHhP1TxKTjK+/ROTYEoGJta3Z9XdlGuQjtiknQWKbGpi1Fgk3FVfzh7zX
- +U0oHPhdmIpRjbhUAxLKZP+UHBrVnTcMxLffnOtc/5GdETNFyp3YMr+P9XJBrcMLytud
- YnFw==
+ bh=X5gv29cw/jua0qOKLhYdOHAw86A0bWuonl9yHT8iJZk=;
+ b=Ng+pLLflO6Jka5NOPi/y3P+cHuAcXeKQatJZkCgE823OlDEUy/RQ9gawBRAPDk/ec4
+ Cq+M13fOicQkNa0fljAph5T7p7Y6d2sby0rFi39MUcbusbBlv8uwF5X/Xw/+gR0rXvlz
+ XuqO+38avgA6v3J52u4TX0DvixQqHY0Dlc7OEdb4uW8xB/ISU/+irO2FiK51ZPrDUAcY
+ ddM/nbObTfvwxVq830pdNXZMiqqkFiB7VD6vrC4wpowoAuvFX2LsS0E+j//J87+VdW/B
+ AdiZKvUU+bSKX8Dsmkaip12Evh5jziLGOUj7XOwqIYkYr4J/UrgM+Xu9CjzWAK9PFNVX
+ ADfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=X2pu8p3WZy3f+AE9epItTKGjPmNG8+ItYYTRAcx7W+g=;
- b=iHn9VsI4bKLc+fpjf7VJTXDv9npNE/pean2sl4/0w9xZS3mILkQGDMpJdMnt/ZiQGc
- wLxVDO8nXKd5TmM54YV9DuAlLTVwbVGMUJ6da5rsCz9+BObKBbgJC73nw6XOOssDTsEl
- AmZ27+lpwMnQLH0v6D2G0UKE6lPukLBCAMbAkNbc4V6B8DgQBzjg2O624b241HwaiU14
- jnEo7N+dHeOcAq8giNnM2y/JMlHTdCF1cLIp41WCk3CZoQpWEJMYSAa5yZ2NhIzF6Uq/
- uB767tpiaEFdYhq1Fdug2ppnS4M4zXm8YbRwFx1cG8BLtxwGHRONI5wk+Ue5X5YEaha8
- N1fw==
-X-Gm-Message-State: AA+aEWZJlSu9bDb+nQBdQGIjDbFQiQeUMhDSzfxwRJ+nH+0L/iCNpVrI
- P2iTiwx0Fm4OiU4VH+pXfIqaBA==
-X-Google-Smtp-Source: AFSGD/VPQK3YjMW5KcYamItmXPt3ZkU3p4hQQuC7lNu6PLyR5sqQ/VdrhMHUbVoUIHb/ETybuLhMrw==
-X-Received: by 2002:a17:902:a6:: with SMTP id
- a35mr2734632pla.201.1544200164102; 
- Fri, 07 Dec 2018 08:29:24 -0800 (PST)
+ bh=X5gv29cw/jua0qOKLhYdOHAw86A0bWuonl9yHT8iJZk=;
+ b=NALEgPrsJFT3FplldwBCyimLBrBN7QsHZwAjeJ90I+514ozsmqei5uG+dEwaPkoXfQ
+ tLTWKwm9vGa+BxvojfyKbRXivXq0RrD/n7hOA5P4zo6lC3TAaWfKePsatnp5e1+sD2TS
+ Vdqm/gOLm4JqZ/7e3vxt0Tc2ZDhQfqDr+IyIyzz+9LoQmSd3ANei1p67pl+qUmWSRQJX
+ EyMynvOUcXmKZDDaW9yExfySduyczzJQ5LJ8V/kWqevbrUBcPiviBq47Y0RgdGWpp8Q9
+ lpNwg7YjJx62b1wS+wkoy0bpFji6IKgay+l8TYZ4xmWeO+Ulii9vpN7IqAUdQ9jHYRGo
+ LkJA==
+X-Gm-Message-State: AA+aEWZfFqqf7MiX+9p4unIUZG8xD2Ie8bXXwfNn9TVFuwH2Y+2EFKqP
+ yXdQ38e/SZZ5cph6xkFk810Vdg==
+X-Google-Smtp-Source: AFSGD/W4LRXLJ1eTVRgzgmhs+O8evoxzKUGEUzmcaPnhaGqkthgmhsP1bY80x0+Kt0LR9uk3wtankg==
+X-Received: by 2002:a63:f444:: with SMTP id p4mr2569422pgk.124.1544200951086; 
+ Fri, 07 Dec 2018 08:42:31 -0800 (PST)
 Received: from localhost ([216.3.10.7])
- by smtp.gmail.com with ESMTPSA id g2sm4750135pfi.95.2018.12.07.08.29.22
+ by smtp.gmail.com with ESMTPSA id r83sm6995312pfc.115.2018.12.07.08.42.29
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 07 Dec 2018 08:29:23 -0800 (PST)
-Date: Fri, 07 Dec 2018 08:29:23 -0800 (PST)
-X-Google-Original-Date: Fri, 07 Dec 2018 08:23:54 PST (-0800)
-Subject: Re: [PATCH 1/4] dt-bindings: Correct RISC-V's timebase-frequency
-In-Reply-To: <1543870651-16669-2-git-send-email-atish.patra@wdc.com>
+ Fri, 07 Dec 2018 08:42:30 -0800 (PST)
+Date: Fri, 07 Dec 2018 08:42:30 -0800 (PST)
+X-Google-Original-Date: Fri, 07 Dec 2018 08:42:19 PST (-0800)
+Subject: Re: [PATCH 2/4] RISC-V: Support per-hart timebase-frequency
+In-Reply-To: <1543870651-16669-3-git-send-email-atish.patra@wdc.com>
 From: Palmer Dabbelt <palmer@sifive.com>
 To: atish.patra@wdc.com
-Message-ID: <mhng-a15b587e-3bfe-4568-8262-dc421585bc36@palmer-si-x1c4>
+Message-ID: <mhng-531f9ae3-9ab2-48cb-9f1f-4e6814498753@palmer-si-x1c4>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181207_082935_376078_C938D799 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20181207_084242_257599_947FF46A 
+X-CRM114-Status: GOOD (  19.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,85 +96,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, Damien.LeMoal@wdc.com,
  aou@eecs.berkeley.edu, dmitriy@oss-tech.org, anup@brainfault.org,
  daniel.lezcano@linaro.org, linux-kernel@vger.kernel.org, atish.patra@wdc.com,
- robh+dt@kernel.org, tglx@linutronix.de, linux-riscv@lists.infradead.org,
- Christoph Hellwig <hch@lst.de>
+ robh+dt@kernel.org, linux-riscv@lists.infradead.org, tglx@linutronix.de
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 03 Dec 2018 12:57:28 PST (-0800), atish.patra@wdc.com wrote:
-> From: Palmer Dabbelt <palmer@sifive.com>
+On Mon, 03 Dec 2018 12:57:29 PST (-0800), atish.patra@wdc.com wrote:
+> Follow the updated DT specs and read the timebase-frequency
+> from the boot cpu. Keep the old DT reading as well for backward
+> compatibility. This patch is rework of old patch from Palmer.
 >
-> Someone must have read the device tree specification incorrectly,
-> because we were putting timebase-frequency in the wrong place.  This
-> corrects the issue, moving it from
->
-> / {
->         cpus {
->                 timebase-frequency = X;
->         }
-> }
->
-> to
->
-> / {
->         cpus {
->                 cpu@0 {
->                         timebase-frequency = X;
->                 }
->         }
-> }
->
-> This is great, because the timer's frequency should really be a per-cpu
-> quantity on RISC-V systems since there's a timer per CPU.  This should
-> lead to some cleanups in our timer driver.
-
-I think I was actually wrong here: the top version is preferred if 
-timebase-frequency is the same between all CPUs, while the bottom is if it's 
-different.
-
-Updating the documentation is still good, because it matches the hardware, but 
-the commit message should be a bit less assertive... :)
-
-> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> Reviewed-by: Rob Herring <robh@kernel.org>
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
 > ---
->  Documentation/devicetree/bindings/riscv/cpus.txt | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+>  arch/riscv/kernel/time.c          |  9 +--------
+>  drivers/clocksource/riscv_timer.c | 22 ++++++++++++++++++++++
+>  2 files changed, 23 insertions(+), 8 deletions(-)
 >
-> diff --git a/Documentation/devicetree/bindings/riscv/cpus.txt b/Documentation/devicetree/bindings/riscv/cpus.txt
-> index adf7b7af..b0b038d6 100644
-> --- a/Documentation/devicetree/bindings/riscv/cpus.txt
-> +++ b/Documentation/devicetree/bindings/riscv/cpus.txt
-> @@ -93,9 +93,9 @@ Linux is allowed to run on.
->          cpus {
->                  #address-cells = <1>;
->                  #size-cells = <0>;
-> -                timebase-frequency = <1000000>;
->                  cpu@0 {
->                          clock-frequency = <1600000000>;
-> +                        timebase-frequency = <1000000>;
->                          compatible = "sifive,rocket0", "riscv";
->                          device_type = "cpu";
->                          i-cache-block-size = <64>;
-> @@ -113,6 +113,7 @@ Linux is allowed to run on.
->                  };
->                  cpu@1 {
->                          clock-frequency = <1600000000>;
-> +                        timebase-frequency = <1000000>;
->                          compatible = "sifive,rocket0", "riscv";
->                          d-cache-block-size = <64>;
->                          d-cache-sets = <64>;
-> @@ -145,6 +146,7 @@ Example: Spike ISA Simulator with 1 Hart
->  This device tree matches the Spike ISA golden model as run with `spike -p1`.
+> diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
+> index 1911c8f6..225fe743 100644
+> --- a/arch/riscv/kernel/time.c
+> +++ b/arch/riscv/kernel/time.c
+> @@ -20,14 +20,7 @@ unsigned long riscv_timebase;
 >
->          cpus {
-> +                timebase-frequency = <1000000>;
->                  cpu@0 {
->                          device_type = "cpu";
->                          reg = <0x00000000>;
+>  void __init time_init(void)
+>  {
+> -	struct device_node *cpu;
+> -	u32 prop;
+> -
+> -	cpu = of_find_node_by_path("/cpus");
+> -	if (!cpu || of_property_read_u32(cpu, "timebase-frequency", &prop))
+> -		panic(KERN_WARNING "RISC-V system with no 'timebase-frequency' in DTS\n");
+> -	riscv_timebase = prop;
+> +	timer_probe();
+>
+>  	lpj_fine = riscv_timebase / HZ;
+> -	timer_probe();
+>  }
+> diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
+> index 084e97dc..96af7058 100644
+> --- a/drivers/clocksource/riscv_timer.c
+> +++ b/drivers/clocksource/riscv_timer.c
+> @@ -83,6 +83,26 @@ void riscv_timer_interrupt(void)
+>  	evdev->event_handler(evdev);
+>  }
+>
+> +static long __init riscv_timebase_frequency(struct device_node *node)
+> +{
+> +	u32 timebase;
+> +
+> +	if (!of_property_read_u32(node, "timebase-frequency", &timebase))
+> +		return timebase;
+> +
+> +	/*
+> +	 * As per the DT specification, timebase-frequency should be present
+> +	 * under individual cpu node. Unfortunately, there are already available
+> +	 * HiFive Unleashed devices where the timebase-frequency entry is under
+> +	 * CPUs. check under parent "cpus" node to cover those devices.
+> +	 */
+> +	if (!of_property_read_u32(node->parent, "timebase-frequency",
+> +				  &timebase))
+> +		return timebase;
+> +
+> +	panic("RISC-V system with no 'timebase-frequency' in DTS\n");
+> +}
+> +
+>  static int __init riscv_timer_init_dt(struct device_node *n)
+>  {
+>  	int cpuid, hartid, error;
+> @@ -94,6 +114,8 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+>  	if (cpuid != smp_processor_id())
+>  		return 0;
+>
+> +	/* This should be called only for boot cpu */
+> +	riscv_timebase = riscv_timebase_frequency(n);
+>  	cs = per_cpu_ptr(&riscv_clocksource, cpuid);
+>  	clocksource_register_hz(cs, riscv_timebase);
+
+We need to check to make sure the timebase-frequency of each hart is the same.  
+This is mandated by the RISC-V ISA specification but should be checked in the 
+code.
 
 _______________________________________________
 linux-riscv mailing list
