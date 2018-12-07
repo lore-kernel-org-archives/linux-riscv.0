@@ -2,22 +2,21 @@ Return-Path: <SRS0=gWek=OQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
+	T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 98188C64EB1
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 18:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F263CC64EB1
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 18:45:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6237420672
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 18:31:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BF2D820659
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  7 Dec 2018 18:45:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="G1Gpsw20";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="HS7T7XYQ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6237420672
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nw/gxWcM";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="mxXiZnLi"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BF2D820659
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,62 +25,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=Z+bBlwBTfA6ffQEJBFWJBWG50eJU8P42VV33fSqBNzo=; b=G1Gpsw20VfseEu1UKrlRxwhl/
-	o4paqcQRDHF2qw/9TnJ99MVjRm5QQfmP4/sHYOy7kayzDPItrIaBOmj5TEN7UlMR99NO/lCoQS+mc
-	cebnx7Isi+UrVwEcfNdhhY9k8XNarC3q+fjOeQmX1g3bSFTtA0en2VMgkucXJIZ2dPBfH4C0XvWAO
-	Jvd09whbJesrwB0G9wI2rCVw2FOrlh16kO3M9YQ4AcKtd2MxVlfeaNWcNhqdHTSQbbEBLxHC/WJ6p
-	MnRVqzpLIgn+PVTKDwtzfcB9TpLNdoFy9oYcqBex4zIvC/5YRulIyDEOHTIAIHy32dGvDDZUwmy9g
-	kzUGQkBXQ==;
+	 bh=6J3/EIjPIAdFlAt4F3tGnj340TvOcJyWCqXwZSQjO44=; b=nw/gxWcMtM9vwrFAa7q3VmDx3
+	1dPitp5lhZ2j/UNC+l0HCdURc1yElkt3geeKUZ0syhJh2SscQyHfIWwog4KKEJXMxKQb9eYwp/pM4
+	aoloWLww1DdcCsqotXsbtiCwkK7BYFAj2yx6hEZueCVxgZ7qreBCGgN31pEGCZW1QRe7E6CLg0+ee
+	kCQ0e1rA3IZdYlCJFCsxrv+YP95x+AjoNEB/WVeYYJz2x0PEh2Y+U+xUmBCwBPaxlXpfV79GeY/ax
+	EBFFlH7J43m0YMBT28BGmvUROqUM3ZotT1dfmIP6x9KVvCowl9izbMl3Tib/nNzniMcgw15tirLId
+	mW0I2E+5A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gVKu0-0006DA-UY; Fri, 07 Dec 2018 18:31:04 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1gVL7t-0002JF-BM; Fri, 07 Dec 2018 18:45:25 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gVKtd-0005mc-6q
- for linux-riscv@lists.infradead.org; Fri, 07 Dec 2018 18:30:59 +0000
-Received: by mail-pf1-x441.google.com with SMTP id w73so2317114pfk.10
- for <linux-riscv@lists.infradead.org>; Fri, 07 Dec 2018 10:30:31 -0800 (PST)
+ id 1gVL7q-0002G0-LS
+ for linux-riscv@lists.infradead.org; Fri, 07 Dec 2018 18:45:24 +0000
+Received: by mail-pl1-x644.google.com with SMTP id y1so2201382plp.9
+ for <linux-riscv@lists.infradead.org>; Fri, 07 Dec 2018 10:45:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=R9PUU0FNjTSFmRmOZPuikthkbKAg6d5AV4SisW2jsDs=;
- b=HS7T7XYQ8aSTb3k0jPHZuYP59cXKfdSK3+6dfe5Y/LfrLOzdEzqkQUwmrzYv5/4+41
- 9OI5yukbDg8tyWwW8eS4do/1SS7jfnCkRE/ba4Je0ejBWCYtrfSTH5v0xrJJrTDAYPit
- VrgWKVXE0Cwf5YIq3d0hHmm2AUdlUG3Asy44BLBWx+MK/S3aisfA6lCNAiLY/R4lI4e1
- CEGF1Kb0+y8vk09x6hEHmxsr6Rb6cs5PEcwerk0YuKR/r1ElewYqSXoK+w3ClSTibOVB
- Pmt9nLKY69G/0rJ6QNHBQlrct4oKiENvWkdxX4WvzzPeC/u6HHv/0JD8SEO2RY9P6hVE
- cTjQ==
+ bh=NNDKygG0WX9igZsqFZ4iPyF5LpJxmo5sA54/xkrjpjI=;
+ b=mxXiZnLitdrHnq22Nq8YRSCL++2I+yp2I1Wp+rhZAC2Ll/kMbtW3xGbqrbwv3rmxRx
+ bp8qlisSxMY0S+lMrHpl2XZ7eCj+vUXoABRIcvVbFULRxPUX5m3sV8hTfeGE/JhYJozc
+ /yV2VXYQT4kO/lTvWz5eYyzx2boKoO9jo4KKoUukpTzcbNng1cD5qPMd0MnM+LTJD7kL
+ dmumrdrYTOEf/KHoCXuRvqIkURR/1xxZ0kqUKSd3jQorfVB+0kiCAfcEZXBDXtZv0s2m
+ 0Gr3CRmQ1azvjYXTninXQTbih0ghtLT4w3VvE3sGvaidFNLYEdCuiDbFfJfHGPoSM1cX
+ Xz6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=R9PUU0FNjTSFmRmOZPuikthkbKAg6d5AV4SisW2jsDs=;
- b=gtGKy65mo9vDTlmjOuAOC232pMy9SUxTUdRGA7AcZKTK+ekvsGmeBdgn12Z/jF8UBQ
- 0Umocfh8yTMzNm8SrXV9zb3bPfRZdyzs6GCIWS0wzqEUoGXkIhU+QISdYcjlrbrVQHKX
- aYbJJknDFZP7RtVNp4uCj0Y1SHX0ObuPSj/mCOuNNczsufxcGmbmi9M6cC4LuvTlMSjX
- jJ9bCN8oixfqev7l0pCmZSGJ2Z+Qr6PwPT0N6ObFgY7Dt7UxP0RgXZbOb9/rjmf0ctR9
- sWFoQVGwamatkDe8iYc9wvJvsDiYRJANOUoeaJcvBAOiuU547NM79ejFkhVsRskTtwGv
- R7zw==
-X-Gm-Message-State: AA+aEWZqviHy6xetPcaGVcnIff/9e/vY+EgOQARzh7rQpH9OPEZ5Q4Mp
- BYGcAYJpHrvZd3CMZwReTnO4mw==
-X-Google-Smtp-Source: AFSGD/U04cLTf3NhnXZ/uxjhcDVRmAe/A414or6dW+sVRh4tbHY/hOzm5qc3027mjItIGLVgvUNQuw==
-X-Received: by 2002:a62:824c:: with SMTP id w73mr3284033pfd.150.1544207430782; 
- Fri, 07 Dec 2018 10:30:30 -0800 (PST)
+ bh=NNDKygG0WX9igZsqFZ4iPyF5LpJxmo5sA54/xkrjpjI=;
+ b=ZgtoJx7kQgsUB+5FQPe0HVuF+TSfCP1Gt589c/oOMRLAp/itukIhKV7SS8gDCiCDkM
+ rxG4D7NCvT1K+8gaAIril5Q/Kp4XQjhv1wTrsEAWUiO1AIOzIP2PsBylgcHpEsTPBcCS
+ FI2Xc4SIqjBOTj9/3D33nLPkWC1zZbzCdYJuvxqW0Hql+OAnUH90RqKYp46oR+2tWwG9
+ MYJbcUUQ0PGttS79+avsjeQBboNXdPo3MP8H4nP4yR7HMZ0eXZvAXYInKupy9xHlTSOp
+ XTH7OQzBN8u2bo1AG1jwL498YN+R7bIHW+bAlkiCxkiIYs+nqpRWGKPCPu/4SVwm8Agh
+ EjBg==
+X-Gm-Message-State: AA+aEWaRsTYrXKi9y/hA+7FHTW/VcIEvXpIQ15+syBtTsXtGbIVBkM2n
+ 504rvGbm5xDlszvTX3Ekw/DTtg==
+X-Google-Smtp-Source: AFSGD/WCcCsZa5P1415ERxz/08fdE7JNfiI8/LYm5k/Mg2iZ/ywuZ2XvHuADtSp9XAy7PaCZ2is06Q==
+X-Received: by 2002:a17:902:720c:: with SMTP id
+ ba12mr3193243plb.79.1544208311926; 
+ Fri, 07 Dec 2018 10:45:11 -0800 (PST)
 Received: from localhost ([216.3.10.7])
- by smtp.gmail.com with ESMTPSA id t21sm5268636pgg.24.2018.12.07.10.30.29
+ by smtp.gmail.com with ESMTPSA id 125sm8970983pfd.124.2018.12.07.10.45.10
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 07 Dec 2018 10:30:30 -0800 (PST)
-Date: Fri, 07 Dec 2018 10:30:30 -0800 (PST)
-X-Google-Original-Date: Fri, 07 Dec 2018 10:20:29 PST (-0800)
-Subject: Re: [PATCH 2/3] RISC-V: defconfig: Enable RISC-V SBI earlycon support
-In-Reply-To: <20181204135507.3706-3-anup@brainfault.org>
+ Fri, 07 Dec 2018 10:45:11 -0800 (PST)
+Date: Fri, 07 Dec 2018 10:45:11 -0800 (PST)
+X-Google-Original-Date: Fri, 07 Dec 2018 10:42:13 PST (-0800)
+Subject: Re: [PATCH 1/3] tty/serial: Add RISC-V SBI earlycon support
+In-Reply-To: <20181205095846.GA9847@kroah.com>
 From: Palmer Dabbelt <palmer@sifive.com>
-To: anup@brainfault.org
-Message-ID: <mhng-7d4e0657-9343-4a8d-b24a-3ea0acba45db@palmer-si-x1c4>
+To: Greg KH <gregkh@linuxfoundation.org>
+Message-ID: <mhng-114b47e6-1722-4cae-9132-5998c74eef66@palmer-si-x1c4>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181207_103041_482330_32C6A9AF 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20181207_104522_733577_DA827F87 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,8 +93,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: robh@kernel.org, aou@eecs.berkeley.edu,
- Greg KH <gregkh@linuxfoundation.org>, anup@brainfault.org,
+Cc: robh@kernel.org, aou@eecs.berkeley.edu, anup@brainfault.org,
  linux-kernel@vger.kernel.org, Christoph Hellwig <hch@infradead.org>,
  atish.patra@wdc.com, linux-serial@vger.kernel.org, jslaby@suse.com,
  linux-riscv@lists.infradead.org
@@ -103,30 +102,25 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Dec 2018 05:55:06 PST (-0800), anup@brainfault.org wrote:
-> This patch enables RISC-V SBI earlycon support in default defconfig
-> so that we can use "earlycon=sbi" in kernel parameters for early
-> debug prints.
+On Wed, 05 Dec 2018 01:58:46 PST (-0800), Greg KH wrote:
+> On Tue, Dec 04, 2018 at 07:25:05PM +0530, Anup Patel wrote:
+>> In RISC-V, the M-mode runtime firmware provide SBI calls for
+>> debug prints. This patch adds earlycon support using RISC-V
+>> SBI console calls. To enable it, just pass "earlycon=sbi" in
+>> kernel parameters.
+>>
+>> Signed-off-by: Anup Patel <anup@brainfault.org>
 >
-> Signed-off-by: Anup Patel <anup@brainfault.org>
-> ---
->  arch/riscv/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
+> This makes more sense to take through the riscv tree, so feel free to
+> add:
 >
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index ef4f15df9adf..f399659d3b8d 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -46,6 +46,7 @@ CONFIG_INPUT_MOUSEDEV=y
->  CONFIG_SERIAL_8250=y
->  CONFIG_SERIAL_8250_CONSOLE=y
->  CONFIG_SERIAL_OF_PLATFORM=y
-> +CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
->  CONFIG_HVC_RISCV_SBI=y
->  # CONFIG_PTP_1588_CLOCK is not set
->  CONFIG_DRM=y
+> Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+>
+> to it and take it that way.
 
-Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
+It should be in my for-next now.
+
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
