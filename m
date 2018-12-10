@@ -2,59 +2,61 @@ Return-Path: <SRS0=uc63=OT=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B5E99C04EB8
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Dec 2018 06:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 34C94C04EB8
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Dec 2018 10:58:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7ABD2205C9
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Dec 2018 06:25:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F421320821
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Dec 2018 10:58:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="q+zZKVDN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7ABD2205C9
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=upmem.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BmJ1NBg6"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F421320821
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=YY02ZCsuELVflL3MwMu/HJMZt7rSkF05YcjJvjy90nE=; b=q+zZKVDNiDWXqTmg/0zDQIxq4c
-	ZYGcznH7qALu5PTX21FjCM7I2UAi16hpzvfLH+29Qu8B6djx09EsvmVUauPgNKbJ5iJy9cAV0CSwm
-	Dbe/BJmUVDNTAjOKw9dtuH8Jr0YcZtShEooXXK2imlgDVPs0cdE+jj/nQFP+8JBuUCs6lQ05hg+0H
-	Ac0IptBymmwkYOCo1QYeMj757l9BfoNsLK98YN5D7p3DcH/uWMDWMHHMOC8gxTWahsh5sKBkUFqST
-	SX5LIatJa8/LUBR3ytBrx2q2Urc73bVpWL2RF1O6x58B4gCOvijKJKbgcF274BP+4xL8kD3QHMG7q
-	7CjDScuw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2iWs1KCHg6+wI5gmtaAYHy+DOfk4lVJK66hyd2noYhA=; b=BmJ1NBg6grcQ+Q
+	Q7I8IrqVbmUdyuOvBytHc8zEmAdQKiLHLo4fy3InebPIYvUsL3pctqhIpixffRpPZCqc3NGaUoMii
+	FoXWs08DIwYpWxkAINxP56SQOjtDUOsOBh/iv25zCNhc3iV7wu9YF3GHfxeudYdW5fRlBWczG/1U2
+	PcJl/DAEyL2i5syYDRQBh8b67QsMoMfh5E486E0HivFrcr78A33ehOR9vAC49nt002kjRamBYJKQk
+	EqOOVxQs1b9EwjC3G2/kurJLmqRrPkTeiBTkPxB2u4OhrA66Lg/RPlDxPxyaCnsXBf2dxudsgR9R7
+	zv3h6ahG5oMyXrVornPw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gWF0W-0004dC-Hp; Mon, 10 Dec 2018 06:25:32 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1gWJGh-0004rc-4s; Mon, 10 Dec 2018 10:58:31 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gWF0T-0004cX-QT
- for linux-riscv@lists.infradead.org; Mon, 10 Dec 2018 06:25:31 +0000
-X-Originating-IP: 79.86.19.127
-Received: from alex.numericable.fr (127.19.86.79.rev.sfr.net [79.86.19.127])
- (Authenticated sender: alex@ghiti.fr)
- by relay3-d.mail.gandi.net (Postfix) with ESMTPSA id 644B160004;
- Mon, 10 Dec 2018 06:25:06 +0000 (UTC)
-From: Alexandre Ghiti <aghiti@upmem.com>
-To: palmer@sifive.com
-Subject: [PATCH 3/3] riscv: Adjust mmap base address at a third of task size
-Date: Mon, 10 Dec 2018 06:21:46 +0000
-Message-Id: <20181210062146.24951-4-aghiti@upmem.com>
-X-Mailer: git-send-email 2.16.2
-In-Reply-To: <20181210062146.24951-1-aghiti@upmem.com>
-References: <20181210062146.24951-1-aghiti@upmem.com>
+ id 1gWJGc-0004pT-QB
+ for linux-riscv@lists.infradead.org; Mon, 10 Dec 2018 10:58:29 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay1.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id DFFB3AD36;
+ Mon, 10 Dec 2018 10:58:12 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: Atish Patra <atish.patra@wdc.com>
+Subject: Re: [PATCH] riscv: don't stop itself in smp_send_stop
+References: <mvmbm67etfg.fsf@suse.de>
+ <72991c58-91f5-abb1-54f9-35ae4533a26e@wdc.com>
+X-Yow: Your CHEEKS sit like twin NECTARINES above a MOUTH that knows no BOUNDS
+ --
+Date: Mon, 10 Dec 2018 11:58:12 +0100
+In-Reply-To: <72991c58-91f5-abb1-54f9-35ae4533a26e@wdc.com> (Atish Patra's
+ message of "Thu, 29 Nov 2018 10:52:40 -0800")
+Message-ID: <mvmsgz5bqd7.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.90 (gnu/linux)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181209_222529_996928_E38B4BF9 
-X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-CacheID: sfid-20181210_025827_068106_97382320 
+X-CRM114-Status: UNSURE (   9.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -67,42 +69,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, catalin.marinas@arm.com, ndesaulniers@google.com,
- linux-riscv@lists.infradead.org, Alexandre Ghiti <aghiti@upmem.com>,
- atish.patra@wdc.com, akpm@linux-foundation.org, mingo@kernel.org,
- mike.kravetz@oracle.com
-MIME-Version: 1.0
+Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This ratio is the most used among all other architectures and make
-icache_hygiene libhugetlbfs test pass: this test mmap lots of
-hugepages whose addresses, without this patch, reach the end of
-the process user address space.
+On Nov 29 2018, Atish Patra <atish.patra@wdc.com> wrote:
 
-Signed-off-by: Alexandre Ghiti <aghiti@upmem.com>
----
- arch/riscv/include/asm/processor.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+>> +	cpumask_copy (&mask, cpu_online_mask);
+>> +	cpumask_clear_cpu (smp_processor_id (), &mask);
+>> +	on_each_cpu_mask(&mask, ipi_stop, NULL, 0);
+>
+> The function header of on_each_cpu_mask says func should be
+> non-blocking. Not sure if that's a hard requirement or not.
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 0531f49af5c3..ce70bceb8872 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -22,7 +22,7 @@
-  * This decides where the kernel will search for a free chunk of vm
-  * space during mmap's.
-  */
--#define TASK_UNMAPPED_BASE	PAGE_ALIGN(TASK_SIZE >> 1)
-+#define TASK_UNMAPPED_BASE	PAGE_ALIGN(TASK_SIZE / 3)
- 
- #define STACK_TOP		TASK_SIZE
- #define STACK_TOP_MAX		STACK_TOP
+What does that mean?
+
+>> +
+>> +	/* Wait up to one second for other CPUs to stop */
+>> +	timeout = USEC_PER_SEC;
+>> +	while (num_online_cpus() > 1 && timeout--)
+>> +		udelay(1);
+>> +
+>> +	if (num_online_cpus() > 1)
+>> +		pr_warn("SMP: failed to stop secondary CPUs\n");
+>
+> May be print the remaining online cpus so that we know which one failed ?
+
+I have copied that from arm.  The only user of smp_send_stop is panic,
+which can cope with that, and the probability of that happening is very
+low anyway.
+
+Andreas.
+
 -- 
-2.16.2
-
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
