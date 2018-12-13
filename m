@@ -1,80 +1,57 @@
-Return-Path: <SRS0=ezyP=OV=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=TUPX=OW=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,T_MIXED_ES autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-6.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS,T_MIXED_ES,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B3703C67839
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Dec 2018 18:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8EAD7C65BAE
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 13 Dec 2018 17:18:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8193D2084E
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Dec 2018 18:23:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4FD7E20851
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 13 Dec 2018 17:18:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="f3UFbByd";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="oSZlbHBF"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8193D2084E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WWDvQY/Q"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4FD7E20851
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=altlinux.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=HWmCydVLtibborlDABLuZRWs7jiL6gFxCGqqwV1EbW4=; b=f3UFbBydt/4XrVjt9SbnHYfu2
-	KWDR4HdXtKpNB+ZDyWVuBcxxv/d67XDGyKvyNGcoTuAc1myzANMFXqCAM/Eac1oGdAqdwG2Uep76W
-	Oif0lzAiIuJ/VGA4Wc8oNbXmDr0ww6oA1JhSMUfjsFch2RezH5CZHNsvV3uCynxXtqPYgvdWC93E+
-	tfXWNuKCEUwmoNV5rOl6vLZjtaK+qb/XGiKHXXwKkSPuFZGgXGYxnuOZEUqrfmCStfDN6kfBykedh
-	PM/8JcVVFRbFxyOsTtylN7SnNoEKSBZH7nQ9ZliUyRPC9+3o0FL96/cejRI1Or5DvnOxyfkZri0sI
-	5kMYGb7qQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TxLs+qkzCelcN5hrfxP68H1sD3ZaqvT2J7nXNzxyTao=; b=WWDvQY/Qn0stUh
+	w36yqi1idxugPtCNdRIGKt8XL7aJQOHMjBx28dQ4x8U+HKXJlG228/dz30nqz/+s3+tFF36CaRDs5
+	8EJ/D3/ZkYl4Fe0WTHfjeERSd5yA0aVEdaNT15Uj7h8bxd3U1yrZPWyCzrR3+Aq1mOnBQOmRfhUlG
+	dDQRN1ATYI04KejVt2Z3/RN4aTVSBCVb6aBBJp59/kxEgflKgikHSk0JhoCZNfhicpVCj+CeuYjO9
+	OUkHk3nca6XtC47SdxgKK4rlXkVPlGl+Mtj5zPjue4ydZsnsdzweF/F6gIkJxOxZBDsSd4jAj+AF+
+	1f6AEAxuWl7jlWdQWYnA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gX9Aa-0005PX-Qq; Wed, 12 Dec 2018 18:23:40 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gX9AX-0005HR-Bn; Wed, 12 Dec 2018 18:23:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1544639017; x=1576175017;
- h=subject:to:cc:references:from:message-id:date:
- mime-version:in-reply-to:content-transfer-encoding;
- bh=SLV3PnG5YgMBKspuZwkpx52OMenw9jzNoMWZSMQ8SEc=;
- b=oSZlbHBFtRcKi5LeAZ00anNIdCsD8MCm9kecjF9imh7S255WofecjWLE
- PI5LKkjHE7IjAiI96sdktof/TG/mrhhaJTgGcZbubjwKhDNi78GrPJJQA
- uYvWLm74VT89HJsmtbxBg0J2RvmvkYcLRwEjuznHffg02NB8LHmhK+PYD
- iM9D/GZXIm75FNcw/wXWT28XlqgirbXktJrHnzl7J5ls2ZlQNUL12+cn4
- nKW1s1ylAYLNdGis8/YvMafYp9UcZOnpxOhm/hO+iNuhp7BW3kKnZFck+
- qyISAPbPAPYgaJfTqguTvrXx2VqF/QogZCHSi3ulEJ2PIazaFDIKGrl9O g==;
-X-IronPort-AV: E=Sophos;i="5.56,345,1539619200"; d="scan'208";a="97659819"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 13 Dec 2018 02:23:26 +0800
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP; 12 Dec 2018 10:05:02 -0800
-Received: from 48dctz1.ad.shared (HELO [10.86.57.164]) ([10.86.57.164])
- by uls-op-cesaip02.wdc.com with ESMTP; 12 Dec 2018 10:23:25 -0800
-Subject: Re: [RFT PATCH v1 2/4] dt-binding: cpu-topology: Move cpu-map to a
- common binding.
-To: Rob Herring <robh@kernel.org>
-References: <1543534100-3654-1-git-send-email-atish.patra@wdc.com>
- <1543534100-3654-3-git-send-email-atish.patra@wdc.com>
- <20181212023122.GB14213@bogus>
-From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <1d8fffe7-824e-9c2b-1444-491abe9056a4@wdc.com>
-Date: Wed, 12 Dec 2018 10:23:24 -0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0)
- Gecko/20100101 Thunderbird/60.3.1
+	id 1gXUdP-0005Et-S2; Thu, 13 Dec 2018 17:18:51 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+ by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gXUdL-0005Do-35; Thu, 13 Dec 2018 17:18:50 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+ by vmicros1.altlinux.org (Postfix) with ESMTP id 6938172CC6C;
+ Thu, 13 Dec 2018 20:18:33 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+ id 5B077964E82; Thu, 13 Dec 2018 20:18:33 +0300 (MSK)
+Date: Thu, 13 Dec 2018 20:18:33 +0300
+From: "Dmitry V. Levin" <ldv@altlinux.org>
+To: Oleg Nesterov <oleg@redhat.com>, Andy Lutomirski <luto@kernel.org>
+Subject: [PATCH v6 00/27] ptrace: add PTRACE_GET_SYSCALL_INFO request
+Message-ID: <20181213171833.GA5240@altlinux.org>
 MIME-Version: 1.0
-In-Reply-To: <20181212023122.GB14213@bogus>
-Content-Language: en-US
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181212_102337_528776_BAFDB94C 
-X-CRM114-Status: GOOD (  25.38  )
+X-CRM114-CacheID: sfid-20181213_091847_703584_812CBAD2 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -86,226 +63,265 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>,
- Juri Lelli <juri.lelli@arm.com>, Ard Biesheuvel <ard.biesheuvel@linaro.org>,
- Dmitriy Cherkasov <dmitriy@oss-tech.org>, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmer@sifive.com>, Will Deacon <will.deacon@arm.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Jeremy Linton <jeremy.linton@arm.com>,
- Morten Rasmussen <morten.rasmussen@arm.com>,
- "Peter Zijlstra \(Intel\)" <peterz@infradead.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Sudeep Holla <sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Ingo Molnar <mingo@kernel.org>,
- "moderated list:ARM64 PORT \(AARCH64 ARCHITECTURE\)"
- <linux-arm-kernel@lists.infradead.org>
+Cc: linux-s390@vger.kernel.org, Rich Felker <dalias@libc.org>,
+ linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Alexey Brodkin <alexey.brodkin@synopsys.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, linux-api@vger.kernel.org,
+ "James E.J. Bottomley" <jejb@parisc-linux.org>,
+ Max Filippov <jcmvbkbc@gmail.com>, Guo Ren <guoren@kernel.org>,
+ Ralf Baechle <ralf@linux-mips.org>, linux-kselftest@vger.kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Breno Leitao <leitao@debian.org>,
+ Russell King <linux@armlinux.org.uk>, linux-riscv@lists.infradead.org,
+ Vincent Chen <deanbo422@gmail.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Paul Mackerras <paulus@samba.org>,
+ Jonas Bonn <jonas@southpole.se>, Elvira Khabirova <lineprinter@altlinux.org>,
+ sparclinux@vger.kernel.org, linux-arch@vger.kernel.org,
+ Paul Moore <paul@paul-moore.com>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ linux-xtensa@linux-xtensa.org, Michael Ellerman <mpe@ellerman.id.au>,
+ Helge Deller <deller@gmx.de>, x86@kernel.org, linux-kernel@vger.kernel.org,
+ Eugene Syromyatnikov <esyr@redhat.com>, linux-alpha@vger.kernel.org,
+ Ingo Molnar <mingo@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, James Hogan <jhogan@kernel.org>,
+ Matt Turner <mattst88@gmail.com>, linux-snps-arc@lists.infradead.org,
+ strace-devel@lists.strace.io, uclinux-h8-devel@lists.sourceforge.jp,
+ Fenghua Yu <fenghua.yu@intel.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
+ Jann Horn <jannh@google.com>, Will Deacon <will.deacon@arm.com>,
+ Jeff Dike <jdike@addtoit.com>, Mark Salter <msalter@redhat.com>,
+ linux-um@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ Aurelien Jacquiot <jacquiot.aurelien@gmail.com>, linux-c6x-dev@linux-c6x.org,
+ linux-m68k@lists.linux-m68k.org, nios2-dev@lists.rocketboards.org,
+ Borislav Petkov <bp@alien8.de>, Greentime Hu <green.hu@gmail.com>,
+ Ley Foon Tan <lftan@altera.com>, Stafford Horne <shorne@gmail.com>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Guan Xuetao <gxt@pku.edu.cn>, linux-arm-kernel@lists.infradead.org,
+ Richard Henderson <rth@twiddle.net>, Chris Zankel <chris@zankel.net>,
+ Michal Simek <monstr@monstr.eu>, Tony Luck <tony.luck@intel.com>,
+ Will Drewry <wad@chromium.org>, linux-parisc@vger.kernel.org,
+ Vineet Gupta <vgupta@synopsys.com>, linux-mips@vger.kernel.org,
+ Eric Paris <eparis@redhat.com>, Richard Kuo <rkuo@codeaurora.org>,
+ Paul Burton <paul.burton@mips.com>, linux-audit@redhat.com,
+ Palmer Dabbelt <palmer@sifive.com>, Richard Weinberger <richard@nod.at>,
+ Martin Schwidefsky <schwidefsky@de.ibm.com>,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>, linux-hexagon@vger.kernel.org,
+ "David S. Miller" <davem@davemloft.net>, openrisc@lists.librecores.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/11/18 6:31 PM, Rob Herring wrote:
-> On Thu, Nov 29, 2018 at 03:28:18PM -0800, Atish Patra wrote:
->> cpu-map binding can be used to described cpu topology for both
->> RISC-V & ARM. It makes more sense to move the binding to document
->> to a common place.
->>
->> The relevant discussion can be found here.
->> https://lkml.org/lkml/2018/11/6/19
->>
->> Signed-off-by: Atish Patra <atish.patra@wdc.com>
->> ---
->>   .../{arm/topology.txt => cpu/cpu-topology.txt}     | 81 ++++++++++++++++++----
->>   1 file changed, 67 insertions(+), 14 deletions(-)
->>   rename Documentation/devicetree/bindings/{arm/topology.txt => cpu/cpu-topology.txt} (86%)
->>
->> diff --git a/Documentation/devicetree/bindings/arm/topology.txt b/Documentation/devicetree/bindings/cpu/cpu-topology.txt
->> similarity index 86%
->> rename from Documentation/devicetree/bindings/arm/topology.txt
->> rename to Documentation/devicetree/bindings/cpu/cpu-topology.txt
->> index 66848355..1de6fbce 100644
->> --- a/Documentation/devicetree/bindings/arm/topology.txt
->> +++ b/Documentation/devicetree/bindings/cpu/cpu-topology.txt
->> @@ -1,12 +1,12 @@
->>   ===========================================
->> -ARM topology binding description
->> +CPU topology binding description
->>   ===========================================
->>   
->>   ===========================================
->>   1 - Introduction
->>   ===========================================
->>   
->> -In an ARM system, the hierarchy of CPUs is defined through three entities that
->> +In a SMP system, the hierarchy of CPUs is defined through three entities that
->>   are used to describe the layout of physical CPUs in the system:
->>   
->>   - socket
->> @@ -14,9 +14,6 @@ are used to describe the layout of physical CPUs in the system:
->>   - core
->>   - thread
->>   
->> -The cpu nodes (bindings defined in [1]) represent the devices that
->> -correspond to physical CPUs and are to be mapped to the hierarchy levels.
->> -
->>   The bottom hierarchy level sits at core or thread level depending on whether
->>   symmetric multi-threading (SMT) is supported or not.
->>   
->> @@ -25,33 +22,37 @@ threads existing in the system and map to the hierarchy level "thread" above.
->>   In systems where SMT is not supported "cpu" nodes represent all cores present
->>   in the system and map to the hierarchy level "core" above.
->>   
->> -ARM topology bindings allow one to associate cpu nodes with hierarchical groups
->> +CPU topology bindings allow one to associate cpu nodes with hierarchical groups
->>   corresponding to the system hierarchy; syntactically they are defined as device
->>   tree nodes.
->>   
->> -The remainder of this document provides the topology bindings for ARM, based
->> -on the Devicetree Specification, available from:
->> +Currently, only ARM/RISC-V intend to use this cpu topology binding but it may be
->> +used for any other architecture as well.
->>   
->> -https://www.devicetree.org/specifications/
->> +The remainder of this document provides the topology bindings for ARM/RISC-V, based
-> 
-> You already said who are current users, why restrict it to ARM and
-> RISC-V here?
-> 
-I will remove that. The examples are only for ARM/RISC-V specific.
+PTRACE_GET_SYSCALL_INFO is a generic ptrace API that lets ptracer obtain
+details of the syscall the tracee is blocked in.
 
+There are two reasons for a special syscall-related ptrace request.
 
->> +on the Devicetree Specification, available at [4].
->> +
->> +The cpu nodes (bindings defined in [1] for ARM or [2] for RISC-V) represent the devices that
->> +correspond to physical CPUs and are to be mapped to the hierarchy levels.
-> 
-> The cpu topology isn't dependent on anything beyond what the DT spec
-> says for cpu nodes so I think this can be simplified to just refer to
-> the spec.
-> 
+Firstly, with the current ptrace API there are cases when ptracer cannot
+retrieve necessary information about syscalls.  Some examples include:
+* The notorious int-0x80-from-64-bit-task issue.  See [1] for details.
+In short, if a 64-bit task performs a syscall through int 0x80, its tracer
+has no reliable means to find out that the syscall was, in fact,
+a compat syscall, and misidentifies it.
+* Syscall-enter-stop and syscall-exit-stop look the same for the tracer.
+Common practice is to keep track of the sequence of ptrace-stops in order
+not to mix the two syscall-stops up.  But it is not as simple as it looks;
+for example, strace had a (just recently fixed) long-standing bug where
+attaching strace to a tracee that is performing the execve system call
+led to the tracer identifying the following syscall-exit-stop as
+syscall-enter-stop, which messed up all the state tracking.
+* Since the introduction of commit 84d77d3f06e7e8dea057d10e8ec77ad71f721be3
+("ptrace: Don't allow accessing an undumpable mm"), both PTRACE_PEEKDATA
+and process_vm_readv become unavailable when the process dumpable flag
+is cleared.  On such architectures as ia64 this results in all syscall
+arguments being unavailable for the tracer.
 
-ok sure.
+Secondly, ptracers also have to support a lot of arch-specific code for
+obtaining information about the tracee.  For some architectures, this
+requires a ptrace(PTRACE_PEEKUSER, ...) invocation for every syscall
+argument and return value.
 
-> Plus, shouldn't [2] (numa) be [3] here.
-> 
+PTRACE_GET_SYSCALL_INFO returns the following structure:
 
-My bad.
+struct ptrace_syscall_info {
+	__u8 op;	/* PTRACE_SYSCALL_INFO_* */
+	__u32 arch __attribute__((__aligned__(sizeof(__u32))));
+	__u64 instruction_pointer;
+	__u64 stack_pointer;
+	union {
+		struct {
+			__u64 nr;
+			__u64 args[6];
+		} entry;
+		struct {
+			__s64 rval;
+			__u8 is_error;
+		} exit;
+		struct {
+			__u64 nr;
+			__u64 args[6];
+			__u32 ret_data;
+		} seccomp;
+	};
+};
 
->>   If not stated otherwise, whenever a reference to a cpu node phandle is made its
->>   value must point to a cpu node compliant with the cpu node bindings as
->> -documented in [1].
->> +documented in [1] or [3] for respective ISA.
->>   A topology description containing phandles to cpu nodes that are not compliant
->> -with bindings standardized in [1] is therefore considered invalid.
->> +with bindings standardized in [1] or [3] is therefore considered invalid.
->>   
->>   ===========================================
->>   2 - cpu-map node
->>   ===========================================
->>   
->> -The ARM CPU topology is defined within the cpu-map node, which is a direct
->> +The ARM/RISC-V CPU topology is defined within the cpu-map node, which is a direct
->>   child of the cpus node and provides a container where the actual topology
->>   nodes are listed.
->>   
->>   - cpu-map node
->>   
->> -	Usage: Optional - On ARM SMP systems provide CPUs topology to the OS.
->> -			  ARM uniprocessor systems do not require a topology
->> +	Usage: Optional - On SMP systems provide CPUs topology to the OS.
->> +			  Uniprocessor systems do not require a topology
->>   			  description and therefore should not define a
->>   			  cpu-map node.
->>   
->> @@ -494,8 +495,60 @@ cpus {
->>   	};
->>   };
->>   
->> +Example 3: HiFive Unleashed (RISC-V 64 bit, 4 core system)
->> +
->> +cpus {
->> +	#address-cells = <2>;
->> +	#size-cells = <2>;
->> +	compatible = "sifive,fu540g", "sifive,fu500";
->> +	model = "sifive,hifive-unleashed-a00";
-> 
-> This is wrong. Looks like the root node, but called 'cpus'.
-> 
-Yeah it got mixed up. I will fix it in v2.
+The structure was chosen according to [2], except for the following
+changes:
+* seccomp substructure was added as a superset of entry substructure;
+* the type of nr field was changed from int to __u64 because syscall
+numbers are, as a practical matter, 64 bits;
+* stack_pointer field was added along with instruction_pointer field
+since it is readily available and can save the tracer from extra
+PTRACE_GETREGS/PTRACE_GETREGSET calls;
+* arch is always initialized to aid with tracing system calls
+* such as execve();
+* instruction_pointer and stack_pointer are always initialized
+so they could be easily obtained for non-syscall stops;
+* a boolean is_error field was added along with rval field, this way
+the tracer can more reliably distinguish a return value
+from an error value.
 
->> +
->> +	...
->> +
->> +	cpu-map {
->> +		cluster0 {
->> +			core0 {
->> +				cpu = <&L12>;
->> +		 	};
-> 
-> Mixed space and tabs.
-> 
->> +			core1 {
->> +				cpu = <&L15>;
->> +			};
->> +			core2 {
->> +				cpu0 = <&L18>;
->> +			};
->> +			core3 {
->> +				cpu0 = <&L21>;
->> +			};
->> +		};
->> + 	};
-> 
-> Mixed space and tab.
-> 
+strace has been ported to PTRACE_GET_SYSCALL_INFO, you can find it
+in [3] and [4].
 
-Sorry. I will fix this.
+[1] https://lore.kernel.org/lkml/CA+55aFzcSVmdDj9Lh_gdbz1OzHyEm6ZrGPBDAJnywm2LF_eVyg@mail.gmail.com/
+[2] https://lore.kernel.org/lkml/CAObL_7GM0n80N7J_DFw_eQyfLyzq+sf4y2AvsCCV88Tb3AwEHA@mail.gmail.com/
+[3] https://github.com/strace/strace/commits/ldv/PTRACE_GET_SYSCALL_INFO
+[4] https://gitlab.com/strace/strace/commits/ldv/PTRACE_GET_SYSCALL_INFO
 
-Thanks for the review.
+---
 
-Regards,
-Atish
+Notes:
+    v6:
+    * Add syscall_get_arguments and syscall_set_arguments wrappers
+      to asm-generic/syscall.h, requested by Geert.
+    * Change PTRACE_GET_SYSCALL_INFO return code: do not take trailing paddings
+      into account, use the end of the last field of the structure being written.
+    * Change struct ptrace_syscall_info:
+      * remove .frame_pointer field, is is not needed and not portable;
+      * make .arch field explicitly aligned, remove no longer needed
+        padding before .arch field;
+      * remove trailing pads, they are no longer needed.
 
->> +
->> +	L12: cpu@1 {
->> +		device_type = "cpu";
->> +		compatible = "sifive,rocket0", "riscv";
->> +		reg = <0x1>;
->> +	}
->> +
->> +	L15: cpu@2 {
->> +		device_type = "cpu";
->> +		compatible = "sifive,rocket0", "riscv";
->> +		reg = <0x2>;
->> +	}
->> +	L18: cpu@3 {
->> +		device_type = "cpu";
->> +		compatible = "sifive,rocket0", "riscv";
->> +		reg = <0x3>;
->> +	}
->> +	L21: cpu@4 {
->> +		device_type = "cpu";
->> +		compatible = "sifive,rocket0", "riscv";
->> +		reg = <0x4>;
->> +	}
->> +};
->>   ===============================================================================
->>   [1] ARM Linux kernel documentation
->>       Documentation/devicetree/bindings/arm/cpus.txt
->>   [2] Devicetree NUMA binding description
->>       Documentation/devicetree/bindings/numa.txt
->> +[3] RISC-V Linux kernel documentation
->> +    Documentation/devicetree/bindings/riscv/cpus.txt
->> +[4] https://www.devicetree.org/specifications/
->> -- 
->> 2.7.4
->>
-> 
+    v5:
+    * Merge separate series and patches into the single series.
+    * Change PTRACE_EVENTMSG_SYSCALL_{ENTRY,EXIT} values as requested by Oleg.
+    * Change struct ptrace_syscall_info: generalize instruction_pointer,
+      stack_pointer, and frame_pointer fields by moving them from
+      ptrace_syscall_info.{entry,seccomp} substructures to ptrace_syscall_info
+      and initializing them for all stops.
+    * Add PTRACE_SYSCALL_INFO_NONE, set it when not in a syscall stop,
+      so e.g. "strace -i" could use PTRACE_SYSCALL_INFO_SECCOMP to obtain
+      instruction_pointer when the tracee is in a signal stop.
+    * Patch all remaining architectures to provide all necessary
+      syscall_get_* functions.
+    * Make available for all architectures: do not conditionalize on
+      CONFIG_HAVE_ARCH_TRACEHOOK since all syscall_get_* functions
+      are implemented on all architectures.
+    * Add a test for PTRACE_GET_SYSCALL_INFO to selftests/ptrace.
+    
+    v4:
+    * Do not introduce task_struct.ptrace_event,
+      use child->last_siginfo->si_code instead.
+    * Implement PTRACE_SYSCALL_INFO_SECCOMP and ptrace_syscall_info.seccomp
+      support along with PTRACE_SYSCALL_INFO_{ENTRY,EXIT} and
+      ptrace_syscall_info.{entry,exit}.
+    
+    v3:
+    * Change struct ptrace_syscall_info.
+    * Support PTRACE_EVENT_SECCOMP by adding ptrace_event to task_struct.
+    * Add proper defines for ptrace_syscall_info.op values.
+    * Rename PT_SYSCALL_IS_ENTERING and PT_SYSCALL_IS_EXITING to
+      PTRACE_EVENTMSG_SYSCALL_ENTRY and PTRACE_EVENTMSG_SYSCALL_EXIT
+    * and move them to uapi.
+    
+    v2:
+    * Do not use task->ptrace.
+    * Replace entry_info.is_compat with entry_info.arch, use syscall_get_arch().
+    * Use addr argument of sys_ptrace to get expected size of the struct;
+      return full size of the struct.
 
+Dmitry V. Levin (25):
+  asm-generic/syscall.h: prepare for inclusion by other files
+  asm-generic/syscall.h: turn syscall_[gs]et_arguments into wrappers
+  alpha: define remaining syscall_get_* functions
+  Move EM_ARCOMPACT and EM_ARCV2 to uapi/linux/elf-em.h
+  arc: define syscall_get_arch()
+  c6x: define syscall_get_arch()
+  elf-em.h: add EM_CSKY
+  csky: define syscall_get_arch()
+  h8300: define remaining syscall_get_* functions
+  Move EM_HEXAGON to uapi/linux/elf-em.h
+  hexagon: define remaining syscall_get_* functions
+  Move EM_NDS32 to uapi/linux/elf-em.h
+  nds32: define syscall_get_arch()
+  nios2: define syscall_get_arch()
+  m68k: add asm/syscall.h
+  mips: define syscall_get_error()
+  parisc: define syscall_get_error()
+  powerpc: define syscall_get_error()
+  riscv: define syscall_get_arch()
+  Move EM_XTENSA to uapi/linux/elf-em.h
+  xtensa: define syscall_get_* functions
+  Move EM_UNICORE to uapi/linux/elf-em.h
+  unicore32: add asm/syscall.h
+  syscall_get_arch: add "struct task_struct *" argument
+  selftests/ptrace: add a test case for PTRACE_GET_SYSCALL_INFO
+
+Elvira Khabirova (2):
+  powerpc/ptrace: replace ptrace_report_syscall() with a tracehook call
+  ptrace: add PTRACE_GET_SYSCALL_INFO request
+
+ arch/alpha/include/asm/syscall.h              |  31 +-
+ arch/arc/include/asm/elf.h                    |   6 +-
+ arch/arc/include/asm/syscall.h                |  11 +
+ arch/arm/include/asm/syscall.h                |   2 +-
+ arch/arm64/include/asm/syscall.h              |   4 +-
+ arch/c6x/include/asm/syscall.h                |   7 +
+ arch/csky/include/asm/syscall.h               |   7 +
+ arch/h8300/include/asm/syscall.h              |  19 ++
+ arch/hexagon/include/asm/elf.h                |   6 +-
+ arch/hexagon/include/asm/syscall.h            |  22 ++
+ arch/ia64/include/asm/syscall.h               |   2 +-
+ arch/m68k/include/asm/syscall.h               |  42 +++
+ arch/microblaze/include/asm/syscall.h         |   2 +-
+ arch/mips/include/asm/syscall.h               |  12 +-
+ arch/mips/kernel/ptrace.c                     |   2 +-
+ arch/nds32/include/asm/elf.h                  |   3 +-
+ arch/nds32/include/asm/syscall.h              |   8 +
+ arch/nios2/include/asm/syscall.h              |   6 +
+ arch/openrisc/include/asm/syscall.h           |   2 +-
+ arch/parisc/include/asm/syscall.h             |  11 +-
+ arch/powerpc/include/asm/syscall.h            |  20 +-
+ arch/powerpc/kernel/ptrace.c                  |   7 +-
+ arch/riscv/include/asm/syscall.h              |  10 +
+ arch/s390/include/asm/syscall.h               |   4 +-
+ arch/sh/include/asm/syscall_32.h              |   2 +-
+ arch/sh/include/asm/syscall_64.h              |   2 +-
+ arch/sparc/include/asm/syscall.h              |   5 +-
+ arch/unicore32/include/asm/elf.h              |   3 +-
+ arch/unicore32/include/asm/syscall.h          |  46 +++
+ arch/x86/include/asm/syscall.h                |   8 +-
+ arch/x86/um/asm/syscall.h                     |   2 +-
+ arch/xtensa/include/asm/elf.h                 |   2 +-
+ arch/xtensa/include/asm/syscall.h             |  65 +++++
+ include/asm-generic/syscall.h                 |  85 ++++--
+ include/linux/tracehook.h                     |   9 +-
+ include/uapi/linux/audit.h                    |  16 ++
+ include/uapi/linux/elf-em.h                   |   8 +
+ include/uapi/linux/ptrace.h                   |  35 +++
+ kernel/auditsc.c                              |   4 +-
+ kernel/ptrace.c                               | 101 ++++++-
+ kernel/seccomp.c                              |   4 +-
+ tools/testing/selftests/ptrace/.gitignore     |   1 +
+ tools/testing/selftests/ptrace/Makefile       |   2 +-
+ .../selftests/ptrace/get_syscall_info.c       | 271 ++++++++++++++++++
+ 44 files changed, 851 insertions(+), 66 deletions(-)
+ create mode 100644 arch/m68k/include/asm/syscall.h
+ create mode 100644 arch/unicore32/include/asm/syscall.h
+ create mode 100644 tools/testing/selftests/ptrace/get_syscall_info.c
+
+-- 
+ldv
 
 _______________________________________________
 linux-riscv mailing list
