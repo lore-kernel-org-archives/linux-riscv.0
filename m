@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E8A66C67872
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 14 Dec 2018 11:11:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 008ADC6786C
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 14 Dec 2018 11:11:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B94DD2080F
+	by mail.kernel.org (Postfix) with ESMTPS id C214321104
 	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 14 Dec 2018 11:11:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZqjuAbuF"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B94DD2080F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Q4K2X4kE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C214321104
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,40 +26,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=WcHVvHPegg9Hz0Qt5vGPWDfiEblRLopzTqjW+3BoCTA=; b=ZqjuAbuFFtm7sX4fg6qZrYBV9P
-	wdlY4NQZ2VWt4Bk1Qgf0teP2gke68XEL9ustVkGzeTGzTBjx4k14KLiXjM0FQ2aJ03cqwokvFGbGk
-	qzp0ycHXVVxqPeo34cUsSMGK+X1th3zUcERJBxGbDSzZ9PoyyPXJBv0wnzwANkWXgylf2XqmPRMjT
-	KRYDpifpm5cU06dAuDaci/a4Ka7dqpYHNH/qOWPoInKCROW1rxWfhNq3mTHUnm9nAIfb6bg1rado8
-	Yf4bPWkBBGWOLX1rJkvf7AqV5/gPcS3+1vHO0nOfnXINkhwySazklGn/s3XLtYaLSXBHuXJ+5NlDG
-	QNecdFYg==;
+	bh=sNPPfss/ieAefrRq/s1HAysy4qHoQnykG7BbFlkHruk=; b=Q4K2X4kEqNIlhbEwe4xyv14tKm
+	ihghnxnq9Z0jVORyn6m9YbZ6HslxZZHvArRMD7uZYJzStyHinC2AZ9y4D+aFqWFtJJYfVT7Wng+Ob
+	ATXTl8KLU9AoeEfzpPBGCJgECzJxUyUkQbItWMvr56XLhfLwJOlYmDcAK23j98ngwEAn6bLqLMg06
+	mw5bvJfGvdVAkpRqDlcu8nUqofAsZDzXLRJrRTap9AuXB8tUAx0ASEhR27U8Yvo5RfPUe0tsitk6n
+	22S8Wg7mVILH6iiuYzID41g+SGoZiJ3VuLFMdWpJIcooMoOtO/nd4USnwxGDPn9st1ppUA09f820+
+	nJ+BUUDA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gXlNT-0008AS-R1; Fri, 14 Dec 2018 11:11:31 +0000
+	id 1gXlNT-00089b-0A; Fri, 14 Dec 2018 11:11:31 +0000
 Received: from mx1.redhat.com ([209.132.183.28])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gXlMs-0007XG-JT; Fri, 14 Dec 2018 11:10:56 +0000
+ id 1gXlMs-0007X4-Ih; Fri, 14 Dec 2018 11:10:56 +0000
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
  [10.5.11.14])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id 39346DD9C0;
- Fri, 14 Dec 2018 11:10:50 +0000 (UTC)
-Received: from t460s.redhat.com (ovpn-117-139.ams2.redhat.com [10.36.117.139])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 7DC595DA2A;
+ by mx1.redhat.com (Postfix) with ESMTPS id 3A3E2307C94C;
  Fri, 14 Dec 2018 11:10:46 +0000 (UTC)
+Received: from t460s.redhat.com (ovpn-117-139.ams2.redhat.com [10.36.117.139])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id F3F276836F;
+ Fri, 14 Dec 2018 11:10:40 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-mm@kvack.org
-Subject: [PATCH v1 2/9] s390/vdso: don't clear PG_reserved
-Date: Fri, 14 Dec 2018 12:10:07 +0100
-Message-Id: <20181214111014.15672-3-david@redhat.com>
+Subject: [PATCH v1 1/9] agp: efficeon: no need to set PG_reserved on GATT
+ tables
+Date: Fri, 14 Dec 2018 12:10:06 +0100
+Message-Id: <20181214111014.15672-2-david@redhat.com>
 In-Reply-To: <20181214111014.15672-1-david@redhat.com>
 References: <20181214111014.15672-1-david@redhat.com>
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.38]); Fri, 14 Dec 2018 11:10:50 +0000 (UTC)
+ (mx1.redhat.com [10.5.110.46]); Fri, 14 Dec 2018 11:10:46 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181214_031054_655180_FAD475E5 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20181214_031054_649066_4EEA1770 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -71,15 +72,13 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-s390@vger.kernel.org, Michal Hocko <mhocko@suse.com>,
- Kees Cook <keescook@chromium.org>, Vasily Gorbik <gor@linux.ibm.com>,
- David Hildenbrand <david@redhat.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, linux-kernel@vger.kernel.org,
+Cc: linux-s390@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+ David Hildenbrand <david@redhat.com>, David Airlie <airlied@linux.ie>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
  Matthew Wilcox <willy@infradead.org>, Michal Hocko <mhocko@kernel.org>,
- linux-m68k@lists.linux-m68k.org, Mike Rapoport <rppt@linux.vnet.ibm.com>,
- linux-mediatek@lists.infradead.org, Souptick Joarder <jrdr.linux@gmail.com>,
- Martin Schwidefsky <schwidefsky@de.ibm.com>, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-m68k@lists.linux-m68k.org, linux-mediatek@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ Andrew Morton <akpm@linux-foundation.org>,
  linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
@@ -87,49 +86,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The VDSO is part of the kernel image and therefore the struct pages are
-marked as reserved during boot.
+The l1 GATT page table is kept in a special on-chip page with 64 entries.
+We allocate the l2 page table pages via get_zeroed_page() and enter them
+into the table. These l2 pages are modified accordingly when
+inserting/removing memory via efficeon_insert_memory and
+efficeon_remove_memory.
 
-As we install a special mapping, the actual struct pages will never be
-exposed to MM via the page tables. We can therefore leave the pages
-marked as reserved.
+Apart from that, these pages are not exposed or ioremap'ed. We can stop
+setting them reserved (propably copied from generic code).
 
-Suggested-by: Martin Schwidefsky <schwidefsky@de.ibm.com>
-Cc: Martin Schwidefsky <schwidefsky@de.ibm.com>
-Cc: Heiko Carstens <heiko.carstens@de.ibm.com>
-Cc: Matthew Wilcox <willy@infradead.org>
-Cc: Mike Rapoport <rppt@linux.vnet.ibm.com>
-Cc: Michal Hocko <mhocko@suse.com>
-Cc: Vasily Gorbik <gor@linux.ibm.com>
-Cc: Kees Cook <keescook@chromium.org>
-Cc: Souptick Joarder <jrdr.linux@gmail.com>
+Cc: David Airlie <airlied@linux.ie>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>
 Cc: Michal Hocko <mhocko@kernel.org>
+Cc: Matthew Wilcox <willy@infradead.org>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- arch/s390/kernel/vdso.c | 2 --
+ drivers/char/agp/efficeon-agp.c | 2 --
  1 file changed, 2 deletions(-)
 
-diff --git a/arch/s390/kernel/vdso.c b/arch/s390/kernel/vdso.c
-index ebe748a9f472..9e24d23c26c0 100644
---- a/arch/s390/kernel/vdso.c
-+++ b/arch/s390/kernel/vdso.c
-@@ -292,7 +292,6 @@ static int __init vdso_init(void)
- 	BUG_ON(vdso32_pagelist == NULL);
- 	for (i = 0; i < vdso32_pages - 1; i++) {
- 		struct page *pg = virt_to_page(vdso32_kbase + i*PAGE_SIZE);
--		ClearPageReserved(pg);
- 		get_page(pg);
- 		vdso32_pagelist[i] = pg;
- 	}
-@@ -310,7 +309,6 @@ static int __init vdso_init(void)
- 	BUG_ON(vdso64_pagelist == NULL);
- 	for (i = 0; i < vdso64_pages - 1; i++) {
- 		struct page *pg = virt_to_page(vdso64_kbase + i*PAGE_SIZE);
--		ClearPageReserved(pg);
- 		get_page(pg);
- 		vdso64_pagelist[i] = pg;
- 	}
+diff --git a/drivers/char/agp/efficeon-agp.c b/drivers/char/agp/efficeon-agp.c
+index 7f88490b5479..c53f0f9ef5b0 100644
+--- a/drivers/char/agp/efficeon-agp.c
++++ b/drivers/char/agp/efficeon-agp.c
+@@ -163,7 +163,6 @@ static int efficeon_free_gatt_table(struct agp_bridge_data *bridge)
+ 		unsigned long page = efficeon_private.l1_table[index];
+ 		if (page) {
+ 			efficeon_private.l1_table[index] = 0;
+-			ClearPageReserved(virt_to_page((char *)page));
+ 			free_page(page);
+ 			freed++;
+ 		}
+@@ -219,7 +218,6 @@ static int efficeon_create_gatt_table(struct agp_bridge_data *bridge)
+ 			efficeon_free_gatt_table(agp_bridge);
+ 			return -ENOMEM;
+ 		}
+-		SetPageReserved(virt_to_page((char *)page));
+ 
+ 		for (offset = 0; offset < PAGE_SIZE; offset += clflush_chunk)
+ 			clflush((char *)page+offset);
 -- 
 2.17.2
 
