@@ -2,60 +2,64 @@ Return-Path: <SRS0=7WNQ=OX=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 67DE5C6786C
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 14 Dec 2018 11:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3704FC67839
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 14 Dec 2018 11:11:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 37B542080F
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 14 Dec 2018 11:11:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 00F262080F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 14 Dec 2018 11:11:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="e8F1Zig2"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 37B542080F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DXHsFCL2"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 00F262080F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=GaO+B3rsEnFuHG5USk7GdNNMbusi1h93Ij2rx28K9X0=; b=e8F
-	1Zig2uvTWxK45xd9mhic3xN+w39FeVObmd7b/4+waqdISMV9HxSGZvE4ZVr6eOCvGOqyqt0C1T7r6
-	1P5ytCThGFluS5f/H+oKeb1Dq9gkduD4Mqaymrx33TzoxjdSuNU2tySWwvSNsuS6AclcwD5o5hDaL
-	kryfsWdRARNNBbfidP6+nDEudvRBDrPygjFzKvNC9/LouF2GgDtkRUiH6eGYitm70Sm6lLuV/rRhL
-	cAING3NDqM/nxfbZHo79vyhTCjEwNnx/uhkJelOa+ot7FAYbjbNBrliFmpJC015zonD+p6nVIEput
-	O0GpvpXcfcMbOYALaknOeaKlgzDUUoA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=V1M3QG6xoY9cmMMkGthO+nBB/8IwFrrpDz2jErHaRu8=; b=DXHsFCL21Ip2ylFRbZ/ijatJWd
+	xfTAbD/NyUPrL8IIEGdRrLaN7/5obzzyJK/nXhlJmxDxISE+GP5Ub0t6S0Ax++mCVZJg6aLbDjuKr
+	+XIBLGnFiKh0hamA2lNrb4nT2np/jehKhSet8mGng2lQylCTCDXQ6RS9FTNVKSWDW/flMZi2OjGUo
+	Df3cNNPJpsWlCsCIPf9DK2sHrHh2/SZirDQ7a/gDr45Ju84xzVcOGKbse5BN19Zoi0wUZclxwCO20
+	IXSXNmJthvGmzW1upkzJOy/6T0b6YqqvrRp6BFlOxfjSaw0LoIQPzY6f1oPjiKpG5wH+n1PDvMdA5
+	uiK01EuQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gXlNY-0008E9-0e; Fri, 14 Dec 2018 11:11:36 +0000
+	id 1gXlNb-0008IT-U0; Fri, 14 Dec 2018 11:11:39 +0000
 Received: from mx1.redhat.com ([209.132.183.28])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gXlMs-0007Wv-Jg; Fri, 14 Dec 2018 11:10:57 +0000
+ id 1gXlMs-0007XT-Km; Fri, 14 Dec 2018 11:10:58 +0000
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
  [10.5.11.14])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id A15C746263;
- Fri, 14 Dec 2018 11:10:40 +0000 (UTC)
+ by mx1.redhat.com (Postfix) with ESMTPS id 1B95C307C94F;
+ Fri, 14 Dec 2018 11:10:54 +0000 (UTC)
 Received: from t460s.redhat.com (ovpn-117-139.ams2.redhat.com [10.36.117.139])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 9B90A5DA2A;
- Fri, 14 Dec 2018 11:10:15 +0000 (UTC)
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 8BC9E5DA2A;
+ Fri, 14 Dec 2018 11:10:50 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-mm@kvack.org
-Subject: [PATCH v1 0/9] mm: PG_reserved cleanups and documentation
-Date: Fri, 14 Dec 2018 12:10:05 +0100
-Message-Id: <20181214111014.15672-1-david@redhat.com>
+Subject: [PATCH v1 3/9] powerpc/vdso: don't clear PG_reserved
+Date: Fri, 14 Dec 2018 12:10:08 +0100
+Message-Id: <20181214111014.15672-4-david@redhat.com>
+In-Reply-To: <20181214111014.15672-1-david@redhat.com>
+References: <20181214111014.15672-1-david@redhat.com>
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.29]); Fri, 14 Dec 2018 11:10:43 +0000 (UTC)
+ (mx1.redhat.com [10.5.110.46]); Fri, 14 Dec 2018 11:10:54 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181214_031054_692398_C726922A 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20181214_031054_717046_B8D14AB4 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -67,92 +71,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
- CHANDAN VN <chandan.vn@samsung.com>, David Hildenbrand <david@redhat.com>,
- David Airlie <airlied@linux.ie>,
+Cc: Christophe Leroy <christophe.leroy@c-s.fr>, linux-s390@vger.kernel.org,
+ Kees Cook <keescook@chromium.org>, David Hildenbrand <david@redhat.com>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Bhupesh Sharma <bhsharma@redhat.com>, Palmer Dabbelt <palmer@sifive.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, Stefan Agner <stefan@agner.ch>,
- Michal Hocko <mhocko@kernel.org>, David Howells <dhowells@redhat.com>,
- Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
- linux-riscv@lists.infradead.org,
- Alexander Duyck <alexander.h.duyck@linux.intel.com>,
- linux-s390@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
- Vasily Gorbik <gor@linux.ibm.com>, Logan Gunthorpe <logang@deltatee.com>,
- Pavel Tatashin <pasha.tatashin@oracle.com>,
- Matthew Wilcox <willy@infradead.org>,
- AKASHI Takahiro <takahiro.akashi@linaro.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Anthony Yznaga <anthony.yznaga@oracle.com>,
- Tobias Klauser <tklauser@distanz.ch>, Laura Abbott <labbott@redhat.com>,
- Fenghua Yu <fenghua.yu@intel.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
- Stephen Rothwell <sfr@canb.auug.org.au>, Marc Zyngier <marc.zyngier@arm.com>,
- Will Deacon <will.deacon@arm.com>,
- Kristina Martsenko <kristina.martsenko@arm.com>,
- linux-m68k@lists.linux-m68k.org, Dave Kleikamp <dave.kleikamp@oracle.com>,
- linux-mediatek@lists.infradead.org, Oleg Nesterov <oleg@redhat.com>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@c-s.fr>, Tony Luck <tony.luck@intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- Miles Chen <miles.chen@mediatek.com>, Mike Rapoport <rppt@linux.vnet.ibm.com>,
- James Morse <james.morse@arm.com>, Souptick Joarder <jrdr.linux@gmail.com>,
- Johannes Weiner <hannes@cmpxchg.org>,
- Martin Schwidefsky <schwidefsky@de.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org,
- Greg Hackmann <ghackmann@android.com>
+ linux-kernel@vger.kernel.org, Matthew Wilcox <willy@infradead.org>,
+ Michal Hocko <mhocko@kernel.org>, linux-m68k@lists.linux-m68k.org,
+ linux-mediatek@lists.infradead.org, Michael Ellerman <mpe@ellerman.id.au>,
+ Paul Mackerras <paulus@samba.org>, linux-riscv@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I was recently going over all users of PG_reserved. Short story: it is
-difficult and sometimes not really clear if setting/checking for
-PG_reserved is only a relict from the past. Easy to break things. I
-guess I know have a pretty good idea wh things are like that
-nowadays and how they evolved.
+The VDSO is part of the kernel image and therefore the struct pages are
+marked as reserved during boot.
 
-I had way more cleanups in this series inititally,
-but some architectures take PG_reserved as a way to apply a different
-caching strategy (for MMIO pages). So I decided to only include the most
-obvious changes (that are less likely to break something). So the big
-chunk of manual SetPageReserved users are MMIO/DMA related things on
-device buffers.
+As we install a special mapping, the actual struct pages will never be
+exposed to MM via the page tables. We can therefore leave the pages
+marked as reserved.
 
-Most notably, for device memory we will hopefully soon stop setting
-PG_reserved. The the documentation has to be updated.
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Cc: Paul Mackerras <paulus@samba.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Christophe Leroy <christophe.leroy@c-s.fr>
+Cc: Kees Cook <keescook@chromium.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Michal Hocko <mhocko@kernel.org>
+Cc: Matthew Wilcox <willy@infradead.org>
+Signed-off-by: David Hildenbrand <david@redhat.com>
+---
+ arch/powerpc/kernel/vdso.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-RFC -> V1:
-- Add more details to "mm: better document PG_reserved"
-- Add "arm64: kdump: No need to mark crashkernel pages manually
-       PG_reserved"
-- Add "ia64: perfmon: Don't mark buffer pages as PG_reserved"
-- Added ACKs
-
-David Hildenbrand (9):
-  agp: efficeon: no need to set PG_reserved on GATT tables
-  s390/vdso: don't clear PG_reserved
-  powerpc/vdso: don't clear PG_reserved
-  riscv/vdso: don't clear PG_reserved
-  m68k/mm: use __ClearPageReserved()
-  arm64: kexec: no need to ClearPageReserved()
-  arm64: kdump: No need to mark crashkernel pages manually PG_reserved
-  ia64: perfmon: Don't mark buffer pages as PG_reserved
-  mm: better document PG_reserved
-
- arch/arm64/kernel/machine_kexec.c |  3 +-
- arch/arm64/mm/init.c              | 27 --------------
- arch/ia64/kernel/perfmon.c        | 59 +++----------------------------
- arch/m68k/mm/memory.c             |  2 +-
- arch/powerpc/kernel/vdso.c        |  2 --
- arch/riscv/kernel/vdso.c          |  1 -
- arch/s390/kernel/vdso.c           |  2 --
- drivers/char/agp/efficeon-agp.c   |  2 --
- include/linux/page-flags.h        | 33 +++++++++++++++--
- 9 files changed, 37 insertions(+), 94 deletions(-)
-
+diff --git a/arch/powerpc/kernel/vdso.c b/arch/powerpc/kernel/vdso.c
+index 65b3bdb99f0b..d59dc2e9a695 100644
+--- a/arch/powerpc/kernel/vdso.c
++++ b/arch/powerpc/kernel/vdso.c
+@@ -795,7 +795,6 @@ static int __init vdso_init(void)
+ 	BUG_ON(vdso32_pagelist == NULL);
+ 	for (i = 0; i < vdso32_pages; i++) {
+ 		struct page *pg = virt_to_page(vdso32_kbase + i*PAGE_SIZE);
+-		ClearPageReserved(pg);
+ 		get_page(pg);
+ 		vdso32_pagelist[i] = pg;
+ 	}
+@@ -809,7 +808,6 @@ static int __init vdso_init(void)
+ 	BUG_ON(vdso64_pagelist == NULL);
+ 	for (i = 0; i < vdso64_pages; i++) {
+ 		struct page *pg = virt_to_page(vdso64_kbase + i*PAGE_SIZE);
+-		ClearPageReserved(pg);
+ 		get_page(pg);
+ 		vdso64_pagelist[i] = pg;
+ 	}
 -- 
 2.17.2
 
