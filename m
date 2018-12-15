@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8EBF4C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 15 Dec 2018 05:22:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E13E5C43444
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 15 Dec 2018 05:22:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6A71420645
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 15 Dec 2018 05:22:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C2FBE20645
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 15 Dec 2018 05:22:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DXKrV8O0";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="SFB8pJer"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6A71420645
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jGcbvftm";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="feuHfR82"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C2FBE20645
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,65 +26,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nM0oznyTFLYUtGAXWzPoSp0UW7rZxjRb2FMe4cnBki4=; b=DXKrV8O0owOp0s
-	Y0EDTopK3/v83KTxBWzlQ/snLTvdtAoxaHS2TBOSY9s28vwnWjWD7FplXMCSNOApcALpNp+1qjcOo
-	Xpi+xpvPphc3ml+BqjSGh6mrhc00BxE9p4FYGGqH74OwnfYEb3Y31un/RfLyAP/Nv9RkuvJSeiKw7
-	9uRr7wWPuSBiSbopHH73iFliOCcCPH6TyxTWKp0OC0D2NuDWZHTFYRVYbFRYAAwyG4ijKx3kJYkY1
-	U3TD7N0ieXFAxZkEPHIPW4FwKDub38vn15emdDzJaul2G5k1A6RZnun2K88pfrMqETaSZzdJ8Lts5
-	B8IkEYP4DdiDQWk+40zw==;
+	List-Owner; bh=R+bYlLaNE6fx+7yWrp6m1QU0YDQDk0uJtQgiII9hEUY=; b=jGcbvftmOkg3La
+	PHpLOY+DeVNF+wsQs7TsFsI+/d79CxeZPfF/0JMKjsLPKdqTzRiF3JBYnysyCcqdhlzHsxveRlVhi
+	K1O9x1Yo8JBDpueaPuLuNXX19m49F7BB9+dcVoHRA+qMuM8I8Agl5yB/gI24zU+Wrb+Qdu85yTlbj
+	hR9fdrbEmmEqroqK7qMHG22wpudmT5t+xyq3tixCOJaD5KkFuSJu4x2DwFc1hjvQMyv5wxPRVg+vb
+	l7f57pUiGseNjxuczdybJ7rDAAKJOuPkS7uooDseY/fppLBFBeTfdDuwuZKaHzyeaI7bt3O6mlAua
+	2nh/vyuFAw4UIzW306mQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gY2PX-0004hC-EA; Sat, 15 Dec 2018 05:22:47 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1gY2PY-0004i1-Fe; Sat, 15 Dec 2018 05:22:48 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gY2PQ-0004Z1-8e
- for linux-riscv@lists.infradead.org; Sat, 15 Dec 2018 05:22:42 +0000
-Received: by mail-pf1-x444.google.com with SMTP id y126so3803858pfb.4
- for <linux-riscv@lists.infradead.org>; Fri, 14 Dec 2018 21:22:35 -0800 (PST)
+ id 1gY2PR-0004YB-Nh
+ for linux-riscv@lists.infradead.org; Sat, 15 Dec 2018 05:22:43 +0000
+Received: by mail-pf1-x441.google.com with SMTP id w73so3790781pfk.10
+ for <linux-riscv@lists.infradead.org>; Fri, 14 Dec 2018 21:22:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=lDoLfpjNAyWtuhe4HUukg8qR7sDpr9z0VGObQaPKKr8=;
- b=SFB8pJerFjTU6W1IOA/VbZktGqFt2HD6oDX90xn2OfFS7l+mURXkiQL1c6vlu+69zm
- Q02tdM68UJp6IrkQdkLv1O2fInzGt6RTm7eb8hNXNGacPZ/HUqDcPXhpjffAKYF+alIg
- 5ehbu7We76pgZFE+e31+8vtjgS7qJV++J8YWLn+JmiXIps1+4TqpC0mxxw3gnicYsyZH
- A+ZLb2wCmwEY51764F3wVZ4OywCyCdXMdXSJhEoKAYxTEbmKn6apJbETKpiDuLAOMD2V
- Ci73R5gLKKdvjPlr4d3cm1yofJBP4WpJsjUnx0/FZL7NyInhXCbwKLCRYqGj57X4hF06
- dLXA==
+ bh=OLe9TDsF9ykXoskMy1MUV6N74DR2JxYIMBM3AVcxyko=;
+ b=feuHfR826w2zbdrMCBmO9bQOCB5pu21rH6+y8utGYNdneyOMzlRKZMZ0yZ6M+vo6QB
+ KB7YU4Mml7amEdcxZtogoLH3cVSGI1p8ggWLyDorL91rCi2VxEJkBRh3LBeriDPAtzts
+ 7rAdGGHOIvm52Vd5qsDvAAtByJvDhOzaPj2QTYBjeUwp3MuId1jeeWBRCDsSjFJNP1yA
+ wbTZxQisvd/f92hIBUzBw9Y7Sdq3AE1NHi22vFwvqmgxy9aG82OVeoM2ITXwSARWTdb/
+ nJztNtNnUVbCHtMvc/+nIamH3xYlWrP4C8GKObR8GSS19l0Tu0mR2p6vcbqExDJlzAru
+ gK/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=lDoLfpjNAyWtuhe4HUukg8qR7sDpr9z0VGObQaPKKr8=;
- b=krj4ha85ku24Yg3+tqIVcAPkkQ2aq54sucwhFpZXR0mbO73durhazqDkIKpkngLZgS
- 7cmFse7WzzevAVykUCS99AGJlMHKuadOkLzRTo3TxqR/LRfIRWCZGHeZhZHljLhg/kmB
- XFVTj2NxjmdO+bqeELQhuORRAcC/UM9/nvhlUAedWO5sbjxboSUzxdYo//tEK/Og9vuT
- DQ/rxdlY4skkQ6HE1u6jOBRRLvOflBKEdfRozu2xI2uQ/VGtlJBHOtSOJ65ZIL60DdFr
- nsrlYvs9P56FxL19qPwMmptHKjR6EnI0fk6x5D3Q+qbV58z0EA1DIMRiVMMQgAOaTbtR
- E4cA==
-X-Gm-Message-State: AA+aEWb/HHTui6gtQzKimiWpdgw+NQyOy7FOMv4rDLweBehEdq5R64dS
- 2SzTVdOt/9PHhfw8+svuTrn6RjEKeTQ=
-X-Google-Smtp-Source: AFSGD/WmSoDpeWsCDldCHmktUFbAD8An63NaaFWgBGSAUc0/+vPeUlXAUj5//UgEv7FfwORXRS/PRA==
-X-Received: by 2002:a63:f74f:: with SMTP id f15mr5181688pgk.190.1544851354751; 
- Fri, 14 Dec 2018 21:22:34 -0800 (PST)
+ bh=OLe9TDsF9ykXoskMy1MUV6N74DR2JxYIMBM3AVcxyko=;
+ b=dofDr9PdZCqpDbo3G8tt2qnVdnaMQAb1aDXx2NGmmogvXwSG/B9LssQCxreqXJykZs
+ 6FOELzKYFDDp5WQoYaA0nN7U6HZxIhyXt0E09EG19kTEySJfjPYB7zR3gPusxImuOyeO
+ HULxYjTXlljl264eaD4pLdJ6AM/Jg64mRp/MUMLJRxrYkJHJfasDigIxaaQ5AklZgCSn
+ sxehMJuiypIDsZhTaUv36ejtSQ5X9GdKl/OjzmyaFbLHyUrOMpfIVt1zyL0z87HqJ/ve
+ 1SH8bVRKJekwHAJo3HQD3QX/tXDJGAmKkO9krLzdjSEL6q623f5NkH7dll2zS35DVRFU
+ jfZQ==
+X-Gm-Message-State: AA+aEWbvw/WoRmqxZqG4nU78N0TGjTn0sI2ke+UaszBWrwtbkyDXUeA0
+ QCp7EUW0aRGDX4JjFO0u7yeCiA==
+X-Google-Smtp-Source: AFSGD/VKuAo7dsf/qapsT4rICerC5zin1uQkYOu2fmF1M+PTkeQRU4rRjdtOkiorie6yBwO0+PN5jw==
+X-Received: by 2002:a63:1b1f:: with SMTP id b31mr5107167pgb.66.1544851350858; 
+ Fri, 14 Dec 2018 21:22:30 -0800 (PST)
 Received: from viisi.sifive.com ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id z127sm11351282pfb.80.2018.12.14.21.22.33
+ by smtp.gmail.com with ESMTPSA id z127sm11351282pfb.80.2018.12.14.21.22.29
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 14 Dec 2018 21:22:34 -0800 (PST)
+ Fri, 14 Dec 2018 21:22:30 -0800 (PST)
 From: Paul Walmsley <paul.walmsley@sifive.com>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 6/7] dt-binding: riscv: sifive: add documentation for
- FU540-based boards
-Date: Fri, 14 Dec 2018 21:21:53 -0800
-Message-Id: <20181215052154.24347-7-paul.walmsley@sifive.com>
+Subject: [PATCH 3/7] dt-bindings: riscv: cpus: add E51 cores to the list of
+ documented CPUs
+Date: Fri, 14 Dec 2018 21:21:50 -0800
+Message-Id: <20181215052154.24347-4-paul.walmsley@sifive.com>
 X-Mailer: git-send-email 2.20.0
 In-Reply-To: <20181215052154.24347-1-paul.walmsley@sifive.com>
 References: <20181215052154.24347-1-paul.walmsley@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181214_212240_312193_7939BBAA 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20181214_212241_767007_16CD27F0 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -105,10 +105,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add DT binding documentation for boards based on the SiFive FU540 SoC.
-The first board, the HiFive Unleashed A00 (FU540), is described here:
+Add compatible strings for the SiFive E51 family of CPU cores to the
+RISC-V CPU compatible string documentation.  The E51 CPU core is
+described in:
 
-https://static.dev.sifive.com/HiFive-Unleashed-Getting-Started-Guide-v1p1.pdf
+https://static.dev.sifive.com/FU540-C000-v1.0.pdf
 
 Cc: Rob Herring <robh+dt@kernel.org>
 Cc: Mark Rutland <mark.rutland@arm.com>
@@ -120,27 +121,25 @@ Cc: linux-kernel@vger.kernel.org
 Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
 Signed-off-by: Paul Walmsley <paul@pwsan.com>
 ---
- .../devicetree/bindings/riscv/sifive/fu540.txt         | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ Documentation/devicetree/bindings/riscv/cpus.txt | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/sifive/fu540.txt b/Documentation/devicetree/bindings/riscv/sifive/fu540.txt
-index b5cf2b9f9a75..20119cc54964 100644
---- a/Documentation/devicetree/bindings/riscv/sifive/fu540.txt
-+++ b/Documentation/devicetree/bindings/riscv/sifive/fu540.txt
-@@ -12,3 +12,13 @@ compatible-string values:
- 
- - Freedom Unleashed 540 rev. C000, or "FU540"
-   compatible = "sifive,fu540-c000", "sifive,fu540"
-+
-+Boards
-+------
-+
-+Boards based on the FU540 SoC should specify the following
-+compatible-string values:
-+
-+- HiFive-Unleashed rev. A00 board
-+  compatible = "sifive,hifive-unleashed-a00-fu540",
-+	       "sifive,hifive-unleashed-fu540"
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.txt b/Documentation/devicetree/bindings/riscv/cpus.txt
+index adf7b7af5dc3..fb9d4f86f41f 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.txt
++++ b/Documentation/devicetree/bindings/riscv/cpus.txt
+@@ -68,8 +68,9 @@ described below.
+         - compatible:
+                 Usage: required
+                 Value type: <stringlist>
+-                Definition: must contain "riscv", may contain one of
+-                            "sifive,rocket0"
++                Definition: must contain "riscv", may contain one or
++			    more of "sifive,rocket0", "sifive,e51",
++			    "sifive,e5"
+         - mmu-type:
+                 Usage: optional
+                 Value type: <string>
 -- 
 2.20.0
 
