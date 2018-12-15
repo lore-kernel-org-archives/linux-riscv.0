@@ -2,70 +2,88 @@ Return-Path: <SRS0=MTom=OY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-3.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9635FC43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 15 Dec 2018 00:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4CD2DC43612
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 15 Dec 2018 05:22:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B652A206A2
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 15 Dec 2018 00:12:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2CC6520645
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 15 Dec 2018 05:22:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ARiqbsSs";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="j532HYtx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B652A206A2
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LwaOcuCi";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="ZVz4Ch/a"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2CC6520645
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BKJsC9RQz30PvcnNoMT7LLZRdUmZyx3ikd2sEckY9Q4=; b=ARiqbsSsPT/ddD
-	qlD73mPfqn7nVY+Qh9OsFXvEbGXjObjxHMGz06DQoW4WQ07YIWKSYD+Pt8/J9UVufS8OXrGDNL6x1
-	h/TaBxmRaAkbzROxJHISgHwK9mcmOFXV3zw9WYk4yK+8Mb2N4OD6/HNw7vYucErYpL/INwiHpJ10K
-	zYnA/SC7s+93nT9d0VLrwhnmBNelBvd24efZF0/BJmmA5f/r6meHhiNsZjn+HXA/GHw6jDHIeYES/
-	wwfoz1ubjtgW+8b1jfcHFgTaeoUv/mMhbmRBPmN76TsviiTsdF4eh2mcFery8f3HQ0HR905fhlxqX
-	+iulb927XS/Y3NnACq7w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3N17ND37YogEduCt5vcKPrHfmvJEv8cS06+nVSjfOqQ=; b=LwaOcuCijBVV0u
+	axwF7YNDmiUBBtZCm8izeP+NV+npX/YXesr2FHruuupY0EtGcjibVocGL+g+HCN444EokkPchlueO
+	PQ4XeyP9NC6DqKV8cQAYCWF88XLXmqm0+i2rKlX+afB7Gxxs7ZomuQCtjx4aYYHMpVxDKW31H2lDJ
+	6AxXuxDOkad5CgWEk5xIhHTaOYX6Fokcst+G804CENzn2dgxVIh0g/53WpFYXs5DarMXRmiisWlqw
+	2FpgN34oEaRENiZXgOv8OqYUPd3dP2T9gFxV8OlTvnTSgeVVcTyz298tq2Ssn1LWtTdm70YdcfScw
+	arYXPTwLAaLq6KXZuN4A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gXxZQ-0001ns-5M; Sat, 15 Dec 2018 00:12:40 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
+	id 1gY2PJ-0004YK-H9; Sat, 15 Dec 2018 05:22:33 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gXxZN-0001nG-SP; Sat, 15 Dec 2018 00:12:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Transfer-Encoding:Content-Type:
- In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
- :Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=MYI4FR5Cx0ahm+Z7P280dKZ4U23RIOi/IfMmiaZjC/c=; b=j532HYtx+JMvZhYmY787A9Cdfu
- tHthA7l/a9a9NkKJ3KxTsp8uCG2D02VPr8JXualNRtAkClmfPEZBT1OyAT2+33s5eFHBLCs8F7szG
- UTE08jcEZlhB39NJawElRkFoibNzo2wpryBcwsa//tGQd5NDnhhRRqC7nEpVlakK7lj43NTa8K0nC
- HYfrJHH7c0H9LqBFr2aWoKIxJqox3Wjx8nWNpDnQ8kPD4tCvKXEtBWGRXtCbU/Zxs21Qo4ePW2ja7
- xzf7StXFwPXcgAFqieyqfgfFMndv7XN2oV09vFwQKsvCEP8CUIeOWQDX5msNTirSDXluE3c1OPMAz
- LcE34k8w==;
-Received: from static-50-53-52-16.bvtn.or.frontiernet.net ([50.53.52.16]
- helo=midway.dunlab)
- by merlin.infradead.org with esmtpsa (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gXxZB-0007Tg-2V; Sat, 15 Dec 2018 00:12:25 +0000
-Subject: Re: [PATCH v1 9/9] mm: better document PG_reserved
-To: David Hildenbrand <david@redhat.com>, linux-mm@kvack.org
-References: <20181214111014.15672-1-david@redhat.com>
- <20181214111014.15672-10-david@redhat.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-Message-ID: <03f65c6f-1287-4c63-6705-16e58d659d94@infradead.org>
-Date: Fri, 14 Dec 2018 16:12:22 -0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.3.0
+ id 1gY2PG-0004Xr-VL
+ for linux-riscv@lists.infradead.org; Sat, 15 Dec 2018 05:22:32 +0000
+Received: by mail-pl1-x641.google.com with SMTP id a14so3652113plm.12
+ for <linux-riscv@lists.infradead.org>; Fri, 14 Dec 2018 21:22:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=WfcYjdauiywCzBPSnuM2mOLdoDThmA8NHEBfirFw+VE=;
+ b=ZVz4Ch/aMMf2RvKx7q3I3f0FJsreoYuTEk+kaPBUg93v2sNtXgKXgzqAlBiPbycTOy
+ L97u3Y7cAAlMfy5veR2ntwIGn3pbCeSy5zUVgYZkGeXSPcSlEaZyL9GxkNddETqXtKb1
+ AnWe+a0253+5IXtRMsF517mXPgKdKadc2lUCO2hSK7u1oTKtjWYP7OvJTsn+YrNQKx87
+ ZYQuuERCAcw3LcIqqSvql31ibokeQvJJLtbvgTqN2aZY9K4OHH45BN5pgBAHDdjTs0T4
+ GD7NMroXWIkZ0YjkY9Mu+k3iABkpjW3mc8BNVBkLNtrpwLcsMABPTsyoe7/C+X8k8Tw7
+ pv6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=WfcYjdauiywCzBPSnuM2mOLdoDThmA8NHEBfirFw+VE=;
+ b=NUrH3sglDXbDwbGMoGHtBxgfGqPrbFLfHdtwjxYJmSajSVfy2VxmLCK1WLokbTVdij
+ uvoBOgX/6FW+sUqnjPDjQTCelRrdy3AtrJSrZYVucUQrFJn7TEE2fTDLwMS2qQUg1hkZ
+ 3XjSm5L0bV5DWRzf0owoUN8BrhD/knPQlA3CW+0n47S0XGVK+eFkcuuo2dRTT6bxl1jW
+ gg1ekx+616rS5uUusvYuRpfrJmjKitPMQOsR6Rlu48qZLgc52F0tyeGEpc11bMTS6g5+
+ ple4JqXS8ZU4bpfA/U3UFQOF4vRMhCr8Jd8xa/Y1qPSmNWRgTYUv76zPvEhi1a37awQt
+ Hxmg==
+X-Gm-Message-State: AA+aEWZrEUY/Hdnaa2yYr2Sefj0GnRvVatHqKN6DinzJNqeABVyHpod2
+ iDWm0Y99sH60wKM29ahza0FgmQ==
+X-Google-Smtp-Source: AFSGD/Va8i8w7fCbg5cTBlIyg6mEb1iUwjAxGJKeWfjhMuQiX3okFOD5OCQW2PPRQBjJXmQlHaWGig==
+X-Received: by 2002:a17:902:6b09:: with SMTP id
+ o9mr5397556plk.208.1544851339423; 
+ Fri, 14 Dec 2018 21:22:19 -0800 (PST)
+Received: from viisi.sifive.com ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id z127sm11351282pfb.80.2018.12.14.21.22.18
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 14 Dec 2018 21:22:18 -0800 (PST)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 0/7] arch: riscv: add DT file support,
+ starting with the SiFive HiFive-U
+Date: Fri, 14 Dec 2018 21:21:47 -0800
+Message-Id: <20181215052154.24347-1-paul.walmsley@sifive.com>
+X-Mailer: git-send-email 2.20.0
 MIME-Version: 1.0
-In-Reply-To: <20181214111014.15672-10-david@redhat.com>
-Content-Language: en-US
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20181214_212231_020931_4872CE96 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -77,108 +95,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-s390@vger.kernel.org, Michal Hocko <mhocko@suse.com>,
- Stephen Rothwell <sfr@canb.auug.org.au>,
- Alexander Duyck <alexander.h.duyck@linux.intel.com>,
- Dan Williams <dan.j.williams@intel.com>, linux-kernel@vger.kernel.org,
- Matthew Wilcox <willy@infradead.org>,
- Pavel Tatashin <pasha.tatashin@oracle.com>, yi.z.zhang@linux.intel.com,
- linux-m68k@lists.linux-m68k.org, linux-mediatek@lists.infradead.org,
- Miles Chen <miles.chen@mediatek.com>,
- Anthony Yznaga <anthony.yznaga@oracle.com>, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/14/18 3:10 AM, David Hildenbrand wrote:
-> The usage of PG_reserved and how PG_reserved pages are to be treated is
-> buried deep down in different parts of the kernel. Let's shine some light
-> onto these details by documenting current users and expected
-> behavior.
-> 
-> Especially, clarify on the "Some of them might not even exist" case.
-> These are physical memory gaps that will never be dumped as they
-> are not marked as IORESOURCE_SYSRAM. PG_reserved does in general not
-> hinder anybody from dumping or swapping. In some cases, these pages
-> will not be stored in the hibernation image.
+Add support for building flattened DT files from DT source files under
+arch/riscv/boot/dts.  Follow existing kernel precedent from other SoC
+architectures.
 
-Hi,
-Thanks for the doc update.
-Comments below.
+Start by adding initial support for the SiFive FU540 SoC, and the
+development board that uses it, the SiFive HiFive Unleashed A00.
 
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Stephen Rothwell <sfr@canb.auug.org.au>
-> Cc: Pavel Tatashin <pasha.tatashin@oracle.com>
-> Cc: Michal Hocko <mhocko@suse.com>
-> Cc: Alexander Duyck <alexander.h.duyck@linux.intel.com>
-> Cc: Matthew Wilcox <willy@infradead.org>
-> Cc: Anthony Yznaga <anthony.yznaga@oracle.com>
-> Cc: Miles Chen <miles.chen@mediatek.com>
-> Cc: yi.z.zhang@linux.intel.com
-> Cc: Dan Williams <dan.j.williams@intel.com>
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-> ---
->  include/linux/page-flags.h | 33 +++++++++++++++++++++++++++++++--
->  1 file changed, 31 insertions(+), 2 deletions(-)
-> 
-> diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
-> index 808b4183e30d..9de2e941cbd5 100644
-> --- a/include/linux/page-flags.h
-> +++ b/include/linux/page-flags.h
-> @@ -17,8 +17,37 @@
->  /*
->   * Various page->flags bits:
->   *
-> - * PG_reserved is set for special pages, which can never be swapped out. Some
-> - * of them might not even exist...
-> + * PG_reserved is set for special pages. The "struct page" of such a page
-> + * should in general not be touched (e.g. set dirty) except by their owner.
+Applies on v4.20-rc6.
 
-                                                               by its owner.
+- Paul
 
-> + * Pages marked as PG_reserved include:
-> + * - Pages part of the kernel image (including vDSO) and similar (e.g. BIOS,
-> + *   initrd, HW tables)
-> + * - Pages reserved or allocated early during boot (before the page allocator
-> + *   was initialized). This includes (depending on the architecture) the
-> + *   initial vmmap, initial page tables, crashkernel, elfcorehdr, and much
+Paul Walmsley (7):
+  arch: riscv: add support for building DTB files from DT source data
+  dt-bindings: riscv: sifive: add documentation for the SiFive FU540
+  dt-bindings: riscv: cpus: add E51 cores to the list of documented CPUs
+  dt-bindings: riscv: cpus: add U54 cores to the list of documented CPUs
+  riscv: dts: add initial support for the SiFive FU540-C000 SoC
+  dt-binding: riscv: sifive: add documentation for FU540-based boards
+  riscv: dts: add initial board data for the SiFive HiFive Unleashed
 
-                VM map,
+ .../devicetree/bindings/riscv/cpus.txt        |   6 +-
+ .../bindings/riscv/sifive/fu540.txt           |  24 +++
+ MAINTAINERS                                   |   9 +
+ arch/riscv/Kconfig                            |   2 +
+ arch/riscv/Kconfig.platforms                  |   8 +
+ arch/riscv/boot/dts/Makefile                  |   2 +
+ arch/riscv/boot/dts/sifive/Makefile           |   4 +
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi    | 182 ++++++++++++++++++
+ .../dts/sifive/hifive-unleashed-a00-fu540.dts |  39 ++++
+ 9 files changed, 274 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/riscv/sifive/fu540.txt
+ create mode 100644 arch/riscv/Kconfig.platforms
+ create mode 100644 arch/riscv/boot/dts/Makefile
+ create mode 100644 arch/riscv/boot/dts/sifive/Makefile
+ create mode 100644 arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+ create mode 100644 arch/riscv/boot/dts/sifive/hifive-unleashed-a00-fu540.dts
 
-> + *   much more. Once (if ever) freed, PG_reserved is cleared and they will
-> + *   be given to the page allocator.
-> + * - Pages falling into physical memory gaps - not IORESOURCE_SYSRAM. Trying
-> + *   to read/write these pages might end badly. Don't touch!
-> + * - The zero page(s)
-> + * - Pages not added to the page allocator when onlining a section because
-> + *   they were excluded via the online_page_callback() or because they are
-> + *   PG_hwpoison.
-> + * - Pages allocated in the context of kexec/kdump (loaded kernel image,
-> + *   control pages, vmcoreinfo)
-> + * - MMIO/DMA pages. Some architectures don't allow to ioremap pages that are
-> + *   not marked PG_reserved (as they might be in use by somebody else who does
-> + *   not respect the caching strategy).
-> + * - Pages part of an offline section (struct pages of offline sections should
-> + *   not be trusted as they will be initialized when first onlined).
-> + * - MCA pages on ia64
-> + * - Pages holding CPU notes for POWER Firmware Assisted Dump
-> + * - Device memory (e.g. PMEM, DAX, HMM)
-> + * Some PG_reserved pages will be excluded from the hibernation image.
-> + * PG_reserved does in general not hinder anybody from dumping or swapping
-> + * and is no longer required for remap_pfn_range(). ioremap might require it.
-> + * Consequently, PG_reserved for a page mapped into user space can indicate
-> + * the zero page, the vDSO, MMIO pages or device memory.
->   *
->   * The PG_private bitflag is set on pagecache pages if they contain filesystem
->   * specific data (which is normally at page->private). It can be used by
-> 
-
-cheers.
 -- 
-~Randy
+2.20.0
+
 
 _______________________________________________
 linux-riscv mailing list
