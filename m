@@ -1,90 +1,72 @@
-Return-Path: <SRS0=MTom=OY=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=9k1K=OZ=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+X-Spam-Status: No, score=-7.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B4352C43613
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 15 Dec 2018 05:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6C0A5C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 16 Dec 2018 03:13:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9666720656
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 15 Dec 2018 05:22:53 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E65F0206C2
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 16 Dec 2018 03:13:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="il0k6hCB";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="DcTyiDjq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9666720656
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="t8B5P2cG"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E65F0206C2
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=intel.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=65RC4ewlD00U5f1Dslm5Xyi9jev5exi5uu8PRfiioQc=; b=il0k6hCBr/q/2L
-	kMUmH+sRRSeZoJgbmkkuR/303dYGzgGKJyF9zCU74zPea304S1wiBImKjLsQTWlZO/MjLPzmJ4S+C
-	9TpGzzFyY+yfEOphm7B/vof6mN933z3Dfsnk6IG8nuxVzDKhNiEkqDAV15l5rcKWEpXOuhQ9f/sZK
-	UJFnTGOC0duGEan/Y5bKh8aMZCffidO9GHFpnD6VUr6+UTAjbSF6ZsH15qG6yWhC/0G9oXEajhpKl
-	JY18w3CAb04y8kQiTExjd7mk7EfOTgvKAzf0jqBlZhk5GyQeEmJz8UdfjMt/FETl5bdaMuCg96S2C
-	xhBz1jwSbLw+u1/ubxuQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=j1BaWdYzRQ6xvu5UIJsXsInHcvvMXlFEdoWFidk5MAk=; b=t8B5P2cG6pOY+qSG16Jp1/Ltk
+	uQlUc+S115QwfqYsdwOg3hrTdRVw71LRJl2iB4a/KlP+7nipJJleFB+7eF6ulWjSvyTuOZwYiyjCl
+	ZBmsUqvIa1sNIaJ6Br1L2kpkAZG7/kD4wwIPpTTSmzBklrzgBbN8IdMbKCCMP9tUMUbdnr9K+0NJD
+	0Mi+KtxkQEV3XEfh66lU6kgX+wEDshElKPsjYwHeMgnNE8b4uHJkobB7uq1iyxbRyCQzqFmObIwpw
+	/NoJT1l4CBe8LDZiw/B6any+ebpmsa2r1nO7x9mxNAiewZKIuoj/cH0tuIrYXGi45XiOJemgVzd5v
+	SlxnNej3A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gY2Pc-0004mf-71; Sat, 15 Dec 2018 05:22:52 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1gYMs7-0000Qb-64; Sun, 16 Dec 2018 03:13:39 +0000
+Received: from mga05.intel.com ([192.55.52.43])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gY2PW-0004ZL-Om
- for linux-riscv@lists.infradead.org; Sat, 15 Dec 2018 05:22:48 +0000
-Received: by mail-pf1-x443.google.com with SMTP id c73so3789574pfe.13
- for <linux-riscv@lists.infradead.org>; Fri, 14 Dec 2018 21:22:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=/liDBIpQXNSCjmDraeSlsWQ6WORYpTFOBdDULIY1SWU=;
- b=DcTyiDjqBzYIaA513uHWLRLPoYRoX5rk9vElhcz0rY+QpmqVnrH4Ih+cVjTwFP9cpB
- P7SjeKKmjWSeZObpJLVNDZTi2mz8KDve72UK/T7rLNNml4QLpXwgcFLo8IxuMIA6CYRg
- I3U2S4tCWFDLFpD1Nq9KwDtFE49uOmmmfb+DVuxsETyiV9/AAg2/TsPOiTF9hFQPPOT0
- 3eHXk2Uko/CUs7kMHEHSwADlrWpvOVYCaw/RHBhl/0ijL62pCCqxrO0qyP+zF0kkYB/S
- GNzM9ckJ2wug9vqH+e98YAAgJQsW9Tv0P0c04H+YlpXZsquoUirBZYED1RRrGXfjBYGF
- WGiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=/liDBIpQXNSCjmDraeSlsWQ6WORYpTFOBdDULIY1SWU=;
- b=q2lc4OcLCgzgkuevCAMku2KDzAWsNNmOaxKRYhyRFic2tk2aqB8JNRIAtFjV0DfOXH
- PPvFww5ny7YEat04oOt9qLMf5HterDSqNPlH5dbUuv0AYsQXW3lhoss39h8LTxKT6FlQ
- vV4MxXEb6hclH1pjd/OTYqw4WwYd29Te4sQ41Lm88BexvU36vSlyBhUyhX+qRbNvkGaz
- VuXNUOT5ERS8ecHOkdrXSsjEoG+AvaEgfHLof6lRcBs/3T2boogY9KBZ056DuVX/r/Iy
- +uXSUOwgui/YLEzOHTrnexr237StN1Bnx0jlkn9Hz9qVGJlaglNeZFoPrsKF3hIj5DYj
- q4gg==
-X-Gm-Message-State: AA+aEWbBP+ULl4s+2uQ7BU6cyPoamtRZHr82M3Jrc9WYogr0qq7szVho
- TImnZ9Lyf8+7xfLztQdhwrtuqg==
-X-Google-Smtp-Source: AFSGD/UpV6Y5WhGohaLi/Mw4QzdLhEDnYwu8aaLd3eP/aEzvL3y2Sx7CYNM3JAxBafNxujZcs0Ltvg==
-X-Received: by 2002:a63:801:: with SMTP id 1mr5044606pgi.275.1544851356054;
- Fri, 14 Dec 2018 21:22:36 -0800 (PST)
-Received: from viisi.sifive.com ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id z127sm11351282pfb.80.2018.12.14.21.22.35
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 14 Dec 2018 21:22:35 -0800 (PST)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 7/7] riscv: dts: add initial board data for the SiFive HiFive
- Unleashed
-Date: Fri, 14 Dec 2018 21:21:54 -0800
-Message-Id: <20181215052154.24347-8-paul.walmsley@sifive.com>
-X-Mailer: git-send-email 2.20.0
-In-Reply-To: <20181215052154.24347-1-paul.walmsley@sifive.com>
-References: <20181215052154.24347-1-paul.walmsley@sifive.com>
+ id 1gYMs4-0000Pw-QX
+ for linux-riscv@lists.infradead.org; Sun, 16 Dec 2018 03:13:38 +0000
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+ by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 15 Dec 2018 19:13:24 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.56,359,1539673200"; 
+ d="gz'50?scan'50,208,50";a="107747484"
+Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
+ by fmsmga007.fm.intel.com with ESMTP; 15 Dec 2018 19:13:22 -0800
+Received: from kbuild by lkp-server01 with local (Exim 4.89)
+ (envelope-from <lkp@intel.com>)
+ id 1gYMrq-0002xN-4L; Sun, 16 Dec 2018 11:13:22 +0800
+Date: Sun, 16 Dec 2018 11:12:38 +0800
+From: kbuild test robot <lkp@intel.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH 5/7] riscv: dts: add initial support for the SiFive
+ FU540-C000 SoC
+Message-ID: <201812161134.fJ7zG13s%fengguang.wu@intel.com>
+References: <20181215052154.24347-6-paul.walmsley@sifive.com>
 MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="FL5UXtIhxfXey3p5"
+Content-Disposition: inline
+In-Reply-To: <20181215052154.24347-6-paul.walmsley@sifive.com>
+User-Agent: Mutt/1.5.23 (2014-03-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181214_212246_803475_80211FFC 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20181215_191336_872939_11C2F8D1 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -98,105 +80,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
  Paul Walmsley <paul@pwsan.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@sifive.com>, Rob Herring <robh+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Rob Herring <robh+dt@kernel.org>, kbuild-all@01.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add initial board data for the SiFive HiFive Unleashed A00.
 
-Currently the data populated in this DT file describes the board
-DRAM configuration and the external clock sources that supply the
-PRCI.
+--FL5UXtIhxfXey3p5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Cc: Rob Herring <robh+dt@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Palmer Dabbelt <palmer@sifive.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: devicetree@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-Signed-off-by: Paul Walmsley <paul@pwsan.com>
+Hi Paul,
+
+I love your patch! Yet something to improve:
+
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on v4.20-rc6 next-20181214]
+[if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
+
+url:    https://github.com/0day-ci/linux/commits/Paul-Walmsley/arch-riscv-add-DT-file-support-starting-with-the-SiFive-HiFive-U/20181216-103926
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+config: riscv-tinyconfig (attached as .config)
+compiler: riscv64-linux-gcc (GCC) 8.1.0
+reproduce:
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # save the attached .config to linux build tree
+        GCC_VERSION=8.1.0 make.cross ARCH=riscv 
+
+Note: the linux-review/Paul-Walmsley/arch-riscv-add-DT-file-support-starting-with-the-SiFive-HiFive-U/20181216-103926 HEAD bd72c6c6fec694776fceb1c4f4cf7c6415a6e8e3 builds fine.
+      It only hurts bisectibility.
+
+All errors (new ones prefixed by >>):
+
+>> scripts/Makefile.build:42: arch/riscv/boot/dts/Makefile: No such file or directory
+>> make[2]: *** No rule to make target 'arch/riscv/boot/dts/Makefile'.
+   make[2]: Failed to remake makefile 'arch/riscv/boot/dts/Makefile'.
+
+vim +42 scripts/Makefile.build
+
+20a468b51 Sam Ravnborg   2006-01-22  38  
+2a6914703 Sam Ravnborg   2005-07-25  39  # The filename Kbuild has precedence over Makefile
+db8c1a7b2 Sam Ravnborg   2005-07-27  40  kbuild-dir := $(if $(filter /%,$(src)),$(src),$(srctree)/$(src))
+0c53c8e6e Sam Ravnborg   2007-10-14  41  kbuild-file := $(if $(wildcard $(kbuild-dir)/Kbuild),$(kbuild-dir)/Kbuild,$(kbuild-dir)/Makefile)
+0c53c8e6e Sam Ravnborg   2007-10-14 @42  include $(kbuild-file)
+^1da177e4 Linus Torvalds 2005-04-16  43  
+
+:::::: The code at line 42 was first introduced by commit
+:::::: 0c53c8e6eb456cde30f2305421c605713856abc8 kbuild: check for wrong use of CFLAGS
+
+:::::: TO: Sam Ravnborg <sam@neptun.(none)>
+:::::: CC: Sam Ravnborg <sam@neptun.(none)>
+
 ---
- arch/riscv/boot/dts/Makefile                  |  2 +
- arch/riscv/boot/dts/sifive/Makefile           |  4 ++
- .../dts/sifive/hifive-unleashed-a00-fu540.dts | 39 +++++++++++++++++++
- 3 files changed, 45 insertions(+)
- create mode 100644 arch/riscv/boot/dts/Makefile
- create mode 100644 arch/riscv/boot/dts/sifive/Makefile
- create mode 100644 arch/riscv/boot/dts/sifive/hifive-unleashed-a00-fu540.dts
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 
-diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-new file mode 100644
-index 000000000000..dcc3ada78455
---- /dev/null
-+++ b/arch/riscv/boot/dts/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+subdir-y += sifive
-diff --git a/arch/riscv/boot/dts/sifive/Makefile b/arch/riscv/boot/dts/sifive/Makefile
-new file mode 100644
-index 000000000000..e120ccf5649c
---- /dev/null
-+++ b/arch/riscv/boot/dts/sifive/Makefile
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0
-+dtb-$(CONFIG_ARCH_SIFIVE) += hifive-unleashed-a00-fu540.dtb
-+
-+
-diff --git a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00-fu540.dts b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00-fu540.dts
-new file mode 100644
-index 000000000000..0c6afabe69e3
---- /dev/null
-+++ b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00-fu540.dts
-@@ -0,0 +1,39 @@
-+// SPDX-License-Identifier: Apache-2.0
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/* Copyright (c) 2018 SiFive, Inc */
-+/* See the file LICENSE for further information */
-+
-+/dts-v1/;
-+
-+#include "fu540-c000.dtsi"
-+
-+/ {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+	model = "SiFive HiFive Unleashed A00 (FU540-C000)"
-+	compatible = "sifive,hifive-unleashed-a00-fu540",
-+		"sifive,hifive-unleashed-fu540";
-+
-+	chosen {
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x1f 0x80000000>;
-+	};
-+
-+	soc {
-+		hfclk: hfclk {
-+			#clock-cells = <0>;
-+			compatible = "fixed-clock";
-+			clock-frequency = <33333333>;
-+			clock-output-names = "hfclk";
-+		};
-+		rtcclk: rtcclk {
-+			#clock-cells = <0>;
-+			compatible = "fixed-clock";
-+			clock-frequency = <1000000>;
-+			clock-output-names = "rtcclk";
-+		};
-+	};
-+};
--- 
-2.20.0
+--FL5UXtIhxfXey3p5
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
 
+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
+OQAA
+
+--FL5UXtIhxfXey3p5
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--FL5UXtIhxfXey3p5--
+
