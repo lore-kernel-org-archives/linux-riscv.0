@@ -2,23 +2,24 @@ Return-Path: <SRS0=9k1K=OZ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5EB3EC43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 16 Dec 2018 14:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B3A1FC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 16 Dec 2018 18:04:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9D5F420672
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 16 Dec 2018 14:12:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 637862086C
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 16 Dec 2018 18:04:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UHpCPNyk";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=nifty.com header.i=@nifty.com header.b="V+OtoKQC"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D5F420672
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=socionext.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ua7Cef8g";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="FZlBPxOh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 637862086C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -26,45 +27,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=x8XXolounJRjNC6wMmg6aBprGLCvpnrlJD+zvnVOwmw=; b=UHp
-	CPNykaXjI50jJozwFCggiRtAQHbEwmtH7xZQlR+ZhsUQgkQ/hpbavHqssaf3zRdsj5F4PjeXjrgOX
-	NXBJizGvJV2hiZGMJFs6HtFzPr9qRG5AZgq+uyUwvqvIqcgMqup3hw9z+tuGmN6kIqXMvoJjSPSEt
-	jItmU8jIxcrLbwc0klKamu04EeB15SGKfhPJkd6qMSIgwZ1Os5kHFijJkcN6X7QlTp7igT1ybJ+U9
-	3haAsNn5Xp8Z7bvJSHhMEUkz62XNMKqXje6uvvqyCMS1fZqYKplMAZ+j7ZVk2Bnpf/qR1uFCQlIUw
-	9cQrTynPqc+cgEBZrzBuO+iitbuBfYQ==;
+	References:List-Owner; bh=hmfAEm4Qj+StCVmljQ9Qoc3hAwbB7ukJhA54V/BVdJU=; b=ua7
+	Cef8gGC8BckpbE5mwBlp4CutKmS1HaRhflTsneCwcjj+rEn8JelFTkVGVjaOhK8aEKCnc4wDhfi8h
+	qPmYdzqHbv5+NoKNWMNHwlvJTCnxlgdmFwGCtreQd1glq1AEhpOu/TMfNiWn9whG/zt/vpz+f0a3s
+	hHXqbRCGA+7CQEniVW6nWNWZDe9GXnwzTUEyg0gh8NLSab89EtRSyL6szDzmPwxnK3UMPpsdLtsbj
+	KdozuayxwW7CMmi27xTKMFnaKyOXI2rFuxn4j5uY0Wq985Z3wfkaVSALebAVHPQd2XoC+HeCdgJsJ
+	KDZcoUGkNgLGauXB3DWGPHgk7nqkE+g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gYX9n-0005Us-CX; Sun, 16 Dec 2018 14:12:35 +0000
-Received: from conuserg-12.nifty.com ([210.131.2.79])
+	id 1gYalq-000109-2G; Sun, 16 Dec 2018 18:04:06 +0000
+Received: from mail-qt1-x844.google.com ([2607:f8b0:4864:20::844])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gYX9k-0005SN-81
- for linux-riscv@lists.infradead.org; Sun, 16 Dec 2018 14:12:34 +0000
-Received: from grover.tkatk1.zaq.ne.jp (zaqdadce369.zaq.ne.jp
- [218.220.227.105]) (authenticated)
- by conuserg-12.nifty.com with ESMTP id wBGEBWXm008783;
- Sun, 16 Dec 2018 23:11:32 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com wBGEBWXm008783
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1544969493;
- bh=CsWUrOVta15OpOCDxQjjIyd45yImcRDWQZeusK8eq8U=;
- h=From:To:Cc:Subject:Date:From;
- b=V+OtoKQCFsYn0zgRl9GsKGTvfqPi5Xo5eH2i9MuVhq4lvvwNvs8DpF+/45cbOsh9V
- g2hXjb41PLaTtMvhlFOrHhR6h8/mICDqkLCDYqYdypHd84tNBor2Vr0psI2/AQ2saP
- seMiwgDrgxafJBcB+kI87H+bG3PpuLwZQMT8xQecMMXBef8E+a0oE1tzqXTxynj5OA
- ZXuukwiHsiQav8VDCTybQrdTmRr47lLgzgCycOWJV3nIhnCDylXxV2wA9tnmo3AY1b
- 5S/kazqA9lfOjMIlX0WxxvTlTfFvr2IkNbpCH7ZOKhKDKjvnzpJMgthqgjxXWRSYeg
- 6zHP1WFQ2q0tg==
-X-Nifty-SrcIP: [218.220.227.105]
-From: Masahiro Yamada <yamada.masahiro@socionext.com>
+ id 1gYaln-0000zM-Qo
+ for linux-riscv@lists.infradead.org; Sun, 16 Dec 2018 18:04:05 +0000
+Received: by mail-qt1-x844.google.com with SMTP id l12so9842838qtf.8
+ for <linux-riscv@lists.infradead.org>; Sun, 16 Dec 2018 10:03:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id;
+ bh=rvHpJWfTTMCUcKv/KWTyQrS0/obJwwOc6wfC71e9TRo=;
+ b=FZlBPxOhYvFB7XR2jf9HJAkOIHl5MxrCzu2JHC4wuvEaxkIixPr6Ay7gLRCBnRTBfw
+ ijRXLHJydkiipgRNQV1hkx+6KkqQct0ID8MXxEw1JhD3QCETZYY2XUTALN56dR4FcYaA
+ GLY+ZFoFwrEjRnrWmjlmxs36pyN92LBo2KYsHCvjraYv5njoC1rba1vlw21w01Ysmbd5
+ h9udfifhgBj6n9F3n9PAwTKijTjONRIugHimR9XExIZq3dXnJ7rcgMNR+eSFduUUtXwf
+ uYRBfY41TM5xhs1ZyAQZSZs4XsUGxwYJff2NmoKMwac8yQ4FGoqS1M8dNcYJ5Li0xCO7
+ 2QDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=rvHpJWfTTMCUcKv/KWTyQrS0/obJwwOc6wfC71e9TRo=;
+ b=Uw9W41rpcmpg7ZYSXAoxD6j1dR4f8IpEq74RIUVf1tRdlH2sWiXzvXqJ6Oiia/n6ZB
+ Mx3dYFJUDend8PMr7iHLCVO8O7NmzqMjPX6mKoi2SVpSTtXdW2XtQlqJIbEmdM0xOamS
+ KCHRUL5MaoCgiXJoaN4nzZHLL/zD+ENDv9wVzp2RrzKQaEE1x89CsoPMBXnzWn6mp5zp
+ lzchLCMQ7JIUfEJrKCcaKSmyhoDUAU6TdgcuPqUA09nu+8lPAaSrjr9SzmRjEPQM8HrR
+ OR/Y0N77x0+cVKqKUK267tsOwZmQBqeHh50lkgN1edaeoEVzB72IzPkIjGxlpcMMpgvc
+ uXrw==
+X-Gm-Message-State: AA+aEWZmyOXFE1lUEyGCjSsMEgEDoyhTjGyb28/kt2FiDzhcCyTVekW8
+ cw0gtM8uQA9V7Rn8r01G9Ck=
+X-Google-Smtp-Source: AFSGD/XvHmdONLsSBUOpQxhBcwTmP+agc7ahq1vxJeXf5Ypkyv7i7hN3zu4fcitaecfZa9uUvhgjOQ==
+X-Received: by 2002:a0c:fb4c:: with SMTP id b12mr10303083qvq.177.1544983432299; 
+ Sun, 16 Dec 2018 10:03:52 -0800 (PST)
+Received: from localhost.localdomain
+ (209-6-78-127.s3965.c3-0.abr-cbr1.sbo-abr.ma.cable.rcncustomer.com.
+ [209.6.78.127])
+ by smtp.gmail.com with ESMTPSA id 94sm10370728qks.8.2018.12.16.10.03.51
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Sun, 16 Dec 2018 10:03:51 -0800 (PST)
+From: Stefan O'Rear <sorear2@gmail.com>
 To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
  linux-riscv@lists.infradead.org
-Subject: [PATCH] riscv: remove redundant kernel-space generic-y
-Date: Sun, 16 Dec 2018 23:11:11 +0900
-Message-Id: <1544969471-14224-1-git-send-email-yamada.masahiro@socionext.com>
-X-Mailer: git-send-email 2.7.4
+Subject: [PATCH] riscv: Add pte bit to distinguish swap from invalid
+Date: Sun, 16 Dec 2018 13:03:36 -0500
+Message-Id: <1544983416-32532-1-git-send-email-sorear2@gmail.com>
+X-Mailer: git-send-email 2.8.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181216_061232_606444_2E94ADFF 
-X-CRM114-Status: UNSURE (   3.76  )
+X-CRM114-CacheID: sfid-20181216_100403_866347_268467B3 
+X-CRM114-Status: UNSURE (   9.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -77,130 +94,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Alan Kao <alankao@andestech.com>, linux-kernel@vger.kernel.org,
- Masahiro Yamada <yamada.masahiro@socionext.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Deepa Dinamani <deepa.kernel@gmail.com>, Jim Wilson <jimw@sifive.com>
+Cc: Stefan O'Rear <sorear2@gmail.com>, schwab@suse.de
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This commit removes redundant generic-y defines in
-arch/riscv/include/asm/Kbuild.
+Previously, invalid PTEs and swap PTEs had the same binary
+representation, causing errors when attempting to unmap PROT_NONE
+mappings, including implicit unmap on exit.
 
-[1] It is redundant to define the same generic-y in both
-    arch/$(ARCH)/include/asm/Kbuild and
-    arch/$(ARCH)/include/uapi/asm/Kbuild.
+Typical error:
 
-    Remove the following generic-y:
+swap_info_get: Bad swap file entry 40000000007a9879
+BUG: Bad page map in process a.out  pte:3d4c3cc0 pmd:3e521401
 
-      errno.h
-      fcntl.h
-      ioctl.h
-      ioctls.h
-      ipcbuf.h
-      mman.h
-      msgbuf.h
-      param.h
-      poll.h
-      posix_types.h
-      resource.h
-      sembuf.h
-      setup.h
-      shmbuf.h
-      signal.h
-      socket.h
-      sockios.h
-      stat.h
-      statfs.h
-      swab.h
-      termbits.h
-      termios.h
-      types.h
-
-[2] It is redundant to define generic-y when arch-specific
-    implementation exists in arch/$(ARCH)/include/asm/*.h
-
-    Remove the following generic-y:
-
-      cacheflush.h
-      dma-mapping.h
-      module.h
-
-Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
+Cc: stable@vger.kernel.org
+Signed-off-by: Stefan O'Rear <sorear2@gmail.com>
 ---
+ arch/riscv/include/asm/pgtable-bits.h | 6 ++++++
+ arch/riscv/include/asm/pgtable.h      | 8 ++++----
+ 2 files changed, 10 insertions(+), 4 deletions(-)
 
- arch/riscv/include/asm/Kbuild | 26 --------------------------
- 1 file changed, 26 deletions(-)
+Reproducer:
 
-diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-index 6a646d9..f7068f3 100644
---- a/arch/riscv/include/asm/Kbuild
-+++ b/arch/riscv/include/asm/Kbuild
-@@ -1,5 +1,4 @@
- generic-y += bugs.h
--generic-y += cacheflush.h
- generic-y += checksum.h
- generic-y += compat.h
- generic-y += cputime.h
-@@ -7,18 +6,12 @@ generic-y += device.h
- generic-y += div64.h
- generic-y += dma.h
- generic-y += dma-contiguous.h
--generic-y += dma-mapping.h
- generic-y += emergency-restart.h
--generic-y += errno.h
- generic-y += exec.h
- generic-y += fb.h
--generic-y += fcntl.h
- generic-y += hardirq.h
- generic-y += hash.h
- generic-y += hw_irq.h
--generic-y += ioctl.h
--generic-y += ioctls.h
--generic-y += ipcbuf.h
- generic-y += irq_regs.h
- generic-y += irq_work.h
- generic-y += kdebug.h
-@@ -27,34 +20,15 @@ generic-y += kvm_para.h
- generic-y += local.h
- generic-y += local64.h
- generic-y += mm-arch-hooks.h
--generic-y += mman.h
--generic-y += module.h
--generic-y += msgbuf.h
- generic-y += mutex.h
--generic-y += param.h
- generic-y += percpu.h
--generic-y += poll.h
--generic-y += posix_types.h
- generic-y += preempt.h
--generic-y += resource.h
- generic-y += scatterlist.h
- generic-y += sections.h
--generic-y += sembuf.h
- generic-y += serial.h
--generic-y += setup.h
--generic-y += shmbuf.h
- generic-y += shmparam.h
--generic-y += signal.h
--generic-y += socket.h
--generic-y += sockios.h
--generic-y += stat.h
--generic-y += statfs.h
--generic-y += swab.h
--generic-y += termbits.h
--generic-y += termios.h
- generic-y += topology.h
- generic-y += trace_clock.h
--generic-y += types.h
- generic-y += unaligned.h
- generic-y += user.h
- generic-y += vga.h
+#include <sys/mman.h>
+
+int
+main (void)
+{
+  char *a = mmap (0, 4096, PROT_READ | PROT_WRITE,
+                  MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+  ++*a;
+  mprotect (a, 4096, PROT_NONE);
+}
+
+diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+index 2fa2942..470755c 100644
+--- a/arch/riscv/include/asm/pgtable-bits.h
++++ b/arch/riscv/include/asm/pgtable-bits.h
+@@ -35,6 +35,12 @@
+ #define _PAGE_SPECIAL   _PAGE_SOFT
+ #define _PAGE_TABLE     _PAGE_PRESENT
+ 
++/*
++ * _PAGE_PROT_NONE is set on not-present pages (and ignored by the hardware) to
++ * distinguish them from swapped out pages
++ */
++#define _PAGE_PROT_NONE _PAGE_READ
++
+ #define _PAGE_PFN_SHIFT 10
+ 
+ /* Set of bits to preserve across pte_modify() */
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 1630196..a8179a8 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -44,7 +44,7 @@
+ /* Page protection bits */
+ #define _PAGE_BASE	(_PAGE_PRESENT | _PAGE_ACCESSED | _PAGE_USER)
+ 
+-#define PAGE_NONE		__pgprot(0)
++#define PAGE_NONE		__pgprot(_PAGE_PROT_NONE)
+ #define PAGE_READ		__pgprot(_PAGE_BASE | _PAGE_READ)
+ #define PAGE_WRITE		__pgprot(_PAGE_BASE | _PAGE_READ | _PAGE_WRITE)
+ #define PAGE_EXEC		__pgprot(_PAGE_BASE | _PAGE_EXEC)
+@@ -98,7 +98,7 @@ extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
+ 
+ static inline int pmd_present(pmd_t pmd)
+ {
+-	return (pmd_val(pmd) & _PAGE_PRESENT);
++	return (pmd_val(pmd) & (_PAGE_PRESENT | _PAGE_PROT_NONE));
+ }
+ 
+ static inline int pmd_none(pmd_t pmd)
+@@ -178,7 +178,7 @@ static inline pte_t *pte_offset_kernel(pmd_t *pmd, unsigned long addr)
+ 
+ static inline int pte_present(pte_t pte)
+ {
+-	return (pte_val(pte) & _PAGE_PRESENT);
++	return (pte_val(pte) & (_PAGE_PRESENT | _PAGE_PROT_NONE));
+ }
+ 
+ static inline int pte_none(pte_t pte)
+@@ -380,7 +380,7 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+  *
+  * Format of swap PTE:
+  *	bit            0:	_PAGE_PRESENT (zero)
+- *	bit            1:	reserved for future use (zero)
++ *	bit            1:	_PAGE_PROT_NONE (zero)
+  *	bits      2 to 6:	swap type
+  *	bits 7 to XLEN-1:	swap offset
+  */
 -- 
-2.7.4
+2.8.0
 
 
 _______________________________________________
