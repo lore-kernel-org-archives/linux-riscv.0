@@ -2,60 +2,82 @@ Return-Path: <SRS0=sGlk=O2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 88FD2C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Dec 2018 11:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AB3B4C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Dec 2018 12:42:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5870F204FD
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Dec 2018 11:39:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6E6E320672
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Dec 2018 12:42:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WRwxtBgc"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5870F204FD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ellerman.id.au
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DXvrpqDG";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="O3Jp7+1G"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6E6E320672
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t51hKptvSQfPdHBhqUnT5T1ebLY7X60edIIv1rMomCc=; b=WRwxtBgcI5UH9Y
-	cEYb1JA9n3vZCS+t8HsquQ7dVbjC104q9L6jkHulBY0o7Qb+DZ3UMlUfUa6ly4C+Znq3mXmz3kcVi
-	8r/1mh+CAgi71Hxz1o+5hmaF6hDSkZNVSd8FAaWQsVu8BNT+O72JGYsNmyK/vXbtajD/tnwy0YGNl
-	oUfwHVYzrxTZt7vNwERIOAQvv/cXdVmGy4i+jRg6nAyhKJwB3iNJLbpDT1fzxDq8erAgHDcdyVdgK
-	RQZuQqfkRVksVAjiETwKEzuOCj+opDlumejUGizLAvN4dKAPYwiNJ9v9Y22P3Y96KdVJPOe2PtodD
-	vvM+Oqufvdt31NFCD8Lw==;
+	List-Owner; bh=4XRgiG5ZbFGp5QY69QryviWf5asu94c/U33KJ27FFG0=; b=DXvrpqDGdvVU9q
+	xBB7SQ/LSjGUsoddnQA+FtBroME3mtY58zV0+bnrr/hJYYQLAL1T2WekdnVjzyDowMHyEPcmo4zDv
+	b17CSa3bEYdVDErXQbEOgQSpLco1rlySyeF6+BmquJnpglOemLxvAQq4rX0f+wOjQYQi2aI3769Ui
+	CyFUyOdaxga4tp1Dpw/H0FniSsRPIkW9mLeKC7fj9S5nEWY6e1/gOq5uKVdQ7pEnZ5MFlEFnxyoB1
+	2tgElKFg2aJSXxbpI5eEV1AeKwvnP+ucG9xRFE5YtnXKYHlkjCBxDkQsbIBNYo8ahvuSOjvc5MzL2
+	Xb2ChvoZhyyA2miXfbwQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gYrEu-0001Cz-Ss; Mon, 17 Dec 2018 11:39:12 +0000
-Received: from ozlabs.org ([203.11.71.1])
+	id 1gYsE2-0007cG-Tz; Mon, 17 Dec 2018 12:42:22 +0000
+Received: from mail-vk1-xa42.google.com ([2607:f8b0:4864:20::a42])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gYrEi-0000nD-9f; Mon, 17 Dec 2018 11:39:02 +0000
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ozlabs.org (Postfix) with ESMTPSA id 43JK10123Yz9s2P;
- Mon, 17 Dec 2018 22:38:44 +1100 (AEDT)
-Authentication-Results: ozlabs.org; dmarc=none (p=none dis=none)
- header.from=ellerman.id.au
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: David Hildenbrand <david@redhat.com>, linux-mm@kvack.org
-Subject: Re: [PATCH v1 3/9] powerpc/vdso: don't clear PG_reserved
-In-Reply-To: <20181214111014.15672-4-david@redhat.com>
-References: <20181214111014.15672-1-david@redhat.com>
- <20181214111014.15672-4-david@redhat.com>
-Date: Mon, 17 Dec 2018 22:38:39 +1100
-Message-ID: <87pnu0tmbk.fsf@concordia.ellerman.id.au>
+ id 1gYsDv-0007aD-LW
+ for linux-riscv@lists.infradead.org; Mon, 17 Dec 2018 12:42:21 +0000
+Received: by mail-vk1-xa42.google.com with SMTP id n126so2785196vke.12
+ for <linux-riscv@lists.infradead.org>; Mon, 17 Dec 2018 04:42:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=TtyFcVBedzMxFLG59RZKAfIlxn3+DODcgZM1y/wmfQU=;
+ b=O3Jp7+1GPORwaga6lcHlsKvlGpjqHzdpGeVUy2FmYvUBMasByJjSY7OysswIQ7LZqy
+ 0q022YuY8dMd8mpE3ki/lVsoubbkXIfwW2NeDeJd3pYKWiQOJng0qr4zf9TZRiYX3qUI
+ WP8F7DRPcPzOUbRHNr1yFvcBhm1oxpMad3qOVmBYZzDYPrckI54096e3oDcr/t4+zwG/
+ M3/KIM/n5fY5+w71kk7czDOJhicrza76mudATlg6hPgP/n/TVSrZlcJIB3vApFU0Auum
+ FDbenOioy5ZXJEwJQNuWkNJ1OI2qsF1XacbzW0OYJ9ZrkqDi+pNgjufdH6qhf9qzoI3e
+ 1FYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=TtyFcVBedzMxFLG59RZKAfIlxn3+DODcgZM1y/wmfQU=;
+ b=TXXaasqvsvHRCadMwegTQAjBWUFgPJKIgSsNj/sgLvgdKSey9t8wpDqNO97Yg1BI6C
+ ZCMJyjDZhOlASy9+GMSiCVoZcVGMsUW/Y0B+7B9iCoCCOEBdit94fr6nEPrDHJmVTSKn
+ bVWUNF4wu6gra3NVLNJ0z7cioQY1Xpdw8pNQipB2yGTNVhrXWNYIkxA6+03juiYSNLnW
+ HhpWsmR7yEivLkKt5f8NxXPx1Mh/3rg1TKiOBkB5yABbPFI+0Ji09y9T5zRKTNFkPhUH
+ 2oLBDDQIeUFO6JJugUMv9p+iUOc7Yoh9TEu/z2jj+D/+PAvuzG/kVQGS7Y4fORBIxet9
+ Ww4g==
+X-Gm-Message-State: AA+aEWb2OkUWHwVnxStOuOW7CdzDwqjqZ/YO1/XNFptewyJ/cDqJN0kj
+ 4WLOynuLAcm8Ia9qS7x0pnP2W1uVN23vAEfw/JmVDTi7
+X-Google-Smtp-Source: AFSGD/XGgppbqo9Gixq3qn5jIqjzzXvOHODKxen2oo1Odim1pootqZIMpEe0MXXk5MSLgez4vepgZPZ2nggdH0o5CBc=
+X-Received: by 2002:a1f:a051:: with SMTP id j78mr3305842vke.35.1545050524015; 
+ Mon, 17 Dec 2018 04:42:04 -0800 (PST)
 MIME-Version: 1.0
+References: <CAOuPNLi-_R4+wpc834Ku2PkHcHgSydA2HT_s1aYsMeNRqpDg=w@mail.gmail.com>
+ <CAFyWVaakcVQC5ioOi6nopram8AY4Ph36dYbuohs-j=nuVLFCOQ@mail.gmail.com>
+In-Reply-To: <CAFyWVaakcVQC5ioOi6nopram8AY4Ph36dYbuohs-j=nuVLFCOQ@mail.gmail.com>
+From: Pintu Agarwal <pintu.ping@gmail.com>
+Date: Mon, 17 Dec 2018 18:11:52 +0530
+Message-ID: <CAOuPNLiH71LA+3B8RuPZN7enqs2o1t50if6__63qmTjGcnzM9g@mail.gmail.com>
+Subject: Re: [sw-dev] riscv-tests-benchmarks tools not working on qemu linux
+To: jimw@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181217_033900_524562_6C1B7C5D 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20181217_044218_891278_99815367 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -67,70 +89,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Christophe Leroy <christophe.leroy@c-s.fr>, linux-s390@vger.kernel.org,
- Kees Cook <keescook@chromium.org>, David Hildenbrand <david@redhat.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- linux-kernel@vger.kernel.org, Matthew Wilcox <willy@infradead.org>,
- Michal Hocko <mhocko@kernel.org>, linux-m68k@lists.linux-m68k.org,
- linux-mediatek@lists.infradead.org, Paul Mackerras <paulus@samba.org>,
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org
+Cc: Gurucharan Kaur Saluja <gurucharankaurs@gmail.com>,
+ linux-riscv@lists.infradead.org, sw-dev@groups.riscv.org,
+ isa-dev@groups.riscv.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-David Hildenbrand <david@redhat.com> writes:
-
-> The VDSO is part of the kernel image and therefore the struct pages are
-> marked as reserved during boot.
+On Fri, Dec 14, 2018 at 10:57 PM Jim Wilson <jimw@sifive.com> wrote:
 >
-> As we install a special mapping, the actual struct pages will never be
-> exposed to MM via the page tables. We can therefore leave the pages
-> marked as reserved.
+> Anyways, you can run the programs in the benchmarking dir on a linux
+> system if you compile them as linux programs.  That is, don't use the
+> makefile, and just compile them directly with a linux gcc.  But they
+> are so small, you may not get useful performance results on real
+> hardware.
 >
-> Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
-> Cc: Paul Mackerras <paulus@samba.org>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: Christophe Leroy <christophe.leroy@c-s.fr>
-> Cc: Kees Cook <keescook@chromium.org>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Michal Hocko <mhocko@kernel.org>
-> Cc: Matthew Wilcox <willy@infradead.org>
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-> ---
->  arch/powerpc/kernel/vdso.c | 2 --
->  1 file changed, 2 deletions(-)
+Thank you so much for your information.
+Yes, we already did that. But all tests finally depends on "common" .c and .h
+So, it did not work standalone.
+Also we cannot remove those function, otherwise how can we measure the data..
+If you know of any tests that can work on x86/arm/risc-v please let me know.
 
-Thanks.
+> > Or, is it possible to create a simple and common benchmarking tool
+> > like: {Sorting, Multiply, Matrix Multiply, Tower of Hanoi, Factorial,
+> > etc.} using normal C programming and system calls (if required)?
+> > But, question is, how should I measure it?
+>
+> The world already has so many different benchmarking suites.  Do we
+> really need another one?  I would suggest SPEC as a good linux
+> benchmarking suite, and EEMBC (i.e. coremark) if you want something
+> smaller.
+>
+Thank you so much for these references.
+Sorry, I did not knew that there are so many already available.
+I checked this one: stress-ng:
+https://www.cyberciti.biz/faq/stress-test-linux-unix-server-with-stress-ng/
 
-Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
+I think this will be helpful for us.
+I am trying to see if I can build this for riscv64-unknown-linux-gnu
+and run on QEMU.
 
-cheers
 
-> diff --git a/arch/powerpc/kernel/vdso.c b/arch/powerpc/kernel/vdso.c
-> index 65b3bdb99f0b..d59dc2e9a695 100644
-> --- a/arch/powerpc/kernel/vdso.c
-> +++ b/arch/powerpc/kernel/vdso.c
-> @@ -795,7 +795,6 @@ static int __init vdso_init(void)
->  	BUG_ON(vdso32_pagelist == NULL);
->  	for (i = 0; i < vdso32_pages; i++) {
->  		struct page *pg = virt_to_page(vdso32_kbase + i*PAGE_SIZE);
-> -		ClearPageReserved(pg);
->  		get_page(pg);
->  		vdso32_pagelist[i] = pg;
->  	}
-> @@ -809,7 +808,6 @@ static int __init vdso_init(void)
->  	BUG_ON(vdso64_pagelist == NULL);
->  	for (i = 0; i < vdso64_pages; i++) {
->  		struct page *pg = virt_to_page(vdso64_kbase + i*PAGE_SIZE);
-> -		ClearPageReserved(pg);
->  		get_page(pg);
->  		vdso64_pagelist[i] = pg;
->  	}
-> -- 
-> 2.17.2
+
+> Jim
 
 _______________________________________________
 linux-riscv mailing list
