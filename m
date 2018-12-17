@@ -7,52 +7,55 @@ X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1B314C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Dec 2018 09:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 88FD2C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Dec 2018 11:39:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DC1C42086C
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Dec 2018 09:50:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5870F204FD
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Dec 2018 11:39:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fPlGDp6X"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DC1C42086C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WRwxtBgc"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5870F204FD
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ellerman.id.au
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NfB3HCPLR7xmiOIZn8hNBdhpgw2CeV04mFZXsA47QOs=; b=fPlGDp6XjRhSps
-	j8S8fn5qSs6e/1IX+iyEoyjobVTft9rkPZJx3xwVXlFTERkWYde+Yt/nia3V7OkigYR7LfJgxxaNq
-	jIfwjzcDI0wgqO/2VvjYOhbMFogTYl3jGVC4XqarqYUJTefERvpPV26YtXehFu0CRDUEG/R3UTtQl
-	S4VQTs+nVG33HbB3QF56Pb1CGzzvF3asKmFoXf4ldlsQe3i9H02XV2VDhe/SNpD8oVQxZKdoZYdFv
-	M3dX7wijISP5FT3yTSusWs9V5S21bKiwqLFNuzPRqrB4jUeZBz1XzTDaqWC0A2N8Mj2nIy+o+Ev+f
-	wA2bUpjZj2divnqleZAA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=t51hKptvSQfPdHBhqUnT5T1ebLY7X60edIIv1rMomCc=; b=WRwxtBgcI5UH9Y
+	cEYb1JA9n3vZCS+t8HsquQ7dVbjC104q9L6jkHulBY0o7Qb+DZ3UMlUfUa6ly4C+Znq3mXmz3kcVi
+	8r/1mh+CAgi71Hxz1o+5hmaF6hDSkZNVSd8FAaWQsVu8BNT+O72JGYsNmyK/vXbtajD/tnwy0YGNl
+	oUfwHVYzrxTZt7vNwERIOAQvv/cXdVmGy4i+jRg6nAyhKJwB3iNJLbpDT1fzxDq8erAgHDcdyVdgK
+	RQZuQqfkRVksVAjiETwKEzuOCj+opDlumejUGizLAvN4dKAPYwiNJ9v9Y22P3Y96KdVJPOe2PtodD
+	vvM+Oqufvdt31NFCD8Lw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gYpXt-0002Px-0X; Mon, 17 Dec 2018 09:50:41 +0000
-Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+	id 1gYrEu-0001Cz-Ss; Mon, 17 Dec 2018 11:39:12 +0000
+Received: from ozlabs.org ([203.11.71.1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gYpVU-00071V-Lz
- for linux-riscv@lists.infradead.org; Mon, 17 Dec 2018 09:48:41 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id A0CC2AE4B
- for <linux-riscv@lists.infradead.org>; Mon, 17 Dec 2018 09:47:59 +0000 (UTC)
-From: Andreas Schwab <schwab@suse.de>
-To: linux-riscv@lists.infradead.org
-Subject: [PATCH v3] riscv: don't stop itself in smp_send_stop
-X-Yow: My LIBRARY CARD expired...
-Date: Mon, 17 Dec 2018 10:47:56 +0100
-Message-ID: <mvm7eg85vsj.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.90 (gnu/linux)
+ id 1gYrEi-0000nD-9f; Mon, 17 Dec 2018 11:39:02 +0000
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ozlabs.org (Postfix) with ESMTPSA id 43JK10123Yz9s2P;
+ Mon, 17 Dec 2018 22:38:44 +1100 (AEDT)
+Authentication-Results: ozlabs.org; dmarc=none (p=none dis=none)
+ header.from=ellerman.id.au
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: David Hildenbrand <david@redhat.com>, linux-mm@kvack.org
+Subject: Re: [PATCH v1 3/9] powerpc/vdso: don't clear PG_reserved
+In-Reply-To: <20181214111014.15672-4-david@redhat.com>
+References: <20181214111014.15672-1-david@redhat.com>
+ <20181214111014.15672-4-david@redhat.com>
+Date: Mon, 17 Dec 2018 22:38:39 +1100
+Message-ID: <87pnu0tmbk.fsf@concordia.ellerman.id.au>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181217_014813_826102_8CAB08FE 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20181217_033900_524562_6C1B7C5D 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -64,120 +67,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Christophe Leroy <christophe.leroy@c-s.fr>, linux-s390@vger.kernel.org,
+ Kees Cook <keescook@chromium.org>, David Hildenbrand <david@redhat.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ linux-kernel@vger.kernel.org, Matthew Wilcox <willy@infradead.org>,
+ Michal Hocko <mhocko@kernel.org>, linux-m68k@lists.linux-m68k.org,
+ linux-mediatek@lists.infradead.org, Paul Mackerras <paulus@samba.org>,
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add IPI_CPU_STOP message and use it in smp_send_stop to stop other cpus,
-but not itself.  Mark cpu offline on reception of IPI_CPU_STOP.
+David Hildenbrand <david@redhat.com> writes:
 
-Signed-off-by: Andreas Schwab <schwab@suse.de>
----
-v3: minor fixes
----
- arch/riscv/kernel/smp.c | 43 ++++++++++++++++++++++++++++++++++-------
- 1 file changed, 36 insertions(+), 7 deletions(-)
+> The VDSO is part of the kernel image and therefore the struct pages are
+> marked as reserved during boot.
+>
+> As we install a special mapping, the actual struct pages will never be
+> exposed to MM via the page tables. We can therefore leave the pages
+> marked as reserved.
+>
+> Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+> Cc: Paul Mackerras <paulus@samba.org>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Cc: Christophe Leroy <christophe.leroy@c-s.fr>
+> Cc: Kees Cook <keescook@chromium.org>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Michal Hocko <mhocko@kernel.org>
+> Cc: Matthew Wilcox <willy@infradead.org>
+> Signed-off-by: David Hildenbrand <david@redhat.com>
+> ---
+>  arch/powerpc/kernel/vdso.c | 2 --
+>  1 file changed, 2 deletions(-)
 
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 57b1383e5e..d0bd3f1187 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -23,6 +23,7 @@
- #include <linux/smp.h>
- #include <linux/sched.h>
- #include <linux/seq_file.h>
-+#include <linux/delay.h>
- 
- #include <asm/sbi.h>
- #include <asm/tlbflush.h>
-@@ -31,6 +32,7 @@
- enum ipi_message_type {
- 	IPI_RESCHEDULE,
- 	IPI_CALL_FUNC,
-+	IPI_CPU_STOP,
- 	IPI_MAX
- };
- 
-@@ -66,6 +68,13 @@ int setup_profiling_timer(unsigned int multiplier)
- 	return -EINVAL;
- }
- 
-+static void ipi_stop(void)
-+{
-+	set_cpu_online(smp_processor_id(), false);
-+	while (1)
-+		wait_for_interrupt();
-+}
-+
- void riscv_software_interrupt(void)
- {
- 	unsigned long *pending_ipis = &ipi_data[smp_processor_id()].bits;
-@@ -94,6 +103,11 @@ void riscv_software_interrupt(void)
- 			generic_smp_call_function_interrupt();
- 		}
- 
-+		if (ops & (1 << IPI_CPU_STOP)) {
-+			stats[IPI_CPU_STOP]++;
-+			ipi_stop();
-+		}
-+
- 		BUG_ON((ops >> IPI_MAX) != 0);
- 
- 		/* Order data access and bit testing. */
-@@ -121,6 +135,7 @@ send_ipi_message(const struct cpumask *to_whom, enum ipi_message_type operation)
- static const char * const ipi_names[] = {
- 	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
- 	[IPI_CALL_FUNC]		= "Function call interrupts",
-+	[IPI_CPU_STOP]		= "CPU stop interrupts",
- };
- 
- void show_ipi_stats(struct seq_file *p, int prec)
-@@ -146,15 +161,29 @@ void arch_send_call_function_single_ipi(int cpu)
- 	send_ipi_message(cpumask_of(cpu), IPI_CALL_FUNC);
- }
- 
--static void ipi_stop(void *unused)
--{
--	while (1)
--		wait_for_interrupt();
--}
--
- void smp_send_stop(void)
- {
--	on_each_cpu(ipi_stop, NULL, 1);
-+	unsigned long timeout;
-+
-+	if (num_online_cpus() > 1) {
-+		cpumask_t mask;
-+
-+		cpumask_copy(&mask, cpu_online_mask);
-+		cpumask_clear_cpu(smp_processor_id(), &mask);
-+
-+		if (system_state <= SYSTEM_RUNNING)
-+			pr_crit("SMP: stopping secondary CPUs\n");
-+		send_ipi_message(&mask, IPI_CPU_STOP);
-+	}
-+
-+	/* Wait up to one second for other CPUs to stop */
-+	timeout = USEC_PER_SEC;
-+	while (num_online_cpus() > 1 && timeout--)
-+		udelay(1);
-+
-+	if (num_online_cpus() > 1)
-+		pr_warn("SMP: failed to stop secondary CPUs %*pbl\n",
-+			cpumask_pr_args(cpu_online_mask));
- }
- 
- void smp_send_reschedule(int cpu)
--- 
-2.20.0
+Thanks.
 
+Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+cheers
+
+> diff --git a/arch/powerpc/kernel/vdso.c b/arch/powerpc/kernel/vdso.c
+> index 65b3bdb99f0b..d59dc2e9a695 100644
+> --- a/arch/powerpc/kernel/vdso.c
+> +++ b/arch/powerpc/kernel/vdso.c
+> @@ -795,7 +795,6 @@ static int __init vdso_init(void)
+>  	BUG_ON(vdso32_pagelist == NULL);
+>  	for (i = 0; i < vdso32_pages; i++) {
+>  		struct page *pg = virt_to_page(vdso32_kbase + i*PAGE_SIZE);
+> -		ClearPageReserved(pg);
+>  		get_page(pg);
+>  		vdso32_pagelist[i] = pg;
+>  	}
+> @@ -809,7 +808,6 @@ static int __init vdso_init(void)
+>  	BUG_ON(vdso64_pagelist == NULL);
+>  	for (i = 0; i < vdso64_pages; i++) {
+>  		struct page *pg = virt_to_page(vdso64_kbase + i*PAGE_SIZE);
+> -		ClearPageReserved(pg);
+>  		get_page(pg);
+>  		vdso64_pagelist[i] = pg;
+>  	}
+> -- 
+> 2.17.2
 
 _______________________________________________
 linux-riscv mailing list
