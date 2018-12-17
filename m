@@ -2,22 +2,22 @@ Return-Path: <SRS0=sGlk=O2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+X-Spam-Status: No, score=-6.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1E496C43612
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Dec 2018 09:37:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D0F7CC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Dec 2018 09:38:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D8B1E206A2
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Dec 2018 09:37:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A1437206A2
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Dec 2018 09:38:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GUI7jx6L";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="ukDxC+hS"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D8B1E206A2
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YSXxfvLm";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Fz9wPF+N"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A1437206A2
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,59 +26,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TsMTOAy16BcsHdul50wOeI8hxGdlYLXQplpqRHsgQsU=; b=GUI7jx6LWSylOi
-	/1euQRoxnKUeZ23Aa6I8BbR6uPNAxgwow9mvHHAp44FrzEhR5a7K1N1nhS4Mx2xIfW1VX9O1RbHET
-	QbceVZDiDEL8uGHIYavGafJ5CBe5qd1oV2fXBhOhK7zTmNZk89+J7VlI+5cE+F02zVBQ59Gr3G6c9
-	hsJbrSErT1iAjkMQPX6mljztCcdIwJ24lM5HvsNXHNPLn1BTG3pfXdKimi5Ia0eOmrgJUBEfYhmpK
-	vSeeZEg2n5n4jh7B6WW918hArZdLQszUysGf+psft54hU5msPa3DfMc2FcmrRWmrmoPPLKXzov3JQ
-	8XIa/bigrp3rFsKkxBow==;
+	List-Owner; bh=Lu7Hvtcqrayf8pO6546R8gZxY81ECjWRDzvLWOFfMK8=; b=YSXxfvLma/dQeP
+	CIPf/rmJu+q1h3PYmFdER8izHHA+2eh7NNf+tST5PK3+1q4q2TTg8SShBlNMiPqo0bLpwClpGMDFC
+	LxGXEVH6fbsYwhrFPa9QdrBfh/XY38dVs7o5lfXm9IRYB+tlIEg34LJadsljhPclcF/DBqbw961/d
+	aGwKFJZyhXmT0BnLgFxXTDe5OSWvIrvepxCpKVp9cSu6VCdJur9cjFInpp1uWcdBFfYbcAYNvkYj2
+	Rdi8Z99Mvns96vDkS3itrNwrO1W8bRLiTcxaIxA470W6c5iowflhcvS9Hbv5LbBylRB1J41YNJDYq
+	XKk7hRFWRJXq8UHLbRTg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gYpKp-0002V7-1x; Mon, 17 Dec 2018 09:37:11 +0000
+	id 1gYpM0-0002Zt-NQ; Mon, 17 Dec 2018 09:38:24 +0000
 Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gYpKn-0002U3-5Z
- for linux-riscv@lists.infradead.org; Mon, 17 Dec 2018 09:37:10 +0000
-Received: by mail-wm1-x342.google.com with SMTP id a18so11888719wmj.1
- for <linux-riscv@lists.infradead.org>; Mon, 17 Dec 2018 01:36:58 -0800 (PST)
+ id 1gYpLx-0002Yl-O0
+ for linux-riscv@lists.infradead.org; Mon, 17 Dec 2018 09:38:23 +0000
+Received: by mail-wm1-x342.google.com with SMTP id q26so11816732wmf.5
+ for <linux-riscv@lists.infradead.org>; Mon, 17 Dec 2018 01:38:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=s8zZYYBpwYWn5hfJjNp5dCjaWNFjJl27s9MRtcqUbWw=;
- b=ukDxC+hScIdsBXLuSXzJ3JfvXOcaezdp/yDTHJpnEgX+qge6+JhxctNWpT40cT53Mk
- VdJT0EENh+hK8eWwtOvO5kiK5jUQ91AR8LiXtzsxM6nuyps404Dd0ncILrZNS9g4y3hJ
- KENf0dlKfpfU5KjIoli5IJPPRX6UL2wwYxopvKjcYmiCUD7OlAp/kk0fHOSuJ++vQ0M6
- /FUFDU8rGmyt08o9w1GGH/E9QoFdabrtLB/FYGFtVhAcIgSQa1+uBPiShUDHblpgWkFU
- 2L1y4GQiRfmU/FH8QHKGByHGCxv+ZYElVGCKuesPi+wX49pUJ4z3NyHt5Lvc1cMjmSZU
- k+Sw==
+ :cc; bh=WJwrEhYVcOS1F6tTiFDPmQ6QHY/esy3VZ1Sp2iKa5mI=;
+ b=Fz9wPF+NzOq5IGgIvRMui1XEQ4DJjdPDm4/lPjT6GkHtrXm9Sp1Ns/oVbrlLoTFWoO
+ 9X3bpJ10/dsPRQsILCXMEz6pBqfG0c+qleFDnEnSvpaGendtytS5ehJzC2q3mRHhuaPu
+ Eo/hM92XCYmY8YSWm/ODlKjzj+MRUctzW/oytDatwm4/EVUdHJ7d257LcgQvLqt7xuJX
+ o5qQA36rzocYuxe/CgHQayajH0AmSmfKQCtSyVxF1XkYAll51dX9bFHEvFkYDYReOoWG
+ Y3kci7vNFjmSwY22etchyNOSspA/v5T57VTrxiXJigeOWROmG8amYSVCMaGWiz8PWSni
+ vEmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=s8zZYYBpwYWn5hfJjNp5dCjaWNFjJl27s9MRtcqUbWw=;
- b=DSu50GEkpMZhg+SjnTBgnpQ+VEXXswNLSS6LM2kvNoUkR0lpkNWNMV049iDkxfXlP9
- w8F4axv1zyxzOQDAlWeA5o9QwtqJCDReSH6r8d5CYCn3kpoIyQ46jJEeBjU1VCVHoAn5
- /0Cp/StXIdbCBYrbhIrGOttz8a5A21sLZO9sBw9bMaFkGU0ePlmq0x0MfVjmQf3Be01d
- doOK/5zbx9N5kqeWS1EPnnxh2x7ARwTvW2ZCfMZD1KYarbPNTbb8HGrKAjMeh3/9S/YA
- YM4QectWQUgQoKrpA1NkdOssQHQp+G6xU6z5v6aH3zr0zMcYvoIiiwGXu/jfeGeEijin
- eJIg==
-X-Gm-Message-State: AA+aEWZg1G5tgKwp8yNHfj9eTuiBfcQkJ0sHj6rPZTuEZBKXUp1FlXaM
- VNBI0g2GQHwpe3og7l/oliG9KQUDo1oWUbulYd/p5uBP
-X-Google-Smtp-Source: AFSGD/WayTs7+4YAKeVwDhjje6SQgEioUZRT4ssOYRLVkzC556m+b7SpabPA+eTnIDTytXMHo7B8Q6MGy4aA950gwhc=
-X-Received: by 2002:a1c:1801:: with SMTP id 1mr11634200wmy.153.1545039416992; 
- Mon, 17 Dec 2018 01:36:56 -0800 (PST)
+ bh=WJwrEhYVcOS1F6tTiFDPmQ6QHY/esy3VZ1Sp2iKa5mI=;
+ b=cpLl5L1G9AC55auy1JOKDe6+KLRdU//01hqU1h10S9PlTq9bhewrFhKO8mnaOTYSy9
+ AC5izUm0oYJQEHNlX6DwtUkBsmlU/DXxXCHGBetRMlzlfBL3FNsBUVCBL2oIsFe0UjkY
+ baASuYT700PsJfD1VxZA5cGrw3tBTADhO2bnM4A8mQAF0Ao2lt6szL078QSdaevYoluU
+ o6X7SOchTPeGz9No7i4NaKh0IxHUvYgjivS178Q5hcbPFk+oiIGNH5NOLizgfNucn1OO
+ /hNaNzkBGUShpxiMT4P/dUFSIeyR71WUrB1LpJyTivLAmMT+g5AdiTsceJnkTQXjQ9ME
+ bQOA==
+X-Gm-Message-State: AA+aEWaMIE50aVMfXVgXIavNAdLs1v24kBGR8FF0YaYR42g/nZpygHcQ
+ eRS8Ume7VFK9Z1bPKv5ugunH6+apda1aKWNMnj2g943d
+X-Google-Smtp-Source: AFSGD/V24/x7B5xet2NxYUhGEwvBZdr9bJH2zjH4Q6wca2LGH3+YR66J6KpVcnWavGl/X8rCrAqXI8aI82YNN2WnqsA=
+X-Received: by 2002:a1c:9a46:: with SMTP id c67mr10132126wme.21.1545039489764; 
+ Mon, 17 Dec 2018 01:38:09 -0800 (PST)
 MIME-Version: 1.0
-References: <20181126060802.19314-1-anup@brainfault.org>
-In-Reply-To: <20181126060802.19314-1-anup@brainfault.org>
+References: <20181130080207.20505-1-anup@brainfault.org>
+In-Reply-To: <20181130080207.20505-1-anup@brainfault.org>
 From: Anup Patel <anup@brainfault.org>
-Date: Mon, 17 Dec 2018 15:06:45 +0530
-Message-ID: <CAAhSdy1danjgviJ2WGGEANQXFkzZzXUdCj+04dZ4eLjcVOt14A@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Make BSS section as the last section in
- vmlinux.lds.S
-To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+Date: Mon, 17 Dec 2018 15:07:58 +0530
+Message-ID: <CAAhSdy0t9H4VMSpoZy1Xt2caW_BxOfEA-x-QhnMsbzXned6AUA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/6] IRQ affinity support in PLIC driver
+To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Jason Cooper <jason@lakedaemon.net>, Marc Zyngier <marc.zyngier@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181217_013709_214125_45053104 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20181217_013821_783776_A917A141 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -98,59 +100,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 26, 2018 at 11:42 AM Anup Patel <anup@brainfault.org> wrote:
+On Fri, Nov 30, 2018 at 1:32 PM Anup Patel <anup@brainfault.org> wrote:
 >
-> The objcopy only emits loadable sections when creating flat kernel
-> Image. To have minimal possible size of flat kernel Image, we should
-> have all non-loadable sections after loadable sections.
+> This patchset primarily adds IRQ affinity support in PLIC driver and
+> other improvements.
 >
-> Currently, execption table section (loadable section) is after BSS
-> section (non-loadable section) in the RISC-V vmlinux.lds.S. This
-> is not optimal for having minimal flat kernel Image size hence this
-> patch makes BSS section as the last section in RISC-V vmlinux.lds.S.
+> The patchset gives mechanism for explicitly routing external interrupts to
+> particular CPUs using smp_affinity attribute of each Linux IRQs. Also, we
+> can now use IRQ balancer from kernel-space or user-space.
 >
-> In addition, we make BSS section aligned to 16byte instead of PAGE
-> aligned which further reduces flat kernel Image size by few KBs.
+> The patchset is tested on QEMU virt machine. It is based on Linux-4.20-rc4
+> and can be found at riscv_plic_irq_affinity_v3 branch of:
+> https://github.com/avpatel/linux.git
 >
-> The flat kernel Image size of Linux-4.20-rc4 using GCC 8.2.0 is
-> 8819980 bytes with current RISC-V vmlinux.lds.S and it reduces to
-> 7991740 bytes with this patch applied using GCC 8.2.0. In summary,
-> this patch reduces Linux-4.20-rc4 flat kernel Image size by 809 KB.
+> Changes since v2:
+>  - Fixed incorrect address of enable registers using sizeof(u32) in PATCH1
+>  - Retained comment about need for locking in PATCH1
+>  - Split PATCH2 into two patches
+>  - Split PATCH3 into two patches
+>  - Minor fix in commit description of PATCH4
 >
-> Signed-off-by: Anup Patel <anup@brainfault.org>
-> ---
->  arch/riscv/kernel/vmlinux.lds.S | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> Changes since v1:
+>  - Removed few whitspace changes from PATCH1
+>  - Keep use of DEFINE_PER_CPU() as it is
 >
-> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-> index 65df1dfdc303..cc99eed44931 100644
-> --- a/arch/riscv/kernel/vmlinux.lds.S
-> +++ b/arch/riscv/kernel/vmlinux.lds.S
-> @@ -74,8 +74,6 @@ SECTIONS
->                 *(.sbss*)
->         }
+> Anup Patel (6):
+>   irqchip: sifive-plic: Pre-compute context hart base and enable base
+>   irqchip: sifive-plic: Add struct plic_hw for global PLIC HW details
+>   irqchip: sifive-plic: More flexible plic_irq_toggle()
+>   irqchip: sifive-plic: Add warning in plic_init() if handler already
+>     present
+>   irqchip: sifive-plic: Differentiate between PLIC handler and context
+>   irqchip: sifive-plic: Implement irq_set_affinity() for SMP host
 >
-> -       BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
-> -
->         EXCEPTION_TABLE(0x10)
->         NOTES
+>  drivers/irqchip/irq-sifive-plic.c | 143 +++++++++++++++++++-----------
+>  1 file changed, 90 insertions(+), 53 deletions(-)
 >
-> @@ -83,6 +81,8 @@ SECTIONS
->                 *(.rel.dyn*)
->         }
->
-> +       BSS_SECTION(0x10, 0x10, 0x10)
-> +
->         _end = .;
->
->         STABS_DEBUG
 > --
 > 2.17.1
 >
 
 Hi All,
 
-Any comment on this patch?
+Any comments on this series?
 
 Regards,
 Anup
