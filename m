@@ -2,84 +2,80 @@ Return-Path: <SRS0=2lO5=O3=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5D46BC43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Dec 2018 10:32:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2838CC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Dec 2018 17:20:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2B989205C9
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Dec 2018 10:32:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EC9CE218A3
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Dec 2018 17:20:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="liCJvwgZ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Wg7PnavM"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2B989205C9
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EeqOInWh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EC9CE218A3
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dOtRL9YdwC2U9MhisBqAiDP61mQbhH4qk4/BNZgX3g0=; b=liCJvwgZsStmSB
-	No6+c825iwDIIOQj0UqqQtM44OzKUL2JU7bRXwyehizaboVIKN9wpiX7OQn0Kxy47n4cmuUlrQgj6
-	phAB42f8EMePk3yfAwXZTPSt9GCEI1VhKkeC4Fz+PsnFsUG+LcJKgl882exRsRNLQtLBxgROx1S+B
-	PbvSErnO0vEfEuu4m8wmYJSOV4++hTuEV7yCY8137XQtXOSBRL99UGEgHI3hQ57zyCe8EerloEO83
-	YQWE+a9iv8RdBaTWrREsLTeILK9Ki+0bw8t/Lgib2jqanu4WT3izmTiRKorSU1o6oHvg6WTXN2kt3
-	Lkj0+a2CCnZIwBTm8q1g==;
+	List-Owner; bh=JRyDRU8HkM5qXH/HfFviVBf8hbJVnLGjkE4iatfYsZI=; b=EeqOInWh3QccLa
+	lR8f/EkJxgK6qBSU2TY6BIUXK0fw6fvwT7jH2bcmcZMk2MYBQ6dEAqO8tKPSr4HJqoJmYzmJNuTS8
+	D9o32dbF0FPLQOEpyvZV2Vk3Ekh2tPBsJCqi592W5F8XwYs4dMfmxu8FlmnBb8W4g5+t3VbRxpPHM
+	QyY2OdWgXZAI8xhHouB41wOlwK6ZATu+MK0fp++a63gJQ2uje63CMaBzQmA6EjFzqihP/BXTGEECZ
+	kdWxkqtJao0eT/cw2/zjK49HLv3bcDbKnwCSE5+oEaxpwx8d0nTLnW2EYJ4imTmp06YwovVP0mpGk
+	wPP1zE0ScH6xo4NzY7HA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gZCg1-0004zl-5R; Tue, 18 Dec 2018 10:32:37 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1gZJ31-0002rl-UI; Tue, 18 Dec 2018 17:20:47 +0000
+Received: from mail-oi1-f193.google.com ([209.85.167.193])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gZCfx-0004yX-S4
- for linux-riscv@lists.infradead.org; Tue, 18 Dec 2018 10:32:35 +0000
-Received: by mail-wr1-x444.google.com with SMTP id l9so15285926wrt.13
- for <linux-riscv@lists.infradead.org>; Tue, 18 Dec 2018 02:32:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=6YTuC8veEqcdC00DnB8iCpbVjsjm1RFbphabmuAgDsY=;
- b=Wg7PnavMsDxylnR64ewsOx6DVp9Ym5mrsCv5anM6FNWkBF+s2w4wdJjgz6BcJ8fQ8R
- WATAxridgmlUOqtvY2gdSEaQRAW6iyZSmohh6SOWCyYNTYmN22HvsT/Edx4W9b1Bq8sK
- +Nse9P6eeXSObtFHUY4c6apd0AsrHHdjSoGQ0fCg8qmbsg1nzP2D5i/fqEK3qNjupdnb
- 6+31LhYqwpDv2UyncJ0PZRADXCu7j3Cjy3XNNJvEKEpHjjeo58SZ06n+NxDIjJ2YxPjl
- mduXfJ5ANr1vPcE1aXjeWMXVJidAOs9V0uddYbwZ4hWGvyTDxmvFvw3+7xfsrXdj3r55
- L2tg==
+ id 1gZJ2y-0002li-4K
+ for linux-riscv@lists.infradead.org; Tue, 18 Dec 2018 17:20:45 +0000
+Received: by mail-oi1-f193.google.com with SMTP id c206so2606401oib.0
+ for <linux-riscv@lists.infradead.org>; Tue, 18 Dec 2018 09:20:33 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=6YTuC8veEqcdC00DnB8iCpbVjsjm1RFbphabmuAgDsY=;
- b=di5FLocmWFdOz5LKaswFzl0v3F4gQev7XLnVZRicqWaJEn40cmIhDSnCmbV6x0R7Dn
- /cuowDZEsXwBroEaumM+OS54BjV506qZNJqP/oLpTATK6fUHrzLRebA7aOXQmPfaJhoA
- N54Zy+g/J4Hus6E7RnGCpfeOsMtWzt7EknKsK/2M7Nu69AxAP9KtCq/vaSOeL3duyR+R
- x4gV1rf9MjlOb2gJ0qlspDYIplKouQU6gxNNOJMhAorjXvPmWqbGubS5+FolFmXCfqpc
- Utm9OrSydvkmpV66IDTaxlKjdn1tUKL+FgzD+idiuxbND37mExCPs1wRQbftI0Qnexzv
- n1nA==
-X-Gm-Message-State: AA+aEWaLUfWDCWnq2kwpTSnLLQOzADxu+FQDOL/aLEmCMntkC4QzKQ+C
- e9vxOydXdbKDGxj3AnbvacbfN4+XdU8MW5SIA7jJ3A==
-X-Google-Smtp-Source: AFSGD/VNsQJo/cgSrZWNhedsB3N29uldBE0TMTipUrWJ01nxqEXtAA724qc6HtMDu75hSPp9SstQcUY6GaKZKSJjn9Y=
-X-Received: by 2002:adf:ee07:: with SMTP id y7mr14648797wrn.187.1545129140582; 
- Tue, 18 Dec 2018 02:32:20 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=ay0IswX+sRWNKX5ziAV2hvU/TN5PQDEK6pFJnClTI3Q=;
+ b=Q2xK39J42lv2bwhUVVhKNJkWHezxlrDfb54mJ6HHhSRjPRGpRMX6KxbfQ0Efwmz0QJ
+ KFx/2oHZWT9qQXvHTStPLgQk8C8YnKMcILHe0JuDbob11Ykdc/N5rECr8TK63aqaDUN/
+ jm/QNTY+FPTMdJnLI+oELW7mlfr31YG9L2eVuy8mfAiScFNsGeoYMUqfgU0JFIas1gED
+ N/pOhHjVmyj4TS+k9lRjT6AlH1I5b9bPtez6CG54kudpNpWeUkBeUKoU/Ki5TERwxNji
+ UBuOKiq9gKtfknDqCL9U3waffui4EmVd5U/XtTBEL3OUUG/JGC/aJcwwB/+f9ymn9mfL
+ 1eBw==
+X-Gm-Message-State: AA+aEWazXK7GEnWoi2DPLqGTroB2+CAtv6c10Yz7IPt8blXWyD55ckB6
+ DTkBtyLb1/h8Bl54UR2vQg==
+X-Google-Smtp-Source: AFSGD/WvNjfb6eF+KnwrvCaF1Q03GxUQflfTylnXk3tkWA2mz++vItu2t/i0MNrl4EfD8GPJvPaIzA==
+X-Received: by 2002:aca:a60d:: with SMTP id p13mr8771745oie.2.1545153632929;
+ Tue, 18 Dec 2018 09:20:32 -0800 (PST)
+Received: from localhost (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id s66sm13246235oia.55.2018.12.18.09.20.32
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Tue, 18 Dec 2018 09:20:32 -0800 (PST)
+Date: Tue, 18 Dec 2018 11:20:31 -0600
+From: Rob Herring <robh@kernel.org>
+To: Yash Shah <yash.shah@sifive.com>
+Subject: Re: [RFC v2 1/2] pwm: sifive: Add DT documentation for SiFive PWM
+ Controller
+Message-ID: <20181218172031.GA7272@bogus>
+References: <1544768442-12530-1-git-send-email-yash.shah@sifive.com>
+ <1544768442-12530-2-git-send-email-yash.shah@sifive.com>
 MIME-Version: 1.0
-References: <20181130080207.20505-1-anup@brainfault.org>
- <20181130080207.20505-7-anup@brainfault.org>
- <20181217183220.GE7086@infradead.org>
-In-Reply-To: <20181217183220.GE7086@infradead.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 18 Dec 2018 16:02:09 +0530
-Message-ID: <CAAhSdy3=Hz7uuT=AEJqmZ7OJZg5Zt9MSg8QiBjEzH5wcsOH1-Q@mail.gmail.com>
-Subject: Re: [PATCH v3 6/6] irqchip: sifive-plic: Implement irq_set_affinity()
- for SMP host
-To: Christoph Hellwig <hch@infradead.org>
+Content-Disposition: inline
+In-Reply-To: <1544768442-12530-2-git-send-email-yash.shah@sifive.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181218_023233_908154_65060595 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20181218_092044_181432_8772B358 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,78 +87,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Jason Cooper <jason@lakedaemon.net>, Marc Zyngier <marc.zyngier@arm.com>,
- Palmer Dabbelt <palmer@sifive.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org
+Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ palmer@sifive.com, linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
+ thierry.reding@gmail.com, paul.walmsley@sifive.com,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 18, 2018 at 12:02 AM Christoph Hellwig <hch@infradead.org> wrote:
->
-> On Fri, Nov 30, 2018 at 01:32:07PM +0530, Anup Patel wrote:
-> > This patch provides irq_set_affinity() implementation for PLIC driver.
-> > It also updates irq_enable() such that PLIC interrupts are only enabled
-> > for one of CPUs specified in IRQ affinity mask.
->
-> But normally our affinity masks are that - masks of CPUs that can take
-> it.  It seems a bit odd to then just pick the first one, as this means
-> with default all-CPU masks we'll have all interrupts handled by the
-> first CPU only.
+On Fri, Dec 14, 2018 at 11:50:41AM +0530, Yash Shah wrote:
+> DT documentation for PWM controller added with updated compatible
+> string.
+> 
+> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
+> [Atish: Compatible string update]
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> Signed-off-by: Yash Shah <yash.shah@sifive.com>
+> ---
+>  .../devicetree/bindings/pwm/pwm-sifive.txt         | 44 ++++++++++++++++++++++
+>  1 file changed, 44 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+> 
+> diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+> new file mode 100644
+> index 0000000..250d8ee
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+> @@ -0,0 +1,44 @@
+> +SiFive PWM controller
+> +
+> +Unlike most other PWM controllers, the SiFive PWM controller currently only
+> +supports one period for all channels in the PWM. This is set globally in DTS.
+> +The period also has significant restrictions on the values it can achieve,
+> +which the driver rounds to the nearest achievable frequency.
+> +
+> +Required properties:
+> +- compatible: should be something similar to "sifive,<chip>-pwm" for
+> +	      the PWM as integrated on a particular chip, and
+> +	      "sifive,pwm<version>" for the general PWM IP block
+> +	      programming model. Supported compatible strings are:
+> +	      "sifive,fu540-c000-pwm" for the SiFive PWM v0 as
+> +	      integrated onto the SiFive FU540 chip, and "sifive,pwm0"
+> +	      for the SiFive PWM v0 IP block with no chip integration
+> +	      tweaks.
 
-Yes, affinity mask are CPUs which can take but there is also effective
-affinity mask which represent CPUs which will actually receive IRQ.
+This should reference the common doc Paul has written and not re-explain 
+the versioning scheme again.
 
-Interrupt controllers (unlike PLIC) can support hardware IRQ balancing.
-For such interrupt controllers, we inform all CPUs that can take IRQ but
-interrupt controller will only deliver IRQ to only one of the CPUs.
+> +- reg: physical base address and length of the controller's registers
+> +- clocks: The frequency the controller runs at
+> +- #pwm-cells: Should be 2.
+> +  The first cell is the PWM channel number
+> +  The second cell is the PWM polarity
+> +- sifive,approx-period: the driver will get as close to this period as it can
 
-There are quite a few interrupt controllers which only allow IRQ to
-be taken by exactly one CPU. For such interrupt controllers, the
-interrupt controller driver has to to pick one CPU out of CPUs which
-can take IRQ (Example GICv2, GICv3, etc).
+Needs a unit suffix as defined in property-units.txt
 
->
->
-> > --- a/drivers/irqchip/irq-sifive-plic.c
-> > +++ b/drivers/irqchip/irq-sifive-plic.c
-> > @@ -106,14 +106,42 @@ static void plic_irq_toggle(const struct cpumask *mask, int hwirq, int enable)
-> >
-> >  static void plic_irq_enable(struct irq_data *d)
-> >  {
-> > -     plic_irq_toggle(irq_data_get_affinity_mask(d), d->hwirq, 1);
-> > +     unsigned int cpu = cpumask_any_and(irq_data_get_affinity_mask(d),
-> > +                                        cpu_online_mask);
-> > +     WARN_ON(cpu >= nr_cpu_ids);
->
-> I think this should be WARN_ON_ONCE and actually return instead of then
-> proceeding using the invalid cpu index.
-
-Sure, will update.
-
->
-> > +#ifdef CONFIG_SMP
-> static int plic_set_affinity(struct irq_data *d, const struct cpumask *mask_val,
-> > +                         bool force)
-> > +{
-> > +     unsigned int cpu;
-> > +
-> > +     if (!force)
-> > +             cpu = cpumask_any_and(mask_val, cpu_online_mask);
-> > +     else
-> > +             cpu = cpumask_first(mask_val);
->
-> maybe swap the two branches around to avoid the inversion of the force
-> flag?
-
-Sure, will update.
-
-Regards,
-Anup
+> +- interrupts: one interrupt per PWM channel
+> +
+> +PWM RTL that corresponds to the IP block version numbers can be found
+> +here:
+> +
+> +https://github.com/sifive/sifive-blocks/tree/master/src/main/scala/devices/pwm
+> +
+> +Further information on the format of the IP
+> +block-specific version numbers can be found in
+> +Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
+> +
+> +Examples:
+> +
+> +pwm:  pwm@10020000 {
+> +	compatible = "sifive,fu540-c000-pwm","sifive,pwm0";
+> +	reg = <0x0 0x10020000 0x0 0x1000>;
+> +	clocks = <&tlclk>;
+> +	interrupt-parent = <&plic>;
+> +	interrupts = <42 43 44 45>;
+> +	#pwm-cells = <2>;
+> +	sifive,approx-period = <1000000>;
+> +};
+> -- 
+> 1.9.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
