@@ -2,84 +2,78 @@ Return-Path: <SRS0=2lO5=O3=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 36375C43444
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Dec 2018 21:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1AE78C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Dec 2018 23:56:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 07D6721871
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Dec 2018 21:31:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D806520869
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Dec 2018 23:56:17 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="P4I4cpoM";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linaro.org header.i=@linaro.org header.b="atusBLcC"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 07D6721871
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Wr64OZ4E";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="C3JQgWSW"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D806520869
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=gZqus7aqWN0/nD1H2tgrbXL05VyaIpgWYQn0TZivTy0=; b=P4I4cpoMRNE9RZNqh+Ml8VdslR
-	A3ONhUIPiGG8GvsAnoB6UvLfD040W6isAtAb/vgy9a8pvFkHyI6UWeBgYgUmQEigMoPsMEzF8Fjcs
-	PipsO+p5OCe0mWc6WqKV/grwIv8INGnSM+TGkksX4eyAb4EE2O/vjTZpuIPmeippYcqzItPVy1rHn
-	MrAEdBlnqqM81lGcQHHkW5c6H6zXYULR+9u8CqrHVcl2Lg2iGmFdXFZZbxRc23q2a5DQauks4srt2
-	HwnXPnNau/A/mbpYdHV5SArFq440pqcYjSGckHdS7XZdXr4xWdjkX8/ACHDzC2RvD0LvYcR9B4BtW
-	gNwV08zg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
+	To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=aFIMdeR6xyiyrKFqqlTnBRk1LQE2OZvuaZwIrjbXAHA=; b=Wr64OZ4Er+DTosl+HlWCb4p81
+	1R+wdoRM0zZCqUDu6JiCPNzAM9p3H/IU05jwwJ0oLJNnqujX7Z2gSjLEd/+lufRPqZxPTcDy7/4Oh
+	zrMJvIkv0yOt7aPT4c5q3SdyUeJvbHZYdcal3MWS+nXybtSGmfFMg/uYQMLqVQ+vPml2d/Fc+Ymr7
+	UIpEKIN0B40ZrdmO48WpM+QzPgXwia8KnJgDrCLs5cZkhPYxgPQmdSoq1dE6faCx9YGMaB+nS6I+x
+	nEbvH+FQB9NoAIhmBdpb7XWRuBOg0UycDwWbnMMW4WJuPpa6JtTi7TN675X+mrakljgLZdevET6a9
+	fH1uag/Tg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gZMxX-0003uJ-0c; Tue, 18 Dec 2018 21:31:23 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1gZPDk-0000oj-OU; Tue, 18 Dec 2018 23:56:16 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gZMw2-0001Ad-8J
- for linux-riscv@lists.infradead.org; Tue, 18 Dec 2018 21:30:02 +0000
-Received: by mail-wm1-x342.google.com with SMTP id c126so4282514wmh.0
- for <linux-riscv@lists.infradead.org>; Tue, 18 Dec 2018 13:29:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=HuxNRSLo1Y/SD7lAUX6QeRhvOXk945RDrLuI7e8huwc=;
- b=atusBLcCLc2S/PnQIGuPkwaWqoeJ6o1qCwBPOsDx85VjmTYC0rvdf+OkM/cQ4XNNXZ
- +DFmvR9qAtYuhV268U9V2pz7MRJ+VD4qoh1mN8iP143Vl8F7cpqVUCdwHiT5VbSmQQr0
- i1FOfio58SrDoVxkYVf7dJskuiT8wr9xmN764=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=HuxNRSLo1Y/SD7lAUX6QeRhvOXk945RDrLuI7e8huwc=;
- b=UVxbE0x3rU6MM0Lsz0iZRnkVyItEpT11MS4uyqxJ19fhS41wZjMPce9uICR/kpu7MI
- H8DSeEizyBVqM0tqLRkDjHXwfC8VeYpi/Arxjzi09XbEX/Sr6/g7PvMzLDMmLx6YQgdQ
- oOGBmXshNdCUOYtkklJvZlbu2lITUeuhvVf09FzuCgXW85uas3WvKHUAP5CjAwr0kRa/
- dImkdbzH/pEOs0PImkeHrRAgPqZArlkL5Io+tvBoHeUs6txQQHzIanZbN+bpm4AHe+8m
- o3KfxwUJeoi4nfb5bRYz5GpaSuP+5fxa0yQ8NPVcOHwpJqAfgL2KzcdxT+WJHZqA7vHs
- LuSg==
-X-Gm-Message-State: AA+aEWZbH1KBJrEMcXSbW3vuN2k0JSXAksDgFDV6hxYYQ6hYeq+O00Ur
- /aGO6+3HwCS+wfPi0Ah3e0/dtQ==
-X-Google-Smtp-Source: AFSGD/V1T4DONWUr6IaFJgBR3PuM0TVp/xv+chpP/j5o7RP2FzPqAwaU6SU7Di30AjuADT8agOcFlw==
-X-Received: by 2002:a1c:5892:: with SMTP id m140mr4706654wmb.60.1545168578695; 
- Tue, 18 Dec 2018 13:29:38 -0800 (PST)
-Received: from localhost.localdomain (105.50.92.92.rev.sfr.net. [92.92.50.105])
- by smtp.gmail.com with ESMTPSA id o4sm4153485wrq.66.2018.12.18.13.29.37
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 18 Dec 2018 13:29:38 -0800 (PST)
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-To: tglx@linutronix.de
-Subject: [PATCH 19/25] clocksource/drivers/riscv_timer: Provide the sched_clock
-Date: Tue, 18 Dec 2018 22:28:37 +0100
-Message-Id: <20181218212844.30445-19-daniel.lezcano@linaro.org>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20181218212844.30445-1-daniel.lezcano@linaro.org>
-References: <d3f1255a-592d-13d9-5d3f-bd3ec7a36742@linaro.org>
- <20181218212844.30445-1-daniel.lezcano@linaro.org>
+ id 1gZPDh-0000nh-GC
+ for linux-riscv@lists.infradead.org; Tue, 18 Dec 2018 23:56:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1545177373; x=1576713373;
+ h=subject:from:to:cc:references:message-id:date:
+ mime-version:in-reply-to:content-transfer-encoding;
+ bh=y2b/sktj+XFBb0QeOZRsAE7cZ9vVpwFIlsMXq0GYU9o=;
+ b=C3JQgWSWOm5jh89RAItXMPfkZhitUfRRE1gX/BbrhJwntD+E8j1rSUxO
+ y37qz7p+oyp1MSeBTgOPjMZGAyNxlWhw/BT17utOIR79NHYcHKkdltjrT
+ fOpuSnTas8NdlckJUwwXvi+7eke93oK9T5RXdMeR/N3gEibA7j9w2HtGA
+ B142myYQJ8aGUJm6yFJDQDzyiTUo+22eQXloWu9tJeJ2EtQ5gGBI2taf1
+ Z5eu9ap82Out7IPyi/JS9vesGEuzryu3yf6ay+tHIB9FY6EQUY1Lh7CD5
+ hX/+Lv6pO0xG7H2OpfQonpSIKUNPhHonIztMwLY3LOkl0JiWE1IsEjv4H w==;
+X-IronPort-AV: E=Sophos;i="5.56,370,1539619200"; d="scan'208";a="201619268"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 19 Dec 2018 07:55:43 +0800
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep02.wdc.com with ESMTP; 18 Dec 2018 15:37:49 -0800
+Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.68.123])
+ ([10.111.68.123])
+ by uls-op-cesaip02.wdc.com with ESMTP; 18 Dec 2018 15:55:44 -0800
+Subject: Re: [PATCH] RISC-V: Fix of_node_* refcount
+From: Atish Patra <atish.patra@wdc.com>
+To: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+References: <1542755270-10433-1-git-send-email-atish.patra@wdc.com>
+Message-ID: <99bcf158-80f2-efa8-cbcb-01493185852d@wdc.com>
+Date: Tue, 18 Dec 2018 15:55:42 -0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0)
+ Gecko/20100101 Thunderbird/60.3.3
+MIME-Version: 1.0
+In-Reply-To: <1542755270-10433-1-git-send-email-atish.patra@wdc.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181218_132950_812298_E3E63B2A 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20181218_155613_661014_A233C4FE 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,83 +85,164 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <anup@brainfault.org>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Albert Ou <aou@eecs.berkeley.edu>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Cc: "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
+ "anup@brainfault.org" <anup@brainfault.org>,
+ "palmer@sifive.com" <palmer@sifive.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "jeremy.linton@arm.com" <jeremy.linton@arm.com>,
+ "schwab@suse.de" <schwab@suse.de>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Anup Patel <anup@brainfault.org>
+On 11/20/18 3:07 PM, Atish Patra wrote:
+> Fix of_node* refcount at various places by using of_node_put.
+> 
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+>   arch/riscv/kernel/cacheinfo.c  | 11 +++++++++++
+>   arch/riscv/kernel/cpu.c        |  1 +
+>   arch/riscv/kernel/cpufeature.c |  2 ++
+>   arch/riscv/kernel/perf_event.c |  1 +
+>   arch/riscv/kernel/smpboot.c    |  6 +++++-
+>   5 files changed, 20 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+> index cb35ffd8..638dee3f 100644
+> --- a/arch/riscv/kernel/cacheinfo.c
+> +++ b/arch/riscv/kernel/cacheinfo.c
+> @@ -28,6 +28,7 @@ static int __init_cache_level(unsigned int cpu)
+>   {
+>   	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+>   	struct device_node *np = of_cpu_device_node_get(cpu);
+> +	struct device_node *prev = NULL;
+>   	int levels = 0, leaves = 0, level;
+>   
+>   	if (of_property_read_bool(np, "cache-size"))
+> @@ -39,7 +40,10 @@ static int __init_cache_level(unsigned int cpu)
+>   	if (leaves > 0)
+>   		levels = 1;
+>   
+> +	prev = np;
+>   	while ((np = of_find_next_cache_node(np))) {
+> +		of_node_put(prev);
+> +		prev = np;
+>   		if (!of_device_is_compatible(np, "cache"))
+>   			break;
+>   		if (of_property_read_u32(np, "cache-level", &level))
+> @@ -55,8 +59,10 @@ static int __init_cache_level(unsigned int cpu)
+>   		levels = level;
+>   	}
+>   
+> +	of_node_put(np);
+>   	this_cpu_ci->num_levels = levels;
+>   	this_cpu_ci->num_leaves = leaves;
+> +
+>   	return 0;
+>   }
+>   
+> @@ -65,6 +71,7 @@ static int __populate_cache_leaves(unsigned int cpu)
+>   	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+>   	struct cacheinfo *this_leaf = this_cpu_ci->info_list;
+>   	struct device_node *np = of_cpu_device_node_get(cpu);
+> +	struct device_node *prev = NULL;
+>   	int levels = 1, level = 1;
+>   
+>   	if (of_property_read_bool(np, "cache-size"))
+> @@ -74,7 +81,10 @@ static int __populate_cache_leaves(unsigned int cpu)
+>   	if (of_property_read_bool(np, "d-cache-size"))
+>   		ci_leaf_init(this_leaf++, np, CACHE_TYPE_DATA, level);
+>   
+> +	prev = np;
+>   	while ((np = of_find_next_cache_node(np))) {
+> +		of_node_put(prev);
+> +		prev = np;
+>   		if (!of_device_is_compatible(np, "cache"))
+>   			break;
+>   		if (of_property_read_u32(np, "cache-level", &level))
+> @@ -89,6 +99,7 @@ static int __populate_cache_leaves(unsigned int cpu)
+>   			ci_leaf_init(this_leaf++, np, CACHE_TYPE_DATA, level);
+>   		levels = level;
+>   	}
+> +	of_node_put(np);
+>   
+>   	return 0;
+>   }
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index 3a5a2ee3..7b3eb970 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -155,6 +155,7 @@ static int c_show(struct seq_file *m, void *v)
+>   	    && strcmp(compat, "riscv"))
+>   		seq_printf(m, "uarch\t\t: %s\n", compat);
+>   	seq_puts(m, "\n");
+> +	of_node_put(node);
+>   
+>   	return 0;
+>   }
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 0339087a..a6e369ed 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -56,8 +56,10 @@ void riscv_fill_hwcap(void)
+>   
+>   	if (of_property_read_string(node, "riscv,isa", &isa)) {
+>   		pr_warning("Unable to find \"riscv,isa\" devicetree entry");
+> +		of_node_put(node);
+>   		return;
+>   	}
+> +	of_node_put(node);
+>   
+>   	for (i = 0; i < strlen(isa); ++i)
+>   		elf_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
+> diff --git a/arch/riscv/kernel/perf_event.c b/arch/riscv/kernel/perf_event.c
+> index a243fae1..667ee70d 100644
+> --- a/arch/riscv/kernel/perf_event.c
+> +++ b/arch/riscv/kernel/perf_event.c
+> @@ -476,6 +476,7 @@ int __init init_hw_perf_events(void)
+>   
+>   		if (of_id)
+>   			riscv_pmu = of_id->data;
+> +		of_node_put(node);
+>   	}
+>   
+>   	perf_pmu_register(riscv_pmu->pmu, "cpu", PERF_TYPE_RAW);
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index 18cda0e8..fc185eca 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -57,12 +57,15 @@ void __init setup_smp(void)
+>   
+>   	while ((dn = of_find_node_by_type(dn, "cpu"))) {
+>   		hart = riscv_of_processor_hartid(dn);
+> -		if (hart < 0)
+> +		if (hart < 0) {
+> +			of_node_put(dn);
+>   			continue;
+> +		}
+>   
+>   		if (hart == cpuid_to_hartid_map(0)) {
+>   			BUG_ON(found_boot_cpu);
+>   			found_boot_cpu = 1;
+> +			of_node_put(dn);
+>   			continue;
+>   		}
+>   
+> @@ -70,6 +73,7 @@ void __init setup_smp(void)
+>   		set_cpu_possible(cpuid, true);
+>   		set_cpu_present(cpuid, true);
+>   		cpuid++;
+> +		of_node_put(dn);
+>   	}
+>   
+>   	BUG_ON(!found_boot_cpu);
+> 
 
-Currently, we don't have a sched_clock registered for RISC-V systems.
-This means Linux time keeping will use jiffies (running at HZ) as the
-default sched_clock.
+ping ?
 
-To avoid this, we explicity provide sched_clock using RISC-V rdtime
-instruction (similar to riscv_timer clocksource).
-
-Signed-off-by: Anup Patel <anup@brainfault.org>
-Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
-Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
----
- drivers/clocksource/Kconfig       | 2 +-
- drivers/clocksource/riscv_timer.c | 9 +++++++++
- 2 files changed, 10 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-index c57b156f49a2..a4ae339e0101 100644
---- a/drivers/clocksource/Kconfig
-+++ b/drivers/clocksource/Kconfig
-@@ -599,7 +599,7 @@ config ATCPIT100_TIMER
- 
- config RISCV_TIMER
- 	bool "Timer for the RISC-V platform"
--	depends on RISCV
-+	depends on GENERIC_SCHED_CLOCK && RISCV
- 	default y
- 	select TIMER_PROBE
- 	select TIMER_OF
-diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
-index 084e97dc10ed..431892200a08 100644
---- a/drivers/clocksource/riscv_timer.c
-+++ b/drivers/clocksource/riscv_timer.c
-@@ -8,6 +8,7 @@
- #include <linux/cpu.h>
- #include <linux/delay.h>
- #include <linux/irq.h>
-+#include <linux/sched_clock.h>
- #include <asm/smp.h>
- #include <asm/sbi.h>
- 
-@@ -49,6 +50,11 @@ static unsigned long long riscv_clocksource_rdtime(struct clocksource *cs)
- 	return get_cycles64();
- }
- 
-+static u64 riscv_sched_clock(void)
-+{
-+	return get_cycles64();
-+}
-+
- static DEFINE_PER_CPU(struct clocksource, riscv_clocksource) = {
- 	.name		= "riscv_clocksource",
- 	.rating		= 300,
-@@ -97,6 +103,9 @@ static int __init riscv_timer_init_dt(struct device_node *n)
- 	cs = per_cpu_ptr(&riscv_clocksource, cpuid);
- 	clocksource_register_hz(cs, riscv_timebase);
- 
-+	sched_clock_register(riscv_sched_clock,
-+			BITS_PER_LONG, riscv_timebase);
-+
- 	error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
- 			 "clockevents/riscv/timer:starting",
- 			 riscv_timer_starting_cpu, riscv_timer_dying_cpu);
--- 
-2.17.1
-
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
