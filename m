@@ -2,87 +2,81 @@ Return-Path: <SRS0=M4pA=O5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,USER_AGENT_MUTT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FROM,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7CE16C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 20 Dec 2018 05:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 88B7BC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 20 Dec 2018 06:17:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4658C21720
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 20 Dec 2018 05:25:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4E400205C9
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 20 Dec 2018 06:17:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LvMqWouT";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="pTDyjEIb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4658C21720
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EbyTksUZ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Wiq26En0"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4E400205C9
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eRIjv0MQXMsSwPiKGbNp3/3+heNAaaDV0Dh3/oRnTr0=; b=LvMqWouTIx93vy
-	3B8X3JK0rZoVbnbIrwldvfh8PoHAiIBLlAefWILX68OMMR5AiBYSPSK+emx7qSK1P9IVRD/3FzaY1
-	aAodYfvCUyySqiR58gyU2ReLlP4iN1VARFMrSz917Fl8kG47mfpDQoKl9/oxulTDnzM/5G1dpWC2+
-	XSS/FRx2EUD8/aVnEQHYc7qrSSs2bvZ0m25Tmv577xznGMw/t1K4CGg2d4Y3rthZ1XbonV3fmviBl
-	j3YXmyu/BH5dwC/uea9a7bEVyOLCrpDHxl34yjuyPbdTLAPQcayCoWwTyAuV9qXcvacaVlvn7yymM
-	gLlQuk9/YtgDgABwR8IA==;
+	List-Owner; bh=Nyw7o3gy8j2GqOa5Etm+YuBCWNReZlOSwOUlaYz8mgc=; b=EbyTksUZWL310Z
+	g5aFwJSMFijF5z65tM+k+/1Bejcp8B0GPeaK1V+4RVAu33g3Lvs1szPB5uU6f+1qtJVTXZYkYdJzZ
+	b++bhEw3UOlIFG6ghlmCspX3O2hYciGVtsNbDeAuc7nebpAHZDqhalPzvXjJztEHcYCiQHJwr0uxg
+	sCsq9GARZ+5NPx69AOr+ReDSjn8l7lJcPMoWQ65MTVTRfaXh3eVb5WIHayT2E2QKVVrO6Rjd5SECl
+	9lik7T20ryK+2Zg1euI+42tIbBR8qtOBQSuWGS4HqhG04c6ZqSbMH2LOone+ZVoGZwR6+zjf5yD5u
+	a50jl2jWWlXKtXjZty8w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gZqq1-0003Z5-B5; Thu, 20 Dec 2018 05:25:37 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1gZrdx-0003Kl-Kf; Thu, 20 Dec 2018 06:17:13 +0000
+Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gZqpy-0003YZ-ET
- for linux-riscv@lists.infradead.org; Thu, 20 Dec 2018 05:25:36 +0000
-Received: by mail-pf1-x442.google.com with SMTP id g62so324979pfd.12
- for <linux-riscv@lists.infradead.org>; Wed, 19 Dec 2018 21:25:24 -0800 (PST)
+ id 1gZrdu-0003Iv-LL
+ for linux-riscv@lists.infradead.org; Thu, 20 Dec 2018 06:17:12 +0000
+Received: by mail-ed1-x543.google.com with SMTP id d39so700998edb.12
+ for <linux-riscv@lists.infradead.org>; Wed, 19 Dec 2018 22:16:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to:user-agent;
- bh=JviFETX5OT2iTJZMeT/j9j5o8VXDu/ONGIUbF6RTOLY=;
- b=pTDyjEIbf9UCW1x0YlSeBj+s019xUQpm9kNZvKpygCwHZynr3r5ZeSpsRj0sPsuUfe
- JnN9tW05YWd9GWqr3fmZaAFhny0Atv/BtSk6+KtVNaIlBwJmF9Cha/4FXu3NWcuA3uXr
- hSCIkAegYMPzRSm75QhYRA6xHTgwsCnLkX6jLH1EWBAtN94VKQISPsYNrV7LNYLztrf1
- qwYaXbL9SmWykEQRfw5+vmCifspMGYxH/dr93p/EQ5hByPC4x8Gu/C/ZK77N4KKdarXJ
- tFqAe3q6y+0u2TLV3jEC4rZlSC/DMolIfEYV360BhocgOaBTTS2PGYzj4n2jLjYMbX60
- fa7Q==
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=uSH8Px44l+044lB7ulMznZksHkH6jpW/e6qzUQ/ZZ+A=;
+ b=Wiq26En0qPUdxtT1NfYNP47NrXDB628RGKZkVe0FLdHadP5Nrj8p20h9L/v0+VSePc
+ CE0Kx2IM4OM/G00JzADi3pGm/c2OGFBcUt5iuoFxCLCtObjWQwIYnWhIks7n/lhmRDzJ
+ /pUbbPDRwN6MNtRl3/Bl77KfBUduIEWB5/0ZQPQn//eCohX1ngrEouuFSkHK7ulufZ9V
+ UoxXieVjjKIYBT6cI83ztBMpY89HXxSzkHS6DAJPFpSXuzmgAHnmIxPzpOCkxvnjSke9
+ YRzpg8breNAFUTUr98GrdThmklcufbdLZTHW37S1OfZdaIERyUQsghnYoRC3iloFmqjk
+ /+pQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :references:mime-version:content-disposition:in-reply-to:user-agent;
- bh=JviFETX5OT2iTJZMeT/j9j5o8VXDu/ONGIUbF6RTOLY=;
- b=uHi5VNa35lrsV5YBKEPFmkRehE3NloenD4Fs+K+dMw3JX9nM1FmQh70NvuoVp220KA
- agekvtjoddAqtcus27Gvr54O3ncTunnaAopJB0ljjhouQEapht0sziHUu2nTC2XlsjqA
- S7aG5XylRYBpbqTkgSbbOr/cuFKj5PXxpnFfWiRJLAjrqRuD/1tNEiUO8ZXLZO8+TK8L
- JQtT5q4numtlgesp7lQidwdgafrSM7oJuN49MU7aZh1uKU0zWZCRzbXSELpISM/bPmaz
- N39GG51mf+LKn+EhGXlaYUBgV6oi0GlCXluX1eetb0rd34BTwYjTdA38YZM1eSLIjh/c
- OG4Q==
-X-Gm-Message-State: AA+aEWZjEt5uQCJa1ELmyDUU38uEXOMS7hrvPB4Lhsb2jG7hBDl8WFzl
- 1f5gJX3E8e//mZjwJpq9EvEEtM8V
-X-Google-Smtp-Source: AFSGD/V1Khckik0k4GNz9eFmCvulf9oqlr+yohnylGpUiR8yQgZKuHqYFKeKr05kzIdDjJ0bwaTeSg==
-X-Received: by 2002:a65:49cd:: with SMTP id t13mr5442181pgs.376.1545283523845; 
- Wed, 19 Dec 2018 21:25:23 -0800 (PST)
-Received: from localhost ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
- by smtp.gmail.com with ESMTPSA id 196sm73353748pfc.77.2018.12.19.21.25.22
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 19 Dec 2018 21:25:22 -0800 (PST)
-Date: Wed, 19 Dec 2018 21:25:21 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Palmer Dabbelt <palmer@sifive.com>
-Subject: Re: [PATCH] RISC-V: Add CONFIG_PREEMPT=y to defconfig
-Message-ID: <20181220052521.GA21363@roeck-us.net>
-References: <20181220014511.GA24845@roeck-us.net>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=uSH8Px44l+044lB7ulMznZksHkH6jpW/e6qzUQ/ZZ+A=;
+ b=nJEF2FO9XajZitZrgpoD3Ov283y/XkHBZ43Dt/a9YnSsBiUesthik0VgKj4rlETOTx
+ Kk6K6yB0k9oi9S3oguAMq1EYzNMrg4yX2YgCZbSVlsdctyJK5Gxu8QI3tRZMwlZ9djBx
+ u8BkLbeXs3svWtozNgo41Deiv8un//5Po/s5g3o/ugivjzX+s0YHgEbgnxo00fYS67y/
+ 4tcbj950tNmxwFC0sslCTSxlb2/+hE04CLQM8v2Kbsh6ADJ+0cKREHEk5PY2i3UmzsNp
+ XaQlJYJQoJleTdb7Hv7zfs4IbujNiw3S8cMMZJs6RkcsXA+j01CNHU01WTaoNo2OKpeQ
+ DC/g==
+X-Gm-Message-State: AA+aEWYhVBIMFw9q0ERGvOjYlgKG5p4PFMInqI6vtPwlM4RHz3qJRuSY
+ nAbMOcMNo44WnKMpzq/Thdf931w0zsgDt/da9Jk=
+X-Google-Smtp-Source: AFSGD/WbfSLKlQIlGUFPt5Me8Yd9oZKphDudRGUpqogHXDXJ/3tW4ZjKVsiGWP2qOTsvjThnfPT0WYG9uyBZJCqbkCg=
+X-Received: by 2002:a50:9291:: with SMTP id k17mr20863951eda.243.1545286618433; 
+ Wed, 19 Dec 2018 22:16:58 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20181220014511.GA24845@roeck-us.net>
-User-Agent: Mutt/1.5.24 (2015-08-30)
+References: <20181219123657.61270-1-anup@brainfault.org>
+In-Reply-To: <20181219123657.61270-1-anup@brainfault.org>
+From: Bin Meng <bmeng.cn@gmail.com>
+Date: Thu, 20 Dec 2018 14:16:47 +0800
+Message-ID: <CAEUhbmXNmzHVnzj88T5jxDXs=Rx_kD9fgayZ4r3xvgAOYXKWjw@mail.gmail.com>
+Subject: Re: [PATCH v2] RISC-V: Make BSS section as the last section in
+ vmlinux.lds.S
+To: Anup Patel <anup@brainfault.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181219_212534_494215_3CEFB997 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20181219_221710_730383_E6C284BE 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,71 +88,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ Christoph Hellwig <hch@infradead.org>, Atish Patra <atish.patra@wdc.com>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 19, 2018 at 05:45:11PM -0800, Guenter Roeck wrote:
-> On Wed, Nov 21, 2018 at 10:58:05AM -0800, Palmer Dabbelt wrote:
-> > I don't remember who suggested this, but I was talking to someone at
-> > Plumbers about all the horrible bugs we've had lurking around in our
-> > port despite it still getting to userspace and they suggested that I
-> > enable CONFIG_PREEMPT in our defconfig as it'll help shake out more
-> > issues.
-> > 
-> > This patch enables CONFIG_PREEMPT in the single RISC-V defconfig.  It
-> > still passes my tests (ie, booting Fedora on QEMU).  Maybe I'm too
-> > paranoid, but I still don't trust our port enough to just pull the
-> > trigger on this without at least accumulating some "Tested-by"s on it.
-> > 
-> > Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-> 
-> I can only give you a
-> 
-> Fails-miserably-for: Guenter Roeck <linux@roeck-us.net>
-> 
-> Not the new defconfig itself, but the new defconfig plus a variety of
-> selftest options. I don't know what exactly is failing, but here is
-> my list of enabled selftests on top of defconfig:
-> 
-> CONFIG_CRYPTO_MANAGER_DISABLE_TESTS=y
-> CONFIG_CRC32_SELFTEST=y
-> CONFIG_DEBUG_LOCKING_API_SELFTESTS=y
-> CONFIG_DEBUG_NMI_SELFTEST=y
-> CONFIG_DEBUG_RODATA_TEST=y
-> CONFIG_DEBUG_TLBFLUSH=y
-> CONFIG_DMATEST=y
-> CONFIG_GLOB_SELFTEST=y
-> CONFIG_OF_UNITTEST=y
-> CONFIG_PCI_EPF_TEST=y
-> CONFIG_PCI_ENDPOINT_TEST=y
-> CONFIG_PROVE_LOCKING=y
-> CONFIG_PROVE_RCU=y
-> CONFIG_RCU_EQS_DEBUG=y
-> CONFIG_STATIC_KEYS_SELFTEST=y
-> CONFIG_STRING_SELFTEST=y
-> CONFIG_TEST_BITMAP=y
-> CONFIG_TEST_FIRMWARE=y
-> CONFIG_TEST_SORT=y
-> CONFIG_TEST_SYSCTL=y
-> CONFIG_TEST_UUID=y
-> CONFIG_USB_TEST=y
-> CONFIG_USB_EHSET_TEST_FIXTURE=y
-> CONFIG_USB_LINK_LAYER_TEST=y
-> CONFIG_WW_MUTEX_SELFTEST=y
-> CONFIG_TORTURE_TEST=y
-> CONFIG_LOCK_TORTURE_TEST=y
-> CONFIG_RCU_TORTURE_TEST=y
-> CONFIG_RBTREE_TEST=y
-> CONFIG_INTERVAL_TREE_TEST=y
-> 
+On Wed, Dec 19, 2018 at 8:37 PM Anup Patel <anup@brainfault.org> wrote:
+>
+> The objcopy only emits loadable sections when creating flat kernel
+> Image. To have minimal possible size of flat kernel Image, we should
+> have all non-loadable sections after loadable sections.
+>
+> Currently, execption table section (loadable section) is after BSS
+> section (non-loadable section) in the RISC-V vmlinux.lds.S. This
+> is not optimal for having minimal flat kernel Image size hence this
+> patch makes BSS section as the last section in RISC-V vmlinux.lds.S.
+>
+> In addition, we make BSS section aligned to 16byte instead of PAGE
+> aligned which further reduces flat kernel Image size by few KBs.
+>
+> The flat kernel Image size of Linux-4.20-rc4 using GCC 8.2.0 is
+> 8819980 bytes with current RISC-V vmlinux.lds.S and it reduces to
+> 7991740 bytes with this patch applied. In summary, this patch reduces
+> Linux-4.20-rc4 flat kernel Image size by 809 KB.
+>
+> Signed-off-by: Anup Patel <anup@brainfault.org>
+> ---
+>
+> Changes since v1:
+>  - Introduce MAX_BYTES_PER_LONG define and use it in-place of
+>    0x10 magic value
+>
+>  arch/riscv/kernel/vmlinux.lds.S | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
+>
 
-Update: defconfig+CONFIG_LOCK_TORTURE_TEST=y causes the hang
-if CONFIG_PREEMPT=y.
-
-Guenter
+Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
