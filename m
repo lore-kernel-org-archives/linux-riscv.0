@@ -2,20 +2,20 @@ Return-Path: <SRS0=M4pA=O5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.7 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,UNWANTED_LANGUAGE_BODY,
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3E1AEC43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 20 Dec 2018 21:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1E57AC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 20 Dec 2018 21:05:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0F39B218FE
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 20 Dec 2018 21:02:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E305E218FE
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 20 Dec 2018 21:05:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kocaAuOc"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0F39B218FE
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="O9WDQ0In"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E305E218FE
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,56 +24,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=chSsE+V8fV3Pnw/PbvmEG8qz75TndFHglDnB7cxNUD0=; b=kocaAuOc2YR5jZ
-	DU+XK9PYtgoJm8w5WSaKgPohl7/bXPc6p+BYb60v5OhycKUFJHMJs6Tka2f3Wi7+JxALt0xrqE5d1
-	NyjjC04nTR7Fjil+GJKoOy4zo2s/9kw+xOgdAOB2ZwYV5bCSqUd12bOb60hqzRbG4awdh0BRHc6yt
-	raun1omyCX62yHuiuxpcBm8GCVlPllIyTwMtPmoHZAEiR6onZAn72/xi1lRgyOGiAU3Xn3LDM5YCB
-	EBKfOQThF4ly8JMt0/RczSKQwp+ZjbFrpu3QToQg15pYOPGapc2Uoa21zU+7LpO29Iez5SEV3TxYq
-	Bm8X6CM+OfO4jthwIK6g==;
+	List-Owner; bh=VoEl92wZ6SL+hVdlxLUdSJ6KcovEbNq6ZjQxTn3QP3Q=; b=O9WDQ0InqwVgS0
+	17ST/J0L7wBgP0Mq2NPF72w0NGSgfJbGa+qo7ctOQnQskjlnz6rkFqwX0P1FifuG6rb2q1IT9vTLq
+	1b6EagkHVlwXMKyn5hNaGzIOzjkkxhRnjLC78Im2p8MnhBX2WgYsjx2XI6z44Z9ttEgWYr4swQZia
+	3k9hW402PNcADt5Ra6lKunJIzb3B2Lao8KUiES7MkcizjNQuwgvln2O2eHt5tRjEVTwlM4kXGm1th
+	eLm/A4ZmOZMmApz7YT30r3UccCbAp4VUcMpYtvBkMBCXtBNQlz4JnJ/KVbFK+cFCVE7+PX4O3cKew
+	m42gpFjX4NRBOvZBJ2Lw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1ga5SC-0003La-SW; Thu, 20 Dec 2018 21:02:00 +0000
-Received: from mail-it1-f195.google.com ([209.85.166.195])
+	id 1ga5VE-0004QB-1X; Thu, 20 Dec 2018 21:05:08 +0000
+Received: from mail-ot1-f65.google.com ([209.85.210.65])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1ga5S9-0003Kg-BV
- for linux-riscv@lists.infradead.org; Thu, 20 Dec 2018 21:01:59 +0000
-Received: by mail-it1-f195.google.com with SMTP id m62so4029300ith.5
- for <linux-riscv@lists.infradead.org>; Thu, 20 Dec 2018 13:01:46 -0800 (PST)
+ id 1ga5VB-0003XD-C8
+ for linux-riscv@lists.infradead.org; Thu, 20 Dec 2018 21:05:06 +0000
+Received: by mail-ot1-f65.google.com with SMTP id s5so3225615oth.7
+ for <linux-riscv@lists.infradead.org>; Thu, 20 Dec 2018 13:04:55 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=FObYT91NzUS2WehQuBefl/zjyrdR0UffG31UysubvZ4=;
- b=ezN0c7mH++F8svpHbWfrcEV7Bz8pOZHJzXIicom2/aHNO8iGz465sO0EjJVNIb1ZQ1
- FqJj2h+0HG/LpmukmLgI0ZRWP0m+P0TBeBt/ZkLT38WeWRZEpwgmxq97Wq+Vv0OkfRJp
- Kz3S9BEnTHEn2uqXy2mRgP7ixCmWjAS3wwjJAnPanu466Yp57I9R7dNzjbtpX5+8yYOb
- TgkOb83BqysRBzzIKKTBNiMP1HZwcrGPqDXqkxGLKA8BL22ddsoLDNUlCwj2sT02iUfw
- 4bhtH5ZJtajkM4KTqreBSrGhT5dnsWyAD/E61DJPyZKgxjsH5kyGkfVfLQZW77enX25U
- mPAw==
-X-Gm-Message-State: AA+aEWbmXPuib0YiXfQEsYhPpiQ3hytzWSMQWf2yNT03RMRQyBKdDugo
- aj2W0A2tlX8ONHEDLBIufw==
-X-Google-Smtp-Source: AFSGD/WXMsUFf9QoMoaypflxeeZ2eBoBzqQ4ysOkpjE/HDZD5e1hZ6hIapE5h/6us8EE3Tx8lkjKqw==
-X-Received: by 2002:a24:94c9:: with SMTP id j192mr196707ite.125.1545339705915; 
- Thu, 20 Dec 2018 13:01:45 -0800 (PST)
+ bh=CA7djEAA600KqNCvJ4e0eFqNNGuJG9dE5uF6Jyr/JaE=;
+ b=etOaM7qBPGQTFgcJxK+P3+ocpzA4vIvdfa6smjGj6I8opDkGRL4pQyPKkOP0IYzum0
+ Dq1UF//92YSkuZzx3TovAPLImiDX0aQlgBrewAAcoHnfIIv0XOuY58MSA4/AnHBRLGYm
+ rtf/lmSr75KNFZK3dqEVjIvUKMDb8ihpFWX6HQ14CbHFgcc+KSnAJSCrs9LhBnV8ca3s
+ DN3AYI/12pW6Vet85wHAjqzAHDbx9WY32CpFDv8D+obTX9zz/ln2Rw8mhFiylrL4cApd
+ D8heOnEiz+DNhhNXSefP+/8OVObPNqH9/iPMKREf1RVLIwq5uSGpcBegG2UR0QIeFxxn
+ M2fg==
+X-Gm-Message-State: AA+aEWa5EIaD9ItcAaGCuQr8eiLeDsl1M8VFNiN+HtzZWsMLdUm7yLjb
+ 4aV6EO5cCfFDrBgMCDywgA==
+X-Google-Smtp-Source: AFSGD/U5x6Rzu5D0Jm/jXHfeqb3R0zJTX2Nn8ytiZyT1S7X/WMS5qCS6IDW2D7e+yDmalDR9P+sDZQ==
+X-Received: by 2002:a9d:43a6:: with SMTP id t38mr19840747ote.213.1545339894600; 
+ Thu, 20 Dec 2018 13:04:54 -0800 (PST)
 Received: from localhost ([2607:fb90:20d2:a5e2:49af:e73e:5a36:3b50])
- by smtp.gmail.com with ESMTPSA id y1sm37493ioj.45.2018.12.20.13.01.44
+ by smtp.gmail.com with ESMTPSA id g25sm6352160otr.30.2018.12.20.13.04.53
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Thu, 20 Dec 2018 13:01:45 -0800 (PST)
-Date: Thu, 20 Dec 2018 15:01:41 -0600
+ Thu, 20 Dec 2018 13:04:53 -0800 (PST)
+Date: Thu, 20 Dec 2018 15:04:52 -0600
 From: Rob Herring <robh@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH 3/7] dt-bindings: riscv: cpus: add E51 cores to the list
- of documented CPUs
-Message-ID: <20181220210141.GA17198@bogus>
+Subject: Re: [PATCH 6/7] dt-binding: riscv: sifive: add documentation for
+ FU540-based boards
+Message-ID: <20181220210452.GA26977@bogus>
 References: <20181215052154.24347-1-paul.walmsley@sifive.com>
- <20181215052154.24347-4-paul.walmsley@sifive.com>
+ <20181215052154.24347-7-paul.walmsley@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20181215052154.24347-4-paul.walmsley@sifive.com>
+In-Reply-To: <20181215052154.24347-7-paul.walmsley@sifive.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181220_130157_396690_E955C569 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20181220_130505_416533_DE0B6585 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -88,18 +88,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
  Paul Walmsley <paul@pwsan.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 14, 2018 at 09:21:50PM -0800, Paul Walmsley wrote:
-> Add compatible strings for the SiFive E51 family of CPU cores to the
-> RISC-V CPU compatible string documentation.  The E51 CPU core is
-> described in:
+On Fri, 14 Dec 2018 21:21:53 -0800, Paul Walmsley wrote:
+> Add DT binding documentation for boards based on the SiFive FU540 SoC.
+> The first board, the HiFive Unleashed A00 (FU540), is described here:
 > 
-> https://static.dev.sifive.com/FU540-C000-v1.0.pdf
+> https://static.dev.sifive.com/HiFive-Unleashed-Getting-Started-Guide-v1p1.pdf
 > 
 > Cc: Rob Herring <robh+dt@kernel.org>
 > Cc: Mark Rutland <mark.rutland@arm.com>
@@ -111,28 +110,11 @@ On Fri, Dec 14, 2018 at 09:21:50PM -0800, Paul Walmsley wrote:
 > Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
 > Signed-off-by: Paul Walmsley <paul@pwsan.com>
 > ---
->  Documentation/devicetree/bindings/riscv/cpus.txt | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
+>  .../devicetree/bindings/riscv/sifive/fu540.txt         | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/riscv/cpus.txt b/Documentation/devicetree/bindings/riscv/cpus.txt
-> index adf7b7af5dc3..fb9d4f86f41f 100644
-> --- a/Documentation/devicetree/bindings/riscv/cpus.txt
-> +++ b/Documentation/devicetree/bindings/riscv/cpus.txt
-> @@ -68,8 +68,9 @@ described below.
->          - compatible:
->                  Usage: required
->                  Value type: <stringlist>
-> -                Definition: must contain "riscv", may contain one of
-> -                            "sifive,rocket0"
-> +                Definition: must contain "riscv", may contain one or
-> +			    more of "sifive,rocket0", "sifive,e51",
-> +			    "sifive,e5"
 
-I can't really tell what are valid combinations from this. It reads that 
-I could list every string here and that would be valid. It is basically 
-'riscv' plus any other combinations of strings.
-
-Rob
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
