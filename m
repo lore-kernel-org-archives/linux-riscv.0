@@ -2,63 +2,72 @@ Return-Path: <SRS0=5aT3=PD=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 72E64C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Dec 2018 20:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AEF69C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Dec 2018 23:09:26 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 16F41214AE
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Dec 2018 20:13:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8078B21902
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Dec 2018 23:09:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="K/kNh2NT"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 16F41214AE
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=aurel32.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XR/t6lh5";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="axEgWcTr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8078B21902
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K9t+HSxc1/uXo64QLO/nW5fjVkPgt4Eqw3oQ72QTSoc=; b=K/kNh2NTXCXdf8
-	dlyewSanCT3tJ7s07ATb0v8/LbcCuk8E4Ujf+jpTVJa5V3V/oP8NSVowoBLZdIdRFw0SwI1pDU565
-	Uxjoz9opCHDrhoCALkmmTCVXkQkYisJgzKcwHBiutYYE0lCSplcMDQn6DTCSHTd3WsheR/Wf7Bg7z
-	s4uys7wqf9iV1p7I1/NNwCfgeVY1XuC+46jPnuIGtgkACtbYjBUfkiFAx3YdshIIXcRM/2cJL/yF/
-	VGXBdXfQ7BDPTQHqRXu3bEugGk/uU2qjM6kLp5nTnc2Z6nRnJRCK2R9OnjYvHBJz96HCS9qIRbycQ
-	QDfX/avpQlInlX3Glw5g==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=ZyYKn22OvshSl0gQqmHEspX2dPBspPhSJ/aKbOxXSXc=; b=XR/
+	t6lh598csrmN6aZ4TxUp+bW0g+5ik7OxftvHvozSs459+zdpktD+XpiPHLLESRdfE9UbRoa915wxI
+	YOQtrvbs7M53gHIhVeixdJhqa65QUEtNiFCaGyOjL4tlnJour7JOI1tYrZTF6FG0RVmerdrEFhDc5
+	I/ECewGZuMIYdC8PNaDWp+cNbs4u0sizGN1Sib0d/P8aJMehhRyASerJcvnAUoviL+/USl08lqF7a
+	L0tWF3ppnkray2isN0DwbNZa1NzpQIjyeKqcXXEYwa78ReM9OAn5XmMzvHbJc6Hp4JogwghT49i+i
+	cvGF+PwTFK4jnAq5hKIiJJcvSDz76zg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gcFYn-0003cp-P9; Wed, 26 Dec 2018 20:13:45 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1gcIIm-0002Cy-Ug; Wed, 26 Dec 2018 23:09:24 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gcFYj-0003bc-Vf
- for linux-riscv@lists.infradead.org; Wed, 26 Dec 2018 20:13:44 +0000
-Received: from [78.30.2.155] (helo=ohm.local)
- by hall.aurel32.net with esmtpsa (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.89) (envelope-from <aurelien@aurel32.net>)
- id 1gcFYO-0003fE-QR; Wed, 26 Dec 2018 21:13:20 +0100
-Received: from aurel32 by ohm.local with local (Exim 4.91)
- (envelope-from <aurelien@aurel32.net>)
- id 1gcFYI-0001l1-1i; Wed, 26 Dec 2018 21:13:14 +0100
-Date: Wed, 26 Dec 2018 21:13:14 +0100
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Palmer Dabbelt <palmer@sifive.com>
-Subject: Re: [PATCH] tools uapi: fix RISC-V 64-bit support
-Message-ID: <20181226201314.GA6513@aurel32.net>
-References: <20181225144624.22402-1-aurelien@aurel32.net>
- <mhng-73e120d5-76aa-41e2-9fbb-d2ee3d8c304f@palmer-si-x1c4>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-73e120d5-76aa-41e2-9fbb-d2ee3d8c304f@palmer-si-x1c4>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+ id 1gcIIj-00027y-CX
+ for linux-riscv@lists.infradead.org; Wed, 26 Dec 2018 23:09:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1545865761; x=1577401761;
+ h=from:to:cc:subject:date:message-id;
+ bh=D2ricm/sbPYel2rJ3/2ozWijyVugQCb4BhRoHhAiq5Y=;
+ b=axEgWcTr790X0m/RZAU/BGP7m5Orsnvn9mOGANLM2SWRNjNodXgfr26u
+ /gm6ewJPKLCu6FWY3TgFJxGOk01tTb3pOORiXUBz3cTnR3xIzeUDKnIPc
+ 9WbvB5VzUkTgkMQIurOiWka9JEQOCg1h4CIohCiKU2Cr9RiVZxYwvybmF
+ 7aQGBGG4OpBWqXEshfurV4vMf2dNsj4vc/FfPuVIduO2IZZsu0DN64JTC
+ 81CRBWpMAFxMw6aR98D75PzCJrbJfoV/A9B+P0rrFD5YhhdJ2M/9zqh/N
+ O8dSDM7uw5VThszm72YmtXiS8FS/LfpKL6lsDbF79ZM+skSUfSnVxefFx g==;
+X-IronPort-AV: E=Sophos;i="5.56,401,1539619200"; d="scan'208";a="99246003"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 27 Dec 2018 07:09:06 +0800
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP; 26 Dec 2018 14:49:51 -0800
+Received: from jedi-01.sdcorp.global.sandisk.com (HELO
+ jedi-01.int.fusionio.com) ([10.11.143.218])
+ by uls-op-cesaip02.wdc.com with ESMTP; 26 Dec 2018 15:09:07 -0800
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH 0/3] Non-smp configuration fix
+Date: Wed, 26 Dec 2018 15:08:58 -0800
+Message-Id: <1545865741-22795-1-git-send-email-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181226_121342_155070_941BECF4 
-X-CRM114-Status: GOOD (  21.95  )
+X-CRM114-CacheID: sfid-20181226_150921_466559_F4CA81DA 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -70,102 +79,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>,
+ =?UTF-8?q?Patrick=20St=C3=A4hlin?= <me@packi.ch>,
+ Albert Ou <aou@eecs.berkeley.edu>, Damien Le Moal <Damien.LeMoal@wdc.com>,
+ Jason Cooper <jason@lakedaemon.net>, Dmitriy Cherkasov <dmitriy@oss-tech.org>,
+ Anup Patel <anup@brainfault.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ linux-kernel@vger.kernel.org, Michael Clark <michaeljclark@mac.com>,
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Marc Zyngier <marc.zyngier@arm.com>, Thomas Gleixner <tglx@linutronix.de>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2018-12-26 09:19, Palmer Dabbelt wrote:
-> On Tue, 25 Dec 2018 06:46:24 PST (-0800), aurelien@aurel32.net wrote:
-> > The BPF library is not built on 64-bit RISC-V, as the BPF feature is
-> > not detected. Looking more in details, feature/test-bpf.c fails to build
-> > with the following error:
-> > 
-> > | In file included from /tmp/linux-4.19.12/tools/include/uapi/asm/bitsperlong.h:17,
-> > |                  from /tmp/linux-4.19.12/tools/include/uapi/asm-generic/unistd.h:2,
-> > |                  from /usr/include/riscv64-linux-gnu/asm/unistd.h:1,
-> > |                  from test-bpf.c:2:
-> > | /tmp/linux-4.19.12/tools/include/asm-generic/bitsperlong.h:14:2: error: #error Inconsistent word size. Check asm/bitsperlong.h
-> > |  #error Inconsistent word size. Check asm/bitsperlong.h
-> > |   ^~~~~
-> > 
-> > The UAPI from the tools directory is missing RISC-V support, therefore
-> > bitsperlong.h from asm-generic is used, defaulting to 32 bits.
-> > 
-> > Fix that by adding tools/arch/riscv/include/uapi/asm/bitsperlong.h as
-> > a copy of arch/riscv/include/uapi/asm/bitsperlong.h and by updating
-> > tools/include/uapi/asm/bitsperlong.h.
-> > 
-> > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
-> > ---
-> >  .../arch/riscv/include/uapi/asm/bitsperlong.h | 25 +++++++++++++++++++
-> >  tools/include/uapi/asm/bitsperlong.h          |  2 ++
-> >  2 files changed, 27 insertions(+)
-> >  create mode 100644 tools/arch/riscv/include/uapi/asm/bitsperlong.h
-> > 
-> > diff --git a/tools/arch/riscv/include/uapi/asm/bitsperlong.h b/tools/arch/riscv/include/uapi/asm/bitsperlong.h
-> > new file mode 100644
-> > index 000000000000..0b3cb52fd29d
-> > --- /dev/null
-> > +++ b/tools/arch/riscv/include/uapi/asm/bitsperlong.h
-> > @@ -0,0 +1,25 @@
-> > +/*
-> > + * Copyright (C) 2012 ARM Ltd.
-> > + * Copyright (C) 2015 Regents of the University of California
-> > + *
-> > + * This program is free software; you can redistribute it and/or modify
-> > + * it under the terms of the GNU General Public License version 2 as
-> > + * published by the Free Software Foundation.
-> > + *
-> > + * This program is distributed in the hope that it will be useful,
-> > + * but WITHOUT ANY WARRANTY; without even the implied warranty of
-> > + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-> > + * GNU General Public License for more details.
-> > + *
-> > + * You should have received a copy of the GNU General Public License
-> > + * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-> > + */
-> > +
-> > +#ifndef _UAPI_ASM_RISCV_BITSPERLONG_H
-> > +#define _UAPI_ASM_RISCV_BITSPERLONG_H
-> > +
-> > +#define __BITS_PER_LONG (__SIZEOF_POINTER__ * 8)
-> > +
-> > +#include <asm-generic/bitsperlong.h>
-> > +
-> > +#endif /* _UAPI_ASM_RISCV_BITSPERLONG_H */
-> > diff --git a/tools/include/uapi/asm/bitsperlong.h b/tools/include/uapi/asm/bitsperlong.h
-> > index 8dd6aefdafa4..fd92ce8388fc 100644
-> > --- a/tools/include/uapi/asm/bitsperlong.h
-> > +++ b/tools/include/uapi/asm/bitsperlong.h
-> > @@ -13,6 +13,8 @@
-> >  #include "../../arch/mips/include/uapi/asm/bitsperlong.h"
-> >  #elif defined(__ia64__)
-> >  #include "../../arch/ia64/include/uapi/asm/bitsperlong.h"
-> > +#elif defined(__riscv)
-> > +#include "../../arch/riscv/include/uapi/asm/bitsperlong.h"
-> >  #else
-> >  #include <asm-generic/bitsperlong.h>
-> >  #endif
-> 
-> Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
+The existing upstream kernel doesn't boot for non-smp
+configuration. This patch series address various issues
+with non-smp configurations.
 
-Thanks for the review.
+Tested on QEMU and HiFive Unleashed board.
 
-> Do you want me to put this in my tree?
-> 
+Atish Patra (3):
+RISC-V: Do not wait indefinitely in __cpu_up
+RISC-V: Move cpuid to hartid mapping to SMP.
+RISC-V: Fix non-smp kernel boot on SMP systems
 
-It's not clear for me how this should get merged and get_maintainer.pl
-is not that useful here. If it is possible to merge it through your
-tree, I would indeed appreciate if you can put it there.
+arch/riscv/include/asm/smp.h      | 13 +++++++++++--
+arch/riscv/kernel/cpu.c           |  4 ----
+arch/riscv/kernel/setup.c         |  2 ++
+arch/riscv/kernel/smp.c           |  1 -
+arch/riscv/kernel/smpboot.c       | 19 ++++++++++++++++---
+drivers/clocksource/riscv_timer.c | 21 ++++++++++++++++++---
+drivers/irqchip/irq-sifive-plic.c |  5 +++++
+7 files changed, 52 insertions(+), 13 deletions(-)
 
-Thanks,
-Aurelien
+--
+2.7.4
 
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                 http://www.aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
