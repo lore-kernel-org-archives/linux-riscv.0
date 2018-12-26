@@ -2,89 +2,85 @@ Return-Path: <SRS0=5aT3=PD=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-1.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 30913C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Dec 2018 03:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 722CBC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Dec 2018 16:53:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C477421720
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Dec 2018 03:24:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4206A218FC
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Dec 2018 16:53:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GsfW64tU";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="ml/4/wkm"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C477421720
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KUpMYM6k";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="F1VZ9JvA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4206A218FC
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hmKN28+qy936WdrkO5HiaZmz6/rw+Qm0FgIM1glrGJ8=; b=GsfW64tUo5o83i
-	MlfEP48AekRRbxJmJFHc4NFd0DyT1vxnf7o9P5lQgPmXgGJIbuuwrxqJIKZvDlf6mucujy1xg1Jwr
-	xc93gi7Ym61F18ka7Q0zA+eW7FuCvjheXVdQ512YGdD0E+MoHoi+XJrLfWwpapFRL3r+7q7GguIRG
-	b4uVMJYEpO0sSNw4GDsncWObKAhW+tR8CqtemY3z6JlZm+rCB7QRwEV7X/dhTzH5q2ubPRk5ffMTi
-	TiJZ1Dj7ml/Ch+2cTJIifAo+HcM8qCoZNuOI2Fj4focW6f1JTRb5UUn0IEwLMs/Tnp2sq3pZ8kxL3
-	4kbiLmhft3QeZeHyCfog==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=+3oRn5CRL9KTU6+3n6sWV3pBc+/vbYdb5lmnUMHIS14=; b=KUpMYM6kDF9Iyu9buA2Qju0Ss
+	JQULo86YlPz2U/HZ0l2v44INEO4ORa7OCBrZgxHgmNYf7SmJpkJ6CcwJzrNFX5zt8sud+fdGVjvew
+	x/qrkgi9GYyj6nrGHQbNCxj/BNptaXgo3IkFtK3gC5m48Q0AEYlneagKKgMN12xVmXRtEKO1B5mRT
+	h1da9vl2WkCJX456luuyQODBUyg2iMAAk5bkrAEbGP+21KBhjpcVZxwnpj+zpGVrueqCi1bSQ4sm+
+	/UqDxcn/QEEYCqLnJAMWAoO7ATwlYuJ4rNrVI0RR254jHHyj+G29+iwJQrGoRCHDSfbQCjFv0grMD
+	oek+jtvwA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gbznm-0005E5-7O; Wed, 26 Dec 2018 03:24:10 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1gcCQa-0006Xa-7K; Wed, 26 Dec 2018 16:53:04 +0000
+Received: from mail-qt1-x842.google.com ([2607:f8b0:4864:20::842])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gbzng-0005DC-Py
- for linux-riscv@lists.infradead.org; Wed, 26 Dec 2018 03:24:09 +0000
-Received: by mail-pf1-x441.google.com with SMTP id g62so7316472pfd.12
- for <linux-riscv@lists.infradead.org>; Tue, 25 Dec 2018 19:23:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to:user-agent;
- bh=CzEIipjQK5CCC1RGPMLJ827FOpjnAxL8iCnBk/F1Qa4=;
- b=ml/4/wkmFpWaiHGOb/luForv0NkPnxd1On7ocHD0/gB5X+PPAHTZy3V3eV69Yy3N6V
- cB3DLPASlye6VNF/lVwUwTiGgoQwhAw7dOPDUaZJ4jT7nCoVF8zkLt/StSbegvrn5yB8
- voz8m3196XzeCOzU6rgUWIUkGt+qrUmDUKWb7PyIrb0AnERQm3+jsz7jfOTkhN7jLo6/
- Nc8ao47uMcnwAckO5LlNHtG24SSIOAe+FxYBcMSlBlGPa2uxt2axOnzKYN/fRDaakNHv
- vPf2MzRsJZR68AdvHDziBipVOsKYN63cyMwZc/1KG7eMkPC8rY4qPPTxo4f2G3quPHYZ
- lXzw==
+ id 1gcCQX-0006WF-9S
+ for linux-riscv@lists.infradead.org; Wed, 26 Dec 2018 16:53:02 +0000
+Received: by mail-qt1-x842.google.com with SMTP id l12so17734687qtf.8
+ for <linux-riscv@lists.infradead.org>; Wed, 26 Dec 2018 08:52:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=KwMLCwUPmTyjB5Pj1lp5mz4Va0BflBJ0qIj28Vl0AYs=;
+ b=F1VZ9JvABZHl0spaxH2eIKcRy2rGKk48H4bG+bpEEY8FbuHPaFkODM9Q4dOoi/eYi9
+ 6dPfETCJ7pNBpZSMCofZIGKP8I8Mahx3jf/HDWUp2m0UlpBp6+PCWrQQyngSPiA/P8GO
+ 1gYeVvFFg6TFfNEdrBC2NMm3wdT2BGVCBHvNVtt7Fp6HX4iReVMyrAyqC5wVvJorq180
+ foE6YeRZA51+vND9CEy8xgtW8pwVkRHwmiBokeGDUKJvnMcF1Nhf5ZXMpKWnJ6IaEyPW
+ cCRXiQeCGxJ0Y0CN0i5s9hP15DX0dYl/ntquyGGUN1xxG4OznOk+YToKSWoBNNtTzCzR
+ lX8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :references:mime-version:content-disposition:in-reply-to:user-agent;
- bh=CzEIipjQK5CCC1RGPMLJ827FOpjnAxL8iCnBk/F1Qa4=;
- b=jQAYZJ0jRhNCvrfxmPZ3odIHPrdbMIBgG7P+L2CVoXiLi3wg3QPhhl2VgEkDGyqLQa
- ntIVpJ/w/kdUXJYC2t3Mnh0n/tPVGaJm1M822jCvRACiKUpFt923jT/eY4cZG6cHiuQZ
- QoPMDU7PmMSzDdiMqVVKpyVX9bRjG5gZOSK2YaJM0AcEd4Kh7Bmm4nLity+FPEfbyLDp
- oEbvFzu5cWz05vaBwRvfbSNH+5osUWux85w/PGJq0vhY5IOxLAo9guYSrnmzumGVmb7k
- 4/gQ3B5TtMORRQXtDRaWa6WgJZfkC0gbKMXpq8zZya56QCxZuqZxxtdmDAF76mH+V5eb
- NyyQ==
-X-Gm-Message-State: AJcUukeJmTr6HGMib9x/FHEjjwEc1KY7pbiCexatgBd2tD1xrNlE83s/
- Kh4eF2NDbLBcBmCRv24ROLk=
-X-Google-Smtp-Source: ALg8bN6HaraiLZ2DwMnqL4UHxHHlOgnUQ9nlVy6bwTGvAfcvLXHK9l5Bi4I7Wu0F6pzVvuEVzazW4A==
-X-Received: by 2002:a63:9501:: with SMTP id p1mr17571453pgd.149.1545794633341; 
- Tue, 25 Dec 2018 19:23:53 -0800 (PST)
-Received: from localhost ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
- by smtp.gmail.com with ESMTPSA id d69sm45648285pfg.168.2018.12.25.19.23.51
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=KwMLCwUPmTyjB5Pj1lp5mz4Va0BflBJ0qIj28Vl0AYs=;
+ b=LN6lD8Hi9fgShWs2eZVIzvkP12yBRSwyro/0pHVs+rS2RlHBK5fOLhKLydGjEAlG8d
+ c/L4Q5MP4NsNSDTY2kbUcUIccAN6Y8y0bgCvzSjMWtNviH6fKw7wLZoR5k9LYi6u0S4j
+ QBWUXG//wmIm0iC5tdCKwfJaimkkX1TG7ofkoUv84melNKokSfENIZQKLQ4ipkvnbLRH
+ WHWnw2qRnr1TRsWQHwLDa2Rxp8kIlW4mpZNL/Wl/8UfVWoxS7xu49NARC0hIVOvB3sPN
+ Zn+2SelNhY+re63c+kkZboiRGfuKbEohPizi9gxR7LHgLsFfx2900u0ggZ6lt7n/u2kY
+ 1TWw==
+X-Gm-Message-State: AJcUukeGzei6ZZdCYcOBApprYOiYG9C396seStkaV3aiHUgVD0aemBsX
+ BcUq8fCjL40sZOteVFo5FPZ+GQ==
+X-Google-Smtp-Source: ALg8bN67X9W5Wk0k3HufO7fWRbaVLwDavt0wOU/+w4ECRENWrtR3oRBfqYTX/5CnUad1duSCmNXPGA==
+X-Received: by 2002:a0c:b0db:: with SMTP id p27mr19603568qvc.73.1545843169671; 
+ Wed, 26 Dec 2018 08:52:49 -0800 (PST)
+Received: from localhost ([2601:182:c980:96c:8dd:4488:90b1:59d1])
+ by smtp.gmail.com with ESMTPSA id v22sm13500839qkl.27.2018.12.26.08.52.47
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 25 Dec 2018 19:23:51 -0800 (PST)
-Date: Tue, 25 Dec 2018 19:23:50 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Palmer Dabbelt <palmer@sifive.com>
-Subject: Re: [PATCH] RISC-V: Add CONFIG_PREEMPT=y to defconfig
-Message-ID: <20181226032350.GA27044@roeck-us.net>
-References: <20181220014511.GA24845@roeck-us.net>
- <20181220052521.GA21363@roeck-us.net>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20181220052521.GA21363@roeck-us.net>
-User-Agent: Mutt/1.5.24 (2015-08-30)
+ Wed, 26 Dec 2018 08:52:48 -0800 (PST)
+Date: Wed, 26 Dec 2018 08:52:48 -0800 (PST)
+X-Google-Original-Date: Wed, 26 Dec 2018 08:31:47 PST (-0800)
+Subject: Re: [PATCH] RISC-V: defconfig: Enable Generic PCIE by default
+In-Reply-To: <alpine.DEB.2.21.9999.1812211124180.777@viisi.sifive.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Message-ID: <mhng-ceba7c1a-7334-4869-a7d4-2326b59f82b5@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181225_192404_869485_B636B2E2 
-X-CRM114-Status: GOOD (  19.40  )
+X-CRM114-CacheID: sfid-20181226_085301_329130_CDAFFD58 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,81 +92,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-riscv@lists.infradead.org,
+ Alistair Francis <Alistair.Francis@wdc.com>, linux-kernel@vger.kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 19, 2018 at 09:25:21PM -0800, Guenter Roeck wrote:
-> On Wed, Dec 19, 2018 at 05:45:11PM -0800, Guenter Roeck wrote:
-> > On Wed, Nov 21, 2018 at 10:58:05AM -0800, Palmer Dabbelt wrote:
-> > > I don't remember who suggested this, but I was talking to someone at
-> > > Plumbers about all the horrible bugs we've had lurking around in our
-> > > port despite it still getting to userspace and they suggested that I
-> > > enable CONFIG_PREEMPT in our defconfig as it'll help shake out more
-> > > issues.
-> > > 
-> > > This patch enables CONFIG_PREEMPT in the single RISC-V defconfig.  It
-> > > still passes my tests (ie, booting Fedora on QEMU).  Maybe I'm too
-> > > paranoid, but I still don't trust our port enough to just pull the
-> > > trigger on this without at least accumulating some "Tested-by"s on it.
-> > > 
-> > > Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-> > 
-> > I can only give you a
-> > 
-> > Fails-miserably-for: Guenter Roeck <linux@roeck-us.net>
-> > 
-> > Not the new defconfig itself, but the new defconfig plus a variety of
-> > selftest options. I don't know what exactly is failing, but here is
-> > my list of enabled selftests on top of defconfig:
-> > 
-> > CONFIG_CRYPTO_MANAGER_DISABLE_TESTS=y
-> > CONFIG_CRC32_SELFTEST=y
-> > CONFIG_DEBUG_LOCKING_API_SELFTESTS=y
-> > CONFIG_DEBUG_NMI_SELFTEST=y
-> > CONFIG_DEBUG_RODATA_TEST=y
-> > CONFIG_DEBUG_TLBFLUSH=y
-> > CONFIG_DMATEST=y
-> > CONFIG_GLOB_SELFTEST=y
-> > CONFIG_OF_UNITTEST=y
-> > CONFIG_PCI_EPF_TEST=y
-> > CONFIG_PCI_ENDPOINT_TEST=y
-> > CONFIG_PROVE_LOCKING=y
-> > CONFIG_PROVE_RCU=y
-> > CONFIG_RCU_EQS_DEBUG=y
-> > CONFIG_STATIC_KEYS_SELFTEST=y
-> > CONFIG_STRING_SELFTEST=y
-> > CONFIG_TEST_BITMAP=y
-> > CONFIG_TEST_FIRMWARE=y
-> > CONFIG_TEST_SORT=y
-> > CONFIG_TEST_SYSCTL=y
-> > CONFIG_TEST_UUID=y
-> > CONFIG_USB_TEST=y
-> > CONFIG_USB_EHSET_TEST_FIXTURE=y
-> > CONFIG_USB_LINK_LAYER_TEST=y
-> > CONFIG_WW_MUTEX_SELFTEST=y
-> > CONFIG_TORTURE_TEST=y
-> > CONFIG_LOCK_TORTURE_TEST=y
-> > CONFIG_RCU_TORTURE_TEST=y
-> > CONFIG_RBTREE_TEST=y
-> > CONFIG_INTERVAL_TREE_TEST=y
-> > 
-> 
-> Update: defconfig+CONFIG_LOCK_TORTURE_TEST=y causes the hang
-> if CONFIG_PREEMPT=y.
-> 
+On Fri, 21 Dec 2018 11:27:39 PST (-0800), Paul Walmsley wrote:
+>
+> On Fri, 21 Dec 2018, Alistair Francis wrote:
+>
+>> When the MicroSemi driver does eventually go upstream this will
+>> probably have to be discussed though as either the config or device
+>> tree will need to be edited to ensure only one PCIe device is present.
+>
+> The right way to do that is to have two separate DT files: one for the
+> HiFive-U board alone; the other for the HiFive-U plus the expansion board
+> combo.  There shouldn't be any problems with keeping both drivers enabled
+> in the defconfig.
 
-Another update. CONFIG_RCU_TORTURE_TEST=y or CONFIG_WW_MUTEX_SELFTEST=y
-also result in hangs, only a bit later. I have now disabled all three test
-options in my riscv boot tests if CONFIG_PREEMPT=y. The lack of error
-reports in the future does _not_ mean that the problem has magically
-disappeared. I just find it pointless to keep testing a known broken
-configuration, even more so since doing so would hide other potential
-problems.
+We actually need at least three:
 
-Guenter
+* One for the HiFive Unleashed
+* One for the HiFive Unleashed, when attached to the Micro Semi expansion 
+  board.
+* One for the HiFive Unleashed, when attached to a VC707.
+
+We may end up needing additional device trees for the newer Xilinx boards, 
+depending on if it's possible to probe for that 32-bit DMA limit on the VC707 
+or not.  Then, of course, we'll need an image-specific device tree whenever we 
+put an accelerator on the FPGA.
+
+Ideally we'd have a discoverable bus, but that's going to be a bit of a way 
+out.  For now we'll have to get by with different device trees, but that should 
+get significantly easier when we get a proper bootloader working.
 
 _______________________________________________
 linux-riscv mailing list
