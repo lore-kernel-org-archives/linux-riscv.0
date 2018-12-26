@@ -2,21 +2,22 @@ Return-Path: <SRS0=5aT3=PD=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1C5C0C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Dec 2018 17:19:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C1A4DC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Dec 2018 17:19:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C8F562171F
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Dec 2018 17:19:30 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 907EF2171F
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Dec 2018 17:19:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZDyv7zr2";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="MvSZHNt1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C8F562171F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="I9h4CSqq";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="VSxpWG9Y"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 907EF2171F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,63 +26,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=752O8oqIVJqZBRDBcKlK8JKN0og8OSVcUmBbuV+/T0o=; b=ZDyv7zr2eOEfHr7vVx27j0YSp
-	gpkLKdpgudYcjW1LSTq3z4SBqIGU7OfzlQxqlQ4+teCk4frEU8Ks5tAHof555dYtwMvXtYE2i95Ua
-	ATiMhNMs8ZLrrMpEUEDAv2OMxF6zNHmASVlez832XuOP8Z3iwlsJzqjYiZMPYhf8PDwcD/Hzo92Xl
-	HPC4O2RMDWK0JnJxFrRI7gI8CzU8uCjjY8KA4EJTsdVNAxJYm4uZUwMItOTD540zofjY6ay8eNuab
-	KYK6491p2sz50adm3zvl39xovqpM1I3igDfKvs1LdK/XImwKvS79VwoFMomz8yNZAxfHcSjyAaACO
-	/MBLuXtqQ==;
+	 bh=lbUbp8Eabv7sGpWzd92ayclL+DhwNZGZybul+at4J8M=; b=I9h4CSqqPEXXYbap8IFpTHONz
+	W4O7Ed6a48cN3niOw/0OIs7O5UrjTKL/Rbk5gLyPdN7IMrkb8OtFSEgPWRhrjfOegnYKfgzhp50nq
+	7YOo69gom7AW6TValqvmnkJYwPC7umJ7xI5w63R1zH7qXgEwoVgYabdPkA6bXIQjlM3M4y0MMFfZh
+	iqWaznu3O2q0fvAt+w0dKd2LRTJS7nHE9IgyAp35imEjBN32Glv04ZAJv1NHrJJLp+eakalh3/CZf
+	FfQM+F4TM3Cy6+mtx5czD2MdRHtkYvxhMNwfW9r8w/7xVSKDuPdhtUUPtgT6eSq+a3bwXf2QAzI1w
+	8lttiSIGQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gcCq9-0006WZ-Pi; Wed, 26 Dec 2018 17:19:29 +0000
-Received: from mail-qk1-x742.google.com ([2607:f8b0:4864:20::742])
+	id 1gcCqC-0006Xw-Eb; Wed, 26 Dec 2018 17:19:32 +0000
+Received: from mail-qk1-x744.google.com ([2607:f8b0:4864:20::744])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gcCq4-0006V4-3o
+ id 1gcCq3-0006Uy-1c
  for linux-riscv@lists.infradead.org; Wed, 26 Dec 2018 17:19:28 +0000
-Received: by mail-qk1-x742.google.com with SMTP id o125so9631401qkf.3
- for <linux-riscv@lists.infradead.org>; Wed, 26 Dec 2018 09:19:13 -0800 (PST)
+Received: by mail-qk1-x744.google.com with SMTP id y16so9619957qki.7
+ for <linux-riscv@lists.infradead.org>; Wed, 26 Dec 2018 09:19:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=hXPBEhKo6+vqETqkn0MUxjjpIvQosX8dWNSTe/yT4ao=;
- b=MvSZHNt1Pf7ZiBknpuG8T3xCIrV5SlKmcz5xOzeejWBgPDYQW4f9c5r3ImD4Q7JZMo
- Ml/yFJrqvGBQMG3bYBSooiWdvCH2u7BRpj1g0zucfWWo18DRSv1zMb+PFweH7sKBjHsc
- TAm7S+WbYop/eK/lrnG8z1Tt88+yGaS76ks/nIc0Ygqp4l4fbyY8jHo3DNbu4BCRqX7R
- 6SSoQ/cnGu3gzENMRxOJGqcKnFtUMpjt/MVOKl/dRf0ajPoLiHpCPmgxDhxcISMrKxvr
- KozDvU4cge/n1B7qJ0CumG0LwgDzRkfWuANgY6Yt8E8dbsLYJcQiqEaFmP6+Z4DdTcQ5
- Pt6w==
+ bh=j1UgHHk+DZRpI/p+f+3SMlTjJvqWup5u+FaeCDkLFHE=;
+ b=VSxpWG9YnDu6T7igdoBS0wDIErfbCuI2sJC37cXNlFc4obTa0p8+czGaBbtbEfYdAz
+ 8207BjhvgcSUvOmEBKHdao5jPIPr6CKye/y4vUu38ME8ukXHBi8OAU8oD40PXF0Dh2TM
+ Tx0UOO7YPbtECM1Nlt56of6scwhkBXfM72G9A5xxq3TYDZZXnR/G1fjYyqA77YXvxihn
+ z20LRoyrAy/MmSeAqQi+ELeN1XFmRh4dk1fxkk80epyDDgbdsJWMETTHi8Be/7N2LovM
+ gjhqSoGL+FNDTJLZM80m9E+/m7x1Y68TGzm9ON9eVfX1yzttlPV5VF2vSvQ/foiLj6eR
+ NhVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=hXPBEhKo6+vqETqkn0MUxjjpIvQosX8dWNSTe/yT4ao=;
- b=lHqQjnK3nLCpfZ6Lh3uzbiZBKyyZafyOXuBl4v0hkg9NYK/QzkKB6IYI1uzSXOs25f
- dmqWG8z+kIr27ch12RuX3KumnYJ8xsXtsPl8CM0ytdMf99hOBV9qJA+0cb+oZdGFspTG
- as9trwXZ1C3N4YO99rura7MxAganh7w/vy4JnuN9aUMiLqIIWRyuwqcPfV8FNiykZunN
- bKcMGJZA3j/P0KMoc7aHuuVjwRPaR4goFIML+/894e28rt6KkrDYp5mZYcg/7GW0LOog
- UvXflyc3l7fvRXA7mSpW1fGg4bLePkzzA754PTOfFAjBDjiXJBXD83doWphaq7JnZTdd
- jG3w==
-X-Gm-Message-State: AJcUukfv2DkeKYYqFvlBkZ+S+4Bq5gs2tOXCDM9uEBFgatu6wAhCEfo8
- KExCTbLdYps75IL//3SxF3dekg==
-X-Google-Smtp-Source: ALg8bN5d5NMEmVHXrxCc4TmyKfL0p/mdDd6CQFR2jOpQqZVi5y1OZW6HZnbN0u5ZgncQg1ACpMig/w==
-X-Received: by 2002:a37:6584:: with SMTP id
- z126mr17798053qkb.295.1545844752899; 
- Wed, 26 Dec 2018 09:19:12 -0800 (PST)
+ bh=j1UgHHk+DZRpI/p+f+3SMlTjJvqWup5u+FaeCDkLFHE=;
+ b=fc/ikli8bz2DgtaLF+psM2Z1lI4NjGE/8QB88vus70dn/oqJsf6fw9e4lls6ks1zbS
+ VjX7Fr0x3OFaC55UBgsPFt5WhlrzgCpXta8LzfcyxBwfa90z4VrMMZNZdeQoHtR/cJoT
+ kYTnRK5Hgvdcqczp9AUqn73LzMH9cHWF6ej6Wk9Ikh0r3Evi+asJ8C7RtiLQ+5p2pXS0
+ RPZL8aRwR//OnfHzMmbEVL1hk436pcJljHTg65b+T/Yq0qWWAFnbq2+vcIJOXgsy72i7
+ zezJ1yIwYMQ1YZgiDaeDryeoVNuOfYgAe+LT8Iy622gVsKnVGD2FwT9+cxLFO7gDdpLN
+ TJUg==
+X-Gm-Message-State: AJcUukcoj7fOpbm5QaOu8n0emEV6oKBJSoy9/mrrcrLPZeMfQPNtO8mU
+ keib9ZzX0A1T+kdLu7UFXgGVzAyMRM0=
+X-Google-Smtp-Source: ALg8bN6Q7bA4lVV4OSKv+db0cEogUy/jRCfNp2DNKgtYe38Cj9qBHA5X+0BOt0p+5smb877AD7+pUg==
+X-Received: by 2002:a37:6b42:: with SMTP id g63mr18174506qkc.297.1545844751181; 
+ Wed, 26 Dec 2018 09:19:11 -0800 (PST)
 Received: from localhost ([2601:182:c980:96c:8dd:4488:90b1:59d1])
- by smtp.gmail.com with ESMTPSA id v32sm16351619qta.37.2018.12.26.09.19.11
+ by smtp.gmail.com with ESMTPSA id p48sm15501724qtp.62.2018.12.26.09.19.09
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 26 Dec 2018 09:19:12 -0800 (PST)
-Date: Wed, 26 Dec 2018 09:19:12 -0800 (PST)
-X-Google-Original-Date: Wed, 26 Dec 2018 09:14:01 PST (-0800)
-Subject: Re: [PATCH] RISC-V: Add CONFIG_PREEMPT=y to defconfig
-In-Reply-To: <20181226032350.GA27044@roeck-us.net>
+ Wed, 26 Dec 2018 09:19:10 -0800 (PST)
+Date: Wed, 26 Dec 2018 09:19:10 -0800 (PST)
+X-Google-Original-Date: Wed, 26 Dec 2018 09:12:21 PST (-0800)
+Subject: Re: [PATCH] tools uapi: fix RISC-V 64-bit support
+In-Reply-To: <20181225144624.22402-1-aurelien@aurel32.net>
 From: Palmer Dabbelt <palmer@sifive.com>
-To: linux@roeck-us.net
-Message-ID: <mhng-856d9dbc-a4f1-47c3-a71c-d1f7ae82184b@palmer-si-x1c4>
+To: aurelien@aurel32.net
+Message-ID: <mhng-73e120d5-76aa-41e2-9fbb-d2ee3d8c304f@palmer-si-x1c4>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181226_091926_760414_D44075F9 
-X-CRM114-Status: GOOD (  22.10  )
+X-CRM114-CacheID: sfid-20181226_091923_090932_DC66A460 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,83 +93,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu
+Cc: linux-riscv@lists.infradead.org, aurelien@aurel32.net
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Dec 2018 19:23:50 PST (-0800), linux@roeck-us.net wrote:
-> On Wed, Dec 19, 2018 at 09:25:21PM -0800, Guenter Roeck wrote:
->> On Wed, Dec 19, 2018 at 05:45:11PM -0800, Guenter Roeck wrote:
->> > On Wed, Nov 21, 2018 at 10:58:05AM -0800, Palmer Dabbelt wrote:
->> > > I don't remember who suggested this, but I was talking to someone at
->> > > Plumbers about all the horrible bugs we've had lurking around in our
->> > > port despite it still getting to userspace and they suggested that I
->> > > enable CONFIG_PREEMPT in our defconfig as it'll help shake out more
->> > > issues.
->> > >
->> > > This patch enables CONFIG_PREEMPT in the single RISC-V defconfig.  It
->> > > still passes my tests (ie, booting Fedora on QEMU).  Maybe I'm too
->> > > paranoid, but I still don't trust our port enough to just pull the
->> > > trigger on this without at least accumulating some "Tested-by"s on it.
->> > >
->> > > Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
->> >
->> > I can only give you a
->> >
->> > Fails-miserably-for: Guenter Roeck <linux@roeck-us.net>
->> >
->> > Not the new defconfig itself, but the new defconfig plus a variety of
->> > selftest options. I don't know what exactly is failing, but here is
->> > my list of enabled selftests on top of defconfig:
->> >
->> > CONFIG_CRYPTO_MANAGER_DISABLE_TESTS=y
->> > CONFIG_CRC32_SELFTEST=y
->> > CONFIG_DEBUG_LOCKING_API_SELFTESTS=y
->> > CONFIG_DEBUG_NMI_SELFTEST=y
->> > CONFIG_DEBUG_RODATA_TEST=y
->> > CONFIG_DEBUG_TLBFLUSH=y
->> > CONFIG_DMATEST=y
->> > CONFIG_GLOB_SELFTEST=y
->> > CONFIG_OF_UNITTEST=y
->> > CONFIG_PCI_EPF_TEST=y
->> > CONFIG_PCI_ENDPOINT_TEST=y
->> > CONFIG_PROVE_LOCKING=y
->> > CONFIG_PROVE_RCU=y
->> > CONFIG_RCU_EQS_DEBUG=y
->> > CONFIG_STATIC_KEYS_SELFTEST=y
->> > CONFIG_STRING_SELFTEST=y
->> > CONFIG_TEST_BITMAP=y
->> > CONFIG_TEST_FIRMWARE=y
->> > CONFIG_TEST_SORT=y
->> > CONFIG_TEST_SYSCTL=y
->> > CONFIG_TEST_UUID=y
->> > CONFIG_USB_TEST=y
->> > CONFIG_USB_EHSET_TEST_FIXTURE=y
->> > CONFIG_USB_LINK_LAYER_TEST=y
->> > CONFIG_WW_MUTEX_SELFTEST=y
->> > CONFIG_TORTURE_TEST=y
->> > CONFIG_LOCK_TORTURE_TEST=y
->> > CONFIG_RCU_TORTURE_TEST=y
->> > CONFIG_RBTREE_TEST=y
->> > CONFIG_INTERVAL_TREE_TEST=y
->> >
->>
->> Update: defconfig+CONFIG_LOCK_TORTURE_TEST=y causes the hang
->> if CONFIG_PREEMPT=y.
->>
+On Tue, 25 Dec 2018 06:46:24 PST (-0800), aurelien@aurel32.net wrote:
+> The BPF library is not built on 64-bit RISC-V, as the BPF feature is
+> not detected. Looking more in details, feature/test-bpf.c fails to build
+> with the following error:
 >
-> Another update. CONFIG_RCU_TORTURE_TEST=y or CONFIG_WW_MUTEX_SELFTEST=y
-> also result in hangs, only a bit later. I have now disabled all three test
-> options in my riscv boot tests if CONFIG_PREEMPT=y. The lack of error
-> reports in the future does _not_ mean that the problem has magically
-> disappeared. I just find it pointless to keep testing a known broken
-> configuration, even more so since doing so would hide other potential
-> problems.
+> | In file included from /tmp/linux-4.19.12/tools/include/uapi/asm/bitsperlong.h:17,
+> |                  from /tmp/linux-4.19.12/tools/include/uapi/asm-generic/unistd.h:2,
+> |                  from /usr/include/riscv64-linux-gnu/asm/unistd.h:1,
+> |                  from test-bpf.c:2:
+> | /tmp/linux-4.19.12/tools/include/asm-generic/bitsperlong.h:14:2: error: #error Inconsistent word size. Check asm/bitsperlong.h
+> |  #error Inconsistent word size. Check asm/bitsperlong.h
+> |   ^~~~~
+>
+> The UAPI from the tools directory is missing RISC-V support, therefore
+> bitsperlong.h from asm-generic is used, defaulting to 32 bits.
+>
+> Fix that by adding tools/arch/riscv/include/uapi/asm/bitsperlong.h as
+> a copy of arch/riscv/include/uapi/asm/bitsperlong.h and by updating
+> tools/include/uapi/asm/bitsperlong.h.
+>
+> Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+> ---
+>  .../arch/riscv/include/uapi/asm/bitsperlong.h | 25 +++++++++++++++++++
+>  tools/include/uapi/asm/bitsperlong.h          |  2 ++
+>  2 files changed, 27 insertions(+)
+>  create mode 100644 tools/arch/riscv/include/uapi/asm/bitsperlong.h
+>
+> diff --git a/tools/arch/riscv/include/uapi/asm/bitsperlong.h b/tools/arch/riscv/include/uapi/asm/bitsperlong.h
+> new file mode 100644
+> index 000000000000..0b3cb52fd29d
+> --- /dev/null
+> +++ b/tools/arch/riscv/include/uapi/asm/bitsperlong.h
+> @@ -0,0 +1,25 @@
+> +/*
+> + * Copyright (C) 2012 ARM Ltd.
+> + * Copyright (C) 2015 Regents of the University of California
+> + *
+> + * This program is free software; you can redistribute it and/or modify
+> + * it under the terms of the GNU General Public License version 2 as
+> + * published by the Free Software Foundation.
+> + *
+> + * This program is distributed in the hope that it will be useful,
+> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
+> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+> + * GNU General Public License for more details.
+> + *
+> + * You should have received a copy of the GNU General Public License
+> + * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+> + */
+> +
+> +#ifndef _UAPI_ASM_RISCV_BITSPERLONG_H
+> +#define _UAPI_ASM_RISCV_BITSPERLONG_H
+> +
+> +#define __BITS_PER_LONG (__SIZEOF_POINTER__ * 8)
+> +
+> +#include <asm-generic/bitsperlong.h>
+> +
+> +#endif /* _UAPI_ASM_RISCV_BITSPERLONG_H */
+> diff --git a/tools/include/uapi/asm/bitsperlong.h b/tools/include/uapi/asm/bitsperlong.h
+> index 8dd6aefdafa4..fd92ce8388fc 100644
+> --- a/tools/include/uapi/asm/bitsperlong.h
+> +++ b/tools/include/uapi/asm/bitsperlong.h
+> @@ -13,6 +13,8 @@
+>  #include "../../arch/mips/include/uapi/asm/bitsperlong.h"
+>  #elif defined(__ia64__)
+>  #include "../../arch/ia64/include/uapi/asm/bitsperlong.h"
+> +#elif defined(__riscv)
+> +#include "../../arch/riscv/include/uapi/asm/bitsperlong.h"
+>  #else
+>  #include <asm-generic/bitsperlong.h>
+>  #endif
 
-Thanks.  I agree it's pointless to test more, as there appear to be lots of 
-bugs to fix already and this will just mask other bugs.
+Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
+
+Do you want me to put this in my tree?
 
 _______________________________________________
 linux-riscv mailing list
