@@ -4,20 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-7.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9922CC43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Dec 2018 03:38:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B767EC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Dec 2018 03:58:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6127821741
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Dec 2018 03:38:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 572962148E
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Dec 2018 03:58:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RlDbZYdd";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Ly2y4lHY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6127821741
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VbD0J+Ti";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="a/kGpxmC"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 572962148E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,59 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uloRyIGFDL2aS3+O3rCHn5RxzDOFix1zNQ+Ekzyr1JM=; b=RlDbZYddjwSkxm
-	+FckzVcUuCqIMmxWMDWHxQfU1i/JBDt5Okp1XG499Ls9Xgs1L2+0JCmkooVJcuGFfxeyEwDjkAut1
-	RjY4tcMvs6igRVJFhw2fPqIOj5TsS8Af/IoOxPLfpsqh2AL4138JV4KeM0cyjgZEqI/JWvZG/F1pA
-	FK6P5SQkiDUjfkwGRJOlWZEIAp26Se/IWngYTmoUjkXw2nRpjvaWbZLFT7CBiMY+rLvtuwaZopnY9
-	6ZzXHnQr8WP0HI8riZjPeMiHc02YV6q+DweN4yA7Yz1ZzabTlHGrlYwlrK/NGAj9DcuFT9bJGp94W
-	yh04TTKWfNgIAdRtKmFw==;
+	List-Owner; bh=YI6hSfHd/Gu7CAQ+9CKFFTQ53u8LrxSpFN1tHOswnbo=; b=VbD0J+TieXQuyC
+	LZ6G4f1JkX2Da5qKEVIaByX1DJ0n/cBSk3fQWy8obAcC2bRqhgnfUimTF1cBvRI5nIL1Uvez2XdAY
+	sIfuhJf1LuHjil/2gah/CKPMJEzdY4Kq1AbSLF0ymKqITSMwW2LhNZkj2XAtEsZ4jzXB6qX5IigjQ
+	wbJw1Fu5FNcNZOjWDbMKwHmZOkVD4Ur6XwJ/IHiW5FOfbV9+w2BlK4xGkejCy9SdBmF/IkIPN5yF8
+	B94Up1TEpikhkIRSHPLsRoEYq7hw0FxcHCFSLtSgQIoisPQNvp9J63Ux4+hLIi7/M+XC8eBIGmGmB
+	hbe4jeSaqKo8pzHrUPDg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gcMV7-0005vf-9U; Thu, 27 Dec 2018 03:38:25 +0000
-Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
+	id 1gcMoZ-0003WC-DM; Thu, 27 Dec 2018 03:58:31 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gcMV1-0005uk-RG
- for linux-riscv@lists.infradead.org; Thu, 27 Dec 2018 03:38:23 +0000
-Received: by mail-wr1-x443.google.com with SMTP id r10so17083945wrs.10
- for <linux-riscv@lists.infradead.org>; Wed, 26 Dec 2018 19:38:09 -0800 (PST)
+ id 1gcMoU-0003Kp-HZ
+ for linux-riscv@lists.infradead.org; Thu, 27 Dec 2018 03:58:30 +0000
+Received: by mail-wm1-x342.google.com with SMTP id n190so15756269wmd.0
+ for <linux-riscv@lists.infradead.org>; Wed, 26 Dec 2018 19:58:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=aDUoqQRTnNv8ybCgbXaTIde6zC06OstmyEq9KrXom/k=;
- b=Ly2y4lHYRBeMWyOe9V9k8iaEAyxLZqNsfB4Jg52//kPQXPyUAlg1/tsen+EoUFFvml
- cfPQlKuvk7gcXDuS/qqZuHz0Gwe10JPDGzEirWL39CKHjwcpj4dREsqLLURd74KVgOsc
- FVO7XuH74eM41LdpIptn64A8eEqi1/X6O2Npf+Wl4H8hA3rrkXD2ghyKxl0tMJXtph3U
- lbNLdncFB0qzfwBdFXA3VLz9vmwoCtZReVtd6yOocVyJjCylk5C40M7rPK21/+Kvtw+M
- ioiMlZzqaORmLYIxGYaEwvLNorVsj9rdD0TD6XPbwxS0IQYvB0OrdKr7C6hmRZ2aSAXU
- 3cDg==
+ :cc; bh=hWe2wpBd2D39MiGxDvt7Xxqdm6Vxh4rMpytdLJQK45o=;
+ b=a/kGpxmCkjbt6lEu7r9USgPbiaqpYQvkfs8f1joj3Yg9ZkiHI7S2nOO02hzLrl3+u3
+ JvUFhpj6b+4NXnNB6C0zRDsBA+uEV1a9/gg7j56nPMJ8Q7WE5Hmc8wURgLaj3byd2yGq
+ YX1zFb4Q732/LBnT8CntKygKBTFmvj+dHtjit8Jmkqubcd+Ct5MnRTrId+jJNNxN8k6s
+ dPnOA24DNDjAcxiTq05HeVWTry2C0IDt2T2+0IYSiYAnmlt3vhf5Z91nEfumiRb/EPwB
+ su8cc2iipgr+y3FKcYE1sNI/NgepZ1n1z/+cLEva7D5j0UohqbG6f2/qigIdMQ0mGVwr
+ A/pw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=aDUoqQRTnNv8ybCgbXaTIde6zC06OstmyEq9KrXom/k=;
- b=qehJjhGyJRJn2Xor9By4JWDm5PayX4zc9XbyooV8PxYCTsgmcgpaGAGzE7KWpdddMr
- J2pgRuL/8jaDWaj5C98Zp5MPiwba18L+Ob9EkZB69mdh8OwhMnFDn84H3Owd4nd08+jb
- kXYG4GaDV5OvLir/njEYZfuWTdQ74LOnamYrjhSNu8tHhpSrKMEj2wX/jge2QIHQnLXF
- Gk4wlz863gCs98IR26uJ1WN3Jn4KF387aF0yjiSbdl9Btyp6JbxbGC57XX2qjDnfPexB
- /z2hyU9IsFY7y8Br+nBduFoFipdzqS8d1mLp/TAZ+ADCcds8lmqI/arJ+gn9dG65VQgI
- AfFg==
-X-Gm-Message-State: AJcUukd8mQLsr2UwQjsaxrhgPmq2VNtDiMSsb+MF/rOe5iiWQbWR2m4O
- 0Hrm0tKw7EkenTGh235nHXASc987Ub3k8kQGHjGYDg==
-X-Google-Smtp-Source: ALg8bN6HyLNDs99kQtkKUsIs7T8pufHsJZUnYZHs6TVXUJNS0F9oEWIV/jZwaxd5Zp9khGlulxpr5o+jQL5oE0K8z/4=
-X-Received: by 2002:adf:8506:: with SMTP id 6mr10635609wrh.128.1545881888326; 
- Wed, 26 Dec 2018 19:38:08 -0800 (PST)
+ bh=hWe2wpBd2D39MiGxDvt7Xxqdm6Vxh4rMpytdLJQK45o=;
+ b=iAwdaRTDY9LsBu87oYnFw4q/h47hlYjrH5G2q0gyUfAUj4UTpRRMtoLgXKXUhwHFcg
+ Vr525FDwqycbHHyxpmPe+o1glYmy4AGib4RhpxZLWLb1Wg4dhukOY8azpHMbeCUaFm+y
+ jr55rDtDmZN/NTJD3+kpUCPUUtMFFU05qwRxlOx3NueXAUHOKb+bR1fYlWEjyvDSu2nR
+ iFw14F0R3MxBpT2novAOYpCNBDWHYXvr2ldLcrXCnZKnRpea2lKubKxIf7CukTjWAtAG
+ HczUl8LlMLDWks59Tc0LXbPXFRKtC0HhRXV4sSsZ1sBSOj9ww0y1kzZZb6LEet8Zcup7
+ Tjng==
+X-Gm-Message-State: AA+aEWYOTbUbHUxS4AZZh6heXmOmXqVJeqIdEAMbpO/pLYxL1y1go9TK
+ EvufsGi7NKccDZMYca0HqbJcO0pkYhwkv1/jav4T8A==
+X-Google-Smtp-Source: AFSGD/WFGOHrimI2VfSwwJThGTm5gQ+kUyw/HUS4fkfIGctjZOxzrYlJ+xkbrWkm9CQ77AGVkK7YHhrckQb0Oyyc/Dg=
+X-Received: by 2002:a1c:a3c3:: with SMTP id m186mr19912199wme.16.1545883094136; 
+ Wed, 26 Dec 2018 19:58:14 -0800 (PST)
 MIME-Version: 1.0
 References: <1545865741-22795-1-git-send-email-atish.patra@wdc.com>
- <1545865741-22795-3-git-send-email-atish.patra@wdc.com>
-In-Reply-To: <1545865741-22795-3-git-send-email-atish.patra@wdc.com>
+ <1545865741-22795-4-git-send-email-atish.patra@wdc.com>
+In-Reply-To: <1545865741-22795-4-git-send-email-atish.patra@wdc.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Thu, 27 Dec 2018 09:07:57 +0530
-Message-ID: <CAAhSdy12XrVOXcSaoUj1s1DBT-qW5S1nMiVQpCvEVcQM31cRJw@mail.gmail.com>
-Subject: Re: [PATCH 2/3] RISC-V: Move cpuid to hartid mapping to SMP.
+Date: Thu, 27 Dec 2018 09:28:03 +0530
+Message-ID: <CAAhSdy20-r5e1EQ7yTawbxXs0NgFkfg8L8VLRUFLL=NcXfCD2w@mail.gmail.com>
+Subject: Re: [PATCH 3/3] RISC-V: Fix non-smp kernel boot on SMP systems
 To: Atish Patra <atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181226_193819_885909_4A04237B 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20181226_195826_582032_9CD702D7 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -107,82 +107,148 @@ Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.i
 
 On Thu, Dec 27, 2018 at 4:39 AM Atish Patra <atish.patra@wdc.com> wrote:
 >
-> Currently, logical CPU id to physical hartid mapping is
-> defined for both smp and non-smp configurations. This
-> is not required as we need this only for smp configuration.
-> The mapping function can define directly boot_cpu_hartid
-> for non-smp usecase.
+> In non-smp configuration, hartid can be higher that NR_CPUS.
+> riscv_of_processor_hartid should not be compared to hartid to
+> NR_CPUS in that case. Moreover, this function checks all the
+> DT properties of a hart node. NR_CPUS comparison seems out of
+> place.
+
+This only explains change in arch/riscv/kernel/cpu.c
+
+Create separate patch for it.
+
 >
-> The reverse mapping function i.e. hartid to cpuid can be called
-> for any valid but not booted harts. So it should return default
-> cpu 0 only if it is a boot hartid
+> Do cpuid comparison with NR_CPUs in smp setup code. Update the
+
+Create separate patch for change in arch/riscv/kernel/smp.c
+
+> drivers to handle appropriate code as well.
+
+Create separate patches for riscv_timer and irq-sifive-plic.c
+because they will probably go via different gitrepos.
+
 >
 > Signed-off-by: Atish Patra <atish.patra@wdc.com>
 > ---
->  arch/riscv/include/asm/smp.h | 13 +++++++++++--
->  arch/riscv/kernel/setup.c    |  2 ++
->  2 files changed, 13 insertions(+), 2 deletions(-)
+>  arch/riscv/kernel/cpu.c           |  4 ----
+>  arch/riscv/kernel/smp.c           |  1 -
+>  arch/riscv/kernel/smpboot.c       |  5 +++++
+>  drivers/clocksource/riscv_timer.c | 21 ++++++++++++++++++---
+>  drivers/irqchip/irq-sifive-plic.c |  5 +++++
+>  5 files changed, 28 insertions(+), 8 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-> index 41aa73b4..8f30300f 100644
-> --- a/arch/riscv/include/asm/smp.h
-> +++ b/arch/riscv/include/asm/smp.h
-> @@ -22,12 +22,13 @@
->  /*
->   * Mapping between linux logical cpu index and hartid.
->   */
-> -extern unsigned long __cpuid_to_hartid_map[NR_CPUS];
-> -#define cpuid_to_hartid_map(cpu)    __cpuid_to_hartid_map[cpu]
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index b4a7d442..251ffab6 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -34,10 +34,6 @@ int riscv_of_processor_hartid(struct device_node *node)
+>                 pr_warn("Found CPU without hart ID\n");
+>                 return -(ENODEV);
+>         }
+> -       if (hart >= NR_CPUS) {
+> -               pr_info("Found hart ID %d, which is above NR_CPUs.  Disabling this hart\n", hart);
+> -               return -(ENODEV);
+> -       }
 >
-> +extern unsigned long boot_cpu_hartid;
->  struct seq_file;
+>         if (of_property_read_string(node, "status", &status)) {
+>                 pr_warn("CPU with hartid=%d has no \"status\" property\n", hart);
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index 57b1383e..9ea7ac7d 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -49,7 +49,6 @@ int riscv_hartid_to_cpuid(int hartid)
+>                         return i;
 >
->  #ifdef CONFIG_SMP
-> +extern unsigned long __cpuid_to_hartid_map[NR_CPUS];
-> +#define cpuid_to_hartid_map(cpu)    __cpuid_to_hartid_map[cpu]
+>         pr_err("Couldn't find cpu id for hartid [%d]\n", hartid);
+> -       BUG();
+
+Have a separate patch with explanation about why
+we don't need BUG() here.
+
+>         return i;
+>  }
 >
->  /* print IPI stats */
->  void show_ipi_stats(struct seq_file *p, int prec);
-> @@ -58,7 +59,15 @@ static inline void show_ipi_stats(struct seq_file *p, int prec)
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index bb8cd242..05291840 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -66,6 +66,11 @@ void __init setup_smp(void)
+>                         found_boot_cpu = 1;
+>                         continue;
+>                 }
+> +               if (cpuid >= NR_CPUS) {
+> +                       pr_warn("Invalid cpuid [%d] for hartid [%d]\n",
+> +                               cpuid, hart);
+> +                       break;
+> +               }
 >
->  static inline int riscv_hartid_to_cpuid(int hartid)
->  {
-> +       if (hartid == boot_cpu_hartid)
->                 return 0;
-> +       else
-> +               return -1;
-> +}
-> +static inline unsigned long cpuid_to_hartid_map(int cpu)
-> +{
+>                 cpuid_to_hartid_map(cpuid) = hart;
+>                 set_cpu_possible(cpuid, true);
+> diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
+> index 084e97dc..acf2af10 100644
+> --- a/drivers/clocksource/riscv_timer.c
+> +++ b/drivers/clocksource/riscv_timer.c
+> @@ -89,20 +89,35 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+>         struct clocksource *cs;
+>
+>         hartid = riscv_of_processor_hartid(n);
+> +       if (hartid < 0) {
+> +               pr_warn("Not valid hartid for node [%pOF] error = [%d]\n",
+> +                       n, hartid);
+> +               return hartid;
+> +       }
+>         cpuid = riscv_hartid_to_cpuid(hartid);
+>
+> +       if (cpuid < 0)
+> +               pr_warn("Invalid cpuid for hartid [%d]\n", hartid);
 > +
-> +       return boot_cpu_hartid;
+>         if (cpuid != smp_processor_id())
+>                 return 0;
+>
+> +       pr_err("%s: Registering clocksource cpuid [%d] hartid [%d]\n",
+> +              __func__, cpuid, hartid);
+>         cs = per_cpu_ptr(&riscv_clocksource, cpuid);
+> -       clocksource_register_hz(cs, riscv_timebase);
+> +       error = clocksource_register_hz(cs, riscv_timebase);
+>
+> +       if (error) {
+> +               pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
+> +                      error, cpuid);
+> +               return error;
+> +       }
+>         error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
+>                          "clockevents/riscv/timer:starting",
+>                          riscv_timer_starting_cpu, riscv_timer_dying_cpu);
+>         if (error)
+> -               pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
+> -                      error, cpuid);
+> +               pr_err("cpu hp setup state failed for RISCV timer [%d]\n",
+> +                      error);
+>         return error;
 >  }
 >
->  static inline void riscv_cpuid_to_hartid_mask(const struct cpumask *in,
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 2c290e6a..bd4d7b85 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -83,6 +83,7 @@ EXPORT_SYMBOL(empty_zero_page);
->  atomic_t hart_lottery;
->  unsigned long boot_cpu_hartid;
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index 357e9daf..254ecd76 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -237,6 +237,11 @@ static int __init plic_init(struct device_node *node,
+>                 }
 >
-> +#ifdef CONFIG_SMP
->  unsigned long __cpuid_to_hartid_map[NR_CPUS] = {
->         [0 ... NR_CPUS-1] = INVALID_HARTID
->  };
-> @@ -91,6 +92,7 @@ void __init smp_setup_processor_id(void)
->  {
->         cpuid_to_hartid_map(0) = boot_cpu_hartid;
->  }
-> +#endif
+>                 cpu = riscv_hartid_to_cpuid(hartid);
+> +               if (cpu < 0) {
+> +                       pr_warn("Invalid cpuid for context %d\n", i);
+> +                       continue;
+> +               }
+> +
+>                 handler = per_cpu_ptr(&plic_handlers, cpu);
+>                 handler->present = true;
+>                 handler->ctxid = i;
+> --
+> 2.7.4
+>
 
-Please move __cpuid_to_hartid_map[] and smp_setup_processor_id()
-to arch/riscv/kernel/smp.c
-
-Otherwise, looks good to me.
-
-Reviewed-by: Anup Patel <anup@brainfault.org>
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
