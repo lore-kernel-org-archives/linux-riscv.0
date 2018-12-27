@@ -2,87 +2,87 @@ Return-Path: <SRS0=Nd4X=PE=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1620CC43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Dec 2018 05:28:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2CBC4C43444
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Dec 2018 11:18:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D71DD214C6
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Dec 2018 05:28:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EEBAD218EA
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Dec 2018 11:18:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IM/HVlUs";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="2LHTUQma"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D71DD214C6
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dZ7ALOpP";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="v4sUq0s1"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EEBAD218EA
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tj7asieSzqwDkA5PYagiiXb22kGXtAzAkolRwNTizKo=; b=IM/HVlUsta/T5H
-	ZuR7Dm9c4Ti5CvJsiHuUp741WkflVS53GWcDr//dnkp9vCsTc3J9xEZCryWXxejVqxOUqmx/TG9+C
-	GKnxEuh/YjgUB8zix8vqOqBWx2EMkVlgLFR6//uDfTBNSbLOuk8C1YNxD99DEoVMfNJ3Ogz9iQW13
-	WtgQdrDI4jZZYB+xq4vNdE83dj54VgXdzo2pPLzxKoEvz2VWFH/VzdBzjpCj5q12AD62sNgUNthbt
-	6mntr+5yHFQ0KiposHomXR2vIwHn73IVUQ8x4RuwlkUgaG3CJgE7PSL1PxvYA1+hGXbodWUxaXhod
-	8cBybKF9CsG9SPCXXU/w==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=OW1t4Bg21/udMjBstVyhpFLEzLH8qJZhGSVBjNhoiDo=; b=dZ7
+	ALOpPC6m/TZrTTXzv9xx//5awhi598VYadI9bHfNoyQO4DM8pYa7DLw04iDNaDeANGtFuqC52q7JW
+	k3tAsR3SljfkBb3WXTKdbsGWV3KkjIoXgeWV0rxLRRbKQIJBhoLHjwMD4M9PX7vDRNdLmgB7QyraZ
+	tqzTObRHjFPMeTIJAgIx5Zsi+Ck3vYGigPAmVb2cx1STtTJrRaHtHXRh2xGqmPx4WHPWsTxXToJZd
+	M+oInic+inep9d5mK2tpbk6ZFleirpjeDLpogEHraLYV352EVQX9ORHyqZyaqfneSkKhcIqPD2vYK
+	XhBSUvx2OX2IEhtAYYq7P5EgrweUoUA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gcODB-0006Vj-RL; Thu, 27 Dec 2018 05:28:01 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1gcTgf-0001me-TZ; Thu, 27 Dec 2018 11:18:49 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gcOD6-0006U5-UT
- for linux-riscv@lists.infradead.org; Thu, 27 Dec 2018 05:28:00 +0000
-Received: by mail-wr1-x441.google.com with SMTP id 96so17258476wrb.2
- for <linux-riscv@lists.infradead.org>; Wed, 26 Dec 2018 21:27:45 -0800 (PST)
+ id 1gcTgc-0001lH-L5
+ for linux-riscv@lists.infradead.org; Thu, 27 Dec 2018 11:18:48 +0000
+Received: by mail-pl1-x644.google.com with SMTP id p8so8677645plo.2
+ for <linux-riscv@lists.infradead.org>; Thu, 27 Dec 2018 03:18:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=sZzhCcAgXuw19vxX6fyr918Uz0Jrox7YQDyO5SQd/Ks=;
- b=2LHTUQmaZpLDzZob5MnpMtup26i4+NRGqEbSMZsqZo7CDD/MQP/e0Fr2NGvDG0zLNR
- jrHYViSl5KaV7af3Cgd5dYXSHlkn9TgsisDtKl3htS4XaJGJsuiC/NhVRw+pHy3DMYSK
- AC1FHjY8Gu7MDzCsY0R6skLZJuEnmxgDuSK4pdNDkcPyGtsZ0CPk0hHrXXREXOAewZGp
- Y3adL0QmZMGKp0w1I3GttHgRlCoxeqxfb4fHV8acs/PiSRHVaRg2zKjMntzAD0M1CU2v
- KIO9CvxjYJF4AxVuwaEly8Obu2us0lSlXbCLTO1k7aFPa7JN5wb+7sRWqoQBMqdP/Zy1
- wIgg==
+ h=from:to:cc:subject:date:message-id;
+ bh=djb8MENL/623mqGLQLtq4KrCkJHOJsxRY0UHXKe8Sak=;
+ b=v4sUq0s12CeTvwimAYl9h4YlypmX5EU2jDU3hkfGx/2cPtHtnt2IuAgStbbF0JOBE/
+ lsbH6bc2mtlEZVVv2z8oWiKrXzeC+dqGF+94/tPACwz91yuCJvfm9S7xV1kK9pNUt9Pm
+ kTOWxWNBSGlkNE+9C8rK5weVpd0OVF07XqTiJfXoW1ACOdmR1dBbM5lU3JcHQLMd0t/b
+ L14xHBTfHopOAOJNaYl0fS8+7ovSbnOI7NXBI4v5rM8g/0yAlLAxbltgn1rYcu7yb50J
+ FpqsarJX0zsPSMXlxsOZXBzIB6fdvs/cmiuRya0NobPMj+UW8vmr/PkBIgNNYO5iigxx
+ kbtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=sZzhCcAgXuw19vxX6fyr918Uz0Jrox7YQDyO5SQd/Ks=;
- b=fsENzNF/afXGvkfI+YDUgAR6KsE+ueecp3/fDNT1wUEq/XRq/fLgDVADwxjAml35Nf
- XxC8yoRx39acgBgiDf77Okt2dgN3q8EGsPZhL1UxG+H4OcJkaNYqchoLkM4pr8SQ9wpS
- VVdPkCezbKOWOLSfmi45ZUcvmx7nwbnALsTZcUo4S0vvVUdbhGwDj+gD+SqBJLI7K0ve
- 2+l4sdYTzZWa1Uy15N/bjwnTuxAeh/0/E0oBgonHRTPF4JCwFeQLvllT7sn8149fi/Dc
- +D9Rr30ibdrv1wG6Q4lxy/Duq3wzIhQxAGdjafankNr/Wrzf3Fv4TQZKRxBUHJjhX+2B
- Nq8A==
-X-Gm-Message-State: AJcUukff78bcIXKafG9HyjYZKliLZ+pia8lKXdVjt69e2NwIZW9UYCIy
- U7w5guHo+v7JU//5tn5OyZPqDBxsufGqGA6AVh1MIg==
-X-Google-Smtp-Source: ALg8bN5X4qQIE8YqMXg0ioz1s2ZXK0l2gAFN+G6fxA1BZnHy/bwupJfks8PTyvW4bjzCL08SxQsPreuvhhM6Q87abHI=
-X-Received: by 2002:adf:91a3:: with SMTP id 32mr18886340wri.99.1545888463992; 
- Wed, 26 Dec 2018 21:27:43 -0800 (PST)
-MIME-Version: 1.0
-References: <20181130080207.20505-1-anup@brainfault.org>
- <20181130080207.20505-4-anup@brainfault.org>
- <20181217182719.GC7086@infradead.org>
- <CAAhSdy3i+ap2J0By3nRqK6yvb8oD4-+2QwUO9PH9GM+0odKqSA@mail.gmail.com>
- <20181219162836.GA9224@infradead.org>
-In-Reply-To: <20181219162836.GA9224@infradead.org>
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=djb8MENL/623mqGLQLtq4KrCkJHOJsxRY0UHXKe8Sak=;
+ b=iZ7TR3LqRIu4JbnEh92j65QbQgwzk1GzNm+A3RwQh5w2BJuoOZc8ciiOW7by/735kZ
+ jboAb/ZyDZkOm1JNGdcbBSN45e0Ld4A0ULJxU4pTupF3hT/UgSLucqDb7u+1JPCMJp+g
+ ZV9ii/Q+qwP3SUtB5SA+wly/6VEw0nU8lfNTubPjygO8H6nryptjGcR1hNBOe7zdsm9u
+ 7UZVd/gSwqEOZ9uA0DA0qcsThGtu8s6kxhbofazXyJxoeNTXwgktWy7tJRi3RJeEHJAh
+ whW/2QSFVfy48Wan9SV/K9VjRCgjF6f5ud0E2h4LEDLAK7eMoQkSO4xAW35Ztt6UpFax
+ WMJQ==
+X-Gm-Message-State: AJcUukcLje0NfVRJ0DH6QG+ZPGLNXTP6owhWnLCJHCyUXLRRYjdKpnAW
+ n+YFBBmDCvYijgiPctcY/JD57Q==
+X-Google-Smtp-Source: ALg8bN6sSH2nHZighgs8yjW+ZKAodEkWhcq8w0DJiA41vf103STRAl+YMj+ZhYXXjeNvS+DJ/UJhSg==
+X-Received: by 2002:a17:902:7687:: with SMTP id
+ m7mr23084934pll.187.1545909514921; 
+ Thu, 27 Dec 2018 03:18:34 -0800 (PST)
+Received: from localhost.localdomain ([106.51.18.57])
+ by smtp.gmail.com with ESMTPSA id u137sm66830105pfc.140.2018.12.27.03.18.31
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Thu, 27 Dec 2018 03:18:34 -0800 (PST)
 From: Anup Patel <anup@brainfault.org>
-Date: Thu, 27 Dec 2018 10:57:33 +0530
-Message-ID: <CAAhSdy2a6gs8o50afS_EpncinQvdUu--=a1PP5XfY8ZcJkWS2g@mail.gmail.com>
-Subject: Re: [PATCH v3 3/6] irqchip: sifive-plic: More flexible
- plic_irq_toggle()
-To: Christoph Hellwig <hch@infradead.org>
+To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Jason Cooper <jason@lakedaemon.net>,
+ Marc Zyngier <marc.zyngier@arm.com>
+Subject: [PATCH v4 0/5] IRQ affinity support in PLIC driver
+Date: Thu, 27 Dec 2018 16:48:16 +0530
+Message-Id: <20181227111821.80908-1-anup@brainfault.org>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20181226_212757_013784_69499D65 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20181227_031846_759902_C779F857 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,33 +94,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Jason Cooper <jason@lakedaemon.net>, Marc Zyngier <marc.zyngier@arm.com>,
- Palmer Dabbelt <palmer@sifive.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org
+Cc: Christoph Hellwig <hch@infradead.org>, Atish Patra <atish.patra@wdc.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Anup Patel <anup@brainfault.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 19, 2018 at 9:58 PM Christoph Hellwig <hch@infradead.org> wrote:
->
-> On Tue, Dec 18, 2018 at 02:20:10PM +0530, Anup Patel wrote:
-> > Actually these functions should not be inline because plic_toggle() uses
-> > raw_spin_lock() and plic_irq_toggle() uses for-loop.
->
-> So?  It still inlines the all of two instances into each caller
-> for slightly different but related work.  Not sure it is 100% worth
-> it, but probably more than the one to move the calculations to init
-> time..
+This patchset primarily adds IRQ affinity support in PLIC driver and
+other improvements.
 
-Not just at init time but these functions will also be used when
-irq_affinity is changed by IRQ balancer at runtime.
+It gives mechanism for explicitly route external interrupts to particular
+CPUs using smp_affinity attribute of each Linux IRQs. Also, we can now
+use IRQ balancer from kernel-space or user-space.
 
-Regards,
-Anup
+The patchset is tested on QEMU virt machine. It is based on Linux-4.20
+and can be found at riscv_plic_irq_affinity_v4 branch of:
+https://github.com/avpatel/linux.git
+
+Changes since v3:
+ - Dropped PATCH2
+ - Added PATCH to not inline plic_toggle() and plic_irq_toggle()
+ - Moved PATCH3 changes to PATCH6
+ - Used WARN_ON_ONCE() instead of WARN_ON() in PATCH5
+
+Changes since v2:
+ - Fixed incorrect address of enable registers using sizeof(u32) in PATCH1
+ - Retained comment about need for locking in PATCH1
+ - Split PATCH2 into two patches
+ - Split PATCH3 into two patches
+ - Minor fix in commit description of PATCH4
+
+Changes since v1:
+ - Removed few whitspace changes from PATCH1
+ - Keep use of DEFINE_PER_CPU() as it is
+
+Anup Patel (5):
+  irqchip: sifive-plic: Pre-compute context hart base and enable base
+  irqchip: sifive-plic: Don't inline plic_toggle() and plic_irq_toggle()
+  irqchip: sifive-plic: Add warning in plic_init() if handler already
+    present
+  irqchip: sifive-plic: Differentiate between PLIC handler and context
+  irqchip: sifive-plic: Implement irq_set_affinity() for SMP host
+
+ drivers/irqchip/irq-sifive-plic.c | 110 +++++++++++++++++++-----------
+ 1 file changed, 71 insertions(+), 39 deletions(-)
+
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
