@@ -4,20 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-14.4 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0BB61C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  4 Jan 2019 05:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BC2D3C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  4 Jan 2019 05:10:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D02F22087F
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  4 Jan 2019 05:03:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 893652087F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  4 Jan 2019 05:10:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="E6dEOR1G";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="mRrwnXbY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D02F22087F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="G6xX19tA";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="U2OKvrFD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 893652087F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,60 +26,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ak3JuNdl98LgjieVYK2elbwY2brnKR46MztU+InkAik=; b=E6dEOR1G90s6qW
-	OjBESpANDB8a21W3y+yeBLzwDzJ1Szb5ByTAxeVlMzu4nPUGJnO4hCGotNniRzDOboEkr1nuIdFG5
-	LQ3gTHgT3yFnKipNfvzAeD93AO2GHbS0IFXLbZVOvS0sI/4hg6EY93zNuCU8cEH8JSeA6PuBWYeOi
-	dlnkWXD+UPglCS2aZeh/LrIIyX5DSNHJ3SGWdvys2xlyIyZmzArRkN3s9YeLknUL1AhOJkG/9ybXe
-	VjUGzp5NFK9SoIC4yybk7rQ1f9laAUZDugqnEgIUG6Mwr1ekw9BAoUyVcqqhiyBGwEk+WYCvoxJDG
-	71nlkw3RkWmfN3Evyavg==;
+	List-Owner; bh=xJmPqNGZnMFKma4vsg9f6wx9cisvu6kS1SCe7K8qxNM=; b=G6xX19tALbxHr7
+	mWP6ELC4aA4kJ8YRy5WODA+88xSaHs+wa//bpzJNgLb5oLdSUg+95Y56I2/jBpt1pRDxwT/snBK2x
+	QhyqV8E9Oj3v54WABULyZ13EkntBR07T6tG1hQXsGkiRjagJx9/ViKlwJPjGWoQ7rsBIY4O5mlkjV
+	pQFpHmqoDtWbZfTN5igMe0dg7UHAGVPODPI9tC7WhVQNZB/jsFZqN4bTGTrD+lq8jzTJ0NzReMTwa
+	Gc52uUtblq0kgT4LhyA6DX0j8GAH32cAvWQ01M7+Zr6/xLbfZL/5m6GAXJx/A7UPqU84O531v/art
+	FwYy16e7/EPGXvUVCkqg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gfHeD-0004hc-P4; Fri, 04 Jan 2019 05:03:53 +0000
-Received: from mail-lf1-x141.google.com ([2a00:1450:4864:20::141])
+	id 1gfHkB-0006KI-0g; Fri, 04 Jan 2019 05:10:03 +0000
+Received: from mail-lj1-x243.google.com ([2a00:1450:4864:20::243])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gfHeA-0004gu-EY
- for linux-riscv@lists.infradead.org; Fri, 04 Jan 2019 05:03:52 +0000
-Received: by mail-lf1-x141.google.com with SMTP id e26so24667252lfc.2
- for <linux-riscv@lists.infradead.org>; Thu, 03 Jan 2019 21:03:49 -0800 (PST)
+ id 1gfHk8-0006E7-6b
+ for linux-riscv@lists.infradead.org; Fri, 04 Jan 2019 05:10:01 +0000
+Received: by mail-lj1-x243.google.com with SMTP id l15-v6so31502731lja.9
+ for <linux-riscv@lists.infradead.org>; Thu, 03 Jan 2019 21:09:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ME8F7/tqwkC++IqaY030+2nSR1n7tVYolNeJJkHOFS0=;
- b=mRrwnXbY8e7eSM48aQWr+T73VJGKd+TdYS5JiGUbyljYGwQx6REQYm+mXQy60vckpZ
- 5t2WVruQEvBhf9IOlH0LNd2eMIYkOXmpUs1cjTNP5fVECYxEQSaJCxNSN2lskHqfXqaC
- LFy5ve9P7xibp3ZlCD/bzZpzO7CXOI40z93vZE0qrkuYHlPqH8/5rvtTeyjdbttdWF83
- zCxlfCQeRoo94cvz1R5L/GXseYFex7OjB5+9bqzz0HJjVB+CqD2pYW3MxzyiHL1Qw5cr
- lqZDH5k8vTcAdObpRkby8ma6eubhui4DKbkkq5UJkSxGpGJuBdcAdyqWquE/P/IlKvPw
- H3NQ==
+ :cc:content-transfer-encoding;
+ bh=OWbEwfPubjq0NaWWAxIQeAnQxn47xm0j0nxY5ZbcMH0=;
+ b=U2OKvrFDbCh2BufZJKA7dzETG7GV7qnMAogiHwfSECrvA44C3wt+VzKcouhkef8HuX
+ 9gXA4fgHSFE9aGTmsjX8anV2LAGJziR6q0bv0AWMqoh+snLVtr8o/8CW5UxE8n6NmF/L
+ 83MwWdd8gCUMeobCl6GnWkKK1A/3C+fsc4pIaRrxrmtM3zQiVXWVS9CFTUr8VfE+x2j4
+ JRzdU6R8iR/V5Kd0Mc0pjkGRKfUSjCVLgN/v3u+SavqTN8XWMfR+gGLNZdo/5LnMSL0H
+ H7WJx1dXHN5804O4xPfbUlEvKu1+WBgU5j4O2yiBEFyjnyQz1zD0G6m+y7gPXvfImHOL
+ X50A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=ME8F7/tqwkC++IqaY030+2nSR1n7tVYolNeJJkHOFS0=;
- b=eYBYsCE9biaY5VjsEGq3ArAqhWlV/8o304rw58OoIhb1D9oPxFwXUFaiUbxYiOpo9E
- yLkLqvpgZvp++sBskKyosEdV5Rq4E8jt3QAwTwmOcRVtTSKbzbeYjrOkpb4VrPdusacK
- lYupmeUOeq5VNcFefKfPezWIV6brjPMtTUAosaq9WU+sfVW3rEcmPJ/84PsJxJ//iboC
- l5O6WDJFLHSPoa8cfR0+dE/mlvVSWzC9ymV8t+J882038P4l7sCPidsXmKhMFAfk3FU5
- PYVDvy7LdLLGx8gpJg4FkaKGeZQvUQ7cDRWd7OntkmfTR/31Nqz9MA7mztuUlSdF+spf
- PzyQ==
-X-Gm-Message-State: AA+aEWZdjjRNiAUBiW2tgjOoJiHcrf3PhEzBJxNt2Lkc2atNSW/+LBWi
- VB6O0T6JpCYFcwSGukWOy1wTGesqunA05z7UA7+6RA==
-X-Google-Smtp-Source: AFSGD/XVc8l1UaVv+9WkdEg9eh4e2kv068Vx1cZdYWGGzuMQnEOGTUw/GsYnrwe6hI/K5HicSehK75FS2hrAzqTMyjI=
-X-Received: by 2002:a19:739d:: with SMTP id h29mr26642446lfk.85.1546578227465; 
- Thu, 03 Jan 2019 21:03:47 -0800 (PST)
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=OWbEwfPubjq0NaWWAxIQeAnQxn47xm0j0nxY5ZbcMH0=;
+ b=gdK6zfOkr1zYxTUnLihTZbeUNlyd9TYSxhxYlyt9i+YYjfuyvEWeO6G47uG3uUV0jy
+ lM4XWXt7AOmtH7lMIj2Oo+Ld0fcBF0yCixixmXllxp5inVkCwRRMo+316lqewrilDgwf
+ tbLFTFL6H5TDX4oSiaNKwSMfZ9rxieUvi5UhWUt+xkeMlwccH7FA4gTtd+HBBSaMmGb4
+ Ojw8dVKwuMAMpq8n8hgb/lEUQivTxAUYZZIX/AQtOzCiHH4RhPnTISpNYHqn9+cIakbS
+ 6hbzj7Rxypnl5Fzh9RJidohEJyPrgl7qSWE1qWhbfmu4OXC//uind4H8eSZvtkhTIoP7
+ tvgA==
+X-Gm-Message-State: AJcUukcyNv7Bhqkaa6cD1FyJncPhpp/KOYgmX89xjeWM3+fPzSqtH88g
+ hKe/73ziqsrmJWWAyTmcQ6aVyVDOaYrsp1xCtnn0Gg==
+X-Google-Smtp-Source: ALg8bN4NX1q9qUFDJuRi1APhXoCbCHOOEDefs8t7aFX3ddJu5xWVbeWWV2/MnDcQMXltIY7TuVQ/1NRifcFSmOCiq50=
+X-Received: by 2002:a2e:8786:: with SMTP id
+ n6-v6mr18777732lji.100.1546578596992; 
+ Thu, 03 Jan 2019 21:09:56 -0800 (PST)
 MIME-Version: 1.0
 References: <1544768442-12530-1-git-send-email-yash.shah@sifive.com>
  <1544768442-12530-2-git-send-email-yash.shah@sifive.com>
- <20181218172031.GA7272@bogus>
-In-Reply-To: <20181218172031.GA7272@bogus>
+ <20181217211624.5sj4n6pyartnd3fc@pengutronix.de>
+In-Reply-To: <20181217211624.5sj4n6pyartnd3fc@pengutronix.de>
 From: Yash Shah <yash.shah@sifive.com>
-Date: Fri, 4 Jan 2019 10:33:36 +0530
-Message-ID: <CAJ2_jOEy-0DmkzoOwezUf3+gHV3CTu04CqG1tiw5=iX-AO8xZg@mail.gmail.com>
+Date: Fri, 4 Jan 2019 10:39:20 +0530
+Message-ID: <CAJ2_jOGBK6OtXe0UO6nYc1KPDVi39NtD8f+hUkpxROhzukPw7w@mail.gmail.com>
 Subject: Re: [RFC v2 1/2] pwm: sifive: Add DT documentation for SiFive PWM
  Controller
-To: Rob Herring <robh@kernel.org>
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190103_210350_514403_3992C00F 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20190103_211000_254624_1E0DF6DC 
+X-CRM114-Status: GOOD (  21.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,99 +95,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
  Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Sachin Ghadi <sachin.ghadi@sifive.com>,
+ robh+dt@kernel.org, Sachin Ghadi <sachin.ghadi@sifive.com>,
  Thierry Reding <thierry.reding@gmail.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 18, 2018 at 10:50 PM Rob Herring <robh@kernel.org> wrote:
->
-> On Fri, Dec 14, 2018 at 11:50:41AM +0530, Yash Shah wrote:
-> > DT documentation for PWM controller added with updated compatible
-> > string.
-> >
-> > Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
-> > [Atish: Compatible string update]
-> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > Signed-off-by: Yash Shah <yash.shah@sifive.com>
-> > ---
-> >  .../devicetree/bindings/pwm/pwm-sifive.txt         | 44 ++++++++++++++++++++++
-> >  1 file changed, 44 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.txt
-> >
-> > diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
-> > new file mode 100644
-> > index 0000000..250d8ee
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
-> > @@ -0,0 +1,44 @@
-> > +SiFive PWM controller
-> > +
-> > +Unlike most other PWM controllers, the SiFive PWM controller currently only
-> > +supports one period for all channels in the PWM. This is set globally in DTS.
-> > +The period also has significant restrictions on the values it can achieve,
-> > +which the driver rounds to the nearest achievable frequency.
-> > +
-> > +Required properties:
-> > +- compatible: should be something similar to "sifive,<chip>-pwm" for
-> > +           the PWM as integrated on a particular chip, and
-> > +           "sifive,pwm<version>" for the general PWM IP block
-> > +           programming model. Supported compatible strings are:
-> > +           "sifive,fu540-c000-pwm" for the SiFive PWM v0 as
-> > +           integrated onto the SiFive FU540 chip, and "sifive,pwm0"
-> > +           for the SiFive PWM v0 IP block with no chip integration
-> > +           tweaks.
->
-> This should reference the common doc Paul has written and not re-explain
-> the versioning scheme again.
-
-Ok sure.
-
->
-> > +- reg: physical base address and length of the controller's registers
-> > +- clocks: The frequency the controller runs at
-> > +- #pwm-cells: Should be 2.
-> > +  The first cell is the PWM channel number
-> > +  The second cell is the PWM polarity
-> > +- sifive,approx-period: the driver will get as close to this period as it can
->
-> Needs a unit suffix as defined in property-units.txt
-
-Will be done.
-
->
-> > +- interrupts: one interrupt per PWM channel
-> > +
-> > +PWM RTL that corresponds to the IP block version numbers can be found
-> > +here:
-> > +
-> > +https://github.com/sifive/sifive-blocks/tree/master/src/main/scala/devices/pwm
-> > +
-> > +Further information on the format of the IP
-> > +block-specific version numbers can be found in
-> > +Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
-> > +
-> > +Examples:
-> > +
-> > +pwm:  pwm@10020000 {
-> > +     compatible = "sifive,fu540-c000-pwm","sifive,pwm0";
-> > +     reg = <0x0 0x10020000 0x0 0x1000>;
-> > +     clocks = <&tlclk>;
-> > +     interrupt-parent = <&plic>;
-> > +     interrupts = <42 43 44 45>;
-> > +     #pwm-cells = <2>;
-> > +     sifive,approx-period = <1000000>;
-> > +};
-> > --
-> > 1.9.1
-> >
-
-Thanks for the comments!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBEZWMgMTgsIDIwMTggYXQgMjo0NiBBTSBVd2UgS2xlaW5lLUvDtm5pZwo8dS5rbGVp
+bmUta29lbmlnQHBlbmd1dHJvbml4LmRlPiB3cm90ZToKPgo+IE9uIEZyaSwgRGVjIDE0LCAyMDE4
+IGF0IDExOjUwOjQxQU0gKzA1MzAsIFlhc2ggU2hhaCB3cm90ZToKPiA+IERUIGRvY3VtZW50YXRp
+b24gZm9yIFBXTSBjb250cm9sbGVyIGFkZGVkIHdpdGggdXBkYXRlZCBjb21wYXRpYmxlCj4gPiBz
+dHJpbmcuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogV2VzbGV5IFcuIFRlcnBzdHJhIDx3ZXNsZXlA
+c2lmaXZlLmNvbT4KPiA+IFtBdGlzaDogQ29tcGF0aWJsZSBzdHJpbmcgdXBkYXRlXQo+ID4gU2ln
+bmVkLW9mZi1ieTogQXRpc2ggUGF0cmEgPGF0aXNoLnBhdHJhQHdkYy5jb20+Cj4gPiBTaWduZWQt
+b2ZmLWJ5OiBZYXNoIFNoYWggPHlhc2guc2hhaEBzaWZpdmUuY29tPgo+ID4gLS0tCj4gPiAgLi4u
+L2RldmljZXRyZWUvYmluZGluZ3MvcHdtL3B3bS1zaWZpdmUudHh0ICAgICAgICAgfCA0NCArKysr
+KysrKysrKysrKysrKysrKysrCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDQ0IGluc2VydGlvbnMoKykK
+PiA+ICBjcmVhdGUgbW9kZSAxMDA2NDQgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdz
+L3B3bS9wd20tc2lmaXZlLnR4dAo+ID4KPiA+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2Rl
+dmljZXRyZWUvYmluZGluZ3MvcHdtL3B3bS1zaWZpdmUudHh0IGIvRG9jdW1lbnRhdGlvbi9kZXZp
+Y2V0cmVlL2JpbmRpbmdzL3B3bS9wd20tc2lmaXZlLnR4dAo+ID4gbmV3IGZpbGUgbW9kZSAxMDA2
+NDQKPiA+IGluZGV4IDAwMDAwMDAuLjI1MGQ4ZWUKPiA+IC0tLSAvZGV2L251bGwKPiA+ICsrKyBi
+L0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9wd20vcHdtLXNpZml2ZS50eHQKPiA+
+IEBAIC0wLDAgKzEsNDQgQEAKPiA+ICtTaUZpdmUgUFdNIGNvbnRyb2xsZXIKPiA+ICsKPiA+ICtV
+bmxpa2UgbW9zdCBvdGhlciBQV00gY29udHJvbGxlcnMsIHRoZSBTaUZpdmUgUFdNIGNvbnRyb2xs
+ZXIgY3VycmVudGx5IG9ubHkKPiA+ICtzdXBwb3J0cyBvbmUgcGVyaW9kIGZvciBhbGwgY2hhbm5l
+bHMgaW4gdGhlIFBXTS4gVGhpcyBpcyBzZXQgZ2xvYmFsbHkgaW4gRFRTLgo+ID4gK1RoZSBwZXJp
+b2QgYWxzbyBoYXMgc2lnbmlmaWNhbnQgcmVzdHJpY3Rpb25zIG9uIHRoZSB2YWx1ZXMgaXQgY2Fu
+IGFjaGlldmUsCj4gPiArd2hpY2ggdGhlIGRyaXZlciByb3VuZHMgdG8gdGhlIG5lYXJlc3QgYWNo
+aWV2YWJsZSBmcmVxdWVuY3kuCj4gPiArCj4gPiArUmVxdWlyZWQgcHJvcGVydGllczoKPiA+ICst
+IGNvbXBhdGlibGU6IHNob3VsZCBiZSBzb21ldGhpbmcgc2ltaWxhciB0byAic2lmaXZlLDxjaGlw
+Pi1wd20iIGZvcgo+ID4gKyAgICAgICAgICAgdGhlIFBXTSBhcyBpbnRlZ3JhdGVkIG9uIGEgcGFy
+dGljdWxhciBjaGlwLCBhbmQKPiA+ICsgICAgICAgICAgICJzaWZpdmUscHdtPHZlcnNpb24+IiBm
+b3IgdGhlIGdlbmVyYWwgUFdNIElQIGJsb2NrCj4gPiArICAgICAgICAgICBwcm9ncmFtbWluZyBt
+b2RlbC4gU3VwcG9ydGVkIGNvbXBhdGlibGUgc3RyaW5ncyBhcmU6Cj4gPiArICAgICAgICAgICAi
+c2lmaXZlLGZ1NTQwLWMwMDAtcHdtIiBmb3IgdGhlIFNpRml2ZSBQV00gdjAgYXMKPiA+ICsgICAg
+ICAgICAgIGludGVncmF0ZWQgb250byB0aGUgU2lGaXZlIEZVNTQwIGNoaXAsIGFuZCAic2lmaXZl
+LHB3bTAiCj4gPiArICAgICAgICAgICBmb3IgdGhlIFNpRml2ZSBQV00gdjAgSVAgYmxvY2sgd2l0
+aCBubyBjaGlwIGludGVncmF0aW9uCj4gPiArICAgICAgICAgICB0d2Vha3MuCj4gPiArLSByZWc6
+IHBoeXNpY2FsIGJhc2UgYWRkcmVzcyBhbmQgbGVuZ3RoIG9mIHRoZSBjb250cm9sbGVyJ3MgcmVn
+aXN0ZXJzCj4gPiArLSBjbG9ja3M6IFRoZSBmcmVxdWVuY3kgdGhlIGNvbnRyb2xsZXIgcnVucyBh
+dAo+Cj4gVGhpcyBpcyB1bnVzdWFsIGFuZCB0aGUgZXhhbXBsZSBiZWxvdyBsaXN0cyBhIGNsb2Nr
+IHBoYW5kbGUgKHdoaWNoIGlzCj4gdGhlIGNvbW1vbiB0aGluZyksIHNvIEkgZ3Vlc3MgdGhlIGRl
+c2NyaXB0aW9uIGlzIGp1c3Qgd3JvbmcuCgpZb3UgYXJlIHJpZ2h0LCBJIHdpbGwgY29ycmVjdCB0
+aGUgZGVzY3JpcHRpb24uCgo+Cj4gPiArLSAjcHdtLWNlbGxzOiBTaG91bGQgYmUgMi4KPiA+ICsg
+IFRoZSBmaXJzdCBjZWxsIGlzIHRoZSBQV00gY2hhbm5lbCBudW1iZXIKPiA+ICsgIFRoZSBzZWNv
+bmQgY2VsbCBpcyB0aGUgUFdNIHBvbGFyaXR5Cj4gPiArLSBzaWZpdmUsYXBwcm94LXBlcmlvZDog
+dGhlIGRyaXZlciB3aWxsIGdldCBhcyBjbG9zZSB0byB0aGlzIHBlcmlvZCBhcyBpdCBjYW4KPgo+
+IFdoYXQgaXMgdGhlIHVuaXQ/IEknZCBkcm9wICJhcHByb3giLCB0aGF0IHRoZSBkcml2ZXIgbWln
+aHQgbm90IGJlIGFibGUKPiB0byBleGFjdGx5IGhpdCB0aGUgc3BlY2lmaWVkIHBlcmlvZCBpcyAo
+SU1ITykgb2J2aW91cyBhbmQgZG9lc24ndCBuZWVkCj4gdG8gYmUgbWVudGlvbmVkIGluIHRoZSBw
+cm9wZXJ0eSBuYW1lLgoKVGhlIHVuaXQgaXMgbmFub3NlY29uZHMuIFdpbGwgYWRkIHRoZSB1bml0
+IHN1ZmZpeCB0byB0aGUgcHJvcGVydHkgbmFtZS4KCj4KPiA+ICstIGludGVycnVwdHM6IG9uZSBp
+bnRlcnJ1cHQgcGVyIFBXTSBjaGFubmVsCj4gPiArCj4gPiArUFdNIFJUTCB0aGF0IGNvcnJlc3Bv
+bmRzIHRvIHRoZSBJUCBibG9jayB2ZXJzaW9uIG51bWJlcnMgY2FuIGJlIGZvdW5kCj4gPiAraGVy
+ZToKPiA+ICsKPiA+ICtodHRwczovL2dpdGh1Yi5jb20vc2lmaXZlL3NpZml2ZS1ibG9ja3MvdHJl
+ZS9tYXN0ZXIvc3JjL21haW4vc2NhbGEvZGV2aWNlcy9wd20KPiA+ICsKPiA+ICtGdXJ0aGVyIGlu
+Zm9ybWF0aW9uIG9uIHRoZSBmb3JtYXQgb2YgdGhlIElQCj4gPiArYmxvY2stc3BlY2lmaWMgdmVy
+c2lvbiBudW1iZXJzIGNhbiBiZSBmb3VuZCBpbgo+ID4gK0RvY3VtZW50YXRpb24vZGV2aWNldHJl
+ZS9iaW5kaW5ncy9zaWZpdmUvc2lmaXZlLWJsb2Nrcy1pcC12ZXJzaW9uaW5nLnR4dAo+ID4gKwo+
+ID4gK0V4YW1wbGVzOgo+ID4gKwo+ID4gK3B3bTogIHB3bUAxMDAyMDAwMCB7Cj4gPiArICAgICBj
+b21wYXRpYmxlID0gInNpZml2ZSxmdTU0MC1jMDAwLXB3bSIsInNpZml2ZSxwd20wIjsKPiA+ICsg
+ICAgIHJlZyA9IDwweDAgMHgxMDAyMDAwMCAweDAgMHgxMDAwPjsKPiA+ICsgICAgIGNsb2NrcyA9
+IDwmdGxjbGs+Owo+ID4gKyAgICAgaW50ZXJydXB0LXBhcmVudCA9IDwmcGxpYz47Cj4gPiArICAg
+ICBpbnRlcnJ1cHRzID0gPDQyIDQzIDQ0IDQ1PjsKPiA+ICsgICAgICNwd20tY2VsbHMgPSA8Mj47
+Cj4gPiArICAgICBzaWZpdmUsYXBwcm94LXBlcmlvZCA9IDwxMDAwMDAwPjsKPiA+ICt9Owo+Cj4g
+QmVzdCByZWdhcmRzCj4gVXdlCgpUaGFua3MgZm9yIHRoZSBjb21tZW50cyEKCj4KPiAtLQo+IFBl
+bmd1dHJvbml4IGUuSy4gICAgICAgICAgICAgICAgICAgICAgICAgICB8IFV3ZSBLbGVpbmUtS8O2
+bmlnICAgICAgICAgICAgfAo+IEluZHVzdHJpYWwgTGludXggU29sdXRpb25zICAgICAgICAgICAg
+ICAgICB8IGh0dHA6Ly93d3cucGVuZ3V0cm9uaXguZGUvICB8CgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
