@@ -2,76 +2,87 @@ Return-Path: <SRS0=tJfH=PN=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.4 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C0066C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  5 Jan 2019 01:10:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B0483C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  5 Jan 2019 13:51:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8FA412173B
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  5 Jan 2019 01:10:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 752D3206A3
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  5 Jan 2019 13:51:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="n771mKJJ";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="wKUjabnn"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8FA412173B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Lwg78HIY";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="OQ9vZW2J"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 752D3206A3
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gqe21rko0Hr4GkN6swFdgguvMhLE6jqZU+tC7UwBGjw=; b=n771mKJJsdePpS
-	pGhfLvhGWXpm1AYPPyaU4naV4SEJEJG6EYWIMLCjJKYp/5mb9NwQm+mXsHs2yFtrx/aAmkTKXvpdg
-	zpsTHaRNHz4qOY4oMmTH283FIpzH0eustCvSO3hypbi/qBsyEYJIscm/pcfi1e6B41ZO1CWneTWvN
-	cVBEEinX3zK9V49wUsDMB0Yx/z+bqy3dPnriZJ7U8v/uSqoq+jGu93l6Bx4n58SOIJzeTeP9qLPY/
-	k7nu5fappIxDAOcUuvMbQnZJmqacIuQqwd83hpIOIV8ATkF+oLbcgzT/oHen2J//wKhdZO+Sitqw9
-	HB5/W0BThkABgTlQxAgA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9M9/KbzXrUKz/i8+LXM4ypIZSfvKPQmpfOwCsyBHsbo=; b=Lwg78HIYTSYH27
+	tSlAUiQfSW2rZ/Ys6Dr3jgLRmrD62xkIqLZJeLH5qK3W3OCQyOpx8xyyKulKiLd5N0rUoLIkU+4Z8
+	qFzawX0g+yYZhYCNDpPLdz06p02dgnmz3lVXovcif+DyHLYSMFnNISPcyzje2qj2BNVWGLflnCrMf
+	7qSgT1aOJuKn1swmn7YKtG3Jrei83mMz1IbGDr0rax6+NX9g4Vsmixj2m4Chqbr4mtaMyxmitd15H
+	WKQ0C2ZmxZoDExJqWPIod+QxwJ9p4qtC6kPBrThrLIvll9UMZw5OHXjRzWfpDBOOn/G9U6nn5bW32
+	4SWjsMoiYKTponZtfOiw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gfaTm-0001iU-6u; Sat, 05 Jan 2019 01:10:22 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1gfmMM-0008Gi-Jl; Sat, 05 Jan 2019 13:51:30 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gfaTi-0001hi-G7
- for linux-riscv@lists.infradead.org; Sat, 05 Jan 2019 01:10:20 +0000
-Received: from mail-qt1-f175.google.com (mail-qt1-f175.google.com
- [209.85.160.175])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 4A2E7218E2
- for <linux-riscv@lists.infradead.org>; Sat,  5 Jan 2019 01:10:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1546650617;
- bh=izqCTOdMtM2Q4k4QJclyd2lx3suw6mEz/I9wnXl1lI0=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=wKUjabnnUaYNqbBdb8BvEbsUEOHOtgZfL6//PYG152G8VNgJGZFofVwdCHY6M0Ixk
- AO424sV6TfBoiGGMAiJirdQo+5x5Ute0XwVF7TpI+BWOxaEmpUHlYv1yXvZocDu9TX
- xpd6fQxtsT+Np+ht9goCueLK1nOD/B7GJ5J35GZw=
-Received: by mail-qt1-f175.google.com with SMTP id k12so42285689qtf.7
- for <linux-riscv@lists.infradead.org>; Fri, 04 Jan 2019 17:10:17 -0800 (PST)
-X-Gm-Message-State: AA+aEWZ9U1LNL4nz9f0xdQKrrCKrNP+xm9FGQrrf268KcSrNPKmw4enm
- hcv97rCvYu+1Ep/oXncOv8Ef1cPUA+5/uY3XxA==
-X-Google-Smtp-Source: AFSGD/XGVGSj9p+Ls1/9D55m9I/CN1kaUL2qQfZQM/84hVp5JSvi6I5zKDA5gSuoz81xa+Kf5xtTAN2MGMGBosCpD14=
-X-Received: by 2002:ac8:6b18:: with SMTP id w24mr52668314qts.144.1546650616425; 
- Fri, 04 Jan 2019 17:10:16 -0800 (PST)
+ id 1gfmMJ-0008GK-Cn
+ for linux-riscv@lists.infradead.org; Sat, 05 Jan 2019 13:51:28 +0000
+Received: by mail-pf1-x443.google.com with SMTP id b7so19628102pfi.8
+ for <linux-riscv@lists.infradead.org>; Sat, 05 Jan 2019 05:51:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=8dVLekkVOf2ByX/vpYMz+8O/3o4U+A+CblvU7QOBdpQ=;
+ b=OQ9vZW2JyXRy7DXWNEAH3mD9Zomoeh0+0FhHVkd+gS5JfucRarJEc4vLSmUtajGjlP
+ LTs/L7LDp0WnjtnQmGQPg8fx08DuWGfpxjZF+qBCahgiCg185FguO+OjQ/wR3fdSMsLy
+ +KwXWgGK2w4rF6MngsUd1RubLX9KwRkKtNSsPfk+X7ujYDZnEAfPOff15szx0t3VT7ut
+ 8bs3u9xz6SAdKYMbJyi/XRt7qKXQcQcYYgvDfMN8nnunj/7I//MkDZddo7qUDI+Iks6N
+ BUOOD4acpRGYBCvmYoU7mzQzEuHwmBSZIg4CJhkGJXdT/TM79wlTiKh57wAmu4SusyYk
+ OCuQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=8dVLekkVOf2ByX/vpYMz+8O/3o4U+A+CblvU7QOBdpQ=;
+ b=kFaUH5H29oFQGMVyBkOtWPejFHq133FF/Yk9wPCAwwOwJ8B8814PEg1LZwxGJOntKO
+ ju3Wmp6an8KsWfBsZ0oKM1bBLkH/jCF0nIgd9NRQYOMaVGXozga0WWWhO8mfvsS7e3pl
+ W+X58qB8vnJL+EdGqnV9n86ZsTlq3pMRKpDivVrGshOp+2+6eJ91/WKY3XGJn7lhzEel
+ 0MlpS4NWXYf54SHqiZ8lXX3bKGCKq05bWntKm26m8C0i2pC1LZ+ZBWdSAIUT4LGBrtz1
+ AZHzVYXycXkxH/3HrpmLR7IxLO4sKteMI5ioIOIw6bdPS71NDoFQGcr34wuPERS5J30e
+ 0seA==
+X-Gm-Message-State: AJcUukcVp7KKDCjwKvhbgBu+bQGEsglbY/2Gbd5vgljooDOh5uKfrBzJ
+ u0dJQqGH1sX22qLY85W5eCUnF/n/
+X-Google-Smtp-Source: ALg8bN6R28VkF1QcYAjn6RLGWuRIEg0mDIhQ8ZG9AA64AkKF+drDK2H+IFyahaVEns0bbkqKmuZy5Q==
+X-Received: by 2002:a63:e5c:: with SMTP id 28mr4555403pgo.369.1546696285982;
+ Sat, 05 Jan 2019 05:51:25 -0800 (PST)
+Received: from localhost.localdomain ([49.207.51.61])
+ by smtp.gmail.com with ESMTPSA id j21sm87048257pfn.175.2019.01.05.05.51.24
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+ Sat, 05 Jan 2019 05:51:25 -0800 (PST)
+From: G SatishKumar <gsatish.ldd@gmail.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH] RISCV:IRQ: Adds Err column to /proc/interrupts
+Date: Sat,  5 Jan 2019 19:21:12 +0530
+Message-Id: <1546696272-19152-1-git-send-email-gsatish.ldd@gmail.com>
+X-Mailer: git-send-email 2.7.4
 MIME-Version: 1.0
-References: <20181220210141.GA17198@bogus>
- <mhng-199961ff-1c6e-41f4-b7e4-66c1bbba15e3@palmer-si-x1c4>
-In-Reply-To: <mhng-199961ff-1c6e-41f4-b7e4-66c1bbba15e3@palmer-si-x1c4>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 4 Jan 2019 19:10:05 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqL_M-_L3LdiE9htSCsQt40pXNYMBN+BCKpqB8L-5TDrNg@mail.gmail.com>
-Message-ID: <CAL_JsqL_M-_L3LdiE9htSCsQt40pXNYMBN+BCKpqB8L-5TDrNg@mail.gmail.com>
-Subject: Re: [PATCH 3/7] dt-bindings: riscv: cpus: add E51 cores to the list
- of documented CPUs
-To: Palmer Dabbelt <palmer@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190104_171018_601042_3FBC8D72 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20190105_055127_468644_38368D4B 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -83,84 +94,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Paul Walmsley <paul@pwsan.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: G SatishKumar <gsatish.ldd@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 4, 2019 at 4:46 PM Palmer Dabbelt <palmer@sifive.com> wrote:
->
-> On Thu, 20 Dec 2018 13:01:41 PST (-0800), robh@kernel.org wrote:
-> > On Fri, Dec 14, 2018 at 09:21:50PM -0800, Paul Walmsley wrote:
-> >> Add compatible strings for the SiFive E51 family of CPU cores to the
-> >> RISC-V CPU compatible string documentation.  The E51 CPU core is
-> >> described in:
-> >>
-> >> https://static.dev.sifive.com/FU540-C000-v1.0.pdf
-> >>
-> >> Cc: Rob Herring <robh+dt@kernel.org>
-> >> Cc: Mark Rutland <mark.rutland@arm.com>
-> >> Cc: Palmer Dabbelt <palmer@sifive.com>
-> >> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> >> Cc: devicetree@vger.kernel.org
-> >> Cc: linux-riscv@lists.infradead.org
-> >> Cc: linux-kernel@vger.kernel.org
-> >> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-> >> Signed-off-by: Paul Walmsley <paul@pwsan.com>
-> >> ---
-> >>  Documentation/devicetree/bindings/riscv/cpus.txt | 5 +++--
-> >>  1 file changed, 3 insertions(+), 2 deletions(-)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/riscv/cpus.txt b/Documentation/devicetree/bindings/riscv/cpus.txt
-> >> index adf7b7af5dc3..fb9d4f86f41f 100644
-> >> --- a/Documentation/devicetree/bindings/riscv/cpus.txt
-> >> +++ b/Documentation/devicetree/bindings/riscv/cpus.txt
-> >> @@ -68,8 +68,9 @@ described below.
-> >>          - compatible:
-> >>                  Usage: required
-> >>                  Value type: <stringlist>
-> >> -                Definition: must contain "riscv", may contain one of
-> >> -                            "sifive,rocket0"
-> >> +                Definition: must contain "riscv", may contain one or
-> >> +                        more of "sifive,rocket0", "sifive,e51",
-> >> +                        "sifive,e5"
-> >
-> > I can't really tell what are valid combinations from this. It reads that
-> > I could list every string here and that would be valid. It is basically
-> > 'riscv' plus any other combinations of strings.
->
-> I think that's actually the correct interpretation: if it's a RISC-V CPU then
-> it must have "riscv" listed in compatible, but it can also be anything else.
-
-But is '"sifive,rocket0", "sifive,e51", "sifive,e5", "riscv"' valid?
-What about '"sifive,rocket0", "sifive,e5", "riscv"'?
-
-If they are, is there really any value in specifying all of them or
-different variations? I'd suggest keeping things simple because
-writing a json-schema gets messy when there's arbitrary combinations
-of compatible values.
-
-> There's some concrete examples here (a "sifive,e51" is a type of "riscv"), but
-> I don't think it's realistic to count on us being able to enumerate all RISC-V
-> implementations here.
-
-I think you'll find that "riscv" will become pointless as it is not
-specific enough to mean anything. It would be like having "arm" as a
-compatible on Arm based systems.
-
-OTOH, you only really need to enumerate what you can't discover. For
-example, how are optional features (SIMD inst a common example)
-discovered? On Arm, we generally just have the CPU model in the
-compatible, but it's generally not even used because that, cpu
-revision, instruction set features, etc. are all discoverable.
-
-Rob
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CVRoaXMgcGF0Y2ggYWRkcyBleHRyYSByb3cgc2hvd2luZyBlcnJvciBjb3VudCB0byBvdXRwdXQg
+b2YKCS9wcm9jL2ludGVycnVwdHMgdXNpbmcgc2VxX3ByaW50ZigpLgoKCXNlcV9wcmludGYoKSBB
+UEkgaXMgdXNlZCB3aGVuIHByaW50aW5nIHRvIC9wcm9jLyBmaWxlcyBhcyBhCgloZWxwZXIgZnVu
+Y3Rpb25zIHRvIHJldHVybiBmb3JtYXR0ZWQgb3V0cHV0IGZyb20g4oCYcHJvY19yZWFk4oCZCglj
+YWxsYmFjay4KCglJdCBhZGRzIEVycjogcm93IHRvIC9wcm9jL2ludGVycnVwdHMKCglyb290QChu
+b25lKTp+IyBjYXQgL3Byb2MvaW50ZXJydXB0cwoJICAgICAgICAgICBDUFUwCgkgODogICAgICAg
+IDM1NiAgU2lGaXZlIFBMSUMgICA4ICB2aXJ0aW8wCgkxMDogICAgICAgMTcxNyAgU2lGaXZlIFBM
+SUMgIDEwICB0dHlTMAoJSVBJMDogICAgICAgICAwICBSZXNjaGVkdWxpbmcgaW50ZXJydXB0cwoJ
+SVBJMTogICAgICAgICAwICBGdW5jdGlvbiBjYWxsIGludGVycnVwdHMKCUVycjogICAgICAgICAg
+MAoKU2lnbmVkLW9mZi1ieTogRyBTYXRpc2hLdW1hciA8Z3NhdGlzaC5sZGRAZ21haWwuY29tPgot
+LS0KIGFyY2gvcmlzY3Yva2VybmVsL2lycS5jIHwgMyArKysKIDEgZmlsZSBjaGFuZ2VkLCAzIGlu
+c2VydGlvbnMoKykKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9pcnEuYyBiL2FyY2gv
+cmlzY3Yva2VybmVsL2lycS5jCmluZGV4IDFkNzZiNjAuLjUwOWM5NmIgMTAwNjQ0Ci0tLSBhL2Fy
+Y2gvcmlzY3Yva2VybmVsL2lycS5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2lycS5jCkBAIC0y
+NCw5ICsyNCwxMiBAQAogICovCiAjZGVmaW5lIElOVEVSUlVQVF9DQVVTRV9GTEFHCSgxVUwgPDwg
+KF9fcmlzY3ZfeGxlbiAtIDEpKQogCit1bnNpZ25lZCBsb25nIGlycV9lcnJfY291bnQ7CisKIGlu
+dCBhcmNoX3Nob3dfaW50ZXJydXB0cyhzdHJ1Y3Qgc2VxX2ZpbGUgKnAsIGludCBwcmVjKQogewog
+CXNob3dfaXBpX3N0YXRzKHAsIHByZWMpOworCXNlcV9wcmludGYocCwgIiUqczogJTEwbHVcbiIs
+IHByZWMsICJFcnIiLCBpcnFfZXJyX2NvdW50KTsKIAlyZXR1cm4gMDsKIH0KIAotLSAKMi43LjQK
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
