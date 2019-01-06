@@ -2,79 +2,83 @@ Return-Path: <SRS0=/Lqp=PO=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.4 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 52DB6C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  6 Jan 2019 02:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5EBADC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  6 Jan 2019 13:33:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 224F321A80
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  6 Jan 2019 02:14:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2CFB02070B
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  6 Jan 2019 13:33:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sp4yRbuu";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="bkYF8QrA"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 224F321A80
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sQxQ5O1o";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Jr1Bdd18"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2CFB02070B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=NmL0aO3jio16DUw9DvIMUXE/4vSY6a79E0oL4BhhtmY=; b=sp4yRbuumomvWzsTldRyl30PU
-	cRhRyGmZ5gFNMUNJolQNPdAS1vzHXxRzye6n1FsOiBePn0NMSQSPiLdjhzbenFv9WyO5O5KHHXeVm
-	AP/RgMHZfg4+4fBrJGaR+IGl4TChJz3cw5N9m52HHHtHAM6z5vSCBNOrFczR8+y0CmcguA+yMc9vN
-	mQxOngNCI/AlMTtCJTjdMZHQn3jqFm2uK2sfBLnbPuL9Y7KD96HgMK4ruJoYkxqNfPBPj6GQqfG09
-	8kSXC5yIS4TcTuU3w9+EUhseel+h1qZdz6Lb66TkT0JoRMBESWStd2CA1KKAs8qsboAoK72rZLc9T
-	D9e72xStw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=rWrq/s91OSyI7fvMMIw8/0hY3gCmHWBTRJW7Vk2qfoM=; b=sQx
+	Q5O1ovZ7nRxIg/aMIIMZJkdmRRhF+9Z3dVUrWbiSrw6c3EKqE95BkhLWh2P0vMwB7IblHVsDfgKF+
+	LtoL+EtuSYgN9giLvxxQChuRHivcEm9Fjc7sN9Ecsi/9OK743oqrDFO65JfZxHOaInh4zAc+2wu5Y
+	PuCogPbC6egbZPZ7HkZrZ4dSvdasGheRN8ZlC/nIEwEzPj3kGqrhhNcy+an3u8wMo/AaAviTa5BlD
+	i/imKRkwDkacJzWTdHrdfUgs8K3LhvMGeU0S0XJLNPsmeov2XZkCQBgPn9noZyaMcEJo364oIAjgd
+	PPtcHYxyNu4QJz97qnPaCGL8ZC7LyZQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gfxxn-0002cS-5O; Sun, 06 Jan 2019 02:14:55 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1gg8YD-00013D-JH; Sun, 06 Jan 2019 13:33:13 +0000
+Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gfxxk-0002c0-5B
- for linux-riscv@lists.infradead.org; Sun, 06 Jan 2019 02:14:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1546740892; x=1578276892;
- h=subject:to:cc:references:from:message-id:date:
- mime-version:in-reply-to:content-transfer-encoding;
- bh=rdvOEnYrJjR/e7+3f5M1QrxD+1TIDi7QoJOdRa4Y+yI=;
- b=bkYF8QrAJf9uKOnIqMYHUbJb47usJsVQfHUWLd1kIZigsqEaj5DeR+a7
- fTQUxWJMc1C9Xkjkg3IsIryFHb0Qk9gIBOtA/YYR3RO9Xw0V+lagaHBk3
- f5y7xcfX/hH7WxApjPNW3tIuCYSiLN1WpEdsozYdWQXbxbCUy7DRCa6po
- KsRwnMEYy+FEi3rC8/QNUEuQi291J8VurJtDyPS4OnQFsnC6NRUQcAi2o
- CG7FUDYl4m9iQURQ5i9F+BrpLOf+SLbb/X0ALdtIG/GiUFDqR+Z0qZ9L5
- cL5Az/2nPC62HK2CIukd/2SKdC6ngYKBuO92t4FXHepFYF3aW2g4dtnNw Q==;
-X-IronPort-AV: E=Sophos;i="5.56,445,1539619200"; d="scan'208";a="99279250"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 06 Jan 2019 10:14:50 +0800
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP; 05 Jan 2019 17:54:58 -0800
-Received: from usa003333.ad.shared (HELO [10.86.60.238]) ([10.86.60.238])
- by uls-op-cesaip02.wdc.com with ESMTP; 05 Jan 2019 18:14:49 -0800
-Subject: Re: [PATCH 3/3] RISC-V: Fix non-smp kernel boot on SMP systems
-To: Anup Patel <anup@brainfault.org>
-References: <1545865741-22795-1-git-send-email-atish.patra@wdc.com>
- <1545865741-22795-4-git-send-email-atish.patra@wdc.com>
- <CAAhSdy20-r5e1EQ7yTawbxXs0NgFkfg8L8VLRUFLL=NcXfCD2w@mail.gmail.com>
-From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <49e75ab8-a210-75b5-25d0-5d523f532ea1@wdc.com>
-Date: Sat, 5 Jan 2019 18:14:48 -0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0)
- Gecko/20100101 Thunderbird/60.3.3
-MIME-Version: 1.0
-In-Reply-To: <CAAhSdy20-r5e1EQ7yTawbxXs0NgFkfg8L8VLRUFLL=NcXfCD2w@mail.gmail.com>
-Content-Language: en-US
+ id 1gg8YA-00012G-H4
+ for linux-riscv@lists.infradead.org; Sun, 06 Jan 2019 13:33:12 +0000
+Received: by mail-pg1-x542.google.com with SMTP id s198so19529489pgs.2
+ for <linux-riscv@lists.infradead.org>; Sun, 06 Jan 2019 05:33:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id;
+ bh=vfmcRA7rT28gwHLfFKyRxilDywRI1mQZldc5K70wYIo=;
+ b=Jr1Bdd18ae2pQeAlv+/eQfwtdHoqjk1Uq3yzu4EOHfZIKO/6DCPElHbuyEIEikGKIv
+ K7n0LACDFZ5Dtd3XcDAiK20vT85yHt5CMM2kIymU9rb43X77OHg+WbhwTDat3ZiIePC0
+ BbZWU99fBtSS5WmQfyC8bIejsjFr4Rv6QrP1k2p+7zgwr/UxpTGQjlrrBuBJdHiuX2XJ
+ oUkVSUZEEsFvQX8Z/veWfcVBKmxQ2/tzHaev8i3FTVDvGh1vbesW7wCeDSleuBCTFeu4
+ bxflowWkZRa9ETEVAih3WJsniAWT74yyEqEk7oYHAYvIM6gVBWt8mZvX9UOdPHbMg0hF
+ m1Nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=vfmcRA7rT28gwHLfFKyRxilDywRI1mQZldc5K70wYIo=;
+ b=CFZ+rW48U79lZBM/nDYI4vrmBat+VecutdUQtXq3+TgD4FSOdOrc2PK4/Ygziq5uTM
+ yJXuwqvjz4IlMCH6RFTNkO4NpPXwgmc2E65Brgvdfa5CP6GpmsodV3X1sbtdcY1iUTpW
+ 82Jgr+n0PTjcQBg1UrYRp/89qBi7+ruES5zpEQ9zgfz44ouDXiHPdUmd1krr2ZQPNZNU
+ PFUlrwX3V+23f2VR5knit7WSG0TbMeW6c5zN5ZEs6E3u/X6BlUftau1uCBVF6BX/EsLe
+ yIgBseDAfV/QtiiAPXcxlu8TyrEd/gKQa8CLZ9BVdsgMs5CD9+ivx8shOzF35K9o7O2K
+ nbJQ==
+X-Gm-Message-State: AJcUukeLA2szZnXDiQiHrDN0ylXpPDj63vr5RYMrIP5/3n5Ew/ZgkwZc
+ wZB6NUok2VcB0GB6Xe5iqozjVKfm
+X-Google-Smtp-Source: ALg8bN6plNRHWDYfm7jBCCj7GRVxlL99jd7K2XH9lv+ti416/VDZpTrje4bQXP3hZYhZdqkfVGsQog==
+X-Received: by 2002:a63:e80e:: with SMTP id s14mr7698280pgh.30.1546781587507; 
+ Sun, 06 Jan 2019 05:33:07 -0800 (PST)
+Received: from localhost.localdomain ([49.207.51.61])
+ by smtp.gmail.com with ESMTPSA id q199sm126957822pfc.97.2019.01.06.05.33.04
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+ Sun, 06 Jan 2019 05:33:06 -0800 (PST)
+From: G SatishKumar <gsatish.ldd@gmail.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH] RISCV:IRQ: Support IRQ_WORK interrupts with self IPI
+Date: Sun,  6 Jan 2019 19:02:58 +0530
+Message-Id: <1546781578-8126-1-git-send-email-gsatish.ldd@gmail.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190105_181452_312714_06CDF9EB 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20190106_053310_597029_A6A68691 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -86,173 +90,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>,
- =?UTF-8?Q?Patrick_St=c3=a4hlin?= <me@packi.ch>,
- Albert Ou <aou@eecs.berkeley.edu>, Jason Cooper <jason@lakedaemon.net>,
- Dmitriy Cherkasov <dmitriy@oss-tech.org>,
- Damien Le Moal <Damien.LeMoal@wdc.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Michael Clark <michaeljclark@mac.com>, Marc Zyngier <marc.zyngier@arm.com>,
- Palmer Dabbelt <palmer@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-arch@vger.kernel.org, palmer@sifive.com, linux-kernel@vger.kernel.org,
+ G SatishKumar <gsatish.ldd@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/26/18 7:58 PM, Anup Patel wrote:
-> On Thu, Dec 27, 2018 at 4:39 AM Atish Patra <atish.patra@wdc.com> wrote:
->>
->> In non-smp configuration, hartid can be higher that NR_CPUS.
->> riscv_of_processor_hartid should not be compared to hartid to
->> NR_CPUS in that case. Moreover, this function checks all the
->> DT properties of a hart node. NR_CPUS comparison seems out of
->> place.
-> 
-> This only explains change in arch/riscv/kernel/cpu.c
-> 
-> Create separate patch for it.
-> 
->>
->> Do cpuid comparison with NR_CPUs in smp setup code. Update the
-> 
-> Create separate patch for change in arch/riscv/kernel/smp.c
-> 
->> drivers to handle appropriate code as well.
-> 
-> Create separate patches for riscv_timer and irq-sifive-plic.c
-> because they will probably go via different gitrepos.
-> 
->>
->> Signed-off-by: Atish Patra <atish.patra@wdc.com>
->> ---
->>   arch/riscv/kernel/cpu.c           |  4 ----
->>   arch/riscv/kernel/smp.c           |  1 -
->>   arch/riscv/kernel/smpboot.c       |  5 +++++
->>   drivers/clocksource/riscv_timer.c | 21 ++++++++++++++++++---
->>   drivers/irqchip/irq-sifive-plic.c |  5 +++++
->>   5 files changed, 28 insertions(+), 8 deletions(-)
->>
->> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
->> index b4a7d442..251ffab6 100644
->> --- a/arch/riscv/kernel/cpu.c
->> +++ b/arch/riscv/kernel/cpu.c
->> @@ -34,10 +34,6 @@ int riscv_of_processor_hartid(struct device_node *node)
->>                  pr_warn("Found CPU without hart ID\n");
->>                  return -(ENODEV);
->>          }
->> -       if (hart >= NR_CPUS) {
->> -               pr_info("Found hart ID %d, which is above NR_CPUs.  Disabling this hart\n", hart);
->> -               return -(ENODEV);
->> -       }
->>
->>          if (of_property_read_string(node, "status", &status)) {
->>                  pr_warn("CPU with hartid=%d has no \"status\" property\n", hart);
->> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
->> index 57b1383e..9ea7ac7d 100644
->> --- a/arch/riscv/kernel/smp.c
->> +++ b/arch/riscv/kernel/smp.c
->> @@ -49,7 +49,6 @@ int riscv_hartid_to_cpuid(int hartid)
->>                          return i;
->>
->>          pr_err("Couldn't find cpu id for hartid [%d]\n", hartid);
->> -       BUG();
-> 
-> Have a separate patch with explanation about why
-> we don't need BUG() here.
-> 
+	This patch adds, IRQ Work interrupts support to RISCV arch.
 
-Ok. I will split the patch into multiple ones as suggested.
+	This patch is based on the arm32 patch ARM 7872/1
+	which ports cleanly.
 
-Regards,
-Atish
->>          return i;
->>   }
->>
->> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
->> index bb8cd242..05291840 100644
->> --- a/arch/riscv/kernel/smpboot.c
->> +++ b/arch/riscv/kernel/smpboot.c
->> @@ -66,6 +66,11 @@ void __init setup_smp(void)
->>                          found_boot_cpu = 1;
->>                          continue;
->>                  }
->> +               if (cpuid >= NR_CPUS) {
->> +                       pr_warn("Invalid cpuid [%d] for hartid [%d]\n",
->> +                               cpuid, hart);
->> +                       break;
->> +               }
->>
->>                  cpuid_to_hartid_map(cpuid) = hart;
->>                  set_cpu_possible(cpuid, true);
->> diff --git a/drivers/clocksource/riscv_timer.c b/drivers/clocksource/riscv_timer.c
->> index 084e97dc..acf2af10 100644
->> --- a/drivers/clocksource/riscv_timer.c
->> +++ b/drivers/clocksource/riscv_timer.c
->> @@ -89,20 +89,35 @@ static int __init riscv_timer_init_dt(struct device_node *n)
->>          struct clocksource *cs;
->>
->>          hartid = riscv_of_processor_hartid(n);
->> +       if (hartid < 0) {
->> +               pr_warn("Not valid hartid for node [%pOF] error = [%d]\n",
->> +                       n, hartid);
->> +               return hartid;
->> +       }
->>          cpuid = riscv_hartid_to_cpuid(hartid);
->>
->> +       if (cpuid < 0)
->> +               pr_warn("Invalid cpuid for hartid [%d]\n", hartid);
->> +
->>          if (cpuid != smp_processor_id())
->>                  return 0;
->>
->> +       pr_err("%s: Registering clocksource cpuid [%d] hartid [%d]\n",
->> +              __func__, cpuid, hartid);
->>          cs = per_cpu_ptr(&riscv_clocksource, cpuid);
->> -       clocksource_register_hz(cs, riscv_timebase);
->> +       error = clocksource_register_hz(cs, riscv_timebase);
->>
->> +       if (error) {
->> +               pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
->> +                      error, cpuid);
->> +               return error;
->> +       }
->>          error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
->>                           "clockevents/riscv/timer:starting",
->>                           riscv_timer_starting_cpu, riscv_timer_dying_cpu);
->>          if (error)
->> -               pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
->> -                      error, cpuid);
->> +               pr_err("cpu hp setup state failed for RISCV timer [%d]\n",
->> +                      error);
->>          return error;
->>   }
->>
->> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
->> index 357e9daf..254ecd76 100644
->> --- a/drivers/irqchip/irq-sifive-plic.c
->> +++ b/drivers/irqchip/irq-sifive-plic.c
->> @@ -237,6 +237,11 @@ static int __init plic_init(struct device_node *node,
->>                  }
->>
->>                  cpu = riscv_hartid_to_cpuid(hartid);
->> +               if (cpu < 0) {
->> +                       pr_warn("Invalid cpuid for context %d\n", i);
->> +                       continue;
->> +               }
->> +
->>                  handler = per_cpu_ptr(&plic_handlers, cpu);
->>                  handler->present = true;
->>                  handler->ctxid = i;
->> --
->> 2.7.4
->>
-> 
-> Regards,
-> Anup
-> 
+	Done set of changes based on RISCV SMP process.
+
+	commit bf18525fd793 ("ARM: 7872/1: Support arch_irq_work_raise()
+		via self IPIs")
+	Author: Stephen Boyd <sboyd at codeaurora.org>
+	Date:   Tue Oct 29 20:32:56 2013 +0100
+
+	By default, IRQ work is run from the tick interrupt (see
+	irq_work_run() in update_process_times()). When we're in full
+	NOHZ mode, restarting the tick requires the use of IRQ work and
+	if the only place we run IRQ work is in the tick interrupt we
+	have an unbreakable cycle. Implement arch_irq_work_raise() via
+	self IPIs to break this cycle and get the tick started again.
+	Note that we implement this via IPIs which are only available on
+	SMP builds. This shouldn't be a problem because full NOHZ is only
+	supported on SMP builds anyway.
+
+root@(none):~# cat /proc/interrupts
+           CPU0       CPU1       CPU2       CPU3
+  8:        134        112         73         75  SiFive PLIC   8  virtio0
+ 10:        123        131        142        126  SiFive PLIC  10  ttyS0
+IPI0:       798        549        285        373  Rescheduling interrupts
+IPI1:        53          8        101        181  Function call interrupts
+IPI2:         0          0          0          0  IRQ work interrupts
+Err:          0
+
+Signed-off-by: G SatishKumar <gsatish.ldd@gmail.com>
+---
+ arch/riscv/kernel/smp.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 57b1383..8953e73 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -23,6 +23,7 @@
+ #include <linux/smp.h>
+ #include <linux/sched.h>
+ #include <linux/seq_file.h>
++#include <linux/irq_work.h>
+ 
+ #include <asm/sbi.h>
+ #include <asm/tlbflush.h>
+@@ -31,6 +32,7 @@
+ enum ipi_message_type {
+ 	IPI_RESCHEDULE,
+ 	IPI_CALL_FUNC,
++	IPI_IRQ_WORK,
+ 	IPI_MAX
+ };
+ 
+@@ -94,6 +96,11 @@ void riscv_software_interrupt(void)
+ 			generic_smp_call_function_interrupt();
+ 		}
+ 
++		if (ops & (1 << IPI_IRQ_WORK)) {
++			stats[IPI_IRQ_WORK]++;
++			irq_work_run();
++		}
++
+ 		BUG_ON((ops >> IPI_MAX) != 0);
+ 
+ 		/* Order data access and bit testing. */
+@@ -121,6 +128,7 @@ send_ipi_message(const struct cpumask *to_whom, enum ipi_message_type operation)
+ static const char * const ipi_names[] = {
+ 	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
+ 	[IPI_CALL_FUNC]		= "Function call interrupts",
++	[IPI_IRQ_WORK]		= "IRQ work interrupts"
+ };
+ 
+ void show_ipi_stats(struct seq_file *p, int prec)
+@@ -162,6 +170,14 @@ void smp_send_reschedule(int cpu)
+ 	send_ipi_message(cpumask_of(cpu), IPI_RESCHEDULE);
+ }
+ 
++#ifdef CONFIG_IRQ_WORK
++void arch_irq_work_raise(void)
++{
++	send_ipi_message(cpumask_of(smp_processor_id()), IPI_IRQ_WORK);
++}
++#endif
++
++
+ /*
+  * Performs an icache flush for the given MM context.  RISC-V has no direct
+  * mechanism for instruction cache shoot downs, so instead we send an IPI that
+-- 
+2.7.4
 
 
 _______________________________________________
