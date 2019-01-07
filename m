@@ -2,92 +2,89 @@ Return-Path: <SRS0=5Ln/=PP=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E3C7C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  7 Jan 2019 18:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F03F1C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  7 Jan 2019 21:52:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1CEB32070B
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  7 Jan 2019 18:39:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BF4F92089F
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  7 Jan 2019 21:52:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sb50Oliu";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="ilNoZIos"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1CEB32070B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TDUommpv";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="SdCjpufk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BF4F92089F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	MIME-Version:References:Message-ID:In-Reply-To:Subject:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Zo1OlDbM7K8wmitOz6o2W4nN409IdMqBrbcyde+BlCI=; b=sb50OliuApzXpnKPXTUXrSkCq
-	YvgInr4aNaYwrgpZScVUpjlFu69HO3H5xvN+Jcn0viXnmrE9eArrO1gkYFFQYswkrW3isJpLec1NL
-	VgdsVeNyq8qvsInZVoLKeohZS4pn+GhVvaoq6Qvuh1DPiJqFKbIyQVK8eghDEisopHc0c9Pz6BEiw
-	9K3vg8KhZ3CWD5j7UKG3KzMbjoebfU37+HPlHzlGI4YqdeuPhcknHtumIoIzAbe5n/QjDm4OAjlfA
-	JDyMrfFH88tKjEczIrpYwSu6iVj+EYLljHe3BwlzUrwNgjFCP76UX2pLUJnQGxaT462sZtdmXACVw
-	dKPJ8n0UQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:To:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qkfWPfBDAh3QjM4sTDpmlQmFmDcEQAnkjOa8kWCL10M=; b=TDUommpvsVozt3
+	/NxMGbJtfvNg+ZhLeZjrwm/kQBGrjA247QVmaqubW3P3a0GiQ2EZw/OUdxXxs+klRTZAhy44p0KDE
+	eCwv2E3QuUcDJ6V8Jmkmuy7ZiaJHj4asoJWQGgfgChjrYrov0o6dsnIG65n1RIpJIJE0SEsoR7o7X
+	trlG0R9/cp53fImmZN4iU8Fp+ojoVY7V1n5BVKcCEvpOtrEHFPw/tD9OYZCtWeK9ZVuiAnJ0GksaM
+	rrDViHzqaPWq4a7VMTeSQ/BacO5zs+xIjYDxb+n+HsKWfwsOoqD0hYJ5dTv+Jhc+Vruhg7iCIV8FM
+	eVX4Nvq6qKFAQQwYSXew==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1ggZnz-0003kU-6O; Mon, 07 Jan 2019 18:39:19 +0000
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
+	id 1ggcp3-0004fX-RY; Mon, 07 Jan 2019 21:52:37 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1ggZnw-0003je-Hb
- for linux-riscv@lists.infradead.org; Mon, 07 Jan 2019 18:39:18 +0000
-Received: by mail-pl1-x641.google.com with SMTP id p8so557056plo.2
- for <linux-riscv@lists.infradead.org>; Mon, 07 Jan 2019 10:39:15 -0800 (PST)
+ id 1ggcp0-0004dL-Ku
+ for linux-riscv@lists.infradead.org; Mon, 07 Jan 2019 21:52:36 +0000
+Received: by mail-pg1-x544.google.com with SMTP id j10so740902pga.1
+ for <linux-riscv@lists.infradead.org>; Mon, 07 Jan 2019 13:52:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:date:to:cc:subject:in-reply-to:message-id:references
  :user-agent:mime-version;
- bh=7lzcH44y+/nY/E67faF6OAg8mbGpBWcOJD83Qjm/b8E=;
- b=ilNoZIosAXFrvHkhIzhsVHs2VdVk20w/lP1R3ZSDAR7YGre7Y6KR2EsWYWn9u2iO+x
- NwrNaLi1zlR/wJLD3P3G9/E8Yu9HKC2Z3JkFM5zLqvI+z7iFR5pxc2IHObm/N8iAoKVA
- uMjCE0qnjQtGA4UThtBtEh5Iy/y26/S97nCRAjHbEKimKUnF4vjl7/VFoqvJIgb0KW90
- lKmNKvDZWMQaML9b355q6mCVnU2x5R/6MVHVflrmhgLUy2RgWjl6Mq2KVYhgwnd+t7Ty
- D8TOXcfGZ0fbCAJMK4D9KbR3WcnygC1hGjdEH1GvS7f2hH0MB0mnRqtXjsp0g1RLkBUo
- 0cuA==
+ bh=TtW7gHakHMo6LxEIUIwTgBtsYYww6wIcuI/nEnmzPrU=;
+ b=SdCjpufk2mxWQhBsKlcmLXb05sfkyTpqXSNGIw/mGMd17PQgwikjCbm/wqoaJ7Lc/5
+ XfhzgEczlpjhLBlQTSmW5DwIkraZs6EgFlxTi1VxV6EZqQ9BfEET1xpzqW/VckLYcRyc
+ 2e9EcKj8srqc8Nwngrpx5cdAHxV4kmBydtNEcpewKppl9idUE6iRFe+I67N1D8R7MOMM
+ e7y1o+ugOQkmlbMtGT67R+uQu/z6eKXgGYDtH3PzhdDoXMlhw1JT23BRkCuLgDberh34
+ Ypl6hKo+siCaOVN8hmTjaQmuNbgjU1b5T9v7Ba6l/TJlyo+IfRVV1DscdZivzTJXEyB/
+ /6GQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:date:to:cc:subject:in-reply-to:message-id
  :references:user-agent:mime-version;
- bh=7lzcH44y+/nY/E67faF6OAg8mbGpBWcOJD83Qjm/b8E=;
- b=nf6Fra1fYmeLhAlsfJZXsoI/VDttKWFGfRBaMcUigfq0mfO+XRwaegq9ErkIrRlYoP
- sPoYrgEq/ahZRywcMir3mbwFL2XRYwoudQSNm2xmyXAbY8vLstzqZaA2L+XIkWvL64nm
- NmYMZ/b5sdqc3hhqULSUIpWPcr/x+sIawqEG0SD9GRkUqjQTILp0v3vPixXu06rzUHK5
- zZE9+nOih6iO8/6/97sIVKmIuT3IkI4ljEmhf8yk0TNNOKLQH8ec3tWMh25A6OpDhmYo
- YJzibk+q1jeBJbbHuZyE8Gt2bb0u5rNTRWLkVUTSDIacB3hZ/1WIPrTsjFDUK32eJaX+
- 5gQg==
-X-Gm-Message-State: AJcUukdArCg3U3HjpuXFIb4dGiwS260OXuMtO/L5tioSzhAR8JzaISnF
- ivDMtvGyjaVeQhr9x1gBuWrdAw==
-X-Google-Smtp-Source: ALg8bN5Gj1Gxlbv2etzQXbTu/QZ9raG5To1dn+dpau10Cy8b3h8VofdkyZSd1s67H2pbwAPOAFK0Hw==
-X-Received: by 2002:a17:902:f20d:: with SMTP id
- gn13mr59954631plb.11.1546886355475; 
- Mon, 07 Jan 2019 10:39:15 -0800 (PST)
-Received: from localhost ([216.9.110.14])
- by smtp.gmail.com with ESMTPSA id o8sm129478106pfa.42.2019.01.07.10.39.14
+ bh=TtW7gHakHMo6LxEIUIwTgBtsYYww6wIcuI/nEnmzPrU=;
+ b=TfPoMm0TMZ2UYUsb8mEMt7c1gQrwGIhX9JqYC/yjHJasKXDfj6xK8rCtZHRSd+zg0Q
+ raL34xR6czlQ447X560EPUtCYTpG2XR/Zzky4Yjme5diAozxDVT1WAV9nCrIlQBCS1yA
+ 54OMPqFGm/KOpudjEAAXgBZzUWhEuyGQitnBVZ14/5J7sIzYDvI5Hq96eF0xbHYqlers
+ SDY2HQgz3xtgZsg4FL8ZtmNdmUz8Kg/dOxuw9cOaT+4zH56aXBR+I2J9GYHM/RkA1rG/
+ Bmy6987/hICDLgQ5euRekiZSmFvgMbsfO6D3giozvwfTNlWJYgFU7GlVBrQG7Vt6PlYk
+ 3HFQ==
+X-Gm-Message-State: AA+aEWZ2QH9oebzOmvrk4LUPOn2+CrVK9mgVOh+cuzr8uM2NdFVyiSzd
+ 0VTDTYJHMrtcZtyrRJ6p6esdYQ==
+X-Google-Smtp-Source: AFSGD/VyK06sZuqbl+VfmLRZbR0GAvssIKB5GYwuCnF5TGHoawnvrHIXsmZMpUT9NFnVQlHVK5e5vA==
+X-Received: by 2002:a62:1043:: with SMTP id y64mr65498563pfi.78.1546897953783; 
+ Mon, 07 Jan 2019 13:52:33 -0800 (PST)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id 7sm232091484pfm.8.2019.01.07.13.52.32
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Mon, 07 Jan 2019 10:39:14 -0800 (PST)
+ Mon, 07 Jan 2019 13:52:33 -0800 (PST)
 From: Paul Walmsley <paul.walmsley@sifive.com>
 X-Google-Original-From: Paul Walmsley <paulw@sifive.com>
-Date: Mon, 7 Jan 2019 10:39:13 -0800 (PST)
-To: satish kumar <gsatish.ldd@gmail.com>
-Subject: Re: [PATCH] RISCV:IRQ: Adds Err column to /proc/interrupts
-In-Reply-To: <CAK1XJzUHgkSe9GODaUHH89b4XD0zW0EvO5RMzt5f7hpWiVsfNg@mail.gmail.com>
-Message-ID: <alpine.DEB.2.21.9999.1901071036170.11080@viisi.sifive.com>
-References: <1546696272-19152-1-git-send-email-gsatish.ldd@gmail.com>
- <alpine.DEB.2.21.9999.1901062233110.7801@viisi.sifive.com>
- <CAK1XJzUHgkSe9GODaUHH89b4XD0zW0EvO5RMzt5f7hpWiVsfNg@mail.gmail.com>
+Date: Mon, 7 Jan 2019 13:52:32 -0800 (PST)
+To: Alex Ghiti <alex@ghiti.fr>
+Subject: Re: [PATCH 0/3] Hugetlbfs support for riscv
+In-Reply-To: <817f0993-b200-e484-752a-53df28e846ea@ghiti.fr>
+Message-ID: <alpine.DEB.2.21.9999.1901071351180.14547@viisi.sifive.com>
+References: <20181210062146.24951-1-aghiti@upmem.com>
+ <817f0993-b200-e484-752a-53df28e846ea@ghiti.fr>
 User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-1354535477-1546886353=:11080"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190107_103916_618747_7A7153B6 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20190107_135234_754917_DC2483BC 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -99,107 +96,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>
+Cc: aou@eecs.berkeley.edu, akpm@linux-foundation.org, catalin.marinas@arm.com,
+ palmer@sifive.com, ndesaulniers@google.com, Alexandre Ghiti <aghiti@upmem.com>,
+ atish.patra@wdc.com, linux-riscv@lists.infradead.org, mingo@kernel.org,
+ mike.kravetz@oracle.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On Mon, 7 Jan 2019, Alex Ghiti wrote:
 
---8323329-1354535477-1546886353=:11080
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: QUOTED-PRINTABLE
+> Can I do something more regarding this series ? Anything that would ease the
+> review process, do not hesitate to ask.
 
-On Mon, 7 Jan 2019, satish kumar wrote:
+Does your series need to be rebased against v5.0-rc1 to apply cleanly?
+If so, please rebase and repost. 
 
-> On Mon, 7 Jan 2019 at 12:04, Paul Walmsley <paul.walmsley@sifive.com> wro=
-te:
->       On Sat, 5 Jan 2019, G SatishKumar wrote:
->=20
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0This patch adds extra row showing error=
- count to output of
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0/proc/interrupts using seq_printf().
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0seq_printf() API is used when printing =
-to /proc/ files as a
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0helper functions to return formatted ou=
-tput from =E2=80=98proc_read=E2=80=99
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0callback.
->       >
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0It adds Err: row to /proc/interrupts
->=20
->       Why?=C2=A0 It's always going to print "0" with this patch.=C2=A0 Do=
-es the missing
->       line break something?
->=20
-> It adds extra info in the /proc/interrupts which provides=C2=A0 error cou=
-nt.
-> It is used for printing information.
 
-If this patch kept track of interrupt-related errors, I'd agree.  But if=20
-it always prints 0, as it currently does, then there doesn't seem much=20
-point?=20
-
-> =C2=A0
->       >
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0root@(none):~# cat /proc/interrupts
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 CPU=
-0
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0 8:=C2=A0 =C2=A0 =C2=A0 =C2=A0 356=C2=
-=A0 SiFive PLIC=C2=A0 =C2=A08=C2=A0 virtio0
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A010:=C2=A0 =C2=A0 =C2=A0 =C2=A01717=C2=
-=A0 SiFive PLIC=C2=A0 10=C2=A0 ttyS0
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0IPI0:=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
-0=C2=A0 Rescheduling interrupts
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0IPI1:=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
-0=C2=A0 Function call interrupts
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0Err:=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-0
->       >
->       > Signed-off-by: G SatishKumar <gsatish.ldd@gmail.com>
->       > ---
->       >=C2=A0 arch/riscv/kernel/irq.c | 3 +++
->       >=C2=A0 1 file changed, 3 insertions(+)
->       >
->       > diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
->       > index 1d76b60..509c96b 100644
->       > --- a/arch/riscv/kernel/irq.c
->       > +++ b/arch/riscv/kernel/irq.c
->       > @@ -24,9 +24,12 @@
->       >=C2=A0 =C2=A0*/
->       >=C2=A0 #define INTERRUPT_CAUSE_FLAG (1UL << (__riscv_xlen - 1))
->       >=C2=A0
->       > +unsigned long irq_err_count;
->       > +
->       >=C2=A0 int arch_show_interrupts(struct seq_file *p, int prec)
->       >=C2=A0 {
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0show_ipi_stats(p, prec);
->       > +=C2=A0 =C2=A0 =C2=A0seq_printf(p, "%*s: %10lu\n", prec, "Err", i=
-rq_err_count);
->       >=C2=A0 =C2=A0 =C2=A0 =C2=A0return 0;
->       >=C2=A0 }
->       >=C2=A0
->       > --
->       > 2.7.4
->       >
->       >
->       > _______________________________________________
->       > linux-riscv mailing list
->       > linux-riscv@lists.infradead.org
->       > http://lists.infradead.org/mailman/listinfo/linux-riscv
->       >
->=20
->=20
->=20
---8323329-1354535477-1546886353=:11080
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-1354535477-1546886353=:11080--
-
