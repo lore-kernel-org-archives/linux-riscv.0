@@ -2,93 +2,70 @@ Return-Path: <SRS0=dvb3=PQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CEAE3C43444
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Jan 2019 04:17:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D67E8C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Jan 2019 07:57:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A2062206B7
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Jan 2019 04:17:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A3EC42173C
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Jan 2019 07:57:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mrN9UhZv";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="laMpxcBL"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A2062206B7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GigIN/r3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A3EC42173C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-ID:
-	Content-Type:MIME-Version:References:Message-ID:In-Reply-To:Subject:To:Date:
-	From:Reply-To:Content-Transfer-Encoding:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=34mmBDo+/E6iNwhrvV01/X/UYhRcZKz1wE36DxIId3I=; b=mrN9UhZvF+Uu0cd8r5hpTiAOW
-	3XerMXiRceutrsHPBARnODpZTM9wPA2ghPrcQZUPChaEAN5yX/TQL6S+KkqvZ3cvvMeH3FEsu8RYO
-	R2SUT/FA+qgTeoDxTe02FMpSqHLCconi49WIM7oyYYi1w/34w3AGYbe9n1D5zbFB7bKiUBGbRW5kM
-	uX53sIbbCjEHVaSDtU70ckhwrvGng2tfOcHyPG55a1Y3pkrVHPRfK/6xFCEdNn/Zily66RAMTivYD
-	Q1VNq6kmIaSVQMwfe4NuQ0COX5+LIuMe05ygr6LtSTnoYWcp4tCf9E51PBQeZxNu3q7VpARs6h6Bj
-	h+32lgFVA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/wpAbNZsJaRBJ7yoZLRmDVKBF8upU8tL6KwyCTIHOYo=; b=GigIN/r3gKYSg7
+	3dgyRcnTBOED9k5SV3hdbQDbo3s6Cla1MgaV44jp2qvg50u/Z4NAWIxdsVvDWBHQv2yxCEsoZxghF
+	GbBE4r09DfpB8dRUJUQbhHgj0q1G0C6po3jEENX2vrLPMbJ29tv4rRLSIXB/66XO+XfUBdNaWhNug
+	a9trq9cyCzvj4+OuK+FvThWytkwD8La1w/TZ22cJf4+CtqdaINhAj7CE6x07tgFq3M0iJcJbS6P3R
+	SdhjG4fSS6aJDMyKmjtRjBpXQt3D/jnJX6H20Qv4071nDEhEhna7fCJwW8b6OIEF4sPr5kboiONzi
+	bg/tbqfZ5lDyTHq/Lkhg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1ggipf-0003Z2-E4; Tue, 08 Jan 2019 04:17:39 +0000
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
+	id 1ggmG4-0001CU-Jo; Tue, 08 Jan 2019 07:57:08 +0000
+Received: from mail-vs1-f68.google.com ([209.85.217.68])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1ggipc-0003Yb-4h
- for linux-riscv@lists.infradead.org; Tue, 08 Jan 2019 04:17:37 +0000
-Received: by mail-pl1-x641.google.com with SMTP id u6so1211289plm.8
- for <linux-riscv@lists.infradead.org>; Mon, 07 Jan 2019 20:17:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:date:to:cc:subject:in-reply-to:message-id:references
- :user-agent:mime-version:content-id;
- bh=KNahZzpC9tDVnt4XEqVQ70Gren/Y4tr/5PuxZjAepVI=;
- b=laMpxcBL8D56mj4RBAzt6QFRg4DQJKcRXSGdrEvO6oF3KART5PGHqnkNxpuFfnS9Jn
- /URwU7Bz52zNJTNU060pwioV0a6hQR4uYV5sVWFYd5clkanW0sw8eWaSkUAl/DuMNo1x
- DBWrplb66+Fl2twgNIH9EkOnCoMChEDHIL2gA8xIaEN1A52BrILXI42gCszXY5uzUHC8
- zUv1Z/+IzuDEmH2gypBGboJqdanWChpf8bQkIkaFiiRgSC8+5ZWYScrUrulnUHaUs7hw
- 2eWJgkYneLu+HQcX/v2Rx3FSrzT3XZoTjKF2W4dZ4jArBYuxMXcZn1TYrj8djpp1Jla8
- /rpQ==
+ id 1ggmG1-0001Bu-8N
+ for linux-riscv@lists.infradead.org; Tue, 08 Jan 2019 07:57:06 +0000
+Received: by mail-vs1-f68.google.com with SMTP id z3so1907923vsf.7
+ for <linux-riscv@lists.infradead.org>; Mon, 07 Jan 2019 23:57:04 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:date:to:cc:subject:in-reply-to:message-id
- :references:user-agent:mime-version:content-id;
- bh=KNahZzpC9tDVnt4XEqVQ70Gren/Y4tr/5PuxZjAepVI=;
- b=ZMjeQ5XqL7GXFYuJHXsnWI3pdoJ4HsHreP31yD7aaavtO0/oNWbEjTMQnvxgh8xRAN
- 96fjXLpWZkTafivLVFGv8gQJHxW1VmV40wLpzTqaKuq4ZeTEdRU00fJWltiawyyqlK1B
- u73BnKIk5WK6TwgBXrd4Bxo/QI74ObEuwqnJqbVxQaJdOkLG8wm67nkYXa+s7Da7Ad70
- Ob2y4X8Ah0uyWLpP6d16tY4HdFVlOceb4FvMfYXJo1eCtbWRwT2CMoZ6poGhsuRL4tMl
- gitg+H0WWB5Fq+sHd2nA2bYhbSsahOJ/w/o5Su6g1kGZ1h4uakzsw7b9xFJxi58qyQ1A
- FkDQ==
-X-Gm-Message-State: AJcUukcbG2UXAZTLrIoWlRHyCA3cXKP7K5OXIe3CeXpzLPJCbetdeWSA
- Y9x51ixzfPiAsx99kwq7tIZKwg==
-X-Google-Smtp-Source: ALg8bN7O6LgVBeX4WyNI56C0b5p9t+yOb5B2x7qWFYTFjb44Le3138OsulUyUd6zy5wmUTXVvja2LA==
-X-Received: by 2002:a17:902:4:: with SMTP id 4mr246254pla.20.1546921053795;
- Mon, 07 Jan 2019 20:17:33 -0800 (PST)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id s2sm130937322pfa.167.2019.01.07.20.17.33
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Mon, 07 Jan 2019 20:17:33 -0800 (PST)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-X-Google-Original-From: Paul Walmsley <paulw@sifive.com>
-Date: Mon, 7 Jan 2019 20:17:32 -0800 (PST)
-To: satish kumar <gsatish.ldd@gmail.com>
-Subject: Re: [PATCH] RISCV:IRQ: Adds Err column to /proc/interrupts
-In-Reply-To: <CAK1XJzWreGAXY+1x=DGwcfea2Bz51DrYidXJGLiJg3g0UYRWPw@mail.gmail.com>
-Message-ID: <alpine.DEB.2.21.9999.1901072013320.14547@viisi.sifive.com>
-References: <1546696272-19152-1-git-send-email-gsatish.ldd@gmail.com>
- <alpine.DEB.2.21.9999.1901062233110.7801@viisi.sifive.com>
- <CAK1XJzUHgkSe9GODaUHH89b4XD0zW0EvO5RMzt5f7hpWiVsfNg@mail.gmail.com>
- <alpine.DEB.2.21.9999.1901071036170.11080@viisi.sifive.com>
- <CAK1XJzWreGAXY+1x=DGwcfea2Bz51DrYidXJGLiJg3g0UYRWPw@mail.gmail.com>
-User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=rySBcmuq6MC1aua4zuDq5jYyrsEtfhwGkXLDWTkT/u4=;
+ b=T6rYy4mXXN1zYWqUDIzql/nHtAIqCjgpwiDt+THjEJI1zmRp4N6iQNHjGQJbvYOje5
+ RzoxDDWw6xrK52M5dZj13MYtq3gPt1jo63tCIRAQMrBdcOZSk3+r6It+LiOHvaE0L5Z8
+ 1R0896199RC1kXZLdhnie0SCejYXRltmtOQnllm3XqHd9ZPjXDloaOnJ8c5Zkb9LGliU
+ +R72OS+ovT//rb8vcrAzRKS4CyxnV88giW0dQRxLY3hCPijbmX3CBBPXF6GCkly0srj6
+ mon9EnfNa0muBTlSxjx9J5Y9Qdjfxzph1+WCOMrZvslRE/Y3ccggebK7Kuvb3pBIv50B
+ 2rig==
+X-Gm-Message-State: AJcUukfubImXAoSCX5KJTxhTWH5GRLbDOjtu9HzY+wl29dQyZLY32RxQ
+ W+Xdztsu7x7CYYTnllpYDll536qi2BN1SRWtlPU=
+X-Google-Smtp-Source: ALg8bN7yZ3Ohpnn9jvfWml12rXdCkhly+ugbSQmKYd7Z7sr38oPRiO/6vIQXT6r5clDdWnTRq/yPJYfQdkzkCaU5mn4=
+X-Received: by 2002:a67:b60d:: with SMTP id d13mr317002vsm.152.1546934223659; 
+ Mon, 07 Jan 2019 23:57:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; BOUNDARY="8323329-1560531810-1546920877=:14547"
-Content-ID: <alpine.DEB.2.21.9999.1901072017030.14547@viisi.sifive.com>
+References: <1546904307-11124-1-git-send-email-yamada.masahiro@socionext.com>
+In-Reply-To: <1546904307-11124-1-git-send-email-yamada.masahiro@socionext.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 8 Jan 2019 08:56:52 +0100
+Message-ID: <CAMuHMdU_wUjk=nw9QtWaNGzgb3cCUiKLZpPy+bmcn4qw6zbccw@mail.gmail.com>
+Subject: Re: [PATCH] arch: unexport asm/shmparam.h for all architectures
+To: Masahiro Yamada <yamada.masahiro@socionext.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190107_201736_247859_F23A3BA9 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20190107_235705_299904_A079A9EF 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -100,75 +77,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@sifive.com>, Guo Ren <guoren@kernel.org>,
+ linux-riscv@lists.infradead.org, Vincent Chen <deanbo422@gmail.com>,
+ Nicolas Dichtel <nicolas.dichtel@6wind.com>,
+ Linux-Arch <linux-arch@vger.kernel.org>, linux-c6x-dev@linux-c6x.org,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
+ Mark Salter <msalter@redhat.com>,
+ "moderated list:H8/300 ARCHITECTURE" <uclinux-h8-devel@lists.sourceforge.jp>,
+ Jonas Bonn <jonas@southpole.se>, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ Openrisc <openrisc@lists.librecores.org>, Greentime Hu <green.hu@gmail.com>,
+ Stafford Horne <shorne@gmail.com>,
+ Aurelien Jacquiot <jacquiot.aurelien@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
+ Michal Simek <monstr@monstr.eu>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Richard Kuo <rkuo@codeaurora.org>, Andrew Morton <akpm@linux-foundation.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+Hi Yamada-san,
 
---8323329-1560531810-1546920877=:14547
-Content-Type: text/plain; CHARSET=ISO-8859-7
-Content-Transfer-Encoding: QUOTED-PRINTABLE
-Content-ID: <alpine.DEB.2.21.9999.1901072017031.14547@viisi.sifive.com>
+On Tue, Jan 8, 2019 at 12:41 AM Masahiro Yamada
+<yamada.masahiro@socionext.com> wrote:
+> Most architectures do not export shmparam.h to user-space.
+>
+>   $ find arch -name shmparam.h  | sort
+>   arch/alpha/include/asm/shmparam.h
+>   arch/arc/include/asm/shmparam.h
+>   arch/arm64/include/asm/shmparam.h
+>   arch/arm/include/asm/shmparam.h
+>   arch/csky/include/asm/shmparam.h
+>   arch/ia64/include/asm/shmparam.h
+>   arch/mips/include/asm/shmparam.h
+>   arch/nds32/include/asm/shmparam.h
+>   arch/nios2/include/asm/shmparam.h
+>   arch/parisc/include/asm/shmparam.h
+>   arch/powerpc/include/asm/shmparam.h
+>   arch/s390/include/asm/shmparam.h
+>   arch/sh/include/asm/shmparam.h
+>   arch/sparc/include/asm/shmparam.h
+>   arch/x86/include/asm/shmparam.h
+>   arch/xtensa/include/asm/shmparam.h
+>
+> Strangely, some users of the asm-generic wrapper export shmparam.h
+>
+>   $ git grep 'generic-y += shmparam.h'
+>   arch/c6x/include/uapi/asm/Kbuild:generic-y += shmparam.h
+>   arch/h8300/include/uapi/asm/Kbuild:generic-y += shmparam.h
+>   arch/hexagon/include/uapi/asm/Kbuild:generic-y += shmparam.h
+>   arch/m68k/include/uapi/asm/Kbuild:generic-y += shmparam.h
+>   arch/microblaze/include/uapi/asm/Kbuild:generic-y += shmparam.h
+>   arch/openrisc/include/uapi/asm/Kbuild:generic-y += shmparam.h
+>   arch/riscv/include/asm/Kbuild:generic-y += shmparam.h
+>   arch/unicore32/include/uapi/asm/Kbuild:generic-y += shmparam.h
+>
+> The newly added riscv correctly creates the asm-generic wrapper
+> in the kernel space, but the others (c6x, h8300, hexagon, m68k,
+> microblaze, openrisc, unicore32) create the one in the uapi directory.
+>
+> Digging into the git history, now I guess fcc8487d477a ("uapi:
+> export all headers under uapi directories") was the misconversion.
+> Prior to that commit, no architecture exported to shmparam.h
+> As its commit description said, that commit exported shmparam.h
+> for c6x, h8300, hexagon, m68k, openrisc, unicore32.
+>
+> 83f0124ad81e ("microblaze: remove asm-generic wrapper headers")
+> accidentally exported shmparam.h for microblaze.
+>
+> This commit unexports shmparam.h for those architectures.
+>
+> There is no more reason to export include/uapi/asm-generic/shmparam.h,
+> so it has been moved to include/asm-generic/shmparam.h
+>
+> Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
+
+Thanks for your patch!
+
+include/uapi/asm-generic/shmparam.h contains a single definition:
+
+    #define SHMLBA PAGE_SIZE         /* attach addr a multiple of this */
+
+So this definition is not used by userspace?
+
+Note that it is refered to by include/uapi/linux/shm.h, albeit in a comment:
+
+    #define SHM_RND         020000  /* round attach address to SHMLBA
+boundary */
+
+Glibc provides its own definition in /usr/include/x86_64-linux-gnu/bits/shm.h
+
+    #define SHMLBA (__getpagesize ())
+
+So probably this is safe.
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-On Tue, 8 Jan 2019, satish kumar wrote:
-
-> On Tue, 8 Jan 2019 at 00:09, Paul Walmsley <paul.walmsley@sifive.com> wro=
-te:
-> >
-> > On Mon, 7 Jan 2019, satish kumar wrote:
-> >
-> > > On Mon, 7 Jan 2019 at 12:04, Paul Walmsley <paul.walmsley@sifive.com>=
- wrote:
-> > >       On Sat, 5 Jan 2019, G SatishKumar wrote:
-> > >
-> > >       >       This patch adds extra row showing error count to output=
- of
-> > >       >       /proc/interrupts using seq_printf().
-> > >       >       seq_printf() API is used when printing to /proc/ files =
-as a
-> > >       >       helper functions to return formatted output from =A1pro=
-c_read=A2
-> > >       >       callback.
-> > >       >
-> > >       >       It adds Err: row to /proc/interrupts
-> > >
-> > >       Why?  It's always going to print "0" with this patch.  Does the=
- missing
-> > >       line break something?
-> > >
-> > > It adds extra info in the /proc/interrupts which provides  error coun=
-t.
-> > > It is used for printing information.
-> >
-> > If this patch kept track of interrupt-related errors, I'd agree.  But i=
-f
-> > it always prints 0, as it currently does, then there doesn't seem much
-> > point?
-> Yes, it does. This patch gives information of Interrupt error count
-> in all cases .
-
-NAK from me until either
-
-1. the patch is modified to increment the IRQ error count when a bad IRQ=20
-occurs, or
-2. someone finds a common userspace tool that breaks if the "Err:" field=20
-isn't present
-
-- Paul
---8323329-1560531810-1546920877=:14547
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-1560531810-1546920877=:14547--
-
