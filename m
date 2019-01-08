@@ -2,86 +2,90 @@ Return-Path: <SRS0=dvb3=PQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 751A9C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Jan 2019 20:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7551AC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Jan 2019 22:19:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3BD8F20700
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Jan 2019 20:17:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 44A2B20883
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Jan 2019 22:19:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bKmfqvZ/";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="ccoBiJs8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3BD8F20700
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ES85k3SE";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="fbmmFUjh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 44A2B20883
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=X4m9q+/5um7Hm3BTk0WysAYdkLKT0P5GZN6PWq1hcrs=; b=bKmfqvZ/fOqF+V0CRZ7ZgpMyP
-	1YMBsWksS82FIEb9j3WaS3krdvgO3i9SDjMdnNUi610xa6PbN92yS8gPylnBLFR8sng8fPv6v09nd
-	s5Q3QHG/1FV5BN2smIFud7m14gv3skgF+PeAkSjCCm1E5ZRy66f3wGq8nZZmtbQTP2IT9ZFb/8BOa
-	8i/FHkIpndtl6H0zUvcKzpyG0HKyS38bEJA2MJS1MNekKZiJIcz3ImAr9s89mwcJUwHHIdY23kpHN
-	TbX6/IOtLy+mwEoT2jY56Hd+bjUtBYd8qGo253UhuC7apB8JfxGXQp30TbPNiLKrrq3Rz6+R/cBSh
-	p7cZVx09A==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=shoyvjsEyV9T5Glr+LkTd1qzmcgzPUEAfkX0A/bBEJM=; b=ES85k3SEeuM/Lg
+	Qm/3jUJh+iPk7pActwtIHyD5oPgKmu9seyu/qC8+g0fsvixUSOI8vsVtFUZwMkrGB6Y1pOhU3HJjO
+	oK2KTGW8bOkOFic/4pxGry/hojv2URZ5V2V6iTA5Ubnwe4p+ZTk7Ty2CoXDU/qT6F0IND3DLdbgxn
+	iVj65Wcc6CW3PT52L3KWn6GsFCwZZ4IHlscP3pugSBHZqoFQ282TqchnY1+DoDgqCWr1mUwORwDzc
+	IfuznBW1Y6dMgaW4qlB72hBqCUgIdWSUlVx9+ZSWaJdMhme2D/9eq3SS+xg/MSo7RcRR8koLtbkHu
+	IUvD90qU4Xai7a5SGGjg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1ggxoU-0005DN-3Y; Tue, 08 Jan 2019 20:17:26 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1ggzik-0007Te-5M; Tue, 08 Jan 2019 22:19:38 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1ggxoQ-0005Ct-5T
- for linux-riscv@lists.infradead.org; Tue, 08 Jan 2019 20:17:24 +0000
-Received: by mail-pf1-x443.google.com with SMTP id r136so2452697pfc.6
- for <linux-riscv@lists.infradead.org>; Tue, 08 Jan 2019 12:17:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=NHq73EOC6P/EZP1zXEp3GS6Y59Bi8cZdKMfq30ztJos=;
- b=ccoBiJs8wGFBxd3eVhWoT4x7W5UbDJzMJjhybyEKr3HV1C9N5aoNa+32WD/aAozvRY
- HUhoWeV5zUkRnhZQujj3dHj/700AzDITCf91nEy9Pet1C+UOkZUuUPa52DfRyW78wKEq
- bIZK8K3yaNa9ZqBhmdwnUSrZ95OUhnGWjl7RmWodjmb8sDMNvloCJqrVbFuuYFeDeN6n
- wvUY85xIaj7QieU9Qchaj1J1Kkr2R219UI/gxiSw3CcHxyg1pNjpdiWcrwugg2feZi8g
- MjWJ+Jaq9Uh9NpShSUAAAmYeD7NlnPxAbnVUqHcahXYE2vnuzjfQjcX6uwy7C+bDOb0c
- 4+BA==
+ id 1ggzig-0007Sv-Dn
+ for linux-riscv@lists.infradead.org; Tue, 08 Jan 2019 22:19:36 +0000
+Received: by mail-pf1-x441.google.com with SMTP id i12so2595821pfo.7
+ for <linux-riscv@lists.infradead.org>; Tue, 08 Jan 2019 14:19:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=/O3sY8celNMvtR9WhIqaTjCanK7+dtn6FuJgraOR7Uw=;
+ b=fbmmFUjh8COCYh5vjmZyvsTK03G99sIrzefroQ5j2Uu9CO9ADuBlP173v5pOy8mkv9
+ ciWJf5mnLE1UPL7SQi4Yiags1nwwvcqUkSlMhsqptXAjFJMx6tZ01b5pPtOdHzspitut
+ Vo597QJWW7ki/mitT1ERlnnvD4obEg0SxPk4+rLodY/MZ5FSEekGfjTcZVXqbE+1kSn+
+ Cif7+1EG12rKvpIR+fR3PktyXs/SvTFO4h/5kk/jAXtAlDMGofTanPAFiKqfiZNGkVsY
+ Bn5TvhtCbKZx5nVhnJGTdkzyaTR5pJyaBdmz/NAkWosY9WfgkLCGIPoPVvLQn59zi3+9
+ vnDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=NHq73EOC6P/EZP1zXEp3GS6Y59Bi8cZdKMfq30ztJos=;
- b=Xy9zksi+fiHbGJ/8tkD3GFDKk9T5slW3kwDuPueUaMr391fYAnQuqZcE4uy04iPa3K
- 5ccQy00STqkdU2ATTqCOoOqQavujM9U89fxi17CCEA44b0Pb3UyMExb94Wywepb+2hpA
- j0nqROg9hCTPQhEddYKYzyWCGXjY81wtbZJDHhgQG5keFBHRIvogCmfnX8uStihmgMnn
- 0NSAhauTy0a0x+6K8vc7MUOwujXRcEdgFFA5axhCgXGZlVkoCJPIxmlCaV9+wTm+s/nH
- /aqJ7hy9BdWEn5qATkqC2cw4ehWdWMheXnMONT1FzjCPrdDtulSDEaI8DjINsPx1tJ2A
- jt9Q==
-X-Gm-Message-State: AJcUukeNqoUOrND/zxRymCcluJ77KzdyhEGXxvZ+BLvCVjBCxTMC/p7s
- mSV3s2P28+eOXLgaCE5gAAgQzQJcHgw=
-X-Google-Smtp-Source: ALg8bN72u4US66UDBZ4SNoRsySPsovguRSvPDE066b/Oi8EEF/GdrakryNTJZhCRogu2wmpDuElM3g==
-X-Received: by 2002:a63:5455:: with SMTP id e21mr2814758pgm.316.1546978640863; 
- Tue, 08 Jan 2019 12:17:20 -0800 (PST)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id i72sm104704585pfe.181.2019.01.08.12.17.19
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 08 Jan 2019 12:17:19 -0800 (PST)
-Date: Tue, 08 Jan 2019 12:17:19 -0800 (PST)
-X-Google-Original-Date: Tue, 08 Jan 2019 12:16:42 PST (-0800)
-Subject: Re: [PATCH] riscv: remove redundant kernel-space generic-y
-In-Reply-To: <CAK7LNAT+5eOFc64SG2SKCOThVVsz6S2NPBpemdcjCcZX_zds2Q@mail.gmail.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: yamada.masahiro@socionext.com
-Message-ID: <mhng-aacb9594-f17b-4728-91f7-e2804e6a3dbc@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=/O3sY8celNMvtR9WhIqaTjCanK7+dtn6FuJgraOR7Uw=;
+ b=hEfGt//UAZ2LRcXF3T6IsvXaVBnGlZjl08sFU2gS0Lar1npCQRvIqYnf0HAWPvttaH
+ xI7JMimjL5KJyiiSlFr2jJFa2UzdO6MNWDW4HvZ5UAo08tEYNRzIJXsIOUx+7WjQiP7m
+ 20bGc9flhb+p2/IYuzZtgLq/Fbb/MF/0OHtzWggsJ6nCzoww4h4yzC14uuBglaVLgAaQ
+ pGF0bGqeVwRshrlhuxSJtw5rbHqeUnwKw+ZCnZhxDP1vPQ8dp883yVyRy0BepUrtH8O6
+ qy5+rDc+h2biR1zX9kDRkNfICm20thfFAgniV+t2Wb2Vc0oL6ZMMlOFsdE1fNbdYdIrQ
+ Asmg==
+X-Gm-Message-State: AJcUukfVH1/cemxaDrx3VUMNryMxeGD9disX7uvC4UBjUx40s4YrUPu1
+ T+QrVreizPcbvgTM8VtsXhI=
+X-Google-Smtp-Source: ALg8bN722fGi+WjBj2KsQHVwIaf0ObT5Q3kuvGLXfLoHV5w7jFnlyoDS9iIt/nAZXcGQ99DTQT1vKg==
+X-Received: by 2002:a62:2547:: with SMTP id l68mr3428061pfl.131.1546985973598; 
+ Tue, 08 Jan 2019 14:19:33 -0800 (PST)
+Received: from localhost (g206.124-44-15.ppp.wakwak.ne.jp. [124.44.15.206])
+ by smtp.gmail.com with ESMTPSA id v184sm99160620pfb.182.2019.01.08.14.19.32
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Tue, 08 Jan 2019 14:19:32 -0800 (PST)
+Date: Wed, 9 Jan 2019 07:19:30 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Masahiro Yamada <yamada.masahiro@socionext.com>
+Subject: Re: [PATCH] arch: unexport asm/shmparam.h for all architectures
+Message-ID: <20190108221930.GQ3235@lianli.shorne-pla.net>
+References: <1546904307-11124-1-git-send-email-yamada.masahiro@socionext.com>
+ <20190108111032.GP3235@lianli.shorne-pla.net>
+ <CAK7LNAS+grgqHM-ht0CCTmZHp+JRvr=Q+sJOo0URqRgTAYRs0w@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAK7LNAS+grgqHM-ht0CCTmZHp+JRvr=Q+sJOo0URqRgTAYRs0w@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190108_121722_237789_CF5C935F 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20190108_141934_485643_B201BA15 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,146 +97,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, alankao@andestech.com, linux-kernel@vger.kernel.org,
- geert@linux-m68k.org, deepa.kernel@gmail.com, linux-riscv@lists.infradead.org,
- Jim Wilson <jimw@sifive.com>
+Cc: Palmer Dabbelt <palmer@sifive.com>, Guo Ren <guoren@kernel.org>,
+ linux-riscv@lists.infradead.org, Vincent Chen <deanbo422@gmail.com>,
+ linux-arch <linux-arch@vger.kernel.org>, linux-c6x-dev@linux-c6x.org,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, linux-hexagon@vger.kernel.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Mark Salter <msalter@redhat.com>,
+ "moderated list:H8/300 ARCHITECTURE" <uclinux-h8-devel@lists.sourceforge.jp>,
+ Jonas Bonn <jonas@southpole.se>, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>, openrisc@lists.librecores.org,
+ Greentime Hu <green.hu@gmail.com>, Nicolas Dichtel <nicolas.dichtel@6wind.com>,
+ Aurelien Jacquiot <jacquiot.aurelien@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
+ Michal Simek <monstr@monstr.eu>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Richard Kuo <rkuo@codeaurora.org>, Andrew Morton <akpm@linux-foundation.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Jan 2019 07:03:20 PST (-0800), yamada.masahiro@socionext.com wrote:
-> On Fri, Jan 4, 2019 at 11:16 AM Palmer Dabbelt <palmer@sifive.com> wrote:
->>
->> On Sun, 16 Dec 2018 06:11:11 PST (-0800), yamada.masahiro@socionext.com wrote:
->> > This commit removes redundant generic-y defines in
->> > arch/riscv/include/asm/Kbuild.
->> >
->> > [1] It is redundant to define the same generic-y in both
->> >     arch/$(ARCH)/include/asm/Kbuild and
->> >     arch/$(ARCH)/include/uapi/asm/Kbuild.
->> >
->> >     Remove the following generic-y:
->> >
->> >       errno.h
->> >       fcntl.h
->> >       ioctl.h
->> >       ioctls.h
->> >       ipcbuf.h
->> >       mman.h
->> >       msgbuf.h
->> >       param.h
->> >       poll.h
->> >       posix_types.h
->> >       resource.h
->> >       sembuf.h
->> >       setup.h
->> >       shmbuf.h
->> >       signal.h
->> >       socket.h
->> >       sockios.h
->> >       stat.h
->> >       statfs.h
->> >       swab.h
->> >       termbits.h
->> >       termios.h
->> >       types.h
->> >
->> > [2] It is redundant to define generic-y when arch-specific
->> >     implementation exists in arch/$(ARCH)/include/asm/*.h
->> >
->> >     Remove the following generic-y:
->> >
->> >       cacheflush.h
->> >       dma-mapping.h
->> >       module.h
->> >
->> > Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
->> > ---
->> >
->> >  arch/riscv/include/asm/Kbuild | 26 --------------------------
->> >  1 file changed, 26 deletions(-)
->> >
->> > diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
->> > index 6a646d9..f7068f3 100644
->> > --- a/arch/riscv/include/asm/Kbuild
->> > +++ b/arch/riscv/include/asm/Kbuild
->> > @@ -1,5 +1,4 @@
->> >  generic-y += bugs.h
->> > -generic-y += cacheflush.h
->> >  generic-y += checksum.h
->> >  generic-y += compat.h
->> >  generic-y += cputime.h
->> > @@ -7,18 +6,12 @@ generic-y += device.h
->> >  generic-y += div64.h
->> >  generic-y += dma.h
->> >  generic-y += dma-contiguous.h
->> > -generic-y += dma-mapping.h
->> >  generic-y += emergency-restart.h
->> > -generic-y += errno.h
->> >  generic-y += exec.h
->> >  generic-y += fb.h
->> > -generic-y += fcntl.h
->> >  generic-y += hardirq.h
->> >  generic-y += hash.h
->> >  generic-y += hw_irq.h
->> > -generic-y += ioctl.h
->> > -generic-y += ioctls.h
->> > -generic-y += ipcbuf.h
->> >  generic-y += irq_regs.h
->> >  generic-y += irq_work.h
->> >  generic-y += kdebug.h
->> > @@ -27,34 +20,15 @@ generic-y += kvm_para.h
->> >  generic-y += local.h
->> >  generic-y += local64.h
->> >  generic-y += mm-arch-hooks.h
->> > -generic-y += mman.h
->> > -generic-y += module.h
->> > -generic-y += msgbuf.h
->> >  generic-y += mutex.h
->> > -generic-y += param.h
->> >  generic-y += percpu.h
->> > -generic-y += poll.h
->> > -generic-y += posix_types.h
->> >  generic-y += preempt.h
->> > -generic-y += resource.h
->> >  generic-y += scatterlist.h
->> >  generic-y += sections.h
->> > -generic-y += sembuf.h
->> >  generic-y += serial.h
->> > -generic-y += setup.h
->> > -generic-y += shmbuf.h
->> >  generic-y += shmparam.h
->> > -generic-y += signal.h
->> > -generic-y += socket.h
->> > -generic-y += sockios.h
->> > -generic-y += stat.h
->> > -generic-y += statfs.h
->> > -generic-y += swab.h
->> > -generic-y += termbits.h
->> > -generic-y += termios.h
->> >  generic-y += topology.h
->> >  generic-y += trace_clock.h
->> > -generic-y += types.h
->> >  generic-y += unaligned.h
->> >  generic-y += user.h
->> >  generic-y += vga.h
->>
->> Thanks.  These just sort of collected there because I hadn't trimmed them.  Is
->> there a script that checks these?
->
->
-> No script is available for now, but
-> I'd like to turn on warnings to catch some cases:
-> https://patchwork.kernel.org/patch/10746823/
->
->
-> BTW, can I apply this to my tree
-> along with other cleanups?
+On Wed, Jan 09, 2019 at 12:32:28AM +0900, Masahiro Yamada wrote:
+> Hi Stafford,
+> 
+> 
+> 
+> On Tue, Jan 8, 2019 at 8:12 PM Stafford Horne <shorne@gmail.com> wrote:
+> >
+> > What is this patch based on?  I tried to apply it to 5.0-rc1 and am having an
+> > issue with applying the arch/openrisc/include/uapi/asm/Kbuild part.
+> 
+> 
+> Based on Linus' latest tree.
+> (commit 3bd6e94be)
+> 
+> v5.0-rc1 is NOT the latest.
 
-Acked-by: Palmer Dabbelt <palmer@sifive.com>
+OK, understood, in that case:
 
-Thanks!
+Acked-by: Stafford Horne <shorne@gmail.com>
+
+(though I see its already being picked up on the -mm tree)
+
+> > It seems shmparam.h is not there. It was removed with the others in your
+> > ("d6e4b3e326d8") arch: remove redundant UAPI generic-y defines, commit a few
+> > days ago.
+> >
+> > Note, I can't compile 5.0-rc1 without the first part of this patch.  So please
+> > get it merged asap :)
+> 
+> 
+> I notice the breakage of several arches after v5.0-rc1 release,
+> so I asked Linus to pick up 3d6e94be.
+> 
+> I had already noticed
+> having shmparam.h in uapi is werid,
+> but I decided to fix the build errors first.
+
+Yes, that makes sense.
+
+-Stafford
 
 _______________________________________________
 linux-riscv mailing list
