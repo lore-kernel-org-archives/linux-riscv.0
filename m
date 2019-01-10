@@ -3,61 +3,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 75966C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 10 Jan 2019 15:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 307D5C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 10 Jan 2019 16:17:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 441DD214C6
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 10 Jan 2019 15:26:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F2C2620685
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 10 Jan 2019 16:17:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hL1CPoq7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 441DD214C6
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MPgqpGjR";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="eU/+6VpX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F2C2620685
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=um5pb7X1fmHZy44mT1kapL6v/efgOKRYjHZbNsc5U2k=; b=hL1CPoq7sTC9LG
-	YuGwjHQDkRgo0faJBFwYfgn+E0sgWSR8vq6cNNtq11hJGgx7Vf+4qw7gPBIAXQQ0Ay34+HlHBZXbj
-	mIdvdiuflBne1I8H/4cjPdhchOX1eIkHGN8G102Qi0vYhvIS9zCw++oVsrYdLtwHSkU96RESkSFT3
-	3b34PGCPqWiV9wtWpNkBYjABTnufE1Nfcr5fhestM2A1EDxrk/TBzoFdKHBIOnZJhkginKPv7+dbk
-	AQJPfGx9z4MUxOiyUSKb5PFz0Wy1sNiFtMHFIhiRHBBwsa+sLtUDbF9sHmHNCZznMStyvzpWzJ8Hn
-	8CcDZ9Nzn4fMas2+iGBQ==;
+	List-Owner; bh=ESGuSrpQvWBjNOc/MlseGE3Jr6QSI6/LZ94JDryuuBE=; b=MPgqpGjRv2LZmN
+	P0dyBKApqapQPXroRGDS9jxqfE+hGaiikZ6+q+/H6ih2qlmELE+O4S6kiPxL9PDt1u40BU00vFhre
+	Fkb3xLGGHleg/YS91GT+y681q1aybNNuS6z8yHgjWmtm5fnTyHTU/KBczd+4lxx/rFNuA4HvxcQ2u
+	tCe7d8uZqPFx9L6ZYB0Gz+RTKNS6EtOrfRUReJuCt/ojtOg42AYcFiAfrKEyLZ/wpVptq89NjB4GH
+	JtCxctbEBQYZNIyVsf2PgCpalFE4wTjRlKzJ4HUCqnh7/3I7IcPq6ahuR4fxaa6Kz7SYKYIyc0cip
+	1sAgyjKCmcXq5d+6piQA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1ghcES-0007Si-Dr; Thu, 10 Jan 2019 15:26:56 +0000
-Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+	id 1ghd1I-0000e9-21; Thu, 10 Jan 2019 16:17:24 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1ghcEO-0007KP-3p
- for linux-riscv@lists.infradead.org; Thu, 10 Jan 2019 15:26:53 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id E9BA0AF9A;
- Thu, 10 Jan 2019 15:26:47 +0000 (UTC)
-From: Andreas Schwab <schwab@suse.de>
-To: Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH] tty/serial: emit CR before NL in RISC-V SBL console
+ id 1ghd1E-0000de-JL
+ for linux-riscv@lists.infradead.org; Thu, 10 Jan 2019 16:17:22 +0000
+Received: by mail-wm1-x342.google.com with SMTP id y139so11733967wmc.5
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Jan 2019 08:17:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=m7zd4F4iCg7LqUJrAtDsKz7+E+kJNDA5tf+6CtbsY7Q=;
+ b=eU/+6VpX2yaywkjodLF6Hqp2XAB7DKmZTsrA7KnUGxFncAS2CJADrKxdofrFgLRw4P
+ eHTNOAh1gHe46rsFeSp2MFaNJM2XL1q1hbbBBgVLpvbebUHzGaDuhyTaQ6scTu7gK7W+
+ JO4pL6k/kY/3+Geqs0v2vSmuQwVhq1eoIXJZq8Y2GOAvx9G2mRE3hymg+A25pc9zOe5I
+ +T5/SlxjLqqM0IiV4vfUPBow9aT+D4DYXMyuC+UYOg4rSBbYgRzB1iQgfuE66Xl9b3WF
+ HZDIv757/25JbpwnUqO3hbQp4zUVnHUQ8DLs2TNClWyUnMCGMZ5iAvE6T5Y0P+hoUkJK
+ H0OQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=m7zd4F4iCg7LqUJrAtDsKz7+E+kJNDA5tf+6CtbsY7Q=;
+ b=AmZFmvY2HPZaPOeqOmZrDoqy0ebDV6V1C+NKzTeDGfpdEmf26gWNTs4GDU9S2TSNE5
+ /0V88LgmwpD2ndADlKPYVTLa2xOAOP8uuEHvEsaQG4Do49JqJBlzE78oVV/M+gj8d8xL
+ roxynbzduB/JNixwfxqfmJ+7XwDP3xtKqOX5j+vyzEv/9czNuga18jOlODZFAs/vPLjB
+ BwJ5K8e1T8l92x/O2xl0u8S0YvRmHvauAFTyAIfyXOBbqCdKYcRffUbGRSsE15PmeoYl
+ WN2W9dJ9aAKkigtl8/0CeVNGeszGJyQ14a21YBL6QzFCTUJMkTsrEndk1fQ60PcDOypY
+ 7Kcw==
+X-Gm-Message-State: AJcUukcCb52MNC6qGEey+e5j2q1WzusQAOKJ0OK+PL1a+5gr4kL4O4/4
+ wBfLA6EdK5vORNNucRNYNQlyQw/1aQs50CKbSzwUUA==
+X-Google-Smtp-Source: ALg8bN6AAzhTc8eiJ5/RdCwaMAu4nfBEQKLa3Fg3gFECP6GCQfpAJuksSHlEu/FiybRFHYBOZWIeRK1cc9EwWF5FhM8=
+X-Received: by 2002:a1c:f509:: with SMTP id t9mr11115100wmh.76.1547137038333; 
+ Thu, 10 Jan 2019 08:17:18 -0800 (PST)
+MIME-Version: 1.0
 References: <20181204135507.3706-1-anup@brainfault.org>
  <20181204135507.3706-2-anup@brainfault.org>
  <mvmbm4oehd5.fsf_-_@suse.de>
  <CAAhSdy3-SaP7RBbgx7kZgkkxeN2W-Ue8QDFXkOgFG5GiAg52-g@mail.gmail.com>
-X-Yow: Why is everything made of Lycra Spandex?
-Date: Thu, 10 Jan 2019 16:26:46 +0100
-In-Reply-To: <CAAhSdy3-SaP7RBbgx7kZgkkxeN2W-Ue8QDFXkOgFG5GiAg52-g@mail.gmail.com>
- (Anup Patel's message of "Thu, 10 Jan 2019 20:46:51 +0530")
-Message-ID: <mvm7efcedop.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.91 (gnu/linux)
-MIME-Version: 1.0
+ <mvm7efcedop.fsf@suse.de>
+In-Reply-To: <mvm7efcedop.fsf@suse.de>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 10 Jan 2019 21:47:07 +0530
+Message-ID: <CAAhSdy0suSgKpdz+NUrXzS9Ozp75hMC6ovW4yLf5s0KYJwwocw@mail.gmail.com>
+Subject: Re: [PATCH] tty/serial: emit CR before NL in RISC-V SBL console
+To: Andreas Schwab <schwab@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190110_072652_306143_560DDFE5 
-X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-CacheID: sfid-20190110_081720_699578_B7C33A09 
+X-CRM114-Status: UNSURE (   9.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -82,24 +105,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Jan 10 2019, Anup Patel <anup@brainfault.org> wrote:
+On Thu, Jan 10, 2019 at 8:56 PM Andreas Schwab <schwab@suse.de> wrote:
+>
+> On Jan 10 2019, Anup Patel <anup@brainfault.org> wrote:
+>
+> > Instead of doing '\n' handling here, we should do it in BBL or
+> > OpenSBI (i.e. SBI runtime firmware) otherwise all users of
+> > SBI_CONSOLE_PUTCHAR (namely, Linux, FreeBSD,
+> > FreeRTOS, U-Boot S-mode, etc) will endup having '\n'
+> > handling.
+>
+> I don't think the serial driver should do NLCR handling on its own,
+> without being instructed by the tty layer.  Since the earlycon does not
+> have a tty layer, it needs to handle it explicitly.
 
-> Instead of doing '\n' handling here, we should do it in BBL or
-> OpenSBI (i.e. SBI runtime firmware) otherwise all users of
-> SBI_CONSOLE_PUTCHAR (namely, Linux, FreeBSD,
-> FreeRTOS, U-Boot S-mode, etc) will endup having '\n'
-> handling.
+I tried to investigate more. What you suggest is correct
+but we should use uart_console_write() API.
 
-I don't think the serial driver should do NLCR handling on its own,
-without being instructed by the tty layer.  Since the earlycon does not
-have a tty layer, it needs to handle it explicitly.
+Instead of explicitly doing NLCR here, we should do
+something as follows:
 
-Andreas.
+static void sbi_putc(struct uart_port *port, int c)
+{
+    sbi_console_putchar(c);
+}
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+static void sbi_console_write(struct console *con,
+                                               const char *s, unsigned n)
+{
+    struct earlycon_device *dev = con->data;
+    uart_console_write(&dev->port, s, n, sbi_putc);
+}
+
+The uart_console_write() does the NLCR handling.
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
