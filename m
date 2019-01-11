@@ -1,87 +1,89 @@
-Return-Path: <SRS0=4zRh=PS=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=/Bz6=PT=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 27F8FC43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 10 Jan 2019 20:54:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 34E5CC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 11 Jan 2019 06:07:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DB79B20685
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 10 Jan 2019 20:54:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 02CE020675
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 11 Jan 2019 06:07:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nh7Sg7dc";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="glH1iuYZ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DB79B20685
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hlQW0IJl";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="RxeDdcnH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 02CE020675
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=zDgKlewtJuHn4m8d2TDGxoYJebIxa7XPPGwHi6Od5Vk=; b=nh7Sg7dcdoN5IsP+h52x5pEL0
-	auiznTqx5mh3W10XjEFkdlNPcfadO7WLfgZKyCnf/Q0pRUcHanvXl5tEY0PH7g7oDJxpTulQ5h1cR
-	vpaQAZELkQMxwkBsm6OBfUZUVwcR9uOlPqe1ySo+CrD32MXIgK+NiqWqWacYggYJVjj0RFPH2ifZZ
-	cmz2UdFuG2dG+vWCmWLToUv31ElsLMl+4FNyRxaL05vEqsq7J8oL4HECmMjEFucG3kb0y6G/CJOUc
-	+sPCseAVEQn4BYhnV0ZOaS8wmZgJ5vmZWAazYiQOgmmAs1ns9knGeCMnaS5SpmI6YPfwyZLA2ZUAU
-	IaxgYKOUQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:To:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ijYGEQC4cH44mpkrJ6qGTZw2XvXQ32QqoqL6b7Nlm3A=; b=hlQW0IJlDDbcPa
+	+NdxmcH0FpcEFjlJSH7hZf1DNaW481rj7lf6zPZJgVQ1+SgshYnQUsAsIhCg0CmFXbwTz0CcFY8sE
+	O8BZuQlUg4z8uzf8D7wWIPvb5lgQ7WQAM+wSbII4MNxlFTzU7MIyTexjwow6XIej+hroC3CDa1T9E
+	xlg38Vq9BUoj/TpyxOzyUTtL1emor+ejCzPU7xBmOxetfRzGy998WuIIyal3GxKk5uub3pEnGJGMr
+	dgWSlSj30xwZ+WE/4bM07ZkVre5RmAv5voznx0qYMVd2v4e3XpZ8gwkcVq15KDhVc7hV9n66wSBFz
+	lCnWA9QP0rvurtS8PJJQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1ghhLt-0003HO-Hg; Thu, 10 Jan 2019 20:54:57 +0000
-Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+	id 1ghpyC-0002k4-6h; Fri, 11 Jan 2019 06:07:04 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1ghhLh-0003EI-Th
- for linux-riscv@lists.infradead.org; Thu, 10 Jan 2019 20:54:55 +0000
-Received: by mail-pg1-x541.google.com with SMTP id w7so5303355pgp.13
- for <linux-riscv@lists.infradead.org>; Thu, 10 Jan 2019 12:54:45 -0800 (PST)
+ id 1ghpy9-0002jX-Fn
+ for linux-riscv@lists.infradead.org; Fri, 11 Jan 2019 06:07:02 +0000
+Received: by mail-pl1-x643.google.com with SMTP id t13so6280780ply.13
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Jan 2019 22:07:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=chBp/UJxnNpR33iIZVktfED5fzc5gbgR9UsUskuYUtU=;
- b=glH1iuYZk6oVDfYbYSwfvuDH7AgwH48SrUC5v93H6iTKUxdAo9ygM/PJGD8KoROHfb
- WUm6pwqVvp3IYVwNLwmQNl+1/68HyQugfMrfxVZGy476GhPXvjJLuREYwISYRoTuLMkI
- w08ptM+ju0X/qIPfSck3AhvnD2y7mEDcOMFj216ZcF8XgNSlD1yd86bhZkUnOd3dfdBQ
- HWDJnHRcZTLat4wqT/ejwfv1umsu5xg3PR5P55zo6SZrAFHDJOKQqDATTjac+r6uwiSy
- UNS2/ieAKUQlkbrwBT02TTvDNpq8I+J2XI9exKaNGukzkHtarMxIPu6M3LPLcYx3QgMg
- fmpg==
+ h=from:date:to:cc:subject:in-reply-to:message-id:references
+ :user-agent:mime-version;
+ bh=ITc9OIf9pik7euIoiRYxplAS/DUu6fViAaIU4Z7ph84=;
+ b=RxeDdcnHkS68BD5rjl6DbKx6jn5eTM45xn+iaTtbm+WkOhA2psmuNaPRT4mDSwqw6w
+ qgtQmvdiuBdoFsb+N4O2EH9JjQIxrQsdODm9vp0sHCVa96C4bNiRw/COesPFd5KBzTlb
+ WMAUdZtiBZVim1QihlcNwyh0IISoMyqbnJTiOt/dzjlaE/+mAbZQjW92CeHHivHkTjKt
+ t9NnyA8LzaLvsIBYvt5Q+BC+X63dOIWnG0uGN7kfFN+St+iQjswA41liPDvjb5EM8fl6
+ NG48HNdEGGpXnSGwTXpKEZJp7VFqv3865uFDzT40Ain0dSqK+GEcCzJnRC758aniFEdB
+ G2uQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:in-reply-to:cc:from:to
- :message-id:mime-version:content-transfer-encoding;
- bh=chBp/UJxnNpR33iIZVktfED5fzc5gbgR9UsUskuYUtU=;
- b=AkJy54c/s6aSzI1/e/tHKbZe7D5NOuJkyWc+eUDoP/JPiyRgRorgMvYIv1q3a77hcm
- ffU8PjDYnL373DGl4MoLr4Arpgg7kjXlq/qk7i74EnHFQ+VnrUUaAzD5dQgXUU/PMInn
- /t5BOioPv2eTEMgsrZKbYTrTDND3ZeZKkCCNZmdRMcsdQIJMG7QyDDwGloTem/rIgmS2
- 04BTHxoQNbuG23eGjxD2tM1M8JhXvCNf3CHaxSYI7NXbA35+6idUhSt4Z+/VSAfZdM0q
- h5AL99XOBvCHY8snxqrNvwtYh1RTY1z3j0dh3X1SaAP+PjcU1XtOzHMREox86jIRgNJ9
- 5nLA==
-X-Gm-Message-State: AJcUukf8ApTYSixVp06VRKI+jjglaAWWg+4XeEIEtSNYEaFezqVX+ORs
- bvzxOakV2Dygb9ATaa7ptgzWCg==
-X-Google-Smtp-Source: ALg8bN5RBxFmh1I+e/aFlQnq1tmywMaJAYiUv558ldgWbIsEutV3BYGgnwlr0K+qGgwBFqIEyXU3Tg==
-X-Received: by 2002:a63:955a:: with SMTP id t26mr10889818pgn.449.1547153684841; 
- Thu, 10 Jan 2019 12:54:44 -0800 (PST)
+ h=x-gm-message-state:from:date:to:cc:subject:in-reply-to:message-id
+ :references:user-agent:mime-version;
+ bh=ITc9OIf9pik7euIoiRYxplAS/DUu6fViAaIU4Z7ph84=;
+ b=QrHFS4oZLK1VSd718C5kTIQ160/SP5LARCLtJbGkAQKIFBX0lvNshfETE+jr6S1MaI
+ F15HiYDHRMspBXFA4mYoRa7NOyEWRIGjkT9EGK3c1oiAzQ+1cfof/4w9iRAJpw72NsVQ
+ AjYEGXCKxUBl3yf+th+ngT8eifuDzHzp/v4khMr4WxTrCYq/0v/0aObNMw9YqrIAqk9+
+ FHmUh0iyl1j1UDZneQjpZJjh0+kF+M0vC9rjtRsIg+IvOZPLvLboT675p94F4xD/XVD+
+ oaen4y78Np3xoqwJf7QyCUmqfRSmlSxMQPynPwzv6/iDUO/Ny9rci7Pl2KMIZG15GPPE
+ pBtg==
+X-Gm-Message-State: AJcUukeOQr4f9WI4rCAGkTEbgrsRzmx/T2nu0Dy2EB6Ykmig+sn9YwsU
+ 2NwoF0eqHs6f1Pdp/xP3cvGJug==
+X-Google-Smtp-Source: ALg8bN7qtKVwBfycm1wLyrpfQRG7Hi2Xc8xrg4UjeHy+hh/1kojkCS3yR0R+6aUghkv1pyvHXiMKEQ==
+X-Received: by 2002:a17:902:850c:: with SMTP id
+ bj12mr13141874plb.46.1547186820616; 
+ Thu, 10 Jan 2019 22:07:00 -0800 (PST)
 Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id 125sm98192116pfg.39.2019.01.10.12.54.43
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Thu, 10 Jan 2019 12:54:44 -0800 (PST)
-Date: Thu, 10 Jan 2019 12:54:44 -0800 (PST)
-X-Google-Original-Date: Thu, 10 Jan 2019 12:54:42 PST (-0800)
-Subject: Re: [PATCH] tty/serial: emit CR before NL in RISC-V SBL console
-In-Reply-To: <mvm7efcedop.fsf@suse.de>
-In-Reply-To: <CAAhSdy0suSgKpdz+NUrXzS9Ozp75hMC6ovW4yLf5s0KYJwwocw@mail.gmail.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: schwab@suse.de, anup@brainfault.org
-Message-ID: <mhng-e8479556-154c-443f-9d41-dc182aafa2ae@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ by smtp.gmail.com with ESMTPSA id p7sm117530221pfa.22.2019.01.10.22.06.59
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Thu, 10 Jan 2019 22:06:59 -0800 (PST)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+X-Google-Original-From: Paul Walmsley <paulw@sifive.com>
+Date: Thu, 10 Jan 2019 22:06:59 -0800 (PST)
+To: Alistair Francis <Alistair.Francis@wdc.com>
+Subject: Re: [PATCH v2] RISC-V: defconfig: Enable Generic PCIE by default
+In-Reply-To: <20190110193451.29016-1-alistair.francis@wdc.com>
+Message-ID: <alpine.DEB.2.21.9999.1901102153570.22105@viisi.sifive.com>
+References: <20190110193451.29016-1-alistair.francis@wdc.com>
+User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190110_125446_033079_0D914DC2 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20190110_220701_589663_D31997F4 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,72 +95,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: robh@kernel.org, aou@eecs.berkeley.edu,
- Greg KH <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- Christoph Hellwig <hch@infradead.org>, atish.patra@wdc.com,
- linux-serial@vger.kernel.org, jslaby@suse.com, linux-riscv@lists.infradead.org
+Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "Palmpalmer@sifive.com" <palmer@sifive.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Jan 2019 07:26:46 PST (-0800), schwab@suse.de wrote:
-> On Jan 10 2019, Anup Patel <anup@brainfault.org> wrote:
->
->> Instead of doing '\n' handling here, we should do it in BBL or
->> OpenSBI (i.e. SBI runtime firmware) otherwise all users of
->> SBI_CONSOLE_PUTCHAR (namely, Linux, FreeBSD,
->> FreeRTOS, U-Boot S-mode, etc) will endup having '\n'
->> handling.
->
-> I don't think the serial driver should do NLCR handling on its own,
-> without being instructed by the tty layer.  Since the earlycon does not
-> have a tty layer, it needs to handle it explicitly.
+Hi Alistair,
 
-I think it's best if we have the SBI interfaces be defined to be bit-exact.  It
-does mean that everyone who uses the interfaces needs to do this handling, but
-I think that's actually a feature because it'll be subtly different everywhere.
+Looks like you're still sending patches to "palmpalmer" ?
 
-This also has the advantage of being compatible with what we currently do in
-BBL and what we current expect in Linux everywhere but this earlycon driver
-(and will do assuming we merge this patch).
+On Thu, 10 Jan 2019, Alistair Francis wrote:
 
-On Thu, 10 Jan 2019 08:17:07 PST (-0800), anup@brainfault.org wrote:
-> On Thu, Jan 10, 2019 at 8:56 PM Andreas Schwab <schwab@suse.de> wrote:
->>
->> On Jan 10 2019, Anup Patel <anup@brainfault.org> wrote:
->>
->> > Instead of doing '\n' handling here, we should do it in BBL or
->> > OpenSBI (i.e. SBI runtime firmware) otherwise all users of
->> > SBI_CONSOLE_PUTCHAR (namely, Linux, FreeBSD,
->> > FreeRTOS, U-Boot S-mode, etc) will endup having '\n'
->> > handling.
->>
->> I don't think the serial driver should do NLCR handling on its own,
->> without being instructed by the tty layer.  Since the earlycon does not
->> have a tty layer, it needs to handle it explicitly.
+> Enable generic PCIe by default in the RISC-V defconfig, this allows us
+> to use QEMU's PCIe support out of the box.
 >
-> I tried to investigate more. What you suggest is correct
-> but we should use uart_console_write() API.
->
-> Instead of explicitly doing NLCR here, we should do
-> something as follows:
->
-> static void sbi_putc(struct uart_port *port, int c)
-> {
->     sbi_console_putchar(c);
-> }
->
-> static void sbi_console_write(struct console *con,
->                                                const char *s, unsigned n)
-> {
->     struct earlycon_device *dev = con->data;
->     uart_console_write(&dev->port, s, n, sbi_putc);
-> }
->
-> The uart_console_write() does the NLCR handling.
+> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+> ---
+>  arch/riscv/configs/defconfig | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index f399659d3b8d..ccfd3f05223c 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -14,6 +14,8 @@ CONFIG_EXPERT=y
+>  CONFIG_BPF_SYSCALL=y
+>  CONFIG_SMP=y
+>  CONFIG_PCI=y
+> +CONFIG_PCIEPORTBUS=y
+> +CONFIG_PCI_HOST_GENERIC=y
+>  CONFIG_PCIE_XILINX=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+> @@ -77,5 +79,6 @@ CONFIG_NFS_V4_1=y
+>  CONFIG_NFS_V4_2=y
+>  CONFIG_ROOT_NFS=y
+>  CONFIG_CRYPTO_USER_API_HASH=y
+> +CONFIG_CRYPTO_DEV_VIRTIO=y
+>  CONFIG_PRINTK_TIME=y
+>  # CONFIG_RCU_TRACE is not set
 
-That does look cleaner.  I'll expect a v2 :)
+Not sure what commit this patch is against - I picked v5.0-rc1.  Before 
+applying your patch, I generated a seedconfig with "make defconfig 
+savedefconfig; mv defconfig defconfig.1".  Then applied your patch and did 
+a "make defconfig savedefconfig" and then ran "diff -u defconfig.1 
+defconfig".
+
+That should have shown me just the patch above.  But it also included a 
+line removing CONFIG_RAS=y.  I am sorry to ask you to fix such a nitpicky 
+item, but it is good practice for these defconfig patches.  Otherwise the 
+defconfig deltas gradually get out of control.
+
+When you repost it, if you verify that the ./defconfig delta from running 
+"make savedefconfig" before and after your patch applied is simply your 
+patch, then feel free to add a Reviewed-by: line from my E-mail address 
+above.
+
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
