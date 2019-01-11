@@ -2,63 +2,87 @@ Return-Path: <SRS0=/Bz6=PT=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EEB3BC43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 11 Jan 2019 14:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 715C1C43612
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 11 Jan 2019 17:10:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BD1A720872
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 11 Jan 2019 14:00:31 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 41D012133F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 11 Jan 2019 17:10:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iJ6GtCz3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD1A720872
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JoNJHet9";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="PMmkBmSD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 41D012133F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=SFvOm05Wo/c+lKwbG85V3tG7sJmj9W/dDWRmieMMv/Q=; b=iJ6GtCz3/QmSCQlXX6wRyfI2R
-	zfHRmm1/zG+qvETMJwdICTNgzqDTyJmKYT3KK7Wr+dErgJLsqdFw9vY/I0m8yX93K+fTcb+vSyTzR
-	ByrPcZI/+UfyXx6suvtyv29CvIlUSXrykyvwKElhfh6nvIgeJ1ktA6jT6Ud12UwoQnzQAJgeC4FXf
-	dt0t64g4XxaSQRxvruHX5DdHTYkEkIgCHmFs+waVVBqVgpJkF8AMDHLr9C0impvHRoRdP54SqjsQ8
-	0/vYfcDBqdBZsTu3Znm1+ibenwsC6s8yaAuLhil3wra56UOdIZzbMwD+nYiDdyJLSc+NKax5m8FYz
-	q0m4l37Tg==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=qYCNMNuO8TtCwJkXO9yrgvGo4w6fRuteO/IC+0yDJjE=; b=JoNJHet9JT0kau9NHNQtnHzcC
+	uYj8fTlray+D3yukPHZR6r8St+pX4meeb3iFlVGt52NuxqtFiuRW5qPA1WW139aWWPWRqvGSGqz6Z
+	wfWy7mWCpQ5eclWeSEdoKrtxARfQKLaywcJik5deGpfdhF89yByuIaAdRUEJhTq0tzopaxIEAcbqG
+	wtwUR3VOYWy0eYcLinC+YKXKezkTYRgWFh9TZ5OthzCMJdrjBGlZ+FVfqaIq3HwExUEzZiv3V+WcJ
+	VYA9Lxq9Oly4y+3NvDzBm+iDY6c+v64/Cj7+NfZUaKHOAuWFN5MFeEj3/KY59RYaxey/3hPwNSfyz
+	Qq9R0IMCA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1ghxMM-00047O-Ln; Fri, 11 Jan 2019 14:00:30 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1gi0K7-0005Xi-Va; Fri, 11 Jan 2019 17:10:23 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1ghxMG-00046T-1s
- for linux-riscv@lists.infradead.org; Fri, 11 Jan 2019 14:00:30 +0000
-X-Originating-IP: 81.250.144.103
-Received: from [10.30.1.20] (lneuilly-657-1-5-103.w81-250.abo.wanadoo.fr
- [81.250.144.103]) (Authenticated sender: alex@ghiti.fr)
- by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id AA27FE0003;
- Fri, 11 Jan 2019 14:00:09 +0000 (UTC)
-Subject: Re: [PATCH 1/3] riscv: Introduce huge page support for 32/64bit kernel
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Alexandre Ghiti <aghiti@upmem.com>
-References: <20181210062146.24951-1-aghiti@upmem.com>
- <20181210062146.24951-2-aghiti@upmem.com>
- <alpine.DEB.2.21.9999.1901102215390.22105@viisi.sifive.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-Message-ID: <8a96dec9-ac00-5b3c-e532-2c8ef0e3a537@ghiti.fr>
-Date: Fri, 11 Jan 2019 14:58:27 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.5.2
-MIME-Version: 1.0
-In-Reply-To: <alpine.DEB.2.21.9999.1901102215390.22105@viisi.sifive.com>
-Content-Language: en-US
+ id 1gi0K4-0005XA-IX
+ for linux-riscv@lists.infradead.org; Fri, 11 Jan 2019 17:10:22 +0000
+Received: by mail-pl1-x643.google.com with SMTP id y1so7014945plp.9
+ for <linux-riscv@lists.infradead.org>; Fri, 11 Jan 2019 09:10:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=fQyA7PYCxQENfWhPz6dSiDsgSet3p+Oi1/3rkGt1iow=;
+ b=PMmkBmSD+Vz9RzlWKxX9RNTWDg04GgYGQW2Gs/jo17kBjMjKeawGhAaj8qhmBYnSoX
+ zWzANO6mvvAJ+ZQg9f/nHWpUHOx9PRX5cDv7NBbBE82bLl8JjDpi1/8kkE3KRlbCqWG3
+ fOqiWj+RSTGpycSTmZuPr+03D7NvPDUi2ca/3gULeCIkCiV9xdXJEKUJhbN/kmuL5s8r
+ 5HE6CEgAmFwzafAjSrfuH2mCRbIS8tpJXSn1JAyM3RAQ5UNUbgG43T5ZXSllne6LtIwJ
+ tLkDreprYADo6EO37z9msrFrXtc3oXeIcFSrVwwg3F2SSIAKaayuP2lZncI381vhw2lk
+ CCpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=fQyA7PYCxQENfWhPz6dSiDsgSet3p+Oi1/3rkGt1iow=;
+ b=UJ+TcOMao4YTVDoKNWMZNJeReK955xzYGoE/F5oBsdX3n2oY+1stNIFgJOHxzGJLhR
+ r7xnsgLsFmGdcfz3Up4BBbJSAjW+8wn7wnoV+DoV+XGPf9Xq5eBFm0Y/myhqfK0P2Gxo
+ ePpLw1WgzM1Vy8KiQPMyokWe8gBPoZ7ltOWk2YI95aASYQcVQw8Qgxlv8Mavl2Iu0Cj3
+ +fUQa5Lu4qgz9ijzD8+DMCzsQbZjOLL1tDvhluAPh9XMc80NdVg9OikJRpE0EqT0301h
+ lfJIM+fBsRBRoW2zvkdyq04j5xLGwZUzyddb5PW2RUHU40xBT0/N3z6usOuQjPCqTwfv
+ 6gxw==
+X-Gm-Message-State: AJcUukfuy6KrB7SAX69ZtWPx5aZFoFyDjQ7LsBCKjM5J/utIE+3VwujF
+ vacKrXC6Q/kAG3mCx7fCSlru+Q==
+X-Google-Smtp-Source: ALg8bN5cO12OYfU8E7Ho1PEPka1vHwULBxeFyxYKFXdMKDrjmadJjKrQLjCcYUXe/POfjHnsvav83Q==
+X-Received: by 2002:a17:902:b20e:: with SMTP id
+ t14mr15538357plr.128.1547226619481; 
+ Fri, 11 Jan 2019 09:10:19 -0800 (PST)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id d6sm109441915pgc.89.2019.01.11.09.10.12
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 11 Jan 2019 09:10:14 -0800 (PST)
+Date: Fri, 11 Jan 2019 09:10:14 -0800 (PST)
+X-Google-Original-Date: Fri, 11 Jan 2019 09:10:03 PST (-0800)
+Subject: Re: [PATCH v2] RISC-V: defconfig: Enable Generic PCIE by default
+In-Reply-To: <20190110193451.29016-1-alistair.francis@wdc.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: Alistair Francis <Alistair.Francis@wdc.com>
+Message-ID: <mhng-8b2184cd-f91b-465b-bead-f3c2c58e2d44@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190111_060024_246672_D3409B3D 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20190111_091020_672902_BC1C4DF0 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -70,38 +94,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, akpm@linux-foundation.org, catalin.marinas@arm.com,
- palmer@sifive.com, ndesaulniers@google.com, linux-kernel@vger.kernel.org,
- atish.patra@wdc.com, linux-riscv@lists.infradead.org, mingo@kernel.org,
- mike.kravetz@oracle.com
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: linux-riscv@lists.infradead.org,
+ Alistair Francis <Alistair.Francis@wdc.com>, linux-kernel@vger.kernel.org,
+ Palmpalmer@sifive.com
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMDEvMTEvMjAxOSAwNzoxOCBBTSwgUGF1bCBXYWxtc2xleSB3cm90ZToKPiBIZWxsbyBBbGV4
-YW5kcmUsCj4KPiBPbiBNb24sIDEwIERlYyAyMDE4LCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4K
-Pj4gVGhpcyBwYXRjaCBpbXBsZW1lbnRzIGJvdGggNE1CIGh1Z2UgcGFnZSBzdXBwb3J0IGZvciAz
-MmJpdCBrZXJuZWwKPj4gYW5kIDJNQi8xR0IgaHVnZSBwYWdlcyBzdXBwb3J0IGZvciA2NGJpdCBr
-ZXJuZWwuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWdoaXRpQHVwbWVt
-LmNvbT4KPiBUaGlzIHBhdGNoIGludHJvZHVjZXMgYSBmZXcgbWlub3IgY2hlY2twYXRjaCBhbmQg
-c3RyaWN0IGNoZWNrcGF0Y2gKPiB3YXJuaW5ncywgd2hlbiB0ZXN0ZWQgYWdhaW5zdCBib3RoIHY0
-LjIwIGFuZCB2NS4wLXJjMSBjaGVja3BhdGNoIHZlcnNpb25zLgo+IENvdWxkIHlvdSBmaXggdGhv
-c2U/ICBUaGUgb3RoZXIgdHdvIHBhdGNoZXMgaW4gdGhlIHNlcmllcyBsb29rIE9LIGZyb20KPiB0
-aGF0IHBvaW50IG9mIHZpZXcuCgpZZXMsIEkgaGFkIG5vdGVkIHRob3NlIHdhcm5pbmdzOgoKLSB0
-aGUgU1BEWCB3YXJuaW5nIGlzIHdlaXJkLCBpbiBhbGwgKi5jIGZpbGVzLCB0aGUgc2NyaXB0IHNl
-ZW1zIHRvIAphY2NlcHQgb25seQogwqAgIi8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwt
-Mi4wIiBhbmQgbm90ICIvKiAKU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAgKi8iLgog
-wqAgQnV0IG9uICouaCBmaWxlcywgdGhpcyB0aGUgY29udHJhcnksIG1heWJlIEkgbWlzc2VkIHNv
-bWV0aGluZywgSSBhbSBnb2luZwogwqAgdG8gdGFrZSBhIGxvb2sgYXQgdGhlIHNjcmlwdCBzcGR4
-Y2hlY2sucHkuCiDCoCBOb3RlIHRoYXQga2VybmVsL2Z0cmFjZS5jIGFuZCBrZXJuZWwvcGVyZl9l
-dmVudC5jIHJhaXNlIHRoZSBzYW1lIApzdHJhbmdlIHdhcm5pbmcuCgotIEknbGwgY2hhbmdlIHRo
-ZSAicHJpbnRrKEtFUk5fRVJSIiBpbnRvIGEgcHJfZXJyLgoKLSBJJ2xsIGlnbm9yZSB0aGUgbGFz
-dCB3YXJuaW5nIHJlZ2FyZGluZyB0aGUgbmV3IGZpbGUuCgpUaGFua3MgZm9yIHlvdXIgZmVlZGJh
-Y2sgUGF1bCwKCkFsZXgKCj4KPgo+IC0gUGF1bAo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, 10 Jan 2019 11:35:01 PST (-0800), Alistair Francis wrote:
+> Enable generic PCIe by default in the RISC-V defconfig, this allows us
+> to use QEMU's PCIe support out of the box.
+>
+> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+> ---
+>  arch/riscv/configs/defconfig | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index f399659d3b8d..ccfd3f05223c 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -14,6 +14,8 @@ CONFIG_EXPERT=y
+>  CONFIG_BPF_SYSCALL=y
+>  CONFIG_SMP=y
+>  CONFIG_PCI=y
+> +CONFIG_PCIEPORTBUS=y
+> +CONFIG_PCI_HOST_GENERIC=y
+>  CONFIG_PCIE_XILINX=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+> @@ -77,5 +79,6 @@ CONFIG_NFS_V4_1=y
+>  CONFIG_NFS_V4_2=y
+>  CONFIG_ROOT_NFS=y
+>  CONFIG_CRYPTO_USER_API_HASH=y
+> +CONFIG_CRYPTO_DEV_VIRTIO=y
+>  CONFIG_PRINTK_TIME=y
+>  # CONFIG_RCU_TRACE is not set
+> -- 
+> 2.19.1
+
+Odd -- when your QEMU patches came through I tried doing this, which resulted 
+in a non-booting kernel.  For some reason this patch is fine, though.  I'm 
+going to just assume I screwed this up the first time, so it looks like this 
+and the QEMU patch are good to go.
+
+Thanks!
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
