@@ -2,126 +2,125 @@ Return-Path: <SRS0=bvH1=PU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-11.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 91CF1C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 12 Jan 2019 00:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B9427C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 12 Jan 2019 00:14:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5FAE920872
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 12 Jan 2019 00:04:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8737920851
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 12 Jan 2019 00:14:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UV9sKXGj";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="XxszA7w5";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="GqvCjt9I"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5FAE920872
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="l3ZEtxjQ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="rW4uujo5";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="EJTBh6xL"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8737920851
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8nU9CRMP6RvE+88e10JzMwj/Crpn18rBznx+Obmwlgc=; b=UV9sKXGjGnpKZa
-	SMWLq94o9dOFQ9B3dVbaweqqUT+qgZpiZoNLiJfNutdiPkFChCeHRLcb+HG/bCQnvF9dQUS9se9zP
-	PFyeLTsA4JvyOk5mmlksCcoFF5yw7zVbizRgs4fGY0Y2wM/qSr46ZdGKUwoztuUzk2BCV29hnVJ0Q
-	Ybfca2n9Ro/cuEtEPUpUF7klif2X1eDc2kscVXJkiqMl/MfL2vESdYQhp7Ha0sdlhpIkAL6HQWhor
-	IFfRWkLeWkWWDkUkYL2eF+rOsJL5mbmj5XpQTimdn7KBc5R7Vun8jDg5ZRMZJxrWfDO7bTh9g1+0n
-	LQE5uWuyps06dCQUdwDA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ztj165SV4Ji/Ldf2oHHRFMWNl4U1UzpiOTnA+C9MTaA=; b=l3ZEtxjQxC/GSq
+	eZjNYQ9LHA+mUSutWYTG0wn4zZUuF7hrfJ4YWB8caj80hHz61bVzpi/xJWiND/+TAfEJmMtIuzWO1
+	I3YBa/N/wqV6iBihf4KUW7/slP2FBl4PDLW80t/gP/yNsvLkk+GC/YHRuKnPo/9tQfPpYHh/L9FOK
+	8TxoTtwvxY4y951NV28cz8QDxwjicTC/Qk6gVYQjzyrI5zyLLCkQgnJQpx48ef+qyiaHGd0LKQ7iS
+	nFnok07gEq4g7uMh6z01M8PIEp67ksBmzj6aY21Oi0n+63EQHFqrrQtBq8FFtD6MeEAOdRD0BlKq7
+	Ftbcu4Wz065FxTwtF07Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gi6mR-0000hA-9R; Sat, 12 Jan 2019 00:04:03 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1gi6w9-0003tB-Rm; Sat, 12 Jan 2019 00:14:05 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gi6mO-0000gL-Eu
- for linux-riscv@lists.infradead.org; Sat, 12 Jan 2019 00:04:02 +0000
+ id 1gi6w7-0003sH-9M
+ for linux-riscv@lists.infradead.org; Sat, 12 Jan 2019 00:14:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1547251440; x=1578787440;
- h=from:to:cc:subject:date:message-id:
- content-transfer-encoding:mime-version;
- bh=sbzZyhLG1cFsUvTEoMEEnrxvThquA43GN5D98AUS0eE=;
- b=XxszA7w55LmjIInULXtce6lTfdoLFndoKeeH4trfE5t7w5PZ6jSA19T/
- CAVyumv1mcc6uwDDzIU/qfJj7cPA1lXB1sAPasTgeWxBHk1yp3uIhAqrw
- kDvZCRVRmlL481qsmgpO6cimNW3hyhN77Lhjxc7oI/Sz/tJ1gCEJHNTPY
- bs37lG24ltOben6hyGMyn/TE8VYLFMu0HY8+DGh05LpClG/4Kj+Y0t0Om
- 0MJ5qY4rlqnQzzFbxz8dhASt6ngnOg8mch4R+BmRdWED/GhybS1UkYcfe
- ouJojWGVsEHDrzZDzKUvcTfpqwgTnmKLhmHt/4kjhKCF5MsiNJcDyndA2 g==;
-X-IronPort-AV: E=Sophos;i="5.56,467,1539619200"; d="scan'208";a="100378219"
-Received: from mail-sn1nam04lp2057.outbound.protection.outlook.com (HELO
- NAM04-SN1-obe.outbound.protection.outlook.com) ([104.47.44.57])
- by ob1.hgst.iphmx.com with ESMTP; 12 Jan 2019 08:03:56 +0800
+ t=1547252043; x=1578788043;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=lVb5k/Qt1nVDygdtStjYDyPav21L0w/AtNqFGgrcjVE=;
+ b=rW4uujo5FzyzA3ifpdUPf2SyacOom2soy6Upi/STWV4wINcp6gtgPpIK
+ dbO8uCx1BEu4P17XU6VuG5NNlWP6vqTHJQxDqQ2MaXiI8OvCVlTiRvNwV
+ ivZGf3xZVyGpUVzoxwQZ4N9YYh47N/P83w7RtqftKSSC6zVmAHyjgbmcG
+ SvFaDV+CG3/AQtgQwjfolkmos32XKUj8f3/imd+XSOuf2tga8Hae94INE
+ e8iU55Fv38Iw0ssUBmjvS+W/XVL72M4zdDBV50Hua8oAmJBEChItFc+vw
+ dWcKl8AwPhSQTaBKqyI1+Mctydu78l1wEdVMYjeBeoztfksBJAndMFfvK Q==;
+X-IronPort-AV: E=Sophos;i="5.56,467,1539619200"; d="scan'208";a="103535855"
+Received: from mail-sn1nam02lp2057.outbound.protection.outlook.com (HELO
+ NAM02-SN1-obe.outbound.protection.outlook.com) ([104.47.36.57])
+ by ob1.hgst.iphmx.com with ESMTP; 12 Jan 2019 08:13:57 +0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sbzZyhLG1cFsUvTEoMEEnrxvThquA43GN5D98AUS0eE=;
- b=GqvCjt9Ivw8GBAOQtg8eRsfBAvFTAyVIk/Qdg03S3r0Jp8uO1kaNdoCcXJt0RYnu271QCIh80B5qEDnrtGxtW8ENxmjVxLHTPf5y6B4c/uVnTKHTcgvcVR/urz3v/v5Z5NOYujQgQyB85MFA1PJOdZC/cDeT5B0wH73SBrVCVXA=
+ bh=lVb5k/Qt1nVDygdtStjYDyPav21L0w/AtNqFGgrcjVE=;
+ b=EJTBh6xLNzXY7glGoS3o2JXbXoAvwP+ZPAGTXfQs0GdGwMwgdR8P6ttm/V4vgQK/t4xqlSSyWMiFkaPd3kUgWxl9CStwquQ8FQDvuIZCXQOLiXxMA8/KxfhyR4DSJqTFuI/vgTUcImDBv7gLPlRsc8S5LQLVrNt0D3NWcDYSE1s=
 Received: from MWHPR04MB0401.namprd04.prod.outlook.com (10.173.48.18) by
- MWHPR04MB3760.namprd04.prod.outlook.com (10.172.169.138) with Microsoft SMTP
+ MWHPR04MB0481.namprd04.prod.outlook.com (10.173.48.150) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1516.15; Sat, 12 Jan 2019 00:03:55 +0000
+ 15.20.1516.14; Sat, 12 Jan 2019 00:13:56 +0000
 Received: from MWHPR04MB0401.namprd04.prod.outlook.com
  ([fe80::10e5:e75d:3272:2d33]) by MWHPR04MB0401.namprd04.prod.outlook.com
  ([fe80::10e5:e75d:3272:2d33%7]) with mapi id 15.20.1516.016; Sat, 12 Jan 2019
- 00:03:55 +0000
+ 00:13:55 +0000
 From: Alistair Francis <Alistair.Francis@wdc.com>
 To: "palmer@sifive.com" <palmer@sifive.com>, "linux-riscv@lists.infradead.org"
  <linux-riscv@lists.infradead.org>
-Subject: [PATCH v3] RISC-V: defconfig: Enable Generic PCIE by default
+Subject: Re: [PATCH v3] RISC-V: defconfig: Enable Generic PCIE by default
 Thread-Topic: [PATCH v3] RISC-V: defconfig: Enable Generic PCIE by default
-Thread-Index: AQHUqgpOagOSSqCnS0mH6o+zJyJ+rw==
-Date: Sat, 12 Jan 2019 00:03:55 +0000
-Message-ID: <20190112000346.2620-1-alistair.francis@wdc.com>
+Thread-Index: AQHUqgpOagOSSqCnS0mH6o+zJyJ+r6Wqw1MA
+Date: Sat, 12 Jan 2019 00:13:55 +0000
+Message-ID: <6f59c0101b53d70b4f9c63c156b59151d99d8034.camel@wdc.com>
+References: <20190112000346.2620-1-alistair.francis@wdc.com>
+In-Reply-To: <20190112000346.2620-1-alistair.francis@wdc.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.19.1
-x-clientproxiedby: BYAPR02CA0025.namprd02.prod.outlook.com
- (2603:10b6:a02:ee::38) To MWHPR04MB0401.namprd04.prod.outlook.com
- (2603:10b6:300:70::18)
 authentication-results: spf=none (sender IP is )
  smtp.mailfrom=Alistair.Francis@wdc.com; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [199.255.44.170]
+x-originating-ip: [199.255.44.250]
 x-ms-publictraffictype: Email
-x-microsoft-exchange-diagnostics: 1; MWHPR04MB3760;
- 6:57swrGS5MS6XuCFEWs309qOIzaadPrXGK0P/QE9dHF3pjWWuQLk2aOx8UOB/PMZjAl11KPjDCDXqgVnlmgMOop3u6N831QEj9YsIIbtEIbuCGfFyes6dTcHFvnzpjeGY93fghY9WUaEzL9fq/Y7a/2HUL26qSEzWUl836z68CIpesVP3Ux8xW8+YlXJNijiKvpXC7MdNULHBZVRLtS+45F8PHzNSluRwmDtvrnuu9w2S6Yl8s/keDrzVHWQylUnarybUChPs8MKUdmI+7bDRXC4OYwjdIg7yn6l/2SLn3ZMbnERhUxzZYE3uhM+eBSfNw4RRtwO/1FYAeXGgIhUW/9ctQGqZMou6Fg6Ncu1nS8fFv7exaxWIKLbaok4qjPab3JNOyfowFefXE1jB84Rg9MCyviMA7e5Ylbj6xTrR0mO68d+zP/qMVTJnioYhn5nYWpttkORX74EocG02f74Pvg==;
- 5:iG+RJFkfZM4CPLoIJ0jIJu9Y4uvSEC4vDPUwwZk9YggIm7svHKcSD7ZxtItu8hcQlWqkhkZ+3+nnwnOjc3bcaL2pINfaw2XkeTnc6OYHS6Cb5yTWj7QloWzbkvWeUtixNtu47RRceGSJk4eIDU39UDIrxg7tCu1I2T0s87y3WBy3iuvamYIdbgBNcNiKT6U7GcCvGZzWsMQLFdyWy8sG7g==;
- 7:YE0UUdfxKDBmAF+B3QlQ0WOdN20ZJLiWR3NEEuOJ8+UJACG4LQy49FXAMDWT6FfGS5hbXw8rSnFaaHj857iFY5gLab5vNqCGqH9KkA4o44xTNbqmyvdipDeD/MYUuGAqkSnAtRZXRpBpZRLcfS49lg==
-x-ms-office365-filtering-correlation-id: 26891470-91a6-4de8-08d3-08d67821712d
+x-microsoft-exchange-diagnostics: 1; MWHPR04MB0481;
+ 6:gDa9CZMfJTfmGAwXMrih+p3AlXVeRBqP8H9fM/yOHqf5oGx6KBjeEiorX46UN5xqFaw7GJdo4cWbGtFCFWiPX4jV1WnHjSbbDMEJX6i5sTarylL765PYe6g/hvEz23Y3AYzi2yDNUAs5/cGOOjL0YG5DNX6mtsXHw0zxT6jS0iiUyzCm3u4DhW/D+M5lA+bDwaa9gQtvEVYKOP8gqAvD6Qyir9PLtA9ZZCMkP0JWqRMhWEauWZAUQep0aAFtZLoBrc18CSoyVCQGSblSE/v6vRkU4PgvpNUQSCOwbBAE6MxH1WUHwIpMJs8T/LjjpQMvqOl1yFdMgX+w+u/qoq3OFRwd+GMLtkTfdnARQfIYt83IWEh1S22CXAPQ2WopyhfLbm6HcUGQ7UhK37SdyOr2lXnHMaegorpcxl/9eDyZOnX94+EcIpLbxZbs5LL9WjhbWw/epCFgGlijRn0Q0+Wnog==;
+ 5:mo4Vi6CvRfSRKrMz/vP2A/S2O+2vGgHVGAC/J4d+qBUfDOxL+E8PLTXuC2u/Iglwg5hhrwTjHPIVJ4qgfS/3bGSl1XzlrIuYMITGnN6kw9hQiYjiPi3ILcny5Ch/A8VDf7NTHsFFcM01KQ3YSN2RcPNWaXgZjLE4OVOK7BIZce3LJg8GHVjWYcv12B+qE1XSCsVEmhVCj1YOBZ8OCF52pg==;
+ 7:X9oMSZnsypyBt3e122ql5ZkJl28vQcVPijXDO/OvR/3xaIpQZxt+lTBnkXw/r54h0JMUTQNPO0DO1oBwiAwFXJjN7+6r8vdq9t1crSKxlN9rQu+Amt0LCZFbUCLNGlcJhCBOW7s+idmqfvj2mXQKNw==
+x-ms-exchange-antispam-srfa-diagnostics: SOS;
+x-ms-office365-filtering-correlation-id: 8f682d26-fb0d-49bc-81e8-08d67822d772
 x-ms-office365-filtering-ht: Tenant
 x-microsoft-antispam: BCL:0; PCL:0;
  RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600109)(711020)(4618075)(2017052603328)(7153060)(7193020);
- SRVR:MWHPR04MB3760; 
-x-ms-traffictypediagnostic: MWHPR04MB3760:
+ SRVR:MWHPR04MB0481; 
+x-ms-traffictypediagnostic: MWHPR04MB0481:
 wdcipoutbound: EOP-TRUE
-x-microsoft-antispam-prvs: <MWHPR04MB3760169B610AD553AF05B1EB90860@MWHPR04MB3760.namprd04.prod.outlook.com>
+x-microsoft-antispam-prvs: <MWHPR04MB0481358854E16B02D304A35490860@MWHPR04MB0481.namprd04.prod.outlook.com>
 x-forefront-prvs: 0915875B28
 x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(376002)(366004)(396003)(346002)(39860400002)(136003)(189003)(199004)(3846002)(6506007)(386003)(52116002)(6486002)(6436002)(5660300001)(110136005)(316002)(54906003)(305945005)(1076003)(7736002)(2501003)(2906002)(8936002)(66066001)(26005)(186003)(81156014)(102836004)(81166006)(8676002)(50226002)(99286004)(97736004)(256004)(2616005)(476003)(68736007)(14444005)(106356001)(72206003)(105586002)(14454004)(25786009)(478600001)(36756003)(486006)(4326008)(71200400001)(71190400001)(6116002)(53936002)(6512007)(44832011)(86362001)(41533002);
- DIR:OUT; SFP:1102; SCL:1; SRVR:MWHPR04MB3760;
+ SFS:(10019020)(366004)(39860400002)(396003)(376002)(346002)(136003)(199004)(189003)(110136005)(105586002)(68736007)(478600001)(106356001)(305945005)(118296001)(229853002)(6506007)(102836004)(26005)(486006)(2501003)(4326008)(72206003)(186003)(25786009)(6116002)(3846002)(2616005)(476003)(2906002)(76176011)(6246003)(14454004)(14444005)(256004)(11346002)(36756003)(66066001)(6512007)(97736004)(5660300001)(86362001)(6486002)(71190400001)(99286004)(316002)(71200400001)(7736002)(53936002)(446003)(6436002)(8936002)(81166006)(8676002)(81156014)(41533002);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:MWHPR04MB0481;
  H:MWHPR04MB0401.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
+ PTR:InfoNoRecords; A:1; MX:1; 
 x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: 734i2DzHWSNrdWgndfgnbGej59l6kkt5HJ4QMZfrcC7vdV4JDCqF1gDLULWWmVbIP6ChriNjWmW0amHoukPsGLRthxL0s47gp54wxR88UbYWJBYCzqXEtV4CK7xX0zt8M1xmGeDU8sr3E9+Zk2PmMUCLKKyGM6g9sCRtfwqxc6x3B/uAxpAKOQ5VhM3eXI2v3/Ra4J7g6STb/kCgtb4dKSBCA2n+qF3z02PygmdrT0qPTllyeKyJT9JxnpeFaDA/54ysnlN97PQ3zc5LtaCHqvdkbpznv7FRCrVUgJUwlfbNwIlZREw5sSuHf99GHoTN5HpWlJECymnBN7XqCtynPiQYLF4pZUWGEP6Ocvv+a2Uw6J+jJ1zU4DGrnQt4NeLjCD5EherMHKD0SF4Bf0l7qgEX/hTA9K8/Eft61EtES2U=
+x-microsoft-antispam-message-info: sejnGhDEA8Axg8/9MgOmc18OdFK3Q6TFb9CM/shAITgOV8IGIj7AtMBF/8HQH6C63oaXmTyTLIFPp6b0GUTSEs61/gZbSi/2qpC8QNpmXeB3aMBl8oj10C+NsfTcOzvhHFD/CrqJIsw37GYfdEHZE2hbyKwFV9QbgTq9QDZTYiWAQpNlqgLgMLvYiIRE7rO+WEJs2f/9dzONrte6XgAahkIK5qVONoHs9kdUNFRmJiroR68RDwtQAPlJf46JWuQpZeu1+RtQVQXWnD3WfF1lQsh8O+dXTr69OtCvCE4kuu+lhAfDKTfY/SronEZAIknCiB/kAiLpLMHycEPHiKUMVeOv56Y96KOqH4Up1nk83JBcJ0MyXlz6w66oXG90PpXJOVMXpiHAr0DmH2y1h81tq4bhrrABIv9WHxte7ARUR+Q=
 spamdiagnosticoutput: 1:99
 spamdiagnosticmetadata: NSPM
+Content-ID: <3CC1A2CC90DB504EBE404388530AD8AC@namprd04.prod.outlook.com>
 MIME-Version: 1.0
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 26891470-91a6-4de8-08d3-08d67821712d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Jan 2019 00:03:55.3549 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8f682d26-fb0d-49bc-81e8-08d67822d772
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Jan 2019 00:13:55.6018 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR04MB3760
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR04MB0481
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190111_160400_566111_4459717B 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20190111_161403_449969_BEABB87E 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -133,61 +132,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Alistair Francis <Alistair.Francis@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable generic PCIe by default in the RISC-V defconfig, this allows us
-to use QEMU's PCIe support out of the box.
+On Sat, 2019-01-12 at 00:03 +0000, Alistair Francis wrote:
+> Enable generic PCIe by default in the RISC-V defconfig, this allows
+> us
+> to use QEMU's PCIe support out of the box.
+> 
+> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+> ---
+>  arch/riscv/configs/defconfig | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/riscv/configs/defconfig
+> b/arch/riscv/configs/defconfig
+> index f399659d3b8d..18b50bf41b67 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -14,6 +14,8 @@ CONFIG_EXPERT=y
+>  CONFIG_BPF_SYSCALL=y
+>  CONFIG_SMP=y
+>  CONFIG_PCI=y
+> +CONFIG_PCIEPORTBUS=y
+> +CONFIG_PCI_HOST_GENERIC=y
+>  CONFIG_PCIE_XILINX=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+> @@ -46,7 +48,6 @@ CONFIG_INPUT_MOUSEDEV=y
+>  CONFIG_SERIAL_8250=y
+>  CONFIG_SERIAL_8250_CONSOLE=y
+>  CONFIG_SERIAL_OF_PLATFORM=y
+> -CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
 
-Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
----
- arch/riscv/configs/defconfig | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+Ah, this shouldn't be removed. Sorry for the spam, I'll send a v4.
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index f399659d3b8d..18b50bf41b67 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -14,6 +14,8 @@ CONFIG_EXPERT=y
- CONFIG_BPF_SYSCALL=y
- CONFIG_SMP=y
- CONFIG_PCI=y
-+CONFIG_PCIEPORTBUS=y
-+CONFIG_PCI_HOST_GENERIC=y
- CONFIG_PCIE_XILINX=y
- CONFIG_MODULES=y
- CONFIG_MODULE_UNLOAD=y
-@@ -46,7 +48,6 @@ CONFIG_INPUT_MOUSEDEV=y
- CONFIG_SERIAL_8250=y
- CONFIG_SERIAL_8250_CONSOLE=y
- CONFIG_SERIAL_OF_PLATFORM=y
--CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
- CONFIG_HVC_RISCV_SBI=y
- # CONFIG_PTP_1588_CLOCK is not set
- CONFIG_DRM=y
-@@ -63,7 +64,6 @@ CONFIG_USB_STORAGE=y
- CONFIG_USB_UAS=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_SIFIVE_PLIC=y
--CONFIG_RAS=y
- CONFIG_EXT4_FS=y
- CONFIG_EXT4_FS_POSIX_ACL=y
- CONFIG_AUTOFS4_FS=y
-@@ -77,5 +77,6 @@ CONFIG_NFS_V4_1=y
- CONFIG_NFS_V4_2=y
- CONFIG_ROOT_NFS=y
- CONFIG_CRYPTO_USER_API_HASH=y
-+CONFIG_CRYPTO_DEV_VIRTIO=y
- CONFIG_PRINTK_TIME=y
- # CONFIG_RCU_TRACE is not set
--- 
-2.19.1
+Alistair
 
-
+>  CONFIG_HVC_RISCV_SBI=y
+>  # CONFIG_PTP_1588_CLOCK is not set
+>  CONFIG_DRM=y
+> @@ -63,7 +64,6 @@ CONFIG_USB_STORAGE=y
+>  CONFIG_USB_UAS=y
+>  CONFIG_VIRTIO_MMIO=y
+>  CONFIG_SIFIVE_PLIC=y
+> -CONFIG_RAS=y
+>  CONFIG_EXT4_FS=y
+>  CONFIG_EXT4_FS_POSIX_ACL=y
+>  CONFIG_AUTOFS4_FS=y
+> @@ -77,5 +77,6 @@ CONFIG_NFS_V4_1=y
+>  CONFIG_NFS_V4_2=y
+>  CONFIG_ROOT_NFS=y
+>  CONFIG_CRYPTO_USER_API_HASH=y
+> +CONFIG_CRYPTO_DEV_VIRTIO=y
+>  CONFIG_PRINTK_TIME=y
+>  # CONFIG_RCU_TRACE is not set
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
