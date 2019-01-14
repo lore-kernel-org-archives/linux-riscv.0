@@ -2,65 +2,71 @@ Return-Path: <SRS0=bHpB=PW=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-5.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 54CC4C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 14 Jan 2019 13:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3D6A6C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 14 Jan 2019 14:03:20 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 26BCB20657
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 14 Jan 2019 13:06:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0F0F220657
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 14 Jan 2019 14:03:20 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qhaULEl6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 26BCB20657
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OHycZmHR"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0F0F220657
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=KItXl7GdUPLIgECfbKMFN4hIiKs141T/SvXVLteJpbc=; b=qhaULEl6qyAS9PLmpXLWwruEke
-	8BFcQ2iRkfazSHind9XrHB3d6wqFl+dyrLWI+NIwHq5wlSwzXpakFWkHuhFT/HgDVJ1+51Ea8wbZt
-	1zwrmy2JYgtxZEsDIeq0vYgmOEMuYhJUGfx2IAvMUvYt5pmb/xqrJ/LvcJJ7ZtVbpwEefLMExQMSK
-	L4/fR3eVTrjjE2pIcCUlCK7hF2mh04xpVvd9lwN66U65K924wpjojKBwohNbuVCq+V2HxT4hSZdp7
-	U0xvdmcPp/Ms5HEiFfkcGi3d4Un4NE2XqaOabyWfLikn9+pWP3a4iXDmT7APZ4wetOhWY5/jUC7fA
-	bMhekJAw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9V2qHGcxcYTJVSDB/BIW+kEMOWA2FXdF0Z7jFIxixZk=; b=OHycZmHRZOZfN3
+	UDMVHKdCCs2Erk9Fh8qcbK33zmcdY+vvJb8P5Cq1qTajtSDZ/8Ly3floJB/HtFL2vcnum8muO3gPy
+	i5CTM/C84xito+MWDqSodIHm3h1xU7bqdkdVxBh3014lftXVS2Z4ibqghYFsUnnqSkCdps4YqCmMS
+	Ry08J2vmwg8cp8cSZRL0duZkXeBerhPiWf8SEoKCn4ry2EZux1cWtUTVhqxYcusLH50NOwMGjeNTJ
+	JFJNSKjn5qcmSDktsRuDfsifVW4vEuEGD3/9KgqLhGnBubkDviIHGeZ7pY3h1NWJIx/f01dQFksMI
+	D7+sAD+sL61DR553m9Mw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gj1wH-0003kl-EY; Mon, 14 Jan 2019 13:06:01 +0000
-Received: from mx1.redhat.com ([209.132.183.28])
+	id 1gj2ph-0005of-S4; Mon, 14 Jan 2019 14:03:17 +0000
+Received: from mail-vs1-f66.google.com ([209.85.217.66])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gj1qW-0006Ur-NL; Mon, 14 Jan 2019 13:00:37 +0000
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
- [10.5.11.15])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id EBC1BC057F3B;
- Mon, 14 Jan 2019 13:00:02 +0000 (UTC)
-Received: from t460s.redhat.com (unknown [10.36.118.91])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 0BDEA5D75F;
- Mon, 14 Jan 2019 12:59:50 +0000 (UTC)
-From: David Hildenbrand <david@redhat.com>
-To: linux-mm@kvack.org
-Subject: [PATCH v2 7/9] arm64: kdump: No need to mark crashkernel pages
- manually PG_reserved
-Date: Mon, 14 Jan 2019 13:59:01 +0100
-Message-Id: <20190114125903.24845-8-david@redhat.com>
-In-Reply-To: <20190114125903.24845-1-david@redhat.com>
+ id 1gj2pW-0005ev-59; Mon, 14 Jan 2019 14:03:07 +0000
+Received: by mail-vs1-f66.google.com with SMTP id n13so13680472vsk.4;
+ Mon, 14 Jan 2019 06:03:03 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=EPXQ005dpgnhxanjjmigJASoqbeog16GFnmkdoG8qpw=;
+ b=tZ40KC6jANFUO+E35EihBVwUP3GCz+oAssHE8wkcqLkKi4FYQuaJq04giguyGvzYCr
+ hH0bLHbeTzsA0oTyckKhLg3/zq3x8swnScMuejNGiIW2Fci8YYVGiwv7nIH7FSU1HFTe
+ ypveuOMaYsh+MfC2U6vleYHYnaKw2IedmQOPjquCOzlRkkLI+rx8eN/Id5BeT+1EWXtz
+ AngV2QA10GaiIltHSFolRApBEe+7aIT6SOZ2OxmFaIJs4b1lU7BfYPG2mYT/KbWTimY/
+ 7ro+fbNVCiAbds78iVh4GIsLT6F0fGTiklEgqioTvcanvrXct4JoJZeiQLfmwl5Ghmkf
+ hKtA==
+X-Gm-Message-State: AJcUukeY2Vi5PjFTrTglL2ZLt9KomXdFVblZRnE3qJZL3sSC+JmnOGv+
+ 232rPi7wRUv0H9ELGUGfGjQO6meVrdRwBTqErCmjcbN5I8k=
+X-Google-Smtp-Source: ALg8bN5wYMxOtX3lY+uzxTqd21QEfqP1458GnLRYAHGRLaMnhFDHkh8ZI6dVlRF3u0c0V7r+jYFPOiKxVX+duKm+d8A=
+X-Received: by 2002:a67:f43:: with SMTP id 64mr10255483vsp.166.1547474582599; 
+ Mon, 14 Jan 2019 06:03:02 -0800 (PST)
+MIME-Version: 1.0
 References: <20190114125903.24845-1-david@redhat.com>
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.32]); Mon, 14 Jan 2019 13:00:04 +0000 (UTC)
+ <20190114125903.24845-6-david@redhat.com>
+In-Reply-To: <20190114125903.24845-6-david@redhat.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 14 Jan 2019 15:02:50 +0100
+Message-ID: <CAMuHMdWEChb4+tf0m_qN9Mc6Am5T0rZLqAn6QsQ8NdMOCRPySQ@mail.gmail.com>
+Subject: Re: [PATCH v2 5/9] m68k/mm: use __ClearPageReserved()
+To: David Hildenbrand <david@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190114_050005_403636_66BD84BC 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20190114_060306_251106_448A1C98 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -72,127 +78,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
- CHANDAN VN <chandan.vn@samsung.com>, David Hildenbrand <david@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Bhupesh Sharma <bhsharma@redhat.com>, Will Deacon <will.deacon@arm.com>,
- Stefan Agner <stefan@agner.ch>, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
- AKASHI Takahiro <takahiro.akashi@linaro.org>,
- Laura Abbott <labbott@redhat.com>,
- Kristina Martsenko <kristina.martsenko@arm.com>,
- linux-m68k@lists.linux-m68k.org, Mike Rapoport <rppt@linux.vnet.ibm.com>,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Logan Gunthorpe <logang@deltatee.com>, linux-kernel@vger.kernel.org,
- Dave Kleikamp <dave.kleikamp@oracle.com>, James Morse <james.morse@arm.com>,
- Johannes Weiner <hannes@cmpxchg.org>,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org,
- Greg Hackmann <ghackmann@android.com>
-MIME-Version: 1.0
+Cc: linux-s390 <linux-s390@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Michal Hocko <mhocko@kernel.org>,
+ Linux MM <linux-mm@kvack.org>, linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The crashkernel is reserved via memblock_reserve(). memblock_free_all()
-will call free_low_memory_core_early(), which will go over all reserved
-memblocks, marking the pages as PG_reserved.
+On Mon, Jan 14, 2019 at 1:59 PM David Hildenbrand <david@redhat.com> wrote:
+> The PG_reserved flag is cleared from memory that is part of the kernel
+> image (and therefore marked as PG_reserved). Avoid using PG_reserved
+> directly.
+>
+> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Michal Hocko <mhocko@kernel.org>
+> Cc: Matthew Wilcox <willy@infradead.org>
+> Signed-off-by: David Hildenbrand <david@redhat.com>
 
-So manually marking pages as PG_reserved is not necessary, they are
-already in the desired state (otherwise they would have been handed over
-to the buddy as free pages and bad things would happen).
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will.deacon@arm.com>
-Cc: James Morse <james.morse@arm.com>
-Cc: Bhupesh Sharma <bhsharma@redhat.com>
-Cc: David Hildenbrand <david@redhat.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Dave Kleikamp <dave.kleikamp@oracle.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Mike Rapoport <rppt@linux.vnet.ibm.com>
-Cc: Michal Hocko <mhocko@suse.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>
-Cc: Stefan Agner <stefan@agner.ch>
-Cc: Laura Abbott <labbott@redhat.com>
-Cc: Greg Hackmann <ghackmann@android.com>
-Cc: Johannes Weiner <hannes@cmpxchg.org>
-Cc: Kristina Martsenko <kristina.martsenko@arm.com>
-Cc: CHANDAN VN <chandan.vn@samsung.com>
-Cc: AKASHI Takahiro <takahiro.akashi@linaro.org>
-Cc: Logan Gunthorpe <logang@deltatee.com>
-Reviewed-by: Matthias Brugger <mbrugger@suse.com>
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
- arch/arm64/kernel/machine_kexec.c |  2 +-
- arch/arm64/mm/init.c              | 27 ---------------------------
- 2 files changed, 1 insertion(+), 28 deletions(-)
+BTW, it's a pity ctags doesn't know where __ClearPageReserved()
+is defined.
 
-diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-index 6f0587b5e941..66b5d697d943 100644
---- a/arch/arm64/kernel/machine_kexec.c
-+++ b/arch/arm64/kernel/machine_kexec.c
-@@ -321,7 +321,7 @@ void crash_post_resume(void)
-  * but does not hold any data of loaded kernel image.
-  *
-  * Note that all the pages in crash dump kernel memory have been initially
-- * marked as Reserved in kexec_reserve_crashkres_pages().
-+ * marked as Reserved as memory was allocated via memblock_reserve().
-  *
-  * In hibernation, the pages which are Reserved and yet "nosave" are excluded
-  * from the hibernation iamge. crash_is_nosave() does thich check for crash
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 7205a9085b4d..c38976b70069 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -118,35 +118,10 @@ static void __init reserve_crashkernel(void)
- 	crashk_res.start = crash_base;
- 	crashk_res.end = crash_base + crash_size - 1;
- }
--
--static void __init kexec_reserve_crashkres_pages(void)
--{
--#ifdef CONFIG_HIBERNATION
--	phys_addr_t addr;
--	struct page *page;
--
--	if (!crashk_res.end)
--		return;
--
--	/*
--	 * To reduce the size of hibernation image, all the pages are
--	 * marked as Reserved initially.
--	 */
--	for (addr = crashk_res.start; addr < (crashk_res.end + 1);
--			addr += PAGE_SIZE) {
--		page = phys_to_page(addr);
--		SetPageReserved(page);
--	}
--#endif
--}
- #else
- static void __init reserve_crashkernel(void)
- {
- }
--
--static void __init kexec_reserve_crashkres_pages(void)
--{
--}
- #endif /* CONFIG_KEXEC_CORE */
- 
- #ifdef CONFIG_CRASH_DUMP
-@@ -586,8 +561,6 @@ void __init mem_init(void)
- 	/* this will put all unused low memory onto the freelists */
- 	memblock_free_all();
- 
--	kexec_reserve_crashkres_pages();
--
- 	mem_init_print_info(NULL);
- 
- 	/*
--- 
-2.17.2
+Gr{oetje,eeting}s,
 
+                        Geert
+
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
