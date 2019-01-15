@@ -6,88 +6,76 @@ X-Spam-Status: No, score=-1.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6048BC43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 19:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BC919C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 19:57:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2F15320657
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 19:25:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6C0C320656
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 19:57:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pUmz8MYw";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=oracle.com header.i=@oracle.com header.b="y+/CUQNd"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2F15320657
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=oracle.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="M9MqdTOP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6C0C320656
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qYzecUsubr7dPLP8LGHNpmcVx5SdX9A4ViCq1uGvjZ0=; b=pUmz8MYwh9Fhlj
-	nLipdfR5s0i7bWmHmFRiDZpCzldTHoH9ryFIDMqB6LsLtAPAYFIEFA754XwAuiOETzVYBahibnuzs
-	C7f0U7XbAxEiKsa+kDa2QGnFMsZWIeThpJWSlb7BT9sm7eQvSGSv16csRPpl0afvemk3CrJJxCCMo
-	mGtYcQsXQBzYfjmrc0x5la9bc3unwhxH7O6QJ4aP6GLDVzBn0Rja6hHLSR0LsoFz+JAGSME4anvIw
-	5PNX2weQ66e2sWRW+FmWr0gcXIGtyfU9kaD9K4ZBXOu++1DzycRMnTKXXVOOUm4znt5mYtkcg+9Sj
-	6DskgmQQxvAk8H00BH/g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=boKEV71zyxCeXQ01/KHEDEzJO9xSM1cEK+SK6xoEqZw=; b=M9MqdTOP803xeN
+	bHEgttW11dBjfUXSH5ImDHFLCF2FmycDoCfNbdTz9oUMsrXdyr5oK6nXmJhApKX2zOz9PQZNQlkth
+	LwVJ7OxiXBI4Uxy/uLXZc5aB1NAp+BCCBmN+ZEc79f7zQkxFt2Qmr11NUbknDmqNYt1DLht3jRK/u
+	TzG4dKWea1Of20v6EKJM6WmM3WK5DgFeYYdGN7ruMpFDPzHIEc98cWqWLO8E/aEVpTJovXwsJH3T4
+	z/pzSJxt+w1JrwOUNTFPdexW+O2s89elq24Lz6jskrH9XIUjCIG3xR9TTyb/sVHBCAxoab/TEJdaI
+	So4rUWLzurThyE4enWuw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gjUL6-0006gn-UW; Tue, 15 Jan 2019 19:25:32 +0000
-Received: from userp2120.oracle.com ([156.151.31.85])
+	id 1gjUpu-000233-Md; Tue, 15 Jan 2019 19:57:22 +0000
+Received: from mail-out.m-online.net ([212.18.0.9])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gjUL4-0006gK-Im
- for linux-riscv@lists.infradead.org; Tue, 15 Jan 2019 19:25:32 +0000
-Received: from pps.filterd (userp2120.oracle.com [127.0.0.1])
- by userp2120.oracle.com (8.16.0.22/8.16.0.22) with SMTP id x0FJODx7130312;
- Tue, 15 Jan 2019 19:25:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
- h=subject : to : cc :
- references : from : message-id : date : mime-version : in-reply-to :
- content-type : content-transfer-encoding; s=corp-2018-07-02;
- bh=+7plGGamsNLZs9WRDGBrEEKArONz8Ppz4oR6XDm7V/M=;
- b=y+/CUQNd4F29XshWTnHUvh/+40PtFVkIdd+LyckuvS3+Sn6lwnmU/EogpKdDC6/wL6U6
- ztSgxPNdheOHZePIqDm/+nkvuVyIES4LjbCZH30iKinflKLtx0/yrV2misqGcYmK0E23
- 2rXlEhCBG6AhYZmkPk0y2MGKyDGhvhVvJ3xWNXyZFRbuXXh/6DlmWi3otl8sDrOuFjIw
- HHtFghNx2iy/N89x26TyQbCSSAp4L7s1pxeL/eUFaSMdjQaFn3UxEvFV6W/F3rxCL6vW
- hhJa7az+1TWIDKJCOj+7Qsp5yogUYDH/D7PTLVrAf/Qt3wRcrUDg+M94TcK3ygBe9Cah gw== 
-Received: from userv0021.oracle.com (userv0021.oracle.com [156.151.31.71])
- by userp2120.oracle.com with ESMTP id 2pybjs5uga-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 15 Jan 2019 19:25:11 +0000
-Received: from userv0122.oracle.com (userv0122.oracle.com [156.151.31.75])
- by userv0021.oracle.com (8.14.4/8.14.4) with ESMTP id x0FJPAq2018825
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 15 Jan 2019 19:25:10 GMT
-Received: from abhmp0019.oracle.com (abhmp0019.oracle.com [141.146.116.25])
- by userv0122.oracle.com (8.14.4/8.14.4) with ESMTP id x0FJP99k026197;
- Tue, 15 Jan 2019 19:25:09 GMT
-Received: from [192.168.1.164] (/50.38.38.67)
- by default (Oracle Beehive Gateway v4.0)
- with ESMTP ; Tue, 15 Jan 2019 11:25:08 -0800
-Subject: Re: [PATCH 0/3] Hugetlbfs support for riscv
-To: Christoph Hellwig <hch@infradead.org>
-References: <20181210062146.24951-1-aghiti@upmem.com>
- <91664ec7-d148-1c0a-8d1a-82815c5c7f6a@oracle.com>
- <20190115160429.GA29683@infradead.org>
-From: Mike Kravetz <mike.kravetz@oracle.com>
-Message-ID: <5454277c-410d-f24e-882e-02442af8a719@oracle.com>
-Date: Tue, 15 Jan 2019 11:25:07 -0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.4.0
+ id 1gjUpp-00022Q-J4
+ for linux-riscv@lists.infradead.org; Tue, 15 Jan 2019 19:57:20 +0000
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+ by mail-out.m-online.net (Postfix) with ESMTP id 43fLhm4b6Pz1r7Sb;
+ Tue, 15 Jan 2019 20:57:12 +0100 (CET)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
+ by mail.m-online.net (Postfix) with ESMTP id 43fLhm3zCTz1qqkL;
+ Tue, 15 Jan 2019 20:57:12 +0100 (CET)
+X-Virus-Scanned: amavisd-new at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+ by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
+ port 10024)
+ with ESMTP id 9pNVtW7gHqsc; Tue, 15 Jan 2019 20:57:11 +0100 (CET)
+X-Auth-Info: WO0/niUQTc58weQZdmzOzgcguSoguc47JLTWuPyveBDcEyRxJ0kVTzQ3NXYMNt6V
+Received: from igel.home (ppp-188-174-147-82.dynamic.mnet-online.de
+ [188.174.147.82])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.mnet-online.de (Postfix) with ESMTPSA;
+ Tue, 15 Jan 2019 20:57:11 +0100 (CET)
+Received: by igel.home (Postfix, from userid 1000)
+ id 2F77A2C1B15; Tue, 15 Jan 2019 20:57:11 +0100 (CET)
+From: Andreas Schwab <schwab@linux-m68k.org>
+To: Jan Vrany <jan.vrany@fit.cvut.cz>
+Subject: Re: Ethernet performance issue on HiFive Unleashed with kernel 4.20
+References: <69e7b1cae1168ac2d8c0e477183be9fae95b8cc0.camel@fit.cvut.cz>
+ <87bm4n8he4.fsf@igel.home>
+ <a6c6f9004f6e46f51e78958f330c7b136b664248.camel@fit.cvut.cz>
+ <878szneeao.fsf@igel.home>
+ <5dbe411eecfed2a1bb60db4afd65265904111604.camel@fit.cvut.cz>
+X-Yow: If this was a SWEDISH MOVIE, I'd take off your GO-GO BOOTS!!
+Date: Tue, 15 Jan 2019 20:57:11 +0100
+In-Reply-To: <5dbe411eecfed2a1bb60db4afd65265904111604.camel@fit.cvut.cz> (Jan
+ Vrany's message of "Tue, 15 Jan 2019 09:20:16 +0000")
+Message-ID: <87r2dd8zjc.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.91 (gnu/linux)
 MIME-Version: 1.0
-In-Reply-To: <20190115160429.GA29683@infradead.org>
-Content-Language: en-US
-X-Proofpoint-Virus-Version: vendor=nai engine=5900 definitions=9137
- signatures=668682
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=2
- malwarescore=0
- phishscore=0 bulkscore=0 spamscore=0 mlxscore=0 mlxlogscore=722
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.0.1-1810050000 definitions=main-1901150156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190115_112530_810230_53EF3972 
-X-CRM114-Status: GOOD (  23.05  )
+X-CRM114-CacheID: sfid-20190115_115717_926981_21303AB9 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -99,43 +87,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mingo@kernel.org, aou@eecs.berkeley.edu, catalin.marinas@arm.com,
- palmer@sifive.com, ndesaulniers@google.com, Alexandre Ghiti <aghiti@upmem.com>,
- atish.patra@wdc.com, linux-riscv@lists.infradead.org,
- akpm@linux-foundation.org
+Cc: linux-riscv@lists.infradead.org, Boris Shingarov <boris@shingarov.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/15/19 8:04 AM, Christoph Hellwig wrote:
-> On Wed, Jan 09, 2019 at 11:23:22AM -0800, Mike Kravetz wrote:
->>> CMA or (MEMORY_ISOLATION && COMPACTION) must be enabled so that boot
->>> reserved gigantic pages can be freed: indeed, one can reduce the number
->>> of huge pages by calling free_gigantic_pages which in turn calls
->>> free_contig_range, defined only with those configs defined.
->>> However I don't see any strong dependency between free_contig_range
->>> and those configs, maybe we could allow hugetlbfs users to free boot
->>> reserved hugepages without those configs activated, I will propose
->>> something if Mike Kravetz agrees.
->>
->> Yes, that should be modified.  I think it would be a simple matter of moving
->> free_contig_range out of that ifdef block.  If you would like, I can submit
->> a patch for that.
-> 
-> We should probably include that patch in this series.
+On Jan 15 2019, Jan Vrany <jan.vrany@fit.cvut.cz> wrote:
 
-I would actually prefer that this be a separate patch.  Why?
-- The functionality is arch independent and not specific to riscv.
-- This functionality was intended in commit 944d9fec8d7a ("hugetlb:
-  add support for gigantic page allocation at runtime").  However,
-  there was no need to tie the functionality to CMA or (MEMORY_ISOLATION
-  && COMPACTION).
+> Setting them to max before bringing the interface up
+> seem to solve the problem:
+>
+> ethtool -G eth0 rx 8192
+> ethtool -G eth0 tx 4096
 
-I don't care enough to insist the patch be separate.  Just seems like
-it should be separate to me.
+It works for me without that adjustments.
+
+Andreas.
+
 -- 
-Mike Kravetz
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
