@@ -6,16 +6,16 @@ X-Spam-Status: No, score=-3.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 56F56C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 13:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ED7F9C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 13:52:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2A84C20651
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 13:51:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BEE8820651
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 13:52:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mMO52n46"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2A84C20651
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lNtG5z8i"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BEE8820651
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,27 +24,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pyf4ckZT6zknwKo92yBLQ7ik0VNLpCdzMazG43PUPo8=; b=mMO52n46UP967O
-	I3hNnAGR37YwSF/0zMjRKhCZXsOkxHuhwT5bLgicENXLJdU0ZpD/QFy6nbS1OJ9DT8dNnYV7eb170
-	QQjasl4PSIzpQhWmsp1Pi9umyPgtmRAkeDpXtYv//JSR7m+Paog53QWX0l7pscnbwOJXIUjbm5o+X
-	qPeGv0mnEqy3BT1rGuDMf1i5kR8gcNW1wyDxlroS49qrjdyFi53yaut6++BLaZ4HGmE6dsiezrfdU
-	RSYGo/ZAb1fcmcxCXX9O56ZUiTWI4XhTzzP8txFbfzxp1zl0GAoX0J5kaUpmOxSNEGzk08QG9XDJo
-	st9mr6sr6AZBMv60w0sg==;
+	List-Owner; bh=Hff+GOdT9ZbcFlarWmrMwM3ArFTx5G3QSTtBAYDQo70=; b=lNtG5z8iRWPPcO
+	2dEL59f5XeDk9wB5pYCa2IxBUthfjQ/LPg1S1R8EvljtoiB+2NZSMpSJvolk2pTnxYHAFMM/fsyxe
+	ivBN79Dnvo4VM46Z1kJJPW+kZTd5J82K7MjC3TkQl3lfGADcQQR9hf4aDkPqUsDBLTCttLvOt+ztP
+	n4rTS+ZZzBJxCI965LUhYbo90v77eKr3UVTQwCJE4VEKVXtNnJzdKjiLSFU9AFHzOj0XJ9bFNdsRo
+	+CVlSUae9vOjvXD/KRIaFK50nH18xFDe7sXgBESW8sgCV96xJYvFXCr7jcGJ301E1B7XRckaY43aG
+	IL5Mkr0665cHy73d0/nQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gjP7m-0000mq-VM; Tue, 15 Jan 2019 13:51:26 +0000
+	id 1gjP8p-00011x-JK; Tue, 15 Jan 2019 13:52:31 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1gjP7l-0000mc-Gl; Tue, 15 Jan 2019 13:51:25 +0000
-Date: Tue, 15 Jan 2019 05:51:25 -0800
+ Hat Linux)) id 1gjP8n-00011l-5e; Tue, 15 Jan 2019 13:52:29 +0000
+Date: Tue, 15 Jan 2019 05:52:29 -0800
 From: Christoph Hellwig <hch@infradead.org>
 To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [PATCH v2 1/8] RISC-V: Do not wait indefinitely in __cpu_up
-Message-ID: <20190115135125.GA28946@infradead.org>
+Subject: Re: [PATCH v2 2/8] RISC-V: Move cpuid to hartid mapping to SMP.
+Message-ID: <20190115135229.GB28946@infradead.org>
 References: <1546940318-9752-1-git-send-email-atish.patra@wdc.com>
- <1546940318-9752-2-git-send-email-atish.patra@wdc.com>
+ <1546940318-9752-3-git-send-email-atish.patra@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <1546940318-9752-2-git-send-email-atish.patra@wdc.com>
+In-Reply-To: <1546940318-9752-3-git-send-email-atish.patra@wdc.com>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -70,36 +70,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
->  
->  void *__cpu_up_stack_pointer[NR_CPUS];
->  void *__cpu_up_task_pointer[NR_CPUS];
-> +static DECLARE_COMPLETION(cpu_running);
->  
->  void __init smp_prepare_boot_cpu(void)
->  {
-> @@ -81,6 +82,7 @@ void __init setup_smp(void)
->  
->  int __cpu_up(unsigned int cpu, struct task_struct *tidle)
->  {
-> +	int ret = 0;
->  	int hartid = cpuid_to_hartid_map(cpu);
->  	tidle->thread_info.cpu = cpu;
->  
-> @@ -96,10 +98,15 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
->  		  task_stack_page(tidle) + THREAD_SIZE);
->  	WRITE_ONCE(__cpu_up_task_pointer[hartid], tidle);
->  
-> -	while (!cpu_online(cpu))
-> -		cpu_relax();
-> +	wait_for_completion_timeout(&cpu_running,
-> +					    msecs_to_jiffies(1000));
+> +	if (hartid == boot_cpu_hartid)
+> +		return 0;
+> +	else
+> +		return -1;
 
-Having a global completion here worries me.  I bet we have some higher
-level serialization, but can we comment or even better lockdep assert on
-that?
+No need for an else after a return statement.
 
-Also please use up your available lines (72 in commit logs, 80 in source
-files) instead of adding spurious line wraps.
+> +}
+> +static inline unsigned long cpuid_to_hartid_map(int cpu)
+> +{
+> +
+> +	return boot_cpu_hartid;
+
+spurious empty line above.
 
 _______________________________________________
 linux-riscv mailing list
