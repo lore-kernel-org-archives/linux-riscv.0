@@ -2,69 +2,69 @@ Return-Path: <SRS0=k4h2=PX=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-7.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C4F8EC43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 22:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 546E5C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 23:50:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8F4F320866
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 22:00:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1EEAF20645
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 23:50:14 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kvn5RFAf"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8F4F320866
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="q1NNzlJD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1EEAF20645
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=iogearbox.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ag6nTt+kUQMp9ZErZFz0XFAEiKXzvF9ti2xgCBttvSI=; b=kvn5RFAfVOiUcd
-	YLguI4M2J53b7EpOU1bXvAMizuS9WUpyKy7NNO6P6Gv9TwLw1625PgVXu3ZJ7NbU8x+uSi/aSSsJd
-	jDOdbM9pIJyavYIC/t4rw0aGa1LN6PJ1jDdIbLZkPWFN/3lmCKTOajyJymB0eJPshT0qdwhz6CEZE
-	XBExfQmRDC4PPusK6e9XaXA3ghiiENCvvhNu5XhQyS8fegfl0XfeflC1UHPmpLnfT6K7feJ7nIjIn
-	9c8xsDBBFdvxZanT+VcC0yfC44do9zotpEoiw+rSlelCrALYIMLmi14sC6QyD4QaRkJesEKjuoB9n
-	Spp0sq5jH+CH2N9+m0vw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aF3z+CgndT5ztlpWGdvUPBhZLrchPceGZrJdX0grlD8=; b=q1NNzlJDqfYht4
+	hUENsgEeDdmibIfylQ+YLil48Esui4mFc/9fJMuiDSdLfM4zQ5dnAWHQcpHSFkoNwdcbM2IZR5S0Y
+	021ZkqCqfDDYgNl0qyU/RoGujtsY3ZtLOZc8rHesq4mqo+lLDXZ/a4kfxABkmZsZejjR5SlwbqK7u
+	Xl/t028vqvCGbiCtSlipB10RpzMnU9a0tQXCSPVaUuYe95v07iJSbwf/85fbGrfbPc7DI5A9qXyU9
+	oXGtfix5OuoBuNSzZf9CGncpPRQwsSE6LMdIe9G4KTuPibY/BBZHmmWtFejJ7Kc/voRVKyUdGyImP
+	kliIt3L4hPpbd//HDrZQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gjWlQ-00069Y-WF; Tue, 15 Jan 2019 22:00:53 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1gjYTE-0004ED-7g; Tue, 15 Jan 2019 23:50:12 +0000
+Received: from www62.your-server.de ([213.133.104.62])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gjWlN-000696-HP
- for linux-riscv@lists.infradead.org; Tue, 15 Jan 2019 22:00:51 +0000
-Received: from ptx.hi.pengutronix.de ([2001:67c:670:100:1d::c0])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1gjWlL-0008I7-FB; Tue, 15 Jan 2019 23:00:47 +0100
-Received: from ukl by ptx.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1gjWlK-0000mg-4Z; Tue, 15 Jan 2019 23:00:46 +0100
-Date: Tue, 15 Jan 2019 23:00:46 +0100
-From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
-Message-ID: <20190115220046.etgbno6ymsux75dk@pengutronix.de>
-References: <1547194964-16718-1-git-send-email-yash.shah@sifive.com>
- <1547194964-16718-3-git-send-email-yash.shah@sifive.com>
+ id 1gjYT9-0002z7-Vw
+ for linux-riscv@lists.infradead.org; Tue, 15 Jan 2019 23:50:10 +0000
+Received: from [78.46.172.3] (helo=sslproxy06.your-server.de)
+ by www62.your-server.de with esmtpsa (TLSv1.2:DHE-RSA-AES256-GCM-SHA384:256)
+ (Exim 4.89_1) (envelope-from <daniel@iogearbox.net>)
+ id 1gjYT1-00064T-SU; Wed, 16 Jan 2019 00:49:59 +0100
+Received: from [178.197.248.17] (helo=linux.home)
+ by sslproxy06.your-server.de with esmtpsa
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.89)
+ (envelope-from <daniel@iogearbox.net>)
+ id 1gjYT1-000M7H-LY; Wed, 16 Jan 2019 00:49:59 +0100
+Subject: Re: [RFC PATCH 3/3] bpf, riscv: added eBPF JIT for RV64G
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>,
+ linux-riscv@lists.infradead.org
+References: <20190115083518.10149-1-bjorn.topel@gmail.com>
+ <20190115083518.10149-4-bjorn.topel@gmail.com>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <efd18130-85b6-263c-85cb-1b19d81141f3@iogearbox.net>
+Date: Wed, 16 Jan 2019 00:49:58 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.3.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1547194964-16718-3-git-send-email-yash.shah@sifive.com>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c0
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+In-Reply-To: <20190115083518.10149-4-bjorn.topel@gmail.com>
+Content-Language: en-US
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.100.2/25301/Tue Jan 15 19:30:06 2019)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190115_140049_894287_FC9A5068 
-X-CRM114-Status: GOOD (  30.66  )
+X-CRM114-CacheID: sfid-20190115_155008_235817_290C5539 
+X-CRM114-Status: GOOD (  23.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -76,411 +76,184 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- palmer@sifive.com, linux-kernel@vger.kernel.org, robh+dt@kernel.org,
- sachin.ghadi@sifive.com, thierry.reding@gmail.com, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: netdev@vger.kernel.org, palmer@sifive.com, davidlee@sifive.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-On Fri, Jan 11, 2019 at 01:52:44PM +0530, Yash Shah wrote:
-> Adds a PWM driver for PWM chip present in SiFive's HiFive Unleashed SoC.
-> =
-
-> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
-> [Atish: Various fixes and code cleanup]
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> Signed-off-by: Yash Shah <yash.shah@sifive.com>
-> ---
->  drivers/pwm/Kconfig      |  10 ++
->  drivers/pwm/Makefile     |   1 +
->  drivers/pwm/pwm-sifive.c | 246 +++++++++++++++++++++++++++++++++++++++++=
-++++++
->  3 files changed, 257 insertions(+)
->  create mode 100644 drivers/pwm/pwm-sifive.c
-> =
-
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index a8f47df..3bcaf6a 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -380,6 +380,16 @@ config PWM_SAMSUNG
->  	  To compile this driver as a module, choose M here: the module
->  	  will be called pwm-samsung.
->  =
-
-> +config PWM_SIFIVE
-> +	tristate "SiFive PWM support"
-> +	depends on OF
-> +	depends on COMMON_CLK
-
-I'd say add:
-
-	depends on MACH_SIFIVE || COMPILE_TEST
-
-(I guess "MACH_SIFIVE" is wrong, but I assume you get what I mean.)
-
-> +	help
-> +	  Generic PWM framework driver for SiFive SoCs.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called pwm-sifive.
-> +
->  config PWM_SPEAR
->  	tristate "STMicroelectronics SPEAr PWM support"
->  	depends on PLAT_SPEAR
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index 9c676a0..30089ca 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -37,6 +37,7 @@ obj-$(CONFIG_PWM_RCAR)		+=3D pwm-rcar.o
->  obj-$(CONFIG_PWM_RENESAS_TPU)	+=3D pwm-renesas-tpu.o
->  obj-$(CONFIG_PWM_ROCKCHIP)	+=3D pwm-rockchip.o
->  obj-$(CONFIG_PWM_SAMSUNG)	+=3D pwm-samsung.o
-> +obj-$(CONFIG_PWM_SIFIVE)	+=3D pwm-sifive.o
->  obj-$(CONFIG_PWM_SPEAR)		+=3D pwm-spear.o
->  obj-$(CONFIG_PWM_STI)		+=3D pwm-sti.o
->  obj-$(CONFIG_PWM_STM32)		+=3D pwm-stm32.o
-> diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
-> new file mode 100644
-> index 0000000..7fee809
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-sifive.c
-> @@ -0,0 +1,246 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2017-2018 SiFive
-> + * For SiFive's PWM IP block documentation please refer Chapter 14 of
-> + * Reference Manual : https://static.dev.sifive.com/FU540-C000-v1.0.pdf
-
-I wonder if such an instance should be only a single PWM instead of
-four. Then you were more flexible with the period lengths (using
-pwmcfg.pwmzerocmp) and could do stuff like inverted and uninverted mode.
-
-I didn't understand how the deglitch logic works yet. Currently it is
-not used which might result in four edges in a single period (which is
-bad).
-
-> + */
-> +#include <linux/clk.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +#include <linux/slab.h>
-> +
-> +/* Register offsets */
-> +#define REG_PWMCFG		0x0
-> +#define REG_PWMCOUNT		0x8
-> +#define REG_PWMS		0x10
-> +#define REG_PWMCMP0		0x20
-
-I suggest a common prefix for these defines. Something like
-PWM_SIFIVE_
-
-> +
-> +/* PWMCFG fields */
-> +#define BIT_PWM_SCALE		0
-> +#define BIT_PWM_STICKY		8
-> +#define BIT_PWM_ZERO_ZMP	9
-
-the manual calls this "pwmzerocmp".
-
-> +#define BIT_PWM_DEGLITCH	10
-> +#define BIT_PWM_EN_ALWAYS	12
-> +#define BIT_PWM_EN_ONCE		13
-> +#define BIT_PWM0_CENTER		16
-> +#define BIT_PWM0_GANG		24
-> +#define BIT_PWM0_IP		28
-
-Also a common prefix please. Something like PWM_SIFIVE_PWMCFG_ seems
-sensible.
-
-> +#define SIZE_PWMCMP		4
-
-Please describe what this constant means. I think this is "ncmp" in the
-reference manual. If so, using PWM_SIFIVE_NCMP as name instead seems
-adequate.
-
-> +#define MASK_PWM_SCALE		0xf
-
-MASK_PWM_SCALE is unused, please drop it.
-
-> +struct sifive_pwm_device {
-> +	struct pwm_chip	chip;
-> +	struct notifier_block notifier;
-> +	struct clk *clk;
-> +	void __iomem *regs;
-> +	unsigned int approx_period;
-> +	unsigned int real_period;
-> +};
-
-I'd call this pwm_sifive_ddata. The prefix because the driver is called
-pwm-sifive and ddata because this is driver data and not a device.
-
-> +static inline struct sifive_pwm_device *to_sifive_pwm_chip(struct pwm_ch=
-ip *c)
-> +{
-> +	return container_of(c, struct sifive_pwm_device, chip);
-> +}
-> +
-> +static void sifive_pwm_get_state(struct pwm_chip *chip, struct pwm_devic=
-e *dev,
-> +				 struct pwm_state *state)
-
-given that the driver is called pwm-sifive, please use pwm_sifive as
-function prefix.
-
-> +{
-> +	struct sifive_pwm_device *pwm =3D to_sifive_pwm_chip(chip);
-> +	u32 duty;
-> +
-> +	duty =3D readl(pwm->regs + REG_PWMCMP0 + dev->hwpwm * SIZE_PWMCMP);
-> +
-> +	state->period =3D pwm->real_period;
-> +	state->duty_cycle =3D ((u64)duty * pwm->real_period) >> 16;
-
-In the reference manual this 16 is called "cmpwidth" I think. If I
-understand correctly this might in theory be different from 16, so it
-would be great if this would be at least a cpp symbol for now.
-
-> +	state->polarity =3D PWM_POLARITY_INVERSED;
-> +	state->enabled =3D duty > 0;
-> +}
-> +
-> +static int sifive_pwm_apply(struct pwm_chip *chip, struct pwm_device *de=
-v,
-> +			    struct pwm_state *state)
-> +{
-> +	struct sifive_pwm_device *pwm =3D to_sifive_pwm_chip(chip);
-> +	unsigned int duty_cycle;
-> +	u32 frac;
-> +
-> +	if (state->polarity !=3D PWM_POLARITY_INVERSED)
-> +		return -EINVAL;
-> +
-> +	duty_cycle =3D state->duty_cycle;
-> +	if (!state->enabled)
-> +		duty_cycle =3D 0;
-> +
-> +	frac =3D div_u64((u64)duty_cycle << 16, state->period);
-> +	frac =3D min(frac, 0xFFFFU);
-
-In the previous review round I asked here:
-
-| Also if real_period is for example 10 ms and the consumer requests
-| duty=3D12 ms + period=3D100 ms, the hardware is configured for duty=3D1.2=
- ms +
-| period=3D10 ms, right?
-
-which you confirmed. IMHO this is not acceptable. If the period is
-fixed, you should return -EINVAL (I think) if a different period is
-requested.
-
-> +	writel(frac, pwm->regs + REG_PWMCMP0 + dev->hwpwm * SIZE_PWMCMP);
-
-If you get a constant inactive output with frac=3D0 and a constant active
-output with frac=3D0xffff the calculation above seems wrong to me.
-(A value i written to the pwmcmpX register means a duty cycle of
-(i * period / 0xffff). Your calculation assumes a divisor of 0x10000
-however.)
-
-> +
-> +	if (state->enabled)
-> +		sifive_pwm_get_state(chip, dev, state);
-
-@Thierry: Should we bless this correction of state?
-
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct pwm_ops sifive_pwm_ops =3D {
-> +	.get_state =3D sifive_pwm_get_state,
-> +	.apply =3D sifive_pwm_apply,
-> +	.owner =3D THIS_MODULE,
-> +};
-> +
-> +static struct pwm_device *sifive_pwm_xlate(struct pwm_chip *chip,
-> +					   const struct of_phandle_args *args)
-> +{
-> +	struct sifive_pwm_device *pwm =3D to_sifive_pwm_chip(chip);
-> +	struct pwm_device *dev;
-> +
-> +	if (args->args[0] >=3D chip->npwm)
-> +		return ERR_PTR(-EINVAL);
-> +
-> +	dev =3D pwm_request_from_chip(chip, args->args[0], NULL);
-> +	if (IS_ERR(dev))
-> +		return dev;
-> +
-> +	/* The period cannot be changed on a per-PWM basis */
-> +	dev->args.period =3D pwm->real_period;
-> +	dev->args.polarity =3D PWM_POLARITY_NORMAL;
-> +	if (args->args[1] & PWM_POLARITY_INVERSED)
-> +		dev->args.polarity =3D PWM_POLARITY_INVERSED;
-> +
-> +	return dev;
-> +}
-> +
-> +static void sifive_pwm_update_clock(struct sifive_pwm_device *pwm,
-> +				    unsigned long rate)
-> +{
-> +	/* (1 << (16+scale)) * 10^9/rate =3D real_period */
-> +	unsigned long scale_pow =3D (pwm->approx_period * (u64)rate) / 10000000=
-00;
-
-NSEC_PER_SEC instead of 1000000000
-
-> +	int scale =3D clamp(ilog2(scale_pow) - 16, 0, 0xf);
-> +
-> +	writel((1 << BIT_PWM_EN_ALWAYS) | (scale << BIT_PWM_SCALE),
-> +	       pwm->regs + REG_PWMCFG);
-> +
-> +	/* As scale <=3D 15 the shift operation cannot overflow. */
-> +	pwm->real_period =3D div64_ul(1000000000ULL << (16 + scale), rate);
-> +	dev_dbg(pwm->chip.dev, "New real_period =3D %u ns\n", pwm->real_period);
-> +}
-> +
-> +static int sifive_pwm_clock_notifier(struct notifier_block *nb,
-> +				     unsigned long event, void *data)
-> +{
-> +	struct clk_notifier_data *ndata =3D data;
-> +	struct sifive_pwm_device *pwm =3D
-> +		container_of(nb, struct sifive_pwm_device, notifier);
-> +
-> +	if (event =3D=3D POST_RATE_CHANGE)
-> +		sifive_pwm_update_clock(pwm, ndata->new_rate);
-
-Does this need locking? (Maybe not with the current state.)
-
-> +
-> +	return NOTIFY_OK;
-> +}
-> +
-> +static int sifive_pwm_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev =3D &pdev->dev;
-> +	struct device_node *node =3D pdev->dev.of_node;
-> +	struct sifive_pwm_device *pwm;
-> +	struct pwm_chip *chip;
-> +	struct resource *res;
-> +	int ret;
-> +
-> +	pwm =3D devm_kzalloc(dev, sizeof(*pwm), GFP_KERNEL);
-> +	if (!pwm)
-> +		return -ENOMEM;
-> +
-> +	chip =3D &pwm->chip;
-> +	chip->dev =3D dev;
-> +	chip->ops =3D &sifive_pwm_ops;
-> +	chip->of_xlate =3D sifive_pwm_xlate;
-> +	chip->of_pwm_n_cells =3D 2;
-> +	chip->base =3D -1;
-> +	chip->npwm =3D 4;
-> +
-> +	ret =3D of_property_read_u32(node, "sifive,approx-period-ns",
-> +				   &pwm->approx_period);
-> +	if (ret < 0) {
-> +		dev_err(dev, "Unable to read sifive,approx-period from DTS\n");
-> +		return ret;
-> +	}
-> +
-> +	res =3D platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	pwm->regs =3D devm_ioremap_resource(dev, res);
-> +	if (IS_ERR(pwm->regs)) {
-> +		dev_err(dev, "Unable to map IO resources\n");
-> +		return PTR_ERR(pwm->regs);
-> +	}
-> +
-> +	pwm->clk =3D devm_clk_get(dev, NULL);
-> +	if (IS_ERR(pwm->clk)) {
-> +		if (PTR_ERR(pwm->clk) !=3D -EPROBE_DEFER)
-> +			dev_err(dev, "Unable to find controller clock\n");
-> +		return PTR_ERR(pwm->clk);
-> +	}
-> +
-> +	ret =3D clk_prepare_enable(pwm->clk);
-> +	if (ret) {
-> +		dev_err(dev, "failed to enable clock for pwm: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	/* Watch for changes to underlying clock frequency */
-> +	pwm->notifier.notifier_call =3D sifive_pwm_clock_notifier;
-> +	ret =3D clk_notifier_register(pwm->clk, &pwm->notifier);
-> +	if (ret) {
-> +		dev_err(dev, "failed to register clock notifier: %d\n", ret);
-> +		clk_disable_unprepare(pwm->clk);
-> +		return ret;
-> +	}
-> +
-> +	/* Initialize PWM config */
-> +	sifive_pwm_update_clock(pwm, clk_get_rate(pwm->clk));
-> +
-> +	ret =3D pwmchip_add(chip);
-> +	if (ret < 0) {
-> +		dev_err(dev, "cannot register PWM: %d\n", ret);
-> +		clk_notifier_unregister(pwm->clk, &pwm->notifier);
-> +		clk_disable_unprepare(pwm->clk);
-> +		return ret;
-> +	}
-
-Can you please use a common error path using goto?
-
-> +	platform_set_drvdata(pdev, pwm);
-> +	dev_dbg(dev, "SiFive PWM chip registered %d PWMs\n", chip->npwm);
-> +
-> +	return 0;
-> +}
-> +
-> +static int sifive_pwm_remove(struct platform_device *dev)
-> +{
-> +	struct sifive_pwm_device *pwm =3D platform_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret =3D pwmchip_remove(&pwm->chip);
-> +	clk_notifier_unregister(pwm->clk, &pwm->notifier);
-> +	clk_disable_unprepare(pwm->clk);
-> +	return ret;
-> +}
-> +
-> +static const struct of_device_id sifive_pwm_of_match[] =3D {
-> +	{ .compatible =3D "sifive,pwm0" },
-> +	{ .compatible =3D "sifive,fu540-c000-pwm" },
-
-Do you really need both compatible strings here?
-
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, sifive_pwm_of_match);
-> +
-> +static struct platform_driver sifive_pwm_driver =3D {
-> +	.probe =3D sifive_pwm_probe,
-> +	.remove =3D sifive_pwm_remove,
-> +	.driver =3D {
-> +		.name =3D "pwm-sifive",
-> +		.of_match_table =3D sifive_pwm_of_match,
-> +	},
-> +};
-> +module_platform_driver(sifive_pwm_driver);
-> +
-> +MODULE_DESCRIPTION("SiFive PWM driver");
-> +MODULE_LICENSE("GPL v2");
-
-Best regards
-Uwe
-
--- =
-
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | http://www.pengutronix.de/  |
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMDEvMTUvMjAxOSAwOTozNSBBTSwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPiBUaGlzIGNvbW1p
+dCBhZGRzIGVCUEYgSklUIGZvciBSVjY0Ry4KPiAKPiBDb2Rld2lzZSwgaXQgbmVlZHMgc29tZSBy
+ZWZhY3RvcmluZy4gQ3VycmVudGx5IHRoZXJlJ3MgYSBiaXQgdG9vIG11Y2gKPiBjb3B5LWFuZC1w
+YXN0ZSBnb2luZyBvbiwgYW5kIEkga25vdyBzb21lIHBsYWNlcyB3aGVyZSBJIGNvdWxkIG9wdGlt
+aXplCj4gdGhlIGNvZGUgZ2VuZXJhdGlvbiBhIGJpdCAobW9zdGx5IEJQRl9LIHR5cGUgb2YgaW5z
+dHJ1Y3Rpb25zLCBkZWFsaW5nCj4gd2l0aCBpbW1lZGlhdGVzKS4KCk5pY2Ugd29yayEgOikKCj4g
+RnJvbSBhIGZlYXR1cmVzIHBlcnNwZWN0aXZlLCB0d28gdGhpbmdzIGFyZSBtaXNzaW5nOgo+IAo+
+ICogdGFpbCBjYWxscwo+ICogImZhci1icmFuY2hlcyIsIGkuZS4gY29uZGl0aW9uYWwgYnJhbmNo
+ZXMgdGhhdCByZWFjaCBiZXlvbmQgMTNiLgo+IAo+IFRoZSB0ZXN0X2JwZi5rbyBwYXNzZXMgYWxs
+IHRlc3RzLgoKRGlkIHlvdSBhbHNvIGNoZWNrIHRlc3RfdmVyaWZpZXIgdW5kZXIgaml0IHdpdGgv
+d2l0aG91dCBqaXQgaGFyZGVuaW5nCmVuYWJsZWQ/IFRoYXQgb25lIGNvbnRhaW5zIGxvdHMgb2Yg
+cnVudGltZSB0ZXN0cyBhcyB3ZWxsLiBQcm9iYWJseSBtYWtlcwpzZW5zZSB0byBjaGVjayB1bmRl
+ciBDT05GSUdfQlBGX0pJVF9BTFdBWVNfT04gdG8gc2VlIHdoYXQgZmFpbHMgdGhlIEpJVDsKdGhl
+IHRlc3RfdmVyaWZpZXIgYWxzbyBjb250YWlucyB2YXJpb3VzIHRhaWwgY2FsbCB0ZXN0cyB0YXJn
+ZXRlZCBhdCBKSVRzLApmb3IgZXhhbXBsZS4KCk5pdDogcGxlYXNlIGRlZmluaXRlbHkgYWxzbyBh
+ZGQgYSBNQUlOVEFJTkVSUyBlbnRyeSB3aXRoIGF0IGxlYXN0IHlvdXJzZWxmCnVuZGVyIEJQRiBK
+SVQgc2VjdGlvbiwgYW5kIHVwZGF0ZSBEb2N1bWVudGF0aW9uL3N5c2N0bC9uZXQudHh0IHdpdGgg
+cmlzY3Y2NC4KCj4gU2lnbmVkLW9mZi1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm4udG9wZWxAZ21h
+aWwuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXAuYyB8IDE2MDggKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gIDEgZmlsZSBjaGFuZ2VkLCAxNjA4IGlu
+c2VydGlvbnMoKykKPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21w
+LmMgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXAuYwo+IGluZGV4IDdlMzU5ZDMyNDllZS4u
+NTYyZDU2ZWI4ZDIzIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcC5j
+Cj4gKysrIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wLmMKPiBAQCAtMSw0ICsxLDE2MTIg
+QEAKPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKPiArLyoKPiArICogQlBG
+IEpJVCBjb21waWxlciBmb3IgUlY2NEcKPiArICoKPiArICogQ29weXJpZ2h0KGMpIDIwMTkgQmrD
+tnJuIFTDtnBlbCA8Ympvcm4udG9wZWxAZ21haWwuY29tPgo+ICsgKgo+ICsgKi8KPiArCj4gKyNp
+bmNsdWRlIDxsaW51eC9icGYuaD4KPiArI2luY2x1ZGUgPGxpbnV4L2ZpbHRlci5oPgo+ICsjaW5j
+bHVkZSA8YXNtL2NhY2hlZmx1c2guaD4KPiArCj4gKyNkZWZpbmUgVE1QX1JFR18wIChNQVhfQlBG
+X0pJVF9SRUcgKyAwKQo+ICsjZGVmaW5lIFRNUF9SRUdfMSAoTUFYX0JQRl9KSVRfUkVHICsgMSkK
+Ck5vdCB1c2VkPwoKPiArI2RlZmluZSBUQUlMX0NBTExfUkVHIChNQVhfQlBGX0pJVF9SRUcgKyAy
+KQo+ICsKPiArZW51bSBydl9yZWdpc3RlciB7Cj4gKwlSVl9SRUdfWkVSTyA9CTAsCS8qIFRoZSBj
+b25zdGFudCB2YWx1ZSAwICovCj4gKwlSVl9SRUdfUkEgPQkxLAkvKiBSZXR1cm4gYWRkcmVzcyAq
+Lwo+ICsJUlZfUkVHX1NQID0JMiwJLyogU3RhY2sgcG9pbnRlciAqLwo+ICsJUlZfUkVHX0dQID0J
+MywJLyogR2xvYmFsIHBvaW50ZXIgKi8KPiArCVJWX1JFR19UUCA9CTQsCS8qIFRocmVhZCBwb2lu
+dGVyICovCj4gKwlSVl9SRUdfVDAgPQk1LAkvKiBUZW1wb3JhcmllcyAqLwo+ICsJUlZfUkVHX1Qx
+ID0JNiwKPiArCVJWX1JFR19UMiA9CTcsCj4gKwlSVl9SRUdfRlAgPQk4LAo+ICsJUlZfUkVHX1Mx
+ID0JOSwJLyogU2F2ZWQgcmVnaXN0ZXJzICovCj4gKwlSVl9SRUdfQTAgPQkxMCwJLyogRnVuY3Rp
+b24gYXJndW1lbnQvcmV0dXJuIHZhbHVlcyAqLwo+ICsJUlZfUkVHX0ExID0JMTEsCS8qIEZ1bmN0
+aW9uIGFyZ3VtZW50cyAqLwo+ICsJUlZfUkVHX0EyID0JMTIsCj4gKwlSVl9SRUdfQTMgPQkxMywK
+PiArCVJWX1JFR19BNCA9CTE0LAo+ICsJUlZfUkVHX0E1ID0JMTUsCj4gKwlSVl9SRUdfQTYgPQkx
+NiwKPiArCVJWX1JFR19BNyA9CTE3LAo+ICsJUlZfUkVHX1MyID0JMTgsCS8qIFNhdmVkIHJlZ2lz
+dGVycyAqLwo+ICsJUlZfUkVHX1MzID0JMTksCj4gKwlSVl9SRUdfUzQgPQkyMCwKPiArCVJWX1JF
+R19TNSA9CTIxLAo+ICsJUlZfUkVHX1M2ID0JMjIsCj4gKwlSVl9SRUdfUzcgPQkyMywKPiArCVJW
+X1JFR19TOCA9CTI0LAo+ICsJUlZfUkVHX1M5ID0JMjUsCj4gKwlSVl9SRUdfUzEwID0JMjYsCj4g
+KwlSVl9SRUdfUzExID0JMjcsCj4gKwlSVl9SRUdfVDMgPQkyOCwJLyogVGVtcG9yYXJpZXMgKi8K
+PiArCVJWX1JFR19UNCA9CTI5LAo+ICsJUlZfUkVHX1Q1ID0JMzAsCj4gKwlSVl9SRUdfVDYgPQkz
+MSwKPiArfTsKPiArCj4gK3N0cnVjdCBydl9qaXRfY29udGV4dCB7Cj4gKwlzdHJ1Y3QgYnBmX3By
+b2cgKnByb2c7Cj4gKwl1MzIgKmluc25zOyAvKiBSViBpbnNucyAqLwo+ICsJaW50IG5pbnNuczsK
+PiArCWludCBlcGlsb2d1ZV9vZmZzZXQ7Cj4gKwlpbnQgKm9mZnNldDsgLyogQlBGIHRvIFJWICov
+Cj4gKwl1bnNpZ25lZCBsb25nIHNlZW5fcmVnX2JpdHM7Cj4gKwlpbnQgc3RhY2tfc2l6ZTsKPiAr
+fTsKPiArCj4gK3N0cnVjdCBydl9qaXRfZGF0YSB7Cj4gKwlzdHJ1Y3QgYnBmX2JpbmFyeV9oZWFk
+ZXIgKmhlYWRlcjsKPiArCXU4ICppbWFnZTsKPiArCXN0cnVjdCBydl9qaXRfY29udGV4dCBjdHg7
+Cj4gK307Cj4gKwo+ICtzdGF0aWMgdTggYnBmX3RvX3J2X3JlZyhpbnQgYnBmX3JlZywgc3RydWN0
+IHJ2X2ppdF9jb250ZXh0ICpjdHgpCj4gK3sKClRoaXMgb25lIGNhbiBhbHNvIGJlIHNpbXBsaWZp
+ZWQgYnkgaGF2aW5nIGEgc2ltcGxlIG1hcHBpbmcgYXMgaW4Kb3RoZXIgSklUcyBhbmQgdGhlbiBt
+YXJrIF9fc2V0X2JpdCg8cmVnPikgaW4gdGhlIHNtYWxsIGJwZl90b19ydl9yZWcoKQpoZWxwZXIu
+Cgo+ICsJc3dpdGNoIChicGZfcmVnKSB7Cj4gKwkvKiBSZXR1cm4gdmFsdWUgKi8KPiArCWNhc2Ug
+QlBGX1JFR18wOgo+ICsJCV9fc2V0X2JpdChSVl9SRUdfQTUsICZjdHgtPnNlZW5fcmVnX2JpdHMp
+Owo+ICsJCXJldHVybiBSVl9SRUdfQTU7Cj4gKwkvKiBGdW5jdGlvbiBhcmd1bWVudHMgKi8KPiAr
+CWNhc2UgQlBGX1JFR18xOgo+ICsJCV9fc2V0X2JpdChSVl9SRUdfQTAsICZjdHgtPnNlZW5fcmVn
+X2JpdHMpOwo+ICsJCXJldHVybiBSVl9SRUdfQTA7Cj4gKwljYXNlIEJQRl9SRUdfMjoKPiArCQlf
+X3NldF9iaXQoUlZfUkVHX0ExLCAmY3R4LT5zZWVuX3JlZ19iaXRzKTsKPiArCQlyZXR1cm4gUlZf
+UkVHX0ExOwo+ICsJY2FzZSBCUEZfUkVHXzM6Cj4gKwkJX19zZXRfYml0KFJWX1JFR19BMiwgJmN0
+eC0+c2Vlbl9yZWdfYml0cyk7Cj4gKwkJcmV0dXJuIFJWX1JFR19BMjsKPiArCWNhc2UgQlBGX1JF
+R180Ogo+ICsJCV9fc2V0X2JpdChSVl9SRUdfQTMsICZjdHgtPnNlZW5fcmVnX2JpdHMpOwo+ICsJ
+CXJldHVybiBSVl9SRUdfQTM7Cj4gKwljYXNlIEJQRl9SRUdfNToKPiArCQlfX3NldF9iaXQoUlZf
+UkVHX0E0LCAmY3R4LT5zZWVuX3JlZ19iaXRzKTsKPiArCQlyZXR1cm4gUlZfUkVHX0E0Owo+ICsJ
+LyogQ2FsbGVlIHNhdmVkIHJlZ2lzdGVycyAqLwo+ICsJY2FzZSBCUEZfUkVHXzY6Cj4gKwkJX19z
+ZXRfYml0KFJWX1JFR19TMSwgJmN0eC0+c2Vlbl9yZWdfYml0cyk7Cj4gKwkJcmV0dXJuIFJWX1JF
+R19TMTsKPiArCWNhc2UgQlBGX1JFR183Ogo+ICsJCV9fc2V0X2JpdChSVl9SRUdfUzIsICZjdHgt
+PnNlZW5fcmVnX2JpdHMpOwo+ICsJCXJldHVybiBSVl9SRUdfUzI7Cj4gKwljYXNlIEJQRl9SRUdf
+ODoKPiArCQlfX3NldF9iaXQoUlZfUkVHX1MzLCAmY3R4LT5zZWVuX3JlZ19iaXRzKTsKPiArCQly
+ZXR1cm4gUlZfUkVHX1MzOwo+ICsJY2FzZSBCUEZfUkVHXzk6Cj4gKwkJX19zZXRfYml0KFJWX1JF
+R19TNCwgJmN0eC0+c2Vlbl9yZWdfYml0cyk7Cj4gKwkJcmV0dXJuIFJWX1JFR19TNDsKPiArCS8q
+IFN0YWNrIHJlYWQtb25seSBmcmFtZSBwb2ludGVyIHRvIGFjY2VzcyBzdGFjayAqLwo+ICsJY2Fz
+ZSBCUEZfUkVHX0ZQOgo+ICsJCV9fc2V0X2JpdChSVl9SRUdfUzUsICZjdHgtPnNlZW5fcmVnX2Jp
+dHMpOwo+ICsJCXJldHVybiBSVl9SRUdfUzU7Cj4gKwkvKiBUZW1wb3JhcnkgcmVnaXN0ZXIgKi8K
+PiArCWNhc2UgQlBGX1JFR19BWDoKPiArCQlfX3NldF9iaXQoUlZfUkVHX1QwLCAmY3R4LT5zZWVu
+X3JlZ19iaXRzKTsKPiArCQlyZXR1cm4gUlZfUkVHX1QwOwo+ICsJLyogVGFpbCBjYWxsIGNvdW50
+ZXIgKi8KPiArCWNhc2UgVEFJTF9DQUxMX1JFRzoKPiArCQlfX3NldF9iaXQoUlZfUkVHX1M2LCAm
+Y3R4LT5zZWVuX3JlZ19iaXRzKTsKPiArCQlyZXR1cm4gUlZfUkVHX1M2Owo+ICsJZGVmYXVsdDoK
+PiArCQlyZXR1cm4gMDsKPiArCX0KPiArfTsKWy4uLl0KPiArCS8qIHRhaWwgY2FsbCAqLwo+ICsJ
+Y2FzZSBCUEZfSk1QIHwgQlBGX1RBSUxfQ0FMTDoKPiArCQlyZCA9IGJwZl90b19ydl9yZWcoVEFJ
+TF9DQUxMX1JFRywgY3R4KTsKPiArCQlwcl9lcnIoImJwZi1qaXQ6IHRhaWwgY2FsbCBub3Qgc3Vw
+cG9ydGVkIHlldCFcbiIpOwo+ICsJCXJldHVybiAtMTsKClRoZXJlIGFyZSB0d28gb3B0aW9ucyBo
+ZXJlLCBlaXRoZXIgZml4ZWQgc2l6ZSBwcm9sb2d1ZSB3aGVyZSB5b3UgY2FuCnRoZW4ganVtcCBv
+dmVyIGl0IGluIHRhaWwgY2FsbCBjYXNlLCBvciBkeW5hbWljIG9uZSB3aGljaCB3b3VsZCBtYWtl
+Cml0IHNsb3dlciBkdWUgdG8gcmVnIHJlc3RvcmUgYnV0IHNocmlua3MgaW1hZ2UgZm9yIG5vbi10
+YWlsIGNhbGxzLgoKPiArCS8qIGZ1bmN0aW9uIHJldHVybiAqLwo+ICsJY2FzZSBCUEZfSk1QIHwg
+QlBGX0VYSVQ6Cj4gKwkJaWYgKGkgPT0gY3R4LT5wcm9nLT5sZW4gLSAxKQo+ICsJCQlicmVhazsK
+PiArCj4gKwkJcnZvZmYgPSBlcGlsb2d1ZV9vZmZzZXQoY3R4KTsKPiArCQlpZiAoIWlzXzIxYl9p
+bnQocnZvZmYpKSB7Cj4gKwkJCXByX2VycigiYnBmLWppdDogJWQgb2Zmc2V0PSVkIG5vdCBzdXBw
+b3J0ZWQgeWV0IVxuIiwKPiArCQkJICAgICAgIF9fTElORV9fLCBydm9mZik7Cj4gKwkJCXJldHVy
+biAtMTsKPiArCQl9Cj4gKwo+ICsJCWVtaXQocnZfamFsKFJWX1JFR19aRVJPLCBydm9mZiA+PiAx
+KSwgY3R4KTsKPiArCQlicmVhazsKPiArCj4gKwkvKiBkc3QgPSBpbW02NCAqLwo+ICsJY2FzZSBC
+UEZfTEQgfCBCUEZfSU1NIHwgQlBGX0RXOgo+ICsJewo+ICsJCXN0cnVjdCBicGZfaW5zbiBpbnNu
+MSA9IGluc25bMV07Cj4gKwkJdTY0IGltbTY0Owo+ICsKWy4uLl0KPiArCj4gK3N0YXRpYyB2b2lk
+IGJ1aWxkX3Byb2xvZ3VlKHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4KQo+ICt7Cj4gKwlpbnQg
+c3RhY2tfYWRqdXN0ID0gMCwgc3RvcmVfb2Zmc2V0LCBicGZfc3RhY2tfYWRqdXN0Owo+ICsKPiAr
+CWlmIChzZWVuX3JlZyhSVl9SRUdfUkEsIGN0eCkpCj4gKwkJc3RhY2tfYWRqdXN0ICs9IDg7Cj4g
+KwlzdGFja19hZGp1c3QgKz0gODsgLyogUlZfUkVHX0ZQICovCj4gKwlpZiAoc2Vlbl9yZWcoUlZf
+UkVHX1MxLCBjdHgpKQo+ICsJCXN0YWNrX2FkanVzdCArPSA4Owo+ICsJaWYgKHNlZW5fcmVnKFJW
+X1JFR19TMiwgY3R4KSkKPiArCQlzdGFja19hZGp1c3QgKz0gODsKPiArCWlmIChzZWVuX3JlZyhS
+Vl9SRUdfUzMsIGN0eCkpCj4gKwkJc3RhY2tfYWRqdXN0ICs9IDg7Cj4gKwlpZiAoc2Vlbl9yZWco
+UlZfUkVHX1M0LCBjdHgpKQo+ICsJCXN0YWNrX2FkanVzdCArPSA4Owo+ICsJaWYgKHNlZW5fcmVn
+KFJWX1JFR19TNSwgY3R4KSkKPiArCQlzdGFja19hZGp1c3QgKz0gODsKPiArCWlmIChzZWVuX3Jl
+ZyhSVl9SRUdfUzYsIGN0eCkpCj4gKwkJc3RhY2tfYWRqdXN0ICs9IDg7Cj4gKwo+ICsJc3RhY2tf
+YWRqdXN0ID0gcm91bmRfdXAoc3RhY2tfYWRqdXN0LCAxNik7Cj4gKwlicGZfc3RhY2tfYWRqdXN0
+ID0gcm91bmRfdXAoY3R4LT5wcm9nLT5hdXgtPnN0YWNrX2RlcHRoLCAxNik7Cj4gKwlzdGFja19h
+ZGp1c3QgKz0gYnBmX3N0YWNrX2FkanVzdDsKPiArCj4gKwlzdG9yZV9vZmZzZXQgPSBzdGFja19h
+ZGp1c3QgLSA4Owo+ICsKPiArCWVtaXQocnZfYWRkaShSVl9SRUdfU1AsIFJWX1JFR19TUCwgLXN0
+YWNrX2FkanVzdCksIGN0eCk7Cj4gKwo+ICsJaWYgKHNlZW5fcmVnKFJWX1JFR19SQSwgY3R4KSkg
+ewo+ICsJCWVtaXQocnZfc2QoUlZfUkVHX1NQLCBzdG9yZV9vZmZzZXQsIFJWX1JFR19SQSksIGN0
+eCk7Cj4gKwkJc3RvcmVfb2Zmc2V0IC09IDg7Cj4gKwl9Cj4gKwllbWl0KHJ2X3NkKFJWX1JFR19T
+UCwgc3RvcmVfb2Zmc2V0LCBSVl9SRUdfRlApLCBjdHgpOwo+ICsJc3RvcmVfb2Zmc2V0IC09IDg7
+Cj4gKwlpZiAoc2Vlbl9yZWcoUlZfUkVHX1MxLCBjdHgpKSB7Cj4gKwkJZW1pdChydl9zZChSVl9S
+RUdfU1AsIHN0b3JlX29mZnNldCwgUlZfUkVHX1MxKSwgY3R4KTsKPiArCQlzdG9yZV9vZmZzZXQg
+LT0gODsKPiArCX0KPiArCWlmIChzZWVuX3JlZyhSVl9SRUdfUzIsIGN0eCkpIHsKPiArCQllbWl0
+KHJ2X3NkKFJWX1JFR19TUCwgc3RvcmVfb2Zmc2V0LCBSVl9SRUdfUzIpLCBjdHgpOwo+ICsJCXN0
+b3JlX29mZnNldCAtPSA4Owo+ICsJfQo+ICsJaWYgKHNlZW5fcmVnKFJWX1JFR19TMywgY3R4KSkg
+ewo+ICsJCWVtaXQocnZfc2QoUlZfUkVHX1NQLCBzdG9yZV9vZmZzZXQsIFJWX1JFR19TMyksIGN0
+eCk7Cj4gKwkJc3RvcmVfb2Zmc2V0IC09IDg7Cj4gKwl9Cj4gKwlpZiAoc2Vlbl9yZWcoUlZfUkVH
+X1M0LCBjdHgpKSB7Cj4gKwkJZW1pdChydl9zZChSVl9SRUdfU1AsIHN0b3JlX29mZnNldCwgUlZf
+UkVHX1M0KSwgY3R4KTsKPiArCQlzdG9yZV9vZmZzZXQgLT0gODsKPiArCX0KPiArCWlmIChzZWVu
+X3JlZyhSVl9SRUdfUzUsIGN0eCkpIHsKPiArCQllbWl0KHJ2X3NkKFJWX1JFR19TUCwgc3RvcmVf
+b2Zmc2V0LCBSVl9SRUdfUzUpLCBjdHgpOwo+ICsJCXN0b3JlX29mZnNldCAtPSA4Owo+ICsJfQo+
+ICsJaWYgKHNlZW5fcmVnKFJWX1JFR19TNiwgY3R4KSkgewo+ICsJCWVtaXQocnZfc2QoUlZfUkVH
+X1NQLCBzdG9yZV9vZmZzZXQsIFJWX1JFR19TNiksIGN0eCk7Cj4gKwkJc3RvcmVfb2Zmc2V0IC09
+IDg7Cj4gKwl9Cj4gKwo+ICsJZW1pdChydl9hZGRpKFJWX1JFR19GUCwgUlZfUkVHX1NQLCBzdGFj
+a19hZGp1c3QpLCBjdHgpOwo+ICsKPiArCWlmIChicGZfc3RhY2tfYWRqdXN0KSB7Cj4gKwkJaWYg
+KCFzZWVuX3JlZyhSVl9SRUdfUzUsIGN0eCkpCj4gKwkJCXByX3dhcm4oImJwZi1qaXQ6IG5vdCBz
+ZWVuIEJQRl9SRUdfRlAsIHN0YWNrIGlzICVkXG4iLAo+ICsJCQkJYnBmX3N0YWNrX2FkanVzdCk7
+Cj4gKwkJZW1pdChydl9hZGRpKFJWX1JFR19TNSwgUlZfUkVHX1NQLCBicGZfc3RhY2tfYWRqdXN0
+KSwgY3R4KTsKPiArCX0KPiArCj4gKwljdHgtPnN0YWNrX3NpemUgPSBzdGFja19hZGp1c3Q7Cj4g
+K30KPiArCj4gK3N0YXRpYyB2b2lkIGJ1aWxkX2VwaWxvZ3VlKHN0cnVjdCBydl9qaXRfY29udGV4
+dCAqY3R4KQo+ICt7Cj4gKwlpbnQgc3RhY2tfYWRqdXN0ID0gY3R4LT5zdGFja19zaXplLCBzdG9y
+ZV9vZmZzZXQgPSBzdGFja19hZGp1c3QgLSA4Owo+ICsKPiArCWlmIChzZWVuX3JlZyhSVl9SRUdf
+UkEsIGN0eCkpIHsKPiArCQllbWl0KHJ2X2xkKFJWX1JFR19SQSwgc3RvcmVfb2Zmc2V0LCBSVl9S
+RUdfU1ApLCBjdHgpOwo+ICsJCXN0b3JlX29mZnNldCAtPSA4Owo+ICsJfQo+ICsJZW1pdChydl9s
+ZChSVl9SRUdfRlAsIHN0b3JlX29mZnNldCwgUlZfUkVHX1NQKSwgY3R4KTsKPiArCXN0b3JlX29m
+ZnNldCAtPSA4Owo+ICsJaWYgKHNlZW5fcmVnKFJWX1JFR19TMSwgY3R4KSkgewo+ICsJCWVtaXQo
+cnZfbGQoUlZfUkVHX1MxLCBzdG9yZV9vZmZzZXQsIFJWX1JFR19TUCksIGN0eCk7Cj4gKwkJc3Rv
+cmVfb2Zmc2V0IC09IDg7Cj4gKwl9Cj4gKwlpZiAoc2Vlbl9yZWcoUlZfUkVHX1MyLCBjdHgpKSB7
+Cj4gKwkJZW1pdChydl9sZChSVl9SRUdfUzIsIHN0b3JlX29mZnNldCwgUlZfUkVHX1NQKSwgY3R4
+KTsKPiArCQlzdG9yZV9vZmZzZXQgLT0gODsKPiArCX0KPiArCWlmIChzZWVuX3JlZyhSVl9SRUdf
+UzMsIGN0eCkpIHsKPiArCQllbWl0KHJ2X2xkKFJWX1JFR19TMywgc3RvcmVfb2Zmc2V0LCBSVl9S
+RUdfU1ApLCBjdHgpOwo+ICsJCXN0b3JlX29mZnNldCAtPSA4Owo+ICsJfQo+ICsJaWYgKHNlZW5f
+cmVnKFJWX1JFR19TNCwgY3R4KSkgewo+ICsJCWVtaXQocnZfbGQoUlZfUkVHX1M0LCBzdG9yZV9v
+ZmZzZXQsIFJWX1JFR19TUCksIGN0eCk7Cj4gKwkJc3RvcmVfb2Zmc2V0IC09IDg7Cj4gKwl9Cj4g
+KwlpZiAoc2Vlbl9yZWcoUlZfUkVHX1M1LCBjdHgpKSB7Cj4gKwkJZW1pdChydl9sZChSVl9SRUdf
+UzUsIHN0b3JlX29mZnNldCwgUlZfUkVHX1NQKSwgY3R4KTsKPiArCQlzdG9yZV9vZmZzZXQgLT0g
+ODsKPiArCX0KPiArCWlmIChzZWVuX3JlZyhSVl9SRUdfUzYsIGN0eCkpIHsKPiArCQllbWl0KHJ2
+X2xkKFJWX1JFR19TNiwgc3RvcmVfb2Zmc2V0LCBSVl9SRUdfU1ApLCBjdHgpOwo+ICsJCXN0b3Jl
+X29mZnNldCAtPSA4Owo+ICsJfQo+ICsKPiArCWVtaXQocnZfYWRkaShSVl9SRUdfU1AsIFJWX1JF
+R19TUCwgc3RhY2tfYWRqdXN0KSwgY3R4KTsKPiArCS8qIFNldCByZXR1cm4gdmFsdWUuICovCj4g
+KwllbWl0KHJ2X2FkZGkoUlZfUkVHX0EwLCBSVl9SRUdfQTUsIDApLCBjdHgpOwo+ICsJZW1pdChy
+dl9qYWxyKFJWX1JFR19aRVJPLCBSVl9SRUdfUkEsIDApLCBjdHgpOwo+ICt9Cj4gKwo+ICtzdGF0
+aWMgaW50IGJ1aWxkX2JvZHkoc3RydWN0IHJ2X2ppdF9jb250ZXh0ICpjdHgsIGJvb2wgZXh0cmFf
+cGFzcykKPiArewo+ICsJY29uc3Qgc3RydWN0IGJwZl9wcm9nICpwcm9nID0gY3R4LT5wcm9nOwo+
+ICsJaW50IGk7Cj4gKwo+ICsJZm9yIChpID0gMDsgaSA8IHByb2ctPmxlbjsgaSsrKSB7Cj4gKwkJ
+Y29uc3Qgc3RydWN0IGJwZl9pbnNuICppbnNuID0gJnByb2ctPmluc25zaVtpXTsKPiArCQlpbnQg
+cmV0Owo+ICsKPiArCQlyZXQgPSBlbWl0X2luc24oaW5zbiwgY3R4LCBleHRyYV9wYXNzKTsKPiAr
+CQlpZiAocmV0ID4gMCkgewo+ICsJCQlpKys7Cj4gKwkJCWlmIChjdHgtPmluc25zID09IE5VTEwp
+Cj4gKwkJCQljdHgtPm9mZnNldFtpXSA9IGN0eC0+bmluc25zOwo+ICsJCQljb250aW51ZTsKPiAr
+CQl9Cj4gKwkJaWYgKGN0eC0+aW5zbnMgPT0gTlVMTCkKPiArCQkJY3R4LT5vZmZzZXRbaV0gPSBj
+dHgtPm5pbnNuczsKPiArCQlpZiAocmV0KQo+ICsJCQlyZXR1cm4gcmV0Owo+ICsJfQo+ICsJcmV0
+dXJuIDA7Cj4gK30KPiArCj4gK3N0YXRpYyB2b2lkIGJwZl9maWxsX2lsbF9pbnNucyh2b2lkICph
+cmVhLCB1bnNpZ25lZCBpbnQgc2l6ZSkKPiArewo+ICsJbWVtc2V0KGFyZWEsIDAsIHNpemUpOwoK
+TmVlZHMgdXBkYXRlIGFzIHdlbGw/Cgo+ICt9Cj4gKwo+ICtzdGF0aWMgdm9pZCBicGZfZmx1c2hf
+aWNhY2hlKHZvaWQgKnN0YXJ0LCB2b2lkICplbmQpCj4gK3sKPiArCWZsdXNoX2ljYWNoZV9yYW5n
+ZSgodW5zaWduZWQgbG9uZylzdGFydCwgKHVuc2lnbmVkIGxvbmcpZW5kKTsKPiArfQo+ICsKCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
