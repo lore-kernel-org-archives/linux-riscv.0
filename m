@@ -2,20 +2,21 @@ Return-Path: <SRS0=k4h2=PX=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ED7F9C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 13:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3A053C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 13:52:54 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BEE8820651
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 13:52:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0B23E20651
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 13:52:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lNtG5z8i"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BEE8820651
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Kf1s21fP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0B23E20651
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,27 +25,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hff+GOdT9ZbcFlarWmrMwM3ArFTx5G3QSTtBAYDQo70=; b=lNtG5z8iRWPPcO
-	2dEL59f5XeDk9wB5pYCa2IxBUthfjQ/LPg1S1R8EvljtoiB+2NZSMpSJvolk2pTnxYHAFMM/fsyxe
-	ivBN79Dnvo4VM46Z1kJJPW+kZTd5J82K7MjC3TkQl3lfGADcQQR9hf4aDkPqUsDBLTCttLvOt+ztP
-	n4rTS+ZZzBJxCI965LUhYbo90v77eKr3UVTQwCJE4VEKVXtNnJzdKjiLSFU9AFHzOj0XJ9bFNdsRo
-	+CVlSUae9vOjvXD/KRIaFK50nH18xFDe7sXgBESW8sgCV96xJYvFXCr7jcGJ301E1B7XRckaY43aG
-	IL5Mkr0665cHy73d0/nQ==;
+	List-Owner; bh=g01wq0cu/TL4r+1Jr0ar4S7PqB8L0fVK9fbkANEiouM=; b=Kf1s21fPcKl4hr
+	MbsdiWUc5SQt0HhMl7MyWFr9qCcM52plJR6vEuveta2Wcq1L/JMly4d4sElbDw5DKYQj9qo3NihLC
+	9PY8Mn7+mpfzGQqFx0dGsjjs9esIiFflaudgPJtJt1DKvsFuaNGIfn8BqgAEruNY3rbr+F+rJ7qDj
+	Z2NmFxp2gE0eI0Ce5LrLchfoUANT82Y7nYePqpFBg/CZ8EKO302sIVJaf1PG8tXbypi5x8rn9T0nW
+	xteOdKboZQUkDMG/wk8oAwzSZk0Njs1Db1PgcNJHFTXUrFt0n8lvnw5TDcv4tfLgjhJPq4VygQYLC
+	43lel/qphw6pbFxUQZ8g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gjP8p-00011x-JK; Tue, 15 Jan 2019 13:52:31 +0000
+	id 1gjP9B-0001HJ-4s; Tue, 15 Jan 2019 13:52:53 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1gjP8n-00011l-5e; Tue, 15 Jan 2019 13:52:29 +0000
-Date: Tue, 15 Jan 2019 05:52:29 -0800
+ Hat Linux)) id 1gjP98-0001Eq-F9; Tue, 15 Jan 2019 13:52:50 +0000
+Date: Tue, 15 Jan 2019 05:52:50 -0800
 From: Christoph Hellwig <hch@infradead.org>
 To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [PATCH v2 2/8] RISC-V: Move cpuid to hartid mapping to SMP.
-Message-ID: <20190115135229.GB28946@infradead.org>
+Subject: Re: [PATCH v2 3/8] RISC-V: Remove NR_CPUs check during hartid search
+ from DT
+Message-ID: <20190115135250.GC28946@infradead.org>
 References: <1546940318-9752-1-git-send-email-atish.patra@wdc.com>
- <1546940318-9752-3-git-send-email-atish.patra@wdc.com>
+ <1546940318-9752-4-git-send-email-atish.patra@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <1546940318-9752-3-git-send-email-atish.patra@wdc.com>
+In-Reply-To: <1546940318-9752-4-git-send-email-atish.patra@wdc.com>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -70,20 +72,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +	if (hartid == boot_cpu_hartid)
-> +		return 0;
-> +	else
-> +		return -1;
+On Tue, Jan 08, 2019 at 01:38:33AM -0800, Atish Patra wrote:
+> In non-smp configuration, hartid can be higher that NR_CPUS.
+> riscv_of_processor_hartid should not be compared to hartid to
+> NR_CPUS in that case. Moreover, this function checks all the
+> DT properties of a hart node. NR_CPUS comparison seems out of
+> place.
+> 
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
 
-No need for an else after a return statement.
+Looks good,
 
-> +}
-> +static inline unsigned long cpuid_to_hartid_map(int cpu)
-> +{
-> +
-> +	return boot_cpu_hartid;
-
-spurious empty line above.
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 
 _______________________________________________
 linux-riscv mailing list
