@@ -1,74 +1,88 @@
-Return-Path: <SRS0=bHpB=PW=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=k4h2=PX=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2166AC43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 14 Jan 2019 15:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5FEFAC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 08:35:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DF38E206B7
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 14 Jan 2019 15:54:00 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2D2F22063F
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 08:35:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZFTKGQSX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DF38E206B7
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LaRSOsoR";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="UUo7X7nX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2D2F22063F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IA794X7ujRnP9w7kH5pfzv6YC1hMqmIX9QnFSaRmx+c=; b=ZFTKGQSXCa5Czk
-	8Op7U+M1eW8/YdQt6jLx1gdxqwhVEzTFFXUwdf4/ip6wd6KSuAUqoE6lIDSDa7eiZtIQOcPT0X3dD
-	/z8clnoIJ7TFvaOPj1H/ol9tUI3CfzN/ZwyWkyuYHZFjz/bv5Mm20Jcg92G1/H5pTT4Lr+0jRwMzs
-	d6BsyHKN36eWnHKe+Sd0Bj+lbkU7KWNMoNyNKFx0PVHB/Je6fKJGQ2ZtzQB/WYQNk4H3zqYZv/SYA
-	I/6k0s7HEDiuv3rkcbTFMprnkdO2zfMgYXWwbFsQcU4i+iSawNnb7PVU+RUPXSozwJl2fMxOkOLtF
-	j6ZEO7C3T2+SLBMYZRwQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VYxu1TFv3BzK18eTvOjzk2DJi6lLPOzVBsR93qnMF8c=; b=LaRSOsoRX++BKj
+	n+6EcvyZYQdyK4hX7wPdOJM+qeJs+AHyyHZWWT2zX48SUt2c/gsOSUI+g5KLhIBvjHucs1JWudk4I
+	+wnXH+HtxiWsGFXS0+Fltu7iwY7XxQfJW9+x13KtpuZq9rLLKTuWjcFXdRqxrhuCjuTbqLTjxwHUV
+	p4AV8oigi4lBDvnTFDY78mF2zpNpbwRbYDb/zcXyial/HreRmqttWDGy6A/9zYVbVDyG/q4+V4c6d
+	fPj7bAmT4ydqxwV7QgARiDy6dg6gPCsG/+oJREvIBp349gq1hV8kyQgE7pfDL3oX+zspT33eAVbKf
+	4iLdPpgAjqvbfSpIC8qQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gj4Yo-0006iR-C7; Mon, 14 Jan 2019 15:53:58 +0000
-Received: from mail-lf1-f67.google.com ([209.85.167.67])
+	id 1gjKCK-0002s8-RF; Tue, 15 Jan 2019 08:35:48 +0000
+Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gj4Yc-0006ZQ-FR
- for linux-riscv@lists.infradead.org; Mon, 14 Jan 2019 15:53:49 +0000
-Received: by mail-lf1-f67.google.com with SMTP id a16so15963069lfg.3
- for <linux-riscv@lists.infradead.org>; Mon, 14 Jan 2019 07:53:46 -0800 (PST)
+ id 1gjKCH-0002rb-HL
+ for linux-riscv@lists.infradead.org; Tue, 15 Jan 2019 08:35:46 +0000
+Received: by mail-lj1-x242.google.com with SMTP id v1-v6so1603162ljd.0
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Jan 2019 00:35:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=54UCKXD55YHOKubS5JS59AxRACPcjYF8KFxR/pvfPzI=;
+ b=UUo7X7nXPfMIid3V8x1AP+JC4SGOMvIAcMSm8O5K2VG2Tca+bKxtq4TQJ8Ero5bua5
+ TxLcVMeGwcnbwJd7+8oDF0j4AhqJrsekXZIszbUyGeeZgYiJq+fsChTiYWLwgZ9S6i0c
+ PnyDOKxjmGQ1qos/URa1rJz/XnSfqJbsAeZQFJOdLc7JxD+B5MgDl5jo2AHkAKtYwna8
+ jirqhOc+DZ2Nzbgb6DdSjAVxzmaA7+y0jBlo57UFqUNVttslsaanAlIiS2GpOJrvUGCO
+ NCaJT1OwfZmLAA9gLYMxBrtnInM5z2FEjp5b5FzUNvrK2cL64ebOt/n7bqjutDm3/0Rh
+ /aHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=wZITMFUMV0zEIamJ3VVbE4heK6bK4WYzVzsFXzCFVH0=;
- b=EKtv1ZC5Wortu3w8fDi/Eaofghc1drTw0sQrMuhX6K3DNpceWVqNtdprNXWIQ05O5A
- BOKjfOi+6ig+0RUd6rmSQik/zalWI29vNMZ2OFFH41/fhuDpuq0fkfYuGqT4iSG7mGPO
- nDi1gOma+ARJ6ZIRuP+XxecI3MtseAknyHec5LQRBA9zTbvjjn4WhKC+qTbplWOoic/9
- m458DzSwSzUzLCwSfc/5HUxaGiCPqrQNa8jkxvX7Sk0tNszcd9cTllP//juPC0NVJ5Wi
- V+z4ZLdaLYUidVdD6cCnOfzLfb68LtHyWqA8rREyfc/M2ImVumVkTvxXXjpZmAs50Eqz
- mxKg==
-X-Gm-Message-State: AJcUukdITRjQDDlX5dLa0mD8shbUJdLL1MSaULAjswmqDQwITTTK2gb6
- z6W8AoFm3EvTY0SvwvWXJ5oRxDqo55hOBBkpuUbG9A==
-X-Google-Smtp-Source: ALg8bN74ZQTuDIjsqUhLgFMGYUxSw81lMr9Ia6Rp9LV1zOdpgU9nkrJsrZPjHC4E0QC4PQUfRTidFXCqru+uICR4BPA=
-X-Received: by 2002:ac2:51af:: with SMTP id f15mr13329880lfk.44.1547481224807; 
- Mon, 14 Jan 2019 07:53:44 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=54UCKXD55YHOKubS5JS59AxRACPcjYF8KFxR/pvfPzI=;
+ b=DfZpDtH8tOhjLUpS3KWTe7MtfbmgqfamNe6L2of94uQI/gXKoeJyQivlvr+H6Y5xYs
+ 4NHjp8mF2Nw0cFWbwap+FvIq/LAYlB72+T/K/MeKhFTBr90BJYWAIXXXvPs4ySID99kG
+ NeSossusI8CHcwfrUZ7VngoOwqp1JzfyLwz/yI9MHmpl46LiozN9Ysl/YKg7+xcxMTRG
+ MYpan7m3mcBmRRJV7BeKVhiak3jzH/HZutzG1MMIi41tTm5hrGNPA3N9HL1yeDw7zxSo
+ /veY6H6+oHY7uLgsj8C+0W7rZlrus9qhnUKOVoW/nLbZhdjppBzsidGzJB1fiknhr4BY
+ GaYw==
+X-Gm-Message-State: AJcUukcwLhyaPO7TWvRySNRm10atE3hROrQLWYC1O7vjnZgYxqw9RcsH
+ rUbZCyEkjqyXkzpXxCT248VbagV9cI/PCA==
+X-Google-Smtp-Source: ALg8bN5JSLwoATDB3fZMXpwQvqny651ZRVa+L8o6zDEpg8IlWloedmWoNdlNk/jqPKb9WaOSzYR4Dw==
+X-Received: by 2002:a2e:90ca:: with SMTP id
+ o10-v6mr1877605ljg.134.1547541342295; 
+ Tue, 15 Jan 2019 00:35:42 -0800 (PST)
+Received: from btopel-mobl.ger.intel.com ([213.100.199.124])
+ by smtp.gmail.com with ESMTPSA id e14-v6sm453004ljb.31.2019.01.15.00.35.41
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Tue, 15 Jan 2019 00:35:41 -0800 (PST)
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn.topel@gmail.com>
+To: linux-riscv@lists.infradead.org
+Subject: [RFC PATCH 0/3] RV64G eBPF JIT
+Date: Tue, 15 Jan 2019 09:35:15 +0100
+Message-Id: <20190115083518.10149-1-bjorn.topel@gmail.com>
+X-Mailer: git-send-email 2.19.1
 MIME-Version: 1.0
-References: <20190114125903.24845-1-david@redhat.com>
- <20190114125903.24845-8-david@redhat.com>
-In-Reply-To: <20190114125903.24845-8-david@redhat.com>
-From: Bhupesh Sharma <bhsharma@redhat.com>
-Date: Mon, 14 Jan 2019 21:22:49 +0530
-Message-ID: <CACi5LpPphoJzfKXPN5kSV42aF27=2ZjqXSVLQjEtMdSN8+6bsA@mail.gmail.com>
-Subject: Re: [PATCH v2 7/9] arm64: kdump: No need to mark crashkernel pages
- manually PG_reserved
-To: David Hildenbrand <david@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190114_075346_524577_FC89369E 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20190115_003545_619098_D943F22E 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -80,135 +94,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
- CHANDAN VN <chandan.vn@samsung.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will.deacon@arm.com>, Stefan Agner <stefan@agner.ch>,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
- AKASHI Takahiro <takahiro.akashi@linaro.org>,
- Laura Abbott <labbott@redhat.com>,
- Kristina Martsenko <kristina.martsenko@arm.com>,
- linux-m68k@lists.linux-m68k.org, Mike Rapoport <rppt@linux.vnet.ibm.com>,
- linux-mediatek@lists.infradead.org,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Logan Gunthorpe <logang@deltatee.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Dave Kleikamp <dave.kleikamp@oracle.com>, James Morse <james.morse@arm.com>,
- Johannes Weiner <hannes@cmpxchg.org>,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org,
- Greg Hackmann <ghackmann@android.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn.topel@gmail.com>,
+ palmer@sifive.com, davidlee@sifive.com, daniel@iogearbox.net,
+ netdev@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi David,
-
-On Mon, Jan 14, 2019 at 6:30 PM David Hildenbrand <david@redhat.com> wrote:
->
-> The crashkernel is reserved via memblock_reserve(). memblock_free_all()
-> will call free_low_memory_core_early(), which will go over all reserved
-> memblocks, marking the pages as PG_reserved.
->
-> So manually marking pages as PG_reserved is not necessary, they are
-> already in the desired state (otherwise they would have been handed over
-> to the buddy as free pages and bad things would happen).
->
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will.deacon@arm.com>
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Bhupesh Sharma <bhsharma@redhat.com>
-> Cc: David Hildenbrand <david@redhat.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Dave Kleikamp <dave.kleikamp@oracle.com>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Mike Rapoport <rppt@linux.vnet.ibm.com>
-> Cc: Michal Hocko <mhocko@suse.com>
-> Cc: Florian Fainelli <f.fainelli@gmail.com>
-> Cc: Stefan Agner <stefan@agner.ch>
-> Cc: Laura Abbott <labbott@redhat.com>
-> Cc: Greg Hackmann <ghackmann@android.com>
-> Cc: Johannes Weiner <hannes@cmpxchg.org>
-> Cc: Kristina Martsenko <kristina.martsenko@arm.com>
-> Cc: CHANDAN VN <chandan.vn@samsung.com>
-> Cc: AKASHI Takahiro <takahiro.akashi@linaro.org>
-> Cc: Logan Gunthorpe <logang@deltatee.com>
-> Reviewed-by: Matthias Brugger <mbrugger@suse.com>
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-> ---
->  arch/arm64/kernel/machine_kexec.c |  2 +-
->  arch/arm64/mm/init.c              | 27 ---------------------------
->  2 files changed, 1 insertion(+), 28 deletions(-)
->
-> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-> index 6f0587b5e941..66b5d697d943 100644
-> --- a/arch/arm64/kernel/machine_kexec.c
-> +++ b/arch/arm64/kernel/machine_kexec.c
-> @@ -321,7 +321,7 @@ void crash_post_resume(void)
->   * but does not hold any data of loaded kernel image.
->   *
->   * Note that all the pages in crash dump kernel memory have been initially
-> - * marked as Reserved in kexec_reserve_crashkres_pages().
-> + * marked as Reserved as memory was allocated via memblock_reserve().
->   *
->   * In hibernation, the pages which are Reserved and yet "nosave" are excluded
->   * from the hibernation iamge. crash_is_nosave() does thich check for crash
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 7205a9085b4d..c38976b70069 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -118,35 +118,10 @@ static void __init reserve_crashkernel(void)
->         crashk_res.start = crash_base;
->         crashk_res.end = crash_base + crash_size - 1;
->  }
-> -
-> -static void __init kexec_reserve_crashkres_pages(void)
-> -{
-> -#ifdef CONFIG_HIBERNATION
-> -       phys_addr_t addr;
-> -       struct page *page;
-> -
-> -       if (!crashk_res.end)
-> -               return;
-> -
-> -       /*
-> -        * To reduce the size of hibernation image, all the pages are
-> -        * marked as Reserved initially.
-> -        */
-> -       for (addr = crashk_res.start; addr < (crashk_res.end + 1);
-> -                       addr += PAGE_SIZE) {
-> -               page = phys_to_page(addr);
-> -               SetPageReserved(page);
-> -       }
-> -#endif
-> -}
->  #else
->  static void __init reserve_crashkernel(void)
->  {
->  }
-> -
-> -static void __init kexec_reserve_crashkres_pages(void)
-> -{
-> -}
->  #endif /* CONFIG_KEXEC_CORE */
->
->  #ifdef CONFIG_CRASH_DUMP
-> @@ -586,8 +561,6 @@ void __init mem_init(void)
->         /* this will put all unused low memory onto the freelists */
->         memblock_free_all();
->
-> -       kexec_reserve_crashkres_pages();
-> -
->         mem_init_print_info(NULL);
->
->         /*
-> --
-> 2.17.2
-
-LGTM, so:
-Reviewed-by: Bhupesh Sharma <bhsharma@redhat.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkhCgpJJ3ZlIGJlZW4gaGFja2luZyBvbiBhIFJWNjRHIGVCUEYgSklUIGNvbXBpbGVyLCBhbmQg
+d291bGQgbGlrZSBzb21lCmZlZWRiYWNrLgoKQ29kZXdpc2UsIGl0IG5lZWRzIHNvbWUgcmVmYWN0
+b3JpbmcuIEN1cnJlbnRseSB0aGVyZSdzIGEgYml0IHRvbyBtdWNoCmNvcHktYW5kLXBhc3RlIGdv
+aW5nIG9uLCBhbmQgSSBrbm93IHNvbWUgcGxhY2VzIHdoZXJlIEkgY291bGQgb3B0aW1pemUKdGhl
+IGNvZGUgZ2VuZXJhdGlvbiBhIGJpdCAobW9zdGx5IEJQRl9LIHR5cGUgb2YgaW5zdHJ1Y3Rpb25z
+LCBkZWFsaW5nCndpdGggaW1tZWRpYXRlcykuCgpGcm9tIGEgZmVhdHVyZXMgcGVyc3BlY3RpdmUs
+IHR3byB0aGluZ3MgYXJlIG1pc3Npbmc6CgoqIHRhaWwgY2FsbHMKKiAiZmFyLWJyYW5jaGVzIiwg
+aS5lLiBjb25kaXRpb25hbCBicmFuY2hlcyB0aGF0IHJlYWNoIGJleW9uZCAxM2IuCgpUaGUgdGVz
+dF9icGYua28gKG9ubHkgdGVzdGVkIG9uIDQuMjAhKSBwYXNzZXMgYWxsIHRlc3RzLgoKSSd2ZSBk
+b25lIGFsbCB0aGUgdGVzdHMgb24gUUVNVSAodmVyc2lvbiAzLjEuNTApLCBzbyBubyByZWFsIGhh
+cmR3YXJlLgoKU29tZSBxdWVzdGlvbnMvb2JzZXJ2YXRpb25zOgoKKiBJJ3ZlIGFkZGVkICJIQVZF
+X0VGRklDSUVOVF9VTkFMSUdORURfQUNDRVNTIiB0bwogIGFyY2gvcmlzY3YvS2NvbmZpZy4gSXMg
+dGhpcyBhc3N1bXB0aW9uIGNvcnJlY3Q/CgoqIGVtaXRfaW1tKCkganVzdCByZWxpZXMgb24gbHVp
+LCBhZGRzIGFuZCBzaGlmdHMuIE5vIGZhbmN5IHhvcmkgY29zdAogIG9wdGltaXphdGlvbnMgbGlr
+ZSBHQ0MgZG9lcy4KCiogU3VnZ2VzdGlvbnMgb24gaG93IHRvIGltcGxlbWVudCB0aGUgdGFpbCBj
+YWxsLCBnaXZlbiB0aGF0IHRoZQogIHByb2xvZ3VlL2VwaWxvZ3VlIGhhcyB2YXJpYWJsZSBzaXpl
+LiBJIHdpbGwgZGlnIGludG8gdGhlIGRldGFpbHMgb2YKICBtaXBzL2FybTY0L3g4Ni4gOi0pCgpO
+ZXh0IHN0ZXBzIChwcmlvciBwYXRjaCBwcm9wZXIpIGlzIGNsZWFuaW5nIHVwIHRoZSBjb2RlLCBh
+ZGQgdGFpbApjYWxscywgYW5kIG1ha2luZyBzdXJlIHRoYXQgYnBmdG9vbCBkaXNhc3NlbWJseSB3
+b3JrcyBjb3JyZWN0bHkuCgpBbGwgaW5wdXQgYXJlIHdlbGNvbWUuIFRoaXMgaXMgbXkgZmlyc3Qg
+UklTQy1WIGhhY2ssIHNvIEkgc3VyZSB0aGVyZQphcmUgYSBsb3QgdGhpbmdzIHRvIGltcHJvdmUh
+CgoKVGhhbmtzLApCasO2cm4KCgpCasO2cm4gVMO2cGVsICgzKToKICByaXNjdjogc2V0IEhBVkVf
+RUZGSUNJRU5UX1VOQUxJR05FRF9BQ0NFU1MKICByaXNjdjogYWRkIGJ1aWxkIGluZnJhIGZvciBK
+SVQgY29tcGlsZXIKICBicGYsIHJpc2N2OiBhZGRlZCBlQlBGIEpJVCBmb3IgUlY2NEcKCiBhcmNo
+L3Jpc2N2L0tjb25maWcgICAgICAgICAgICB8ICAgIDIgKwogYXJjaC9yaXNjdi9NYWtlZmlsZSAg
+ICAgICAgICAgfCAgICA0ICsKIGFyY2gvcmlzY3YvbmV0L01ha2VmaWxlICAgICAgIHwgICAgNSAr
+CiBhcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXAuYyB8IDE2MTIgKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrCiA0IGZpbGVzIGNoYW5nZWQsIDE2MjMgaW5zZXJ0aW9ucygrKQogY3Jl
+YXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvbmV0L01ha2VmaWxlCiBjcmVhdGUgbW9kZSAxMDA2
+NDQgYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wLmMKCi0tIAoyLjE5LjEKCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
