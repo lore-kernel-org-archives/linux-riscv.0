@@ -2,112 +2,51 @@ Return-Path: <SRS0=k4h2=PX=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-3.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E6FE6C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 15:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8BCEEC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 15:54:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B8D6620645
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 15:53:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5941520645
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 15 Jan 2019 15:54:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sLU9nZoq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B8D6620645
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="a4tq8Qqr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5941520645
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hPMJrWT2oNKhFcqqwS3hMO4ebrrYxJTq3uYjCV/tvhQ=; b=sLU9nZoqaShOdf
-	lTDsddkQ3Es9mp7gRUlBKK5a5Wr/QvMTEjha3YqUR24SrFIdYwAsgjXVPEOh01NO6Y1g0bb959+OA
-	Uwy21N47dRVm/XkITzFj5iaV6b7PhmW7q/0F4X2fXgopfU4NnHQKNJQuWoZ7SS/Dk0cOTxXi/W0p9
-	7+gwaMiryfvPEYVTUo37Xazh7aMz7UVbMjvvRBI6itNES+lHE1sP/Z32b1X/7kJ4xLP0jVWdzOys5
-	ngTBbXeAwl9aMEvUSDy3p0cHS8OQi/sPTJbsrXPynnYEM7Dv+viajYj4v0zmTYUCnWidiLcCQIf8R
-	T+qJDclWorMRySxbgUrA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JIWHVJOsRCGDQOyN75H3pur4+2B5HdDlI0L7+fE6G9g=; b=a4tq8QqryPWsjC
+	26LL6jP+G8CWqP0vgYw+fQQ03T7cNzkZqGS6Tu1h4Ls3jO3OGB25dJDEOuZXQEV8YxmND7HJhoFNz
+	1fGJuHRyPmLUpbvwFVtby9xbx1LxYSaI9yMD3kChl5YPly9tDpju77APc+puW5zxe29N/zXliwWbP
+	frk3nrjGKlzoEFhnZk8eqcBPHKsC8YeVTNqQhDJ3XYuT3lD2JrYD3rOQ68hVtKr2AZz/MWOWnK6Sq
+	hf3ksPL0Tyo+T2JGioBI+eskoMVS4Dm5dwWNC2j7UUFUgenbehcKwXGOWDvb7PQBpPFJhT6nrsMAC
+	IibulLbPSpjMwYpT2WFA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gjR1o-0003QD-6M; Tue, 15 Jan 2019 15:53:24 +0000
-Received: from mx1.redhat.com ([209.132.183.28])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gjR1k-0003PL-JU; Tue, 15 Jan 2019 15:53:21 +0000
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
- [10.5.11.16])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id 4307ED3C0F;
- Tue, 15 Jan 2019 15:53:17 +0000 (UTC)
-Received: from [10.36.116.79] (ovpn-116-79.ams2.redhat.com [10.36.116.79])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 2DF7B5C234;
- Tue, 15 Jan 2019 15:53:00 +0000 (UTC)
-Subject: Re: [PATCH v2 0/9] mm: PG_reserved cleanups and documentation
-To: Christoph Hellwig <hch@infradead.org>
-References: <20190114125903.24845-1-david@redhat.com>
- <20190115153839.GE26443@infradead.org>
-From: David Hildenbrand <david@redhat.com>
-Openpgp: preference=signencrypt
-Autocrypt: addr=david@redhat.com; prefer-encrypt=mutual; keydata=
- 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
- SE+xAvmumFBY
-Organization: Red Hat GmbH
-Message-ID: <447946ff-403a-6ca3-2958-688d28a82fce@redhat.com>
-Date: Tue, 15 Jan 2019 16:53:00 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.3.1
+	id 1gjR31-0003Yl-BI; Tue, 15 Jan 2019 15:54:39 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
+ Hat Linux)) id 1gjR2z-0003YP-O4; Tue, 15 Jan 2019 15:54:37 +0000
+Date: Tue, 15 Jan 2019 07:54:37 -0800
+From: Christoph Hellwig <hch@infradead.org>
+To: Anup Patel <anup@brainfault.org>
+Subject: Re: [PATCH v4 2/5] irqchip: sifive-plic: Don't inline plic_toggle()
+ and plic_irq_toggle()
+Message-ID: <20190115155437.GA13095@infradead.org>
+References: <20181227111821.80908-1-anup@brainfault.org>
+ <20181227111821.80908-3-anup@brainfault.org>
 MIME-Version: 1.0
-In-Reply-To: <20190115153839.GE26443@infradead.org>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.38]); Tue, 15 Jan 2019 15:53:18 +0000 (UTC)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190115_075320_686519_B145E9F8 
-X-CRM114-Status: GOOD (  20.66  )
+Content-Disposition: inline
+In-Reply-To: <20181227111821.80908-3-anup@brainfault.org>
+User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -119,88 +58,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
- CHANDAN VN <chandan.vn@samsung.com>, David Airlie <airlied@linux.ie>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Bhupesh Sharma <bhsharma@redhat.com>, Palmer Dabbelt <palmer@sifive.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, Stefan Agner <stefan@agner.ch>,
- Michal Hocko <mhocko@kernel.org>, David Howells <dhowells@redhat.com>,
- linux-mm@kvack.org, Paul Mackerras <paulus@samba.org>,
- linux-riscv@lists.infradead.org,
- Alexander Duyck <alexander.h.duyck@linux.intel.com>,
- linux-s390@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Pavel Tatashin <pasha.tatashin@oracle.com>,
- Matthew Wilcox <willy@infradead.org>,
- AKASHI Takahiro <takahiro.akashi@linaro.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Matthias Brugger <mbrugger@suse.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Anthony Yznaga <anthony.yznaga@oracle.com>,
- Tobias Klauser <tklauser@distanz.ch>, Laura Abbott <labbott@redhat.com>,
- Fenghua Yu <fenghua.yu@intel.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Kees Cook <keescook@chromium.org>, Vasily Gorbik <gor@linux.ibm.com>,
- Stephen Rothwell <sfr@canb.auug.org.au>, Marc Zyngier <marc.zyngier@arm.com>,
- Will Deacon <will.deacon@arm.com>, linuxppc-dev@lists.ozlabs.org,
- Kristina Martsenko <kristina.martsenko@arm.com>,
- linux-m68k@lists.linux-m68k.org, Dave Kleikamp <dave.kleikamp@oracle.com>,
- linux-mediatek@lists.infradead.org, Dan Williams <dan.j.williams@intel.com>,
- linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@c-s.fr>, Tony Luck <tony.luck@intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Randy Dunlap <rdunlap@infradead.org>, Oleg Nesterov <oleg@redhat.com>,
- linux-kernel@vger.kernel.org, Miles Chen <miles.chen@mediatek.com>,
- Mike Rapoport <rppt@linux.vnet.ibm.com>, James Morse <james.morse@arm.com>,
- Souptick Joarder <jrdr.linux@gmail.com>, Johannes Weiner <hannes@cmpxchg.org>,
- Martin Schwidefsky <schwidefsky@de.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Logan Gunthorpe <logang@deltatee.com>, Greg Hackmann <ghackmann@android.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Jason Cooper <jason@lakedaemon.net>, Marc Zyngier <marc.zyngier@arm.com>,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Christoph Hellwig <hch@infradead.org>, Atish Patra <atish.patra@wdc.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15.01.19 16:38, Christoph Hellwig wrote:
-> On Mon, Jan 14, 2019 at 01:58:54PM +0100, David Hildenbrand wrote:
->> Nothing major changed since the last version. I would be happy about
->> additional ACKs. If there are no further comments, can this go via the
->> mm-tree in one chunk?
->>
->> I was recently going over all users of PG_reserved. Short story: it is
->> difficult and sometimes not really clear if setting/checking for
->> PG_reserved is only a relict from the past. Easy to break things. I
->> guess I now have a pretty good idea wh things are like that
->> nowadays and how they evolved.
-> 
-> Any reason you skipped
-> 
-> drivers/gpu/drm/drm_pci.c:drm_pci_alloc()
-> 
-> and 
-> 
-> drivers/gpu/drm/drm_scatter.c:drm_legacy_sg_alloc()
-> 
-> which both look completely bogus as-is?
-> 
-> In fact we should probably just try to kill them off as they have
-> very few users left.
-> 
+On Thu, Dec 27, 2018 at 04:48:18PM +0530, Anup Patel wrote:
+> The plic_toggle() uses raw_spin_lock() and plic_irq_toggle has a
+> for loop so both these functions are not suitable for being inline
+> hence this patch removes the inline keyword.
 
-I actually have patches lying around for these, however excluded them
-for now as I was not 100% sure about the implications ("Easy to break
-things").
-
-Are you sure nobody in the system (especially somebody who does a
-PageReserved()) relies on this to identify e.g. MMIO pages? (e.g.
-ioremap on some archs, KVM code)
-
-(I am by far no DRM expert, but when I hear DMA, I tend to be careful)
-
--- 
-
-Thanks,
-
-David / dhildenb
+That is a weird argument for a function which has by design exactly
+two callers and is in the hot path.  The alternative to the inline
+here would be to duplicate the code.
 
 _______________________________________________
 linux-riscv mailing list
