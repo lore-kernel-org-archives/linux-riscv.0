@@ -2,58 +2,97 @@ Return-Path: <SRS0=8WcR=PY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable autolearn_force=no
+X-Spam-Status: No, score=-8.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 85ED4C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 16 Jan 2019 06:57:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 80D56C43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 16 Jan 2019 07:10:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4F4FD2082F
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 16 Jan 2019 06:57:24 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 348652082F
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 16 Jan 2019 07:10:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cdX2KQ0n"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4F4FD2082F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ObgdbRjx";
+	dkim=fail reason="unknown key hash" (0-bit key) header.d=c-s.fr header.i=@c-s.fr header.b="D0QItE8C"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 348652082F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=c-s.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f+CPR5h/UGHWtwH/Gs9EOdZ/C24qF1EQlA/LfK6bj8g=; b=cdX2KQ0n+9RRYb
-	Q2BbeyCmnsNISRbfoW9HXlzbqiajBllDmbXDTh5mhQLKTcFLlmubZLv4SNDn5QmEvgPGnP6+geGC4
-	OZy0DJ51j3fq/oMl574mTjXDH9+3iN1AAXNZ/jnruOuRAeYABK4cPxuEULVa1gtjj5y6FqIZhvuFZ
-	JDYucemLTZ3aS1s/ps5ScsLpDqGTxcblksnfOFcYxqyyuHbveAzaJabGDu8eluNuYAf00w0E5g/i/
-	SymNSrW+dYnCGsuhjXSZzSdCA+GlduILVqUXKzoujPpkYdX0yHOEigrstPIAfy8k5VrEWWy2In+Nv
-	HaZMS9CQtACURL7qWYVg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=2xdI5kFEAedBMKoa1SO2zU9Y6sn1AI4ijsGz3gbQEgo=; b=ObgdbRjx14DdEPwVMRH8CZG+8
+	7qfHQLzVyLZTbdw3RyAmX5V9Yx3m09GKuFt/Fm3HjZTkc9YDD2Ni8jiBMpVCDbXEVMMGP0vGYZ/vp
+	/5hARHTDtAvGqRWYu0F5U2vJkbzZpEZSkbtacvXoXQqiNOx7q3gOgijhuU3fy/Sb0GhxxLvsrjJtc
+	mTsnERdYHKc83DGpjt06uoVTKUmTKxa3sJo2yR3EcRPqG232ErZdap5UkZwM8cRF03e1wne1ZLQxK
+	Y5Px5sT0vKT8NGR6LJe2aw38SE4y3N6PrVq/snshY78qD3OsO9C3tofcbjhyK50bdfbONI/MiRKpp
+	h+f1GdYMQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gjf8b-0003RQ-BH; Wed, 16 Jan 2019 06:57:21 +0000
-Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+	id 1gjfLL-00007T-MB; Wed, 16 Jan 2019 07:10:31 +0000
+Received: from pegase1.c-s.fr ([93.17.236.30])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gjf8O-0003Gy-C7; Wed, 16 Jan 2019 06:57:10 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 75547AD86;
- Wed, 16 Jan 2019 06:57:05 +0000 (UTC)
-Date: Wed, 16 Jan 2019 07:57:03 +0100
-From: Michal Hocko <mhocko@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
+ id 1gjfL6-0008NO-M8; Wed, 16 Jan 2019 07:10:19 +0000
+Received: from localhost (mailhub1-int [192.168.12.234])
+ by localhost (Postfix) with ESMTP id 43fddH0w2zzB09b6;
+ Wed, 16 Jan 2019 08:10:11 +0100 (CET)
+Authentication-Results: localhost; dkim=permerror reason="key not found"
+ header.d=c-s.fr header.i=@c-s.fr header.b=D0QItE8C;
+ dkim-adsp=none (insecure policy); dkim-atps=neutral
+X-Virus-Scanned: Debian amavisd-new at c-s.fr
+Received: from pegase1.c-s.fr ([192.168.12.234])
+ by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
+ with ESMTP id 6aJsDZWqbaJq; Wed, 16 Jan 2019 08:10:11 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+ by pegase1.c-s.fr (Postfix) with ESMTP id 43fddG6Cp0zB09b3;
+ Wed, 16 Jan 2019 08:10:10 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=c-s.fr; s=mail;
+ t=1547622610; bh=3UCdRO5bRJJ9Mtiyv3EAH509UCigV0IwADv0TgdKTd8=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=D0QItE8ComOfUd6nZnYlVZKsNNPih7pFzONy55uKlZGAWkrNmKpcbFw4HId6RrwND
+ HObmZvUM0jfzX2MyBKb4m//fh1vLMIK0uxY/RCi5OATvzh7VZPa/8Sv+b0G5dpzb3p
+ qQ4bV9lVaJeaf0cNTv/Fkv+zUk6cAB476FkZZio7BIvLXpPoXyIdXEwdjQIZ1mymkI
+ HPLxl2DR7dLSwFIGLSfHGaHRbC/vrXUqfThUtrlraDiean7LEjHN5Mj2MzR2UeE37k
+ GU9F/vROOu4lrFhVd1vdoAgTuRzP39ERHKwrhksNMEF4jjbCmYRrmIIqRKqj7NRrfy
+ xcKmQXH/LQz7UftUfQkUzIoAgs5okrnPB5SXJgWtoIH2CzBUyZNbyhVabo+ln1yyfb
+ dBUdwBaZ99iCsFnl23Rxri5j3doGL1pvyZ25rB5ZlKuJJFuW7Lhqf9C4XA1xhJWKbx
+ RL1aY+8mdJccBBWhX/HqTv9Fr9q59/VgIfX/Gtp5pN8CJdZkRrkmSGgylb/5ympMg+
+ lvznj3Ha8XXFCoti4ww9Z1yQu2JvlXx1DWPzu0KQT6sJFy52YsYG4iRoKCD2bIlGov
+ XMMLbCbLD2s3HHf5NDi+jE+szL/zmvsdIqGPT3vzpfX7HcVC9eOxdbiewNtUOWAySu
+ Lm6u8L8wu6T+EGhlrOyrRMj4=
+Received: from localhost (localhost [127.0.0.1])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id A75ED8B804;
+ Wed, 16 Jan 2019 08:10:11 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+ by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+ with ESMTP id EVJf7Cor6AFE; Wed, 16 Jan 2019 08:10:11 +0100 (CET)
+Received: from PO15451 (unknown [192.168.4.90])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id 57B298B74B;
+ Wed, 16 Jan 2019 08:10:09 +0100 (CET)
 Subject: Re: [PATCH V2] mm: Introduce GFP_PGTABLE
-Message-ID: <20190116065703.GE24149@dhcp22.suse.cz>
+To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org,
+ akpm@linux-foundation.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ linux-sh@vger.kernel.org, kvmarm@lists.cs.columbia.edu,
+ linux-riscv@lists.infradead.org
 References: <1547619692-7946-1-git-send-email-anshuman.khandual@arm.com>
+From: Christophe Leroy <christophe.leroy@c-s.fr>
+Message-ID: <bc49c0d1-b46c-f03a-baf9-445c417fae8f@c-s.fr>
+Date: Wed, 16 Jan 2019 08:10:09 +0100
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.4.0
 MIME-Version: 1.0
-Content-Disposition: inline
 In-Reply-To: <1547619692-7946-1-git-send-email-anshuman.khandual@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190115_225708_704921_763F5653 
-X-CRM114-Status: GOOD (  23.76  )
+X-CRM114-CacheID: sfid-20190115_231017_028964_E34F024F 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -65,495 +104,324 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-sh@vger.kernel.org, peterz@infradead.org,
+Cc: mark.rutland@arm.com, mhocko@suse.com, peterz@infradead.org,
  catalin.marinas@arm.com, dave.hansen@linux.intel.com, will.deacon@arm.com,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- mpe@ellerman.id.au, linux@armlinux.org.uk, mingo@redhat.com, vbabka@suse.cz,
+ aneesh.kumar@linux.ibm.com, linux@armlinux.org.uk, mingo@redhat.com,
  rientjes@google.com, palmer@sifive.com, greentime@andestech.com,
  marc.zyngier@arm.com, rppt@linux.vnet.ibm.com, shakeelb@google.com,
- kirill@shutemov.name, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org,
- ard.biesheuvel@linaro.org, robin.murphy@arm.com, steve.capper@arm.com,
- christoffer.dall@arm.com, james.morse@arm.com, aneesh.kumar@linux.ibm.com,
- akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ kirill@shutemov.name, tglx@linutronix.de, vbabka@suse.cz,
+ ard.biesheuvel@linaro.org, steve.capper@arm.com, christoffer.dall@arm.com,
+ james.morse@arm.com, robin.murphy@arm.com
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed 16-01-19 11:51:32, Anshuman Khandual wrote:
-> All architectures have been defining their own PGALLOC_GFP as (GFP_KERNEL |
-> __GFP_ZERO) and using it for allocating page table pages. This causes some
-> code duplication which can be easily avoided. GFP_KERNEL allocated and
-> cleared out pages (__GFP_ZERO) are required for page tables on any given
-> architecture. This creates a new generic GFP flag flag which can be used
-> for any page table page allocation. Does not cause any functional change.
-> 
-> GFP_PGTABLE is being added into include/asm-generic/pgtable.h which is the
-> generic page tabe header just to prevent it's potential misuse as a general
-> allocation flag if included in include/linux/gfp.h.
-
-I haven't reviewed the patch yet but I am wondering whether this is
-really worth it without going all the way down to unify the common code
-and remove much more code duplication. Or is this not possible for some
-reason?
-
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> Build tested on arm, arm64, powerpc, powerpc64le and x86.
-> Boot tested on arm64 and x86.
-> 
-> Changes in V2:
-> 
-> - Moved GFP_PGTABLE into include/asm-generic/pgtable.h
-> - On X86 added __GFP_ACCOUNT into GFP_PGTABLE at various places
-> - Replaced possible flags on riscv and nds32 with GFP_PGTABLE
-> 
-> Original V1: https://lkml.org/lkml/2019/1/12/54 
-> 
->  arch/arm/include/asm/pgalloc.h               |  8 +++-----
->  arch/arm/mm/mmu.c                            |  2 +-
->  arch/arm64/include/asm/pgalloc.h             |  9 ++++-----
->  arch/arm64/mm/mmu.c                          |  2 +-
->  arch/arm64/mm/pgd.c                          |  4 ++--
->  arch/nds32/include/asm/pgalloc.h             |  3 +--
->  arch/powerpc/include/asm/book3s/64/pgalloc.h |  6 +++---
->  arch/powerpc/include/asm/pgalloc.h           |  2 --
->  arch/powerpc/kvm/book3s_64_mmu_hv.c          |  2 +-
->  arch/powerpc/mm/pgtable-frag.c               |  4 ++--
->  arch/riscv/include/asm/pgalloc.h             |  8 +++-----
->  arch/sh/mm/pgtable.c                         |  6 ++----
->  arch/unicore32/include/asm/pgalloc.h         |  6 ++----
->  arch/x86/kernel/espfix_64.c                  |  6 ++----
->  arch/x86/mm/pgtable.c                        | 15 +++++++--------
->  include/asm-generic/pgtable.h                |  2 ++
->  virt/kvm/arm/mmu.c                           |  2 +-
->  17 files changed, 37 insertions(+), 50 deletions(-)
-> 
-> diff --git a/arch/arm/include/asm/pgalloc.h b/arch/arm/include/asm/pgalloc.h
-> index 17ab72f..72be6f5 100644
-> --- a/arch/arm/include/asm/pgalloc.h
-> +++ b/arch/arm/include/asm/pgalloc.h
-> @@ -57,8 +57,6 @@ static inline void pud_populate(struct mm_struct *mm, pud_t *pud, pmd_t *pmd)
->  extern pgd_t *pgd_alloc(struct mm_struct *mm);
->  extern void pgd_free(struct mm_struct *mm, pgd_t *pgd);
->  
-> -#define PGALLOC_GFP	(GFP_KERNEL | __GFP_ZERO)
-> -
->  static inline void clean_pte_table(pte_t *pte)
->  {
->  	clean_dcache_area(pte + PTE_HWTABLE_PTRS, PTE_HWTABLE_SIZE);
-> @@ -85,7 +83,7 @@ pte_alloc_one_kernel(struct mm_struct *mm)
->  {
->  	pte_t *pte;
->  
-> -	pte = (pte_t *)__get_free_page(PGALLOC_GFP);
-> +	pte = (pte_t *)__get_free_page(GFP_PGTABLE);
->  	if (pte)
->  		clean_pte_table(pte);
->  
-> @@ -98,9 +96,9 @@ pte_alloc_one(struct mm_struct *mm)
->  	struct page *pte;
->  
->  #ifdef CONFIG_HIGHPTE
-> -	pte = alloc_pages(PGALLOC_GFP | __GFP_HIGHMEM, 0);
-> +	pte = alloc_pages(GFP_PGTABLE | __GFP_HIGHMEM, 0);
->  #else
-> -	pte = alloc_pages(PGALLOC_GFP, 0);
-> +	pte = alloc_pages(GFP_PGTABLE, 0);
->  #endif
->  	if (!pte)
->  		return NULL;
-> diff --git a/arch/arm/mm/mmu.c b/arch/arm/mm/mmu.c
-> index f5cc1cc..6d47784 100644
-> --- a/arch/arm/mm/mmu.c
-> +++ b/arch/arm/mm/mmu.c
-> @@ -733,7 +733,7 @@ static void __init *early_alloc(unsigned long sz)
->  
->  static void *__init late_alloc(unsigned long sz)
->  {
-> -	void *ptr = (void *)__get_free_pages(PGALLOC_GFP, get_order(sz));
-> +	void *ptr = (void *)__get_free_pages(GFP_PGTABLE, get_order(sz));
->  
->  	if (!ptr || !pgtable_page_ctor(virt_to_page(ptr)))
->  		BUG();
-> diff --git a/arch/arm64/include/asm/pgalloc.h b/arch/arm64/include/asm/pgalloc.h
-> index 52fa47c..d5c75bf 100644
-> --- a/arch/arm64/include/asm/pgalloc.h
-> +++ b/arch/arm64/include/asm/pgalloc.h
-> @@ -26,14 +26,13 @@
->  
->  #define check_pgt_cache()		do { } while (0)
->  
-> -#define PGALLOC_GFP	(GFP_KERNEL | __GFP_ZERO)
->  #define PGD_SIZE	(PTRS_PER_PGD * sizeof(pgd_t))
->  
->  #if CONFIG_PGTABLE_LEVELS > 2
->  
->  static inline pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long addr)
->  {
-> -	return (pmd_t *)__get_free_page(PGALLOC_GFP);
-> +	return (pmd_t *)__get_free_page(GFP_PGTABLE);
->  }
->  
->  static inline void pmd_free(struct mm_struct *mm, pmd_t *pmdp)
-> @@ -62,7 +61,7 @@ static inline void __pud_populate(pud_t *pudp, phys_addr_t pmdp, pudval_t prot)
->  
->  static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long addr)
->  {
-> -	return (pud_t *)__get_free_page(PGALLOC_GFP);
-> +	return (pud_t *)__get_free_page(GFP_PGTABLE);
->  }
->  
->  static inline void pud_free(struct mm_struct *mm, pud_t *pudp)
-> @@ -93,7 +92,7 @@ extern void pgd_free(struct mm_struct *mm, pgd_t *pgdp);
->  static inline pte_t *
->  pte_alloc_one_kernel(struct mm_struct *mm)
->  {
-> -	return (pte_t *)__get_free_page(PGALLOC_GFP);
-> +	return (pte_t *)__get_free_page(GFP_PGTABLE);
->  }
->  
->  static inline pgtable_t
-> @@ -101,7 +100,7 @@ pte_alloc_one(struct mm_struct *mm)
->  {
->  	struct page *pte;
->  
-> -	pte = alloc_pages(PGALLOC_GFP, 0);
-> +	pte = alloc_pages(GFP_PGTABLE, 0);
->  	if (!pte)
->  		return NULL;
->  	if (!pgtable_page_ctor(pte)) {
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index b6f5aa5..07b1c0f 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -372,7 +372,7 @@ static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
->  
->  static phys_addr_t pgd_pgtable_alloc(void)
->  {
-> -	void *ptr = (void *)__get_free_page(PGALLOC_GFP);
-> +	void *ptr = (void *)__get_free_page(GFP_PGTABLE);
->  	if (!ptr || !pgtable_page_ctor(virt_to_page(ptr)))
->  		BUG();
->  
-> diff --git a/arch/arm64/mm/pgd.c b/arch/arm64/mm/pgd.c
-> index 289f911..5b28e2b 100644
-> --- a/arch/arm64/mm/pgd.c
-> +++ b/arch/arm64/mm/pgd.c
-> @@ -31,9 +31,9 @@ static struct kmem_cache *pgd_cache __ro_after_init;
->  pgd_t *pgd_alloc(struct mm_struct *mm)
->  {
->  	if (PGD_SIZE == PAGE_SIZE)
-> -		return (pgd_t *)__get_free_page(PGALLOC_GFP);
-> +		return (pgd_t *)__get_free_page(GFP_PGTABLE);
->  	else
-> -		return kmem_cache_alloc(pgd_cache, PGALLOC_GFP);
-> +		return kmem_cache_alloc(pgd_cache, GFP_PGTABLE);
->  }
->  
->  void pgd_free(struct mm_struct *mm, pgd_t *pgd)
-> diff --git a/arch/nds32/include/asm/pgalloc.h b/arch/nds32/include/asm/pgalloc.h
-> index 3c5fee5..e1137ce 100644
-> --- a/arch/nds32/include/asm/pgalloc.h
-> +++ b/arch/nds32/include/asm/pgalloc.h
-> @@ -27,8 +27,7 @@ static inline pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
->  	pte_t *pte;
->  
->  	pte =
-> -	    (pte_t *) __get_free_page(GFP_KERNEL | __GFP_RETRY_MAYFAIL |
-> -				      __GFP_ZERO);
-> +	    (pte_t *) __get_free_page(GFP_PGTABLE | __GFP_RETRY_MAYFAIL);
->  
->  	return pte;
->  }
-> diff --git a/arch/powerpc/include/asm/book3s/64/pgalloc.h b/arch/powerpc/include/asm/book3s/64/pgalloc.h
-> index 9c11732..71704e5 100644
-> --- a/arch/powerpc/include/asm/book3s/64/pgalloc.h
-> +++ b/arch/powerpc/include/asm/book3s/64/pgalloc.h
-> @@ -52,11 +52,11 @@ void pte_frag_destroy(void *pte_frag);
->  static inline pgd_t *radix__pgd_alloc(struct mm_struct *mm)
->  {
->  #ifdef CONFIG_PPC_64K_PAGES
-> -	return (pgd_t *)__get_free_page(pgtable_gfp_flags(mm, PGALLOC_GFP));
-> +	return (pgd_t *)__get_free_page(pgtable_gfp_flags(mm, GFP_PGTABLE));
->  #else
->  	struct page *page;
-> -	page = alloc_pages(pgtable_gfp_flags(mm, PGALLOC_GFP | __GFP_RETRY_MAYFAIL),
-> -				4);
-> +	page = alloc_pages(pgtable_gfp_flags(mm, GFP_PGTABLE |
-> +				__GFP_RETRY_MAYFAIL), 4);
->  	if (!page)
->  		return NULL;
->  	return (pgd_t *) page_address(page);
-> diff --git a/arch/powerpc/include/asm/pgalloc.h b/arch/powerpc/include/asm/pgalloc.h
-> index e11f030..3b11e8b 100644
-> --- a/arch/powerpc/include/asm/pgalloc.h
-> +++ b/arch/powerpc/include/asm/pgalloc.h
-> @@ -18,8 +18,6 @@ static inline gfp_t pgtable_gfp_flags(struct mm_struct *mm, gfp_t gfp)
->  }
->  #endif /* MODULE */
->  
-> -#define PGALLOC_GFP (GFP_KERNEL | __GFP_ZERO)
-> -
->  #ifdef CONFIG_PPC_BOOK3S
->  #include <asm/book3s/pgalloc.h>
->  #else
-> diff --git a/arch/powerpc/kvm/book3s_64_mmu_hv.c b/arch/powerpc/kvm/book3s_64_mmu_hv.c
-> index bd2dcfb..b419878 100644
-> --- a/arch/powerpc/kvm/book3s_64_mmu_hv.c
-> +++ b/arch/powerpc/kvm/book3s_64_mmu_hv.c
-> @@ -97,7 +97,7 @@ int kvmppc_allocate_hpt(struct kvm_hpt_info *info, u32 order)
->  	}
->  
->  	if (!hpt)
-> -		hpt = __get_free_pages(GFP_KERNEL|__GFP_ZERO|__GFP_RETRY_MAYFAIL
-> +		hpt = __get_free_pages(GFP_PGTABLE | __GFP_RETRY_MAYFAIL
->  				       |__GFP_NOWARN, order - PAGE_SHIFT);
->  
->  	if (!hpt)
-> diff --git a/arch/powerpc/mm/pgtable-frag.c b/arch/powerpc/mm/pgtable-frag.c
-> index a7b0521..211aaa7 100644
-> --- a/arch/powerpc/mm/pgtable-frag.c
-> +++ b/arch/powerpc/mm/pgtable-frag.c
-> @@ -58,7 +58,7 @@ static pte_t *__alloc_for_ptecache(struct mm_struct *mm, int kernel)
->  	struct page *page;
->  
->  	if (!kernel) {
-> -		page = alloc_page(PGALLOC_GFP | __GFP_ACCOUNT);
-> +		page = alloc_page(GFP_PGTABLE | __GFP_ACCOUNT);
->  		if (!page)
->  			return NULL;
->  		if (!pgtable_page_ctor(page)) {
-> @@ -66,7 +66,7 @@ static pte_t *__alloc_for_ptecache(struct mm_struct *mm, int kernel)
->  			return NULL;
->  		}
->  	} else {
-> -		page = alloc_page(PGALLOC_GFP);
-> +		page = alloc_page(GFP_PGTABLE);
->  		if (!page)
->  			return NULL;
->  	}
-> diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
-> index 94043cf..7ff1cd7 100644
-> --- a/arch/riscv/include/asm/pgalloc.h
-> +++ b/arch/riscv/include/asm/pgalloc.h
-> @@ -69,8 +69,7 @@ static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
->  
->  static inline pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long addr)
->  {
-> -	return (pmd_t *)__get_free_page(
-> -		GFP_KERNEL | __GFP_RETRY_MAYFAIL | __GFP_ZERO);
-> +	return (pmd_t *)__get_free_page(GFP_PGTABLE | __GFP_RETRY_MAYFAIL);
->  }
->  
->  static inline void pmd_free(struct mm_struct *mm, pmd_t *pmd)
-> @@ -84,15 +83,14 @@ static inline void pmd_free(struct mm_struct *mm, pmd_t *pmd)
->  
->  static inline pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
->  {
-> -	return (pte_t *)__get_free_page(
-> -		GFP_KERNEL | __GFP_RETRY_MAYFAIL | __GFP_ZERO);
-> +	return (pte_t *)__get_free_page(GFP_PGTABLE | __GFP_RETRY_MAYFAIL);
->  }
->  
->  static inline struct page *pte_alloc_one(struct mm_struct *mm)
->  {
->  	struct page *pte;
->  
-> -	pte = alloc_page(GFP_KERNEL | __GFP_RETRY_MAYFAIL | __GFP_ZERO);
-> +	pte = alloc_page(GFP_PGTABLE | __GFP_RETRY_MAYFAIL);
->  	if (likely(pte != NULL))
->  		pgtable_page_ctor(pte);
->  	return pte;
-> diff --git a/arch/sh/mm/pgtable.c b/arch/sh/mm/pgtable.c
-> index 5c8f924..324732dc5 100644
-> --- a/arch/sh/mm/pgtable.c
-> +++ b/arch/sh/mm/pgtable.c
-> @@ -2,8 +2,6 @@
->  #include <linux/mm.h>
->  #include <linux/slab.h>
->  
-> -#define PGALLOC_GFP GFP_KERNEL | __GFP_ZERO
-> -
->  static struct kmem_cache *pgd_cachep;
->  #if PAGETABLE_LEVELS > 2
->  static struct kmem_cache *pmd_cachep;
-> @@ -32,7 +30,7 @@ void pgtable_cache_init(void)
->  
->  pgd_t *pgd_alloc(struct mm_struct *mm)
->  {
-> -	return kmem_cache_alloc(pgd_cachep, PGALLOC_GFP);
-> +	return kmem_cache_alloc(pgd_cachep, GFP_PGTABLE);
->  }
->  
->  void pgd_free(struct mm_struct *mm, pgd_t *pgd)
-> @@ -48,7 +46,7 @@ void pud_populate(struct mm_struct *mm, pud_t *pud, pmd_t *pmd)
->  
->  pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long address)
->  {
-> -	return kmem_cache_alloc(pmd_cachep, PGALLOC_GFP);
-> +	return kmem_cache_alloc(pmd_cachep, GFP_PGTABLE);
->  }
->  
->  void pmd_free(struct mm_struct *mm, pmd_t *pmd)
-> diff --git a/arch/unicore32/include/asm/pgalloc.h b/arch/unicore32/include/asm/pgalloc.h
-> index 7cceabe..a3506e5 100644
-> --- a/arch/unicore32/include/asm/pgalloc.h
-> +++ b/arch/unicore32/include/asm/pgalloc.h
-> @@ -28,8 +28,6 @@ extern void free_pgd_slow(struct mm_struct *mm, pgd_t *pgd);
->  #define pgd_alloc(mm)			get_pgd_slow(mm)
->  #define pgd_free(mm, pgd)		free_pgd_slow(mm, pgd)
->  
-> -#define PGALLOC_GFP	(GFP_KERNEL | __GFP_ZERO)
-> -
->  /*
->   * Allocate one PTE table.
->   */
-> @@ -38,7 +36,7 @@ pte_alloc_one_kernel(struct mm_struct *mm)
->  {
->  	pte_t *pte;
->  
-> -	pte = (pte_t *)__get_free_page(PGALLOC_GFP);
-> +	pte = (pte_t *)__get_free_page(GFP_PGTABLE);
->  	if (pte)
->  		clean_dcache_area(pte, PTRS_PER_PTE * sizeof(pte_t));
->  
-> @@ -50,7 +48,7 @@ pte_alloc_one(struct mm_struct *mm)
->  {
->  	struct page *pte;
->  
-> -	pte = alloc_pages(PGALLOC_GFP, 0);
-> +	pte = alloc_pages(GFP_PGTABLE, 0);
->  	if (!pte)
->  		return NULL;
->  	if (!PageHighMem(pte)) {
-> diff --git a/arch/x86/kernel/espfix_64.c b/arch/x86/kernel/espfix_64.c
-> index aebd0d5..dae28cc 100644
-> --- a/arch/x86/kernel/espfix_64.c
-> +++ b/arch/x86/kernel/espfix_64.c
-> @@ -57,8 +57,6 @@
->  # error "Need more virtual address space for the ESPFIX hack"
->  #endif
->  
-> -#define PGALLOC_GFP (GFP_KERNEL | __GFP_ZERO)
-> -
->  /* This contains the *bottom* address of the espfix stack */
->  DEFINE_PER_CPU_READ_MOSTLY(unsigned long, espfix_stack);
->  DEFINE_PER_CPU_READ_MOSTLY(unsigned long, espfix_waddr);
-> @@ -172,7 +170,7 @@ void init_espfix_ap(int cpu)
->  	pud_p = &espfix_pud_page[pud_index(addr)];
->  	pud = *pud_p;
->  	if (!pud_present(pud)) {
-> -		struct page *page = alloc_pages_node(node, PGALLOC_GFP, 0);
-> +		struct page *page = alloc_pages_node(node, GFP_PGTABLE, 0);
->  
->  		pmd_p = (pmd_t *)page_address(page);
->  		pud = __pud(__pa(pmd_p) | (PGTABLE_PROT & ptemask));
-> @@ -184,7 +182,7 @@ void init_espfix_ap(int cpu)
->  	pmd_p = pmd_offset(&pud, addr);
->  	pmd = *pmd_p;
->  	if (!pmd_present(pmd)) {
-> -		struct page *page = alloc_pages_node(node, PGALLOC_GFP, 0);
-> +		struct page *page = alloc_pages_node(node, GFP_PGTABLE, 0);
->  
->  		pte_p = (pte_t *)page_address(page);
->  		pmd = __pmd(__pa(pte_p) | (PGTABLE_PROT & ptemask));
-> diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
-> index 7bd0170..a5b1672 100644
-> --- a/arch/x86/mm/pgtable.c
-> +++ b/arch/x86/mm/pgtable.c
-> @@ -13,19 +13,17 @@ phys_addr_t physical_mask __ro_after_init = (1ULL << __PHYSICAL_MASK_SHIFT) - 1;
->  EXPORT_SYMBOL(physical_mask);
->  #endif
->  
-> -#define PGALLOC_GFP (GFP_KERNEL_ACCOUNT | __GFP_ZERO)
-> -
->  #ifdef CONFIG_HIGHPTE
->  #define PGALLOC_USER_GFP __GFP_HIGHMEM
->  #else
->  #define PGALLOC_USER_GFP 0
->  #endif
->  
-> -gfp_t __userpte_alloc_gfp = PGALLOC_GFP | PGALLOC_USER_GFP;
-> +gfp_t __userpte_alloc_gfp = GFP_PGTABLE | __GFP_ACCOUNT | PGALLOC_USER_GFP;
->  
->  pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
->  {
-> -	return (pte_t *)__get_free_page(PGALLOC_GFP & ~__GFP_ACCOUNT);
-> +	return (pte_t *)__get_free_page(GFP_PGTABLE);
->  }
->  
->  pgtable_t pte_alloc_one(struct mm_struct *mm)
-> @@ -235,7 +233,7 @@ static int preallocate_pmds(struct mm_struct *mm, pmd_t *pmds[], int count)
->  {
->  	int i;
->  	bool failed = false;
-> -	gfp_t gfp = PGALLOC_GFP;
-> +	gfp_t gfp = GFP_PGTABLE | __GFP_ACCOUNT;
->  
->  	if (mm == &init_mm)
->  		gfp &= ~__GFP_ACCOUNT;
-> @@ -401,14 +399,14 @@ static inline pgd_t *_pgd_alloc(void)
->  	 * We allocate one page for pgd.
->  	 */
->  	if (!SHARED_KERNEL_PMD)
-> -		return (pgd_t *)__get_free_pages(PGALLOC_GFP,
-> +		return (pgd_t *)__get_free_pages(GFP_PGTABLE | __GFP_ACCOUNT,
->  						 PGD_ALLOCATION_ORDER);
->  
->  	/*
->  	 * Now PAE kernel is not running as a Xen domain. We can allocate
->  	 * a 32-byte slab for pgd to save memory space.
->  	 */
-> -	return kmem_cache_alloc(pgd_cache, PGALLOC_GFP);
-> +	return kmem_cache_alloc(pgd_cache, GFP_PGTABLE | __GFP_ACCOUNT);
->  }
->  
->  static inline void _pgd_free(pgd_t *pgd)
-> @@ -422,7 +420,8 @@ static inline void _pgd_free(pgd_t *pgd)
->  
->  static inline pgd_t *_pgd_alloc(void)
->  {
-> -	return (pgd_t *)__get_free_pages(PGALLOC_GFP, PGD_ALLOCATION_ORDER);
-> +	return (pgd_t *)__get_free_pages(GFP_PGTABLE | __GFP_ACCOUNT,
-> +						PGD_ALLOCATION_ORDER);
->  }
->  
->  static inline void _pgd_free(pgd_t *pgd)
-> diff --git a/include/asm-generic/pgtable.h b/include/asm-generic/pgtable.h
-> index 05e61e6..3d9cde6 100644
-> --- a/include/asm-generic/pgtable.h
-> +++ b/include/asm-generic/pgtable.h
-> @@ -1186,4 +1186,6 @@ static inline bool arch_has_pfn_modify_check(void)
->  #define mm_pmd_folded(mm)	__is_defined(__PAGETABLE_PMD_FOLDED)
->  #endif
->  
-> +#define GFP_PGTABLE	(GFP_KERNEL | __GFP_ZERO)
-> +
->  #endif /* _ASM_GENERIC_PGTABLE_H */
-> diff --git a/virt/kvm/arm/mmu.c b/virt/kvm/arm/mmu.c
-> index fbdf3ac..f60a5b8 100644
-> --- a/virt/kvm/arm/mmu.c
-> +++ b/virt/kvm/arm/mmu.c
-> @@ -143,7 +143,7 @@ static int mmu_topup_memory_cache(struct kvm_mmu_memory_cache *cache,
->  	if (cache->nobjs >= min)
->  		return 0;
->  	while (cache->nobjs < max) {
-> -		page = (void *)__get_free_page(PGALLOC_GFP);
-> +		page = (void *)__get_free_page(GFP_PGTABLE);
->  		if (!page)
->  			return -ENOMEM;
->  		cache->objects[cache->nobjs++] = page;
-> -- 
-> 2.7.4
-> 
-
--- 
-Michal Hocko
-SUSE Labs
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAxNi8wMS8yMDE5IMOgIDA3OjIxLCBBbnNodW1hbiBLaGFuZHVhbCBhIMOpY3JpdMKgOgo+
+IEFsbCBhcmNoaXRlY3R1cmVzIGhhdmUgYmVlbiBkZWZpbmluZyB0aGVpciBvd24gUEdBTExPQ19H
+RlAgYXMgKEdGUF9LRVJORUwgfAo+IF9fR0ZQX1pFUk8pIGFuZCB1c2luZyBpdCBmb3IgYWxsb2Nh
+dGluZyBwYWdlIHRhYmxlIHBhZ2VzLiBUaGlzIGNhdXNlcyBzb21lCj4gY29kZSBkdXBsaWNhdGlv
+biB3aGljaCBjYW4gYmUgZWFzaWx5IGF2b2lkZWQuIEdGUF9LRVJORUwgYWxsb2NhdGVkIGFuZAo+
+IGNsZWFyZWQgb3V0IHBhZ2VzIChfX0dGUF9aRVJPKSBhcmUgcmVxdWlyZWQgZm9yIHBhZ2UgdGFi
+bGVzIG9uIGFueSBnaXZlbgo+IGFyY2hpdGVjdHVyZS4gVGhpcyBjcmVhdGVzIGEgbmV3IGdlbmVy
+aWMgR0ZQIGZsYWcgZmxhZyB3aGljaCBjYW4gYmUgdXNlZAo+IGZvciBhbnkgcGFnZSB0YWJsZSBw
+YWdlIGFsbG9jYXRpb24uIERvZXMgbm90IGNhdXNlIGFueSBmdW5jdGlvbmFsIGNoYW5nZS4KPiAK
+PiBHRlBfUEdUQUJMRSBpcyBiZWluZyBhZGRlZCBpbnRvIGluY2x1ZGUvYXNtLWdlbmVyaWMvcGd0
+YWJsZS5oIHdoaWNoIGlzIHRoZQo+IGdlbmVyaWMgcGFnZSB0YWJlIGhlYWRlciBqdXN0IHRvIHBy
+ZXZlbnQgaXQncyBwb3RlbnRpYWwgbWlzdXNlIGFzIGEgZ2VuZXJhbAo+IGFsbG9jYXRpb24gZmxh
+ZyBpZiBpbmNsdWRlZCBpbiBpbmNsdWRlL2xpbnV4L2dmcC5oLgo+IAo+IFNpZ25lZC1vZmYtYnk6
+IEFuc2h1bWFuIEtoYW5kdWFsIDxhbnNodW1hbi5raGFuZHVhbEBhcm0uY29tPgo+IC0tLQo+IEJ1
+aWxkIHRlc3RlZCBvbiBhcm0sIGFybTY0LCBwb3dlcnBjLCBwb3dlcnBjNjRsZSBhbmQgeDg2Lgo+
+IEJvb3QgdGVzdGVkIG9uIGFybTY0IGFuZCB4ODYuCj4gCj4gQ2hhbmdlcyBpbiBWMjoKPiAKPiAt
+IE1vdmVkIEdGUF9QR1RBQkxFIGludG8gaW5jbHVkZS9hc20tZ2VuZXJpYy9wZ3RhYmxlLmgKPiAt
+IE9uIFg4NiBhZGRlZCBfX0dGUF9BQ0NPVU5UIGludG8gR0ZQX1BHVEFCTEUgYXQgdmFyaW91cyBw
+bGFjZXMKPiAtIFJlcGxhY2VkIHBvc3NpYmxlIGZsYWdzIG9uIHJpc2N2IGFuZCBuZHMzMiB3aXRo
+IEdGUF9QR1RBQkxFCgpDb3VsZCBhbHNvIHJlcGxhY2UgdGhlIGZsYWdzIGluIAphcmNoL3Bvd2Vy
+cGMvaW5jbHVkZS9hc20vbm9oYXNoLzY0L3BnYWxsb2MuaCB3aXRoIEdGUF9QR1RBQkxFIGluIApw
+dGVfYWxsb2Nfb25lX2tlcm5lbCgpIGFuZCBwdGVfYWxsb2Nfb25lKCkKCkNocmlzdG9waGUKCj4g
+Cj4gT3JpZ2luYWwgVjE6IGh0dHBzOi8vbGttbC5vcmcvbGttbC8yMDE5LzEvMTIvNTQKPiAKPiAg
+IGFyY2gvYXJtL2luY2x1ZGUvYXNtL3BnYWxsb2MuaCAgICAgICAgICAgICAgIHwgIDggKysrLS0t
+LS0KPiAgIGFyY2gvYXJtL21tL21tdS5jICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDIg
+Ky0KPiAgIGFyY2gvYXJtNjQvaW5jbHVkZS9hc20vcGdhbGxvYy5oICAgICAgICAgICAgIHwgIDkg
+KysrKy0tLS0tCj4gICBhcmNoL2FybTY0L21tL21tdS5jICAgICAgICAgICAgICAgICAgICAgICAg
+ICB8ICAyICstCj4gICBhcmNoL2FybTY0L21tL3BnZC5jICAgICAgICAgICAgICAgICAgICAgICAg
+ICB8ICA0ICsrLS0KPiAgIGFyY2gvbmRzMzIvaW5jbHVkZS9hc20vcGdhbGxvYy5oICAgICAgICAg
+ICAgIHwgIDMgKy0tCj4gICBhcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vYm9vazNzLzY0L3BnYWxs
+b2MuaCB8ICA2ICsrKy0tLQo+ICAgYXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNtL3BnYWxsb2MuaCAg
+ICAgICAgICAgfCAgMiAtLQo+ICAgYXJjaC9wb3dlcnBjL2t2bS9ib29rM3NfNjRfbW11X2h2LmMg
+ICAgICAgICAgfCAgMiArLQo+ICAgYXJjaC9wb3dlcnBjL21tL3BndGFibGUtZnJhZy5jICAgICAg
+ICAgICAgICAgfCAgNCArKy0tCj4gICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BnYWxsb2MuaCAg
+ICAgICAgICAgICB8ICA4ICsrKy0tLS0tCj4gICBhcmNoL3NoL21tL3BndGFibGUuYyAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICA2ICsrLS0tLQo+ICAgYXJjaC91bmljb3JlMzIvaW5jbHVkZS9h
+c20vcGdhbGxvYy5oICAgICAgICAgfCAgNiArKy0tLS0KPiAgIGFyY2gveDg2L2tlcm5lbC9lc3Bm
+aXhfNjQuYyAgICAgICAgICAgICAgICAgIHwgIDYgKystLS0tCj4gICBhcmNoL3g4Ni9tbS9wZ3Rh
+YmxlLmMgICAgICAgICAgICAgICAgICAgICAgICB8IDE1ICsrKysrKystLS0tLS0tLQo+ICAgaW5j
+bHVkZS9hc20tZ2VuZXJpYy9wZ3RhYmxlLmggICAgICAgICAgICAgICAgfCAgMiArKwo+ICAgdmly
+dC9rdm0vYXJtL21tdS5jICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgMiArLQo+ICAgMTcg
+ZmlsZXMgY2hhbmdlZCwgMzcgaW5zZXJ0aW9ucygrKSwgNTAgZGVsZXRpb25zKC0pCj4gCj4gZGlm
+ZiAtLWdpdCBhL2FyY2gvYXJtL2luY2x1ZGUvYXNtL3BnYWxsb2MuaCBiL2FyY2gvYXJtL2luY2x1
+ZGUvYXNtL3BnYWxsb2MuaAo+IGluZGV4IDE3YWI3MmYuLjcyYmU2ZjUgMTAwNjQ0Cj4gLS0tIGEv
+YXJjaC9hcm0vaW5jbHVkZS9hc20vcGdhbGxvYy5oCj4gKysrIGIvYXJjaC9hcm0vaW5jbHVkZS9h
+c20vcGdhbGxvYy5oCj4gQEAgLTU3LDggKzU3LDYgQEAgc3RhdGljIGlubGluZSB2b2lkIHB1ZF9w
+b3B1bGF0ZShzdHJ1Y3QgbW1fc3RydWN0ICptbSwgcHVkX3QgKnB1ZCwgcG1kX3QgKnBtZCkKPiAg
+IGV4dGVybiBwZ2RfdCAqcGdkX2FsbG9jKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tKTsKPiAgIGV4dGVy
+biB2b2lkIHBnZF9mcmVlKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLCBwZ2RfdCAqcGdkKTsKPiAgIAo+
+IC0jZGVmaW5lIFBHQUxMT0NfR0ZQCShHRlBfS0VSTkVMIHwgX19HRlBfWkVSTykKPiAtCj4gICBz
+dGF0aWMgaW5saW5lIHZvaWQgY2xlYW5fcHRlX3RhYmxlKHB0ZV90ICpwdGUpCj4gICB7Cj4gICAJ
+Y2xlYW5fZGNhY2hlX2FyZWEocHRlICsgUFRFX0hXVEFCTEVfUFRSUywgUFRFX0hXVEFCTEVfU0la
+RSk7Cj4gQEAgLTg1LDcgKzgzLDcgQEAgcHRlX2FsbG9jX29uZV9rZXJuZWwoc3RydWN0IG1tX3N0
+cnVjdCAqbW0pCj4gICB7Cj4gICAJcHRlX3QgKnB0ZTsKPiAgIAo+IC0JcHRlID0gKHB0ZV90ICop
+X19nZXRfZnJlZV9wYWdlKFBHQUxMT0NfR0ZQKTsKPiArCXB0ZSA9IChwdGVfdCAqKV9fZ2V0X2Zy
+ZWVfcGFnZShHRlBfUEdUQUJMRSk7Cj4gICAJaWYgKHB0ZSkKPiAgIAkJY2xlYW5fcHRlX3RhYmxl
+KHB0ZSk7Cj4gICAKPiBAQCAtOTgsOSArOTYsOSBAQCBwdGVfYWxsb2Nfb25lKHN0cnVjdCBtbV9z
+dHJ1Y3QgKm1tKQo+ICAgCXN0cnVjdCBwYWdlICpwdGU7Cj4gICAKPiAgICNpZmRlZiBDT05GSUdf
+SElHSFBURQo+IC0JcHRlID0gYWxsb2NfcGFnZXMoUEdBTExPQ19HRlAgfCBfX0dGUF9ISUdITUVN
+LCAwKTsKPiArCXB0ZSA9IGFsbG9jX3BhZ2VzKEdGUF9QR1RBQkxFIHwgX19HRlBfSElHSE1FTSwg
+MCk7Cj4gICAjZWxzZQo+IC0JcHRlID0gYWxsb2NfcGFnZXMoUEdBTExPQ19HRlAsIDApOwo+ICsJ
+cHRlID0gYWxsb2NfcGFnZXMoR0ZQX1BHVEFCTEUsIDApOwo+ICAgI2VuZGlmCj4gICAJaWYgKCFw
+dGUpCj4gICAJCXJldHVybiBOVUxMOwo+IGRpZmYgLS1naXQgYS9hcmNoL2FybS9tbS9tbXUuYyBi
+L2FyY2gvYXJtL21tL21tdS5jCj4gaW5kZXggZjVjYzFjYy4uNmQ0Nzc4NCAxMDA2NDQKPiAtLS0g
+YS9hcmNoL2FybS9tbS9tbXUuYwo+ICsrKyBiL2FyY2gvYXJtL21tL21tdS5jCj4gQEAgLTczMyw3
+ICs3MzMsNyBAQCBzdGF0aWMgdm9pZCBfX2luaXQgKmVhcmx5X2FsbG9jKHVuc2lnbmVkIGxvbmcg
+c3opCj4gICAKPiAgIHN0YXRpYyB2b2lkICpfX2luaXQgbGF0ZV9hbGxvYyh1bnNpZ25lZCBsb25n
+IHN6KQo+ICAgewo+IC0Jdm9pZCAqcHRyID0gKHZvaWQgKilfX2dldF9mcmVlX3BhZ2VzKFBHQUxM
+T0NfR0ZQLCBnZXRfb3JkZXIoc3opKTsKPiArCXZvaWQgKnB0ciA9ICh2b2lkICopX19nZXRfZnJl
+ZV9wYWdlcyhHRlBfUEdUQUJMRSwgZ2V0X29yZGVyKHN6KSk7Cj4gICAKPiAgIAlpZiAoIXB0ciB8
+fCAhcGd0YWJsZV9wYWdlX2N0b3IodmlydF90b19wYWdlKHB0cikpKQo+ICAgCQlCVUcoKTsKPiBk
+aWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9pbmNsdWRlL2FzbS9wZ2FsbG9jLmggYi9hcmNoL2FybTY0
+L2luY2x1ZGUvYXNtL3BnYWxsb2MuaAo+IGluZGV4IDUyZmE0N2MuLmQ1Yzc1YmYgMTAwNjQ0Cj4g
+LS0tIGEvYXJjaC9hcm02NC9pbmNsdWRlL2FzbS9wZ2FsbG9jLmgKPiArKysgYi9hcmNoL2FybTY0
+L2luY2x1ZGUvYXNtL3BnYWxsb2MuaAo+IEBAIC0yNiwxNCArMjYsMTMgQEAKPiAgIAo+ICAgI2Rl
+ZmluZSBjaGVja19wZ3RfY2FjaGUoKQkJZG8geyB9IHdoaWxlICgwKQo+ICAgCj4gLSNkZWZpbmUg
+UEdBTExPQ19HRlAJKEdGUF9LRVJORUwgfCBfX0dGUF9aRVJPKQo+ICAgI2RlZmluZSBQR0RfU0la
+RQkoUFRSU19QRVJfUEdEICogc2l6ZW9mKHBnZF90KSkKPiAgIAo+ICAgI2lmIENPTkZJR19QR1RB
+QkxFX0xFVkVMUyA+IDIKPiAgIAo+ICAgc3RhdGljIGlubGluZSBwbWRfdCAqcG1kX2FsbG9jX29u
+ZShzdHJ1Y3QgbW1fc3RydWN0ICptbSwgdW5zaWduZWQgbG9uZyBhZGRyKQo+ICAgewo+IC0JcmV0
+dXJuIChwbWRfdCAqKV9fZ2V0X2ZyZWVfcGFnZShQR0FMTE9DX0dGUCk7Cj4gKwlyZXR1cm4gKHBt
+ZF90ICopX19nZXRfZnJlZV9wYWdlKEdGUF9QR1RBQkxFKTsKPiAgIH0KPiAgIAo+ICAgc3RhdGlj
+IGlubGluZSB2b2lkIHBtZF9mcmVlKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLCBwbWRfdCAqcG1kcCkK
+PiBAQCAtNjIsNyArNjEsNyBAQCBzdGF0aWMgaW5saW5lIHZvaWQgX19wdWRfcG9wdWxhdGUocHVk
+X3QgKnB1ZHAsIHBoeXNfYWRkcl90IHBtZHAsIHB1ZHZhbF90IHByb3QpCj4gICAKPiAgIHN0YXRp
+YyBpbmxpbmUgcHVkX3QgKnB1ZF9hbGxvY19vbmUoc3RydWN0IG1tX3N0cnVjdCAqbW0sIHVuc2ln
+bmVkIGxvbmcgYWRkcikKPiAgIHsKPiAtCXJldHVybiAocHVkX3QgKilfX2dldF9mcmVlX3BhZ2Uo
+UEdBTExPQ19HRlApOwo+ICsJcmV0dXJuIChwdWRfdCAqKV9fZ2V0X2ZyZWVfcGFnZShHRlBfUEdU
+QUJMRSk7Cj4gICB9Cj4gICAKPiAgIHN0YXRpYyBpbmxpbmUgdm9pZCBwdWRfZnJlZShzdHJ1Y3Qg
+bW1fc3RydWN0ICptbSwgcHVkX3QgKnB1ZHApCj4gQEAgLTkzLDcgKzkyLDcgQEAgZXh0ZXJuIHZv
+aWQgcGdkX2ZyZWUoc3RydWN0IG1tX3N0cnVjdCAqbW0sIHBnZF90ICpwZ2RwKTsKPiAgIHN0YXRp
+YyBpbmxpbmUgcHRlX3QgKgo+ICAgcHRlX2FsbG9jX29uZV9rZXJuZWwoc3RydWN0IG1tX3N0cnVj
+dCAqbW0pCj4gICB7Cj4gLQlyZXR1cm4gKHB0ZV90ICopX19nZXRfZnJlZV9wYWdlKFBHQUxMT0Nf
+R0ZQKTsKPiArCXJldHVybiAocHRlX3QgKilfX2dldF9mcmVlX3BhZ2UoR0ZQX1BHVEFCTEUpOwo+
+ICAgfQo+ICAgCj4gICBzdGF0aWMgaW5saW5lIHBndGFibGVfdAo+IEBAIC0xMDEsNyArMTAwLDcg
+QEAgcHRlX2FsbG9jX29uZShzdHJ1Y3QgbW1fc3RydWN0ICptbSkKPiAgIHsKPiAgIAlzdHJ1Y3Qg
+cGFnZSAqcHRlOwo+ICAgCj4gLQlwdGUgPSBhbGxvY19wYWdlcyhQR0FMTE9DX0dGUCwgMCk7Cj4g
+KwlwdGUgPSBhbGxvY19wYWdlcyhHRlBfUEdUQUJMRSwgMCk7Cj4gICAJaWYgKCFwdGUpCj4gICAJ
+CXJldHVybiBOVUxMOwo+ICAgCWlmICghcGd0YWJsZV9wYWdlX2N0b3IocHRlKSkgewo+IGRpZmYg
+LS1naXQgYS9hcmNoL2FybTY0L21tL21tdS5jIGIvYXJjaC9hcm02NC9tbS9tbXUuYwo+IGluZGV4
+IGI2ZjVhYTUuLjA3YjFjMGYgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9hcm02NC9tbS9tbXUuYwo+ICsr
+KyBiL2FyY2gvYXJtNjQvbW0vbW11LmMKPiBAQCAtMzcyLDcgKzM3Miw3IEBAIHN0YXRpYyB2b2lk
+IF9fY3JlYXRlX3BnZF9tYXBwaW5nKHBnZF90ICpwZ2RpciwgcGh5c19hZGRyX3QgcGh5cywKPiAg
+IAo+ICAgc3RhdGljIHBoeXNfYWRkcl90IHBnZF9wZ3RhYmxlX2FsbG9jKHZvaWQpCj4gICB7Cj4g
+LQl2b2lkICpwdHIgPSAodm9pZCAqKV9fZ2V0X2ZyZWVfcGFnZShQR0FMTE9DX0dGUCk7Cj4gKwl2
+b2lkICpwdHIgPSAodm9pZCAqKV9fZ2V0X2ZyZWVfcGFnZShHRlBfUEdUQUJMRSk7Cj4gICAJaWYg
+KCFwdHIgfHwgIXBndGFibGVfcGFnZV9jdG9yKHZpcnRfdG9fcGFnZShwdHIpKSkKPiAgIAkJQlVH
+KCk7Cj4gICAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9tbS9wZ2QuYyBiL2FyY2gvYXJtNjQv
+bW0vcGdkLmMKPiBpbmRleCAyODlmOTExLi41YjI4ZTJiIDEwMDY0NAo+IC0tLSBhL2FyY2gvYXJt
+NjQvbW0vcGdkLmMKPiArKysgYi9hcmNoL2FybTY0L21tL3BnZC5jCj4gQEAgLTMxLDkgKzMxLDkg
+QEAgc3RhdGljIHN0cnVjdCBrbWVtX2NhY2hlICpwZ2RfY2FjaGUgX19yb19hZnRlcl9pbml0Owo+
+ICAgcGdkX3QgKnBnZF9hbGxvYyhzdHJ1Y3QgbW1fc3RydWN0ICptbSkKPiAgIHsKPiAgIAlpZiAo
+UEdEX1NJWkUgPT0gUEFHRV9TSVpFKQo+IC0JCXJldHVybiAocGdkX3QgKilfX2dldF9mcmVlX3Bh
+Z2UoUEdBTExPQ19HRlApOwo+ICsJCXJldHVybiAocGdkX3QgKilfX2dldF9mcmVlX3BhZ2UoR0ZQ
+X1BHVEFCTEUpOwo+ICAgCWVsc2UKPiAtCQlyZXR1cm4ga21lbV9jYWNoZV9hbGxvYyhwZ2RfY2Fj
+aGUsIFBHQUxMT0NfR0ZQKTsKPiArCQlyZXR1cm4ga21lbV9jYWNoZV9hbGxvYyhwZ2RfY2FjaGUs
+IEdGUF9QR1RBQkxFKTsKPiAgIH0KPiAgIAo+ICAgdm9pZCBwZ2RfZnJlZShzdHJ1Y3QgbW1fc3Ry
+dWN0ICptbSwgcGdkX3QgKnBnZCkKPiBkaWZmIC0tZ2l0IGEvYXJjaC9uZHMzMi9pbmNsdWRlL2Fz
+bS9wZ2FsbG9jLmggYi9hcmNoL25kczMyL2luY2x1ZGUvYXNtL3BnYWxsb2MuaAo+IGluZGV4IDNj
+NWZlZTUuLmUxMTM3Y2UgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9uZHMzMi9pbmNsdWRlL2FzbS9wZ2Fs
+bG9jLmgKPiArKysgYi9hcmNoL25kczMyL2luY2x1ZGUvYXNtL3BnYWxsb2MuaAo+IEBAIC0yNyw4
+ICsyNyw3IEBAIHN0YXRpYyBpbmxpbmUgcHRlX3QgKnB0ZV9hbGxvY19vbmVfa2VybmVsKHN0cnVj
+dCBtbV9zdHJ1Y3QgKm1tKQo+ICAgCXB0ZV90ICpwdGU7Cj4gICAKPiAgIAlwdGUgPQo+IC0JICAg
+IChwdGVfdCAqKSBfX2dldF9mcmVlX3BhZ2UoR0ZQX0tFUk5FTCB8IF9fR0ZQX1JFVFJZX01BWUZB
+SUwgfAo+IC0JCQkJICAgICAgX19HRlBfWkVSTyk7Cj4gKwkgICAgKHB0ZV90ICopIF9fZ2V0X2Zy
+ZWVfcGFnZShHRlBfUEdUQUJMRSB8IF9fR0ZQX1JFVFJZX01BWUZBSUwpOwo+ICAgCj4gICAJcmV0
+dXJuIHB0ZTsKPiAgIH0KPiBkaWZmIC0tZ2l0IGEvYXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNtL2Jv
+b2szcy82NC9wZ2FsbG9jLmggYi9hcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vYm9vazNzLzY0L3Bn
+YWxsb2MuaAo+IGluZGV4IDljMTE3MzIuLjcxNzA0ZTUgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9wb3dl
+cnBjL2luY2x1ZGUvYXNtL2Jvb2szcy82NC9wZ2FsbG9jLmgKPiArKysgYi9hcmNoL3Bvd2VycGMv
+aW5jbHVkZS9hc20vYm9vazNzLzY0L3BnYWxsb2MuaAo+IEBAIC01MiwxMSArNTIsMTEgQEAgdm9p
+ZCBwdGVfZnJhZ19kZXN0cm95KHZvaWQgKnB0ZV9mcmFnKTsKPiAgIHN0YXRpYyBpbmxpbmUgcGdk
+X3QgKnJhZGl4X19wZ2RfYWxsb2Moc3RydWN0IG1tX3N0cnVjdCAqbW0pCj4gICB7Cj4gICAjaWZk
+ZWYgQ09ORklHX1BQQ182NEtfUEFHRVMKPiAtCXJldHVybiAocGdkX3QgKilfX2dldF9mcmVlX3Bh
+Z2UocGd0YWJsZV9nZnBfZmxhZ3MobW0sIFBHQUxMT0NfR0ZQKSk7Cj4gKwlyZXR1cm4gKHBnZF90
+ICopX19nZXRfZnJlZV9wYWdlKHBndGFibGVfZ2ZwX2ZsYWdzKG1tLCBHRlBfUEdUQUJMRSkpOwo+
+ICAgI2Vsc2UKPiAgIAlzdHJ1Y3QgcGFnZSAqcGFnZTsKPiAtCXBhZ2UgPSBhbGxvY19wYWdlcyhw
+Z3RhYmxlX2dmcF9mbGFncyhtbSwgUEdBTExPQ19HRlAgfCBfX0dGUF9SRVRSWV9NQVlGQUlMKSwK
+PiAtCQkJCTQpOwo+ICsJcGFnZSA9IGFsbG9jX3BhZ2VzKHBndGFibGVfZ2ZwX2ZsYWdzKG1tLCBH
+RlBfUEdUQUJMRSB8Cj4gKwkJCQlfX0dGUF9SRVRSWV9NQVlGQUlMKSwgNCk7Cj4gICAJaWYgKCFw
+YWdlKQo+ICAgCQlyZXR1cm4gTlVMTDsKPiAgIAlyZXR1cm4gKHBnZF90ICopIHBhZ2VfYWRkcmVz
+cyhwYWdlKTsKPiBkaWZmIC0tZ2l0IGEvYXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNtL3BnYWxsb2Mu
+aCBiL2FyY2gvcG93ZXJwYy9pbmNsdWRlL2FzbS9wZ2FsbG9jLmgKPiBpbmRleCBlMTFmMDMwLi4z
+YjExZThiIDEwMDY0NAo+IC0tLSBhL2FyY2gvcG93ZXJwYy9pbmNsdWRlL2FzbS9wZ2FsbG9jLmgK
+PiArKysgYi9hcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vcGdhbGxvYy5oCj4gQEAgLTE4LDggKzE4
+LDYgQEAgc3RhdGljIGlubGluZSBnZnBfdCBwZ3RhYmxlX2dmcF9mbGFncyhzdHJ1Y3QgbW1fc3Ry
+dWN0ICptbSwgZ2ZwX3QgZ2ZwKQo+ICAgfQo+ICAgI2VuZGlmIC8qIE1PRFVMRSAqLwo+ICAgCj4g
+LSNkZWZpbmUgUEdBTExPQ19HRlAgKEdGUF9LRVJORUwgfCBfX0dGUF9aRVJPKQo+IC0KPiAgICNp
+ZmRlZiBDT05GSUdfUFBDX0JPT0szUwo+ICAgI2luY2x1ZGUgPGFzbS9ib29rM3MvcGdhbGxvYy5o
+Pgo+ICAgI2Vsc2UKPiBkaWZmIC0tZ2l0IGEvYXJjaC9wb3dlcnBjL2t2bS9ib29rM3NfNjRfbW11
+X2h2LmMgYi9hcmNoL3Bvd2VycGMva3ZtL2Jvb2szc182NF9tbXVfaHYuYwo+IGluZGV4IGJkMmRj
+ZmIuLmI0MTk4NzggMTAwNjQ0Cj4gLS0tIGEvYXJjaC9wb3dlcnBjL2t2bS9ib29rM3NfNjRfbW11
+X2h2LmMKPiArKysgYi9hcmNoL3Bvd2VycGMva3ZtL2Jvb2szc182NF9tbXVfaHYuYwo+IEBAIC05
+Nyw3ICs5Nyw3IEBAIGludCBrdm1wcGNfYWxsb2NhdGVfaHB0KHN0cnVjdCBrdm1faHB0X2luZm8g
+KmluZm8sIHUzMiBvcmRlcikKPiAgIAl9Cj4gICAKPiAgIAlpZiAoIWhwdCkKPiAtCQlocHQgPSBf
+X2dldF9mcmVlX3BhZ2VzKEdGUF9LRVJORUx8X19HRlBfWkVST3xfX0dGUF9SRVRSWV9NQVlGQUlM
+Cj4gKwkJaHB0ID0gX19nZXRfZnJlZV9wYWdlcyhHRlBfUEdUQUJMRSB8IF9fR0ZQX1JFVFJZX01B
+WUZBSUwKPiAgIAkJCQkgICAgICAgfF9fR0ZQX05PV0FSTiwgb3JkZXIgLSBQQUdFX1NISUZUKTsK
+PiAgIAo+ICAgCWlmICghaHB0KQo+IGRpZmYgLS1naXQgYS9hcmNoL3Bvd2VycGMvbW0vcGd0YWJs
+ZS1mcmFnLmMgYi9hcmNoL3Bvd2VycGMvbW0vcGd0YWJsZS1mcmFnLmMKPiBpbmRleCBhN2IwNTIx
+Li4yMTFhYWE3IDEwMDY0NAo+IC0tLSBhL2FyY2gvcG93ZXJwYy9tbS9wZ3RhYmxlLWZyYWcuYwo+
+ICsrKyBiL2FyY2gvcG93ZXJwYy9tbS9wZ3RhYmxlLWZyYWcuYwo+IEBAIC01OCw3ICs1OCw3IEBA
+IHN0YXRpYyBwdGVfdCAqX19hbGxvY19mb3JfcHRlY2FjaGUoc3RydWN0IG1tX3N0cnVjdCAqbW0s
+IGludCBrZXJuZWwpCj4gICAJc3RydWN0IHBhZ2UgKnBhZ2U7Cj4gICAKPiAgIAlpZiAoIWtlcm5l
+bCkgewo+IC0JCXBhZ2UgPSBhbGxvY19wYWdlKFBHQUxMT0NfR0ZQIHwgX19HRlBfQUNDT1VOVCk7
+Cj4gKwkJcGFnZSA9IGFsbG9jX3BhZ2UoR0ZQX1BHVEFCTEUgfCBfX0dGUF9BQ0NPVU5UKTsKPiAg
+IAkJaWYgKCFwYWdlKQo+ICAgCQkJcmV0dXJuIE5VTEw7Cj4gICAJCWlmICghcGd0YWJsZV9wYWdl
+X2N0b3IocGFnZSkpIHsKPiBAQCAtNjYsNyArNjYsNyBAQCBzdGF0aWMgcHRlX3QgKl9fYWxsb2Nf
+Zm9yX3B0ZWNhY2hlKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLCBpbnQga2VybmVsKQo+ICAgCQkJcmV0
+dXJuIE5VTEw7Cj4gICAJCX0KPiAgIAl9IGVsc2Ugewo+IC0JCXBhZ2UgPSBhbGxvY19wYWdlKFBH
+QUxMT0NfR0ZQKTsKPiArCQlwYWdlID0gYWxsb2NfcGFnZShHRlBfUEdUQUJMRSk7Cj4gICAJCWlm
+ICghcGFnZSkKPiAgIAkJCXJldHVybiBOVUxMOwo+ICAgCX0KPiBkaWZmIC0tZ2l0IGEvYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9wZ2FsbG9jLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BnYWxs
+b2MuaAo+IGluZGV4IDk0MDQzY2YuLjdmZjFjZDcgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9p
+bmNsdWRlL2FzbS9wZ2FsbG9jLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BnYWxs
+b2MuaAo+IEBAIC02OSw4ICs2OSw3IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBwZ2RfZnJlZShzdHJ1
+Y3QgbW1fc3RydWN0ICptbSwgcGdkX3QgKnBnZCkKPiAgIAo+ICAgc3RhdGljIGlubGluZSBwbWRf
+dCAqcG1kX2FsbG9jX29uZShzdHJ1Y3QgbW1fc3RydWN0ICptbSwgdW5zaWduZWQgbG9uZyBhZGRy
+KQo+ICAgewo+IC0JcmV0dXJuIChwbWRfdCAqKV9fZ2V0X2ZyZWVfcGFnZSgKPiAtCQlHRlBfS0VS
+TkVMIHwgX19HRlBfUkVUUllfTUFZRkFJTCB8IF9fR0ZQX1pFUk8pOwo+ICsJcmV0dXJuIChwbWRf
+dCAqKV9fZ2V0X2ZyZWVfcGFnZShHRlBfUEdUQUJMRSB8IF9fR0ZQX1JFVFJZX01BWUZBSUwpOwo+
+ICAgfQo+ICAgCj4gICBzdGF0aWMgaW5saW5lIHZvaWQgcG1kX2ZyZWUoc3RydWN0IG1tX3N0cnVj
+dCAqbW0sIHBtZF90ICpwbWQpCj4gQEAgLTg0LDE1ICs4MywxNCBAQCBzdGF0aWMgaW5saW5lIHZv
+aWQgcG1kX2ZyZWUoc3RydWN0IG1tX3N0cnVjdCAqbW0sIHBtZF90ICpwbWQpCj4gICAKPiAgIHN0
+YXRpYyBpbmxpbmUgcHRlX3QgKnB0ZV9hbGxvY19vbmVfa2VybmVsKHN0cnVjdCBtbV9zdHJ1Y3Qg
+Km1tKQo+ICAgewo+IC0JcmV0dXJuIChwdGVfdCAqKV9fZ2V0X2ZyZWVfcGFnZSgKPiAtCQlHRlBf
+S0VSTkVMIHwgX19HRlBfUkVUUllfTUFZRkFJTCB8IF9fR0ZQX1pFUk8pOwo+ICsJcmV0dXJuIChw
+dGVfdCAqKV9fZ2V0X2ZyZWVfcGFnZShHRlBfUEdUQUJMRSB8IF9fR0ZQX1JFVFJZX01BWUZBSUwp
+Owo+ICAgfQo+ICAgCj4gICBzdGF0aWMgaW5saW5lIHN0cnVjdCBwYWdlICpwdGVfYWxsb2Nfb25l
+KHN0cnVjdCBtbV9zdHJ1Y3QgKm1tKQo+ICAgewo+ICAgCXN0cnVjdCBwYWdlICpwdGU7Cj4gICAK
+PiAtCXB0ZSA9IGFsbG9jX3BhZ2UoR0ZQX0tFUk5FTCB8IF9fR0ZQX1JFVFJZX01BWUZBSUwgfCBf
+X0dGUF9aRVJPKTsKPiArCXB0ZSA9IGFsbG9jX3BhZ2UoR0ZQX1BHVEFCTEUgfCBfX0dGUF9SRVRS
+WV9NQVlGQUlMKTsKPiAgIAlpZiAobGlrZWx5KHB0ZSAhPSBOVUxMKSkKPiAgIAkJcGd0YWJsZV9w
+YWdlX2N0b3IocHRlKTsKPiAgIAlyZXR1cm4gcHRlOwo+IGRpZmYgLS1naXQgYS9hcmNoL3NoL21t
+L3BndGFibGUuYyBiL2FyY2gvc2gvbW0vcGd0YWJsZS5jCj4gaW5kZXggNWM4ZjkyNC4uMzI0NzMy
+ZGM1IDEwMDY0NAo+IC0tLSBhL2FyY2gvc2gvbW0vcGd0YWJsZS5jCj4gKysrIGIvYXJjaC9zaC9t
+bS9wZ3RhYmxlLmMKPiBAQCAtMiw4ICsyLDYgQEAKPiAgICNpbmNsdWRlIDxsaW51eC9tbS5oPgo+
+ICAgI2luY2x1ZGUgPGxpbnV4L3NsYWIuaD4KPiAgIAo+IC0jZGVmaW5lIFBHQUxMT0NfR0ZQIEdG
+UF9LRVJORUwgfCBfX0dGUF9aRVJPCj4gLQo+ICAgc3RhdGljIHN0cnVjdCBrbWVtX2NhY2hlICpw
+Z2RfY2FjaGVwOwo+ICAgI2lmIFBBR0VUQUJMRV9MRVZFTFMgPiAyCj4gICBzdGF0aWMgc3RydWN0
+IGttZW1fY2FjaGUgKnBtZF9jYWNoZXA7Cj4gQEAgLTMyLDcgKzMwLDcgQEAgdm9pZCBwZ3RhYmxl
+X2NhY2hlX2luaXQodm9pZCkKPiAgIAo+ICAgcGdkX3QgKnBnZF9hbGxvYyhzdHJ1Y3QgbW1fc3Ry
+dWN0ICptbSkKPiAgIHsKPiAtCXJldHVybiBrbWVtX2NhY2hlX2FsbG9jKHBnZF9jYWNoZXAsIFBH
+QUxMT0NfR0ZQKTsKPiArCXJldHVybiBrbWVtX2NhY2hlX2FsbG9jKHBnZF9jYWNoZXAsIEdGUF9Q
+R1RBQkxFKTsKPiAgIH0KPiAgIAo+ICAgdm9pZCBwZ2RfZnJlZShzdHJ1Y3QgbW1fc3RydWN0ICpt
+bSwgcGdkX3QgKnBnZCkKPiBAQCAtNDgsNyArNDYsNyBAQCB2b2lkIHB1ZF9wb3B1bGF0ZShzdHJ1
+Y3QgbW1fc3RydWN0ICptbSwgcHVkX3QgKnB1ZCwgcG1kX3QgKnBtZCkKPiAgIAo+ICAgcG1kX3Qg
+KnBtZF9hbGxvY19vbmUoc3RydWN0IG1tX3N0cnVjdCAqbW0sIHVuc2lnbmVkIGxvbmcgYWRkcmVz
+cykKPiAgIHsKPiAtCXJldHVybiBrbWVtX2NhY2hlX2FsbG9jKHBtZF9jYWNoZXAsIFBHQUxMT0Nf
+R0ZQKTsKPiArCXJldHVybiBrbWVtX2NhY2hlX2FsbG9jKHBtZF9jYWNoZXAsIEdGUF9QR1RBQkxF
+KTsKPiAgIH0KPiAgIAo+ICAgdm9pZCBwbWRfZnJlZShzdHJ1Y3QgbW1fc3RydWN0ICptbSwgcG1k
+X3QgKnBtZCkKPiBkaWZmIC0tZ2l0IGEvYXJjaC91bmljb3JlMzIvaW5jbHVkZS9hc20vcGdhbGxv
+Yy5oIGIvYXJjaC91bmljb3JlMzIvaW5jbHVkZS9hc20vcGdhbGxvYy5oCj4gaW5kZXggN2NjZWFi
+ZS4uYTM1MDZlNSAxMDA2NDQKPiAtLS0gYS9hcmNoL3VuaWNvcmUzMi9pbmNsdWRlL2FzbS9wZ2Fs
+bG9jLmgKPiArKysgYi9hcmNoL3VuaWNvcmUzMi9pbmNsdWRlL2FzbS9wZ2FsbG9jLmgKPiBAQCAt
+MjgsOCArMjgsNiBAQCBleHRlcm4gdm9pZCBmcmVlX3BnZF9zbG93KHN0cnVjdCBtbV9zdHJ1Y3Qg
+Km1tLCBwZ2RfdCAqcGdkKTsKPiAgICNkZWZpbmUgcGdkX2FsbG9jKG1tKQkJCWdldF9wZ2Rfc2xv
+dyhtbSkKPiAgICNkZWZpbmUgcGdkX2ZyZWUobW0sIHBnZCkJCWZyZWVfcGdkX3Nsb3cobW0sIHBn
+ZCkKPiAgIAo+IC0jZGVmaW5lIFBHQUxMT0NfR0ZQCShHRlBfS0VSTkVMIHwgX19HRlBfWkVSTykK
+PiAtCj4gICAvKgo+ICAgICogQWxsb2NhdGUgb25lIFBURSB0YWJsZS4KPiAgICAqLwo+IEBAIC0z
+OCw3ICszNiw3IEBAIHB0ZV9hbGxvY19vbmVfa2VybmVsKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tKQo+
+ICAgewo+ICAgCXB0ZV90ICpwdGU7Cj4gICAKPiAtCXB0ZSA9IChwdGVfdCAqKV9fZ2V0X2ZyZWVf
+cGFnZShQR0FMTE9DX0dGUCk7Cj4gKwlwdGUgPSAocHRlX3QgKilfX2dldF9mcmVlX3BhZ2UoR0ZQ
+X1BHVEFCTEUpOwo+ICAgCWlmIChwdGUpCj4gICAJCWNsZWFuX2RjYWNoZV9hcmVhKHB0ZSwgUFRS
+U19QRVJfUFRFICogc2l6ZW9mKHB0ZV90KSk7Cj4gICAKPiBAQCAtNTAsNyArNDgsNyBAQCBwdGVf
+YWxsb2Nfb25lKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tKQo+ICAgewo+ICAgCXN0cnVjdCBwYWdlICpw
+dGU7Cj4gICAKPiAtCXB0ZSA9IGFsbG9jX3BhZ2VzKFBHQUxMT0NfR0ZQLCAwKTsKPiArCXB0ZSA9
+IGFsbG9jX3BhZ2VzKEdGUF9QR1RBQkxFLCAwKTsKPiAgIAlpZiAoIXB0ZSkKPiAgIAkJcmV0dXJu
+IE5VTEw7Cj4gICAJaWYgKCFQYWdlSGlnaE1lbShwdGUpKSB7Cj4gZGlmZiAtLWdpdCBhL2FyY2gv
+eDg2L2tlcm5lbC9lc3BmaXhfNjQuYyBiL2FyY2gveDg2L2tlcm5lbC9lc3BmaXhfNjQuYwo+IGlu
+ZGV4IGFlYmQwZDUuLmRhZTI4Y2MgMTAwNjQ0Cj4gLS0tIGEvYXJjaC94ODYva2VybmVsL2VzcGZp
+eF82NC5jCj4gKysrIGIvYXJjaC94ODYva2VybmVsL2VzcGZpeF82NC5jCj4gQEAgLTU3LDggKzU3
+LDYgQEAKPiAgICMgZXJyb3IgIk5lZWQgbW9yZSB2aXJ0dWFsIGFkZHJlc3Mgc3BhY2UgZm9yIHRo
+ZSBFU1BGSVggaGFjayIKPiAgICNlbmRpZgo+ICAgCj4gLSNkZWZpbmUgUEdBTExPQ19HRlAgKEdG
+UF9LRVJORUwgfCBfX0dGUF9aRVJPKQo+IC0KPiAgIC8qIFRoaXMgY29udGFpbnMgdGhlICpib3R0
+b20qIGFkZHJlc3Mgb2YgdGhlIGVzcGZpeCBzdGFjayAqLwo+ICAgREVGSU5FX1BFUl9DUFVfUkVB
+RF9NT1NUTFkodW5zaWduZWQgbG9uZywgZXNwZml4X3N0YWNrKTsKPiAgIERFRklORV9QRVJfQ1BV
+X1JFQURfTU9TVExZKHVuc2lnbmVkIGxvbmcsIGVzcGZpeF93YWRkcik7Cj4gQEAgLTE3Miw3ICsx
+NzAsNyBAQCB2b2lkIGluaXRfZXNwZml4X2FwKGludCBjcHUpCj4gICAJcHVkX3AgPSAmZXNwZml4
+X3B1ZF9wYWdlW3B1ZF9pbmRleChhZGRyKV07Cj4gICAJcHVkID0gKnB1ZF9wOwo+ICAgCWlmICgh
+cHVkX3ByZXNlbnQocHVkKSkgewo+IC0JCXN0cnVjdCBwYWdlICpwYWdlID0gYWxsb2NfcGFnZXNf
+bm9kZShub2RlLCBQR0FMTE9DX0dGUCwgMCk7Cj4gKwkJc3RydWN0IHBhZ2UgKnBhZ2UgPSBhbGxv
+Y19wYWdlc19ub2RlKG5vZGUsIEdGUF9QR1RBQkxFLCAwKTsKPiAgIAo+ICAgCQlwbWRfcCA9IChw
+bWRfdCAqKXBhZ2VfYWRkcmVzcyhwYWdlKTsKPiAgIAkJcHVkID0gX19wdWQoX19wYShwbWRfcCkg
+fCAoUEdUQUJMRV9QUk9UICYgcHRlbWFzaykpOwo+IEBAIC0xODQsNyArMTgyLDcgQEAgdm9pZCBp
+bml0X2VzcGZpeF9hcChpbnQgY3B1KQo+ICAgCXBtZF9wID0gcG1kX29mZnNldCgmcHVkLCBhZGRy
+KTsKPiAgIAlwbWQgPSAqcG1kX3A7Cj4gICAJaWYgKCFwbWRfcHJlc2VudChwbWQpKSB7Cj4gLQkJ
+c3RydWN0IHBhZ2UgKnBhZ2UgPSBhbGxvY19wYWdlc19ub2RlKG5vZGUsIFBHQUxMT0NfR0ZQLCAw
+KTsKPiArCQlzdHJ1Y3QgcGFnZSAqcGFnZSA9IGFsbG9jX3BhZ2VzX25vZGUobm9kZSwgR0ZQX1BH
+VEFCTEUsIDApOwo+ICAgCj4gICAJCXB0ZV9wID0gKHB0ZV90ICopcGFnZV9hZGRyZXNzKHBhZ2Up
+Owo+ICAgCQlwbWQgPSBfX3BtZChfX3BhKHB0ZV9wKSB8IChQR1RBQkxFX1BST1QgJiBwdGVtYXNr
+KSk7Cj4gZGlmZiAtLWdpdCBhL2FyY2gveDg2L21tL3BndGFibGUuYyBiL2FyY2gveDg2L21tL3Bn
+dGFibGUuYwo+IGluZGV4IDdiZDAxNzAuLmE1YjE2NzIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC94ODYv
+bW0vcGd0YWJsZS5jCj4gKysrIGIvYXJjaC94ODYvbW0vcGd0YWJsZS5jCj4gQEAgLTEzLDE5ICsx
+MywxNyBAQCBwaHlzX2FkZHJfdCBwaHlzaWNhbF9tYXNrIF9fcm9fYWZ0ZXJfaW5pdCA9ICgxVUxM
+IDw8IF9fUEhZU0lDQUxfTUFTS19TSElGVCkgLSAxOwo+ICAgRVhQT1JUX1NZTUJPTChwaHlzaWNh
+bF9tYXNrKTsKPiAgICNlbmRpZgo+ICAgCj4gLSNkZWZpbmUgUEdBTExPQ19HRlAgKEdGUF9LRVJO
+RUxfQUNDT1VOVCB8IF9fR0ZQX1pFUk8pCj4gLQo+ICAgI2lmZGVmIENPTkZJR19ISUdIUFRFCj4g
+ICAjZGVmaW5lIFBHQUxMT0NfVVNFUl9HRlAgX19HRlBfSElHSE1FTQo+ICAgI2Vsc2UKPiAgICNk
+ZWZpbmUgUEdBTExPQ19VU0VSX0dGUCAwCj4gICAjZW5kaWYKPiAgIAo+IC1nZnBfdCBfX3VzZXJw
+dGVfYWxsb2NfZ2ZwID0gUEdBTExPQ19HRlAgfCBQR0FMTE9DX1VTRVJfR0ZQOwo+ICtnZnBfdCBf
+X3VzZXJwdGVfYWxsb2NfZ2ZwID0gR0ZQX1BHVEFCTEUgfCBfX0dGUF9BQ0NPVU5UIHwgUEdBTExP
+Q19VU0VSX0dGUDsKPiAgIAo+ICAgcHRlX3QgKnB0ZV9hbGxvY19vbmVfa2VybmVsKHN0cnVjdCBt
+bV9zdHJ1Y3QgKm1tKQo+ICAgewo+IC0JcmV0dXJuIChwdGVfdCAqKV9fZ2V0X2ZyZWVfcGFnZShQ
+R0FMTE9DX0dGUCAmIH5fX0dGUF9BQ0NPVU5UKTsKPiArCXJldHVybiAocHRlX3QgKilfX2dldF9m
+cmVlX3BhZ2UoR0ZQX1BHVEFCTEUpOwo+ICAgfQo+ICAgCj4gICBwZ3RhYmxlX3QgcHRlX2FsbG9j
+X29uZShzdHJ1Y3QgbW1fc3RydWN0ICptbSkKPiBAQCAtMjM1LDcgKzIzMyw3IEBAIHN0YXRpYyBp
+bnQgcHJlYWxsb2NhdGVfcG1kcyhzdHJ1Y3QgbW1fc3RydWN0ICptbSwgcG1kX3QgKnBtZHNbXSwg
+aW50IGNvdW50KQo+ICAgewo+ICAgCWludCBpOwo+ICAgCWJvb2wgZmFpbGVkID0gZmFsc2U7Cj4g
+LQlnZnBfdCBnZnAgPSBQR0FMTE9DX0dGUDsKPiArCWdmcF90IGdmcCA9IEdGUF9QR1RBQkxFIHwg
+X19HRlBfQUNDT1VOVDsKPiAgIAo+ICAgCWlmIChtbSA9PSAmaW5pdF9tbSkKPiAgIAkJZ2ZwICY9
+IH5fX0dGUF9BQ0NPVU5UOwo+IEBAIC00MDEsMTQgKzM5OSwxNCBAQCBzdGF0aWMgaW5saW5lIHBn
+ZF90ICpfcGdkX2FsbG9jKHZvaWQpCj4gICAJICogV2UgYWxsb2NhdGUgb25lIHBhZ2UgZm9yIHBn
+ZC4KPiAgIAkgKi8KPiAgIAlpZiAoIVNIQVJFRF9LRVJORUxfUE1EKQo+IC0JCXJldHVybiAocGdk
+X3QgKilfX2dldF9mcmVlX3BhZ2VzKFBHQUxMT0NfR0ZQLAo+ICsJCXJldHVybiAocGdkX3QgKilf
+X2dldF9mcmVlX3BhZ2VzKEdGUF9QR1RBQkxFIHwgX19HRlBfQUNDT1VOVCwKPiAgIAkJCQkJCSBQ
+R0RfQUxMT0NBVElPTl9PUkRFUik7Cj4gICAKPiAgIAkvKgo+ICAgCSAqIE5vdyBQQUUga2VybmVs
+IGlzIG5vdCBydW5uaW5nIGFzIGEgWGVuIGRvbWFpbi4gV2UgY2FuIGFsbG9jYXRlCj4gICAJICog
+YSAzMi1ieXRlIHNsYWIgZm9yIHBnZCB0byBzYXZlIG1lbW9yeSBzcGFjZS4KPiAgIAkgKi8KPiAt
+CXJldHVybiBrbWVtX2NhY2hlX2FsbG9jKHBnZF9jYWNoZSwgUEdBTExPQ19HRlApOwo+ICsJcmV0
+dXJuIGttZW1fY2FjaGVfYWxsb2MocGdkX2NhY2hlLCBHRlBfUEdUQUJMRSB8IF9fR0ZQX0FDQ09V
+TlQpOwo+ICAgfQo+ICAgCj4gICBzdGF0aWMgaW5saW5lIHZvaWQgX3BnZF9mcmVlKHBnZF90ICpw
+Z2QpCj4gQEAgLTQyMiw3ICs0MjAsOCBAQCBzdGF0aWMgaW5saW5lIHZvaWQgX3BnZF9mcmVlKHBn
+ZF90ICpwZ2QpCj4gICAKPiAgIHN0YXRpYyBpbmxpbmUgcGdkX3QgKl9wZ2RfYWxsb2Modm9pZCkK
+PiAgIHsKPiAtCXJldHVybiAocGdkX3QgKilfX2dldF9mcmVlX3BhZ2VzKFBHQUxMT0NfR0ZQLCBQ
+R0RfQUxMT0NBVElPTl9PUkRFUik7Cj4gKwlyZXR1cm4gKHBnZF90ICopX19nZXRfZnJlZV9wYWdl
+cyhHRlBfUEdUQUJMRSB8IF9fR0ZQX0FDQ09VTlQsCj4gKwkJCQkJCVBHRF9BTExPQ0FUSU9OX09S
+REVSKTsKPiAgIH0KPiAgIAo+ICAgc3RhdGljIGlubGluZSB2b2lkIF9wZ2RfZnJlZShwZ2RfdCAq
+cGdkKQo+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2FzbS1nZW5lcmljL3BndGFibGUuaCBiL2luY2x1
+ZGUvYXNtLWdlbmVyaWMvcGd0YWJsZS5oCj4gaW5kZXggMDVlNjFlNi4uM2Q5Y2RlNiAxMDA2NDQK
+PiAtLS0gYS9pbmNsdWRlL2FzbS1nZW5lcmljL3BndGFibGUuaAo+ICsrKyBiL2luY2x1ZGUvYXNt
+LWdlbmVyaWMvcGd0YWJsZS5oCj4gQEAgLTExODYsNCArMTE4Niw2IEBAIHN0YXRpYyBpbmxpbmUg
+Ym9vbCBhcmNoX2hhc19wZm5fbW9kaWZ5X2NoZWNrKHZvaWQpCj4gICAjZGVmaW5lIG1tX3BtZF9m
+b2xkZWQobW0pCV9faXNfZGVmaW5lZChfX1BBR0VUQUJMRV9QTURfRk9MREVEKQo+ICAgI2VuZGlm
+Cj4gICAKPiArI2RlZmluZSBHRlBfUEdUQUJMRQkoR0ZQX0tFUk5FTCB8IF9fR0ZQX1pFUk8pCj4g
+Kwo+ICAgI2VuZGlmIC8qIF9BU01fR0VORVJJQ19QR1RBQkxFX0ggKi8KPiBkaWZmIC0tZ2l0IGEv
+dmlydC9rdm0vYXJtL21tdS5jIGIvdmlydC9rdm0vYXJtL21tdS5jCj4gaW5kZXggZmJkZjNhYy4u
+ZjYwYTViOCAxMDA2NDQKPiAtLS0gYS92aXJ0L2t2bS9hcm0vbW11LmMKPiArKysgYi92aXJ0L2t2
+bS9hcm0vbW11LmMKPiBAQCAtMTQzLDcgKzE0Myw3IEBAIHN0YXRpYyBpbnQgbW11X3RvcHVwX21l
+bW9yeV9jYWNoZShzdHJ1Y3Qga3ZtX21tdV9tZW1vcnlfY2FjaGUgKmNhY2hlLAo+ICAgCWlmIChj
+YWNoZS0+bm9ianMgPj0gbWluKQo+ICAgCQlyZXR1cm4gMDsKPiAgIAl3aGlsZSAoY2FjaGUtPm5v
+YmpzIDwgbWF4KSB7Cj4gLQkJcGFnZSA9ICh2b2lkICopX19nZXRfZnJlZV9wYWdlKFBHQUxMT0Nf
+R0ZQKTsKPiArCQlwYWdlID0gKHZvaWQgKilfX2dldF9mcmVlX3BhZ2UoR0ZQX1BHVEFCTEUpOwo+
+ICAgCQlpZiAoIXBhZ2UpCj4gICAJCQlyZXR1cm4gLUVOT01FTTsKPiAgIAkJY2FjaGUtPm9iamVj
+dHNbY2FjaGUtPm5vYmpzKytdID0gcGFnZTsKPiAKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
