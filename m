@@ -6,16 +6,16 @@ X-Spam-Status: No, score=-3.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 244B2C43387
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 16 Jan 2019 13:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3EAEEC43387
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 16 Jan 2019 13:37:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B6D5320675
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 16 Jan 2019 13:33:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 09DB620675
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 16 Jan 2019 13:37:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XbSEf7Xg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B6D5320675
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GHGS/K72"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 09DB620675
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,39 +24,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QtaOakJed/KCw/Yq8yu9068k9GgjRfF/MmPn+g3af1Y=; b=XbSEf7XgQWG/7P
-	mY/2dsBvJm5VuNY1ULmcW+aQGquWtXdn4wGgxqo96OcPNY2hIceoKM0sBiP9Vho4IuymwYFYEdvPB
-	u0lIKpd1ber+J/4c/RPYg+bXUrQ3MtbxZ0yAI9nm/sF0GfHBRz2nhaZfRlSm79aVSN/xdSLgXEELG
-	xV2AXG6GbGOnyfd4mZ6rDAxH5nY8OeOxcxGs8c+pxU8F4CQrTX/2MoxoNvfEgDGp1klzGkzCjo4Co
-	jJWu6nNiLwZxJ/m5NYPk1VoC9bRog9qCyB68/hOb+CdHltzqGEghj4JpPmr6O1LfK4tlE0drT7B1Q
-	20ssMRdALr6YJDfh1yNA==;
+	List-Owner; bh=j4asjhFV29deuYas78sdQCfe2aJ/aGCZZQ0AKs00uBY=; b=GHGS/K72xcYW2o
+	tIf6sRTjqlXFJ56E9St6BVWJphTWVrAJbbVonoywVIlvfIRELnz7uSS5VYWFSKDPND99Qqdh18cNO
+	ypkLKWLhcT/wi+lvZyiMRDzizx5ZpvFr74OTmBqxX1MXwURfFLP6UfLEr8T2vm+VwZO3yIRJsDMdj
+	tV24qIpCw75oowoIJZo+WOs9WcU/l/U6HWz6ReQTVz6VAHIPPN8r8AWPY+7X5HjXUFi/LKaOzyrc5
+	TYuCVjrZc9bzRT0rJKBIGoHIlKLoT6eBrajTPrEbaAlrxrls5yBaz1AKVYemekiWQalrDWBnzp8Jm
+	wTqnCqIGKsSWJOp2ClqQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gjlJm-0004i0-Sy; Wed, 16 Jan 2019 13:33:18 +0000
+	id 1gjlNN-0006eI-Vz; Wed, 16 Jan 2019 13:37:02 +0000
 Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gjlJb-0004Yb-9G; Wed, 16 Jan 2019 13:33:08 +0000
+ id 1gjlN9-0006Tg-K6; Wed, 16 Jan 2019 13:36:50 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 7292FAF8A;
- Wed, 16 Jan 2019 13:33:05 +0000 (UTC)
-Date: Wed, 16 Jan 2019 14:33:02 +0100
+ by mx1.suse.de (Postfix) with ESMTP id 34AA6AF71;
+ Wed, 16 Jan 2019 13:36:46 +0000 (UTC)
+Date: Wed, 16 Jan 2019 14:36:45 +0100
 From: Michal Hocko <mhocko@kernel.org>
-To: Matthew Wilcox <willy@infradead.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
 Subject: Re: [PATCH V2] mm: Introduce GFP_PGTABLE
-Message-ID: <20190116133302.GN24149@dhcp22.suse.cz>
+Message-ID: <20190116133645.GO24149@dhcp22.suse.cz>
 References: <1547619692-7946-1-git-send-email-anshuman.khandual@arm.com>
  <20190116065703.GE24149@dhcp22.suse.cz>
  <20190116123018.GF6310@bombadil.infradead.org>
- <07d6a264-dccd-78ab-e8a9-2410bbef7b97@arm.com>
- <20190116131827.GH6310@bombadil.infradead.org>
+ <20190116124431.GK24149@dhcp22.suse.cz>
+ <d074a7aa-9582-b95a-dce0-d95ac3d3c949@arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190116131827.GH6310@bombadil.infradead.org>
+In-Reply-To: <d074a7aa-9582-b95a-dce0-d95ac3d3c949@arm.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190116_053307_466230_FF22A3CE 
-X-CRM114-Status: GOOD (  20.86  )
+X-CRM114-CacheID: sfid-20190116_053649_407006_672CB382 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -70,62 +70,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: mark.rutland@arm.com, linux-sh@vger.kernel.org, peterz@infradead.org,
  catalin.marinas@arm.com, dave.hansen@linux.intel.com, will.deacon@arm.com,
- christoffer.dall@arm.com, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- kvmarm@lists.cs.columbia.edu, mpe@ellerman.id.au, greentime@andestech.com,
- linux@armlinux.org.uk, mingo@redhat.com, vbabka@suse.cz, rientjes@google.com,
- palmer@sifive.com, Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+ mpe@ellerman.id.au, linux@armlinux.org.uk,
+ Matthew Wilcox <willy@infradead.org>, mingo@redhat.com, vbabka@suse.cz,
+ rientjes@google.com, palmer@sifive.com, greentime@andestech.com,
  marc.zyngier@arm.com, rppt@linux.vnet.ibm.com, shakeelb@google.com,
  kirill@shutemov.name, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org,
  ard.biesheuvel@linaro.org, robin.murphy@arm.com, steve.capper@arm.com,
- linux-kernel@vger.kernel.org, james.morse@arm.com, aneesh.kumar@linux.ibm.com,
+ christoffer.dall@arm.com, james.morse@arm.com, aneesh.kumar@linux.ibm.com,
  akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed 16-01-19 05:18:27, Matthew Wilcox wrote:
-> On Wed, Jan 16, 2019 at 06:42:22PM +0530, Anshuman Khandual wrote:
-> > On 01/16/2019 06:00 PM, Matthew Wilcox wrote:
-> > > On Wed, Jan 16, 2019 at 07:57:03AM +0100, Michal Hocko wrote:
-> > >> On Wed 16-01-19 11:51:32, Anshuman Khandual wrote:
-> > >>> All architectures have been defining their own PGALLOC_GFP as (GFP_KERNEL |
-> > >>> __GFP_ZERO) and using it for allocating page table pages. This causes some
-> > >>> code duplication which can be easily avoided. GFP_KERNEL allocated and
-> > >>> cleared out pages (__GFP_ZERO) are required for page tables on any given
-> > >>> architecture. This creates a new generic GFP flag flag which can be used
-> > >>> for any page table page allocation. Does not cause any functional change.
-> > >>>
-> > >>> GFP_PGTABLE is being added into include/asm-generic/pgtable.h which is the
-> > >>> generic page tabe header just to prevent it's potential misuse as a general
-> > >>> allocation flag if included in include/linux/gfp.h.
-> > >>
-> > >> I haven't reviewed the patch yet but I am wondering whether this is
-> > >> really worth it without going all the way down to unify the common code
-> > >> and remove much more code duplication. Or is this not possible for some
-> > >> reason?
-> > > 
-> > > Exactly what I suggested doing in response to v1.
-> > > 
-> > > Also, the approach taken here is crazy.  x86 has a feature that no other
-> > > architecture has bothered to implement yet -- accounting page tables
-> > > to the process.  Yet instead of spreading that goodness to all other
-> > > architectures, Anshuman has gone to more effort to avoid doing that.
+On Wed 16-01-19 18:57:13, Anshuman Khandual wrote:
+> 
+> 
+> On 01/16/2019 06:14 PM, Michal Hocko wrote:
+> > On Wed 16-01-19 04:30:18, Matthew Wilcox wrote:
+> >> On Wed, Jan 16, 2019 at 07:57:03AM +0100, Michal Hocko wrote:
+> >>> On Wed 16-01-19 11:51:32, Anshuman Khandual wrote:
+> >>>> All architectures have been defining their own PGALLOC_GFP as (GFP_KERNEL |
+> >>>> __GFP_ZERO) and using it for allocating page table pages. This causes some
+> >>>> code duplication which can be easily avoided. GFP_KERNEL allocated and
+> >>>> cleared out pages (__GFP_ZERO) are required for page tables on any given
+> >>>> architecture. This creates a new generic GFP flag flag which can be used
+> >>>> for any page table page allocation. Does not cause any functional change.
+> >>>>
+> >>>> GFP_PGTABLE is being added into include/asm-generic/pgtable.h which is the
+> >>>> generic page tabe header just to prevent it's potential misuse as a general
+> >>>> allocation flag if included in include/linux/gfp.h.
+> >>>
+> >>> I haven't reviewed the patch yet but I am wondering whether this is
+> >>> really worth it without going all the way down to unify the common code
+> >>> and remove much more code duplication. Or is this not possible for some
+> >>> reason?
+> >>
+> >> Exactly what I suggested doing in response to v1.
+> >>
+> >> Also, the approach taken here is crazy.  x86 has a feature that no other
+> >> architecture has bothered to implement yet -- accounting page tables
+> >> to the process.  Yet instead of spreading that goodness to all other
+> >> architectures, Anshuman has gone to more effort to avoid doing that.
 > > 
-> > The basic objective for this patch is to create a common minimum allocation
-> > flag that can be used by architectures but that still allows archs to add
-> > on additional constraints if they see fit. This patch does not intend to
-> > change functionality for any arch.
+> > Yes, I believe the only reason this is x86 only is that each arch would
+> > have to be tweaked separately. So a cleanup in _that_ regard would be
+> > helpful. There is no real reason to have ptes accounted only for x86.
+> > There might be some exceptions but well, our asm-generic allows to opt
+> > in for generic implementation or override it with a special one. The
+> > later should be an exception rather than the rule.
 > 
-> I disagree with your objective.  Making more code common is a great idea,
-> but this patch is too unambitious.  We should be heading towards one or
-> two page table allocation functions instead of having every architecture do
-> its own thing.
-> 
-> So start there.  Move the x86 function into common code and convert one
-> other architecture to use it too.
+> Fair enough. So we seem to have agreement over __GFP_ACCOUNT for user page
+> tables but not for the kernel. But should we accommodate __GFP_RETRY_MAYFAIL
+> or drop them altogether (including multi order allocation requests) ?
 
-Agreed!
+__GFP_RETRY_MAYFAIL is a leftover from __GFP_REPEAT times and from my
+recollection it was pointless there. Or do we have any pte allocations
+which are costly high order or that would rather fail than OOM kill and
+retry.
+
+Really there is no reason to preserve some code just because it is
+written that way.
+
+Anyway, as Mathew already pointed out. There is no real reason to
+convert all arches at once. If you carve out a common implementation and
+make it arch generic then you can go once arch at the time a reuse the
+generic implementation. If there are still some arches which differ only
+by __GFP_RETRY_MAYFAIL then talk to respective maintainers and ask them
+what is the underlying reason.
+
+See how that is a completely different and much more efficient way than
+trying to make GFP_PGTABLE special and keep the code around?
 
 -- 
 Michal Hocko
