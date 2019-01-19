@@ -2,127 +2,60 @@ Return-Path: <SRS0=HQJf=P3=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-6.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D5EA2C61CE4
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 13:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 58BE5C61CE4
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 23:58:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A36542086A
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 13:29:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 14DB72086D
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 23:58:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jEKh+J88";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="aFbFS4H6";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="BhGS45YX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A36542086A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VgZOIh/7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14DB72086D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7xB0Ui66IPQpusxc1SBcCzrD4PwlJ086g93RQg+CYNM=; b=jEKh+J88+3MGWj
-	T0hz9opZBtWDhg90S9661H902lu8ItD3hXt+05Q5LaXPtSSCiQ2ZF1U1MV3Wb0gXmWPARuxTivjJp
-	ihEKVxQpgIyllRTFChjlHU9h6PJVnNvui3Yja1x7CiYhxJlpmJawSFB11bTAxDaXSUTKlYq1Z5oYR
-	qPrIic1Jr1xIClMMQNzpjT0soCLVDHOlm6lfc7pi4YZ2icEDnIgI/LLA0wI8mr5Bynk3coHzVw/Ie
-	TgLHrdmlV0VFB76sNgiRnt/aJ9LR/iY6/d3+QNpraEV8W6XVsJCHS0SmYRfVLCZ0f14XGPvKzzNSN
-	mk7IYrd1kvEbY4r7atng==;
+	List-Owner; bh=TmwkREJ3fZecNO28miZTZWGzDEnFwsWjSFpN9eAZnLk=; b=VgZOIh/7QvFdwr
+	pfIBQR+TcNRpt45edthnA08fAwpydSza5XZ/O3XIJmPhLa432kXHWdn59X5MirW7M5TcrlNGt6K7M
+	xwyw/rV43jq+9RBRRgM0Oza7zJmqdKIx1NyQcBpay2Y2y96xZZ+MDlY3WunIlBI0rHiai4tFWR46O
+	I9NR0LYQ4RYKGjCuUYkiZ6EpaIoB15orgRfjRFs2mYFabXwlJgHTTb55kDb7CFRe91FQ9MFHqIx/E
+	jGjIHNXqGziPHmuOJcU8oNXidIJjxtl1axM0Wv8noMh0b3pko2DUPp8z8KDML8NTE+01ijUl4ovib
+	hsPqmJDrCn7tHVRCTVog==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gkqgO-0000AH-Lx; Sat, 19 Jan 2019 13:29:08 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gkqgL-00009p-5K
- for linux-riscv@lists.infradead.org; Sat, 19 Jan 2019 13:29:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1547904545; x=1579440545;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-transfer-encoding:mime-version;
- bh=RkBTH8lbPokRi3AbbPZC7LaTnjprJMzCRLruXMKSeEc=;
- b=aFbFS4H6YzyThIATQ7bs1zo77TH8N2LESt0/NS9Usm1qWaDLh4rrFRtl
- 1O7IZcwQXa8he52VHmWFUMUZ8Ofy2w96gt0KBKfJXjxR18YOdd3UDarod
- WfjWvaWh5gRGAPibFEY+2Ft+QDHFIbHWULJkoC1LDjmxcrYrMjmaFwQqr
- gam1x/AFimoVJhj0z/nACXl5sCsra82zduUFaOyAp0+LDZ9yl8QT9MF2w
- S0osrrLAv2ldn0IvwaDZI6LPgyEOGAtc3bf+qQYsXGbUsdcyWZ/XLICGL
- EsO481+ZznI5+80qkCy7IFd1HKGLaptAChjqdnpNFar7bJJgWQAjPR59h w==;
-X-IronPort-AV: E=Sophos;i="5.56,495,1539619200"; d="scan'208";a="104187216"
-Received: from mail-by2nam03lp2055.outbound.protection.outlook.com (HELO
- NAM03-BY2-obe.outbound.protection.outlook.com) ([104.47.42.55])
- by ob1.hgst.iphmx.com with ESMTP; 19 Jan 2019 21:29:04 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jUGRwrEhvO7GNr+kDod846Bm8yelHx5kYWNQyVfOwr8=;
- b=BhGS45YXBnp2J3WLa48/kgoEVPYsmTES8PfzrhT5b+JeWPpRejgewfWCBOhVO398iiwzsJdbDk2enaa8Y0YK66mujBQjmQQYYQE3PVx1/+fCRZ4HVtv9ujgxdRGXU0hqrCrPXoFqlo54QmBXV/1V48T7vYB8Z3IGULijfnxWpxA=
-Received: from BYAPR04MB5303.namprd04.prod.outlook.com (20.178.49.148) by
- BYAPR04MB5397.namprd04.prod.outlook.com (20.178.50.214) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1516.19; Sat, 19 Jan 2019 13:28:59 +0000
-Received: from BYAPR04MB5303.namprd04.prod.outlook.com
- ([fe80::add1:92cc:65d7:5d94]) by BYAPR04MB5303.namprd04.prod.outlook.com
- ([fe80::add1:92cc:65d7:5d94%2]) with mapi id 15.20.1537.028; Sat, 19 Jan 2019
- 13:28:59 +0000
-From: Anup Patel <Anup.Patel@wdc.com>
-To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v2 6/6] RISC-V: Implement keepinitrd kernel parameter
-Thread-Topic: [PATCH v2 6/6] RISC-V: Implement keepinitrd kernel parameter
-Thread-Index: AQHUr/rvNlD18fFOHEuGvgVx64rC4Q==
-Date: Sat, 19 Jan 2019 13:28:59 +0000
-Message-ID: <20190119132650.9978-7-anup.patel@wdc.com>
-References: <20190119132650.9978-1-anup.patel@wdc.com>
-In-Reply-To: <20190119132650.9978-1-anup.patel@wdc.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: MA1PR01CA0111.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:1::27) To BYAPR04MB5303.namprd04.prod.outlook.com
- (2603:10b6:a03:c8::20)
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Anup.Patel@wdc.com; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-mailer: git-send-email 2.17.1
-x-originating-ip: [49.207.52.191]
-x-ms-publictraffictype: Email
-x-microsoft-exchange-diagnostics: 1; BYAPR04MB5397;
- 6:I95jqhLKkE1aouccQGNmrUJuyPeFo8xAKYDLBMv6FDC9PGFh9eeZreaO8es4hOcGm05MeXkvqYr4iHg7DJSbPI1J94BMHD+f36O7bDeHM6pFpjtSGfLx7E8hyHHmL/Yr51u0OkzHlev1igx4EVX6V+M/1CZS3V+CN9hnysp9tZVECpE4Zw+TwJ/sEeba7aELnNm3K8zapkBVdXjvoDk47PIqdudiFex7SlkxG9APN22Jb8M3c0ZQvuUBMtO0MDXYxDh+7uAvF5kwqRGg+0ztEMDrxunUBK0sy8liKAXEgGWWCdCO0OrSN7/GAJntWxAHAdYLPJWgZJ73OEA/7hrE4UHOGMi9pIymJLRyKHjv8DY0q5/Lg/bW1k7M8ap8c8joYOfPvuQdjJSPA1plgpFvKxaTGQEzJkUM4thzZs9RFUet+ik0NK5Pud3K44EiYHEZnYbv8Roux6cK7K/5RqL0ZA==;
- 5:0n3K4Zfvs3yCLpfW26AcBWJy9qJj79F3ua8ZmUF+D/MdHam+GPmZ+3mr3ocJFAGG3IrBmW118GA3IlotpULqrQSNfLJzB8iYoAxoT2t4rCi51XHDUOCGGIpn+oiwUuI5kKvRmFIHPICAsmIZ3zYPEusqFbJbn9Wo5dV3FelVItTwm9zkMCtUmpPEYSoNrwjMzzRPQt9EXUtPgJxF4jp0Xw==;
- 7:GiIYfOTA46KXGaqtZwZbB2cfdITqp7jpnZGP3UidcTPJPevci/18FFb4Bb2B5T9T97mKheEZaVY0dQT4OcyOAkeZt1pszRAXOnaaWlUukRJp9rirnhQ0HTDSnMKpEKqMwtEP4VRPhr5+JsLgDyEtbA==
-x-ms-office365-filtering-correlation-id: 36b63613-5f19-480a-eac7-08d67e1211c8
-x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(7168020)(4627221)(201703031133081)(201702281549075)(8990200)(5600109)(711020)(4618075)(2017052603328)(7153060)(7193020);
- SRVR:BYAPR04MB5397; 
-x-ms-traffictypediagnostic: BYAPR04MB5397:
-wdcipoutbound: EOP-TRUE
-x-microsoft-antispam-prvs: <BYAPR04MB5397F2C02117AF7E3953AFBF8D9D0@BYAPR04MB5397.namprd04.prod.outlook.com>
-x-forefront-prvs: 09222B39F5
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(39860400002)(346002)(136003)(366004)(376002)(396003)(199004)(189003)(6116002)(99286004)(14444005)(25786009)(72206003)(8936002)(4326008)(102836004)(50226002)(81166006)(14454004)(68736007)(105586002)(305945005)(7736002)(66066001)(478600001)(2171002)(8676002)(1076003)(81156014)(256004)(53936002)(106356001)(3846002)(26005)(86362001)(386003)(55236004)(6506007)(71190400001)(2906002)(71200400001)(97736004)(6436002)(6486002)(476003)(2616005)(186003)(44832011)(76176011)(6512007)(316002)(5660300001)(446003)(11346002)(52116002)(486006)(110136005)(54906003)(36756003);
- DIR:OUT; SFP:1102; SCL:1; SRVR:BYAPR04MB5397;
- H:BYAPR04MB5303.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; MX:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: Ii1hjsBLKm//soG1BH1Fq2NOppTFNn5vN0wOyDlB1CTkxwsUOFaHubdpgB5uQTQxhI2DPXQYKBe2N5aqPYF494nLcsNkQg4XTQFv3BoP/oItvULrPO+8vkGAiu5jn/9gbVqJGy2Bj1sDy5R+lHZToJDzST+RGszJ8cGTjxiG96/q6G/zg7TVE/SE/D0vUqIkJ9MijGAWfeDkv0fBNm6RfQ+IVFsnpZHm8L5RiIk2S2dCRQqg0CO5QVHzbm/D5shup3o/2Pp0qsRGaNZuSppeRYnIPPPn4i+JTNabiTWZ8n3SCO0a5u+8HO2E/nQHx6GjHHwgZvCR64sdCCupHi2S1e6pT79AXksF8eTUZB6JSpjk/TjeE67YqdQj42rZtf89KwjYnawzTPjKxB3sLaf+GndB9Y4e74bo8nHzzqb9Rwo=
-spamdiagnosticoutput: 1:99
-spamdiagnosticmetadata: NSPM
+	id 1gl0VK-00065n-Qs; Sat, 19 Jan 2019 23:58:22 +0000
+Received: from foss.arm.com ([217.140.101.70])
+ by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gl0V5-0005sT-C4; Sat, 19 Jan 2019 23:58:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFDD0A78;
+ Sat, 19 Jan 2019 15:58:06 -0800 (PST)
+Received: from brain-police (usa-sjc-mx-foss1.foss.arm.com [217.140.101.70])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8586F3F6A8;
+ Sat, 19 Jan 2019 15:58:01 -0800 (PST)
+Date: Sat, 19 Jan 2019 23:57:57 +0000
+From: Will Deacon <will.deacon@arm.com>
+To: Alexandre Ghiti <aghiti@upmem.com>
+Subject: Re: [PATCH] hugetlb: allow to free gigantic pages regardless of the
+ configuration
+Message-ID: <20190119235756.GF26876@brain-police>
+References: <20190117183953.5990-1-aghiti@upmem.com>
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 36b63613-5f19-480a-eac7-08d67e1211c8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jan 2019 13:28:57.0831 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR04MB5397
+Content-Disposition: inline
+In-Reply-To: <20190117183953.5990-1-aghiti@upmem.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190119_052905_320732_37504891 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20190119_155807_408966_53930EF7 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -134,58 +67,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, linux-mm@kvack.org,
+ Paul Mackerras <paulus@samba.org>, "H . Peter Anvin" <hpa@zytor.com>,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ Alexandre Ghiti <alex@ghiti.fr>, Michael Ellerman <mpe@ellerman.id.au>,
+ x86@kernel.org, hch@infradead.org, Ingo Molnar <mingo@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Martin Schwidefsky <schwidefsky@de.ibm.com>, Borislav Petkov <bp@alien8.de>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ Mike Kravetz <mike.kravetz@oracle.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch implements keepinitrd kernel parameter. By default,
-keepinitrd=1 but users can pass "keepinitrd=0" to free-up
-initrd memory at boot-time in free_initrd_mem() function.
+On Thu, Jan 17, 2019 at 06:39:53PM +0000, Alexandre Ghiti wrote:
+> From: Alexandre Ghiti <alex@ghiti.fr>
+> 
+> On systems without CMA or (MEMORY_ISOLATION && COMPACTION) activated but
+> that support gigantic pages, boottime reserved gigantic pages can not be
+> freed at all. This patchs simply enables the possibility to hand back
+> those pages to memory allocator.
+> 
+> This commit then renames gigantic_page_supported and
+> ARCH_HAS_GIGANTIC_PAGE to make them more accurate. Indeed, those values
+> being false does not mean that the system cannot use gigantic pages: it
+> just means that runtime allocation of gigantic pages is not supported,
+> one can still allocate boottime gigantic pages if the architecture supports
+> it.
+> 
+> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+> ---
+> 
+> - Compiled on all architectures
+> - Tested on riscv architecture
+> 
+>  arch/arm64/Kconfig                           |  2 +-
+>  arch/arm64/include/asm/hugetlb.h             |  7 +++--
 
-The keepinitrd kernel parameter is already implemented by
-unicore32, arm, and arm64 architectures and it is documented
-at: Documentation/admin-guide/kernel-parameters.txt
+The arm64 bits look straightforward enough to me...
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
----
- arch/riscv/kernel/setup.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+Acked-by: Will Deacon <will.deacon@arm.com>
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 9cd583b6d1cd..46e547dd8245 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -97,8 +97,20 @@ static void __init setup_initrd(void)
- 	initrd_end = 0;
- }
- 
--void free_initrd_mem(unsigned long start, unsigned long end)
-+static int keep_initrd __initdata;
-+
-+static int __init keepinitrd_setup(char *__unused)
-+{
-+	keep_initrd = 1;
-+	return 1;
-+}
-+
-+__setup("keepinitrd", keepinitrd_setup);
-+
-+void __init free_initrd_mem(unsigned long start, unsigned long end)
- {
-+	if (!keep_initrd)
-+		memblock_free(__pa(start), end - start);
- }
- #endif /* CONFIG_BLK_DEV_INITRD */
- 
--- 
-2.17.1
-
+Will
 
 _______________________________________________
 linux-riscv mailing list
