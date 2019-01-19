@@ -6,17 +6,17 @@ X-Spam-Status: No, score=-5.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
 	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A1EB5C61CE8
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 10:35:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1F7BFC61CE4
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 10:42:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6F2402086D
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 10:35:03 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E298D2086A
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 10:42:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XA5vu0GT";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="t/VVmGyK"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F2402086D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WQpd1JMh";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="PSy4ti8V"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E298D2086A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,60 +25,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n2o4K9ZHEKRrmxQCu9ja6pNLF3JnzERDus6HSvEdWF0=; b=XA5vu0GT1U1Upr
-	BljpYJjJXVh+RHrGZ14YeIFb9xfqoaqXJ5rYPanOlyXVN+J1VEzP1bcRELSA3gfhUp/UPeqA5prKu
-	up3TgcHEe8n0oUi9jxurs2jDWyoHogmekn+7XWxizU93BCw1T4B39XLJBr1liS44sjh5MYAAyoqmz
-	tKhC7PbUdz5E/4l8sE677IoKhLRqUDnsTuvOgC1Tw6m61Jci1u3URK+nVktUD1JD5zYD47lZA0qOk
-	KSqUFjEdG9dJm+ZPQVozS4LMAFIcCip6QpP6wgeKcY5LS50MIXeH7toSBO8KDJ5qTgtEj06ay6bOI
-	l/19zfJ5R7JyysIL8a1w==;
+	List-Owner; bh=O92Dx1jNEiJIUXOw3ZJV/iWQCJFcRD2vrUE7jdHNs/E=; b=WQpd1JMhQwoEFh
+	xEbjcH4e1vUZxmChD/wvzJCBEJErm6CD+LLA4Y0d9r9QlnPDozrGK9lwskpJlBPLPVE2d18XME2xW
+	4KJ5YITRdFUQMmU/OW9m2O/cznWKqyfD42UxRHUnwgZHAvjgrM7piYYzUG2akRi7IXrl3OCcKRFWT
+	mF7SkKIzUWgm3EF5lO32kYM/IjMjA9VneGQzhTQAEeOgpy78Ugp0bFy+CTEErX4vehSY6XvsFecBd
+	D0PWJ0Kgn6s6VYFMAk7Y+SzI1gb1/Vwn9ZRDiAvuwNR8pxBON/7XFxIH7uBHTg/D/CoklRUv8CBEG
+	U9n3/RZIx9kmtTbyyl/A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gknxu-0007Wg-26; Sat, 19 Jan 2019 10:35:02 +0000
-Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
+	id 1gko5G-0001kM-Ky; Sat, 19 Jan 2019 10:42:38 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gknxr-0007SM-5n
- for linux-riscv@lists.infradead.org; Sat, 19 Jan 2019 10:35:00 +0000
-Received: by mail-wr1-x443.google.com with SMTP id 96so18001973wrb.2
- for <linux-riscv@lists.infradead.org>; Sat, 19 Jan 2019 02:34:56 -0800 (PST)
+ id 1gko5E-0001jn-7U
+ for linux-riscv@lists.infradead.org; Sat, 19 Jan 2019 10:42:37 +0000
+Received: by mail-wm1-x342.google.com with SMTP id d15so6710500wmb.3
+ for <linux-riscv@lists.infradead.org>; Sat, 19 Jan 2019 02:42:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=CkUmWDBjCMtfVKlV4ecOQV/Ujv3/pkXiRQoWHg8eKiI=;
- b=t/VVmGyK+9vB5Atv7O4bhKJCEAmlqnbInUcXPKuklH33fe3/T7hs5iUr7bJodB25eO
- 9xlpqtK8R1DnhE9vbFLNnKXnro1kWh6xk0Z5Dwb2c2B+1yJNfYJIuJMECygN1MWylaCr
- u2D1vWep9fPaT92L5hDPzIE5neCrKmGIyoZehfy8MK/WD215qOt2B6AUflzQ5ap1L4AK
- Us2C8YnJp1obfvYim7a5VH2d/fg0DJJXW/6JLl0SBAxgU8r8o8cCa6OPkNJBlb+eOGxx
- XWsk/CNANv9eOzU+h1euPhLosmT8H2mNvch1FcT20juBlRp916tvuwdXx7Moh3H1g6Cj
- re5w==
+ :cc; bh=UEd4cxki9+m4DdvXxjUhMu6h0iHxu0fTOzTyJl5I/AI=;
+ b=PSy4ti8VZpNjpHRPHzkf1+JxjlEBG3aYkYrU3Z9ZH8m9k+qlqh/4URa1Q/hk3PhpNB
+ 0wrofvdIUoMzxIKtJkjo/tXPl89IR6k9KwsG9OEeqq0wUlEuGqHlrbONbjpp4dBvJ5Ps
+ 8Fad5rKc4/sEro9GhouyzXMRQ1TkGsPmnlr3Mgbs5gfFYAkreTJRUwZo2H7QXvWd6Z68
+ oWMUPmDOH1a/eMKF2sLonGxdHCLBYM4lylzxgtP8FeeZjE7j7Z26T+DbonslB4iS98xR
+ FXm/dJnImfooepGSmT1rfZeFnRV+UJpJTj1K73aQmRrpnpXrPXnioo6ZWo2M+nsstmvc
+ TBrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=CkUmWDBjCMtfVKlV4ecOQV/Ujv3/pkXiRQoWHg8eKiI=;
- b=lZvAIH1ADyHAwjkf792CMj6OGgn9t/DAlQTbpP2wZPqZd9yHZuS/zDJtE+EN/x4Nea
- VVrtTgL1RCCmcGyNZYTW2Tc0s3NELW/P8Q/q8YVosyMIUhNf7XqTlujw+9+iru0j1Si4
- gCCc0YtiMNkrMo+opeCYn67Gptbq8i868Ix6hkjKLP+SKzTjUORWaF4878odho44fMvf
- J4Rm8iRJ9iFE3M7qsq05flqTJnBkHy29xTaUwCHk2/JafOxdTec2f9eVtC92Jy5GXe/3
- UCuxi1BZUnZNAbuVxeE5YWXjpjzTby4kKjwua0lMk3JxfdfFCuqlTrQCjGZackLoq9+Z
- ea4g==
-X-Gm-Message-State: AJcUukeEnwKA7p/bJd7i2DeO/t7+47X740ua9OgnJ+DujhGOUsg3d/Jm
- EL+FcgQv1oAn8C+jn/DIGgkuzG5NTi2ZbZN6YXBV2Q==
-X-Google-Smtp-Source: ALg8bN495QBLZFYLzeE3tFxwmCxmy7a+HOh7IyNyajAK1Kb0tVz3w5uoDtFeuuRZ8UXzbbnyKjNp6kR2Tv+Cinkv//s=
-X-Received: by 2002:adf:8506:: with SMTP id 6mr21021554wrh.128.1547894094415; 
- Sat, 19 Jan 2019 02:34:54 -0800 (PST)
+ bh=UEd4cxki9+m4DdvXxjUhMu6h0iHxu0fTOzTyJl5I/AI=;
+ b=PsB0xI6z1R0m0pmZRJQcwOi9hCfIIFEQF7+YPEgQByFjpa8Ew3HbtvX6XmyiGsCbfR
+ LYQLZDzSCvZ4Aj4VqA3M0OH1GEl7fg7GXJ+ja/tzcyJANEx7ZNlhPhgNHcJMfGkFdaXM
+ b8DECn3whX4f+r8ySyaHoWGK8KF7VBB5aUH67eOipcGSk+MNshnyWFHAhqxxH/70ycka
+ dw2OGxEoKSnoqpdtrE8g14U0yDL2YAFZ2xPL4oOGNA3qrc7XaTh2xFkRi820wl5V/D4m
+ WSf0YyczwRpEAq1RBxlAl5HRz6UBSbmqUy8u8Ql61/seYbcVChS9dSfjPBFumgfzQvye
+ cSDg==
+X-Gm-Message-State: AJcUukeuF2e4UN/8/X3N3TAs0iChZivo+p9I7xm17dzemf7WttpX572C
+ +XIcbAtcw2JPvv54ZM2eVMn012CRwCpDcfRq+tJrFA==
+X-Google-Smtp-Source: ALg8bN5Viv/FnJkD+dxMigBx/5i2ECzC22YPB2Y24b1H6MQooVFiVfucZtcsn26Oj2cve88oQkQd3Mc+tIUz7sCSOgw=
+X-Received: by 2002:a1c:f509:: with SMTP id t9mr19506057wmh.76.1547894553425; 
+ Sat, 19 Jan 2019 02:42:33 -0800 (PST)
 MIME-Version: 1.0
 References: <20190107161047.10516-1-anup@brainfault.org>
- <20190107161047.10516-2-anup@brainfault.org>
- <20190115134336.GB13216@infradead.org>
-In-Reply-To: <20190115134336.GB13216@infradead.org>
+ <20190107161047.10516-3-anup@brainfault.org>
+ <20190115134410.GC13216@infradead.org>
+In-Reply-To: <20190115134410.GC13216@infradead.org>
 From: Anup Patel <anup@brainfault.org>
-Date: Sat, 19 Jan 2019 16:04:43 +0530
-Message-ID: <CAAhSdy3+aVMyXdECYwTp6=T9DyenEg4Q2uEhmJtfUJDokFbRWg@mail.gmail.com>
-Subject: Re: [PATCH 1/5] RISC-V: Move free_initrd_mem() to kernel/setup.c
+Date: Sat, 19 Jan 2019 16:12:22 +0530
+Message-ID: <CAAhSdy1uOVg6R24Wx-g0Z-ejunMfbE9R7yhu8fEGfLzmqE1Bhg@mail.gmail.com>
+Subject: Re: [PATCH 2/5] RISC-V: Setup init_mm before parse_early_param()
 To: Christoph Hellwig <hch@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190119_023459_311287_27253E73 
-X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-CacheID: sfid-20190119_024236_271792_92F23423 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -100,28 +100,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 15, 2019 at 7:13 PM Christoph Hellwig <hch@infradead.org> wrote:
+On Tue, Jan 15, 2019 at 7:14 PM Christoph Hellwig <hch@infradead.org> wrote:
 >
-> On Mon, Jan 07, 2019 at 09:40:43PM +0530, Anup Patel wrote:
+> On Mon, Jan 07, 2019 at 09:40:44PM +0530, Anup Patel wrote:
 > > From: Anup Patel <anup.patel@wdc.com>
 > >
-> > We move free_initrd_mem() to kernel/setup.c so that all initrd
-> > related functions are in one place.
+> > We should setup init_mm before doing parse_early_param()
+> > in setup_arch() to be consistent with setup_arch() of
+> > other architectures such as x86, ARM, and ARM64.
 > >
 > > Signed-off-by: Anup Patel <anup.patel@wdc.com>
 >
-> Looks fine:
->
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
->
-> Talking about free_initrd_mem - don't we need to call free_reserved_area
-> to actually release the memory?
+> Is there any good inherent reason why the order matters?  Not that I
+> really care either way..
 
-Yes, we should. Thanks for pointing.
+The parse_early_param() calls param callbacks in variety
+of subsystems including MM. Doing init_mm setup before
+parse_early_param() ensures that initial MM state is
+available when MM param callbacks are called.
 
-I will include separate patch for it.
+My intention was mainly to make boot-up flow similar
+to x86, ARM and ARM64 so that it is easy to add
+features already present in these arch ports.
 
-Thanks,
+Regards,
 Anup
 
 _______________________________________________
