@@ -7,18 +7,18 @@ X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E99F9C61CE8
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 13:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 82479C61CE8
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 13:28:29 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B56712086A
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 13:28:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4C5B82087E
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 13:28:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pqcliZBn";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Yz14lqqZ";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="dd4RsWsd"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B56712086A
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WTHAqjky";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="iXXoLcWe";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="MnTWajih"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4C5B82087E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,55 +27,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OaTiE0m+brXGHrSISE2jhaTymaG/V4N5G1EEOZtUmzo=; b=pqcliZBnpPQ/Fo
-	JTNOL/rJFK4c8cn9Fbd0ZYIt5XqQ/DlVoZ6QmCo1XkGiIZFIsjNhr3MMlLgj12jg6vQYGuiBeVklv
-	DVGlemuXVM07T6+SBskPsxfTtd2UzCUTOccodz9K4RwBjKgrlOuowU51waTD5MtuwwA2qzY5XUxVI
-	SEfaoIhfrQqwp5da3L+mMuBXLPN0gPC4k6seClX2Jo4XEDnew/eE1h86iUK2XIErnYmOghhA3pLxn
-	Ni6vwNwNjiter1BX3pcFZ4qnfySSFoagZ75Nb2bVQYFJfKnboXk4JxO8gp8FnRTFhr/TAR79sMFmN
-	2MxZn2Qca6oNQMVv6epA==;
+	List-Owner; bh=6xJ6++dHPtcXpHt9kEsdHJ+NFBjuSToCaZOFwje3paU=; b=WTHAqjkyK9DEZT
+	qvj3tM/NlPygUvF5NpKJZWnpKvtx5qHnmGh1Ipe4Yk029+ZxYivBbBO22fYOEwJvWSAz0rff5IYpd
+	gujf7JGA/9WWFuB3g+2f7uNcjkxOmFcGYprhm3ygW8nZKyl3IN/TIlzILzDFizh3b0auSnudtadsG
+	VKT1IR9HcPln8CBxVDOE8DzkmAkjH0OzkMPtDCJQFTDNG910QER2jRDvlohOnhlmalXpcKICY4kqk
+	0eLHQBY+yeKpqrn2iUSjFVQYb1Rg+tkRvnS34VWmD5T9+nIpjStMVG+hwMZtCspruAge1CBWNVbSj
+	Uk0y3U4E6NuP3LHIsJiQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gkqfV-0008OB-FX; Sat, 19 Jan 2019 13:28:13 +0000
+	id 1gkqfk-0008Rh-BE; Sat, 19 Jan 2019 13:28:28 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gkqfS-0008NW-Ac
- for linux-riscv@lists.infradead.org; Sat, 19 Jan 2019 13:28:11 +0000
+ id 1gkqfh-0008RB-7E
+ for linux-riscv@lists.infradead.org; Sat, 19 Jan 2019 13:28:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1547904491; x=1579440491;
+ t=1547904506; x=1579440506;
  h=from:to:cc:subject:date:message-id:references:
  in-reply-to:content-transfer-encoding:mime-version;
- bh=5clvEc+EFgdK4T/Iczm91gdzvaVtM8VoefDnldveq20=;
- b=Yz14lqqZ3jYOxUd7igfyAxt3wliJ1Q9pm2UgEM9OIb8qaSkKBhkPDIGo
- EINKsPASpKR66tFSXJaaHY7C3l15kYViJ3Zq4x94t8Bbnsdb1IXv2K638
- JcpKnPv/X/v1gFKiGrYvCxYyzVzXrvGs8tJtU7p5IEEFB2SF/wvhLy1RZ
- oYK+awyOxlwrCUoNK27hqD3zfYoWQzAtvaGyPnfAHKoaeKBBIPGg1Qayu
- 0lq+tcOpQkraNXDnRO9jk8z4c7DuBBLTe1PUlxT8tr1jHam1s6crfynt7
- qQh85K/oCjIeJ1sm9BG2pWqyV+n71+7VGC5NSaypSfl8eJonOdU1YWmum A==;
-X-IronPort-AV: E=Sophos;i="5.56,495,1539619200"; d="scan'208";a="101011291"
-Received: from mail-sn1nam04lp2054.outbound.protection.outlook.com (HELO
- NAM04-SN1-obe.outbound.protection.outlook.com) ([104.47.44.54])
- by ob1.hgst.iphmx.com with ESMTP; 19 Jan 2019 21:28:09 +0800
+ bh=kJ+W3Rudkf26ljRN4XY46EsHl7VO+cABUmloHSZ1tuc=;
+ b=iXXoLcWeaDGRIhJmNtsEakjri6WIgtnRd7j15/6uGi3n2woDMeUzPaIQ
+ CYhv7LR+5aOKwllYwSKpEh6PC6DP6zgtyDMsg7Z3VFsHYdDDPH3S4y/BU
+ ce8rPyeg372qOjn3WEVQVi6u98JglWN8drcGeXg1qwx7BTjrWppnQi+6q
+ JZST798TVv4TrFlPTGASVf+QLzCB9l22qLZla9jj2uPwvEaBMT10y+qYz
+ /GyNOHezOIs3/yqqnvD5MeWj6sqPsEUq9Jn/2NaerWRoTg79GA6VLFMmO
+ CWSWxDRv+ZV0Avoj2gp/zXxWvFHaqZtOGO1JazLkvq7Caug45UcUPynd6 w==;
+X-IronPort-AV: E=Sophos;i="5.56,495,1539619200"; d="scan'208";a="101011296"
+Received: from mail-sn1nam04lp2053.outbound.protection.outlook.com (HELO
+ NAM04-SN1-obe.outbound.protection.outlook.com) ([104.47.44.53])
+ by ob1.hgst.iphmx.com with ESMTP; 19 Jan 2019 21:28:25 +0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zF6hu0fpdA9VC4UYtqAme+z5ny0ToEpBQrWwrYwzbq8=;
- b=dd4RsWsdrbFlgvSgkgzm/GKU/QNdkIilZal3nyANrBW1tPehwPcbDwR5UxUWFPAGv2J0yx4WubH6ac06mtL84Xbvhjq2+z/wxAHxX+nhsU7XUK3TifTUBDD1V3fgQcpKLo+Ekj8Uel8CJ1NicoDz/sr41lng5AicWDo9rv5vUPk=
+ bh=FkZk3Z2NRgYb/c2U2H09g/YoaPj2CBRt5VGMQ34k8p4=;
+ b=MnTWajihbDFOXAXY9ranMxotA72KzRdqXJYwef+cd8UUx9i0FC7wMUQkwLvYwW82FxI3zgQw8l77LWTHh2dx0hKzn/ZpbEFWlqQERUZPabVyfObNncHf2ugho0MiUhjDCGzvg9DAFnPOwRRGqsBzNtYWlisPJjXtUwZp/c+BNeI=
 Received: from BYAPR04MB5303.namprd04.prod.outlook.com (20.178.49.148) by
  BYAPR04MB4678.namprd04.prod.outlook.com (52.135.240.17) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1537.28; Sat, 19 Jan 2019 13:28:07 +0000
+ 15.20.1537.28; Sat, 19 Jan 2019 13:28:23 +0000
 Received: from BYAPR04MB5303.namprd04.prod.outlook.com
  ([fe80::add1:92cc:65d7:5d94]) by BYAPR04MB5303.namprd04.prod.outlook.com
  ([fe80::add1:92cc:65d7:5d94%2]) with mapi id 15.20.1537.028; Sat, 19 Jan 2019
- 13:28:07 +0000
+ 13:28:23 +0000
 From: Anup Patel <Anup.Patel@wdc.com>
 To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v2 2/6] RISC-V: Setup init_mm before parse_early_param()
-Thread-Topic: [PATCH v2 2/6] RISC-V: Setup init_mm before parse_early_param()
-Thread-Index: AQHUr/rQF1FzZ43LWUiaqt7t2ByYrQ==
-Date: Sat, 19 Jan 2019 13:28:07 +0000
-Message-ID: <20190119132650.9978-3-anup.patel@wdc.com>
+Subject: [PATCH v2 3/6] RISC-V: Move setup_bootmem() to mm/init.c
+Thread-Topic: [PATCH v2 3/6] RISC-V: Move setup_bootmem() to mm/init.c
+Thread-Index: AQHUr/rZbdFQqnRdaUSqSTYx5eJjPQ==
+Date: Sat, 19 Jan 2019 13:28:23 +0000
+Message-ID: <20190119132650.9978-4-anup.patel@wdc.com>
 References: <20190119132650.9978-1-anup.patel@wdc.com>
 In-Reply-To: <20190119132650.9978-1-anup.patel@wdc.com>
 Accept-Language: en-US
@@ -92,17 +92,17 @@ x-mailer: git-send-email 2.17.1
 x-originating-ip: [49.207.52.191]
 x-ms-publictraffictype: Email
 x-microsoft-exchange-diagnostics: 1; BYAPR04MB4678;
- 6:wHARZ5lD5c78P0tGEplzDd+NM43s1EmXqW6x5ExToJ0uqpPKRI8/CkY9TqM5GIDUS7RsnEk+52IfUjM/6X6EeNqHXFv7o2yAnXzkxGLCUUcW1/CB8JSlTv4Tfd83s1e0tOI9oftj8/wvqkjs7z5HcaZvLhkhjbxD7k7O2TgVzzYQUVq018jh0E1qc9NVbLMRRhtVSra6o3myEOcZXIrB5CcJbcY5e8xAveWXIEHwYcB3LVz5syHsI/poY9SFZsCYuWcysygO4HwdmPEQaIJat5W1ufhfC9s/RgUxMb4Q+bhiDUwz9gikgUYAz9nswmubLN8KFaoTj9w0ZPQ6QYqzfELGU3CKq+e2owbZKMJPFefZzQrRRgI6RF5qO8iZYKkZWF+aBP24NZmZEh9rsjmLnhebaD20oFD8Xv8DnHR5l+PS+sYNIscnWPky96CoNq31WBlmZvHFzZ6aVI+42WhmVA==;
- 5:kCOkwqzlv4T1Jycv75g1URtWa1kHCTzODvV2bSwjIz0Sz/x3bQMEX8aPRPJqZYFWz+EZF8jR8RNyAY8VvC4g/eeFH01yYblkegjPYXcq6rjqRCyJFjTAwKdyLvLSQXppZ+4qPRxxHB5I7z1BRa63xqZNgnS/gjACbowPg5u1wmZsQQsV9iuZE6TDk//+ExX0ExV9jX1o2EcQZT9AX4W5kQ==;
- 7:VhCxm/smzWRUl6IQpPrUd5gFGL2o5Li9wQQHhnqtyZhYrGPBdXk+nM1rt13E7a0nPJNI4ttgdbCoMmjvbURV3kre/9OBSP06SmngIr/lDfLqu+SMFDIC0AJhzENHUDUnFBcGKfHV6JP4ZlPc/Tq9yg==
-x-ms-office365-filtering-correlation-id: 11324407-63c3-4103-1654-08d67e11f2ab
+ 6:Kn6M0tXIt84puqCTET9sA3+nmu7lEVONoOyvKTlltBgjfgMQTVp/CFOa2+tsAb+7VKQOvAGPCRMsikHDtJYgrhX/w27DxtsP5uwcd2x/6bXc4LRYFTAoH2jj8y/0addgQ8JjJbO8G4kHR9rAY6RyjjMiw7W+OaLD8NLcFKQcIDNjnPGC9EYxjj2whkL2e0qDw3cbKIDIGUSkuTHqittacMNrJFGKvsegVrdWSywzwGRTt6/bTmWFoZdc4n84QSQ2mPzR6Rz8olvVGpK78VjCSNaCqkEprDQBOCPQqXCjAo1h65NyIJA1V5AZIwwIExIv8nLMaYo9+OtnbU7FnwyTZ1UF7cdSQQkUxHTyeUbVOCiMovTrpBRZH/wzyLDZGPdQKAOPgJv4ozaYnmM5ZsnfrmUxXZZ0j7TxHFsY0fXpX88LRHgrJ/MNpiJPPKuaQz5dUvD3l1sehmxcMKb9+kD2pg==;
+ 5:PNCb6J5QcxaVt1SP6f5dfLiM5LtLHvwk5CVwzwtW4887IRY7746plu1m+xLZbTPx6W6+IkBGRNUdQq2WKPNRzCqyL0kasfgIVHgMIPlo1NwQCoT8kweozwG+jZeHjTTjXLUahTV9Xxt1ZGKAxRBgq6pmvmyAeQ4jetktmSbPVpqn3YHC+t5HNSUjA+eGAw9sLBazxkfi4gCFhzGZe1I9Yg==;
+ 7:w4Fk6JzJOc3NXHj45p7NBuwCPDn9ombuaFbTXy3eHA2lbOi57sPrHGo5AeiYmf+AEYBkp2ECwOkF9R2WLTG+QqOL3gFwpY3i0hbPGmuWMTi8rkyKzAaDRlc5H3RHAN3k5FrbRHalp2Ydgv57gCX55w==
+x-ms-office365-filtering-correlation-id: c2fa4096-3cbf-4643-43d4-08d67e11fc45
 x-ms-office365-filtering-ht: Tenant
 x-microsoft-antispam: BCL:0; PCL:0;
  RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(7168020)(4627221)(201703031133081)(201702281549075)(8990200)(5600109)(711020)(4618075)(2017052603328)(7153060)(7193020);
  SRVR:BYAPR04MB4678; 
 x-ms-traffictypediagnostic: BYAPR04MB4678:
 wdcipoutbound: EOP-TRUE
-x-microsoft-antispam-prvs: <BYAPR04MB467836A72C34F4F07A9520458D9D0@BYAPR04MB4678.namprd04.prod.outlook.com>
+x-microsoft-antispam-prvs: <BYAPR04MB46783CE3CBA2E96AC32E1EF28D9D0@BYAPR04MB4678.namprd04.prod.outlook.com>
 x-forefront-prvs: 09222B39F5
 x-forefront-antispam-report: SFV:NSPM;
  SFS:(10019020)(396003)(136003)(346002)(376002)(39860400002)(366004)(189003)(199004)(50226002)(7736002)(2906002)(6436002)(72206003)(5660300001)(106356001)(6486002)(478600001)(68736007)(8936002)(256004)(36756003)(44832011)(486006)(71200400001)(71190400001)(105586002)(97736004)(52116002)(66066001)(14454004)(54906003)(6116002)(3846002)(1076003)(110136005)(25786009)(446003)(99286004)(26005)(76176011)(8676002)(2616005)(476003)(4326008)(86362001)(81166006)(2171002)(305945005)(81156014)(11346002)(53936002)(55236004)(186003)(386003)(102836004)(6512007)(6506007)(316002);
@@ -110,19 +110,19 @@ x-forefront-antispam-report: SFV:NSPM;
  H:BYAPR04MB5303.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
  PTR:InfoNoRecords; MX:1; A:1; 
 x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: jL/tsS2PK4IbTSzQ3z0jIYNO4nO4wWxcZsLe5zFEo4CyDmjYih1AJEemOb7C5tuuBHrJCVTNDsWis1ooTVIa6jyJFtxcl7NMhhzxfdSQEo7iMu5tOo1wkOqw+5PBvFU79nIVhAKXgLIjrfXpOtxfssXw0SKC1OrwH8m39PAuFJwJYCqd6QsaUFyFFwd/yCvGP4lIBkIr7AGOH+pHVYLWzj9ONUkx/Cqpym9jV3q+UsNPPkYd+l2IWzVEABA35omEGgWHqT6ANqpL7ydDCuOKVxS1C69xMU9hiU1CRQRbUrhTXo5hths658UzvBPRGcry24+vAoU9V2qzfbFOq96wGywBor6moKoEwtkCQR2cRGneScY/9XBe171cxbn7L4D3JtyWa0n9B3JrK4U3W3KzQYHN/uJl9Y4vEzFpCAgc5DY=
+x-microsoft-antispam-message-info: KobITc8QUiHqItfy7kE6r76WXwzfC7oKTKQ5cYSuE/5c4G84ns0VqtfKbVTDzQYTylUdOXGcLnra5usWj1e5PUBQpBsQVJpUhpmshAQF6x13DUmUOF8QVUSvyfTlNo7kfbSUyt9Xq1GyKf9Xkjm2pf7dp+KkoPDYl6pIJkPSNDc4goXmBcPlgl9rVNSCmeCPjBQAQtLeXIF/nEfhbpy7nirEKpVqNL41zzOl2FCWXaG1QBwxXmriEVQPuhd2rdyA8nOZtEaQ/BmHVkmJDWxmYKU6ONar/F6f+M3XNSkw6Bi6OKb8fvSEC9yd7UJBMm7PQ/OPIh5/bT2kRu9BmVlJf8rPd95X27K+RphPiuHFOgIj9kGOr7chiyY3ySbCIJugXU4q2R1bCk5KXeQ2wNpnUUMiBFjmEnnDA7yYai6j2Ik=
 spamdiagnosticoutput: 1:99
 spamdiagnosticmetadata: NSPM
 MIME-Version: 1.0
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 11324407-63c3-4103-1654-08d67e11f2ab
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jan 2019 13:28:04.8470 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c2fa4096-3cbf-4643-43d4-08d67e11fc45
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jan 2019 13:28:20.9569 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR04MB4678
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190119_052810_410574_54CB264A 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20190119_052825_297570_F5721A37 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -144,44 +144,150 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We should setup init_mm before doing parse_early_param()
-in setup_arch() to be consistent with setup_arch() of
-other architectures such as x86, ARM, and ARM64.
+The setup_bootmem() mainly populates memblocks and does early memory
+reservations. The right location for this function is mm/init.c.
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/riscv/kernel/setup.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ arch/riscv/include/asm/pgtable.h |  1 +
+ arch/riscv/kernel/setup.c        | 48 ++++----------------------------
+ arch/riscv/mm/init.c             | 40 ++++++++++++++++++++++++++
+ 3 files changed, 46 insertions(+), 43 deletions(-)
 
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 16301966d65b..35893810cba3 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -404,6 +404,7 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+ #define kern_addr_valid(addr)   (1) /* FIXME */
+ #endif
+ 
++extern void setup_bootmem(void);
+ extern void paging_init(void);
+ 
+ static inline void pgtable_cache_init(void)
 diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index f270adcc678f..577d8460d141 100644
+index 577d8460d141..ab29a66a17fc 100644
 --- a/arch/riscv/kernel/setup.c
 +++ b/arch/riscv/kernel/setup.c
-@@ -208,15 +208,15 @@ static void __init setup_bootmem(void)
+@@ -163,49 +163,6 @@ void __init parse_dtb(unsigned int hartid, void *dtb)
+ #endif
+ }
  
+-static void __init setup_bootmem(void)
+-{
+-	struct memblock_region *reg;
+-	phys_addr_t mem_size = 0;
+-
+-	/* Find the memory region containing the kernel */
+-	for_each_memblock(memory, reg) {
+-		phys_addr_t vmlinux_end = __pa(_end);
+-		phys_addr_t end = reg->base + reg->size;
+-
+-		if (reg->base <= vmlinux_end && vmlinux_end <= end) {
+-			/*
+-			 * Reserve from the start of the region to the end of
+-			 * the kernel
+-			 */
+-			memblock_reserve(reg->base, vmlinux_end - reg->base);
+-			mem_size = min(reg->size, (phys_addr_t)-PAGE_OFFSET);
+-		}
+-	}
+-	BUG_ON(mem_size == 0);
+-
+-	set_max_mapnr(PFN_DOWN(mem_size));
+-	max_low_pfn = memblock_end_of_DRAM();
+-
+-#ifdef CONFIG_BLK_DEV_INITRD
+-	setup_initrd();
+-#endif /* CONFIG_BLK_DEV_INITRD */
+-
+-	early_init_fdt_reserve_self();
+-	early_init_fdt_scan_reserved_mem();
+-	memblock_allow_resize();
+-	memblock_dump_all();
+-
+-	for_each_memblock(memory, reg) {
+-		unsigned long start_pfn = memblock_region_memory_base_pfn(reg);
+-		unsigned long end_pfn = memblock_region_memory_end_pfn(reg);
+-
+-		memblock_set_node(PFN_PHYS(start_pfn),
+-		                  PFN_PHYS(end_pfn - start_pfn),
+-		                  &memblock.memory, 0);
+-	}
+-}
+-
  void __init setup_arch(char **cmdline_p)
  {
--	*cmdline_p = boot_command_line;
--
--	parse_early_param();
--
  	init_mm.start_code = (unsigned long) _stext;
- 	init_mm.end_code   = (unsigned long) _etext;
- 	init_mm.end_data   = (unsigned long) _edata;
- 	init_mm.brk        = (unsigned long) _end;
+@@ -218,6 +175,11 @@ void __init setup_arch(char **cmdline_p)
+ 	parse_early_param();
  
-+	*cmdline_p = boot_command_line;
-+
-+	parse_early_param();
-+
  	setup_bootmem();
++
++#ifdef CONFIG_BLK_DEV_INITRD
++	setup_initrd();
++#endif /* CONFIG_BLK_DEV_INITRD */
++
  	paging_init();
  	unflatten_device_tree();
-@@ -235,4 +235,3 @@ void __init setup_arch(char **cmdline_p)
  
- 	riscv_fill_hwcap();
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index f354486f9b78..d0965979ee70 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -16,6 +16,7 @@
+ #include <linux/memblock.h>
+ #include <linux/swap.h>
+ #include <linux/sizes.h>
++#include <linux/of_fdt.h>
+ 
+ #include <asm/tlbflush.h>
+ #include <asm/sections.h>
+@@ -62,3 +63,42 @@ void free_initmem(void)
+ {
+ 	free_initmem_default(0);
  }
--
++
++void __init setup_bootmem(void)
++{
++	struct memblock_region *reg;
++	phys_addr_t mem_size = 0;
++
++	/* Find the memory region containing the kernel */
++	for_each_memblock(memory, reg) {
++		phys_addr_t vmlinux_end = __pa(_end);
++		phys_addr_t end = reg->base + reg->size;
++
++		if (reg->base <= vmlinux_end && vmlinux_end <= end) {
++			/*
++			 * Reserve from the start of the region to the end of
++			 * the kernel
++			 */
++			memblock_reserve(reg->base, vmlinux_end - reg->base);
++			mem_size = min(reg->size, (phys_addr_t)-PAGE_OFFSET);
++		}
++	}
++	BUG_ON(mem_size == 0);
++
++	set_max_mapnr(PFN_DOWN(mem_size));
++	max_low_pfn = memblock_end_of_DRAM();
++
++	early_init_fdt_reserve_self();
++	early_init_fdt_scan_reserved_mem();
++	memblock_allow_resize();
++	memblock_dump_all();
++
++	for_each_memblock(memory, reg) {
++		unsigned long start_pfn = memblock_region_memory_base_pfn(reg);
++		unsigned long end_pfn = memblock_region_memory_end_pfn(reg);
++
++		memblock_set_node(PFN_PHYS(start_pfn),
++				  PFN_PHYS(end_pfn - start_pfn),
++				  &memblock.memory, 0);
++	}
++}
 -- 
 2.17.1
 
