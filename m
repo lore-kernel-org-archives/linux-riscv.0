@@ -2,87 +2,91 @@ Return-Path: <SRS0=HQJf=P3=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C8351C6369F
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 05:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 34B14C6369F
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 05:57:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8A2B42084C
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 05:56:46 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 048B22084C
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 19 Jan 2019 05:57:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NPvt8FCX";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Abbiyo33"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8A2B42084C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PryFBJbu";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="dZFTDj0Y"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 048B22084C
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=TGxwxFuFqGUpnHNcXLel/CWI2N7tEOonCbpHeaeOf5U=; b=NPv
-	t8FCXevaTubhK7p0cSAXwxDFlRTCyBs3/rI/GeZbf5c0QIDAT4dO+oAjPVtCHJmrup6hlJHz+EDkv
-	iOhUtSlWWbRq4shNazPJZ/HKmC8agEt2FDXLcTjXnvaieA1w2+bv7C/kkoqTLt4wM87rbxs8onkpj
-	QPS5Gp5yZ+CViKZWwAl5pzPQKGCsNPlqGr9ouy0GabN98rmsVS3/Ehc5/GosYQOaw7qDTx1O9sLAz
-	aDqY+0ixGsJNQO/GfnprQWIi8VEIFW1q/cdzh4PLzp7h/smGYQQN518Pkjrnlrqz0vXq6neKnJ4mj
-	8twjznxgv34PVYdQBekTSm1EiqZF4gw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=vMt/R8qiaQKYuN+klNJZbjttu1qEiqj0nNRVIuk23Gg=; b=PryFBJbuqKU8Y/BQB3xpLl6WC6
+	NHID++exZHEtsBLTgAvIGeAhePP7DXHQsLpVSQ1MEIRdwsgP9VdVYQoPfU/an+zN8I1GpveU/kDAj
+	Cevayiv+Ns/HWmfJ/U7N5H8PFjCNifcDFE97U+jIZIeibuFe3JDWXhqLcXZJQwzYAffGrGykZI+Kb
+	h4jPF9tHQlS1amMs80dWnsy5bEeRHbvFaFSO74cnP1nRYtlSWoi2oWYJjSCvaMvBcccQ2yd0rBeJe
+	Wh4aWCKbCqSSSv5Ku3sYHNtGCjosXFpSXvqJTg8aPsW9zjuLy8nJYcZiOEM3x3olY+IB4LciqR+0h
+	zkf2VBqg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gkjcb-0003Ht-82; Sat, 19 Jan 2019 05:56:45 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1gkjcv-0003NK-Ry; Sat, 19 Jan 2019 05:57:05 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gkjcX-0003HV-UY
- for linux-riscv@lists.infradead.org; Sat, 19 Jan 2019 05:56:43 +0000
-Received: by mail-pl1-x644.google.com with SMTP id u18so7277853plq.7
- for <linux-riscv@lists.infradead.org>; Fri, 18 Jan 2019 21:56:41 -0800 (PST)
+ id 1gkjct-0003Kb-2j
+ for linux-riscv@lists.infradead.org; Sat, 19 Jan 2019 05:57:04 +0000
+Received: by mail-pg1-x544.google.com with SMTP id d72so7042426pga.9
+ for <linux-riscv@lists.infradead.org>; Fri, 18 Jan 2019 21:57:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=from:to:cc:subject:date:message-id;
- bh=sQoivAFbNDy6muWIVQt/y3vdJRVoP20aiW8gxmhC/Eg=;
- b=Abbiyo336l24wipav+ZxwC19i158Qe2M89QOsU8cICHRf9im14FWdTdwzrJj2QRuUf
- qHAnUDQs1GWIM+kwV+l9Vu1QiSRImZJQMVTCYCUlk1/dfdJ5HlPJhZYlt/uyIRnfTxTc
- 1mU3PmS31ZNgj1u3kUjCZ+ts/lSKt0P+3uNBYPaV/bKFIWfV36EM/SkwgZBPzbuxwJV3
- Y7UU0WBnlU3qEWJjCyUHx//1MPmCF+zVHAFOMZt3i5/hyPYWNmLEh0SJZCyC3a002GPi
- vGY8HTh9C4L+uLtZScU5gfnI7jb2Ix7fP2tz3s/IupOHnwy+QeCmWkx/Cshxub2DG0CI
- gGaA==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references;
+ bh=EWRMoEC/A0hBjLIZuy6KvNFGbEVqYyO/63HQJNeKmb0=;
+ b=dZFTDj0Ya6EcAtlyUcEu4BiZbYNG/xDcT5iJvYmDrkGQLsx1DXejQXxmceFjoEp27B
+ rbBt6MTGC3h9vVTwcfrFgIwDACfyJ4/prnj1P4FgBgeRP/aUR2Bk+BK/gB0fEe9iZWxL
+ Lfom12NuuVYR1UWJqG/MmSIn48YChsd8IBwM2BlfRoJtEa7L6oKA7Bp9TuMKDTn+nxQ9
+ 0mPbBjbyKs+zKiS1Sh6WCauPNnawrf/A/P7hKy+qWm05Oi8OUZfXKD+rFH2H+lXUJDP2
+ aXYTMzmQ520zBrK04OngyhV47E9QzRT1slgh7OJwiAAWlNCdI4T12mB1yoWjOhuAS/oX
+ ivmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=sQoivAFbNDy6muWIVQt/y3vdJRVoP20aiW8gxmhC/Eg=;
- b=uO83kMcNEd4A7JXjRYjpkTvMpnh+5dsYN4DedY2veyLItLRH9pXVvb7D9Za+a2np2F
- Bugocbo5WLuESqD0XwUmclklowBh9XtoYsCYwojAvVjSW5gTdvyqtBvSMh1Ji2yQbD0g
- UvaOz6YfxsjuMpWPlBIkNgaYHjZ9XNbaACmbb3Cyds5SXmz+y7HHAykfgMXo3bErMmg3
- LuK9HrLhkdwKI2rxoVFMzk5e+XFKqaAml7TECY4tEhi/NR1DK9mpMx9zie69FEu4TO+3
- qjS9TQ3pCqujaMF2etQo7TB7z+QDC0xhSbFuUUjYElVgOJkIffu/BR30D6sSslRepT/d
- Zu4Q==
-X-Gm-Message-State: AJcUukeJ6C1wJ7OmGqon5BK9bCcKv9cHhF13rPvM43+F5i1jbxKyqI1H
- JTopdBxUkmbTzGAnvhn2lEWJZg==
-X-Google-Smtp-Source: ALg8bN5r2zDbLwk1v1+PTbuS+mSZwcs2QRA2lm1fnlHMIbAP/DhbWNLuWfx1TZ3q9I21gjSKzYaRfg==
-X-Received: by 2002:a17:902:4225:: with SMTP id
- g34mr22348699pld.152.1547877400048; 
- Fri, 18 Jan 2019 21:56:40 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references;
+ bh=EWRMoEC/A0hBjLIZuy6KvNFGbEVqYyO/63HQJNeKmb0=;
+ b=ABhChAImMLUkBRJ40j8Kq2vkEfz6JW+RKyJpO8h0IJvbcvolKndSnY5fx/Tn9siQzX
+ 0cjwrU/ReAhs5kHu8CLmVKZ4GXq1qgj2aJNIUoKgHM/Q7v/qdbLk55JohcLP9VQjTNYF
+ shnlka1F/ifANm/EsXZEC/mX9B4zdw+USM2Bf2CLeJufRC/6aW1gUKN9iKIZewWOW+yk
+ QslkY5EqsR6Tm1A1Vy3iOTxQ93JusnqhYDjv+tHyfIS2KW++rpXsOfcD18iv52nHsD+k
+ z9pOfgvttmylMrwCEQ/66ot5T5ZnFq2AZGXVGWQuyjIPnltnxiYeXZFJPGk6OmFMDb+6
+ fnLw==
+X-Gm-Message-State: AJcUukdik3CCFY5SQg3mXkmCJJtKXZkYU7Wnzjsh1v4DxQzSy0VupMzU
+ 7OCkMLOW3yLF7NESAferdxkiLg==
+X-Google-Smtp-Source: ALg8bN61IkRQSEUTXsZ3EeWFQ05eXFxjs8Xju7PLQrVSYaHYST+20SAx2hj7YtXVuFCou/O5f2kWaQ==
+X-Received: by 2002:a62:ed0f:: with SMTP id u15mr21757184pfh.188.1547877421890; 
+ Fri, 18 Jan 2019 21:57:01 -0800 (PST)
 Received: from localhost.localdomain ([49.207.51.221])
- by smtp.gmail.com with ESMTPSA id c7sm9295535pfh.18.2019.01.18.21.56.36
+ by smtp.gmail.com with ESMTPSA id c7sm9295535pfh.18.2019.01.18.21.56.58
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 18 Jan 2019 21:56:39 -0800 (PST)
+ Fri, 18 Jan 2019 21:57:01 -0800 (PST)
 From: Anup Patel <anup@brainfault.org>
 To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Daniel Lezcano <daniel.lezcano@linaro.org>,
  Thomas Gleixner <tglx@linutronix.de>, Jason Cooper <jason@lakedaemon.net>,
  Marc Zyngier <marc.zyngier@arm.com>
-Subject: [PATCH v5 0/5] IRQ affinity support in PLIC driver
-Date: Sat, 19 Jan 2019 11:26:20 +0530
-Message-Id: <20190119055625.100054-1-anup@brainfault.org>
+Subject: [PATCH v5 1/5] irqchip: sifive-plic: Pre-compute context hart base
+ and enable base
+Date: Sat, 19 Jan 2019 11:26:21 +0530
+Message-Id: <20190119055625.100054-2-anup@brainfault.org>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20190119055625.100054-1-anup@brainfault.org>
+References: <20190119055625.100054-1-anup@brainfault.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190118_215641_991634_D12F9D43 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20190118_215703_121630_DE2EE02F 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -103,48 +107,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset primarily adds IRQ affinity support in PLIC driver and
-other improvements.
+This patch does following optimizations:
+1. Pre-compute hart base for each context handler
+2. Pre-compute enable base for each context handler
+3. Have enable lock for each context handler instead
+of global plic_toggle_lock
 
-It gives mechanism for explicitly route external interrupts to particular
-CPUs using smp_affinity attribute of each Linux IRQs. Also, we can now
-use IRQ balancer from kernel-space or user-space.
+Signed-off-by: Anup Patel <anup@brainfault.org>
+---
+ drivers/irqchip/irq-sifive-plic.c | 47 ++++++++++++++-----------------
+ 1 file changed, 21 insertions(+), 26 deletions(-)
 
-The patchset is tested on QEMU virt machine. It is based on Linux-4.20
-and can be found at riscv_plic_irq_affinity_v4 branch of:
-https://github.com/avpatel/linux.git
-
-Changes since v4:
- - Use "if (force)" instead of "if (!force)" in PATCH5
-
-Changes since v3:
- - Dropped PATCH2
- - Added PATCH to not inline plic_toggle() and plic_irq_toggle()
- - Moved PATCH3 changes to PATCH6
- - Used WARN_ON_ONCE() instead of WARN_ON() in PATCH5
-
-Changes since v2:
- - Fixed incorrect address of enable registers using sizeof(u32) in PATCH1
- - Retained comment about need for locking in PATCH1
- - Split PATCH2 into two patches
- - Split PATCH3 into two patches
- - Minor fix in commit description of PATCH4
-
-Changes since v1:
- - Removed few whitspace changes from PATCH1
- - Keep use of DEFINE_PER_CPU() as it is
-
-Anup Patel (5):
-  irqchip: sifive-plic: Pre-compute context hart base and enable base
-  irqchip: sifive-plic: Don't inline plic_toggle() and plic_irq_toggle()
-  irqchip: sifive-plic: Add warning in plic_init() if handler already
-    present
-  irqchip: sifive-plic: Differentiate between PLIC handler and context
-  irqchip: sifive-plic: Implement irq_set_affinity() for SMP host
-
- drivers/irqchip/irq-sifive-plic.c | 110 +++++++++++++++++++-----------
- 1 file changed, 71 insertions(+), 39 deletions(-)
-
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index 357e9daf94ae..c23a293a2aae 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -59,37 +59,28 @@ static void __iomem *plic_regs;
+ 
+ struct plic_handler {
+ 	bool			present;
+-	int			ctxid;
++	void __iomem		*hart_base;
++	/*
++	 * Protect mask operations on the registers given that we can't
++	 * assume atomic memory operations work on them.
++	 */
++	raw_spinlock_t		enable_lock;
++	void __iomem		*enable_base;
+ };
+ static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
+ 
+-static inline void __iomem *plic_hart_offset(int ctxid)
+-{
+-	return plic_regs + CONTEXT_BASE + ctxid * CONTEXT_PER_HART;
+-}
+-
+-static inline u32 __iomem *plic_enable_base(int ctxid)
+-{
+-	return plic_regs + ENABLE_BASE + ctxid * ENABLE_PER_HART;
+-}
+-
+-/*
+- * Protect mask operations on the registers given that we can't assume that
+- * atomic memory operations work on them.
+- */
+-static DEFINE_RAW_SPINLOCK(plic_toggle_lock);
+-
+-static inline void plic_toggle(int ctxid, int hwirq, int enable)
++static inline void plic_toggle(struct plic_handler *handler,
++				int hwirq, int enable)
+ {
+-	u32 __iomem *reg = plic_enable_base(ctxid) + (hwirq / 32);
++	u32 __iomem *reg = handler->enable_base + (hwirq / 32) * sizeof(u32);
+ 	u32 hwirq_mask = 1 << (hwirq % 32);
+ 
+-	raw_spin_lock(&plic_toggle_lock);
++	raw_spin_lock(&handler->enable_lock);
+ 	if (enable)
+ 		writel(readl(reg) | hwirq_mask, reg);
+ 	else
+ 		writel(readl(reg) & ~hwirq_mask, reg);
+-	raw_spin_unlock(&plic_toggle_lock);
++	raw_spin_unlock(&handler->enable_lock);
+ }
+ 
+ static inline void plic_irq_toggle(struct irq_data *d, int enable)
+@@ -101,7 +92,7 @@ static inline void plic_irq_toggle(struct irq_data *d, int enable)
+ 		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+ 
+ 		if (handler->present)
+-			plic_toggle(handler->ctxid, d->hwirq, enable);
++			plic_toggle(handler, d->hwirq, enable);
+ 	}
+ }
+ 
+@@ -150,7 +141,7 @@ static struct irq_domain *plic_irqdomain;
+ static void plic_handle_irq(struct pt_regs *regs)
+ {
+ 	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+-	void __iomem *claim = plic_hart_offset(handler->ctxid) + CONTEXT_CLAIM;
++	void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
+ 	irq_hw_number_t hwirq;
+ 
+ 	WARN_ON_ONCE(!handler->present);
+@@ -239,12 +230,16 @@ static int __init plic_init(struct device_node *node,
+ 		cpu = riscv_hartid_to_cpuid(hartid);
+ 		handler = per_cpu_ptr(&plic_handlers, cpu);
+ 		handler->present = true;
+-		handler->ctxid = i;
++		handler->hart_base =
++			plic_regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
++		raw_spin_lock_init(&handler->enable_lock);
++		handler->enable_base =
++			plic_regs + ENABLE_BASE + i * ENABLE_PER_HART;
+ 
+ 		/* priority must be > threshold to trigger an interrupt */
+-		writel(0, plic_hart_offset(i) + CONTEXT_THRESHOLD);
++		writel(0, handler->hart_base + CONTEXT_THRESHOLD);
+ 		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+-			plic_toggle(i, hwirq, 0);
++			plic_toggle(handler, hwirq, 0);
+ 		nr_mapped++;
+ 	}
+ 
 -- 
 2.17.1
 
