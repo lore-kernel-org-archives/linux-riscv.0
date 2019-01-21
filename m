@@ -8,17 +8,17 @@ X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
 	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0406AC7112F
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 11:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 897A9FA372D
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 11:30:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C96DD20861
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 11:20:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5957620663
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 11:30:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hXblIvko";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="WyHbwJoZ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C96DD20861
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sw1XCP/p";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="TVJ9IxM4"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5957620663
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,67 +27,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=gk00Vc0v5fVO9iEziVoxhPkO6n/VHOtpz1t9zGnYvro=; b=hXblIvkoWbsr3UtAGydF2sjUv
-	SekN3y2cO1krtV3u4wSdcu2rKktNRjZRMnfY36YV+wr3lV2dQTs+6wQpMcSrScfjn42ehi9OH2m/j
-	eoYv7m+FpQhsQ5QFOrTIB9E352lt8np/jnuAdXoSczO5ijJRN7KcrzrqgtkzW2jRoHCoHJ35aNv+G
-	LG5ORy/1LEfu+rN9JsEP59Tjwo9adsm7k53mMpX5Vf5ZXiK97WEBsPBrt7bP7OvJiSi8DMAVTduB0
-	s33EUWngPlQhKG/yRs5Fk4wF6rKQc6twS5t55uao3Vz8jVQD5bhV741aBMq7XLQfw+gIJ37I81oR1
-	FQZxNpfNQ==;
+	 bh=teOyhhMj7Al8oQGX051X4WmWSALI3mKllyLiHFL2ZVc=; b=sw1XCP/pflxEDjewQC8HnOU0x
+	B4ssABDngdLpqG+LW/ORbck8PScfIQCSFhsDEZO1xZby0FqMcMkEXMRc3Qid+3BuQJFP4gJFnjINg
+	YHFSd7A3ygHdhcTZMznn3DlFCx2zODIqAK+ysI3xUue613y6QVIv5pYvRZ48t3iYOTE/cwMU+ZiqZ
+	dHm5bObDx8z7Lp57vwEJk7gooivhVq/A1egZ1mcvNeuXzrqacwmOmLMmkxwmJtq6MnhDP8CII07Kq
+	q3MirVoIwkYCi0gbII7syzZTfSuCVblOcYhZ6Ws/8HtfFTEFyNz/DqXglMd5v8xXTeHCL95JtAv8q
+	+yaPcYMow==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1glXd4-0000md-Qp; Mon, 21 Jan 2019 11:20:34 +0000
-Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
+	id 1glXmx-00087j-64; Mon, 21 Jan 2019 11:30:47 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1glXd1-0000mH-Tx
- for linux-riscv@lists.infradead.org; Mon, 21 Jan 2019 11:20:33 +0000
-Received: by mail-wm1-x344.google.com with SMTP id p6so10344359wmc.1
- for <linux-riscv@lists.infradead.org>; Mon, 21 Jan 2019 03:20:31 -0800 (PST)
+ id 1glXmt-00086m-Th
+ for linux-riscv@lists.infradead.org; Mon, 21 Jan 2019 11:30:45 +0000
+Received: by mail-wr1-x443.google.com with SMTP id t27so22898542wra.6
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Jan 2019 03:30:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to:user-agent;
- bh=O0Y1XJ+0xnuvSlAHla8rWWZZRIYWEJRmnWlUlMTmyI4=;
- b=WyHbwJoZVxO6pDTUxINZ6UHzAOONrXs1mhjvBlQST4yb4YhWsUHlasUe52dxf/VSFb
- OdoSHhWj4B3u3TstYfTIFALayk9OTt7/0f2EQAlAIUgYHUrrwFnAMIU3aCZ2b4nFZ64M
- uv1gtJw3XuIu1t3XlutSZcKpO6L1I0sAZIWvmGpmWlUx7WUAHRB6d1Sm2+qtv/chT0sj
- GYrYKkbRsqEQC490ef4gC1CSZRM1oJ9Xlf2+HxWbctJG5YsXBA8yRsGmkzlUYLynf/O3
- 02RTFXt6HKBASPI/nhFYaWkmbsYlZ52ecbqKSHt0nZFtT9v6h22KdJu5HECBla7tqLTm
- jWNg==
+ bh=mnTU2JyyziVhsFT/PUFFS0Dhiz+5OeVNk8iNBBaCWsA=;
+ b=TVJ9IxM4egmGw/+ghHvZRmEQkAy1gS+CSuu5W0S1gEewV4DeIIKOMmI/ydOFiC4Ngj
+ dOehenZMmJpym4OlGmSGiFJrYt/9BK82Xkb/Wdp2oPvOruQ1ujnmQYES/0Y+bBeTnTtg
+ 2sTACTaW2VtYDZDoBOI+Uw16VBRL85rkdNg/0qU/XQ97bORw9NH82pfuum4aL13oKWL5
+ 87/FsnEdnBwL2QNdcwj1rv1VvBCiNhanpyrpoXwkImlFKvDZDPLKm1FLWY4LF7GiVlgQ
+ obLWUjO1BL70rjB9Pvs1EbB7JYVG0hEdl45c46FWN3tuwAtRL6SsjiHj1HTgM7eMu5qn
+ 9X1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=O0Y1XJ+0xnuvSlAHla8rWWZZRIYWEJRmnWlUlMTmyI4=;
- b=feWqMwnVw7pLXJB+avPjsShcpGF91PqNgwoldriJt1VspZjUuOZnPXws9u07uW6hK+
- j6X/swfLN5r7cOOTEakxS/44Jgg9egfoDe6BTOg4tiqMcvrTr9XS64RzN8dMhwbNDnAR
- n+W6+lQzs/W0ROHPQ4xrVPf+qW9a38lX77+Xvp4fEdyCHreRqM/WBaky2BaVsSe7aWa1
- 1Hfw5Ac1n+o1YNw8FYQOkAkAZuQjqGr6VNQVSIx4Dtl4PnGN9WZeg1gDtepg/U3NVa2T
- AqLlnbnyeNTdO5S9X7Vu/4Cky9f6i/6XiC38BKUrGUy5/6b2zTO6Hr7Mt6Fw7EG/jGXU
- gkUg==
-X-Gm-Message-State: AJcUukeehsD59SrpKjzqfNaRgWLlNikK+/zxbkeEoT8LMD/gi/VJoan+
- Qhx2bvSfipQlXgB3ach/k+0=
-X-Google-Smtp-Source: ALg8bN4sPiue9kGGFEkEIJRmMcE+sT/aAECrKBjZOmV9VvI+j9RBigmTIoREZfQM85EyxoY0RGbaIQ==
-X-Received: by 2002:a1c:1902:: with SMTP id 2mr8529880wmz.150.1548069629901;
- Mon, 21 Jan 2019 03:20:29 -0800 (PST)
+ bh=mnTU2JyyziVhsFT/PUFFS0Dhiz+5OeVNk8iNBBaCWsA=;
+ b=k/ORFa1QmSZq1tMqKSQYz9vXGefk0p4oZKW0Vr+5eYRmM8xWtFJlDwrEhq55NzIKh8
+ LWb8s07PrW5mhL+8wq+9nUQ+vbtXw3HvUOJh/XoFTOeAsyPtQyFlfLVBZ+H+GS1T0Mr4
+ y96+uw98iA4vUhSWD1s6RRoLmz1zDSKGLJLefuQH3H3K1FxsRscQ+ReT7Y9Sx8Zy42Tw
+ n3XbD4dswOC2UpOJChyJItLihxvPHqvTLvAZMYcRLSs4dvFFUIRTsQurhMRiepfEfDUQ
+ dOLj3QUmvn5K54Zuzly79Jq6Jg9KLrF0kf3CMfr0ffeHnwqTBkDcnj4YDfEFA0AQftJw
+ 9dVQ==
+X-Gm-Message-State: AJcUukfzhevoW0GDTOol8nAcbrYAnh0m8/QvPOUXhpfb1HypEEUEpq7m
+ Tx4kAPjhWLF2G2PiAQGH2TM/DV9E+VU=
+X-Google-Smtp-Source: ALg8bN7qlbRepS1CrYVIP8szHJ8UxXlCcXeDjtZpm0H8yhM7shfVRWRKVyVBah27d2nyE9FHibaABQ==
+X-Received: by 2002:a5d:4ccb:: with SMTP id c11mr29201871wrt.241.1548070241927; 
+ Mon, 21 Jan 2019 03:30:41 -0800 (PST)
 Received: from localhost (pD9E51040.dip0.t-ipconnect.de. [217.229.16.64])
- by smtp.gmail.com with ESMTPSA id u204sm79202993wmu.30.2019.01.21.03.20.28
+ by smtp.gmail.com with ESMTPSA id v133sm40079446wmf.19.2019.01.21.03.30.40
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Mon, 21 Jan 2019 03:20:28 -0800 (PST)
-Date: Mon, 21 Jan 2019 12:20:27 +0100
+ Mon, 21 Jan 2019 03:30:41 -0800 (PST)
+Date: Mon, 21 Jan 2019 12:30:39 +0100
 From: Thierry Reding <thierry.reding@gmail.com>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH 1/2] pwm: sifive: Add DT documentation for SiFive PWM
- Controller
-Message-ID: <20190121112027.GH16756@ulmo>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Subject: Re: [PATCH 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
+Message-ID: <20190121113039.GI16756@ulmo>
 References: <1547194964-16718-1-git-send-email-yash.shah@sifive.com>
- <1547194964-16718-2-git-send-email-yash.shah@sifive.com>
- <20190115201149.ghddnf27s5kqephc@pengutronix.de>
- <CAJ2_jOGPpwsn=+OU3QcHtGYJ3MFYh9azdALSeWz3-WPXL9vHnw@mail.gmail.com>
+ <1547194964-16718-3-git-send-email-yash.shah@sifive.com>
+ <20190115220046.etgbno6ymsux75dk@pengutronix.de>
 MIME-Version: 1.0
-In-Reply-To: <CAJ2_jOGPpwsn=+OU3QcHtGYJ3MFYh9azdALSeWz3-WPXL9vHnw@mail.gmail.com>
+In-Reply-To: <20190115220046.etgbno6ymsux75dk@pengutronix.de>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190121_032031_989163_54C5CC05 
-X-CRM114-Status: GOOD (  23.47  )
+X-CRM114-CacheID: sfid-20190121_033043_982036_2DBE1928 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -100,135 +98,161 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Sachin Ghadi <sachin.ghadi@sifive.com>, robh+dt@kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ palmer@sifive.com, linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
+ Yash Shah <yash.shah@sifive.com>, robh+dt@kernel.org, paul.walmsley@sifive.com,
  linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============6677595939922862396=="
+Content-Type: multipart/mixed; boundary="===============9152701985779224540=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6677595939922862396==
+--===============9152701985779224540==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CNfT9TXqV7nd4cfk"
+	protocol="application/pgp-signature"; boundary="MFZs98Tklfu0WsCO"
 Content-Disposition: inline
 
 
---CNfT9TXqV7nd4cfk
+--MFZs98Tklfu0WsCO
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Jan 16, 2019 at 02:51:31PM +0530, Yash Shah wrote:
-> On Wed, Jan 16, 2019 at 1:41 AM Uwe Kleine-K=C3=B6nig
-> <u.kleine-koenig@pengutronix.de> wrote:
-> >
-> > Hello,
-> >
-> > this is v3, right? It is helpful to point this out to ease reviewing.
+On Tue, Jan 15, 2019 at 11:00:46PM +0100, Uwe Kleine-K=C3=B6nig wrote:
+> Hello,
 >=20
-> Yes, it is v3. Will take care of this in v4.
+> On Fri, Jan 11, 2019 at 01:52:44PM +0530, Yash Shah wrote:
+> > Adds a PWM driver for PWM chip present in SiFive's HiFive Unleashed SoC.
+> >=20
+> > Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
+> > [Atish: Various fixes and code cleanup]
+> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> > Signed-off-by: Yash Shah <yash.shah@sifive.com>
+> > ---
+> >  drivers/pwm/Kconfig      |  10 ++
+> >  drivers/pwm/Makefile     |   1 +
+> >  drivers/pwm/pwm-sifive.c | 246 +++++++++++++++++++++++++++++++++++++++=
+++++++++
+> >  3 files changed, 257 insertions(+)
+> >  create mode 100644 drivers/pwm/pwm-sifive.c
+> >=20
+> > diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+> > index a8f47df..3bcaf6a 100644
+> > --- a/drivers/pwm/Kconfig
+> > +++ b/drivers/pwm/Kconfig
+> > @@ -380,6 +380,16 @@ config PWM_SAMSUNG
+> >  	  To compile this driver as a module, choose M here: the module
+> >  	  will be called pwm-samsung.
+> > =20
+> > +config PWM_SIFIVE
+> > +	tristate "SiFive PWM support"
+> > +	depends on OF
+> > +	depends on COMMON_CLK
 >=20
-> >
-> > On Fri, Jan 11, 2019 at 01:52:43PM +0530, Yash Shah wrote:
-> > > DT documentation for PWM controller added with updated compatible
-> > > string.
-> >
-> > Not sure what was updated here. But assuming this is compared to v2 this
-> > is not a helpful info in the commit log.
+> I'd say add:
 >=20
-> Ok, will remove the 'updated compatible string' part.
+> 	depends on MACH_SIFIVE || COMPILE_TEST
 >=20
-> >
-> > > Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
-> > > [Atish: Compatible string update]
-> > > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > > Signed-off-by: Yash Shah <yash.shah@sifive.com>
-> > > ---
-> > >  .../devicetree/bindings/pwm/pwm-sifive.txt         | 37 ++++++++++++=
-++++++++++
-> > >  1 file changed, 37 insertions(+)
-> > >  create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.=
-txt
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt b/D=
-ocumentation/devicetree/bindings/pwm/pwm-sifive.txt
-> > > new file mode 100644
-> > > index 0000000..e0fc22a
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
-> > > @@ -0,0 +1,37 @@
-> > > +SiFive PWM controller
-> > > +
-> > > +Unlike most other PWM controllers, the SiFive PWM controller current=
-ly only
-> > > +supports one period for all channels in the PWM. This is set globall=
-y in DTS.
-> > > +The period also has significant restrictions on the values it can ac=
-hieve,
-> > > +which the driver rounds to the nearest achievable frequency.
-> > > +
-> > > +Required properties:
-> > > +- compatible: Please refer to sifive-blocks-ip-versioning.txt
-> >
-> > While the description was too verbose in v2, this is too short. You
-> > should at least mention something like "sifive,pwmX" and
-> > "sifive,$cpuname-pwm" (or how ever that scheme works).
+> (I guess "MACH_SIFIVE" is wrong, but I assume you get what I mean.)
 >=20
-> Will mention the above.
+> > +	help
+> > +	  Generic PWM framework driver for SiFive SoCs.
+> > +
+> > +	  To compile this driver as a module, choose M here: the module
+> > +	  will be called pwm-sifive.
+> > +
+> >  config PWM_SPEAR
+> >  	tristate "STMicroelectronics SPEAr PWM support"
+> >  	depends on PLAT_SPEAR
+> > diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+> > index 9c676a0..30089ca 100644
+> > --- a/drivers/pwm/Makefile
+> > +++ b/drivers/pwm/Makefile
+> > @@ -37,6 +37,7 @@ obj-$(CONFIG_PWM_RCAR)		+=3D pwm-rcar.o
+> >  obj-$(CONFIG_PWM_RENESAS_TPU)	+=3D pwm-renesas-tpu.o
+> >  obj-$(CONFIG_PWM_ROCKCHIP)	+=3D pwm-rockchip.o
+> >  obj-$(CONFIG_PWM_SAMSUNG)	+=3D pwm-samsung.o
+> > +obj-$(CONFIG_PWM_SIFIVE)	+=3D pwm-sifive.o
+> >  obj-$(CONFIG_PWM_SPEAR)		+=3D pwm-spear.o
+> >  obj-$(CONFIG_PWM_STI)		+=3D pwm-sti.o
+> >  obj-$(CONFIG_PWM_STM32)		+=3D pwm-stm32.o
+> > diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
+> > new file mode 100644
+> > index 0000000..7fee809
+> > --- /dev/null
+> > +++ b/drivers/pwm/pwm-sifive.c
+> > @@ -0,0 +1,246 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (C) 2017-2018 SiFive
+> > + * For SiFive's PWM IP block documentation please refer Chapter 14 of
+> > + * Reference Manual : https://static.dev.sifive.com/FU540-C000-v1.0.pdf
 >=20
-> >
-> > > +- reg: physical base address and length of the controller's registers
-> > > +- clocks: Should contain a clock identifier for the PWM's parent clo=
-ck.
-> > > +- #pwm-cells: Should be 2.
-> > > +  The first cell is the PWM channel number
-> > > +  The second cell is the PWM polarity
-> >
-> > I'd drop these two lines and refer to bindings/pwm/pwm.txt instead.
->=20
-> Will be done.
+> I wonder if such an instance should be only a single PWM instead of
+> four. Then you were more flexible with the period lengths (using
+> pwmcfg.pwmzerocmp) and could do stuff like inverted and uninverted mode.
 
-I don't think you can do that. You're omitting the second cell
-representing the period, so this is different from the standard binding
-and therefore needs to be explicit.
+I thought this IP only allowed a single period for all PWM channels in
+the IP. If so, splitting this into four different devices is going to
+complicate things because you'd have to coordinate between all four as
+to which period is currently set.
 
-That said, given the rest of the discussion in the other threads, maybe
-it no longer makes sense to set the period on the whole block, but
-rather just note in the binding that all PWMs need to run at the same
-period. If the driver already refuses to apply incompatible periods,
-your users are going to notice that they've got the DT wrong.
+> > +struct sifive_pwm_device {
+> > +	struct pwm_chip	chip;
+> > +	struct notifier_block notifier;
+> > +	struct clk *clk;
+> > +	void __iomem *regs;
+> > +	unsigned int approx_period;
+> > +	unsigned int real_period;
+> > +};
+>=20
+> I'd call this pwm_sifive_ddata. The prefix because the driver is called
+> pwm-sifive and ddata because this is driver data and not a device.
 
-This would have the advantage that you can use the standard bindings.
+I don't think there's a need to have an extra suffix. Just call this
+sifive_pwm or pwm_sifive. There's no ambiguity in that name and it's
+short and crisp.
+
+> > +	if (state->enabled)
+> > +		sifive_pwm_get_state(chip, dev, state);
+>=20
+> @Thierry: Should we bless this correction of state?
+
+I'm not sure I understand why this correction is necessary. Is it okay
+to request a state to be applied and when we're not able to set that
+state we just set anything as close as possible? Sounds a bit risky to
+me. What if somebody wants to use this in a case where precision
+matters?
+
+Now, if you're saying that there can't be such cases and we should
+support this, then why restrict the state correction to when the PWM is
+enabled? What's wrong with correcting it in either case?
 
 Thierry
 
---CNfT9TXqV7nd4cfk
+--MFZs98Tklfu0WsCO
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAlxFqvgACgkQ3SOs138+
-s6HkDw/9G/+2aipEoQrz+7s6f9UOqF7LrWscQSYjZU3i8G/nYxfxiTDpwarQYIZt
-Ceycjf6nt8x4bCAN76myAY8O/399OfKy/4s6EfFoIg77g5FVuhxWi0teEkn8cwo/
-SvzQypcgPO40uwU7sD5gYzKv8BL2DbV/v8gHq1MZYsw6F5P6hnpk3y1dRn9udrUw
-nL4qI1NR75zXBm6t+e5n3CBc6A/fBRo5juU1a4zJlxZIqbWz8Hw2MpeHZ/i22N7m
-MaepSUgGGS/Bk4qa3Jy4Qg82sHjSf1GYMBQnPTlSdA+Araw7xtpxGtFRJA92q4xk
-I8UEVbB7vfxqyKbcYcExzQIxnSNniRK64VQqiKq80NMVY3O/QA3gRa9aK/tQDSrG
-eJvpydF29+oGW2lncgxLZPT2mwTdtW10QyvjLnXqqlA8jlzhbsKUs5e8gVF65i94
-buG1R3zI9ngJ3LkkAUHFHiYZU9B0AxuZoz6X3IQlGcbInTC+lc3hB6jeNapMw5yL
-4pl6vUvxKQCauM7h5XpGlOVyZfBMV/4R6wRW1dEGhRusog1zIQTbQahwix1J06Kp
-N0ZbLtJ/4NJ+XSBNrFzLpM0JVKmJZdRBadJ2da6wbDmCRuULwC3rTS96rG9hEwQK
-kEV573LtxIY4rXw/zsD4wTrT02eM+TOl9NtC4EQVYl7ImIn9JhI=
-=ysK7
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAlxFrVwACgkQ3SOs138+
+s6GDPhAAqq3K+XU1yZmkcnkI1Zx0WumCOVIx3+P1YxoZRny1aaps0RIVvR3FIoFv
+1I0P/4cuDQ1nUHh8ejdmqE/0uT/+bpxxWg3srsjaKkaSM3TutdX4EPk929EP91oJ
+QIXFTxGm3FBeKbd5wdgqC5zLhC3hDowCpH+vyOB+YiW9bn2EBOQwnCwkeRpOAIVG
+q2Er9KwCuKd1wIT+jCvprKOCnwui7ycZ2ycLbxRiBNMwcRBUfSMy6J6dZ0CJKMdD
+uoSS1XWSOmLymi1g5Ibdii+VGxhXssfR9+YKvgdqJ0kkNqUZ8zrbHinNn0zuPSZH
+SJSNZ0QCAOkvgPFTwFR/QV0DnBu/i8pgybpPawLkwA10QAIe4D5vheHI9YgvTxE3
+9GNuFbUR1r52guNBF00ht3Wvxzu8WaoYwIOMhIDUrQJ4QA8c8eq+1GIJwXhvnzOH
+xW93VlukNv+TmgzE60/9a6JgelKFUw0Iu+yYWs7kFq4WAgPiz9E5TiwoitZq4j5/
+81HxqupXIT1jqI0W3JI6ZdVFk6gYEKts2CLIJKu9IIll59T3R8bS+dRdzp3Zm+JY
+xO3+m7Kt97Nnz+e0SakZ64dnQF50QR+hv+Pd5jNPiLFfeU9sVpULG03tph0vg/0Q
+Qn472hhDUD0VP1zBZxBl8DX0H/yOMaqnKHYyzIKN+JwOrJ/HH3A=
+=aoyh
 -----END PGP SIGNATURE-----
 
---CNfT9TXqV7nd4cfk--
+--MFZs98Tklfu0WsCO--
 
 
---===============6677595939922862396==
+--===============9152701985779224540==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -239,5 +263,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6677595939922862396==--
+--===============9152701985779224540==--
 
