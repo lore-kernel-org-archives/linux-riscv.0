@@ -2,90 +2,111 @@ Return-Path: <SRS0=UFm3=P5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 897A9FA372D
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 11:30:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B7AA6C7112F
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 11:37:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5957620663
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 11:30:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8721A2085A
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 11:37:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sw1XCP/p";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="TVJ9IxM4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5957620663
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="H2ugHOAo"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8721A2085A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=teOyhhMj7Al8oQGX051X4WmWSALI3mKllyLiHFL2ZVc=; b=sw1XCP/pflxEDjewQC8HnOU0x
-	B4ssABDngdLpqG+LW/ORbck8PScfIQCSFhsDEZO1xZby0FqMcMkEXMRc3Qid+3BuQJFP4gJFnjINg
-	YHFSd7A3ygHdhcTZMznn3DlFCx2zODIqAK+ysI3xUue613y6QVIv5pYvRZ48t3iYOTE/cwMU+ZiqZ
-	dHm5bObDx8z7Lp57vwEJk7gooivhVq/A1egZ1mcvNeuXzrqacwmOmLMmkxwmJtq6MnhDP8CII07Kq
-	q3MirVoIwkYCi0gbII7syzZTfSuCVblOcYhZ6Ws/8HtfFTEFyNz/DqXglMd5v8xXTeHCL95JtAv8q
-	+yaPcYMow==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Jvu65OL9rd1Wrbv8X++AzwND74iJJdtP0kWgd+i8bfg=; b=H2ugHOAo9VDz0s
+	iAEGu27yT0qq62Qo9PfdkS5wvExUaYI6B1IQlOoK15PMKPE0KmbjOsFv5GGsVaMvDplUvGoBP+ElH
+	OV4bXGwMdVe325T3E1zae0Yj/0YbXVioLa+WQFLtPek7N3z4rr8vqF89Mn5G/tQdZp2KVusV6jHAY
+	HCM+0B2GeumplOH2rn8B+e0rlX/y9oDVbS1gITnOtWYMDVRApLkqnHTeUsDcmkO0XQRLQ57nh3hb9
+	crRxapiH9WtnC8x9+XypROpDKVSV8iJgOXdBnLG9sgxvtL6QZfpq+BDOy9N1jeHExOCV65rTrcYDm
+	FSqhRPlspqmsafzwN8BQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1glXmx-00087j-64; Mon, 21 Jan 2019 11:30:47 +0000
-Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
+	id 1glXsz-0001P4-Jq; Mon, 21 Jan 2019 11:37:01 +0000
+Received: from mx1.redhat.com ([209.132.183.28])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1glXmt-00086m-Th
- for linux-riscv@lists.infradead.org; Mon, 21 Jan 2019 11:30:45 +0000
-Received: by mail-wr1-x443.google.com with SMTP id t27so22898542wra.6
- for <linux-riscv@lists.infradead.org>; Mon, 21 Jan 2019 03:30:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to:user-agent;
- bh=mnTU2JyyziVhsFT/PUFFS0Dhiz+5OeVNk8iNBBaCWsA=;
- b=TVJ9IxM4egmGw/+ghHvZRmEQkAy1gS+CSuu5W0S1gEewV4DeIIKOMmI/ydOFiC4Ngj
- dOehenZMmJpym4OlGmSGiFJrYt/9BK82Xkb/Wdp2oPvOruQ1ujnmQYES/0Y+bBeTnTtg
- 2sTACTaW2VtYDZDoBOI+Uw16VBRL85rkdNg/0qU/XQ97bORw9NH82pfuum4aL13oKWL5
- 87/FsnEdnBwL2QNdcwj1rv1VvBCiNhanpyrpoXwkImlFKvDZDPLKm1FLWY4LF7GiVlgQ
- obLWUjO1BL70rjB9Pvs1EbB7JYVG0hEdl45c46FWN3tuwAtRL6SsjiHj1HTgM7eMu5qn
- 9X1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=mnTU2JyyziVhsFT/PUFFS0Dhiz+5OeVNk8iNBBaCWsA=;
- b=k/ORFa1QmSZq1tMqKSQYz9vXGefk0p4oZKW0Vr+5eYRmM8xWtFJlDwrEhq55NzIKh8
- LWb8s07PrW5mhL+8wq+9nUQ+vbtXw3HvUOJh/XoFTOeAsyPtQyFlfLVBZ+H+GS1T0Mr4
- y96+uw98iA4vUhSWD1s6RRoLmz1zDSKGLJLefuQH3H3K1FxsRscQ+ReT7Y9Sx8Zy42Tw
- n3XbD4dswOC2UpOJChyJItLihxvPHqvTLvAZMYcRLSs4dvFFUIRTsQurhMRiepfEfDUQ
- dOLj3QUmvn5K54Zuzly79Jq6Jg9KLrF0kf3CMfr0ffeHnwqTBkDcnj4YDfEFA0AQftJw
- 9dVQ==
-X-Gm-Message-State: AJcUukfzhevoW0GDTOol8nAcbrYAnh0m8/QvPOUXhpfb1HypEEUEpq7m
- Tx4kAPjhWLF2G2PiAQGH2TM/DV9E+VU=
-X-Google-Smtp-Source: ALg8bN7qlbRepS1CrYVIP8szHJ8UxXlCcXeDjtZpm0H8yhM7shfVRWRKVyVBah27d2nyE9FHibaABQ==
-X-Received: by 2002:a5d:4ccb:: with SMTP id c11mr29201871wrt.241.1548070241927; 
- Mon, 21 Jan 2019 03:30:41 -0800 (PST)
-Received: from localhost (pD9E51040.dip0.t-ipconnect.de. [217.229.16.64])
- by smtp.gmail.com with ESMTPSA id v133sm40079446wmf.19.2019.01.21.03.30.40
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Mon, 21 Jan 2019 03:30:41 -0800 (PST)
-Date: Mon, 21 Jan 2019 12:30:39 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-Subject: Re: [PATCH 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
-Message-ID: <20190121113039.GI16756@ulmo>
-References: <1547194964-16718-1-git-send-email-yash.shah@sifive.com>
- <1547194964-16718-3-git-send-email-yash.shah@sifive.com>
- <20190115220046.etgbno6ymsux75dk@pengutronix.de>
+ id 1glXsw-0001OH-Nv; Mon, 21 Jan 2019 11:37:00 +0000
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+ [10.5.11.22])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mx1.redhat.com (Postfix) with ESMTPS id 3EEEA4D4DD;
+ Mon, 21 Jan 2019 11:36:56 +0000 (UTC)
+Received: from [10.36.116.223] (ovpn-116-223.ams2.redhat.com [10.36.116.223])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 7C2A01001F58;
+ Mon, 21 Jan 2019 11:36:36 +0000 (UTC)
+Subject: Re: [PATCH v2 0/9] mm: PG_reserved cleanups and documentation
+To: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>
+References: <20190114125903.24845-1-david@redhat.com>
+From: David Hildenbrand <david@redhat.com>
+Openpgp: preference=signencrypt
+Autocrypt: addr=david@redhat.com; prefer-encrypt=mutual; keydata=
+ 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
+ SE+xAvmumFBY
+Organization: Red Hat GmbH
+Message-ID: <6abb9ad2-f103-12a2-e1dc-eec81b801338@redhat.com>
+Date: Mon, 21 Jan 2019 12:36:35 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.3.1
 MIME-Version: 1.0
-In-Reply-To: <20190115220046.etgbno6ymsux75dk@pengutronix.de>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20190114125903.24845-1-david@redhat.com>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+ (mx1.redhat.com [10.5.110.39]); Mon, 21 Jan 2019 11:36:57 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190121_033043_982036_2DBE1928 
-X-CRM114-Status: GOOD (  26.99  )
+X-CRM114-CacheID: sfid-20190121_033658_813790_AFA2D1F6 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,171 +118,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- palmer@sifive.com, linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
- Yash Shah <yash.shah@sifive.com>, robh+dt@kernel.org, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============9152701985779224540=="
+Cc: Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
+ CHANDAN VN <chandan.vn@samsung.com>, David Airlie <airlied@linux.ie>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Bhupesh Sharma <bhsharma@redhat.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, Tony Luck <tony.luck@intel.com>,
+ Stefan Agner <stefan@agner.ch>, Michal Hocko <mhocko@kernel.org>,
+ David Howells <dhowells@redhat.com>, Paul Mackerras <paulus@samba.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, linux-riscv@lists.infradead.org,
+ Alexander Duyck <alexander.h.duyck@linux.intel.com>,
+ linux-s390@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Logan Gunthorpe <logang@deltatee.com>,
+ Pavel Tatashin <pasha.tatashin@oracle.com>,
+ Matthew Wilcox <willy@infradead.org>,
+ AKASHI Takahiro <takahiro.akashi@linaro.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Anthony Yznaga <anthony.yznaga@oracle.com>,
+ Tobias Klauser <tklauser@distanz.ch>, Laura Abbott <labbott@redhat.com>,
+ Fenghua Yu <fenghua.yu@intel.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
+ Stephen Rothwell <sfr@canb.auug.org.au>, Marc Zyngier <marc.zyngier@arm.com>,
+ Will Deacon <will.deacon@arm.com>,
+ Kristina Martsenko <kristina.martsenko@arm.com>,
+ linux-m68k@lists.linux-m68k.org, Dave Kleikamp <dave.kleikamp@oracle.com>,
+ linux-mediatek@lists.infradead.org, Oleg Nesterov <oleg@redhat.com>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@c-s.fr>,
+ Matthias Brugger <mbrugger@suse.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org,
+ Miles Chen <miles.chen@mediatek.com>, Mike Rapoport <rppt@linux.vnet.ibm.com>,
+ James Morse <james.morse@arm.com>, Souptick Joarder <jrdr.linux@gmail.com>,
+ Johannes Weiner <hannes@cmpxchg.org>,
+ Martin Schwidefsky <schwidefsky@de.ibm.com>, linuxppc-dev@lists.ozlabs.org,
+ Greg Hackmann <ghackmann@android.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 14.01.19 13:58, David Hildenbrand wrote:
+> Nothing major changed since the last version. I would be happy about
+> additional ACKs. If there are no further comments, can this go via the
+> mm-tree in one chunk?
 
---===============9152701985779224540==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="MFZs98Tklfu0WsCO"
-Content-Disposition: inline
+For the time being, I will not add further patches to this series (as
+discussed in response to one question, we have to be careful dropping
+PG_reserved at some places). Only ACKs were added during review so far.
 
+@Andrew, how to proceed with this?
 
---MFZs98Tklfu0WsCO
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+-- 
 
-On Tue, Jan 15, 2019 at 11:00:46PM +0100, Uwe Kleine-K=C3=B6nig wrote:
-> Hello,
->=20
-> On Fri, Jan 11, 2019 at 01:52:44PM +0530, Yash Shah wrote:
-> > Adds a PWM driver for PWM chip present in SiFive's HiFive Unleashed SoC.
-> >=20
-> > Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
-> > [Atish: Various fixes and code cleanup]
-> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > Signed-off-by: Yash Shah <yash.shah@sifive.com>
-> > ---
-> >  drivers/pwm/Kconfig      |  10 ++
-> >  drivers/pwm/Makefile     |   1 +
-> >  drivers/pwm/pwm-sifive.c | 246 +++++++++++++++++++++++++++++++++++++++=
-++++++++
-> >  3 files changed, 257 insertions(+)
-> >  create mode 100644 drivers/pwm/pwm-sifive.c
-> >=20
-> > diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> > index a8f47df..3bcaf6a 100644
-> > --- a/drivers/pwm/Kconfig
-> > +++ b/drivers/pwm/Kconfig
-> > @@ -380,6 +380,16 @@ config PWM_SAMSUNG
-> >  	  To compile this driver as a module, choose M here: the module
-> >  	  will be called pwm-samsung.
-> > =20
-> > +config PWM_SIFIVE
-> > +	tristate "SiFive PWM support"
-> > +	depends on OF
-> > +	depends on COMMON_CLK
->=20
-> I'd say add:
->=20
-> 	depends on MACH_SIFIVE || COMPILE_TEST
->=20
-> (I guess "MACH_SIFIVE" is wrong, but I assume you get what I mean.)
->=20
-> > +	help
-> > +	  Generic PWM framework driver for SiFive SoCs.
-> > +
-> > +	  To compile this driver as a module, choose M here: the module
-> > +	  will be called pwm-sifive.
-> > +
-> >  config PWM_SPEAR
-> >  	tristate "STMicroelectronics SPEAr PWM support"
-> >  	depends on PLAT_SPEAR
-> > diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> > index 9c676a0..30089ca 100644
-> > --- a/drivers/pwm/Makefile
-> > +++ b/drivers/pwm/Makefile
-> > @@ -37,6 +37,7 @@ obj-$(CONFIG_PWM_RCAR)		+=3D pwm-rcar.o
-> >  obj-$(CONFIG_PWM_RENESAS_TPU)	+=3D pwm-renesas-tpu.o
-> >  obj-$(CONFIG_PWM_ROCKCHIP)	+=3D pwm-rockchip.o
-> >  obj-$(CONFIG_PWM_SAMSUNG)	+=3D pwm-samsung.o
-> > +obj-$(CONFIG_PWM_SIFIVE)	+=3D pwm-sifive.o
-> >  obj-$(CONFIG_PWM_SPEAR)		+=3D pwm-spear.o
-> >  obj-$(CONFIG_PWM_STI)		+=3D pwm-sti.o
-> >  obj-$(CONFIG_PWM_STM32)		+=3D pwm-stm32.o
-> > diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
-> > new file mode 100644
-> > index 0000000..7fee809
-> > --- /dev/null
-> > +++ b/drivers/pwm/pwm-sifive.c
-> > @@ -0,0 +1,246 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (C) 2017-2018 SiFive
-> > + * For SiFive's PWM IP block documentation please refer Chapter 14 of
-> > + * Reference Manual : https://static.dev.sifive.com/FU540-C000-v1.0.pdf
->=20
-> I wonder if such an instance should be only a single PWM instead of
-> four. Then you were more flexible with the period lengths (using
-> pwmcfg.pwmzerocmp) and could do stuff like inverted and uninverted mode.
+Thanks,
 
-I thought this IP only allowed a single period for all PWM channels in
-the IP. If so, splitting this into four different devices is going to
-complicate things because you'd have to coordinate between all four as
-to which period is currently set.
-
-> > +struct sifive_pwm_device {
-> > +	struct pwm_chip	chip;
-> > +	struct notifier_block notifier;
-> > +	struct clk *clk;
-> > +	void __iomem *regs;
-> > +	unsigned int approx_period;
-> > +	unsigned int real_period;
-> > +};
->=20
-> I'd call this pwm_sifive_ddata. The prefix because the driver is called
-> pwm-sifive and ddata because this is driver data and not a device.
-
-I don't think there's a need to have an extra suffix. Just call this
-sifive_pwm or pwm_sifive. There's no ambiguity in that name and it's
-short and crisp.
-
-> > +	if (state->enabled)
-> > +		sifive_pwm_get_state(chip, dev, state);
->=20
-> @Thierry: Should we bless this correction of state?
-
-I'm not sure I understand why this correction is necessary. Is it okay
-to request a state to be applied and when we're not able to set that
-state we just set anything as close as possible? Sounds a bit risky to
-me. What if somebody wants to use this in a case where precision
-matters?
-
-Now, if you're saying that there can't be such cases and we should
-support this, then why restrict the state correction to when the PWM is
-enabled? What's wrong with correcting it in either case?
-
-Thierry
-
---MFZs98Tklfu0WsCO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAlxFrVwACgkQ3SOs138+
-s6GDPhAAqq3K+XU1yZmkcnkI1Zx0WumCOVIx3+P1YxoZRny1aaps0RIVvR3FIoFv
-1I0P/4cuDQ1nUHh8ejdmqE/0uT/+bpxxWg3srsjaKkaSM3TutdX4EPk929EP91oJ
-QIXFTxGm3FBeKbd5wdgqC5zLhC3hDowCpH+vyOB+YiW9bn2EBOQwnCwkeRpOAIVG
-q2Er9KwCuKd1wIT+jCvprKOCnwui7ycZ2ycLbxRiBNMwcRBUfSMy6J6dZ0CJKMdD
-uoSS1XWSOmLymi1g5Ibdii+VGxhXssfR9+YKvgdqJ0kkNqUZ8zrbHinNn0zuPSZH
-SJSNZ0QCAOkvgPFTwFR/QV0DnBu/i8pgybpPawLkwA10QAIe4D5vheHI9YgvTxE3
-9GNuFbUR1r52guNBF00ht3Wvxzu8WaoYwIOMhIDUrQJ4QA8c8eq+1GIJwXhvnzOH
-xW93VlukNv+TmgzE60/9a6JgelKFUw0Iu+yYWs7kFq4WAgPiz9E5TiwoitZq4j5/
-81HxqupXIT1jqI0W3JI6ZdVFk6gYEKts2CLIJKu9IIll59T3R8bS+dRdzp3Zm+JY
-xO3+m7Kt97Nnz+e0SakZ64dnQF50QR+hv+Pd5jNPiLFfeU9sVpULG03tph0vg/0Q
-Qn472hhDUD0VP1zBZxBl8DX0H/yOMaqnKHYyzIKN+JwOrJ/HH3A=
-=aoyh
------END PGP SIGNATURE-----
-
---MFZs98Tklfu0WsCO--
-
-
---===============9152701985779224540==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+David / dhildenb
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9152701985779224540==--
-
