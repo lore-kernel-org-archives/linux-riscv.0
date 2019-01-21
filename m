@@ -2,20 +2,21 @@ Return-Path: <SRS0=UFm3=P5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D92B2C2F3A0
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 14:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C6334C2F421
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 14:59:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A910620861
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 14:10:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 936AF20870
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 14:59:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GxKDYs4S"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A910620861
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ITHvRUTX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 936AF20870
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,60 +25,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QO7eNOr0A7jZG+JrZ9vrGkvXrw43LSBIsleIRUF/mLI=; b=GxKDYs4SXnjp26
-	EWI4R6CzXZrwX+LDOcBnt0J+zKTeU8ZKQC+jWSuq4GOBoTB4xmIChD97RXe80PCWQpqCfA+f8vsFW
-	NbRa7fTdhgem7drZfnhuFHmNQ6f51U5OBtCEZdhb0pG8/qaf2SMYvcJYNTX/DvYwc7SBsEQ8w2I3h
-	kJoSGA8Y/EsESo0azCMJqaGYih8OwWrPdt5p5cnPF1+0XH3ikeU4QI9TkbPMkjl6pemZMHRSYcM5o
-	QU5YvDBhsAdUjUcXCOYDp4Tl09QFAzBah5PO+dCWLI97Zn3OiIUgm7/9RrsJl+ACZIpzAHKxGNeQH
-	c+8v3uAnviNh9kbopIwg==;
+	List-Owner; bh=c+5SgvwhCIO1eEcxI3zVrjvV6k/ibwO1GQLs6Cw6EII=; b=ITHvRUTXSBhEgE
+	e52+XQJW62UoywZ9/BS5aVYlg1noXzEhDjkxp84t2ecdZhltdxPSNP/GYtuk0OjL3mHqf3N4RsmdZ
+	ccfcn0ysCeXEgEvTsgYxKlCqCCdG2cdXOrKk6TTF0u22jcqQHiWEYQFfJrtAiPpaGlE+HQIU/5HiI
+	9Zln/e/Mw5tij842aulkTckXXrLa95vTt314cqQEHrA8J6vQ74x6wF5QrRU3P3xfgWeTjbUrUDgfr
+	AQkhk49TeNcunVXkyiF/omnrGQldt1qSUo8RXHphuMyzRxs8hdxfZx/RIl2y7JF227o9y91TpXzoz
+	YL3g1+bFsn3WrbXm5uXQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1glaHr-0003Dc-L4; Mon, 21 Jan 2019 14:10:51 +0000
-Received: from mail-lj1-f193.google.com ([209.85.208.193])
+	id 1glb2a-0005zt-AP; Mon, 21 Jan 2019 14:59:08 +0000
+Received: from mail-oi1-f193.google.com ([209.85.167.193])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1glaHn-0003Cq-Tl
- for linux-riscv@lists.infradead.org; Mon, 21 Jan 2019 14:10:49 +0000
-Received: by mail-lj1-f193.google.com with SMTP id k19-v6so17595123lji.11
- for <linux-riscv@lists.infradead.org>; Mon, 21 Jan 2019 06:10:47 -0800 (PST)
+ id 1glb2W-0005zS-GC
+ for linux-riscv@lists.infradead.org; Mon, 21 Jan 2019 14:59:06 +0000
+Received: by mail-oi1-f193.google.com with SMTP id m6so14720035oig.11
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Jan 2019 06:59:03 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=8jpIsQBQw8LJ2Rg1bqKD/AdjTLRe3AL1lYfFNor0shs=;
- b=aSeboZM1F/cuS2CFNy+snz/kn9Lw5A6uMmZFJARbyWs0BC0HUCWP1iUwD68Culk/4h
- uYraFCAUpLwZY2mt2cUrri0C/GBGgXuuZW2Zp2lQ4uMLx5DCNSLVYZrTMkJcIgtnvJ5x
- ydZiIIndQdAbemvP1h4yHW3tu5eVIRjgYKC93oK4iIiyf1fPSVUMVvJ5YqFFrdC3vyHt
- dK5Mb7TW9Bp0xFn18gIiN0+YnYFETfM7fT+mRcqkdjlAmSK+RYu6+QC4uu7e/zU+POJN
- U2fn+uELBuVdk1W7gbZVBfurHtPfRxt+mowFj5ieGI96C2ctWbbElraF3NmOpRoy+ROe
- gjDA==
-X-Gm-Message-State: AJcUukfkS2lYqFEZ6pZyygXvGAh8Qx+A/z74eKB7AtZrEpphrM7tQlzs
- BRoWg3h+dTbv9NG73jrNJ/zBcmlf
-X-Google-Smtp-Source: ALg8bN70hGTRSnrzSBC1jLEvfQyE7Sm582UUirijl92Kc4H35LLCPrw9baZaJXEHY8+7pcPiG83/qA==
-X-Received: by 2002:a2e:9849:: with SMTP id e9-v6mr17974492ljj.9.1548079845547; 
- Mon, 21 Jan 2019 06:10:45 -0800 (PST)
-Received: from xi.terra (c-74bee655.07-184-6d6c6d4.bbcust.telenor.se.
- [85.230.190.116])
- by smtp.gmail.com with ESMTPSA id q10-v6sm2295968ljj.3.2019.01.21.06.10.44
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 21 Jan 2019 06:10:44 -0800 (PST)
-Received: from johan by xi.terra with local (Exim 4.91)
- (envelope-from <johan@kernel.org>)
- id 1glaHg-0001iu-TD; Mon, 21 Jan 2019 15:10:40 +0100
-Date: Mon, 21 Jan 2019 15:10:40 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH 5/7] riscv: dts: add initial support for the SiFive
- FU540-C000 SoC
-Message-ID: <20190121141040.GM3691@localhost>
-References: <20181215052154.24347-1-paul.walmsley@sifive.com>
- <20181215052154.24347-6-paul.walmsley@sifive.com>
+ bh=C/9Uug1Ejuv4f8YRQX5ceM4h66n/a0h50B849R+4uA8=;
+ b=K9HQxSIGfYGuNAU2G85xqX04KltibjDIV3UEs/dFjQCP1s0F69FOV0irkB9t7SdtHR
+ VwMm29rYFDmyI5juZYnNMxTExCPHFYGcPs5ZdUbwv2JI2WzNwIV8lgfGJ+SklSAWvp49
+ /Zsvqngg6ZX6e22NJ7Zij0pJpyBZM5CsjTKeWd96QR8JIxi+SSNeBITB+FCSwGK1tstE
+ tw4a/TYVGTUodmWeMa4mHoEWxV7wUGW6+IfVJQPl5Uj7RmgynGAlSkMWI0unhrFb/Eb9
+ mo074WY34tI2nUnJJalqnvpevSZPTSL6dGNUugCzMRLSJY89Cyw5+vpbpWuz0jA1j35l
+ +VMg==
+X-Gm-Message-State: AJcUukd/I2mk9YPGd/TW4WzKsqNgUHVMOIVy9ZXa53PtjYVnuH4pSJ22
+ T2RQwdjM84mM/TZYKHlfU4nbZW0=
+X-Google-Smtp-Source: ALg8bN401f+OXx2xpMJU9jIWKbBAfydSwLBnDZh+3Vs/dVKpKl0Nw/Cq6Dt6z72aRCOajW93SemtZA==
+X-Received: by 2002:aca:3403:: with SMTP id b3mr5647994oia.242.1548082743063; 
+ Mon, 21 Jan 2019 06:59:03 -0800 (PST)
+Received: from localhost (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id u136sm6309367oie.38.2019.01.21.06.59.02
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Mon, 21 Jan 2019 06:59:02 -0800 (PST)
+Date: Mon, 21 Jan 2019 08:59:02 -0600
+From: Rob Herring <robh@kernel.org>
+To: Yash Shah <yash.shah@sifive.com>
+Subject: Re: [PATCH v4 1/2] pwm: sifive: Add DT documentation for SiFive PWM
+ Controller
+Message-ID: <20190121145901.GA7547@bogus>
+References: <1548066043-1252-1-git-send-email-yash.shah@sifive.com>
+ <1548066043-1252-2-git-send-email-yash.shah@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20181215052154.24347-6-paul.walmsley@sifive.com>
-User-Agent: Mutt/1.11.2 (2019-01-07)
+In-Reply-To: <1548066043-1252-2-git-send-email-yash.shah@sifive.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190121_061047_960190_C9409732 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20190121_065904_537332_EF01E882 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -89,58 +87,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Paul Walmsley <paul@pwsan.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Rob Herring <robh+dt@kernel.org>, linux-riscv@lists.infradead.org
+Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ palmer@sifive.com, linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
+ thierry.reding@gmail.com, paul.walmsley@sifive.com,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 14, 2018 at 09:21:52PM -0800, Paul Walmsley wrote:
-> Add initial support for the SiFive FU540-C000 SoC.  This is a 28nm SoC
-> based around the SiFive U54-MC core complex and a TileLink
-> interconnect.
+On Mon, Jan 21, 2019 at 03:50:42PM +0530, Yash Shah wrote:
+> DT documentation for PWM controller added.
 > 
-> This file is expected to grow considerably as more device drivers are
-> added to the kernel.
-> 
-> Cc: Rob Herring <robh+dt@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Palmer Dabbelt <palmer@sifive.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-> Signed-off-by: Paul Walmsley <paul@pwsan.com>
+> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
+> [Atish: Compatible string update]
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> Signed-off-by: Yash Shah <yash.shah@sifive.com>
 > ---
->  arch/riscv/boot/dts/sifive/fu540-c000.dtsi | 182 +++++++++++++++++++++
->  1 file changed, 182 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+>  .../devicetree/bindings/pwm/pwm-sifive.txt         | 37 ++++++++++++++++++++++
+>  1 file changed, 37 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.txt
 > 
-> diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+> diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
 > new file mode 100644
-> index 000000000000..0ef314cf17b6
+> index 0000000..b207908
 > --- /dev/null
-> +++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+> +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+> @@ -0,0 +1,37 @@
+> +SiFive PWM controller
+> +
+> +Unlike most other PWM controllers, the SiFive PWM controller currently only
+> +supports one period for all channels in the PWM. This is set globally in DTS.
+> +The period also has significant restrictions on the values it can achieve,
+> +which the driver rounds to the nearest achievable frequency.
+> +
+> +Required properties:
+> +- compatible: Should be "sifive,pwmX" and "sifive,$socname-pwm".
 
-> +	cpus {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		timebase-frequency = <1000000>;
-> +		cpu0: cpu@0 {
-> +			clock-frequency = <0>;
-> +			compatible = "sifive,e51", "sifive,rocket0";
+The order here is wrong.
 
-Looks like you forgot the currently required "riscv" compatible here and
-below.
+You still need to enumeration valid version numbers. Is 'sifive,pwm20' 
+valid?
 
-But perhaps it's the binding and arch code that should be revised
-instead (e.g. as per your discussion with Rob elsewhere in this thread).
+> +  Please refer to sifive-blocks-ip-versioning.txt for details.
+> +- reg: physical base address and length of the controller's registers
+> +- clocks: Should contain a clock identifier for the PWM's parent clock.
+> +- #pwm-cells: Should be 2.
+> +  Refer to bindings/pwm/pwm.txt for details.
+> +- sifive,period-ns: the driver will get as close to this period as it can
+> +- interrupts: one interrupt per PWM channel
 
-Johan
+How many channels? If variable, is the a max number?
+
+> +
+> +PWM RTL that corresponds to the IP block version numbers can be found
+> +here:
+> +
+> +https://github.com/sifive/sifive-blocks/tree/master/src/main/scala/devices/pwm
+
+Put this in the description at the top.
+
+> +
+> +Further information on the format of the IP
+> +block-specific version numbers can be found in
+> +Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
+
+You already said this.
+
+> +
+> +Examples:
+> +
+> +pwm:  pwm@10020000 {
+> +	compatible = "sifive,fu540-c000-pwm","sifive,pwm0";
+
+Space after the ',' needed.
+
+> +	reg = <0x0 0x10020000 0x0 0x1000>;
+> +	clocks = <&tlclk>;
+> +	interrupt-parent = <&plic>;
+> +	interrupts = <42 43 44 45>;
+> +	#pwm-cells = <2>;
+> +	sifive,period-ns = <1000000>;
+> +};
+> -- 
+> 1.9.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
