@@ -2,83 +2,84 @@ Return-Path: <SRS0=UFm3=P5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2DC11C282DB
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 08:59:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6DAC4C282DB
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 10:21:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ECF402084A
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 08:59:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 320BF20879
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 21 Jan 2019 10:21:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="siaEylTI"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ECF402084A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TBlhERIY";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="MvuzBS9f"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 320BF20879
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BEYpJId6DDYNRiQgSoXTwSTdNAlK83fLQmJrBVrhI3g=; b=siaEylTIJjEEAI
-	z7N9q4LunLWHmT8nZK2oZRjcuhUyTHCeZKgLQ9mtkEQ5ZvzZxVpsXbq7sTDQ6j41WM02Mca5t0GxX
-	eThLKIby9LsRvr7D8QF4hBeP1ZjMTkkbuvc7pFIndQfQAuwhtQjOb+6ThZqJi/TimEGNt0xVFV9eE
-	YXm52CIegze6M7X0uIbf2ja601v/wXalWPLKdCw0gWax6cki7kw5KjDrfep5QSLb1i5baD/u0JY41
-	W9EhOuhGKROW1AqMx7qOhlmfWZXfjIlRKxdfKXpyeShnUVWoG0mmQrOPHg2NYAnUyodSetaKR7DHq
-	7PMywHSR9BCY8DOZN1yQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=HUp7cteG7bpbFEFxwHRyjIstdNwENQiJ4vlqiq/eCAI=; b=TBl
+	hERIYXWZ5qZjwURIZjKWqzAmZBJW3gmlaLu0zrs1JIg4oTUc/l0ODeu3SeT5Qu4h4BZXzQk0cr0zr
+	eaSUw1KtJJuHlzFjXJ9XYDnwvBdE2UeJE1AgfaYnYX1Yg9wG7yumh+2WG3Qoy9I47cqYInsscpBym
+	rgxdCEVxp6Uuq7MjL/uZlSBvpwhIZhj5S1n/W/jq1hKBM9JTRVt6U4vV4HnO+vwRiQb5u38zvSBr7
+	7hShqNyAxQYkWbYu+MJyxfSLQI5OxaguAvj4YK6oC0Sw2/jZ2M49mx+tlrTLtjcaJFhRABdQQPPqs
+	fHf6wqFy3pRn1Gz+5UQAPvHndbvMlIQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1glVQt-0006rK-Rx; Mon, 21 Jan 2019 08:59:51 +0000
-Received: from mail-lf1-f68.google.com ([209.85.167.68])
+	id 1glWhY-0005bk-8P; Mon, 21 Jan 2019 10:21:08 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1glVQk-0006pL-Ln
- for linux-riscv@lists.infradead.org; Mon, 21 Jan 2019 08:59:50 +0000
-Received: by mail-lf1-f68.google.com with SMTP id y14so14869432lfg.13
- for <linux-riscv@lists.infradead.org>; Mon, 21 Jan 2019 00:59:41 -0800 (PST)
+ id 1glWhV-0005bO-6N
+ for linux-riscv@lists.infradead.org; Mon, 21 Jan 2019 10:21:06 +0000
+Received: by mail-pl1-x643.google.com with SMTP id gn14so9612872plb.10
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Jan 2019 02:21:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id;
+ bh=ussECRD/mXUu7sFZh4zdG6qGENVe+0LQr/6NdK4aNFs=;
+ b=MvuzBS9fsHQhKFhUsIbgcHA0g9NYkwADSoW/GdcjVY3MyuK8ELLT20OkWBbyNsivGW
+ sJvbbS/J9mYzYVzgzzpnmrBJNIcu8o/nU1w4OizPlK34cxaeRQGPWIIRlRxidalaVS68
+ Aq8WDYTkcXg3xj00KfHtRfF1XgzEXN0ExwG5z8dCqO64Z/6G8Qdg+7kpi47aIce6BHpu
+ 5APBEgChmmVylj1IqM7FMdSij7tt0nslWtBsaXstZ5yNDxwpjlVEcnYcmulEvrCG1kdC
+ xOIpmXO4u0PoO42ZO09QhIRVSHbhXMqqXHOP30Ntx8lI3JW70uyTs8E4MegeL4WbB8Mo
+ Biog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=CBPf8HOT93sc0oj4tv290B2Z61lA88aXyyFQdOpSyj0=;
- b=eULiwsu3SGT2UJ+3Nxh4uyjyHWk82UPowSCzQUtMc3tAwKwAFRyWHI/5tWJuCTXF4I
- MAwVoNGP8XE+vFz803MCgbj6HFrBRLHTYdrqxawK2j+xNPICfrzHJjaqqU7rZHwBJYXG
- oZrS176Do7W3I2+NOqbQcmKCctGt7/z0MDQNKOEhkyN00aZMEVBepId/BqwU2unTeEcb
- XhCLxr1fF/4Xe/mOTdy2hsVB0+iKKqFgpkUfMTEOuOhHX2u0hOxyA48RT9yn1+JmqUC8
- Ue3isE6ielh+2XC+gOTKYzIIPxVzf1DTaQ/oHst3yvvRDTV+4l+90iY6mkyLu42e0Zjj
- oDFw==
-X-Gm-Message-State: AJcUukc9MQgqygkEQ2vo+YryJnjEobz+/xzSDTAxg+gM1+uXtV3/JcUO
- uNcHRLOn+lWBlYe0RrzZyvc=
-X-Google-Smtp-Source: ALg8bN6DKFlyHHbNBuQhh2Rrhe5wmbHn3TVTP5Dk7mbkg+PFyUtFlFcm4QqTdAZEMeiq0GYOAGEGAQ==
-X-Received: by 2002:a19:5d42:: with SMTP id p2mr18472269lfj.83.1548061179965; 
- Mon, 21 Jan 2019 00:59:39 -0800 (PST)
-Received: from xi.terra (c-74bee655.07-184-6d6c6d4.bbcust.telenor.se.
- [85.230.190.116])
- by smtp.gmail.com with ESMTPSA id e5-v6sm2130011ljj.91.2019.01.21.00.59.38
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 21 Jan 2019 00:59:39 -0800 (PST)
-Received: from johan by xi.terra with local (Exim 4.91)
- (envelope-from <johan@kernel.org>)
- id 1glVQc-0000Re-GR; Mon, 21 Jan 2019 09:59:34 +0100
-Date: Mon, 21 Jan 2019 09:59:34 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Paul Walmsley <paul@pwsan.com>
-Subject: Re: [PATCH 4/5] riscv: treat cpu devicetree nodes without status as
- enabled
-Message-ID: <20190121085934.GH3691@localhost>
-References: <20190118140308.9599-1-johan@kernel.org>
- <20190118140308.9599-5-johan@kernel.org>
- <alpine.DEB.2.21.999.1901190140510.8813@utopia.booyaka.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <alpine.DEB.2.21.999.1901190140510.8813@utopia.booyaka.com>
-User-Agent: Mutt/1.11.2 (2019-01-07)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=ussECRD/mXUu7sFZh4zdG6qGENVe+0LQr/6NdK4aNFs=;
+ b=RgDZZpNhGOT8n3QIzar4iVsnZKh2KHElC15fF9GUehVE+OZzWXp+zrC5dOth3w67PM
+ 6Fyb19Pk7xt3jBwnisrq6WUSo6qxuBYeGdTiTtOCBHvqGv6VcPRyh1weMIIFB9Nd/042
+ 9O7dlALRRsGd7L9/O575rZuvAa2H3we6METJESeE+9RSqJG0KsrYmVAo8LSc0h2qWDFO
+ B/FcObJ0k/iZNIUuHFPUZ/NvFrAit4ccAPCIY+JhsT0QjtJul9SWSPJkMFXivCe8C73Q
+ glIUk6lFm9nlG8ioFbiLwN+AjtP3Ee35t/zVh8WZ6iO/KtAZSH5Hl9nFNleuV59Fj/UI
+ vDLA==
+X-Gm-Message-State: AJcUukdQwtRDmAGPtlWgfqFGg1txacCh21vZco1v7O9DDvah9wsi+ffS
+ HzZr5PykrVbkJoPmRoYBl3alAqnxUXo=
+X-Google-Smtp-Source: ALg8bN4F8SM0jOq9s8SrKkgl8Cfqe/F6xesVwzUODKS0dHpf7Ue4iUk0mcvIRfAWTM/6ANm+h+a4Gg==
+X-Received: by 2002:a17:902:7e44:: with SMTP id
+ a4mr29604824pln.338.1548066063955; 
+ Mon, 21 Jan 2019 02:21:03 -0800 (PST)
+Received: from buildserver-90.open-silicon.com ([114.143.65.226])
+ by smtp.googlemail.com with ESMTPSA id
+ m85sm20048874pfj.171.2019.01.21.02.20.59
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+ Mon, 21 Jan 2019 02:21:03 -0800 (PST)
+From: Yash Shah <yash.shah@sifive.com>
+To: palmer@sifive.com, linux-pwm@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: [PATCH v4 0/2] PWM support for HiFive Unleashed
+Date: Mon, 21 Jan 2019 15:50:41 +0530
+Message-Id: <1548066043-1252-1-git-send-email-yash.shah@sifive.com>
+X-Mailer: git-send-email 1.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190121_005942_812064_4C37D643 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20190121_022105_263641_7E58B888 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,39 +91,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Andreas Schwab <schwab@suse.de>,
- Palmer Dabbelt <palmer@sifive.com>, Johan Hovold <johan@kernel.org>,
- linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
- Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, robh+dt@kernel.org, sachin.ghadi@sifive.com,
+ Yash Shah <yash.shah@sifive.com>, thierry.reding@gmail.com,
+ paul.walmsley@sifive.com
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 19, 2019 at 01:43:58AM +0000, Paul Walmsley wrote:
-> On Fri, 18 Jan 2019, Johan Hovold wrote:
-> 
-> > Follow the Linux convention and treat devicetree nodes without a status
-> > property as enabled rather than disabled, while also allowing "ok" as a
-> > shorthand for "okay".
-> > 
-> > Signed-off-by: Johan Hovold <johan@kernel.org>
-> 
-> Reviewed-by: Paul Walmsley <paul.walmsley@sifive.com>
-> 
-> ... although I probably would have phrased the commit message slightly 
-> differently - something like "Use of_device_is_available() in 
-> riscv_of_processor_hartid(), in place of an open-coded test."  That frames 
-> the change as one that removes custom code in place of an existing 
-> standard function for the same purpose.
+This patch series adds a PWM driver and DT documentation
+for HiFive Unleashed board. The patches are mostly based on
+Wesley's patch.
 
-You're right, and that was my motivation too. In the end I decided to
-highlight the side effect in case someone was perhaps unknowingly
-relying on the current behaviour.
+v4
+- Rename the property sifive,approx-period-ns to sifive,period-ns
+- Rename macros with appropriate names
+- Remove unused macros
+- Rename struct sifive_pwm_device to struct pwm_sifive_ddata
+- Rename function prefix as per driver name
+- Set deglitch bit before changing output waveform.
+- Other minor fixes based upon feedback on v3
 
-Thanks for the review!
+v3
+- Add a link to the reference manaul
+- Use appropriate apis for division operation
+- Add check for polarity
+- Enable clk before calling clk_get_rate
+- Other minor fixes based upon feedback on v2
 
-Johan
+V2 changed from V1:
+- Remove inclusion of dt-bindings/pwm/pwm.h
+- Remove artificial alignments
+- Replace ioread32/iowrite32 with readl/writel
+- Remove camelcase
+- Change dev_info to dev_dbg for unnecessary log
+- Correct typo in driver name
+- Remove use of of_match_ptr macro
+- Update the DT compatible strings and Add reference to a common
+  versioning document
+
+Yash Shah (2):
+  pwm: sifive: Add DT documentation for SiFive PWM Controller
+  pwm: sifive: Add a driver for SiFive SoC PWM
+
+ .../devicetree/bindings/pwm/pwm-sifive.txt         |  37 +++
+ drivers/pwm/Kconfig                                |  11 +
+ drivers/pwm/Makefile                               |   1 +
+ drivers/pwm/pwm-sifive.c                           | 262 +++++++++++++++++++++
+ 4 files changed, 311 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+ create mode 100644 drivers/pwm/pwm-sifive.c
+
+-- 
+1.9.1
+
 
 _______________________________________________
 linux-riscv mailing list
