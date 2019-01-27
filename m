@@ -2,58 +2,79 @@ Return-Path: <SRS0=74fC=QD=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 802CAC282CA
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 27 Jan 2019 16:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AF36EC282CA
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 27 Jan 2019 16:58:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1C7A72148D
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 27 Jan 2019 16:54:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4FFBB20882
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 27 Jan 2019 16:58:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kVDioKzd"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1C7A72148D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="taSw2rhq";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="ALsHF/wG"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4FFBB20882
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hqfh56JVhUtvGQAkFBGvKonXmAwHnG7Sa2JUljUNEyI=; b=kVDioKzdwmUUJ7
-	C6/aEWJo7NihFkehsmReMkblFO1GksJNQ4pJBj4dizYwbihfvD/3VVDXyYwn82rOathKyWf512rLq
-	Z8sVPeQXHpEyDnps+oKnbvbt1Pylj0SDF7/AFKC7zDM7BW9x2FZAOhuIYwef1oX9PfbKlId57m3wO
-	pEChqoSGSxSG765ipEnzImra8wYmprN/rhPZE3y7WisBia5CBnD+KglLbQ0xkIF2HZSs2oT8Th98N
-	SHaUhwYQIdjZv+nbqxd6P1lSALKA5uoEwWFkwex4yF8rSoKFVDfgFqhJ9+rNeNP0np3R8OjuFIssa
-	fDYDl3nP8WcCLopXOD4A==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=u4aDLPBKg6UoaqVSPViektmYhXO+f66+2U+FnS9UKUs=; b=taSw2rhqUli0/Bs6RYte8yK/f
+	mzfQYHVokp6kEwLjymzLkU9gfVdbYRF9jRps7pvF8tiRoMfUPRa/ATNLS1Un/Fe78s+FVCch3943O
+	2i5DQ56+vyk7M/LgMLJI76OweMrKDhznl+9q8nA+001XQ9wzJZYipHYZWnG+2P2qhU5LF9+MhMs3S
+	Qd1l/z9GwyKptkDYST6fIvoYwSU2F2X4HqpVUf3T9/xIv/ddMFRKLq7qKCbSQPE3SGGCzR+kU1E+H
+	CnMeDCXhtrIJ0d6KJZiWSkk9x605yqtg8vYiGHbtk1brsKp0rvfz5rGyDpWs7jN6aSsbmnGjzvPoh
+	GWNjU87Hw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gnnhB-0003C3-Rb; Sun, 27 Jan 2019 16:54:09 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1gnnlR-0004Vw-OM; Sun, 27 Jan 2019 16:58:33 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gnnh7-0003BO-GI
- for linux-riscv@lists.infradead.org; Sun, 27 Jan 2019 16:54:07 +0000
+ id 1gnnlP-0004Vd-Om
+ for linux-riscv@bombadil.infradead.org; Sun, 27 Jan 2019 16:58:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+ In-Reply-To:MIME-Version:Date:Message-ID:References:Subject:Cc:To:From:Sender
+ :Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=XPDVGYQ7gdwW3og7dNe4K+76HH35mVaTzpF4CyDsHwA=; b=ALsHF/wGQqxMmTSpRjXZ3Kr9EJ
+ WYe6gJwalyFL8VmnXm/jqIa9r1QJ7kUEEHP+FhCbv7jBKoJTEAHR4ALgZ7C7r0Pwn1l3+pNCL0Okx
+ EP7qyr4O/OLiIr4BK1ugIR8YW1IAGWeay+bKZQcxWMhigKn80ePw7QaAGyS97dnuIdPcKmPWdv0n8
+ ZIGx0BycZYo1Om+DCTjcHAkS7kAGrsLO6RY41GDOV2quD4bh3Rzwqdkz9tyRKmZup1yPUN9VZd7Uz
+ icy2eiNm/H0Og9HkJs2CN6p5sY7axGmZkHexNRxWbbzKaW9v5YfAjxKZo0y5G2VTyUFZOw//KvmvW
+ Hg4s8OaA==;
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gnnlM-0002Lr-CE
+ for linux-riscv@lists.infradead.org; Sun, 27 Jan 2019 16:58:30 +0000
 X-Originating-IP: 79.86.19.127
-Received: from alex.numericable.fr (127.19.86.79.rev.sfr.net [79.86.19.127])
+Received: from [192.168.0.11] (127.19.86.79.rev.sfr.net [79.86.19.127])
  (Authenticated sender: alex@ghiti.fr)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 80F3E240006;
- Sun, 27 Jan 2019 16:53:53 +0000 (UTC)
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- hch@infradead.org, linux-riscv@lists.infradead.org
-Subject: [PATCH] riscv: Make mmap allocation top-down by default
-Date: Sun, 27 Jan 2019 11:53:48 -0500
-Message-Id: <20190127165348.16183-1-alex@ghiti.fr>
-X-Mailer: git-send-email 2.20.1
+ by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id 17964E0006;
+ Sun, 27 Jan 2019 16:57:52 +0000 (UTC)
+From: Alex Ghiti <alex@ghiti.fr>
+To: Palmer Dabbelt <palmer@sifive.com>
+Subject: Re: [PATCH 3/3] riscv: Adjust mmap base address at a third of task
+ size
+References: <c45285f7-9b05-9f04-a5a0-5d5dc075bb1b@ghiti.fr>
+ <mhng-390e0f09-77a1-4943-99a6-6faba4632383@palmer-si-x1c4>
+ <24d86d8d-e1c4-6221-3f5c-84fdaa56e5b4@ghiti.fr>
+Message-ID: <5f0af912-7c79-2aa9-c5c9-89f90a1d8a65@ghiti.fr>
+Date: Sun, 27 Jan 2019 11:57:48 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.4.0
 MIME-Version: 1.0
+In-Reply-To: <24d86d8d-e1c4-6221-3f5c-84fdaa56e5b4@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190127_085405_844656_2AE662C1 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20190127_165828_475264_47B5A0EF 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -65,207 +86,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: aou@eecs.berkeley.edu, akpm@linux-foundation.org, catalin.marinas@arm.com,
+ ndesaulniers@google.com, aghiti@upmem.com,
+ Christoph Hellwig <hch@infradead.org>, atish.patra@wdc.com,
+ linux-riscv@lists.infradead.org, mingo@kernel.org, mike.kravetz@oracle.com
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In order to avoid wasting user address space by using bottom-up mmap
-allocation scheme, prefer top-down scheme when possible.
-
-This patch is based on arm64 implementation.
-
-Before:
-
-root@qemuriscv64:~# cat /proc/176/maps
-00010000-000be000 r-xp 00000000 fe:00 6355     /bin/bash.bash
-000be000-000bf000 r--p 000ad000 fe:00 6355     /bin/bash.bash
-000bf000-000c8000 rw-p 000ae000 fe:00 6355     /bin/bash.bash
-000c8000-00114000 rw-p 00000000 00:00 0        [heap]
-2000000000-2000017000 r-xp 00000000 fe:00 7193 /lib/ld-2.28.so
-2000017000-2000018000 r--p 00016000 fe:00 7193 /lib/ld-2.28.so
-2000018000-2000019000 rw-p 00017000 fe:00 7193 /lib/ld-2.28.so
-2000019000-200001a000 rw-p 00000000 00:00 0
-200001a000-200001c000 r-xp 00000000 00:00 0    [vdso]
-200001e000-2000020000 rw-p 00000000 00:00 0
-2000020000-2000041000 r-xp 00000000 fe:00 7176 /lib/libtinfo.so.5.9
-2000041000-2000045000 r--p 00020000 fe:00 7176 /lib/libtinfo.so.5.9
-2000045000-2000046000 rw-p 00024000 fe:00 7176 /lib/libtinfo.so.5.9
-2000046000-2000048000 r-xp 00000000 fe:00 7112 /lib/libdl-2.28.so
-2000048000-2000049000 r--p 00001000 fe:00 7112 /lib/libdl-2.28.so
-2000049000-200004a000 rw-p 00002000 fe:00 7112 /lib/libdl-2.28.so
-200004a000-2000148000 r-xp 00000000 fe:00 7187 /lib/libc-2.28.so
-2000148000-200014c000 r--p 000fd000 fe:00 7187 /lib/libc-2.28.so
-200014c000-200014e000 rw-p 00101000 fe:00 7187 /lib/libc-2.28.so
-200014e000-2000154000 rw-p 00000000 00:00 0
-2000154000-2000159000 r-xp 00000000 fe:00 7100 /lib/libnss_compat-2.28.so
-2000159000-200015a000 r--p 00004000 fe:00 7100 /lib/libnss_compat-2.28.so
-200015a000-200015b000 rw-p 00005000 fe:00 7100 /lib/libnss_compat-2.28.so
-3fff9a4000-3fff9c5000 rw-p 00000000 00:00 0    [stack]
-
-After:
-
-root@qemuriscv64:~# cat /proc/173/maps
-00010000-000be000 r-xp 00000000 fe:00 6355     /bin/bash.bash
-000be000-000bf000 r--p 000ad000 fe:00 6355     /bin/bash.bash
-000bf000-000c8000 rw-p 000ae000 fe:00 6355     /bin/bash.bash
-000c8000-00114000 rw-p 00000000 00:00 0        [heap]
-3fdd8d0000-3fdd8d5000 r-xp 00000000 fe:00 7100 /lib/libnss_compat-2.28.so
-3fdd8d5000-3fdd8d6000 r--p 00004000 fe:00 7100 /lib/libnss_compat-2.28.so
-3fdd8d6000-3fdd8d7000 rw-p 00005000 fe:00 7100 /lib/libnss_compat-2.28.so
-3fdd8d7000-3fdd8d9000 rw-p 00000000 00:00 0
-3fdd8d9000-3fdd9d7000 r-xp 00000000 fe:00 7187 /lib/libc-2.28.so
-3fdd9d7000-3fdd9db000 r--p 000fd000 fe:00 7187 /lib/libc-2.28.so
-3fdd9db000-3fdd9dd000 rw-p 00101000 fe:00 7187 /lib/libc-2.28.so
-3fdd9dd000-3fdd9e1000 rw-p 00000000 00:00 0
-3fdd9e1000-3fdd9e3000 r-xp 00000000 fe:00 7112 /lib/libdl-2.28.so
-3fdd9e3000-3fdd9e4000 r--p 00001000 fe:00 7112 /lib/libdl-2.28.so
-3fdd9e4000-3fdd9e5000 rw-p 00002000 fe:00 7112 /lib/libdl-2.28.so
-3fdd9e5000-3fdda06000 r-xp 00000000 fe:00 7176 /lib/libtinfo.so.5.9
-3fdda06000-3fdda0a000 r--p 00020000 fe:00 7176 /lib/libtinfo.so.5.9
-3fdda0a000-3fdda0b000 rw-p 00024000 fe:00 7176 /lib/libtinfo.so.5.9
-3fdda0b000-3fdda0d000 rw-p 00000000 00:00 0
-3fdda0f000-3fdda11000 r-xp 00000000 00:00 0    [vdso]
-3fdda11000-3fdda28000 r-xp 00000000 fe:00 7193 /lib/ld-2.28.so
-3fdda28000-3fdda29000 r--p 00016000 fe:00 7193 /lib/ld-2.28.so
-3fdda29000-3fdda2a000 rw-p 00017000 fe:00 7193 /lib/ld-2.28.so
-3fdda2a000-3fdda2b000 rw-p 00000000 00:00 0
-3ffff8e000-3ffffaf000 rw-p 00000000 00:00 0    [stack]
-
-Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
----
- arch/riscv/Kconfig                 | 12 ++++++
- arch/riscv/include/asm/processor.h |  1 +
- arch/riscv/mm/Makefile             |  1 +
- arch/riscv/mm/mmap.c               | 69 ++++++++++++++++++++++++++++++
- 4 files changed, 83 insertions(+)
- create mode 100644 arch/riscv/mm/mmap.c
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e0d7d61779a6..684f3e00e9f8 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -47,6 +47,18 @@ config RISCV
- 	select GENERIC_IRQ_MULTI_HANDLER
- 	select ARCH_HAS_PTE_SPECIAL
- 
-+config HAVE_ARCH_MMAP_RND_BITS
-+	def_bool y
-+
-+config ARCH_MMAP_RND_BITS_MIN
-+	default 18
-+
-+# max bits determined by the following formula:
-+#  VA_BITS - PAGE_SHIFT - 3
-+config ARCH_MMAP_RND_BITS_MAX
-+	default 33 if 64BIT # SV48 based
-+	default 18
-+
- config MMU
- 	def_bool y
- 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 0531f49af5c3..5ea9119f173c 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -23,6 +23,7 @@
-  * space during mmap's.
-  */
- #define TASK_UNMAPPED_BASE	PAGE_ALIGN(TASK_SIZE >> 1)
-+#define HAVE_ARCH_PICK_MMAP_LAYOUT
- 
- #define STACK_TOP		TASK_SIZE
- #define STACK_TOP_MAX		STACK_TOP
-diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
-index eb22ab49b3e0..0eb23b10d0bd 100644
---- a/arch/riscv/mm/Makefile
-+++ b/arch/riscv/mm/Makefile
-@@ -3,3 +3,4 @@ obj-y += fault.o
- obj-y += extable.o
- obj-y += ioremap.o
- obj-y += cacheflush.o
-+obj-y += mmap.o
-diff --git a/arch/riscv/mm/mmap.c b/arch/riscv/mm/mmap.c
-new file mode 100644
-index 000000000000..d182ac66d2e7
---- /dev/null
-+++ b/arch/riscv/mm/mmap.c
-@@ -0,0 +1,69 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/mm.h>
-+#include <linux/sched/mm.h>
-+#include <linux/sizes.h>
-+#include <linux/personality.h>
-+#include <linux/random.h>
-+
-+/*
-+ * Leave enough space between the mmap area and the stack to honour ulimit in
-+ * the face of randomisation.
-+ */
-+#define MIN_GAP (SZ_128M)
-+#define MAX_GAP	(TASK_SIZE / 6 * 5)
-+
-+static int mmap_is_legacy(struct rlimit *rlim_stack)
-+{
-+	if (current->personality & ADDR_COMPAT_LAYOUT)
-+		return 1;
-+
-+	if (rlim_stack->rlim_cur == RLIM_INFINITY)
-+		return 1;
-+
-+	return sysctl_legacy_va_layout;
-+}
-+
-+static unsigned long arch_mmap_rnd(void)
-+{
-+	unsigned long rnd;
-+
-+	rnd = get_random_long() & ((1UL << mmap_rnd_bits) - 1);
-+
-+	return rnd << PAGE_SHIFT;
-+}
-+
-+static unsigned long mmap_base(unsigned long rnd, struct rlimit *rlim_stack)
-+{
-+	unsigned long gap = rlim_stack->rlim_cur;
-+
-+	if (gap < MIN_GAP)
-+		gap = MIN_GAP;
-+	else if (gap > MAX_GAP)
-+		gap = MAX_GAP;
-+
-+	return PAGE_ALIGN(TASK_SIZE - gap - rnd);
-+}
-+
-+/*
-+ * This function, called very early during the creation of a new process VM
-+ * image, sets up which VM layout function to use:
-+ */
-+void arch_pick_mmap_layout(struct mm_struct *mm, struct rlimit *rlim_stack)
-+{
-+	unsigned long random_factor = 0UL;
-+
-+	if (current->flags & PF_RANDOMIZE)
-+		random_factor = arch_mmap_rnd();
-+
-+	/*
-+	 * Fall back to the standard layout if the personality bit is set, or
-+	 * if the expected stack growth is unlimited:
-+	 */
-+	if (mmap_is_legacy(rlim_stack)) {
-+		mm->mmap_base = TASK_UNMAPPED_BASE + random_factor;
-+		mm->get_unmapped_area = arch_get_unmapped_area;
-+	} else {
-+		mm->mmap_base = mmap_base(random_factor, rlim_stack);
-+		mm->get_unmapped_area = arch_get_unmapped_area_topdown;
-+	}
-+}
--- 
-2.20.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMS8yNi8xOSA0OjIzIEFNLCBBbGV4IEdoaXRpIHdyb3RlOgo+IE9uIDEvMjUvMTkgMjowMiBQ
+TSwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4+IE9uIFR1ZSwgMTUgSmFuIDIwMTkgMDg6MDI6MDYg
+UFNUICgtMDgwMCksIENocmlzdG9waCBIZWxsd2lnIHdyb3RlOgo+Pj4gT24gTW9uLCBEZWMgMTAs
+IDIwMTggYXQgMDY6MjE6NDZBTSArMDAwMCwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+Pj4+IFRo
+aXMgcmF0aW8gaXMgdGhlIG1vc3QgdXNlZCBhbW9uZyBhbGwgb3RoZXIgYXJjaGl0ZWN0dXJlcyBh
+bmQgbWFrZQo+Pj4+IGljYWNoZV9oeWdpZW5lIGxpYmh1Z2V0bGJmcyB0ZXN0IHBhc3M6IHRoaXMg
+dGVzdCBtbWFwIGxvdHMgb2YKPj4+PiBodWdlcGFnZXMgd2hvc2UgYWRkcmVzc2VzLCB3aXRob3V0
+IHRoaXMgcGF0Y2gsIHJlYWNoIHRoZSBlbmQgb2YKPj4+PiB0aGUgcHJvY2VzcyB1c2VyIGFkZHJl
+c3Mgc3BhY2UuCj4+Pgo+Pj4gVGhpcyBkb2VzIGluZGVlZCBsb29rIGNvbW1vbiwgc28gdGhpcyBs
+b29rcyBzZW5zaWJsZSB0byBtZSBhbmQgbWlnaHQKPj4+IGJlIHdvcnRoIHBpY2tpbmcgdXAgQVNB
+UCBldmVuIHdpdGhvdXQgdGhlIGh1Z2V0bGIgc3VwcG9ydDoKPj4+Cj4+PiBSZXZpZXdlZC1ieTog
+Q2hyaXN0b3BoIEhlbGx3aWcgPGhjaEBsc3QuZGU+Cj4+Cj4+IE1ha2VzIHNlbnNlIHRvIG1lLsKg
+IEknbGwgdGFrZSBpdCBpbiB0byB0aGUgbmV4dCBQUi4KPj4KPj4+IEkgd29uZGVyIGlmIHdlIHNo
+b3VsZCBwcm92aWRlIHRoaXMgdmFsdWUgYXMgYSBkZWZ1YWx0Cj4+PiBUQVNLX1VOTUFQUEVEX0JB
+U0UgaWYgdGhlIGFyY2hpdGVjdHVyZSBkb2Vzbid0IHByb3ZpZGUgb25lLgo+Pgo+PiBMb29rcyBs
+aWtlIGFybTY0IGRpdmlkZXMgYnkgNCBpbnN0ZWFkIG9mIDMuwqAgSXQgYXBwZWFycyB0byBoYXZl
+IGJlZW4gCj4+IHRoYXQgd2F5IHNpbmNlIHRoZSBzdGFydDoKPj4KPj4gwqDCoCBjb21taXQgNGYw
+NGQ4ZjAwNTQ1MTEwYTBlNTI1YWUyZmI2MmFiMzhjYjQxNzIzNgo+PiDCoMKgIEF1dGhvcjogQ2F0
+YWxpbiBNYXJpbmFzIDxjYXRhbGluLm1hcmluYXNAYXJtLmNvbT4KPj4gwqDCoCBEYXRlOsKgwqAg
+TW9uIE1hciA1IDExOjQ5OjI3IDIwMTIgKzAwMDAKPj4gwqDCoCDCoMKgwqDCoMKgwqAgYXJtNjQ6
+IE1NVSBkZWZpbml0aW9ucwo+PiDCoMKgwqDCoMKgwqAgLi4uCj4+Cj4+IHNvIG1heWJlIHRoYXQn
+cyB0aGUgcmlnaHQgYW5zd2VyPwo+Cj4gTWF5YmUsIEkgY2FuJ3QgZmluZCBleHBsYW5hdGlvbnMg
+cmVnYXJkaW5nIHRoaXMgYXJiaXRyYXJ5IHZhbHVlLgo+Cj4+Cj4+IE9uIFR1ZSwgMTUgSmFuIDIw
+MTkgMTA6NTQ6MjcgUFNUICgtMDgwMCksIGFsZXhAZ2hpdGkuZnIgd3JvdGU6Cj4+PiBPbiAxLzE1
+LzE5IDQ6MDIgUE0sIENocmlzdG9waCBIZWxsd2lnIHdyb3RlOgo+Pj4+IE9uIE1vbiwgRGVjIDEw
+LCAyMDE4IGF0IDA2OjIxOjQ2QU0gKzAwMDAsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPj4+Pj4g
+VGhpcyByYXRpbyBpcyB0aGUgbW9zdCB1c2VkIGFtb25nIGFsbCBvdGhlciBhcmNoaXRlY3R1cmVz
+IGFuZCBtYWtlCj4+Pj4+IGljYWNoZV9oeWdpZW5lIGxpYmh1Z2V0bGJmcyB0ZXN0IHBhc3M6IHRo
+aXMgdGVzdCBtbWFwIGxvdHMgb2YKPj4+Pj4gaHVnZXBhZ2VzIHdob3NlIGFkZHJlc3Nlcywgd2l0
+aG91dCB0aGlzIHBhdGNoLCByZWFjaCB0aGUgZW5kIG9mCj4+Pj4+IHRoZSBwcm9jZXNzIHVzZXIg
+YWRkcmVzcyBzcGFjZS4KPj4+PiBUaGlzIGRvZXMgaW5kZWVkIGxvb2sgY29tbW9uLCBzbyB0aGlz
+IGxvb2tzIHNlbnNpYmxlIHRvIG1lIGFuZCBtaWdodAo+Pj4+IGJlIHdvcnRoIHBpY2tpbmcgdXAg
+QVNBUCBldmVuIHdpdGhvdXQgdGhlIGh1Z2V0bGIgc3VwcG9ydDoKPj4+Pgo+Pj4+IFJldmlld2Vk
+LWJ5OiBDaHJpc3RvcGggSGVsbHdpZyA8aGNoQGxzdC5kZT4KPj4+Pgo+Pj4+IEkgd29uZGVyIGlm
+IHdlIHNob3VsZCBwcm92aWRlIHRoaXMgdmFsdWUgYXMgYSBkZWZ1YWx0Cj4+Pj4gVEFTS19VTk1B
+UFBFRF9CQVNFIGlmIHRoZSBhcmNoaXRlY3R1cmUgZG9lc24ndCBwcm92aWRlIG9uZS4KPj4+Cj4+
+PiBUaGFua3MgZm9yIHlvdXIgcmV2aWV3Lgo+Pj4gSSB0aGluayB5b3UncmUgcmlnaHQgcmVnYXJk
+aW5nIGhhdmluZyBhIGRlZmF1bHQgdmVyc2lvbiBvZgo+Pj4gVEFTS19VTk1BUFBFRF9CQVNFLAo+
+Pj4gSSB3aWxsIHByb3Bvc2Ugc29tZXRoaW5nLgo+Pgo+PiBTb3VuZHMgZ29vZCB0byBtZS7CoCBJ
+IGRvbid0IHNlZSBhbnl0aGluZywgc28gSSdtIHN0aWxsIGdvaW5nIHRvIHRha2UgCj4+IHRoZSBw
+YXRjaCAtLSB3ZSBjYW4gYWx3YXlzIGRyb3AgdGhlIHJlZHVuZGFudCBkZWZpbml0aW9uIGxhdGVy
+Lgo+Cj4gSSBkaWQgbm90IHByb3Bvc2UgYW55dGhpbmcgeWV0LCBJIHdpbGwgdGFrZSB0aGUgdGlt
+ZSB0byBmaW5kIHNvbWV0aGluZyAKPiBtb3JlIGNvbnNpc3RlbnQuCj4KPiBUaGFua3MgUGFsbWVy
+LAo+Cj4KCkhpIFBhbG1lciwKCkkgaGF2ZSBqdXN0IHNlbnQgYW5vdGhlciBwYXRjaCByZWdhcmRp
+bmcgdGhpcyBpc3N1ZSwgSSB0aGluayBib3RoIGFyZSAKbmVlZGVkLCBJIGRvbid0IGtub3cKaG93
+IHlvdSB3YW50IG1lIHRvIHByb2NlZWQsIHNob3VsZCBJIG1lcmdlIHRoZW0sIHNob3VsZCBJIHJl
+YmFzZSB0aGlzIApvbmUgb24gdG9wIG9mIHRoZSBuZXcKb25lIChvciB0aGUgY29udHJhcnkpLi4u
+CgpUaGFua3MsCgpBbGV4Cgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
