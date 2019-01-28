@@ -6,16 +6,16 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9DE4DC282C8
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 19:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2DBE7C282C8
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 19:55:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6670E20855
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 19:48:31 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AA6BA2087F
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 19:55:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AVUGQFmh"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6670E20855
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EJuxXBpd"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AA6BA2087F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,25 +24,25 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hnWnaIqye03tVbq/6SKCFpXK7ZYkgiVRgHlyZ4AfTF4=; b=AVUGQFmhAF5cRz
-	dnuQB0pXOxANNImzkeDYsQssovgFWH78dmdy+2ht/DSoXG0uSZ18SD0tv7022vP/3WFEXUKIelUBk
-	NKDo+qCjdq7jEJDcdqQPhxG7HbzypPk351SHhNNaZu5nDqxgAo1OKuDQyt09860La46noIr+P0o8u
-	vnCp9Axwk7KM9Osfl5fwfr28e9BqafBolEgvXQJ9YQwiQ2kwOPK/BUjqGjV7v0qzobDkVDEgt4Q5T
-	w5Rp1/Jm+fgEy4b+XCZ9/SV5fKcjbv6X0zEKNLovRq/FxhBq7aT8cDIIWkb0VGPRB2LetTeNCUPfm
-	LDLxbWwolIhhCKB3NpVg==;
+	List-Owner; bh=2ErHDqAIgVGOJmNCWfZHR0isxLj172wl5IIpydOqSVk=; b=EJuxXBpdJNeWlo
+	nRLsxk3krLqfIQ9L/Y77LPgX+G5VfYk3hljjdCr0S5+vTmsNHpX2mttGye0pf+7a177KfxGlVrg1U
+	t6rivmtKNueRziMvH5/AhFzXREyyR1sFXgSpaOWh+U5D/qJS59tfi3h4DuHDDYKycXDF90xwOaSBb
+	td9DdR00TzCi7fxmrjzFwKU5zK27nyeEVJE4jeznlfb+bC2euhzHXzZQ6G9seQkHPoqFQMziD28o1
+	pJfMg1H18Y6S1J5Y5c/FAs3CHOmCzzMyKokDDMVngPNUjns1RgtCJ1kcapJzldJsUFn0AzXL2Agfw
+	40nXRB4yOMLzzx4w3jiw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1goCtR-00078K-TW; Mon, 28 Jan 2019 19:48:29 +0000
+	id 1goD0V-0001eG-8z; Mon, 28 Jan 2019 19:55:47 +0000
 Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1goCtO-00077l-5t
- for linux-riscv@lists.infradead.org; Mon, 28 Jan 2019 19:48:27 +0000
+ id 1goD0S-0001de-Gp
+ for linux-riscv@lists.infradead.org; Mon, 28 Jan 2019 19:55:46 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id B3380B023;
- Mon, 28 Jan 2019 19:48:24 +0000 (UTC)
+ by mx1.suse.de (Postfix) with ESMTP id E4098AC4C;
+ Mon, 28 Jan 2019 19:55:42 +0000 (UTC)
 Subject: Re: [sw-dev] SBI extension proposal v2
-To: Atish Patra <atish.patra@wdc.com>, Nick Kossifidis <mick@ics.forth.gr>
+To: ron minnich <rminnich@gmail.com>
 References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
  <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
  <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
@@ -53,9 +53,7 @@ References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
  <452be0d3-da8e-643e-9f91-c38f0af36ffd@suse.de>
  <CAPweEDwdByUTHnbKGS-LbwGzqsjjWciWOBnPOKkNqupY--vV2A@mail.gmail.com>
  <033872b8-49d5-2731-118f-967488f4763f@suse.de>
- <cbccd2dd56e1e5b498fd12abda22b863@mailhost.ics.forth.gr>
- <0aa02993-4f71-2171-7bec-54fe40b13279@suse.de>
- <1242b0af-fb94-a199-39b9-c3f654834da9@wdc.com>
+ <CAP6exYJRhw=nnhdrNQc7wOBUTYk0-LNaRQrhin7fqxeXMrEhkQ@mail.gmail.com>
 From: Alexander Graf <agraf@suse.de>
 Openpgp: preference=signencrypt
 Autocrypt: addr=agraf@suse.de; prefer-encrypt=mutual; keydata=
@@ -110,17 +108,16 @@ Autocrypt: addr=agraf@suse.de; prefer-encrypt=mutual; keydata=
  0gebQn/WLY3gqt6vCht2mdJztWPCL+r5kYodiYnpDXY/7SFr0+46QLRF1xG0J5UYGnz4koot
  3173uxYy75CNZqYpqpLivEG6NXmGUNFypsbGuEhsAV2GWGyf0uT91XFE0SlRUxOMEHbLwwhP
  iMLccbHM2Kdf238nBUehU8iIsw/q6BWWw60MXH4Rw/1yya6JYvIyaG8ytoKhv8zZ
-Message-ID: <2de7a488-57af-d8d2-8d3c-ccc3a9e867cd@suse.de>
-Date: Mon, 28 Jan 2019 20:48:21 +0100
+Message-ID: <aadef824-7c76-5784-0ec8-de4344158c15@suse.de>
+Date: Mon, 28 Jan 2019 20:55:38 +0100
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:60.0)
  Gecko/20100101 Thunderbird/60.4.0
 MIME-Version: 1.0
-In-Reply-To: <1242b0af-fb94-a199-39b9-c3f654834da9@wdc.com>
+In-Reply-To: <CAP6exYJRhw=nnhdrNQc7wOBUTYk0-LNaRQrhin7fqxeXMrEhkQ@mail.gmail.com>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190128_114826_510821_B63069F0 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190128_115544_853733_92679050 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -139,27 +136,80 @@ Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
  "abner.chang@hpe.com" <abner.chang@hpe.com>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>,
  Palmer Dabbelt <palmer@sifive.com>, "zong@andestech.com" <zong@andestech.com>,
- ron minnich <rminnich@gmail.com>,
+ Atish Patra <atish.patra@wdc.com>,
  "sw-dev@groups.riscv.org" <sw-dev@groups.riscv.org>,
  Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>,
+ "mick@ics.forth.gr" <mick@ics.forth.gr>,
  Alistair Francis <Alistair.Francis@wdc.com>,
  Luke Kenneth Casson Leighton <lkcl@lkcl.net>,
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
  Andrew Waterman <andrew@sifive.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyOC4wMS4xOSAyMDo0NywgQXRpc2ggUGF0cmEgd3JvdGU6Cj4gT24gMS8yOC8xOSAxMTo0
-MyBBTSwgQWxleGFuZGVyIEdyYWYgd3JvdGU6Cj4+Cj4+Cj4+IE9uIDI4LjAxLjE5IDE3OjQ3LCBO
-aWNrIEtvc3NpZmlkaXMgd3JvdGU6Cj4+PiBGWUkKPj4+IGh0dHBzOi8vZm9zZGVtLm9yZy8yMDE5
-L3NjaGVkdWxlL2V2ZW50L3Jpc2N2c2JpLwo+Pgo+PiBUaGF0IG9uZSBpcyBvdmVybGFwcGluZyB3
-aXRoIG9uIEkgd2lsbCBiZSBjby1wcmVzZW50aW5nIG9uOgo+Pgo+PiDCoMKgIGh0dHBzOi8vZm9z
-ZGVtLm9yZy8yMDE5L3NjaGVkdWxlL2V2ZW50L3VlZmlfYm9vdF9mb3JfbWVyZV9tb3J0YWxzLwo+
-Pgo+IEdyZWF0LiBZb3VyIHRhbGsgaXMgb24gU3VuZGF5LiBTQkkgdGFsayBpcyBvbiBTYXR1cmRh
-eS4KCk1pbm9yIGRldGFpbHMgOikuIFRoYW5rcyBmb3IgY2F0Y2hpbmcgdGhlIGRpZmZlcmVuY2Ug
-aW4gZGF5cywgSSdsbCBiZQp0aGVyZSB0aGVuIQoKCkFsZXgKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Ron,
+
+On 28.01.19 20:40, ron minnich wrote:
+> Those of us working on the linuxboot and heads projects for the last
+> few years have reached a few conclusions in this area. The big one --
+> vendors can not get firmware right, period. The set of bugs we've hit
+
+Agreed.
+
+> in the x86 world alone in the last two years is just amazing, given
+> that the UEFI community has had 20 years to get this stuff right and
+> still don't seem to be able to do it. What's more amazing is how
+> trivial they are. Do you want to disable UEFI mechanisms for detecting
+> ROM image corruption? It's easy on many systems. Corrupt the ROM
+> image. Achievement. as well as the ROM, unlocked. I'm not making this
+> up; it's several CVEs at this point.
+> 
+> We've learned that blindly  trusting firmware is always a bad idea.
+
+Agreed.
+
+> Assuming that it should have higher privilege, and trust, than the
+> kernel is, similarly, a bad idea. In general, kernel code is far
+> superior in quality to firmware, and is certainly better tested. Why
+> is firmware higher privilege, when it's not as well written or
+> trustworthy? That makes no sense. It's the assumption RISCV is making.
+
+I agree to the first part, not the second.
+
+You're mixing up 2 things (which is a pretty common fallacy I've come
+across people who worked too much with x86 firmware): Design and
+implementation.
+
+I agree that we should hold firmware to the same standards as the OS. I
+agree that I would not consider something more trustworthy that is
+developed behind closed doors at a random vendor's site and every bug
+fix costs a few $1000.
+
+The conclusion that runtime firmware is a bad idea IMHO is wrong though.
+By separating an OS from extremely hardware dependent details, you allow
+for abstraction. You allow an OS to run on newer hardware for example.
+It's a bit like how an OS can magically make NV-DIMMs available to user
+space from 20 years ago. Firmware with runtime code can potentially make
+today's OSs run on hardware from next year.
+
+Now, if the firmware development model is so broken but at the same time
+such firmware gives us the ability to abstract interfaces better, what
+is the solution?
+
+You obviously need to apply the same standards as you do for the OS to
+firmware. It's why open firmware is so important. If you can't fix
+issues yourself (or better yet, have a community around it), chances are
+good that it will be broken.
+
+But putting everything into Linux instead really is not the answer. The
+only thing it does is break forward compatibility and bloat code size.
+
+
+Alex
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
