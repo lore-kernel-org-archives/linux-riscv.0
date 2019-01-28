@@ -2,71 +2,47 @@ Return-Path: <SRS0=ZHC4=QE=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 16792C282CD
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 20:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A0DCFC282C8
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 20:37:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D657E2171F
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 20:18:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6F66A2171F
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 20:37:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="q1xlUhZl";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="B6UyzaqP"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D657E2171F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="f3Rb2ih1"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F66A2171F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yPpfegtUQJkUZjICH7+d7xltzVFIguZ/eTYGaCR6C3w=; b=q1xlUhZlR6v3K6
-	YL1PT0/8Kt149uxqtSh6rOYKz6sQ9N9yhhy8CA+BzEVRVnjpkZXhj3ONQA/f974tEB7LJ0iZY/6kh
-	XbJBoIbauvIqZl1hjslCAQErGiDJrRzT/AhpbgsLQTXsimQdasl+FXgKgSRgesDSDioNolxtcYFYR
-	mab0YKuPIGuRCmMQKg3dQQIrCKaG0IrjtywaY83+yXih2PC7ev9GCRpUi0SEFpPq5avIXJ9/mVnsV
-	SOlF2I9oq1ZUJqLEXKHoUXs0pBMADtaeTEaugAeUe4pgTkYCl5iUoI1PZaD+iQhKROxWzoEA9IRgn
-	cw4hvNSlfWFheB3IBm9w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=M3xMzHJ7qrHzQhNWsOU0+XHoEjAn4sVuOflgLAYYBKw=; b=f3Rb2ih1JvIxih
+	n1ulo8zmYsbvV6WvJLC9DNSW8wOkLHUgAy8wT35rzoW7kjW1DOgMBD5UIoGEiJhulLvrOwMMbk1Ix
+	Zcnzco4yW62wQOVcCWdXHkHmENYi2Dto9XwP8uwC3JU6AUfbA8579Rgrwp5UVHCer8PCwJuiz7fIG
+	IaXFQjfSC5fijBpiLM0jHBMeG0VZjip5hSzwOq4FpYaX1dP5izRYDuuo2OKhk+QcQAtl3GZHUcd5U
+	EfSZFZQEuSTd2dXBqUpVSx9bft1OtQutli5u5+0VNo+bD0/qPgzVu6nqjolmQ1s8FTyXjAHf2mCKW
+	aCcgBjcVQ+FH/yEPFDdw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1goDML-0001Wm-4Z; Mon, 28 Jan 2019 20:18:21 +0000
-Received: from mail-io1-xd44.google.com ([2607:f8b0:4864:20::d44])
+	id 1goDfI-0000BA-RE; Mon, 28 Jan 2019 20:37:56 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1goDMH-0001Vx-Il
- for linux-riscv@lists.infradead.org; Mon, 28 Jan 2019 20:18:19 +0000
-Received: by mail-io1-xd44.google.com with SMTP id x6so14603212ioa.9
- for <linux-riscv@lists.infradead.org>; Mon, 28 Jan 2019 12:18:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=1imR5lRCEX76TYUTwGfOvnflfu36mi5Fd/Xs7uSzoX4=;
- b=B6UyzaqP4XfpHPJ5S1gfaTg9uj3OgWz6LYxycBynyAG8j5oYkAku6pQ2yaxegZwaDR
- J7YbvoJInOi/BnFRvf/wLllMnt2RW6bZRzUsbfejmnRj2Q/fpjXrMyv3CQeX5wj0QqrR
- K6AtHG7YfkvaWb90wwWOVgbuFAgHteZz6+CCbAz9mBvCDpOJBH5bL5GH81/Xir/XG30Y
- bHXIYhdsCMkJWfjIwymRmfffzxoPCdgs3bk1KDFpClMoxjNs28Q3PqVRF9dumzAXkJVy
- bDAUfdlCkLEMEzISEZpaqhInJFbpSBHl718H9hSDxQuKwZ9bIAVjMbUt14LwCSMDKJOT
- oB8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=1imR5lRCEX76TYUTwGfOvnflfu36mi5Fd/Xs7uSzoX4=;
- b=EjNwoNJr2gUV8YkJLhez/aYOH1ZbUVn9N1aBroODK6DP4UabyaeTVusQZH2l4Sw3X/
- DgYMFZQp7OAHwrdQn4BcOEhPtm6KpZFya9xb6DKxdzHsiZH70ilLKay3qEhi6C42kc1p
- sz6QGRjNuf0r+GjOpDToBgD14Eyeypvlfr7PD3Mt3lENmbxzEriLjEv/iYJD+cXE+ZAW
- KsTw+NfFSwZ63LHZctujZPcMg5aimM8+tm4SjfqAOpKWorylUmeKm1cUhcCsXRVynqMX
- UV7lhkfyeOOosXDgaS3ldaREdU4BPw0Or6eXDEZOAnFnNzCjt2b+J5hTH+KfE22xP/rw
- +6zw==
-X-Gm-Message-State: AHQUAuZS/UMjlxhZhYxBtlK0QMQEdfZn8RizbZLOpoHYLgcSx9q13yuP
- OSU6yi775HyH2GNoGk4itp7ldcO7Ibm9vBoM7CU=
-X-Google-Smtp-Source: ALg8bN7X034naY0XLmuQbiYIpAi7Rv+WVXs+3/hggliXMVH7IXsX6Wl5vP8zMDd8PzNMqeObBY9V1zTuJuFfCD6EUZY=
-X-Received: by 2002:a6b:cb08:: with SMTP id b8mr12944430iog.200.1548706693996; 
- Mon, 28 Jan 2019 12:18:13 -0800 (PST)
-MIME-Version: 1.0
+ id 1goDfF-0000Ah-MU
+ for linux-riscv@lists.infradead.org; Mon, 28 Jan 2019 20:37:55 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id 04B8AAC2C;
+ Mon, 28 Jan 2019 20:37:51 +0000 (UTC)
+Subject: Re: [sw-dev] SBI extension proposal v2
+To: ron minnich <rminnich@gmail.com>
 References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
  <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
  <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
@@ -79,15 +55,71 @@ References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
  <033872b8-49d5-2731-118f-967488f4763f@suse.de>
  <CAP6exYJRhw=nnhdrNQc7wOBUTYk0-LNaRQrhin7fqxeXMrEhkQ@mail.gmail.com>
  <aadef824-7c76-5784-0ec8-de4344158c15@suse.de>
-In-Reply-To: <aadef824-7c76-5784-0ec8-de4344158c15@suse.de>
-From: ron minnich <rminnich@gmail.com>
-Date: Mon, 28 Jan 2019 12:18:02 -0800
-Message-ID: <CAP6exYJttZXUp=NAikvQ-9Orj-Ptpj4=Pnj30GN90Rzt_Rvvyg@mail.gmail.com>
-Subject: Re: [sw-dev] SBI extension proposal v2
-To: Alexander Graf <agraf@suse.de>
+ <CAP6exYJttZXUp=NAikvQ-9Orj-Ptpj4=Pnj30GN90Rzt_Rvvyg@mail.gmail.com>
+From: Alexander Graf <agraf@suse.de>
+Openpgp: preference=signencrypt
+Autocrypt: addr=agraf@suse.de; prefer-encrypt=mutual; keydata=
+ mQINBFJpUhABEADFUzxmkJeomCBLqm9Jtd6Iqp4B44JbEYoH3d+LegNJGV/CSnBTlH+es3yD
+ v+y2Ke+AJsYqpAdry4dP8QpCe91+U/0IsI5V2WIyaKP39Zc/BYYGkhGXOgnE/4bIUL0Lomzx
+ lxRaJ3uXZtU0QWgsFAtu6/Pq4cCJqdzB488MzwmvojMkNPwocwvAqhQkBxJQIbqV3wK9+oH8
+ O8NdWJmt/InNgEwWfgugIHATFSETmTlkIjUT0c1nhLLskVcYQiYFlk+SG/+P7aIQuR7jIaUv
+ yA9VUfYAyh9WGwGwDL5zpZc2pz47bL3JhqdhDiEuglkDsGxCyk8YH6AntPlcWqKJ3rGlVfyT
+ 8pvplU2aBhwKfWVk549MEe5ePLIuSNNuBqVDqIH3BiuRfYw0Sn6YL/klZCMvQIKDj3P5nviS
+ ggtSLbv1bucxBiY9mKv0x/hHb7hwo9X4rO3kJaYox24oarZpOBshrqwjaA1z5cJeHsdzIhGx
+ L8nxsbRFSk3Ci+sR0WtPf1/yJYtTmgQ1O5xllvBtVyNiifQ2bwgfONeY/4wqF5r9+hNOG/lR
+ dbv1Z+/AmcAo/jt9Rt788H9iB6M5SE1pEp6UecY5OvG7XpUgGsjfJn6z22bINgD2HsLHAcuI
+ 4ss79ZaPzP/0kASGk10roH9Y2MWSoLX4VdskN5keJYUtKe6xDwARAQABtB5BbGV4YW5kZXIg
+ R3JhZiA8YWdyYWZAc3VzZS5kZT6JAjgEEwECACIFAlJpUj0CGy8GCwkIBwMCBhUIAgkKCwQW
+ AgMBAh4BAheAAAoJEBYxMNpbJFMKHTIQAKDFXsBrDuiXqVVN0XPls0wDS/0hC4TEFIuuFWjo
+ p5YL9mQzw8pRaxs9SD4YqelrVeTiOht66YjtSEuTVA/g/68ogPyFIIKrSXbIaoWKI8XT+I4W
+ Fz5eKloxzpKns+5rM6QUSsK3LIVzWYShNO7/lp0GyAgiRTgj1OwC1mX8q9B4xB0aUYDlYmLf
+ qDuoHicPNChgz60JCeZsG158zH0OUKIq0lOxg1v503izQKUzA+zFCFqA3AgRAgHnTyJHa3GZ
+ 6o/uWjTTX0zqdkx8wCIC1g99nB+BzCr3McfchkS2ppVzh6hx4T0ng4JIOsOzIyQEAAwwH3Ph
+ GHyvvF7LRC79Y/XBCXS1/CAgHRlTjeuih34Sf0kO0RmNpoqux2RYkn0R6b71gKDFxdY3512R
+ lhfy8JcWWLFRJFP3AMhiSFxAxObLfRJM39D512cPUMqKluDh15YmqB076I//yw30SbpgLxV+
+ aS9iJkIEYaAbnPYvTLBKT/CL1Crj2nOCe60zQ9k0oz3dCFAwoklqSRbSxS8AAQBthaZY4tfj
+ z2/pEjiVe/tvGnnaW5MN+meb/KOYXRFNCxRVvZ6Fy7ZuqmX+NC6ILN6DadFUYSMxZ/nznJcZ
+ Js9Yd/KArW/qYtzkgxhYFF2xCIMyZkAepoR7nxeY9IT6oGiiuRk7PozFjcwRC0Rdy+AguQIN
+ BFJpUhABEADOTHgipY9H4CDOhcA9JnArlNcnDsXBaOOvv5ts0sdcRxBb8PNH35o7oEozNYTW
+ GR8O1dzKDtn4zjIxY0tcRzrBB0dlQRRV7NYOLEGXTa6Bf55YR8Bv8ahh8mlNN2EiBn6WRREw
+ krTuJet/o4vOwt22Hqts1KjMY9pOnV0kggl0NrNP/Tvhc6CNauo5ezz1PCrmO5Wgk1WB/E3G
+ AnI4wtHyNHyRI/6deAM5u79GVO5teYTtf2ykpCR74C9oF5tqmLYsLdKz55IYwH/LRXkQQIqq
+ nMOFvuhlYx3NZzu8vUZ16nxspDJYEgbVzny0J5/Ux9UkAi/K15CsNBAQbGnPgwo1WZzTTXQn
+ 7FM+RyP3flqYBlNZ6NbroP/DRS9wKVC5ewe79wXEoQep7o95565ORDwSWMykQV99TvBTP45q
+ vG11V2e02F36cORrIL3UZOM+HXYc4QAA/FHjnC/nng2lezYu/mZ1Aj/ePJmEOaygNYOij1WH
+ A5xBelr9zR16BPExz/li6ghqTUbOtBJw7/5KwYNc7p1vQLHGW7FQaO0u8V4CUIjpJdc7ge1P
+ yI5cTfCL5VfuQ12N8iUJbsmD6Z/ZLcYChPvlq001VI5hUCLzwxS8/qpHngLtWnMRNlJoHOO5
+ L8uOtMejd5aKY5hvYtEFrsQ4MHyQdqkva9aTDfxxqV5p1QARAQABiQQ+BBgBAgAJBQJSaVIQ
+ AhsuAikJEBYxMNpbJFMKwV0gBBkBAgAGBQJSaVIQAAoJECszeR4D/txgbOYP/0MxhLrpZOEl
+ lMmAUu43DPVk3pWC6BxUaigtC3X8Bnmg2JsZ2MlWIks+l/TkTh2PrrkspGLzm1aw3kG2+sb5
+ w+dbtY8KLdaMbJKwd438VRQN729gi0zCOlAjdycmVEVYdgiMdUL4Qb9RR1uaPFha3/iW9WlR
+ rVQWCi+gfsx49Mw8PPixraGt6yPBWhb66GUwqPfOshLJIYenPG3CkRlwCa/a2ECCjU2PeOGx
+ W2BjWPgDx5aiJHhvNRo+7Le17uuGAobFcdkskK5VDqCvxbnKKjKGdgW9EOPRw6DJiOBt7Vrg
+ H4H3RfKNG4y7WYbBuq3dW7qHdflku44SoG6ZTsRVfBZRFDioQf8QCilUhxwUbJjrQd/TgZiv
+ kB+14u+YQy3sFnzQVU9FQWB1NzOOcd66nQrBcoEgG6s2GbbqC9XMDtPEhfG7ydezeh0BLYKl
+ nLe/T25O1W///PVNvBRpQEU98eTT2Bv7/+zIGfcFkU6qXjc5Tx2hjEVvA8iJyosaI9/PGjCe
+ lxLZBTuseMepFfKsyeLboCetFzx4fRikvVTtMyspc4JgVHlnwqXDE8PUZ4TPhJezsMDKiugu
+ EcCdO0h7dfIeDVSDAx9rHvIpBI20i0RCrsBP+cbULQIPIzaJ95m5plJTIZPALa5NMeH3PuZl
+ o+Dvzankq+Hj8ozqMPSbI5P7ZnwP/RanKlRztdcOt/GQdpACovKmMVChbZrp6z94yhYT25iG
+ EusiAUwar9ViWnZVYxt8DaEojMkpSPXfFh2rFhTjrjWTlqmTTa5raYP3lBHzv4DlYoJtApo0
+ GiSyqd7QlXYQm3abFfI+6fnszg8dYz69GYVkwBpHLz0nA/u7XdMGYgeRiwHfWLVCxjxqoguw
+ 0YSOnGFXfemuvAaVKfB0qY18F5j7SoUy72e5HnLpNg/zj3CBZFM40df8K+zqwtWfQicOM5IJ
+ g1m5nhiB1rMWywSZ2pYkPHVjPJ68MkvCChsK5vSl4sIEoYkZnkQw5J+K8bwqaZZL0REK9xhH
+ z+1FvVl7zEjCZXvyUm25ZS8iqAnlpk9UBFjXYKX8Ut9Y2iIDz3Pg3/FCLXbJSCQ6mIEe80Ns
+ U2+L0x4LbU/JSxdN7+JC+1K36P66yBsWXk5347UdzPkvq6nlUqHPLpqpl4p+KzxI1TKK8co3
+ 0gebQn/WLY3gqt6vCht2mdJztWPCL+r5kYodiYnpDXY/7SFr0+46QLRF1xG0J5UYGnz4koot
+ 3173uxYy75CNZqYpqpLivEG6NXmGUNFypsbGuEhsAV2GWGyf0uT91XFE0SlRUxOMEHbLwwhP
+ iMLccbHM2Kdf238nBUehU8iIsw/q6BWWw60MXH4Rw/1yya6JYvIyaG8ytoKhv8zZ
+Message-ID: <e67df6aa-b850-4c92-6b52-5be6cbecfffa@suse.de>
+Date: Mon, 28 Jan 2019 21:37:49 +0100
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:60.0)
+ Gecko/20100101 Thunderbird/60.4.0
+MIME-Version: 1.0
+In-Reply-To: <CAP6exYJttZXUp=NAikvQ-9Orj-Ptpj4=Pnj30GN90Rzt_Rvvyg@mail.gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190128_121817_661217_1CD64805 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20190128_123754_025351_1E2D1FCA 
+X-CRM114-Status: GOOD (  25.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -119,74 +151,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 28, 2019 at 11:55 AM Alexander Graf <agraf@suse.de> wrote:
 
-> You're mixing up 2 things (which is a pretty common fallacy I've come
-> across people who worked too much with x86 firmware): Design and
-> implementation.
 
-uhm, alex, I worked on or started the coreboot ports to
-arm
-arm64
-ppc
-riscv
-alpha
+On 28.01.19 21:18, ron minnich wrote:
+> On Mon, Jan 28, 2019 at 11:55 AM Alexander Graf <agraf@suse.de> wrote:
+> 
+>> You're mixing up 2 things (which is a pretty common fallacy I've come
+>> across people who worked too much with x86 firmware): Design and
+>> implementation.
+> 
+> uhm, alex, I worked on or started the coreboot ports to
+> arm
+> arm64
+> ppc
+> riscv
+> alpha
+> 
+> I've been working on various non-x86 firmware for over 40 years,
+> starting in 8 bit days.
 
-I've been working on various non-x86 firmware for over 40 years,
-starting in 8 bit days.
+I know.
 
-You should probably not assume too much about people.
+> You should probably not assume too much about people.
+> 
+>> The conclusion that runtime firmware is a bad idea IMHO is wrong though.
+> 
+> We can agree to disagree. But please don't start by stating things
+> about my background; you don't know me and you're wrong.
 
-> The conclusion that runtime firmware is a bad idea IMHO is wrong though.
+I'm fairly sure you know me about as well as I do know you ;).
 
-We can agree to disagree. But please don't start by stating things
-about my background; you don't know me and you're wrong.
+> Runtime firmware is acceptable *if and only if* the kernel can measure
+> it, disable it all or in part, or replace it.
+> That's a different statement than what you just said. I don't like
 
-Runtime firmware is acceptable *if and only if* the kernel can measure
-it, disable it all or in part, or replace it.
-That's a different statement than what you just said. I don't like
-runtime firmware, but of course on RISCV there are few options
-for some registers. But it is a very rare runtime firmware that is
-implemented correctly or even well.
+Hm. Ok, it depends on your deployment model of course. I tend to agree
+that runtime firmware should be an OS triggered interface. If the OS
+doesn't ask it to do something, it shouldn't.
 
-There is one company that is so concerned about M mode they are
-implementing a RISCV CPU without it.
+The big problem is when only firmware has the rights to do something and
+you need to trust it. That brings us back to this discussion.
 
-> Now, if the firmware development model is so broken but at the same time
-> such firmware gives us the ability to abstract interfaces better, what
-> is the solution?
+So yes, you can "disable" it, but not replace it. So you may lose
+functionality if you choose not to call firmware.
 
-you give me the information I need to write a driver. Done. That's
-known to work. And for linuxboot systems, that's the only way it
-works.That way, we have one driver to deal with, not two. Server
-systems that work this way are being deployed today.
+The ususal answer I would have to that is to empower system owners to
+build their own firmware (which allows them to replace bits), but I can
+see how that doesn't always work for every case. I don't have a good
+answer yet, but I'm sure there will be discussions at FOSDEM about it.
 
-> You obviously need to apply the same standards as you do for the OS to
-> firmware. It's why open firmware is so important.
+> runtime firmware, but of course on RISCV there are few options
+> for some registers. But it is a very rare runtime firmware that is
+> implemented correctly or even well.
+> 
+> There is one company that is so concerned about M mode they are
+> implementing a RISCV CPU without it.
+> 
+>> Now, if the firmware development model is so broken but at the same time
+>> such firmware gives us the ability to abstract interfaces better, what
+>> is the solution?
+> 
+> you give me the information I need to write a driver. Done. That's
+> known to work. And for linuxboot systems, that's the only way it
+> works.That way, we have one driver to deal with, not two. Server
+> systems that work this way are being deployed today.
 
-Sure. It'd be nice if that worked, but it's essential to ensure it's
-the only thing that works. It's important not to enable architecture
-features that can be used to make open source firmware
-difficult or impossible. PMP is one such feature, since it allows
-firmware to lock down regions of memory and make them inaccessible to
-the kernel.
+Sweet. What if you want to support 10000 different types of servers? You
+write one (or many) driver(s) each?
 
-In general, however, vendor firmware is extremely poorly written, and
-I don't expect that to change.
+>> You obviously need to apply the same standards as you do for the OS to
+>> firmware. It's why open firmware is so important.
+> 
+> Sure. It'd be nice if that worked, but it's essential to ensure it's
+> the only thing that works. It's important not to enable architecture
+> features that can be used to make open source firmware
+> difficult or impossible. PMP is one such feature, since it allows
+> firmware to lock down regions of memory and make them inaccessible to
+> the kernel.
+> 
+> In general, however, vendor firmware is extremely poorly written, and
+> I don't expect that to change.
+> 
+>> But putting everything into Linux instead really is not the answer. The
+>> only thing it does is break forward compatibility and bloat code size.
+> 
+> I am, today, fitting a linux kernel and full Go userland into about 3M
+> in SPI. For reference, this is smaller than the audio codec firmware
+> on some chipsets.
 
-> But putting everything into Linux instead really is not the answer. The
-> only thing it does is break forward compatibility and bloat code size.
+Does that same kernel run on all the 10000 different types of servers I
+mentioned above?
 
-I am, today, fitting a linux kernel and full Go userland into about 3M
-in SPI. For reference, this is smaller than the audio codec firmware
-on some chipsets.
+The problem is not to build something for *one* configuration, it's how
+we can abstract pieces well enough so that we can have a single system
+image that runs on any system you throw it at.
 
-I don't agree with your claim.
+> I don't agree with your claim.
+> 
+> That said, RISCV will have the SBI, and there is no getting around it
+> for certain purposes, but there's no reason to encourage growth.
 
-That said, RISCV will have the SBI, and there is no getting around it
-for certain purposes, but there's no reason to encourage growth.
+At least here we do agree (mostly) :).
 
-ron
+
+Alex
 
 _______________________________________________
 linux-riscv mailing list
