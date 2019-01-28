@@ -2,71 +2,47 @@ Return-Path: <SRS0=ZHC4=QE=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2AFD9C282C8
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 19:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D5FBC282C8
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 19:43:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E46A02171F
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 19:40:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CF7BE20989
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 19:43:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MUEQ1I39";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="nyrLkHB4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E46A02171F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Pc98/VYK"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CF7BE20989
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MXgkcGWkUVE6+YNbkZ6m88HT/egGXqEHQrlBdBJrx4U=; b=MUEQ1I39C9xGK1
-	H/11lIkVTv2BHM8ti43dBPGru1SgCw84SVMLoRqzrjwkdwgthWMDKAQbnEYqPZzc1luEG6Y34Ay43
-	5oaJODJeXO7Tx6Y33T+OF3nHaR1Oe30tczL4nMRcrtTCmETVepRzYb7xwOEoUcsq4WWzi5EQXRhYt
-	GEVQ10uQHQvZDEde61vMohpMXSMoLCMBW2Vs0EyDnSDaXIPHey6cf/LOvJRVJolJwllx/eiK8Sgsv
-	krPfH1sZMpZARDJDOt898zzaFDoZckeaNsPzxTiNe24db8gdY+ugLMXGFWHRSRTFc8DQ+3WE0YnmH
-	W3r5mGDnQHr0V1GTAToA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=//07NaziREf2ddiwZM76y5llCl5gxNXjSR79AbScViY=; b=Pc98/VYKrCiQIY
+	3lCDK0OvIaV3ZD2iWgrDp/L8m4LIZbsy6Ji7Esjt5tTrczjBAs5TNLsoJJQbdoI+0Pnzw2T3Gs0zn
+	NBJoApa0Q30CORUIYAUraJvqazBLZZf0CrH/91t7LO79rdqKy2gYScyTVxFdI5c979yxUCYb1PDRc
+	Dxrcje3qr65AnQ7XpCwZ+caGLkFDCWM4oTzqKqCpHjCd4ZjiCroH2TKiIL7+QJ6wiYc0HbhGC71JM
+	KlAxpaUhnGDVNtTiie4adJACxl7708BUW1r7TPz9ofiUkCkX9hS0szWe3ifjcppYGhDKBevfEHhBX
+	JerBeWvwKOSeW1YnXqeQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1goCm5-0004zm-Hd; Mon, 28 Jan 2019 19:40:53 +0000
-Received: from mail-it1-x12d.google.com ([2607:f8b0:4864:20::12d])
+	id 1goCoU-0005AV-AX; Mon, 28 Jan 2019 19:43:22 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1goCm1-0004zH-TE
- for linux-riscv@lists.infradead.org; Mon, 28 Jan 2019 19:40:51 +0000
-Received: by mail-it1-x12d.google.com with SMTP id h193so313018ita.5
- for <linux-riscv@lists.infradead.org>; Mon, 28 Jan 2019 11:40:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=cjniSVNAIH0Bp44bZFzERQC1aQN+fCT8Nuklq+0L5MI=;
- b=nyrLkHB4cg5fEIgOQl9jx1hr2Mk6RUtwV0MVmCyLdj/WjMJOrn4cWjHZ9StCTcZr3R
- UlZ3tETD3kMw+dpCnpaCfxBqm7D6DOXPNW7glJ06J7AkL0XZkQxR6uF9zNG/IFeQRV5n
- Zccae37Dypl3wllNX6zXZKmxfOysAf5PUlNJgz7Mfw+u/bKrVOMRdrYuxglB0nrAsj3a
- z0iXOHbo2Hv5S0Vv+YSa3pA18rX7A76+1UbUoME++GrBI3FoY6cY/ta2AFlLPF7tVdR/
- QZxWIK7LtamfKrsIFVn9KkUSFPfHfgtf/cnjAdWGozefEG2vbXWJmG5JwkIxsRB2PDkg
- 7gTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=cjniSVNAIH0Bp44bZFzERQC1aQN+fCT8Nuklq+0L5MI=;
- b=Cl+crGhymeWxRaPQgA7WR/DL4D0KLe/Ff4n2WOvgNNWAzNBQwcrPfmIK8pRNyWAxUd
- CVjiycbraZEUG9Hok3b3cet4MhMSKYYFUETccR2jh/Munc9Yj038WoOXkaMMnOTzw4+J
- KzAC3M7zVB3vlg1i6kvN4ToJEyDBWHUIsxJfk3iTFB70qDejWjyJpNlD6b0+tKJ0iDOz
- HqMgmbOp9Svyxhi4DRZVscJLnV5UhW6ma81RJ5rWA8YKX5ILh2o2kJOi3uLwfKnCmfkp
- veuvUeTY9fQ1g0EmlnZC4B9o0inNsbAZbqbn3MJTNdUefBylfjR7F57p7U28uzaauLDj
- kd7g==
-X-Gm-Message-State: AHQUAuYN2eGtzaVGlCHJOf6S7Xb8nQ2WPieixcJMSO6irIMXhgjcuYUu
- fvSGCJomECvMMKDtRUBQf7voEF12G+BUNhy7lmo=
-X-Google-Smtp-Source: AHgI3IaDjKS8j/BhuZLXkQM28h2V3A3SBpQz1t0HP6Uo3Xpbdg0uDqBZIK3kSkq9ZTbE4cWp4JpW0+7TioOkcjG9a3c=
-X-Received: by 2002:a24:9646:: with SMTP id z67mr1372376itd.153.1548704448323; 
- Mon, 28 Jan 2019 11:40:48 -0800 (PST)
-MIME-Version: 1.0
+ id 1goCoQ-00059S-V7
+ for linux-riscv@lists.infradead.org; Mon, 28 Jan 2019 19:43:20 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id D6519B017;
+ Mon, 28 Jan 2019 19:43:15 +0000 (UTC)
+Subject: Re: [sw-dev] SBI extension proposal v2
+To: Nick Kossifidis <mick@ics.forth.gr>
 References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
  <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
  <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
@@ -77,15 +53,71 @@ References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
  <452be0d3-da8e-643e-9f91-c38f0af36ffd@suse.de>
  <CAPweEDwdByUTHnbKGS-LbwGzqsjjWciWOBnPOKkNqupY--vV2A@mail.gmail.com>
  <033872b8-49d5-2731-118f-967488f4763f@suse.de>
-In-Reply-To: <033872b8-49d5-2731-118f-967488f4763f@suse.de>
-From: ron minnich <rminnich@gmail.com>
-Date: Mon, 28 Jan 2019 11:40:36 -0800
-Message-ID: <CAP6exYJRhw=nnhdrNQc7wOBUTYk0-LNaRQrhin7fqxeXMrEhkQ@mail.gmail.com>
-Subject: Re: [sw-dev] SBI extension proposal v2
-To: Alexander Graf <agraf@suse.de>
+ <cbccd2dd56e1e5b498fd12abda22b863@mailhost.ics.forth.gr>
+From: Alexander Graf <agraf@suse.de>
+Openpgp: preference=signencrypt
+Autocrypt: addr=agraf@suse.de; prefer-encrypt=mutual; keydata=
+ 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
+Message-ID: <0aa02993-4f71-2171-7bec-54fe40b13279@suse.de>
+Date: Mon, 28 Jan 2019 20:43:12 +0100
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:60.0)
+ Gecko/20100101 Thunderbird/60.4.0
+MIME-Version: 1.0
+In-Reply-To: <cbccd2dd56e1e5b498fd12abda22b863@mailhost.ics.forth.gr>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190128_114049_966904_9B50AD11 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20190128_114319_292347_13B291BB 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,131 +129,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
- Christoph Hellwig <hch@infradead.org>, Damien Le Moal <Damien.LeMoal@wdc.com>,
- Olof Johansson <olof.johansson@gmail.com>,
- "alankao@andestech.com" <alankao@andestech.com>,
- "abner.chang@hpe.com" <abner.chang@hpe.com>,
+Cc: mark.rutland@arm.com, Christoph Hellwig <hch@infradead.org>,
+ Damien Le Moal <Damien.LeMoal@wdc.com>,
+ Olof Johansson <olof.johansson@gmail.com>, alankao@andestech.com,
+ abner.chang@hpe.com, Atish Patra <atish.patra@wdc.com>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Palmer Dabbelt <palmer@sifive.com>, "zong@andestech.com" <zong@andestech.com>,
- Atish Patra <atish.patra@wdc.com>,
- "sw-dev@groups.riscv.org" <sw-dev@groups.riscv.org>,
+ Palmer Dabbelt <palmer@sifive.com>, zong@andestech.com,
+ ron minnich <rminnich@gmail.com>, sw-dev@groups.riscv.org,
  Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>,
- "mick@ics.forth.gr" <mick@ics.forth.gr>,
  Alistair Francis <Alistair.Francis@wdc.com>,
- Luke Kenneth Casson Leighton <lkcl@lkcl.net>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Luke Kenneth Casson Leighton <lkcl@lkcl.net>, linux-riscv@lists.infradead.org,
  Andrew Waterman <andrew@sifive.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Those of us working on the linuxboot and heads projects for the last
-few years have reached a few conclusions in this area. The big one --
-vendors can not get firmware right, period. The set of bugs we've hit
-in the x86 world alone in the last two years is just amazing, given
-that the UEFI community has had 20 years to get this stuff right and
-still don't seem to be able to do it. What's more amazing is how
-trivial they are. Do you want to disable UEFI mechanisms for detecting
-ROM image corruption? It's easy on many systems. Corrupt the ROM
-image. Achievement. as well as the ROM, unlocked. I'm not making this
-up; it's several CVEs at this point.
-
-We've learned that blindly  trusting firmware is always a bad idea.
-Assuming that it should have higher privilege, and trust, than the
-kernel is, similarly, a bad idea. In general, kernel code is far
-superior in quality to firmware, and is certainly better tested. Why
-is firmware higher privilege, when it's not as well written or
-trustworthy? That makes no sense. It's the assumption RISCV is making.
-
-Maybe the most important thing we now believe is that firmware should
-be measurable by the owner, i.e that an end user or system needs to be
-able to see what's there. Following on that, it's most desirable if
-firmware functions can be disabled and in some cases the firmware can
-be completely replaced, post boot, by the kernel, with something it
-can trust. The M mode, conceptually, is just a different type of trap
-handler. This is a lot like the work I did a few years back to vector
-SMM traps to the kernel, not buggy vendor SMM code.
-
-From that perspective, the "M mode bug" was never a bug -- I never
-agreed with Don on this one -- because it guaranteed a kernel could
-measure, disable, and replace firmware. And that's important, because
-firmware that is more powerful than the kernel should be easier to
-change out than the kernel. And that's another thing vendors keep
-screwing up. There is a recent proof of concept that installs UEFI on
-vulnerable x86 systems and then sets the one time fuses in such a way
-that the firmware can not be replaced unless the CPU is too. I'm not
-making this up either, and it's due to a screwup in the manufacturing
-flow of some ODMs, who left those fuses open. There are exploits in
-the wild that are only resolved with a chipper.
-
-Short form: if the PMP makes it impossible to measure, disable and
-replace firmware from the kernel, then PMP is a bug, not a feature.
-
-I just now had a conversation with a friend from chromeos firmware
-team and he is similarly dismayed with the directions riscv is taking,
-especially as regards runtime firmware. When I mentioned PSCI he
-looked sad.
-
-I understand the motivation to fit a new architecture into old
-firmware clothes. It's just that the clothes are motheaten and out of
-style and never looked good when new. We're going to need to have an
-escape hatch for organizations looking for newer, better ways of doing
-things.
-
-One possible way out at some point might be to define an SBI interface
-and operating mode that is responsive to concerns about firmware
-security, and avoiding the mistakes of the past. This does mean that
-there will not be "one SBI", which in turn means different kernel
-configurations, but I don't see much option. The concept of a "single
-SBI" was always going to be hard, and I expect at this point it will
-never happen.
-
-ron
-
-
-
-On Mon, Jan 28, 2019 at 8:38 AM Alexander Graf <agraf@suse.de> wrote:
->
->
->
-> On 28.01.19 17:33, Luke Kenneth Casson Leighton wrote:
-> > ---
-> > crowd-funded eco-conscious hardware: https://www.crowdsupply.com/eoma68
-> >
-> > On Mon, Jan 28, 2019 at 12:44 PM Alexander Graf <agraf@suse.de> wrote:
-> >
-> >>> If Risc-V wants to avoid fragmentation, it should simply keep a firmer
-> >>> reign in what is allowed in an implementation and keep a lid on such
-> >>> horrid ideas as vendor specific userspace ISA extensions.
-> >>
-> >> I tend to agree here. I think a global identification scheme is
-> >> reasonable. But can't we just live with a single global spec that people
-> >> contribute to?
-> >
-> >  unfortunately, alexander, the RISC-V Foundation has chosen to exclude
-> > people from the discussion, by choosing an ITU-style ("Cartelled")
-> > secretive standards development process.
-> >
-> >  so as an "outsider" who for whatever reason cannot join that closed,
-> > secretive process (for example a strategically-critical u-boot or
-> > linux kernel developer with decades of relevant experience but who is
-> > under contract) even if you wanted to contribute to a single global
-> > spec, you can't.
-> >
-> >  the reasons why the ITU-style Cartel was set up have been discussed
-> > and made clear (patents); the justifications were knocked down; there
-> > was no response.
->
-> I can see why you want to have a process like that in place for the ISA
-> itself, but the SBI spec really should not have anything "innovative" or
-> patentable. At the end of the day, it's a communication mechanism.
->
->
-> Alex
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyOC4wMS4xOSAxNzo0NywgTmljayBLb3NzaWZpZGlzIHdyb3RlOgo+IM6jz4TOuc+CIDIw
+MTktMDEtMjggMTg6MzgsIEFsZXhhbmRlciBHcmFmIM6tzrPPgc6xz4jOtToKPj4gT24gMjguMDEu
+MTkgMTc6MzMsIEx1a2UgS2VubmV0aCBDYXNzb24gTGVpZ2h0b24gd3JvdGU6Cj4+PiAtLS0KPj4+
+IGNyb3dkLWZ1bmRlZCBlY28tY29uc2Npb3VzIGhhcmR3YXJlOiBodHRwczovL3d3dy5jcm93ZHN1
+cHBseS5jb20vZW9tYTY4Cj4+Pgo+Pj4gT24gTW9uLCBKYW4gMjgsIDIwMTkgYXQgMTI6NDQgUE0g
+QWxleGFuZGVyIEdyYWYgPGFncmFmQHN1c2UuZGU+IHdyb3RlOgo+Pj4KPj4+Pj4gSWYgUmlzYy1W
+IHdhbnRzIHRvIGF2b2lkIGZyYWdtZW50YXRpb24sIGl0IHNob3VsZCBzaW1wbHkga2VlcCBhIGZp
+cm1lcgo+Pj4+PiByZWlnbiBpbiB3aGF0IGlzIGFsbG93ZWQgaW4gYW4gaW1wbGVtZW50YXRpb24g
+YW5kIGtlZXAgYSBsaWQgb24gc3VjaAo+Pj4+PiBob3JyaWQgaWRlYXMgYXMgdmVuZG9yIHNwZWNp
+ZmljIHVzZXJzcGFjZSBJU0EgZXh0ZW5zaW9ucy4KPj4+Pgo+Pj4+IEkgdGVuZCB0byBhZ3JlZSBo
+ZXJlLiBJIHRoaW5rIGEgZ2xvYmFsIGlkZW50aWZpY2F0aW9uIHNjaGVtZSBpcwo+Pj4+IHJlYXNv
+bmFibGUuIEJ1dCBjYW4ndCB3ZSBqdXN0IGxpdmUgd2l0aCBhIHNpbmdsZSBnbG9iYWwgc3BlYyB0
+aGF0Cj4+Pj4gcGVvcGxlCj4+Pj4gY29udHJpYnV0ZSB0bz8KPj4+Cj4+PiDCoHVuZm9ydHVuYXRl
+bHksIGFsZXhhbmRlciwgdGhlIFJJU0MtViBGb3VuZGF0aW9uIGhhcyBjaG9zZW4gdG8gZXhjbHVk
+ZQo+Pj4gcGVvcGxlIGZyb20gdGhlIGRpc2N1c3Npb24sIGJ5IGNob29zaW5nIGFuIElUVS1zdHls
+ZSAoIkNhcnRlbGxlZCIpCj4+PiBzZWNyZXRpdmUgc3RhbmRhcmRzIGRldmVsb3BtZW50IHByb2Nl
+c3MuCj4+Pgo+Pj4gwqBzbyBhcyBhbiAib3V0c2lkZXIiIHdobyBmb3Igd2hhdGV2ZXIgcmVhc29u
+IGNhbm5vdCBqb2luIHRoYXQgY2xvc2VkLAo+Pj4gc2VjcmV0aXZlIHByb2Nlc3MgKGZvciBleGFt
+cGxlIGEgc3RyYXRlZ2ljYWxseS1jcml0aWNhbCB1LWJvb3Qgb3IKPj4+IGxpbnV4IGtlcm5lbCBk
+ZXZlbG9wZXIgd2l0aCBkZWNhZGVzIG9mIHJlbGV2YW50IGV4cGVyaWVuY2UgYnV0IHdobyBpcwo+
+Pj4gdW5kZXIgY29udHJhY3QpIGV2ZW4gaWYgeW91IHdhbnRlZCB0byBjb250cmlidXRlIHRvIGEg
+c2luZ2xlIGdsb2JhbAo+Pj4gc3BlYywgeW91IGNhbid0Lgo+Pj4KPj4+IMKgdGhlIHJlYXNvbnMg
+d2h5IHRoZSBJVFUtc3R5bGUgQ2FydGVsIHdhcyBzZXQgdXAgaGF2ZSBiZWVuIGRpc2N1c3NlZAo+
+Pj4gYW5kIG1hZGUgY2xlYXIgKHBhdGVudHMpOyB0aGUganVzdGlmaWNhdGlvbnMgd2VyZSBrbm9j
+a2VkIGRvd247IHRoZXJlCj4+PiB3YXMgbm8gcmVzcG9uc2UuCj4+Cj4+IEkgY2FuIHNlZSB3aHkg
+eW91IHdhbnQgdG8gaGF2ZSBhIHByb2Nlc3MgbGlrZSB0aGF0IGluIHBsYWNlIGZvciB0aGUgSVNB
+Cj4+IGl0c2VsZiwgYnV0IHRoZSBTQkkgc3BlYyByZWFsbHkgc2hvdWxkIG5vdCBoYXZlIGFueXRo
+aW5nICJpbm5vdmF0aXZlIiBvcgo+PiBwYXRlbnRhYmxlLiBBdCB0aGUgZW5kIG9mIHRoZSBkYXks
+IGl0J3MgYSBjb21tdW5pY2F0aW9uIG1lY2hhbmlzbS4KPj4KPj4KPj4gQWxleAo+IAo+IEZZSQo+
+IGh0dHBzOi8vZm9zZGVtLm9yZy8yMDE5L3NjaGVkdWxlL2V2ZW50L3Jpc2N2c2JpLwoKVGhhdCBv
+bmUgaXMgb3ZlcmxhcHBpbmcgd2l0aCBvbiBJIHdpbGwgYmUgY28tcHJlc2VudGluZyBvbjoKCiAg
+aHR0cHM6Ly9mb3NkZW0ub3JnLzIwMTkvc2NoZWR1bGUvZXZlbnQvdWVmaV9ib290X2Zvcl9tZXJl
+X21vcnRhbHMvCgpCdXQgSSdtIHN1cmUgd2UgY2FuIGRpc2N1c3MgdGhpbmdzIHJlZ2FyZGxlc3Mg
+b25lIHdheSBvciBhbm90aGVyIDopLgoKCkFsZXgKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
