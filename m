@@ -3,21 +3,21 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,LOTS_OF_MONEY,MAILING_LIST_MULTI,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DCF1CC282CD
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 23:23:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AF314C282CD
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 23:47:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A0607214DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 23:23:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 39ABC2171F
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Jan 2019 23:47:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="X7kkuWIq";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="G8hGiJZm"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A0607214DA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="C3QhPtEn";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=lkcl.net header.i=@lkcl.net header.b="DQLc0JW/"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 39ABC2171F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lkcl.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -25,46 +25,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gkq2+EdChpmWMJl7G+tcw0aWqUYlDnSrOmdvRGGwJkg=; b=X7kkuWIqcXD1Kq
-	EgDa8uS5W28ZXV4IM8/xnw2n+BGyYoX/U7En6ilLbuB8DQBxtE1rqPsTtIoRVfHwv8C6HHY/56mT1
-	guvit+utxaxcX4E1PE3XwX03lk5lssgY5/pO6t84tq8X/cLNAFXuUCpwdqdDq9mt2TENbJr0ZBfQZ
-	59406HO9E9a6N+WJXPYiTIP62wBDCHAXME2JK+jE3sjeRSqu3hRqDKyeiyG88SaLHuYzVU1TFrLcl
-	gm2NN708sYP/mH77CnFA9LUgpNKZHnZGyS3RIHZR5ZDemjAGx/9zc4T0hMZPlMYquBbuxXCLamV34
-	16hvPSoavrJ5+Hn8+jbA==;
+	List-Owner; bh=RLzZDlDO0mZFsbxEKSqEeRr5yJd1hR0t4vmAJ+bQOJM=; b=C3QhPtEneW131c
+	Fg9ttYntdC1YeY7abvNt7R6m91ii2gTu31RLQYn+vr3DRwcuV3URoH3n8oKMA9+VTZOO9w4ihCLBm
+	x5EPZdpYcAzVKq2KcHIDIvr2NnND3GvcuOw8n2oLEkCdWpY5aqsR10a9QZc3SW2OtUXRR/YU8acq9
+	RWaJrnp4PM9lzbHbRLZ4yK8E94jUsjEATOYB3YR2jwrPygWB+chkF5eHPRGEyT1ZsOpxSWl0emhns
+	n2b2vdmBKsfs1be2jweQAkCqJrSsnHR7tZwprrYUjEE46VAYWSU65VR5mTaZLFCsUiaEgISHlH7UG
+	CEp/+mN1VIZUF89+wgHQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1goGF4-0003mm-Ps; Mon, 28 Jan 2019 23:23:02 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1goGcR-0004Uj-9i; Mon, 28 Jan 2019 23:47:11 +0000
+Received: from lkcl.net ([217.147.94.29])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1goGF2-0003m6-Jj
- for linux-riscv@lists.infradead.org; Mon, 28 Jan 2019 23:23:01 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id g67so15776905wmd.2
- for <linux-riscv@lists.infradead.org>; Mon, 28 Jan 2019 15:22:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=rL2ke4BgMMGJiZ/9hpGvvifFpTfg8dePwee1MY1zgfc=;
- b=G8hGiJZmidS8Fcq//T4GbFU3WHwGRnWTow1ltRU/3OKYCNNMADQepQAdTjI3RzK+Dw
- MDAV6Kr1uvP8NyENsTzY23kKDwua+zs1b+m1qxhnvV1o07fFEFPMpBrxt9NGF6EWP2b0
- hSONsJ8F1lfYY991G7XlpJbJkxAdxYIXXUyqFolEttnmEPwdlfYhembVnh8hRou2LojV
- Hsoh/lf2a8D7000/fp6u3BSNE33xIuhBaeP0lE6vuLT6s2DwW91tHXdz2mcDqyYLllFL
- D/5DLIGtR0HdyjjcvCmORsEkRhgQQMoMPMzr3yWyY55OoONat6FNnPkZ2kkLWg2lNN/T
- 4KGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=rL2ke4BgMMGJiZ/9hpGvvifFpTfg8dePwee1MY1zgfc=;
- b=SF+HKHZ+iw2KRnqzJDBar4Rnra5/bB3HeBWorBBYaAT1Jq6Po9DkHRwqNHw/wx+YXL
- Q/rtnZaMHq8AzEjfDUtqD74h8sYKc+ASAoCYqzah8Ue2wwJWGQArdIGn59KrlDY1w+XE
- 919q1Mt668smPNAfjNucMdd52x2t4wTf6mZZCp2WaFaIbAHakGWS0qABpiHf/dK8YKyq
- xLxDIJBhe39OZsrXN+juUadWlVTXS7NG2d2KIGINi8GWkDogs+JpVR+AlDo4+uZSmIWC
- NcplZoddYKCEUK/BmWzNPQmodYbbbotbM0y0psbsMcxlf2QJvzAflunJmaZ4m+ygr53m
- knxA==
-X-Gm-Message-State: AJcUukdIYF+6DPbrMPRORDm78Fljl9HRoF9R/iSE3hbzATDAj3SWYtof
- wpVt7HsGJMJHLK+Ywj5Vgi7HMpB8aOlnZid2jJOigziak0c=
-X-Google-Smtp-Source: ALg8bN4vi0ky1Lno4W5Uqf7W+BT4SRM/NhdnbJaDCeKio6GVruewcPcNfmLtih7o776pYyBdgTy3STjfoX98GQHSJQQ=
-X-Received: by 2002:a1c:7d54:: with SMTP id y81mr18789367wmc.106.1548717775081; 
- Mon, 28 Jan 2019 15:22:55 -0800 (PST)
+ id 1goGcI-0004Qa-W3
+ for linux-riscv@lists.infradead.org; Mon, 28 Jan 2019 23:47:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lkcl.net;
+ s=201607131; 
+ h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version;
+ bh=hBHspZtMelXCni8ry5NMINciJBUZLS4gkQJuooZZMHM=; 
+ b=DQLc0JW/OzvftJiYgKmiB0p4v+WGRzcNPME99ee9U2r20geZiq9WkBb2vaUhzDTzKc2fAV9pDNHCaXlxkV9cybE/toC+QbrKDuexzJmovjol3wQ6HQ0fvGmxmbR23kJbkESVlj+nLo3oJtwpgj8pCa6EBflyvW1j03pfmNvcvjg=;
+Received: from mail-lj1-f174.google.com ([209.85.208.174])
+ by lkcl.net with esmtpsa (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128)
+ (Exim 4.84_2) (envelope-from <lkcl@lkcl.net>) id 1goGc0-0000A8-GL
+ for linux-riscv@lists.infradead.org; Mon, 28 Jan 2019 23:46:44 +0000
+Received: by mail-lj1-f174.google.com with SMTP id x85-v6so15892174ljb.2
+ for <linux-riscv@lists.infradead.org>; Mon, 28 Jan 2019 15:46:28 -0800 (PST)
+X-Gm-Message-State: AJcUukfJ+AydEk3VTXlou3E8UxLsu6ezHlOu4Vm8BZ8ZsFkhJEqEJRtg
+ Hg/FGtWT/9pmvnDm+X2XJJlOVgmHQOvu05xsVvY=
+X-Google-Smtp-Source: ALg8bN4Qhvzw1521gND+LKm0ooZlE/oKP5HpL5UIzX2PJkjStcr1NkBVlQikggVq0Dl+uHxL5ZyRgkHnAzTQNVgJo8w=
+X-Received: by 2002:a2e:9a16:: with SMTP id
+ o22-v6mr18868964lji.112.1548719182926; 
+ Mon, 28 Jan 2019 15:46:22 -0800 (PST)
 MIME-Version: 1.0
 References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
  <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
@@ -77,15 +67,18 @@ References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
  <CAPweEDwdByUTHnbKGS-LbwGzqsjjWciWOBnPOKkNqupY--vV2A@mail.gmail.com>
  <033872b8-49d5-2731-118f-967488f4763f@suse.de>
  <CAP6exYJRhw=nnhdrNQc7wOBUTYk0-LNaRQrhin7fqxeXMrEhkQ@mail.gmail.com>
-In-Reply-To: <CAP6exYJRhw=nnhdrNQc7wOBUTYk0-LNaRQrhin7fqxeXMrEhkQ@mail.gmail.com>
-From: Bruce Hoult <brucehoult@sifive.com>
-Date: Mon, 28 Jan 2019 15:22:43 -0800
-Message-ID: <CAP8PnuS4vE-w07dENEpJWx_nu-yx3fsyM3nu3kUQoVFW5nzJcQ@mail.gmail.com>
+ <aadef824-7c76-5784-0ec8-de4344158c15@suse.de>
+ <CAP6exYJttZXUp=NAikvQ-9Orj-Ptpj4=Pnj30GN90Rzt_Rvvyg@mail.gmail.com>
+In-Reply-To: <CAP6exYJttZXUp=NAikvQ-9Orj-Ptpj4=Pnj30GN90Rzt_Rvvyg@mail.gmail.com>
+From: Luke Kenneth Casson Leighton <lkcl@lkcl.net>
+Date: Mon, 28 Jan 2019 23:46:10 +0000
+X-Gmail-Original-Message-ID: <CAPweEDw3us0adr9B9DgLMn8GBbJiPjScdkfJA=3QpatEW1Vksg@mail.gmail.com>
+Message-ID: <CAPweEDw3us0adr9B9DgLMn8GBbJiPjScdkfJA=3QpatEW1Vksg@mail.gmail.com>
 Subject: Re: [sw-dev] SBI extension proposal v2
 To: ron minnich <rminnich@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190128_152300_672675_DC61653C 
-X-CRM114-Status: UNSURE (   5.69  )
+X-CRM114-CacheID: sfid-20190128_154703_174024_CF210752 
+X-CRM114-Status: UNSURE (   9.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -110,7 +103,6 @@ Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>,
  "mick@ics.forth.gr" <mick@ics.forth.gr>,
  Alistair Francis <Alistair.Francis@wdc.com>,
- Luke Kenneth Casson Leighton <lkcl@lkcl.net>,
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
  Andrew Waterman <andrew@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
@@ -118,15 +110,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 28, 2019 at 11:40 AM ron minnich <rminnich@gmail.com> wrote:
-> Short form: if the PMP makes it impossible to measure, disable and
-> replace firmware from the kernel, then PMP is a bug, not a feature.
+On Mon, Jan 28, 2019 at 8:18 PM ron minnich <rminnich@gmail.com> wrote:
 
-I disagree.
+> That said, RISCV will have the SBI, and there is no getting around it
+> for certain purposes, but there's no reason to encourage growth.
 
-The owner/user should be able to change the SBI, perhaps by booting
-into a special mode. The kernel in a system running normally shouldn't
-be able to.
+RISC-V is stated to be founded on "learning from the mistakes of the
+past".  we're seeing empirical evidence that contradicts that
+statement.  the problem is: the position of the proprietary companies
+who seek to create secret firmware is quite reasonable.  there are a
+number aspects, which should not be confused:
+
+(1) the [false, arrogant] belief in "security through obscurity".
+this is the belief that if the details of a security algorithm are
+kept secret, that nobody will "work it out".  decades of evidence to
+the contrary do not seem to be getting through their thick heads.
+
+(2) the [unfortunately reasonable yet unethical] position that it is
+only through early boot that "trust" may be provided - and by trust i
+mean that the company that *deploys* the processor can "trust" that
+there is an unbreakable chain of DRM which prevents and prohibits
+tampering.  [i do not mean that the *users* can trust that their
+rights, privacy and freedom are protected]
+
+(3) the [reasonable] position that proprietary early boot additions to
+RISC-V really do not need to be published (and would result in the
+horrendous proliferation of customised early boot firmware
+modifications noted eariler in the discussion), and that furthermore
+in many instances the company *cannot release them anyway*... because
+they didn't write them, they only *licensed* them.
+
+examples of type (3) include Mediatek and other 2G/3G/LTE and WIFI
+companies that typically have shared-memory embedded DSPs, or other
+solutions that involve *third party* real-time Operating Systems on
+which they base the software that runs the WIFI or 2G/3G/LTE service.
+
+it gets even more complex when the FCC goes and fucks things up - and
+you get idiotic people *in the free software community* supporting the
+FCC in its consultation to lock-down WIFI firmware, as happened a
+couple of years ago.
+
+the reason i mention the FCC in this context is because even if the
+full source code of WIFI or 2G/3G/LTE firmware running on such hybrid
+systems were made available under libre licenses, whilst compilng and
+installing binaries based around the source it would be a criminal
+offense for people to actually *use* the result binaries based around
+it... unless they paid the USD $50,000 fees to the FCC to have them
+re-certified.
+
+l.
 
 _______________________________________________
 linux-riscv mailing list
