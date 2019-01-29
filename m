@@ -6,77 +6,82 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D202CC282CD
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 29 Jan 2019 00:04:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 281B7C282CD
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 29 Jan 2019 02:43:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9D62E214DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 29 Jan 2019 00:04:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E03D0214DA
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 29 Jan 2019 02:43:27 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="i27WL722";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=lkcl.net header.i=@lkcl.net header.b="C4492BGO"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D62E214DA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lkcl.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OrBziU3d";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="VUUg0A8N"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E03D0214DA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SuI+dZh6Vew5SbsSpSD7Qz4CKdL/prQLT1bf2hA63mc=; b=i27WL722QnK4v7
-	6D0GTuVxrIC8ozBJJyA2+lFLTavPQpsBJsd1MAG0qcnbhH/d/KHJdZGyQZ7DZodhJraC4X+Wdj3pk
-	rBLkjUgySNl6JvT0CYGc9s3WdmoqqpeR/u89p3Gl3w8jg2zmeSApRSwp2Ul3rrISsfSIPERipRG6a
-	Fp3aqe9jr5nwBP83qLwMVHmcUxHQUX0gDWL8FXKM7Q+VDnRNjC3aN+iDVi1SOjAkiv2m4gTF7Mgsd
-	hvo8q3IpUElqR6dEQjyk4De3/gQXQyJk5Id63qDWHXhhe05Ffb+pQ5SxWTwV7WuHbcb7K9wQezohz
-	P9znOEkrgWfQHeHFpnIA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=TUyXz9BgXQnAAydRsdYnxPS10g7o9+eEwltybMIekMo=; b=OrBziU3d/NcKhIWh5xLIaLkc6
+	V7VVc325KM7CpE/9gxAblMyrDR+AQ5R0LunKl//Om3vyKqjvs+A3Kim9mGrEpGr6MLoLxBG+VZjWV
+	eEGXLQiAScto8gV4r69syAOfHz0hWkx1h8VQ2IcD+JztL11PF44PNb6DfT0w+ffp2Vkp5YYpK1zvM
+	RP7Ajv9LU6NbGjAD8cIePVn0NxHjMFM4AUXafUMKgq1Ry+sQI5v+K4B5WgOeaCpN7vej0/uXeL6Xn
+	RA+cz8VCJaKrWZniqTBtIba4q9zIUq492qwpZMN9Kmy7Z6oFOLEg+N19+xcX/vOKTUk+c0szNm/UC
+	a7FiH83EQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1goGt0-000110-Mv; Tue, 29 Jan 2019 00:04:18 +0000
-Received: from lkcl.net ([217.147.94.29])
+	id 1goJMz-0005XX-Er; Tue, 29 Jan 2019 02:43:25 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1goGsx-00010e-ON
- for linux-riscv@lists.infradead.org; Tue, 29 Jan 2019 00:04:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lkcl.net;
- s=201607131; 
- h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version;
- bh=EM7oH2MmiT+c3lE5R47s+w6X9cOS9rH8lDx6EBe+NJ8=; 
- b=C4492BGOsbB0qxfGO5lPMXjdCYqsCXfUhVgRMYkrf54sODHQbVcxJXMuuCaQop7AQDWLo3w882fv/fHHhVIWqZyZLjJTuRqWkg9sQWMcXT2cKaM7NKJ8/lAEsRfxM3OnoO8p5Enut04DE+guVPCEBKduDVx2cDHv5KVOVwuVvjg=;
-Received: from mail-lf1-f52.google.com ([209.85.167.52])
- by lkcl.net with esmtpsa (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128)
- (Exim 4.84_2) (envelope-from <lkcl@lkcl.net>) id 1goGsw-0000Br-5L
- for linux-riscv@lists.infradead.org; Tue, 29 Jan 2019 00:04:14 +0000
-Received: by mail-lf1-f52.google.com with SMTP id p6so13312746lfc.1
- for <linux-riscv@lists.infradead.org>; Mon, 28 Jan 2019 16:03:53 -0800 (PST)
-X-Gm-Message-State: AJcUukcgRiB0jjDRpEoM4M7X0IQwNPuEjPHE1AMJpRAarT2IgBC9rO/D
- rTKLK2BuUFoCTpe5IlJIh8/aV/M5ZaQfz1XMnYE=
-X-Google-Smtp-Source: ALg8bN7nfh2+E8WakR/GsdtSsPExQGIVui/VMkA+i7w9PjOQzyp4QgjttHldcR8xLUhUOB1Lv0Qsr5bZPn1PhyAXAwk=
-X-Received: by 2002:a19:4ed9:: with SMTP id u86mr18616641lfk.78.1548720227556; 
- Mon, 28 Jan 2019 16:03:47 -0800 (PST)
-MIME-Version: 1.0
-References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
- <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
- <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
- <CAPweEDz-7oRg2UWPkvTDdfi36Z4PQLAuLdL3-Sy-kmkGEJ=44A@mail.gmail.com>
- <CAP6exYKfhtgXz4nVSwXasicbE+8ZbKwp-15_xGFHfFoK9yi9-g@mail.gmail.com>
- <7efecac7-17bd-5fc1-d0de-9fd498db4751@wdc.com>
- <d476c0e2b525fb0642b3155a247495cb1850c208.camel@kernel.crashing.org>
- <452be0d3-da8e-643e-9f91-c38f0af36ffd@suse.de>
- <CAPweEDwdByUTHnbKGS-LbwGzqsjjWciWOBnPOKkNqupY--vV2A@mail.gmail.com>
- <033872b8-49d5-2731-118f-967488f4763f@suse.de>
- <CAP6exYJRhw=nnhdrNQc7wOBUTYk0-LNaRQrhin7fqxeXMrEhkQ@mail.gmail.com>
- <CAP8PnuS4vE-w07dENEpJWx_nu-yx3fsyM3nu3kUQoVFW5nzJcQ@mail.gmail.com>
-In-Reply-To: <CAP8PnuS4vE-w07dENEpJWx_nu-yx3fsyM3nu3kUQoVFW5nzJcQ@mail.gmail.com>
-From: Luke Kenneth Casson Leighton <lkcl@lkcl.net>
-Date: Tue, 29 Jan 2019 00:03:35 +0000
-X-Gmail-Original-Message-ID: <CAPweEDw9VaELAwS1N=9nRxT-rgj64fCWyBGb+E5v+_wtgpfJfA@mail.gmail.com>
-Message-ID: <CAPweEDw9VaELAwS1N=9nRxT-rgj64fCWyBGb+E5v+_wtgpfJfA@mail.gmail.com>
-Subject: Re: [sw-dev] SBI extension proposal v2
-To: Bruce Hoult <brucehoult@sifive.com>
+ id 1goJMv-0005WH-7g
+ for linux-riscv@lists.infradead.org; Tue, 29 Jan 2019 02:43:22 +0000
+Received: by mail-pl1-x643.google.com with SMTP id g9so8670739plo.3
+ for <linux-riscv@lists.infradead.org>; Mon, 28 Jan 2019 18:43:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=uGhtJew8V8IVHDP2ojAqAmVpvsOfI7pNzmTu2ZaYKlM=;
+ b=VUUg0A8NR6sreK3e89AzR3MRjZmDYVrBSC3Ev/yv7XblYqn1mrnHgTgGbWMnPAedDe
+ aNaM+buru/mn59VBgtQ/K1Mx8KqBGHiFQcB4qw/vsiimI1hvwR28+z8oq5kDSlosXV9S
+ fd5wMUXtMnOWlocr8Sb8/ara9hKp2u0O5h7XRmvurY7n7shL+1ttzW8qRwf4tpxM5HOD
+ jxJiFAfC4kMSTSKgc+NBLYKAfvt73UO2DVJ1Nw4jdi61jZIRgda5aODo99tsHG8qPT58
+ 6uf2H8p+V3A7+NZK8b0gDVNmVgeilFTpy/0Z5Ao6P2zXnkKsJSXvkezfRaLR8kPE5+1r
+ ApoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=uGhtJew8V8IVHDP2ojAqAmVpvsOfI7pNzmTu2ZaYKlM=;
+ b=lceN7CYs+1ZAszqHUMucUqd+zNec8d8KiJCJIR5cvtxIlDdngzTCf24N++EiuJ41rj
+ UieyQFX8IVMDZj0Bs/fAgFbV4NWj9EF9D+9jaAkAbBFBflf/pmTSNvEQk8DCWVYZYJ7P
+ LyEc78DriMj4teYhXZWk1Rl2KuhWYKIWnqDKPblmrtohwCfWHbP6trD5QFftp7PTkqaJ
+ cGwdIv7vIJDGXSSBedA7mmrhYordnl1nt7sqKlBZXZyOBU9ucKVu505B1o1FAeHNz1AZ
+ 3Zlq8x2G+8gGgT6SS1fQqmxVzeS+xDdppJnVPz+TJDcEYzAzAXZ+H1OwHqDVPC8ChZfn
+ Kk3Q==
+X-Gm-Message-State: AJcUukdxT6vv2/HPwaOhPJSsobY4CWpj8pZkFY8fYSB6R/YZQXUiR0Fj
+ CR4nVhQGWxK12zkGpMJheh8bnw==
+X-Google-Smtp-Source: ALg8bN6vEkg3CDRHzD9i8Iv2CCJoXpReVKMTqvCc6dGPdTqxknCrfOex4np4naBDvGxLtZRmNLf5EQ==
+X-Received: by 2002:a17:902:42e4:: with SMTP id
+ h91mr24693197pld.18.1548729795749; 
+ Mon, 28 Jan 2019 18:43:15 -0800 (PST)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id x127sm54610610pfd.156.2019.01.28.18.43.14
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 28 Jan 2019 18:43:14 -0800 (PST)
+Date: Mon, 28 Jan 2019 18:43:14 -0800 (PST)
+X-Google-Original-Date: Mon, 28 Jan 2019 18:43:08 PST (-0800)
+Subject: Re: [RFC PATCH 1/3] riscv: set HAVE_EFFICIENT_UNALIGNED_ACCESS
+In-Reply-To: <CAFyWVaaAg9TuNVPbNmP0ongf6y2hmqFMiXJZHo8K84O4-BV0yw@mail.gmail.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: Jim Wilson <jimw@sifive.com>
+Message-ID: <mhng-13e1a533-81f1-47cc-8d1e-a4e5332600f4@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190128_160415_965787_878B7D15 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20190128_184321_307138_60B0B457 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -88,73 +93,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
- Christoph Hellwig <hch@infradead.org>, Damien Le Moal <Damien.LeMoal@wdc.com>,
- Olof Johansson <olof.johansson@gmail.com>,
- "alankao@andestech.com" <alankao@andestech.com>,
- "abner.chang@hpe.com" <abner.chang@hpe.com>, Atish Patra <atish.patra@wdc.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Palmer Dabbelt <palmer@sifive.com>, Alexander Graf <agraf@suse.de>,
- "zong@andestech.com" <zong@andestech.com>, ron minnich <rminnich@gmail.com>,
- "sw-dev@groups.riscv.org" <sw-dev@groups.riscv.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>,
- "mick@ics.forth.gr" <mick@ics.forth.gr>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Andrew Waterman <andrew@sifive.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: davidlee@sifive.com, daniel@iogearbox.net, bjorn.topel@gmail.com,
+ Christoph Hellwig <hch@infradead.org>, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 28, 2019 at 11:22 PM Bruce Hoult <brucehoult@sifive.com> wrote:
-
-> On Mon, Jan 28, 2019 at 11:40 AM ron minnich <rminnich@gmail.com> wrote:
-> > Short form: if the PMP makes it impossible to measure, disable and
-> > replace firmware from the kernel, then PMP is a bug, not a feature.
+On Fri, 25 Jan 2019 17:33:50 PST (-0800), Jim Wilson wrote:
+> On Fri, Jan 25, 2019 at 12:21 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+>> Jim, would you be opposed to something like this?
 >
-> I disagree.
+> This looks OK to me.
+
+OK, thanks.  I'll send some patches around :)
+
 >
-> The owner/user should be able to change the SBI, perhaps by booting
-> into a special mode.
+>>     +    builtin_define_with_int_value ("__riscv_tune_misaligned_load_cost",
+>>     +                                   riscv_tune_info->slow_unaligned_access ? 1024 : 1);
+>>     +    builtin_define_with_int_value ("__riscv_tune_misaligned_store_cost",
+>>     +                                   riscv_tune_info->slow_unaligned_access ? 1024 : 1);
+>
+> It would be nice to have a better way to compute these values, maybe
+> an extra field in the tune structure, but we can always worry about
+> that later when we need it.
 
- ah, we have a bit of cross-over.  the problem is that there is a
-financial disincentive to add such modes to all types of products.
-
- take an example: a DRM-locking mechanism endorsed and lobbied by the
-Mafia Picture Association of America (the MPAA).  they want the
-bootloader locked, so that the OS can be locked, so that the
-applications can be locked, so that they can get their cut of revenues
-and people cannot copy movies.
-
- if you are not familiar with how intrusive this really is, try buying
-a portable USB DVD Drive and try to simply write data to it, on a
-GNU/Linux system.  it will FAIL, but worse than that the DVD Drive
-will *self-destruct* and never even read let alone write DVDs again,
-and the reason it will fail is because there is a little-known
-conspiracy between proprietary OS writers and the DVD manufacturers,
-where if certain secret IDE commands are not sent to the DVD Drive
-whilst it is writing, it *will* self-destruct
-
-[in 2004 i actually had to take 3 such products back to Best Buy.
-each one systematically failed, the moment i tried to use it to take
-backups.  in the end i had to get an internal IDE drive]
-
- now... do you think that the Mafiaaa would be happy to learn of a
-proposal to allow *users* to bypass the "security" that they lobbied
-so hard for so long to have added into products?
-
- what do you think would happen to a company that tried to sell
-product that had such "insecure" bypass mechanisms in it?  do you
-believe that they would have *any* ODM clients take up their processor
-as part of products?
-
- so unfortunately, with so much money involved in bringing processors
-to market, "should" may be viewed by investors as "financially
-irresponsible".  which makes me really annoyed, as the whole thing is
-just so utterly unethical.
-
- l.
+I agree.  I just went and designed the external interface first and hid the 
+ugliness here.  The internal interfaces are easier to change :)
 
 _______________________________________________
 linux-riscv mailing list
