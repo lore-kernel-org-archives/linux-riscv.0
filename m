@@ -2,70 +2,84 @@ Return-Path: <SRS0=j0kh=QG=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham
+X-Spam-Status: No, score=-11.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0646AC282D5
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 30 Jan 2019 08:14:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7B893C282D7
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 30 Jan 2019 17:53:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C90FC20857
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 30 Jan 2019 08:14:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4912A2087F
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 30 Jan 2019 17:53:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NlvAJs/h"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C90FC20857
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZWDq/00H";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="a5OALG2z"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4912A2087F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6G6bzYYw1AbdNqh69nd6iZkuZjdIMSw8B/niKPu5Fio=; b=NlvAJs/hOAAaO5
-	dXN28d62RnljaGdNp8T80DEfUJ7W8akyKmKdNyHv5IwZxhyQhhMEwsh3i6+ziIV6NrkGp1E12VnMe
-	jlwx8LkiAyMTpPROEZWzkw2z5pNpTIG5HKsPuO0doypuw1/7nI+3oOJ880kLAo1gU9f+kqwixlp0H
-	6NrQGBiqnmOijtfbjBuLR8HDwdN+5XHid3LIp7CMCOnLrn6xL/+q1I/JOIkX8mdORCFjyL2FQ44LE
-	p5wwTK1Of639vtLmKMngk6jS+/vpG3NcGDWCHKB4VX4Om8YGAo+Z1asWHyzdbwgbg0Mbsv9AAdr6z
-	1PPS+vl9oub5vCDvPMJA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:Subject:
+	Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ihx8wYGt/IZHaa4IMhMGW/YTGlqCKdG5uJYACMcBwjY=; b=ZWDq/00HrDEN0n
+	I1q33yFcq8EvZtwDmFE3lBI5DLff3AUa0HOMRNsOQOkRuokHEKozK+z4IpMQKTtiN+hI2cSBPn9Q3
+	bm/PmMB5iiL8hp23E4jGUXjgjmATY3KGECrtcLhw5G+STqBAvVAhLqQ1Pbj2vSWs/SZYCG54sfqu7
+	cUx+PgBV9Wubx0PLzszeVz/RPiTQwBEXtJTe7U0bRRB4HZl8mb0F6VL0ZabGW7jauhvX+UFJ5f13s
+	qYaO281Rn8c5FOs1eoOU4woBfkpXCKNnwKqYm6RZcoWEJsTbJLKqfErDO5KU/TJUHbOhZEKWPUwx1
+	9Qah/820egO16F+W3QBg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gol0l-0007cE-NH; Wed, 30 Jan 2019 08:14:19 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1gou2n-0005tB-2w; Wed, 30 Jan 2019 17:53:01 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gol0i-0007bq-1M
- for linux-riscv@lists.infradead.org; Wed, 30 Jan 2019 08:14:17 +0000
-Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1gol0e-00010t-Bv; Wed, 30 Jan 2019 09:14:12 +0100
-Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1gol0d-00022G-7T; Wed, 30 Jan 2019 09:14:11 +0100
-Date: Wed, 30 Jan 2019 09:14:11 +0100
-From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH v5 1/2] pwm: sifive: Add DT documentation for SiFive PWM
- Controller
-Message-ID: <20190130081411.5rva7cpwoy2l5qjd@pengutronix.de>
-References: <1548762199-7065-1-git-send-email-yash.shah@sifive.com>
- <1548762199-7065-2-git-send-email-yash.shah@sifive.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1548762199-7065-2-git-send-email-yash.shah@sifive.com>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+ id 1gou2l-0005sq-8S
+ for linux-riscv@lists.infradead.org; Wed, 30 Jan 2019 17:53:00 +0000
+Received: by mail-pl1-x642.google.com with SMTP id 101so155797pld.6
+ for <linux-riscv@lists.infradead.org>; Wed, 30 Jan 2019 09:52:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:from:to:message-id;
+ bh=eA6w2DJkuoLkX3yICHnRN/pQE/wdeda+obKOC24tPDs=;
+ b=a5OALG2zavnWDeC7xn+T8vRcfa0XgLre7kC5AkbtPRG+/PPorC+O+iQas6OGt19ID4
+ tcmIONBLR3ghcxnfcKpnV4EqhPEIL3HjCmVnJwXTiISu9iBVVlyP7Xs1n0RyZWXUnbq/
+ tUYT4a2jhObabSKPQBN1OzDsQK7cms0863ePqKSpcM6gZkqEGDTvLyZ7/BcgCKwayh/1
+ ECKfX2kAFAXHnPNc8ol9smvLsfHyxAqkTpGIPlYrwVoesbiMopS/JY50G4/mAIcG4OFJ
+ SwcR5tqN1z407DD3MK4qJBgtciv7azEBxm4hWsmV3IGiP1duSeKca6TSNNMT+PNr69Lk
+ WrPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:from:to:message-id;
+ bh=eA6w2DJkuoLkX3yICHnRN/pQE/wdeda+obKOC24tPDs=;
+ b=KVb0Zvf/nzafJvZulbEjCyqTszHbnWhkflxYm2ARcBS5kCw5P2rz71KAGcQKB0FQF0
+ SOonYPLd0uTtOvTz4njqS1TDCLuZKKR/BJCHLCk5UqZBtxgFpZohse3Sx9ON0xcY6x3E
+ WKNKPRfa4H/9y9TnWDDIhezIDtMuAg+/8laMPqOro18DVhrJVM3LvrwEwYD24eTI9psq
+ bsmKD2Wjiy4RkxPkAJcU2HIz/oGCBZQUw8Mk0EWQpLHYxylvj93jx/OUeauOM6CV5R2Q
+ 5h4ERoHVMPmOn8CDh9/MXr10MuntfONKdwbInBZIk8TmlwVTYVbZb/w8Vzb6Lt43VTnC
+ bClQ==
+X-Gm-Message-State: AJcUukdfBbmlNTwEU0qzh4X9yw0xrUIXW7fOP2xTgi0db1VaOK2+kNYD
+ XGOAlnowrMprbS28Ngwjr7KRvRIp+LY=
+X-Google-Smtp-Source: ALg8bN4tagx0X0rjT6cipp7+Sd5ZGJD/A2I4xHn3t1DFvf1u0SEll7GgtiBF4DWLXzL5JTSPjx+obQ==
+X-Received: by 2002:a17:902:29ab:: with SMTP id
+ h40mr31131168plb.238.1548870777864; 
+ Wed, 30 Jan 2019 09:52:57 -0800 (PST)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id a10sm2713164pfi.138.2019.01.30.09.52.56
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 30 Jan 2019 09:52:57 -0800 (PST)
+Date: Wed, 30 Jan 2019 09:52:57 -0800 (PST)
+X-Google-Original-Date: Wed, 30 Jan 2019 09:52:55 PST (-0800)
+Subject: [PULL RFC] RISC-V Fixes for 5.0-rc5
+From: Palmer Dabbelt <palmer@sifive.com>
+To: linux-riscv@lists.infradead.org
+Message-ID: <mhng-643a7b93-4b7b-48cc-ac3b-618137fc32d4@palmer-si-x1c4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190130_001416_237724_F47E3D4F 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20190130_095259_301744_FB6067FC 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -77,64 +91,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- palmer@sifive.com, linux-kernel@vger.kernel.org, robh+dt@kernel.org,
- sachin.ghadi@sifive.com, thierry.reding@gmail.com, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 29, 2019 at 05:13:18PM +0530, Yash Shah wrote:
-> DT documentation for PWM controller added.
-> =
+The following changes since commit 49a57857aeea06ca831043acbb0fa5e0f50602fd:
 
-> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
-> [Atish: Compatible string update]
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> Signed-off-by: Yash Shah <yash.shah@sifive.com>
-> ---
->  .../devicetree/bindings/pwm/pwm-sifive.txt         | 33 ++++++++++++++++=
-++++++
->  1 file changed, 33 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.txt
-> =
+  Linux 5.0-rc3 (2019-01-21 13:14:44 +1300)
 
-> diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt b/Docum=
-entation/devicetree/bindings/pwm/pwm-sifive.txt
-> new file mode 100644
-> index 0000000..8dcb40d
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
-> @@ -0,0 +1,33 @@
-> +SiFive PWM controller
-> +
-> +Unlike most other PWM controllers, the SiFive PWM controller currently o=
-nly
-> +supports one period for all channels in the PWM. This is set globally in=
- DTS.
+are available in the Git repository at:
 
-You can simply drop this if the first user can set this using the usual
-interface. Don't you like this suggestion that I already made a few
-times now?
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-5.0-rc5
 
-Did you consider to make the driver support only a single output with a
-more flexible period setting?
+for you to fetch changes up to ae662eec8a515ab550524e04c793b5ddf1aae3a1:
 
-> +The period also has significant restrictions on the values it can achiev=
-e,
-> +which the driver rounds to the nearest achievable frequency.
+  riscv: Adjust mmap base address at a third of task size (2019-01-25 10:50:53 -0800)
 
-Rounding a period to a frequency sounds wrong.
+----------------------------------------------------------------
+RISC-V Fixes for 5.0-rc5
 
-Best regards
-Uwe
+This patch set contains a handful of mostly-independent patches:
 
--- =
+* A patch that causes our port to respect TIF_NEED_RESCHED, which fixes
+  CONFIG_PREEMPT=y kernels.
+* A fix to avoid double-put on OF nodes.
+* Fix a misspelling of target in our Kconfig.
+* Generic PCIe is enabled in our defconfig.
+* A fix to our SBI early console to properly handle line endings.
+* A fix such that max_low_pfn is counted in PFNs.
+* A change to TASK_UNMAPPED_BASE to match what other arches do.
 
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | http://www.pengutronix.de/  |
+This has passed by standard "boot Fedora" flow.
+
+----------------------------------------------------------------
+Alexandre Ghiti (1):
+      riscv: Adjust mmap base address at a third of task size
+
+Alistair Francis (1):
+      RISC-V: defconfig: Enable Generic PCIE by default
+
+Andreas Schwab (2):
+      RISC-V: fix bad use of of_node_put
+      tty/serial: use uart_console_write in the RISC-V SBL early console
+
+Antony Pavlov (2):
+      RISC-V: asm/page.h: fix spelling mistake "CONFIG_64BITS" -> "CONFIG_64BIT"
+      RISC-V: Kconfig: fix spelling mistake "traget" -> "target"
+
+Guo Ren (1):
+      riscv: fixup max_low_pfn with PFN_DOWN.
+
+Palmer Dabbelt (2):
+      RISC-V: defconfig: Move CONFIG_PCI{,E_XILINX}
+      RISC-V: defconfig: Add CRYPTO_DEV_VIRTIO=y
+
+Vincent Chen (1):
+      RISC-V: Add _TIF_NEED_RESCHED check for kernel thread when CONFIG_PREEMPT=y
+
+ arch/riscv/Kconfig                      |  2 +-
+ arch/riscv/configs/defconfig            |  8 +++++---
+ arch/riscv/include/asm/page.h           |  2 +-
+ arch/riscv/include/asm/processor.h      |  2 +-
+ arch/riscv/kernel/asm-offsets.c         |  1 +
+ arch/riscv/kernel/entry.S               | 18 +++++++++++++++++-
+ arch/riscv/kernel/setup.c               |  2 +-
+ arch/riscv/kernel/smpboot.c             |  6 +-----
+ arch/riscv/mm/init.c                    |  3 ++-
+ drivers/tty/serial/earlycon-riscv-sbi.c | 13 ++++++++-----
+ 10 files changed, 38 insertions(+), 19 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
