@@ -1,4 +1,4 @@
-Return-Path: <SRS0=xvkM=QF=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=j0kh=QG=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
@@ -6,81 +6,81 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C5DF1C169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 29 Jan 2019 22:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 358B4C282C7
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 30 Jan 2019 00:06:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 881C52147A
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 29 Jan 2019 22:41:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B9BF52175B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 30 Jan 2019 00:06:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mo9GhYbw";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Xq2LXP95"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 881C52147A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BmEGkxUa";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=lkcl.net header.i=@lkcl.net header.b="HQAIC68p"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B9BF52175B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lkcl.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=OXEI29nHniJeobM9QHshjoyKYSNtw/bHsWWFnUGro8s=; b=mo9GhYbwJRnt+26XEUW9jprce
-	4+MNp93vWxIvBIS/8zxba6HqMN+ITC0W8uAsl8vu1nY4hbfCqOBK6my44MHUDZpXx8nhPRuALY2ae
-	c7dCuna35xEMwH0yodYUAZGF8lvlGiSkrTP8sZWYTfJnPsu/sQIEpiYQ3rYWtdodyNBsQWko3Mtbq
-	mNONGRoxqj9w+DSb6X91/dXylipYZsfcwhwHCD0GrCwPomNv0WZfbuVcDBNM9bLkmZKPnL9zf6XC8
-	U1EID1M8H+Z7cljnV1tCOt9gcA5kim9/AgsnOJIW20g5CesY/8ox6cg/NQFCaRK5rI7oPjRvgD9CO
-	nvvTNmP+g==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=P6EI3ZNlWI7RmuyH5N7BhOlhwMSiynkvilpMPYOHw6o=; b=BmEGkxUaqaQeRm
+	ZOxnjFeJam86BDS9HP+L52D64vNAf0uMKoOgLdc4WlWziyO/ivvUAavwYpPKiGv9aDcK/FVkfeZxg
+	siDO/4/joQpNI6aRY+FlMKncOx6et0s5j8pB+NfYZW+IlJ+xNSOwV/Rn/sKx4TTePBrm/zy0nnbMv
+	S6EgZ2k4FaveI4eGcs5/8oHA9lNKFeMRtzHn+xnvdMevZPcIJndbjy5I7zmbGqRlI8uYHymuJRKxt
+	fTigOQBOl8RY0w7AsfLnPiVWhikYFtj+DuNs+I3H3EiQjJJT70w7WrPRVED/kRk7pIGGVGGv8kA1K
+	gx6/IIOefQEtT5DWxJ1A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1goc4f-0002Y1-RI; Tue, 29 Jan 2019 22:41:45 +0000
-Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+	id 1godP4-0007jr-Q1; Wed, 30 Jan 2019 00:06:54 +0000
+Received: from lkcl.net ([217.147.94.29])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1goc4c-0002XZ-2f
- for linux-riscv@lists.infradead.org; Tue, 29 Jan 2019 22:41:43 +0000
-Received: by mail-pg1-x541.google.com with SMTP id d72so9397012pga.9
- for <linux-riscv@lists.infradead.org>; Tue, 29 Jan 2019 14:41:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=qh5G9yQZkBa8Svfk3tGfWZqDyxvynq71iU/6DQx3jCc=;
- b=Xq2LXP95akf/d2SGVpk3idF2TJ6mKZPAPIHfKEB335lwJl7f9dkPDGYi9bjKnyIgOx
- +1soP4PyEM1LB0BubPtBkbDIqxmHIN9uZEwMuUqPhuFzhguno+481bXy0b7L28bWHM6v
- y4FGqorVIS0DpNkDfXmUohxK5V/JARXHKPnD1cGn7fSofj6fIlB7leA14pB6AnSdQYcw
- 0izF2sPABFHaPuw+MzD2K46pNeVbIxBKN0mYZEdS1swmawMu/BtY/Te9xtEJD/TGjiUt
- zpn0wLINS/+bdoE7ZXasfi6xgrmiTCvdg5FdisloNPDx2EFj5l0DNO4A9a/N0oapsQhn
- G0vw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=qh5G9yQZkBa8Svfk3tGfWZqDyxvynq71iU/6DQx3jCc=;
- b=P5RqBGXAjNesl2O8b6tipze2M6SgPhjQb1+iXog1E8UQwmfMisktFdV9gDAZ7eFma0
- e5fEjN7T1EPBS6Gr/XF36Dft8iM9v7UemstQW6FHQuLi0Y4umVPwuo88kD+1hw6rg2rV
- VyMfG50llcHAViGK2zgXFOObAZYdeFCM6eq99w4b83nAeiPMOFTq/3PXtEefwhXesPvl
- zbw/pNifnn+1h7WAX9EqPJxqvsqL2l+gz0NeEyHbnJ7NijNUedGSwKCTqyV37vyWyZTS
- 8mzEmLYPEJ9n3Nn3kUsQrCRtAnA7oZV9R7eLbfIMkCOm+OXG/xGTDxMwU3TTH79x1S12
- 3tqw==
-X-Gm-Message-State: AJcUukf3yKJIpwje24NUMUdyDVVawKG8QiMR0PljZ2F8lGJBNJ5hQelI
- DAZgAMmV9D+aF/fzAg9sNvo9hg==
-X-Google-Smtp-Source: ALg8bN6lsBuNk3+YGY22fRW6xC+/aKUtH/3klh7YOtt7aVblZ0i6DsJnHLCv78cMLqQ7Ty17kdnZxg==
-X-Received: by 2002:a63:f658:: with SMTP id u24mr25557982pgj.267.1548801701241; 
- Tue, 29 Jan 2019 14:41:41 -0800 (PST)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id v14sm42986528pgf.3.2019.01.29.14.41.39
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 29 Jan 2019 14:41:40 -0800 (PST)
-Date: Tue, 29 Jan 2019 14:41:40 -0800 (PST)
-X-Google-Original-Date: Tue, 29 Jan 2019 14:40:02 PST (-0800)
+ id 1godOr-0007TH-5C
+ for linux-riscv@lists.infradead.org; Wed, 30 Jan 2019 00:06:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lkcl.net;
+ s=201607131; 
+ h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version;
+ bh=YR4YLxE21CM7nTY5HOAWBr/aF88y9c1QbwpZ51AEP2s=; 
+ b=HQAIC68pnhGlygNW8F5qVefroyIEMO4BOZfUGugUFAXNBSuDWS5nTMgUiIz/zas6qlaBWt698rwEsDLCEdUjqiwYjKPsivuDugasWia7N3/YebT9aCu6t9dyizfUDq7KfT+N2kaRyDMnDUuk/iON7fybyvixkSuRYG2VsGXsvPA=;
+Received: from mail-lj1-f170.google.com ([209.85.208.170])
+ by lkcl.net with esmtpsa (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128)
+ (Exim 4.84_2) (envelope-from <lkcl@lkcl.net>) id 1godOY-0007pn-M7
+ for linux-riscv@lists.infradead.org; Wed, 30 Jan 2019 00:06:22 +0000
+Received: by mail-lj1-f170.google.com with SMTP id q2-v6so19131657lji.10
+ for <linux-riscv@lists.infradead.org>; Tue, 29 Jan 2019 16:06:06 -0800 (PST)
+X-Gm-Message-State: AJcUukclq5QU79BZaTMlI8Law2S9Fl56FkvVLuw0VKlwko4yr7YWXAFE
+ pwtfuzW6cxpu+lxOlPg94lLq7ogv/w9XMHdTr74=
+X-Google-Smtp-Source: AHgI3IZ/DH9oc7aEH7TH6dgou/pkT4CMgZS+XX/GWsjbLry+ZVA/y3mbJGxRgiGSWLHvvnPxhlmTcqbICvqH1BnZvGY=
+X-Received: by 2002:a2e:5703:: with SMTP id
+ l3-v6mr10924158ljb.106.1548806760434; 
+ Tue, 29 Jan 2019 16:06:00 -0800 (PST)
+MIME-Version: 1.0
+References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
+ <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
+ <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
+ <CAPweEDz-7oRg2UWPkvTDdfi36Z4PQLAuLdL3-Sy-kmkGEJ=44A@mail.gmail.com>
+ <CAP6exYKfhtgXz4nVSwXasicbE+8ZbKwp-15_xGFHfFoK9yi9-g@mail.gmail.com>
+ <7efecac7-17bd-5fc1-d0de-9fd498db4751@wdc.com>
+ <d476c0e2b525fb0642b3155a247495cb1850c208.camel@kernel.crashing.org>
+ <452be0d3-da8e-643e-9f91-c38f0af36ffd@suse.de>
+ <CAPweEDwdByUTHnbKGS-LbwGzqsjjWciWOBnPOKkNqupY--vV2A@mail.gmail.com>
+ <033872b8-49d5-2731-118f-967488f4763f@suse.de>
+ <CAP6exYJRhw=nnhdrNQc7wOBUTYk0-LNaRQrhin7fqxeXMrEhkQ@mail.gmail.com>
+ <CAP8PnuS4vE-w07dENEpJWx_nu-yx3fsyM3nu3kUQoVFW5nzJcQ@mail.gmail.com>
+ <CAP6exYJD0Qrnni+yCUBdNWv0tmR=3vYzLwJTy+oOnQEb83ja1g@mail.gmail.com>
+ <CANs6eMk4z-ZibLW_5o03onu8AQe23uMa2hSieceHFqKS7igLDQ@mail.gmail.com>
+In-Reply-To: <CANs6eMk4z-ZibLW_5o03onu8AQe23uMa2hSieceHFqKS7igLDQ@mail.gmail.com>
+From: Luke Kenneth Casson Leighton <lkcl@lkcl.net>
+Date: Wed, 30 Jan 2019 00:05:46 +0000
+X-Gmail-Original-Message-ID: <CAPweEDwAGgTco1bhNqXVj1xxNMFespjSkTxe2DgcACkbTivAoQ@mail.gmail.com>
+Message-ID: <CAPweEDwAGgTco1bhNqXVj1xxNMFespjSkTxe2DgcACkbTivAoQ@mail.gmail.com>
 Subject: Re: [sw-dev] SBI extension proposal v2
-In-Reply-To: <d476c0e2b525fb0642b3155a247495cb1850c208.camel@kernel.crashing.org>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: benh@kernel.crashing.org
-Message-ID: <mhng-f2c32ce6-9768-4d89-a32d-04f2692ac50e@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+To: Palmer Dabbelt <palmer@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190129_144142_150678_9FB12600 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20190129_160641_340314_C029DC38 
+X-CRM114-Status: UNSURE (   6.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,45 +92,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, Christoph Hellwig <hch@infradead.org>,
- Damien.LeMoal@wdc.com, olof.johansson@gmail.com, alankao@andestech.com,
- abner.chang@hpe.com, rminnich@gmail.com, anup@brainfault.org, agraf@suse.de,
- zong@andestech.com, atish.patra@wdc.com, sw-dev@groups.riscv.org,
- Paul Walmsley <paul.walmsley@sifive.com>, mick@ics.forth.gr,
- Alistair Francis <Alistair.Francis@wdc.com>, lkcl@lkcl.net,
- linux-riscv@lists.infradead.org, Andrew Waterman <andrew@sifive.com>
+Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
+ Bruce Hoult <brucehoult@sifive.com>, Damien Le Moal <Damien.LeMoal@wdc.com>,
+ Olof Johansson <olof.johansson@gmail.com>,
+ "alankao@andestech.com" <alankao@andestech.com>,
+ "abner.chang@hpe.com" <abner.chang@hpe.com>, Atish Patra <atish.patra@wdc.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Alexander Graf <agraf@suse.de>,
+ "zong@andestech.com" <zong@andestech.com>, ron minnich <rminnich@gmail.com>,
+ "sw-dev@groups.riscv.org" <sw-dev@groups.riscv.org>,
+ Anup Patel <anup@brainfault.org>, "mick@ics.forth.gr" <mick@ics.forth.gr>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Christoph Hellwig <hch@infradead.org>, Andrew Waterman <andrew@sifive.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 01 Dec 2018 22:18:54 PST (-0800), benh@kernel.crashing.org wrote:
-> On Sat, 2018-11-10 at 19:58 -0800, Atish Patra wrote:
->>
->> I think the larger picture might have lost somewhere because of the
->> verbosity of the proposal. The idea of adding vendor extension support
->> in SBI is to allow them provide a standard mechanism to facilitate this.
->> In absence of that, vendor might adopt different approaches to support
->> their feature leading a lot of chaos. Vendors can not go and add
->> anything in the Linux kernel(just a example, SBI is still OS agnostic)
->> as well.
->
-> The concept of vendor extensions to a userspace ISA is so fundamentally
-> broken to begin with, this FW proposal verges on utter insanity to be
-> honest.
->
-> Calling FW for things so deeply ingrained in the kernel such as context
-> swithes, isn't going to fly. The performance will be ridiculously bad,
-> among other things.
->
-> If Risc-V wants to avoid fragmentation, it should simply keep a firmer
-> reign in what is allowed in an implementation and keep a lid on such
-> horrid ideas as vendor specific userspace ISA extensions.
+---
+crowd-funded eco-conscious hardware: https://www.crowdsupply.com/eoma68
 
-Right now nobody with a Linux-capable RISC-V core has vendor-specific stateful 
-extensions.  The plan is to avoid implementing any of this and convince people 
-to avoid building them, but since the ISA allows for these we do need an out.  
-I'd prefer this to forcing people to fork the kernel.
+On Tue, Jan 29, 2019 at 11:26 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+
+> Yep, and the hope here is that we can build something that allows everyone to implement their systems within the same framework.  With any luck we'll be able to build a platform specification that allows both of these systems to exist -- essentially "boot Linux into M-mode" or "boot Linux into S-mode".  It'll be work to make sure the spec can work for everyone, but that's part of the way to get a good spec.
+
+ ... and how is that to be achieved if the RISC-V Foundation
+pathologically insists on secretive closed-doors discussions when it
+comes to RISC-V specifications?
+
+ it's time for the RISC-V Foundation to recognise that the ITU-style
+closed doors practice is damaging the ecosystem by preventing people
+from contributing.
+
+l.
 
 _______________________________________________
 linux-riscv mailing list
