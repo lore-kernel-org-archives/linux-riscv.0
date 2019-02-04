@@ -1,74 +1,69 @@
-Return-Path: <SRS0=yhZS=QK=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=qOfL=QL=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 79506C169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  3 Feb 2019 18:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 58757C282CB
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  4 Feb 2019 20:06:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4861D20818
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  3 Feb 2019 18:18:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 256FB20821
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  4 Feb 2019 20:06:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GcBvAbgw"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4861D20818
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="r2dZH9OX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 256FB20821
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=iogearbox.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=bnjTn2SvGEXWuIdbLND9aPlZB8XssN29U4L6SXM/1xs=; b=GcBvAbgwKq38x4iysAZrShOiD
-	aPUELMVIgsYTfjntCEppz6HgSCDBIdRpW6WxCvlo00QhmDIx0iLdKNfDQt7+CQwoeaSsEyqxUqgPl
-	VPv7y9V1xEbwv4mNTLi6XlfcvrGap5NQSDxP/kuT01J7Fi5hj+QENymBffrPI5pJsQCV+bulFF3DQ
-	em0w4ONaXcs6WmR5R3D3wVBlrtd9m5WIZ5PTgU/kIc+QRTh7l4YwOwQXdanmGs1x231AGcTrTn1Gq
-	MpMLDxIeD6jBXl1BQTpkPMEMQIIAL8+DWKVFTp4XrKEQVcea1M5puMYjHxUDORYcHX6qpYKB4qZU6
-	i/wykrutQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=e2Dl6HvcM2xESIdhFsFIZW7fK/dk2WE9yjvlUcTzKYo=; b=r2dZH9OXgwVtxx
+	x7ttjzoyeV9yf3QnDcXBVTSq1UcQCQ8UH4p0V3onR2xRR/ut/rZPA/3OsNHSAkPWbKv6ucP1/ATKu
+	VlZQbeuHJd4Hqbo36OGf4fYN88jvIBd9AM4k3AYFLMoDgmdXbvnnWOunSTNKt1unOuomGAqAAXR/Z
+	d/mqD+wbV4j/yKBllPQNF30SJicAalMdicrBVktij8Rpb1lUXQhSjS9HfHyJ9zwvtQjLQOW2+kZsG
+	ubA5hU31fBctDgAI2/n8XC/aPZUwlN7ZJ+uKpEE7g1u2f45epmmiserbzs0qtVQtrjWr8lWH0bTA1
+	uLmKqw80I6oftIbvhr1A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gqMLo-0001zI-9k; Sun, 03 Feb 2019 18:18:40 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1gqkW3-0004Vr-RG; Mon, 04 Feb 2019 20:06:51 +0000
+Received: from www62.your-server.de ([213.133.104.62])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gqMLb-0001qm-SQ; Sun, 03 Feb 2019 18:18:30 +0000
-X-Originating-IP: 79.86.19.127
-Received: from [192.168.0.11] (127.19.86.79.rev.sfr.net [79.86.19.127])
- (Authenticated sender: alex@ghiti.fr)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 31D30FF802;
- Sun,  3 Feb 2019 18:17:57 +0000 (UTC)
-Subject: Re: [PATCH] hugetlb: allow to free gigantic pages regardless of the
- configuration
-To: akpm@linux-foundation.org, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will.deacon@arm.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Martin Schwidefsky <schwidefsky@de.ibm.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, "H . Peter Anvin" <hpa@zytor.com>,
- x86@kernel.org, Alexander Viro <viro@zeniv.linux.org.uk>,
- Mike Kravetz <mike.kravetz@oracle.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
-References: <20190117183953.5990-1-aghiti@upmem.com>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <65c8ebc7-fc77-bd19-616d-e950ff6b080d@ghiti.fr>
-Date: Sun, 3 Feb 2019 13:17:56 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.4.0
+ id 1gqkW1-0004V1-7A
+ for linux-riscv@lists.infradead.org; Mon, 04 Feb 2019 20:06:51 +0000
+Received: from [88.198.220.130] (helo=sslproxy01.your-server.de)
+ by www62.your-server.de with esmtpsa (TLSv1.2:DHE-RSA-AES256-GCM-SHA384:256)
+ (Exim 4.89_1) (envelope-from <daniel@iogearbox.net>)
+ id 1gqkVt-0004LA-RG; Mon, 04 Feb 2019 21:06:41 +0100
+Received: from [178.197.249.40] (helo=linux.home)
+ by sslproxy01.your-server.de with esmtpsa
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.89)
+ (envelope-from <daniel@iogearbox.net>)
+ id 1gqkVt-0005as-HA; Mon, 04 Feb 2019 21:06:41 +0100
+Subject: Re: [PATCH bpf-next 1/3] bpf, riscv: add BPF JIT for RV64G
+To: bjorn.topel@gmail.com, linux-riscv@lists.infradead.org, ast@kernel.org,
+ netdev@vger.kernel.org
+References: <20190203115132.8766-1-bjorn.topel@gmail.com>
+ <20190203115132.8766-2-bjorn.topel@gmail.com>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <88cdae60-494e-6294-b2c1-10b9cbeb95ac@iogearbox.net>
+Date: Mon, 4 Feb 2019 21:06:40 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.3.0
 MIME-Version: 1.0
-In-Reply-To: <20190117183953.5990-1-aghiti@upmem.com>
-Content-Language: sv-FI
+In-Reply-To: <20190203115132.8766-2-bjorn.topel@gmail.com>
+Content-Language: en-US
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.100.2/25350/Mon Feb  4 11:34:43 2019)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190203_101828_221939_F18D0ABD 
-X-CRM114-Status: GOOD (  26.22  )
+X-CRM114-CacheID: sfid-20190204_120649_255403_946F5271 
+X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -80,348 +75,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: hch@infradead.org, linux-riscv@lists.infradead.org
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: hch@infradead.org, palmer@sifive.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/17/19 1:39 PM, Alexandre Ghiti wrote:
-> From: Alexandre Ghiti <alex@ghiti.fr>
->
-> On systems without CMA or (MEMORY_ISOLATION && COMPACTION) activated but
-> that support gigantic pages, boottime reserved gigantic pages can not be
-> freed at all. This patchs simply enables the possibility to hand back
-> those pages to memory allocator.
->
-> This commit then renames gigantic_page_supported and
-> ARCH_HAS_GIGANTIC_PAGE to make them more accurate. Indeed, those values
-> being false does not mean that the system cannot use gigantic pages: it
-> just means that runtime allocation of gigantic pages is not supported,
-> one can still allocate boottime gigantic pages if the architecture supports
-> it.
->
-> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-> ---
->
-> - Compiled on all architectures
-> - Tested on riscv architecture
->
->   arch/arm64/Kconfig                           |  2 +-
->   arch/arm64/include/asm/hugetlb.h             |  7 +++--
->   arch/powerpc/include/asm/book3s/64/hugetlb.h |  4 +--
->   arch/powerpc/platforms/Kconfig.cputype       |  2 +-
->   arch/s390/Kconfig                            |  2 +-
->   arch/s390/include/asm/hugetlb.h              |  7 +++--
->   arch/x86/Kconfig                             |  2 +-
->   arch/x86/include/asm/hugetlb.h               |  7 +++--
->   fs/Kconfig                                   |  2 +-
->   include/linux/gfp.h                          |  2 +-
->   mm/hugetlb.c                                 | 43 +++++++++++++++-------------
->   mm/page_alloc.c                              |  4 +--
->   12 files changed, 48 insertions(+), 36 deletions(-)
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index a4168d366127..18239cbd7fcd 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -18,7 +18,7 @@ config ARM64
->   	select ARCH_HAS_FAST_MULTIPLIER
->   	select ARCH_HAS_FORTIFY_SOURCE
->   	select ARCH_HAS_GCOV_PROFILE_ALL
-> -	select ARCH_HAS_GIGANTIC_PAGE if (MEMORY_ISOLATION && COMPACTION) || CMA
-> +	select ARCH_HAS_GIGANTIC_PAGE_RUNTIME_ALLOCATION if (MEMORY_ISOLATION && COMPACTION) || CMA
->   	select ARCH_HAS_KCOV
->   	select ARCH_HAS_MEMBARRIER_SYNC_CORE
->   	select ARCH_HAS_PTE_SPECIAL
-> diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
-> index fb6609875455..797fc77eabcd 100644
-> --- a/arch/arm64/include/asm/hugetlb.h
-> +++ b/arch/arm64/include/asm/hugetlb.h
-> @@ -65,8 +65,11 @@ extern void set_huge_swap_pte_at(struct mm_struct *mm, unsigned long addr,
->   
->   #include <asm-generic/hugetlb.h>
->   
-> -#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
-> -static inline bool gigantic_page_supported(void) { return true; }
-> +#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE_RUNTIME_ALLOCATION
-> +static inline bool gigantic_page_runtime_allocation_supported(void)
-> +{
-> +	return true;
-> +}
->   #endif
->   
->   #endif /* __ASM_HUGETLB_H */
-> diff --git a/arch/powerpc/include/asm/book3s/64/hugetlb.h b/arch/powerpc/include/asm/book3s/64/hugetlb.h
-> index 5b0177733994..7711f0e2c7e5 100644
-> --- a/arch/powerpc/include/asm/book3s/64/hugetlb.h
-> +++ b/arch/powerpc/include/asm/book3s/64/hugetlb.h
-> @@ -32,8 +32,8 @@ static inline int hstate_get_psize(struct hstate *hstate)
->   	}
->   }
->   
-> -#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
-> -static inline bool gigantic_page_supported(void)
-> +#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE_RUNTIME_ALLOCATION
-> +static inline bool gigantic_page_runtime_allocation_supported(void)
->   {
->   	return true;
->   }
-> diff --git a/arch/powerpc/platforms/Kconfig.cputype b/arch/powerpc/platforms/Kconfig.cputype
-> index 8c7464c3f27f..779e06bac697 100644
-> --- a/arch/powerpc/platforms/Kconfig.cputype
-> +++ b/arch/powerpc/platforms/Kconfig.cputype
-> @@ -319,7 +319,7 @@ config ARCH_ENABLE_SPLIT_PMD_PTLOCK
->   config PPC_RADIX_MMU
->   	bool "Radix MMU Support"
->   	depends on PPC_BOOK3S_64
-> -	select ARCH_HAS_GIGANTIC_PAGE if (MEMORY_ISOLATION && COMPACTION) || CMA
-> +	select ARCH_HAS_GIGANTIC_PAGE_RUNTIME_ALLOCATION if (MEMORY_ISOLATION && COMPACTION) || CMA
->   	default y
->   	help
->   	  Enable support for the Power ISA 3.0 Radix style MMU. Currently this
-> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-> index ed554b09eb3f..6776eef6a9ae 100644
-> --- a/arch/s390/Kconfig
-> +++ b/arch/s390/Kconfig
-> @@ -69,7 +69,7 @@ config S390
->   	select ARCH_HAS_ELF_RANDOMIZE
->   	select ARCH_HAS_FORTIFY_SOURCE
->   	select ARCH_HAS_GCOV_PROFILE_ALL
-> -	select ARCH_HAS_GIGANTIC_PAGE if (MEMORY_ISOLATION && COMPACTION) || CMA
-> +	select ARCH_HAS_GIGANTIC_PAGE_RUNTIME_ALLOCATION if (MEMORY_ISOLATION && COMPACTION) || CMA
->   	select ARCH_HAS_KCOV
->   	select ARCH_HAS_PTE_SPECIAL
->   	select ARCH_HAS_SET_MEMORY
-> diff --git a/arch/s390/include/asm/hugetlb.h b/arch/s390/include/asm/hugetlb.h
-> index 2d1afa58a4b6..57c952f5388e 100644
-> --- a/arch/s390/include/asm/hugetlb.h
-> +++ b/arch/s390/include/asm/hugetlb.h
-> @@ -116,7 +116,10 @@ static inline pte_t huge_pte_modify(pte_t pte, pgprot_t newprot)
->   	return pte_modify(pte, newprot);
->   }
->   
-> -#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
-> -static inline bool gigantic_page_supported(void) { return true; }
-> +#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE_RUNTIME_ALLOCATION
-> +static inline bool gigantic_page_runtime_allocation_supported(void)
-> +{
-> +	return true;
-> +}
->   #endif
->   #endif /* _ASM_S390_HUGETLB_H */
-> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-> index 6185d4f33296..a88f5a4311c9 100644
-> --- a/arch/x86/Kconfig
-> +++ b/arch/x86/Kconfig
-> @@ -23,7 +23,7 @@ config X86_64
->   	def_bool y
->   	depends on 64BIT
->   	# Options that are inherently 64-bit kernel only:
-> -	select ARCH_HAS_GIGANTIC_PAGE if (MEMORY_ISOLATION && COMPACTION) || CMA
-> +	select ARCH_HAS_GIGANTIC_PAGE_RUNTIME_ALLOCATION if (MEMORY_ISOLATION && COMPACTION) || CMA
->   	select ARCH_SUPPORTS_INT128
->   	select ARCH_USE_CMPXCHG_LOCKREF
->   	select HAVE_ARCH_SOFT_DIRTY
-> diff --git a/arch/x86/include/asm/hugetlb.h b/arch/x86/include/asm/hugetlb.h
-> index 7469d321f072..5a5e7119ced4 100644
-> --- a/arch/x86/include/asm/hugetlb.h
-> +++ b/arch/x86/include/asm/hugetlb.h
-> @@ -17,8 +17,11 @@ static inline void arch_clear_hugepage_flags(struct page *page)
->   {
->   }
->   
-> -#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
-> -static inline bool gigantic_page_supported(void) { return true; }
-> +#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE_RUNTIME_ALLOCATION
-> +static inline bool gigantic_page_runtime_allocation_supported(void)
-> +{
-> +	return true;
-> +}
->   #endif
->   
->   #endif /* _ASM_X86_HUGETLB_H */
-> diff --git a/fs/Kconfig b/fs/Kconfig
-> index ac474a61be37..4192d1fde0f0 100644
-> --- a/fs/Kconfig
-> +++ b/fs/Kconfig
-> @@ -207,7 +207,7 @@ config HUGETLB_PAGE
->   config MEMFD_CREATE
->   	def_bool TMPFS || HUGETLBFS
->   
-> -config ARCH_HAS_GIGANTIC_PAGE
-> +config ARCH_HAS_GIGANTIC_PAGE_RUNTIME_ALLOCATION
->   	bool
->   
->   source "fs/configfs/Kconfig"
-> diff --git a/include/linux/gfp.h b/include/linux/gfp.h
-> index 5f5e25fd6149..79ff86fabd42 100644
-> --- a/include/linux/gfp.h
-> +++ b/include/linux/gfp.h
-> @@ -589,8 +589,8 @@ static inline bool pm_suspended_storage(void)
->   /* The below functions must be run on a range from a single zone. */
->   extern int alloc_contig_range(unsigned long start, unsigned long end,
->   			      unsigned migratetype, gfp_t gfp_mask);
-> -extern void free_contig_range(unsigned long pfn, unsigned nr_pages);
->   #endif
-> +extern void free_contig_range(unsigned long pfn, unsigned int nr_pages);
->   
->   #ifdef CONFIG_CMA
->   /* CMA stuff */
-> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-> index 745088810965..9893ba26b3b8 100644
-> --- a/mm/hugetlb.c
-> +++ b/mm/hugetlb.c
-> @@ -1035,7 +1035,6 @@ static int hstate_next_node_to_free(struct hstate *h, nodemask_t *nodes_allowed)
->   		((node = hstate_next_node_to_free(hs, mask)) || 1);	\
->   		nr_nodes--)
->   
-> -#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
->   static void destroy_compound_gigantic_page(struct page *page,
->   					unsigned int order)
->   {
-> @@ -1058,6 +1057,7 @@ static void free_gigantic_page(struct page *page, unsigned int order)
->   	free_contig_range(page_to_pfn(page), 1 << order);
->   }
->   
-> +#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE_RUNTIME_ALLOCATION
->   static int __alloc_gigantic_page(unsigned long start_pfn,
->   				unsigned long nr_pages, gfp_t gfp_mask)
->   {
-> @@ -1143,22 +1143,19 @@ static struct page *alloc_gigantic_page(struct hstate *h, gfp_t gfp_mask,
->   static void prep_new_huge_page(struct hstate *h, struct page *page, int nid);
->   static void prep_compound_gigantic_page(struct page *page, unsigned int order);
->   
-> -#else /* !CONFIG_ARCH_HAS_GIGANTIC_PAGE */
-> -static inline bool gigantic_page_supported(void) { return false; }
-> +#else /* !CONFIG_ARCH_HAS_GIGANTIC_PAGE_RUNTIME_ALLOCATION */
-> +static inline bool gigantic_page_runtime_allocation_supported(void)
-> +{
-> +	return false;
-> +}
->   static struct page *alloc_gigantic_page(struct hstate *h, gfp_t gfp_mask,
->   		int nid, nodemask_t *nodemask) { return NULL; }
-> -static inline void free_gigantic_page(struct page *page, unsigned int order) { }
-> -static inline void destroy_compound_gigantic_page(struct page *page,
-> -						unsigned int order) { }
->   #endif
->   
->   static void update_and_free_page(struct hstate *h, struct page *page)
->   {
->   	int i;
->   
-> -	if (hstate_is_gigantic(h) && !gigantic_page_supported())
-> -		return;
-> -
->   	h->nr_huge_pages--;
->   	h->nr_huge_pages_node[page_to_nid(page)]--;
->   	for (i = 0; i < pages_per_huge_page(h); i++) {
-> @@ -2276,13 +2273,20 @@ static int adjust_pool_surplus(struct hstate *h, nodemask_t *nodes_allowed,
->   }
->   
->   #define persistent_huge_pages(h) (h->nr_huge_pages - h->surplus_huge_pages)
-> -static unsigned long set_max_huge_pages(struct hstate *h, unsigned long count,
-> +static int set_max_huge_pages(struct hstate *h, unsigned long count,
->   						nodemask_t *nodes_allowed)
->   {
->   	unsigned long min_count, ret;
->   
-> -	if (hstate_is_gigantic(h) && !gigantic_page_supported())
-> -		return h->max_huge_pages;
-> +	if (hstate_is_gigantic(h) &&
-> +		!gigantic_page_runtime_allocation_supported()) {
-> +		spin_lock(&hugetlb_lock);
-> +		if (count > persistent_huge_pages(h)) {
-> +			spin_unlock(&hugetlb_lock);
-> +			return -EINVAL;
-> +		}
-> +		goto decrease_pool;
-> +	}
->   
->   	/*
->   	 * Increase the pool size
-> @@ -2322,6 +2326,7 @@ static unsigned long set_max_huge_pages(struct hstate *h, unsigned long count,
->   			goto out;
->   	}
->   
-> +decrease_pool:
->   	/*
->   	 * Decrease the pool size
->   	 * First return free pages to the buddy allocator (being careful
-> @@ -2350,9 +2355,10 @@ static unsigned long set_max_huge_pages(struct hstate *h, unsigned long count,
->   			break;
->   	}
->   out:
-> -	ret = persistent_huge_pages(h);
-> +	h->max_huge_pages = persistent_huge_pages(h);
->   	spin_unlock(&hugetlb_lock);
-> -	return ret;
-> +
-> +	return 0;
->   }
->   
->   #define HSTATE_ATTR_RO(_name) \
-> @@ -2404,11 +2410,6 @@ static ssize_t __nr_hugepages_store_common(bool obey_mempolicy,
->   	int err;
->   	NODEMASK_ALLOC(nodemask_t, nodes_allowed, GFP_KERNEL | __GFP_NORETRY);
->   
-> -	if (hstate_is_gigantic(h) && !gigantic_page_supported()) {
-> -		err = -EINVAL;
-> -		goto out;
-> -	}
-> -
->   	if (nid == NUMA_NO_NODE) {
->   		/*
->   		 * global hstate attribute
-> @@ -2428,7 +2429,9 @@ static ssize_t __nr_hugepages_store_common(bool obey_mempolicy,
->   	} else
->   		nodes_allowed = &node_states[N_MEMORY];
->   
-> -	h->max_huge_pages = set_max_huge_pages(h, count, nodes_allowed);
-> +	err = set_max_huge_pages(h, count, nodes_allowed);
-> +	if (err)
-> +		goto out;
->   
->   	if (nodes_allowed != &node_states[N_MEMORY])
->   		NODEMASK_FREE(nodes_allowed);
-> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-> index cde5dac6229a..81b931db85a1 100644
-> --- a/mm/page_alloc.c
-> +++ b/mm/page_alloc.c
-> @@ -8241,8 +8241,9 @@ int alloc_contig_range(unsigned long start, unsigned long end,
->   				pfn_max_align_up(end), migratetype);
->   	return ret;
->   }
-> +#endif
->   
-> -void free_contig_range(unsigned long pfn, unsigned nr_pages)
-> +void free_contig_range(unsigned long pfn, unsigned int nr_pages)
->   {
->   	unsigned int count = 0;
->   
-> @@ -8254,7 +8255,6 @@ void free_contig_range(unsigned long pfn, unsigned nr_pages)
->   	}
->   	WARN(count != 0, "%d pages are still in use!\n", count);
->   }
-> -#endif
->   
->   #ifdef CONFIG_MEMORY_HOTPLUG
->   /*
-
-
-Hi Andrew,
-
-Can you consider this patch for inclusion in mm tree ? It lacks reviews 
-from some
-arch maintainers and has been reviewed by Mike Kravetz.
-Tell me if I can do something to help,
-
-Thanks,
-
-Alex
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMDIvMDMvMjAxOSAxMjo1MSBQTSwgYmpvcm4udG9wZWxAZ21haWwuY29tIHdyb3RlOgo+IEZy
+b206IEJqw7ZybiBUw7ZwZWwgPGJqb3JuLnRvcGVsQGdtYWlsLmNvbT4KPiAKPiBUaGlzIGNvbW1p
+dCBhZGRzIEJQRiBKSVQgZm9yIFJWNjRHLgo+IAo+IFRoZSBKSVQgaXMgYSB0d28tcGFzcyBKSVQs
+IGFuZCBoYXMgYSBkeW5hbWljIHByb2xvZy9lcGlsb2d1ZSAoc2ltaWxhcgo+IHRvIHRoZSBNSVBT
+NjQgQlBGIEpJVCkgaW5zdGVhZCBvZiBzdGF0aWMgb25lcyAoZS5nLiB4ODZfNjQpLgo+IAo+IEF0
+IHRoZSBtb21lbnQgdGhlIFJJU0MtViBMaW51eCBwb3J0IGRvZXMgbm90IHN1cHBvcnQgSEFWRV9L
+UFJPQkVTLAo+IHdoaWNoIG1lYW5zIHRoYXQgQ09ORklHX0JQRl9FVkVOVFMgaXMgbm90IHN1cHBv
+cnRlZC4gVGh1cywgbm8gdGVzdHMKPiBpbnZvbHZpbmcgQlBGX1BST0dfVFlQRV9UUkFDRVBPSU5U
+IHBhc3Nlcy4KPiAKPiBGdXJ0aGVyLCB0aGUgaW1wbGVtZW50YXRpb24gZG9lcyBub3Qgc3VwcG9y
+dCAiZmFyIGJyYW5jaGluZyIgKD40S2lCKS4KPiAKPiBUaGUgaW1wbGVtZW50YXRpb24gcGFzc2Vz
+IGFsbCB0aGUgdGVzdF9icGYua28gdGVzdHM6Cj4gICB0ZXN0X2JwZjogU3VtbWFyeTogMzc4IFBB
+U1NFRCwgMCBGQUlMRUQsIFszNjYvMzY2IEpJVCdlZF0KPiAKPiBBbGwgdGhlIHRhaWxfY2FsbCB0
+ZXN0cyBpbiB0aGUgc2VsZnRlc3QvYnBmL3Rlc3RfdmVyaWZpZXIgcHJvZ3JhbQo+IHBhc3Nlcy4K
+PiAKPiBBbGwgdGVzdHMgd2hlcmUgZG9uZSBvbiBRRU1VIChRRU1VIGVtdWxhdG9yIHZlcnNpb24g
+My4xLjUwCj4gKHYzLjEuMC02ODgtZzhhZTk1MWZiYzEwNikpLgo+IAo+IFNpZ25lZC1vZmYtYnk6
+IEJqw7ZybiBUw7ZwZWwgPGJqb3JuLnRvcGVsQGdtYWlsLmNvbT4KClNvbWUgbWlub3IgY29tbWVu
+dHM6CgpMb29rcyBsaWtlIGFsbCB0aGUgQlBGX0pNUDMyIGluc3RydWN0aW9ucyBhcmUgbWlzc2lu
+Zy4gV291bGQgcHJvYmFibHkKbWFrZSBzZW5zZSB0byBpbmNsdWRlIHRoZXNlIGludG8gdGhlIGlu
+aXRpYWwgbWVyZ2UgYXMgd2VsbCB1bmxlc3MgdGhlcmUKaXMgc29tZSBnb29kIHJlYXNvbiBub3Qg
+dG87IHByZXN1bWFibHkgdGhlIHRlc3RfdmVyaWZpZXIgcGFydHMgd2l0aApCUEZfSk1QMzIgaGF2
+ZW4ndCBiZWVuIHRyaWVkIG91dD8KClsuLi5dCj4gKwo+ICtlbnVtIHsKPiArCVJWX0NUWF9GX1NF
+RU5fVEFJTF9DQUxMID0JMCwKPiArCVJWX0NUWF9GX1NFRU5fQ0FMTCA9CQlSVl9SRUdfUkEsCj4g
+KwlSVl9DVFhfRl9TRUVOX1MxID0JCVJWX1JFR19TMSwKPiArCVJWX0NUWF9GX1NFRU5fUzIgPQkJ
+UlZfUkVHX1MyLAo+ICsJUlZfQ1RYX0ZfU0VFTl9TMyA9CQlSVl9SRUdfUzMsCj4gKwlSVl9DVFhf
+Rl9TRUVOX1M0ID0JCVJWX1JFR19TNCwKPiArCVJWX0NUWF9GX1NFRU5fUzUgPQkJUlZfUkVHX1M1
+LAo+ICsJUlZfQ1RYX0ZfU0VFTl9TNiA9CQlSVl9SRUdfUzYsCj4gK307Cj4gKwo+ICtzdHJ1Y3Qg
+cnZfaml0X2NvbnRleHQgewo+ICsJc3RydWN0IGJwZl9wcm9nICpwcm9nOwo+ICsJdTMyICppbnNu
+czsgLyogUlYgaW5zbnMgKi8KPiArCWludCBuaW5zbnM7Cj4gKwlpbnQgZXBpbG9ndWVfb2Zmc2V0
+Owo+ICsJaW50ICpvZmZzZXQ7IC8qIEJQRiB0byBSViAqLwo+ICsJdW5zaWduZWQgbG9uZyBmbGFn
+czsKPiArCWludCBzdGFja19zaXplOwo+ICt9Owo+ICsKPiArc3RydWN0IHJ2X2ppdF9kYXRhIHsK
+PiArCXN0cnVjdCBicGZfYmluYXJ5X2hlYWRlciAqaGVhZGVyOwo+ICsJdTggKmltYWdlOwo+ICsJ
+c3RydWN0IHJ2X2ppdF9jb250ZXh0IGN0eDsKPiArfTsKPiArCj4gK3N0YXRpYyB1OCBicGZfdG9f
+cnZfcmVnKGludCBicGZfcmVnLCBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgKmN0eCkKPiArewo+ICsJ
+dTggcmVnID0gcmVnbWFwW2JwZl9yZWddOwo+ICsKPiArCXN3aXRjaCAocmVnKSB7Cj4gKwljYXNl
+IFJWX0NUWF9GX1NFRU5fUzE6Cj4gKwljYXNlIFJWX0NUWF9GX1NFRU5fUzI6Cj4gKwljYXNlIFJW
+X0NUWF9GX1NFRU5fUzM6Cj4gKwljYXNlIFJWX0NUWF9GX1NFRU5fUzQ6Cj4gKwljYXNlIFJWX0NU
+WF9GX1NFRU5fUzU6Cj4gKwljYXNlIFJWX0NUWF9GX1NFRU5fUzY6Cj4gKwkJX19zZXRfYml0KHJl
+ZywgJmN0eC0+ZmxhZ3MpOwo+ICsJfQo+ICsJcmV0dXJuIHJlZzsKPiArfTsKPiArCj4gK3N0YXRp
+YyBib29sIHNlZW5fcmVnKGludCByZWcsIHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4KQo+ICt7
+Cj4gKwlzd2l0Y2ggKHJlZykgewo+ICsJY2FzZSBSVl9DVFhfRl9TRUVOX0NBTEw6Cj4gKwljYXNl
+IFJWX0NUWF9GX1NFRU5fUzE6Cj4gKwljYXNlIFJWX0NUWF9GX1NFRU5fUzI6Cj4gKwljYXNlIFJW
+X0NUWF9GX1NFRU5fUzM6Cj4gKwljYXNlIFJWX0NUWF9GX1NFRU5fUzQ6Cj4gKwljYXNlIFJWX0NU
+WF9GX1NFRU5fUzU6Cj4gKwljYXNlIFJWX0NUWF9GX1NFRU5fUzY6Cj4gKwkJcmV0dXJuIHRlc3Rf
+Yml0KHJlZywgJmN0eC0+ZmxhZ3MpOwo+ICsJfQo+ICsJcmV0dXJuIGZhbHNlOwo+ICt9Cj4gKwo+
+ICtzdGF0aWMgdm9pZCBtYXJrX2NhbGwoc3RydWN0IHJ2X2ppdF9jb250ZXh0ICpjdHgpCj4gK3sK
+PiArCV9fc2V0X2JpdChSVl9DVFhfRl9TRUVOX0NBTEwsICZjdHgtPmZsYWdzKTsKPiArfQo+ICsK
+PiArc3RhdGljIGJvb2wgc2Vlbl9jYWxsKHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4KQo+ICt7
+Cj4gKwlyZXR1cm4gc2Vlbl9yZWcoUlZfUkVHX1JBLCBjdHgpOwo+ICt9CgpKdXN0IG5pdDogcHJv
+YmFibHkgbWlnaHQgYmUgbW9yZSBvYnZpb3VzIHRvIHJlbW92ZSB0aGlzIGFzeW1tZXRyeSBpbgpz
+ZWVuX3JlZygpIGFuZCBkbyBfX3NldF9iaXQoKS90ZXN0X2JpdCgpIGZvciBSVl9DVFhfRl9TRUVO
+X0NBTEwgc2ltaWxhcgpsaWtlIGJlbG93LgoKPiArc3RhdGljIHZvaWQgbWFya190YWlsX2NhbGwo
+c3RydWN0IHJ2X2ppdF9jb250ZXh0ICpjdHgpCj4gK3sKPiArCV9fc2V0X2JpdChSVl9DVFhfRl9T
+RUVOX1RBSUxfQ0FMTCwgJmN0eC0+ZmxhZ3MpOwo+ICt9Cj4gKwo+ICtzdGF0aWMgYm9vbCBzZWVu
+X3RhaWxfY2FsbChzdHJ1Y3QgcnZfaml0X2NvbnRleHQgKmN0eCkKPiArewo+ICsJcmV0dXJuIHRl
+c3RfYml0KFJWX0NUWF9GX1NFRU5fVEFJTF9DQUxMLCAmY3R4LT5mbGFncyk7Cj4gK30KPiArCj4g
+K3N0YXRpYyB1OCBydl90YWlsX2NhbGxfcmVnKHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4KQo+
+ICt7Cj4gKwltYXJrX3RhaWxfY2FsbChjdHgpOwo+ICsKPiArCWlmIChzZWVuX2NhbGwoY3R4KSkg
+ewo+ICsJCV9fc2V0X2JpdChSVl9DVFhfRl9TRUVOX1M2LCAmY3R4LT5mbGFncyk7Cj4gKwkJcmV0
+dXJuIFJWX1JFR19TNjsKPiArCX0KPiArCXJldHVybiBSVl9SRUdfQTY7Cj4gK30KPiArCj4gK3N0
+YXRpYyB2b2lkIGVtaXQoY29uc3QgdTMyIGluc24sIHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4
+KQo+ICt7Cj4gKwlpZiAoY3R4LT5pbnNucykKPiArCQljdHgtPmluc25zW2N0eC0+bmluc25zXSA9
+IGluc247Cj4gKwo+ICsJY3R4LT5uaW5zbnMrKzsKPiArfQo+ICsKPiArc3RhdGljIHUzMiBydl9y
+X2luc24odTggZnVuY3Q3LCB1OCByczIsIHU4IHJzMSwgdTggZnVuY3QzLCB1OCByZCwgdTggb3Bj
+b2RlKQo+ICt7ClsuLi5dCj4gKwkvKiBBbGxvY2F0ZSBpbWFnZSwgbm93IHRoYXQgd2Uga25vdyB0
+aGUgc2l6ZS4gKi8KPiArCWltYWdlX3NpemUgPSBzaXplb2YodTMyKSAqIGN0eC0+bmluc25zOwo+
+ICsJaml0X2RhdGEtPmhlYWRlciA9IGJwZl9qaXRfYmluYXJ5X2FsbG9jKGltYWdlX3NpemUsICZq
+aXRfZGF0YS0+aW1hZ2UsCj4gKwkJCQkJCXNpemVvZih1MzIpLAo+ICsJCQkJCQlicGZfZmlsbF9p
+bGxfaW5zbnMpOwo+ICsJaWYgKCFqaXRfZGF0YS0+aGVhZGVyKSB7Cj4gKwkJcHJvZyA9IG9yaWdf
+cHJvZzsKPiArCQlnb3RvIG91dF9vZmZzZXQ7Cj4gKwl9Cj4gKwo+ICsJLyogU2Vjb25kLCByZWFs
+IHBhc3MsIHRoYXQgYWN1dGFsbHkgZW1pdHMgdGhlIGltYWdlLiAqLwo+ICsJY3R4LT5pbnNucyA9
+ICh1MzIgKilqaXRfZGF0YS0+aW1hZ2U7Cj4gK3NraXBfaW5pdF9jdHg6Cj4gKwljdHgtPm5pbnNu
+cyA9IDA7Cj4gKwo+ICsJYnVpbGRfcHJvbG9ndWUoY3R4KTsKPiArCWlmIChidWlsZF9ib2R5KGN0
+eCwgZXh0cmFfcGFzcykpIHsKPiArCQlicGZfaml0X2JpbmFyeV9mcmVlKGppdF9kYXRhLT5oZWFk
+ZXIpOwo+ICsJCXByb2cgPSBvcmlnX3Byb2c7Cj4gKwkJZ290byBvdXRfb2Zmc2V0Owo+ICsJfQo+
+ICsJYnVpbGRfZXBpbG9ndWUoY3R4KTsKPiArCj4gKwlpZiAoYnBmX2ppdF9lbmFibGUgPiAxKQo+
+ICsJCWJwZl9qaXRfZHVtcChwcm9nLT5sZW4sIGltYWdlX3NpemUsIDIsIGN0eC0+aW5zbnMpOwo+
+ICsKPiArCXByb2ctPmJwZl9mdW5jID0gKHZvaWQgKiljdHgtPmluc25zOwo+ICsJcHJvZy0+aml0
+ZWQgPSAxOwo+ICsJcHJvZy0+aml0ZWRfbGVuID0gaW1hZ2Vfc2l6ZTsKPiArCj4gKwlicGZfZmx1
+c2hfaWNhY2hlKGppdF9kYXRhLT5oZWFkZXIsICh1OCAqKWN0eC0+aW5zbnMgKyBjdHgtPm5pbnNu
+cyk7CgpTaG91bGRuJ3QgdGhpcyBiZSAnKHUzMiAqKWN0eC0+aW5zbnMgKyBjdHgtPm5pbnNucycg
+dG8gY292ZXIgdGhlIHJhbmdlPwoKPiArCj4gKwlpZiAoIXByb2ctPmlzX2Z1bmMgfHwgZXh0cmFf
+cGFzcykgewo+ICtvdXRfb2Zmc2V0Ogo+ICsJCWtmcmVlKGN0eC0+b2Zmc2V0KTsKPiArCQlrZnJl
+ZShqaXRfZGF0YSk7Cj4gKwkJcHJvZy0+YXV4LT5qaXRfZGF0YSA9IE5VTEw7Cj4gKwl9Cj4gK291
+dDoKPiArCWlmICh0bXBfYmxpbmRlZCkKPiArCQlicGZfaml0X3Byb2dfcmVsZWFzZV9vdGhlcihw
+cm9nLCBwcm9nID09IG9yaWdfcHJvZyA/Cj4gKwkJCQkJICAgdG1wIDogb3JpZ19wcm9nKTsKPiAr
+CXJldHVybiBwcm9nOwo+ICt9Cj4gCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
