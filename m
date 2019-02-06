@@ -6,67 +6,44 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 952CAC169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Feb 2019 10:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 20A7EC169C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Feb 2019 10:44:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4F7D4206C2
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Feb 2019 10:38:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E2BA72175B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Feb 2019 10:44:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gFYvTmJ3";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="cW+L2NFj"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4F7D4206C2
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="snAvPEw/"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E2BA72175B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xvw7czpoiMaatFhGxmfPGKNNhJaLfF1PY/I7lIpwODk=; b=gFYvTmJ3LsBL2R
-	8VGAt1TnKt8XcrAfJ9EpdDJHkICo1rycmiqmTBrtWQcyt2eKsNh2tC4M/HXzUutG5T96dappt/flq
-	1pJzQd64V+zzA0sEVWcbFRX8gUHf9ZH6khxXIHbpf4xaTAfvKKptM3EfDB2wI/9wh4fZD0VEk/ff4
-	R0NEVSTqoAnsjNguHMbpmYTwx8mABhFOgO+9boi7CKN/KzF2N+BfzwVF82Nwdvp4sxjt+K3zJwNVI
-	f4HxBrFhvf0InaCFnTZMjkTWRr7pHa7tmuNjM7lhG57pRMYXgSFAlMgbn95RNv9zFuMLpf6KVIswx
-	bNahAm1k78NoE5IgEZzg==;
+	List-Owner; bh=pC8OnHJV85Xy0sXa+0A+6h5P+N1ueQW/kypJS4gup18=; b=snAvPEw/U9TwWT
+	odqgZdFwvf+uiMTXHI03oNT+KDExDimYNVtlH2or642D6ej6jyXe5aSkmqm7sdim8xPYe3KnS5+mN
+	GMeI1XmSDaluWR19iUyXDK/6ExcQ7RnM6MgO5kHltCB60NtJbmdWIyzAugxsR39I/F7AOvaMeCI0U
+	tkQcgLe2WBeldVEMM3VfHShVUSy+Sc5SxDLTziVmg2WF+RFh2PrA0Mz+fB8oJ/CK+VSyBoC3lvyay
+	ld+yMusIvBgq/vHyZFjaRk2DL+K58Ji1KAhKwog/UK/CJDSHLJ9sdMAF0SWjrsuphylWVRDVooSw8
+	lqdAxNvwlC+OzvcOxVeg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1grKah-0003JP-SI; Wed, 06 Feb 2019 10:38:03 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1grKgu-0005L0-Ky; Wed, 06 Feb 2019 10:44:28 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1grKaf-0003J2-4c
- for linux-riscv@lists.infradead.org; Wed, 06 Feb 2019 10:38:02 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id a62so1901766wmh.4
- for <linux-riscv@lists.infradead.org>; Wed, 06 Feb 2019 02:38:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=oyk0gxrAADp3Y1Rp9UakssvbomXy064HRVdKZJEi6AM=;
- b=cW+L2NFjxou8SJJ1RXO10je80Wu8/dnOUONg0MxFL/HKelW7+xTusdAmNWvimVbSoR
- 8upurLAMh4Q5+mTfiW+5hZY7WAPN8MjYKk71IIEjEMZSGaGagLzypPSJE91JqTg0ZcmR
- azad9s+zP2ThR8xUhdV5t2RmLirPYdGffWwv3Sf13UjxfjhWcef9oN49jbWgWZtQvBP3
- EiAqiiIxreRqwsPM8LSRbGGS5Jzfn/a0mLAu56Linu5T3LHH9KzJ77Lu0qPtv9QoKaDs
- 45ZCyC0AkrbwEoG+woK9JhDSNCeBMUIMjnrD/HE3OosajWeg0hgcYGBSsSbve3XaWw3/
- vfxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=oyk0gxrAADp3Y1Rp9UakssvbomXy064HRVdKZJEi6AM=;
- b=gR61UnY1u3lYqJ8qGH3mM6Dpo1/af7ddjtLYcIe9W/c+968Qf7Nwj9/NEkrrQ3AJjQ
- fG3ZAe8l5qRedFVslSKvvUtCBifyLROfTGp25KRzsJC9JU/WANy+KiMK6dBR3pBjj2uq
- k8BMN+xOg0nfaEPxYoFG7quS2OM5lTl/Cw7xVndj/QNe0gu5N0LaZ6iBOhenxjHqb7nR
- Gt3vxxYyg6Ln4WxWnD0ENPY0d+sIQRZQaeV1XSink1+8GhykFEmUmiYKyUV7ei2GufwO
- fYHM1RZqi7PE09GeOzgwqS9eeyHsxze5TtUTx9U+Fjmbg7JmGnN4uhwLgrau/yC6Reum
- Mu8A==
-X-Gm-Message-State: AHQUAuaNUwxrIzu2Y6Uz0GJmyVWs3LWv6uDaU4V/ilkHb2RjZiiqrXQ/
- 4NNg7+dbVkz+dK1a+I5wlJVsTt38kDcB5dPZsZKV0Q==
-X-Google-Smtp-Source: AHgI3IabGv9bsnokLWMzs67jZYgXhFXBuIyUJ+hc9o8dJftyAtQJyMLqZWLiEua6pf6Z/ULSTCKMCS2qXjvOAWOmhyk=
-X-Received: by 2002:a1c:d082:: with SMTP id h124mr2442017wmg.21.1549449478743; 
- Wed, 06 Feb 2019 02:37:58 -0800 (PST)
-MIME-Version: 1.0
+ id 1grKgr-0005KQ-Kk
+ for linux-riscv@lists.infradead.org; Wed, 06 Feb 2019 10:44:27 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id 429ABB0C2;
+ Wed,  6 Feb 2019 10:44:24 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: Anup Patel <anup@brainfault.org>
+Subject: Re: Boot stuck at "smp: Bringing up secondary CPUs ..."
 References: <mvmsgx22r3u.fsf@suse.de>
  <F77EA382-959C-4142-9A00-F1EBB58D37F8@wdc.com>
  <mvmtvhh1dl2.fsf@suse.de>
@@ -74,15 +51,17 @@ References: <mvmsgx22r3u.fsf@suse.de>
  <mvmftt11bdq.fsf@suse.de>
  <CAAhSdy33AFXrCQppswWzscy8TQh0Tjp1ixcjFcoB97v6vAwWxw@mail.gmail.com>
  <mvmbm3p1a1u.fsf@suse.de>
-In-Reply-To: <mvmbm3p1a1u.fsf@suse.de>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 6 Feb 2019 16:07:47 +0530
-Message-ID: <CAAhSdy3Dw=_dszr3css71zOfbu-i1adMwXxYS7115NO2e0JWqA@mail.gmail.com>
-Subject: Re: Boot stuck at "smp: Bringing up secondary CPUs ..."
-To: Andreas Schwab <schwab@suse.de>
+ <CAAhSdy3Dw=_dszr3css71zOfbu-i1adMwXxYS7115NO2e0JWqA@mail.gmail.com>
+X-Yow: You must be a CUB SCOUT!!  Have you made your MONEY-DROP today??
+Date: Wed, 06 Feb 2019 11:44:23 +0100
+In-Reply-To: <CAAhSdy3Dw=_dszr3css71zOfbu-i1adMwXxYS7115NO2e0JWqA@mail.gmail.com>
+ (Anup Patel's message of "Wed, 6 Feb 2019 16:07:47 +0530")
+Message-ID: <mvmy36tyz5k.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.91 (gnu/linux)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190206_023801_224489_216A0ADE 
-X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-CacheID: sfid-20190206_024425_819296_194021D7 
+X-CRM114-Status: UNSURE (   5.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -102,38 +81,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 6, 2019 at 4:03 PM Andreas Schwab <schwab@suse.de> wrote:
->
-> On Feb 06 2019, Anup Patel <anup@brainfault.org> wrote:
->
-> > On Wed, Feb 6, 2019 at 3:34 PM Andreas Schwab <schwab@suse.de> wrote:
-> >>
-> >> On Feb 06 2019, Anup Patel <anup@brainfault.org> wrote:
-> >>
-> >> > On Wed, Feb 6, 2019 at 2:47 PM Andreas Schwab <schwab@suse.de> wrote:
-> >> >>
-> >> >> On Feb 05 2019, Atish Patra <Atish.Patra@wdc.com> wrote:
-> >> >>
-> >> >> > Are you loading Linux from U-Boot and openSBI ?
-> >> >>
-> >> >> No.
-> >> >
-> >> > We requite Atish's SMP fixes to boot upstream kernel on Unleashed board.
-> >>
-> >> The same boot image has booted sucessfully before.  The problem with SMP
-> >> bringup only started when I started experimenting with openSBI and
-> >> U-Boot.  Coincidence?
-> >
-> > Lot of kernel bugs are hidden due to FDT fixups done by BBL at boot-time.
->
-> Then why does it fail with BBL?
+On Feb 06 2019, Anup Patel <anup@brainfault.org> wrote:
 
-Not sure what case you referring with BBL.
+> Not sure what case you referring with BBL.
 
-Please review Atish's SMP fix patches.
+I don't refer anything.  It just doesn't boot any more.
 
-Regards,
-Anup
+> Please review Atish's SMP fix patches.
+
+The very same image has booted previously without any issues.
+
+Andreas.
+
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
