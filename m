@@ -1,77 +1,101 @@
-Return-Path: <SRS0=S271=QN=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=gGBx=QO=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9A4CFC169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Feb 2019 16:35:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D97DAC282C2
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  7 Feb 2019 03:56:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 650272186A
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Feb 2019 16:35:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9F19C2175B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  7 Feb 2019 03:56:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="seyfqcU9"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 650272186A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FqvT1psK";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="BYuBkEkf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9F19C2175B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:To:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9vWg8JiHuBDwZDJHcMwIfPr99QtCQIgb1lYgIp0dkp8=; b=seyfqcU9vWhwob
-	h48D6/LRIH9JP5zbAH5CxY439m52HguEYnd/FeaKq6CrrGxsUs07kihaQQkDH/BbQsYG4XE7NDf50
-	QkQVTg5xLqqSGnAB59qsdFIbwi5j+EnUaTKcWAYfkSqMY+Um0qUmBPnr1zrHyVJXRo2DFpP153py/
-	efOPg74R2pw32QOX94er5/K4VsPc0wSWyBE12ySZp7KFz2TH5zTzTqJgVbKcZ1P5HR6oeTsKtRHE5
-	QqwQrE7yJRMuU6RwTW53Sw2CkZvZFICkAuX+HYYPleznoz1/h7he3WBpWXyy4Gv966rdA6KqFIT7o
-	xMYlakBhhXJY38x/a24g==;
+	List-Owner; bh=kR0ZIGjsrbXKQmRCm2W50o0KO4jzABpf6vkVbsuI0Q8=; b=FqvT1psKVnMVqM
+	Zx63pUuLqGZG+hyAK/PFbzGh7rH0jJtcdZdA4dxMNMJXkBJRKPDmr77z8kQ+HUCHwrd59a+FasSnM
+	6qDVn4UX6cok4XlFSIP1xeh6I+tJ28uP2MlITLA5Y2MXNJw0htwZm0VCMIpBe8Cx86qvqix5Nw5yV
+	CcF/a9z78xQtLrHdAVTojoE+Zvyl4oMyJVsoyrYaiCi7qeazd5onFFXKSjVpEHxHTEAajXDOoCEC3
+	fEEu54pwZl9ZqCBUX+G0mgx2jLlxUx7gZtcGYXMHjj4pNOCtF+NSy73sL9ecHS9grgH+3ZGPTS5YC
+	csH0/cPZn/oQ38pKWmtQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1grQAw-0002bx-DC; Wed, 06 Feb 2019 16:35:50 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1grao4-0004zB-Aj; Thu, 07 Feb 2019 03:56:56 +0000
+Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1grQAs-0002bR-Uo
- for linux-riscv@lists.infradead.org; Wed, 06 Feb 2019 16:35:48 +0000
-Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1grQAr-00058p-3Z; Wed, 06 Feb 2019 17:35:45 +0100
-Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1grQAq-0001bv-B4; Wed, 06 Feb 2019 17:35:44 +0100
-Date: Wed, 6 Feb 2019 17:35:44 +0100
-From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-To: Thierry Reding <thierry.reding@gmail.com>
-Subject: Re: [PATCH v5 1/2] pwm: sifive: Add DT documentation for SiFive PWM
- Controller
-Message-ID: <20190206163544.rwzinr75cw262njv@pengutronix.de>
-References: <1548762199-7065-1-git-send-email-yash.shah@sifive.com>
- <1548762199-7065-2-git-send-email-yash.shah@sifive.com>
- <20190130081411.5rva7cpwoy2l5qjd@pengutronix.de>
- <CAJ2_jOHiJ3X5VYZMCNk2bpvUdDOsrqHJna3HPvtdNQpJB9fxjg@mail.gmail.com>
- <20190206110730.ogqxncrnblyazgjw@pengutronix.de>
- <20190206124055.GF21676@ulmo>
- <20190206153854.52bqbwf2ty2j7rvj@pengutronix.de>
- <20190206161634.GB23805@ulmo>
+ id 1grao1-0004ym-JL
+ for linux-riscv@lists.infradead.org; Thu, 07 Feb 2019 03:56:55 +0000
+Received: by mail-ed1-x542.google.com with SMTP id b17so3693604eds.2
+ for <linux-riscv@lists.infradead.org>; Wed, 06 Feb 2019 19:56:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:date:to:cc:subject:in-reply-to:message-id:references
+ :user-agent:mime-version;
+ bh=zKR49lpoFi/IV7fYStEPqukZrWpAG4MOYr5LOcEOfeQ=;
+ b=BYuBkEkfwX/AqCKjbI0aoa1vROzHie14/NgdTRhTWR6OSNpdbYW0mpy/QU1dLVpVfP
+ JPepD2N49nfRj35w5yfu5fhjBqexS9wEiLMcn9fGHP8NmgSXZkbH0ZNyN82vswwz85+W
+ Ht6dw/swt6mHtVl7q6OEPdfKbErTqsr3TDVMQkkv7rNMS30vIX0p2upI9T5Zv6wy/dz1
+ Q0Vs6QlLz6ZIg2HT5ZiSAjJHchWkmDQPgT6gxH0gQE+b1TUsN3tP3bpPKfCdPeZB/Xf2
+ ogj0SZH8YkT/vT568E2k9ag4gjL//zCxHOraPkMIHJOHNAWXX4Mw1qGtmXLPokEwzAph
+ ZbWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:date:to:cc:subject:in-reply-to:message-id
+ :references:user-agent:mime-version;
+ bh=zKR49lpoFi/IV7fYStEPqukZrWpAG4MOYr5LOcEOfeQ=;
+ b=EInzDx4FaO3pOgEgXcUwVW4UA+Ol9XiIhO0/oSoU/VJOktLp6/e+m62jjX8iUUTLlS
+ 8SAFJZtvsjyWzT+4DPnGUuOAbFbIz5s43KkTtdmbSUtc3A51zoZfVtrJV2p4Z9D6Ak3C
+ Gs6ZqSwu4qsC1dAi3sttYt6bLGsfCpTVmK+GlVu9asFeExX4XFnjDaUaZ6IUWd+Im7yy
+ M2SQLL8xwdxN/NVGuSGBNQ8L2fA3E1MndYqAxnLfPlCEw4+AtJZK29lUHMF6DmfWDGjq
+ Ua9RAmeKAx8ODuddvR22MlbLq+eQrm5LG46XlIv3aUNP/78NmdfkADm65RcoqB/2z0f6
+ VfSg==
+X-Gm-Message-State: AHQUAuaxnuiNjVoNKO3xheWJs2ZkcbA569LWVFIEdxtT6UyCxJpQJyIM
+ XmRkl0Demfta8t3Or39n1uxG1w==
+X-Google-Smtp-Source: AHgI3IaC2Ti1to3yQxDl0IBCHypTDFGfjfkxjTTNwWXCWoRjS/u/dWh3tEwcetsMCPljNDEmS73LnA==
+X-Received: by 2002:a50:c299:: with SMTP id o25mr10966273edf.281.1549511811561; 
+ Wed, 06 Feb 2019 19:56:51 -0800 (PST)
+Received: from localhost (dc3829c8a.static.telenet.be. [195.130.156.138])
+ by smtp.gmail.com with ESMTPSA id j4sm6459987edh.69.2019.02.06.19.56.50
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Wed, 06 Feb 2019 19:56:50 -0800 (PST)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+X-Google-Original-From: Paul Walmsley <paulw@sifive.com>
+Date: Wed, 6 Feb 2019 19:56:49 -0800 (PST)
+To: ron minnich <rminnich@gmail.com>
+Subject: Re: [sw-dev] SBI extension proposal v2
+In-Reply-To: <CAP6exYJNWRuW6P3BXu6XfcZOKiCECjsv3SJQ14uMxQY0Ypg1pQ@mail.gmail.com>
+Message-ID: <alpine.DEB.2.21.9999.1902061914480.6518@viisi.sifive.com>
+References: <4aef7216-726c-f565-5c0f-cebd2aefb46d@wdc.com>
+ <CAPweEDySAg6LCTNOKHB2Ax3tJNySi9XQzG4d1msSQQepwDi8Vw@mail.gmail.com>
+ <2e5329eff04e2b0bc2433b5d974bf10f@mailhost.ics.forth.gr>
+ <CAPweEDz-7oRg2UWPkvTDdfi36Z4PQLAuLdL3-Sy-kmkGEJ=44A@mail.gmail.com>
+ <CAP6exYKfhtgXz4nVSwXasicbE+8ZbKwp-15_xGFHfFoK9yi9-g@mail.gmail.com>
+ <7efecac7-17bd-5fc1-d0de-9fd498db4751@wdc.com>
+ <d476c0e2b525fb0642b3155a247495cb1850c208.camel@kernel.crashing.org>
+ <452be0d3-da8e-643e-9f91-c38f0af36ffd@suse.de>
+ <CAPweEDwdByUTHnbKGS-LbwGzqsjjWciWOBnPOKkNqupY--vV2A@mail.gmail.com>
+ <033872b8-49d5-2731-118f-967488f4763f@suse.de>
+ <CAP6exYJRhw=nnhdrNQc7wOBUTYk0-LNaRQrhin7fqxeXMrEhkQ@mail.gmail.com>
+ <22450f8b5b18421e486985725b1a58167662fd2d.camel@kernel.crashing.org>
+ <CAPhv3nqQRC=jsLuheFPa1=qj7_rZ4D9q8nTr_yK7qeotobPbnA@mail.gmail.com>
+ <CAP6exYJNWRuW6P3BXu6XfcZOKiCECjsv3SJQ14uMxQY0Ypg1pQ@mail.gmail.com>
+User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190206161634.GB23805@ulmo>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190206_083547_147887_FB576BCD 
-X-CRM114-Status: GOOD (  32.73  )
+X-CRM114-CacheID: sfid-20190206_195653_683649_C250940C 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -83,141 +107,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Sachin Ghadi <sachin.ghadi@sifive.com>, Yash Shah <yash.shah@sifive.com>,
- robh+dt@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
+ Christoph Hellwig <hch@infradead.org>, Damien Le Moal <Damien.LeMoal@wdc.com>,
+ Olof Johansson <olof.johansson@gmail.com>,
+ "alankao@andestech.com" <alankao@andestech.com>,
+ "abner.chang@hpe.com" <abner.chang@hpe.com>,
+ =?ISO-8859-15?Q?Lu=EDs_Marques?= <luismarques@lowrisc.org>,
+ Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@sifive.com>,
+ Alexander Graf <agraf@suse.de>, "zong@andestech.com" <zong@andestech.com>,
+ Atish Patra <atish.patra@wdc.com>,
+ "sw-dev@groups.riscv.org" <sw-dev@groups.riscv.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ "mick@ics.forth.gr" <mick@ics.forth.gr>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Luke Kenneth Casson Leighton <lkcl@lkcl.net>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Andrew Waterman <andrew@sifive.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 06, 2019 at 05:16:34PM +0100, Thierry Reding wrote:
-> On Wed, Feb 06, 2019 at 04:38:54PM +0100, Uwe Kleine-K=F6nig wrote:
-> > On Wed, Feb 06, 2019 at 01:40:55PM +0100, Thierry Reding wrote:
-> > > On Wed, Feb 06, 2019 at 12:07:30PM +0100, Uwe Kleine-K=F6nig wrote:
-> > > > On Wed, Feb 06, 2019 at 04:18:47PM +0530, Yash Shah wrote:
-> > > > > On Wed, Jan 30, 2019 at 1:44 PM Uwe Kleine-K=F6nig
-> > > > > <u.kleine-koenig@pengutronix.de> wrote:
-> > > > > >
-> > > > > > On Tue, Jan 29, 2019 at 05:13:18PM +0530, Yash Shah wrote:
-> > > > > > > DT documentation for PWM controller added.
-> > > > > > >
-> > > > > > > Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
-> > > > > > > [Atish: Compatible string update]
-> > > > > > > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > > > > > > Signed-off-by: Yash Shah <yash.shah@sifive.com>
-> > > > > > > ---
-> > > > > > >  .../devicetree/bindings/pwm/pwm-sifive.txt         | 33 ++++=
-++++++++++++++++++
-> > > > > > >  1 file changed, 33 insertions(+)
-> > > > > > >  create mode 100644 Documentation/devicetree/bindings/pwm/pwm=
--sifive.txt
-> > > > > > >
-> > > > > > > diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive=
-.txt b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
-> > > > > > > new file mode 100644
-> > > > > > > index 0000000..8dcb40d
-> > > > > > > --- /dev/null
-> > > > > > > +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
-> > > > > > > @@ -0,0 +1,33 @@
-> > > > > > > +SiFive PWM controller
-> > > > > > > +
-> > > > > > > +Unlike most other PWM controllers, the SiFive PWM controller=
- currently only
-> > > > > > > +supports one period for all channels in the PWM. This is set=
- globally in DTS.
-> > > > > >
-> > > > > > You can simply drop this if the first user can set this using t=
-he usual
-> > > > > > interface. Don't you like this suggestion that I already made a=
- few
-> > > > > > times now?
-> > > > > >
-> > > > > > Did you consider to make the driver support only a single outpu=
-t with a
-> > > > > > more flexible period setting?
-> > > > > =
+On Tue, 5 Feb 2019, ron minnich wrote:
 
-> > > > > We cannot consider supporting only single output since we have bo=
-ards that
-> > > > > use the additional PWM channels to control individual LED brightn=
-ess
-> > > > > of a tri-color LED.
-> > > > > If we go down to one channel, then we can't control the brightnes=
-s of
-> > > > > the individual LEDs.
-> > > > > It will break the use case.
-> > > > =
+> While I respect the tremendous amount of work the OpenSBI authors have
+> done, I agree with Benjamin and Luis.
 
-> > > > OK.
-> > > > =
+There are a few key points that seem to be getting lost in this 
+discussion:
 
-> > > > > I am considering the below approach, let me know if it's fine by =
-you.
-> > > > > =
+1. OpenSBI is a sample implementation of the SBI interface, and is not the 
+SBI standard itself
 
-> > > > > - Drop the global period property and allow the only first user t=
-o change period
-> > > > > using the usual interface.
-> > > > > - A note in the binding that all PWMs need to run at the same
-> > > > > period. If the driver already refuses to apply incompatible perio=
-ds,
-> > > > > the users are going to notice that they've got the DT wrong.
-> > > > > - In driver code, count the users using the .request and .free ca=
-llbacks.
-> > > > > Based on this, allow changes to period iff the user count is one.
-> > > > =
+2. It is optional to implement the SBI, and it's likely that only certain 
+types of platforms will do so
 
-> > > > Not sure you need to point this limitation in the binding doc. Other
-> > > > than that this is fine.
-> > > =
+3. OpenSBI, from my point of view, consists of two distinct components:
+	a. libraries that can be used as reference implementations by 
+	   other early boot firmware; and
+	b. sample early boot firmware that replaces riscv-pk
 
-> > > I think it's useful to point this out in the binding documentation si=
-nce
-> > > it's something that device tree writers will want to know.
-> > =
+As far as I can tell, as long as the platform specification standards are 
+written correctly, there's no conflict between SBI-based platforms and 
+SBI-less platforms.
 
-> > OK, we're talking about an FPGA implementation but I still think if the
-> > dt-author is the first to know about this limitation this is too late.
-> > The hardware designer must know about that, and they don't look into the
-> > bindind documentation. The binding documentation should IMHO only
-> > describe the binding and functional limitiations of the device are out
-> > of scope.
-> > =
+> There is a further issue that occurred to me doing their excellent
+> FOSDEM talk, which is that nowhere in this has any kind of verified
+> boot scenario been discussed, and if you don't get that thinking in
+> from the start it is very hard to wedge it in later.
 
-> > The binding for the Freescale network interface doesn't describe that it
-> > only supports 480 MBit/s in its GHz mode, and that's good. The binding
-> > for i2c devices doesn't describe that a reboot in the middle of a
-> > transfer might block the bus.
-> > =
+Verified boot seems almost completely orthogonal to OpenSBI's library 
+implementation (3a, above).  U-boot, or Grub, or Coreboot, could reuse the 
+OpenSBI libraries, but not the OpenSBI early boot firmware.  Then those 
+other bootloaders can implement whatever verified/trusted/secure boot 
+approach that they wish.
 
-> > The target for the binding documentation is to document how a given
-> > device is described in a device tree. It's not there to duplicate
-> > information that belongs in the reference manual.
-> =
+As 3b mentions above, the OpenSBI repository also contains sample early 
+boot firmware.  That part of OpenSBI would clearly need to be modified to 
+support some sort of verified boot.  However, no one to my knowledge is 
+proposing to make the OpenSBI sample early boot firmware a RISC-V 
+standard.  That part of OpenSBL is just a sample first-stage bootloader 
+implementation - the same way that U-boot SPL or Coreboot romstage are 
+sample first-stage bootloader implementations.
 
-> But the device tree bindings for PWM devices describe where and how to
-> describe the period for each PWM that you reference. That's entirely
-> different from the examples that you give above.
+...
 
-Ah right, I had not on my radar that the binding also gives a suggestion
-for the period. Then yes, I agree that pointing out that all pwms
-belonging to the same provider should have matching periods is a good
-idea.
+I personally am excited to finally be able to use U-boot's rich 
+commandline interface and device drivers without needing to have riscv-pk 
+(aka BBL) involved.  Those who are not doing active RISC-V Linux 
+development may not be aware that the use of riscv-pk made it very 
+difficult to use upstream-focused Linux DT data.  Even though I might have 
+slightly different preferences for the current boot flow, their work 
+removes a major obstacle from RISC-V Linux upstream development, and is a 
+big step forward.
 
-Is using this "typical" approach to specify the period in a pwm-list a
-bad idea for this device type for this reason? On the other hand
-diverting from the typical approach has its own cost. Not sure ...
 
-Best regards
-Uwe
-
--- =
-
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | http://www.pengutronix.de/  |
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
