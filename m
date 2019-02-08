@@ -2,22 +2,21 @@ Return-Path: <SRS0=OMI1=QP=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 29406C169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Feb 2019 22:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 23538C169C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Feb 2019 23:03:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ED16C21841
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Feb 2019 22:57:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E577021841
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Feb 2019 23:03:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HGWZ/hhd";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="A4HmFncb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED16C21841
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kC8FWvGO";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="fIiKlTEP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E577021841
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,55 +25,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=IBEMBXUMSO3C/VKAZer7VPUI8Z2IqbCXLBC0HX2afTg=; b=HGWZ/hhdMuNtS5op8HJqUj1Jn
-	Ck4rz7WPC1SaX/reSX0OiBfRV8bCSkYpdpVOruBblOEUbLwmKoNkdg4DtpXoanGoRDUARWwKUcU42
-	2e2z+p9Wr7Pz/v6Rx5vgBucJgxdBQZh1zJ49Kcr8t757SFi3aNeV2xDk0cKYCyelQ20gpdp+JACTG
-	P4LR9g8XxaLK3q5i28bqABBA5nvSjfpteYCrpKpNW1jZN3RJrgX2zlxstz9tft7XtvaNdpcnDVAR4
-	qHlWc+QpNLKLvsUZqpaZ0C4j5RmyVBqu4uVn0SK1miKFYcdqokY26g4qNfCILvCISysnZkCcmVfJQ
-	OK1xtf7cA==;
+	 bh=5NgJ/6ZNQOyONmtxwLC7w15PIMNt9jvvdBhROZGiu2E=; b=kC8FWvGO1cv8BfPKiZ97J4ylE
+	pADRSi9eBwvcgVQ1EWPYyNen0LZ9Z+WrFq4rmjrtTGOpYuulEsamV36yCEBVeNzsMZSYsHYknQx7n
+	/5Pn7hE84O9ZDQE6Xlr3gFb9ZcOQJ7GwwcHwQUUMsb7mI/G/aezym9KiRDaLwb+C9y4M2VA5vNrK8
+	XJFchG2S3v+VP8/x935kFY+ZSJgnHaoniv+Coq53YQH2RjLu56qY29TWv1M2Ls1nHe2NaZpQEoA5Y
+	zHVVc6csMA7/AJuDBVQ352E5V0HZSJY8zK7c8rSClUarnlGkl0py+cLve0UioBpbnEB+4Kf4P+AsU
+	grvtDvpGA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gsF4x-0007Cd-Jw; Fri, 08 Feb 2019 22:57:03 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1gsFAu-0000fI-7m; Fri, 08 Feb 2019 23:03:12 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gsF4v-0007Bo-2e
- for linux-riscv@lists.infradead.org; Fri, 08 Feb 2019 22:57:02 +0000
+ id 1gsFAr-0000ew-EX
+ for linux-riscv@lists.infradead.org; Fri, 08 Feb 2019 23:03:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1549666621; x=1581202621;
+ t=1549666989; x=1581202989;
  h=subject:to:cc:references:from:message-id:date:
  mime-version:in-reply-to:content-transfer-encoding;
- bh=AaXLsLkp5lCyJS9vlcxg9SAChjUSNy6OwDD0PjlSrYA=;
- b=A4HmFncbj+Wck12a6uJiUfnNyWnniwOH8LctKsA9LviDhf7ZBAsRiaG2
- 03mlu3oX+PfCHuJOqeG5qibUmIVG+BDGHvfzkyEvSJKGO5Vx/rZVopAIE
- T/YzjvNmUfmL/z3CL4EjfxsJc/CC9dlYpWNLm21bwtaDlBgyIOOOYG7xF
- Xj6iUNHXLflquHw2IEOQVoGpl0nPuqRhn7NNFrhbZReRcHS2gHznVjWXH
- v8i9hmU8HFhkcCiB6Pnb0htdLq5Wx5/bcNPmWx0TQpJpsiIof9hCxzkTk
- bu0QbxoNwOi7mhrq+OAIyDpMTc956DqzS7uJOKzFEFziCypS16vJwEXoc g==;
-X-IronPort-AV: E=Sophos;i="5.56,564,1539619200"; d="scan'208";a="102116337"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 09 Feb 2019 06:56:59 +0800
+ bh=HJS0dqTZ8pL/wWqfL161CgRt5Xxy3W9rZvtNpfXa3YI=;
+ b=fIiKlTEPYPxic5uf56qXVEvtjIv+FCFZBcQERXXKmfVM78IeQdTmCkP7
+ QjhEyLFA6M2EBikQ5fKDhi/vTZDB/CbKbNJC/DaQIhqI+ijajANmnUANe
+ 7LC6p/xlOdTj9jusmD65C1nWeciufSofbBeKRAAjQVz0D68flVtpac1Tg
+ wc4ukX3Za1FWQW0PT+OoFSTrRqzYeJAADmxlQstUGIHIH4bWw2WBi+wII
+ q6JH8CqcdKuGG6aB32eE6+bcuRB2SQn27yXgr9sskAHrPYi14hMie/ikL
+ k+P4gGiNfs+eB3J1eeC55hShQ6peYiP356zqG0DhRnx0Cep73lOU5JpY9 A==;
+X-IronPort-AV: E=Sophos;i="5.58,348,1544457600"; d="scan'208";a="102597497"
+Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 09 Feb 2019 07:02:53 +0800
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP; 08 Feb 2019 14:35:40 -0800
+ by uls-op-cesaep02.wdc.com with ESMTP; 08 Feb 2019 14:43:35 -0800
 Received: from usa003289.ad.shared (HELO [10.86.59.147]) ([10.86.59.147])
- by uls-op-cesaip01.wdc.com with ESMTP; 08 Feb 2019 14:56:59 -0800
-Subject: Re: [v3 PATCH 2/8] RISC-V: Move cpuid to hartid mapping to SMP.
+ by uls-op-cesaip01.wdc.com with ESMTP; 08 Feb 2019 15:02:52 -0800
+Subject: Re: [v3 PATCH 8/8] RISC-V: Assign hwcap only according to boot cpu.
 To: Christoph Hellwig <hch@infradead.org>
 References: <1549590681-24125-1-git-send-email-atish.patra@wdc.com>
- <1549590681-24125-3-git-send-email-atish.patra@wdc.com>
- <20190208090316.GB16932@infradead.org>
+ <1549590681-24125-9-git-send-email-atish.patra@wdc.com>
+ <20190208091133.GD16932@infradead.org>
 From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <1090db6a-f4c1-a522-7c2d-d7367846df35@wdc.com>
-Date: Fri, 8 Feb 2019 14:56:57 -0800
+Message-ID: <8f5fd0c8-0320-00b1-4ddf-b1225be352c8@wdc.com>
+Date: Fri, 8 Feb 2019 15:02:52 -0800
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0)
  Gecko/20100101 Thunderbird/60.5.0
 MIME-Version: 1.0
-In-Reply-To: <20190208090316.GB16932@infradead.org>
+In-Reply-To: <20190208091133.GD16932@infradead.org>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190208_145701_260088_69DED2D1 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20190208_150309_555076_8FA3E967 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -101,58 +100,69 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/8/19 1:03 AM, Christoph Hellwig wrote:
-> On Thu, Feb 07, 2019 at 05:51:15PM -0800, Atish Patra wrote:
->> Currently, logical CPU id to physical hartid mapping is
->> defined for both smp and non-smp configurations. This
->> is not required as we need this only for smp configuration.
->> The mapping function can define directly boot_cpu_hartid
->> for non-smp use case.
+On 2/8/19 1:11 AM, Christoph Hellwig wrote:
+>> +	 * We don't support running Linux on hertergenous ISA systems.
+>> +	 * But first "okay" processor might not be the boot cpu.
+>> +	 * Check the ISA of boot cpu.
 > 
-> Please use up your available 72 chars for the changelog.  (probably also
-> in other patches).
+> Please use up your available 80 characters per line in comments.
 > 
+I will fix it.
 
-Sorry. I will fix all patches to use 72 chars.
-
->>
->> The reverse mapping function i.e. hartid to cpuid can be called
->> for any valid but not booted harts. So it should return default
->> cpu 0 only if it is a boot hartid.
->>
->> Signed-off-by: Atish Patra <atish.patra@wdc.com>
->> Reviewed-by: Anup Patel <anup@brainfault.org>
->> ---
->>   arch/riscv/include/asm/smp.h | 14 +++++++++++---
->>   arch/riscv/kernel/setup.c    |  9 ---------
->>   arch/riscv/kernel/smp.c      |  9 +++++++++
->>   3 files changed, 20 insertions(+), 12 deletions(-)
->>
->> diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
->> index 41aa73b4..21fd2d75 100644
->> --- a/arch/riscv/include/asm/smp.h
->> +++ b/arch/riscv/include/asm/smp.h
->> @@ -22,12 +22,13 @@
->>   /*
->>    * Mapping between linux logical cpu index and hartid.
->>    */
->> -extern unsigned long __cpuid_to_hartid_map[NR_CPUS];
->> -#define cpuid_to_hartid_map(cpu)    __cpuid_to_hartid_map[cpu]
+>> +		/*
+>> +		 * All "okay" hart should have same isa. We don't know how to
+>> +		 * handle if they don't. Throw a warning for now.
+>> +		 */
+>> +		if (elf_hwcap && temp_hwcap != elf_hwcap)
+>> +			pr_warn("isa mismatch: 0x%lx != 0x%lx\n",
+>> +				elf_hwcap, temp_hwcap);
+>> +
+>> +		if (hartid == boot_cpu_hartid)
+>> +			boot_hwcap = temp_hwcap;
+>> +		elf_hwcap = temp_hwcap;
+> 
+> So we always set elf_hwcap to the capabilities of the previous cpu.
+> 
+>> +		temp_hwcap = 0;
+> 
+> I think tmp_hwcap should be declared and initialized inside the outer loop
+> instead having to manually reset it like this.
+> 
+>> +	}
 >>   
->> +extern unsigned long boot_cpu_hartid;
->>   struct seq_file;
+>> +	elf_hwcap = boot_hwcap;
 > 
-> We usually try to keep forward declatations at the top of the file.
+> And then reset it here to the boot cpu.
 > 
-> Can you add the new external declaration below the forward one?
+> Shoudn't we only report the features supported by all cores?  Otherwise
+> we'll still have problems if the boot cpu supports a feature, but not
+> others.
 > 
-Sure.
+
+Hmm. The other side of the argument is boot cpu does have a feature that 
+is not supported by other hart that didn't even boot.
+The user space may execute something based on boot cpu capability but 
+that won't be enabled.
+
+At least, in this way we know that we are compatible completely with 
+boot cpu capabilities. Thoughts ?
 
 Regards,
 Atish
-> Otherwise looks good:
+> Something like:
 > 
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> 	for () {
+> 		unsigned long this_hwcap = 0;
+> 
+> 		for (i = 0; i < strlen(isa); i++)
+> 			this_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
+> 
+> 		if (elf_hwcap)
+> 			elf_hwcap &= this_hwcap;
+> 		else
+> 			elf_hwcap = this_hwcap;
+> 	}
+> 
 > 
 
 
