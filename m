@@ -1,85 +1,73 @@
-Return-Path: <SRS0=gGBx=QO=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=OMI1=QP=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D7446C282C2
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  7 Feb 2019 23:12:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 527C9C282C2
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Feb 2019 01:51:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A22562173B
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  7 Feb 2019 23:12:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1AB8320869
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Feb 2019 01:51:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="H4DKrWbn";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="jE5K04Xz"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A22562173B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FgvNXD8D";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="pqqNvwJ6"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1AB8320869
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4qa2wMABNIRZGCFMygsk78BPYgWUda56m/OdEcHftW4=; b=H4DKrWbnCWfPKF
-	Eaz2luPiSwBRj7bLJPajOwDzhaM/hOU3st/HeIiDjtvV02a/NdjMn+f3zsyjs4PixW9JK1/3f5hR1
-	aYXzRRhR32CTPp9d8MOZ1w7vnb2h0N/nHBz0zF9C7lzqS3F25eOxnjPuMhIbke1+uMhCQNTFK2maq
-	7/l+RhvWS7YKoEV7+6moJ1wLdQJT4peMP60yw3L4qwIEKrm+zoJ7MLVEPmwQctI+u9aU96GDwTX9t
-	tqx072moMKRojNQz/Py4OzbcHXl068ouxuWTdK0HWMbR30bLFlylNrkeStlQpJFJ6drDVBpTGm1dw
-	5HvWaslQXD5/oUX12IKQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=ZG7E8II8tE99gCZ2F6xYx8cLLsT1qlQy1ENbr58emAk=; b=Fgv
+	NXD8Ddtp1UZon3/VZfH5XDYFLSeTcEaksFGXXtrhYiNjOLA0VGMnMmvNGS6vf15hjBmuMzwXVd4rn
+	bYRRw2TZwsjKC+cKa4hUkxYlxPdOvVaRMlQt9tii9HsFf0IfYpjKLOzDYMr6j55vlyQowx2FOiyH/
+	1KcoBM5B4PJuU1WawKiE1W/o3fma0Qsep0gBCoWZfkdxDA9fLrNL1+0fbfe0y1i0LvgzZeRh3VmMW
+	hwe4WNlh2KqvLn5AxD5NnDvTA8yh+o6soTUAqILEhXEPkqdV/O5TnwkUtQjnDeiHJMuPqZR0V3c16
+	uzObWTdl+l/VZyBk2B2Dt0iGWF938Lg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1grsqg-0000RT-4I; Thu, 07 Feb 2019 23:12:50 +0000
-Received: from mail-lf1-x144.google.com ([2a00:1450:4864:20::144])
+	id 1grvKW-0002Zf-Uf; Fri, 08 Feb 2019 01:51:48 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1grsqc-0000Qb-Uf
- for linux-riscv@lists.infradead.org; Thu, 07 Feb 2019 23:12:48 +0000
-Received: by mail-lf1-x144.google.com with SMTP id q12so1226859lfm.0
- for <linux-riscv@lists.infradead.org>; Thu, 07 Feb 2019 15:12:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=T0I4TjkmJopDC8x5iojCng3SWoajxog3ipDWpHmVrWM=;
- b=jE5K04XzmYAx9iKMvPlr5okEnuqaRjlhptUBoj2+YL9i3t1X/Co+7FJ1rKxIbocZBP
- kcVzQh4eQfBoBjknkaJveo8cQZszRDsCiBt/ub68SXvscqhGCld9hMHuslU+sC6CA03i
- dq53UB2ENxbaF+eGa7v1xRlpG9jAxen2zS24svaayTCvgZEfFAYD7V6cjeDvOnnQVdED
- RRp/naeZqDl5TAf0nhJRIq/7Z4bpnAj7+S/Gt4NwaKUKVc71GSH6AaDzfjXxMVx7GlCH
- SWpBlY9wzWtCbT2wXnKuW8jiB90sjsqyOn8WaXy6L0aYQE0MgfbKQDKmdpw8F9H5def5
- LkEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=T0I4TjkmJopDC8x5iojCng3SWoajxog3ipDWpHmVrWM=;
- b=pj8+3QQEu8cdSHa3KuFmbOMrvcXw+9tO9afZPBXFH1FAal2UwFKdhFHutccHOoh3jk
- UCsU5aOVtT9UjlL7au0RFCGJCJdfoGluM6GMWMwa4RjGi/tVbCGwUIgwVOVoYG7LI4vR
- L53m1YJkTAMRR7t//rkuSHsWcQSAPwjdHCxDSRqNtFE0d8s2JlW8kMiJwFxBlvaNfu8i
- gRhSczMWgPwrN5Xk2pNzjA4wEC7WAsE0ocneZGn+Xhb0Y5A+6VS6sPk0Hvr1ews6vKcV
- JRps0I3yzQVGQBna4z+fMQOJzY89KlnTLrMjvASaqNXmb9qOsAO3c0VPQ0iqUYCo4ssV
- wdMw==
-X-Gm-Message-State: AHQUAuYKH0RZQRkUjuueGLtdZqPnE5AxkCmL5RE4WhO65ugXAXpTim8Z
- sFYSaFDUtbQ9fWUvFmPmWpW3R6VEQFGA+jiOXFA=
-X-Google-Smtp-Source: AHgI3IZoPpr978ql1erFzwlBd9LNy7ON0bcx7r0p47eR1YYpsQLkgM58o1wFKzb9lxQu5dcfE9iyvDzWTwKy1r4tUrU=
-X-Received: by 2002:a19:194e:: with SMTP id 75mr11549214lfz.114.1549581163593; 
- Thu, 07 Feb 2019 15:12:43 -0800 (PST)
-MIME-Version: 1.0
-References: <20190207225531.19219-1-alistair.francis@wdc.com>
- <CAEn-LTrQtL3+MQSDKQmBBx4PJGox4r5yEyHxh35VVd_D4dg0Dg@mail.gmail.com>
-In-Reply-To: <CAEn-LTrQtL3+MQSDKQmBBx4PJGox4r5yEyHxh35VVd_D4dg0Dg@mail.gmail.com>
-From: Alistair Francis <alistair23@gmail.com>
-Date: Thu, 7 Feb 2019 15:12:02 -0800
-Message-ID: <CAKmqyKPj5fCQR_sVWDkkMmo28=GEpJ71VcvA+nZb0YzTd0J+Ug@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Partially revert "Remove stat64 family from
- default syscall set"
-To: David Abdurachmanov <david.abdurachmanov@gmail.com>, zongbox@gmail.com
+ id 1grvKT-0002Xt-Qu
+ for linux-riscv@lists.infradead.org; Fri, 08 Feb 2019 01:51:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1549590705; x=1581126705;
+ h=from:to:cc:subject:date:message-id;
+ bh=ekA27SFnkSXYPCaYcQ+ZFq+nJ4ufZt1MgKQdXNWxxgQ=;
+ b=pqqNvwJ6EDAqdog88V9LMg3pi96tA04XcRWCW2eGeAftraKUlPUCZvGm
+ 8DiCcL+IrBS4afPvtO6entfNh+8v7+rKqUWJJt3kXdBtpDDR3j/rPXRLh
+ +EMtdk2biFTjchT2URRuUczu9bQ4T8m7UQpIbAdupjpSTY9wjMsVD8zu3
+ 3OcPxRBxWDeqJRnHdimrAmgWFoSsqWSFOL0PKHqOUcBkKuPGb6N70CToK
+ UlsdvmSvr/TwSeBiCI8LeKSzMXYQ8PjAUsNk4ZZoMgPymyepeMEyGIKRM
+ rPW7pZ3VEXP7GQ/7OOTWjXGP2bkhBiLJjDHv23TEL5GCgZXgMNwMH+jj5 g==;
+X-IronPort-AV: E=Sophos;i="5.58,346,1544457600"; d="scan'208";a="102533277"
+Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 08 Feb 2019 09:51:34 +0800
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP; 07 Feb 2019 17:30:18 -0800
+Received: from jedi-01.sdcorp.global.sandisk.com (HELO
+ jedi-01.int.fusionio.com) ([10.11.143.218])
+ by uls-op-cesaip02.wdc.com with ESMTP; 07 Feb 2019 17:51:35 -0800
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-riscv@lists.infradead.org
+Subject: [v3 PATCH 0/8] Various SMP related fixes
+Date: Thu,  7 Feb 2019 17:51:13 -0800
+Message-Id: <1549590681-24125-1-git-send-email-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190207_151247_047007_B6B23B7B 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20190207_175145_909419_55862870 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,96 +79,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "palmer@sifive.com" <palmer@sifive.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Cc: =?UTF-8?q?Patrick=20St=C3=A4hlin?= <me@packi.ch>,
+ Albert Ou <aou@eecs.berkeley.edu>, Damien Le Moal <Damien.LeMoal@wdc.com>,
+ Jason Cooper <jason@lakedaemon.net>, Alan Kao <alankao@andestech.com>,
+ Dmitriy Cherkasov <dmitriy@oss-tech.org>, Anup Patel <anup@brainfault.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, linux-kernel@vger.kernel.org,
+ Zong Li <zongbox@gmail.com>, Atish Patra <atish.patra@wdc.com>,
+ Palmer Dabbelt <palmer@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Andreas Schwab <schwab@suse.de>, Marc Zyngier <marc.zyngier@arm.com>,
+ Thomas Gleixner <tglx@linutronix.de>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 7, 2019 at 3:04 PM David Abdurachmanov
-<david.abdurachmanov@gmail.com> wrote:
->
-> On Thu, Feb 7, 2019 at 11:56 PM Alistair Francis
-> <Alistair.Francis@wdc.com> wrote:
-> >
-> > To fix systemd/sysVinit crashes enable __ARCH_WANT_STAT64.
-> >
-> > systemd failed to start with this error for 32-bit RISC-V:
-> > [    2.833864] Run /sbin/init as init process
-> > /sbin/init: error while loading shared libraries: libsystemd-shared-239.so: cannot stat shared object: Error 38
-> > [    2.933593] Kernel panic - not syncing: Attempted to kill init! exitcode=0x00007f00
-> > [    2.934120] CPU: 0 PID: 1 Comm: init Not tainted 5.0.0-rc4-yoctodev-standard #1
-> > [    2.934589] Call Trace:
-> > [    2.934919] [<c0048a30>] walk_stackframe+0x0/0xa0
-> > [    2.935243] [<c0048c14>] show_stack+0x28/0x32
-> > [    2.935518] [<c05fa418>] dump_stack+0x68/0x88
-> > [    2.935788] [<c004de48>] panic+0xf0/0x252
-> > [    2.936041] [<c0051780>] do_exit+0x7de/0x7fc
-> > [    2.936387] [<c00517f4>] do_group_exit+0x2a/0x82
-> > [    2.936674] [<c005185e>] __wake_up_parent+0x0/0x22
-> > [    2.936982] [<c00475fa>] ret_from_syscall+0x0/0xe
-> > [    2.937673] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x00007f00 ]---
-> >
-> > sysVinit had a similar problem as well. By enabling __ARCH_WANT_STAT64
-> > for 32-bit RISC-V the problem disapears and 32-bit RISC-V is able to
-> > boot.
->
-> Hi,
->
-> This is expected change for riscv32. More details here:
-> http://lists.infradead.org/pipermail/linux-riscv/2018-November/002062.html
+The existing upstream kernel doesn't boot for non-smp
+configuration. This patch series address various issues
+with non-smp configurations.
 
-Thanks for the explanation.
+The patch series is based on 5.0-rc5. Tested on QEMU and
+HiFive Unleashed board using both OpenSBI & BBL.
 
-+ Zong
+Changes from v2->v3
 
-Do you know what the statx implementation is in the 32-bit RISC-V
-glibc submission?
+1. Fixed spurious white space.
+2. Added lockdep for smpboot completion variable.
+2. Added a sanity check for hwcap.
 
-Alistair
+Changes from v1->v2
 
->
-> david
->
-> >
-> > Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
-> > ---
-> > This was tested with this fork of glibc to enable 32-bit RISC-V support:
-> > https://github.com/riscv/riscv-glibc/tree/riscv-glibc-2.29
-> > commit: 04fdd476160a55792a75375ba2bf56c761f811c2
-> >
-> > I'm not sure if this is a glibc problem or a kernel problem, but this
-> > commit caused the breakage between the 4.19 and 4.20 kernel so I'm
-> > sending out a patch. Let me know your thoughts
-> >
-> > arch/riscv/include/uapi/asm/unistd.h | 3 +++
-> >  1 file changed, 3 insertions(+)
-> >
-> > diff --git a/arch/riscv/include/uapi/asm/unistd.h b/arch/riscv/include/uapi/asm/unistd.h
-> > index 1f3bd3ebbb0d..031b7d78e11c 100644
-> > --- a/arch/riscv/include/uapi/asm/unistd.h
-> > +++ b/arch/riscv/include/uapi/asm/unistd.h
-> > @@ -20,6 +20,9 @@
-> >  #endif /* __LP64__ */
-> >
-> >  #include <asm-generic/unistd.h>
-> > +#if __BITS_PER_LONG == 32
-> > +#define __ARCH_WANT_STAT64
-> > +#endif
-> >
-> >  /*
-> >   * Allows the instruction cache to be flushed from userspace.  Despite RISC-V
-> > --
-> > 2.20.1
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+1. Move the cpuid to hartd id map to smp.c from setup.c
+2. Split 3rd patch into several small patches based on
+   logical grouping.
+3. Added a new patch that fixes an issue in hwcap query.
+4. Changed the title of the patch series.
+
+Atish Patra (8):
+RISC-V: Do not wait indefinitely in __cpu_up
+RISC-V: Move cpuid to hartid mapping to SMP.
+RISC-V: Remove NR_CPUs check during hartid search from DT
+RISC-V: Allow hartid-to-cpuid function to fail.
+RISC-V: Compare cpuid with NR_CPUS before mapping.
+clocksource/drivers/riscv: Add required checks during clock source
+init
+irqchip/irq-sifive-plic:: Check and continue in case of an invalid
+cpuid.
+RISC-V: Assign hwcap only according to boot cpu.
+
+arch/riscv/include/asm/smp.h      | 14 ++++++++---
+arch/riscv/kernel/cpu.c           |  4 ---
+arch/riscv/kernel/cpufeature.c    | 52 +++++++++++++++++++++++++++------------
+arch/riscv/kernel/setup.c         |  9 -------
+arch/riscv/kernel/smp.c           | 10 +++++++-
+arch/riscv/kernel/smpboot.c       | 20 ++++++++++++---
+drivers/clocksource/timer-riscv.c | 23 ++++++++++++++---
+drivers/irqchip/irq-sifive-plic.c |  5 ++++
+8 files changed, 98 insertions(+), 39 deletions(-)
+
+--
+2.7.4
+
 
 _______________________________________________
 linux-riscv mailing list
