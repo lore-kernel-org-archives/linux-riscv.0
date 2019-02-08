@@ -2,99 +2,85 @@ Return-Path: <SRS0=OMI1=QP=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 72EADC169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Feb 2019 17:43:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0C148C169C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Feb 2019 17:46:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 44E9120863
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Feb 2019 17:43:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D0BD020863
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Feb 2019 17:46:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PGUR5Tjg";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="XvN+Xk5H";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="XjaRcpg4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 44E9120863
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="N7eJaSAI";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="WDaBvumW"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D0BD020863
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nK+oj4ntrp4+2f8+8CepYo8WQA65zA7QbU4ItPcngUw=; b=PGUR5Tjg/eTJfi
-	InE2fb/W1ZBis4m/F3X8PQ/8XW17wYhbVFaUqkZLoDOlyigtCceyFgaCixRYX4ts6iunONBZHIe2n
-	5A0AvJy5K1DGURw/94P3kzYkloB9bRxIQ3p3LJ+I83VcfCJ0MRRBE/4rTT/Een6BDuEwRq02xe6Gn
-	vN3MoSksMOlIsv/3FmYC0ju+nyciT/P8pFm9JNAH6kVXV3J5QajwX0ynAcYHDV9W/ZkMrCXj4PIhy
-	gRxUp6jK9bngPxRwRiu1evi9WBqCwEzg9++Z+yyUczxsShbTC2PWUCBPd4xc7X5DJoq3aw4P8pjWR
-	HMG+FMIQjswXitAYkgzA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=FlINQ+7DhbVs37qpR/gB8MGEGvj0Ekt+V6aJqlr0eAA=; b=N7eJaSAI7OM6l8JEQ2BvGRAaO
+	FQkd8PBFQgQRvwIFRLr5LLHuICeL6WHZk2dFzr45uYzCoSI/pMOLlCfO3GpScPdQLbeE4NzoZZn3A
+	N5h1bhlitnyWHCdNu2YtArsDGBFJ+llzZnznOPndRiJiQmPwDpc51nX7J0XTXzCucgDxjBh29Hcxb
+	gsTkvrxmel2cmlMYbErjr+QU2Gg6MjIf2ELoh8QHc619ax+fdzcY7g2YVTGkxVmWi9tYSyiHn0hCp
+	9giFgG4IzZwUscYmSDeogdZQM4dPT9UIFwxQRYpvHnYWCC7tTXzQTlCIvxrpZF+ll4+p/hPbA7eKa
+	Tmr8hdBhg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gsABP-0007QT-0E; Fri, 08 Feb 2019 17:43:23 +0000
-Received: from merlin.infradead.org ([205.233.59.134])
+	id 1gsAE7-0000oa-Dr; Fri, 08 Feb 2019 17:46:11 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gsA4q-0008U3-AX
- for linux-riscv@bombadil.infradead.org; Fri, 08 Feb 2019 17:36:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Type:Cc:To:Subject:Message-ID:
- Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=8EvxsBX8G2BLZG6RME83sgEGJxBWmJ/miPkZ/PArDMg=; b=XvN+Xk5H4s6ykZMkIrsBzPyqW
- WGbb608QKJy5xaIMYzTwUzyTmNnTVXKVKWOHxvTB5qLLcCP8frAtrqxe3gYHQs54P9bN/cp75+DLL
- 8FLEPSLd1qKDmZ3ANZOmUVYQ64001JHz96AbbMH+T54CXETDtOccrQmlv9pmbwnmXCZ/JkFBl7dOC
- zTL7BK1ahqU+M+oiSsT0R6UJunIZh7KFjHAUVT4ajUDBt4lxcxOEtblTrFkN1ww0tzrdMbJVio1fN
- HjIekYkpXHo108tsxNvrF+/dlIJZ1Dmz+JeNzIa9CuYvKQ+v2tYvc1KBGd98cNxMPhuNM6wfQo5rJ
- 2UddstFeQ==;
-Received: from mail-ot1-x344.google.com ([2607:f8b0:4864:20::344])
- by merlin.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gsA4o-0005td-SJ
- for linux-riscv@lists.infradead.org; Fri, 08 Feb 2019 17:36:35 +0000
-Received: by mail-ot1-x344.google.com with SMTP id e12so7153947otl.5
- for <linux-riscv@lists.infradead.org>; Fri, 08 Feb 2019 09:36:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=8EvxsBX8G2BLZG6RME83sgEGJxBWmJ/miPkZ/PArDMg=;
- b=XjaRcpg4CsUEHOGGsYNWkqCeRMHdLqz+6ltcvUYU+CrQpQRXa+WO3T0dVaKTSKG7Ql
- hnto0HfmGGam39RXXNaBaqz6uWLAImgptViIS2O87fb1uCJLbScIDIRNBqo+T/EqLwB+
- IVcZi2azeYJ1D4fVQHFWW+tOe4icEke2+ZP+XuQVcVlxmTlzRgFwEkKtnXs6fW5yOxSI
- Wp184CpB1AW/Omc9wMcrWueybIC47X2vy1JGW2sZ3ieHfvlSiGBwZ9kO0dWqzyXW5HZ4
- lZWsO5Iku57RyWvLdMmsjf73kA2/Ce957Nt6yKWiOpkEAbvGS00bIyOg145HwLREQslA
- AtPA==
+ id 1gsAE4-0000oB-0S
+ for linux-riscv@lists.infradead.org; Fri, 08 Feb 2019 17:46:09 +0000
+Received: by mail-pf1-x444.google.com with SMTP id i12so1993251pfo.7
+ for <linux-riscv@lists.infradead.org>; Fri, 08 Feb 2019 09:46:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=/mwqkvyJN3cM7KLVEqVSW6FCo2e4yFrLSSpdYK/R9+E=;
+ b=WDaBvumWEbPwNUdXxT4rEeN1Mxj+OaxLWD1N8MDbW+GfGt6UUuBbHFnCRJDH0kad7z
+ dVAPYyfPMVdMLyqu0lSTmnjat2rtW5iilBGHXnjsdOpVwPSnUJcyUHg20WF+688yz5zD
+ rvzZyxVql82aeRw5qXm/HMrCseFhNg2Gpd4YjUqcW3mmVbanm70Zfe7pa73pwCoK5KYX
+ KsPuyzxU/VMb3KMlID84U5ak0LgUq1Xrs3uBws39Elb1yxM7zMDN7bfYyblNO+e8vbpq
+ mla4GDEe/cj1wQ+J44IXdzKjeu7k13QxSJJCcgC4v+6IekGX1IDm9lszLtg6LpOhGnl0
+ 5PLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=8EvxsBX8G2BLZG6RME83sgEGJxBWmJ/miPkZ/PArDMg=;
- b=Pb3SzEVebehkkUU2PN2Lral561amKgsN/F8/HDjeVTtnC4Uh5f5bu7hVt01GcPcYQR
- 9U0c2Fmxs1RNlp1KpQrb6Th8/CHgQi5Xjx6qOJLcKl4RfRa6ZBssFOJkcJL4+2QFu+v0
- p4sX2lIV/rGcGlGhYrKSYHiOi3gKdGc/oNvRKmeAiZkashWhcmlY0fomnrwiD9+Cxe4K
- cpHEWq30CEJRJRvvDb0R/LE3Olj+GesKMpcPXhysG4PbhEDCEa5Qyki8MntW1zSieqxM
- 4WmkrdAhRnFLHhTlaPCjCUI0CuCe56ZNl+FcIbGc+/BOR+D2DLwU+Ptm/bTfaM1Yitqg
- D1UA==
-X-Gm-Message-State: AHQUAubzDNtbzTlC44Y97NgpXbkJg4GgJ48YHJIU56aX7b0SVDIqME/B
- nc0hOLsqVXPk/km6z6rsBUHEtBEj7KnwbpsZvG4=
-X-Google-Smtp-Source: AHgI3IbaJGWIdMqE7m7/91xPLIkgk2XjmNeO7v5TBRxk8JQfu6cJ+nggdELjdyqJ44r1mV3XttyOhUrUa/7NsOa/oAY=
-X-Received: by 2002:a9d:8e4:: with SMTP id 91mr13700479otf.169.1549647390678; 
- Fri, 08 Feb 2019 09:36:30 -0800 (PST)
-MIME-Version: 1.0
-References: <1544983416-32532-1-git-send-email-sorear2@gmail.com>
- <20181217183741.GB23353@infradead.org>
-In-Reply-To: <20181217183741.GB23353@infradead.org>
-From: David Abdurachmanov <david.abdurachmanov@gmail.com>
-Date: Fri, 8 Feb 2019 18:36:19 +0100
-Message-ID: <CAEn-LTqAZVzhcfvW7aB=JoUvdmf1pZ=fsuD1qsDdFSqqY2Fu6g@mail.gmail.com>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=/mwqkvyJN3cM7KLVEqVSW6FCo2e4yFrLSSpdYK/R9+E=;
+ b=eZAd7j0jfk73NP1PIlvEQcPLplxKDLLO+v5sdqsJh1E1MCPLVXFac9ClPk8abU6sOX
+ rfn9yLjY+KA5VDlVsY1rSqAle82psz18VPmPXDLYxel81SmBdvYbRgerB94hODzdbJN3
+ wUrJpZoKZyuvfs5k3uUuC9ye8rul6ni9pHIgU9ZPDjwoKO+uYGwRyznhv3NX4EBzMRUM
+ 2Xi2vX0ULXlXYrG79bg39yiFm75H4CZPrpwo0+tStXHzVVOewxULqGnIzDY9fKfPJplJ
+ HDTzsRlhXxW6caCFQW/4gmK2Y6asRcU5HjOzdlhzOJfpuQ2tyimrxCjrAERbWqACqJVx
+ rWLg==
+X-Gm-Message-State: AHQUAuatQt2lf6LX65pG4Q+dWz/QykQ0403JUDgtJ0yxlnoCItInqhx0
+ oNoF9+apHBFj7ecCeeT4E87qfw==
+X-Google-Smtp-Source: AHgI3IZ36Ngfge+kIeI1M6R/ESYsGIv1Y0KldpHlya42WDcjlOgSotEkmOEMSpme9xfaGoJ2DtOmtw==
+X-Received: by 2002:a62:2e46:: with SMTP id u67mr22952024pfu.3.1549647967300; 
+ Fri, 08 Feb 2019 09:46:07 -0800 (PST)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id n6sm2838964pgv.86.2019.02.08.09.46.06
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 08 Feb 2019 09:46:06 -0800 (PST)
+Date: Fri, 08 Feb 2019 09:46:06 -0800 (PST)
+X-Google-Original-Date: Fri, 08 Feb 2019 09:45:52 PST (-0800)
 Subject: Re: [PATCH] riscv: Add pte bit to distinguish swap from invalid
-To: Christoph Hellwig <hch@infradead.org>
+In-Reply-To: <CAEn-LTqAZVzhcfvW7aB=JoUvdmf1pZ=fsuD1qsDdFSqqY2Fu6g@mail.gmail.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: david.abdurachmanov@gmail.com
+Message-ID: <mhng-06b75f17-dc99-4c51-b59e-68d3dfb302cf@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190208_123634_955568_28B08AE3 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20190208_094608_061372_9C4A383D 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -106,41 +92,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Stefan O'Rear <sorear2@gmail.com>, schwab@suse.de,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>
-Content-Type: text/plain; charset="us-ascii"
+Cc: Christoph Hellwig <hch@infradead.org>, sorear2@gmail.com,
+ linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu, schwab@suse.de
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Palmer, could you review/consider this patch for next rcX or next merge window?
+On Fri, 08 Feb 2019 09:36:19 PST (-0800), david.abdurachmanov@gmail.com wrote:
+> Palmer, could you review/consider this patch for next rcX or next merge window?
 
-david
+I'll include this in next week's PR.
 
-On Mon, Dec 17, 2018 at 7:37 PM Christoph Hellwig <hch@infradead.org> wrote:
 >
-> On Sun, Dec 16, 2018 at 01:03:36PM -0500, Stefan O'Rear wrote:
-> > Previously, invalid PTEs and swap PTEs had the same binary
-> > representation, causing errors when attempting to unmap PROT_NONE
-> > mappings, including implicit unmap on exit.
-> >
-> > Typical error:
-> >
-> > swap_info_get: Bad swap file entry 40000000007a9879
-> > BUG: Bad page map in process a.out  pte:3d4c3cc0 pmd:3e521401
-> >
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Stefan O'Rear <sorear2@gmail.com>
+> david
 >
-> Looks fine:
->
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> On Mon, Dec 17, 2018 at 7:37 PM Christoph Hellwig <hch@infradead.org> wrote:
+>>
+>> On Sun, Dec 16, 2018 at 01:03:36PM -0500, Stefan O'Rear wrote:
+>> > Previously, invalid PTEs and swap PTEs had the same binary
+>> > representation, causing errors when attempting to unmap PROT_NONE
+>> > mappings, including implicit unmap on exit.
+>> >
+>> > Typical error:
+>> >
+>> > swap_info_get: Bad swap file entry 40000000007a9879
+>> > BUG: Bad page map in process a.out  pte:3d4c3cc0 pmd:3e521401
+>> >
+>> > Cc: stable@vger.kernel.org
+>> > Signed-off-by: Stefan O'Rear <sorear2@gmail.com>
+>>
+>> Looks fine:
+>>
+>> Reviewed-by: Christoph Hellwig <hch@lst.de>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
