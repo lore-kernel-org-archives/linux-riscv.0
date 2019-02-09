@@ -1,4 +1,4 @@
-Return-Path: <SRS0=OMI1=QP=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=fNze=QQ=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
@@ -6,74 +6,78 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 23538C169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Feb 2019 23:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 436CFC169C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  9 Feb 2019 03:30:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E577021841
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Feb 2019 23:03:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E4B612177B
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  9 Feb 2019 03:30:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kC8FWvGO";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="fIiKlTEP"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E577021841
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="h/rdtCJI";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="FWRAMMVY"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E4B612177B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=5NgJ/6ZNQOyONmtxwLC7w15PIMNt9jvvdBhROZGiu2E=; b=kC8FWvGO1cv8BfPKiZ97J4ylE
-	pADRSi9eBwvcgVQ1EWPYyNen0LZ9Z+WrFq4rmjrtTGOpYuulEsamV36yCEBVeNzsMZSYsHYknQx7n
-	/5Pn7hE84O9ZDQE6Xlr3gFb9ZcOQJ7GwwcHwQUUMsb7mI/G/aezym9KiRDaLwb+C9y4M2VA5vNrK8
-	XJFchG2S3v+VP8/x935kFY+ZSJgnHaoniv+Coq53YQH2RjLu56qY29TWv1M2Ls1nHe2NaZpQEoA5Y
-	zHVVc6csMA7/AJuDBVQ352E5V0HZSJY8zK7c8rSClUarnlGkl0py+cLve0UioBpbnEB+4Kf4P+AsU
-	grvtDvpGA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vIJPnsy0tX6IXfZmXkZ3ZPkgM0zpHLzDAxYpsYGRiyM=; b=h/rdtCJIngff4t
+	cHIiUCgA9CHPGfojdqzYiQhsqAXeFX03AyV7n78F4/QwXSpDfsEJzY1AoMz5B/h9npQ+DGTL4pYoI
+	cB61cuofd4WNHAHMTncx1lg0n0jp4/gDrpxxxfKPU/HyVwsRMKhp2Io0/WdwuEj14TR0tZUoRKApM
+	wDgQE5k4DmOfJlCTNlwYKO8wXyJboFvtr/hu5TT526j+1XWAuyLOtVgsZ9VwVGIKY5xDh4crjqC/N
+	rhnlAfpdAZMYc6OBhiOnbduhUOoTETHDucha1M/fqjjC6n220XmAXProepXTFfUa6YLUsc0f5f3ZK
+	gqOkraB026lWE64YROYQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gsFAu-0000fI-7m; Fri, 08 Feb 2019 23:03:12 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1gsJLp-0001K9-OL; Sat, 09 Feb 2019 03:30:45 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gsFAr-0000ew-EX
- for linux-riscv@lists.infradead.org; Fri, 08 Feb 2019 23:03:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1549666989; x=1581202989;
- h=subject:to:cc:references:from:message-id:date:
- mime-version:in-reply-to:content-transfer-encoding;
- bh=HJS0dqTZ8pL/wWqfL161CgRt5Xxy3W9rZvtNpfXa3YI=;
- b=fIiKlTEPYPxic5uf56qXVEvtjIv+FCFZBcQERXXKmfVM78IeQdTmCkP7
- QjhEyLFA6M2EBikQ5fKDhi/vTZDB/CbKbNJC/DaQIhqI+ijajANmnUANe
- 7LC6p/xlOdTj9jusmD65C1nWeciufSofbBeKRAAjQVz0D68flVtpac1Tg
- wc4ukX3Za1FWQW0PT+OoFSTrRqzYeJAADmxlQstUGIHIH4bWw2WBi+wII
- q6JH8CqcdKuGG6aB32eE6+bcuRB2SQn27yXgr9sskAHrPYi14hMie/ikL
- k+P4gGiNfs+eB3J1eeC55hShQ6peYiP356zqG0DhRnx0Cep73lOU5JpY9 A==;
-X-IronPort-AV: E=Sophos;i="5.58,348,1544457600"; d="scan'208";a="102597497"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 09 Feb 2019 07:02:53 +0800
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep02.wdc.com with ESMTP; 08 Feb 2019 14:43:35 -0800
-Received: from usa003289.ad.shared (HELO [10.86.59.147]) ([10.86.59.147])
- by uls-op-cesaip01.wdc.com with ESMTP; 08 Feb 2019 15:02:52 -0800
-Subject: Re: [v3 PATCH 8/8] RISC-V: Assign hwcap only according to boot cpu.
-To: Christoph Hellwig <hch@infradead.org>
-References: <1549590681-24125-1-git-send-email-atish.patra@wdc.com>
- <1549590681-24125-9-git-send-email-atish.patra@wdc.com>
- <20190208091133.GD16932@infradead.org>
-From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <8f5fd0c8-0320-00b1-4ddf-b1225be352c8@wdc.com>
-Date: Fri, 8 Feb 2019 15:02:52 -0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0)
- Gecko/20100101 Thunderbird/60.5.0
+ id 1gsJLm-0001Je-GE
+ for linux-riscv@lists.infradead.org; Sat, 09 Feb 2019 03:30:44 +0000
+Received: by mail-wm1-x341.google.com with SMTP id z5so6723701wmf.0
+ for <linux-riscv@lists.infradead.org>; Fri, 08 Feb 2019 19:30:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=ZJbDoMq3A/2Y6Zl+qPImkvVtGPZYvG7/dV2jYrsl7O4=;
+ b=FWRAMMVY32kJaTXrDgYfN/y36PAoriXTSmuGC8fnswRo/wUw+r/U1q52o62sihqGT8
+ 1pPDICdcO6CXjDg8jC5d3YdQTIopcm3AB2+bvuvgWlpELAQZ/uKEXdiZJ6aHE5OfwZSL
+ diJRNtuiOhInXvtTWuSpcrP2cgZhwY+e+uGu6I41s1fmAv5u2TKyGi60RXAYmKJByF+1
+ +9TCGEl/5KANp3eyopZ1kXFfplv1mAAV62WqJumbBBWnkwORo2WTzGNn0yl8/eHgINPa
+ CAxzA+H09+/rFbYclKrtVEh+g4ld2b2HSHUWyHVrjVKrZ+IXFW81Vf6E831YE7X1o8s3
+ t4Cw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=ZJbDoMq3A/2Y6Zl+qPImkvVtGPZYvG7/dV2jYrsl7O4=;
+ b=DDwvrPmnPucVNaIrZVyIvgO/oBLigA9nVaKlpJgDg/Wq7m/H+teryzGA0slZAxiMlV
+ izCDXdqjaB30rJ46ojSxJjpZU/xg9xn6qPZ0VJNAW4eUqSA2JzHXxd6Towwoe0NWqcHr
+ s7j9+wLnaTIsL9NLEkXXGZBKxSJr9C/1IIo0pYjDebqPcDLaCCys3VUiamdcilsIAzxI
+ nIDWAxhJIYIjS86cAWCKkdHXkC8L9WpuwbvMuVbhvwpG5wWCfQKxh0AIHG6SXPIF/kEc
+ JSaCuLNkYe0fhUCGGZT+iNHBwM5CQ5zstp3Ifpx6KUIQg94/P8u03kmPt/5z9vbJQcAx
+ tgYg==
+X-Gm-Message-State: AHQUAuZiA/A0h9FZqJzuck/AETt2s00WjZlfjR47plxm0HTyHCHlyoin
+ rkXJf4CiFhp5A8NvECrJ2A92eUJrItmPANpEOAg1qwE4
+X-Google-Smtp-Source: AHgI3IbCXkZpvm/ZFTNaXU7u1Qqwfoh2iuUbpUGCFY6OnHtXBSak97+AyicgrvXgApfNnJ11cuhQgMvgE6ONsFFp5B0=
+X-Received: by 2002:a7b:cf12:: with SMTP id l18mr1158341wmg.21.1549683039121; 
+ Fri, 08 Feb 2019 19:30:39 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20190208091133.GD16932@infradead.org>
-Content-Language: en-US
+References: <CAAhSdy3im4i0PJvKqDAfq2iDFvTA2O3ZsxjM6wSgdnFUU1eVcw@mail.gmail.com>
+ <mhng-487587c1-cd66-40f3-86fc-aa2f034f5028@palmer-si-x1c4>
+In-Reply-To: <mhng-487587c1-cd66-40f3-86fc-aa2f034f5028@palmer-si-x1c4>
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 9 Feb 2019 09:00:27 +0530
+Message-ID: <CAAhSdy2pBp10bp_jvCnApGYZa4Y2779ELrvH2DgcP4TRiKUzwg@mail.gmail.com>
+Subject: Re: kernel after 5.0-rc2 may not boot using BBL
+To: Palmer Dabbelt <palmer@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190208_150309_555076_8FA3E967 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20190208_193042_682215_E3AF9599 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -85,86 +89,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Damien Le Moal <Damien.LeMoal@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Jason Cooper <jason@lakedaemon.net>, Alan Kao <alankao@andestech.com>,
- Dmitriy Cherkasov <dmitriy@oss-tech.org>, Anup Patel <anup@brainfault.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- =?UTF-8?Q?Patrick_St=c3=a4hlin?= <me@packi.ch>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Marc Zyngier <marc.zyngier@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Andreas Schwab <schwab@suse.de>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Thomas Gleixner <tglx@linutronix.de>, Zong Li <zongbox@gmail.com>
+Cc: Christoph Hellwig <hch@infradead.org>, Atish Patra <atish.patra@wdc.com>,
+ linux-riscv@lists.infradead.org, Anup Patel <Anup.Patel@wdc.com>,
+ Andreas Schwab <schwab@suse.de>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/8/19 1:11 AM, Christoph Hellwig wrote:
->> +	 * We don't support running Linux on hertergenous ISA systems.
->> +	 * But first "okay" processor might not be the boot cpu.
->> +	 * Check the ISA of boot cpu.
-> 
-> Please use up your available 80 characters per line in comments.
-> 
-I will fix it.
+On Fri, Feb 8, 2019 at 10:59 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+>
+> On Fri, 08 Feb 2019 01:17:00 PST (-0800), anup@brainfault.org wrote:
+> > On Fri, Feb 8, 2019 at 2:43 PM Christoph Hellwig <hch@infradead.org> wrote:
+> >>
+> >> On Fri, Feb 08, 2019 at 02:32:51PM +0530, Anup Patel wrote:
+> >> > It is a bug in BBL because it is not keeping sufficient gap between
+> >> > Linux kernel end and DTB. The change pointed by Atish actually
+> >> > reduced flat kernel binary size by almost 1MB.
+> >>
+> >> And that is all great.  But it breaks peoples few existing RISC-V
+> >> setups, which is the best way to frustate every single of the few
+> >> users out there.  And that is best way to lose any interested in this
+> >> already hard to use mess.
+> >
+> > There is no issue if you are building Linux RISC-V defconfig.
+> >
+> > The issue starts manifesting only if you more drivers enabled.
+> > Again, with growing kernel not everyone will see this issue because
+> > it will only show-up only when gap between payload_end and next
+> > 2MB aligned address is not sufficient to cover BSS section.
+>
+> I agree with Christoph here: we should revert the commit.  There are various
+> versions of BBL floating around that are a big headache to update, and since
+> all the patch in question does is reduce the flat image size it's not worth
+> breaking existing setups.
+>
+> I also don't like the proposed fix, as that just statically sizes a 16MiB BSS.
+> While that's fairly large, it is in essence just kicking the can down the road.
+> The kernel on my laptop has a 7MiB BSS, and it's just an arbitrary smattering
+> of the drivers I happen to use.  I'm not sure what the right long-term solution
+> is here.  I kind of want to say "just use an ELF", as someone has already sat
+> down and figured out how to put everything into a file that's required to make
+> a binary run.  I feel like doing anything else here is really just going to
+> involve re-inventing the wheel.
 
->> +		/*
->> +		 * All "okay" hart should have same isa. We don't know how to
->> +		 * handle if they don't. Throw a warning for now.
->> +		 */
->> +		if (elf_hwcap && temp_hwcap != elf_hwcap)
->> +			pr_warn("isa mismatch: 0x%lx != 0x%lx\n",
->> +				elf_hwcap, temp_hwcap);
->> +
->> +		if (hartid == boot_cpu_hartid)
->> +			boot_hwcap = temp_hwcap;
->> +		elf_hwcap = temp_hwcap;
-> 
-> So we always set elf_hwcap to the capabilities of the previous cpu.
-> 
->> +		temp_hwcap = 0;
-> 
-> I think tmp_hwcap should be declared and initialized inside the outer loop
-> instead having to manually reset it like this.
-> 
->> +	}
->>   
->> +	elf_hwcap = boot_hwcap;
-> 
-> And then reset it here to the boot cpu.
-> 
-> Shoudn't we only report the features supported by all cores?  Otherwise
-> we'll still have problems if the boot cpu supports a feature, but not
-> others.
-> 
-
-Hmm. The other side of the argument is boot cpu does have a feature that 
-is not supported by other hart that didn't even boot.
-The user space may execute something based on boot cpu capability but 
-that won't be enabled.
-
-At least, in this way we know that we are compatible completely with 
-boot cpu capabilities. Thoughts ?
+IMHO, best solution would be to use mature open-source bootloader as
+payload (i.e. U-Boot or similar) and always boot Linux from bootloader. Using
+Linux as BBL/OpenSBI payload can still continue to exist but it can be more
+of a developer usage.
 
 Regards,
-Atish
-> Something like:
-> 
-> 	for () {
-> 		unsigned long this_hwcap = 0;
-> 
-> 		for (i = 0; i < strlen(isa); i++)
-> 			this_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
-> 
-> 		if (elf_hwcap)
-> 			elf_hwcap &= this_hwcap;
-> 		else
-> 			elf_hwcap = this_hwcap;
-> 	}
-> 
-> 
-
+Anup
 
 _______________________________________________
 linux-riscv mailing list
