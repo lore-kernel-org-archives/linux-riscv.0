@@ -4,19 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E358C282CE
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 13:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 73E4AC169C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 13:52:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3A1FE21B24
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 13:40:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3911621B18
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 13:52:03 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ssnhXtQL"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3A1FE21B24
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kUmXFuVy"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3911621B18
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,24 +25,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d5BEplLtkmhYvU9KhZolwZdYcsuXbAWxmpKliK1W9Gw=; b=ssnhXtQL5yUSTe
-	nvDyYv1UXjyaMfJj0xI0+yRHC4N4GrQG9bHT/YQWHNXNEmO6lZZasz25e3HQoVr4GPOmzxcMyQDcP
-	eW7fJ3GaC7laQB8hLOFVmoBdoLip+5vUJHVCF6L6JzlRjxOhnfvIWxxZX+NxKpRDYev6+M5r/ryVg
-	xTrmNN75wRGu6sdrDC45UP57qGkmIVld0wCzjMHIB+soFRvxZsrpoDexP1yVcSYTJFczpxLW4owW7
-	Oi603Dh/Aqum0qRWs7SiJSNbUgBWkhaYLtVzV+L1y68iMFBHTXorpSXiagViLXvS69jm4Kk9MOZ5h
-	DKa4LxViSATa3NYa9G/Q==;
+	List-Owner; bh=lC8fQernajVRC+L8rrPgXnpJMjCQ81VIOz3gPOlDqAI=; b=kUmXFuVyvvhuIP
+	Ap7rBJtdDP7Sw0bfTIn8LN7PhpcC3Hy64PVs2tkZL/BuMyOauJNwzUTcOedbUJG8N8kXP9svgr4OZ
+	H70ZSaNDLZtysYeO9SNOLo3OUxks+jCqN0Wxa4Q5yEDmGdQsK0LbZMqynmoqQdu3sypQKCWO9F05K
+	Tbf8iH/4Mfl9N6N2b7uEZn+6oItx820Y7ZXXxPlOmRrS63Qb56dvql0cO3dy2BbkXmF115QQ90Gha
+	oh1PsZD1UU/edPkxtiTlvy5M3Y7pM532PupD5Gpcg6LEOI9+7B/5UK0CeqOCzcqC+4yOtQaWL/N1c
+	diZszLBZ9Y5o7WrR2qpQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtBoY-0003gP-Md; Mon, 11 Feb 2019 13:40:02 +0000
+	id 1gtC06-0000n5-2t; Mon, 11 Feb 2019 13:51:58 +0000
 Received: from 089144210182.atnat0019.highway.a1.net ([89.144.210.182]
  helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtBlA-0000WC-MV; Mon, 11 Feb 2019 13:36:33 +0000
+ id 1gtBkq-00006S-UG; Mon, 11 Feb 2019 13:36:13 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: iommu@lists.linux-foundation.org
-Subject: [PATCH 12/12] dma-mapping: remove dma_assign_coherent_memory
-Date: Mon, 11 Feb 2019 14:35:54 +0100
-Message-Id: <20190211133554.30055-13-hch@lst.de>
+Subject: [PATCH 05/12] dma-mapping: remove an incorrect __iommem annotation
+Date: Mon, 11 Feb 2019 14:35:47 +0100
+Message-Id: <20190211133554.30055-6-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190211133554.30055-1-hch@lst.de>
 References: <20190211133554.30055-1-hch@lst.de>
@@ -69,93 +69,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The only useful bit in this function was the already assigned check.
-Once that is moved to dma_init_coherent_memory thee rest can easily
-be handled in the two callers.
+memmap return a regular void pointer, not and __iomem one.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- kernel/dma/coherent.c | 47 +++++++++++++------------------------------
- 1 file changed, 14 insertions(+), 33 deletions(-)
+ kernel/dma/coherent.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/kernel/dma/coherent.c b/kernel/dma/coherent.c
-index d7a27008f228..1e3ce71cd993 100644
+index 66f0fb7e9a3a..4b76aba574c2 100644
 --- a/kernel/dma/coherent.c
 +++ b/kernel/dma/coherent.c
-@@ -41,6 +41,9 @@ static int dma_init_coherent_memory(phys_addr_t phys_addr,
+@@ -43,7 +43,7 @@ static int dma_init_coherent_memory(
+ 	struct dma_coherent_mem **mem)
+ {
+ 	struct dma_coherent_mem *dma_mem = NULL;
+-	void __iomem *mem_base = NULL;
++	void *mem_base = NULL;
+ 	int pages = size >> PAGE_SHIFT;
  	int bitmap_size = BITS_TO_LONGS(pages) * sizeof(long);
  	int ret;
- 
-+	if (*mem)
-+		return -EBUSY;
-+
- 	if (!size) {
- 		ret = -EINVAL;
- 		goto out;
-@@ -88,33 +91,11 @@ static void dma_release_coherent_memory(struct dma_coherent_mem *mem)
- 	kfree(mem);
- }
- 
--static int dma_assign_coherent_memory(struct device *dev,
--				      struct dma_coherent_mem *mem)
--{
--	if (!dev)
--		return -ENODEV;
--
--	if (dev->dma_mem)
--		return -EBUSY;
--
--	dev->dma_mem = mem;
--	return 0;
--}
--
- int dma_declare_coherent_memory(struct device *dev, phys_addr_t phys_addr,
- 				dma_addr_t device_addr, size_t size)
- {
--	struct dma_coherent_mem *mem;
--	int ret;
--
--	ret = dma_init_coherent_memory(phys_addr, device_addr, size, &mem);
--	if (ret)
--		return ret;
--
--	ret = dma_assign_coherent_memory(dev, mem);
--	if (ret)
--		dma_release_coherent_memory(mem);
--	return ret;
-+	return dma_init_coherent_memory(phys_addr, device_addr, size,
-+					&dev->dma_mem);
- }
- EXPORT_SYMBOL(dma_declare_coherent_memory);
- 
-@@ -238,18 +219,18 @@ static int rmem_dma_device_init(struct reserved_mem *rmem, struct device *dev)
- 	struct dma_coherent_mem *mem = rmem->priv;
- 	int ret;
- 
--	if (!mem) {
--		ret = dma_init_coherent_memory(rmem->base, rmem->base,
--					       rmem->size, &mem);
--		if (ret) {
--			pr_err("Reserved memory: failed to init DMA memory pool at %pa, size %ld MiB\n",
--				&rmem->base, (unsigned long)rmem->size / SZ_1M);
--			return ret;
--		}
-+	ret = dma_init_coherent_memory(rmem->base, rmem->base, rmem->size,
-+			&mem);
-+	if (ret && ret != -EBUSY) {
-+		pr_err("Reserved memory: failed to init DMA memory pool at %pa, size %ld MiB\n",
-+			&rmem->base, (unsigned long)rmem->size / SZ_1M);
-+		return ret;
- 	}
-+
- 	mem->use_dev_dma_pfn_offset = true;
-+	if (dev)
-+		dev->dma_mem = mem;
- 	rmem->priv = mem;
--	dma_assign_coherent_memory(dev, mem);
- 	return 0;
- }
- 
 -- 
 2.20.1
 
