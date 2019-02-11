@@ -2,51 +2,59 @@ Return-Path: <SRS0=4uv/=QS=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 73E4AC169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 13:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 736A5C169C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 14:16:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3911621B18
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 13:52:03 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 45FB0222B8
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 14:16:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kUmXFuVy"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3911621B18
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="vBw1S2Mk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 45FB0222B8
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lC8fQernajVRC+L8rrPgXnpJMjCQ81VIOz3gPOlDqAI=; b=kUmXFuVyvvhuIP
-	Ap7rBJtdDP7Sw0bfTIn8LN7PhpcC3Hy64PVs2tkZL/BuMyOauJNwzUTcOedbUJG8N8kXP9svgr4OZ
-	H70ZSaNDLZtysYeO9SNOLo3OUxks+jCqN0Wxa4Q5yEDmGdQsK0LbZMqynmoqQdu3sypQKCWO9F05K
-	Tbf8iH/4Mfl9N6N2b7uEZn+6oItx820Y7ZXXxPlOmRrS63Qb56dvql0cO3dy2BbkXmF115QQ90Gha
-	oh1PsZD1UU/edPkxtiTlvy5M3Y7pM532PupD5Gpcg6LEOI9+7B/5UK0CeqOCzcqC+4yOtQaWL/N1c
-	diZszLBZ9Y5o7WrR2qpQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fgYfUeqm7RosGBvHNj2/hZNGnU9HEM2Yt7DXlTi7cCE=; b=vBw1S2MklCnraw
+	LEi8lma8UkJI4AvR3Ss+MYqX78BIb+op/T2mzs+9oHQc8kuJbcQDeyqbA0eOxKkc0who/3IFIjh/b
+	iIpUNaZP0kTKb/819tQpab0MppWAk3FOtS8P6MCTan/8dPzNX2CCeaBSN0v1q49l7aKKaeQcP4cr4
+	02O2plZjobrC4SQOu0twjC21qem1RfGGyGYzEfHh8kdikK3vObwjJ5f1E5K8fjWZDIRokUql+HIMN
+	Q2qFNvnR3IQAla42LHkxeJiXb7cDxq9VrGUUM6oOSnM2x7tdGzaND3LCKEbpQKhz2S4lKMEk+xhf5
+	I+r8xgm+YZxWFPYOJ+8w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtC06-0000n5-2t; Mon, 11 Feb 2019 13:51:58 +0000
-Received: from 089144210182.atnat0019.highway.a1.net ([89.144.210.182]
- helo=localhost)
- by bombadil.infradead.org with esmtpsa (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtBkq-00006S-UG; Mon, 11 Feb 2019 13:36:13 +0000
-From: Christoph Hellwig <hch@lst.de>
-To: iommu@lists.linux-foundation.org
-Subject: [PATCH 05/12] dma-mapping: remove an incorrect __iommem annotation
-Date: Mon, 11 Feb 2019 14:35:47 +0100
-Message-Id: <20190211133554.30055-6-hch@lst.de>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20190211133554.30055-1-hch@lst.de>
-References: <20190211133554.30055-1-hch@lst.de>
+	id 1gtCNe-0006V7-9J; Mon, 11 Feb 2019 14:16:18 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gtCLH-0002ar-KS
+ for linux-riscv@lists.infradead.org; Mon, 11 Feb 2019 14:13:58 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id 27507ACA2
+ for <linux-riscv@lists.infradead.org>; Mon, 11 Feb 2019 14:13:50 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: linux-riscv@lists.infradead.org
+Subject: sbi_trap_error: hart4: trap handler failed (error -5)
+X-Yow: If a person is FAMOUS in this country, they have to go on the ROAD
+ for MONTHS at a time and have their name misspelled on the SIDE
+ of a GREYHOUND SCENICRUISER!!
+Date: Mon, 11 Feb 2019 15:13:49 +0100
+Message-ID: <mvmftsuv2ea.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.91 (gnu/linux)
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20190211_061352_291104_E7BF5E28 
+X-CRM114-Status: UNSURE (   4.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -58,40 +66,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
- linux-sh@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- x86@kernel.org, linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-snps-arc@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
- linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-memmap return a regular void pointer, not and __iomem one.
+I have been getting this error:
 
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- kernel/dma/coherent.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+sbi_trap_error: hart4: trap handler failed (error -5)
+sbi_trap_error: hart4: mcause=0xd mtval=0x155574e000
+sbi_trap_error: hart4: mepc=0x80003dba mstatus=0x8000000a00027822
+sbi_trap_error: hart4: ra=0x80001eaa sp=0x8000dd60
+sbi_trap_error: hart4: gp=0x2aaaccdd18 tp=0x155573cb20
+sbi_trap_error: hart4: s0=0x8000ddc0 s1=0x5e
+sbi_trap_error: hart4: a0=0x20000 a1=0x8000ddf0
+sbi_trap_error: hart4: a2=0x15555eee96 a3=0x8000000a00006022
+sbi_trap_error: hart4: a4=0x8000dd6b a5=0x155574e001
+sbi_trap_error: hart4: a6=0x0 a7=0x155574e001
+sbi_trap_error: hart4: s2=0xee s3=0x3
+sbi_trap_error: hart4: s4=0x96 s5=0x20
+sbi_trap_error: hart4: s6=0x0 s7=0x15555eee96
+sbi_trap_error: hart4: s8=0x74 s9=0x14774
+sbi_trap_error: hart4: s10=0x58782b5b s11=0x34fe3e52
+sbi_trap_error: hart4: t0=0x4 t1=0x155574dffd
+sbi_trap_error: hart4: t2=0x55 t3=0x85a303
+sbi_trap_error: hart4: t4=0x0 t5=0x0
+sbi_trap_error: hart4: t6=0x15
 
-diff --git a/kernel/dma/coherent.c b/kernel/dma/coherent.c
-index 66f0fb7e9a3a..4b76aba574c2 100644
---- a/kernel/dma/coherent.c
-+++ b/kernel/dma/coherent.c
-@@ -43,7 +43,7 @@ static int dma_init_coherent_memory(
- 	struct dma_coherent_mem **mem)
- {
- 	struct dma_coherent_mem *dma_mem = NULL;
--	void __iomem *mem_base = NULL;
-+	void *mem_base = NULL;
- 	int pages = size >> PAGE_SHIFT;
- 	int bitmap_size = BITS_TO_LONGS(pages) * sizeof(long);
- 	int ret;
+What does that mean?
+
+Andreas.
+
 -- 
-2.20.1
-
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
