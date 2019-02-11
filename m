@@ -4,19 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 59C49C169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 13:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E7C37C169C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 13:37:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 237B721B1C
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 13:36:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8C8CA218F0
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 13:37:03 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Fq4+cICp"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 237B721B1C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rdaG2kHJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8C8CA218F0
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,24 +25,25 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rekVr1xckGW6KZT3mAJ03psiMlgBGNQvBrCZVvlYMZA=; b=Fq4+cICp4GfSCu
-	Pov6lcdJ11HgTwnWg6WO7TGgvntJHsljKbyjlHIhR4J5AVEufpX81VQLXmIv8Bt10lGp6SJddDIqv
-	7rUZfJTrC7dSNMzIeEJJO7+7PsG2Ljn54E1PxcecqcuC5/+ghAgQwrj75BoT///3SfjclkrmdIf73
-	jhDJtnCecaY2qqoGAFCpmKxkfS9InDHx65rx7COKvlaExOTcZe9pvFjk+2s+H4lsDKtpQFIvu/5BU
-	3fVxmPiAe5Gy+jdE5qKgmD2Cmb8I+nQp7IWLFUeDWvEJYWOc+oceIf39pOa7yCP3e3xmiJaq5zk5A
-	YfKK//t/4f5UsLtY3/Tw==;
+	List-Owner; bh=/JTle94y3tfHQ1aDzW1N8TULL3MsEgK6N/xnaTv5YX8=; b=rdaG2kHJpMVdkr
+	5IzU8TR8JX9inbt9FadR0ij+fPgjXfCaerbGIt2e051B8SsAZtP8zuD7oOAlpiZUEsbdoS7EgDuWD
+	1ITM/d6mCDG+c9OYlpkwGk7HxHsRHVbR4Coi1TTZs5Rx3V65xnOXpsWzBkp7X+HPUOesDRgEfDTfF
+	bAc33KhyDrEUqEXGcb6me29Q7LkGR+6fvPXnbp/gb81d58HIR29PWGIn3ssJo2kAK2ExK58pY1XO0
+	6F3Tu0kjRpyneFMQLEIbjSasj/ltzk/wsdVI/tZI/D3FBGnmuQ8zZYxTYpQtpfVWCSMStA/FQ7J6i
+	YLpHByx+5a6342WGU3bw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtBlB-0000Yb-Bf; Mon, 11 Feb 2019 13:36:33 +0000
+	id 1gtBla-0000wg-NI; Mon, 11 Feb 2019 13:36:58 +0000
 Received: from 089144210182.atnat0019.highway.a1.net ([89.144.210.182]
  helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtBkf-0008Lw-3f; Mon, 11 Feb 2019 13:36:01 +0000
+ id 1gtBki-0008NF-1C; Mon, 11 Feb 2019 13:36:05 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: iommu@lists.linux-foundation.org
-Subject: [PATCH 01/12] mfd/sm501: depend on HAS_DMA
-Date: Mon, 11 Feb 2019 14:35:43 +0100
-Message-Id: <20190211133554.30055-2-hch@lst.de>
+Subject: [PATCH 02/12] device.h: dma_mem is only needed for
+ HAVE_GENERIC_DMA_COHERENT
+Date: Mon, 11 Feb 2019 14:35:44 +0100
+Message-Id: <20190211133554.30055-3-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190211133554.30055-1-hch@lst.de>
 References: <20190211133554.30055-1-hch@lst.de>
@@ -69,30 +70,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently the sm501 mfd driver can be compiled without any dependencies,
-but through the use of dma_declare_coherent it really depends on
-having DMA and iomem support.  Normally we don't explicitly require DMA
-support as we have stubs for it if on UML, but in this case the driver
-selects support for dma_declare_coherent and thus also requires
-memmap support.  Guard this by an explicit dependency.
+No need to carry an unused field around.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- drivers/mfd/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+ include/linux/device.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-index f461460a2aeb..f15f6489803d 100644
---- a/drivers/mfd/Kconfig
-+++ b/drivers/mfd/Kconfig
-@@ -1066,6 +1066,7 @@ config MFD_SI476X_CORE
+diff --git a/include/linux/device.h b/include/linux/device.h
+index 6cb4640b6160..be544400acdd 100644
+--- a/include/linux/device.h
++++ b/include/linux/device.h
+@@ -1017,8 +1017,10 @@ struct device {
  
- config MFD_SM501
- 	tristate "Silicon Motion SM501"
-+	depends on HAS_DMA
- 	 ---help---
- 	  This is the core driver for the Silicon Motion SM501 multimedia
- 	  companion chip. This device is a multifunction device which may
+ 	struct list_head	dma_pools;	/* dma pools (if dma'ble) */
+ 
++#ifdef CONFIG_HAVE_GENERIC_DMA_COHERENT
+ 	struct dma_coherent_mem	*dma_mem; /* internal for coherent mem
+ 					     override */
++#endif
+ #ifdef CONFIG_DMA_CMA
+ 	struct cma *cma_area;		/* contiguous memory area for dma
+ 					   allocations */
 -- 
 2.20.1
 
