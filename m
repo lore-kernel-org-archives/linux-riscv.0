@@ -4,20 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 27059C169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 04:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8C7EAC282D7
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 04:39:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E73D720855
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 04:39:00 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5BBE920855
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 04:39:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="THGqZNyn";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=mac.com header.i=@mac.com header.b="DE49Slbi"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E73D720855
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Qez9JfDj";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=mac.com header.i=@mac.com header.b="oIl7FnYI"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5BBE920855
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mac.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,37 +27,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=REnCVM56QsesmO/cVHMZfWcJ+qZC1w9MqXGRcLuhhTg=; b=THGqZNyn3vPau+9UQ9wbZkLolT
-	SI7XJW4tr+eDaneyx1M2rf7apiAgTzcE4Mm7QUDpe9XyZvu6I3hla24lV1lqRNnRKpFnFbkDNBQF7
-	XOTMZEx5XJPxiJB7C0BUKJ6uwlBa9cRV/rNzyu0ws/AvFdyaStclQaAAEuT0Eczk5/h93+i2PefEj
-	/5J5CuXRJmHjlf2mWjHyGbi8HMck9ZEbPB4q2/B1t3nz1oMfNkV+gBBjnWvn12+NL/a+brAbcAKCD
-	JuPzpogRNs2S5wqOuEkjBr9DF6uJfXjxRnRV8ogKNyH20YfqaPJv5jJK9TLkW9UF2UH2zyDVPJ7l/
-	bWiZs2xQ==;
+	bh=6CbOT8TBXHMCOBgnCAqRfvanZSgp7AOFc08l17P4USs=; b=Qez9JfDj5qZU0RcobhqpsI6OL2
+	SfiQQUzthxjhCID4rCOarWQA/2HqvUrpCKhKiveVW2Rh4NAagO1jrCCUtIzlfQIDOOzF09NTBH7c7
+	QWgFHDYE9qq8pMVMc3B539qfUhBa5XBLyVTkZHnhkU93//XJjozY+I6ZxBb5On0ZnH4JUmXGhtg7G
+	iVh1AHIirxB6LXtsK9zloqYWMxNjiW337LMzxW2oC9qz2SfyEMQkgGrrGQZu76gBth95odWXmiLgs
+	ska/+B7Fb+tndUKEx2rzVAIHml2t9X3hFiluPCqg0BqFK6h/XstbP205PKeFGjaH8izGCkgPu/9iA
+	ogQGKoMA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gt3Mw-00017u-U5; Mon, 11 Feb 2019 04:38:58 +0000
+	id 1gt3My-0001A0-SQ; Mon, 11 Feb 2019 04:39:00 +0000
 Received: from mr85p00im-hyfv06011401.me.com ([17.58.23.191])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gt3Mr-000158-1K
+ id 1gt3Mq-00014t-6W
  for linux-riscv@lists.infradead.org; Mon, 11 Feb 2019 04:38:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mac.com; s=04042017;
- t=1549859932; bh=+GfG/2ZTaqb3i3G5mGu9hk9AfkhWQhWk+RwfIqjCtJY=;
+ t=1549859930; bh=N3DkdQ1G/mIdtXuYHSjiYtaGROeFFDPHlUFxtBaWDdQ=;
  h=From:To:Subject:Date:Message-Id;
- b=DE49SlbipQkiuPseHqsRxEbeP260FPRdI+Yh5Ty0x0VQNfAJPJUrHeWjaiJ77i8uj
- uELYYT/IN35KN7ICC5J472BDzKQSfZVOoer9s2SJnZWM8QvBWad1pkl/M3AGXAhaCp
- N8mBQ3t+feG+5sR4ub8/3bluI+UqEsRspsk+5bsPgmS3HKd3KNXIwdZjH5XDaUdS/W
- A88bo0rrYOopxrpO67pluwIAHCp6HJFlPPeLCeobDTO7+S1/g9k9ukCG7EsfRRbIOq
- Lpe5ntK01eWORWe38w9SKpfYwUQf+2P9Sy937VoK6S8NJBzmzpcTkOventQIPtkmfP
- qAohLTrj+6Ygg==
+ b=oIl7FnYI7yya5IWqqp8eLLhHK9zBIelr7/PIs4/UzkNvBDJok2v5iCsym7YiKXqef
+ 7vykO2W//8nrKACptJY9r4BFvc0XkQUN+V/HXagHaAips5w8UdhdA60xQSw517qcy8
+ yOXvZCKrZIkEl1v1gmR7PigsRoeBbdVJGNF3vCid9kOaOhn34WjLxOI6Td2QsTVNh9
+ H+NgBPYB+M1f4rjfkKA66tSaQqLqVI1+i0v1ul6pehxYoX8l5KEYOdJuoL7XQCdmyx
+ vRKDDyNIUdiIm4jGUg17fxsrMn6pWzAip0M8O/qdD5sycjdxY6yZ5/y2dU9bzDx9IS
+ cKDzPk2Nd++eQ==
 Received: from localhost.localdomain (125-237-34-254-fibre.sparkbb.co.nz
  [125.237.34.254])
- by mr85p00im-hyfv06011401.me.com (Postfix) with ESMTPSA id 7C6BAD20110;
- Mon, 11 Feb 2019 04:38:51 +0000 (UTC)
+ by mr85p00im-hyfv06011401.me.com (Postfix) with ESMTPSA id E02E5D200E0;
+ Mon, 11 Feb 2019 04:38:49 +0000 (UTC)
 From: Michael Clark <michaeljclark@mac.com>
 To: Linux RISC-V <linux-riscv@lists.infradead.org>
-Subject: [PATCH 3/3] MIPS: fix truncation in __cmpxchg_small for short values
-Date: Mon, 11 Feb 2019 17:38:29 +1300
-Message-Id: <20190211043829.30096-4-michaeljclark@mac.com>
+Subject: [PATCH 2/3] RISC-V: convert custom spinlock/rwlock to generic
+ qspinlock/qrwlock
+Date: Mon, 11 Feb 2019 17:38:28 +1300
+Message-Id: <20190211043829.30096-3-michaeljclark@mac.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20190211043829.30096-1-michaeljclark@mac.com>
 References: <20190211043829.30096-1-michaeljclark@mac.com>
@@ -66,11 +67,11 @@ X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
 X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
  malwarescore=0
  phishscore=0 bulkscore=0 spamscore=0 clxscore=1015 mlxscore=0
- mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
+ mlxlogscore=917 adultscore=0 classifier=spam adjust=0 reason=mlx
  scancount=1 engine=8.0.1-1812120000 definitions=main-1902110035
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190210_203853_080609_FA0C836D 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20190210_203852_255102_969E0308 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -83,43 +84,280 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: RISC-V Patches <patches@groups.riscv.org>,
- Linux MIPS <linux-mips@linux-mips.org>, Michael Clark <michaeljclark@mac.com>
+ Michael Clark <michaeljclark@mac.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-__cmpxchg_small erroneously uses u8 for load comparison which can
-be either char or short. This patch changes the local varialble to
-u32 which is sufficiently sized, as the loaded value is already
-masked and shifted appropriately. Using an integer size avoids
-any unnecessary canonicalization from use of non native widths.
+Update the RISC-V port to use the generic qspinlock and qrwlock.
 
-This patch is part of a series that adapts the MIPS small word
-atomics code for xchg and cmpxchg on short and char to RISC-V.
+This patch requires support for xchg and cmpxchg for small words
+(char and short) which are added by a previous patch.
 
 Cc: RISC-V Patches <patches@groups.riscv.org>
 Cc: Linux RISC-V <linux-riscv@lists.infradead.org>
-Cc: Linux MIPS <linux-mips@linux-mips.org>
 Signed-off-by: Michael Clark <michaeljclark@mac.com>
 ---
- arch/mips/kernel/cmpxchg.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/Kconfig                      |   2 +
+ arch/riscv/include/asm/mcs_spinlock.h   |   7 ++
+ arch/riscv/include/asm/qrwlock.h        |   8 ++
+ arch/riscv/include/asm/qspinlock.h      |   8 ++
+ arch/riscv/include/asm/spinlock.h       | 141 +-----------------------
+ arch/riscv/include/asm/spinlock_types.h |  33 +-----
+ 6 files changed, 32 insertions(+), 167 deletions(-)
+ create mode 100644 arch/riscv/include/asm/mcs_spinlock.h
+ create mode 100644 arch/riscv/include/asm/qrwlock.h
+ create mode 100644 arch/riscv/include/asm/qspinlock.h
 
-diff --git a/arch/mips/kernel/cmpxchg.c b/arch/mips/kernel/cmpxchg.c
-index 0b9535bc2c53..1169958fd748 100644
---- a/arch/mips/kernel/cmpxchg.c
-+++ b/arch/mips/kernel/cmpxchg.c
-@@ -57,7 +57,7 @@ unsigned long __cmpxchg_small(volatile void *ptr, unsigned long old,
- 	u32 mask, old32, new32, load32;
- 	volatile u32 *ptr32;
- 	unsigned int shift;
--	u8 load;
-+	u32 load;
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 55da93f4e818..ac4c9f889c61 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -43,6 +43,8 @@ config RISCV
+ 	select RISCV_TIMER
+ 	select GENERIC_IRQ_MULTI_HANDLER
+ 	select ARCH_HAS_PTE_SPECIAL
++	select ARCH_USE_QUEUED_RWLOCKS
++	select ARCH_USE_QUEUED_SPINLOCKS
  
- 	/* Check that ptr is naturally aligned */
- 	WARN_ON((unsigned long)ptr & (size - 1));
+ config MMU
+ 	def_bool y
+diff --git a/arch/riscv/include/asm/mcs_spinlock.h b/arch/riscv/include/asm/mcs_spinlock.h
+new file mode 100644
+index 000000000000..124dfe0a53d2
+--- /dev/null
++++ b/arch/riscv/include/asm/mcs_spinlock.h
+@@ -0,0 +1,7 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_RISCV_MCS_SPINLOCK_H
++#define _ASM_RISCV_MCS_SPINLOCK_H
++
++#include <asm-generic/mcs_spinlock.h>
++
++#endif /* _ASM_MCS_SPINLOCK_H */
+diff --git a/arch/riscv/include/asm/qrwlock.h b/arch/riscv/include/asm/qrwlock.h
+new file mode 100644
+index 000000000000..5f8a1478f207
+--- /dev/null
++++ b/arch/riscv/include/asm/qrwlock.h
+@@ -0,0 +1,8 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_RISCV_QRWLOCK_H
++#define _ASM_RISCV_QRWLOCK_H
++
++#include <asm-generic/qrwlock_types.h>
++#include <asm-generic/qrwlock.h>
++
++#endif /* _ASM_RISCV_QRWLOCK_H */
+diff --git a/arch/riscv/include/asm/qspinlock.h b/arch/riscv/include/asm/qspinlock.h
+new file mode 100644
+index 000000000000..0c2c1ee22b77
+--- /dev/null
++++ b/arch/riscv/include/asm/qspinlock.h
+@@ -0,0 +1,8 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_RISCV_QSPINLOCK_H
++#define _ASM_RISCV_QSPINLOCK_H
++
++#include <asm-generic/qspinlock_types.h>
++#include <asm-generic/qspinlock.h>
++
++#endif /* _ASM_RISCV_QSPINLOCK_H */
+diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
+index 8eb26d1ede81..fc405eeb8163 100644
+--- a/arch/riscv/include/asm/spinlock.h
++++ b/arch/riscv/include/asm/spinlock.h
+@@ -1,143 +1,8 @@
+-/*
+- * Copyright (C) 2015 Regents of the University of California
+- * Copyright (C) 2017 SiFive
+- *
+- *   This program is free software; you can redistribute it and/or
+- *   modify it under the terms of the GNU General Public License
+- *   as published by the Free Software Foundation, version 2.
+- *
+- *   This program is distributed in the hope that it will be useful,
+- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *   GNU General Public License for more details.
+- */
+-
++/* SPDX-License-Identifier: GPL-2.0 */
+ #ifndef _ASM_RISCV_SPINLOCK_H
+ #define _ASM_RISCV_SPINLOCK_H
+ 
+-#include <linux/kernel.h>
+-#include <asm/current.h>
+-#include <asm/fence.h>
+-
+-/*
+- * Simple spin lock operations.  These provide no fairness guarantees.
+- */
+-
+-/* FIXME: Replace this with a ticket lock, like MIPS. */
+-
+-#define arch_spin_is_locked(x)	(READ_ONCE((x)->lock) != 0)
+-
+-static inline void arch_spin_unlock(arch_spinlock_t *lock)
+-{
+-	smp_store_release(&lock->lock, 0);
+-}
+-
+-static inline int arch_spin_trylock(arch_spinlock_t *lock)
+-{
+-	int tmp = 1, busy;
+-
+-	__asm__ __volatile__ (
+-		"	amoswap.w %0, %2, %1\n"
+-		RISCV_ACQUIRE_BARRIER
+-		: "=r" (busy), "+A" (lock->lock)
+-		: "r" (tmp)
+-		: "memory");
+-
+-	return !busy;
+-}
+-
+-static inline void arch_spin_lock(arch_spinlock_t *lock)
+-{
+-	while (1) {
+-		if (arch_spin_is_locked(lock))
+-			continue;
+-
+-		if (arch_spin_trylock(lock))
+-			break;
+-	}
+-}
+-
+-/***********************************************************/
+-
+-static inline void arch_read_lock(arch_rwlock_t *lock)
+-{
+-	int tmp;
+-
+-	__asm__ __volatile__(
+-		"1:	lr.w	%1, %0\n"
+-		"	bltz	%1, 1b\n"
+-		"	addi	%1, %1, 1\n"
+-		"	sc.w	%1, %1, %0\n"
+-		"	bnez	%1, 1b\n"
+-		RISCV_ACQUIRE_BARRIER
+-		: "+A" (lock->lock), "=&r" (tmp)
+-		:: "memory");
+-}
+-
+-static inline void arch_write_lock(arch_rwlock_t *lock)
+-{
+-	int tmp;
+-
+-	__asm__ __volatile__(
+-		"1:	lr.w	%1, %0\n"
+-		"	bnez	%1, 1b\n"
+-		"	li	%1, -1\n"
+-		"	sc.w	%1, %1, %0\n"
+-		"	bnez	%1, 1b\n"
+-		RISCV_ACQUIRE_BARRIER
+-		: "+A" (lock->lock), "=&r" (tmp)
+-		:: "memory");
+-}
+-
+-static inline int arch_read_trylock(arch_rwlock_t *lock)
+-{
+-	int busy;
+-
+-	__asm__ __volatile__(
+-		"1:	lr.w	%1, %0\n"
+-		"	bltz	%1, 1f\n"
+-		"	addi	%1, %1, 1\n"
+-		"	sc.w	%1, %1, %0\n"
+-		"	bnez	%1, 1b\n"
+-		RISCV_ACQUIRE_BARRIER
+-		"1:\n"
+-		: "+A" (lock->lock), "=&r" (busy)
+-		:: "memory");
+-
+-	return !busy;
+-}
+-
+-static inline int arch_write_trylock(arch_rwlock_t *lock)
+-{
+-	int busy;
+-
+-	__asm__ __volatile__(
+-		"1:	lr.w	%1, %0\n"
+-		"	bnez	%1, 1f\n"
+-		"	li	%1, -1\n"
+-		"	sc.w	%1, %1, %0\n"
+-		"	bnez	%1, 1b\n"
+-		RISCV_ACQUIRE_BARRIER
+-		"1:\n"
+-		: "+A" (lock->lock), "=&r" (busy)
+-		:: "memory");
+-
+-	return !busy;
+-}
+-
+-static inline void arch_read_unlock(arch_rwlock_t *lock)
+-{
+-	__asm__ __volatile__(
+-		RISCV_RELEASE_BARRIER
+-		"	amoadd.w x0, %1, %0\n"
+-		: "+A" (lock->lock)
+-		: "r" (-1)
+-		: "memory");
+-}
+-
+-static inline void arch_write_unlock(arch_rwlock_t *lock)
+-{
+-	smp_store_release(&lock->lock, 0);
+-}
++#include <asm/qrwlock.h>
++#include <asm/qspinlock.h>
+ 
+ #endif /* _ASM_RISCV_SPINLOCK_H */
+diff --git a/arch/riscv/include/asm/spinlock_types.h b/arch/riscv/include/asm/spinlock_types.h
+index 83ac4ac9e2ac..fc1cbf61d746 100644
+--- a/arch/riscv/include/asm/spinlock_types.h
++++ b/arch/riscv/include/asm/spinlock_types.h
+@@ -1,33 +1,8 @@
+-/*
+- * Copyright (C) 2015 Regents of the University of California
+- *
+- *   This program is free software; you can redistribute it and/or
+- *   modify it under the terms of the GNU General Public License
+- *   as published by the Free Software Foundation, version 2.
+- *
+- *   This program is distributed in the hope that it will be useful,
+- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *   GNU General Public License for more details.
+- */
+-
++/* SPDX-License-Identifier: GPL-2.0 */
+ #ifndef _ASM_RISCV_SPINLOCK_TYPES_H
+ #define _ASM_RISCV_SPINLOCK_TYPES_H
+ 
+-#ifndef __LINUX_SPINLOCK_TYPES_H
+-# error "please don't include this file directly"
+-#endif
+-
+-typedef struct {
+-	volatile unsigned int lock;
+-} arch_spinlock_t;
+-
+-#define __ARCH_SPIN_LOCK_UNLOCKED	{ 0 }
+-
+-typedef struct {
+-	volatile unsigned int lock;
+-} arch_rwlock_t;
+-
+-#define __ARCH_RW_LOCK_UNLOCKED		{ 0 }
++#include <asm-generic/qspinlock_types.h>
++#include <asm-generic/qrwlock_types.h>
+ 
+-#endif
++#endif /* _ASM_RISCV_SPINLOCK_TYPES_H */
 -- 
 2.17.1
 
