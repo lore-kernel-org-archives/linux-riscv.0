@@ -2,86 +2,143 @@ Return-Path: <SRS0=4uv/=QS=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS autolearn=unavailable autolearn_force=no
+X-Spam-Status: No, score=-6.0 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9A760C282D7
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 22:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 00368C169C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 23:25:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 66AEF218AD
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 22:23:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CA941214DA
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 23:25:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bxNmPEKy";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="mFmQgTb8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 66AEF218AD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PeYsYskx";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ZZwhuJvl";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="noZ1PA0K"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA941214DA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=zsgFD+eBjmhal9L/gZOjjDIBNd11qWqXJcRRIKe4hgk=; b=bxNmPEKyKhBgOH8K0PyqSbsyX
-	Zp0FM/NYdv/cPhqSAGEA+yCLRpjW3el9eKYShNru2krYrdYDK5rZSNRQQpPNS/prR5IsNI4wVC8IL
-	zpq1khulpQi/0SiI9ViQ2L1ek3lJ1o4dMtuJnmPZ9oNxjTLSOHCOrAAU7ehY24kVyjKFFj9IuuESh
-	SFU5i5363uirLbP+Y/BQi6EcrtBak32LECbFb7gKN/Wh4So1rYKw9BAGX+MM2cVKXxMgeIpo87TI0
-	C88Y+jdzs1HMbbzMHzo8TuZAuzQp4Rh/UUcz1hYlxeSUNePCJS8oJ8sWThS8/kaWALIv3vj/mfxhp
-	n1EOEjgdA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Vh8XlE+dL0SvmYDwPE0Kq1wWrgaL99KU1zcZ7Ye/g1U=; b=PeYsYskx4iGaBg
+	Xa4j5oO4S+6Hp6BEG84oku20sMksqZZ60Gtiked3KCFEYdVM6bwUGD87QSzDUTzEK4dPJYk8xCWRd
+	78TsgRv46n/XYmk/ogBNvQrfPeu2ab6Z0gcjWypP9UF4qFo7PMtgnzYfadP0FQOcr5dvX5KLbHmzL
+	fJmMfn1EsdQ+vMc/ZqQ7eBY6hBQLqCOb5bkzHZJmvU1OrjQ2cKOx7jOc9z9JFbsAVZLPwCDhPQmcW
+	gg+Oam0gjU3ACxi/TRsd4txfYVrIn84OsAawP6DRNYz83X+qCizOZumPruSAvc5XzE7d4gc6ZyjJ0
+	X61Cc89ZjaIqNWNoEbXA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtJyz-0008Lr-V4; Mon, 11 Feb 2019 22:23:21 +0000
-Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
+	id 1gtKxA-0002yQ-GX; Mon, 11 Feb 2019 23:25:32 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtJyx-0008LT-3P
- for linux-riscv@lists.infradead.org; Mon, 11 Feb 2019 22:23:21 +0000
-Received: by mail-pg1-x543.google.com with SMTP id g189so224063pgc.5
- for <linux-riscv@lists.infradead.org>; Mon, 11 Feb 2019 14:23:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=MrPICWp6pz3MZZf/m3HgNLOFtoUsRY4n1DmcuA0FpPY=;
- b=mFmQgTb8/+n35SO/Ed/3B4oKrYHYM7sQMf7ottpU4Zs9XqfVyXQf9Ar75K3fnIeX3r
- pPNAxcqBAVSIdVYAwIkJzE5t8VPkxk/AQ5ThWwj/h/4n/0yUq7iMghzpCAJVW6NUgx62
- b9MQMStQzj2JSzF/OzQG46+J6/glq3dLgsQ8FD2x15wF1wTAXXkkSpF5/GNmz2paG3Sm
- GxrZyXPVlzvcD7QypO5hlyLfvnZsqcpoqdh7ux27B49nAIAf7KCO5JwauJY8qNcRl5Xi
- lFeqdyJynv6j8993VztefbH1oVYCWyIuo/AKfAdbGBfJMGSkzep3GYRvDz0KZLeS9KxN
- TcKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=MrPICWp6pz3MZZf/m3HgNLOFtoUsRY4n1DmcuA0FpPY=;
- b=jAcVDjhnlO7FbD0Pj9zYUidaUPSK19Od6Ih35hvbjDK5aHpuS0W0/Yw38fxKg3fhKf
- OEX6g7adDLNBTPqg/whgbKhUmDqEigEUpI5hIk6vg6l5AAI717b0zgM7DOmNmCF5wwb5
- PnNcVrfROb2p3IeQiF7NwximwPRWX14n8svUmVUpMqFehkTKP2/DxmMQGvPUqysAbxXA
- sq5qPqbAU9VHcRos5e1PPFmzQ6ZHPpdOq5ltcMv9jvm8rpFneaMDOkoIMDtoLpb79u6T
- pZ8zodebCIsz6XgeE0ee7Q9g5Dh3CLa4CX3HISByeq4BTiorTLmqCnDok5FjKv6f3y1n
- PBuQ==
-X-Gm-Message-State: AHQUAuanogcb9AfPKJAEDsYkPF3vKyOxYsVgOpNZ3iGS7eoMde3YwUav
- ZZTibGP6/t0TfYLL7ixX3VXtYQ==
-X-Google-Smtp-Source: AHgI3IYZP91WKA9faP5sK3q6a60MyNbanyy5FvH4gGveLqeZo9s8vLPuCMlq81WHFL87hoTz8maJZA==
-X-Received: by 2002:aa7:849a:: with SMTP id u26mr516187pfn.157.1549923798419; 
- Mon, 11 Feb 2019 14:23:18 -0800 (PST)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id l11sm14324508pff.65.2019.02.11.14.23.17
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 11 Feb 2019 14:23:17 -0800 (PST)
-Date: Mon, 11 Feb 2019 14:23:17 -0800 (PST)
-X-Google-Original-Date: Mon, 11 Feb 2019 14:22:30 PST (-0800)
+ id 1gtKx6-0002mv-LW
+ for linux-riscv@lists.infradead.org; Mon, 11 Feb 2019 23:25:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1549927529; x=1581463529;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=5QwLzSPC9KlC59Lgw1P+KOZfTT/ttsucsNAjSXbmKUU=;
+ b=ZZwhuJvlsh5MSN6/AJzZNQ/dNC7Omyupe7QldKvn07OG0tnX/IRpQWe/
+ eOL7FvKXGqr4M6PGUfpTyMuoOzD6Bax71s8GpyEMeWEzbwDGMD6BqG+tg
+ 4v45Ip3Yyr68XtYkRpa5gVnfDTy8l8BcDlnXoaRUIyYd6IurFsmIRXToZ
+ rEYlXJWMx/WmSfh+rWpMAIahitW6TMg/N9ZN5i0yzvR4n6hznnFRCkzTY
+ QnJQ5JRhZRoox+jpmUhDTfzCpLNPIOA6A20mjbRWQeDaTu7lbEGj06B5k
+ spZNRhChefwQ/JvABsTheZFP42UMhOSZnLWmsFC3jM5GJC6JgV8VcXL/d g==;
+X-IronPort-AV: E=Sophos;i="5.58,360,1544457600"; d="scan'208";a="102263086"
+Received: from mail-sn1nam04lp2055.outbound.protection.outlook.com (HELO
+ NAM04-SN1-obe.outbound.protection.outlook.com) ([104.47.44.55])
+ by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2019 07:25:13 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cp+aQie5LyyM2n29ZXd2YkF0q4+M+kwUeStwrMlz8Q0=;
+ b=noZ1PA0Kfwoi9iGJ6MemNT4A+d1WtdBj6nQWmBGL8fvoYQG2UlgN31gSk6V4J6nBFRZoykMSZixyH/cpSK+Rmc24sBLjKmgtjgWD7UzohaXeH7eZZqOcB5UfesFwP2fOXG6IdKeZQ9lFGpZJZHBFyvy0u/jUfpWhB0GqeQAEksk=
+Received: from BYAPR04MB3782.namprd04.prod.outlook.com (52.135.214.142) by
+ BYAPR04MB4726.namprd04.prod.outlook.com (52.135.240.29) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.1601.21; Mon, 11 Feb 2019 23:25:09 +0000
+Received: from BYAPR04MB3782.namprd04.prod.outlook.com
+ ([fe80::19f6:af46:d6a7:59bb]) by BYAPR04MB3782.namprd04.prod.outlook.com
+ ([fe80::19f6:af46:d6a7:59bb%2]) with mapi id 15.20.1601.023; Mon, 11 Feb 2019
+ 23:25:09 +0000
+From: Atish Patra <Atish.Patra@wdc.com>
+To: Palmer Dabbelt <palmer@sifive.com>
 Subject: Re: [v3 PATCH 8/8] RISC-V: Assign hwcap only according to boot cpu.
-In-Reply-To: <20190211221325.7244b575@why.wild-wind.fr.eu.org>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: marc.zyngier@arm.com
-Message-ID: <mhng-99c5091e-32b8-4609-a92d-d3ff2a239887@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+Thread-Topic: [v3 PATCH 8/8] RISC-V: Assign hwcap only according to boot cpu.
+Thread-Index: AQHUv1DZTg7Di6/hKki5WijoQT5U96XVnfCAgADoRACAAFpRgIAEGYUAgAARCwCAACRNgIAAAsGAgAARSAA=
+Date: Mon, 11 Feb 2019 23:25:09 +0000
+Message-ID: <5353E827-644D-4BA1-B8E4-6075793C6E8A@wdc.com>
+References: <mhng-99c5091e-32b8-4609-a92d-d3ff2a239887@palmer-si-x1c4>
+In-Reply-To: <mhng-99c5091e-32b8-4609-a92d-d3ff2a239887@palmer-si-x1c4>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=Atish.Patra@wdc.com; 
+x-originating-ip: [172.58.95.108]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 0b64d534-e2c4-4c87-f77b-08d690782a0f
+x-ms-office365-filtering-ht: Tenant
+x-microsoft-antispam: BCL:0; PCL:0;
+ RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600110)(711020)(4605077)(4618075)(2017052603328)(7153060)(7193020);
+ SRVR:BYAPR04MB4726; 
+x-ms-traffictypediagnostic: BYAPR04MB4726:
+x-ms-exchange-purlcount: 1
+wdcipoutbound: EOP-TRUE
+x-microsoft-exchange-diagnostics: =?us-ascii?Q?1; BYAPR04MB4726;
+ 23:b3zgNexbe683dpiBO1kGO3oKRLFFoT4eTVBpH+225?=
+ =?us-ascii?Q?BMUVf46XjTu9R2yr4h6WjV0JyHyzREVXLkEpQmlaChj55pMJKgxpgtWXwkge?=
+ =?us-ascii?Q?VP/k41CvC4mUKFbvqPbFRCwIHbaJAseVelXLbsO887GeZdG+sEjktVKlUnbY?=
+ =?us-ascii?Q?6q9uHlSIdo4UAIM0OktBgimTt2rP9UzNljPoIwh7SrwAVks58xd+6ZG9GVPK?=
+ =?us-ascii?Q?wahSdJEIZB6ulDC04JC5i4xL+TE3518JvsOZlSXg5CcFOhSk2rktG+QOKo3J?=
+ =?us-ascii?Q?/ZcW/C+ZooSqBjqDrK+h1hE8gklfau0BhBpiWF7vHXenf3TgZHfZ4svHYcSL?=
+ =?us-ascii?Q?5J9i0Nq54P8vQsXeGqrzn8fckh4s2GBaWjSZ9RR5UJAZO41QzU/Ol+OLGi3O?=
+ =?us-ascii?Q?iAajPdkid6tzANbEvNDqKyIN8WbTEDJfKS/N5rCFyC37wXpvP3C6T0LEp7bL?=
+ =?us-ascii?Q?S0Fgupu2wSoRgqQF79eH2SAjDaXjKGkHpMD7ic0YD0iB4CgmmWhhSYrWL2wB?=
+ =?us-ascii?Q?k5/hubTfojulL8NA8W7NzDDPVvUXj0KRjfWlDI3StBF+B6dF+U9grgOMad3T?=
+ =?us-ascii?Q?uvbKVyrmBwDqMEycankFFM7kVfZqIjDdyNN0+Af4mGdOKXeWyrdU7LKtKvfJ?=
+ =?us-ascii?Q?hU6lHGGjKBkieVbyHmbvuDR5/tbuwH1D2aSuFs7X6J2aUl2Z+kjqP/RwM34X?=
+ =?us-ascii?Q?Kqv9FXuIbHuitdEMQEIz3uTD6KzsKfW+VA5Ppj9yTYZB+zskt+qeE1L0A02K?=
+ =?us-ascii?Q?QHkcNlG5K699orClafb8fisowxF2LtMyTB7T+tm1hGAjegqwVFGn2hOSvRoZ?=
+ =?us-ascii?Q?Ilx8cbslQelv8wsAEb4PeR1PIXTLhuMckFWD3ZgQEY88S6/rFJPJMbEj/xZl?=
+ =?us-ascii?Q?FeVrOFW7q7DfE6AW2lhdkZ4QSk91uG+t7LAkFMNxopbvtd6nuY3ky3HGUtb9?=
+ =?us-ascii?Q?pC4V/NeGuXCz+svDljN1OASv/42leQ2ImmYEiNWyA1SOfwjDeL3WAGue2QSf?=
+ =?us-ascii?Q?n6A+D7nG9kaDYocb1OnOMHNRCMHwl1eD0a0sTDgzGTCBVMRprq/+ei1Lq2pa?=
+ =?us-ascii?Q?O0zPhchajFMH4N9QOK5I5m3BG1xWzeBpTn6NYb9LaeZ4898f308wz0suU4/6?=
+ =?us-ascii?Q?82GB3Dg6FM8oNBwBnOs+2N+n6qUcZTQ79E0Qw7Kfi5DQbQdQhkp7ZQ0zZXca?=
+ =?us-ascii?Q?OUiRJCF5XPojQPYEZ86XsOJTrhjORkEqEEJpDsaL3RpHlpiXNcLWtO7DnKg+?=
+ =?us-ascii?Q?/IAEGqtTvhcseFtvAEW/b8b07vgBF2nMk0BuuPrBlNcUkvvolkdSpTdAiZoZ?=
+ =?us-ascii?Q?I3wUP09A1YF0fbItKcoG5E=3D?=
+x-microsoft-antispam-prvs: <BYAPR04MB472634B3C2DC5A75D76867F5FA640@BYAPR04MB4726.namprd04.prod.outlook.com>
+x-forefront-prvs: 0945B0CC72
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10019020)(376002)(39860400002)(366004)(346002)(136003)(396003)(199004)(189003)(81156014)(81166006)(82746002)(66066001)(966005)(4326008)(25786009)(14444005)(97736004)(256004)(229853002)(478600001)(6436002)(99286004)(72206003)(6486002)(6246003)(53936002)(6916009)(476003)(36756003)(7416002)(446003)(486006)(3846002)(6116002)(11346002)(2616005)(8936002)(76176011)(8676002)(71200400001)(71190400001)(54906003)(14454004)(305945005)(102836004)(86362001)(6512007)(83716004)(33656002)(106356001)(105586002)(7736002)(2906002)(316002)(68736007)(6506007)(53546011)(26005)(6306002)(186003);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:BYAPR04MB4726;
+ H:BYAPR04MB3782.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; A:1; MX:1; 
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: 0U1KSL9rhUvGBNve/J6hKELcwVYpXPQQ7By9PzjTck0kJuED7xqYBFv/nHarvxitQOzb3Rfti1/GQ1YX2Y1BlfmIopcsgXS+QKR8s2go3YoEuyKWpjky/7A5E7rfiZMTB5u40Tvx9ziq8WXttwkLx1t3aTnXV2r+wf4t5T/RnlA0slPMe84rOZei2rV4grL0N5n/V3OmzM808KqiWtAGnj8zNpaLxu3LBE3ooJJu2kloUbDlqtNDrHzHXCrTLyqOnjlQopJbWBvov5krnAOBJILPq5lY28Dd5pHUjJ1C1ls8Tov+gHcx/+KjDUvV3D8JEHo1ZxIBW1sGprRf2hOUE8CuwR8mQaj9Ac/LtMd07ZGjlLDqNdoznFabLKcj856bSsDqELGDxDK4FhZM94Q0SS6VhtJ7i0aanoIeJIQy6fY=
+Content-ID: <7E83E73C75EA444D8D3714704FC6B0BC@namprd04.prod.outlook.com>
+MIME-Version: 1.0
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0b64d534-e2c4-4c87-f77b-08d690782a0f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Feb 2019 23:25:09.4517 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR04MB4726
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190211_142319_149063_943325E7 
-X-CRM114-Status: GOOD (  19.57  )
+X-CRM114-CacheID: sfid-20190211_152529_124537_E1AC75B2 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,103 +150,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Damien.LeMoal@wdc.com, aou@eecs.berkeley.edu, jason@lakedaemon.net,
- alankao@andestech.com, david.abdurachmanov@gmail.com, dmitriy@oss-tech.org,
- anup@brainfault.org, daniel.lezcano@linaro.org, me@packi.ch,
- linux-kernel@vger.kernel.org, Christoph Hellwig <hch@infradead.org>,
- atish.patra@wdc.com, Paul Walmsley <paul.walmsley@sifive.com>, schwab@suse.de,
- linux-riscv@lists.infradead.org, tglx@linutronix.de, zongbox@gmail.com
+Cc: Damien Le Moal <Damien.LeMoal@wdc.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "jason@lakedaemon.net" <jason@lakedaemon.net>,
+ "alankao@andestech.com" <alankao@andestech.com>,
+ "david.abdurachmanov@gmail.com" <david.abdurachmanov@gmail.com>,
+ Marc Zyngier <marc.zyngier@arm.com>,
+ "anup@brainfault.org" <anup@brainfault.org>,
+ "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+ "me@packi.ch" <me@packi.ch>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Christoph Hellwig <hch@infradead.org>,
+ "dmitriy@oss-tech.org" <dmitriy@oss-tech.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, "schwab@suse.de" <schwab@suse.de>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "tglx@linutronix.de" <tglx@linutronix.de>,
+ "zongbox@gmail.com" <zongbox@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Feb 2019 14:13:25 PST (-0800), marc.zyngier@arm.com wrote:
-> On Mon, 11 Feb 2019 12:03:30 -0800
-> Atish Patra <atish.patra@wdc.com> wrote:
->
->> On 2/11/19 11:02 AM, Palmer Dabbelt wrote:
->> > On Fri, 08 Feb 2019 20:26:07 PST (-0800), david.abdurachmanov@gmail.com wrote:
->> >> On Sat, Feb 9, 2019 at 12:03 AM Atish Patra <atish.patra@wdc.com> wrote:
->> >>>
->> >>> On 2/8/19 1:11 AM, Christoph Hellwig wrote:
->> >>>>> +     * We don't support running Linux on hertergenous ISA systems.
->> >>>>> +     * But first "okay" processor might not be the boot cpu.
->> >>>>> +     * Check the ISA of boot cpu.
->> >>>>
->> >>>> Please use up your available 80 characters per line in comments.
->> >>>>
->> >>> I will fix it.
->> >>>
->> >>>>> +            /*
->> >>>>> +             * All "okay" hart should have same isa. We don't know how to
->> >>>>> +             * handle if they don't. Throw a warning for now.
->> >>>>> +             */
->> >>>>> +            if (elf_hwcap && temp_hwcap != elf_hwcap)
->> >>>>> +                    pr_warn("isa mismatch: 0x%lx != 0x%lx\n",
->> >>>>> +                            elf_hwcap, temp_hwcap);
->> >>>>> +
->> >>>>> +            if (hartid == boot_cpu_hartid)
->> >>>>> +                    boot_hwcap = temp_hwcap;
->> >>>>> +            elf_hwcap = temp_hwcap;
->> >>>>
->> >>>> So we always set elf_hwcap to the capabilities of the previous cpu.
->> >>>>
->> >>>>> +            temp_hwcap = 0;
->> >>>>
->> >>>> I think tmp_hwcap should be declared and initialized inside the outer loop
->> >>>> instead having to manually reset it like this.
->> >>>>
->> >>>>> +    }
->> >>>>>
->> >>>>> +    elf_hwcap = boot_hwcap;
->> >>>>
->> >>>> And then reset it here to the boot cpu.
->> >>>>
->> >>>> Shoudn't we only report the features supported by all cores?  Otherwise
->> >>>> we'll still have problems if the boot cpu supports a feature, but not
->> >>>> others.
->> >>>>
->> >>>
->> >>> Hmm. The other side of the argument is boot cpu does have a feature that
->> >>> is not supported by other hart that didn't even boot.
->> >>> The user space may execute something based on boot cpu capability but
->> >>> that won't be enabled.
->> >>>
->> >>> At least, in this way we know that we are compatible completely with
->> >>> boot cpu capabilities. Thoughts ?
->> >>
->> >> There is one example on the market, e.g., Samsung Exynos 9810.
->> >>
->> >> Mongoose 3 (big cores) only support ARMv8.0, while Cortex-A55
->> >> (little ones) support ARMv8.2 (and that brings atomics support).
->> >> I think, it's the only ARM SOC that supports different ISA extensions
->> >> between cores on the same package.
->> >>
->> >> Kernel scheduler doesn't know that big cores are missing atomics
->> >> support or that applications needs it and moves the thread
->> >> resulting in illegal instruction.
->> >>
->> >> E.g., see Golang issue: https://github.com/golang/go/issues/28431
->> >>
->> >> I also recall Jon Masters (Computer Architect at Red Hat) advocating
->> >> against having cores with mismatched capabilities on the server market.
->> >>
->> >> It just causes more problems down the line.
->> > > IMO the best bet is to only put extensions in HWCAP that are supported by all
->> > the harts that userspace will be scheduled on.
->> > Fair enough. Instead of setting HWCAP in setup_arch() once, we can set it only for boot cpu. It will be updated after every cpu comes up online.
->>
->> Thus, HWCAP will consists all extensions supported by all cpus that are online currently.
->
-> You must thus prevent CPUs that have a different set of capabilities
-> from coming up late (once userspace has started).
 
-and we have no way to do that.  I'd prefer if we just looked through the entire 
-device tree and only showed userspace the features that are on every possible 
-CPU from the start.  Otherwise the HWCAP will shift around during a userspace 
-run, which seems odd.
 
+> On Feb 11, 2019, at 2:23 PM, Palmer Dabbelt <palmer@sifive.com> wrote:
+> 
+> On Mon, 11 Feb 2019 14:13:25 PST (-0800), marc.zyngier@arm.com wrote:
+>> On Mon, 11 Feb 2019 12:03:30 -0800
+>> Atish Patra <atish.patra@wdc.com> wrote:
+>> 
+>>> On 2/11/19 11:02 AM, Palmer Dabbelt wrote:
+>>> > On Fri, 08 Feb 2019 20:26:07 PST (-0800), david.abdurachmanov@gmail.com wrote:
+>>> >> On Sat, Feb 9, 2019 at 12:03 AM Atish Patra <atish.patra@wdc.com> wrote:
+>>> >>>
+>>> >>> On 2/8/19 1:11 AM, Christoph Hellwig wrote:
+>>> >>>>> +     * We don't support running Linux on hertergenous ISA systems.
+>>> >>>>> +     * But first "okay" processor might not be the boot cpu.
+>>> >>>>> +     * Check the ISA of boot cpu.
+>>> >>>>
+>>> >>>> Please use up your available 80 characters per line in comments.
+>>> >>>>
+>>> >>> I will fix it.
+>>> >>>
+>>> >>>>> +            /*
+>>> >>>>> +             * All "okay" hart should have same isa. We don't know how to
+>>> >>>>> +             * handle if they don't. Throw a warning for now.
+>>> >>>>> +             */
+>>> >>>>> +            if (elf_hwcap && temp_hwcap != elf_hwcap)
+>>> >>>>> +                    pr_warn("isa mismatch: 0x%lx != 0x%lx\n",
+>>> >>>>> +                            elf_hwcap, temp_hwcap);
+>>> >>>>> +
+>>> >>>>> +            if (hartid == boot_cpu_hartid)
+>>> >>>>> +                    boot_hwcap = temp_hwcap;
+>>> >>>>> +            elf_hwcap = temp_hwcap;
+>>> >>>>
+>>> >>>> So we always set elf_hwcap to the capabilities of the previous cpu.
+>>> >>>>
+>>> >>>>> +            temp_hwcap = 0;
+>>> >>>>
+>>> >>>> I think tmp_hwcap should be declared and initialized inside the outer loop
+>>> >>>> instead having to manually reset it like this.
+>>> >>>>
+>>> >>>>> +    }
+>>> >>>>>
+>>> >>>>> +    elf_hwcap = boot_hwcap;
+>>> >>>>
+>>> >>>> And then reset it here to the boot cpu.
+>>> >>>>
+>>> >>>> Shoudn't we only report the features supported by all cores?  Otherwise
+>>> >>>> we'll still have problems if the boot cpu supports a feature, but not
+>>> >>>> others.
+>>> >>>>
+>>> >>>
+>>> >>> Hmm. The other side of the argument is boot cpu does have a feature that
+>>> >>> is not supported by other hart that didn't even boot.
+>>> >>> The user space may execute something based on boot cpu capability but
+>>> >>> that won't be enabled.
+>>> >>>
+>>> >>> At least, in this way we know that we are compatible completely with
+>>> >>> boot cpu capabilities. Thoughts ?
+>>> >>
+>>> >> There is one example on the market, e.g., Samsung Exynos 9810.
+>>> >>
+>>> >> Mongoose 3 (big cores) only support ARMv8.0, while Cortex-A55
+>>> >> (little ones) support ARMv8.2 (and that brings atomics support).
+>>> >> I think, it's the only ARM SOC that supports different ISA extensions
+>>> >> between cores on the same package.
+>>> >>
+>>> >> Kernel scheduler doesn't know that big cores are missing atomics
+>>> >> support or that applications needs it and moves the thread
+>>> >> resulting in illegal instruction.
+>>> >>
+>>> >> E.g., see Golang issue: https://github.com/golang/go/issues/28431
+>>> >>
+>>> >> I also recall Jon Masters (Computer Architect at Red Hat) advocating
+>>> >> against having cores with mismatched capabilities on the server market.
+>>> >>
+>>> >> It just causes more problems down the line.
+>>> > > IMO the best bet is to only put extensions in HWCAP that are supported by all
+>>> > the harts that userspace will be scheduled on.
+>>> > Fair enough. Instead of setting HWCAP in setup_arch() once, we can set it only for boot cpu. It will be updated after every cpu comes up online.
+>>> 
+>>> Thus, HWCAP will consists all extensions supported by all cpus that are online currently.
+>> 
+>> You must thus prevent CPUs that have a different set of capabilities
+>> from coming up late (once userspace has started).
+> 
+> and we have no way to do that.  I'd prefer if we just looked through the entire device tree and only showed userspace the features that are on every possible CPU from the start.  Otherwise the HWCAP will shift around during a userspace run, which seems odd.
+
+ok. I will do this for now. Once we have cpu hotplug enabled, we can revisit this.
+
+Regards,
+Atish
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
