@@ -2,83 +2,62 @@ Return-Path: <SRS0=4uv/=QS=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 640D8C169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 12:39:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A99EC169C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 13:23:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2F61320873
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 12:39:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 29D16218A6
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 13:23:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Y7bVxnW+";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="fyT0aiJ8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2F61320873
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="U472RwtP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 29D16218A6
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4jckDOnYa7XrCIuIBkskSUXQB5+0OHnDgTx5yz6Q8fE=; b=Y7bVxnW+xWH+/j
-	1UsdGvn7JDOSQyEZQudxJ4x5gMVQozTYZRjVg0vMtTVkSaplRyOfig9bpCz/EsGz3bEQE6kNpDbSQ
-	Bc51arm30yyOO9lefjUv+iKj8YQ7AB9EWonR2I8x3CTvYjWtxJ29e5JCDHD1M1qfxDPx5L0G49FyM
-	CgJC7E9tng3z31VnhcL8hLFjdfSZ/bgTrg4oSmjF9ARuvGH1KYrTvsVLXzeqUJOSrIJk3MAufVXTl
-	IaWFQvl/0+6v/6tgwf7Cp/ELERH6Ry8aPAJAy7U75yWjFDkhT13mMlKLa7SSkR1cQAPdOrBqpXMEk
-	zcXyVDzsZevKHgnTj5SA==;
+	List-Owner; bh=r24jQ894VFtq3cl5CHi8TzHVopR26o/YOrxszoZVwTQ=; b=U472RwtP7MJi5H
+	VOfwRbco9YYnRBahEo9pa/PZvACSDrCCUdPNd+f8bgGPGAHTW7z7e8b3hk5peKwjaxl1meM2LFa9k
+	teDRJiHuClhj7G68o8/6x+i8R6x0ETf6RA3xmpmnp+SvdMMiq8oWqrudkRT4XuGCaiF8g8vVhc/vJ
+	jdMYIPGMiG2bQcwyBYTy2bwov4oOaXfYrwydhSZGaYMGkL+RDIWzjuwKJb0SSJxxRQrsx41cczZ66
+	PouaWJ4biBmemA0yDenlfJGvtO4FnhgluseL/X7GIYjP91Siyuuutoru6pUQPD8MDYoOgSMXOq68f
+	tavDKi0puGwz8HxJ3Llg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtArX-0002Iz-Sq; Mon, 11 Feb 2019 12:39:03 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1gtBYR-00025t-SD; Mon, 11 Feb 2019 13:23:23 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtApr-0000jz-9i
- for linux-riscv@lists.infradead.org; Mon, 11 Feb 2019 12:37:29 +0000
-Received: by mail-wm1-x342.google.com with SMTP id x10so11674099wmg.2
- for <linux-riscv@lists.infradead.org>; Mon, 11 Feb 2019 04:37:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=mafssbFI0/5Upvl43xji75QR+ahPYg9BWqhkb9yv5FM=;
- b=fyT0aiJ8K9n5VGEdtz8YU+/2FCwIGLJs2OJyx43z5MxceH6K0oufWFIhbDVHXuz4Nr
- Y656bKVQUT8Rr81HWldHQ4Sln+04r1IEUFJOCE2QM36bYn4t916c8OLHU2toNf6mJAHF
- mA/LaQZONikW6VFq8Gfm2MDLnwHcdScahStebhA6e3DlCmroIoUB8bqsAxUfvL4R48BG
- SrMimlnfRAI+7Uljb8r4mYja3XOJf6P2cdKk0acUDV4eZw8Zy1JuKvTclxcLPEmfULag
- 6SMnYKrkMQfkyBBGblJUeBB1epXHGH5TRxznvUQ2aQ2eetuielMFcYF0ReMdHoTkv7SG
- w+8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=mafssbFI0/5Upvl43xji75QR+ahPYg9BWqhkb9yv5FM=;
- b=W5g0KbkwGvrJHYJqk5y+xfATEoV4Qu7/ZobqrhanXLiUy6DlEXXGf9leKmjTKSi9mJ
- bgSFhvtDHZq6cNYGX++K13mqJcY+fbyPWXvDfVc512btEXIzIpSNXQ5yDpf3qFFgiTK3
- YdnxGdR2IzBUJ4uuK6kwyxT/VnJLHaUN0hCYpGah4jX8FcJYyHth52H6OTaYTEYNKLMi
- Xsa8bbG0HBMvIfjbQAK1S6myt7rPnNKv8SeuJGr4LLvhdW/Yy4R1VjgOwCE9FM+2Dt/x
- UBRKugsldQcZ6dkTC6VvbtalMjYpTxi+zfofC7FXbTKs45DY/XkHYw3xYwdqXx/uJhaO
- hlrw==
-X-Gm-Message-State: AHQUAubWpIJYwGRXrYWRvx5jzNVkzUWuNS1fJ0DQqHLgn5hn/sWbQRPb
- j60qP0b4h1REJPEh2M03crqI7Qtg1tZxGOo9vqI=
-X-Google-Smtp-Source: AHgI3Ib3BQ6Hq6M5ICVWN9fNu6Xd6cBwFUFwxmPRtiX0RcxdX6O0nFilRZ2q3pK31nMSGBlebQWxrs0FAqoXbQJZ9Xc=
-X-Received: by 2002:a7b:cb01:: with SMTP id u1mr8921065wmj.55.1549888636659;
- Mon, 11 Feb 2019 04:37:16 -0800 (PST)
+ id 1gtBYP-00025D-8f
+ for linux-riscv@lists.infradead.org; Mon, 11 Feb 2019 13:23:22 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id AD3C2AED6;
+ Mon, 11 Feb 2019 13:23:17 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: Atish Patra <atish.patra@wdc.com>
+Subject: Re: [v3 PATCH 8/8] RISC-V: Assign hwcap only according to boot cpu.
+References: <1549590681-24125-1-git-send-email-atish.patra@wdc.com>
+ <1549590681-24125-9-git-send-email-atish.patra@wdc.com>
+X-Yow: I just heard the SEVENTIES were over!! And I was just getting in touch
+ with my LEISURE SUIT!!
+Date: Mon, 11 Feb 2019 14:23:15 +0100
+In-Reply-To: <1549590681-24125-9-git-send-email-atish.patra@wdc.com> (Atish
+ Patra's message of "Thu, 7 Feb 2019 17:51:21 -0800")
+Message-ID: <mvmo97iv4qk.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.91 (gnu/linux)
 MIME-Version: 1.0
-References: <20190211043829.30096-1-michaeljclark@mac.com>
- <20190211043829.30096-4-michaeljclark@mac.com>
-In-Reply-To: <20190211043829.30096-4-michaeljclark@mac.com>
-From: Jonas Gorski <jonas.gorski@gmail.com>
-Date: Mon, 11 Feb 2019 13:37:08 +0100
-Message-ID: <CAOiHx==dx10No8AO-5OP8BcuNbfnQdgVG2TiMkjz=Svqd0uKDg@mail.gmail.com>
-Subject: Re: [PATCH 3/3] MIPS: fix truncation in __cmpxchg_small for short
- values
-To: Michael Clark <michaeljclark@mac.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190211_043719_856633_40E3FF4B 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20190211_052321_450240_115126EB 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,81 +69,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: RISC-V Patches <patches@groups.riscv.org>,
- Linux RISC-V <linux-riscv@lists.infradead.org>,
- Linux MIPS <linux-mips@linux-mips.org>
+Cc: Patrick =?utf-8?Q?St=C3=A4hlin?= <me@packi.ch>,
+ Albert Ou <aou@eecs.berkeley.edu>, Damien Le Moal <Damien.LeMoal@wdc.com>,
+ Jason Cooper <jason@lakedaemon.net>, Alan Kao <alankao@andestech.com>,
+ Dmitriy Cherkasov <dmitriy@oss-tech.org>, Anup Patel <anup@brainfault.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, linux-kernel@vger.kernel.org,
+ Zong Li <zongbox@gmail.com>, Marc Zyngier <marc.zyngier@arm.com>,
+ Palmer Dabbelt <palmer@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Feb 07 2019, Atish Patra <atish.patra@wdc.com> wrote:
 
-On Mon, 11 Feb 2019 at 05:39, Michael Clark <michaeljclark@mac.com> wrote:
->
-> __cmpxchg_small erroneously uses u8 for load comparison which can
-> be either char or short. This patch changes the local varialble to
+> +	while ((node = of_find_node_by_type(node, "cpu"))) {
+> +		if (!node) {
 
-varialble => variable
+That can never be true.
 
-> u32 which is sufficiently sized, as the loaded value is already
-> masked and shifted appropriately. Using an integer size avoids
-> any unnecessary canonicalization from use of non native widths.
->
-> This patch is part of a series that adapts the MIPS small word
-> atomics code for xchg and cmpxchg on short and char to RISC-V.
->
-> Cc: RISC-V Patches <patches@groups.riscv.org>
-> Cc: Linux RISC-V <linux-riscv@lists.infradead.org>
-> Cc: Linux MIPS <linux-mips@linux-mips.org>
-> Signed-off-by: Michael Clark <michaeljclark@mac.com>
-> ---
->  arch/mips/kernel/cmpxchg.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/mips/kernel/cmpxchg.c b/arch/mips/kernel/cmpxchg.c
-> index 0b9535bc2c53..1169958fd748 100644
-> --- a/arch/mips/kernel/cmpxchg.c
-> +++ b/arch/mips/kernel/cmpxchg.c
-> @@ -57,7 +57,7 @@ unsigned long __cmpxchg_small(volatile void *ptr, unsigned long old,
->         u32 mask, old32, new32, load32;
->         volatile u32 *ptr32;
->         unsigned int shift;
-> -       u8 load;
-> +       u32 load;
+> +			pr_warn("Unable to find \"cpu\" devicetree entry");
+> +			return;
+> +		}
+> +
+> +		hartid = riscv_of_processor_hartid(node);
+> +		if (hartid < 0)
+> +			continue;
+>  
+> -	if (of_property_read_string(node, "riscv,isa", &isa)) {
+> -		pr_warning("Unable to find \"riscv,isa\" devicetree entry");
+> +		if (of_property_read_string(node, "riscv,isa", &isa)) {
+> +			pr_warn("Unable to find \"riscv,isa\" devicetree entry");
+> +			of_node_put(node);
+> +			return;
+> +		}
+>  		of_node_put(node);
 
-There already is a u32 line above, so maybe move it there.
+[    0.000000] OF: ERROR: Bad of_node_put() on /cpus/cpu@1
+[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.0.0-rc6-00020-g5903f30f1310 #12
+[    0.000000] Call Trace:
+[    0.000000] [<ffffffe001076812>] walk_stackframe+0x0/0xa4
+[    0.000000] [<ffffffe001076a12>] show_stack+0x2a/0x34
+[    0.000000] [<ffffffe0015cf9ea>] dump_stack+0x62/0x7c
+[    0.000000] [<ffffffe00149fed4>] of_node_release+0xbe/0xc0
+[    0.000000] [<ffffffe0015d465a>] kobject_put+0xa6/0x1e8
+[    0.000000] [<ffffffe00149f44e>] of_node_put+0x16/0x20
+[    0.000000] [<ffffffe00149b45e>] of_find_node_by_type+0x66/0xa4
+[    0.000000] [<ffffffe0010755ca>] riscv_fill_hwcap+0x14c/0x1ce
+[    0.000000] [<ffffffe0000026d4>] 0xffffffe0000026d4
+[    0.000000] [<ffffffe0000006ec>] 0xffffffe0000006ec
+[    0.000000] [<ffffffe000000076>] 0xffffffe000000076
 
-Also reading the code to understand this, isn't the old code broken
-for cmpxchg_small calls for 16-bit variables, where old is > 0xff?
+Andreas.
 
-because it does later
-
-        /*
-         * Ensure the byte we want to exchange matches the expected
-         * old value, and if not then bail.
-         */
-        load = (load32 & mask) >> shift;
-        if (load != old)
-            return load;
-
-and if load is a u8, it can never be old if old contains a larger
-value than what can fit in a u8.
-
-After re-reading your commit log, it seems you say something similar,
-but it wasn't quite obvious for me that this means the function is
-basically broken for short values where the old value does not fit in
-u8.
-
-So this should have an appropriate "Fixes:" tag. And Cc: stable. Seems
-like quite a serious issue to me.
-
-
-Regards
-Jonas
-
-
-Jonas
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
