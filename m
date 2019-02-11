@@ -2,70 +2,83 @@ Return-Path: <SRS0=4uv/=QS=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CC32CC169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 12:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 640D8C169C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 12:39:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9937220818
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 12:34:03 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2F61320873
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 12:39:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WLh32YUp"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9937220818
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Y7bVxnW+";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="fyT0aiJ8"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2F61320873
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZXwa1TuN4WjedfR3syXW+UH0EBdBou4yXY1MGNhShyA=; b=WLh32YUp30JVSZ
-	rO2lkquFQNoXtZPzzxQrHdL4wSPFpZ5gfdLvDeCh6DF1LErGMUUdopqFZti+wEec/zOTOmOs4mP5F
-	WoFTk6NL40AZ+7nPzV6P1A7eYAOpHZY1UzwHCbwdz9otbIiHYQ4/CyNi6meIuogDksD943JNGxRri
-	YMH3BTiEVxr0kP+RetNz52/7ff5CiCewz/fOB0VRhbeYsBNTkUu8b9qnrYUYwL2HZFF2cKITSqarX
-	8NS8M5oBpWbHzOHcBmf1C40oaJ7leCs4LnksOfBHREb5GJuI66NUU23kF76ynT3SPlZ2rO2oRYlaZ
-	vDA9XqlAukKSWsjdfjVw==;
+	List-Owner; bh=4jckDOnYa7XrCIuIBkskSUXQB5+0OHnDgTx5yz6Q8fE=; b=Y7bVxnW+xWH+/j
+	1UsdGvn7JDOSQyEZQudxJ4x5gMVQozTYZRjVg0vMtTVkSaplRyOfig9bpCz/EsGz3bEQE6kNpDbSQ
+	Bc51arm30yyOO9lefjUv+iKj8YQ7AB9EWonR2I8x3CTvYjWtxJ29e5JCDHD1M1qfxDPx5L0G49FyM
+	CgJC7E9tng3z31VnhcL8hLFjdfSZ/bgTrg4oSmjF9ARuvGH1KYrTvsVLXzeqUJOSrIJk3MAufVXTl
+	IaWFQvl/0+6v/6tgwf7Cp/ELERH6Ry8aPAJAy7U75yWjFDkhT13mMlKLa7SSkR1cQAPdOrBqpXMEk
+	zcXyVDzsZevKHgnTj5SA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtAmd-0006lz-8a; Mon, 11 Feb 2019 12:33:59 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1gtArX-0002Iz-Sq; Mon, 11 Feb 2019 12:39:03 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtAij-0002Aw-77
- for linux-riscv@lists.infradead.org; Mon, 11 Feb 2019 12:30:42 +0000
-Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1gtAih-0008Se-My; Mon, 11 Feb 2019 13:29:55 +0100
-Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1gtAig-0003K3-Py; Mon, 11 Feb 2019 13:29:54 +0100
-Date: Mon, 11 Feb 2019 13:29:54 +0100
-From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH v5 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
-Message-ID: <20190211122954.33thpip3yhtdw5x6@pengutronix.de>
-References: <1548762199-7065-1-git-send-email-yash.shah@sifive.com>
- <1548762199-7065-3-git-send-email-yash.shah@sifive.com>
- <20190207101657.rfzcq6xdv6ocvubg@pengutronix.de>
- <CAJ2_jOGYkwb2QSUH1UU_QoGXE5LFoR0XGJmuYfNtYcZXHXyfaA@mail.gmail.com>
+ id 1gtApr-0000jz-9i
+ for linux-riscv@lists.infradead.org; Mon, 11 Feb 2019 12:37:29 +0000
+Received: by mail-wm1-x342.google.com with SMTP id x10so11674099wmg.2
+ for <linux-riscv@lists.infradead.org>; Mon, 11 Feb 2019 04:37:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=mafssbFI0/5Upvl43xji75QR+ahPYg9BWqhkb9yv5FM=;
+ b=fyT0aiJ8K9n5VGEdtz8YU+/2FCwIGLJs2OJyx43z5MxceH6K0oufWFIhbDVHXuz4Nr
+ Y656bKVQUT8Rr81HWldHQ4Sln+04r1IEUFJOCE2QM36bYn4t916c8OLHU2toNf6mJAHF
+ mA/LaQZONikW6VFq8Gfm2MDLnwHcdScahStebhA6e3DlCmroIoUB8bqsAxUfvL4R48BG
+ SrMimlnfRAI+7Uljb8r4mYja3XOJf6P2cdKk0acUDV4eZw8Zy1JuKvTclxcLPEmfULag
+ 6SMnYKrkMQfkyBBGblJUeBB1epXHGH5TRxznvUQ2aQ2eetuielMFcYF0ReMdHoTkv7SG
+ w+8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=mafssbFI0/5Upvl43xji75QR+ahPYg9BWqhkb9yv5FM=;
+ b=W5g0KbkwGvrJHYJqk5y+xfATEoV4Qu7/ZobqrhanXLiUy6DlEXXGf9leKmjTKSi9mJ
+ bgSFhvtDHZq6cNYGX++K13mqJcY+fbyPWXvDfVc512btEXIzIpSNXQ5yDpf3qFFgiTK3
+ YdnxGdR2IzBUJ4uuK6kwyxT/VnJLHaUN0hCYpGah4jX8FcJYyHth52H6OTaYTEYNKLMi
+ Xsa8bbG0HBMvIfjbQAK1S6myt7rPnNKv8SeuJGr4LLvhdW/Yy4R1VjgOwCE9FM+2Dt/x
+ UBRKugsldQcZ6dkTC6VvbtalMjYpTxi+zfofC7FXbTKs45DY/XkHYw3xYwdqXx/uJhaO
+ hlrw==
+X-Gm-Message-State: AHQUAubWpIJYwGRXrYWRvx5jzNVkzUWuNS1fJ0DQqHLgn5hn/sWbQRPb
+ j60qP0b4h1REJPEh2M03crqI7Qtg1tZxGOo9vqI=
+X-Google-Smtp-Source: AHgI3Ib3BQ6Hq6M5ICVWN9fNu6Xd6cBwFUFwxmPRtiX0RcxdX6O0nFilRZ2q3pK31nMSGBlebQWxrs0FAqoXbQJZ9Xc=
+X-Received: by 2002:a7b:cb01:: with SMTP id u1mr8921065wmj.55.1549888636659;
+ Mon, 11 Feb 2019 04:37:16 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJ2_jOGYkwb2QSUH1UU_QoGXE5LFoR0XGJmuYfNtYcZXHXyfaA@mail.gmail.com>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+References: <20190211043829.30096-1-michaeljclark@mac.com>
+ <20190211043829.30096-4-michaeljclark@mac.com>
+In-Reply-To: <20190211043829.30096-4-michaeljclark@mac.com>
+From: Jonas Gorski <jonas.gorski@gmail.com>
+Date: Mon, 11 Feb 2019 13:37:08 +0100
+Message-ID: <CAOiHx==dx10No8AO-5OP8BcuNbfnQdgVG2TiMkjz=Svqd0uKDg@mail.gmail.com>
+Subject: Re: [PATCH 3/3] MIPS: fix truncation in __cmpxchg_small for short
+ values
+To: Michael Clark <michaeljclark@mac.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190211_042958_184517_2657E2F0 
-X-CRM114-Status: GOOD (  24.79  )
+X-CRM114-CacheID: sfid-20190211_043719_856633_40E3FF4B 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -77,115 +90,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- robh+dt@kernel.org, Sachin Ghadi <sachin.ghadi@sifive.com>,
- Thierry Reding <thierry.reding@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: RISC-V Patches <patches@groups.riscv.org>,
+ Linux RISC-V <linux-riscv@lists.infradead.org>,
+ Linux MIPS <linux-mips@linux-mips.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi,
 
-On Mon, Feb 11, 2019 at 04:56:27PM +0530, Yash Shah wrote:
-> On Thu, Feb 7, 2019 at 3:47 PM Uwe Kleine-K=F6nig
-> <u.kleine-koenig@pengutronix.de> wrote:
-> > On Tue, Jan 29, 2019 at 05:13:19PM +0530, Yash Shah wrote:
-> > > +struct pwm_sifive_ddata {
-> > > +     struct pwm_chip chip;
-> > > +     struct notifier_block notifier;
-> > > +     struct clk *clk;
-> > > +     void __iomem *regs;
-> > > +     unsigned int approx_period;
-> > > +     unsigned int real_period;
-> > > +};
-> > > +
-> > > +static inline struct pwm_sifive_ddata *to_pwm_sifive_chip(struct pwm=
-_chip *c)
-> >
-> > even though this is inlined I would like this to have use the
-> > pwm_sifive_ prefix, too.
-> =
+On Mon, 11 Feb 2019 at 05:39, Michael Clark <michaeljclark@mac.com> wrote:
+>
+> __cmpxchg_small erroneously uses u8 for load comparison which can
+> be either char or short. This patch changes the local varialble to
 
-> Not sure what exactly you want me to do here.
+varialble => variable
 
-I want this function to be named something like pwm_sifive_chip_to_ddata.
-This way it has the common prefix (and is less confusing because
-to..chip suggests that is converts something to a chip, but the outcome
-is ...ddata).
- =
+> u32 which is sufficiently sized, as the loaded value is already
+> masked and shifted appropriately. Using an integer size avoids
+> any unnecessary canonicalization from use of non native widths.
+>
+> This patch is part of a series that adapts the MIPS small word
+> atomics code for xchg and cmpxchg on short and char to RISC-V.
+>
+> Cc: RISC-V Patches <patches@groups.riscv.org>
+> Cc: Linux RISC-V <linux-riscv@lists.infradead.org>
+> Cc: Linux MIPS <linux-mips@linux-mips.org>
+> Signed-off-by: Michael Clark <michaeljclark@mac.com>
+> ---
+>  arch/mips/kernel/cmpxchg.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/mips/kernel/cmpxchg.c b/arch/mips/kernel/cmpxchg.c
+> index 0b9535bc2c53..1169958fd748 100644
+> --- a/arch/mips/kernel/cmpxchg.c
+> +++ b/arch/mips/kernel/cmpxchg.c
+> @@ -57,7 +57,7 @@ unsigned long __cmpxchg_small(volatile void *ptr, unsigned long old,
+>         u32 mask, old32, new32, load32;
+>         volatile u32 *ptr32;
+>         unsigned int shift;
+> -       u8 load;
+> +       u32 load;
 
-> > In a previous review round I had doubts about the calculation of frac
-> > and I think they were addressed wrongly.
-> > Looking at the figure at the start of chapter 14.9 in the reference
-> > manual: They use (different than the driver here) pwmcmp0=3D6 and
-> > pwmzerocmp=3D1. Then a period is 7 clock cycles long and pwmcmpX must b=
-e 7
-> > (for X > 0) to yield a 100% signal. So pwmcmpX must be greater than or
-> > equal to the period (in clock cycles).
-> >
-> > Here we're using pwmzerocmp=3D0, still the constraint
-> >
-> >         pwmcmpX >=3D period
-> >
-> > must be true for a 100% cycle. (Right?) With pwmzerocmp=3D0 the period =
-is
-> > 0x10000 clock cycles, so pwmcmpX must be >=3D 0x10000 to yield a 100%
-> > signal. As this is not possible (pwmcmpX is a 16 bit value that can only
-> > hold up to 0xffff) the output cannot yield 100%.
-> >
-> > So I think the most correct implementation here is:
-> >
-> >         frac =3D (duty_cycle * (1 << PWM_SIFIVE_CMPWIDTH) + (1 << PWM_S=
-IFIVE_CMPWIDTH) / 2) / period;
-> >         /* Sorry, we cannot do 100% :-( */
-> >         frac =3D min(frac, (1 << PWM_SIFIVE_CMPWIDTH) - 1);
-> >
-> =
+There already is a u32 line above, so maybe move it there.
 
-> I will once again go through the specs, if it seems correct I will
-> implement the above.
+Also reading the code to understand this, isn't the old code broken
+for cmpxchg_small calls for 16-bit variables, where old is > 0xff?
 
-I would just test this at runtime. Configure for 100% and check the wave
-form if it is constant.
+because it does later
 
-> > > +static int pwm_sifive_probe(struct platform_device *pdev)
-> > > +{
-> > > [...]
-> > > +     /* Watch for changes to underlying clock frequency */
-> > > +     pwm->notifier.notifier_call =3D pwm_sifive_clock_notifier;
-> > > +     ret =3D clk_notifier_register(pwm->clk, &pwm->notifier);
-> > > +     if (ret) {
-> > > +             dev_err(dev, "failed to register clock notifier: %d\n",=
- ret);
-> > > +             goto disable_clk;
-> > > +     }
-> >
-> > Would it make sense to only enable the clock when the pwm is enabled?
-> > (If yes, how does the output behave if the clock is disabled while the
-> > hardware is enabled? I assume the output just freezes at the state where
-> > it happens to be?)
-> =
+        /*
+         * Ensure the byte we want to exchange matches the expected
+         * old value, and if not then bail.
+         */
+        load = (load32 & mask) >> shift;
+        if (load != old)
+            return load;
 
-> Yes. Not sure about the behaviour of hardware when the clock is disabled.
-> The behaviour should be like you said. If there is no strong reason
-> then we can keep it as it is right now
-> or else if you want I can make the necessary change.
+and if load is a u8, it can never be old if old contains a larger
+value than what can fit in a u8.
 
-I would prefer to only have the clock enabled when it is actually used.
-Note the common pitfall that you cannot disable the clk immediately
-after configureing the duty cycle to 100% or 0% though because you must
-only stop the clock when the newly configured parameters are active.
+After re-reading your commit log, it seems you say something similar,
+but it wasn't quite obvious for me that this means the function is
+basically broken for short values where the old value does not fit in
+u8.
 
-Best regards
-Uwe
+So this should have an appropriate "Fixes:" tag. And Cc: stable. Seems
+like quite a serious issue to me.
 
--- =
 
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | http://www.pengutronix.de/  |
+Regards
+Jonas
+
+
+Jonas
 
 _______________________________________________
 linux-riscv mailing list
