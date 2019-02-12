@@ -6,16 +6,16 @@ X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BC75DC282CE
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 07:09:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 56202C282C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 07:09:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8BD282184A
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 07:09:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2783921773
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 07:09:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cCY+578A"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8BD282184A
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mUvCQcM5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2783921773
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,28 +24,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=culRlpweIOSYmsn8HwClCvAW0ojqCvTgvL0Q2hLT54Q=; b=cCY+578AJe9QFO
-	8ej02LPWCwL1cBJU3kIy0HPg2MQvNCy9ogro/SM2uK/fqR/ubPaOKU1KOLSwuFc11DnJnSOjn9EmO
-	3Or66ZAjkBiQE/SxIb3ugvlvqZHdEWwIexRN0c5tUaV6fMDyRfYWbrv5nM7voy6RySvnOCoUTd35l
-	Sst0Asp70gQLSFnAH6iWiiXxGhY6sMmtjcKZT55rqGio+KMJeMtJ7CQ8VulZsor5KUUyj1obtywnx
-	Zfdvl+Frizuks2KEanwi/WP08ZLu3yYvfL9foDqAvhKf1p08XzGcNwRtCBN/VuwdRXlOk3zhQ5VVK
-	kStHe1zFokwZKE3dfvAA==;
+	List-Owner; bh=zB3X9xp/qRaEJlaC3SzRYGjUPZI1h5sDkHBdVr6zRZA=; b=mUvCQcM5Cyrdis
+	YJ2a9Qn+kCooRyuGilksw6i0PtE2U63PL7Z7/aW4KeEzLGGR47Phy7Cfy8Nte93mCNoxRqx82ZlKK
+	zFNhmCSdDhUf+pRauLJzNHlxtpXP6xsAs/oOuI9cspdHsByZwfAey+k3NYGCe5It9Nx/PnAkjF1Sq
+	uslm+77fK6bL1JxMVlGa5+J5XTN4OLEWHT2qrJ9rdpVvLWkbQJUYJmFk8c+KPALgjmcocbcxXJcYR
+	giPtt13xnDsu/AKM0M2V/MOGWC0AIegZsRaeL3dqPMea0yeJ+gO7zKqtN7Sekb9Mksgsy5UhshWH9
+	EiF6UboHk9w+qg/sQDBA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtSC6-00016U-Jn; Tue, 12 Feb 2019 07:09:26 +0000
+	id 1gtSCR-0001Ax-Ag; Tue, 12 Feb 2019 07:09:47 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1gtSC5-000168-8M; Tue, 12 Feb 2019 07:09:25 +0000
-Date: Mon, 11 Feb 2019 23:09:25 -0800
+ Hat Linux)) id 1gtSCP-0001AX-KJ; Tue, 12 Feb 2019 07:09:45 +0000
+Date: Mon, 11 Feb 2019 23:09:45 -0800
 From: Christoph Hellwig <hch@infradead.org>
 To: Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH v5 2/5] irqchip: sifive-plic: Don't inline plic_toggle()
- and plic_irq_toggle()
-Message-ID: <20190212070925.GE26747@infradead.org>
+Subject: Re: [PATCH v5 4/5] irqchip: sifive-plic: Differentiate between PLIC
+ handler and context
+Message-ID: <20190212070945.GF26747@infradead.org>
 References: <20190119055625.100054-1-anup@brainfault.org>
- <20190119055625.100054-3-anup@brainfault.org>
+ <20190119055625.100054-5-anup@brainfault.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190119055625.100054-3-anup@brainfault.org>
+In-Reply-To: <20190119055625.100054-5-anup@brainfault.org>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -69,13 +69,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 19, 2019 at 11:26:22AM +0530, Anup Patel wrote:
-> The plic_toggle() uses raw_spin_lock() and plic_irq_toggle has a
-> for loop so both these functions are not suitable for being inline
-> hence this patch removes the inline keyword.
+Looks fine,
 
-I still very much disagree.  Very strongly with the above rationale,
-but also (less strongly) with the decision not to inline here.
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 
 _______________________________________________
 linux-riscv mailing list
