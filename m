@@ -1,144 +1,81 @@
-Return-Path: <SRS0=4uv/=QS=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=gFXo=QT=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 00368C169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 23:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 26344C169C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 01:24:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CA941214DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Feb 2019 23:25:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DF752214DA
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 01:24:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PeYsYskx";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ZZwhuJvl";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="noZ1PA0K"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA941214DA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qF7NnAIL";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=mac.com header.i=@mac.com header.b="QGLkgNpx"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DF752214DA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mac.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vh8XlE+dL0SvmYDwPE0Kq1wWrgaL99KU1zcZ7Ye/g1U=; b=PeYsYskx4iGaBg
-	Xa4j5oO4S+6Hp6BEG84oku20sMksqZZ60Gtiked3KCFEYdVM6bwUGD87QSzDUTzEK4dPJYk8xCWRd
-	78TsgRv46n/XYmk/ogBNvQrfPeu2ab6Z0gcjWypP9UF4qFo7PMtgnzYfadP0FQOcr5dvX5KLbHmzL
-	fJmMfn1EsdQ+vMc/ZqQ7eBY6hBQLqCOb5bkzHZJmvU1OrjQ2cKOx7jOc9z9JFbsAVZLPwCDhPQmcW
-	gg+Oam0gjU3ACxi/TRsd4txfYVrIn84OsAawP6DRNYz83X+qCizOZumPruSAvc5XzE7d4gc6ZyjJ0
-	X61Cc89ZjaIqNWNoEbXA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=PHBtDfghfUDbpl2qEu8NXIVrZw31/HyC8SKsuaNb97c=; b=qF7NnAIL5a1oS7+dH1xM+B2aj
+	Q5wPKpwUr5FSX74r3sFdpiLRTJ5yK67/ABSHRotDG5uSaHiPVsjmb07aKo7pmDFS8yajDGMn9yEK5
+	g1BA+DccaMGJgh1w/00JAyVBs7Ts1Jy5ySh1prAzSUx7isDJ1uj3oo1uP/K0B0O2HxlRGQMN3TPfG
+	915EjMflMsjeHlxNfsAg8SHt8bWVJ9gu/FtuBgKqqP2RRHOzwm778ZR0jVWbCBRKxug71NMdJBTi3
+	qUh5qS/gDZPJhshl+XqHPtex9KA1B+rWyIWpX8yUNdIQWVxBOIpvxnia8R7mX2FwTUmF1w0RjW9Wy
+	oPkWLzYaQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtKxA-0002yQ-GX; Mon, 11 Feb 2019 23:25:32 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1gtMo2-0008J0-PP; Tue, 12 Feb 2019 01:24:14 +0000
+Received: from mr85p00im-ztdg06021201.me.com ([17.58.23.189])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtKx6-0002mv-LW
- for linux-riscv@lists.infradead.org; Mon, 11 Feb 2019 23:25:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1549927529; x=1581463529;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=5QwLzSPC9KlC59Lgw1P+KOZfTT/ttsucsNAjSXbmKUU=;
- b=ZZwhuJvlsh5MSN6/AJzZNQ/dNC7Omyupe7QldKvn07OG0tnX/IRpQWe/
- eOL7FvKXGqr4M6PGUfpTyMuoOzD6Bax71s8GpyEMeWEzbwDGMD6BqG+tg
- 4v45Ip3Yyr68XtYkRpa5gVnfDTy8l8BcDlnXoaRUIyYd6IurFsmIRXToZ
- rEYlXJWMx/WmSfh+rWpMAIahitW6TMg/N9ZN5i0yzvR4n6hznnFRCkzTY
- QnJQ5JRhZRoox+jpmUhDTfzCpLNPIOA6A20mjbRWQeDaTu7lbEGj06B5k
- spZNRhChefwQ/JvABsTheZFP42UMhOSZnLWmsFC3jM5GJC6JgV8VcXL/d g==;
-X-IronPort-AV: E=Sophos;i="5.58,360,1544457600"; d="scan'208";a="102263086"
-Received: from mail-sn1nam04lp2055.outbound.protection.outlook.com (HELO
- NAM04-SN1-obe.outbound.protection.outlook.com) ([104.47.44.55])
- by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2019 07:25:13 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cp+aQie5LyyM2n29ZXd2YkF0q4+M+kwUeStwrMlz8Q0=;
- b=noZ1PA0Kfwoi9iGJ6MemNT4A+d1WtdBj6nQWmBGL8fvoYQG2UlgN31gSk6V4J6nBFRZoykMSZixyH/cpSK+Rmc24sBLjKmgtjgWD7UzohaXeH7eZZqOcB5UfesFwP2fOXG6IdKeZQ9lFGpZJZHBFyvy0u/jUfpWhB0GqeQAEksk=
-Received: from BYAPR04MB3782.namprd04.prod.outlook.com (52.135.214.142) by
- BYAPR04MB4726.namprd04.prod.outlook.com (52.135.240.29) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1601.21; Mon, 11 Feb 2019 23:25:09 +0000
-Received: from BYAPR04MB3782.namprd04.prod.outlook.com
- ([fe80::19f6:af46:d6a7:59bb]) by BYAPR04MB3782.namprd04.prod.outlook.com
- ([fe80::19f6:af46:d6a7:59bb%2]) with mapi id 15.20.1601.023; Mon, 11 Feb 2019
- 23:25:09 +0000
-From: Atish Patra <Atish.Patra@wdc.com>
-To: Palmer Dabbelt <palmer@sifive.com>
-Subject: Re: [v3 PATCH 8/8] RISC-V: Assign hwcap only according to boot cpu.
-Thread-Topic: [v3 PATCH 8/8] RISC-V: Assign hwcap only according to boot cpu.
-Thread-Index: AQHUv1DZTg7Di6/hKki5WijoQT5U96XVnfCAgADoRACAAFpRgIAEGYUAgAARCwCAACRNgIAAAsGAgAARSAA=
-Date: Mon, 11 Feb 2019 23:25:09 +0000
-Message-ID: <5353E827-644D-4BA1-B8E4-6075793C6E8A@wdc.com>
-References: <mhng-99c5091e-32b8-4609-a92d-d3ff2a239887@palmer-si-x1c4>
-In-Reply-To: <mhng-99c5091e-32b8-4609-a92d-d3ff2a239887@palmer-si-x1c4>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Atish.Patra@wdc.com; 
-x-originating-ip: [172.58.95.108]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 0b64d534-e2c4-4c87-f77b-08d690782a0f
-x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600110)(711020)(4605077)(4618075)(2017052603328)(7153060)(7193020);
- SRVR:BYAPR04MB4726; 
-x-ms-traffictypediagnostic: BYAPR04MB4726:
-x-ms-exchange-purlcount: 1
-wdcipoutbound: EOP-TRUE
-x-microsoft-exchange-diagnostics: =?us-ascii?Q?1; BYAPR04MB4726;
- 23:b3zgNexbe683dpiBO1kGO3oKRLFFoT4eTVBpH+225?=
- =?us-ascii?Q?BMUVf46XjTu9R2yr4h6WjV0JyHyzREVXLkEpQmlaChj55pMJKgxpgtWXwkge?=
- =?us-ascii?Q?VP/k41CvC4mUKFbvqPbFRCwIHbaJAseVelXLbsO887GeZdG+sEjktVKlUnbY?=
- =?us-ascii?Q?6q9uHlSIdo4UAIM0OktBgimTt2rP9UzNljPoIwh7SrwAVks58xd+6ZG9GVPK?=
- =?us-ascii?Q?wahSdJEIZB6ulDC04JC5i4xL+TE3518JvsOZlSXg5CcFOhSk2rktG+QOKo3J?=
- =?us-ascii?Q?/ZcW/C+ZooSqBjqDrK+h1hE8gklfau0BhBpiWF7vHXenf3TgZHfZ4svHYcSL?=
- =?us-ascii?Q?5J9i0Nq54P8vQsXeGqrzn8fckh4s2GBaWjSZ9RR5UJAZO41QzU/Ol+OLGi3O?=
- =?us-ascii?Q?iAajPdkid6tzANbEvNDqKyIN8WbTEDJfKS/N5rCFyC37wXpvP3C6T0LEp7bL?=
- =?us-ascii?Q?S0Fgupu2wSoRgqQF79eH2SAjDaXjKGkHpMD7ic0YD0iB4CgmmWhhSYrWL2wB?=
- =?us-ascii?Q?k5/hubTfojulL8NA8W7NzDDPVvUXj0KRjfWlDI3StBF+B6dF+U9grgOMad3T?=
- =?us-ascii?Q?uvbKVyrmBwDqMEycankFFM7kVfZqIjDdyNN0+Af4mGdOKXeWyrdU7LKtKvfJ?=
- =?us-ascii?Q?hU6lHGGjKBkieVbyHmbvuDR5/tbuwH1D2aSuFs7X6J2aUl2Z+kjqP/RwM34X?=
- =?us-ascii?Q?Kqv9FXuIbHuitdEMQEIz3uTD6KzsKfW+VA5Ppj9yTYZB+zskt+qeE1L0A02K?=
- =?us-ascii?Q?QHkcNlG5K699orClafb8fisowxF2LtMyTB7T+tm1hGAjegqwVFGn2hOSvRoZ?=
- =?us-ascii?Q?Ilx8cbslQelv8wsAEb4PeR1PIXTLhuMckFWD3ZgQEY88S6/rFJPJMbEj/xZl?=
- =?us-ascii?Q?FeVrOFW7q7DfE6AW2lhdkZ4QSk91uG+t7LAkFMNxopbvtd6nuY3ky3HGUtb9?=
- =?us-ascii?Q?pC4V/NeGuXCz+svDljN1OASv/42leQ2ImmYEiNWyA1SOfwjDeL3WAGue2QSf?=
- =?us-ascii?Q?n6A+D7nG9kaDYocb1OnOMHNRCMHwl1eD0a0sTDgzGTCBVMRprq/+ei1Lq2pa?=
- =?us-ascii?Q?O0zPhchajFMH4N9QOK5I5m3BG1xWzeBpTn6NYb9LaeZ4898f308wz0suU4/6?=
- =?us-ascii?Q?82GB3Dg6FM8oNBwBnOs+2N+n6qUcZTQ79E0Qw7Kfi5DQbQdQhkp7ZQ0zZXca?=
- =?us-ascii?Q?OUiRJCF5XPojQPYEZ86XsOJTrhjORkEqEEJpDsaL3RpHlpiXNcLWtO7DnKg+?=
- =?us-ascii?Q?/IAEGqtTvhcseFtvAEW/b8b07vgBF2nMk0BuuPrBlNcUkvvolkdSpTdAiZoZ?=
- =?us-ascii?Q?I3wUP09A1YF0fbItKcoG5E=3D?=
-x-microsoft-antispam-prvs: <BYAPR04MB472634B3C2DC5A75D76867F5FA640@BYAPR04MB4726.namprd04.prod.outlook.com>
-x-forefront-prvs: 0945B0CC72
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(376002)(39860400002)(366004)(346002)(136003)(396003)(199004)(189003)(81156014)(81166006)(82746002)(66066001)(966005)(4326008)(25786009)(14444005)(97736004)(256004)(229853002)(478600001)(6436002)(99286004)(72206003)(6486002)(6246003)(53936002)(6916009)(476003)(36756003)(7416002)(446003)(486006)(3846002)(6116002)(11346002)(2616005)(8936002)(76176011)(8676002)(71200400001)(71190400001)(54906003)(14454004)(305945005)(102836004)(86362001)(6512007)(83716004)(33656002)(106356001)(105586002)(7736002)(2906002)(316002)(68736007)(6506007)(53546011)(26005)(6306002)(186003);
- DIR:OUT; SFP:1102; SCL:1; SRVR:BYAPR04MB4726;
- H:BYAPR04MB3782.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; MX:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: 0U1KSL9rhUvGBNve/J6hKELcwVYpXPQQ7By9PzjTck0kJuED7xqYBFv/nHarvxitQOzb3Rfti1/GQ1YX2Y1BlfmIopcsgXS+QKR8s2go3YoEuyKWpjky/7A5E7rfiZMTB5u40Tvx9ziq8WXttwkLx1t3aTnXV2r+wf4t5T/RnlA0slPMe84rOZei2rV4grL0N5n/V3OmzM808KqiWtAGnj8zNpaLxu3LBE3ooJJu2kloUbDlqtNDrHzHXCrTLyqOnjlQopJbWBvov5krnAOBJILPq5lY28Dd5pHUjJ1C1ls8Tov+gHcx/+KjDUvV3D8JEHo1ZxIBW1sGprRf2hOUE8CuwR8mQaj9Ac/LtMd07ZGjlLDqNdoznFabLKcj856bSsDqELGDxDK4FhZM94Q0SS6VhtJ7i0aanoIeJIQy6fY=
-Content-ID: <7E83E73C75EA444D8D3714704FC6B0BC@namprd04.prod.outlook.com>
+ id 1gtMnz-0008IZ-Ct
+ for linux-riscv@lists.infradead.org; Tue, 12 Feb 2019 01:24:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mac.com; s=04042017;
+ t=1549934649; bh=bWJg23kmblk+H2ZSZ9gLepRCTThQBwU5TUob9+b9C3s=;
+ h=Subject:To:From:Message-ID:Date:MIME-Version:Content-Type;
+ b=QGLkgNpx4JrDqY+egP0aEWaJlBqGeN39eysSV2vlwF82mXXEvmWclLKqdwIPVc+tF
+ zmIzm27bif2AMVZoKp5ZoIZVj0cXHQ/KI4w9G0s27kkYN2nQkJr59oxgb82DFfkkyJ
+ NiX/ZFAIavSPnSvy4M1U6wNwNBLoXbEPWSQZEdPuLpSHFdT3LWKHECEGdadpLxl+1q
+ jFXtSQ/a0lBeT4enutXqzg8OUIAkgPEIC7visYoJN6b600fBDkoijfbFOOwogw13t/
+ kQdn5GuafJDEd6gY150KTl2oM38Da9iFgCe473GblWURhdi5nbsqWnaI/VRhEVpu4/
+ H6h1mIyVhvmDQ==
+Received: from [192.168.0.18] (125-237-34-254-fibre.sparkbb.co.nz
+ [125.237.34.254])
+ by mr85p00im-ztdg06021201.me.com (Postfix) with ESMTPSA id 2DF05120130;
+ Tue, 12 Feb 2019 01:24:08 +0000 (UTC)
+Subject: Re: kernel after 5.0-rc2 may not boot using BBL
+To: Anup Patel <anup@brainfault.org>, Christoph Hellwig <hch@infradead.org>
+References: <CAAhSdy3im4i0PJvKqDAfq2iDFvTA2O3ZsxjM6wSgdnFUU1eVcw@mail.gmail.com>
+ <mhng-487587c1-cd66-40f3-86fc-aa2f034f5028@palmer-si-x1c4>
+ <CAAhSdy2pBp10bp_jvCnApGYZa4Y2779ELrvH2DgcP4TRiKUzwg@mail.gmail.com>
+ <20190211082506.GA13103@infradead.org>
+ <CAAhSdy32P5Nn7yePyOHPNXZ5dS-RuxPK60UGebxWRbC8Y4QWRA@mail.gmail.com>
+From: Michael Clark <michaeljclark@mac.com>
+Message-ID: <81d7ebf7-0055-13bf-d4b2-4bf62227bbdc@mac.com>
+Date: Tue, 12 Feb 2019 14:24:05 +1300
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.4.0
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b64d534-e2c4-4c87-f77b-08d690782a0f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Feb 2019 23:25:09.4517 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR04MB4726
+In-Reply-To: <CAAhSdy32P5Nn7yePyOHPNXZ5dS-RuxPK60UGebxWRbC8Y4QWRA@mail.gmail.com>
+Content-Language: en-US
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
+ definitions=2019-02-12_01:, , signatures=0
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
+ malwarescore=0
+ phishscore=0 bulkscore=0 spamscore=0 clxscore=1011 mlxscore=0
+ mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1812120000 definitions=main-1902120007
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190211_152529_124537_E1AC75B2 
-X-CRM114-Status: GOOD (  20.39  )
+X-CRM114-CacheID: sfid-20190211_172411_461489_562294B4 
+X-CRM114-Status: GOOD (  28.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -150,118 +87,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Damien Le Moal <Damien.LeMoal@wdc.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "jason@lakedaemon.net" <jason@lakedaemon.net>,
- "alankao@andestech.com" <alankao@andestech.com>,
- "david.abdurachmanov@gmail.com" <david.abdurachmanov@gmail.com>,
- Marc Zyngier <marc.zyngier@arm.com>,
- "anup@brainfault.org" <anup@brainfault.org>,
- "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
- "me@packi.ch" <me@packi.ch>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>,
- "dmitriy@oss-tech.org" <dmitriy@oss-tech.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, "schwab@suse.de" <schwab@suse.de>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "zongbox@gmail.com" <zongbox@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: Atish Patra <atish.patra@wdc.com>, linux-riscv@lists.infradead.org,
+ Anup Patel <Anup.Patel@wdc.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Andreas Schwab <schwab@suse.de>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
 
-> On Feb 11, 2019, at 2:23 PM, Palmer Dabbelt <palmer@sifive.com> wrote:
-> 
-> On Mon, 11 Feb 2019 14:13:25 PST (-0800), marc.zyngier@arm.com wrote:
->> On Mon, 11 Feb 2019 12:03:30 -0800
->> Atish Patra <atish.patra@wdc.com> wrote:
->> 
->>> On 2/11/19 11:02 AM, Palmer Dabbelt wrote:
->>> > On Fri, 08 Feb 2019 20:26:07 PST (-0800), david.abdurachmanov@gmail.com wrote:
->>> >> On Sat, Feb 9, 2019 at 12:03 AM Atish Patra <atish.patra@wdc.com> wrote:
->>> >>>
->>> >>> On 2/8/19 1:11 AM, Christoph Hellwig wrote:
->>> >>>>> +     * We don't support running Linux on hertergenous ISA systems.
->>> >>>>> +     * But first "okay" processor might not be the boot cpu.
->>> >>>>> +     * Check the ISA of boot cpu.
->>> >>>>
->>> >>>> Please use up your available 80 characters per line in comments.
->>> >>>>
->>> >>> I will fix it.
->>> >>>
->>> >>>>> +            /*
->>> >>>>> +             * All "okay" hart should have same isa. We don't know how to
->>> >>>>> +             * handle if they don't. Throw a warning for now.
->>> >>>>> +             */
->>> >>>>> +            if (elf_hwcap && temp_hwcap != elf_hwcap)
->>> >>>>> +                    pr_warn("isa mismatch: 0x%lx != 0x%lx\n",
->>> >>>>> +                            elf_hwcap, temp_hwcap);
->>> >>>>> +
->>> >>>>> +            if (hartid == boot_cpu_hartid)
->>> >>>>> +                    boot_hwcap = temp_hwcap;
->>> >>>>> +            elf_hwcap = temp_hwcap;
->>> >>>>
->>> >>>> So we always set elf_hwcap to the capabilities of the previous cpu.
->>> >>>>
->>> >>>>> +            temp_hwcap = 0;
->>> >>>>
->>> >>>> I think tmp_hwcap should be declared and initialized inside the outer loop
->>> >>>> instead having to manually reset it like this.
->>> >>>>
->>> >>>>> +    }
->>> >>>>>
->>> >>>>> +    elf_hwcap = boot_hwcap;
->>> >>>>
->>> >>>> And then reset it here to the boot cpu.
->>> >>>>
->>> >>>> Shoudn't we only report the features supported by all cores?  Otherwise
->>> >>>> we'll still have problems if the boot cpu supports a feature, but not
->>> >>>> others.
->>> >>>>
->>> >>>
->>> >>> Hmm. The other side of the argument is boot cpu does have a feature that
->>> >>> is not supported by other hart that didn't even boot.
->>> >>> The user space may execute something based on boot cpu capability but
->>> >>> that won't be enabled.
->>> >>>
->>> >>> At least, in this way we know that we are compatible completely with
->>> >>> boot cpu capabilities. Thoughts ?
->>> >>
->>> >> There is one example on the market, e.g., Samsung Exynos 9810.
->>> >>
->>> >> Mongoose 3 (big cores) only support ARMv8.0, while Cortex-A55
->>> >> (little ones) support ARMv8.2 (and that brings atomics support).
->>> >> I think, it's the only ARM SOC that supports different ISA extensions
->>> >> between cores on the same package.
->>> >>
->>> >> Kernel scheduler doesn't know that big cores are missing atomics
->>> >> support or that applications needs it and moves the thread
->>> >> resulting in illegal instruction.
->>> >>
->>> >> E.g., see Golang issue: https://github.com/golang/go/issues/28431
->>> >>
->>> >> I also recall Jon Masters (Computer Architect at Red Hat) advocating
->>> >> against having cores with mismatched capabilities on the server market.
->>> >>
->>> >> It just causes more problems down the line.
->>> > > IMO the best bet is to only put extensions in HWCAP that are supported by all
->>> > the harts that userspace will be scheduled on.
->>> > Fair enough. Instead of setting HWCAP in setup_arch() once, we can set it only for boot cpu. It will be updated after every cpu comes up online.
->>> 
->>> Thus, HWCAP will consists all extensions supported by all cpus that are online currently.
->> 
->> You must thus prevent CPUs that have a different set of capabilities
->> from coming up late (once userspace has started).
-> 
-> and we have no way to do that.  I'd prefer if we just looked through the entire device tree and only showed userspace the features that are on every possible CPU from the start.  Otherwise the HWCAP will shift around during a userspace run, which seems odd.
+On 11/02/19 9:45 PM, Anup Patel wrote:
+> On Mon, Feb 11, 2019 at 1:55 PM Christoph Hellwig <hch@infradead.org> wrote:
+>>
+>> On Sat, Feb 09, 2019 at 09:00:27AM +0530, Anup Patel wrote:
+>>> IMHO, best solution would be to use mature open-source bootloader as
+>>> payload (i.e. U-Boot or similar) and always boot Linux from bootloader. Using
+>>> Linux as BBL/OpenSBI payload can still continue to exist but it can be more
+>>> of a developer usage.
+>>
+>> Yes, that is a good long term plan.  But in the meantime we should not
+>> gratiously break the precious setups people got working..
 
-ok. I will do this for now. Once we have cpu hotplug enabled, we can revisit this.
+This has been a longstanding issue. I believe some Berkeley graduates 
+are in control of the repos (some of them are very intelligent young 
+Doctors). However, the Berkeley software doesn't even version numbers. 
+We can't call the release management shocking because it is 
+non-existent. i.e.it is not even at the linux-0.11 style versioning 
+scheme, (although Linus didn't have version control hence tarball's). 
+Methinks they don't want CVEs being assigned as that would taint their 
+impeccable security reputation. For example, one can't really assign a 
+CVE to master:HEAD on a git repo. One needs an actual release. I am sure 
+it is deliberate. That said, assigning CVEs to students, with them 
+having a black mark at the start of their careers is probably also a bad 
+idea.
+
+I think these gratuitous breakages are a ploy, either to demonstrate how 
+easily trust can be subverted. i.e. the breakages are actually to troll 
+long-standing kernel overdevelops, showing how easy it is to slip in 
+breaking changes using the "trusted lieutenants" model, and it is not 
+really fixable until someone with release engineering experience takes 
+control of the foundation repositories, or the students step up and take 
+responsibility for their work, adding due professionalism, such as CI. 
+They are getting paid now.
+
+Ideal situation would be gated repository with CI in front that locks 
+out changes that regress any of a suite of tests run against the open 
+source tools (and now simulation of the underlying open source chip and 
+its firmware), core libraries and the kernel. I am aware that some of 
+the breakages are deliberate based on traces in GitHub issues, and 
+artifacts in the git history. This century's beginning is marked by the 
+ubiquity of CI, well, certainly the last decade, so I see no reason why 
+it should not be applied here, as these changes would not have made it 
+into a project that has CI.
+
+Twerps. They need a punch. Not a gut punch. Just a friendly but firm 
+punch, in the shoulder. Serious, but not hard enough to cause any 
+permanent injury. In the right shoulder because the left shoulder has 
+bursitis, and not onto the bone as that would hurt one's fist. We need 
+to think about how to achieve this with a little finesse. Phone books 
+don't leave bruises but they are bulky to carry around, especially if 
+you lure one of these developers into a bar in a social setting. The 
+Phone book will look out of place. I think just a regular firm fist 
+punch would be best. We don't want assault charges and we certainly 
+wouldn't want an email trail leading back to someone threatening punches 
+to key members of the RISC-V community. That could be damaging (insert 
+emoji :Grinning Face With Smiling Eyes:). Anyway, they can't get to me 
+because I am in another country, so probability of me receiving a 
+physical punch is very low, so just a virtual punch, and it would be a 
+round of exchanging punches. Like I punch you, you punch me back sort of 
+thing. i.e. it needs to be fair.
+
+> The kernel breakage totally unintentional. I had done all testing using BBL
+> and OpenSBI with Linux compiled using defconfig but never saw the issue.
+
+I agree with Christoph.
+
+It is no excuse. This is bad because it shows lack of basic testing. 
+It's like nobody boot tests riscv-qemu with BBL, which is where all of 
+the work on PMP is. In this century, most mature adults are using CI so 
+these sorts of changes would never even make it into the master branch 
+after checks are made against the PR. I think they are just 
+demonstrating how easily trust without verification can be subverted, as 
+they have visibly sabotaged attempts to have CI set up for the RISC-V 
+port of the kernel, tools and C library. I have evidence of this in 
+writing. The commit in BBL that breaks PMP also has terrible code smell 
+as it is hidden out-of-line from the existing PNP code, is hard-coded 
+for a number of registers that differs from the specification, and the 
+writing style is quite different from the other code. We can't even rule 
+out the possibility of a forged commit given sha128 weaknesses. There 
+are so many vectors for which they can inject breaking changes that go 
+undetected without CI. Of course if it was written in ink, we could do 
+hand-writing analysis, but in this case it is GitHub keys.
+
+Also, the OpenSBI plan has somehow been made fiat by the RISC-V 
+Foundation by recently appearing in its GitHub organization, however, I 
+am unsure that it was actually an agreed upon direction. There was no 
+public review period. It just appeared from nowhere. Certainly there are 
+different consensus processes operating here, one an orthodox one and 
+one a heterodox one.
+
+I personally think merges need to be done by a bot, and; the consensus 
+from the adults on the mailing list is that SBI should not be required 
+for what should be accomplished by drivers; perhaps only to maintain 
+backwards compatibility with the silicon that hardly anyone can get 
+their hands on. Before I got fired, I was working on the CLIC which 
+potentially allowed S-mode to have its own timers and IPIs. I personally 
+think not giving S-mode timers and IPIs is kind of dumb. The number of 
+flops for another timer and interrupt source is tiny. That said, good 
+job from many other angles as there is an open source chip that runs 
+Linux and we have Debian. The SBI firmware issue is just roughness 
+around the edges and we can't expect everything to be perfect on day 
+one, and it shows one can save a few flops (i.e. nanocents) at the 
+expense of transitioning to RISC code in M-mode as micro-code using the 
+memory bus for state versus one more timer comparator register.
+
+If we have CI, we should test riscv-pk. Many folk are using it and there 
+are several derivatives. It is the original boot loader for RISC-V. I've 
+been a BBL user for several years. I think it was Dec 2015 when I 
+ordered an FPGA to run lowRISC untethered.
+
+BTW Palmer, Thanks for firing me. Last time I had a difficult boss I 
+quit, but getting fired is actually better, because we have a 3 month 
+stand down for our social security system here in NZ. If one voluntarily 
+leaves one's job, one is not entitled to our unemployment benefit. If 
+one gets fired, then one is entitled to the benefit immediately. You 
+still need to pay us for the work up until December. I guess I got fired 
+because I was super annoyed by being blocked from working on CI which 
+was in my contract as an exhibit, and was what I volunteered to do. I 
+didn't really want to do it anyhow; it is work; it's just something I 
+have experience with (Cloud CI yada yada yada). The current setup is 
+really bad from what I've used commercially. Also working on Open Source 
+under an NDA is a bit weird too. One can be fired at any time for no 
+reason. Much worse if I was in California on an H1B, where one 
+essentially needs to leave the country if one gets fired. In this case, 
+I just need to move somewhere cheaper to live, oddly enough Palmerston 
+North (it's not really possible to survive in Auckland on social 
+security as rents are comparatively high; like the Bay Area). Lucky I 
+was fired before moving. That be much worse for my partner and step-son 
+if I was fired after already moving to California. Hope you find someone 
+to look after QEMU. If I was getting paid, I wouldn't mind to do some 
+part-time work on CI, but I have another project that I want to work on.
 
 Regards,
-Atish
+
+Michael.
+
+
+--
+Trust without verification is corruption
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
