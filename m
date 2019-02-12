@@ -2,80 +2,134 @@ Return-Path: <SRS0=gFXo=QT=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.0 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 26344C169C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 01:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0389DC169C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 02:17:46 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DF752214DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 01:24:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BC1E221B18
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 02:17:45 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qF7NnAIL";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=mac.com header.i=@mac.com header.b="QGLkgNpx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DF752214DA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mac.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZCARVKzg";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=wavesemi.onmicrosoft.com header.i=@wavesemi.onmicrosoft.com header.b="ozG293VS"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BC1E221B18
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=mips.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=PHBtDfghfUDbpl2qEu8NXIVrZw31/HyC8SKsuaNb97c=; b=qF7NnAIL5a1oS7+dH1xM+B2aj
-	Q5wPKpwUr5FSX74r3sFdpiLRTJ5yK67/ABSHRotDG5uSaHiPVsjmb07aKo7pmDFS8yajDGMn9yEK5
-	g1BA+DccaMGJgh1w/00JAyVBs7Ts1Jy5ySh1prAzSUx7isDJ1uj3oo1uP/K0B0O2HxlRGQMN3TPfG
-	915EjMflMsjeHlxNfsAg8SHt8bWVJ9gu/FtuBgKqqP2RRHOzwm778ZR0jVWbCBRKxug71NMdJBTi3
-	qUh5qS/gDZPJhshl+XqHPtex9KA1B+rWyIWpX8yUNdIQWVxBOIpvxnia8R7mX2FwTUmF1w0RjW9Wy
-	oPkWLzYaQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kZOdyQiG/hrVdiD/rXQSi0W56t38mm8/3Y3CM9SiqkY=; b=ZCARVKzgov1CK7
+	1W7r5cht3c6ErtnGfYHAYjjBV2q7SLtHTm380q3cNTdq20wI8o/3WehV7RspZqTAfrN21WAyS1Eaf
+	APrCXViBb+VN6UTUTYMfhBFB4mjxnoOgGdcApy/kYKuAls+IhXyCsdeZ+Ga6VNIs86MMONURkp8uy
+	2bWc72Bv7QcqJbl3Okf10+K1fJk9wARv6J6B7d8106tdja7VZlMuUZ0E/9TO8BxwDJCaSpWAlqm9k
+	ZDDa4tOcue38ZS9V/ZzevgKLdi37ZXShSLelCkq2+vv7qGc3uXOtHiFU7LQh37D9ySopD6VX17Fv+
+	VVhTLaDZZBfCIdqHNdoA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtMo2-0008J0-PP; Tue, 12 Feb 2019 01:24:14 +0000
-Received: from mr85p00im-ztdg06021201.me.com ([17.58.23.189])
+	id 1gtNdk-0001cC-J3; Tue, 12 Feb 2019 02:17:40 +0000
+Received: from mail-eopbgr820108.outbound.protection.outlook.com
+ ([40.107.82.108] helo=NAM01-SN1-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtMnz-0008IZ-Ct
- for linux-riscv@lists.infradead.org; Tue, 12 Feb 2019 01:24:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mac.com; s=04042017;
- t=1549934649; bh=bWJg23kmblk+H2ZSZ9gLepRCTThQBwU5TUob9+b9C3s=;
- h=Subject:To:From:Message-ID:Date:MIME-Version:Content-Type;
- b=QGLkgNpx4JrDqY+egP0aEWaJlBqGeN39eysSV2vlwF82mXXEvmWclLKqdwIPVc+tF
- zmIzm27bif2AMVZoKp5ZoIZVj0cXHQ/KI4w9G0s27kkYN2nQkJr59oxgb82DFfkkyJ
- NiX/ZFAIavSPnSvy4M1U6wNwNBLoXbEPWSQZEdPuLpSHFdT3LWKHECEGdadpLxl+1q
- jFXtSQ/a0lBeT4enutXqzg8OUIAkgPEIC7visYoJN6b600fBDkoijfbFOOwogw13t/
- kQdn5GuafJDEd6gY150KTl2oM38Da9iFgCe473GblWURhdi5nbsqWnaI/VRhEVpu4/
- H6h1mIyVhvmDQ==
-Received: from [192.168.0.18] (125-237-34-254-fibre.sparkbb.co.nz
- [125.237.34.254])
- by mr85p00im-ztdg06021201.me.com (Postfix) with ESMTPSA id 2DF05120130;
- Tue, 12 Feb 2019 01:24:08 +0000 (UTC)
-Subject: Re: kernel after 5.0-rc2 may not boot using BBL
-To: Anup Patel <anup@brainfault.org>, Christoph Hellwig <hch@infradead.org>
-References: <CAAhSdy3im4i0PJvKqDAfq2iDFvTA2O3ZsxjM6wSgdnFUU1eVcw@mail.gmail.com>
- <mhng-487587c1-cd66-40f3-86fc-aa2f034f5028@palmer-si-x1c4>
- <CAAhSdy2pBp10bp_jvCnApGYZa4Y2779ELrvH2DgcP4TRiKUzwg@mail.gmail.com>
- <20190211082506.GA13103@infradead.org>
- <CAAhSdy32P5Nn7yePyOHPNXZ5dS-RuxPK60UGebxWRbC8Y4QWRA@mail.gmail.com>
-From: Michael Clark <michaeljclark@mac.com>
-Message-ID: <81d7ebf7-0055-13bf-d4b2-4bf62227bbdc@mac.com>
-Date: Tue, 12 Feb 2019 14:24:05 +1300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.4.0
-MIME-Version: 1.0
-In-Reply-To: <CAAhSdy32P5Nn7yePyOHPNXZ5dS-RuxPK60UGebxWRbC8Y4QWRA@mail.gmail.com>
+ id 1gtNdZ-0001Tq-SQ; Tue, 12 Feb 2019 02:17:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=wavesemi.onmicrosoft.com; s=selector1-wavecomp-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sLNA/8E7XxiU5SNRQ2CEjv6lzgrFvdP2XeYgmRA9AuI=;
+ b=ozG293VSNp8I8yx7T3BVAOWNeNHvL2sN0w+HaTqXvDWnouYd91TVzT0ck0bFrJ0PrAdp+SidTNqnMq8BOQHnzm06uhgBw6UIGz5nQhojJwpv4GAy+EMnSSuCO7l3iTEdKPBmUGPIg49G7nbxWfkUdLSw6HLffZD8W5v40wbeHlc=
+Received: from MWHPR2201MB1277.namprd22.prod.outlook.com (10.174.162.17) by
+ MWHPR2201MB1518.namprd22.prod.outlook.com (10.174.170.155) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.1601.24; Tue, 12 Feb 2019 02:17:26 +0000
+Received: from MWHPR2201MB1277.namprd22.prod.outlook.com
+ ([fe80::7d5e:f3b0:4a5:4636]) by MWHPR2201MB1277.namprd22.prod.outlook.com
+ ([fe80::7d5e:f3b0:4a5:4636%9]) with mapi id 15.20.1601.023; Tue, 12 Feb 2019
+ 02:17:26 +0000
+From: Paul Burton <paul.burton@mips.com>
+To: Christoph Hellwig <hch@lst.de>
+Subject: Re: [PATCH 06/12] dma-mapping: improve selection of
+ dma_declare_coherent availability
+Thread-Topic: [PATCH 06/12] dma-mapping: improve selection of
+ dma_declare_coherent availability
+Thread-Index: AQHUwg7wztMik5M5KE2guV+HlCSoLKXbbhKA
+Date: Tue, 12 Feb 2019 02:17:26 +0000
+Message-ID: <20190212021724.cp4snlcqbm3kqtzu@pburton-laptop>
+References: <20190211133554.30055-1-hch@lst.de>
+ <20190211133554.30055-7-hch@lst.de>
+In-Reply-To: <20190211133554.30055-7-hch@lst.de>
+Accept-Language: en-US
 Content-Language: en-US
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
- definitions=2019-02-12_01:, , signatures=0
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
- malwarescore=0
- phishscore=0 bulkscore=0 spamscore=0 clxscore=1011 mlxscore=0
- mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1812120000 definitions=main-1902120007
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-clientproxiedby: BYAPR03CA0002.namprd03.prod.outlook.com
+ (2603:10b6:a02:a8::15) To MWHPR2201MB1277.namprd22.prod.outlook.com
+ (2603:10b6:301:24::17)
+user-agent: NeoMutt/20180716
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=pburton@wavecomp.com; 
+x-ms-exchange-messagesentrepresentingtype: 1
+x-originating-ip: [67.207.99.198]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 9dfcaee2-f573-43f7-6c6f-08d690903b2a
+x-microsoft-antispam: BCL:0; PCL:0;
+ RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600110)(711020)(4605077)(2017052603328)(7153060)(7193020);
+ SRVR:MWHPR2201MB1518; 
+x-ms-traffictypediagnostic: MWHPR2201MB1518:
+x-microsoft-exchange-diagnostics: =?us-ascii?Q?1; MWHPR2201MB1518;
+ 23:azaZ1cGJ61L0XoyxK8Dc51MaxQQ+esp1XB9FDjq?=
+ =?us-ascii?Q?/g57vHvs9iwd7Y4e6qa6Ke5f5h8JhfBX4J2Nse+blKx5H8OCQVFdsSobIdjS?=
+ =?us-ascii?Q?S6MpFq726gt2YuR+ZVFmw6zrtJ/kLl9Vo7H1XlRuTjI1T7LqewYJPu+6NaPc?=
+ =?us-ascii?Q?mseBdhHx5RUxrQ/JKvaigCrQpgYyubrRyjjowsKMwhM3M4mqXtSXxIEPCRD5?=
+ =?us-ascii?Q?qphy77CXyNeZhh3BzFLJGFw9mgEGaERS795SKYIwqHlTk9sM4c8sNW27T+s/?=
+ =?us-ascii?Q?pJZjMN0mKxXqvoZAJ5K654+c6qCYxBWzgjfb9C620aqhNddnwvWlykOIhaFJ?=
+ =?us-ascii?Q?5dlthwGOcEygUN8+08EAtDfG8/cQ/ns2i2jH7Sh09blV0PXufUpXXQGcEwYY?=
+ =?us-ascii?Q?rNYTwDp6DmalDvyIt8bZtZSaS0qnvhTYSMB52KGO24XISLlcntBtNNzWlwyD?=
+ =?us-ascii?Q?J54Z9wVFVOIr6SB/G13OgvQ1Zba8tCCo5H1Fj0ruc3T8cA3NhLMJHTxULy3E?=
+ =?us-ascii?Q?wBHiWE4q+aDS4shd98vjhBjtok09bHCLHtbaR8NR722akgIpXcNUyQmBtFKp?=
+ =?us-ascii?Q?zYhrpZjiR9SFDybg3fPnYJEOomkycxGuT5128EvuwtQhy/nrTfNFHhvonQkQ?=
+ =?us-ascii?Q?DWQYy5kTpCllgu2MJOfBu07R07qxXi6GeTmuyWxASE+qvJz+QsnE66S5kQYb?=
+ =?us-ascii?Q?q4gev4yMehHVxPkFb9QmvW5tFBNwWyYDUsUq4X9OcxVVm2L+zM8hpR6CbJ8b?=
+ =?us-ascii?Q?wTQdXXWfvliiNEXOGa7mdTC8ZYj/3SlrPzkmsxbqqLAZGcIzgLY5W5M8E3JM?=
+ =?us-ascii?Q?qwoMLf87R8jy3B1LR3ELWl8zA48t5LBl7jDSik1RtIGlhR0gSAdvDQqzCTuW?=
+ =?us-ascii?Q?EO0V853Q+Op2iKeBLzKe5fpyNQ/T29OZzALeJwMPtzyEOidmY+4FS/IHBmpa?=
+ =?us-ascii?Q?sHI4zxo1J9Tt9uOWkQnjQ3I9f5SI7kj3mpz9zDZQnlF2kusu2jN2vbffMrZ5?=
+ =?us-ascii?Q?YaGOvA5WS3NTsLVaADcwm+iF0yxm7hPIMI1HLfOkBOzWL6h7nvA/K9a731M0?=
+ =?us-ascii?Q?NY12EfZTmmWK/fYwRPriYOlgUnTfXVHts+TQe/6Ad1HNM4oo6asbhJYJINDh?=
+ =?us-ascii?Q?0vTX4PEZKHveyer1zpZ6f4rkSzVMVGVcKsYAN3LXh6AxJQ7xZ0J/yMOCMYe4?=
+ =?us-ascii?Q?Oaf2/ueyi57Z6kwQeRitq6Ui7l6EyU+u6WJxA4suWKZ5dgJxq338xs6+oaAo?=
+ =?us-ascii?Q?Z8qPH9s+/Lj4M90aPhRPReTey3RjcyIr3yTGs6p6UUqZnrmvUZLHrwaIjpbY?=
+ =?us-ascii?Q?gEWB8fGNAzZqkODTRf1uAVec=3D?=
+x-microsoft-antispam-prvs: <MWHPR2201MB151846352CEF0CE2B38C4092C1650@MWHPR2201MB1518.namprd22.prod.outlook.com>
+x-forefront-prvs: 0946DC87A1
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10019020)(7916004)(396003)(366004)(346002)(376002)(136003)(39850400004)(199004)(189003)(486006)(33716001)(81166006)(2906002)(53936002)(97736004)(68736007)(386003)(8936002)(476003)(44832011)(1076003)(11346002)(14454004)(66066001)(7416002)(6436002)(4744005)(81156014)(446003)(26005)(25786009)(6246003)(6916009)(99286004)(8676002)(42882007)(478600001)(76176011)(54906003)(256004)(52116002)(305945005)(9686003)(7736002)(6512007)(33896004)(71200400001)(316002)(6506007)(71190400001)(6486002)(58126008)(3846002)(6116002)(106356001)(186003)(229853002)(105586002)(4326008)(102836004);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:MWHPR2201MB1518;
+ H:MWHPR2201MB1277.namprd22.prod.outlook.com; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; A:1; MX:1; 
+received-spf: None (protection.outlook.com: wavecomp.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: 4L+haswJ6uv1RBUXPnSknQtUAgOiS3kDE2H/b7RVDbzX1U0BrnWr4lKTJNzelIgvuLllJJQFQLeNqMEzqvm9nUSZjqbWg5Mlplry4uiLrLrInA7v9O61x6nRaVF7fGJ8OBzxOPst8iqgyi5hwXLTbBFfHiHwZ1+fugEpdo6ykVfVPmW641hQ2pdgCOItnm4egE45x7/sOdKdnZgsKmDDsJZOrNcQFfzb1XGF/NyesNPgmmE5pBdTl3c7Da57yLFXgXZ7V7D8cTkxhva2EzB2RoDIYesW8RiAo/SxbQHtrWqhipIa65SHUjAgNw+98zUXJ2g/UIwsb+vFhgUpjzflb9i1cpsjrE64zObzePfVXqgG1LIPVFzI4y4GWO6LDVKbzYW7p326Qx8TEvCeo6V3Hw9fJJ164vVtVW6zl6kUeNk=
+Content-ID: <101BE7318D87D541944405D342ACE1DB@namprd22.prod.outlook.com>
+MIME-Version: 1.0
+X-OriginatorOrg: mips.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9dfcaee2-f573-43f7-6c6f-08d690903b2a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Feb 2019 02:17:26.1259 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-id: 463607d3-1db3-40a0-8a29-970c56230104
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR2201MB1518
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190211_172411_461489_562294B4 
-X-CRM114-Status: GOOD (  28.87  )
+X-CRM114-CacheID: sfid-20190211_181729_924148_0D67BD5C 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -87,155 +141,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@wdc.com>, linux-riscv@lists.infradead.org,
- Anup Patel <Anup.Patel@wdc.com>, Palmer Dabbelt <palmer@sifive.com>,
- Andreas Schwab <schwab@suse.de>
+Cc: "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+ "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "x86@kernel.org" <x86@kernel.org>,
+ "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "iommu@lists.linux-foundation.org" <iommu@lists.linux-foundation.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
+ Lee Jones <lee.jones@linaro.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Christoph,
 
+On Mon, Feb 11, 2019 at 02:35:48PM +0100, Christoph Hellwig wrote:
+> This API is primarily used through DT entries, but two architectures
+> and two drivers call it directly.  So instead of selecting the config
+> symbol for random architectures pull it in implicitly for the actual
+> users.  Also rename the Kconfig option to describe the feature better.
+> 
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
 
-On 11/02/19 9:45 PM, Anup Patel wrote:
-> On Mon, Feb 11, 2019 at 1:55 PM Christoph Hellwig <hch@infradead.org> wrote:
->>
->> On Sat, Feb 09, 2019 at 09:00:27AM +0530, Anup Patel wrote:
->>> IMHO, best solution would be to use mature open-source bootloader as
->>> payload (i.e. U-Boot or similar) and always boot Linux from bootloader. Using
->>> Linux as BBL/OpenSBI payload can still continue to exist but it can be more
->>> of a developer usage.
->>
->> Yes, that is a good long term plan.  But in the meantime we should not
->> gratiously break the precious setups people got working..
+Acked-by: Paul Burton <paul.burton@mips.com> # MIPS
 
-This has been a longstanding issue. I believe some Berkeley graduates 
-are in control of the repos (some of them are very intelligent young 
-Doctors). However, the Berkeley software doesn't even version numbers. 
-We can't call the release management shocking because it is 
-non-existent. i.e.it is not even at the linux-0.11 style versioning 
-scheme, (although Linus didn't have version control hence tarball's). 
-Methinks they don't want CVEs being assigned as that would taint their 
-impeccable security reputation. For example, one can't really assign a 
-CVE to master:HEAD on a git repo. One needs an actual release. I am sure 
-it is deliberate. That said, assigning CVEs to students, with them 
-having a black mark at the start of their careers is probably also a bad 
-idea.
-
-I think these gratuitous breakages are a ploy, either to demonstrate how 
-easily trust can be subverted. i.e. the breakages are actually to troll 
-long-standing kernel overdevelops, showing how easy it is to slip in 
-breaking changes using the "trusted lieutenants" model, and it is not 
-really fixable until someone with release engineering experience takes 
-control of the foundation repositories, or the students step up and take 
-responsibility for their work, adding due professionalism, such as CI. 
-They are getting paid now.
-
-Ideal situation would be gated repository with CI in front that locks 
-out changes that regress any of a suite of tests run against the open 
-source tools (and now simulation of the underlying open source chip and 
-its firmware), core libraries and the kernel. I am aware that some of 
-the breakages are deliberate based on traces in GitHub issues, and 
-artifacts in the git history. This century's beginning is marked by the 
-ubiquity of CI, well, certainly the last decade, so I see no reason why 
-it should not be applied here, as these changes would not have made it 
-into a project that has CI.
-
-Twerps. They need a punch. Not a gut punch. Just a friendly but firm 
-punch, in the shoulder. Serious, but not hard enough to cause any 
-permanent injury. In the right shoulder because the left shoulder has 
-bursitis, and not onto the bone as that would hurt one's fist. We need 
-to think about how to achieve this with a little finesse. Phone books 
-don't leave bruises but they are bulky to carry around, especially if 
-you lure one of these developers into a bar in a social setting. The 
-Phone book will look out of place. I think just a regular firm fist 
-punch would be best. We don't want assault charges and we certainly 
-wouldn't want an email trail leading back to someone threatening punches 
-to key members of the RISC-V community. That could be damaging (insert 
-emoji :Grinning Face With Smiling Eyes:). Anyway, they can't get to me 
-because I am in another country, so probability of me receiving a 
-physical punch is very low, so just a virtual punch, and it would be a 
-round of exchanging punches. Like I punch you, you punch me back sort of 
-thing. i.e. it needs to be fair.
-
-> The kernel breakage totally unintentional. I had done all testing using BBL
-> and OpenSBI with Linux compiled using defconfig but never saw the issue.
-
-I agree with Christoph.
-
-It is no excuse. This is bad because it shows lack of basic testing. 
-It's like nobody boot tests riscv-qemu with BBL, which is where all of 
-the work on PMP is. In this century, most mature adults are using CI so 
-these sorts of changes would never even make it into the master branch 
-after checks are made against the PR. I think they are just 
-demonstrating how easily trust without verification can be subverted, as 
-they have visibly sabotaged attempts to have CI set up for the RISC-V 
-port of the kernel, tools and C library. I have evidence of this in 
-writing. The commit in BBL that breaks PMP also has terrible code smell 
-as it is hidden out-of-line from the existing PNP code, is hard-coded 
-for a number of registers that differs from the specification, and the 
-writing style is quite different from the other code. We can't even rule 
-out the possibility of a forged commit given sha128 weaknesses. There 
-are so many vectors for which they can inject breaking changes that go 
-undetected without CI. Of course if it was written in ink, we could do 
-hand-writing analysis, but in this case it is GitHub keys.
-
-Also, the OpenSBI plan has somehow been made fiat by the RISC-V 
-Foundation by recently appearing in its GitHub organization, however, I 
-am unsure that it was actually an agreed upon direction. There was no 
-public review period. It just appeared from nowhere. Certainly there are 
-different consensus processes operating here, one an orthodox one and 
-one a heterodox one.
-
-I personally think merges need to be done by a bot, and; the consensus 
-from the adults on the mailing list is that SBI should not be required 
-for what should be accomplished by drivers; perhaps only to maintain 
-backwards compatibility with the silicon that hardly anyone can get 
-their hands on. Before I got fired, I was working on the CLIC which 
-potentially allowed S-mode to have its own timers and IPIs. I personally 
-think not giving S-mode timers and IPIs is kind of dumb. The number of 
-flops for another timer and interrupt source is tiny. That said, good 
-job from many other angles as there is an open source chip that runs 
-Linux and we have Debian. The SBI firmware issue is just roughness 
-around the edges and we can't expect everything to be perfect on day 
-one, and it shows one can save a few flops (i.e. nanocents) at the 
-expense of transitioning to RISC code in M-mode as micro-code using the 
-memory bus for state versus one more timer comparator register.
-
-If we have CI, we should test riscv-pk. Many folk are using it and there 
-are several derivatives. It is the original boot loader for RISC-V. I've 
-been a BBL user for several years. I think it was Dec 2015 when I 
-ordered an FPGA to run lowRISC untethered.
-
-BTW Palmer, Thanks for firing me. Last time I had a difficult boss I 
-quit, but getting fired is actually better, because we have a 3 month 
-stand down for our social security system here in NZ. If one voluntarily 
-leaves one's job, one is not entitled to our unemployment benefit. If 
-one gets fired, then one is entitled to the benefit immediately. You 
-still need to pay us for the work up until December. I guess I got fired 
-because I was super annoyed by being blocked from working on CI which 
-was in my contract as an exhibit, and was what I volunteered to do. I 
-didn't really want to do it anyhow; it is work; it's just something I 
-have experience with (Cloud CI yada yada yada). The current setup is 
-really bad from what I've used commercially. Also working on Open Source 
-under an NDA is a bit weird too. One can be fired at any time for no 
-reason. Much worse if I was in California on an H1B, where one 
-essentially needs to leave the country if one gets fired. In this case, 
-I just need to move somewhere cheaper to live, oddly enough Palmerston 
-North (it's not really possible to survive in Auckland on social 
-security as rents are comparatively high; like the Bay Area). Lucky I 
-was fired before moving. That be much worse for my partner and step-son 
-if I was fired after already moving to California. Hope you find someone 
-to look after QEMU. If I was getting paid, I wouldn't mind to do some 
-part-time work on CI, but I have another project that I want to work on.
-
-Regards,
-
-Michael.
-
-
---
-Trust without verification is corruption
+Thanks,
+    Paul
 
 _______________________________________________
 linux-riscv mailing list
