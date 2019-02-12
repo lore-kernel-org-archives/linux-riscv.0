@@ -2,80 +2,74 @@ Return-Path: <SRS0=gFXo=QT=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 842CFC282C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 19:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F5EDC282C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 20:11:54 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4FF56222C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 19:58:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 620A221B68
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 20:11:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WyLR3WlP";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="HqWtIE+/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4FF56222C4
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DtQPbPB2";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="rS1bcNk+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 620A221B68
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Vby7aSCLyZutk2G6F0AluJbsMNJbebmEAVFpTE8dTQk=; b=WyLR3WlPzSCOUkuOvgUO+G9GT
-	qtxTGXRjPJj/FivD6m0G5mGPQEQdEJhWmOfCdAFs8TXyhE1YE2rqD4NjU3v4sfXcgwtH4UrGkGag5
-	pnuahVNJituDoKPF2w3oSIQRzTzaWV/vLQRdAcirPwvffNL2hHXabEeIOMnodMhcvW/wMqVItLqzA
-	lD5LY7BADcXaltvdoYXW/SkAZniM0/oSzk4a0Pv3aTgd+xXHaA1yqtkAx5I/RTyrpdMeGvg883DSF
-	i9kCZVRmmw62wDEwHVdx2y8feKNvoj7WXGDpaBEbotFN8h0d0kDddyeyPe1A0tstvJAuJ8s2EN+LZ
-	VEjUpovHg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Jh8Wisz4kAPldokmYKQTg355UHEXBeAyoFKSaC5MiSk=; b=DtQPbPB241p0fr
+	7FRLDhawumZIM8QGu0mqLKS8J3+VdVDq8vm1MCIMZALFKN/vXWalmD9ysgT55jbDgpkH46aissfJD
+	cV3vM8h5dsgO26g9tlVORiGG95QojM7V9EB09YaoKz9KJmUlOigW+okvuojHyYOWdpCtcNwtHx1DI
+	e9hroX76/BvR+pkgYVlkRRGXG3qia+NsQlT2C6P5Y+Z0eMLZSBZz5jpf9cF0Zq19RBnqPod95+bLO
+	d/J/EXIwOBULqb4EXyRprTwxpUwj4J4DSRY8VCZm2MM2z1KkPDO77XtrX7F0eI/0U/UXuBnviB2k9
+	bSF9NCjsewLkDi89EekA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gteC9-0001yY-Ls; Tue, 12 Feb 2019 19:58:17 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1gtePG-00038z-M7; Tue, 12 Feb 2019 20:11:50 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gteC6-0001xs-CN
- for linux-riscv@lists.infradead.org; Tue, 12 Feb 2019 19:58:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1550001494; x=1581537494;
- h=subject:to:cc:references:from:message-id:date:
- mime-version:in-reply-to:content-transfer-encoding;
- bh=hwqIbYi5G3kRqkmsvPNoG9+WwfcisAP7zx393j6fDlk=;
- b=HqWtIE+/jCRhVt8ZjlJOLRYrJMvPMSLFgA29HFzXzt7F+iKIUtIP+ER/
- Q7HKVgI1iBZyb6Khw8I6eNg/necrS6vCWDYiLm8eNmkLvuTXiSMSC118e
- +4irg0M7jvpAlNWRNo20tDRpgOerLFvb+8451MhQ4ylEhtdO7h6+QqIeC
- Ntm+S73QM37Fdt1pKW082FX9zdkAkHqKNoprOq7c2byGvTxlVr8t/4+E5
- KT5WA7w0J+y35ZDwOGfREBQ9rsxUh5V5ratlFzXXpe2QnjgzGKsUarFre
- SWboATtlceOe9YWwud33VzKD+GsS+KlBRX00ysJuVIaC+xKO3mH5Dl0p4 g==;
-X-IronPort-AV: E=Sophos;i="5.58,362,1544457600"; d="scan'208";a="102820081"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 13 Feb 2019 03:58:12 +0800
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP; 12 Feb 2019 11:36:47 -0800
-Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.69.190])
- ([10.111.69.190])
- by uls-op-cesaip01.wdc.com with ESMTP; 12 Feb 2019 11:58:13 -0800
-Subject: Re: [v4 PATCH 8/8] RISC-V: Assign hwcap as per comman capabilities.
-To: Johan Hovold <johan@kernel.org>
-References: <1549969812-22502-1-git-send-email-atish.patra@wdc.com>
- <1549969812-22502-9-git-send-email-atish.patra@wdc.com>
- <20190212112534.GB28278@localhost>
-From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <61766631-42f4-ec25-3b5c-ae892da44ccb@wdc.com>
-Date: Tue, 12 Feb 2019 11:58:10 -0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0)
- Gecko/20100101 Thunderbird/60.5.0
+ id 1gteP4-0002z1-KY; Tue, 12 Feb 2019 20:11:40 +0000
+Received: from mail-qt1-f170.google.com (mail-qt1-f170.google.com
+ [209.85.160.170])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 61B81222C7;
+ Tue, 12 Feb 2019 20:11:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1550002297;
+ bh=3jUa/zunVYEZn+DyMnsy8KXouqEiFYqtXTvcx6an4qk=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=rS1bcNk+w8HmhmSC51+HlkPK92wtM4VYvSp1r6hov6nO+UgUiVmNcSMLjdzccAjIS
+ CGfD1WLWCgx6ETbf06Bs3l5HGaxPcdQTrOW4X3yWLL/uX4LMGl6JioWcOF3ro1y/xl
+ I2QY4V+JzHuYKiqSYoL+o1vgv+BgF3yQob+EZwW4=
+Received: by mail-qt1-f170.google.com with SMTP id w4so4556690qtc.1;
+ Tue, 12 Feb 2019 12:11:37 -0800 (PST)
+X-Gm-Message-State: AHQUAuboDxmhowUrps8CFaULZenvs3M5SIlQaHMCK6PT7C+Tx3mtfTAY
+ HF50I6VQa9pPJH0oZU1cqlGdL4Vsk20wo//frA==
+X-Google-Smtp-Source: AHgI3IbkdyI3kKb4Rqp5UgWWae9Pz2hV3loOAoVLCgrxJ3QQUi58Dd1hLL5El9rPrWVkYWU9ykNePmU2n4HW1F2r7SM=
+X-Received: by 2002:a0c:9e05:: with SMTP id p5mr4072679qve.246.1550002296610; 
+ Tue, 12 Feb 2019 12:11:36 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20190212112534.GB28278@localhost>
-Content-Language: en-US
+References: <20190211133554.30055-1-hch@lst.de>
+ <20190211133554.30055-5-hch@lst.de>
+In-Reply-To: <20190211133554.30055-5-hch@lst.de>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 12 Feb 2019 14:11:25 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqJFGhTa+izRTeUxjtbyOek-zynZofOJGDK+xZbD4r5H0Q@mail.gmail.com>
+Message-ID: <CAL_JsqJFGhTa+izRTeUxjtbyOek-zynZofOJGDK+xZbD4r5H0Q@mail.gmail.com>
+Subject: Re: [PATCH 04/12] of: select OF_RESERVED_MEM automatically
+To: Christoph Hellwig <hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190212_115814_480247_CF2B16C6 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20190212_121138_694193_FAE4BE9F 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -87,100 +81,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Jason Cooper <jason@lakedaemon.net>, Alan Kao <alankao@andestech.com>,
- Dmitriy Cherkasov <dmitriy@oss-tech.org>, Andreas Schwab <schwab@suse.de>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
+Cc: linux-xtensa@linux-xtensa.org, Lee Jones <lee.jones@linaro.org>,
+ SH-Linux <linux-sh@vger.kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, x86@kernel.org,
+ linux-mips@vger.kernel.org,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Marc Zyngier <marc.zyngier@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Thomas Gleixner <tglx@linutronix.de>
+ Linux IOMMU <iommu@lists.linux-foundation.org>,
+ "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>, linux-riscv@lists.infradead.org,
+ arcml <linux-snps-arc@lists.infradead.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/12/19 3:25 AM, Johan Hovold wrote:
-> On Tue, Feb 12, 2019 at 03:10:12AM -0800, Atish Patra wrote:
->> Currently, we set hwcap based on first valid hart from DT. This may not
->> be correct always as that hart might not be current booting cpu or may
->> have a different capability.
->>
->> Set hwcap as the capabilities supported by all possible harts with "okay"
->> status.
->>
->> Signed-off-by: Atish Patra <atish.patra@wdc.com>
->> ---
->>   arch/riscv/kernel/cpufeature.c | 41 ++++++++++++++++++++++-------------------
->>   1 file changed, 22 insertions(+), 19 deletions(-)
->>
->> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
->> index e7a4701f..a1e4fb34 100644
->> --- a/arch/riscv/kernel/cpufeature.c
->> +++ b/arch/riscv/kernel/cpufeature.c
->> @@ -20,6 +20,7 @@
->>   #include <linux/of.h>
->>   #include <asm/processor.h>
->>   #include <asm/hwcap.h>
->> +#include <asm/smp.h>
->>   
->>   unsigned long elf_hwcap __read_mostly;
->>   #ifdef CONFIG_FPU
->> @@ -42,28 +43,30 @@ void riscv_fill_hwcap(void)
->>   
->>   	elf_hwcap = 0;
->>   
->> -	/*
->> -	 * We don't support running Linux on hertergenous ISA systems.  For
->> -	 * now, we just check the ISA of the first "okay" processor.
->> -	 */
->>   	for_each_of_cpu_node(node) {
->> -		if (riscv_of_processor_hartid(node) >= 0)
->> -			break;
->> -	}
->> -	if (!node) {
->> -		pr_warn("Unable to find \"cpu\" devicetree entry\n");
->> -		return;
->> -	}
->> +		unsigned long this_hwcap = 0;
->>   
->> -	if (of_property_read_string(node, "riscv,isa", &isa)) {
->> -		pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
->> -		of_node_put(node);
->> -		return;
->> -	}
->> -	of_node_put(node);
->> +		if (riscv_of_processor_hartid(node) < 0)
->> +			continue;
->>
+On Mon, Feb 11, 2019 at 7:37 AM Christoph Hellwig <hch@lst.de> wrote:
+>
+> The OF_RESERVED_MEM can be used if we have either CMA or the generic
+> declare coherent code built and we support the early flattened DT.
+>
+> So don't bother making it a user visible options that is selected
+> by most configs that fit the above category, but just select it when
+> the requirements are met.
+>
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> ---
+>  arch/arc/Kconfig     | 1 -
+>  arch/arm/Kconfig     | 1 -
+>  arch/arm64/Kconfig   | 1 -
+>  arch/csky/Kconfig    | 1 -
+>  arch/powerpc/Kconfig | 1 -
+>  arch/xtensa/Kconfig  | 1 -
+>  drivers/of/Kconfig   | 5 ++---
+>  7 files changed, 2 insertions(+), 9 deletions(-)
 
->> -	for (i = 0; i < strlen(isa); ++i)
->> -		elf_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
->> +		if (of_property_read_string(node, "riscv,isa", &isa)) {
->> +			pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
->> +			return;
-> 
-> Did you want "continue" here to continue processing the other harts?
-> 
-
-Hmm. If a cpu node doesn't have isa in DT, that means DT is wrong. A 
-"continue" here will let user space use other harts just with a warning 
-message?
-
-Returning here will not set elf_hwcap which forces the user to fix the 
-DT. I am not sure what should be the defined behavior in this case.
-
-Any thoughts ?
-> Note that you currently leak the device node when returning.
-> 
-Ahh yes. I will fix it if we continue to return in the error case.
-
-Regards,
-Atish
-> Johan
-> 
-
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
