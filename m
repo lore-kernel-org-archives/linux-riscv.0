@@ -4,18 +4,18 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2D660C282C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 07:08:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BC75DC282CE
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 07:09:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EE71B21773
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 07:08:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8BD282184A
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 07:09:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EDcQfWKS"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EE71B21773
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cCY+578A"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8BD282184A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,27 +24,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LoZ6781964Zds3wgXt5wjUaTVBoiGU40JfZbIzfrXfM=; b=EDcQfWKSLzehT2
-	dDP5ZLg4MvvmYb1H/WJRkvf6ES0N1EhVqEIKw1LFt3zHpSb2FNSB6vSgb4GAABZKhCOqVXlr4L5fo
-	p/QSDCJRfqx+BEVDawm6oy3MLE3OOKcw7ZBZFd0QR84eqJIqFxQxn+x7HrfZ3w1Py/MSaM7bGp/4g
-	EFL9W3BwoaP5vcyg//xdhGp0QOAr+tnWOk2kTPstE3VUS/ymr4O+cay7To5aPtDyDWs/bZXRjWfd4
-	uMDVeMH5Y9Fs8DOuQfND8l7jHSsoAfVR0qg3LCRtsvi3B8KOLx6Iy9p65qCT4VaAU0SS2gnEb7SCv
-	agKygRHKHSLkAB9LlOjg==;
+	List-Owner; bh=culRlpweIOSYmsn8HwClCvAW0ojqCvTgvL0Q2hLT54Q=; b=cCY+578AJe9QFO
+	8ej02LPWCwL1cBJU3kIy0HPg2MQvNCy9ogro/SM2uK/fqR/ubPaOKU1KOLSwuFc11DnJnSOjn9EmO
+	3Or66ZAjkBiQE/SxIb3ugvlvqZHdEWwIexRN0c5tUaV6fMDyRfYWbrv5nM7voy6RySvnOCoUTd35l
+	Sst0Asp70gQLSFnAH6iWiiXxGhY6sMmtjcKZT55rqGio+KMJeMtJ7CQ8VulZsor5KUUyj1obtywnx
+	Zfdvl+Frizuks2KEanwi/WP08ZLu3yYvfL9foDqAvhKf1p08XzGcNwRtCBN/VuwdRXlOk3zhQ5VVK
+	kStHe1zFokwZKE3dfvAA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtSAr-0000ya-LQ; Tue, 12 Feb 2019 07:08:09 +0000
+	id 1gtSC6-00016U-Jn; Tue, 12 Feb 2019 07:09:26 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1gtSAq-0000xf-11; Tue, 12 Feb 2019 07:08:08 +0000
-Date: Mon, 11 Feb 2019 23:08:07 -0800
+ Hat Linux)) id 1gtSC5-000168-8M; Tue, 12 Feb 2019 07:09:25 +0000
+Date: Mon, 11 Feb 2019 23:09:25 -0800
 From: Christoph Hellwig <hch@infradead.org>
-To: Anup Patel <Anup.Patel@wdc.com>
-Subject: Re: [PATCH v2 6/6] RISC-V: Implement keepinitrd kernel parameter
-Message-ID: <20190212070807.GD26747@infradead.org>
-References: <20190119132650.9978-1-anup.patel@wdc.com>
- <20190119132650.9978-7-anup.patel@wdc.com>
+To: Anup Patel <anup@brainfault.org>
+Subject: Re: [PATCH v5 2/5] irqchip: sifive-plic: Don't inline plic_toggle()
+ and plic_irq_toggle()
+Message-ID: <20190212070925.GE26747@infradead.org>
+References: <20190119055625.100054-1-anup@brainfault.org>
+ <20190119055625.100054-3-anup@brainfault.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190119132650.9978-7-anup.patel@wdc.com>
+In-Reply-To: <20190119055625.100054-3-anup@brainfault.org>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -57,27 +58,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Jason Cooper <jason@lakedaemon.net>, Marc Zyngier <marc.zyngier@arm.com>,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Christoph Hellwig <hch@infradead.org>, Atish Patra <atish.patra@wdc.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 19, 2019 at 01:28:59PM +0000, Anup Patel wrote:
-> This patch implements keepinitrd kernel parameter. By default,
-> keepinitrd=1 but users can pass "keepinitrd=0" to free-up
-> initrd memory at boot-time in free_initrd_mem() function.
-> 
-> The keepinitrd kernel parameter is already implemented by
-> unicore32, arm, and arm64 architectures and it is documented
-> at: Documentation/admin-guide/kernel-parameters.txt
+On Sat, Jan 19, 2019 at 11:26:22AM +0530, Anup Patel wrote:
+> The plic_toggle() uses raw_spin_lock() and plic_irq_toggle has a
+> for loop so both these functions are not suitable for being inline
+> hence this patch removes the inline keyword.
 
-But why do we need it?  Is there any good reason every not to free
-the initrd / initramfs memory when it is not used?
+I still very much disagree.  Very strongly with the above rationale,
+but also (less strongly) with the decision not to inline here.
 
 _______________________________________________
 linux-riscv mailing list
