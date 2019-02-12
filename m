@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 528F9C282C4
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 07:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CF677C282CA
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 07:12:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 22282217FA
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 07:12:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9E4AD217FA
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 07:12:56 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="R27B/Wcc"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 22282217FA
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BYE0Wogb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9E4AD217FA
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,27 +25,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NWQwbVaS/9EurrG4UiJreq7q2eJZ2iF0T/gwXHkl4jI=; b=R27B/WccJYtM6/
-	8HDslo25AVCJeTqQnnfAfoDx2M9lliboooczTID+2lJ5pLmOATfjMmKv4GoMhJ1liPPfLFkL0tA7a
-	gtLhmSyIv8kUcbVS199lIQByiJoBN/O9BbuXfcOZvcOStHQjhtjvLpf55r5H/5juKsVmc++8l98wc
-	YvltfUOnLj4K5FYN/AFUnfHVtmNp2s6256otitot988E8EdB+k1VW+cZpfPj3jTuvcBaO2fCOpbUi
-	o9fdkazw6Th/05KisRVUqbwGnbHrRPgoclu6UPSRy9oxKrJ5E1+7SmKdxM/PeCSFQacPaX7xmIv0Y
-	NgguFIS5HFq1cjoMPXkA==;
+	List-Owner; bh=zFYhotcO+QN8FfDexQMwZAhLitxL6uxRnKHUufdJGZg=; b=BYE0Wogb0mKArC
+	JKjtCUWGY0KC4uu5uvGz5dUCPElxPrA0UxiDByU1pfWbDjAuBYZHiEAlphfgYjyrn2FBVkBnzbAhM
+	ycg5IExotlR5RjCQLW0cZRCCeMbIxphSNNoeHZX1yp6eVdF3aN6jue8EvGCCnH4L/4uN0WDSWIR2Q
+	xEdhfhp4rELvg+qmuPV9xU0Et92ZfHh9NG5zKcyaT2KplbA3OYgPqvHwruBJ1A6R576oNcFBFCvof
+	or2epIyLw6EvOSQ0302znkX3YS6nmJgcrutuAW4suzbINTBZU4EpOz7Hyl7gMOV6C5kNUtZfnwD5U
+	2jTsTgVuQTofaJB+7CLQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtSEz-0002z0-TZ; Tue, 12 Feb 2019 07:12:25 +0000
+	id 1gtSFR-00038a-RW; Tue, 12 Feb 2019 07:12:53 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1gtSEx-0002w5-Cs; Tue, 12 Feb 2019 07:12:23 +0000
-Date: Mon, 11 Feb 2019 23:12:23 -0800
+ Hat Linux)) id 1gtSFP-00038B-QJ; Tue, 12 Feb 2019 07:12:51 +0000
+Date: Mon, 11 Feb 2019 23:12:51 -0800
 From: Christoph Hellwig <hch@infradead.org>
 To: Johan Hovold <johan@kernel.org>
-Subject: Re: [PATCH 3/5] riscv: fix riscv_of_processor_hartid() comment
-Message-ID: <20190212071223.GJ26747@infradead.org>
+Subject: Re: [PATCH 4/5] riscv: treat cpu devicetree nodes without status as
+ enabled
+Message-ID: <20190212071251.GK26747@infradead.org>
 References: <20190118140308.9599-1-johan@kernel.org>
- <20190118140308.9599-4-johan@kernel.org>
+ <20190118140308.9599-5-johan@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190118140308.9599-4-johan@kernel.org>
+In-Reply-To: <20190118140308.9599-5-johan@kernel.org>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -67,15 +68,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 18, 2019 at 03:03:06PM +0100, Johan Hovold wrote:
-> The riscv_of_processor_hartid() helper returns -ENODEV when the
-> specified node isn't an enabled and valid RISC-V hart node.
-> 
-> Also drop the unnecessary parenthesis around errno defines.
+On Fri, Jan 18, 2019 at 03:03:07PM +0100, Johan Hovold wrote:
+> Follow the Linux convention and treat devicetree nodes without a status
+> property as enabled rather than disabled, while also allowing "ok" as a
+> shorthand for "okay".
 > 
 > Signed-off-by: Johan Hovold <johan@kernel.org>
 
-Looks good,
+Looks good:
 
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 
