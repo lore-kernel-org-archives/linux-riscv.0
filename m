@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 023AEC282DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 11:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 16044C282C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 11:10:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C4FAC2186A
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 11:10:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CE55E2184A
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Feb 2019 11:10:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="c5UnyIze";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="U8tBEyfo"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C4FAC2186A
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VYxr55Yq";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="AIpI+N3i"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CE55E2184A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,50 +27,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=A57V2roDiIPnB41LpU97C67UdyiZZ2y9fphC5t1se/Q=; b=c5UnyIzerfVdYaJNYpqgPBt3de
-	fnkbgarMCb46itZ1UaobWABP2jzj4pk3rTak7UjPifcOEsd4rD3xhTa90+HJYEINz5xQ4gSevMmhV
-	EBDFVlGDon8C8bJL/AWdqBjgEAYExInECi8Ndy6n+0hU4Ky7TcJV3v52E+Dowwc477T5SfWGgqPU8
-	U5EQ5nPDaxd76IlkQ2hp629ZXZeAAXLDNZjP7NVjzJCrXSfGfOgJYwnS25AfwB8K3j5KnmTEdSN8f
-	kfHYEoB3Jax6n1YwUNCMVxDqim9LVEuJl0fWOQMrhyd5JPDNZv2Ij0ZJ/abGmWjNv1ezCYDpiWCTp
-	kGXTeFPA==;
+	bh=Ta9gXPE3TfFK+SXfYXeO+10Ybyu0RNdH1K6svt3iFso=; b=VYxr55YqJgZK8ErbWVY/3O9OLh
+	ymCXB9V5ix/1LQSo47FhOWsYj5TVUMH0poejW1T63wSLx6tcAgT9rS5ZwzfNEYWTOILziEs7Q6SfT
+	pJjzdFekWBeeOgjNe76z+ZJGXmltvLD/IZmpvPhdsrdOJq3girrs3RAqy00Q1GB2Wcig4vPKJHT6X
+	D56ZTWgHsZrkf3iHdpk00bvhVb4IGxrrTL9Ru4xEEwirX7xAJSBjbQahV0KMxwhxlZqM0ML0I6KUx
+	yGMrK+Bs8v+24B5GxoCBqJtQs9Qwf8jwcfU360GWZay+9PHXuJ7MLBNAgWedZ5YUYtJH6lZFehywk
+	gnLZrumQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtVxU-0002zy-3K; Tue, 12 Feb 2019 11:10:36 +0000
+	id 1gtVxX-00034F-9l; Tue, 12 Feb 2019 11:10:39 +0000
 Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtVxN-0002rL-OD
- for linux-riscv@lists.infradead.org; Tue, 12 Feb 2019 11:10:31 +0000
+ id 1gtVxO-0002t4-Gc
+ for linux-riscv@lists.infradead.org; Tue, 12 Feb 2019 11:10:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1549969830; x=1581505830;
+ t=1549969831; x=1581505831;
  h=from:to:cc:subject:date:message-id:in-reply-to: references;
- bh=h2fKv5100GvHj+ysLhrtvyrBQOE+5MV8IiW0LUcjPlE=;
- b=U8tBEyfoJc0nQBJ1mw0ftBp3aG4DSLB4/HtZgKjLrY6iT1bEjxdGI4sK
- zw+Ut60VfeXNULGBXhVUH0j4oRLRLYEmU7Sp9C05BBYRhW2ZGsB1us4hi
- J1peYOLmyY3sPdClSM2/2cgvPAHgiZhkoIMSYDDdCqu0cG5gaDG08hGSc
- /7wyUGBxj3tVU6LkxI9XzghSWIDqiBfgfbY1/M69jA1waESqqaO+5j045
- Jh4SL/pEbjfmjZVL48C/wHjEr008LOs+PSuGTfe3uE7ovXN21TYcFPDyD
- sjmaezIzSzVDTGsZBKO/zN28lP90V1Q/n+7aBbM1v/T8Fi2FxoQ01wmVc Q==;
-X-IronPort-AV: E=Sophos;i="5.58,361,1544457600"; d="scan'208";a="102308187"
+ bh=BXPJoBB0Kgm4J4WvDGeNZxKZbFFkYo9XWYKOd8CvDv0=;
+ b=AIpI+N3iOWFOzoFYe5Q2JVsm2Fv0ldwXov2/cr1ZznIL7aKztwYZHpXK
+ 5lKcJ3M/sWpQV4QBndmDBnSasmWMPdVt6ER0VvqRrBqmAncwMor9zgIaR
+ GtpWzUucE3IWP7e+40iBACS9Zg9y+1JCD3Prq2MriNh6WqQ7qVqvnJpxj
+ Y/NrmSO972wtRcAYktzqC6aSLQCn1YpSmVvjSyXAUaHwr8ujPWQYiCsrF
+ 5JBsX6UM2ogQcm1YKfqJWv/pXk4XSSRvmRD19vaLjfbA3LfooVv9fBkJV
+ 3R6mRyXgczw9NetNWPuHlydRAVWoFyxrDltlJW84CMPn0wWUjoxzFD3cz Q==;
+X-IronPort-AV: E=Sophos;i="5.58,361,1544457600"; d="scan'208";a="102308196"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2019 19:10:21 +0800
+ by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2019 19:10:22 +0800
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP; 12 Feb 2019 02:48:56 -0800
+ by uls-op-cesaep01.wdc.com with ESMTP; 12 Feb 2019 02:48:57 -0800
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 12 Feb 2019 03:10:21 -0800
+ by uls-op-cesaip02.wdc.com with ESMTP; 12 Feb 2019 03:10:22 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
-Subject: [v4 PATCH 2/8] RISC-V: Move cpuid to hartid mapping to SMP.
-Date: Tue, 12 Feb 2019 03:10:06 -0800
-Message-Id: <1549969812-22502-3-git-send-email-atish.patra@wdc.com>
+Subject: [v4 PATCH 4/8] RISC-V: Allow hartid-to-cpuid function to fail.
+Date: Tue, 12 Feb 2019 03:10:08 -0800
+Message-Id: <1549969812-22502-5-git-send-email-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1549969812-22502-1-git-send-email-atish.patra@wdc.com>
 References: <1549969812-22502-1-git-send-email-atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190212_031029_925421_41DBCB95 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20190212_031030_733535_0A8DF693 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,106 +96,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, logical CPU id to physical hartid mapping is defined for both
-smp and non-smp configurations. This is not required as we need this
-only for smp configuration.  The mapping function can define directly
-boot_cpu_hartid for non-smp use case.
+It is perfectly okay to call riscv_hartid_to_cpuid for a hartid that is
+not mapped with an CPU id. It can happen if the calling functions
+retrieves the hartid from DT.  However, that hartid was never brought
+online by the firmware or kernel for any reasons.
 
-The reverse mapping function i.e. hartid to cpuid can be called for any
-valid but not booted harts. So it should return default cpu 0 only if it
-is a boot hartid.
+No need to BUG() in the above case. A negative error return is
+sufficient and the calling function should check for the return value
+always.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 Reviewed-by: Anup Patel <anup@brainfault.org>
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/riscv/include/asm/smp.h | 18 +++++++++++++-----
- arch/riscv/kernel/setup.c    |  9 ---------
- arch/riscv/kernel/smp.c      |  9 +++++++++
- 3 files changed, 22 insertions(+), 14 deletions(-)
+ arch/riscv/kernel/smp.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index 41aa73b4..636a934f 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -19,16 +19,17 @@
- #include <linux/thread_info.h>
- 
- #define INVALID_HARTID ULONG_MAX
-+
-+struct seq_file;
-+extern unsigned long boot_cpu_hartid;
-+
-+#ifdef CONFIG_SMP
- /*
-  * Mapping between linux logical cpu index and hartid.
-  */
- extern unsigned long __cpuid_to_hartid_map[NR_CPUS];
- #define cpuid_to_hartid_map(cpu)    __cpuid_to_hartid_map[cpu]
- 
--struct seq_file;
--
--#ifdef CONFIG_SMP
--
- /* print IPI stats */
- void show_ipi_stats(struct seq_file *p, int prec);
- 
-@@ -58,7 +59,14 @@ static inline void show_ipi_stats(struct seq_file *p, int prec)
- 
- static inline int riscv_hartid_to_cpuid(int hartid)
- {
--	return 0;
-+	if (hartid == boot_cpu_hartid)
-+		return 0;
-+
-+	return -1;
-+}
-+static inline unsigned long cpuid_to_hartid_map(int cpu)
-+{
-+	return boot_cpu_hartid;
- }
- 
- static inline void riscv_cpuid_to_hartid_mask(const struct cpumask *in,
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index fb09e013..61c81616 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -61,15 +61,6 @@ EXPORT_SYMBOL(empty_zero_page);
- atomic_t hart_lottery;
- unsigned long boot_cpu_hartid;
- 
--unsigned long __cpuid_to_hartid_map[NR_CPUS] = {
--	[0 ... NR_CPUS-1] = INVALID_HARTID
--};
--
--void __init smp_setup_processor_id(void)
--{
--	cpuid_to_hartid_map(0) = boot_cpu_hartid;
--}
--
- #ifdef CONFIG_BLK_DEV_INITRD
- static void __init setup_initrd(void)
- {
 diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 246635ea..b69883c6 100644
+index b69883c6..ca99f0fb 100644
 --- a/arch/riscv/kernel/smp.c
 +++ b/arch/riscv/kernel/smp.c
-@@ -36,6 +36,15 @@ enum ipi_message_type {
- 	IPI_MAX
- };
+@@ -60,7 +60,6 @@ int riscv_hartid_to_cpuid(int hartid)
+ 			return i;
  
-+unsigned long __cpuid_to_hartid_map[NR_CPUS] = {
-+	[0 ... NR_CPUS-1] = INVALID_HARTID
-+};
-+
-+void __init smp_setup_processor_id(void)
-+{
-+	cpuid_to_hartid_map(0) = boot_cpu_hartid;
-+}
-+
- /* A collection of single bit ipi messages.  */
- static struct {
- 	unsigned long stats[IPI_MAX] ____cacheline_aligned;
+ 	pr_err("Couldn't find cpu id for hartid [%d]\n", hartid);
+-	BUG();
+ 	return i;
+ }
+ 
 -- 
 2.7.4
 
