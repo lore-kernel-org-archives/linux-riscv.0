@@ -2,83 +2,85 @@ Return-Path: <SRS0=7ZJm=QU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS autolearn=unavailable autolearn_force=no
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8FC97C282C2
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 08:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C0B7C282C2
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 08:44:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5E470222BB
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 08:22:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6E446222B6
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 08:44:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FN4+0IXr";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="mxQubxva"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5E470222BB
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="V70K8UgJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6E446222B6
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J8lWawUIcmxiaYGjkM+w1OxFyCj2bhXm2sqzn5E6TXU=; b=FN4+0IXrtifkVc
-	RNn3xuSNoi8YX86fQBJvEB9oohmqGhYnXG65z0/U5XHTMc8QOBdI8/RNLJxCDAcU9rq/tLU3UOYXP
-	1tTmEuxDXNZou3MjdIROMH01NLXC/qHHplphpMj3kfQ0TXaMasHgPRelXLFJDC0ZHeOmg/1M7pepN
-	dj94e6roaOe/56g5ADRtdd6palDklqKZn/aGfE4h/5VlNeJ2ivAgr61aqYTqsqxg/fyXxyetlyO+s
-	58CenL6hgTpZjiWmURZDZz+O06CU34JqCZHfuRMMDodwFZex9suaNf9xCs4ATZrJHCbc2Lo9G7OyF
-	lsiazRB21gUjtY0Zg3Nw==;
+	List-Owner; bh=5ZN17Kax+XT61EEJCJiO8FHJLvbFpJ7U9hSVmiw5UKo=; b=V70K8UgJ0U/+0d
+	6VDFWiSNceUyAZCGTML3B1naYy0K0h4+YP9eWDTmkuROvJhgsBqR4ErN9WjmkN5MbHIFyDWm57wpK
+	xWNW2B5ZVk2RshzDfV8RaKsKUYHrBYnas/5dI33/is/ionsX/BBm2FPX+ZFGv3anrAWr1+oPCpM/I
+	PmfQHWC0CyzWH+mIOPS3qSp3ECycyFt261Q+FrRDBs1HFz0mFjeyQdPy4N9U/mNVhP9xuPuoJxxub
+	3mYVnN9GVHxP3aE9IICAGTH+xBiOuk59LnOo7dWJr/SwHBua9iATc/jU2DnvNDu0GfkTKjqzFIJtd
+	gjNf94bGQB//2e7cslaw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtpnz-0005rW-Rs; Wed, 13 Feb 2019 08:22:07 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1gtqA2-0007Bk-HC; Wed, 13 Feb 2019 08:44:54 +0000
+Received: from mail-lj1-f196.google.com ([209.85.208.196])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtpno-0005gl-Pl
- for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 08:21:58 +0000
-Received: by mail-wm1-x343.google.com with SMTP id r17so1387913wmh.5
- for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 00:21:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=KCtzblF1jR9J0InpD4f0Wn6K8qgn39HtvksF7U+weeU=;
- b=mxQubxvawRjDb/feJX9gA2kRRytn5nwW6fNlmaQ09uB3tGhWC8g/Le/lwk/5b2qYYS
- v/VFadsIk9rGglWewtmksg8i6h5nMh7K0XQY8HhtYhahQenlebgT4pWK9X4LjYYTsYin
- Ag1dSAiGM9H9Vv7IuHWvbfMCyFQvIbN42FSKFdYqqT+5OQGYVuU5k9l7cUTPMN9+JrEQ
- yBpjE/stdtiLozPiUyRBvwww83D1IDeZgSlx3H/4yedHJqphJRUH4uJ/H/mFpkq5+q4b
- djx37mGUj9PkN/QkmSj1eI6GcboP9IcdgNdCeTzLIrVCEuTQZHwoFrhodzaTty/0WUXB
- rmfQ==
+ id 1gtq9z-0007BJ-VS
+ for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 08:44:53 +0000
+Received: by mail-lj1-f196.google.com with SMTP id g11-v6so1287621ljk.3
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 00:44:51 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=KCtzblF1jR9J0InpD4f0Wn6K8qgn39HtvksF7U+weeU=;
- b=XnqRHt6E/jgouGMW8VqsE4jDsloWjqr6+u/5/X0MUY3PVy1o4GwJcv0g5SoTiLhHpC
- gWk7ADp7xz2PQb5rVhTmwRZq8Z490I6gC1xQSrfxlMeMOM03At0DIyNw5aZqnZzS5+5N
- D8PCaLPBzRBX2PuxSoNe/asOcyEe5rEqKckqvS4gmomcA2Z/3PUvRpYoy9QUN3x41maT
- qzXHF/2rSLxGLhbkaK8vuUbV1plye7lMsP2EegtCoKeeLPgNnzLfFyDo/MtLX+JLFEHn
- ghKl9k1eLv/CUYXx00YmAIMOrAm1V08WyIYK41EZ5GvrBTGEStYzl6fRdiQvJVxb9uGJ
- FQfQ==
-X-Gm-Message-State: AHQUAubxO61Ak2gzhqDfI6k7iottldLp31cPD0a/j7y7hjiwmgftlbBv
- II04uDMCOZH2zU5AspTAcy6LFxtjxrnqmdxaDGLJNw==
-X-Google-Smtp-Source: AHgI3IYOJXhh5BrMsE9kb/yfz3C0meGmQ1t7EEUghhGy0SLqR8+PRrhHhdMBB1zzlPhNl8HtACSDVXlDeRizyYnx35k=
-X-Received: by 2002:a1c:1d15:: with SMTP id d21mr2128285wmd.132.1550046114963; 
- Wed, 13 Feb 2019 00:21:54 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=Izvgryl2iiTiX+PEw/PVUMFMisAtBv+xAMEzVWOHECE=;
+ b=NoqdhJAJ9NkGNAxt/33vu28lut18qE+m9bUCq3PIyJpAjdLAc1/wVUnF/dojOray8c
+ CBdcwlRwlcEZYqmtO8LGkj8wY66SgbZhaG9fn8VDS9Kde27Do8Yf3vp9Trbrt1jMKQLw
+ DsxKNSohJAbS31unMOEw8+KTckHHH/UYB1EG0Oo062f9nDaryC2Lbj+Guif6qXO7OWR5
+ wVQqDwf9Nci0HGE43Lx8M1y/k54282N66pfNqTHNiczyvtEQW191jiXkwX1MrUESXp2W
+ NAbDGYi48iQFadljHM14P+3RtSKjGVk7LxeFDH3vCVVoOvv85YX6SCQAuoAp9UcR4H7W
+ KjmA==
+X-Gm-Message-State: AHQUAuaPPx7LI/Y3hClDe+tzBs7uQjouixTAOYnesWnbEYraCwY7NqtD
+ 0iN/IzHU9hbTiTP9WY/3lrM=
+X-Google-Smtp-Source: AHgI3IZwB4eU9yM/xPqwCI8H6mFu49zMH3KaR9qsu+No+msoLEIPRgPLErKmcDBcq0CkQ2wgHHRswA==
+X-Received: by 2002:a2e:4942:: with SMTP id
+ b2-v6mr4487935ljd.168.1550047489794; 
+ Wed, 13 Feb 2019 00:44:49 -0800 (PST)
+Received: from xi.terra (c-74bee655.07-184-6d6c6d4.bbcust.telenor.se.
+ [85.230.190.116])
+ by smtp.gmail.com with ESMTPSA id t14sm347210lft.96.2019.02.13.00.44.48
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 13 Feb 2019 00:44:48 -0800 (PST)
+Received: from johan by xi.terra with local (Exim 4.91)
+ (envelope-from <johan@kernel.org>)
+ id 1gtq9q-0002gA-9M; Wed, 13 Feb 2019 09:44:42 +0100
+Date: Wed, 13 Feb 2019 09:44:42 +0100
+From: Johan Hovold <johan@kernel.org>
+To: Atish Patra <atish.patra@wdc.com>
+Subject: Re: [v4 PATCH 8/8] RISC-V: Assign hwcap as per comman capabilities.
+Message-ID: <20190213084442.GD28278@localhost>
+References: <1549969812-22502-1-git-send-email-atish.patra@wdc.com>
+ <1549969812-22502-9-git-send-email-atish.patra@wdc.com>
+ <20190212112534.GB28278@localhost>
+ <61766631-42f4-ec25-3b5c-ae892da44ccb@wdc.com>
 MIME-Version: 1.0
-References: <20190119132650.9978-1-anup.patel@wdc.com>
- <mhng-3acc6cf0-4c86-4929-a653-11e87d0c6b48@palmer-si-x1c4>
-In-Reply-To: <mhng-3acc6cf0-4c86-4929-a653-11e87d0c6b48@palmer-si-x1c4>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 13 Feb 2019 13:51:43 +0530
-Message-ID: <CAAhSdy25GUFWfkQHBDy6HysVCVFOpv-ZLY6vr+oH34XbqScYFQ@mail.gmail.com>
-Subject: Re: [PATCH v2 0/6] Fixmap support and MM cleanups
-To: Palmer Dabbelt <palmer@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <61766631-42f4-ec25-3b5c-ae892da44ccb@wdc.com>
+User-Agent: Mutt/1.11.3 (2019-02-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190213_002156_885327_81C213D1 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20190213_004452_013829_2DA3B46F 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,80 +92,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jason Cooper <jason@lakedaemon.net>, Alan Kao <alankao@andestech.com>,
+ Dmitriy Cherkasov <dmitriy@oss-tech.org>, Andreas Schwab <schwab@suse.de>,
+ Anup Patel <anup@brainfault.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Johan Hovold <johan@kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Marc Zyngier <marc.zyngier@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Thomas Gleixner <tglx@linutronix.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 13, 2019 at 4:45 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+On Tue, Feb 12, 2019 at 11:58:10AM -0800, Atish Patra wrote:
+> On 2/12/19 3:25 AM, Johan Hovold wrote:
+> > On Tue, Feb 12, 2019 at 03:10:12AM -0800, Atish Patra wrote:
+> >> Currently, we set hwcap based on first valid hart from DT. This may not
+> >> be correct always as that hart might not be current booting cpu or may
+> >> have a different capability.
+> >>
+> >> Set hwcap as the capabilities supported by all possible harts with "okay"
+> >> status.
+> >>
+> >> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> >> ---
+> >>   arch/riscv/kernel/cpufeature.c | 41 ++++++++++++++++++++++-------------------
+> >>   1 file changed, 22 insertions(+), 19 deletions(-)
+> >>
+> >> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> >> index e7a4701f..a1e4fb34 100644
+> >> --- a/arch/riscv/kernel/cpufeature.c
+> >> +++ b/arch/riscv/kernel/cpufeature.c
+> >> @@ -20,6 +20,7 @@
+> >>   #include <linux/of.h>
+> >>   #include <asm/processor.h>
+> >>   #include <asm/hwcap.h>
+> >> +#include <asm/smp.h>
+> >>   
+> >>   unsigned long elf_hwcap __read_mostly;
+> >>   #ifdef CONFIG_FPU
+> >> @@ -42,28 +43,30 @@ void riscv_fill_hwcap(void)
+> >>   
+> >>   	elf_hwcap = 0;
+> >>   
+> >> -	/*
+> >> -	 * We don't support running Linux on hertergenous ISA systems.  For
+> >> -	 * now, we just check the ISA of the first "okay" processor.
+> >> -	 */
+> >>   	for_each_of_cpu_node(node) {
+> >> -		if (riscv_of_processor_hartid(node) >= 0)
+> >> -			break;
+> >> -	}
+> >> -	if (!node) {
+> >> -		pr_warn("Unable to find \"cpu\" devicetree entry\n");
+> >> -		return;
+> >> -	}
+> >> +		unsigned long this_hwcap = 0;
+> >>   
+> >> -	if (of_property_read_string(node, "riscv,isa", &isa)) {
+> >> -		pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
+> >> -		of_node_put(node);
+> >> -		return;
+> >> -	}
+> >> -	of_node_put(node);
+> >> +		if (riscv_of_processor_hartid(node) < 0)
+> >> +			continue;
+> >>
+> 
+> >> -	for (i = 0; i < strlen(isa); ++i)
+> >> -		elf_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
+> >> +		if (of_property_read_string(node, "riscv,isa", &isa)) {
+> >> +			pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
+> >> +			return;
+> > 
+> > Did you want "continue" here to continue processing the other harts?
+> 
+> Hmm. If a cpu node doesn't have isa in DT, that means DT is wrong. A 
+> "continue" here will let user space use other harts just with a warning 
+> message?
+> 
+> Returning here will not set elf_hwcap which forces the user to fix the 
+> DT. I am not sure what should be the defined behavior in this case.
 >
-> On Sat, 19 Jan 2019 05:27:53 PST (-0800), Anup Patel wrote:
-> > This patchset does:
-> > 1. Moves MM related code from kernel/setup.c to mm/init.c
-> > 2. Implements compile-time fixed mappings
-> >
-> > Using fixed mappings available, we can now get earlyprints
-> > even without SBI calls. For example, we can use kernel
-> > parameter "earlycon=uart8250,mmio,0x10000000" to get early
-> > prints on QEMU virt machine without using SBI calls.
-> >
-> > The patchset is tested on QEMU virt machine. It is based on
-> > Linux-5.0-rc2 and can be found at riscv_fixmap_v2 branch of:
-> > https://github.com/avpatel/linux.git.
-> >
-> > Changes since v1:
-> >  - Use more characters per line in changelog of PATCH3
-> >  - Removed #ifndef __ASSEMBLY__ from PATCH5
-> >  - Use more characters per line in commets of PATCH5
-> >  - Added PATCH6 to implement keepinitrd kernel parameter
-> >
-> > Anup Patel (6):
-> >   RISC-V: Move free_initrd_mem() to kernel/setup.c
-> >   RISC-V: Setup init_mm before parse_early_param()
-> >   RISC-V: Move setup_bootmem() to mm/init.c
-> >   RISC-V: Move setup_vm() to mm/init.c
-> >   RISC-V: Implement compile-time fixed mappings
-> >   RISC-V: Implement keepinitrd kernel parameter
-> >
-> >  arch/riscv/Kconfig               |   3 +
-> >  arch/riscv/include/asm/fixmap.h  |  44 +++++++++++
-> >  arch/riscv/include/asm/pgtable.h |   1 +
-> >  arch/riscv/kernel/setup.c        | 114 ++++++----------------------
-> >  arch/riscv/mm/init.c             | 124 ++++++++++++++++++++++++++++++-
-> >  5 files changed, 189 insertions(+), 97 deletions(-)
-> >  create mode 100644 arch/riscv/include/asm/fixmap.h
->
-> I'm getting some git issue when trying to merge the third patch via email
->
->     $ mhng-pipe-show_stdout 4 | git am -s
->     Applying: RISC-V: Move setup_bootmem() to mm/init.c
->     error: patch failed: arch/riscv/kernel/setup.c:163
->     error: arch/riscv/kernel/setup.c: patch does not apply
->     Patch failed at 0001 RISC-V: Move setup_bootmem() to mm/init.c
->     Use 'git am --show-current-patch' to see the failed patch
->     When you have resolved this problem, run "git am --continue".
->     If you prefer to skip this patch, run "git am --skip" instead.
->     To restore the original branch and stop patching, run "git am --abort".
->
-> can you send a PR with a signed tag?  I'll include this as part of the next
-> merge window.
->
-> Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
+> Any thoughts ?
 
-Okay, I will prepare a PR with following patchsets:
-1. Fixmap support and MM cleanups (Author: Anup Patel)
-2. riscv: minor fixes and cleanups (Author: Johan Hovold)
-3. RISC-V related changes from "Various SMP related fixes" (Author: Atish Patra)
+The problem is that the proposed code might still set elf_hwcap -- it
+all depends on the order of the hart nodes in dt (i.e. it will only be
+left unset if the first node is malformed).
 
-All above patchsets touch same source files so this will
-help you.
+For that reason, I'd say it's better to either bail out (hard or at
+least with elf_hwcap unset) or to continue processing the other nodes.
 
-Regards,
-Anup
+The former might break current systems with malformed dt, though.
+
+And since the harts are expected to have the same ISA, continuing the
+processing while warning and ignoring the malformed node might be
+acceptable.
+
+Johan
 
 _______________________________________________
 linux-riscv mailing list
