@@ -2,142 +2,145 @@ Return-Path: <SRS0=7ZJm=QU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.0 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 22260C282C2
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 07:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BF54AC282CE
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 08:07:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E6ADD222BA
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 07:49:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8F0F7222B5
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 08:07:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Nl+BX4V8";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="MTKDj4CX";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="OzaTj33T"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E6ADD222BA
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VzfNxeGZ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="MRVfA4mp";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="n9U81Ohf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8F0F7222B5
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lvsdSoWj7TOWC9fgGvL6f/ehLGxK8fuwIRfafXF2/NA=; b=Nl+BX4V8ijYviV
-	ChmEePvMA8KGjsTx41eRk5xMZED2hrBWIkutQex1hGCbuvOO0zaX50iTNkmc0WtS+ddSnMR8/p+pa
-	uXc1Lq+VQyBLHw1Dv5eZ9Bwdm59h7SR09SkoJEY8vuj3CQBK0A1wqJLzMOC0QDdjBa67a+GKbkSm3
-	dhwqLBSAWa6W3+TI7A1QbHR16qCQJTXQE5XREgSu+dDbKGeU0nU+MN3IY6B2TBE9UC03j0hg21Jr3
-	ym901bgv9Eknga0BzOOJXhPRKEqNA8EgvX1CRZggBFJbK5X2wMQFqZQ4v6vHF/GE3uGmmEf6o5lo1
-	L5rNFWy4XjWHEQv+FtmA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pmLt5Bfe8kELhTNq0QGWgolifEZCIvf0DpeIjc+k8lQ=; b=VzfNxeGZOoVI2M
+	9Mx4WavsyikfmVaxVnVBrgBcauk7C/kRrrEgRbsmb3IrqnGJlLei/GSqFfPFP59fXhBdBfDCalAOi
+	aInQ+/n6/lzxxAGEVAIx4KIVR3pBfhkMToyQsS8cvGNgTJKjB45IaHzM5R5REm7Ax21sdcEk/SBO9
+	1T+5xA8vf/F4mRIHMIqTBqBc6+YhCVxhP64l1HRl4VNWA6chEa5i/Ogpfqz3eP8o2phv4NEOeQ5/E
+	b/zPKz4ghUV4ZDFDGcDvfzs0WPZYugXfEXUOHNCXUzcg/UxlDWbnEk2SNpJ/9vcdojZFB1KEKAQni
+	UbVMtKmC7kXqF96QKBYw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtpIg-0002Up-4F; Wed, 13 Feb 2019 07:49:46 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1gtpZe-0000M0-Uk; Wed, 13 Feb 2019 08:07:18 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtpIc-0002UQ-Ns
- for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 07:49:44 +0000
+ id 1gtpZc-0000Ld-4G
+ for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 08:07:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1550044182; x=1581580182;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-transfer-encoding:mime-version;
- bh=10LKNl0rya7UiDduqXXjWfStYMavURyHQmrOFPcRTvo=;
- b=MTKDj4CXw/lRbxCEA8Xu8yK07N39+6XqFSv+IP9NaORP2EVbu83DzNbn
- aC9IQw6GJWSR5TU/tpsO00CmI2Zq08LP9L2aI5hMKg6OYNDOZ7GJkQ0EH
- f3Ei3nHm6ge/H6uaQbNEbAH6Nf6HnLlLplGrNWBLmnsDmgK7SZ+L61azl
- A9U0fL5z2yOFJ92AJltBs8fU/NcxAFRE2NWlgLUvUHAmVFb4BuTfCW6Ld
- 97oKhlS04iGeFH6StX6v6yxYSGtkBIS/EQl0+XyGb9I+jhZIsPqvDrjAh
- g+Ej0T78fxz/ZEGM8M4vIoD0gunOWDEU/2r3K+5LrnUUIHlNMKnZtNPJR Q==;
-X-IronPort-AV: E=Sophos;i="5.58,365,1544457600"; d="scan'208";a="102867437"
-Received: from mail-by2nam05lp2055.outbound.protection.outlook.com (HELO
- NAM05-BY2-obe.outbound.protection.outlook.com) ([104.47.50.55])
- by ob1.hgst.iphmx.com with ESMTP; 13 Feb 2019 15:49:41 +0800
+ t=1550045237; x=1581581237;
+ h=from:to:cc:subject:date:message-id:
+ content-transfer-encoding:mime-version;
+ bh=6WeSCiRSu6UdblUgBrYgCaXXRhmyt197U9/hWBfuA7o=;
+ b=MRVfA4mpv1bJl/3nIf91CKmc2pj4qJI3gEW0yeeSUfpPQ46GkR+wwAeB
+ 7zPSncbkRYD0zukK7JvE5Pz0fr7m3F41LO4GhAGKi7guPcYzYF9j/nSTB
+ lZQOFLrATy8kFoa4rtpp9pFHTXOHlxeTtD114ehwtIwG9vHCT0BKdAYGJ
+ j0QikOs8M1O+YMDu6Zlv2Cr878eUGFjKFeT7+/JUorswFSDeWrvVW3S9q
+ SttTBOkv70rAwdTWUZX3wQJMknIHtyTJy8/CVG2o0JsW5G0piwmOD3mlv
+ YY0lDitoZ2KJDf54jGj1GXS0ZI6+Gk5E/9Hhfm0KI2fVVjK2SQLziWzuc g==;
+X-IronPort-AV: E=Sophos;i="5.58,365,1544457600"; d="scan'208";a="101081325"
+Received: from mail-co1nam05lp2054.outbound.protection.outlook.com (HELO
+ NAM05-CO1-obe.outbound.protection.outlook.com) ([104.47.48.54])
+ by ob1.hgst.iphmx.com with ESMTP; 13 Feb 2019 16:07:14 +0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YMct5sjsE/LEJf6skM2WjLnLw0RFLIEMPAOzaCMIZG8=;
- b=OzaTj33TxroT+L0VIaboey36tGONmqqTLFioKAUHZmjeA1PyXa4UQALvLq0QGsi/F/D5RAtb5Y8eztQZBjnULtR8lWblWJQnX/Pc+gsMFF93CoPlTaeEp0eYG+VeSFSmnxDGsAi1FUqR8ItDguDjN3JmCT+Gb6mf+/whIQzKKaw=
+ bh=j0ZBb4vmRQGDf4po6uKrZaPgqM/+l2NS4IFjm7csBTE=;
+ b=n9U81Ohfg9ezrXkIZANdoGZMZci/dlWuD3RzR9yNKxQ3n/9+Dkph2PDgbqlF5kQ+Sdunc8GzFwLyCegAFDWvFXWRdG1wDAbCOmvS+9khGOqGVE+NpCqKPPVjxsFxHxoJUdv5O23DQEB9NqKkHksoteSEjuQf7Gt2J0s/ZUs5678=
 Received: from DM6PR04MB6059.namprd04.prod.outlook.com (20.178.226.89) by
- DM6PR04MB5849.namprd04.prod.outlook.com (20.179.51.141) with Microsoft SMTP
+ DM6PR04MB5993.namprd04.prod.outlook.com (20.178.225.146) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1601.21; Wed, 13 Feb 2019 07:49:39 +0000
+ 15.20.1622.16; Wed, 13 Feb 2019 08:07:12 +0000
 Received: from DM6PR04MB6059.namprd04.prod.outlook.com
  ([fe80::d006:5be7:c3f:ba6c]) by DM6PR04MB6059.namprd04.prod.outlook.com
  ([fe80::d006:5be7:c3f:ba6c%2]) with mapi id 15.20.1601.023; Wed, 13 Feb 2019
- 07:49:39 +0000
+ 08:07:11 +0000
 From: Anup Patel <Anup.Patel@wdc.com>
-To: Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>
-Subject: RE: [PATCH v4 6/6] RISC-V: Free-up initrd in free_initrd_mem()
-Thread-Topic: [PATCH v4 6/6] RISC-V: Free-up initrd in free_initrd_mem()
-Thread-Index: AQHUw2XhneCVLsk8fkmL4zO8eU0wjqXdSEuAgAAPKgCAAALWoA==
-Date: Wed, 13 Feb 2019 07:49:39 +0000
-Message-ID: <DM6PR04MB60598585C233303817F4793B8D660@DM6PR04MB6059.namprd04.prod.outlook.com>
-References: <20190213063127.28703-1-anup.patel@wdc.com>
- <20190213063127.28703-7-anup.patel@wdc.com>
- <20190213064419.GA27012@infradead.org> <20190213073835.GA18267@rapoport-lnx>
-In-Reply-To: <20190213073835.GA18267@rapoport-lnx>
+To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH v5 0/6] Fixmap support and MM cleanups
+Thread-Topic: [PATCH v5 0/6] Fixmap support and MM cleanups
+Thread-Index: AQHUw3MfSMgaYNX/s0uqtVAV6C/Fpg==
+Date: Wed, 13 Feb 2019 08:07:11 +0000
+Message-ID: <20190213080647.68204-1-anup.patel@wdc.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
+x-clientproxiedby: MA1PR01CA0140.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:35::34) To DM6PR04MB6059.namprd04.prod.outlook.com
+ (2603:10b6:5:129::25)
 authentication-results: spf=none (sender IP is )
  smtp.mailfrom=Anup.Patel@wdc.com; 
+x-ms-exchange-messagesentrepresentingtype: 1
+x-mailer: git-send-email 2.17.1
 x-originating-ip: [129.253.179.161]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 6efb6ebd-775f-4fd8-cd86-08d69187ce92
+x-ms-office365-filtering-correlation-id: c6d6b75d-6541-43dd-f9bb-08d6918a41e3
 x-ms-office365-filtering-ht: Tenant
 x-microsoft-antispam: BCL:0; PCL:0;
  RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600110)(711020)(4605077)(4618075)(2017052603328)(7153060)(7193020);
- SRVR:DM6PR04MB5849; 
-x-ms-traffictypediagnostic: DM6PR04MB5849:
+ SRVR:DM6PR04MB5993; 
+x-ms-traffictypediagnostic: DM6PR04MB5993:
+x-ms-exchange-purlcount: 1
 wdcipoutbound: EOP-TRUE
-x-microsoft-exchange-diagnostics: =?us-ascii?Q?1; DM6PR04MB5849;
- 23:9CYY7RQ4Zkqdnu6yBmgjNiQrNfIB6uGw74Gdjhl5h?=
- =?us-ascii?Q?hvi4xBj5c7HqH52tBQCuqBB6E9r0mn5nidHNb/4P0wROl75tKcgWdJ8WZw2Y?=
- =?us-ascii?Q?ANO3Bz+BUhr170z2oh4HSdFUkHULzhQP1IOkoUGQySK9KO2dRqO7hrdq+H/e?=
- =?us-ascii?Q?2PIvTVrt8R8EulqkT1KS9luzPhFdzuKx7jlBYsGwydum/S7EXr8hsOaizfeS?=
- =?us-ascii?Q?8MeU6350pX8r8itW9vhX2TfM0fV351yuEaAlPHW1abgYDEoQ2j06ADeahZ7O?=
- =?us-ascii?Q?FYfOLP7DA5z3S0NADq3Na4WrPNA92YdUYGA4CT5D+/IE9Y6AVzTXwsqjUnOn?=
- =?us-ascii?Q?j9BtDzevaKApLBp+biNagaLD2GN5CFXtoJAdhzLyM+0da+5HYauU0+AsFSSC?=
- =?us-ascii?Q?kXeA7YCEovafL2D8fLtsTQHuoQOqwyJ7sNkYrAVZmoPRRWJWiScLp/81XCxK?=
- =?us-ascii?Q?5iYzuvL/ATvHnCq+k2VldR+kql/yQIFAOIls4plv5O978hL3CY+s9cSufunu?=
- =?us-ascii?Q?da6w5OSlKKnGizK+QIGcUFqWZwxjZr3v9yAMACeFNJ6GhoHCeLHBVi4b6R17?=
- =?us-ascii?Q?Af2mKgU3Dkneyphn3jgRmYpxbQeuHZy46j0cRKSX/pX+D7PLKKTiE9imugpz?=
- =?us-ascii?Q?M3AIEnht+fuWoy/US7rf77Q/Mh1XkiLMUzhY3hdUuPO9IsRzxgT4mW4LoZoF?=
- =?us-ascii?Q?UCPFzwUMSIW5AqS+OQMHtJOf/lmlk6/QHE9WRGX8BlepHjsRYRcmgjfxVK0F?=
- =?us-ascii?Q?J5H60WI4xPzlF143dqQJ48sX91TftVrUR+KZLGr/DJqMHyawzpi0bo9OQ0Kj?=
- =?us-ascii?Q?OcTjs8DcNGQeI0EoGm4BaULma371akWeSk8UXFSBBBk85K7cxArJh0qVRnvt?=
- =?us-ascii?Q?oD5aa4sqCvIpeCYGIOkX/Xv/XxkmKmg5cGE9GlKpXdzBRwYZNqyAetEFZDtl?=
- =?us-ascii?Q?Qn1OMdSVdn7vl+46kOb29QeEHyIvxMnpYOUzsk5cbGemEUmk04dRACoHqcep?=
- =?us-ascii?Q?oiyUKjoBn8vXTpEWRuvF0pvPflYRIac9TvdrrwQkXyM/0KoOLtbfwWwgqF/u?=
- =?us-ascii?Q?SF69l3KKaYyZjqxQt8xNUXMnW0JPOtA8qnkwUR0rXXmYah10VMkXOozXb3fL?=
- =?us-ascii?Q?gzJGprAvO5BM66+YPKzi0iKpyXrVXjDdX8oWU/rqVFmRLARraoVCWX7pIsu/?=
- =?us-ascii?Q?Wa8ExowhFj4GUv1aPTNTwPxDc/i6dOacT92nmOi4Ophq8JLPlmEXklc5zXQJ?=
- =?us-ascii?Q?t83EFScJtyzaTfLLcjj6yQ/BEe2nsnBDqA9rs+xLAkInQLXZH1BzxNpzfMwm?=
- =?us-ascii?B?QT09?=
-x-microsoft-antispam-prvs: <DM6PR04MB5849162141700B47F66550028D660@DM6PR04MB5849.namprd04.prod.outlook.com>
+x-microsoft-exchange-diagnostics: =?iso-8859-1?Q?1; DM6PR04MB5993;
+ 23:Ho7w9jEDNvJHcWEiUUO/PrC8y/wO6xUglCrwNcD?=
+ =?iso-8859-1?Q?THSWhJRpP/U76jMOf19fc4j3s6aO1rB+oZfqAQKB/k5/5rEFBoPoxShTJw?=
+ =?iso-8859-1?Q?YwpuRDjjYgxf6WtDRepBJXuNEHRKcA6/Ve1kdUNSqfzyS8wnIAL5LEUXKH?=
+ =?iso-8859-1?Q?y/pgAn6OF/cnWXL+0Wvg2+QZDdtKiVMSzP30MeqF0OC7BqoxApYHBX0W57?=
+ =?iso-8859-1?Q?iXdRyyHIJfgvidhtidVfbTzfU6xkPYmeHcIRS4gSgGzi/I1S41LqX3ozvS?=
+ =?iso-8859-1?Q?RSG76ZCu1IVxQkko39hR5QvLj8t88s/pCDI194zCEgGwAAot9IMvU6Dn8o?=
+ =?iso-8859-1?Q?Ne8yOt1RZeaBGU72ebRxC8YTMCx2MTQfhuTM3C4RyUwrehe3ObRj0EWzUn?=
+ =?iso-8859-1?Q?eSrp67DiY6BTEmdWDoqETHGF+M+HI2+RQNp+2R4ViRPzzhYTiyhL7Y+O7g?=
+ =?iso-8859-1?Q?5K87I07ENnBEyrFrrCKNv1BReyCfE+hDByppLAb6SsdoU91KLanJ7A7IbA?=
+ =?iso-8859-1?Q?1MxCHeECcymUEsd0bPBjRDBHUJ26r2plGsVGO4v8qBs3bI6UIJS2Zf7eEn?=
+ =?iso-8859-1?Q?39dpEYtD1IO/mEtXxv5Jltvdfl2b/5ZrmXDgXECvp/JY2NEG+x4gH1PpGv?=
+ =?iso-8859-1?Q?kKLs/Tia5Gem7FutA3pjvBwE2RfBJsDTpfRswBDQQecjxXvFPLOQf09p5f?=
+ =?iso-8859-1?Q?f7YeDDEgmDL821oKEiutotSq47WgxlEGfqFQIo6LiT1lz5aMozBTavmqHS?=
+ =?iso-8859-1?Q?15sqr9G+qOQcTs69lYit8KmEZkhFoxYnQMQ8lSWdpGY88NT8V3ChNIGbAB?=
+ =?iso-8859-1?Q?F6PlCG4lTSRkMIIYfSSMVbqhy5JWzCxGQNn+3p7WVwz5VrcQLbR8FutE0B?=
+ =?iso-8859-1?Q?CbZsBw3aCqJSUC5qUS/vgw/hVCZbmOViadRp64S6wkMpLJWdRIgUjTn5+G?=
+ =?iso-8859-1?Q?IW78AJV+NoC9xDIQsY86LTkj5eJ0LcJa9Ddwsc9QVHNn8PKPid9GS+jWtb?=
+ =?iso-8859-1?Q?JylVckdceTozARdrCPcfKDe3pRYxgffCASzRZfF2VDZ0pfPS5WWE+7xRCD?=
+ =?iso-8859-1?Q?78eJH1+KFcllFVsdWLh0BYdkBQzJHH2quDZcUtvaFTLG+hsqLOIYzDkxab?=
+ =?iso-8859-1?Q?iILP6D41TRpBiXWi8OURHVv0t1D4KlgjdoAN9QSzdZtiJTW/oBWOL9XmyD?=
+ =?iso-8859-1?Q?k0hV9SO+Sm/vljk9BCKaVfbIbblhAraLZXuAtconBw4UdjieZTypt8WpuB?=
+ =?iso-8859-1?Q?CJTJc47K6uC8F/CtMAMbr1G+f1J16kLYl+fowR9yPZyaoTdep+ndvTA+39?=
+ =?iso-8859-1?Q?sM=3D?=
+x-microsoft-antispam-prvs: <DM6PR04MB59939DDAAEECE563F326EDD08D660@DM6PR04MB5993.namprd04.prod.outlook.com>
 x-forefront-prvs: 094700CA91
 x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(136003)(366004)(39860400002)(346002)(396003)(376002)(13464003)(189003)(199004)(51914003)(6246003)(68736007)(305945005)(229853002)(81166006)(74316002)(6116002)(8676002)(81156014)(256004)(14444005)(7736002)(3846002)(106356001)(8936002)(105586002)(6436002)(316002)(97736004)(2906002)(53936002)(86362001)(54906003)(110136005)(9686003)(99286004)(55016002)(11346002)(446003)(76176011)(66066001)(486006)(14454004)(478600001)(7696005)(102836004)(186003)(72206003)(53546011)(93886005)(71190400001)(33656002)(6506007)(25786009)(71200400001)(4326008)(26005)(476003);
- DIR:OUT; SFP:1102; SCL:1; SRVR:DM6PR04MB5849;
+ SFS:(10019020)(39860400002)(396003)(376002)(346002)(136003)(366004)(54534003)(199004)(189003)(6512007)(99286004)(53936002)(50226002)(6306002)(386003)(6116002)(52116002)(105586002)(3846002)(106356001)(110136005)(6506007)(25786009)(256004)(54906003)(86362001)(6436002)(316002)(2171002)(36756003)(6486002)(97736004)(4326008)(81166006)(66066001)(8676002)(68736007)(102836004)(72206003)(476003)(2906002)(81156014)(1076003)(966005)(14454004)(71200400001)(71190400001)(8936002)(7736002)(305945005)(26005)(186003)(486006)(2616005)(478600001)(44832011);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:DM6PR04MB5993;
  H:DM6PR04MB6059.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
+ PTR:InfoNoRecords; A:1; MX:1; 
 x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: odDcxrD0/dzXEHIjbHITVaUI7JewdazFIyPaZRZ/ZiZ7GaSn08upieLID2/rJsOYwy+i0TKm+9+cOpR86ehUqvH10/rV4Fqb/enGqhC39Cf1PEowDwlIiRCgWH0KDGhCigsnq7wyMEGRxfRBQqe0xATR542E9fgwU8C/4ZHooRyTrRGIbvyX3TloR+c0gQzBe/sxNBegl2QHkKaZIDn+oIQyrgMBN/jeoUcAq/WCdyWMuthGjoNaFIL0/Wg0gPpChsVFSNGhVk00jqig8hCPVNTWNPcnX4pbj9aMwQa5tlsrBdmnJxeFVNYLsFZsyirQ8PmTo+km7yVrueYCmB2t2PslduMv3u3FJq2+BjyRdTOjNABzPLHDUWthcFInA0/tMDE2kGAc3wZ2Aqz3v+V6R9b01LS9DiYAWzeaneqz+z4=
+x-microsoft-antispam-message-info: yHUIUzrO3dCajqQ0iXQYnwg86pJBJ+pM7IGoeNHOWDJMLBYnsGyskuQlvxbBiT8YwH3T8ehxNlJBTCKpGB0KqVSQBLv+9PK64Ys1djVlen+cdQk/V0Yz7yuTxf5qYfz4zzDp4n237Kpy30nhkfTiEbzaEA7ZFJ0jyLLoGqF2nIq2hVw1JUQ6UHg+bL7lQN15stvBoD1dzm2GIAfG7R+PNeO6CtQAib5FewmiI8PcA++80WwyLEemO0iaeIPdsedRbc1k7UawjQozUNKcoyrH/Xxzf50mdY9/eMw8sXyqp0tC+MHsGa7xVspVcwM0zpTI3YhTbZTcYCF+QnBBGEJW2/NLDdYcgxmompjV+YLKgerbCSkvBkjBG+CbQ0Q57IKI+dqin3FtjAINgCkadvhTh1rk7X/yRxN1W0ORMzmp1Qc=
 MIME-Version: 1.0
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6efb6ebd-775f-4fd8-cd86-08d69187ce92
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Feb 2019 07:49:39.0602 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6d6b75d-6541-43dd-f9bb-08d6918a41e3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Feb 2019 08:07:08.5625 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB5849
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB5993
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190212_234942_882738_B0605A37 
-X-CRM114-Status: GOOD (  24.12  )
+X-CRM114-CacheID: sfid-20190213_000716_215647_43B640F6 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -149,8 +152,9 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
+Cc: Anup Patel <Anup.Patel@wdc.com>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
  Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
@@ -158,55 +162,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This patchset does:
+1. Moves MM related code from kernel/setup.c to mm/init.c
+2. Implements compile-time fixed mappings
 
+Using fixed mappings, we get earlyprints even without SBI calls.
 
-> -----Original Message-----
-> From: Mike Rapoport [mailto:rppt@linux.ibm.com]
-> Sent: Wednesday, February 13, 2019 1:09 PM
-> To: Christoph Hellwig <hch@infradead.org>
-> Cc: Anup Patel <Anup.Patel@wdc.com>; Palmer Dabbelt
-> <palmer@sifive.com>; Albert Ou <aou@eecs.berkeley.edu>; Atish Patra
-> <Atish.Patra@wdc.com>; Paul Walmsley <paul.walmsley@sifive.com>; linux-
-> riscv@lists.infradead.org; linux-kernel@vger.kernel.org
-> Subject: Re: [PATCH v4 6/6] RISC-V: Free-up initrd in free_initrd_mem()
-> 
-> Hi,
-> 
-> On Tue, Feb 12, 2019 at 10:44:19PM -0800, Christoph Hellwig wrote:
-> > On Wed, Feb 13, 2019 at 06:32:24AM +0000, Anup Patel wrote:
-> > > index 9cd583b6d1cd..c22b873de856 100644
-> > > --- a/arch/riscv/kernel/setup.c
-> > > +++ b/arch/riscv/kernel/setup.c
-> > > @@ -97,8 +97,9 @@ static void __init setup_initrd(void)
-> > >  	initrd_end = 0;
-> > >  }
-> > >
-> > > -void free_initrd_mem(unsigned long start, unsigned long end)
-> > > +void __init free_initrd_mem(unsigned long start, unsigned long end)
-> > >  {
-> > > +	memblock_free(__pa(start), end - start);
-> >
-> > I'm pretty sure this should be a call to free_reserved_area instead.
-> >
-> > All regions reserved using memblock_reserved and not freed before
-> > initializing the MM are marked reserved and don't have valid page
-> > counts, etc.
-> >
-> > So we need the actions in free_reserved_area to actually make the
-> > memory useful.  Now every other architecture except for arm64 seems to
-> > do fine without a memblock_free.  I'm not an expert on memblock (but
-> > I've CCed one), but I guess the reason is that once the kernel has
-> > booted we don't really care about freeing memblock area.
-> 
-> This late in the boot process there should be a call to
-> free_reserved_area() to give pages to the buddy allocator.
-> 
-> memblock_free() is has no real effect at this point, no idea why arm64 calls it.
+For example, we can now use kernel parameter
+"earlycon=uart8250,mmio,0x10000000"
+to get early prints on QEMU virt machine without using SBI calls.
 
-Thanks for the info. I will update this patch to use free_reserved_area().
+The patchset is tested on QEMU virt machine. It is based on
+Linux-5.0-rc6 and can be found at riscv_fixmap_v5 branch of:
+https://github.com/avpatel/linux.git.
 
-Regards,
-Anup
+Changes since v4:
+ - Use free_reserved_area() instead of memblock_free() in PATCH6
+
+Changes since v3:
+ - Re-worked and simplified PATCH6
+
+Changes since v2:
+ - Fixed commit description of PATCH6
+ - Ensured commit description of all PATCH use upto 72
+   characters per line
+
+Changes since v1:
+ - Use more characters per line in changelog of PATCH3
+ - Removed #ifndef __ASSEMBLY__ from PATCH5
+ - Use more characters per line in commets of PATCH5
+ - Added PATCH6 to implement keepinitrd kernel parameter
+
+Anup Patel (6):
+  RISC-V: Move free_initrd_mem() to kernel/setup.c
+  RISC-V: Setup init_mm before parse_early_param()
+  RISC-V: Move setup_bootmem() to mm/init.c
+  RISC-V: Move setup_vm() to mm/init.c
+  RISC-V: Implement compile-time fixed mappings
+  RISC-V: Free-up initrd in free_initrd_mem()
+
+ arch/riscv/Kconfig               |   3 +
+ arch/riscv/include/asm/fixmap.h  |  44 +++++++++++
+ arch/riscv/include/asm/pgtable.h |   1 +
+ arch/riscv/kernel/setup.c        | 107 +++-----------------------
+ arch/riscv/mm/init.c             | 124 ++++++++++++++++++++++++++++++-
+ 5 files changed, 180 insertions(+), 99 deletions(-)
+ create mode 100644 arch/riscv/include/asm/fixmap.h
+
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
