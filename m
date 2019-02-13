@@ -2,146 +2,91 @@ Return-Path: <SRS0=7ZJm=QU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B58B5C282C2
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 11:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 129C5C282CE
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 12:34:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 835EA222B5
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 11:54:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D7854222B2
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 12:34:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QDxqhOLs";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Qj1R679D";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="mwIr/vyP"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 835EA222B5
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="g9RQ6JbR";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="q0dGi8AW"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D7854222B2
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0H1h/FDguWf8qEwcHNfZnKt4Bt6BdVac3oBYfq/69r4=; b=QDxqhOLsU4FzxL
-	MWyjf8ld81nir+j9pkf8cmQpYWjwjo4B5FVy2HCE3A9v776GRuB+bXC/+oIyaz0oQdXtQfiof6fPz
-	gl5XgNo7CV4LQDK01LaYizyranIN/wfWNMqd/L8qlcinoMUUgAOEll3LKu+3yGO/w/UpyUdsdJhcd
-	slbb2zAlEL4SoGroYAlIGzWu5q5QIvpkYnY0NDFk9TcXzBSGMjBdKGYOlC0GujkZ1jC3gApUydSjo
-	zxeDrDJIaHFjgp9wZEBT+e1btqhiQjNsc9UgR6zAamFwA6afKkpycIHjUwBoUk9MDiDMOlaMYPlxK
-	8tBUG/zu20reSH5/aVeg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=xMqtZpoFJajud0dRzt0y/RZw9cOysPPedcpMN5KjSEc=; b=g9RQ6JbRjVWgOb0GWDlg7qmPJ
+	4j1QOXZfmre43MauKz8eppkMzBchrtTZLOCzIjHBBjq3T051K2D+uo2oGDsEQASFcU9LwHHrCvMl7
+	71hjnCIH6UA23/9a/tD3FcQ+ijpGxtCQShGQbaBgTp11JofTKyUkXOwyrqQ510uDBagnxMsNhhTWG
+	XUKrh4Gr5k6UWbrp2bba2GWT+xM2QQvQsEJtqvDZMLpBOOCUB9rmCwInqQFz61eWaBIsY8fA898yd
+	IK4SUxE8DdVP3ZjZcac0ILgA9utycx0DZjxxgRzriOo3Y+JgkXKNBynJgcpIUrmD10AY1irL9Vgxt
+	uuzA5flvA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtt78-0007wk-Lr; Wed, 13 Feb 2019 11:54:06 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1gttk1-00062O-SG; Wed, 13 Feb 2019 12:34:17 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtt6w-0007gU-Ss
- for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 11:54:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1550058835; x=1581594835;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-transfer-encoding:mime-version;
- bh=hdynpLsXwVKwcClFb4N8UkG4HyfxmZo8SJfWqKU4gbc=;
- b=Qj1R679DPDvmB8xfHcLZQNMsC0DISurXId4XBs0G75XBmToKnqgKnvc5
- DMoZlthGd1Z5I/ojTXYLU6/RpMQG8ADgiAv+VNPXauJXKYKTlb5B02HD5
- k+VSOY54OMDBQuZhNTw+hhKuav8HfLWhhtnv8P1O8bp2a/fh0MXen52Wl
- xLocdrGMAnB/hwFN+vfeUbLY8T8xJT3zmgm25bMD+e82BsZgIT7auL2Du
- opI/g5xD16Y5YyDOCPIvB8lIcPW44Tz1XyftWYZgu4yxz9YUnLZFBoU5a
- hbOVD4XyH84vlcT+ytmlur6sHIPEDeZC4GvaWzScEXUYdVJJyGTmQM3T9 A==;
-X-IronPort-AV: E=Sophos;i="5.58,365,1544457600"; d="scan'208";a="101095245"
-Received: from mail-by2nam01lp2050.outbound.protection.outlook.com (HELO
- NAM01-BY2-obe.outbound.protection.outlook.com) ([104.47.34.50])
- by ob1.hgst.iphmx.com with ESMTP; 13 Feb 2019 19:53:53 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bZN5zUH1x1xZWl7BtTWHLtybsd33DX9UC1Eh7RejOP0=;
- b=mwIr/vyPbuT2ZifYFDqKWipjDgC5/GFrsLCBLKeb/BHwsqM2UlloEw95hM+1bu4lo6jnTbJ8RRgdL6iF6ozuY2dkrCVsNPCXA1AR/R9ubCMXUi+Gmoyi6M0RoJNk7la7/u5c69NunMxOAMhX8Zr/swzqS1n5WAiN3MKkoxVeCkA=
-Received: from DM6PR04MB6059.namprd04.prod.outlook.com (20.178.226.89) by
- DM6PR04MB4458.namprd04.prod.outlook.com (20.176.104.203) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1622.16; Wed, 13 Feb 2019 11:53:52 +0000
-Received: from DM6PR04MB6059.namprd04.prod.outlook.com
- ([fe80::d006:5be7:c3f:ba6c]) by DM6PR04MB6059.namprd04.prod.outlook.com
- ([fe80::d006:5be7:c3f:ba6c%2]) with mapi id 15.20.1601.023; Wed, 13 Feb 2019
- 11:53:52 +0000
-From: Anup Patel <Anup.Patel@wdc.com>
-To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v6 5/5] RISC-V: Free-up initrd in free_initrd_mem()
-Thread-Topic: [PATCH v6 5/5] RISC-V: Free-up initrd in free_initrd_mem()
-Thread-Index: AQHUw5LJNBZjt056iESEmmv3JNu8Cw==
-Date: Wed, 13 Feb 2019 11:53:51 +0000
-Message-ID: <20190213115301.103989-6-anup.patel@wdc.com>
-References: <20190213115301.103989-1-anup.patel@wdc.com>
-In-Reply-To: <20190213115301.103989-1-anup.patel@wdc.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: MA1PR0101CA0007.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:21::17) To DM6PR04MB6059.namprd04.prod.outlook.com
- (2603:10b6:5:129::25)
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Anup.Patel@wdc.com; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-mailer: git-send-email 2.17.1
-x-originating-ip: [49.207.52.22]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 535f05c4-daa7-4d09-c1fb-08d691a9ec07
-x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(7168020)(4627221)(201703031133081)(201702281549075)(8990200)(5600110)(711020)(4605077)(4618075)(2017052603328)(7153060)(7193020);
- SRVR:DM6PR04MB4458; 
-x-ms-traffictypediagnostic: DM6PR04MB4458:
-wdcipoutbound: EOP-TRUE
-x-microsoft-exchange-diagnostics: =?iso-8859-1?Q?1; DM6PR04MB4458;
- 23:3HjocLzHNbh/M6pXTkTBAZ4Xc5VNOaBoTX/RdSO?=
- =?iso-8859-1?Q?Mxxu8Ftzvqv006hMN2M323tfywA9UhAAnkx/hjlAmJ/6mJa+wacg96e3Qs?=
- =?iso-8859-1?Q?rye+SunHovmD99NmUwuT/aXsr6i0xRQ2FIyoeVxJ8C9Y7SMMSn9y+VlL07?=
- =?iso-8859-1?Q?i9bskONLt9yWItENHDKYGCHPkkmcbhq7YnyZRDiK38c42ozsMhmGJRRCQI?=
- =?iso-8859-1?Q?PMbYA/dHooIloJcb5cXVJMHwxhS9MSzwlqFPYk4QPbPEZjTxfh7zTK4I6w?=
- =?iso-8859-1?Q?Uzd3Bkq9McKpZovUnIVQ7DVlC+ltwRYLKovOb927uRlyW1tHpywT05MJVq?=
- =?iso-8859-1?Q?KaNlcf7ShL/8jHnlZQ4dlFWnjJzZWjBknl8vNICCoN7C2QavHxj37dHlEy?=
- =?iso-8859-1?Q?VT9R51o6IQefrgnfx0e1CIGEG2Noq+XODvbcUqY1LO3TaE7iufiawYu7Hq?=
- =?iso-8859-1?Q?He9N27RNh3BfaRjMK4QnIxpqt4Fj6qCtib2U79Y7eRsbNBzP7xc7cdjxI0?=
- =?iso-8859-1?Q?+xegVQqsUrGy0PqobE1JniZvoPwTXzobPSG5eotDhATroTr2XTsZTfn2U/?=
- =?iso-8859-1?Q?SZSW7ImJH5pkjFxmJU9HqDTPYieOfBhkL6QmP/m/5elGndPEaE8roJfLMg?=
- =?iso-8859-1?Q?hbVU08onU3ux7jr/leJl7H8Tz8Dbe07/SqiCR8poQolX8puyjCr8grlipO?=
- =?iso-8859-1?Q?7qFPjY87pkRwsavS5CCIIvwEgq6rKxm/Fy9Nz1TP+1dLMcWg4TmPYdOb4t?=
- =?iso-8859-1?Q?mJeQZTbZz/aj4bsIcTC3rj7yHAKIYX1c3YXLM7f9iafgs252PRc6JKEFQh?=
- =?iso-8859-1?Q?Mc889gsIh0oEYjamEnYtQY0RuByV8ZYMKryuGuLLXSI2uk7Lgw5uD/ACXg?=
- =?iso-8859-1?Q?/EHrfAmJMNeQDjZhYjBzmYPUwNacAmU1eZCHJha+C5a38dKfajTX4gphun?=
- =?iso-8859-1?Q?HOXY4bPeMY9AVl0usYT87gFJvHeAs344d59PDVzlyZQs5BEDLh4mDjhb3u?=
- =?iso-8859-1?Q?egIXgh6dkIVAzN2yd6TkuKlGGqZrofngYhjQ8NVYoFYK5JVuHXsUp71bWX?=
- =?iso-8859-1?Q?S7cGvpf/dHBN0jgHMcCZZt2I3b5kZRUE5Z17U9jAmBrB/mWKPFdt7jXIlM?=
- =?iso-8859-1?Q?qPW5YYkRJtO40xcygyG5qDlPISdnj5XlCnqqL2Z8HzO48PFYPrxP/7MvfF?=
- =?iso-8859-1?Q?YiOfGR0A1ZCtAR64yQEDPCsdVFKSxes1cqqWr7Sdk8ZgPXgX6GaZ5VNeRY?=
- =?iso-8859-1?Q?TcPOsKsK/NIACI+y+xP5y4WTHRf/xAd7zHIikSBEfnJKwI5nsLk14t2XwO?=
- =?iso-8859-1?Q?K6ECANTNvf8E3NKjiGHoOdAQdhmP29HUbezfP/jHC2ilg=3D=3D?=
-x-microsoft-antispam-prvs: <DM6PR04MB44585D8CCD1EBF47D0643EE18D660@DM6PR04MB4458.namprd04.prod.outlook.com>
-x-forefront-prvs: 094700CA91
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(39860400002)(366004)(346002)(376002)(136003)(396003)(199004)(189003)(53936002)(25786009)(6436002)(71200400001)(6116002)(3846002)(6486002)(86362001)(99286004)(71190400001)(72206003)(76176011)(2906002)(54906003)(52116002)(476003)(106356001)(305945005)(110136005)(44832011)(14454004)(316002)(2616005)(68736007)(7736002)(486006)(97736004)(66066001)(50226002)(4326008)(14444005)(26005)(11346002)(446003)(186003)(478600001)(256004)(6506007)(81166006)(6512007)(36756003)(102836004)(8676002)(8936002)(1076003)(4744005)(2171002)(105586002)(81156014)(386003)(55236004);
- DIR:OUT; SFP:1102; SCL:1; SRVR:DM6PR04MB4458;
- H:DM6PR04MB6059.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; MX:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: ym4sZ/BQNXxOf94Sz+dndBzNFZWfld/M7is8WBI7zGE/8qYh7tl+N5uazXrh2fkOQEau554eHiPw1F/SQ66UIwHvEopedFAo7iYJkwjE60x/lQty896zFqdkAMclhBQyMncl7rHtSjZ4r22f95+lT5YDDDyp8Pxd4+Qlqo4p45rrU+4D3MgPfS4hHHrvh+dWuly4oEphEpfakTqd//l0QqbUYXEFm+YUEhJyhKh2PhjeJLGdHyyywdk5ctNXr/RkSBM35vAqymvf/qmQTXQELiufOGjzNBocG14aP3Pqjh1DdbfM2aC8VqYRznMe24zqCXJv1DLUlUF77wJG5WsRbVefYLp1X3LXUXjAOJQfNWl8P0frpIaEqGhSKUoqgIpHL44MWMZtXTWQpP3dWGDW2wvU3JzV2LtGpuhx9t+CaQo=
+ id 1gttjt-0005tE-TT
+ for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 12:34:11 +0000
+Received: by mail-wm1-x344.google.com with SMTP id t200so2253316wmt.0
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 04:34:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=rsmCNVGzAnpXHSPd+c6QMEpoDXggl6kiPRAuT+bXYeY=;
+ b=q0dGi8AWdNaKZ7SMDoxYa/hdX7GtgT/0UYJeSKvD5DUz/FN6StuxfWl/b/X90nhE8O
+ e9tGHC+9Er6CY0E+zLGZ1cB9mfvD9XMfk0UeI/WYvJmlNgak6AeBvk/AEx4uCH6q+dOM
+ iDifdrdA5+EAAupDHityeFWXuOx6DL5unHq88hzoiW54ZhPCYRLjnQ2BUkRsHiJbM3pr
+ KQazKqBnhC2p5dMb9Hrccmi8WWZqN+uEBtC985UbhG58zF/g5DyCFXWAZrW0cK2+M5rD
+ saElnly+lXPzV4kZ2JzFLlDM+Zj+Vh7cgxdL50RFbIKqi1xg2fZK86KKo5AKaZFxY1DS
+ Z8Wg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=rsmCNVGzAnpXHSPd+c6QMEpoDXggl6kiPRAuT+bXYeY=;
+ b=NojbGAxvk+ysqdnL1+H19jsFt6iZMEkmuGljpohmyL5npoR3a/qVKw/JjYwdSMDBcN
+ AeybMj12RDi+MFgjJzM/6Ttws55tcXrKdQ/NALBzcLD6nHct3KRs5oVWn8MlqnkxHETC
+ 0Kq2plYGOL56DmiaZkiP+a4vvaMoM3fsJfEME9Uc6a9FKsAYwx9vh6+5m0LFO9iHu1UB
+ n3f1yw9o0GoqCECwOmZDTxmNYPPSXBSdQS2emZOywuOUBk2e/APRqhaS8VfhrUef5esQ
+ 5YTU4SVCbs1Js9eb8Z9YatKMV9Okr9R8Lg2b8yzBIN4FNI+v5XLKvZ/UKPyrxLjOdd9M
+ eOIQ==
+X-Gm-Message-State: AHQUAubTBa9hSIXBP7TYuc8iSCDpdFNEprAXTIQexWVaea1oo5w9KMCw
+ BG01BOG9RchhwsmKC9f2oMaUtCqM
+X-Google-Smtp-Source: AHgI3IZ0ckmRdDpnKDSLABrk3rn2jzaMRJKXh7z9Pd4DhTiFpsDhyRqjlMnvCbhJeBoO9qJNVKipAQ==
+X-Received: by 2002:a1c:35ca:: with SMTP id c193mr149103wma.146.1550061247486; 
+ Wed, 13 Feb 2019 04:34:07 -0800 (PST)
+Received: from localhost (pD9E51D2D.dip0.t-ipconnect.de. [217.229.29.45])
+ by smtp.gmail.com with ESMTPSA id m21sm8100255wmi.43.2019.02.13.04.34.06
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Wed, 13 Feb 2019 04:34:06 -0800 (PST)
+Date: Wed, 13 Feb 2019 13:34:05 +0100
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Subject: Re: [PATCH v5 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
+Message-ID: <20190213123405.GD647@ulmo>
+References: <1548762199-7065-1-git-send-email-yash.shah@sifive.com>
+ <1548762199-7065-3-git-send-email-yash.shah@sifive.com>
+ <20190207101657.rfzcq6xdv6ocvubg@pengutronix.de>
+ <CAJ2_jOGYkwb2QSUH1UU_QoGXE5LFoR0XGJmuYfNtYcZXHXyfaA@mail.gmail.com>
+ <20190211122954.33thpip3yhtdw5x6@pengutronix.de>
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 535f05c4-daa7-4d09-c1fb-08d691a9ec07
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Feb 2019 11:53:48.5595 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB4458
+In-Reply-To: <20190211122954.33thpip3yhtdw5x6@pengutronix.de>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190213_035355_428396_B0949B1D 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20190213_043409_972152_7300BD0C 
+X-CRM114-Status: GOOD (  29.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -153,44 +98,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
- Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Sachin Ghadi <sachin.ghadi@sifive.com>, Yash Shah <yash.shah@sifive.com>,
+ robh+dt@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============6335631106248595703=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We should free-up initrd memory in free_initrd_mem() instead
-of doing nothing.
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
----
- arch/riscv/mm/init.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+--===============6335631106248595703==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="EY/WZ/HvNxOox07X"
+Content-Disposition: inline
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index b1167a6f5a92..aabf1869c54b 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -94,8 +94,9 @@ static void __init setup_initrd(void)
- 	initrd_end = 0;
- }
- 
--void free_initrd_mem(unsigned long start, unsigned long end)
-+void __init free_initrd_mem(unsigned long start, unsigned long end)
- {
-+	free_reserved_area((void *)start, (void *)end, -1, "initrd");
- }
- #endif /* CONFIG_BLK_DEV_INITRD */
- 
--- 
-2.17.1
 
+--EY/WZ/HvNxOox07X
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Feb 11, 2019 at 01:29:54PM +0100, Uwe Kleine-K=C3=B6nig wrote:
+> Hello,
+>=20
+> On Mon, Feb 11, 2019 at 04:56:27PM +0530, Yash Shah wrote:
+> > On Thu, Feb 7, 2019 at 3:47 PM Uwe Kleine-K=C3=B6nig
+> > <u.kleine-koenig@pengutronix.de> wrote:
+> > > On Tue, Jan 29, 2019 at 05:13:19PM +0530, Yash Shah wrote:
+> > > > +struct pwm_sifive_ddata {
+> > > > +     struct pwm_chip chip;
+> > > > +     struct notifier_block notifier;
+> > > > +     struct clk *clk;
+> > > > +     void __iomem *regs;
+> > > > +     unsigned int approx_period;
+> > > > +     unsigned int real_period;
+> > > > +};
+> > > > +
+> > > > +static inline struct pwm_sifive_ddata *to_pwm_sifive_chip(struct p=
+wm_chip *c)
+> > >
+> > > even though this is inlined I would like this to have use the
+> > > pwm_sifive_ prefix, too.
+> >=20
+> > Not sure what exactly you want me to do here.
+>=20
+> I want this function to be named something like pwm_sifive_chip_to_ddata.
+> This way it has the common prefix (and is less confusing because
+> to..chip suggests that is converts something to a chip, but the outcome
+> is ...ddata).
+
+We've got plenty of these cast functions that are named to_*(). I would
+argue that naming this one differently is confusing.
+
+Also, I think this may have come from earlier review comments where I
+suggested to name this structure struct pwm_sifive_chip, or just struct
+pwm_sifive.
+
+> > > In a previous review round I had doubts about the calculation of frac
+> > > and I think they were addressed wrongly.
+> > > Looking at the figure at the start of chapter 14.9 in the reference
+> > > manual: They use (different than the driver here) pwmcmp0=3D6 and
+> > > pwmzerocmp=3D1. Then a period is 7 clock cycles long and pwmcmpX must=
+ be 7
+> > > (for X > 0) to yield a 100% signal. So pwmcmpX must be greater than or
+> > > equal to the period (in clock cycles).
+> > >
+> > > Here we're using pwmzerocmp=3D0, still the constraint
+> > >
+> > >         pwmcmpX >=3D period
+> > >
+> > > must be true for a 100% cycle. (Right?) With pwmzerocmp=3D0 the perio=
+d is
+> > > 0x10000 clock cycles, so pwmcmpX must be >=3D 0x10000 to yield a 100%
+> > > signal. As this is not possible (pwmcmpX is a 16 bit value that can o=
+nly
+> > > hold up to 0xffff) the output cannot yield 100%.
+> > >
+> > > So I think the most correct implementation here is:
+> > >
+> > >         frac =3D (duty_cycle * (1 << PWM_SIFIVE_CMPWIDTH) + (1 << PWM=
+_SIFIVE_CMPWIDTH) / 2) / period;
+> > >         /* Sorry, we cannot do 100% :-( */
+> > >         frac =3D min(frac, (1 << PWM_SIFIVE_CMPWIDTH) - 1);
+> > >
+> >=20
+> > I will once again go through the specs, if it seems correct I will
+> > implement the above.
+>=20
+> I would just test this at runtime. Configure for 100% and check the wave
+> form if it is constant.
+>=20
+> > > > +static int pwm_sifive_probe(struct platform_device *pdev)
+> > > > +{
+> > > > [...]
+> > > > +     /* Watch for changes to underlying clock frequency */
+> > > > +     pwm->notifier.notifier_call =3D pwm_sifive_clock_notifier;
+> > > > +     ret =3D clk_notifier_register(pwm->clk, &pwm->notifier);
+> > > > +     if (ret) {
+> > > > +             dev_err(dev, "failed to register clock notifier: %d\n=
+", ret);
+> > > > +             goto disable_clk;
+> > > > +     }
+> > >
+> > > Would it make sense to only enable the clock when the pwm is enabled?
+> > > (If yes, how does the output behave if the clock is disabled while the
+> > > hardware is enabled? I assume the output just freezes at the state wh=
+ere
+> > > it happens to be?)
+> >=20
+> > Yes. Not sure about the behaviour of hardware when the clock is disable=
+d.
+> > The behaviour should be like you said. If there is no strong reason
+> > then we can keep it as it is right now
+> > or else if you want I can make the necessary change.
+>=20
+> I would prefer to only have the clock enabled when it is actually used.
+> Note the common pitfall that you cannot disable the clk immediately
+> after configureing the duty cycle to 100% or 0% though because you must
+> only stop the clock when the newly configured parameters are active.
+
+You can also disable the clock if the hardware will still apply the
+configured parameters. This is really only an issue if disabling the
+clock also stops the IP and prevents the configured parameters from
+getting applied.
+
+Thierry
+
+--EY/WZ/HvNxOox07X
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAlxkDr0ACgkQ3SOs138+
+s6EltA//WyOsaTPYD52vSFENAJxCA/Bi4M7vQFZm2jQ2dmZRHBM0ngb1hqW4bGUD
+6g19/elK1xAo6dzN/2WZtoMv8qRNyY2fOd0ifowshDuIa4KWAaQUHehg/HV5bI5W
+dG8/41fiOgq92tZTrTXqOA8VBNyAlUMWv7QeLgMNBRvT1wUTf1AufccfSCFHrEdc
+TGGLOlBUfOD83AFLS9DIT0ZSXvAtJQgq1KvQGVpOgfReqsIkCXxXEOcq3jD2N2Iy
+0STbXSXh7qO4dOfpsfO4mgLJ4+B2XcipE1Soy81DjXpygf1kQQwm6vEF7wW86Gx0
+b0U+9UbiLYrz/WgsgJGPjR/QF8MU3YDKeeq/et14xHfTX+eX2+326+9TFHJoOL8+
+dn4AjVgBXFQ7hNf7LQ1dFZKgMHOSC6MRL98Rc6jN2nRevejQWlAKBLTZIsYR1giV
+4znvMwGOPfDqWmPID9rTLsl0HKStf/WSB1UBJc74DX3ec+cFasVRsC1Y3KU5Q4uZ
+sN//ZNc76p1Yy4+iKCQQCiehFyoT/U/V6gls7G3tN7va3QWcnnf0+I6tNJeLWwLs
+FWjgMeuZ4xAKL+jdAEe9esoRp71C+7eecQPUpRqjUO7ku14se/tbGkmJWgNwbFkL
+ScM23XTQ2CbfbGfwAE8VtIFh7zjfomjZER2PMCoXCUNQlIoJGaA=
+=HKpM
+-----END PGP SIGNATURE-----
+
+--EY/WZ/HvNxOox07X--
+
+
+--===============6335631106248595703==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6335631106248595703==--
+
