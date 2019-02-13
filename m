@@ -2,146 +2,83 @@ Return-Path: <SRS0=7ZJm=QU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A721FC282CA
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 08:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8FC97C282C2
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 08:22:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 75679222C2
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 08:08:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5E470222BB
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 08:22:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Lqbwleez";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="VoPmgeHM";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="WueOUuka"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 75679222C2
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FN4+0IXr";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="mxQubxva"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5E470222BB
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yItPc7De/nBD/KMYLkUklz1GSsoQEDPBvZW3JPSbD2M=; b=LqbwleezOKoJCo
-	tpppwk0KUPo9Tib9vzfEbRNu0t9oLDKq9eUOionyLspNi0qGVvpVBQpmk1v1Lux09s3E7fyNXzn4w
-	5iXRhR5QyM5Ing/JkAiTLoK7/f8eQ/LBVTJBI9sGxOVCfydGF0T9b/Wbw/WWs9KjyYR8by5wFehGJ
-	+Y+7zQv1GejmF+ggkA9D1CiolBIYdXG7JCl058HRnjiqq9UNVYcgZTG5uaUdRFbIyersonI8w/30U
-	gmiQXPrA81s8CTLihGy1C6YxwvzKYHoFDSMuR18Su8CPcyNKfTnGTR8o7hyjAd3SIDj3oJIJ+K11e
-	oHwhsDPewkj9kjkhfYCw==;
+	List-Owner; bh=J8lWawUIcmxiaYGjkM+w1OxFyCj2bhXm2sqzn5E6TXU=; b=FN4+0IXrtifkVc
+	RNn3xuSNoi8YX86fQBJvEB9oohmqGhYnXG65z0/U5XHTMc8QOBdI8/RNLJxCDAcU9rq/tLU3UOYXP
+	1tTmEuxDXNZou3MjdIROMH01NLXC/qHHplphpMj3kfQ0TXaMasHgPRelXLFJDC0ZHeOmg/1M7pepN
+	dj94e6roaOe/56g5ADRtdd6palDklqKZn/aGfE4h/5VlNeJ2ivAgr61aqYTqsqxg/fyXxyetlyO+s
+	58CenL6hgTpZjiWmURZDZz+O06CU34JqCZHfuRMMDodwFZex9suaNf9xCs4ATZrJHCbc2Lo9G7OyF
+	lsiazRB21gUjtY0Zg3Nw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtpaL-0000zp-Cc; Wed, 13 Feb 2019 08:08:01 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1gtpnz-0005rW-Rs; Wed, 13 Feb 2019 08:22:07 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtpaE-0000Wv-Ew
- for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 08:07:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1550045275; x=1581581275;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-transfer-encoding:mime-version;
- bh=mVPMs9C8+6CQAaDj6NugfLu86pA3zkPXJHHWwQpuR9w=;
- b=VoPmgeHMUNQbaitKP+QU+CtqZsLTzDX5GELvAF9WL8tkvPvk269CgwXJ
- oR9G9QtQQQteAY+AXQ2ST103Q2/gulQjET2dTWmkQDapHw2GSB568boW0
- DCYc1gfkopcZf8rxK1uCQNN/MT9j+imvfc58JhIaKkPrnV/1KcVlN8FFm
- 3zCUJze6+ARxArP7ziSWCINSOzJIWjarn99ECsX3S4qTHIV5cCrGfo5hm
- J443NsT7TIeZwtqP7E4nFC0K17rmD7FlKUhLvQqWLGa8j2X1HsEJOOGBJ
- fPYCet+Ismj674XSjyw6Clfboj9ODxMqt/nbnBDZhBJh0O29qkhlOUOGD Q==;
-X-IronPort-AV: E=Sophos;i="5.58,365,1544457600"; d="scan'208";a="102402348"
-Received: from mail-co1nam05lp2058.outbound.protection.outlook.com (HELO
- NAM05-CO1-obe.outbound.protection.outlook.com) ([104.47.48.58])
- by ob1.hgst.iphmx.com with ESMTP; 13 Feb 2019 16:07:54 +0800
+ id 1gtpno-0005gl-Pl
+ for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 08:21:58 +0000
+Received: by mail-wm1-x343.google.com with SMTP id r17so1387913wmh.5
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 00:21:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UAFENJ0ckmNmp39g4DgIRLAtQx1PuVea/P1XlwG4f1o=;
- b=WueOUukaWaWiB4Q5/PNhCfOXDWlyQPbN7rLwxsoj0zhqqLlE43kClnZc5uyOJxB52YcTWhB7orr/UVBpx1qQTrU+roCjU9pwEIyx0NUVCcxwIDjZVeo2YrP12D5aAC/GWUrp9ABRHRJfi4coTewh7o+ro6/mVMBGj1U9HR4kzSQ=
-Received: from DM6PR04MB6059.namprd04.prod.outlook.com (20.178.226.89) by
- DM6PR04MB5993.namprd04.prod.outlook.com (20.178.225.146) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1622.16; Wed, 13 Feb 2019 08:07:52 +0000
-Received: from DM6PR04MB6059.namprd04.prod.outlook.com
- ([fe80::d006:5be7:c3f:ba6c]) by DM6PR04MB6059.namprd04.prod.outlook.com
- ([fe80::d006:5be7:c3f:ba6c%2]) with mapi id 15.20.1601.023; Wed, 13 Feb 2019
- 08:07:52 +0000
-From: Anup Patel <Anup.Patel@wdc.com>
-To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v5 6/6] RISC-V: Free-up initrd in free_initrd_mem()
-Thread-Topic: [PATCH v5 6/6] RISC-V: Free-up initrd in free_initrd_mem()
-Thread-Index: AQHUw3M3QH97A0lstE6SewwvrcIfpw==
-Date: Wed, 13 Feb 2019 08:07:52 +0000
-Message-ID: <20190213080647.68204-7-anup.patel@wdc.com>
-References: <20190213080647.68204-1-anup.patel@wdc.com>
-In-Reply-To: <20190213080647.68204-1-anup.patel@wdc.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: MA1PR01CA0140.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:35::34) To DM6PR04MB6059.namprd04.prod.outlook.com
- (2603:10b6:5:129::25)
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Anup.Patel@wdc.com; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-mailer: git-send-email 2.17.1
-x-originating-ip: [129.253.179.161]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: b63cb087-1be9-43f7-f066-08d6918a59f6
-x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600110)(711020)(4605077)(4618075)(2017052603328)(7153060)(7193020);
- SRVR:DM6PR04MB5993; 
-x-ms-traffictypediagnostic: DM6PR04MB5993:
-wdcipoutbound: EOP-TRUE
-x-microsoft-exchange-diagnostics: =?iso-8859-1?Q?1; DM6PR04MB5993;
- 23:nZoSFga0WrTqsE2lMz/Yi20cgjCC24DMQVMbeMJ?=
- =?iso-8859-1?Q?TZAUuEcYEatOHuMX6FCeqXcIkcUjF14KsB5Xs5d10VZSqYxJ6UAmmOdFkk?=
- =?iso-8859-1?Q?CSwTOdjJWwssHxhj+zsDm25dWHRs3M/yscESuqya9xhq6NpfcKviJYLQBk?=
- =?iso-8859-1?Q?z0AeRMny6AZ7Sr2n+2YbYCTDj82f57Cvazm7P6gVa7p7hRgWqsa6HYNKJ+?=
- =?iso-8859-1?Q?VtoKYhXH/3s8fTBnexfhWZgvY1LzRG5goXKZjoZydgipzEdUXvbL+AxeFT?=
- =?iso-8859-1?Q?E36oRkFCifSZGZNHlARNVasWgB5ONZyvNqwW9QWE78TcpTSEgFANTUacU4?=
- =?iso-8859-1?Q?lXu4m4MWQ+71FdZb5rJHZOMQiQ4QMUbHBodhFK8mkdXevRio3CkCWlZK+f?=
- =?iso-8859-1?Q?+/62yqUg4GDCrQu3Mc4aaA0eYB/bLBlGP+p0klywJqYNtngPgGXPYcOVr8?=
- =?iso-8859-1?Q?nRVgDnTfciIVbpV6D9ZdOgA5mHFYQS/jOukm/GcJ5RxLSe3tGFryd65OI8?=
- =?iso-8859-1?Q?6rTG7WrzdXn+jqYw65p/Rm7MNc84V2xsfVLvppwlDvtjVh7BGTOLte1b6F?=
- =?iso-8859-1?Q?5Q7MlGtaCoeIHn/8Bmhp9ZzpCjJ5L5qnChXSFMaPDdKCVKCFfEOL4VWWfT?=
- =?iso-8859-1?Q?3ZeggnwSQX+ruaA3F3lTC/3zUW8XgGA9QuAqhE4AuQUdTBx/rq7UBRL1xH?=
- =?iso-8859-1?Q?QxUiiDbjUK69G3JK0BGlI2eJmM0ffOehZTcno8Ku76oKnep9OAah4H80lE?=
- =?iso-8859-1?Q?bgNocMqcIuErUlUv4+2N61bKn10Mu8KSYfpQWdbb+DhC3kGgurnpGPGpjt?=
- =?iso-8859-1?Q?41MA3U2qJM6Y4XDR9f21lSig3UI0ft2NRkRxkMA/o+bGdYZHGeFnU7fNt0?=
- =?iso-8859-1?Q?PmN/x5VsY5QFxNQdcitwoRHe4l5Ygl9J60Z17zChKSUjF5s5NoOCugv1fK?=
- =?iso-8859-1?Q?ryZD1TVdXYsBDp/5Qr2QB8tIeaYgX18ASUBepOdT16vQGT+dT4dumhRUmS?=
- =?iso-8859-1?Q?DlJ0f/vKZGb1k6vrdxg0W6LEFdy9/DgsJDJkLs9Bif4ITexDSgxaYFOA14?=
- =?iso-8859-1?Q?GWsl5G0fHZTzeQ6fBSKPAaZzeH2mZpyMZojU2qMbILBy1dB/5zKnYOSDLt?=
- =?iso-8859-1?Q?iT6sjwM9415SPJEoIuaRzJ0MLsW67+GXrjypgpOkLklwrqN9GTobCJoMLT?=
- =?iso-8859-1?Q?9cYQfnIqIhaPR/6tYx2L0PkSnv+zlle/3G3tVczgexxXW+daSWOQzMmQsL?=
- =?iso-8859-1?Q?AfJg10gghKnQuiaeqB6RZXsqXZdJsV7F3jBoce7ZQhaGdJZ4TtyUp70QQa?=
- =?iso-8859-1?Q?glitghn5zXkOb39vUKW1B5/?=
-x-microsoft-antispam-prvs: <DM6PR04MB5993623481A37676F746A5588D660@DM6PR04MB5993.namprd04.prod.outlook.com>
-x-forefront-prvs: 094700CA91
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(39860400002)(396003)(376002)(346002)(136003)(366004)(199004)(189003)(6512007)(99286004)(53936002)(50226002)(386003)(6116002)(52116002)(105586002)(3846002)(106356001)(76176011)(110136005)(6506007)(25786009)(256004)(54906003)(86362001)(6436002)(316002)(2171002)(14444005)(36756003)(6486002)(97736004)(4326008)(81166006)(66066001)(8676002)(68736007)(4744005)(102836004)(72206003)(476003)(2906002)(11346002)(446003)(81156014)(1076003)(14454004)(71200400001)(71190400001)(8936002)(7736002)(305945005)(26005)(186003)(486006)(2616005)(478600001)(44832011);
- DIR:OUT; SFP:1102; SCL:1; SRVR:DM6PR04MB5993;
- H:DM6PR04MB6059.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; MX:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: /LFrOUpjCdpohcnQkb8T5xadw1Q7Wd66uxsOWCkLwkVOrsqlyuV3Xpg51jmE9AKeo1omQTdyWNnKfRz3hY/rm1bTgsyPwAygqHDQthu2OobNZojNDC2ErQJ5dmtJXj6SBi02+1Kv95kMx7x3iLOSoF0EGTD/sfVInkgseykxQfD8/FAz+XWu4u7JZvD7DSMedEA2qYB10o79+yyyjVcoi2jJzPWK9IOVbdcg1q4l50pbcRO4hpm/dCUczSV3C+DxGkqSkkYJjmVGeD36F5mpwyc86KeBFXehhDdhqqp/8EDOpnLZ2HQafnDpie7kcbj1ptyWqKZ/cIXM2OcFEN0+a7NBiVjoSO6keGD92JRjrqBZJyYviT0yULxN1XdNqZefmCn5ilqFz6s1ynXmOzkSrhH8Apu4q6myMmzSkghoEiw=
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=KCtzblF1jR9J0InpD4f0Wn6K8qgn39HtvksF7U+weeU=;
+ b=mxQubxvawRjDb/feJX9gA2kRRytn5nwW6fNlmaQ09uB3tGhWC8g/Le/lwk/5b2qYYS
+ v/VFadsIk9rGglWewtmksg8i6h5nMh7K0XQY8HhtYhahQenlebgT4pWK9X4LjYYTsYin
+ Ag1dSAiGM9H9Vv7IuHWvbfMCyFQvIbN42FSKFdYqqT+5OQGYVuU5k9l7cUTPMN9+JrEQ
+ yBpjE/stdtiLozPiUyRBvwww83D1IDeZgSlx3H/4yedHJqphJRUH4uJ/H/mFpkq5+q4b
+ djx37mGUj9PkN/QkmSj1eI6GcboP9IcdgNdCeTzLIrVCEuTQZHwoFrhodzaTty/0WUXB
+ rmfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=KCtzblF1jR9J0InpD4f0Wn6K8qgn39HtvksF7U+weeU=;
+ b=XnqRHt6E/jgouGMW8VqsE4jDsloWjqr6+u/5/X0MUY3PVy1o4GwJcv0g5SoTiLhHpC
+ gWk7ADp7xz2PQb5rVhTmwRZq8Z490I6gC1xQSrfxlMeMOM03At0DIyNw5aZqnZzS5+5N
+ D8PCaLPBzRBX2PuxSoNe/asOcyEe5rEqKckqvS4gmomcA2Z/3PUvRpYoy9QUN3x41maT
+ qzXHF/2rSLxGLhbkaK8vuUbV1plye7lMsP2EegtCoKeeLPgNnzLfFyDo/MtLX+JLFEHn
+ ghKl9k1eLv/CUYXx00YmAIMOrAm1V08WyIYK41EZ5GvrBTGEStYzl6fRdiQvJVxb9uGJ
+ FQfQ==
+X-Gm-Message-State: AHQUAubxO61Ak2gzhqDfI6k7iottldLp31cPD0a/j7y7hjiwmgftlbBv
+ II04uDMCOZH2zU5AspTAcy6LFxtjxrnqmdxaDGLJNw==
+X-Google-Smtp-Source: AHgI3IYOJXhh5BrMsE9kb/yfz3C0meGmQ1t7EEUghhGy0SLqR8+PRrhHhdMBB1zzlPhNl8HtACSDVXlDeRizyYnx35k=
+X-Received: by 2002:a1c:1d15:: with SMTP id d21mr2128285wmd.132.1550046114963; 
+ Wed, 13 Feb 2019 00:21:54 -0800 (PST)
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b63cb087-1be9-43f7-f066-08d6918a59f6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Feb 2019 08:07:48.9622 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB5993
+References: <20190119132650.9978-1-anup.patel@wdc.com>
+ <mhng-3acc6cf0-4c86-4929-a653-11e87d0c6b48@palmer-si-x1c4>
+In-Reply-To: <mhng-3acc6cf0-4c86-4929-a653-11e87d0c6b48@palmer-si-x1c4>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 13 Feb 2019 13:51:43 +0530
+Message-ID: <CAAhSdy25GUFWfkQHBDy6HysVCVFOpv-ZLY6vr+oH34XbqScYFQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/6] Fixmap support and MM cleanups
+To: Palmer Dabbelt <palmer@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190213_000755_116523_F528CADB 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20190213_002156_885327_81C213D1 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -153,42 +90,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
- Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We should free-up initrd memory in free_initrd_mem() instead
-of doing nothing.
+On Wed, Feb 13, 2019 at 4:45 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+>
+> On Sat, 19 Jan 2019 05:27:53 PST (-0800), Anup Patel wrote:
+> > This patchset does:
+> > 1. Moves MM related code from kernel/setup.c to mm/init.c
+> > 2. Implements compile-time fixed mappings
+> >
+> > Using fixed mappings available, we can now get earlyprints
+> > even without SBI calls. For example, we can use kernel
+> > parameter "earlycon=uart8250,mmio,0x10000000" to get early
+> > prints on QEMU virt machine without using SBI calls.
+> >
+> > The patchset is tested on QEMU virt machine. It is based on
+> > Linux-5.0-rc2 and can be found at riscv_fixmap_v2 branch of:
+> > https://github.com/avpatel/linux.git.
+> >
+> > Changes since v1:
+> >  - Use more characters per line in changelog of PATCH3
+> >  - Removed #ifndef __ASSEMBLY__ from PATCH5
+> >  - Use more characters per line in commets of PATCH5
+> >  - Added PATCH6 to implement keepinitrd kernel parameter
+> >
+> > Anup Patel (6):
+> >   RISC-V: Move free_initrd_mem() to kernel/setup.c
+> >   RISC-V: Setup init_mm before parse_early_param()
+> >   RISC-V: Move setup_bootmem() to mm/init.c
+> >   RISC-V: Move setup_vm() to mm/init.c
+> >   RISC-V: Implement compile-time fixed mappings
+> >   RISC-V: Implement keepinitrd kernel parameter
+> >
+> >  arch/riscv/Kconfig               |   3 +
+> >  arch/riscv/include/asm/fixmap.h  |  44 +++++++++++
+> >  arch/riscv/include/asm/pgtable.h |   1 +
+> >  arch/riscv/kernel/setup.c        | 114 ++++++----------------------
+> >  arch/riscv/mm/init.c             | 124 ++++++++++++++++++++++++++++++-
+> >  5 files changed, 189 insertions(+), 97 deletions(-)
+> >  create mode 100644 arch/riscv/include/asm/fixmap.h
+>
+> I'm getting some git issue when trying to merge the third patch via email
+>
+>     $ mhng-pipe-show_stdout 4 | git am -s
+>     Applying: RISC-V: Move setup_bootmem() to mm/init.c
+>     error: patch failed: arch/riscv/kernel/setup.c:163
+>     error: arch/riscv/kernel/setup.c: patch does not apply
+>     Patch failed at 0001 RISC-V: Move setup_bootmem() to mm/init.c
+>     Use 'git am --show-current-patch' to see the failed patch
+>     When you have resolved this problem, run "git am --continue".
+>     If you prefer to skip this patch, run "git am --skip" instead.
+>     To restore the original branch and stop patching, run "git am --abort".
+>
+> can you send a PR with a signed tag?  I'll include this as part of the next
+> merge window.
+>
+> Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
----
- arch/riscv/kernel/setup.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Okay, I will prepare a PR with following patchsets:
+1. Fixmap support and MM cleanups (Author: Anup Patel)
+2. riscv: minor fixes and cleanups (Author: Johan Hovold)
+3. RISC-V related changes from "Various SMP related fixes" (Author: Atish Patra)
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 9cd583b6d1cd..ed8dd28ca98c 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -97,8 +97,9 @@ static void __init setup_initrd(void)
- 	initrd_end = 0;
- }
- 
--void free_initrd_mem(unsigned long start, unsigned long end)
-+void __init free_initrd_mem(unsigned long start, unsigned long end)
- {
-+	free_reserved_area((void *)start, (void *)end, -1, "initrd");
- }
- #endif /* CONFIG_BLK_DEV_INITRD */
- 
--- 
-2.17.1
+All above patchsets touch same source files so this will
+help you.
 
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
