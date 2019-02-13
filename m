@@ -2,89 +2,72 @@ Return-Path: <SRS0=7ZJm=QU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 986C3C282CA
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 12:39:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 60BFFC282C2
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 13:11:08 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 68BAB222B5
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 12:39:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 13474218D3
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 13:11:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iv5HBoDY";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="BwJddVxh"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 68BAB222B5
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ADWFTl64"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 13474218D3
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Dg7WXpOn58jY/QAwdY4f0qmd/sTzhJvC4B9nzrd0dzc=; b=iv5HBoDYytGc4aEQDC+tWIs6E
-	eS/CaKJkMU8Anwl3L9cxtohCiIAzCrWEcsXo6FnqbzCkBjIxLzF/s0tgpjH8RwR4eQot9CR//i3XB
-	dXrwt68sOCR4isML/UIj4nQU33toGdVk3Tb9iydnOsqWnB/GNbJ0LYRjKvkSLH+Gf9I4GEtO04SCL
-	577n49FyiugjtJPLfPUCSUrjLFy1RnpPo2tXgDqNLM8pGseNKdiFND/ZI+9YAzY5yB2Pp7fLR8Lu4
-	y4ZH0SkfY8FU8zwoX1UogmLE8oue457cszCgB6UiITLJ1LOGvn5YGRPg3t0pmM1/JrZ0k2LQG1WoX
-	U0rFZdx4g==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2b5pKbqBA2+LNslLIYeUH6dA87BhYg3mYJEXf+DuDNI=; b=ADWFTl64UTuMRK
+	ANWTwmuMgBlHU7O7CCao3OTjwUXCu113+kXxgVsK190QPxpshm5EbZgejGOnISBVy054oumO6EEpL
+	j0a7QWmY/HR9FA9BdZIte11kQI7Rawgh0ru1Ey98+8GjGln55SUhK7nSiE66mEov/G6Zo2RTphtLb
+	FUDsgwVD3LDcFs3EoiqgWcAzBlyx68YrkNLKM0M5BcXuzl6DxZgVBd3FD2k5YOnYsc0LfsKy933Sn
+	mOHZX0crSkfG5sew/XentPnifA6rAxbfcOr0l4UwSWo/RRxTntFtyveeXRtpTyFHClXimc9jiyyCj
+	/EcUQ3VCLmJmFyzhRgaw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gttoi-0000Vy-GG; Wed, 13 Feb 2019 12:39:08 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1gtuJc-0003lt-Q6; Wed, 13 Feb 2019 13:11:04 +0000
+Received: from mail-it1-f196.google.com ([209.85.166.196])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gttof-0000VU-RJ
- for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 12:39:07 +0000
-Received: by mail-wm1-x343.google.com with SMTP id q21so2242600wmc.5
- for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 04:39:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to:user-agent;
- bh=ZjBxex/GBl4CAEwzbH+6nioKydaEdqdIiLMixcUckTU=;
- b=BwJddVxhpibvY8XNI3heJCalgCZWTKnykcdmOuFs9+5GokGExn+aBi/gStIJwpyT62
- 8iJX1sSQpgc/qeWTH4HtQ1KwRg9siUvMUuPooJv2cnE1mJ31+ZJFSGdXAOLRJ8K/oGZt
- UXPZFSGIX+SF4F2tD2y+Hj6sl530jHiRQGV1/J0fESaZ+xEwQa5IZmShbPIXGWTIkBCo
- iYwqAqpFBU04yrNtWu/dcdOe5+e8sDN+mt+5t2Q/xDVtPsjD4S5getHDG3oVjJQstgEo
- cSpaMuSzDYNAG30QSthzlHi9kTMnvFkuXDHx1oCkI0yPFc58yBMwa6OrrYw5pdpKhCXP
- j9/A==
+ id 1gtuJU-0003bs-6U
+ for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 13:11:02 +0000
+Received: by mail-it1-f196.google.com with SMTP id o131so5723783itc.5
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 05:10:52 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=ZjBxex/GBl4CAEwzbH+6nioKydaEdqdIiLMixcUckTU=;
- b=ejFKWs4N5/l1m5w/6tUjOgLHgVDJnTRqDOBD1J0rDLc7RFFLbFM007aE4FT9Nx/Ev/
- CXhhP8MGVT19M5Dj1eyPIvdVHvQ0mOCIhblA3cUXJOsevntqVhd0yoH3Tq91tGR22Ey3
- n48v3BuPOk4h034Er7biFzf6+FhkLt9kLQbuVMeWNh+Nof4MdPDU1XQkWqp6sJAMTpyV
- vy5m7vlZWIhZ0fqGfF9u2Kky0QaHZHzLPbSXjPSSnfeSWC3efEWbGPULh/w7q+MKecMA
- GIW1lQQnWYhCOx8iU0PIX21qijtqOG3xcaP5hB5lSVgkCezJMu9kVP2btEfakEBrOK7/
- 5vKg==
-X-Gm-Message-State: AHQUAuYhztdCHqhMcvrPnJREwTDSTOenacYNw0rdmyr0JGLThxhOMZOL
- 0i5KwyIKHwtVmUUDRP6yEE0=
-X-Google-Smtp-Source: AHgI3IbMLf+T17QAekYkmX7qKJvi8QhJ13L2VyLjmne1Bft18I5syZ6xrO+6gcsW0Tu9QqpI8fkN/A==
-X-Received: by 2002:a1c:cc0d:: with SMTP id h13mr142384wmb.85.1550061544264;
- Wed, 13 Feb 2019 04:39:04 -0800 (PST)
-Received: from localhost (pD9E51D2D.dip0.t-ipconnect.de. [217.229.29.45])
- by smtp.gmail.com with ESMTPSA id f187sm6998739wma.4.2019.02.13.04.39.03
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Wed, 13 Feb 2019 04:39:03 -0800 (PST)
-Date: Wed, 13 Feb 2019 13:39:02 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-Subject: Re: [PATCH v6 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
-Message-ID: <20190213123902.GF647@ulmo>
-References: <1550049978-20705-1-git-send-email-yash.shah@sifive.com>
- <1550049978-20705-3-git-send-email-yash.shah@sifive.com>
- <20190213103459.t5bvemxrb2x6iagm@pengutronix.de>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=sLOvaHcQu0u+0yl4+GninIYh7vtHA7AhGKR+mD8WyNw=;
+ b=PbQ6oue+O7YhnN1gzqadR8QgftK1wDwGay0YhqcYyZYhcUWHkF4JsK6DBRMtv64KJk
+ gC2T+2qb4v3hPsAVyhIKHY3pCDnLM7sicTbs5yk/RIBB9IM4uY3U4qZ6Rhv3CFqZOuDX
+ ++sYE9Kdx64oc8z77ILJ3zay3atIpB4K//tvQslJ/1ziTOzeA7xglGwdbtSm6U1sbLqs
+ HfJQKGVLAICG8+Y0yEhpIXq9XcIpZ5ckM9SjDKisfKMDwANaL+1aG7CwwfERyoO5nSr9
+ VHxGZPi2lz7MOiMvbeRdWaOZexIj9+SpaKYjlc03qyKtazyIxCe036ncSDTUjS68IlR5
+ 6Dyw==
+X-Gm-Message-State: AHQUAuYDJ+k4al00waSgQwNwTZLvoWHbG6gf1jY0XwRQTnXcLiqtcrOK
+ TwGxLQOh4DIi0DeOzGCpOK4FW3yuledfhURihCg=
+X-Google-Smtp-Source: AHgI3IbfujnRN2SEFmgryeqGF2Gkan43GpagQjpViV8LMiyAgj6l3cQRtD1/WFj91GkMvS5rK/Qoeel/SytZbuWGNhE=
+X-Received: by 2002:a02:187:: with SMTP id 7mr232036jak.115.1550063451222;
+ Wed, 13 Feb 2019 05:10:51 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20190213103459.t5bvemxrb2x6iagm@pengutronix.de>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <20181112142736.15009-1-kernel@esmil.dk>
+ <1550052211-21030-1-git-send-email-yash.shah@sifive.com>
+In-Reply-To: <1550052211-21030-1-git-send-email-yash.shah@sifive.com>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Wed, 13 Feb 2019 14:10:40 +0100
+Message-ID: <CANBLGcz4PJcChFxOsQYLKRy9SA11j1UsEN1pVpOBwfPQBmpM4A@mail.gmail.com>
+Subject: Re: [RFC PATCH] spi: add driver for the SiFive SPI controller
+To: Yash Shah <yash.shah@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190213_043905_883045_BA5BA767 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20190213_051056_236171_85A192D9 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,109 +79,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- palmer@sifive.com, linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
- Yash Shah <yash.shah@sifive.com>, robh+dt@kernel.org, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============0331196516688902814=="
+Cc: sachin.ghadi@sifive.com, linux-riscv@lists.infradead.org,
+ Palmer Dabbelt <palmer@sifive.com>, paul.walmsley@sifive.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Yash,
 
---===============0331196516688902814==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="27ZtN5FSuKKSZcBU"
-Content-Disposition: inline
+On Wed, 13 Feb 2019 at 11:04, Yash Shah <yash.shah@sifive.com> wrote:
+> I am working full time on Linux device drivers for SiFive.
+> I have some bandwidth to work on this SPI driver.
+> Do you mind if I take over this SPI driver from here on?
 
+No, that's fine. You can pick it up from here:
+https://github.com/esmil/linux/commit/870b04e85662a02ee1f6333e1d037c774ed4350e
 
---27ZtN5FSuKKSZcBU
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+That's with all of Mark's comments fixed, but the bindings doc
+probably needs to be updated and split into a separate patch.
 
-On Wed, Feb 13, 2019 at 11:34:59AM +0100, Uwe Kleine-K=C3=B6nig wrote:
-> On Wed, Feb 13, 2019 at 02:56:18PM +0530, Yash Shah wrote:
-[...]
-> > +	unsigned long scale_pow =3D
-> > +			div64_ul(pwm->real_period * (u64)rate, NSEC_PER_SEC);
-> > +	int scale =3D clamp(ilog2(scale_pow) - PWM_SIFIVE_CMPWIDTH, 0, 0xf);
-> > +
-> > +	writel((1 << PWM_SIFIVE_PWMCFG_EN_ALWAYS) | (scale <<
-> > +	       PWM_SIFIVE_PWMCFG_SCALE), pwm->regs + PWM_SIFIVE_PWMCFG);
->=20
-> I think this would be better readable with the newline after the |. With
-> my editor's configuration when broken like this, the 2nd line would be
-> intended with the opening ( after the |.
->=20
-> > +
-> > +	/* As scale <=3D 15 the shift operation cannot overflow. */
-> > +	pwm->real_period =3D div64_ul(1000000000ULL << (PWM_SIFIVE_CMPWIDTH +
-> > +				    scale), rate);
->=20
-> ditto. Maybe break after the =3D?
->=20
-> > +	dev_dbg(pwm->chip.dev, "New real_period =3D %u ns\n", pwm->real_perio=
-d);
-> > +}
-> > +
-> > +static void pwm_sifive_get_state(struct pwm_chip *chip, struct pwm_dev=
-ice *dev,
-> > +				 struct pwm_state *state)
-> > +{
-> > +	struct pwm_sifive_ddata *pwm =3D pwm_sifive_chip_to_ddata(chip);
-> > +	u32 duty;
-> > +	int val;
-> > +
-> > +	duty =3D readl(pwm->regs + PWM_SIFIVE_PWMCMP0 + dev->hwpwm *
-> > +		     PWM_SIFIVE_SIZE_PWMCMP);
-> > +
-> > +	val =3D readl(pwm->regs + PWM_SIFIVE_PWMCFG);
-> > +	state->enabled =3D (val & BIT(PWM_SIFIVE_PWMCFG_EN_ALWAYS)) > 0;
-> > +
-> > +	val &=3D 0x0F;
-> > +	pwm->real_period =3D div64_ul(1000000000ULL << (PWM_SIFIVE_CMPWIDTH +
-> > +				    val), clk_get_rate(pwm->clk));
->=20
-> Another bad line break.
-
-Maybe just split all of these very long expressions up by introducing
-temporary variables to make things more palatable?
-
-Thierry
-
---27ZtN5FSuKKSZcBU
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAlxkD+YACgkQ3SOs138+
-s6E7jQ//UQwS8ncrUfiucp+4IA2Ttqa0MkZBKpHZFYd5NABgdUdAFrxiUkNHRx3k
-Ziz1Og6o1xAcdhlQwFsirpvgkSuB27t0UPwVEfjhOtE2nsp4NlMrulqzLhhTMRqm
-dJOXUdnz5DlnmXAvTVLEqwM0oVdcotD7flgqcSbJ5/C9Xj3GVnybLsYvluNrfkgD
-FOO6uXAl84hwzk8eoPMVZ4xyT4M08FVyxUG4S4abayZ+ZO7qGuMCFByebbfk3qXI
-9Wp/5TgEfndb5vYv0BGHwRLjTtjm7zk5x/cAQgd+i9vB3dQRTekdPg87XiY3gq2j
-+Do5Otmno1yBowJ2Q5HTatN+o246BEgbaUjyqS/ZxSK5T8ei2HKZgR2fv6DQqPYy
-etOx8wOfVOxgF7allr4E5hAnKhUlfV1nXE+K15vXNVeE8vTggpdQa8y8cj0Qvx2g
-xfEFBlf92sEQ1uSQEvPoEBLRLKNK1N4ZlscIhKz84vrMfeN+l5vchJ9j6jCqq29l
-Qi6xTgCb49tBLdhjO7Od7evIY6E7tPzax1YAg1oeNjNGm0q5xEmXH85mSILeeCO3
-jdfOyaEIGGDziBcJ6xVROejOHowX+09hJQDFyK/xUQ8/U4rppxSs/cuhPAXCFRQG
-/Axaqlt3wF1V1Oj0ZEwDc27VQT3I31heLxz4cyeLjCjJknUi0zU=
-=VfjV
------END PGP SIGNATURE-----
-
---27ZtN5FSuKKSZcBU--
-
-
---===============0331196516688902814==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0331196516688902814==--
-
