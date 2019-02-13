@@ -2,102 +2,73 @@ Return-Path: <SRS0=7ZJm=QU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 446F9C282C2
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 16:33:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AB8EEC282C2
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 17:39:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1420B21902
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 16:33:44 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7EBBE2175B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 17:39:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="K8FRnlJq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1420B21902
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="j2Gd5gx2"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7EBBE2175B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:In-Reply-To:MIME-Version:
-	References:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wPIkDjRPecvE5cNGVJWYGdk3VCKt25mO683B5Tqh9Mc=; b=K8FRnlJqTKVGQv
-	+cojeBYWtcxuMefTba2YqgV3eMPZne761K01D94E1efkktV/LkpuQv0qIEhHsnQ1/H3f8KBqGr20Q
-	JIseAF3RKFewt9mbPFHOHHGj/KcAwg5eBHkYHGtmIrJdv/6npiUxBmHWNN7OFc9JhBoFEi5CK6kC6
-	ATKOIrCtzMPYxXmylJWIepmprWueso9BSvgBE/tKGfwVXosx7Y+/Ar6YwH94IGlG6e8EZqvGledKw
-	4tPjYF+pxATwlCOBQfDBAljM7OKtw4ag4LCq/gafrl062MT+M3rBHW8aFHznv8z1Uh53nlAKRMrps
-	i8iocaq1gHBQT4xlVObg==;
+	List-Owner; bh=IvtdahDUxDltr1JM8Ka3+auU/opx+BURsUhsApz5fI8=; b=j2Gd5gx2vVESIH
+	kapgsdSCEUGUx3y3P/Zqbv2jqeki547fciXSTj8LGBs1LMIu2WZndhptjDiMBy4IMOsQOBpHVs4j5
+	M4yErulCxyfQxNMfB0F/fKJ+sneVQl/yEYdZK4qQ0bNzvWZOtTXu87+KAKFD39eA+aUpqlzqMjmxP
+	pTjMPOpfKJb4jBihJcFq+lGMzcOOErYOxZCpI4DwbC6WS1+DzuwrtVcbYaECuuVBLaymMGlDJnA75
+	eeuaCsJccLGBJiTgZ1Jg1HsHIrH/xmiZ0Tes6lMlaau8YJn++q7cfGh16gN5PlAA3Lq4kJ1/O+0kC
+	zBr/TmMObYVxp6gn5eoQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtxTh-0002sA-0V; Wed, 13 Feb 2019 16:33:41 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
- helo=mx0a-001b2d01.pphosted.com)
+	id 1gtyVW-0006qD-4y; Wed, 13 Feb 2019 17:39:38 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtxTa-0002qS-F8
- for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 16:33:39 +0000
-Received: from pps.filterd (m0098421.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
- x1DGUbrE123918
- for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 11:33:33 -0500
-Received: from e06smtp04.uk.ibm.com (e06smtp04.uk.ibm.com [195.75.94.100])
- by mx0a-001b2d01.pphosted.com with ESMTP id 2qmpbbhvek-1
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
- for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 11:33:33 -0500
-Received: from localhost
- by e06smtp04.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
- Violators will be prosecuted
- for <linux-riscv@lists.infradead.org> from <rppt@linux.ibm.com>;
- Wed, 13 Feb 2019 16:33:31 -0000
-Received: from b06cxnps3075.portsmouth.uk.ibm.com (9.149.109.195)
- by e06smtp04.uk.ibm.com (192.168.101.134) with IBM ESMTP SMTP Gateway:
- Authorized Use Only! Violators will be prosecuted; 
- (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
- Wed, 13 Feb 2019 16:33:28 -0000
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com
- (b06wcsmtp001.portsmouth.uk.ibm.com [9.149.105.160])
- by b06cxnps3075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- x1DGXSA256557586
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Wed, 13 Feb 2019 16:33:28 GMT
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id E8E2DA4054;
- Wed, 13 Feb 2019 16:33:27 +0000 (GMT)
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 51D8BA405B;
- Wed, 13 Feb 2019 16:33:27 +0000 (GMT)
-Received: from rapoport-lnx (unknown [9.148.8.84])
- by b06wcsmtp001.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Wed, 13 Feb 2019 16:33:27 +0000 (GMT)
-Date: Wed, 13 Feb 2019 18:33:25 +0200
-From: Mike Rapoport <rppt@linux.ibm.com>
-To: Anup Patel <Anup.Patel@wdc.com>
-Subject: Re: [PATCH v6 5/5] RISC-V: Free-up initrd in free_initrd_mem()
-References: <20190213115301.103989-1-anup.patel@wdc.com>
- <20190213115301.103989-6-anup.patel@wdc.com>
+ id 1gtyVT-0006iW-5U
+ for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 17:39:37 +0000
+Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1gtyVR-0008Gz-98; Wed, 13 Feb 2019 18:39:33 +0100
+Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1gtyVP-0007Ym-UX; Wed, 13 Feb 2019 18:39:31 +0100
+Date: Wed, 13 Feb 2019 18:39:31 +0100
+From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+To: Thierry Reding <thierry.reding@gmail.com>
+Subject: Re: [PATCH v5 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
+Message-ID: <20190213173931.bhw74djming5oil6@pengutronix.de>
+References: <1548762199-7065-1-git-send-email-yash.shah@sifive.com>
+ <1548762199-7065-3-git-send-email-yash.shah@sifive.com>
+ <20190207101657.rfzcq6xdv6ocvubg@pengutronix.de>
+ <CAJ2_jOGYkwb2QSUH1UU_QoGXE5LFoR0XGJmuYfNtYcZXHXyfaA@mail.gmail.com>
+ <20190211122954.33thpip3yhtdw5x6@pengutronix.de>
+ <20190213123405.GD647@ulmo>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190213115301.103989-6-anup.patel@wdc.com>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-TM-AS-GCONF: 00
-x-cbid: 19021316-0016-0000-0000-000002560CA4
-X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
-x-cbparentid: 19021316-0017-0000-0000-000032B034DC
-Message-Id: <20190213163325.GC6110@rapoport-lnx>
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
- definitions=2019-02-13_09:, , signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501
- malwarescore=0 suspectscore=2 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=909 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1810050000 definitions=main-1902130118
+In-Reply-To: <20190213123405.GD647@ulmo>
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190213_083334_626148_9F62815B 
-X-CRM114-Status: GOOD (  24.03  )
+X-CRM114-CacheID: sfid-20190213_093935_369957_0572FFAD 
+X-CRM114-Status: GOOD (  32.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -109,51 +80,157 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Sachin Ghadi <sachin.ghadi@sifive.com>, Yash Shah <yash.shah@sifive.com>,
+ robh+dt@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 13, 2019 at 11:53:51AM +0000, Anup Patel wrote:
-> We should free-up initrd memory in free_initrd_mem() instead
-> of doing nothing.
-> 
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+On Wed, Feb 13, 2019 at 01:34:05PM +0100, Thierry Reding wrote:
+> On Mon, Feb 11, 2019 at 01:29:54PM +0100, Uwe Kleine-K=F6nig wrote:
+> > Hello,
+> > =
 
-Reviewed-by: Mike Rapoport <rppt@linux.ibm.com>
+> > On Mon, Feb 11, 2019 at 04:56:27PM +0530, Yash Shah wrote:
+> > > On Thu, Feb 7, 2019 at 3:47 PM Uwe Kleine-K=F6nig
+> > > <u.kleine-koenig@pengutronix.de> wrote:
+> > > > On Tue, Jan 29, 2019 at 05:13:19PM +0530, Yash Shah wrote:
+> > > > > +struct pwm_sifive_ddata {
+> > > > > +     struct pwm_chip chip;
+> > > > > +     struct notifier_block notifier;
+> > > > > +     struct clk *clk;
+> > > > > +     void __iomem *regs;
+> > > > > +     unsigned int approx_period;
+> > > > > +     unsigned int real_period;
+> > > > > +};
+> > > > > +
+> > > > > +static inline struct pwm_sifive_ddata *to_pwm_sifive_chip(struct=
+ pwm_chip *c)
+> > > >
+> > > > even though this is inlined I would like this to have use the
+> > > > pwm_sifive_ prefix, too.
+> > > =
 
-> ---
->  arch/riscv/mm/init.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index b1167a6f5a92..aabf1869c54b 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -94,8 +94,9 @@ static void __init setup_initrd(void)
->  	initrd_end = 0;
->  }
->  
-> -void free_initrd_mem(unsigned long start, unsigned long end)
-> +void __init free_initrd_mem(unsigned long start, unsigned long end)
->  {
-> +	free_reserved_area((void *)start, (void *)end, -1, "initrd");
->  }
->  #endif /* CONFIG_BLK_DEV_INITRD */
->  
-> -- 
-> 2.17.1
-> 
+> > > Not sure what exactly you want me to do here.
+> > =
 
--- 
-Sincerely yours,
-Mike.
+> > I want this function to be named something like pwm_sifive_chip_to_ddat=
+a.
+> > This way it has the common prefix (and is less confusing because
+> > to..chip suggests that is converts something to a chip, but the outcome
+> > is ...ddata).
+> =
 
+> We've got plenty of these cast functions that are named to_*(). I would
+> argue that naming this one differently is confusing.
+
+The benefit of consistenly use a common prefix for all functions of a
+driver is that applying a filter when tracing is much easier. Sure, you
+could argue that this function is inlined and too trivial to care about
+in a trace. Recommending to not make any exceptions to the "common
+prefix" rule is easier though than to judge all functions that don't use
+it if it is worth to adhere to the rule or not.
+
+> Also, I think this may have come from earlier review comments where I
+> suggested to name this structure struct pwm_sifive_chip, or just struct
+> pwm_sifive.
+
+Even with this argument to_pwm_sifive_chip is a bad name as the driver
+data structure is named neither pwm_sifive_chip nor pwm_sifive.
+
+> > > > In a previous review round I had doubts about the calculation of fr=
+ac
+> > > > and I think they were addressed wrongly.
+> > > > Looking at the figure at the start of chapter 14.9 in the reference
+> > > > manual: They use (different than the driver here) pwmcmp0=3D6 and
+> > > > pwmzerocmp=3D1. Then a period is 7 clock cycles long and pwmcmpX mu=
+st be 7
+> > > > (for X > 0) to yield a 100% signal. So pwmcmpX must be greater than=
+ or
+> > > > equal to the period (in clock cycles).
+> > > >
+> > > > Here we're using pwmzerocmp=3D0, still the constraint
+> > > >
+> > > >         pwmcmpX >=3D period
+> > > >
+> > > > must be true for a 100% cycle. (Right?) With pwmzerocmp=3D0 the per=
+iod is
+> > > > 0x10000 clock cycles, so pwmcmpX must be >=3D 0x10000 to yield a 10=
+0%
+> > > > signal. As this is not possible (pwmcmpX is a 16 bit value that can=
+ only
+> > > > hold up to 0xffff) the output cannot yield 100%.
+> > > >
+> > > > So I think the most correct implementation here is:
+> > > >
+> > > >         frac =3D (duty_cycle * (1 << PWM_SIFIVE_CMPWIDTH) + (1 << P=
+WM_SIFIVE_CMPWIDTH) / 2) / period;
+> > > >         /* Sorry, we cannot do 100% :-( */
+> > > >         frac =3D min(frac, (1 << PWM_SIFIVE_CMPWIDTH) - 1);
+> > > >
+> > > =
+
+> > > I will once again go through the specs, if it seems correct I will
+> > > implement the above.
+> > =
+
+> > I would just test this at runtime. Configure for 100% and check the wave
+> > form if it is constant.
+> > =
+
+> > > > > +static int pwm_sifive_probe(struct platform_device *pdev)
+> > > > > +{
+> > > > > [...]
+> > > > > +     /* Watch for changes to underlying clock frequency */
+> > > > > +     pwm->notifier.notifier_call =3D pwm_sifive_clock_notifier;
+> > > > > +     ret =3D clk_notifier_register(pwm->clk, &pwm->notifier);
+> > > > > +     if (ret) {
+> > > > > +             dev_err(dev, "failed to register clock notifier: %d=
+\n", ret);
+> > > > > +             goto disable_clk;
+> > > > > +     }
+> > > >
+> > > > Would it make sense to only enable the clock when the pwm is enable=
+d?
+> > > > (If yes, how does the output behave if the clock is disabled while =
+the
+> > > > hardware is enabled? I assume the output just freezes at the state =
+where
+> > > > it happens to be?)
+> > > =
+
+> > > Yes. Not sure about the behaviour of hardware when the clock is disab=
+led.
+> > > The behaviour should be like you said. If there is no strong reason
+> > > then we can keep it as it is right now
+> > > or else if you want I can make the necessary change.
+> > =
+
+> > I would prefer to only have the clock enabled when it is actually used.
+> > Note the common pitfall that you cannot disable the clk immediately
+> > after configureing the duty cycle to 100% or 0% though because you must
+> > only stop the clock when the newly configured parameters are active.
+> =
+
+> You can also disable the clock if the hardware will still apply the
+> configured parameters.
+
+I read the pwm part of the reference manual and I'm convinced the
+pitfall I pointed out is relevant here and the hardware will not put the
+pin to the inactive level but just freeze on disable if the document is
+accurate.
+
+Best regards
+Uwe
+
+-- =
+
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | http://www.pengutronix.de/  |
 
 _______________________________________________
 linux-riscv mailing list
