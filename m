@@ -2,22 +2,22 @@ Return-Path: <SRS0=7ZJm=QU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 92413C282CA
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 12:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 986C3C282CA
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 12:39:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 61A24222B2
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 12:37:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 68BAB222B5
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 12:39:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jwikyziL";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="TUxkLdnA"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 61A24222B2
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iv5HBoDY";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="BwJddVxh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 68BAB222B5
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,65 +26,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=GFYTE1ASbp1CHZ2rQXVU7oprAqY4h4RQrazHu1KLME4=; b=jwikyziLduZaYT1SHKg6sg0Yi
-	JB1w9GatajJ47g+0BdeSZpbSSzA2SwcMg4144DB64QQWpez1583qJd4VQP3vNSMpM+3DbcW6RCIvR
-	1cdli1Uk4pDopihtiko1JHYeW+4Q/C9GvxZQpNRaG2x3JShz4XTuKBHyi0F8ok81elVymXtAXgnjN
-	T9Csls0oKhwss9T6BW4qAEOcLxA/ghPqJ3J0Jm8/HH61+mtdxhxifVmI6KGRlbgPhrF//5IrhIACC
-	ysLpcjO/YpEa539JEiBkGyqzq91WWysg67A0ZehhlJrEJMcamZym7DkW/L9NDftaDS7NUlW15yhPd
-	zB5NNd5KQ==;
+	 bh=Dg7WXpOn58jY/QAwdY4f0qmd/sTzhJvC4B9nzrd0dzc=; b=iv5HBoDYytGc4aEQDC+tWIs6E
+	eS/CaKJkMU8Anwl3L9cxtohCiIAzCrWEcsXo6FnqbzCkBjIxLzF/s0tgpjH8RwR4eQot9CR//i3XB
+	dXrwt68sOCR4isML/UIj4nQU33toGdVk3Tb9iydnOsqWnB/GNbJ0LYRjKvkSLH+Gf9I4GEtO04SCL
+	577n49FyiugjtJPLfPUCSUrjLFy1RnpPo2tXgDqNLM8pGseNKdiFND/ZI+9YAzY5yB2Pp7fLR8Lu4
+	y4ZH0SkfY8FU8zwoX1UogmLE8oue457cszCgB6UiITLJ1LOGvn5YGRPg3t0pmM1/JrZ0k2LQG1WoX
+	U0rFZdx4g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gttmu-0008Ry-6p; Wed, 13 Feb 2019 12:37:16 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1gttoi-0000Vy-GG; Wed, 13 Feb 2019 12:39:08 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gttmn-0008LU-RC
- for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 12:37:11 +0000
-Received: by mail-wm1-x342.google.com with SMTP id h22so1790898wmb.0
- for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 04:37:06 -0800 (PST)
+ id 1gttof-0000VU-RJ
+ for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 12:39:07 +0000
+Received: by mail-wm1-x343.google.com with SMTP id q21so2242600wmc.5
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 04:39:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to:user-agent;
- bh=Jvc0DPJeZC4x80fYz5SDp6GhltWn2bjfuEN2w5fshSY=;
- b=TUxkLdnAe1zAT/X4CfyiJxmFc8ForKs82JE9QJz9qNgs6NHvVX/J6cnm4eq+CkbT6t
- 3OyvWsm+oilT+GD69lMjocKcnRPPZsICRTxNHFVX1Dm2hMHbH+U8CjcU7UouxBNQE23J
- zFIoHEVhkSGhQuxALKbCgrBYRQY8pvNsTScN9SGOjnZHsaniyesGZzWTwJr/6c9QEkd9
- j7FlR2YpQvsfuSXSg9JDmk+G8wUVmQdX3wCChZgeqzPDfkJJVkh1hZhgi40cEso+zfnQ
- f1jkZg1IJRSfBq18Ws8fPYRf5EkyNgKWzJxK020TqtspjlyV3ZOA1biixJU0dokyndkt
- 1EdQ==
+ bh=ZjBxex/GBl4CAEwzbH+6nioKydaEdqdIiLMixcUckTU=;
+ b=BwJddVxhpibvY8XNI3heJCalgCZWTKnykcdmOuFs9+5GokGExn+aBi/gStIJwpyT62
+ 8iJX1sSQpgc/qeWTH4HtQ1KwRg9siUvMUuPooJv2cnE1mJ31+ZJFSGdXAOLRJ8K/oGZt
+ UXPZFSGIX+SF4F2tD2y+Hj6sl530jHiRQGV1/J0fESaZ+xEwQa5IZmShbPIXGWTIkBCo
+ iYwqAqpFBU04yrNtWu/dcdOe5+e8sDN+mt+5t2Q/xDVtPsjD4S5getHDG3oVjJQstgEo
+ cSpaMuSzDYNAG30QSthzlHi9kTMnvFkuXDHx1oCkI0yPFc58yBMwa6OrrYw5pdpKhCXP
+ j9/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=Jvc0DPJeZC4x80fYz5SDp6GhltWn2bjfuEN2w5fshSY=;
- b=FWfjhsPr4Z9T9RgbiaaqpeCFcJATiu/3ZRy/PJHY4hDqi2PKH65D7rHshefidAvxi5
- vYQCOxPUs6cR7xbNvBd284y8SwbQs/eeEAaE7DocgjPgyQX9PRFW/ixjBnXcKse9qPps
- UIX472zw8SVUZRBC7+8rT11VwxA5iPfBk5YL5YLddWEYBA9P8mzUJPmsKjicTJs2pZJU
- khVLdpnCZH5HNa5HSBY6CRXsXOzzgc/afyHYDcwEfMYJLWecy8n/dZZnnGuCVU9uYRfU
- wkQA8D5JSncHjldEOrC+0dssq8ydYEuTMACQpyoliPoiptREZUg7YxjU8XoMDGMPa8HU
- 8DmQ==
-X-Gm-Message-State: AHQUAuYPyPdPZX9ifdGPMoZaq1LmGHyqNfbEzJjr7GuVGTCmpb8hHUFM
- 9qwjmo/MaTAx2LcZQYUVmnA=
-X-Google-Smtp-Source: AHgI3IYprqT3ZersU5tdbD1oKTYH8pVnsPae64xazF5UiexuBJW+cShQAZXFQyds6K8kNfRTUkajZg==
-X-Received: by 2002:a1c:c208:: with SMTP id s8mr146501wmf.75.1550061425078;
- Wed, 13 Feb 2019 04:37:05 -0800 (PST)
+ bh=ZjBxex/GBl4CAEwzbH+6nioKydaEdqdIiLMixcUckTU=;
+ b=ejFKWs4N5/l1m5w/6tUjOgLHgVDJnTRqDOBD1J0rDLc7RFFLbFM007aE4FT9Nx/Ev/
+ CXhhP8MGVT19M5Dj1eyPIvdVHvQ0mOCIhblA3cUXJOsevntqVhd0yoH3Tq91tGR22Ey3
+ n48v3BuPOk4h034Er7biFzf6+FhkLt9kLQbuVMeWNh+Nof4MdPDU1XQkWqp6sJAMTpyV
+ vy5m7vlZWIhZ0fqGfF9u2Kky0QaHZHzLPbSXjPSSnfeSWC3efEWbGPULh/w7q+MKecMA
+ GIW1lQQnWYhCOx8iU0PIX21qijtqOG3xcaP5hB5lSVgkCezJMu9kVP2btEfakEBrOK7/
+ 5vKg==
+X-Gm-Message-State: AHQUAuYhztdCHqhMcvrPnJREwTDSTOenacYNw0rdmyr0JGLThxhOMZOL
+ 0i5KwyIKHwtVmUUDRP6yEE0=
+X-Google-Smtp-Source: AHgI3IbMLf+T17QAekYkmX7qKJvi8QhJ13L2VyLjmne1Bft18I5syZ6xrO+6gcsW0Tu9QqpI8fkN/A==
+X-Received: by 2002:a1c:cc0d:: with SMTP id h13mr142384wmb.85.1550061544264;
+ Wed, 13 Feb 2019 04:39:04 -0800 (PST)
 Received: from localhost (pD9E51D2D.dip0.t-ipconnect.de. [217.229.29.45])
- by smtp.gmail.com with ESMTPSA id b2sm12814914wrp.94.2019.02.13.04.37.03
+ by smtp.gmail.com with ESMTPSA id f187sm6998739wma.4.2019.02.13.04.39.03
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Wed, 13 Feb 2019 04:37:04 -0800 (PST)
-Date: Wed, 13 Feb 2019 13:37:03 +0100
+ Wed, 13 Feb 2019 04:39:03 -0800 (PST)
+Date: Wed, 13 Feb 2019 13:39:02 +0100
 From: Thierry Reding <thierry.reding@gmail.com>
 To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-Subject: Re: [PATCH v5 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
-Message-ID: <20190213123703.GE647@ulmo>
-References: <1548762199-7065-1-git-send-email-yash.shah@sifive.com>
- <1548762199-7065-3-git-send-email-yash.shah@sifive.com>
- <20190207101657.rfzcq6xdv6ocvubg@pengutronix.de>
+Subject: Re: [PATCH v6 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
+Message-ID: <20190213123902.GF647@ulmo>
+References: <1550049978-20705-1-git-send-email-yash.shah@sifive.com>
+ <1550049978-20705-3-git-send-email-yash.shah@sifive.com>
+ <20190213103459.t5bvemxrb2x6iagm@pengutronix.de>
 MIME-Version: 1.0
-In-Reply-To: <20190207101657.rfzcq6xdv6ocvubg@pengutronix.de>
+In-Reply-To: <20190213103459.t5bvemxrb2x6iagm@pengutronix.de>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190213_043709_881044_923E6B71 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20190213_043905_883045_BA5BA767 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -100,70 +100,96 @@ Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
  palmer@sifive.com, linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
  Yash Shah <yash.shah@sifive.com>, robh+dt@kernel.org, paul.walmsley@sifive.com,
  linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============4424139838302361519=="
+Content-Type: multipart/mixed; boundary="===============0331196516688902814=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4424139838302361519==
+--===============0331196516688902814==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="zjcmjzIkjQU2rmur"
+	protocol="application/pgp-signature"; boundary="27ZtN5FSuKKSZcBU"
 Content-Disposition: inline
 
 
---zjcmjzIkjQU2rmur
+--27ZtN5FSuKKSZcBU
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Feb 07, 2019 at 11:16:57AM +0100, Uwe Kleine-K=C3=B6nig wrote:
-> On Tue, Jan 29, 2019 at 05:13:19PM +0530, Yash Shah wrote:
+On Wed, Feb 13, 2019 at 11:34:59AM +0100, Uwe Kleine-K=C3=B6nig wrote:
+> On Wed, Feb 13, 2019 at 02:56:18PM +0530, Yash Shah wrote:
 [...]
-> > diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
-[...]
-> > +	writel(val, pwm->regs + PWM_SIFIVE_PWMCFG);
+> > +	unsigned long scale_pow =3D
+> > +			div64_ul(pwm->real_period * (u64)rate, NSEC_PER_SEC);
+> > +	int scale =3D clamp(ilog2(scale_pow) - PWM_SIFIVE_CMPWIDTH, 0, 0xf);
 > > +
-> > +	writel(frac, pwm->regs + PWM_SIFIVE_PWMCMP0 + dev->hwpwm * SIZE_PWMCM=
-P);
-> > +
-> > +	val &=3D ~(1 << PWM_SIFIVE_PWMCFG_DEGLITCH);
-> > +	writel(val, pwm->regs + PWM_SIFIVE_PWMCFG);
-> > +
-> > +	pwm_sifive_get_state(chip, dev, state);
+> > +	writel((1 << PWM_SIFIVE_PWMCFG_EN_ALWAYS) | (scale <<
+> > +	       PWM_SIFIVE_PWMCFG_SCALE), pwm->regs + PWM_SIFIVE_PWMCFG);
 >=20
-> Thierry: This changes the pwm_state. Is this how this should be done?
+> I think this would be better readable with the newline after the |. With
+> my editor's configuration when broken like this, the 2nd line would be
+> intended with the opening ( after the |.
+>=20
+> > +
+> > +	/* As scale <=3D 15 the shift operation cannot overflow. */
+> > +	pwm->real_period =3D div64_ul(1000000000ULL << (PWM_SIFIVE_CMPWIDTH +
+> > +				    scale), rate);
+>=20
+> ditto. Maybe break after the =3D?
+>=20
+> > +	dev_dbg(pwm->chip.dev, "New real_period =3D %u ns\n", pwm->real_perio=
+d);
+> > +}
+> > +
+> > +static void pwm_sifive_get_state(struct pwm_chip *chip, struct pwm_dev=
+ice *dev,
+> > +				 struct pwm_state *state)
+> > +{
+> > +	struct pwm_sifive_ddata *pwm =3D pwm_sifive_chip_to_ddata(chip);
+> > +	u32 duty;
+> > +	int val;
+> > +
+> > +	duty =3D readl(pwm->regs + PWM_SIFIVE_PWMCMP0 + dev->hwpwm *
+> > +		     PWM_SIFIVE_SIZE_PWMCMP);
+> > +
+> > +	val =3D readl(pwm->regs + PWM_SIFIVE_PWMCFG);
+> > +	state->enabled =3D (val & BIT(PWM_SIFIVE_PWMCFG_EN_ALWAYS)) > 0;
+> > +
+> > +	val &=3D 0x0F;
+> > +	pwm->real_period =3D div64_ul(1000000000ULL << (PWM_SIFIVE_CMPWIDTH +
+> > +				    val), clk_get_rate(pwm->clk));
+>=20
+> Another bad line break.
 
-Yes, I think that's fine. The PWM state should always reflect the
-current hardware state. If the configuration that we program does not
-reflect the state that was requested, that should be reflected in the
-PWM state.
+Maybe just split all of these very long expressions up by introducing
+temporary variables to make things more palatable?
 
 Thierry
 
---zjcmjzIkjQU2rmur
+--27ZtN5FSuKKSZcBU
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAlxkD24ACgkQ3SOs138+
-s6EJYQ/+PKXGl1Os9kb2ygrrqtwNAdMUKWPznwwYxi0Nba1r8Z1Yt3XBPDh8m3lO
-JTqBUX6Cc6ePyQRlyMoMzrD41+OEWW2ueUG6i1VfFZJ3Yx1FyV+qGOjyh1ajfc+b
-s4+8fPXzQ6VHrryvA0bYn8QHk2+DKeQgXTwd8i0FOxazVJ5eaE97aTiqoL5TSW7e
-WpCmTuBj53sRoMO3qnYAJtKi/XElp/so+6gOz6zzz92SKnFVxlb7LskyRO4xVJt0
-csGSkj2GVDnbTRGAfge8u5o/fTLzTI61TpNZSZfufGnpt5YjMG6y9T3lNUh7WSyz
-E8PhNHH3WnFeegmUpj6zu8h+p2gJBa8H8wh6YjipVuUhhVBZVq/5AqYbavtrLlAb
-FLxUcCltLcAaClAoAx9aLYyuq2fvkUjBd9ghNvASrxq9F28fYNCOz38vACpGCExq
-s5rLgsClYTjTOPipRKUj+8vUJoQnjtGV+miQTeD4+MkUJLrOvCvimaVfda+68Phe
-zq3huhk0+etRLAwkKY2MmRi6nJTneESXq8gE0pb+QtMzlWs71Pqa/lqC/MPsAo5E
-IZoh6keN0VBUpxltE8UoGMu6QJXaxTtVtmfOS8dZjT4xKvef40boBdl0jVt6KGMt
-d3RRmQQDGiYwusML2HCpJUY9RcipWOn2oEYbtGxGHm2SM9dg6M4=
-=UK4T
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAlxkD+YACgkQ3SOs138+
+s6E7jQ//UQwS8ncrUfiucp+4IA2Ttqa0MkZBKpHZFYd5NABgdUdAFrxiUkNHRx3k
+Ziz1Og6o1xAcdhlQwFsirpvgkSuB27t0UPwVEfjhOtE2nsp4NlMrulqzLhhTMRqm
+dJOXUdnz5DlnmXAvTVLEqwM0oVdcotD7flgqcSbJ5/C9Xj3GVnybLsYvluNrfkgD
+FOO6uXAl84hwzk8eoPMVZ4xyT4M08FVyxUG4S4abayZ+ZO7qGuMCFByebbfk3qXI
+9Wp/5TgEfndb5vYv0BGHwRLjTtjm7zk5x/cAQgd+i9vB3dQRTekdPg87XiY3gq2j
++Do5Otmno1yBowJ2Q5HTatN+o246BEgbaUjyqS/ZxSK5T8ei2HKZgR2fv6DQqPYy
+etOx8wOfVOxgF7allr4E5hAnKhUlfV1nXE+K15vXNVeE8vTggpdQa8y8cj0Qvx2g
+xfEFBlf92sEQ1uSQEvPoEBLRLKNK1N4ZlscIhKz84vrMfeN+l5vchJ9j6jCqq29l
+Qi6xTgCb49tBLdhjO7Od7evIY6E7tPzax1YAg1oeNjNGm0q5xEmXH85mSILeeCO3
+jdfOyaEIGGDziBcJ6xVROejOHowX+09hJQDFyK/xUQ8/U4rppxSs/cuhPAXCFRQG
+/Axaqlt3wF1V1Oj0ZEwDc27VQT3I31heLxz4cyeLjCjJknUi0zU=
+=VfjV
 -----END PGP SIGNATURE-----
 
---zjcmjzIkjQU2rmur--
+--27ZtN5FSuKKSZcBU--
 
 
---===============4424139838302361519==
+--===============0331196516688902814==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -174,5 +200,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4424139838302361519==--
+--===============0331196516688902814==--
 
