@@ -2,90 +2,99 @@ Return-Path: <SRS0=7ZJm=QU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 77DEFC282C2
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 07:29:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 09B0FC282C2
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 07:38:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 48600222BE
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 07:29:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CAC2C222BE
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 07:38:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AVQKSmHM";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="hKu2VKHT"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 48600222BE
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aFpAiC4i"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CAC2C222BE
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:In-Reply-To:MIME-Version:
+	References:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7i3W07/sWJG8pAJU08FcGn+S8AFkYoFA3n125PitRBs=; b=AVQKSmHMBuYvn5
-	y8oN+K4nem9LF0k3K+1frKhbx92VB0XG8NvzOYeaJpsqXhpyklAPNiDSNFeoRA/Wvb6ENisKTvLXZ
-	L+s1qZUdO8CCn5nbmanVG5hJI9MaI/sVr4PfXFoV4apa7J0UVSi0ywj7dcxrWjyBdTk4Sky0yAbYY
-	o5T1YwFLfOXttREb6UhHKpyP5iKEPOJzNxDf3QGPr0ih9B3H7IzFFqLV8yFP78b6rPzbHyt433Qeo
-	cEmI93nh6OFaX5oNmTj7blei9QPsYPaKfW8CPNKiAE4jnYujWeuevmDRCYgOpboYvc8ALkAG5FEx/
-	j7nc21yeMH9xUBojhYJg==;
+	List-Owner; bh=n17EwMa6RzhzmcinmrKT+3N3yrFEX+MpNQpmi5pbKQs=; b=aFpAiC4iLCGXxM
+	6i/J1hIjRC5v7zh74zCcWGQpdyPOQZ3ZawJt5Lay3FjroNe6bOuGww5QYV+pDioFn2rmWnHtWrPiw
+	IU//EWL57L95rDrlmsijCYag6VxOtChu/1grAI1PMrhC1dDRNLOG2gYIcabZga2g38vUFDqZZCrr8
+	zIyeQ+233kUH+DsNHNiOGqrnl2DOcVqDy4qask0pujYMOM9qLwrAdppcqf/tok+7GNrNZOQkMYCR6
+	PMkLsAlpifJEItGxIkeYVhxBSSHfjhGxFq7Nn8pbi09g0ROzo3SWvfR3nKk/9SLb/tsEBD5gHPyDu
+	J3bLR6s3QsC7oovus3+A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtozN-0004Mq-5i; Wed, 13 Feb 2019 07:29:49 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1gtp85-0007Zf-Ul; Wed, 13 Feb 2019 07:38:49 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtozA-0004Av-Dx
- for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 07:29:38 +0000
-Received: by mail-wr1-x444.google.com with SMTP id q18so1240310wrx.9
- for <linux-riscv@lists.infradead.org>; Tue, 12 Feb 2019 23:29:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:content-transfer-encoding:in-reply-to
- :user-agent; bh=p1ubNWXGHPnF8cNyX5xYmowXhYPVRyQWPlZNKdwfTas=;
- b=hKu2VKHT8ANYSMZfbVUfV7u6JKn6aZ8519m5/Q+ilXS/t8uBxsgQi92Uvx0cchs0k6
- 0GS0R8muSud7PJBYF6mhzHEBfe9kHAnBnFfxPan9BeHGfzI//T9ez9hqA3oo816RRmZW
- wpYHbtKPgeW+Ifb3dvO/LCCJgnFyIF4Rj5sXrvmMVbgCDp3Cd5JuqWaO5h2+dhhJag22
- rf+lcITHUlTRnVPG0zKzo+0KtAz8LJKbeIrmRs8fVe5sfktMNzOu0VCf0FAn+CSFdDBx
- KCnYic2FHcgfPwIGxWieKHFvujUmy2bI44eRBnrSvNtkc+swOHwWm7gkl9cWoGDlDU6G
- LxHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:content-transfer-encoding
- :in-reply-to:user-agent;
- bh=p1ubNWXGHPnF8cNyX5xYmowXhYPVRyQWPlZNKdwfTas=;
- b=ZEuZv4CgZmajefm0V7dOE+418/YJxS15uzn7omNsOtv74GtVR8keAG3Bxdvndb9gKD
- ++QyE+C7iaOEi55QghOkp5y3LAzqsA00koMC09PJkJKeoBAz+FvxIDE0uoKW7296RqeA
- b7KPEMF+MLxWcIwhWfoRnVr13hTSOnwWr2x0Je5HU2/knpD05W7WZv/LYzkK+YaLeYq5
- JmEJNf+qMRBsJRlscusCXggjy2V+rfmF20U//Upu5Anm0Bv5mfKlMQozIXzK9uuAV5Q+
- E+bPVYdF8qr3LPsLfjgcUhkolS13Cnp2VvtsAbYMUS/Rq3+3+P+yxj9PHuB+PiHPN9GQ
- AmNg==
-X-Gm-Message-State: AHQUAuZuIdcTBmJPXkwvCo2cK2uI2gb5RoUrYKZxDAPJl/967kpIuKXX
- yDDgLoZfUlPO9CfZsMozNpVIiw==
-X-Google-Smtp-Source: AHgI3IZcd4zu/3yvHzkl49HGJ4yreQu5p0YiXKGToLp9LNR1JCXvFQTZLzDX27/8lOJeVrKoRHhVcQ==
-X-Received: by 2002:a05:6000:6:: with SMTP id h6mr5767032wrx.68.1550042973913; 
- Tue, 12 Feb 2019 23:29:33 -0800 (PST)
-Received: from dell ([2.27.35.171])
- by smtp.gmail.com with ESMTPSA id q24sm4487482wmq.16.2019.02.12.23.29.32
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Tue, 12 Feb 2019 23:29:33 -0800 (PST)
-Date: Wed, 13 Feb 2019 07:29:31 +0000
-From: Lee Jones <lee.jones@linaro.org>
-To: Christoph Hellwig <hch@lst.de>
-Subject: Re: [PATCH 01/12] mfd/sm501: depend on HAS_DMA
-Message-ID: <20190213072931.GD1863@dell>
-References: <20190211133554.30055-1-hch@lst.de>
- <20190211133554.30055-2-hch@lst.de>
+ id 1gtp83-0007ZF-8j
+ for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 07:38:48 +0000
+Received: from pps.filterd (m0098421.ppops.net [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
+ x1D7VaPs074590
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 02:38:44 -0500
+Received: from e06smtp04.uk.ibm.com (e06smtp04.uk.ibm.com [195.75.94.100])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 2qmck1w4rc-1
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 02:38:44 -0500
+Received: from localhost
+ by e06smtp04.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
+ Violators will be prosecuted
+ for <linux-riscv@lists.infradead.org> from <rppt@linux.ibm.com>;
+ Wed, 13 Feb 2019 07:38:42 -0000
+Received: from b06cxnps4075.portsmouth.uk.ibm.com (9.149.109.197)
+ by e06smtp04.uk.ibm.com (192.168.101.134) with IBM ESMTP SMTP Gateway:
+ Authorized Use Only! Violators will be prosecuted; 
+ (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
+ Wed, 13 Feb 2019 07:38:39 -0000
+Received: from d06av21.portsmouth.uk.ibm.com (d06av21.portsmouth.uk.ibm.com
+ [9.149.105.232])
+ by b06cxnps4075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ x1D7ccIZ63832314
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Wed, 13 Feb 2019 07:38:38 GMT
+Received: from d06av21.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id C35E352054;
+ Wed, 13 Feb 2019 07:38:38 +0000 (GMT)
+Received: from rapoport-lnx (unknown [9.148.59.186])
+ by d06av21.portsmouth.uk.ibm.com (Postfix) with ESMTPS id 1C5E452052;
+ Wed, 13 Feb 2019 07:38:38 +0000 (GMT)
+Date: Wed, 13 Feb 2019 09:38:36 +0200
+From: Mike Rapoport <rppt@linux.ibm.com>
+To: Christoph Hellwig <hch@infradead.org>
+Subject: Re: [PATCH v4 6/6] RISC-V: Free-up initrd in free_initrd_mem()
+References: <20190213063127.28703-1-anup.patel@wdc.com>
+ <20190213063127.28703-7-anup.patel@wdc.com>
+ <20190213064419.GA27012@infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190211133554.30055-2-hch@lst.de>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+In-Reply-To: <20190213064419.GA27012@infradead.org>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-TM-AS-GCONF: 00
+x-cbid: 19021307-0016-0000-0000-00000255D897
+X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
+x-cbparentid: 19021307-0017-0000-0000-000032AFFDEB
+Message-Id: <20190213073835.GA18267@rapoport-lnx>
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
+ definitions=2019-02-13_05:, , signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501
+ malwarescore=0 suspectscore=2 phishscore=0 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
+ mlxlogscore=812 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1810050000 definitions=main-1902130056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190212_232936_490431_78153EDC 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20190212_233847_429385_CD6C1AF7 
+X-CRM114-Status: GOOD (  27.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,41 +106,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-xtensa@linux-xtensa.org, linux-sh@vger.kernel.org,
- devicetree@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- x86@kernel.org, linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux-foundation.org, linux-riscv@lists.infradead.org,
- linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAxMSBGZWIgMjAxOSwgQ2hyaXN0b3BoIEhlbGx3aWcgd3JvdGU6Cgo+IEN1cnJlbnRs
-eSB0aGUgc201MDEgbWZkIGRyaXZlciBjYW4gYmUgY29tcGlsZWQgd2l0aG91dCBhbnkgZGVwZW5k
-ZW5jaWVzLAo+IGJ1dCB0aHJvdWdoIHRoZSB1c2Ugb2YgZG1hX2RlY2xhcmVfY29oZXJlbnQgaXQg
-cmVhbGx5IGRlcGVuZHMgb24KPiBoYXZpbmcgRE1BIGFuZCBpb21lbSBzdXBwb3J0LiAgTm9ybWFs
-bHkgd2UgZG9uJ3QgZXhwbGljaXRseSByZXF1aXJlIERNQQo+IHN1cHBvcnQgYXMgd2UgaGF2ZSBz
-dHVicyBmb3IgaXQgaWYgb24gVU1MLCBidXQgaW4gdGhpcyBjYXNlIHRoZSBkcml2ZXIKPiBzZWxl
-Y3RzIHN1cHBvcnQgZm9yIGRtYV9kZWNsYXJlX2NvaGVyZW50IGFuZCB0aHVzIGFsc28gcmVxdWly
-ZXMKPiBtZW1tYXAgc3VwcG9ydC4gIEd1YXJkIHRoaXMgYnkgYW4gZXhwbGljaXQgZGVwZW5kZW5j
-eS4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBDaHJpc3RvcGggSGVsbHdpZyA8aGNoQGxzdC5kZT4KPiAt
-LS0KPiAgZHJpdmVycy9tZmQvS2NvbmZpZyB8IDEgKwo+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNl
-cnRpb24oKykKPiAKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tZmQvS2NvbmZpZyBiL2RyaXZlcnMv
-bWZkL0tjb25maWcKPiBpbmRleCBmNDYxNDYwYTJhZWIuLmYxNWY2NDg5ODAzZCAxMDA2NDQKPiAt
-LS0gYS9kcml2ZXJzL21mZC9LY29uZmlnCj4gKysrIGIvZHJpdmVycy9tZmQvS2NvbmZpZwo+IEBA
-IC0xMDY2LDYgKzEwNjYsNyBAQCBjb25maWcgTUZEX1NJNDc2WF9DT1JFCj4gIAo+ICBjb25maWcg
-TUZEX1NNNTAxCj4gIAl0cmlzdGF0ZSAiU2lsaWNvbiBNb3Rpb24gU001MDEiCj4gKwlkZXBlbmRz
-IG9uIEhBU19ETUEKPiAgCSAtLS1oZWxwLS0tCj4gIAkgIFRoaXMgaXMgdGhlIGNvcmUgZHJpdmVy
-IGZvciB0aGUgU2lsaWNvbiBNb3Rpb24gU001MDEgbXVsdGltZWRpYQo+ICAJICBjb21wYW5pb24g
-Y2hpcC4gVGhpcyBkZXZpY2UgaXMgYSBtdWx0aWZ1bmN0aW9uIGRldmljZSB3aGljaCBtYXkKCkkg
-d291bGQgbm9ybWFsbHkgaGF2ZSB0YWtlbiB0aGlzLCBidXQgSSBmZWFyIGl0IHdpbGwgY29uZmxp
-Y3Qgd2l0aApbUEFUQ0ggMDYvMTJdLiAgRm9yIHRoYXQgcmVhc29uLCBqdXN0IHRha2UgbXk6Cgog
-IEFja2VkLWJ5OiBMZWUgSm9uZXMgPGxlZS5qb25lc0BsaW5hcm8ub3JnPgoKLS0gCkxlZSBKb25l
-cyBb5p2O55C85pavXQpMaW5hcm8gU2VydmljZXMgVGVjaG5pY2FsIExlYWQKTGluYXJvLm9yZyDi
-lIIgT3BlbiBzb3VyY2Ugc29mdHdhcmUgZm9yIEFSTSBTb0NzCkZvbGxvdyBMaW5hcm86IEZhY2Vi
-b29rIHwgVHdpdHRlciB8IEJsb2cKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+Hi,
+
+On Tue, Feb 12, 2019 at 10:44:19PM -0800, Christoph Hellwig wrote:
+> On Wed, Feb 13, 2019 at 06:32:24AM +0000, Anup Patel wrote:
+> > index 9cd583b6d1cd..c22b873de856 100644
+> > --- a/arch/riscv/kernel/setup.c
+> > +++ b/arch/riscv/kernel/setup.c
+> > @@ -97,8 +97,9 @@ static void __init setup_initrd(void)
+> >  	initrd_end = 0;
+> >  }
+> >  
+> > -void free_initrd_mem(unsigned long start, unsigned long end)
+> > +void __init free_initrd_mem(unsigned long start, unsigned long end)
+> >  {
+> > +	memblock_free(__pa(start), end - start);
+> 
+> I'm pretty sure this should be a call to free_reserved_area instead.
+> 
+> All regions reserved using memblock_reserved and not freed before
+> initializing the MM are marked reserved and don't have valid page
+> counts, etc.
+> 
+> So we need the actions in free_reserved_area to actually make the
+> memory useful.  Now every other architecture except for arm64
+> seems to do fine without a memblock_free.  I'm not an expert on
+> memblock (but I've CCed one), but I guess the reason is that once
+> the kernel has booted we don't really care about freeing memblock
+> area.
+
+This late in the boot process there should be a call to
+free_reserved_area() to give pages to the buddy allocator.
+
+memblock_free() is has no real effect at this point, no idea why arm64
+calls it.
+
+-- 
+Sincerely yours,
+Mike.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
