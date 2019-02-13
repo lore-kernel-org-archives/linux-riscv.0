@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0BC1BC282CA
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 17:46:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4733BC282C2
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 17:50:20 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D6ACB222B1
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 17:46:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1DAE52086C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 17:50:20 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Vzay73LC"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D6ACB222B1
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EgbZfciu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1DAE52086C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -25,42 +25,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qkOc3ZtO3Ri3hPO2CjfOmIZlEOOu+ZVxXO5BuyIkHtM=; b=Vzay73LC4Ifapj
-	q0FmFzlFqU6vdJ9gUyfFRCY07DO8L96A4Q0oyPbUh6uqu3mDG4kDdSg8BrWaSj4fIxV+E8w4TL/V9
-	yYNl9dFdJv09kLhwJtdc5N4UkTHA3xZGeTguhKEMpLIqmyRfMh9Uj3/L1sdWO6lGKr5e9EidMps5x
-	9Q9WFOsnFA2tyXz4McqL3h2yt1EWMPtk3sI+Areb+fDDthK7GdXWRvalLClyLGoMnHuwASEB8mO3Z
-	220xsS4y2kqZ5wiw1T3dQhXCO2wzQSKkiIoW9I/MhZJXp1s4QxVKCmkTOx4vNaISmd+PYJTCQ2GdC
-	OpOaFfrM+oUQo7rgEfYg==;
+	List-Owner; bh=TP2qlulK8iVkwTxU+19Nm07HTOJx6fERqA2WnBEbEA8=; b=EgbZfciu7ciND+
+	79MX78h4ZaFw+TnJBgJEIGXWtKzMMLTzNqsx2C20PLKZLxVJwAsrm/i1YGDAnjo73Oqd5j8MvfIqJ
+	ZAkWrlfbbPUE85f8TRy4bAu9Wmotd6EJf8BMQxVZdvuCDDFttE+GhtbLPSQ3hQJRWTwdjHsqsYNk2
+	Rli8UJETdBtK/nme5aYKoH0nT3I3uQg6b2Za6uIX0KnLmLqFo7a/I3JzihpoMiw5CKGDfet241VSP
+	KZQUU4x2ywtRC2sx7sIMDJxMIhN+Kbx/iCA/Rj+JQPliHUoxApoNIiPSrctMynXLpj24wOTbOWx5t
+	/3nJQpiLcov7Lv4FDEsA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtyc1-0006Xs-MS; Wed, 13 Feb 2019 17:46:21 +0000
-Received: from foss.arm.com ([217.140.101.70])
- by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtybz-0006XR-6i
- for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 17:46:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CCBFFA78;
- Wed, 13 Feb 2019 09:46:18 -0800 (PST)
-Received: from fuggles.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com
- [10.72.51.249])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 522783F675;
- Wed, 13 Feb 2019 09:46:17 -0800 (PST)
-Date: Wed, 13 Feb 2019 17:46:08 +0000
-From: Will Deacon <will.deacon@arm.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH 1/2] asm-generic/io: Pass result on inX() accessor to
- __io_par()
-Message-ID: <20190213174608.GA29100@fuggles.cambridge.arm.com>
-References: <20190211174544.4302-1-will.deacon@arm.com>
- <20190211174544.4302-2-will.deacon@arm.com>
- <CAK8P3a1gmJTt+jdTbdSYZ0z43qodxf+co757K1-Hq1mj4fCqQA@mail.gmail.com>
+	id 1gtyfp-0002ke-QW; Wed, 13 Feb 2019 17:50:17 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
+ Hat Linux)) id 1gtyfo-0002hA-80; Wed, 13 Feb 2019 17:50:16 +0000
+Date: Wed, 13 Feb 2019 09:50:16 -0800
+From: Christoph Hellwig <hch@infradead.org>
+To: Anup Patel <Anup.Patel@wdc.com>
+Subject: Re: [PATCH v6 5/5] RISC-V: Free-up initrd in free_initrd_mem()
+Message-ID: <20190213175016.GA4625@infradead.org>
+References: <20190213115301.103989-1-anup.patel@wdc.com>
+ <20190213115301.103989-6-anup.patel@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAK8P3a1gmJTt+jdTbdSYZ0z43qodxf+co757K1-Hq1mj4fCqQA@mail.gmail.com>
-User-Agent: Mutt/1.11.1+86 (6f28e57d73f2) ()
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190213_094619_249415_CA455A84 
-X-CRM114-Status: GOOD (  19.82  )
+In-Reply-To: <20190213115301.103989-6-anup.patel@wdc.com>
+User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -72,50 +58,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch <linux-arch@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- andrew.murray@arm.com, linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 12, 2019 at 12:55:17PM +0100, Arnd Bergmann wrote:
-> On Mon, Feb 11, 2019 at 6:45 PM Will Deacon <will.deacon@arm.com> wrote:
-> >
-> > The inX() I/O accessors must enforce ordering against subsequent calls
-> > to the delay() routines, so that a read-back from a device can be used
-> > to postpone a subsequent write to the same device.
-> >
-> > On some architectures, including arm64, this ordering can only be
-> > achieved by creating a dependency on the value returned by the inX()
-> > operation, so we need to pass the value we read to the __io_par()
-> > macro in this case.
-> >
-> > Reported-by: Andrew Murray <andrew.murray@arm.com>
-> > Signed-off-by: Will Deacon <will.deacon@arm.com>
-> > ---
-> >  include/asm-generic/io.h | 8 ++++----
+On Wed, Feb 13, 2019 at 11:53:51AM +0000, Anup Patel wrote:
+> We should free-up initrd memory in free_initrd_mem() instead
+> of doing nothing.
 > 
-> For changing the asm-generic file in the arm64 tree,
-> 
-> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
 
-Thanks, Arnd.
+Looks good:
 
-> For all I can see, this should not conflict with the usage of the
-> same macros on RISC-V, though it does make add a significant
-> difference, so I'd like to see an Ack from the RISC-V folks as
-> well (added to Cc), or possibly a change to arch/riscv/include/asm/io.h
-> to do a corresponding change.
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 
-There's already a comment in that header which says that the accesses are
-ordered wrt timer reads, so I don't think anything needs to change there.
-For consistency with the macro arguments, I could augment their __io_par to
-take the read value as an unused argument, if that's what you mean?
-
-Will
+Note that I just sent out a series that implements a common
+free_initrd_mem, so if that gets merged we can eventually remove this
+copy entirely.
 
 _______________________________________________
 linux-riscv mailing list
