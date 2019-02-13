@@ -2,75 +2,80 @@ Return-Path: <SRS0=7ZJm=QU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+X-Spam-Status: No, score=-13.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_MUTT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 76467C0044B
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 20:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D4406C282D7
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 20:37:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4ADB9222AC
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 20:18:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A50BC21872
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 20:37:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hAtcrY9W";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="BGYDabWY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4ADB9222AC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eXT8A9I7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A50BC21872
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Nn5Bz0aXryPwwz+VDY1dgiOnhNRlEmuld5j2wwPETQc=; b=hAtcrY9W58rOet1J6h5a9PXTO1
-	Fj8u7vwrwRdtkkwUof4Gmp/B/9vnNNO9oF+xst5Ms0zjpGEHRPHCjQsY+Q4skudFrxfmDigDQ4XbE
-	fdL1VuyCaCqjHp9PHpbeGdwDbkdbsgKY5n5fR92yOHftyuAxyeypAeJGYPD3027roBlpOG3PVRZfo
-	wDYwD0uDJQRM17SZyH8V+CQv9KeDI0z5Mhafj2JX6nWoSGucUTRzpRes6PAKfTahTtH3lAYIRyNqp
-	88ehFwWNprRfvf7AhJ+W3YlLUdpq7IX/8zMZzzx7+aHEZGlqJ+5xcajxpq398X0h94+RYbKYkQzCB
-	ru1Z5mZg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=M2PPwHKn6nbcMEpwj8xZ5VonSrjDKH6QVi7hw9HTbrE=; b=eXT8A9I7186+NL
+	RHt2SidJcYizMY+eJEXCbKsjFFNGst0Ii2hGXJsIvvwJzy03f7//lE70nDqdyv7jml5LHNeI5ykBM
+	AON+DBww0REpRnd91wJF2Cav/udCyaJqKFkyLlxOyMnqPhw3328Ym85U7hwFBPDWFtb0Z5Hf7gpPD
+	JH0r9VbefetPozPENchmrES+081smTeJ8QMgb2rvDsaf7me/IKZeP6zJPzXuYlgDdGKm9of8B4658
+	ftvUmiC976R3qLLvV1OsVFfJ8gv0TThIBBy3b8/oRq+XeAeyVXTLgpROA9bbMbwoGuOQtl2k214k7
+	ipuRZT0gOhE+0a7dGKrQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gu0zM-0003UF-Qw; Wed, 13 Feb 2019 20:18:36 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1gu1I4-0004mR-Ne; Wed, 13 Feb 2019 20:37:56 +0000
+Received: from mail-ot1-f66.google.com ([209.85.210.66])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gu0zE-0003Ca-CR
- for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 20:18:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1550089109; x=1581625109;
- h=from:to:cc:subject:date:message-id:in-reply-to: references;
- bh=LuHhF9t57ihPno63oc42DW7mqejQI1UJBdnLjc5u4ww=;
- b=BGYDabWY22bp2Pu1FD9dC0fnk1j3smZ8TRtISOGazsyP45mW+bKlXMeC
- ASxQvOafzsEXn+Gi8iZ7p7x9z+XMmwtuAw6mBluv6kGSdd6TMTnFA88Py
- 05SVVheXjVqRKaMW0g8fLMdk7Z23lYB3iGy2fl7JrcCs7WWsPMn+4sigQ
- m3ceXfdjw4s/sRXlpeR0a+YLFmKIsrfZO1XW6ix3XXNIENLwQbgwmp8s5
- qTclzH7bQ0KRANsC0BomTPXz5VjzKoOMVtZdPUijI171gNCNuywZvK/Xc
- 7E9UpX3V5A+elDX6vFIAn7PjzRuU3GEtRWZYhiwaWv9LfkFLQTrYUww/R Q==;
-X-IronPort-AV: E=Sophos;i="5.58,366,1544457600"; d="scan'208";a="102463837"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 14 Feb 2019 04:18:23 +0800
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP; 13 Feb 2019 11:56:56 -0800
-Received: from jedi-01.sdcorp.global.sandisk.com (HELO
- jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 13 Feb 2019 12:18:23 -0800
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-riscv@lists.infradead.org
-Subject: [v5 PATCH 8/8] RISC-V: Assign hwcap as per comman capabilities.
-Date: Wed, 13 Feb 2019 12:18:12 -0800
-Message-Id: <1550089092-28783-9-git-send-email-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1550089092-28783-1-git-send-email-atish.patra@wdc.com>
-References: <1550089092-28783-1-git-send-email-atish.patra@wdc.com>
+ id 1gu1I1-0004k9-PG
+ for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 20:37:55 +0000
+Received: by mail-ot1-f66.google.com with SMTP id z19so6694650otm.2
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Feb 2019 12:37:53 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=3voqcrjL3lddC/ozmniVT3xEKHp7odJOLdH6cCVc9Zg=;
+ b=bLnmqeuRX9DSZKz1wW/GD7C8+R0HduNfhpbdr1LCzu3vzHRwS3UD7rJfwqMZXmLntz
+ CxWQy2z42/DfSHo386aIS+aBWVeWYVTBxHoVOwLZX/nDaEfpX54/9/bLKvnGSLPhpb+B
+ rkeEWiAVlZ9vZY3l41tQNoysVbWi2df9O+q3MvNiMHyGUKyxQrxvYdInbJgdPk/Vrf+Y
+ R26U0H13uhBw43xfHJXLFqKjiOtI6i+e0566kZX91uRtuVGU4O966RWyG3iSyv+nc+hG
+ fAaWUdqHAPScO7ZxMLEetXbXoxj14jaxZbxGCqlnF+4Fw3E39Sa1ikOIE7HWYJyE0UtY
+ YJuQ==
+X-Gm-Message-State: AHQUAuZgJgzfpkLI7f3mldfM/Zw2YGolcgDttMDK13TqzxOgC2PLLjNu
+ ObXKa9dHlPvpi3bmAQsyJA==
+X-Google-Smtp-Source: AHgI3IbjNfHeTqSx3HupP3ww1rN82H76GaY3sbAyX1kKWLiOrdJcRlW9FD+RN4RDGZUt+dvIqM+puA==
+X-Received: by 2002:aca:e5c9:: with SMTP id c192mr30475oih.118.1550090272993; 
+ Wed, 13 Feb 2019 12:37:52 -0800 (PST)
+Received: from localhost (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id r203sm136372oih.11.2019.02.13.12.37.52
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Wed, 13 Feb 2019 12:37:52 -0800 (PST)
+Date: Wed, 13 Feb 2019 14:37:52 -0600
+From: Rob Herring <robh@kernel.org>
+To: Yash Shah <yash.shah@sifive.com>
+Subject: Re: [PATCH v6 1/2] pwm: sifive: Add DT documentation for SiFive PWM
+ Controller
+Message-ID: <20190213203752.GA18326@bogus>
+References: <1550049978-20705-1-git-send-email-yash.shah@sifive.com>
+ <1550049978-20705-2-git-send-email-yash.shah@sifive.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <1550049978-20705-2-git-send-email-yash.shah@sifive.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190213_121828_889327_C7EFE32D 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20190213_123753_815872_D220992A 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -82,97 +87,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Jason Cooper <jason@lakedaemon.net>,
- Alan Kao <alankao@andestech.com>, Dmitriy Cherkasov <dmitriy@oss-tech.org>,
- Anup Patel <anup@brainfault.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
- Johan Hovold <johan@kernel.org>, linux-kernel@vger.kernel.org,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Andreas Schwab <schwab@suse.de>,
- Marc Zyngier <marc.zyngier@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Guenter Roeck <linux@roeck-us.net>
-MIME-Version: 1.0
+Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ palmer@sifive.com, linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
+ thierry.reding@gmail.com, paul.walmsley@sifive.com,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, we set hwcap based on first valid hart from DT. This may not
-be correct always as that hart might not be current booting cpu or may
-have a different capability.
+On Wed, Feb 13, 2019 at 02:56:17PM +0530, Yash Shah wrote:
+> DT documentation for PWM controller added.
+> 
+> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
+> [Atish: Compatible string update]
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> Signed-off-by: Yash Shah <yash.shah@sifive.com>
+> ---
+>  .../devicetree/bindings/pwm/pwm-sifive.txt         | 30 ++++++++++++++++++++++
+>  1 file changed, 30 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+> 
+> diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+> new file mode 100644
+> index 0000000..3b9c64c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+> @@ -0,0 +1,30 @@
+> +SiFive PWM controller
+> +
+> +Unlike most other PWM controllers, the SiFive PWM controller currently only
+> +supports one period for all channels in the PWM. All PWMs need to run at
+> +the same period. The period also has significant restrictions on the values
+> +it can achieve, which the driver rounds to the nearest achievable period.
+> +PWM RTL that corresponds to the IP block version numbers can be found
+> +here:
+> +
+> +https://github.com/sifive/sifive-blocks/tree/master/src/main/scala/devices/pwm
+> +
+> +Required properties:
+> +- compatible: Should be "sifive,$socname-pwm" and "sifive,pwmX".
+> +  Please refer to sifive-blocks-ip-versioning.txt for details.
 
-Set hwcap as the capabilities supported by all possible harts with "okay"
-status.
+Please specify what soc and IP version are used. Is sifive,pwm10 valid?
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/kernel/cpufeature.c | 41 ++++++++++++++++++++++-------------------
- 1 file changed, 22 insertions(+), 19 deletions(-)
-
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index e7a4701f..bc29b010 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -20,6 +20,7 @@
- #include <linux/of.h>
- #include <asm/processor.h>
- #include <asm/hwcap.h>
-+#include <asm/smp.h>
- 
- unsigned long elf_hwcap __read_mostly;
- #ifdef CONFIG_FPU
-@@ -42,28 +43,30 @@ void riscv_fill_hwcap(void)
- 
- 	elf_hwcap = 0;
- 
--	/*
--	 * We don't support running Linux on hertergenous ISA systems.  For
--	 * now, we just check the ISA of the first "okay" processor.
--	 */
- 	for_each_of_cpu_node(node) {
--		if (riscv_of_processor_hartid(node) >= 0)
--			break;
--	}
--	if (!node) {
--		pr_warn("Unable to find \"cpu\" devicetree entry\n");
--		return;
--	}
-+		unsigned long this_hwcap = 0;
- 
--	if (of_property_read_string(node, "riscv,isa", &isa)) {
--		pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
--		of_node_put(node);
--		return;
--	}
--	of_node_put(node);
-+		if (riscv_of_processor_hartid(node) < 0)
-+			continue;
- 
--	for (i = 0; i < strlen(isa); ++i)
--		elf_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
-+		if (of_property_read_string(node, "riscv,isa", &isa)) {
-+			pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
-+			continue;
-+		}
-+
-+		for (i = 0; i < strlen(isa); ++i)
-+			this_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
-+
-+		/*
-+		 * All "okay" hart should have same isa. Set HWCAP based on
-+		 * common capabilities of every "okay" hart, in case they don't
-+		 * have.
-+		 */
-+		if (elf_hwcap)
-+			elf_hwcap &= this_hwcap;
-+		else
-+			elf_hwcap = this_hwcap;
-+	}
- 
- 	/* We don't support systems with F but without D, so mask those out
- 	 * here. */
--- 
-2.7.4
-
+> +- reg: physical base address and length of the controller's registers
+> +- clocks: Should contain a clock identifier for the PWM's parent clock.
+> +- #pwm-cells: Should be 3. See pwm.txt in this directory
+> +  for a description of the cell format.
+> +- interrupts: one interrupt per PWM channel
+> +
+> +Examples:
+> +
+> +pwm:  pwm@10020000 {
+> +	compatible = "sifive,fu540-c000-pwm", "sifive,pwm0";
+> +	reg = <0x0 0x10020000 0x0 0x1000>;
+> +	clocks = <&tlclk>;
+> +	interrupt-parent = <&plic>;
+> +	interrupts = <42 43 44 45>;
+> +	#pwm-cells = <3>;
+> +};
+> -- 
+> 1.9.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
