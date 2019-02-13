@@ -2,56 +2,54 @@ Return-Path: <SRS0=7ZJm=QU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 583ECC282CE
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A7CECC0044B
 	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 20:18:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2BB1D222AC
+	by mail.kernel.org (Postfix) with ESMTPS id 7C0DA222AC
 	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 20:18:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pKTbdW4H";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="hWbCZM9D"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2BB1D222AC
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YXfV4F1t";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="JcLXvxOn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7C0DA222AC
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=s5n0kmZryF/yYyhNCfrb6EktvSjET86Qc4/MapKPBYE=; b=pKTbdW4HSZSAnXraAbYJUYkXQf
-	JOFMc0sAOW4R6gWAgc1Nb738eP7gLJ6Zb9EwL5+n027aNNCvf5CMwNlgsEuXZxA5kTG2UIglmGlS+
-	AzVtzgiM+rFm6U9/vpymTpUN7sL6CscmDy0KAj9JZsK4J5Z2ZmvAq/NdcKYANZ3CaCj1hmta4LZGo
-	sQnjNmiBJ+ZRrFwSU5Xf4NB9b5T7MFF7PPdivk20nwlvAcPJnBzSSmuAigWtibE8jkl5+MekxQt0/
-	X1qc7AnJWD5uF2FyNzfe/7+IcrRuZttBqyjM58bon2lNI5y+iQ5BvjvQkFhSPcEP7foquP8BWeoRX
-	kNWkQLlQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=GYINeWzDB6PBBtjcbXQmCi8qyuzItJsQA4avB4AsDus=; b=YXf
+	V4F1tRrnaF/TYze4AkSa4qdBho7QWubCvJNbszW3dJ1S50/lzJv33nAG6xhtCLtpBgd+Wb820tYjX
+	z20iVtFnDaw8/fbGil8pGKBVpJvdD+TujRgvWOCb4/G6Rm2uyfqBJHpK4XYCmUidVXsfZlavI8PmR
+	WL+sa9K9DSsR7HxC1kKiBl82yCJ17jVlPigteVlWlBhYsZQZDtBJCX34dQQmt9Ksj1aL3NE407oD7
+	8b4OQ+hRNLctG8RHq1pHO9bgPh1dqp79OOCE1AEWHeAWieceU7eZqsX69cRMg/+f0+IRD2eSHU81Z
+	F2RDoW1P53z+isMTAHVWUVG8/DpSOSg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gu0zB-0003Du-DN; Wed, 13 Feb 2019 20:18:25 +0000
+	id 1gu0zA-0003DS-PU; Wed, 13 Feb 2019 20:18:24 +0000
 Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gu0z7-0003CA-U4
+ id 1gu0z7-0003C4-NL
  for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 20:18:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
  t=1550089102; x=1581625102;
- h=from:to:cc:subject:date:message-id:in-reply-to: references;
- bh=YZUqK4Qfap9iJXTgeai1JroJ8SUKDUcCMd3sVPqcbE8=;
- b=hWbCZM9DATtPDB1v+XGcqU+t1O8dwrAqolK2o1ofbFzUsfBW1fQHxyhY
- TR/Hm2Aoq7AyUrV31wQFhy7YZ4aA1zQJv6tqd1idBtSz1jxmu4HbntHth
- j9mWA3GiPqUGo+y3J2S/8SYyXHbnaFOmRlT4NKhOlFJseW/m5EOuKXE7F
- fxf7RppTs/h9CC/rQs5B86skevNqVt7NVzJB5bWU4Mxn6Jd0pdwvxvHaF
- aARf0rqwyV+RopuvFBsEQ/cnYKpSZGfTntvIxHy0pzSa2OtX7yf9SI7qj
- PG3EpiiRyqdBGLipqgKi2tsKun2pg7lSVF1uNwYjE9fpTqWarlkqgE1Li g==;
-X-IronPort-AV: E=Sophos;i="5.58,366,1544457600"; d="scan'208";a="102463809"
+ h=from:to:cc:subject:date:message-id;
+ bh=snRz3dxhJ3mJ1sCcBiRAupRtv4dSEiuNGvoXjteiknM=;
+ b=JcLXvxOnb5pzLiHIY6Yty9SEOBWp0IQtfq49UC0fpV0m76x2Ep54Flfq
+ rmsr2JEI/AvmI8PG4t7dOi7wKmlCYZU6e1PYUhRKF/eFdwA5E9HhNzVqb
+ FAGOYvsMCcU9Bn0olp+C76ChRRAL26YL5rVGbtP/+4ivwbnY4v6wkZ9OU
+ QXPJNQvKQ961LXPQFbGH8om4hIB15Siqx0NAkowcu46LNybGODqEA3Y0/
+ NM64AjKj3qFYyjXgDvze1gcvgd85SANOzkgHBA+HXBw5X7SzmI941DAKL
+ zAEeiMbTtseD/FRA55aocEUVZ/AbOv16SkqCLPX772OaHeLEW+2ZXnznT w==;
+X-IronPort-AV: E=Sophos;i="5.58,366,1544457600"; d="scan'208";a="102463808"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
  by ob1.hgst.iphmx.com with ESMTP; 14 Feb 2019 04:18:20 +0800
@@ -62,15 +60,14 @@ Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  by uls-op-cesaip02.wdc.com with ESMTP; 13 Feb 2019 12:18:20 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
-Subject: [v5 PATCH 1/8] RISC-V: Do not wait indefinitely in __cpu_up
-Date: Wed, 13 Feb 2019 12:18:05 -0800
-Message-Id: <1550089092-28783-2-git-send-email-atish.patra@wdc.com>
+Subject: [v5 PATCH 0/8] Various SMP related fixes
+Date: Wed, 13 Feb 2019 12:18:04 -0800
+Message-Id: <1550089092-28783-1-git-send-email-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1550089092-28783-1-git-send-email-atish.patra@wdc.com>
-References: <1550089092-28783-1-git-send-email-atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190213_121822_080399_FBC1145F 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20190213_121821_881568_CF1DBF15 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,68 +93,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In SMP path, __cpu_up waits for other CPU to come online indefinitely.
-This is wrong as other CPU might be disabled in machine mode and
-possible CPU is set to the cpus present in DT.
+The existing upstream kernel doesn't boot for non-smp configuration.
+This patch series address various issues with non-smp configurations.
 
-Introduce a completion variable and waits only for a second.
+The patch series is based on 5.0-rc5 + Johan's below mentioned patch
+series. Tested on both QEMU and HiFive Unleashed board using both
+OpenSBI & BBL.
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
----
- arch/riscv/kernel/smpboot.c | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+https://lore.kernel.org/lkml/20190118140308.9599-1-johan@kernel.org/   
 
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 6e281325..d369b669 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -39,6 +39,7 @@
- 
- void *__cpu_up_stack_pointer[NR_CPUS];
- void *__cpu_up_task_pointer[NR_CPUS];
-+static DECLARE_COMPLETION(cpu_running);
- 
- void __init smp_prepare_boot_cpu(void)
- {
-@@ -77,6 +78,7 @@ void __init setup_smp(void)
- 
- int __cpu_up(unsigned int cpu, struct task_struct *tidle)
- {
-+	int ret = 0;
- 	int hartid = cpuid_to_hartid_map(cpu);
- 	tidle->thread_info.cpu = cpu;
- 
-@@ -92,10 +94,16 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
- 		  task_stack_page(tidle) + THREAD_SIZE);
- 	WRITE_ONCE(__cpu_up_task_pointer[hartid], tidle);
- 
--	while (!cpu_online(cpu))
--		cpu_relax();
-+	lockdep_assert_held(&cpu_running);
-+	wait_for_completion_timeout(&cpu_running,
-+					    msecs_to_jiffies(1000));
- 
--	return 0;
-+	if (!cpu_online(cpu)) {
-+		pr_crit("CPU%u: failed to come online\n", cpu);
-+		ret = -EIO;
-+	}
-+
-+	return ret;
- }
- 
- void __init smp_cpus_done(unsigned int max_cpus)
-@@ -121,6 +129,7 @@ asmlinkage void __init smp_callin(void)
- 	 * a local TLB flush right now just in case.
- 	 */
- 	local_flush_tlb_all();
-+	complete(&cpu_running);
- 	/*
- 	 * Disable preemption before enabling interrupts, so we don't try to
- 	 * schedule a CPU that hasn't actually started yet.
--- 
+Changes from v4->v5
+1. Continue processing other harts even if isa string is incorrect for
+   a single hart during HWCAP processing.
+
+Changes from v3->v4
+1. Fixed commit text length issues.
+2. Updated hwcap patch to use common capabilities of all harts.
+3. Rebased on Johan's patch series.
+
+Changes from v2->v3
+
+1. Fixed spurious white space.
+2. Added lockdep for smpboot completion variable.
+2. Added a sanity check for hwcap.
+
+Changes from v1->v2
+
+1. Move the cpuid to hartid map to smp.c from setup.c
+2. Split 3rd patch into several small patches based on
+   logical grouping.
+3. Added a new patch that fixes an issue in hwcap query.
+4. Changed the title of the patch series.
+
+Atish Patra (8):
+RISC-V: Do not wait indefinitely in __cpu_up
+RISC-V: Move cpuid to hartid mapping to SMP.
+RISC-V: Remove NR_CPUs check during hartid search from DT
+RISC-V: Allow hartid-to-cpuid function to fail.
+RISC-V: Compare cpuid with NR_CPUS before mapping.
+clocksource/drivers/riscv: Add required checks during clock source
+init
+irqchip/irq-sifive-plic: Check and continue in case of an invalid
+cpuid.
+RISC-V: Assign hwcap as per comman capabilities.
+
+arch/riscv/include/asm/smp.h      | 18 ++++++++++++-----
+arch/riscv/kernel/cpu.c           |  4 ----
+arch/riscv/kernel/cpufeature.c    | 41 +++++++++++++++++++++------------------
+arch/riscv/kernel/setup.c         |  9 ---------
+arch/riscv/kernel/smp.c           | 10 +++++++++-
+arch/riscv/kernel/smpboot.c       | 20 ++++++++++++++++---
+drivers/clocksource/timer-riscv.c | 23 +++++++++++++++++++---
+drivers/irqchip/irq-sifive-plic.c |  5 +++++
+8 files changed, 86 insertions(+), 44 deletions(-)
+
+--
 2.7.4
 
 
