@@ -4,21 +4,21 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.0 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 39FC8C282C2
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 11:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C748CC282CA
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 11:54:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 01AC5222B5
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 11:54:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 953DC222BB
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 11:54:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nUUpTqps";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="I+VCSK9b";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="Gm8ymGkc"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 01AC5222B5
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AdjE5jIk";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="j/7p+WZJ";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="EZ1irKMp"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 953DC222BB
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,55 +27,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/YinQNQS8QG7Hpe4IwnGLeNOR4DNXa3hjQA5p56UeBc=; b=nUUpTqpsS6DZX9
-	9zX3qrkxWhNL4B4rTq2rIfHpeBhyucG40gSUyjkLfaTKbNqZb5ig8DdQUWeRj83UEVUb7EKt2AODz
-	BBx44ZxWLG0l1AnR0RC26ld6R88eICvJu3i4yQ+ffTLYeaYAoBV1/+PwsSkFLgeGhqZkjbYY7edb+
-	mTUjFdBRewC63q1luQrIxcTUKpBLbudbNGBhnvhRB3d/cQpusb7Fw0kMVngg6ZGknoYX/h0F+XSLj
-	pgL8B796e8Ebbn2JGbkBz/V2YXSQms1C9KNF/ae0t3uKPjHwW/wIYZI7nma/W7IH6v3DSEXOlxrqL
-	tRSZULaw6NxW1nh4mm3Q==;
+	List-Owner; bh=uXK2djnOV7UOKyvzU+BgPOdQ7NDpCS3qR1/lvWpqKmg=; b=AdjE5jIkt9HW1H
+	vPpx+49GVLo29xz9km5Sz0f+iRP6jpr+CLs5GOswv/M8XJFogzh8RiXg523tsJsAJmYF5J+eGemvs
+	q8DIkPEzB2VyaNlFo74g60HtBUkHG8BH1I8kpplSf/dOpJdJ/O8Ky5Leo7bgWp2cOqdKJxPfCSmX4
+	bNCOeG56vNHTDaFLZFn1Nx4B98UIXuhUhNnO8wUUIb5+mt/kUDsMGJQAejXOmzjpqzDyRB5VeUHpk
+	OXkl5zBYkkB2jjjYQHolDb+5pS+2AnHWSxBQqOqeh4MLKs7jNucw5wxvUthqBoHFCNxaN+URJ4OAQ
+	xakOzOBo0LCsOcneekQQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gtt72-0007ox-Cu; Wed, 13 Feb 2019 11:54:00 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1gtt74-0007ru-KQ; Wed, 13 Feb 2019 11:54:02 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gtt6m-0007Mh-Jo
- for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 11:53:48 +0000
+ id 1gtt6r-0007YV-NP
+ for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 11:53:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1550058825; x=1581594825;
+ t=1550058829; x=1581594829;
  h=from:to:cc:subject:date:message-id:references:
  in-reply-to:content-transfer-encoding:mime-version;
- bh=KQcGW8lAHUewzSPpCVt2l3wyt8C2e+e5pUxeKnjvl8E=;
- b=I+VCSK9bV8TxBJ99oj6AFso2B2AUuY2oYjwIw9MKz/1vRayNrRngf70S
- xMiG6Ve43mLnnyDUt+2r/MTN+kldP3R9e9ZMym4VYAaK09nD+AdX+Mh+r
- 18xHNjgHH+V//j5+rYP7014j+7jjKu5ONBTuO3+VT29Gfu69bL5B/qCZP
- HFZE0DVwtextqr6fp44PYj97LoX27qy+ZyfxIygfZ4nCbLJ6J9vcZroks
- ozZG3NTNaWGNpQKONS8adOXp3pn2TMkYZTy3tDfQKcUyONoRHQVVvAp2o
- Mt5I+ygxv+Di9QqeEHMqsO9u6/BqLbMtRXT7uxsBfaNzcHT4wI3Olfyax Q==;
-X-IronPort-AV: E=Sophos;i="5.58,365,1544457600"; d="scan'208";a="106122630"
-Received: from mail-by2nam01lp2052.outbound.protection.outlook.com (HELO
- NAM01-BY2-obe.outbound.protection.outlook.com) ([104.47.34.52])
- by ob1.hgst.iphmx.com with ESMTP; 13 Feb 2019 19:53:44 +0800
+ bh=MXwtB/6kdzvkLSnmhvP1yQ8F2Bym4aV17HddVT2C4do=;
+ b=j/7p+WZJoUIuGeLtJNWKwZ6fCACpsaqLaIkqSKBI4Uxj6/9QPrGMbjsd
+ zWVJqWRFJxyPypHTsPgQhjQR8HYLhlErkTaSZqzwkV9tS74zttHnbVA58
+ YcSqEXVb73BIlzC+fb/ZApT9DmWCpZAO7RTszlj6j4nzAj4chyK1Q/Wcy
+ f0qbojyYybokKMqdYyXbcWmqBtMoWKe468ZDeUGb60D5MYMynm/8Sb8fN
+ MSpzv1N0xPKUyTI+bycBxo0G1iat+yskD+x0caKXmtJw2UKOx0Ug+5zFM
+ RBU3MLwT1gHih0Esf2srrW0mk2WaHmhreaQA5n3V2JalGaeJ+d31G2zQT w==;
+X-IronPort-AV: E=Sophos;i="5.58,365,1544457600"; d="scan'208";a="102883457"
+Received: from mail-dm3nam03lp2055.outbound.protection.outlook.com (HELO
+ NAM03-DM3-obe.outbound.protection.outlook.com) ([104.47.41.55])
+ by ob1.hgst.iphmx.com with ESMTP; 13 Feb 2019 19:53:49 +0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Vfy9a7eQpprxHOxnGVIApyfvb1IkN/Eoi7kyg0aj3DU=;
- b=Gm8ymGkcNxlkUJzKDRBv5rgxN5j5PdjDgt/nGEmPJpf1lNHSCglRdibdyJuVoTN7q4BK5W/7fvaBfqsCfJfSpEhOQw2xn08s2BdivynXX2LTOBNxIRm26d1UB4R1lzcw+hh1jc7fgNsxeNZtth473wFOlOv0oI8xVARHxdqveNE=
+ bh=UIDgpony2OOpbAJB9j4n/tkKHKAtaD6tZ2pRyXqkoyc=;
+ b=EZ1irKMpPx/FZ6cVPpB3DBRTpBRpNcgowqfOESpYOPMIBqGFw+utnuQCamJA25+obwjCsIC7EbOB3eSMLGq0bWDgf33uuLNls8OwzwuJtugDZWUN8VE3Ow+C7zmbtqhDpD31oDFyuoF1WKhUmoFkBkbEAuj3V9WaQ+diwkpDMTA=
 Received: from DM6PR04MB6059.namprd04.prod.outlook.com (20.178.226.89) by
  DM6PR04MB6171.namprd04.prod.outlook.com (20.178.227.18) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1601.19; Wed, 13 Feb 2019 11:53:42 +0000
+ 15.20.1601.19; Wed, 13 Feb 2019 11:53:47 +0000
 Received: from DM6PR04MB6059.namprd04.prod.outlook.com
  ([fe80::d006:5be7:c3f:ba6c]) by DM6PR04MB6059.namprd04.prod.outlook.com
  ([fe80::d006:5be7:c3f:ba6c%2]) with mapi id 15.20.1601.023; Wed, 13 Feb 2019
- 11:53:42 +0000
+ 11:53:47 +0000
 From: Anup Patel <Anup.Patel@wdc.com>
 To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v6 3/5] RISC-V: Move setup_vm() to mm/init.c
-Thread-Topic: [PATCH v6 3/5] RISC-V: Move setup_vm() to mm/init.c
-Thread-Index: AQHUw5LEqZUXVUXd9EWkO2EciZPqYA==
-Date: Wed, 13 Feb 2019 11:53:42 +0000
-Message-ID: <20190213115301.103989-4-anup.patel@wdc.com>
+Subject: [PATCH v6 4/5] RISC-V: Implement compile-time fixed mappings
+Thread-Topic: [PATCH v6 4/5] RISC-V: Implement compile-time fixed mappings
+Thread-Index: AQHUw5LHaJ/8dfuWWUGPZC+DaMx2xg==
+Date: Wed, 13 Feb 2019 11:53:47 +0000
+Message-ID: <20190213115301.103989-5-anup.patel@wdc.com>
 References: <20190213115301.103989-1-anup.patel@wdc.com>
 In-Reply-To: <20190213115301.103989-1-anup.patel@wdc.com>
 Accept-Language: en-US
@@ -91,7 +91,7 @@ x-ms-exchange-messagesentrepresentingtype: 1
 x-mailer: git-send-email 2.17.1
 x-originating-ip: [49.207.52.22]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: b9cb2d7f-1d15-4967-e7cb-08d691a9e661
+x-ms-office365-filtering-correlation-id: e042ee8e-b44f-498c-5359-08d691a9e930
 x-ms-office365-filtering-ht: Tenant
 x-microsoft-antispam: BCL:0; PCL:0;
  RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(7168020)(4627221)(201703031133081)(201702281549075)(8990200)(5600110)(711020)(4605077)(4618075)(2017052603328)(7153060)(7193020);
@@ -99,30 +99,30 @@ x-microsoft-antispam: BCL:0; PCL:0;
 x-ms-traffictypediagnostic: DM6PR04MB6171:
 wdcipoutbound: EOP-TRUE
 x-microsoft-exchange-diagnostics: =?iso-8859-1?Q?1; DM6PR04MB6171;
- 23:hMp3BXTmo6atw/NvBhCZhXdbfFeK9G28jPITtpm?=
- =?iso-8859-1?Q?GMYa1LGIGcvxSbuAqyDGwI5vfFKooJHfrjBedqnlb5RGero7bdJU/D+2Gq?=
- =?iso-8859-1?Q?l25QWKLdmw8OUqxchuIaBdeArjPNK4EwrNNLO6RKKF8+LzdusSZqyRyTW0?=
- =?iso-8859-1?Q?YCQNCGyX+EVh3V6DZOmoi6TAnIrIbbay5ZITIV+mOvPc5Wa4hJWTEoP1HL?=
- =?iso-8859-1?Q?OUMysYNT+mYzke0Tqw2vRmBx1IH5LSHwadFz9l+KN3qPtA2L6435McaC0Z?=
- =?iso-8859-1?Q?lq+DuBdlcNnr919aLhGXR6ra6d53lWVXs/3wy9F14O1/0qyCnFR1iyb8eK?=
- =?iso-8859-1?Q?wTLOLV3EsJycJQr+sqgw/f3+G9yP8CeHH2zC5E7N3GqpMAtzOE4DT4Qp7m?=
- =?iso-8859-1?Q?uXU+fBg61u3TgCQfrdagN2U2jNtqKlrnZY+qbaUEsWv59KKPWDMAnxVRmG?=
- =?iso-8859-1?Q?QGSLtMk+L9S6zFw2LodFLWCa3DtZVFLTQU6zm8h71lFBA9/WKHYrqfpv+I?=
- =?iso-8859-1?Q?uWSgPV35GAFT8YrHSS7YQUSwAB2msRW+ucCrT6uJVGKpFFdefh3ijqotoh?=
- =?iso-8859-1?Q?TbODyjzNxC4psUkuVa7RJWd4YTKFmLcSFGhWrSTGjVx6sgpOCCA7xneQUL?=
- =?iso-8859-1?Q?wTSptbPQWAwd8zNtKiuvZyfPRuaOOsLzv2Mcf9UpUOZE+9kr2N3A7Z3uwE?=
- =?iso-8859-1?Q?b3mih1RAMwgKqNgSapzR06Z+VhKPT5vZ9PJtjO62cy6GLIib0PvXoKgYY9?=
- =?iso-8859-1?Q?fqHJVg8cTkzxHT869j4An2v6uVCvXHkvPood0GRXpbUDKn6cNcuw9O2ulB?=
- =?iso-8859-1?Q?VkdNiYgC1qOBVFC3a+ow4MiBwG62lIvviaEaSpgnjaulZCK5TWCNixIzfP?=
- =?iso-8859-1?Q?3x4IWNQv7gO3+BbnQF0omG4xX1f5AiKwjHx/xoDBwoeRCOL1owYb8gGQxy?=
- =?iso-8859-1?Q?z0+NnsYo6HeCn0OyqkLrD3O5k+LCsaJ0lSo42E7L3h91KVBLjjfX5FDUaJ?=
- =?iso-8859-1?Q?sL7/eL4ud4HZ8bI8bILrlrBtRG1mYhId9GJ9NoFRUNmRU/LJQz23VHxbQi?=
- =?iso-8859-1?Q?wVHlWolKTo6ruujiTnT1Xph4y0tfkuff+YA8D7BKuFIk+uBap9UZV9Opkk?=
- =?iso-8859-1?Q?HBJKLHRT15Iwc2Bu9bAJM8CC4kT0iRnZQOX3EZ45m4QXs/Sz/lhVOOibYd?=
- =?iso-8859-1?Q?1JzCSARwgiAw+2x95++/vjQxnL+/b9mzBlD7mb9g9cuDnjQXYAJ5HjMZIv?=
- =?iso-8859-1?Q?+eoru55OaDz66i3iGjH2x9RYOVU6hqe5XJTvzBUhFL9jZMZxG+OkfHJ7tS?=
- =?iso-8859-1?Q?Kb03+bE40fiMvUfyPs4xD2f?=
-x-microsoft-antispam-prvs: <DM6PR04MB6171063FA996F7BB84CD97598D660@DM6PR04MB6171.namprd04.prod.outlook.com>
+ 23:WZbrdD7JAvcoQJhqGDEM30FanJ4dJkCKa4Sb7XR?=
+ =?iso-8859-1?Q?Kk5sFFronD3k0uRD7nt2jtXh78A9MVhiJMwcQZbY+oia/0OmPquTJiaUDM?=
+ =?iso-8859-1?Q?YZ3cbYO8uLh/CD8hrjkz11DutMLMBQHNdG24Km2fDCLMzUVpc5/lRgkFmx?=
+ =?iso-8859-1?Q?cZ59YRrBhWeYMznu63nzvlCskrpOL6AHlcbhiVWUIbKTUFIyLHCvNFlhA8?=
+ =?iso-8859-1?Q?wsOtLdmMpX/cy0Fs4szDlRl2BnpUgEwRcEPLdclXqNkyOXfqCjHlxCqmRv?=
+ =?iso-8859-1?Q?KugW4zQna6knbyeyfbh4A+LZVR3XP7XYIndPvZjigf1KC2wweVqu9v/Fmz?=
+ =?iso-8859-1?Q?lORxwR00YOHW5i9iUiMpETVI9zn0WgfET7q2dCGBSAgcZxdZpjZmgIZRlM?=
+ =?iso-8859-1?Q?55m6e8hzaAqwzhhHfCFkrw0J0WYi/GMXqfzFvVL8q21PmW3O3zP0695a6G?=
+ =?iso-8859-1?Q?WlSPP7CegVEHq6lLGqUH7N1ujG1rmt42Zgqrg7c6tWpoSeFEJLp5UAsbDc?=
+ =?iso-8859-1?Q?EKPuDeiPZnS0UdP8iyeIOd3QN/cyt8YHLsuYf96FoX69M3GDIZPcJb73MP?=
+ =?iso-8859-1?Q?8vS7YhM6w5BJMw2weclKOMjTNFDZYCycgc2Ut6a8QJyi6LgYYdD+IwJP1k?=
+ =?iso-8859-1?Q?5rna5reeg9TeKVnIg1GS3RGSrGDpEWJhMpZd8/+cHtbDi0kFp0pKHe0tU+?=
+ =?iso-8859-1?Q?vS8AahkO5dEjwcIf3AOi2VS/VHA22PjFQVODWSojMw9dbud1lkzo98k/Yv?=
+ =?iso-8859-1?Q?Xd+ggy3gzQQ1ijHrabJ6414Rkrg+EHD8fH8LIZNzF9cTPSl9lupnrzenlV?=
+ =?iso-8859-1?Q?VxIIS/ve8i1+NMhhyu7VxShPlL8U2RmwYHceG+ngYRPGpRkZhDphc1aiV7?=
+ =?iso-8859-1?Q?VgeAqqPw+h35nkOzvOSGWHMLWOHjCeTG3GKe4tinQgjk3DMvURuN4vyOB4?=
+ =?iso-8859-1?Q?QjpPtg/ZY0ArN8qBtsxbpX+hlZLeDyBBhxaqkgdDUVPn9VbZITCxJGPMTI?=
+ =?iso-8859-1?Q?ZjDCQLDeS4igT7OuzelPY6NNj2/TPuqutMEMtmFYvX8PQBiPsPMYeM7Dqa?=
+ =?iso-8859-1?Q?KTHKQIzUkj77OlGspOTbdvw4lI6CkeGDfEHvfyQgYzNWAxvTA8Nn0IchO8?=
+ =?iso-8859-1?Q?7ATDRQIBdwNEwffEq0IKn8+Y0V2bSpKh8jtcQeMlsjM95x4j/ikjHHtT0c?=
+ =?iso-8859-1?Q?Q4W9+Y7262ENMcHTwsO2CvP4PinjlLywg5p2KnxUeyJfURNfFNmbOTGWpQ?=
+ =?iso-8859-1?Q?wCI5fzC8QDfrYN8a91WC8V+eNssujhtgZxaD805831u7e2a7xmIRp7LUFe?=
+ =?iso-8859-1?Q?RexN1dKgAjcaNpcGhIDP0zf?=
+x-microsoft-antispam-prvs: <DM6PR04MB61716803BBBA45A783A61B358D660@DM6PR04MB6171.namprd04.prod.outlook.com>
 x-forefront-prvs: 094700CA91
 x-forefront-antispam-report: SFV:NSPM;
  SFS:(10019020)(376002)(366004)(346002)(39860400002)(136003)(396003)(199004)(189003)(52116002)(4326008)(66066001)(71190400001)(76176011)(316002)(8676002)(6436002)(106356001)(6486002)(6116002)(71200400001)(105586002)(3846002)(53936002)(386003)(44832011)(6506007)(6512007)(256004)(55236004)(97736004)(8936002)(54906003)(478600001)(72206003)(305945005)(26005)(102836004)(446003)(186003)(68736007)(1076003)(14454004)(81156014)(81166006)(7736002)(25786009)(99286004)(36756003)(2171002)(486006)(86362001)(11346002)(2616005)(50226002)(110136005)(476003)(2906002);
@@ -130,18 +130,18 @@ x-forefront-antispam-report: SFV:NSPM;
  H:DM6PR04MB6059.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
  PTR:InfoNoRecords; A:1; MX:1; 
 x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: p3mkempJrc+2kJTsavInElWPc47QyJsLVPJ/T++PkLEuPYTbyn9wKUmkaHQAcataEq2LcJRtlmQVyVA31V6p1XXomwn5eAGqdkfufP2QSHRidlC2Z0Ubheu8UJI0GSo9pNf+5JwCtr3fWaxcnloqhBWB3uSZVj8zdd2AOBcvY1k2B3bONx0PJxFCwfk4K4ID5UiP1JKM5xLnxg3v1YM/h98DIrdWstExH49ycEBj6lXZOOZ2PQOVCUDHEIev83oJOwAlLiQq/PqiX/VvmhFg8ROB2pcEaNX/ekHDjGO+3XiWM/tq0OrX3GPLMLC7EtPryXh73RpAaS8PVWMRF4oPXiaemE0q2qiRjfdwwmx7j6LV2R81MEWq2iOb0FrYScsRMyfRw7E5e5lMAoL656GY8Sop3zMAWyJ0uyw5dtve2q4=
+x-microsoft-antispam-message-info: Vy5gV24SqEUxiMooA/1zuCqd3qxfH17z2EOwnjB7MmapFJmb6PhFzBcf8Q86UrkTcalWTQp0FTb832LDD0LttZ3M4p0zNYAx0XadoNJ/0kdRNrMbHUOAWuMp+uy5vyO0qJU4+k3JTHoco+f8ZqkXg6sAEyN43OsGD5Dq9KTMgWnWdJ25euU68DDtY2BkQpp+2Zq2cv8ReP/703y25LhCYoHeervf/9b1EaCMy+F8X0WKYhUa6qo5lzRF8IMrBGcc6OX2XyrVyzx7taZqcxtq5YmwT4XWzbDKk9uCwYIUwZYSAZ8ACCVvAgemdf5N3ROCpwGC7KoFSXywxx4j9hOBBQSZgYCX4X1n0gooZOcXlm9/XWPFG1Dw3xmQpPJg0+WkCdM0LUeExm/Lgk53YEC0CyQ/UkCheSxKJzp9z9Aq5m8=
 MIME-Version: 1.0
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b9cb2d7f-1d15-4967-e7cb-08d691a9e661
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Feb 2019 11:53:39.1040 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e042ee8e-b44f-498c-5359-08d691a9e930
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Feb 2019 11:53:43.8112 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
 X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB6171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190213_035345_051425_DF4D56AC 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20190213_035350_229692_95FF29B5 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -163,134 +163,161 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The setup_vm() is responsible for setting up initial page table hence
-should be placed in mm/init.c.
+This patch implements compile-time virtual to physical mappings. These
+compile-time fixed mappings can be used by earlycon, ACPI, and early
+ioremap for creating fixed mappings when FIX_EARLYCON_MEM=y.
+
+To start with, we have enabled compile-time fixed mappings for earlycon.
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
 ---
- arch/riscv/kernel/setup.c | 49 ---------------------------------------
- arch/riscv/mm/init.c      | 49 +++++++++++++++++++++++++++++++++++++++
- 2 files changed, 49 insertions(+), 49 deletions(-)
+ arch/riscv/Kconfig              |  3 +++
+ arch/riscv/include/asm/fixmap.h | 44 +++++++++++++++++++++++++++++++++
+ arch/riscv/mm/init.c            | 34 +++++++++++++++++++++++++
+ 3 files changed, 81 insertions(+)
+ create mode 100644 arch/riscv/include/asm/fixmap.h
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 49bce6692f39..cffe0b3caba4 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -69,55 +69,6 @@ void __init smp_setup_processor_id(void)
- 	cpuid_to_hartid_map(0) = boot_cpu_hartid;
- }
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 515fc3cc9687..3cfd10d35a28 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -89,6 +89,9 @@ config GENERIC_CSUM
+ config GENERIC_HWEIGHT
+ 	def_bool y
  
--pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
--pgd_t trampoline_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
--
--#ifndef __PAGETABLE_PMD_FOLDED
--#define NUM_SWAPPER_PMDS ((uintptr_t)-PAGE_OFFSET >> PGDIR_SHIFT)
--pmd_t swapper_pmd[PTRS_PER_PMD*((-PAGE_OFFSET)/PGDIR_SIZE)] __page_aligned_bss;
--pmd_t trampoline_pmd[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
--#endif
--
--asmlinkage void __init setup_vm(void)
--{
--	extern char _start;
--	uintptr_t i;
--	uintptr_t pa = (uintptr_t) &_start;
--	pgprot_t prot = __pgprot(pgprot_val(PAGE_KERNEL) | _PAGE_EXEC);
--
--	va_pa_offset = PAGE_OFFSET - pa;
--	pfn_base = PFN_DOWN(pa);
--
--	/* Sanity check alignment and size */
--	BUG_ON((PAGE_OFFSET % PGDIR_SIZE) != 0);
--	BUG_ON((pa % (PAGE_SIZE * PTRS_PER_PTE)) != 0);
--
--#ifndef __PAGETABLE_PMD_FOLDED
--	trampoline_pg_dir[(PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD] =
--		pfn_pgd(PFN_DOWN((uintptr_t)trampoline_pmd),
--			__pgprot(_PAGE_TABLE));
--	trampoline_pmd[0] = pfn_pmd(PFN_DOWN(pa), prot);
--
--	for (i = 0; i < (-PAGE_OFFSET)/PGDIR_SIZE; ++i) {
--		size_t o = (PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
--		swapper_pg_dir[o] =
--			pfn_pgd(PFN_DOWN((uintptr_t)swapper_pmd) + i,
--				__pgprot(_PAGE_TABLE));
--	}
--	for (i = 0; i < ARRAY_SIZE(swapper_pmd); i++)
--		swapper_pmd[i] = pfn_pmd(PFN_DOWN(pa + i * PMD_SIZE), prot);
--#else
--	trampoline_pg_dir[(PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD] =
--		pfn_pgd(PFN_DOWN(pa), prot);
--
--	for (i = 0; i < (-PAGE_OFFSET)/PGDIR_SIZE; ++i) {
--		size_t o = (PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
--		swapper_pg_dir[o] =
--			pfn_pgd(PFN_DOWN(pa + i * PGDIR_SIZE), prot);
--	}
--#endif
--}
--
- void __init parse_dtb(unsigned int hartid, void *dtb)
- {
- 	if (!early_init_dt_scan(__va(dtb)))
++config FIX_EARLYCON_MEM
++	def_bool y
++
+ config PGTABLE_LEVELS
+ 	int
+ 	default 3 if 64BIT
+diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+new file mode 100644
+index 000000000000..57afe604b495
+--- /dev/null
++++ b/arch/riscv/include/asm/fixmap.h
+@@ -0,0 +1,44 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2019 Western Digital Corporation or its affiliates.
++ */
++
++#ifndef _ASM_RISCV_FIXMAP_H
++#define _ASM_RISCV_FIXMAP_H
++
++#include <linux/kernel.h>
++#include <linux/sizes.h>
++#include <asm/page.h>
++#include <asm/pgtable.h>
++
++/*
++ * Here we define all the compile-time 'special' virtual addresses.
++ * The point is to have a constant address at compile time, but to
++ * set the physical address only in the boot process.
++ *
++ * These 'compile-time allocated' memory buffers are page-sized. Use
++ * set_fixmap(idx,phys) to associate physical memory with fixmap indices.
++ */
++enum fixed_addresses {
++	FIX_HOLE,
++	FIX_EARLYCON_MEM_BASE,
++	__end_of_fixed_addresses
++};
++
++#define FIXADDR_SIZE		(__end_of_fixed_addresses * PAGE_SIZE)
++#define FIXADDR_TOP		(PAGE_OFFSET)
++#define FIXADDR_START		(FIXADDR_TOP - FIXADDR_SIZE)
++
++#define FIXMAP_PAGE_IO		PAGE_KERNEL
++
++#define __early_set_fixmap	__set_fixmap
++
++#define __late_set_fixmap	__set_fixmap
++#define __late_clear_fixmap(idx) __set_fixmap((idx), 0, FIXMAP_PAGE_CLEAR)
++
++extern void __set_fixmap(enum fixed_addresses idx,
++			 phys_addr_t phys, pgprot_t prot);
++
++#include <asm-generic/fixmap.h>
++
++#endif /* _ASM_RISCV_FIXMAP_H */
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index bedaf04f9c2f..358e3d5daa29 100644
+index 358e3d5daa29..b1167a6f5a92 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -140,3 +140,52 @@ void __init setup_bootmem(void)
- 				  &memblock.memory, 0);
- 	}
- }
+@@ -19,6 +19,7 @@
+ #include <linux/sizes.h>
+ #include <linux/of_fdt.h>
+ 
++#include <asm/fixmap.h>
+ #include <asm/tlbflush.h>
+ #include <asm/sections.h>
+ #include <asm/pgtable.h>
+@@ -148,8 +149,28 @@ pgd_t trampoline_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+ #define NUM_SWAPPER_PMDS ((uintptr_t)-PAGE_OFFSET >> PGDIR_SHIFT)
+ pmd_t swapper_pmd[PTRS_PER_PMD*((-PAGE_OFFSET)/PGDIR_SIZE)] __page_aligned_bss;
+ pmd_t trampoline_pmd[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
++pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
+ #endif
+ 
++pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
 +
-+pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-+pgd_t trampoline_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
-+
-+#ifndef __PAGETABLE_PMD_FOLDED
-+#define NUM_SWAPPER_PMDS ((uintptr_t)-PAGE_OFFSET >> PGDIR_SHIFT)
-+pmd_t swapper_pmd[PTRS_PER_PMD*((-PAGE_OFFSET)/PGDIR_SIZE)] __page_aligned_bss;
-+pmd_t trampoline_pmd[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
-+#endif
-+
-+asmlinkage void __init setup_vm(void)
++void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
 +{
-+	extern char _start;
-+	uintptr_t i;
-+	uintptr_t pa = (uintptr_t) &_start;
-+	pgprot_t prot = __pgprot(pgprot_val(PAGE_KERNEL) | _PAGE_EXEC);
++	unsigned long addr = __fix_to_virt(idx);
++	pte_t *ptep;
 +
-+	va_pa_offset = PAGE_OFFSET - pa;
-+	pfn_base = PFN_DOWN(pa);
++	BUG_ON(idx <= FIX_HOLE || idx >= __end_of_fixed_addresses);
 +
-+	/* Sanity check alignment and size */
-+	BUG_ON((PAGE_OFFSET % PGDIR_SIZE) != 0);
-+	BUG_ON((pa % (PAGE_SIZE * PTRS_PER_PTE)) != 0);
++	ptep = &fixmap_pte[pte_index(addr)];
 +
-+#ifndef __PAGETABLE_PMD_FOLDED
-+	trampoline_pg_dir[(PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD] =
-+		pfn_pgd(PFN_DOWN((uintptr_t)trampoline_pmd),
-+			__pgprot(_PAGE_TABLE));
-+	trampoline_pmd[0] = pfn_pmd(PFN_DOWN(pa), prot);
-+
-+	for (i = 0; i < (-PAGE_OFFSET)/PGDIR_SIZE; ++i) {
-+		size_t o = (PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
-+		swapper_pg_dir[o] =
-+			pfn_pgd(PFN_DOWN((uintptr_t)swapper_pmd) + i,
-+				__pgprot(_PAGE_TABLE));
++	if (pgprot_val(prot)) {
++		set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, prot));
++	} else {
++		pte_clear(&init_mm, addr, ptep);
++		local_flush_tlb_page(addr);
 +	}
-+	for (i = 0; i < ARRAY_SIZE(swapper_pmd); i++)
-+		swapper_pmd[i] = pfn_pmd(PFN_DOWN(pa + i * PMD_SIZE), prot);
-+#else
-+	trampoline_pg_dir[(PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD] =
-+		pfn_pgd(PFN_DOWN(pa), prot);
-+
-+	for (i = 0; i < (-PAGE_OFFSET)/PGDIR_SIZE; ++i) {
-+		size_t o = (PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
-+		swapper_pg_dir[o] =
-+			pfn_pgd(PFN_DOWN(pa + i * PGDIR_SIZE), prot);
-+	}
-+#endif
 +}
++
+ asmlinkage void __init setup_vm(void)
+ {
+ 	extern char _start;
+@@ -172,20 +193,33 @@ asmlinkage void __init setup_vm(void)
+ 
+ 	for (i = 0; i < (-PAGE_OFFSET)/PGDIR_SIZE; ++i) {
+ 		size_t o = (PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
++
+ 		swapper_pg_dir[o] =
+ 			pfn_pgd(PFN_DOWN((uintptr_t)swapper_pmd) + i,
+ 				__pgprot(_PAGE_TABLE));
+ 	}
+ 	for (i = 0; i < ARRAY_SIZE(swapper_pmd); i++)
+ 		swapper_pmd[i] = pfn_pmd(PFN_DOWN(pa + i * PMD_SIZE), prot);
++
++	swapper_pg_dir[(FIXADDR_START >> PGDIR_SHIFT) % PTRS_PER_PGD] =
++		pfn_pgd(PFN_DOWN((uintptr_t)fixmap_pmd),
++				__pgprot(_PAGE_TABLE));
++	fixmap_pmd[(FIXADDR_START >> PMD_SHIFT) % PTRS_PER_PMD] =
++		pfn_pmd(PFN_DOWN((uintptr_t)fixmap_pte),
++				__pgprot(_PAGE_TABLE));
+ #else
+ 	trampoline_pg_dir[(PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD] =
+ 		pfn_pgd(PFN_DOWN(pa), prot);
+ 
+ 	for (i = 0; i < (-PAGE_OFFSET)/PGDIR_SIZE; ++i) {
+ 		size_t o = (PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
++
+ 		swapper_pg_dir[o] =
+ 			pfn_pgd(PFN_DOWN(pa + i * PGDIR_SIZE), prot);
+ 	}
++
++	swapper_pg_dir[(FIXADDR_START >> PGDIR_SHIFT) % PTRS_PER_PGD] =
++		pfn_pgd(PFN_DOWN((uintptr_t)fixmap_pte),
++				__pgprot(_PAGE_TABLE));
+ #endif
+ }
 -- 
 2.17.1
 
