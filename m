@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6B90EC0044B
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 20:18:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C6E0CC0044B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 20:18:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 404A0222AC
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 20:18:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9E23E222AC
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Feb 2019 20:18:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lZpvts46";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="PyUNhGEo"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 404A0222AC
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Wk05DFo9";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="BBCCa5DA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9E23E222AC
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,31 +27,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=yp824XKfX+CAHGGUn+XWKhrKyv674BKevqdM2T9jp/M=; b=lZpvts46Q5+7vPcOsyWSMODQ3o
-	/Gpkoyhb+MumGlh5cjF2m/RWu1bmlBKoqzrw2J3By+2pdi1u8ik+3a4hpIfQOrUHi8xG+Y1i5StXR
-	9S+1BWrwaNKN9hSCF85NguqAohXPD9Y5gEt2IEYH0jHtVGydlhrHrWx+LG8qWtLxg8TbY99D1Ftgw
-	THUyHhGedKX1NuLZzaRYZMlbKtAnDIQf9NKGrJfEh3zb1H+rx7+E7ni7LZ+hkAS0E3DA5fyHwCJnV
-	2AYoTpioVQJVMFaP6Yb9KuZt/FWK7nBvy9ReOa6kh0EuOgZmoi8SxUHzdtbD+eOSmIpkfDNAqNPAY
-	uUPsbrMA==;
+	bh=Ta9gXPE3TfFK+SXfYXeO+10Ybyu0RNdH1K6svt3iFso=; b=Wk05DFo9ESXkxhdacleGMDKeKm
+	UDWgGv2U6cINF62ngdF536zxNgWFvsZEQ+9hN/Xt8RLaFobRaqP9gu36xvZ969mM2dCYOkfEbI1wh
+	bjkaRXjdm/IoHo3hyHwv7ffot0suCzfgDFcef/U+ccFvmOcQPkscNksqXuMx0HlnJvkB0n/bVdt6u
+	r3kR4z2wKzZm6WalD+Z9uStmeeCMxNc+BP4S1Vh+nczEoO0VAYFPZTsCf5vRtFNz5utlMfAR84QM+
+	omX6+I6alUs9Nb9/zWXgqka2MO0QkdmN+yvLF3YbAyk0qCFF+l/aBC1eK+rbMzeNZfmlC3EXrOESt
+	ZTv6LbxQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gu0zF-0003Ju-E3; Wed, 13 Feb 2019 20:18:29 +0000
+	id 1gu0zG-0003LA-CX; Wed, 13 Feb 2019 20:18:30 +0000
 Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gu0z9-0003C4-R9
+ id 1gu0z9-0003CA-R9
  for linux-riscv@lists.infradead.org; Wed, 13 Feb 2019 20:18:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
  t=1550089104; x=1581625104;
  h=from:to:cc:subject:date:message-id:in-reply-to: references;
- bh=dA6aSe5XZKK9jbqPUE7aSPe08mUJ7TsRaBX9UTEfvg4=;
- b=PyUNhGEo8zyQx0+LlTmOagrDzt+NZp6n/22lE6VWiwZzADZufT1zEFtt
- ELE0wjp1Idpg+y5MOK2yHmX+4YvwoKI5eZgrDUBlGHVuxbSuyzE0hbadW
- C5bM9uJC5Wsq2iLzGIurgfXbBx0+wg2pl6GkVglxFQxtDuiV4WYkDtcol
- QPFx/o91i6TlRfIx5I2O3vqTdFfSbotB879nCBQoSzTnpwv9JF+NMLDH5
- d8Um9kEZnvy8U+rU492/2MAY89Wl8b+0WwJrCl8AvYB9ryOAK2kgwG/RN
- an0BhQm60ZyfBkpP7sZFE5OaF6PT12bMmRrcPKjNfeWauDmEELAmAz1zr w==;
-X-IronPort-AV: E=Sophos;i="5.58,366,1544457600"; d="scan'208";a="102463817"
+ bh=BXPJoBB0Kgm4J4WvDGeNZxKZbFFkYo9XWYKOd8CvDv0=;
+ b=BBCCa5DAhQK+V6SQTEpHctl+v6p7M/cLSJ/LtS1e9Vy8Sb007FvFehXA
+ 7S9rq4v5tXhu4LdS36vSq1j+udmgTOfzuZn5cghOl0IgGFk3zhciUqD6R
+ Q3AJGndflMjzWM2M6smcWkl+0DMtYDBHO49pOmQMk+tgiMckhekbXCuht
+ 2c/reLG8k4lZtwVyvI6C1vsZL0e8nddpZgfbU00H+1LAS/EWdaEGNRE7a
+ jbN5WclsSHBH43nIeSg9g246J4IFlaacVFnwm1FUBYzHLjG/r6N7yaRQv
+ zg1XEFH7Gw38TC2TcN7/50lAMxpovhz+J6IIZDUm8vPj+l92AOS9u7MLq w==;
+X-IronPort-AV: E=Sophos;i="5.58,366,1544457600"; d="scan'208";a="102463820"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
  by ob1.hgst.iphmx.com with ESMTP; 14 Feb 2019 04:18:21 +0800
@@ -62,17 +62,15 @@ Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  by uls-op-cesaip02.wdc.com with ESMTP; 13 Feb 2019 12:18:21 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-riscv@lists.infradead.org
-Subject: [v5 PATCH 3/8] RISC-V: Remove NR_CPUs check during hartid search from
- DT
-Date: Wed, 13 Feb 2019 12:18:07 -0800
-Message-Id: <1550089092-28783-4-git-send-email-atish.patra@wdc.com>
+Subject: [v5 PATCH 4/8] RISC-V: Allow hartid-to-cpuid function to fail.
+Date: Wed, 13 Feb 2019 12:18:08 -0800
+Message-Id: <1550089092-28783-5-git-send-email-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1550089092-28783-1-git-send-email-atish.patra@wdc.com>
 References: <1550089092-28783-1-git-send-email-atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190213_121823_996977_CBA0F5C5 
-X-CRM114-Status: UNSURE (   8.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190213_121823_988532_4ABE1811 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -98,33 +96,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In non-smp configuration, hartid can be higher that NR_CPUS.
-riscv_of_processor_hartid should not be compared to hartid to NR_CPUS in
-that case. Moreover, this function checks all the DT properties of a
-hart node. NR_CPUS comparison seems out of place.
+It is perfectly okay to call riscv_hartid_to_cpuid for a hartid that is
+not mapped with an CPU id. It can happen if the calling functions
+retrieves the hartid from DT.  However, that hartid was never brought
+online by the firmware or kernel for any reasons.
+
+No need to BUG() in the above case. A negative error return is
+sufficient and the calling function should check for the return value
+always.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
 Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/riscv/kernel/cpu.c | 4 ----
- 1 file changed, 4 deletions(-)
+ arch/riscv/kernel/smp.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index d1d9bfd5..cf2fca12 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -34,10 +34,6 @@ int riscv_of_processor_hartid(struct device_node *node)
- 		pr_warn("Found CPU without hart ID\n");
- 		return -ENODEV;
- 	}
--	if (hart >= NR_CPUS) {
--		pr_info("Found hart ID %d, which is above NR_CPUs.  Disabling this hart\n", hart);
--		return -ENODEV;
--	}
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index b69883c6..ca99f0fb 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -60,7 +60,6 @@ int riscv_hartid_to_cpuid(int hartid)
+ 			return i;
  
- 	if (!of_device_is_available(node)) {
- 		pr_info("CPU with hartid=%d is not available\n", hart);
+ 	pr_err("Couldn't find cpu id for hartid [%d]\n", hartid);
+-	BUG();
+ 	return i;
+ }
+ 
 -- 
 2.7.4
 
