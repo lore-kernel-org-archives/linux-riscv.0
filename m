@@ -2,71 +2,57 @@ Return-Path: <SRS0=J1nd=QV=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 34DA2C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 10:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 74601C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 11:12:27 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E99D2222A4
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 10:55:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 43AB12229F
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 11:12:27 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MapgEHBr"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E99D2222A4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LcQu+D9n"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 43AB12229F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H3OuBORuCrb/WiP/ds7KUqmVYFHwhJjkdZSAx9CO8UU=; b=MapgEHBr8W9YgM
-	H7m5wvBXp7yeKjbOzv0nzOh9DN+g1QvDCVa36N244x1KYO+tHmERKFEbnOobhP8BtQDzqwHQ2YYi+
-	6DYzO781NhNoCXuCtNKD6WaAQFHh5vx1qfIQpRBUBm4qIDU3V/YkPQkURPuRTj3uQTDIrCNu8RiZN
-	TwQQtaEF9JkPLCCsWUnTZNv7fGH6ZWEo5up7723yR+2uP83zDlQaudl58yZoK++14+7Hc3jKYGxc+
-	9rK734/u26V4Ujtwub0J74pZDgSpV8MYO2Bdxbn6W8Ixdr+qXToM0deD6K5C4NjlJ4s2KhUMNgbrd
-	lXc+W+nzaqkhYBgQiq+w==;
+	List-Owner; bh=Daw23f37DIcvnrGjOMCW6K4xuDs1h+7hq2CMvReIxtc=; b=LcQu+D9nxEVwoL
+	/wNknonm0fsMGnOYq/1lLYW1rBhF/Ivf+1M73UxZZM1w+bnJG/wZOO+skSstAhQ5mDb/3VrZW9bVy
+	A/+JnLeiP8y5IMIEmYVLyndoZIrZVyhFaK7AwkbUAoLafdFMUcbGaZjyf5T/Bw9p/TnsISgUEQGuZ
+	8LqgncQoD3tfxVGWrBMTZeSbDHJpY6aBwd3vyl18MLAJVkQfkCzUH0oZZ7ePy6lKjT7/Y2z5YgyVm
+	xqMZI8EIT+2b8m3lNUFDlCjts6+hbhlPMhGJbEvYRLb4edBnJs3LNfFj/zh2cyZUhBfB5xBQ2xZAm
+	l/9Mb62L+BACjIVowRgQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1guEfb-00029o-IN; Thu, 14 Feb 2019 10:55:07 +0000
-Received: from mail-ua1-f68.google.com ([209.85.222.68])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1guEfW-00017a-Q5; Thu, 14 Feb 2019 10:55:05 +0000
-Received: by mail-ua1-f68.google.com with SMTP id s15so1866391uap.6;
- Thu, 14 Feb 2019 02:55:00 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=0FVphaqkdujewH8xkqyrrOZQTGaRwWmRxSe5PedLOc8=;
- b=QCjAnAFl7by6lmfAV1WoM0pqtJ2YbpPey9qLnr+3kaV6YupNtccrYV9eGt+/YH+32d
- 5ADgB0Yc+xa8gNzwVm7tOO7nTTFg4EhBZA0zWugqmEL+shvut7gMdTk2InRUUpFtOBl/
- j4we6PGWbVZKm/uAFtrswGSPvfMlTduJjBW6B9rmv2Pl7iJTsKTUFou5UOZOIyX3HTR3
- qObTfNO1L4wUamtTxyIrX0UD9JZ4q+IwN0KRjmfkMXxYWkiLZ9iq/VO8UaDWcu9Jry6+
- RDoFZdHp3gQi3mbUjnGYL3HVK3QJWChOsJXNr62vyQ0xDoymlqda06jAszl/9SC+lZpt
- Ig+g==
-X-Gm-Message-State: AHQUAua4PgNEb0RIO89TwVUmtAxzeSgXju+W3nZqVw9mnoeh15a4lYaK
- mBSi+5FNjkCwa7wmh87kGF76cSgKNq/zWELr7zg=
-X-Google-Smtp-Source: AHgI3IbzhzuzEySYHwSbJTqDaXLapQMTOW53oPTxOn4RxgH5lrV4tpWGJZxYzqt5buLzgH3+IW1GydrsaXAApWWXHYU=
-X-Received: by 2002:a9f:2726:: with SMTP id a35mr1587802uaa.75.1550141699426; 
- Thu, 14 Feb 2019 02:54:59 -0800 (PST)
-MIME-Version: 1.0
-References: <1550095217-12047-1-git-send-email-longman@redhat.com>
- <1550095217-12047-3-git-send-email-longman@redhat.com>
-In-Reply-To: <1550095217-12047-3-git-send-email-longman@redhat.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 14 Feb 2019 11:54:47 +0100
-Message-ID: <CAMuHMdVe9J4LmbLz8nHsW2JSVt8EQHTKswtc+-53pD-DBxgwSw@mail.gmail.com>
+	id 1guEwK-00023A-3t; Thu, 14 Feb 2019 11:12:24 +0000
+Received: from j217100.upc-j.chello.nl ([24.132.217.100]
+ helo=hirez.programming.kicks-ass.net)
+ by bombadil.infradead.org with esmtpsa (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1guEw9-0001pc-2H; Thu, 14 Feb 2019 11:12:13 +0000
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+ id 7B5AD20298565; Thu, 14 Feb 2019 12:12:11 +0100 (CET)
+Date: Thu, 14 Feb 2019 12:12:11 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
 Subject: Re: [PATCH v4 2/3] locking/rwsem: Remove rwsem-spinlock.c & use
  rwsem-xadd.c for all archs
-To: Waiman Long <longman@redhat.com>, Christoph Hellwig <hch@lst.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190214_025503_703039_7E7FD98B 
-X-CRM114-Status: GOOD (  13.09  )
+Message-ID: <20190214111211.GL32494@hirez.programming.kicks-ass.net>
+References: <1550095217-12047-1-git-send-email-longman@redhat.com>
+ <1550095217-12047-3-git-send-email-longman@redhat.com>
+ <CAMuHMdVe9J4LmbLz8nHsW2JSVt8EQHTKswtc+-53pD-DBxgwSw@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdVe9J4LmbLz8nHsW2JSVt8EQHTKswtc+-53pD-DBxgwSw@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -79,15 +65,16 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
- Linux-sh list <linux-sh@vger.kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, Will Deacon <will.deacon@arm.com>,
+ Linux-sh list <linux-sh@vger.kernel.org>, Will Deacon <will.deacon@arm.com>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  "H. Peter Anvin" <hpa@zytor.com>, sparclinux <sparclinux@vger.kernel.org>,
- linux-riscv@lists.infradead.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-riscv@lists.infradead.org, Christoph Hellwig <hch@lst.de>,
+ Linux-Arch <linux-arch@vger.kernel.org>,
  linux-s390 <linux-s390@vger.kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
  linux-c6x-dev@linux-c6x.org,
  "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
  the arch/x86 maintainers <x86@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Waiman Long <longman@redhat.com>,
  "moderated list:H8/300 ARCHITECTURE" <uclinux-h8-devel@lists.sourceforge.jp>,
  linux-xtensa@linux-xtensa.org, Arnd Bergmann <arnd@arndb.de>,
  linux-um@lists.infradead.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
@@ -105,41 +92,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 13, 2019 at 11:01 PM Waiman Long <longman@redhat.com> wrote:
-> Currently, we have two different implementation of rwsem:
->  1) CONFIG_RWSEM_GENERIC_SPINLOCK (rwsem-spinlock.c)
->  2) CONFIG_RWSEM_XCHGADD_ALGORITHM (rwsem-xadd.c)
->
-> As we are going to use a single generic implementation for rwsem-xadd.c
-> and no architecture-specific code will be needed, there is no point
-> in keeping two different implementations of rwsem. In most cases, the
-> performance of rwsem-spinlock.c will be worse. It also doesn't get all
-> the performance tuning and optimizations that had been implemented in
-> rwsem-xadd.c over the years.
->
-> For simplication, we are going to remove rwsem-spinlock.c and make all
-> architectures use a single implementation of rwsem - rwsem-xadd.c.
->
-> All references to RWSEM_GENERIC_SPINLOCK and RWSEM_XCHGADD_ALGORITHM
-> in the code are removed.
->
-> Suggested-by: Peter Zijlstra <peterz@infradead.org>
-> Signed-off-by: Waiman Long <longman@redhat.com>
+On Thu, Feb 14, 2019 at 11:54:47AM +0100, Geert Uytterhoeven wrote:
+> On Wed, Feb 13, 2019 at 11:01 PM Waiman Long <longman@redhat.com> wrote:
+> > Currently, we have two different implementation of rwsem:
+> >  1) CONFIG_RWSEM_GENERIC_SPINLOCK (rwsem-spinlock.c)
+> >  2) CONFIG_RWSEM_XCHGADD_ALGORITHM (rwsem-xadd.c)
+> >
+> > As we are going to use a single generic implementation for rwsem-xadd.c
+> > and no architecture-specific code will be needed, there is no point
+> > in keeping two different implementations of rwsem. In most cases, the
+> > performance of rwsem-spinlock.c will be worse. It also doesn't get all
+> > the performance tuning and optimizations that had been implemented in
+> > rwsem-xadd.c over the years.
+> >
+> > For simplication, we are going to remove rwsem-spinlock.c and make all
+> > architectures use a single implementation of rwsem - rwsem-xadd.c.
+> >
+> > All references to RWSEM_GENERIC_SPINLOCK and RWSEM_XCHGADD_ALGORITHM
+> > in the code are removed.
+> >
+> > Suggested-by: Peter Zijlstra <peterz@infradead.org>
+> > Signed-off-by: Waiman Long <longman@redhat.com>
+> 
+> Note that this conflicts with "[PATCH 03/11] kernel/locks: consolidate
+> RWSEM_GENERIC_* options"
+> https://lore.kernel.org/lkml/20190213174005.28785-4-hch@lst.de/
 
-Note that this conflicts with "[PATCH 03/11] kernel/locks: consolidate
-RWSEM_GENERIC_* options"
-https://lore.kernel.org/lkml/20190213174005.28785-4-hch@lst.de/
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+*sigh*.. of that never was Cc'ed to locking people :/
 
 _______________________________________________
 linux-riscv mailing list
