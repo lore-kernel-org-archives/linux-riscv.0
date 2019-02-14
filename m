@@ -2,70 +2,61 @@ Return-Path: <SRS0=J1nd=QV=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no version=3.4.0
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 05802C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 08:34:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 70D4AC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 08:54:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C85312229F
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 08:34:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 376AA222A1
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 08:54:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XIMtkbi1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C85312229F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sG4AS8sU"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 376AA222A1
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ge4am84CsuT9PRupb3FtMQFzJ89X5xsb+3zx882xPt4=; b=XIMtkbi1FEAAj4
-	h9IdlJygH38N4iwdNnsejfe/dIY0uxzCmb71lVLv+aZvSljRel5iETqHJrBzOE81MHaqFsyKkGejh
-	WZNHeDf1fbyD1eOvrd+Y7M8fJ9ig6eyoks+9y5LzyxUBsWtMe9xyl+DQPRdCtPamGypczi8GsXFVG
-	/0JNcKdXlT9X55jS4ka51Udy7i20wr8aotyObaczLKMT8tdjy9Qz3FWZieqJ9C49HKe5UjxQVITeN
-	mPCBJjHJYsIPCN8N9GzMBzWmYUKeh7WPzfsigY6lsiJDRptZgwzTddKhdhRzzp3ABv7/h4KwOikuJ
-	0CYEBIndZeqekr9NF5Zg==;
+	List-Owner; bh=eEsRn7Ztv1IinkJtZobDt2RBCqe+LIAiWzDIz+BGcCY=; b=sG4AS8sU9kCks5
+	DrCZIRgt0wjSZBZSkSYfM9oiGT1F0N4O4VGiVnvv/Q8ozfcReqNngL4dp6+LE/+gTHDmyiGEfx/rl
+	07CW+e/KYzKvpwW4ZzQepvTwXOCerZVLbbMsb+L176XpTjuQ3VTc/SXFA/MNCVoB20LRvi4NxE0HJ
+	HX+grIrw0MuIS2BwfruZXgKgTaMOjWAG2P4Rd6NZkEY70txWmSxDFHM07TNaRoJ8U+kcWGN6dj61c
+	zPdSLvxgJTK5a9xQYbZwws3B9MW5YGAUyc8GkRiFZHzzn33H2w1m33u9u6ru7VCB1gwnrur6mfqKO
+	nCOFmxaqJaAYPbGOgvsA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1guCTn-00030M-CX; Thu, 14 Feb 2019 08:34:47 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1guCmm-0002rJ-DN; Thu, 14 Feb 2019 08:54:24 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1guCTV-0002l1-Su
- for linux-riscv@lists.infradead.org; Thu, 14 Feb 2019 08:34:33 +0000
-Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1guCTU-0002aD-Bm; Thu, 14 Feb 2019 09:34:28 +0100
-Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1guCTT-0005Wn-Hx; Thu, 14 Feb 2019 09:34:27 +0100
-Date: Thu, 14 Feb 2019 09:34:27 +0100
-From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH v6 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
-Message-ID: <20190214083427.oal3nmcfalqralbk@pengutronix.de>
-References: <1550049978-20705-1-git-send-email-yash.shah@sifive.com>
- <1550049978-20705-3-git-send-email-yash.shah@sifive.com>
- <20190213103459.t5bvemxrb2x6iagm@pengutronix.de>
- <CAJ2_jOH7WaceLVY6KhMmSbwjo3-5tgbiSZYtbRmUxS-4Rf2WLA@mail.gmail.com>
+ id 1guCmk-0002qV-2K
+ for linux-riscv@lists.infradead.org; Thu, 14 Feb 2019 08:54:23 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id 958DDAFCA;
+ Thu, 14 Feb 2019 08:54:18 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: Christoph Hellwig <hch@lst.de>
+Subject: Re: [PATCH 01/11] powerpc: remove dead ifdefs in <asm/checksum.h>
+References: <20190213174005.28785-1-hch@lst.de>
+ <20190213174005.28785-2-hch@lst.de>
+X-Yow: With YOU, I can be MYSELF..  We don't NEED Dan Rather..
+Date: Thu, 14 Feb 2019 09:54:17 +0100
+In-Reply-To: <20190213174005.28785-2-hch@lst.de> (Christoph Hellwig's message
+ of "Wed, 13 Feb 2019 18:39:55 +0100")
+Message-ID: <mvma7iyrbra.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.91 (gnu/linux)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJ2_jOH7WaceLVY6KhMmSbwjo3-5tgbiSZYtbRmUxS-4Rf2WLA@mail.gmail.com>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190214_003430_339840_0314C921 
-X-CRM114-Status: GOOD (  31.43  )
+X-CRM114-CacheID: sfid-20190214_005422_257220_EA479284 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -77,249 +68,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- robh+dt@kernel.org, Sachin Ghadi <sachin.ghadi@sifive.com>,
- Thierry Reding <thierry.reding@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: linux-s390@vger.kernel.org, linux-kbuild@vger.kernel.org,
+ linux-xtensa@linux-xtensa.org, linux-kernel@vger.kernel.org,
+ Masahiro Yamada <yamada.masahiro@socionext.com>,
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Feb 13 2019, Christoph Hellwig <hch@lst.de> wrote:
 
-On Thu, Feb 14, 2019 at 01:25:27PM +0530, Yash Shah wrote:
-> On Wed, Feb 13, 2019 at 4:05 PM Uwe Kleine-K=F6nig
-> <u.kleine-koenig@pengutronix.de> wrote:
-> > On Wed, Feb 13, 2019 at 02:56:18PM +0530, Yash Shah wrote:
-> > > +static int pwm_sifive_enable(struct pwm_chip *chip, struct pwm_devic=
-e *dev,
-> > > +                          bool enable)
-> > > +{
-> > > +     struct pwm_sifive_ddata *pwm =3D pwm_sifive_chip_to_ddata(chip);
-> > > +     u32 val;
-> > > +     int ret;
-> > > +
-> > > +     if (enable) {
-> > > +             ret =3D clk_enable(pwm->clk);
-> > > +             if (ret) {
-> > > +                     dev_err(pwm->chip.dev, "Enable clk failed:%d\n"=
-, ret);
-> > > +                     return ret;
-> > > +             }
-> > > +     }
-> > > +
-> > > +     val =3D readl(pwm->regs + PWM_SIFIVE_PWMCFG);
-> > > +
-> > > +     if (enable)
-> > > +             val |=3D BIT(PWM_SIFIVE_PWMCFG_EN_ALWAYS);
-> > > +     else
-> > > +             val &=3D ~BIT(PWM_SIFIVE_PWMCFG_EN_ALWAYS);
-> > > +
-> > > +     writel(val, pwm->regs + PWM_SIFIVE_PWMCFG);
-> > > +
-> > > +     if (!enable)
-> > > +             clk_disable(pwm->clk);
-> >
-> > A disabled PWM is supposed to output an inactive signal. If the PWM runs
-> > at (near) 100% and you disable it, does it reliably give that inactive
-> > signal after completing the currently running period?
-> =
+> __KERNEL__ is never not defined for non-uapi headers, and GENERIC_CSUM
 
-> Yes, you are right, it just freezes at that state (100%).
-> What if I set duty cycle =3D 0 if (!state->enabled) before disabling the =
-PWM?
+"... never not ... non-..."  That's a bit too negative, I think.  :-)
 
-Then you only need to be sure that the inactive level is already latched
-to the pwmcmpXip output (which should only need one clock cycle if I'm
-not mistaken) before disabling the clock.
+Andreas.
 
-> > > +     return 0;
-> > > +}
-> > > +
-> > > +static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device=
- *dev,
-> > > +                         struct pwm_state *state)
-> > > +{
-> > > +     struct pwm_sifive_ddata *pwm =3D pwm_sifive_chip_to_ddata(chip);
-> > > +     unsigned int duty_cycle;
-> > > +     u32 frac, val;
-> > > +     struct pwm_state cur_state;
-> > > +     bool enabled;
-> > > +     int ret;
-> > > +
-> > > +     pwm_get_state(dev, &cur_state);
-> > > +     enabled =3D cur_state.enabled;
-> > > +
-> > > +     if (state->polarity !=3D PWM_POLARITY_INVERSED)
-> > > +             return -EINVAL;
-> > > +
-> > > +     if (state->period !=3D cur_state.period) {
-> > > +             if (pwm->user_count !=3D 1)
-> > > +                     return -EINVAL;
-> >
-> > I think we need locking here. Consider two pwm users on two CPUs:
-> >
-> >         CPU1                                    CPU2
-> >         pwm_sifive_apply(pwm0, period=3DA, ...)
-> >          check user_count=3D=3D1 -> good
-> >          ...                                    pwm1 =3D pwm_get(...)
-> >          ...                                    pwm_sifive_apply(pwm1, =
-period=3DB...)
-> >          ...                                      configure based on B
-> >          pwm_sifive_update_clock()
-> =
-
-> mutex_lock();
->   if (pwm->user_count !=3D 1)
->                   return -EINVAL;
-> mutex_unlock();
-> Something like this?
-
-No, the lock needs to protect more. You must at least cover increasing
-and decreasing of user_count and you must hold the lock until the period
-update is completed.
-
-> > Also I wonder if we should change the period if the user requested
-> > enabled=3Dfalse.
-> =
-
-> You want me to NOT update period if enabled=3Dfalse, right?
-
-I don't know for sure. Given that period is shared for all four PWM
-outputs it might be sensible to change it at least in a shadow variable
-and only do it when actually needed. (But maybe we can postpone that as
-it doesn't matter for correctness of the driver.)
-
-The question here is: In the following snippet:
-
-	pwm0 =3D pwm_get(... the first pwm ...)
-
-	pwm_apply_state(pwm0, { .enabled =3D true, .period =3D 4000 });
-	pwm_apply_state(pwm0, { .enabled =3D false, .period =3D 8000 });
-
-	pwm1 =3D pwm_get(... the second pwm ...)
-	pwm_apply_state(pwm1, { .enabled =3D true, .period =3D 4000 });
-	pwm_apply_state(pwm0, { .enabled =3D true, .period =3D 8000 });
-
-Which of the two last commands should fail?
-
-> > > +             pwm->real_period =3D state->period;
-> > > +             pwm_sifive_update_clock(pwm, clk_get_rate(pwm->clk));
-> >
-> > If you change from
-> >
-> >         .period =3D A
-> >         .duty_cycle =3D B
-> >
-> > to
-> >
-> >         .period =3D C
-> >         .duty_cycle =3D D
-> >
-> > the output pin might see a period with
-> >
-> >         .period =3D C
-> >         .duty_cycle =3D B
-> >
-> > right? I think this is not fixable, but this needs a prominent comment.
-> =
-
-> Good point. Is the below comment good enough?
-> /* When changing both duty cycle and period, the old duty cycle might
-> be active with new the period settings for a period */
-
-I'd add some blame on the hardware. Something like:
-
-	/*
-	 * When changing both duty cycle and period, we cannot prevent in
-	 * software that the output might produce a period with mixed
-	 * settings (new period length and old duty cycle).
-	 */
-
-I'd say it makes sense to put this information at the top of the driver
-to have it in a prominent place. Also point out the inability to provide
-100% duty cycle and that the hardware is limited to inverted output.
-Then all limitations are summarized in a single place.
-
-Maybe this mismatch could be made less likely by changing the order of
-the register accesses and a delay depending on pwms and old and new
-settings. But I'd say this is too much for now and can be addressed
-later when and if necessary.
-
-> > > +     }
-> > > +
-> > > +     if (!state->enabled && enabled) {
-> > > +             ret =3D pwm_sifive_enable(chip, dev, false);
-> > > +             if (ret)
-> > > +                     return ret;
-> > > +             enabled =3D false;
-> > > +     }
-> > > +
-> > > +     duty_cycle =3D state->duty_cycle;
-> > > +     frac =3D div_u64((u64)duty_cycle * (1 << PWM_SIFIVE_CMPWIDTH) +
-> > > +                    (1 << PWM_SIFIVE_CMPWIDTH) / 2, state->period);
-> > > +     /* The hardware cannot generate a 100% duty cycle */
-> >
-> > @Thierry: Do you consider this bad enough that pwm_apply_state should
-> > fail if 100% is requested?
-
-This question is still open.
-
-> > > +     frac =3D min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
-> > > +
-> > > +     val =3D readl(pwm->regs + PWM_SIFIVE_PWMCFG);
-> > > +     val |=3D BIT(PWM_SIFIVE_PWMCFG_DEGLITCH);
-> > > +     writel(val, pwm->regs + PWM_SIFIVE_PWMCFG);
-> > > +
-> > > +     writel(frac, pwm->regs + PWM_SIFIVE_PWMCMP0 + dev->hwpwm *
-> > > +            PWM_SIFIVE_SIZE_PWMCMP);
-> > > +
-> > > +     val &=3D ~BIT(PWM_SIFIVE_PWMCFG_DEGLITCH);
-> >
-> > Doesn't that come too early? I thought the right thing was to keep it
-> > set all the time. With this code I think you might see a duty cycle of
-> > 50 when going from 60 to 40.
-> =
-
-> We cannot set it all the time.
-> Setting it all the time makes every alternate period to remain high
-> (latched state).
-> As per the manual, it needs to be set when reprogramming and must be
-> cleared afterwards.
-
-I didn't find this in the manual. When looking at Figure 6 and the
-description of pwmdeglitch I have the impression that your statement is
-wrong.
-
-Setting pwmdeglitch only prevents the output from getting low during a
-period, it can only go low when pwms overflows (i.e. the start of a
-period). That's exactly what we want. Where is the misunderstanding?
-
-If however you clear pwmdeglitch after an update, consider the following
-series of events:
-
- - Assume pwmcmpX is 0x4000 and pwms is 0x5000, so pwmcmpXip is high.
- - You set pwmdeglitch and change pwmcmpX to 0x8000 while pwms advanced
-   only little. Then pwmcmpXip remains high.
- - Then you clear pwmdeglitch at say pwms =3D 0x5020, this makes pwmcmpXip
-   fall which we should prevent.
-
-Also note that when setting pwmdeglitch while configuring pwm0---if it
-really had the behaviour you pointed out---would interfere with the
-maybe running pwm1.
-
-So I'm convinced keeping pwmdeglitch active always is the right thing to
-do.
-
-Best regards
-Uwe
-
--- =
-
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | http://www.pengutronix.de/  |
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
