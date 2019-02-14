@@ -2,20 +2,21 @@ Return-Path: <SRS0=J1nd=QV=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C3BFC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 12:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 18329C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 12:33:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 076FB21900
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 12:25:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DC7CC21901
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 12:33:20 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SB/SMTxN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 076FB21900
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ApVjZnfw"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DC7CC21901
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,44 +25,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Subject:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cucnSh8Zn3AFvmQdFWb7uJwMivBf/mZ93Ri0ZKlAEGs=; b=SB/SMTxN4p9NAK
-	BSAcYQhT/KtsdPBKmIMCzVSIs0DOaDRtr+gZb9zzkdxUoVOdnDwcyPwMi7IQQpKOWEtLuU7riYoRr
-	pA7xueXmcAtZN6o+ohO92SEe1mcTBB9ddPBtN1E0yFMNENCYMDX/4Fr9D0AJ3JE9bCFEb1VfVW5sW
-	8U8adD72aUV9nfz4hnfWPec6X34sCeqcYojSzmBhTW4d+jJjQ0TRP8V3chk/MCfhdkehLEsEBmuue
-	JWGuEzmoW3o7vTqxaMY+f49gfnogM4KTj+vI3DzuNI4f/HxjfaASmD2qEZahMB4SnxVe73ih0+XzM
-	hd0BQjjJJ4oxpXoxq4qA==;
+	List-Owner; bh=kbv7LjLc+3mXFgAZOldm0fcAM7/qA6QHhqU4NQ4td9s=; b=ApVjZnfwZwcrzs
+	GOgxAy17Iv8XYMXehRs9KhBqu4HBfJJJZFsotFdyRn1ui9EhH9FMLsN7q0MEaFYMTfweEqs4ZcuWj
+	/YQG5tOQh0mOVTcVtLMuqpMQN+OgTHLZhUs47BK528nZ0WPqBnMsXrj6fU9EsJS0DDcy7veOv3H/Y
+	uStLPlKod2SryzNyJ+snzhEPayYClbkDfCaYqHSH3UbozDWjb0UwxRICjKcmQNNIQXQBU4JGuKt3J
+	tgIbqPf6rwLBdODsIaQHXCtvcE6EoW+0ECn53w2q/rMb+maIb55nu4sirrN5te2WvJcCgFTcF22kO
+	gvW1wks4nHv/uresJQLQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1guG4m-0007iy-Pt; Thu, 14 Feb 2019 12:25:12 +0000
+	id 1guGCc-0001Da-2Z; Thu, 14 Feb 2019 12:33:18 +0000
 Received: from usa-sjc-mx-foss1.foss.arm.com ([217.140.101.70]
  helo=foss.arm.com)
  by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1guG4g-00072K-SE
- for linux-riscv@lists.infradead.org; Thu, 14 Feb 2019 12:25:11 +0000
+ id 1guGCZ-0001DA-3B
+ for linux-riscv@lists.infradead.org; Thu, 14 Feb 2019 12:33:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0F7180D;
- Thu, 14 Feb 2019 04:25:05 -0800 (PST)
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EAF5C80D;
+ Thu, 14 Feb 2019 04:33:13 -0800 (PST)
 Received: from big-swifty.misterjones.org (usa-sjc-mx-foss1.foss.arm.com
  [217.140.101.70])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2D3DF3F675;
- Thu, 14 Feb 2019 04:25:01 -0800 (PST)
-Date: Thu, 14 Feb 2019 12:24:59 +0000
-Message-ID: <86imxmsgkk.wl-marc.zyngier@arm.com>
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5626E3F675;
+ Thu, 14 Feb 2019 04:33:11 -0800 (PST)
+Date: Thu, 14 Feb 2019 12:33:08 +0000
+Message-ID: <86h8d6sg6z.wl-marc.zyngier@arm.com>
 From: Marc Zyngier <marc.zyngier@arm.com>
-To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [v4 PATCH 7/8] irqchip/irq-sifive-plic: Check and continue in
- case of an invalid cpuid.
-In-Reply-To: <1549969812-22502-8-git-send-email-atish.patra@wdc.com>
-References: <1549969812-22502-1-git-send-email-atish.patra@wdc.com>
- <1549969812-22502-8-git-send-email-atish.patra@wdc.com>
+To: Anup Patel <anup@brainfault.org>
+Subject: Re: [PATCH v6 0/4] IRQ affinity support in PLIC driver
+In-Reply-To: <20190212125246.69239-1-anup@brainfault.org>
+References: <20190212125246.69239-1-anup@brainfault.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL/10.8 EasyPG/1.0.0 Emacs/25.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 Organization: ARM Ltd
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190214_042507_026232_FE592A6E 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20190214_043315_141298_CDFE0785 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -73,31 +72,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Jason Cooper <jason@lakedaemon.net>, Alan Kao <alankao@andestech.com>,
- Dmitriy Cherkasov <dmitriy@oss-tech.org>, Andreas Schwab <schwab@suse.de>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Johan Hovold <johan@kernel.org>,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>,
- linux-riscv@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Jason Cooper <jason@lakedaemon.net>, Palmer Dabbelt <palmer@sifive.com>,
+ linux-kernel@vger.kernel.org, Christoph Hellwig <hch@infradead.org>,
+ Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Feb 2019 11:10:11 +0000,
-Atish Patra <atish.patra@wdc.com> wrote:
+On Tue, 12 Feb 2019 12:52:42 +0000,
+Anup Patel <anup@brainfault.org> wrote:
 > 
-> riscv_hartid_to_cpuid can return invalid cpuid for a hart that is
-> present in DT but was never brought up.
+> This patchset primarily adds IRQ affinity support in PLIC driver and
+> other improvements.
 > 
-> Print the appropriate warning message and continue.
+> It gives mechanism for explicitly route external interrupts to particular
+> CPUs using smp_affinity attribute of each Linux IRQs. Also, we can now
+> use IRQ balancer from kernel-space or user-space.
 > 
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> Reviewed-by: Anup Patel <anup@brainfault.org>
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> The patchset is tested on QEMU virt machine. It is based on Linux-5.0-rc6
+> and can be found at riscv_plic_irq_affinity_v6 branch of:
+> https://github.com/avpatel/linux.git
 
-Queued to irqchip-next.
+Applied to irqchip-next.
 
 Thanks,
 
