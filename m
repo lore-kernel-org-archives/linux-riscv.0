@@ -2,114 +2,70 @@ Return-Path: <SRS0=J1nd=QV=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_PASS,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E39BAC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 15:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3A522C10F04
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 15:59:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B3AAA2229F
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 15:27:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 08142218EA
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 15:59:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qK4XeHQU"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B3AAA2229F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GmtI475y"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 08142218EA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4jpehUsfuflthtDz3CJbOFhlEsjOVcdCuhpW10GXrTs=; b=qK4XeHQU4v8HBW
-	DHovr8zij+9k3LzbS4KSRoPlGt3YEaSlIelJvzEKuWqYRoQuL3yu7rOpv6z44upm23tOH5uX1mWZ/
-	Y1n/+xlK1T2yjkNBJDNtRGw5AL6/Syiw2nb9ombPSXFvDjVXXglfaMUqkm+hrtPyGTI7RmLPgwn15
-	Vd6z8yf6SvqtqqvWj6GneRkoSitjvt2FTxUtTfZ3DHsUTVZZFemkntYiiSLBCn8BeAzOb8Ija73HA
-	mTqRSOJBQix5Jdm+U6h1YjkydXvqIBBtZ+BTXPU36kNhUNSkVDVGMR16mm0hr+hVHAIknfNEKGAFu
-	BZt8gmjIPbkjBIUHKcYw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Wey0872RFmc9vBFBSrsaKPU4Jrg1nPT1SkBFkP7fqlI=; b=GmtI475ypbF7tT
+	UHmbUXI6isrygGUub21ypiHt63KEfmUIEgSI7TSTZ2C5Un3m8dlIfbkT+z0t4KjCmEKW7IWBW+aC6
+	UC689v4Snc23Oh7b5m5wrXHQpSzIUI2LDiX4pwhIA5ryh1iw20FJQWLWDNOSX+jz9sUhx/NZKb3Mb
+	vK3cRY5lYZ47wDHW1ir35Uju6VklTBCocftf34/EFs+CWevx8Q/9MBeUTycpl8QX/gJRgtsslPdYM
+	2qFk4tEzfVnp1/acXm0nwGocB73igdTmA0yLQz/Rp0Bh68U5lwYuJbqsJgeY31K9Fj0KuVybJDIPL
+	3yJZMsAPeYYtXstSRMkw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1guIug-0002bm-RZ; Thu, 14 Feb 2019 15:26:58 +0000
-Received: from mx1.redhat.com ([209.132.183.28])
+	id 1guJPr-000275-3N; Thu, 14 Feb 2019 15:59:11 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1guIue-0002bS-74
- for linux-riscv@lists.infradead.org; Thu, 14 Feb 2019 15:26:57 +0000
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
- [10.5.11.15])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id 032E42D806;
- Thu, 14 Feb 2019 15:26:55 +0000 (UTC)
-Received: from llong.remote.csb (dhcp-17-59.bos.redhat.com [10.18.17.59])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 2FE5B5D70D;
- Thu, 14 Feb 2019 15:26:53 +0000 (UTC)
-Subject: Re: [PATCH 03/11] kernel/locks: consolidate RWSEM_GENERIC_* options
-To: Christoph Hellwig <hch@lst.de>
-References: <20190213174005.28785-1-hch@lst.de>
- <20190213174005.28785-4-hch@lst.de>
- <CAMuHMdW4C1McxL-e7ZSiSOiiE5D=xbBK8FZOwuJ1w0kK3CR1Hg@mail.gmail.com>
-From: Waiman Long <longman@redhat.com>
-Openpgp: preference=signencrypt
-Autocrypt: addr=longman@redhat.com; prefer-encrypt=mutual; keydata=
- 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
- weim8xU=
-Organization: Red Hat
-Message-ID: <d9aeeedd-ce72-f58f-d858-3e340c073414@redhat.com>
-Date: Thu, 14 Feb 2019 10:26:52 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.9.1
+ id 1guJPn-00026g-UI
+ for linux-riscv@lists.infradead.org; Thu, 14 Feb 2019 15:59:09 +0000
+Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1guJPk-0005T9-Uj; Thu, 14 Feb 2019 16:59:04 +0100
+Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1guJPj-0004KM-Rg; Thu, 14 Feb 2019 16:59:04 +0100
+Date: Thu, 14 Feb 2019 16:59:03 +0100
+From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+To: Thierry Reding <thierry.reding@gmail.com>
+Subject: Re: [PATCH v5 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
+Message-ID: <20190214155903.7h3b7v3nbhj57uy2@pengutronix.de>
+References: <1548762199-7065-1-git-send-email-yash.shah@sifive.com>
+ <1548762199-7065-3-git-send-email-yash.shah@sifive.com>
+ <20190207101657.rfzcq6xdv6ocvubg@pengutronix.de>
+ <20190213123703.GE647@ulmo>
 MIME-Version: 1.0
-In-Reply-To: <CAMuHMdW4C1McxL-e7ZSiSOiiE5D=xbBK8FZOwuJ1w0kK3CR1Hg@mail.gmail.com>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.30]); Thu, 14 Feb 2019 15:26:55 +0000 (UTC)
+Content-Disposition: inline
+In-Reply-To: <20190213123703.GE647@ulmo>
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190214_072656_316624_F481C16E 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20190214_075908_135041_7D60F997 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -121,41 +77,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Linux-Arch <linux-arch@vger.kernel.org>,
- linux-s390 <linux-s390@vger.kernel.org>,
- linux-kbuild <linux-kbuild@vger.kernel.org>, linux-xtensa@linux-xtensa.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Masahiro Yamada <yamada.masahiro@socionext.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>, linux-riscv@lists.infradead.org,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ palmer@sifive.com, linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
+ Yash Shah <yash.shah@sifive.com>, robh+dt@kernel.org, paul.walmsley@sifive.com,
+ linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02/14/2019 05:52 AM, Geert Uytterhoeven wrote:
-> On Thu, Feb 14, 2019 at 12:08 AM Christoph Hellwig <hch@lst.de> wrote:
->> Introduce one central definition of RWSEM_XCHGADD_ALGORITHM and
->> RWSEM_GENERIC_SPINLOCK in kernel/Kconfig.locks and let architectures
->> select RWSEM_XCHGADD_ALGORITHM if they want it, otherwise default to
->> the spinlock version.
->>
->> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> Note that this conflicts with "[PATCH v4 2/3] locking/rwsem: Remove
-> rwsem-spinlock.c & use rwsem-xadd.c for all archs"
-> https://lore.kernel.org/lkml/1550095217-12047-3-git-send-email-longman@redhat.com/
->
-> Gr{oetje,eeting}s,
->
->                         Geert
->
-Christoph,
+On Wed, Feb 13, 2019 at 01:37:03PM +0100, Thierry Reding wrote:
+> On Thu, Feb 07, 2019 at 11:16:57AM +0100, Uwe Kleine-K=F6nig wrote:
+> > On Tue, Jan 29, 2019 at 05:13:19PM +0530, Yash Shah wrote:
+> [...]
+> > > diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
+> [...]
+> > > +	writel(val, pwm->regs + PWM_SIFIVE_PWMCFG);
+> > > +
+> > > +	writel(frac, pwm->regs + PWM_SIFIVE_PWMCMP0 + dev->hwpwm * SIZE_PWM=
+CMP);
+> > > +
+> > > +	val &=3D ~(1 << PWM_SIFIVE_PWMCFG_DEGLITCH);
+> > > +	writel(val, pwm->regs + PWM_SIFIVE_PWMCFG);
+> > > +
+> > > +	pwm_sifive_get_state(chip, dev, state);
+> > =
 
-Would you mind dropping just patch 3 from your series?
+> > Thierry: This changes the pwm_state. Is this how this should be done?
+> =
 
-Thanks,
-Longman
+> Yes, I think that's fine. The PWM state should always reflect the
+> current hardware state. If the configuration that we program does not
+> reflect the state that was requested, that should be reflected in the
+> PWM state.
 
+I'm not sure you blessed what is really done here. If I do:
+
+	state.duty_cycle =3D state.period;
+	pwm_apply_state(pwm, &state);
+
+the call in question doesn't only result in pwm->state.duty_cycle <
+pwm->state.period, but it also corrects my local state variable (i.e. I
+have state.duty_cycle < state.period afterwards).
+
+Is this what you thought to be fine?
+
+Also note that v6 dropped that call because of my doubts.
+
+Best regards
+Uwe
+
+-- =
+
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | http://www.pengutronix.de/  |
 
 _______________________________________________
 linux-riscv mailing list
