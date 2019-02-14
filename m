@@ -6,16 +6,16 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
 	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CDAC5C4360F
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 08:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E9F8EC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 08:11:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9DEAF222D4
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 08:10:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BA0B4222A1
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 Feb 2019 08:11:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HJNJm2YS"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9DEAF222D4
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="U/KEksta"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BA0B4222A1
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,49 +24,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K4LWtbSiBgVFACLiBnC2RZ+Yf/H9zMC5AqDnJMbZekg=; b=HJNJm2YSn97NXS
-	cZpivdDrx7b6aoLGAw6/vaj7PYO/JOhyHW7aex3oG7qdrOI9pKPdEKEf/KGlqH59kSUD4XTYwbz3l
-	ZDw3QiGMcdI6d2s4cI16OmKKeR6D2+I1Yh72Rq7o70x2yTEeOxZK9wwvqFsRW7yLcX3wQPK8TuNH/
-	2xDrcf2+tfdhUQzah4a8/EiCrdAVdYBin/kq0lokHjY+Sx/+3zkfdGIVnlAyKG1zD9DUNVoQ7KeHD
-	9VzY8o23i4c482i+xsCq/p5IFv1dxI1ekHTnqhqK24+wbRQER2iZK+UQKG14pS3UULRopp9pEjBdh
-	LaUZgLx98dJeiEAp4AQw==;
+	List-Owner; bh=BAzx+KmBgyyvntk9b1uinIco9H+BSz89mQdgTZRExWo=; b=U/KEkstaGhHKTE
+	8KkwH51h3JFQddURMSvluxNQin9By8u9wrax/elFaZi5lxlmErgUOKrGDgWT0PWLvoYDjPi5BG4vD
+	zn+kjKix1CsvYihZz09Q3flB1sT7HYFvp+LWsYpxfAEILxake8103GL84MwnbprHloJSvhEolHJqv
+	oiPYOy9sGOn7frPuC187XzfR5T3DbH0YKqgUljhqbOejARMCammWDxOLRXvGvxfcuRb22sOUTC0wL
+	q10sJUaVGphfFEGqdKtCSjw3dqsF7mnP8TfJPl+Nac9N3lPr3ZI9zPf6HJrukXHMxHGAqVfus7ugB
+	vD/92mJj+vMq3scEmVcw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1guC6J-0002mj-T1; Thu, 14 Feb 2019 08:10:31 +0000
-Received: from mail-vs1-f66.google.com ([209.85.217.66])
+	id 1guC7E-0002sP-3S; Thu, 14 Feb 2019 08:11:28 +0000
+Received: from mail-vs1-f68.google.com ([209.85.217.68])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1guC6F-0002lr-F7
- for linux-riscv@lists.infradead.org; Thu, 14 Feb 2019 08:10:29 +0000
-Received: by mail-vs1-f66.google.com with SMTP id e16so3110893vsq.6
- for <linux-riscv@lists.infradead.org>; Thu, 14 Feb 2019 00:10:26 -0800 (PST)
+ id 1guC7B-0002rw-5O
+ for linux-riscv@lists.infradead.org; Thu, 14 Feb 2019 08:11:26 +0000
+Received: by mail-vs1-f68.google.com with SMTP id z18so3115293vso.7
+ for <linux-riscv@lists.infradead.org>; Thu, 14 Feb 2019 00:11:24 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=s7mH6uc/WErzysdhYHrwGn+Za9Ii5z+9SMgUHEvVd2c=;
- b=ZAN4b4JsfVdub/3prVwjar3j/Mc1RX66sgifnCmW74HAIXLoEzi+IQqCMaSVZCHyXn
- 3UsqEa/eoC2gAZ8zdWxIEadGfITMymnAXqz6VkPyjvwCm1lXsAHmwqeLy0V28xRc06tL
- aYgb0CN/IU/TBDAQEPT+W2uotAf4NEx/5jfAuDoBtVURpXnONlx32rYXXTXEiA+Zmu0p
- gIES4rid6Q0pjB2GQmxk2+rNulp4kzbPNX07tsXzhkatbR+/NNDpGYZxaHdL/ko+H7X1
- a1KNEECBLTfNUl4kDubm9sOuHmJMoTYGR/cNIYMm2kniCq58fhaMxgkHZKr0Mkx4H5Lh
- G8Lg==
-X-Gm-Message-State: AHQUAuaUNQHM5KcEt4x7jGsGj56BWG2PmlzaaoMDOyBEeOrjypbpN1QE
- WQKN5gNXtJVQ50aqkT2Ows/frmei+iUeeMhh18ppsUva
-X-Google-Smtp-Source: AHgI3IainHdtNgPKfyU8YjSDdQ+iRTA5h4usd5PDFEqXOlRT2t4Q7Q4DByDOzAkMWCZQ41k3lVfXLhI1reoT4R3LmvA=
-X-Received: by 2002:a67:f43:: with SMTP id 64mr1331176vsp.166.1550131826029;
- Thu, 14 Feb 2019 00:10:26 -0800 (PST)
+ bh=4a3D100K5NwmmTPJJ0s35hte8UB4taiTrnr7PheOHpw=;
+ b=UF7nqwDnnXUY9oBnGEFtUICsxVypm1n2q4Sdh7LC7qOCxQ4jAM050FvjOaiqt371Cy
+ FyiLTHTueMeGaJLywxWahJqPeloGDsxdCUOVPVhEWiBQ6hMCEV+Dp3jPvLBd7VHLO+lC
+ 00ajqdBduTpw2fDq0nKxJYxKltg62WlXwrIPOr8n7tJAm9BlvUP+ggdRB6rIZFTDeDRz
+ jr+NEW0pXJ3GhF9WRE9+takLhmcgWmfREYUjI12xsCEan62UFeqUVAOSthZJ8vv02Bpw
+ FDfpBZ7xyxJqWv1qW61T7mppLFDNxVxgepo7Mqey25r6sFYno3iSYFDhFhnofhz71aWo
+ W6SQ==
+X-Gm-Message-State: AHQUAuZ58f+4ArTV0iJ2rDlQkNfKtsVS7B5e1k6/FuzJX8eG32cEUEDK
+ B+BhMjVIpiOyNbPs2ixaB8fL3QxSLsHMHAcTm80=
+X-Google-Smtp-Source: AHgI3IbxtQI24QYjPRnNrEhWZ+8rGpNy2/UZnWXN5HqiJOduvEND65+eZoiExYXcsXnh4oeImmJLyQnV8CZhtYrIpSc=
+X-Received: by 2002:a67:541:: with SMTP id 62mr1260865vsf.11.1550131883912;
+ Thu, 14 Feb 2019 00:11:23 -0800 (PST)
 MIME-Version: 1.0
 References: <20190213174005.28785-1-hch@lst.de>
- <20190213174005.28785-4-hch@lst.de>
-In-Reply-To: <20190213174005.28785-4-hch@lst.de>
+ <20190213174005.28785-8-hch@lst.de>
+In-Reply-To: <20190213174005.28785-8-hch@lst.de>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 14 Feb 2019 09:10:14 +0100
-Message-ID: <CAMuHMdWRPm0_u2EX5OXeraZdKL602RJvbO5aKm09Sf-HKMGzjg@mail.gmail.com>
-Subject: Re: [PATCH 03/11] kernel/locks: consolidate RWSEM_GENERIC_* options
+Date: Thu, 14 Feb 2019 09:11:12 +0100
+Message-ID: <CAMuHMdWDBaz1hLxmeGa7k3mzt-8GAoGVEQVSfeVX2CCpqrY-KA@mail.gmail.com>
+Subject: Re: [PATCH 07/11] init: consolidate the GENERIC_CALIBRATE_DELAY symbol
 To: Christoph Hellwig <hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190214_001027_509123_8AA3F3BE 
-X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-CacheID: sfid-20190214_001125_204832_F6992C26 
+X-CRM114-Status: UNSURE (   9.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -89,15 +89,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 14, 2019 at 12:08 AM Christoph Hellwig <hch@lst.de> wrote:
-> Introduce one central definition of RWSEM_XCHGADD_ALGORITHM and
-> RWSEM_GENERIC_SPINLOCK in kernel/Kconfig.locks and let architectures
-> select RWSEM_XCHGADD_ALGORITHM if they want it, otherwise default to
-> the spinlock version.
+On Thu, Feb 14, 2019 at 3:25 AM Christoph Hellwig <hch@lst.de> wrote:
+> Add one definition to init/Kconfig and let the architectures select it
+> if supported.  The only complication is xtensa, where it is a user
+> visible option - we introduce a xtensa-specific symbol instead to work
+> around this.
 >
 > Signed-off-by: Christoph Hellwig <hch@lst.de>
 
->  arch/m68k/Kconfig       | 7 -------
+>  arch/m68k/Kconfig       | 5 +----
 
 Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 
