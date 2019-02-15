@@ -2,22 +2,21 @@ Return-Path: <SRS0=HaOg=QW=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 62433C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Feb 2019 08:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BF948C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Feb 2019 09:31:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 12A102077B
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Feb 2019 08:43:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 95BF6206B7
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Feb 2019 09:31:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lANtvuNv";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=nifty.com header.i=@nifty.com header.b="r/G/c1Qj"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 12A102077B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lADo2ALT";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=nifty.com header.i=@nifty.com header.b="NQ0eGso6"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 95BF6206B7
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=socionext.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,55 +25,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iylOtLESaHBiQhOhn80fn1AgVE978kr+KCKXAeP+BLw=; b=lANtvuNvIrk33D
-	Xeaf6JEjw7nErmNebREHumBNRun1jwoztKMAGHIyf3HY3HnVQpEIfrKs3+ubI0CpwrZEAoDR/PVos
-	YF7uG127gucjcCjbP5gI/diQkOHZanwME6tdLHX4Yrb4Xg6DIr6dLhJVH8bmwWJNYHmD+TgkdOQNh
-	z4CESz9zOyX8ue3qRIr4Ac9frgzR9SvsSQPA4oIaQ8RJzJOTrC1Qabt2flXzQkB4amnFlHv03Uqdo
-	xVBsFjys8tA/FGcpoQAGw4LdZKOL/lsDEZyNKOlKn7e159lSuFvyMvAa8EHxQes1id1xgQCpqW2Ax
-	32rjr0Iq9ZuwK6uSDyJQ==;
+	List-Owner; bh=dYMAkwTwPWwI87BEFA39YGDclSeLSCN1zfZ136U2NEQ=; b=lADo2ALTqBJEFU
+	INKUhOhmktkL3s0Hgz5DPXlb/pcRr1IMxBQnI5xUXnDyKt9otqOE/hYFJ4rRDi2VyViwuISO1oxP9
+	JM8Q4zUmA3ac2V7VxwYKY+s3fIOJl9Oy06WkG53FeHmUoSFW+VN+Xe83wtni1PVpu340jFYq6jXKv
+	kWtxwjekL9/Fs0IFD1cscfX7xbMwC6U4KPqv7fO8EVW4tTISLSWjDYnoyZOhBTD26dCvy0qGLaIY3
+	swQiNzKxDg1q0BhpuY3zy/wPMCjboiLx8b0gj6VIKBw/QPn94vcDrC1V/kGAslCDnW48FYhca4gDn
+	7gRZu7jZi2oiS+OEWbfg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1guZ5f-0001cB-Nq; Fri, 15 Feb 2019 08:43:23 +0000
-Received: from conssluserg-04.nifty.com ([210.131.2.83])
+	id 1guZpu-0007nZ-2e; Fri, 15 Feb 2019 09:31:10 +0000
+Received: from conssluserg-01.nifty.com ([210.131.2.80])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1guZ5d-0001bo-4K
- for linux-riscv@lists.infradead.org; Fri, 15 Feb 2019 08:43:22 +0000
-Received: from mail-vk1-f170.google.com (mail-vk1-f170.google.com
- [209.85.221.170]) (authenticated)
- by conssluserg-04.nifty.com with ESMTP id x1F8h2fW003945
- for <linux-riscv@lists.infradead.org>; Fri, 15 Feb 2019 17:43:03 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-04.nifty.com x1F8h2fW003945
+ id 1guZpq-0007mc-S6
+ for linux-riscv@lists.infradead.org; Fri, 15 Feb 2019 09:31:08 +0000
+Received: from mail-vs1-f41.google.com (mail-vs1-f41.google.com
+ [209.85.217.41]) (authenticated)
+ by conssluserg-01.nifty.com with ESMTP id x1F9Ukq7020247
+ for <linux-riscv@lists.infradead.org>; Fri, 15 Feb 2019 18:30:47 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com x1F9Ukq7020247
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1550220183;
- bh=ipwSqGKOtUHrs33U6yO/OuzKAUWDmn9Er4eFuQ213OY=;
+ s=dec2015msa; t=1550223047;
+ bh=v5CD2QsDxnxVejyPIDnfbiJ1pltYltlIlJJglB+jvf0=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=r/G/c1QjnEcKDOxcndklNUbzkPiWtjsSbxgkEJ5xCNVkeX4P2KgnfHMInSbRR3lm5
- aAqJ3tzTmmbbGnWbuYFqTKyWcNWeneBxGFpbqqXR7+aum1qTdHkM2s4LUZl5oYEjvn
- T1DN9rwPJBquAbBPYuagGLoaWgQ+SKYPoz8jF56yNKMiRUevGmgImo36p6h6C9DS/B
- qa1Ky8H4/1zbvcAb7pDHueVkenmzjKI2gEOS7uzRfxbS7fy4otG9BY+FkkwErRUc68
- md+TwLZuLDcyQw4JKbeozXTSkB8OXaZmDRz6ANlprYiFWFw4eTuffn6VDkVSahW9LB
- 0xta5NWD51prA==
-X-Nifty-SrcIP: [209.85.221.170]
-Received: by mail-vk1-f170.google.com with SMTP id y14so2053023vky.9
- for <linux-riscv@lists.infradead.org>; Fri, 15 Feb 2019 00:43:03 -0800 (PST)
-X-Gm-Message-State: AHQUAuaDHJE7RUhpkgebhUE+K8GVMN328Xp/leDJf/beOZO/m1ZDt6NE
- Q/nJMy6sC0CABoxpn7nFYv2gnBNkK2Rwejy5fSU=
-X-Google-Smtp-Source: AHgI3IYjWlycwOqTadsN4vWgeiW+eLZwajnwdi0xsiNH8+3caYRm3HAPLl12jEJEPXCeo/0gyPelxImT0q2cWCrC3NU=
-X-Received: by 2002:a1f:1ac3:: with SMTP id a186mr4404252vka.34.1550220182039; 
- Fri, 15 Feb 2019 00:43:02 -0800 (PST)
+ b=NQ0eGso6oKLWfKf5cFvUyBYm2OHHA6KMFXxb4raGJ4xk9alAwE6b986gzBUM+NhXJ
+ 7DBOoEHgcydBqd66HIPfVc4IGD6owhhGMsMg7vel7aNIcFRL7kjpEJfVbrDs9CUz/l
+ ysapVJjYa5w++SdewUAfTkQvgNL2YivGFbSizA5cT1adFaWjEjC4Hf9INDo2e5tswx
+ FTHdhvVKRnLz/ku8BegAQSxM9MN7v/uSQkKYYitc5E6sTVTqkO17cTaxksidmNhP94
+ M7rL+DFrSSgn7hVggMbmu1DQW/1/6NmVo+z79o2t0B1+hWDSFCoyHxRSXTF8rGFQ7m
+ xpL2fn30+eDJA==
+X-Nifty-SrcIP: [209.85.217.41]
+Received: by mail-vs1-f41.google.com with SMTP id e81so2282638vsd.2
+ for <linux-riscv@lists.infradead.org>; Fri, 15 Feb 2019 01:30:46 -0800 (PST)
+X-Gm-Message-State: AHQUAubmlot49P10VYs3cXwsEgmjNQ36LbLea7Al3Bn1tOh/CD1fFNG0
+ c765af5oZl+RxNzXwQ/+YxldrmQwbG4+q6q2c40=
+X-Google-Smtp-Source: AHgI3Ia3aUMPs8A+f0S+OAOntXz63yvlxIZCcSZkHkAspWZKdCm1fRVczLmf1lM9pbiclIsGKkljQY6lvGdNXZnifOU=
+X-Received: by 2002:a67:c913:: with SMTP id w19mr4362629vsk.179.1550223045823; 
+ Fri, 15 Feb 2019 01:30:45 -0800 (PST)
 MIME-Version: 1.0
 References: <20190213174005.28785-1-hch@lst.de>
- <20190213174005.28785-9-hch@lst.de>
-In-Reply-To: <20190213174005.28785-9-hch@lst.de>
+ <20190213174005.28785-2-hch@lst.de>
+ <e7a2efe3-f56c-7dfd-6613-dc9229556673@c-s.fr> <20190214170510.GC32441@lst.de>
+ <d5451fc4-9183-702a-e9ed-4a2be1f82a11@c-s.fr>
+In-Reply-To: <d5451fc4-9183-702a-e9ed-4a2be1f82a11@c-s.fr>
 From: Masahiro Yamada <yamada.masahiro@socionext.com>
-Date: Fri, 15 Feb 2019 17:42:25 +0900
-X-Gmail-Original-Message-ID: <CAK7LNASycJG=26WUPwJsMwYPhj26YFhj+NH5jNcMGx3PQ-miTQ@mail.gmail.com>
-Message-ID: <CAK7LNASycJG=26WUPwJsMwYPhj26YFhj+NH5jNcMGx3PQ-miTQ@mail.gmail.com>
-Subject: Re: [PATCH 08/11] lib: consolidate the GENERIC_BUG symbol
-To: Christoph Hellwig <hch@lst.de>
+Date: Fri, 15 Feb 2019 18:30:09 +0900
+X-Gmail-Original-Message-ID: <CAK7LNATnsMbciyEd-1HZZmb5A66-TBtq0R3X-=JPMNT6iADo4w@mail.gmail.com>
+Message-ID: <CAK7LNATnsMbciyEd-1HZZmb5A66-TBtq0R3X-=JPMNT6iADo4w@mail.gmail.com>
+Subject: Re: [PATCH 01/11] powerpc: remove dead ifdefs in <asm/checksum.h>
+To: Christophe Leroy <christophe.leroy@c-s.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190215_004321_417582_942F290E 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20190215_013107_130578_621AFF9A 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -86,123 +87,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-xtensa@linux-xtensa.org,
+Cc: linux-s390 <linux-s390@vger.kernel.org>, linux-xtensa@linux-xtensa.org,
  Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
- linux-s390 <linux-s390@vger.kernel.org>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv@lists.infradead.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ linux-riscv@lists.infradead.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Christoph Hellwig <hch@lst.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 14, 2019 at 2:40 AM Christoph Hellwig <hch@lst.de> wrote:
->
-> And just let the architectures that want it select the symbol.
-> Same for GENERIC_BUG_RELATIVE_POINTERS.
->
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-
-
-This slightly changes the behavior of GENERIC_BUG_RELATIVE_POINTERS
-for arm64, riscv, x86.
-Previously, GENERIC_BUG_RELATIVE_POINTERS was enabled only when BUG=y.
-
-
-Having said that, this is not a big deal.
-When CONFIG_GENERIC_BUG=n, CONFIG_GENERIC_BUG_RELATIVE_POINTERS
-is actually don't care.
-
-
-
-If you change this,
-could you add some comments in commit description?
-
-
-> ---
-
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index c39dac831f08..913b2ca7ec22 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -85,6 +85,8 @@ config ARM64
->         select FRAME_POINTER
->         select GENERIC_ALLOCATOR
->         select GENERIC_ARCH_TOPOLOGY
-> +       select GENERIC_BUG if BUG
-> +       select GENERIC_BUG_RELATIVE_POINTERS
-
-Precisely,
-
-          select GENERIC_BUG_RELATIVE_POINTERS if BUG
-
-
-
-
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 732614eb3683..c410ed896567 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -19,6 +19,8 @@ config RISCV
->         select ARCH_WANT_FRAME_POINTERS
->         select CLONE_BACKWARDS
->         select COMMON_CLK
-> +       select GENERIC_BUG if BUG
-> +       select GENERIC_BUG_RELATIVE_POINTERS if 64BIT
-
-Precisely,
-
-          select GENERIC_BUG_RELATIVE_POINTERS if 64BIT && BUG
-
-
-> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-> index 15ccdd04814e..2a5c12be633e 100644
-> --- a/arch/s390/Kconfig
-> +++ b/arch/s390/Kconfig
-> @@ -17,12 +17,6 @@ config ARCH_HAS_ILOG2_U64
->  config GENERIC_HWEIGHT
->         def_bool y
->
-> -config GENERIC_BUG
-> -       def_bool y if BUG
-> -
-> -config GENERIC_BUG_RELATIVE_POINTERS
-> -       def_bool y
-> -
-
-
-Hmm, s390 enables GENERIC_BUG_RELATIVE_POINTERS
-irrespective of BUG...
-
-
-
-
-
-> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-> index 1bd4f19b6b28..f4cb31174e1b 100644
-> --- a/arch/x86/Kconfig
-> +++ b/arch/x86/Kconfig
-> @@ -91,6 +91,8 @@ config X86
->         select DCACHE_WORD_ACCESS
->         select EDAC_ATOMIC_SCRUB
->         select EDAC_SUPPORT
-> +       select GENERIC_BUG                      if BUG
-> +       select GENERIC_BUG_RELATIVE_POINTERS    if X86_64
-
-Precisely,
-
-          select GENERIC_BUG_RELATIVE_POINTERS    if X86_64 && BUG
-
-
-
-
-
-
---
-Best Regards
-Masahiro Yamada
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBGZWIgMTUsIDIwMTkgYXQgNToxOCBQTSBDaHJpc3RvcGhlIExlcm95CjxjaHJpc3Rv
+cGhlLmxlcm95QGMtcy5mcj4gd3JvdGU6Cj4KPgo+Cj4gTGUgMTQvMDIvMjAxOSDDoCAxODowNSwg
+Q2hyaXN0b3BoIEhlbGx3aWcgYSDDqWNyaXQgOgo+ID4gT24gVGh1LCBGZWIgMTQsIDIwMTkgYXQg
+MDk6MjY6MTlBTSArMDEwMCwgQ2hyaXN0b3BoZSBMZXJveSB3cm90ZToKPiA+PiBDb3VsZCB5b3Ug
+YWxzbyByZW1vdmUgdGhlICdjb25maWcgR0VORVJJQ19DU1VNJyBpdGVtIGluCj4gPj4gYXJjaC9w
+b3dlcnBjL0tjb25maWcgPwo+ID4KPiA+IEFsbCB0aGUgc2VwYXJhdGUgZGVjbGFyYXRpb25zIGdv
+IGF3YXkgbGF0ZXIgaW4gdGhpcyBzZXJpZXMuCj4gPgo+Cj4gSSBzYXcsIGJ1dCB0aGUgcHVycG9z
+ZSBvZiB0aGUgbGF0ZXIgcGF0Y2ggaXMgdG8gcmVwbGFjZSBhcmNoIGRlZmluZWQKPiBHRU5FUklD
+X0NTVU0gYnkgYSBjb21tb24gb25lIHRoYXQgYXJjaGVzIHNlbGVjdC4gRm9yIHRoZSBwb3dlcnBj
+IHlvdSBhcmUKPiBub3QgaW4gdGhhdCBjYXNlIGFzIHRoZSBwb3dlcnBjIGRvZXMgbm90IHNlbGVj
+dCBHRU5FUklDX0NTVU0uCj4KPiBTbyBJIHJlYWxseSBiZWxpZXZlIHRoYXQgYWxsIHN0YWxlIGJp
+dHMgb2YgcmVtYWluaW5nIEdFTkVSSUNfQ1NVTSBpbgo+IHBvd2VycGMgc2hvdWxkIGdvIGF3YXkg
+YXMgYSBzaW5nbGUgZGVkaWNhdGVkIHBhdGNoLCBhcyBhIGZpeCBvZiBjb21taXQKPiBkNGZkZTU2
+OGEzNGEgKCJwb3dlcnBjLzY0OiBVc2Ugb3B0aW1pemVkIGNoZWNrc3VtIHJvdXRpbmVzIG9uCj4g
+bGl0dGxlLWVuZGlhbiIpCj4KPiBSZWdhcmRpbmcgdGhlICNpZmRlZiBfX0tFUk5FTF9fICwgSSB0
+aGluayB3ZSBzaG91bGQgZG8gYSB3aWRlIGNsZWFudXAgaW4KPiBhcmNoL3Bvd2VycGMvaW5jbHVk
+ZS9hc20sIG5vdCBvbmx5IGFzbS9jaGVja3N1bS5oCj4KPiBDaHJpc3RvcGhlCgoKUGxlYXNlIHNl
+bmQgc3VjaCBjbGVhbnVwcyB0byBQb3dlclBDIE1MCmluc3RlYWQgb2YgdG8gbWUgKEtidWlsZCku
+CgoKQ2hyaXN0b3BoLApJIHRoaW5rIHRoaXMgb25lIGlzIGluZGVwZW5kZW50IG9mIHRoZSByZXN0
+IG9mIHRoaXMgc2VyaWVzLgpIb3cgYWJvdXQgc2VwYXJhdGluZyBpdCBpZiB5b3Ugdm9sdW50ZWVy
+IHRvIFBvd2VycGMgY2xlYW5zdXA/CgoKLS0gCkJlc3QgUmVnYXJkcwpNYXNhaGlybyBZYW1hZGEK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
