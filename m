@@ -2,22 +2,23 @@ Return-Path: <SRS0=HaOg=QW=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.9 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A81C5C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Feb 2019 07:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 44C21C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Feb 2019 07:59:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7B885222DC
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Feb 2019 07:57:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 13E39206BB
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Feb 2019 07:59:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RKtOxj6Z";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=nifty.com header.i=@nifty.com header.b="r36eIZwV"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7B885222DC
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=socionext.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OOdg/gah";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="hFJysJLW"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 13E39206BB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -25,57 +26,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=swoioxGP2tKu76+wWPDkIOl/4s/L6pnPEI6vnxeidnA=; b=RKtOxj6Z6tEXae
-	b/rg+M1Eh0F9QX7Gbf5m2tbOn7RGsIGrozwUDwZbZXZj5H1OLs7l0xKsCo4N40bzzD5nLVmr8gf03
-	Uxe3X9e8UNKQjcUaTwGhIYpdRPv29mTzGgPZI8JZMSd+E5JzailOmbt1XZkRrzbpPrcuL853Ao0RL
-	XOAC/r5SLckpsbvFL4MuvdN/iAHeiwAO8QqnKe9KSSzs1pB9qmB21MdVk7iI+cJlstw6ylbBeDTPm
-	OztywFxNLos/iTUOa+G51PCgWe1b2gbuxeieekGPz16TfQ/xqr9mmgFQRnficHjoW6Lo7+S1pqeYD
-	SeYMnIsBHXYtP6+FCMpw==;
+	List-Owner; bh=f++ORMbFDNDO309ggKmwU34xlSgo37yrY3cqo3sZnGw=; b=OOdg/gahs8LpRi
+	qUDGNPR7IaPpaQoRz/j/G5NikgS8YF8imnED6roekxdjdMJDAY13QNlSRUa8CDfb32exwsENUa5fj
+	rqZPzIJGpo8m1MKZ6a4sQ8vw6YXjCiNBFgeSPIe53r2vI7intxICIM17xPPXFkkVtVjICoiAHsKSG
+	2fVtK16S5MCAMNGDJ2oD3npYMX+skbCUoxhn6HzfRfGerYLt5gtFg9/6C9zmREqGsmu+CuRPAMWF4
+	YZsZ/jj7Nj29OEtz6PaWuF+Mhjo3qWrV+TZWHhG3sHi53v4Zua6ohWzOEE8UxE/IJ3OhrKx9ulwR6
+	zwQESEFF6/ZC4Ne7sklw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1guYMn-0002pU-Po; Fri, 15 Feb 2019 07:57:01 +0000
-Received: from conssluserg-01.nifty.com ([210.131.2.80])
+	id 1guYOc-0002ui-DK; Fri, 15 Feb 2019 07:58:54 +0000
+Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1guYMk-0002pC-74
- for linux-riscv@lists.infradead.org; Fri, 15 Feb 2019 07:56:59 +0000
-Received: from mail-vk1-f173.google.com (mail-vk1-f173.google.com
- [209.85.221.173]) (authenticated)
- by conssluserg-01.nifty.com with ESMTP id x1F7uOG7009875
- for <linux-riscv@lists.infradead.org>; Fri, 15 Feb 2019 16:56:24 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com x1F7uOG7009875
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1550217385;
- bh=+CMccOOQs2SIMZf8GEgGda1f8v4r4nxXcnL40kDZkWo=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=r36eIZwVVVerHTYGeE8H+hEk+dhffubWfEDTlx9AG4RL30kTqsQTAzSh77Yzior4A
- rb6X+C8vBMNhI+YwVXTTjM9LnDfR3daR1tXWjaNmJyxsOuOMEwgjbx3rQc03c8GLxz
- yZZCqQIgSfqA8WYMLrpMBjDw4BX9lLoRV22TX4ikyjYGbQusLu59bvMGD5V59B/8Wo
- 3uV/JlnVvKPwj25pwn015lWVfcZBo3cqXxUcljGmy7rPvZImAO+SSvn6svQVUDYcLq
- 8E/lRD4NxqqWOXTgghHWu+Skw3KftagWt7hj8AEiV8rh1x0En6J0KRiWoXBxDfffXA
- cK/rnETWff5bw==
-X-Nifty-SrcIP: [209.85.221.173]
-Received: by mail-vk1-f173.google.com with SMTP id y14so2041044vkd.1
- for <linux-riscv@lists.infradead.org>; Thu, 14 Feb 2019 23:56:24 -0800 (PST)
-X-Gm-Message-State: AHQUAuag0g5X3Ag9JwH4kNHr3VoUu2RCUn8FPzn6c5roobk0Lq/numfo
- qf6XOVbtllYxb++pqEfj8I38vdNnWpzt9Ui75bY=
-X-Google-Smtp-Source: AHgI3Ib2LcLTF5+1932eP4k/Ka4siIF35t+ho0EcrAqV+ljWi5cwUgFr5/PGJnMNXYpvgO5M7IKEjNDvTWma6+EqebI=
-X-Received: by 2002:a1f:4406:: with SMTP id r6mr4284655vka.84.1550217383704;
- Thu, 14 Feb 2019 23:56:23 -0800 (PST)
+ id 1guYOZ-0002tx-J7
+ for linux-riscv@lists.infradead.org; Fri, 15 Feb 2019 07:58:53 +0000
+Received: by mail-ed1-x542.google.com with SMTP id b20so7164379edw.11
+ for <linux-riscv@lists.infradead.org>; Thu, 14 Feb 2019 23:58:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=9hadSi4LFcMfVTlwwQG+41oFCFy8OhnB/f4tmYYI81c=;
+ b=hFJysJLWkGLtXG1O5bEgyGRtaiEsrbDgqrAmcqolx1PRFxSXlR2/gtI/gSrbU8Dtu1
+ /f47WdBKnG7pGHxKRqgnqSuzk4hnwcAH63OCYSf21D2Djg/rcpibvn6gz3AhMhD5ZHRK
+ +jjDWjFEYH42HrtWf1zUe83/sLVovkTFlJ8jlC5+zn+V2JKvBLDQ9K1OLut3CTfjpy9v
+ uHHAl8YoQEK60thdD73+TRj2unwTfB0P5ZeyhBiVZTiLjDeanAv+SP74SEo8CCTpUrr/
+ AeLVZ4wyC9695moE3AxZjltTQzeilvvms5tSoUNTAGKFt5N0mAq1YU2Yw7xfIgQDjUGQ
+ lDxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=9hadSi4LFcMfVTlwwQG+41oFCFy8OhnB/f4tmYYI81c=;
+ b=pbIaarIw3k9+XMYiAVEO9WoBK0R4vm9eCBSZVZl71NYpDoniJXnWVSEv86LOUaXDEp
+ ZOa9QJenVm6aLiGWJJLtCVuDMMs7IlE7HKsN1Z2eTw0ThmqTiS3cAvjTcr2ewaE3BJBR
+ RrKc2gZtRjz87fZHNhELXxN7tdfxg0GYZBTSYPOyJHJ6ZTf5dKJD5ujV1/E6f9/Xovv4
+ tTtNb3MCOaT/IxDayPNnGptpakyxYwr5qB8c2gLRR7pYPvLFNyS4ZOh6LJbD4HI+Ncnu
+ w1iTP0Dz/DlHXSXg0alcQ6W0AdLENrek3gfxvYIhUC3m4iXEi4UT+Zs5vNUZdH9YUW6m
+ uEzQ==
+X-Gm-Message-State: AHQUAuYgt+UOMmAFrrtoOL+8PphiWN0I1dUv8dCQqR1GTds77lCUQEpr
+ msKoiFhC9rDQ+YEN63DyPi5egAMd/6bEMBRawUo=
+X-Google-Smtp-Source: AHgI3IYk+97brw7+2M2gsoq0t5Rme1jfRYz4kkvzqwCZT7uVIBuSU1MdnUBpIqQHCaGv8ygJYxBFb/p5CQiqNo7uGOE=
+X-Received: by 2002:a17:906:1c4b:: with SMTP id
+ l11mr5664488ejg.20.1550217529477; 
+ Thu, 14 Feb 2019 23:58:49 -0800 (PST)
 MIME-Version: 1.0
 References: <20190213174005.28785-1-hch@lst.de>
- <20190213174005.28785-6-hch@lst.de>
-In-Reply-To: <20190213174005.28785-6-hch@lst.de>
-From: Masahiro Yamada <yamada.masahiro@socionext.com>
-Date: Fri, 15 Feb 2019 16:55:47 +0900
-X-Gmail-Original-Message-ID: <CAK7LNARDdPabSOq6vHvxTPPWaMguJUEtok=dNrfnLEz=UtHO+w@mail.gmail.com>
-Message-ID: <CAK7LNARDdPabSOq6vHvxTPPWaMguJUEtok=dNrfnLEz=UtHO+w@mail.gmail.com>
-Subject: Re: [PATCH 05/11] tracing: consolidate the TRACE_IRQFLAGS_SUPPORT
- symbol
-To: Christoph Hellwig <hch@lst.de>
+ <20190213174005.28785-7-hch@lst.de>
+ <CAK7LNAQZm2TXO1gxif2LZQzwYae2AiqgZnNGJBxBjiPwoZLqig@mail.gmail.com>
+In-Reply-To: <CAK7LNAQZm2TXO1gxif2LZQzwYae2AiqgZnNGJBxBjiPwoZLqig@mail.gmail.com>
+From: Greentime Hu <green.hu@gmail.com>
+Date: Fri, 15 Feb 2019 15:58:11 +0800
+Message-ID: <CAEbi=3ctaYwjCxOVaCyUrvT=741keKPwXj6v8rS9bzoTZPcsOA@mail.gmail.com>
+Subject: Re: [PATCH 06/11] lockdep: consolidate the LOCKDEP_SUPPORT symbol
+To: Masahiro Yamada <yamada.masahiro@socionext.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190214_235658_490380_B3192231 
-X-CRM114-Status: UNSURE (   9.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190214_235851_656710_F1110163 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,87 +96,31 @@ Cc: linux-xtensa@linux-xtensa.org,
  Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
  linux-s390 <linux-s390@vger.kernel.org>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- nios2-dev@lists.rocketboards.org, Ley Foon Tan <lftan@altera.com>,
- linux-riscv@lists.infradead.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ linux-riscv@lists.infradead.org, Vincent Chen <deanbo422@gmail.com>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, Christoph Hellwig <hch@lst.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+CC: Ley Foon Tan <lftan@altera.com>
-+CC: nios2-dev@lists.rocketboards.org
-
-
-On Thu, Feb 14, 2019 at 2:40 AM Christoph Hellwig <hch@lst.de> wrote:
-
-> diff --git a/arch/nios2/Kconfig b/arch/nios2/Kconfig
-> index 715e6c09b4a5..3b50689007f5 100644
-> --- a/arch/nios2/Kconfig
-> +++ b/arch/nios2/Kconfig
-> @@ -20,6 +20,7 @@ config NIOS2
->         select OF_EARLY_FLATTREE
->         select SOC_BUS
->         select SPARSE_IRQ
-> +       select TRACE_IRQFLAGS_SUPPORT
-
-
-This is a behavior change of nios2.
-
-TRACE_IRQFLAGS_SUPPORT was previously 'n',
-and this commit is changing it to 'y'.
-
-
-
-
-Strangely, nios2 defines TRACE_IRQFLAGS_SUPPORT twice
-with different default values.
-
-In Kconfig, the first one becomes effective.
-
-In this case, 'def_bool n' in arch/nios2/Kconfig is used.
-'def_bool y' in arch/nios2/Kconfig.debug is dead code.
-
-
-I think this select should be dropped
-to keep the current behavior,
-but I hope the NIOS2 maintainer will give us
-some comments just in case.
-
-
-
-
->         select USB_ARCH_HAS_HCD if USB_SUPPORT
->         select CPU_NO_EFFICIENT_FFS
->         select ARCH_DISCARD_MEMBLOCK
-> @@ -39,9 +40,6 @@ config NO_IOPORT_MAP
->  config FPU
->         def_bool n
->
-> -config TRACE_IRQFLAGS_SUPPORT
-> -       def_bool n
-> -
->  menu "Kernel features"
->
->  source "kernel/Kconfig.hz"
-> diff --git a/arch/nios2/Kconfig.debug b/arch/nios2/Kconfig.debug
-> index f1da8a7b17ff..a8bc06e96ef5 100644
-> --- a/arch/nios2/Kconfig.debug
-> +++ b/arch/nios2/Kconfig.debug
-> @@ -1,8 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0
->
-> -config TRACE_IRQFLAGS_SUPPORT
-> -       def_bool y
-> -
->  config EARLY_PRINTK
->         bool "Activate early kernel debugging"
->         default y
-
---
-Best Regards
-Masahiro Yamada
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgWWFtYWRhLAoKTWFzYWhpcm8gWWFtYWRhIDx5YW1hZGEubWFzYWhpcm9Ac29jaW9uZXh0LmNv
+bT4g5pa8IDIwMTnlubQy5pyIMTXml6Ug6YCx5LqUIOS4i+WNiDM6MTflr6vpgZPvvJoKPgo+ICtD
+QyBHcmVlbnRpbWUgSHUKPiArQ0MgVmluY2VudCBDaGVuCj4KPgo+IE9uIFRodSwgRmViIDE0LCAy
+MDE5IGF0IDI6NDAgQU0gQ2hyaXN0b3BoIEhlbGx3aWcgPGhjaEBsc3QuZGU+IHdyb3RlOgo+ID4K
+PiA+IEFkZCBvbmUgZGVmaW5pdGlvbiB0byBsaWIvS2NvbmZpZy5kZWJ1ZyBhbmQgbGV0IHRoZSBh
+cmNoaXRlY3R1cmVzCj4gPiBzZWxlY3QgaWYgaXQgc3VwcG9ydGVkLgo+ID4KPiA+IFNpZ25lZC1v
+ZmYtYnk6IENocmlzdG9waCBIZWxsd2lnIDxoY2hAbHN0LmRlPgo+Cj4KPiBUaGlzIGNoYW5nZXMg
+dGhlIGJlaGF2aW9yIG9mIG5kczMyLgo+Cj4gU28gcGxlYXNlIGxlYXZlIGEgbm90ZSBpbiB0aGUg
+Y29tbWl0IGRlc2NyaXB0aW9uLgo+IChJZGVhbGx5LCB3ZSB3YW50IEFjayBvZiBhIE5EUzMyIG1h
+aW50YWluZXIpCj4KPiBBbHNvLCBwbGVhc2UgZG8gY29tcGlsZSB0ZXN0IGZvciBORFMzMi4KPgo+
+Cj4gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+IFRoaXMgY29tbWl0IGNoYW5nZXMgQ09ORklH
+X0xPQ0tERVBfU1VQUE9SVCB0byB5IGZvciBuZHMzMi4KPgo+IE5EUzMyIHNlbGVjdHMgTE9DS0VQ
+X1NVUFBPUlQsIGJ1dCB0aGVyZSB3YXMgcHJldmlvdXNseQo+IG5vIGNvbmZpZyBlbnRyeSBvZiBM
+T0NLREVQX1NVUFBPUlQgaW4gbmRzMzIuCj4KPiBJdCBpcyBub3cgYXZhaWxhYmxlIGluIGxpYi9L
+Y29uZmlnLmRlYnVnLAo+IHNvIHRoaXMgY29tbWl0IGVuYWJsZXMgTE9DS0RFUF9TVVBQT1JUIGZv
+ciBuZHMzMi4KPiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgpUaGFuayB5b3UgdG8gbGV0IHVz
+IGtub3cgdGhpcyBjaGFuZ2UuCkkgdGhpbmsgaXQncyBvayB0byBlbmFibGUgTE9DS0RFUF9TVVBQ
+T1JUIGZvciBuZHMzMi4KSSBqdXN0IHZlcmlmaWVkIGl0IGluIDUuMC4wLXJjMS4KCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
