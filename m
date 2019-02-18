@@ -2,20 +2,21 @@ Return-Path: <SRS0=xQFv=QZ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A55A2C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Feb 2019 14:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 21C6EC4360F
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Feb 2019 15:56:20 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 519042173C
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Feb 2019 14:59:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C263F2084D
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Feb 2019 15:56:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="T7DH+pz9"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 519042173C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VGdzCz4z"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C263F2084D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,42 +25,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lYVE0MvEcSHJEvgnE4pHHIfZWHVhQmC3PNgQzWw07UY=; b=T7DH+pz9MC6bxR
-	mDoijyp7yIH0GE5KxpdvH4soqVXbzcaTMuxo+23VYHzn2JAnLDvx5n/G2q5PCXFpKF1dvh8ml7KYx
-	LjGQwwvYJbVDS8Plk7WkHs0C5kcVwNCoByMqdAxXPnr9Qw8C7SQ29m8Jih6ZIt/3y2iTaM4+3VlbD
-	FbQFb1aJSJJnopT3962wpflZbAo2AHDOd07hWdu+BmSnoyESQcvC5GhrU5AeL1LTI88AbWvarSamQ
-	JdYBBn/mGRMreif4Pj8HMerKVY28ppRYW0v0Fj6Rf81ZMKKZTofILp4aYRqhTBEv3A3AP7AfBZN38
-	3/Sb+OhmB0lQQ9PMJbcA==;
+	List-Owner; bh=cdWrjxKMkRxoqJUX+W76zKkDnUlNY2YP9FkPmjb2jH4=; b=VGdzCz4zuDrekX
+	HDidSrGj8/MiH15EPOfvhCQ5dHGTXdDbPmFj1YD3jc80Y1x7BMlGVTl6+EioGDfIH/j5SW9GnqYrx
+	jFdvIUgUgVrVXkgXkIkanXXevBlW0T4jWcfeIigi5p3Z6aIevIfonI+cY0D6faFFcrFCxQmfsg0cR
+	cFO1zNTYmQlQ6opPY5QbaQnQhw6YbPr6SMYrwlUD/KNsI6mM/O4g4NrFmT2wdeQhGQMIDZlvIQRU6
+	o6VU77jXKOBD8tXLUEtjrOX3bNTuad8O0B1rvzq8wwYjN2X94RC134dI75U9JH/XtVP95RWGxeGkt
+	gpMZxbLsYJae8iRnmPzQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gvkNr-0001Yk-7r; Mon, 18 Feb 2019 14:59:03 +0000
-Received: from usa-sjc-mx-foss1.foss.arm.com ([217.140.101.70]
- helo=foss.arm.com)
+	id 1gvlHF-0000f6-Uz; Mon, 18 Feb 2019 15:56:17 +0000
+Received: from foss.arm.com ([217.140.101.70])
  by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gvkNR-0001PN-PJ; Mon, 18 Feb 2019 14:58:53 +0000
+ id 1gvlHC-0000ee-Tu
+ for linux-riscv@lists.infradead.org; Mon, 18 Feb 2019 15:56:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B193A78;
- Mon, 18 Feb 2019 06:58:30 -0800 (PST)
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0FD2180D;
+ Mon, 18 Feb 2019 07:56:14 -0800 (PST)
 Received: from fuggles.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com
  [10.72.51.249])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F1D53F675;
- Mon, 18 Feb 2019 06:58:25 -0800 (PST)
-Date: Mon, 18 Feb 2019 14:58:20 +0000
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80AE93F675;
+ Mon, 18 Feb 2019 07:56:12 -0800 (PST)
+Date: Mon, 18 Feb 2019 15:56:07 +0000
 From: Will Deacon <will.deacon@arm.com>
-To: Waiman Long <longman@redhat.com>
-Subject: Re: [PATCH v4 0/3] locking/rwsem: Rwsem rearchitecture part 0
-Message-ID: <20190218145820.GA16091@fuggles.cambridge.arm.com>
-References: <1550095217-12047-1-git-send-email-longman@redhat.com>
- <20190214103715.GI32494@hirez.programming.kicks-ass.net>
- <20190215184056.GC15084@fuggles.cambridge.arm.com>
- <a45d8b68-5623-d6fe-8080-072994f7625e@redhat.com>
+To: Palmer Dabbelt <palmer@sifive.com>
+Subject: Re: [PATCH 1/2] asm-generic/io: Pass result on inX() accessor to
+ __io_par()
+Message-ID: <20190218155607.GA16713@fuggles.cambridge.arm.com>
+References: <CAK8P3a1-CA_d+tRRKh50+7-PU14AV=9S1JUSF4d-VUxZ+DcW4g@mail.gmail.com>
+ <mhng-30e76674-df9d-4689-8c77-3a3b4723ee24@palmer-si-x1c4>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <a45d8b68-5623-d6fe-8080-072994f7625e@redhat.com>
+In-Reply-To: <mhng-30e76674-df9d-4689-8c77-3a3b4723ee24@palmer-si-x1c4>
 User-Agent: Mutt/1.11.1+86 (6f28e57d73f2) ()
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190218_065852_087956_15D3FE5C 
-X-CRM114-Status: GOOD (  19.98  )
+X-CRM114-CacheID: sfid-20190218_075614_971971_781739E2 
+X-CRM114-Status: GOOD (  28.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -71,70 +71,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>, linux-mips@vger.kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, Davidlohr Bueso <dave@stgolabs.net>,
- linux-c6x-dev@linux-c6x.org, linux-hexagon@vger.kernel.org, x86@kernel.org,
- Ingo Molnar <mingo@redhat.com>, uclinux-h8-devel@lists.sourceforge.jp,
- linux-xtensa@linux-xtensa.org, Arnd Bergmann <arnd@arndb.de>,
- linux-um@lists.infradead.org, linux-m68k@lists.linux-m68k.org,
- openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- Tim Chen <tim.c.chen@linux.intel.com>, linux-parisc@vger.kernel.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org,
- linux-alpha@vger.kernel.org, nios2-dev@lists.rocketboards.org,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org
+Cc: linux-arch@vger.kernel.org, aou@eecs.berkeley.edu,
+ Arnd Bergmann <arnd@arndb.de>, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, andrew.murray@arm.com,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 15, 2019 at 01:58:34PM -0500, Waiman Long wrote:
-> On 02/15/2019 01:40 PM, Will Deacon wrote:
-> > On Thu, Feb 14, 2019 at 11:37:15AM +0100, Peter Zijlstra wrote:
-> >> On Wed, Feb 13, 2019 at 05:00:14PM -0500, Waiman Long wrote:
-> >>> v4:
-> >>>  - Remove rwsem-spinlock.c and make all archs use rwsem-xadd.c.
-> >>>
-> >>> v3:
-> >>>  - Optimize __down_read_trylock() for the uncontended case as suggested
-> >>>    by Linus.
-> >>>
-> >>> v2:
-> >>>  - Add patch 2 to optimize __down_read_trylock() as suggested by PeterZ.
-> >>>  - Update performance test data in patch 1.
-> >>>
-> >>> The goal of this patchset is to remove the architecture specific files
-> >>> for rwsem-xadd to make it easer to add enhancements in the later rwsem
-> >>> patches. It also removes the legacy rwsem-spinlock.c file and make all
-> >>> the architectures use one single implementation of rwsem - rwsem-xadd.c.
-> >>>
-> >>> Waiman Long (3):
-> >>>   locking/rwsem: Remove arch specific rwsem files
-> >>>   locking/rwsem: Remove rwsem-spinlock.c & use rwsem-xadd.c for all
-> >>>     archs
-> >>>   locking/rwsem: Optimize down_read_trylock()
-> >> Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> >>
-> >> with the caveat that I'm happy to exchange patch 3 back to my earlier
-> >> suggestion in case Will expesses concerns wrt the ARM64 performance of
-> >> Linus' suggestion.
-> > Right, the current proposal doesn't work well for us, unfortunately. Which
-> > was your earlier suggestion?
-> >
-> > Will
+On Wed, Feb 13, 2019 at 01:57:50PM -0800, Palmer Dabbelt wrote:
+> On Wed, 13 Feb 2019 12:59:28 PST (-0800), Arnd Bergmann wrote:
+> > On Wed, Feb 13, 2019 at 6:46 PM Will Deacon <will.deacon@arm.com> wrote:
+> > 
+> > > On Tue, Feb 12, 2019 at 12:55:17PM +0100, Arnd Bergmann wrote:
+> > > 
+> > > > For all I can see, this should not conflict with the usage of the
+> > > > same macros on RISC-V, though it does make add a significant
+> > > > difference, so I'd like to see an Ack from the RISC-V folks as
+> > > > well (added to Cc), or possibly a change to arch/riscv/include/asm/io.h
+> > > > to do a corresponding change.
 > 
-> In my posting yesterday, I showed that most of the trylocks done were
-> actually uncontended. Assuming that pattern hold for the most of the
-> workloads, it will not that bad after all.
+> Thanks, the original patches didn't make it through my filters.
+> 
+> > > There's already a comment in that header which says that the accesses are
+> > > ordered wrt timer reads, so I don't think anything needs to change there.
+> > > For consistency with the macro arguments, I could augment their __io_par to
+> > > take the read value as an unused argument, if that's what you mean?
+> 
+> FWIW, we don't really have a way to mandate this in the ISA yet as there's
+> no formal model for either CSR orderings or the IO memory space.
 
-That's fair enough; if you're going to sit in a tight trylock() loop like the
-benchmark does, then you're much better off just calling lock() if you care
-at all about scalability.
+Ah, so you may end up needing the dependency trick too, depending on where
+you land with the ISA.
+
+> > Yes, that's what I meant, I should have been clearer there.
+> 
+> That sounds reasonable to me.  It looks like we can also go ahead and delete
+> a bunch of arch/riscv/include/asm/io.h now that this stuff is in
+> asm-generic, which would cause us to actually start using these things.  I
+> didn't know this had all been moved to asm-generic otherwise I would have
+> cleaned this up earlier.
+> 
+> I think this should do it, but this does bring up a bit of an issue: the
+> RISC-V versions of reads and friends put barriers outside the loop, while
+> the asm-generic version don't.  What are these actually supposed to do?
+
+You're referring to the string accessors (e.g. insb() and readsw()), right?
+arm and arm64 don't provide barriers here either, and I don't think they
+should have to given that these routines are usually used to poll data
+register-based FIFOs and therefore don't need to provide ordering guarantees
+against DMA operations. However, this is woefully undocumented and I shall
+try to address this in the next version of my memory-barriers.txt patch
+relating to this area [1].
+
+> Either way that resolves, feel free to consider something like
+> 
+> diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
+> index b269451e7e85..378975f180a7 100644
+> --- a/arch/riscv/include/asm/io.h
+> +++ b/arch/riscv/include/asm/io.h
+> @@ -198,20 +198,20 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
+>  * writes.
+>  */
+> #define __io_pbr()	__asm__ __volatile__ ("fence io,i"  : : : "memory");
+> -#define __io_par()	__asm__ __volatile__ ("fence i,ior" : : : "memory");
+> +#define __io_par(v)	__asm__ __volatile__ ("fence i,ior" : : : "memory");
+> #define __io_pbw()	__asm__ __volatile__ ("fence iow,o" : : : "memory");
+> #define __io_paw()	__asm__ __volatile__ ("fence o,io"  : : : "memory");
+> 
+> -#define inb(c)		({ u8  __v; __io_pbr(); __v = readb_cpu((void*)(PCI_IOBASE + (c))); __io_par(); __v; })
+> -#define inw(c)		({ u16 __v; __io_pbr(); __v = readw_cpu((void*)(PCI_IOBASE + (c))); __io_par(); __v; })
+> -#define inl(c)		({ u32 __v; __io_pbr(); __v = readl_cpu((void*)(PCI_IOBASE + (c))); __io_par(); __v; })
+> +#define inb(c)		({ u8  __v; __io_pbr(); __v = readb_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+> +#define inw(c)		({ u16 __v; __io_pbr(); __v = readw_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+> +#define inl(c)		({ u32 __v; __io_pbr(); __v = readl_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+> 
+> #define outb(v,c)	({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+> #define outw(v,c)	({ __io_pbw(); writew_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+> #define outl(v,c)	({ __io_pbw(); writel_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+> 
+> #ifdef CONFIG_64BIT
+> -#define inq(c)		({ u64 __v; __io_pbr(); __v = readq_cpu((void*)(c)); __io_par(); __v; })
+> +#define inq(c)		({ u64 __v; __io_pbr(); __v = readq_cpu((void*)(c)); __io_par(__v); __v; })
+> #define outq(v,c)	({ __io_pbw(); writeq_cpu((v),(void*)(c)); __io_paw(); })
+> #endif
+> 
+> @@ -261,9 +261,9 @@ __io_reads_ins(reads, u32, l, __io_br(), __io_ar())
+> #define readsw(addr, buffer, count) __readsw(addr, buffer, count)
+> #define readsl(addr, buffer, count) __readsl(addr, buffer, count)
+> 
+> -__io_reads_ins(ins,  u8, b, __io_pbr(), __io_par())
+> -__io_reads_ins(ins, u16, w, __io_pbr(), __io_par())
+> -__io_reads_ins(ins, u32, l, __io_pbr(), __io_par())
+> +__io_reads_ins(ins,  u8, b, __io_pbr(), __io_par(addr))
+> +__io_reads_ins(ins, u16, w, __io_pbr(), __io_par(addr))
+> +__io_reads_ins(ins, u32, l, __io_pbr(), __io_par(addr))
+> #define insb(addr, buffer, count) __insb((void __iomem *)(long)addr, buffer, count)
+> #define insw(addr, buffer, count) __insw((void __iomem *)(long)addr, buffer, count)
+> #define insl(addr, buffer, count) __insl((void __iomem *)(long)addr, buffer, count)
+> 
+> as
+> 
+> Revewied-by: Palmer Dabbelt <palmer@sifive.com>
+> 
+> when included along with the other diff.  That way we can at least keep the
+> macro signatures matching, the cleanup can come later...
+
+Thanks, Palmer! I'll send a v2 of this patch, updated to fix up insq() as
+well as the readX() macros too, since they're likely to suffer the exact
+same issues as inX() in this regard.
 
 Will
+
+[1] https://lkml.org/lkml/2019/2/11/1803
 
 _______________________________________________
 linux-riscv mailing list
