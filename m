@@ -1,114 +1,80 @@
-Return-Path: <SRS0=HaOg=QW=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=xQFv=QZ=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CFC3EC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Feb 2019 18:58:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E140C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Feb 2019 03:07:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9DFCB217F5
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Feb 2019 18:58:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 29D6E218D8
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Feb 2019 03:07:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gGskgHp7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9DFCB217F5
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FzAIClD1";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=nifty.com header.i=@nifty.com header.b="oV/I+WAX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 29D6E218D8
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=socionext.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/XavqsyvhRgJYqKMGO4KZPHQtAUkZ2pGhBH2ErsVZCg=; b=gGskgHp7tA/K66
-	XARW8aDiOG6EbgoABdXzh0ZTAH1lNEXURdGVFKlajFFZn98D1o/ZYw6gU8UTe4fOmQiIeCkBrBHLh
-	iJxjxd39dxH+TOU+idbVLfSODRix7yvIyym/US6G9H5TTnZ+zk4VS8RGDluPvf47uuCuThTlx0hGv
-	rW4yI5XtVHsWf70P70iw2RhHF4AK/zkSNbVY77e6pOW0BS4OW2pp3rfNaIluLTRBTaB3rVtPg3HEo
-	dprsq5mOKgF07DNPxxZW5yzpa20Do+3hpYT49sci6AbdnvGc07RRX2ia0I6zD65NawAm7Mrz+ieUq
-	dflbhhlzw+Zi3FT2zV0g==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7VbW6FCHNaaWdaMBqu0lzz+RKKcAz/rzZDRCKBhZZWE=; b=FzAIClD18OAqGe
+	CGlu0Q0uz/nEAG8EhHpdtTcILLqHg3UZwp2gxK7cOEn9nVW81CRTpgIy/Y8dx0gFCT99PokW8Q0t3
+	fKrJ26nK8OkMe4WXKqCuuoOwOOGjaMqt6yaoMaI/5frA7omeGfkWz0zZ28TrnLRxcWpZnDdgvza0u
+	e/A5Mz71cIHfvI+2UP+x6ATA9es+dxKQZECpcd1WbgH0aFMikNZdwA6mhwKiiMuc6IH8Uy9LQ2EXk
+	HJkMVlr0EIcvImmKQ8O4o8e097B5O3jW0HEuasb4xNPzgZcUf5V5+Dot9JYbRKhtwdxJb2D6ewm6T
+	T6w3Qaxy7mUVmtCf5bAQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1guihK-00017X-1y; Fri, 15 Feb 2019 18:58:54 +0000
-Received: from mx1.redhat.com ([209.132.183.28])
+	id 1gvZHM-0005na-74; Mon, 18 Feb 2019 03:07:36 +0000
+Received: from conssluserg-01.nifty.com ([210.131.2.80])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1guihA-0000yZ-2T; Fri, 15 Feb 2019 18:58:45 +0000
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
- [10.5.11.16])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id 891FF3D1E0;
- Fri, 15 Feb 2019 18:58:42 +0000 (UTC)
-Received: from llong.remote.csb (dhcp-17-59.bos.redhat.com [10.18.17.59])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 52DD15C21E;
- Fri, 15 Feb 2019 18:58:35 +0000 (UTC)
-Subject: Re: [PATCH v4 0/3] locking/rwsem: Rwsem rearchitecture part 0
-To: Will Deacon <will.deacon@arm.com>, Peter Zijlstra <peterz@infradead.org>
-References: <1550095217-12047-1-git-send-email-longman@redhat.com>
- <20190214103715.GI32494@hirez.programming.kicks-ass.net>
- <20190215184056.GC15084@fuggles.cambridge.arm.com>
-From: Waiman Long <longman@redhat.com>
-Openpgp: preference=signencrypt
-Autocrypt: addr=longman@redhat.com; prefer-encrypt=mutual; keydata=
- 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
- weim8xU=
-Organization: Red Hat
-Message-ID: <a45d8b68-5623-d6fe-8080-072994f7625e@redhat.com>
-Date: Fri, 15 Feb 2019 13:58:34 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.9.1
+ id 1gvZHH-0005mO-Ke
+ for linux-riscv@lists.infradead.org; Mon, 18 Feb 2019 03:07:34 +0000
+Received: from mail-vs1-f54.google.com (mail-vs1-f54.google.com
+ [209.85.217.54]) (authenticated)
+ by conssluserg-01.nifty.com with ESMTP id x1I373Vs028330
+ for <linux-riscv@lists.infradead.org>; Mon, 18 Feb 2019 12:07:03 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com x1I373Vs028330
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+ s=dec2015msa; t=1550459224;
+ bh=L1XqnuV2cGGvBiG0SVgjTsCI6UzRnL93ImGl029cLDk=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=oV/I+WAXB1zy02vmAIWtqw7rh8jMe65ifQDEwFnLNU1TJeTr8jT4B+kmLkxO3iBR8
+ gmS1zOWcCGxEeLEVK+1P7MUvSy+4n+4jX20kQAcdwLoA7u4GcpgvWv4HStZ3OS2lfI
+ PUp4nHFDt2MSNui/EnDlWml9ge+KlRxTw972u9LlI3nHJvazmiaDktT+JX+sZgo/Dk
+ Aw9lgvVCWtj2y02FlGA2/S8huvsU/10fkf/kCZu4c+970LFC/k6LDP0ezw/B0Orvef
+ X0+VuWhvw41ecUoZtuNgJNFdvExAKyPtj7DoLvgZv4LtMbopHwfp0ygRw4PcyUObyy
+ SJTYI7ZJkfzKg==
+X-Nifty-SrcIP: [209.85.217.54]
+Received: by mail-vs1-f54.google.com with SMTP id m20so8293412vsq.8
+ for <linux-riscv@lists.infradead.org>; Sun, 17 Feb 2019 19:07:03 -0800 (PST)
+X-Gm-Message-State: AHQUAubzrQDTZyGng/qjLmjxH2jt+INS0mXrrj7M0kObdkQKTj28Xv5l
+ VDJ2Dk1xZy9Q93VLKj4DpGrkWnglBNQ5eEo+OU8=
+X-Google-Smtp-Source: AHgI3IZP1tz9IqvvhKD2DfnRrqwr0wKKUIUAasZvJEoykVV0yrLIxihsfZA6Ss/p2qrtVaeCIRhXa9zJt0BqIwg1SYs=
+X-Received: by 2002:a67:c913:: with SMTP id w19mr10824086vsk.179.1550459222293; 
+ Sun, 17 Feb 2019 19:07:02 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20190215184056.GC15084@fuggles.cambridge.arm.com>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.26]); Fri, 15 Feb 2019 18:58:43 +0000 (UTC)
+References: <20190213174005.28785-1-hch@lst.de>
+ <20190213174005.28785-11-hch@lst.de>
+In-Reply-To: <20190213174005.28785-11-hch@lst.de>
+From: Masahiro Yamada <yamada.masahiro@socionext.com>
+Date: Mon, 18 Feb 2019 12:06:26 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARo5Sd-2rpHtFMfxEuEUej4P8oSbUdV+-EBp+V8qU+Gww@mail.gmail.com>
+Message-ID: <CAK7LNARo5Sd-2rpHtFMfxEuEUej4P8oSbUdV+-EBp+V8qU+Gww@mail.gmail.com>
+Subject: Re: [PATCH 10/11] lib: consolidate the GENERIC_HWEIGHT symbol
+To: Christoph Hellwig <hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190215_105844_152465_AAAE59C3 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20190217_190731_909432_F0627B98 
+X-CRM114-Status: GOOD (  18.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -120,66 +86,469 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-mips@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
- Davidlohr Bueso <dave@stgolabs.net>, linux-c6x-dev@linux-c6x.org,
- linux-hexagon@vger.kernel.org, x86@kernel.org, Ingo Molnar <mingo@redhat.com>,
- uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
- Arnd Bergmann <arnd@arndb.de>, linux-um@lists.infradead.org,
- linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
- Borislav Petkov <bp@alien8.de>, Thomas Gleixner <tglx@linutronix.de>,
- linux-arm-kernel@lists.infradead.org, Tim Chen <tim.c.chen@linux.intel.com>,
- linux-parisc@vger.kernel.org, Linus Torvalds <torvalds@linux-foundation.org>,
- linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- nios2-dev@lists.rocketboards.org, Andrew Morton <akpm@linux-foundation.org>,
- linuxppc-dev@lists.ozlabs.org
+Cc: linux-xtensa@linux-xtensa.org,
+ Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+ linux-s390 <linux-s390@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv@lists.infradead.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02/15/2019 01:40 PM, Will Deacon wrote:
-> On Thu, Feb 14, 2019 at 11:37:15AM +0100, Peter Zijlstra wrote:
->> On Wed, Feb 13, 2019 at 05:00:14PM -0500, Waiman Long wrote:
->>> v4:
->>>  - Remove rwsem-spinlock.c and make all archs use rwsem-xadd.c.
->>>
->>> v3:
->>>  - Optimize __down_read_trylock() for the uncontended case as suggested
->>>    by Linus.
->>>
->>> v2:
->>>  - Add patch 2 to optimize __down_read_trylock() as suggested by PeterZ.
->>>  - Update performance test data in patch 1.
->>>
->>> The goal of this patchset is to remove the architecture specific files
->>> for rwsem-xadd to make it easer to add enhancements in the later rwsem
->>> patches. It also removes the legacy rwsem-spinlock.c file and make all
->>> the architectures use one single implementation of rwsem - rwsem-xadd.c.
->>>
->>> Waiman Long (3):
->>>   locking/rwsem: Remove arch specific rwsem files
->>>   locking/rwsem: Remove rwsem-spinlock.c & use rwsem-xadd.c for all
->>>     archs
->>>   locking/rwsem: Optimize down_read_trylock()
->> Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
->>
->> with the caveat that I'm happy to exchange patch 3 back to my earlier
->> suggestion in case Will expesses concerns wrt the ARM64 performance of
->> Linus' suggestion.
-> Right, the current proposal doesn't work well for us, unfortunately. Which
-> was your earlier suggestion?
+On Thu, Feb 14, 2019 at 2:41 AM Christoph Hellwig <hch@lst.de> wrote:
 >
-> Will
+> Introduce a new ARCH_HAS_HWEIGHT symbol for alpha and ia64,
 
-In my posting yesterday, I showed that most of the trylocks done were
-actually uncontended. Assuming that pattern hold for the most of the
-workloads, it will not that bad after all.
 
--Longman
+I think this is really confusing.
 
+
+"ARCH has its own optimized hweight implementation"
+
+   is not equivalent to
+
+"ARCH does not need generic hweight at all".
+
+
+For example, see
+
+arch/powerpc/lib/hweight_64.S
+
+
+As far as I understood the code,
+it will fallback to generic lib/hweight.c
+if it turns out the optimized one is not available.
+
+
+Thanks.
+
+
+> and just
+> default to the generic version otherwise.
+>
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> ---
+>  arch/alpha/Kconfig      | 5 +----
+>  arch/arc/Kconfig        | 3 ---
+>  arch/arm/Kconfig        | 4 ----
+>  arch/arm64/Kconfig      | 3 ---
+>  arch/c6x/Kconfig        | 3 ---
+>  arch/csky/Kconfig       | 3 ---
+>  arch/h8300/Kconfig      | 3 ---
+>  arch/hexagon/Kconfig    | 3 ---
+>  arch/ia64/Kconfig       | 1 +
+>  arch/m68k/Kconfig       | 4 ----
+>  arch/microblaze/Kconfig | 3 ---
+>  arch/mips/Kconfig       | 4 ----
+>  arch/nds32/Kconfig      | 3 ---
+>  arch/nios2/Kconfig      | 3 ---
+>  arch/openrisc/Kconfig   | 3 ---
+>  arch/parisc/Kconfig     | 4 ----
+>  arch/powerpc/Kconfig    | 4 ----
+>  arch/riscv/Kconfig      | 3 ---
+>  arch/s390/Kconfig       | 3 ---
+>  arch/sh/Kconfig         | 3 ---
+>  arch/sparc/Kconfig      | 4 ----
+>  arch/unicore32/Kconfig  | 3 ---
+>  arch/x86/Kconfig        | 3 ---
+>  arch/x86/um/Kconfig     | 3 ---
+>  arch/xtensa/Kconfig     | 3 ---
+>  lib/Kconfig             | 7 +++++++
+>  26 files changed, 9 insertions(+), 79 deletions(-)
+>
+> diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
+> index 65b5514e5a7f..a549c53563e8 100644
+> --- a/arch/alpha/Kconfig
+> +++ b/arch/alpha/Kconfig
+> @@ -2,6 +2,7 @@
+>  config ALPHA
+>         bool
+>         default y
+> +       select ARCH_HAS_HWEIGHT if ALPHA_EV67
+>         select ARCH_MIGHT_HAVE_PC_PARPORT
+>         select ARCH_MIGHT_HAVE_PC_SERIO
+>         select ARCH_NO_PREEMPT
+> @@ -446,10 +447,6 @@ config ALPHA_IRONGATE
+>         depends on ALPHA_NAUTILUS
+>         default y
+>
+> -config GENERIC_HWEIGHT
+> -       bool
+> -       default y if !ALPHA_EV67
+> -
+>  config ALPHA_AVANTI
+>         bool
+>         depends on ALPHA_XL || ALPHA_AVANTI_CH
+> diff --git a/arch/arc/Kconfig b/arch/arc/Kconfig
+> index 6476404b98b8..8bf4c0f7cc1d 100644
+> --- a/arch/arc/Kconfig
+> +++ b/arch/arc/Kconfig
+> @@ -72,9 +72,6 @@ config MMU
+>  config NO_IOPORT_MAP
+>         def_bool y
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config HAVE_ARCH_TRANSPARENT_HUGEPAGE
+>         def_bool y
+>         depends on ARC_MMU_V4
+> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> index c230fb1e09ba..b47825767e3d 100644
+> --- a/arch/arm/Kconfig
+> +++ b/arch/arm/Kconfig
+> @@ -182,10 +182,6 @@ config ARCH_HAS_BANDGAP
+>  config FIX_EARLYCON_MEM
+>         def_bool y if MMU
+>
+> -config GENERIC_HWEIGHT
+> -       bool
+> -       default y
+> -
+>  config ARCH_MAY_HAVE_PC_FDC
+>         bool
+>
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 7cc3334aba29..98c3776ccf6b 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -237,9 +237,6 @@ config ILLEGAL_POINTER_VALUE
+>         hex
+>         default 0xdead000000000000
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config ZONE_DMA32
+>         def_bool y
+>
+> diff --git a/arch/c6x/Kconfig b/arch/c6x/Kconfig
+> index 19b145ef7d92..c439d2f46af0 100644
+> --- a/arch/c6x/Kconfig
+> +++ b/arch/c6x/Kconfig
+> @@ -28,9 +28,6 @@ config MMU
+>  config FPU
+>         def_bool n
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config C6X_BIG_KERNEL
+>         bool "Build a big kernel"
+>         help
+> diff --git a/arch/csky/Kconfig b/arch/csky/Kconfig
+> index c0a49cbd3df0..14a9905e99a4 100644
+> --- a/arch/csky/Kconfig
+> +++ b/arch/csky/Kconfig
+> @@ -84,9 +84,6 @@ config CPU_NO_USER_BKPT
+>           instruction exception.
+>           In kernel we parse the *regs->pc to determine whether to send SIGTRAP or not.
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config MMU
+>         def_bool y
+>
+> diff --git a/arch/h8300/Kconfig b/arch/h8300/Kconfig
+> index 4f5a1efab822..77ce104bb42e 100644
+> --- a/arch/h8300/Kconfig
+> +++ b/arch/h8300/Kconfig
+> @@ -27,9 +27,6 @@ config H8300
+>  config CPU_BIG_ENDIAN
+>         def_bool y
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config NO_IOPORT_MAP
+>         def_bool y
+>
+> diff --git a/arch/hexagon/Kconfig b/arch/hexagon/Kconfig
+> index 7a01f4c5a4f6..fb2996063d5a 100644
+> --- a/arch/hexagon/Kconfig
+> +++ b/arch/hexagon/Kconfig
+> @@ -61,9 +61,6 @@ config MMU
+>  config GENERIC_IRQ_PROBE
+>         def_bool y
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  menu "Machine selection"
+>
+>  choice
+> diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
+> index fc44c046953e..c9eb106b1f4c 100644
+> --- a/arch/ia64/Kconfig
+> +++ b/arch/ia64/Kconfig
+> @@ -8,6 +8,7 @@ menu "Processor type and features"
+>
+>  config IA64
+>         bool
+> +       select ARCH_HAS_HWEIGHT
+>         select ARCH_MIGHT_HAVE_PC_PARPORT
+>         select ARCH_MIGHT_HAVE_PC_SERIO
+>         select ACPI if (!IA64_HP_SIM)
+> diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
+> index 1bf6abaea604..91b150b6572c 100644
+> --- a/arch/m68k/Kconfig
+> +++ b/arch/m68k/Kconfig
+> @@ -38,10 +38,6 @@ config ARCH_HAS_ILOG2_U32
+>  config ARCH_HAS_ILOG2_U64
+>         bool
+>
+> -config GENERIC_HWEIGHT
+> -       bool
+> -       default y
+> -
+>  config TIME_LOW_RES
+>         bool
+>         default y
+> diff --git a/arch/microblaze/Kconfig b/arch/microblaze/Kconfig
+> index d8907d6f969c..0185ac1f0268 100644
+> --- a/arch/microblaze/Kconfig
+> +++ b/arch/microblaze/Kconfig
+> @@ -71,9 +71,6 @@ config ARCH_HAS_ILOG2_U32
+>  config ARCH_HAS_ILOG2_U64
+>         def_bool n
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  source "arch/microblaze/Kconfig.platform"
+>
+>  menu "Processor type and features"
+> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+> index bd0c9be7e7cf..04e041cac595 100644
+> --- a/arch/mips/Kconfig
+> +++ b/arch/mips/Kconfig
+> @@ -1042,10 +1042,6 @@ source "arch/mips/paravirt/Kconfig"
+>
+>  endmenu
+>
+> -config GENERIC_HWEIGHT
+> -       bool
+> -       default y
+> -
+>  config SCHED_OMIT_FRAME_POINTER
+>         bool
+>         default y
+> diff --git a/arch/nds32/Kconfig b/arch/nds32/Kconfig
+> index 7b3a36705aa8..979661f0ab51 100644
+> --- a/arch/nds32/Kconfig
+> +++ b/arch/nds32/Kconfig
+> @@ -50,9 +50,6 @@ config NDS32
+>         help
+>           Andes(nds32) Linux support.
+>
+> -config GENERIC_HWEIGHT
+> -        def_bool y
+> -
+>  config GENERIC_LOCKBREAK
+>          def_bool y
+>         depends on PREEMPT
+> diff --git a/arch/nios2/Kconfig b/arch/nios2/Kconfig
+> index 11ef63217ebe..a0485f5f0db0 100644
+> --- a/arch/nios2/Kconfig
+> +++ b/arch/nios2/Kconfig
+> @@ -27,9 +27,6 @@ config NIOS2
+>         select CPU_NO_EFFICIENT_FFS
+>         select ARCH_DISCARD_MEMBLOCK
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config NO_IOPORT_MAP
+>         def_bool y
+>
+> diff --git a/arch/openrisc/Kconfig b/arch/openrisc/Kconfig
+> index 15d7df402c19..dc026973e6f6 100644
+> --- a/arch/openrisc/Kconfig
+> +++ b/arch/openrisc/Kconfig
+> @@ -46,9 +46,6 @@ config CPU_BIG_ENDIAN
+>  config MMU
+>         def_bool y
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config NO_IOPORT_MAP
+>         def_bool y
+>
+> diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
+> index 42282b8e086d..7d5ded83c180 100644
+> --- a/arch/parisc/Kconfig
+> +++ b/arch/parisc/Kconfig
+> @@ -86,10 +86,6 @@ config ARCH_HAS_ILOG2_U64
+>         bool
+>         default n
+>
+> -config GENERIC_HWEIGHT
+> -       bool
+> -       default y
+> -
+>  config TIME_LOW_RES
+>         bool
+>         depends on SMP
+> diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+> index a0e9207893c8..8dd4d2b24fdb 100644
+> --- a/arch/powerpc/Kconfig
+> +++ b/arch/powerpc/Kconfig
+> @@ -96,10 +96,6 @@ config GENERIC_LOCKBREAK
+>         default y
+>         depends on SMP && PREEMPT
+>
+> -config GENERIC_HWEIGHT
+> -       bool
+> -       default y
+> -
+>  config ARCH_HAS_DMA_SET_COHERENT_MASK
+>          bool
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 2b173a48bdbc..0acdd7aaaaea 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -69,9 +69,6 @@ config PAGE_OFFSET
+>         default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
+>         default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config PGTABLE_LEVELS
+>         int
+>         default 3 if 64BIT
+> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+> index 2a5c12be633e..9a25e19364f5 100644
+> --- a/arch/s390/Kconfig
+> +++ b/arch/s390/Kconfig
+> @@ -14,9 +14,6 @@ config ARCH_HAS_ILOG2_U32
+>  config ARCH_HAS_ILOG2_U64
+>         def_bool n
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config GENERIC_LOCKBREAK
+>         def_bool y if SMP && PREEMPT
+>
+> diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
+> index 3d0bd7fbe11a..af6a40af1702 100644
+> --- a/arch/sh/Kconfig
+> +++ b/arch/sh/Kconfig
+> @@ -94,9 +94,6 @@ config ARCH_DEFCONFIG
+>         default "arch/sh/configs/shx3_defconfig" if SUPERH32
+>         default "arch/sh/configs/cayman_defconfig" if SUPERH64
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config GENERIC_LOCKBREAK
+>         def_bool y
+>         depends on SMP && PREEMPT
+> diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
+> index 58270c021b01..78135ac357ed 100644
+> --- a/arch/sparc/Kconfig
+> +++ b/arch/sparc/Kconfig
+> @@ -187,10 +187,6 @@ config NR_CPUS
+>
+>  source "kernel/Kconfig.hz"
+>
+> -config GENERIC_HWEIGHT
+> -       bool
+> -       default y
+> -
+>  config ARCH_MAY_HAVE_PC_FDC
+>         bool
+>         default y
+> diff --git a/arch/unicore32/Kconfig b/arch/unicore32/Kconfig
+> index 9de1d983a99a..e69a8c3232e1 100644
+> --- a/arch/unicore32/Kconfig
+> +++ b/arch/unicore32/Kconfig
+> @@ -38,9 +38,6 @@ config ARCH_HAS_ILOG2_U32
+>  config ARCH_HAS_ILOG2_U64
+>         bool
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config ARCH_MAY_HAVE_PC_FDC
+>         bool
+>
+> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> index f4cb31174e1b..7a9347c7448e 100644
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -255,9 +255,6 @@ config GENERIC_ISA_DMA
+>         def_bool y
+>         depends on ISA_DMA_API
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config ARCH_MAY_HAVE_PC_FDC
+>         def_bool y
+>         depends on ISA_DMA_API
+> diff --git a/arch/x86/um/Kconfig b/arch/x86/um/Kconfig
+> index f5a8cded3ca4..1628a54af003 100644
+> --- a/arch/x86/um/Kconfig
+> +++ b/arch/x86/um/Kconfig
+> @@ -49,6 +49,3 @@ config ARCH_HAS_SC_SIGNALS
+>
+>  config ARCH_REUSE_HOST_VSYSCALL_AREA
+>         def_bool !64BIT
+> -
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> diff --git a/arch/xtensa/Kconfig b/arch/xtensa/Kconfig
+> index d02c25184ca0..ff57afdeda04 100644
+> --- a/arch/xtensa/Kconfig
+> +++ b/arch/xtensa/Kconfig
+> @@ -47,9 +47,6 @@ config XTENSA
+>           with reasonable minimum requirements.  The Xtensa Linux project has
+>           a home page at <http://www.linux-xtensa.org/>.
+>
+> -config GENERIC_HWEIGHT
+> -       def_bool y
+> -
+>  config ARCH_HAS_ILOG2_U32
+>         def_bool n
+>
+> diff --git a/lib/Kconfig b/lib/Kconfig
+> index bd2e7e74c321..91019f26d0a8 100644
+> --- a/lib/Kconfig
+> +++ b/lib/Kconfig
+> @@ -35,6 +35,13 @@ config RATIONAL
+>  config GENERIC_CSUM
+>         bool
+>
+> +config ARCH_HAS_HWEIGHT
+> +       bool
+> +
+> +config GENERIC_HWEIGHT
+> +       default y if !ARCH_HAS_HWEIGHT
+> +       bool
+> +
+>  config GENERIC_STRNCPY_FROM_USER
+>         bool
+>
+> --
+> 2.20.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+
+
+--
+Best Regards
+Masahiro Yamada
 
 _______________________________________________
 linux-riscv mailing list
