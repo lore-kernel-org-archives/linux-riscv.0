@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-9.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 07FD8C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Feb 2019 21:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 079CFC4360F
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Feb 2019 21:10:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C68482070D
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Feb 2019 21:09:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CC36F2070D
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Feb 2019 21:10:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JIwUbPV5"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C68482070D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="u1NwcvXV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CC36F2070D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,49 +25,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IEvOmir2cwqmhpCXEIqpR4PP1zESqMKuOFkES03recQ=; b=JIwUbPV5QoSLz2
-	PNbqNbKtyppqsVzLD/OT1HdzLvxZcLhGFZ2q+SVIN7NS0vwSja9i7cxbm/hn9/6D1IknYNaH6wPTU
-	RWSsP6+TjPa2Wp+DmSOKEL38iXAJe0ubXIuZUzQRsI3BtomYVL4uV222qFGiA2EOvEN+lQZ4fUm5Y
-	SUy78+Yi7E8HjyB24mnVkt5Lzjcdva5gZL9JgOtQGKQZDvrIayg8A/RdeTmvYRouuRqYspjpik33+
-	nfhirnrhzgQwUzlaGTTbdtaI7jCziKs7EC4VOY3rR1UbxAWzHKdC5UF2nhIoLkwsDKxZWlJ2aF85o
-	AAo++rrynCOwyKT8dEaA==;
+	List-Owner; bh=FLjpogcGIZ6V0U9aGQmiZNZpFBS/Isdxp7atpJpMi/Y=; b=u1NwcvXV9zGwJF
+	hjqf6Sk9FzMza5srM8vleestzMWTPxbq5I5NFZRpul67Jl1dIp9k/Io6TXjyMVybyLNyiwNOKoyi0
+	Nupwu9vKjjfCb3HewrWmF/HLaB55c96Jh5EyT2qo/NYRw7zlLXokigwIxOuC2m34pjM04rUpNmBSD
+	8w/bOS8Dg/E81wR/Z36ibl/X42dIuPlkpFtBDTyRakOFHeNVx4bvFDWzELMAnu1oF6mc7KNQEY65E
+	m6XEHDR6epLEZtQPKnDK1UuMNApyUbXFtZ7RzAlenVM4R6hyx+xDiMMyrV+5D8CAUYxK7GdJ6KArm
+	ETkyn3s79l8pMRRPuSNA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gvqAl-0007lJ-9e; Mon, 18 Feb 2019 21:09:55 +0000
-Received: from mout.kundenserver.de ([217.72.192.75])
+	id 1gvqAn-0007ns-CF; Mon, 18 Feb 2019 21:09:57 +0000
+Received: from mout.kundenserver.de ([212.227.17.13])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gvq8p-0005Qi-Hw; Mon, 18 Feb 2019 21:08:03 +0000
+ id 1gvq95-0005nO-G2; Mon, 18 Feb 2019 21:08:25 +0000
 Received: from wuerfel.lan ([109.192.41.194]) by mrelayeu.kundenserver.de
  (mreue106 [212.227.15.145]) with ESMTPA (Nemesis) id
- 1MLQl3-1gdU4K2vcx-00IXN3; Mon, 18 Feb 2019 22:07:27 +0100
+ 1Mn1mb-1hMgAq0I9n-00k4eT; Mon, 18 Feb 2019 22:07:27 +0100
 From: Arnd Bergmann <arnd@arndb.de>
 To: y2038@lists.linaro.org
-Subject: [PATCH 4/8] asm-generic: Make time32 syscall numbers optional
-Date: Mon, 18 Feb 2019 22:07:08 +0100
-Message-Id: <20190218210712.3503891-5-arnd@arndb.de>
+Subject: [PATCH 3/8] asm-generic: Drop getrlimit and setrlimit syscalls from
+ default list
+Date: Mon, 18 Feb 2019 22:07:07 +0100
+Message-Id: <20190218210712.3503891-4-arnd@arndb.de>
 X-Mailer: git-send-email 2.20.0
 In-Reply-To: <20190218210712.3503891-1-arnd@arndb.de>
 References: <20190218210712.3503891-1-arnd@arndb.de>
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:ZM1Q1nM21WPEbhvyNhcHiGjl4sPKCdT6gS0sFfLTc/N27OBaRVj
- XyXleEwKq+tZKPSIscJJzFpoy6/Ggu/2zqbgvvBx7d2P5JOnibB+ynK5IwPWMizRrwq+pc3
- +bRy0QTuf0t5TbBNE88xTFmDxdIaoh6F+CWhoQd9O4UU0oxv2dGOOFxKiBNetYvvXjvIKB8
- IGHslNCJ1z5JNr5n1MysQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:g9VK9amJEjw=:MPn1M99LKrmkpooKNzpmhL
- 79FmbhJjIg9libxoWmWyjIM+CKyftqQXKovahwHPvI9DoCXkysmKRbNGlO7W6VCQC9geKrZDI
- WnHLZcPasGAzKNp8pWj3K305MNHaSuAVl2Eko8dYZOVKYhXP5BbAn8nHSDcEzi2JyqZeDIAwo
- OKrqShi0wPzjtmd/WWhnmXY8d6fwgMETnoYJNgyOXWm1eKoDua6Zair4ivuMjxI6K2HK8yZDn
- U+2xW7i59cElNC8tUg9R60NTPg8AZZydQpu5eAYNi3QizQBBBI5QMtU5CQO004AP/YbsWbwMp
- jgKIoQFTCmQvtNt1sgLWmBrX6hLEAZp6lilkF4D3eJMKK2phUvDUG0bbFeY3cs8Uq7RudJhvp
- Gr7YJbpnINil3YSpW7jEfwc/KbPqOHDvX5UTgc3D276ayKfoVP0/o9mpyRqiINMm6VrLxTRtk
- HelMuWvqNczcev75LEnwnHWKrwPl2Wte7yBGgAnX8iPNUpzyATy1MYmWbVCL75BYgAhfI5I5J
- O1Uq+MeZJp2fOvtDZ+TfbdUtn/HN8Si/zZ54rLHr8KW9HR3XPp7yDzJPz7HLN+zhNT/TCalvh
- 0F6VTJvPr0KQgPdwLQYl37FkCmcDQcocKvuFgaEJvM763hN45OB1pRgT7XynYnkpGGEjM7P/N
- 35CCGGgrZIal4ISu91xwoI0YpXBuFVlgFvBzsaa61dyJYahOA1dfLyod8KxSd3kjcLxWy9v+y
- uqowgaDE53AGHPHjU63HQQ3mrPwpNP5N39sexA==
+X-Provags-ID: V03:K1:lT1OI/VwUk1+FUWmyIpKG7wXuRB7DmxUPsLwzNLktjPbj2Hh83E
+ 96T3ALCFUrg4xNIagimy8FxBL4ytfUziaZaop1mls1d+9UFwmmpupObeIYE+NDEMAFuMXji
+ kGuejQ4kER67FzspXmDjBfKuA6qVhpcKauK+R8xo4d20CFRWy5yiQBwikdBQ3UHO4pOsJ7o
+ 0Pzvm/tGPQ94ZVQdEyvDg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:Uqfg5Jc4WoY=:Goljy+lYdWhAiy8Sxw3qQ4
+ vIQeUZZDQi5bRNWfp++lBHnnyG80QMpeXiXdXS/MZGYHEtYnZnDXelOibu4djnQqK3ovlVNnf
+ DbHxa/sYuftU3065EyjcrcL9B1tLJkmJffPdSxKYBR2+OggdNSeUeEtiDCE+ssAKcY+I/oU16
+ mLzQ9xAUoywKlq/c2uXCsh6rRLGAq21Jw8AZOO4QgTFmdJGPHom93Te0BVKxMQ+nsKh482fTr
+ zeMqbGganEaYhItVgpJC1u5s3gTeH5Du52yxRy0dz5Csym3WvuLMayVGKpDQ3r6AKs/lhH7fO
+ y7OFef2q5p/YitbmcVE34/E0U69WK166cJSOh7Tvy/E8cjOBfIww00DuTyXHT0HFLpjPUQDAJ
+ uxNdo9/A6gP/0PhcvwkAawHFIwMReId/wGMPPEviW/bXBaodSg96xEWCj8phs4eL4SV6ns8JK
+ GTQgjEYlJDHAygyspjnfcNCCVpoBoxHNnNOhmtjphcTB6a1RGcMCFkEsTz2HToqeso3ujwgdj
+ ahJ5ic1T0MNf+u9Z1WrmvFWLs9N/dPfDurl50sflM4UTWC0LGmjXI7nZhGegRlH3P+aeyGBN9
+ xh2ExAUy0e14JpA8Srv7ztOEs8IG+f2E9/KtSlUZA+v6ZlIBCdNyfpTJKh0nu2oSMvLakzkAp
+ NBU9OR1htnoYZvg/OX7hqdJr1ZehZIUAi6lxgOekE7PuTwLjC47diCXThN/4WzDPdMClmXjKr
+ wmCC+QyrjmTpVu1GBW7tdjy8u5qM1bNMP2zjNQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190218_130756_171238_FABE5552 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20190218_130812_400850_E937AF96 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -79,406 +81,231 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch@vger.kernel.org, uclinux-h8-devel@lists.sourceforge.jp,
- arnd@arndb.de, yury.norov@gmail.com, linux-api@vger.kernel.org,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Vineet Gupta <vgupta@synopsys.com>,
- Guo Ren <guoren@kernel.org>, Greentime Hu <green.hu@gmail.com>,
- linux-hexagon@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
- Guan Xuetao <gxt@pku.edu.cn>, Stafford Horne <shorne@gmail.com>,
- linux-arm-kernel@lists.infradead.org
+Cc: Palmer Dabbelt <palmer@sifive.com>, Will Deacon <will.deacon@arm.com>,
+ Yury Norov <ynorov@caviumnetworks.com>, Guo Ren <guoren@kernel.org>,
+ linux-riscv@lists.infradead.org, Stafford Horne <shorne@gmail.com>,
+ linux-arch@vger.kernel.org, yury.norov@gmail.com,
+ linux-hexagon@vger.kernel.org, Mark Salter <msalter@redhat.com>,
+ uclinux-h8-devel@lists.sourceforge.jp, James Hogan <james.hogan@imgtec.com>,
+ arnd@arndb.de, Greentime Hu <green.hu@gmail.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Guan Xuetao <gxt@pku.edu.cn>,
+ linux-arm-kernel@lists.infradead.org, Yury Norov <ynorov@marvell.com>,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Vineet Gupta <vgupta@synopsys.com>, Ley Foon Tan <lftan@altera.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We don't want new architectures to even provide the old 32-bit time_t
-based system calls any more, or define the syscall number macros.
+From: Yury Norov <ynorov@caviumnetworks.com>
 
-Add a new __ARCH_WANT_TIME32_SYSCALLS macro that gets enabled for all
-existing 32-bit architectures so we don't change any current behavior.
-Since this symbol is evaluated in user space as well, we cannot use
-a Kconfig CONFIG_* macro but have to define it in uapi/asm/unistd.h.
+The newer prlimit64 syscall provides all the functionality of getrlimit
+and setrlimit syscalls and adds the pid of target process, so future
+architectures won't need to include getrlimit and setrlimit.
 
-On 64-bit architectures, the same system call numbers mostly refer to
-the system calls we want to keep, as they already pass 64-bit time_t.
+Therefore drop getrlimit and setrlimit syscalls from the generic syscall
+list unless __ARCH_WANT_SET_GET_RLIMIT is defined by the architecture's
+unistd.h prior to including asm-generic/unistd.h, and adjust all
+architectures using the generic syscall list to define it so that no
+in-tree architectures are affected.
 
-As new architectures no longer provide these, we need new exceptions
-in checksyscalls.sh.
-
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arch@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: uclinux-h8-devel@lists.sourceforge.jp
+Signed-off-by: Yury Norov <ynorov@caviumnetworks.com>
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Acked-by: Mark Salter <msalter@redhat.com> [c6x]
+Acked-by: James Hogan <james.hogan@imgtec.com> [metag]
+Acked-by: Ley Foon Tan <lftan@altera.com> [nios2]
+Acked-by: Stafford Horne <shorne@gmail.com> [openrisc]
+Acked-by: Will Deacon <will.deacon@arm.com> [arm64]
+Acked-by: Vineet Gupta <vgupta@synopsys.com> #arch/arc bits
+Signed-off-by: Yury Norov <ynorov@marvell.com>
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arc/include/uapi/asm/unistd.h       |  1 +
- arch/arm64/include/uapi/asm/unistd.h     |  1 +
- arch/c6x/include/uapi/asm/unistd.h       |  1 +
- arch/csky/include/uapi/asm/unistd.h      |  1 +
- arch/h8300/include/uapi/asm/unistd.h     |  1 +
- arch/hexagon/include/uapi/asm/unistd.h   |  1 +
- arch/nds32/include/uapi/asm/unistd.h     |  1 +
- arch/nios2/include/uapi/asm/unistd.h     |  1 +
- arch/openrisc/include/uapi/asm/unistd.h  |  1 +
- arch/riscv/include/uapi/asm/unistd.h     |  3 ++
- arch/unicore32/include/uapi/asm/unistd.h |  1 +
- include/uapi/asm-generic/unistd.h        | 36 ++++++++++++++++++++++++
- scripts/checksyscalls.sh                 |  7 +++++
- 13 files changed, 56 insertions(+)
+ arch/arc/include/uapi/asm/unistd.h       | 1 +
+ arch/arm64/include/uapi/asm/unistd.h     | 1 +
+ arch/c6x/include/uapi/asm/unistd.h       | 1 +
+ arch/csky/include/uapi/asm/unistd.h      | 1 +
+ arch/h8300/include/uapi/asm/unistd.h     | 1 +
+ arch/hexagon/include/uapi/asm/unistd.h   | 1 +
+ arch/nds32/include/uapi/asm/unistd.h     | 1 +
+ arch/nios2/include/uapi/asm/unistd.h     | 1 +
+ arch/openrisc/include/uapi/asm/unistd.h  | 1 +
+ arch/riscv/include/uapi/asm/unistd.h     | 1 +
+ arch/unicore32/include/uapi/asm/unistd.h | 1 +
+ include/uapi/asm-generic/unistd.h        | 5 +++++
+ scripts/checksyscalls.sh                 | 5 +++++
+ 13 files changed, 21 insertions(+)
 
 diff --git a/arch/arc/include/uapi/asm/unistd.h b/arch/arc/include/uapi/asm/unistd.h
-index 6a1a62a979dd..5eafa1115162 100644
+index 3b3543fd151c..6a1a62a979dd 100644
 --- a/arch/arc/include/uapi/asm/unistd.h
 +++ b/arch/arc/include/uapi/asm/unistd.h
-@@ -23,6 +23,7 @@
+@@ -18,6 +18,7 @@
+ 
+ #define __ARCH_WANT_RENAMEAT
+ #define __ARCH_WANT_STAT64
++#define __ARCH_WANT_SET_GET_RLIMIT
+ #define __ARCH_WANT_SYS_EXECVE
  #define __ARCH_WANT_SYS_CLONE
  #define __ARCH_WANT_SYS_VFORK
- #define __ARCH_WANT_SYS_FORK
-+#define __ARCH_WANT_TIME32_SYSCALLS
- 
- #define sys_mmap2 sys_mmap_pgoff
- 
 diff --git a/arch/arm64/include/uapi/asm/unistd.h b/arch/arm64/include/uapi/asm/unistd.h
-index 79937de2a0cc..4703d218663a 100644
+index dae1584cf017..79937de2a0cc 100644
 --- a/arch/arm64/include/uapi/asm/unistd.h
 +++ b/arch/arm64/include/uapi/asm/unistd.h
-@@ -18,5 +18,6 @@
+@@ -17,5 +17,6 @@
+ 
  #define __ARCH_WANT_RENAMEAT
  #define __ARCH_WANT_NEW_STAT
- #define __ARCH_WANT_SET_GET_RLIMIT
-+#define __ARCH_WANT_TIME32_SYSCALLS
++#define __ARCH_WANT_SET_GET_RLIMIT
  
  #include <asm-generic/unistd.h>
 diff --git a/arch/c6x/include/uapi/asm/unistd.h b/arch/c6x/include/uapi/asm/unistd.h
-index e3721b2cfd6a..79b724c39d9b 100644
+index 6b2fe792de9d..e3721b2cfd6a 100644
 --- a/arch/c6x/include/uapi/asm/unistd.h
 +++ b/arch/c6x/include/uapi/asm/unistd.h
-@@ -19,6 +19,7 @@
+@@ -17,6 +17,7 @@
+ 
+ #define __ARCH_WANT_RENAMEAT
  #define __ARCH_WANT_STAT64
- #define __ARCH_WANT_SET_GET_RLIMIT
++#define __ARCH_WANT_SET_GET_RLIMIT
  #define __ARCH_WANT_SYS_CLONE
-+#define __ARCH_WANT_TIME32_SYSCALLS
  
  /* Use the standard ABI for syscalls. */
- #include <asm-generic/unistd.h>
 diff --git a/arch/csky/include/uapi/asm/unistd.h b/arch/csky/include/uapi/asm/unistd.h
-index f5c83492136f..ec60e49cea66 100644
+index 224c9a9ab45b..f5c83492136f 100644
 --- a/arch/csky/include/uapi/asm/unistd.h
 +++ b/arch/csky/include/uapi/asm/unistd.h
-@@ -3,6 +3,7 @@
+@@ -2,6 +2,7 @@
+ // Copyright (C) 2018 Hangzhou C-SKY Microsystems co.,ltd.
  
  #define __ARCH_WANT_SYS_CLONE
- #define __ARCH_WANT_SET_GET_RLIMIT
-+#define __ARCH_WANT_TIME32_SYSCALLS
++#define __ARCH_WANT_SET_GET_RLIMIT
  #include <asm-generic/unistd.h>
  
  #define __NR_set_thread_area	(__NR_arch_specific_syscall + 0)
 diff --git a/arch/h8300/include/uapi/asm/unistd.h b/arch/h8300/include/uapi/asm/unistd.h
-index b9e9352f2328..eb7bc0012af5 100644
+index 628195823816..b9e9352f2328 100644
 --- a/arch/h8300/include/uapi/asm/unistd.h
 +++ b/arch/h8300/include/uapi/asm/unistd.h
-@@ -3,5 +3,6 @@
+@@ -2,5 +2,6 @@
+ 
  #define __ARCH_WANT_RENAMEAT
  #define __ARCH_WANT_STAT64
- #define __ARCH_WANT_SET_GET_RLIMIT
-+#define __ARCH_WANT_TIME32_SYSCALLS
++#define __ARCH_WANT_SET_GET_RLIMIT
  
  #include <asm-generic/unistd.h>
 diff --git a/arch/hexagon/include/uapi/asm/unistd.h b/arch/hexagon/include/uapi/asm/unistd.h
-index 6bb392a33c35..432c4db1b623 100644
+index c91ca7d02461..6bb392a33c35 100644
 --- a/arch/hexagon/include/uapi/asm/unistd.h
 +++ b/arch/hexagon/include/uapi/asm/unistd.h
-@@ -35,5 +35,6 @@
+@@ -30,6 +30,7 @@
+ #define sys_mmap2 sys_mmap_pgoff
+ #define __ARCH_WANT_RENAMEAT
+ #define __ARCH_WANT_STAT64
++#define __ARCH_WANT_SET_GET_RLIMIT
+ #define __ARCH_WANT_SYS_EXECVE
  #define __ARCH_WANT_SYS_CLONE
  #define __ARCH_WANT_SYS_VFORK
- #define __ARCH_WANT_SYS_FORK
-+#define __ARCH_WANT_TIME32_SYSCALLS
- 
- #include <asm-generic/unistd.h>
 diff --git a/arch/nds32/include/uapi/asm/unistd.h b/arch/nds32/include/uapi/asm/unistd.h
-index eb98d24d3190..4ec8f543103f 100644
+index c2c3a3e34083..eb98d24d3190 100644
 --- a/arch/nds32/include/uapi/asm/unistd.h
 +++ b/arch/nds32/include/uapi/asm/unistd.h
-@@ -4,6 +4,7 @@
+@@ -3,6 +3,7 @@
+ 
  #define __ARCH_WANT_STAT64
  #define __ARCH_WANT_SYNC_FILE_RANGE2
- #define __ARCH_WANT_SET_GET_RLIMIT
-+#define __ARCH_WANT_TIME32_SYSCALLS
++#define __ARCH_WANT_SET_GET_RLIMIT
  
  /* Use the standard ABI for syscalls */
  #include <asm-generic/unistd.h>
 diff --git a/arch/nios2/include/uapi/asm/unistd.h b/arch/nios2/include/uapi/asm/unistd.h
-index fa68e68bc26d..0b4bb1d41b28 100644
+index d9948d88790b..fa68e68bc26d 100644
 --- a/arch/nios2/include/uapi/asm/unistd.h
 +++ b/arch/nios2/include/uapi/asm/unistd.h
-@@ -21,6 +21,7 @@
+@@ -20,6 +20,7 @@
+ 
  #define __ARCH_WANT_RENAMEAT
  #define __ARCH_WANT_STAT64
- #define __ARCH_WANT_SET_GET_RLIMIT
-+#define __ARCH_WANT_TIME32_SYSCALLS
++#define __ARCH_WANT_SET_GET_RLIMIT
  
  /* Use the standard ABI for syscalls */
  #include <asm-generic/unistd.h>
 diff --git a/arch/openrisc/include/uapi/asm/unistd.h b/arch/openrisc/include/uapi/asm/unistd.h
-index 2e0bc0ff9f31..566f8c4f8047 100644
+index ec37df18d8ed..2e0bc0ff9f31 100644
 --- a/arch/openrisc/include/uapi/asm/unistd.h
 +++ b/arch/openrisc/include/uapi/asm/unistd.h
-@@ -24,6 +24,7 @@
- #define __ARCH_WANT_SET_GET_RLIMIT
+@@ -21,6 +21,7 @@
+ 
+ #define __ARCH_WANT_RENAMEAT
+ #define __ARCH_WANT_STAT64
++#define __ARCH_WANT_SET_GET_RLIMIT
  #define __ARCH_WANT_SYS_FORK
  #define __ARCH_WANT_SYS_CLONE
-+#define __ARCH_WANT_TIME32_SYSCALLS
- 
- #include <asm-generic/unistd.h>
  
 diff --git a/arch/riscv/include/uapi/asm/unistd.h b/arch/riscv/include/uapi/asm/unistd.h
-index d9340c52e7ad..486a288b454c 100644
+index 1f3bd3ebbb0d..d9340c52e7ad 100644
 --- a/arch/riscv/include/uapi/asm/unistd.h
 +++ b/arch/riscv/include/uapi/asm/unistd.h
-@@ -19,6 +19,9 @@
+@@ -18,6 +18,7 @@
+ #ifdef __LP64__
  #define __ARCH_WANT_NEW_STAT
  #endif /* __LP64__ */
- #define __ARCH_WANT_SET_GET_RLIMIT
-+#ifndef __LP64__
-+#define __ARCH_WANT_TIME32_SYSCALLS
-+#endif
++#define __ARCH_WANT_SET_GET_RLIMIT
  
  #include <asm-generic/unistd.h>
  
 diff --git a/arch/unicore32/include/uapi/asm/unistd.h b/arch/unicore32/include/uapi/asm/unistd.h
-index 2b575c0cf177..4e5e624f5d7e 100644
+index 1e8fe5941b8a..2b575c0cf177 100644
 --- a/arch/unicore32/include/uapi/asm/unistd.h
 +++ b/arch/unicore32/include/uapi/asm/unistd.h
-@@ -13,6 +13,7 @@
+@@ -12,6 +12,7 @@
+  */
  
  #define __ARCH_WANT_RENAMEAT
- #define __ARCH_WANT_SET_GET_RLIMIT
-+#define __ARCH_WANT_TIME32_SYSCALLS
++#define __ARCH_WANT_SET_GET_RLIMIT
  
  /* Use the standard ABI for syscalls. */
  #include <asm-generic/unistd.h>
 diff --git a/include/uapi/asm-generic/unistd.h b/include/uapi/asm-generic/unistd.h
-index 2cdf600b05fa..12cdf611d217 100644
+index b928eff3bf92..2cdf600b05fa 100644
 --- a/include/uapi/asm-generic/unistd.h
 +++ b/include/uapi/asm-generic/unistd.h
-@@ -38,8 +38,10 @@ __SYSCALL(__NR_io_destroy, sys_io_destroy)
- __SC_COMP(__NR_io_submit, sys_io_submit, compat_sys_io_submit)
- #define __NR_io_cancel 3
- __SYSCALL(__NR_io_cancel, sys_io_cancel)
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_io_getevents 4
- __SC_3264(__NR_io_getevents, sys_io_getevents_time32, sys_io_getevents)
+@@ -467,10 +467,15 @@ __SYSCALL(__NR_uname, sys_newuname)
+ __SYSCALL(__NR_sethostname, sys_sethostname)
+ #define __NR_setdomainname 162
+ __SYSCALL(__NR_setdomainname, sys_setdomainname)
++
++#ifdef __ARCH_WANT_SET_GET_RLIMIT
++/* getrlimit and setrlimit are superseded with prlimit64 */
+ #define __NR_getrlimit 163
+ __SC_COMP(__NR_getrlimit, sys_getrlimit, compat_sys_getrlimit)
+ #define __NR_setrlimit 164
+ __SC_COMP(__NR_setrlimit, sys_setrlimit, compat_sys_setrlimit)
 +#endif
- 
- /* fs/xattr.c */
- #define __NR_setxattr 5
-@@ -222,10 +224,12 @@ __SC_COMP(__NR_pwritev, sys_pwritev, compat_sys_pwritev)
- __SYSCALL(__NR3264_sendfile, sys_sendfile64)
- 
- /* fs/select.c */
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_pselect6 72
- __SC_COMP_3264(__NR_pselect6, sys_pselect6_time32, sys_pselect6, compat_sys_pselect6_time32)
- #define __NR_ppoll 73
- __SC_COMP_3264(__NR_ppoll, sys_ppoll_time32, sys_ppoll, compat_sys_ppoll_time32)
-+#endif
- 
- /* fs/signalfd.c */
- #define __NR_signalfd4 74
-@@ -269,16 +273,20 @@ __SC_COMP(__NR_sync_file_range, sys_sync_file_range, \
- /* fs/timerfd.c */
- #define __NR_timerfd_create 85
- __SYSCALL(__NR_timerfd_create, sys_timerfd_create)
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_timerfd_settime 86
- __SC_3264(__NR_timerfd_settime, sys_timerfd_settime32, \
- 	  sys_timerfd_settime)
- #define __NR_timerfd_gettime 87
- __SC_3264(__NR_timerfd_gettime, sys_timerfd_gettime32, \
- 	  sys_timerfd_gettime)
-+#endif
- 
- /* fs/utimes.c */
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_utimensat 88
- __SC_3264(__NR_utimensat, sys_utimensat_time32, sys_utimensat)
-+#endif
- 
- /* kernel/acct.c */
- #define __NR_acct 89
-@@ -309,8 +317,10 @@ __SYSCALL(__NR_set_tid_address, sys_set_tid_address)
- __SYSCALL(__NR_unshare, sys_unshare)
- 
- /* kernel/futex.c */
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_futex 98
- __SC_3264(__NR_futex, sys_futex_time32, sys_futex)
-+#endif
- #define __NR_set_robust_list 99
- __SC_COMP(__NR_set_robust_list, sys_set_robust_list, \
- 	  compat_sys_set_robust_list)
-@@ -319,8 +329,10 @@ __SC_COMP(__NR_get_robust_list, sys_get_robust_list, \
- 	  compat_sys_get_robust_list)
- 
- /* kernel/hrtimer.c */
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_nanosleep 101
- __SC_3264(__NR_nanosleep, sys_nanosleep_time32, sys_nanosleep)
-+#endif
- 
- /* kernel/itimer.c */
- #define __NR_getitimer 102
-@@ -341,14 +353,19 @@ __SYSCALL(__NR_delete_module, sys_delete_module)
- /* kernel/posix-timers.c */
- #define __NR_timer_create 107
- __SC_COMP(__NR_timer_create, sys_timer_create, compat_sys_timer_create)
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_timer_gettime 108
- __SC_3264(__NR_timer_gettime, sys_timer_gettime32, sys_timer_gettime)
-+#endif
- #define __NR_timer_getoverrun 109
- __SYSCALL(__NR_timer_getoverrun, sys_timer_getoverrun)
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_timer_settime 110
- __SC_3264(__NR_timer_settime, sys_timer_settime32, sys_timer_settime)
-+#endif
- #define __NR_timer_delete 111
- __SYSCALL(__NR_timer_delete, sys_timer_delete)
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_clock_settime 112
- __SC_3264(__NR_clock_settime, sys_clock_settime32, sys_clock_settime)
- #define __NR_clock_gettime 113
-@@ -358,6 +375,7 @@ __SC_3264(__NR_clock_getres, sys_clock_getres_time32, sys_clock_getres)
- #define __NR_clock_nanosleep 115
- __SC_3264(__NR_clock_nanosleep, sys_clock_nanosleep_time32, \
- 	  sys_clock_nanosleep)
-+#endif
- 
- /* kernel/printk.c */
- #define __NR_syslog 116
-@@ -388,9 +406,11 @@ __SYSCALL(__NR_sched_yield, sys_sched_yield)
- __SYSCALL(__NR_sched_get_priority_max, sys_sched_get_priority_max)
- #define __NR_sched_get_priority_min 126
- __SYSCALL(__NR_sched_get_priority_min, sys_sched_get_priority_min)
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_sched_rr_get_interval 127
- __SC_3264(__NR_sched_rr_get_interval, sys_sched_rr_get_interval_time32, \
- 	  sys_sched_rr_get_interval)
-+#endif
- 
- /* kernel/signal.c */
- #define __NR_restart_syscall 128
-@@ -411,9 +431,11 @@ __SC_COMP(__NR_rt_sigaction, sys_rt_sigaction, compat_sys_rt_sigaction)
- __SC_COMP(__NR_rt_sigprocmask, sys_rt_sigprocmask, compat_sys_rt_sigprocmask)
- #define __NR_rt_sigpending 136
- __SC_COMP(__NR_rt_sigpending, sys_rt_sigpending, compat_sys_rt_sigpending)
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_rt_sigtimedwait 137
- __SC_COMP_3264(__NR_rt_sigtimedwait, sys_rt_sigtimedwait_time32, \
- 	  sys_rt_sigtimedwait, compat_sys_rt_sigtimedwait_time32)
-+#endif
- #define __NR_rt_sigqueueinfo 138
- __SC_COMP(__NR_rt_sigqueueinfo, sys_rt_sigqueueinfo, \
- 	  compat_sys_rt_sigqueueinfo)
-@@ -486,12 +508,14 @@ __SYSCALL(__NR_prctl, sys_prctl)
- __SYSCALL(__NR_getcpu, sys_getcpu)
- 
- /* kernel/time.c */
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_gettimeofday 169
- __SC_COMP(__NR_gettimeofday, sys_gettimeofday, compat_sys_gettimeofday)
- #define __NR_settimeofday 170
- __SC_COMP(__NR_settimeofday, sys_settimeofday, compat_sys_settimeofday)
- #define __NR_adjtimex 171
- __SC_3264(__NR_adjtimex, sys_adjtimex_time32, sys_adjtimex)
-+#endif
- 
- /* kernel/timer.c */
- #define __NR_getpid 172
-@@ -516,11 +540,13 @@ __SC_COMP(__NR_sysinfo, sys_sysinfo, compat_sys_sysinfo)
- __SC_COMP(__NR_mq_open, sys_mq_open, compat_sys_mq_open)
- #define __NR_mq_unlink 181
- __SYSCALL(__NR_mq_unlink, sys_mq_unlink)
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_mq_timedsend 182
- __SC_3264(__NR_mq_timedsend, sys_mq_timedsend_time32, sys_mq_timedsend)
- #define __NR_mq_timedreceive 183
- __SC_3264(__NR_mq_timedreceive, sys_mq_timedreceive_time32, \
- 	  sys_mq_timedreceive)
-+#endif
- #define __NR_mq_notify 184
- __SC_COMP(__NR_mq_notify, sys_mq_notify, compat_sys_mq_notify)
- #define __NR_mq_getsetattr 185
-@@ -541,8 +567,10 @@ __SC_COMP(__NR_msgsnd, sys_msgsnd, compat_sys_msgsnd)
- __SYSCALL(__NR_semget, sys_semget)
- #define __NR_semctl 191
- __SC_COMP(__NR_semctl, sys_semctl, compat_sys_semctl)
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_semtimedop 192
- __SC_COMP(__NR_semtimedop, sys_semtimedop, sys_semtimedop_time32)
-+#endif
- #define __NR_semop 193
- __SYSCALL(__NR_semop, sys_semop)
- 
-@@ -663,8 +691,10 @@ __SC_COMP(__NR_rt_tgsigqueueinfo, sys_rt_tgsigqueueinfo, \
- __SYSCALL(__NR_perf_event_open, sys_perf_event_open)
- #define __NR_accept4 242
- __SYSCALL(__NR_accept4, sys_accept4)
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_recvmmsg 243
- __SC_COMP_3264(__NR_recvmmsg, sys_recvmmsg_time32, sys_recvmmsg, compat_sys_recvmmsg_time32)
-+#endif
- 
- /*
-  * Architectures may provide up to 16 syscalls of their own
-@@ -672,8 +702,10 @@ __SC_COMP_3264(__NR_recvmmsg, sys_recvmmsg_time32, sys_recvmmsg, compat_sys_recv
-  */
- #define __NR_arch_specific_syscall 244
- 
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_wait4 260
- __SC_COMP(__NR_wait4, sys_wait4, compat_sys_wait4)
-+#endif
- #define __NR_prlimit64 261
- __SYSCALL(__NR_prlimit64, sys_prlimit64)
- #define __NR_fanotify_init 262
-@@ -684,8 +716,10 @@ __SYSCALL(__NR_fanotify_mark, sys_fanotify_mark)
- __SYSCALL(__NR_name_to_handle_at, sys_name_to_handle_at)
- #define __NR_open_by_handle_at         265
- __SYSCALL(__NR_open_by_handle_at, sys_open_by_handle_at)
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_clock_adjtime 266
- __SC_3264(__NR_clock_adjtime, sys_clock_adjtime32, sys_clock_adjtime)
-+#endif
- #define __NR_syncfs 267
- __SYSCALL(__NR_syncfs, sys_syncfs)
- #define __NR_setns 268
-@@ -738,8 +772,10 @@ __SYSCALL(__NR_pkey_alloc,    sys_pkey_alloc)
- __SYSCALL(__NR_pkey_free,     sys_pkey_free)
- #define __NR_statx 291
- __SYSCALL(__NR_statx,     sys_statx)
-+#if defined(__ARCH_WANT_TIME32_SYSCALLS) || __BITS_PER_LONG != 32
- #define __NR_io_pgetevents 292
- __SC_COMP_3264(__NR_io_pgetevents, sys_io_pgetevents_time32, sys_io_pgetevents, compat_sys_io_pgetevents)
-+#endif
- #define __NR_rseq 293
- __SYSCALL(__NR_rseq, sys_rseq)
- #define __NR_kexec_file_load 294
++
+ #define __NR_getrusage 165
+ __SC_COMP(__NR_getrusage, sys_getrusage, compat_sys_getrusage)
+ #define __NR_umask 166
 diff --git a/scripts/checksyscalls.sh b/scripts/checksyscalls.sh
-index 53c5677d7e82..ffd635efbdca 100755
+index cc70a64fa81f..53c5677d7e82 100755
 --- a/scripts/checksyscalls.sh
 +++ b/scripts/checksyscalls.sh
-@@ -143,6 +143,13 @@ cat << EOF
- #define __IGNORE_rt_sigtimedwait
- #define __IGNORE_futex
- #define __IGNORE_sched_rr_get_interval
-+#define __IGNORE_gettimeofday
-+#define __IGNORE_settimeofday
-+#define __IGNORE_wait4
-+#define __IGNORE_adjtimex
-+#define __IGNORE_nanosleep
-+#define __IGNORE_io_getevents
-+#define __IGNORE_recvmmsg
+@@ -38,6 +38,11 @@ cat << EOF
+ #define __IGNORE_lstat64	/* fstatat64 */
  #endif
  
- /* i386-specific or historical system calls */
++#ifndef __ARCH_WANT_SET_GET_RLIMIT
++#define __IGNORE_getrlimit	/* getrlimit */
++#define __IGNORE_setrlimit	/* setrlimit */
++#endif
++
+ /* Missing flags argument */
+ #define __IGNORE_renameat	/* renameat2 */
+ 
 -- 
 2.20.0
 
