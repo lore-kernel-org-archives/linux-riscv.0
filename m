@@ -2,20 +2,20 @@ Return-Path: <SRS0=ksV6=Q2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DF89EC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 09:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AAC10C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 09:10:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B15932146F
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 09:04:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 78D9D2146F
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 09:10:45 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jDg0NEWR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B15932146F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Jh2xn4Db"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 78D9D2146F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,49 +24,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6vKLmzd5Tr4i2vppymBNiLum5sWaj66/2x+jHhQlykk=; b=jDg0NEWRpEP5kL
-	XIzk8VbuMbIm6X81bx7M+gWSGR15RmmcLFdcUdGC4Xopw1uiZxD4dpkIVTaaxuERhQPyBeDgQ/alI
-	bSyQnBdV03bzzmBJ7dQypgqdQmknXrGxcUSFssChxIxRj0+92TXgWEXKpvPgix00Zza/bpSy9ynnM
-	AGWJueU90F+TmloHWSgPGHw3d4LyPO+5x4qTSq6fWdwx4GDp0jnEixJxyLAGwCig240KEv4rz7dMt
-	ITiwkw0ZF0E3sCLff6TIoUoiFAZPYBBNH3omnha/6PlsnjaxgSsrbGmJ+HpO/WpajHlODBIRU8GbI
-	LLonWbx/poeRrwqFX+Aw==;
+	List-Owner; bh=c6oZ5k0ASSJklTihr1FiujdMO9cVmCAvQSG5AnYsDqw=; b=Jh2xn4DbrVpGBv
+	9SJqeKCxiCB2nFr4dux1OomuEIr4NpiEYkisgIN9pDLnrmZxIAHZ5HIGwBCkgoILb4RjYLxontUcT
+	3o1xuYW32pzUx9kcRiA+0EnCJIaXuAzaSInPQS3OP0vbXJWX45GsQZI6AjXfmzi0k4DXYlbOu/8Ri
+	Kt0fqXTpzGJyIXPZonSY7Y5q70UQDRfvEbVadc4h4FTA3zknJFjjBpKKaQpCR2xEIM0uc24qLEndB
+	Oc0DWhben7rzPJlgDZfZjfREuDCGcVJV7+3n9g6i5dHgFjc5BdDhu/eDxLKF/K47sOVeZK72/yiKG
+	4Uqjn4w7+AUHc7LWyxbQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gw1KX-0001TW-FW; Tue, 19 Feb 2019 09:04:45 +0000
-Received: from mail-qt1-f193.google.com ([209.85.160.193])
+	id 1gw1QI-0004q3-ON; Tue, 19 Feb 2019 09:10:42 +0000
+Received: from mail-qt1-f195.google.com ([209.85.160.195])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gw1K3-0000yP-Sk; Tue, 19 Feb 2019 09:04:19 +0000
-Received: by mail-qt1-f193.google.com with SMTP id v10so22293168qtp.8;
- Tue, 19 Feb 2019 01:04:15 -0800 (PST)
+ id 1gw1QA-0004hC-9l; Tue, 19 Feb 2019 09:10:35 +0000
+Received: by mail-qt1-f195.google.com with SMTP id z25so558343qti.13;
+ Tue, 19 Feb 2019 01:10:32 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=duVmfkmCaKyI9suah2ZRlGhjzmTZPtPlQOQquFJ631U=;
- b=WU12qNlN1SeyyckLKRcYhAjfrXMw6vimRvVIUrqXIgKxzGtH4zb/cRl6hTY3xeSewB
- GksM8bFjsETPLWNpoBjUvoE5gpVfuiuG3SNPQTn5DDkqmTZULRXoH8kv36qzj6lhTO42
- vCzUDJnnek9sSUC/cH5KZk0KZnv7H24CfLMaJ9EvlsKf75nsYqcGlvnhWUfMqOmSK6sF
- GvW9XNrJ/lcgUObVA7KgpEHUk7VNaOeKRMsMYH9cSVTDemchOWDXc6MGyPWhncSxeigL
- s4x3xs8rKIWdKXiblzlsxtoldEzp4v0YtW+rcUWzihu8Q7zl80YFF4sIycD1/LmzIQBe
- crZQ==
-X-Gm-Message-State: AHQUAubedfBJuV3fcmdrYoSjkDzoexjSgWrTXX4FdEkVu13B9gDij5JB
- tkQbgq4amfkrcJoM+oRyyi3vW+a27zVEICMinn0=
-X-Google-Smtp-Source: AHgI3IYg19qI+e8SxIgEcwghsNphBBbOMbd8JoAMf2bRV3g+BmWK61s3iETvwplmqz4xYFhpqC5f1IE2GTFoPjzowzg=
-X-Received: by 2002:a0c:e98f:: with SMTP id z15mr20909616qvn.115.1550567054789; 
- Tue, 19 Feb 2019 01:04:14 -0800 (PST)
+ bh=ZgZfbfGDAIrLHm8OGM0hyr2IUJKMkKhN5SqMTkRLPEM=;
+ b=H9MvxyL2I9TJLc7RUkjxFALjf6zvctB6YRsibqqDtLC8T8NFdTg7It/I1UWoULe0yv
+ XjPR2gnNxtsETzRzpc6I0L3nf/Kk+b8IosKZol9ADxIZDHZoa1qqkM7Bft5ew2E4ZPC1
+ 4S3OTT2MspTxU9h7LvQNX4xUoZnL8ygdiTcOxFa3aIyWPzh0Gg+DWb3QZlxzOoHrrHcF
+ Ilvys34Aib2aqKrP/e7BGBGOUUMfLAkkozemE6iWA2Ne4BowxcbBoJNTHhnrCemDa7gj
+ utGCqcRmcDY+NTs/f8XG9rJUxK6V7OpuitSWLACXJ1K6T4h4cEJRB1Ie4uaUY39kHu9N
+ NwYQ==
+X-Gm-Message-State: AHQUAuYZ2iiQ0X4HkAMcGROHXpi8ciL/Joa4qxOGJu/Ua/9BtosnbkiA
+ qAlUwXx8Xo+hGyqGOETuTCi9Cj1gk7rsk+30TEk=
+X-Google-Smtp-Source: AHgI3Ib1oYxLVKiIDWh7U+TqJfRLgTvr9IGfVMPPSTo6RezHMX4HFg8tiIfwxKyn6Qj1jqFpKTa9fVhbXPrYEoLnrfI=
+X-Received: by 2002:a0c:d791:: with SMTP id z17mr20279762qvi.149.1550567432050; 
+ Tue, 19 Feb 2019 01:10:32 -0800 (PST)
 MIME-Version: 1.0
 References: <20190218210712.3503891-1-arnd@arndb.de>
- <20190218210712.3503891-8-arnd@arndb.de>
- <20190219021834.GA4495@guoren-Inspiron-7460>
-In-Reply-To: <20190219021834.GA4495@guoren-Inspiron-7460>
+ <20190218210712.3503891-3-arnd@arndb.de>
+ <CAMuHMdUb47nLkorUpQ1ohD-WMaEG7d3DBAs7JWA6rvgKTZAGGw@mail.gmail.com>
+In-Reply-To: <CAMuHMdUb47nLkorUpQ1ohD-WMaEG7d3DBAs7JWA6rvgKTZAGGw@mail.gmail.com>
 From: Arnd Bergmann <arnd@arndb.de>
-Date: Tue, 19 Feb 2019 10:03:57 +0100
-Message-ID: <CAK8P3a0c6sNAPb_t2H9DbOi_antu4p5ncY76Vc6cFRZc=ZtiBg@mail.gmail.com>
-Subject: Re: [PATCH 7/8] csky: Use latest system call ABI
-To: Guo Ren <guoren@kernel.org>
+Date: Tue, 19 Feb 2019 10:10:15 +0100
+Message-ID: <CAK8P3a3RTZDfc-4womPK2qbPTwuaP0Jin6Nzq6Ep3G4SnFpZvw@mail.gmail.com>
+Subject: Re: [PATCH 2/8] 32-bit userspace ABI: introduce ARCH_32BIT_OFF_T
+ config option
+To: Geert Uytterhoeven <geert@linux-m68k.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190219_010416_180339_13970982 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20190219_011034_363994_F7DE15D5 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -78,73 +79,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch <linux-arch@vger.kernel.org>,
+Cc: Linux-Arch <linux-arch@vger.kernel.org>,
  "moderated list:H8/300 ARCHITECTURE"
- <uclinux-h8-devel@lists.sourceforge.jp>, Yury Norov <yury.norov@gmail.com>,
+ <uclinux-h8-devel@lists.sourceforge.jp>, Yury Norov <ynorov@marvell.com>,
+ Yury Norov <yury.norov@gmail.com>, Yury Norov <ynorov@caviumnetworks.com>,
  y2038 Mailman List <y2038@lists.linaro.org>,
- Linux API <linux-api@vger.kernel.org>, Joseph Myers <joseph@codesourcery.com>,
- Palmer Dabbelt <palmer@sifive.com>,
+ Linux API <linux-api@vger.kernel.org>, Palmer Dabbelt <palmer@sifive.com>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  linux-riscv@lists.infradead.org, Vineet Gupta <vgupta@synopsys.com>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ Guo Ren <guoren@kernel.org>, Greentime Hu <green.hu@gmail.com>,
  "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
  Thomas Gleixner <tglx@linutronix.de>, Guan Xuetao <gxt@pku.edu.cn>,
- Stafford Horne <shorne@gmail.com>, Mao Han <han_mao@c-sky.com>,
- Greentime Hu <green.hu@gmail.com>
+ Stafford Horne <shorne@gmail.com>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 18, 2019 at 11:40 PM Joseph Myers <joseph@codesourcery.com> wrote:
+On Tue, Feb 19, 2019 at 9:56 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 >
-> On Mon, 18 Feb 2019, Arnd Bergmann wrote:
+> Hi Arnd, Yuri,
 >
-> > We don't yet have an upstream glibc port for csky, so there is no user
->
-> We do.  It's in 2.29.
-...
-On Tue, Feb 19, 2019 at 3:18 AM Guo Ren <guoren@kernel.org> wrote:
->
-> Mao Han has merged csky port into glibc 2.29, so we should keep the
-> __ARCH_WANT_TIME32_SYSCALLS.
-
-My mistake. I've dropped patch 7/8 from this series now.
-
-> > diff --git a/arch/csky/Kconfig b/arch/csky/Kconfig
-> > index 6959e0b1e956..398113c845f5 100644
-> > --- a/arch/csky/Kconfig
-> > +++ b/arch/csky/Kconfig
-> > @@ -1,6 +1,5 @@
-> >  config CSKY
-> >       def_bool y
-> > -     select ARCH_32BIT_OFF_T
-> >       select ARCH_HAS_SYNC_DMA_FOR_CPU
-> >       select ARCH_HAS_SYNC_DMA_FOR_DEVICE
-> >       select ARCH_USE_BUILTIN_BSWAP
-> > diff --git a/arch/csky/include/uapi/asm/unistd.h b/arch/csky/include/uapi/asm/unistd.h
-> > index ec60e49cea66..224c9a9ab45b 100644
-> > --- a/arch/csky/include/uapi/asm/unistd.h
-> > +++ b/arch/csky/include/uapi/asm/unistd.h
-> > @@ -2,8 +2,6 @@
-> >  // Copyright (C) 2018 Hangzhou C-SKY Microsystems co.,ltd.
+> On Tue, Feb 19, 2019 at 3:35 AM Arnd Bergmann <arnd@arndb.de> wrote:
+> > From: Yury Norov <ynorov@caviumnetworks.com>
 > >
-> >  #define __ARCH_WANT_SYS_CLONE
-> > -#define __ARCH_WANT_SET_GET_RLIMIT
-> Seems it's not related to y2038 issue. Is __ARCH_WANT_SET_GET_RLIMIT no
-> use ?
+> > All new 32-bit architectures should have 64-bit userspace off_t type, but
+> > existing architectures has 32-bit ones.
+> >
+> > To enforce the rule, new config option is added to arch/Kconfig that defaults
+> > ARCH_32BIT_OFF_T to be disabled for new 32-bit architectures. All existing
+> > 32-bit architectures enable it explicitly.
+> >
+> > New option affects force_o_largefile() behaviour. Namely, if userspace
+> > off_t is 64-bits long, we have no reason to reject user to open big files.
+> >
+> > Note that even if architectures has only 64-bit off_t in the kernel
+> > (arc, c6x, h8300, hexagon, nios2, openrisc, and unicore32),
+> > a libc may use 32-bit off_t, and therefore want to limit the file size
+> > to 4GB unless specified differently in the open flags.
+> >
+> > Signed-off-by: Yury Norov <ynorov@caviumnetworks.com>
+> > Acked-by: Arnd Bergmann <arnd@arndb.de>
+> > Signed-off-by: Yury Norov <ynorov@marvell.com>
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+>
+> >  arch/m68k/Kconfig       |  1 +
+>
+> For m68k:
+> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 
-In new architectures, we do not need to set CONFIG_ARCH_32BIT_OFF_T
-or __ARCH_WANT_SET_GET_RLIMIT, since we can assume that user
-space always uses a 64-bit off_t and a 'struct rlimit' matching the
-kernel's rlimit64, with the prlimit64() system call replacing both getrlimit
-and setrlimit on the kernel/user ABI side.
+Thanks!
 
-I don't know if glibc still uses the 32-bit off_t behavior or the old
-getrlimit/setrlimit, but if we're not also changing the time32 interfaces,
-the safest option seems to be to leave all three in place.
+> > --- a/arch/Kconfig
+> > +++ b/arch/Kconfig
+> > @@ -276,6 +276,21 @@ config ARCH_THREAD_STACK_ALLOCATOR
+> >  config ARCH_WANTS_DYNAMIC_TASK_STRUCT
+> >         bool
+> >
+> > +config ARCH_32BIT_OFF_T
+> > +       bool
+> > +       depends on !64BIT
+> > +       help
+> > +         All new 32-bit architectures should have 64-bit off_t type on
+> > +         userspace side which corresponds to the loff_t kernel type. This
+> > +         is the requirement for modern ABIs. Some existing architectures
+> > +         already have 32-bit off_t. This option is enabled for all such
+>
+> s/already/still/
+>
+> > +         architectures explicitly. Namely: arc, arm, blackfin, cris, frv,
+> > +         h8300, hexagon, m32r, m68k, metag, microblaze, mips32, mn10300,
+> > +         nios2, openrisc, parisc32, powerpc32, score, sh, sparc, tile32,
+> > +         unicore32, x86_32 and xtensa. This is the complete list. Any
+>
+> Do we really need this list here?  It's intended to shrink only.
+> It includes removed architectures (blackfin, cris, frv, m32r, metag,
+> mn10300, score, tile32), but lacks several new ones affected by this
+> patch (c6x, csky, nds32, riscv).
 
-     Arnd
+Right, I (finally)  took Yury's patch that was already several years old
+without checking this text (I did make sure all architectures are changed
+correctly).
+
+I'll just remove the list here.
+
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
