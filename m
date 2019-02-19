@@ -2,21 +2,21 @@ Return-Path: <SRS0=ksV6=Q2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B18C4C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 20:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4BD07C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 20:29:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 74FE621738
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 20:06:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 17E472146F
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 20:29:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ksa4VRtD"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 74FE621738
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="h8tsJiun"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 17E472146F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -24,48 +24,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9ZnTuy9nrig/dmsUkMT4jqsQY8EgMtHEFGaEmmkAGuA=; b=ksa4VRtDn/m8ne
-	a9rqfplJXv58cmJtBwEhgMiC67PXsd74aAjpA+SY7LN4CCu7c66gKIlrYxrivaqguZgAIcwcNGQJE
-	+jiYvFDfj5MFDVD3ymfjdNJJhysNnbBsqdfR/tOVrAZw0SJKxOLksH8vGJeEFcS2bW1roF8IVuiBp
-	N8yqCOkVJQCU9HXUyf6lJC74GmsCrWU+VkKgnAam/htjQxgii113QwCODRneaYU6UkpsHyzN7Uul3
-	ATn4c+xuXkxQ+90keGWBNFN/5ugC3sc3CgPHnKZAW0WqH69nFFWyEmNbUL3IDNdw8Vnz8jZr9XdbZ
-	ny44FYpiTrIp2jhXUeGQ==;
+	List-Owner; bh=YnZ69Bac/3uWDKFrzAO828Ze3XMmCHWqTP4eWz51eaE=; b=h8tsJiunWuZyT1
+	izQkbwsNUlrKcvRHHQbPHX/eRE7ubHLU4o3t6/xm14iIED5i7BynJvDTA1dWSTWCUIDaQiJWVhzwH
+	2cnUcKsZ+hzj6hb8FveqhwWYPDIpEpd2WemPbNWYe3jHy6d7vGd6eHakgjVD0N9QKYiVyUzmMIqPn
+	3p/nSrfOP4wqFKDff+K8ZNJhs8vJESp2mY8T2rU2qMAIp8kRiSHYGESrrNZ/WiG/hI2wLqSsgfUR7
+	4YyXmiTUKiLBBxlte9DtkRz2OQCVCggqtrjcYftsV84CrUTVe9KgZ+ejXqcvW/ByyqB+ECYM08dhD
+	e5q2XdjPUkCmb7gnqm9w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gwBev-0005TL-E2; Tue, 19 Feb 2019 20:06:29 +0000
-Received: from mail-vs1-f65.google.com ([209.85.217.65])
+	id 1gwC1E-0004OS-D5; Tue, 19 Feb 2019 20:29:32 +0000
+Received: from mail-qk1-f196.google.com ([209.85.222.196])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gwBen-0005LD-1C; Tue, 19 Feb 2019 20:06:22 +0000
-Received: by mail-vs1-f65.google.com with SMTP id h132so707407vsd.5;
- Tue, 19 Feb 2019 12:06:20 -0800 (PST)
+ id 1gwC14-0004Az-SC; Tue, 19 Feb 2019 20:29:24 +0000
+Received: by mail-qk1-f196.google.com with SMTP id p15so535995qkl.5;
+ Tue, 19 Feb 2019 12:29:22 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=qrPDfFD419WXEO/Ox/P57kfC5mLoe6ykDtuRf6HwQCM=;
- b=SziVFyuFW1yjW15FFdyszc5xcUcyAYeAg2JVAIV+mUCSsNJauVNcyqXov2xk+HHDaJ
- iRpPpnGfIo3xMMzgBypVLJTZcOYQ5Nv+47x9AD2YNw/PSB09so/Ul2MeSpFbUAQeGVgz
- P0HAdYjnGXi8YgSevoUOxKhMuCuPD4LJB1ruKh9P7CXOy9eU/+jJdYKTHZFPm5FlnqJa
- np/Y9IucGfvlFtaz+XmlmF5FOviL3HHPHNTyeEKluJcyK+BUUXB2X9wNHqLsQG7FrbUE
- upVjReUWfJqO9/bGc6D9xLECQ/wABPLpSlXJoHlMXf8xPF4DrsVoFn0efG/Jhmegfnci
- 946A==
-X-Gm-Message-State: AHQUAuY6BybsopfIZHSasF3MzEvLuXjSBL5aEYp9YrfBk1c4z1MYxdHa
- ZMnpN8v42yTzkk5rhsD1Z2yU1P7x4tbCWsw1MII=
-X-Google-Smtp-Source: AHgI3Ib18vAebzMi8QNZdyMzAby/KMYvso9+J5p1Ojoxw8uC/kqVFYjx0IxWnjTNVemie5I0XTSFanp0y00Ao6gKBz8=
-X-Received: by 2002:a67:ead0:: with SMTP id s16mr12174157vso.63.1550606776640; 
- Tue, 19 Feb 2019 12:06:16 -0800 (PST)
+ bh=bPY1f5W3M3S0pVQ+klaobPrfxSm2NF3tA5R2/oioi8Y=;
+ b=ai3KIQjaEb0tppyln54ZvSPgT+UVUk+zWOQ+BxabH0LDCK6EEojgeREg7kO82jFD3Y
+ YicoceCNBTUjgMqsZVPxlL81o/Jr15iPjVo97iQwg+t7iHjp6htwB/ill4ip6f685MvY
+ p8uqUIH9jV0Kym7iSlfUbNn0Q8GCRXTuTd2PtvgX1mK8ljkXqojh6gfLdc4fJ6FOsCKN
+ p9ThcBq2KwTliTIIUx/ihYngIU8BFCeV90TLSkCRBCufd8cfeTImtrALZZYF1WMefq8U
+ GHyocase4eTiL/EN+kzjBevVF44AWpRy+OJYDC50c6L1kvbMtwMDDuLLOD+s703eB2fN
+ H60Q==
+X-Gm-Message-State: AHQUAuavDS+k2Eq0QgHoJAi1NkfDfeTHZMeJTKhr+E7nK3FivsFYfBKb
+ dZ/VqToZG8UMdmTY/82VnE4esXCpe+siJxA3ohk=
+X-Google-Smtp-Source: AHgI3IZWyX/lVaQAvClHL38keads40kOoUMMxm2i4x66H1BX9+lk6NC00fUlkEoemnqJp2fXcbm2Hb1h0YEdHgBZwpY=
+X-Received: by 2002:a05:620a:12a5:: with SMTP id
+ x5mr22351671qki.291.1550608158219; 
+ Tue, 19 Feb 2019 12:29:18 -0800 (PST)
 MIME-Version: 1.0
 References: <20190218210712.3503891-1-arnd@arndb.de>
  <20190218210712.3503891-5-arnd@arndb.de>
-In-Reply-To: <20190218210712.3503891-5-arnd@arndb.de>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 19 Feb 2019 21:06:04 +0100
-Message-ID: <CAMuHMdVbz=_GFMnKx4PuxpmG9jpdA=Do2XnR3bY5wRZPM3G+Gw@mail.gmail.com>
+ <CAMuHMdVbz=_GFMnKx4PuxpmG9jpdA=Do2XnR3bY5wRZPM3G+Gw@mail.gmail.com>
+In-Reply-To: <CAMuHMdVbz=_GFMnKx4PuxpmG9jpdA=Do2XnR3bY5wRZPM3G+Gw@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Tue, 19 Feb 2019 21:29:01 +0100
+Message-ID: <CAK8P3a0UD7_omc4=o7VLaLKUX4Z1eWXU15TeqgvjXfhyv+7xCA@mail.gmail.com>
 Subject: Re: [PATCH 4/8] asm-generic: Make time32 syscall numbers optional
-To: Arnd Bergmann <arnd@arndb.de>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190219_120621_077298_2BDC0577 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20190219_122922_912415_A613B9B9 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,53 +97,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
-
-On Tue, Feb 19, 2019 at 3:34 AM Arnd Bergmann <arnd@arndb.de> wrote:
-> We don't want new architectures to even provide the old 32-bit time_t
-> based system calls any more, or define the syscall number macros.
+On Tue, Feb 19, 2019 at 9:06 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 >
-> Add a new __ARCH_WANT_TIME32_SYSCALLS macro that gets enabled for all
-> existing 32-bit architectures so we don't change any current behavior.
-
-... (only) 32-bit architectures using the generic syscall list, right?
-
-> Since this symbol is evaluated in user space as well, we cannot use
-> a Kconfig CONFIG_* macro but have to define it in uapi/asm/unistd.h.
+> Hi Arnd,
 >
-> On 64-bit architectures, the same system call numbers mostly refer to
-> the system calls we want to keep, as they already pass 64-bit time_t.
+> On Tue, Feb 19, 2019 at 3:34 AM Arnd Bergmann <arnd@arndb.de> wrote:
+> > We don't want new architectures to even provide the old 32-bit time_t
+> > based system calls any more, or define the syscall number macros.
+> >
+> > Add a new __ARCH_WANT_TIME32_SYSCALLS macro that gets enabled for all
+> > existing 32-bit architectures so we don't change any current behavior.
 >
-> As new architectures no longer provide these, we need new exceptions
-> in checksyscalls.sh.
->
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/arc/include/uapi/asm/unistd.h       |  1 +
->  arch/arm64/include/uapi/asm/unistd.h     |  1 +
->  arch/c6x/include/uapi/asm/unistd.h       |  1 +
->  arch/csky/include/uapi/asm/unistd.h      |  1 +
->  arch/h8300/include/uapi/asm/unistd.h     |  1 +
->  arch/hexagon/include/uapi/asm/unistd.h   |  1 +
->  arch/nds32/include/uapi/asm/unistd.h     |  1 +
->  arch/nios2/include/uapi/asm/unistd.h     |  1 +
->  arch/openrisc/include/uapi/asm/unistd.h  |  1 +
->  arch/riscv/include/uapi/asm/unistd.h     |  3 ++
->  arch/unicore32/include/uapi/asm/unistd.h |  1 +
->  include/uapi/asm-generic/unistd.h        | 36 ++++++++++++++++++++++++
->  scripts/checksyscalls.sh                 |  7 +++++
->  13 files changed, 56 insertions(+)
+> ... (only) 32-bit architectures using the generic syscall list, right?
 
-Gr{oetje,eeting}s,
+Correct, I've added a clarification in the commit text in my git tree now,
+thanks for the proofreading!
 
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+       Arnd
 
 _______________________________________________
 linux-riscv mailing list
