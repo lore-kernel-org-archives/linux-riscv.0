@@ -2,72 +2,83 @@ Return-Path: <SRS0=ksV6=Q2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AAC10C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 09:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B161DC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 11:40:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 78D9D2146F
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 09:10:45 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7ED912086A
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 11:40:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Jh2xn4Db"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 78D9D2146F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="c9lXZP1y";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="csNkuCjU"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7ED912086A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c6oZ5k0ASSJklTihr1FiujdMO9cVmCAvQSG5AnYsDqw=; b=Jh2xn4DbrVpGBv
-	9SJqeKCxiCB2nFr4dux1OomuEIr4NpiEYkisgIN9pDLnrmZxIAHZ5HIGwBCkgoILb4RjYLxontUcT
-	3o1xuYW32pzUx9kcRiA+0EnCJIaXuAzaSInPQS3OP0vbXJWX45GsQZI6AjXfmzi0k4DXYlbOu/8Ri
-	Kt0fqXTpzGJyIXPZonSY7Y5q70UQDRfvEbVadc4h4FTA3zknJFjjBpKKaQpCR2xEIM0uc24qLEndB
-	Oc0DWhben7rzPJlgDZfZjfREuDCGcVJV7+3n9g6i5dHgFjc5BdDhu/eDxLKF/K47sOVeZK72/yiKG
-	4Uqjn4w7+AUHc7LWyxbQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=pIX6vIHM5Fc+c1r+ezKRAvbLdEKzFxMReI6O3aqz7fY=; b=c9l
+	XZP1y+/r8f8nVlZIBjPEwekdc35vov8bIjn4M8QByLsJsJbXFmPpVose2RvbNAwIe70MRivnY8K72
+	GbPQBVBWuj2QG92o6rarzfAgHIHu0OsD0Av/bsKpvIoiRK8XhnhZbAUBKbytjQElM+r4hcFKDvWK6
+	ypDuTl8AuQOFwXIkSbxWVeEg7aeFy+KKllijtYtg+jZcNlLr1e+bPeAfikWuEhOq5y1v7zzWJ8Fot
+	K8vaP5F+8RlRar5qm0nqAZw7xaGK3X3vxowm5yeWDBl92zxZUUNVnCei9MK4Ml9alRmtxA48061Dc
+	tpxazPn8rQhqsxkTTAqJlyxCEGobrzA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gw1QI-0004q3-ON; Tue, 19 Feb 2019 09:10:42 +0000
-Received: from mail-qt1-f195.google.com ([209.85.160.195])
+	id 1gw3lX-00072Q-Po; Tue, 19 Feb 2019 11:40:47 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gw1QA-0004hC-9l; Tue, 19 Feb 2019 09:10:35 +0000
-Received: by mail-qt1-f195.google.com with SMTP id z25so558343qti.13;
- Tue, 19 Feb 2019 01:10:32 -0800 (PST)
+ id 1gw3lV-000723-5q
+ for linux-riscv@lists.infradead.org; Tue, 19 Feb 2019 11:40:46 +0000
+Received: by mail-pg1-x544.google.com with SMTP id s198so10033002pgs.2
+ for <linux-riscv@lists.infradead.org>; Tue, 19 Feb 2019 03:40:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id;
+ bh=DQZHSSspZBlsenwx5k5O9poRCEoCd4P+xUehuph/A9U=;
+ b=csNkuCjUKGsXUpAI1PL2/U6szs9hyeTkh9euBYymEkdYBep5pyzOlMSkrsjEI4z77S
+ J9Lq9z7Fgr6mS4iG5LpBgJNoLx4I2LTCB7glT/LXhiUptGpYS7uu+TjlsPaLyA45R4tt
+ HPyujdnm7H4RMlSEFT0Bk9G6ctVZo+5R9OWo00gSpf54NSFRR/HRwhqLcgKRivwpXvKy
+ gKGRgH5PfBSd3nyLrZre1Mem8YPMyan0SGoV45KCAFaqxGTf/Zr7a76pP7qIz0qoX8Xg
+ VWbuOYGm7yNLQ9OV8paJNG152aPPts9H/iOsURpkv2uBBrDSDjnzay3FjgyhlEUM4Exu
+ Tq+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=ZgZfbfGDAIrLHm8OGM0hyr2IUJKMkKhN5SqMTkRLPEM=;
- b=H9MvxyL2I9TJLc7RUkjxFALjf6zvctB6YRsibqqDtLC8T8NFdTg7It/I1UWoULe0yv
- XjPR2gnNxtsETzRzpc6I0L3nf/Kk+b8IosKZol9ADxIZDHZoa1qqkM7Bft5ew2E4ZPC1
- 4S3OTT2MspTxU9h7LvQNX4xUoZnL8ygdiTcOxFa3aIyWPzh0Gg+DWb3QZlxzOoHrrHcF
- Ilvys34Aib2aqKrP/e7BGBGOUUMfLAkkozemE6iWA2Ne4BowxcbBoJNTHhnrCemDa7gj
- utGCqcRmcDY+NTs/f8XG9rJUxK6V7OpuitSWLACXJ1K6T4h4cEJRB1Ie4uaUY39kHu9N
- NwYQ==
-X-Gm-Message-State: AHQUAuYZ2iiQ0X4HkAMcGROHXpi8ciL/Joa4qxOGJu/Ua/9BtosnbkiA
- qAlUwXx8Xo+hGyqGOETuTCi9Cj1gk7rsk+30TEk=
-X-Google-Smtp-Source: AHgI3Ib1oYxLVKiIDWh7U+TqJfRLgTvr9IGfVMPPSTo6RezHMX4HFg8tiIfwxKyn6Qj1jqFpKTa9fVhbXPrYEoLnrfI=
-X-Received: by 2002:a0c:d791:: with SMTP id z17mr20279762qvi.149.1550567432050; 
- Tue, 19 Feb 2019 01:10:32 -0800 (PST)
-MIME-Version: 1.0
-References: <20190218210712.3503891-1-arnd@arndb.de>
- <20190218210712.3503891-3-arnd@arndb.de>
- <CAMuHMdUb47nLkorUpQ1ohD-WMaEG7d3DBAs7JWA6rvgKTZAGGw@mail.gmail.com>
-In-Reply-To: <CAMuHMdUb47nLkorUpQ1ohD-WMaEG7d3DBAs7JWA6rvgKTZAGGw@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Tue, 19 Feb 2019 10:10:15 +0100
-Message-ID: <CAK8P3a3RTZDfc-4womPK2qbPTwuaP0Jin6Nzq6Ep3G4SnFpZvw@mail.gmail.com>
-Subject: Re: [PATCH 2/8] 32-bit userspace ABI: introduce ARCH_32BIT_OFF_T
- config option
-To: Geert Uytterhoeven <geert@linux-m68k.org>
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=DQZHSSspZBlsenwx5k5O9poRCEoCd4P+xUehuph/A9U=;
+ b=evumwaE3ABXpkSHcake7jmNCDN7zfTHNqc+wdVNr6QifDIlRvWXpffe4XSHHw/m4nY
+ p9RWhZeBpSJTuqLRonSf9a5/ObY0rApK179/0+W5kSnhTanbzaeABOwdLIEqowLhkgXE
+ oljos9gu1YGimOp9eF3+CVwl9TaH2embZ9Y/B1UzDdpolCn1mP0d2pgwjyAcQ3EhOUPT
+ 3dBga3tE2+wRdpIkAvTlSCCgTH5CNjU8U74egVqA38QI9pkUaRjJT5pukbXJtl09PnlV
+ bIJFsnmQK33QMpoH2kLMYq6rVoZ0xXZLZ6xpMoPDl5LQT32RBpPn1BF2zHOrjLBNzXSu
+ x9UQ==
+X-Gm-Message-State: AHQUAuZ5eB+KSNFifejmhLzT5b1FHm/9Zi0v8MLzHFQIQMlG8ZrtXXTw
+ Qx9yJpf3YLvoec2a5svrX79BZw==
+X-Google-Smtp-Source: AHgI3IZclla3/S38bs8rCfTC1zJTe7P4s7pX6RBtEQGf/r8s4L3fqc0TDfoVZ+3j1ctCuFiW0RaD7w==
+X-Received: by 2002:aa7:83c2:: with SMTP id j2mr28839490pfn.119.1550576444085; 
+ Tue, 19 Feb 2019 03:40:44 -0800 (PST)
+Received: from buildserver-90.open-silicon.com ([114.143.65.226])
+ by smtp.googlemail.com with ESMTPSA id t3sm32250678pfa.50.2019.02.19.03.40.39
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+ Tue, 19 Feb 2019 03:40:43 -0800 (PST)
+From: Yash Shah <yash.shah@sifive.com>
+To: palmer@sifive.com, linux-spi@vger.kernel.org,
+ linux-riscv@lists.infradead.org, broonie@kernel.org
+Subject: [PATCH 0/2] SPI support for HiFive Unleashed
+Date: Tue, 19 Feb 2019 17:10:05 +0530
+Message-Id: <1550576407-17778-1-git-send-email-yash.shah@sifive.com>
+X-Mailer: git-send-email 1.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190219_011034_363994_F7DE15D5 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20190219_034045_242750_D847970D 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -79,92 +90,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Linux-Arch <linux-arch@vger.kernel.org>,
- "moderated list:H8/300 ARCHITECTURE"
- <uclinux-h8-devel@lists.sourceforge.jp>, Yury Norov <ynorov@marvell.com>,
- Yury Norov <yury.norov@gmail.com>, Yury Norov <ynorov@caviumnetworks.com>,
- y2038 Mailman List <y2038@lists.linaro.org>,
- Linux API <linux-api@vger.kernel.org>, Palmer Dabbelt <palmer@sifive.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv@lists.infradead.org, Vineet Gupta <vgupta@synopsys.com>,
- Guo Ren <guoren@kernel.org>, Greentime Hu <green.hu@gmail.com>,
- "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Guan Xuetao <gxt@pku.edu.cn>,
- Stafford Horne <shorne@gmail.com>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
+ Yash Shah <yash.shah@sifive.com>, robh+dt@kernel.org, paul.walmsley@sifive.com
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 19, 2019 at 9:56 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Arnd, Yuri,
->
-> On Tue, Feb 19, 2019 at 3:35 AM Arnd Bergmann <arnd@arndb.de> wrote:
-> > From: Yury Norov <ynorov@caviumnetworks.com>
-> >
-> > All new 32-bit architectures should have 64-bit userspace off_t type, but
-> > existing architectures has 32-bit ones.
-> >
-> > To enforce the rule, new config option is added to arch/Kconfig that defaults
-> > ARCH_32BIT_OFF_T to be disabled for new 32-bit architectures. All existing
-> > 32-bit architectures enable it explicitly.
-> >
-> > New option affects force_o_largefile() behaviour. Namely, if userspace
-> > off_t is 64-bits long, we have no reason to reject user to open big files.
-> >
-> > Note that even if architectures has only 64-bit off_t in the kernel
-> > (arc, c6x, h8300, hexagon, nios2, openrisc, and unicore32),
-> > a libc may use 32-bit off_t, and therefore want to limit the file size
-> > to 4GB unless specified differently in the open flags.
-> >
-> > Signed-off-by: Yury Norov <ynorov@caviumnetworks.com>
-> > Acked-by: Arnd Bergmann <arnd@arndb.de>
-> > Signed-off-by: Yury Norov <ynorov@marvell.com>
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
->
-> >  arch/m68k/Kconfig       |  1 +
->
-> For m68k:
-> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+This patch series adds a SPI driver and DT documentation
+for HiFive Unleashed board.
 
-Thanks!
+Yash Shah (2):
+  spi: sifive: Add DT documentation for SiFive SPI controller
+  spi: sifive: Add driver for the SiFive SPI controller
 
-> > --- a/arch/Kconfig
-> > +++ b/arch/Kconfig
-> > @@ -276,6 +276,21 @@ config ARCH_THREAD_STACK_ALLOCATOR
-> >  config ARCH_WANTS_DYNAMIC_TASK_STRUCT
-> >         bool
-> >
-> > +config ARCH_32BIT_OFF_T
-> > +       bool
-> > +       depends on !64BIT
-> > +       help
-> > +         All new 32-bit architectures should have 64-bit off_t type on
-> > +         userspace side which corresponds to the loff_t kernel type. This
-> > +         is the requirement for modern ABIs. Some existing architectures
-> > +         already have 32-bit off_t. This option is enabled for all such
->
-> s/already/still/
->
-> > +         architectures explicitly. Namely: arc, arm, blackfin, cris, frv,
-> > +         h8300, hexagon, m32r, m68k, metag, microblaze, mips32, mn10300,
-> > +         nios2, openrisc, parisc32, powerpc32, score, sh, sparc, tile32,
-> > +         unicore32, x86_32 and xtensa. This is the complete list. Any
->
-> Do we really need this list here?  It's intended to shrink only.
-> It includes removed architectures (blackfin, cris, frv, m32r, metag,
-> mn10300, score, tile32), but lacks several new ones affected by this
-> patch (c6x, csky, nds32, riscv).
+ .../devicetree/bindings/spi/spi-sifive.txt         |  37 ++
+ drivers/spi/Kconfig                                |   6 +
+ drivers/spi/Makefile                               |   1 +
+ drivers/spi/spi-sifive.c                           | 450 +++++++++++++++++++++
+ 4 files changed, 494 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/spi/spi-sifive.txt
+ create mode 100644 drivers/spi/spi-sifive.c
 
-Right, I (finally)  took Yury's patch that was already several years old
-without checking this text (I did make sure all architectures are changed
-correctly).
+-- 
+1.9.1
 
-I'll just remove the list here.
-
-      Arnd
 
 _______________________________________________
 linux-riscv mailing list
