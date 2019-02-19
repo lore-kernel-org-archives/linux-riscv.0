@@ -2,58 +2,70 @@ Return-Path: <SRS0=ksV6=Q2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E10D3C4360F
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 15:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B18C4C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 20:06:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B284520700
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 15:18:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 74FE621738
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 20:06:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TXeL0pyA"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B284520700
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ksa4VRtD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 74FE621738
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F5U79iBJXaC0pGPC5md2yJEF4N/e569iYZJAF8PBlBE=; b=TXeL0pyA+tb8+I
-	0w1ecOjl8zn6ebSTo4IhJdT57WUPTMCttFlE69hl9UmL0u663450W7hTuQENim1rbVPngw+jRKPEd
-	9WyW8gAkdIT7MAkKYxV0+d1FnRKo11gU71Rkq/SOe5QRp9OQgSnVT+leD/MUul1YLHCHAmCsR9zkm
-	H3N8R8MlWEQV8QvOpmZWATDKA2CX0LC67dASn0bGWSfHysAUYokDQBVc4MEObQVIG/DMegWC/fe1M
-	z2G4vitN980ReRR9B9mB96S7Me5/17Y6M/J6FStXSl79dw6cnEiiok0rNDjYMSHB6DMU3x9kAYEGt
-	uzIdwGz0RkgkSATPirow==;
+	List-Owner; bh=9ZnTuy9nrig/dmsUkMT4jqsQY8EgMtHEFGaEmmkAGuA=; b=ksa4VRtDn/m8ne
+	a9rqfplJXv58cmJtBwEhgMiC67PXsd74aAjpA+SY7LN4CCu7c66gKIlrYxrivaqguZgAIcwcNGQJE
+	+jiYvFDfj5MFDVD3ymfjdNJJhysNnbBsqdfR/tOVrAZw0SJKxOLksH8vGJeEFcS2bW1roF8IVuiBp
+	N8yqCOkVJQCU9HXUyf6lJC74GmsCrWU+VkKgnAam/htjQxgii113QwCODRneaYU6UkpsHyzN7Uul3
+	ATn4c+xuXkxQ+90keGWBNFN/5ugC3sc3CgPHnKZAW0WqH69nFFWyEmNbUL3IDNdw8Vnz8jZr9XdbZ
+	ny44FYpiTrIp2jhXUeGQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gw79o-0006j3-AU; Tue, 19 Feb 2019 15:18:04 +0000
-Received: from verein.lst.de ([213.95.11.211] helo=newverein.lst.de)
+	id 1gwBev-0005TL-E2; Tue, 19 Feb 2019 20:06:29 +0000
+Received: from mail-vs1-f65.google.com ([209.85.217.65])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gw79k-0006iQ-LW
- for linux-riscv@lists.infradead.org; Tue, 19 Feb 2019 15:18:02 +0000
-Received: by newverein.lst.de (Postfix, from userid 2407)
- id 592F268CEC; Tue, 19 Feb 2019 16:17:59 +0100 (CET)
-Date: Tue, 19 Feb 2019 16:17:59 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Masahiro Yamada <yamada.masahiro@socionext.com>
-Subject: Re: [PATCH 02/11] riscv: remove the HAVE_KPROBES option
-Message-ID: <20190219151759.GD4121@lst.de>
-References: <20190213174005.28785-1-hch@lst.de>
- <20190213174005.28785-3-hch@lst.de>
- <CAK7LNAQFSQN=42X1dqt5io+gOG8mUpwXhLmspqryvmzakUCSWw@mail.gmail.com>
+ id 1gwBen-0005LD-1C; Tue, 19 Feb 2019 20:06:22 +0000
+Received: by mail-vs1-f65.google.com with SMTP id h132so707407vsd.5;
+ Tue, 19 Feb 2019 12:06:20 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=qrPDfFD419WXEO/Ox/P57kfC5mLoe6ykDtuRf6HwQCM=;
+ b=SziVFyuFW1yjW15FFdyszc5xcUcyAYeAg2JVAIV+mUCSsNJauVNcyqXov2xk+HHDaJ
+ iRpPpnGfIo3xMMzgBypVLJTZcOYQ5Nv+47x9AD2YNw/PSB09so/Ul2MeSpFbUAQeGVgz
+ P0HAdYjnGXi8YgSevoUOxKhMuCuPD4LJB1ruKh9P7CXOy9eU/+jJdYKTHZFPm5FlnqJa
+ np/Y9IucGfvlFtaz+XmlmF5FOviL3HHPHNTyeEKluJcyK+BUUXB2X9wNHqLsQG7FrbUE
+ upVjReUWfJqO9/bGc6D9xLECQ/wABPLpSlXJoHlMXf8xPF4DrsVoFn0efG/Jhmegfnci
+ 946A==
+X-Gm-Message-State: AHQUAuY6BybsopfIZHSasF3MzEvLuXjSBL5aEYp9YrfBk1c4z1MYxdHa
+ ZMnpN8v42yTzkk5rhsD1Z2yU1P7x4tbCWsw1MII=
+X-Google-Smtp-Source: AHgI3Ib18vAebzMi8QNZdyMzAby/KMYvso9+J5p1Ojoxw8uC/kqVFYjx0IxWnjTNVemie5I0XTSFanp0y00Ao6gKBz8=
+X-Received: by 2002:a67:ead0:: with SMTP id s16mr12174157vso.63.1550606776640; 
+ Tue, 19 Feb 2019 12:06:16 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAK7LNAQFSQN=42X1dqt5io+gOG8mUpwXhLmspqryvmzakUCSWw@mail.gmail.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+References: <20190218210712.3503891-1-arnd@arndb.de>
+ <20190218210712.3503891-5-arnd@arndb.de>
+In-Reply-To: <20190218210712.3503891-5-arnd@arndb.de>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 19 Feb 2019 21:06:04 +0100
+Message-ID: <CAMuHMdVbz=_GFMnKx4PuxpmG9jpdA=Do2XnR3bY5wRZPM3G+Gw@mail.gmail.com>
+Subject: Re: [PATCH 4/8] asm-generic: Make time32 syscall numbers optional
+To: Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190219_071800_897523_F84B571B 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20190219_120621_077298_2BDC0577 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -65,31 +77,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-xtensa@linux-xtensa.org,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
- linux-s390 <linux-s390@vger.kernel.org>,
+Cc: Linux-Arch <linux-arch@vger.kernel.org>,
+ "moderated list:H8/300 ARCHITECTURE"
+ <uclinux-h8-devel@lists.sourceforge.jp>, Yury Norov <yury.norov@gmail.com>,
+ y2038 Mailman List <y2038@lists.linaro.org>,
+ Linux API <linux-api@vger.kernel.org>, Palmer Dabbelt <palmer@sifive.com>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv@lists.infradead.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- Christoph Hellwig <hch@lst.de>
+ linux-riscv@lists.infradead.org, Vineet Gupta <vgupta@synopsys.com>,
+ Guo Ren <guoren@kernel.org>, Greentime Hu <green.hu@gmail.com>,
+ "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Guan Xuetao <gxt@pku.edu.cn>,
+ Stafford Horne <shorne@gmail.com>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 15, 2019 at 06:32:07PM +0900, Masahiro Yamada wrote:
-> On Thu, Feb 14, 2019 at 2:40 AM Christoph Hellwig <hch@lst.de> wrote:
-> >
-> > HAVE_KPROBES is defined genericly in arch/Kconfig and architectures
-> > should just select it if supported.
-> >
-> > Signed-off-by: Christoph Hellwig <hch@lst.de>
-> 
-> Do you want this patch picked up by me?
-> 
-> Or, by Palmer?
+Hi Arnd,
 
-Given that I don't think I'll have the rest of this series respun in time
-for this merge window:  Palmer, can you pick it up?
+On Tue, Feb 19, 2019 at 3:34 AM Arnd Bergmann <arnd@arndb.de> wrote:
+> We don't want new architectures to even provide the old 32-bit time_t
+> based system calls any more, or define the syscall number macros.
+>
+> Add a new __ARCH_WANT_TIME32_SYSCALLS macro that gets enabled for all
+> existing 32-bit architectures so we don't change any current behavior.
+
+... (only) 32-bit architectures using the generic syscall list, right?
+
+> Since this symbol is evaluated in user space as well, we cannot use
+> a Kconfig CONFIG_* macro but have to define it in uapi/asm/unistd.h.
+>
+> On 64-bit architectures, the same system call numbers mostly refer to
+> the system calls we want to keep, as they already pass 64-bit time_t.
+>
+> As new architectures no longer provide these, we need new exceptions
+> in checksyscalls.sh.
+>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  arch/arc/include/uapi/asm/unistd.h       |  1 +
+>  arch/arm64/include/uapi/asm/unistd.h     |  1 +
+>  arch/c6x/include/uapi/asm/unistd.h       |  1 +
+>  arch/csky/include/uapi/asm/unistd.h      |  1 +
+>  arch/h8300/include/uapi/asm/unistd.h     |  1 +
+>  arch/hexagon/include/uapi/asm/unistd.h   |  1 +
+>  arch/nds32/include/uapi/asm/unistd.h     |  1 +
+>  arch/nios2/include/uapi/asm/unistd.h     |  1 +
+>  arch/openrisc/include/uapi/asm/unistd.h  |  1 +
+>  arch/riscv/include/uapi/asm/unistd.h     |  3 ++
+>  arch/unicore32/include/uapi/asm/unistd.h |  1 +
+>  include/uapi/asm-generic/unistd.h        | 36 ++++++++++++++++++++++++
+>  scripts/checksyscalls.sh                 |  7 +++++
+>  13 files changed, 56 insertions(+)
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
