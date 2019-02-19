@@ -2,67 +2,68 @@ Return-Path: <SRS0=ksV6=Q2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E8930C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 01:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4FF7DC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 02:19:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B80BD2173C
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 01:40:45 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1CF5B2147A
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Feb 2019 02:19:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FfBtFIgp"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B80BD2173C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=intel.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FKK84q7o";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="byrxfkxR"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1CF5B2147A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Date:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DmGOhMT5ZuSStgLhhkheOpEByHOx46pULmivP8dqAC4=; b=FfBtFIgpxdif0+
-	4hBka7k1fkHpSNrdJ/WHw1pG0GW1Tvb3sAW3xLOTZRBzUBR8L42JcU7m61BykLigyCWxglj5Ndv2X
-	Mc6XQe9pciTnWuYwH9jMZDtERvm+3zWwCXnosLN6AZDWCMQ0CuiH5q/UZuxvDFXCppF3OUGSe7xCq
-	yErbbVBIx+lPpFA2TLlYk5V6di5GRcFPDxd/XDEI/qHDChI4bBnHhlXKmcP8JHCOQ/U2utlLaFfGF
-	G8/0XjeyAGN45+706tHfSqkhGLNUat+5/qvkranLUqghyT9u+Bi8AXkz6PKe52QGSjSadyDmRziuF
-	Mtcym5avBmLA/eriYvJg==;
+	List-Owner; bh=QzYnhsW4SOE0+/Lu2f72kJQiwLP1HXt72Pi6cI/E4DA=; b=FKK84q7ofhEvoR
+	oET3iolnpcizhZ4pfVCcxnvGuGdsIapCxWV7rX7lCyPLTE1ZZAsP2BDbcfxy6Tdn45KeXMo6eREnX
+	sMZ1lPdJJAczn4Mm1CM0J9H4/r6EmDy4oNPJ+MNutNR49ePyQxrtMrLzlUzmQiegMghJRWXd9CY+Q
+	qoTIDFQWJl+GTLfFbO9D4ioRdZVD7vlrYa3qnj/3in2SjnvSAbGGlb4594uO+iYdymEJdfCoKQXND
+	7HHqkJRtnPF01cB1zcRE4j7CWpgNscS6o6FxqSJah6pd3nTq0pfoXMYApYza7TWgUehun4aXuJOMq
+	NSWqTCKpeVVlENyp2B0g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gvuOo-0008HS-34; Tue, 19 Feb 2019 01:40:42 +0000
-Received: from mga12.intel.com ([192.55.52.136])
+	id 1gvuzr-0001nS-Mc; Tue, 19 Feb 2019 02:18:59 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gvuOl-0008H2-Iv
- for linux-riscv@lists.infradead.org; Tue, 19 Feb 2019 01:40:41 +0000
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
- by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 18 Feb 2019 17:40:37 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.58,385,1544515200"; d="scan'208";a="134531155"
-Received: from lftan-mobl.gar.corp.intel.com (HELO ubuntu) ([10.226.248.88])
- by FMSMGA003.fm.intel.com with SMTP; 18 Feb 2019 17:40:35 -0800
-Received: by ubuntu (sSMTP sendmail emulation); Tue, 19 Feb 2019 09:40:33 +0800
-Message-ID: <1550540432.2534.1.camel@intel.com>
-Subject: Re: [PATCH 05/11] tracing: consolidate the TRACE_IRQFLAGS_SUPPORT
- symbol
-From: Ley Foon Tan <ley.foon.tan@intel.com>
-To: Masahiro Yamada <yamada.masahiro@socionext.com>, Christoph Hellwig
- <hch@lst.de>
-Date: Tue, 19 Feb 2019 09:40:32 +0800
-In-Reply-To: <CAK7LNARDdPabSOq6vHvxTPPWaMguJUEtok=dNrfnLEz=UtHO+w@mail.gmail.com>
-References: <20190213174005.28785-1-hch@lst.de>
- <20190213174005.28785-6-hch@lst.de>
- <CAK7LNARDdPabSOq6vHvxTPPWaMguJUEtok=dNrfnLEz=UtHO+w@mail.gmail.com>
-X-Mailer: Evolution 3.18.5.2-0ubuntu3.1 
-Mime-Version: 1.0
+ id 1gvuzi-0001et-On; Tue, 19 Feb 2019 02:18:52 +0000
+Received: from guoren-Inspiron-7460 (23.83.240.247.16clouds.com
+ [23.83.240.247])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 1460A2173C;
+ Tue, 19 Feb 2019 02:18:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1550542728;
+ bh=NSp3Oaux3Z1t7jKHeFE4mdFS+JVFVS9Qtu/OyQGaeso=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=byrxfkxRfTqEgl3PxNNOp00BPSlNGIzaj9yzlSWUIkNeG1YRcpEd5MfmLN9s3Czze
+ PN3FBT82RdBzrVocjsEpREY1CE/kWqstuFo23cWeCu/q/wssT7HFHmfGgj7QEBMNLm
+ 4wuniyGMOGrgqxY72h2yntfchLUFR9L8EzMScPak=
+Date: Tue, 19 Feb 2019 10:18:34 +0800
+From: Guo Ren <guoren@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>, Mao Han <han_mao@c-sky.com>
+Subject: Re: [PATCH 7/8] csky: Use latest system call ABI
+Message-ID: <20190219021834.GA4495@guoren-Inspiron-7460>
+References: <20190218210712.3503891-1-arnd@arndb.de>
+ <20190218210712.3503891-8-arnd@arndb.de>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20190218210712.3503891-8-arnd@arndb.de>
+User-Agent: Mutt/1.5.24 (2015-08-30)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190218_174039_636359_738CD085 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20190218_181850_825386_06F0179A 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -74,63 +75,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-xtensa@linux-xtensa.org,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
- linux-s390 <linux-s390@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- nios2-dev@lists.rocketboards.org, Ley Foon Tan <lftan@altera.com>,
- linux-riscv@lists.infradead.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: linux-arch@vger.kernel.org, uclinux-h8-devel@lists.sourceforge.jp,
+ yury.norov@gmail.com, y2038@lists.linaro.org, linux-api@vger.kernel.org,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Vineet Gupta <vgupta@synopsys.com>,
+ Greentime Hu <green.hu@gmail.com>, linux-hexagon@vger.kernel.org,
+ Thomas Gleixner <tglx@linutronix.de>, Guan Xuetao <gxt@pku.edu.cn>,
+ Stafford Horne <shorne@gmail.com>, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyMDE5LTAyLTE1IGF0IDE2OjU1ICswOTAwLCBNYXNhaGlybyBZYW1hZGEgd3JvdGU6
-Cj4gK0NDOiBMZXkgRm9vbiBUYW4gPGxmdGFuQGFsdGVyYS5jb20+Cj4gK0NDOiBuaW9zMi1kZXZA
-bGlzdHMucm9ja2V0Ym9hcmRzLm9yZwo+IAo+IAo+IE9uIFRodSwgRmViIDE0LCAyMDE5IGF0IDI6
-NDAgQU0gQ2hyaXN0b3BoIEhlbGx3aWcgPGhjaEBsc3QuZGU+IHdyb3RlOgo+IAo+ID4gCj4gPiBk
-aWZmIC0tZ2l0IGEvYXJjaC9uaW9zMi9LY29uZmlnIGIvYXJjaC9uaW9zMi9LY29uZmlnCj4gPiBp
-bmRleCA3MTVlNmMwOWI0YTUuLjNiNTA2ODkwMDdmNSAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvbmlv
-czIvS2NvbmZpZwo+ID4gKysrIGIvYXJjaC9uaW9zMi9LY29uZmlnCj4gPiBAQCAtMjAsNiArMjAs
-NyBAQCBjb25maWcgTklPUzIKPiA+IMKgwqDCoMKgwqDCoMKgwqBzZWxlY3QgT0ZfRUFSTFlfRkxB
-VFRSRUUKPiA+IMKgwqDCoMKgwqDCoMKgwqBzZWxlY3QgU09DX0JVUwo+ID4gwqDCoMKgwqDCoMKg
-wqDCoHNlbGVjdCBTUEFSU0VfSVJRCj4gPiArwqDCoMKgwqDCoMKgwqBzZWxlY3QgVFJBQ0VfSVJR
-RkxBR1NfU1VQUE9SVAo+IAo+IFRoaXMgaXMgYSBiZWhhdmlvciBjaGFuZ2Ugb2YgbmlvczIuCj4g
-Cj4gVFJBQ0VfSVJRRkxBR1NfU1VQUE9SVCB3YXMgcHJldmlvdXNseSAnbicsCj4gYW5kIHRoaXMg
-Y29tbWl0IGlzIGNoYW5naW5nIGl0IHRvICd5Jy4KPiAKPiAKPiAKPiAKPiBTdHJhbmdlbHksIG5p
-b3MyIGRlZmluZXMgVFJBQ0VfSVJRRkxBR1NfU1VQUE9SVCB0d2ljZQo+IHdpdGggZGlmZmVyZW50
-IGRlZmF1bHQgdmFsdWVzLgo+IAo+IEluIEtjb25maWcsIHRoZSBmaXJzdCBvbmUgYmVjb21lcyBl
-ZmZlY3RpdmUuCj4gCj4gSW4gdGhpcyBjYXNlLCAnZGVmX2Jvb2wgbicgaW4gYXJjaC9uaW9zMi9L
-Y29uZmlnIGlzIHVzZWQuCj4gJ2RlZl9ib29sIHknIGluIGFyY2gvbmlvczIvS2NvbmZpZy5kZWJ1
-ZyBpcyBkZWFkIGNvZGUuCj4gCj4gCj4gSSB0aGluayB0aGlzIHNlbGVjdCBzaG91bGQgYmUgZHJv
-cHBlZAo+IHRvIGtlZXAgdGhlIGN1cnJlbnQgYmVoYXZpb3IsCj4gYnV0IEkgaG9wZSB0aGUgTklP
-UzIgbWFpbnRhaW5lciB3aWxsIGdpdmUgdXMKPiBzb21lIGNvbW1lbnRzIGp1c3QgaW4gY2FzZS4K
-PiAKWWVzLCBwbGVhc2UgZHJvcCB0aGlzIHBhdGNoIHRvIGtlZXAgb3JpZ2luYWwgYmVoYXZpb3Iu
-ClRoYW5rcy4KClJlZ2FyZHMKTGV5IEZvb24KPiAKPiAKPiAKPiA+IAo+ID4gwqDCoMKgwqDCoMKg
-wqDCoHNlbGVjdCBVU0JfQVJDSF9IQVNfSENEIGlmIFVTQl9TVVBQT1JUCj4gPiDCoMKgwqDCoMKg
-wqDCoMKgc2VsZWN0IENQVV9OT19FRkZJQ0lFTlRfRkZTCj4gPiDCoMKgwqDCoMKgwqDCoMKgc2Vs
-ZWN0IEFSQ0hfRElTQ0FSRF9NRU1CTE9DSwo+ID4gQEAgLTM5LDkgKzQwLDYgQEAgY29uZmlnIE5P
-X0lPUE9SVF9NQVAKPiA+IMKgY29uZmlnIEZQVQo+ID4gwqDCoMKgwqDCoMKgwqDCoGRlZl9ib29s
-IG4KPiA+IAo+ID4gLWNvbmZpZyBUUkFDRV9JUlFGTEFHU19TVVBQT1JUCj4gPiAtwqDCoMKgwqDC
-oMKgwqBkZWZfYm9vbCBuCj4gPiAtCj4gPiDCoG1lbnUgIktlcm5lbCBmZWF0dXJlcyIKPiA+IAo+
-ID4gwqBzb3VyY2UgImtlcm5lbC9LY29uZmlnLmh6Igo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvbmlv
-czIvS2NvbmZpZy5kZWJ1ZyBiL2FyY2gvbmlvczIvS2NvbmZpZy5kZWJ1Zwo+ID4gaW5kZXggZjFk
-YThhN2IxN2ZmLi5hOGJjMDZlOTZlZjUgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL25pb3MyL0tjb25m
-aWcuZGVidWcKPiA+ICsrKyBiL2FyY2gvbmlvczIvS2NvbmZpZy5kZWJ1Zwo+ID4gQEAgLTEsOCAr
-MSw1IEBACj4gPiDCoCMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKPiA+IAo+ID4g
-LWNvbmZpZyBUUkFDRV9JUlFGTEFHU19TVVBQT1JUCj4gPiAtwqDCoMKgwqDCoMKgwqBkZWZfYm9v
-bCB5Cj4gPiAtCj4gPiDCoGNvbmZpZyBFQVJMWV9QUklOVEsKPiA+IMKgwqDCoMKgwqDCoMKgwqBi
-b29sICJBY3RpdmF0ZSBlYXJseSBrZXJuZWwgZGVidWdnaW5nIgo+ID4gwqDCoMKgwqDCoMKgwqDC
-oGRlZmF1bHQgeQo+IC0tCj4gQmVzdCBSZWdhcmRzCj4gTWFzYWhpcm8gWWFtYWRhCj4gCj4gX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiAKPiBDb25maWRlbnRpYWxpdHkgTm90aWNl
-Lgo+IFRoaXMgbWVzc2FnZSBtYXkgY29udGFpbiBpbmZvcm1hdGlvbiB0aGF0IGlzIGNvbmZpZGVu
-dGlhbCBvcgo+IG90aGVyd2lzZSBwcm90ZWN0ZWQgZnJvbSBkaXNjbG9zdXJlLiBJZiB5b3UgYXJl
-IG5vdCB0aGUgaW50ZW5kZWQKPiByZWNpcGllbnQsIHlvdSBhcmUgaGVyZWJ5IG5vdGlmaWVkIHRo
-YXQgYW55IHVzZSwgZGlzY2xvc3VyZSwKPiBkaXNzZW1pbmF0aW9uLCBkaXN0cmlidXRpb24sIG9y
-IGNvcHlpbmcgb2YgdGhpcyBtZXNzYWdlLCBvciBhbnkKPiBhdHRhY2htZW50cywgaXMgc3RyaWN0
-bHkgcHJvaGliaXRlZC4gSWYgeW91IGhhdmUgcmVjZWl2ZWQgdGhpcwo+IG1lc3NhZ2UgaW4gZXJy
-b3IsIHBsZWFzZSBhZHZpc2UgdGhlIHNlbmRlciBieSByZXBseSBlLW1haWwsIGFuZAo+IGRlbGV0
-ZSB0aGUgbWVzc2FnZSBhbmQgYW55IGF0dGFjaG1lbnRzLiBUaGFuayB5b3UuCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Mao Han has merged csky port into glibc 2.29, so we should keep the
+__ARCH_WANT_TIME32_SYSCALLS.
+
+F.Y.I:
+han_mao@c-sky.com
+
+On Mon, Feb 18, 2019 at 10:07:11PM +0100, Arnd Bergmann wrote:
+> We don't yet have an upstream glibc port for csky, so there is no user
+> space for the existing ABI, and we can remove the definitions for 32-bit
+> time_t, off_t and struct resource.
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  arch/csky/Kconfig                   | 1 -
+>  arch/csky/include/uapi/asm/unistd.h | 2 --
+>  2 files changed, 3 deletions(-)
+> 
+> diff --git a/arch/csky/Kconfig b/arch/csky/Kconfig
+> index 6959e0b1e956..398113c845f5 100644
+> --- a/arch/csky/Kconfig
+> +++ b/arch/csky/Kconfig
+> @@ -1,6 +1,5 @@
+>  config CSKY
+>  	def_bool y
+> -	select ARCH_32BIT_OFF_T
+>  	select ARCH_HAS_SYNC_DMA_FOR_CPU
+>  	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+>  	select ARCH_USE_BUILTIN_BSWAP
+> diff --git a/arch/csky/include/uapi/asm/unistd.h b/arch/csky/include/uapi/asm/unistd.h
+> index ec60e49cea66..224c9a9ab45b 100644
+> --- a/arch/csky/include/uapi/asm/unistd.h
+> +++ b/arch/csky/include/uapi/asm/unistd.h
+> @@ -2,8 +2,6 @@
+>  // Copyright (C) 2018 Hangzhou C-SKY Microsystems co.,ltd.
+>  
+>  #define __ARCH_WANT_SYS_CLONE
+> -#define __ARCH_WANT_SET_GET_RLIMIT
+Seems it's not related to y2038 issue. Is __ARCH_WANT_SET_GET_RLIMIT no
+use ?
+
+> -#define __ARCH_WANT_TIME32_SYSCALLS
+
+Best Regards
+ Guo Ren
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
