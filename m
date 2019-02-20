@@ -2,64 +2,81 @@ Return-Path: <SRS0=mmvj=Q3=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,USER_AGENT_MUTT autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-0.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	FROM_EXCESS_BASE64,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A3BC4C4360F
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 Feb 2019 14:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 82A85C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 Feb 2019 19:57:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 769062146E
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 Feb 2019 14:48:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 422BD2147A
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 Feb 2019 19:57:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OM388S7k"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 769062146E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tPx37JM2";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="RUzGQ3YB"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 422BD2147A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bDhz5WiYQ3DaBaOa/cmV43MgT108vorwL9iiDYNk8G4=; b=OM388S7khfwvil
-	JRTLfwT0Dm1T1wQSwwL/LGNWiwBOLyyfE/sz53MoY+uQxQpAzXt/h6Iu2xCRy2Snexr4nSyp/et+C
-	v0o4CYe9JRWFXS8hJ5lgn1FACNgTS9RIriPIdRq6215y5alW5YUT+B8WsVXxmjLJ1rzhmRSlnRPSu
-	wtvZGhMMLb57Z+hXYHWIE9yTqk2hziPfaNUL1H7okcOoIPZMpJHEzmOgBVVyNSRX20Bcbgq63Tvgz
-	t4QE0vCXs9GHJ8eNCfO282tW9a3fdFw0TK7W8iyURQdSpLhJg01oRZbCazICqK5f7D0pJkLdYIfZv
-	5bLgHz9eLwkgMlDah9Pw==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7gkGL6zsCTkXxSn1iU+AHhi9g5/oCaCgCTAC4AZOdp4=; b=tPx37JM2vVq1NG
+	/2cywH0EZ9ryQ4ZMFWvj/qMDsR90/LYd/+egMFRjCYCf5/rT1DanSWIWiLtFdAbCguCvGR9ojIiPI
+	ZSJvUclac925l/JKTGbWhexAy9LnfQ3J5Gg0O1j/SQE9Jfdq2yg4pPzMco+j8g6/wrvtF2dBOy4sw
+	soiLm81lXE3k+hjp9B0gSC13XgeUz66VnqCx7MJ/NJ4jx39arAMKquarpptaKck1e4ZJS+LvzrNKD
+	JNXcMd0fP0C7oUtz3wASk4YofViATFINqa4VvP3tm695GGpFDaeWoP8XzoBMbZ8cE1NFKSnJeypY4
+	uEjupI9H0w+g1K5YbNnA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gwTAT-0000Sh-JU; Wed, 20 Feb 2019 14:48:13 +0000
-Received: from usa-sjc-mx-foss1.foss.arm.com ([217.140.101.70]
- helo=foss.arm.com)
- by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gwTAK-0000If-U4; Wed, 20 Feb 2019 14:48:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C2FA15AB;
- Wed, 20 Feb 2019 06:48:04 -0800 (PST)
-Received: from fuggles.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com
- [10.72.51.249])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 312643F5C1;
- Wed, 20 Feb 2019 06:47:59 -0800 (PST)
-Date: Wed, 20 Feb 2019 14:47:56 +0000
-From: Will Deacon <will.deacon@arm.com>
-To: Waiman Long <longman@redhat.com>
-Subject: Re: [PATCH v4 2/3] locking/rwsem: Remove rwsem-spinlock.c & use
- rwsem-xadd.c for all archs
-Message-ID: <20190220144756.GK7523@fuggles.cambridge.arm.com>
-References: <1550095217-12047-1-git-send-email-longman@redhat.com>
- <1550095217-12047-3-git-send-email-longman@redhat.com>
+	id 1gwXza-0007tk-Mo; Wed, 20 Feb 2019 19:57:18 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gwXzX-0007tN-Km
+ for linux-riscv@lists.infradead.org; Wed, 20 Feb 2019 19:57:17 +0000
+Received: by mail-qt1-x829.google.com with SMTP id o6so28708130qtk.6
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Feb 2019 11:57:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:from:date:message-id:subject:to:cc
+ :content-transfer-encoding;
+ bh=MM+1yXPA0a61If2fLKSFf1Q15IV232vqhLE/5XgnV84=;
+ b=RUzGQ3YBdjqn+FwlacSFuI1AuxWcohKYQgXPYg8Hy1+JlRK1j4pq3yFhdoqM59gVMP
+ S5V0jH+hoIkRke7TDVIEFtG6L9HY1VN7G1SwjHR1kNBjFydZPa/qH5OkLqX0BV1fiwXk
+ exEqkdtDlTeKvAU9Cb1btY8aInqwls149T/mOuyXCAITWjUx0VdVqxPptclPYirdnikq
+ az9x3zWqS7RVDEJ20tzYi+VIAZgo4g8Af9OOH2vZRlHkf6hAWj3pvLQJ2UIbVzfhq7Xp
+ kLCqh5e8CWGnkqbMjq6Iz17V/tGOCTtqodSL6yHjjMwrlrC7plcuxPN3EiAwUK2Zbd7e
+ 3hLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc
+ :content-transfer-encoding;
+ bh=MM+1yXPA0a61If2fLKSFf1Q15IV232vqhLE/5XgnV84=;
+ b=htHVaImlXY3QgAoUbAuvqOd4xVVEGIXANFwVBimJBHBLweqv3xijG0MbYcMcZo7zD+
+ 085+SBbU9FnooVZPQpXZ09rL49Ka4gEzkQHfnujZo7VKtruSiorpK06pXm1LjZ6D2KUt
+ E7H3Le5d37Kp3u+m+aHbIb/KWgIx6eI2nnVRLJ/461XeUyHWLJA5NemMEKu2PSG0cJxc
+ bH8lbwrS5ECde7zQmurM4+YIqClPxwgTKUqHOZ3L0SMXm3rPmlZI0hYvDDYBtjE2pcKs
+ SarNolaKlMYeEhzzmYgOKMstZKNTBRoktUNNmnGKbrkeck1xgWpQPOSRbrvQ+i6NqX9K
+ /tnQ==
+X-Gm-Message-State: AHQUAuY1Ey07GG2/q42wr1Qx0UC3nVhAnVc6TT5/Et/QHOr6VBbhAiTS
+ aHPPxUHanfqGPEW+QpLqVrWYWRXQQQzrAjNHAyjtYyMFz34=
+X-Google-Smtp-Source: AHgI3IbT25dzQh+BHNb66FdfVAhHo8rM+LjnrIbOGypBEtZjbOUunAjrYH9Ed/kzzh4l7+2mvDABc97Esp2uZ65Nmiw=
+X-Received: by 2002:aed:3783:: with SMTP id j3mr29552224qtb.16.1550692633525; 
+ Wed, 20 Feb 2019 11:57:13 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1550095217-12047-3-git-send-email-longman@redhat.com>
-User-Agent: Mutt/1.11.1+86 (6f28e57d73f2) ()
+From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
+Date: Wed, 20 Feb 2019 20:57:02 +0100
+Message-ID: <CAJ+HfNgwAFevO6cXMU_FjQtLJ=uxHmmWM8c-VWu58SMkKXgVyQ@mail.gmail.com>
+Subject: per-cpu thoughts
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190220_064804_979685_4AFBDB83 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20190220_115715_678894_65F96EA9 
+X-CRM114-Status: UNSURE (   3.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -71,91 +88,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>, linux-mips@vger.kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, Davidlohr Bueso <dave@stgolabs.net>,
- linux-c6x-dev@linux-c6x.org, linux-hexagon@vger.kernel.org, x86@kernel.org,
- Ingo Molnar <mingo@redhat.com>, uclinux-h8-devel@lists.sourceforge.jp,
- linux-xtensa@linux-xtensa.org, Arnd Bergmann <arnd@arndb.de>,
- linux-um@lists.infradead.org, linux-m68k@lists.linux-m68k.org,
- openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- Tim Chen <tim.c.chen@linux.intel.com>, linux-parisc@vger.kernel.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org,
- linux-alpha@vger.kernel.org, nios2-dev@lists.rocketboards.org,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Christoph Lameter <cl@linux.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 13, 2019 at 05:00:16PM -0500, Waiman Long wrote:
-> Currently, we have two different implementation of rwsem:
->  1) CONFIG_RWSEM_GENERIC_SPINLOCK (rwsem-spinlock.c)
->  2) CONFIG_RWSEM_XCHGADD_ALGORITHM (rwsem-xadd.c)
-> 
-> As we are going to use a single generic implementation for rwsem-xadd.c
-> and no architecture-specific code will be needed, there is no point
-> in keeping two different implementations of rwsem. In most cases, the
-> performance of rwsem-spinlock.c will be worse. It also doesn't get all
-> the performance tuning and optimizations that had been implemented in
-> rwsem-xadd.c over the years.
-> 
-> For simplication, we are going to remove rwsem-spinlock.c and make all
-> architectures use a single implementation of rwsem - rwsem-xadd.c.
-> 
-> All references to RWSEM_GENERIC_SPINLOCK and RWSEM_XCHGADD_ALGORITHM
-> in the code are removed.
-> 
-> Suggested-by: Peter Zijlstra <peterz@infradead.org>
-> Signed-off-by: Waiman Long <longman@redhat.com>
-> ---
->  arch/alpha/Kconfig              |   7 -
->  arch/arc/Kconfig                |   3 -
->  arch/arm/Kconfig                |   4 -
->  arch/arm64/Kconfig              |   3 -
->  arch/c6x/Kconfig                |   3 -
->  arch/csky/Kconfig               |   3 -
->  arch/h8300/Kconfig              |   3 -
->  arch/hexagon/Kconfig            |   6 -
->  arch/ia64/Kconfig               |   4 -
->  arch/m68k/Kconfig               |   7 -
->  arch/microblaze/Kconfig         |   6 -
->  arch/mips/Kconfig               |   7 -
->  arch/nds32/Kconfig              |   3 -
->  arch/nios2/Kconfig              |   3 -
->  arch/openrisc/Kconfig           |   6 -
->  arch/parisc/Kconfig             |   6 -
->  arch/powerpc/Kconfig            |   7 -
->  arch/riscv/Kconfig              |   3 -
->  arch/s390/Kconfig               |   6 -
->  arch/sh/Kconfig                 |   6 -
->  arch/sparc/Kconfig              |   8 -
->  arch/unicore32/Kconfig          |   6 -
->  arch/x86/Kconfig                |   3 -
->  arch/x86/um/Kconfig             |   6 -
->  arch/xtensa/Kconfig             |   3 -
->  include/linux/rwsem-spinlock.h  |  47 ------
->  include/linux/rwsem.h           |   5 -
->  kernel/Kconfig.locks            |   2 +-
->  kernel/locking/Makefile         |   4 +-
->  kernel/locking/rwsem-spinlock.c | 339 ----------------------------------------
->  kernel/locking/rwsem.h          |   3 -
->  31 files changed, 2 insertions(+), 520 deletions(-)
->  delete mode 100644 include/linux/rwsem-spinlock.h
->  delete mode 100644 kernel/locking/rwsem-spinlock.c
-
-Another nice cleanup, and it looks like the optimistic spinning in the xadd
-implementation is predicated on ARCH_SUPPORTS_ATOMIC_RMW, so we're all good
-there too.
-
-Acked-by: Will Deacon <will.deacon@arm.com>
-
-Will
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpDaHJpc3RvcGhlciBtZW50aW9uZWQgInBlci1jcHUgYXRvbWljaXR5IiBpbiBoaXMgUGx1
+bWJlcnMgUklTQy1WIEhQQwp0YWxrIFsxXS4gVHlwaWNhbGx5LCB0aGlzIHdvdWxkIGJlIGZvciB0
+aGUgcGVyLWNwdSBpbXBsZW1lbnRhdGlvbiBpbgpMaW51eCwgc28gSSBoYWQgYSBsb29rIGF0IHRo
+ZSBjdXJyZW50IGltcGxlbWVudGF0aW9uLgoKSSBub3RpY2VkIHRoYXQgUklTQy1WIGN1cnJlbnRs
+eSB1c2VzIHRoZSBnZW5lcmljIG9uZS4gSGFzIHRoZXJlIGJlZW4KYW55IHdvcmsgb24gbW92aW5n
+IHRvIGEgUklTQy1WIHNwZWNpZmljIGltcGwsIGJhc2VkIG9uIHRoZQpBLWV4dGVuc2lvbnMsIHNp
+bWlsYXIgdG8gd2hhdCBhYXJjaDY0IGRvZXM/IFdvdWxkIHRoYXQgbWFrZSBzZW5zZT8KCkZpbmFs
+bHk7IEhhcyB0aGVyZSBiZWVuIGFueSBtb3JlIGRpc2N1c3Npb25zIG9uIENocmlzdG9waGVyJ3Mg
+aW5wdXQ/CgoKVGhhbmtzLApCasO2cm4KClsxXSBodHRwczovL2xpbnV4cGx1bWJlcnNjb25mLm9y
+Zy9ldmVudC8yL2NvbnRyaWJ1dGlvbnMvMTk5L2F0dGFjaG1lbnRzLzExNy8xNDkvMjAxOF9QbHVt
+YmVyc19IUENfaW5fUmlzYy5wZGYKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
