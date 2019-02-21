@@ -2,22 +2,22 @@ Return-Path: <SRS0=eaTI=Q4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-8.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_MUTT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E32BDC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 Feb 2019 11:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DC26BC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 Feb 2019 14:14:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B2B9E2147A
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 Feb 2019 11:52:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AEC6C2070B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 Feb 2019 14:14:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gCxufM6U"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B2B9E2147A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RvYkb7+g"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AEC6C2070B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -25,47 +25,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vg6kqKzz7XmLIdRMIiFh9Mmy76oECMLhIdxhwWkIr+g=; b=gCxufM6UpnRusK
-	4/gbYXXpNHzu46FTgKFnKcftDeKDjuaY0d0gvn4tiJwM+/A1rvThhW2VQHyudTniTVZ6bnGHJRbXs
-	Lyt6J0tVpBsrZ4avYCMkyviijkRovN8Ax5jcgbrFxNezlUXFftGlLrGEjP9pswPad/BrSGNwau7Y1
-	49vK3y2opxQr0EwwkbGfovURdjMVMN28U3CPhEkFtIhw96rjYW79SvMizlnZQbm8VSLidgRPKv9QV
-	xYVIkLAdzBrzkBBg6VAsgDjeExb8B4jdONgDpdgRXQiZqHFCwY5wcag/boliFdeqhYd1qqtPQUGty
-	j29tPNdV28mA4VdnY3mQ==;
+	List-Owner; bh=Qb0ikmTZ/48t2fkbqXq6mn7p77gUslwQbx4tOPFaUys=; b=RvYkb7+gbl7sFF
+	Nxxt+b/K+1c643a7heyea4Cc6IgojEVp0shkKQTV1hE7s3NBDbnjHPumalVzCKpmBiSr4G8HwXPkG
+	+iWIneB5grM6DZmhhoCEaEn50UD/+DW/Kyf6D14I9IAVwP5lGfMMD5ghj0lK6+FjxUGQmT6yQcZuU
+	KfXoPIcr6Ax+GMZuT6SIyCKEuCYbcn7Tf0PqWuQuZ8b8Co1QZeU/F/HX96NCdLfd6C3xxo2iHg4cI
+	o9h/fBjPdY1I7Y5Hgiy9VjC4RNkMTKYFIcR2tzN9To4TIsifvG07FHe1tV9+qZIn60PBsDCZlvUmo
+	VJO9M6uIT/xpZXMvQMKQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gwmu1-00087x-Sd; Thu, 21 Feb 2019 11:52:33 +0000
-Received: from mx1.redhat.com ([209.132.183.28])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gwmty-00087F-3P
- for linux-riscv@lists.infradead.org; Thu, 21 Feb 2019 11:52:31 +0000
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
- [10.5.11.15])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id D7EFD368FF;
- Thu, 21 Feb 2019 11:52:28 +0000 (UTC)
-Received: from sirius.home.kraxel.org (ovpn-116-228.ams2.redhat.com
- [10.36.116.228])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 763005D704;
- Thu, 21 Feb 2019 11:52:28 +0000 (UTC)
-Received: by sirius.home.kraxel.org (Postfix, from userid 1000)
- id A344711A9A; Thu, 21 Feb 2019 12:52:27 +0100 (CET)
-Date: Thu, 21 Feb 2019 12:52:27 +0100
-From: "kraxel@redhat.com" <kraxel@redhat.com>
-To: Alistair Francis <Alistair.Francis@wdc.com>
-Subject: Re: [PATCH] drm/bochs: Fix the ID mismatch error
-Message-ID: <20190221115227.ipwjpn3xm4q7jfg2@sirius.home.kraxel.org>
-References: <20190221003231.31625-1-alistair.francis@wdc.com>
+	id 1gwp7Y-0000KX-8l; Thu, 21 Feb 2019 14:14:40 +0000
+Received: from foss.arm.com ([217.140.101.70])
+ by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gwp7O-0000Be-R4; Thu, 21 Feb 2019 14:14:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D9B1815AB;
+ Thu, 21 Feb 2019 06:14:28 -0800 (PST)
+Received: from fuggles.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com
+ [10.72.51.249])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 752693F575;
+ Thu, 21 Feb 2019 06:14:23 -0800 (PST)
+Date: Thu, 21 Feb 2019 14:14:20 +0000
+From: Will Deacon <will.deacon@arm.com>
+To: Waiman Long <longman@redhat.com>
+Subject: Re: [PATCH v4 3/3] locking/rwsem: Optimize down_read_trylock()
+Message-ID: <20190221141420.GC12696@fuggles.cambridge.arm.com>
+References: <1550095217-12047-1-git-send-email-longman@redhat.com>
+ <1550095217-12047-4-git-send-email-longman@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190221003231.31625-1-alistair.francis@wdc.com>
-User-Agent: NeoMutt/20180716
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.30]); Thu, 21 Feb 2019 11:52:28 +0000 (UTC)
+In-Reply-To: <1550095217-12047-4-git-send-email-longman@redhat.com>
+User-Agent: Mutt/1.11.1+86 (6f28e57d73f2) ()
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190221_035230_164140_3AE7CB91 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20190221_061430_889661_E694531A 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -77,37 +69,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "david.abdurachmanov@gmail.com" <david.abdurachmanov@gmail.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "virtualization@lists.linux-foundation.org"
- <virtualization@lists.linux-foundation.org>,
- "alistair23@gmail.com" <alistair23@gmail.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>, linux-mips@vger.kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-s390@vger.kernel.org, Davidlohr Bueso <dave@stgolabs.net>,
+ linux-c6x-dev@linux-c6x.org, linux-hexagon@vger.kernel.org, x86@kernel.org,
+ Ingo Molnar <mingo@redhat.com>, uclinux-h8-devel@lists.sourceforge.jp,
+ linux-xtensa@linux-xtensa.org, Arnd Bergmann <arnd@arndb.de>,
+ linux-um@lists.infradead.org, linux-m68k@lists.linux-m68k.org,
+ openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
+ Tim Chen <tim.c.chen@linux.intel.com>, linux-parisc@vger.kernel.org,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org,
+ linux-alpha@vger.kernel.org, nios2-dev@lists.rocketboards.org,
+ Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 21, 2019 at 12:33:03AM +0000, Alistair Francis wrote:
-> When running RISC-V QEMU with the Bochs device attached via PCIe the
-> probe of the Bochs device fails with:
->     [drm:bochs_hw_init] *ERROR* ID mismatch
+On Wed, Feb 13, 2019 at 05:00:17PM -0500, Waiman Long wrote:
+> Modify __down_read_trylock() to optimize for an unlocked rwsem and make
+> it generate slightly better code.
 > 
-> This was introduced by this commit:
->     7780eb9ce8 bochs: convert to drm_dev_register
+> Before this patch, down_read_trylock:
 > 
-> To fix the error we ensure that pci_enable_device() is called before
-> bochs_load().
+>    0x0000000000000000 <+0>:     callq  0x5 <down_read_trylock+5>
+>    0x0000000000000005 <+5>:     jmp    0x18 <down_read_trylock+24>
+>    0x0000000000000007 <+7>:     lea    0x1(%rdx),%rcx
+>    0x000000000000000b <+11>:    mov    %rdx,%rax
+>    0x000000000000000e <+14>:    lock cmpxchg %rcx,(%rdi)
+>    0x0000000000000013 <+19>:    cmp    %rax,%rdx
+>    0x0000000000000016 <+22>:    je     0x23 <down_read_trylock+35>
+>    0x0000000000000018 <+24>:    mov    (%rdi),%rdx
+>    0x000000000000001b <+27>:    test   %rdx,%rdx
+>    0x000000000000001e <+30>:    jns    0x7 <down_read_trylock+7>
+>    0x0000000000000020 <+32>:    xor    %eax,%eax
+>    0x0000000000000022 <+34>:    retq
+>    0x0000000000000023 <+35>:    mov    %gs:0x0,%rax
+>    0x000000000000002c <+44>:    or     $0x3,%rax
+>    0x0000000000000030 <+48>:    mov    %rax,0x20(%rdi)
+>    0x0000000000000034 <+52>:    mov    $0x1,%eax
+>    0x0000000000000039 <+57>:    retq
 > 
-> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
-> Reported-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
+> After patch, down_read_trylock:
+> 
+>    0x0000000000000000 <+0>:	callq  0x5 <down_read_trylock+5>
+>    0x0000000000000005 <+5>:	xor    %eax,%eax
+>    0x0000000000000007 <+7>:	lea    0x1(%rax),%rdx
+>    0x000000000000000b <+11>:	lock cmpxchg %rdx,(%rdi)
+>    0x0000000000000010 <+16>:	jne    0x29 <down_read_trylock+41>
+>    0x0000000000000012 <+18>:	mov    %gs:0x0,%rax
+>    0x000000000000001b <+27>:	or     $0x3,%rax
+>    0x000000000000001f <+31>:	mov    %rax,0x20(%rdi)
+>    0x0000000000000023 <+35>:	mov    $0x1,%eax
+>    0x0000000000000028 <+40>:	retq
+>    0x0000000000000029 <+41>:	test   %rax,%rax
+>    0x000000000000002c <+44>:	jns    0x7 <down_read_trylock+7>
+>    0x000000000000002e <+46>:	xor    %eax,%eax
+>    0x0000000000000030 <+48>:	retq
+> 
+> By using a rwsem microbenchmark, the down_read_trylock() rate (with a
+> load of 10 to lengthen the lock critical section) on a x86-64 system
+> before and after the patch were:
+> 
+>                  Before Patch    After Patch
+>    # of Threads     rlock           rlock
+>    ------------     -----           -----
+>         1           14,496          14,716
+>         2            8,644           8,453
+> 	4            6,799           6,983
+> 	8            5,664           7,190
+> 
+> On a ARM64 system, the performance results were:
+> 
+>                  Before Patch    After Patch
+>    # of Threads     rlock           rlock
+>    ------------     -----           -----
+>         1           23,676          24,488
+>         2            7,697           9,502
+>         4            4,945           3,440
+>         8            2,641           1,603
+> 
+> For the uncontended case (1 thread), the new down_read_trylock() is a
+> little bit faster. For the contended cases, the new down_read_trylock()
+> perform pretty well in x86-64, but performance degrades at high
+> contention level on ARM64.
+> 
+> Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
+> Signed-off-by: Waiman Long <longman@redhat.com>
+> ---
+>  kernel/locking/rwsem.h | 13 ++++++++-----
+>  1 file changed, 8 insertions(+), 5 deletions(-)
+> 
+> diff --git a/kernel/locking/rwsem.h b/kernel/locking/rwsem.h
+> index 45ee002..1f5775a 100644
+> --- a/kernel/locking/rwsem.h
+> +++ b/kernel/locking/rwsem.h
+> @@ -174,14 +174,17 @@ static inline int __down_read_killable(struct rw_semaphore *sem)
+>  
+>  static inline int __down_read_trylock(struct rw_semaphore *sem)
+>  {
+> -	long tmp;
+> +	/*
+> +	 * Optimize for the case when the rwsem is not locked at all.
+> +	 */
+> +	long tmp = RWSEM_UNLOCKED_VALUE;
+>  
+> -	while ((tmp = atomic_long_read(&sem->count)) >= 0) {
+> -		if (tmp == atomic_long_cmpxchg_acquire(&sem->count, tmp,
+> -				   tmp + RWSEM_ACTIVE_READ_BIAS)) {
+> +	do {
+> +		if (atomic_long_try_cmpxchg_acquire(&sem->count, &tmp,
+> +					tmp + RWSEM_ACTIVE_READ_BIAS)) {
+>  			return 1;
+>  		}
+> -	}
+> +	} while (tmp >= 0);
 
-Pushed to drm-misc-fixes.
+Nit: but I guess that should be RWSEM_UNLOCKED_VALUE instead of 0.
 
-thanks,
-  Gerd
-
+Will
 
 _______________________________________________
 linux-riscv mailing list
