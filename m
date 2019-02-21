@@ -1,82 +1,147 @@
-Return-Path: <SRS0=mmvj=Q3=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=eaTI=Q4=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	FROM_EXCESS_BASE64,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+X-Spam-Status: No, score=-9.1 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 82A85C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 Feb 2019 19:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3881DC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 Feb 2019 00:33:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 422BD2147A
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 Feb 2019 19:57:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EEC672146E
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 Feb 2019 00:33:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tPx37JM2";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="RUzGQ3YB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 422BD2147A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZrBaccfW";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="D4aUNIps";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="Px6hOeyO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EEC672146E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7gkGL6zsCTkXxSn1iU+AHhi9g5/oCaCgCTAC4AZOdp4=; b=tPx37JM2vVq1NG
-	/2cywH0EZ9ryQ4ZMFWvj/qMDsR90/LYd/+egMFRjCYCf5/rT1DanSWIWiLtFdAbCguCvGR9ojIiPI
-	ZSJvUclac925l/JKTGbWhexAy9LnfQ3J5Gg0O1j/SQE9Jfdq2yg4pPzMco+j8g6/wrvtF2dBOy4sw
-	soiLm81lXE3k+hjp9B0gSC13XgeUz66VnqCx7MJ/NJ4jx39arAMKquarpptaKck1e4ZJS+LvzrNKD
-	JNXcMd0fP0C7oUtz3wASk4YofViATFINqa4VvP3tm695GGpFDaeWoP8XzoBMbZ8cE1NFKSnJeypY4
-	uEjupI9H0w+g1K5YbNnA==;
+	List-Owner; bh=GdCRtD2laOzn8UzqvF/F0pvExysSlSlsd/ifahyhqJc=; b=ZrBaccfWpDLJ/1
+	lNddv8clt14sM0NYRU4SyyAHq4MXJ4Cc7owDM/+To0z/XFaoa15wvUy5shKOPReZzVuOQ4fzh50tf
+	oO78JjvyadBoPNDevHsq2NPFRYSYJn1cDP5assL+iHr/tHlj6wILi58a2HqmF9JbJmRFH7zOiEUC1
+	Bo7hdVV4MwZeZLcpgMQiG3lOSZL1XcaERHverMpH+8DDA4eKyuk6Rxlqr1tnz9MwkkYtiOkHZ64Lu
+	AGAbUuPQA/Jp3fbsn4ECXDiYjkNkd26ghAK6waGCscQVQt239gal6+Fc6cYUc1H0Y8W2Nq5P4V8ax
+	MiqSgYWwzGtq0olLs1bQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gwXza-0007tk-Mo; Wed, 20 Feb 2019 19:57:18 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1gwcIq-0000bR-CE; Thu, 21 Feb 2019 00:33:28 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gwXzX-0007tN-Km
- for linux-riscv@lists.infradead.org; Wed, 20 Feb 2019 19:57:17 +0000
-Received: by mail-qt1-x829.google.com with SMTP id o6so28708130qtk.6
- for <linux-riscv@lists.infradead.org>; Wed, 20 Feb 2019 11:57:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:from:date:message-id:subject:to:cc
- :content-transfer-encoding;
- bh=MM+1yXPA0a61If2fLKSFf1Q15IV232vqhLE/5XgnV84=;
- b=RUzGQ3YBdjqn+FwlacSFuI1AuxWcohKYQgXPYg8Hy1+JlRK1j4pq3yFhdoqM59gVMP
- S5V0jH+hoIkRke7TDVIEFtG6L9HY1VN7G1SwjHR1kNBjFydZPa/qH5OkLqX0BV1fiwXk
- exEqkdtDlTeKvAU9Cb1btY8aInqwls149T/mOuyXCAITWjUx0VdVqxPptclPYirdnikq
- az9x3zWqS7RVDEJ20tzYi+VIAZgo4g8Af9OOH2vZRlHkf6hAWj3pvLQJ2UIbVzfhq7Xp
- kLCqh5e8CWGnkqbMjq6Iz17V/tGOCTtqodSL6yHjjMwrlrC7plcuxPN3EiAwUK2Zbd7e
- 3hLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc
- :content-transfer-encoding;
- bh=MM+1yXPA0a61If2fLKSFf1Q15IV232vqhLE/5XgnV84=;
- b=htHVaImlXY3QgAoUbAuvqOd4xVVEGIXANFwVBimJBHBLweqv3xijG0MbYcMcZo7zD+
- 085+SBbU9FnooVZPQpXZ09rL49Ka4gEzkQHfnujZo7VKtruSiorpK06pXm1LjZ6D2KUt
- E7H3Le5d37Kp3u+m+aHbIb/KWgIx6eI2nnVRLJ/461XeUyHWLJA5NemMEKu2PSG0cJxc
- bH8lbwrS5ECde7zQmurM4+YIqClPxwgTKUqHOZ3L0SMXm3rPmlZI0hYvDDYBtjE2pcKs
- SarNolaKlMYeEhzzmYgOKMstZKNTBRoktUNNmnGKbrkeck1xgWpQPOSRbrvQ+i6NqX9K
- /tnQ==
-X-Gm-Message-State: AHQUAuY1Ey07GG2/q42wr1Qx0UC3nVhAnVc6TT5/Et/QHOr6VBbhAiTS
- aHPPxUHanfqGPEW+QpLqVrWYWRXQQQzrAjNHAyjtYyMFz34=
-X-Google-Smtp-Source: AHgI3IbT25dzQh+BHNb66FdfVAhHo8rM+LjnrIbOGypBEtZjbOUunAjrYH9Ed/kzzh4l7+2mvDABc97Esp2uZ65Nmiw=
-X-Received: by 2002:aed:3783:: with SMTP id j3mr29552224qtb.16.1550692633525; 
- Wed, 20 Feb 2019 11:57:13 -0800 (PST)
+ id 1gwcIn-0000b1-MI
+ for linux-riscv@lists.infradead.org; Thu, 21 Feb 2019 00:33:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1550709206; x=1582245206;
+ h=from:to:cc:subject:date:message-id:
+ content-transfer-encoding:mime-version;
+ bh=oScnSknFb7fUqMAU3m0bZhVOyMiIJmmC/98wkj6WLT8=;
+ b=D4aUNIpsxR8Bstx5+/Kzf2xgXByF4TS/vdyRCwHUnZyDIQUmkUa1XQbN
+ oqfNRUWdMINy0XaxxdEgHcJTIIl2+BuRqK8vYwRVdtXeeughFfTmUU8ML
+ q2jcHkRFs+V2AcGyWZSA2vTx3dWMc1CtL++eX1gJy0PyYtS5bFuyli7DZ
+ rAkCuH2/E4y/TI4rdbg0ZVmU1D8CjEDQnSMRx3b4DZuIn/E2QuEeJCM25
+ MevE3RQFobSuV96OKUX/uuE5crh5hV6kJ7RF7WGKtutD6fW3pPi12uRMt
+ 5a7iwCMdX6u6w5u9UzuNbJ92drSzwj7W3uKm+1vOj4v3NK8LssUARLAFB w==;
+X-IronPort-AV: E=Sophos;i="5.58,392,1544457600"; d="scan'208";a="103071170"
+Received: from mail-co1nam04lp2054.outbound.protection.outlook.com (HELO
+ NAM04-CO1-obe.outbound.protection.outlook.com) ([104.47.45.54])
+ by ob1.hgst.iphmx.com with ESMTP; 21 Feb 2019 08:33:05 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=inH8ZBdiHV7w3+xZ0pr9OeAdu3PfuQspDl0mVP41LaQ=;
+ b=Px6hOeyO/KAKqOhtDQcLfQAMcrqsuX1c8+rl3wHbeweVJOYPVIWXyUz0CsuHbv91PCSs6vsuHZnmV9HaPH8Q2xWlmPLBBRd0Pl5G4n5ZZ0mk0j76+9rhq8jNCq+0Vsa9fiX6lnL9VFrEOMuPZfectvxfYMD3SS+M0eV6y2xG4fY=
+Received: from CY4PR04MB0392.namprd04.prod.outlook.com (10.173.190.148) by
+ CY4PR04MB0918.namprd04.prod.outlook.com (10.171.247.149) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.1622.19; Thu, 21 Feb 2019 00:33:03 +0000
+Received: from CY4PR04MB0392.namprd04.prod.outlook.com
+ ([fe80::2057:d590:6918:b286]) by CY4PR04MB0392.namprd04.prod.outlook.com
+ ([fe80::2057:d590:6918:b286%10]) with mapi id 15.20.1643.014; Thu, 21 Feb
+ 2019 00:33:03 +0000
+From: Alistair Francis <Alistair.Francis@wdc.com>
+To: "kraxel@redhat.com" <kraxel@redhat.com>,
+ "virtualization@lists.linux-foundation.org"
+ <virtualization@lists.linux-foundation.org>
+Subject: [PATCH] drm/bochs: Fix the ID mismatch error
+Thread-Topic: [PATCH] drm/bochs: Fix the ID mismatch error
+Thread-Index: AQHUyX0BfIJUREpsZE+VI2mcVzWCIA==
+Date: Thu, 21 Feb 2019 00:33:03 +0000
+Message-ID: <20190221003231.31625-1-alistair.francis@wdc.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.20.1
+x-clientproxiedby: BYAPR07CA0047.namprd07.prod.outlook.com
+ (2603:10b6:a03:60::24) To CY4PR04MB0392.namprd04.prod.outlook.com
+ (2603:10b6:903:b5::20)
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=Alistair.Francis@wdc.com; 
+x-ms-exchange-messagesentrepresentingtype: 1
+x-originating-ip: [199.255.44.250]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 833432c9-8478-4e4e-00d1-08d69794239f
+x-ms-office365-filtering-ht: Tenant
+x-microsoft-antispam: BCL:0; PCL:0;
+ RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600110)(711020)(4605104)(4618075)(2017052603328)(7153060)(7193020);
+ SRVR:CY4PR04MB0918; 
+x-ms-traffictypediagnostic: CY4PR04MB0918:
+wdcipoutbound: EOP-TRUE
+x-microsoft-exchange-diagnostics: =?iso-8859-1?Q?1; CY4PR04MB0918;
+ 23:+mEdHVPbDgK4oTrmaqM3z/hEe0ddHLuhn7lIp/R?=
+ =?iso-8859-1?Q?6I+UFEd6DtPd9a85CQRrVce+gya09fgEBji3Ym5KNJpqbxOYYAIoYBSzXv?=
+ =?iso-8859-1?Q?FY/G22bvgtsVy40CKJgZKRS/BEQWO9tYnRzZiCywcTG2VXb2Y+bW6ATRDQ?=
+ =?iso-8859-1?Q?g6I+3Oo7qUOJWJ5SvsrQaEVVZ5ZmtPr6QK5swhom10rsIBXq72YZB2EzX/?=
+ =?iso-8859-1?Q?9eX6x8xigPJ3UxHVd9aAil+IgScv9zEzv0HuHL83KwrWqsF9ZgD1IZG1GN?=
+ =?iso-8859-1?Q?VGfXJbLKeAkcctdFJktwjZE9SbmgghsJUeMSaYwSDALIGFWaIiJpKAhMtc?=
+ =?iso-8859-1?Q?05mWK8TWYpmHtyrircQ3O2bvYjGr/mtHidXLWuQAneJ98OvC+RCZaGXOhG?=
+ =?iso-8859-1?Q?Q5NAs1DVcZdZ4ESrNEYxevJ7k3cJblJ9twCrE9YPnb40StrgFtXZGfet5Z?=
+ =?iso-8859-1?Q?Ydyygf+ACXOJW3SVpsM4Arl5Kmt4P33soZGV9Nk7P1Cd+9aPYyDrAWZSQl?=
+ =?iso-8859-1?Q?c1Oq7Eg0tSAcEu/yev+V6/Q/w+SLktic3AgGm6VuJG19tzj4n+i8ls8u1z?=
+ =?iso-8859-1?Q?da+xPYq/JzTmuEheYMGMgaNPKEheLqPuA6zxignRsOLvvnRHa90181X8cc?=
+ =?iso-8859-1?Q?MeWd2BTCEVQvOML58TBAFQMp081HLv/MKN2eXK2X5N7Ho9Skr4IboflzqA?=
+ =?iso-8859-1?Q?VoaAum+nGmaxkK3fYzsJJxkMebeg/wnf1ELvLb8MEf6y5pw3gALYRPc5zs?=
+ =?iso-8859-1?Q?AqJm1PLZGWFUf8HIQ26s1NzuegIrsiyzLoWIjsAyBcKsbD/F3DxbqHCMtD?=
+ =?iso-8859-1?Q?kxq4OVdOoXoFkxF0dOhX+InLy0vRjecj6yA+BP7ofoapys5Y73oHrB+kL2?=
+ =?iso-8859-1?Q?rDwLs2v2pH6jF8Xrqkz3UvOeFIpYSvV5zSqt34QE+EfKQj7YndjiTqBo52?=
+ =?iso-8859-1?Q?/gR8XcSMSQcRBjs1GI2HvIwR7H3um6ehKn4B3RBh0phPzRv3gQ58VeBKEd?=
+ =?iso-8859-1?Q?7mH503L56g/n8L/3EevGjni5JOHcpj0edPThQfVBu6S8/dvARZngtr+rbI?=
+ =?iso-8859-1?Q?P6WXRfMyRsywJYFMDU+tiN5R5qOoO7FtSEb0LorMEEp4ra+IsRL3OksdtK?=
+ =?iso-8859-1?Q?uHuG3wibNiDMdZQu6t/gbQCdCAd+bQdvUYTeAWKKMWDjLnIrlHqj9mD46h?=
+ =?iso-8859-1?Q?4xh3azqRCfU1mlGQQOKbVSua/PDyNHoMflcwuXg/HYm2DEMqVTE/LLPEFu?=
+ =?iso-8859-1?Q?6iWSgz7BVGacWGvoq37hMJeDtgtLU4rr5p+I3HQwgPrzXruSIkilXWESkq?=
+ =?iso-8859-1?Q?yk=3D?=
+x-microsoft-antispam-prvs: <CY4PR04MB091822CFEFDE44F6E9D1E37E907E0@CY4PR04MB0918.namprd04.prod.outlook.com>
+x-forefront-prvs: 09555FB1AD
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10019020)(376002)(346002)(366004)(136003)(39860400002)(396003)(199004)(189003)(6506007)(386003)(7736002)(4326008)(25786009)(5024004)(81166006)(4744005)(305945005)(81156014)(2501003)(50226002)(102836004)(186003)(106356001)(8936002)(26005)(256004)(105586002)(66066001)(1076003)(97736004)(8676002)(68736007)(2616005)(99286004)(478600001)(476003)(44832011)(71190400001)(36756003)(72206003)(71200400001)(486006)(5660300002)(6116002)(2906002)(110136005)(6436002)(3846002)(52116002)(6512007)(53936002)(86362001)(316002)(54906003)(6486002)(14454004);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:CY4PR04MB0918;
+ H:CY4PR04MB0392.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; A:1; MX:1; 
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: fcDWkahwKuaHtg5vhLyV5ONGrMvixLLNZkOqidv9GxLFW2OW0sXEgTE5Xp42I0CTfM7qoOmk8B8mX53Qf3EMmxKnI25PtUmSIG4VbOUjy+OLsTxVZAgjxi/OM+lP8T2Nvh5TOJYBh29IRmlNrGPgdza4hwxkCIzKE4TSmTxBEfoRadcA7Qa/o2eM4YEeZBg91YHht6AP9pcmLBhgrofy+1oNVKpk3KY1FNJvKB1cQwwAuYmlbZUQsbuvV2Lnf0UrFdXCw+c8YHgiEnGo/ukpUFLiND0m8HC5UJPsXgha3fJ8v+AJURMbhGSPt9/g6C0g8baqY59xHBPewVWgeSguAzp0kPazitTLuALM8yMn40/P8NydsAkVyALEilcmIz2Ic2F4/+XgnDH9Vi8msCoicEnjaXhx+InLmbnjsW07sR8=
 MIME-Version: 1.0
-From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
-Date: Wed, 20 Feb 2019 20:57:02 +0100
-Message-ID: <CAJ+HfNgwAFevO6cXMU_FjQtLJ=uxHmmWM8c-VWu58SMkKXgVyQ@mail.gmail.com>
-Subject: per-cpu thoughts
-To: linux-riscv@lists.infradead.org
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 833432c9-8478-4e4e-00d1-08d69794239f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Feb 2019 00:33:02.4748 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY4PR04MB0918
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190220_115715_678894_65F96EA9 
-X-CRM114-Status: UNSURE (   3.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190220_163325_855301_85F3C6B2 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -88,23 +153,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Christoph Lameter <cl@linux.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: "david.abdurachmanov@gmail.com" <david.abdurachmanov@gmail.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ "alistair23@gmail.com" <alistair23@gmail.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpDaHJpc3RvcGhlciBtZW50aW9uZWQgInBlci1jcHUgYXRvbWljaXR5IiBpbiBoaXMgUGx1
-bWJlcnMgUklTQy1WIEhQQwp0YWxrIFsxXS4gVHlwaWNhbGx5LCB0aGlzIHdvdWxkIGJlIGZvciB0
-aGUgcGVyLWNwdSBpbXBsZW1lbnRhdGlvbiBpbgpMaW51eCwgc28gSSBoYWQgYSBsb29rIGF0IHRo
-ZSBjdXJyZW50IGltcGxlbWVudGF0aW9uLgoKSSBub3RpY2VkIHRoYXQgUklTQy1WIGN1cnJlbnRs
-eSB1c2VzIHRoZSBnZW5lcmljIG9uZS4gSGFzIHRoZXJlIGJlZW4KYW55IHdvcmsgb24gbW92aW5n
-IHRvIGEgUklTQy1WIHNwZWNpZmljIGltcGwsIGJhc2VkIG9uIHRoZQpBLWV4dGVuc2lvbnMsIHNp
-bWlsYXIgdG8gd2hhdCBhYXJjaDY0IGRvZXM/IFdvdWxkIHRoYXQgbWFrZSBzZW5zZT8KCkZpbmFs
-bHk7IEhhcyB0aGVyZSBiZWVuIGFueSBtb3JlIGRpc2N1c3Npb25zIG9uIENocmlzdG9waGVyJ3Mg
-aW5wdXQ/CgoKVGhhbmtzLApCasO2cm4KClsxXSBodHRwczovL2xpbnV4cGx1bWJlcnNjb25mLm9y
-Zy9ldmVudC8yL2NvbnRyaWJ1dGlvbnMvMTk5L2F0dGFjaG1lbnRzLzExNy8xNDkvMjAxOF9QbHVt
-YmVyc19IUENfaW5fUmlzYy5wZGYKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+When running RISC-V QEMU with the Bochs device attached via PCIe the
+probe of the Bochs device fails with:
+    [drm:bochs_hw_init] *ERROR* ID mismatch
+
+This was introduced by this commit:
+    7780eb9ce8 bochs: convert to drm_dev_register
+
+To fix the error we ensure that pci_enable_device() is called before
+bochs_load().
+
+Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+Reported-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
+---
+ drivers/gpu/drm/bochs/bochs_drv.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/gpu/drm/bochs/bochs_drv.c b/drivers/gpu/drm/bochs/bochs_drv.c
+index f3dd66ae990a..aa35007262cd 100644
+--- a/drivers/gpu/drm/bochs/bochs_drv.c
++++ b/drivers/gpu/drm/bochs/bochs_drv.c
+@@ -154,6 +154,10 @@ static int bochs_pci_probe(struct pci_dev *pdev,
+ 	if (IS_ERR(dev))
+ 		return PTR_ERR(dev);
+ 
++	ret = pci_enable_device(pdev);
++	if (ret)
++		goto err_free_dev;
++
+ 	dev->pdev = pdev;
+ 	pci_set_drvdata(pdev, dev);
+ 
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
