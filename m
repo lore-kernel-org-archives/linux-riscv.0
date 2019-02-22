@@ -2,80 +2,81 @@ Return-Path: <SRS0=tgI3=Q5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,USER_AGENT_MUTT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EAFB0C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 16:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F157C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 16:51:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BA0122075C
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 16:41:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6EB3120700
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 16:51:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WTPSmVNV"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BA0122075C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dqcgSZv/";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="We65ejXb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6EB3120700
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K430BY4tgL3iFI/k+lnDQoqFSOULmQl9wbD7zWMojq8=; b=WTPSmVNV7VXgcB
-	yruK2KO0qQnRMNnHJ1grDfqq2g/iyPS+VwODoPo4HakX3zMvuLMiFuzsZbApOFI+7HD2tUjYy+Hrk
-	kj6p8ax2BHYNIQiIvrN2EKLNpGaMnqWeqTXCRIOWp7Z3j87M7Eilyd8lwrU6PGeZMNmoG/YGHpo54
-	P3NwPIWS7+/IhWa+dto9J27U3HJDK80GsG/qXUxRhXnMxxL5l7/oWL9NSIyioe11qtMc1GifLRjxg
-	SgaC7S0VZ6d3Eq5SAwTAj639NTh9HzBfUWgM1LBK8/BdTHaVFoDdrc7nkmk3Qp+32mT22ybkHVxCK
-	BcaCGdTZFrjFPxMnnuKw==;
+	List-Owner; bh=NdCt8/dLFd3nlq+f1xFLjiLHOPPBZq8pahVI25gmBkI=; b=dqcgSZv/nFeKuM
+	SG6xEkq1yq+FQKDM7AQSZQDFheFVYG8Rhww1KH9wv8N+qyOtdlLZHdfODUkME6t2xHJSeLCB1lsPX
+	xHVIMqhzTsLrL6bxjH79tmO+5MMPTxPX1Dub75XR8Bp/WMKeyuxhe7d2hPTlZlZ/pFG5oVHliBvuK
+	rJ2R2LiAfJvy/jprYnCncjVYUoV57nxrfOKIovIiMROwCOg+WpCdgzMHVtJ6Joz7o5Ta1k5m3keeD
+	owE8UTlAgCyOgfbtKGyDzG1AoyheN60jR19zT+413fUYmXpmq2XTBHtditlLYa/ZRDHwvcDW2Ypjh
+	xALt9JeJZImifAMg0skw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gxDtP-0000SZ-GM; Fri, 22 Feb 2019 16:41:43 +0000
-Received: from mail-ot1-f67.google.com ([209.85.210.67])
+	id 1gxE2M-0004VK-VW; Fri, 22 Feb 2019 16:50:58 +0000
+Received: from mail-vk1-xa41.google.com ([2607:f8b0:4864:20::a41])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gxDtM-0000SH-FU
- for linux-riscv@lists.infradead.org; Fri, 22 Feb 2019 16:41:41 +0000
-Received: by mail-ot1-f67.google.com with SMTP id z19so2401263otm.2
- for <linux-riscv@lists.infradead.org>; Fri, 22 Feb 2019 08:41:40 -0800 (PST)
+ id 1gxE2B-0004MQ-Sk; Fri, 22 Feb 2019 16:50:51 +0000
+Received: by mail-vk1-xa41.google.com with SMTP id e131so630638vkf.10;
+ Fri, 22 Feb 2019 08:50:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=r+ptFvJ18N0UnrAzJS/StVWMlNtZYWTc8hvWf6ejkBs=;
+ b=We65ejXbgJU3m0qEqWdZ5pkgpwzViF7OafNrhV1Fu+TJ6nid9Fq/eOuhV1Myp65GvN
+ 9halQAbpVVdhVo4Lqnc7zataJNvTlR/h15ECHkgErA/AOLXa8gEQyxyu8XdP+T4zAMos
+ RiyA9iEL3xBQNHbxaNElyxPKYjq+K/pPTpfWUcgEECihXGU9DNN3tYV+mj5OgH2NC++2
+ to8ReVSG3DJsozn7TzPJ/jQ1I6G2ZnNKRVGKBMAuGi+Fs0daqOBKXvWfUnBjqDHMk0bF
+ z+f3lkKHnGgiVt/hesbj1ez1OoBegWQuKJmoTVGtIuex382aUQGKzLXW7UYyaxYL2bNT
+ uaBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=XMd6d5tyjUw6DCRtlAjkYupHm7RKPdnmR4ieEeDu3s4=;
- b=ogPufQ2k3XunjsQbeJL2D5TLAmrwNiA2XdzPhZ/SuwgOR53pFbtRoomMvOzBkMsLa8
- jlpNmLss7MIEJSi4GSmo11/Fis5YQur6vEyCljfN8SDT3Pbr3oO73G+4JS+yQYVPcAeE
- KHyDdZOv8KvZYSFHuvAghpGT8sDcHHAfuzMeyfSpbcWfBoX9m/NOVFl6CakT2u/E+nPl
- A2uGXhWnTrOKhsm+2LjzzYbA/8DJVj1N4sOa71dknVGs9Fo1JGJA9juy9vDlfr/CQDQn
- HOgbfGP6+7mJ9x4KgH0gwdp/7GfGUhC07pFH94gcOz+kJ5sPX9CNtLFcTl0caNe1sQNs
- 5ghg==
-X-Gm-Message-State: AHQUAuZRcGBgPKNZKVgfzQhF0H3cXORgybX6R/i3P5N+xx4uWk2kptQv
- 4fhXVcqDMyoAgfD/9eRiFw==
-X-Google-Smtp-Source: AHgI3Ibwxyp38dJDZl+owediDt3iGPWdSU0G46lSSkxo+oDaaxei8z19jackp/IDcMahcGQJH1Kx1A==
-X-Received: by 2002:a9d:220c:: with SMTP id o12mr3099431ota.19.1550853699201; 
- Fri, 22 Feb 2019 08:41:39 -0800 (PST)
-Received: from localhost (24-155-109-49.dyn.grandenetworks.net.
- [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id x127sm734264oix.25.2019.02.22.08.41.38
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Fri, 22 Feb 2019 08:41:38 -0800 (PST)
-Date: Fri, 22 Feb 2019 10:41:37 -0600
-From: Rob Herring <robh@kernel.org>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH v7 1/2] pwm: sifive: Add DT documentation for SiFive PWM
- Controller
-Message-ID: <20190222164137.GA23340@bogus>
-References: <1550740301-10097-1-git-send-email-yash.shah@sifive.com>
- <1550740301-10097-2-git-send-email-yash.shah@sifive.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=r+ptFvJ18N0UnrAzJS/StVWMlNtZYWTc8hvWf6ejkBs=;
+ b=du6zv/hRI+xbw7cTjotdLxXlXLthxQNZEKyivPJV246elQXo93ZKf79UXAteabvVfO
+ j2YkQZOzQGSnMnsyJ4XkUztG2yvWYm/FxJzqJ54BL8Jwgb0C9TyVix7BhO9Y1LA8O3ip
+ T/jDWzH0XUjc7lcWTamV5B9FA5VXZddtMvHqZLL2I1Ssnox+5YN0i8txIizgIv+ndXgC
+ QZBIib+FItFEpizdnBcwbYKC7xN/iakbrhUNLmBV051GNtyEoayqJENp/jaSzJ0xCnl8
+ UIyIJInoTI8NFz8Jl8sTE8JuXyKPAI/NBvznyTfr6dHTKAok4H1LVmcwzW0rgYyCjfTd
+ zc4g==
+X-Gm-Message-State: AHQUAuZDoyHbzNGujSqn8SGcnJstIHyVgqko0gL19Gq8/0Warmb0p696
+ oV/J90J52TndiVSVcyEzmwbCy0cTu9gfCzMUvPVMcw==
+X-Google-Smtp-Source: AHgI3IYIqZ4L0j4TdzyxEehdq3XbpGtscHTZl6FHyUapP+jJ8S76S2SeCLhQ2/SNvNgZJbCpqeywfit6lXKg7gOlR6U=
+X-Received: by 2002:a1f:a986:: with SMTP id s128mr2668480vke.53.1550854246377; 
+ Fri, 22 Feb 2019 08:50:46 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1550740301-10097-2-git-send-email-yash.shah@sifive.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <CAOuPNLhDtRJDBnwuV1kQ47Zd9B00qh2bXDNQvh9tXfTyYqAWDQ@mail.gmail.com>
+ <20190222141059.GJ42419@lakrids.cambridge.arm.com>
+In-Reply-To: <20190222141059.GJ42419@lakrids.cambridge.arm.com>
+From: Pintu Agarwal <pintu.ping@gmail.com>
+Date: Fri, 22 Feb 2019 22:20:35 +0530
+Message-ID: <CAOuPNLixfZUzVyv4uHzwWPXWQmCYwNUtTOtNXFwOg8aPZda3aw@mail.gmail.com>
+Subject: Re: arm64 Kernel build for qemu-system-aarch64 ?
+To: Mark Rutland <mark.rutland@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190222_084140_510142_5389C786 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190222_085049_867322_206FA73B 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -87,30 +88,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- palmer@sifive.com, linux-kernel@vger.kernel.org, robh+dt@kernel.org,
- sachin.ghadi@sifive.com, Yash Shah <yash.shah@sifive.com>,
- thierry.reding@gmail.com, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org, open list <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kernelnewbies@kernelnewbies.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 Feb 2019 14:41:40 +0530, Yash Shah wrote:
-> DT documentation for PWM controller added.
-> 
-> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
-> [Atish: Compatible string update]
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> Signed-off-by: Yash Shah <yash.shah@sifive.com>
-> ---
->  .../devicetree/bindings/pwm/pwm-sifive.txt         | 33 ++++++++++++++++++++++
->  1 file changed, 33 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.txt
-> 
+On Fri, Feb 22, 2019 at 7:41 PM Mark Rutland <mark.rutland@arm.com> wrote:
+>
+> On Fri, Feb 22, 2019 at 07:17:00PM +0530, Pintu Agarwal wrote:
+> > Hi All,
+>
+> Hi,
+>
+> > I want to build Linux Kernel 4.20 for arm64 and use it on qemu-arm64.
+> > I see that there is a defconfig available in arch/arm64/configs/defconfig
+> > But I am not sure whether it will work for qemu-arm64, and by default
+> > which machine type is supported.
+> >
+> > I already have working setup for qemu-arm for both versatile and
+> > vexpress machine. There is already a defconfig available for these
+> > under arch/arm.
+> > So I can build the kernel for it.
+> >
+> > But, whether these defconfig are supported for arm64 ?
+> > If anybody have setup for qemu-arm64 kernel, please share the steps.
+> > About rootfs, I am planning to use the arm32 version of busybox itself.
+>
+> The arm64 defconfig is intended to work for all platforms.
+>
+> I use that with qemu's '-machine virt'. Assuming you use virtio-net and
+> virtio-block, no additional drivers are required.
+>
+> For example, I can boot a defconfig kernel using the followign QEMU options:
+>
+> qemu-system-aarch64 \
+>         -m 2048 -smp 4 \
+>         -net nic \
+>         -net user,host=10.0.2.10,hostfwd=tcp::65022-:22 \
+>         -nographic \
+>         -no-reboot \
+>         -machine virt,accel=kvm,gic_version=host \
+>         -cpu host \
+>         -hda ${FILESYSTEM} \
+>         -snapshot \
+>         -kernel ${KERNEL} \
+>         -append "earlycon root=/dev/vda panic_on_warn"
+>
+> Thanks,
+> Mark.
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+oh thank you so much for your information.
+I was exactly looking for this option.
+Let me try it on Monday.
+
+
+Thanks
 
 _______________________________________________
 linux-riscv mailing list
