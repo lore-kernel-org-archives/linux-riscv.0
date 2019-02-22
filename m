@@ -2,80 +2,60 @@ Return-Path: <SRS0=tgI3=Q5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C0A2C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 13:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DD091C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 14:11:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F24E32075C
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 13:47:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AB4FC20651
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 14:11:17 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WULIArQW";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="R/o4V6dO"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F24E32075C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OgIuaxej"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AB4FC20651
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=u/D89boUCo81ECG+C6Iyw2PIshEZiiN7PSHhhqn4kk0=; b=WUL
-	IArQW70V81/8vN+mAqbmVJWxnnGC3yycefrsntuRKQLOboDTkTpY748hNi2OOyKB36WconM7aH+Ey
-	pGYpvjiHFwTaQ1NApQ98TJQIaaB2BnU1tVKgsHGfqQ+zP+F5gSmJm4u6vErjxkFNJQrbyPxqH1+nB
-	WtXebO/xD4nXf1/jNYXznRBPgkPJ9YIHe0Q0hUCBv2aFyIyQ7sQCNYK0fgbYSSZdSHipWewgUWwjG
-	DVWbqsHLXpEub1DRdXCllwtgAZ7ZQuX5fQaDIiKM2cNm1sKg5gJRhRMQz3eochCUb0uosEPLrsRH2
-	SJ8MSvlB7Hn4rHUaVwcDfJ/vpWN90Vg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=q/A4E0/gHs8doDNv/DJyXueoR2azDXF5yH8HQupfduk=; b=OgIuaxej9UlTWb
+	dvXmf/P+FZ5C9ncOuq9laXZa1rI8WV74XE6myu7zKisMc5iz402vTgiCpccWxQMhq/DG+arcoU+6K
+	YNOu43iA9VkFqPW3jp8dLB3qmtHImnpE9xuVHk634/dKENkptdX3AJgf34UFDi+WQZlrlR3WN3xtt
+	rcHP+r+TXlQHBjKw+o6mRDcO+XCJYA7vI08b/26VcLjTg5XIyqB2EjO3zvBSrrua9hMWnEm4r6Tjx
+	E3N0sSQAp07DBT5FS1wOO3gynjOPROQCtld//ZKhakzrT47wyLlh9UIaYITVP/SG3E7QXygHLCetE
+	UrzRFk05KPu/YMlC4M6A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gxBAh-0004ND-Gs; Fri, 22 Feb 2019 13:47:23 +0000
-Received: from mail-ua1-x943.google.com ([2607:f8b0:4864:20::943])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gxBAX-0004A4-UD; Fri, 22 Feb 2019 13:47:15 +0000
-Received: by mail-ua1-x943.google.com with SMTP id z24so1951833ual.8;
- Fri, 22 Feb 2019 05:47:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:from:date:message-id:subject:to;
- bh=aPDUL23UbS//3iJMmULFAIatEpA4+JfxwfASuQY5x2M=;
- b=R/o4V6dOWF7U9/SRWhJCfyUMQD5INNHT07TY/7jtJNMUJp7Yamg4QT+zsuNPiw+wRf
- icVyH1l18lum87NFuWR+NTwHmQWvLHrjW/oI8K7lKlbBJ0OaFZIBqrOrbd/Depq6LFJm
- bi0RgJyRL3ZlbiDGu3ZPmvxUvozZWyJD4g84AMWOQGaV1MwGuPEcqSiBVPmX/z/IK+/v
- s9SRjCI/7CQaP6m2mINzLN1cCj0qI8NVBFuS7J1/1C1URUqCMKVZdythMzCYZ1+oM3GD
- VybPLISdL02v2/r5tGo2fKYF2gP7jtzFvoMLKAanrruVFdUTUJEmyVUSG3jdGpRqV1ZU
- 57vQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
- bh=aPDUL23UbS//3iJMmULFAIatEpA4+JfxwfASuQY5x2M=;
- b=YGW5eFz6Bw2czHyLxNBQUrMCGZ08VV7S6D/hg8HrWduDOZN9ra3l8Z/nrllwu6M7fE
- SuX0wtHErD16rcPLJMZgXHAp5nVytnNZNagTKsnvLpiWthjG5CWg9CECQSjFQyyaAXD6
- lacpLWws5poPepqZl9AScOIHwbf7cBuQn2AFb0YcGEH5xYZ1gNOjBajDflqY3PmuPX39
- dYaxLDaKg4BWOooGveggkYjubt1UJyc0qJCnkHEZM2epiqTWtoy8g0nHN8gvSZj8eHyI
- vwkcOP69X/rhF83btSw/GgtkKojzZbRI77BMPs+Gm6POodmCTnZvMuBJhx/2H8vrVMeV
- S+Fw==
-X-Gm-Message-State: AHQUAuY1ix10I8dgoiZOipLjwiZPxC+2Y4BigHRpTtK634Ipfqb72LVe
- NC6DVlmuwa4DuQWP/e+OYq6whyh30tsiEOuT+hU=
-X-Google-Smtp-Source: AHgI3IaClSMENoIJy7f7CljnlX/Pq5hck0APCEuxnytYmqKU2FrD/O7lBl+jSgx68wZNZiVCVY2mq4mcM0oxvKbbBC4=
-X-Received: by 2002:a67:6887:: with SMTP id d129mr2231318vsc.144.1550843232002; 
- Fri, 22 Feb 2019 05:47:12 -0800 (PST)
+	id 1gxBXl-0006lZ-4c; Fri, 22 Feb 2019 14:11:13 +0000
+Received: from foss.arm.com ([217.140.101.70])
+ by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1gxBXc-0006dg-R5; Fri, 22 Feb 2019 14:11:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8DF1A78;
+ Fri, 22 Feb 2019 06:11:02 -0800 (PST)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com
+ [10.72.51.249])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C82FA3F690;
+ Fri, 22 Feb 2019 06:11:01 -0800 (PST)
+Date: Fri, 22 Feb 2019 14:10:59 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Pintu Agarwal <pintu.ping@gmail.com>
+Subject: Re: arm64 Kernel build for qemu-system-aarch64 ?
+Message-ID: <20190222141059.GJ42419@lakrids.cambridge.arm.com>
+References: <CAOuPNLhDtRJDBnwuV1kQ47Zd9B00qh2bXDNQvh9tXfTyYqAWDQ@mail.gmail.com>
 MIME-Version: 1.0
-From: Pintu Agarwal <pintu.ping@gmail.com>
-Date: Fri, 22 Feb 2019 19:17:00 +0530
-Message-ID: <CAOuPNLhDtRJDBnwuV1kQ47Zd9B00qh2bXDNQvh9tXfTyYqAWDQ@mail.gmail.com>
-Subject: arm64 Kernel build for qemu-system-aarch64 ?
-To: open list <linux-kernel@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, 
- linux-riscv@lists.infradead.org, kernelnewbies@kernelnewbies.org
+Content-Disposition: inline
+In-Reply-To: <CAOuPNLhDtRJDBnwuV1kQ47Zd9B00qh2bXDNQvh9tXfTyYqAWDQ@mail.gmail.com>
+User-Agent: Mutt/1.11.1+11 (2f07cb52) (2018-12-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190222_054714_019567_09157195 
-X-CRM114-Status: UNSURE (   7.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190222_061104_884618_564A18BD 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -87,30 +67,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: linux-riscv@lists.infradead.org, open list <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kernelnewbies@kernelnewbies.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+On Fri, Feb 22, 2019 at 07:17:00PM +0530, Pintu Agarwal wrote:
+> Hi All,
 
-I want to build Linux Kernel 4.20 for arm64 and use it on qemu-arm64.
-I see that there is a defconfig available in arch/arm64/configs/defconfig
-But I am not sure whether it will work for qemu-arm64, and by default
-which machine type is supported.
+Hi,
 
-I already have working setup for qemu-arm for both versatile and
-vexpress machine. There is already a defconfig available for these
-under arch/arm.
-So I can build the kernel for it.
+> I want to build Linux Kernel 4.20 for arm64 and use it on qemu-arm64.
+> I see that there is a defconfig available in arch/arm64/configs/defconfig
+> But I am not sure whether it will work for qemu-arm64, and by default
+> which machine type is supported.
+> 
+> I already have working setup for qemu-arm for both versatile and
+> vexpress machine. There is already a defconfig available for these
+> under arch/arm.
+> So I can build the kernel for it.
+> 
+> But, whether these defconfig are supported for arm64 ?
+> If anybody have setup for qemu-arm64 kernel, please share the steps.
+> About rootfs, I am planning to use the arm32 version of busybox itself.
 
-But, whether these defconfig are supported for arm64 ?
-If anybody have setup for qemu-arm64 kernel, please share the steps.
-About rootfs, I am planning to use the arm32 version of busybox itself.
+The arm64 defconfig is intended to work for all platforms.
 
+I use that with qemu's '-machine virt'. Assuming you use virtio-net and
+virtio-block, no additional drivers are required.
+
+For example, I can boot a defconfig kernel using the followign QEMU options:
+
+qemu-system-aarch64 \
+        -m 2048 -smp 4 \
+        -net nic \
+        -net user,host=10.0.2.10,hostfwd=tcp::65022-:22 \
+        -nographic \
+        -no-reboot \
+        -machine virt,accel=kvm,gic_version=host \
+        -cpu host \
+        -hda ${FILESYSTEM} \
+        -snapshot \
+        -kernel ${KERNEL} \
+        -append "earlycon root=/dev/vda panic_on_warn"
 
 Thanks,
-Pintu
+Mark.
 
 _______________________________________________
 linux-riscv mailing list
