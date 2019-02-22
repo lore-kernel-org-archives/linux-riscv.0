@@ -2,72 +2,80 @@ Return-Path: <SRS0=tgI3=Q5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DB2B2C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 05:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C0A2C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 13:47:27 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A9E83207E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 05:37:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F24E32075C
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 13:47:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="StI1PUHJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A9E83207E0
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WULIArQW";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="R/o4V6dO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F24E32075C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zZ3nh6nUiL7hkxJikJILo1o9mjEMODYjdjoJENcC9j0=; b=StI1PUHJW/NMJP
-	La9IPyCQTPjQWZADVQ+kf6sET5trDOULjcaTlGkuCkLvInsBDsxHeaRSnIDRFgaTnXtULlbkx0Yqv
-	NWZWQ5IabMMyLf4wl00tC3rIKtzLoWHZAYP6/xPid4IsdYFNvTV9Qx7OlFJRhxtqqJjPMDKTK+Dxk
-	SeumBTtXSN79s1MrLWjyvvLlJgFj+1K1n7NDYOfOIuP+8NpyrmXJyh522ER7FJZB/IvH4Sw7u+vC5
-	9tXwz5ICx3/xaf3oEvyAdjSvl4s+3G4ID2PcULW4/e8iCNJgq3eyMLDnN4Vb0O0vMxkyuIgcN2/zI
-	2tshpqep4QL5NCgTFclw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=u/D89boUCo81ECG+C6Iyw2PIshEZiiN7PSHhhqn4kk0=; b=WUL
+	IArQW70V81/8vN+mAqbmVJWxnnGC3yycefrsntuRKQLOboDTkTpY748hNi2OOyKB36WconM7aH+Ey
+	pGYpvjiHFwTaQ1NApQ98TJQIaaB2BnU1tVKgsHGfqQ+zP+F5gSmJm4u6vErjxkFNJQrbyPxqH1+nB
+	WtXebO/xD4nXf1/jNYXznRBPgkPJ9YIHe0Q0hUCBv2aFyIyQ7sQCNYK0fgbYSSZdSHipWewgUWwjG
+	DVWbqsHLXpEub1DRdXCllwtgAZ7ZQuX5fQaDIiKM2cNm1sKg5gJRhRMQz3eochCUb0uosEPLrsRH2
+	SJ8MSvlB7Hn4rHUaVwcDfJ/vpWN90Vg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gx3Wz-0004MH-6a; Fri, 22 Feb 2019 05:37:53 +0000
-Received: from mx1.redhat.com ([209.132.183.28])
+	id 1gxBAh-0004ND-Gs; Fri, 22 Feb 2019 13:47:23 +0000
+Received: from mail-ua1-x943.google.com ([2607:f8b0:4864:20::943])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gx3Ww-0004LM-6s
- for linux-riscv@lists.infradead.org; Fri, 22 Feb 2019 05:37:51 +0000
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
- [10.5.11.11])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id 845233097076;
- Fri, 22 Feb 2019 05:37:48 +0000 (UTC)
-Received: from sirius.home.kraxel.org (ovpn-116-228.ams2.redhat.com
- [10.36.116.228])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 16A5F600C2;
- Fri, 22 Feb 2019 05:37:48 +0000 (UTC)
-Received: by sirius.home.kraxel.org (Postfix, from userid 1000)
- id 160E211AAB; Fri, 22 Feb 2019 06:37:47 +0100 (CET)
-Date: Fri, 22 Feb 2019 06:37:47 +0100
-From: "kraxel@redhat.com" <kraxel@redhat.com>
-To: Alistair Francis <alistair23@gmail.com>
-Subject: Re: [PATCH] drm/bochs: Fix the ID mismatch error
-Message-ID: <20190222053747.rhed6j6nyi6tmg4l@sirius.home.kraxel.org>
-References: <20190221003231.31625-1-alistair.francis@wdc.com>
- <20190221115227.ipwjpn3xm4q7jfg2@sirius.home.kraxel.org>
- <CAKmqyKM_pb-riJ+jO65eT0SsVDxrstPOgurPuDf92Fd4C8k1Ug@mail.gmail.com>
+ id 1gxBAX-0004A4-UD; Fri, 22 Feb 2019 13:47:15 +0000
+Received: by mail-ua1-x943.google.com with SMTP id z24so1951833ual.8;
+ Fri, 22 Feb 2019 05:47:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:from:date:message-id:subject:to;
+ bh=aPDUL23UbS//3iJMmULFAIatEpA4+JfxwfASuQY5x2M=;
+ b=R/o4V6dOWF7U9/SRWhJCfyUMQD5INNHT07TY/7jtJNMUJp7Yamg4QT+zsuNPiw+wRf
+ icVyH1l18lum87NFuWR+NTwHmQWvLHrjW/oI8K7lKlbBJ0OaFZIBqrOrbd/Depq6LFJm
+ bi0RgJyRL3ZlbiDGu3ZPmvxUvozZWyJD4g84AMWOQGaV1MwGuPEcqSiBVPmX/z/IK+/v
+ s9SRjCI/7CQaP6m2mINzLN1cCj0qI8NVBFuS7J1/1C1URUqCMKVZdythMzCYZ1+oM3GD
+ VybPLISdL02v2/r5tGo2fKYF2gP7jtzFvoMLKAanrruVFdUTUJEmyVUSG3jdGpRqV1ZU
+ 57vQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+ bh=aPDUL23UbS//3iJMmULFAIatEpA4+JfxwfASuQY5x2M=;
+ b=YGW5eFz6Bw2czHyLxNBQUrMCGZ08VV7S6D/hg8HrWduDOZN9ra3l8Z/nrllwu6M7fE
+ SuX0wtHErD16rcPLJMZgXHAp5nVytnNZNagTKsnvLpiWthjG5CWg9CECQSjFQyyaAXD6
+ lacpLWws5poPepqZl9AScOIHwbf7cBuQn2AFb0YcGEH5xYZ1gNOjBajDflqY3PmuPX39
+ dYaxLDaKg4BWOooGveggkYjubt1UJyc0qJCnkHEZM2epiqTWtoy8g0nHN8gvSZj8eHyI
+ vwkcOP69X/rhF83btSw/GgtkKojzZbRI77BMPs+Gm6POodmCTnZvMuBJhx/2H8vrVMeV
+ S+Fw==
+X-Gm-Message-State: AHQUAuY1ix10I8dgoiZOipLjwiZPxC+2Y4BigHRpTtK634Ipfqb72LVe
+ NC6DVlmuwa4DuQWP/e+OYq6whyh30tsiEOuT+hU=
+X-Google-Smtp-Source: AHgI3IaClSMENoIJy7f7CljnlX/Pq5hck0APCEuxnytYmqKU2FrD/O7lBl+jSgx68wZNZiVCVY2mq4mcM0oxvKbbBC4=
+X-Received: by 2002:a67:6887:: with SMTP id d129mr2231318vsc.144.1550843232002; 
+ Fri, 22 Feb 2019 05:47:12 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAKmqyKM_pb-riJ+jO65eT0SsVDxrstPOgurPuDf92Fd4C8k1Ug@mail.gmail.com>
-User-Agent: NeoMutt/20180716
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.43]); Fri, 22 Feb 2019 05:37:48 +0000 (UTC)
+From: Pintu Agarwal <pintu.ping@gmail.com>
+Date: Fri, 22 Feb 2019 19:17:00 +0530
+Message-ID: <CAOuPNLhDtRJDBnwuV1kQ47Zd9B00qh2bXDNQvh9tXfTyYqAWDQ@mail.gmail.com>
+Subject: arm64 Kernel build for qemu-system-aarch64 ?
+To: open list <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, kernelnewbies@kernelnewbies.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190221_213750_272864_6E1AC54D 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20190222_054714_019567_09157195 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -79,47 +87,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "david.abdurachmanov@gmail.com" <david.abdurachmanov@gmail.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "virtualization@lists.linux-foundation.org"
- <virtualization@lists.linux-foundation.org>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 21, 2019 at 10:44:06AM -0800, Alistair Francis wrote:
-> On Thu, Feb 21, 2019 at 3:52 AM kraxel@redhat.com <kraxel@redhat.com> wrote:
-> >
-> > On Thu, Feb 21, 2019 at 12:33:03AM +0000, Alistair Francis wrote:
-> > > When running RISC-V QEMU with the Bochs device attached via PCIe the
-> > > probe of the Bochs device fails with:
-> > >     [drm:bochs_hw_init] *ERROR* ID mismatch
-> > >
-> > > This was introduced by this commit:
-> > >     7780eb9ce8 bochs: convert to drm_dev_register
-> > >
-> > > To fix the error we ensure that pci_enable_device() is called before
-> > > bochs_load().
-> > >
-> > > Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
-> > > Reported-by: David Abdurachmanov <david.abdurachmanov@gmail.com>
-> >
-> > Pushed to drm-misc-fixes.
-> 
-> Thanks. Any chance this will make it into 5.0?
+Hi All,
 
-Hmm, we are damn close to the release, not sure there will be one more
-drm-fixes pull req.  But I've added a proper Fixes: tag, so even if the
-patch misses the boat it should land in the stable branches shortly
-thereafter.
+I want to build Linux Kernel 4.20 for arm64 and use it on qemu-arm64.
+I see that there is a defconfig available in arch/arm64/configs/defconfig
+But I am not sure whether it will work for qemu-arm64, and by default
+which machine type is supported.
 
-cheers,
-  Gerd
+I already have working setup for qemu-arm for both versatile and
+vexpress machine. There is already a defconfig available for these
+under arch/arm.
+So I can build the kernel for it.
 
+But, whether these defconfig are supported for arm64 ?
+If anybody have setup for qemu-arm64 kernel, please share the steps.
+About rootfs, I am planning to use the arm32 version of busybox itself.
+
+
+Thanks,
+Pintu
 
 _______________________________________________
 linux-riscv mailing list
