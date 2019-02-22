@@ -2,78 +2,76 @@ Return-Path: <SRS0=tgI3=Q5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-9.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C380C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 19:21:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C690EC4360F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 19:42:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 49FCC20700
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 19:21:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 91D2620700
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Feb 2019 19:42:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GwnJV+HJ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="WbH92rM1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 49FCC20700
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pAcgaOpu";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="OBYOo+KO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 91D2620700
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=jgVALms8YrQ00M9yCfOoGFGyBsJ2UA1p1cmMr+mm1no=; b=GwnJV+HJXol4iQCBSM1M/tA9Y
-	EQiqgSalbEW5sVpV9QrE7H11zIn8R6BrqmtsDMENpBFGmoOif/kveM/iIb7tysWOLkNvgudewTL5r
-	NAfUrCDVr1uK3pDy7xx1s8zDYHmM8TJdYJr02YlJIGH3XAo+jslXE5rWczExTaHDWiv15tr6d49cD
-	fXjYmyAbkKusQRaJoZ4rWUHOOybXawJ8lRxMxWq8SkKLtH6nTNoKkuLPxcekEZIBslHM+L+OMTiLO
-	gqZxL3zMKLNSwfN49An/l6OJMpOUGb/WEfhK+iaQFeeEdzNaPABxcptZ3W8PTbcuTtwsuM5lCchmu
-	ZN8xP9k9w==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=1ohqkYrYbHi7JsdRtBpb7ro2zRfGBy4MjqRl3r7PSyQ=; b=pAcgaOpuhnVA4LPlXNJhZDYNBM
+	qoEMOvXDxJ7GqTgmz2Ntlnjcun6/XOyRdsThEmHzF7j4ymoP/b5InjGVAvrOLmTuCM4tvYKB8Oe+e
+	aPPFIqyeMu8XDBchbuvZlwldT8R8BG5/li1iOtNO3a0Z4ag9iXfdqsFr852Js+3/3o+nX4AY6u45o
+	B4CE0xO2fDjb+zfz/n2NCecgvr1GBQOLTUz6BztAGDRQVtLF2y+Rf3k4/n/KveaHrtgZ4fj7qValc
+	nUvFvigMlh1bdB5U4FEaCdswKAlTP20OufElDLt1Wu3daeP4NCzlEr8l4gaDrJ/rNVzCtl3vfEqvQ
+	qQXN62UA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gxGNj-0007Av-EO; Fri, 22 Feb 2019 19:21:11 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1gxGi1-0007Ge-2K; Fri, 22 Feb 2019 19:42:09 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gxGNg-0007AH-Kr
- for linux-riscv@lists.infradead.org; Fri, 22 Feb 2019 19:21:10 +0000
+ id 1gxGhy-0007Fh-05
+ for linux-riscv@lists.infradead.org; Fri, 22 Feb 2019 19:42:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1550863268; x=1582399268;
- h=subject:to:cc:references:from:message-id:date:
- mime-version:in-reply-to:content-transfer-encoding;
- bh=KIzAieqjVYb1fWzUTSzGwIHxVQIUt8sQEG/ZjjqjndQ=;
- b=WbH92rM17k9QERNYEGQHA8L8493QKi9pCMqV84sy5PnJnA0wvcuAw/qa
- LaZQ5xmblOdWMobZu5CKXICepfD7n0phaiaV2JWawMwSlvi9NSjFPUZR4
- g+YcdmPT0RJTV+ow1BhgT2IJeRQoV6BoKVfT8JfTBvgV2P3GPb7YOvHlN
- J0esuDk8+YaywI2PblLPusQ1xEJ6oF33teZu7aBOjCnRHcSYXCwOpREa+
- FZhaBi0jURC9R2HkdsfC+Vwz024MAWRs73gm1pIf2T6xCpT5QqgEL1iwV
- sw1vPR9g52GLdDPbWlqR6XD1vUe5A884eJj31Ta2U1LQb5o8j4Vj6TpV+ A==;
-X-IronPort-AV: E=Sophos;i="5.58,400,1544457600"; d="scan'208";a="106936860"
-Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 23 Feb 2019 03:21:05 +0800
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep02.wdc.com with ESMTP; 22 Feb 2019 11:01:24 -0800
-Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.76.145])
- ([10.111.76.145])
- by uls-op-cesaip02.wdc.com with ESMTP; 22 Feb 2019 11:21:06 -0800
-Subject: Re: [v4 PATCH 8/8] RISC-V: Assign hwcap as per comman capabilities.
-To: Palmer Dabbelt <palmer@sifive.com>, "johan@kernel.org" <johan@kernel.org>
-References: <mhng-d7d9894c-d6f6-485b-95e8-962c4ab0f3f1@palmer-si-x1c4>
- <e3d0cb05-268a-6148-7723-fe6b94d96583@wdc.com>
+ t=1550864525; x=1582400525;
+ h=from:to:cc:subject:date:message-id:in-reply-to: references;
+ bh=bTj3ZFVXgC5G434PAQjLdqn3TV1DqlyoGc/NiuvITNw=;
+ b=OBYOo+KOKgyyMnFrZlYptTqZVuCfhc+bnqKB2/U08LCaCRxdNIq7WoIw
+ gmICLLgyNcgYgCY8ZU7PbxS4o0nwv1vSNXXUx9OjbwY1TN2CsU1CemMes
+ jgf5h/Xx0vc/Mv9MhAcKTw70c/gJbcd3LZTLqiyLyaXep3JK9E9IU4bpl
+ AfYAUsY7USWLxhQ53kZMCT/sgl5PabPTEixzKwLvfPn8gyvlgRUknfzK0
+ ycMjvnmoEGiww4GrRLJz0dw0k2V66CHkx2jqQ6kbMD5lIMGG/2HhAWKM0
+ Wd/STwpoOG3BSiuVvAa/SlSr3UkW0yG0TXDX6+/Sx3ODfui75qX0/VVHA w==;
+X-IronPort-AV: E=Sophos;i="5.58,400,1544457600"; d="scan'208";a="207180181"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 23 Feb 2019 03:42:03 +0800
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep01.wdc.com with ESMTP; 22 Feb 2019 11:20:03 -0800
+Received: from jedi-01.sdcorp.global.sandisk.com (HELO
+ jedi-01.int.fusionio.com) ([10.11.143.218])
+ by uls-op-cesaip01.wdc.com with ESMTP; 22 Feb 2019 11:41:45 -0800
 From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <a956ae40-52c7-ace8-4756-bde8f6c80230@wdc.com>
-Date: Fri, 22 Feb 2019 11:21:04 -0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0)
- Gecko/20100101 Thunderbird/60.5.1
-MIME-Version: 1.0
-In-Reply-To: <e3d0cb05-268a-6148-7723-fe6b94d96583@wdc.com>
-Content-Language: en-US
+To: linux-riscv@lists.infradead.org
+Subject: [v6 PATCH 5/6] RISC-V: Compare cpuid with NR_CPUS before mapping.
+Date: Fri, 22 Feb 2019 11:41:39 -0800
+Message-Id: <1550864500-13652-6-git-send-email-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.7.4
+In-Reply-To: <1550864500-13652-1-git-send-email-atish.patra@wdc.com>
+References: <1550864500-13652-1-git-send-email-atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190222_112108_820568_6A34B1C3 
-X-CRM114-Status: GOOD (  25.46  )
+X-CRM114-CacheID: sfid-20190222_114206_149201_AEB07706 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -85,149 +83,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "jason@lakedaemon.net" <jason@lakedaemon.net>,
- "alankao@andestech.com" <alankao@andestech.com>,
- "dmitriy@oss-tech.org" <dmitriy@oss-tech.org>,
- "schwab@suse.de" <schwab@suse.de>, "anup@brainfault.org" <anup@brainfault.org>,
- "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "marc.zyngier@arm.com" <marc.zyngier@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "tglx@linutronix.de" <tglx@linutronix.de>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alan Kao <alankao@andestech.com>,
+ Dmitriy Cherkasov <dmitriy@oss-tech.org>, Anup Patel <anup@brainfault.org>,
+ Palmer Dabbelt <palmer@sifive.com>, Johan Hovold <johan@kernel.org>,
+ linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Andreas Schwab <schwab@suse.de>,
+ Thomas Gleixner <tglx@linutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/14/19 3:49 PM, Atish Patra wrote:
-> On 2/13/19 4:38 PM, Palmer Dabbelt wrote:
->> On Wed, 13 Feb 2019 00:44:42 PST (-0800), johan@kernel.org wrote:
->>> On Tue, Feb 12, 2019 at 11:58:10AM -0800, Atish Patra wrote:
->>>> On 2/12/19 3:25 AM, Johan Hovold wrote:
->>>>> On Tue, Feb 12, 2019 at 03:10:12AM -0800, Atish Patra wrote:
->>>>>> Currently, we set hwcap based on first valid hart from DT. This may not
->>>>>> be correct always as that hart might not be current booting cpu or may
->>>>>> have a different capability.
->>>>>>
->>>>>> Set hwcap as the capabilities supported by all possible harts with "okay"
->>>>>> status.
->>>>>>
->>>>>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
->>>>>> ---
->>>>>>     arch/riscv/kernel/cpufeature.c | 41 ++++++++++++++++++++++-------------------
->>>>>>     1 file changed, 22 insertions(+), 19 deletions(-)
->>>>>>
->>>>>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
->>>>>> index e7a4701f..a1e4fb34 100644
->>>>>> --- a/arch/riscv/kernel/cpufeature.c
->>>>>> +++ b/arch/riscv/kernel/cpufeature.c
->>>>>> @@ -20,6 +20,7 @@
->>>>>>     #include <linux/of.h>
->>>>>>     #include <asm/processor.h>
->>>>>>     #include <asm/hwcap.h>
->>>>>> +#include <asm/smp.h>
->>>>>>
->>>>>>     unsigned long elf_hwcap __read_mostly;
->>>>>>     #ifdef CONFIG_FPU
->>>>>> @@ -42,28 +43,30 @@ void riscv_fill_hwcap(void)
->>>>>>
->>>>>>     	elf_hwcap = 0;
->>>>>>
->>>>>> -	/*
->>>>>> -	 * We don't support running Linux on hertergenous ISA systems.  For
->>>>>> -	 * now, we just check the ISA of the first "okay" processor.
->>>>>> -	 */
->>>>>>     	for_each_of_cpu_node(node) {
->>>>>> -		if (riscv_of_processor_hartid(node) >= 0)
->>>>>> -			break;
->>>>>> -	}
->>>>>> -	if (!node) {
->>>>>> -		pr_warn("Unable to find \"cpu\" devicetree entry\n");
->>>>>> -		return;
->>>>>> -	}
->>>>>> +		unsigned long this_hwcap = 0;
->>>>>>
->>>>>> -	if (of_property_read_string(node, "riscv,isa", &isa)) {
->>>>>> -		pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
->>>>>> -		of_node_put(node);
->>>>>> -		return;
->>>>>> -	}
->>>>>> -	of_node_put(node);
->>>>>> +		if (riscv_of_processor_hartid(node) < 0)
->>>>>> +			continue;
->>>>>>
->>>>
->>>>>> -	for (i = 0; i < strlen(isa); ++i)
->>>>>> -		elf_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
->>>>>> +		if (of_property_read_string(node, "riscv,isa", &isa)) {
->>>>>> +			pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
->>>>>> +			return;
->>>>>
->>>>> Did you want "continue" here to continue processing the other harts?
->>>>
->>>> Hmm. If a cpu node doesn't have isa in DT, that means DT is wrong. A
->>>> "continue" here will let user space use other harts just with a warning
->>>> message?
->>>>
->>>> Returning here will not set elf_hwcap which forces the user to fix the
->>>> DT. I am not sure what should be the defined behavior in this case.
->>>>
->>>> Any thoughts ?
->>>
->>> The problem is that the proposed code might still set elf_hwcap -- it
->>> all depends on the order of the hart nodes in dt (i.e. it will only be
->>> left unset if the first node is malformed).
->>>
->>> For that reason, I'd say it's better to either bail out (hard or at
->>> least with elf_hwcap unset) or to continue processing the other nodes.
->>>
->>> The former might break current systems with malformed dt, though.
->>>
->>> And since the harts are expected to have the same ISA, continuing the
->>> processing while warning and ignoring the malformed node might be
->>> acceptable.
->>
->> Handling malformed device trees by providing a warning and an empty HWCAP seems
->> like the right way to go to me.
->>
-> 
-> If I understand you correctly, you prefer following things to be done in
-> case of malformed DT.
-> 
-> 1. Print a warning message
-> 2. Unset the entire HWCAP
-> 3. Return without processing other harts. This will most likely result
-> in panic when user space starts.
-> 
-> Is this correct ?
-> 
+We should never have a cpuid greater that NR_CPUS. Compare with NR_CPUS
+before creating the mapping between logical and physical CPU ids. This
+is also mandatory as NR_CPUS check is removed from
+riscv_of_processor_hartid.
 
-As per our offline discussion, we should let kernel avoid setting any 
-value for the cpu with incorrect DT entry and continue for other harts. 
-A warning is enough. This is fine as long as user space never see that hart.
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Christoph Hellwig <hch@lst.de>
+---
+ arch/riscv/kernel/smpboot.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-As the hart enumeration depends on riscv_of_processor_hartid, the hart 
-with corrupted isa property will never boot. riscv_of_processor_hartid 
-will return -ENODEV if "riscv,isa" property is not present.
-
-Moreover, the discussed conditional statement will not even executed 
-unless there is memory corruption or somebody corrupts the DT on the fly.
-
-So we can continue with the patch as it is. I will just resend the 
-series (dropping driver patches) for easy merge.
-
-Regards,
-Atish
-> Regards,
-> Atish
->>>
->>> Johan
->>
-> 
-> 
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index d369b669..eb533b5c 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -66,6 +66,11 @@ void __init setup_smp(void)
+ 			found_boot_cpu = 1;
+ 			continue;
+ 		}
++		if (cpuid >= NR_CPUS) {
++			pr_warn("Invalid cpuid [%d] for hartid [%d]\n",
++				cpuid, hart);
++			break;
++		}
+ 
+ 		cpuid_to_hartid_map(cpuid) = hart;
+ 		set_cpu_possible(cpuid, true);
+-- 
+2.7.4
 
 
 _______________________________________________
