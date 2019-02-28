@@ -2,148 +2,89 @@ Return-Path: <SRS0=nw+9=RD=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BD86CC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Feb 2019 22:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8DAD2C10F00
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Feb 2019 22:39:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 86B3B2133D
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Feb 2019 22:33:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5ABCC2133D
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Feb 2019 22:39:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CqOY8Hm+";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="lRN1W1jc";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="PEADqODB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 86B3B2133D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TV79n3lE";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="NKKbteQ4"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5ABCC2133D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NcyozBY/tpQomZoif4+aLE+TKo/VfgQhZYv988i380c=; b=CqOY8Hm+hDjfJ+
-	kNCL4IKlQnPTrQUKz3bRF1PCOQVz/YnKujI70fYunodAPV+VPo8eszXziCjdDdwMWbYQdCk2PVXXt
-	heEcc0IQIifX1SqC/gcz1l3Ooz7PWSXJz2rX3nrJyMkKEoepqxUpuCIB1MdD4kjlyK/qvpn2lmJ/v
-	YXocps0QLUOi15rru8K4I4xnM/zf1xDbanyW3BePdJx1v1FQp2d1hfQ1v7Ydzl4lP8jAU4AS8+B3G
-	f+vvBLwC32K6KMiP4PMD16F8XxFdhbn4xdmhmi1DUT+YZ9lB8cVdPpuXcYgNnALy2YWntESeJNSPh
-	MAhPsHXGmiZyHJD3WrMA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zZcgAynCDZE/lvGwGZFOPxZ4n6HWXnxFU/iXIQL5+AY=; b=TV79n3lEpFl1ki
+	bhGp4iBnCmwfU287CFV2ka6rphtP1bQp+G6lHJdJg6Bi+35J7S47I7HFiZDY2fPXAd9qD1Qe6GgpT
+	RwY25Mb2OClt6df9Ee+8DLO/ZhPztwGBNI8KkVdm+ODqYx3TDghvzmkvixIr1hd3vb4BV6D2gxrI7
+	w0zbbTM1F/F3a5DOK2ecwHOtqe/0yNRl6Qpt/CnemOpHTs0Y9Nio/nTCJj5B6wkifsSULpqO2BcDo
+	F89ndlbrtKFArFYSKKI2y/kbthxCiyVbYeChpnNtp0MZc5CObxxx1tbV1qZn0qMkQKI8SXZTnBwrI
+	J9xC45x933lcMtABdRQQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gzUFO-00059K-OD; Thu, 28 Feb 2019 22:33:46 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1gzULL-0006XQ-3V; Thu, 28 Feb 2019 22:39:55 +0000
+Received: from mail-it1-x143.google.com ([2607:f8b0:4864:20::143])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gzUFM-00058g-BW
- for linux-riscv@lists.infradead.org; Thu, 28 Feb 2019 22:33:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1551393224; x=1582929224;
- h=from:to:cc:subject:date:message-id:
- content-transfer-encoding:mime-version;
- bh=bXpyXhM1VPuRHSexgylDEMjcyOv6HeY7jkwJ4oVaicY=;
- b=lRN1W1jcEnoYO14iTaIgxEILxQPK6Tu2FQZ9mmnpRwrzS0O/sZ0t+W1e
- mzCP+2HOKIJ/8lPqTEq6CCHxBuerkUwqg2K1Gg4ejkH9VpwyHqsCdb2aw
- zeASv3wjQ0frIDF93rQoqlURBZaanVjbocATmkanoeAfP33cnQaHk24hd
- nBkBbJnDPsyz///XMPz922PpM2t2rE7i32w9uvwmMyahT4veeJ/nOH2Lw
- iaWTdTXPBS3YHqSS4ViImB1ekyGXRDF0K4/zp7eEE4bjDh4H+tiYu/BX8
- /EHGCe9fCVLCLll/gdxavkqTj8hWlUaLlv2KvRmyWHSdWc7csNYAWFH60 g==;
-X-IronPort-AV: E=Sophos;i="5.58,424,1544457600"; d="scan'208";a="102407957"
-Received: from mail-bn3nam04lp2056.outbound.protection.outlook.com (HELO
- NAM04-BN3-obe.outbound.protection.outlook.com) ([104.47.46.56])
- by ob1.hgst.iphmx.com with ESMTP; 01 Mar 2019 06:33:38 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xIES9tNj1tIvCcdZ5Go0OTE34muBCYmtLiuUTWVFeNQ=;
- b=PEADqODBdGEsNibd3PcsXRhrjfVi1wsvTlj0iaob4ECMsYeNMfNL+rea2EP7AFAPlU1tYZu4vKv4r7BzVPAM8yiVfNUI/fk5HAlHnEFXEGEuQf6A0d0fVXk/c7sSKvhrjPldXojhwEY6bEhhP3LIATSU9UE+gAtrs4KFq/swBsA=
-Received: from MWHPR04MB0401.namprd04.prod.outlook.com (10.173.48.18) by
- MWHPR04MB0240.namprd04.prod.outlook.com (10.169.202.10) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1643.21; Thu, 28 Feb 2019 22:33:36 +0000
-Received: from MWHPR04MB0401.namprd04.prod.outlook.com
- ([fe80::f55c:272b:6401:1b8c]) by MWHPR04MB0401.namprd04.prod.outlook.com
- ([fe80::f55c:272b:6401:1b8c%10]) with mapi id 15.20.1643.022; Thu, 28 Feb
- 2019 22:33:36 +0000
-From: Alistair Francis <Alistair.Francis@wdc.com>
-To: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "robh@kernel.org" <robh@kernel.org>, "robin.murphy@arm.com"
- <robin.murphy@arm.com>
-Subject: [PATCH] Revert "of/device: Really only set bus DMA mask when
+ id 1gzULI-0006Wk-9q
+ for linux-riscv@lists.infradead.org; Thu, 28 Feb 2019 22:39:53 +0000
+Received: by mail-it1-x143.google.com with SMTP id w18so17248810itj.4
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Feb 2019 14:39:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:from:to:cc:subject:in-reply-to:message-id:references
+ :user-agent:mime-version;
+ bh=uHivxThy5oEIoOQZ8HlTW0n9/13W9GJOR3HZiimvqe4=;
+ b=NKKbteQ4fC16pjtShMFPmcABZjmx5xOQ8ubr1qYkSgugFjzH8E5wF5+r24b/Nlhq3W
+ w7HrTSQScJH5Nytju9ij9N49Fw+U/ywqxX2Z3nSVyQjkf5BcT2CpE+4U9Il0Z37D1xW5
+ aMee85VMSq2n27cpw3wZwHeG00xNPKlv3s7Vx1cHjLmgCibNkCzI75T0EQYvFf3s83p2
+ 2SlYgZ4gF3vBbol1NjzQSj5tKaC10ZLpNsEzit2bZMqFj1nQKEfxJrvlozU+MOU6e1tz
+ UybCMyBw5TpWcIpN/nyt1VVRRXWkDNGDVixbak1YXZDocFXXprR1EardZ/gsJ5W5v2LX
+ xyPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
+ :references:user-agent:mime-version;
+ bh=uHivxThy5oEIoOQZ8HlTW0n9/13W9GJOR3HZiimvqe4=;
+ b=RpPu3LmjN6JHCz8/Jk8yWH0FGyAJektgsIcZp95z5BEF5hodupIrns67w/ddBdupOb
+ TELAKWQ7FTalPf5kaYnqnxPNvEGeWxX6tE7S2cGANt/ZLcUrQHKfx56Yec4XHN2DxSCa
+ PsA2ss/pvJgJt7vVxUn9uvvKr7PuQr8zJQjqkfydSZORRiWLin0OhKgdOsBwZJvcI1BZ
+ U7pfDaPyt5OcYVV//HP/NKqaZO/yfEX0DoZqUt2XB/SUwD254LUvb7HH86vUAn1CFI9i
+ nl1TJh60VYQoJIbHKmTjAk4OK0DGkR5k3AuEmUSxl+JEMMA7dVOXtaw0dRuDeKu55Q9X
+ O1GQ==
+X-Gm-Message-State: AHQUAubQoZT+eo3m9fDGUCkaHzxrGiM9bECKNAcdAmEMnA6RvtcRsR46
+ 1GgNQf13uHIq44bwKHlLjCFfdrRhnjQ=
+X-Google-Smtp-Source: AHgI3IZHOn1BV3fCTDaWj0JbPOQYCFPGhCxk4uLfF5Ger+Id7RirKEO093TXxBylha41EKDgbX23cw==
+X-Received: by 2002:a24:43d1:: with SMTP id s200mr1426288itb.118.1551393589187; 
+ Thu, 28 Feb 2019 14:39:49 -0800 (PST)
+Received: from localhost (c-73-95-159-87.hsd1.co.comcast.net. [73.95.159.87])
+ by smtp.gmail.com with ESMTPSA id
+ u197sm3400700itb.9.2019.02.28.14.39.48
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Thu, 28 Feb 2019 14:39:48 -0800 (PST)
+Date: Thu, 28 Feb 2019 14:39:47 -0800 (PST)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+X-X-Sender: paulw@viisi.sifive.com
+To: Alistair Francis <Alistair.Francis@wdc.com>
+Subject: Re: [PATCH] Revert "of/device: Really only set bus DMA mask when
  appropriate"
-Thread-Topic: [PATCH] Revert "of/device: Really only set bus DMA mask when
- appropriate"
-Thread-Index: AQHUz7Wk3BuHftC4ukm45CM/91p02w==
-Date: Thu, 28 Feb 2019 22:33:36 +0000
-Message-ID: <20190228223257.6189-1-alistair.francis@wdc.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.20.1
-x-clientproxiedby: BYAPR02CA0012.namprd02.prod.outlook.com
- (2603:10b6:a02:ee::25) To MWHPR04MB0401.namprd04.prod.outlook.com
- (2603:10b6:300:70::18)
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Alistair.Francis@wdc.com; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [199.255.45.64]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 4b7e9b99-2d32-4015-e389-08d69dccc732
-x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600127)(711020)(4605104)(4618075)(2017052603328)(7153060)(7193020);
- SRVR:MWHPR04MB0240; 
-x-ms-traffictypediagnostic: MWHPR04MB0240:
-wdcipoutbound: EOP-TRUE
-x-microsoft-exchange-diagnostics: =?iso-8859-1?Q?1; MWHPR04MB0240;
- 23:WHr7pfR2xHwZpYAYID3p9iglvCElOyW4odlRbwo?=
- =?iso-8859-1?Q?4Lv79vjICqm7ZE134SfptRFF8ucw0fTuU7oVfkkcsBzuIFtIXcZAn23IZ/?=
- =?iso-8859-1?Q?lvqz1h+cRvD3pv0u1Z66LcM0IpGtt6xK3/WYGB/2VKEF9/P6NxERw3KkbO?=
- =?iso-8859-1?Q?BKOrZgJKsN3w7waJqDXMzwI8bxXEf8ezm8TOCYTIU9OWvqDmQb2spdpMiE?=
- =?iso-8859-1?Q?ZNvAUeyAW6iUXdDC0WxfpUBT27HZdR8Tg23XOp56YYV3AVHj3/W/Ejn8ZM?=
- =?iso-8859-1?Q?Y9LDmJqhntUN+z7fh1HpUJEO4GnTGGLFlMw+tLLwLdf83lRB5rWKlJIgat?=
- =?iso-8859-1?Q?TzLpT0fvlVsTLEj6J+oabESWqCnDv6fTsYzS2AnoUmUe9odN6szAtvucLF?=
- =?iso-8859-1?Q?/FMdMZs9yTjhTMg/sLvXJexB6HZ3oesKv41MCwb2DsEpf0Crd20Gvl/KlN?=
- =?iso-8859-1?Q?38U84fc0dYWl0HlLO/NH0OJ82iZ5EnJtenSOJSWzbaZwtNTLD0E0LT1fW5?=
- =?iso-8859-1?Q?SwWGlWs88blpk2uEsSu3SiKWIEbVkba4P9Gor+6ONS77/19sTQQUxXVQLX?=
- =?iso-8859-1?Q?7h6TphReU36aJs88X/ctCqFXWMKfNrR7ZEmmE6SBxIdvFy43pFjRGwvnXp?=
- =?iso-8859-1?Q?bW90WzWT//oV/1WbsZDjyI36N7Ybjxqcr6ZLncahKSjc9knMpp7slVWD6V?=
- =?iso-8859-1?Q?eDcdDoMyv6LhKQ9qyrvyJFKHHpnyfTdnM3Lw3Jnu16TZ18X1Tc2fyZ2/c4?=
- =?iso-8859-1?Q?4+qo3ikEQe9tDY/PA0X9TpbrFX46wgRuYFaYbPew9R2+HElMrGaurzj/Lh?=
- =?iso-8859-1?Q?UnIOugg6jWe+3Hhp+Hu9PyofAkwoPC8pwnV5cN4ash/1r5FsAqryS68Jgk?=
- =?iso-8859-1?Q?WBfmAAj9BBBsiMIIsO7ni8wyG1BaF7kBE8+nTfcdJNI2WoN3rXxSAnj6Nw?=
- =?iso-8859-1?Q?TaB+HyNMfz0jzSkCH+sM3+qmNg+3emjsnNYwIzb5QYeewEQSpTSNO30CEn?=
- =?iso-8859-1?Q?Djx43e+HFyfhfBG8o/SexlFbBd8cGNQ5pawFPpxAIPqnC40do8zmikEWN8?=
- =?iso-8859-1?Q?I21RoaCQ0AaZ0oTu8w+AqP//engOtsX0j1uo9yvnSvtBkR29hrT7vD29nQ?=
- =?iso-8859-1?Q?pLrk4jEgQHcJrWHdbAlWpVHsX2xWglbCVl+3Pj7GhPA5QFd7fHTg+QHwtL?=
- =?iso-8859-1?Q?ICFo6czu2pGQ+khIjIMlTpj7ypwGn/wvcgG67bYjwIcf6IKLH5+m7IYl7K?=
- =?iso-8859-1?Q?bpPa9ObImDd8WPP2/uqCeFHRqXrOckbzyOZQly4H9bw8+sUUeWgXCsa2cI?=
- =?iso-8859-1?Q?QxcJKEr4Z8SxfdPQnk9poID?=
-x-microsoft-antispam-prvs: <MWHPR04MB0240F1D2B107D4FCFC269B4590750@MWHPR04MB0240.namprd04.prod.outlook.com>
-x-forefront-prvs: 0962D394D2
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(346002)(136003)(376002)(396003)(366004)(39860400002)(189003)(199004)(26005)(97736004)(2906002)(2501003)(71190400001)(71200400001)(53936002)(6512007)(36756003)(14454004)(3846002)(6116002)(86362001)(2201001)(14444005)(256004)(5024004)(4326008)(66066001)(305945005)(7736002)(102836004)(52116002)(486006)(2616005)(81166006)(81156014)(6506007)(8936002)(68736007)(8676002)(105586002)(106356001)(99286004)(1076003)(50226002)(186003)(6436002)(386003)(476003)(316002)(478600001)(54906003)(5660300002)(72206003)(6486002)(44832011)(25786009)(110136005);
- DIR:OUT; SFP:1102; SCL:1; SRVR:MWHPR04MB0240;
- H:MWHPR04MB0401.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: yOHWkxqf9+/XEcuTGSSfZH7d59NfqL8itD4MFAk6nru5gLdnBiSODnWd0zqjCvhLRbjgVmgdOx2espTbBu0JvUjAUT/h/M5h+e7sX9hzZkBKh1vH8+eCDYVGh6pCecnbMtDzVQKzUC3KRn5y4iPTCM3e798hYmNW6CDi0i2fYBEiRR7KCSJecIodXf7Sws4cBuSokuNOw7sf0QuLVtFe4jk1GgSfKQ+BQ4fDY1vznt87AusRCABA0UqCGvjyveMlNdDyzUp7XqYvnds8rGfOhSAmOJHaFznny1bX4B/Ib7kTrpwA3dbvH2dYY+6D8uKEcOdf2C6kPbzDq7KnBfy5tNWqVoco8a3uK0pN+BX2GkvzmqVq+SRT7AZZ2W4T1PzUhyQJOUZciaiCDZjWguTwPakFIR1xPCbJurA4hekQzfE=
+In-Reply-To: <20190228223257.6189-1-alistair.francis@wdc.com>
+Message-ID: <alpine.DEB.2.21.9999.1902281437380.17965@viisi.sifive.com>
+References: <20190228223257.6189-1-alistair.francis@wdc.com>
+User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b7e9b99-2d32-4015-e389-08d69dccc732
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Feb 2019 22:33:35.5810 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR04MB0240
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190228_143344_449257_0402600D 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20190228_143952_380116_058B7675 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -155,52 +96,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "alistair23@gmail.com" <alistair23@gmail.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "alistair23@gmail.com" <alistair23@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This reverts commit 6778be4e520959659b27a441c06a84c9cb009085.
+Hello Alistair,
 
-Reverting the commit fixes these error messages and an non-functioning
-USB bus when attaching a USB to PCIe card to a RISC-V board:
-    xhci_hcd 0000:03:00.0: Host took too long to start, waited 16000 microseconds.
-    xhci_hcd 0000:03:00.0: startup error -19
-    xhci_hcd 0000:03:00.0: USB bus 2 deregistered
-    xhci_hcd 0000:03:00.0: WARNING: Host System Error
-    xhci_hcd 0000:03:00.0: remove, state 1
+On Thu, 28 Feb 2019, Alistair Francis wrote:
 
-Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
----
-I'm not sure if this is the correct fix, it's possible something else is
-wrong, but I wanted to get some feedback.
+> This reverts commit 6778be4e520959659b27a441c06a84c9cb009085.
+> 
+> Reverting the commit fixes these error messages and an non-functioning
+> USB bus when attaching a USB to PCIe card to a RISC-V board:
+>     xhci_hcd 0000:03:00.0: Host took too long to start, waited 16000 microseconds.
+>     xhci_hcd 0000:03:00.0: startup error -19
+>     xhci_hcd 0000:03:00.0: USB bus 2 deregistered
+>     xhci_hcd 0000:03:00.0: WARNING: Host System Error
+>     xhci_hcd 0000:03:00.0: remove, state 1
+> 
+> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+> ---
+> I'm not sure if this is the correct fix, it's possible something else is
+> wrong, but I wanted to get some feedback.
+> 
+> drivers/of/device.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/drivers/of/device.c b/drivers/of/device.c
+> index 3717f2a20d0d..8299f8055da7 100644
+> --- a/drivers/of/device.c
+> +++ b/drivers/of/device.c
+> @@ -149,11 +149,9 @@ int of_dma_configure(struct device *dev, struct device_node *np, bool force_dma)
+>  	 * set by the driver.
+>  	 */
+>  	mask = DMA_BIT_MASK(ilog2(dma_addr + size - 1) + 1);
+> +	dev->bus_dma_mask = mask;
+>  	dev->coherent_dma_mask &= mask;
+>  	*dev->dma_mask &= mask;
+> -	/* ...but only set bus mask if we found valid dma-ranges earlier */
 
-drivers/of/device.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+Does the DT data for the PCIe controller that you're using contain a 
+dma-ranges node?
 
-diff --git a/drivers/of/device.c b/drivers/of/device.c
-index 3717f2a20d0d..8299f8055da7 100644
---- a/drivers/of/device.c
-+++ b/drivers/of/device.c
-@@ -149,11 +149,9 @@ int of_dma_configure(struct device *dev, struct device_node *np, bool force_dma)
- 	 * set by the driver.
- 	 */
- 	mask = DMA_BIT_MASK(ilog2(dma_addr + size - 1) + 1);
-+	dev->bus_dma_mask = mask;
- 	dev->coherent_dma_mask &= mask;
- 	*dev->dma_mask &= mask;
--	/* ...but only set bus mask if we found valid dma-ranges earlier */
--	if (!ret)
--		dev->bus_dma_mask = mask;
- 
- 	coherent = of_dma_is_coherent(np);
- 	dev_dbg(dev, "device is%sdma coherent\n",
--- 
-2.20.1
+> -	if (!ret)
+> -		dev->bus_dma_mask = mask;
+>  
+>  	coherent = of_dma_is_coherent(np);
+>  	dev_dbg(dev, "device is%sdma coherent\n",
 
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
