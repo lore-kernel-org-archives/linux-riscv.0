@@ -1,24 +1,23 @@
-Return-Path: <SRS0=nw+9=RD=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=TVEx=RE=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C289C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Feb 2019 23:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CEFA0C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  1 Mar 2019 01:13:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 42BE820851
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Feb 2019 23:04:46 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 892A32087E
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  1 Mar 2019 01:13:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NQvhSuOx";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="iMKKcH1t"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 42BE820851
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KJCaOo62";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=amazonses.com header.i=@amazonses.com header.b="WUrm563x"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 892A32087E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -26,68 +25,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RBdi028Mm03bh/YLfKn3DWysD6KBZermsIYcCTBefXo=; b=NQvhSuOx8Z393E
-	njh7/OVvRc5Qv8FJTTtHuQMjpuBM5lvH6/AWpe/7uoAzhw5O94thxr3gqKw7kiTYQIZs7NrT4jieQ
-	7f1ZAXPisqHkW6fDZEi6c5nDjpWmNDrmtKLWi+p9qm0vKDWwMgZrolDUyCMWc6eph3OHFarJXldWp
-	Fa2FUoG3TZpTRNgdpvsbDw/2/yqbqXSfq9PCKmPZJN90G4VauXcTXiOeDCHeXB+xXCct0ik+dj++p
-	xfxfVy8gB3BJM9FY+AehF/xre7Eq+ziRa4RsUQFFwy+fROiiTPZX1pmbxKCM30vzeVhgF1Uh/HM0f
-	/ZRKuFUtkPGKZWbMz7rw==;
+	List-Owner; bh=Ua77aUYerdRrxWhizn8dMAcNShUIC0quyR3UaMEJ8rg=; b=KJCaOo62yPHzEu
+	q5dKVFc+GX3Q7gLUbu4YU0jpGsbP2yZ7D4jeYBJ9ItHgLfmc4fkhzISY5iS5M2RDLDV6ByOzzApSO
+	CEMbP+2KCF5zqp+r69FDh2Tr/UeWoccdJjYMoZQnby0ZWpnjaUPXk91K0Ls+1F/A3TrCIYVo49VhY
+	sjRgP3j6410jng0areWmevx1Yyqqf/AUSGR/Pwkb2M25iZf7HjR0OByooY4lBqMN58ZZYRIwohWIY
+	3x5fhwz1wEEKKRDTVMKk6ixkDz55JEeEgVuS3lE46CYamj9nNrsinBp/pdvvO94UwXhi7XQX66Yzc
+	QSBDMu5GRfIY/u4ZW+Hg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1gzUjK-0005sU-4f; Thu, 28 Feb 2019 23:04:42 +0000
-Received: from mail-io1-xd43.google.com ([2607:f8b0:4864:20::d43])
+	id 1gzWk4-0004x4-64; Fri, 01 Mar 2019 01:13:36 +0000
+Received: from a9-36.smtp-out.amazonses.com ([54.240.9.36])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1gzUjG-0005s0-LP
- for linux-riscv@lists.infradead.org; Thu, 28 Feb 2019 23:04:40 +0000
-Received: by mail-io1-xd43.google.com with SMTP id y13so18038616iop.11
- for <linux-riscv@lists.infradead.org>; Thu, 28 Feb 2019 15:04:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:cc:subject:in-reply-to:message-id:references
- :user-agent:mime-version;
- bh=gmKEt95/bKerSzneuZjTxHAhkZtg6bph+MZYvRvMaE0=;
- b=iMKKcH1teYSrhuXMA5msAb49RrO2FvVesrVlcxUMxIv2b2n8o7XPeQyx00E8zOVgdg
- sA5EM0XZzi/k58Y9KNMKjYg7cW9EXdZ/SHJhRrKsDByA2IPmdR1FBScBBkgZaclWah/l
- KqqnEsPegpdFttU/Qx2HlRxY+5iviPo+BYSk+edBDcikG+eVkozGhYbL7jQWImezUvbH
- Oodk7MRNHZS69syX78o7uMTub/LuBc5CMIZvS1zvYSxOdkit6xd4zJMjlv0ZIBYiNd0u
- pcIcpaLuaOC0Nr9o/IgqIOeNkNZyZZysVBN8rOc8bAI9+Ew7uhA+GdWVmhHg8LENHRah
- aL9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
- :references:user-agent:mime-version;
- bh=gmKEt95/bKerSzneuZjTxHAhkZtg6bph+MZYvRvMaE0=;
- b=gn8wjY4qGjNLaxfSg88gH8ZulJhmrKAuUPnDMxnZL+UHUSlqHaoBLeheU5ai4wxilN
- lQ0jp7MtgHTBsUt9NhytsH52jQ/0WOS2DZdihh0KVQ1yY3T1Bt53HUslGk6sv4MQcHD7
- FAOq1myoN8KRbnlijvbQL2POp8aWt2tEYncAt8QPBeGTOVYrn7myp3KlY/FzYaBL+xcu
- TujzZqI7Gamlfm4LLi6OeMuu27H4W1wbwEsDRP+gUru3YqvnI37ZFvIv8EGaVrxowFqA
- dq2x2JUMCiFMvRF6oHGggvK3COkTCIxKewYvi/xAw4ndY7Ju5NwhwLZvaozlzhay5QRH
- hotw==
-X-Gm-Message-State: APjAAAVO8eSFP9oA7/Y8JYJg39gW8kHCwYf5VU0rsOSItA56C0GP9khp
- g3oGbi+sYS8hExGm3F3M27bKXw==
-X-Google-Smtp-Source: APXvYqz4f5ZN5H+9U9fRvdvL5J1x6Nw+Px9y4Ao+FXNlLRGrppjsrlQWPzGR9bA1DRwxwjrI5MBh4g==
-X-Received: by 2002:a6b:b644:: with SMTP id g65mr1103203iof.198.1551395077046; 
- Thu, 28 Feb 2019 15:04:37 -0800 (PST)
-Received: from localhost (c-73-95-159-87.hsd1.co.comcast.net. [73.95.159.87])
- by smtp.gmail.com with ESMTPSA id
- f142sm3594011itc.15.2019.02.28.15.04.36
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Thu, 28 Feb 2019 15:04:36 -0800 (PST)
-Date: Thu, 28 Feb 2019 15:04:35 -0800 (PST)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-X-X-Sender: paulw@viisi.sifive.com
-To: Alistair Francis <alistair23@gmail.com>
-Subject: Re: [PATCH] Revert "of/device: Really only set bus DMA mask when
- appropriate"
-In-Reply-To: <CAKmqyKND0ruL+cTLoMzV2oG5BOdHDzAzWkKrW5eqLAP2Q6smvQ@mail.gmail.com>
-Message-ID: <alpine.DEB.2.21.9999.1902281452270.17965@viisi.sifive.com>
-References: <20190228223257.6189-1-alistair.francis@wdc.com>
- <alpine.DEB.2.21.9999.1902281437380.17965@viisi.sifive.com>
- <CAKmqyKND0ruL+cTLoMzV2oG5BOdHDzAzWkKrW5eqLAP2Q6smvQ@mail.gmail.com>
-User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
+ id 1gzWjz-0004wQ-4q
+ for linux-riscv@lists.infradead.org; Fri, 01 Mar 2019 01:13:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+ s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1551402806;
+ h=Date:From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type:Feedback-ID;
+ bh=hJL8v9gm/2xFmTx8jsZJR0ScRjK5kb0kH0gHqagBk0Y=;
+ b=WUrm563xjfKxrZp8rV3tyasIUd82jD0QF1eLZkJbVIr2nnM+zc7JonlP/gpsTwzm
+ 6y8ixJBBV9fGRJsLEUn7Jp+ytmy78M7pUvpp7JxLlQqndNnMlV9DgmXQx3C5u5kfVca
+ sd37AhTF8uxQ2XfQLmEFwvIznRkIQzih6RUqtvRo=
+Date: Fri, 1 Mar 2019 01:13:26 +0000
+From: Christopher Lameter <cl@linux.com>
+X-X-Sender: cl@nuc-kabylake
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: per-cpu thoughts
+In-Reply-To: <alpine.DEB.2.21.9999.1902281217250.17965@viisi.sifive.com>
+Message-ID: <0100016936d02cf1-2a096483-1c87-4889-879a-9eb2f4f1e77c-000000@email.amazonses.com>
+References: <mhng-840b0a81-50e1-4783-a784-638195b9305b@palmer-si-x1c4>
+ <0100016915bc54e5-22f89b41-21e8-4133-9550-e85f4223ea32-000000@email.amazonses.com>
+ <2acd8a4393d4e9c526bcfa4aca63e4cf@mailhost.ics.forth.gr>
+ <0100016915ec5184-5c0a50db-1b61-428f-ae2c-d23ce8d465d5-000000@email.amazonses.com>
+ <CAJ+HfNidsF3Lnx4s4sG+=Zmt95JYScg+BKB5=u6wMUoSkHo5FA@mail.gmail.com>
+ <0100016916c7cda0-9622bc7c-b8db-4967-83e6-43692aa58ec8-000000@email.amazonses.com>
+ <alpine.DEB.2.21.9999.1902280418110.10847@viisi.sifive.com>
+ <0100016935426418-5eaf2d86-8a0f-4c1f-91b7-b4d872d6ba48-000000@email.amazonses.com>
+ <alpine.DEB.2.21.9999.1902281034390.10196@viisi.sifive.com>
+ <0100016935831a0a-8ad31ea0-9ab5-44e7-8aae-ac8cb2491c72-000000@email.amazonses.com>
+ <alpine.DEB.2.21.9999.1902281217250.17965@viisi.sifive.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
+X-SES-Outgoing: 2019.03.01-54.240.9.36
+Feedback-ID: 1.us-east-1.fQZZZ0Xtj2+TD7V5apTT/NrT6QKuPgzCT/IC7XYgDKI=:AmazonSES
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190228_150438_740538_2DA3B359 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20190228_171331_275235_54F38E8B 
+X-CRM114-Status: UNSURE (   6.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -99,75 +82,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "robin.murphy@arm.com" <robin.murphy@arm.com>
+Cc: Nick Kossifidis <mick@ics.forth.gr>,
+ =?ISO-8859-15?Q?Bj=F6rn_T=F6pel?= <bjorn.topel@gmail.com>,
+ Paul Walmsley <paul@pwsan.com>, Palmer Dabbelt <palmer@sifive.com>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Feb 2019, Alistair Francis wrote:
+On Thu, 28 Feb 2019, Paul Walmsley wrote:
 
-> On Thu, Feb 28, 2019 at 2:39 PM Paul Walmsley <paul.walmsley@sifive.com> wrote:
-> > On Thu, 28 Feb 2019, Alistair Francis wrote:
-> > > This reverts commit 6778be4e520959659b27a441c06a84c9cb009085.
-> > >
-> > > Reverting the commit fixes these error messages and an non-functioning
-> > > USB bus when attaching a USB to PCIe card to a RISC-V board:
-> > >     xhci_hcd 0000:03:00.0: Host took too long to start, waited 16000 microseconds.
-> > >     xhci_hcd 0000:03:00.0: startup error -19
-> > >     xhci_hcd 0000:03:00.0: USB bus 2 deregistered
-> > >     xhci_hcd 0000:03:00.0: WARNING: Host System Error
-> > >     xhci_hcd 0000:03:00.0: remove, state 1
-> > >
-> > > Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
-> > > ---
-> > > I'm not sure if this is the correct fix, it's possible something else is
-> > > wrong, but I wanted to get some feedback.
-> > >
-> > > drivers/of/device.c | 4 +---
-> > >  1 file changed, 1 insertion(+), 3 deletions(-)
-> > >
-> > > diff --git a/drivers/of/device.c b/drivers/of/device.c
-> > > index 3717f2a20d0d..8299f8055da7 100644
-> > > --- a/drivers/of/device.c
-> > > +++ b/drivers/of/device.c
-> > > @@ -149,11 +149,9 @@ int of_dma_configure(struct device *dev, struct device_node *np, bool force_dma)
-> > >        * set by the driver.
-> > >        */
-> > >       mask = DMA_BIT_MASK(ilog2(dma_addr + size - 1) + 1);
-> > > +     dev->bus_dma_mask = mask;
-> > >       dev->coherent_dma_mask &= mask;
-> > >       *dev->dma_mask &= mask;
-> > > -     /* ...but only set bus mask if we found valid dma-ranges earlier */
-> >
-> > Does the DT data for the PCIe controller that you're using contain a
-> > dma-ranges node?
-> 
-> Ah, no it does not. It only has ranges and bus-range [1].
-> 
-> Any idea what the dma-ranges should be?
-> 
-> 1: https://github.com/riscv/opensbi/blob/master/platform/sifive/fu540/HiFiveUnleashed-MicroSemi-Expansion.dts#L407
+> Is the offset of the counter from the start of my per-cpu area guaranteed
+> to be the same across all CPUs?  If so, wouldn't there simply be a
 
-Not off the top of my head, but this may help:
+Yes of course otherwise it would work. The per cpu area is replicated
+across all processors on bootup.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/booting-without-of.txt#n1389
+> potential performance risk if preemption was left enabled, rather than a
+> correctness risk?
 
-You might also consider grepping through existing DT data for examples of 
-dma-ranges usage.
-
-N.B., I have no direct knowledge of this, but have been told that some of 
-the MicroSemi PCIe controllers can only bus-master into a 32-bit region.  
-If this is a MicroSemi controller, that would need to be reflected in 
-dma-ranges.
+An unlocked RMW write operation can corrupt data because it may race with
+another unlocked RMW write operation on another processor. Writesto the
+per cpu data must always occur from the processor that owns the area.
 
 
-- Paul
 
 _______________________________________________
 linux-riscv mailing list
