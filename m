@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8C790C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2019 08:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A02FEC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2019 08:31:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 562D920823
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2019 08:27:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 71872208E4
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2019 08:31:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="syo1ITbh";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="drq0BKo+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 562D920823
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FN87yFz/";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="qxi6UFqE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 71872208E4
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linuxfoundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,46 +26,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TOZvaQ7ZJyXwvfYhFTjVJiBHUWGtPlf25t0Sflt7Fsw=; b=syo1ITbhjB7qx8
-	MeJ5Qx9H4qauGhnnzzjjiS/MA9CNWIl1dFVaavH92lOSrhBPpCI+yiqmgbyTOFPO5JiAQ2us5Kheb
-	+vmw+PXi54ZsbEesphEjSATafCGeIlUvzK83wdtlKhPs27HEC9MEemW+Sv9AzoEdQwvcWkmCsSk3F
-	qm/Jt9RgC3uVMe3/ZkbaFP0rbFd3Y9Bm9LM4uwnHUC0vJsDbXt3c8bZmkaT5ccKlbA10Z8yGvyAkC
-	cNPoZa70EyVF06Ik3CvSWBQWNrw3GlYbziGaYVBGvyKC4SZOEY8VpvFrRydbIXBjB85FQlenetymV
-	3ENLfpl5EJZr+khP3QeA==;
+	List-Owner; bh=q+DaoBrsNqlwrJpaq/5P7MqnTrbu6bp/i8VkJ2aesb0=; b=FN87yFz/2EM3ZZ
+	gXRWWeMsEDbF+/NsOi+hnj7qfWIlTF6ERMe5vzxWbXMxxGIGhVJOnBNKbTccuppHztHxz/aFI69fe
+	CK2c4zRSSpJ7Zorxpy5kW+wQ498K3hcaO4+ocHxdNjnV6jvHGMjWW+k1omWx0vLrtiBtGZyh1sP4j
+	O0LXfy7ea4BAaBuTeY1F3dghFkrAZvQJZDlW4UaItmhAY5Z9vjEiChqF59tVEMgBocpdqg3Y2Lkn+
+	UgXkc2R7L+cEwKCbnllipkTOv0+U49g+ZhC4SQznoT5Y1xc+k6o2hgG+RpGN5bS2v5TQgjylRpcZ3
+	wyg577pqTOEJddmESPJw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h0iwr-0008Eg-Le; Mon, 04 Mar 2019 08:27:45 +0000
+	id 1h0j0T-00028i-I2; Mon, 04 Mar 2019 08:31:29 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h0iwo-0008EF-7r
- for linux-riscv@lists.infradead.org; Mon, 04 Mar 2019 08:27:43 +0000
+ id 1h0j0Q-00027r-R1
+ for linux-riscv@lists.infradead.org; Mon, 04 Mar 2019 08:31:28 +0000
 Received: from localhost (5356596B.cm-6-7b.dynamic.ziggo.nl [83.86.89.107])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 6E31020823;
- Mon,  4 Mar 2019 08:27:40 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 5FFC9208E4;
+ Mon,  4 Mar 2019 08:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1551688060;
- bh=1SwplH6VUws6P5E0c+remyQ9+KqB2xc+5OF72RAyawU=;
+ s=default; t=1551688285;
+ bh=f7G41DJwiKagxMza1GqKVDMISw13Des8+fBCOY9qJjM=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=drq0BKo+ePH8jhq0cz3s8xhLVR3AdsMrmw3tKYdIwNvNpiH/uvS7wWlgIQuhSO69a
- uWML5RINm7EuhBLZtthpDTqKKj6DQcT4+RD8/ObybtOcu7D/Wy22ZIrSJ7LOAi/PjR
- mLAwp/MeGkYpKyLkclGXSmOJPKcROUSEZNp22Opw=
+ b=qxi6UFqEfyz8XCxeagDge6V4chuqNpG7TY4H/3B44SzFvsTixyxQsDmOL7kYcjR36
+ QStdGkJ7dYyA6FEqJ8H6Ydum3KshB8XrHaqet8X0tnOl79fvRxMQ4ZApUVI8USfvns
+ ZUXJ32QlWHGkeqGzjOQAXfq955AT/jnCASQSLCxM=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 4.14 50/52] MIPS: fix truncation in __cmpxchg_small for short
+Subject: [PATCH 4.19 75/78] MIPS: fix truncation in __cmpxchg_small for short
  values
-Date: Mon,  4 Mar 2019 09:22:48 +0100
-Message-Id: <20190304081619.964223194@linuxfoundation.org>
+Date: Mon,  4 Mar 2019 09:22:58 +0100
+Message-Id: <20190304081628.949874227@linuxfoundation.org>
 X-Mailer: git-send-email 2.21.0
-In-Reply-To: <20190304081617.159014799@linuxfoundation.org>
-References: <20190304081617.159014799@linuxfoundation.org>
+In-Reply-To: <20190304081625.508788074@linuxfoundation.org>
+References: <20190304081625.508788074@linuxfoundation.org>
 User-Agent: quilt/0.65
 X-stable: review
 X-Patchwork-Hint: ignore
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190304_002742_308788_B0C5EECC 
+X-CRM114-CacheID: sfid-20190304_003126_895243_E4F13334 
 X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -88,7 +88,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-4.14-stable review patch.  If anyone has any objections, please let me know.
+4.19-stable review patch.  If anyone has any objections, please let me know.
 
 ------------------
 
