@@ -1,69 +1,72 @@
-Return-Path: <SRS0=tyFd=RF=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=iqkr=RH=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DD9F4C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  2 Mar 2019 08:36:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8C790C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2019 08:27:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A7B862083D
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  2 Mar 2019 08:36:45 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 562D920823
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2019 08:27:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZXyjbiAX";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="dGBKiK/2"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A7B862083D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="syo1ITbh";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="drq0BKo+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 562D920823
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linuxfoundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:From:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+T+IHFFrI5KBMKoRx6QUjLgCNjiQwe1P4N7tSX016FM=; b=ZXyjbiAXV94/d6
-	Q32XA4C3mjQtsWP5+LcgAe5qa9hrqdrP96JtnKOfe8fl6dZvAFg/z1rK37oPtiFQO2G/uSHlitqfO
-	AwBfRaRc65zUF5kYCPa5KbjODsPQ2E3v1ifFptSxg24k2pbPmZtAKedVtEsRak8yLPyGnvEt/nk4z
-	Da4kfmisRSWfVpdTh4XcZ8P5aBqBh12WMBQ9VcSRVi2e7lcw06yyOjmrWadCgyiYt1E20Ilvs99zs
-	4InKi9oFLwOX67QjrdwslVzVTir1ncQdJM7YKRNb4+evNsYfULNgadTLI/GIFmyRL+wLstxBoYdbm
-	89Iv3W8udSHlEjoqkujA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TOZvaQ7ZJyXwvfYhFTjVJiBHUWGtPlf25t0Sflt7Fsw=; b=syo1ITbhjB7qx8
+	MeJ5Qx9H4qauGhnnzzjjiS/MA9CNWIl1dFVaavH92lOSrhBPpCI+yiqmgbyTOFPO5JiAQ2us5Kheb
+	+vmw+PXi54ZsbEesphEjSATafCGeIlUvzK83wdtlKhPs27HEC9MEemW+Sv9AzoEdQwvcWkmCsSk3F
+	qm/Jt9RgC3uVMe3/ZkbaFP0rbFd3Y9Bm9LM4uwnHUC0vJsDbXt3c8bZmkaT5ccKlbA10Z8yGvyAkC
+	cNPoZa70EyVF06Ik3CvSWBQWNrw3GlYbziGaYVBGvyKC4SZOEY8VpvFrRydbIXBjB85FQlenetymV
+	3ENLfpl5EJZr+khP3QeA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h008Q-0002OM-9M; Sat, 02 Mar 2019 08:36:42 +0000
+	id 1h0iwr-0008Eg-Le; Mon, 04 Mar 2019 08:27:45 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h008N-0002Nw-7I
- for linux-riscv@lists.infradead.org; Sat, 02 Mar 2019 08:36:40 +0000
+ id 1h0iwo-0008EF-7r
+ for linux-riscv@lists.infradead.org; Mon, 04 Mar 2019 08:27:43 +0000
 Received: from localhost (5356596B.cm-6-7b.dynamic.ziggo.nl [83.86.89.107])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 17F992083D;
- Sat,  2 Mar 2019 08:36:37 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 6E31020823;
+ Mon,  4 Mar 2019 08:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1551515798;
- bh=hxuk/7IGm/RRVHTcQPK9wLfzW9YOmdZTeXzBg71+ZAc=;
- h=Subject:To:Cc:From:Date:From;
- b=dGBKiK/23nfCY6jl0JZ4qVOzVLaCjJ+466FqsroNvPaDW5orgA0+18RNPIfm8n2fS
- b10Iuvd20aOepe6yPHG2id1zUMRnrm508pQiKAajRuXixQATqp0F9lrOLNw0JUw/Aw
- U/eFYSSNOVuSmV4wkdKi7M2VvZfR0e4dmw8bMd3c=
-Subject: Patch "MIPS: fix truncation in __cmpxchg_small for short values" has
- been added to the 4.14-stable tree
-To: gregkh@linuxfoundation.org, linux-mips@linux-mips.org,
- linux-riscv@lists.infradead.org, michaeljclark@mac.com,
- patches@groups.riscv.org, paul.burton@mips.com
-From: <gregkh@linuxfoundation.org>
-Date: Sat, 02 Mar 2019 09:36:36 +0100
-Message-ID: <155151579678198@kroah.com>
+ s=default; t=1551688060;
+ bh=1SwplH6VUws6P5E0c+remyQ9+KqB2xc+5OF72RAyawU=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=drq0BKo+ePH8jhq0cz3s8xhLVR3AdsMrmw3tKYdIwNvNpiH/uvS7wWlgIQuhSO69a
+ uWML5RINm7EuhBLZtthpDTqKKj6DQcT4+RD8/ObybtOcu7D/Wy22ZIrSJ7LOAi/PjR
+ mLAwp/MeGkYpKyLkclGXSmOJPKcROUSEZNp22Opw=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH 4.14 50/52] MIPS: fix truncation in __cmpxchg_small for short
+ values
+Date: Mon,  4 Mar 2019 09:22:48 +0100
+Message-Id: <20190304081619.964223194@linuxfoundation.org>
+X-Mailer: git-send-email 2.21.0
+In-Reply-To: <20190304081617.159014799@linuxfoundation.org>
+References: <20190304081617.159014799@linuxfoundation.org>
+User-Agent: quilt/0.65
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-X-stable: commit
-X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190302_003639_287370_4B77C0AF 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20190304_002742_308788_B0C5EECC 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -75,32 +78,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: stable-commits@vger.kernel.org
+Cc: Linux MIPS <linux-mips@linux-mips.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org,
+ Michael Clark <michaeljclark@mac.com>, Paul Burton <paul.burton@mips.com>,
+ RISC-V Patches <patches@groups.riscv.org>,
+ Linux RISC-V <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+4.14-stable review patch.  If anyone has any objections, please let me know.
 
-This is a note to let you know that I've just added the patch titled
-
-    MIPS: fix truncation in __cmpxchg_small for short values
-
-to the 4.14-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
-
-The filename of the patch is:
-     mips-fix-truncation-in-__cmpxchg_small-for-short-values.patch
-and it can be found in the queue-4.14 subdirectory.
-
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
-
-
-From 94ee12b507db8b5876e31c9d6c9d84f556a4b49f Mon Sep 17 00:00:00 2001
-From: Michael Clark <michaeljclark@mac.com>
-Date: Mon, 11 Feb 2019 17:38:29 +1300
-Subject: MIPS: fix truncation in __cmpxchg_small for short values
+------------------
 
 From: Michael Clark <michaeljclark@mac.com>
 
@@ -147,9 +137,6 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
  	WARN_ON((unsigned long)ptr & (size - 1));
 
 
-Patches currently in stable-queue which might be from michaeljclark@mac.com are
-
-queue-4.14/mips-fix-truncation-in-__cmpxchg_small-for-short-values.patch
 
 _______________________________________________
 linux-riscv mailing list
