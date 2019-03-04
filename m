@@ -2,22 +2,21 @@ Return-Path: <SRS0=iqkr=RH=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A2EF3C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2019 19:52:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 11F95C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2019 20:35:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 713F520823
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2019 19:52:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D470620823
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  4 Mar 2019 20:35:14 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uQH77KZA";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="EBzZyfjR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 713F520823
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="j1PTp3AC";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="CF4eeDQZ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D470620823
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,62 +25,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=3ei+9U6hioWXpJBT8Y54CnHavbjEl+EpMEGEFtzb8ns=; b=uQH77KZAzbW4tWO3m1I+xT2Wz
-	h7tj021KY6Lr81zIISnCsPzm+fIieCLE/00KhISydafxWefsXlQiostEAtkDLioX4TpDCe3q3s/Yh
-	WGGxl8LG7M5oQR/EQgbHHzzHwj0B+NTStLAxFc+ahm+c6SAtIe2FWuAGZGUt7QgRSWaQS66Xad+gI
-	UeOhkm0Mm0TQnd0Wb+6AINjkAaRmrE8d9Y65n5r89XPVPLjS9fBmqlr5msBFznC/67Qd2028fA/Pw
-	QH0fcxT4oLRLHfw64xk8CJSGMTtG35F5WzdJiKimJycFgKAoLU4EmokJ2qn+7Z825QFUhYVXDJ9JT
-	2pMcWRUzw==;
+	 bh=6Jl5CQ6dIyZK5j7CsgDVET5GyDTh4brSCDxRvt7lLkA=; b=j1PTp3ACykBYWIjZJUOcoOXBn
+	iBV4tSzv31NS4+HslPb/y+kxIQHr3ttVb80QgqS2VO6QdrjrfJ4xcJgLWRbHnFMsV/JNqTbKVEU/U
+	Qe969BE99blsMBTxL2NDXLxp2XFsZHX9O0AomKnpb4Sb3T+6YKIWywfJofNmQ7KRk6UbAPcJHmJyv
+	PN2CVlDTWPWF63+2DyZiF+zAT6H1YZ0WqDjKwoiJufzjrhLc7XbJayDGxSMvThGCcTWWzD4gsUdLs
+	4Tz2zkhglNk8N5GCHC1bTnxMXEYw9y+nS3pQLntoPVQ/hnQWg3/rf3cVd5Yc7B+xzQBJP49M+W/yE
+	vl0mw/ccA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h0tdI-00039u-6T; Mon, 04 Mar 2019 19:52:16 +0000
-Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
+	id 1h0uIq-0007rp-9Y; Mon, 04 Mar 2019 20:35:12 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h0tdE-000397-JV
- for linux-riscv@lists.infradead.org; Mon, 04 Mar 2019 19:52:14 +0000
-Received: by mail-pg1-x543.google.com with SMTP id h8so3811091pgp.6
- for <linux-riscv@lists.infradead.org>; Mon, 04 Mar 2019 11:52:12 -0800 (PST)
+ id 1h0uIo-0007rS-DY
+ for linux-riscv@lists.infradead.org; Mon, 04 Mar 2019 20:35:11 +0000
+Received: by mail-pf1-x442.google.com with SMTP id g6so3832880pfh.13
+ for <linux-riscv@lists.infradead.org>; Mon, 04 Mar 2019 12:35:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=u2JwMPkXahrcjaXSTN2edPrnsueKt8E7HcOE5LuwXGM=;
- b=EBzZyfjR6uTKlbm5plvgqoa4trJSq0hfNhvwyj0jDZj08RxgDbqg4b6nRnglA26f69
- goPEItVPzb3RUE7xh4XCmFyVQCUzlkFQpiC5MwDhlFa1YsaGVBzHFROYc7BdFfMra8lZ
- 7OzXGR9b8ZlZ7JLT/SuTqrXFc2vgspBkMxMi1zDKU58/d24Blqa+Vr2LhA0LGPxPeboU
- rFxbYZkiZLMQl7QbaoxHyanEqHZVLBoBvlImyED/yHrfJzOP+6UrqED0cc863tSMuD9Z
- wX/NPm1ERPg0VHH6nJx36nzdedPeWpYFU64jIi5Zp+0pe8MRIwb8h+FJd2Vy8ZHjcxsS
- Clzw==
+ bh=xNmRIXO0MDorylQ6to2ktdfK3KWc9juEpeOkY/XwoJA=;
+ b=CF4eeDQZAKbaUGzJA9fQrzNzkO+NVHMbfRrNep/Zh7xnCdV2i2ErmB04CC6jBQqoqk
+ hCfP4Dn9cDxs3zfMNFBlmeR7wANSPtqE4t6cu7eeKbr0YwyFvysVuUibBE9E7eAJ41tL
+ GqWbKYsVAmzlSdSWYZMozNM/IyRS5pZiqMJ/orvBDADJAw59YjXJH/1MwGFNaLaubEMQ
+ TZ4vC7oPA258zLV2nXE3/rplpdeR+ObDgk7ZXMiSm1XnCwHa5tOuu+qqtEGgp77hCQIR
+ nkGnJjQ5KOtV6v4FEVwVjzBX962VYSQBtbyINOxVkyNAfPT132cTXxOpIJljqe0XDgy8
+ lp/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=u2JwMPkXahrcjaXSTN2edPrnsueKt8E7HcOE5LuwXGM=;
- b=mQreLCW9I8JwhT82g/KaOcxxaNxjzMcSZ2tuStF66XBb4xb3AoS8CrNz4HitU1VlPD
- +rLf9+L0Qy9AqAUmopoBc/2DqnnpFHZHMTnEn+9vJboQaPYy6KydcQzYqeh5jzfYQiLv
- P0LJoodwC3J8fTzSkgptNKEbr2cssydrrypOs8mAL0B1LTeFQEh9uVU5ij6eL5cYEglm
- u6XKxYV5PV9VwPsZ3ajgPWyAg8TKX4U725YOZ46kVxhGsEu4+Z2i77s4oO6x2b5kR2Ap
- xSbgmSMp3PM6n5KI3AIzNXLXi4GMR3DOE4JaZmYwx9yNMqf4/E39pL7jB/wkyqqe/vx4
- uLmQ==
-X-Gm-Message-State: APjAAAWUSubTMvk2toot2LpzBuSRUj5/uQ52Z+cyTOlNdhUuJAhP41oE
- NXSgx+SmZsLDeDXhlfaj46gY9KfdMv8=
-X-Google-Smtp-Source: APXvYqx/uztNHG1glavRluuV6vhWfBK4go8X3t8WdZB1V+wV3tJWYiVJzPzlQ/YPFjGRxggubW6pJw==
-X-Received: by 2002:a65:5507:: with SMTP id f7mr19734536pgr.44.1551729131153; 
- Mon, 04 Mar 2019 11:52:11 -0800 (PST)
+ bh=xNmRIXO0MDorylQ6to2ktdfK3KWc9juEpeOkY/XwoJA=;
+ b=rhDZpfUbeFNt96RjfbK4y1r43R56N777QDjxMfrxPAz/4GOiWCZvCWZw6C0R5zjFRn
+ 2l0uRawopa1UgwuDcILmwoJI9maZlHXkJcy0SafT0ZOeW+BZQ5nYbM7FaAevfS6Cq+xz
+ bQb+m7xpbCxONEU/otFscZ1LeAuiQK3j0XhxNfjOBjFkjooaQrD4dOWQEfTxyK0VaAkG
+ mwllSzWZpc9SSWDgX5RsXz0UHrL0lEHTpa12lu7L6yykIxZjKZUM5IAXTME/QRhgxI0C
+ 7R/i66GyCaUVAIsa7FZGm73s2AZrH59ViUTjbCvs61DYiZ9qQJhIxu+7NuilTWSIixVG
+ H2fA==
+X-Gm-Message-State: APjAAAVcHbS5sESItVkZZDohdQ90nZ7o0TiQSlM8MhiW2ORr4Casqzi7
+ zP4jr6j6SlpBq/ZRzSKsGIFpnA==
+X-Google-Smtp-Source: APXvYqxja//u6kgFzU5DvfMkiEewZ3u55h1AEIkISeL6/xSWE/saZvaIZksEJL1uE6MRINFUnKohqQ==
+X-Received: by 2002:a17:902:728f:: with SMTP id
+ d15mr22290851pll.156.1551731709722; 
+ Mon, 04 Mar 2019 12:35:09 -0800 (PST)
 Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id p2sm13719782pfi.95.2019.03.04.11.52.09
+ by smtp.gmail.com with ESMTPSA id k74sm13911823pfb.172.2019.03.04.12.35.07
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 04 Mar 2019 11:52:10 -0800 (PST)
-Date: Mon, 04 Mar 2019 11:52:10 -0800 (PST)
-X-Google-Original-Date: Mon, 04 Mar 2019 11:52:08 PST (-0800)
-Subject: Re: [GIT PULL] Fixmap support and MM cleanups
-In-Reply-To: <mhng-af9b888c-c585-4598-a59f-1255441ba3fb@palmer-si-x1c4>
+ Mon, 04 Mar 2019 12:35:08 -0800 (PST)
+Date: Mon, 04 Mar 2019 12:35:08 -0800 (PST)
+X-Google-Original-Date: Mon, 04 Mar 2019 12:34:41 PST (-0800)
+Subject: Re: [PATCH 0/3] riscv: Fix debug instruction check and support
+ trap-based WARN()
+In-Reply-To: <1551349891-22683-1-git-send-email-vincentc@andestech.com>
 From: Palmer Dabbelt <palmer@sifive.com>
-To: Anup Patel <Anup.Patel@wdc.com>
-Message-ID: <mhng-c1cf3829-0ec4-42c6-89c5-220206612e28@palmer-si-x1c4>
+To: vincentc@andestech.com
+Message-ID: <mhng-76c68381-da6b-4b8c-97c9-e38d503b93bc@palmer-si-x1c4>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190304_115212_670926_6A82A4CD 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20190304_123510_491725_B8C53993 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,49 +94,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Anup Patel <Anup.Patel@wdc.com>
+Cc: aou@eecs.berkeley.edu, Arnd Bergmann <arnd@arndb.de>,
+ linux-kernel@vger.kernel.org, vincentc@andestech.com, ebiederm@xmission.com,
+ linux-riscv@lists.infradead.org, deanbo422@gmail.com,
+ Jim Wilson <jimw@sifive.com>
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 04 Mar 2019 11:31:15 PST (-0800), Palmer Dabbelt wrote:
-> On Thu, 14 Feb 2019 00:26:33 PST (-0800), Anup Patel wrote:
->> The following changes since commit d13937116f1e82bf508a6325111b322c30c85eb9:
->>
->>   Linux 5.0-rc6 (2019-02-10 14:42:20 -0800)
->>
->> are available in the Git repository at:
->>
->>   https://github.com/avpatel/linux.git tags/riscv-fixmap-for-palmer-linux-5.0-rc6
->>
->> for you to fetch changes up to 49f4f73f51bed5b840ea4f944cfb7f4fbc78a86a:
->>
->>   RISC-V: Free-up initrd in free_initrd_mem() (2019-02-14 13:32:25 +0530)
->>
->> ----------------------------------------------------------------
->> This tag contains RISC-V fixmap patches.
->>
->> ----------------------------------------------------------------
->> Anup Patel (5):
->>       RISC-V: Setup init_mm before parse_early_param()
->>       RISC-V: Move setup_bootmem() to mm/init.c
->>       RISC-V: Move setup_vm() to mm/init.c
->>       RISC-V: Implement compile-time fixed mappings
->>       RISC-V: Free-up initrd in free_initrd_mem()
->>
->>  arch/riscv/Kconfig               |   3 +
->>  arch/riscv/include/asm/fixmap.h  |  44 +++++++++++
->>  arch/riscv/include/asm/pgtable.h |   1 +
->>  arch/riscv/kernel/setup.c        | 130 +-------------------------------
->>  arch/riscv/mm/init.c             | 156 ++++++++++++++++++++++++++++++++++++++-
->>  5 files changed, 207 insertions(+), 127 deletions(-)
->>  create mode 100644 arch/riscv/include/asm/fixmap.h
+On Thu, 28 Feb 2019 02:31:28 PST (-0800), vincentc@andestech.com wrote:
+> The handler for the debug exception will call is_valid_bugaddr(bugaddr) to
+> check if the instruction in bugaddr is a real debug instruction. However,
+> the expected instruction, ebreak, is possibly translated to c.ebreak by
+> assmebler when C extension is supported. This patchset will add c.ebreak
+> into the check mechanism. In addition, BUG() is currently unable to work in
+> the kernel module due to an inappropriated condition in is_valid_bugaddr().
+> This issue will be fixed in this patchset. Finally, this patchset enables
+> WARN() related functions to trap the code to help developers debug it.
 >
-> I can't seem to find this tag.
+>
+>
+>
+>
+> Vincent Chen (3):
+>   riscv: Add the support for c.ebreak check in is_valid_bugaddr()
+>   riscv: Support BUG() in kernel module
+>   riscv: Make WARN() related functions able to trigger a trap exception
 
-I found the v2.  There was a merge conflict, but I think I have something 
-reasonable on for-next.
+I'm finding this patch set a bit hard to follow, and I think it has more diff 
+than is necessary.  For example, the first patch introduces a new die() only to 
+have it removed by the third patch.  There's also some unnecessary 
+non-functional diff, like
+
+    @@ -149,12 +161,13 @@ int is_valid_bugaddr(unsigned long pc)
+            if (probe_kernel_address((bug_insn_t *)pc, insn))
+                    return 0;
+            if ((insn & __INSN_LENGTH_MASK) == __INSN_LENGTH_32)
+    -               return insn == __BUG_INSN_32;
+    +               return (insn == __BUG_INSN_32);
+            else
+    -               return (insn & __COMPRESSED_INSN_MASK) == __BUG_INSN_16;
+    +               return ((insn & __COMPRESSED_INSN_MASK) == __BUG_INSN_16);
+     }
+     #endif /* CONFIG_GENERIC_BUG */
+    
+    +
+     void __init trap_init(void)
+     {
+            /*
+
+I like the idea of the patch set, though.  Do you have time to clean it up and 
+submit a v2?
 
 _______________________________________________
 linux-riscv mailing list
