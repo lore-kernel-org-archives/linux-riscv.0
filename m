@@ -2,62 +2,61 @@ Return-Path: <SRS0=iCzv=RJ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 11948C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2019 11:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BA12CC10F00
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2019 15:52:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D160320675
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2019 11:08:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 663A720684
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Mar 2019 15:52:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QLDSPSBA"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D160320675
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="i46gG7Hn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 663A720684
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BScANOGACv5UH5e/GTKuelhnaj7ZYYUQEMjrY7wCTLc=; b=QLDSPSBAsrGvaJ
-	4y41owBac2aYWTCkQ7j1kshHVyZPlA6lE/+CwCBxy851B1oJzVKwgGZSnZSPau705o3CdiHOIcKIi
-	1yVLHrP3KESvKRYD5ChS0GGxT0ym5wgrLdu7KhQuB4T+0mt7GA0wI36qXHtSFSxFC4KdW1ehQBlBT
-	BGIuNn2hNC93nB2gzNTB6M87CjJOua47XDTHSakLz7bTtwbvDDx8MmwDAoENZsI8GB/+XkiuMkTg1
-	iPMW/saQ9VRXj2nrCVdeO/DP10507w0muDO2Jj+6JziFMp9MAbHLJBPzoJAUvHNz194BMlhtny/lj
-	62BjznMwpFy+ClobYnBg==;
+	List-Owner; bh=HbB5e5Rl79T4uVVbMW6VVUBul+LpUXuZ4MgFPzAqJgQ=; b=i46gG7HnCkUR+p
+	JuCRZm09Q1BLJ0Rvk8VUaey4iJYvaOZMqC2tHEzeLNN//fVqeryeb8wCzdkxU5eE6by0XfGRSxtk4
+	p+nlVZPqYW6HijyLljJXr9JGy21ASyK2lYXOYEtFf+RA0j/LakL4sVRqpsk0C8r+x91tI1KBnN/tT
+	YxhGeFINLVkZ5SFsVqDcUHfOCdx/I4ueA0L+PaNI912juQ8uxa1QN/SoFlUcc5RIqttDIgrtIFMAy
+	/aZChKS5y9qnO3qObngnxQ0ZtJevXOKKroZLlyuz/mIWOPb6Oqk0nT1leFKfmY22Wx6K+RSIEFV9h
+	4FSjsuA3gosckOePfzrg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h1UPM-0005ra-SM; Wed, 06 Mar 2019 11:08:20 +0000
-Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h1UPI-0005qo-CI
- for linux-riscv@lists.infradead.org; Wed, 06 Mar 2019 11:08:19 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 06D25B9BB;
- Wed,  6 Mar 2019 11:08:12 +0000 (UTC)
-From: Andreas Schwab <schwab@suse.de>
-To: Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH v3 0/2] tty: serial: add DT bindings and serial driver for
- the SiFive FU540 UART
-References: <20181020101045.15991-1-paul.walmsley@sifive.com>
-X-Yow: I've got an IDEA!!  Why don't I STARE at you so HARD,
- you forget your SOCIAL SECURITY NUMBER!!
-Date: Wed, 06 Mar 2019 12:08:12 +0100
-In-Reply-To: <20181020101045.15991-1-paul.walmsley@sifive.com> (Paul
- Walmsley's message of "Sat, 20 Oct 2018 03:10:44 -0700")
-Message-ID: <mvmr2bkxntv.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.92 (gnu/linux)
+	id 1h1Ypq-0000UG-1t; Wed, 06 Mar 2019 15:51:58 +0000
+Received: from usa-sjc-mx-foss1.foss.arm.com ([217.140.101.70]
+ helo=foss.arm.com)
+ by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1h1Yoz-0007lQ-RS; Wed, 06 Mar 2019 15:51:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 54ABF165C;
+ Wed,  6 Mar 2019 07:51:05 -0800 (PST)
+Received: from e112269-lin.arm.com (e112269-lin.cambridge.arm.com
+ [10.1.196.69])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A34033F703;
+ Wed,  6 Mar 2019 07:51:01 -0800 (PST)
+From: Steven Price <steven.price@arm.com>
+To: linux-mm@kvack.org
+Subject: [PATCH v4 05/19] riscv: mm: Add p?d_large() definitions
+Date: Wed,  6 Mar 2019 15:50:17 +0000
+Message-Id: <20190306155031.4291-6-steven.price@arm.com>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20190306155031.4291-1-steven.price@arm.com>
+References: <20190306155031.4291-1-steven.price@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190306_030816_558005_8457441E 
-X-CRM114-Status: UNSURE (   7.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190306_075106_277397_F2D2DCDF 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -69,26 +68,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Wesley Terpstra <wesley@sifive.com>,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jslaby@suse.com>, linux-riscv@lists.infradead.org
+Cc: Mark Rutland <Mark.Rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Will Deacon <will.deacon@arm.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, linux-riscv@lists.infradead.org, "Liang,
+ Kan" <kan.liang@linux.intel.com>, x86@kernel.org,
+ Steven Price <steven.price@arm.com>, Ingo Molnar <mingo@redhat.com>,
+ Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>,
+ =?UTF-8?q?J=C3=A9r=C3=B4me=20Glisse?= <jglisse@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
+ Ard Biesheuvel <ard.biesheuvel@linaro.org>, linux-kernel@vger.kernel.org,
+ James Morse <james.morse@arm.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Trying to log in on the serial console causes the system to freeze.  The
-last message is:
+walk_page_range() is going to be allowed to walk page tables other than
+those of user space. For this it needs to know when it has reached a
+'leaf' entry in the page tables. This information is provided by the
+p?d_large() functions/macros.
 
-[  115.597858] sifive-serial 10010000.serial: BRKINT/PARMRK flag not supported
+For riscv a page is large when it has a read, write or execute bit
+set on it.
 
-Andreas.
+CC: Palmer Dabbelt <palmer@sifive.com>
+CC: Albert Ou <aou@eecs.berkeley.edu>
+CC: linux-riscv@lists.infradead.org
+Signed-off-by: Steven Price <steven.price@arm.com>
+---
+ arch/riscv/include/asm/pgtable-64.h | 7 +++++++
+ arch/riscv/include/asm/pgtable.h    | 7 +++++++
+ 2 files changed, 14 insertions(+)
 
+diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+index 7aa0ea9bd8bb..73747d9d7c66 100644
+--- a/arch/riscv/include/asm/pgtable-64.h
++++ b/arch/riscv/include/asm/pgtable-64.h
+@@ -51,6 +51,13 @@ static inline int pud_bad(pud_t pud)
+ 	return !pud_present(pud);
+ }
+ 
++#define pud_large	pud_large
++static inline int pud_large(pud_t pud)
++{
++	return pud_present(pud)
++		&& (pud_val(pud) & (_PAGE_READ | _PAGE_WRITE | _PAGE_EXEC));
++}
++
+ static inline void set_pud(pud_t *pudp, pud_t pud)
+ {
+ 	*pudp = pud;
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 16301966d65b..c66e2a69215f 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -111,6 +111,13 @@ static inline int pmd_bad(pmd_t pmd)
+ 	return !pmd_present(pmd);
+ }
+ 
++#define pmd_large	pmd_large
++static inline int pmd_large(pmd_t pmd)
++{
++	return pmd_present(pmd)
++		&& (pmd_val(pmd) & (_PAGE_READ | _PAGE_WRITE | _PAGE_EXEC));
++}
++
+ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+ {
+ 	*pmdp = pmd;
 -- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+2.20.1
+
 
 _______________________________________________
 linux-riscv mailing list
