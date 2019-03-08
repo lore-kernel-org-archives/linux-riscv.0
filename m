@@ -2,81 +2,149 @@ Return-Path: <SRS0=N7Yn=RL=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_PASS,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4F054C10F09
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2019 21:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EDE27C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2019 21:57:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1ED2C20855
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2019 21:10:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7D5B22081B
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2019 21:57:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="S2YEu0ZB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1ED2C20855
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=metux.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DQUOiak7";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=mit.edu header.i=@mit.edu header.b="b6Guld/t"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7D5B22081B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=mit.edu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=SCPmlzOzhc8kNVp5AFMae0G1TMF7PAzhza8x713tdA0=; b=S2YEu0ZBpDtUOSPctT+6cCy7fx
-	55QF7aDT+na51WqsiTh9DEb9pktwcl3B/1li0nYFHnYnv+zjtrHdP+ZeSLMOLji6XQ/l+C08q3HLC
-	xVYQAFAaz8TVdWUuTMfuiyqweJUYtxGPrFYYQKul+7q41zDovOBqBCOdbM6LpI64lPj0pGRKqovR2
-	fOoBgPQPywTqNpJRrDf6ALnZFfPW0IgGsU12b0U9YINhzkJEZEHU1foKxji9+2TRKSqJJzzIF7iKC
-	BfdzUnrt8FnoLoUc+nvHtupYK/86m5xLOveMLjaEXFutP/LohvpsQ+yJad4lqvUga+bn7E6wPjAge
-	Clb2kb8Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4ntcieduiqbZOXgqxafWsnC1IYIovn65wnmnPe4bK2o=; b=DQUOiak7xa3D6Q
+	CYlnoaqTGnzsStZHr5ytyS+m7g0ln64Vi2gWp95XWA9W87eoDwEHs92Y07ra+rQe/VFXKOX9dDzW5
+	6NI6Gi6Kne+kxqFyS+gqK79o7EKWOBdTG80h/1SthxPDp6SnHio86uLEMqNRv6I78gQLRiDs/XIyr
+	8rnUMKbiOnCc6IPtk3j+bq7mKmoyiXKN8BpFNWCtgLPrvYPVHjPz+4AVaIBkxS0VBWc9Imc3dgLyF
+	moOdUDy6PEm+NddIPxZ/YAOMr2LxRCziJUih8hNC0qt/n7ohQCraPrJPyxk1XxLC/tZwFXKSysMvp
+	9CXX5PHBA9gZQIJ2iDEw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h2MlM-0003jt-1b; Fri, 08 Mar 2019 21:10:40 +0000
-Received: from mout.kundenserver.de ([212.227.126.131])
+	id 1h2NUt-0001Gl-4b; Fri, 08 Mar 2019 21:57:43 +0000
+Received: from mail-co1nam04on072a.outbound.protection.outlook.com
+ ([2a01:111:f400:fe4d::72a]
+ helo=NAM04-CO1-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h2MlJ-0003iv-PB
- for linux-riscv@lists.infradead.org; Fri, 08 Mar 2019 21:10:39 +0000
-Received: from [192.168.1.110] ([95.117.97.241]) by mrelayeu.kundenserver.de
- (mreue009 [212.227.15.167]) with ESMTPSA (Nemesis) id
- 1MUGmJ-1hSSDN38p1-00RKt3; Fri, 08 Mar 2019 22:10:22 +0100
+ id 1h2NUi-00015R-7i
+ for linux-riscv@lists.infradead.org; Fri, 08 Mar 2019 21:57:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=selector1; 
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BfwysCAanpxLov1lbi+EGcubxAWHAw/CGWEjLtXXQKc=;
+ b=b6Guld/tEeEWmOSoScewFrt9/GfPK6/2Z45AgvIYOA+nPwVF5i9uRVYpoT1Vm1G4EOceW9JSBFQbmuD5YnuQ531Ouyhc2J68+GvKkdbNvQVkAYkKwKiWywD+6TlD+2XvCeTRI222/KkAzlaOgsmX01FpflhudH2w6dyIP/TTqN0=
+Received: from BL0PR01CA0015.prod.exchangelabs.com (2603:10b6:208:71::28) by
+ DM5PR0102MB3589.prod.exchangelabs.com (2603:10b6:4:a4::24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.1665.20; Fri, 8 Mar 2019 21:57:29 +0000
+Received: from BY2NAM03FT052.eop-NAM03.prod.protection.outlook.com
+ (2a01:111:f400:7e4a::207) by BL0PR01CA0015.outlook.office365.com
+ (2603:10b6:208:71::28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.1686.17 via Frontend
+ Transport; Fri, 8 Mar 2019 21:57:28 +0000
+Authentication-Results: spf=pass (sender IP is 18.9.28.11)
+ smtp.mailfrom=mit.edu; vger.kernel.org; dkim=none (message not signed)
+ header.d=none;vger.kernel.org; dmarc=bestguesspass action=none
+ header.from=mit.edu;
+Received-SPF: Pass (protection.outlook.com: domain of mit.edu designates
+ 18.9.28.11 as permitted sender) receiver=protection.outlook.com;
+ client-ip=18.9.28.11; helo=outgoing.mit.edu;
+Received: from outgoing.mit.edu (18.9.28.11) by
+ BY2NAM03FT052.mail.protection.outlook.com (10.152.85.223) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.1686.19 via Frontend Transport; Fri, 8 Mar 2019 21:57:28 +0000
+Received: from callcc.thunk.org (guestnat-104-133-0-99.corp.google.com
+ [104.133.0.99] (may be forged)) (authenticated bits=0)
+ (User authenticated as tytso@ATHENA.MIT.EDU)
+ by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x28LvP7o014526
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 8 Mar 2019 16:57:26 -0500
+Received: by callcc.thunk.org (Postfix, from userid 15806)
+ id E973F423702; Fri,  8 Mar 2019 16:57:24 -0500 (EST)
+Date: Fri, 8 Mar 2019 16:57:24 -0500
+From: Theodore Ts'o <tytso@mit.edu>
+To: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
 Subject: Re: Debian build polishing
-To: Theodore Ts'o <tytso@mit.edu>,
+Message-ID: <20190308215724.GA22319@mit.edu>
+Mail-Followup-To: Theodore Ts'o <tytso@mit.edu>,
+ "Enrico Weigelt, metux IT consult" <lkml@metux.net>,
  "Enrico Weigelt, metux IT consult" <info@metux.net>,
  linux-kernel@vger.kernel.org, yamada.masahiro@socionext.com,
  michal.lkml@markovi.net, apw@canonical.com, joe@perches.com,
  linux-kbuild@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <1552049064-32044-1-git-send-email-info@metux.net>
  <20190308175703.GA7178@lambda>
-From: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
-Organization: metux IT consult
-Message-ID: <fe53cd84-5953-786a-3a4f-6eac652a1cdd@metux.net>
-Date: Fri, 8 Mar 2019 22:10:19 +0100
-User-Agent: Mozilla/5.0 (X11; Linux i686 on x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.2.1
+ <fe53cd84-5953-786a-3a4f-6eac652a1cdd@metux.net>
 MIME-Version: 1.0
-In-Reply-To: <20190308175703.GA7178@lambda>
-Content-Language: en-US
-X-Provags-ID: V03:K1:3PmkOyG6x/QQ8jBy7+rUN/zFUMrd1+8/SGCKfaNgpnEqF0QY1Yq
- kdT4zLl7Hajp/VMYG9pj+GyQCMPhKKjSa5x1s4MTzL/QmMMe+4QaeRXILdHuRGY9+et6+qp
- HxWhZN5UQHkHpVdvUsIwURT1Vwwqr9kVOEb3wKq+7+80QsECpQMs1kPcYkXK1ddjjl4AlEi
- LeFGbyyRzNRvViX8g47+A==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:k1/nOnkA0zQ=:EOzz3SvJKSI/o9mRfWIb/8
- BD5jiEtAKecdN9Vv4vDPSDCvQC32lj1IBnsi81diCLmWthfMTRzZwlbt/Fdak0NL32wgfnZEA
- 6Qackka/zPsoyQgh6DO3I3pEYbAVb+F08/PnHBEsgu/VL3Iy3be8ggFv+IniY76qcNCkltfu1
- QBEDS+YlzeZZcDzRe8+nMxWulFA03MKs8BrN9CCEBssm/kmHruL1ZWo2hd1g602bxY8x08CBa
- 5yKYKrw5okkp5ePICTTH/OiQnscXBgxn//09qs0a4uKtiixv9GiPFYB/cPYI9mGLS8dxNYu7b
- BrhT4hlauTslRVq6lef4KPUny/3J13CVA/pyvRNSSxzQGiWy98S7TLdTCjl4fSk2Iz0LTV4h9
- hde1CteuahXeBMIHNf6MEkqjo6E0e7bkaA16Nwbzq+CaY2wHBwQBDnwKUKch78s+UcArBq208
- acIKm4lc7x1WKaq2EG1lh8SmcBNocg7ArIVlHTKo1lnYsFI2Mz1O/nFo9isJvMjWsHMtzjqWD
- qoWoDEwKCHuZEsIGzYrUJspDQGqTLI/P9p/sveQmd0grcLaB869pv6NBUalNxtGrqj/MBkHfZ
- 1tcSZg1SnkY/Vr2zuUNFGBrRm2VJls22ZYs7cqWt8tOM1tTsEO4y4gqXrlGsLUF5v4Rv9f3a4
- WGM+4wGkdhzghZ+RUngSkey6Ux2lsZo1pTuuTW4dQ9EDFDpZrviOk6J/ae+VQicN1/4AT/Ev9
- Gy7p8qNrqkz96TVBfmRiO960TUoPs9q3ul3GEHTSb5u3/XtiRiNQo11oNcU=
+Content-Disposition: inline
+In-Reply-To: <fe53cd84-5953-786a-3a4f-6eac652a1cdd@metux.net>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-EOPAttributedMessage: 0
+X-Forefront-Antispam-Report: CIP:18.9.28.11; IPV:CAL; SCL:-1; CTRY:US; EFV:NLI;
+ SFV:NSPM;
+ SFS:(10019020)(376002)(346002)(39860400002)(396003)(136003)(2980300002)(189003)(199004)(52956003)(486006)(6266002)(47776003)(8936002)(11346002)(476003)(1076003)(86362001)(6246003)(126002)(446003)(106466001)(2906002)(23726003)(336012)(88552002)(3480700005)(305945005)(4326008)(246002)(103686004)(2616005)(356004)(5660300002)(36756003)(229853002)(75432002)(478600001)(186003)(50466002)(42186006)(46406003)(33656002)(6916009)(8676002)(786003)(36906005)(4744005)(26826003)(316002)(97756001)(76176011)(26005)(58126008)(106002)(16586007)(54906003)(7116003)(90966002)(42866002);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:DM5PR0102MB3589; H:outgoing.mit.edu; FPR:;
+ SPF:Pass; LANG:en; PTR:outgoing-auth-1.mit.edu; MX:1; A:1; 
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 7126e7e8-de48-4d5f-98d0-08d6a4110e97
+X-Microsoft-Antispam: BCL:0; PCL:0;
+ RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600127)(711020)(4605104)(4608103)(4709054)(2017052603328)(7153060);
+ SRVR:DM5PR0102MB3589; 
+X-MS-TrafficTypeDiagnostic: DM5PR0102MB3589:
+X-LD-Processed: 64afd9ba-0ecf-4acf-bc36-935f6235ba8b,ExtAddr
+X-Microsoft-Exchange-Diagnostics: 1; DM5PR0102MB3589;
+ 20:uOekqgrFGGA0r7K7a7VP6HnjzpAQfKbgZb3qgZiGV8fj6tlvAGZb+8Y+TL9RVbeanCbrWVBoK1Ih64mgYPiiiXIeYzhk5+7EzTtHs2t/y4iISLtO6k81wkhD2B72hh8oukfl/aBrfHA5vmcnjNzCAobd4x/TzmaVhHExft2JcXwAlMV/yzyM1YkK2vSK90WaYNz9QfZMeseX66PZC3DoK+2HU8kRthI6bQ+6q2y80OX/o5npiVUfCdo+nqKfUm0gAFCUUMS1nqhacvrTig4zaH/O7JYLrWm6cpNdzrXTrMFtCSL0vaCgVOpnieEItat7T4M9tSUDrVq9OLe+jUegkIIQh8Brhlkxgu8f0BF32U//w1lhHz/XivakaWI5P4G8NB7KoYiHeBoV3N0/P1NVLnEcUKrIQKxhH3bXE6q4VKnxLw9wxhxpOgMh4a3lYr5DjPvUoCAeeJghiNy1eGWNSkYZiSxj3F3f460J7vD+1jDlVr8IlboZhhGxuKRcJr2MfMvgQ5UKGwkRJjjwhvn9zIhRcabAHeweUxlAt2ETI2Psy/MbO8UUnuWUcAbnTCvAUTJluOHvcflEzda/eRtJsAs74mpf6cQSKomi5++SxFY=
+X-Microsoft-Antispam-PRVS: <DM5PR0102MB3589723D05A72F06F6E0AAADB54D0@DM5PR0102MB3589.prod.exchangelabs.com>
+X-Forefront-PRVS: 0970508454
+X-Microsoft-Exchange-Diagnostics: =?us-ascii?Q?1; DM5PR0102MB3589;
+ 23:RSJZhEZAz9BWH7vwWMkDgv4hAmKr4kjb3gOzOoo?=
+ =?us-ascii?Q?R+uMPAao5j//CrcgPRzYhJqSFi0+Ui6BiGJGLkPgD3QhfPjUHYDlwoHSXJ+/?=
+ =?us-ascii?Q?vWf2p+ko3aY471QEYnKrKEkbC+W0ksSZYy0Qvp6yAHzclFisD+j/4PtVyySO?=
+ =?us-ascii?Q?HF/3/AVgyaCjfKYN31bu9oP9sRzWJKEA9mzAlxnM3m266AL+SBePQFAbl5z5?=
+ =?us-ascii?Q?DvL8u8mSWejHGckYpw4j7AYMaudte5Lfv7sjMqxKJx5eHJYQ2o3AgH/LhEME?=
+ =?us-ascii?Q?DHd/4ApZRNJBz2pV3ky1l0pucxuhDfZQkFHjklFj2V9lACJ3BUJsQNQkDZPO?=
+ =?us-ascii?Q?wDzf5G9unQU71N5omazf5O588l606tyruZUWeeycCvIdxjPQSV7duI/F7+UF?=
+ =?us-ascii?Q?85Knsr1kf8p4PqcAS/QZXqhVocpqTc/uWPwL6gmWD+LzFdEx4KkeAcNeokQV?=
+ =?us-ascii?Q?+TMUyoI9/zKve4cPLCjjHdo2Gf2/BMwk0/vmKzgHSVKSLjx6/tKITd3vPXkU?=
+ =?us-ascii?Q?fPQ6olRkF7paWIVLn+n5ZVkFvO6r5GzJHNM0z/QRhWyTp1IEX02sJ7LRW3k7?=
+ =?us-ascii?Q?+Fy7WPJx5Uh0PEZD0IAcrzMfIEaqSLy93+KOXScFRmtbEJqkUPwY/bDA2COH?=
+ =?us-ascii?Q?eXk6jGc9rDDaLmkj1m8vd58xKKYZeRf1w5+Euki+ss/R2OXept6SWcB3K2Nc?=
+ =?us-ascii?Q?Iz1S6pe4+10iyxf/fwPYMibQAmRsB2TMjKrWC9o2a2/rA+XY7Q5MryePqbKd?=
+ =?us-ascii?Q?eIIWx0sCAhHP5c1eMbg9FYHkurXppbYEvZugd/VMuJewAxm7mfZf/p7g+MTO?=
+ =?us-ascii?Q?6u/fGO4JufPIQYNG7jh0rm5x+6//d/0gisGBKorYtiXtxuiEHcJHC0Ssug03?=
+ =?us-ascii?Q?Oey0m87jsQW1XSUeP6t8uFDkNyO4KWsSoFlI6Y9Dx91taIUVYnd7INUACfIm?=
+ =?us-ascii?Q?OUUeKgOIz31KvrsBT7t5qGBa7W+IWRJvcZl/THZoJPb51OynKtVGcqWLKjq4?=
+ =?us-ascii?Q?j4Bf6ONm7oYV7kxzfRDIJ5IDayGHEibQqFQeBcVJX2BXYj55XpAsim0QDLwL?=
+ =?us-ascii?Q?v/t4u4TQleukmrl0MO1Y4iSn+nwQRBahZVRct1pRJHK52lXaIjPG1k8xWagr?=
+ =?us-ascii?Q?DI8Y8kVEC0pEnGw2Y12PgJRCVhp522cTqWf3ZH4PYqPTkDt64UfuG82tzcDq?=
+ =?us-ascii?Q?Rfp8Wx0HAhMdcvHV379APtmmhUuGVc20uBADDaMPvLeAZgo/KbVUIuATkFC4?=
+ =?us-ascii?Q?6P/XL3q4tQYzaIpYvgkhUvIEp+XDJQcdToRycVoqueqGWkZ9ncgBrD73dLd6?=
+ =?us-ascii?Q?nog=3D=3D?=
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam-Message-Info: 9PB9BGHrSQB0GJ3Dblxsd5Ezi6utNwnKeZSV36Mw32UDTIbsFhgTm9qtr8+khlZhpRY+DfDgF0kxYQiEaCz2azxwRPf0GfXOtebvJJox7sXnPi+OgHMgaEM7NUhQwc5x18UZg9LHGQXsZiG3k2HEiu0QMwpyo2rlU9aevi9Z0ex3mlcB6HGiNKjM8Q3KpQfDMPDr8qk+IZmuDKQdcqFm8FxOlZGZcn9WQV8gVi8CVAer71rWTw1Z4Uqez81oVR+8h3WxLNU9Yv0uDZurmXpirASfNv1HE1iTIQkrShvtFtRyrQ1yCbHAaLK7fJ2lh76ZyJqetnKAaEOMoxWTfDRSBcbMwHypxeLWIpQu/vvmBHBg8kJPGWMXI3uM1t7iahC6MBZPUPF5fwG4zwPdtlMxC15bnqXTtsH75jcJXWW37Kk=
+X-OriginatorOrg: mit.edu
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Mar 2019 21:57:28.1135 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7126e7e8-de48-4d5f-98d0-08d6a4110e97
+X-MS-Exchange-CrossTenant-Id: 64afd9ba-0ecf-4acf-bc36-935f6235ba8b
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=64afd9ba-0ecf-4acf-bc36-935f6235ba8b; Ip=[18.9.28.11];
+ Helo=[outgoing.mit.edu]
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR0102MB3589
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190308_131038_123501_AD9AEBE8 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20190308_135732_389501_469B6598 
+X-CRM114-Status: UNSURE (   5.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -88,76 +156,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: michal.lkml@markovi.net, linux-kbuild@vger.kernel.org,
+ linux-kernel@vger.kernel.org, yamada.masahiro@socionext.com, apw@canonical.com,
+ joe@perches.com, linux-riscv@lists.infradead.org, "Enrico Weigelt,
+ metux IT consult" <info@metux.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08.03.19 18:57, Theodore Ts'o wrote:
-> On Fri, Mar 08, 2019 at 01:44:19PM +0100, Enrico Weigelt, metux IT consult wrote:
->> One point still puzzling me: once the debian/rules is applied and
->> somebody calls `make deb-pkg`, he'll end up w/ unclean tree, as
->> now a git-tracked file is changed.
+On Fri, Mar 08, 2019 at 10:10:19PM +0100, Enrico Weigelt, metux IT consult wrote:
+> > So I really hope your patches don't break this.  
 > 
-> This is not something I've noticed, but I build my Debian packages
-> like this:
-> 
-> make O=/build/linux-build bindeb-pkg
+> It shouldn't (at least I dont intend to). Haven't tried where exactly
+> the generated debian/rules file lands in your case.
 
-This doesn't work for my environment:
+The full debian directory lands in the O= directory.  So presumably
+you could make it work for use case if there was a "make O=/build/dir
+debian-prepare" which copies the necessary debian/ files into the
+build directory and then someone could cd into /build/dir and run
+"dpkg-buildpackage"?
 
-The requirement is that every debian source tree has a ./debian/rules
-file (w/ the standard rules like binary, clean, ...). This is called by
-upper level build machinery (git-buildpackage, dpkg-buildpackage, ...)
-
-The idea behind is building all packages exactly the same way - one
-standard workflow, that just takes a source tree (from git) and spits
-out some .deb files.
-
-> So I really hope your patches don't break this.  
-
-It shouldn't (at least I dont intend to). Haven't tried where exactly
-the generated debian/rules file lands in your case.
-
-> Also, are there any changes the performance of building the Debian
-> packages before and after your changes?  And are there any differences 
-> in the packages in terms of any pre-or-post install/removal scripts?
-
-I don't think so. In essence I just replace the generated rules file by
-a fixed one. Okay, it will take *a little* bit longer, as the rules file
-now calls `make kernelarch`, `make kernelrelease` and `make
-kernellocalversion`, before starting actual build. But that shouldn't be
-the big deal, IMHO.
-
-> There are a lot of things I really dislike about the "official" Debian
-> kernel build processes (they're optimzied for distribution release
-> engineers, not kernel developers), 
-
-I try to bring these two world a bit closer together.
-
-> so I'm really hoping that making
-> things more like the "official Debian way" doesn't break some of the
-> things I really like about the existing "make bindeb-pkg" build
-> system.
-
-I intend not to.
-
-Actually, the official Debian way for Kernel build is entirely
-different, and that's really complicated and hard to really understand
-(that's why I'm  doing this here).
-
-But here I'm just coping w/ the first entry point into the build
-process, which now becomes `./debian/rules binary` instead of
-`make bindeb-pkg`. The final result (in the .deb files) should be
-the time (unless I did something wrong).
-
-
---mtx
-
--- 
-Enrico Weigelt, metux IT consult
-Free software and Linux embedded engineering
-info@metux.net -- +49-151-27565287
+						- Ted
 
 _______________________________________________
 linux-riscv mailing list
