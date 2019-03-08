@@ -2,71 +2,70 @@ Return-Path: <SRS0=N7Yn=RL=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E74F1C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2019 11:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4B00DC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2019 12:45:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B980120684
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2019 11:57:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1AEA92085A
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2019 12:45:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Dn+d661c"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B980120684
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kF2XOWkP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1AEA92085A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=metux.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7HEpfmtKEers8z0xttlsC8P920wmVirkzaoEAM36bFY=; b=Dn+d661cwGBAHB
-	9KGx+SvbHAm+LgaTUTMZvcyfrRqM7Fc4x6DCE5Q9og7fJnTbfD92Guyr90SP6YwtDA4M1L4Fi/LS5
-	Ntk/8Bk+9L0PhaOnhry/b0ZYYuvl4dDqW6iVjrRxZAexe8QPk0Lk9GiL1Ox9Hc7ZUNAxJAXtctRdr
-	YlfS28QMrV1ktUSJXpOMyt3tm9NImlezg7HnWKjwFr/7rnehZ6gsKnn7+0LhbmCuy0s2G3ORu8DmL
-	3iqq1Ilc4+0FfQf35ONT9mgX1Ug8dmiMQnzE2ZIaFog9C43GDhZE0rwyoA1qczT4Hsttz8SXKfBq+
-	rWNNJcsQCa5BlENoGcPA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=RY7JerdkHqsLxe8rNkvYtyVQBtBVkLraDbl/erZvH0s=; b=kF2
+	XOWkPTnj1pEdiUGjkv9gm4PSLYAMgkPBtVWe37A7AlIvhW5hpnE5Uxda6ADSoY5G44kD4RKd9L6WW
+	90Q9yoxQ8gCNvD82dsmU4gCziwIWetnkgUpKG+6FHXbwUOrc6EP1yBdEellFlhwCzJahPV+4hp07E
+	XFlwh2qn+D5/X/Q1ieViDNjla9qcYhHbVux9XvUPvLUGsd7Wf2DgBNDUD6rg34nDDdJCg8O8LomAS
+	+9gC2UfNf773ZylYk4S8Xx1Am3nCkKA7atEhA6nhIXLGrcSinn8ENEWdTtUVCtRErAmZuZy+FRKfS
+	ulK9lniGYzAivvNBtkwstX/g3Vg9FvA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h2E84-0001U6-Fo; Fri, 08 Mar 2019 11:57:32 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1h2Es7-0005Ui-TM; Fri, 08 Mar 2019 12:45:07 +0000
+Received: from mout.kundenserver.de ([212.227.126.133])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h2E81-0001Tj-PP
- for linux-riscv@lists.infradead.org; Fri, 08 Mar 2019 11:57:31 +0000
-Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1h2E80-0003WO-6a; Fri, 08 Mar 2019 12:57:28 +0100
-Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1h2E7y-0006fT-Mh; Fri, 08 Mar 2019 12:57:26 +0100
-Date: Fri, 8 Mar 2019 12:57:26 +0100
-From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH v8 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
-Message-ID: <20190308115726.smgooacsr37fmxwg@pengutronix.de>
-References: <1551437599-29509-1-git-send-email-yash.shah@sifive.com>
- <1551437599-29509-3-git-send-email-yash.shah@sifive.com>
- <20190307152745.kaiv6q4ygf2apmuv@pengutronix.de>
- <CAJ2_jOFvr=sw7mWR53JbzMJa1jxwjhJSTibCsKYsxrht+PLPWw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJ2_jOFvr=sw7mWR53JbzMJa1jxwjhJSTibCsKYsxrht+PLPWw@mail.gmail.com>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+ id 1h2Es4-0004Y1-5P
+ for linux-riscv@lists.infradead.org; Fri, 08 Mar 2019 12:45:05 +0000
+Received: from orion.localdomain ([95.117.97.241]) by mrelayeu.kundenserver.de
+ (mreue010 [212.227.15.167]) with ESMTPSA (Nemesis) id
+ 1N6bPS-1h0eOv3BrK-0183ts; Fri, 08 Mar 2019 13:44:55 +0100
+From: "Enrico Weigelt, metux IT consult" <info@metux.net>
+To: linux-kernel@vger.kernel.org
+Subject: Debian build polishing
+Date: Fri,  8 Mar 2019 13:44:19 +0100
+Message-Id: <1552049064-32044-1-git-send-email-info@metux.net>
+X-Mailer: git-send-email 1.9.1
+X-Provags-ID: V03:K1:jdbW23/4ghILwIplAy6XJQc6Z8fdTfXkxdh6S1EwuIyw7WIrHTh
+ OInxqbLJSC745PYd4K5lPNtBWGgQV/fgVlNcI0VRyHhczyauxA0IZg44O2/Y2HcBsFaUgJL
+ AuRLczXLsW8pRpc3avB+CiJaIzS4Kj9k2sU+c00hw0ET3z+aDnKCHsDqKRGElB3Jsex8n5l
+ ZWmunmPJI2iEbUvpS/1Vw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:rFLE0CIvP0s=:Z1cGy8778McGRyBXeAPAea
+ r5a74Jts7tbIeG/9oTF25b2MdD17b4b47BokYkWnozLp7U61n3bHC9E5A+tI2bn6iR8fwo61L
+ gm0UnCFoJW5C5cz/9uURAwqBOaQb0lh8cGiN/eeRsj20kj/UNKvbVJmjcH2wlNVpjEzcChLJC
+ cQLZBJP1FeH2+CT9fVFhJxV4Pvre6p9n0vR1pIBEV/en+4qBn7Qdi+TFyagua+ct/ifMEHhg6
+ 93IVgzm73AioZ2r/iwJPoaOp9wGgggT3XYPr7hePMzKoknJkSA9zMMKOIlZN3VAtXZXaHo1fe
+ lzMHwp5vDKk+7qRMs2SV18AtQARzB2/oBzvHJisR5xPd89YnR8ik99EK2ONSceLvsV9pFE/Mb
+ 7ez82dkzzBG82S6viplefqBuPnXyXGYkpkKD5u+OoZizCzyTPON/8Wj2zLKC32zr+N5Azy9F/
+ 6BiNtXnxnIazAbVVtYFieP/n1perYLBAnjJjACQbewUp3OtngP3C6ofL8UrDxW2gijo4yNzCQ
+ ozv+i/aUofWFdKR7xaI5cxwGRpXf8hXpSv6vtXZFlmx9HQdcXyiPv1xSrUp3+4EWktDamzq+x
+ M21etRDS4rYs4JEb+UCj9Q2Oo/EZONca94yz7OAufukfnF72ELJ1MtrLMwtkG/RV6h7DJuXsJ
+ /MW6xBlQ6p8LTxNAbE85MAQScg1Kuoe2iyQXv78pPoOKZSgV7jaaTZdM82Id1KMCTqUeC86GT
+ M7VCfL+k1eWNzLtZHy8qDFF92tvN9lemuC8EOg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190308_035729_982986_6A669C80 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20190308_044504_515067_C5BBBD54 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -78,93 +77,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- robh+dt@kernel.org, Sachin Ghadi <sachin.ghadi@sifive.com>,
- Thierry Reding <thierry.reding@gmail.com>, kernel@pengutronix.de,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: michal.lkml@markovi.net, linux-kbuild@vger.kernel.org,
+ yamada.masahiro@socionext.com, apw@canonical.com, joe@perches.com,
+ linux-riscv@lists.infradead.org, info@metux.net
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi folks,
 
-On Fri, Mar 08, 2019 at 04:59:36PM +0530, Yash Shah wrote:
-> On Thu, Mar 7, 2019 at 8:57 PM Uwe Kleine-K=F6nig
-> <u.kleine-koenig@pengutronix.de> wrote:
-> > > +static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device=
- *dev,
-> > > +                         struct pwm_state *state)
-> > > +{
-> > > +     struct pwm_sifive_ddata *pwm =3D pwm_sifive_chip_to_ddata(chip);
-> > > +     unsigned int duty_cycle, x;
-> > > +     u32 frac;
-> > > +     struct pwm_state cur_state;
-> > > +     bool enabled;
-> > > +     int ret =3D 0;
-> > > +     unsigned long num;
-> > > +
-> > > +     if (state->polarity !=3D PWM_POLARITY_INVERSED)
-> > > +             return -EINVAL;
-> > > +
-> > > +     mutex_lock(&pwm->lock);
-> > > +     pwm_get_state(dev, &cur_state);
-> > > +     enabled =3D cur_state.enabled;
-> > > +
-> > > +     if (state->period !=3D cur_state.period) {
-> >
-> > Did you test this with more than one consumer? For sure the following
-> > should work:
-> >
-> >         pwm1 =3D pwm_get(.. the first ..);
-> >         pwm_apply_state(pwm1, { .enabled =3D true, .period =3D 10000000=
-, .... });
-> >
-> >         pwm2 =3D pwm_get(.. the second ..);
-> >         pwm_apply_state(pwm2, { .enabled =3D true, .period =3D 10000000=
-, .... });
-> >
-> > but for the second pwm_apply_state() run state->period is likely not
-> > exactly 10000000.
-> =
 
-> Yes, I have tested multiple consumers using sysfs interface. It is workin=
-g.
+here're some patches for polishing up the Debian packaging stuff,
+so it can be directly used w/ usual Debian machinery like
+pbuilder, git-buildpackage, dck-buildpackage, etc.
 
-Can you provide details about your testing here? What is the parent clk
-rate? Which settings did you test? Can you confirm my claim that the
-above sequence would fail or point out my error in reasoning?
+These expect debian/rules to exist in the unpacked/patched tree
+and drive the whole build. Currently 'make deb-pkg' does it in
+the opposite direction - it creates debian/rules and fills in
+some data, that's derived from .config etc.
 
-> > > +     x =3D 1U << PWM_SIFIVE_CMPWIDTH;
-> > > +     num =3D (u64)duty_cycle * x + x / 2;
-> > > +     frac =3D div_u64(num, state->period);
-> >
-> > I don't understand the "+ x / 2" part. Should this better be
-> > "+ state->period / 2"? Something like
-> =
+My goal is building the kernel package in exactly the same way as
+any other Debian package - so there must be a debian/rules as the
+primary entry point. To do that, w/ minimal change and w/o breaking
+the existing machinery, I'm going in several steps:
 
-> This eqn is as per your comments against v5 of this patch series.
->  frac =3D (duty_cycle * (1 << PWM_SIFIVE_CMPWIDTH) + (1 <<
-> PWM_SIFIVE_CMPWIDTH) / 2) / period;
+#1: add Makefile rules for retrieving missing makefile-internal
+    variables kernel config system .config (eg. kernel arch).
 
-OK, then not only the code is wrong, but also my suggestion was. :-)
+    this could be used for other build systems, too.
+    just call: `make kernelarch` or `make kernellocalversion`
 
-> > #define div_u64_round(a, b) ({typeof(b) __b =3D b; div_u64(a + __b / 2,=
- __b)})
-> >
-> > would make this less error prone.
+#2: add an env variable for changing the name of the rules file
+    generated by mkdebian. When coming from an existing rules
+    file, we can prevent this from being overwritten.
 
-This still stands. It makes it easier to get the code right and makes it
-easier to understand.
+#3: add a generic debian/rules file, that calls mkdebian to
+    create the remaining debian control files (w/ rules redirected
+    into nirvana)
 
-Best regards
-Uwe
+The existing `make deb-pkg` is bypassed and remains ontouched.
 
--- =
+One point still puzzling me: once the debian/rules is applied and
+somebody calls `make deb-pkg`, he'll end up w/ unclean tree, as
+now a git-tracked file is changed.
 
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | http://www.pengutronix.de/  |
+Perhaps I just change deb-pkg to call debian/rules then, but I'd
+like to hear your oppinions about this, before.
+
+
+What do you think about that ?
+
+
+--mtx
+
+
 
 _______________________________________________
 linux-riscv mailing list
