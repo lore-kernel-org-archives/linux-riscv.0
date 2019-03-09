@@ -1,149 +1,125 @@
-Return-Path: <SRS0=N7Yn=RL=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=jXit=RM=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=0.2 required=3.0 tests=BAD_ENC_HEADER,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_PASS,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+	MISSING_HEADERS,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EDE27C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2019 21:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D3EAAC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  9 Mar 2019 02:22:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7D5B22081B
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Mar 2019 21:57:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8A25B20857
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  9 Mar 2019 02:22:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DQUOiak7";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=mit.edu header.i=@mit.edu header.b="b6Guld/t"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7D5B22081B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=mit.edu
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fKSWtUam";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=garyguo.net header.i=@garyguo.net header.b="idXhYXwf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8A25B20857
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=garyguo.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:From:Reply-To:To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4ntcieduiqbZOXgqxafWsnC1IYIovn65wnmnPe4bK2o=; b=DQUOiak7xa3D6Q
-	CYlnoaqTGnzsStZHr5ytyS+m7g0ln64Vi2gWp95XWA9W87eoDwEHs92Y07ra+rQe/VFXKOX9dDzW5
-	6NI6Gi6Kne+kxqFyS+gqK79o7EKWOBdTG80h/1SthxPDp6SnHio86uLEMqNRv6I78gQLRiDs/XIyr
-	8rnUMKbiOnCc6IPtk3j+bq7mKmoyiXKN8BpFNWCtgLPrvYPVHjPz+4AVaIBkxS0VBWc9Imc3dgLyF
-	moOdUDy6PEm+NddIPxZ/YAOMr2LxRCziJUih8hNC0qt/n7ohQCraPrJPyxk1XxLC/tZwFXKSysMvp
-	9CXX5PHBA9gZQIJ2iDEw==;
+	List-Owner; bh=6yXRfP92nPGdR6F80MxIbLcVup48Ewh27jGiABYMbZs=; b=fKSWtUamyI7tt/
+	Ey4Kcwz07ApaGi4SM8ncoV0VT3W//fYYLyug1kSG0oM5qsEZb4+qDV77qpr9hK8OeCAvqeEUXcdm8
+	YDEzbdGwj3437PvajD6/kqio4iqbh4E+Eo2yUWkTkLTVooIjJwNzqsrnJcl/aaFUpJ5X2JHyeejZM
+	tM6+iRwclv1SGHLs/XEd26JNw7iQX9Vk+Ld4Et46DYHuvO7Pb2plpYKeusYs7LbAS0dl+wjdiJUxY
+	wHKkdQz5ZhKHoKxb8uEb6XV//AyaePErZhY4yCHPtp1jrX/pfsgcGJcnkH005SjuY3rY744DjuoFG
+	FQ9LcydF593ribmOPeJQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h2NUt-0001Gl-4b; Fri, 08 Mar 2019 21:57:43 +0000
-Received: from mail-co1nam04on072a.outbound.protection.outlook.com
- ([2a01:111:f400:fe4d::72a]
- helo=NAM04-CO1-obe.outbound.protection.outlook.com)
+	id 1h2Rcx-0001lL-L3; Sat, 09 Mar 2019 02:22:19 +0000
+Received: from mail-eopbgr100102.outbound.protection.outlook.com
+ ([40.107.10.102] helo=GBR01-LO2-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h2NUi-00015R-7i
- for linux-riscv@lists.infradead.org; Fri, 08 Mar 2019 21:57:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=selector1; 
+ id 1h2Rcu-0001ky-8P
+ for linux-riscv@lists.infradead.org; Sat, 09 Mar 2019 02:22:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BfwysCAanpxLov1lbi+EGcubxAWHAw/CGWEjLtXXQKc=;
- b=b6Guld/tEeEWmOSoScewFrt9/GfPK6/2Z45AgvIYOA+nPwVF5i9uRVYpoT1Vm1G4EOceW9JSBFQbmuD5YnuQ531Ouyhc2J68+GvKkdbNvQVkAYkKwKiWywD+6TlD+2XvCeTRI222/KkAzlaOgsmX01FpflhudH2w6dyIP/TTqN0=
-Received: from BL0PR01CA0015.prod.exchangelabs.com (2603:10b6:208:71::28) by
- DM5PR0102MB3589.prod.exchangelabs.com (2603:10b6:4:a4::24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1665.20; Fri, 8 Mar 2019 21:57:29 +0000
-Received: from BY2NAM03FT052.eop-NAM03.prod.protection.outlook.com
- (2a01:111:f400:7e4a::207) by BL0PR01CA0015.outlook.office365.com
- (2603:10b6:208:71::28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.1686.17 via Frontend
- Transport; Fri, 8 Mar 2019 21:57:28 +0000
-Authentication-Results: spf=pass (sender IP is 18.9.28.11)
- smtp.mailfrom=mit.edu; vger.kernel.org; dkim=none (message not signed)
- header.d=none;vger.kernel.org; dmarc=bestguesspass action=none
- header.from=mit.edu;
-Received-SPF: Pass (protection.outlook.com: domain of mit.edu designates
- 18.9.28.11 as permitted sender) receiver=protection.outlook.com;
- client-ip=18.9.28.11; helo=outgoing.mit.edu;
-Received: from outgoing.mit.edu (18.9.28.11) by
- BY2NAM03FT052.mail.protection.outlook.com (10.152.85.223) with Microsoft SMTP
+ bh=/HJ6jmrRLh648vjVrF2PR85RqhEqRRKnu7X6KnVU0sA=;
+ b=idXhYXwfNzQhlFGnusEN8zPqeNbO8Yl/mLUdK/7nMwXZkwLgFu7Et5GUUdxwj4tAt4IZvqOWwoQG90tnXIo5k/qit+5liKGm1uQeOjbLTfL+QicKuO1DSv8HefMaqE+jYCmvEVJ6V1BKeqBrYQwUoy0m5FoVE4GCcqA6NDvzv5w=
+Received: from LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM (20.176.139.20) by
+ LO2P265MB0174.GBRP265.PROD.OUTLOOK.COM (10.166.99.15) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1686.19 via Frontend Transport; Fri, 8 Mar 2019 21:57:28 +0000
-Received: from callcc.thunk.org (guestnat-104-133-0-99.corp.google.com
- [104.133.0.99] (may be forged)) (authenticated bits=0)
- (User authenticated as tytso@ATHENA.MIT.EDU)
- by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x28LvP7o014526
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 8 Mar 2019 16:57:26 -0500
-Received: by callcc.thunk.org (Postfix, from userid 15806)
- id E973F423702; Fri,  8 Mar 2019 16:57:24 -0500 (EST)
-Date: Fri, 8 Mar 2019 16:57:24 -0500
-From: Theodore Ts'o <tytso@mit.edu>
-To: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
-Subject: Re: Debian build polishing
-Message-ID: <20190308215724.GA22319@mit.edu>
-Mail-Followup-To: Theodore Ts'o <tytso@mit.edu>,
- "Enrico Weigelt, metux IT consult" <lkml@metux.net>,
- "Enrico Weigelt, metux IT consult" <info@metux.net>,
- linux-kernel@vger.kernel.org, yamada.masahiro@socionext.com,
- michal.lkml@markovi.net, apw@canonical.com, joe@perches.com,
- linux-kbuild@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <1552049064-32044-1-git-send-email-info@metux.net>
- <20190308175703.GA7178@lambda>
- <fe53cd84-5953-786a-3a4f-6eac652a1cdd@metux.net>
+ 15.20.1686.18; Sat, 9 Mar 2019 02:22:13 +0000
+Received: from LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::ed34:1290:4306:3157]) by LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::ed34:1290:4306:3157%3]) with mapi id 15.20.1686.019; Sat, 9 Mar 2019
+ 02:22:13 +0000
+From: Gary Guo <gary@garyguo.net>
+Subject: RE: [PATCH v2 4/4] riscv: rewrite tlb flush for performance
+Thread-Topic: [PATCH v2 4/4] riscv: rewrite tlb flush for performance
+Thread-Index: AQHU1d5vRDLalg67e0mBr2jahRUw7aYCkW3Q
+Date: Sat, 9 Mar 2019 02:22:12 +0000
+Message-ID: <LO2P265MB0847B9B3B14D80941BC39938D64E0@LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM>
+References: <cover.1552069700.git.gary@garyguo.net>
+ <33588efb3909a4d699a952f93c26ea2f3c8bfdc4.1552069700.git.gary@garyguo.net>
+In-Reply-To: <33588efb3909a4d699a952f93c26ea2f3c8bfdc4.1552069700.git.gary@garyguo.net>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=gary@garyguo.net; 
+x-originating-ip: [82.14.254.205]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: a54774fc-35b3-4111-d8ad-08d6a4360a7a
+x-microsoft-antispam: BCL:0; PCL:0;
+ RULEID:(2390118)(7020095)(4652040)(7021145)(8989299)(5600127)(711020)(4605104)(4534185)(7022145)(4603075)(4627221)(201702281549075)(8990200)(7048125)(7024125)(7027125)(7023125)(2017052603328)(7153060)(7193020);
+ SRVR:LO2P265MB0174; 
+x-ms-traffictypediagnostic: LO2P265MB0174:
+x-microsoft-exchange-diagnostics: =?us-ascii?Q?1; LO2P265MB0174;
+ 23:zl7hQbFUCxibjkkRv0WwzqeGyP9T64/RtehTzIgOG?=
+ =?us-ascii?Q?ypzgkxon77FjBETNAX5h8O6wSjsDEm+mztrw9Oe4/LHdfl0hLaOqfmguI8FN?=
+ =?us-ascii?Q?psdHoE1ddjJITSVS8bV1Ohu77XjCTSpSglsbdnHQfdugE7U4pEUBmB94IxDa?=
+ =?us-ascii?Q?2x54c8gs+fShCnyee4SZjmDPywPskwnm4LVxg7BV3uSb7XLLKqpaZcJZO4Zn?=
+ =?us-ascii?Q?PkPWt312pXu1Zi0fol1a5kg1aOOZQ1CeNEVtd2u4MYRnY77t+Hm45OXtv0vY?=
+ =?us-ascii?Q?Y3KOs44HPjh8Vsa0q1UR7HTiKeC+lWnidnn2LD0JTTmz3CsvKvhm4t38X3aX?=
+ =?us-ascii?Q?KVljWn07VKWMBJ6d+dW/yeYRWawm+dyOM6VJhSKktd8MEXuQhl2hScV6F2xR?=
+ =?us-ascii?Q?BpEB+zUnlyslhGkUFsxRfFRFZMy7MT8oXdTwtzrkvrkELVveBlKCqkl5jd0G?=
+ =?us-ascii?Q?7vHOyUpfZY03aCKgISPKMQhrZEtDrcJeTD4Us8R/KnqHXUCDDhvhh4eZIbs+?=
+ =?us-ascii?Q?PDXQx2COsTjexlEaBUR1O5Pzzu367Pely2lFbMDvn3YX+8Eu/Pi7BllnSgCN?=
+ =?us-ascii?Q?QNIHwWR3lB0VqbLydg2Ggpi2ky2+7un9wqu7zsqT7ZqHeuxboW2isVvhJbgk?=
+ =?us-ascii?Q?4ErQXpSqNy5UXnEaAWxBKTfh5+tzL6Mh6ru/XVKfnq4P0Egs+wZyPWFlSb86?=
+ =?us-ascii?Q?eild4HMMgwRSIL233gd7lTg7tgcHU+TOsWJ4HJbdzCEc39yrff6WOS6a4kIY?=
+ =?us-ascii?Q?DpWFyJ/2XERwlJkHSkXaQVZP1ezQBM5nb3mz6JninMksyLZ3uWTJQF/d6jkA?=
+ =?us-ascii?Q?NXZeZt/PGndOUojYsdJS7DvP8L85PVLfSn7Pih6Ind2VdOgy2DA1d6WvdtdP?=
+ =?us-ascii?Q?w7mtjRABsjUrzZ3tAMTDC6qSFEkhOPIBff2VinbMAn9v398KZMWKZ29oZ9pO?=
+ =?us-ascii?Q?EEWNGcVGuUUq/uHak38kcY9r1wHvAfDsT9XPRIUYbKBe9E0mGwb4vtdlTmRC?=
+ =?us-ascii?Q?Cbh/P79mzoE3x4qhPUdviCdDXCQ3UGivJbcTsaVvU5B3YYqiUgwz/s2HP/MO?=
+ =?us-ascii?Q?ohYTHgZlAb0fouQ4nyqqZ/Y3SacUTbYNAScmIdgBtkTKg76A+b02WcejWcix?=
+ =?us-ascii?Q?J3pdtpn4fVKPYggnp8GGLblQyB+w1YceM0taoXRbBN6tLHVFEbJMg75vNXXb?=
+ =?us-ascii?Q?Z+PLL8QiOaUbJrFVdohbWnRMha3436ZQA8SDw3OuLGM3TfyERzpfwY3go9Qf?=
+ =?us-ascii?Q?LXJ4zHRb98fvOYAEIA=3D?=
+x-microsoft-antispam-prvs: <LO2P265MB0174319FF0F94F102840DD5CD64E0@LO2P265MB0174.GBRP265.PROD.OUTLOOK.COM>
+x-forefront-prvs: 0971922F40
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10019020)(396003)(366004)(376002)(346002)(136003)(39830400003)(189003)(199004)(316002)(3846002)(6116002)(76176011)(446003)(7696005)(6506007)(102836004)(476003)(11346002)(4326008)(54906003)(99286004)(2906002)(1671002)(8676002)(25786009)(81156014)(81166006)(68736007)(508600001)(14454004)(59246006)(66066001)(7736002)(55016002)(4744005)(9686003)(5660300002)(8936002)(305945005)(6436002)(33656002)(6246003)(106356001)(256004)(53936002)(109986005)(71200400001)(71190400001)(97736004)(186003)(74316002)(26005)(486006)(86362001)(229853002)(105586002);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:LO2P265MB0174;
+ H:LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; MX:1; A:1; 
+received-spf: None (protection.outlook.com: garyguo.net does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: uVMWzj2C1euogCNlWPwlUOJNeuhE10be4qrzIQ2cwCJen1w8rVJsfRZT3Xu1kPEXA3llWufUaAesGeTh/q2B6NELaTNXBKhCk1ogcjRu8N9DiTm6KrBjfV86Z/BrcnJlFfdbEHlRRpsGYxpVWyvcDY5P4asdV2AOhraBV6Umr5uPW8YZp1II4Y6k0W1f07k8x0VsJwIfEnM2rGF1I/Svao4EiSWpK596rCjZTCDaTg1ugy20OaaDFtVPunkuJ4iwgaSaqm0vNpd5kUDYlTeet48S4ZSSBXvrNs6RSCFPXdyUu09b85aGfFIz7z9PPic031JV+a53mmJG+wjBjHE7wAVW9Ot+bovo5Je9abDhvkptDwAEdbsKboTAjkwAV5SvZDl6p1qR++uwTqge2qJ2mHl/IWeVsMVQ8WTv6oXUrqc=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <fe53cd84-5953-786a-3a4f-6eac652a1cdd@metux.net>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-EOPAttributedMessage: 0
-X-Forefront-Antispam-Report: CIP:18.9.28.11; IPV:CAL; SCL:-1; CTRY:US; EFV:NLI;
- SFV:NSPM;
- SFS:(10019020)(376002)(346002)(39860400002)(396003)(136003)(2980300002)(189003)(199004)(52956003)(486006)(6266002)(47776003)(8936002)(11346002)(476003)(1076003)(86362001)(6246003)(126002)(446003)(106466001)(2906002)(23726003)(336012)(88552002)(3480700005)(305945005)(4326008)(246002)(103686004)(2616005)(356004)(5660300002)(36756003)(229853002)(75432002)(478600001)(186003)(50466002)(42186006)(46406003)(33656002)(6916009)(8676002)(786003)(36906005)(4744005)(26826003)(316002)(97756001)(76176011)(26005)(58126008)(106002)(16586007)(54906003)(7116003)(90966002)(42866002);
- DIR:OUT; SFP:1102; SCL:1; SRVR:DM5PR0102MB3589; H:outgoing.mit.edu; FPR:;
- SPF:Pass; LANG:en; PTR:outgoing-auth-1.mit.edu; MX:1; A:1; 
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 7126e7e8-de48-4d5f-98d0-08d6a4110e97
-X-Microsoft-Antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600127)(711020)(4605104)(4608103)(4709054)(2017052603328)(7153060);
- SRVR:DM5PR0102MB3589; 
-X-MS-TrafficTypeDiagnostic: DM5PR0102MB3589:
-X-LD-Processed: 64afd9ba-0ecf-4acf-bc36-935f6235ba8b,ExtAddr
-X-Microsoft-Exchange-Diagnostics: 1; DM5PR0102MB3589;
- 20:uOekqgrFGGA0r7K7a7VP6HnjzpAQfKbgZb3qgZiGV8fj6tlvAGZb+8Y+TL9RVbeanCbrWVBoK1Ih64mgYPiiiXIeYzhk5+7EzTtHs2t/y4iISLtO6k81wkhD2B72hh8oukfl/aBrfHA5vmcnjNzCAobd4x/TzmaVhHExft2JcXwAlMV/yzyM1YkK2vSK90WaYNz9QfZMeseX66PZC3DoK+2HU8kRthI6bQ+6q2y80OX/o5npiVUfCdo+nqKfUm0gAFCUUMS1nqhacvrTig4zaH/O7JYLrWm6cpNdzrXTrMFtCSL0vaCgVOpnieEItat7T4M9tSUDrVq9OLe+jUegkIIQh8Brhlkxgu8f0BF32U//w1lhHz/XivakaWI5P4G8NB7KoYiHeBoV3N0/P1NVLnEcUKrIQKxhH3bXE6q4VKnxLw9wxhxpOgMh4a3lYr5DjPvUoCAeeJghiNy1eGWNSkYZiSxj3F3f460J7vD+1jDlVr8IlboZhhGxuKRcJr2MfMvgQ5UKGwkRJjjwhvn9zIhRcabAHeweUxlAt2ETI2Psy/MbO8UUnuWUcAbnTCvAUTJluOHvcflEzda/eRtJsAs74mpf6cQSKomi5++SxFY=
-X-Microsoft-Antispam-PRVS: <DM5PR0102MB3589723D05A72F06F6E0AAADB54D0@DM5PR0102MB3589.prod.exchangelabs.com>
-X-Forefront-PRVS: 0970508454
-X-Microsoft-Exchange-Diagnostics: =?us-ascii?Q?1; DM5PR0102MB3589;
- 23:RSJZhEZAz9BWH7vwWMkDgv4hAmKr4kjb3gOzOoo?=
- =?us-ascii?Q?R+uMPAao5j//CrcgPRzYhJqSFi0+Ui6BiGJGLkPgD3QhfPjUHYDlwoHSXJ+/?=
- =?us-ascii?Q?vWf2p+ko3aY471QEYnKrKEkbC+W0ksSZYy0Qvp6yAHzclFisD+j/4PtVyySO?=
- =?us-ascii?Q?HF/3/AVgyaCjfKYN31bu9oP9sRzWJKEA9mzAlxnM3m266AL+SBePQFAbl5z5?=
- =?us-ascii?Q?DvL8u8mSWejHGckYpw4j7AYMaudte5Lfv7sjMqxKJx5eHJYQ2o3AgH/LhEME?=
- =?us-ascii?Q?DHd/4ApZRNJBz2pV3ky1l0pucxuhDfZQkFHjklFj2V9lACJ3BUJsQNQkDZPO?=
- =?us-ascii?Q?wDzf5G9unQU71N5omazf5O588l606tyruZUWeeycCvIdxjPQSV7duI/F7+UF?=
- =?us-ascii?Q?85Knsr1kf8p4PqcAS/QZXqhVocpqTc/uWPwL6gmWD+LzFdEx4KkeAcNeokQV?=
- =?us-ascii?Q?+TMUyoI9/zKve4cPLCjjHdo2Gf2/BMwk0/vmKzgHSVKSLjx6/tKITd3vPXkU?=
- =?us-ascii?Q?fPQ6olRkF7paWIVLn+n5ZVkFvO6r5GzJHNM0z/QRhWyTp1IEX02sJ7LRW3k7?=
- =?us-ascii?Q?+Fy7WPJx5Uh0PEZD0IAcrzMfIEaqSLy93+KOXScFRmtbEJqkUPwY/bDA2COH?=
- =?us-ascii?Q?eXk6jGc9rDDaLmkj1m8vd58xKKYZeRf1w5+Euki+ss/R2OXept6SWcB3K2Nc?=
- =?us-ascii?Q?Iz1S6pe4+10iyxf/fwPYMibQAmRsB2TMjKrWC9o2a2/rA+XY7Q5MryePqbKd?=
- =?us-ascii?Q?eIIWx0sCAhHP5c1eMbg9FYHkurXppbYEvZugd/VMuJewAxm7mfZf/p7g+MTO?=
- =?us-ascii?Q?6u/fGO4JufPIQYNG7jh0rm5x+6//d/0gisGBKorYtiXtxuiEHcJHC0Ssug03?=
- =?us-ascii?Q?Oey0m87jsQW1XSUeP6t8uFDkNyO4KWsSoFlI6Y9Dx91taIUVYnd7INUACfIm?=
- =?us-ascii?Q?OUUeKgOIz31KvrsBT7t5qGBa7W+IWRJvcZl/THZoJPb51OynKtVGcqWLKjq4?=
- =?us-ascii?Q?j4Bf6ONm7oYV7kxzfRDIJ5IDayGHEibQqFQeBcVJX2BXYj55XpAsim0QDLwL?=
- =?us-ascii?Q?v/t4u4TQleukmrl0MO1Y4iSn+nwQRBahZVRct1pRJHK52lXaIjPG1k8xWagr?=
- =?us-ascii?Q?DI8Y8kVEC0pEnGw2Y12PgJRCVhp522cTqWf3ZH4PYqPTkDt64UfuG82tzcDq?=
- =?us-ascii?Q?Rfp8Wx0HAhMdcvHV379APtmmhUuGVc20uBADDaMPvLeAZgo/KbVUIuATkFC4?=
- =?us-ascii?Q?6P/XL3q4tQYzaIpYvgkhUvIEp+XDJQcdToRycVoqueqGWkZ9ncgBrD73dLd6?=
- =?us-ascii?Q?nog=3D=3D?=
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam-Message-Info: 9PB9BGHrSQB0GJ3Dblxsd5Ezi6utNwnKeZSV36Mw32UDTIbsFhgTm9qtr8+khlZhpRY+DfDgF0kxYQiEaCz2azxwRPf0GfXOtebvJJox7sXnPi+OgHMgaEM7NUhQwc5x18UZg9LHGQXsZiG3k2HEiu0QMwpyo2rlU9aevi9Z0ex3mlcB6HGiNKjM8Q3KpQfDMPDr8qk+IZmuDKQdcqFm8FxOlZGZcn9WQV8gVi8CVAer71rWTw1Z4Uqez81oVR+8h3WxLNU9Yv0uDZurmXpirASfNv1HE1iTIQkrShvtFtRyrQ1yCbHAaLK7fJ2lh76ZyJqetnKAaEOMoxWTfDRSBcbMwHypxeLWIpQu/vvmBHBg8kJPGWMXI3uM1t7iahC6MBZPUPF5fwG4zwPdtlMxC15bnqXTtsH75jcJXWW37Kk=
-X-OriginatorOrg: mit.edu
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Mar 2019 21:57:28.1135 (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7126e7e8-de48-4d5f-98d0-08d6a4110e97
-X-MS-Exchange-CrossTenant-Id: 64afd9ba-0ecf-4acf-bc36-935f6235ba8b
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=64afd9ba-0ecf-4acf-bc36-935f6235ba8b; Ip=[18.9.28.11];
- Helo=[outgoing.mit.edu]
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR0102MB3589
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: a54774fc-35b3-4111-d8ad-08d6a4360a7a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Mar 2019 02:22:13.0085 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO2P265MB0174
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190308_135732_389501_469B6598 
-X-CRM114-Status: UNSURE (   5.62  )
+X-CRM114-CacheID: sfid-20190308_182216_345710_41CF13C5 
+X-CRM114-Status: UNSURE (   7.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -156,28 +132,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: michal.lkml@markovi.net, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org, yamada.masahiro@socionext.com, apw@canonical.com,
- joe@perches.com, linux-riscv@lists.infradead.org, "Enrico Weigelt,
- metux IT consult" <info@metux.net>
+Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <anup.patel@wdc.com>,
+ Christoph Hellwig <hch@infradead.org>, Atish Patra <atish.patra@wdc.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 08, 2019 at 10:10:19PM +0100, Enrico Weigelt, metux IT consult wrote:
-> > So I really hope your patches don't break this.  
-> 
-> It shouldn't (at least I dont intend to). Haven't tried where exactly
-> the generated debian/rules file lands in your case.
+Just realised that __setup has been deprecated in favour of early_param.
+I'll incorporate it in v3 of the patch.
 
-The full debian directory lands in the O= directory.  So presumably
-you could make it work for use case if there was a "make O=/build/dir
-debian-prepare" which copies the necessary debian/ files into the
-build directory and then someone could cd into /build/dir and run
-"dpkg-buildpackage"?
+> +
+> +static int __init setup_tlbi_max_ops(char *str) {
+> +	int value = 0;
+> +
+> +	get_option(&str, &value);
+> +
+> +	/*
+> +	 * This value cannot be greater or equal to PTRS_PER_PTE, as we need
+> +	 * to full flush for any non-leaf page table change. The value has also
+> +	 * be at least 1.
+> +	 */
+> +	if (value >= PTRS_PER_PTE || value < 1)
+> +		return 0;
+> +
+> +	tlbi_range_threshold = value * PAGE_SIZE;
+> +	return 1;
+> +}
+> +__setup("tlbi_max_ops=", setup_tlbi_max_ops);
+> +
 
-						- Ted
 
 _______________________________________________
 linux-riscv mailing list
