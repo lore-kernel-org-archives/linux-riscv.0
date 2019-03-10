@@ -3,82 +3,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 45D49C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 Mar 2019 18:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2CEE2C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 Mar 2019 20:47:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 11785206BA
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 Mar 2019 18:50:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8DBAE20652
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 Mar 2019 20:47:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="r1qdH/ot"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 11785206BA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=metux.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iPKlB3QD";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="wn2/TPkS"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8DBAE20652
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=bB0HE6ZFyus9eTvmxS216x8Zmy3ge43NWjcNMYFKr8I=; b=r1qdH/otjmjBJngs8McNZnO9aE
-	TBi6Cvg+0DSfuVSehKV4LaqtsZeaWY1hR84hGIqbbSWO0+Xrka/xHNhL6hNy7WYeMSRUEbXVlwu/M
-	RH2+3rznCKkezywLvNPMJAl7Oj2/LXvsYgaTjTKTUSAI7MERvum2VT5WAqgZrFE3U+Me0CBCblWsZ
-	hzelQfkRp/Rvi3qUmlELTpePNK8z/O3AVnzrFnzJyj7UzdvX6aIdoiWpU+aHbgl0XLqA7/JoATiXI
-	Vawohe88FS5g+cecFPyajTwnKCpn1ACc8PbOcYstObyWLAhMIr6SKBzW+eBkT691GoZVrGGntjEKP
-	hNBYWshA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FXud469dNomFHSbawl0d86S6L+PdW7/UGX6IuS4iQN0=; b=iPKlB3QDld0LOm
+	dSDOiPHMbU+OlArWyKDO8B7HHN5/H3jb3mtEeyVO9DGD8YRueJ8ttA6TK1sSkea5p+HWUZ4SCmhb4
+	Oj5cw2HFwEjI3De7ph/FOk8lWKB4xWZ04TyuRkwdPErZpoE407mzpkKzwJYIvUV9pKWrEX9NrPRSc
+	ZfMegAuUgo5U/xAniKCCr+i8SF94usc73/e/ruRj/18aZ7HYydsWCy9Fm7iO1vc3JPVNHLGCiMxb3
+	DnHMVHJackdUWn5OOCCXU6hrH4+8hdrYcJowGWwATcixRxjUibx0QVRhRCk+oZ6NPxGtuW21agA+6
+	Z0Z2pQcLrIcB8HRpQEDA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h33X1-0006sD-Uz; Sun, 10 Mar 2019 18:50:43 +0000
-Received: from mout.kundenserver.de ([217.72.192.74])
+	id 1h35LW-0006E6-GM; Sun, 10 Mar 2019 20:46:58 +0000
+Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h33Wy-0006rj-Hz
- for linux-riscv@lists.infradead.org; Sun, 10 Mar 2019 18:50:42 +0000
-Received: from [192.168.1.110] ([95.118.75.201]) by mrelayeu.kundenserver.de
- (mreue108 [212.227.15.183]) with ESMTPSA (Nemesis) id
- 1MmlbE-1gcHHN1ijO-00jq0d; Sun, 10 Mar 2019 19:50:23 +0100
-Subject: Re: Debian build polishing
-To: Theodore Ts'o <tytso@mit.edu>,
- "Enrico Weigelt, metux IT consult" <info@metux.net>,
- linux-kernel@vger.kernel.org, yamada.masahiro@socionext.com,
- michal.lkml@markovi.net, apw@canonical.com, joe@perches.com,
- linux-kbuild@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <1552049064-32044-1-git-send-email-info@metux.net>
- <20190308175703.GA7178@lambda>
- <fe53cd84-5953-786a-3a4f-6eac652a1cdd@metux.net>
- <20190308215724.GA22319@mit.edu>
-From: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
-Organization: metux IT consult
-Message-ID: <341b78ca-9901-78f0-f404-59194f3da503@metux.net>
-Date: Sun, 10 Mar 2019 19:50:19 +0100
-User-Agent: Mozilla/5.0 (X11; Linux i686 on x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.2.1
+ id 1h35LT-0006Da-0w
+ for linux-riscv@lists.infradead.org; Sun, 10 Mar 2019 20:46:56 +0000
+Received: by mail-wr1-x444.google.com with SMTP id n2so2882723wrw.8
+ for <linux-riscv@lists.infradead.org>; Sun, 10 Mar 2019 13:46:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=HDMdIF2k6F6Aa6S0lJ+vVSe8kUWSCtsYreff5BRoEkE=;
+ b=wn2/TPkS6hBOhsklPmKgDDgkOjbxrffGXo4ua5ge3VwJo5cvmiByFZo40VXMdwPmgR
+ qt7wUmEdHiw2/2U1jCCKh8i7+FfyhuY9kZu4l5IrEmZVA6i8akYuVCvWZkOtAhTGaJqu
+ xJOW8jfXqqLmJnCEqGyXDZDcHmwh3V/dSFwSTYp6T3bDZXXn2lCgzATl93AwFjrLecfQ
+ /gO9ojSOvkNA75NDnwaBkwL4RxB7XrLFqzjNJ3J4I1ZH77VUIC+J8KUOXg2/JLCzcrtY
+ HSRCq/Nw04iDQJMvsBNRx5lRndyYV/jm8uKbzcXHz1fZHR9VkHWbOPMqteqM7xpgMrkw
+ pQuQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=HDMdIF2k6F6Aa6S0lJ+vVSe8kUWSCtsYreff5BRoEkE=;
+ b=c0qwQ32Fj0H3Rk31oawEKjJGBuofxdzlRUsxfaxcBXc2Nila5u10vODqgYrS1NetH8
+ US8AKKvQN0Rm05/E9YKkTPoiYGEegAGIdU0yJ1BsKfHvWYahiFj8z8ACYTi0vHz5a0Eg
+ nxIYeQxxk+QTOqtSeM3qflakL5GUJk4cu3iV33yawAtcgaj+y34GbIGHcs7KMeuoc9WC
+ 9Qya7rX9RSdgW3qvwOj0uj2TepSRDBYbCcD02B+obYFdXnSnQ4kI84tadBPlneJ5Q0HA
+ qsuPhfyH0iG8dgrldKkeTUWum/TRVITCvHbdsuGfVhqQprZoT/ZQvfc//9FEicInZmcT
+ Hqfw==
+X-Gm-Message-State: APjAAAUceIRB6iSno8NgWdg84hrVXaa8yHJ2xxn9f3vbxLOtDRlGsCDc
+ GGWIpQxzi76tapUaFy7Psfe2cVuh7VPIVoAukM45nA==
+X-Google-Smtp-Source: APXvYqwqu7Xo/ntOZNSUoqFGxMIEQxKA1Sjx50dbh0fKgYSYcE6DxTGTARDsV9FEdiWftPMBHl3yaR73ch72mq4UW1M=
+X-Received: by 2002:a05:6000:104b:: with SMTP id
+ c11mr18931431wrx.9.1552250812120; 
+ Sun, 10 Mar 2019 13:46:52 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20190308215724.GA22319@mit.edu>
-Content-Language: en-US
-X-Provags-ID: V03:K1:EXEO90gebp7GRFtaKUhcA3Tn43Jia/LepSm/l7xrUkStWAqouv2
- jgluwvjgu+P4piPRPETEvS/6qdVD9CUGzaBc5jJ1WE02y+n4rTuGWXM6+VAaQWBHkRrAPHj
- 0jPp/Iq0qs5brj7kNQNOI/BbUKUGerHjZJeFsS/xXU0GINO3mQUJwsaH+ImE4bTFh9/kWVO
- rFDaYL0Ppwc5shzeA7SPw==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:VAfFX1BIva8=:IQsHEI6mgAjXWG9YpdPpDf
- zpUUozFUyL3pJOkbmMNYtxPt/F0lYkDiu1404pzHWqdpZSBq2pyByHmAOfmCOIYsouWZ3pR1F
- L5/3G7Lf9qxbalfNUzTPWl/vXCqfKqebCD/QkZZf5pboQJLNHhbu1jAcjo9Wm8B3q3HznXtZl
- HR8eorDalVpYVW3N+Gfx7A9/I6uxe6eWHkZFbdG+PpFGeJ3aJBCUXnT9of0r/+k9HDKZdprPK
- BFKAawyTAkUFCF1ZtQ6svmXJj8bLKajmtUMd0wV68+kxcRBCJcD3+DMcjI+8EfZVf2WrpWebO
- EKfZd6Y2SEOHQM//n8vorZRPtyvtqsxZNgmSfZNNHQ/mL44OWM2lMdRHAoqtzx43a1Y7gz2fx
- Fw9yH1f77WgICAO0Xdquc7JnK33/H2mtjavsewnDcIZBYeU1FTVhgo6X+lbJpUSei69U0YUuu
- DpcygZ+C3ZwBnSvypk0NCJatJblABKkrB3IipcPvHTBpKzRLFp/CvlrYgsBdTPaKDykV01b86
- ieFpLi8FfqXIvm1dLAbHrwR/rzGg8qceD72Ay5lxC82p+LRycNVU00lmOIy8IL8R+miiShoga
- TuzKu6l17pybs5MaR2pG3GEr1XUWDlFzz5fctoLQCuz0k/dgo1Rn6hTSkuEzVJ43SplGmlmdI
- 9qT67TnNYbX5fGEdcQ5z+tcq5yOXTYEyE4PN0a4bQyYPZbLxydIznxhbmRc4hw41hukC7KqSN
- YTESv3j7ARHGaooO4oF1IemduJAREPilePqa71KSF8kxf+lDeyIU/GfVXzY=
+References: <LO2P265MB08471CC8597FD60691334624D64C0@LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM>
+ <20190308143928.GC32707@infradead.org>
+ <04cbcd8e-77b4-b3fa-8f9e-3aa07db781fc@garyguo.net>
+ <20190308163125.GB310@infradead.org>
+ <CAAhSdy3n4F6EE0RYwozH2U2W+WMGJ_eVYs7-ny8Y2szoUeaksQ@mail.gmail.com>
+ <20190308171804.GA27005@infradead.org>
+In-Reply-To: <20190308171804.GA27005@infradead.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 11 Mar 2019 02:16:41 +0530
+Message-ID: <CAAhSdy1HBgn99x3V4=ytYEzf3cTiwT1ogBs193ZxFTVxTDbgsQ@mail.gmail.com>
+Subject: Re: [PATCH 3/3] riscv: rewrite tlb flush for performance improvement
+To: Christoph Hellwig <hch@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190310_115040_895244_92F7A01B 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20190310_134655_127822_22520EB1 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,34 +95,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <anup.patel@wdc.com>,
+ Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Gary Guo <gary@garyguo.net>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08.03.19 22:57, Theodore Ts'o wrote:
+On Fri, Mar 8, 2019 at 10:48 PM Christoph Hellwig <hch@infradead.org> wrote:
+>
+> On Fri, Mar 08, 2019 at 10:20:49PM +0530, Anup Patel wrote:
+> > For your information, the IPI triggering is also done using SBI call
+> > so we are not saving much by not using SBI calls for remote SFENCE.
+>
+> Not yet.  But all the usual implementation just implement IPIs by
+> MMIO writes to the CLINT.  Which could easily be delegated and we'd
+> save the trap.
 
-> The full debian directory lands in the O= directory.  So presumably
-> you could make it work for use case if there was a "make O=/build/dir
-> debian-prepare" which copies the necessary debian/ files into the
-> build directory and then someone could cd into /build/dir and run
-> "dpkg-buildpackage"?
+True but CLINT is not the defacto way triggering IPIs. Other SOCs will
+have their own way of triggering IPIs. That's why is it is abstracted via
+SBI call.
 
-Didn't touch these rules at all, so it should still work as it used to.
-
-I thought about changing the old deb rules to just call the new
-debian/rules file, but haven't done so yet.
-
-Maybe you could find some time to test whether my approach also
-works for you ?
-
-
---mtx
-
--- 
-Enrico Weigelt, metux IT consult
-Free software and Linux embedded engineering
-info@metux.net -- +49-151-27565287
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
