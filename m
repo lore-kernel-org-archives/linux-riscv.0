@@ -2,71 +2,56 @@ Return-Path: <SRS0=WyFe=RO=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E666DC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2019 15:51:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 17D77C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2019 15:53:20 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A6A4120657
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2019 15:51:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DBDBB20657
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2019 15:53:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="E1cGSPTP";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=amazonses.com header.i=@amazonses.com header.b="Azq5T9dX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A6A4120657
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VELS36uI"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DBDBB20657
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-ID:
-	Content-Type:MIME-Version:References:Message-ID:In-Reply-To:Subject:To:From:
-	Date:Reply-To:Content-Transfer-Encoding:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Bu8EGzC48E05hiCi0G6rDVkFlyxfUCsed5VDOzwlOrQ=; b=E1cGSPTPtEo5VBJAvo4y+4siW
-	0F3GfkJabaaYMl7u7un/RqhP9f6M34xhzaG93zsyhXSvEJP88PHPp10HO+/iN1ylm4bvIl35Q2zPt
-	LBuYIe9DVMHiYuZN0jYC0vG3xRFvbA9T8ldyvGj9Kc8UClUuOwrB5ROpOcqpUghCDN7rPbFQ3oNNE
-	ksD10Y5yD1OuYSxxN9Us403FvQeY2DM6LsGevXOxUsrYR2h9NJHdiYb1WcM4uQjxCsyh6oBafbqgk
-	H7i60zEnth/Bt9/i+Gmyt+Ab18ZxFGZgA7IRctuxREMjm3YtEubBlEVhVa2ssTo/T8kJDIMPmcSdW
-	pQGNZXsVw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=llsgEFHxTa/lHoHrL55169eshUych9O0J0g0e26QS20=; b=VELS36uIWmkRaj
+	hAQ11rwY351PhCeKufQC/a08XVzbaoz0aC5FTL0bj9EMN3HkcyUQF17SuWnkhSAK/Mo10TPlD7NPN
+	noLUrZckXfXFQM6C+eAmYFPqtOUX7wRsSi8/fn2Wx4GaaAwhKiPcnIxVcKbhL4ZHN8NYM3AQN44Kj
+	sSgIkvJWWoeNMfeJKJkw+0N5JCcSP1BfGgCZ7vfHF2Fber7lwSZAZwbGA+62C0EIt0Veg+SpIhbN5
+	xjxhfrUPbvbh8IxgtFFuKcIhxtt9aDbTj5YgKUwOlxgh5Bjf2rn0lN1dvF3ucx+p5Jfwx8u6DgQAi
+	VWXdYdwq6pFSDBh7dQSg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h3NDM-0005ZX-SA; Mon, 11 Mar 2019 15:51:44 +0000
-Received: from a9-112.smtp-out.amazonses.com ([54.240.9.112])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h3NDJ-0005Z9-OZ
- for linux-riscv@lists.infradead.org; Mon, 11 Mar 2019 15:51:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
- s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1552319498;
- h=Date:From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type:Content-ID:Feedback-ID;
- bh=mk/MC4eJTXuC3cOVik1Sqw3+IFcXqaPyYKTZbR1qIFM=;
- b=Azq5T9dX14ED0s7ETbbP3954wsnYk+Yy73d+vQTGJF2UuqWQ7QEFQrjk7H0+qYyu
- er7c+aEvpmtAS67eEh0Ap7xikfw9AR5wlyCBUlOSqgHm0H87RFcbIFFrJLfIvTFBwes
- 9It8GvO//3dIcmK9M2zG10vlgtwsQOoFPoZiFmW8=
-Date: Mon, 11 Mar 2019 15:51:38 +0000
-From: Christopher Lameter <cl@linux.com>
-X-X-Sender: cl@nuc-kabylake
-To: =?ISO-8859-15?Q?Bj=F6rn_T=F6pel?= <bjorn.topel@gmail.com>
-Subject: Re: per-cpu thoughts
-In-Reply-To: <CAJ+HfNh6bc1A8vskxqJ9CP11aPdTgrPS2SOgLGXMLyefogFLtw@mail.gmail.com>
-Message-ID: <010001696d73c925-5f894cf1-aa67-4e05-8e76-123a4b4c6904-000000@email.amazonses.com>
-References: <CAJ+HfNgSx49dRXDdJGovb=auAjSB703bN9tULjibW1OKHuHcPg@mail.gmail.com>
- <mhng-79f13983-1ea9-4f9a-949a-87dac2060f42@palmer-si-x1c4>
- <CAJ+HfNhmUdz4y81VNnTOsvyvSNw3i3E=qR+F0Qa7XThSOAiJ1A@mail.gmail.com>
- <010001696d414b3a-d35fa0a2-01fa-4e8c-be57-ff703610755a-000000@email.amazonses.com>
- <CAJ+HfNh6bc1A8vskxqJ9CP11aPdTgrPS2SOgLGXMLyefogFLtw@mail.gmail.com>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	id 1h3NEr-0005u4-Gh; Mon, 11 Mar 2019 15:53:17 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
+ Hat Linux)) id 1h3NEo-0005nt-RA; Mon, 11 Mar 2019 15:53:14 +0000
+Date: Mon, 11 Mar 2019 08:53:14 -0700
+From: Christoph Hellwig <hch@infradead.org>
+To: Anup Patel <anup@brainfault.org>
+Subject: Re: [PATCH 3/3] riscv: rewrite tlb flush for performance improvement
+Message-ID: <20190311155314.GA21041@infradead.org>
+References: <LO2P265MB08471CC8597FD60691334624D64C0@LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM>
+ <20190308143928.GC32707@infradead.org>
+ <04cbcd8e-77b4-b3fa-8f9e-3aa07db781fc@garyguo.net>
+ <20190308163125.GB310@infradead.org>
+ <CAAhSdy3n4F6EE0RYwozH2U2W+WMGJ_eVYs7-ny8Y2szoUeaksQ@mail.gmail.com>
+ <20190308171804.GA27005@infradead.org>
+ <CAAhSdy1HBgn99x3V4=ytYEzf3cTiwT1ogBs193ZxFTVxTDbgsQ@mail.gmail.com>
+ <CAAhSdy18xNqbbQvBLj8pHB=vWM8KqhUfNN-6Bw7J4J2ONB8i=g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; BOUNDARY="8323329-1319697670-1552319201=:28418"
-Content-ID: <alpine.DEB.2.21.1903111048300.28490@nuc-kabylake>
-X-SES-Outgoing: 2019.03.11-54.240.9.112
-Feedback-ID: 1.us-east-1.fQZZZ0Xtj2+TD7V5apTT/NrT6QKuPgzCT/IC7XYgDKI=:AmazonSES
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190311_085141_860817_764FE984 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <CAAhSdy18xNqbbQvBLj8pHB=vWM8KqhUfNN-6Bw7J4J2ONB8i=g@mail.gmail.com>
+User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -78,58 +63,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Nick Kossifidis <mick@ics.forth.gr>, Paul Walmsley <paul@pwsan.com>,
- Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
+ Christoph Hellwig <hch@infradead.org>, Atish Patra <atish.patra@wdc.com>,
+ Anup Patel <anup.patel@wdc.com>, Gary Guo <gary@garyguo.net>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On Mon, Mar 11, 2019 at 02:19:54AM +0530, Anup Patel wrote:
+> There are also use-cases to run two separate OSes on same SOC
+> without virtualization. In such cases, both OSes cannot have access
+> to CLINT for triggering IPIs.
 
---8323329-1319697670-1552319201=:28418
-Content-Type: text/plain; CHARSET=ISO-8859-15
-Content-Transfer-Encoding: 8BIT
-Content-ID: <alpine.DEB.2.21.1903111048301.28490@nuc-kabylake>
+And sometimes pigs can fly (no, really!).  But we should optimize
+for performance on hardware we have not build some ivory towers
+for grand architectures of the future.
 
-On Mon, 11 Mar 2019, Bj�rn T�pel wrote:
+And with that I don't mean cutting corners and weird micro-optimization,
+but to think hard what layering makes sense.
 
-> > > Hmm, you mean AMO *with* preempt_{dis,en}able, right? (No, interrupt
-> > > disable, only preemption.)
-> >
-> > If you disable preemption then you dont need AMO anymore. In fact that is
-> > the default fallback generic implementation. Just dont do anything and you
-> > already have that solution.
->
-> But the generic one disables interrupts, right?
-
-No it doesnt.
-
-> I believe the rational for RV is similar to ARM's; AMO+preemption
-> disable regions is *slightly* better than the generic, but not as good
-> as the IA one. Or am I missing something?>
-
-Looks to me that the better solution for  ARM may be to drop its
-implementation and revert to the generic one.
-
-The overhead of AMOs is likely too high to justify using those. And the
-LC/SC overhead is also generating useless overhead.
-
-If you benchmark those then please be aware that the kernel uses
-__this_xxx ops in places where the preempt disable is not needed. The
-savings come in the form of this_xxx ops where we avoid the overhead of
-enabling and disabling preemption (which can be significant especialy
-given the scheduler actions).
-
---8323329-1319697670-1552319201=:28418
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Having to trap into machine mode software to flush TLBs does not make
+sense in any normal architecture.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-1319697670-1552319201=:28418--
-
