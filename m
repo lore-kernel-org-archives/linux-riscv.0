@@ -2,72 +2,80 @@ Return-Path: <SRS0=WyFe=RO=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.6 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_INVALID,DKIM_SIGNED,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A06A2C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2019 13:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 399F0C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2019 14:35:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1FA9621906
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2019 13:29:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 08C6E206BA
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2019 14:35:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Gs4tDl1y"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1FA9621906
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RnohgFWu";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="JBsCXiJr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 08C6E206BA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nJKCtMEppXA10N61oXaZLQv+Q4YXxwVCi/h2r7Pw9Z4=; b=Gs4tDl1y2I1J1s
-	BOjHxn/ttNbM4ofqqPyEFfp0mNpshnp79EOyPSiLciMW1U4gLIU+lV5UoOHVleTZVTesfcJruluuD
-	Z3tOZf7vHcvtFMDHjNE2ATqg0M2ntw+JUX2SPiRH0khNe8Kf9fN22rwF1sUnO4zIpgQwqXDK6a76p
-	rjF6YpEQ1LQC3LRrihklDwbpqxpokyVtvtU73Ky87yMXHLtB3D671TAzsLoxv5iizjmR+nICP7F5K
-	EboA+5mZ0rA4u4eoTYXqflxxVA+cXjrgohlslXzYC6t2jcWAQ+kN9g4c2OgeawgL36P9rJDZoTe40
-	u8pJKvoKvmvoc0nRr3qQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=vNQ3jfWOEHxsQA/KPE/ANPvoRaiDDiMWTwPKRTP0EFk=; b=Rno
+	hgFWurvhwe5TvbOJIqdvlQ6JFHEc1MCSjPwuxSvYr40pSKVHmqLypzV9cU7z+bP8ahIz++u8ogn4W
+	RmGR9cyKVQK+g8AAdbuX69FvNQq+UCAsqEGIXWSKSuue9IqmvCphBLO7MzfuFe9J0VksE37KL4qJ5
+	hY3eRKVzmTMQ6OasEBt/Ti8v/8r9EpvTZj52TpIYvj5X5ZaXBeIwBh5hSsoS5ykpO+BekGZyzE3X1
+	i+r4U4cdIqJF5Ra8hdFeDPc3tVH0U90TNBlRcRcvBcioZET6BgdlLZS1y4XS1ynwnLkUjIihr8P19
+	a5kwyQEsJxGTwesTtd8zPLr5uO+awzw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h3Kzm-0000fe-FC; Mon, 11 Mar 2019 13:29:34 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1h3M1Q-0007Oq-QA; Mon, 11 Mar 2019 14:35:20 +0000
+Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h3Kzj-0000er-U3
- for linux-riscv@lists.infradead.org; Mon, 11 Mar 2019 13:29:33 +0000
-Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1h3Kzb-0001Ck-Sw; Mon, 11 Mar 2019 14:29:23 +0100
-Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1h3Kza-0002xR-NC; Mon, 11 Mar 2019 14:29:22 +0100
-Date: Mon, 11 Mar 2019 14:29:22 +0100
-From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH v8 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
-Message-ID: <20190311132922.iowselp7qvmroiaa@pengutronix.de>
-References: <1551437599-29509-1-git-send-email-yash.shah@sifive.com>
- <1551437599-29509-3-git-send-email-yash.shah@sifive.com>
- <20190307152745.kaiv6q4ygf2apmuv@pengutronix.de>
- <CAJ2_jOFvr=sw7mWR53JbzMJa1jxwjhJSTibCsKYsxrht+PLPWw@mail.gmail.com>
- <20190308115726.smgooacsr37fmxwg@pengutronix.de>
- <CAJ2_jOFtg2_MAUYkTQM-=6KE2RN+FMxfEhLjZZfzM0k3A5RQiA@mail.gmail.com>
+ id 1h3M1C-00063p-6E; Mon, 11 Mar 2019 14:35:11 +0000
+Received: by mail-vs1-xe33.google.com with SMTP id c189so2817521vsd.9;
+ Mon, 11 Mar 2019 07:35:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:from:date:message-id:subject:to;
+ bh=IkL3TilxmjLPZ7z5ub8nkczbG3RJDxaWpYc/0Ak8W1k=;
+ b=JBsCXiJrFf+/kFrEuFj864Y3//r1GTE1CkDSegx9JB6RjhjtEX2GpmpUIUMzo0mwxF
+ JBu4mwzPp5XXx/eMvZ4x4rzxg0xTDZRRAYlhcL1edmhWIf4VAQD1dna0AZuk20RxJN9s
+ u4nxd6A2Q+s5UBx7CxpAwqqxyuISWTZqk3ybNSqv70nHYZ7BrHl13LXGznILDNL5FK0q
+ WJb8gkzUwQIsp/FMD0ffFgdOJlNc3xZrDcaRLZtbE86gnZ0waYeqoHsIhsZolNInihvt
+ SwJEBc9V7fuR2HS/jkyyQP9LpuPP3LsS+nhviHzeakHHEAc86gML2iN2irpqFBlutpAx
+ 7ITw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+ bh=IkL3TilxmjLPZ7z5ub8nkczbG3RJDxaWpYc/0Ak8W1k=;
+ b=Y0qPLiDv2Xwm5Kme+p3Sd5MSQrlzwaNehsvUuMtUWNDw2zIuvS4RP/I/Ew1a3o/sL8
+ tJedM0I6550/AcoAfDPkaaC/jHkeRjcti0PnFrmWzmgecixY4udn+RAj6Mubdg2T6G0V
+ nh+yCZWqV+RC616bhCQBJtlOTo9zl73vPyAOsWjKTP1RQOGnCNrFe2wWIhaBOF4LutvL
+ hZOHPZpZ9TkOqjpyYParBYTCsoTAeshH3UrWY3Ur+6j4VT2b9fohV47LuMds5CpZakUG
+ xovlLAzFB+JRPJHHfhaKgzYDhUYwt5GvseeUC8BRXUH1UbtJhravfOaTpY5f+YXOVF2u
+ YTqQ==
+X-Gm-Message-State: APjAAAUDZax/0QklwucN+e/VcU2XVphLLMYeQ/v0RFMfI5s61kESOiws
+ rqIlpy71474esCEaBUGwtOTf8XwY1gLoEhjV9io=
+X-Google-Smtp-Source: APXvYqwQf4abKOPNFAlcwbnC36FV5xBg1SpnV4ba02lkB4K0Nmgpx0sH2j86PfLQyvnJD0tnNvsGEQGzaeLOJ+FuK1U=
+X-Received: by 2002:a67:7f07:: with SMTP id a7mr16125690vsd.196.1552314904118; 
+ Mon, 11 Mar 2019 07:35:04 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJ2_jOFtg2_MAUYkTQM-=6KE2RN+FMxfEhLjZZfzM0k3A5RQiA@mail.gmail.com>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+From: Pintu Agarwal <pintu.ping@gmail.com>
+Date: Mon, 11 Mar 2019 20:04:53 +0530
+Message-ID: <CAOuPNLgobR4ejPs_ZUuXpRwkURH0sfb1LD27TKhGg=wrwhUvZg@mail.gmail.com>
+Subject: ssh session with qemu-arm using busybox
+To: open list <linux-kernel@vger.kernel.org>, kernelnewbies@kernelnewbies.org, 
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ qemu-devel@nongnu.org, =?UTF-8?B?7KCE7KeE7JiB?= <jy0.jeon@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190311_062932_119867_2D3083A1 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20190311_073506_293189_9B2A5621 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -79,78 +87,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Sachin Ghadi <sachin.ghadi@sifive.com>, robh+dt@kernel.org,
- Thierry Reding <thierry.reding@gmail.com>, kernel@pengutronix.de,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi,
 
-On Mon, Mar 11, 2019 at 05:10:17PM +0530, Yash Shah wrote:
-> On Fri, Mar 8, 2019 at 5:27 PM Uwe Kleine-K=F6nig
-> <u.kleine-koenig@pengutronix.de> wrote:
-> > On Fri, Mar 08, 2019 at 04:59:36PM +0530, Yash Shah wrote:
-> > > On Thu, Mar 7, 2019 at 8:57 PM Uwe Kleine-K=F6nig
-> > > <u.kleine-koenig@pengutronix.de> wrote:
-> > > > > +     if (state->period !=3D cur_state.period) {
-> > > >
-> > > > Did you test this with more than one consumer? For sure the followi=
-ng
-> > > > should work:
-> > > >
-> > > >         pwm1 =3D pwm_get(.. the first ..);
-> > > >         pwm_apply_state(pwm1, { .enabled =3D true, .period =3D 1000=
-0000, .... });
-> > > >
-> > > >         pwm2 =3D pwm_get(.. the second ..);
-> > > >         pwm_apply_state(pwm2, { .enabled =3D true, .period =3D 1000=
-0000, .... });
-> > > >
-> > > > but for the second pwm_apply_state() run state->period is likely not
-> > > > exactly 10000000.
-> > >
-> > > Yes, I have tested multiple consumers using sysfs interface. It is wo=
-rking.
-> >
-> > Can you provide details about your testing here? What is the parent clk
-> > rate? Which settings did you test? Can you confirm my claim that the
-> > above sequence would fail or point out my error in reasoning?
-> >
-> =
+I have a qemu-arm setup with busybox which I normally use to test my
+kernel changes.
+I use this command to boot it:
 
-> I have tested on HiFive Unleashed board using sysfs interface.
-> Parent clk rate is around 512 Mhz.
-> I have tested scenarios as you mentioned above with various period and
-> duty_cycle values.
-> =
+QEMU-ARM$
+qemu-system-arm -M vexpress-a9 -m 1024M -kernel
+../KERNEL/linux/arch/arm/boot/zImage -dtb
+../KERNEL/linux/arch/arm/boot/dts/vexpress-v2p-ca9.dtb -initrd
+rootfs.img.gz -append "console=ttyAMA0 root=/dev/ram rdinit=/sbin/init
+ip=dhcp" -nographic -smp 4
 
-> After considering your below suggestion,
->  | To get the result independent of the prior configuration you better use
->  | the real targeted period length as input instead of the last configured
->  | approximation
-> I will introduce approx_period feild, which will be used as the
-> targeted period length.
-> Also, in pwm_sifive_get_state, I will make below change
-> - state->period =3D pwm->real_period;
-> + state->period =3D pwm->approx_period.
-> So with this change in place, I believe the cur_state.period for the
-> second pwm_apply_state() above (pwm2) will be exactly 10000000
+This includes, my own custom kernel and rootfs build.
+For rootfs I use busybox and create cpio image and use it as initrd.
 
-I don't understand your intention completely. Just send a new patch
-round, then I will gladly take another look.
+But, every time, if I have to copy some files inside qemu, I need to
+create create roofs image.
+This is painful.
 
-Best regards
-Uwe
+So, now I am exploring how to transfer files from my ubuntu pc to
+qemu-session using "ssh".
+I know this is possible, but I am still not successful, and bit lazy
+to explore these.
 
--- =
+I am sure, many of you people would have explored already "how to use
+ssh over qemu" and found a easy method.
+So, if anybody have easy setup please share with me.
 
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | http://www.pengutronix.de/  |
+I could see that after adding "ip=dhcp" I get the eth0 interface like this:
+/ # ifconfig
+eth0      Link encap:Ethernet  HWaddr 52:54:00:12:34:56
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:1180 (1.1 KiB)  TX bytes:1180 (1.1 KiB)
+          Interrupt:22
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+But I could not ping it from ubuntu PC.
+
+
+Regards,
+Pintu
 
 _______________________________________________
 linux-riscv mailing list
