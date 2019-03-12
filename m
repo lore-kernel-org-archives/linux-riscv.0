@@ -1,62 +1,72 @@
-Return-Path: <SRS0=WyFe=RO=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=rqMp=RP=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 32EA5C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2019 22:48:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E360AC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 04:22:54 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 018522087C
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 Mar 2019 22:48:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 904BB2077B
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 04:22:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cFj0cf4r"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 018522087C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="idNEz4N0";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=amazonses.com header.i=@amazonses.com header.b="EkUJcQDw"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 904BB2077B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RoOUnORVv07ZRaicwK1HKDZCo5UB7gYPEzNygwtDU2I=; b=cFj0cf4rXiFy6k
-	NMZORyThhl5u8EY7ma1LoixaDh1CDyKzzlpuLBV6yZBZsK11iAmchKeWnvDKzLdS9oq+0MDaw4+5p
-	GwuuHmxe99q63L3rMxybx/PgTfCALm0L66UjcA1XrvMr8Ke4cmn6ud6uAVCjxSkli1vSm+0LBoyYk
-	lnITc0iA3qdrN/EnAV/ASess9nD6/ePeB1fp+buj8B6nAxXkOglwUC29amG1G5+jVEEKeYGbjFW+4
-	RsHwcaXi8jTzlsv46XzVdzjiuiTwvRVvXAlfoRub1KmV0jV16sSrsgj0DvK9L3yI8HBnBjm3ulNDU
-	1TO+cur20a1dF3mxr58A==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:References:Message-ID:In-Reply-To:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=USijg3Fnc0Idna0P1Io8JHKTrd9QyLwqyHQhYLMWdXs=; b=idNEz4N0rb3HYjmjwkLIzcnte
+	67V9qIUVV9EVJWuvsNx5Svw+teShuJTtjZrPkkfgopmiqVJzH5uK8DwisuVkkgsSUqT7OeWks/+AH
+	MnWRCtWmEpEv7k2VSln9qDgVrCwEbuz7XVRaDtFhj4JmL9xzjbk9f6H1RdVvQDD5vTp/vNxUAdWax
+	Z3SGokY7ABj7ekdPvsYKa10wh5gUkCO3vEgr83lZ8GCX7ueKrEAzr+8nnO8PhGxR/p6XPFyiIEIT7
+	OaCYn9kuzi5HBprz/8I5jbZDQfY17BZE/HUVCgv++ZUbPkXUR0j70I+Gn08n6wnrKXECx2c7Fmr9l
+	fOCpJycoA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h3TiY-0003lY-Lw; Mon, 11 Mar 2019 22:48:22 +0000
-Received: from foss.arm.com ([217.140.101.70])
- by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h3TiV-0003ko-Bc
- for linux-riscv@lists.infradead.org; Mon, 11 Mar 2019 22:48:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 093301993;
- Mon, 11 Mar 2019 15:48:19 -0700 (PDT)
-Received: from e113632-lin.cambridge.arm.com (e113632-lin.cambridge.arm.com
- [10.1.194.37])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E2E9D3F59C;
- Mon, 11 Mar 2019 15:48:17 -0700 (PDT)
-From: Valentin Schneider <valentin.schneider@arm.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH 09/14] RISC-V: entry: Remove unneeded need_resched() loop
-Date: Mon, 11 Mar 2019 22:47:47 +0000
-Message-Id: <20190311224752.8337-10-valentin.schneider@arm.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20190311224752.8337-1-valentin.schneider@arm.com>
-References: <20190311224752.8337-1-valentin.schneider@arm.com>
+	id 1h3YwE-0006Tw-Gk; Tue, 12 Mar 2019 04:22:50 +0000
+Received: from a9-36.smtp-out.amazonses.com ([54.240.9.36])
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1h3YwC-0006Td-G0
+ for linux-riscv@lists.infradead.org; Tue, 12 Mar 2019 04:22:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+ s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1552364564;
+ h=Date:From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type:Feedback-ID;
+ bh=0QEw6USCV5WEvgPHHj0ukk3t1ro/SGq542f51dLuIQk=;
+ b=EkUJcQDw+JzigRpmjusDpowPcNxLYyRoyTeFIbHKs0SjrhbghryBgLBSNYa+RaEK
+ os2NOM6DF/fpT3n96mkrQ+/kjpCQzwFgHyfE0e8qN/LUkKkfp63uJwzAmqOR/ceSTfL
+ CODy1N8RSfW0UCHswIwgsBZPIvze3x6elYqJCQ0U=
+Date: Tue, 12 Mar 2019 04:22:44 +0000
+From: Christopher Lameter <cl@linux.com>
+X-X-Sender: cl@nuc-kabylake
+To: =?ISO-8859-15?Q?Bj=F6rn_T=F6pel?= <bjorn.topel@gmail.com>
+Subject: Re: per-cpu thoughts
+In-Reply-To: <CAJ+HfNigK=FiWDtNaJm5-8QP1MEa9M+=B1PnFLGTPX5oXZRm+g@mail.gmail.com>
+Message-ID: <0100016970236dfe-59c059f4-eb79-4b75-8a9b-d2738f1a3518-000000@email.amazonses.com>
+References: <CAJ+HfNgSx49dRXDdJGovb=auAjSB703bN9tULjibW1OKHuHcPg@mail.gmail.com>
+ <mhng-79f13983-1ea9-4f9a-949a-87dac2060f42@palmer-si-x1c4>
+ <CAJ+HfNhmUdz4y81VNnTOsvyvSNw3i3E=qR+F0Qa7XThSOAiJ1A@mail.gmail.com>
+ <010001696d414b3a-d35fa0a2-01fa-4e8c-be57-ff703610755a-000000@email.amazonses.com>
+ <CAJ+HfNh6bc1A8vskxqJ9CP11aPdTgrPS2SOgLGXMLyefogFLtw@mail.gmail.com>
+ <010001696d73c925-5f894cf1-aa67-4e05-8e76-123a4b4c6904-000000@email.amazonses.com>
+ <CAJ+HfNigK=FiWDtNaJm5-8QP1MEa9M+=B1PnFLGTPX5oXZRm+g@mail.gmail.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="8323329-1644938449-1552364563=:32434"
+X-SES-Outgoing: 2019.03.12-54.240.9.36
+Feedback-ID: 1.us-east-1.fQZZZ0Xtj2+TD7V5apTT/NrT6QKuPgzCT/IC7XYgDKI=:AmazonSES
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190311_154819_403117_E27DA690 
-X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-CacheID: sfid-20190311_212248_608182_D6794F61 
+X-CRM114-Status: UNSURE (   6.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -69,48 +79,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Nick Kossifidis <mick@ics.forth.gr>, Paul Walmsley <paul@pwsan.com>,
+ Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since the enabling and disabling of IRQs within preempt_schedule_irq()
-is contained in a need_resched() loop, we don't need the outer arch
-code loop.
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-Signed-off-by: Valentin Schneider <valentin.schneider@arm.com>
-Cc: Palmer Dabbelt <palmer@sifive.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org
----
- arch/riscv/kernel/entry.S | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+--8323329-1644938449-1552364563=:32434
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8BIT
 
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index fd9b57c8b4ce..18e3337e9c30 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -258,12 +258,11 @@ restore_all:
- resume_kernel:
- 	REG_L s0, TASK_TI_PREEMPT_COUNT(tp)
- 	bnez s0, restore_all
--need_resched:
- 	REG_L s0, TASK_TI_FLAGS(tp)
- 	andi s0, s0, _TIF_NEED_RESCHED
- 	beqz s0, restore_all
- 	call preempt_schedule_irq
--	j need_resched
-+	j restore_all
- #endif
- 
- work_pending:
--- 
-2.20.1
+On Mon, 11 Mar 2019, Björn Töpel wrote:
 
+> >From asm-generic/percpu.h:
+>
+> #define this_cpu_generic_to_op(pcp, val, op)                \
+> do {                                    \
+>     unsigned long __flags;                        \
+>     raw_local_irq_save(__flags);                    \
+>     raw_cpu_generic_to_op(pcp, val, op);                \
+>     raw_local_irq_restore(__flags);                    \
+> } while (0)
+>
+> And the disassembly from my build does indeed have interrupt disabled regions.
+
+Well there is widespread agreement here that preemption off *should be*
+enough and that no counters *should be* incremented during an irqoff
+session. Most per cpu counters obey that restriction and the major VM
+counters are incremented in preempt off sections without disabling
+interrupts.
+
+Sorry I thought we already had that finished. Guess I jumped the gun on
+that one. Ok so we have a lot more overhead to work with currently.
+--8323329-1644938449-1552364563=:32434
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-1644938449-1552364563=:32434--
+
