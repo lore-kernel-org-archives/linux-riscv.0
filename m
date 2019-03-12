@@ -2,143 +2,136 @@ Return-Path: <SRS0=rqMp=RP=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 84136C4360F
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 17:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7E9ECC10F00
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 18:04:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 47060214AF
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 17:59:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5376E2087C
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 18:04:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YalggSZ/";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=garyguo.net header.i=@garyguo.net header.b="n/Z8gotr"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 47060214AF
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=garyguo.net
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WOG+JuKp";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=synopsys.com header.i=@synopsys.com header.b="KLqrmYrR"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5376E2087C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=synopsys.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SJJgsNiCDWhX+eiG1XvqxAQJSPT3WmQJ+47s5i1+T/0=; b=YalggSZ/OA69eN
-	jYpTfiaDN8hke/LebiJKHbCR8diM9QByN+mxJja9hu+RUQadzGzJ+rGiIaxYLOr2O4CF0DWx9jjN+
-	LRmxuG1/UbzmrZS5/YcCkP+4RJFpA0EctclrP7cBVlZwybMhQY2jubvdWCYmJXEY7btDZYLcdzX5W
-	nsbJQIRMptBQwKJYtGrHIeHkI2sCBuoU6H3JNY1YhnWgmdRsHFqtL+KV5NelbkkzTB18s6SPyTJp3
-	lIsupHagU1Xj7CJAGasyXoVfzJX8yZkaB2SGw3EfifLMn72DUJPpGkjG6pBSrzsgOzXauVSJ0+W1N
-	t7N/+cld7/NFcimaBGPA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bDvaACfCWmsNuUmtjAUgFCNHVPVsN2YP70P2wzq/jCc=; b=WOG+JuKpgtCClS
+	GrnFAGPZeqoZxypW0CzXEXgdVx9LsBHnERuKprGIGWDdRbqV728LWFrMC3VgMs+FQWNbCzqvjdEPL
+	3Hj1uJq5n1BjXy04pWd9JdZ2mdbLe+fPTU8oc+9+29T+Wc4nECZcmdh7Wfv1ozMZkEYmeLHoz7W+f
+	Wd46+ACKcj2+G6r9Id+vrkiHLtWBVgCNiaDmS3uZ8mbBHNfiFt9mAH/ZDRVLvjFU8zr4jy+KX4ohU
+	a6cV+OvEsYvRR6n2DAnwXZt/JHAfzepWvXPQiwYmjzz7m+0wXgJffmo7YEfGfkcmNZVlZGbq+ga8P
+	NpaewWlMu8p9K24XnHyQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h3lgT-0006er-4L; Tue, 12 Mar 2019 17:59:25 +0000
-Received: from mail-eopbgr100119.outbound.protection.outlook.com
- ([40.107.10.119] helo=GBR01-LO2-obe.outbound.protection.outlook.com)
+	id 1h3llC-0000i7-I5; Tue, 12 Mar 2019 18:04:18 +0000
+Received: from us01smtprelay-2.synopsys.com ([198.182.47.9]
+ helo=smtprelay.synopsys.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h3lgJ-0006Vb-Fr; Tue, 12 Mar 2019 17:59:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VyxeMCWXLrjxE0q+pfdR9sKUOXuVvhIPG+JnwSMzelM=;
- b=n/Z8gotrWLLD55qSp+B4MgNpl/UF00N62r+3zp9dePxmzN6YPO0lrlZ8wzZi6ggIxzg8GvwE/wPlqhZNtPCbrEww9IeTfRU1cX60BNdVl33p9AHB1BLB4Sijm9ZcLMCZ0VcExFSMoB80AMDZFweE6Kep5yZeaCYmwjnXnLGpgRs=
-Received: from LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM (20.176.139.20) by
- LO2P265MB0990.GBRP265.PROD.OUTLOOK.COM (20.176.140.18) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1686.17; Tue, 12 Mar 2019 17:59:11 +0000
-Received: from LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM
- ([fe80::ed34:1290:4306:3157]) by LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM
- ([fe80::ed34:1290:4306:3157%3]) with mapi id 15.20.1686.021; Tue, 12 Mar 2019
- 17:59:11 +0000
-From: Gary Guo <gary@garyguo.net>
-To: Christopher Lameter <cl@linux.com>, Paul Walmsley
- <paul.walmsley@sifive.com>
-Subject: Re: per-cpu thoughts
-Thread-Topic: per-cpu thoughts
-Thread-Index: AQHU1X8Zg4tCyzpnB0uSPwesGvixyaYGb/qAgAAYDICAAAIygIAAAm+AgAAGBoCAANnKgIAApi8AgAA4aoCAAASAAA==
-Date: Tue, 12 Mar 2019 17:59:10 +0000
-Message-ID: <898ae546-fac8-3f5a-e53b-c2941d81ca66@garyguo.net>
-References: <CAJ+HfNgSx49dRXDdJGovb=auAjSB703bN9tULjibW1OKHuHcPg@mail.gmail.com>
- <mhng-79f13983-1ea9-4f9a-949a-87dac2060f42@palmer-si-x1c4>
- <CAJ+HfNhmUdz4y81VNnTOsvyvSNw3i3E=qR+F0Qa7XThSOAiJ1A@mail.gmail.com>
- <010001696d414b3a-d35fa0a2-01fa-4e8c-be57-ff703610755a-000000@email.amazonses.com>
- <CAJ+HfNh6bc1A8vskxqJ9CP11aPdTgrPS2SOgLGXMLyefogFLtw@mail.gmail.com>
- <alpine.DEB.2.21.9999.1903110814130.11892@viisi.sifive.com>
- <010001697026a740-ffe901ce-8e6a-445b-883f-068dd289b0a2-000000@email.amazonses.com>
- <alpine.DEB.2.21.9999.1903120717110.26459@viisi.sifive.com>
- <0100016973000e88-99188bf8-0831-4fa4-b3ae-7de6547b651e-000000@email.amazonses.com>
-In-Reply-To: <0100016973000e88-99188bf8-0831-4fa4-b3ae-7de6547b651e-000000@email.amazonses.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: LNXP265CA0085.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:76::25) To LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:8c::20)
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=gary@garyguo.net; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [2001:630:212:238:3697:f6ff:fe55:55b1]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: cfe3ec05-eccd-4c34-0c2b-08d6a7146e13
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(7021145)(8989299)(5600127)(711020)(4605104)(4534185)(7022145)(4603075)(4627221)(201702281549075)(8990200)(7048125)(7024125)(7027125)(7023125)(2017052603328)(7153060)(7193020);
- SRVR:LO2P265MB0990; 
-x-ms-traffictypediagnostic: LO2P265MB0990:
-x-microsoft-exchange-diagnostics: =?utf-8?B?MTtMTzJQMjY1TUIwOTkwOzIzOi84Y09HVkhKMWRNc3V6RW5lRWtUSzNYYndh?=
- =?utf-8?B?R1dxUXpmaCtLaVhFaFJQakVWVld0UnpEMkFKSndMUmNGdStsQ3VVdWY2MWdW?=
- =?utf-8?B?NWQyT1l1M2lBMEM3VlNTMC80aUxyMWxEeEVuMU5nS1c2TUJ6Um5EOWg1MjhM?=
- =?utf-8?B?THNzdDFPaktWZ3c2cGtMMEg5V0EvSGk4UWV2NzVqU1RQRURNeU9UVDZ5dHhQ?=
- =?utf-8?B?NHpGUzhXZlBuVUlZRFhSck43OG8wUmU2RUM5YlYxZ3Y1WmdmcDJvWUk0bjRG?=
- =?utf-8?B?QTl6R0FNSzBMalZRRVh4T1R1ZkRPRHB0SnJ6cHFHVGFGVzRDejV3dUFpazZu?=
- =?utf-8?B?a0JrMHRybklldkdpV3lVaU1PaGF5ZUZWMjVJWUNlb283MzFRR3VxUEE0R0hP?=
- =?utf-8?B?NmM3WG9LNDRZS3M3b1praG1RNndreFo1d0pIeEhNcUN0VmtGVFJ6OGNyMnBQ?=
- =?utf-8?B?NFcvL1JsK0lhYmZNQW1tKzZsNkFwYTZxcWF0N2pSbFJ6Mm9keDZHVGo4OHJG?=
- =?utf-8?B?U202VURjSDJ1ZkY3NGU0a3YwTnNtck9uLy8zQ2hPcGpNdWF3NnZNWEc2R0Nv?=
- =?utf-8?B?cUNveGwwcENhL1ZnY2gxV1pZNGJyZ3Z3LzdxMGJBY0lDQlg1OVBHZ0tYR2Jn?=
- =?utf-8?B?V1JSNitBVEVVNzhpZDZrM2Z3Mmk4b0lxbmU3QWVoUkVHd3Y3WmxHWkpWb1o0?=
- =?utf-8?B?cit4ZEJXSHFzTXlmdHAxT1VCV1FvMzdVWkh6UUdtblhvQmJhSy9CU1JXdVVz?=
- =?utf-8?B?WHVUQ29BM0lNRmpudTROUEdLNUNXWTVwd01TVEZaaWpPSzhXSk1UNFVLenhY?=
- =?utf-8?B?M2dzdVMxMUUvYUNQcVNNeVNPclRMV1BvR2VhRS8rdzNzNEZnVVVlRWZwY1cy?=
- =?utf-8?B?YmdpTVMrS3JOa05ueVUvUnRNaGI4RFdtY1dEWUczNThKVEZVQ3RhalRmUkpz?=
- =?utf-8?B?Ky9lU3ZzQjhMME5EeEdBWExxL2dJdEt0Tmg3Z01GV3hwRGplLzJ6T1ZzWDVC?=
- =?utf-8?B?QnozbnoyVjF3WWxWTjFDREdBS3FObE1xQWtNZERRYlJNM0ZRc0VZRTNtYWsv?=
- =?utf-8?B?LzVWcVNQRHF0dmNmQlBtbXVPbEwvM1FzV1FSaEVYOXU1SGZLRHlFV1NKQml0?=
- =?utf-8?B?SEFQakxTSzN3c2xYdXpUZFJadkM0Z0p5ZGN3d0ljai9kNkQyaVpFWS9oQnEz?=
- =?utf-8?B?VEFzbXBjYXFTSk81UTV6TXk0Z01rREhTVmZWZmdUOW9YV1lwNHpQbVhZMVph?=
- =?utf-8?B?S2xDM3FtMUx5Um9IbGdVODl0bDdYc2NITlp4K0lyWHZSVEF5TS9BVHRLWExi?=
- =?utf-8?B?QnNwMkdiNXVmbmJBTGtXb3ZiVTZXT3Rsa1NRUHc5bXBSc2o5TFU4R3pEZWp4?=
- =?utf-8?B?UlRHY2lqcEhLM29jS01xUGZReDcrVjJXdDFJTjJXYkQ5QXE4OHdRR29nV3Nk?=
- =?utf-8?B?d0UyQUJKYktXajVaQVNuUWlqLzBOZ0RyRWNtMEtYREgyd0JNbHhjNmhEQ0F2?=
- =?utf-8?B?TW10dE1mYUxZUk1oVGsyTy90a0FTUEJzQzhpak9LODF5TmsvR3VBRS90Nm9t?=
- =?utf-8?B?cjhxT2Y4aXYxZ0RGTmFTc01YTzgwYklGY0FGblR1L2VwYjZ3ZFlIWVVBWE9v?=
- =?utf-8?B?dmxPdjNTZ2JIanRvNjZxNVpBWmJncTF0NTJObE5yZzFxOW1hSWxlWmZucHJp?=
- =?utf-8?B?c3VUU3BZaGxaYUw2NHV5MHQ5Q3FHTUc0MHFpZm13TFkrNTJyTnQrbTU1RlF4?=
- =?utf-8?Q?MEy7n6epkc53LTb65GhZWsyCg8pf8MV+NkRQ4=3D?=
-x-microsoft-antispam-prvs: <LO2P265MB0990762BFB489F81DB069A6FD6490@LO2P265MB0990.GBRP265.PROD.OUTLOOK.COM>
-x-forefront-prvs: 09749A275C
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(39830400003)(346002)(376002)(366004)(396003)(136003)(189003)(199004)(186003)(76176011)(102836004)(7736002)(6486002)(4326008)(6436002)(486006)(3480700005)(14454004)(36756003)(8676002)(446003)(229853002)(2616005)(81156014)(476003)(11346002)(25786009)(46003)(53546011)(31686004)(386003)(6506007)(81166006)(99286004)(52116002)(305945005)(106356001)(6246003)(8936002)(508600001)(14444005)(53936002)(316002)(256004)(6116002)(93886005)(2906002)(71190400001)(71200400001)(68736007)(97736004)(7416002)(31696002)(5660300002)(54906003)(105586002)(86362001)(110136005)(6512007);
- DIR:OUT; SFP:1102; SCL:1; SRVR:LO2P265MB0990;
- H:LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-received-spf: None (protection.outlook.com: garyguo.net does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: jKXnyoySgQxJBgb6OV95PFGm46Z1CZarrG1vc8k32Og4+edG6FMFl9zEsCozN/LzJewTcK0TeVCLgdeQFSstM+oFL/A8vUR2cV9OU+RydRWnBuNEAXcbJzje8oYsb9Oyfw3FmIapLAZZgQ7YfBoNj50Jfed2VLtQLPMwljr089p3Utoa8cMpkcul/4fikDQkCHfwt9F6Y7p34isSDNpDnVehMb3wRhaIpwgv08xrRjbVFkTLgI0EwifUG4YgjmHZyVvmW+LS3X9+6GA9v8kou/unq5+XfveX8hqdGhm6LLRcBJFM7B1hcmdZVKwwMzdh2N16B7g6aekKg2KVWjpThwmq6SDC7uGBm1va7Mcb6+aOPVWj1TYA9ENOiSwmyfh3MCtavykbCrgeTWbXvzaYKSebK1q2dam0ASwegAjKPr0=
-Content-ID: <00C3887F3BEEEA40959743F01148729A@GBRP265.PROD.OUTLOOK.COM>
+ id 1h3ll8-0000hS-OF; Tue, 12 Mar 2019 18:04:16 +0000
+Received: from mailhost.synopsys.com (dc8-mailhost1.synopsys.com
+ [10.13.135.209])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by smtprelay.synopsys.com (Postfix) with ESMTPS id 9B63924E131D;
+ Tue, 12 Mar 2019 11:04:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
+ t=1552413852; bh=qX/H7rRtR1PnxksLEqcd0TpNr5z1AJVxJ64WQy3x4uo=;
+ h=Subject:To:CC:References:From:Date:In-Reply-To:From;
+ b=KLqrmYrRvmHo8rPOyr6wg8h96t7taxfStODWR+SrRt+STgktc/Tf3FXZBx6sxw/LH
+ eQWLbSyoZ//bOXjI0zfkp9LCBtNIiNcrTHOWmxEJotNehOoV6cZGKyimFVl0QMeSLH
+ g+RCoWn7pyNt5HCm30LudBs86Kl7HLlrRyLWqXFiZ+O0EfyPUcEsw4HbHuMrj67rBm
+ /NsSVjHnNKZQMtnGMU5Jum7dBVmWoJ9ZI+7JZlmgQZvQRau+fZr3ZnvUn9/iL5+miX
+ lmicsUUOkbnm6/cMatFZPGZTG0RtsftnVpZWGEB+9JD1r4a6Y2HhAtk017f1vqLcWM
+ K48yFty4n3zIA==
+Received: from US01WXQAHTC1.internal.synopsys.com
+ (us01wxqahtc1.internal.synopsys.com [10.12.238.230])
+ (using TLSv1.2 with cipher AES128-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mailhost.synopsys.com (Postfix) with ESMTPS id 49124A006B;
+ Tue, 12 Mar 2019 18:04:09 +0000 (UTC)
+Received: from IN01WEHTCA.internal.synopsys.com (10.144.199.104) by
+ US01WXQAHTC1.internal.synopsys.com (10.12.238.230) with Microsoft SMTP Server
+ (TLS) id 14.3.408.0; Tue, 12 Mar 2019 11:04:09 -0700
+Received: from IN01WEHTCB.internal.synopsys.com (10.144.199.105) by
+ IN01WEHTCA.internal.synopsys.com (10.144.199.103) with Microsoft SMTP Server
+ (TLS) id 14.3.408.0; Tue, 12 Mar 2019 23:34:13 +0530
+Received: from [10.10.161.89] (10.10.161.89) by
+ IN01WEHTCB.internal.synopsys.com (10.144.199.243) with Microsoft SMTP Server
+ (TLS) id 14.3.408.0; Tue, 12 Mar 2019 23:34:13 +0530
+Subject: Re: [PATCH 00/14] entry: preempt_schedule_irq() callers scrub
+To: Valentin Schneider <valentin.schneider@arm.com>,
+ <linux-kernel@vger.kernel.org>
+Newsgroups: gmane.linux.kernel, gmane.linux.ports.sparc,
+ gmane.linux.ports.sh.devel, gmane.linux.ports.riscv,
+ gmane.linux.ports.ppc64.devel, gmane.linux.ports.mips, gmane.linux.ports.ia64,
+ gmane.linux.kernel.arc
+References: <20190311224752.8337-1-valentin.schneider@arm.com>
+From: Vineet Gupta <vineet.gupta1@synopsys.com>
+Openpgp: preference=signencrypt
+Autocrypt: addr=vgupta@synopsys.com; keydata=
+ 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
+ hhqBJlyU6MVUa6vZNv8E
+Message-ID: <e604601e-f8e1-a8b5-d364-69ca967996ce@synopsys.com>
+Date: Tue, 12 Mar 2019 11:03:55 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.5.1
 MIME-Version: 1.0
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: cfe3ec05-eccd-4c34-0c2b-08d6a7146e13
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Mar 2019 17:59:10.9912 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO2P265MB0990
+In-Reply-To: <20190311224752.8337-1-valentin.schneider@arm.com>
+Content-Language: en-US
+X-Originating-IP: [10.10.161.89]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190312_105915_586573_C125FB43 
-X-CRM114-Status: GOOD (  17.66  )
+X-CRM114-CacheID: sfid-20190312_110414_801202_C716B10C 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -150,53 +143,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Paul Walmsley <paul@pwsan.com>,
- =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>,
- Palmer Dabbelt <palmer@sifive.com>,
- "will.deacon@arm.com" <will.deacon@arm.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- Nick Kossifidis <mick@ics.forth.gr>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Cc: uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
+ linux-ia64@vger.kernel.org, linux-c6x-dev@linux-c6x.org,
+ Julien Thierry <julien.thierry@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ linux-s390@vger.kernel.org, x86@kernel.org, linux-mips@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, Ingo Molnar <mingo@redhat.com>,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ nios2-dev@lists.rocketboards.org, Thomas Gleixner <tglx@linutronix.de>,
+ linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The added instruction would require three operands (base, offset,
-value), which is clearly an issue on how to encode it. Also, as RISC-V's
-base ISA is already frozen, even if we have this instruction, it will be
-an extension, and is not going to be implemented by all hardware. Linux
-will still need to support those hardware without this instruction.
+On 3/11/19 3:47 PM, Valentin Schneider wrote:
+> Hi,
+> 
+> This is the continuation of [1] where I'm hunting down
+> preempt_schedule_irq() callers because of [2].
+> 
+> I told myself the best way to get this moving forward wouldn't be to write
+> doc about it, but to go write some fixes and get some discussions going,
+> which is what this patch-set is about.
+> 
+> I've looked at users of preempt_schedule_irq(), and made sure they didn't
+> have one of those useless loops. The list of offenders is:
+> 
+> $ grep -r -I "preempt_schedule_irq" arch/ | cut -d/ -f2 | sort | uniq
+> 
+...
 
-On 12/03/2019 17:42, Christopher Lameter wrote:
-> On Tue, 12 Mar 2019, Paul Walmsley wrote:
 > 
->> The counters, though, may not need the preemption disable/reenable.
->> Christoph, you expressed earlier that you think the overhead of the
->> preempt_disable/enable is quite high.  Do you think it's worth creating a
->> separate, restricted implementation for per-cpu counters?
+> Regarding that loop, archs seem to fall in 3 categories:
+> A) Those that don't have the loop
+
+Please clarify that this is the right thing to do (since core code already has the
+loop) hence no fixing is required for this "category"
+
+> B) Those that have a small need_resched() loop around the
+>    preempt_schedule_irq() callsite
+> C) Those that branch to some more generic code further up the entry code
+>    and eventually branch back to preempt_schedule_irq()
 > 
-> As I have always said: I would like to have per cpu atomic instructions
-> added on RISCV V that works like those on Intel. Single instruction and
-> relative to a per cpu based addressable counter operations please.
+> arc, m68k, nios2 fall in A)
+
+> sparc, ia64, s390 fall in C)
+> all the others fall in B)
 > 
-> I think the attempt to reengineer the core counter mechanisms on Linux is
-> not that realistic and would require you to first know the cross platform
-> issues that have driven the development of these things in the first
-> place. Sorry that I have been just superficially involved in these
-> discussions but I have a hard time seeing this going anywere. There are
-> already established core implementations and various arches take on this
-> issue and those have been around for longer than a decade. It will be hard
-> to come up with something better.
-> 
-> Can we focus on the RISC V instruction support? I also do not think that
-> this is a currently pressing issue but it will be when you scale up RISC V
-> to many cores (especiall hundreds or thousands of concurrent hardware
-> threads like what our interest is likely going to be in coming years and
-> likely also when RISC V is going to be used for enterprise / cloud data
-> services).
-> 
+> I've written patches for B) and C) EXCEPT for ia64 and s390 because I
+> haven't been able to tell if it's actually fine to kill that "long jump"
+> (and maybe I'm wrong on sparc). Hopefully folks who understand what goes on
+> in there might be able to shed some light.
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
