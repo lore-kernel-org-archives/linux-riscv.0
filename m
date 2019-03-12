@@ -1,62 +1,138 @@
-Return-Path: <SRS0=rqMp=RP=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=5v1j=RQ=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2DFF3C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 18:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 38FE6C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2019 10:15:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F19F62087C
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 18:19:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id ED3D82087C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Mar 2019 10:15:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="riNa0+ti"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F19F62087C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LoliYfm6";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="gmm6fJYj";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="S3YXIZfw";
+	dkim=neutral (0-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="dV+j3Y1n"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED3D82087C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LJgWQ7D1zDYvZYdWFhvOOAC2PSIrr0t93xxRHd8QBI8=; b=riNa0+tiW0Ic/M
-	jviZ/ay0+QeJB4101bYXsRZ8SixOzID7DmLJ4isgt25oa+phiUVZ23pFnLKuj02UZTCSfPK8uzPPj
-	us439g1KZ41f71SNHHWRBSp8CuA/mPOQ8syCHC86O8vTdlLwhd0vbrZ7rQ0yYFX1ROHc0sPtThZ8p
-	LtjJhVDtR6k7d59/TvF9zoFP0sp8wxBLgfeGQywEz4QICWdi9PbVmpZOf6pOqr+Jcqq9/5FPtQM9R
-	uW982ZOc8qXrSXbmaUf7LyF0dE7UXV3pzDO5MxB9A17ifd5A9vYc/2W0y4bten8oS6ZGGFlvJ6/w2
-	iGEQj6+xcLCeyv4dYrQw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eZdFnywsEjzECqWgUN78Yu0Q63V8Rh4Cx0Ns0AnSPsw=; b=LoliYfm6DMX2Cr
+	6axudsRFAXMWidSLL5Er1/+OYk3O/qbPS6Y1FshoXqn8ClUcmeEk/fJfVJFKGtUG1H/CJOA08nyAF
+	VH4zSdpLel7k8F8654VVi5mXj2fNDqXWIOEOs6Mga+AEAl4HCP0MuFBkBpKU0GRZmHbOwvD5SgmsE
+	33CSKPxVzgsgUxQyYY/Dnt2bjRoQrP7rzMR5bgOK4glfTHHMNZCi9N3SLsWzeY0njZcBado4CaENM
+	zSyl3Mpr9MD8AaUCYPHOfu6ZNWH14d4mYcshfp4sBG9Fj8atxAQ3mHTFNOzvSRXchxs6dJbGBWdmT
+	Efhr/IC8WpYQ/KTyhSHg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h3lzX-00071o-89; Tue, 12 Mar 2019 18:19:07 +0000
-Received: from foss.arm.com ([217.140.101.70])
- by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h3lzR-0006yi-Eh; Tue, 12 Mar 2019 18:19:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 189C8A78;
- Tue, 12 Mar 2019 11:19:00 -0700 (PDT)
-Received: from [10.1.194.37] (e113632-lin.cambridge.arm.com [10.1.194.37])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F195A3F59C;
- Tue, 12 Mar 2019 11:18:56 -0700 (PDT)
-Subject: Re: [PATCH 00/14] entry: preempt_schedule_irq() callers scrub
-To: Vineet Gupta <vineet.gupta1@synopsys.com>, linux-kernel@vger.kernel.org
-References: <20190311224752.8337-1-valentin.schneider@arm.com>
- <e604601e-f8e1-a8b5-d364-69ca967996ce@synopsys.com>
-From: Valentin Schneider <valentin.schneider@arm.com>
-Message-ID: <a5b1605b-b3b3-7898-30ae-d993050e8c7a@arm.com>
-Date: Tue, 12 Mar 2019 18:18:55 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.4.0
-MIME-Version: 1.0
-In-Reply-To: <e604601e-f8e1-a8b5-d364-69ca967996ce@synopsys.com>
+	id 1h40vI-0001h3-7l; Wed, 13 Mar 2019 10:15:44 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1h40q1-0000Jq-MN
+ for linux-riscv@bombadil.infradead.org; Wed, 13 Mar 2019 10:10:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Transfer-Encoding:
+ Content-Type:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=H8HFKkoIRvAyrM2FPAZlCvfO+U3ngTMt9osv6AUjgxw=; b=gmm6fJYjxFFFOg1Gin8hhOMohD
+ GTNCdzHcNwlj2QeRaqpaEZ6mFTVIuNiEvk9hRvWGd1wcgtQ+LBzEjQT3khjlGHT38hq/NDTVlWVt4
+ pS9nJbGRL0VVLHOAbh77qMb3JR+Z/tJu9xAENFEd9W3qqnXRg+SCqSSOvqFNavV8BLUMrm5QFUi6T
+ GcQiRNncEUvVMeo20/XH3mFiVAGAjUPajUp0sBMBXWbOwY1kbLSHGmno5tz/ydY0IKjTx9oKznox2
+ 67v1sLGIIO+S2Td4NYx1kD2Q2qJiBEMgTvqrya+HQBEsictYWycb5sW3RwW9eTjtaVFwNfOrXWWT6
+ GSm4LumQ==;
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1h3vfV-0007aj-TH
+ for linux-riscv@lists.infradead.org; Wed, 13 Mar 2019 04:39:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1552451983; x=1583987983;
+ h=from:to:cc:subject:date:message-id:
+ content-transfer-encoding:mime-version;
+ bh=MBZYZD4eSviWTKcV0TQz1/bJ8uzjPi2hCJhPFcjWdtI=;
+ b=S3YXIZfwkM/pZHG+CZX9Q77JouYD62w5wXK7m0eOg7XhhcjpjOF4Lab9
+ E/rQOzc5COg6bmmxEdX6zOblNecKz70qTfYZO6TRdVy1ZHICPCPyN/COG
+ XpyqDOO1A7arIMH0lFd5dUcp86UQ2GoBEpjMisSA1wjWnkTpb1rpYpeUF
+ eAQbH8qZAqfbyOfgpnFgwGOB+Bbc63/oNrpM6uOFwu1iob/MUg1QIfQNF
+ 8KvYD3Aw9esBEoveWxUcrXjE6h+bofap9yJvnuwaCMKGBDXh1xHwzPu7K
+ J1fcghSkk1XKnzfzIWcMH/KffTdBn2nkrBfz0nY3cIdH7Rn2OY9Nrd2yM A==;
+X-IronPort-AV: E=Sophos;i="5.58,471,1544457600"; d="scan'208";a="201863387"
+Received: from mail-by2nam01lp2051.outbound.protection.outlook.com (HELO
+ NAM01-BY2-obe.outbound.protection.outlook.com) ([104.47.34.51])
+ by ob1.hgst.iphmx.com with ESMTP; 13 Mar 2019 06:09:48 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=H8HFKkoIRvAyrM2FPAZlCvfO+U3ngTMt9osv6AUjgxw=;
+ b=dV+j3Y1nwsXZHUB/roFywfk9B3mFPEiCbnQMnMbFjC5i76feUT5M2Go6tNoH1gepLLzuAQBUSgO8vTbzTH77GZA8jTwanxtfButSY0d1VQgABCqT3RBOzEQaaBLX+N1MDyM9Se/v4UeayJKa9OkVhOq8M7wj+8RKZXZbFWCQ1UQ=
+Received: from DM6PR04MB6059.namprd04.prod.outlook.com (20.178.226.89) by
+ DM6PR04MB5643.namprd04.prod.outlook.com (20.179.48.210) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.1709.13; Tue, 12 Mar 2019 22:08:09 +0000
+Received: from DM6PR04MB6059.namprd04.prod.outlook.com
+ ([fe80::447:8360:6df9:c934]) by DM6PR04MB6059.namprd04.prod.outlook.com
+ ([fe80::447:8360:6df9:c934%3]) with mapi id 15.20.1686.021; Tue, 12 Mar 2019
+ 22:08:09 +0000
+From: Anup Patel <Anup.Patel@wdc.com>
+To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH 0/3] Boot RISC-V kernel from any 4KB aligned address
+Thread-Topic: [PATCH 0/3] Boot RISC-V kernel from any 4KB aligned address
+Thread-Index: AQHU2SATag7fx1KS0Uu+vlG/L6sUIQ==
+Date: Tue, 12 Mar 2019 22:08:09 +0000
+Message-ID: <20190312220752.128141-1-anup.patel@wdc.com>
+Accept-Language: en-US
 Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-clientproxiedby: BY5PR13CA0028.namprd13.prod.outlook.com
+ (2603:10b6:a03:180::41) To DM6PR04MB6059.namprd04.prod.outlook.com
+ (2603:10b6:5:129::25)
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=Anup.Patel@wdc.com; 
+x-ms-exchange-messagesentrepresentingtype: 1
+x-mailer: git-send-email 2.17.1
+x-originating-ip: [199.255.44.250]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: da6b8697-652a-4582-c34a-08d6a73735cf
+x-ms-office365-filtering-ht: Tenant
+x-microsoft-antispam: BCL:0; PCL:0;
+ RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600127)(711020)(4605104)(4618075)(2017052603328)(7153060)(7193020);
+ SRVR:DM6PR04MB5643; 
+x-ms-traffictypediagnostic: DM6PR04MB5643:
+wdcipoutbound: EOP-TRUE
+x-microsoft-antispam-prvs: <DM6PR04MB5643AD011050CF7DECB378678D490@DM6PR04MB5643.namprd04.prod.outlook.com>
+x-forefront-prvs: 09749A275C
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10019020)(39860400002)(366004)(136003)(396003)(346002)(376002)(199004)(189003)(102836004)(106356001)(386003)(6506007)(86362001)(66066001)(7736002)(97736004)(305945005)(81156014)(81166006)(105586002)(8676002)(52116002)(44832011)(2616005)(486006)(476003)(99286004)(68736007)(25786009)(6486002)(2171002)(71190400001)(8936002)(6512007)(36756003)(6436002)(4326008)(53936002)(50226002)(186003)(110136005)(478600001)(54906003)(256004)(316002)(14454004)(2906002)(72206003)(26005)(4744005)(3846002)(1076003)(6116002)(71200400001)(5660300002);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:DM6PR04MB5643;
+ H:DM6PR04MB6059.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; A:1; MX:1; 
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: MgmM9x1MOR9pPzjmeEccwXvK48LRtqazqBOfhALPBxviefrqA05Wvp/tzFjWTpltP+6ftHCwsZMsh17XRm/a7av7j32U1CPH5DteJ2e4aSY/tSo+IMQqqZa82Oaiu/Zl1Q46lu600fa/t5cCGJ1fmSV2krP6pczmWQLGyz3Xa5RzJKWbKs56jpeY9u8H2jXp/cq9yeC1pbuy4hnURV7Rhd+jEKOPHBomHqNIpNGkwxqlmlWouw+0yN6t7B0nPh3MQeja7oJLm/o2DdaQ/8+7dcYFQEX1mnOI9aEqLIH3ERPrREDBDLbYset8aeOkG56SVy4s8u9UDBwMHH5Wp3JmjQtT8hhihhZEei5oM+tcSVrJbxR0ixNGq8br8fYEq2hTIvNfDhVgcGvm7u9sEHRPi356L/73c+hCwFAyneWh4B0=
+MIME-Version: 1.0
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: da6b8697-652a-4582-c34a-08d6a73735cf
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Mar 2019 22:08:09.7949 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB5643
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190312_111901_624854_4C51F9E5 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20190313_043906_430596_CD20E16C 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -68,44 +144,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
- linux-ia64@vger.kernel.org, linux-c6x-dev@linux-c6x.org,
- Julien Thierry <julien.thierry@arm.com>, Peter Zijlstra <peterz@infradead.org>,
- linux-s390@vger.kernel.org, x86@kernel.org, linux-mips@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, Ingo Molnar <mingo@redhat.com>,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- nios2-dev@lists.rocketboards.org, Thomas Gleixner <tglx@linutronix.de>,
- linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org
+Cc: Anup Patel <anup@brainfault.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/03/2019 18:03, Vineet Gupta wrote:
-[...]
->> Regarding that loop, archs seem to fall in 3 categories:
->> A) Those that don't have the loop
-> 
-> Please clarify that this is the right thing to do (since core code already has the
-> loop) hence no fixing is required for this "category"
-> 
+From: Anup Patel <anup@brainfault.org>
 
-Right, those don't need any change. I had a brief look at them to double
-check they had the proper need_resched() gate before calling
-preempt_schedule_irq() (with no loop) and they all seem fine. Also...
+This patchset primarily extends initial page table setup using fixmap
+to boot Linux RISC-V kernel (64bit and 32bit) from any 4KB aligned address.
+We also add 32bit defconfig to allow people to try 32bit Linux RISC-V
+kernel as well.
 
->> B) Those that have a small need_resched() loop around the
->>    preempt_schedule_irq() callsite
->> C) Those that branch to some more generic code further up the entry code
->>    and eventually branch back to preempt_schedule_irq()
->>
->> arc, m68k, nios2 fall in A)
-> 
+The patchset is tested on SiFive Unleashed board and QEMU virt machine.
 
-I forgot to include parisc in here.
+It can also be found in riscv_setup_vm_v1 branch of
+https//github.com/avpatel/linux.git
 
-[...]
+Anup Patel (3):
+  RISC-V: Add separate defconfig for 32bit systems
+  RISC-V: Make setup_vm() independent of GCC code model
+  RISC-V: Allow booting kernel from any 4KB aligned address
+
+ arch/riscv/configs/rv32_defconfig   |  84 +++++++
+ arch/riscv/include/asm/fixmap.h     |   5 +
+ arch/riscv/include/asm/pgtable-64.h |   5 +
+ arch/riscv/include/asm/pgtable.h    |   6 +-
+ arch/riscv/kernel/head.S            |   2 +
+ arch/riscv/kernel/setup.c           |   4 +-
+ arch/riscv/mm/init.c                | 370 +++++++++++++++++++++++-----
+ 7 files changed, 419 insertions(+), 57 deletions(-)
+ create mode 100644 arch/riscv/configs/rv32_defconfig
+
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
