@@ -2,22 +2,21 @@ Return-Path: <SRS0=rqMp=RP=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7E9ECC10F00
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 18:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2DFF3C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 18:19:10 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5376E2087C
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 18:04:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F19F62087C
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 18:19:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WOG+JuKp";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=synopsys.com header.i=@synopsys.com header.b="KLqrmYrR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5376E2087C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=synopsys.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="riNa0+ti"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F19F62087C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -25,113 +24,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bDvaACfCWmsNuUmtjAUgFCNHVPVsN2YP70P2wzq/jCc=; b=WOG+JuKpgtCClS
-	GrnFAGPZeqoZxypW0CzXEXgdVx9LsBHnERuKprGIGWDdRbqV728LWFrMC3VgMs+FQWNbCzqvjdEPL
-	3Hj1uJq5n1BjXy04pWd9JdZ2mdbLe+fPTU8oc+9+29T+Wc4nECZcmdh7Wfv1ozMZkEYmeLHoz7W+f
-	Wd46+ACKcj2+G6r9Id+vrkiHLtWBVgCNiaDmS3uZ8mbBHNfiFt9mAH/ZDRVLvjFU8zr4jy+KX4ohU
-	a6cV+OvEsYvRR6n2DAnwXZt/JHAfzepWvXPQiwYmjzz7m+0wXgJffmo7YEfGfkcmNZVlZGbq+ga8P
-	NpaewWlMu8p9K24XnHyQ==;
+	List-Owner; bh=LJgWQ7D1zDYvZYdWFhvOOAC2PSIrr0t93xxRHd8QBI8=; b=riNa0+tiW0Ic/M
+	jviZ/ay0+QeJB4101bYXsRZ8SixOzID7DmLJ4isgt25oa+phiUVZ23pFnLKuj02UZTCSfPK8uzPPj
+	us439g1KZ41f71SNHHWRBSp8CuA/mPOQ8syCHC86O8vTdlLwhd0vbrZ7rQ0yYFX1ROHc0sPtThZ8p
+	LtjJhVDtR6k7d59/TvF9zoFP0sp8wxBLgfeGQywEz4QICWdi9PbVmpZOf6pOqr+Jcqq9/5FPtQM9R
+	uW982ZOc8qXrSXbmaUf7LyF0dE7UXV3pzDO5MxB9A17ifd5A9vYc/2W0y4bten8oS6ZGGFlvJ6/w2
+	iGEQj6+xcLCeyv4dYrQw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h3llC-0000i7-I5; Tue, 12 Mar 2019 18:04:18 +0000
-Received: from us01smtprelay-2.synopsys.com ([198.182.47.9]
- helo=smtprelay.synopsys.com)
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h3ll8-0000hS-OF; Tue, 12 Mar 2019 18:04:16 +0000
-Received: from mailhost.synopsys.com (dc8-mailhost1.synopsys.com
- [10.13.135.209])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by smtprelay.synopsys.com (Postfix) with ESMTPS id 9B63924E131D;
- Tue, 12 Mar 2019 11:04:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
- t=1552413852; bh=qX/H7rRtR1PnxksLEqcd0TpNr5z1AJVxJ64WQy3x4uo=;
- h=Subject:To:CC:References:From:Date:In-Reply-To:From;
- b=KLqrmYrRvmHo8rPOyr6wg8h96t7taxfStODWR+SrRt+STgktc/Tf3FXZBx6sxw/LH
- eQWLbSyoZ//bOXjI0zfkp9LCBtNIiNcrTHOWmxEJotNehOoV6cZGKyimFVl0QMeSLH
- g+RCoWn7pyNt5HCm30LudBs86Kl7HLlrRyLWqXFiZ+O0EfyPUcEsw4HbHuMrj67rBm
- /NsSVjHnNKZQMtnGMU5Jum7dBVmWoJ9ZI+7JZlmgQZvQRau+fZr3ZnvUn9/iL5+miX
- lmicsUUOkbnm6/cMatFZPGZTG0RtsftnVpZWGEB+9JD1r4a6Y2HhAtk017f1vqLcWM
- K48yFty4n3zIA==
-Received: from US01WXQAHTC1.internal.synopsys.com
- (us01wxqahtc1.internal.synopsys.com [10.12.238.230])
- (using TLSv1.2 with cipher AES128-SHA256 (128/128 bits))
- (No client certificate requested)
- by mailhost.synopsys.com (Postfix) with ESMTPS id 49124A006B;
- Tue, 12 Mar 2019 18:04:09 +0000 (UTC)
-Received: from IN01WEHTCA.internal.synopsys.com (10.144.199.104) by
- US01WXQAHTC1.internal.synopsys.com (10.12.238.230) with Microsoft SMTP Server
- (TLS) id 14.3.408.0; Tue, 12 Mar 2019 11:04:09 -0700
-Received: from IN01WEHTCB.internal.synopsys.com (10.144.199.105) by
- IN01WEHTCA.internal.synopsys.com (10.144.199.103) with Microsoft SMTP Server
- (TLS) id 14.3.408.0; Tue, 12 Mar 2019 23:34:13 +0530
-Received: from [10.10.161.89] (10.10.161.89) by
- IN01WEHTCB.internal.synopsys.com (10.144.199.243) with Microsoft SMTP Server
- (TLS) id 14.3.408.0; Tue, 12 Mar 2019 23:34:13 +0530
+	id 1h3lzX-00071o-89; Tue, 12 Mar 2019 18:19:07 +0000
+Received: from foss.arm.com ([217.140.101.70])
+ by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1h3lzR-0006yi-Eh; Tue, 12 Mar 2019 18:19:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 189C8A78;
+ Tue, 12 Mar 2019 11:19:00 -0700 (PDT)
+Received: from [10.1.194.37] (e113632-lin.cambridge.arm.com [10.1.194.37])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F195A3F59C;
+ Tue, 12 Mar 2019 11:18:56 -0700 (PDT)
 Subject: Re: [PATCH 00/14] entry: preempt_schedule_irq() callers scrub
-To: Valentin Schneider <valentin.schneider@arm.com>,
- <linux-kernel@vger.kernel.org>
-Newsgroups: gmane.linux.kernel, gmane.linux.ports.sparc,
- gmane.linux.ports.sh.devel, gmane.linux.ports.riscv,
- gmane.linux.ports.ppc64.devel, gmane.linux.ports.mips, gmane.linux.ports.ia64,
- gmane.linux.kernel.arc
+To: Vineet Gupta <vineet.gupta1@synopsys.com>, linux-kernel@vger.kernel.org
 References: <20190311224752.8337-1-valentin.schneider@arm.com>
-From: Vineet Gupta <vineet.gupta1@synopsys.com>
-Openpgp: preference=signencrypt
-Autocrypt: addr=vgupta@synopsys.com; keydata=
- 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
- hhqBJlyU6MVUa6vZNv8E
-Message-ID: <e604601e-f8e1-a8b5-d364-69ca967996ce@synopsys.com>
-Date: Tue, 12 Mar 2019 11:03:55 -0700
+ <e604601e-f8e1-a8b5-d364-69ca967996ce@synopsys.com>
+From: Valentin Schneider <valentin.schneider@arm.com>
+Message-ID: <a5b1605b-b3b3-7898-30ae-d993050e8c7a@arm.com>
+Date: Tue, 12 Mar 2019 18:18:55 +0000
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.5.1
+ Thunderbird/60.4.0
 MIME-Version: 1.0
-In-Reply-To: <20190311224752.8337-1-valentin.schneider@arm.com>
+In-Reply-To: <e604601e-f8e1-a8b5-d364-69ca967996ce@synopsys.com>
 Content-Language: en-US
-X-Originating-IP: [10.10.161.89]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190312_110414_801202_C716B10C 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20190312_111901_624854_4C51F9E5 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -157,44 +82,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/11/19 3:47 PM, Valentin Schneider wrote:
-> Hi,
+On 12/03/2019 18:03, Vineet Gupta wrote:
+[...]
+>> Regarding that loop, archs seem to fall in 3 categories:
+>> A) Those that don't have the loop
 > 
-> This is the continuation of [1] where I'm hunting down
-> preempt_schedule_irq() callers because of [2].
+> Please clarify that this is the right thing to do (since core code already has the
+> loop) hence no fixing is required for this "category"
 > 
-> I told myself the best way to get this moving forward wouldn't be to write
-> doc about it, but to go write some fixes and get some discussions going,
-> which is what this patch-set is about.
-> 
-> I've looked at users of preempt_schedule_irq(), and made sure they didn't
-> have one of those useless loops. The list of offenders is:
-> 
-> $ grep -r -I "preempt_schedule_irq" arch/ | cut -d/ -f2 | sort | uniq
-> 
-...
 
-> 
-> Regarding that loop, archs seem to fall in 3 categories:
-> A) Those that don't have the loop
+Right, those don't need any change. I had a brief look at them to double
+check they had the proper need_resched() gate before calling
+preempt_schedule_irq() (with no loop) and they all seem fine. Also...
 
-Please clarify that this is the right thing to do (since core code already has the
-loop) hence no fixing is required for this "category"
-
-> B) Those that have a small need_resched() loop around the
->    preempt_schedule_irq() callsite
-> C) Those that branch to some more generic code further up the entry code
->    and eventually branch back to preempt_schedule_irq()
+>> B) Those that have a small need_resched() loop around the
+>>    preempt_schedule_irq() callsite
+>> C) Those that branch to some more generic code further up the entry code
+>>    and eventually branch back to preempt_schedule_irq()
+>>
+>> arc, m68k, nios2 fall in A)
 > 
-> arc, m68k, nios2 fall in A)
 
-> sparc, ia64, s390 fall in C)
-> all the others fall in B)
-> 
-> I've written patches for B) and C) EXCEPT for ia64 and s390 because I
-> haven't been able to tell if it's actually fine to kill that "long jump"
-> (and maybe I'm wrong on sparc). Hopefully folks who understand what goes on
-> in there might be able to shed some light.
+I forgot to include parisc in here.
+
+[...]
 
 _______________________________________________
 linux-riscv mailing list
