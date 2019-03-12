@@ -2,71 +2,81 @@ Return-Path: <SRS0=rqMp=RP=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-0.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_INVALID,DKIM_SIGNED,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EDB07C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 13:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C2EB8C4360F
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 14:03:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B311D214D8
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 13:17:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 936B02087C
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 14:03:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ULSrqA7L"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B311D214D8
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MlzXFUZy";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="upitj2pd"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 936B02087C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rcFNvRqicYxUvi1VbDZG6C5ieXq85ldSz2wWkGRisgY=; b=ULSrqA7L8x/Sbr
-	cYgbUi4eqOwEk9STIi1Ee2FQOf2ARK65EV0MnfBNvo5p1RwPrQ9OopN3S8Pmevk0e7p5y1HkHmhUC
-	aHlCvUW06rfv6nAiLXIixO5bBk8qZ/hWigAnaXSEzT1+5L5kr1CvDGhKzIlYAn1yMqkj02ejFZGHs
-	JlcUCauwYQeH/yh1IL4Ku6rJLN/EBBidzBd6Yc+St63QQnrACbFG6Qs+hIW/TGGYlDFYXJ64eX1Bj
-	DQwDl9HfFqIp+2NqmdESUE1rp9lVU2Zf9a5iO2Il567Adg+goYnzrU6Q7iGTRTMapW6PYfnr5ykbx
-	QHo56bWHnKwaJkdoJFIA==;
+	List-Owner; bh=SInocwi9PBPY5slPf8omyxKCnmATP2RddzlZbxtRcg4=; b=MlzXFUZyCmVwNE
+	xnXQxPu5/UK0dRt0h/SWA+lD5afvqLZVN5rbpdELbgXFLcn6QPb+cuppNrn6YvSK4lnvRZOmlagLt
+	jRCLS2+RtFfLeMNRoAGOcPf3fBavZUOKGES/B38oAeRMAUeZ8ztTKJ4kwldj39fFYr18WIIFC+GZg
+	xLqL87g1BTkwPlszFjrTiRRDIbHVrQGalITgN0zEwpzcNRlKOYwjXKMQSTV9KoBrqyZ2pBUPiPObo
+	MhjbKUwF0JqVV7O18ttfjYR4ovGLKquqF85sHNAzSBHBLA/BihgqWlNMV5aCohG7PVvBwwg7iMy7a
+	WhjPXrN9tuPooYKRULsA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h3hHS-0006ht-TX; Tue, 12 Mar 2019 13:17:18 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1h3i00-0000Z6-VC; Tue, 12 Mar 2019 14:03:20 +0000
+Received: from mail-ua1-x92d.google.com ([2607:f8b0:4864:20::92d])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h3hHO-0006hY-TE
- for linux-riscv@lists.infradead.org; Tue, 12 Mar 2019 13:17:17 +0000
-Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1h3hHN-0004BE-Cq; Tue, 12 Mar 2019 14:17:13 +0100
-Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1h3hHM-0006Qn-El; Tue, 12 Mar 2019 14:17:12 +0100
-Date: Tue, 12 Mar 2019 14:17:12 +0100
-From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-To: Thierry Reding <thierry.reding@gmail.com>
-Subject: Re: [PATCH v9 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
-Message-ID: <20190312131712.rxiarnthcfrsgdqn@pengutronix.de>
-References: <1552378289-27245-1-git-send-email-yash.shah@sifive.com>
- <1552378289-27245-3-git-send-email-yash.shah@sifive.com>
- <20190312091739.fhv2hb2ll2eamdsn@pengutronix.de>
- <20190312121218.GM31026@ulmo>
+ id 1h3hzq-0000QG-Kb; Tue, 12 Mar 2019 14:03:13 +0000
+Received: by mail-ua1-x92d.google.com with SMTP id t7so814379uap.7;
+ Tue, 12 Mar 2019 07:03:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=KvaI0VCBVCzTg+3CN9M2PU/lJ1a9ZkyRLn/CJ2kOuIk=;
+ b=upitj2pdA9z4IducWBk84T+ll0TxWaillRih4wY/PCZEefKdSb5ILHNiIyZfLoVNv9
+ WE+AUu1HBag1IbBeavJSV0p1D0PdHdo7SDTio4UyxYAil/x1zmydzxQUqGAAv0njx8GK
+ 9HS0Nn8h+A9WGMfpqmeJQjFIRcEAfbv5cTHZlhhbTlp/H+n7bUzvEj3gS+P2q0PB56FX
+ orajZ5X3WfFXk4Iyxa4ZzJXOZxe8rpzFbrnGj8nEYpY6WBvzccFEYNE45yflVpcrt+SZ
+ FCV16YQNdqI7eSjGT/TkSxI1l5dN1MLLRG768t5Ex8jh3D8zd8+fut7oa2nh9lIwEPiM
+ Mk4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=KvaI0VCBVCzTg+3CN9M2PU/lJ1a9ZkyRLn/CJ2kOuIk=;
+ b=MdDWIkA+TFJA0Je85sjiKbbDaeOb8Z3wCx932ZYHVHYGVHbLVgd41RcYBkTykMmoed
+ yX9zwUQvwNMF8nv9B5DbohiiyTmS/gQuHL3+EKR4maTEAccrD7mqO0XpmT+BiHBUB8eJ
+ guOwRPMH2H+M+oUA7blVyoXxS0iBYgdiUNxl6e76lrXZkfDaQ7cY+ta3nVWn5WKpNIQa
+ LXDx/q9+m6pCoqKHnVfveJ7zVFT/aQyXUqfuFRnJVFUeTCbzINwbGJdpQIRTN0Xp5dez
+ MXVH6vR+WYPwPYY/PH6HjXGqi1E6KUs7jQ+fjf8gVXOAK4gWm/2nWo0qeSFoVAugniZ6
+ Xb5Q==
+X-Gm-Message-State: APjAAAUi7KK3iGApsZdLhe3xH5lu5CM1UrY19MzpEm0hN0XOX21fO7NM
+ MkHMf5gmgPb499PPx9xLlhYbbcdLj1vLTcx0y4Y=
+X-Google-Smtp-Source: APXvYqy6XhBwtFoMwZq0HDm9m4Uzw7JNBFdW4J1FiaBosJaBZmncW9aniaEAZwiIHokYb4uR5LhqZvLUw31QuYiTuns=
+X-Received: by 2002:ab0:7483:: with SMTP id n3mr19892981uap.131.1552399389065; 
+ Tue, 12 Mar 2019 07:03:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190312121218.GM31026@ulmo>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+References: <CAOuPNLgobR4ejPs_ZUuXpRwkURH0sfb1LD27TKhGg=wrwhUvZg@mail.gmail.com>
+ <2c5d240eabdb56913f4abcc9aacf2b6b@mailhost.ics.forth.gr>
+In-Reply-To: <2c5d240eabdb56913f4abcc9aacf2b6b@mailhost.ics.forth.gr>
+From: Pintu Agarwal <pintu.ping@gmail.com>
+Date: Tue, 12 Mar 2019 19:32:57 +0530
+Message-ID: <CAOuPNLg4dfoovZ_eqL5XvNW3Ak9dGeCVr=vbG6G5t4Rxo-nC9Q@mail.gmail.com>
+Subject: Re: ssh session with qemu-arm using busybox
+To: Nick Kossifidis <mick@ics.forth.gr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190312_061715_103493_EAA5E839 
-X-CRM114-Status: GOOD (  29.24  )
+X-CRM114-CacheID: sfid-20190312_070310_704427_129F0152 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -78,125 +88,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- palmer@sifive.com, linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
- Yash Shah <yash.shah@sifive.com>, robh+dt@kernel.org, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: qemu-devel@nongnu.org, linux-riscv@lists.infradead.org,
+ open list <linux-kernel@vger.kernel.org>, linux-arm-kernel@lists.infradead.org,
+ kernelnewbies@kernelnewbies.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 12, 2019 at 01:12:18PM +0100, Thierry Reding wrote:
-> On Tue, Mar 12, 2019 at 10:17:39AM +0100, Uwe Kleine-K=F6nig wrote:
-> > Hello,
-> > =
+>
+> -netdev user,id=unet,hostfwd=tcp::2222-:22 \
+> -net user \
+>
+> and you 'll get guest's port 22 to be forwarded to hosts port 2222, so
+> you can do
+>
+> ssh root@localhost:2222
+>
+> from the host.
+>
 
-> > there are just a few minor things left I commented below.
-> > =
+I tried many different options, but unfortunately none worked for me.
+1)
+qemu-system-arm -M vexpress-a9 -m 1024M -kernel
+../KERNEL/linux/arch/arm/boot/zImage -dtb
+../KERNEL/linux/arch/arm/boot/dts/vexpress-v2p-ca9.dtb -initrd
+rootfs.img.gz -append "console=ttyAMA0 root=/dev/ram rdinit=/sbin/init
+ip=dhcp" -nographic -smp 4 -netdev user,id=unet,hostfwd=tcp::2222-:22
+-net user
 
-> > On Tue, Mar 12, 2019 at 01:41:29PM +0530, Yash Shah wrote:
-> > > +#define div_u64_round(a, b) \
-> > > +	({typeof(b) __b =3D b; div_u64((a) + __b / 2, __b); })
-> > =
+With this the eth0 interface is removed, and I see this message
+(although login works):
+qemu-system-arm: warning: hub 0 with no nics
+qemu-system-arm: warning: netdev unet has no peer
+Booting Linux on physical CPU 0x0
+<skip>
+NET: Registered protocol family 17
+<skip>
+Run /sbin/init as init process
+ifconfig: SIOCSIFADDR: No such device
+route: SIOCADDRT: Network is unreachable
 
-> > Parenthesis around b please. I guess I didn't had them in my suggestion
-> > either, sorry for that.
-> =
+But, ssh is still not working.
+ssh root@localhost:2222
+ssh: Could not resolve hostname localhost:2222: Name or service not known
 
-> We don't really need the parentheses here, do we? The only operator that
-> has lower priority than the assignment is the comma operator, and that's
-> not going to work in the macro anyway, unless you put it inside a pair
-> of parentheses, in which case, well, you have the parentheses already.
 
-I thought that, too, but using parenthesis just always is a safe bet and
-prevents people stumbling over this and spending time to come to the
-conclusion that it is actually safe without them.
+2) if I give "-net nic" I get eth0 interface but still ssh does not work.
+qemu-system-arm: warning: netdev unet has no peer
+Booting Linux on physical CPU 0x0
 
-> > > +static int pwm_sifive_enable(struct pwm_chip *chip, bool enable)
-> > > +{
-> > > +	struct pwm_sifive_ddata *pwm =3D pwm_sifive_chip_to_ddata(chip);
-> > > +	int ret;
-> > > +
-> > > +	if (enable) {
-> > > +		ret =3D clk_enable(pwm->clk);
-> > > +		if (ret) {
-> > > +			dev_err(pwm->chip.dev, "Enable clk failed:%d\n", ret);
-> > > +			return ret;
-> > > +		}
-> > > +	}
-> > > +
-> > > +	if (!enable)
-> > > +		clk_disable(pwm->clk);
-> > > +
-> > > +	return 0;
-> > > +}
-> > =
+3) With this there is no error, but still ssh not working
+qemu-system-arm -M vexpress-a9 -m 1024M -kernel
+../KERNEL/linux/arch/arm/boot/zImage -dtb
+../KERNEL/linux/arch/arm/boot/dts/vexpress-v2p-ca9.dtb -initrd
+rootfs.img.gz -append "console=ttyAMA0 root=/dev/ram
+rdinit=/sbin/init" -nographic -netdev
+user,id=net0,hostfwd=tcp::2222-:22 -device
+virtio-net-device,netdev=net0 -net user -net nic
 
-> > There is only a single caller for this function. I wonder if it is
-> > trivial enough to fold it into pwm_sifive_apply.
-> =
+ssh root@localhost:2222
+ssh: Could not resolve hostname localhost:2222: Name or service not known
 
-> I think this is fine. pwm_sifive_apply() is already fairly long at this
-> point, so might as well split things up a little.
+4) I also followed the steps mentioned in the below document, but its
+same result:
+https://wiki.qemu.org/Documentation/Networking
 
-I don't have a strong opinion here, so keeping as is is fine for me.
+-------------
+So, I have some doubts:
+- Do, I need anything to be configured on host PC as well ?
+  I am using Ubuntu 16.04 desktop, and it is connected to only one
+office LAN network
+- Do I need any network configuration changes on host ?
+- Do I need to enable any thing in kernel side ?
+- I am using minimal busybox and I see there is no "ssh" command
+there. Do I need a different busybox or a dropbear ?
+- Will it work easily with buildroot ?
+- Is there any precompiled arm32-rootfs image present somewhere, which
+which ssh can work by default ?
+  Because, I really don't care much about user side, so any arm-rootfs
+should be fine for me
+- I haven't really explored "bridge/tap" network yet. Is that worth to
+try in these conditions.
 
-> > There are a few other things that could be improved, but I think they
-> > could be addressed later. For some of these I don't even know what to
-> > suggest, for some Thierry might not agree it is worth fixing:
-> > =
 
-> >  - rounding
-> >    how to round? When should a request declined, when is rounding ok?
-> >    There is still "if (state->period !=3D pwm->approx_period) return -E=
-BUSY"
-> >    in this driver. This is better than before, but if state-period =3D=
-=3D
-> >    pwm->approx_period + 1 the result (if accepted) might be the same as
-> >    without the +1 and so returning -EBUSY for one case and accepting the
-> >    other is strange.
-> =
-
-> Perhaps a good idea would be to reject a configuration only after we've
-> determined that it is incompatible? If we're really going to end up with
-> the same configuration within a given margin of period or duty cycle and
-> we can't do much about it, there's little point in rejecting such
-> configurations.
-
-It seems we agree here. Is this important enough to delay taking this
-driver further? Currently the driver rejects too broad so if it annoys
-someone this can still be fixed later and there is only little harm
-(assuming correct error handling in the consumers).
-
-> >  - don't call PWM API functions designed for consumers (here: pwm_get_s=
-tate)
-> =
-
-> Agreed. The driver can just access pwm_device.state directly.
-
-I wouldn't do this either. IMHO the driver should only look into its
-hardware registers instead of using framework interna (or consumer API
-calls).
-
-> >  - Move div_u64_round to include/linux/math64.h
-> =
-
-> Looks to me like DIV_ROUND_CLOSEST_ULL() is already pretty much this.
-> The only difference that I can see is that the divisor is 32-bit, but
-> since we pass in state->period, that already works fine.
-
-num (i.e. the divident) should be a u64, but it isn't. This needs
-fixing. But I agree that DIV_ROUND_CLOSEST_ULL should be good enough
-then.
-
-Best regards
-Uwe
-
--- =
-
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | http://www.pengutronix.de/  |
+Regards,
+Pintu
 
 _______________________________________________
 linux-riscv mailing list
