@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4685AC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 09:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E47F2C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 09:21:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1946A214AF
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 09:17:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B4A3B214AF
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Mar 2019 09:21:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VfCXS5vv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1946A214AF
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LMfeyCa5";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="RGmsMOGp"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B4A3B214AF
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BG635XwIjGqYvl57Hu6nVXvgtpuwTggG3D2hS3356fU=; b=VfCXS5vvCvSKhk
-	U3HiOnE9KioCRMBbbNxhB2QITL9Es1y7ADeUE/4nigLw73NJyqtvqUS2JY2ppTxgwh/czmgXFVImp
-	Gyc+p/YHBQo9IT/6m3lR9hgJ7qoWS9CSfoYjB6iGHR4RAQy0VE6bSxt6uOUG7Go+3VgQLETviH1Gb
-	O3lPHlsoFKnJXIXGugXZxh/kBBbYf4PyzHCu1+KW9d3e96jCz1i9cofqsR8OcibPQzSkIbDqv8SaG
-	g20gNMeYcGBay64npMyoeTxlnpRQyjtNt4oQ56N0SG0kfUPg9iG9CLpbMuH5frcn6qhm3Ue+CrDf1
-	gYw3t1ZqViW8fIcsNL4w==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=gZejgpCb9yUJfkKmKih6x/jux7lv+j8BgTAoHGdGh0U=; b=LMf
+	eyCa5YSo4t+iM+5VJEy6Szr8rShmzBkPUFUMvkIaj2x+OpKmVtAcwUfkfOY74iqwzPF8RSNqO7q7T
+	P0563aPHi0dZ/AkA3yGR/FhRGjk/KIJIEA20ZYiaDjRCyELBBbNCychElvv9mbzlhS68NMZSJWpco
+	CTPswxkSc9DMW9Frz9MC1XUoh9rGrGU8IXMi4CsMOgVqOMchAbzpDwxP91n/JxvynfM45TPgeZg5+
+	oawSzdUwwBTlFzYE7DodimkhxzmvzTBBAtapfflzelVSSixBuuV92bk1zGpSzWU+O4rPP3gEWYjvl
+	zKHi88mZ4cf7UZW5ci6uufxnSEAXJkQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h3dXd-00067z-LC; Tue, 12 Mar 2019 09:17:45 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1h3db8-0008VD-6G; Tue, 12 Mar 2019 09:21:22 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h3dXa-00067W-VI
- for linux-riscv@lists.infradead.org; Tue, 12 Mar 2019 09:17:44 +0000
-Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1h3dXZ-0002dH-9m; Tue, 12 Mar 2019 10:17:41 +0100
-Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1h3dXX-000766-ON; Tue, 12 Mar 2019 10:17:39 +0100
-Date: Tue, 12 Mar 2019 10:17:39 +0100
-From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH v9 2/2] pwm: sifive: Add a driver for SiFive SoC PWM
-Message-ID: <20190312091739.fhv2hb2ll2eamdsn@pengutronix.de>
-References: <1552378289-27245-1-git-send-email-yash.shah@sifive.com>
- <1552378289-27245-3-git-send-email-yash.shah@sifive.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1552378289-27245-3-git-send-email-yash.shah@sifive.com>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+ id 1h3db5-0008Uk-R9
+ for linux-riscv@lists.infradead.org; Tue, 12 Mar 2019 09:21:21 +0000
+Received: by mail-pf1-x441.google.com with SMTP id s22so1379931pfh.4
+ for <linux-riscv@lists.infradead.org>; Tue, 12 Mar 2019 02:21:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id;
+ bh=VaBKOjGbr/7EzlR3EouVAvjCAnoJlqVZbWJCrJEq/Eo=;
+ b=RGmsMOGpXtu3KKjBuVygx/qN6Mtnq9zCgob5otktVlullDhIV2+7zAEIl9Q5uGKuJE
+ oTdJYicKuuERk1xlfkXReL8z4+8jTw+Hva/8KIYAZSimIKpwWHBAmBKoGzDKjxc7uCix
+ hdXvf5JV7r6C+Eo8WiqTnyosd5pqRnfFTZh5IuW6cFXl+jeUrUq0hI1maI6FprdR5bqM
+ FGWuo11QvY9jRrIAZ4zAeAoSSGuw9Y/ynrMnRbxe6jy7jk8CuwlJIO6KT49VYI31MBWx
+ e0/XcWpWKO1T0Oe1TogoBiK385Jwno0VE1j98PYZlGP6C0TDHgNHuVkoxrbO3TDQ/hyf
+ Mdaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=VaBKOjGbr/7EzlR3EouVAvjCAnoJlqVZbWJCrJEq/Eo=;
+ b=aHvG4w19FMW7ZvXvHL51Oc60jCkDhV8mzVAqUONJg5AJHf9AtDJ88GEdug+IAcXQJC
+ bPOuxseTHIomaWKMEeURdlxq2T9NzhNigKdveEtquEydLld9SzfzAghPsBdFKE1rFySc
+ 3rhSVazt3q5c+nL8UhrKtqkzw78mZaISLRYlsNIvhcvEwdOxnOKU0nIt7hZ1lUIG4j3c
+ gpWntF+En2mnPYt3lE44NPWpT8iMBDTxZYXj7kUzOIiy50jE7a0xbjRaeatXiQrHQIzy
+ jEz6OyWHPbWGGPf3B60krsU+XXNwz5fPOGP4oSFrWOczbKbjA6jiNyjd1bqcAr8FbeMX
+ hNAw==
+X-Gm-Message-State: APjAAAVHCDThJyEOlnzrACkaWELMD1nZ0ZW0WfNZUv2VH7S7HVzYd2gv
+ C6lULkce0XIcNAxtWUiTcTbE9F0uz00=
+X-Google-Smtp-Source: APXvYqyxFZxnbwXujiMx5dkiJk+ConaqG0mWp78cSpLgPSnzDZwLq3jNbjTAjP3Rt6XZbqE1rhTadA==
+X-Received: by 2002:a63:cd03:: with SMTP id i3mr25521894pgg.172.1552382478779; 
+ Tue, 12 Mar 2019 02:21:18 -0700 (PDT)
+Received: from buildserver-90.open-silicon.com ([114.143.65.226])
+ by smtp.googlemail.com with ESMTPSA id d86sm17569638pfm.18.2019.03.12.02.21.14
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+ Tue, 12 Mar 2019 02:21:18 -0700 (PDT)
+From: Yash Shah <yash.shah@sifive.com>
+To: linux-riscv@lists.infradead.org, linux-edac@vger.kernel.org,
+ palmer@sifive.com, paul.walmsley@sifive.com
+Subject: [PATCH 0/2] L2 Cache EDAC Support for HiFive Unleashed
+Date: Tue, 12 Mar 2019 14:50:59 +0530
+Message-Id: <1552382461-13051-1-git-send-email-yash.shah@sifive.com>
+X-Mailer: git-send-email 1.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190312_021743_163201_ACC36F15 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20190312_022119_935818_7F2A6E7D 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -76,131 +90,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- palmer@sifive.com, linux-kernel@vger.kernel.org, robh+dt@kernel.org,
- sachin.ghadi@sifive.com, thierry.reding@gmail.com, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
+ linux-kernel@vger.kernel.org, Yash Shah <yash.shah@sifive.com>,
+ robh+dt@kernel.org, bp@alien8.de, mchehab@kernel.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+This patch series adds a L2 Cache EDAC driver and DT documentation
+for HiFive Unleashed board.
 
-there are just a few minor things left I commented below.
+Yash Shah (2):
+  edac: sifive: Add DT documentation for SiFive L2 cache Controller
+  sifive: edac: Add EDAC driver for Sifive l2 Cache Controller
 
-On Tue, Mar 12, 2019 at 01:41:29PM +0530, Yash Shah wrote:
-> +#define div_u64_round(a, b) \
-> +	({typeof(b) __b =3D b; div_u64((a) + __b / 2, __b); })
+ .../devicetree/bindings/edac/sifive-edac-l2.txt    |  31 +++
+ arch/riscv/Kconfig                                 |   1 +
+ drivers/edac/Kconfig                               |   7 +
+ drivers/edac/Makefile                              |   1 +
+ drivers/edac/sifive_edac-l2.c                      | 292 +++++++++++++++++++++
+ 5 files changed, 332 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/edac/sifive-edac-l2.txt
+ create mode 100644 drivers/edac/sifive_edac-l2.c
 
-Parenthesis around b please. I guess I didn't had them in my suggestion
-either, sorry for that.
+-- 
+1.9.1
 
-> +static int pwm_sifive_enable(struct pwm_chip *chip, bool enable)
-> +{
-> +	struct pwm_sifive_ddata *pwm =3D pwm_sifive_chip_to_ddata(chip);
-> +	int ret;
-> +
-> +	if (enable) {
-> +		ret =3D clk_enable(pwm->clk);
-> +		if (ret) {
-> +			dev_err(pwm->chip.dev, "Enable clk failed:%d\n", ret);
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	if (!enable)
-> +		clk_disable(pwm->clk);
-> +
-> +	return 0;
-> +}
-
-There is only a single caller for this function. I wonder if it is
-trivial enough to fold it into pwm_sifive_apply.
-
-> +static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *de=
-v,
-> +			    struct pwm_state *state)
-> +{
-> +	struct pwm_sifive_ddata *pwm =3D pwm_sifive_chip_to_ddata(chip);
-> +	unsigned int duty_cycle;
-> +	u32 frac;
-> +	struct pwm_state cur_state;
-> +	bool enabled;
-> +	int ret =3D 0;
-> +	unsigned long num;
-> +
-> +	if (state->polarity !=3D PWM_POLARITY_INVERSED)
-> +		return -EINVAL;
-> +
-> +	ret =3D clk_enable(pwm->clk);
-> +	if (ret) {
-> +		dev_err(pwm->chip.dev, "Enable clk failed:%d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	mutex_lock(&pwm->lock);
-> +	pwm_get_state(dev, &cur_state);
-> +
-> +	enabled =3D cur_state.enabled;
-> +
-> +	if (state->period !=3D pwm->approx_period) {
-> +		if (pwm->user_count !=3D 1) {
-> +			ret =3D -EBUSY;
-> +			goto exit;
-> +		}
-> +		pwm->approx_period =3D state->period;
-> +		pwm_sifive_update_clock(pwm, clk_get_rate(pwm->clk));
-> +	}
-> +
-> +	duty_cycle =3D state->duty_cycle;
-> +	if (!state->enabled)
-> +		duty_cycle =3D 0;
-> +
-> +	num =3D (u64)duty_cycle * (1U << PWM_SIFIVE_CMPWIDTH);
-> +	frac =3D div_u64_round(num, state->period);
-> +	/* The hardware cannot generate a 100% duty cycle */
-> +	frac =3D min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
-> +
-> +	writel(frac, pwm->regs + PWM_SIFIVE_PWMCMP0 +
-> +	       dev->hwpwm * PWM_SIFIVE_SIZE_PWMCMP);
-> +
-> +	if (state->enabled !=3D enabled) {
-> +		ret =3D pwm_sifive_enable(chip, state->enabled);
-> +		if (ret)
-> +			goto exit;
-
-This goto is a noop.
-
-> +	}
-> +
-> +exit:
-> +	clk_disable(pwm->clk);
-> +	mutex_unlock(&pwm->lock);
-> +	return ret;
-> +}
-
-There are a few other things that could be improved, but I think they
-could be addressed later. For some of these I don't even know what to
-suggest, for some Thierry might not agree it is worth fixing:
-
- - rounding
-   how to round? When should a request declined, when is rounding ok?
-   There is still "if (state->period !=3D pwm->approx_period) return -EBUSY"
-   in this driver. This is better than before, but if state-period =3D=3D
-   pwm->approx_period + 1 the result (if accepted) might be the same as
-   without the +1 and so returning -EBUSY for one case and accepting the
-   other is strange.
- - don't call PWM API functions designed for consumers (here: pwm_get_state)
- - Move div_u64_round to include/linux/math64.h
-
-Best regards
-Uwe
-
--- =
-
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | http://www.pengutronix.de/  |
 
 _______________________________________________
 linux-riscv mailing list
