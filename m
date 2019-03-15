@@ -3,20 +3,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7FF1EC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2019 16:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7CB56C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2019 16:23:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4FC4021871
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2019 16:17:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4B294218D0
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Mar 2019 16:23:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="d3ES8clE";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="rFiLa2+4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4FC4021871
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fjE9+kzV";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="bnbn36AX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4B294218D0
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,47 +25,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I2/4D1mlaYUOStnNieocHSzrWFzIPIfd2iDNW4Ta4nw=; b=d3ES8clEJwn8kl
-	1nFd2FEJk3wWADaE1vIOFuqVkzbc0NJ/mVmKyL1NLtAhg0jvF/nQwhhe1OOf9TvCeTEo4qLU6BrJm
-	wLllEYhzX9GPV8yrUzlb+rlUd2IkoeoVJiPH5PqzTRBbMS0RQbCoC2kUaeqfNOnHx7Ip/N/ID+b0A
-	uAzmewgjzDFWHGZkycIRwdHDR+kPjNUnFN6dZGPuYducR06DNNAR0zNy94HE9C7xdchJp5T3nKNIc
-	Rs9zw05IkOt+Zxi5XpI7g5gGGW2tsneHGuUWRTR3X24hv4mBRNfV7rcDrOa6QHLlU50G01S+aDMrv
-	D0cCrNlyKA/hj4S1WPlA==;
+	List-Owner; bh=6xXPC1lktLRYTtcOJwK8UTUwy6Y98UUTr5UQgxluvVo=; b=fjE9+kzViOevDk
+	G2tp988k7oFaApwqqQojSCwhKBDDunP5/25Yb+vHDRlANFMEiUJ+jvKZV/oN9do1YEPqsnyG3/NXv
+	cr4Ptf17PLIPbQ8P9yBt72KA9q9on+oZqfIIC1fPBLNvrltHB9xa1KmWfb7OG9tH3O7nQro/c8jvR
+	/k3RUH5rw9oCBZ56MMS6m+Clinrd8ghekqM0x4muBjZgA1FAgQ+5SZItftD3RXosuCN72AtFq4UaF
+	EqoEZL9Jok0atCWA+gBO25B4JCr45I6UaUyGESqVKV21177Jpw/cYVUVeadW6rRWiJaCPGqsYZ8Vw
+	AkzDhWNd+wrlAPmF6gOg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h4pWZ-0004E3-Pl; Fri, 15 Mar 2019 16:17:35 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1h4pbp-0006Cr-Qj; Fri, 15 Mar 2019 16:23:01 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h4pWX-0004BQ-1K
- for linux-riscv@lists.infradead.org; Fri, 15 Mar 2019 16:17:34 +0000
-Received: by mail-wm1-x341.google.com with SMTP id o10so9549666wmc.1
- for <linux-riscv@lists.infradead.org>; Fri, 15 Mar 2019 09:17:30 -0700 (PDT)
+ id 1h4pbm-0006CJ-Ox
+ for linux-riscv@lists.infradead.org; Fri, 15 Mar 2019 16:23:00 +0000
+Received: by mail-wr1-x443.google.com with SMTP id n9so6105737wrr.9
+ for <linux-riscv@lists.infradead.org>; Fri, 15 Mar 2019 09:22:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=FR3ymEwaOQWaM0T4tUv4W9g3CTkqvHROaGu4usCQP6g=;
- b=rFiLa2+43GYFDwqkjOi49TmLE0vcaImDfv4W1nfg/0rORnbvinsgsV43JHcCZej5vz
- 3DWkg/gENTf/9YyRv2jFpfStVrYQ7XPs913neaaY/IifIcAZ8rtzB+6FgoD5yk0KJmnr
- NYQLmBm+eGhMBFS9pEPbRlFYq4YdACwQZYIoDG0pWiUmVjedxzTadLrxjZ/R5mAAPLlV
- Z9Wstk35w9giFSEgGd+RG1jGzBrqTdmLUiu40nEjgCzOHxPbYELQd9cpVXaatYwODB4k
- IXR7MR9IDSAlcB8lAhbQdFBDSchZQy/8vLS+2tSud963CWAN9tOnWTD29F5s4TcV7fKF
- +gJA==
+ :cc; bh=LDjj5RWEKhIkugf4FVrVXHHC2KLZaBYh2/nVjE3hmOA=;
+ b=bnbn36AXBuz9JDIT8TjOMOHdMBqNCzKgrpwFDUmyHxP6Gv6suYegnXvzs++Y1t1VG0
+ P9dBAVbYhP3lqJf6NW3ZmUM9G22TVCUJiSfgdQothHKez3kVUGxQg1bXWbkZaaCksx4S
+ MwJqVCBNARQCEZKlNbPHNFj0oVBZknemI5bxCSLlhf5oVVfsev74ol33G7avvGF9BJ11
+ JI/4thLhx+5lzSgxC6HGatqUoXbn1sIjrmbjZEHTpKBjutdDJWYqoOa/MBJQhTVINsys
+ tXMFLmofNYE1eG4qXeDKplOii5QBNcGUvFZAVWahxNbIgESDXC/PIIV47aDHOYct+3NY
+ wF6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=FR3ymEwaOQWaM0T4tUv4W9g3CTkqvHROaGu4usCQP6g=;
- b=QWm7IORYQDzvG1nVoo7Cho7FOn92BRQ8kH539YtPIkvEpeP3oG8N6tebKudKA9UP8p
- kCJ5vC1sUuU0/fEK7UakYjIEYT+/W9cmB4GNErNwQ9Mj/MkxtN5rQhJtodDOwGNWuYy9
- vL1rH3rRlqZnSNXr0CXZAtKPac/pLL2U28ksfJnl1F6N08Mx88ojL+DNFdCUKYO2IPBx
- QB+wFg/f0Qam2fkL0SUT3i8uvSpxA6ytKuQTTs9GNBcwt4zFRJSFukPjCSy2hinXeLVA
- KIvsS7NrAwXsZf0V8b3k6ZgG0qS9aM9fBrf1BRpKnDwkPRBlrcaL3IKH/Tpoutdz3ofM
- 4uMA==
-X-Gm-Message-State: APjAAAVl4dAK4OlVPNs2T7FEgo0BjA5g/kIXufKWJMuUUrt82gU6scHv
- jZK+P/Oo23RGiwCjCL/C5lYHJjXXBwY4SCdnsdKGOQ==
-X-Google-Smtp-Source: APXvYqx6P1sabSzGYXkgCA4Qry+VLCvHYyFpvcrZ4pzYtQjdokVzfX5H2H1uNHcvs0FUNp+GqzZNpQsffBiI+OYm310=
-X-Received: by 2002:a7b:c0d5:: with SMTP id s21mr2905659wmh.153.1552666648608; 
- Fri, 15 Mar 2019 09:17:28 -0700 (PDT)
+ bh=LDjj5RWEKhIkugf4FVrVXHHC2KLZaBYh2/nVjE3hmOA=;
+ b=AYL5GZYc98Ucg38gkJrKg+aSWDJN0Om6tLsaLt2ZtF5J2gXJEgQYtxod93uiOWTlTs
+ 7Jo8sSvy2rgiX1avpMFlVWm4Uz4BxISlrcPYv8oR7M3BVLRUwGg9yu7eBGCQi9v1C5Ey
+ 2Z7P48088lf1LEJWFuWUMP6qY4UObY4lj/bxfavZ1XCoLQxWEl7tgvLDmMYtRjV6jIdf
+ MjTn4YM6B4CD8xlk2qJRedVXbSL/TnMizDP9kRtP61eVIE9m2JXAk+RPrk+LuDkrRe/n
+ ESmgLsOrm5SQhIaz1gKXs95PnYCSKklvrBO4S4T0O//J21CFrGL0OHGq0TVrJ9FqQKZG
+ vISw==
+X-Gm-Message-State: APjAAAUgeXiE7F4YOgOLzCFGNwNxrXH5/0uFxEpKHAdIhVxbbomUZTWR
+ IINuTFtrZPPQeSy19ORx2EnsERGWsDuVYcsgsCU0aQ==
+X-Google-Smtp-Source: APXvYqwwRzzHlwXoXyO1XVE9JkXn15aINryN6nMYYdnW9yXHhJji31drOeoDsQL4+RjJ6r35TYGK6udaUEq6gErTtvs=
+X-Received: by 2002:adf:9427:: with SMTP id 36mr2141532wrq.128.1552666976612; 
+ Fri, 15 Mar 2019 09:22:56 -0700 (PDT)
 MIME-Version: 1.0
 References: <20190312220752.128141-1-anup.patel@wdc.com>
  <20190312220752.128141-4-anup.patel@wdc.com>
@@ -76,14 +76,14 @@ References: <20190312220752.128141-1-anup.patel@wdc.com>
  <20190315155828.GB920@rapoport-lnx>
 In-Reply-To: <20190315155828.GB920@rapoport-lnx>
 From: Anup Patel <anup@brainfault.org>
-Date: Fri, 15 Mar 2019 21:47:17 +0530
-Message-ID: <CAAhSdy33bDaEB9u+rqkD3a=-OZaN+7x1NHNf3Tws=7fAw0-vLw@mail.gmail.com>
+Date: Fri, 15 Mar 2019 21:52:45 +0530
+Message-ID: <CAAhSdy0HoTTccyy203Y9m3kdAjCOzjjMdrb670huU71pjOMw4A@mail.gmail.com>
 Subject: Re: [PATCH 3/3] RISC-V: Allow booting kernel from any 4KB aligned
  address
 To: Mike Rapoport <rppt@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190315_091733_131490_1D9628B0 
-X-CRM114-Status: GOOD (  26.85  )
+X-CRM114-CacheID: sfid-20190315_092258_817403_967D087B 
+X-CRM114-Status: GOOD (  27.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -201,14 +201,12 @@ On Fri, Mar 15, 2019 at 9:28 PM Mike Rapoport <rppt@linux.ibm.com> wrote:
 > load address. Provided you can use the memory below the kernel, it really
 > should not matter.
 
-The original idea was just to relax the alignment constraint on the kernel
-load address.
+Irrespective to constraint on kernel load address, we certainly need
+to allow memory below kernel to be usable but that's a separate change.
 
-What I am suggesting now is to improve this patch so that we can
-dynamically select mapping size based on kernel load address. This
-will achieve both:
-1. Relaxed constraint on kernel load address
-2. Better TLB performance whenever possible
+Currently, the memory below kernel is ignored by
+early_init_dt_add_memory_arch() in
+drivers/of/fdt.c
 
 Regards,
 Anup
