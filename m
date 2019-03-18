@@ -2,85 +2,81 @@ Return-Path: <SRS0=/XvO=RV=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 67B7FC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2019 16:13:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C26D7C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2019 16:27:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 37DF02087E
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2019 16:13:08 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 949B22133D
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Mar 2019 16:27:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sMItAKxd";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="nw5HVSyW"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 37DF02087E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rOyawwmN"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 949B22133D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:In-Reply-To:MIME-Version:
+	References:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZYVLNup9i4/2ev62S9BH/b9vR2SKkosFMLPYtAQMGsM=; b=sMItAKxdvUfhDP
-	0Jho1PSx8yewuWK1fZRDX+uWX2VZoNtosm2JBLlzFMyvtzUvvyHoi5OZ/30jhxQvYxQ6buscDjzvd
-	+RK91V1E4vI2Tpb4XOWPcaEOw91nvHmyIqECQvvAnXfz8xm9UeK0cHQemCyoP9yLVyagSyt4zPcrN
-	KSyfZpFIN15dQYZsWI+jkAQEFLQHcaWxy7ErV1jERAzEgMU8b2vu4YKg3GLMFq+Nu+GxUJlXWbvxL
-	skTEdkNzmlNC/IS+yHJeEUbFkPVEqprqsl2EwgxLwZu5eIlDwYZiMwuFsHGE3M9pKrKhXIs/Bx9AZ
-	hwS0SY8wPfMQFoXLOREA==;
+	List-Owner; bh=FHbVcsOLP4p+sVwzO8JB/vqUOiOLiO/Py9QJBhhTECk=; b=rOyawwmNIf1A/d
+	JCyVpsgZ5YRkLoUP/UWyg5XYaMnlGIRiP9+yBtuIg11ilazRZo5Y4iYnQUsD3eMDgaq/kNqeXYqTm
+	ObqF6R20TQYqSn6KSzWc3AGaco2aIYrZcyw0mnKJAAzco4irBPU+VdMAORO0D+nCjtRgkJH4G1Cf8
+	7pRvnqNRzJi3jBxt7Zqa+glRGofdeIHBT58DxgTwZ7wjopxrCqc863lFUnkCtzpH5o9f8Kqj7TVgZ
+	PNHsFUrIEd4Gnfjc6Hw3RmDgIzSiRdSTLPVGFjI+HEYq/1MM9R7PI99e5KJ8F6B3r02l/djgx+GNH
+	qLOy5xKKhna/rPDrF2kA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h5usq-0005sg-Vh; Mon, 18 Mar 2019 16:13:04 +0000
-Received: from mail-it1-x141.google.com ([2607:f8b0:4864:20::141])
+	id 1h5v75-0005Ql-Dy; Mon, 18 Mar 2019 16:27:47 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h5usk-0005rn-DS
- for linux-riscv@lists.infradead.org; Mon, 18 Mar 2019 16:13:03 +0000
-Received: by mail-it1-x141.google.com with SMTP id m137so5748545ita.0
- for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2019 09:12:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:cc:subject:in-reply-to:message-id:references
- :user-agent:mime-version;
- bh=IraHUDTEtuXM/Ec1wSzEQgIe4yar1F8UWczeCKwsQg4=;
- b=nw5HVSyWNFxDeDlw6HKZJe0Npjv72G/WEgGt4HElzn8bUnoYiTtHLwzuArWkMoGNht
- jeAnwGk8UmUyxwO3kLlz15QsEAHVyG/VUvU2LWZNvLj3GZUUAF4GEfnlc4s53vVGnzdu
- i8oqwb6C8Xw8VYMfuJ15vjeqoSX8fuvueIb/YvBmBefM7Yc6jiGlpLwnjh2wPWB9sTy9
- Vv95Vig58teA3BwjOFtP7m7oB3jObTW+lggIakvo1qIzL9cvbQtT7SuyW8/Y0NHsipur
- fCepMQjNkDEM86BpnL7wkyjrYHtEfSasDPCL8QZhxyv8ERk1HzEB+ayG9J9MJA72HzZE
- yDsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
- :references:user-agent:mime-version;
- bh=IraHUDTEtuXM/Ec1wSzEQgIe4yar1F8UWczeCKwsQg4=;
- b=LpuPT+MTLH1aNEBCgp4fmIUDe+ujhsKlyc8e9MVxIvH4+3uWQMSbD9HJdn5sbX7RF4
- a0+3vGvh8LOaNOVsNFfY0NUi8ub8X+iGm+u9V3J51FruS242CmMKA5u9B/38qUJ8MS8f
- zqfxUFqUVEFNkUzqycQkaDTdtDzGcJAbDdF5AbyOiMXNgX/h8FNIHxbfysvTxWyZ9RuY
- 2h4oaAyc9aqJn4D8PNfAdeDK8kgoPwFAFSqN1F51oSpnAgIW/6JmfGy5YkspgRRrM+si
- JMfwhZveO+sT92JNjDeO2q5mlwsubL6E1XTxvXfb/a38xftw5d2wBycOGjNmI0wMgEWH
- Jt1w==
-X-Gm-Message-State: APjAAAXJ6Y4IuEc+j2TwLq7Fkm2ezSk+J5EJ7kkNt8+9ww2/sCGz0Lm5
- +K3VK/q2u4nabinpC0PEXeU/KA==
-X-Google-Smtp-Source: APXvYqz3CBWVgcMAaq2JevnJzs33yhBPnw5bqm8+2q0HxzbNa+r16m3Z5NvkY60J1SsIEqLThJtmAQ==
-X-Received: by 2002:a02:8c3:: with SMTP id 186mr11964145jac.69.1552925576491; 
- Mon, 18 Mar 2019 09:12:56 -0700 (PDT)
-Received: from localhost (c-73-95-159-87.hsd1.co.comcast.net. [73.95.159.87])
- by smtp.gmail.com with ESMTPSA id
- a77sm311450itc.5.2019.03.18.09.12.55
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Mon, 18 Mar 2019 09:12:55 -0700 (PDT)
-Date: Mon, 18 Mar 2019 09:12:55 -0700 (PDT)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-X-X-Sender: paulw@viisi.sifive.com
-To: Mike Rapoport <rppt@linux.ibm.com>
+ id 1h5v72-0005QC-3N
+ for linux-riscv@lists.infradead.org; Mon, 18 Mar 2019 16:27:45 +0000
+Received: from pps.filterd (m0098416.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
+ x2IGMCDK115279
+ for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2019 12:27:42 -0400
+Received: from e06smtp03.uk.ibm.com (e06smtp03.uk.ibm.com [195.75.94.99])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 2racegy3k5-1
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <linux-riscv@lists.infradead.org>; Mon, 18 Mar 2019 12:27:42 -0400
+Received: from localhost
+ by e06smtp03.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
+ Violators will be prosecuted
+ for <linux-riscv@lists.infradead.org> from <rppt@linux.ibm.com>;
+ Mon, 18 Mar 2019 16:27:38 -0000
+Received: from b06cxnps4076.portsmouth.uk.ibm.com (9.149.109.198)
+ by e06smtp03.uk.ibm.com (192.168.101.133) with IBM ESMTP SMTP Gateway:
+ Authorized Use Only! Violators will be prosecuted; 
+ (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
+ Mon, 18 Mar 2019 16:27:35 -0000
+Received: from d06av24.portsmouth.uk.ibm.com (mk.ibm.com [9.149.105.60])
+ by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ x2IGRZ4K36110512
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Mon, 18 Mar 2019 16:27:35 GMT
+Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id AB06A42041;
+ Mon, 18 Mar 2019 16:27:35 +0000 (GMT)
+Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id C6F7242042;
+ Mon, 18 Mar 2019 16:27:34 +0000 (GMT)
+Received: from rapoport-lnx (unknown [9.148.205.228])
+ by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+ Mon, 18 Mar 2019 16:27:34 +0000 (GMT)
+Date: Mon, 18 Mar 2019 18:27:33 +0200
+From: Mike Rapoport <rppt@linux.ibm.com>
+To: Anup Patel <anup@brainfault.org>
 Subject: Re: [PATCH 3/3] RISC-V: Allow booting kernel from any 4KB aligned
  address
-In-Reply-To: <20190318071829.GF21385@rapoport-lnx>
-Message-ID: <alpine.DEB.2.21.9999.1903180906560.25529@viisi.sifive.com>
-References: <20190312220752.128141-1-anup.patel@wdc.com>
- <20190312220752.128141-4-anup.patel@wdc.com>
+References: <20190312220752.128141-4-anup.patel@wdc.com>
  <20190313183121.GB28630@rapoport-lnx>
  <CAAhSdy1mrV2CakS0cfOY8F1B7uH_yXjO3W-CiMUcYonkRnVbeQ@mail.gmail.com>
  <20190314065311.GC24380@rapoport-lnx>
@@ -89,11 +85,27 @@ References: <20190312220752.128141-1-anup.patel@wdc.com>
  <CAAhSdy0HoTTccyy203Y9m3kdAjCOzjjMdrb670huU71pjOMw4A@mail.gmail.com>
  <CAAhSdy0D6JpySExCG7ziSSDmQ_88=paiMwjjXTTR1gbKCEOs3g@mail.gmail.com>
  <20190318071829.GF21385@rapoport-lnx>
-User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
+ <CAAhSdy20gXURgLqRfN6N74Qfk5d2rNBYSq0ZVwNGSXAYJD6iMg@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAAhSdy20gXURgLqRfN6N74Qfk5d2rNBYSq0ZVwNGSXAYJD6iMg@mail.gmail.com>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-TM-AS-GCONF: 00
+x-cbid: 19031816-0012-0000-0000-000003045A51
+X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
+x-cbparentid: 19031816-0013-0000-0000-0000213B6537
+Message-Id: <20190318162732.GB4408@rapoport-lnx>
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
+ definitions=2019-03-18_11:, , signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501
+ malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
+ mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1810050000 definitions=main-1903180121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190318_091258_484416_B2BC6AAC 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20190318_092744_262041_6BF67506 
+X-CRM114-Status: GOOD (  37.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -105,8 +117,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <anup@brainfault.org>,
- Anup Patel <Anup.Patel@wdc.com>,
+Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
  Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
@@ -116,39 +127,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 Mar 2019, Mike Rapoport wrote:
+On Mon, Mar 18, 2019 at 06:46:18PM +0530, Anup Patel wrote:
+> On Mon, Mar 18, 2019 at 12:48 PM Mike Rapoport <rppt@linux.ibm.com> wrote:
+> >
+> > On Sat, Mar 16, 2019 at 04:55:30AM +0530, Anup Patel wrote:
+> > > On Fri, Mar 15, 2019 at 9:52 PM Anup Patel <anup@brainfault.org> wrote:
+> > > >
+> > > > On Fri, Mar 15, 2019 at 9:28 PM Mike Rapoport <rppt@linux.ibm.com> wrote:
+> > > > >
+> > > > > I still don't get why it is that important to relax alignment of the kernel
+> > > > > load address. Provided you can use the memory below the kernel, it really
+> > > > > should not matter.
+> > > >
+> > > > Irrespective to constraint on kernel load address, we certainly need
+> > > > to allow memory below kernel to be usable but that's a separate change.
+> > > >
+> > > > Currently, the memory below kernel is ignored by
+> > > > early_init_dt_add_memory_arch() in
+> > > > drivers/of/fdt.c
+> > > >
+> > >
+> > > I explored the possibility of re-claiming memory below kernel but then
+> > > we have an issue in this case.
+> > >
+> > > For RISC-V kernel, PAGE_OFFSET is mapped to kernel load address
+> > > (i.e. load_pa in this code). The va_pa_offset is based on load_pa so linear
+> > > conversion of VA-to-PA and PA-to-VA won't be possible on the memory
+> > > below kernel. I guess this is why early_init_dt_add_memory_arch() is
+> > > marking memory below kernel as reserved. Is there better way to do it??
+> > >
+> > > We started exploring ways to re-claim memory below kernel because
+> > > we are trying to get Linux working on Kendryte K210 board
+> > > (https://kendryte.com/). This board has dual-core 64bit RISC-V but it
+> > > only has 8MB RAM.
+> >
+> > Huh, 8MB of RAM is tough...
+> >
+> > It is possible to use the memory below the kernel, e.g x86-64 does that.
+> > But it is definitely a separate change and with such RAM diet using 4K
+> > pages seems unavoidable.
+> >
+> > I still have concern about using 4K pages whenever the load address is not
+> > 2M (4M) aligned. People tend to not pay enough attention to such details
+> > and they would load the kernel at an arbitrary address and get the
+> > performance hit.
+> >
+> > I think the default should remain as is and the ability to map the kernel
+> > with 4K pages (and use 4K aligned load address) should be a Kconfig option.
+> 
+> I agree people will tend to not pay attention on the load address alignment
+> but this is also possible with current approach. Currently, if user boots kernel
+> form any non-2M aligned address then we don't see any prints at all which
+> let's users think it to be kernel bug. In fact, I have done same mistake couple
+> of times.
+> 
+> Another approach (apart from kconfig option) would be to throw big-fat
+> warning when users boot kernel form 4K aligned load address this way
+> atleast kernel boots instead of no prints. Your thoughts??
 
-> On Sat, Mar 16, 2019 at 04:55:30AM +0530, Anup Patel wrote:
+That should be panic() rather than warning. If the trampoline_pg_dir will
+map everything, it can be emitted during the initialization of
+swapper_pg_dir.
+ 
+> >
+> > Another thing I'd like to suggest is to completely split swapper_pg_dir
+> > initialization from setup_vm() and keep this function solely for
+> > initialization of the trampoline_pg_dir. The trampoline_pg_dir can use
+> > large pages and the memory below the kernel start can be mapped there
+> > simply by mapping the entire large page containing the kernel start.
+> > Then, the swapper_pg_dir setup can run with virtual memory enabled and can
+> > have much more flexibility.
 > 
-> > We started exploring ways to re-claim memory below kernel because
-> > we are trying to get Linux working on Kendryte K210 board
-> > (https://kendryte.com/). This board has dual-core 64bit RISC-V but it
-> > only has 8MB RAM.
-> 
-> Huh, 8MB of RAM is tough...
-> 
-> It is possible to use the memory below the kernel, e.g x86-64 does that.
-> But it is definitely a separate change and with such RAM diet using 4K
-> pages seems unavoidable.
-> 
-> I still have concern about using 4K pages whenever the load address is not
-> 2M (4M) aligned. People tend to not pay enough attention to such details
-> and they would load the kernel at an arbitrary address and get the
-> performance hit.
-> 
-> I think the default should remain as is and the ability to map the kernel
-> with 4K pages (and use 4K aligned load address) should be a Kconfig option.
+> Sure, this is a good suggestion. I will add this as separate patch in this
+> series.
 
-Agreed.  That Kconfig parameter should also be default-off.
-  
-Only a small number of people will try to run RISC-V Linux on a Kendryte 
-board.  That niche use-case shouldn't impact the much larger group of 
-people who will run Linux on more reasonably-sized systems.  No one should 
-need to ask people to report their kernel load address whenever someone
-reports a performance regression.
+> Regards,
+> Anup
+> 
 
+-- 
+Sincerely yours,
+Mike.
 
-- Paul
 
 _______________________________________________
 linux-riscv mailing list
