@@ -2,67 +2,84 @@ Return-Path: <SRS0=7N9o=RW=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4F528C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2019 17:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3FE30C10F03
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2019 22:20:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 23B0C20651
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2019 17:58:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0EAEB2175B
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Mar 2019 22:20:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="no0Dt7I+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 23B0C20651
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=deltatee.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="giZTWWYD";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="hW+iLtQu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0EAEB2175B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jMNdqHHGb6Ji0ut8nmyVVgubeaY4ttTsC0FOGAhZou4=; b=no0Dt7I+DWTlwi
-	W4bnZR5Ndymt8jyIJi1TyBPi0W2hYmB3i6c0jUpTBllHezu+iQjrnV0iiLcrzxbe6EQ+MM6gH4XsB
-	xZnjdwNkwcg1r6GJZxe48fZoATHJLRBys5gpxzoO6xCpKe3O4e2N2NOJIU4wZt4EDSlqeXcE9lcXT
-	0wuDAAanhxYI7Ggli1nsqRJbO1eycDfQdbtktHNppDpGMfsxV8zsT3oqeCZ0uuUa9D1uvMblN0Vig
-	ZuLF3Tq2gHrtN9UOHNKHtOwTMh9td+TIvCHkFXOFHXGmGWOKlePie20psZ6qEx6c/cMTsJl86M6pt
-	sT/mHu98/XFxMwfut3oA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aYHz0gTg7PR434LFLE3+6wxULUfdevmBJoQUxH2vkYc=; b=giZTWWYD6sFEt/
+	jn3XB7gZl/nxFKJzkxEdOAVFSiqZEqH/R3Q/7L7RdpZQu5A7LNIEKVSTLFN8voSrUMIGJhI+32Uta
+	MUIEwlYrsfdkMz1CpFFO3612m5EBzRsJ7idOOCkmsNUEb60GTp+bd7sRdMPtoOMhT2l95/JoXGerW
+	aX+tZljN/awcEj87anmqkvWvEgNexnyDSZTxXfOZlyz50Ys5NgP1zKxNbMtsibuYH/fwHKHpR+YIQ
+	67MfLmxsGZfrlMBdenE/Nx16KPxUCp7z6ttDk89UfcKDZlom/by/csqY24jlfvGxMWMBGP0PsjQJl
+	DqLTB6pdehv7fpAxERpQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h6J0i-0007QW-AY; Tue, 19 Mar 2019 17:58:48 +0000
-Received: from ale.deltatee.com ([207.54.116.67])
+	id 1h6N6D-0003MN-KP; Tue, 19 Mar 2019 22:20:45 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h6Iz0-00053m-Oz
- for linux-riscv@lists.infradead.org; Tue, 19 Mar 2019 17:57:25 +0000
-Received: from guinness.priv.deltatee.com ([172.16.1.162])
- by ale.deltatee.com with esmtp (Exim 4.89)
- (envelope-from <logang@deltatee.com>)
- id 1h6Iyx-0002P8-U4; Tue, 19 Mar 2019 11:57:00 -0600
-To: Palmer Dabbelt <palmer@sifive.com>
-References: <mhng-96f28491-e123-459a-b09c-88732de06bbf@palmer-si-x1c4>
-From: Logan Gunthorpe <logang@deltatee.com>
-Message-ID: <c9f13314-204b-10a5-e9eb-2c4d8fca6c90@deltatee.com>
-Date: Tue, 19 Mar 2019 11:56:52 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.5.1
+ id 1h6N6B-0003KZ-Bt
+ for linux-riscv@lists.infradead.org; Tue, 19 Mar 2019 22:20:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1553034044; x=1584570044;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=k5J6+qgl1gVFESf4xZxUc40mWhR5uxNVP8yAnN65YwE=;
+ b=hW+iLtQuYptUrl1YlU5mKEw3pHYE+P1cbPWAUqNbbi+jbziZHL/2E+Kf
+ xZ77klASAV7EGROhjnRmseH1JY+MidCZI3R3kWZxVhv4OKXni4aVUGvFd
+ qMnUiCACGSt4d9AmhIKQ1fZ4miPO7wcrlkBvJXJ6exUq4jXsRF9Rrza3A
+ VT9mfBqeJHpcDakuFohAnuzv8JH0vd4YrZ8x4MzARyjVxV3xDY1s5x+0U
+ 6PMG216PXc+9d5FDF84RwQpPxOyt70EfY6JYTPS3ORfviiffpqRIUG73O
+ 0jOHG0wnw233INZ4zv1VEafeNZwqIh23i+JIedtU7iI/83JK4nZCNBKxB g==;
+X-IronPort-AV: E=Sophos;i="5.60,246,1549900800"; d="scan'208";a="105129860"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 20 Mar 2019 06:20:40 +0800
+IronPort-SDR: yurOmEFR4ub94mvxTxyWyDnFZ/g6eBZd/0qHoCbzYJ5dajoMagvxKFmD3Fs9tqHnRYM51EFABy
+ PskokzM8N9zHXIEkl0z0dMvu8U1LcJPvBKdc559+onjXdVujNaObhAxyZ0yLXSVsNzJ3W8jbgG
+ LFTHfJlPgMY4qfPgeN8VksHdsUcGZDO3b1ET3TJrOFljS7Scby3AF/xP2xtUnmWsngaH81ucWo
+ ru48pirHLamBNKWwez8Cmu0ZGNPZw1aTiL5fcwgMnk8v7u6eEU+I/th2fufw7xfhdCzhLuIVld
+ m9EXXjJayEzsrijsgsEpvFzL
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep02.wdc.com with ESMTP; 19 Mar 2019 15:00:19 -0700
+IronPort-SDR: iJF5s9z2RM1Gs19kaUvUD5unDJN293ZLp/MqfQP3gOIefu9Ty5hAtL7oTZ4jpOqI1rPcrnkscw
+ D6Z6Kex/Y8Px1wAl2xc6DRa688BM+FO6ZQL370tlwMjC14HeL8ePhTagAubF2I/GyjgI3EQH0l
+ gzpf69KuXQrrgkMu6KhIJobF4JaxTybKdBfK5izQxnQXLqOkP55+CnSv8arb8fxZS42zhY0126
+ dUWJLTgESMXUV1AXh3l9AsieAIeuOsEIRE3u+zSkmPqioAiOvU9Jo9znCgZBbpuwpSXr7aEkkT
+ VxM=
+Received: from jedi-01.sdcorp.global.sandisk.com (HELO
+ jedi-01.int.fusionio.com) ([10.11.143.218])
+ by uls-op-cesaip02.wdc.com with ESMTP; 19 Mar 2019 15:20:40 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-riscv@lists.infradead.org
+Subject: [v1 PATCH 1/4] RISC-V: Add RISC-V specific arch_match_cpu_phys_id
+Date: Tue, 19 Mar 2019 15:20:25 -0700
+Message-Id: <20190319222028.4293-1-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.21.0
 MIME-Version: 1.0
-In-Reply-To: <mhng-96f28491-e123-459a-b09c-88732de06bbf@palmer-si-x1c4>
-Content-Language: en-CA
-X-SA-Exim-Connect-IP: 172.16.1.162
-X-SA-Exim-Rcpt-To: hch@lst.de, linux-riscv@lists.infradead.org,
- hch@infradead.org, sbates@raithlin.com, linux-kernel@vger.kernel.org,
- dan.j.williams@intel.com, ysato@users.sourceforge.jp, dalias@libc.org,
- robh@kernel.org, palmer@sifive.com
-X-SA-Exim-Mail-From: logang@deltatee.com
-Subject: Re: [PATCH v4 1/2] sh: mm: make use of new memblocks_present() helper
-X-SA-Exim-Version: 4.2.1 (built Tue, 02 Aug 2016 21:08:31 +0000)
-X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190319_105703_869156_D53C798B 
-X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-CacheID: sfid-20190319_152043_540760_1983FB72 
+X-CRM114-Status: UNSURE (   6.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -75,30 +92,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: robh@kernel.org, dalias@libc.org, ysato@users.sourceforge.jp,
- linux-kernel@vger.kernel.org, sbates@raithlin.com,
- Christoph Hellwig <hch@infradead.org>, dan.j.williams@intel.com,
- Christoph Hellwig <hch@lst.de>, linux-riscv@lists.infradead.org
+Cc: Damien Le Moal <Damien.LeMoal@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Dmitriy Cherkasov <dmitriy@oss-tech.org>, Anup Patel <anup@brainfault.org>,
+ Palmer Dabbelt <palmer@sifive.com>, Johan Hovold <johan@kernel.org>,
+ linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
+ Anup Patel <Anup.Patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Andreas Schwab <schwab@suse.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Palmer,
+OF/DT core has a hook for architecture specific logical cpuid to hartid
+mapping. By implementing this, we can pass the logical cpu id to cpu
+node parsing functions.
 
-On 2019-01-23 12:56 p.m., Palmer Dabbelt wrote:
->> @Palmer: if you can just look at taking the second patch, I'll resubmit
->> the first one to the appropriate list.
-> 
-> Works for me.  I'll queue the second patch into my staging branch, targeted for
-> the next merge window.
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ arch/riscv/kernel/smp.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-It doesn't look like my sparesmem patch made it into v5.1-rc1. Did it
-fall through the cracks?
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 0c41d07e..94db7266 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -70,6 +70,11 @@ void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out)
+ 	for_each_cpu(cpu, in)
+ 		cpumask_set_cpu(cpuid_to_hartid_map(cpu), out);
+ }
++
++bool arch_match_cpu_phys_id(int cpu, u64 phys_id)
++{
++	return phys_id == cpuid_to_hartid_map(cpu);
++}
+ /* Unsupported */
+ int setup_profiling_timer(unsigned int multiplier)
+ {
+-- 
+2.21.0
 
-Thanks,
-
-Logan
 
 _______________________________________________
 linux-riscv mailing list
