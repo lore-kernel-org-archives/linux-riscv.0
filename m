@@ -2,122 +2,72 @@ Return-Path: <SRS0=NLGL=RY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-8.3 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 661E7C4360F
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 Mar 2019 09:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 428DEC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 Mar 2019 13:34:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 358FE218D8
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 Mar 2019 09:48:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0CBE420693
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 Mar 2019 13:34:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="k46hk0Cd";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="qrIjZ77m";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="YV4A9AA0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 358FE218D8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RlTnMiuR";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=alien8.de header.i=@alien8.de header.b="CesW61Gs"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0CBE420693
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=alien8.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WKmfxJ70AUemCjMquCC51Qr12hOyyNqYDKlSuuimf2k=; b=k46hk0Cdo0HLBN
-	iuheUhS3spcI6aPObTTMFIrBPBJDxTz7CR5Kj4KFhv5RMBbNnYKrf2h+fzYZxtCz6h4CmO5UcoSf2
-	RL7ot2ACFIe4x8Ncsxx6AafLMDKZElHQZmUxH1yjazt6u37GJzUAnFGGjaqQIfzo9NA63XVIzjYN8
-	tDFAMOT1jrqKBPadX0y0BB3+AmMMEV2gZkdsUwIhTk2R1wMmpx1ArtvTtupK6TAswlauZ4bDvpvWA
-	9W+EgOElTovlltVYjt5T7PclRK51IbofR/Ci72nF6EMr4pdcXCpDtWOvPqkU2JkEJXLmSk9xJA2dI
-	psLEFrjNwignxDQgCsNw==;
+	List-Owner; bh=og1OpQkZ34UAnY80OzXtyUYN6gL12PfsJ2gEoP2VYms=; b=RlTnMiuRvgRwE7
+	6J0m0acG0UtEx0n96v3juMLZ+sY/V62wYJeJGS7SnIVWSWaJn+jorGVhpwOAjPS2DOlx7BZm39VTZ
+	55EHyDyuLkHdpF5fCibWX7vcxNgaoFUaIxrHBt4zjlnV8zkY7UY+X72evgLvOsebEzKYMNJiBzXBM
+	yOZvC3VWnqD9t67APn3bCFDjrSUN+nG3/Jpnk2dVbk2op478xQWspAOyB+XKBkvxIQE3LNcFXE60h
+	vfWGzHS2DBhBompMLWBM+dbIqaFEWCC3ZMHqVhVavugou3maaDse1SMRQU99SxK0FN6UErQuF7+MI
+	31SUE0sxwqUrT/qNcW2A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h6uIv-0007rD-B3; Thu, 21 Mar 2019 09:48:05 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1h6xpY-000658-6i; Thu, 21 Mar 2019 13:34:00 +0000
+Received: from mail.skyhub.de ([2a01:4f8:190:11c2::b:1457])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h6uIs-0007bS-2B
- for linux-riscv@lists.infradead.org; Thu, 21 Mar 2019 09:48:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1553161682; x=1584697682;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-transfer-encoding:mime-version;
- bh=Q6hXRzC0vGA645ktNicxb3BEemwCUqYLlnUqgkKeibE=;
- b=qrIjZ77mNl0IvV0w9BjFCptV3Sry+iaZKuudtfrbe+Lr/oH32DM/L+ML
- MT5obrWDP3nI1NShouQyrbPowLLO2oqtyrcs7WT5qR62AjbnxNIiVi9Pu
- nFvoVC5LY6SLINrqEbd94b73KtPGM/LM7vn9WmRCrd62YkSCk14CUkSeQ
- DfIpgKLZD36ewBhWJfOLNtAXI8JBQBvRb82v3ow4slAwBUDVIQKP5OzcC
- wT3QUcbdluHZ7FIr08A4Sg1jENdBWLQGCDQnRzoOTm4HdHwy34iFLeiae
- l8V4Gtrzx7t5r8if2sIWXssa3z0WRkmyqHU0Z5YyYMXUWBYk9Pck/+utA A==;
-X-IronPort-AV: E=Sophos;i="5.60,252,1549900800"; d="scan'208";a="105647572"
-Received: from mail-by2nam05lp2053.outbound.protection.outlook.com (HELO
- NAM05-BY2-obe.outbound.protection.outlook.com) ([104.47.50.53])
- by ob1.hgst.iphmx.com with ESMTP; 21 Mar 2019 17:48:01 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4LbwOC8XHClkPLqdxM/n9B1nf499u0WZ63uDkO9yh54=;
- b=YV4A9AA0s8p93yLutItilWhmdWe2FfRLk+lLWcH46KyrJH/w49GsXSA+pzspkGgfKrafBOLpzsD6YIh2jacQwhdPYmyCYwUh70BOj2cD2xwpDREq2l182dR76mnqR5PTGpRIUV/8AcN+L92z4oOyesR2YR2Mf8lPsmHPsMB8qa0=
-Received: from MN2PR04MB6061.namprd04.prod.outlook.com (20.178.246.15) by
- MN2PR04MB5757.namprd04.prod.outlook.com (20.179.21.156) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1709.14; Thu, 21 Mar 2019 09:47:59 +0000
-Received: from MN2PR04MB6061.namprd04.prod.outlook.com
- ([fe80::d197:7b59:7e0d:e819]) by MN2PR04MB6061.namprd04.prod.outlook.com
- ([fe80::d197:7b59:7e0d:e819%4]) with mapi id 15.20.1730.013; Thu, 21 Mar 2019
- 09:47:59 +0000
-From: Anup Patel <Anup.Patel@wdc.com>
-To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v2 5/5] RISC-V: Fix memory reservation in setup_bootmem()
-Thread-Topic: [PATCH v2 5/5] RISC-V: Fix memory reservation in setup_bootmem()
-Thread-Index: AQHU38sqoeGxllaIbUykcsHRC35P2A==
-Date: Thu, 21 Mar 2019 09:47:58 +0000
-Message-ID: <20190321094710.16552-6-anup.patel@wdc.com>
-References: <20190321094710.16552-1-anup.patel@wdc.com>
-In-Reply-To: <20190321094710.16552-1-anup.patel@wdc.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: PN1PR0101CA0013.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c00:e::23) To MN2PR04MB6061.namprd04.prod.outlook.com
- (2603:10b6:208:d8::15)
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Anup.Patel@wdc.com; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-mailer: git-send-email 2.17.1
-x-originating-ip: [106.51.18.226]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 177279ee-b41f-4faa-49d8-08d6ade24d20
-x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(7168020)(4627221)(201703031133081)(201702281549075)(8990200)(5600127)(711020)(4605104)(4618075)(2017052603328)(7153060)(7193020);
- SRVR:MN2PR04MB5757; 
-x-ms-traffictypediagnostic: MN2PR04MB5757:
-wdcipoutbound: EOP-TRUE
-x-microsoft-antispam-prvs: <MN2PR04MB5757890C2563B5CA57C7995B8D420@MN2PR04MB5757.namprd04.prod.outlook.com>
-x-forefront-prvs: 0983EAD6B2
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(39860400002)(376002)(346002)(136003)(366004)(396003)(189003)(199004)(54906003)(1076003)(68736007)(110136005)(316002)(6436002)(81166006)(2906002)(78486014)(8936002)(5660300002)(25786009)(50226002)(6486002)(52116002)(102836004)(6506007)(36756003)(386003)(26005)(9456002)(186003)(76176011)(97736004)(99286004)(11346002)(446003)(476003)(486006)(2616005)(44832011)(81156014)(105586002)(14454004)(4326008)(72206003)(106356001)(256004)(86362001)(55236004)(6512007)(71190400001)(7736002)(71200400001)(66066001)(3846002)(478600001)(305945005)(6116002)(53936002)(2171002)(8676002);
- DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB5757;
- H:MN2PR04MB6061.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: Eb3W4JB1Mdxp/nq209Dc01qXKnHHc2l03eOvJOgRGR0M7lys0Ltd1157F1RvBDAC9AYzrGCVEQmypGkFjjOmyvWOVfiNaJGPeSADMNorTlqyu/Y2iztwhIqx+L9C6VnRPaIBCYwY1fckkXIuPhNfVCWGABIPo0v3jsCclR6tgMnJWGW7O8ldX6tXVGaOSqUKIwAHB8+8quGrO/wpputA00DFGT89qpS+ehFzAMXZv7I8n8E4Kq28rAcMOujzQJP/K8QWYcrC8Idhb7KazgAhEHYbc27zMtvbEx5M3CCSc7hGrysrMozt+upOBsEitLaZ1yTwwNg9+bQcalhAsP/YsDOVz9alf9Bbae7LkLloHk9HJNiu+Tj6xaVgRTbLOfIsgppatsWZrz3PqSqR5M3QMYL4sQ4djhJEU9f5sHodBK4=
+ id 1h6xpS-00064O-Uf
+ for linux-riscv@lists.infradead.org; Thu, 21 Mar 2019 13:33:58 +0000
+Received: from nazgul.tnic (prg-ext-pat.suse.com [213.151.95.130])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 69AC81EC02AE;
+ Thu, 21 Mar 2019 14:33:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=dkim;
+ t=1553175226;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:in-reply-to:in-reply-to:  references:references;
+ bh=wSX/OG/9bBzQkBxrQChjO5ACCWfsqwqKYEqfl3wrWq8=;
+ b=CesW61GsSxGgb28plWXH1wuQD8dlYzvIwYd1K98W7EV6Ag+jxwW1ASIE72bWGySGeo8fhb
+ zDqgmZsK16o1LuMgwflw9e8BTIiB9JEX5Gay3EkKdiC8LzMl0hQvomyua+9GURLgtg2KfM
+ VbuBy3XukMN2ATvfdhxrxUEstfdPvZU=
+Date: Thu, 21 Mar 2019 14:33:40 +0100
+From: Borislav Petkov <bp@alien8.de>
+To: Yash Shah <yash.shah@sifive.com>
+Subject: Re: [PATCH 2/2] edac: sifive: Add EDAC driver for SiFive FU540-C000
+ chip
+Message-ID: <20190321133340.GB7047@nazgul.tnic>
+References: <1553082728-9232-1-git-send-email-yash.shah@sifive.com>
+ <1553082728-9232-3-git-send-email-yash.shah@sifive.com>
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 177279ee-b41f-4faa-49d8-08d6ade24d20
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Mar 2019 09:47:58.9921 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB5757
+Content-Disposition: inline
+In-Reply-To: <1553082728-9232-3-git-send-email-yash.shah@sifive.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190321_024802_176845_3A287D04 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20190321_063355_304465_1E242848 
+X-CRM114-Status: GOOD (  24.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -129,72 +79,379 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
- Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
+ palmer@sifive.com, linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
+ robh+dt@kernel.org, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org,
+ mchehab@kernel.org, linux-edac@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the setup_bootmem() reserves memory from RAM start to the
-kernel end. This prevents us from exploring ways to use the RAM below
-(or before) the kernel start hence this patch updates setup_bootmem()
-to only reserve memory from the kernel start to the kernel end.
+On Wed, Mar 20, 2019 at 05:22:08PM +0530, Yash Shah wrote:
+> This EDAC driver supports:
+> - Initial configuration reporting on bootup via debug logs
+> - ECC event monitoring and reporting through the EDAC framework
+> - ECC event injection
+> 
+> This driver is partially based on pnd2_edac.c and altera_edac.c
+> 
+> Initially L2 Cache controller is added as a subcomponent to
+> this EDAC driver.
+> 
+> Signed-off-by: Yash Shah <yash.shah@sifive.com>
 
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
----
- arch/riscv/mm/init.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+...
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 2e2f2567964c..99b42380d17d 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -18,6 +18,8 @@
- #include <asm/pgtable.h>
- #include <asm/io.h>
- 
-+extern char _start[];
-+
- static void __init zone_sizes_init(void)
- {
- 	unsigned long max_zone_pfns[MAX_NR_ZONES] = { 0, };
-@@ -93,15 +95,17 @@ void __init setup_bootmem(void)
- 
- 	/* Find the memory region containing the kernel */
- 	for_each_memblock(memory, reg) {
--		phys_addr_t vmlinux_end = __pa(_end);
-+		phys_addr_t vmlinux_end = __pa(&_end);
-+		phys_addr_t vmlinux_start = __pa(&_start);
- 		phys_addr_t end = reg->base + reg->size;
- 
- 		if (reg->base <= vmlinux_end && vmlinux_end <= end) {
- 			/*
--			 * Reserve from the start of the region to the end of
-+			 * Reserve from the start of the kernel to the end of
- 			 * the kernel
- 			 */
--			memblock_reserve(reg->base, vmlinux_end - reg->base);
-+			memblock_reserve(vmlinux_start,
-+					 vmlinux_end - vmlinux_start);
- 			mem_size = min(reg->size, (phys_addr_t)-PAGE_OFFSET);
- 		}
- 	}
-@@ -177,7 +181,6 @@ struct mapping_ops {
- 
- static inline void *__load_addr(void *ptr, uintptr_t load_pa)
- {
--	extern char _start;
- 	uintptr_t va = (uintptr_t)ptr;
- 	uintptr_t sz = (uintptr_t)(&_end) - (uintptr_t)(&_start);
- 
+> diff --git a/drivers/edac/Kconfig b/drivers/edac/Kconfig
+> index e286b5b..112d9d1 100644
+> --- a/drivers/edac/Kconfig
+> +++ b/drivers/edac/Kconfig
+> @@ -440,6 +440,19 @@ config EDAC_ALTERA_SDMMC
+>  	  Support for error detection and correction on the
+>  	  Altera SDMMC FIFO Memory for Altera SoCs.
+>  
+> +config EDAC_SIFIVE
+> +	tristate "Sifive ECC"
+> +	depends on RISCV
+> +	help
+> +	  Support for error detection and correction on the SiFive SoCs.
+> +
+> +config EDAC_SIFIVE_L2
+
+That config item is unused. Drop it.
+
+> +	bool "SiFive L2 Cache ECC"
+> +	depends on EDAC_SIFIVE=y
+> +	help
+> +	  Support for error detection and correction of the L2 cache
+> +	  memory on SiFive SoCs.
+> +
+>  config EDAC_SYNOPSYS
+>  	tristate "Synopsys DDR Memory Controller"
+>  	depends on ARCH_ZYNQ || ARCH_ZYNQMP
+
+...
+
+> +/*
+> + * sifive_edac_l2_int_handler - ISR function for l2 cache controller
+> + * @irq:	Irq Number
+> + * @device:	Pointer to the edac device controller instance
+> + *
+> + * This routine is triggered whenever there is ECC error detected
+> + *
+> + * Return: Always returns IRQ_HANDLED
+> + */
+> +static irqreturn_t sifive_edac_l2_int_handler(int irq, void *device)
+> +{
+> +	struct edac_device_ctl_info *dci =
+> +					(struct edac_device_ctl_info *)device;
+
+No ugly linebreaks like that - just let it stick out even if it is > 80
+cols long.
+
+> +	struct sifive_edac_device_dev *drvdata = dci->pvt_info;
+> +	u32 regval, add_h, add_l;
+> +
+> +	if (irq == drvdata->irq[dir_corr]) {
+> +		add_h = readl(drvdata->base + SIFIVE_EDAC_DIRFIX_HIGH);
+> +		add_l = readl(drvdata->base + SIFIVE_EDAC_DIRFIX_LOW);
+> +		dev_err(dci->dev,
+> +			"DirError at address 0x%08X.%08X\n", add_h, add_l);
+
+Same here and below.
+
+> +		regval = readl(drvdata->base + SIFIVE_EDAC_DIRFIX_COUNT);
+> +		edac_device_handle_ce(dci, 0, 0, "DirECCFix");
+> +	}
+> +	if (irq == drvdata->irq[data_corr]) {
+> +		add_h = readl(drvdata->base + SIFIVE_EDAC_DATFIX_HIGH);
+> +		add_l = readl(drvdata->base + SIFIVE_EDAC_DATFIX_LOW);
+> +		dev_err(dci->dev,
+> +			"DataError at address 0x%08X.%08X\n", add_h, add_l);
+> +		regval = readl(drvdata->base + SIFIVE_EDAC_DATFIX_COUNT);
+> +		edac_device_handle_ce(dci, 0, 0, "DatECCFix");
+> +	}
+> +	if (irq == drvdata->irq[data_uncorr]) {
+> +		add_h = readl(drvdata->base + SIFIVE_EDAC_DATFAIL_HIGH);
+> +		add_l = readl(drvdata->base + SIFIVE_EDAC_DATFAIL_LOW);
+> +		dev_err(dci->dev,
+> +			"DataFail at address 0x%08X.%08X\n", add_h, add_l);
+> +		regval = readl(drvdata->base + SIFIVE_EDAC_DATFAIL_COUNT);
+> +		edac_device_handle_ue(dci, 0, 0, "DatECCFail");
+> +	}
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static void sifive_edac_l2_config_read(struct edac_device_ctl_info *dci)
+> +{
+> +	struct sifive_edac_device_dev *drvdata = dci->pvt_info;
+> +	u32 regval, val;
+> +
+> +	regval = readl(drvdata->base + SIFIVE_EDAC_CONFIG);
+> +	val = regval & 0xFF;
+> +	dev_info(dci->dev, "No. of Banks in the cache: %d\n", val);
+> +	val = (regval & 0xFF00) >> 8;
+> +	dev_info(dci->dev, "No. of ways per bank: %d\n", val);
+> +	val = (regval & 0xFF0000) >> 16;
+> +	dev_info(dci->dev, "Sets per bank: %llu\n", (uint64_t)1 << val);
+> +	val = (regval & 0xFF000000) >> 24;
+> +	dev_info(dci->dev,
+> +		 "Bytes per cache block: %llu\n", (uint64_t)1 << val);
+> +}
+> +
+> +static const struct sifive_edac_device_prv l2ecc_data = {
+> +	.setup = sifive_edac_l2_config_read,
+> +	.inject_fops = &sifive_edac_l2_fops,
+> +	.ecc_irq_handler = sifive_edac_l2_int_handler,
+> +};
+> +
+> +/*
+> + * sifive_edac_device_probe()
+> + *	This is a generic EDAC device driver that will support
+> + *	various SiFive memory devices as well as the memories
+> + *	for other peripherals. Module specific initialization is
+> + *	done by passing the function index in the device tree.
+
+This comment doesn't have anything to do with that function but rather
+belongs at the top of this file.
+
+> + */
+> +static int sifive_edac_device_probe(struct platform_device *pdev)
+> +{
+> +	struct edac_device_ctl_info *dci;
+> +	struct sifive_edac_device_dev *drvdata;
+> +	int rc, i;
+> +	struct resource *res;
+> +	void __iomem *baseaddr;
+> +	struct device_node *np = pdev->dev.of_node;
+> +	char *ecc_name = (char *)np->name;
+> +	static int dev_instance;
+
+Please sort function local variables declaration in a reverse christmas
+tree order:
+
+	<type_a> longest_variable_name;
+	<type_b> shorter_var_name;
+	<type_c> even_shorter;
+	<type_d> i;
+
+> +
+> +	/* Get the data from the platform device */
+> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +	baseaddr = devm_ioremap_resource(&pdev->dev, res);
+> +	if (IS_ERR(baseaddr))
+> +		return PTR_ERR(baseaddr);
+> +
+> +	dci = edac_device_alloc_ctl_info(sizeof(*drvdata), ecc_name,
+> +					 1, ecc_name, 1, 1, NULL, 0,
+> +					 dev_instance++);
+> +	if (IS_ERR(dci))
+> +		return PTR_ERR(dci);
+> +
+> +	drvdata = dci->pvt_info;
+> +	drvdata->base = baseaddr;
+> +	drvdata->edac_dev_name = ecc_name;
+> +	dci->dev = &pdev->dev;
+> +	dci->mod_name = "Sifive ECC Manager";
+> +	dci->ctl_name = dev_name(&pdev->dev);
+> +	dci->dev_name = dev_name(&pdev->dev);
+> +
+> +	 /* Get driver specific data for this EDAC device */
+> +	drvdata->data = of_match_node(sifive_edac_device_of_match, np)->data;
+> +
+> +	setup_sifive_debug(dci, drvdata->data);
+> +
+> +	if (drvdata->data->setup)
+> +		drvdata->data->setup(dci);
+> +
+> +	for (i = 0; i < SIFIVE_EDAC_MAX_INTR; i++) {
+> +		drvdata->irq[i] = platform_get_irq(pdev, i);
+> +		rc = devm_request_irq(&pdev->dev, drvdata->irq[i],
+> +				      sifive_edac_l2_int_handler, 0,
+> +				      dev_name(&pdev->dev), (void *)dci);
+> +		if (rc) {
+> +			dev_err(&pdev->dev,
+> +				"Could not request IRQ %d\n", drvdata->irq[i]);
+> +			goto del_edac_device;
+> +		}
+> +	}
+> +
+> +	rc = edac_device_add_device(dci);
+> +	if (rc) {
+> +		dev_err(&pdev->dev, "failed to register with EDAC core\n");
+> +		goto del_edac_device;
+> +	}
+
+Call setup_sifive_debug() in the success case here so that you don't
+have to teardown below.
+
+> +
+> +	return rc;
+> +
+> +del_edac_device:
+> +	teardown_sifive_debug();
+> +	edac_device_del_device(&pdev->dev);
+> +	edac_device_free_ctl_info(dci);
+
+Those three can be replaced by a call to sifive_edac_device_remove() ?
+
+Btw, you have prefixed your static functions with "sifive_edac_" which
+doesn't make much sense and you have long names for no good reason.
+
+> +
+> +	return rc;
+> +}
+> +
+> +static int sifive_edac_device_remove(struct platform_device *pdev)
+> +{
+> +	struct edac_device_ctl_info *dci = platform_get_drvdata(pdev);
+> +
+> +	teardown_sifive_debug();
+> +	edac_device_del_device(&pdev->dev);
+> +	edac_device_free_ctl_info(dci);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id sifive_edac_device_of_match[] = {
+> +	{ .compatible = "sifive,ccache0", .data = &l2ecc_data },
+> +	{ /* end of table */ },
+> +};
+> +MODULE_DEVICE_TABLE(of, sifive_edac_device_of_match);
+> +
+> +static struct platform_driver sifive_edac_device_driver = {
+> +	.driver = {
+> +		 .name = "sifive_edac_device",
+
+"device"? I think it is clear that it is a device and thus kinda
+tautological. "sifive_edac" should be enough...
+
+Last but not least, building this driver with the riscv64 cross compilers from
+here:
+
+http://cdn.kernel.org/pub/tools/crosstool/files/bin/
+
+fails like below. With the riscv32 compiler it fails the same.
+
+Provided I'm not doing anything wrong, you should not be sending me
+half-baked stuff which doesn't even build.
+
+drivers/edac/sifive_edac.c: In function 'sifive_edac_device_probe':
+drivers/edac/sifive_edac.c:231:16: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  drvdata->data = of_match_node(sifive_edac_device_of_match, np)->data;
+                ^
+In file included from drivers/edac/sifive_edac.c:10:
+drivers/edac/sifive_edac.c: At top level:
+./include/linux/module.h:130:42: error: redefinition of '__inittest'
+  static inline initcall_t __maybe_unused __inittest(void)  \
+                                          ^~~~~~~~~~
+./include/linux/device.h:1647:1: note: in expansion of macro 'module_init'
+ module_init(__driver##_init); \
+ ^~~~~~~~~~~
+./include/linux/platform_device.h:233:2: note: in expansion of macro 'module_driver'
+  module_driver(__platform_driver, platform_driver_register, \
+  ^~~~~~~~~~~~~
+drivers/edac/sifive_edac.c:293:1: note: in expansion of macro 'module_platform_driver'
+ module_platform_driver(sifive_edac_device_driver);
+ ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux/module.h:130:42: note: previous definition of '__inittest' was here
+  static inline initcall_t __maybe_unused __inittest(void)  \
+                                          ^~~~~~~~~~
+./include/linux/device.h:1647:1: note: in expansion of macro 'module_init'
+ module_init(__driver##_init); \
+ ^~~~~~~~~~~
+./include/linux/platform_device.h:233:2: note: in expansion of macro 'module_driver'
+  module_driver(__platform_driver, platform_driver_register, \
+  ^~~~~~~~~~~~~
+drivers/edac/sifive_edac.c:57:1: note: in expansion of macro 'module_platform_driver'
+ module_platform_driver(sifive_edac_driver);
+ ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux/module.h:132:6: error: redefinition of 'init_module'
+  int init_module(void) __copy(initfn) __attribute__((alias(#initfn)));
+      ^~~~~~~~~~~
+./include/linux/device.h:1647:1: note: in expansion of macro 'module_init'
+ module_init(__driver##_init); \
+ ^~~~~~~~~~~
+./include/linux/platform_device.h:233:2: note: in expansion of macro 'module_driver'
+  module_driver(__platform_driver, platform_driver_register, \
+  ^~~~~~~~~~~~~
+drivers/edac/sifive_edac.c:293:1: note: in expansion of macro 'module_platform_driver'
+ module_platform_driver(sifive_edac_device_driver);
+ ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux/module.h:132:6: note: previous definition of 'init_module' was here
+  int init_module(void) __copy(initfn) __attribute__((alias(#initfn)));
+      ^~~~~~~~~~~
+./include/linux/device.h:1647:1: note: in expansion of macro 'module_init'
+ module_init(__driver##_init); \
+ ^~~~~~~~~~~
+./include/linux/platform_device.h:233:2: note: in expansion of macro 'module_driver'
+  module_driver(__platform_driver, platform_driver_register, \
+  ^~~~~~~~~~~~~
+drivers/edac/sifive_edac.c:57:1: note: in expansion of macro 'module_platform_driver'
+ module_platform_driver(sifive_edac_driver);
+ ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux/module.h:136:42: error: redefinition of '__exittest'
+  static inline exitcall_t __maybe_unused __exittest(void)  \
+                                          ^~~~~~~~~~
+./include/linux/device.h:1652:1: note: in expansion of macro 'module_exit'
+ module_exit(__driver##_exit);
+ ^~~~~~~~~~~
+./include/linux/platform_device.h:233:2: note: in expansion of macro 'module_driver'
+  module_driver(__platform_driver, platform_driver_register, \
+  ^~~~~~~~~~~~~
+drivers/edac/sifive_edac.c:293:1: note: in expansion of macro 'module_platform_driver'
+ module_platform_driver(sifive_edac_device_driver);
+ ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux/module.h:136:42: note: previous definition of '__exittest' was here
+  static inline exitcall_t __maybe_unused __exittest(void)  \
+                                          ^~~~~~~~~~
+./include/linux/device.h:1652:1: note: in expansion of macro 'module_exit'
+ module_exit(__driver##_exit);
+ ^~~~~~~~~~~
+./include/linux/platform_device.h:233:2: note: in expansion of macro 'module_driver'
+  module_driver(__platform_driver, platform_driver_register, \
+  ^~~~~~~~~~~~~
+drivers/edac/sifive_edac.c:57:1: note: in expansion of macro 'module_platform_driver'
+ module_platform_driver(sifive_edac_driver);
+ ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux/module.h:138:7: error: redefinition of 'cleanup_module'
+  void cleanup_module(void) __copy(exitfn) __attribute__((alias(#exitfn)));
+       ^~~~~~~~~~~~~~
+./include/linux/device.h:1652:1: note: in expansion of macro 'module_exit'
+ module_exit(__driver##_exit);
+ ^~~~~~~~~~~
+./include/linux/platform_device.h:233:2: note: in expansion of macro 'module_driver'
+  module_driver(__platform_driver, platform_driver_register, \
+  ^~~~~~~~~~~~~
+drivers/edac/sifive_edac.c:293:1: note: in expansion of macro 'module_platform_driver'
+ module_platform_driver(sifive_edac_device_driver);
+ ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux/module.h:138:7: note: previous definition of 'cleanup_module' was here
+  void cleanup_module(void) __copy(exitfn) __attribute__((alias(#exitfn)));
+       ^~~~~~~~~~~~~~
+./include/linux/device.h:1652:1: note: in expansion of macro 'module_exit'
+ module_exit(__driver##_exit);
+ ^~~~~~~~~~~
+./include/linux/platform_device.h:233:2: note: in expansion of macro 'module_driver'
+  module_driver(__platform_driver, platform_driver_register, \
+  ^~~~~~~~~~~~~
+drivers/edac/sifive_edac.c:57:1: note: in expansion of macro 'module_platform_driver'
+ module_platform_driver(sifive_edac_driver);
+ ^~~~~~~~~~~~~~~~~~~~~~
+make[3]: *** [scripts/Makefile.build:285: drivers/edac/sifive_edac.o] Error 1
+make[2]: *** [scripts/Makefile.build:489: drivers/edac] Error 2
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/home/boris/kernel/linux-2.6/Makefile:1046: drivers] Error 2
+make: *** [Makefile:170: sub-make] Error 2
+
 -- 
-2.17.1
+Regards/Gruss,
+    Boris.
 
+ECO tip #101: Trim your mails when you reply.
+--
 
 _______________________________________________
 linux-riscv mailing list
