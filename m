@@ -3,20 +3,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C9968C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 17:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 25694C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 17:07:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 98AB32190A
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 17:02:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E453A2190A
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 17:07:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ju1U1cGD";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.b="EQb0PJgI"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 98AB32190A
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Z7kuiDrN";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.b="Xicmuh1N"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E453A2190A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,67 +25,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sEFx9rBh3R1QynZqU2WJs194sIE8szVlSaiTubvFpSc=; b=Ju1U1cGDe8Swbj
-	8gtelPFIUunZmdTy7ZwceL08YmOXj4WHVmN3h6C4Yvb7ofZVVsow5wVg9nu8/plip9vaZguJqaI90
-	Qn3Mrf/Aino+2bSXY46Q0sxOkdciq7y3M9EuM0V3Kw8KMe1QbutO7qiZBa79xTdlax1mjoowNHHxR
-	BFS5bIaPH4EfLmEZ2BavD2rRKSI3xWAoOiveCD8LEw13oqp71uFkVIXnbANHMV81vw+UsSF89CZmK
-	KYBydp3QQOeiogojcqsq/RNGikOYK9vXKonjUYOhHiXqyCP4RCq2a15PR2pPwHPjwZZab8KSZtRxk
-	I+0//1B9OWc/8GLkWciA==;
+	List-Owner; bh=QHarq8iSKNrH+N37A4LE8uWaaJNGqUSn3edP3k6MOKs=; b=Z7kuiDrNTBcnvF
+	5kVdy3evVC5+PTBFpPc1tV8a6MwMtXBv5+FRQQcPjzWL+h/WRo4CoV5QDVG9uiYZuYmclhEnvX8nK
+	7xvzKTVViUYB0uLo5hhbF+gsMyTYsbcLxCTqUi+WgRdk2k8X2//Jdy7555+BugKPKhOzOHSz9dgXL
+	AYOvhhKKF6Gj9OIFOGnXT52RV/CBdPIbxoDRTrAnI7GHLPRiUlYMz1ZxNFRqxKMEPeZ1Yow9dGO0t
+	W3appS0roVr5mpUmGFxrB+cSKj5wkFwlRsrEH+ITCq3WnFwtavUyJBOuNXUdxiaeqSQ7R0D1XdL4L
+	+/b3ZoNALAmsmKVWg7AQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h7NYh-0003OX-DQ; Fri, 22 Mar 2019 17:02:19 +0000
-Received: from mail-lf1-x143.google.com ([2a00:1450:4864:20::143])
+	id 1h7Ndl-0005OU-Jx; Fri, 22 Mar 2019 17:07:33 +0000
+Received: from mail-lj1-x241.google.com ([2a00:1450:4864:20::241])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h7NYd-0003No-PJ
- for linux-riscv@lists.infradead.org; Fri, 22 Mar 2019 17:02:17 +0000
-Received: by mail-lf1-x143.google.com with SMTP id 5so1857769lft.12
- for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 10:02:14 -0700 (PDT)
+ id 1h7Ndd-0005Fa-Ho
+ for linux-riscv@lists.infradead.org; Fri, 22 Mar 2019 17:07:26 +0000
+Received: by mail-lj1-x241.google.com with SMTP id q66so2672126ljq.7
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 10:07:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=linux-foundation.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=vz3qEaERAPywi/7ygEvysJD/ZMRj5JWoH5GTAfYhS9M=;
- b=EQb0PJgIUrxIFWDmv2d+roZcOdf47m4oWDh2aF9nqiM4xcdszNPdjlEZ6XBCZ7EETk
- 1IfpVzYln8LpimAQjhRDAkW3OaV5XXtB4BOqOTWHoOqa+CwXq49WMc62V63vMcFKOgKB
- AUA6dt7kp1lq7E8yacEVhDOuhsd4cjNkTZNrI=
+ :cc; bh=K5KpCUavpU6jklxItqvKr4mbyrohs/asqf5NX0BYYpc=;
+ b=Xicmuh1ND+AZ9lc/udGkNvWbzi2Lu2j3o6M44sYQ0ZH2WsGeVBgW5f2xPJwNTxlY2d
+ JaSMsr2SEVdWRDbZBYCXJ0vB1W1wIN3vVWqOMIiqWhD3oBYZFF9I7ROZZs9bJvkPzu9N
+ HN8UN8zBc9zkjew06tZVB45+s5iWpvEon1EZk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=vz3qEaERAPywi/7ygEvysJD/ZMRj5JWoH5GTAfYhS9M=;
- b=e5ZM8zcnjCZnqbFLS5+rx3bccINr0c3Tcz6OyqkVdC2aOCKKZI285dexGDnFwf+6oS
- fj9HtDI/Z75ALYqImBngt4Sohh1gRAq8kPhdLbwyoiYrAvjbrG1lWupm1f00yKd8HO3e
- 27+wajG2ACxxKGidVCQ+DFI6l9AV84LTs7/30OEuRDP6B5gQG83QtaSGAcUfrO653/mq
- HAhpZK+UuHcKJciHj9WAtIKPlsl3b+zfyX1TZA34QM5vOW0kBPcmHisHl9IY/dl0Sn4Y
- thkbYvqIEnfb2RoJSqn+bVy4G/0GKF/++AwewFdMYmw8CuJQvVst8OE2IgVJITKkhCEp
- YF5Q==
-X-Gm-Message-State: APjAAAWVwA6k6sFTZP5YMuSdA28X+4qAZL1mkBtZglVnUE53l2C7fm5u
- 9bwVGhCs4MD8dPiBX9ud97BzX7M3wJ0=
-X-Google-Smtp-Source: APXvYqwr3F47CUWXdnBA1goCJJsFWBKIYrsUfuDlhf44vySJY2ua5BPnfhEPbKdW7lNKSjp7NQHVrA==
-X-Received: by 2002:ac2:5921:: with SMTP id v1mr5822997lfi.135.1553274131712; 
- Fri, 22 Mar 2019 10:02:11 -0700 (PDT)
-Received: from mail-lj1-f173.google.com (mail-lj1-f173.google.com.
- [209.85.208.173])
- by smtp.gmail.com with ESMTPSA id b26sm1774999lfa.47.2019.03.22.10.02.10
+ bh=K5KpCUavpU6jklxItqvKr4mbyrohs/asqf5NX0BYYpc=;
+ b=IOWWYObJPzcl0vCAcZy3QtyF9vq1uPd3CreXBVDcv0E5MnC2dMmYZKXwwJuUhvsUgC
+ Tp91eYwxI6Z4YwJFpCwccINrym4gpMnHVhGP/icNOhYyZz1/CutSmOxvyo+VXdbXw01j
+ uRG3SXhKaH6SB7fYzT1kI7GjH/xmJ/7T10IJ5tIcZTruXSSEFUQ7+GlEQIgdA+hbfLNW
+ PXPQF00BCcoAJ9ed2NJS/cuQ3l2YBxTvUdrYC66yVJSFZepu6vABaulHOKuGi0tr9FMh
+ joCkwBA7zR+buFFL2ABZkeENSWwtleAs1dUh4AnT25wflxpi9eOdSSZVTwg03neqUuzc
+ dnBw==
+X-Gm-Message-State: APjAAAWW3ZYP3U97ExZ4BmUQZsGP6l6FwjKJC0VX1yVrxuQ9cvtF7Y3T
+ zYHTP+VTX28pA9lPCrhZfRoZRFkSBGA=
+X-Google-Smtp-Source: APXvYqw1gq5q9SfVcJXbCd91FSIZnz7MBwgm5M/a8oWj/ZHbTqs0bnzVUMsa4BL1FNlqLMFqTbqJAQ==
+X-Received: by 2002:a2e:711a:: with SMTP id m26mr6059034ljc.40.1553274443174; 
+ Fri, 22 Mar 2019 10:07:23 -0700 (PDT)
+Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com.
+ [209.85.208.171])
+ by smtp.gmail.com with ESMTPSA id v12sm1790456lfd.20.2019.03.22.10.07.20
  for <linux-riscv@lists.infradead.org>
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 22 Mar 2019 10:02:10 -0700 (PDT)
-Received: by mail-lj1-f173.google.com with SMTP id j89so2673155ljb.1
- for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 10:02:10 -0700 (PDT)
-X-Received: by 2002:a2e:94ca:: with SMTP id r10mr5731037ljh.118.1553274129929; 
- Fri, 22 Mar 2019 10:02:09 -0700 (PDT)
+ Fri, 22 Mar 2019 10:07:21 -0700 (PDT)
+Received: by mail-lj1-f171.google.com with SMTP id y6so2640435ljd.12
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 10:07:20 -0700 (PDT)
+X-Received: by 2002:a2e:9786:: with SMTP id y6mr5380150lji.79.1553274440270;
+ Fri, 22 Mar 2019 10:07:20 -0700 (PDT)
 MIME-Version: 1.0
 References: <20190322143008.21313-1-longman@redhat.com>
- <20190322143008.21313-2-longman@redhat.com>
-In-Reply-To: <20190322143008.21313-2-longman@redhat.com>
+ <20190322143008.21313-3-longman@redhat.com>
+In-Reply-To: <20190322143008.21313-3-longman@redhat.com>
 From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Fri, 22 Mar 2019 10:01:53 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wikkO-1f1=FEOEzkSnaDg3yJLP=4Vd59UCuLBztFd0KOw@mail.gmail.com>
-Message-ID: <CAHk-=wikkO-1f1=FEOEzkSnaDg3yJLP=4Vd59UCuLBztFd0KOw@mail.gmail.com>
-Subject: Re: [PATCH v5 1/3] locking/rwsem: Remove arch specific rwsem files
+Date: Fri, 22 Mar 2019 10:07:04 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wjujKK-Ey7DPnMExaEmphicuEDLmVn-9+W9VzFzR-Ts=A@mail.gmail.com>
+Message-ID: <CAHk-=wjujKK-Ey7DPnMExaEmphicuEDLmVn-9+W9VzFzR-Ts=A@mail.gmail.com>
+Subject: Re: [PATCH v5 2/3] locking/rwsem: Remove rwsem-spinlock.c & use
+ rwsem-xadd.c for all archs
 To: Waiman Long <longman@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190322_100215_847848_15335498 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20190322_100725_587048_CF1E1319 
+X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -122,71 +124,12 @@ Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.i
 
 On Fri, Mar 22, 2019 at 7:30 AM Waiman Long <longman@redhat.com> wrote:
 >
->  19 files changed, 133 insertions(+), 930 deletions(-)
+> For simplication, we are going to remove rwsem-spinlock.c and make all
+> architectures use a single implementation of rwsem - rwsem-xadd.c.
 
-Lovely. And it all looks sane to me.
+Ack.
 
-So ack.
-
-The only comment I have is about __down_read_trylock(), which probably
-isn't critical enough to actually care about, but:
-
-> +static inline int __down_read_trylock(struct rw_semaphore *sem)
-> +{
-> +       long tmp;
-> +
-> +       while ((tmp = atomic_long_read(&sem->count)) >= 0) {
-> +               if (tmp == atomic_long_cmpxchg_acquire(&sem->count, tmp,
-> +                                  tmp + RWSEM_ACTIVE_READ_BIAS)) {
-> +                       return 1;
-> +               }
-> +       }
-> +       return 0;
-> +}
-
-So this seems to
-
- (a) read the line early (the whole cacheline in shared state issue)
-
- (b) read the line again unnecessarily in the while loop
-
-Now, (a) might be explained by "well, maybe we do trylock even with
-existing readers", although I continue to think that the case we
-should optimize for is simply the uncontended one, where we don't even
-have multiple readers.
-
-But (b) just seems silly.
-
-So I wonder if it shouldn't just be
-
-        long tmp = 0;
-
-        do {
-                long new = atomic_long_cmpxchg_acquire(&sem->count, tmp,
-                        tmp + RWSEM_ACTIVE_READ_BIAS);
-                if (likely(new == tmp))
-                        return 1;
-               tmp = new;
-        } while (tmp >= 0);
-        return 0;
-
-which would seem simpler and solve both issues. Hmm?
-
-But honestly, I didn't check what our uses of down_read_trylock() look
-like. We have more of them than I expected, and I _think_ the normal
-case is the "nobody else holds the lock", but that's just a gut
-feeling.
-
-Some of them _might_ be performance-critical. There's the one on
-mmap_sem in the fault handling path, for example. And yes, I'd expect
-the normal case to very much be "no other readers or writers" for that
-one.
-
-NOTE! The above code snippet is absolutely untested, and might be
-completely wrong. Take it as a "something like this" rather than
-anything else.
-
-                   Linus
+               Linus
 
 _______________________________________________
 linux-riscv mailing list
