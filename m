@@ -3,112 +3,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7D523C4360F
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 17:41:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E6E2AC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 17:57:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 522772190A
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 17:41:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BBF632083D
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 17:57:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OayaKZpx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 522772190A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="J7WBE1RZ";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=amazonses.com header.i=@amazonses.com header.b="VNCrfHoM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BBF632083D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sdViddMLAjx3Ou1eElzqvy30mp1F44uE+vg9cGnAPrQ=; b=OayaKZpxQrIDJm
-	0rOm5ZNlU4EANw5pKmqpej1VEkQ1HTShiy6dfYsiOhF2VdhbpktM5wdh/r/rPGCCrVFeD3uU3bnAG
-	MU30les42HBDJXeG61JNvOuIdheFn9pf3J06y/Y1hJXlkO1kWlW+T8K9o0mGH0avsO8HHgHHI2V3O
-	xdPAo0GKqxxFW0GwdzobMKQE8wmmX+MjrE5wPpCOQbIDC3MqQDryWLOM6LfSabFW07oX77ekpt6u8
-	zw3hepJD8E4jXHaYWyxJxCjTtNLcu8yZ3WaEHrOrcLqSn3fEJxBhoe0BLAMIPa0DntBbhvPNEypIO
-	ynNNf0P2wJl57+Rrm5ug==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yIuf/GabuGWy58vcBUrBE8JBfAbEPFLy1eOxCjO02/c=; b=J7WBE1RZH9qI0w
+	KO79VTzQGPFbl5QhfsV1/xjsSLm88vt4bDLCimzWzCoPcOQYMvAL1kxnNT3h1bEBseaCgzjUZtm48
+	sQMCKODcQ7lMAFAcjtUYHQMvVTOp7qeCwXooZO6ORoEE4TFDSv8pNupjHPKcdu9rge3kM1+ImT2F6
+	dC1KHxLsy7PYOcOec5mSCG/WD5ZLmaV/lk1IpGFGbAK8G9dNOWE03p77HwiEX+65UVrLIspIZ5C/k
+	Y8bvPNeG6QdcwfRKpaPGNx5bpjtQXEuWKK8AzStBzOQAxoEXbZgk42JPptQSwHMEllv3ghjXV3ZyY
+	jPUEWuUNZtQmsysebPMA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h7OAh-0003WY-Ip; Fri, 22 Mar 2019 17:41:35 +0000
-Received: from mx1.redhat.com ([209.132.183.28])
+	id 1h7OQF-0001Ih-2C; Fri, 22 Mar 2019 17:57:39 +0000
+Received: from a9-35.smtp-out.amazonses.com ([54.240.9.35])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h7OAY-0003Pb-W4; Fri, 22 Mar 2019 17:41:28 +0000
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
- [10.5.11.22])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id AE834882FF;
- Fri, 22 Mar 2019 17:41:25 +0000 (UTC)
-Received: from llong.remote.csb (dhcp-17-47.bos.redhat.com [10.18.17.47])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 86E1A1001E6F;
- Fri, 22 Mar 2019 17:41:06 +0000 (UTC)
-Subject: Re: [PATCH v5 3/3] locking/rwsem: Optimize down_read_trylock()
-To: Russell King - ARM Linux admin <linux@armlinux.org.uk>
-References: <20190322143008.21313-1-longman@redhat.com>
- <20190322143008.21313-4-longman@redhat.com>
- <20190322172501.3nbjw6e2wqsaisgw@shell.armlinux.org.uk>
-From: Waiman Long <longman@redhat.com>
-Openpgp: preference=signencrypt
-Autocrypt: addr=longman@redhat.com; prefer-encrypt=mutual; keydata=
- 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
- weim8xU=
-Organization: Red Hat
-Message-ID: <27c2fb96-daa4-ba2c-da06-e559dc5b693e@redhat.com>
-Date: Fri, 22 Mar 2019 13:41:05 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.9.1
+ id 1h7OQ6-0001Bu-JQ; Fri, 22 Mar 2019 17:57:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+ s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1553277446;
+ h=Date:From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type:Feedback-ID;
+ bh=GouClBECLF+w+1HvqycKZrpAxUSsAMpAs6Lksc3P9O4=;
+ b=VNCrfHoMDWPoL88ZDaTw1dPUwRg3YTdkcF2jkdtyeC51KQ5zlWRrBrCQI20zIfNq
+ wheFAy8Op2jv68plbB9LWGiWzegW99u595MzmInaw6Q+YbqeExzr5RhzhlJJvM6gGWn
+ kAlj4nmk9tYe++BGH0KFSRNNRM9iwewSrTJW8VsE=
+Date: Fri, 22 Mar 2019 17:57:26 +0000
+From: Christopher Lameter <cl@linux.com>
+X-X-Sender: cl@nuc-kabylake
+To: Nick Kossifidis <mick@ics.forth.gr>
+Subject: Re: per-cpu thoughts
+In-Reply-To: <06e2cd9f9dbaf01fec2f910ebb402c2d@mailhost.ics.forth.gr>
+Message-ID: <01000169a68cea72-85bd9098-c9c7-4003-a0d9-3bf70964f098-000000@email.amazonses.com>
+References: <CAJ+HfNgSx49dRXDdJGovb=auAjSB703bN9tULjibW1OKHuHcPg@mail.gmail.com>
+ <mhng-79f13983-1ea9-4f9a-949a-87dac2060f42@palmer-si-x1c4>
+ <CAJ+HfNhmUdz4y81VNnTOsvyvSNw3i3E=qR+F0Qa7XThSOAiJ1A@mail.gmail.com>
+ <010001696d414b3a-d35fa0a2-01fa-4e8c-be57-ff703610755a-000000@email.amazonses.com>
+ <CAJ+HfNh6bc1A8vskxqJ9CP11aPdTgrPS2SOgLGXMLyefogFLtw@mail.gmail.com>
+ <alpine.DEB.2.21.9999.1903110814130.11892@viisi.sifive.com>
+ <06e2cd9f9dbaf01fec2f910ebb402c2d@mailhost.ics.forth.gr>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
-In-Reply-To: <20190322172501.3nbjw6e2wqsaisgw@shell.armlinux.org.uk>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.28]); Fri, 22 Mar 2019 17:41:26 +0000 (UTC)
+X-SES-Outgoing: 2019.03.22-54.240.9.35
+Feedback-ID: 1.us-east-1.fQZZZ0Xtj2+TD7V5apTT/NrT6QKuPgzCT/IC7XYgDKI=:AmazonSES
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190322_104127_081600_20E32495 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20190322_105730_711721_CB5EEC61 
+X-CRM114-Status: UNSURE (   6.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -120,105 +77,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>, Will Deacon <will.deacon@arm.com>,
- linux-kernel@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
- Davidlohr Bueso <dave@stgolabs.net>, linux-c6x-dev@linux-c6x.org,
- linux-hexagon@vger.kernel.org, x86@kernel.org, Ingo Molnar <mingo@redhat.com>,
- uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
- Arnd Bergmann <arnd@arndb.de>, linux-um@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-m68k@lists.linux-m68k.org,
- openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- linux-parisc@vger.kernel.org, Linus Torvalds <torvalds@linux-foundation.org>,
- linux-mips@vger.kernel.org, linux-alpha@vger.kernel.org,
- nios2-dev@lists.rocketboards.org, Andrew Morton <akpm@linux-foundation.org>,
- Tim Chen <tim.c.chen@linux.intel.com>
+Cc: Paul Walmsley <paul@pwsan.com>, catalin.marinas@arm.com,
+ =?ISO-8859-15?Q?Bj=F6rn_T=F6pel?= <bjorn.topel@gmail.com>,
+ Palmer Dabbelt <palmer@sifive.com>, will.deacon@arm.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03/22/2019 01:25 PM, Russell King - ARM Linux admin wrote:
-> On Fri, Mar 22, 2019 at 10:30:08AM -0400, Waiman Long wrote:
->> Modify __down_read_trylock() to optimize for an unlocked rwsem and make
->> it generate slightly better code.
->>
->> Before this patch, down_read_trylock:
->>
->>    0x0000000000000000 <+0>:     callq  0x5 <down_read_trylock+5>
->>    0x0000000000000005 <+5>:     jmp    0x18 <down_read_trylock+24>
->>    0x0000000000000007 <+7>:     lea    0x1(%rdx),%rcx
->>    0x000000000000000b <+11>:    mov    %rdx,%rax
->>    0x000000000000000e <+14>:    lock cmpxchg %rcx,(%rdi)
->>    0x0000000000000013 <+19>:    cmp    %rax,%rdx
->>    0x0000000000000016 <+22>:    je     0x23 <down_read_trylock+35>
->>    0x0000000000000018 <+24>:    mov    (%rdi),%rdx
->>    0x000000000000001b <+27>:    test   %rdx,%rdx
->>    0x000000000000001e <+30>:    jns    0x7 <down_read_trylock+7>
->>    0x0000000000000020 <+32>:    xor    %eax,%eax
->>    0x0000000000000022 <+34>:    retq
->>    0x0000000000000023 <+35>:    mov    %gs:0x0,%rax
->>    0x000000000000002c <+44>:    or     $0x3,%rax
->>    0x0000000000000030 <+48>:    mov    %rax,0x20(%rdi)
->>    0x0000000000000034 <+52>:    mov    $0x1,%eax
->>    0x0000000000000039 <+57>:    retq
->>
->> After patch, down_read_trylock:
->>
->>    0x0000000000000000 <+0>:	callq  0x5 <down_read_trylock+5>
->>    0x0000000000000005 <+5>:	xor    %eax,%eax
->>    0x0000000000000007 <+7>:	lea    0x1(%rax),%rdx
->>    0x000000000000000b <+11>:	lock cmpxchg %rdx,(%rdi)
->>    0x0000000000000010 <+16>:	jne    0x29 <down_read_trylock+41>
->>    0x0000000000000012 <+18>:	mov    %gs:0x0,%rax
->>    0x000000000000001b <+27>:	or     $0x3,%rax
->>    0x000000000000001f <+31>:	mov    %rax,0x20(%rdi)
->>    0x0000000000000023 <+35>:	mov    $0x1,%eax
->>    0x0000000000000028 <+40>:	retq
->>    0x0000000000000029 <+41>:	test   %rax,%rax
->>    0x000000000000002c <+44>:	jns    0x7 <down_read_trylock+7>
->>    0x000000000000002e <+46>:	xor    %eax,%eax
->>    0x0000000000000030 <+48>:	retq
->>
->> By using a rwsem microbenchmark, the down_read_trylock() rate (with a
->> load of 10 to lengthen the lock critical section) on a x86-64 system
->> before and after the patch were:
->>
->>                  Before Patch    After Patch
->>    # of Threads     rlock           rlock
->>    ------------     -----           -----
->>         1           14,496          14,716
->>         2            8,644           8,453
->> 	4            6,799           6,983
->> 	8            5,664           7,190
->>
->> On a ARM64 system, the performance results were:
->>
->>                  Before Patch    After Patch
->>    # of Threads     rlock           rlock
->>    ------------     -----           -----
->>         1           23,676          24,488
->>         2            7,697           9,502
->>         4            4,945           3,440
->>         8            2,641           1,603
->>
->> For the uncontended case (1 thread), the new down_read_trylock() is a
->> little bit faster. For the contended cases, the new down_read_trylock()
->> perform pretty well in x86-64, but performance degrades at high
->> contention level on ARM64.
-> So, 70% for 4 threads, 61% for 4 threads - does this trend
-> continue tailing off as the number of threads (and cores)
-> increase?
->
-I didn't try higher number of contending threads. I won't worry too much
-about contention as trylock is a one-off event. The chance of having
-more than one trylock happening simultaneously is very small.
+On Fri, 22 Mar 2019, Nick Kossifidis wrote:
 
-Cheers,
-Longman
+> But keep in mind that 'irqs disabled' is a fundamentally unsafe way of
+> disabling preemption - any cond_resched() or cond_resched_lock() might trigger
+> a reschedule if the preempt count is 0. A simple printk() might trigger a
+> reschedule. So use this implicit preemption-disabling property only if you
+> know that the affected codepath does not do any of this. Best policy is to use
+> this only for small, atomic code that you wrote and which calls no complex
+> functions."
+
+Really? Preemption tracks hardirq status if you use the kernel provided
+way to disabling and enabling interrupts. See
+
+linux/include/preempt.h:
+
+/*
+ * We put the hardirq and softirq counter into the preemption
+ * counter. The bitmask has the following meaning:
+ *
+ * - bits 0-7 are the preemption count (max preemption depth: 256)
+ * - bits 8-15 are the softirq count (max # of softirqs: 256)
+ *
+ * The hardirq count could in theory be the same as the number of
+ * interrupts in the system, but we run all interrupt handlers with
+ * interrupts disabled, so we cannot have nesting interrupts. Though
+ * there are a few palaeontologic drivers which reenable interrupts in
+ * the handler, so we need more than one bit here.
+ *
+ *         PREEMPT_MASK:        0x000000ff
+ *         SOFTIRQ_MASK:        0x0000ff00
+ *         HARDIRQ_MASK:        0x000f0000
+ *             NMI_MASK:        0x00100000
+ * PREEMPT_NEED_RESCHED:        0x80000000
+ */
+#define PREEMPT_BITS    8
+#define SOFTIRQ_BITS    8
+#define HARDIRQ_BITS    4
+#define NMI_BITS        1
 
 
 _______________________________________________
