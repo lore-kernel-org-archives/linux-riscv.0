@@ -3,20 +3,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 25694C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 17:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 180B3C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 17:14:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E453A2190A
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 17:07:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DA8B721900
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 17:14:46 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Z7kuiDrN";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.b="Xicmuh1N"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E453A2190A
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OcrcqO5Q";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.b="IuhoI3hZ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA8B721900
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,68 +25,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QHarq8iSKNrH+N37A4LE8uWaaJNGqUSn3edP3k6MOKs=; b=Z7kuiDrNTBcnvF
-	5kVdy3evVC5+PTBFpPc1tV8a6MwMtXBv5+FRQQcPjzWL+h/WRo4CoV5QDVG9uiYZuYmclhEnvX8nK
-	7xvzKTVViUYB0uLo5hhbF+gsMyTYsbcLxCTqUi+WgRdk2k8X2//Jdy7555+BugKPKhOzOHSz9dgXL
-	AYOvhhKKF6Gj9OIFOGnXT52RV/CBdPIbxoDRTrAnI7GHLPRiUlYMz1ZxNFRqxKMEPeZ1Yow9dGO0t
-	W3appS0roVr5mpUmGFxrB+cSKj5wkFwlRsrEH+ITCq3WnFwtavUyJBOuNXUdxiaeqSQ7R0D1XdL4L
-	+/b3ZoNALAmsmKVWg7AQ==;
+	List-Owner; bh=LOM5uGdSngDDgHm62DaUZkgZIvf1agcd/izo+oyzpOc=; b=OcrcqO5QUe+0hv
+	TTyfDazQKgHrjUAly+9RhJVMOvWQSxrXuFYCPZ5ZNb+JfjHVYSiRrN9KkzawQdxz7IDbqoW41NweQ
+	WMZBc+fS7mk4h07z+juF5oAl4em414s+/ZEO4/PQ452iVjIpf3sCX8ychhYuT6k2H3x1T+Tb+wbpU
+	+0mk+rSCA75s+Z5RAlflBnxoSmHV03YLQZ14Kh29pfR6oU37NddoCdqCZBwlWncS4VoN/gPzGtqEU
+	Npot7fgT//xeanrTIJbotrLhfa1eeVOIOizYAHgUY6zsC7hUFoE4KuF3OiB4JAQIdYLt8NHZ+p84h
+	1zhbdaFsBcfnxxRET+IA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h7Ndl-0005OU-Jx; Fri, 22 Mar 2019 17:07:33 +0000
+	id 1h7Nkg-0000DZ-Ju; Fri, 22 Mar 2019 17:14:42 +0000
 Received: from mail-lj1-x241.google.com ([2a00:1450:4864:20::241])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h7Ndd-0005Fa-Ho
- for linux-riscv@lists.infradead.org; Fri, 22 Mar 2019 17:07:26 +0000
-Received: by mail-lj1-x241.google.com with SMTP id q66so2672126ljq.7
- for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 10:07:25 -0700 (PDT)
+ id 1h7Nkc-0000Cm-83
+ for linux-riscv@lists.infradead.org; Fri, 22 Mar 2019 17:14:40 +0000
+Received: by mail-lj1-x241.google.com with SMTP id l7so2683098ljg.6
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 10:14:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=linux-foundation.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=K5KpCUavpU6jklxItqvKr4mbyrohs/asqf5NX0BYYpc=;
- b=Xicmuh1ND+AZ9lc/udGkNvWbzi2Lu2j3o6M44sYQ0ZH2WsGeVBgW5f2xPJwNTxlY2d
- JaSMsr2SEVdWRDbZBYCXJ0vB1W1wIN3vVWqOMIiqWhD3oBYZFF9I7ROZZs9bJvkPzu9N
- HN8UN8zBc9zkjew06tZVB45+s5iWpvEon1EZk=
+ :cc; bh=syf5FC/PD4cN6FgIJM2ms3RJG343jtrhSP64Oe75Sac=;
+ b=IuhoI3hZaIxE4YvOC0/zFIRPXbZPqr4mch9fB87bJI50v/CesoGw5jPm0Ymj36S+8D
+ SIzDojt4m/q1uwaK9P5Is2rLt7NY0cQwo3oRCrDKYwFF22+ZwEkj5rWc3XCpMkx/lh21
+ i/oyaRFuahvewUzvmGuDcKpmqMK2Pff6AsG6Q=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=K5KpCUavpU6jklxItqvKr4mbyrohs/asqf5NX0BYYpc=;
- b=IOWWYObJPzcl0vCAcZy3QtyF9vq1uPd3CreXBVDcv0E5MnC2dMmYZKXwwJuUhvsUgC
- Tp91eYwxI6Z4YwJFpCwccINrym4gpMnHVhGP/icNOhYyZz1/CutSmOxvyo+VXdbXw01j
- uRG3SXhKaH6SB7fYzT1kI7GjH/xmJ/7T10IJ5tIcZTruXSSEFUQ7+GlEQIgdA+hbfLNW
- PXPQF00BCcoAJ9ed2NJS/cuQ3l2YBxTvUdrYC66yVJSFZepu6vABaulHOKuGi0tr9FMh
- joCkwBA7zR+buFFL2ABZkeENSWwtleAs1dUh4AnT25wflxpi9eOdSSZVTwg03neqUuzc
- dnBw==
-X-Gm-Message-State: APjAAAWW3ZYP3U97ExZ4BmUQZsGP6l6FwjKJC0VX1yVrxuQ9cvtF7Y3T
- zYHTP+VTX28pA9lPCrhZfRoZRFkSBGA=
-X-Google-Smtp-Source: APXvYqw1gq5q9SfVcJXbCd91FSIZnz7MBwgm5M/a8oWj/ZHbTqs0bnzVUMsa4BL1FNlqLMFqTbqJAQ==
-X-Received: by 2002:a2e:711a:: with SMTP id m26mr6059034ljc.40.1553274443174; 
- Fri, 22 Mar 2019 10:07:23 -0700 (PDT)
-Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com.
- [209.85.208.171])
- by smtp.gmail.com with ESMTPSA id v12sm1790456lfd.20.2019.03.22.10.07.20
+ bh=syf5FC/PD4cN6FgIJM2ms3RJG343jtrhSP64Oe75Sac=;
+ b=Tj1PLm4QzCVD0b2FX2ehOlUOgh6NHU8Gc+Iu7cnPWgWdIBBEZouhYQJCEUlCfZzQzk
+ tGsxmW42FuKrjcXPX+MnM1QZAsKZirx4tcHnppBawVRYSMaJeBJzoLFYUJ8cQQnVhflL
+ eiB/utKzxLTQvat/Zn4sKZ0WN/Ou4qy9+Hr2sO1PCPkjI+oJYSGXRgGmXDLR9YYeZgOD
+ SUe+Yb6JhLDYwiT3aGSRQ9ULer5HODRGZTNE6zpL20zVtx/5Czzpg5/5tsFPR3XQMnKx
+ /ss976k3iVbvju/Tz5rHxurpjzH0OTeCJKYv9c2nYrZ1Oiw2SgF1XF9O4C0TQRtdXcDk
+ leqQ==
+X-Gm-Message-State: APjAAAU2ZuZjAwWOe/gitKY6Qn0TYW70ZxZjCkmSqM1MdpWCW6sA9/4k
+ 2+XUpIip6Jgtz1+jrNsFElnFre+fyXU=
+X-Google-Smtp-Source: APXvYqxMi9MRvGJfWmje8IkELYp2Pogh7unXjtedGZpR8sVlKhy8pTKwQrWtk8RHaTkRGjRFlN6xwA==
+X-Received: by 2002:a2e:9e0b:: with SMTP id e11mr5657878ljk.4.1553274875865;
+ Fri, 22 Mar 2019 10:14:35 -0700 (PDT)
+Received: from mail-lj1-f172.google.com (mail-lj1-f172.google.com.
+ [209.85.208.172])
+ by smtp.gmail.com with ESMTPSA id d17sm1746084ljl.89.2019.03.22.10.14.35
  for <linux-riscv@lists.infradead.org>
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 22 Mar 2019 10:07:21 -0700 (PDT)
-Received: by mail-lj1-f171.google.com with SMTP id y6so2640435ljd.12
- for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 10:07:20 -0700 (PDT)
-X-Received: by 2002:a2e:9786:: with SMTP id y6mr5380150lji.79.1553274440270;
- Fri, 22 Mar 2019 10:07:20 -0700 (PDT)
+ Fri, 22 Mar 2019 10:14:35 -0700 (PDT)
+Received: by mail-lj1-f172.google.com with SMTP id r24so1637593ljg.3
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 10:14:35 -0700 (PDT)
+X-Received: by 2002:a2e:86ca:: with SMTP id n10mr5880284ljj.135.1553274524897; 
+ Fri, 22 Mar 2019 10:08:44 -0700 (PDT)
 MIME-Version: 1.0
 References: <20190322143008.21313-1-longman@redhat.com>
- <20190322143008.21313-3-longman@redhat.com>
-In-Reply-To: <20190322143008.21313-3-longman@redhat.com>
+ <20190322143008.21313-4-longman@redhat.com>
+In-Reply-To: <20190322143008.21313-4-longman@redhat.com>
 From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Fri, 22 Mar 2019 10:07:04 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wjujKK-Ey7DPnMExaEmphicuEDLmVn-9+W9VzFzR-Ts=A@mail.gmail.com>
-Message-ID: <CAHk-=wjujKK-Ey7DPnMExaEmphicuEDLmVn-9+W9VzFzR-Ts=A@mail.gmail.com>
-Subject: Re: [PATCH v5 2/3] locking/rwsem: Remove rwsem-spinlock.c & use
- rwsem-xadd.c for all archs
+Date: Fri, 22 Mar 2019 10:08:29 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wi0wwmY-waC1-2SmBz4-XK-Eru2RTx6PrGzUK=P1nwexQ@mail.gmail.com>
+Message-ID: <CAHk-=wi0wwmY-waC1-2SmBz4-XK-Eru2RTx6PrGzUK=P1nwexQ@mail.gmail.com>
+Subject: Re: [PATCH v5 3/3] locking/rwsem: Optimize down_read_trylock()
 To: Waiman Long <longman@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190322_100725_587048_CF1E1319 
-X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-CacheID: sfid-20190322_101438_283552_C6C4E89F 
+X-CRM114-Status: UNSURE (   7.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -124,12 +123,15 @@ Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.i
 
 On Fri, Mar 22, 2019 at 7:30 AM Waiman Long <longman@redhat.com> wrote:
 >
-> For simplication, we are going to remove rwsem-spinlock.c and make all
-> architectures use a single implementation of rwsem - rwsem-xadd.c.
+> Modify __down_read_trylock() to optimize for an unlocked rwsem and make
+> it generate slightly better code.
 
-Ack.
+Oh, that should teach me to read all patches in the series before
+starting to comment on them.
 
-               Linus
+So ignore my comment on #1.
+
+                Linus
 
 _______________________________________________
 linux-riscv mailing list
