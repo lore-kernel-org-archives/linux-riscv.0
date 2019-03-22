@@ -4,82 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 152C0C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 13:45:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 51186C10F03
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 14:30:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D53DB2175B
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 13:45:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2246E218E2
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 14:30:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dVrxt+MG";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Eidwy+tK"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D53DB2175B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GPmkd01r"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2246E218E2
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p6rHBL5hqIW+jpdfbCn1YpIbQJqe4sVjQKwVwio1lHI=; b=dVrxt+MGkotAcY
-	urKvbEEMwl6M8Zy3m2Gllj4oNxzoQcsMzGOSCcTwRTL2Y/xGb3/f7KA0sZ8TnSTh/6xTwL3jFTjVq
-	BacCScGVeUwZdl820xvyJ8RncmGzsoBbJwYPxlvD1lVWFJwolDtdvbhwWAcebtPbJy3iiITXS3+n0
-	4C1KJsQfzMhhWNulwVkXBe0xJrraibFuqUPkWOAPBIQ6wcv4XEekLRVEyyiiwmPwgKeKv4plAAx3s
-	o63LaojIB2CsBpSMZW3ddc8PoTh9aALjItYMkljdTidaDLHgH9CozPF/S/K1hUAyzuUYfVtkkoLNp
-	C/+jhtiWR5wefLfEK8/g==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=FaCxXro4IyIukPmztZXxZ5f/HTOuZjXkm4OkhXyfYDo=; b=GPm
+	kd01rDpZNoc+pXQenTf4okvhrx7N24FWFJ6+wYw6ZumJIqdDw7aIhDd0UiveNjMQXxekgvfx5OsNE
+	YdUT2st0rWHV6AFwhTe/x+PNryfxoI+EVvHM+ZrLTdpxMG1Wg8duNhH1pzMDEPnFSw3G/cUvyvehS
+	Y9N/gdjnPXQTRyqj7epXOYuV6GVGjPpUqt3SICQTGOmKjPN7kKqPSHGrwPx6jZi4CrFF3WsDXo7eh
+	Z6met7ClDl6PmxeVPYZfqdW0Lx4SOvRNYvVZ4nEMCksrtISo7MBPLAqEn12prqOZc1gfOyCOyc8P5
+	F2DVJUMM+p94rYUa7x0QcqmePFT53cQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h7KUc-0001Z6-Qx; Fri, 22 Mar 2019 13:45:54 +0000
-Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
+	id 1h7LBp-0002qm-HR; Fri, 22 Mar 2019 14:30:33 +0000
+Received: from mx1.redhat.com ([209.132.183.28])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h7KUY-0001Ya-U8
- for linux-riscv@lists.infradead.org; Fri, 22 Mar 2019 13:45:53 +0000
-Received: by mail-wm1-x344.google.com with SMTP id q16so2228502wmj.3
- for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 06:45:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=oevSDOqGWXPPasn926HQNEciUZ0OqTSLjWI6HnWTWjI=;
- b=Eidwy+tKkDdlCK+NM/TAb4UCVCrqGCl2eq0PBQhZB/NLh3rf7kgbVEh3EtNX848qlp
- ovgwDx//l/e2+K0RbK1ehyhD/HIx47zVtcVY4WtbDk4E352lpWrQ65b97x63k1Flop5h
- jqnJAc2C59OKwuTUMUP1rTyr8QE9kJqcmeDVArtDcD2MXHDg/tLYhP7e1bNqH1ZXdo42
- Gvy2no3INWL5B0ZojJRs3WnRvW5ZDj48oglqCL9Z2BtR4PLrSkshoyc5PUaYE7Uo5BfP
- rj4nuuRDI+P04EXArJzdG9Su8JvozFNeHYtFswZiXZY9i5JVidJqlAOtoo4LOJedCO5U
- mx/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=oevSDOqGWXPPasn926HQNEciUZ0OqTSLjWI6HnWTWjI=;
- b=XM2hprW5bH2XJBujzB2lINtk4Up5/p6/+wDUYfcrl/jUnYPsVkgFwqBVv3koxFIXts
- 7ZX2G512oYCg5xP+VKNRjh1jVzM7Za/V0TwsiTCxwrVZXDf7LdVrLcjQPJ1VDiYCuMtM
- uOExYezJjIDxJWkWAE6sn61DYpi50bBmfjl/KTj8xuwMBC0y43jxTu8DYc67ftIce5cX
- OFFL3fUGznx18AUEkUIzoANb6VzVQ4kOY0MY9Rl934CaluCFMd8jH2EVi3UwNz/zCD8t
- IfSFroDoCy6ZnrblgzC6qPeX3DdvYE6xuNdG+eT8DtdljgeSy9vVK+iQj1Iw6KPWCO06
- /orQ==
-X-Gm-Message-State: APjAAAXnD8sRN3SamKGXxbZBY0Pu/2EONPIb6ZqovyHX/npc6WiyWcXi
- iYLNdtWwqq143JtbJkj1DlxNW3vbg/yrfPNEQVF/bQ==
-X-Google-Smtp-Source: APXvYqyD68BSqYRiphJ0mQmR481lY3R4I58+/GUkVHKCkaLjnj1BZHpkkM9cjsx2roIl3CQb6c8vYQpyeEXsxZSnwaI=
-X-Received: by 2002:a1c:9c14:: with SMTP id f20mr3152316wme.16.1553262348645; 
- Fri, 22 Mar 2019 06:45:48 -0700 (PDT)
-MIME-Version: 1.0
-References: <CAAhSdy0mUboGJH_GJbsGFBwcukjttVQcTGfzwkaMFQb9ZVY4Mg@mail.gmail.com>
- <20190322104209.GB24367@rapoport-lnx> <20190322132556.GB19263@infradead.org>
- <CAAhSdy1VS8-3npcZUzjicnKGsjHcc6WH3Co6Hx2=GvttoatWcA@mail.gmail.com>
- <20190322134043.GA18818@infradead.org>
-In-Reply-To: <20190322134043.GA18818@infradead.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 22 Mar 2019 19:15:37 +0530
-Message-ID: <CAAhSdy2qbU1uhnVQvh0C_FOoKDy-Y0ZTUryAKD97xAXXGQSdCA@mail.gmail.com>
-Subject: Re: 32bit kernel is broken for Linux-5.1-rc1 due to GCC cmodel=medlow
-To: Christoph Hellwig <hch@infradead.org>
+ id 1h7LBg-0002hD-Db; Fri, 22 Mar 2019 14:30:25 +0000
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
+ [10.5.11.12])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mx1.redhat.com (Postfix) with ESMTPS id 42AB285363;
+ Fri, 22 Mar 2019 14:30:21 +0000 (UTC)
+Received: from llong.com (dhcp-17-47.bos.redhat.com [10.18.17.47])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 6B62F60BE2;
+ Fri, 22 Mar 2019 14:30:15 +0000 (UTC)
+From: Waiman Long <longman@redhat.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Will Deacon <will.deacon@arm.com>, Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH v5 0/3] locking/rwsem: Rwsem rearchitecture part 0
+Date: Fri, 22 Mar 2019 10:30:05 -0400
+Message-Id: <20190322143008.21313-1-longman@redhat.com>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+ (mx1.redhat.com [10.5.110.25]); Fri, 22 Mar 2019 14:30:22 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190322_064550_969964_D9AFA0A4 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20190322_073024_502157_B3A9067A 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,41 +68,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Damien Le Moal <Damien.LeMoal@wdc.com>, Palmer Dabbelt <palmer@sifive.com>,
- Anup Patel <anup.patel@wdc.com>, Mike Rapoport <rppt@linux.ibm.com>,
- Atish Patra <atish.patra@wdc.com>, linux-riscv@lists.infradead.org
+Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-mips@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
+ Davidlohr Bueso <dave@stgolabs.net>, linux-c6x-dev@linux-c6x.org,
+ linux-hexagon@vger.kernel.org, x86@kernel.org,
+ Waiman Long <longman@redhat.com>, uclinux-h8-devel@lists.sourceforge.jp,
+ linux-xtensa@linux-xtensa.org, Arnd Bergmann <arnd@arndb.de>,
+ linux-um@lists.infradead.org, linux-m68k@lists.linux-m68k.org,
+ openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
+ linux-arm-kernel@lists.infradead.org, Tim Chen <tim.c.chen@linux.intel.com>,
+ linux-parisc@vger.kernel.org, Linus Torvalds <torvalds@linux-foundation.org>,
+ linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+ nios2-dev@lists.rocketboards.org, Andrew Morton <akpm@linux-foundation.org>,
+ linuxppc-dev@lists.ozlabs.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 22, 2019 at 7:10 PM Christoph Hellwig <hch@infradead.org> wrote:
->
-> On Fri, Mar 22, 2019 at 07:07:29PM +0530, Anup Patel wrote:
-> > I think reverting is not right way to go here because there is deeper issue
-> > in using GCC cmodel=medlow with setup_vm() which is called from assembly
-> > with MMU off.
-> >
-> > Even if we keep setup_vm() in kernel/setup.c then still in-future it can break
-> > for 32bit system as more code gets added to kernel/setup.c.
-> >
-> > The setup_vm() should not be sensitive to which source file it is placed in.
-> > The patch which breaks 32bit kernel just moves setup_vm() from
-> > kernel/setup.c to mm/init.c.
->
-> I am not saying the revert is the final solution.  I'm just saying
-> that 5.1-rc is not the place we should be doing the major surgery.
-> Revert fox 5.1, fix for real for 5.2+.
+v5:
+ - Rebase to the latest v5.1 tree and fix conflicts in 
+   arch/{xtensa,s390}/include/asm/Kbuild.
 
-If we revert for time being then even fixmap support has to be
-reverted.
+v4:
+ - Remove rwsem-spinlock.c and make all archs use rwsem-xadd.c.
 
-The patch only updates access to kernel symbols via __load_pa()
-and __load_va(). There is no functional change as such. The patch
-is tested on QEMU/virt 64bit, QEMU/virt 32bit, and SiFive Unleashed.
+v3:
+ - Optimize __down_read_trylock() for the uncontended case as suggested
+   by Linus.
 
-Regards,
-Anup
+v2:
+ - Add patch 2 to optimize __down_read_trylock() as suggested by PeterZ.
+ - Update performance test data in patch 1.
+
+The goal of this patchset is to remove the architecture specific files
+for rwsem-xadd to make it easer to add enhancements in the later rwsem
+patches. It also removes the legacy rwsem-spinlock.c file and make all
+the architectures use one single implementation of rwsem - rwsem-xadd.c.
+
+Waiman Long (3):
+  locking/rwsem: Remove arch specific rwsem files
+  locking/rwsem: Remove rwsem-spinlock.c & use rwsem-xadd.c for all
+    archs
+  locking/rwsem: Optimize down_read_trylock()
+
+ MAINTAINERS                     |   1 -
+ arch/alpha/Kconfig              |   7 -
+ arch/alpha/include/asm/rwsem.h  | 211 --------------------
+ arch/arc/Kconfig                |   3 -
+ arch/arm/Kconfig                |   4 -
+ arch/arm/include/asm/Kbuild     |   1 -
+ arch/arm64/Kconfig              |   3 -
+ arch/arm64/include/asm/Kbuild   |   1 -
+ arch/c6x/Kconfig                |   3 -
+ arch/csky/Kconfig               |   3 -
+ arch/h8300/Kconfig              |   3 -
+ arch/hexagon/Kconfig            |   6 -
+ arch/hexagon/include/asm/Kbuild |   1 -
+ arch/ia64/Kconfig               |   4 -
+ arch/ia64/include/asm/rwsem.h   | 172 ----------------
+ arch/m68k/Kconfig               |   7 -
+ arch/microblaze/Kconfig         |   6 -
+ arch/mips/Kconfig               |   7 -
+ arch/nds32/Kconfig              |   3 -
+ arch/nios2/Kconfig              |   3 -
+ arch/openrisc/Kconfig           |   6 -
+ arch/parisc/Kconfig             |   6 -
+ arch/powerpc/Kconfig            |   7 -
+ arch/powerpc/include/asm/Kbuild |   1 -
+ arch/riscv/Kconfig              |   3 -
+ arch/s390/Kconfig               |   6 -
+ arch/s390/include/asm/Kbuild    |   1 -
+ arch/sh/Kconfig                 |   6 -
+ arch/sh/include/asm/Kbuild      |   1 -
+ arch/sparc/Kconfig              |   8 -
+ arch/sparc/include/asm/Kbuild   |   1 -
+ arch/unicore32/Kconfig          |   6 -
+ arch/x86/Kconfig                |   3 -
+ arch/x86/include/asm/rwsem.h    | 237 ----------------------
+ arch/x86/lib/Makefile           |   1 -
+ arch/x86/lib/rwsem.S            | 156 ---------------
+ arch/x86/um/Kconfig             |   6 -
+ arch/x86/um/Makefile            |   1 -
+ arch/xtensa/Kconfig             |   3 -
+ arch/xtensa/include/asm/Kbuild  |   1 -
+ include/asm-generic/rwsem.h     | 140 -------------
+ include/linux/rwsem-spinlock.h  |  47 -----
+ include/linux/rwsem.h           |   9 +-
+ kernel/Kconfig.locks            |   2 +-
+ kernel/locking/Makefile         |   4 +-
+ kernel/locking/percpu-rwsem.c   |   2 +
+ kernel/locking/rwsem-spinlock.c | 339 --------------------------------
+ kernel/locking/rwsem.h          | 130 ++++++++++++
+ 48 files changed, 135 insertions(+), 1447 deletions(-)
+ delete mode 100644 arch/alpha/include/asm/rwsem.h
+ delete mode 100644 arch/ia64/include/asm/rwsem.h
+ delete mode 100644 arch/x86/include/asm/rwsem.h
+ delete mode 100644 arch/x86/lib/rwsem.S
+ delete mode 100644 include/asm-generic/rwsem.h
+ delete mode 100644 include/linux/rwsem-spinlock.h
+ delete mode 100644 kernel/locking/rwsem-spinlock.c
+
+-- 
+2.18.1
+
 
 _______________________________________________
 linux-riscv mailing list
