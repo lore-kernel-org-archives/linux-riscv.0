@@ -2,120 +2,97 @@ Return-Path: <SRS0=cI7w=RZ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BC4E2C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 10:04:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8CE33C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 10:42:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 880852190A
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 10:04:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5852921902
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 10:42:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KHNOEmz1";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="L7uPPhGC";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="GOpZVbBk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 880852190A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XYvrd5Mx"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5852921902
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=aO2MjHjU2TpEKDt8hzM4X/EvPkylRHTdXWgVq4zYVF0=; b=KHNOEmz1/vwR6j
-	lKh2OONApGo2oBNCZHoyJY46csL/JA5PZrHhkW2GUGoZJU+FYjy1QVLEh9iKWyDIJXb7SArm72Rkh
-	o5LEnXzs2Rg3BMOKYKHw4dv6unUrDtkJaWtLqzgM8vwb+Uw0OVhQZ2iwABRpcOkTUAwO7pcH5xIAq
-	gid0ds/l3rhIew5RUjC6w2kPpfz3mt30GbzCjPfNz873ZAFz0qt0fNzSn9Nd1JWaFtOeyD3HImU8B
-	axYHBZ8OW/JsweaarcqD/wuP3cupyp5IjY5DaGJGq9JX/HoB7e4soqwNoF0yvkKnStPo5m7YR3uyE
-	p5k/qxTYK3p78Q4S8Cng==;
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:In-Reply-To:MIME-Version:
+	References:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VrwbmBbKDTPwjiW6EgIuVAN1jVSDLFnnjNFjtI++B6I=; b=XYvrd5Mx1t1gpz
+	kG0VbRnZNp3CJ/5uViS5LK9cHt/A9eiD0VTxxRTXGf0walRzquo1ayfgIg/knChgXNrPlVqs/Jj0A
+	+/CGILZGxa+KrKr+6HII3ooUoQF0JzfflzagjfHDnd2qQEVgnEPlIlhusUS52VR80osyvqYgFQfD6
+	6lm8DxCBpc2zmC8sZQ4i6c08fFW4pLYYeKKOC3fMSYDJuA2tOuQv7AR24oKciDOP3qJEpA6BsEXJp
+	S/+SPMCKWOPVsJgLvmSYRN99qWoBzqdqJdAyjwB2pzm5eNheeWaeZLIs5mPXQsXEsaZjdso8DobzT
+	jZ23+G+y4xdUf4YdpFpw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h7H2j-0007OR-N7; Fri, 22 Mar 2019 10:04:53 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1h7Hd1-0005Sq-Vn; Fri, 22 Mar 2019 10:42:23 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h7H2g-0007Nw-0V
- for linux-riscv@lists.infradead.org; Fri, 22 Mar 2019 10:04:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1553249091; x=1584785091;
- h=from:to:cc:subject:date:message-id:
- content-transfer-encoding:mime-version;
- bh=xAWqDzrPg60ipQL1AzyJnu1A6THaoEMzRXtDDlCuPXA=;
- b=L7uPPhGC3OXEUtuqBcufY38VM7BAzkhlq0xqLn3StbDg89FMHeomRI98
- 8g452LdmI6LV22GZfrs/+2QsZoUXzg2QNt/+P9JGlDY5eVqawK8RuN6Mu
- jEvoHNpNvi+73MiynriVYRLdQZeKyjcPKVyNFwwgS0GHcK1iof0uBBM0v
- Hup97VD/FCNxEsHTkkjm9f+CQuBmHchrwIZURVXUPAw+WoJBJqnP0W87L
- EMjYpA2kHrGwKnCK/6f0r/3j/qHR5MI5JAd8pEeRI+4eNoJGhLS8AjkWF
- CP2+KvKrnE9ANnk0LbCuceD8qYKT2P0m5XsT6D047s1Jskwfx3xbyqwK8 Q==;
-X-IronPort-AV: E=Sophos;i="5.60,256,1549900800"; d="scan'208";a="109044933"
-Received: from mail-sn1nam01lp2059.outbound.protection.outlook.com (HELO
- NAM01-SN1-obe.outbound.protection.outlook.com) ([104.47.32.59])
- by ob1.hgst.iphmx.com with ESMTP; 22 Mar 2019 18:04:47 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=khEH0LUe1Xd/u0Bcxva+aGiEgtbirzxLDpW+bfnG9qQ=;
- b=GOpZVbBkfgGimkMeAraMbO7herpX62YXBuC6qQxdByQNSm+vZE0uubr6t/PM8nDRm3qEh8Gn/m/nUoLkr8OPoJ8+Wat/mM3fnpksFQf1JyubmZS35ttJLzdb2wRUn3xcqGC9tW11l52VQBEJKUc5aLp5HYjD2gCH2TqoqCNCxII=
-Received: from MN2PR04MB6061.namprd04.prod.outlook.com (20.178.246.15) by
- MN2PR04MB6014.namprd04.prod.outlook.com (20.178.249.83) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1730.16; Fri, 22 Mar 2019 10:04:45 +0000
-Received: from MN2PR04MB6061.namprd04.prod.outlook.com
- ([fe80::d197:7b59:7e0d:e819]) by MN2PR04MB6061.namprd04.prod.outlook.com
- ([fe80::d197:7b59:7e0d:e819%4]) with mapi id 15.20.1730.013; Fri, 22 Mar 2019
- 10:04:45 +0000
-From: Anup Patel <Anup.Patel@wdc.com>
-To: Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH] RISC-V: Fix FIXMAP_TOP to avoid overlap with VMALLOC area
-Thread-Topic: [PATCH] RISC-V: Fix FIXMAP_TOP to avoid overlap with VMALLOC area
-Thread-Index: AQHU4JasomKgXLWLxUO3YcHzM5EpmQ==
-Date: Fri, 22 Mar 2019 10:04:44 +0000
-Message-ID: <20190322100414.32221-1-anup.patel@wdc.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: MAXPR0101CA0024.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:c::34) To MN2PR04MB6061.namprd04.prod.outlook.com
- (2603:10b6:208:d8::15)
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Anup.Patel@wdc.com; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-mailer: git-send-email 2.17.1
-x-originating-ip: [129.253.179.161]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 9c85f473-1173-44ae-fea5-08d6aeadced9
-x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600127)(711020)(4605104)(4618075)(2017052603328)(7153060)(7193020);
- SRVR:MN2PR04MB6014; 
-x-ms-traffictypediagnostic: MN2PR04MB6014:
-wdcipoutbound: EOP-TRUE
-x-microsoft-antispam-prvs: <MN2PR04MB6014FF58F459749459BF2A058D430@MN2PR04MB6014.namprd04.prod.outlook.com>
-x-forefront-prvs: 09840A4839
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(136003)(396003)(346002)(376002)(366004)(39860400002)(51234002)(199004)(189003)(25786009)(97736004)(45080400002)(72206003)(110136005)(86362001)(99286004)(316002)(186003)(44832011)(4326008)(476003)(2616005)(3846002)(486006)(71200400001)(71190400001)(6116002)(106356001)(105586002)(2906002)(8676002)(81156014)(478600001)(81166006)(1076003)(14454004)(53936002)(102836004)(2171002)(26005)(54906003)(66066001)(7736002)(256004)(305945005)(6506007)(52116002)(68736007)(14444005)(5660300002)(6486002)(6436002)(8936002)(386003)(50226002)(36756003)(6512007);
- DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB6014;
- H:MN2PR04MB6061.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; MX:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: MTTJgWDhj8n4yhjClEW84QNlKb5NiBAl5rnEz444M9wdKCe6A9aIfYr8GT9eqcDEpHF1l1L40B6xt6HA+j/SBnt+S3xMS3aTewyqA1B0mk0R9X0d+U+Qnz9O2pjXEWL+A4jLzdzxyUyP0MCebhpyyzwVCHXf1Zn+3cYhfcmq86+6LCY0jJ+LTkRp+waAyBQEtl7VtqZazhhJy8g/oe6juPyJMZhTNmKIUShczoR678EfnGMC23LT4zidBGDqGhTjbTyh+x6kL7lFFoqDeMVzIJIxk20qp5ftUSO1ktEjErjDIEzESEdqVCsMdTCAnO3FH/rBCkYmIM6OxAjs0xhgU+O9/fIavFzXyTZ8v8BV8CQ98P8iTijx6Ilf1i1VLnHHuM6/mtBhcF7nL/3f0Of0F8pLVH4KXtVU6PA7CRMBdfA=
+ id 1h7Hcy-0005S5-6x
+ for linux-riscv@lists.infradead.org; Fri, 22 Mar 2019 10:42:21 +0000
+Received: from pps.filterd (m0098393.ppops.net [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
+ x2MAXW8w101328
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 06:42:19 -0400
+Received: from e06smtp04.uk.ibm.com (e06smtp04.uk.ibm.com [195.75.94.100])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 2rcx150cq1-1
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 06:42:19 -0400
+Received: from localhost
+ by e06smtp04.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
+ Violators will be prosecuted
+ for <linux-riscv@lists.infradead.org> from <rppt@linux.ibm.com>;
+ Fri, 22 Mar 2019 10:42:07 -0000
+Received: from b06cxnps4074.portsmouth.uk.ibm.com (9.149.109.196)
+ by e06smtp04.uk.ibm.com (192.168.101.134) with IBM ESMTP SMTP Gateway:
+ Authorized Use Only! Violators will be prosecuted; 
+ (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
+ Fri, 22 Mar 2019 10:42:05 -0000
+Received: from d06av21.portsmouth.uk.ibm.com (d06av21.portsmouth.uk.ibm.com
+ [9.149.105.232])
+ by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ x2MAgDdw42139672
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Fri, 22 Mar 2019 10:42:13 GMT
+Received: from d06av21.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 2385F52052;
+ Fri, 22 Mar 2019 10:42:13 +0000 (GMT)
+Received: from rapoport-lnx (unknown [9.148.206.199])
+ by d06av21.portsmouth.uk.ibm.com (Postfix) with ESMTPS id 5DC1952063;
+ Fri, 22 Mar 2019 10:42:12 +0000 (GMT)
+Date: Fri, 22 Mar 2019 12:42:10 +0200
+From: Mike Rapoport <rppt@linux.ibm.com>
+To: Anup Patel <anup@brainfault.org>
+Subject: Re: 32bit kernel is broken for Linux-5.1-rc1 due to GCC cmodel=medlow
+References: <CAAhSdy0mUboGJH_GJbsGFBwcukjttVQcTGfzwkaMFQb9ZVY4Mg@mail.gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9c85f473-1173-44ae-fea5-08d6aeadced9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Mar 2019 10:04:44.8216 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB6014
+Content-Disposition: inline
+In-Reply-To: <CAAhSdy0mUboGJH_GJbsGFBwcukjttVQcTGfzwkaMFQb9ZVY4Mg@mail.gmail.com>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-TM-AS-GCONF: 00
+x-cbid: 19032210-0016-0000-0000-00000265E3BC
+X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
+x-cbparentid: 19032210-0017-0000-0000-000032C10823
+Message-Id: <20190322104209.GB24367@rapoport-lnx>
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
+ definitions=2019-03-22_07:, , signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501
+ malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
+ mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1810050000 definitions=main-1903220080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190322_030450_227468_75B57CB5 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20190322_034220_363224_2A471000 
+X-CRM114-Status: GOOD (  26.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -127,62 +104,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
- Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: Damien Le Moal <Damien.LeMoal@wdc.com>, Anup Patel <anup.patel@wdc.com>,
+ Palmer Dabbelt <palmer@sifive.com>, Christoph Hellwig <hch@infradead.org>,
+ Atish Patra <atish.patra@wdc.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The FIXMAP area overlaps with VMALLOC area in Linux-5.1-rc1 hence we get
-below warning in Linux RISC-V 32bit kernel. This warning does not show-up
-in Linux RISC-V 64bit kernel due to large VMALLOC area.
+Hi,
 
-WARNING: CPU: 0 PID: 22 at mm/vmalloc.c:150 vmap_page_range_noflush+0x134/0x15c
-Modules linked in:
-CPU: 0 PID: 22 Comm: kworker/0:1 Not tainted 5.1.0-rc1-00005-gebc2f658040e #1
-Workqueue: events pcpu_balance_workfn
-Call Trace:
-[<c002b950>] walk_stackframe+0x0/0xa0
-[<c002baac>] show_stack+0x28/0x32
-[<c0587354>] dump_stack+0x62/0x7e
-[<c002fdee>] __warn+0x98/0xce
-[<c002fe52>] warn_slowpath_null+0x2e/0x3c
-[<c00e71ce>] vmap_page_range_noflush+0x134/0x15c
-[<c00e7886>] map_kernel_range_noflush+0xc/0x14
-[<c00d54b8>] pcpu_populate_chunk+0x19e/0x236
-[<c00d610e>] pcpu_balance_workfn+0x448/0x464
-[<c00408d6>] process_one_work+0x16c/0x2ea
-[<c0040b46>] worker_thread+0xf2/0x3b2
-[<c004519a>] kthread+0xce/0xdc
-[<c002a974>] ret_from_exception+0x0/0xc
+On Fri, Mar 22, 2019 at 11:46:24AM +0530, Anup Patel wrote:
+> Hi Palmer,
+> 
+> The 32bit kernel booting is broken for Linux-5.1-rc1 due to GCC cmodel=medlow
+> affecting setup_vm() movement from kernel/setup.c to mm/init.c.
+> 
+> There is no issue with 64bit kernel booting.
+> 
+> The "[PATCH v2 2/5] RISC-V: Make setup_vm() independent of GCC code model"
+> fixes this issue.
+> 
+> https://www.mail-archive.com/linux-kernel@vger.kernel.org/msg1959102.html
+> 
+> If possible please include above patch as Linux-5.1-rc1 fix.
 
-This patch fixes above warning by placing FIXMAP area below VMALLOC area.
+I'm not convinced that it's the best solution. Multiple __load_pa() and
+__load_va() conversions make code unreadable.
+Is there any reason swapper_pg_dir cannot be setup after 'relocate'? It'll
+save a lot of churn for the current fix and for the addition of 4K mappings
 
-Fixes: f2c17aabc917 ("RISC-V: Implement compile-time fixed mappings")
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
+I've drafted a patch that separates trampoline_pd_dir and swapper_pg_dir
+setup, if it works, the __load_pa() and __load_va() conversions can be
+applied only to the trampoline initialization. I don't have riscv hardware,
+so it's compile tested only.
+
+From d1f6f68012c84e188711954f58d63c0a3ba005c5 Mon Sep 17 00:00:00 2001
+From: Mike Rapoport <rppt@linux.ibm.com>
+Date: Fri, 22 Mar 2019 12:34:31 +0200
+Subject: [PATCH] riscv: split trampoline_pg_dir and swapper_pg_dir
+ initialization
+
+Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 ---
- arch/riscv/include/asm/fixmap.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/kernel/head.S |  7 ++-----
+ arch/riscv/mm/init.c     | 33 +++++++++++++++++++++++++--------
+ 2 files changed, 27 insertions(+), 13 deletions(-)
 
-diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-index 5cf53dd882e5..9c66033c3a54 100644
---- a/arch/riscv/include/asm/fixmap.h
-+++ b/arch/riscv/include/asm/fixmap.h
-@@ -31,7 +31,7 @@ enum fixed_addresses {
- };
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index fe884cd..fe0fc70 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -62,8 +62,9 @@ clear_bss_done:
  
- #define FIXADDR_SIZE		(__end_of_fixed_addresses * PAGE_SIZE)
--#define FIXADDR_TOP		(PAGE_OFFSET)
-+#define FIXADDR_TOP		(VMALLOC_START)
- #define FIXADDR_START		(FIXADDR_TOP - FIXADDR_SIZE)
+ 	/* Initialize page tables and relocate to virtual addresses */
+ 	la sp, init_thread_union + THREAD_SIZE
+-	call setup_vm
++	call setup_trampoline
+ 	call relocate
++	call setup_vm
  
- #define FIXMAP_PAGE_IO		PAGE_KERNEL
+ 	/* Restore C environment */
+ 	la tp, init_task
+@@ -117,10 +118,6 @@ relocate:
+ .option norelax
+ 	la gp, __global_pointer$
+ .option pop
+-
+-	/* Switch to kernel page tables */
+-	csrw sptbr, a2
+-
+ 	ret
+ 
+ .Lsecondary_start:
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index b379a75..1742763 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -187,11 +187,6 @@ asmlinkage void __init setup_vm(void)
+ 	BUG_ON((pa % (PAGE_SIZE * PTRS_PER_PTE)) != 0);
+ 
+ #ifndef __PAGETABLE_PMD_FOLDED
+-	trampoline_pg_dir[(PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD] =
+-		pfn_pgd(PFN_DOWN((uintptr_t)trampoline_pmd),
+-			__pgprot(_PAGE_TABLE));
+-	trampoline_pmd[0] = pfn_pmd(PFN_DOWN(pa), prot);
+-
+ 	for (i = 0; i < (-PAGE_OFFSET)/PGDIR_SIZE; ++i) {
+ 		size_t o = (PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
+ 
+@@ -209,9 +204,6 @@ asmlinkage void __init setup_vm(void)
+ 		pfn_pmd(PFN_DOWN((uintptr_t)fixmap_pte),
+ 				__pgprot(_PAGE_TABLE));
+ #else
+-	trampoline_pg_dir[(PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD] =
+-		pfn_pgd(PFN_DOWN(pa), prot);
+-
+ 	for (i = 0; i < (-PAGE_OFFSET)/PGDIR_SIZE; ++i) {
+ 		size_t o = (PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
+ 
+@@ -223,4 +215,29 @@ asmlinkage void __init setup_vm(void)
+ 		pfn_pgd(PFN_DOWN((uintptr_t)fixmap_pte),
+ 				__pgprot(_PAGE_TABLE));
+ #endif
++	csr_write(sptbr, virt_to_pfn(swapper_pg_dir) | SATP_MODE);
++}
++
++asmlinkage void __init setup_trampoline(void)
++{
++	extern char _start;
++	uintptr_t pa = (uintptr_t) &_start;
++	pgprot_t prot = __pgprot(pgprot_val(PAGE_KERNEL) | _PAGE_EXEC);
++
++	va_pa_offset = PAGE_OFFSET - pa;
++	pfn_base = PFN_DOWN(pa);
++
++	/* Sanity check alignment and size */
++	BUG_ON((PAGE_OFFSET % PGDIR_SIZE) != 0);
++	BUG_ON((pa % (PAGE_SIZE * PTRS_PER_PTE)) != 0);
++
++#ifndef __PAGETABLE_PMD_FOLDED
++	trampoline_pg_dir[pgd_index(PAGE_OFFSET)] =
++		pfn_pgd(PFN_DOWN((uintptr_t)trampoline_pmd),
++			__pgprot(_PAGE_TABLE));
++	trampoline_pmd[0] = pfn_pmd(PFN_DOWN(pa), prot);
++
++#else
++	trampoline_pg_dir[pgd_index(PAGE_OFFSET)] = pfn_pgd(PFN_DOWN(pa), prot);
++#endif
+ }
 -- 
-2.17.1
+2.7.4
+
+ 
+> Regards,
+> Anup
+> 
+
+-- 
+Sincerely yours,
+Mike.
 
 
 _______________________________________________
