@@ -3,20 +3,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0BD05C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 13:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 57738C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 13:41:46 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CE0E420693
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 13:38:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 181B220835
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Mar 2019 13:41:46 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="a8h1irfZ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="K2icgPHM"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CE0E420693
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lKIyJlKr";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="OSfT1aqP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 181B220835
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,61 +25,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VCPWeq9kgkpOKhaRB7rOcvuo0tH7FJxR36V1INhOw60=; b=a8h1irfZhl1ZIT
-	iDCDA6JyRXp1HBrWAcogxoM2TlsyAiwQ4a+JnANLlbyJG+jSu7rleOoVWl1fkKtWH1GcMq2jNSoco
-	PWdDITRFkHQVQKlcAXTcCENwYqdwoqnr6gLXyovb3wAPXAGS0ETzTpXS9Knr16JbOVsLkJXG33QFh
-	bI06zDFeADmKPh4zyVW5aRA4Tj5kNvKDfK5lA9ufpeE4p0+7CuoSuuzZkiXOpr+5U7DW7PgK6ljyU
-	R1K0EGMTCWY67UdoDDfSLcAUn+2mb4TUqdfJwYwYyAvGstAdHOFxcJFcLlH27TNuKh9dNo/F2yg+s
-	d+o2sLMobNHifzbrjAkQ==;
+	List-Owner; bh=TH/RWZhl4KIiFxLXBK5OKXFdi4eguVVub+mK7drmeP4=; b=lKIyJlKrJxnsJJ
+	Ock115LyW8UBokbKUo5yyDqJjYG8ChOmIBRZoih4ReeSaLPhEb/U+Nu9RojbON1uxVHgiNd6r5irW
+	12br1vvJFfsU/zPsx/joRVQr10OE5ogmEzlAewKLTEv5hMQ1FhLoVPHnYVL+KnsJ5al51oB4SKohW
+	1ZJppNsyhO788WQPTvicRVoOr5d9LY3d1KLP4kgq7BCO+elQIVsN8d9Ta4MsKhJSuTgc4izzNVD8Z
+	xu1lE81CGZ71vJ2xNtxNCJWY0+Um62eXLVZe9lRxusqNDKIwOzS5oFwz1b8AxI0dwWs1rpvqlxA4M
+	nULAi7OkNs13WDuplVtw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h7KNY-0004oV-19; Fri, 22 Mar 2019 13:38:36 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1h7KQZ-0007vX-Ee; Fri, 22 Mar 2019 13:41:43 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h7KNV-0004o6-CL
- for linux-riscv@lists.infradead.org; Fri, 22 Mar 2019 13:38:34 +0000
-Received: by mail-wm1-x341.google.com with SMTP id y197so2231293wmd.0
- for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 06:38:33 -0700 (PDT)
+ id 1h7KPV-0006U4-9R
+ for linux-riscv@lists.infradead.org; Fri, 22 Mar 2019 13:40:42 +0000
+Received: by mail-wm1-x343.google.com with SMTP id y197so2238332wmd.0
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Mar 2019 06:40:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=LNed13vu5UfKDTRaNWf23yepiT0xAK7G/0DQlV9b+3M=;
- b=K2icgPHM8lfav6WGBmXN1edhbKLMtarIfCfayYs1/xLiizu11GuALiaoFdtOQfresy
- 11RneQofkaqAJWNjTLZzLa2QoWsIY6rl795n0QofRYgGv+hxsg6Z6TQZLcUL5hlhh4uN
- k0dYj62mYyMrP5ZESlTC84Vz2CkmfuZuPpRsKazDBBwYbI/XD4Cx6SAhIRC0+6bhffDI
- 7Cg5XqYnPgUlz48qtm3PZMJLJOaIwjlTtVA6JlX4QU4WfNk1crWLvV10BsqSofR+y26U
- MnSumh8GvtVIkxyvVrWqV91Y4q49Fw+rfI0bsuicZ9b0rBIHMlVmN+hKJLUbihLdDQck
- 407A==
+ :cc; bh=rAXsKLINYQnWHnO2xINsKg8DYXMFqMDw9bmGrw6VwMc=;
+ b=OSfT1aqPaD7krmSpzE7vIezLOBPwWlnYeYcQ5JKMCAqsxgjCL3Olb6OIQDqiNYREWm
+ Ky3eigtLSy7y9JphOOa7ktvLfuT5GrrDkYYfAAsfffbt8R7eOZSdtyqwZKUb5g7X3/wL
+ 3TFvb0oPm2OzWWIrqdvYRDwcOgz3UpsFeeDQnvHcc7qJS7J5+6i3QO0ZHHdsOKXN2Uzv
+ DZpCMZVQPX+7+5ViuFlc6j75QUBydmMWxDBb7/XK6sesPV8jJNDt/ktGcBT3hCAskNVo
+ 0+hSY5QmurDUqtcEBfps30LGpS2eCGf4N7DeY6DLTOiFFR/4M3UC8ro8XVNaHRdfKAmw
+ nyRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=LNed13vu5UfKDTRaNWf23yepiT0xAK7G/0DQlV9b+3M=;
- b=dDQjn3BEiESuGARJC9jNBwdG658+cEG0j4ei0MToF+B1CVLye9sBkVzhgzIKtEhVFV
- CStkLOBH9NT8YmWmnMyI/BFOAJ/xGwSoFyrXnzSztSPf7BtNdYb583i8tkGQy71JdOS2
- jJyKtyqtZgHcQycirbKSYVe6hvh0nwixUFwnI73WFMcPJkQ9us2rmxvfRSuOqt9qw0qm
- EwDjwxK3/aGYam0eNmdSFZ0dUXwegCwjcXYYQDymP5a4lLHQPVnDMUZGi6+7tQ4YO2vB
- Xj0uSPPood3JOUaBvkKcUYKL5rnGXORJM9x/bf83paRLL0x+EWBAGDrQyC7nKFHQzkxa
- uk3w==
-X-Gm-Message-State: APjAAAUdxRvIm0JjJO17ZP5c6lDzcM4q8rMhLxpr87BD6hPdqpCZK2++
- bZBdrh9H/ir3lGkqwNYyYlvrYd2fkP0pIrY1w5hRGQ==
-X-Google-Smtp-Source: APXvYqz5LOEB9s2OqMjty0jYbtXUdpN+kp2ylp0cSkbHQ04peEwg1pMKiviLKAaJ+3YuYy7zx4RK3jDALLqtgCR4gQI=
-X-Received: by 2002:a1c:9c14:: with SMTP id f20mr3130702wme.16.1553261911835; 
- Fri, 22 Mar 2019 06:38:31 -0700 (PDT)
+ bh=rAXsKLINYQnWHnO2xINsKg8DYXMFqMDw9bmGrw6VwMc=;
+ b=TMhgdpk2UZlxJOxympDAAVi6zROXLRodQLcirLolHuaO+6arlwMwoMmk0rYDQrTaZN
+ w8AaERIQKZxPj1qsz7dtClRb2xZT9t7Y6Akb2bV6YO9pxe/00yKq2xh3TEmcze9R3T7e
+ B+jDobRv635zQDBqFkrqci1BGnvOKSuO42Lp9K2aRmQSOPski2/HN72RV0v6RpGYPRz2
+ r6bLuOWCZbbQVlC9GlxCrMMBaBn35hrBOL7gOz4gSsi/6a/2we4N63bwH/vFcF4LXpb7
+ 8HM6IrEq3hImsjPVe8sEg+2MhzUVnuzBi2BrEmW2PyPJK8kxVQ2xNGL44Q7V5g/nZNod
+ 7lng==
+X-Gm-Message-State: APjAAAXuSi3d77yi43gSTY8f1hdK4WNbI0xHZi2C3OqdyNeJXsJt7rUE
+ AjhlEQJarchciDcaBqA5Hq19Ybuxl3NHvWYF8DxiSg==
+X-Google-Smtp-Source: APXvYqxWFySmTB/zNfod71hfyww4/mgf6ZWgGJsJpNqgE6ons1K1YLUmhnhTa++fSTCuxFbPTN3NicaxdgplgSgPHTU=
+X-Received: by 2002:a1c:e185:: with SMTP id y127mr3328829wmg.76.1553262034639; 
+ Fri, 22 Mar 2019 06:40:34 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAAhSdy0mUboGJH_GJbsGFBwcukjttVQcTGfzwkaMFQb9ZVY4Mg@mail.gmail.com>
- <20190322104209.GB24367@rapoport-lnx>
- <CAAhSdy3UoX9gS=9YN6m0=qA2g-m=bw-Y-N-5CAFQZcnKA04C5g@mail.gmail.com>
- <20190322132650.GC19263@infradead.org>
-In-Reply-To: <20190322132650.GC19263@infradead.org>
+References: <20190322100414.32221-1-anup.patel@wdc.com>
+ <20190322132509.GA19263@infradead.org>
+In-Reply-To: <20190322132509.GA19263@infradead.org>
 From: Anup Patel <anup@brainfault.org>
-Date: Fri, 22 Mar 2019 19:08:20 +0530
-Message-ID: <CAAhSdy0=J6+YHt3ieFrkBJhaE2EXvjqkaWOorm46Mgv+QzyUiQ@mail.gmail.com>
-Subject: Re: 32bit kernel is broken for Linux-5.1-rc1 due to GCC cmodel=medlow
+Date: Fri, 22 Mar 2019 19:10:23 +0530
+Message-ID: <CAAhSdy1dtRtkO=hriiG48U2JF4WRPzvg6JB1X64AEVAWM3nNcA@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Fix FIXMAP_TOP to avoid overlap with VMALLOC area
 To: Christoph Hellwig <hch@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190322_063833_424265_BC7727C8 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20190322_064037_671319_96D93C15 
+X-CRM114-Status: UNSURE (   6.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,32 +90,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Damien Le Moal <Damien.LeMoal@wdc.com>, Palmer Dabbelt <palmer@sifive.com>,
- Anup Patel <anup.patel@wdc.com>, Mike Rapoport <rppt@linux.ibm.com>,
- Atish Patra <atish.patra@wdc.com>, linux-riscv@lists.infradead.org
+Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Atish Patra <Atish.Patra@wdc.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 22, 2019 at 6:56 PM Christoph Hellwig <hch@infradead.org> wrote:
+On Fri, Mar 22, 2019 at 6:55 PM Christoph Hellwig <hch@infradead.org> wrote:
 >
-> On Fri, Mar 22, 2019 at 05:59:07PM +0530, Anup Patel wrote:
-> > > I've drafted a patch that separates trampoline_pd_dir and swapper_pg_dir
-> > > setup, if it works, the __load_pa() and __load_va() conversions can be
-> > > applied only to the trampoline initialization. I don't have riscv hardware,
-> > > so it's compile tested only.
-> >
-> > I had similar views as yours but I found that trampoling_pg_dir is totally
-> > redundant and since it is part of __init section it will break runtime hart
-> > hotplug in future. All mapping in trampoling_pg_dir are already covered
-> > by swapper_pg_dir. The PATCH4 in my v2 series removes trampoline_pg_dir.
+> Looks good,
 >
-> Can you please move that to the front of the series?  Killing
-> trampoline_pg_dir sounds very useful indeed, while I'm still not really
-> convinced of the 4k mappings to be honest.
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+>
+> Btw, what is the 32-bit test vehicle of choice?  qemu with the
+> virt machine?
 
-4k aligned booting is optional and only enabled via kconfig option.
+Yes, for now QEMU seems to be only the option.
+
+I am not aware of any board we can purchase for RV32.
 
 Regards,
 Anup
