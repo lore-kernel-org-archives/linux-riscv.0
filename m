@@ -1,83 +1,87 @@
-Return-Path: <SRS0=pIoZ=R2=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=PVrh=R3=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AF65BC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 23 Mar 2019 18:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8E685C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 24 Mar 2019 01:42:29 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5995E21473
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 23 Mar 2019 18:05:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5516521741
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 24 Mar 2019 01:42:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="l4pEJ7kC"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5995E21473
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ics.forth.gr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Q5gkD/uf";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="nUa3VCuJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5516521741
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:Subject:To:From:Date:MIME-Version:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2WI6Bgrk4doGRkOC5MWYuZd3rIUMQDjCdSS1Izm3YuY=; b=l4pEJ7kCxGM79SZW9xObWzFlCm
-	0sxhLLUs1fX900ekapNcPbNmhDpkbdoALuOR7+3JJLtb4cmz9+xRzT63LhD0Exk561YwECDMbHJyA
-	YcEbli4jZIZB5mpPkHZXrMBLh9xYaiqtRhck5gxuTxodslInhM8BsQ1LrAgiMDz24hUUoIho85yr7
-	h/AMaA43ajKg7nJgrNMk7cj+zb5mbLOCbAnPA3ytYrW5+17XXNcRao02myWEdqRqLTAts7VI1N+Ic
-	HxEYTqLKCm4RzddPo3iMskumOwtD6mek25xnFYlGUlh/IZ1EPQNC0gIb1RUq4rXCHY7zNVfiiCa2i
-	/gxbAdBw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mZhAU8Nnyuaajeiem9Lky8fbOjQW94BuPvT8xabHXkQ=; b=Q5gkD/ufTRmo/q
+	MmmsDXOFbQT5iJUCWSh7vHjp4aM5TFXmy19Gy1R3JNuzUkKcxyeItwA2IuFVvhgwQMY8Wl2uzB1E4
+	zt2lZcSroCH4N0mcneVUXGKgnmn7HHe62AJNU/gV62NSp6XmWpGM/hVCwHK1GZaEk/IjwFXd2RKIn
+	4CMJ7eNM7esFVQUM8R7zSRVVdnUi6PdvaJoXT/EMQiCD19yMGN5L1EnVDnWW9StRVeXRekgI9IJAi
+	xu3+PMRXH0Oi/OWa08M0/NhYeQTI1G5kH3npmcrLDmiKU3c0zcaS8ENVyFoUq7JW1pRfUgpR446+Q
+	yC7QoOLFa8SFBgpH8NBQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h7l1O-000886-1F; Sat, 23 Mar 2019 18:05:30 +0000
-Received: from mailgate-2.ics.forth.gr ([139.91.1.5])
+	id 1h7s9Z-0006aD-JJ; Sun, 24 Mar 2019 01:42:25 +0000
+Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h7l1L-00087h-9B
- for linux-riscv@lists.infradead.org; Sat, 23 Mar 2019 18:05:29 +0000
-Received: from av1.ics.forth.gr (av3in [139.91.1.77])
- by mailgate-2.ics.forth.gr (8.14.4/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- x2NI59Km017825; Sat, 23 Mar 2019 18:05:11 GMT
-X-AuditID: 8b5b9d4d-8f5ff7000000235c-36-5c9675540b4a
-Received: from enigma.ics.forth.gr (webmail.ics.forth.gr [139.91.1.35])
- by av1.ics.forth.gr (SMTP Outbound / FORTH / ICS) with SMTP id
- 36.89.09052.455769C5; Sat, 23 Mar 2019 20:05:09 +0200 (EET)
-Received: from webmail.ics.forth.gr (localhost [127.0.0.1])
- by enigma.ics.forth.gr (8.15.1//ICS-FORTH/V10.5.0C-EXTNULL-SSL-SASL) with
- ESMTP id x2NI58cF032155; Sat, 23 Mar 2019 20:05:08 +0200
-X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
+ id 1h7s9W-0006Zt-NN
+ for linux-riscv@lists.infradead.org; Sun, 24 Mar 2019 01:42:24 +0000
+Received: by mail-wr1-x444.google.com with SMTP id g12so6274796wrm.5
+ for <linux-riscv@lists.infradead.org>; Sat, 23 Mar 2019 18:42:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=UMg+TQmTlxKeoT7PuONEKN/g7xAo1ZHDq7zN933W/gY=;
+ b=nUa3VCuJCCRh/ADAt/wn0tnl3Q2/eEgFm4ZzYhkOT+0qSt/OissIP/nmxTutkLWNyA
+ mF5nHHr0sbCkA+/347ukoeTUDAtJM3gf179Kp34n0mgHKatL/yaw7OgQiqhSy7A0FhQv
+ r9duSLOgJCf0jIcOJxRReJBewkaj1xrB1CQ58coOHnowLstKStHasw3dORUGvFvNhTgU
+ Vqzn+/lZVOcgsN1Vk1q9h7y6sJFyG8BIADJ8Uy9HZz7BY9B9zNCXfWnkqHf4d08PxYXH
+ 2dzBrLHqC9PJ4toy4H/8yBXAIKkRLluPEaX8AErN2Ojq4KK66He7UZX0OOZ4Vw3Y738q
+ 2gAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=UMg+TQmTlxKeoT7PuONEKN/g7xAo1ZHDq7zN933W/gY=;
+ b=e8eOFolP7iOay9UZzTxHt/+y2Zx8q3fSB5NPzjxXpi0Eo/Q8Vs4CgYz1KK70NQqQ+s
+ ZprKfZrvavRm0Q1bavwshaqVqKvOtlqBdVddbOGgJPIB8wIoI7dW0aceCsb6r13A2CFc
+ fzZKYYQD83YKeYOmjgAjK98+mSphA0+5dW+IBMB8sVhuGTDlQRepgDJntnMTisNVqum2
+ pxZcRxpGX32+DxHof+Apw0pMrlrsfaIo974aqu4SEe1au9g6kqQb6Y+laeRtbNy70ptN
+ FZek4RwSjg2E92SzOlZeKsaIaMW+SobBCvLyM7+02ye7yp93oAVXSwY/kwV7zWwQqoWj
+ Dl2Q==
+X-Gm-Message-State: APjAAAW3U0/OjB1FcW1bcP5umOj7TAeVD3ihAOlTXedO5MMKTgd8ySBP
+ p8eHuNFyalsqbmPmVRtKML6pmmnwLPR5WMTOrNbEMw==
+X-Google-Smtp-Source: APXvYqywTGzD5g9Cx//yO6hIjcv7B+g0fzNApAtiBtfbps2xPM98YI8PqaTjuW+72NMXwoIcJFe6QSvokvjWvkAh554=
+X-Received: by 2002:adf:fe03:: with SMTP id n3mr6743681wrr.59.1553391739110;
+ Sat, 23 Mar 2019 18:42:19 -0700 (PDT)
 MIME-Version: 1.0
-Date: Sat, 23 Mar 2019 20:05:08 +0200
-From: Nick Kossifidis <mick@ics.forth.gr>
-To: linux-riscv@lists.infradead.org
-Subject: Thoughts on kexec / SBI
-Organization: FORTH
-Message-ID: <032c5254b0fa91f401fc67169b8d9141@mailhost.ics.forth.gr>
-X-Sender: mick@mailhost.ics.forth.gr
-User-Agent: Roundcube Webmail/1.1.2
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrNLMWRmVeSWpSXmKPExsXSHc2orBtaOi3G4McyFosnHyayWSxa8Z3F
- YtvnFjaLzRMWsDqweGxeUu9xqfk6u0f7gW6mAOYoLpuU1JzMstQifbsErowzr96zFZwRqzjZ
- fYKxgfG7YBcjJ4eEgInE6iW3WbsYuTiEBI4wSkzasIcdwjnEKHHi7TkmiCpTidl7OxlBbF4B
- QYmTM5+wdDFycDALWEu07zEACTMLyEtsfzuHGcRmEVCVaHlzjwXEZhPQlJh/6SBYuYiAssT8
- e64Q5XYSCybcYQOxhQUUJHZ2LAZr5RcQlvh09yIrxCYXiavzj7FAXKAi8eH3A3YQWxRozIsT
- 01knMArMQnLQLISDZiE5aAEj8ypGgcQyY73M5GK9tPyikgy99KJNjOAgneu7g/HcAvtDjAIc
- jEo8vCtm9McIsSaWFVfmAn3PwawkwmvvCRTiTUmsrEotyo8vKs1JLT7EKM3BoiTOe/hFeJCQ
- QHpiSWp2ampBahFMlomDU6qBca79LSfF9QKyBQ36XIdUzPhdphz6trY87nDz+kXF6xz51c5Z
- OFhzp6Q5nFgfqVj288D+gvREjW1Ws89O1FQON434lscmEmWzI/TH8iDnHeFL3yd9f2lakMcm
- OWf596lHbU//1Oq6ur+dneG87RHTaTrN11mbLtw2fqTjwHA2WKgv7XbyLXEZJZbijERDLeai
- 4kQAujyDEU4CAAA=
-X-Greylist: inspected by milter-greylist-4.6.2 (mailgate-2.ics.forth.gr
- [139.91.1.5]);
- Sat, 23 Mar 2019 18:05:11 +0000 (GMT) for IP:'139.91.1.77' DOMAIN:'av3in'
- HELO:'av1.ics.forth.gr' FROM:'mick@ics.forth.gr' RCPT:''
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
- (mailgate-2.ics.forth.gr [139.91.1.5]); Sat, 23 Mar 2019 18:05:11 +0000 (GMT)
+References: <CAAhSdy0mUboGJH_GJbsGFBwcukjttVQcTGfzwkaMFQb9ZVY4Mg@mail.gmail.com>
+ <20190322104209.GB24367@rapoport-lnx> <20190322132556.GB19263@infradead.org>
+ <CAAhSdy1VS8-3npcZUzjicnKGsjHcc6WH3Co6Hx2=GvttoatWcA@mail.gmail.com>
+ <20190322134043.GA18818@infradead.org>
+ <CAAhSdy2qbU1uhnVQvh0C_FOoKDy-Y0ZTUryAKD97xAXXGQSdCA@mail.gmail.com>
+ <20190323172153.GA9085@infradead.org>
+In-Reply-To: <20190323172153.GA9085@infradead.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Sun, 24 Mar 2019 07:12:07 +0530
+Message-ID: <CAAhSdy07GsHXpG9MJZ4aiB5uG7D+9RA+17Nb1MrWdFg9ee6rUA@mail.gmail.com>
+Subject: Re: 32bit kernel is broken for Linux-5.1-rc1 due to GCC cmodel=medlow
+To: Christoph Hellwig <hch@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190323_110527_692157_BB8B3FED 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20190323_184222_901817_607D4F8B 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -89,68 +93,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: atish.patra@wdc.com, Anup.Patel@wdc.com, palmer@sifive.com
+Cc: Damien Le Moal <Damien.LeMoal@wdc.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Anup Patel <anup.patel@wdc.com>, Mike Rapoport <rppt@linux.ibm.com>,
+ Atish Patra <atish.patra@wdc.com>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello all,
+On Sat, Mar 23, 2019 at 10:51 PM Christoph Hellwig <hch@infradead.org> wrote:
+>
+> On Fri, Mar 22, 2019 at 07:15:37PM +0530, Anup Patel wrote:
+> > >
+> > > I am not saying the revert is the final solution.  I'm just saying
+> > > that 5.1-rc is not the place we should be doing the major surgery.
+> > > Revert fox 5.1, fix for real for 5.2+.
+> >
+> > If we revert for time being then even fixmap support has to be
+> > reverted.
+> >
+> > The patch only updates access to kernel symbols via __load_pa()
+> > and __load_va(). There is no functional change as such. The patch
+> > is tested on QEMU/virt 64bit, QEMU/virt 32bit, and SiFive Unleashed.
+>
+> Just curios - if you just move setup_vm and dependencies into a new
+> file that is compiled with -mcmodel=medany, just like setup.c,
+> what issues would we still have that require explicitly passing the
+> load address?
 
-I'm working on implementing kexec on RISC-V (just kexec for now, not 
-kdump yet) since we want to be able to test new kernel images easily on 
-our testbeds. It's part of a larger project where I'm trying to have a 
-unified way of testing various linux-capable RISC-V targets 
-(https://github.com/mickflemm/yarvt) that we have on the lab.
+There are four cases here:
+1. 64bit with cmodel=medany (default for 64bit system)
+2. 64bit with cmodel=medlow
+3. 32bit with cmodel=medany
+4. 32bit with cmodel=medlow (default for 32bit system)
 
-The issue is that we don't have a way of stopping the secondary harts in 
-a recoverable way, so at this point I have two options, either I'm going 
-to call smp_send_stop() on machine_shutdown() and come back from kexec 
-with a single hart running (which should be fine for kdump btw), or I 
-need to have a reserved memory space where I'll have to keep some code 
-to be executed by the secondary harts, that will be patched by the boot 
-hart once the new kernel is in place, to let them execute the new 
-kernel. The second option is too complicated for no reason and it also 
-reduces the flexibility of the process since we can't use the whole RAM 
-for the loaded kimage, plus it will be obsolete when we have proper 
-handling of CPU suspend / per-hart reset, through SBI. So I'm going for 
-the first option until then.
+I had tried using cmodel=medany as default for both 64bit and 32bit system
+and it works fine because there is no issue with cmodel=medany but it is a very
+crude fix and things break again if someone explicitly selects cmodel=medlow
+using kconfig.
 
-I'd like to jump-start the discussion on how we can handle things 
-through SBI, my initial through was this:
+The patch for using __load_va()/__load_pa() accessor in setup_vm()
+solves the problem for all four cases above.
 
-a) Have a new IPI code IPI_SUSPEND, handled by the firmware (its 
-code/data is persistent across kexecs), that puts the hart on a wfi 
-loop, checking for a variable that contains the new virtual address to 
-jump to (where the new kernel is located) on this hart's scratch buffer. 
-Alternatively this call may do power management and completely shut down 
-the CPU, if the hardware supports this.
-
-b) Have another IPI code IPI_RESUME, that wakes up the harts by 
-providing them with the virtual address to jump to. This can be a simple 
-write of the new address on the remote hart's scratch buffer + 
-interrupt, or it can use power management to power up the hart and 
-either provide it with a new reset vector, or do some handling on the 
-BootROM code for that (this btw is also an open discussion on the TEE 
-group where we are discussing Secure Boot). Also in case the hart is 
-already running (an IPI_SUSPEND hasn't been sent on it before, e.g. 
-during boot), the firmware will ignore the event, alternatively we may 
-call IPI_SUSPEND on the firmware during boot so that the boot process 
-happens with a single hart and other harts wait for the OS to wake them 
-up.
-
-c) During machine_shutdown / machine_crash_shutdown, we issue 
-IPI_SUSPEND on all other harts, and on setup_smp() we issue an 
-IPI_RESUME to wake them up just in case.
-
-This way we'll also be able to announce ARCH_SUSPEND_POSSIBLE and 
-implement CPU hot-plugging (for PM_SLEEP_SMP) even on platforms that 
-don't support power management on hardware.
-
-What do you think ?
+If you still think the patch is too big as rcX fix then alternate approach is:
+1. For Linux-5.1-rcX, we use cmodel=medany by default for both 32bit
+and 64bit RISC-V (I can send a patch for this immediately)
+2. Consider __load_va()/__load_pa() patch for Linux-5.2
 
 Regards,
-Nick
+Anup
 
 _______________________________________________
 linux-riscv mailing list
