@@ -2,102 +2,101 @@ Return-Path: <SRS0=PVrh=R3=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DC622C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 24 Mar 2019 16:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6C1D6C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 24 Mar 2019 19:14:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AAE5B2087E
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 24 Mar 2019 16:43:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3AD5820823
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 24 Mar 2019 19:14:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="T8iEeRlb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AAE5B2087E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mORTjhNS";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=garyguo.net header.i=@garyguo.net header.b="HZ/jpryK"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3AD5820823
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=garyguo.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:In-Reply-To:MIME-Version:
-	References:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h9NpVQkdOpT5X9ETF+0gy9B481LxGVplfkVVEnJOsEI=; b=T8iEeRlb0gSV5E
-	FJfJV/18M/AlYt6nLBONUcvrkRs92nMOt3NacUBi3Or7Yuw/eGg0z8pPBV+lmD56+GUV13AvOY9+U
-	FgkI649qSk1Tykb0Lw3cyq/aa2RKqJgkWPg34TLKZixe6YG2Sqp1NDdlZx/6dkWvLGnLcWSlghRxK
-	DESl3dfU82r9SoRebDku2ZYq/jEr8eMaSz5WQ3ZCvaX5I6UpmTzo6HCzzvLICYOyJ6gy9KDMcetju
-	vyvSNaqDzVPw3NH5HAVPxYKPB4fqleM7YaW49Fx+wCcT4B1Lm9iQVxCN1CS0T5UagnhXXpHfyL6PJ
-	MnB5X1j422AIlvotxWfg==;
+	List-Owner; bh=uQ60fSWKLUuZ2O9H4MxOrJMTWcEm9QCZC1xFmRuzAi8=; b=mORTjhNSa0Yabp
+	zHVlik9iA77v/f2j9QHjdHnsU+6FyWcrZHzEd5yIYdjfiwLvdWONcn3I279BD/0w0cQcF7KFsOOLs
+	fMSH5SnGxUuHymqvZDsCbE0W9lTYO6fIhvYBxCK2gPECQNP3XHcPFdKnHHR6SxMqpbYK6PiF0XJ9I
+	RsXqVfBdiMAPajxc2xpU+DLs49dkTOY1N96JuuBRnjEvYud8dZcNHahFhI2RJvHCTQwFXx+0KrkEO
+	Y+u4n1HJap913Uh2d6J3SUzUFA/bNECWqMnd8KjjHlPMXN/ZF8M6fJeiUeTBISRPMbJPGd6UbMxt9
+	n0Q6a9WGSjR2ICGxcU9A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h86Dg-0007Qq-J5; Sun, 24 Mar 2019 16:43:36 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
- helo=mx0a-001b2d01.pphosted.com)
+	id 1h88a4-0005IY-MI; Sun, 24 Mar 2019 19:14:52 +0000
+Received: from mail-eopbgr100136.outbound.protection.outlook.com
+ ([40.107.10.136] helo=GBR01-LO2-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h86Da-0007HB-WE
- for linux-riscv@lists.infradead.org; Sun, 24 Mar 2019 16:43:33 +0000
-Received: from pps.filterd (m0098420.ppops.net [127.0.0.1])
- by mx0b-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
- x2OGd37R163466
- for <linux-riscv@lists.infradead.org>; Sun, 24 Mar 2019 12:43:29 -0400
-Received: from e06smtp01.uk.ibm.com (e06smtp01.uk.ibm.com [195.75.94.97])
- by mx0b-001b2d01.pphosted.com with ESMTP id 2recw61n4q-1
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
- for <linux-riscv@lists.infradead.org>; Sun, 24 Mar 2019 12:43:29 -0400
-Received: from localhost
- by e06smtp01.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
- Violators will be prosecuted
- for <linux-riscv@lists.infradead.org> from <rppt@linux.ibm.com>;
- Sun, 24 Mar 2019 16:43:27 -0000
-Received: from b06cxnps4074.portsmouth.uk.ibm.com (9.149.109.196)
- by e06smtp01.uk.ibm.com (192.168.101.131) with IBM ESMTP SMTP Gateway:
- Authorized Use Only! Violators will be prosecuted; 
- (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
- Sun, 24 Mar 2019 16:43:23 -0000
-Received: from d06av24.portsmouth.uk.ibm.com (d06av24.portsmouth.uk.ibm.com
- [9.149.105.60])
- by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- x2OGhM8U38010966
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Sun, 24 Mar 2019 16:43:22 GMT
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 5F31642041;
- Sun, 24 Mar 2019 16:43:22 +0000 (GMT)
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 6E5E04203F;
- Sun, 24 Mar 2019 16:43:21 +0000 (GMT)
-Received: from rapoport-lnx (unknown [9.148.207.29])
- by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Sun, 24 Mar 2019 16:43:21 +0000 (GMT)
-Date: Sun, 24 Mar 2019 18:43:17 +0200
-From: Mike Rapoport <rppt@linux.ibm.com>
-To: Christoph Hellwig <hch@lst.de>
-Subject: Re: [PATCH] RISC-V: Always compile mm/init.c with cmodel=medany
+ id 1h88a1-0005HL-5X
+ for linux-riscv@lists.infradead.org; Sun, 24 Mar 2019 19:14:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ixctylaAjKIf8DjKb9Dh0bD+cKnaYTSosDf/QunznZE=;
+ b=HZ/jpryK0HcDomT0jJtTMnSWOjpTXfoEOXDgBgXH4Sh4GTBBkGFMv09LVSmEXbF1rref8ltx4EKWVz1heeB57A513D0fTmll30WJO5mQNjWrrAWfyJGx2XGXgMNiRiOcRIMv7RZ0+G4k+li2T/YmTnYxgDBo3Jf9a30LJqu/AeM=
+Received: from LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM (20.176.139.20) by
+ LO2P265MB0207.GBRP265.PROD.OUTLOOK.COM (10.166.98.150) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.1730.18; Sun, 24 Mar 2019 19:14:43 +0000
+Received: from LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::ed34:1290:4306:3157]) by LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::ed34:1290:4306:3157%3]) with mapi id 15.20.1730.019; Sun, 24 Mar 2019
+ 19:14:42 +0000
+From: Gary Guo <gary@garyguo.net>
+To: Anup Patel <Anup.Patel@wdc.com>
+Subject: RE: [PATCH] RISC-V: Always compile mm/init.c with cmodel=medany
+Thread-Topic: [PATCH] RISC-V: Always compile mm/init.c with cmodel=medany
+Thread-Index: AQHU4jHpL1gWnGWPrEKT6h8SWH7WMKYbJa+A
+Date: Sun, 24 Mar 2019 19:14:42 +0000
+Message-ID: <LO2P265MB08478847A45E7617FD906F8CD65D0@LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM>
 References: <20190324110804.68555-1-anup.patel@wdc.com>
- <20190324145708.GA3355@lst.de>
+In-Reply-To: <20190324110804.68555-1-anup.patel@wdc.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=gary@garyguo.net; 
+x-originating-ip: [2001:470:6972:501:7c02:aeab:5cad:5284]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 91ce442b-9607-45a7-23e6-08d6b08cf877
+x-microsoft-antispam: BCL:0; PCL:0;
+ RULEID:(2390118)(7020095)(4652040)(7021145)(8989299)(4534185)(7022145)(4603075)(4627221)(201702281549075)(8990200)(7048125)(7024125)(7027125)(7023125)(5600127)(711020)(4605104)(2017052603328)(7153060)(7193020);
+ SRVR:LO2P265MB0207; 
+x-ms-traffictypediagnostic: LO2P265MB0207:
+x-microsoft-antispam-prvs: <LO2P265MB0207C0037A718BD8384FE736D65D0@LO2P265MB0207.GBRP265.PROD.OUTLOOK.COM>
+x-forefront-prvs: 09860C2161
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10019020)(376002)(136003)(39830400003)(396003)(346002)(366004)(189003)(199004)(13464003)(68736007)(6246003)(53546011)(33656002)(476003)(99286004)(86362001)(229853002)(446003)(97736004)(71190400001)(2906002)(6916009)(46003)(9686003)(106356001)(102836004)(186003)(11346002)(71200400001)(486006)(508600001)(6436002)(14454004)(76176011)(105586002)(53936002)(256004)(5660300002)(6506007)(7696005)(55016002)(25786009)(4744005)(52536014)(54906003)(316002)(7416002)(81156014)(81166006)(6116002)(8676002)(305945005)(8936002)(74316002)(7736002)(4326008);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:LO2P265MB0207;
+ H:LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; MX:1; A:1; 
+received-spf: None (protection.outlook.com: garyguo.net does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: /hHo4jVJF4rc51EOKThJb4OxnK210wqh7FJJySkJ6urwmciIBebi9/ZwwAVPY+7idS1T77Sp71DjTXzCABkjfxkrAQmrZFxz2PG0QkGgIoBnqipIczByIn4C7PQm50BRDcOe7VJLi+nLnbvceSx232RMHLVjwJfNesp80iMIk/algvZV37g+bQAAmAKRYWjmbZTkZX/AcunDd7EHs8OPKh4hBMyne5Gp0wHVhhVv9FwOoBiLeJ8drfD3piTcO9eiQgKy7dLMGLImnm4Ivm4wTuPPwRQFM4Ufb57cAPeGXfG9vBmfwGo4gJbbRUTxe6FJZagSDseZXciUx1jVv2/ldD2TSpzH0BfeN8qFH31Q0qrYw7oZxjUk2dvLR7jF2cM2aJcIzxrLaF0Fi8xnZWDUdmd8OYGsanhXbZrQtx/hdT8=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190324145708.GA3355@lst.de>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-TM-AS-GCONF: 00
-x-cbid: 19032416-4275-0000-0000-0000031EB317
-X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
-x-cbparentid: 19032416-4276-0000-0000-0000382D429A
-Message-Id: <20190324164316.GA2925@rapoport-lnx>
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
- definitions=2019-03-24_10:, , signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501
- malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=934 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1810050000 definitions=main-1903240128
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 91ce442b-9607-45a7-23e6-08d6b08cf877
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Mar 2019 19:14:42.8890 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO2P265MB0207
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190324_094331_393657_64B9F575 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20190324_121449_211290_467193AD 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -109,41 +108,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>,
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+ Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 24, 2019 at 03:57:08PM +0100, Christoph Hellwig wrote:
-> On Sun, Mar 24, 2019 at 11:08:29AM +0000, Anup Patel wrote:
-> > Signed-off-by: Christoph Hellwig <hch@lst.de>
-> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> 
-> Huh?  I don't think this is from Mike and me.
 
-Suggested-by: would me more appropriate indeed :)
- 
-> > +unsigned long va_pa_offset;
-> > +EXPORT_SYMBOL(va_pa_offset);
-> > +unsigned long pfn_base;
-> > +EXPORT_SYMBOL(pfn_base);
-> 
-> Can you move va_pa_offset and pfn_base next to the swapper_pg_dir
-> declaration?  Thats where I move them in my current nommu patchset,
-> as that allows to just have a single CONFIG_NOMMU in mm/init.c.
-> 
-> Otherwise this looks fine to me.
-> 
 
--- 
-Sincerely yours,
-Mike.
+> -----Original Message-----
+> From: linux-riscv <linux-riscv-bounces@lists.infradead.org> On Behalf Of Anup
+> Patel
+> Sent: Sunday, March 24, 2019 11:08
+> To: Palmer Dabbelt <palmer@sifive.com>; Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Anup Patel <Anup.Patel@wdc.com>; linux-kernel@vger.kernel.org; Mike
+> Rapoport <rppt@linux.ibm.com>; Christoph Hellwig <hch@infradead.org>; Atish
+> Patra <Atish.Patra@wdc.com>; Paul Walmsley <paul.walmsley@sifive.com>;
+> linux-riscv@lists.infradead.org; Christoph Hellwig <hch@lst.de>
+> Subject: [PATCH] RISC-V: Always compile mm/init.c with cmodel=medany
+> 
+> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+> index eb22ab49b3e0..7307609d405b 100644
+> --- a/arch/riscv/mm/Makefile
+> +++ b/arch/riscv/mm/Makefile
+> @@ -3,3 +3,5 @@ obj-y += fault.o
+>  obj-y += extable.o
+>  obj-y += ioremap.o
+>  obj-y += cacheflush.o
+> +
+> +CFLAGS_init.o := -mcmodel=medany
 
+I think you should also remove CFLAGS_setup.o from kernel/Makefile, as I think it was there solely for the correctness of setup_vm. As setup_vm is now in mm/init.o, the old CFLAGS probably isn't needed and should be removed in the same patch. Disclaimer: I haven't tested it.
 
 _______________________________________________
 linux-riscv mailing list
