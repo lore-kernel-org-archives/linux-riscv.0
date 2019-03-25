@@ -2,20 +2,20 @@ Return-Path: <SRS0=oSgD=R4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,USER_AGENT_MUTT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9FC1FC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 11:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8FF40C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 11:38:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 685312085A
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 11:38:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2A7452085A
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 11:38:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fujpn2hQ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 685312085A
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Uh5y7Bx8"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2A7452085A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,27 +24,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mLC91VQ7c1jwLvxFVMfXCEbPWQpABQNVTreo0Gz1KkI=; b=fujpn2hQ5Civ2t
-	8h8bONdUUcRcADQDbpuCaMooYW3SqeoAwrF8bovQarByd0rdwsJSnh3jFp9Bg2L6s7UlVT6dK66o7
-	1SFjmk685eIHoTVyiIaCMakZQ+0Clq9Ql9APw4m6GdFoUMUsHwpwLDRzzr0xzg6o/J/FA+yHSAx1g
-	tOCoiDTKwpEsm7e4ehugd7uJdn3sRW8Z7MYMFi/8MCVaKExwpHNXfXvWx2W0EgbT1T5wGwiT3Zre9
-	nofx3LDgC0QcLngmb0/pMSwwvyVZFVzIlTe4WMqqbgXNPvtqH8iorQ1tn3Wjr/QQs1fAnQnMHVSMS
-	n9vyI9bZDyBxDtGDfAlQ==;
+	List-Owner; bh=cEzp/mTI52SpncJGUCsrEYMWCqZ7PxhlGT+swnrcink=; b=Uh5y7Bx84AUhhf
+	sBBGGrfJiK2cpddwbO7Ba5RzwvmEXa9lGD9pluUFQQmIohiuzCXdj2MB+jJ92uQg/9ubdLZE+KuxP
+	Sbe1lMKnZ7kcBbYVq6YuewHWfOqOn2TRZhZYrZc5/GTiA2+Ft422hC6cACtzdc2lLUJQlUSAh+inF
+	v5erno6bphv4tJYQkfYZm0l44OMEyHgO6ZOifUay0Wve7zKAGOqHcVvqOBV9hfQty2aYdNZYTnbjN
+	3JaFyAr3vM8CtKbj9J1W9dxzzlU2yLV7e0IEZsBOWhJARAHpO82rJZqfZSeZ1DKJ+KFu75WUagVw+
+	vo/mlWy4xew92IRhMNqg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h8NvT-0000O9-OR; Mon, 25 Mar 2019 11:37:59 +0000
+	id 1h8Nvy-0000Rj-5g; Mon, 25 Mar 2019 11:38:30 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1h8NvI-0000NO-Hc; Mon, 25 Mar 2019 11:37:48 +0000
-Date: Mon, 25 Mar 2019 04:37:48 -0700
+ Hat Linux)) id 1h8Nvv-0000RO-Mh; Mon, 25 Mar 2019 11:38:27 +0000
+Date: Mon, 25 Mar 2019 04:38:27 -0700
 From: Christoph Hellwig <hch@infradead.org>
 To: Anup Patel <Anup.Patel@wdc.com>
-Subject: Re: [PATCH v3] RISC-V: Always compile mm/init.c with cmodel=medany
- and notrace
-Message-ID: <20190325113748.GA27843@infradead.org>
-References: <20190325083027.6393-1-anup.patel@wdc.com>
+Subject: Re: [PATCH v3 2/4] RISC-V: Fix memory reservation in setup_bootmem()
+Message-ID: <20190325113827.GB27843@infradead.org>
+References: <20190325092234.5451-1-anup.patel@wdc.com>
+ <20190325092234.5451-3-anup.patel@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190325083027.6393-1-anup.patel@wdc.com>
+In-Reply-To: <20190325092234.5451-3-anup.patel@wdc.com>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -67,29 +67,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +ifdef CONFIG_FTRACE
-> +CFLAGS_REMOVE_init.o = -pg
-> +endif
-> +
->  obj-y += init.o
->  obj-y += fault.o
->  obj-y += extable.o
->  obj-y += ioremap.o
->  obj-y += cacheflush.o
-> +
-> +CFLAGS_init.o := -mcmodel=medany
+On Mon, Mar 25, 2019 at 09:23:09AM +0000, Anup Patel wrote:
+> Currently, the setup_bootmem() reserves memory from RAM start to the
+> kernel end. This prevents us from exploring ways to use the RAM below
+> (or before) the kernel start hence this patch updates setup_bootmem()
+> to only reserve memory from the kernel start to the kernel end.
+> 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 
-Can you keep the two flags adjustments togther, preferably towards
-the top of the file?
-
-> +/*
-> + * The setup_vm() is called from head.S with MMU-off.
-
-s/The //g
-
-Otherwis looks fine:
-
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+Shouldn't this be a Suggested-by?
 
 _______________________________________________
 linux-riscv mailing list
