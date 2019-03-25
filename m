@@ -6,61 +6,83 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 64A40C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 11:58:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 834F4C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 12:10:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 32C2420850
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 11:58:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 50ECF20863
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 12:10:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HbIGPc/l"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 32C2420850
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qrcbcmUN";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="EBTa0Bbf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 50ECF20863
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bWA6D9bsKxmvDZcZSmcwwTOeDXkkFG4Oy0iWwaYYzzc=; b=HbIGPc/l5Td/sP
-	xR4hBqEXBR3UhSahEbMDbqy1zNPG0jK4nFE7q7GvYJXBWDK3LgGAmvsCib7P2+FkIsgQLndx7rkVm
-	2hqNute1mmHUEv+NmcYXrJx2gCUSe3mPe4bbeuLgVXPIwK0O66b1kFmzoeM1OtBkkuUzXJxjtzMba
-	8yYffMhrxcgdTB30ble8y4xwLj/cfIgFESGE3jC1n0mUilbaAivkk8apmwkYAcEYXTuxo0QFuE6nn
-	8lycUmHBqUIpCfM+bH07wcNu/VuX0/VnZGBbQ3ct46C5BIZwN/T9v8FwKektqhmEAibHRgap+ClgM
-	nuBXU3SxTHeRfqZ+j7/w==;
+	List-Owner; bh=UCQBpusShADRXB+vaDIdea0tIYSVoDIkF5gAEAaNJy4=; b=qrcbcmUNC1dVNM
+	WcZt6QlyYPehds1RhhL77/XKo72qQ8WdnIdVgNgZiooUUd2UZU+7D2CcFUwqsNi1ALvyBKWs47BYM
+	Dl8EehG5ApRKD2paSTQQP1+QONxVN2mWLOgJqZ9j6cemdjp1LvnR5dtSbjv4f+5HhGqXg27CC55w6
+	7J8txcEamv9ujoE3QX4cwVZ0k7DLRBCcCEtpRi0ZkNTiuNR6XAizHUSnrBcdiyy5wcegXnRKcnv+c
+	aFjwcgdxvf191WCCRJbJiOFYqxo8o9Ggvdw88jGopFBzpMqCP5KZWmf0+RNOfU3QVPLZh3vX2+u6z
+	D4rxcO0oq2ArZFrgsyeA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h8OFQ-0007zy-9Y; Mon, 25 Mar 2019 11:58:36 +0000
-Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+	id 1h8OQs-0004ff-36; Mon, 25 Mar 2019 12:10:26 +0000
+Received: from mail-lj1-x241.google.com ([2a00:1450:4864:20::241])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h8OFM-0007yp-4w
- for linux-riscv@lists.infradead.org; Mon, 25 Mar 2019 11:58:34 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id DB030AC61;
- Mon, 25 Mar 2019 11:58:26 +0000 (UTC)
-From: Andreas Schwab <schwab@suse.de>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH v9 0/2] PWM support for HiFive Unleashed
+ id 1h8OQp-0004ei-4v
+ for linux-riscv@lists.infradead.org; Mon, 25 Mar 2019 12:10:25 +0000
+Received: by mail-lj1-x241.google.com with SMTP id v13so7580598ljk.4
+ for <linux-riscv@lists.infradead.org>; Mon, 25 Mar 2019 05:10:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=gbdnwxsyaq97iQCUafgGL5JXQ/w5Y2o2mTntOt3fm5w=;
+ b=EBTa0BbfezLE71AxQ7JPrG9Y9jz7eZCd4A0UWyQnAAD3xyxDj5N496268U78l2etgX
+ YZYn8r+8YU+b/qhe6J1OwNqDYbxpKb3xD43z2l6hQu7Z8gpCVYHyvDSyOnDgN39tq0zl
+ QnRBwlj6V9/vkbQZwR2HVVGUI3r9gj7Qb7hjP48p0xIZnsoVCtV0zlKooHwzM4z0jyFd
+ iQTTTFuiS3V0o6uOb4EhHIPGs7xEpITg4hCmeP9K0953xO22mXXtkaFq77U2O21QYE2g
+ ET47wHOFLw+Qxb4mFYH9rHPo9mzu9WXB1jDzP7ZVtBjxsW1eDryun1093Im4XNNd9GBp
+ iUbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=gbdnwxsyaq97iQCUafgGL5JXQ/w5Y2o2mTntOt3fm5w=;
+ b=rz2yxf329zZv7t66oy+DnyFTClxu8PEkaLpQJpfVFx7BXPfJcrcaT83ab5bqSFkc8C
+ /ZJOpACY722OFvwkE972g+F/SR6BgyCqi8hAcnncROCmvCy8Lg7LBoqv0O6VwAviELQG
+ yLIhqSnar/FICMoFatYIT8SMgcMTJyXBUPrYm9SF1rHmJxlmWde7yEiK9vPwo5n9KO/j
+ Y3C0z1NcaPlh81a0ZAQdHs2p0lPjWlVRi2z2V5dUVvI1CrIhZohFj6GcxN4fybBbTBIl
+ E1nHcfl8U4KeCdJluTo3U0DsH+srX3NgDX2Di+tUd9ELX+apM96RcfxHwgjC8/Me1KgG
+ Jbpw==
+X-Gm-Message-State: APjAAAVWLnDVTfOMqceAJ63jY6c7SFrgQJa5ElW6rUqg72ATEzwj3lk+
+ 9+wIP0I6FVNK6/PpolTox+RD4tfwVP5dUsxatmk6uQ==
+X-Google-Smtp-Source: APXvYqzWak45t1WHLVO1cDDvE/73sbvyQmCUK3nLR9o8/t5gyKuPjEIY08/E3rxfy8ilonoRbAO+24C9xClEix9Y+XQ=
+X-Received: by 2002:a2e:9a91:: with SMTP id p17mr12148154lji.127.1553515819051; 
+ Mon, 25 Mar 2019 05:10:19 -0700 (PDT)
+MIME-Version: 1.0
 References: <1552378289-27245-1-git-send-email-yash.shah@sifive.com>
  <mvmimwotn60.fsf@suse.de>
  <CAJ2_jOE3RH9FyFg_NATcLEpHv5y89zdh06Ji2x8n3C_gp-wn6A@mail.gmail.com>
  <mvm5zsgp00d.fsf@suse.de>
  <CAJ2_jOHoNnBF2UwU6G1vdvNrJAUJdGL_RncRAOaXMWoS03cagA@mail.gmail.com>
  <CAJ2_jOFrXcxRS1oYOuYhtuRReTocmPKnoe5GO_3r_B1uAZb+xA@mail.gmail.com>
-X-Yow: I was in a HOT TUB!  I was NORMAL!  I was ITALIAN!!  I enjoyed th'
- EARTHQUAKE!
-Date: Mon, 25 Mar 2019 12:58:26 +0100
-In-Reply-To: <CAJ2_jOFrXcxRS1oYOuYhtuRReTocmPKnoe5GO_3r_B1uAZb+xA@mail.gmail.com>
- (Yash Shah's message of "Mon, 25 Mar 2019 17:13:29 +0530")
-Message-ID: <mvmmuljupwd.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.2 (gnu/linux)
-MIME-Version: 1.0
+ <mvmmuljupwd.fsf@suse.de>
+In-Reply-To: <mvmmuljupwd.fsf@suse.de>
+From: Yash Shah <yash.shah@sifive.com>
+Date: Mon, 25 Mar 2019 17:39:42 +0530
+Message-ID: <CAJ2_jOFwDouMNAj8NxLX01bpLV+rG-rFsVh7e_e2ncCBX3qt_Q@mail.gmail.com>
+Subject: Re: [PATCH v9 0/2] PWM support for HiFive Unleashed
+To: Andreas Schwab <schwab@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190325_045832_341067_7C1FC302 
-X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-CacheID: sfid-20190325_051023_482072_F392C9F9 
+X-CRM114-Status: UNSURE (   9.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -83,15 +105,21 @@ Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTcOkciAyNSAyMDE5LCBZYXNoIFNoYWggPHlhc2guc2hhaEBzaWZpdmUuY29tPiB3cm90ZToK
-Cj4gSSBoYXZlIHNlbnQgb3V0IHRoZSB2MTEgcGF0Y2hzZXQsIHlvdSBjYW4gdGVzdCB0aGUgaGVh
-cnRiZWF0Cj4gYXBwbGljYXRpb24gd2l0aCB0aGF0IHBhdGNoc2V0Lgo+IFlvdSBzdGlsbCBuZWVk
-IHRvIG1ha2UgdGhhdCBEVCBmaWxlIG1vZGlmaWNhdGlvbiB3aGljaCB5b3UgcHJldmlvdXNseQo+
-IGRpZCwgdXNpbmcgZnNibC5iaW4KCldoeSBjYW4ndCB0aGUgZHJpdmVyIG1ha2UgdXNlIG9mIHNp
-Zml2ZSxhcHByb3gtcGVyaW9kPwoKQW5kcmVhcy4KCi0tIApBbmRyZWFzIFNjaHdhYiwgU1VTRSBM
-YWJzLCBzY2h3YWJAc3VzZS5kZQpHUEcgS2V5IGZpbmdlcnByaW50ID0gMDE5NiBCQUQ4IDFDRTkg
-MTk3MCBGNEJFICAxNzQ4IEU0RDQgODhFMyAwRUVBIEI5RDcKIkFuZCBub3cgZm9yIHNvbWV0aGlu
-ZyBjb21wbGV0ZWx5IGRpZmZlcmVudC4iCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+T24gTW9uLCBNYXIgMjUsIDIwMTkgYXQgNToyOCBQTSBBbmRyZWFzIFNjaHdhYiA8c2Nod2FiQHN1
+c2UuZGU+IHdyb3RlOgo+Cj4gT24gTcOkciAyNSAyMDE5LCBZYXNoIFNoYWggPHlhc2guc2hhaEBz
+aWZpdmUuY29tPiB3cm90ZToKPgo+ID4gSSBoYXZlIHNlbnQgb3V0IHRoZSB2MTEgcGF0Y2hzZXQs
+IHlvdSBjYW4gdGVzdCB0aGUgaGVhcnRiZWF0Cj4gPiBhcHBsaWNhdGlvbiB3aXRoIHRoYXQgcGF0
+Y2hzZXQuCj4gPiBZb3Ugc3RpbGwgbmVlZCB0byBtYWtlIHRoYXQgRFQgZmlsZSBtb2RpZmljYXRp
+b24gd2hpY2ggeW91IHByZXZpb3VzbHkKPiA+IGRpZCwgdXNpbmcgZnNibC5iaW4KPgo+IFdoeSBj
+YW4ndCB0aGUgZHJpdmVyIG1ha2UgdXNlIG9mIHNpZml2ZSxhcHByb3gtcGVyaW9kPwoKQmVjYXVz
+ZSBhcyBwZXIgdGhlIHJldmlldyBjb21tZW50cyBhbmQgZGlzY3Vzc2lvbnMsIGl0IGhhcyBiZWVu
+CmRlY2lkZWQgdGhhdCB0aGUgZHJpdmVyIHdpbGwgbWFrZSB1c2Ugb2YgdGhlIGNvbnZlbnRpb25h
+bCBpbnRlcmZhY2UgdG8KcGFzcyBwZXJpb2Qgc2V0dGluZ3MgaW5zdGVhZCBvZiAnc2lmaXZlLGFw
+cHJveC1wZXJpb2QnLgoKRm9yIHlvdXIgcmVmZXJlbmNlOgpodHRwczovL2xrbWwub3JnL2xrbWwv
+MjAxOS8yLzYvMTU5Cgo+Cj4gQW5kcmVhcy4KPgo+IC0tCj4gQW5kcmVhcyBTY2h3YWIsIFNVU0Ug
+TGFicywgc2Nod2FiQHN1c2UuZGUKPiBHUEcgS2V5IGZpbmdlcnByaW50ID0gMDE5NiBCQUQ4IDFD
+RTkgMTk3MCBGNEJFICAxNzQ4IEU0RDQgODhFMyAwRUVBIEI5RDcKPiAiQW5kIG5vdyBmb3Igc29t
+ZXRoaW5nIGNvbXBsZXRlbHkgZGlmZmVyZW50LiIKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
