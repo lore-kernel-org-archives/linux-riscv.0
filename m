@@ -2,100 +2,50 @@ Return-Path: <SRS0=oSgD=R4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,USER_AGENT_MUTT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EFFB9C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 06:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7478FC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 06:48:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BAD5F2075E
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 06:13:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 44F5F206C0
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 06:48:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="L9GOQr4G"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BAD5F2075E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VQCMhJ8a"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 44F5F206C0
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:In-Reply-To:MIME-Version:
-	References:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vQDTBAv3aLf2sHC4PK3PMI8XRlnOG8ZMbXD0XhWkbow=; b=L9GOQr4GJy+rgS
-	RlL8FxTYZR4OrDWYXoSb5B+ohHMKWRPM4znibqdPnBaRQRe+5YKEoGSqCPZB0yQv8aCmXJZpyQOBM
-	niM3ttNs5TxjVCfKJJdiYxxStTktuH2K4GSA+2ZDX+srPSRrFzZaFasAfs7TeGbxC88xh3Upu+cKL
-	ODh359prtfEW9biQ1NJnuphZljaWkn86UJ0DXjk5zz5cUTUpap46W61yHaZk4FpXgRNcopOP81TaD
-	wJJVOavNbm+2f6fl06H40+/XTd73YnMvEVxjWffvkRSaG6xDwcS4OSIbO0yKC0MPFWO/aUJj+cFg9
-	l+wtkspn2ZAx1QxoB5Fw==;
+	List-Owner; bh=QfhJM4sCpitPieOaqL8zT6fIv5qV3/iSq7vl2qBf6NI=; b=VQCMhJ8aa18ut3
+	5gVAiU4x+1QOM0yne35QDeoMz65MH07ygZFhE5oXVwZuirJ/MlOb3fq/vrC/Ohgql1HotOfhFaqMs
+	ZXAjKj906D68ES19wcUskNp4t25rCmGRyHJpZ2+KrGmDMcbtAmUv2NBHGTWhFCsM2AY6P2XaHWtdl
+	YPLUEsIlzeQJo+FdgE+6couJYe4/SFUvaKRCIEgachynctCYpGDp+fWGlCUArvXPd5aQsvFbnh4eb
+	GGGCsJX8Dz+GmJSfOxbczN2J5a+sJWx6/xx23i+pngR09kIDa9jee7+ZlwTEIOIs7hk7Yj8JIuGbZ
+	pn+BPd2f3aBGM23Plmvw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h8Iqq-0001jQ-RA; Mon, 25 Mar 2019 06:12:52 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h8Iqh-0001iD-Bd
- for linux-riscv@lists.infradead.org; Mon, 25 Mar 2019 06:12:51 +0000
-Received: from pps.filterd (m0098399.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
- x2P64RPZ065725
- for <linux-riscv@lists.infradead.org>; Mon, 25 Mar 2019 02:12:40 -0400
-Received: from e06smtp07.uk.ibm.com (e06smtp07.uk.ibm.com [195.75.94.103])
- by mx0a-001b2d01.pphosted.com with ESMTP id 2rejdxptue-1
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
- for <linux-riscv@lists.infradead.org>; Mon, 25 Mar 2019 02:12:39 -0400
-Received: from localhost
- by e06smtp07.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
- Violators will be prosecuted
- for <linux-riscv@lists.infradead.org> from <rppt@linux.ibm.com>;
- Mon, 25 Mar 2019 06:12:37 -0000
-Received: from b06cxnps4074.portsmouth.uk.ibm.com (9.149.109.196)
- by e06smtp07.uk.ibm.com (192.168.101.137) with IBM ESMTP SMTP Gateway:
- Authorized Use Only! Violators will be prosecuted; 
- (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
- Mon, 25 Mar 2019 06:12:32 -0000
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com
- (b06wcsmtp001.portsmouth.uk.ibm.com [9.149.105.160])
- by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- x2P6CV0923068912
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Mon, 25 Mar 2019 06:12:32 GMT
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id DC4E8A4069;
- Mon, 25 Mar 2019 06:12:31 +0000 (GMT)
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 0B852A405F;
- Mon, 25 Mar 2019 06:12:31 +0000 (GMT)
-Received: from rapoport-lnx (unknown [9.148.207.233])
- by b06wcsmtp001.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Mon, 25 Mar 2019 06:12:30 +0000 (GMT)
-Date: Mon, 25 Mar 2019 08:12:29 +0200
-From: Mike Rapoport <rppt@linux.ibm.com>
-To: Anup Patel <Anup.Patel@wdc.com>
+	id 1h8JPK-00019b-L8; Mon, 25 Mar 2019 06:48:30 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
+ Hat Linux)) id 1h8JPG-00018s-TX; Mon, 25 Mar 2019 06:48:26 +0000
+Date: Sun, 24 Mar 2019 23:48:26 -0700
+From: Christoph Hellwig <hch@infradead.org>
+To: Alan Kao <alankao@andestech.com>
 Subject: Re: [PATCH v2] RISC-V: Always compile mm/init.c with cmodel=medany
+Message-ID: <20190325064826.GA29111@infradead.org>
 References: <20190325033648.16171-1-anup.patel@wdc.com>
+ <20190325052550.GA30996@andestech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190325033648.16171-1-anup.patel@wdc.com>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-TM-AS-GCONF: 00
-x-cbid: 19032506-0028-0000-0000-00000357D9DF
-X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
-x-cbparentid: 19032506-0029-0000-0000-000024168AEE
-Message-Id: <20190325061228.GB2925@rapoport-lnx>
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
- definitions=2019-03-25_04:, , signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501
- malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=906 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1810050000 definitions=main-1903250047
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190324_231243_515848_4789122B 
-X-CRM114-Status: GOOD (  25.05  )
+In-Reply-To: <20190325052550.GA30996@andestech.com>
+User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -107,9 +57,10 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
+Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
+ Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
@@ -117,109 +68,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 25, 2019 at 03:37:38AM +0000, Anup Patel wrote:
-> The Linux RISC-V 32bit kernel is broken after we moved setup_vm() from
-> kernel/setup.c to mm/init.c because Linux RISC-V 32bit kernel by default
-> uses cmodel=medlow which results in a non-position-independent setup_vm().
+On Mon, Mar 25, 2019 at 01:25:50PM +0800, Alan Kao wrote:
+> Hi Anup,
 > 
-> This patch fixes Linux RISC-V 32bit kernel booting by:
-> 1. Forcing cmodel=medany for mm/init.c
-> 2. Moving remaing MM-related stuff va_pa_offset, pfn_base and
->    empty_zero_page from kernel/setup.c to mm/init.c
-> 
-> Fixes: 6f1e9e946f0b ("RISC-V: Move setup_vm() to mm/init.c")
-> Suggested-by: Christoph Hellwig <hch@lst.de>
-> Suggested-by: Mike Rapoport <rppt@linux.ibm.com>
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> Sorry for being late to the party.  I think one more thing should
+> move together with setup_vm():
 
-Reviewed-by: Mike Rapoport <rppt@linux.ibm.com>
-
-> ---
-> v2: Removed CFLAGS_setup.o from kernel/Makefile and replaced SoBs
-> ---
->  arch/riscv/kernel/Makefile | 2 --
->  arch/riscv/kernel/setup.c  | 8 --------
->  arch/riscv/mm/Makefile     | 2 ++
->  arch/riscv/mm/init.c       | 9 +++++++++
->  4 files changed, 11 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index f13f7f276639..8b9780b6bd7f 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -29,8 +29,6 @@ obj-y	+= vdso.o
->  obj-y	+= cacheinfo.o
->  obj-y	+= vdso/
->  
-> -CFLAGS_setup.o := -mcmodel=medany
-> -
->  obj-$(CONFIG_FPU)		+= fpu.o
->  obj-$(CONFIG_SMP)		+= smpboot.o
->  obj-$(CONFIG_SMP)		+= smp.o
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index ecb654f6a79e..540a331d1376 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -48,14 +48,6 @@ struct screen_info screen_info = {
->  };
->  #endif
->  
-> -unsigned long va_pa_offset;
-> -EXPORT_SYMBOL(va_pa_offset);
-> -unsigned long pfn_base;
-> -EXPORT_SYMBOL(pfn_base);
-> -
-> -unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)] __page_aligned_bss;
-> -EXPORT_SYMBOL(empty_zero_page);
-> -
->  /* The lucky hart to first increment this variable will boot the other cores */
->  atomic_t hart_lottery;
->  unsigned long boot_cpu_hartid;
-> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
-> index eb22ab49b3e0..7307609d405b 100644
-> --- a/arch/riscv/mm/Makefile
-> +++ b/arch/riscv/mm/Makefile
-> @@ -3,3 +3,5 @@ obj-y += fault.o
->  obj-y += extable.o
->  obj-y += ioremap.o
->  obj-y += cacheflush.o
-> +
-> +CFLAGS_init.o := -mcmodel=medany
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index b379a75ac6a6..7a7c454378cb 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -25,6 +25,10 @@
->  #include <asm/pgtable.h>
->  #include <asm/io.h>
->  
-> +unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
-> +							__page_aligned_bss;
-> +EXPORT_SYMBOL(empty_zero_page);
-> +
->  static void __init zone_sizes_init(void)
->  {
->  	unsigned long max_zone_pfns[MAX_NR_ZONES] = { 0, };
-> @@ -143,6 +147,11 @@ void __init setup_bootmem(void)
->  	}
->  }
->  
-> +unsigned long va_pa_offset;
-> +EXPORT_SYMBOL(va_pa_offset);
-> +unsigned long pfn_base;
-> +EXPORT_SYMBOL(pfn_base);
-> +
->  pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
->  pgd_t trampoline_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
->  
-> -- 
-> 2.17.1
-> 
-
--- 
-Sincerely yours,
-Mike.
-
+Ah, I wonded about that yesterday but wasn't sure.  Maybe notrace
+is a little cleaner?  Either way we should probably document both
+the mcmodel and notrace assumptions in source comments for the next
+person touching this code.
 
 _______________________________________________
 linux-riscv mailing list
