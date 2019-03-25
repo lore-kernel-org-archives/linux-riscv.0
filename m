@@ -2,90 +2,83 @@ Return-Path: <SRS0=oSgD=R4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 45DEDC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 00:23:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5859C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 03:19:46 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 131A42133F
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 00:23:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8388420828
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 25 Mar 2019 03:19:46 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mG9YD9Mr";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="UY7JyjFa"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 131A42133F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SvmV27aJ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="o/FaLzux"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8388420828
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QUfcDd09kfEiYy5Qx5egScufRta7piEkkCn+O03pjoM=; b=mG9YD9Mr3q6sNl
-	aOBieWgjZf4DnfF6aWEEZ4njWhGBbhu7O+csXi/fLdjbJRGuvSA/gxZe3HK0vtqeNJWvW0W2UAJ1F
-	QB2gVWUyGj7lkqXORGD65laL3krBZO8BPSZ1YkhtzxSg29Pp/ZHvQm8fqkQMBcn1BYiniKM8MgKsc
-	5nsmbsjlcC4jVLRW8BA1JURDmmK/DdlValLWhbpiIz6svwAMfUKn8dilCtQlTOfC6+pzYyg7ncAj2
-	NGuiHpt571+xOvZ+3A1OH/5gY20Om6fLGacvh3lddbPnTRhhtPfYbl9v90RbsMNPkUqn3poNvikLw
-	j5/TMUecOkSNXRjuPBIA==;
+	List-Owner; bh=EL9aS+MTGgWVSfFwCCJgpRKv2siGjJq5GtO7E0DPlS8=; b=SvmV27aJplFC2w
+	4PP6B4KEvKTnyQcQHoSlKMnAEsG/vXILREvAma1+Gp47YDgS+zKNQsbaUpQrwevIohNBlYSgVVoot
+	qZ15E41weq46+AZYYCicMIBg2Zqd2ZGozzZYaadHQVWWBJ/eW8ABVLol8+AyZ3jGP12W2wO4nYx63
+	s/mYRLrD8G1HhOchMVrc6PiHXtvRBzmTdvoSPs97Bq/H0jqxYLNwDNcALX6KlhOmR3J9wxw+cGSaB
+	8SpLifu+7IRF4R1r0hbpaQYbM8/UB/mt1bG35+wU+X6dQqIhGTBwfpjsb3DDrgHqHbbcPz2i8O6g3
+	dXxk5DJYqsDTEOnchOCQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h8DOn-0007ek-D2; Mon, 25 Mar 2019 00:23:33 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1h8G9C-0005ZQ-Uj; Mon, 25 Mar 2019 03:19:38 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h8DOk-0007eK-EI
- for linux-riscv@lists.infradead.org; Mon, 25 Mar 2019 00:23:32 +0000
-Received: by mail-pf1-x442.google.com with SMTP id e24so4232451pfi.12
- for <linux-riscv@lists.infradead.org>; Sun, 24 Mar 2019 17:23:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:cc:subject:in-reply-to:message-id:references
- :user-agent:mime-version;
- bh=agLggfzVNvnniz+s+u4yB447HTg0tUwLs9vsHM/rn0w=;
- b=UY7JyjFaPNeJTBUU6g7aahOv4IHJpuC7sKDIyYq27Np2dzww2yHKkLkzNzUxy0UlkC
- /H9W5hyBJ1LQnJC4L/smWzdt0VTZPuOEPqY7drXE8RQ6s1MZx7bMYisUndC0NxKp5rdI
- lPn04jenEPl23eEdtrLXxGtCGWbxfIAIVulIYVT0i7gz8oEJ0hKenXDxCnXrWxqN/WDq
- 9In3dvfenRsDsspHrm4droUnKtmCaX8R1TpqpVlOs2CEMjRbI5NFDVKmhRLkCzqI8qHo
- UWoJhPz1SOyHDegucg1ljPhRASZNbJoQaF8+9ccvApJyz/UGdZw2UwYpC/LIIUg1z0Mv
- 76wg==
+ id 1h8G99-0005Yc-Vz
+ for linux-riscv@lists.infradead.org; Mon, 25 Mar 2019 03:19:37 +0000
+Received: by mail-wm1-x343.google.com with SMTP id a184so7296989wma.2
+ for <linux-riscv@lists.infradead.org>; Sun, 24 Mar 2019 20:19:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=m+KBawshO2ac9odd0aZdpxY21SVc/hnJhTxHZNDsCqc=;
+ b=o/FaLzuxCRSMDHvwZjCd2TG7JRIPfsq9KAJlNaJFIAILPPO3XvEIWHv5iMaJm4l575
+ I67VCbrEGCvRn8v9cBjY0DCkrYcvp5SfpxF6dwWr2zIeXn/sLjoJkjJ4aCZ7RbIz+FCg
+ k0aa2i++UENBkDf5vM71io2Yn0i2a1KtQOz4Y4N+ygpcOgb7DKHKrFjzdKUoUlBSVMWs
+ o21wxSpMfFkkINk4pyoPWWs7qpLN8wkxjgyx1xTpqGa3/tXCH6jxTe+3bUeNIma2ey2v
+ e9iasmi3Y5LCP0JqRJtF8835HM1g9+fFyIifhDNkyyDjshYlbvG+Pnunrmyq0pXRTV8d
+ UdKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
- :references:user-agent:mime-version;
- bh=agLggfzVNvnniz+s+u4yB447HTg0tUwLs9vsHM/rn0w=;
- b=ZOoKlXpzIrixR/PfyEwQAKGjyyNeRuN/HPOp103sXbmgV5Kahrhnm1DhHkEl7A8aYa
- 5aAmMQFXLm5i2I9qQhee4hMOVpHhq4YWTT0B2hgVK8dLibmRSofbmLYyCGirgxP16CB/
- AuoQAPYgTcOzcuEADQiWWcXaoAh0h+kJ0/BWTS7Jy0irav6jSUuN9+797OM33lwwG/rX
- XIIuPTaa6JcIkvd1taThdBrAiDZHtnaiUlJQnF8y/vTInR2afOtSENPULuLPfYkqdtcx
- GrzGegIPEYpgtn0OU/OemgFdqnqGYh3DN4RStw+hQN1Kst7aCuuNLWxVCKqDGhcsmEG7
- EnWQ==
-X-Gm-Message-State: APjAAAVy6j5v4mjWQRgI5KzGRNpFHKpqd4BY1XDaAXz2NZ2BPhqL9DO5
- Ix0ULG5GDN3TRrw8l/C2HXibSw==
-X-Google-Smtp-Source: APXvYqw4obTifPQt8Y9MhyymipTFMf1o1mXWAa1f/B2SbXtKkG+9R3vQNCAMmSVOvNyVmCjSUIv6bA==
-X-Received: by 2002:a63:29c3:: with SMTP id p186mr20733392pgp.24.1553473409424; 
- Sun, 24 Mar 2019 17:23:29 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id g13sm24637390pfm.159.2019.03.24.17.23.28
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Sun, 24 Mar 2019 17:23:28 -0700 (PDT)
-Date: Sun, 24 Mar 2019 17:23:27 -0700 (PDT)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-X-X-Sender: paulw@viisi.sifive.com
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH 2/2] edac: sifive: Add EDAC driver for SiFive FU540-C000
- chip
-In-Reply-To: <1553082728-9232-3-git-send-email-yash.shah@sifive.com>
-Message-ID: <alpine.DEB.2.21.9999.1903241558210.8028@viisi.sifive.com>
-References: <1553082728-9232-1-git-send-email-yash.shah@sifive.com>
- <1553082728-9232-3-git-send-email-yash.shah@sifive.com>
-User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=m+KBawshO2ac9odd0aZdpxY21SVc/hnJhTxHZNDsCqc=;
+ b=W71J9HWg+sJLcDQdHNV5zMJdJcd8vBVOhOfrYIefc1ffQqcNwixs9bpBlxfZBgUrmy
+ u2oCpq+rEuVuk0MIFzNKz2zzWAvU2DEsuYnwAA8TAYXv3IrQv/mDf4cnpLKXgl6Z7bp/
+ RIa0sg5NygxwAQ9tWIdQGfz8DpCIaBimnVGklBWOhPNI1GuRlNvKWM1NvmSlxRi5PKTi
+ oCZHWpICkws7MOQHo85gb54eMgSXlhqHnsi1VagwZSACz8dovssM6D/MvcQp0fu9xUn1
+ rnLfDjIOa8OkzAfDrjC4rNHUK0+HDwX3one6GaWIXtY9p5ZSakMaXDJ4591fCOvs68oT
+ AtCg==
+X-Gm-Message-State: APjAAAUDvaMdabWd8O9hUawfl7bwlk1SGvLxKu5IhxVvQYIEtX52Vrht
+ pQYSi/xDJ3A5JqmoDexcPIUuXiDpnOfxWII7NJFqyg==
+X-Google-Smtp-Source: APXvYqwQ7z8znKmubuBIgR31+9p1eg7UMtNPW9S5EYCpJTKszx56IPpvbJ6XpTXteGOx38q7pSwx96CpB+nLFYXSbYE=
+X-Received: by 2002:a1c:9c14:: with SMTP id f20mr3917693wme.16.1553483970223; 
+ Sun, 24 Mar 2019 20:19:30 -0700 (PDT)
 MIME-Version: 1.0
+References: <20190324110804.68555-1-anup.patel@wdc.com>
+ <20190324145708.GA3355@lst.de> <20190324164316.GA2925@rapoport-lnx>
+In-Reply-To: <20190324164316.GA2925@rapoport-lnx>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 25 Mar 2019 08:49:19 +0530
+Message-ID: <CAAhSdy1JcvFtzwcUpd5xHbeUiCBoTCy+AnEiW+nQAs2KHez44Q@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Always compile mm/init.c with cmodel=medany
+To: Mike Rapoport <rppt@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190324_172330_497835_445376E1 
-X-CRM114-Status: GOOD (  28.06  )
+X-CRM114-CacheID: sfid-20190324_201936_039264_B66B8731 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,422 +90,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
- palmer@sifive.com, linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
- robh+dt@kernel.org, bp@alien8.de, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org, mchehab@kernel.org,
- linux-edac@vger.kernel.org
+Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yash,
+On Sun, Mar 24, 2019 at 10:13 PM Mike Rapoport <rppt@linux.ibm.com> wrote:
+>
+> On Sun, Mar 24, 2019 at 03:57:08PM +0100, Christoph Hellwig wrote:
+> > On Sun, Mar 24, 2019 at 11:08:29AM +0000, Anup Patel wrote:
+> > > Signed-off-by: Christoph Hellwig <hch@lst.de>
+> > > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> >
+> > Huh?  I don't think this is from Mike and me.
+>
+> Suggested-by: would me more appropriate indeed :)
 
-Just a few brief comments here:
+Sure, I will use Suggested-by: here.
 
-On Wed, 20 Mar 2019, Yash Shah wrote:
-
-> This EDAC driver supports:
-> - Initial configuration reporting on bootup via debug logs
-> - ECC event monitoring and reporting through the EDAC framework
-> - ECC event injection
-> 
-
-It's probably worth mentioning here, as you did in the subject line, that 
-this is for the FU540-C000 platform.
-
-> This driver is partially based on pnd2_edac.c and altera_edac.c
-> 
-> Initially L2 Cache controller is added as a subcomponent to
-> this EDAC driver.
-> 
-> Signed-off-by: Yash Shah <yash.shah@sifive.com>
-> ---
->  arch/riscv/Kconfig         |   1 +
->  drivers/edac/Kconfig       |  13 ++
->  drivers/edac/Makefile      |   1 +
->  drivers/edac/sifive_edac.c | 297 +++++++++++++++++++++++++++++++++++++++++++++
->  4 files changed, 312 insertions(+)
->  create mode 100644 drivers/edac/sifive_edac.c
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 515fc3c..fede4b6 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -49,6 +49,7 @@ config RISCV
->  	select RISCV_TIMER
->  	select GENERIC_IRQ_MULTI_HANDLER
->  	select ARCH_HAS_PTE_SPECIAL
-> +	select EDAC_SUPPORT
->  
->  config MMU
->  	def_bool y
-
-This part of the patch either needs to get an ack from Palmer, or should 
-be split into a final, separate patch that Palmer can merge separately.  
-That way it will avoid unexpected merge conflicts if anything that Palmer 
-merges changes this file.
-
-> diff --git a/drivers/edac/Kconfig b/drivers/edac/Kconfig
-> index e286b5b..112d9d1 100644
-> --- a/drivers/edac/Kconfig
-> +++ b/drivers/edac/Kconfig
-> @@ -440,6 +440,19 @@ config EDAC_ALTERA_SDMMC
->  	  Support for error detection and correction on the
->  	  Altera SDMMC FIFO Memory for Altera SoCs.
->  
-> +config EDAC_SIFIVE
-> +	tristate "Sifive ECC"
-> +	depends on RISCV
-> +	help
-> +	  Support for error detection and correction on the SiFive SoCs.
-> +
-> +config EDAC_SIFIVE_L2
-> +	bool "SiFive L2 Cache ECC"
-> +	depends on EDAC_SIFIVE=y
-> +	help
-> +	  Support for error detection and correction of the L2 cache
-> +	  memory on SiFive SoCs.
-> +
->  config EDAC_SYNOPSYS
->  	tristate "Synopsys DDR Memory Controller"
->  	depends on ARCH_ZYNQ || ARCH_ZYNQMP
-> diff --git a/drivers/edac/Makefile b/drivers/edac/Makefile
-> index 716096d..b16dce8 100644
-> --- a/drivers/edac/Makefile
-> +++ b/drivers/edac/Makefile
-> @@ -74,6 +74,7 @@ obj-$(CONFIG_EDAC_OCTEON_PCI)		+= octeon_edac-pci.o
->  obj-$(CONFIG_EDAC_THUNDERX)		+= thunderx_edac.o
->  
->  obj-$(CONFIG_EDAC_ALTERA)		+= altera_edac.o
-> +obj-$(CONFIG_EDAC_SIFIVE)		+= sifive_edac.o
->  obj-$(CONFIG_EDAC_SYNOPSYS)		+= synopsys_edac.o
->  obj-$(CONFIG_EDAC_XGENE)		+= xgene_edac.o
->  obj-$(CONFIG_EDAC_TI)			+= ti_edac.o
-> diff --git a/drivers/edac/sifive_edac.c b/drivers/edac/sifive_edac.c
-> new file mode 100644
-> index 0000000..e11ae6b5
-> --- /dev/null
-> +++ b/drivers/edac/sifive_edac.c
-> @@ -0,0 +1,297 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * SiFive EDAC Driver
-> + *
-> + * Copyright (C) 2018-2019 SiFive, Inc.
-> + *
-> + */
-> +#include <linux/edac.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/of.h>
-> +#include <linux/of_platform.h>
-> +#include "edac_module.h"
-> +
-> +#define SIFIVE_EDAC_DIRFIX_LOW 0x100
-> +#define SIFIVE_EDAC_DIRFIX_HIGH 0x104
-> +#define SIFIVE_EDAC_DIRFIX_COUNT 0x108
-> +
-> +#define SIFIVE_EDAC_DATFIX_LOW 0x140
-> +#define SIFIVE_EDAC_DATFIX_HIGH 0x144
-> +#define SIFIVE_EDAC_DATFIX_COUNT 0x148
-> +
-> +#define SIFIVE_EDAC_DATFAIL_LOW 0x160
-> +#define SIFIVE_EDAC_DATFAIL_HIGH 0x164
-> +#define SIFIVE_EDAC_DATFAIL_COUNT 0x168
-> +
-> +#define SIFIVE_EDAC_ECCINJECTERR 0x40
-> +#define SIFIVE_EDAC_CONFIG 0x00
-> +
-> +#define SIFIVE_EDAC_MAX_INTR 3
-> +
-> +/************************* EDAC Parent Probe *************************/
-> +
-> +static const struct of_device_id sifive_edac_device_of_match[];
-> +
-> +static const struct of_device_id sifive_edac_of_match[] = {
-> +	{ .compatible = "sifive,ecc-manager" },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, sifive_edac_of_match);
-> +
-> +static int sifive_edac_probe(struct platform_device *pdev)
-> +{
-> +	of_platform_populate(pdev->dev.of_node, sifive_edac_device_of_match,
-> +			     NULL, &pdev->dev);
-> +	return 0;
-> +}
-> +
-> +static struct platform_driver sifive_edac_driver = {
-> +	.probe =  sifive_edac_probe,
-> +	.driver = {
-> +		.name = "ecc_manager",
-
-As mentioned before we don't have an ECC manager IP block, so we probably 
-should figure out a different approach here, if possible.
-
-> +		.of_match_table = sifive_edac_of_match,
-> +	},
-> +};
-> +module_platform_driver(sifive_edac_driver);
-> +
-> +struct sifive_edac_device_prv {
-> +	void (*setup)(struct edac_device_ctl_info *dci);
-> +	irqreturn_t (*ecc_irq_handler)(int irq, void *dev_id);
-> +	const struct file_operations *inject_fops;
-> +};
-> +
-> +struct sifive_edac_device_dev {
-> +	void __iomem *base;
-> +	int irq[SIFIVE_EDAC_MAX_INTR];
-> +	struct sifive_edac_device_prv *data;
-> +	char *edac_dev_name;
-> +};
-> +
-> +enum {
-> +	dir_corr = 0,
-> +	data_corr,
-> +	data_uncorr,
-> +};
-
-Best to put these in all caps, per coding-style.rst:
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/coding-style.rst#n727
-
-> +
-> +static struct dentry *sifive_edac_test;
-> +
-> +static ssize_t sifive_edac_l2_write(struct file *file, const char __user *data,
-> +				    size_t count, loff_t *ppos)
-> +{
-> +	struct edac_device_ctl_info *dci = file->private_data;
-> +	struct sifive_edac_device_dev *drvdata = dci->pvt_info;
-> +	unsigned int val;
-> +
-> +	if (kstrtouint_from_user(data, count, 0, &val))
-> +		return -EINVAL;
-> +	if ((val >= 0 && val < 0xFF) || (val >= 0x10000 && val < 0x100FF))
-> +		writel(val, drvdata->base + SIFIVE_EDAC_ECCINJECTERR);
-> +	else
-> +		return -EINVAL;
-> +	return count;
-> +}
-> +
-> +static const struct file_operations sifive_edac_l2_fops = {
-> +	.owner = THIS_MODULE,
-> +	.open = simple_open,
-> +	.write = sifive_edac_l2_write
-> +};
-> +
-> +static void setup_sifive_debug(struct edac_device_ctl_info *edac_dci,
-> +			       const struct sifive_edac_device_prv *prv)
-> +{
-> +	struct sifive_edac_device_dev *drvdata = edac_dci->pvt_info;
-> +
-> +	if (!IS_ENABLED(CONFIG_EDAC_DEBUG))
-> +		return;
-
-Can all of these debugfs functions be wrapped with an #if ... #endif such 
-that, if CONFIG_EDAC_DEBUG is not set, they will all be stripped out by 
-the preprocessor?
-
-> +
-> +	sifive_edac_test = edac_debugfs_create_dir(drvdata->edac_dev_name);
-> +	if (!sifive_edac_test)
-> +		return;
-> +
-> +	if (!edac_debugfs_create_file("sifive_debug_inject_error", 0200,
-> +				      sifive_edac_test, edac_dci,
-> +				      prv->inject_fops))
-> +		debugfs_remove_recursive(sifive_edac_test);
-> +}
-> +
-> +static void teardown_sifive_debug(void)
-> +{
-> +	debugfs_remove_recursive(sifive_edac_test);
-> +}
-> +
-> +/*
-> + * sifive_edac_l2_int_handler - ISR function for l2 cache controller
-> + * @irq:	Irq Number
-> + * @device:	Pointer to the edac device controller instance
-> + *
-> + * This routine is triggered whenever there is ECC error detected
-> + *
-> + * Return: Always returns IRQ_HANDLED
-> + */
-> +static irqreturn_t sifive_edac_l2_int_handler(int irq, void *device)
-> +{
-> +	struct edac_device_ctl_info *dci =
-> +					(struct edac_device_ctl_info *)device;
-> +	struct sifive_edac_device_dev *drvdata = dci->pvt_info;
-> +	u32 regval, add_h, add_l;
-> +
-> +	if (irq == drvdata->irq[dir_corr]) {
-> +		add_h = readl(drvdata->base + SIFIVE_EDAC_DIRFIX_HIGH);
-> +		add_l = readl(drvdata->base + SIFIVE_EDAC_DIRFIX_LOW);
-> +		dev_err(dci->dev,
-> +			"DirError at address 0x%08X.%08X\n", add_h, add_l);
-> +		regval = readl(drvdata->base + SIFIVE_EDAC_DIRFIX_COUNT);
-> +		edac_device_handle_ce(dci, 0, 0, "DirECCFix");
-> +	}
-> +	if (irq == drvdata->irq[data_corr]) {
-> +		add_h = readl(drvdata->base + SIFIVE_EDAC_DATFIX_HIGH);
-> +		add_l = readl(drvdata->base + SIFIVE_EDAC_DATFIX_LOW);
-> +		dev_err(dci->dev,
-> +			"DataError at address 0x%08X.%08X\n", add_h, add_l);
-> +		regval = readl(drvdata->base + SIFIVE_EDAC_DATFIX_COUNT);
-> +		edac_device_handle_ce(dci, 0, 0, "DatECCFix");
-> +	}
-> +	if (irq == drvdata->irq[data_uncorr]) {
-> +		add_h = readl(drvdata->base + SIFIVE_EDAC_DATFAIL_HIGH);
-> +		add_l = readl(drvdata->base + SIFIVE_EDAC_DATFAIL_LOW);
-> +		dev_err(dci->dev,
-> +			"DataFail at address 0x%08X.%08X\n", add_h, add_l);
-> +		regval = readl(drvdata->base + SIFIVE_EDAC_DATFAIL_COUNT);
-> +		edac_device_handle_ue(dci, 0, 0, "DatECCFail");
-> +	}
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static void sifive_edac_l2_config_read(struct edac_device_ctl_info *dci)
-> +{
-> +	struct sifive_edac_device_dev *drvdata = dci->pvt_info;
-> +	u32 regval, val;
-> +
-> +	regval = readl(drvdata->base + SIFIVE_EDAC_CONFIG);
-> +	val = regval & 0xFF;
-> +	dev_info(dci->dev, "No. of Banks in the cache: %d\n", val);
-> +	val = (regval & 0xFF00) >> 8;
-> +	dev_info(dci->dev, "No. of ways per bank: %d\n", val);
-> +	val = (regval & 0xFF0000) >> 16;
-> +	dev_info(dci->dev, "Sets per bank: %llu\n", (uint64_t)1 << val);
-> +	val = (regval & 0xFF000000) >> 24;
-> +	dev_info(dci->dev,
-> +		 "Bytes per cache block: %llu\n", (uint64_t)1 << val);
-> +}
-> +
-> +static const struct sifive_edac_device_prv l2ecc_data = {
-> +	.setup = sifive_edac_l2_config_read,
-> +	.inject_fops = &sifive_edac_l2_fops,
-> +	.ecc_irq_handler = sifive_edac_l2_int_handler,
-> +};
-> +
-> +/*
-> + * sifive_edac_device_probe()
-> + *	This is a generic EDAC device driver that will support
-> + *	various SiFive memory devices as well as the memories
-> + *	for other peripherals. Module specific initialization is
-> + *	done by passing the function index in the device tree.
-> + */
-> +static int sifive_edac_device_probe(struct platform_device *pdev)
-> +{
-> +	struct edac_device_ctl_info *dci;
-> +	struct sifive_edac_device_dev *drvdata;
-> +	int rc, i;
-> +	struct resource *res;
-> +	void __iomem *baseaddr;
-> +	struct device_node *np = pdev->dev.of_node;
-> +	char *ecc_name = (char *)np->name;
-> +	static int dev_instance;
-> +
-> +	/* Get the data from the platform device */
-> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	baseaddr = devm_ioremap_resource(&pdev->dev, res);
-> +	if (IS_ERR(baseaddr))
-> +		return PTR_ERR(baseaddr);
-> +
-> +	dci = edac_device_alloc_ctl_info(sizeof(*drvdata), ecc_name,
-> +					 1, ecc_name, 1, 1, NULL, 0,
-> +					 dev_instance++);
-> +	if (IS_ERR(dci))
-> +		return PTR_ERR(dci);
-> +
-> +	drvdata = dci->pvt_info;
-> +	drvdata->base = baseaddr;
-> +	drvdata->edac_dev_name = ecc_name;
-> +	dci->dev = &pdev->dev;
-> +	dci->mod_name = "Sifive ECC Manager";
-> +	dci->ctl_name = dev_name(&pdev->dev);
-> +	dci->dev_name = dev_name(&pdev->dev);
-> +
-> +	 /* Get driver specific data for this EDAC device */
-> +	drvdata->data = of_match_node(sifive_edac_device_of_match, np)->data;
-> +
-> +	setup_sifive_debug(dci, drvdata->data);
-> +
-> +	if (drvdata->data->setup)
-> +		drvdata->data->setup(dci);
-> +
-> +	for (i = 0; i < SIFIVE_EDAC_MAX_INTR; i++) {
-> +		drvdata->irq[i] = platform_get_irq(pdev, i);
-> +		rc = devm_request_irq(&pdev->dev, drvdata->irq[i],
-> +				      sifive_edac_l2_int_handler, 0,
-> +				      dev_name(&pdev->dev), (void *)dci);
-> +		if (rc) {
-> +			dev_err(&pdev->dev,
-> +				"Could not request IRQ %d\n", drvdata->irq[i]);
-> +			goto del_edac_device;
-> +		}
-> +	}
-> +
-> +	rc = edac_device_add_device(dci);
-> +	if (rc) {
-> +		dev_err(&pdev->dev, "failed to register with EDAC core\n");
-> +		goto del_edac_device;
-> +	}
-> +
-> +	return rc;
-> +
-> +del_edac_device:
-> +	teardown_sifive_debug();
-> +	edac_device_del_device(&pdev->dev);
-> +	edac_device_free_ctl_info(dci);
-> +
-> +	return rc;
-> +}
-> +
-> +static int sifive_edac_device_remove(struct platform_device *pdev)
-> +{
-> +	struct edac_device_ctl_info *dci = platform_get_drvdata(pdev);
-> +
-> +	teardown_sifive_debug();
-> +	edac_device_del_device(&pdev->dev);
-> +	edac_device_free_ctl_info(dci);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id sifive_edac_device_of_match[] = {
-> +	{ .compatible = "sifive,ccache0", .data = &l2ecc_data },
-
-This match string should be "sifive,fu540-c000-ccache" if 
-the intention is to probe against the L2 controller.
-
-> +	{ /* end of table */ },
-> +};
-> +MODULE_DEVICE_TABLE(of, sifive_edac_device_of_match);
-> +
-> +static struct platform_driver sifive_edac_device_driver = {
-> +	.driver = {
-> +		 .name = "sifive_edac_device",
-> +		 .owner = THIS_MODULE,
-> +		 .of_match_table = sifive_edac_device_of_match,
-> +	},
-> +	.probe = sifive_edac_device_probe,
-> +	.remove = sifive_edac_device_remove,
-> +};
-> +
-> +module_platform_driver(sifive_edac_device_driver);
-> +
-> +MODULE_AUTHOR("SiFive Inc.");
-> +MODULE_DESCRIPTION("SiFive EDAC driver");
-> +MODULE_LICENSE("GPL v2");
-
-- Paul
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
