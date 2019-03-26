@@ -2,21 +2,21 @@ Return-Path: <SRS0=JiLF=R5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 64B82C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2019 03:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C5C6FC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2019 04:01:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 33BD620828
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2019 03:58:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 92C4420828
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2019 04:01:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pI9rjiV3";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="g4m4GWyM"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 33BD620828
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WMRj7LMK";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="A9VeeXFq"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 92C4420828
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,61 +25,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3KjWp85aOu8nJd9lXZpkle8WouyQUqThQumvs5ifI9E=; b=pI9rjiV3ox/IA6
-	32chVMf9VLTyz4YF5pglsRHGY22bvf13tdzciDQRy1WRTNghKd3z1mFJNxX5p+5QBObrHPjgjUJHB
-	B/W20KHF+dZfIPD/gqO1x1Aljf4TLS7ZREnLrTdHQhw/V7UYhV7KrxQLz+t5BH9bfcMiVZ5mk6PnJ
-	jba+gvBj6ufRmt8V6AAhn6ixOFmfDjSV7O2Lv3cLw6+gczMlvV6uS6rzDOlYV+7be4/ouPkLhFpv/
-	m2yrDCnwMTk9g7BQ6MzIwi9aHkWJuQy9L5xgkRLh6cfpdQ8X1f6USEcl7nZ1ajyj1xPzllcC2KkS0
-	0taPgTfu7XAslx67JZPw==;
+	List-Owner; bh=1cfp6CCFqCILz3VH+RLtdy2gb0dJbHqGJEf4uCqgkFo=; b=WMRj7LMKRxmCbZ
+	CNqVWtUg6Zpo0rhqBBvmcE0Mf8U64PMdsdZDLh6x2eqpEI3xw9Bd8Aai8T4U+GsGi7P4f2tSwehRP
+	9qPwUoQx+bTDQa2j+HPAMsIjr7yEzpe2O224PNlg2CvhOQ1StS3GkjxJ0BeYkKmOcwncgd7vBPpvN
+	IgcER4xre+jwPbuylYzf/UH3hU/8Q3NCbpTlZAk878xfXZ5fdahAYPq6WWkRvAhUTLTYZzxSO4YUY
+	dFap4GpfS49Ipc7Zv5xbUdBPtRg6fzxt5rB9a5wiBxwqn1ytEGmQIV/Zg/CXg3PH+6xBxFoHMoi6F
+	WVBp2SE9ysn4HKU+QCAg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h8dE7-0007fv-1B; Tue, 26 Mar 2019 03:58:15 +0000
-Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
+	id 1h8dHZ-0000al-V9; Tue, 26 Mar 2019 04:01:49 +0000
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h8dDz-0007eo-Vq
- for linux-riscv@lists.infradead.org; Tue, 26 Mar 2019 03:58:13 +0000
-Received: by mail-wm1-x344.google.com with SMTP id z6so1392992wmi.0
- for <linux-riscv@lists.infradead.org>; Mon, 25 Mar 2019 20:58:06 -0700 (PDT)
+ id 1h8dHW-0000Zu-7w
+ for linux-riscv@lists.infradead.org; Tue, 26 Mar 2019 04:01:48 +0000
+Received: by mail-wr1-x441.google.com with SMTP id s15so12574211wra.12
+ for <linux-riscv@lists.infradead.org>; Mon, 25 Mar 2019 21:01:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=iRH1s9YJiR31RJ2pG6ORxQtgVj/UdG3ppK8QCCdxAA0=;
- b=g4m4GWyMNOWkRVyfb+owJZVT4jIOlAsRd9tFpObihKfpMBk2r+gA09kyiKy7vhtftA
- Gp303w373mNuTgqCMyjNjIQYNmObPu7Y5fCeE74mockFkoKhwOaM+PCT1wzEe4+fzucf
- nsWmWXDPWlT7tLjdCsx5s8WdiI0aDxWOUf++Z7bSElLuSJF33gDapD09sDncRUK/0R45
- kIrtvdMYDgCOiMOnNOFhyzih8gK0H1VC89JGKB9DgHGIApuUvLvLSUZxnnSJd6cko0Ce
- JLuoz3j7whiOF/uzLTdSXFPTzE1ak0eoYKrYD9Bovk9tac9jEVz7QX3rV+t/BnL+nPEG
- swqA==
+ :cc; bh=oFufxt99trQk1HrJ4DBQy+Tki5RtsOLE22J4daML9P4=;
+ b=A9VeeXFqjsG81fFSUA9hMLPRtVGYZKYYzkZLKEU4RLZ3dHQhZYtk/mzXr0J/fMWwRd
+ /X8MEpkRsr0FRmmfEjfmKMUBv+9d0zPL3TS4VbcR2Un6ePOYO75E8OOv1YqiyeABE0vP
+ eZCSyI1TCvlvAupaiL03MdO/Z/H+4RugYJJLji2pN+CrGcp+XkRe079drkx054hpjTxf
+ umvaGW3zh+S2PbfAXQ5rt1tQ/JmN7sIKtY9W+d+Q9iLkktCWEkxRzPeQuEla+/U7h36y
+ uGRmDB6LHDCwhojFwJ7RKxFaZqilQdq7yG8nxgzcmaTVGVIOJLUHL3Z4+go3PXTPYDoq
+ sYhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=iRH1s9YJiR31RJ2pG6ORxQtgVj/UdG3ppK8QCCdxAA0=;
- b=bOL7LjapRi6i0bMFrhQu74auG7vf0Wp8yu/oVblbfWOz42Ke29caPHK4Bx8cyNGw58
- IvUmFp7r4u+9QkkeBhRogni4Y3w4pqGF0G1RNUSKyo+0f3bZX0i91GpvPFtWLujTOcyU
- f40+YR8oM223oRE/AHQZ77zYphdHQ/Efz+tg+jKpA1xZpsl0Xvi2+Oty8eIj1DIiHGFa
- IEt4eU1M/4wE+LQb9AnjtD3ywPDnXilHYmy1qcZRPNUzOUSz0oufu5pvt+CCodlrJgTB
- bHmAXq4KqekN/m3lp3V5tdikeIe66M6fpWGkty/Ziqh3RSVEYs39uJrA3vAtLLmKJVO8
- RbGA==
-X-Gm-Message-State: APjAAAU+ncFb3u8Ymgrs2UBw4r3rEt/y0EM/+lS8g+EcY0qOI2jR7lw+
- JvhrY9sV4ct7N2cGvnGsfxfH8fMjpC/5PQph+Umz9Q==
-X-Google-Smtp-Source: APXvYqz3TE5j2MQ/ay3Y0//XjNpnqYEOIp9n6myVVm0DT6hB4/Awsu1fzt3kbP21He5Bv1wG4AWlxOkW9EvAGrFZanY=
-X-Received: by 2002:a7b:cf18:: with SMTP id l24mr5300725wmg.132.1553572684717; 
- Mon, 25 Mar 2019 20:58:04 -0700 (PDT)
+ bh=oFufxt99trQk1HrJ4DBQy+Tki5RtsOLE22J4daML9P4=;
+ b=sd/T4VLbhwG+lpYsmmOLOHbIa66awaF03J52JzhKYKsZEehCQqrY9laz7Y6ffovi+q
+ SXgR8+zePSQhT5KlAy3bi+pze5t7EDijhsOa915jzWag1j920CirMIKLnL7ZTxnzc0kr
+ 2GYwb18E4DbLttK557ytVkjplrKQ7rGyl95Ch77gQtBsWH3JlANUPoZYxu2QBznTTuWG
+ Jzv0NKZTEyI0yf5nWwsK0YzrJ0ZwCx8OUlOHnPXt7plrfRYZQqohz00k++14fb0l9Vob
+ g7BZ9c5V9rbdA4GDuyXac0F7MZ3oVaVl7rtpXZhLq43tfXbjk8AF5RLliZiYTaV9H8ry
+ d5Lg==
+X-Gm-Message-State: APjAAAUbH5/yHUN2TVgCdolN2+XUx0hmuuteDsGI2+uSGiAiu5ZBZZF3
+ IPGg1nPxs0l+MxcKJHjW976cJ4w6Hw2DWU8dEjQugskeI1Y=
+X-Google-Smtp-Source: APXvYqymD/u0BO41fMRa6kBbI8PhOpFAubq3PkqMFeDFkLGxTdC2E1fTjoZ9HIDxgNLQQ0tQb2g6B1MVCbbodzSS1eM=
+X-Received: by 2002:a05:6000:120c:: with SMTP id
+ e12mr4272556wrx.187.1553572897984; 
+ Mon, 25 Mar 2019 21:01:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <20190325083027.6393-1-anup.patel@wdc.com>
- <20190325113748.GA27843@infradead.org>
-In-Reply-To: <20190325113748.GA27843@infradead.org>
+References: <CAAhSdy2-CX729tVuuZzArswpFEC_OeRXhwXtCaiNe53AuzqdTw@mail.gmail.com>
+ <mhng-8e00a3e3-5a69-4828-b7bb-2bf000199b48@palmer-si-x1c4>
+In-Reply-To: <mhng-8e00a3e3-5a69-4828-b7bb-2bf000199b48@palmer-si-x1c4>
 From: Anup Patel <anup@brainfault.org>
-Date: Tue, 26 Mar 2019 09:27:53 +0530
-Message-ID: <CAAhSdy1XsLkrJRyzi9WV6uAi+WFC420hs_asE=1oQ5L2ZrTuOg@mail.gmail.com>
-Subject: Re: [PATCH v3] RISC-V: Always compile mm/init.c with cmodel=medany
- and notrace
-To: Christoph Hellwig <hch@infradead.org>
+Date: Tue, 26 Mar 2019 09:31:26 +0530
+Message-ID: <CAAhSdy2POcL2Y8VzULCHRa6cLKZ82GkEgXCgx_SoNZ1vMPvQjQ@mail.gmail.com>
+Subject: Re: [PATCH v2] RISC-V: Always compile mm/init.c with cmodel=medany
+To: Palmer Dabbelt <palmer@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190325_205808_077577_6927B6ED 
-X-CRM114-Status: UNSURE (   8.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190325_210146_285414_1522069D 
+X-CRM114-Status: GOOD (  22.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,47 +90,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Atish Patra <Atish.Patra@wdc.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alan Kao <alankao@andestech.com>,
+ Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 25, 2019 at 5:08 PM Christoph Hellwig <hch@infradead.org> wrote:
+On Tue, Mar 26, 2019 at 7:52 AM Palmer Dabbelt <palmer@sifive.com> wrote:
 >
-> > +ifdef CONFIG_FTRACE
-> > +CFLAGS_REMOVE_init.o = -pg
-> > +endif
-> > +
-> >  obj-y += init.o
-> >  obj-y += fault.o
-> >  obj-y += extable.o
-> >  obj-y += ioremap.o
-> >  obj-y += cacheflush.o
-> > +
-> > +CFLAGS_init.o := -mcmodel=medany
+> On Mon, 25 Mar 2019 00:01:45 PDT (-0700), anup@brainfault.org wrote:
+> > On Mon, Mar 25, 2019 at 12:18 PM Christoph Hellwig <hch@infradead.org> wrote:
+> >>
+> >> On Mon, Mar 25, 2019 at 01:25:50PM +0800, Alan Kao wrote:
+> >> > Hi Anup,
+> >> >
+> >> > Sorry for being late to the party.  I think one more thing should
+> >> > move together with setup_vm():
+> >>
+> >> Ah, I wonded about that yesterday but wasn't sure.  Maybe notrace
+> >> is a little cleaner?  Either way we should probably document both
+> >> the mcmodel and notrace assumptions in source comments for the next
+> >> person touching this code.
+> >
+> > The setup_vm() should be allowed to call other functions within mm/init.c
+> > so let's go with file-level notrace (just like how it was done) for
+> > kernel/setup.c
+> >
+> > I certainly add comments for setup_vm() based on all our findings so far.
 >
-> Can you keep the two flags adjustments togther, preferably towards
-> the top of the file?
+> Sorry for being slow here, but this is the right approach: setup_vm is called
+> before relocate, which means the page tables won't be set up correctly for
+> absolute addressing.  We instead build setup_vm with medany, which causes all
+> addressing to be PC-relative.  This is all a bit of a hack, but it's the only
+> way we have to do this right now.
+>
+> You should be able to add a preprocessor #error to check the code model with
+> something like this
+>
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index b379a75ac6a6..d6fde6af8d75 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -172,6 +172,9 @@ void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
+>         }
+>  }
+>
+> +#ifndef __riscv_cmodel_medany
+> +#error "setup_vm() is called from head.S before relocate and must not make any absolute references."
+> +#endif
+>  asmlinkage void __init setup_vm(void)
+>  {
+>         extern char _start;
+>
+> Marking this notrace is the right thing to do, as it can't call into any
+> functions that aren't medany (there's probably other issues as well, since this
+> is so early).
 
-Sure, I will more the flags together.
+Thanks for the suggestion, I will add "#error" in v4 of this patch.
 
 >
-> > +/*
-> > + * The setup_vm() is called from head.S with MMU-off.
+> Sorry I missed this the first time around, I wasn't paying enough attention.
 >
-> s/The //g
+> Can someone add instructions for 32-bit boots to the QEMU wiki?  It sounds like
+> it's time to add that to the testing list...
 
-Okay, I will update.
-
->
-> Otherwis looks fine:
->
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
+To start with, I have send a patch for adding rv32_defconfig which is right now
+"defconfig" plus "CONFIG_ARCH_RV32I=y"
 
 Regards,
 Anup
