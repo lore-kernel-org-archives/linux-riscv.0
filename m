@@ -2,88 +2,60 @@ Return-Path: <SRS0=JiLF=R5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9B798C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2019 09:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D6C87C10F05
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2019 16:27:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6B70320857
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2019 09:43:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8B18D206DF
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 Mar 2019 16:27:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KAqcDlNL";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Od44wVPa"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6B70320857
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="V/HsteME"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8B18D206DF
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=neGf38Djm2q1G3GxnmXu8vLNbzkg4Gzp1ZH4lz7ww+o=; b=KAqcDlNL8El+iB
-	syyu8pJeVBRW54x+LkhiPndK1f1SfayE6eNUXNedvLg6KLndNtmseQiWlO1S2RnfdtMDF40ZN/LBg
-	Ojon30JMzN+7musrPoY0cNg9naq5ZvU/dBm0B5VB4wZmv2Ivc31r7IiPM0IGBZVsh8QTfOb/HBSkb
-	f5q/EGrUlYVZz+GLyTQgA/A+VZDm9oUFWfgNlTTh35mRw1hZuOsACGi1UR01pooJYn2zcdatH/nWd
-	yoz+yhTRiiyRfA1q7MdezscuWXBwLNI8BuIETb/S4ZZbd9nEUCyS9s5gjONxvlMLBl9TL6S7TAxE2
-	Jcwnne2hWTEQDoKVux5g==;
+	List-Owner; bh=j9KyiYqfl65og2Lsjh0ObLJt6gP2GNLCGq3uV36aB0M=; b=V/HsteME6qEMOw
+	olHfjIKzU79ZYiiLZZMETchpyUEyUQCUF9SIqfz6Zk26AmiRvuIOAS1egW8CVx38NRcjjUgCsFFAj
+	dHtho9Py/AHi6u4QknpVbWWK6CUl9V8SoxFjN8znk6PFkOQ6V5Ei7jmRfYDZygw1QsW+9wPP9iqxh
+	4b6rSVYafrLymuWcEjLMOhrYI+tE9H5sT90/shnf2R4q2CDkZHVz16hwCEyG65ErfbGbkGcHZDjx3
+	Rjih1Ird5RUpTuvJh1AxgGKIBmJXEU4Xx6W9ypqE+g/eJ8WBiS/GWsRS2YTI3QNvkdtKJmFD+y3No
+	PK4+n6pvsMxRBg4A8HyA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h8ica-0003FP-D5; Tue, 26 Mar 2019 09:43:52 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h8icK-0002ur-FN
- for linux-riscv@lists.infradead.org; Tue, 26 Mar 2019 09:43:49 +0000
-Received: by mail-wr1-x441.google.com with SMTP id o1so13448177wrs.13
- for <linux-riscv@lists.infradead.org>; Tue, 26 Mar 2019 02:43:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=nGPxhPDoi8PjJm2gPegJmcCvpyxpN0OAxU2l6yWZTBo=;
- b=Od44wVPa7isf9D2Xwxz51E5Ddk1E6pK+OaoG5Ui5Vnfjrx/osC6/p+rqnGJCk254Xm
- pPn6dfcJhk2XJEiKh97FQ/yLoXqoc2Jex2M185GlCHR9Kan1Vr4geSejI61rI7eGFpvW
- Phz9MZ15JJN8jy83yk+dBc5eCcHseTqD2zCKE7u10RNl3YJ5R/2gZFEbEuVyQIc1Fw0v
- Am8LpbJTfu9R9OWZSat+AqFChxCs1WQgf2AB6cP1/g3KiJqN0qhXZlrczNRm2tRp/0Wy
- Lmq3h3RXIKWB8m67YQj2Ik+PNyzSlWWl1+IssZk5DoUp3hkwUb0G6TLIBya2SoBWFaEu
- Is7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=nGPxhPDoi8PjJm2gPegJmcCvpyxpN0OAxU2l6yWZTBo=;
- b=cZcqMxS6DKDdybaT6mGeOe2YCGSiT158sTqivH5EE2ScQZ3STHw6+wxfra3nAK94EY
- SuTG6jPXbBQB7h2r0NLwtjkN6synp0h4/VVZkfJRTJN1UgwR2POb330ZVPr9AUVheSgD
- e8Yee+U2gcGflpRTBUtpTLUrfBIWjenzJManujwamO5BA6pw8H8aWKRbD0sJt8v7sDS5
- JqNyudpB5JUm9JoOa+wnfFp+I3U9voSpNlKNMJRLf3CMjlDsfKa76dZeTws5S5NiJT9i
- +Q5IMWQ/uUFn2ps1415ookXSExFFoOPQxZjAnRh34x1ENCxpKfQzmfwUubfR24Qh3F8s
- H73A==
-X-Gm-Message-State: APjAAAVvrtDS1r/a5qtP+Vfdo3icpyLaFWir1FEbASgNacKYri4wJvp9
- ucRUHkhL6aPtxeBL539XSkcMQfoTeaa880KkaHuUYau3FBw=
-X-Google-Smtp-Source: APXvYqxeyRjks0FyHDs0qT4aNGXl/tDCuMxw3uvf6S+381aX/Mojo14PCFl4UCnpQuPqkLtTgYVZ0efepLJ7l1PY0Oo=
-X-Received: by 2002:a5d:4087:: with SMTP id o7mr7367180wrp.9.1553593412368;
- Tue, 26 Mar 2019 02:43:32 -0700 (PDT)
+	id 1h8ovU-0007yL-VJ; Tue, 26 Mar 2019 16:27:48 +0000
+Received: from foss.arm.com ([217.140.101.70])
+ by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1h8oud-0006oU-FD; Tue, 26 Mar 2019 16:27:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F32D7169E;
+ Tue, 26 Mar 2019 09:26:54 -0700 (PDT)
+Received: from e112269-lin.arm.com (e112269-lin.cambridge.arm.com
+ [10.1.196.69])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CA2B3F614;
+ Tue, 26 Mar 2019 09:26:51 -0700 (PDT)
+From: Steven Price <steven.price@arm.com>
+To: linux-mm@kvack.org
+Subject: [PATCH v6 05/19] riscv: mm: Add p?d_large() definitions
+Date: Tue, 26 Mar 2019 16:26:10 +0000
+Message-Id: <20190326162624.20736-6-steven.price@arm.com>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20190326162624.20736-1-steven.price@arm.com>
+References: <20190326162624.20736-1-steven.price@arm.com>
 MIME-Version: 1.0
-References: <20190325092234.5451-1-anup.patel@wdc.com>
- <20190325092234.5451-5-anup.patel@wdc.com>
- <20190325113935.GD27843@infradead.org>
- <CAAhSdy2dds7pp8=XX+zbKbMoWbgjPxP6r4aMZJeHyqHV2MP4CQ@mail.gmail.com>
- <20190325145919.GB14826@infradead.org>
- <CAAhSdy2je-_=AHPawbV-8cUR0P7WvqDZ5wNdEmDVQkR-a88Eog@mail.gmail.com>
- <e12f6bc2-c993-1dbf-37b8-9562870806f1@garyguo.net>
-In-Reply-To: <e12f6bc2-c993-1dbf-37b8-9562870806f1@garyguo.net>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 26 Mar 2019 15:13:21 +0530
-Message-ID: <CAAhSdy00nORndLg3mV9aodefUrLKd90fxV=Q70hH7DfLaz3w4Q@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] RISC-V: Allow booting kernel from any 4KB aligned
- address
-To: Gary Guo <gary@garyguo.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190326_024337_420761_D37A65D7 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20190326_092656_144674_E0EE0517 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -95,58 +67,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: Mark Rutland <Mark.Rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Will Deacon <will.deacon@arm.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, linux-riscv@lists.infradead.org, "Liang,
+ Kan" <kan.liang@linux.intel.com>, x86@kernel.org,
+ Steven Price <steven.price@arm.com>, Ingo Molnar <mingo@redhat.com>,
+ Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>,
+ =?UTF-8?q?J=C3=A9r=C3=B4me=20Glisse?= <jglisse@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
+ Ard Biesheuvel <ard.biesheuvel@linaro.org>, linux-kernel@vger.kernel.org,
+ James Morse <james.morse@arm.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 25, 2019 at 11:06 PM Gary Guo <gary@garyguo.net> wrote:
->
->
->
-> On 25/03/2019 16:16, Anup Patel wrote:
->  > 1G mappings will give better performance compared 2M mappings.
->  >
->  > This will be very useful for performance hungry system with lot of RAM.
->  >
->  > This patch selects 1G or 2M mapping at runtime based on load address
->  > alignment.
->  >
->  > Regards,
->  > Anup
->  >
->
-> Not always the case. In general, if set-associative or direct mapped
-> TLBs are used, then either
-> 1) separate TLBs are used for different granularities. Usually very few
-> entries will be there for 1G mappings. E.g. Intel CPU's D-TLB has a
-> separate array of 1G page TLB which is only 4 entries.
-> 2) a smaller-granularity PTE is "faked" by page walker and inserted into
-> the TLB. E.g. Intel CPU's I-TLB can't hold 1G entry at all.
->
-> In either cases the performance won't differ by much. In fact if 1) is
-> used there are cases where performance can be negatively impacted by
-> using larger pages.
+walk_page_range() is going to be allowed to walk page tables other than
+those of user space. For this it needs to know when it has reached a
+'leaf' entry in the page tables. This information is provided by the
+p?d_large() functions/macros.
 
-The above is just one way of designing/organizing TLBs in HW. It is also
-possible to have a unified-TLB (like ARM/ARM64 world SOCs) supporting
-multiple page sizes in each TLB entry.
+For riscv a page is large when it has a read, write or execute bit
+set on it.
 
-Depending on the TLB micro-architecture the performance gains will vary.
+CC: Palmer Dabbelt <palmer@sifive.com>
+CC: Albert Ou <aou@eecs.berkeley.edu>
+CC: linux-riscv@lists.infradead.org
+Signed-off-by: Steven Price <steven.price@arm.com>
+---
+ arch/riscv/include/asm/pgtable-64.h | 7 +++++++
+ arch/riscv/include/asm/pgtable.h    | 7 +++++++
+ 2 files changed, 14 insertions(+)
 
-Irrespective to TLB design, there will always be some gains because
-after all we are saving page-table walks by creating bigger mappings.
+diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+index 7aa0ea9bd8bb..73747d9d7c66 100644
+--- a/arch/riscv/include/asm/pgtable-64.h
++++ b/arch/riscv/include/asm/pgtable-64.h
+@@ -51,6 +51,13 @@ static inline int pud_bad(pud_t pud)
+ 	return !pud_present(pud);
+ }
+ 
++#define pud_large	pud_large
++static inline int pud_large(pud_t pud)
++{
++	return pud_present(pud)
++		&& (pud_val(pud) & (_PAGE_READ | _PAGE_WRITE | _PAGE_EXEC));
++}
++
+ static inline void set_pud(pud_t *pudp, pud_t pud)
+ {
+ 	*pudp = pud;
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 1141364d990e..9570883c79e7 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -111,6 +111,13 @@ static inline int pmd_bad(pmd_t pmd)
+ 	return !pmd_present(pmd);
+ }
+ 
++#define pmd_large	pmd_large
++static inline int pmd_large(pmd_t pmd)
++{
++	return pmd_present(pmd)
++		&& (pmd_val(pmd) & (_PAGE_READ | _PAGE_WRITE | _PAGE_EXEC));
++}
++
+ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+ {
+ 	*pmdp = pmd;
+-- 
+2.20.1
 
-In case of virtualization with nested page tables, the savings can be
-even bigger because it's a two dimensional page table walk. For example,
-let's assume M = "number of levels in guest page table" and N = "number
-of levels in hypervisor page table". Now, number descriptor access would
-be "MxN + M + N" so if we are able to reduce M or N or both then it will
-save lot of memory accesses.
-
-Regards,
-Anup
 
 _______________________________________________
 linux-riscv mailing list
