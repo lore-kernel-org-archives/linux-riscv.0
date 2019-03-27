@@ -2,111 +2,84 @@ Return-Path: <SRS0=wRFB=R6=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1102EC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2019 14:09:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 482FCC10F00
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2019 14:10:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CEE982087C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2019 14:09:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 186BF2146F
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2019 14:10:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NUNn3AVr";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=garyguo.net header.i=@garyguo.net header.b="EVEKGlYd"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CEE982087C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=garyguo.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WGDdWVgY";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="p5OFWqj2"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 186BF2146F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wuqmd32KPUoFP2BC7Fql6qGuAp4puqbMxl23FZys1E4=; b=NUNn3AVrwOyAPE
-	wFy/NXYOp5SOmpQB5B3FdT17jM5/YLpBH1rFbepn+ZZtBwNFiouI8qkvEqGf9r1vZB9nDEFUQnHdr
-	W/mFkf/zOBWP0Y8ENHWuvn9Lv5Xrx9LStQ9nm0WEOCEoT8mr8hmayizf6KrQFtoS9ds/yhmU8eINl
-	yHBLyD8Zhbjt8uogRmqFiawnlMr6pLcJ6CUsHH5Q7A9VvGcmvdce6uPHNtLDEP/w+JX0ldvay5jms
-	cuuYhQDhzQ6mV32shJQCCrneSV7k00NQ1XJKzu0sAWjrX8RG5V+avovuKgRvmfDyevrUnqX0p/6I9
-	NoKdrST7FpJMlCGKUbSw==;
+	List-Owner; bh=NmTWWlArpdrqC91Vk3KA1fhf7JnnUmBu4bm5IUE39qQ=; b=WGDdWVgYB4d4oQ
+	AY/sQpolRRUtqF5jGNLJwWgCrDbBZYsuc8HPJwbEpZh/GOP2bkQqE9rRXKJsTZqInK2RC9nxY4fAo
+	wqs2CCk6m6KhyNza7IXLR/MiCTxNxeZNzt/CgOjsG0puAVRz0aTljShJEcF/jHXQVRee2o9gtnvvD
+	AbjfZXxBJVcpJaKgYeMCKM7cEBjKTPOJm7y3UYzJ81WszxUF3ISnN71ymZD953ZlKKxndlVHfzJ+7
+	d9pwy6ub7UZDD7DeF9bbZtf9HqISwpnK7OWlOWfWehiCzcM3IsFFg7iGoz+us6IRT7kXc4e4oF8Zc
+	Mfs7/4BP896a3douccBQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h99F8-0001vm-CS; Wed, 27 Mar 2019 14:09:26 +0000
-Received: from mail-lo2gbr01on0710.outbound.protection.outlook.com
- ([2a01:111:f400:fe15::710]
- helo=GBR01-LO2-obe.outbound.protection.outlook.com)
+	id 1h99Gb-0003Dt-5U; Wed, 27 Mar 2019 14:10:57 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h99F4-0001ub-Hr
- for linux-riscv@lists.infradead.org; Wed, 27 Mar 2019 14:09:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kirQD1cMLxzYrd2uSvz4bOtNA/RwlGSqtMTM0BCn2a4=;
- b=EVEKGlYdDFI0mnP03eVLn4Wj72lZXsRM7HSDzLIKV3peg+A//LiQYCgpbIvF/ph/l2GBnMpUR19koQ0bzFz8Rk+6+s9trO2iVRw67f6aFHu2MLLVX+kLiMcGoJjL6Nugb4ilk6ItcmNVJ2SctvSovJDcjDYyP7MwEmsl0aVxgbc=
-Received: from LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM (20.176.139.20) by
- LO2P265MB1549.GBRP265.PROD.OUTLOOK.COM (20.176.143.139) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1730.18; Wed, 27 Mar 2019 14:09:15 +0000
-Received: from LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM
- ([fe80::ed34:1290:4306:3157]) by LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM
- ([fe80::ed34:1290:4306:3157%3]) with mapi id 15.20.1730.019; Wed, 27 Mar 2019
- 14:09:15 +0000
-From: Gary Guo <gary@garyguo.net>
-To: Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH] RISC-V: Implement ASID allocator
-Thread-Topic: [PATCH] RISC-V: Implement ASID allocator
-Thread-Index: AQHU5IQth95RRmVyw0y1O3lxWJG/36YfVxgAgAAEHICAACGYgIAABZuAgAAB4QA=
-Date: Wed, 27 Mar 2019 14:09:15 +0000
-Message-ID: <4dca2cfe-069f-f458-b1a7-f87aa6718ef7@garyguo.net>
+ id 1h99GX-0003DW-UU
+ for linux-riscv@lists.infradead.org; Wed, 27 Mar 2019 14:10:55 +0000
+Received: by mail-wm1-x341.google.com with SMTP id a184so191858wma.2
+ for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2019 07:10:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=WjAPIoM35iEoblHbjRgWliMF0RRAsRtMAenOonc8eiQ=;
+ b=p5OFWqj22LSYm0Sw0eE1RwJ9BJM8I1K3UwB0SPs/oHVP9BzKsb9c6C7B8s9VtySQYz
+ 03IuoqqHsN/3q9GtXvpxoEtZ+OT9L9oSGOZ2Q6IvV9dpq6kgWR1dTSy2Jd881YZ9AeYv
+ LEDPvK8LD02xgZIs/pJuo0X/jUCt2/zCdKfPTqcDAKSNH0jBI3aLDqc3eFh2taDpwQqg
+ kZAAaboHn2lGIheg32OcZxISjIaviIcmKujzZ5jqOwQNt9lVtSWPaWwCnhr+iqyIRUz3
+ hWcgwsG74Kx504ps2nvWQ7tpsHHzL7+0eXXOaxd4fm9ESTVI8YsFMQI9kCbR7L8Zj/N5
+ b4JA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=WjAPIoM35iEoblHbjRgWliMF0RRAsRtMAenOonc8eiQ=;
+ b=MsHAR/3uG0UkEtgsivIu2ke4CLqcLq54wSo5g7TVE9GDWBIpukSskwClsqxqGItCRa
+ w9tR1l5MZ333kALbqGhlZH2+FHS5AbxyYpOWuRaqNiek77TYbF6KCsOgaFuzybvtQbUq
+ Cu5Ynz0H8sX+gd1Xe7d7nuGZUVGU/OQ9QI1mlOLsR9IoIlECAb9nq3h26R7kNiL/aTh+
+ FEey7RpPpvr13TNTmV8N5E4QZIC2YUBTE4RjV/w+ozl0h55AZj5mpjL8McCde2Z6BQmb
+ Eil6iCiPvQJFhGRcntiVxDPjvIENd+0R4lfBJ64L9Z/CjG4L1RwdSDyx1NUX4JsGFyc2
+ 0qUg==
+X-Gm-Message-State: APjAAAXikvi4Ye73UIgvQ5YIpvXtKIiXCCyMr31XsEeaB3HbKB7gkuv6
+ Jowe6b1qfbFu1v5RxXpveiWRsHvJbJRAp66A/afaDQ==
+X-Google-Smtp-Source: APXvYqxru1ptwwJRUXtFsi7Ft9XaelKUJmVaUTdDKdeqN98Ll0cYbs2VvM9Ku5PZwXL7YNnapUzo2XdjGg9TXuBK4z4=
+X-Received: by 2002:a1c:e185:: with SMTP id y127mr13388880wmg.76.1553695850667; 
+ Wed, 27 Mar 2019 07:10:50 -0700 (PDT)
+MIME-Version: 1.0
 References: <20190327100201.32220-1-anup.patel@wdc.com>
  <7edf91f1-1df5-5513-d372-d84edd12edf3@garyguo.net>
  <CAAhSdy1+rc9ge02uqNvse5Z6XmDxsRH0G=5GnMsh+6m1LMLFYg@mail.gmail.com>
- <74227a1d-3928-3e92-c7a9-5c3e093b29ab@garyguo.net>
- <CAAhSdy1K6OiZ2nDGcERi7J1z-i6hDC2eWubYDnSqPGCxQKkn5g@mail.gmail.com>
-In-Reply-To: <CAAhSdy1K6OiZ2nDGcERi7J1z-i6hDC2eWubYDnSqPGCxQKkn5g@mail.gmail.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: LNXP265CA0036.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:5c::24) To LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:8c::20)
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=gary@garyguo.net; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [2001:630:212:238:3697:f6ff:fe55:55b1]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: a1a26928-2542-4208-4019-08d6b2bdcb63
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(7021145)(8989299)(4534185)(7022145)(4603075)(4627221)(201702281549075)(8990200)(7048125)(7024125)(7027125)(7023125)(5600127)(711020)(4605104)(2017052603328)(7153060)(7193020);
- SRVR:LO2P265MB1549; 
-x-ms-traffictypediagnostic: LO2P265MB1549:
-x-microsoft-antispam-prvs: <LO2P265MB154944EFD1CA7680DAC77B10D6580@LO2P265MB1549.GBRP265.PROD.OUTLOOK.COM>
-x-forefront-prvs: 0989A7979C
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(366004)(136003)(39830400003)(396003)(346002)(376002)(189003)(199004)(53936002)(6246003)(229853002)(6486002)(316002)(36756003)(6916009)(6436002)(81166006)(6512007)(97736004)(25786009)(8676002)(54906003)(8936002)(7736002)(2906002)(81156014)(99286004)(93886005)(31686004)(305945005)(256004)(31696002)(7416002)(4744005)(5660300002)(486006)(86362001)(102836004)(476003)(4326008)(508600001)(46003)(106356001)(11346002)(186003)(105586002)(2616005)(6506007)(446003)(386003)(71200400001)(14454004)(76176011)(6116002)(52116002)(53546011)(71190400001)(68736007);
- DIR:OUT; SFP:1102; SCL:1; SRVR:LO2P265MB1549;
- H:LO2P265MB0847.GBRP265.PROD.OUTLOOK.COM; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-received-spf: None (protection.outlook.com: garyguo.net does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: i+5tI2ckZMjMN79J+XLqvBpf1n4phyCWEqThZkNpqyE5RS3beU9f/B3DOD/SUSnEn1+Br64D3RvbpJs1TtjhhPT9pXrqGLnOPHf65vIUYd+7Tk03pQSWbiIdWs90UMPjjsj3atzE49BZBXEVoxJHUe89GAKMK13U+FIIx6TFM8ur72c3dKwQ3AaZ8nfybCVTU3dZYr4uRAPiHetSIPxTFz2O2pMQHzpT9t3bmW7JRC6e+/XKQ45F8NT4jXTOQet43GRjf0Vd7eR+bOsd7QeYt1N9wD88J26gV7w3CU/uuLQ/Z9kFSowDKyah2gGgzHzTCanTqDAR/e/ZZLj+UQpPJ8jQ/hvYYZ0QZHe29+2EwKN8KgqUfe2vnqC60OxVBPdBMlYcYV7aL7LR5M2cxjzznLMyalJU6ZdhC0bjA2Hs1fI=
-Content-ID: <FFA84DDD477AD4478D3FA072E01E0B17@GBRP265.PROD.OUTLOOK.COM>
-MIME-Version: 1.0
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1a26928-2542-4208-4019-08d6b2bdcb63
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Mar 2019 14:09:15.2647 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO2P265MB1549
+ <49628dc9-c56d-6b60-9520-e4eb0e3b3424@garyguo.net>
+In-Reply-To: <49628dc9-c56d-6b60-9520-e4eb0e3b3424@garyguo.net>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 27 Mar 2019 19:40:39 +0530
+Message-ID: <CAAhSdy1gUYZWZsaN7JESgKHv_GyMKq56_Fmg0dPspUaiBbSCtg@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Implement ASID allocator
+To: Gary Guo <gary@garyguo.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190327_070922_866702_6AD8DAC8 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190327_071053_985304_19005D6F 
+X-CRM114-Status: GOOD (  26.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -129,25 +102,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I think my code already get all the caveats cases covered. The only 
-thing my code is missing is handling the case when ASID is not 
-supported. Maybe it is better to work based on that instead?
+On Wed, Mar 27, 2019 at 7:08 PM Gary Guo <gary@garyguo.net> wrote:
+>
+> On 27/03/2019 11:42, Anup Patel wrote:
+> > On Wed, Mar 27, 2019 at 4:57 PM Gary Guo <gary@garyguo.net> wrote:
+> >>
+> >> Hi Anup,
+> >>
+> >> This won't work in an actual hardware with ASID support. There're more
+> >
+> > Can you elaborate why >
+> >
+> > This implementation is based on Linux ARM64 ASID allocator which is
+> > tested for large number of CPUs on real HW.
+> >
+> >> interactions with TLB flushes that need to be considered. You won't see
+> >
+> > Yap, already considered. Please point me to unhandled case.
+> >
+> When memory mapping is changed, you need to flush it from all cores that
+> previously have that process executed, etc. Our patches both take
+> inspiration from ARM's code, but the major difference between my code is
+> handling of cache invalidations, see my code's cache_mask, etc. This is
+> actually the most error-prone part, and I spent more time trying to find
+> an optimal solution for this than porting the ASID allocator. The major
+> difference is that ARM has a much more expressive sets of TLB flush
+> instructions compared to RISC-V.
 
-On 27/03/2019 14:02, Anup Patel wrote:
-> On Wed, Mar 27, 2019 at 7:12 PM Gary Guo <gary@garyguo.net> wrote:
->>
->> I would also like to mention that your code assumes 64-bit atomics
->> support which we don't have on 32-bit systems. Using 32-bit to track
->> ASID generations isn't sufficient and will cause overflows. That's why I
->> have asid_generation_overflow to handle the case (this is super
->> error-prone as well).
-> 
-> Thanks for catching. I will fix issues with 32bit systems and send v2
-> soon.
-> 
-> Regards,
-> Anup
-> 
+We should not require explicit cache maintenance anywhere in RISC-V
+because caches are transparent to SW in RISC-V. The HW can use
+"sfence.vma" hints for cache maintenance.
+
+Further, (just like ARM world) the page table walks are cache coherent in
+RISC-V so we should not require any cache flushes along with TLB flushes.
+
+Now if you seeing inconsistent cache contents then it might due to some
+bug in your HW. I am just guessing here.
+
+Regarding changing memory mapping, I am sure generic Linux kernel will
+issue appropriate flush_tlb_xyz() calls.
+
+>  >
+> >> this on both QEMU and SiFive board, as QEMU does not have ASID, so it
+> >> pretends that ASID is supported by just flushing its TLB everytime you
+> >
+> > Nope, it does not. It detects whether ASID is supported or not. If supported
+> > it will also figure-out number of ASID bits supported by HW.
+> >
+> Except that you can detect that QEMU supports ASID, but actually it does
+> not. However QEMU is still correct because it always flush TLB when you
+> set SATP/SPTBR. You won't be able to find out bugs in your code by just
+> testing on QEMU.
+
+I am not advocating that testing on QEMU is sufficient. Its just functionally
+correct and works on HW without ASID support.
+
+>
+> > SiFive board does not have ASID bits so this implementation successfully
+> > detects that number of ASID bits are 0 and fallbacks to original way of
+> > local TLB flushes. >
+> >> change sptbr. I suspect the performance gain you see is just due to
+> >> saved TLB flush as TLB flush is super expensive in QEMU (all translation
+> >> block jumps need to be cleared).
+> >
+> > Yes, performance gain is due to saved TLB flushes.
+> >
+> > On HW which supports ASID bits, we will see more performance
+> > improvements. >
+> A hardware TLB flush is cheaper than QEMU' TLB flush. As no hardware
+> supports ASID at the moment the performance gain is minimal.
+> >>
+> >> I have my version here https://github.com/nbdd0121/linux/tree/asid. I
+> >> haven't done code cleanups yet, but this version has correctness of its
+> >> ASID code tested on our TLB simulator tool (which unfortunately I can't
+> >> share right now as it involves with unpublished works).
+> >
+> > Except few minor differences. You version of ASID allocator is same as
+> > mine. In fact there are lot of similar code framgements in your version
+> > compared to Linux ARM64 as well. I am sure this patch will work for you.
+> > >>
+> >> In fact my submit my previous patch series exactly as the basis of this
+> >> patch.
+> >
+> > This patch is based your patch series so I suggest you take this patch
+> > and try it on your simulator.
+> >
+> I've tested, and it does not boot.
+
+Thanks for the info. Now help me make this patch better.
+
+Regards,
+Anup
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
