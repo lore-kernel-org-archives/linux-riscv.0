@@ -2,55 +2,62 @@ Return-Path: <SRS0=wRFB=R6=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D8B8C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2019 07:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 85DF0C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2019 09:04:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9D0E020811
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2019 07:54:44 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5714D2075D
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2019 09:04:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LUeo46j6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D0E020811
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SV5GT9FP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5714D2075D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DP24AZQ1tyIxe2EKC/oMuUUZZbAeFch7qP7GYSoZT9g=; b=LUeo46j6BxO1rI
-	JTw0y/A+dAJlLTkW2FehqVykLI27lxOk7hyKOWF8bMmQ0mpEOboLbnYRyxlHRFYkk4CoS25v2EHMG
-	7Ga3h37m2Lc1+SYpkmef9Hx3Ns2b6q6F7GqUrxf51bkdEA1T/1EiHihU/oWlMI5PafY3Bxpohu+QE
-	EvtYdHPTGdS8h9Rei1stSg37GJS5i91v90DM2u9ArSCYbNcAmgJwywnxzZiCJE8J3nywSD6V2OIXj
-	sCngwF6HeH3zaHt9dTUjXTq4QiJ/An/lsnd34JxzYlsMIDW0+t+bVpexyzNZLDSudQe5jHEFMlX+q
-	uInvWsNILr2rJPQ3qUpw==;
+	List-Owner; bh=IqvuXcR4Nv97mu6QS20pnJEx17GdaEs2RLcqXPMLsRo=; b=SV5GT9FPUFxVKH
+	B0xeP0IC5edo7wSV6VA6FSmVcKGq3G+P7EAVGEh1YY/M1CehxTAiH0ORDAaldh8djfp6+d1nBCNAZ
+	oAyY9D2EMs6tMrh6ke5dvsGo4aIKglC/w5pyU2dC2mxP81aXY9Lzo1LXjnt3/KL3Byr9QqazHxe1f
+	rRL/oKjSvpC9O0STioMA494NGsH5z00KUNbTSB2RZYhmxHKiP62u9O18ghgzGcMGMxtmZ8ckSc9ua
+	g9t5zHrluBzA4wCuaEi9ifUoFz+ykn+2BhFamfJWpgrhkbzDIMw2UHiPu2kepxhswrWQIz2k/mAfK
+	9FbkW0ijHEZZuA5nzYfg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h93OV-0001Dm-S8; Wed, 27 Mar 2019 07:54:43 +0000
-Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1h93OT-0001DD-Fo; Wed, 27 Mar 2019 07:54:41 +0000
-Date: Wed, 27 Mar 2019 00:54:41 -0700
-From: Christoph Hellwig <hch@infradead.org>
-To: Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH v3 4/4] RISC-V: Allow booting kernel from any 4KB aligned
- address
-Message-ID: <20190327075441.GA29894@infradead.org>
-References: <20190325092234.5451-1-anup.patel@wdc.com>
- <20190325092234.5451-5-anup.patel@wdc.com>
- <20190325113935.GD27843@infradead.org>
- <CAAhSdy2dds7pp8=XX+zbKbMoWbgjPxP6r4aMZJeHyqHV2MP4CQ@mail.gmail.com>
- <20190325145919.GB14826@infradead.org>
- <CAAhSdy2je-_=AHPawbV-8cUR0P7WvqDZ5wNdEmDVQkR-a88Eog@mail.gmail.com>
+	id 1h94U5-0001Dq-Rn; Wed, 27 Mar 2019 09:04:33 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1h94U0-000137-DZ
+ for linux-riscv@lists.infradead.org; Wed, 27 Mar 2019 09:04:31 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id 77E1FAB92;
+ Wed, 27 Mar 2019 09:04:25 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: Yash Shah <yash.shah@sifive.com>
+Subject: Re: [PATCH v11 0/2] PWM support for HiFive Unleashed
+References: <1553508779-9685-1-git-send-email-yash.shah@sifive.com>
+ <mvmbm1zueya.fsf@suse.de>
+X-Yow: How many retired bricklayers from FLORIDA are out purchasing
+ PENCIL SHARPENERS right NOW??
+Date: Wed, 27 Mar 2019 10:04:25 +0100
+In-Reply-To: <mvmbm1zueya.fsf@suse.de> (Andreas Schwab's message of "Mon, 25
+ Mar 2019 16:54:53 +0100")
+Message-ID: <mvmpnqcsn6u.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.2 (gnu/linux)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAAhSdy2je-_=AHPawbV-8cUR0P7WvqDZ5wNdEmDVQkR-a88Eog@mail.gmail.com>
-User-Agent: Mutt/1.9.2 (2017-12-15)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20190327_020428_954518_06715970 
+X-CRM114-Status: UNSURE (   7.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -62,40 +69,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
- Atish Patra <Atish.Patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ palmer@sifive.com, linux-kernel@vger.kernel.org, robh+dt@kernel.org,
+ sachin.ghadi@sifive.com, thierry.reding@gmail.com, paul.walmsley@sifive.com,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 25, 2019 at 09:46:59PM +0530, Anup Patel wrote:
-> > Why do you even care about kernel mappings for non-existant ram.
-> 
-> We care because there will always be some buggy kernel driver/code going
-> out-of-bound and accessing non-existent RAM. If we by default map all
-> possible kernel virtual address then behaviour of buggy accesses will be
-> unpredictable.
-> 
-> Further, I think we should also make .text and .rodata sections of kernel
-> as read-only. This will protect kernel code and rodata.
+I have now found out that the ledtrig modules don't load automatically.
+I would have expected that the linux,default-trigger entries would cause
+the load of the corresponding ledtrig modules.
 
-All of that is useful at the final_setup_vm() time - but none of it
-matters during early setup_vm where life is complicated.
+But there is another problem, that the leds are on by default.
+Shouldn't they be off by default?
 
-Mike suggested on the previous iteration that you only do smaller
-mappings when setting up the final mapping to avoid the ops churn,
-and I fully agree with him. 
+Andreas.
 
-So I would suggest we avoid complicated the fiddly early boot changes
-that just add complxity, and you instead redirect your efforts to
-say implemented proper ro and non-executable sections using 4k mappings
-in the final VM setup only.  That should actuall lead to less code
-and complexity, and provide more benefits.
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
