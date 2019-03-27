@@ -4,19 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 38308C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2019 21:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 19A34C4360F
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2019 21:37:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 058852075E
+	by mail.kernel.org (Postfix) with ESMTPS id DD7272075E
 	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 Mar 2019 21:37:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pX9yhoC1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 058852075E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Xtt5VAG/"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DD7272075E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=deltatee.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,31 +25,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Subject:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iNlSO4dzaHug7dC5kq9P6qWGWpJI1Ywe9elocWbCosg=; b=pX9yhoC1Y/rf4h
-	jRjsCcsVZY33eM8KZe3Q4ez9pAOoGw3o60ewK0xNej8Qhw15OaCc6ufS0dDn43TeVeHITe2kkERjq
-	bB7sFOSNUrNLqw16dcSgTVMHMxhocaDc97Xl6rZsccqtXcJbIRcVDEvcBMdzU9G1OkHLSUCH34j4j
-	doCuUGDfzIHMtWxmiiwG8kTHpAUl93UP4QaQ8fII4C0lMVf+lbV6d6hss0bTsX15Ea1gZHOHMecr/
-	bsRnZWM/Q++CEsLA4sYOvXgow5wHs7eoqtU+FatcVpkCqv6uh7zFwtBqn3xgj7zDC7VMutURFJNLn
-	nKBgvsJJDCrjYGWnLwVg==;
+	List-Owner; bh=/cNLS6QLTpPaxSjtgy3+CzYvf3yG475sRbLvuwTryUA=; b=Xtt5VAG/OxAqE/
+	8clerxCIQvRE9qXytIpbFmsZ/ka7/kA5yBwzOdsb7W1F5ISIS8lKCsbWbKh6kIuvbF5fKwQ2Z3J8k
+	2n4l1Ba3R9okrn4a2GdITPfMVeIaTOUOo1gM8CaijKEs0jdI/+XybpiNXFKMYY9Sua6y6juH18U24
+	ebfnuQY/njSKtJZre0JY2E/m/WQezkzyRLQ8ZmdF1M4syzsrcWmdMc1zrhHecoTmp2RfjD6rVp55K
+	YjHjRjsWiuNEBSj+EMvw2y3SnCveokY2L84/c8MpglHB0FEAtIvWKvLj2bEgKc/ncilh144AgpMVY
+	HSR7MuzM5B00Iel0o56Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h9GET-0001Yr-Gu; Wed, 27 Mar 2019 21:37:13 +0000
+	id 1h9GEQ-0001UM-A4; Wed, 27 Mar 2019 21:37:10 +0000
 Received: from ale.deltatee.com ([207.54.116.67])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h9GEF-0001GX-Mz
- for linux-riscv@lists.infradead.org; Wed, 27 Mar 2019 21:37:04 +0000
+ id 1h9GED-0001GV-4c
+ for linux-riscv@lists.infradead.org; Wed, 27 Mar 2019 21:37:03 +0000
 Received: from cgy1-donard.priv.deltatee.com ([172.16.1.31])
  by ale.deltatee.com with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
  (Exim 4.89) (envelope-from <gunthorp@deltatee.com>)
- id 1h9GE3-0006DH-Ms; Wed, 27 Mar 2019 15:36:48 -0600
+ id 1h9GE3-0006DK-7y; Wed, 27 Mar 2019 15:36:48 -0600
 Received: from gunthorp by cgy1-donard.priv.deltatee.com with local (Exim 4.89)
  (envelope-from <gunthorp@deltatee.com>)
- id 1h9GE1-0006CY-Th; Wed, 27 Mar 2019 15:36:45 -0600
+ id 1h9GE2-0006Ch-8E; Wed, 27 Mar 2019 15:36:46 -0600
 From: Logan Gunthorpe <logang@deltatee.com>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Date: Wed, 27 Mar 2019 15:36:37 -0600
-Message-Id: <20190327213643.23789-2-logang@deltatee.com>
+Date: Wed, 27 Mar 2019 15:36:40 -0600
+Message-Id: <20190327213643.23789-5-logang@deltatee.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190327213643.23789-1-logang@deltatee.com>
 References: <20190327213643.23789-1-logang@deltatee.com>
@@ -57,16 +57,17 @@ MIME-Version: 1.0
 X-SA-Exim-Connect-IP: 172.16.1.31
 X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, sbates@raithlin.com, hch@lst.de,
- aou@eecs.berkeley.edu, logang@deltatee.com, palmer@sifive.com,
- andrew@sifive.com, olof@lixom.net, michaeljclark@mac.com, robh@kernel.org,
- zong@andestech.com
+ aou@eecs.berkeley.edu, logang@deltatee.com, anup.patel@wdc.com,
+ atish.patra@wdc.com, palmer@sifive.com, paul.walmsley@sifive.com,
+ zongbox@gmail.com, rppt@linux.ibm.com
 X-SA-Exim-Mail-From: gunthorp@deltatee.com
-Subject: [PATCH 1/7] RISC-V: Implement sparsemem
+Subject: [PATCH 4/7] RISC-V: Update page tables to cover the whole linear
+ mapping
 X-SA-Exim-Version: 4.2.1 (built Tue, 02 Aug 2016 21:08:31 +0000)
 X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190327_143659_815447_038DD6F9 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20190327_143657_538793_70B93EE6 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -78,177 +79,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Waterman <andrew@sifive.com>, Palmer Dabbelt <palmer@sifive.com>,
- Stephen Bates <sbates@raithlin.com>, Zong Li <zong@andestech.com>,
- Olof Johansson <olof@lixom.net>, Michael Clark <michaeljclark@mac.com>,
+Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <anup.patel@wdc.com>,
+ Zong Li <zongbox@gmail.com>, Stephen Bates <sbates@raithlin.com>,
+ Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Mike Rapoport <rppt@linux.ibm.com>,
  Logan Gunthorpe <logang@deltatee.com>, Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch implements sparsemem support for risc-v which helps pave the
-way for memory hotplug and eventually P2P support.
-
-We introduce Kconfig options for virtual and physical address bits which
-are used to calculate the size of the vmemmap and set the
-MAX_PHYSMEM_BITS.
-
-The vmemmap is located directly before the VMALLOC region and sized
-such that we can allocate enough pages to populate all the virtual
-address space in the system (similar to the way it's done in arm64).
-
-During initialization, call memblocks_present() and sparse_init(),
-and provide a stub for vmemmap_populate() (all of which is similar to
-arm64).
+With the new virtual address changes in an earlier patch, we want the
+page tables to cover more of the linear mapping region. Instead of
+only mapping from PAGE_OFFSET and up, we instead map starting
+from an aligned version of va_pa_offset such that all of the physical
+address space will be mapped.
 
 Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+Cc: Palmer Dabbelt <palmer@sifive.com>
 Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Andrew Waterman <andrew@sifive.com>
-Cc: Olof Johansson <olof@lixom.net>
-Cc: Michael Clark <michaeljclark@mac.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Zong Li <zong@andestech.com>
+Cc: Anup Patel <anup.patel@wdc.com>
+Cc: Atish Patra <atish.patra@wdc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Zong Li <zongbox@gmail.com>
+Cc: Mike Rapoport <rppt@linux.ibm.com>
 ---
- arch/riscv/Kconfig                 | 23 +++++++++++++++++++++++
- arch/riscv/include/asm/pgtable.h   | 21 +++++++++++++++++----
- arch/riscv/include/asm/sparsemem.h | 11 +++++++++++
- arch/riscv/mm/init.c               | 11 +++++++++++
- 4 files changed, 62 insertions(+), 4 deletions(-)
- create mode 100644 arch/riscv/include/asm/sparsemem.h
+ arch/riscv/kernel/setup.c |  1 -
+ arch/riscv/mm/init.c      | 27 +++++++++++++++------------
+ 2 files changed, 15 insertions(+), 13 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index eb56c82d8aa1..76fc340ae38e 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -57,12 +57,32 @@ config ZONE_DMA32
- 	bool
- 	default y if 64BIT
- 
-+config VA_BITS
-+	int
-+	default 32 if 32BIT
-+	default 39 if 64BIT
-+
-+config PA_BITS
-+	int
-+	default 34 if 32BIT
-+	default 56 if 64BIT
-+
- config PAGE_OFFSET
- 	hex
- 	default 0xC0000000 if 32BIT && MAXPHYSMEM_2GB
- 	default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
- 	default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
- 
-+config ARCH_FLATMEM_ENABLE
-+	def_bool y
-+
-+config ARCH_SPARSEMEM_ENABLE
-+	def_bool y
-+	select SPARSEMEM_VMEMMAP_ENABLE
-+
-+config ARCH_SELECT_MEMORY_MODEL
-+	def_bool ARCH_SPARSEMEM_ENABLE
-+
- config STACKTRACE_SUPPORT
- 	def_bool y
- 
-@@ -97,6 +117,9 @@ config PGTABLE_LEVELS
- 	default 3 if 64BIT
- 	default 2
- 
-+config HAVE_ARCH_PFN_VALID
-+	def_bool y
-+
- menu "Platform type"
- 
- choice
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 1141364d990e..5a9fea00ba09 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -89,6 +89,23 @@ extern pgd_t swapper_pg_dir[];
- #define __S110	PAGE_SHARED_EXEC
- #define __S111	PAGE_SHARED_EXEC
- 
-+#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
-+#define VMALLOC_END      (PAGE_OFFSET - 1)
-+#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
-+
-+/*
-+ * Roughly size the vmemmap space to be large enough to fit enough
-+ * struct pages to map half the virtual address space. Then
-+ * position vmemmap directly below the VMALLOC region.
-+ */
-+#define VMEMMAP_SHIFT \
-+	(CONFIG_VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
-+#define VMEMMAP_SIZE	(1UL << VMEMMAP_SHIFT)
-+#define VMEMMAP_END	(VMALLOC_START - 1)
-+#define VMEMMAP_START	(VMALLOC_START - VMEMMAP_SIZE)
-+
-+#define vmemmap		((struct page *)VMEMMAP_START)
-+
- /*
-  * ZERO_PAGE is a global shared page that is always zero,
-  * used for zero-mapped memory areas, etc.
-@@ -412,10 +429,6 @@ static inline void pgtable_cache_init(void)
- 	/* No page table caches to initialize */
- }
- 
--#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
--#define VMALLOC_END      (PAGE_OFFSET - 1)
--#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index ecb654f6a79e..8286df8be31a 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -59,7 +59,6 @@ EXPORT_SYMBOL(empty_zero_page);
+ /* The lucky hart to first increment this variable will boot the other cores */
+ atomic_t hart_lottery;
+ unsigned long boot_cpu_hartid;
 -
- /*
-  * Task size is 0x40000000000 for RV64 or 0xb800000 for RV32.
-  * Note that PGDIR_SIZE must evenly divide TASK_SIZE.
-diff --git a/arch/riscv/include/asm/sparsemem.h b/arch/riscv/include/asm/sparsemem.h
-new file mode 100644
-index 000000000000..b58ba2d9ed6e
---- /dev/null
-+++ b/arch/riscv/include/asm/sparsemem.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef __ASM_SPARSEMEM_H
-+#define __ASM_SPARSEMEM_H
-+
-+#ifdef CONFIG_SPARSEMEM
-+#define MAX_PHYSMEM_BITS	CONFIG_PA_BITS
-+#define SECTION_SIZE_BITS	27
-+#endif /* CONFIG_SPARSEMEM */
-+
-+#endif /* __ASM_SPARSEMEM_H */
+ void __init parse_dtb(unsigned int hartid, void *dtb)
+ {
+ 	if (early_init_dt_scan(__va(dtb)))
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index b379a75ac6a6..b9d50031e78f 100644
+index b9d50031e78f..315194557c3d 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -141,6 +141,9 @@ void __init setup_bootmem(void)
- 				  PFN_PHYS(end_pfn - start_pfn),
- 				  &memblock.memory, 0);
- 	}
-+
-+	memblocks_present();
-+	sparse_init();
- }
+@@ -150,8 +150,8 @@ pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+ pgd_t trampoline_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
  
- pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-@@ -224,3 +227,11 @@ asmlinkage void __init setup_vm(void)
- 				__pgprot(_PAGE_TABLE));
+ #ifndef __PAGETABLE_PMD_FOLDED
+-#define NUM_SWAPPER_PMDS ((uintptr_t)-PAGE_OFFSET >> PGDIR_SHIFT)
+-pmd_t swapper_pmd[PTRS_PER_PMD*((-PAGE_OFFSET)/PGDIR_SIZE)] __page_aligned_bss;
++#define NUM_SWAPPER_PMDS ((uintptr_t)-VMALLOC_END >> PGDIR_SHIFT)
++pmd_t swapper_pmd[PTRS_PER_PMD*((-VMALLOC_END)/PGDIR_SIZE)] __page_aligned_bss;
+ pmd_t trampoline_pmd[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+ pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
  #endif
- }
+@@ -180,13 +180,18 @@ asmlinkage void __init setup_vm(void)
+ 	extern char _start;
+ 	uintptr_t i;
+ 	uintptr_t pa = (uintptr_t) &_start;
++	uintptr_t linear_start;
++	uintptr_t off;
+ 	pgprot_t prot = __pgprot(pgprot_val(PAGE_KERNEL) | _PAGE_EXEC);
+ 
+ 	va_pa_offset = PAGE_OFFSET - pa;
+ 	pfn_base = PFN_DOWN(pa);
+ 
++	linear_start = ALIGN_DOWN(va_pa_offset, PGDIR_SIZE);
++	off = linear_start - va_pa_offset;
 +
-+#ifdef CONFIG_SPARSEMEM
-+int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
-+			       struct vmem_altmap *altmap)
-+{
-+	return vmemmap_populate_basepages(start, end, node);
-+}
-+#endif
+ 	/* Sanity check alignment and size */
+-	BUG_ON((PAGE_OFFSET % PGDIR_SIZE) != 0);
++	BUG_ON(linear_start <= VMALLOC_END);
+ 	BUG_ON((pa % (PAGE_SIZE * PTRS_PER_PTE)) != 0);
+ 
+ #ifndef __PAGETABLE_PMD_FOLDED
+@@ -195,15 +200,14 @@ asmlinkage void __init setup_vm(void)
+ 			__pgprot(_PAGE_TABLE));
+ 	trampoline_pmd[0] = pfn_pmd(PFN_DOWN(pa), prot);
+ 
+-	for (i = 0; i < (-PAGE_OFFSET)/PGDIR_SIZE; ++i) {
+-		size_t o = (PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
+-
++	for (i = 0; i < (-linear_start)/PGDIR_SIZE; ++i) {
++		size_t o = (linear_start >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
+ 		swapper_pg_dir[o] =
+ 			pfn_pgd(PFN_DOWN((uintptr_t)swapper_pmd) + i,
+ 				__pgprot(_PAGE_TABLE));
+ 	}
+ 	for (i = 0; i < ARRAY_SIZE(swapper_pmd); i++)
+-		swapper_pmd[i] = pfn_pmd(PFN_DOWN(pa + i * PMD_SIZE), prot);
++		swapper_pmd[i] = pfn_pmd(PFN_DOWN(off + i * PMD_SIZE), prot);
+ 
+ 	swapper_pg_dir[(FIXADDR_START >> PGDIR_SHIFT) % PTRS_PER_PGD] =
+ 		pfn_pgd(PFN_DOWN((uintptr_t)fixmap_pmd),
+@@ -215,11 +219,10 @@ asmlinkage void __init setup_vm(void)
+ 	trampoline_pg_dir[(PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD] =
+ 		pfn_pgd(PFN_DOWN(pa), prot);
+ 
+-	for (i = 0; i < (-PAGE_OFFSET)/PGDIR_SIZE; ++i) {
+-		size_t o = (PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
+-
+-		swapper_pg_dir[o] =
+-			pfn_pgd(PFN_DOWN(pa + i * PGDIR_SIZE), prot);
++	for (i = 0; i < (-linear_start)/PGDIR_SIZE; ++i) {
++		size_t o = (linear_start >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
++		swapper_pg_dir[o] = pfn_pgd(PFN_DOWN(off + i * PGDIR_SIZE),
++					    prot);
+ 	}
+ 
+ 	swapper_pg_dir[(FIXADDR_START >> PGDIR_SHIFT) % PTRS_PER_PGD] =
 -- 
 2.20.1
 
