@@ -2,83 +2,56 @@ Return-Path: <SRS0=QLKY=SA=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	UNPARSEABLE_RELAY,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B723CC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 05:12:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D0C9AC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 05:38:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 87735206BA
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 05:12:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A0D652173C
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 05:38:56 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ABDylWlc";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="1lTs7P18"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 87735206BA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mIdeqjWN"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A0D652173C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=anthonycoulter.name
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eE0wCNIjK/8yabQQvmJlubhn4uFAyPBzxqm4YdXMgAk=; b=ABDylWlcz+MFgK
-	gBFpq+Dhytz6el6ogz1MNIcdXgmT8ZWnQ+NIAWdjCImnKgpf5ooJB5Usp1v/brJzfCnfgoAUIYMfC
-	q6tlUDDn6JPKGk5+PTSkKeFvb/Ly9kux87RUSwXEAjaYq1spgbFAMap4fCfMbjNSsNIp9UrLbH/Yk
-	jWWPeVaQdnl/MO7gvAtZOhPjAnNtD+ebp/xFi3lHcVbC6ttIRY6JbxrWfknqGaMpdLiak9f69BFEd
-	sampmZuUq/zniDhK+Rw8rYCf0heyuOc9pio2zwFuJxRHFpd0HnQ0e7A0GtKd9CIZDCKl3JIlFAdXn
-	m2UFoh1rOb3mIVHhcbEw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:
+	To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fAsZAp3k46D0fvbtFeSTiY8EGSSFG+uQLjE8znFQTvo=; b=mIdeqjWN92k0z0
+	KPkbzo+6qE+1XT7Nyt1tLhRpWaw+9ysKgK7PNomzrA2HfgMJ7CYZrYs4fIPxLghihK6zK894cyoY+
+	exrTlLC5kvmg4ZV9DXjrILtNZL/KwFSYatrmceLs7iBaIZFzM9VpMIr+XX/ZKjUNP2ANhgUobhSVJ
+	DznQm9q8Mf1oQ1hBeQgpAR1fuXivEdHdoYMZkvqwCiVgBShS5nmuq9OHxL8VCxPdB16SRymuF7awf
+	Y9s2Z4X5ZW0RcpAyOhbLeZ+AR9l0QXr2UeQIGl7phTaidwx3n47mnyRxV7gKoojhK5apHfL+Hjj8o
+	3CqgY6D0l06naaLkZfjw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h9joW-0003YX-9y; Fri, 29 Mar 2019 05:12:24 +0000
-Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
+	id 1h9kEA-0004tA-4q; Fri, 29 Mar 2019 05:38:54 +0000
+Received: from raines.redjes.us ([45.32.221.159])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h9joS-0003Xr-TR
- for linux-riscv@lists.infradead.org; Fri, 29 Mar 2019 05:12:22 +0000
-Received: by mail-wr1-x443.google.com with SMTP id y13so971977wrd.3
- for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2019 22:12:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=bKnBSoZi4LuxrMzM4MLMIkqICF16Xx9TbrvGnGEfgAc=;
- b=1lTs7P18qM8kl6W9FeGm7vqIwvdzpq6ues9WS7N3DmJgrrTLKeM/F2z7fxzY3S1GH/
- aJceLriqerUByopmqeCCOW0Mrm6NnHde7SOcd842QvzI7rEfV4wnhchbqew3VYQIKF3D
- lIuthnPSTxVMfcVz6yvqyAZub8zQ6AvMM1bJk+Hy9LO5zXC4nDFzz+hKo9Prija3xU60
- HeLPRpecdOD+uSyu60bKNTeATIEKkoI5mVQY/iYUojndjR6dhDEstcmyfZHXZT0hahy2
- aUAFIw1ret3rhx+IR9MQGfp6iN2E2eFtRDYoaJDSpYme8/lwccZEkRCY4qskXg3Dkhh/
- ucuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=bKnBSoZi4LuxrMzM4MLMIkqICF16Xx9TbrvGnGEfgAc=;
- b=iigYNOyyz0NvWcWqXnVWQpect3G88NeNra5BDgzGGmkRA8tEZ0x2rEi+JE2gWjD8KN
- o2dfIAaBuzXkLpWOmtqs50UTBLoeLaEWwGA9Zeb7dCvOpXKNc7Hc9hVckiVnphpfdt+K
- CDfUrvJvM6kd8JB6/PrO2aMoxsyudl6dT0yz3x35RavdJlZQxDeLCkP1UC6IYHz/tXvu
- wL7WXwUV/KYsVcO9pa5gPzW2gUZEEINvn7giqe2oH2nkuAfRHv9Ahe6034INj48/DDhO
- JDkfordWKyt1P1DsQYAzcFP20vZzgfFkBZjzePS03g9No5I7zYoC6eYwHmHGtVBMaKrJ
- +0Sw==
-X-Gm-Message-State: APjAAAX6m76V28GH2T4bPcyJnQ1juRxjsTxx7YcCpgMDiZbVign/cDfx
- TB8ybwduYOleJ8fwbHlF9oN/E6wWPPdj+lCqwJqs+UCKUIEd1g==
-X-Google-Smtp-Source: APXvYqyXJQK6XhqSNAYTj8EBUc5LyJC8lYYf5FwLRTgFVcq4mP9C+QFjhsvK76sYP2ZuIAZOWE0TA/13qu9pS12bLug=
-X-Received: by 2002:adf:fe03:: with SMTP id n3mr18569004wrr.59.1553836337710; 
- Thu, 28 Mar 2019 22:12:17 -0700 (PDT)
-MIME-Version: 1.0
-References: <20190328063211.13052-1-anup.patel@wdc.com>
- <alpine.DEB.2.21.9999.1903282158510.25278@viisi.sifive.com>
-In-Reply-To: <alpine.DEB.2.21.9999.1903282158510.25278@viisi.sifive.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 29 Mar 2019 10:42:06 +0530
-Message-ID: <CAAhSdy2VaUJeMx0S=PA0NrX8s1eqvbNkknHi0cqX_OS4+y7u+g@mail.gmail.com>
-Subject: Re: [PATCH v2] RISC-V: Implement ASID allocator
-To: Paul Walmsley <paul.walmsley@sifive.com>
+ id 1h9XAR-0000mH-2E
+ for linux-riscv@lists.infradead.org; Thu, 28 Mar 2019 15:42:13 +0000
+Received: from localhost (raines.redjes.us [local])
+ by raines.redjes.us (OpenSMTPD) with ESMTPA id bd91b4d9;
+ Thu, 28 Mar 2019 11:35:29 -0400 (EDT)
+Date: Thu, 28 Mar 2019 11:35:29 -0400 (EDT)
+From: Anthony Coulter <riscv@anthonycoulter.name>
+To: anup@brainfault.org, rppt@linux.ibm.com
+Subject: Re: [PATCH v3 4/4] RISC-V: Allow booting kernel from any 4KB aligned
+ address
+Message-ID: <eb83e42f53cec3f1@raines.redjes.us>
+X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190328_221220_952751_A1725D7B 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20190328_084211_234347_A25C0916 
+X-CRM114-Status: GOOD (  17.08  )
+X-Mailman-Approved-At: Thu, 28 Mar 2019 22:38:52 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,57 +63,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
- Atish Patra <Atish.Patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Gary Guo <gary@garyguo.net>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: me@anthonycoulter.name, aou@eecs.berkeley.edu, Anup.Patel@wdc.com,
+ linux-kernel@vger.kernel.org, hch@infradead.org, Atish.Patra@wdc.com,
+ palmer@sifive.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 29, 2019 at 10:34 AM Paul Walmsley <paul.walmsley@sifive.com> wrote:
->
->
-> On Thu, 28 Mar 2019, Anup Patel wrote:
->
-> > Signed-off-by: Gary Guo <gary@garyguo.net>
-> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > ---
-> > Changes since v1:
-> > - We adapt good aspects from Gary Guo's ASID allocator implementation
-> >   and provide due credit to him by adding his SoB.
->
-> This isn't the right way to use Signed-off-by: lines in the kernel.  See
->
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/5.Posting.rst#n213
->
-> and
->
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst#n418
->
-> The only people who should be listed in Signed-off-by: lines are patch
-> authors.
->
-> If your intention is to give Gary credit for changes in your patch,
-> describe what ideas or code snippets you've taken in the patch description
-> itself, above your Signed-off-by: lines so they would be included in the
-> git commit description should your patch be merged.
+If your goal is to be able to boot from any 4k-aligned address, then
+disallowing boots between PAGE_OFFSET and PAGE_OFSSET + vmlinux_size
+seems counterproductive, since there are a lot of 4k-aligned addresses
+in that range that are now disallowed. (And worse, the specific range
+of disallowed addresses now depends on how large the kernel is, which
+makes things awkward. What happens if someone downloads a kernel update
+that increases the size of vmlinux to a point where their boot loader
+configuration is no longer valid? That would be crazy.)
 
-Thanks for clarifying...
+Note that in order to boot from any 4k-aligned address, you will need
+set up trampoline_pg_dir to map a single 4k page. The rule is that the
+trampoline page tables can map a single page of whatever size you're
+working with, and that page needs to be mapped to the same virtual
+address that it will have in the final swapper_pg_dir table. Since
+swapper_pg_dir cannot use hugepages, trampoline_pg_dir cannot use a
+hugepage either.
 
-Under "Changes since v1" I have clarified what suggestions I have
-taken from Gray.
+But that also means you can't do very much work between enabling the
+trampoline page tables and switching over to swapper_pg_dir, because
+during that period of time only 4k of memory is mapped. You can't call
+any functions that live outside those four kilobytes, nor can you
+modify any page tables (because the single page you have must cover the
+code in _start, so it can't point to any memory that includes page
+tables). So you need to set up both the trampoline and swapper page
+tables before enabling either of them. The only complexity you can
+postpone by splitting up setup_vm is the initialization of the fixmap
+tables.
 
-Gray insist that I use "Co-developed-by:" so I have posted v3 with
-"Co-developed-by:". Honestly, I don't mind "Signed-off-by: " or
-"Co-developed-by:" as long as I am acknowledging other person's
-efforts.
+That said: I think that booting from 4k-aligned addresses is probably
+still a pretty simple change, though I *also* have doubts about whether
+it is worthwhile.
+
+Why is it simple? Because all you have to do is add one extra level to
+each of the trampoline and swapper page tables, and both of these
+tables have simple structures. The code proposed in the latest draft
+is complicated because the function calls have so many layers of
+indirection and not enough attention is paid to using the contiguity
+of the page tables to reduce work. But that's accidental complexity;
+a more careful implementation would be a lot shorter.
+
+Why is it irrelevant? Because a memory-constrained kernel will want to
+drop its .init segment after booting, but the memory that this frees up
+will all be at the beginning of the kernel image (and not at the end).
+
+Let's be concrete and talk about the HiFive Unleashed board, on which
+RAM starts at address 0x80000000. But the problem is that the Berkeley
+Boot Loader gets loaded to 0x80000000, so it has to load the Linux
+kernel to the next hugepage, at 0x80200000. Now, if you're short on RAM
+you will want your kernel to drop its .init segment, which occupies the
+first megabyte (?) of kernel space. (I don't know how large the .init
+segment is, but I *do* know from the linker script that it's at the
+beginning of memory. Let's call it a megabyte.) So Linux releases its
+first megabyte of memory to applications, and now the kernel itself
+starts somewhere around 0x8030000.
+
+How is the kernel going to make use of the freed-up space between
+0x80200000 and 0x8030000? That's a vm-system problem: somewhere in the
+virtual memory code there will be data structures and algorithms that
+are smart enough to make use of both the space *before* the kernel
+image (i.e. before 0x80300000) and the space *after* the kernel (i.e.
+all the space from 0x80200000 to 0x8020000 + vmlinux_size). Surely this
+code already exists, because some architectures *do* drop their .init
+sections after boot.
+
+But, now, if the virtual memory system is already smart enough to make
+use of physical memory that is located before the kernel image, then
+there's no harm in booting at 0x80200000 because the virtual memory
+system can figure out how to use the gap between the end of the boot
+loader and the start of the kernel image. This is true whether the
+kernel chooses to drop its .init segment or not, because the point is
+that the Linux kernel virtual memory data management system is already
+designed to make use of free space from before the kernel image.
+
+So the best way to reclaim wasted space before 0x80200000 is probably
+going to be to make your boot loader tell the kernel (via the device
+tree) how much space is available between boot_loader_end and
+vmlinux_start, and to make sure that this space gets used by the
+virtual memory framework.
+
+I'm sorry my email is so long, but I've found that long emails lead to
+less confusion than short ones.
 
 Regards,
-Anup
+Anthony Coulter
 
 _______________________________________________
 linux-riscv mailing list
