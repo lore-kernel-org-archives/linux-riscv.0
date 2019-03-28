@@ -6,83 +6,78 @@ X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	SIGNED_OFF_BY,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 792A0C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2019 05:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 199B2C4360F
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2019 06:29:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 45D75206B6
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2019 05:39:45 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DA44B2075E
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2019 06:29:14 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YJvePeqB";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="iC0nRwdY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 45D75206B6
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZARD20hG";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="njbrBmW5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA44B2075E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=KYjZ05BW+lawHrxu0CTkMdUM6aySxB3oIhsQTLAnibc=; b=YJvePeqBM0mB4XwJZ1f7W2CF3
-	r/FPB4gqANkdI9Nbhy8vy5lzu4ZTmjYaQZHLc9CBHpiqpzHJcEdjUbxfjNQBrlghm4ItZ0FuJuXq9
-	lx2N6vVY5TTf6hm4F3snVEixcBtbkU5wqc4LK0qnJfObQBXPNQU2nIxYRsaC0UXeesqVZt75Wg2Wq
-	vkMVUMVX655NMijSRdlIBfWLAmf2oxrtvpBb9jIDiZfJuaOQloB2a8S/78yYBHxnfCgfXqwQ8FqKV
-	L+IyAbgx0X4kdiqhDBqrosJz6sKQbFiife6SdFYrbl77FZsqndZTqdYqy87x7XnraC6mMrRK3x50j
-	W3Mk3pWzw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2zK7EWA2fRDT/o391Yec3Ew8ZtjpkFEFucv8gesn188=; b=ZARD20hGal6ZTa
+	c4TzTU9wVWJUVSrQbKptQUyptKRLGCSbXNRrfP21hHv6bq1hhlkjAVVKmdfXbWw2gEp4piKLIBdmF
+	Uwtn4xlMlkVS21qkCbCp1mHo5EwblhwJp3RBImAVwEUinhWoI+lKAWcDsrj6N8eYZADCBjRuLBnOf
+	pcTJ56AeigA5JeDQ2OIw3qoWhApcKZJJrhYUbVxz07hbfudlyPOr7sFn2kl9UvpEFT6gTbyXQz6WF
+	VuundQ4ps2U0bRuChii9VFXjXd/9rOTefsx+P698dCY3jZxTdIIz5qsWJPHM6CPALFJ9kHOpVtLbV
+	qR0s8WWUm8u+1tWWZOWg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h9NlM-0003my-C1; Thu, 28 Mar 2019 05:39:40 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1h9OXJ-0001vL-1d; Thu, 28 Mar 2019 06:29:13 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h9NlJ-0003mb-04
- for linux-riscv@lists.infradead.org; Thu, 28 Mar 2019 05:39:38 +0000
-Received: by mail-pf1-x441.google.com with SMTP id i17so10835277pfo.6
- for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2019 22:39:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=FVTIAp+AHigUlUaGp3ARcNFkfdWonWsh7STo70xb6HE=;
- b=iC0nRwdY2t02geyoPPs/ajI2+Nk5eq/9ZMIwzN0+7I3b3VUr/7mkhTG25WiaYS0S49
- cmhfN5W2v5DxP9c87WWQe6u72aJoANBU0aqWqlK6UR9wXk9Evnwfi554G6SAJBkbQDKS
- Wj+L2/wEp2NIf+zkPkuRaRYBe3KEvyyAYsHP1/ifQQp5OqUF1wmcujLmtbCmquFVE8QV
- P6Y2ExtJuUtFZN4JOKq5abWJa+PUUU+/3rx7GR6cvN1NINJvN8YHkYI2fqqBlaT1ZeiO
- 0XRT4N86/vrhbKGz6QkmpXI/mhdi5DrRQK5JPyMWr0PD0w+JjoQoX/lhwm6vBFTbI+mA
- icAA==
+ id 1h9OXF-0001v0-U1
+ for linux-riscv@lists.infradead.org; Thu, 28 Mar 2019 06:29:11 +0000
+Received: by mail-wm1-x343.google.com with SMTP id t124so2530909wma.4
+ for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2019 23:29:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=WHI5lsOf5xW8J86nqQCpKYOyKYcjxk3VbdXPr/wbqAs=;
+ b=njbrBmW5t0u+VavJ0412k/ceO79/fQNiGS95FUdo2JOCvrxx8DopB1ERYy6PptL5xQ
+ VohfSYdpWBVj/WfKZhj974MnLFrWfapGodCsTMAKzLnZcPZQisqtY2yrLyco/Z1L1Lv8
+ jJNrQGxOQifexu88rGpkvmu1ojTzZxQQ5zLyVXeY+fRI0JK4t3jJVcuJnPoomDN9cnGJ
+ N70Rn95Nk9Ut67HWQ2wQNjPNxa/F+1798aauaeLioD9CH4OpetUOA9Z/PHR+eOOE2dR/
+ CX16VFckuaAptNFPgWFbfP5g4R5m0cTsVXx96+VCsh5GfOYD0Uz3jdpJvObAvlDemAFw
+ u/rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=FVTIAp+AHigUlUaGp3ARcNFkfdWonWsh7STo70xb6HE=;
- b=d3p6u8KDR5F+UAOYe31621w1l4rBTj6FVup5OmAudesbdF9DuAY9rHAomH8Y3IINio
- vy4TsrVDV0ETL5U7psGbXc8PMeTWGXynxma1nH+iNoQYlIuTru+g032S5aZv2saAP2pD
- RJjaLfHWpKlyjWs9D482aiFM5a9C7nUdChjUNchkJEuE9q53/dSaluIxkudQ7EWgOR3E
- 08NvqV5CqVyzY32+ajXDd8wm0l+B/p7op5CpR4ihj+/c8JJWHW9FNXZ48YX+3qPUJ6ET
- ttvx80FgvYAysIO5bf4bs+X7e8yvJCuITEMOcZiq3oEpjbb0MhVT4HJlCZqzHoc2fuUO
- bj+Q==
-X-Gm-Message-State: APjAAAUH8vGp5rsBby5fgBm7lJE1cVreofeLIwZGH3TXirCOxjX+NLqR
- 5TgSyurrlR3PDCfYcqCRVzCTtg==
-X-Google-Smtp-Source: APXvYqyQobf9dP5bsezx+HsyfGxTt7VmHvJUK2rbLtrIboK+3nr00nKQVLfGH/CBX0T/7jn4AnPWnw==
-X-Received: by 2002:a63:4750:: with SMTP id w16mr38983883pgk.256.1553751575232; 
- Wed, 27 Mar 2019 22:39:35 -0700 (PDT)
-Received: from localhost
- (2001-b011-7001-168c-9355-f21f-1416-8b19.dynamic-ip6.hinet.net.
- [2001:b011:7001:168c:9355:f21f:1416:8b19])
- by smtp.gmail.com with ESMTPSA id u10sm26809103pgr.2.2019.03.27.22.39.33
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 27 Mar 2019 22:39:33 -0700 (PDT)
-Date: Wed, 27 Mar 2019 22:39:33 -0700 (PDT)
-X-Google-Original-Date: Wed, 27 Mar 2019 21:04:20 PDT (-0700)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=WHI5lsOf5xW8J86nqQCpKYOyKYcjxk3VbdXPr/wbqAs=;
+ b=k5shjP36/g7cySohU6bekBhb3Qii0gZ6/rk073TyJzQylljUZSR4ppvZKYW+Vuydpr
+ nLBLbndFf0c/0zOTrClDNmGYb0kMMgCDYapI8IbtxkURNmbZurNDb0UOY4beBwe4QhVa
+ Mh3MKTKy0mz1/ntl8Ogd6LM2PS4xh45UuHkHhty2qVd4IbilPAM342DLoipd3avvj5Ur
+ ltRDPAeMpWSg9CI5YCLfMi4e3vW6CXjDUxv+n60HIAfOJkJp833MDzWChAjJ5jlfwqRp
+ tBdHcmrG9O3ioRYJJhS2P1LJHf+AkYN1csWMGXZjbbi3bO3paWwiVOb61XdocmeHBMkX
+ rUBg==
+X-Gm-Message-State: APjAAAUTaPaGXxAQ/h9cgqr+M59mpszqm1ARKYWUgbZhgmZqcQczKfqW
+ R93lt8aD/AUHUwkx2n3/zwXkcz2D91ydswmmPg2Tww==
+X-Google-Smtp-Source: APXvYqzs4aS1CeGoPk0xoQCqxqnuWWEd1RcZq14orAqIKXaPecNl37WRHUKrY4oMB1itaEPC9tuq+UitC/UadKKIwkw=
+X-Received: by 2002:a1c:9c14:: with SMTP id f20mr14645718wme.16.1553754547845; 
+ Wed, 27 Mar 2019 23:29:07 -0700 (PDT)
+MIME-Version: 1.0
+References: <20190327213643.23789-4-logang@deltatee.com>
+ <mhng-fca98e1a-ad61-40b6-abd8-60b0e752dcf2@palmer-si-x1c4>
+In-Reply-To: <mhng-fca98e1a-ad61-40b6-abd8-60b0e752dcf2@palmer-si-x1c4>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 28 Mar 2019 11:58:56 +0530
+Message-ID: <CAAhSdy1UoiGaAph3MnmnBfxhTpscjd5jYrrzr0ES6ZPcz8tH4w@mail.gmail.com>
 Subject: Re: [PATCH 3/7] RISC-V: Rework kernel's virtual address space mapping
-In-Reply-To: <20190327213643.23789-4-logang@deltatee.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: logang@deltatee.com
-Message-ID: <mhng-fca98e1a-ad61-40b6-abd8-60b0e752dcf2@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+To: Palmer Dabbelt <palmer@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190327_223937_077571_6A919D0C 
-X-CRM114-Status: GOOD (  22.67  )
+X-CRM114-CacheID: sfid-20190327_232910_018434_D7FB71E6 
+X-CRM114-Status: GOOD (  24.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,146 +89,162 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: sorear2@gmail.com, aou@eecs.berkeley.edu, anup.patel@wdc.com,
- linux-kernel@vger.kernel.org, sbates@raithlin.com, antonynpavlov@gmail.com,
- linux-riscv@lists.infradead.org, logang@deltatee.com,
- Christoph Hellwig <hch@lst.de>
+Cc: sorear2@gmail.com, Albert Ou <aou@eecs.berkeley.edu>,
+ Anup Patel <anup.patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ sbates@raithlin.com, antonynpavlov@gmail.com, linux-riscv@lists.infradead.org,
+ logang@deltatee.com, Christoph Hellwig <hch@lst.de>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 27 Mar 2019 14:36:39 PDT (-0700), logang@deltatee.com wrote:
-> The motivation for this is to support P2P transactions. P2P requires
-> having struct pages for IO memory which means the linear mapping must
-> be able to cover all of the IO regions. Unfortunately with Sv39 we are
-> not able to cover all the IO regions available on existing hardware,
-> but we can do better than what we currently do (which only cover's
-> physical memory).
+On Thu, Mar 28, 2019 at 11:09 AM Palmer Dabbelt <palmer@sifive.com> wrote:
 >
-> To this end, we restructure the kernel's virtual address space region.
-> We position the vmemmap at the beginning of the region (based on how
-> many virtual address bits we have) and the VMALLOC region comes
-> immediately after. The linear mapping then takes up the remaining space.
-> PAGE_OFFSET will need to be within the linear mapping but may not be
-> the start of the mapping seeing many machines don't have RAM at address
-> zero and we may still want to access lower addresses through the
-> linear mapping.
+> On Wed, 27 Mar 2019 14:36:39 PDT (-0700), logang@deltatee.com wrote:
+> > The motivation for this is to support P2P transactions. P2P requires
+> > having struct pages for IO memory which means the linear mapping must
+> > be able to cover all of the IO regions. Unfortunately with Sv39 we are
+> > not able to cover all the IO regions available on existing hardware,
+> > but we can do better than what we currently do (which only cover's
+> > physical memory).
+> >
+> > To this end, we restructure the kernel's virtual address space region.
+> > We position the vmemmap at the beginning of the region (based on how
+> > many virtual address bits we have) and the VMALLOC region comes
+> > immediately after. The linear mapping then takes up the remaining space.
+> > PAGE_OFFSET will need to be within the linear mapping but may not be
+> > the start of the mapping seeing many machines don't have RAM at address
+> > zero and we may still want to access lower addresses through the
+> > linear mapping.
+> >
+> > With these changes, on a 64-bit system the virtual memory map (with
+> > sparsemem enabled) will be:
+> >
+> > 32-bit:
+> >
+> > 00000000 - 7fffffff   user space, different per mm (2G)
+> > 80000000 - 81ffffff   virtual memory map (32MB)
+> > 82000000 - bfffffff   vmalloc/ioremap space (1GB - 32MB)
+> > c0000000 - ffffffff   direct mapping of all phys. memory (1GB)
+> >
+> > 64-bit, Sv39:
+> >
+> > 0000000000000000 - 0000003fffffffff  user space, different per mm (256GB)
+> > hole caused by [38:63] sign extension
+> > ffffffc000000000 - ffffffc0ffffffff  virtual memory map (4GB)
+> > ffffffc100000000 - ffffffd0ffffffff  vmalloc/ioremap spac (64GB)
+> > ffffffd100000000 - ffffffffffffffff  linear mapping of phys. space (188GB)
+> >
+> > On the Sifive hardware this allows us to provide struct pages for
+> > the lower I/O TileLink address ranges, the 32-bit and 34-bit DRAM areas
+> > and 172GB of 240GB of the high I/O TileLink region. Once we progress to
+> > Sv48 we should be able to cover all the available memory regions..
+> >
+> > For the MAXPHYSMEM_2GB case, the physical memory must be in the highest
+> > 2GB of address space, so we cannot cover the any of the I/O regions
+> > that are higher than it but we do cover the lower I/O TileLink range.
 >
-> With these changes, on a 64-bit system the virtual memory map (with
-> sparsemem enabled) will be:
->
-> 32-bit:
->
-> 00000000 - 7fffffff   user space, different per mm (2G)
-> 80000000 - 81ffffff   virtual memory map (32MB)
-> 82000000 - bfffffff   vmalloc/ioremap space (1GB - 32MB)
-> c0000000 - ffffffff   direct mapping of all phys. memory (1GB)
->
-> 64-bit, Sv39:
->
-> 0000000000000000 - 0000003fffffffff  user space, different per mm (256GB)
-> hole caused by [38:63] sign extension
-> ffffffc000000000 - ffffffc0ffffffff  virtual memory map (4GB)
-> ffffffc100000000 - ffffffd0ffffffff  vmalloc/ioremap spac (64GB)
-> ffffffd100000000 - ffffffffffffffff  linear mapping of phys. space (188GB)
->
-> On the Sifive hardware this allows us to provide struct pages for
-> the lower I/O TileLink address ranges, the 32-bit and 34-bit DRAM areas
-> and 172GB of 240GB of the high I/O TileLink region. Once we progress to
-> Sv48 we should be able to cover all the available memory regions..
->
-> For the MAXPHYSMEM_2GB case, the physical memory must be in the highest
-> 2GB of address space, so we cannot cover the any of the I/O regions
-> that are higher than it but we do cover the lower I/O TileLink range.
+> IIRC there was another patch floating around to fix an issue with overlapping
+> regions in the 32-bit port, did you also fix that issue?  It's somewhere in my
+> email queue...
 
-IIRC there was another patch floating around to fix an issue with overlapping 
-regions in the 32-bit port, did you also fix that issue?  It's somewhere in my 
-email queue...
+That was a patch I submitted to fix overlapping FIXMAP and VMALLOC
+regions.
 
-> Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-> Cc: Palmer Dabbelt <palmer@sifive.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Antony Pavlov <antonynpavlov@gmail.com>
-> Cc: "Stefan O'Rear" <sorear2@gmail.com>
-> Cc: Anup Patel <anup.patel@wdc.com>
-> ---
->  arch/riscv/Kconfig               |  2 +-
->  arch/riscv/include/asm/page.h    |  2 --
->  arch/riscv/include/asm/pgtable.h | 27 ++++++++++++++++++---------
->  3 files changed, 19 insertions(+), 12 deletions(-)
+This patch does not consider FIXMAP region.
+
+I suggest we introduce asm/memory.h where we have all critical defines
+related to virtual memory layout. Also, this header should have detailed
+comments about virtual memory layout.
+
 >
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 76fc340ae38e..d21e6a12e8b6 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -71,7 +71,7 @@ config PAGE_OFFSET
->  	hex
->  	default 0xC0000000 if 32BIT && MAXPHYSMEM_2GB
->  	default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
-> -	default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
-> +	default 0xffffffd200000000 if 64BIT && MAXPHYSMEM_128GB
->
->  config ARCH_FLATMEM_ENABLE
->  	def_bool y
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index 2a546a52f02a..fa0b8058a246 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -31,8 +31,6 @@
->   */
->  #define PAGE_OFFSET		_AC(CONFIG_PAGE_OFFSET, UL)
->
-> -#define KERN_VIRT_SIZE (-PAGE_OFFSET)
-> -
->  #ifndef __ASSEMBLY__
->
->  #define PAGE_UP(addr)	(((addr)+((PAGE_SIZE)-1))&(~((PAGE_SIZE)-1)))
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 5a9fea00ba09..2a5070540996 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -89,22 +89,31 @@ extern pgd_t swapper_pg_dir[];
->  #define __S110	PAGE_SHARED_EXEC
->  #define __S111	PAGE_SHARED_EXEC
->
-> -#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
-> -#define VMALLOC_END      (PAGE_OFFSET - 1)
-> -#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
-> +#define KERN_SPACE_START	(-1UL << (CONFIG_VA_BITS - 1))
->
->  /*
->   * Roughly size the vmemmap space to be large enough to fit enough
->   * struct pages to map half the virtual address space. Then
->   * position vmemmap directly below the VMALLOC region.
->   */
-> -#define VMEMMAP_SHIFT \
-> -	(CONFIG_VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
-> -#define VMEMMAP_SIZE	(1UL << VMEMMAP_SHIFT)
-> -#define VMEMMAP_END	(VMALLOC_START - 1)
-> -#define VMEMMAP_START	(VMALLOC_START - VMEMMAP_SIZE)
-> -
-> +#ifdef CONFIG_SPARSEMEM
-> +#define VMEMMAP_SIZE	(UL(1) << (CONFIG_VA_BITS - PAGE_SHIFT - 1 + \
-> +				   STRUCT_PAGE_MAX_SHIFT))
-> +#define VMEMMAP_START	(KERN_SPACE_START)
-> +#define VMEMMAP_END	(VMEMMAP_START + VMEMMAP_SIZE - 1)
->  #define vmemmap		((struct page *)VMEMMAP_START)
-> +#else
-> +#define VMEMMAP_END	KERN_SPACE_START
-> +#endif
-> +
-> +#ifdef CONFIG_32BIT
-> +#define VMALLOC_SIZE	((1UL << 30) - VMEMMAP_SIZE)
-> +#else
-> +#define VMALLOC_SIZE	(64UL << 30)
-> +#endif
-> +
-> +#define VMALLOC_START	(VMEMMAP_END + 1)
-> +#define VMALLOC_END	(VMALLOC_START + VMALLOC_SIZE - 1)
->
->  /*
->   * ZERO_PAGE is a global shared page that is always zero,
+> > Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
+> > Cc: Palmer Dabbelt <palmer@sifive.com>
+> > Cc: Albert Ou <aou@eecs.berkeley.edu>
+> > Cc: Antony Pavlov <antonynpavlov@gmail.com>
+> > Cc: "Stefan O'Rear" <sorear2@gmail.com>
+> > Cc: Anup Patel <anup.patel@wdc.com>
+> > ---
+> >  arch/riscv/Kconfig               |  2 +-
+> >  arch/riscv/include/asm/page.h    |  2 --
+> >  arch/riscv/include/asm/pgtable.h | 27 ++++++++++++++++++---------
+> >  3 files changed, 19 insertions(+), 12 deletions(-)
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index 76fc340ae38e..d21e6a12e8b6 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -71,7 +71,7 @@ config PAGE_OFFSET
+> >       hex
+> >       default 0xC0000000 if 32BIT && MAXPHYSMEM_2GB
+> >       default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
+> > -     default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
+> > +     default 0xffffffd200000000 if 64BIT && MAXPHYSMEM_128GB
+> >
+> >  config ARCH_FLATMEM_ENABLE
+> >       def_bool y
+> > diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> > index 2a546a52f02a..fa0b8058a246 100644
+> > --- a/arch/riscv/include/asm/page.h
+> > +++ b/arch/riscv/include/asm/page.h
+> > @@ -31,8 +31,6 @@
+> >   */
+> >  #define PAGE_OFFSET          _AC(CONFIG_PAGE_OFFSET, UL)
+> >
+> > -#define KERN_VIRT_SIZE (-PAGE_OFFSET)
+> > -
+> >  #ifndef __ASSEMBLY__
+> >
+> >  #define PAGE_UP(addr)        (((addr)+((PAGE_SIZE)-1))&(~((PAGE_SIZE)-1)))
+> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > index 5a9fea00ba09..2a5070540996 100644
+> > --- a/arch/riscv/include/asm/pgtable.h
+> > +++ b/arch/riscv/include/asm/pgtable.h
+> > @@ -89,22 +89,31 @@ extern pgd_t swapper_pg_dir[];
+> >  #define __S110       PAGE_SHARED_EXEC
+> >  #define __S111       PAGE_SHARED_EXEC
+> >
+> > -#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
+> > -#define VMALLOC_END      (PAGE_OFFSET - 1)
+> > -#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
+> > +#define KERN_SPACE_START     (-1UL << (CONFIG_VA_BITS - 1))
+> >
+> >  /*
+> >   * Roughly size the vmemmap space to be large enough to fit enough
+> >   * struct pages to map half the virtual address space. Then
+> >   * position vmemmap directly below the VMALLOC region.
+> >   */
+> > -#define VMEMMAP_SHIFT \
+> > -     (CONFIG_VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
+> > -#define VMEMMAP_SIZE (1UL << VMEMMAP_SHIFT)
+> > -#define VMEMMAP_END  (VMALLOC_START - 1)
+> > -#define VMEMMAP_START        (VMALLOC_START - VMEMMAP_SIZE)
+> > -
+> > +#ifdef CONFIG_SPARSEMEM
+> > +#define VMEMMAP_SIZE (UL(1) << (CONFIG_VA_BITS - PAGE_SHIFT - 1 + \
+> > +                                STRUCT_PAGE_MAX_SHIFT))
+> > +#define VMEMMAP_START        (KERN_SPACE_START)
+> > +#define VMEMMAP_END  (VMEMMAP_START + VMEMMAP_SIZE - 1)
+> >  #define vmemmap              ((struct page *)VMEMMAP_START)
+> > +#else
+> > +#define VMEMMAP_END  KERN_SPACE_START
+> > +#endif
+> > +
+> > +#ifdef CONFIG_32BIT
+> > +#define VMALLOC_SIZE ((1UL << 30) - VMEMMAP_SIZE)
+> > +#else
+> > +#define VMALLOC_SIZE (64UL << 30)
+> > +#endif
+> > +
+> > +#define VMALLOC_START        (VMEMMAP_END + 1)
+> > +#define VMALLOC_END  (VMALLOC_START + VMALLOC_SIZE - 1)
+> >
+> >  /*
+> >   * ZERO_PAGE is a global shared page that is always zero,
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
