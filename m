@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 05B69C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2019 06:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6BD49C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2019 06:48:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C5FA820700
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2019 06:47:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3A13420700
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2019 06:48:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="niLgAkcQ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="VhNQ1Tm4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C5FA820700
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kcVNhWTv";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="qKFl/8Cb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3A13420700
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,59 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ouBr2x2IX5zgCJC7MgqlKCx97ozicrYXf2LPRj8oxtQ=; b=niLgAkcQK+w5js
-	QC2vdVjDNK9btOaiA339kAWYNDyCbdJdaMQ5FF4pUOYGu1mLS7VpuaIHWkXMA1JozYydSfFwms53g
-	yBf6hEVNlslLGCHlNBLlxgqZmgUHFG57+p2ZFMeCBxhEfVTGHMvcsEaftWojBxM7D1gFmA6xtU37n
-	84/+Q4sHUX6UoQhVaDXDjGnNpo29Ta/66ak2ZcB3x/a16FGl6eoLsvN1lAlSat7wu5/wwcYfRVqZo
-	Mk9sIh5B1jVYgWLZgSGRiwoFSW44K78twJRRUsfKpWooORqqQSavSyYg9RMAO3AgNtIj/NUE4TuUL
-	ZnMjWepmxT5iDFIEMMqQ==;
+	List-Owner; bh=34QKvJWegXJYwZT+B0gDeKBIEEvKVGMmoFhpwZ4fAak=; b=kcVNhWTvuDio6q
+	QCp9+9n7iCOrgZLP4WqaBOv+O7q6tzdS06KZIbB5EodV5CSAIXhmAGk76+yqqpdAnsY2A5gQNcxq3
+	67hWIdqE1DKcSeLVVpTCHgWlQeH9oMlI374C1+iOof6qoO6yYfvkEIYmBZJbZnEjHvpVYH65aQEaG
+	kMLA0zOVKj3OoUckwJgWned6RCUwg6kbBM7vSoFvE/URUEhAncqigbbzd/F2J2B7+rGniXP6tKAFC
+	VwZ8s3gQez9QB1vwED6kLcQ2unse1yaWte0GFP7bzGXAwhv3xk6uH5jxUlh4U7sHjGEkQScQjwJGT
+	4Rr+DhUtF2XxdBi8Ldjw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h9Oow-0000J9-2e; Thu, 28 Mar 2019 06:47:26 +0000
-Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+	id 1h9OpT-0000rQ-Cw; Thu, 28 Mar 2019 06:47:59 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h9Oop-0000Cq-6Y
- for linux-riscv@lists.infradead.org; Thu, 28 Mar 2019 06:47:21 +0000
-Received: by mail-wr1-x442.google.com with SMTP id k11so13977130wro.5
- for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2019 23:47:17 -0700 (PDT)
+ id 1h9OpQ-0000qw-Kv
+ for linux-riscv@lists.infradead.org; Thu, 28 Mar 2019 06:47:58 +0000
+Received: by mail-wr1-x443.google.com with SMTP id q1so21405746wrp.0
+ for <linux-riscv@lists.infradead.org>; Wed, 27 Mar 2019 23:47:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=HzCNnUHmgS8qrTlBpJ5GQ01rD6pDjW0N5CD7esPF0cE=;
- b=VhNQ1Tm4Wq19uVqa7hxSi3zQL8Sbp0c0FZ+XeV6b8LkKtYcKiih9kWQwlmQKoWoMjf
- p/fbskcIkdiOCuXH6T4GHjzb03WgOg3zoBdLyXaT9v4sKg5aLNWHPhRMnflue06K/isP
- ZyFhJCADeDTyDczQyBgz0u346bI9htBGjvP8SVN0wBFYqiMs5QyAywqbf04EQjicJVo9
- 7O6ksFfQoJBlwVmYjKFW0ZSrPGeTownyU73g+SkJLp8qqadxXjdgtFiCzRx1gRqu/GiD
- 5nCVeh5M+v2Emrh7Io4tCpw8Rnd+nO4VIk9ZGCRjNVkchhNxuaBleKT6/K9/p0XMOblE
- wB2Q==
+ :cc; bh=Afs/QpavNGwi7QjUJ9axczQO8cVMkxqw12kAIWCmoUM=;
+ b=qKFl/8Cb1T1xnkYyt8WECDPuyOSADibeLnk9qhRpETnrqu2sp6qxo6nbIkfveWtYqm
+ oUL3S+GeqVnOXE160Z4apnepwo8neAF3Oinuikq9k5U6f2WZtSiZ3x/aXrHxLo5Mql8X
+ 7GNKSp9+BzKp0/usH/x7DvoV3POuWXs39I89pU5S2+UGaSzbK9JKklkI/z0MzNcnKdWr
+ KKQkPQlM6KEV1OzjEgfElyDnLifkRzRVTypv0MnPi9s2561JGjID1XL5059WKTW/bQSU
+ sXlu3dQXv3xw8COmtHRB30/OVkxYgYtCo4FvgSXvcBh4tFtomF9bWjNQiyXd3/6CPIpX
+ FrHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=HzCNnUHmgS8qrTlBpJ5GQ01rD6pDjW0N5CD7esPF0cE=;
- b=ZW/BK8NvKgh9P5TFrwvWAiA06JcUqBBHCtBzuQwMXm3fnRQGV+jpHtzI8nKlskhuy3
- rxubecP9ftUWIGmEBjzcZgWW7gOfGLL6WQL/LvnXYB7oEL6FTVroMZP26y8gWuypDbxP
- Ihl66wKfofcQX3txO+7W7vkxvt+Kpj2wHEgH8ZpkKekYvCWch6BKL6fwI2ZaY2pzQsQa
- hAP1D2PD8XtzQWkvFHS9F+XmmXJtXuCeF5hLxDrWYIpOQB6GRhmimlQpkaIrJbKDhvTy
- KYoAdAVqW2Lq6Usv4kL94VF2d6vGp8FQkjkhd1SrzxkDDjXdNnaSn9Du/hjZ9+gckqE8
- wn4A==
-X-Gm-Message-State: APjAAAVHZv5f9QtblibMEmt8vVzAWpeAoV4c2Dl75YH8tPabJyyG2qEz
- MCM/xWevxrg5zYR+DrpNH/NqLvXVUP/x52p7YsgMOA==
-X-Google-Smtp-Source: APXvYqxV8pehTFrIM0rQeun+9L8a4f2OOc6CWz1UcOO1Okb9etU6L+etAzCCzs47ei9shMJm2sJezrat7TnGEdWPDaw=
-X-Received: by 2002:adf:9427:: with SMTP id 36mr27254563wrq.128.1553755635456; 
- Wed, 27 Mar 2019 23:47:15 -0700 (PDT)
+ bh=Afs/QpavNGwi7QjUJ9axczQO8cVMkxqw12kAIWCmoUM=;
+ b=q/Z7/EW3FGYNHiLbAi2yr+XokATFtqWbyNwKNVEspGKrZiyUoPMa1//LIjlkM7PVa3
+ gwsbJ3W/XlFFb7MTi1i9mQEWj7NQkjcZVlbDQFLXkeQVkeE3VPYFJNeZMEkBc9iUP4cS
+ YJkP9jq2orD6Yh1zHEKw/XWKwXpRaP7c6NprRNLdMhkJ7wS67cQsK8aemf+0pWX11L70
+ ERz+w7hmZaJh8M3qEvjfcyW04cIi4SLtRYijplp9SzDzdYtUPQupjMK7K3k+Q1U7Oe2l
+ sZKAxCmSkH3teq8PXSX7IVUWw8XYuw2pS514RWD03qW7mpCvpIcFGkBT5lXIQIGBhEGi
+ xwrw==
+X-Gm-Message-State: APjAAAV92Fj7TEI3oCa+BLo8mG6MelYPCHn5GMquyIXQdNSGaRjeK7+i
+ UN38bVOwtitCgo64P2YPcBI5e+cQz7M/IfnNURVmuA==
+X-Google-Smtp-Source: APXvYqxUolKWsOaz7l3FC+B8z0aQEcrcORmdUput/s0f4sHB6bXJEbxaWm9xkGllGJoxpoxRTwiX0P65NDdRCiHTS1s=
+X-Received: by 2002:a5d:4087:: with SMTP id o7mr14878612wrp.9.1553755674849;
+ Wed, 27 Mar 2019 23:47:54 -0700 (PDT)
 MIME-Version: 1.0
 References: <cover.1553647082.git.gary@garyguo.net>
- <862300448c34e225f3fbb4da36ccf18d10753b0b.1553647082.git.gary@garyguo.net>
-In-Reply-To: <862300448c34e225f3fbb4da36ccf18d10753b0b.1553647082.git.gary@garyguo.net>
+ <cdcce7a6e327c4b8b1949a1eb287f72a2d4fba9b.1553647082.git.gary@garyguo.net>
+In-Reply-To: <cdcce7a6e327c4b8b1949a1eb287f72a2d4fba9b.1553647082.git.gary@garyguo.net>
 From: Anup Patel <anup@brainfault.org>
-Date: Thu, 28 Mar 2019 12:17:03 +0530
-Message-ID: <CAAhSdy0SmphwEdQ+v98bEvUFm=87H1567FNDosPqd8BLq5UAsw@mail.gmail.com>
-Subject: Re: [PATCH v4 2/5] riscv: move switch_mm to its own file
+Date: Thu, 28 Mar 2019 12:17:43 +0530
+Message-ID: <CAAhSdy0nTvbdyvoUwL4SgufYpfZAAR_D26Ybn-DbZVjbJAeUjA@mail.gmail.com>
+Subject: Re: [PATCH v4 3/5] riscv: fix sbi_remote_sfence_vma{,_asid}.
 To: Gary Guo <gary@garyguo.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190327_234719_240436_2D91F14C 
-X-CRM114-Status: GOOD (  25.37  )
+X-CRM114-CacheID: sfid-20190327_234756_681749_3DCA5276 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -103,185 +103,73 @@ On Wed, Mar 27, 2019 at 6:11 AM Gary Guo <gary@garyguo.net> wrote:
 >
 > From: Gary Guo <gary@garyguo.net>
 >
-> switch_mm is an expensive operations that has two users.
-> flush_icache_deferred is only called within switch_mm and can be moved
-> together. The function is expected to be more complicated when ASID
-> support is added, so clean up eagerly.
+> Currently sbi_remote_sfence_vma{,_asid} does not pass their arguments
+> to SBI at all, which is semantically incorrect.
 >
-> By moving them to a separate file we also removes some excessive
-> dependency of tlbflush.h and cacheflush.h.
+> Neither BBL nor OpenSBI is using these arguments at the moment, and
+> they just do a global flush instead. However we still need to provide
+> correct arguments.
 >
 > Signed-off-by: Gary Guo <gary@garyguo.net>
 > ---
->  arch/riscv/include/asm/mmu_context.h | 59 +----------------------
->  arch/riscv/mm/Makefile               |  1 +
->  arch/riscv/mm/context.c              | 71 ++++++++++++++++++++++++++++
->  3 files changed, 74 insertions(+), 57 deletions(-)
->  create mode 100644 arch/riscv/mm/context.c
+>  arch/riscv/include/asm/sbi.h | 19 ++++++++++++-------
+>  1 file changed, 12 insertions(+), 7 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
-> index 336d60ec5698..bf4f097a9051 100644
-> --- a/arch/riscv/include/asm/mmu_context.h
-> +++ b/arch/riscv/include/asm/mmu_context.h
-> @@ -20,8 +20,6 @@
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index b6bb10b92fe2..19f231615510 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -26,22 +26,27 @@
+>  #define SBI_REMOTE_SFENCE_VMA_ASID 7
+>  #define SBI_SHUTDOWN 8
 >
->  #include <linux/mm.h>
->  #include <linux/sched.h>
-> -#include <asm/tlbflush.h>
-> -#include <asm/cacheflush.h>
+> -#define SBI_CALL(which, arg0, arg1, arg2) ({                   \
+> +#define SBI_CALL(which, arg0, arg1, arg2, arg3) ({             \
+>         register uintptr_t a0 asm ("a0") = (uintptr_t)(arg0);   \
+>         register uintptr_t a1 asm ("a1") = (uintptr_t)(arg1);   \
+>         register uintptr_t a2 asm ("a2") = (uintptr_t)(arg2);   \
+> +       register uintptr_t a3 asm ("a3") = (uintptr_t)(arg3);   \
+>         register uintptr_t a7 asm ("a7") = (uintptr_t)(which);  \
+>         asm volatile ("ecall"                                   \
+>                       : "+r" (a0)                               \
+> -                     : "r" (a1), "r" (a2), "r" (a7)            \
+> +                     : "r" (a1), "r" (a2), "r" (a3), "r" (a7)  \
+>                       : "memory");                              \
+>         a0;                                                     \
+>  })
 >
->  static inline void enter_lazy_tlb(struct mm_struct *mm,
->         struct task_struct *task)
-> @@ -39,61 +37,8 @@ static inline void destroy_context(struct mm_struct *mm)
+>  /* Lazy implementations until SBI is finalized */
+> -#define SBI_CALL_0(which) SBI_CALL(which, 0, 0, 0)
+> -#define SBI_CALL_1(which, arg0) SBI_CALL(which, arg0, 0, 0)
+> -#define SBI_CALL_2(which, arg0, arg1) SBI_CALL(which, arg0, arg1, 0)
+> +#define SBI_CALL_0(which) SBI_CALL(which, 0, 0, 0, 0)
+> +#define SBI_CALL_1(which, arg0) SBI_CALL(which, arg0, 0, 0, 0)
+> +#define SBI_CALL_2(which, arg0, arg1) SBI_CALL(which, arg0, arg1, 0, 0)
+> +#define SBI_CALL_3(which, arg0, arg1, arg2) \
+> +               SBI_CALL(which, arg0, arg1, arg2, 0)
+> +#define SBI_CALL_4(which, arg0, arg1, arg2, arg3) \
+> +               SBI_CALL(which, arg0, arg1, arg2, arg3)
+>
+>  static inline void sbi_console_putchar(int ch)
 >  {
+> @@ -86,7 +91,7 @@ static inline void sbi_remote_sfence_vma(const unsigned long *hart_mask,
+>                                          unsigned long start,
+>                                          unsigned long size)
+>  {
+> -       SBI_CALL_1(SBI_REMOTE_SFENCE_VMA, hart_mask);
+> +       SBI_CALL_3(SBI_REMOTE_SFENCE_VMA, hart_mask, start, size);
 >  }
 >
-> -/*
-> - * When necessary, performs a deferred icache flush for the given MM context,
-> - * on the local CPU.  RISC-V has no direct mechanism for instruction cache
-> - * shoot downs, so instead we send an IPI that informs the remote harts they
-> - * need to flush their local instruction caches.  To avoid pathologically slow
-> - * behavior in a common case (a bunch of single-hart processes on a many-hart
-> - * machine, ie 'make -j') we avoid the IPIs for harts that are not currently
-> - * executing a MM context and instead schedule a deferred local instruction
-> - * cache flush to be performed before execution resumes on each hart.  This
-> - * actually performs that local instruction cache flush, which implicitly only
-> - * refers to the current hart.
-> - */
-> -static inline void flush_icache_deferred(struct mm_struct *mm)
-> -{
-> -#ifdef CONFIG_SMP
-> -       unsigned int cpu = smp_processor_id();
-> -       cpumask_t *mask = &mm->context.icache_stale_mask;
-> -
-> -       if (cpumask_test_cpu(cpu, mask)) {
-> -               cpumask_clear_cpu(cpu, mask);
-> -               /*
-> -                * Ensure the remote hart's writes are visible to this hart.
-> -                * This pairs with a barrier in flush_icache_mm.
-> -                */
-> -               smp_mb();
-> -               local_flush_icache_all();
-> -       }
-> -#endif
-> -}
-> -
-> -static inline void switch_mm(struct mm_struct *prev,
-> -       struct mm_struct *next, struct task_struct *task)
-> -{
-> -       if (likely(prev != next)) {
-> -               /*
-> -                * Mark the current MM context as inactive, and the next as
-> -                * active.  This is at least used by the icache flushing
-> -                * routines in order to determine who should
-> -                */
-> -               unsigned int cpu = smp_processor_id();
-> -
-> -               cpumask_clear_cpu(cpu, mm_cpumask(prev));
-> -               cpumask_set_cpu(cpu, mm_cpumask(next));
-> -
-> -               /*
-> -                * Use the old spbtr name instead of using the current satp
-> -                * name to support binutils 2.29 which doesn't know about the
-> -                * privileged ISA 1.10 yet.
-> -                */
-> -               csr_write(sptbr, virt_to_pfn(next->pgd) | SATP_MODE);
-> -               local_flush_tlb_all();
-> -
-> -               flush_icache_deferred(next);
-> -       }
-> -}
-> +void switch_mm(struct mm_struct *prev, struct mm_struct *next,
-> +       struct task_struct *task);
+>  static inline void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
+> @@ -94,7 +99,7 @@ static inline void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
+>                                               unsigned long size,
+>                                               unsigned long asid)
+>  {
+> -       SBI_CALL_1(SBI_REMOTE_SFENCE_VMA_ASID, hart_mask);
+> +       SBI_CALL_4(SBI_REMOTE_SFENCE_VMA_ASID, hart_mask, start, size, asid);
+>  }
 >
->  static inline void activate_mm(struct mm_struct *prev,
->                                struct mm_struct *next)
-> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
-> index eb22ab49b3e0..d75b035786d6 100644
-> --- a/arch/riscv/mm/Makefile
-> +++ b/arch/riscv/mm/Makefile
-> @@ -3,3 +3,4 @@ obj-y += fault.o
->  obj-y += extable.o
->  obj-y += ioremap.o
->  obj-y += cacheflush.o
-> +obj-y += context.o
-> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> new file mode 100644
-> index 000000000000..fbb1cfe80267
-> --- /dev/null
-> +++ b/arch/riscv/mm/context.c
-> @@ -0,0 +1,71 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2012 Regents of the University of California
-> + * Copyright (C) 2017 SiFive
-> + */
-> +
-> +#include <linux/mm.h>
-> +
-> +#include <asm/tlbflush.h>
-> +#include <asm/cacheflush.h>
-> +
-> +/*
-> + * When necessary, performs a deferred icache flush for the given MM context,
-> + * on the local CPU.  RISC-V has no direct mechanism for instruction cache
-> + * shoot downs, so instead we send an IPI that informs the remote harts they
-> + * need to flush their local instruction caches.  To avoid pathologically slow
-> + * behavior in a common case (a bunch of single-hart processes on a many-hart
-> + * machine, ie 'make -j') we avoid the IPIs for harts that are not currently
-> + * executing a MM context and instead schedule a deferred local instruction
-> + * cache flush to be performed before execution resumes on each hart.  This
-> + * actually performs that local instruction cache flush, which implicitly only
-> + * refers to the current hart.
-> + */
-> +static inline void flush_icache_deferred(struct mm_struct *mm)
-> +{
-> +#ifdef CONFIG_SMP
-> +       unsigned int cpu = smp_processor_id();
-> +       cpumask_t *mask = &mm->context.icache_stale_mask;
-> +
-> +       if (cpumask_test_cpu(cpu, mask)) {
-> +               cpumask_clear_cpu(cpu, mask);
-> +               /*
-> +                * Ensure the remote hart's writes are visible to this hart.
-> +                * This pairs with a barrier in flush_icache_mm.
-> +                */
-> +               smp_mb();
-> +               local_flush_icache_all();
-> +       }
-> +
-> +#endif
-> +}
-> +
-> +void switch_mm(struct mm_struct *prev, struct mm_struct *next,
-> +       struct task_struct *task)
-> +{
-> +       unsigned int cpu;
-> +
-> +       if (unlikely(prev == next))
-> +               return;
-> +
-> +       /*
-> +        * Mark the current MM context as inactive, and the next as
-> +        * active.  This is at least used by the icache flushing
-> +        * routines in order to determine who should be flushed.
-> +        */
-> +       cpu = smp_processor_id();
-> +
-> +       cpumask_clear_cpu(cpu, mm_cpumask(prev));
-> +       cpumask_set_cpu(cpu, mm_cpumask(next));
-> +
-> +       /*
-> +        * Use the old spbtr name instead of using the current satp
-> +        * name to support binutils 2.29 which doesn't know about the
-> +        * privileged ISA 1.10 yet.
-> +        */
-> +       csr_write(sptbr, virt_to_pfn(next->pgd) | SATP_MODE);
-> +       local_flush_tlb_all();
-> +
-> +       flush_icache_deferred(next);
-> +}
-> +
+>  #endif
 > --
 > 2.17.1
 >
@@ -290,8 +178,6 @@ On Wed, Mar 27, 2019 at 6:11 AM Gary Guo <gary@garyguo.net> wrote:
 > linux-riscv mailing list
 > linux-riscv@lists.infradead.org
 > http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-Apart from nit pointed out by Christoph, looks good to me.
 
 Reviewed-by: Anup Patel <anup@brainfault.org>
 
