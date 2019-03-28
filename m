@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-12.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CF418C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2019 14:09:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 45118C4360F
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2019 14:13:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9B47021773
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2019 14:09:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 14DCC217D7
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 Mar 2019 14:13:44 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fzFgmDC4";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="lbglYn+4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9B47021773
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CnoUquuU";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="BCwhccwp"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14DCC217D7
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,59 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8mM/5JT8H3nSh4BeVKn415HnRNVKSfyxkhPsjw0sTks=; b=fzFgmDC47spM3V
-	FD+4/iy/pCeWYl/dhATTn3jNSphEsZpqUR5kEKHL41wfiINnL4j+5E42sd5IXLUEjshvncx0GrxrH
-	0gIExQgdh0/JHlz8dn/PgJ1HpyxBxnDU6NS4E57Ac5uiSh3+PY4wk1X17tnGNUBk+IseDSniAycsk
-	3qHDwdZfYyoU1nufIgpsDOTYM8RChrQ6L6SmTL0Pg0KS3Cb3l/aejzndCZln9FQJnTgkWZvYRm0eI
-	h8uj7KvZgr4H5tRHnFbqXYxiSABg3QnOAAgJ4S3cuWuJPHn4XhLmzHrjmJVkOEVE5Mtqq2WjmMh2Q
-	rDjkNQCC8zRCgLslDXNw==;
+	List-Owner; bh=qHSvnz5w3p2GOunkaaIRWgx+pGHb4J+yKxRNiGjp9i8=; b=CnoUquuU9s04sy
+	kodeIrxmQ5IcAReeJW7yc9Z52fB/8p2hhG7mei9b9N/hN9ikU6XGV4vKtVt45hSJfAxKU35fBN42R
+	0F4Qx/Ifg3W59y+HtJ3NBwaYv7txTXARhJzcxZaKZ7msVmPdFAJF9qkYDQtFMlaLSEuMthmkzotWV
+	3FZlGCRqkzISHLXjmANwwV8dGkiUjHu46eJyuEEnxlGgWGUUH42zdt13CyWMcUI/LrmzU9vQ2DlQ+
+	h5SkOHystPylukyBLTERmRF63QqNnpurwz8EMo2eVIbBd6NRBRpvQ9cuXe4WRb3LzOLVcQFnR/QWR
+	ZkSJD8fo/jCszCPSBwcA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h9Viv-0006OO-Qq; Thu, 28 Mar 2019 14:09:41 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1h9Vmp-0008QT-0L; Thu, 28 Mar 2019 14:13:43 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h9Viq-0006Mf-D8
- for linux-riscv@lists.infradead.org; Thu, 28 Mar 2019 14:09:40 +0000
-Received: by mail-wm1-x341.google.com with SMTP id z11so3785408wmi.0
- for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2019 07:09:32 -0700 (PDT)
+ id 1h9Vmk-0008Pi-9N
+ for linux-riscv@lists.infradead.org; Thu, 28 Mar 2019 14:13:41 +0000
+Received: by mail-wm1-x343.google.com with SMTP id y197so1502489wmd.0
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2019 07:13:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=wGGRb1RTvlWbeLd9Xy/fIsfvzq3g6HZNCIz6RInjNfE=;
- b=lbglYn+49WaSGxsnRM2hGJbR/yEsYbR6GNkpBMBDYidV71aZ6hEECxjzvvziCpPgKo
- Hdx031jAvGYY84hGRM16cYq1LyfRMRHhfq610Q40jXXPmxQfEOzmrJpPsxL9h+wlLpWx
- V9z8fic96+Ts1DAl5Y2Quwpw1SyFVi7G3nCKgTePE3zr+QEjempMF6PBDODGwxDrUhp8
- 2UwpIVtQ5Qnzl7lIboUtrBGCTBmw7ZpSwgP64E2Q/zsaSdXg2RGAoSQC05wgNbwpNnP5
- ZsuAKcJOUXnTRgYhWsAuTlL0lRauSuXP1LHoMYSwJNZMJy3MjMObQXmRvTNfpaDk1CPg
- lLMQ==
+ :cc; bh=QL75kzgdm2qsFSfh+J0uX+dahL9XWSTeTGInXcUfPoI=;
+ b=BCwhccwpPj62FmjkJrtf6tccofFRVNTGDKiAMqVLgjS1v0wfAjDl5gFrvVrJi03we0
+ 97UCnk90Yr/jWEoGtnxjIirLfKuU2bRNYup2cz5875OoJxNvPiPk1N/CvoYPf++8bIDa
+ O6X4WhIia66opHc0zytBMnHOekIKcLtaexvLZiOZyRPqmGyZWct3i3IODPWpnRAX++6S
+ eNuDwCXFyr+2Pk6BCSrcwl8qYKdoXd+rPROYbyCqwiRytf5B1bJEkpept7tBC273FEDe
+ U36sMAGQfSWjPSnju4bA1d7kGRO39SHUfVOfAv6DkHlBSLaAUBtW3WuSsBYiYOX598nP
+ lxcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=wGGRb1RTvlWbeLd9Xy/fIsfvzq3g6HZNCIz6RInjNfE=;
- b=NWLP2mCDaP3D0+U4RUIp4R/I8FWb+ljuyGgLv/07g7NSrMRQGY9Lkjwbp9cpVkK1i+
- FMnQffGTayC9On3u6A+Mtr5h6YIOutBkge6kS84Lsie9kr/60HyuT92koMrvuPQYX0J3
- e2Tu7Q37iLqPq3eWxcSoh0sPbVQ0s/EE8Lr32z5DmrXCeHOvaKq8skEKgx+jUSas3FPi
- J+zsEz3xdxDqmyUssHxtozxeGV2d4DgEGzMEDEw04XiZnDdZeHTU4GV3nBdvwMPPQJFN
- xd2DLB0ehZCitPi/5DFdOKEElftU76toPvgsuQyqJEoQoxmqga8c9+TqoqvvHHvtMeAY
- OrWw==
-X-Gm-Message-State: APjAAAVZks/zYcQm/lcgkKO70n5PEgpRF+Nvh6KAWwaMiPGMFQ02ER+f
- UV9LHdsD5lsTWDTLfpdx/8O45sgA7bkzB+jL63cMsRaheYc=
-X-Google-Smtp-Source: APXvYqzaKv2sAnxph9fZp7DBJbFJOx27f0uoZcRNKO24KnYtxcYV84IuQB5Vi2/YoPknAZ8rwsa/zosvW+K8dC1k/pQ=
-X-Received: by 2002:a1c:e185:: with SMTP id y127mr152247wmg.76.1553782170458; 
- Thu, 28 Mar 2019 07:09:30 -0700 (PDT)
+ bh=QL75kzgdm2qsFSfh+J0uX+dahL9XWSTeTGInXcUfPoI=;
+ b=NeWJVgGZ9vUD7rK7uWtuHp9NfU3+49jBiWPZNZME5HGEdf5owJJcmvy+hbd+Ky+Gxk
+ /Zb2BRQsRO71vr6nLbVBcqFv3fIwiG6COrm3w1nd8eWgrVyoue7CpZ6GcTHI+bOsAwmB
+ SVzIjJuqODAQQf7K3c1k4iHSCSV4O32vZ4WXLXeuJMqq/MI+WkEZDEv1vl8xmlUpxpqT
+ iPYmH8bSke5OjFimUFP2CfxGvr0wjof6RR6CrvgcuvxTqXi/quGngruTukZdWhdC2B0+
+ 8kI+DiYzpqfUz21/HFujQNGz+ih9FPpNfVDMh0m2Xg16GtzJhPFzt9k6R5tx1viN1ewb
+ 2FUg==
+X-Gm-Message-State: APjAAAUCqFM8sFcH7NoOMiqLrkksOXutMUaoKlrZIDPIey4d1U48YKSo
+ Cn5dtoaNtxeBGkQiRSzpEVgifjeWLugNvWLgODeaZg==
+X-Google-Smtp-Source: APXvYqxv7kbxOvo7vvoAjB23qLEx2xInw60ujLX+FW0+PNs/ljLd3HYhKAXAW149eMw/ntIBwTmrWKInUL99h6h6KuI=
+X-Received: by 2002:a1c:e185:: with SMTP id y127mr167161wmg.76.1553782416263; 
+ Thu, 28 Mar 2019 07:13:36 -0700 (PDT)
 MIME-Version: 1.0
 References: <20190328063211.13052-1-anup.patel@wdc.com>
  <b6872ed0-4b8c-ca1d-4ee0-b01324e40da5@garyguo.net>
 In-Reply-To: <b6872ed0-4b8c-ca1d-4ee0-b01324e40da5@garyguo.net>
 From: Anup Patel <anup@brainfault.org>
-Date: Thu, 28 Mar 2019 19:39:19 +0530
-Message-ID: <CAAhSdy0muQe23Fz2yA2VP_BTNB9h3U-z7P9TREmSf1n0yu1Xig@mail.gmail.com>
+Date: Thu, 28 Mar 2019 19:43:24 +0530
+Message-ID: <CAAhSdy237HNYJmw6FV6HK2WrmOZ3Uxd0RCC3criGWRHDcN9MgA@mail.gmail.com>
 Subject: Re: [PATCH v2] RISC-V: Implement ASID allocator
 To: Gary Guo <gary@garyguo.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190328_070936_601306_85033536 
-X-CRM114-Status: GOOD (  41.60  )
+X-CRM114-CacheID: sfid-20190328_071338_335407_2423E1B7 
+X-CRM114-Status: GOOD (  40.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -107,20 +107,9 @@ On Thu, Mar 28, 2019 at 7:07 PM Gary Guo <gary@garyguo.net> wrote:
 >
 > The code still does not use ASID in TLB flush routines. Without this
 > added the code does not boot on systems with true ASID support.
-
-Can you elaborate why flush by ASID is need and flush_tlb_all() will
-not work?
-
 >
 > We also need to consider the case of CONTEXTID overflow on 32-bit
 > systems. 32-bit CONTEXTID may overflow in a month time.
-
-On 32bit systems, upper 24bits of CONTEXTID will be VERSION and
-lower 8bits will be HW ASID.
-
-Can you elaborate how did you reach to conclusion that CONTEXID
-will overflow in a month time?
-
 >
 > Please all see my inline comments.
 >
@@ -165,9 +154,6 @@ will overflow in a month time?
 > > Signed-off-by: Gary Guo <gary@garyguo.net>
 > Could you add a Co-developed-by line in addition to Signed-off-by as
 > well? Thanks.
-
-Sure, I will add.
-
 > > Signed-off-by: Anup Patel <anup.patel@wdc.com>
 > > ---
 > > Changes since v1:
@@ -234,9 +220,6 @@ Sure, I will add.
 > >   {
 > > +     atomic_long_set(&(mm)->context.id, 0);
 > Parenthesis around mm isn't necessary
-
-Okay, I will update.
-
 > >       return 0;
 > >   }
 > >
@@ -338,9 +321,6 @@ Okay, I will update.
 > > +     /* Mark last ASID as used because it is used at boot-time */
 > > +     __set_bit(asid_mask, context_asid_map);
 > Looks unnecessary as we always start find_next_zero_bit from idx 1.
-
-This is to ensure that we never use last ASID.
-
 > > +}
 > > +
 > > +/* Note: must be called with context_lock held */
@@ -354,9 +334,6 @@ This is to ensure that we never use last ASID.
 > > +     if (cntx != 0) {
 > > +             unsigned long newcntx = ver | (cntx & ~asid_mask);
 > Shouldn't this be cntx & asid_mask ?
-
-Ahh, typo. Thanks for catching.
-
 > > +
 > > +             /*
 > > +              * If our current CONTEXT was active during a rollover, we
@@ -427,9 +404,6 @@ Ahh, typo. Thanks for catching.
 > This looks hard to read. Probably
 > (cntx &~ asid_mask) == atomic_long_read(&current_version)
 > is clearer.
-
-No issues, I am fine with either way. I will update.
-
 > > +         atomic_long_cmpxchg_relaxed(&per_cpu(active_context, cpu),
 > > +                                     old_active_cntx, cntx))
 > > +             goto switch_mm_fast;
@@ -468,12 +442,6 @@ No issues, I am fine with either way. I will update.
 > scheduler as well which also turn irqs off, so this still cause issue. I
 > think a better way is to force flush_tlb_all to use SBI when IRQs are
 > off. What do you think?
-
-We are still waiting for OpenSBI to provide complete implementation.
-
-I agree that we should prefer SBI based remote TLB flush all here. Let's
-wait for more comments.
-
 > > +}
 > > +
 > > +static void set_mm_noasid(struct mm_struct *mm)
@@ -525,9 +493,6 @@ wait for more comments.
 > > +     asid_mask = num_asids - 1;
 > > +     first_version = num_asids;
 > Is there any reason we want to have two set-once variables with same value?
-
-Yap, "first_version" looks redundant. I will update.
-
 > >
 > >       /*
 > > -      * sfence.vma after SATP write. We call it on MM context instead of
@@ -561,11 +526,14 @@ Yap, "first_version" looks redundant. I will update.
 > will end up a hart running non-zero ASID and another running zero ASID
 > with different page table.
 
-Yes, I saw that in your implementation but for better readability and
-debugability. I have preserved asid_bits that we computed and added
-separate use_asid_allocator flag.
+I forgot to address this one.
 
-In future, I plan to show asid_bits in /proc/cpuinfo as-well.
+How about using SATP_ASID_MASK as ASID when we are not
+using ASID allocator.
+
+Unfortunately, you have hardcoded ASID #0 in your
+local_tlb_flush_mm(). We need a better API such as
+local_tlb_flush_asid().
 
 > > +             pr_info("ASID allocator disabled\n");
 > > +     }
@@ -574,9 +542,6 @@ In future, I plan to show asid_bits in /proc/cpuinfo as-well.
 > > +}
 > > +early_initcall(asids_init);
 > >
-
-Regards,
-Anup
 
 _______________________________________________
 linux-riscv mailing list
