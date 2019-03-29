@@ -2,62 +2,85 @@ Return-Path: <SRS0=QLKY=SA=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.9 required=3.0 tests=DATE_IN_PAST_03_06,
-	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED
+X-Spam-Status: No, score=-12.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4F4A3C43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 03:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 168EBC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 04:44:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0B25321850
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 03:23:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D59422075E
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 04:44:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KI3IcFbM"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0B25321850
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=goodmis.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JygmdO49";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="NIiTgRY6"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D59422075E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:To:From
-	:Date:Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=I2o7qDFS5hq80iJIYe5p3iFzsdE3oPWkW0KFk/scMsM=; b=KI3IcFbMSZYIQj
-	SqmyB+2N0bO2AlI6PcadGHbKfJEd9zbemckZkyn4hxYnePROLFc3lzKsf2V/QPMYodSCOwM+ed6W1
-	0nBzIGK1b36RVxV39SVZjn6mQBx3dB893N55rdTprBrIuXfEANHov0yuH+Z1HtRiI1FIGbrWcUO/3
-	acimqRaRWDyTnXHHy1JrpA2yDZoVI4FRDf4OmrYKiMxXRj2frL0Th1UUFdcxyR43+PCWYs7y6T96Q
-	CnPnDzROFu3QXUryjX8TQr3bZHaoKZNtKZGmkATuWVm4Zqqcrywf4CEhxIkbENPf1k+8EmglXkZeO
-	TDLpIF69LJ6S2HCmMlFQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qfxtKvOr8V96GVuQayFfHOLuAUB5pBf6/lorffqkhcY=; b=JygmdO49J30URK
+	uFGgsEx3Iaa0fze8TAvzko8SVwe9vvDtrllNO/XKRCzy36vfpBGtd3/UoqryAR3xOPO3QxAVwggSe
+	NustLtC/iJgEsu2byifebpQOdIzAYpc2eHl9Bzfl6ZbnqvLBrJfBmsUJldr4ZE0okOskIpbhpa+jb
+	4l7sFuKn7t1hJaRWMWJH1ETNkYElQRTKMtzFkbiSAPMW96Db8//Rs+smqTd5QBdrjl5y32imcivpQ
+	d87pSjHMw40jBH2L0p1t4Q4lcVS0Ooj9r3lcu1FuG5lFpcIBqJMGUofn76w+unEnySezvKnVEE2Zv
+	UwoPX2iT9ymv4hoCyMmA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h9i6z-0005n0-IO; Fri, 29 Mar 2019 03:23:21 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1h9jNV-0003zg-FM; Fri, 29 Mar 2019 04:44:29 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h9i6Z-0005Jf-Og; Fri, 29 Mar 2019 03:22:59 +0000
-Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com
- [66.24.58.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 48AE1218FC;
- Fri, 29 Mar 2019 03:22:54 +0000 (UTC)
-Received: from rostedt by gandalf.local.home with local (Exim 4.92)
- (envelope-from <rostedt@goodmis.org>)
- id 1h9i6X-0005hl-CV; Thu, 28 Mar 2019 23:22:53 -0400
-Message-Id: <20190329032253.266535547@goodmis.org>
-User-Agent: quilt/0.65
-Date: Thu, 28 Mar 2019 19:05:15 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: linux-kernel@vger.kernel.org
-Subject: [RFC][PATCH 3/4 v2] syscalls: Remove start and number from
- syscall_get_arguments() args
-References: <20190328230512.486297455@goodmis.org>
+ id 1h9jNM-0003yC-Uh
+ for linux-riscv@lists.infradead.org; Fri, 29 Mar 2019 04:44:25 +0000
+Received: by mail-wr1-x443.google.com with SMTP id s15so867506wra.12
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2019 21:44:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=fwSzlHmc8IX3ds8RISvZU7PRqJbl0dx5y2sJa3kXf90=;
+ b=NIiTgRY6zF2jTV9pE6V1O71q4l4DV0q3UCSzuA4DrAOgkb8ktGYpWG+SgOKTcL5fwX
+ IkGnk2G31PyyKNuv28Ot8mMu6XgMoisE7yalXgtgYbiHoMPq3P6sTp2VOoyj43Ma/1bc
+ N5nVr4idKnROMceMm5jhB5lmpbfgSpFR96UxyO4VN87LSL63RwWJA82ukt3JdKNf5WIX
+ +Om56aTEF9PJBHubwtWOAHmoSnJkyDSBljQ77rIASSqx794TsmAA321W92mSrgzF7mPy
+ BGk6xRJOLuIFxDFjUBmpiASTBXpozsaMnHvH9xItaLD/SZRH/beT+YAVjnhy91XvRB2V
+ Sb1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=fwSzlHmc8IX3ds8RISvZU7PRqJbl0dx5y2sJa3kXf90=;
+ b=ZZtCGuP75GBMbA8bVO9udasVcrCGUzqOInjTSCW6f6d7wEGSgvnJKUqZChTlI7Ldhv
+ WTwXorBIpSAA8We2di05GU4PRHC1DHFPU5QFRx7P3k5FLm3AL60q5GwJsRvVbJu76tEJ
+ 4Z0xnwFntCMN0YRSrR6U1SlBP6zhjtqilvZLUtpqxEGkn5NhX/tjjNGo4X0jTYHawPLC
+ FZOaDkU8e2OFshEPMrgCRyJLccAFw9/Q3yYE4g3q0wNZTCCBuF3Z/FGf6n6Mz9+F7vUF
+ 0VlpehQii0z0yX6otcjbn62Beell8QTMrgF3nnHfdxoim2W+knVQRrvN+PP/C8lsZ6Za
+ 4WUA==
+X-Gm-Message-State: APjAAAXH73bjNRJoisHjP9V0VwTDoQ49rhh25s3N+eoaKAraHQOWKI46
+ GMdeYZbGhV0iTo5LPxmLqXWZ4O5iSPtwQjfj4D6Ygg==
+X-Google-Smtp-Source: APXvYqwGVggRG8Q5bBnlQoAHH8AtZN4bY+mh5pv9roTKv5cHO4YLLu60i5nJDIUciQUatm4zBSRyJtvMEdhjywHoWYE=
+X-Received: by 2002:a5d:5108:: with SMTP id s8mr26980874wrt.99.1553834650279; 
+ Thu, 28 Mar 2019 21:44:10 -0700 (PDT)
 MIME-Version: 1.0
+References: <20190328063211.13052-1-anup.patel@wdc.com>
+ <b6872ed0-4b8c-ca1d-4ee0-b01324e40da5@garyguo.net>
+ <CAAhSdy0muQe23Fz2yA2VP_BTNB9h3U-z7P9TREmSf1n0yu1Xig@mail.gmail.com>
+ <4f290078-54bd-62e2-6356-d700e53e6315@garyguo.net>
+In-Reply-To: <4f290078-54bd-62e2-6356-d700e53e6315@garyguo.net>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 29 Mar 2019 10:13:58 +0530
+Message-ID: <CAAhSdy3E0CBTFFAdSB=oqn10bh=EqBqRObhcqknLMSD6BZa0WA@mail.gmail.com>
+Subject: Re: [PATCH v2] RISC-V: Implement ASID allocator
+To: Gary Guo <gary@garyguo.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190328_202255_846234_5410F022 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20190328_214421_003431_8ADD52E5 
+X-CRM114-Status: GOOD (  39.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -69,1024 +92,561 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-ia64@vger.kernel.org, "Gustavo A. R. Silva" <gustavo@embeddedor.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Dominik Brodowski <linux@dominikbrodowski.net>,
- "Dmitry V. Levin" <ldv@altlinux.org>, "H. Peter Anvin" <hpa@zytor.com>,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- Ingo Molnar <mingo@kernel.org>, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-c6x-dev@linux-c6x.org,
- linux-sh@vger.kernel.org, linux-hexagon@vger.kernel.org, x86@kernel.org,
- linux-snps-arc@lists.infradead.org, Dave Martin <dave.martin@arm.com>,
- uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
- Kees Cook <keescook@chromium.org>, Roland McGrath <roland@hack.frob.com>,
- linux-um@lists.infradead.org, linux-mips@vger.kernel.org,
- openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
- Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- linux-arm-kernel@lists.infradead.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, Oleg Nesterov <oleg@redhat.com>,
- Andy Lutomirski <luto@amacapital.net>,
- "Eric W. Biederman" <ebiederm@xmission.com>, nios2-dev@lists.rocketboards.org,
- Andrew Morton <akpm@linux-foundation.org>,
- Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Steven Rostedt (Red Hat)" <rostedt@goodmis.org>
+On Thu, Mar 28, 2019 at 8:00 PM Gary Guo <gary@garyguo.net> wrote:
+>
+>
+>
+> On 28/03/2019 14:09, Anup Patel wrote:
+> > On Thu, Mar 28, 2019 at 7:07 PM Gary Guo <gary@garyguo.net> wrote:
+> >>
+> >> Hi Anup,
+> >>
+> >> The code still does not use ASID in TLB flush routines. Without this
+> >> added the code does not boot on systems with true ASID support.
+> >
+> > Can you elaborate why flush by ASID is need and flush_tlb_all() will
+> > not work?
+>  >
+> flush_tlb_all() will work, but not flush_tlb_mm, flush_tlb_page,
+> flush_tlb_range. When we want to flush something related to a MM we need
+> to get its ASID and SFENCE with that ASID.
 
-At Linux Plumbers, Andy Lutomirski approached me and pointed out that the
-function call syscall_get_arguments() implemented in x86 was horribly
-written and not optimized for the standard case of passing in 0 and 6 for
-the starting index and the number of system calls to get. When looking at
-all the users of this function, I discovered that all instances pass in only
-0 and 6 for these arguments. Instead of having this function handle
-different cases that are never used, simply rewrite it to return the first 6
-arguments of a system call.
+Please don't make self contradicting statements without looking at code.
 
-This should help out the performance of tracing system calls by ptrace,
-ftrace and perf.
+The flush_tlb_all()/local_flush_tlb_all() are only suitable here.
 
-Link: http://lkml.kernel.org/r/20161107213233.754809394@goodmis.org
+The ASID space is global across CPUs so when we run-out of ASIDs
+we have to flush complete TLB for all CPUs because we cannot be
+certain what all ASIDs where used on each CPU.
 
-Cc: Oleg Nesterov <oleg@redhat.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Kees Cook <keescook@chromium.org>
-Cc: Andy Lutomirski <luto@amacapital.net>
-Cc: Dominik Brodowski <linux@dominikbrodowski.net>
-Cc: Dave Martin <dave.martin@arm.com>
-Cc: "Dmitry V. Levin" <ldv@altlinux.org>
-Cc: x86@kernel.org
-Cc: linux-snps-arc@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-c6x-dev@linux-c6x.org
-Cc: uclinux-h8-devel@lists.sourceforge.jp
-Cc: linux-hexagon@vger.kernel.org
-Cc: linux-ia64@vger.kernel.org
-Cc: linux-mips@vger.kernel.org
-Cc: nios2-dev@lists.rocketboards.org
-Cc: openrisc@lists.librecores.org
-Cc: linux-parisc@vger.kernel.org
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-s390@vger.kernel.org
-Cc: linux-sh@vger.kernel.org
-Cc: sparclinux@vger.kernel.org
-Cc: linux-um@lists.infradead.org
-Cc: linux-xtensa@linux-xtensa.org
-Cc: linux-arch@vger.kernel.org
-Reported-by: Andy Lutomirski <luto@amacapital.net>
-Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
----
- arch/arc/include/asm/syscall.h        |  7 ++-
- arch/arm/include/asm/syscall.h        | 23 ++-------
- arch/arm64/include/asm/syscall.h      | 22 ++------
- arch/c6x/include/asm/syscall.h        | 41 +++------------
- arch/csky/include/asm/syscall.h       | 13 ++---
- arch/h8300/include/asm/syscall.h      | 34 +++----------
- arch/hexagon/include/asm/syscall.h    |  4 +-
- arch/ia64/include/asm/syscall.h       |  5 +-
- arch/microblaze/include/asm/syscall.h |  4 +-
- arch/mips/include/asm/syscall.h       |  3 +-
- arch/mips/kernel/ptrace.c             |  2 +-
- arch/nds32/include/asm/syscall.h      | 33 +++---------
- arch/nios2/include/asm/syscall.h      | 42 +++------------
- arch/openrisc/include/asm/syscall.h   |  6 +--
- arch/parisc/include/asm/syscall.h     | 30 +++--------
- arch/powerpc/include/asm/syscall.h    |  8 ++-
- arch/riscv/include/asm/syscall.h      | 12 ++---
- arch/s390/include/asm/syscall.h       | 17 ++-----
- arch/sh/include/asm/syscall_32.h      | 26 +++-------
- arch/sh/include/asm/syscall_64.h      |  4 +-
- arch/sparc/include/asm/syscall.h      |  4 +-
- arch/um/include/asm/syscall-generic.h | 39 +++-----------
- arch/x86/include/asm/syscall.h        | 73 +++++++--------------------
- arch/xtensa/include/asm/syscall.h     | 16 ++----
- include/asm-generic/syscall.h         | 11 ++--
- include/trace/events/syscalls.h       |  2 +-
- kernel/seccomp.c                      |  2 +-
- kernel/trace/trace_syscalls.c         |  4 +-
- lib/syscall.c                         |  2 +-
- 29 files changed, 113 insertions(+), 376 deletions(-)
+> >>
+> >> We also need to consider the case of CONTEXTID overflow on 32-bit
+> >> systems. 32-bit CONTEXTID may overflow in a month time.
+> >
+> > On 32bit systems, upper 24bits of CONTEXTID will be VERSION and
+> > lower 8bits will be HW ASID.
+> >
+> > Can you elaborate how did you reach to conclusion that CONTEXID
+> > will overflow in a month time?
+> >
+> Assume a case where we have 256 processes to run, and 8 cores,
+> 2^32/(250Hz)/8 = 24 days.
 
-diff --git a/arch/arc/include/asm/syscall.h b/arch/arc/include/asm/syscall.h
-index 29de09804306..c7a4201ed62b 100644
---- a/arch/arc/include/asm/syscall.h
-+++ b/arch/arc/include/asm/syscall.h
-@@ -55,12 +55,11 @@ syscall_set_return_value(struct task_struct *task, struct pt_regs *regs,
-  */
- static inline void
- syscall_get_arguments(struct task_struct *task, struct pt_regs *regs,
--		      unsigned int i, unsigned int n, unsigned long *args)
-+		      unsigned long *args)
- {
- 	unsigned long *inside_ptregs = &(regs->r0);
--	inside_ptregs -= i;
--
--	BUG_ON((i + n) > 6);
-+	unsigned int n = 6;
-+	unsigned int i = 0;
- 
- 	while (n--) {
- 		args[i++] = (*inside_ptregs);
-diff --git a/arch/arm/include/asm/syscall.h b/arch/arm/include/asm/syscall.h
-index 06dea6bce293..db969a2972ae 100644
---- a/arch/arm/include/asm/syscall.h
-+++ b/arch/arm/include/asm/syscall.h
-@@ -55,29 +55,12 @@ static inline void syscall_set_return_value(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
--	if (n == 0)
--		return;
--
--	if (i + n > SYSCALL_MAX_ARGS) {
--		unsigned long *args_bad = args + SYSCALL_MAX_ARGS - i;
--		unsigned int n_bad = n + i - SYSCALL_MAX_ARGS;
--		pr_warn("%s called with max args %d, handling only %d\n",
--			__func__, i + n, SYSCALL_MAX_ARGS);
--		memset(args_bad, 0, n_bad * sizeof(args[0]));
--		n = SYSCALL_MAX_ARGS - i;
--	}
--
--	if (i == 0) {
--		args[0] = regs->ARM_ORIG_r0;
--		args++;
--		i++;
--		n--;
--	}
-+	args[0] = regs->ARM_ORIG_r0;
-+	args++;
- 
--	memcpy(args, &regs->ARM_r0 + i, n * sizeof(args[0]));
-+	memcpy(args, &regs->ARM_r0 + 1, 5 * sizeof(args[0]));
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
-index ad8be16a39c9..55b2dab21023 100644
---- a/arch/arm64/include/asm/syscall.h
-+++ b/arch/arm64/include/asm/syscall.h
-@@ -65,28 +65,12 @@ static inline void syscall_set_return_value(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
--	if (n == 0)
--		return;
--
--	if (i + n > SYSCALL_MAX_ARGS) {
--		unsigned long *args_bad = args + SYSCALL_MAX_ARGS - i;
--		unsigned int n_bad = n + i - SYSCALL_MAX_ARGS;
--		pr_warning("%s called with max args %d, handling only %d\n",
--			   __func__, i + n, SYSCALL_MAX_ARGS);
--		memset(args_bad, 0, n_bad * sizeof(args[0]));
--	}
--
--	if (i == 0) {
--		args[0] = regs->orig_x0;
--		args++;
--		i++;
--		n--;
--	}
-+	args[0] = regs->orig_x0;
-+	args++;
- 
--	memcpy(args, &regs->regs[i], n * sizeof(args[0]));
-+	memcpy(args, &regs->regs[1], 5 * sizeof(args[0]));
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-diff --git a/arch/c6x/include/asm/syscall.h b/arch/c6x/include/asm/syscall.h
-index ae2be315ee9c..06db3251926b 100644
---- a/arch/c6x/include/asm/syscall.h
-+++ b/arch/c6x/include/asm/syscall.h
-@@ -46,40 +46,15 @@ static inline void syscall_set_return_value(struct task_struct *task,
- }
- 
- static inline void syscall_get_arguments(struct task_struct *task,
--					 struct pt_regs *regs, unsigned int i,
--					 unsigned int n, unsigned long *args)
-+					 struct pt_regs *regs,
-+					 unsigned long *args)
- {
--	switch (i) {
--	case 0:
--		if (!n--)
--			break;
--		*args++ = regs->a4;
--	case 1:
--		if (!n--)
--			break;
--		*args++ = regs->b4;
--	case 2:
--		if (!n--)
--			break;
--		*args++ = regs->a6;
--	case 3:
--		if (!n--)
--			break;
--		*args++ = regs->b6;
--	case 4:
--		if (!n--)
--			break;
--		*args++ = regs->a8;
--	case 5:
--		if (!n--)
--			break;
--		*args++ = regs->b8;
--	case 6:
--		if (!n--)
--			break;
--	default:
--		BUG();
--	}
-+	*args++ = regs->a4;
-+	*args++ = regs->b4;
-+	*args++ = regs->a6;
-+	*args++ = regs->b6;
-+	*args++ = regs->a8;
-+	*args   = regs->b8;
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-diff --git a/arch/csky/include/asm/syscall.h b/arch/csky/include/asm/syscall.h
-index d637445737b7..5cc0b8283a69 100644
---- a/arch/csky/include/asm/syscall.h
-+++ b/arch/csky/include/asm/syscall.h
-@@ -43,16 +43,11 @@ syscall_set_return_value(struct task_struct *task, struct pt_regs *regs,
- 
- static inline void
- syscall_get_arguments(struct task_struct *task, struct pt_regs *regs,
--		      unsigned int i, unsigned int n, unsigned long *args)
-+		      unsigned long *args)
- {
--	BUG_ON(i + n > 6);
--	if (i == 0) {
--		args[0] = regs->orig_a0;
--		args++;
--		i++;
--		n--;
--	}
--	memcpy(args, &regs->a1 + i * sizeof(regs->a1), n * sizeof(args[0]));
-+	args[0] = regs->orig_a0;
-+	args++;
-+	memcpy(args, &regs->a1 + sizeof(regs->a1), 5 * sizeof(args[0]));
- }
- 
- static inline void
-diff --git a/arch/h8300/include/asm/syscall.h b/arch/h8300/include/asm/syscall.h
-index 924990401237..ddd483c6ca95 100644
---- a/arch/h8300/include/asm/syscall.h
-+++ b/arch/h8300/include/asm/syscall.h
-@@ -17,34 +17,14 @@ syscall_get_nr(struct task_struct *task, struct pt_regs *regs)
- 
- static inline void
- syscall_get_arguments(struct task_struct *task, struct pt_regs *regs,
--		      unsigned int i, unsigned int n, unsigned long *args)
-+		      unsigned long *args)
- {
--	BUG_ON(i + n > 6);
--
--	while (n > 0) {
--		switch (i) {
--		case 0:
--			*args++ = regs->er1;
--			break;
--		case 1:
--			*args++ = regs->er2;
--			break;
--		case 2:
--			*args++ = regs->er3;
--			break;
--		case 3:
--			*args++ = regs->er4;
--			break;
--		case 4:
--			*args++ = regs->er5;
--			break;
--		case 5:
--			*args++ = regs->er6;
--			break;
--		}
--		i++;
--		n--;
--	}
-+	*args++ = regs->er1;
-+	*args++ = regs->er2;
-+	*args++ = regs->er3;
-+	*args++ = regs->er4;
-+	*args++ = regs->er5;
-+	*args   = regs->er6;
- }
- 
- 
-diff --git a/arch/hexagon/include/asm/syscall.h b/arch/hexagon/include/asm/syscall.h
-index 4af9c7b6f13a..ae3a1e24fabd 100644
---- a/arch/hexagon/include/asm/syscall.h
-+++ b/arch/hexagon/include/asm/syscall.h
-@@ -37,10 +37,8 @@ static inline long syscall_get_nr(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
--	BUG_ON(i + n > 6);
--	memcpy(args, &(&regs->r00)[i], n * sizeof(args[0]));
-+	memcpy(args, &(&regs->r00)[0], 6 * sizeof(args[0]));
- }
- #endif
-diff --git a/arch/ia64/include/asm/syscall.h b/arch/ia64/include/asm/syscall.h
-index 1d0b875fec44..8204c1ff70ce 100644
---- a/arch/ia64/include/asm/syscall.h
-+++ b/arch/ia64/include/asm/syscall.h
-@@ -63,12 +63,9 @@ extern void ia64_syscall_get_set_arguments(struct task_struct *task,
- 	unsigned long *args, int rw);
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
--	BUG_ON(i + n > 6);
--
--	ia64_syscall_get_set_arguments(task, regs, i, n, args, 0);
-+	ia64_syscall_get_set_arguments(task, regs, 0, 6, args, 0);
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-diff --git a/arch/microblaze/include/asm/syscall.h b/arch/microblaze/include/asm/syscall.h
-index 220decd605a4..4b23e44e5c3c 100644
---- a/arch/microblaze/include/asm/syscall.h
-+++ b/arch/microblaze/include/asm/syscall.h
-@@ -82,9 +82,11 @@ static inline void microblaze_set_syscall_arg(struct pt_regs *regs,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
-+	unsigned int i = 0;
-+	unsigned int n = 6;
-+
- 	while (n--)
- 		*args++ = microblaze_get_syscall_arg(regs, i++);
- }
-diff --git a/arch/mips/include/asm/syscall.h b/arch/mips/include/asm/syscall.h
-index 6cf8ffb5367e..a2b4748655df 100644
---- a/arch/mips/include/asm/syscall.h
-+++ b/arch/mips/include/asm/syscall.h
-@@ -116,9 +116,10 @@ static inline void syscall_set_return_value(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
-+	unsigned int i = 0;
-+	unsigned int n = 6;
- 	int ret;
- 
- 	/* O32 ABI syscall() */
-diff --git a/arch/mips/kernel/ptrace.c b/arch/mips/kernel/ptrace.c
-index 0057c910bc2f..3a62f80958e1 100644
---- a/arch/mips/kernel/ptrace.c
-+++ b/arch/mips/kernel/ptrace.c
-@@ -1419,7 +1419,7 @@ asmlinkage long syscall_trace_enter(struct pt_regs *regs, long syscall)
- 
- 		sd.nr = syscall;
- 		sd.arch = syscall_get_arch();
--		syscall_get_arguments(current, regs, 0, 6, args);
-+		syscall_get_arguments(current, regs, args);
- 		for (i = 0; i < 6; i++)
- 			sd.args[i] = args[i];
- 		sd.instruction_pointer = KSTK_EIP(current);
-diff --git a/arch/nds32/include/asm/syscall.h b/arch/nds32/include/asm/syscall.h
-index f7e5e86765fe..89a6ec8731d8 100644
---- a/arch/nds32/include/asm/syscall.h
-+++ b/arch/nds32/include/asm/syscall.h
-@@ -108,42 +108,21 @@ void syscall_set_return_value(struct task_struct *task, struct pt_regs *regs,
-  * syscall_get_arguments - extract system call parameter values
-  * @task:	task of interest, must be blocked
-  * @regs:	task_pt_regs() of @task
-- * @i:		argument index [0,5]
-- * @n:		number of arguments; n+i must be [1,6].
-  * @args:	array filled with argument values
-  *
-- * Fetches @n arguments to the system call starting with the @i'th argument
-- * (from 0 through 5).  Argument @i is stored in @args[0], and so on.
-- * An arch inline version is probably optimal when @i and @n are constants.
-+ * Fetches 6 arguments to the system call (from 0 through 5). The first
-+ * argument is stored in @args[0], and so on.
-  *
-  * It's only valid to call this when @task is stopped for tracing on
-  * entry to a system call, due to %TIF_SYSCALL_TRACE or %TIF_SYSCALL_AUDIT.
-- * It's invalid to call this with @i + @n > 6; we only support system calls
-- * taking up to 6 arguments.
-  */
- #define SYSCALL_MAX_ARGS 6
- void syscall_get_arguments(struct task_struct *task, struct pt_regs *regs,
--			   unsigned int i, unsigned int n, unsigned long *args)
-+			   unsigned long *args)
- {
--	if (n == 0)
--		return;
--	if (i + n > SYSCALL_MAX_ARGS) {
--		unsigned long *args_bad = args + SYSCALL_MAX_ARGS - i;
--		unsigned int n_bad = n + i - SYSCALL_MAX_ARGS;
--		pr_warning("%s called with max args %d, handling only %d\n",
--			   __func__, i + n, SYSCALL_MAX_ARGS);
--		memset(args_bad, 0, n_bad * sizeof(args[0]));
--		memset(args_bad, 0, n_bad * sizeof(args[0]));
--	}
--
--	if (i == 0) {
--		args[0] = regs->orig_r0;
--		args++;
--		i++;
--		n--;
--	}
--
--	memcpy(args, &regs->uregs[0] + i, n * sizeof(args[0]));
-+	args[0] = regs->orig_r0;
-+	args++;
-+	memcpy(args, &regs->uregs[0] + 1, 5 * sizeof(args[0]));
- }
- 
- /**
-diff --git a/arch/nios2/include/asm/syscall.h b/arch/nios2/include/asm/syscall.h
-index 9de220854c4a..792bd449d839 100644
---- a/arch/nios2/include/asm/syscall.h
-+++ b/arch/nios2/include/asm/syscall.h
-@@ -58,42 +58,14 @@ static inline void syscall_set_return_value(struct task_struct *task,
- }
- 
- static inline void syscall_get_arguments(struct task_struct *task,
--	struct pt_regs *regs, unsigned int i, unsigned int n,
--	unsigned long *args)
-+	struct pt_regs *regs, unsigned long *args)
- {
--	BUG_ON(i + n > 6);
--
--	switch (i) {
--	case 0:
--		if (!n--)
--			break;
--		*args++ = regs->r4;
--	case 1:
--		if (!n--)
--			break;
--		*args++ = regs->r5;
--	case 2:
--		if (!n--)
--			break;
--		*args++ = regs->r6;
--	case 3:
--		if (!n--)
--			break;
--		*args++ = regs->r7;
--	case 4:
--		if (!n--)
--			break;
--		*args++ = regs->r8;
--	case 5:
--		if (!n--)
--			break;
--		*args++ = regs->r9;
--	case 6:
--		if (!n--)
--			break;
--	default:
--		BUG();
--	}
-+	*args++ = regs->r4;
-+	*args++ = regs->r5;
-+	*args++ = regs->r6;
-+	*args++ = regs->r7;
-+	*args++ = regs->r8;
-+	*args   = regs->r9;
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-diff --git a/arch/openrisc/include/asm/syscall.h b/arch/openrisc/include/asm/syscall.h
-index 2db9f1cf0694..72607860cd55 100644
---- a/arch/openrisc/include/asm/syscall.h
-+++ b/arch/openrisc/include/asm/syscall.h
-@@ -56,11 +56,9 @@ syscall_set_return_value(struct task_struct *task, struct pt_regs *regs,
- 
- static inline void
- syscall_get_arguments(struct task_struct *task, struct pt_regs *regs,
--		      unsigned int i, unsigned int n, unsigned long *args)
-+		      unsigned long *args)
- {
--	BUG_ON(i + n > 6);
--
--	memcpy(args, &regs->gpr[3 + i], n * sizeof(args[0]));
-+	memcpy(args, &regs->gpr[3], 6 * sizeof(args[0]));
- }
- 
- static inline void
-diff --git a/arch/parisc/include/asm/syscall.h b/arch/parisc/include/asm/syscall.h
-index 8bff1a58c97f..62a6d477fae0 100644
---- a/arch/parisc/include/asm/syscall.h
-+++ b/arch/parisc/include/asm/syscall.h
-@@ -18,29 +18,15 @@ static inline long syscall_get_nr(struct task_struct *tsk,
- }
- 
- static inline void syscall_get_arguments(struct task_struct *tsk,
--					 struct pt_regs *regs, unsigned int i,
--					 unsigned int n, unsigned long *args)
-+					 struct pt_regs *regs,
-+					 unsigned long *args)
- {
--	BUG_ON(i);
--
--	switch (n) {
--	case 6:
--		args[5] = regs->gr[21];
--	case 5:
--		args[4] = regs->gr[22];
--	case 4:
--		args[3] = regs->gr[23];
--	case 3:
--		args[2] = regs->gr[24];
--	case 2:
--		args[1] = regs->gr[25];
--	case 1:
--		args[0] = regs->gr[26];
--	case 0:
--		break;
--	default:
--		BUG();
--	}
-+	args[5] = regs->gr[21];
-+	args[4] = regs->gr[22];
-+	args[3] = regs->gr[23];
-+	args[2] = regs->gr[24];
-+	args[1] = regs->gr[25];
-+	args[0] = regs->gr[26];
- }
- 
- static inline long syscall_get_return_value(struct task_struct *task,
-diff --git a/arch/powerpc/include/asm/syscall.h b/arch/powerpc/include/asm/syscall.h
-index 1a0e7a8b1c81..5c9b9dc82b7e 100644
---- a/arch/powerpc/include/asm/syscall.h
-+++ b/arch/powerpc/include/asm/syscall.h
-@@ -65,22 +65,20 @@ static inline void syscall_set_return_value(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
- 	unsigned long val, mask = -1UL;
--
--	BUG_ON(i + n > 6);
-+	unsigned int n = 6;
- 
- #ifdef CONFIG_COMPAT
- 	if (test_tsk_thread_flag(task, TIF_32BIT))
- 		mask = 0xffffffff;
- #endif
- 	while (n--) {
--		if (n == 0 && i == 0)
-+		if (n == 0)
- 			val = regs->orig_gpr3;
- 		else
--			val = regs->gpr[3 + i + n];
-+			val = regs->gpr[3 + n];
- 
- 		args[n] = val & mask;
- 	}
-diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
-index bba3da6ef157..85a31dd0f2ba 100644
---- a/arch/riscv/include/asm/syscall.h
-+++ b/arch/riscv/include/asm/syscall.h
-@@ -72,17 +72,11 @@ static inline void syscall_set_return_value(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
--	BUG_ON(i + n > 6);
--	if (i == 0) {
--		args[0] = regs->orig_a0;
--		args++;
--		i++;
--		n--;
--	}
--	memcpy(args, &regs->a1 + i * sizeof(regs->a1), n * sizeof(args[0]));
-+	args[0] = regs->orig_a0;
-+	args++;
-+	memcpy(args, &regs->a1 + sizeof(regs->a1), 5 * sizeof(args[0]));
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-diff --git a/arch/s390/include/asm/syscall.h b/arch/s390/include/asm/syscall.h
-index 96f9a9151fde..ee0b1f6aa36d 100644
---- a/arch/s390/include/asm/syscall.h
-+++ b/arch/s390/include/asm/syscall.h
-@@ -56,27 +56,20 @@ static inline void syscall_set_return_value(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
- 	unsigned long mask = -1UL;
-+	unsigned int n = 6;
- 
--	/*
--	 * No arguments for this syscall, there's nothing to do.
--	 */
--	if (!n)
--		return;
--
--	BUG_ON(i + n > 6);
- #ifdef CONFIG_COMPAT
- 	if (test_tsk_thread_flag(task, TIF_31BIT))
- 		mask = 0xffffffff;
- #endif
- 	while (n-- > 0)
--		if (i + n > 0)
--			args[n] = regs->gprs[2 + i + n] & mask;
--	if (i == 0)
--		args[0] = regs->orig_gpr2 & mask;
-+		if (n > 0)
-+			args[n] = regs->gprs[2 + n] & mask;
-+
-+	args[0] = regs->orig_gpr2 & mask;
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-diff --git a/arch/sh/include/asm/syscall_32.h b/arch/sh/include/asm/syscall_32.h
-index 6e118799831c..2bf1199a0595 100644
---- a/arch/sh/include/asm/syscall_32.h
-+++ b/arch/sh/include/asm/syscall_32.h
-@@ -48,30 +48,16 @@ static inline void syscall_set_return_value(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
--	/*
--	 * Do this simply for now. If we need to start supporting
--	 * fetching arguments from arbitrary indices, this will need some
--	 * extra logic. Presently there are no in-tree users that depend
--	 * on this behaviour.
--	 */
--	BUG_ON(i);
- 
- 	/* Argument pattern is: R4, R5, R6, R7, R0, R1 */
--	switch (n) {
--	case 6: args[5] = regs->regs[1];
--	case 5: args[4] = regs->regs[0];
--	case 4: args[3] = regs->regs[7];
--	case 3: args[2] = regs->regs[6];
--	case 2: args[1] = regs->regs[5];
--	case 1:	args[0] = regs->regs[4];
--	case 0:
--		break;
--	default:
--		BUG();
--	}
-+	args[5] = regs->regs[1];
-+	args[4] = regs->regs[0];
-+	args[3] = regs->regs[7];
-+	args[2] = regs->regs[6];
-+	args[1] = regs->regs[5];
-+	args[0] = regs->regs[4];
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-diff --git a/arch/sh/include/asm/syscall_64.h b/arch/sh/include/asm/syscall_64.h
-index 43882580c7f9..4e8f6460c703 100644
---- a/arch/sh/include/asm/syscall_64.h
-+++ b/arch/sh/include/asm/syscall_64.h
-@@ -47,11 +47,9 @@ static inline void syscall_set_return_value(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
--	BUG_ON(i + n > 6);
--	memcpy(args, &regs->regs[2 + i], n * sizeof(args[0]));
-+	memcpy(args, &regs->regs[2], 6 * sizeof(args[0]));
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-diff --git a/arch/sparc/include/asm/syscall.h b/arch/sparc/include/asm/syscall.h
-index 053989e3f6a6..872dfee852d6 100644
---- a/arch/sparc/include/asm/syscall.h
-+++ b/arch/sparc/include/asm/syscall.h
-@@ -96,11 +96,11 @@ static inline void syscall_set_return_value(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
- 	int zero_extend = 0;
- 	unsigned int j;
-+	unsigned int n = 6;
- 
- #ifdef CONFIG_SPARC64
- 	if (test_tsk_thread_flag(task, TIF_32BIT))
-@@ -108,7 +108,7 @@ static inline void syscall_get_arguments(struct task_struct *task,
- #endif
- 
- 	for (j = 0; j < n; j++) {
--		unsigned long val = regs->u_regs[UREG_I0 + i + j];
-+		unsigned long val = regs->u_regs[UREG_I0 + j];
- 
- 		if (zero_extend)
- 			args[j] = (u32) val;
-diff --git a/arch/um/include/asm/syscall-generic.h b/arch/um/include/asm/syscall-generic.h
-index 9fb9cf8cd39a..25d00acd1322 100644
---- a/arch/um/include/asm/syscall-generic.h
-+++ b/arch/um/include/asm/syscall-generic.h
-@@ -53,43 +53,16 @@ static inline void syscall_set_return_value(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
- 	const struct uml_pt_regs *r = &regs->regs;
- 
--	switch (i) {
--	case 0:
--		if (!n--)
--			break;
--		*args++ = UPT_SYSCALL_ARG1(r);
--	case 1:
--		if (!n--)
--			break;
--		*args++ = UPT_SYSCALL_ARG2(r);
--	case 2:
--		if (!n--)
--			break;
--		*args++ = UPT_SYSCALL_ARG3(r);
--	case 3:
--		if (!n--)
--			break;
--		*args++ = UPT_SYSCALL_ARG4(r);
--	case 4:
--		if (!n--)
--			break;
--		*args++ = UPT_SYSCALL_ARG5(r);
--	case 5:
--		if (!n--)
--			break;
--		*args++ = UPT_SYSCALL_ARG6(r);
--	case 6:
--		if (!n--)
--			break;
--	default:
--		BUG();
--		break;
--	}
-+	*args++ = UPT_SYSCALL_ARG1(r);
-+	*args++ = UPT_SYSCALL_ARG2(r);
-+	*args++ = UPT_SYSCALL_ARG3(r);
-+	*args++ = UPT_SYSCALL_ARG4(r);
-+	*args++ = UPT_SYSCALL_ARG5(r);
-+	*args   = UPT_SYSCALL_ARG6(r);
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-diff --git a/arch/x86/include/asm/syscall.h b/arch/x86/include/asm/syscall.h
-index d653139857af..8dbb5c379450 100644
---- a/arch/x86/include/asm/syscall.h
-+++ b/arch/x86/include/asm/syscall.h
-@@ -91,11 +91,9 @@ static inline void syscall_set_return_value(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
--	BUG_ON(i + n > 6);
--	memcpy(args, &regs->bx + i, n * sizeof(args[0]));
-+	memcpy(args, &regs->bx, 6 * sizeof(args[0]));
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-@@ -116,63 +114,26 @@ static inline int syscall_get_arch(void)
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
- # ifdef CONFIG_IA32_EMULATION
--	if (task->thread_info.status & TS_COMPAT)
--		switch (i) {
--		case 0:
--			if (!n--) break;
--			*args++ = regs->bx;
--		case 1:
--			if (!n--) break;
--			*args++ = regs->cx;
--		case 2:
--			if (!n--) break;
--			*args++ = regs->dx;
--		case 3:
--			if (!n--) break;
--			*args++ = regs->si;
--		case 4:
--			if (!n--) break;
--			*args++ = regs->di;
--		case 5:
--			if (!n--) break;
--			*args++ = regs->bp;
--		case 6:
--			if (!n--) break;
--		default:
--			BUG();
--			break;
--		}
--	else
-+	if (task->thread_info.status & TS_COMPAT) {
-+		*args++ = regs->bx;
-+		*args++ = regs->cx;
-+		*args++ = regs->dx;
-+		*args++ = regs->si;
-+		*args++ = regs->di;
-+		*args   = regs->bp;
-+	} else
- # endif
--		switch (i) {
--		case 0:
--			if (!n--) break;
--			*args++ = regs->di;
--		case 1:
--			if (!n--) break;
--			*args++ = regs->si;
--		case 2:
--			if (!n--) break;
--			*args++ = regs->dx;
--		case 3:
--			if (!n--) break;
--			*args++ = regs->r10;
--		case 4:
--			if (!n--) break;
--			*args++ = regs->r8;
--		case 5:
--			if (!n--) break;
--			*args++ = regs->r9;
--		case 6:
--			if (!n--) break;
--		default:
--			BUG();
--			break;
--		}
-+	{
-+		*args++ = regs->di;
-+		*args++ = regs->si;
-+		*args++ = regs->dx;
-+		*args++ = regs->r10;
-+		*args++ = regs->r8;
-+		*args   = regs->r9;
-+	}
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-diff --git a/arch/xtensa/include/asm/syscall.h b/arch/xtensa/include/asm/syscall.h
-index a168bf81c7f4..1504ce9a233a 100644
---- a/arch/xtensa/include/asm/syscall.h
-+++ b/arch/xtensa/include/asm/syscall.h
-@@ -59,23 +59,13 @@ static inline void syscall_set_return_value(struct task_struct *task,
- 
- static inline void syscall_get_arguments(struct task_struct *task,
- 					 struct pt_regs *regs,
--					 unsigned int i, unsigned int n,
- 					 unsigned long *args)
- {
- 	static const unsigned int reg[] = XTENSA_SYSCALL_ARGUMENT_REGS;
--	unsigned int j;
--
--	if (n == 0)
--		return;
--
--	WARN_ON_ONCE(i + n > SYSCALL_MAX_ARGS);
-+	unsigned int i;
- 
--	for (j = 0; j < n; ++j) {
--		if (i + j < SYSCALL_MAX_ARGS)
--			args[j] = regs->areg[reg[i + j]];
--		else
--			args[j] = 0;
--	}
-+	for (i = 0; i < 6; ++i)
-+		args[i] = regs->areg[reg[i]];
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-diff --git a/include/asm-generic/syscall.h b/include/asm-generic/syscall.h
-index 0c938a4354f6..269e9412ef42 100644
---- a/include/asm-generic/syscall.h
-+++ b/include/asm-generic/syscall.h
-@@ -105,21 +105,16 @@ void syscall_set_return_value(struct task_struct *task, struct pt_regs *regs,
-  * syscall_get_arguments - extract system call parameter values
-  * @task:	task of interest, must be blocked
-  * @regs:	task_pt_regs() of @task
-- * @i:		argument index [0,5]
-- * @n:		number of arguments; n+i must be [1,6].
-  * @args:	array filled with argument values
-  *
-- * Fetches @n arguments to the system call starting with the @i'th argument
-- * (from 0 through 5).  Argument @i is stored in @args[0], and so on.
-- * An arch inline version is probably optimal when @i and @n are constants.
-+ * Fetches 6 arguments to the system call.  First argument is stored in
-+*  @args[0], and so on.
-  *
-  * It's only valid to call this when @task is stopped for tracing on
-  * entry to a system call, due to %TIF_SYSCALL_TRACE or %TIF_SYSCALL_AUDIT.
-- * It's invalid to call this with @i + @n > 6; we only support system calls
-- * taking up to 6 arguments.
-  */
- void syscall_get_arguments(struct task_struct *task, struct pt_regs *regs,
--			   unsigned int i, unsigned int n, unsigned long *args);
-+			   unsigned long *args);
- 
- /**
-  * syscall_set_arguments - change system call parameter value
-diff --git a/include/trace/events/syscalls.h b/include/trace/events/syscalls.h
-index 44a3259ed4a5..b6e0cbc2c71f 100644
---- a/include/trace/events/syscalls.h
-+++ b/include/trace/events/syscalls.h
-@@ -28,7 +28,7 @@ TRACE_EVENT_FN(sys_enter,
- 
- 	TP_fast_assign(
- 		__entry->id	= id;
--		syscall_get_arguments(current, regs, 0, 6, __entry->args);
-+		syscall_get_arguments(current, regs, __entry->args);
- 	),
- 
- 	TP_printk("NR %ld (%lx, %lx, %lx, %lx, %lx, %lx)",
-diff --git a/kernel/seccomp.c b/kernel/seccomp.c
-index 54a0347ca812..df27e499956a 100644
---- a/kernel/seccomp.c
-+++ b/kernel/seccomp.c
-@@ -149,7 +149,7 @@ static void populate_seccomp_data(struct seccomp_data *sd)
- 
- 	sd->nr = syscall_get_nr(task, regs);
- 	sd->arch = syscall_get_arch();
--	syscall_get_arguments(task, regs, 0, 6, args);
-+	syscall_get_arguments(task, regs, args);
- 	sd->args[0] = args[0];
- 	sd->args[1] = args[1];
- 	sd->args[2] = args[2];
-diff --git a/kernel/trace/trace_syscalls.c b/kernel/trace/trace_syscalls.c
-index e9f5bbbad6d9..fa8fbff736d6 100644
---- a/kernel/trace/trace_syscalls.c
-+++ b/kernel/trace/trace_syscalls.c
-@@ -348,7 +348,7 @@ static void ftrace_syscall_enter(void *data, struct pt_regs *regs, long id)
- 
- 	entry = ring_buffer_event_data(event);
- 	entry->nr = syscall_nr;
--	syscall_get_arguments(current, regs, 0, 6, args);
-+	syscall_get_arguments(current, regs, args);
- 	memcpy(entry->args, args, sizeof(unsigned long) * sys_data->nb_args);
- 
- 	event_trigger_unlock_commit(trace_file, buffer, event, entry,
-@@ -616,7 +616,7 @@ static void perf_syscall_enter(void *ignore, struct pt_regs *regs, long id)
- 		return;
- 
- 	rec->nr = syscall_nr;
--	syscall_get_arguments(current, regs, 0, 6, args);
-+	syscall_get_arguments(current, regs, args);
- 	memcpy(&rec->args, args, sizeof(unsigned long) * sys_data->nb_args);
- 
- 	if ((valid_prog_array &&
-diff --git a/lib/syscall.c b/lib/syscall.c
-index e8467e17b9a2..fb328e7ccb08 100644
---- a/lib/syscall.c
-+++ b/lib/syscall.c
-@@ -27,7 +27,7 @@ static int collect_syscall(struct task_struct *target, struct syscall_info *info
- 
- 	info->data.nr = syscall_get_nr(target, regs);
- 	if (info->data.nr != -1L)
--		syscall_get_arguments(target, regs, 0, 6,
-+		syscall_get_arguments(target, regs,
- 				      (unsigned long *)&info->data.args[0]);
- 
- 	put_task_stack(target);
--- 
-2.20.1
+I think you are confusing CONTEXTID with CONTEXTID register in
+ARMv7/ARMv8 world.
 
+The CONTEXTID is a software entity that we assigne to a mmu_context
 
+It has two parts:
+1. Lower bits are ASID that we will programe in SATP CSR
+2. Upper bits is the current version number
+
+Whenever we run-out ASIDs in ASID bitmap at time of creating new
+CONTEXTID, we simply flush the complete ASID bitmap and atomically
+increment version number.
+
+The most important thing here is that version number before and after
+ASID bitmap flush should be different so that all CPU see the change
+in current version after a ASID bitmap flush.
+
+It is totally fine if the current version number rolls-over as long as we
+get different current version after ASID bitmap flush.
+
+> >>
+> >> Please all see my inline comments.
+> >>
+> >> Best,
+> >> Gary
+> >>
+> >> On 28/03/2019 06:32, Anup Patel wrote:
+> >>> Currently, we do local TLB flush on every MM switch. This is very harsh
+> >>> on performance because we are forcing page table walks after every MM
+> >>> switch.
+> >>>
+> >>> This patch implements ASID allocator for assigning an ASID to every MM
+> >>> context. The number of ASIDs are limited in HW so we create a logical
+> >>> entity named CONTEXTID for assigning to MM context. The lower bits of
+> >>> CONTEXTID are ASID and upper bits are VERSION number. The number of
+> >>> usable ASID bits supported by HW are detected at boot-time by writing
+> >>> 1s to ASID bits in SATP CSR. This means last ASID is always reserved
+> >>> because it is used for initial MM context.
+> >>>
+> >>> We allocate new CONTEXTID on first MM switch for a MM context where
+> >>> the ASID is allocated from an ASID bitmap and VERSION is provide by
+> >>> an atomic counter. At time of allocating new CONTEXTID, if we run out
+> >>> of available ASIDs then:
+> >>> 1. We flush the ASID bitmap
+> >>> 2. Increment current VERSION atomic counter
+> >>> 3. Re-allocate ASID from ASID bitmap
+> >>> 4. Flush TLB on all CPUs
+> >>> 5. Try CONTEXTID re-assignment on all CPUs
+> >>>
+> >>> Using above approach, we have virtually infinite CONTEXTIDs on-top-of
+> >>> limited number of HW ASIDs. This approach is inspired from ASID allocator
+> >>> used for Linux ARM/ARM64 but we have adapted it for RISC-V. Overall,
+> >>> this ASID allocator helps us reduce rate of local TLB flushes on every
+> >>> CPU thereby increasing performance.
+> >>>
+> >>> This patch is tested on QEMU/virt machine and SiFive Unleashed board.
+> >>> On QEMU/virt machine, we see 10% (approx) performance improvement with
+> >>> SW emulated TLBs provided by QEMU. Unfortunately, ASID bits of SATP CSR
+> >>> are not implemented on SiFive Unleashed board so we don't see any change
+> >>> in performance.
+> >>>
+> >>> Signed-off-by: Gary Guo <gary@garyguo.net>
+> >> Could you add a Co-developed-by line in addition to Signed-off-by as
+> >> well? Thanks.
+> >
+> > Sure, I will add.
+> >
+> >>> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> >>> ---
+> >>> Changes since v1:
+> >>> - We adapt good aspects from Gary Guo's ASID allocator implementation
+> >>>     and provide due credit to him by adding his SoB.
+> >>> - Track ASIDs active during context flush and mark them as reserved
+> >>> - Set ASID bits to all 1s to simplify number of ASID bit detection
+> >>> - Use atomic_long_t instead of atomic64_t for being 32bit friendly
+> >>> - Use unsigned long instead of u64 for being 32bit friendly
+> >>> - Use flush_tlb_all() instead of lazy local_tlb_flush_all() at time
+> >>>     of context flush
+> >>>
+> >>> This patch is based on Linux-5.1-rc2 and TLB flush cleanup patches v4
+> >>> from Gary Guo. It can be also found in riscv_asid_allocator_v2 branch
+> >>> of https://github.com/avpatel/linux.git
+> >>> ---
+> >>>    arch/riscv/include/asm/csr.h         |   6 +
+> >>>    arch/riscv/include/asm/mmu.h         |   1 +
+> >>>    arch/riscv/include/asm/mmu_context.h |   1 +
+> >>>    arch/riscv/kernel/head.S             |   2 +
+> >>>    arch/riscv/mm/context.c              | 249 +++++++++++++++++++++++++--
+> >>>    5 files changed, 247 insertions(+), 12 deletions(-)
+> >>>
+> >>> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> >>> index 28a0d1cb374c..ce18ab8f53ed 100644
+> >>> --- a/arch/riscv/include/asm/csr.h
+> >>> +++ b/arch/riscv/include/asm/csr.h
+> >>> @@ -45,10 +45,16 @@
+> >>>    #define SATP_PPN     _AC(0x003FFFFF, UL)
+> >>>    #define SATP_MODE_32 _AC(0x80000000, UL)
+> >>>    #define SATP_MODE    SATP_MODE_32
+> >>> +#define SATP_ASID_BITS       9
+> >>> +#define SATP_ASID_SHIFT      22
+> >>> +#define SATP_ASID_MASK       _AC(0x1FF, UL)
+> >>>    #else
+> >>>    #define SATP_PPN     _AC(0x00000FFFFFFFFFFF, UL)
+> >>>    #define SATP_MODE_39 _AC(0x8000000000000000, UL)
+> >>>    #define SATP_MODE    SATP_MODE_39
+> >>> +#define SATP_ASID_BITS       16
+> >>> +#define SATP_ASID_SHIFT      44
+> >>> +#define SATP_ASID_MASK       _AC(0xFFFF, UL)
+> >>>    #endif
+> >>>
+> >>>    /* Interrupt Enable and Interrupt Pending flags */
+> >>> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
+> >>> index 5df2dccdba12..42a9ca0fe1fb 100644
+> >>> --- a/arch/riscv/include/asm/mmu.h
+> >>> +++ b/arch/riscv/include/asm/mmu.h
+> >>> @@ -18,6 +18,7 @@
+> >>>    #ifndef __ASSEMBLY__
+> >>>
+> >>>    typedef struct {
+> >>> +     atomic_long_t id;
+> >>>        void *vdso;
+> >>>    #ifdef CONFIG_SMP
+> >>>        /* A local icache flush is needed before user execution can resume. */
+> >>> diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
+> >>> index bf4f097a9051..ba6ab35c18dc 100644
+> >>> --- a/arch/riscv/include/asm/mmu_context.h
+> >>> +++ b/arch/riscv/include/asm/mmu_context.h
+> >>> @@ -30,6 +30,7 @@ static inline void enter_lazy_tlb(struct mm_struct *mm,
+> >>>    static inline int init_new_context(struct task_struct *task,
+> >>>        struct mm_struct *mm)
+> >>>    {
+> >>> +     atomic_long_set(&(mm)->context.id, 0);
+> >> Parenthesis around mm isn't necessary
+> >
+> > Okay, I will update.
+> >
+> >>>        return 0;
+> >>>    }
+> >>>
+> >>> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> >>> index fe884cd69abd..c3f9adc0d054 100644
+> >>> --- a/arch/riscv/kernel/head.S
+> >>> +++ b/arch/riscv/kernel/head.S
+> >>> @@ -95,6 +95,8 @@ relocate:
+> >>>        la a2, swapper_pg_dir
+> >>>        srl a2, a2, PAGE_SHIFT
+> >>>        li a1, SATP_MODE
+> >>> +     li a0, (SATP_ASID_MASK << SATP_ASID_SHIFT)
+> >>> +     or a1, a1, a0
+> >>>        or a2, a2, a1
+> >>>
+> >>>        /*
+> >>> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+> >>> index 0f787bcd3a7a..1205d33d1b1b 100644
+> >>> --- a/arch/riscv/mm/context.c
+> >>> +++ b/arch/riscv/mm/context.c
+> >>> @@ -2,13 +2,209 @@
+> >>>    /*
+> >>>     * Copyright (C) 2012 Regents of the University of California
+> >>>     * Copyright (C) 2017 SiFive
+> >>> + * Copyright (C) 2019 Western Digital Corporation or its affiliates.
+> >>>     */
+> >>>
+> >>> +#include <linux/bitops.h>
+> >>>    #include <linux/mm.h>
+> >>> +#include <linux/slab.h>
+> >>>
+> >>>    #include <asm/tlbflush.h>
+> >>>    #include <asm/cacheflush.h>
+> >>>
+> >>> +static bool use_asid_allocator;
+> >>> +static unsigned long asid_bits;
+> >>> +static unsigned long num_asids;
+> >>> +static unsigned long asid_mask;
+> >>> +static unsigned long first_version;
+> >>> +
+> >>> +static atomic_long_t current_version;
+> >>> +
+> >>> +static DEFINE_RAW_SPINLOCK(context_lock);
+> >>> +static unsigned long *context_asid_map;
+> >>> +
+> >>> +static DEFINE_PER_CPU(atomic_long_t, active_context);
+> >>> +static DEFINE_PER_CPU(unsigned long, reserved_context);
+> >>> +
+> >>> +static bool check_update_reserved_context(unsigned long cntx,
+> >>> +                                       unsigned long newcntx)
+> >>> +{
+> >>> +     int cpu;
+> >>> +     bool hit = false;
+> >>> +
+> >>> +     /*
+> >>> +      * Iterate over the set of reserved CONTEXT looking for a match.
+> >>> +      * If we find one, then we can update our mm to use new CONTEXT
+> >>> +      * (i.e. the same CONTEXT in the current_version) but we can't
+> >>> +      * exit the loop early, since we need to ensure that all copies
+> >>> +      * of the old CONTEXT are updated to reflect the mm. Failure to do
+> >>> +      * so could result in us missing the reserved CONTEXT in a future
+> >>> +      * version.
+> >>> +      */
+> >>> +     for_each_possible_cpu(cpu) {
+> >>> +             if (per_cpu(reserved_context, cpu) == cntx) {
+> >>> +                     hit = true;
+> >>> +                     per_cpu(reserved_context, cpu) = newcntx;
+> >>> +             }
+> >>> +     }
+> >>> +
+> >>> +     return hit;
+> >>> +}
+> >>> +
+> >>> +/* Note: must be called with context_lock held */
+> >>> +static void __flush_context(void)
+> >>> +{
+> >>> +     int i;
+> >>> +     unsigned long cntx;
+> >>> +
+> >>> +     /* Update the list of reserved ASIDs and the ASID bitmap. */
+> >>> +     bitmap_clear(context_asid_map, 0, num_asids);
+> >>> +
+> >>> +     /* Mark already acitve ASIDs as used */
+> >>> +     for_each_possible_cpu(i) {
+> >>> +             cntx = atomic_long_xchg_relaxed(&per_cpu(active_context, i), 0);
+> >>> +             /*
+> >>> +              * If this CPU has already been through a rollover, but
+> >>> +              * hasn't run another task in the meantime, we must preserve
+> >>> +              * its reserved CONTEXT, as this is the only trace we have of
+> >>> +              * the process it is still running.
+> >>> +              */
+> >>> +             if (cntx == 0)
+> >>> +                     cntx = per_cpu(reserved_context, i);
+> >>> +
+> >>> +             __set_bit(cntx & asid_mask, context_asid_map);
+> >>> +             per_cpu(reserved_context, i) = cntx;
+> >>> +     }
+> >>> +
+> >>> +     /* Mark last ASID as used because it is used at boot-time */
+> >>> +     __set_bit(asid_mask, context_asid_map);
+> >> Looks unnecessary as we always start find_next_zero_bit from idx 1.
+> >
+> > This is to ensure that we never use last ASID >
+> Uh, sorry. I misread. But we surely can use the last ASID after the
+> first rollover?
+> >>> +} >>> +
+> >>> +/* Note: must be called with context_lock held */
+> >>> +static unsigned long __new_context(struct mm_struct *mm,
+> >>> +                                bool *need_tlb_flush)
+> >>> +{
+> >>> +     static u32 cur_idx = 1;
+> >>> +     unsigned long cntx = atomic_long_read(&mm->context.id);
+> >>> +     unsigned long asid, ver = atomic_long_read(&current_version);
+> >>> +
+> >>> +     if (cntx != 0) {
+> >>> +             unsigned long newcntx = ver | (cntx & ~asid_mask);
+> >> Shouldn't this be cntx & asid_mask ?
+> >
+> > Ahh, typo. Thanks for catching.
+> >
+> >>> +
+> >>> +             /*
+> >>> +              * If our current CONTEXT was active during a rollover, we
+> >>> +              * can continue to use it and this was just a false alarm.
+> >>> +              */
+> >>> +             if (check_update_reserved_context(cntx, newcntx))
+> >>> +                     return newcntx;
+> >>> +
+> >>> +             /*
+> >>> +              * We had a valid CONTEXT in a previous life, so try to
+> >>> +              * re-use it if possible.
+> >>> +              */
+> >>> +             if (!__test_and_set_bit(cntx & asid_mask, context_asid_map))
+> >>> +                     return newcntx;
+> >>> +     }
+> >>> +
+> >>> +     /*
+> >>> +      * Allocate a free ASID. If we can't find one then increment
+> >>> +      * current_version and flush all ASIDs.
+> >>> +      */
+> >>> +     asid = find_next_zero_bit(context_asid_map, num_asids, cur_idx);
+> >>> +     if (asid != num_asids)
+> >>> +             goto set_asid;
+> >>> +
+> >>> +     /* We're out of ASIDs, so increment current_version */
+> >>> +     ver = atomic_long_add_return_relaxed(first_version, &current_version);
+> >>> +
+> >>> +     /* Flush everything  */
+> >>> +     __flush_context();
+> >>> +     *need_tlb_flush = true;
+> >>> +
+> >>> +     /* We have more ASIDs than CPUs, so this will always succeed */
+> >>> +     asid = find_next_zero_bit(context_asid_map, num_asids, 1);
+> >>> +
+> >>> +set_asid:
+> >>> +     __set_bit(asid, context_asid_map);
+> >>> +     cur_idx = asid;
+> >>> +     return asid | ver;
+> >>> +}
+> >>> +
+> >>> +static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
+> >>> +{
+> >>> +     unsigned long flags;
+> >>> +     bool need_tlb_flush = false;
+> >>> +     unsigned long cntx, old_active_cntx;
+> >>> +
+> >>> +     cntx = atomic_long_read(&mm->context.id);
+> >>> +
+> >>> +     /*
+> >>> +      * If our active_context is non-zero and the context matches the
+> >>> +      * current_version, then we update the active_context entry with a
+> >>> +      * relaxed cmpxchg.
+> >>> +      *
+> >>> +      * Following is how we handle racing with a concurrent rollover:
+> >>> +      *
+> >>> +      * - We get a zero back from the cmpxchg and end up waiting on the
+> >>> +      *   lock. Taking the lock synchronises with the rollover and so
+> >>> +      *   we are forced to see the updated verion.
+> >>> +      *
+> >>> +      * - We get a valid context back from the cmpxchg then we continue
+> >>> +      *   using old ASID because __flush_context() would have marked ASID
+> >>> +      *   of active_context as used and next context switch we will allocate
+> >>> +      *   new context.
+> >>> +      */
+> >>> +     old_active_cntx = atomic_long_read(&per_cpu(active_context, cpu));
+> >>> +     if (old_active_cntx &&
+> >>> +         !((cntx ^ atomic_long_read(&current_version)) >> asid_bits) &&
+> >> This looks hard to read. Probably
+> >> (cntx &~ asid_mask) == atomic_long_read(&current_version)
+> >> is clearer.
+> >
+> > No issues, I am fine with either way. I will update.
+> >
+> >>> +         atomic_long_cmpxchg_relaxed(&per_cpu(active_context, cpu),
+> >>> +                                     old_active_cntx, cntx))
+> >>> +             goto switch_mm_fast;
+> >>> +
+> >>> +     raw_spin_lock_irqsave(&context_lock, flags);
+> >> Any reason that we prefer raw_ here?
+> >>> +
+> >>> +     /* Check that our ASID belongs to the current_version. */
+> >>> +     cntx = atomic_long_read(&mm->context.id);
+> >>> +     if ((cntx ^ atomic_long_read(&current_version)) >> asid_bits) {
+> >> Same as above, probably
+> >> (cntx &~ asid_mask) != atomic_long_read(&current_version)
+> >> makes more sense.
+> >>> +             cntx = __new_context(mm, &need_tlb_flush);
+> >>> +             atomic_long_set(&mm->context.id, cntx);
+> >>> +     }
+> >>> +
+> >>> +     atomic_long_set(&per_cpu(active_context, cpu), cntx);
+> >>> +
+> >>> +     raw_spin_unlock_irqrestore(&context_lock, flags);
+> >>> +
+> >>> +switch_mm_fast:
+> >>> +     /*
+> >>> +      * Use the old spbtr name instead of using the current satp
+> >>> +      * name to support binutils 2.29 which doesn't know about the
+> >>> +      * privileged ISA 1.10 yet.
+> >>> +      */
+> >>> +     csr_write(sptbr, virt_to_pfn(mm->pgd) |
+> >>> +               ((cntx & asid_mask) << SATP_ASID_SHIFT) |
+> >>> +               SATP_MODE);
+> >>> +
+> >>> +     if (need_tlb_flush)
+> >>> +             flush_tlb_all();
+> >> I think your intention here is to avoid calling flush_tlb_all when IRQs
+> >> are off in the critical region. However, switch_mm will be called from
+> >> scheduler as well which also turn irqs off, so this still cause issue. I
+> >> think a better way is to force flush_tlb_all to use SBI when IRQs are
+> >> off. What do you think?
+> >
+> > We are still waiting for OpenSBI to provide complete implementation.
+> >
+> > I agree that we should prefer SBI based remote TLB flush all here. Let's
+> > wait for more comments.
+> >
+> I prefer SBI as well. Can you reopen OpenSBI issue #87 to track the
+> progress until we can proper handle race conditions in OpenSBI? Once
+> that's completed I'll drop the IPI patch and we can safely do
+> flush_tlb_all within __flush_context.
+
+I did various testing. We definetly run into kernel crash if we use
+flush_tlb_all().
+
+Based on comment about local_flush_tlb_all() used in ARM/ARM64. I dig
+throught the specs. Let me clarify to everyone, The local_flush_tlb_all() on
+ARM64 uses __tlbi(vmalle1) and flush_tlb_all() on ARM64 uses __tlbi(vmalle1is).
+The __tlbi(vmalle1) will only flush TLB for current CPU whereas
+__tlbi(vmalle1is)
+will flush TLB accross CPUs.
+
+The Linux ARM64 implementation of ASID allocator uses a lazy TLB flush
+by doing local_flush_tlb_all() on each CPU. We should also follow same
+apporach to avoid unnecessary IPI overhead at Linux-level or at OpenSBI
+level.
+
+I will use lazy TLB flush just like it was done in v1 patch.
+
+If you think lazy TLB flush will not work for your "prorietary" HW then please
+investigae further with open-mind because lazy TLB flushing is a proven
+approach in Linux ARM/ARM64 world.
+
+> >>> +}
+> >>> +
+> >>> +static void set_mm_noasid(struct mm_struct *mm)
+> >>> +{
+> >>> +     /*
+> >>> +      * Use the old spbtr name instead of using the current satp
+> >>> +      * name to support binutils 2.29 which doesn't know about the
+> >>> +      * privileged ISA 1.10 yet.
+> >>> +      */
+> >>> +     csr_write(sptbr, virt_to_pfn(mm->pgd) | SATP_MODE);
+> >>> +
+> >>> +     /*
+> >>> +      * sfence.vma after SATP write. We call it on MM context instead of
+> >>> +      * calling local_flush_tlb_all to prevent global mappings from being
+> >>> +      * affected.
+> >>> +      */
+> >>> +     local_flush_tlb_mm(mm);
+> >>> +}
+> >>> +
+> >>>    /*
+> >>>     * When necessary, performs a deferred icache flush for the given MM context,
+> >>>     * on the local CPU.  RISC-V has no direct mechanism for instruction cache
+> >>> @@ -58,20 +254,49 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+> >>>        cpumask_clear_cpu(cpu, mm_cpumask(prev));
+> >>>        cpumask_set_cpu(cpu, mm_cpumask(next));
+> >>>
+> >>> -     /*
+> >>> -      * Use the old spbtr name instead of using the current satp
+> >>> -      * name to support binutils 2.29 which doesn't know about the
+> >>> -      * privileged ISA 1.10 yet.
+> >>> -      */
+> >>> -     csr_write(sptbr, virt_to_pfn(next->pgd) | SATP_MODE);
+> >>> +     if (use_asid_allocator)
+> >>> +             set_mm_asid(next, cpu);
+> >>> +     else
+> >>> +             set_mm_noasid(next);
+> >>> +
+> >>> +     flush_icache_deferred(next);
+> >>> +}
+> >>> +
+> >>> +static int asids_init(void)
+> >>> +{
+> >>> +     /* Figure-out number of ASID bits in HW */
+> >>> +     asid_bits = (csr_read(sptbr) >> SATP_ASID_SHIFT) & SATP_ASID_MASK;
+> >>> +     asid_bits = fls_long(asid_bits);
+> >>> +
+> >>> +     /* Pre-compute ASID details */
+> >>> +     num_asids = 1 << asid_bits;
+> >>> +     asid_mask = num_asids - 1;
+> >>> +     first_version = num_asids;
+> >> Is there any reason we want to have two set-once variables with same value?
+> >
+> > Yap, "first_version" looks redundant. I will update.
+> >
+> >>>
+> >>>        /*
+> >>> -      * sfence.vma after SATP write. We call it on MM context instead of
+> >>> -      * calling local_flush_tlb_all to prevent global mappings from being
+> >>> -      * affected.
+> >>> +      * Use ASID allocator only if number of HW ASIDs are
+> >>> +      * at-least twice more than CPUs
+> >>>         */
+> >>> -     local_flush_tlb_mm(next);
+> >>> +     use_asid_allocator =
+> >>> +             (num_asids <= (2 * num_possible_cpus())) ? false : true;
+> >>>
+> >>> -     flush_icache_deferred(next);
+> >>> -}
+> >>> +     /* Setup ASID allocator if available */
+> >>> +     if (use_asid_allocator) {
+> >>> +             atomic_long_set(&current_version, first_version);
+> >>>
+> >>> +             context_asid_map = kcalloc(BITS_TO_LONGS(num_asids),
+> >>> +                                sizeof(*context_asid_map), GFP_KERNEL);
+> >>> +             if (!context_asid_map)
+> >>> +                     panic("Failed to allocate bitmap for %lu ASIDs\n",
+> >>> +                           num_asids);
+> >>> +
+> >>> +             __set_bit(asid_mask, context_asid_map);
+> >>> +
+> >>> +             pr_info("ASID allocator using %lu entries\n", num_asids);
+> >>> +     } else {
+> >> If we decide not to use ASID allocator, we will need to set ASID field
+> >> to zero on *all harts* before we do our first switch_mm. Otherwise we
+> >> will end up a hart running non-zero ASID and another running zero ASID
+> >> with different page table.
+> >
+> > Yes, I saw that in your implementation but for better readability and
+> > debugability. I have preserved asid_bits that we computed and added
+> > separate use_asid_allocator flag.
+> I didn't say I'm against having use_asid_allocator.
+> >
+> > In future, I plan to show asid_bits in /proc/cpuinfo as-well.
+> >
+> >>> +             pr_info("ASID allocator disabled\n");
+> >>> +     }
+> >>> +
+> >>> +     return 0;
+> >>> +}
+> >>> +early_initcall(asids_init);
+> >>>
+> >
+> > Regards,
+> > Anup
+> >
 
 _______________________________________________
 linux-riscv mailing list
