@@ -3,59 +3,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	DKIM_VALID,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 62649C10F05
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 18:16:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A9CDC43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 19:41:27 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 30F962184C
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 18:16:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 236CB218A5
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 19:41:27 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OV1pycjx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 30F962184C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=altlinux.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lj3FnfNo";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="ojKTR1VR"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 236CB218A5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=4Q+Dng8e3au06z9mvgGDoEfhVwbSOWz6GAM3YciZyAA=; b=OV1pycjxYTaWajJOVLhUpfiUd
-	R8OZ8x3mXgmHB8m+ROE55ynKUj8I6mQeYcOgVs1h1SFHW3uNo/ESqj0Xon3nqmhB2Zfhgd6POrLUY
-	KTrwaa6CB9Uy7zg9UeUB7Pwd6M1tm6+A/5HFk/qrfdxgJF1cAsbbnFOguhyZ18fmolajaceD3DcpV
-	lE8wCsUuvVZu5/P5qYOWQ7qj/u5cxg+YFxauhHdn8BgiQSvcySu7wCO/7H/e+Qm4A4lUUO/q47NVF
-	SYLsdtWbnMs3+qKYJB0Hv6QNtt/FlLIKG+7Uye2+dS1YUGYaNZBBslXtM8oGrEXi/xHmYGc1QYMMD
-	4JyyG3CdQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TWCW6nCiIt6FZwh28/Y4Y5YklxmIZbpY+pA4JaVQxSA=; b=lj3FnfNoGtIzpS
+	2FSH01v8yP3ecAq2Stq1zaMWS6P1Tstv6agBUsp3r+9YeANdFlG5lmO6tx1hNfr5MaV6uvr9bGudg
+	ZJstyD5LZcXhnAOTVyxYuEJg8sfM/Ax5xSn8HJWdReZ9taAdYsUx73hJ5zmLfWbyJYrNJEyBig8fm
+	fFQa3IkUdDcmE5ABR06qzVNevwXD5I+dSmpgFHWidpE/tRgbwfIpluIo4YbwksU+NUYBDcBl9QQUW
+	XzW5FkBFgXQXuIL9fckYEIRZJ0PwXjklAoysUnpGJMkI9nWmrPzhRQiwU9O7qU8aATHM/9ZGdj8aS
+	nJnRmjfaUTLPLwZN0o7g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h9w3E-0004DN-E6; Fri, 29 Mar 2019 18:16:24 +0000
-Received: from vmicros1.altlinux.org ([194.107.17.57])
- by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h9w3B-0004D3-WF
- for linux-riscv@lists.infradead.org; Fri, 29 Mar 2019 18:16:23 +0000
-Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
- by vmicros1.altlinux.org (Postfix) with ESMTP id 0F77D72CCAD;
- Fri, 29 Mar 2019 21:16:20 +0300 (MSK)
-Received: by mua.local.altlinux.org (Postfix, from userid 508)
- id F1DAB7CC74C; Fri, 29 Mar 2019 21:16:19 +0300 (MSK)
-Date: Fri, 29 Mar 2019 21:16:19 +0300
-From: "Dmitry V. Levin" <ldv@altlinux.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH] riscv: fix syscall_get_arguments() and
- syscall_set_arguments()
-Message-ID: <20190329181619.GB32651@altlinux.org>
-References: <20190329171221.GA32456@altlinux.org>
- <20190329131514.3e4ec93e@gandalf.local.home>
+	id 1h9xNS-0005J0-Of; Fri, 29 Mar 2019 19:41:22 +0000
+Received: from mail.kernel.org ([198.145.29.99])
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1h9xNP-0005Ib-La
+ for linux-riscv@lists.infradead.org; Fri, 29 Mar 2019 19:41:20 +0000
+Received: from mail-qt1-f181.google.com (mail-qt1-f181.google.com
+ [209.85.160.181])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id B576C218A6
+ for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2019 19:41:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1553888478;
+ bh=IhnzjRCSQBK+vXxVogaJZrgUaYfASlIvpdvWT5VAAww=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=ojKTR1VRIuqgu0FFeOFovaM7I6vyNnlomZnRF7RFkyIFQKbfxkAJyhgei3Gag4dw6
+ 83Sc0gkcj7LVEGRqrqDnB0cAcfZCya9B5xnip0U1fY3N5rXjXfeobs5NcYDdfZpsUT
+ zyAC8m8CGrbj+PPSSTMVQwd/8lXmdGTcWNdfmzD8=
+Received: by mail-qt1-f181.google.com with SMTP id x12so3968258qts.7
+ for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2019 12:41:18 -0700 (PDT)
+X-Gm-Message-State: APjAAAXfbcRP1mRHyFlEJG0nIZqvgV9XhPgAzJ3olHGWrFQ+D3VEBbR8
+ 2dzVlcrksUnG93teDz1oP4NHVzh1Qsn+r4ekRw==
+X-Google-Smtp-Source: APXvYqzCUtNKCf26jdI194VOtmDfMhUt/+PKKdd3Jz7SKJUXM5LxDsOFFwhhEE1DizGlUh19fY+S62qZWDC9YyFbAQo=
+X-Received: by 2002:ac8:30bc:: with SMTP id v57mr42228073qta.26.1553888477975; 
+ Fri, 29 Mar 2019 12:41:17 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20190329131514.3e4ec93e@gandalf.local.home>
+References: <1552382461-13051-1-git-send-email-yash.shah@sifive.com>
+ <1552382461-13051-2-git-send-email-yash.shah@sifive.com>
+ <20190328131657.GA9056@bogus>
+ <be7246a0-2426-995d-0a24-f104c173d752@arm.com>
+ <CAL_Jsq+s77J=Bwiyow2d7Q=e+z+5d64i_cL6xaYn0xdvJDb4Vg@mail.gmail.com>
+ <20190329142739.GG21152@zn.tnic>
+In-Reply-To: <20190329142739.GG21152@zn.tnic>
+From: Rob Herring <robh@kernel.org>
+Date: Fri, 29 Mar 2019 14:41:05 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqLQ1XvQq7L=xA5Z8Y0Xa4Bmp0t2pgxn+hLF+tD=_L7Mvg@mail.gmail.com>
+Message-ID: <CAL_JsqLQ1XvQq7L=xA5Z8Y0Xa4Bmp0t2pgxn+hLF+tD=_L7Mvg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] edac: sifive: Add DT documentation for SiFive L2
+ cache Controller
+To: Borislav Petkov <bp@alien8.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190329_111622_227088_7FA847A6 
-X-CRM114-Status: UNSURE (   8.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190329_124119_739197_E9BA13FA 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -67,80 +87,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Will Drewry <wad@chromium.org>, Kees Cook <keescook@chromium.org>,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Andy Lutomirski <luto@amacapital.net>, Ingo Molnar <mingo@redhat.com>,
- Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============7445915611506121316=="
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Yash Shah <yash.shah@sifive.com>, James Morse <james.morse@arm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, linux-edac@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Mar 29, 2019 at 9:27 AM Borislav Petkov <bp@alien8.de> wrote:
+>
+> On Fri, Mar 29, 2019 at 09:11:24AM -0500, Rob Herring wrote:
+> > I honestly don't understand the issue with EDAC is here.
+>
+> The EDAC core supports only one driver and if you need to load more, you
+> need to dance around that.
+>
+> Also, if those drivers need to talk amongst each other, then they need
+> to build something ad-hoc so that they can.
+>
+> And the other architectures can very well do one driver per platform -
+> only ARM wants to do this special thing because DT said so. Or whatever.
+>
+> > Highbank is separate drivers for L2 ECC (PL310) and DDR. Both are used
+> > on highbank.
+>
+> That's because your L2 driver does allocate an edac_device
+> (edac_device_alloc_ctl_info()) and the DDR one an edac_mc
+> (edac_mc_add_mc_with_groups).
+>
+> For example, altera_edac does edac_device_alloc_ctl_info() for each IP
+> block just fine. So a single driver *can* work.
+>
+> > Only the DDR driver is used midway. (I think we never got around to
+> > how to report A15 L2 ECC errors within Linux.)
+> >
+> > In any case, it's all irrelevant to the DT binding. We don't design
+> > bindings around what some particular OS wants.
+>
+> And just because DT dictates one driver per IP block, I'm not going to
+> redesign EDAC to fit that scheme. You or someone else who feels strongly
+> about it, is more than welcome to do so, of course. And then maintain it
+> too.
 
---===============7445915611506121316==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="61jdw2sOBCFtR2d/"
-Content-Disposition: inline
+DT dictates aligning with what the h/w looks like which has little to
+do with OS driver design. I never said you should change EDAC and I
+outlined how things should be handled if it is one driver. DT and OS
+subsystems are independent things. I can't tell you how to design the
+subsystem and you can't dictate DT design (based on EDAC design).
 
-
---61jdw2sOBCFtR2d/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Mar 29, 2019 at 01:15:14PM -0400, Steven Rostedt wrote:
-> On Fri, 29 Mar 2019 20:12:21 +0300
-> "Dmitry V. Levin" <ldv@altlinux.org> wrote:
->=20
-> > RISC-V syscall arguments are located in orig_a0,a1..a5 fields
-> > of struct pt_regs.
-> >=20
-> > Due to an off-by-one bug and a bug in pointer arithmetic
-> > syscall_get_arguments() was reading s3..s7 fields instead of a1..a5.
-> > Likewise, syscall_set_arguments() was writing s3..s7 fields
-> > instead of a1..a5.
->=20
-> Should I add this to my series? And then rebase on top of it?
-
-This is fine with me.  If you are adding the fix for riscv,
-please consider adding the fix for csky, too.
-
-
---=20
-ldv
-
---61jdw2sOBCFtR2d/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIcBAEBCAAGBQJcnmDzAAoJEAVFT+BVnCUIEwoQAJFU9YuwW0jEozEhXNul4GNR
-E1aMCIPrK/9OKouxQNBkQSRgE5bnbmvvSW5UBDKmJ+kzHXSTvZ2iOV5aPkng7Svk
-eVjeBnu8pdX3uNFpZ5WHDVfs+qr7oDuBZpdmK3h1RfxA9PBtwpg/SBOBXlGwCS+J
-vYn19hxasA5hJ3bXlBP0ssiQT0hTsqmTkIfD0QWtaPJq3lRXYYHt29CoEgXE6/qv
-Ju5XS/2pSH6Lt7JJQvT9BmcE7VIJI/T91mRS7CD8UfS2wyaNDV1r3/PMx2KF+nmN
-z/4MTFYXbVHKuxn8ljg6qUWhV4lEaKXInBuIKZN/LHmiuRxgTST6EoBYZrtYjr+O
-D6KyotRxjJR703YYrZmZq90Ms/nzshgU5OAeg6mdurmC6wYaf7Sm7WdcZv97HMJ1
-FHxpy3zhtIuhif6riqolNqusOXFkhtADURXkSfNoJhiig4EWRxrcOml7+dzQN9Z1
-QoVkx79yVTFeV8VbnxhYGR0OkSgmp/DOwa0jBJDCecTBs5lmkGe0WPNd5mYhQ/jw
-0SevXWtSTbY9BEiTangFnkx1YuwyFybAHTzvgbVBoagWTbypZU3P57s+Sne5xNN/
-MZ6EVNraPEbtimzLrXjvqKXgSHCgkmhzP0u3Z4ll1JRz6qA0jL5k43wwB6842+Ss
-XhK4Wa03+nTDpzzB4P1j
-=wm1N
------END PGP SIGNATURE-----
-
---61jdw2sOBCFtR2d/--
-
-
---===============7445915611506121316==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Rob
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7445915611506121316==--
-
