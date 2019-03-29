@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-12.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 168EBC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 04:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 00DAEC4360F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 04:49:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D59422075E
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 04:44:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C39DC2183F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 04:49:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JygmdO49";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="NIiTgRY6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D59422075E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AuIyMd6q";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="hTfLdlQM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C39DC2183F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,61 +26,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qfxtKvOr8V96GVuQayFfHOLuAUB5pBf6/lorffqkhcY=; b=JygmdO49J30URK
-	uFGgsEx3Iaa0fze8TAvzko8SVwe9vvDtrllNO/XKRCzy36vfpBGtd3/UoqryAR3xOPO3QxAVwggSe
-	NustLtC/iJgEsu2byifebpQOdIzAYpc2eHl9Bzfl6ZbnqvLBrJfBmsUJldr4ZE0okOskIpbhpa+jb
-	4l7sFuKn7t1hJaRWMWJH1ETNkYElQRTKMtzFkbiSAPMW96Db8//Rs+smqTd5QBdrjl5y32imcivpQ
-	d87pSjHMw40jBH2L0p1t4Q4lcVS0Ooj9r3lcu1FuG5lFpcIBqJMGUofn76w+unEnySezvKnVEE2Zv
-	UwoPX2iT9ymv4hoCyMmA==;
+	List-Owner; bh=xHyfkUBbDOxmZ+8fTaYk+D/cnihuYYEQoY0DSXLFtxU=; b=AuIyMd6q8TeP1K
+	mo9Fdxw2YyqL2jTeVyp5S1dLF26JFRuTysLTPiPOw/9+NDx6jDOkW1eGVdPkyo6dmJhmMrgVIUPSn
+	A6MGIrtEW5peh0ni7ClAr597fvOP7fJwmk5YfHhW7/Ah+hgPgpraARq0D4o6b1JfnBdqquG2rrKYj
+	yrUmo5rjWnu0QQxAJQR4Lrl2vd9uNYnot8LFDp2ZwXRbl2a0fqTAWGeEzC+asI14drvRgyxgAG15K
+	td0Y+8Jox4qEjg54OeuUU/wPOlOnVXQu4KaCbWfhTPK/UX2cpbRl5nT2xLaVDMpE79ZzKcK0AInhQ
+	lBHYC65n4njGSV2wnJ1w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h9jNV-0003zg-FM; Fri, 29 Mar 2019 04:44:29 +0000
-Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
+	id 1h9jSY-0005Nl-IN; Fri, 29 Mar 2019 04:49:42 +0000
+Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h9jNM-0003yC-Uh
- for linux-riscv@lists.infradead.org; Fri, 29 Mar 2019 04:44:25 +0000
-Received: by mail-wr1-x443.google.com with SMTP id s15so867506wra.12
- for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2019 21:44:12 -0700 (PDT)
+ id 1h9jSU-0005Mr-R4
+ for linux-riscv@lists.infradead.org; Fri, 29 Mar 2019 04:49:41 +0000
+Received: by mail-wr1-x442.google.com with SMTP id t17so871285wrw.13
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Mar 2019 21:49:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=fwSzlHmc8IX3ds8RISvZU7PRqJbl0dx5y2sJa3kXf90=;
- b=NIiTgRY6zF2jTV9pE6V1O71q4l4DV0q3UCSzuA4DrAOgkb8ktGYpWG+SgOKTcL5fwX
- IkGnk2G31PyyKNuv28Ot8mMu6XgMoisE7yalXgtgYbiHoMPq3P6sTp2VOoyj43Ma/1bc
- N5nVr4idKnROMceMm5jhB5lmpbfgSpFR96UxyO4VN87LSL63RwWJA82ukt3JdKNf5WIX
- +Om56aTEF9PJBHubwtWOAHmoSnJkyDSBljQ77rIASSqx794TsmAA321W92mSrgzF7mPy
- BGk6xRJOLuIFxDFjUBmpiASTBXpozsaMnHvH9xItaLD/SZRH/beT+YAVjnhy91XvRB2V
- Sb1Q==
+ :cc; bh=bNwgenjg+WLwz0rY+gKjofIOdIz8CsT1IPl3S/qp/dQ=;
+ b=hTfLdlQM1eSdowGJUILKHWgL53z8YzeqX6eKeAVS2uuEzB01cXI+hrj/7pxz3RU9lA
+ 6hWtPkFKoMJrsHk83G5jKoK7IjO6CQ1BTuiM2iPl9n2/X8cMkypecHvIQ07zkuyjHD+A
+ GrmVjGs01OK34qTbDlPkOOCpFkjUFdCJd9E7zBVilmpjl5I7BoDP9hiEm5Jn0MylnafD
+ iw+5FGhU+Fie3bICRPRMNzq78kSdWe+aM7bIFYOIOVmYqcXAbwn96cnDnZ9DBI7drByT
+ 2JOvBaYBo3KSHWJ42/8MG1aCf44TjF1TTi79Rf//6AZlAHiK5MzELnRCUIzpL2o8Ifv4
+ up5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=fwSzlHmc8IX3ds8RISvZU7PRqJbl0dx5y2sJa3kXf90=;
- b=ZZtCGuP75GBMbA8bVO9udasVcrCGUzqOInjTSCW6f6d7wEGSgvnJKUqZChTlI7Ldhv
- WTwXorBIpSAA8We2di05GU4PRHC1DHFPU5QFRx7P3k5FLm3AL60q5GwJsRvVbJu76tEJ
- 4Z0xnwFntCMN0YRSrR6U1SlBP6zhjtqilvZLUtpqxEGkn5NhX/tjjNGo4X0jTYHawPLC
- FZOaDkU8e2OFshEPMrgCRyJLccAFw9/Q3yYE4g3q0wNZTCCBuF3Z/FGf6n6Mz9+F7vUF
- 0VlpehQii0z0yX6otcjbn62Beell8QTMrgF3nnHfdxoim2W+knVQRrvN+PP/C8lsZ6Za
- 4WUA==
-X-Gm-Message-State: APjAAAXH73bjNRJoisHjP9V0VwTDoQ49rhh25s3N+eoaKAraHQOWKI46
- GMdeYZbGhV0iTo5LPxmLqXWZ4O5iSPtwQjfj4D6Ygg==
-X-Google-Smtp-Source: APXvYqwGVggRG8Q5bBnlQoAHH8AtZN4bY+mh5pv9roTKv5cHO4YLLu60i5nJDIUciQUatm4zBSRyJtvMEdhjywHoWYE=
-X-Received: by 2002:a5d:5108:: with SMTP id s8mr26980874wrt.99.1553834650279; 
- Thu, 28 Mar 2019 21:44:10 -0700 (PDT)
+ bh=bNwgenjg+WLwz0rY+gKjofIOdIz8CsT1IPl3S/qp/dQ=;
+ b=IgxWWkT+GfCUCcBf8k7DNjjfov9oSY3hAVB3kbWMiIsIcnCT932L7ZNo0CwxmQD81n
+ q4C0DhwOSMhkH7ha6iGGlEvdn/1mceonE7qSROFRn+lE7P2SX6YLOXMcfKA25yDPp/+y
+ EqRfSCIpGGdWdK0IMWcP/LBXNF+9JDKoeN3qdajGNrxDApZN6+QTQ/9w6o++yl74WGBi
+ tJdXaDfwRKWiD142JwPnh1I2Y1tqNTvelHuJgbqVvDTOF6tCHdQnaQN2zf7ejdKIBlTM
+ 78HtO+AVjFefkW2K+dJAmTEJuntsTRSQN75/6OHATAIpPfN374WfwN2zjO9eG42uGnP4
+ Bqtw==
+X-Gm-Message-State: APjAAAXC2EVBE2NrjBidlPnfK7yRH3Ng1TkRp2kVeRWWox6qWsw4Sah6
+ 9q+ribsvVxTma/S1JXETetwg3A+pCrxfH2dMbgPAAw==
+X-Google-Smtp-Source: APXvYqxEQmSjjje25wg1473cnaDXus8/2/mRf4d3N9K4rp06LzqP6t7YgOpyBGjOhJvrVWX55IhRuaf/tT23bCQiCHI=
+X-Received: by 2002:a5d:4087:: with SMTP id o7mr18795026wrp.9.1553834975727;
+ Thu, 28 Mar 2019 21:49:35 -0700 (PDT)
 MIME-Version: 1.0
 References: <20190328063211.13052-1-anup.patel@wdc.com>
  <b6872ed0-4b8c-ca1d-4ee0-b01324e40da5@garyguo.net>
- <CAAhSdy0muQe23Fz2yA2VP_BTNB9h3U-z7P9TREmSf1n0yu1Xig@mail.gmail.com>
- <4f290078-54bd-62e2-6356-d700e53e6315@garyguo.net>
-In-Reply-To: <4f290078-54bd-62e2-6356-d700e53e6315@garyguo.net>
+ <CAAhSdy237HNYJmw6FV6HK2WrmOZ3Uxd0RCC3criGWRHDcN9MgA@mail.gmail.com>
+ <449f865a-f224-776a-3a5e-04c4c212e682@garyguo.net>
+In-Reply-To: <449f865a-f224-776a-3a5e-04c4c212e682@garyguo.net>
 From: Anup Patel <anup@brainfault.org>
-Date: Fri, 29 Mar 2019 10:13:58 +0530
-Message-ID: <CAAhSdy3E0CBTFFAdSB=oqn10bh=EqBqRObhcqknLMSD6BZa0WA@mail.gmail.com>
+Date: Fri, 29 Mar 2019 10:19:24 +0530
+Message-ID: <CAAhSdy35MdS5x8HakC3vU6VgN9O4FP9tMOWhYwJm8gHwCB-KFQ@mail.gmail.com>
 Subject: Re: [PATCH v2] RISC-V: Implement ASID allocator
 To: Gary Guo <gary@garyguo.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190328_214421_003431_8ADD52E5 
-X-CRM114-Status: GOOD (  39.61  )
+X-CRM114-CacheID: sfid-20190328_214938_884598_0086F065 
+X-CRM114-Status: GOOD (  33.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -103,66 +103,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 28, 2019 at 8:00 PM Gary Guo <gary@garyguo.net> wrote:
+On Thu, Mar 28, 2019 at 8:03 PM Gary Guo <gary@garyguo.net> wrote:
 >
 >
 >
-> On 28/03/2019 14:09, Anup Patel wrote:
+> On 28/03/2019 14:13, Anup Patel wrote:
 > > On Thu, Mar 28, 2019 at 7:07 PM Gary Guo <gary@garyguo.net> wrote:
 > >>
 > >> Hi Anup,
 > >>
 > >> The code still does not use ASID in TLB flush routines. Without this
 > >> added the code does not boot on systems with true ASID support.
-> >
-> > Can you elaborate why flush by ASID is need and flush_tlb_all() will
-> > not work?
->  >
-> flush_tlb_all() will work, but not flush_tlb_mm, flush_tlb_page,
-> flush_tlb_range. When we want to flush something related to a MM we need
-> to get its ASID and SFENCE with that ASID.
-
-Please don't make self contradicting statements without looking at code.
-
-The flush_tlb_all()/local_flush_tlb_all() are only suitable here.
-
-The ASID space is global across CPUs so when we run-out of ASIDs
-we have to flush complete TLB for all CPUs because we cannot be
-certain what all ASIDs where used on each CPU.
-
 > >>
 > >> We also need to consider the case of CONTEXTID overflow on 32-bit
 > >> systems. 32-bit CONTEXTID may overflow in a month time.
-> >
-> > On 32bit systems, upper 24bits of CONTEXTID will be VERSION and
-> > lower 8bits will be HW ASID.
-> >
-> > Can you elaborate how did you reach to conclusion that CONTEXID
-> > will overflow in a month time?
-> >
-> Assume a case where we have 256 processes to run, and 8 cores,
-> 2^32/(250Hz)/8 = 24 days.
-
-I think you are confusing CONTEXTID with CONTEXTID register in
-ARMv7/ARMv8 world.
-
-The CONTEXTID is a software entity that we assigne to a mmu_context
-
-It has two parts:
-1. Lower bits are ASID that we will programe in SATP CSR
-2. Upper bits is the current version number
-
-Whenever we run-out ASIDs in ASID bitmap at time of creating new
-CONTEXTID, we simply flush the complete ASID bitmap and atomically
-increment version number.
-
-The most important thing here is that version number before and after
-ASID bitmap flush should be different so that all CPU see the change
-in current version after a ASID bitmap flush.
-
-It is totally fine if the current version number rolls-over as long as we
-get different current version after ASID bitmap flush.
-
 > >>
 > >> Please all see my inline comments.
 > >>
@@ -207,9 +161,6 @@ get different current version after ASID bitmap flush.
 > >>> Signed-off-by: Gary Guo <gary@garyguo.net>
 > >> Could you add a Co-developed-by line in addition to Signed-off-by as
 > >> well? Thanks.
-> >
-> > Sure, I will add.
-> >
 > >>> Signed-off-by: Anup Patel <anup.patel@wdc.com>
 > >>> ---
 > >>> Changes since v1:
@@ -276,9 +227,6 @@ get different current version after ASID bitmap flush.
 > >>>    {
 > >>> +     atomic_long_set(&(mm)->context.id, 0);
 > >> Parenthesis around mm isn't necessary
-> >
-> > Okay, I will update.
-> >
 > >>>        return 0;
 > >>>    }
 > >>>
@@ -380,11 +328,8 @@ get different current version after ASID bitmap flush.
 > >>> +     /* Mark last ASID as used because it is used at boot-time */
 > >>> +     __set_bit(asid_mask, context_asid_map);
 > >> Looks unnecessary as we always start find_next_zero_bit from idx 1.
-> >
-> > This is to ensure that we never use last ASID >
-> Uh, sorry. I misread. But we surely can use the last ASID after the
-> first rollover?
-> >>> +} >>> +
+> >>> +}
+> >>> +
 > >>> +/* Note: must be called with context_lock held */
 > >>> +static unsigned long __new_context(struct mm_struct *mm,
 > >>> +                                bool *need_tlb_flush)
@@ -396,9 +341,6 @@ get different current version after ASID bitmap flush.
 > >>> +     if (cntx != 0) {
 > >>> +             unsigned long newcntx = ver | (cntx & ~asid_mask);
 > >> Shouldn't this be cntx & asid_mask ?
-> >
-> > Ahh, typo. Thanks for catching.
-> >
 > >>> +
 > >>> +             /*
 > >>> +              * If our current CONTEXT was active during a rollover, we
@@ -469,9 +411,6 @@ get different current version after ASID bitmap flush.
 > >> This looks hard to read. Probably
 > >> (cntx &~ asid_mask) == atomic_long_read(&current_version)
 > >> is clearer.
-> >
-> > No issues, I am fine with either way. I will update.
-> >
 > >>> +         atomic_long_cmpxchg_relaxed(&per_cpu(active_context, cpu),
 > >>> +                                     old_active_cntx, cntx))
 > >>> +             goto switch_mm_fast;
@@ -510,38 +449,6 @@ get different current version after ASID bitmap flush.
 > >> scheduler as well which also turn irqs off, so this still cause issue. I
 > >> think a better way is to force flush_tlb_all to use SBI when IRQs are
 > >> off. What do you think?
-> >
-> > We are still waiting for OpenSBI to provide complete implementation.
-> >
-> > I agree that we should prefer SBI based remote TLB flush all here. Let's
-> > wait for more comments.
-> >
-> I prefer SBI as well. Can you reopen OpenSBI issue #87 to track the
-> progress until we can proper handle race conditions in OpenSBI? Once
-> that's completed I'll drop the IPI patch and we can safely do
-> flush_tlb_all within __flush_context.
-
-I did various testing. We definetly run into kernel crash if we use
-flush_tlb_all().
-
-Based on comment about local_flush_tlb_all() used in ARM/ARM64. I dig
-throught the specs. Let me clarify to everyone, The local_flush_tlb_all() on
-ARM64 uses __tlbi(vmalle1) and flush_tlb_all() on ARM64 uses __tlbi(vmalle1is).
-The __tlbi(vmalle1) will only flush TLB for current CPU whereas
-__tlbi(vmalle1is)
-will flush TLB accross CPUs.
-
-The Linux ARM64 implementation of ASID allocator uses a lazy TLB flush
-by doing local_flush_tlb_all() on each CPU. We should also follow same
-apporach to avoid unnecessary IPI overhead at Linux-level or at OpenSBI
-level.
-
-I will use lazy TLB flush just like it was done in v1 patch.
-
-If you think lazy TLB flush will not work for your "prorietary" HW then please
-investigae further with open-mind because lazy TLB flushing is a proven
-approach in Linux ARM/ARM64 world.
-
 > >>> +}
 > >>> +
 > >>> +static void set_mm_noasid(struct mm_struct *mm)
@@ -593,9 +500,6 @@ approach in Linux ARM/ARM64 world.
 > >>> +     asid_mask = num_asids - 1;
 > >>> +     first_version = num_asids;
 > >> Is there any reason we want to have two set-once variables with same value?
-> >
-> > Yap, "first_version" looks redundant. I will update.
-> >
 > >>>
 > >>>        /*
 > >>> -      * sfence.vma after SATP write. We call it on MM context instead of
@@ -629,13 +533,37 @@ approach in Linux ARM/ARM64 world.
 > >> will end up a hart running non-zero ASID and another running zero ASID
 > >> with different page table.
 > >
-> > Yes, I saw that in your implementation but for better readability and
-> > debugability. I have preserved asid_bits that we computed and added
-> > separate use_asid_allocator flag.
-> I didn't say I'm against having use_asid_allocator.
+> > I forgot to address this one.
 > >
-> > In future, I plan to show asid_bits in /proc/cpuinfo as-well.
+> > How about using SATP_ASID_MASK as ASID when we are not
+> > using ASID allocator.
+> We can't. ASID 0 has a special meaning which means that we don't use
+> ASID. If an implementation supports ASID but it does not provide
+> sufficient bits, if we use the last ASID then it causes different harts
+> to run different MMs with the same ASID, violating the spec which states
+> non-zero ASIDs must have consistent meaning across harts.
+
+We should not use ASID #0 and always mark it as used in ASID bitmap
+just like v1 patch.
+
+The asids_init() is called only on boot CPU (or boot HART) so it is better
+to set ASID all 1s in asids_init() only to determine number of HW ASID
+bits. We should also do local_flush_tlb_all() after determining HW ASID
+bits so that TLB on boot CPU comes to sain state.
+
+This way we don't have to worrry about cleaning up TLBs of other CPUs
+when we are not going to use ASID allocator.
+
+I will update the patch accordingly.
+
 > >
+> > Unfortunately, you have hardcoded ASID #0 in your
+> > local_tlb_flush_mm(). We need a better API such as
+> > local_tlb_flush_asid().
+> >
+> Well, this is the API required by Linux. If we checkout my code or ARM's
+> code you will see that we need get the ASID within local_tlb_flush_mm
+> and flush using that ASID.
 > >>> +             pr_info("ASID allocator disabled\n");
 > >>> +     }
 > >>> +
@@ -643,10 +571,9 @@ approach in Linux ARM/ARM64 world.
 > >>> +}
 > >>> +early_initcall(asids_init);
 > >>>
-> >
-> > Regards,
-> > Anup
-> >
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
