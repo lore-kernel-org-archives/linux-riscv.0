@@ -2,22 +2,21 @@ Return-Path: <SRS0=QLKY=SA=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 08A3CC43381
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 07:08:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 139A5C43381
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 07:42:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CA19B2173C
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 07:08:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D6ECE2082F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 29 Mar 2019 07:42:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FBwb0N9g";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="h3fWBhxu"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA19B2173C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TQnaLhaT";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="FdcQOxmq"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D6ECE2082F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,62 +25,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=pXfiIRkJbz8VldSoFxv1iywbU94nu9Wy6s6xXraQJNk=; b=FBwb0N9gYPlBLowvjgQNfP4bS
-	l2ivUkV3EdUyH8tCOnPCDmOrKj1DgX61u8/G4VQVMH90Ww7U79v/NMYbRpSsLYHjf83Z9JkMVl4Ur
-	mJ9ytbO1UEDoSTqEvDJiYqe7z15vJufYwnWEeLP1nLEv3f57g+HMggHYePlTGww492aJZSICWbP+w
-	sxwTYs79zuIOGkgikZPtEQOZEuuUMkCPoWLck8TuiQGSnBUUgbfReNl9U8Jg0hmeR53XOc7Cm+JoJ
-	+CbcsIwMN3Sez1wV7HaaMEQq8ttTX1nYG0u7iN+4ojSC2ioUb+3Fl7QHUkdXWYBaX8gqQESBlYZ0m
-	iXApobUJg==;
+	 bh=Xxtwyk+wU1IYUkKqv21WbraXlygyknBCUbuz6KJh7pg=; b=TQnaLhaT3ZPKUpW/RNdcXZeWz
+	aDCgYc3W++1KixLMY3d3/M5inCf38FKBFjWeWFoenuYUE7pVIzV0avLe6EdnOMnlL6U/LtdwARX/b
+	EB3NUfFKAKPJyUpXHmh/Tzx84e6UGYgw7+YqBdVa7/2NU3pu4Hf16ZibBqNkClo90P6XZeiZadYVv
+	gqZ4ZdmniMgpkwjan4ht8pXLy51Yf1Zhda3kg5+Qm5IaLa5ISFOMKpMpb7eB2ZM8adsCnki2q+C9j
+	jNPW3iMHDbRtbQXKPVRwVg1V/3INpuF0mwH4thnYw/vlLZz5NBxjTybJMpA7UpOjQn//NZWAA/C52
+	5/WsKdyhQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1h9lcu-0005wO-Ok; Fri, 29 Mar 2019 07:08:32 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1h9m9I-0003J2-8c; Fri, 29 Mar 2019 07:42:00 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1h9lcr-0005w6-7j
- for linux-riscv@lists.infradead.org; Fri, 29 Mar 2019 07:08:30 +0000
-Received: by mail-pf1-x444.google.com with SMTP id i17so607330pfo.6
- for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2019 00:08:28 -0700 (PDT)
+ id 1h9m9E-0003Ij-Lr
+ for linux-riscv@lists.infradead.org; Fri, 29 Mar 2019 07:41:58 +0000
+Received: by mail-pg1-x544.google.com with SMTP id j26so803415pgl.5
+ for <linux-riscv@lists.infradead.org>; Fri, 29 Mar 2019 00:41:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=gfPi45QJJqhIIedzCy1HlV3AEmusPO9AnxU7G0DFItg=;
- b=h3fWBhxu4bWiy4yWklLvntlw4Mqi6SOUlJDQEI0d12m5cSYthJOFXxVrmus6jlRhhG
- PQh07+fVVy2bnmg5jKuL/KCjkwBK7wuuVKkItkGqyf9a7iZjjbKu7fBq4FGz0I+4sQSX
- +zsN/anlq2Vx4KntOjJC5sCfvqO74BOG47yFlggOukLekSJVZBL6hIQPUBp8WtcvvNDR
- +9DrNMTqEAftw25oeB9Hj55obvEwgbGycN5YptRiNXZpqQmZ+FHYH0zVa8VAPOsDPEL0
- rQz2WKXp67EgN8/Ini0msGOJcYKMIkF3T5w2UN/LITONwgBWuInIkFG1zZ9X6FqDJAYL
- efYA==
+ bh=87AKfepmg1YBU60XI47JClmDBJwrH1U9K1JCCxH1FIA=;
+ b=FdcQOxmqgkufzB+tIMV+9tIAVevjyvHuEl1tI7ZedgTO+wmgMfQoe7wxbZo0sNPYpA
+ TQuIAwzVeFx4aPtz9qcqnDGUdvtbGcC2WdF32Jcnyg1VQl0jb4V6EqbwPxMbKF+KM7/n
+ Hj9O8I5KA1aqIq4cQF3+2Xb38n9N59QwoLnren8ib6uTgGE7tmYWkGVwS4TJiXy2LrTW
+ XnNApn38hUgWy1vBFboT9VyCFBp4BXk1eFhferM84XewHAaaQHljofVmUVj7GgOtPfU1
+ t4wRUjsV/tKxBG04Tdzp0nInA2qDfE1sVeFcXqFjq/J+SVpWBz2M7aNTF/mjKDizFDwp
+ gpEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=gfPi45QJJqhIIedzCy1HlV3AEmusPO9AnxU7G0DFItg=;
- b=mdG9ssU25JYimQlP3WcVCd+K+9UZnKtc8DpuT0Akl+zr/+GU9bgIuwNTQAkwV5Zbg3
- YurGBdnR7dQ+efbkPoHguxzGt6sj7IhfsrFZ4K8iv3gnOcGS96IFDcW2qIZ/QAbuo1WL
- reUmBsFQndMAsjKpOGdSzLLwkul/cq8KjMGpKKeYoQ3kSqmhEc5H1J2iMbVi8D7/n992
- mERF+Sx12m7LQZZ/roU+GawQF9aaxAIcZE6a70sv9/boLNXpKOH4AnuR+JvIaujmkLyd
- EYzulG92VlVJYcY5oZ+bxm/ko4cNSLzmfIZnhhmgSuOrPYbC6lV6jmUpV6RMld62mCxi
- b8VQ==
-X-Gm-Message-State: APjAAAWp40L4EOTCeyECwwguVas2/WxHDcDCVhzTu1RUR1llnF+a6BWr
- tnCq8U1m3I3UsFYn1XzlVmbUgxSaM2SnHw==
-X-Google-Smtp-Source: APXvYqyLjpVx2ol8AiHQuAtuxjQyU1nSiPHyDLXOeKhkW7sV6ELDQ2W3QmY62I2gspLZWnDZbgCZCw==
-X-Received: by 2002:aa7:83ce:: with SMTP id j14mr17881639pfn.57.1553843308440; 
- Fri, 29 Mar 2019 00:08:28 -0700 (PDT)
+ bh=87AKfepmg1YBU60XI47JClmDBJwrH1U9K1JCCxH1FIA=;
+ b=sqmhz6XGCLYG6B+b0yIaIPDfCW6bBoK5g8WCT/AIZl8Z2WKwoXk47Ga8+MJZRQskA/
+ doYJB/JOPuXUAlrAY8HAj3KQaulH0cpciE5eN7QbfRHp72i78qNYtziflBSyIzTKIHM9
+ 4AT90bYqHDd0PShm2TNL/plcqcFg07CB8So6LH4f/d3i/QaJDqzKv71kEGrFPkm7OXem
+ Gv7ALSRqXZCT5RsE/+n6BXOcTRRDogBMz7uWs6YlejYJlhiKl/yyceSZlFOjJd83BXff
+ 6TYLZgr4ddeuBlevxF29pZzZ8KkDpZYUOsWwHy3KkRZcMySKwICrr3jHqqKc9704yqb8
+ eXkg==
+X-Gm-Message-State: APjAAAWMwXxhigQ/DGlL0/SDg/3Gnx3+AGK9aOwxfYLOznpfdKltK0BW
+ 6+lB6LF2cHHAmKOMtZC+FQv/mw==
+X-Google-Smtp-Source: APXvYqwmtf5zEewvs8sK1oWcllagagYPnj9wLGSYUC/XDbHLXNvIvx7rAjCRBOwTNZfs+XnT4/6u2Q==
+X-Received: by 2002:a63:c104:: with SMTP id w4mr16958115pgf.409.1553845315988; 
+ Fri, 29 Mar 2019 00:41:55 -0700 (PDT)
 Received: from localhost ([64.62.193.194])
- by smtp.gmail.com with ESMTPSA id i10sm1421927pgs.26.2019.03.29.00.08.26
+ by smtp.gmail.com with ESMTPSA id l74sm1846305pfi.174.2019.03.29.00.41.47
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 29 Mar 2019 00:08:27 -0700 (PDT)
-Date: Fri, 29 Mar 2019 00:08:27 -0700 (PDT)
-X-Google-Original-Date: Fri, 29 Mar 2019 00:08:19 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: Fix FIXMAP_TOP to avoid overlap with VMALLOC area
-In-Reply-To: <CAAhSdy2pqVS7LPfiaQzw90=kvaJDL63KbMXEiqHg_Raa_LiNxw@mail.gmail.com>
+ Fri, 29 Mar 2019 00:41:55 -0700 (PDT)
+Date: Fri, 29 Mar 2019 00:41:55 -0700 (PDT)
+X-Google-Original-Date: Fri, 29 Mar 2019 00:15:55 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: Use IS_ENABLED(CONFIG_CMODEL_MEDLOW)
+In-Reply-To: <20190308145302.GA13397@infradead.org>
 From: Palmer Dabbelt <palmer@sifive.com>
-To: anup@brainfault.org
-Message-ID: <mhng-e96d098b-3a74-4d5d-86f8-f46f2e81e5e2@palmer-si-x1c4>
+To: Christoph Hellwig <hch@infradead.org>
+Message-ID: <mhng-3944e622-92e2-433a-8965-c7b3d2de072a@palmer-si-x1c4>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190329_000829_308176_26C375DA 
-X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-CacheID: sfid-20190329_004156_779122_4AF8651E 
+X-CRM114-Status: UNSURE (   9.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -94,39 +93,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, Anup Patel <Anup.Patel@wdc.com>,
- linux-kernel@vger.kernel.org, rppt@linux.ibm.com,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: joe@perches.com, linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
+ linux-kernel@vger.kernel.org
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Mar 2019 23:50:09 PDT (-0700), anup@brainfault.org wrote:
-> Hi Palmer,
->
-> On Fri, Mar 29, 2019 at 11:48 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+On Fri, 08 Mar 2019 06:53:02 PST (-0800), Christoph Hellwig wrote:
+> On Thu, Mar 07, 2019 at 03:56:34PM -0800, Joe Perches wrote:
+>> IS_ENABLED should generally use CONFIG_ prefaced symbols and
+>> it doesn't appear as if there is a CMODEL_MEDLOW define.
 >>
->> On Fri, 22 Mar 2019 06:25:09 PDT (-0700), Christoph Hellwig wrote:
->> > Looks good,
->> >
->> > Reviewed-by: Christoph Hellwig <hch@lst.de>
->>
->> Thanks.  I've added this to my fixes list for the next RC.
+>> Signed-off-by: Joe Perches <joe@perches.com>
 >
-> I have another RC fix as well:
+> Looks good,
 >
-> "[PATCH v4] RISC-V: Always compile mm/init.c with cmodel=medany and notrace "
->
-> https://patchwork.kernel.org/patch/10870605/
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
 
-That one is already in:
-
-    https://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git/log/?h=for-linus
-
-I just didn't have time to get an actual PR together for the RC this week 
-because I didn't get a chance to properly test everything.
+Thanks.  This one is also in the list for the next RC.
 
 _______________________________________________
 linux-riscv mailing list
