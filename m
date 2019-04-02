@@ -2,103 +2,86 @@ Return-Path: <SRS0=a8/2=SE=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_MUTT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A6FD9C4360F
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2019 10:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9D0D2C4360F
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2019 16:50:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7477B2082C
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2019 10:15:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6AB962070D
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Apr 2019 16:50:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Egaz5Xxd"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7477B2082C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QOreJpFg";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="I7n5wh7p"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6AB962070D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:In-Reply-To:MIME-Version:
-	References:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EMwSijh8sAZxJGy0tLV/iv06B+j71UEJt4gsMfCB2tU=; b=Egaz5Xxd+SoLRh
-	v5JIQE6yrMyCUR/UdseowAX1BmZ58LPKDu1GJ+TOQmmYRHSzY48OIKyKv+0GkUy0BspPfGsi+oikb
-	GgDYy+RQRx85maWMOe55mX6V44AXVPZbVbfz1IMInAVbQDnE6yOQYliHJq2JDy/lGWC5DqkqoV5+3
-	WMTXOpYICCNR4vemO9MFeMZ3DcgzU5WOzd89a4tBE+59+TTtoKQ3ZoeXgiGuAVT0GeOi4wcPLso2y
-	4Wk3ckA+4/O6VZb50P7TicxgWknFmzR4nFMb+Vpizb3qr4viIn0hb9yKqQzn2Qv+nZbY7qM6TsxYt
-	ws/jtjtTgCBZnTtXzvMw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:Subject:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2hCdZ41s5Npuv692UawV27tmed7irFh2YpV87R4ejPc=; b=QOreJpFgrFWTGCPUGLjkAQVRd+
+	ZwI0yXywkvwCxrBwpZq4wJFvSUVWXq5Ib09nVbfFdjdf12HccWP5smArDNdOS+rGKCnx21Y5n8B7Z
+	RmSk+W/1Tciur0cDgU0Br2KTNqXikQR4kCt2vRugNqB0fsVCJ3a+K19MpKwDQvpck/LTasAL58TW7
+	6uLckL1whYkVDUy0bupbFa43d+ZX8/vwujahgpGYo2UNgFe9IvH3KarW+HOmC8Sp+Kj+QksaaDsfB
+	mo4z4IC38byiO5e8xHUWpGo/LhqKZuQN3s7VDb7+R1WhfW9xCqyTKOzpp6aRQx2YXAacFeq85YrLn
+	iPT8V98A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hBGRh-0003bn-GD; Tue, 02 Apr 2019 10:15:09 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1hBMc5-0000oo-0t; Tue, 02 Apr 2019 16:50:17 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hBGRd-00031b-Um
- for linux-riscv@lists.infradead.org; Tue, 02 Apr 2019 10:15:07 +0000
-Received: from pps.filterd (m0098409.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
- x32A9mvf090122
- for <linux-riscv@lists.infradead.org>; Tue, 2 Apr 2019 06:15:03 -0400
-Received: from e06smtp07.uk.ibm.com (e06smtp07.uk.ibm.com [195.75.94.103])
- by mx0a-001b2d01.pphosted.com with ESMTP id 2rm5382vru-1
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
- for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2019 06:15:03 -0400
-Received: from localhost
- by e06smtp07.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
- Violators will be prosecuted
- for <linux-riscv@lists.infradead.org> from <rppt@linux.ibm.com>;
- Tue, 2 Apr 2019 11:15:00 +0100
-Received: from b06cxnps4076.portsmouth.uk.ibm.com (9.149.109.198)
- by e06smtp07.uk.ibm.com (192.168.101.137) with IBM ESMTP SMTP Gateway:
- Authorized Use Only! Violators will be prosecuted; 
- (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
- Tue, 2 Apr 2019 11:14:58 +0100
-Received: from d06av24.portsmouth.uk.ibm.com (d06av24.portsmouth.uk.ibm.com
- [9.149.105.60])
- by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- x32AEv3W44105754
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 2 Apr 2019 10:14:57 GMT
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 4B5BA42042;
- Tue,  2 Apr 2019 10:14:57 +0000 (GMT)
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 89FDA42041;
- Tue,  2 Apr 2019 10:14:56 +0000 (GMT)
-Received: from rapoport-lnx (unknown [9.148.8.112])
- by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Tue,  2 Apr 2019 10:14:56 +0000 (GMT)
-Date: Tue, 2 Apr 2019 13:14:54 +0300
-From: Mike Rapoport <rppt@linux.ibm.com>
-To: Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH] RISC-V: Fix Maximum Physical Memory 2GiB option for
- 64bit systems
-References: <20190402055902.14017-1-anup.patel@wdc.com>
- <20190402083456.GA2153@rapoport-lnx>
- <CAAhSdy1ZFW1zAqc-7904SOse-tWKOmpY3dCHb5Xe6U6KNno_JQ@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAAhSdy1ZFW1zAqc-7904SOse-tWKOmpY3dCHb5Xe6U6KNno_JQ@mail.gmail.com>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-TM-AS-GCONF: 00
-x-cbid: 19040210-0028-0000-0000-0000035C4B7D
-X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
-x-cbparentid: 19040210-0029-0000-0000-0000241B4F3C
-Message-Id: <20190402101454.GB2153@rapoport-lnx>
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
- definitions=2019-04-02_04:, , signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501
- malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1810050000 definitions=main-1904020071
+ id 1hBMbx-0008Pa-GM
+ for linux-riscv@lists.infradead.org; Tue, 02 Apr 2019 16:50:14 +0000
+Received: by mail-pf1-x436.google.com with SMTP id c207so6667518pfc.7
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2019 09:50:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=0l0tNKaocypDC4XTUt1EgnCaFCKG2M2CChVaNtve5aA=;
+ b=I7n5wh7pJknlMkF505wzhzxSI/Rdp2vYfoe5sAJN8xNZbUItYnNSLR8qeZ+D9Wrx+X
+ TpXXgjgZgA8rjE2Cyt7r8VRb4vLmTLSkhtBvczZmhmihk2AFvt1TQ8trtmseYw/kHd3S
+ M0O6z5uRFTsmoxgRebo+WJsxc4g9tiZRF/AuJyU75p/+eR9nHnbpatzx4OH7pSlMX52b
+ BhWAjlilRkm8ODRstCNPIjK5AZtEQQVkI2U9YVYJJc2bIQoxLuMSiUmFrfNuNPgYS1jb
+ 6sCAl1uJIxDi8aCtCsJ16+kwSx2uG4UUe07wmdQ+ueYuuqB21nzDs2t+PpiaNOuySCD9
+ DKrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=0l0tNKaocypDC4XTUt1EgnCaFCKG2M2CChVaNtve5aA=;
+ b=Uv6DRYknYtPu0jIzuJEKvDcVtyHWv+THDMXpMT5dysMb5Wgy6uJBpxL+4w4/dqp1Gt
+ uiXbIoX+gCgfvg3f8x9pT3TFPffq8Mrbx4kVrNY89eYjKlQBX2ZK6QLoa10SC0wAY8GF
+ jVMgG2MEhJAor8z8tkxLc1V7pmdjap9DVmlqo6FTIEzL5eSrZF+gYPC3+ObCVgNHDgez
+ rsPY1WnktjL9H2cAusbz/t9SCt3z89qIeQKspJp3Gga3g77/88zy6aw3BXD09E2E+Pj0
+ JuQ4obBnO6jULWLZAWBeQdKSaHj2JKwJ0IPh+poeP20Kb9BoGqTFD+0q1DkJw89/RiyY
+ zkOw==
+X-Gm-Message-State: APjAAAUVxWTitW4en6HbQDmTqvA0QO7/LSCAEpqd6bmCM19QW08aNp0J
+ zLvim9gTZElwUU0B8yP7pwR2Fw==
+X-Google-Smtp-Source: APXvYqzltALzvca9jG2x0dOkPn1YTQ+GEppT5MshvkBqTCsneWqEr94bDd6sYCqL4x+cqPp6+isPdA==
+X-Received: by 2002:a65:654c:: with SMTP id a12mr20154166pgw.101.1554223807983; 
+ Tue, 02 Apr 2019 09:50:07 -0700 (PDT)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id q86sm33399678pfi.171.2019.04.02.09.50.05
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Tue, 02 Apr 2019 09:50:06 -0700 (PDT)
+Date: Tue, 02 Apr 2019 09:50:06 -0700 (PDT)
+X-Google-Original-Date: Tue, 02 Apr 2019 09:50:01 PDT (-0700)
+Subject: UNIX-Class Platform Specification Working Group
+From: Palmer Dabbelt <palmer@sifive.com>
+To: sw-dev@groups.riscv.org, hw-dev@groups.riscv.org, isa-dev@groups.riscv.org,
+ linux-riscv@lists.infradead.org
+Message-ID: <mhng-99966160-5466-4cfc-b3d8-48ad48d3dc74@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190402_031506_111902_381E2930 
-X-CRM114-Status: GOOD (  31.06  )
+X-CRM114-CacheID: sfid-20190402_095010_495263_0DB90175 
+X-CRM114-Status: UNSURE (   6.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -110,89 +93,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: Atish Patra <Atish.Patra@wdc.com>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 02, 2019 at 03:00:02PM +0530, Anup Patel wrote:
-> On Tue, Apr 2, 2019 at 2:05 PM Mike Rapoport <rppt@linux.ibm.com> wrote:
-> >
-> > On Tue, Apr 02, 2019 at 06:02:38AM +0000, Anup Patel wrote:
-> > > The Maximum Physical Memory 2GiB option for 64bit systems is currently
-> > > broken because kernel hangs at boot-time when this option is enabled
-> > > and the underlying system has more than 2GiB memory.
-> > >
-> > > This issue can be easily reproduced on SiFive Unleashed board where
-> > > we have 8GiB of memory.
-> > >
-> > > This patch fixes above issue by reserving unusable memory region in
-> > > setup_bootmem().
-> > >
-> > > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > > ---
-> > >  arch/riscv/mm/init.c | 8 ++++++++
-> > >  1 file changed, 8 insertions(+)
-> > >
-> > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > > index 5fd8c922e1c2..6b063f20a9d0 100644
-> > > --- a/arch/riscv/mm/init.c
-> > > +++ b/arch/riscv/mm/init.c
-> > > @@ -121,6 +121,14 @@ void __init setup_bootmem(void)
-> > >                        */
-> > >                       memblock_reserve(reg->base, vmlinux_end - reg->base);
-> > >                       mem_size = min(reg->size, (phys_addr_t)-PAGE_OFFSET);
-> > > +
-> > > +                     /*
-> > > +                      * Reserve from the end of usable area to the end of
-> > > +                      * region
-> > > +                      */
-> > > +                     if ((reg->base + mem_size) < end)
-> > > +                             memblock_reserve(reg->base + mem_size,
-> > > +                                              end - reg->base - mem_size);
-> >
-> > The memory above MAXPHYSMEM should not be reserved. It should be either
-> > removed from memblock with memblock_remove or not added at the first place.
-> >
-> > Frankly, I fail to understand the logic behind setting PAGE_OFFSET to
-> > MAXPHYSMEM and then using PAGE_OFFSET as the limit for accessible physical
-> > memory. Still, as it is there, you can set MAX_MEMBLOCK_ADDR=PAGE_OFFSET in
-> > arch/riscv/include/page.h and then early_init_dt_add_memory_arch() will
-> > simply ignore the memory above PAGE_OFFSET.
-> 
-> Little explanation about current code ...
-> 
-> The current code, assumes PAGE_OFFSET to have value such that
-> upper-bits are 1s lower bits are 0s.
-> For example,
-> 0xc0000000 (32bit),
-> 0xffffffff80000000 (64bit), and
-> 0xffffffe000000000 (64bit)
-> 
-> For above PAGE_OFFSET values, -PAGE_OFFSET is size of virtual
-> address space and maximum supported physical memory is also
-> -PAGE_OFFSET hence MAXPHYMEM is tied with -PAGE_OFFSET.
+Atish and I have approval from the RISC-V technical committee and board to 
+start a group to manage the UNIX-class platform specification.  This working 
+group will start by defining a subset of this platform specification that both 
+allows compatibility with existing implementations and extensibility for the 
+future needs.  The contents of this first platform specification will include:
 
-Right, but I what I don't understand is *why* PAGE_OFFSET is used as the
-maximal supported physical address.
- 
-> If we try to force some arbitrary PAGE_OFFSET then things break.
+* A versioning scheme for future versions of the UNIX-class platform 
+  specification.
+* A specification for a platform-level interrupt controller that is compatible 
+  with existing implementations of SiFive's PLIC.
+* A specification for a standard SBI that is compatible with the current 
+  implementation in Linux as well being extensible for future needs.
+* An SBI extension for CPU power management.
+* A specification of the interface between a bootloader and supervisor-mode 
+  software.
 
-Apparently they will :)
- 
-> Regards,
-> Anup
-> 
-
--- 
-Sincerely yours,
-Mike.
-
+Since this working group mostly consists of standardizing existing 
+implementations, I hope it can progress quickly.  As such, I'd like to set a 
+6-month deadline between when the working group is started (ie, today) and when 
+a specification enters the 45-day review period.
 
 _______________________________________________
 linux-riscv mailing list
