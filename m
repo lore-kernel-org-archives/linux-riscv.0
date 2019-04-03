@@ -2,72 +2,66 @@ Return-Path: <SRS0=Yzoz=SF=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 27659C4360F
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 00:32:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F2C01C4360F
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 01:04:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E883C2146E
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 00:32:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C154020830
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 01:04:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eKFCgE4H";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=lkcl.net header.i=@lkcl.net header.b="NdlgovGC"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E883C2146E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lkcl.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Q6I0crBM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C154020830
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f70yNdPQpLbWDsgA9ilRhwjoPGNqfY4P7iEqKKmpiUg=; b=eKFCgE4HRN/d3T
-	K3GrrI6fcAhmAbcaTFeF4cAJpbd7XAiHmicR+OOiPADPd44UrrYjzUrFl2aO4WbZEhmzakTXPjz6Q
-	cnTnbnjpPqIHM6QLrYl0b+qLzFZXY2Su641eWjtn8PtitdR3Sr35AZJQfGDE7FiFkSAEOeQ2UI8rZ
-	uvMEEkyBvoVhQQqngFBM7WxNbIC1JMsJnEKtEZ3gar4heo3f/PtgTHBFv8Kcw4vNPOX/6v7BtarOy
-	x88QsoISyTu2el2AFGbgM3CSeSMqjP2QF9hi7Y2U2NYGxH0AqwQ19XZfOyXW1vRCdLUSpAemY00UG
-	JfdrfhQwfba9pvwXTM2g==;
+	List-Owner; bh=fu4dUIvWKsEoc9R6rYp5jd67VQzaC37ytp1vAuf9Im8=; b=Q6I0crBMbx0HAM
+	5MTNFI2lKiOf3ggRpjrDeQnAek/Erkh3Ch10gXmz08LOCJeB+jJTWwSnx+FMfKtRUQeaYazazGlAB
+	oFyRYH7I/beFbSFOd3NmajoI0+N42a865YNfT0JE7Un0dUu45fPidNoMw4wX6PD2flmRZ9gPw3r9N
+	z3b1rX9+ly8jrSpy3t8rdsCO8jE0D2giqyUI1zc0hPfN0lmij7EnwuCC4j96Z1WSgO7XXKiB0UPm5
+	XrakSCmQ5MLb93q8W/eHqBI89XkNnXbDoec4XZGxBe2XzcgscNB3qRV88p4OQCfsTbp5VJ24TCz1L
+	43FHrnavS/KsB93fr0dQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hBTox-0003Vc-LT; Wed, 03 Apr 2019 00:32:03 +0000
-Received: from lkcl.net ([217.147.94.29])
+	id 1hBUKZ-0003aM-Re; Wed, 03 Apr 2019 01:04:43 +0000
+Received: from 59-120-53-16.hinet-ip.hinet.net ([59.120.53.16]
+ helo=ATCSQR.andestech.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hBTou-0003V7-OX
- for linux-riscv@lists.infradead.org; Wed, 03 Apr 2019 00:32:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lkcl.net;
- s=201607131; 
- h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version;
- bh=bZZBSw5YMxqd6SivUtQ9zXgXfDIFSb2fL/KshSJ8iO0=; 
- b=NdlgovGCgYKnBKKw4mxxC+Sp8zZv9WYg2OoqD2MMZKw39vuvwNl2XDsp4Pw3O23CJe9pDWpCj8qZMV/cfKYGeg5bvD02pUms5HnZhrEGmO1N17ViQlWRd1YLdAhgCrYH6xdBkpGjbpsJOi6m2kHHBhpDkfU1KV3de7E+wkIfhJs=;
-Received: from mail-lj1-f170.google.com ([209.85.208.170])
- by lkcl.net with esmtpsa (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128)
- (Exim 4.84_2) (envelope-from <lkcl@lkcl.net>) id 1hBToq-0005aW-Na
- for linux-riscv@lists.infradead.org; Wed, 03 Apr 2019 00:31:56 +0000
-Received: by mail-lj1-f170.google.com with SMTP id k8so4842259lja.8
- for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2019 17:31:41 -0700 (PDT)
-X-Gm-Message-State: APjAAAVFRDTVd2Es6Ndblcrkwr58C7H4vPWlYoc6zwXsIvK+F0XfGBbO
- VcQV8SVRg755oQXbTmEkYdH+0TLHMTupRgZYpxY=
-X-Google-Smtp-Source: APXvYqxlJcJi9wUwU+saEuffijJZneVkn5QDiumZJRvGN4E2a5eVWiIp9cshFc35f4lO4bxDg3tTV2UpXpm4HEshCX4=
-X-Received: by 2002:a2e:9a91:: with SMTP id p17mr37917618lji.127.1554251495737; 
- Tue, 02 Apr 2019 17:31:35 -0700 (PDT)
+ id 1hBUKW-0003Zv-EG
+ for linux-riscv@lists.infradead.org; Wed, 03 Apr 2019 01:04:42 +0000
+Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
+ by ATCSQR.andestech.com with ESMTP id x3313I8o091355;
+ Wed, 3 Apr 2019 09:03:18 +0800 (GMT-8)
+ (envelope-from alankao@andestech.com)
+Received: from andestech.com (10.0.15.65) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.123.3; Wed, 3 Apr 2019
+ 09:04:26 +0800
+Date: Wed, 3 Apr 2019 09:04:26 +0800
+From: Alan Kao <alankao@andestech.com>
+To: Palmer Dabbelt <palmer@sifive.com>, <laanwj@gmail.com>
+Subject: Re: Perf counters on SiFive FU540-C000
+Message-ID: <20190403010426.GA4033@andestech.com>
+References: <20190331143732.7n4b5llrkxs5nbvm@aurora.visucore.com>
+ <mhng-0cd5a4db-2499-4830-a4bf-656275714836@palmer-si-x1c4>
 MIME-Version: 1.0
-References: <mhng-99966160-5466-4cfc-b3d8-48ad48d3dc74@palmer-si-x1c4>
- <CABwTF4UW8YePYr9Ad65VSvef4-Y42VEvNUs=hPWyWcyH295zCw@mail.gmail.com>
-In-Reply-To: <CABwTF4UW8YePYr9Ad65VSvef4-Y42VEvNUs=hPWyWcyH295zCw@mail.gmail.com>
-From: Luke Kenneth Casson Leighton <lkcl@lkcl.net>
-Date: Wed, 3 Apr 2019 00:31:23 +0000
-X-Gmail-Original-Message-ID: <CAPweEDyjP7iyoyuHVOUPpJSgQzUZkx5Zc+yC2kFKjuxYELEXSQ@mail.gmail.com>
-Message-ID: <CAPweEDyjP7iyoyuHVOUPpJSgQzUZkx5Zc+yC2kFKjuxYELEXSQ@mail.gmail.com>
-Subject: Re: [hw-dev] Re: [isa-dev] UNIX-Class Platform Specification Working
- Group
-To: Gurjeet Singh <gurjeet@singh.im>
+Content-Disposition: inline
+In-Reply-To: <mhng-0cd5a4db-2499-4830-a4bf-656275714836@palmer-si-x1c4>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-Originating-IP: [10.0.15.65]
+X-DNSRBL: 
+X-MAIL: ATCSQR.andestech.com x3313I8o091355
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190402_173201_075307_E77F443D 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20190402_180440_741007_D7247CAC 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -79,64 +73,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: RISC-V ISA Dev <isa-dev@groups.riscv.org>,
- Palmer Dabbelt <palmer@sifive.com>, Atish Patra <Atish.Patra@wdc.com>,
- RISCV Software Developers <sw-dev@groups.riscv.org>,
- RISC-V HW Dev <hw-dev@groups.riscv.org>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-riscv@lists.infradead.org, nickhu@andestech.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 3, 2019 at 12:42 AM Gurjeet Singh <gurjeet@singh.im> wrote:
->
-> Not that I'm interested in participating, but just curious
-> as to how these officially approved groups work.
-> Is there a mailing list for this group?
-
- that's the question that i asked.  i had to ask it in the way that i
-did, using the words that i did, due to issues related to Trademark
-Law.
-
-> Is it open to public?
-
- it has not been made clear, hence my question.
-
-(as an aside: none of the "official" RISC-V Working Group mmailing
-lists are open access.)
-
->  How does one request to participate in these lists?
-
- again: it wasn't made clear.  if however it has been expected that
-the lists be "RISC-V Working Group Mailing lists", then  it is
-mandatory to sign the "RISC-V Membership Agreement", which prevents
-and prohibits all and any public discussion or release of information
-outside of the group without the expressed and explicit consent and
-approval of the RISC-V Foundation (Section 5).
-
- this being what our team absolutely cannot do [enter into secret
-agreements that interfere with the BUSINESS objectives], hence why i
-requested clarification.
-
-
->  How does one follow along in these conversations, that is, where are the mailing list archives for this group?
-
- again it was not stated (apologies, to palmer), so we do not know.
-
-> The list [1] seems to be for this purpose, but it is not hosted @groups.riscv.org so I'm not so sure.
-> [1]: linux-riscv@lists.infradead.org
-
-  exactly: it's not clear.  so, it needs to be made clear exactly what
-the Standards Development Process is to be, where discussion is to
-take place, and whether there are any terms or conditions required for
-participation.
-
- at that point, once it has been made clear, people will know what
-they are getting into.
-
-l.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpPbiBUdWUsIEFwciAwMiwgMjAxOSBhdCAxMDo1NzoxNEFNIC0wNzAwLCBQYWxtZXIgRGFi
+YmVsdCB3cm90ZToKPiBPbiBTdW4sIDMxIE1hciAyMDE5IDA3OjM3OjMyIFBEVCAoLTA3MDApLCBs
+YWFud2pAZ21haWwuY29tIHdyb3RlOgo+ID5IZWxsbywKPiA+Cj4gPkknbSBwbGFubmluZyBvbiBk
+b2luZyBzb21lIG9wdGltaXphdGlvbiB3b3JrIGZvciBSSVNDLVYsIHNvIEknZCBsaWtlIHRvIGFk
+ZAo+ID5wZXJmIHN1cHBvcnQgZm9yIHRoZSBwZXJmb3JtYW5jZSBjb3VudGVycyBvbiB0aGUgRlU1
+NDAtQzAwMOKAlGFzIGRlc2NyaWJlZCBpbgo+ID5TZWN0aW9uIDQuMTAgb2YgdGhlICJTaUZpdmUg
+RlU1NDAtQzAwMCBNYW51YWwiLgo+IAo+IFRoYXQgd291bGQgYmUgZ3JlYXQsIHRoYW5rcyEKPiAK
+PiA+VGhlc2UgYXJlIHZlcnkgYmFzaWM6IENTUnMgbWhwbWV2ZW50MyBhbmQgbWhwbWV2ZW50NCBj
+YW4gYmUgdXNlZCB0byBjaG9vc2UgYSBjYXRlZ29yeQo+ID4oSW5zdHJ1Y3Rpb24gQ29tbWl0IEV2
+ZW50cywgTWljcm9hcmNoaXRlY3R1cmFsIEV2ZW50cywgTWVtb3J5IFN5c3RlbSBFdmVudHMpLCB0
+aGVuCj4gPmZyb20gdGhlc2UgY2F0ZWdvcmllcyBhIGJpdG1hc2sgb2YgZXZlbnRzIGNhbiBiZSBz
+ZXQgdGhhdCB3aWxsIGluY3JlYXNlIHRoZSBhc3NvY2lhdGVkCj4gPmNvdW50ZXIgd2hlbiB0aGV5
+IGhhcHBlbi4gSSBkb24ndCB1bmRlcnN0YW5kIHRoZSByYXRpb25hbGUgZm9yIGNvdW50aW5nIG11
+bHRpcGxlCj4gPmtpbmRzIG9mIGV2ZW50cyBpbiBvbmUgcmVnaXN0ZXIsIHNvIGZyb20gd2hhdCBJ
+IHVuZGVyc3RhbmQsIHR3byBjb3VudGVycyBjYW4gYmUKPiA+c3VwcG9ydGVkIGF0IG9uY2UgaW4g
+dGhlIHBlcmYgaW50ZXJmYWNlLgo+IAo+IFRoZSBpZGVhIGhlcmUgaXMgdG8gYWxsb3cgdXNlcnMg
+dG8gaGF2ZSBkaWZmZXJlbnQgcGVyZm9ybWFuY2UgY291bnRlcgo+IGdyYW51bGFyaXRpZXMuICBG
+b3IgZXhhbXBsZSwgdXNlcnMgbWlnaHQgd2FudCB0byBjb3VudCBhbGwgcGlwZWxpbmUgZmx1c2hl
+cwo+IChtYXliZSB0aGVpciBmcmFtZXdvcmsgZGVmaW5lcyB0aGF0IGFzIGEgcG9zc2libGUgY291
+bnRlciB0eXBlKSBvciBtYXkgd2FudAo+IHRvIHNwZWNpZmljYWxseSBpbmRpY2F0ZSB3aGljaCBz
+b3J0IG9mIHBpcGVsaW5lIGZsdXNoIHNob3VsZCBiZSBjb3VudGVkLgo+IAo+ID5JIGZvdW5kIHNv
+bWUgZG9jdW1lbnRhdGlvbiBhYm91dCBwbGF0Zm9ybSBzcGVjZmljIGNvdW50ZXJzIGluIERvY3Vt
+ZW50YXRpb24vcmlzY3YvcG11LnR4dCwKPiA+aG9wZWZ1bGx5IHRoaXMgaXMgZW5vdWdoIHRvIGdl
+dCBtZSBzdGFydGVkLgo+ID4oSWYgc29tZW9uZSBzdGFydGVkIHdvcmsgb24gdGhpcywgcGxlYXNl
+IGxldCBtZSBrbm93KQo+IAo+IFNvbWVvbmUgZnJvbSBBbmRlcyBoYWQgcGF0Y2hlcyBvdXQgdG8g
+YWRkIHN1cHBvcnQgZm9yIHRoZWlyIHBlcmZvcm1hbmNlCj4gY291bnRlcnMgYSB3aGlsZSBhZ28u
+ICBUaGUgaXNzdWUgdGhlcmUgd2FzIHRoYXQgdGhlIHBlcmZvcm1hbmNlIGNvdW50ZXIKPiBpbXBs
+ZW1lbnRhdGlvbiB3YXMgY2hvc2VuIGF0IGNvbXBpbGUgdGltZSwgYnV0IGl0IHNob3VsZCByZWFs
+bHkgYmUgZGV0ZWN0ZWQKPiBhdCBydW4gdGltZSB2aWEgc29tZSBwbGF0Zm9ybS1zcGVjaWZpYyBt
+ZWNoYW5pc20gKGllLCBkZXZpY2UgdHJlZSkuCgpQTVUgZGV0ZWN0aW9uIHdhcyBvbmUgb2YgdGhl
+IHByb2JsZW1zLCBhbmQgc2hvdWxkIGhhdmUgYmVlbiBzb2x2ZWQgaW4gcHJldmlvdXMKcGF0Y2hl
+cy4gIEZvciB0aGUgcmVzdCBvZiB0aGUgcHJvYmxlbXMsIERvY3VtZW50YXRpb24vcmlzY3YvcG11
+LnR4dCBzaG91bGQKc2VydmUgYXMgYSBnb29kIGd1aWRlLgoKPiBBc2lkZSBmcm9tIHRoYXQgSSB0
+aGluayB0aGUgb25seSBpc3N1ZSB3YXMgaG93IHRvIGV4cG9zZSB0aGVzZSB0byB1c2Vyc3BhY2UK
+PiBpbiBhIHNhbmUgZmFzaGlvbiwgd2hpY2ggaXMgc29tZXRoaW5nIEkgdGhvdWdodCB3b3VsZCBi
+ZSBxdWl0ZSB0cmlja3kuICBJSVJDCj4gc29tZW9uZSBtYW5hZ2VkIHRvIGNvbnZpbmNlIG1lIHRo
+YXQgdGhlcmUgd2FzIGEgcmVhbGx5IHNpbXBsZSBzY2hlbWUgZm9yCj4gZG9pbmcgdGhpcywgYnV0
+IEkgZG9uJ3QgcmVtZW1iZXIgd2hhdCBpdCB3YXMuCgpUaGUgY29ycmVzcG9uZGluZyB1c2Vyc3Bh
+Y2UgdG9vbCBpcyBpbiB0b29scy9wZXJmLiAgT25jZSBvbmUgZmluaXNoZXMgdGhlIGtlcm5lbApw
+YXJ0LCB0aGUgd29yayBsZWZ0IGZvciB1c2Vyc3BhY2UgcGVyZiB3aWxsIGJlIHRoZSBzeW1ib2xp
+emF0aW9uIG9mIFBNVSByYXcKZXZlbnRzLiAgVGhlIHByZWxpbWluYXJ5IHBhdGNoIHN1cHBvcnRz
+IGNvbW1vbiBjb3VudGVycyBvbmx5LCBzbyBJIGJlbGlldmUgdGhpcwp3aWxsIGJlIHRoZSBmaXJz
+dCBwbGF0Zm9ybS1zcGVjaWZpYyBQTVUgaW4gUklTQy1WLgoKQWxhbgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
