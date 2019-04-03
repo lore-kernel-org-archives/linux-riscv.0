@@ -2,74 +2,90 @@ Return-Path: <SRS0=Yzoz=SF=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D28C8C4360F
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 04:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 80A03C10F0B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 08:42:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9A7B720882
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 04:49:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4F6C820830
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 08:42:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="k3LEP5HC";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=lkcl.net header.i=@lkcl.net header.b="UfkepF8D"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9A7B720882
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lkcl.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="L4UjBRMP";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="UTlaWO4A"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4F6C820830
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=41J9xXsrpfsaeyvMDFZ3ej2SDRWqGQb3tx0SkGEbldQ=; b=k3LEP5HCFg9OTc
-	ukehoh5v0Fp2NHu/IYYBjX9c9LKtLGoJB83WQebRoOweZpc6E3+5wouTc0KdOfSbdMcU6Uze4wxVl
-	ULUnUYWNHD91Di+IIfTn7o2seArRVXq1U2c5ZKIqWqF1+W7Cirk/oo0Q4cIKlDkznF12kwee918eo
-	I7MHRyctPRtbmfho8GjMJ8l7r6Bt4dqipYnVbRzAs2RoFJI9yL03ijFVz8cGuc+knS8WNrUO7PGZE
-	5JUsuM0E7LtaGaoGCglJBa5SQXkN5luu6WGG8V1RNHtQ8wAZrkgLyC4C+OA+byD6jTAO6aJDsZB5u
-	j3PjlhH/gXNOZlHTUj2Q==;
+	List-Owner; bh=fuPtwLyHASjO/ePYXAOQGiY7AXTomtiqu5lEqWASbU0=; b=L4UjBRMPJLZJKO
+	vpMrBMuFdosKv+KBawCgdcgYJVET8pvTngnASiQPpmU65hP8fD1dLFyHm/GRxo41WivfAm+TL0gFb
+	OVmWSAalMWNwkAKvh2lKgElPfwpWDR27I8nnFVouB/ChsmjPNXbpw1RpJrEavzgyyT2NxBx4Dsan9
+	3CYLLiL3k9QMOUxqg1VP2aX3eOAVuDQzL1tI7nTHWC+uPJHzEV2YrEKDHMH7V7NnFFbPzMixQr+MB
+	iBODCeS7LmGnaWgJfmW8HR0Z4KX/ep4xfaikXpmFQL/yH+fObKC1QX9JdIoP0D1xKcdAAfSovsveV
+	YAR8PgWvtV1gfYf6GOlg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hBXpu-0002ml-Sf; Wed, 03 Apr 2019 04:49:18 +0000
-Received: from lkcl.net ([217.147.94.29])
+	id 1hBbTo-0002IM-CO; Wed, 03 Apr 2019 08:42:44 +0000
+Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hBXps-0002mU-H4
- for linux-riscv@lists.infradead.org; Wed, 03 Apr 2019 04:49:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lkcl.net;
- s=201607131; 
- h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version;
- bh=J2yPnwpo1zaHuUEejvXXUjfEb0WLmg+jPFitP8npvZM=; 
- b=UfkepF8DjynlVJCy+Yqz/OtVtW9v+AiDoryz6DO+7Y4WF1gFlC/Mee+HOT0LnHxEfbws3rQqMKOJqvQh8jrc3OFGGSGh1Gp0IdclLUCb+aN8cw1aEoWWZhDBAZg0fCf2lb/208hNRu8IDctrNG+sf7FOc4eXa1DvTVjaso9Zl6w=;
-Received: from mail-lf1-f53.google.com ([209.85.167.53])
- by lkcl.net with esmtpsa (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128)
- (Exim 4.84_2) (envelope-from <lkcl@lkcl.net>) id 1hBXpo-0006pi-C3
- for linux-riscv@lists.infradead.org; Wed, 03 Apr 2019 04:49:12 +0000
-Received: by mail-lf1-f53.google.com with SMTP id d18so10657964lfn.3
- for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2019 21:48:56 -0700 (PDT)
-X-Gm-Message-State: APjAAAV4sVPthpdfQetOmuDdMprqNKRIVXAbfbL69qtY6bWcPMhqH5d9
- Vme8V2UjVpvumNRUwJ2PrMO3Uq9fC8ebk4cf1+Y=
-X-Google-Smtp-Source: APXvYqxS4N3IUG6PpWr/UoAMiYMPGhAvgDYZeld0Ard0rlLhyoJFlLHFvfec955nWlsjPJWBRQrSqCkT4juEI+iNL28=
-X-Received: by 2002:ac2:5921:: with SMTP id v1mr26059179lfi.135.1554266931464; 
- Tue, 02 Apr 2019 21:48:51 -0700 (PDT)
+ id 1hBbTm-0002Hl-Bb
+ for linux-riscv@lists.infradead.org; Wed, 03 Apr 2019 08:42:43 +0000
+Received: by mail-ed1-x541.google.com with SMTP id h22so14121374edw.7
+ for <linux-riscv@lists.infradead.org>; Wed, 03 Apr 2019 01:42:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=pth6qptnAtFOPebmz8ODuSRzZqriahS5jo5kFD2VjBc=;
+ b=UTlaWO4AnRyZ61tglPEf0x4eU9QSZFjKaPwrlqu38jjSNiowmPWQZT36gqaYNlooE6
+ agc4N6q79bUevo2oXHnWj1XooG4skOJt7IvA15PGGeNHpvQDMJWnm8oDvml4sr8hza52
+ cDPjE8HNU2PNwhQvD7gh7uZxZJrrG3qtk/Wr1nXtRDjC7ZcLI6yiU1a7dsyDOZCrNI/B
+ XVmdSv3xB8L0ChFhUY170qzlfTmD5aYq9PfwYAFUsvRqWVDxnqXRmlZAJnXyPoXtbBgZ
+ GQnwxkPrJ6GLTMT4M6LYBIuwR8Wlb1PJZujWRDqlwdSqYuhZrLj7MR5zV6ZZ39JCD+L5
+ Eh5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=pth6qptnAtFOPebmz8ODuSRzZqriahS5jo5kFD2VjBc=;
+ b=M/R6lWIQHeRs1WOOfE/WKIysXUhlT5RSN3nekZUTVvjmLw0vtv4OWUDZlWsZNAKNly
+ R0WBGqHbrhtUW6ojo2tY6t0pKu45MmBmdYVdyNf83Q48wolvwZysb14kvuEnI8uk6Mlt
+ 4QEOeYqQE8Hnq1E18Wt9KZEGJnmXF0JjLRjujD972XNrxNfcSQtIsqSC1quDSPOApetE
+ X8dVC8C4ds1sMM2WTcK8KEcF6HyhL2HjVZ9CdZtNGJ2xV3IW28fv2ZL6Q4GMe/GMC6O3
+ zv0o4TfCD74WvTwzXUoQ7AXFrD06H+tQZ96gdNL2cEJ67gNDyldkIdw0usjYliKFgjc1
+ XH8A==
+X-Gm-Message-State: APjAAAW+pUadIU/CqviOev0D2SXR/hp/anDu+wmWdLTJVymDQ0fEUeV8
+ O02mdThfMDks3wp0R9b38E8=
+X-Google-Smtp-Source: APXvYqytCii3JINU/JUxMWPXOKAiBYAoy6QpCKmpM82dq0S1KLPDaO34F86BsPiQ0Ps4MyKPxh+ebA==
+X-Received: by 2002:a50:d591:: with SMTP id v17mr42821623edi.180.1554280960373; 
+ Wed, 03 Apr 2019 01:42:40 -0700 (PDT)
+Received: from aurora.visucore.com (92-110-144-95.cable.dynamic.v4.ziggo.nl.
+ [92.110.144.95])
+ by smtp.gmail.com with ESMTPSA id p18sm2877402ejm.4.2019.04.03.01.42.39
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Wed, 03 Apr 2019 01:42:39 -0700 (PDT)
+Date: Wed, 3 Apr 2019 10:42:37 +0200
+From: "Wladimir J. van der Laan" <laanwj@gmail.com>
+To: Alan Kao <alankao@andestech.com>
+Subject: Re: Perf counters on SiFive FU540-C000
+Message-ID: <20190403084237.qygtfnefppdr3vtj@aurora.visucore.com>
+References: <20190331143732.7n4b5llrkxs5nbvm@aurora.visucore.com>
+ <mhng-0cd5a4db-2499-4830-a4bf-656275714836@palmer-si-x1c4>
+ <20190403010426.GA4033@andestech.com>
 MIME-Version: 1.0
-References: <CAPweEDyjP7iyoyuHVOUPpJSgQzUZkx5Zc+yC2kFKjuxYELEXSQ@mail.gmail.com>
- <mhng-a66e2566-0146-4da6-bb93-15d7feb0c1b5@palmer-si-x1c4>
- <CAPweEDy-fDPZ5JO-iMPucigpQ45PH81n-v5sQhh1bpvrsnnYtA@mail.gmail.com>
-In-Reply-To: <CAPweEDy-fDPZ5JO-iMPucigpQ45PH81n-v5sQhh1bpvrsnnYtA@mail.gmail.com>
-From: Luke Kenneth Casson Leighton <lkcl@lkcl.net>
-Date: Wed, 3 Apr 2019 04:48:39 +0000
-X-Gmail-Original-Message-ID: <CAPweEDx=FDQ6QQjB2z41YOdk4jQ5RLY=BFAsA9Oi5wRozVF2Hg@mail.gmail.com>
-Message-ID: <CAPweEDx=FDQ6QQjB2z41YOdk4jQ5RLY=BFAsA9Oi5wRozVF2Hg@mail.gmail.com>
-Subject: Re: [hw-dev] Re: [isa-dev] UNIX-Class Platform Specification Working
- Group
-To: Palmer Dabbelt <palmer@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <20190403010426.GA4033@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190402_214916_843803_8467A938 
-X-CRM114-Status: UNSURE (   4.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190403_014242_392829_A67A4172 
+X-CRM114-Status: GOOD (  21.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -81,34 +97,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rick O'Connor <rickoco@riscv.org>,
- RISC-V ISA Dev <isa-dev@groups.riscv.org>, Gurjeet Singh <gurjeet@singh.im>,
- Atish Patra <Atish.Patra@wdc.com>, RISC-V SW Dev <sw-dev@groups.riscv.org>,
- RISC-V HW Dev <hw-dev@groups.riscv.org>, linux-riscv@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>,
+ nickhu@andestech.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-https://entertainment.slashdot.org/story/19/04/02/218226/justice-department-warns-academy-about-changing-oscar-rules-to-exclude-streaming#comments
+Hello,
 
-that's interesting.  i was not previously aware of "Section 1 of the
-Sherman Act".
+Thanks Alan and Palmer for the input!
 
-Delrahim cited Section 1 of the Sherman Act that "prohibits
-anticompetitive agreements among competitors." "Accordingly,
-agreements among competitors to exclude new competitors can violate
-the antitrust laws when their purpose or effect is to impede
-competition by goods or services that consumers purchase and enjoy but
-which threaten the profits of incumbent firms," Delrahim wrote.
+On Wed, Apr 03, 2019 at 09:04:26AM +0800, Alan Kao wrote:
 
-i wonder therefore if "deciding the standard RISC-V arrangement was
-the best fit for this group as well" - excluding us from that
-decision-making process constitutes a violation of the Sherman Act,
-given that "profits of incumbent firms are threatened", and
-"competition by goods that consumers purchase is impeded"?
+> > >These are very basic: CSRs mhpmevent3 and mhpmevent4 can be used to choose a category
+> > >(Instruction Commit Events, Microarchitectural Events, Memory System Events), then
+> > >from these categories a bitmask of events can be set that will increase the associated
+> > >counter when they happen. I don't understand the rationale for counting multiple
+> > >kinds of events in one register, so from what I understand, two counters can be
+> > >supported at once in the perf interface.
+> > 
+> > The idea here is to allow users to have different performance counter
+> > granularities.  For example, users might want to count all pipeline flushes
+> > (maybe their framework defines that as a possible counter type) or may want
+> > to specifically indicate which sort of pipeline flush should be counted.
 
-l.
+I didn't realize some of them were conceptually hierarchical, seen in that light
+it makes a lot of sense and it's a good way of being able to count at various levels.
+
+> > >I found some documentation about platform specfic counters in Documentation/riscv/pmu.txt,
+> > >hopefully this is enough to get me started.
+> > >(If someone started work on this, please let me know)
+> > 
+> > Someone from Andes had patches out to add support for their performance
+> > counters a while ago.  The issue there was that the performance counter
+> > implementation was chosen at compile time, but it should really be detected
+> > at run time via some platform-specific mechanism (ie, device tree).
+> 
+> PMU detection was one of the problems, and should have been solved in previous
+> patches.  For the rest of the problems, Documentation/riscv/pmu.txt should
+> serve as a good guide.
+
+Looking at the device tree (for 'sifive,fu540g' compatibility?) seems, to me,
+to be the right answer here.
+
+It'd be possible to really-detect by configuring a specific event type then
+running that instruction and looking at the counters, but that seems
+unnecessary.
+
+> > Aside from that I think the only issue was how to expose these to userspace
+> > in a sane fashion, which is something I thought would be quite tricky.  IIRC
+> > someone managed to convince me that there was a really simple scheme for
+> > doing this, but I don't remember what it was.
+> 
+> The corresponding userspace tool is in tools/perf.  Once one finishes the kernel
+> part, the work left for userspace perf will be the symbolization of PMU raw
+> events.  The preliminary patch supports common counters only, so I believe this
+> will be the first platform-specific PMU in RISC-V.
+
+Right-the user-space interface would be 'perf', the idea would be to make that
+work for all the counters so that 'perf top' and profiling work for them.
+
+So it seems to me that on the kernel side, apart from the setup and allocation
+logic, that these platform-specific counters can be handled in the same way as
+`mcycle` and `minstret` are, they're also simple counters without overrun
+notification logic or other fancy features.
+
+Also with the same limitation that they cannot be written to from the kernel
+in S-mode, so need to keep track of deltas.
+
+Speaking of which, can the kernel write to the selectors? Oh crap I guess not.
+
+Wladimir
 
 _______________________________________________
 linux-riscv mailing list
