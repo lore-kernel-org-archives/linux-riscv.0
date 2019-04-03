@@ -6,17 +6,17 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DDDCAC10F0B
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 01:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5700CC10F00
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 01:53:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AD7842084C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 01:53:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2362C2084C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 01:53:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="O4IoQpMT";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="nEp2Hm9u"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AD7842084C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nAZTWlBO";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="bOzKdDFt"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2362C2084C
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,62 +25,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=N8F8SlWtycl4yFumtUwq8a5XwMcEyBjsEpJK5bGhwRU=; b=O4IoQpMTA1t7duyyOap35AnLd
-	WEGapJ55bpGH1SKqEyp5G+skVbWlYWbE1xlf9/VVHFCPl7f6AwhN4EeSjO81g/hitzZeahZ+ICvdd
-	A+vS2SPhJKDTS3GftUk+hiXUxUvaZd9YR6rDkmaSz2FaMliQ6mNwZ8H/nF0ufA/TWpQotrIKOiLm/
-	VqLhaTg3AUTxqkPfqel6WvzmLegBvgrdxaq6Ccwsdeoj1VLk+WTZMwTJzmQQAsb6BB/2/tDE4yA0y
-	7zZIEPBz3bZDg92pfTU7vleX7CKz5BNsZxRnN8szq6y7WhALV6U0uDMQyp6JnWmaG8bGuikjCuiFZ
-	VoJhG7+4Q==;
+	 bh=78L8cTJnibO7SrImBZzj3vZPyB9IgNuhlYrFUxPOY7Q=; b=nAZTWlBORPXwvT3ZfSdKes1nV
+	Cp1W75Y/IbDOrXw6YCGsBpFdRpLOXqljLRTh/OJjmCFb59eIkhEn7/j1kc2fJz65jSvxrsIArPW0+
+	PLfD0VlmQ+UQoMCnN3MSSYWfTLyB/F8wgXSD40lnMi3lfWjJNSzVmjZKG8mNC0aUCETFKv341c6XN
+	TvtoY0dXgA3IbchiPgwEnyVqEqAONwbp72KMvkqlhQbD6QT4LKH/gkUqlU9dT/38gYMEmfAUiM/8a
+	p3WZ3CCULZvBPe4ijUb8hco+Qc2GM3/v/UoN0cpGsfsV/WJx/vsk3AH30YhhBVdbym8oZKMMS0Zbl
+	TT/t3dDug==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hBV5t-0005zB-Lb; Wed, 03 Apr 2019 01:53:37 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1hBV5v-00061P-A1; Wed, 03 Apr 2019 01:53:39 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hBV5q-0005xf-R5
- for linux-riscv@lists.infradead.org; Wed, 03 Apr 2019 01:53:36 +0000
-Received: by mail-pg1-x544.google.com with SMTP id e6so3102400pgc.4
- for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2019 18:53:34 -0700 (PDT)
+ id 1hBV5s-0005xz-Kb
+ for linux-riscv@lists.infradead.org; Wed, 03 Apr 2019 01:53:38 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id w23so4244241ply.4
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Apr 2019 18:53:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=trp0vJARAQ2aoSsmBEowdwLAiqNSl6nTGbDKprAgFw0=;
- b=nEp2Hm9uLJv4UnbJYeQVM1vP73YQ0pvM0fwA4fUjCKuG9pacBOBxIpLIvCeWy9kRDh
- 42cC/y16zI/ZebtfpTrVCqFiDa7ZwIQRBr7BiqJ8Zwqd5oTQ2NvC7jaWdf/RfAMcv+0m
- dpj4HTcXQ2m/DwvXmIqFQkkC3w5ghvMk0uIV4g9D3G2Hn+QWdjFC4jqWUSlpZAbXqztw
- Bvf38K6Gpmh+dlHTndZT0sRuGOrnjKJ0vRUpiboPbOKL/gcENphMCYjUulffvyajK7nd
- TOd+b27NMOR2Ef2yXRUsSSSykRCVwwHs+bksP33DKMjjDDbMveyuu4Lg//qfMpw/yc9P
- Ye1w==
+ bh=3CznAXgbWAy8cet+DPIfCAt6imohkshG50j1bnfx7Zo=;
+ b=bOzKdDFtYgsbKJVvzus2QoUU1PS4a+IYHkwKuPcUzrfn/3r07tSsc5DqrJyO2qjFJL
+ GPLkIpZZXyfZmHyCroKG+VHblcaKUpPeCunJzl51Pt/YVfpfkDWO6LKOzSRZntieKouK
+ 1eKTak1yLk0nE2KcaW2HrvXvnkO7VXEMNYnN6rQhIDiLx32s/M3BFrEEi/fGmQ4cuMUE
+ TFhXNCBnKje/QBqYbU5rANCxFp57WKhgoE9UZVkRJo42X1onRV98FkGqcUPFcEitFoml
+ IENJdm8YFhZWdYIp3QIdiuHiZsemseWtQVAFhZ6U+YWT4LWEiQxFNNrYOMHMNDBxspA1
+ fYTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=trp0vJARAQ2aoSsmBEowdwLAiqNSl6nTGbDKprAgFw0=;
- b=Gly4zeEICmmGNOk6I0hJIAMr9lIN2OVMNja/lMEk2fdr6mO/udE6lydVHX1FB6Jj8L
- 0mMkX+GwjnrtlLmkvOQ310GlFIWeyT2SBj9RIf/2HS++IFh7qyPas9Y2XEUwmFkCYCtc
- NFyVqRpluLd7KaDWLBza3KB7fy/DDM02g7NTb0BBoBdOlRE0PjITK8PAoj3qUXJxJNm1
- JOyH6FGALRcOz0k3gzN9E404ftDxYN/ZZm3HPJEcRr4kV2vHwUtt98aO+ZFwrYxojLCx
- Zu6NpKpyprbJNtTdbellshp9Dd3Nbz2GEL1M2rHtjxWgKbVXRRIYzhvy91n/7OjP1U0k
- X1YQ==
-X-Gm-Message-State: APjAAAU9jMJRyhgC54lfJOwtCskbKJiDGwpSmwMzXb9BhEsRnlFnrDgV
- KdSl8qoWa7U1DBn2sAIg5qZpKA==
-X-Google-Smtp-Source: APXvYqyAvnkNlP12L7x47crHIBpQZlAklZ6kqjUtLmOzuYQZ8pBOWmaA/SxAa3g2rHpQA1jI39sfDg==
-X-Received: by 2002:a65:6105:: with SMTP id z5mr40248087pgu.378.1554256414068; 
- Tue, 02 Apr 2019 18:53:34 -0700 (PDT)
+ bh=3CznAXgbWAy8cet+DPIfCAt6imohkshG50j1bnfx7Zo=;
+ b=eZXf7hqCfBYfFW50Q43L/Ka8MX6O5xbpqqhqduUNNXsWjVvGi4VHXcNTLswv0RdhsR
+ Xf7AE6UYodDICdxS2r89R5i6FDajhN1lTTnHWzXMtMSkAkC++T2AS7h60AEWdEgAX+p6
+ QYujj9unZAQ+FUdVRy+uAmXZR7kCHtfY5uF9hh3zI5WcB/f0b2/yaOrhwZtjnE38cpWW
+ Yljxl6dusWVPJ1Vv5AfSpvdAtabOkstxn+CHygCu0PBuSt9lPvGbjJU0j8nfPzM9lG2M
+ C+f3HFE7OoNcR2GbnY1wUn9+5a5Z/x5Pg7i9Lz1ip1/2k/7QIg07Q4Hrtu9q7U/GjsfN
+ ZnQg==
+X-Gm-Message-State: APjAAAWhu3VuhdblKHY0rrzs5ObqXO40JkktepfnwlYDPMKN2YC/hp+l
+ FU6XzwvzrJT/t9RzXGEmtscNNQ==
+X-Google-Smtp-Source: APXvYqyJwAW11dBevL9nFWrtXpPOxFqoMdk66yOigfneCn5W65PphSw02it84ToHKE4hegXf3UqTuA==
+X-Received: by 2002:a17:902:16a4:: with SMTP id
+ h33mr37484105plh.23.1554256415667; 
+ Tue, 02 Apr 2019 18:53:35 -0700 (PDT)
 Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id i126sm21350488pfc.101.2019.04.02.18.53.33
+ by smtp.gmail.com with ESMTPSA id t190sm24650141pfb.33.2019.04.02.18.53.34
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 02 Apr 2019 18:53:33 -0700 (PDT)
-Date: Tue, 02 Apr 2019 18:53:33 -0700 (PDT)
-X-Google-Original-Date: Tue, 02 Apr 2019 17:04:31 PDT (-0700)
+ Tue, 02 Apr 2019 18:53:34 -0700 (PDT)
+Date: Tue, 02 Apr 2019 18:53:34 -0700 (PDT)
+X-Google-Original-Date: Tue, 02 Apr 2019 18:25:36 PDT (-0700)
 Subject: Re: [isa-dev] UNIX-Class Platform Specification Working Group
-In-Reply-To: <CAPweEDz=JB2knNXthiKVL7QC5dxNrUf_GGmmEquT0UEo9WLs_Q@mail.gmail.com>
+In-Reply-To: <CABwTF4UW8YePYr9Ad65VSvef4-Y42VEvNUs=hPWyWcyH295zCw@mail.gmail.com>
 From: Palmer Dabbelt <palmer@sifive.com>
-To: lkcl@lkcl.net
-Message-ID: <mhng-08d84bd4-efcf-4459-954b-5a14c0946d86@palmer-si-x1c4>
+To: gurjeet@singh.im
+Message-ID: <mhng-0d3fa726-2ae0-44d4-9024-9c321c466e50@palmer-si-x1c4>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190402_185334_997607_462EC765 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20190402_185336_856824_E4C7E11D 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,62 +93,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: isa-dev@groups.riscv.org, Atish Patra <Atish.Patra@wdc.com>,
- delisvhdl@gmail.com, sw-dev@groups.riscv.org, hw-dev@groups.riscv.org,
- linux-riscv@lists.infradead.org
+Cc: Atish Patra <Atish.Patra@wdc.com>, linux-riscv@lists.infradead.org,
+ sw-dev@groups.riscv.org, isa-dev@groups.riscv.org, hw-dev@groups.riscv.org
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 02 Apr 2019 11:59:04 PDT (-0700), lkcl@lkcl.net wrote:
-> On Wednesday, April 3, 2019, Bert <delisvhdl@gmail.com> wrote:
->
-> It would be horrible if it is about "standardizing existing
->> implementations",
->>
->>
->>
-> The PLIC was one of the first key strategic parts of hardware that needed
-> heavy interdependence on software, particularly the linux kernel.
->
-> Without an interrupt controller, you don't have a modern processor.  So the
-> PLIC was designed out of necessity, and SiFive should be respected for
-> taking the initiative.
->
-> Since its creation the PLIC has wide de-facto adoption, with several
-> independent implementations, many of them in actual silicon.
->
-> For example, Richard Herveille, an independent Open Hardware designer, has
-> made available a libre licenced PLIC.
->
-> For example, the Shakti Design by IIT Madras University, which had working
-> silicon last year, and they have several more designs in development which
-> would be extremely costly to start changing.
->
-> Whilst the PLIC (a global interrupt controller) is pretty much de-facto
-> already a standard, the CLIC (a per-core-local interrupt controller) is
-> nowhere near the same level of adoption, so its inclusion in a first
-> iteration would not be wise.
->
-> That having been said, you are right in that backwards retrofitting of
-> standards to preexisting (incompatible) implementations is a rubber stamp
-> recipe for interoperability disaster. Look at the quotes specialisation
-> quotes in IEEE754 NaN arithmetic as a good example.
->
-> Biting the bullet and saying "sorry guys, you jumped the gun, you should
-> have discussed the required changes publicly, that you didn't do so, you're
-> on your own" is better than having permanent incompatibility that requires
-> indefinite support in upstream source code for multiple implementations.
->
-> That having been said I do not believe that any such incompatibilities
-> actually exist, so the issue is moot.
+On Tue, 02 Apr 2019 16:42:30 PDT (-0700), gurjeet@singh.im wrote:
+> Not that I'm interested in participating, but just curious as to how these
+> officially approved groups work. Is there a mailing list for this group? Is
+> it open to public? How does one request to participate in these lists? How
+> does one follow along in these conversations, that is, where are the
+> mailing list archives for this group?
 
-That's a big part of the reason we want the PLIC as a RISC-V standard and not a 
-SiFive standard -- if there's an incompatibility it's probably due to an 
-ambiguity in the spec, and having a RISC-V standard means we can pick the 
-answer that makes the most sense rather than just picking whatever SiFive has 
-done.
+There is (or will soon be) an internal RISC-V foundation mailing list.  You 
+sign up for it via your RISC-V foundation account -- I've never quite figured 
+out how to use that, mostly because Arun handles it for me.
+
+The tool is called workspace, which lives here: 
+http://workspace.riscv.org/higherlogic/ws/public .  If you're a RISC-V member 
+then you should be able to log in.  I can't find the platform spec group, 
+though, so I may be screwing something up...
+
+> The list [1] seems to be for this purpose, but it is not hosted @
+> groups.riscv.org so I'm not so sure.
+>
+> [1]: linux-riscv@lists.infradead.org
+
+That's the Linux kernel mailing list for RISC-V.  It's CC'd here because users 
+on it may be interested in the platform specification, but it's not the 
+platform specification mailing list.
+
+>
+> Best regards,
+>
+> On Tue, Apr 2, 2019 at 9:50 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+>
+>> Atish and I have approval from the RISC-V technical committee and board to
+>> start a group to manage the UNIX-class platform specification.  This
+>> working
+>> group will start by defining a subset of this platform specification that
+>> both
+>> allows compatibility with existing implementations and extensibility for
+>> the
+>> future needs.  The contents of this first platform specification will
+>> include:
+>>
+>> * A versioning scheme for future versions of the UNIX-class platform
+>>   specification.
+>> * A specification for a platform-level interrupt controller that is
+>> compatible
+>>   with existing implementations of SiFive's PLIC.
+>> * A specification for a standard SBI that is compatible with the current
+>>   implementation in Linux as well being extensible for future needs.
+>> * An SBI extension for CPU power management.
+>> * A specification of the interface between a bootloader and
+>> supervisor-mode
+>>   software.
+>>
+>> Since this working group mostly consists of standardizing existing
+>> implementations, I hope it can progress quickly.  As such, I'd like to set
+>> a
+>> 6-month deadline between when the working group is started (ie, today) and
+>> when
+>> a specification enters the 45-day review period.
+>>
+>> --
+>> You received this message because you are subscribed to the Google Groups
+>> "RISC-V ISA Dev" group.
+>> To unsubscribe from this group and stop receiving emails from it, send an
+>> email to isa-dev+unsubscribe@groups.riscv.org.
+>> To post to this group, send email to isa-dev@groups.riscv.org.
+>> Visit this group at
+>> https://groups.google.com/a/groups.riscv.org/group/isa-dev/.
+>> To view this discussion on the web visit
+>> https://groups.google.com/a/groups.riscv.org/d/msgid/isa-dev/mhng-99966160-5466-4cfc-b3d8-48ad48d3dc74%40palmer-si-x1c4
+>> .
+>>
 
 _______________________________________________
 linux-riscv mailing list
