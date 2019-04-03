@@ -2,86 +2,111 @@ Return-Path: <SRS0=Yzoz=SF=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3AA40C4360F
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 22:15:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AAFA5C4360F
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 22:52:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 088E620882
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 22:15:18 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 783252075D
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Apr 2019 22:52:18 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ma9c6ObH";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="IZ/vvga5"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 088E620882
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DUEL1kGf";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=wavesemi.onmicrosoft.com header.i=@wavesemi.onmicrosoft.com header.b="Jh7aiZ4c"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 783252075D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=mips.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=kMKm+aExZOCxsmorIfZsJq8edR9OtR8k/hz800O0XLY=; b=ma9c6ObH/9xITG4b4T+VSEWAA
-	OqUg6P6aE4xTgIZp5TKDNekdkMiHmo5h73o6LMRu0ZUcDwyak5PssZJn5Z56P6QkfpcWsJvW0+bvG
-	DutnEEAFsWxeFaygZv3Cu19SYYKe0xWjOCZanx5UguYPuu9AD+sfOKDUHr8vhiudJhn8lqDrMFN6x
-	/Pxk5dE6KKxka/uVVCsa8bYg0fZNVKkZH32gJ2Spww6V/h7mJowlCgEIxQjQnz/wmh/4XzXp6rkRd
-	6tmt6y8Uk0VsknJRG3HEEd09+P+MVRuObqEYZy3pGfd5fEr/V9AXtRQlBHoTSdX78DqWtJMUpvjh2
-	rot8RGABg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=e+ch8GdxxbkXjRXGMhSg3XjL7nfDH6G7cHT2RPD5JFQ=; b=DUEL1kGfOdfTgi
+	45A79ipbwZU9wq+GKtVNV6tQEM4whtJersy4Au1u+UPH8ZIJhB4dlxKjDHZHLx5lff/dMZZ1LCuNH
+	7xRRDb8HTC1Fj/FvGEQFDkoHX62hCXfIz6rhU4nQ3tiLYysPphRMg+3OFzh7maVnP8aSdgwR5AwvZ
+	MhYWYNVbRCmaZokO2xneTpM368DfSAZaMPazSs9qSltl69ehg4oi8uU9oGM8qRW3lt8+pCpKvSKKv
+	Lqz0Gt5r11LdtN/0EtvQa+yZsNpGlKD3EoFQ+pEYnB/9zYkDS+wjKneEIspm3/6vDiPZ8RBbHeKSu
+	04whzzsZUdnYNHfI3s2Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hBoA4-0007S8-Tb; Wed, 03 Apr 2019 22:15:12 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1hBoju-0002KX-UF; Wed, 03 Apr 2019 22:52:14 +0000
+Received: from mail-co1nam04on0729.outbound.protection.outlook.com
+ ([2a01:111:f400:fe4d::729]
+ helo=NAM04-CO1-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hBoA2-0007RV-2T
- for linux-riscv@lists.infradead.org; Wed, 03 Apr 2019 22:15:11 +0000
-Received: by mail-pl1-x643.google.com with SMTP id b65so94310plb.6
- for <linux-riscv@lists.infradead.org>; Wed, 03 Apr 2019 15:15:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=DApy93OdJFdJQPMDsyodmK57dUGxr2Ry2WE7/EY1cmk=;
- b=IZ/vvga5RVtDVHSBXWwXH31Ghm6BHKOH+y4S4249Vho0B7ZdZcjepLqi05qULniw+9
- DotYXNWCmHiEivByQwMjTEA7UPvdDyMC4280y6/DIgeS0IbNT5a9wl/ul17RpBOmWf/V
- u+K1Ld2jELDMpIl6S1BQ7Fd+aDfPcMIz9jv8DzBzEUDsfwRK0h2AnAyFFC5eLgnbdeC+
- J+Zt0EGR+L8VQK/ZbwDOUPzaoNfVX3Ykio+Sh6JCqqwHFDWgWEJm9Fj1xqz4RTULIJSq
- IVF5EvPvWDm8lUmE2qNvywyGePeJruA+9hK3hwouXeTC6HuEIvfuqvIqJMYTuQE61CvW
- 949g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=DApy93OdJFdJQPMDsyodmK57dUGxr2Ry2WE7/EY1cmk=;
- b=BfZcFgBmbWgmBnxnKOv0rUppbrTPzOPZm5ZwPu79WBNxVesdLPQxrUx8aSZAqLsyi0
- JGAvwk0xe+AtDoFQ0XnksC+9jgWZiSZAJCx0LVKCZXW6fHJSfjBJb37FGJ8Pwq4Cr/xH
- rfhA7aoXhMKw3I8wVSCj0t6NPBTgd383x9MNin10t8e8dLSfvm4CNvZhNzzOWw/zVhx1
- EB2/7Cmij2BLgykf13jrx9q3Iv346jgVP9EUwMj8yzvSuQ45O8TiMvgqVDpPIL37BqRE
- l/LTGi642eh/U4VL/2HCHNlUtT5CNRBQZw3WRJTPSnxy6NZadp3nV2Z0wMoYKanhnRRJ
- OhjA==
-X-Gm-Message-State: APjAAAW1G5xBwpSmDqeQHZb8Fdt+QJQs4sf4eZGnv1T9pVNv/IFKrDuW
- Vu+nfc5CXIsGAiTWB4TEEVnYBFWgp5vXdQ==
-X-Google-Smtp-Source: APXvYqxhAtUofjYLlF6kPjy6VeiBQFBKrXhTpSQIrCm0lmW6zXu4fo8psFu2D2HwZV1br7cUGKkA+g==
-X-Received: by 2002:a17:902:be18:: with SMTP id
- r24mr2496338pls.69.1554329708566; 
- Wed, 03 Apr 2019 15:15:08 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id y15sm1353223pfo.22.2019.04.03.15.15.07
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 03 Apr 2019 15:15:07 -0700 (PDT)
-Date: Wed, 03 Apr 2019 15:15:07 -0700 (PDT)
-X-Google-Original-Date: Wed, 03 Apr 2019 15:02:14 PDT (-0700)
-Subject: Re: Perf counters on SiFive FU540-C000
-In-Reply-To: <20190403084237.qygtfnefppdr3vtj@aurora.visucore.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: laanwj@gmail.com
-Message-ID: <mhng-7a027b6e-7c9e-47be-bb20-4414b4734663@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ id 1hBojj-0002Ch-Ow; Wed, 03 Apr 2019 22:52:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=wavesemi.onmicrosoft.com; s=selector1-wavecomp-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=48CSLD+3H6IfiAlQmIjLMGeA8ey37rhCUmwzu0OhZ98=;
+ b=Jh7aiZ4ccmvOIT/zz2NYbzF2zvB0h/i/GaHu4C67deKJ0gfeq54GPU3x5R9dVazWw9Bx9aLPZiMx8c37aXwyoMFp10OT+4EkGi+rLZ6tEoyGlW+yV8iTt4YMJN+A/PT4/HcjAKiiVnYht1iXhzuVHduVSAddqPjNTUHt7SIFwPE=
+Received: from MWHPR2201MB1277.namprd22.prod.outlook.com (10.174.162.17) by
+ MWHPR2201MB1581.namprd22.prod.outlook.com (10.174.167.30) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.1750.16; Wed, 3 Apr 2019 22:51:57 +0000
+Received: from MWHPR2201MB1277.namprd22.prod.outlook.com
+ ([fe80::b9d6:bf19:ec58:2765]) by MWHPR2201MB1277.namprd22.prod.outlook.com
+ ([fe80::b9d6:bf19:ec58:2765%6]) with mapi id 15.20.1750.017; Wed, 3 Apr 2019
+ 22:51:57 +0000
+From: Paul Burton <paul.burton@mips.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Subject: Re: [PATCH 5/6 v3] syscalls: Remove start and number from
+ syscall_get_arguments() args
+Thread-Topic: [PATCH 5/6 v3] syscalls: Remove start and number from
+ syscall_get_arguments() args
+Thread-Index: AQHU6JENRdUQHD2V6UStclirymCe56YrDoSA
+Date: Wed, 3 Apr 2019 22:51:56 +0000
+Message-ID: <20190403225151.s5suxxmu6b2c4svt@pburton-laptop>
+References: <20190401134104.676620247@goodmis.org>
+ <20190401134421.278590567@goodmis.org>
+In-Reply-To: <20190401134421.278590567@goodmis.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-clientproxiedby: BYAPR11CA0099.namprd11.prod.outlook.com
+ (2603:10b6:a03:f4::40) To MWHPR2201MB1277.namprd22.prod.outlook.com
+ (2603:10b6:301:24::17)
+user-agent: NeoMutt/20180716
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=pburton@wavecomp.com; 
+x-ms-exchange-messagesentrepresentingtype: 1
+x-originating-ip: [67.207.99.198]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 2d0bc1b3-4a1a-4e3a-212a-08d6b886f8d2
+x-microsoft-antispam: BCL:0; PCL:0;
+ RULEID:(2390118)(7020095)(4652040)(8989299)(5600139)(711020)(4605104)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(2017052603328)(7193020);
+ SRVR:MWHPR2201MB1581; 
+x-ms-traffictypediagnostic: MWHPR2201MB1581:
+x-ms-exchange-purlcount: 1
+x-microsoft-antispam-prvs: <MWHPR2201MB1581F396BFB8DE3952D0BB66C1570@MWHPR2201MB1581.namprd22.prod.outlook.com>
+x-forefront-prvs: 0996D1900D
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10019020)(7916004)(376002)(396003)(136003)(39840400004)(366004)(346002)(189003)(199004)(76176011)(3846002)(8936002)(102836004)(6506007)(26005)(42882007)(99286004)(486006)(11346002)(66066001)(58126008)(44832011)(446003)(966005)(6512007)(52116002)(54906003)(6916009)(476003)(97736004)(305945005)(6436002)(256004)(71190400001)(71200400001)(14454004)(316002)(6246003)(6306002)(1076003)(53936002)(33716001)(7416002)(81156014)(386003)(6116002)(68736007)(81166006)(7736002)(186003)(106356001)(2906002)(7406005)(229853002)(6486002)(5660300002)(25786009)(105586002)(9686003)(8676002)(478600001)(4326008);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:MWHPR2201MB1581;
+ H:MWHPR2201MB1277.namprd22.prod.outlook.com; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; MX:1; A:1; 
+received-spf: None (protection.outlook.com: wavecomp.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: pjMl+TNtDiGvNZn/Hxh0vmvCkU1X2ClaeQnAUFviiSsuR+dTqfcci2ed3vv9t9O9HYH3b0zBDvemfKcFwD0+ouivIArkdZ9uz6E1wV4F8Dv+Pqhg/HSipwf6pDH4BdmU5mkHOLOM6PnOIROz0N7k5mSW9zmn4TpSi0hPwDitXdIxekZfuC84dnQgJexjuURdz6KoqA05RYzyVxpLUHQnYn+KQRFGTLlYYLnUft+XfwPbv0+cqhJXvYb4pssMIThEAz7I7rt4aMMAYqJnbFccuWkaLrSARvSly6UJmGhvv5bF9KKrRbOPcFViwKIteicQmj5Rl7LEbk4Dx2qYWgRt4aGFGCKseirhmZHC5ZSlD3iOdr/j1YVKCrveG/ci/a8IOPqk+qBsY8qe/mqa3MO1ADuzzAuwVBurVSX1cOaCvhc=
+Content-ID: <1E78680F2A383A49931E90A79241CAA3@namprd22.prod.outlook.com>
+MIME-Version: 1.0
+X-OriginatorOrg: mips.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2d0bc1b3-4a1a-4e3a-212a-08d6b886f8d2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Apr 2019 22:51:56.5618 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 463607d3-1db3-40a0-8a29-970c56230104
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR2201MB1581
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190403_151510_146634_6B0D323A 
-X-CRM114-Status: GOOD (  25.65  )
+X-CRM114-CacheID: sfid-20190403_155203_858872_DCB62643 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,86 +118,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, nickhu@andestech.com,
- alankao@andestech.com
+Cc: "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
+ "Gustavo A. R. Silva" <gustavo@embeddedor.com>,
+ Peter Zijlstra <peterz@infradead.org>, Palmer Dabbelt <palmer@sifive.com>,
+ Dominik Brodowski <linux@dominikbrodowski.net>,
+ Oleg Nesterov <oleg@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Ingo Molnar <mingo@kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+ "linux-c6x-dev@linux-c6x.org" <linux-c6x-dev@linux-c6x.org>,
+ "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
+ "linux-hexagon@vger.kernel.org" <linux-hexagon@vger.kernel.org>,
+ "x86@kernel.org" <x86@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
+ Dave Martin <dave.martin@arm.com>, "uclinux-h8-devel@lists.sourceforge.jp"
+ <uclinux-h8-devel@lists.sourceforge.jp>,
+ "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>,
+ Kees Cook <keescook@chromium.org>, Roland McGrath <roland@hack.frob.com>,
+ "linux-um@lists.infradead.org" <linux-um@lists.infradead.org>,
+ "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+ "openrisc@lists.librecores.org" <openrisc@lists.librecores.org>,
+ Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, "Dmitry V. Levin" <ldv@altlinux.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Andy Lutomirski <luto@amacapital.net>,
+ "Eric W. Biederman" <ebiederm@xmission.com>,
+ "nios2-dev@lists.rocketboards.org" <nios2-dev@lists.rocketboards.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 03 Apr 2019 01:42:37 PDT (-0700), laanwj@gmail.com wrote:
-> Hello,
->
-> Thanks Alan and Palmer for the input!
->
-> On Wed, Apr 03, 2019 at 09:04:26AM +0800, Alan Kao wrote:
->
->> > >These are very basic: CSRs mhpmevent3 and mhpmevent4 can be used to choose a category
->> > >(Instruction Commit Events, Microarchitectural Events, Memory System Events), then
->> > >from these categories a bitmask of events can be set that will increase the associated
->> > >counter when they happen. I don't understand the rationale for counting multiple
->> > >kinds of events in one register, so from what I understand, two counters can be
->> > >supported at once in the perf interface.
->> >
->> > The idea here is to allow users to have different performance counter
->> > granularities.  For example, users might want to count all pipeline flushes
->> > (maybe their framework defines that as a possible counter type) or may want
->> > to specifically indicate which sort of pipeline flush should be counted.
->
-> I didn't realize some of them were conceptually hierarchical, seen in that light
-> it makes a lot of sense and it's a good way of being able to count at various levels.
->
->> > >I found some documentation about platform specfic counters in Documentation/riscv/pmu.txt,
->> > >hopefully this is enough to get me started.
->> > >(If someone started work on this, please let me know)
->> >
->> > Someone from Andes had patches out to add support for their performance
->> > counters a while ago.  The issue there was that the performance counter
->> > implementation was chosen at compile time, but it should really be detected
->> > at run time via some platform-specific mechanism (ie, device tree).
->>
->> PMU detection was one of the problems, and should have been solved in previous
->> patches.  For the rest of the problems, Documentation/riscv/pmu.txt should
->> serve as a good guide.
->
-> Looking at the device tree (for 'sifive,fu540g' compatibility?) seems, to me,
-> to be the right answer here.
->
-> It'd be possible to really-detect by configuring a specific event type then
-> running that instruction and looking at the counters, but that seems
-> unnecessary.
+Hi Steven,
 
-Ya, that seems crazy.  I think sticking something in the device tree is the 
-right way to go.  For now I suppose just looking at the compat string on the 
-CPU node should be fine, like you mentioned above, but we'll probably end up 
-with a lot of those so coming up with a better scheme makes sense to me.
+On Mon, Apr 01, 2019 at 09:41:09AM -0400, Steven Rostedt wrote:
+> From: "Steven Rostedt (Red Hat)" <rostedt@goodmis.org>
+> 
+> At Linux Plumbers, Andy Lutomirski approached me and pointed out that the
+> function call syscall_get_arguments() implemented in x86 was horribly
+> written and not optimized for the standard case of passing in 0 and 6 for
+> the starting index and the number of system calls to get. When looking at
+> all the users of this function, I discovered that all instances pass in only
+> 0 and 6 for these arguments. Instead of having this function handle
+> different cases that are never used, simply rewrite it to return the first 6
+> arguments of a system call.
+> 
+> This should help out the performance of tracing system calls by ptrace,
+> ftrace and perf.
+> 
+> Link: http://lkml.kernel.org/r/20161107213233.754809394@goodmis.org
+> 
+> Cc: Oleg Nesterov <oleg@redhat.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Kees Cook <keescook@chromium.org>
+> Cc: Andy Lutomirski <luto@amacapital.net>
+> Cc: Dominik Brodowski <linux@dominikbrodowski.net>
+> Cc: Dave Martin <dave.martin@arm.com>
+> Cc: "Dmitry V. Levin" <ldv@altlinux.org>
+> Cc: x86@kernel.org
+> Cc: linux-snps-arc@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-c6x-dev@linux-c6x.org
+> Cc: uclinux-h8-devel@lists.sourceforge.jp
+> Cc: linux-hexagon@vger.kernel.org
+> Cc: linux-ia64@vger.kernel.org
+> Cc: linux-mips@vger.kernel.org
+> Cc: nios2-dev@lists.rocketboards.org
+> Cc: openrisc@lists.librecores.org
+> Cc: linux-parisc@vger.kernel.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-s390@vger.kernel.org
+> Cc: linux-sh@vger.kernel.org
+> Cc: sparclinux@vger.kernel.org
+> Cc: linux-um@lists.infradead.org
+> Cc: linux-xtensa@linux-xtensa.org
+> Cc: linux-arch@vger.kernel.org
+> Reported-by: Andy Lutomirski <luto@amacapital.net>
+> Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
 
->> > Aside from that I think the only issue was how to expose these to userspace
->> > in a sane fashion, which is something I thought would be quite tricky.  IIRC
->> > someone managed to convince me that there was a really simple scheme for
->> > doing this, but I don't remember what it was.
->>
->> The corresponding userspace tool is in tools/perf.  Once one finishes the kernel
->> part, the work left for userspace perf will be the symbolization of PMU raw
->> events.  The preliminary patch supports common counters only, so I believe this
->> will be the first platform-specific PMU in RISC-V.
->
-> Right-the user-space interface would be 'perf', the idea would be to make that
-> work for all the counters so that 'perf top' and profiling work for them.
->
-> So it seems to me that on the kernel side, apart from the setup and allocation
-> logic, that these platform-specific counters can be handled in the same way as
-> `mcycle` and `minstret` are, they're also simple counters without overrun
-> notification logic or other fancy features.
->
-> Also with the same limitation that they cannot be written to from the kernel
-> in S-mode, so need to keep track of deltas.
->
-> Speaking of which, can the kernel write to the selectors? Oh crap I guess not.
+Acked-by: Paul Burton <paul.burton@mips.com> # MIPS parts
 
-IIRC there's a mechanism for delegating the counters such that they can be 
-written from S-mode (or maybe even U-mode?).  It should be in the ISA manual, 
-but if you can't find it LMK.
+Thanks,
+    Paul
 
 _______________________________________________
 linux-riscv mailing list
