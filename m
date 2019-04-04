@@ -6,16 +6,16 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 71825C4360F
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2019 07:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2B576C4360F
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2019 07:54:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 40C4220674
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2019 07:54:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EF07320674
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  4 Apr 2019 07:54:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rB7trlCG"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 40C4220674
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nPW21MQg"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EF07320674
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linutronix.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,31 +24,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oEzw+NizNK7c8I+HZAXgKu0sCsWQUzr4dSlwcAsyZbg=; b=rB7trlCGs5EZ4B
-	f8z48km0zUIsUQQcMlSXjumvVR9iaK+cz0wZ6Jh4EkwDfqQRURXI7kLiGbBkZT9R4DRSdGn8uCZoQ
-	38eBaHxzFU2wiPP+xpHO0w242dj0qZfMFJ+LQp4VKEjmeWkchcPfssXcfhAbb9cbWrCZh8w+Lrbgl
-	dx60oJWUGoQVEtSJEv7IDsU9w1NudZzjLuUe6zcmbXIPHTrTSy13HHW/+eGn3VhO9W5N2pb4cNNTy
-	RECW68TObzApLDSjFQgSgY7GMhrw/FWUX40gMGnsyKpPUaFUZzSVYZS6bjUl1qMzDE6wUQBoQQj6V
-	XgyXvleEBC2m+FVRhYUQ==;
+	List-Owner; bh=Zjd1eKIAj5fYk8TcQ/gNuj8T3J5jLW3NoYnk67iI8fs=; b=nPW21MQg2kzl1P
+	HlLw8d4FI/cmPyPCmk7i3L2zVJHvXqfVHyMdio/WTFxja2YZE+6i2/u/ucyTrtuGV7RyFIWCDrTAX
+	iZn34L/1hbVrBTtlcm0jx17ZiyF/JqBXTOBfsnF0S14qQQoRARmRZW+uCxmnDLY/Tlu+n46at7M51
+	EVY3PZeNLbrGk4quOpKbxN61qvWVUnHA0ZYofp/OGnSPxwMc8lA7Kc2jDnjrBIcEZttgRGGHgFY4k
+	pkzBoI25plus0nDlNvyB5Sg+YTXT7hFEUOwadNe2v0j11ye9c7e35LJ0DxV3gYMlUiu0kApG5qN+o
+	YQE+TtOWGl/cMq76i6xA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hBxCD-0004S0-3f; Thu, 04 Apr 2019 07:54:01 +0000
+	id 1hBxCU-0004nO-1Q; Thu, 04 Apr 2019 07:54:18 +0000
 Received: from galois.linutronix.de ([2a01:7a0:2:106d:700::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hBxC3-0004Hq-F4; Thu, 04 Apr 2019 07:53:53 +0000
+ id 1hBxCA-0004Nj-K0; Thu, 04 Apr 2019 07:54:03 +0000
 Received: from p5492e2fc.dip0.t-ipconnect.de ([84.146.226.252] helo=nanos)
  by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
  (Exim 4.80) (envelope-from <tglx@linutronix.de>)
- id 1hBxBB-0000UO-Aj; Thu, 04 Apr 2019 09:52:57 +0200
-Date: Thu, 4 Apr 2019 09:52:56 +0200 (CEST)
+ id 1hBxBV-0000WH-Bj; Thu, 04 Apr 2019 09:53:17 +0200
+Date: Thu, 4 Apr 2019 09:53:16 +0200 (CEST)
 From: Thomas Gleixner <tglx@linutronix.de>
 To: Steven Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH 5/6 v3] syscalls: Remove start and number from
- syscall_get_arguments() args
-In-Reply-To: <20190401134421.278590567@goodmis.org>
-Message-ID: <alpine.DEB.2.21.1904040952280.1833@nanos.tec.linutronix.de>
+Subject: Re: [PATCH 6/6 v3] syscalls: Remove start and number from
+ syscall_set_arguments() args
+In-Reply-To: <20190401134421.442323029@goodmis.org>
+Message-ID: <alpine.DEB.2.21.1904040953040.1833@nanos.tec.linutronix.de>
 References: <20190401134104.676620247@goodmis.org>
- <20190401134421.278590567@goodmis.org>
+ <20190401134421.442323029@goodmis.org>
 User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
 X-Linutronix-Spam-Score: -1.0
@@ -56,8 +56,8 @@ X-Linutronix-Spam-Level: -
 X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required, ALL_TRUSTED=-1,
  SHORTCIRCUIT=-0.0001
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190404_005351_642029_2E5A4B69 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20190404_005359_681371_91B06300 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,21 +96,15 @@ Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.i
 
 On Mon, 1 Apr 2019, Steven Rostedt wrote:
 
-> From: "Steven Rostedt (Red Hat)" <rostedt@goodmis.org>
+> From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 > 
-> At Linux Plumbers, Andy Lutomirski approached me and pointed out that the
-> function call syscall_get_arguments() implemented in x86 was horribly
-> written and not optimized for the standard case of passing in 0 and 6 for
-> the starting index and the number of system calls to get. When looking at
-> all the users of this function, I discovered that all instances pass in only
-> 0 and 6 for these arguments. Instead of having this function handle
-> different cases that are never used, simply rewrite it to return the first 6
-> arguments of a system call.
+> After removing the start and count arguments of syscall_get_arguments() it
+> seems reasonable to remove them from syscall_set_arguments(). Note, as of
+> today, there are no users of syscall_set_arguments(). But we are told that
+> there will be soon. But for now, at least make it consistent with
+> syscall_get_arguments().
 > 
-> This should help out the performance of tracing system calls by ptrace,
-> ftrace and perf.
-> 
-> Link: http://lkml.kernel.org/r/20161107213233.754809394@goodmis.org
+> Link: http://lkml.kernel.org/r/20190327222014.GA32540@altlinux.org
 
 For x86:
 
