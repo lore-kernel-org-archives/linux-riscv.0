@@ -1,91 +1,124 @@
-Return-Path: <SRS0=QxaH=SI=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=ACrE=SJ=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_PASS,
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AA6C1C282DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  6 Apr 2019 23:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 89CC0C10F0E
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2019 07:36:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 77F3E2133F
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  6 Apr 2019 23:14:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4E63221738
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2019 07:36:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Y0Wo/cDe";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="N0n5AeeB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 77F3E2133F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="m7FElzu7";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ffQ1Kg4l";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="g0AvTar5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4E63221738
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nq7zil1E3b6XLAw9mEZt7bcvo7ZVKzO4ZpO7Q/idMxg=; b=Y0Wo/cDe/9ozD3
-	DMT7S3B1gpQag5+Mkrd4su7Qm02pEHdZqhgz6fGphFCBhN4P0AXJRIl6pVKogD0M9Z8diCah2MgT1
-	5HKkDcCVHR9AJJuMdjlTElJ0dSms/GFyu9Lf6/C/e0q5+lvkdQFREOtSm2iargmW8Fk7gu2ZhuMTv
-	WQcOYM53UAPd7IrxGJ1M1kboh0ItwKssjKD3plziSX3A0yFJC8l/HhfyA3GTQZgjCGqRn4ad0u1Ou
-	U9CmYX5RnnsSp/TnsNrSPNGog3EMbVFy2qZ3/ATFN5YLb3tsznDcajrgMTQz/7p0zzXfNCnNyhnrm
-	McnV6Bde5QRmo3h98Dkg==;
+	List-Owner; bh=4pnsJNpVf1rUdvbaNQaopx/i7Nc1dF4j9HrF5DJfwH0=; b=m7FElzu7BHnB3M
+	43Y9mW/i+WpuH4Du+rLKgZ4xmJJ4FC07ErHiIJonsh5gJQFjAnbBXXXKoSlL6cH+ktsGZa5pnY4Oa
+	xsvrgW3n6mRSENB12KBe5e6nnTlNM8c9LL7dtCZNIbUUhoIV+r/iCyvho6lW7O6WIGHkDZeQ8kDAV
+	TwWBsMl/EInWhZI8kGFfP7wolg+ZhC6ZNLJNmZlmczGhmzbozZpKY2aGen8kWVmKpG3mmnkB77Y+y
+	QvEbDoHGch5vicNeiP5CLeFy1/NeGjVKhTBm3LOhY9CzVtA+KGlYiuelQNPlBKN0h3tNHuBDdJdoR
+	8qHnmLccmvIL+SdNVtdQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hCuWF-0005xX-0G; Sat, 06 Apr 2019 23:14:39 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1hD2M1-00015U-LI; Sun, 07 Apr 2019 07:36:37 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hCuWC-0005xB-Fw
- for linux-riscv@lists.infradead.org; Sat, 06 Apr 2019 23:14:37 +0000
-Received: by mail-pf1-x443.google.com with SMTP id 9so5335609pfj.13
- for <linux-riscv@lists.infradead.org>; Sat, 06 Apr 2019 16:14:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:cc:subject:in-reply-to:message-id:references
- :user-agent:mime-version;
- bh=frF4c8dwjqAtQm7fNwHrFIJU5kbbeArN1OCV7ETeQ+A=;
- b=N0n5AeeBuyZPmfGfR4IqRd2JgNdFPd3TBiW8TqLcNt1h5vrST8rVGoeSgx9M4PGCYs
- IOFifl0SCGXtoCemErLvpr08zc8LBcB1esrj0gzX497N8tn/lXlT/TP4QmCCce+3xynH
- m7vaQ8maDu3Q3C+JsCzVNBW4zT7EMlStDEVqGp4ndd99Hg69Xl0hxC4qrwz2i/q+pSRN
- k5kmy8hv7orsO+SQ3RPTlLE5cV+Wd0Rht96GMP0xCq7S2ur10ZzX0K0/p3KRTb6Pnce6
- yLCAPp9+UyIOBzrPjk186+0V2nYL5wwvjB20/3Ac1cjFL/WxSucF0Rld+2Cpec2pEOwB
- cKEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
- :references:user-agent:mime-version;
- bh=frF4c8dwjqAtQm7fNwHrFIJU5kbbeArN1OCV7ETeQ+A=;
- b=U597rnj2jDo5v4hxKP6QkKrdD0timIjTPpI7gfOEniPyaqNBEnOlIvcVoIaZCLuZ6X
- enl5ZJElv86pcrH+jAYeDn3p8TQLMdlTlrPgDYRqFPGr4mpC+UozJyzhHpJ4+U5TeOse
- CdNxpBumGB5ZWNfqcaRSAKpIWN64fWhgkwM9j9GbUqgJON8Q5vwWkG8peb3iyD5CgaH1
- V1bP2r5hqNBkvP5MLgVYA9CCakiz+Z4+tAi2zTJ1+WFlcOad8ER3W6ShrlqXZPNAcjhd
- CKKEvyw46dgwXIv+KgRiqGquV8ShEg3Rbh8W93SEj4+nCKjHvZZ3EmjAGZzF/OOC+die
- YKzA==
-X-Gm-Message-State: APjAAAVNGq85AO1DdAYUnnhofG/N7khJPG2KlEs8fbgW7jMmTfFT4/OT
- oP0dO7aqRsfS36GrbDfqcS0Etg==
-X-Google-Smtp-Source: APXvYqyNm0WS2gDAuj6dHckm1kMDjqculrY2nMq6qtaMTQyF9OctGiI8gci+qK98/wgivkodd8Ko4A==
-X-Received: by 2002:aa7:9ab7:: with SMTP id x23mr1272048pfi.27.1554592474693; 
- Sat, 06 Apr 2019 16:14:34 -0700 (PDT)
-Received: from localhost ([52.119.120.223])
- by smtp.gmail.com with ESMTPSA id f15sm18564141pgf.18.2019.04.06.16.14.33
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Sat, 06 Apr 2019 16:14:33 -0700 (PDT)
-Date: Sat, 6 Apr 2019 16:14:32 -0700 (PDT)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-X-X-Sender: paulw@viisi.sifive.com
-To: Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH 7/7] riscv: dts: add initial board data for the SiFive
- HiFive Unleashed
-In-Reply-To: <20181220212618.GA27359@bogus>
-Message-ID: <alpine.DEB.2.21.9999.1904061612310.18279@viisi.sifive.com>
-References: <20181215052154.24347-1-paul.walmsley@sifive.com>
- <20181215052154.24347-8-paul.walmsley@sifive.com>
- <20181220212618.GA27359@bogus>
-User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
+ id 1hD2Lx-00014S-Rx
+ for linux-riscv@lists.infradead.org; Sun, 07 Apr 2019 07:36:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1554622593; x=1586158593;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=hf+7XgvMIgFp96vaIgIBOOUSsweGiw2Y6fv8zahrGXw=;
+ b=ffQ1Kg4ledSnrc7nAxRkPkWFOOmDsdIwwdMV/YtaiV01Dfdfv/4DWdQI
+ 8SVRSjpa0bO0y0xBG5bwl//z3OCCxseBb2OLoRdczEk92Gbzd/bZu/0ew
+ Om4U39NpidZ4sYiYZmv0ljIBe4iW/iu+Rmt8VYb3ZZKC3HBcgeciXsADq
+ Ox4B3LSoYS/NWZVy8qd8CQ/pMgHVw38FAIVR5yYZ7mOBVF2E45mGbozYR
+ yuDrbbia4vcIUW+Zfi3XukFaMuegpvAgftKlcraC73mhMrBmwQwpgi6O5
+ rFnIaqpyZYU+ubiLlAb9PZh/di44QRErAdEKEmJTG45C1Ak9LsLlxUBoU Q==;
+X-IronPort-AV: E=Sophos;i="5.60,320,1549900800"; d="scan'208";a="210952897"
+Received: from mail-bn3nam01lp2054.outbound.protection.outlook.com (HELO
+ NAM01-BN3-obe.outbound.protection.outlook.com) ([104.47.33.54])
+ by ob1.hgst.iphmx.com with ESMTP; 07 Apr 2019 15:36:24 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hf+7XgvMIgFp96vaIgIBOOUSsweGiw2Y6fv8zahrGXw=;
+ b=g0AvTar541q2LgzoPusXf0Hw262FsQ4NYVre8JM1bMQQvlQiJsOED6Vz4uTtoRyegT6HebAcZpRzKOePbTdM3kN3ep6FvMeACratOhQPRoChBiFb0sYTuI1OFfKRz5nUteBx3n0hlnLUEVwS2B66WB1cW78dyTKm2WRwkep4nq0=
+Received: from MN2PR04MB5967.namprd04.prod.outlook.com (20.178.246.143) by
+ MN2PR04MB6031.namprd04.prod.outlook.com (20.178.246.95) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.1771.13; Sun, 7 Apr 2019 07:36:22 +0000
+Received: from MN2PR04MB5967.namprd04.prod.outlook.com
+ ([fe80::a97e:3013:d700:6b95]) by MN2PR04MB5967.namprd04.prod.outlook.com
+ ([fe80::a97e:3013:d700:6b95%4]) with mapi id 15.20.1771.016; Sun, 7 Apr 2019
+ 07:36:22 +0000
+From: Christoph Hellwig <Christoph.Hellwig@wdc.com>
+To: "sw-dev@groups.riscv.org" <sw-dev@groups.riscv.org>, "palmer@sifive.com"
+ <palmer@sifive.com>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>, "hw-dev@groups.riscv.org"
+ <hw-dev@groups.riscv.org>, "isa-dev@groups.riscv.org"
+ <isa-dev@groups.riscv.org>
+Subject: Re: [isa-dev] Re: UNIX-Class Platform Specification Working Group
+Thread-Topic: [isa-dev] Re: UNIX-Class Platform Specification Working Group
+Thread-Index: AQHU68ZmH8q9z/4Xo0+gypQutt4l4aYwUY6A
+Date: Sun, 7 Apr 2019 07:36:22 +0000
+Message-ID: <c1ea959e9114929b72f5b3d687e70429a3737d25.camel@wdc.com>
+References: <mhng-99966160-5466-4cfc-b3d8-48ad48d3dc74@palmer-si-x1c4>
+ <CANs6eMn4+6XGaSOGyWoD5RK2DjQo2SUUHphqmL_dwQD-Xu-omQ@mail.gmail.com>
+In-Reply-To: <CANs6eMn4+6XGaSOGyWoD5RK2DjQo2SUUHphqmL_dwQD-Xu-omQ@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=Christoph.Hellwig@wdc.com; 
+x-originating-ip: [89.144.214.194]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 68c79b34-ed83-48f1-4bb5-08d6bb2bbbd1
+x-ms-office365-filtering-ht: Tenant
+x-microsoft-antispam: BCL:0; PCL:0;
+ RULEID:(2390118)(7020095)(4652040)(8989299)(5600139)(711020)(4605104)(4618075)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(2017052603328)(7193020);
+ SRVR:MN2PR04MB6031; 
+x-ms-traffictypediagnostic: MN2PR04MB6031:
+x-ms-exchange-purlcount: 1
+wdcipoutbound: EOP-TRUE
+x-microsoft-antispam-prvs: <MN2PR04MB603111A92ED29629E10C8493FF530@MN2PR04MB6031.namprd04.prod.outlook.com>
+x-forefront-prvs: 00003DBFE7
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10019020)(376002)(346002)(39860400002)(396003)(136003)(366004)(189003)(199004)(2201001)(118296001)(486006)(476003)(2616005)(5660300002)(186003)(11346002)(6506007)(14454004)(72206003)(102836004)(53546011)(26005)(99286004)(76176011)(446003)(256004)(86362001)(478600001)(106356001)(105586002)(66066001)(7736002)(68736007)(110136005)(36756003)(6436002)(2906002)(229853002)(97736004)(71200400001)(316002)(6512007)(2501003)(966005)(6116002)(71190400001)(53936002)(3846002)(4326008)(8936002)(81156014)(8676002)(6486002)(6246003)(81166006)(25786009)(6306002)(305945005);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB6031;
+ H:MN2PR04MB5967.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; MX:1; A:1; 
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: hDFmza+CpjcWKxM4FKPconvJR/w2dN/Jvnoxo0jgJdubLJm8y0H2mTROTUWt4f1p9b+UCuqk30ZrqiZ9sYnJbcoaJU/yjYCMfbcVlzhGG5mhweG6rtvBwu4mf2SDMrs8vNIja2XLfuCdLgQXicbc2BGP/pb7GX0BFXI5mrFSI7NLhI6KjcV/djDCFBpU0Qskuln+OdoQje7Z8eu5u03q29nZXs7N0rL7c2/QheEvem5b/niZ/4xwhcAAgIyfh57AClWKgl5ak/7gcKCscrxFSqoUqnL7+qTDMx7UzqVvdqMKvYf7nyTyQOAl3GkIhsJfRfqwDA2k9eeJinOa+ieo/YxVAWNPaeUJQ2or7hQWKlW+mMhwhA4M7vX/IRkDRNq8PhK6zszf+J3d5lHJZP4eZSHzGhg4mBTAx/rAoPIfgoI=
+Content-ID: <8E43E388C53B0E4C986D684F60FC52B0@namprd04.prod.outlook.com>
 MIME-Version: 1.0
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 68c79b34-ed83-48f1-4bb5-08d6bb2bbbd1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Apr 2019 07:36:22.4474 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB6031
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190406_161436_565794_F0C40EF0 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20190407_003634_096398_10D32132 
+X-CRM114-Status: GOOD (  24.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,72 +130,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Paul Walmsley <paul@pwsan.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: Atish Patra <Atish.Patra@wdc.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Dec 2018, Rob Herring wrote:
+On Fri, 2019-04-05 at 08:43 -0700, Palmer Dabbelt wrote:
+> Sorry for the delay, but it appears we now have a mailing list set
+> up!  I managed to announce the group right in the middle of the
+> workspace -> groups.io transition, which means we're the first group
+> to try out the new infrastructure.  As a result there may be some
+> wrinkles, but at least a handful of us can get into the group so with
+> any luck it'll work for anyone else.
+> 
+> You should be able to join here: 
+> https://lists.risc-v.org/g/tech-unixplatformspec/topics .  Just like
+> the other RISC-V specs, you'll need to be a member of the RISC-V
+> foundation to contribute to the platform specification -- sorry if
+> there was some confusion in my original email.
 
-> On Fri, Dec 14, 2018 at 09:21:54PM -0800, Paul Walmsley wrote:
-> > Add initial board data for the SiFive HiFive Unleashed A00.
+So in the past the way to join was through workspace.riscv.org - but
+login in there just returns an internal server error.  Has lists.risc-
+v.org replaced the above infrastructure or is it in addition?
+
+> 
+> On Tue, Apr 2, 2019 at 9:50 AM Palmer Dabbelt <palmer@sifive.com>
+> wrote:
+> > Atish and I have approval from the RISC-V technical committee and
+> > board to 
+> > start a group to manage the UNIX-class platform specification. 
+> > This working 
+> > group will start by defining a subset of this platform
+> > specification that both 
+> > allows compatibility with existing implementations and
+> > extensibility for the 
+> > future needs.  The contents of this first platform specification
+> > will include:
 > > 
-> > Currently the data populated in this DT file describes the board
-> > DRAM configuration and the external clock sources that supply the
-> > PRCI.
-
-...
-
-> > diff --git a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00-fu540.dts b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00-fu540.dts
-> > new file mode 100644
-> > index 000000000000..0c6afabe69e3
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00-fu540.dts
-> > @@ -0,0 +1,39 @@
-> > +// SPDX-License-Identifier: Apache-2.0
-> > +// SPDX-License-Identifier: GPL-2.0-or-later
-> 
-> This should be a single line with: (Apache-2.0 OR GPL-2.0+)
-
-Done.
-
-> > +	model = "SiFive HiFive Unleashed A00 (FU540-C000)"
-> > +	compatible = "sifive,hifive-unleashed-a00-fu540",
-> > +		"sifive,hifive-unleashed-fu540";
-> 
-> SoC compatible should be here too.
-
-Done.
-
-> > +	soc {
-> > +		hfclk: hfclk {
-> > +			#clock-cells = <0>;
-> > +			compatible = "fixed-clock";
-> > +			clock-frequency = <33333333>;
-> > +			clock-output-names = "hfclk";
-> > +		};
-> > +		rtcclk: rtcclk {
-> > +			#clock-cells = <0>;
-> > +			compatible = "fixed-clock";
-> > +			clock-frequency = <1000000>;
-> > +			clock-output-names = "rtcclk";
-> > +		};
-> 
-> Are these the clock inputs to the SoC or dummy clocks until you write a 
-> proper clock driver? If the former, they should be at the top level. 
-
-Done.
-
-
-Thanks for your comments; Will send an updated patch set.
-
-
-- Paul
-
+> > * A versioning scheme for future versions of the UNIX-class
+> > platform 
+> >   specification.
+> > * A specification for a platform-level interrupt controller that is
+> > compatible 
+> >   with existing implementations of SiFive's PLIC.
+> > * A specification for a standard SBI that is compatible with the
+> > current 
+> >   implementation in Linux as well being extensible for future
+> > needs.
+> > * An SBI extension for CPU power management.
+> > * A specification of the interface between a bootloader and
+> > supervisor-mode 
+> >   software.
+> > 
+> > Since this working group mostly consists of standardizing existing 
+> > implementations, I hope it can progress quickly.  As such, I'd like
+> > to set a 
+> > 6-month deadline between when the working group is started (ie,
+> > today) and when 
+> > a specification enters the 45-day review period.
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
