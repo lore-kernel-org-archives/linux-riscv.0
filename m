@@ -2,123 +2,83 @@ Return-Path: <SRS0=ACrE=SJ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 89CC0C10F0E
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2019 07:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1CA7CC10F0E
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2019 12:59:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4E63221738
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2019 07:36:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DF7B220B1F
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  7 Apr 2019 12:59:20 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="m7FElzu7";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ffQ1Kg4l";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="g0AvTar5"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4E63221738
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hMaEQLvu";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="FiGmM0Wk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DF7B220B1F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4pnsJNpVf1rUdvbaNQaopx/i7Nc1dF4j9HrF5DJfwH0=; b=m7FElzu7BHnB3M
-	43Y9mW/i+WpuH4Du+rLKgZ4xmJJ4FC07ErHiIJonsh5gJQFjAnbBXXXKoSlL6cH+ktsGZa5pnY4Oa
-	xsvrgW3n6mRSENB12KBe5e6nnTlNM8c9LL7dtCZNIbUUhoIV+r/iCyvho6lW7O6WIGHkDZeQ8kDAV
-	TwWBsMl/EInWhZI8kGFfP7wolg+ZhC6ZNLJNmZlmczGhmzbozZpKY2aGen8kWVmKpG3mmnkB77Y+y
-	QvEbDoHGch5vicNeiP5CLeFy1/NeGjVKhTBm3LOhY9CzVtA+KGlYiuelQNPlBKN0h3tNHuBDdJdoR
-	8qHnmLccmvIL+SdNVtdQ==;
+	List-Owner; bh=qVDvtTKzcA4yiWNSUrd0xK1PFNClfAnkRLmImMZ0axs=; b=hMaEQLvuuxaPx4
+	jwmFLbLeppufEWD9v6vGe6bpYzXlrJcGKaCj69EjQZdWTZ/LujyTW+6mySSDh2HMXRK4uSFbD7RXC
+	llriS3oO8/tK1n+AKIEbS8MF1U+zMIqYA1/cwplkZhnjMTwxNcMxT/3+QXnrm19cboekDf10n80QS
+	VO0MZHr5FeS4YC8ruAPNzeMiFawSSDhmVT/oe2qDEyW4c4RRiwZ4aeWbQrmroqEDY3vr5D13TCekI
+	Zbu9N309BNq5S0hpadfLCXP9S/LBz2UMfIOFxPuRXlxG5+uyXzHOEw18Sgeirop2/EM9t33+qp4uP
+	QXVxeR0dDHb6lMRUFM3w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hD2M1-00015U-LI; Sun, 07 Apr 2019 07:36:37 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1hD7OI-0008IL-1X; Sun, 07 Apr 2019 12:59:18 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hD2Lx-00014S-Rx
- for linux-riscv@lists.infradead.org; Sun, 07 Apr 2019 07:36:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1554622593; x=1586158593;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=hf+7XgvMIgFp96vaIgIBOOUSsweGiw2Y6fv8zahrGXw=;
- b=ffQ1Kg4ledSnrc7nAxRkPkWFOOmDsdIwwdMV/YtaiV01Dfdfv/4DWdQI
- 8SVRSjpa0bO0y0xBG5bwl//z3OCCxseBb2OLoRdczEk92Gbzd/bZu/0ew
- Om4U39NpidZ4sYiYZmv0ljIBe4iW/iu+Rmt8VYb3ZZKC3HBcgeciXsADq
- Ox4B3LSoYS/NWZVy8qd8CQ/pMgHVw38FAIVR5yYZ7mOBVF2E45mGbozYR
- yuDrbbia4vcIUW+Zfi3XukFaMuegpvAgftKlcraC73mhMrBmwQwpgi6O5
- rFnIaqpyZYU+ubiLlAb9PZh/di44QRErAdEKEmJTG45C1Ak9LsLlxUBoU Q==;
-X-IronPort-AV: E=Sophos;i="5.60,320,1549900800"; d="scan'208";a="210952897"
-Received: from mail-bn3nam01lp2054.outbound.protection.outlook.com (HELO
- NAM01-BN3-obe.outbound.protection.outlook.com) ([104.47.33.54])
- by ob1.hgst.iphmx.com with ESMTP; 07 Apr 2019 15:36:24 +0800
+ id 1hD7OE-0008Hx-OX
+ for linux-riscv@lists.infradead.org; Sun, 07 Apr 2019 12:59:16 +0000
+Received: by mail-wm1-x341.google.com with SMTP id q16so11282896wmj.3
+ for <linux-riscv@lists.infradead.org>; Sun, 07 Apr 2019 05:59:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hf+7XgvMIgFp96vaIgIBOOUSsweGiw2Y6fv8zahrGXw=;
- b=g0AvTar541q2LgzoPusXf0Hw262FsQ4NYVre8JM1bMQQvlQiJsOED6Vz4uTtoRyegT6HebAcZpRzKOePbTdM3kN3ep6FvMeACratOhQPRoChBiFb0sYTuI1OFfKRz5nUteBx3n0hlnLUEVwS2B66WB1cW78dyTKm2WRwkep4nq0=
-Received: from MN2PR04MB5967.namprd04.prod.outlook.com (20.178.246.143) by
- MN2PR04MB6031.namprd04.prod.outlook.com (20.178.246.95) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1771.13; Sun, 7 Apr 2019 07:36:22 +0000
-Received: from MN2PR04MB5967.namprd04.prod.outlook.com
- ([fe80::a97e:3013:d700:6b95]) by MN2PR04MB5967.namprd04.prod.outlook.com
- ([fe80::a97e:3013:d700:6b95%4]) with mapi id 15.20.1771.016; Sun, 7 Apr 2019
- 07:36:22 +0000
-From: Christoph Hellwig <Christoph.Hellwig@wdc.com>
-To: "sw-dev@groups.riscv.org" <sw-dev@groups.riscv.org>, "palmer@sifive.com"
- <palmer@sifive.com>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, "hw-dev@groups.riscv.org"
- <hw-dev@groups.riscv.org>, "isa-dev@groups.riscv.org"
- <isa-dev@groups.riscv.org>
-Subject: Re: [isa-dev] Re: UNIX-Class Platform Specification Working Group
-Thread-Topic: [isa-dev] Re: UNIX-Class Platform Specification Working Group
-Thread-Index: AQHU68ZmH8q9z/4Xo0+gypQutt4l4aYwUY6A
-Date: Sun, 7 Apr 2019 07:36:22 +0000
-Message-ID: <c1ea959e9114929b72f5b3d687e70429a3737d25.camel@wdc.com>
-References: <mhng-99966160-5466-4cfc-b3d8-48ad48d3dc74@palmer-si-x1c4>
- <CANs6eMn4+6XGaSOGyWoD5RK2DjQo2SUUHphqmL_dwQD-Xu-omQ@mail.gmail.com>
-In-Reply-To: <CANs6eMn4+6XGaSOGyWoD5RK2DjQo2SUUHphqmL_dwQD-Xu-omQ@mail.gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Christoph.Hellwig@wdc.com; 
-x-originating-ip: [89.144.214.194]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 68c79b34-ed83-48f1-4bb5-08d6bb2bbbd1
-x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(5600139)(711020)(4605104)(4618075)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(2017052603328)(7193020);
- SRVR:MN2PR04MB6031; 
-x-ms-traffictypediagnostic: MN2PR04MB6031:
-x-ms-exchange-purlcount: 1
-wdcipoutbound: EOP-TRUE
-x-microsoft-antispam-prvs: <MN2PR04MB603111A92ED29629E10C8493FF530@MN2PR04MB6031.namprd04.prod.outlook.com>
-x-forefront-prvs: 00003DBFE7
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(376002)(346002)(39860400002)(396003)(136003)(366004)(189003)(199004)(2201001)(118296001)(486006)(476003)(2616005)(5660300002)(186003)(11346002)(6506007)(14454004)(72206003)(102836004)(53546011)(26005)(99286004)(76176011)(446003)(256004)(86362001)(478600001)(106356001)(105586002)(66066001)(7736002)(68736007)(110136005)(36756003)(6436002)(2906002)(229853002)(97736004)(71200400001)(316002)(6512007)(2501003)(966005)(6116002)(71190400001)(53936002)(3846002)(4326008)(8936002)(81156014)(8676002)(6486002)(6246003)(81166006)(25786009)(6306002)(305945005);
- DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB6031;
- H:MN2PR04MB5967.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: hDFmza+CpjcWKxM4FKPconvJR/w2dN/Jvnoxo0jgJdubLJm8y0H2mTROTUWt4f1p9b+UCuqk30ZrqiZ9sYnJbcoaJU/yjYCMfbcVlzhGG5mhweG6rtvBwu4mf2SDMrs8vNIja2XLfuCdLgQXicbc2BGP/pb7GX0BFXI5mrFSI7NLhI6KjcV/djDCFBpU0Qskuln+OdoQje7Z8eu5u03q29nZXs7N0rL7c2/QheEvem5b/niZ/4xwhcAAgIyfh57AClWKgl5ak/7gcKCscrxFSqoUqnL7+qTDMx7UzqVvdqMKvYf7nyTyQOAl3GkIhsJfRfqwDA2k9eeJinOa+ieo/YxVAWNPaeUJQ2or7hQWKlW+mMhwhA4M7vX/IRkDRNq8PhK6zszf+J3d5lHJZP4eZSHzGhg4mBTAx/rAoPIfgoI=
-Content-ID: <8E43E388C53B0E4C986D684F60FC52B0@namprd04.prod.outlook.com>
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=BMoq4qWh/WrIZpuJeJZ6gjv2TsstGKsOQOalG0lD0NU=;
+ b=FiGmM0WkJB8s5lyCoGLQ9RvFzGpQ9dPFBksELjPlRGXOWGu9VZnPqRIvp/48CkCKPg
+ wUiiRr3N6RtX71haeLgQSKsV36enw0YUuL+pnkuktFNZObfLsqySLkumb7nKu7sUbKTd
+ z4g/vgeDSQ0iRp63mkQbiv01RTHqElyjRkxC3gB8iSxT1LKmIkbsxP5H9sIbeh7xXqIV
+ VvVKMZ7liQoRFU9ccpKzGyx33+YaZwr8JQmKiVXadPfu9F7j757MAGtyxWaU9AoiuTHa
+ dWHJYkRWUDtSpZWTOzRJz7ljEK24h6hh2I872WGWPgFIa9nI99oO+KeKlGGHLgvTv0oy
+ SouA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=BMoq4qWh/WrIZpuJeJZ6gjv2TsstGKsOQOalG0lD0NU=;
+ b=A9vjYKRwTqCfaCaxvEg7Gv9vz+MyWAw8Ya8Cyms3W4JrTSVX6SOOJ5cyL4N3hHwupv
+ TgrTqavy3rTz9y+5mSFaruZoM+qDRXm1MzBZhdy0lqu7ZTZteSBdRy21NkenbY0++2Aw
+ SVafsa6dzbT27CSLAUWHsCVyECbu5ynuVEO0WcRMzxvXta57NEec+67kQx28LJXIZYKP
+ aJ0E+F95rd65DDmHVLSrLBwzEGgM6E9DQ2gOju12XOu1stBbHUrK/4NYPJDGiesD/X5r
+ tgic44pzuzr5FM6xKWMZmfzPtLYs5DyLjgGR+0UeVRTiZO5fjKHpKCHDn1t5b5b4WgvF
+ zZdQ==
+X-Gm-Message-State: APjAAAVulfyXUKE4PrO+gxHd3qFZkII4oWI19ODR+nMq6ixXdTiR3aCb
+ h0QXWG+VbYjYl1PKAAE7ODPIsEmkCC9ri6mf6e44Bw==
+X-Google-Smtp-Source: APXvYqzn8yAbbsm5PAMd9u3DQu/7uYZTipbyo4jF/J90tRTmlAyT6TlEoHenuT1lWEI3s4nunuRECnqh8rGIY1T9BOM=
+X-Received: by 2002:a1c:544f:: with SMTP id p15mr13814879wmi.65.1554641951971; 
+ Sun, 07 Apr 2019 05:59:11 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 68c79b34-ed83-48f1-4bb5-08d6bb2bbbd1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Apr 2019 07:36:22.4474 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB6031
+References: <CAAhSdy0k0gSipzne1=agZzTWa0URoq3OH7vefJsr2=SEMyJ1tg@mail.gmail.com>
+ <mhng-6bd91073-ecae-4da5-8332-0e6c9f8aaac1@palmer-si-x1c4>
+In-Reply-To: <mhng-6bd91073-ecae-4da5-8332-0e6c9f8aaac1@palmer-si-x1c4>
+From: Anup Patel <anup@brainfault.org>
+Date: Sun, 7 Apr 2019 18:29:00 +0530
+Message-ID: <CAAhSdy2+-TCv9i+R7ZUzJaSt_NFNbY+v6EUhkynFtD=FD7reFw@mail.gmail.com>
+Subject: Re: [PATCH v3] RISC-V: Fix Maximum Physical Memory 2GiB option for
+ 64bit systems
+To: Palmer Dabbelt <palmer@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190407_003634_096398_10D32132 
-X-CRM114-Status: GOOD (  24.63  )
+X-CRM114-CacheID: sfid-20190407_055914_940226_D91209B3 
+X-CRM114-Status: GOOD (  24.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -130,65 +90,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <Atish.Patra@wdc.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2019-04-05 at 08:43 -0700, Palmer Dabbelt wrote:
-> Sorry for the delay, but it appears we now have a mailing list set
-> up!  I managed to announce the group right in the middle of the
-> workspace -> groups.io transition, which means we're the first group
-> to try out the new infrastructure.  As a result there may be some
-> wrinkles, but at least a handful of us can get into the group so with
-> any luck it'll work for anyone else.
-> 
-> You should be able to join here: 
-> https://lists.risc-v.org/g/tech-unixplatformspec/topics .  Just like
-> the other RISC-V specs, you'll need to be a member of the RISC-V
-> foundation to contribute to the platform specification -- sorry if
-> there was some confusion in my original email.
+On Sat, Apr 6, 2019 at 2:47 AM Palmer Dabbelt <palmer@sifive.com> wrote:
+>
+> On Thu, 04 Apr 2019 23:01:11 PDT (-0700), anup@brainfault.org wrote:
+> > On Fri, Apr 5, 2019 at 11:24 AM Christoph Hellwig <hch@infradead.org> wrote:
+> >>
+> >> On Fri, Apr 05, 2019 at 05:49:34AM +0000, Anup Patel wrote:
+> >> > The Maximum Physical Memory 2GiB option for 64bit systems is currently
+> >> > broken because kernel hangs at boot-time when this option is enabled
+> >> > and the underlying system has more than 2GiB memory.
+> >> >
+> >> > This issue can be easily reproduced on SiFive Unleashed board where
+> >> > we have 8GiB of memory.
+> >> >
+> >> > This patch fixes above issue by removing unusable memory region in
+> >> > setup_bootmem().
+> >> >
+> >> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> >> > Reviewed-by: Christoph Hellwig <hch@lst.de>
+> >>
+> >> Btw, what is the rationale behind even offering the 2GiB option and
+> >> the medlow model on 64-bit?  Do we reall have use cases where the
+> >> slightly more effient generated code matters so much to keep up
+> >> the support burden of this mostly unused and unusual configuration?
+>
+> I'd be OK dropping medlow on rv64.  The performance impact of medany is pretty minor
+> these days, and even back when we added the option it was mostly paranoia about
+> the linker being correct.  medany has been solid on rv64 for a while, but we
+> did recently find a pretty major toolchain bug in medany/rv32 so if we were to
+> drop that we'd need to enforce a pretty recent binutils version (the latest
+> release is OK, I'd have to check on the previous one).  I'd prefer to avoid
+> that, and since medany doesn't really buy us anything on rv32 it seems fine to
+> leave it that way.
+>
+> Given how many issues we've found here recently I doubt anyone is flipping this
+> option away from the default for their base ISA.
 
-So in the past the way to join was through workspace.riscv.org - but
-login in there just returns an internal server error.  Has lists.risc-
-v.org replaced the above infrastructure or is it in addition?
+Actually, this issue was reported by someone trying out Maximum Physical
+Memory 2GiB option.
 
-> 
-> On Tue, Apr 2, 2019 at 9:50 AM Palmer Dabbelt <palmer@sifive.com>
-> wrote:
-> > Atish and I have approval from the RISC-V technical committee and
-> > board to 
-> > start a group to manage the UNIX-class platform specification. 
-> > This working 
-> > group will start by defining a subset of this platform
-> > specification that both 
-> > allows compatibility with existing implementations and
-> > extensibility for the 
-> > future needs.  The contents of this first platform specification
-> > will include:
-> > 
-> > * A versioning scheme for future versions of the UNIX-class
-> > platform 
-> >   specification.
-> > * A specification for a platform-level interrupt controller that is
-> > compatible 
-> >   with existing implementations of SiFive's PLIC.
-> > * A specification for a standard SBI that is compatible with the
-> > current 
-> >   implementation in Linux as well being extensible for future
-> > needs.
-> > * An SBI extension for CPU power management.
-> > * A specification of the interface between a bootloader and
-> > supervisor-mode 
-> >   software.
-> > 
-> > Since this working group mostly consists of standardizing existing 
-> > implementations, I hope it can progress quickly.  As such, I'd like
-> > to set a 
-> > 6-month deadline between when the working group is started (ie,
-> > today) and when 
-> > a specification enters the 45-day review period.
+I agree that "Maximum Physical Memory 2GiB option" is not that useful and
+does not provide much gain over cmodel medany but I would suggest that we
+take this patch as a RC fix and remove "Maximum Physical Memory 2GiB
+option" as separate patch because:
+
+1. This option has been part of few kernel releases. Even if don't
+recommend someone might flip it and report an issue.
+
+2. This fix also takes care of the situation where we are using "Maximum
+Physical Memory 128GiB" option (default) and underlying host has more
+than 128 GiB memory (assuming a server-class RISC-V system).
+
+>
+> > Yes, if we want to use medlow with 64bit then max physical memory
+> > can be 2GiB. Otherwise, I don't any practical use of restricting max
+> > physical memory to 2GiB on 64bit systems.
+> >
+> > BTW, as-per latest revision of RISC-V priviledge spece the MMU SV32
+> > mode will be able to access 34bit physical memory (i.e. 16GiB) so
+> > max physical memory 2GiB will also be required for 32bit system for
+> > medlow.
+>
+> It's a bit more complicated that than.  The 34-bit physical addresses have been
+> in the spec for a long time, but we've never bothered supporting them in Linux.
+> Right now we assume we can map all physical memory into a contiguous region,
+> which is why we tie PAGE_OFFSET to the maximum physical memory.  It's
+> impossible to map all physical memory with 34-bit physical addresses on a
+> 32-bit system, so we'll need to break that assumption to move forward with
+> 34-bit physical addresses anyway.
+>
+> Additionally: medlow can map everything on 32-bit systems anyway, so moving to
+> medany doesn't buy you anything.
+
+Currently, QEMU emulates the legacy SV32 with 32-bit physical address so
+first QEMU has to be updated.
+
+Further, I think we will need a kconfig option for new SV32 with 34bit physical
+address to support existing RV32 hardware which implements SV32 with
+32bit physical address.
+
+Regards,
+Anup
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
