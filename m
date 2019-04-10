@@ -6,17 +6,17 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 957FCC282CE
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 04:11:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EB8D3C10F11
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 06:09:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5D48E20850
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 04:11:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BAA332083E
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 06:09:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Frj50O94";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Pqji4CEp"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5D48E20850
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DJbXEGKP";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="03zhtP3h"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BAA332083E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,59 +25,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z0o7jHLM9ezBKqdsQGtRyQ/gfpKb9x0+h5Sg/yJc8tE=; b=Frj50O94tIJBAq
-	SbfN7c9yK+oEGgc/usarajl8BFX170TuVUO9sHZ5dM0ucP6nOLgcvMkDimKmU/mBh8cwE7etJvRSV
-	PALbXZHHhWqwQ127FuFYQ3DXVwnHu8nF9ZqyavQIYLsgVw83g6+9b7TL/QuFXZoLeR/dbGRa43WEi
-	HlyahVfFEBA0ysOZ+CXrVB+ew0or3A0byy6xhlvQo+4LrbI954p57rI6oC24hdSRtAtMBIpKtmqJ7
-	whs9XRHV70/T15PE1JmelvczXLEDtr92dGwgU8scEZ/4lJPLglQ0DUr71Hc8sn/t2avLs1sUqcnI2
-	vbmRcj/ZwUO+URiRMqbQ==;
+	List-Owner; bh=ocWJrCKCt3LvqptVtoGVJnI1rfKZM4t6P1rt2WCssW4=; b=DJbXEGKPikYIGJ
+	vCKl2AndGZZlIMRMb9ppg5Q/2o3qiiizf2E4Jkz/lsmkQ1TVItRBSK7hHdO9xsHGUmP/Sisd8+/Xu
+	08DazcTQ84nVU3A3xxzB7+xSaPfIKLWp4FezIEeIWvLz4USssXD96mRma9S2zevuLcJeKr/ueXaWR
+	BOy6okuRMOYI8ORtnnAdveLTZc4Vu8ZisU5YQAZqT/Jxdm5Ri1B9mAL6XNYiB7CP7CKLq/b7nwJnl
+	oSIBbxM+2tXuDba9mvLELmpViMllFPNTt8pc6NgAm8g0P2wSaLjWaeEAe41QuNfiEqBrSGn38x0HK
+	AVJyFV/vN6YZ7Axt2+IA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hE4Zh-0004Ba-7Y; Wed, 10 Apr 2019 04:11:01 +0000
-Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
+	id 1hE6QD-00060m-0w; Wed, 10 Apr 2019 06:09:21 +0000
+Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hE4Ze-0004AV-M0
- for linux-riscv@lists.infradead.org; Wed, 10 Apr 2019 04:11:00 +0000
-Received: by mail-wr1-x443.google.com with SMTP id q1so1159950wrp.0
- for <linux-riscv@lists.infradead.org>; Tue, 09 Apr 2019 21:10:56 -0700 (PDT)
+ id 1hE6QA-0005zg-5N
+ for linux-riscv@lists.infradead.org; Wed, 10 Apr 2019 06:09:19 +0000
+Received: by mail-wr1-x444.google.com with SMTP id s15so1311734wra.12
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Apr 2019 23:09:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=IewjcLSJnQrO08PbnPGd5ADILHnS1hScA5/IGBONAXw=;
- b=Pqji4CEps5vlS2C6w+QeTo4oa1s6i51fB1ohQC71pRVe8DUty81aas0k1RLuJjLOz3
- hsmYd2AwdQQ5COgc4BSDA/KMlV4//yjuOJ34RMxWLnXu4eGLgMheoTPgX2Sgogf/9aFc
- kq1FFXy+xBgXjV0IjUv/sh6ImN/BZLKR3V57+4v4L8lmrEdJ1ins4kdd6y6S3izGSKJM
- gKczDPHxKbwymzhWWwVZLNcZ/2YODkHYhNaVVfsg6nzGlHWE8GUhRPMOCaMAqsdQvU5G
- JCxCj1/eWVnYPca7XH0s3qb17fEdW9a1ctt1mhmg79q8vg0vhr1LLiy4pn1uPLpMaCzA
- ScJw==
+ :cc; bh=NA0KH+84Yze/o0gKU4OJJ1enqUC1AklFzqfQAGl58rs=;
+ b=03zhtP3hjGilRQUkBcV1cNKSgX7z2b5GRHf1ymBh/GZlNqm5s2d+DrUV8UKkVC/gXR
+ PaCLH1oZEfRhwXZeeU5YRiGnbI2kZKGoQ4xOERU2HkgDgMVhzc/Mex5eh1cTkXD1hwWn
+ h9GL4PYVxzAxC+TeTiWbBEYHNRKPGQySw+fKF+u9vNnN/CUGFa8PaRfvhv+CmvbBO3Jr
+ vaBWZaMFKUAAkoXBeaaWGH9C/6uXfV5VhnZNqL11WR+SaZ7MC4xd4kD9ReLRxFgt1FOb
+ VmlEywxpHr1XxM7LM6vvCiHwqgwKWaN3JnLU4hCS14Ct/P8hDhepmuKb3mTEi3Q11qVT
+ VEYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=IewjcLSJnQrO08PbnPGd5ADILHnS1hScA5/IGBONAXw=;
- b=l2ZFp05NMHWNQ0lPxU4oNx0/nu/vYx0ez3EkCIqYqI3K9eOcnafbYMuh9rF5S+JpvA
- qdIs6D1XAykVTR4y6Vga8sNCurliyujaNLz9W1Qpt0Z1j1Uq/kKQ2DiJ6P68nR1PmH9J
- eul54m9HcPLwr9eb4svEueWbkRhRg33RApS0AIEts9n/R9+L0kYz2txVSnmOllOncRS1
- +2bUJHwLzcS8oeYDYfhTOGdcZ5otYH4nyZieAHbHs5ekxON59hprFWO3NQQOYiPbp2h2
- WOCodSxfJenVyAWhDynpaJc+K6tZrK60EAL9Bp081Ii26/G49T8hNbIGPoEZ2y6HujMl
- RfDQ==
-X-Gm-Message-State: APjAAAWtc823jB1A+IwAxftps7VGTTKnUos3iuRXtc5GciDRLuYjW3a9
- BFwQt8K2jTg2rvX2WQ2meh4UL2alOb3RYsJeduEsyA==
-X-Google-Smtp-Source: APXvYqwHi/MEm58V/UYsSMUvFmagM6orEbnr7iNRXhTqA0TJ7rvNFCPTMzDWiPRQgeRH/m8CJPklWAr7BuxjdYcrzI4=
-X-Received: by 2002:adf:e610:: with SMTP id p16mr24936946wrm.64.1554869454862; 
- Tue, 09 Apr 2019 21:10:54 -0700 (PDT)
+ bh=NA0KH+84Yze/o0gKU4OJJ1enqUC1AklFzqfQAGl58rs=;
+ b=k1Ly2lk4tofjCiY3okCa8mG9fPSoEWK/g7oGJiH5a0Fm0o5bV4iZ/+0hJ6vYmsGudY
+ SnI653Yz/vyRwE4x2CcFkhc2ek273oWbvPQIoIC2niPkBk06Fh2RF636vrb/iZxsLVHd
+ j/FQYOByH4rb9CjFO4Kn+Y5/Zg14ywXJ5qiYHWF4Idnc1wBmrpiCnTuQRSRsQmdgPUZ+
+ /Wwk72U21aZpM5raZ5WXfoLIJNZjRoSj365GE6aGMdU6IY6JgRoP0RZi5hG+OzTM+kFJ
+ OFX8RORxmsUWoooL2yUjy3Ki8Cmcac31bBSm0u/7DTF7zKWlb6oql+V6kgPbh3QJd0O+
+ PJSQ==
+X-Gm-Message-State: APjAAAUHqP9VIOiDjDGKc6e0HVLvmdCsez/c4I49nz39DG8VEqpwa68m
+ dlbQMFEgkCOs6Z6ucTYPeEnwj3zgkYtcD1keQTdq2g==
+X-Google-Smtp-Source: APXvYqwGsVM+lp4TTutXtH2uxGhqQuhFdsD+/tvxC3JYLlOvD13BeFR7y/2cQJcno8YdIZdoNpSM/QAGK99XEXzYIIg=
+X-Received: by 2002:adf:f110:: with SMTP id r16mr24701189wro.153.1554876555377; 
+ Tue, 09 Apr 2019 23:09:15 -0700 (PDT)
 MIME-Version: 1.0
-References: <20190312220752.128141-3-anup.patel@wdc.com>
- <mhng-3d9a3b8a-2d5d-4db8-b8b0-4ef410a9ad52@palmer-si-x1c4>
-In-Reply-To: <mhng-3d9a3b8a-2d5d-4db8-b8b0-4ef410a9ad52@palmer-si-x1c4>
+References: <20190312220752.128141-2-anup.patel@wdc.com>
+ <mhng-02f905c7-fb28-4997-9769-2cb88c581881@palmer-si-x1c4>
+In-Reply-To: <mhng-02f905c7-fb28-4997-9769-2cb88c581881@palmer-si-x1c4>
 From: Anup Patel <anup@brainfault.org>
-Date: Wed, 10 Apr 2019 09:40:43 +0530
-Message-ID: <CAAhSdy2MQmPte7=YaVw5Ae5vWgQYcHX-zGiEBXP1a15=CkXzwg@mail.gmail.com>
-Subject: Re: [PATCH 2/3] RISC-V: Make setup_vm() independent of GCC code model
+Date: Wed, 10 Apr 2019 11:39:03 +0530
+Message-ID: <CAAhSdy1UZ3VZAa+Gtf0KQUY9Ebwm7p=qAB+Xv7HDAjfUYpFuAQ@mail.gmail.com>
+Subject: Re: [PATCH 1/3] RISC-V: Add separate defconfig for 32bit systems
 To: Palmer Dabbelt <palmer@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190409_211058_769384_785665E6 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20190409_230918_264493_AE544C70 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -99,35 +99,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 9, 2019 at 10:17 PM Palmer Dabbelt <palmer@sifive.com> wrote:
+On Tue, Apr 9, 2019 at 10:14 PM Palmer Dabbelt <palmer@sifive.com> wrote:
 >
-> On Tue, 12 Mar 2019 15:08:16 PDT (-0700), Anup Patel wrote:
-> > The setup_vm() must access kernel symbols in a position independent way
-> > because it will be called from head.S with MMU off.
-> >
-> > If we compile kernel with cmodel=medany then PC-relative addressing will
-> > be used in setup_vm() to access kernel symbols so it works perfectly fine.
-> >
-> > Although, if we compile kernel with cmodel=medlow then either absolute
-> > addressing or PC-relative addressing (based on whichever requires fewer
-> > instructions) is used to access kernel symbols in setup_vm(). This can
-> > break setup_vm() whenever any absolute addressing is used to access
-> > kernel symbols.
-> >
-> > With the movement of setup_vm() from kernel/setup.c to mm/init.c, the
-> > setup_vm() is now broken for cmodel=medlow but it works perfectly fine
-> > for cmodel=medany.
-> >
-> > This patch fixes setup_vm() and makes it independent of GCC code model
-> > by accessing kernel symbols relative to kernel load address instead of
-> > assuming PC-relative addressing.
+> On Tue, 12 Mar 2019 15:08:12 PDT (-0700), Anup Patel wrote:
+> > This patch adds rv32_defconfig for 32bit systems. The only
+> > difference between rv32_defconfig and defconfig is that
+> > rv32_defconfig has  CONFIG_ARCH_RV32I=y.
 >
-> I think we ended up with a cleaner solution as 387181dcdb6c ("RISC-V: Always
-> compile mm/init.c with cmodel=medany and notrace"), but let me know if I missed
-> something here.
+> Thanks.  I think it makes sense to have this in 5.1 so I'm going to take it
+> into the next RC.
 
-Yes, please ignore this patch. I have dropped it in latest version of
-this patch series.
+Thanks, Palmer.
+
+Can you consider "[PATCH v3] RISC-V: Fix Maximum Physical Memory 2GiB
+option for 64bit systems" for 5.1?
+
+Refer, https://patchwork.kernel.org/patch/10886895/
+
+The above patch is also required for 64bit system with more than 128GiB memory
+(i.e. server-class system).
+
+We can remove "Maximum Physical Memory 2GiB" option as separate patch.
 
 Regards,
 Anup
