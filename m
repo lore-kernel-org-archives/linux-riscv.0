@@ -1,88 +1,83 @@
-Return-Path: <SRS0=aw4H=SL=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=ShlG=SM=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E285C282DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2019 16:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 957FCC282CE
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 04:11:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D05DF2084C
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  9 Apr 2019 16:47:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5D48E20850
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 04:11:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AL5rgAfH";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="HpebeSCY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D05DF2084C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Frj50O94";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Pqji4CEp"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5D48E20850
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=+GR0LDF8FLkNz8qCx5SRUEUOzKaemac3EUPmhmI1Hwc=; b=AL5rgAfH8/PZNnFptJ6pARgEf
-	O83Rgrk06Hmc1l2ndkHhy4HzZSR0DY4LUbpAkS2vzfgvb+PJqLLf0hJRDv7E4q2UQuYR+U6hRTIA8
-	rkgR9mbBIKshokRPz3eJJ0hMj9AcwtaOafnBE5We9lUJ231CGi9l8m4OFO4mw0U4aBxTpcC2E8WUS
-	dErwcNrwZAauQxOkwMCWeRnz21nsFeO2Uyjg+6N5gkjBjsV887Go9qQYWY2HPQ7BRPn8vBYkDmzRl
-	Pw5D3eFYMj2ErWhslOhjk2d6/hcraq41a/QTwVqnn77LYcqa9iXmBPG+boZA6ygZFdLKQ4+P+NZdy
-	1+FiQefIQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=z0o7jHLM9ezBKqdsQGtRyQ/gfpKb9x0+h5Sg/yJc8tE=; b=Frj50O94tIJBAq
+	SbfN7c9yK+oEGgc/usarajl8BFX170TuVUO9sHZ5dM0ucP6nOLgcvMkDimKmU/mBh8cwE7etJvRSV
+	PALbXZHHhWqwQ127FuFYQ3DXVwnHu8nF9ZqyavQIYLsgVw83g6+9b7TL/QuFXZoLeR/dbGRa43WEi
+	HlyahVfFEBA0ysOZ+CXrVB+ew0or3A0byy6xhlvQo+4LrbI954p57rI6oC24hdSRtAtMBIpKtmqJ7
+	whs9XRHV70/T15PE1JmelvczXLEDtr92dGwgU8scEZ/4lJPLglQ0DUr71Hc8sn/t2avLs1sUqcnI2
+	vbmRcj/ZwUO+URiRMqbQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hDtuV-0004lC-Ou; Tue, 09 Apr 2019 16:47:47 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1hE4Zh-0004Ba-7Y; Wed, 10 Apr 2019 04:11:01 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hDtuS-0004kp-R8
- for linux-riscv@lists.infradead.org; Tue, 09 Apr 2019 16:47:46 +0000
-Received: by mail-pl1-x643.google.com with SMTP id f36so5260654plb.5
- for <linux-riscv@lists.infradead.org>; Tue, 09 Apr 2019 09:47:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=6aIEQqr4R4gOfrOi3rct1WB74s6+yXjXiuBb4szBCf4=;
- b=HpebeSCYawoEcbMN+6QuFlLUe77fo+zVLwaoDIZOLV+pPN4YfcP9AzhfgGYU2mcOD8
- c7KwNSsgVqIAsT8WBXXBHXQ8P5hFLRZKKnaYmSR7RWSA0vcFfb3+riseNRcWNcpwdvmd
- ku4Ex83SjfDt9OBKo/+Sn7z8zJzUXd1i9ltsT1BtRzt4ocNr0L8mAX70oOFbPzUWylPg
- 2bAnmw4w7TOCbvikHk8bSL8bKdntRAwqiko9ks3/XQWw+4q2sanBI7dikOfaPcrSomhY
- XO1mpUSde4fHQQ5nLdAdC8YqCGYprmM3WcgY40ZBomdQcpTnIf2n2n8G29yr3Eq0rjE/
- hCkA==
+ id 1hE4Ze-0004AV-M0
+ for linux-riscv@lists.infradead.org; Wed, 10 Apr 2019 04:11:00 +0000
+Received: by mail-wr1-x443.google.com with SMTP id q1so1159950wrp.0
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Apr 2019 21:10:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=IewjcLSJnQrO08PbnPGd5ADILHnS1hScA5/IGBONAXw=;
+ b=Pqji4CEps5vlS2C6w+QeTo4oa1s6i51fB1ohQC71pRVe8DUty81aas0k1RLuJjLOz3
+ hsmYd2AwdQQ5COgc4BSDA/KMlV4//yjuOJ34RMxWLnXu4eGLgMheoTPgX2Sgogf/9aFc
+ kq1FFXy+xBgXjV0IjUv/sh6ImN/BZLKR3V57+4v4L8lmrEdJ1ins4kdd6y6S3izGSKJM
+ gKczDPHxKbwymzhWWwVZLNcZ/2YODkHYhNaVVfsg6nzGlHWE8GUhRPMOCaMAqsdQvU5G
+ JCxCj1/eWVnYPca7XH0s3qb17fEdW9a1ctt1mhmg79q8vg0vhr1LLiy4pn1uPLpMaCzA
+ ScJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=6aIEQqr4R4gOfrOi3rct1WB74s6+yXjXiuBb4szBCf4=;
- b=Ch9iB7QmiOQaNfuwQ7gda0w1ZIbqbK+F5TcVkUTXZZJc/a+3iBOq/mJ9tm5wskpWkf
- hgdFyyZy2CgjZi+DXaSuW+Zpdb98odw12BWm4U/sjd/AWQL/kYus8pYLOWhyVRL0Wjc8
- R7MsO8vHsgDOCNXtu8bYrDcUSiyfnt1DFtqxfbFHcqE/WBNbFPUkWigjpQgef0015lx0
- BKE2V6jaPjyOfskT5xA9GVNAXrBDZ+L7P8DNKuRNsCauGkYVNXIJ/r+5ZZ0RTSx+Ts1i
- Zr9vtBVRvnTIP6XeE5aFIXnmqr7W197Vo7myfYdyj6PbZD24jN5VjUtcRwCUYpEMZEDG
- dbgw==
-X-Gm-Message-State: APjAAAXryzwXwDYFY/MzIuI07XMV78gCWCBPdoAX4RrYIOx7fs5Ux4nJ
- 0VWHhQsNtIL6JzhoKey2H1DUzg==
-X-Google-Smtp-Source: APXvYqzLaQ6c4Z/yB7ObwPHC6aofumcMt318eZxT1bLBkiWxy6ZlT7XyuFIjaba5ff7kYfl+ke8SjQ==
-X-Received: by 2002:a17:902:7d8f:: with SMTP id
- a15mr4403219plm.3.1554828464064; 
- Tue, 09 Apr 2019 09:47:44 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id b13sm26527071pfd.12.2019.04.09.09.47.42
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 09 Apr 2019 09:47:43 -0700 (PDT)
-Date: Tue, 09 Apr 2019 09:47:43 -0700 (PDT)
-X-Google-Original-Date: Tue, 09 Apr 2019 09:47:31 PDT (-0700)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=IewjcLSJnQrO08PbnPGd5ADILHnS1hScA5/IGBONAXw=;
+ b=l2ZFp05NMHWNQ0lPxU4oNx0/nu/vYx0ez3EkCIqYqI3K9eOcnafbYMuh9rF5S+JpvA
+ qdIs6D1XAykVTR4y6Vga8sNCurliyujaNLz9W1Qpt0Z1j1Uq/kKQ2DiJ6P68nR1PmH9J
+ eul54m9HcPLwr9eb4svEueWbkRhRg33RApS0AIEts9n/R9+L0kYz2txVSnmOllOncRS1
+ +2bUJHwLzcS8oeYDYfhTOGdcZ5otYH4nyZieAHbHs5ekxON59hprFWO3NQQOYiPbp2h2
+ WOCodSxfJenVyAWhDynpaJc+K6tZrK60EAL9Bp081Ii26/G49T8hNbIGPoEZ2y6HujMl
+ RfDQ==
+X-Gm-Message-State: APjAAAWtc823jB1A+IwAxftps7VGTTKnUos3iuRXtc5GciDRLuYjW3a9
+ BFwQt8K2jTg2rvX2WQ2meh4UL2alOb3RYsJeduEsyA==
+X-Google-Smtp-Source: APXvYqwHi/MEm58V/UYsSMUvFmagM6orEbnr7iNRXhTqA0TJ7rvNFCPTMzDWiPRQgeRH/m8CJPklWAr7BuxjdYcrzI4=
+X-Received: by 2002:adf:e610:: with SMTP id p16mr24936946wrm.64.1554869454862; 
+ Tue, 09 Apr 2019 21:10:54 -0700 (PDT)
+MIME-Version: 1.0
+References: <20190312220752.128141-3-anup.patel@wdc.com>
+ <mhng-3d9a3b8a-2d5d-4db8-b8b0-4ef410a9ad52@palmer-si-x1c4>
+In-Reply-To: <mhng-3d9a3b8a-2d5d-4db8-b8b0-4ef410a9ad52@palmer-si-x1c4>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 10 Apr 2019 09:40:43 +0530
+Message-ID: <CAAhSdy2MQmPte7=YaVw5Ae5vWgQYcHX-zGiEBXP1a15=CkXzwg@mail.gmail.com>
 Subject: Re: [PATCH 2/3] RISC-V: Make setup_vm() independent of GCC code model
-In-Reply-To: <20190312220752.128141-3-anup.patel@wdc.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: Anup Patel <Anup.Patel@wdc.com>
-Message-ID: <mhng-3d9a3b8a-2d5d-4db8-b8b0-4ef410a9ad52@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+To: Palmer Dabbelt <palmer@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190409_094744_910173_17D3EABD 
-X-CRM114-Status: GOOD (  23.81  )
+X-CRM114-CacheID: sfid-20190409_211058_769384_785665E6 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,168 +89,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, Anup Patel <Anup.Patel@wdc.com>,
- linux-kernel@vger.kernel.org, rppt@linux.ibm.com,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Christoph Hellwig <hch@infradead.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Mar 2019 15:08:16 PDT (-0700), Anup Patel wrote:
-> The setup_vm() must access kernel symbols in a position independent way
-> because it will be called from head.S with MMU off.
+On Tue, Apr 9, 2019 at 10:17 PM Palmer Dabbelt <palmer@sifive.com> wrote:
 >
-> If we compile kernel with cmodel=medany then PC-relative addressing will
-> be used in setup_vm() to access kernel symbols so it works perfectly fine.
+> On Tue, 12 Mar 2019 15:08:16 PDT (-0700), Anup Patel wrote:
+> > The setup_vm() must access kernel symbols in a position independent way
+> > because it will be called from head.S with MMU off.
+> >
+> > If we compile kernel with cmodel=medany then PC-relative addressing will
+> > be used in setup_vm() to access kernel symbols so it works perfectly fine.
+> >
+> > Although, if we compile kernel with cmodel=medlow then either absolute
+> > addressing or PC-relative addressing (based on whichever requires fewer
+> > instructions) is used to access kernel symbols in setup_vm(). This can
+> > break setup_vm() whenever any absolute addressing is used to access
+> > kernel symbols.
+> >
+> > With the movement of setup_vm() from kernel/setup.c to mm/init.c, the
+> > setup_vm() is now broken for cmodel=medlow but it works perfectly fine
+> > for cmodel=medany.
+> >
+> > This patch fixes setup_vm() and makes it independent of GCC code model
+> > by accessing kernel symbols relative to kernel load address instead of
+> > assuming PC-relative addressing.
 >
-> Although, if we compile kernel with cmodel=medlow then either absolute
-> addressing or PC-relative addressing (based on whichever requires fewer
-> instructions) is used to access kernel symbols in setup_vm(). This can
-> break setup_vm() whenever any absolute addressing is used to access
-> kernel symbols.
->
-> With the movement of setup_vm() from kernel/setup.c to mm/init.c, the
-> setup_vm() is now broken for cmodel=medlow but it works perfectly fine
-> for cmodel=medany.
->
-> This patch fixes setup_vm() and makes it independent of GCC code model
-> by accessing kernel symbols relative to kernel load address instead of
-> assuming PC-relative addressing.
+> I think we ended up with a cleaner solution as 387181dcdb6c ("RISC-V: Always
+> compile mm/init.c with cmodel=medany and notrace"), but let me know if I missed
+> something here.
 
-I think we ended up with a cleaner solution as 387181dcdb6c ("RISC-V: Always 
-compile mm/init.c with cmodel=medany and notrace"), but let me know if I missed 
-something here.
+Yes, please ignore this patch. I have dropped it in latest version of
+this patch series.
 
->
-> Fixes: 6f1e9e946f0b ("RISC-V: Move setup_vm() to mm/init.c")
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> ---
->  arch/riscv/kernel/head.S |  1 +
->  arch/riscv/mm/init.c     | 71 ++++++++++++++++++++++++++--------------
->  2 files changed, 47 insertions(+), 25 deletions(-)
->
-> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> index fe884cd69abd..7966262b4f9d 100644
-> --- a/arch/riscv/kernel/head.S
-> +++ b/arch/riscv/kernel/head.S
-> @@ -62,6 +62,7 @@ clear_bss_done:
->  
->  	/* Initialize page tables and relocate to virtual addresses */
->  	la sp, init_thread_union + THREAD_SIZE
-> +	la a0, _start
->  	call setup_vm
->  	call relocate
->  
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index b379a75ac6a6..f35299f2f3d5 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -172,55 +172,76 @@ void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
->  	}
->  }
->  
-> -asmlinkage void __init setup_vm(void)
-> +static inline void *__early_va(void *ptr, uintptr_t load_pa)
->  {
->  	extern char _start;
-> +	uintptr_t va = (uintptr_t)ptr;
-> +	uintptr_t sz = (uintptr_t)(&_end) - (uintptr_t)(&_start);
-> +
-> +	if (va >= PAGE_OFFSET && va < (PAGE_OFFSET + sz))
-> +		return (void *)(load_pa + (va - PAGE_OFFSET));
-> +	return (void *)va;
-> +}
-> +
-> +asmlinkage void __init setup_vm(uintptr_t load_pa)
-> +{
->  	uintptr_t i;
-> -	uintptr_t pa = (uintptr_t) &_start;
-> +#ifndef __PAGETABLE_PMD_FOLDED
-> +	pmd_t *pmdp;
-> +#endif
-> +	pgd_t *pgdp;
-> +	phys_addr_t map_pa;
-> +	pgprot_t tableprot = __pgprot(_PAGE_TABLE);
->  	pgprot_t prot = __pgprot(pgprot_val(PAGE_KERNEL) | _PAGE_EXEC);
->  
-> -	va_pa_offset = PAGE_OFFSET - pa;
-> -	pfn_base = PFN_DOWN(pa);
-> +	va_pa_offset = PAGE_OFFSET - load_pa;
-> +	pfn_base = PFN_DOWN(load_pa);
->  
->  	/* Sanity check alignment and size */
->  	BUG_ON((PAGE_OFFSET % PGDIR_SIZE) != 0);
-> -	BUG_ON((pa % (PAGE_SIZE * PTRS_PER_PTE)) != 0);
-> +	BUG_ON((load_pa % (PAGE_SIZE * PTRS_PER_PTE)) != 0);
->  
->  #ifndef __PAGETABLE_PMD_FOLDED
-> -	trampoline_pg_dir[(PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD] =
-> -		pfn_pgd(PFN_DOWN((uintptr_t)trampoline_pmd),
-> -			__pgprot(_PAGE_TABLE));
-> -	trampoline_pmd[0] = pfn_pmd(PFN_DOWN(pa), prot);
-> +	pgdp = __early_va(trampoline_pg_dir, load_pa);
-> +	map_pa = (uintptr_t)__early_va(trampoline_pmd, load_pa);
-> +	pgdp[(PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD] =
-> +		pfn_pgd(PFN_DOWN(map_pa), tableprot);
-> +	trampoline_pmd[0] = pfn_pmd(PFN_DOWN(load_pa), prot);
-> +
-> +	pgdp = __early_va(swapper_pg_dir, load_pa);
->  
->  	for (i = 0; i < (-PAGE_OFFSET)/PGDIR_SIZE; ++i) {
->  		size_t o = (PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
->  
-> -		swapper_pg_dir[o] =
-> -			pfn_pgd(PFN_DOWN((uintptr_t)swapper_pmd) + i,
-> -				__pgprot(_PAGE_TABLE));
-> +		map_pa = (uintptr_t)__early_va(swapper_pmd, load_pa);
-> +		pgdp[o] = pfn_pgd(PFN_DOWN(map_pa) + i, tableprot);
->  	}
-> +	pmdp = __early_va(swapper_pmd, load_pa);
->  	for (i = 0; i < ARRAY_SIZE(swapper_pmd); i++)
-> -		swapper_pmd[i] = pfn_pmd(PFN_DOWN(pa + i * PMD_SIZE), prot);
-> +		pmdp[i] = pfn_pmd(PFN_DOWN(load_pa + i * PMD_SIZE), prot);
->  
-> -	swapper_pg_dir[(FIXADDR_START >> PGDIR_SHIFT) % PTRS_PER_PGD] =
-> -		pfn_pgd(PFN_DOWN((uintptr_t)fixmap_pmd),
-> -				__pgprot(_PAGE_TABLE));
-> +	map_pa = (uintptr_t)__early_va(fixmap_pmd, load_pa);
-> +	pgdp[(FIXADDR_START >> PGDIR_SHIFT) % PTRS_PER_PGD] =
-> +		pfn_pgd(PFN_DOWN(map_pa), tableprot);
-> +	pmdp = __early_va(fixmap_pmd, load_pa);
-> +	map_pa = (uintptr_t)__early_va(fixmap_pte, load_pa);
->  	fixmap_pmd[(FIXADDR_START >> PMD_SHIFT) % PTRS_PER_PMD] =
-> -		pfn_pmd(PFN_DOWN((uintptr_t)fixmap_pte),
-> -				__pgprot(_PAGE_TABLE));
-> +		pfn_pmd(PFN_DOWN(map_pa), tableprot);
->  #else
-> -	trampoline_pg_dir[(PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD] =
-> -		pfn_pgd(PFN_DOWN(pa), prot);
-> +	pgdp = __early_va(trampoline_pg_dir, load_pa);
-> +	pgdp[(PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD] =
-> +		pfn_pgd(PFN_DOWN(load_pa), prot);
-> +
-> +	pgdp = __early_va(swapper_pg_dir, load_pa);
->  
->  	for (i = 0; i < (-PAGE_OFFSET)/PGDIR_SIZE; ++i) {
->  		size_t o = (PAGE_OFFSET >> PGDIR_SHIFT) % PTRS_PER_PGD + i;
->  
-> -		swapper_pg_dir[o] =
-> -			pfn_pgd(PFN_DOWN(pa + i * PGDIR_SIZE), prot);
-> +		pgdp[o] = pfn_pgd(PFN_DOWN(load_pa + i * PGDIR_SIZE), prot);
->  	}
->  
-> -	swapper_pg_dir[(FIXADDR_START >> PGDIR_SHIFT) % PTRS_PER_PGD] =
-> -		pfn_pgd(PFN_DOWN((uintptr_t)fixmap_pte),
-> -				__pgprot(_PAGE_TABLE));
-> +	map_pa = (uintptr_t)__early_va(fixmap_pte, load_pa);
-> +	pgdp[(FIXADDR_START >> PGDIR_SHIFT) % PTRS_PER_PGD] =
-> +		pfn_pgd(PFN_DOWN(map_pa), tableprot);
->  #endif
->  }
-> -- 
-> 2.17.1
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
