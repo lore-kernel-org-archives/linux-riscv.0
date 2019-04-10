@@ -6,16 +6,16 @@ X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E36B8C282CE
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 06:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5FCC6C10F11
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 06:59:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ADF2F217D6
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 06:59:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 302D720850
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 06:59:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="T57wDgJw"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ADF2F217D6
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ADFoTfJZ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 302D720850
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,27 +24,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IOSbJyNfqXyydYRWmCl5NGAkfA2W9GpxneX/rDTPPO4=; b=T57wDgJwASklI6
-	FjXkEwJYQ2AsapshbFGEUNCNFBiT6rYUUbguyleQooS2hBS8FG09OtwJlTg465vFrW3KqolAmRsyO
-	LlfjWYTajOlIspWj+Y72no1VB+IX+bsZvtqwakHp7Cl6gbmt4tt6EFHdKfunorKxdN+1kQ1NTsALv
-	kloFU5cHuUHRKeCGv1Byp0Y7XYGl5Iy5OavN2IcVcRpbrZAxUfd2PoRC+TdhdLoBJESkaxc4WwCUN
-	rz2cG+dR9yaZFqi2uVb/o9LV9jC02z1PE+tCDavwXb5ufLzAoyYyOmza0dmVlS4IYD6b43Uc9vKnl
-	dQMsw1+RU16XiYWJdZ7Q==;
+	List-Owner; bh=fKnPFlKV9ni1gXrqbIys/Lwum8qfOVQrgXNQOBioFHc=; b=ADFoTfJZUC2UMt
+	+FAx3Vkhco2K7pRlaXYW34J9MoxELC81ux/v6gmYAUROAk9X8lVYu/vi3F+PU48r88wUNRzXCJQ8n
+	waD0rJhByngWouqNspNeYla0UVzJo4ly/bx1dnnO5gJNmL4EENQF8cnONWPRBvBqRJniTOUh92yGW
+	Av0SaBv9ilQ+fAe6tz4jsj0EQPoeOD41Nt1G10e8lgBwX5A1C4RgPz7HiHT7lJF3n1mvmX2ayGnvu
+	67qPmIBWp0A8MXcknxRraK5wL+5u+74BjQG2GvLSpXjeVtOy6jV4btFUUb6LH/W9cpjaE6vtQ1mZx
+	jNWZWaBdUtKjOB9WxeZw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hE7CR-0003R6-E6; Wed, 10 Apr 2019 06:59:11 +0000
+	id 1hE7Ck-0003qI-Fs; Wed, 10 Apr 2019 06:59:30 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1hE7CO-0003NH-8Q; Wed, 10 Apr 2019 06:59:08 +0000
-Date: Tue, 9 Apr 2019 23:59:08 -0700
+ Hat Linux)) id 1hE7Ci-0003pQ-UV; Wed, 10 Apr 2019 06:59:28 +0000
+Date: Tue, 9 Apr 2019 23:59:28 -0700
 From: Christoph Hellwig <hch@infradead.org>
 To: Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH v2 2/5] arm64, mm: Move generic mmap layout functions to mm
-Message-ID: <20190410065908.GC2942@infradead.org>
+Subject: Re: [PATCH v2 5/5] riscv: Make mmap allocation top-down by default
+Message-ID: <20190410065928.GD2942@infradead.org>
 References: <20190404055128.24330-1-alex@ghiti.fr>
- <20190404055128.24330-3-alex@ghiti.fr>
+ <20190404055128.24330-6-alex@ghiti.fr>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190404055128.24330-3-alex@ghiti.fr>
+In-Reply-To: <20190404055128.24330-6-alex@ghiti.fr>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -72,39 +72,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 04, 2019 at 01:51:25AM -0400, Alexandre Ghiti wrote:
-> - fix the case where stack randomization should not be taken into
->   account.
+Looks good,
 
-Hmm.  This sounds a bit vague.  It might be better if something
-considered a fix is split out to a separate patch with a good
-description.
-
-> +config ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
-> +	bool
-> +	help
-> +	  This allows to use a set of generic functions to determine mmap base
-> +	  address by giving priority to top-down scheme only if the process
-> +	  is not in legacy mode (compat task, unlimited stack size or
-> +	  sysctl_legacy_va_layout).
-
-Given that this is an option that is just selected by other Kconfig
-options the help text won't ever be shown.  I'd just move it into a
-comment bove the definition.
-
-> +#ifdef CONFIG_MMU
-> +#ifdef CONFIG_ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
-
-I don't think we need the #ifdef CONFIG_MMU here,
-CONFIG_ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT should only be selected
-if the MMU is enabled to start with.
-
-> +#ifdef CONFIG_ARCH_HAS_ELF_RANDOMIZE
-> +unsigned long arch_mmap_rnd(void)
-
-Now that a bunch of architectures use a version in common code
-the arch_ prefix is a bit mislead.  Probably not worth changing
-here, but some time in the future it could use a new name.
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 
 _______________________________________________
 linux-riscv mailing list
