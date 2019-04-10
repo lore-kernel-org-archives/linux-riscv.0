@@ -2,86 +2,84 @@ Return-Path: <SRS0=ShlG=SM=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E4B08C282DA
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D5008C10F14
 	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 22:45:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AD63C218AE
+	by mail.kernel.org (Postfix) with ESMTPS id 9FE0521852
 	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 22:45:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="r4o8PN/d";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="K1u04Vh6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AD63C218AE
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="F6nARyxs";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="gsQTldfT"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9FE0521852
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FtTaPrWqCm65xKwdtIN28d6Lf0gPMsye0qfXT868l7I=; b=r4o8PN/deyj4aS
-	/1mHZCWMhmVMwfdnXJA3bBrDzNoF7hOuwA7QQMszypxZv29maMxP1EJB6kjjRUVQF7LUS672cOg5L
-	MyR/DmWFJA2RrFRkAQQa3tKSq0XhWyrFWDKwDgNIOgTzk7PVubQlE+I6lOL1/6rKRaaAcqHi6lMPV
-	xqWWqQH7aYdM50aHhJzNBao3dEoMUUFJDfn/pMN4JfSdE9Oohj2ISEX952EdQMMSLrviBsgOT4a6G
-	A/VAw/HtaBJP7NeNdGWxZ/N0lw6m5T6m0h8AALBNmGQQ/pI/xovR9f/yKuC3Y19F50eAbOrGO+iHU
-	M2UvIouwlZBhiPGspZ7g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kSWXD/uW4/QnDeQEsyWENmuTtaaRcEgtzf/YNTGLmlQ=; b=F6nARyxsmx0PQn
+	IMLjdx3SS1uFro5ViVetE0MoHgkThOF8ez1w8z/+UXcg7MkqT1B0/remfP0TM15OMzfMFa1LYSp1y
+	h5RYfEDqE+E16m0cvMOBih/LouDUyeVMcpmM43sCJabVaTuiGLBSepL2IauI2lsxHvVYxBI/srgEd
+	bwq2z+5K9/UB1oVY1lRJSYSFMlFsBaSqiwEri7xYPViVVwCbfqzedz4VC9ykZPFJ+9ZOs89eMvNXc
+	jN9lpVK/eVaRlCYSQlLsiul4ZyRdnzgHv93zvrFMC1OPOxFlKxdvfMjRC/5rcMIw3TzUhWex11/x7
+	L0U/cmhMQtdyC7ohYnlQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hELy0-0003qC-VZ; Wed, 10 Apr 2019 22:45:16 +0000
+	id 1hELxy-0003oY-Gb; Wed, 10 Apr 2019 22:45:14 +0000
 Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hELxx-0003nm-QQ
- for linux-riscv@lists.infradead.org; Wed, 10 Apr 2019 22:45:15 +0000
+ id 1hELxw-0003nm-By
+ for linux-riscv@lists.infradead.org; Wed, 10 Apr 2019 22:45:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1554936313; x=1586472313;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=8a9nFQNbKFd3//6jhM9wfTOXLMw/hQ4czkeb+c+UtjE=;
- b=K1u04Vh6qR6oqD8CYrFlvV+FstrYBRWGqA3qahSfGwAZWDrZidqm9Y/R
- vWjDSj7JMA4fX4M7d/dJTn9uRrm/9hl23Ilm40MEee0Nv93qT01LLzIhk
- 0gDn/3P/U5+TVLLsIBGUbOEtzJZD+p64KGKKwcHfYQzhp+T7q6nUg4gyY
- 0OGkLzYiZmHowSi11P+i13Nc37aM9D3OsuAKbU4zFU4BY7r1dp3U63S4X
- PdQc7fu4OUI0QcTTM3ztegHRJhwH0lcFnsq5Wa5Zc2A+GPiAv+CVzR+n+
- sDIEu+SU0umdnKnJiimJaTBKVYLDBNVebtYL+88fmKaKUdeW9Wn2c36GX A==;
-X-IronPort-AV: E=Sophos;i="5.60,335,1549900800"; d="scan'208";a="105470409"
+ t=1554936312; x=1586472312;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=a3VvaOh2cf1QC+g5MffvF8to+gMoca9eohO0HIC8O3Q=;
+ b=gsQTldfTq/8AgHG1HimVF9RladTEnH+VKze+mUFrvd9KGEPZHhhaA55/
+ A3pc5c/2p0KmOxRZAxjLjUvgH8R2rkKxB/H5CziJre6aXy/DrufAhBBpT
+ XQlzvG5p37Omx2nO6B04sldrONU2b0ruLymvK5HNoWSPAMyA1sLoxil8F
+ 8y7v0ujGl76vp4PbViSk1P8vEP92hrlqrTGOCv7Zo9Wx9/JnPp6HW5Nuf
+ JroNsf9uUQF9uUTa3p98z40NrzQByBitkECk583i+C0Cu5gwZ8qj2wvc9
+ jexWbBneeS1bVK2jXb1pf7V5RS8K7Oi6kYPHiUJ0quspbrFj8+k8l6+Yq Q==;
+X-IronPort-AV: E=Sophos;i="5.60,335,1549900800"; d="scan'208";a="105470407"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
  by ob1.hgst.iphmx.com with ESMTP; 11 Apr 2019 06:45:11 +0800
-IronPort-SDR: n5/oWx2S71aj9kI1hE+PSK3/vvH1Jx6/JTRzH/xa19DYpYx7Ld6MJmy+4S3ZODXMCSFOMSOBPp
- wI/nAnwcnfHFJc06a7HYcEzntFWTLNV9UVDHmPZUuBUSLrDAqEr9b/s4qTdHJ49Elof0XIFqdM
- aJBkqTn+Mu8uQM4d2umdCZE7p3ySf43A+tvEXbMkCTuMa3Wyf7ms1Tf/9uG04LfYNdvyrFBYwn
- MAxzVBAArsIPIojac7LDw6wipvGA/0qJiqAQs4PhUoHTX49vRyIi6MNAqZqdOHLI7wS/umWhpZ
- suTWdwkpGUpxweGuC1ccqV9d
+IronPort-SDR: 65p6k0UftyKURWqSorBP7E+duhXXMj2hEN9KFc9waq2laDghZXSXHoImN2E2JYZRLj0derbYaj
+ flaLXJ9ljP0L9880aduEX0bjM7+pkO9BVnuy1lHGZTuT2qanJBY8ItKWdpL35LBPEjqum+sw5M
+ a/t/K/+PRXgnoGVdAOuY2FDiw+rv0JPDke6D7Um36ycUQHPp2KLCyNhRG2XsXYAaM/CBMxKnPs
+ t+edBi6jDduCom0TuFsOLf5Jzs7CNkYMl6QhWmy6Ly6wBLpw8K4avFXShyaNVHTbz3PPtE/KmI
+ 9qEc+tYq3mMIQ7I3fP/xEYbB
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep02.wdc.com with ESMTP; 10 Apr 2019 15:24:13 -0700
-IronPort-SDR: m/18FSUIFv2lEJf2eefSFGl4WdeRvmz0Q9jV/kflxUyi6lCOts3bODYymr211SYu9PuY7EnEkG
- gCRt+KpD4F/6+c1QJkLWDJPBGvbJvInvvERne/fbhORuResiADleeMy1dzR9KwhmIPCkoOxu5u
- L4NOkQOFioR4wF6INiDb2Pnp3rmwh0iLnAPuXUGXAMTX+Xk2+vYaxBx0C/aOPBtftQ4u0/m68j
- GVbxa7tSFTVgC5z+xh8gZ3b4MMPOPjqXoYhFoxYoayrqZAFpb3usg3vIJ6z36Y7/AFACbqV+a7
- xlw=
+IronPort-SDR: QlOKyi6VU6nK9T6rpHWVoYgt23bZNACPlGHgqvZhpoX/gyPVFdKc50HhypFMdxTAjDyQfHRryu
+ 6PWonAigBO3stB2INKY2ZKSqX6Imvy9+ghIv+m5qGEQUPmCPa3fA3NyoJVzTZbmwh5wIWQ+vVX
+ FnrnnatYkvFWgISr6UksoLUIcqH1owqc3a4f40/WXNDCFTYwfFkFPhA+5fNP++Qg31NUDPZtJU
+ tyfNwUHwcBxYQmuY8y2bvMUDcwDWORzXw+Y1nZPcNolUfbQ1QPBYhFPB7wUXovph73WtY0W+E7
+ xyA=
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 10 Apr 2019 15:45:11 -0700
+ by uls-op-cesaip02.wdc.com with ESMTP; 10 Apr 2019 15:45:10 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [1/3] x86: Update DEBUG_TLBFLUSH options description.
-Date: Wed, 10 Apr 2019 15:44:47 -0700
-Message-Id: <20190410224449.10877-2-atish.patra@wdc.com>
+Subject: [0/3] TLB flush counters
+Date: Wed, 10 Apr 2019 15:44:46 -0700
+Message-Id: <20190410224449.10877-1-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.21.0
-In-Reply-To: <20190410224449.10877-1-atish.patra@wdc.com>
-References: <20190410224449.10877-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190410_154513_902817_C982C515 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20190410_154512_452471_0FBAAAB1 
+X-CRM114-Status: UNSURE (   5.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -106,51 +104,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CONFIG_DEBUG_TLBFLUSH was added in 'commit 3df3212f9722 ("x86/tlb: add
-tlb_flushall_shift knob into debugfs")' to support tlb_flushall_shift
-knob. The knob was removed in 'commit e9f4e0a9fe27 ("x86/mm: Rip out
-complicated, out-of-date, buggy TLB flushing")'.  However, the debug
-option was never removed from Kconfig. It was reused in commit
-'9824cf9753ec ("mm: vmstats: tlb flush counters")' but the commit text was
-never updated accordingly.
+The RISC-V patch (2/3) is based on Gary's TLB flush patch series
 
-Update the Kconfig option description as per its current usage.
+https://patchwork.kernel.org/project/linux-riscv/list/?series=97315
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/x86/Kconfig.debug | 15 +++------------
- 1 file changed, 3 insertions(+), 12 deletions(-)
+The x86 kconfig fix patch(1/3) can be applied separately.
 
-diff --git a/arch/x86/Kconfig.debug b/arch/x86/Kconfig.debug
-index 15d0fbe27872..c1a48d4ffebb 100644
---- a/arch/x86/Kconfig.debug
-+++ b/arch/x86/Kconfig.debug
-@@ -125,21 +125,12 @@ config DOUBLEFAULT
- 	  hair.
- 
- config DEBUG_TLBFLUSH
--	bool "Set upper limit of TLB entries to flush one-by-one"
-+	bool "Save tlb flush statstics to vmstat"
- 	depends on DEBUG_KERNEL
- 	---help---
- 
--	X86-only for now.
--
--	This option allows the user to tune the amount of TLB entries the
--	kernel flushes one-by-one instead of doing a full TLB flush. In
--	certain situations, the former is cheaper. This is controlled by the
--	tlb_flushall_shift knob under /sys/kernel/debug/x86. If you set it
--	to -1, the code flushes the whole TLB unconditionally. Otherwise,
--	for positive values of it, the kernel will use single TLB entry
--	invalidating instructions according to the following formula:
--
--	flush_entries <= active_tlb_entries / 2^tlb_flushall_shift
-+	Add tlbflush statstics to vmstat. It is really helpful understand tlbflush
-+	performance and behavior. It should be enabled only for debugging purpose.
- 
- 	If in doubt, say "N".
- 
--- 
+Atish Patra (3):
+x86: Update DEBUG_TLBFLUSH options description.
+RISC-V: Update tlb flush counters
+RISC-V: Add DEBUG_TLBFLUSH option.
+
+arch/riscv/Kconfig.debug          | 12 ++++++++++++
+arch/riscv/include/asm/tlbflush.h |  5 +++++
+arch/riscv/mm/tlbflush.c          | 12 ++++++++++++
+arch/x86/Kconfig.debug            | 15 +++------------
+4 files changed, 32 insertions(+), 12 deletions(-)
+
+--
 2.21.0
 
 
