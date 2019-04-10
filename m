@@ -6,81 +6,87 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C29CC10F11
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 17:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 69308C10F11
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 18:27:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4CC7A206DF
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 17:13:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3D60120830
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 18:27:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LUIFMav7";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="HsDX4JA0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4CC7A206DF
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AmQeEqNw";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="bSr7MxHC"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3D60120830
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=rh9vg0H91UISeDbkiVMSg9+SXdTq1EvmRAPEzcXF3Ts=; b=LUIFMav7+uSVrzk9MpabMl6Lz
-	Q4+RPqQVlAXRLGSrdsvnEtUYf1Wsg45H8gcSOBYqbhLrwaf5ymx/vqJGyAZP6EfO1FDdhhIfw3RMh
-	FA0ju26K42CF/V3ESv+DG/mMXTUWTSJvt/PDo7ADlHV+a7K8yhn2mRgYF2YASdWg0NHoqjsQTsIkV
-	3L7loo/i8B0BgFFILNMuoKBnEvzHN+FPw9MUkik8VAMqhKmMQeN4V/1hl8E97AFuW6OXNEtnfWlsK
-	XPSnbubKiSXgkVMATOWxGGXVsJBVqMSAzsCOLRidZJXdzzvNuC/d3B7eGAjPG+GaGmEj8uSkb3E79
-	ik9lsFXTw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pF05j04LHGDVSWr3pZoqmaKoCGaMijNIye9AJy0A99A=; b=AmQeEqNwhU4W1W
+	jnpixDd9rvKoykUpa/6fKdks4ZPQFmbPztIk0cExd72/K4KbFPqTKuJMzV+ouzfWsllsUaILqa7NQ
+	9vLoFJeYdeMVHmKhR0WMgmhFfPhpLzpRL9qR0PcH3CkYdmxRHW5347mKNSOERfl4kWHDuWs+i2Ctj
+	WPVr+FdA719sak3nq45CaPcsLrZeNpyyryc7SAL/UI5aORXuZ8wZqbIVglqTEUSlnKSXBbLCgi0L+
+	zrqGnPeZcQ2FbWvXbzpACL0obD7bGn+8YP6P8eri5cG8HQ2+qUBqRlKwt6D4XCq6C2kilb7DFLv63
+	zP8KtEy2O3USBjVyWKDA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hEGn5-0005fA-Ta; Wed, 10 Apr 2019 17:13:39 +0000
-Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
+	id 1hEHwp-0006mg-Ip; Wed, 10 Apr 2019 18:27:47 +0000
+Received: from mail-ua1-x942.google.com ([2607:f8b0:4864:20::942])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hEGn2-0005eM-J6
- for linux-riscv@lists.infradead.org; Wed, 10 Apr 2019 17:13:38 +0000
-Received: by mail-pg1-x543.google.com with SMTP id e6so1941309pgc.4
- for <linux-riscv@lists.infradead.org>; Wed, 10 Apr 2019 10:13:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=Loqo+ptgBIvQDOyaYvUe0ENLtUskQ9SIaVhe8fwBwp4=;
- b=HsDX4JA03d1+AsAao3WS+PUZr78vdmDtUUzkzxcSROPWrLn8Eb5FR6bTS7gfyX5Se6
- RXHmdSe3i63QH2Uwlc9iWjE2Kb/d+LZwYbiOVxuKvA8EzwkNnof6CPlbrPFGibCBkFp7
- hWnq88og4FTXpEaqx+7oGp51vE2yGyxdwHHhb5UruwL0+wyypViTL9hRTLxGBkBlBe5Z
- 5qT13he4my6y/dxSEoIJLSHUik1uC5kGXGYiTwTTRDvnF0GApKaxPmfeOIMK+mweN1/G
- s+svurRAIhhqAOxphSjjmWi/Xc3BUERxrjVzN9O04aDqqGb7V3Bqxtvxuq7qAhEEzT5v
- jJXQ==
+ id 1hEHwm-0006mG-Ar
+ for linux-riscv@lists.infradead.org; Wed, 10 Apr 2019 18:27:45 +0000
+Received: by mail-ua1-x942.google.com with SMTP id v7so1104761uak.13
+ for <linux-riscv@lists.infradead.org>; Wed, 10 Apr 2019 11:27:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=EWEqtNllEvpYJI4SR8SxraijSXCc4AK8CwC4R1aamEI=;
+ b=bSr7MxHCBXn6h0g3WRGDyc2DhbuqqkdN6kW4p22Hos+GjTZLWrFrQlrp7jWHR6ShdZ
+ 2uemyxpXrWgr4x5PSuKplueV9Xenc396YezASzbUdmimeusHUAsVR9xEc9/Ce4YVvdd/
+ +FKf9Ta+3vfdBUTnObARr7b4AQUoa15vGEWKE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=Loqo+ptgBIvQDOyaYvUe0ENLtUskQ9SIaVhe8fwBwp4=;
- b=j8IM/7Cm5s03cDVr7OroUEUyvJbW14ZnhYamTi2Uru0wroH/q0gY45Cix9hPdqb9K3
- 1rkP11t8WOuYjKV5+xAZcfyfvhGc3VaAgFdpRgRabOkaLzLUci9S9Gig8K1y+YNklOq6
- 1lgJDaYaFZag35PSa2++J5uGYKsLdUS+ynhLLYzYjxrGVk+WsqWg8Kg/VOMDj7HXy8bQ
- ICE/SQMZ4lc0a/ab0mVGPa7Qv3OL/16n07MAvtiRbfHxxMO6lfS9Y9qJfvETK7FESdFn
- roINf/gU+UVXeWbEqoqsLQIaqf5uXOu7JU189vYzb2YbYdXn7CxBDNsvQrL75Sk86eGb
- hoFQ==
-X-Gm-Message-State: APjAAAWPWEBIuwiUSfQ+yWN2VITwv6uKg/zLawUt+mcuCQeAOORVRR8l
- Z/WGNtXEBxd8Jond43cHZf4zoQ==
-X-Google-Smtp-Source: APXvYqy4kxmphmV7146MvOIJc2ridXyRqNiZXhX/zaBHLyntGjsvpeu6HO/0SDWusydyn5LL7KjkBw==
-X-Received: by 2002:aa7:85cc:: with SMTP id z12mr44427095pfn.142.1554916415354; 
- Wed, 10 Apr 2019 10:13:35 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id j62sm35138150pfg.6.2019.04.10.10.13.34
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=EWEqtNllEvpYJI4SR8SxraijSXCc4AK8CwC4R1aamEI=;
+ b=e5Vi89OA3l/6SMgeBV95L63XjHaSAXJv2Ft5rYSyblmHknBucYuioghmTtCrA54mGz
+ uXvClEjpigYJuILTrifS07BbV4nhYHIUSunnkp2r+Zahnn5MCgKN1xlec99UfokV5K6C
+ F6zIUwBFkgP5GOGqSx0Zt1R04u5wI1T7Y6pDkhHulNiQGL8wXdUNRzHTsx5CdGGHyIw6
+ 6VzZdaaGaFUY7n5Rx2XpAJo3p37cqTH0jk542/pTvPLUbeIgiV++e5eCsofLSyGp30qn
+ DWpgyguXp5B+I9h6UCt4c4bBj1uymq1mkmL0SlXLLBoGjCPRXUsgYJq8IZKEAIMqMS9D
+ kiWA==
+X-Gm-Message-State: APjAAAWwlTEbQiyZEFdPP/xezUBTJq812AeumWb7rfyQJbjGUT135Svr
+ zCPs0vfcznWjyCl+ehB/paTwWb7noBU=
+X-Google-Smtp-Source: APXvYqwuTn0H70bHstTRISusL0AahnZNnh6YVxP/OjhvePO2sj954wCEuY+AbqdpaJkgJsjPfInxOw==
+X-Received: by 2002:ab0:6419:: with SMTP id x25mr15686993uao.86.1554920861571; 
+ Wed, 10 Apr 2019 11:27:41 -0700 (PDT)
+Received: from mail-vs1-f41.google.com (mail-vs1-f41.google.com.
+ [209.85.217.41])
+ by smtp.gmail.com with ESMTPSA id f73sm2554816vsd.1.2019.04.10.11.27.39
+ for <linux-riscv@lists.infradead.org>
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 10 Apr 2019 10:13:34 -0700 (PDT)
-Date: Wed, 10 Apr 2019 10:13:34 -0700 (PDT)
-X-Google-Original-Date: Wed, 10 Apr 2019 09:43:10 PDT (-0700)
-Subject: Re: [PATCH 1/3] RISC-V: Add separate defconfig for 32bit systems
-In-Reply-To: <CAAhSdy1UZ3VZAa+Gtf0KQUY9Ebwm7p=qAB+Xv7HDAjfUYpFuAQ@mail.gmail.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: anup@brainfault.org
-Message-ID: <mhng-291f78d2-5d90-4f44-8bbd-017264cd5be7@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ Wed, 10 Apr 2019 11:27:39 -0700 (PDT)
+Received: by mail-vs1-f41.google.com with SMTP id o10so1927948vsp.12
+ for <linux-riscv@lists.infradead.org>; Wed, 10 Apr 2019 11:27:39 -0700 (PDT)
+X-Received: by 2002:a67:7816:: with SMTP id t22mr24096520vsc.115.1554920858548; 
+ Wed, 10 Apr 2019 11:27:38 -0700 (PDT)
+MIME-Version: 1.0
+References: <20190404055128.24330-1-alex@ghiti.fr>
+ <20190404055128.24330-3-alex@ghiti.fr>
+ <20190410065908.GC2942@infradead.org>
+ <8d482fd0-b926-6d11-0554-a0f9001d19aa@ghiti.fr>
+In-Reply-To: <8d482fd0-b926-6d11-0554-a0f9001d19aa@ghiti.fr>
+From: Kees Cook <keescook@chromium.org>
+Date: Wed, 10 Apr 2019 11:27:27 -0700
+X-Gmail-Original-Message-ID: <CAGXu5jKt8f7=DKrvcPg-NUJGbc-vanMNojfDsEiBt3vP05G4oQ@mail.gmail.com>
+Message-ID: <CAGXu5jKt8f7=DKrvcPg-NUJGbc-vanMNojfDsEiBt3vP05G4oQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/5] arm64, mm: Move generic mmap layout functions to mm
+To: Alexandre Ghiti <alex@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190410_101336_643537_71563409 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20190410_112744_402843_F031DD85 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,39 +98,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, Anup Patel <Anup.Patel@wdc.com>,
- linux-kernel@vger.kernel.org, rppt@linux.ibm.com,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>, Russell King <linux@armlinux.org.uk>,
+ Ralf Baechle <ralf@linux-mips.org>, LKML <linux-kernel@vger.kernel.org>,
+ Christoph Hellwig <hch@infradead.org>, Linux-MM <linux-mm@kvack.org>,
+ Paul Burton <paul.burton@mips.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ James Hogan <jhogan@kernel.org>,
+ "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Luis Chamberlain <mcgrof@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Apr 2019 23:09:03 PDT (-0700), anup@brainfault.org wrote:
-> On Tue, Apr 9, 2019 at 10:14 PM Palmer Dabbelt <palmer@sifive.com> wrote:
->>
->> On Tue, 12 Mar 2019 15:08:12 PDT (-0700), Anup Patel wrote:
->> > This patch adds rv32_defconfig for 32bit systems. The only
->> > difference between rv32_defconfig and defconfig is that
->> > rv32_defconfig has  CONFIG_ARCH_RV32I=y.
->>
->> Thanks.  I think it makes sense to have this in 5.1 so I'm going to take it
->> into the next RC.
+On Wed, Apr 10, 2019 at 12:33 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
 >
-> Thanks, Palmer.
+> On 04/10/2019 08:59 AM, Christoph Hellwig wrote:
+> > On Thu, Apr 04, 2019 at 01:51:25AM -0400, Alexandre Ghiti wrote:
+> >> - fix the case where stack randomization should not be taken into
+> >>    account.
+> > Hmm.  This sounds a bit vague.  It might be better if something
+> > considered a fix is split out to a separate patch with a good
+> > description.
 >
-> Can you consider "[PATCH v3] RISC-V: Fix Maximum Physical Memory 2GiB
-> option for 64bit systems" for 5.1?
->
-> Refer, https://patchwork.kernel.org/patch/10886895/
->
-> The above patch is also required for 64bit system with more than 128GiB memory
-> (i.e. server-class system).
->
-> We can remove "Maximum Physical Memory 2GiB" option as separate patch.
+> Ok, I will move this fix in another patch.
 
-Ya, that should go in.  It's on the branch, thanks for the reminder!
+Yeah, I think it'd be best to break this into a few (likely small) patches:
+- update the compat case in the arm64 code
+- fix the "not randomized" case
+- move the code to mm/ (line-for-line identical for easy review)
+
+That'll make it much easier to review (at least for me).
+
+Thanks!
+
+-- 
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
