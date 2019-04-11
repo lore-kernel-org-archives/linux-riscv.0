@@ -2,20 +2,21 @@ Return-Path: <SRS0=Og1w=SN=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 33044C10F13
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 06:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E141FC10F13
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 07:01:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 039CC21841
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 06:59:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B1B422082E
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 07:01:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Se3wLDZk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 039CC21841
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UmawJ7ze"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B1B422082E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,27 +25,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mDPEPQv8Sm232aIeHT6fWz1kBt7VXRNo/4CiK/WyLto=; b=Se3wLDZk+S4BTE
-	1xdYjWneFOo7fTsr4H/ovFsH7jXS5zRfanaA66lh64qGZyzi4EPyt5ueJHWZA+1XF5TtFUNUXbRY2
-	V5hBC5PDHj7rFEbaapEphVoQIRG4u9NzD/c9fRg3Yr7i/aas1CZDwice7oHOwlJObqM5ikI/5TkEy
-	ymBSzKSh3gjPvWtTJ+RnE0+YOHgf5g0QjyU1S28v1k9BrPM/GUQXI8PH7GsZAeNrWNGfPSav+/tBK
-	9Qjinw5sWjTyUSNiyCvHtTGx6F1VaKdXjG51mvwJoqruDgvHf+4YN3ltYTwEVZufuDynz8EssW3yJ
-	FcGUpDu0NN+PbP7j12SA==;
+	List-Owner; bh=M4PE1a1GzjuhtGI0yZdv8gJSknBe+pPfPHeH4NQki9g=; b=UmawJ7zevnf1Wf
+	qALlDjKj99CxTSQggu5JOY6gQseRHoRVeY06VU/pMd0yWtY0W+Dmdva5q0b+k5PVWt0aHFOTd/UVF
+	Hs4Zs/iDetYIycr1ahxN3wt9wNs3X9Lt28Ng8/9TCJa/AFJFNTTSnxhukYQoIw3f/RAiH5yftdKfX
+	TnkcjZ5vCUAKbv7+1XOiNWzp5PrJV7sEnfIytchptkHs1Et6KoQLj3MSuVTZARBVoFibjQG+SDb8m
+	lM6a3sKFdxmWW1jCHhSzC0801TeLNv5mKiNEjokcsdKISVtcrhFZcvMXzs6S9bqStMCp6gqKdquQG
+	sth/QLZvDTvYM3ZrRmrQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hETfu-0001to-QS; Thu, 11 Apr 2019 06:59:06 +0000
+	id 1hETi5-0003iR-Ic; Thu, 11 Apr 2019 07:01:21 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1hETfs-0001tA-Kl; Thu, 11 Apr 2019 06:59:04 +0000
-Date: Wed, 10 Apr 2019 23:59:04 -0700
+ Hat Linux)) id 1hETi4-0003iG-2Y; Thu, 11 Apr 2019 07:01:20 +0000
+Date: Thu, 11 Apr 2019 00:01:19 -0700
 From: Christoph Hellwig <hch@infradead.org>
 To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [PATCH v2 2/4] RISC-V: Fix of_get_cpu_node usage
-Message-ID: <20190411065904.GC29422@infradead.org>
+Subject: Re: [PATCH v2 3/4] RISC-V: Implement nosmp commandline option.
+Message-ID: <20190411070119.GD29422@infradead.org>
 References: <20190410230443.15729-1-atish.patra@wdc.com>
- <20190410230443.15729-3-atish.patra@wdc.com>
+ <20190410230443.15729-4-atish.patra@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190410230443.15729-3-atish.patra@wdc.com>
+In-Reply-To: <20190410230443.15729-4-atish.patra@wdc.com>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -67,11 +68,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 10, 2019 at 04:04:41PM -0700, Atish Patra wrote:
-> of_get_cpu_node expects a logical cpu id not a hartid.
+On Wed, Apr 10, 2019 at 04:04:42PM -0700, Atish Patra wrote:
+> nosmp command line option sets max_cpus to zero. No secondary harts
+> will boot if this is enabled. But present cpu mask will still point to
+> all possible masks.
+> 
+> Fix present cpu mask for nosmp usecase.
+> 
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+>  arch/riscv/kernel/smpboot.c | 12 +++++++++++-
+>  1 file changed, 11 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index eb533b5c2c8c..a8ad200581aa 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -47,6 +47,17 @@ void __init smp_prepare_boot_cpu(void)
+>  
+>  void __init smp_prepare_cpus(unsigned int max_cpus)
+>  {
+> +	int cpuid;
+> +
+> +	/* This covers non-smp usecase mandated by "nosmp" option */
+> +	if (max_cpus == 0)
+> +		return;
+> +
+> +	for_each_possible_cpu(cpuid) {
+> +		if (cpuid == smp_processor_id())
+> +			continue;
+> +		set_cpu_present(cpuid, true);
+> +	}
 
-But only because you changed that with your patch 1, so it should
-be folded into that.
+Most other architectures seem to use init_cpu_present() here.
+
+Otherwise this looks fine to me.
 
 _______________________________________________
 linux-riscv mailing list
