@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E77DAC10F13
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 11:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A4EF4C10F14
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 11:57:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B6BF02133D
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 11:57:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 751AA2073F
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 11:57:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="phBSiha7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B6BF02133D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="trHUOTAn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 751AA2073F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,23 +25,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nkaenu02ouhL4Xqm0zR+TMADOVpDFFzrOdYEf/sFmMA=; b=phBSiha7MBc3ym
-	YbVPmyOuvu96fNvE0BqPIa6/O3WyvorQ7zN73oORbWml3Kuyn10HDsJYPABIMFJajV3Kox/vYkm6r
-	8uBaYDtne8Pz2UltrzTdklhCLmfL9RKy7UbNKj5OSP/2aoeKcWOm12hZhyUjXCay1oQW2zC/3cUWn
-	bF9M/w0NTbo3juRouVvamUJJmutcmKhrlSa01SiyuBfQS7e/Wtpg+7KYtuRSj2QKq8KU3EW2wnNhM
-	1ccD4lPrJrVJyWiemI2AtKw1tszSgyRgKp69gNMceC4ws+iTwuiQ4lrUdK/yg7Eq8dg9KkEKf91N3
-	qF+FL+a4Mcr5FyN3Envg==;
+	List-Owner; bh=+yUjb3LzGeH8jghaA+faZYsegl6M/KtNwkuD+kFxvvg=; b=trHUOTAncXhU+o
+	YLby8do749oPgW313IH2TT+bVbrNS6oXVYP/boqX1wiq7vBY9cGkFoA+WzYatcfs80LvP119F1J2j
+	da7uZbG9gHjYrOYtuzXaT5B9Vxm+SL5BlEec8sIuXnPzxT1lQGtJkJ0BI+Al6ndWyQrTiGBWr/hzm
+	o4CgNLyt8wqLdc6pXx2ByTxcVB5MD9wuUwdI1emulIogLnmbxhzcfhNQuKTOHoD6ZJnCGAUbUBdFk
+	cTWdYIHMGMLDJqTcm0+jqPUyTC+HLC1n4X09xSapB//uiH12QV34Dz9+TQA15ZtDU75FkmvtTwH3D
+	Disu5TR5MlfQFoFQGtVw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hEYKA-00011T-PM; Thu, 11 Apr 2019 11:56:58 +0000
+	id 1hEYKD-000145-DX; Thu, 11 Apr 2019 11:57:01 +0000
 Received: from clnet-p19-102.ikbnet.co.at ([83.175.77.102] helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hEYK9-0000yW-2h; Thu, 11 Apr 2019 11:56:57 +0000
+ id 1hEYKB-000115-L5; Thu, 11 Apr 2019 11:57:00 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Palmer Dabbelt <palmer@sifive.com>
-Subject: [PATCH 4/9] riscv: turn mm_segment_t into a struct
-Date: Thu, 11 Apr 2019 13:56:18 +0200
-Message-Id: <20190411115623.5749-5-hch@lst.de>
+Subject: [PATCH 5/9] riscv: simplify stack pointer setup in head.S
+Date: Thu, 11 Apr 2019 13:56:19 +0200
+Message-Id: <20190411115623.5749-6-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190411115623.5749-1-hch@lst.de>
 References: <20190411115623.5749-1-hch@lst.de>
@@ -63,68 +63,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This matches what other heavily used architectures do, and will allow us
-to easily use <asm-generic/uaccess.h> for the nommu case.
+We don't need THREAD_SIZE in asm-offsets.c as we can just calculate
+the value of init_thread_union + THREAD_SIZE using cpp, just like
+we do a few lines above.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/riscv/include/asm/thread_info.h |  4 +++-
- arch/riscv/include/asm/uaccess.h     | 12 +++++++-----
- 2 files changed, 10 insertions(+), 6 deletions(-)
+ arch/riscv/kernel/asm-offsets.c | 3 ---
+ arch/riscv/kernel/head.S        | 5 +----
+ 2 files changed, 1 insertion(+), 7 deletions(-)
 
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index 1c9cc8389928..9c039870019b 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -28,7 +28,9 @@
- #include <asm/processor.h>
- #include <asm/csr.h>
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index dac98348c6a3..578bb5efc085 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -312,9 +312,6 @@ void asm_offsets(void)
+ 		- offsetof(struct task_struct, thread.fstate.f[0])
+ 	);
  
--typedef unsigned long mm_segment_t;
-+typedef struct {
-+	unsigned long seg;
-+} mm_segment_t;
+-	/* The assembler needs access to THREAD_SIZE as well. */
+-	DEFINE(ASM_THREAD_SIZE, THREAD_SIZE);
+-
+ 	/*
+ 	 * We allocate a pt_regs on the stack when entering the kernel.  This
+ 	 * ensures the alignment is sane.
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index fe884cd69abd..9344d9ceda24 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -68,10 +68,7 @@ clear_bss_done:
+ 	/* Restore C environment */
+ 	la tp, init_task
+ 	sw zero, TASK_TI_CPU(tp)
+-
+-	la sp, init_thread_union
+-	li a0, ASM_THREAD_SIZE
+-	add sp, sp, a0
++	la sp, init_thread_union + THREAD_SIZE
  
- /*
-  * low level task data that entry.S needs immediate access to
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 5c50ed6f8c93..b26f407be5c8 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -39,8 +39,10 @@
-  * For historical reasons, these macros are grossly misnamed.
-  */
- 
--#define KERNEL_DS	(~0UL)
--#define USER_DS		(TASK_SIZE)
-+#define MAKE_MM_SEG(s)	((mm_segment_t) { (s) })
-+
-+#define KERNEL_DS	MAKE_MM_SEG(~0UL)
-+#define USER_DS		MAKE_MM_SEG(TASK_SIZE)
- 
- #define get_fs()	(current_thread_info()->addr_limit)
- 
-@@ -49,9 +51,9 @@ static inline void set_fs(mm_segment_t fs)
- 	current_thread_info()->addr_limit = fs;
- }
- 
--#define segment_eq(a, b) ((a) == (b))
-+#define segment_eq(a, b) ((a).seg == (b).seg)
- 
--#define user_addr_max()	(get_fs())
-+#define user_addr_max()	(get_fs().seg)
- 
- 
- /**
-@@ -83,7 +85,7 @@ static inline int __access_ok(unsigned long addr, unsigned long size)
- {
- 	const mm_segment_t fs = get_fs();
- 
--	return (size <= fs) && (addr <= (fs - size));
-+	return size <= fs.seg && addr <= fs.seg - size;
- }
- 
- /*
+ 	/* Start the kernel */
+ 	mv a0, s0
 -- 
 2.20.1
 
