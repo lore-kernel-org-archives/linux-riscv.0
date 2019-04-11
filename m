@@ -6,74 +6,85 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4A2B3C10F14
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 16:47:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DD095C10F13
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 18:14:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 172CE2173C
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 16:47:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AEC842084D
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 18:14:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bqw6UBLg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 172CE2173C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ics.forth.gr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="InoU+jvB";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Eb99j8MX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AEC842084D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:To:From:
-	Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7ibYaFTxVRIHxObImtgQJtiYwSXCx1diL2debl7kIkQ=; b=bqw6UBLgIVIcGe2lvagmwgjUt
-	5LnIq1HmvmisyuEUC+44St/Y3Quk4N5x46YzmwTBvAgGYcwHpi2Zk+9thj5/07KykUAt4aSEHV43f
-	F+/NNxdfkyPBIsbsxfmS3Ghf0Jiw/JffI0rQSh+ZnxwDyL7yKuKTn0jKILq69/8zOX3URJVay81L9
-	aC16xGZxloyuYvW7DKEXdXXBvGa1loHkqMN9FdmWnOmng9iV4DGNLlMC4KVC8It+GOMuP3WnIqZGd
-	zeS8B3iK8p9GiwCfOC1XbVe0UoEW+RxrLLcTzcTtA7hOGQ5j6ENI5Ze4nVID2e70e96W2jk3T01B9
-	uJkzGKUUQ==;
+	 bh=B1bv1fZVLDvf7+eJBi1FgCHmfhHTnCJgxxsoEOUb50w=; b=InoU+jvBwBJTAh8if/BFsUrk5
+	7RUaaBQ6LLcM/1BHEzeKSXQn6gErxEvRyyWa93U4WGakpcPVUrxuT/aUpEHcKeGrKlonv+Vysuj76
+	y7vdQh7r+xLZJ+1UyZMC5cZjljEnFnsvL6a7Elh+2/NBWAplaGksf7lF0khCHJiYsDR/N0eXBBjuW
+	TewYbwgursj+Fkb0GGOnLLFUGcy+2KeBJRNimXTvpO75NI77/nsw5Q0WskHYipEqPkmODsjrM1lvl
+	92Pfq5oyMhnlmIT0pTKR4SFXjG1q4gWIRoR9U1I6ZVj+yZHAMnQxeskdoi0KPymfJzUWl8kjprDnm
+	LNopVzKXA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hEcrP-0001Uj-33; Thu, 11 Apr 2019 16:47:35 +0000
-Received: from mailgate-2.ics.forth.gr ([139.91.1.5])
+	id 1hEeDG-0008EP-FC; Thu, 11 Apr 2019 18:14:14 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hEcrK-0001TM-6B
- for linux-riscv@lists.infradead.org; Thu, 11 Apr 2019 16:47:32 +0000
-Received: from av1.ics.forth.gr (av3in [139.91.1.77])
- by mailgate-2.ics.forth.gr (8.14.4/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- x3BGlKAd014413; Thu, 11 Apr 2019 16:47:22 GMT
-X-AuditID: 8b5b9d4d-8f5ff7000000235c-fa-5caf6f9883cb
-Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.1.35])
- by av1.ics.forth.gr (SMTP Outbound / FORTH / ICS) with SMTP id
- D0.C9.09052.89F6FAC5; Thu, 11 Apr 2019 19:47:20 +0300 (EEST)
-Received: from webmail.ics.forth.gr (localhost [127.0.0.1])
- by enigma.ics.forth.gr (8.15.1//ICS-FORTH/V10.5.0C-EXTNULL-SSL-SASL) with
- ESMTP id x3BGlKP9016360; Thu, 11 Apr 2019 19:47:20 +0300
-X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
+ id 1hEeDE-0008E6-Au
+ for linux-riscv@lists.infradead.org; Thu, 11 Apr 2019 18:14:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1555006452; x=1586542452;
+ h=subject:to:cc:references:from:message-id:date:
+ mime-version:in-reply-to:content-transfer-encoding;
+ bh=TA1nweJzazRcI8nGG0xaae8sgqSHrilFQeoJtWiH2Y8=;
+ b=Eb99j8MX6cCxXJVP6rH4O0QZJfbwUEyc6KAqziJ4KDchfpEy7sGm6B3t
+ scRyVwMIG/5av6NCpS25WaCYiosZjl/FnKPeAHLxuZoMAjv2EgrmfQ6I9
+ ofMqIC4gef+/fEeSHAIoAXklV7gP4LLyp2rkfcwD1b91qHjA3XkofETZB
+ fDJMgGlTf3OF9MzhkmsEPeeRwkEAZ+7YhwqlgS2yv/GWoSwIV0OiV8w0M
+ V9xh+TmQZsyGr5uvCgUv2Mg9vfdhuekvA3qqK1HuuPgxZaeOLOqEhXIur
+ oO2O2roMLW5edSw1Sb3M0KqXt+5TCW+gFOGLKXuIEjyoOQxbZ81eRSUFM g==;
+X-IronPort-AV: E=Sophos;i="5.60,338,1549900800"; d="scan'208";a="106943939"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 12 Apr 2019 02:14:10 +0800
+IronPort-SDR: 9L9sHmGRyIRZtS32hEFyjjhT2mK8d0eDpKCC5rVv7hEFUSt7Hncc+hT+ktHthAaTByCEFRkw2h
+ DEw4qaApKS73thJqg73bJC7wpo+tmP8tcWjleBSkBVoE44MWhqQpzBiG71abv6fRvW3GA61PzZ
+ ZtZ1mIKVFERCRXy5P8pTv0eshh9VgMUgaVz5URa8Jb/hMSBCYJqFDBKzhT53ys+D8sX4Z8VVYa
+ ps9+AnwJdJKy+ObLpoFtJPoWoWzckLAkRygfTCnrpQa+RvZ5RdWwipY7QbxDhC9jHcaW6o/E6+
+ do1DQ41teubD40hldwOIy9r1
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep02.wdc.com with ESMTP; 11 Apr 2019 10:53:11 -0700
+IronPort-SDR: ElvWdcaZMzVpcsef1OmngfWr+osjSLfdQXNLcrk/lNFkajTJlJZd9dBiZfXJkXZGHKYkAVSABB
+ 3LrXyxlWwgw9YtCu7ox59/ZX0UKof7p/fxMhFG4nipAy6B9o1KZlR2FJh2+zKNJpvhpLcc6vhH
+ kUZEYx5bw4p54PBMkwmLGIvLEOzQe+2BiYaOU2UaaT7Ly5hQMulH0F/FiSV5YoRAE0B977Ijse
+ I1qsLZIf5xMfwldJONebJi86MKM/W2gR7Syqf6BRVVNW32yi3ybGr7f9+vS34/8RJ3rM7XRPd7
+ 19Y=
+Received: from r6220.sdcorp.global.sandisk.com (HELO [192.168.1.6])
+ ([10.196.157.143])
+ by uls-op-cesaip02.wdc.com with ESMTP; 11 Apr 2019 11:14:10 -0700
+Subject: Re: [PATCH v2 2/4] RISC-V: Fix of_get_cpu_node usage
+To: Christoph Hellwig <hch@infradead.org>
+References: <20190410230443.15729-1-atish.patra@wdc.com>
+ <20190410230443.15729-3-atish.patra@wdc.com>
+ <20190411065904.GC29422@infradead.org>
+From: Atish Patra <atish.patra@wdc.com>
+Message-ID: <2c078b17-625b-b3d0-7914-9cb2d05580e2@wdc.com>
+Date: Thu, 11 Apr 2019 11:14:09 -0700
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:60.0)
+ Gecko/20100101 Thunderbird/60.6.1
 MIME-Version: 1.0
-Date: Thu, 11 Apr 2019 19:47:20 +0300
-From: Nick Kossifidis <mick@ics.forth.gr>
-To: Christoph Hellwig <hch@lst.de>
-Subject: Re: [PATCH 2/9] riscv: remove dead big endian code
-Organization: FORTH
-In-Reply-To: <20190411163109.GA26533@lst.de>
-References: <20190411115623.5749-1-hch@lst.de>
- <20190411115623.5749-3-hch@lst.de>
- <3382adaf8be0b44af9ebb8b7528cac41@mailhost.ics.forth.gr>
- <20190411154731.GA23171@lst.de>
- <a5de00d885d5ebf5db35fa2c78738963@mailhost.ics.forth.gr>
- <20190411163109.GA26533@lst.de>
-Message-ID: <a4c98bb5f5d4823d68c84f8133320eb0@mailhost.ics.forth.gr>
-X-Sender: mick@mailhost.ics.forth.gr
-User-Agent: Roundcube Webmail/1.1.2
-X-Greylist: inspected by milter-greylist-4.6.2 (mailgate-2.ics.forth.gr
- [139.91.1.5]);
- Thu, 11 Apr 2019 16:47:22 +0000 (GMT) for IP:'139.91.1.77' DOMAIN:'av3in'
- HELO:'av1.ics.forth.gr' FROM:'mick@ics.forth.gr' RCPT:''
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
- (mailgate-2.ics.forth.gr [139.91.1.5]); Thu, 11 Apr 2019 16:47:22 +0000 (GMT)
+In-Reply-To: <20190411065904.GC29422@infradead.org>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190411_094730_591498_8338689D 
-X-CRM114-Status: UNSURE (   5.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190411_111412_501865_CBC79DB4 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -85,28 +96,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Nick Kossifidis <mick@ics.forth.gr>, linux-riscv@lists.infradead.org,
- Palmer Dabbelt <palmer@sifive.com>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Dmitriy Cherkasov <dmitriy@oss-tech.org>,
+ Andreas Schwab <schwab@suse.de>, Palmer Dabbelt <palmer@sifive.com>,
+ Johan Hovold <johan@kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-zqPPhM65z4IgMjAxOS0wNC0xMSAxOTozMSwgQ2hyaXN0b3BoIEhlbGx3aWcgzq3Os8+BzrHPiM61
-Ogo+IE9uIFRodSwgQXByIDExLCAyMDE5IGF0IDA3OjA4OjMwUE0gKzAzMDAsIE5pY2sgS29zc2lm
-aWRpcyB3cm90ZToKPj4gSSB0aGluayB3ZSBzaG91bGQgYXQgbGVhc3Qgd2FybiB0aGUgdXNlciBh
-Ym91dCB1bnN1cHBvcnRlZCBlbmRpYW5lc3MsCj4gCj4gVGhlIGVuZGlhbmVzcyBpcyBzZWxlY3Rl
-ZCBieSBhcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vYnl0ZW9yZGVyLmgKPiBpbmNsdWRpbmcg
-aW5jbHVkZS91YXBpL2xpbnV4L2J5dGVvcmRlci9saXR0bGVfZW5kaWFuLmgsIHdoaWNoIHRoZW4K
-PiBkZWZpbmVzIF9fTElUVExFX0VORElBTi4gIFNvIHdlJ2QgcmVhbGx5IG5lZWQgdG8gY2hlY2sg
-b25lIHBhcnQgb2YKPiB0aGUga2VybmVsIHBvcnQgYWdyZWVzIHdpdGggb3RoZXJzLCB3aGljaCBp
-cyBhIGxpdHRsZSBvZGQuICBBbmQgaW4KPiB3aGljaCBwbGFjZSBkbyB3ZSBjaGVjayB0aGF0IGFu
-ZCBpbiB3aGljaCBvbmUgbm90PyAgSXQgaXNuJ3QgbGlrZQo+IG90aGVyIHBvcnRzIGxpa2UgeDg2
-IGFyZSBmdWxsIG9mIHN1Y2gganVzdCBiZWNhdXNlIGNoZWNrcy4uCj4gCgpZb3UgZ290IGEgcG9p
-bnQgdGhlcmUsIGhvdyBhYm91dCBzb21ldGhpbmcgbGlrZToKCiNpZiBfX0JZVEVfT1JERVJfXyAh
-PSBfX09SREVSX0xJVFRMRV9FTkRJQU5fXwojZXJyb3IgIlVuc3VwcG9ydGVkIGVuZGlhbmVzcywg
-Y2hlY2sgeW91ciB0b29sY2hhaW4iCiNlbmRpZgoKb24gYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkv
-YXNtL2J5dGVvcmRlci5oID8KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+On 4/10/19 11:59 PM, Christoph Hellwig wrote:
+> On Wed, Apr 10, 2019 at 04:04:41PM -0700, Atish Patra wrote:
+>> of_get_cpu_node expects a logical cpu id not a hartid.
+> 
+> But only because you changed that with your patch 1, so it should
+> be folded into that.
+> 
+
+Yes. I should merge this to patch 1. Otherwise, git bisect will have 
+issues later with patch 1.
+
+Regards,
+Atish
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
