@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A4EF4C10F14
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 11:57:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 56599C282DA
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 11:57:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 751AA2073F
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 11:57:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 25AC52073F
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 11:57:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="trHUOTAn"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 751AA2073F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Fs/VkvoO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 25AC52073F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,23 +25,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+yUjb3LzGeH8jghaA+faZYsegl6M/KtNwkuD+kFxvvg=; b=trHUOTAncXhU+o
-	YLby8do749oPgW313IH2TT+bVbrNS6oXVYP/boqX1wiq7vBY9cGkFoA+WzYatcfs80LvP119F1J2j
-	da7uZbG9gHjYrOYtuzXaT5B9Vxm+SL5BlEec8sIuXnPzxT1lQGtJkJ0BI+Al6ndWyQrTiGBWr/hzm
-	o4CgNLyt8wqLdc6pXx2ByTxcVB5MD9wuUwdI1emulIogLnmbxhzcfhNQuKTOHoD6ZJnCGAUbUBdFk
-	cTWdYIHMGMLDJqTcm0+jqPUyTC+HLC1n4X09xSapB//uiH12QV34Dz9+TQA15ZtDU75FkmvtTwH3D
-	Disu5TR5MlfQFoFQGtVw==;
+	List-Owner; bh=QFlPu2AdsGCv2a/K/DpV0IeZ1CuZrHp2OF+PT1A2EBQ=; b=Fs/VkvoOewt8bY
+	PnCVhWwOJ8jNaAz6leGfkvuuGG4M5zbZBC8zNJE/0zBbIopmNlKS4xhgpj6T0BPasonqq+Tixq95J
+	O/D6bmxAzdWjDw3Y79AM0qD/Y9elhHXbxShJBndEug/1A2upZX60STeg0OFM/vFUhbiCSRtpL98Z/
+	O19Fvt1UQerE+BR4aem9T54xTrLpStHyV3BLyJlM3wczkkQC4jg63DUlHlwLL9b5NB1GV9BBIuE7T
+	bTLYt4p2px4o4f7O7zvL0UHcfbfkLDEh1G7w4troXuVVxIB2vBFaTfNu1soF4TRSgEUcFmtZ8MrbW
+	xZ63lwwQi6z8kJ8GZc7A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hEYKD-000145-DX; Thu, 11 Apr 2019 11:57:01 +0000
+	id 1hEYKF-000165-4L; Thu, 11 Apr 2019 11:57:03 +0000
 Received: from clnet-p19-102.ikbnet.co.at ([83.175.77.102] helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hEYKB-000115-L5; Thu, 11 Apr 2019 11:57:00 +0000
+ id 1hEYKE-00013j-2w; Thu, 11 Apr 2019 11:57:02 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Palmer Dabbelt <palmer@sifive.com>
-Subject: [PATCH 5/9] riscv: simplify stack pointer setup in head.S
-Date: Thu, 11 Apr 2019 13:56:19 +0200
-Message-Id: <20190411115623.5749-6-hch@lst.de>
+Subject: [PATCH 6/9] riscv: also clear all pending interrupts when booting
+Date: Thu, 11 Apr 2019 13:56:20 +0200
+Message-Id: <20190411115623.5749-7-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190411115623.5749-1-hch@lst.de>
 References: <20190411115623.5749-1-hch@lst.de>
@@ -63,46 +63,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We don't need THREAD_SIZE in asm-offsets.c as we can just calculate
-the value of init_thread_union + THREAD_SIZE using cpp, just like
-we do a few lines above.
+Just in case an old interrupt is pending make sure we clear everything
+asserted before this kernel started.  Based on similar M-mode code in
+opensbi.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/riscv/kernel/asm-offsets.c | 3 ---
- arch/riscv/kernel/head.S        | 5 +----
- 2 files changed, 1 insertion(+), 7 deletions(-)
+ arch/riscv/kernel/head.S | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index dac98348c6a3..578bb5efc085 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -312,9 +312,6 @@ void asm_offsets(void)
- 		- offsetof(struct task_struct, thread.fstate.f[0])
- 	);
- 
--	/* The assembler needs access to THREAD_SIZE as well. */
--	DEFINE(ASM_THREAD_SIZE, THREAD_SIZE);
--
- 	/*
- 	 * We allocate a pt_regs on the stack when entering the kernel.  This
- 	 * ensures the alignment is sane.
 diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index fe884cd69abd..9344d9ceda24 100644
+index 9344d9ceda24..62d2c9c85433 100644
 --- a/arch/riscv/kernel/head.S
 +++ b/arch/riscv/kernel/head.S
-@@ -68,10 +68,7 @@ clear_bss_done:
- 	/* Restore C environment */
- 	la tp, init_task
- 	sw zero, TASK_TI_CPU(tp)
--
--	la sp, init_thread_union
--	li a0, ASM_THREAD_SIZE
--	add sp, sp, a0
-+	la sp, init_thread_union + THREAD_SIZE
+@@ -22,8 +22,9 @@
  
- 	/* Start the kernel */
- 	mv a0, s0
+ __INIT
+ ENTRY(_start)
+-	/* Mask all interrupts */
++	/* Mask and clear all interrupts */
+ 	csrw sie, zero
++	csrw sip, zero
+ 
+ 	/* Load the global pointer */
+ .option push
 -- 
 2.20.1
 
