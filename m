@@ -1,87 +1,92 @@
-Return-Path: <SRS0=ShlG=SM=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=Og1w=SN=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DF2A5C10F11
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 23:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 913CCC10F11
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 01:24:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AD0D4217D4
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 10 Apr 2019 23:05:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 574722083E
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Apr 2019 01:24:44 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="riXWrrj5";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="aoLRBfmp"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AD0D4217D4
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IwPUvMni";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="p4Vj7WYT"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 574722083E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PXW7ziHsvA884V5EjUzlWEYX6mcjkGhRzuCC1R8oLBw=; b=riXWrrj5ssknpj
-	92hWDnsE3AKPGQ4tT52DE4rBI3JwQF3Y/ccsCQKr4Js+zVCAOginp8hCxvBXi6PlyLYJUutcnENW7
-	HaT+ld6q7J5foAtlrR1Z5Zr93Cjij3B0vO8k2WR/sEhdNgQOiPO3SeDeA3c79qae3Xh19akFU/lkT
-	XgoPxUHqnRj7cXXbxqh0NDshi8Tx/FTRQhaemXFHpal62IhUUU4kBkhMz/U8bg+f4TlT3aK2jOMpW
-	NBKvbE60wrE0P/KnJQiCkjl+i7arnFE2ExtgnaaKH/AVJJbwTfbdrZ6e3Lxo48GrF6jxRuZUcmYzQ
-	uB0C+pw/bztI1HJOBYKQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=Xvv01Ie7YVmY/se9u+dsLUVuiJrwhP0v6OKnVvjhX4s=; b=IwPUvMni9vcH/HBXpB8HG8Jb2
+	YrHyeHiD6b4pte4clRM0q9USXrYbEzv0FQkAf+Kx3i5Ctf9kViQ4m1BGi93ESGWuNOg4dCeF4zyCw
+	MvxrDc99rON3iEPKOUOtCEn2TEzIUky0m9XxFMNLQ+j6NYVvEvAptJlaZS1lZlLwd08QoBuwmNjzq
+	ZeQehIjUo5wmrRDJJmoojHa70pjSyx08ktGvqyFj5E/AN3F/qiNxGh5LGzDk8NVe1RshGRx7V7u8c
+	MH6bpwf5dLIh/+LXUsTuIkjhyIEQi1rkiTiiec+MEq256sJIFjXo9+y1VPDAPeSrituCLYv1eul+l
+	nrfPtae9g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hEMHG-0000ox-F1; Wed, 10 Apr 2019 23:05:10 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1hEOSG-0008PT-Fm; Thu, 11 Apr 2019 01:24:40 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hEMHA-0008Va-By
- for linux-riscv@lists.infradead.org; Wed, 10 Apr 2019 23:05:06 +0000
+ id 1hEOSD-0008Op-FT; Thu, 11 Apr 2019 01:24:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1554937505; x=1586473505;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=JjopVQqYQkhD6l4s3VEoAfhP+7o2iPgtr6wnHHzUroc=;
- b=aoLRBfmpbnmvj5gyR5MzQN1OPzGBG4/sBvfkB6TOzNO3bpUwUOSDhWeS
- LuUE+1IBvUzXq4y8BOg+O9Pn6VVamS/8AATmZN11ygbReDcdZYiATe69G
- nYS2p4Dz/K14IclVhIICaYjApbuqw7rUPhlyGuZ0yFj0Pl1Re76clqqvw
- CWeJWq+leOdW9d3vSkZ/opJl0bQvzWWvjfh1hGX6YX8uYeUd140efvBII
- /AShZr95C2Rvxc6D0LF92XOCO26wslgo1+l+zXQgx9fCEtYqaGC4dpBIv
- LGKNyAjaldWOF8coGPTjgdCBrARozNtaikT/zlC0VebzhJ6+X65WSjlA5 g==;
-X-IronPort-AV: E=Sophos;i="5.60,335,1549900800"; d="scan'208";a="107205241"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 11 Apr 2019 07:05:01 +0800
-IronPort-SDR: ow2TC0TEPUDRfEgphpZd428DNzHct+sqLXw447AaVMrgSU2MRmZbsS2Q5i7npiNsjvJ6oRcS2N
- Y9rh8sPpnaUnt1t5+wsp2nkD4HlEcWDUgrHJrSH9IDLv1KxXCBg8ndwbPpmdBtQNdOUpa732wV
- 2XzblMdaMLYsnjQ4YAH+JGhJoLkmW+UYqEPs/aGLJNMf75EPhgkhP+4Pia01ET/gjvZLdbVQNR
- DWwCFnq+hFGW81frpQi+iwhZwrQYOqjK6CVF0aAcQS9n06iAPANVF+NXCaCSUTlFl9BXGALlmE
- eeeNeWaLflDDC2puqzEZ5L+d
+ t=1554945878; x=1586481878;
+ h=subject:to:cc:references:from:message-id:date:
+ mime-version:in-reply-to:content-transfer-encoding;
+ bh=pA0mRBfr809UsIMtILZaDNSaHymF9prWU9rUYK3j3Fk=;
+ b=p4Vj7WYTcxLALiHOLFW2c/NBbP26vWHsT/RNAMgekzwPbaBfxKkskMvt
+ Z+HVx6zh4K0zC+/omMnA1H5EG/h4bE3Abfav3W3qfbQWec5vDHvPKLW1N
+ kSWDBdvtkk+gd3bME6TcXS3ik//bwseL4WeDbPDJkEAnA9E/GoGcV2zJz
+ Kt/QEm46FtmrZkMja+LE3dO8N5VY3Y0dqXPhK2iCR1sDM1ycp5PkY7jjI
+ Xp+1yyEwe+qQqHpNzXiaQTxcqO4aNlZ4F0LfaDlArIb8mdvMsKaE1tfud
+ w1neNyAEnNEOHiShFTux4OvGo8nRgXKZYFY826nhtaujXomKc317fUeXN Q==;
+X-IronPort-AV: E=Sophos;i="5.60,335,1549900800"; d="scan'208";a="106837440"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 11 Apr 2019 09:24:35 +0800
+IronPort-SDR: yPzt8gYC4sHydtgt+3xhY3f6DrrMYd3nCgDSZHKUG7vJjGDsHvTqoJo7CEodaVIskPWutYUIk0
+ mxRrCS+wIDwcICWx/WRsvBduNPDsoCK14QksfEZu5+1pnZLMKFixn63Xq7bUAW/GPqlE2bIfYx
+ v/CZfPCPSiKy8gnJ2zCcgzTdRHDwWhaA+JZR4LHQVCnf9cYAZUaYoTJ2vMPchGx9eCq0K7pUyA
+ 3vKRQl6mLqNetfQH37h4HZtmIwC+4WqI/FyYVRVY+t//G/PtNcgXQqmOuO2hblgtlZW7XYYg3X
+ e21Vjuj6XMSwWqtmdtPH8TL6
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP; 10 Apr 2019 15:41:54 -0700
-IronPort-SDR: 1rhuCQOXGyrTbb0RHFHg7EKFscG147dVhrFBG9rilY0kCpsui/ZWQxzgO8c8Jl6MdofD6mrrax
- f3wOq8hA7zaAnrPLK5D0oLbZM1v7s7twoqcePEr52xfKBKwI/7Naa/k1VoCFmFcv7wHPY5unvF
- lgq/WyLEtGXeGfXr/nSEFr249Fi+cFsIxHgyu6ZEaBMsPH4geSAdaR4xcu1i8k02HUZfPEu6s2
- LpJt5Kw/LGzHseboHMUGGByu6apGavWdMjVAN3qVteTzTf7GxySd4U+YVlbS8ddxCXOWgrHbBr
- p3M=
-Received: from jedi-01.sdcorp.global.sandisk.com (HELO
- jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip01.wdc.com with ESMTP; 10 Apr 2019 16:04:59 -0700
+ by uls-op-cesaep02.wdc.com with ESMTP; 10 Apr 2019 18:03:36 -0700
+IronPort-SDR: GMVvRU+u3GopRRJd88Ypr+QLlpPj6Dsf4rkAf7ATqXWEHAsnPQbhDRhlsc+yYKwjXvBY8sZHwN
+ pt4hyKCgHUutgE4Z13/cu4VZOYZPeHXaP5SUg41fDaQYergGVTlBLvGb9BUj20c5toRl1Ee9/G
+ X/alV3CAi3uquIUbEN5XllIx4+EIPqmKXj2L+wY/23bzqcKmr5bPjnt2QIMl7BT0dDdnlKNhV/
+ yPM0N9bzIzVPPwGQPWgNfFca3+kNo9hN8w/+TUzUlC1zN63ObsjbG2CwDrblBv2879rdNIg+G9
+ qYg=
+Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.66.167])
+ ([10.111.66.167])
+ by uls-op-cesaip01.wdc.com with ESMTP; 10 Apr 2019 18:24:34 -0700
+Subject: Re: [PATCH v4 0/5] TLB/I$ flush cleanups and improvements
+To: Anup Patel <anup@brainfault.org>, Christoph Hellwig <hch@infradead.org>
+References: <cover.1553647082.git.gary@garyguo.net>
+ <20190410070446.GA18678@infradead.org>
+ <CAAhSdy36Ukh-rCZPnyQh9y8iUi730wBuY_qGO+ctK1_L=sCU1g@mail.gmail.com>
+ <20190410101141.GA29411@infradead.org>
+ <CAAhSdy3rnHBbc7EO7apnLr549ohQwTFk86GL=uMFiHex2_pEhA@mail.gmail.com>
 From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v2 4/4] RISC-V: Support nr_cpus command line option.
-Date: Wed, 10 Apr 2019 16:04:43 -0700
-Message-Id: <20190410230443.15729-5-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.21.0
-In-Reply-To: <20190410230443.15729-1-atish.patra@wdc.com>
-References: <20190410230443.15729-1-atish.patra@wdc.com>
+Message-ID: <13a2404a-a865-6a4e-10e0-6763d3c7ae6f@wdc.com>
+Date: Wed, 10 Apr 2019 18:24:23 -0700
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:60.0)
+ Gecko/20100101 Thunderbird/60.6.1
 MIME-Version: 1.0
+In-Reply-To: <CAAhSdy3rnHBbc7EO7apnLr549ohQwTFk86GL=uMFiHex2_pEhA@mail.gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190410_160504_556047_23D7B91D 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20190410_182437_654338_34135CE2 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,57 +98,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Dmitriy Cherkasov <dmitriy@oss-tech.org>,
- Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@sifive.com>,
- Johan Hovold <johan@kernel.org>, Atish Patra <atish.patra@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Andreas Schwab <schwab@suse.de>,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Gary Guo <gary@garyguo.net>,
+ Anup Patel <Anup.Patel@wdc.com>, Palmer Dabbelt <palmer@sifive.com>,
+ "opensbi@lists.infradead.org" <opensbi@lists.infradead.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If nr_cpus command line option is set, maximum possible cpu should be
-set to that value.
+On 4/10/19 3:22 AM, Anup Patel wrote:
+> On Wed, Apr 10, 2019 at 3:41 PM Christoph Hellwig <hch@infradead.org> wrote:
+>>
+>> On Wed, Apr 10, 2019 at 02:31:04PM +0530, Anup Patel wrote:
+>>>> Can you clarify the races?  I know Anup had some FIFO-order commits
+>>>> in opensbi about a week ago, did they address you concerns?
+>>>>
+>>>> Anup, do you have performance numbers for the old opensbi vs your
+>>>> implementation of the optimized TLB flushing vs this patch?
+>>>
+>>> Atish had posted performance numbers on his GitHub PR at:
+>>> https://github.com/riscv/opensbi/pull/111
+>>>
+>>> These performance numbers are as follows.....
+>>>
+>>> Benchmark used: A microbenchmark that mmap a ramdisk (1G) and
+>>> multiple threads access 50MB of memory randomly.
+>>>
+>>> https://github.com/westerndigitalcorporation/hmmap/blob/master/userspace/hmmap_uspace_common.c
+>>>
+>>> The result is averaged over 25 iterations for 8 threads on HiFive
+>>> Unleashed board. In both cases around ~1M remote tlb flushes are triggered.
+>>>
+>>>                                   IPI               SBI            Gain
+>>> Average Write Time             2.53183        2.43263           +4.34%
+>>> Average Read Time             1.32198         1.24643           +6.09%
+>>> Total Time                    97.7589         92.859            +5.01%
+>>
+>> So what does this mean?  I assume the codebases are latest(-ish)
+>> opensbi and latest(-ish) kernel with the patches from Gary, and
+>> IPI is with the lernel based code enabled, and SBI is with the SBI
+>> calls?
+> 
+> Yes, this is measured using Gary's v4 patches.The IPI numbers are
+> with in-kernel remote TLB flush whereas SBI numbers are with
+> SBI-based remote TLB flush.
+> 
+> Atish's changes for remote TLB flushes are available in latest OpenSBI.
+> 
+> Regards,
+> Anup
+> 
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/kernel/smpboot.  |  0
- arch/riscv/kernel/smpboot.c | 10 +++++++++-
- 2 files changed, 9 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/kernel/smpboot.
+The patch to access the tlb statistics in vmstat can be found here.
 
-diff --git a/arch/riscv/kernel/smpboot. b/arch/riscv/kernel/smpboot.
-new file mode 100644
-index 000000000000..e69de29bb2d1
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index a8ad200581aa..7a0b62252524 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -84,11 +84,19 @@ void __init setup_smp(void)
- 		}
- 
- 		cpuid_to_hartid_map(cpuid) = hart;
--		set_cpu_possible(cpuid, true);
- 		cpuid++;
- 	}
- 
- 	BUG_ON(!found_boot_cpu);
-+
-+	if (cpuid > nr_cpu_ids)
-+		pr_warn("Total number of cpus [%d] is greater than nr_cpus option value [%d]\n",
-+			cpuid, nr_cpu_ids);
-+
-+	for (cpuid = 1; cpuid < nr_cpu_ids; cpuid++) {
-+		if (cpuid_to_hartid_map(cpuid) != INVALID_HARTID)
-+			set_cpu_possible(cpuid, true);
-+	}
- }
- 
- int __cpu_up(unsigned int cpu, struct task_struct *tidle)
--- 
-2.21.0
+https://patchwork.kernel.org/project/linux-riscv/list/?series=103939
 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
