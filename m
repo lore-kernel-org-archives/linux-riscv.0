@@ -6,17 +6,17 @@ X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A811CC10F14
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2019 05:49:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 03246C10F0E
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2019 05:51:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 78ACA2082E
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2019 05:49:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CA2452082E
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 12 Apr 2019 05:51:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DhTK4BPG"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 78ACA2082E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SGfNy+xT"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA2452082E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -24,32 +24,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7iJk2GOX0XZiwi1w8rjn9tqioVjRomgf1kkEiKQP2fE=; b=DhTK4BPGSMvzVO
-	KQviXCj83gqHRj9HUNy4lUAuwxHxCZuh38smZsfwVmBWAuPKEBbISHcCHV/UG18gdr7Lh7VpBud0d
-	aIIPGnYkFhXHIhv8/PxFGEsk1PMyJn7Q0TbQXitnPqabPPWGCWm/5l/xiAz+sVgHcq2CZk8vZ3vTg
-	Py5yd/3ohlDeAbM55hytNXXCulNTqC+uEc28EqFyotxPmJ7jbGqI+BreV1K2cfVGmpmGo+SMvXlBB
-	VZR3+qj2sU9P9cYaCayApqc0T6CLKs5emPlNZulpFLO/mMz0eKqDVHC3N6zfiWrQMyUQqjbEfjp2r
-	deB7hb3HBfRyYuw4tEow==;
+	List-Owner; bh=7LotFfVkDSyHNj7pv6aWG3VNSWo027Q0idW6IJRxKTc=; b=SGfNy+xTK/g7it
+	71kRSAGeXIliP0KefIfMcs0t1ffunBjX4/0z/5toi5Bt34+Ixtd8sbO0I8r4fS05aWDfnsznAwymN
+	7CiVKh1qkffX3LZzxCCXkW8T3lpgR1T36zlC/k9356hrS5D2zdUHiPmqSQj+3k6gIIZcgas6ADKif
+	27TJu/aZHW6N0HN1N+lAi0tp/goK4KV63RzX8731hCduMtO+Of1s3puN4jyVMId5oo4JesxDtmDvz
+	JGi6zd62M+di5l/ZMTzrynbgrMl2wX3FDcxwIS2en1f5Yvm9CGawiv4PHtb8BKDuNElVwMtdx7ww8
+	gj8WVk6ERcY+/qWWnHCQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hEp4V-00071M-KS; Fri, 12 Apr 2019 05:49:55 +0000
-Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1hEp4S-00070r-AI; Fri, 12 Apr 2019 05:49:52 +0000
-Date: Thu, 11 Apr 2019 22:49:52 -0700
-From: Christoph Hellwig <hch@infradead.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH 1/6] arch: riscv: add support for building DTB files from
- DT source data
-Message-ID: <20190412054952.GA26672@infradead.org>
-References: <20190411084304.5072-2-paul.walmsley@sifive.com>
- <20190411114616.GA10032@infradead.org>
- <alpine.DEB.2.21.9999.1904111405470.19990@viisi.sifive.com>
- <3cf7f2d8-3039-7dd7-e243-77433b1f23a6@wdc.com>
- <alpine.DEB.2.21.9999.1904111618460.21321@viisi.sifive.com>
+	id 1hEp6T-0008KQ-NL; Fri, 12 Apr 2019 05:51:57 +0000
+Received: from verein.lst.de ([213.95.11.211] helo=newverein.lst.de)
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hEp6Q-0008K6-8h
+ for linux-riscv@lists.infradead.org; Fri, 12 Apr 2019 05:51:56 +0000
+Received: by newverein.lst.de (Postfix, from userid 2407)
+ id EC65668AFE; Fri, 12 Apr 2019 07:51:39 +0200 (CEST)
+Date: Fri, 12 Apr 2019 07:51:39 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Palmer Dabbelt <palmer@sifive.com>
+Subject: Re: [PATCH 3/9] riscv: remove CONFIG_RISCV_ISA_A
+Message-ID: <20190412055139.GB32149@lst.de>
+References: <mvm5zrkg2bg.fsf@suse.de>
+ <mhng-c4fcebd9-8339-4e3a-bbec-309c0dc84cc9@palmer-si-x1c4>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <alpine.DEB.2.21.9999.1904111618460.21321@viisi.sifive.com>
-User-Agent: Mutt/1.9.2 (2017-12-15)
+In-Reply-To: <mhng-c4fcebd9-8339-4e3a-bbec-309c0dc84cc9@palmer-si-x1c4>
+User-Agent: Mutt/1.5.17 (2007-11-01)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20190411_225154_460125_C1FD57D3 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -61,33 +65,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Paul Walmsley <paul@pwsan.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@sifive.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <atish.patra@wdc.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: schwab@suse.de, linux-riscv@lists.infradead.org,
+ Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 11, 2019 at 05:08:11PM -0700, Paul Walmsley wrote:
-> However: the vast majority of users -- even embedded users -- will not use 
-> a kernel with a bundled DTB.  This is because it irrevocably ties that 
-> kernel binary to one specific board type.  I hope it is obvious why this 
-> would be a non-starter for Linux distributions, and, more generally, 
-> anyone who wants their kernels to be usable on multiple boards.  Those 
-> distributors would need to ship one kernel binary per board, or bloat 
-> their kernels with DTBs and come up with some new mechanism to select one.
+On Thu, Apr 11, 2019 at 06:23:23PM -0700, Palmer Dabbelt wrote:
+> On Thu, 11 Apr 2019 05:21:23 PDT (-0700), schwab@suse.de wrote:
+>> On Apr 11 2019, Christoph Hellwig <hch@lst.de> wrote:
+>>
+>>> This option is always enabled, and not supporting the A extensions would
+>>> create a complete ABI trainwreck, so there is point in even slightly
+>>
+>> +no
+>
+> Sorry, but I can't parse your answer.  Do you agree with or disagree with 
+> the proposed patch?
 
-Yes, that is the point why the DTB usually comes with the firmware.
-In my case I need it because by nommu M-mode Linux port targeted to
-the Kendrye _is_ the firmware and there is nothing else running on that
-tiny system.
+They way I understood it it is that he wants me to insert a no into the
+sentence above where it is missing to make sense:
 
-But why are you submitting the DTB files if there is not ways use them
-from the kernel?  That is what I was wondering about.
+".., so there is _no_ point in even slightly.."
 
 _______________________________________________
 linux-riscv mailing list
