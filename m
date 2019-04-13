@@ -6,16 +6,16 @@ X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 95940C10F14
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Apr 2019 07:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C26BAC282CE
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Apr 2019 07:54:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 62DEF20869
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Apr 2019 07:54:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 93CBA21721
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 13 Apr 2019 07:54:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RAAIbXa4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 62DEF20869
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cibkbeor"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 93CBA21721
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,28 +24,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=265Jyfqnfe8oOGFUJwIupYlq+PCEaq1ZeHJPcQJbISk=; b=RAAIbXa49f51IA
-	HNJEwW1ExgA9mUnxtCt7o9n1tEJMYp3Wd7/ZTCeCU2FRmLo24nWrkteTo3nddKq3HcBZ2XBVDQ5ff
-	WKnKKGDBz8gco2uRgLz01PtM/+drKkkaHM1Z2W1SkfdJXS5RCN3E1vesc/IEYnVUJc1PnwTJYhE+Z
-	ssJXrFU3LkzhD8r03pcfWD+FZmgfpCI/RqLXjH9+rZfD9I/YQ6u6e5cGKXwrwWcRZWT+Jf/gOmaNh
-	CaONoWED1X49cBVE76kAt+ESNM+3jI0IZHFVvv2xfG67QxSxUSBArXN7YpWK3xLcxS3ote03QTlKi
-	i9ogciFj0IrPVtUoQmdA==;
+	List-Owner; bh=ILwldeuPo0sr5CkwDyWPq5HVhW78s6BY4gXIfGGOlrY=; b=cibkbeorKeg5Ru
+	CN6fpwySQdq506CIfegkaIOYxZDVHTOvljJM0IU1eMTq1etmVQ7pSRM9GZrv6Rsg1fwTfs8rJ32Yl
+	LerO2wtMPFHX5c/MFiN/r8RV/xEqh6w2j5vzbpvQfN4x6jNz/OZirKhieTk95cA460en+TfkgAmu5
+	VrDDOIgy7L5/N1DSqnF2I3CgjL8o1h3wD7TJsJngHWN1QBgbMAhs/tNI1pGRClEeDz3wzpf/16QfK
+	b2UegyVxhLXI821XUxlb5GoY2B1RSTTqvXymeOpFFsGEy/cP1BALigB+9FodFg27cet/xyR+iYeQB
+	U8LfdDj+JGgusCshsmQA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hFDU5-00083Y-Ed; Sat, 13 Apr 2019 07:53:57 +0000
+	id 1hFDUf-00087U-Ve; Sat, 13 Apr 2019 07:54:33 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1hFDU4-00083G-1x; Sat, 13 Apr 2019 07:53:56 +0000
-Date: Sat, 13 Apr 2019 00:53:55 -0700
+ Hat Linux)) id 1hFDUf-00087C-5f; Sat, 13 Apr 2019 07:54:33 +0000
+Date: Sat, 13 Apr 2019 00:54:33 -0700
 From: Christoph Hellwig <hch@infradead.org>
 To: Anup Patel <Anup.Patel@wdc.com>
-Subject: Re: [PATCH 1/3] RISC-V: Add separate asm/encoding.h for spec related
- defines
-Message-ID: <20190413075355.GA30428@infradead.org>
+Subject: Re: [PATCH 2/3] RISC-V: Add defines for CSR numbers
+Message-ID: <20190413075433.GB30428@infradead.org>
 References: <20190413073906.53676-1-anup.patel@wdc.com>
- <20190413073906.53676-2-anup.patel@wdc.com>
+ <20190413073906.53676-3-anup.patel@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190413073906.53676-2-anup.patel@wdc.com>
+In-Reply-To: <20190413073906.53676-3-anup.patel@wdc.com>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -68,14 +67,8 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 13, 2019 at 07:39:35AM +0000, Anup Patel wrote:
-> It's better to have all RISC-V spec related defines in one place
-> so this patch adds separate asm/encoding.h for such defines which
-> can be included in assembly as well as C code.
-
-<asm/csr.h> can be included from assembly just fine already.
-and we already do that.  So I don't really see much of a point
-in splitting it.
+I think this should be merged with the next patch.  Also please
+only add the CSRs that we actually use.
 
 _______________________________________________
 linux-riscv mailing list
