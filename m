@@ -2,87 +2,70 @@ Return-Path: <SRS0=fYgv=SR=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AC31DC10F0E
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 11:41:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 55266C282DA
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 12:15:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 68B7F20645
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 11:41:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2445E2183F
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 12:15:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="V9bBC1U4";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="hW0m//e7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 68B7F20645
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="slIbUM/X";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="tBIT+q10"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2445E2183F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linuxfoundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=RUJbAzbPvw+8S+gNTtJ9C8KA9O/B/I1PoUoaT5O5jcE=; b=V9bBC1U4vvvn5H0ukFMp+b5vyO
-	W26ZfkAzR3gsdtp/3ldM8seU+AU5JYdiu6QJIxLKUiKml4oer8rhosOYYND8Hdcc/QzjLHjxfHB83
-	hcf5zSBftyKEyDChqJqHkydA41cBFs2FHN5nWdhhW2b8+bCqXHE+9Zvw1NM9bwKJsiM0/h8fqw1IG
-	PLXvSz+/x9SLb8f4Fsq/u+nmVq482Nt2ut/C8eRhW93jxwuZj4LiCr5uAzxuv9SMrCqim02PeoNrF
-	JTZPuv/PiqeamN42/Q9daAWtsuVPp33cq8ad9eX4qT+m+NTj86G2AJ3T2PKb6GJt/c+qI0Y01phHW
-	GspHdTxA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:From:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GKuqLjszGBZSAAPxKEr2LDyPgbjFmSmlonB3HoYMLYs=; b=slIbUM/XKCLLaG
+	9h8soCxDGqI96gXGaqj567L/DM7yB18gFuiHUKbezecvXvmIFEFcaZNcP7AfoAUtqEZrfYjC8bpPf
+	qZw0OZo2+Lr2Ox96J1cmM22oOHtpAgpiql+Y67V3baNyjQ2Y6KeNSCGsLhvm67fYtsnxnjT4yai7i
+	2AoV4rUQgbW7+cFpj0wSBJkq1PQeMMcQNFsToTXbRgr95owAqdouxkmR7++AC5Ul9t9IZCyH2AVN/
+	8RNeXI6kavr7L9SF83UsPqnFgigTEDFS2BeCNFdV/2sbD7KiGWfgSP+N6Wr9k1D0WKepDMluPsfhC
+	GUfPOC+pKsiXm87EH4BQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hFzzj-00056i-9S; Mon, 15 Apr 2019 11:41:51 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1hG0WO-0003eK-38; Mon, 15 Apr 2019 12:15:36 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hFzzg-00055J-Pu
- for linux-riscv@lists.infradead.org; Mon, 15 Apr 2019 11:41:50 +0000
-Received: by mail-pf1-x442.google.com with SMTP id i17so8460145pfo.6
- for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2019 04:41:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=Fu7AyZVZalK8UR+GPhJKpKxlsPvKLTQ33a/iCgHu9tY=;
- b=hW0m//e7wvWbxnGvyJj2CJ9m+ztDx35O8qKLehJHXZuZYI2IvfnY3kBKDfhp8ZZk02
- /LlnmpgaR2Ol13LVnbHj5kvggtJfBwvK8E2ZI3vLif9Jr0yXtHFzag/9rh3e9dbdanoB
- dlEXELEmIxG2O5UcFhOuv6lubf70S+Ax6B+AOKGmubtFN3lWeaf2rSbQ5hoyTFHkONOU
- CgdlNkomIAPTXsJTC/TEqXk4NhWxYb8semmMEls0vPnwDzH5cXOyipj026HFF8M01YFJ
- fzkXOoY+pAT8zmG6/HwXzE65UggJr8aEmc6K1t26oyPveGqMwGoCMxwmddVyVMOzLeMf
- o+lw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=Fu7AyZVZalK8UR+GPhJKpKxlsPvKLTQ33a/iCgHu9tY=;
- b=rrwXIZ2Y6lfdZSzKCx9ePFhB4Vmh6RXEIGz1lJ2yXmnZPOo2G3CSU+ncjg/GZ7QK90
- TeRQf4+MVJCCmCdUMr+aCQh3v2vibltNgMtLPp+uW+OfG7iwpyw/SjkVzEkq9rQ+vVQb
- qsdRZGYQFPB+3DMZmvHZCOr8FNGC15y6Q6eCcnjtt1bkTGe+dxvHVmmNZtzweW/njTHd
- 1SemqlkWFpfW1sf4I8XPoCZ6iP1WLn7vomFGQdIytlDrhhDPJA8t6d/pwvcXBS4Ovunx
- nvx7v+RUMra/Inr9ugZyt6d1fAkfRXo3ntOptaAnGA5ZUQPqkY8aG+UJqpJ+RzVcAhFO
- JMzg==
-X-Gm-Message-State: APjAAAVRQw/9ah1j8GgeIGfQGGreeWGD9wmg1ZZiIFxnZDSUItMT5n5J
- O/CwlfST1EPC4i2ZMpoLJ/XiMg==
-X-Google-Smtp-Source: APXvYqyrHJDn4Z/dgXOXUBnwQ4i5lD+ipu+kJzxmOj4J5/nDaxfIhNcmWs1Zr7niOmP6YXBjz6XmsA==
-X-Received: by 2002:a63:54b:: with SMTP id 72mr66979719pgf.323.1555328507967; 
- Mon, 15 Apr 2019 04:41:47 -0700 (PDT)
-Received: from buildserver-90.open-silicon.com ([114.143.65.226])
- by smtp.googlemail.com with ESMTPSA id l4sm32317273pgh.17.2019.04.15.04.41.43
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
- Mon, 15 Apr 2019 04:41:47 -0700 (PDT)
-From: Yash Shah <yash.shah@sifive.com>
-To: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-edac@vger.kernel.org
-Subject: [PATCH 3/3] edac: sifive: Add EDAC platform driver for SiFive SoCs
-Date: Mon, 15 Apr 2019 17:10:43 +0530
-Message-Id: <1555328443-30874-4-git-send-email-yash.shah@sifive.com>
-X-Mailer: git-send-email 1.9.1
-In-Reply-To: <1555328443-30874-1-git-send-email-yash.shah@sifive.com>
-References: <1555328443-30874-1-git-send-email-yash.shah@sifive.com>
+ id 1hG0Vu-0002EZ-1c
+ for linux-riscv@lists.infradead.org; Mon, 15 Apr 2019 12:15:12 +0000
+Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
+ [83.86.89.107])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 2E4AC20645;
+ Mon, 15 Apr 2019 12:15:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1555330505;
+ bh=2MNy9RUC+YZVXwMWL6RVo2tUkI/EusZTS9thuJ3U6D4=;
+ h=Subject:To:Cc:From:Date:From;
+ b=tBIT+q102Kg6zJaW+wrh1s0VtsSicDNmhba7lPlwMM85wZ9Q9NdRMCmJKEA5Q5Mpx
+ gQpq7XfKR/iktAYpX7YBpxuHUycVidibhSq70kraXaO4Kl8CqT2OYXNfEjlDbXGOJ6
+ R0MVOJXflP3qFaUbs6lRm5O1gsLm4ljt1b6BULrM=
+Subject: Patch "riscv: Fix syscall_get_arguments() and
+ syscall_set_arguments()" has been added to the 4.19-stable tree
+To: 20190329171221.GA32456@altlinux.org, aou@eecs.berkeley.edu,
+ gregkh@linuxfoundation.org, keescook@chromium.org, ldv@altlinux.org,
+ linux-riscv@lists.infradead.org, luto@amacapital.net, mingo@redhat.com,
+ palmer@sifive.com, rostedt@goodmis.org, wad@chromium.org
+From: <gregkh@linuxfoundation.org>
+Date: Mon, 15 Apr 2019 14:14:37 +0200
+Message-ID: <15553304778261@kroah.com>
+MIME-Version: 1.0
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190415_044148_838630_0AF71467 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20190415_051506_222748_6017EE0D 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,203 +77,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, aou@eecs.berkeley.edu, palmer@sifive.com,
- sachin.ghadi@sifive.com, Yash Shah <yash.shah@sifive.com>, robh+dt@kernel.org,
- bp@alien8.de, paul.walmsley@sifive.com, james.morse@arm.com,
- mchehab@kernel.org
-MIME-Version: 1.0
+Cc: stable-commits@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This initial ver of EDAC driver supports:
-- ECC event monitoring and reporting through the EDAC framework for SiFive
-  L2 cache controller.
 
-This driver registers for notifier events from the L2 cache controller
-driver (arch/riscv/mm/sifive_l2_cache.c) for L2 ECC events
+This is a note to let you know that I've just added the patch titled
 
-Signed-off-by: Yash Shah <yash.shah@sifive.com>
+    riscv: Fix syscall_get_arguments() and syscall_set_arguments()
+
+to the 4.19-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+
+The filename of the patch is:
+     riscv-fix-syscall_get_arguments-and-syscall_set_arguments.patch
+and it can be found in the queue-4.19 subdirectory.
+
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
+
+
+From 10a16997db3d99fc02c026cf2c6e6c670acafab0 Mon Sep 17 00:00:00 2001
+From: "Dmitry V. Levin" <ldv@altlinux.org>
+Date: Fri, 29 Mar 2019 20:12:21 +0300
+Subject: riscv: Fix syscall_get_arguments() and syscall_set_arguments()
+
+From: Dmitry V. Levin <ldv@altlinux.org>
+
+commit 10a16997db3d99fc02c026cf2c6e6c670acafab0 upstream.
+
+RISC-V syscall arguments are located in orig_a0,a1..a5 fields
+of struct pt_regs.
+
+Due to an off-by-one bug and a bug in pointer arithmetic
+syscall_get_arguments() was reading s3..s7 fields instead of a1..a5.
+Likewise, syscall_set_arguments() was writing s3..s7 fields
+instead of a1..a5.
+
+Link: http://lkml.kernel.org/r/20190329171221.GA32456@altlinux.org
+
+Fixes: e2c0cdfba7f69 ("RISC-V: User-facing API")
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Kees Cook <keescook@chromium.org>
+Cc: Andy Lutomirski <luto@amacapital.net>
+Cc: Will Drewry <wad@chromium.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org
+Cc: stable@vger.kernel.org # v4.15+
+Acked-by: Palmer Dabbelt <palmer@sifive.com>
+Signed-off-by: Dmitry V. Levin <ldv@altlinux.org>
+Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+
 ---
- arch/riscv/Kconfig         |   1 +
- drivers/edac/Kconfig       |   6 +++
- drivers/edac/Makefile      |   1 +
- drivers/edac/sifive_edac.c | 121 +++++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 129 insertions(+)
- create mode 100644 drivers/edac/sifive_edac.c
+ arch/riscv/include/asm/syscall.h |   12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index eb56c82..31999a6 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -49,6 +49,7 @@ config RISCV
- 	select GENERIC_IRQ_MULTI_HANDLER
- 	select ARCH_HAS_PTE_SPECIAL
- 	select HAVE_EBPF_JIT if 64BIT
-+	select EDAC_SUPPORT
+--- a/arch/riscv/include/asm/syscall.h
++++ b/arch/riscv/include/asm/syscall.h
+@@ -78,10 +78,11 @@ static inline void syscall_get_arguments
+ 	if (i == 0) {
+ 		args[0] = regs->orig_a0;
+ 		args++;
+-		i++;
+ 		n--;
++	} else {
++		i--;
+ 	}
+-	memcpy(args, &regs->a1 + i * sizeof(regs->a1), n * sizeof(args[0]));
++	memcpy(args, &regs->a1 + i, n * sizeof(args[0]));
+ }
  
- config MMU
- 	def_bool y
-diff --git a/drivers/edac/Kconfig b/drivers/edac/Kconfig
-index 47eb4d1..3e05228 100644
---- a/drivers/edac/Kconfig
-+++ b/drivers/edac/Kconfig
-@@ -460,6 +460,12 @@ config EDAC_ALTERA_SDMMC
- 	  Support for error detection and correction on the
- 	  Altera SDMMC FIFO Memory for Altera SoCs.
- 
-+config EDAC_SIFIVE
-+	bool "Sifive platform EDAC driver"
-+	depends on EDAC=y && RISCV
-+	help
-+	  Support for error detection and correction on the SiFive SoCs.
-+
- config EDAC_SYNOPSYS
- 	tristate "Synopsys DDR Memory Controller"
- 	depends on ARCH_ZYNQ || ARCH_ZYNQMP
-diff --git a/drivers/edac/Makefile b/drivers/edac/Makefile
-index 89ad4a84..165ca65e 100644
---- a/drivers/edac/Makefile
-+++ b/drivers/edac/Makefile
-@@ -79,6 +79,7 @@ obj-$(CONFIG_EDAC_OCTEON_PCI)		+= octeon_edac-pci.o
- obj-$(CONFIG_EDAC_THUNDERX)		+= thunderx_edac.o
- 
- obj-$(CONFIG_EDAC_ALTERA)		+= altera_edac.o
-+obj-$(CONFIG_EDAC_SIFIVE)		+= sifive_edac.o
- obj-$(CONFIG_EDAC_SYNOPSYS)		+= synopsys_edac.o
- obj-$(CONFIG_EDAC_XGENE)		+= xgene_edac.o
- obj-$(CONFIG_EDAC_TI)			+= ti_edac.o
-diff --git a/drivers/edac/sifive_edac.c b/drivers/edac/sifive_edac.c
-new file mode 100644
-index 0000000..eb7a9b9
---- /dev/null
-+++ b/drivers/edac/sifive_edac.c
-@@ -0,0 +1,121 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * SiFive Platform EDAC Driver
-+ *
-+ * Copyright (C) 2018-2019 SiFive, Inc.
-+ *
-+ * This driver is partially based on octeon_edac-pc.c
-+ *
-+ */
-+#include <linux/edac.h>
-+#include <linux/platform_device.h>
-+#include "edac_module.h"
-+
-+#define DRVNAME "sifive_edac"
-+
-+extern int register_sifive_l2_error_notifier(struct notifier_block *nb);
-+extern int unregister_sifive_l2_error_notifier(struct notifier_block *nb);
-+
-+struct sifive_edac_priv {
-+	struct notifier_block notifier;
-+	struct edac_device_ctl_info *dci;
-+};
-+
-+/**
-+ * EDAC error callback
-+ *
-+ * @event: non-zero if unrecoverable.
-+ */
-+static
-+int ecc_err_event(struct notifier_block *this, unsigned long event, void *ptr)
-+{
-+	const char *msg = (char *)ptr;
-+	struct sifive_edac_priv *p;
-+
-+	p = container_of(this, struct sifive_edac_priv, notifier);
-+
-+	if (event)
-+		edac_device_handle_ue(p->dci, 0, 0, msg);
-+	else
-+		edac_device_handle_ce(p->dci, 0, 0, msg);
-+
-+	return NOTIFY_STOP;
-+}
-+
-+static int ecc_register(struct platform_device *pdev)
-+{
-+	struct sifive_edac_priv *p;
-+
-+	p = devm_kzalloc(&pdev->dev, sizeof(*p), GFP_KERNEL);
-+	if (!p)
-+		return -ENOMEM;
-+
-+	p->notifier.notifier_call = ecc_err_event;
-+	platform_set_drvdata(pdev, p);
-+
-+	p->dci = edac_device_alloc_ctl_info(sizeof(*p), "sifive_ecc", 1,
-+					    "sifive_ecc", 1, 1, NULL, 0,
-+					    edac_device_alloc_index());
-+	if (IS_ERR(p->dci))
-+		return PTR_ERR(p->dci);
-+
-+	p->dci->dev = &pdev->dev;
-+	p->dci->mod_name = "Sifive ECC Manager";
-+	p->dci->ctl_name = dev_name(&pdev->dev);
-+	p->dci->dev_name = dev_name(&pdev->dev);
-+
-+	if (edac_device_add_device(p->dci)) {
-+		dev_err(p->dci->dev, "failed to register with EDAC core\n");
-+		goto err;
+ static inline void syscall_set_arguments(struct task_struct *task,
+@@ -93,10 +94,11 @@ static inline void syscall_set_arguments
+         if (i == 0) {
+                 regs->orig_a0 = args[0];
+                 args++;
+-                i++;
+                 n--;
+-        }
+-	memcpy(&regs->a1 + i * sizeof(regs->a1), args, n * sizeof(regs->a0));
++	} else {
++		i--;
 +	}
-+
-+	register_sifive_l2_error_notifier(&p->notifier);
-+
-+	return 0;
-+
-+err:
-+	edac_device_free_ctl_info(p->dci);
-+
-+	return -ENXIO;
-+}
-+
-+static int ecc_unregister(struct platform_device *pdev)
-+{
-+	struct sifive_edac_priv *p = platform_get_drvdata(pdev);
-+
-+	unregister_sifive_l2_error_notifier(&p->notifier);
-+	edac_device_del_device(&pdev->dev);
-+	edac_device_free_ctl_info(p->dci);
-+
-+	return 0;
-+}
-+
-+struct platform_device *sifive_pdev;
-+
-+static int __init sifive_edac_init(void)
-+{
-+	int ret;
-+
-+	sifive_pdev = platform_device_register_simple(DRVNAME, 0, NULL, 0);
-+	if (IS_ERR(sifive_pdev))
-+		return PTR_ERR(sifive_pdev);
-+
-+	ret = ecc_register(sifive_pdev);
-+	if (ret)
-+		platform_device_unregister(sifive_pdev);
-+
-+	return ret;
-+}
-+
-+static void __exit sifive_edac_exit(void)
-+{
-+	ecc_unregister(sifive_pdev);
-+	platform_device_unregister(sifive_pdev);
-+}
-+
-+module_init(sifive_edac_init);
-+module_exit(sifive_edac_exit);
-+
-+MODULE_AUTHOR("SiFive Inc.");
-+MODULE_DESCRIPTION("SiFive platform EDAC driver");
-+MODULE_LICENSE("GPL v2");
--- 
-1.9.1
++	memcpy(&regs->a1 + i, args, n * sizeof(regs->a1));
+ }
+ 
+ #endif	/* _ASM_RISCV_SYSCALL_H */
 
+
+Patches currently in stable-queue which might be from ldv@altlinux.org are
+
+queue-4.19/riscv-fix-syscall_get_arguments-and-syscall_set_arguments.patch
 
 _______________________________________________
 linux-riscv mailing list
