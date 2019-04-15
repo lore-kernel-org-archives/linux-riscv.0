@@ -2,70 +2,64 @@ Return-Path: <SRS0=fYgv=SR=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 518E1C10F0E
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 12:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 184A5C282DA
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 15:27:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2162520645
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 12:16:08 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D9D102075B
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 15:27:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Mw6fOzGA";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="V659ZK1U"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2162520645
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linuxfoundation.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="R5vPFZE8"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D9D102075B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:From:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bGW3MYtgWDW2Z7eGs61Pl7k+rXlTwnYBrjdRsxab3MY=; b=Mw6fOzGAwl31VA
-	34aGEoEJXju+5BG8qdT65vdEjBZ+AUWhmrneKh0ulRzkErOxJp+1wOvAABc4lskJVRxKkmuhut53X
-	cGZKHr3EDDTdZ1HTwITlKtu2y13QUpP8lY4e7cj5eA0dPE0kW/UFw2WBLGFrn1OfS54Rv97+flxa/
-	aaNKCj4ha1RpGZfBCGWq7LcEnfjI940koX4zs7gBKQB2v9d8+N3faqIA1v96d9lYogOAcbeW8F0DK
-	GZYfjffLlEisMrpirTJTznbQC6WynwcXi+PUGnlbFfvfV2pMER8TvYMtppTdZcH7yMJhnQ0J9f4z5
-	lBXi1FigNtHl18C3N5gA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=enST+yHUCdJdvtUhdPa51i5FFKXGctA+k5QX900quno=; b=R5vPFZE8aVUWKO
+	jrjEaLGXzYRjhJo/Ej9CBw3nhX2SbR9qdxXtngZHnehPwfvtafy5PvImpDGee1Nn2uhrSpwCh4qMi
+	x81x3xK/qfhIQKh0TInry2lQ8ywC2ED9t6md+UqJiWEufgwDjn6loOFJRY8nCS6BU/TOH5HpDw0h1
+	+MM8tq6nyyMpZv9cHenTo8fNqBL20DAQIWv3FJYOhHUAIOvmYGIJTh6+HvXQs2PTfNozCUQPv+ogR
+	GUozjRi4KCYjY4GfI2E3tmKNOqrMlW/pgBpKRH37CmTlPrd19rB781Bg021V1qSgKdE/FcKQcxrik
+	lF3pvn6wC7A8arApYo3w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hG0Wp-0004BI-Jx; Mon, 15 Apr 2019 12:16:03 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hG0WM-0003cN-OZ
- for linux-riscv@lists.infradead.org; Mon, 15 Apr 2019 12:15:45 +0000
-Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
- [83.86.89.107])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id E627B218D3;
- Mon, 15 Apr 2019 12:15:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1555330534;
- bh=i98U/XTllCRphQh5oVhFu/+Q/bjEO+c6/eOK5j3jL+0=;
- h=Subject:To:Cc:From:Date:From;
- b=V659ZK1U2ikRrH8utBKx/Qhe1Jj4YatPL96rBzbeXnApG6O65ZFdDhvJDNVAf4JWl
- JWCHddqZY3IL+fRk4Za4U6TzozJQdijv6f0Rj4vOlCJbQZdd6Ns3kV6ygDZ0lUDkax
- 1rRBejIc+bi33aa91zm5Kox6GoqwqDWD8eZqSTy8=
-Subject: Patch "riscv: Fix syscall_get_arguments() and
- syscall_set_arguments()" has been added to the 5.0-stable tree
-To: 20190329171221.GA32456@altlinux.org, aou@eecs.berkeley.edu,
- gregkh@linuxfoundation.org, keescook@chromium.org, ldv@altlinux.org,
- linux-riscv@lists.infradead.org, luto@amacapital.net, mingo@redhat.com,
- palmer@sifive.com, rostedt@goodmis.org, wad@chromium.org
-From: <gregkh@linuxfoundation.org>
-Date: Mon, 15 Apr 2019 14:14:54 +0200
-Message-ID: <1555330494148141@kroah.com>
+	id 1hG3WU-0003lO-1K; Mon, 15 Apr 2019 15:27:54 +0000
+Received: from usa-sjc-mx-foss1.foss.arm.com ([217.140.101.70]
+ helo=foss.arm.com)
+ by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hG3WR-0003kw-Ux
+ for linux-riscv@lists.infradead.org; Mon, 15 Apr 2019 15:27:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 123B9374;
+ Mon, 15 Apr 2019 08:27:51 -0700 (PDT)
+Received: from e107155-lin (e107155-lin.cambridge.arm.com [10.1.196.42])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3D6813F68F;
+ Mon, 15 Apr 2019 08:27:47 -0700 (PDT)
+Date: Mon, 15 Apr 2019 16:27:41 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Atish Patra <atish.patra@wdc.com>
+Subject: Re: [RFT/RFC PATCH v3 3/5] cpu-topology: Move cpu topology code to
+ common code.
+Message-ID: <20190415152741.GA28623@e107155-lin>
+References: <20190320234806.19748-1-atish.patra@wdc.com>
+ <20190320234806.19748-4-atish.patra@wdc.com>
 MIME-Version: 1.0
-X-stable: commit
-X-Patchwork-Hint: ignore 
+Content-Disposition: inline
+In-Reply-To: <20190320234806.19748-4-atish.patra@wdc.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190415_051535_299471_11F9E297 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20190415_082752_005118_C6CE19DF 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -77,100 +71,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: stable-commits@vger.kernel.org
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Peter Zijlstra \(Intel\)" <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>, linux-riscv@lists.infradead.org,
+ Ingo Molnar <mingo@kernel.org>, Jeffrey Hugo <jhugo@codeaurora.org>,
+ Anup Patel <anup@brainfault.org>, Morten Rasmussen <morten.rasmussen@arm.com>,
+ devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Johan Hovold <johan@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Ard Biesheuvel <ard.biesheuvel@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ Jeremy Linton <jeremy.linton@arm.com>,
+ Dmitriy Cherkasov <dmitriy@oss-tech.org>, Otto Sabart <ottosabart@seberm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Atish,
 
-This is a note to let you know that I've just added the patch titled
+Thanks again for doing this. Overall changes look good except a couple
+of minor nit, see below.
 
-    riscv: Fix syscall_get_arguments() and syscall_set_arguments()
+On Wed, Mar 20, 2019 at 04:48:04PM -0700, Atish Patra wrote:
+> Both RISC-V & ARM64 are using cpu-map device tree to describe
+> their cpu topology. It's better to move the relevant code to
+> a common place instead of duplicate code.
+> 
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> Tested-by: Jeffrey Hugo <jhugo@codeaurora.org>
+> ---
+>  arch/arm64/include/asm/topology.h |  23 ---
+>  arch/arm64/kernel/topology.c      | 303 +-----------------------------
+>  drivers/base/arch_topology.c      | 298 ++++++++++++++++++++++++++++-
+>  drivers/base/topology.c           |   1 +
+>  include/linux/arch_topology.h     |  28 +++
+>  5 files changed, 330 insertions(+), 323 deletions(-)
+> 
 
-to the 5.0-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+[...]
 
-The filename of the patch is:
-     riscv-fix-syscall_get_arguments-and-syscall_set_arguments.patch
-and it can be found in the queue-5.0 subdirectory.
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index edfcf8d9..6cc6a860 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -6,8 +6,8 @@
+>   * Written by: Juri Lelli, ARM Ltd.
+>   */
+>  
+> -#include <linux/acpi.h>
+>  #include <linux/arch_topology.h>
+> +#include <linux/acpi.h>
+>  #include <linux/cpu.h>
+>  #include <linux/cpufreq.h>
+>  #include <linux/device.h>
+> @@ -16,6 +16,11 @@
+>  #include <linux/string.h>
+>  #include <linux/sched/topology.h>
+>  #include <linux/cpuset.h>
+> +#include <linux/cpumask.h>
+> +#include <linux/init.h>
+> +#include <linux/percpu.h>
+> +#include <linux/sched.h>
+> +#include <linux/smp.h>
+>  
+>  DEFINE_PER_CPU(unsigned long, freq_scale) = SCHED_CAPACITY_SCALE;
+>  
+> @@ -278,3 +283,294 @@ static void parsing_done_workfn(struct work_struct *work)
+>  #else
+>  core_initcall(free_raw_capacity);
+>  #endif
+> +
+> +#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
 
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
+Why can't the above one be just GENERIC_ARCH_TOPOLOGY ?
+I may be missing to find it myself, but would like to know.
 
+> +
+> +#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
 
-From 10a16997db3d99fc02c026cf2c6e6c670acafab0 Mon Sep 17 00:00:00 2001
-From: "Dmitry V. Levin" <ldv@altlinux.org>
-Date: Fri, 29 Mar 2019 20:12:21 +0300
-Subject: riscv: Fix syscall_get_arguments() and syscall_set_arguments()
+Ditto.
 
-From: Dmitry V. Levin <ldv@altlinux.org>
-
-commit 10a16997db3d99fc02c026cf2c6e6c670acafab0 upstream.
-
-RISC-V syscall arguments are located in orig_a0,a1..a5 fields
-of struct pt_regs.
-
-Due to an off-by-one bug and a bug in pointer arithmetic
-syscall_get_arguments() was reading s3..s7 fields instead of a1..a5.
-Likewise, syscall_set_arguments() was writing s3..s7 fields
-instead of a1..a5.
-
-Link: http://lkml.kernel.org/r/20190329171221.GA32456@altlinux.org
-
-Fixes: e2c0cdfba7f69 ("RISC-V: User-facing API")
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Kees Cook <keescook@chromium.org>
-Cc: Andy Lutomirski <luto@amacapital.net>
-Cc: Will Drewry <wad@chromium.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org
-Cc: stable@vger.kernel.org # v4.15+
-Acked-by: Palmer Dabbelt <palmer@sifive.com>
-Signed-off-by: Dmitry V. Levin <ldv@altlinux.org>
-Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-
----
- arch/riscv/include/asm/syscall.h |   12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
-
---- a/arch/riscv/include/asm/syscall.h
-+++ b/arch/riscv/include/asm/syscall.h
-@@ -79,10 +79,11 @@ static inline void syscall_get_arguments
- 	if (i == 0) {
- 		args[0] = regs->orig_a0;
- 		args++;
--		i++;
- 		n--;
-+	} else {
-+		i--;
- 	}
--	memcpy(args, &regs->a1 + i * sizeof(regs->a1), n * sizeof(args[0]));
-+	memcpy(args, &regs->a1 + i, n * sizeof(args[0]));
- }
- 
- static inline void syscall_set_arguments(struct task_struct *task,
-@@ -94,10 +95,11 @@ static inline void syscall_set_arguments
-         if (i == 0) {
-                 regs->orig_a0 = args[0];
-                 args++;
--                i++;
-                 n--;
--        }
--	memcpy(&regs->a1 + i * sizeof(regs->a1), args, n * sizeof(regs->a0));
-+	} else {
-+		i--;
-+	}
-+	memcpy(&regs->a1 + i, args, n * sizeof(regs->a1));
- }
- 
- static inline int syscall_get_arch(void)
-
-
-Patches currently in stable-queue which might be from ldv@altlinux.org are
-
-queue-5.0/riscv-fix-syscall_get_arguments-and-syscall_set_arguments.patch
+--
+Regards,
+Sudeep
 
 _______________________________________________
 linux-riscv mailing list
