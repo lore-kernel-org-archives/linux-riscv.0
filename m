@@ -2,83 +2,88 @@ Return-Path: <SRS0=fYgv=SR=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D6D37C10F0E
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 11:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 976C7C10F0E
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 11:41:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A501020645
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 11:41:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6A15C20645
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 11:41:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="An01Hd2F";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="jjo8/bzn"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A501020645
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dHFR8i/F";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="ey/A3VHO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6A15C20645
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=HEBusD4WTSDDbYdUjudjdjVTH1lDBuGPdtSrcu28VKw=; b=An0
-	1Hd2FIWpx5hNdtDVkQ5GzeogDVMj6RVbz/nVc2Vuln6Fhv95m/IB4E9E31jfens+dfGq5OSBtLOwV
-	OFEYwdhzmmXYdb4wFKwkfvIZ4/xqddcAD53By5tAX6+nRQOyWX8dmAGZVMSD7ZLdDEcHVPzw9yMf2
-	NI/Gh+yVM2sdsXWHMsRxctWr2/eIud7Z0cP7XMDUV4BR1wrCp3DV7VZL6mwuygeyyMh55v22w90q8
-	Id+HtbNPe9zKfeEiSBdhyQhK2l6zKBUJy0mVPcSjumIq6JzpfRhhs2UoWdhY0IKVf4cxIGqcs0OPK
-	ULAyrt9PbKpqbSkyhm6bjVYrOY0O2Gg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=9h47exvE3YD8sJ+lGcjtx8p1ioi4RWLwwSq9zofQgHg=; b=dHFR8i/FutCzV9n1itF9C4SL85
+	k2jsrNLeKzRRN+tm+Uic2ZBNWmen9MnX5VYwg8IjcS4r5pR7fcyWztOVjtdfxpR/G5zC3ZXiWequl
+	7VLKxGdvbnWFa+Yww24jCdwcpZ/HFhuL5VGI/SEyMD2LBcq3DO1M/Ef+4OYDZd+vP4kueiluZLnLc
+	Oj0478EqlAY3Jid6L6vntdC9dubm9C6Sp4byS0IFM+mRulBf4mWF11THV3hCO2w6i5iyFVzW3IYdV
+	D1DIQbtzeEGogbzvqDfo4mNW2g/VnuBvmabz8LfCgG2CsWFkz1TJEoBK2isiueqCRyEmPtNRqAM8l
+	WE917oaw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hFzzO-0004wB-N2; Mon, 15 Apr 2019 11:41:30 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1hFzzX-0004zQ-6v; Mon, 15 Apr 2019 11:41:39 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hFzzM-0004vo-6D
- for linux-riscv@lists.infradead.org; Mon, 15 Apr 2019 11:41:29 +0000
-Received: by mail-pg1-x544.google.com with SMTP id g8so8467104pgf.2
- for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2019 04:41:27 -0700 (PDT)
+ id 1hFzzU-0004yn-Bo
+ for linux-riscv@lists.infradead.org; Mon, 15 Apr 2019 11:41:37 +0000
+Received: by mail-pg1-x541.google.com with SMTP id q1so8432426pgv.13
+ for <linux-riscv@lists.infradead.org>; Mon, 15 Apr 2019 04:41:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id;
- bh=9vAsjj4wH0cq3m3qpVkSYBnwOxwjBpDvsPJW0c5pFjc=;
- b=jjo8/bznAfvwZ9+Xcy6VY23GYfv8XoI/ScoXsSDVX/xI0csb5RA1gUIQpTgMfDffLf
- 08H5gttNVgjmUGOhJ/R+tWlxLe0tCxBkDmYOfxnROA4UEpU08bOhnBdTKQX2BF+djS8e
- JZ0eaLUMtYTN606fMdufSySDgGQfLu4amDdZwN6DgBdAg5jbNmNzJAt6zAddVIlOux5B
- EHvBDs4KBI/tXMj5GtVPnp+urM4r4v7/B7+7hguTIZ7MncP49poortFok/kCTSI1PuWz
- 7NgiKBucZD92cCi9D9/pKfo3JtLBPV3RLLabmWXlj2jHlpDrFNnMezY3XI+xZV/bw0ae
- N8ng==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references;
+ bh=4x3PZ0m4B0BDc7pgveF+ss1l/Njj30x4kKCYTwJnwrE=;
+ b=ey/A3VHOwfSDofaeIV2lHRKJb5sEANApgl6wL6VPhkVZbyQcd8pcu/1GYYKC0iGTTy
+ /CwZt9tlv4hIIz7j4z+Lp1m/dyo2OrsBJ/h2sGyw0zvlQZBcBjNJbbVaKWnyLhso4kKU
+ 1WZljXYBVzQFJPsLMXwdnOEf3RGZd3U7gdovghAsEoAynTccPBcGN1kIUDJSoOo3pqob
+ mEMEEwE+iekK603dYyBNYLdHShMM+Wiq5/Vi34OPxYkzUqlHdkm7Dt3BwiVcZoc5lEar
+ 4fY2A4e68dXKW4rNUiPgwx8VQRQw669JmsYYnp9WtEtX+aEIRvKNVaGSwmNDwKxQFLrO
+ 6fgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=9vAsjj4wH0cq3m3qpVkSYBnwOxwjBpDvsPJW0c5pFjc=;
- b=qP0qCDBvopvfwif1qHJ/WSEnZZbuJnDKpyU8W1xeFiHMxVj/ei8CIvVmSDrRAGFZJJ
- zPBjM93BNpUUECM40RpoSF13uvRY31Imyt6RJrFl/vrR4Y8I7avcPvuIKU0kECipkW07
- 0/un6WEhtXvcl94hEwXlqsrNRF1kF8sbibZZxmeZ9+qYQ0ninJrC7du6X2NGYS+X0qb0
- eEX7GZjKLTNh6t2UwSs0ZkB/KfrwoN3O+1PJgMhUzmId74dJK07k02kuQiy0hDILSW+h
- eAkzuIitjvwD4v1omqxpsE/Dvnw9sBtEbeworjcA2VNS38pku7XiHHHPmsCR/NbEiE4p
- zl4w==
-X-Gm-Message-State: APjAAAWjCRIvs1isfmq+5/5l7jYqDtY3jIpegQXt0oBASVNrYelZo4J0
- jQxLljcJb0AjT7R7tcuav+6Tiw==
-X-Google-Smtp-Source: APXvYqx4SVLlNI2m1S7EfnifBaaXSVCoC3VOJ0YAalvRiTkoqXpmx98l3ql8ZpwotOJc6pya6B+new==
-X-Received: by 2002:a65:6410:: with SMTP id a16mr56340566pgv.315.1555328487201; 
- Mon, 15 Apr 2019 04:41:27 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references;
+ bh=4x3PZ0m4B0BDc7pgveF+ss1l/Njj30x4kKCYTwJnwrE=;
+ b=Ki+xbbjSKC9mkBZWM97h6E/oaQpgivBzeMu59lU5WEOZ2w6V0nFAtww2Y8TsuIh1Ho
+ MhZlDqiTCk/3yeR32O6HchwJzsTdhOJVNU7VB2FFMv9Lp9im/1PP5Mdg4l8BuJIYlRu3
+ j3J2gCt+94qZovKyFjzx+fH3Lj4IETcGqemCwEACInF7wMHbkem+qyFOmVKsbjmJB4WS
+ 4ClePHUUJZ5xYXg9gFuF4E2JC0z67aZ3gbf06929sPzOT2PIW9sMjbSNWs0y6YLNISAe
+ eZS0z+waH6HX0F8t04Iz7EjMRnZoYXdfnOzEr23u8oJqOJ4YhRfdQhdY95ymVaMp2uX5
+ Rt6w==
+X-Gm-Message-State: APjAAAXUsYnjLdUDQhhHLFcKV1CRWT4lwi9VlHMetzr7Vhc46+jUiscU
+ QsBuWhNEi1W0ZIR04AeuNf9D6Q==
+X-Google-Smtp-Source: APXvYqyyXuSMV7qYfPCLMYOL8Y/aU7ButgBj5OSBrMwc9kzENvL5nZP2gcOIvgW4uhxOpiyIzvfgNg==
+X-Received: by 2002:a63:c046:: with SMTP id z6mr65559715pgi.81.1555328495776; 
+ Mon, 15 Apr 2019 04:41:35 -0700 (PDT)
 Received: from buildserver-90.open-silicon.com ([114.143.65.226])
- by smtp.googlemail.com with ESMTPSA id l4sm32317273pgh.17.2019.04.15.04.41.22
+ by smtp.googlemail.com with ESMTPSA id l4sm32317273pgh.17.2019.04.15.04.41.31
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
- Mon, 15 Apr 2019 04:41:26 -0700 (PDT)
+ Mon, 15 Apr 2019 04:41:35 -0700 (PDT)
 From: Yash Shah <yash.shah@sifive.com>
 To: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-edac@vger.kernel.org
-Subject: [PATCH 0/3] L2 cache controller and EDAC support for SiFive SoCs
-Date: Mon, 15 Apr 2019 17:10:40 +0530
-Message-Id: <1555328443-30874-1-git-send-email-yash.shah@sifive.com>
+Subject: [PATCH 1/3] RISC-V: Add DT documentation for SiFive L2 Cache
+ Controller
+Date: Mon, 15 Apr 2019 17:10:41 +0530
+Message-Id: <1555328443-30874-2-git-send-email-yash.shah@sifive.com>
 X-Mailer: git-send-email 1.9.1
+In-Reply-To: <1555328443-30874-1-git-send-email-yash.shah@sifive.com>
+References: <1555328443-30874-1-git-send-email-yash.shah@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190415_044128_260342_C1CA873A 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20190415_044136_400537_A1F14FAE 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -100,35 +105,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series adds an L2 cache controller driver with DT documentation
-and an EDAC platform driver for SiFive SoCs.
+This patch adds device tree bindings for SiFive FU540 L2 cache controller
+driver
 
-The EDAC platform driver registers for notifier events from the L2 cache
-controller driver for L2 ECC events.
-
-This patchset is based on Linux 5.1-rc2 and tested on HiFive Unleashed
-board with additional board related patches needed for testing can be found
-at dev/yashs/L2_cache_controller branch of:
-https://github.com/yashshah7/riscv-linux.git
-
-Yash Shah (3):
-  RISC-V: Add DT documentation for SiFive L2 Cache Controller
-  RISC-V: sifive_l2_cache: Add L2 cache controller driver for SiFive
-    SoCs
-  edac: sifive: Add EDAC platform driver for SiFive SoCs
-
- .../devicetree/bindings/riscv/sifive-l2-cache.txt  |  53 +++++
- arch/riscv/Kconfig                                 |   1 +
- arch/riscv/mm/Makefile                             |   1 +
- arch/riscv/mm/sifive_l2_cache.c                    | 224 +++++++++++++++++++++
- drivers/edac/Kconfig                               |   6 +
- drivers/edac/Makefile                              |   1 +
- drivers/edac/sifive_edac.c                         | 121 +++++++++++
- 7 files changed, 407 insertions(+)
+Signed-off-by: Yash Shah <yash.shah@sifive.com>
+---
+ .../devicetree/bindings/riscv/sifive-l2-cache.txt  | 53 ++++++++++++++++++++++
+ 1 file changed, 53 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
- create mode 100644 arch/riscv/mm/sifive_l2_cache.c
- create mode 100644 drivers/edac/sifive_edac.c
 
+diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
+new file mode 100644
+index 0000000..15132e2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
+@@ -0,0 +1,53 @@
++SiFive L2 Cache Controller
++--------------------------
++The SiFive Level 2 Cache Controller is used to provide access to fast copies
++of memory for masters in a Core Complex. The Level 2 Cache Controller also
++acts as directory-based coherency manager.
++
++Required Properties:
++--------------------
++- compatible: Should be "sifive,fu540-c000-ccache"
++
++- cache-block-size: Specifies the block size in bytes of the cache
++
++- cache-level: Should be set to 2 for a level 2 cache
++
++- cache-sets: Specifies the number of associativity sets of the cache
++
++- cache-size: Specifies the size in bytes of the cache
++
++- cache-unified: Specifies the cache is a unified cache
++
++- interrupt-parent: Must be core interrupt controller
++
++- interrupts: Must contain 3 entries (DirError, DataError and DataFail signals)
++
++- reg: Physical base address and size of L2 cache controller registers map
++
++- reg-names: Should be "control"
++
++Optional Properties:
++--------------------
++- next-level-cache: phandle to the next level cache if present.
++
++- memory-region: reference to the reserved-memory for the L2 Loosely Integrated
++  Memory region. The reserved memory node should be defined as per the bindings
++  in reserved-memory.txt
++
++
++Example:
++
++	cache-controller@2010000 {
++		compatible = "sifive,fu540-c000-ccache";
++		cache-block-size = <0x40>;
++		cache-level = <0x2>;
++		cache-sets = <0x400>;
++		cache-size = <0x100000>;
++		cache-unified;
++		interrupt-parent = <&plic0>;
++		interrupts = <1 2 3>;
++		reg = <0x0 0x2010000 0x0 0x1000>;
++		reg-names = "control";
++		next-level-cache = <&L25 &L40 &L36>;
++		memory-region = <&l2_lim>;
++	};
 -- 
 1.9.1
 
