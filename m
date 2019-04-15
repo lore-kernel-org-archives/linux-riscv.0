@@ -1,23 +1,22 @@
-Return-Path: <SRS0=nPG2=SQ=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=fYgv=SR=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8D2B5C10F13
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 14 Apr 2019 14:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2E49CC10F0E
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 05:49:54 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5D8362084E
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 14 Apr 2019 14:29:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F320C2073F
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Apr 2019 05:49:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XOfBWkEW";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=alien8.de header.i=@alien8.de header.b="Ai6QHIky"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5D8362084E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=alien8.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ao6lNvvy"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F320C2073F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -25,50 +24,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WXh2rJUgNj6W0FQ0gUHLy+pla/kzos3ugkSjrwHUGQg=; b=XOfBWkEWZ+Sokv
-	h7IhWFvhs3t5lunAJP3QYkhsiOc3D7R/QXQruq30XHq47Tmdxtnmkhc1u9TbF6NPXHFwL3Gp81fc3
-	yIlGTQ2EzFfXTOqH/qmHilyaZv5DUpMhO2PDD1hzxXeKOdPpXn6/Z7zCMPgKuC6nY8ZpDeCLZzVv2
-	W/1F7gJdHM6WxUjvmsQdV15X4j8SmjAwbBldvEJ34GX5Iw6utfUcyx1OWwDK8V1d6OqZGbCOIDMnU
-	2JwEp1KRPWH0Cjhje219yxoq2sVMl6N8kD42VisAQ/5Mx1zilt4qzMgKJt3k5v0lfULyhKd8nSvyy
-	lL6PiuvugGUou3R/xQdw==;
+	List-Owner; bh=dhRrUDNvw3+2l/vnuYASLq4MWuHDC6duPNYdwKq/WtY=; b=ao6lNvvy/8vskL
+	0tktLIqUnD99P06Y+Fr84HgyddBHrty1bcqwnmxiGiXTHt/5wL3mp+C5hukMnAUA0QqUhYphssvWo
+	k0Irlx4OwuSZv69yKVaqBLB1NuUBAcbMVGwYzYGckj+lHxl+eZYSZ5T0I6A68OqN1dov/GRr1zlud
+	KnA4BDeo5L4PEBLDYBVBrhxw7/cYsI0QahDbt3vBmXiVVytJwqhGTs0mWNzozA2sbZP7ykIHnGvKN
+	kURENpktYbF5g3rbp1m6h7VO3i/Xm7UHT9QVTmvhFD77JsuStDODcb151OfUEMJ7pWZ0uCYvFY3Rl
+	TXiA/xw7qf4Sts/o9nDA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hFg8e-000805-LG; Sun, 14 Apr 2019 14:29:44 +0000
-Received: from mail.skyhub.de ([5.9.137.197])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hFg8a-0007zI-OA
- for linux-riscv@lists.infradead.org; Sun, 14 Apr 2019 14:29:43 +0000
-Received: from zn.tnic (p4FED3D80.dip0.t-ipconnect.de [79.237.61.128])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 63AA31EC0104;
- Sun, 14 Apr 2019 16:29:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=dkim;
- t=1555252169;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:in-reply-to:in-reply-to:  references:references;
- bh=0tP6hoqtQENoly861EN4P78bPYJcM/3W36gOx1YTfWw=;
- b=Ai6QHIkyw2+/p1QNjJ0JSEz5HX+07Bkj/1NoSgV8QMZclo819VtGsPRNCr9/nRJejMd12r
- jlod7Ujap5RMfGuMyu0ATt4c7LJodVRyjOmaYD6czyFJv0xYsl/mQWwq2/nCKynWzcv7hI
- VKyuCuGiLsz/5jx9wTrWhbH8DpgCQj0=
-Date: Sun, 14 Apr 2019 16:27:09 +0200
-From: Borislav Petkov <bp@alien8.de>
-To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [1/3] x86: Update DEBUG_TLBFLUSH options description.
-Message-ID: <20190414142709.GA569@zn.tnic>
-References: <20190410224449.10877-1-atish.patra@wdc.com>
- <20190410224449.10877-2-atish.patra@wdc.com>
- <20190411065617.GA29422@infradead.org>
- <580d95d1-224f-a372-c656-1d2cbb19d868@wdc.com>
+	id 1hFuV5-00014V-P3; Mon, 15 Apr 2019 05:49:51 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
+ Hat Linux)) id 1hFuV3-000149-68; Mon, 15 Apr 2019 05:49:49 +0000
+Date: Sun, 14 Apr 2019 22:49:49 -0700
+From: Christoph Hellwig <hch@infradead.org>
+To: Anup Patel <Anup.Patel@wdc.com>
+Subject: Re: [PATCH v2 1/3] RISC-V: Add separate asm/encoding.h for spec
+ related defines
+Message-ID: <20190415054949.GA9279@infradead.org>
+References: <20190413153807.116227-1-anup.patel@wdc.com>
+ <20190413153807.116227-2-anup.patel@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <580d95d1-224f-a372-c656-1d2cbb19d868@wdc.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190414_072940_935288_BF33F3C9 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20190413153807.116227-2-anup.patel@wdc.com>
+User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -80,39 +58,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <anup@brainfault.org>,
- "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>, Gary Guo <gary@garyguo.net>,
- "H. Peter Anvin" <hpa@zytor.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Ingo Molnar <mingo@redhat.com>,
- Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
+ Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 12, 2019 at 01:14:54PM -0700, Atish Patra wrote:
-> On 4/10/19 11:56 PM, Christoph Hellwig wrote:
-> > Given that this option enables generic code (which you reuse for RISC-V
-> > later in this series) please also move the config option to
-> > mm/Kconfig, proabbly keyed off another ARCH_HAVE_DEBUG_TLBFLUSH
-> > symbol that the architecture can select.
-> > 
-> 
-> Sure.
+On Sat, Apr 13, 2019 at 03:38:35PM +0000, Anup Patel wrote:
+> It's better to have all RISC-V spec related defines in one place
+> so this patch adds separate asm/encoding.h for such defines which
+> can be included in assembly as well as C code.
 
-And when you do that, instead of deleting the help text, make it
-generic. Otherwise, there's no explanation anymore, how that option is
-supposed to be used through tlb_flushall_shift.
+As per the discussion of version 1 on Saturday I disagree with this
+move.  There is both a philosophical and a practical reason for that:
 
--- 
-Regards/Gruss,
-    Boris.
+ a) in RISC-V CSR access is really nicely split out into a separate
+    number space, just accessed through a few special instructions.
+    It has no overlap with the rest of instruction encoding
+ b) <asm/csr.h> is pulled into just about every file build in the kernel
+    though <asm/irqflags.h>, <asm/switch_to.h> and <asm/thread_info.h>
 
-Good mailing practices for 400: avoid top-posting and trim the reply.
+So even if you want to later add a new <asm/encoding.h> for instruction
+encoding details later, I'd rather prefer to keep CSR access separate
+from it.
 
 _______________________________________________
 linux-riscv mailing list
