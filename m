@@ -2,50 +2,53 @@ Return-Path: <SRS0=kGhb=SS=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 69520C10F0E
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2019 02:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 38F02C10F12
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2019 02:56:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 37E2221971
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2019 02:56:37 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 090442084B
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2019 02:56:56 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XwF8BoEO"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 37E2221971
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="V0zhp8Yu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 090442084B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yUK62EonWwxlfJ51xQ+9Ap8bJ6GACrMDJhqznodi7ZU=; b=XwF8BoEO72S3y6
-	2y0XRYKK3DadXSXOcichzEtxNf6w11dm4+4OtJda2ye2PP9MV/zweWC7FqgFS3fwK9y5Zag9qwmAU
-	bAzzvoSpSrhy+T0QemjDdM6sro9YZRhmh/zcRjbFa+mjWGzrU2vhScyALXgHoDUAAVmMI6BvEmB9l
-	LGo7CLAEjDfoRmJvQFG7t16Dcz4tOWJeONzcNr/eJy5dtmCKweoIAuAYAUfqz+JpnN+C/5GEqmB+W
-	hZHrQZ6cy4Bj5QqNBnlQXV7Csaj/6x6hAWcAdoXg/cciK0FwS+dhuDBvBSEDFG9pSpKD4YNo08hAW
-	TnTvpv/pdBPFrD2XgTfg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZMSUBkfd+OREUwnzgol34OhTZLZZi1LEnORUxwWsMV0=; b=V0zhp8YuiCmVMw
+	EhlSvZDliVv+GNJphtBULsYat4U6gIx4dXG4ENBxLoea6fJj7uSdqM788zLoGBgsZu5hxhcMhgmr3
+	7os0kyOelLwSN98VeEoKkIEgy80czV5kpAU4CXJlg/piXXUwZog9U6s4VciI14G2o+1L2mF0jW50o
+	CKb2raX5Uu2cNUrlwlh6JR0RmFA2d0CADC3wfSivAn3ZFRwA0PrS5nGjNYGgx8HmzzFXeGPKXjWa8
+	Lzil/wCx6u8lpuUaTh37gMWsj7NKBmw5wPvL1OONKn2PYbFmZtxHzTRfdf2UrmgnvY08Q1T23FM6E
+	lceRM3qBS4aEbtjEx2tw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hGEGv-0007gp-Fd; Tue, 16 Apr 2019 02:56:33 +0000
+	id 1hGEHE-000822-7f; Tue, 16 Apr 2019 02:56:52 +0000
 Received: from 177.205.118.176.dynamic.adsl.gvt.net.br ([177.205.118.176]
  helo=bombadil.infradead.org)
  by bombadil.infradead.org with esmtpsa (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hGEGp-0007aV-Sm; Tue, 16 Apr 2019 02:56:30 +0000
+ id 1hGEGu-0007ak-Qy; Tue, 16 Apr 2019 02:56:33 +0000
 Received: from mchehab by bombadil.infradead.org with local (Exim 4.92)
  (envelope-from <mchehab@bombadil.infradead.org>)
- id 1hGEGm-0001kr-Qn; Mon, 15 Apr 2019 23:56:24 -0300
+ id 1hGEGn-0001o7-M4; Mon, 15 Apr 2019 23:56:25 -0300
 From: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
 To: Linux Doc Mailing List <linux-doc@vger.kernel.org>
-Subject: [PATCH 00/57] Convert files to ReST
-Date: Mon, 15 Apr 2019 23:55:25 -0300
-Message-Id: <cover.1555382110.git.mchehab+samsung@kernel.org>
+Subject: [PATCH 29/57] docs: riscv: convert it to ReST format
+Date: Mon, 15 Apr 2019 23:55:54 -0300
+Message-Id: <bf7dc05989fbd8959d3207056b82680f99e86692.1555382110.git.mchehab+samsung@kernel.org>
 X-Mailer: git-send-email 2.20.1
+In-Reply-To: <cover.1555382110.git.mchehab+samsung@kernel.org>
+References: <cover.1555382110.git.mchehab+samsung@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -58,548 +61,203 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-fbdev@vger.kernel.org, linux-fpga@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-ide@vger.kernel.org,
- dm-devel@redhat.com, target-devel@vger.kernel.org,
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Mauro Carvalho Chehab <mchehab@infradead.org>,
  Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- xdp-newbies@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org,
- Jonathan Corbet <corbet@lwn.net>, linux-rdma@vger.kernel.org, x86@kernel.org,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-watchdog@vger.kernel.org, linux-pm@vger.kernel.org,
- Mauro Carvalho Chehab <mchehab@infradead.org>, linux-gpio@vger.kernel.org,
- Thomas Gleixner <tglx@linutronix.de>, linux-kbuild@vger.kernel.org,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
- kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-security-module@vger.kernel.org, netdev@vger.kernel.org,
- bpf@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series convert lots of files to be properly parsed by Sphinx
-as ReST files.
+The conversion here is trivial:
+ - Adjust the document title's markup
+ - Do some whitespace alignment;
+ - mark literal blocks;
+ - Use ReST way to markup indented lists.
 
-As it touches on lot of stuff, the series is based on linux-next.
+Signed-off-by: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
+---
+ Documentation/riscv/pmu.txt | 98 ++++++++++++++++++++-----------------
+ 1 file changed, 52 insertions(+), 46 deletions(-)
 
-I have a separate patch series with do the actual rename and
-adjustment of references. I opted to submit this first, as it
-sounds easier to merge this way, as each subsystem maintainer
-can apply the conversion directly on their trees (or at docs
-tree), avoiding merge conflects.
-
-Both this series and  the next steps are on my devel git tree,
-at:
-	https://git.linuxtv.org/mchehab/experimental.git/log/?h=all_with_indexes-v3
-
-The final output in html can be seen at:
-
-	https://www.infradead.org/~mchehab/rst_conversion/
-
-Mauro Carvalho Chehab (57):
-  docs: trace: fix some Sphinx warnings
-  docs: acpi: convert text files to ReST
-  docs: aoe: convert text files to ReST
-  docs: arm64: convert documentation to ReST format
-  docs: cdrom/cdrom-standard.tex: convert from LaTeX to ReST
-  docs: cdrom: convert remaining files to ReST
-  docs: cgroup-v1: convert to ReST file format
-  docs: cgroup-v1/blkio-controller.rst: add a note about CFQ scheduler
-  docs: cpu-freq: convert files to ReST
-  docs: device-mapper: convert it to ReST format
-  docs: extcon: move it to acpi dir and convert it to ReST
-  docs: fault-injection: convert it to ReST format
-  docs: fb: convert documentation to ReST format
-  docs: fpga: convert it to ReST
-  docs: gpio: convert it to ReST
-  docs: ide: convert it to ReST format
-  docs: infiniband: convert it to ReST format
-  docs: kbuild: convert it to ReST output
-  docs: kdump: convert it to ReST
-  docs: livepatch: convert it to ReST format
-  docs: locking: convert docs to ReST format
-  docs: mic: convert it to ReST format
-  docs: netlabel: convert it to ReST
-  docs: pcmcia: convert it to ReST format
-  docs: power: convert docs to ReST
-  docs: powerpc: convert docs to ReST
-  docs: pps/pps.txt convert it to ReST and move to API book
-  docs: ptp.txt: convert to ReST and move to driver-api
-  docs: riscv: convert it to ReST format
-  docs: s390: Debugging390.txt: convert table to ascii artwork
-  docs: s390: convert text files to ReST format
-  s390: include/asm/debug.h add kerneldoc markups
-  docs: serial: convert it to ReST format
-  docs: target: convert it to ReST format
-  docs: timers: convert documentation to ReST
-  docs: usb: convert documents to ReST
-  docs: watchdog: convert documents to ReST format
-  docs: x86: convert text files to ReST
-  docs: xilinx: convert eemi.txt to ReST
-  docs: scheduler: convert files to ReST
-  docs: EDID/HOWTO.txt: convert to ReST and move to kernel-API
-  docs: connector.txt: convert to ReST
-  docs: lcd-panel-cgram.txt convert it to ReST and move to admin-guide
-  docs: lp855x-driver.txt: convert to ReST and move to kernel-api
-  docs: m68k: convert it to ReST file format and add to arch bookset
-  docs: cma/debugfs.txt: convert to ReST and move to admin-guide/mm
-  docs: console.txt: convert to ReST format
-  docs: pti_intel_mid.txt: convert to ReST
-  docs: early-userspace: convert docs to ReST
-  docs: driver-model: convert it to ReST format
-  docs: arm: convert text files to ReST format
-  docs: memory-devices: convert ti-emif.txt to ReST format
-  docs: xen-tpmfront.txt: convert the file to ReST format
-  docs: bus-devices: ti-gpmc.txt: convert it to ReST
-  docs: nvmem: convert file to ReST format
-  docs: phy: convert samsung-usb2.txt to ReST format
-  docs: Prepare files to be renamed to *.rst
-
- Documentation/EDID/HOWTO.txt                  |   29 +-
- Documentation/acpi/DSD-properties-rules.txt   |    4 +-
- Documentation/acpi/acpi-lid.txt               |   37 +-
- Documentation/acpi/aml-debugger.txt           |   31 +-
- Documentation/acpi/apei/einj.txt              |   59 +-
- Documentation/acpi/apei/output_format.txt     |  247 +-
- Documentation/acpi/cppc_sysfs.txt             |   52 +-
- Documentation/acpi/debug.txt                  |   20 +-
- .../drivers/extcon-intel-int3496.txt}         |   14 +-
- .../acpi/dsd/data-node-references.txt         |   11 +-
- Documentation/acpi/dsd/graph.txt              |   24 +-
- Documentation/acpi/dsd/leds.txt               |   18 +-
- Documentation/acpi/dsdt-override.txt          |    4 +-
- Documentation/acpi/enumeration.txt            |   42 +-
- Documentation/acpi/gpio-properties.txt        |   42 +-
- Documentation/acpi/i2c-muxes.txt              |   21 +-
- Documentation/acpi/initrd_table_override.txt  |   90 +-
- Documentation/acpi/linuxized-acpica.txt       |   58 +-
- Documentation/acpi/lpit.txt                   |    8 +-
- Documentation/acpi/method-customizing.txt     |   48 +-
- Documentation/acpi/method-tracing.txt         |  132 +-
- Documentation/acpi/namespace.txt              |  323 +-
- Documentation/acpi/osi.txt                    |    3 +-
- Documentation/acpi/scan_handlers.txt          |    9 +-
- Documentation/acpi/ssdt-overlays.txt          |  128 +-
- Documentation/acpi/video_extension.txt        |   16 +-
- Documentation/aoe/aoe.txt                     |   63 +-
- Documentation/aoe/todo.txt                    |    3 +
- Documentation/aoe/udev.txt                    |    2 +-
- Documentation/arm/Booting                     |   71 +-
- Documentation/arm/IXP4xx                      |   61 +-
- Documentation/arm/Interrupts                  |   86 +-
- Documentation/arm/Marvell/README              |  537 ++--
- Documentation/arm/Microchip/README            |   63 +-
- Documentation/arm/Netwinder                   |   59 +-
- Documentation/arm/OMAP/DSS                    |  112 +-
- Documentation/arm/OMAP/README                 |    7 +
- Documentation/arm/OMAP/omap_pm                |   55 +-
- Documentation/arm/Porting                     |   14 +-
- Documentation/arm/README                      |   50 +-
- Documentation/arm/SA1100/ADSBitsy             |   14 +-
- Documentation/arm/SA1100/Assabet              |  185 +-
- Documentation/arm/SA1100/Brutus               |   45 +-
- Documentation/arm/SA1100/CERF                 |   10 +-
- Documentation/arm/SA1100/FreeBird             |   26 +-
- Documentation/arm/SA1100/GraphicsClient       |   46 +-
- Documentation/arm/SA1100/GraphicsMaster       |   13 +-
- Documentation/arm/SA1100/HUW_WEBPANEL         |    8 +-
- Documentation/arm/SA1100/Itsy                 |   14 +-
- Documentation/arm/SA1100/LART                 |    3 +-
- Documentation/arm/SA1100/PLEB                 |    6 +-
- Documentation/arm/SA1100/Pangolin             |   10 +-
- Documentation/arm/SA1100/Tifon                |    4 +-
- Documentation/arm/SA1100/Yopy                 |    5 +-
- Documentation/arm/SA1100/empeg                |    2 -
- Documentation/arm/SA1100/nanoEngine           |    6 +-
- Documentation/arm/SA1100/serial_UART          |   60 +-
- Documentation/arm/SPEAr/overview.txt          |   20 +-
- Documentation/arm/Samsung-S3C24XX/CPUfreq.txt |    5 +-
- .../arm/Samsung-S3C24XX/EB2410ITX.txt         |    5 +-
- Documentation/arm/Samsung-S3C24XX/GPIO.txt    |   21 +-
- Documentation/arm/Samsung-S3C24XX/H1940.txt   |    5 +-
- Documentation/arm/Samsung-S3C24XX/NAND.txt    |    6 +-
- .../arm/Samsung-S3C24XX/Overview.txt          |   15 +-
- Documentation/arm/Samsung-S3C24XX/S3C2412.txt |    5 +-
- Documentation/arm/Samsung-S3C24XX/S3C2413.txt |    7 +-
- .../arm/Samsung-S3C24XX/SMDK2440.txt          |    5 +-
- Documentation/arm/Samsung-S3C24XX/Suspend.txt |   20 +-
- .../arm/Samsung-S3C24XX/USB-Host.txt          |   16 +-
- .../arm/Samsung/Bootloader-interface.txt      |   27 +-
- Documentation/arm/Samsung/GPIO.txt            |    5 +-
- Documentation/arm/Samsung/Overview.txt        |   11 +-
- Documentation/arm/Setup                       |   49 +-
- Documentation/arm/VFP/release-notes.txt       |    4 +-
- .../arm/cluster-pm-race-avoidance.txt         |  177 +-
- Documentation/arm/firmware.txt                |   14 +-
- Documentation/arm/kernel_mode_neon.txt        |    3 +
- Documentation/arm/kernel_user_helpers.txt     |   79 +-
- Documentation/arm/keystone/Overview.txt       |   47 +-
- Documentation/arm/keystone/knav-qmss.txt      |    6 +-
- Documentation/arm/mem_alignment               |   11 +-
- Documentation/arm/memory.txt                  |    9 +-
- Documentation/arm/nwfpe/NOTES                 |    3 +
- Documentation/arm/nwfpe/README                |   10 +-
- Documentation/arm/nwfpe/README.FPE            |   24 +-
- Documentation/arm/nwfpe/TODO                  |   47 +-
- Documentation/arm/pxa/mfp.txt                 |  106 +-
- Documentation/arm/sti/overview.txt            |   21 +-
- Documentation/arm/sti/stih407-overview.txt    |    9 +-
- Documentation/arm/sti/stih415-overview.txt    |    8 +-
- Documentation/arm/sti/stih416-overview.txt    |    5 +-
- Documentation/arm/sti/stih418-overview.txt    |    9 +-
- .../arm/stm32/stm32f429-overview.rst          |    5 +-
- .../arm/stm32/stm32f746-overview.rst          |    5 +-
- .../arm/stm32/stm32f769-overview.rst          |    5 +-
- .../arm/stm32/stm32h743-overview.rst          |    5 +-
- .../arm/stm32/stm32mp157-overview.rst         |    1 +
- Documentation/arm/sunxi/README                |   98 +-
- Documentation/arm/sunxi/clocks.txt            |    7 +-
- Documentation/arm/swp_emulation               |   24 +-
- Documentation/arm/tcm.txt                     |   54 +-
- Documentation/arm/uefi.txt                    |   39 +-
- Documentation/arm/vlocks.txt                  |    9 +-
- Documentation/arm64/acpi_object_usage.txt     |  288 +-
- Documentation/arm64/arm-acpi.txt              |  153 +-
- Documentation/arm64/booting.txt               |   91 +-
- Documentation/arm64/cpu-feature-registers.txt |  190 +-
- Documentation/arm64/elf_hwcaps.txt            |   50 +-
- Documentation/arm64/hugetlbpage.txt           |    7 +-
- Documentation/arm64/legacy_instructions.txt   |   43 +-
- Documentation/arm64/memory.txt                |   91 +-
- .../arm64/pointer-authentication.txt          |    2 +
- Documentation/arm64/silicon-errata.txt        |   63 +-
- Documentation/arm64/sve.txt                   |   10 +-
- Documentation/arm64/tagged-pointers.txt       |    6 +-
- Documentation/auxdisplay/lcd-panel-cgram.txt  |    7 +-
- Documentation/backlight/lp855x-driver.txt     |   65 +-
- Documentation/bt8xxgpio.txt                   |    1 -
- Documentation/bus-devices/ti-gpmc.txt         |  157 +-
- Documentation/bus-virt-phys-mapping.txt       |   50 +-
- Documentation/cdrom/Makefile                  |   21 -
- Documentation/cdrom/cdrom-standard.tex        | 1026 -------
- Documentation/cdrom/cdrom-standard.txt        | 1063 +++++++
- Documentation/cdrom/ide-cd                    |  178 +-
- Documentation/cdrom/packet-writing.txt        |   27 +-
- Documentation/cgroup-v1/blkio-controller.txt  |  103 +-
- Documentation/cgroup-v1/cgroups.txt           |  180 +-
- Documentation/cgroup-v1/cpuacct.txt           |   15 +-
- Documentation/cgroup-v1/cpusets.txt           |  203 +-
- Documentation/cgroup-v1/devices.txt           |   40 +-
- Documentation/cgroup-v1/freezer-subsystem.txt |   14 +-
- Documentation/cgroup-v1/hugetlb.txt           |   31 +-
- Documentation/cgroup-v1/memcg_test.txt        |  259 +-
- Documentation/cgroup-v1/memory.txt            |  449 +--
- Documentation/cgroup-v1/net_cls.txt           |   37 +-
- Documentation/cgroup-v1/net_prio.txt          |   24 +-
- Documentation/cgroup-v1/pids.txt              |   78 +-
- Documentation/cgroup-v1/rdma.txt              |   66 +-
- Documentation/cma/debugfs.txt                 |    6 +-
- Documentation/connector/connector.txt         |  128 +-
- Documentation/console/console.txt             |   61 +-
- Documentation/cpu-freq/amd-powernow.txt       |   11 +-
- Documentation/cpu-freq/core.txt               |   66 +-
- Documentation/cpu-freq/cpu-drivers.txt        |  217 +-
- Documentation/cpu-freq/cpufreq-nforce2.txt    |   12 +-
- Documentation/cpu-freq/cpufreq-stats.txt      |  141 +-
- Documentation/cpu-freq/pcc-cpufreq.txt        |  102 +-
- .../device-mapper/cache-policies.txt          |   24 +-
- Documentation/device-mapper/cache.txt         |  206 +-
- Documentation/device-mapper/delay.txt         |   29 +-
- Documentation/device-mapper/dm-crypt.txt      |   57 +-
- Documentation/device-mapper/dm-flakey.txt     |   45 +-
- Documentation/device-mapper/dm-init.txt       |   75 +-
- Documentation/device-mapper/dm-integrity.txt  |   55 +-
- Documentation/device-mapper/dm-io.txt         |   14 +-
- Documentation/device-mapper/dm-log.txt        |    5 +-
- .../device-mapper/dm-queue-length.txt         |   25 +-
- Documentation/device-mapper/dm-raid.txt       |  225 +-
- .../device-mapper/dm-service-time.txt         |   68 +-
- Documentation/device-mapper/dm-uevent.txt     |  143 +-
- Documentation/device-mapper/dm-zoned.txt      |   10 +-
- Documentation/device-mapper/era.txt           |   36 +-
- Documentation/device-mapper/kcopyd.txt        |   10 +-
- Documentation/device-mapper/linear.txt        |  100 +-
- Documentation/device-mapper/log-writes.txt    |   91 +-
- .../device-mapper/persistent-data.txt         |    4 +
- Documentation/device-mapper/snapshot.txt      |  116 +-
- Documentation/device-mapper/statistics.txt    |   62 +-
- Documentation/device-mapper/striped.txt       |   68 +-
- Documentation/device-mapper/switch.txt        |   47 +-
- .../device-mapper/thin-provisioning.txt       |   68 +-
- Documentation/device-mapper/unstriped.txt     |  111 +-
- Documentation/device-mapper/verity.txt        |   20 +-
- Documentation/device-mapper/writecache.txt    |   13 +-
- Documentation/device-mapper/zero.txt          |   14 +-
- Documentation/driver-model/binding.txt        |   20 +-
- Documentation/driver-model/bus.txt            |   69 +-
- Documentation/driver-model/class.txt          |   74 +-
- .../driver-model/design-patterns.txt          |  106 +-
- Documentation/driver-model/device.txt         |   57 +-
- Documentation/driver-model/devres.txt         |   50 +-
- Documentation/driver-model/driver.txt         |  112 +-
- Documentation/driver-model/overview.txt       |   37 +-
- Documentation/driver-model/platform.txt       |   30 +-
- Documentation/driver-model/porting.txt        |  333 +--
- Documentation/early-userspace/README          |    3 +
- .../early-userspace/buffer-format.txt         |   19 +-
- .../fault-injection/fault-injection.txt       |  265 +-
- .../fault-injection/notifier-error-inject.txt |   18 +-
- .../fault-injection/nvme-fault-injection.txt  |  174 +-
- .../fault-injection/provoke-crashes.txt       |   40 +-
- Documentation/fb/api.txt                      |   29 +-
- Documentation/fb/arkfb.txt                    |    8 +-
- Documentation/fb/aty128fb.txt                 |   31 +-
- Documentation/fb/cirrusfb.txt                 |   47 +-
- Documentation/fb/cmap_xfbdev.txt              |   57 +-
- Documentation/fb/deferred_io.txt              |   28 +-
- Documentation/fb/efifb.txt                    |   18 +-
- Documentation/fb/ep93xx-fb.txt                |   25 +-
- Documentation/fb/fbcon.txt                    |  177 +-
- Documentation/fb/framebuffer.txt              |   79 +-
- Documentation/fb/gxfb.txt                     |   22 +-
- Documentation/fb/intel810.txt                 |   77 +-
- Documentation/fb/intelfb.txt                  |   62 +-
- Documentation/fb/internals.txt                |   24 +-
- Documentation/fb/lxfb.txt                     |   23 +-
- Documentation/fb/matroxfb.txt                 |  526 ++--
- Documentation/fb/metronomefb.txt              |    8 +-
- Documentation/fb/modedb.txt                   |   44 +-
- Documentation/fb/pvr2fb.txt                   |   55 +-
- Documentation/fb/pxafb.txt                    |   81 +-
- Documentation/fb/s3fb.txt                     |    8 +-
- Documentation/fb/sa1100fb.txt                 |   23 +-
- Documentation/fb/sh7760fb.txt                 |  153 +-
- Documentation/fb/sisfb.txt                    |   40 +-
- Documentation/fb/sm501.txt                    |    7 +-
- Documentation/fb/sm712fb.txt                  |   18 +-
- Documentation/fb/sstfb.txt                    |  231 +-
- Documentation/fb/tgafb.txt                    |   30 +-
- Documentation/fb/tridentfb.txt                |   34 +-
- Documentation/fb/udlfb.txt                    |   55 +-
- Documentation/fb/uvesafb.txt                  |  128 +-
- Documentation/fb/vesafb.txt                   |  121 +-
- Documentation/fb/viafb.txt                    |  393 +--
- Documentation/fb/vt8623fb.txt                 |   10 +-
- Documentation/fpga/dfl.txt                    |   58 +-
- Documentation/gpio/sysfs.txt                  |   39 +-
- Documentation/highuid.txt                     |    2 +-
- Documentation/ide/ide-tape.txt                |   23 +-
- Documentation/ide/ide.txt                     |  147 +-
- Documentation/ide/warm-plug-howto.txt         |   10 +-
- Documentation/index.rst                       |    1 +
- Documentation/infiniband/core_locking.txt     |   64 +-
- Documentation/infiniband/ipoib.txt            |   24 +-
- Documentation/infiniband/opa_vnic.txt         |  108 +-
- Documentation/infiniband/sysfs.txt            |    4 +-
- Documentation/infiniband/tag_matching.txt     |    5 +
- Documentation/infiniband/user_mad.txt         |   33 +-
- Documentation/infiniband/user_verbs.txt       |   12 +-
- Documentation/kbuild/headers_install.txt      |    5 +-
- Documentation/kbuild/kbuild.txt               |  119 +-
- Documentation/kbuild/kconfig-language.txt     |  232 +-
- .../kbuild/kconfig-macro-language.txt         |   37 +-
- Documentation/kbuild/kconfig.txt              |  136 +-
- Documentation/kbuild/makefiles.txt            |  518 ++--
- Documentation/kbuild/modules.txt              |  166 +-
- Documentation/kdump/kdump.txt                 |  131 +-
- Documentation/kdump/vmcoreinfo.txt            |   59 +-
- Documentation/kobject.txt                     |    2 +-
- Documentation/ldm.txt                         |    3 +-
- Documentation/livepatch/callbacks.txt         |   12 +-
- .../livepatch/cumulative-patches.txt          |   14 +-
- Documentation/livepatch/livepatch.txt         |   56 +-
- Documentation/livepatch/module-elf-format.txt |  211 +-
- Documentation/livepatch/shadow-vars.txt       |   65 +-
- Documentation/locking/lockdep-design.txt      |   41 +-
- Documentation/locking/lockstat.txt            |  219 +-
- Documentation/locking/locktorture.txt         |  105 +-
- Documentation/locking/mutex-design.txt        |   26 +-
- Documentation/locking/rt-mutex-design.txt     |  135 +-
- Documentation/locking/rt-mutex.txt            |   30 +-
- Documentation/locking/spinlocks.txt           |   32 +-
- Documentation/locking/ww-mutex-design.txt     |   82 +-
- Documentation/m68k/kernel-options.txt         |  319 +-
- Documentation/memory-barriers.txt             |    2 +-
- Documentation/memory-devices/ti-emif.txt      |   25 +-
- Documentation/mic/mic_overview.txt            |    6 +-
- Documentation/mic/scif_overview.txt           |   58 +-
- Documentation/netlabel/cipso_ipv4.txt         |   19 +-
- Documentation/netlabel/introduction.txt       |   16 +-
- Documentation/netlabel/lsm_interface.txt      |   16 +-
- Documentation/numastat.txt                    |    1 -
- Documentation/nvmem/nvmem.txt                 |  110 +-
- Documentation/pcmcia/devicetable.txt          |    4 +
- Documentation/pcmcia/driver-changes.txt       |   35 +-
- Documentation/pcmcia/driver.txt               |   18 +-
- Documentation/pcmcia/locking.txt              |   39 +-
- Documentation/phy/samsung-usb2.txt            |   60 +-
- Documentation/pnp.txt                         |   11 +-
- Documentation/power/apm-acpi.txt              |   10 +-
- Documentation/power/basic-pm-debugging.txt    |   77 +-
- Documentation/power/charger-manager.txt       |  101 +-
- Documentation/power/drivers-testing.txt       |    5 +
- Documentation/power/energy-model.txt          |  101 +-
- Documentation/power/freezing-of-tasks.txt     |   91 +-
- Documentation/power/interface.txt             |   20 +-
- Documentation/power/opp.txt                   |  175 +-
- Documentation/power/pci.txt                   |   77 +-
- Documentation/power/pm_qos_interface.txt      |  127 +-
- Documentation/power/power_supply_class.txt    |  269 +-
- Documentation/power/powercap/powercap.txt     |  297 +-
- Documentation/power/regulator/consumer.txt    |  141 +-
- Documentation/power/regulator/design.txt      |    9 +-
- Documentation/power/regulator/machine.txt     |   47 +-
- Documentation/power/regulator/overview.txt    |   51 +-
- Documentation/power/regulator/regulator.txt   |   18 +-
- Documentation/power/runtime_pm.txt            |  234 +-
- Documentation/power/s2ram.txt                 |   20 +-
- .../power/suspend-and-cpuhotplug.txt          |   42 +-
- .../power/suspend-and-interrupts.txt          |    2 +
- Documentation/power/swsusp-and-swap-files.txt |   15 +-
- Documentation/power/swsusp-dmcrypt.txt        |  118 +-
- Documentation/power/swsusp.txt                |  639 ++--
- Documentation/power/tricks.txt                |    6 +-
- Documentation/power/userland-swsusp.txt       |   53 +-
- Documentation/power/video.txt                 |  156 +-
- Documentation/powerpc/DAWR-POWER9.txt         |   10 +-
- Documentation/powerpc/bootwrapper.txt         |   28 +-
- Documentation/powerpc/cpu_families.txt        |   23 +-
- Documentation/powerpc/cpu_features.txt        |    6 +-
- Documentation/powerpc/cxl.txt                 |   46 +-
- Documentation/powerpc/cxlflash.txt            |    8 +-
- Documentation/powerpc/dscr.txt                |   18 +-
- .../powerpc/eeh-pci-error-recovery.txt        |  108 +-
- .../powerpc/firmware-assisted-dump.txt        |  117 +-
- Documentation/powerpc/hvcs.txt                |  108 +-
- Documentation/powerpc/isa-versions.rst        |   13 +-
- Documentation/powerpc/mpc52xx.txt             |   12 +-
- .../powerpc/pci_iov_resource_on_powernv.txt   |   15 +-
- Documentation/powerpc/pmu-ebb.txt             |    1 +
- Documentation/powerpc/ptrace.txt              |  169 +-
- Documentation/powerpc/qe_firmware.txt         |   37 +-
- Documentation/powerpc/syscall64-abi.txt       |   29 +-
- .../powerpc/transactional_memory.txt          |   45 +-
- Documentation/pps/pps.txt                     |   67 +-
- Documentation/preempt-locking.txt             |    2 +-
- Documentation/pti/pti_intel_mid.txt           |  135 +-
- Documentation/ptp/ptp.txt                     |   26 +-
- Documentation/rbtree.txt                      |   52 +-
- Documentation/riscv/pmu.txt                   |   98 +-
- Documentation/rtc.txt                         |    6 +-
- Documentation/s390/3270.txt                   |   85 +-
- Documentation/s390/CommonIO                   |   47 +-
- Documentation/s390/DASD                       |   33 +-
- Documentation/s390/Debugging390.txt           | 2599 ++++++++++-------
- Documentation/s390/cds.txt                    |  354 ++-
- Documentation/s390/driver-model.txt           |  179 +-
- Documentation/s390/monreader.txt              |   85 +-
- Documentation/s390/qeth.txt                   |   36 +-
- Documentation/s390/s390dbf.txt                |  639 ++--
- Documentation/s390/vfio-ap.txt                |  487 +--
- Documentation/s390/vfio-ccw.txt               |   88 +-
- Documentation/s390/zfcpdump.txt               |    2 +
- Documentation/scheduler/completion.txt        |   38 +-
- Documentation/scheduler/sched-arch.txt        |   18 +-
- Documentation/scheduler/sched-bwc.txt         |   28 +-
- Documentation/scheduler/sched-deadline.txt    |  293 +-
- Documentation/scheduler/sched-design-CFS.txt  |   15 +-
- Documentation/scheduler/sched-domains.txt     |    8 +-
- Documentation/scheduler/sched-energy.txt      |   47 +-
- Documentation/scheduler/sched-nice-design.txt |    6 +-
- Documentation/scheduler/sched-rt-group.txt    |   28 +-
- Documentation/scheduler/sched-stats.txt       |   35 +-
- Documentation/security/tpm/xen-tpmfront.txt   |  101 +-
- Documentation/serial/README.cycladesZ         |    5 +-
- Documentation/serial/driver                   |  113 +-
- Documentation/serial/moxa-smartio             |  750 ++---
- Documentation/serial/n_gsm.txt                |   81 +-
- Documentation/serial/rocket.txt               |  144 +-
- Documentation/serial/serial-iso7816.txt       |   21 +-
- Documentation/serial/serial-rs485.txt         |   22 +-
- Documentation/serial/tty.txt                  |  111 +-
- Documentation/target/tcm_mod_builder.txt      |  200 +-
- Documentation/target/tcmu-design.txt          |  268 +-
- Documentation/timers/NO_HZ.txt                |   40 +-
- Documentation/timers/highres.txt              |   11 +-
- Documentation/timers/hpet.txt                 |    4 +-
- Documentation/timers/hrtimers.txt             |    6 +-
- Documentation/timers/timekeeping.txt          |    3 +-
- Documentation/timers/timers-howto.txt         |   15 +-
- Documentation/trace/ftrace.rst                |    1 +
- Documentation/trace/histogram.rst             |   86 +-
- Documentation/usb/WUSB-Design-overview.txt    |   56 +-
- Documentation/usb/acm.txt                     |  156 +-
- Documentation/usb/authorization.txt           |   75 +-
- Documentation/usb/chipidea.txt                |  101 +-
- Documentation/usb/dwc3.txt                    |   12 +-
- Documentation/usb/ehci.txt                    |   42 +-
- Documentation/usb/functionfs.txt              |   17 +-
- Documentation/usb/gadget-testing.txt          |  609 ++--
- Documentation/usb/gadget_configfs.txt         |  302 +-
- Documentation/usb/gadget_hid.txt              |  175 +-
- Documentation/usb/gadget_multi.txt            |   43 +-
- Documentation/usb/gadget_printer.txt          |  155 +-
- Documentation/usb/gadget_serial.txt           |   73 +-
- Documentation/usb/iuu_phoenix.txt             |   34 +-
- Documentation/usb/mass-storage.txt            |   19 +-
- Documentation/usb/misc_usbsevseg.txt          |    9 +-
- Documentation/usb/mtouchusb.txt               |   42 +-
- Documentation/usb/ohci.txt                    |    5 +-
- Documentation/usb/rio.txt                     |   83 +-
- Documentation/usb/usb-help.txt                |   21 +-
- Documentation/usb/usb-serial.txt              |  203 +-
- Documentation/usb/usbip_protocol.txt          |  552 ++--
- Documentation/usb/usbmon.txt                  |  100 +-
- .../convert_drivers_to_kernel_api.txt         |  109 +-
- Documentation/watchdog/hpwdt.txt              |   23 +-
- Documentation/watchdog/mlx-wdt.txt            |   24 +-
- Documentation/watchdog/pcwd-watchdog.txt      |   13 +-
- Documentation/watchdog/watchdog-api.txt       |   76 +-
- .../watchdog/watchdog-kernel-api.txt          |   89 +-
- .../watchdog/watchdog-parameters.txt          |  672 +++--
- Documentation/watchdog/watchdog-pm.txt        |    3 +
- Documentation/watchdog/wdt.txt                |   31 +-
- Documentation/x86/amd-memory-encryption.txt   |   10 +-
- Documentation/x86/boot.txt                    |  578 ++--
- Documentation/x86/earlyprintk.txt             |   69 +-
- Documentation/x86/entry_64.txt                |   11 +-
- Documentation/x86/exception-tables.txt        |  245 +-
- Documentation/x86/i386/IO-APIC.txt            |   23 +-
- Documentation/x86/intel_mpx.txt               |   55 +-
- Documentation/x86/microcode.txt               |   51 +-
- Documentation/x86/mtrr.txt                    |  442 +--
- Documentation/x86/orc-unwinder.txt            |    1 +
- Documentation/x86/pat.txt                     |  217 +-
- Documentation/x86/protection-keys.txt         |   33 +-
- Documentation/x86/pti.txt                     |    8 +-
- Documentation/x86/resctrl_ui.txt              |  621 ++--
- Documentation/x86/tlb.txt                     |   12 +-
- Documentation/x86/topology.txt                |   26 +-
- Documentation/x86/usb-legacy-support.txt      |   33 +-
- Documentation/x86/x86_64/5level-paging.txt    |   14 +-
- Documentation/x86/x86_64/boot-options.txt     |   98 +-
- Documentation/x86/x86_64/mm.txt               |  212 +-
- Documentation/x86/x86_64/uefi.txt             |   21 +-
- Documentation/x86/zero-page.txt               |   67 +-
- Documentation/xilinx/eemi.txt                 |    8 +-
- Documentation/zorro.txt                       |    5 +-
- MAINTAINERS                                   |    2 +-
- arch/arm64/kernel/kexec_image.c               |    2 +-
- arch/s390/include/asm/debug.h                 |  231 ++
- drivers/cdrom/cdrom.c                         |    2 +-
- include/linux/connector.h                     |   63 +-
- 433 files changed, 21459 insertions(+), 16370 deletions(-)
- rename Documentation/{extcon/intel-int3496.txt => acpi/drivers/extcon-intel-int3496.txt} (66%)
- delete mode 100644 Documentation/arm/SA1100/empeg
- delete mode 100644 Documentation/cdrom/Makefile
- delete mode 100644 Documentation/cdrom/cdrom-standard.tex
- create mode 100644 Documentation/cdrom/cdrom-standard.txt
-
+diff --git a/Documentation/riscv/pmu.txt b/Documentation/riscv/pmu.txt
+index b29f03a6d82f..acb216b99c26 100644
+--- a/Documentation/riscv/pmu.txt
++++ b/Documentation/riscv/pmu.txt
+@@ -1,5 +1,7 @@
++===================================
+ Supporting PMUs on RISC-V platforms
+-==========================================
++===================================
++
+ Alan Kao <alankao@andestech.com>, Mar 2018
+ 
+ Introduction
+@@ -77,13 +79,13 @@ Note that some features can be done in this stage as well:
+ (2) privilege level setting (user space only, kernel space only, both);
+ (3) destructor setting.  Normally it is sufficient to apply *riscv_destroy_event*;
+ (4) tweaks for non-sampling events, which will be utilized by functions such as
+-*perf_adjust_period*, usually something like the follows:
++    *perf_adjust_period*, usually something like the follows::
+ 
+-if (!is_sampling_event(event)) {
+-        hwc->sample_period = x86_pmu.max_period;
+-        hwc->last_period = hwc->sample_period;
+-        local64_set(&hwc->period_left, hwc->sample_period);
+-}
++      if (!is_sampling_event(event)) {
++              hwc->sample_period = x86_pmu.max_period;
++              hwc->last_period = hwc->sample_period;
++              local64_set(&hwc->period_left, hwc->sample_period);
++      }
+ 
+ In the case of *riscv_base_pmu*, only (3) is provided for now.
+ 
+@@ -94,10 +96,10 @@ In the case of *riscv_base_pmu*, only (3) is provided for now.
+ 3.1. Interrupt Initialization
+ 
+ This often occurs at the beginning of the *event_init* method. In common
+-practice, this should be a code segment like
++practice, this should be a code segment like::
+ 
+-int x86_reserve_hardware(void)
+-{
++  int x86_reserve_hardware(void)
++  {
+         int err = 0;
+ 
+         if (!atomic_inc_not_zero(&pmc_refcount)) {
+@@ -114,7 +116,7 @@ int x86_reserve_hardware(void)
+         }
+ 
+         return err;
+-}
++  }
+ 
+ And the magic is in *reserve_pmc_hardware*, which usually does atomic
+ operations to make implemented IRQ accessible from some global function pointer.
+@@ -128,28 +130,28 @@ which will be introduced in the next section.)
+ 
+ 3.2. IRQ Structure
+ 
+-Basically, a IRQ runs the following pseudo code:
++Basically, a IRQ runs the following pseudo code::
+ 
+-for each hardware counter that triggered this overflow
++  for each hardware counter that triggered this overflow
+ 
+-    get the event of this counter
++      get the event of this counter
+ 
+-    // following two steps are defined as *read()*,
+-    // check the section Reading/Writing Counters for details.
+-    count the delta value since previous interrupt
+-    update the event->count (# event occurs) by adding delta, and
+-               event->hw.period_left by subtracting delta
++      // following two steps are defined as *read()*,
++      // check the section Reading/Writing Counters for details.
++      count the delta value since previous interrupt
++      update the event->count (# event occurs) by adding delta, and
++                 event->hw.period_left by subtracting delta
+ 
+-    if the event overflows
+-        sample data
+-        set the counter appropriately for the next overflow
++      if the event overflows
++          sample data
++          set the counter appropriately for the next overflow
+ 
+-        if the event overflows again
+-            too frequently, throttle this event
+-        fi
+-    fi
++          if the event overflows again
++              too frequently, throttle this event
++          fi
++      fi
+ 
+-end for
++  end for
+ 
+ However as of this writing, none of the RISC-V implementations have designed an
+ interrupt for perf, so the details are to be completed in the future.
+@@ -195,23 +197,26 @@ A normal flow of these state transitions are as follows:
+   At this stage, a general event is bound to a physical counter, if any.
+   The state changes to PERF_HES_STOPPED and PERF_HES_UPTODATE, because it is now
+   stopped, and the (software) event count does not need updating.
+-** *start* is then called, and the counter is enabled.
+-   With flag PERF_EF_RELOAD, it writes an appropriate value to the counter (check
+-   previous section for detail).
+-   Nothing is written if the flag does not contain PERF_EF_RELOAD.
+-   The state now is reset to none, because it is neither stopped nor updated
+-   (the counting already started)
++
++  - *start* is then called, and the counter is enabled.
++    With flag PERF_EF_RELOAD, it writes an appropriate value to the counter (check
++    previous section for detail).
++    Nothing is written if the flag does not contain PERF_EF_RELOAD.
++    The state now is reset to none, because it is neither stopped nor updated
++    (the counting already started)
++
+ * When being context-switched out, *del* is called.  It then checks out all the
+   events in the PMU and calls *stop* to update their counts.
+-** *stop* is called by *del*
+-   and the perf core with flag PERF_EF_UPDATE, and it often shares the same
+-   subroutine as *read* with the same logic.
+-   The state changes to PERF_HES_STOPPED and PERF_HES_UPTODATE, again.
+ 
+-** Life cycle of these two pairs: *add* and *del* are called repeatedly as
+-  tasks switch in-and-out; *start* and *stop* is also called when the perf core
+-  needs a quick stop-and-start, for instance, when the interrupt period is being
+-  adjusted.
++  - *stop* is called by *del*
++    and the perf core with flag PERF_EF_UPDATE, and it often shares the same
++    subroutine as *read* with the same logic.
++    The state changes to PERF_HES_STOPPED and PERF_HES_UPTODATE, again.
++
++  - Life cycle of these two pairs: *add* and *del* are called repeatedly as
++    tasks switch in-and-out; *start* and *stop* is also called when the perf core
++    needs a quick stop-and-start, for instance, when the interrupt period is being
++    adjusted.
+ 
+ Current implementation is sufficient for now and can be easily extended to
+ features in the future.
+@@ -225,25 +230,26 @@ A. Related Structures
+   Both structures are designed to be read-only.
+ 
+   *struct pmu* defines some function pointer interfaces, and most of them take
+-*struct perf_event* as a main argument, dealing with perf events according to
+-perf's internal state machine (check kernel/events/core.c for details).
++  *struct perf_event* as a main argument, dealing with perf events according to
++  perf's internal state machine (check kernel/events/core.c for details).
+ 
+   *struct riscv_pmu* defines PMU-specific parameters.  The naming follows the
+-convention of all other architectures.
++  convention of all other architectures.
+ 
+ * struct perf_event: include/linux/perf_event.h
+ * struct hw_perf_event
+ 
+   The generic structure that represents perf events, and the hardware-related
+-details.
++  details.
+ 
+ * struct riscv_hw_events: arch/riscv/include/asm/perf_event.h
+ 
+   The structure that holds the status of events, has two fixed members:
+-the number of events and the array of the events.
++  the number of events and the array of the events.
+ 
+ References
+ ----------
+ 
+ [1] https://github.com/riscv/riscv-linux/pull/124
++
+ [2] https://groups.google.com/a/groups.riscv.org/forum/#!topic/sw-dev/f19TmCNP6yA
 -- 
 2.20.1
-
 
 
 _______________________________________________
