@@ -2,66 +2,84 @@ Return-Path: <SRS0=kGhb=SS=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable
+X-Spam-Status: No, score=-11.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6C104C282DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2019 13:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 81EB8C10F13
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2019 17:24:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3D41520870
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2019 13:23:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4E803206B6
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Apr 2019 17:24:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="k3HTQcQC"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3D41520870
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="L8NdR3+E";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="UPXo+6HR"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4E803206B6
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lIBsob7zp5xDUtnHPdei8Yx0JJfTniWX+EXZRNcrO4s=; b=k3HTQcQCMeWFIK
-	8TcDezxRUP0NLt9FEVpLFu0+TR5dndxjiFHf7Qvxyg7lcuCbBPWN52EVnKljeEeLtnb7L2R+Drkdv
-	Afc4xlumv0eiaM0TjbBxOoTQfNmzKeHfsXxfMRXcweeetV/MYEs7hjt0uNyT8xOt+4z7WMoJ8UZux
-	wUUKGBi52JAaytiBE6tGgU2mkTJ6WGA6Tnc0g0ASw4SFCcH1csmgNuOYHgqNsNv4V4Fjigi5lEo/o
-	2d1vndRrvXjxgV/kEn/fyewbs8wdwXo/wyz8cp/818hhm06TA5V17UCpVkrlFXgReXbsVis40XkiZ
-	7JGL0CoRyk+XMQsmZUEA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0ZKsT/UczleuQD5A5GfeNc7ZN4DxDyIJKwtWe8bw/oY=; b=L8NdR3+EBqyv23
+	msZ9NqQhhKvSGUoNS+va5e+VA2v8k3ECrFKzmaK4uY5pmqfZMi1j+0HufKf4I2rclYI3GNCk4zc8B
+	v8AEEthJmpR9wOiZSaGiZA0sFSxN5Zc8DwrMc1iAVavDIWT9RBv7LfF7P83t7VxiGcd9lF2AWrmuZ
+	TCbsA3A3W+LcIWs6JvjhWlKjWLix0ah2QR3JiAbmUHpLJZae6silHzfe5gYS8dRdYGzg6Coo43WLf
+	i5Q6Etv42UNuJfcomW2KqR9kQ0aJ1icefxq+vyt4K4DWATHjv12Fq6zRbBGmQCKUzOA1VLn4rgUg/
+	UkoyxUtGl7YT3OH3XYqQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hGO3h-0004fF-9I; Tue, 16 Apr 2019 13:23:33 +0000
-Received: from usa-sjc-mx-foss1.foss.arm.com ([217.140.101.70]
- helo=foss.arm.com)
- by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hGO3f-0004ei-15
- for linux-riscv@lists.infradead.org; Tue, 16 Apr 2019 13:23:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 84D25EBD;
- Tue, 16 Apr 2019 06:23:30 -0700 (PDT)
-Received: from e107155-lin (e107155-lin.cambridge.arm.com [10.1.196.42])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B05E23F557;
- Tue, 16 Apr 2019 06:23:26 -0700 (PDT)
-Date: Tue, 16 Apr 2019 14:23:24 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [RFT/RFC PATCH v3 3/5] cpu-topology: Move cpu topology code to
- common code.
-Message-ID: <20190416132324.GB24669@e107155-lin>
-References: <20190320234806.19748-1-atish.patra@wdc.com>
- <20190320234806.19748-4-atish.patra@wdc.com>
- <20190415152741.GA28623@e107155-lin>
- <5c5b720f-414a-706c-3415-642c27baef1f@wdc.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5c5b720f-414a-706c-3415-642c27baef1f@wdc.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+	id 1hGRpC-0000RY-PE; Tue, 16 Apr 2019 17:24:50 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hGRpA-0000RG-NA
+ for linux-riscv@lists.infradead.org; Tue, 16 Apr 2019 17:24:50 +0000
+Received: by mail-pl1-x644.google.com with SMTP id f36so10668617plb.5
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Apr 2019 10:24:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:cc:from:to:message-id;
+ bh=YpGvq/4oL3U/yzzNTEZXc9rKkrlrHrkxbsUqZXLRLyY=;
+ b=UPXo+6HRHxeuvNJHDbiyIH+rrtLJeWbMcNTKdu1SG0tj0RUml6cLQTHWcUn6eRMZ9o
+ Iv35M8aWqk7RUHlxmRwcDa6LExTPkJqUD5D1OUdJciIomLGLZOnzhqqk9zs2o7L0xraB
+ 48i/5m0t/welDxRxCCKZqWdAwx71UFSp0LwKhvvvA25Q0m6P0N57480Pv/8QF4CheGya
+ EHwB1R4tlnIjHpSK18YP9lkD60pC0bsKqjzButcyR1/0gfFjDUI/GXB0i6IvDz0bGRW+
+ xfGQR35LtG6xPbh0Y57+CHBqOb1LvK87Y987vac2NabhwfEbqc4Heb0D+bPHocvV7TEL
+ OuFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=YpGvq/4oL3U/yzzNTEZXc9rKkrlrHrkxbsUqZXLRLyY=;
+ b=hGWuUiCtaR+FabJaI72q3dNY1qt49C5gWGITwd4vb34fqEyo63bUyzmNJJivRlHdFA
+ 7mm4ziWIOGNcmtsrURSlGUeziauCfsji1H2kzYHsAulsOvfwDU7gjkJMDCXB2MHH7IF4
+ DUTdxWkkwyrJ3IMQs/XGfDG9BaoUW76TYioQW4hZPJNlPiC0RDTzR6P16ssJ3L5SlOIl
+ IHlhj3JBPeQEHYKF15EIELrSEtBcVr8XzojkWEaJFL9LOTOk6kOESCOvJ/0KZQOlw218
+ VDxUwXD2/APyic5EvyXrwUtIxxGBpRIS9AACQ1Ri41oIrRgRdfyPFNubhfS0+Rvj5+lX
+ IoNA==
+X-Gm-Message-State: APjAAAWI80+lXyb2gaYjE8wMyU9v9szpKsXgIqrCj8oj6Q3LcGBcHsyg
+ lUmUxBdbeTJWg88aJA2y9LvI+WsQ+ai+Rw==
+X-Google-Smtp-Source: APXvYqyfPj3ItENNvOHVzcT++xfVwXSuMHxRiNKBvmjDPjKPS8nha4+oikPZojs8BWiNh/M3j+QaCA==
+X-Received: by 2002:a17:902:b94a:: with SMTP id
+ h10mr84224398pls.82.1555435487369; 
+ Tue, 16 Apr 2019 10:24:47 -0700 (PDT)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id c18sm142471563pfc.0.2019.04.16.10.24.46
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Tue, 16 Apr 2019 10:24:46 -0700 (PDT)
+Date: Tue, 16 Apr 2019 10:24:46 -0700 (PDT)
+X-Google-Original-Date: Tue, 16 Apr 2019 10:24:43 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for 5.1-rc6
+From: Palmer Dabbelt <palmer@sifive.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-c5019c5a-5f6a-43a2-b376-6a29a824e260@palmer-si-x1c4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190416_062331_077958_4503E243 
-X-CRM114-Status: GOOD (  24.84  )
+X-CRM114-CacheID: sfid-20190416_102448_777683_C7FDE76A 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -73,117 +91,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- "Peter Zijlstra \(Intel\)" <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
- Will Deacon <will.deacon@arm.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Ingo Molnar <mingo@kernel.org>, Jeffrey Hugo <jhugo@codeaurora.org>,
- Anup Patel <anup@brainfault.org>, Morten Rasmussen <morten.rasmussen@arm.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Johan Hovold <johan@kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Ard Biesheuvel <ard.biesheuvel@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Jeremy Linton <jeremy.linton@arm.com>,
- Dmitriy Cherkasov <dmitriy@oss-tech.org>, Otto Sabart <ottosabart@seberm.com>,
- Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 15, 2019 at 03:08:45PM -0700, Atish Patra wrote:
-> On 4/15/19 8:27 AM, Sudeep Holla wrote:
-> > Hi Atish,
-> >
-> > Thanks again for doing this. Overall changes look good except a couple
-> > of minor nit, see below.
-> >
-> > On Wed, Mar 20, 2019 at 04:48:04PM -0700, Atish Patra wrote:
-> > > Both RISC-V & ARM64 are using cpu-map device tree to describe
-> > > their cpu topology. It's better to move the relevant code to
-> > > a common place instead of duplicate code.
-> > >
-> > > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > > Tested-by: Jeffrey Hugo <jhugo@codeaurora.org>
-> > > ---
-> > >   arch/arm64/include/asm/topology.h |  23 ---
-> > >   arch/arm64/kernel/topology.c      | 303 +-----------------------------
-> > >   drivers/base/arch_topology.c      | 298 ++++++++++++++++++++++++++++-
-> > >   drivers/base/topology.c           |   1 +
-> > >   include/linux/arch_topology.h     |  28 +++
-> > >   5 files changed, 330 insertions(+), 323 deletions(-)
-> > >
-> >
-> > [...]
-> >
-> > > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> > > index edfcf8d9..6cc6a860 100644
-> > > --- a/drivers/base/arch_topology.c
-> > > +++ b/drivers/base/arch_topology.c
-> > > @@ -6,8 +6,8 @@
-> > >    * Written by: Juri Lelli, ARM Ltd.
-> > >    */
-> > > -#include <linux/acpi.h>
-> > >   #include <linux/arch_topology.h>
-> > > +#include <linux/acpi.h>
-> > >   #include <linux/cpu.h>
-> > >   #include <linux/cpufreq.h>
-> > >   #include <linux/device.h>
-> > > @@ -16,6 +16,11 @@
-> > >   #include <linux/string.h>
-> > >   #include <linux/sched/topology.h>
-> > >   #include <linux/cpuset.h>
-> > > +#include <linux/cpumask.h>
-> > > +#include <linux/init.h>
-> > > +#include <linux/percpu.h>
-> > > +#include <linux/sched.h>
-> > > +#include <linux/smp.h>
-> > >   DEFINE_PER_CPU(unsigned long, freq_scale) = SCHED_CAPACITY_SCALE;
-> > > @@ -278,3 +283,294 @@ static void parsing_done_workfn(struct work_struct *work)
-> > >   #else
-> > >   core_initcall(free_raw_capacity);
-> > >   #endif
-> > > +
-> > > +#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
-> >
-> > Why can't the above one be just GENERIC_ARCH_TOPOLOGY ?
-> > I may be missing to find it myself, but would like to know.
-> >
-> GENERIC_ARCH_TOPOLOGY is now used for both RISCV, ARM & ARM64.
-> The below functions under this #ifdef have different implementation for ARM
-> and ARM64.
->
-> parse_dt_topology
-> cpu_coregroup_mask
-> update_siblings_masks
->
-> While we can combine the later two functions and move them to common code as
-> well, parse_dt_topology is significantly different.
->
+The following changes since commit 15ade5d2e7775667cf191cf2f94327a4889f8b9d:
 
-Sure, had a quick glance and indeed they may look different, but won't
-it defeat the purpose of this binding consolidation ?
+  Linux 5.1-rc4 (2019-04-07 14:09:59 -1000)
 
-> That's why we need some kind of #ifdef or renaming of parse_dt_topology for
-> ARM32 code.
->
+are available in the Git repository at:
 
-I am fine if we want to take this up later to keep the impact minimum.
-But cpu_coregroup_mask and update_siblings_masks can and must be unified.
-In fact the existing generic version must work on ARM32 too.
+  git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-5.1-rc6
 
-> Thanks for the review!!
->
+for you to fetch changes up to f05badde4e20d2e0f8c39d07a6873b2bfb0754f8:
 
-You are welcome.
+  RISC-V: Fix Maximum Physical Memory 2GiB option for 64bit systems (2019-04-10 09:41:40 -0700)
 
---
-Regards,
-Sudeep
+----------------------------------------------------------------
+RISC-V Patches for 5.1-rc6
+
+This tag contains an assortment of RISC-V-related fixups that we found
+after rc4.  They're all really unrelated:
+
+* The addition of a 32-bit defconfig, to emphasize testing the 32-bit
+  port.
+* A device tree bindings patch, which is pre-work for some patches that
+  target 5.2.
+* A fix to support booting on systems with more physical memory than the
+  maximum supported by the kernel.
+
+These work for me when merged into Linus' master from this morning,
+which has no conflicts.
+
+----------------------------------------------------------------
+Anup Patel (2):
+      RISC-V: Add separate defconfig for 32bit systems
+      RISC-V: Fix Maximum Physical Memory 2GiB option for 64bit systems
+
+Paul Walmsley (1):
+      dt-bindings: clock: sifive: add FU540-C000 PRCI clock constants
+
+ arch/riscv/configs/rv32_defconfig             | 84 +++++++++++++++++++++++++++
+ arch/riscv/mm/init.c                          |  8 +++
+ include/dt-bindings/clock/sifive-fu540-prci.h | 18 ++++++
+ 3 files changed, 110 insertions(+)
+ create mode 100644 arch/riscv/configs/rv32_defconfig
+ create mode 100644 include/dt-bindings/clock/sifive-fu540-prci.h
 
 _______________________________________________
 linux-riscv mailing list
