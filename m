@@ -4,19 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D552AC10F12
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2019 05:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F3141C10F12
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2019 05:45:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A22C320656
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2019 05:35:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C293020835
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2019 05:45:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ShQiMDPu"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A22C320656
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sr+rCvzV";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="M2+80xlQ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C293020835
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,36 +26,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YoD4ckrjMdbFLdNNVBqjIzGER0AzOBfAb7Xl3pmWPUQ=; b=ShQiMDPuqPXJk+
-	Q2w5flVQgO5GGA5syTlQpMSdy6O/BjzSZnWE8AsgtB7R4sF4TXY/tUEmtGirCDPsJSvHwowy8dWk4
-	GGu4bosKp4pKtsQPVIeh7LBelZdQqVjX1xRNDjkxcQLdDfWoZDLPMJCU1NZlVbRE/kOxCS/kCqfWH
-	MN1UKFaT8GQViIu4t2cb+lo6BKyBfPbVxa+hCmJQdewDaNrFUihS3cM8DJM5S6Hb7FcTfLHZhDzOd
-	aTqaIAAVl8l0u0FR22J+iGVqWdXvwlOQGvQLMZX8dzHAVpttfCKGEXM/ptm8Q3jUc1vKQGWuSS7Og
-	htC215VwC1I1fSC/bBKg==;
+	List-Owner; bh=j1N61TBrHbQWRO5dAd3ei/MVxkjGBGERww4tJCma/cA=; b=sr+rCvzVEqDFtd
+	umZQzN4nAdMNj0SIYNIJiHjjtEtozygEGHB/N9Xitf5eevSrzp4WnlYLK5wyhD5XXd4fE22r2ilW0
+	V2n3KmRqWkihn+bIOHoJ+Khfo0e4OKeIQXi0uNQaGlSCjpGgCsF5m8vBim+BGm8xUxSG7nQVopfyD
+	lN6HqATo7wJ5FGnfmHUTnOjUVsJuwE7/WMd09xfeEi3NaiuxMOIEkjEbSkeYUT0AetLXwQIxbJU2I
+	YImgrXGzac/B3q5IxXj+jyzVho8ZXwp/BiMRNzChWGbb5149QQu8q742piErup90DPsnJze0lJxjn
+	Gx2UkrHs/rLVfKl+RWxQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hGdDx-0008Oc-L8; Wed, 17 Apr 2019 05:35:09 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1hGdNZ-000384-DT; Wed, 17 Apr 2019 05:45:05 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hGdDj-0007h4-Lk; Wed, 17 Apr 2019 05:34:57 +0000
-X-Originating-IP: 79.86.19.127
+ id 1hGdNQ-0002YY-99; Wed, 17 Apr 2019 05:44:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+ References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+ Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=akQS/yG8sPhImfKfbdP4IgmJO6rV8gx2SpQpdbx2UzQ=; b=M2+80xlQAj7Jl9x9s7ullHQq5E
+ hN8bYc+FSL137cDJe6WLrJFUxnhEa2wteUGr5aKIxl9ldqmhxxWQvAXoyluGE7NbS+hroWU3rcWZb
+ bBqycfKnVOT2PlfNEQCNLabZJL6DKFJzKaVJkXGddgNu8Kp7LEmYprxkUaMTY873tfTyrffNCIW8N
+ Dad5UzXXGHUPtv4lTlNOjxCZlHjic5tpgAoizKhNFDx6tH9INk5yXn8NH8Y5tcF6Mfz5o7nUmhqSt
+ VMf4ims9RGiNlLX4dY8Y82T1Jiew8MgAJxDmcKqxzbwl+LJb33/UfeKC4f6vFNMKCHju8XhhSDviF
+ mQqNW3YA==;
+Received: from relay12.mail.gandi.net ([217.70.178.232])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hGd7X-0007PS-0W; Wed, 17 Apr 2019 05:28:32 +0000
 Received: from alex.numericable.fr (127.19.86.79.rev.sfr.net [79.86.19.127])
  (Authenticated sender: alex@ghiti.fr)
- by relay5-d.mail.gandi.net (Postfix) with ESMTPSA id 8DE831C0008;
- Wed, 17 Apr 2019 05:34:49 +0000 (UTC)
+ by relay12.mail.gandi.net (Postfix) with ESMTPSA id 3A2E6200008;
+ Wed, 17 Apr 2019 05:28:18 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v3 11/11] riscv: Make mmap allocation top-down by default
-Date: Wed, 17 Apr 2019 01:22:47 -0400
-Message-Id: <20190417052247.17809-12-alex@ghiti.fr>
+Subject: [PATCH v3 05/11] arm: Properly account for stack randomization and
+ stack guard gap
+Date: Wed, 17 Apr 2019 01:22:41 -0400
+Message-Id: <20190417052247.17809-6-alex@ghiti.fr>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190417052247.17809-1-alex@ghiti.fr>
 References: <20190417052247.17809-1-alex@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190416_223456_006856_DDED07C7 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190417_062831_072086_56B6041F 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -81,73 +96,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In order to avoid wasting user address space by using bottom-up mmap
-allocation scheme, prefer top-down scheme when possible.
-
-Before:
-root@qemuriscv64:~# cat /proc/self/maps
-00010000-00016000 r-xp 00000000 fe:00 6389       /bin/cat.coreutils
-00016000-00017000 r--p 00005000 fe:00 6389       /bin/cat.coreutils
-00017000-00018000 rw-p 00006000 fe:00 6389       /bin/cat.coreutils
-00018000-00039000 rw-p 00000000 00:00 0          [heap]
-1555556000-155556d000 r-xp 00000000 fe:00 7193   /lib/ld-2.28.so
-155556d000-155556e000 r--p 00016000 fe:00 7193   /lib/ld-2.28.so
-155556e000-155556f000 rw-p 00017000 fe:00 7193   /lib/ld-2.28.so
-155556f000-1555570000 rw-p 00000000 00:00 0
-1555570000-1555572000 r-xp 00000000 00:00 0      [vdso]
-1555574000-1555576000 rw-p 00000000 00:00 0
-1555576000-1555674000 r-xp 00000000 fe:00 7187   /lib/libc-2.28.so
-1555674000-1555678000 r--p 000fd000 fe:00 7187   /lib/libc-2.28.so
-1555678000-155567a000 rw-p 00101000 fe:00 7187   /lib/libc-2.28.so
-155567a000-15556a0000 rw-p 00000000 00:00 0
-3fffb90000-3fffbb1000 rw-p 00000000 00:00 0      [stack]
-
-After:
-root@qemuriscv64:~# cat /proc/self/maps
-00010000-00016000 r-xp 00000000 fe:00 6389       /bin/cat.coreutils
-00016000-00017000 r--p 00005000 fe:00 6389       /bin/cat.coreutils
-00017000-00018000 rw-p 00006000 fe:00 6389       /bin/cat.coreutils
-00018000-00039000 rw-p 00000000 00:00 0          [heap]
-3ff7eb6000-3ff7ed8000 rw-p 00000000 00:00 0
-3ff7ed8000-3ff7fd6000 r-xp 00000000 fe:00 7187   /lib/libc-2.28.so
-3ff7fd6000-3ff7fda000 r--p 000fd000 fe:00 7187   /lib/libc-2.28.so
-3ff7fda000-3ff7fdc000 rw-p 00101000 fe:00 7187   /lib/libc-2.28.so
-3ff7fdc000-3ff7fe2000 rw-p 00000000 00:00 0
-3ff7fe4000-3ff7fe6000 r-xp 00000000 00:00 0      [vdso]
-3ff7fe6000-3ff7ffd000 r-xp 00000000 fe:00 7193   /lib/ld-2.28.so
-3ff7ffd000-3ff7ffe000 r--p 00016000 fe:00 7193   /lib/ld-2.28.so
-3ff7ffe000-3ff7fff000 rw-p 00017000 fe:00 7193   /lib/ld-2.28.so
-3ff7fff000-3ff8000000 rw-p 00000000 00:00 0
-3fff888000-3fff8a9000 rw-p 00000000 00:00 0      [stack]
+This commit takes care of stack randomization and stack guard gap when
+computing mmap base address and checks if the task asked for randomization.
+This fixes the problem uncovered and not fixed for arm here:
+https://www.mail-archive.com/linux-kernel@vger.kernel.org/msg1429066.html
 
 Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/riscv/Kconfig | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/arm/mm/mmap.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index eb56c82d8aa1..f5897e0dbc1c 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -49,6 +49,17 @@ config RISCV
- 	select GENERIC_IRQ_MULTI_HANDLER
- 	select ARCH_HAS_PTE_SPECIAL
- 	select HAVE_EBPF_JIT if 64BIT
-+	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
-+	select HAVE_ARCH_MMAP_RND_BITS
-+
-+config ARCH_MMAP_RND_BITS_MIN
-+	default 18
-+
-+# max bits determined by the following formula:
-+#  VA_BITS - PAGE_SHIFT - 3
-+config ARCH_MMAP_RND_BITS_MAX
-+	default 33 if 64BIT # SV48 based
-+	default 18
+diff --git a/arch/arm/mm/mmap.c b/arch/arm/mm/mmap.c
+index f866870db749..bff3d00bda5b 100644
+--- a/arch/arm/mm/mmap.c
++++ b/arch/arm/mm/mmap.c
+@@ -18,8 +18,9 @@
+ 	 (((pgoff)<<PAGE_SHIFT) & (SHMLBA-1)))
  
- config MMU
- 	def_bool y
+ /* gap between mmap and stack */
+-#define MIN_GAP (128*1024*1024UL)
+-#define MAX_GAP ((TASK_SIZE)/6*5)
++#define MIN_GAP		(128*1024*1024UL)
++#define MAX_GAP		((TASK_SIZE)/6*5)
++#define STACK_RND_MASK	(0x7ff >> (PAGE_SHIFT - 12))
+ 
+ static int mmap_is_legacy(struct rlimit *rlim_stack)
+ {
+@@ -35,6 +36,15 @@ static int mmap_is_legacy(struct rlimit *rlim_stack)
+ static unsigned long mmap_base(unsigned long rnd, struct rlimit *rlim_stack)
+ {
+ 	unsigned long gap = rlim_stack->rlim_cur;
++	unsigned long pad = stack_guard_gap;
++
++	/* Account for stack randomization if necessary */
++	if (current->flags & PF_RANDOMIZE)
++		pad += (STACK_RND_MASK << PAGE_SHIFT);
++
++	/* Values close to RLIM_INFINITY can overflow. */
++	if (gap + pad > gap)
++		gap += pad;
+ 
+ 	if (gap < MIN_GAP)
+ 		gap = MIN_GAP;
 -- 
 2.20.1
 
