@@ -4,19 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 79AA1C10F12
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2019 05:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A2473C282DA
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2019 05:31:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4C07120872
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2019 05:30:45 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7380C20872
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 17 Apr 2019 05:31:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ewUKObZp"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4C07120872
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hNQH4u4U"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7380C20872
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,34 +25,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yXQap10CUl8psm/wt5L2n9OV/Do9Ys9r7zDLle9tZd8=; b=ewUKObZp1SpaG7
-	j0KKTchGEFvYyPfOHV2vq0Xku+XnqeQTz+Es7jnaj5rpzaLn89hXub0Q+RTUiMqdsCGgNRDIShP+7
-	3GFtK8IcmrQFbtawmr3rfaBbm49jGmYkzJR3LaJBlNMgOazHY/HwWClRYCl8nmohXoLd/1F2iJQjw
-	Ol/nXF4GmuHaDySi4+2iM7+JuBytCp7hksxe9d0BuvxTjt4ig/GLtlr7IfWR6fQ1qBwUnx/rirr32
-	lpWpgdFJLEVvDRfVD4+tE9pTYq0PXi9UOwq2soD09IXD+TtnJNfrRjy9OjDAv8RmzYB+nrhA+4Umn
-	5PjyLVrQhxg9VBuhbqqg==;
+	List-Owner; bh=CYAkJ4YdJkv8wGbePKGXOm+ij6nxFLUN+RsD3RJVBGU=; b=hNQH4u4U4oqdqN
+	AjOUhueQiq98lEwhfykw4me2NRhNanV0LIfNhIHXxKkiJIl8+OCWVmVpJzOYNEzqbfsvmVVorQutK
+	iDmO8H7i3EhIGvYXw7QX5TGiJte89oQY+dT95vs4V3eIyaF8gg0buvzB7U0izn21AsNRVvlGLd+Eq
+	5X6NAM9lN4PvHr0wGcN9Maf54rAUp9b0mJL0w0EUqbb0xBTCQ2hPpu4kzuTa2ycOW/ftSk5C1+12k
+	ghzUeOKpyFJpK/Ow3AEmDoxX6fTJm7r8141y38cA0FD5CVzv/Fu92LMrpK8hlTWfaU1q45QpeZcDp
+	7iZR93eSafBUprP92o2g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hGd9e-00063y-Um; Wed, 17 Apr 2019 05:30:42 +0000
-Received: from relay12.mail.gandi.net ([217.70.178.232])
+	id 1hGdAh-0006LX-H8; Wed, 17 Apr 2019 05:31:47 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hGd9X-0005xJ-4f; Wed, 17 Apr 2019 05:30:36 +0000
+ id 1hGdAZ-0006Ep-8U; Wed, 17 Apr 2019 05:31:41 +0000
+X-Originating-IP: 79.86.19.127
 Received: from alex.numericable.fr (127.19.86.79.rev.sfr.net [79.86.19.127])
  (Authenticated sender: alex@ghiti.fr)
- by relay12.mail.gandi.net (Postfix) with ESMTPSA id D715120000A;
- Wed, 17 Apr 2019 05:30:28 +0000 (UTC)
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 4BE7CFF804;
+ Wed, 17 Apr 2019 05:31:33 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v3 07/11] arm: Use generic mmap top-down layout
-Date: Wed, 17 Apr 2019 01:22:43 -0400
-Message-Id: <20190417052247.17809-8-alex@ghiti.fr>
+Subject: [PATCH v3 08/11] mips: Properly account for stack randomization and
+ stack guard gap
+Date: Wed, 17 Apr 2019 01:22:44 -0400
+Message-Id: <20190417052247.17809-9-alex@ghiti.fr>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190417052247.17809-1-alex@ghiti.fr>
 References: <20190417052247.17809-1-alex@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190416_223035_482875_024F8D2C 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20190416_223139_445546_28262EF3 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -79,122 +81,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-arm uses a top-down mmap layout by default that exactly fits the generic
-functions, so get rid of arch specific code and use the generic version
-by selecting ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT.
+This commit takes care of stack randomization and stack guard gap when
+computing mmap base address and checks if the task asked for randomization.
+This fixes the problem uncovered and not fixed for mips here:
+https://www.mail-archive.com/linux-kernel@vger.kernel.org/msg1429066.html
 
 Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 ---
- arch/arm/Kconfig                 |  1 +
- arch/arm/include/asm/processor.h |  2 --
- arch/arm/mm/mmap.c               | 62 --------------------------------
- 3 files changed, 1 insertion(+), 64 deletions(-)
+ arch/mips/mm/mmap.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 850b4805e2d1..f8f603da181f 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -28,6 +28,7 @@ config ARM
- 	select ARCH_SUPPORTS_ATOMIC_RMW
- 	select ARCH_USE_BUILTIN_BSWAP
- 	select ARCH_USE_CMPXCHG_LOCKREF
-+	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
- 	select ARCH_WANT_IPC_PARSE_VERSION
- 	select BUILDTIME_EXTABLE_SORT if MMU
- 	select CLONE_BACKWARDS
-diff --git a/arch/arm/include/asm/processor.h b/arch/arm/include/asm/processor.h
-index 57fe73ea0f72..944ef1fb1237 100644
---- a/arch/arm/include/asm/processor.h
-+++ b/arch/arm/include/asm/processor.h
-@@ -143,8 +143,6 @@ static inline void prefetchw(const void *ptr)
- #endif
- #endif
+diff --git a/arch/mips/mm/mmap.c b/arch/mips/mm/mmap.c
+index 2f616ebeb7e0..3ff82c6f7e24 100644
+--- a/arch/mips/mm/mmap.c
++++ b/arch/mips/mm/mmap.c
+@@ -21,8 +21,9 @@ unsigned long shm_align_mask = PAGE_SIZE - 1;	/* Sane caches */
+ EXPORT_SYMBOL(shm_align_mask);
  
--#define HAVE_ARCH_PICK_MMAP_LAYOUT
--
- #endif
+ /* gap between mmap and stack */
+-#define MIN_GAP (128*1024*1024UL)
+-#define MAX_GAP ((TASK_SIZE)/6*5)
++#define MIN_GAP		(128*1024*1024UL)
++#define MAX_GAP		((TASK_SIZE)/6*5)
++#define STACK_RND_MASK	(0x7ff >> (PAGE_SHIFT - 12))
  
- #endif /* __ASM_ARM_PROCESSOR_H */
-diff --git a/arch/arm/mm/mmap.c b/arch/arm/mm/mmap.c
-index 0b94b674aa91..b8d912ac9e61 100644
---- a/arch/arm/mm/mmap.c
-+++ b/arch/arm/mm/mmap.c
-@@ -17,43 +17,6 @@
- 	((((addr)+SHMLBA-1)&~(SHMLBA-1)) +	\
- 	 (((pgoff)<<PAGE_SHIFT) & (SHMLBA-1)))
+ static int mmap_is_legacy(struct rlimit *rlim_stack)
+ {
+@@ -38,6 +39,15 @@ static int mmap_is_legacy(struct rlimit *rlim_stack)
+ static unsigned long mmap_base(unsigned long rnd, struct rlimit *rlim_stack)
+ {
+ 	unsigned long gap = rlim_stack->rlim_cur;
++	unsigned long pad = stack_guard_gap;
++
++	/* Account for stack randomization if necessary */
++	if (current->flags & PF_RANDOMIZE)
++		pad += (STACK_RND_MASK << PAGE_SHIFT);
++
++	/* Values close to RLIM_INFINITY can overflow. */
++	if (gap + pad > gap)
++		gap += pad;
  
--/* gap between mmap and stack */
--#define MIN_GAP		(128*1024*1024UL)
--#define MAX_GAP		((STACK_TOP)/6*5)
--#define STACK_RND_MASK	(0x7ff >> (PAGE_SHIFT - 12))
--
--static int mmap_is_legacy(struct rlimit *rlim_stack)
--{
--	if (current->personality & ADDR_COMPAT_LAYOUT)
--		return 1;
--
--	if (rlim_stack->rlim_cur == RLIM_INFINITY)
--		return 1;
--
--	return sysctl_legacy_va_layout;
--}
--
--static unsigned long mmap_base(unsigned long rnd, struct rlimit *rlim_stack)
--{
--	unsigned long gap = rlim_stack->rlim_cur;
--	unsigned long pad = stack_guard_gap;
--
--	/* Account for stack randomization if necessary */
--	if (current->flags & PF_RANDOMIZE)
--		pad += (STACK_RND_MASK << PAGE_SHIFT);
--
--	/* Values close to RLIM_INFINITY can overflow. */
--	if (gap + pad > gap)
--		gap += pad;
--
--	if (gap < MIN_GAP)
--		gap = MIN_GAP;
--	else if (gap > MAX_GAP)
--		gap = MAX_GAP;
--
--	return PAGE_ALIGN(STACK_TOP - gap - rnd);
--}
--
- /*
-  * We need to ensure that shared mappings are correctly aligned to
-  * avoid aliasing issues with VIPT caches.  We need to ensure that
-@@ -181,31 +144,6 @@ arch_get_unmapped_area_topdown(struct file *filp, const unsigned long addr0,
- 	return addr;
- }
- 
--unsigned long arch_mmap_rnd(void)
--{
--	unsigned long rnd;
--
--	rnd = get_random_long() & ((1UL << mmap_rnd_bits) - 1);
--
--	return rnd << PAGE_SHIFT;
--}
--
--void arch_pick_mmap_layout(struct mm_struct *mm, struct rlimit *rlim_stack)
--{
--	unsigned long random_factor = 0UL;
--
--	if (current->flags & PF_RANDOMIZE)
--		random_factor = arch_mmap_rnd();
--
--	if (mmap_is_legacy(rlim_stack)) {
--		mm->mmap_base = TASK_UNMAPPED_BASE + random_factor;
--		mm->get_unmapped_area = arch_get_unmapped_area;
--	} else {
--		mm->mmap_base = mmap_base(random_factor, rlim_stack);
--		mm->get_unmapped_area = arch_get_unmapped_area_topdown;
--	}
--}
--
- /*
-  * You really shouldn't be using read() or write() on /dev/mem.  This
-  * might go away in the future.
+ 	if (gap < MIN_GAP)
+ 		gap = MIN_GAP;
 -- 
 2.20.1
 
