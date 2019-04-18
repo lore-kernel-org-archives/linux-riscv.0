@@ -4,20 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6398FC10F14
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2019 05:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EE1C6C10F0B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2019 05:28:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 34EE121479
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2019 05:26:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B695D21479
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2019 05:28:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FZVqJeEz";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="JlYc5LnY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 34EE121479
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TQZuA7RR";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="hNSJWi7d"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B695D21479
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,67 +25,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e1M6B0s55mw74Ct1SG7jAMu1tlgSM9PB0PfKIqXDHNU=; b=FZVqJeEzcuBb6I
-	YkeNREnq70e08l8H/eiGhVAJwHe0FtJR5CRJRT2RdJQDkQOJkaZw6NdIobyBAt4QI31Sv/PKeodlf
-	vo57iQWMf9o78VGYGJAN0LceoAa8ilm3kaTXI3OCk3UtTnDKqxgXPjD4IvIbaslTJW+r5TsP2FZzZ
-	d6UamvRCd3Ro/Dakq397Vf/RCP6AAjJ23KytzH/IAD4mqyhXBWVtlXHvrMjSGDFzXNuFonMnBj71T
-	RpfAVMVJhIckxB9Xp27Ez3frEaeKo7RmBHsUlgxpn66LDCx9vTsdIGszYfvzJhhjUmJQiOjxw6qbc
-	zMwylUcEUB/ZxYj26Atw==;
+	List-Owner; bh=IkeKupAJcbgKNgpFsdzG0mha0RuAtc6ZXIipiQ0BXjI=; b=TQZuA7RRRmPSdc
+	0kqgJ5+UqIKBOXrU1vd+rXVlZFSMxwG1QR3uIbMvGHUo/uIW4/zOZWIMAgENm37b+A6ijwMOFYXPH
+	FwOEu5R2Ik+X2MR/cyVSqE3kr6fR1v04+JT3S2toFF19qddjfcOFfEBPXE49V4wScMUrM6wTAHjqp
+	tyNXuSQP/pIq0a+UM13AF3RqduXFqV0U9zvsCQvqzgzg6BLfGfMXFiQZd2U++R4JCeZCE2IhgbRvi
+	lIFsOK6szaZrPHbQHolkW0vmCcLHp9z/hYQbCg0vvxgmq85E/xFdgbIRnujjovJYD0a1de54vHj2O
+	wZy7wAjz4QoJJfyFZNjw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hGzZD-000899-5K; Thu, 18 Apr 2019 05:26:35 +0000
+	id 1hGzal-0008QJ-EC; Thu, 18 Apr 2019 05:28:11 +0000
 Received: from mail-vs1-xe41.google.com ([2607:f8b0:4864:20::e41])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hGzZ5-00081L-9X
- for linux-riscv@lists.infradead.org; Thu, 18 Apr 2019 05:26:28 +0000
-Received: by mail-vs1-xe41.google.com with SMTP id n4so511053vsm.3
- for <linux-riscv@lists.infradead.org>; Wed, 17 Apr 2019 22:26:27 -0700 (PDT)
+ id 1hGzai-0008Pc-Ad
+ for linux-riscv@lists.infradead.org; Thu, 18 Apr 2019 05:28:09 +0000
+Received: by mail-vs1-xe41.google.com with SMTP id s2so508666vsi.5
+ for <linux-riscv@lists.infradead.org>; Wed, 17 Apr 2019 22:28:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=QVoqbwyN443Uxffv4ADeYKBc3zmgcqP5SCaKkpPU0Ag=;
- b=JlYc5LnYPCwWgX5oqj7ynsTkg9HwSCKe5lZ5zN605L7Uvo1glCbNDCtQfk8GyTRI13
- ROZ9wJjLihPw49RRrvvr1sPQAGB3Bk/uVz5KXlTfPr4zLd1Qk3TnxysN1P6IizUWSim9
- CZommiTKB0IOC+Nf2V/4WJTnJI7JYYMqf0DOY=
+ :cc; bh=ohjMtnRuoMZoK8NFCIw9UXTAaT8mCgqZCZ9c725i5mE=;
+ b=hNSJWi7dfZS6icOBYs4kZRM3P2+rnM98qjGabtZHa2binvsfr93Ocxkw+IwxUASlD/
+ pQX01+gyN8BW8yJYMgeqgS/eAzOZQEpQCg6E3xJ+hbrCPgvJPgJJi4wI0J+FiIbsUSP6
+ 0k+cQm02mdD+oM5hLDG6hhfyjMKa1vlN3OhUw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=QVoqbwyN443Uxffv4ADeYKBc3zmgcqP5SCaKkpPU0Ag=;
- b=U7u4ZVuOdMjk9YgxuUUb90AZ8hk0hAkpbGYqa/AGG/LcvdstgUuxNw6ptu5mUiBIHU
- GpkSRGsY4iEgHYu0o3fOOLZwI+/OIQxPSkGqzOxNQikoni2nSKT7qLADJVd6g9NrIecR
- qfgwKuH01qUzlvabrSIU5oD3eS0J+XLyNyzdhvoW5XToZ8M3vj/dvhopW/3A3cysgAM+
- 1Puzpk+ssGIWgPpFaHwVuLarqY8RMSINiqSmLLZFZlqcZqAlRKJjH8PTfuPzsLNzuZYO
- ETZPx0AQbYmINLu6avjMuQYxjHo1lgVVkcxNkYvCN+hn3KL/MJ5OKxmm8natYcHZ3emq
- IYSQ==
-X-Gm-Message-State: APjAAAWp4yyVKJRhVv9Lct7CAUmKC5m4TTV0v8zFLVG+5Ip9jzff/g5Z
- eoUhBe3P0bwG+XjkXD26qZyVzm6WgS8=
-X-Google-Smtp-Source: APXvYqyYP6ZZ97EdUXAwP8Vy5wwtJiPd9gpIgjS8AaBcg0vYB6h/NEMztOhQ9Xois1MnOfRqPElnpw==
-X-Received: by 2002:a67:8494:: with SMTP id g142mr49622654vsd.28.1555565186130; 
- Wed, 17 Apr 2019 22:26:26 -0700 (PDT)
-Received: from mail-vs1-f43.google.com (mail-vs1-f43.google.com.
- [209.85.217.43])
- by smtp.gmail.com with ESMTPSA id b197sm1238325vkd.9.2019.04.17.22.26.23
+ bh=ohjMtnRuoMZoK8NFCIw9UXTAaT8mCgqZCZ9c725i5mE=;
+ b=M/CIG9Fx3LVNNtWKARmQ6qnghx9jWFu+PFrilA7dYp1DrG1jnhw+eGakkuY21S9LB/
+ KJ2G69CV5XK7TE1aPRS15HTk52o0qqGwhYaZzIJa6RwQhA4kFqjbH1OHMrDsDA/pzztx
+ C1+DPOkY5Jyb9WTRFeJR7JGs/baBecK/aIB4W5Wg880yYZ6QtEWG+ebvSv+U+pusP82B
+ 9CcpB9BACKktg2ae3GZiHiORL24BMuEZ8dAmyUVhr/Dt5nwzB3PMu9DMOk9+DFWw/5EE
+ DKTwE6IBdHVXMBLiOKGc3L8M0YkY1Hv56+gBrtdsYibGhQ9LQ2Ru/fspoYq8uxD3R0eb
+ 1gKQ==
+X-Gm-Message-State: APjAAAUqKkLUhZSaJLYY1xXrDUTxGt8mbLdjVzDIiddxhP9/n9nS/IDj
+ zaGrwsimtZTE10tAS/WBoRnRl4e7aH4=
+X-Google-Smtp-Source: APXvYqxA3bo7o54KvVut2LsGqTMyYy+Nk6LdOLF7bBCdGvJh9GradZEfy2O309NSHaQpcpbgkO9HMQ==
+X-Received: by 2002:a67:f615:: with SMTP id k21mr50879865vso.136.1555565286546; 
+ Wed, 17 Apr 2019 22:28:06 -0700 (PDT)
+Received: from mail-vk1-f181.google.com (mail-vk1-f181.google.com.
+ [209.85.221.181])
+ by smtp.gmail.com with ESMTPSA id e81sm412142vkd.56.2019.04.17.22.28.05
  for <linux-riscv@lists.infradead.org>
  (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
- Wed, 17 Apr 2019 22:26:23 -0700 (PDT)
-Received: by mail-vs1-f43.google.com with SMTP id t78so521091vsc.1
- for <linux-riscv@lists.infradead.org>; Wed, 17 Apr 2019 22:26:23 -0700 (PDT)
-X-Received: by 2002:a67:eecb:: with SMTP id o11mr50384241vsp.66.1555565182826; 
- Wed, 17 Apr 2019 22:26:22 -0700 (PDT)
+ Wed, 17 Apr 2019 22:28:05 -0700 (PDT)
+Received: by mail-vk1-f181.google.com with SMTP id x84so220224vkd.1
+ for <linux-riscv@lists.infradead.org>; Wed, 17 Apr 2019 22:28:05 -0700 (PDT)
+X-Received: by 2002:a1f:2e07:: with SMTP id u7mr49260276vku.44.1555565284857; 
+ Wed, 17 Apr 2019 22:28:04 -0700 (PDT)
 MIME-Version: 1.0
 References: <20190417052247.17809-1-alex@ghiti.fr>
- <20190417052247.17809-6-alex@ghiti.fr>
-In-Reply-To: <20190417052247.17809-6-alex@ghiti.fr>
+ <20190417052247.17809-7-alex@ghiti.fr>
+In-Reply-To: <20190417052247.17809-7-alex@ghiti.fr>
 From: Kees Cook <keescook@chromium.org>
-Date: Thu, 18 Apr 2019 00:26:11 -0500
-X-Gmail-Original-Message-ID: <CAGXu5j+V_kJk-Lu=u82CrA291EPpgJtX951EKigprozXt7=ORA@mail.gmail.com>
-Message-ID: <CAGXu5j+V_kJk-Lu=u82CrA291EPpgJtX951EKigprozXt7=ORA@mail.gmail.com>
-Subject: Re: [PATCH v3 05/11] arm: Properly account for stack randomization
- and stack guard gap
+Date: Thu, 18 Apr 2019 00:27:53 -0500
+X-Gmail-Original-Message-ID: <CAGXu5jLFtaiRqvd_Lw2B688bzUyti2O8o_iZVmQhb7rmnEKzBQ@mail.gmail.com>
+Message-ID: <CAGXu5jLFtaiRqvd_Lw2B688bzUyti2O8o_iZVmQhb7rmnEKzBQ@mail.gmail.com>
+Subject: Re: [PATCH v3 06/11] arm: Use STACK_TOP when computing mmap base
+ address
 To: Alexandre Ghiti <alex@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190417_222627_330219_49A94EC4 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20190417_222808_368906_1D5FC77D 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -115,68 +114,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 17, 2019 at 12:28 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
+On Wed, Apr 17, 2019 at 12:29 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
 >
-> This commit takes care of stack randomization and stack guard gap when
-> computing mmap base address and checks if the task asked for randomization.
-> This fixes the problem uncovered and not fixed for arm here:
-> https://www.mail-archive.com/linux-kernel@vger.kernel.org/msg1429066.html
-
-Please use the official archive instead. This includes headers, linked
-patches, etc:
-https://lkml.kernel.org/r/20170622200033.25714-1-riel@redhat.com
-
+> mmap base address must be computed wrt stack top address, using TASK_SIZE
+> is wrong since STACK_TOP and TASK_SIZE are not equivalent.
+>
 > Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 > ---
->  arch/arm/mm/mmap.c | 14 ++++++++++++--
->  1 file changed, 12 insertions(+), 2 deletions(-)
+>  arch/arm/mm/mmap.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 >
 > diff --git a/arch/arm/mm/mmap.c b/arch/arm/mm/mmap.c
-> index f866870db749..bff3d00bda5b 100644
+> index bff3d00bda5b..0b94b674aa91 100644
 > --- a/arch/arm/mm/mmap.c
 > +++ b/arch/arm/mm/mmap.c
-> @@ -18,8 +18,9 @@
->          (((pgoff)<<PAGE_SHIFT) & (SHMLBA-1)))
+> @@ -19,7 +19,7 @@
 >
 >  /* gap between mmap and stack */
-> -#define MIN_GAP (128*1024*1024UL)
-> -#define MAX_GAP ((TASK_SIZE)/6*5)
-> +#define MIN_GAP                (128*1024*1024UL)
+>  #define MIN_GAP                (128*1024*1024UL)
+> -#define MAX_GAP                ((TASK_SIZE)/6*5)
+> +#define MAX_GAP                ((STACK_TOP)/6*5)
 
-Might as well fix this up as SIZE_128M
+Parens around STACK_TOP aren't needed, but you'll be removing it
+entirely, so I can't complain. ;)
 
-> +#define MAX_GAP                ((TASK_SIZE)/6*5)
-> +#define STACK_RND_MASK (0x7ff >> (PAGE_SHIFT - 12))
-
-STACK_RND_MASK is already defined so you don't need to add it here, yes?
-
->  static int mmap_is_legacy(struct rlimit *rlim_stack)
->  {
-> @@ -35,6 +36,15 @@ static int mmap_is_legacy(struct rlimit *rlim_stack)
->  static unsigned long mmap_base(unsigned long rnd, struct rlimit *rlim_stack)
->  {
->         unsigned long gap = rlim_stack->rlim_cur;
-> +       unsigned long pad = stack_guard_gap;
-> +
-> +       /* Account for stack randomization if necessary */
-> +       if (current->flags & PF_RANDOMIZE)
-> +               pad += (STACK_RND_MASK << PAGE_SHIFT);
-> +
-> +       /* Values close to RLIM_INFINITY can overflow. */
-> +       if (gap + pad > gap)
-> +               gap += pad;
+>  #define STACK_RND_MASK (0x7ff >> (PAGE_SHIFT - 12))
 >
->         if (gap < MIN_GAP)
->                 gap = MIN_GAP;
+>  static int mmap_is_legacy(struct rlimit *rlim_stack)
+> @@ -51,7 +51,7 @@ static unsigned long mmap_base(unsigned long rnd, struct rlimit *rlim_stack)
+>         else if (gap > MAX_GAP)
+>                 gap = MAX_GAP;
+>
+> -       return PAGE_ALIGN(TASK_SIZE - gap - rnd);
+> +       return PAGE_ALIGN(STACK_TOP - gap - rnd);
+>  }
+>
+>  /*
 > --
 > 2.20.1
 >
 
-But otherwise, yes:
-
 Acked-by: Kees Cook <keescook@chromium.org>
 
---
+-- 
 Kees Cook
 
 _______________________________________________
