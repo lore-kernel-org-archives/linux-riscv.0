@@ -2,84 +2,90 @@ Return-Path: <SRS0=9moF=SU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BF206C282DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2019 00:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1F831C10F0B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2019 04:32:46 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 917812183E
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2019 00:56:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DDA052184B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 18 Apr 2019 04:32:45 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gMB36FOC";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="lyvDfTTa"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 917812183E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="THl+Q7DF";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="BwFdgFLF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DDA052184B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=51y+FbkiUySs+Yypk+FarDMQHBx/UFsGe5eNJS/U8EM=; b=gMB
-	36FOCo6Ha7xna4HVqBW2iTliBAh+25WxkSTUdwxzq0TOumUN1J43UvO2+019RQ2jQKTDERE52P04w
-	UnoJPZtigp1uxq2M76K35MrxeDBZ1Zovx5P5uIfzyH97yypcbb1L3O+6bhEYSgXKcC9PGlbijnOVp
-	5rbiXEAcj91YRc//hNkkJLOVYLwoq0/DWEQE8lyJO3jV1l0MPfIRKDns6atl5Wn2l69VNlGnyvmN2
-	0+d4Du/6PaNErn2dbdZeu3fdyFqJG+z/85E/1UvM31kssbCJXnHnvJd/GuBqdwV+nKKOgW61ep1hi
-	mv1N3DZ9bdLbB6dwCAaHSX+jXw2DnqA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bTMpyQ+iy46We8vD2Y58HhjjLehCeYpE95v3We9Ot2c=; b=THl+Q7DFIo2JPX
+	siW/JQuDsLoxgr4InmQZmMCekZKcZuzyglCGsQknNXJ6v3/IZlbSrXWvWx//p/7L5WTCaHj9qixA8
+	AccvbA11qG4yHoj2YdqzIJllRV63VMua/8RuDd7xYDcEANMi04JhszyQhp0SBCZQ/xqpAoYhseEM7
+	3UIHG1JtfFLSUiynjaBHvYosjZ2Su6h8X/ZWd0jNPiqUA+Fmeu75d+ULx5qCoEnLVl2P0/vu4P7d+
+	5ea3LWgGQ3q6HvBG+499YNCML8s5Ck9UHtk+H02hyTkncA5kb9ZR4Kq6nn+to/y6IyhNriMq7Tkqc
+	wsUCHPqNp0BmCo1DN+1w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hGvLu-0002z2-K1; Thu, 18 Apr 2019 00:56:34 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1hGyj4-000682-ER; Thu, 18 Apr 2019 04:32:42 +0000
+Received: from mail-ua1-x943.google.com ([2607:f8b0:4864:20::943])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hGvLs-0002yI-9N
- for linux-riscv@lists.infradead.org; Thu, 18 Apr 2019 00:56:33 +0000
-Received: by mail-pf1-x442.google.com with SMTP id c207so271161pfc.7
- for <linux-riscv@lists.infradead.org>; Wed, 17 Apr 2019 17:56:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id;
- bh=NCTHDha1xM/aVhgZQjb426tHN47IE4D29YS6s+8P+hI=;
- b=lyvDfTTaK38CqH1AhVyLFO5T4uwMdNwEKxMXlLK6Lpa3f85mFo4McQeMf8zqhAOhXR
- bzNV3fMbnmQTCPuPsop6W2MbELV/HdTm6TOmNhicM5OpKt617ir9uMXZrm/aeE6mqS5L
- oklQjol5CW+xUvNOci0gOlMPa9X3RKaSzvTkVFmkzQY2lWFnqOHn7FxqyQ4Oj0HuraTQ
- 48vTGo0JB5aRwV8wjJ5WwkcKvyQZo37HI+uoUGXoZC5IMnUw4yLuM3/v1Buyc4F0Eh3a
- 1Y12KICsKkRC1RIdvDEd91/cvpPoYk6CmhGJol4zWVvuRNpJbKCSRXH/I9FAtZxQkgki
- GyZA==
+ id 1hGyiw-0005tl-CK
+ for linux-riscv@lists.infradead.org; Thu, 18 Apr 2019 04:32:35 +0000
+Received: by mail-ua1-x943.google.com with SMTP id k32so358201uae.3
+ for <linux-riscv@lists.infradead.org>; Wed, 17 Apr 2019 21:32:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=emqG7/19kpW5wZ57vs/jCWwiZdoRZXGDohb1D974Avc=;
+ b=BwFdgFLFNee7q4d/odil7gkB/UOuVM/QIlnvE7TGVcPxV0znLQ4z7fs87fH9FD/p2Q
+ QIWn2YByOZWf2cz5EWUgLnTt8H1YHdlzqE3vWASVSstFIxPSA4Jhvnkwf4hkz5pNBDia
+ 3hMlCG7M0QDEQlArREt5/8jUB1Ed/r+jW9qXM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=NCTHDha1xM/aVhgZQjb426tHN47IE4D29YS6s+8P+hI=;
- b=sZ0f4pgEoP/emY/YKxt7mvIRgY77QQmwJ3VXnkOC3AHFD5hUkMGuI8okW7uESumKiL
- N6RY90S+ZkKLN17eZ+V107upVH2UWsKpSTu6EnkvYVPhxUSGwmRb1CHT9N3da8Zg1vOk
- bzedztGBoXdYw3rJhUtScMp4jkEpMo09aQcgiRZlbvOpffol9eSZRrQovIY2lwJ0YhWd
- 0/DLwDUZaZBeL4qo6QaMZsqYre7FxGi7trE6PCaJq0AucXdRNRvx7a36LgkztN2YmFs8
- On+U3ZV0zIFnyEkLmDK4usLIjNc1G3TWb10LwpytTRtAAIk5vez3HeSAkYd/ZOdt0960
- mDQg==
-X-Gm-Message-State: APjAAAUvQjMC+kvxban9lxDE6swsagj43O9BlN5Fjd1WDcPLLbLC5kLH
- Velz8GzkvNnsLMB4eIsBo10=
-X-Google-Smtp-Source: APXvYqwzKcJWAZA8gk9S1Rf9zj2fXvswUwesJyaWKSO+DGtnzhnROt1yEAC+FUIf//a2bzMHhUBTCA==
-X-Received: by 2002:a63:4e10:: with SMTP id c16mr85610316pgb.302.1555548989107; 
- Wed, 17 Apr 2019 17:56:29 -0700 (PDT)
-Received: from pcliush.allwinnertech.com ([223.197.233.48])
- by smtp.gmail.com with ESMTPSA id p14sm535622pfa.26.2019.04.17.17.56.26
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
- Wed, 17 Apr 2019 17:56:28 -0700 (PDT)
-From: damon <liush.damon@gmail.com>
-To: palmer@sifive.com
-Subject: [PATCH] RISC-V: redefine PTRS_PER_PGD/PTRS_PER_PMD/PTRS_PER_PTE
-Date: Thu, 18 Apr 2019 08:56:15 +0800
-Message-Id: <1555548975-7011-1-git-send-email-liush.damon@gmail.com>
-X-Mailer: git-send-email 1.9.1
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=emqG7/19kpW5wZ57vs/jCWwiZdoRZXGDohb1D974Avc=;
+ b=ROKSuM/MbDSO2MAiHGZi+sEaG8ufCzUEkI4jijhLPNreicQJWaHthl/vj7rT0teEzc
+ 5A3gbDyKWbBPRb31MzcWzmCWjL6A2qgYAMxEUWQL1xA/Lh45JFXOgqVrT9v3eHblguuF
+ MKa4mJAXKYV8vboNNaoZXBH41Ydql81tSTZU60UkJ0MeI1Ld5Sp0efWDaw+7OXgp0UrD
+ ssi7jU3jRFQxNVuruxiqQzxxpgOV96/HzayZXr5xN/0sBuIpw4kJ7g0Ibhbv6Bp2TX/q
+ E+Bc4Oj56jx4Wb/UEZWhtI7V6VhOnAlxIt28zt22mw58uDaRJlIa+cet6qyafDPJKhzG
+ 87ow==
+X-Gm-Message-State: APjAAAWaVm23GPO5pGTrE83ajpr6IVqmi31kHUNRvSJnXDv7GNE2Fbqm
+ ZG6Zq0LsTxihkd+82qPzAqNEcbnScFs=
+X-Google-Smtp-Source: APXvYqwAJFu6EVI5qYenc4wdsXYggVGuAVW7BKvXFH+L5s2FOLWiIFzQfV7tEIjcsDqILejv0D/qxg==
+X-Received: by 2002:ab0:4870:: with SMTP id c45mr20741140uad.21.1555561951862; 
+ Wed, 17 Apr 2019 21:32:31 -0700 (PDT)
+Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com.
+ [209.85.217.53])
+ by smtp.gmail.com with ESMTPSA id t201sm331156vke.15.2019.04.17.21.32.29
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
+ Wed, 17 Apr 2019 21:32:30 -0700 (PDT)
+Received: by mail-vs1-f53.google.com with SMTP id g187so447558vsc.8
+ for <linux-riscv@lists.infradead.org>; Wed, 17 Apr 2019 21:32:29 -0700 (PDT)
+X-Received: by 2002:a67:bc13:: with SMTP id t19mr2517845vsn.222.1555561949440; 
+ Wed, 17 Apr 2019 21:32:29 -0700 (PDT)
+MIME-Version: 1.0
+References: <20190417052247.17809-1-alex@ghiti.fr>
+ <20190417052247.17809-3-alex@ghiti.fr>
+In-Reply-To: <20190417052247.17809-3-alex@ghiti.fr>
+From: Kees Cook <keescook@chromium.org>
+Date: Wed, 17 Apr 2019 23:32:17 -0500
+X-Gmail-Original-Message-ID: <CAGXu5jKVa2YgAkWH1e26kxd2j6C4WsJ38+Z3K1z7JRvr_jDX6Q@mail.gmail.com>
+Message-ID: <CAGXu5jKVa2YgAkWH1e26kxd2j6C4WsJ38+Z3K1z7JRvr_jDX6Q@mail.gmail.com>
+Subject: Re: [PATCH v3 02/11] arm64: Make use of is_compat_task instead of
+ hardcoding this test
+To: Alexandre Ghiti <alex@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190417_175632_330775_1186254A 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190417_213234_471907_2C4A5FBA 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,79 +97,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: sorear2@gmail.com, aou@eecs.berkeley.edu, anup.patel@wdc.com,
- linux-kernel@vger.kernel.org, rppt@linux.ibm.com, liush.damon@gmail.com,
- linux-riscv@lists.infradead.org
-MIME-Version: 1.0
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>, Russell King <linux@armlinux.org.uk>,
+ Ralf Baechle <ralf@linux-mips.org>, LKML <linux-kernel@vger.kernel.org>,
+ Linux-MM <linux-mm@kvack.org>, Paul Burton <paul.burton@mips.com>,
+ linux-riscv@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>,
+ James Hogan <jhogan@kernel.org>,
+ "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, linux-mips@vger.kernel.org,
+ Christoph Hellwig <hch@lst.de>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Luis Chamberlain <mcgrof@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the number of addresses to define the relevant macros.
+On Wed, Apr 17, 2019 at 12:25 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
+>
+> Each architecture has its own way to determine if a task is a compat task,
+> by using is_compat_task in arch_mmap_rnd, it allows more genericity and
+> then it prepares its moving to mm/.
+>
+> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 
-Signed-off-by: damon <liush.damon@gmail.com>
----
- arch/riscv/include/asm/pgtable-32.h | 2 ++
- arch/riscv/include/asm/pgtable-64.h | 3 ++-
- arch/riscv/include/asm/pgtable.h    | 4 ++--
- 3 files changed, 6 insertions(+), 3 deletions(-)
+Acked-by: Kees Cook <keescook@chromium.org>
 
-diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
-index d61974b7..93607f6 100644
---- a/arch/riscv/include/asm/pgtable-32.h
-+++ b/arch/riscv/include/asm/pgtable-32.h
-@@ -17,8 +17,10 @@
- #include <asm-generic/pgtable-nopmd.h>
- #include <linux/const.h>
- 
-+#define MAX_USER_VA_BITS	32
- /* Size of region mapped by a page global directory */
- #define PGDIR_SHIFT     22
-+#define PMD_SHIFT       PGDIR_SHIFT
- #define PGDIR_SIZE      (_AC(1, UL) << PGDIR_SHIFT)
- #define PGDIR_MASK      (~(PGDIR_SIZE - 1))
- 
-diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index 7aa0ea9..a56d4d0 100644
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -16,6 +16,7 @@
- 
- #include <linux/const.h>
- 
-+#define MAX_USER_VA_BITS	39
- #define PGDIR_SHIFT     30
- /* Size of region mapped by a page global directory */
- #define PGDIR_SIZE      (_AC(1, UL) << PGDIR_SHIFT)
-@@ -34,7 +35,7 @@
- #define pmd_val(x)      ((x).pmd)
- #define __pmd(x)        ((pmd_t) { (x) })
- 
--#define PTRS_PER_PMD    (PAGE_SIZE / sizeof(pmd_t))
-+#define PTRS_PER_PMD    (1 << (PGDIR_SHIFT - PMD_SHIFT))
- 
- static inline int pud_present(pud_t pud)
- {
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 1141364..d9cb3c8 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -33,9 +33,9 @@
- #endif /* CONFIG_64BIT */
- 
- /* Number of entries in the page global directory */
--#define PTRS_PER_PGD    (PAGE_SIZE / sizeof(pgd_t))
-+#define PTRS_PER_PGD (1 << (MAX_USER_VA_BITS - PGDIR_SHIFT))
- /* Number of entries in the page table */
--#define PTRS_PER_PTE    (PAGE_SIZE / sizeof(pte_t))
-+#define PTRS_PER_PTE   (1 << (PMD_SHIFT - PAGE_SHIFT))
- 
- /* Number of PGD entries that a user-mode program can use */
- #define USER_PTRS_PER_PGD   (TASK_SIZE / PGDIR_SIZE)
+-Kees
+
+> ---
+>  arch/arm64/mm/mmap.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+> index 842c8a5fcd53..ed4f9915f2b8 100644
+> --- a/arch/arm64/mm/mmap.c
+> +++ b/arch/arm64/mm/mmap.c
+> @@ -54,7 +54,7 @@ unsigned long arch_mmap_rnd(void)
+>         unsigned long rnd;
+>
+>  #ifdef CONFIG_COMPAT
+> -       if (test_thread_flag(TIF_32BIT))
+> +       if (is_compat_task())
+>                 rnd = get_random_long() & ((1UL << mmap_rnd_compat_bits) - 1);
+>         else
+>  #endif
+> --
+> 2.20.1
+>
+
+
 -- 
-1.9.1
-
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
