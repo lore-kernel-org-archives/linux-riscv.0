@@ -2,96 +2,94 @@ Return-Path: <SRS0=IJcX=SV=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+X-Spam-Status: No, score=-9.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	MENTIONS_GIT_HOSTING,SPF_PASS autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D8CBEC282DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2019 19:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B1DAFC282DF
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2019 20:34:29 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9F15221479
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2019 19:29:44 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 75F7A20869
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 19 Apr 2019 20:34:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tVuHPFdr";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="mlYgsU/q"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9F15221479
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qXIJYxxB";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=baylibre-com.20150623.gappssmtp.com header.i=@baylibre-com.20150623.gappssmtp.com header.b="jQL63evb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 75F7A20869
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=baylibre.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=DTYksv/6KPBGjvf/SaU1YcCqtKn34kpnQpkKLUmdRHY=; b=tVuHPFdrcFr9KGrUQzeWDs7l+
-	Gl7gosiLfpxSGRMFkIGyzvE3Avs4DpLkkhFPs0lo49dRy6E5PDK3N+73vjoJsLvApZ1DhV9H7XCNu
-	mu2/qHzVvgtoVzi9QRvDVIl8sTOdzFhFDlp7iyHX0n0ucSrSXRfFc/78A6aGAVnn0wOoTszfUGTNc
-	eTk6G50zzb3xW4/qYSSTLHAid7PUnjnCe39yrlhVESef+yXO9u5Sps1olYXPL6C4FujOlDSmpQlol
-	92r5IAiMyYU0dv0x3JnXTsJB8P6u+OZ9znPauLTF8adUm0ng8udMQaqO2n9iDAJS6P4DxB+b3nNHL
-	tCtItkdHw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WxkSIgk92AYHpYWe9rX+mZuhjKhr7TZ8QZgD1xJGmC8=; b=qXIJYxxB7XGWjw
+	11P8+DNsGCJl7AqrFN0WdYt7Lvhg4kMGIwdtdIsOKs7M683uOLLVFArO6YkBnmZSElsPEVNv2rqMI
+	uSCKBXgSNyftLLYy9K8TmSyAacGEi8/W2aEtjy+OB4Mx4phdp7o+GUafMEZrYe4RMthhBELh4mTp/
+	GvWf+ajYTndLZ92Lus1oeiE/ChRes7wDgtwzs4UqQvrC9IlQHoWYVI1JKZP2p0OLdGT1E2sk/6mq3
+	fdUuU9Q33/sqfT0QG6Yh0/dDp4k8zdM06Sv7MzqatP0uM1F8VLPlexAG7S5VwRbZhyI76Ybfp64IU
+	DNlL2iUB10fS4zAg5bNA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hHZCe-0003RF-Gd; Fri, 19 Apr 2019 19:29:40 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1hHaDH-0002yi-H8; Fri, 19 Apr 2019 20:34:23 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hHZCa-0003QZ-JO
- for linux-riscv@lists.infradead.org; Fri, 19 Apr 2019 19:29:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1555702177; x=1587238177;
- h=subject:to:references:from:message-id:date:mime-version:
- in-reply-to:content-transfer-encoding;
- bh=A+7h5WbTxEYTGjfoEubh+u73kHoj9ynkG6MnblQmpP4=;
- b=mlYgsU/q89Jq1ubK+8khKPox8SK6bd6Fz4t0s6JlFPtgCyhvuAzWLPYV
- PVUlqIOo5LsxGuk7NhBG/MJef+tBVjHvUUfTgS4/J3Q2VIOw0f8iD7wil
- h9jJlaLKobIc9usTL5Di+uiglZ/2EYi3ZMwwVrehH0Zpy/x6ml/ZGvgnn
- Ry91iaTkms3ha9Fod/C2FIezpE9do+f7SXL4V2NZ+keSffO4dxvyIykxJ
- hFjyukQCbV08PSCOllUe1ZOoOkkYbZNefjjgUWK/zKYQJZutvG+Ehk/WZ
- gU0uDS1ny2C1/HOXSB10DR4Nfil8MNYYSvdqVW54AuLVs3ngdMVuxxu1D A==;
-X-IronPort-AV: E=Sophos;i="5.60,371,1549900800"; d="scan'208";a="107599885"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 20 Apr 2019 03:29:35 +0800
-IronPort-SDR: wP3rsWGfHsD3uDIDtRDrlOBnZCFU5RVqag6Mkgs1Mg0eS/u5dfggT2eCL061BBnuyFPVqy6OZB
- YbNR7eqSwN+5PcNLdLY5o7r99Ieqzo/g7rtgNgRdZHm7BJwNj56MBkxzdPXLJMrof9cg9TDDNh
- nNtj0BsE8fun+1tDuf2DXutn3H/rEVINatQIsPRebtWhqqzgutcJRQF8GwbVfEOlzrE6RObBmA
- yFN4FASr6HOnUpRf55lnSCZi0Pvhg0Qr4UdZI110KX155eoKH+4dJVTNkqZiY5MINQcnhxIBWR
- DcMfw16h0rvJiJv5450VUoCY
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep02.wdc.com with ESMTP; 19 Apr 2019 12:08:22 -0700
-IronPort-SDR: 6LU24F7zEw6o0ER6ll9wtyVM/KuKY0PPYLt5iD21lXXc0Dl+j+QK2O7Jz9xWQmSm6iGRqrgHHL
- tgl9C8yU/ML2cD/Cg44+Cxzl+Ut113gQx079gemju7YbfAv7wiG5hVa7lZxH3l5HwFUTkWg/4i
- 6MWUDnpnwby0vJTjyZudP/58raJb5RsxerpiqzUq1KJWbYIHqocwMOlcK6BHEIkY+jmdRwCY3o
- Hkin8yYUux70pH8lCYFZZlxNUCEJr4O1sk0EaWsSoQkHxKfIWrTY2cMNV9hUmuVxaS29tgFNj0
- yrQ=
-Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.66.167])
- ([10.111.66.167])
- by uls-op-cesaip02.wdc.com with ESMTP; 19 Apr 2019 12:29:35 -0700
+ id 1hHaDE-0002wf-LF
+ for linux-riscv@lists.infradead.org; Fri, 19 Apr 2019 20:34:22 +0000
+Received: by mail-pl1-x641.google.com with SMTP id e92so1271109plb.6
+ for <linux-riscv@lists.infradead.org>; Fri, 19 Apr 2019 13:34:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=baylibre-com.20150623.gappssmtp.com; s=20150623;
+ h=from:to:subject:in-reply-to:references:date:message-id:mime-version;
+ bh=hYJg39usgJcllYFrjiYgS86kBJRDdbEEnV9aw2W2GEs=;
+ b=jQL63evb7XKqJALNJHTY+/kR8xLD6D7LYbBaI+N6ELM6b/1RyL+ZzZdYlXwsuNkdtW
+ K+6M7HHA4B6S/HS2LhhoQyrgo6f0o7o/aE2K0Z+C1dzOQa2T62QuXhXDSsxbVs1B1amj
+ iQAPNYrXFX7FntLuHJk0VXbd/9e5LsYwWa0bVUDtSORMYX5hUqBdzMl7pGuV5pDB7cQI
+ S+iLKfGBDTvJqw9H+nMbPaeMMTVoIYCGByFuZge0NbYXIb9HWrTjLGM2MibRhrpiMony
+ yqn2pSzHdvRraHrbSn/LpYS3dqmgHwVjt1Ui9CNyt2diQKlCrHCvokcfthpiTUhCLirB
+ G5FQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:subject:in-reply-to:references:date
+ :message-id:mime-version;
+ bh=hYJg39usgJcllYFrjiYgS86kBJRDdbEEnV9aw2W2GEs=;
+ b=ggkKtB0VQZkJHrG9WXHNDsOfzLjI8kUfx646mgsQxg3FR21+iWVcvP0Hfzyi36PNC6
+ SCtNEwMGj/Hv0VpDvMaRPwJfpU7/KgI6X2/n18PEAxMS52sPqeUWZ+LGEcXXZktDZsBQ
+ se3jTdkxEGsGB1FzqLT/UpRm5hBCqOeNYY+zhJFLguEP+Ma5KFdxph1D9TDxn4W5hX58
+ q7t+/+T0m24BoRtNGS5u2/xPxOXKdS8TbmRnqFupGnjUOjow6RmpHH3Vp9/gvNhc3nK2
+ pq46zgnEMpuomeybTJdAPrvYapGgS20ydkzRgcwJi+n0AIP3QQF9coCp70R24TRpcNx5
+ ztdg==
+X-Gm-Message-State: APjAAAX2UQ5iiEf1wiK58coHcWc6K5TUOAiVxU1xrlmRgeS1pUTt5EM5
+ DaTIA36Lo+GXyHv36MWEoWvLkw==
+X-Google-Smtp-Source: APXvYqyPPRxdtxGy49YM+WfG5omFqih5zYdg0hfApJjbYRpVmk2PDl+SCQvqvId06FUCmA5yfqUtHA==
+X-Received: by 2002:a17:902:56e:: with SMTP id
+ 101mr5747587plf.142.1555706058366; 
+ Fri, 19 Apr 2019 13:34:18 -0700 (PDT)
+Received: from localhost ([2601:602:9200:a1a5:6d49:9ddc:13aa:21c9])
+ by smtp.googlemail.com with ESMTPSA id u17sm7271699pfn.19.2019.04.19.13.34.17
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Fri, 19 Apr 2019 13:34:17 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Atish Patra <atish.patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-kernel\@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-serial\@vger.kernel.org" <linux-serial@vger.kernel.org>,
+ "linux-riscv\@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "gregkh\@linuxfoundation.org" <gregkh@linuxfoundation.org>
 Subject: Re: [PATCH v5 0/2] tty: serial: add DT bindings and serial driver for
  the SiFive FU540 UART
-To: Kevin Hilman <khilman@baylibre.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>
+In-Reply-To: <f2bb876c-2b44-663b-ea06-d849f721fb6c@wdc.com>
 References: <20190413020111.23400-1-paul.walmsley@sifive.com>
  <7hmukmew5j.fsf@baylibre.com> <883f3d5f-9b04-1435-30d3-2b48ab7eb76d@wdc.com>
- <7h5zr9dcsi.fsf@baylibre.com>
-From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <f2bb876c-2b44-663b-ea06-d849f721fb6c@wdc.com>
-Date: Fri, 19 Apr 2019 12:29:33 -0700
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:60.0)
- Gecko/20100101 Thunderbird/60.6.1
+ <7h5zr9dcsi.fsf@baylibre.com> <f2bb876c-2b44-663b-ea06-d849f721fb6c@wdc.com>
+Date: Fri, 19 Apr 2019 13:34:17 -0700
+Message-ID: <7htvetbupi.fsf@baylibre.com>
 MIME-Version: 1.0
-In-Reply-To: <7h5zr9dcsi.fsf@baylibre.com>
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190419_122936_759831_EBAE73E6 
-X-CRM114-Status: GOOD (  26.49  )
+X-CRM114-CacheID: sfid-20190419_133420_717608_C93EFCCF 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -103,115 +101,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/19/19 12:18 PM, Kevin Hilman wrote:
-> Atish Patra <atish.patra@wdc.com> writes:
-> 
->> On 4/18/19 4:22 PM, Kevin Hilman wrote:
->>> Hi Paul,
->>>
->>> Paul Walmsley <paul.walmsley@sifive.com> writes:
->>>
->>>> This series adds a serial driver, with console support, for the
->>>> UART IP block present on the SiFive FU540 SoC.  The programming
->>>> model is straightforward, but unique.
+Atish Patra <atish.patra@wdc.com> writes:
+
+> On 4/19/19 12:18 PM, Kevin Hilman wrote:
+>> Atish Patra <atish.patra@wdc.com> writes:
+>> 
+>>> On 4/18/19 4:22 PM, Kevin Hilman wrote:
+>>>> Hi Paul,
 >>>>
->>>> Boot-tested on a SiFive FU540 HiFive-U board, using BBL and the
->>>> open-source FSBL (with appropriate patches to the DT data).
+>>>> Paul Walmsley <paul.walmsley@sifive.com> writes:
 >>>>
->>>> This fifth version fixes a bug in the set_termios handler,
->>>> found by Andreas Schwab <schwab@suse.de>.
+>>>>> This series adds a serial driver, with console support, for the
+>>>>> UART IP block present on the SiFive FU540 SoC.  The programming
+>>>>> model is straightforward, but unique.
+>>>>>
+>>>>> Boot-tested on a SiFive FU540 HiFive-U board, using BBL and the
+>>>>> open-source FSBL (with appropriate patches to the DT data).
+>>>>>
+>>>>> This fifth version fixes a bug in the set_termios handler,
+>>>>> found by Andreas Schwab <schwab@suse.de>.
+>>>>>
+>>>>> The patches in this series can also be found, with the PRCI patches,
+>>>>> DT patches, and DT prerequisite patch, at:
+>>>>>
+>>>>> https://github.com/sifive/riscv-linux/tree/dev/paulw/serial-v5.1-rc4
 >>>>
->>>> The patches in this series can also be found, with the PRCI patches,
->>>> DT patches, and DT prerequisite patch, at:
+>>>> I tried this branch, and it doesn't boot on my unleashed board.
 >>>>
->>>> https://github.com/sifive/riscv-linux/tree/dev/paulw/serial-v5.1-rc4
+>>>> Here's the boot log when I pass the DT built from your branch via
+>>>> u-boot: https://termbin.com/rfp3.
+>>>>
 >>>
->>> I tried this branch, and it doesn't boot on my unleashed board.
+>>> Unfortunately, that won't work. The current DT modifications by OpenSBI.
 >>>
->>> Here's the boot log when I pass the DT built from your branch via
->>> u-boot: https://termbin.com/rfp3.
+>>> 1. Change hart status to "masked" from "okay".
+>>> 2. M-mode interrupt masking in PLIC node.
+>>> 3. Add a chosen node for serial access in U-Boot.
 >>>
->>
->> Unfortunately, that won't work. The current DT modifications by OpenSBI.
->>
->> 1. Change hart status to "masked" from "okay".
->> 2. M-mode interrupt masking in PLIC node.
->> 3. Add a chosen node for serial access in U-Boot.
->>
->> You can ignore 3 for your use case. However, if you pass a dtb built
->> from source code, that will have hart0 enabled and M-mode interrupts
->> enabled in DT.
-> 
-> Hmm, so what you're saying is there not currently any way to pass a DT
-> built from source using OpenSBI + mainline u-boot?
-> 
+>>> You can ignore 3 for your use case. However, if you pass a dtb built
+>>> from source code, that will have hart0 enabled and M-mode interrupts
+>>> enabled in DT.
+>> 
+>> Hmm, so what you're saying is there not currently any way to pass a DT
+>> built from source using OpenSBI + mainline u-boot?
+>> 
+>
+> OpenSBI can accept DT built from source with following build option.
+>
+> FW_PAYLOAD_FDT="<unleashed>.dtb"
+>
+> More documentation:
+> https://github.com/riscv/opensbi/blob/master/docs/firmware/fw_payload.md
 
-OpenSBI can accept DT built from source with following build option.
+I'm aware of that method, but I'm looking for a way that doesn't require
+me to rebuild/reflash SBI every time.
 
-FW_PAYLOAD_FDT="<unleashed>.dtb"
+Basically, I want u-boot to TFTP the DTB (along with kernel and ramdisk)
+and boot it from memory.
 
-More documentation:
-https://github.com/riscv/opensbi/blob/master/docs/firmware/fw_payload.md
+On all other DT platforms in kernelCI, we build DTB(s) along with the
+kernel (but not built into the kernel.)  We then use the bootloader to
+load the kernel, DTB and ramdisk that we built.
 
-> As a short-term workaround, is there a way to make these changes from
-> the u-boot command-line after loading a DTB built from source into
-> memory?  If so, I could at least script that part.
-> 
-> 
->> Not sure if we should do these DT modifications in U-Boot as well.
-> 
-> I guess so (and I'd be happy to test the patch.)
-> 
-> Either that, or the upstream DTs (or code) should have those features to
-> the right settings.
-> 
-> Speaking of which, I tried to patch the DT from Paul's recent series[1]
-> to make the necessary changes.  I can see where to change cpu0 from
-> "okay" to "masked", but I'm not so sure how to make the PLIC change.
-> 
+>> As a short-term workaround, is there a way to make these changes from
+>> the u-boot command-line after loading a DTB built from source into
+>> memory?  If so, I could at least script that part.
+>> 
+>> 
+>>> Not sure if we should do these DT modifications in U-Boot as well.
+>> 
+>> I guess so (and I'd be happy to test the patch.)
+>> 
+>> Either that, or the upstream DTs (or code) should have those features to
+>> the right settings.
+>> 
+>> Speaking of which, I tried to patch the DT from Paul's recent series[1]
+>> to make the necessary changes.  I can see where to change cpu0 from
+>> "okay" to "masked", but I'm not so sure how to make the PLIC change.
+>> 
+>
+> Here is the code snippet of how OpenSBI modifies the DT.
+>
+> https://github.com/riscv/opensbi/blob/master/platform/sifive/fu540/platform.c#L53
 
-Here is the code snippet of how OpenSBI modifies the DT.
+Thanks, based on that, I was able to modify the DTB I'm builing from
+source[1], but it still doesn't fully boot.
 
-https://github.com/riscv/opensbi/blob/master/platform/sifive/fu540/platform.c#L53
+Looks like Paul has so far only tested this with BBL + FSBL, so I think
+I'll wait to hear from him how that setup might be different from using
+OpenSBI + u-boot.
 
-If you just want to use custom built DTB, you can use OpenSBI build 
-option instead of scripting these.
+Thanks for all the help,
 
-We don't want OpenSBI to keep modifying the DT forever. But we have to 
-do it until there is a better solution available.
+Kevin
 
-> I was hoping to be able to review/test Paul's DT patches, but now I'm a
-> bit confused as to how to do that.
-> 
->> I also noticed that your kernel is booting only 1 hart.
->> Just FYI: RISC-V SMP for U-Boot patches are merged in master. So you
->> should be able to boot all cpus. You can ingore FU540_ENABLED_HART_MASK
->> in OpenSBI build as well.
-> 
-> Ah, nice.
-> 
-> I've just updated to u-boot master branch with SMP enabled, and build a
-> new openSBI (also from master branch) with u-boot payload. Using your
-> v5.1-rc4_unleashed branch, I see 4 CPUs booting:
-> https://termbin.com/kg13
-> 
-
-Great.
-
-Regards,
-Atish
-> Thanks,
-> 
-> Kevin
-> 
-> [1] https://lore.kernel.org/lkml/20190413020111.23400-1-paul.walmsley@sifive.com/T/#m77daa2857b76ec7cbca0672ad03ae286f61ca0e6
-> 
-
+[1]
+diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+index dd3b9395cedf..299398c4201d 100644
+--- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
++++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+@@ -30,7 +30,7 @@
+                        i-cache-size = <16384>;
+                        reg = <0>;
+                        riscv,isa = "rv64imac";
+-                       status = "okay";
++                       status = "masked";
+                        cpu0_intc: interrupt-controller {
+                                #interrupt-cells = <1>;
+                                compatible = "riscv,cpu-intc";
+@@ -148,11 +148,11 @@
+                        reg = <0x0 0xc000000 0x0 0x4000000>;
+                        interrupt-controller;
+                        interrupts-extended = <
+-                               &cpu0_intc 11
+-                               &cpu1_intc 11 &cpu1_intc 9
+-                               &cpu2_intc 11 &cpu2_intc 9
+-                               &cpu3_intc 11 &cpu3_intc 9
+-                               &cpu4_intc 11 &cpu4_intc 9>;
++                               &cpu0_intc 0xffffffff
++                               &cpu1_intc 0xffffffff &cpu1_intc 9
++                               &cpu2_intc 0xffffffff &cpu2_intc 9
++                               &cpu3_intc 0xffffffff &cpu3_intc 9
++                               &cpu4_intc 0xffffffff &cpu4_intc 9>;
+                };
+                prci: clock-controller@10000000 {
+                        compatible = "sifive,fu540-c000-prci";
 
 _______________________________________________
 linux-riscv mailing list
