@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 08FFFC10F11
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 06:22:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 27CFCC282CE
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 06:27:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CC8E2218DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 06:22:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EA534218D3
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 06:27:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sh1dZZt6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CC8E2218DA
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YVyBaL35"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EA534218D3
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,27 +25,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TrXRSwSsW6sL008z+QGxU39wdaelXX2pKd7/HiyHEOg=; b=sh1dZZt6gKE3RF
-	ChB3UdclbPjIIwpSFXNvvTo7UlyFVQN1DjLWkBCjCaoQo8Rl7D4h83RRvi/lm/oxh3G3jInC22WjN
-	eFtCX1Nip3IJld+YL+JaFGLGECiG2OCM+nS+gZDo1bZ4qzzUoo3PWBO2qMArxIbB3delq8KIYI5tK
-	ojcilKnqMIbj3i2It2Doioz3X6M56zebD3XfUkfBxkkC2ztXQ+XC7KLLp73XqfJ6juMIM1cWlUgd5
-	R4TVOHnuINcS5rz9a7VFhUPwHaqyab1jRbuPHVgMF3+N8MaJzT+ozXYUBJYvw0vYdFAtw56d3fi9I
-	WA8D9ti8feliI1v5+OQA==;
+	List-Owner; bh=ZNJr1UdgZBDVdrMDlrpdjHJs9x4xoDz/ImKd6CRJZyw=; b=YVyBaL35InM4b4
+	AV/J/CwEaUGSH0cir5NGhkdFUkZA++/fIh+79SAS+O7OIkOiuKZnJyC1pQdl7aJdFXzBsLT5PowXJ
+	h5nSG01J0LNCQLS1ptfkrc4MPo0y0X5U6Uu4NyDYAcstcW1bh5MN4E2djEd+j9HVUNazXjIGzddmn
+	/Nl2Be+z2tTdjH/YPOaHfvjsDWDOQjHVLaoNsQY8B1dhul1b5MIo2a5dfLe+ZiUZGsUFCBaFwUQUx
+	3G0g1jNVcIx1RH7gRH87E1SiwhyZdtgMqSu6ouGdijwsaWVoqCbkmn0F6Vk41HkaVXRpxg25SuKzN
+	cHTxIbFYPC+G5THX3cyA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hJBIP-0002XF-Iq; Wed, 24 Apr 2019 06:22:17 +0000
+	id 1hJBNa-0004On-8h; Wed, 24 Apr 2019 06:27:38 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1hJBIO-0002Wl-8t; Wed, 24 Apr 2019 06:22:16 +0000
-Date: Tue, 23 Apr 2019 23:22:16 -0700
+ Hat Linux)) id 1hJBNY-0004OP-AI; Wed, 24 Apr 2019 06:27:36 +0000
+Date: Tue, 23 Apr 2019 23:27:36 -0700
 From: Christoph Hellwig <hch@infradead.org>
-To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [PATCH v3 3/3] RISC-V: Support nr_cpus command line option.
-Message-ID: <20190424062216.GD3902@infradead.org>
-References: <20190424000227.3085-1-atish.patra@wdc.com>
- <20190424000227.3085-4-atish.patra@wdc.com>
+To: Anup Patel <Anup.Patel@wdc.com>
+Subject: Re: [PATCH v3 1/3] RISC-V: Use tabs to align macro values in asm/csr.h
+Message-ID: <20190424062736.GA10400@infradead.org>
+References: <20190415093648.7525-1-anup.patel@wdc.com>
+ <20190415093648.7525-2-anup.patel@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190424000227.3085-4-atish.patra@wdc.com>
+In-Reply-To: <20190415093648.7525-2-anup.patel@wdc.com>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -58,22 +58,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Dmitriy Cherkasov <dmitriy@oss-tech.org>,
- Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@sifive.com>,
- linux-kernel@vger.kernel.org, Johan Hovold <johan@kernel.org>,
- Christoph Hellwig <hch@infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Andreas Schwab <schwab@suse.de>,
- linux-riscv@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 23, 2019 at 05:02:27PM -0700, Atish Patra wrote:
-> If nr_cpus command line option is set, maximum possible cpu should be
-> set to that value.
+On Mon, Apr 15, 2019 at 09:37:17AM +0000, Anup Patel wrote:
+> The spacing between macro name and value is not consistent in
+> asm/csr.h. This patch beautifies asm/csr.h by using tabs to align
+> macro values instead of spaces.
 > 
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
 
 Looks good,
 
