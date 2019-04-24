@@ -2,90 +2,91 @@ Return-Path: <SRS0=xoWQ=S2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9D2B7C10F11
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 16:51:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BC52FC282CE
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 18:58:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6C9CC206A3
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 16:51:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8CF5720835
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 18:58:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WaVdaJ/T";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="YLsNKG9n"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6C9CC206A3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dKKxU5pn";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="H71LRfRp"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8CF5720835
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=HIfslgFFRbbHAa7XYYYn8ku8Lw2vIpoF7vtu+IyE/zY=; b=WaVdaJ/TdvUb/4RmN08pEhi0I
-	69Wdn1rUi+X1Kus7emj5Rp48PxRERgsYR17QgEfx6Awmzyf6haT3ve25Rz0d0S1V8t71EHROfLDQT
-	As44/r8QeydvLAlDdYS8Q8gV3URtlQmHwaE2oBGYStELSyThmI3rFl4sb3zXrWwvXVJzjwEf1umP4
-	nM8y9+hSRa9bQmiOVe4FsZcS1ljE7wzASjnKuo0ay+Xki25W8zv7n15iNBLHDxyqyYq9MdXMtJ0BD
-	V/sA56kxNi27FlMoBxjhrstP+JBw7SUR70YdwJRBThId1+/VE/vzKrwIVzObUJu9f/wSzQ/WT7aL1
-	YnbKymsbg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LTHYfp03P7hz240rYXWTAa/RszDtD46zGVMZHcu75A8=; b=dKKxU5pncakt1s
+	EAk5EBNh9B36RhCyhpziRQqVooWRoy3vigbejYR/f6iSCOnoeqnLchy/6ILb8s45ISbHHgQCrmMvV
+	b7IpJoc0/rKGF66eyWdTDuAJ/WK25hTIdynSbAN7z8Ag3jWtvQw1iDHjUnGCo3bnVits8nXAl1tOc
+	JKf3E0wF2lvQ3jGpCt00kT/WuezOT8XlxkBFxUAVkkHERMEqSQcirXpAqh4FbDum8UXTfjG3pw4ue
+	i+YSvT+G9gzA03kPrQ+rf+Zraj39gGzuEVCacOFq7vjdcLwz0Dssl0gM9fgYxGuZ8iAVhDmk9l+/V
+	n03en4Mr9/eZPWZIykow==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hJL6t-0005Av-3b; Wed, 24 Apr 2019 16:51:03 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1hJN6I-0002wY-De; Wed, 24 Apr 2019 18:58:34 +0000
+Received: from mail-it1-x142.google.com ([2607:f8b0:4864:20::142])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hJL6q-0005AB-39
- for linux-riscv@lists.infradead.org; Wed, 24 Apr 2019 16:51:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1556124660; x=1587660660;
- h=subject:to:cc:references:from:message-id:date:
- mime-version:in-reply-to:content-transfer-encoding;
- bh=GlUjytnYt3dDfD0kI047DD3j/C12yQtxAL+gnd5rzyQ=;
- b=YLsNKG9nE2C0WLAtsN+V0rQ74UUPnwSHiEFfyi6PffyOGNlfMSJ86PIM
- 2Av2RET8PYPBVJXSiUMR0zJhY5R7dcybmtM47KaQRMks8g+xi2KH8J0Nu
- 7WiOJ7jek70YRJyHbaXVqKOi+I71Zc/jdtbjddZqdmHhx9OtmSLeiajyQ
- SU7nHE5QP99iJcVhBh9IxSKoiE+cYugcW3Va9SET8pgrRmKa/bkfIHCbG
- yTyYKzhyiNvMrPw6bdE7DCf3R9nhI6ygkPEMHGbPbxE3AYQGUTCifWPG3
- c9MUxqvA2JiwE4Z7KeXGyA8hK+mEW8QyGo1IyFsRp7lcS/99H8muU449q A==;
-X-IronPort-AV: E=Sophos;i="5.60,390,1549900800"; d="scan'208";a="111663280"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 25 Apr 2019 00:50:58 +0800
-IronPort-SDR: 2rOkeIRYnTS3YUkb+qSsENUp1Spn9ZejUc3krSdT9H3dyYxC+dXN5+vP2UAYnwTc9OPPwpDY9m
- VGDbMOHYxR2BMuuvSkUmH1R7LL7bHyL0vmUMHxTt4Zn+DdPRWS498kQwIiS69P7Njh6C8ZSF99
- rCp7WYd60VEEmvxEDxSYCn9xDn5llIMlgCYe6QemgozAv9VQhkPaE4m+xl1O/gc5/6+kOIeh7p
- aatMKgpkwqjbLEAw2R4J2P5jFS4W5kumd+irFfUtlxIKsApFZ8CoX1rGaZySGhWQf5IruNAE1l
- 50MrZ/YSNms9D/hc2+7i2AOA
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep02.wdc.com with ESMTP; 24 Apr 2019 09:29:37 -0700
-IronPort-SDR: iKIwQD+L/YrbHh+8Mjv83xcedcVEBFiC5eNSUa0uHyC2o8OqEN5mNdiXRkVFPVGX+kULGjXisq
- LNTS/ceDKZEGekwAkSeetUdE8mtV/ggbXZzG96yo7HXvdLWxB21LZG3iOGrpTVWJvD9nNf1JhL
- ilJN8gi9QCI3DJu/cdF50cHOmTkysowvc4ndBhIXN5Ejf6hKEVGhJnm+9NxVgu1HS1HY24BtuI
- rFctAfZ5hoRACwrxvOmHHnCwIQb1+qeJB8VFRhi/BdiqpNl+C+M80lhizuZZW7m/I1m2Zr6Z0f
- Q78=
-Received: from c02v91rdhtd5.sdcorp.global.sandisk.com (HELO [10.111.66.167])
- ([10.111.66.167])
- by uls-op-cesaip02.wdc.com with ESMTP; 24 Apr 2019 09:50:57 -0700
-Subject: Re: [PATCH v3 1/3] RISC-V: Add RISC-V specific arch_match_cpu_phys_id
-To: Sudeep Holla <sudeep.holla@arm.com>
-References: <20190424000227.3085-1-atish.patra@wdc.com>
- <20190424000227.3085-2-atish.patra@wdc.com>
- <CAPKp9uZNEdL=Jt7vsxMBo72WR=ArefB6Vi7fLxnxMwAfUT3JOw@mail.gmail.com>
-From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <0d7be79c-3a74-dcb2-6618-d391e4cfec70@wdc.com>
-Date: Wed, 24 Apr 2019 09:50:56 -0700
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:60.0)
- Gecko/20100101 Thunderbird/60.6.1
+ id 1hJN6D-0002nl-GO
+ for linux-riscv@lists.infradead.org; Wed, 24 Apr 2019 18:58:32 +0000
+Received: by mail-it1-x142.google.com with SMTP id e13so8057261itk.4
+ for <linux-riscv@lists.infradead.org>; Wed, 24 Apr 2019 11:58:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:from:to:cc:subject:in-reply-to:message-id:references
+ :user-agent:mime-version;
+ bh=/T1HbxMN+ndVKYcaRHpxcbbsgU7fYHok3PpEnUoeplU=;
+ b=H71LRfRpXjOawAclrjyT7fhPMqFOBOoNK2XAXlDKv3IuwkWprFIjQS8CTPb3Q8HlnA
+ YrHBEl4Qs737X8U5ZnYDQyO5r9tPwvf0AyTiFp1OqPYsodGcp0lot3Kgul+apeYsCiJm
+ PEWJSulmnEHM9BKAJSpgR/kB8MYzPxZ3GvV7LjWaXHJAsSmAYe6GsIj89eJZ4JUOM0kt
+ GildtIh80ZbFgsl6E0EDjLJAecayxtc7zhFCD5vyzzdfZJC/EfsmXgcb5x4mfIPheSqJ
+ ZZCZ/HeMD54FqNQ7wQzC36Kq6cIvxLHwQVXJktuxupjo9PyVZJYz7uZSiHZEGSeT+5Iv
+ MN4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
+ :references:user-agent:mime-version;
+ bh=/T1HbxMN+ndVKYcaRHpxcbbsgU7fYHok3PpEnUoeplU=;
+ b=btJaf93KqkVxcKjKYNLdFTRaYe32k4qNHV2NrH3EZv1GcylSpwdfvAmYEYmjR3JbXl
+ iIPVbCDyZzp8LcimOcAT9FAhSvho3Hx/TfEFs+kgcQnulM1oYH4M6TO9MYFBnQE2bIEz
+ H5vQUVtsKdUnMBnuKpoij7lPrqs3CWoy/gBqBG6ItIOgZbSi1Rt592BHK1Mu5g5zJnMn
+ tlHoC6oxZDfvatfYnQa3ICltuaRL3BDf+kYWi2jNUAnMcjaYojvWHFYBxCx3wuEVNVve
+ xSXbWG+it3faQCK3V6a7W6yLUp1iGnbaX9cpF3AOlSPZ0NLenw862MOND2swMmIrTl/K
+ 9UTg==
+X-Gm-Message-State: APjAAAUsg2JY4eYx78KlMAL/He2oGwtnZthsLNTob6YX3eifEsscqTf5
+ UhXI6nd3jlsvDnD1qOEaL2cOaQ==
+X-Google-Smtp-Source: APXvYqz/ZiejlNwq5qfqJFkIbFpH8jXSloDXM+ua64jl8aMMMGziS7/ZV48R7ZX/9TlMjnBd9u00+Q==
+X-Received: by 2002:a24:3a13:: with SMTP id m19mr439055itm.88.1556132308063;
+ Wed, 24 Apr 2019 11:58:28 -0700 (PDT)
+Received: from localhost (c-73-95-159-87.hsd1.co.comcast.net. [73.95.159.87])
+ by smtp.gmail.com with ESMTPSA id
+ s8sm1075669iot.55.2019.04.24.11.58.27
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Wed, 24 Apr 2019 11:58:27 -0700 (PDT)
+Date: Wed, 24 Apr 2019 11:58:26 -0700 (PDT)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+X-X-Sender: paulw@viisi.sifive.com
+To: Kevin Hilman <khilman@baylibre.com>
+Subject: Re: [PATCH v5 0/2] tty: serial: add DT bindings and serial driver
+ for the SiFive FU540 UART
+In-Reply-To: <7h5zr9dcsi.fsf@baylibre.com>
+Message-ID: <alpine.DEB.2.21.9999.1904241157300.10713@viisi.sifive.com>
+References: <20190413020111.23400-1-paul.walmsley@sifive.com>
+ <7hmukmew5j.fsf@baylibre.com> <883f3d5f-9b04-1435-30d3-2b48ab7eb76d@wdc.com>
+ <7h5zr9dcsi.fsf@baylibre.com>
+User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
-In-Reply-To: <CAPKp9uZNEdL=Jt7vsxMBo72WR=ArefB6Vi7fLxnxMwAfUT3JOw@mail.gmail.com>
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190424_095100_252557_A51890F3 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20190424_115829_871298_6E695257 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,81 +98,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Dmitriy Cherkasov <dmitriy@oss-tech.org>,
- Andreas Schwab <schwab@suse.de>, Palmer Dabbelt <palmer@sifive.com>,
- Johan Hovold <johan@kernel.org>, open list <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Thomas Gleixner <tglx@linutronix.de>
+Cc: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>,
+ "linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/24/19 2:07 AM, Sudeep Holla wrote:
-> On Wed, Apr 24, 2019 at 1:03 AM Atish Patra <atish.patra@wdc.com> wrote:
->>
->> OF/DT core has a hook for architecture specific logical cpuid to hartid
->> mapping. By implementing this, we can pass the logical cpu id to cpu
->> node parsing functions.
->>
->> Fix the instances where logical cpuid is expected as an argument in
->> of_get_cpu_node.
->>
-> 
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> 
->> Signed-off-by: Atish Patra <atish.patra@wdc.com>
->> ---
->>   arch/riscv/kernel/cpu.c | 3 +--
->>   arch/riscv/kernel/smp.c | 5 +++++
->>   2 files changed, 6 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
->> index cf2fca12414a..c8d2a3223099 100644
->> --- a/arch/riscv/kernel/cpu.c
->> +++ b/arch/riscv/kernel/cpu.c
->> @@ -136,8 +136,7 @@ static void c_stop(struct seq_file *m, void *v)
->>   static int c_show(struct seq_file *m, void *v)
->>   {
->>          unsigned long cpu_id = (unsigned long)v - 1;
->> -       struct device_node *node = of_get_cpu_node(cpuid_to_hartid_map(cpu_id),
->> -                                                  NULL);
-> 
-> I assume it work working just fine as you are doing cpu to hartid
-> conversion here and
-> weak implementation of arch_match_cpu_phys_id does direct match.
-> 
+Hi Kevin,
 
-Yup. That's correct.
+On Fri, 19 Apr 2019, Kevin Hilman wrote:
+> Atish Patra <atish.patra@wdc.com> writes:
+> > On 4/18/19 4:22 PM, Kevin Hilman wrote:
+> >> Paul Walmsley <paul.walmsley@sifive.com> writes:
+> >> 
+> >>> This series adds a serial driver, with console support, for the
+> >>> UART IP block present on the SiFive FU540 SoC.  The programming
+> >>> model is straightforward, but unique.
+> >>>
+> >>> Boot-tested on a SiFive FU540 HiFive-U board, using BBL and the
+> >>> open-source FSBL (with appropriate patches to the DT data).
+> >>>
+> >>> This fifth version fixes a bug in the set_termios handler,
+> >>> found by Andreas Schwab <schwab@suse.de>.
+> >>>
+> >>> The patches in this series can also be found, with the PRCI patches,
+> >>> DT patches, and DT prerequisite patch, at:
+> >>>
+> >>> https://github.com/sifive/riscv-linux/tree/dev/paulw/serial-v5.1-rc4
 
-Regards,
-Atish
->> +       struct device_node *node = of_get_cpu_node(cpu_id, NULL);
->>          const char *compat, *isa, *mmu;
->>
->>          seq_printf(m, "processor\t: %lu\n", cpu_id);
->> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
->> index 0c41d07ec281..94db72662f60 100644
->> --- a/arch/riscv/kernel/smp.c
->> +++ b/arch/riscv/kernel/smp.c
->> @@ -70,6 +70,11 @@ void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out)
->>          for_each_cpu(cpu, in)
->>                  cpumask_set_cpu(cpuid_to_hartid_map(cpu), out);
->>   }
->> +
->> +bool arch_match_cpu_phys_id(int cpu, u64 phys_id)
->> +{
->> +       return phys_id == cpuid_to_hartid_map(cpu);
->> +}
->>   /* Unsupported */
->>   int setup_profiling_timer(unsigned int multiplier)
->>   {
->> --
->> 2.21.0
->>
-> 
+...
+
+> I've just updated to u-boot master branch with SMP enabled, and build a
+> new openSBI (also from master branch) with u-boot payload. Using your
+> v5.1-rc4_unleashed branch, I see 4 CPUs booting:
+> https://termbin.com/kg13
+
+Now that the serial driver is working for you, care to send a Tested-by: ?
+
+
+thanks,
+
+- Paul
 
 
 _______________________________________________
