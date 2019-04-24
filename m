@@ -2,85 +2,84 @@ Return-Path: <SRS0=xoWQ=S2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3EE2DC10F11
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 06:46:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1F06FC10F11
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 07:51:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0E1BC2148D
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 06:46:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E267E2148D
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 07:51:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="B0j1qSNM";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="HBY7dkAy"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0E1BC2148D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pY1RSQoz";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="WSYYeM2z"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E267E2148D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S5ejFa3Tqp2OJRES9K2Z59NpjE7W500cuOT5nqJCFZM=; b=B0j1qSNMzqsXRi
-	8gvxLYAmQDEW8LuPPAFBOG5Ni566WyuxBjRY1CZaZx2FMxY1ysaRKsc/EXt/170H95Yl7EIKsiOh4
-	CvaD7A1mHAfjPjJZBhETLPiXGBGUow80xSkX3POutgeJmPxafozVDSKKSyUuRZhQJxdTx8ZXQpuy1
-	4faT+GWZUywjf43gXD9wVNfpSZNcCtyZiAtu+PxxX5SGoHaCIMo5TqWn4AxxIpOjl5GsV0uh3cJQK
-	/ofcAobVhoqmmg6pxGQNPqI5wzgA4z1Xk8z3k6ejrgDm12HUC94qxMWQ+sIQPt2QL084Wcs2rF8ef
-	oOMDxao4KKAfwOz6tYaA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=256G9vhHq/U8MVlSS9aqiulgPFqnkpA2I1AfYTiQpMs=; b=pY1
+	RSQoz5HUTrnJSsFUK5PbZEBz6H8bnp/C27WhMnKERlMy9eqpHqTp4+3L9nSAsIrQCbBclsGwRGfUW
+	D2NLtKam6hEyu/IATMMjaKdvnJ93mIsKJ5U4UzVihf0T0/Dqm6LnjJgbEe6onayX+O8nl8k+uQmuz
+	E9Pf7UUoGPNCfZFLnQ71gEh5ty9jVIQn41AT6esM0gVU1KNkQDqI/W7cPmKNWy3Rhu9+wtp3LkDEd
+	lksO77oY7cC/CYanTwhdkX4vmES55yJk18g8yp3AqxHm8N1EhNQWTBZHxYlHvEbk/UAMXwsHwUCPo
+	e70UAk38BYW5G7FsB06ktJjevkO9Pqw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hJBfS-0004Fg-Au; Wed, 24 Apr 2019 06:46:06 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1hJCgj-0002WK-Dt; Wed, 24 Apr 2019 07:51:29 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hJBfL-00045J-CY
- for linux-riscv@lists.infradead.org; Wed, 24 Apr 2019 06:46:04 +0000
-Received: by mail-wr1-x441.google.com with SMTP id c12so17276852wrt.8
- for <linux-riscv@lists.infradead.org>; Tue, 23 Apr 2019 23:45:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=AyVK2GRakZiSagpjjAHHtZd/+k3S6z9JMKxhTl4oqnk=;
- b=HBY7dkAyqC/HNR6mbKXMpZUMyhGjlkdKC62ZFnZYR5uBPx8SHDEmBv6ED1ytC9vtH4
- RTVl6nNHJQbWTzaozEuAwJSbGgIPnbI83yCwU3+gE+YVQDkVtjlRf0ZM2Ouj9KzfYfUp
- YnWsVi7npWgoTCdpANmv807o7SDGbttPdKMVqK3N9jNvdyr/s2DoGwPdcXav8wGPb1zf
- OJ/9pxg5K10iquAiPB6zFKbM/xDGiEXIN4wYtSVhxSRn68arFNd9FQj6RRzsOW5Y/8l2
- qck+ko5bSQm9K4CCVJb9fW605JGurqLUudZz0jhCZI12+1ZlUoMUMkCMg4cpuTUcQWU2
- uenQ==
+ id 1hJCgg-0002Vz-Rp
+ for linux-riscv@lists.infradead.org; Wed, 24 Apr 2019 07:51:28 +0000
+Received: by mail-pf1-x442.google.com with SMTP id c207so8864068pfc.7
+ for <linux-riscv@lists.infradead.org>; Wed, 24 Apr 2019 00:51:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id;
+ bh=MUzBcZSYyjNmVAln4pH9+hDa+BhI195V73WdadLwrkU=;
+ b=WSYYeM2z+eSgl8RJu1kf4xsUmWL7TbV5E6Ksim/kAqfLPjA9PZ2Ruuvb75pEEBqmaO
+ hmWO8ZJfjNoZbzzYPXrRpUjgt+lJD3bGSmVjVYN2/NEqvqoD8j0iKTDs2o+VhkFoWGds
+ 2h1UGZnLo647Fkru6r8zZyfQfjZNFXTKr9jQeyHFnKf7ysfUwJ7XjFtutT1KGrKFfwRs
+ +1WMMPH3DzHK5klPDLqH4FpXyp+8fnxG4KLx4sguNKZYUyYmi4AeFPShJ9wO/0d1Aky0
+ sdobm3ERFskuhlTX5kM4GeTCYdI9x1W8Jb5znHsCNaQYZE9DWOvN6IULgWk6dDXp8VfP
+ Tagw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=AyVK2GRakZiSagpjjAHHtZd/+k3S6z9JMKxhTl4oqnk=;
- b=j6FKkwpCzcRPsLHJEoNK/gmtd8kfmnLkv0NnlP1a5SFJD7kKgJ6FXMAwheEWaRW8Zs
- Ua37sLCu7GeQ7M8b6uEXG2SVgMb4YA+jGM0WgQ4T4H1MQY//xg5IqSkiVGYaDPM0XuEA
- PT9ZeIhUpuvc98KJ701dYBDMd15c9jHaLTSGBgaLp7TeeJKIu6rmadcNGh9cFCVY+W3U
- GGhDHJ91o5PewJkKf3qgmM4XOrd7kx7VM8+D27st9N4wboqHP9r83NAulZEHKBfWVZDu
- 98pVycrjs7TbRJlNEFg2ltBtB3FmC9hqTiSKWECq4OorvD1fk5MxTpNu9onQQBVKV1LJ
- tTyw==
-X-Gm-Message-State: APjAAAUYd+sFw/uNBPBJykKOhvS8RV/JWUo+TgdDAz9BuZCqswZSGmxF
- mgZrEXlKDm1cvi92EmDfYNSRNo3NH4JvIuvmc4uvxA==
-X-Google-Smtp-Source: APXvYqxnhEnqYUaQjOU8P7vuX1aGF73xOst194+h6qMRyX7r29YrcCS4BF62VPpUrDDVmD9r4VXvO8hQgndSvryLl2E=
-X-Received: by 2002:a5d:5346:: with SMTP id t6mr21566738wrv.59.1556088357115; 
- Tue, 23 Apr 2019 23:45:57 -0700 (PDT)
-MIME-Version: 1.0
-References: <20190415093648.7525-1-anup.patel@wdc.com>
- <20190415093648.7525-3-anup.patel@wdc.com>
- <20190424062947.GB10400@infradead.org>
-In-Reply-To: <20190424062947.GB10400@infradead.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 24 Apr 2019 12:15:45 +0530
-Message-ID: <CAAhSdy1Xc9AjPKY0RzLL_qsBs6wax23fi2BTVtMhuS0mAoKZmQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] RISC-V: Add interrupt related SCAUSE defines in
- asm/csr.h
-To: Christoph Hellwig <hch@infradead.org>
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=MUzBcZSYyjNmVAln4pH9+hDa+BhI195V73WdadLwrkU=;
+ b=W5FTutL4T9lB4JAiStIzG7Pap5g5dgpoPiQlHmNNnUgbgwHBi6m5Hd8wc1iMLlhIEa
+ XB8kmV/PvCD1SxpCxYQqkHDzplhKuSRkj2vwxBDqOBDVKOVi49IskSzN0PLb1tjGKf0Y
+ Vo4H/SKu4ZSwaET6qbDHnlVreuUSfALwqA+q5ef91yp2zmr0d9uhbbGlC6zkvxdw60A6
+ ROxf0qaGyHV8/Ffxabre3KdA64tVcp58Y7xs5CFb1PpiTpOcDp0S0YqJg30TF/ziGsXC
+ VrxuZSt0PGx0kRhUaSkOet/Ez1rQ3O+6SIT7vuDu3b7AUbOV/k7GBYNMaBh+rFMJJI6h
+ N/tA==
+X-Gm-Message-State: APjAAAW2np7FXxkWCdlZ+fLYhip+tX11prPq72gv1MvHzwKOFYbeHap7
+ vbYip7873apuQNe5Gx8y2bY=
+X-Google-Smtp-Source: APXvYqxujmGRGHIEdw7D/0pkEzjunqAgdRRM4DDeb4gBYviMbCW/tf7YM7mgvUfEu4nd/i+ZrtWk2g==
+X-Received: by 2002:a63:6e88:: with SMTP id j130mr6603072pgc.452.1556092285074; 
+ Wed, 24 Apr 2019 00:51:25 -0700 (PDT)
+Received: from pcliush.allwinnertech.com ([223.197.233.48])
+ by smtp.gmail.com with ESMTPSA id y23sm26230823pfn.25.2019.04.24.00.51.23
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+ Wed, 24 Apr 2019 00:51:24 -0700 (PDT)
+From: damon <liush.damon@gmail.com>
+To: palmer@sifive.com
+Subject: [PATCH] RISC-V: redefine PTRS_PER_PGD/PTRS_PER_PMD/PTRS_PER_PTE
+Date: Wed, 24 Apr 2019 15:51:08 +0800
+Message-Id: <1556092268-4646-1-git-send-email-liush.damon@gmail.com>
+X-Mailer: git-send-email 1.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190423_234600_128393_D340074F 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20190424_005126_923693_F5A3A9FD 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,44 +91,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Atish Patra <Atish.Patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: sorear2@gmail.com, aou@eecs.berkeley.edu, anup.patel@wdc.com,
+ linux-kernel@vger.kernel.org, rppt@linux.ibm.com, liush.damon@gmail.com,
+ linux-riscv@lists.infradead.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 24, 2019 at 11:59 AM Christoph Hellwig <hch@infradead.org> wrote:
->
-> On Mon, Apr 15, 2019 at 09:37:23AM +0000, Anup Patel wrote:
-> > This patch adds SCAUSE interrupt flag and SCAUSE interrupt related
-> > defines to asm/csr.h. We also use these defines in kernel/irq.c and
-> > express SIE/SIP flags in-terms of SCAUSE interrupt causes.
->
-> I'm not a fan of this.  For one this pollutes csr.h with bits not really
-> needed by most users, and it makes adding the M-mode nommu port which has
-> to use the M-mode causes much harder:
+Use the number of addresses to define the relevant macros.
 
-It's not polluting asm/csr.h because when we get interrupt numer in lower bits
-of SCAUSE CSR.
+Signed-off-by: damon <liush.damon@gmail.com>
+---
+ arch/riscv/include/asm/pgtable-32.h | 2 ++
+ arch/riscv/include/asm/pgtable-64.h | 3 ++-
+ arch/riscv/include/asm/pgtable.h    | 8 ++++++--
+ 3 files changed, 10 insertions(+), 3 deletions(-)
 
-These defines certainly belong to asm/csr.h because they represent possible
-exception causes when we get interrupt.
+diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
+index d61974b7..433886b 100644
+--- a/arch/riscv/include/asm/pgtable-32.h
++++ b/arch/riscv/include/asm/pgtable-32.h
+@@ -17,6 +17,8 @@
+ #include <asm-generic/pgtable-nopmd.h>
+ #include <linux/const.h>
+ 
++#define __PAGETABLE_PMD_FOLDED    1
++#define MAX_USER_VA_BITS	32
+ /* Size of region mapped by a page global directory */
+ #define PGDIR_SHIFT     22
+ #define PGDIR_SIZE      (_AC(1, UL) << PGDIR_SHIFT)
+diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+index 7aa0ea9..a56d4d0 100644
+--- a/arch/riscv/include/asm/pgtable-64.h
++++ b/arch/riscv/include/asm/pgtable-64.h
+@@ -16,6 +16,7 @@
+ 
+ #include <linux/const.h>
+ 
++#define MAX_USER_VA_BITS	39
+ #define PGDIR_SHIFT     30
+ /* Size of region mapped by a page global directory */
+ #define PGDIR_SIZE      (_AC(1, UL) << PGDIR_SHIFT)
+@@ -34,7 +35,7 @@
+ #define pmd_val(x)      ((x).pmd)
+ #define __pmd(x)        ((pmd_t) { (x) })
+ 
+-#define PTRS_PER_PMD    (PAGE_SIZE / sizeof(pmd_t))
++#define PTRS_PER_PMD    (1 << (PGDIR_SHIFT - PMD_SHIFT))
+ 
+ static inline int pud_present(pud_t pud)
+ {
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 1141364..9148043 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -33,9 +33,13 @@
+ #endif /* CONFIG_64BIT */
+ 
+ /* Number of entries in the page global directory */
+-#define PTRS_PER_PGD    (PAGE_SIZE / sizeof(pgd_t))
++#define PTRS_PER_PGD (1 << (MAX_USER_VA_BITS - PGDIR_SHIFT))
+ /* Number of entries in the page table */
+-#define PTRS_PER_PTE    (PAGE_SIZE / sizeof(pte_t))
++#ifdef __PAGETABLE_PMD_FOLDED
++#define PTRS_PER_PTE   (1 << (PGDIR_SHIFT - PAGE_SHIFT))
++#else
++#define PTRS_PER_PTE   (1 << (PMD_SHIFT - PAGE_SHIFT))
++#endif
+ 
+ /* Number of PGD entries that a user-mode program can use */
+ #define USER_PTRS_PER_PGD   (TASK_SIZE / PGDIR_SIZE)
+-- 
+1.9.1
 
-We need these defines for programming HIDELEG CSR in KVM kernel module
-so it will be used at multiple places.
-
->
-> http://git.infradead.org/users/hch/misc.git/commitdiff/1221f5c32345ebe7ea2c1cd6e8a01ad4b422aaba
-
-You can certainly use these defines in your nommu commit by using
-"#ifdef CONFIG_M_MODE" in switch case of do_IRQ().
-
-Regards,
-Anup
 
 _______________________________________________
 linux-riscv mailing list
