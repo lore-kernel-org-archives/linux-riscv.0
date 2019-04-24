@@ -6,17 +6,17 @@ X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 08FE7C10F11
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 14:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B8F95C282CE
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 14:39:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CD59121900
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 14:34:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8826D21900
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Apr 2019 14:39:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="r7VX3r9B";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="h7tHVjS8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CD59121900
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SCsiYXHr";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="2FcrqC6M"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8826D21900
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,48 +25,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rqBzjorPnJOSgIVqehbxCF8oDiLl95sVJ0zAjheoiIc=; b=r7VX3r9BgW1AE+
-	2xG/pOlhFwmoLE8pYoT0sMx9QBHCrAFgUY1Sokza03LG/Ow8zkzYOthHR9+aYLrtaqKb5v6ko7cVb
-	2CGJB+Oy4LckSVhHttERIjFGDWvFrA3Bvld8xSo/DHbA8Ky+B/uIMZpb9BSbWAwKtwdjX2sB4DgR7
-	oNBDkspUh3L04QPmZBmuRGPtlBUcxxk2M1uOzAGwJXN3Mljf57SLaopld16n0lKA6y0DUiEFsl34l
-	hryHHzY6VvacVxi30fXYD0O8n2/pHHTQK5rB5JEQ91xPQRL/MV3olx9TMmG6BtyY6RN4tVMyCnNwp
-	ND3FzKuMXuAPN+eTBAHA==;
+	List-Owner; bh=VeTXx4OM+TFB+4FEWJ+ZxJPu7U0JT0Fymz2kZKQ/DMo=; b=SCsiYXHr7KMjkW
+	7PgjBci4dK5sxOSPsUyVLHNto0GiWk7Lf6+IIZDmzKt62mdez5uoXwE7cOi6S/KOKuIq77UVSHzMg
+	kaEe5mSshlH3ky5jkzVMsehHVmbMYI4mpDBKbs9ihReJwN9zzHoL2zKhs1gRKtt5HKApL7zpgXtja
+	3OZd3X1211/kOCVRMgPB6RudlmsQ7kBTXnyONcGQXf5k1o8U+mjQoteVduGwomRQp0AEG45qzj8l4
+	3YORHm5zInrGzRFEHcWtYqo2A/AddDD9xd3+mH6r8r7LENW91bznKeYRah2B18phuysORiWDpNZx8
+	BL3woNN5zo1Gh8vWi5QQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hJIyp-0008WG-7j; Wed, 24 Apr 2019 14:34:35 +0000
+	id 1hJJ3r-0002uO-9Q; Wed, 24 Apr 2019 14:39:47 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hJIyl-0008VV-Vx
- for linux-riscv@lists.infradead.org; Wed, 24 Apr 2019 14:34:33 +0000
+ id 1hJJ3o-0002sq-CU
+ for linux-riscv@lists.infradead.org; Wed, 24 Apr 2019 14:39:45 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id B6B892089F;
- Wed, 24 Apr 2019 14:34:29 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 55E5121902;
+ Wed, 24 Apr 2019 14:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1556116471;
- bh=F6lTXd0B7fKhFIHsmmYGf4oJ9Z1aVjmE960AZiVEA5c=;
+ s=default; t=1556116784;
+ bh=ffuS2YlLGfWKuSDBqz0cTSvblLPLqxxwnPU2mc8t5+o=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=h7tHVjS8Sv1GhQMyDWdzZjeLGsIj95vOQzWkfpHU+P5RaMSHccM+eWMmlq5TWciaC
- lPzJkTDAlPezB+MOEI/4aQc4aWJn6kj3KSlH7qLBMuaU4m0lv8/mUV2KBt5p62qm+l
- /NubHLyIWrAnfMjPi7s4G2qXkYss1JwcDuAJWuQA=
+ b=2FcrqC6MdKcO/7hG8GHez7DCoyAbzlsd6u062MBTEDraD+2r7V7hJnZtwWUfHoVvz
+ iYluZiXVzO0/BW68WjRCkvQZ8DMGSWhDxMEXnFZlUzZ61L9lplfhV1vqBI8Gyfvlpo
+ 9aduns880N0iTXpZINKYJx3ARpN3+OBQjA9L4DfI=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.0 20/66] riscv: fix accessing 8-byte variable from
+Subject: [PATCH AUTOSEL 4.19 14/52] riscv: fix accessing 8-byte variable from
  RV32
-Date: Wed, 24 Apr 2019 10:32:54 -0400
-Message-Id: <20190424143341.27665-20-sashal@kernel.org>
+Date: Wed, 24 Apr 2019 10:38:32 -0400
+Message-Id: <20190424143911.28890-14-sashal@kernel.org>
 X-Mailer: git-send-email 2.19.1
-In-Reply-To: <20190424143341.27665-1-sashal@kernel.org>
-References: <20190424143341.27665-1-sashal@kernel.org>
+In-Reply-To: <20190424143911.28890-1-sashal@kernel.org>
+References: <20190424143911.28890-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190424_073432_044593_D3083CE6 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20190424_073944_443120_97AECEEC 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -100,16 +100,16 @@ Signed-off-by: Alan Kao<alankao@andestech.com>
 Cc: Greentime Hu <greentime@andestech.com>
 Cc: Vincent Chen <deanbo422@gmail.com>
 Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-Signed-off-by: Sasha Levin (Microsoft) <sashal@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
  arch/riscv/include/asm/uaccess.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 637b896894fc..aa82df30e38a 100644
+index 8c3e3e3c8be1..f0ea3156192d 100644
 --- a/arch/riscv/include/asm/uaccess.h
 +++ b/arch/riscv/include/asm/uaccess.h
-@@ -301,7 +301,7 @@ do {								\
+@@ -307,7 +307,7 @@ do {								\
  		"	.balign 4\n"				\
  		"4:\n"						\
  		"	li %0, %6\n"				\
