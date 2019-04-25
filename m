@@ -2,122 +2,87 @@ Return-Path: <SRS0=WcIC=S3=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0CF65C43219
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2019 13:35:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5EC5EC43219
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2019 17:42:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C972B206BF
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2019 13:35:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E650D20675
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2019 17:42:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="I87O29SQ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="KYncJB6I";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="QtNhmkru"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C972B206BF
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DjHONLTm";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="HCieBeQn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E650D20675
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sf/hDKX2tRhhSadNUO4bNy0CCQ1fVX2HNcOuYicLZ8M=; b=I87O29SQOXmXdQ
-	Jvon677sHPGx0iLEJhxHCZfPxESYd6WLJXP7iBuxAGaBtWOBP5VrDmDFQyGebFEWcI3aggpUR9gHb
-	s+GslMHRGMJBDEAN+9k04JEBVQxvngdF3XLdpo4G+mqY5nAzg2dyq3AkYXTsknkpKxxxYY14Koe8j
-	97ykT2Pt5QOog/Ircm/aOuNSmcc7zwvgNye52GgQRm5H20y91lh+L4j1T1soNiIfpAh4XcniXaKvD
-	CecgeNK6DH05EWPuGc78e65oe+9mZhI/jBP7BMoX/JoCcqicQ7ZyBN6UC3Yzmkj3FAl+mMCgVIm9/
-	jHH313YmEMwriflAXSBg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=amsxjzqbCC7Yq2DCxZ271mtJGWp4FmO8gs2YT4GuZBs=; b=DjHONLTmsqDksOJgELTcuFRNS
+	2FcCJFYlySbT1DFC8h5MC6lcaR7VEkkdIIjjk22wd1Dyv8Lp6PBSyGRV0gOX8loteQXX5MVBuciQk
+	bsz0fPLDCjM0jJbaJIEjjneqGScnWq39wtsTCfPA8hoWVJy3IJ/KnCU8Q+uFabW98tF8ubNlZ6viN
+	uQr++wclUeV4k3gILdYPJyxLD9+awOY5EQkXj0/Vz/3qKVx1+URWbwqy0wSKLWw8yedbyTM3Kwbmr
+	VMDtuVGS9F/AwqrKdYhqCnjnSt9dWnDxds31vNZRMAtW7QgdozNduSAbqp44L4tuFnB2dxMjawsIW
+	DtdWgznEQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hJeXR-0000Yp-25; Thu, 25 Apr 2019 13:35:45 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1hJiOW-0003sM-Om; Thu, 25 Apr 2019 17:42:48 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hJeWu-000861-DG
- for linux-riscv@lists.infradead.org; Thu, 25 Apr 2019 13:35:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1556199406; x=1587735406;
- h=from:to:cc:subject:date:message-id:
- content-transfer-encoding:mime-version;
- bh=36j7G1Da2dpPvO+9ydhJPf4NyaB4Rn4PcarmYY7mZk0=;
- b=KYncJB6IsTfoEpdPbUBrP9LWCuxASOIFEJcL324nojVOcSifaRj+Yb3P
- SKrmr5rLTVfwuJeHtamhhBvlSkc0TMO/DQOhjYH9s0G88AcucVTQwlacj
- HVTXRfcwEei2gG3TuBXtzDPc9Zf6AJAvcDTOxL/5dkNA4eNIRYbUcA1Hh
- Y/bXM4/CNNAs5HPiMBbed48M1SxQtezrymohhCd6TyCmi4B4F4PjNSWJk
- yETSfjy0cg4vZx9SrPIdOKM9g2mzN+sIa7zYGJNK3DblDrOvnjEvogvqN
- Z41yqz+fYrXB8RZFiAsfwztoJBUPv6TWMkXx9emTc99z2wHgoNTWPFDxM A==;
-X-IronPort-AV: E=Sophos;i="5.60,393,1549900800"; d="scan'208";a="205942685"
-Received: from mail-by2nam01lp2056.outbound.protection.outlook.com (HELO
- NAM01-BY2-obe.outbound.protection.outlook.com) ([104.47.34.56])
- by ob1.hgst.iphmx.com with ESMTP; 25 Apr 2019 21:36:40 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector1-wdc-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=36j7G1Da2dpPvO+9ydhJPf4NyaB4Rn4PcarmYY7mZk0=;
- b=QtNhmkru5w+837EKmn2XT0tcrCYWQLgagNZGde4lv+pbCrHBRB8CIheFxXjvYMvAiNBAr3k67IUTwrY4NcRNt6zNhJWpihXhJUxkujoyQFdzVY+owhNiKG4hfUqCCnd4tj6ODVrn/plWT/SySnNUFs1cPgn66PePYFwn8pXf3Sc=
-Received: from MN2PR04MB6061.namprd04.prod.outlook.com (20.178.246.15) by
- MN2PR04MB5631.namprd04.prod.outlook.com (20.178.255.206) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1835.13; Thu, 25 Apr 2019 13:35:06 +0000
-Received: from MN2PR04MB6061.namprd04.prod.outlook.com
- ([fe80::ad2f:3a0f:2de1:6fb2]) by MN2PR04MB6061.namprd04.prod.outlook.com
- ([fe80::ad2f:3a0f:2de1:6fb2%5]) with mapi id 15.20.1813.017; Thu, 25 Apr 2019
- 13:35:06 +0000
-From: Anup Patel <Anup.Patel@wdc.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
- <jslaby@suse.com>, Palmer Dabbelt <palmer@sifive.com>, Albert Ou
- <aou@eecs.berkeley.edu>
-Subject: [PATCH] tty: Don't force RISCV SBI console as preferred console
-Thread-Topic: [PATCH] tty: Don't force RISCV SBI console as preferred console
-Thread-Index: AQHU+2uxkGjV+x23F0K05mNsSIEedQ==
-Date: Thu, 25 Apr 2019 13:35:06 +0000
-Message-ID: <20190425133435.56065-1-anup.patel@wdc.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: BM1PR01CA0138.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:b00:40::32) To MN2PR04MB6061.namprd04.prod.outlook.com
- (2603:10b6:208:d8::15)
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Anup.Patel@wdc.com; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-mailer: git-send-email 2.17.1
-x-originating-ip: [49.207.55.22]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 26d70f3c-4ee4-4339-a9eb-08d6c982d3e1
-x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(7168020)(4627221)(201703031133081)(201702281549075)(8990200)(5600141)(711020)(4605104)(4618075)(2017052603328)(7193020);
- SRVR:MN2PR04MB5631; 
-x-ms-traffictypediagnostic: MN2PR04MB5631:
-wdcipoutbound: EOP-TRUE
-x-microsoft-antispam-prvs: <MN2PR04MB5631D3A88549F6133226D86A8D3D0@MN2PR04MB5631.namprd04.prod.outlook.com>
-x-forefront-prvs: 0018A2705B
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(366004)(396003)(136003)(346002)(39860400002)(376002)(189003)(199004)(81166006)(81156014)(2616005)(8936002)(110136005)(2171002)(50226002)(6116002)(3846002)(54906003)(97736004)(6436002)(8676002)(386003)(6506007)(305945005)(86362001)(36756003)(6486002)(7736002)(6512007)(186003)(25786009)(14444005)(26005)(1076003)(256004)(99286004)(5660300002)(486006)(2906002)(73956011)(55236004)(71200400001)(14454004)(71190400001)(52116002)(66476007)(66556008)(64756008)(4326008)(476003)(316002)(66066001)(72206003)(102836004)(53936002)(68736007)(44832011)(66446008)(478600001)(66946007);
- DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB5631;
- H:MN2PR04MB6061.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: Wq6uKU5r3Ny5pcyPe1OuHotEmuYTuDZSRv6Q1mIbxc4r+ZbsE52lQB9bDwHRuwML/UddVVuqn18r6rdSc0Qc0W2kSgHzYVzIun5n55Ro7vKX567297ktvWruXtPvdMMXY2XSfBsnDS064OWnKCX9Q4qI/Widml6lSO06D2FzM/tH2MI8nae+6Sm9BRmu0kStyDUvHkbBbPWMZKNctcrPSr4XOy03vsvwLzzO7RgQmuAQh+8Zz3ss0AeT1igrNoG9iVAw/GrfOHhnP2cZIZz8YmrGFr8Q7bWtANS10hVGfPG1vljdqItmNbOmMJ927/g4V+RxwNc8Md1nkWonyAPJNQUszFBIEWpwndaImubmgy3WkSfQaxzRlx75n7YzuSiJrpzx1ymFnBhQOMg87ECAR0jlh+zzB/eba+3slXOQ0E8=
-MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 26d70f3c-4ee4-4339-a9eb-08d6c982d3e1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Apr 2019 13:35:06.2931 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB5631
+ id 1hJiOT-0003r8-Hh
+ for linux-riscv@lists.infradead.org; Thu, 25 Apr 2019 17:42:46 +0000
+Received: by mail-pg1-x543.google.com with SMTP id n2so181621pgg.13
+ for <linux-riscv@lists.infradead.org>; Thu, 25 Apr 2019 10:42:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=86BiqtuaE9Uuzh6uQTzGh9piSST8UhnDgUvET+cCroc=;
+ b=HCieBeQn5i/68nu0Wldu/PGMV3yIGWHhqHc7ygCuzWkbpZX8mT4yoSzf84TUqvUhp+
+ N1IxYNXPpNf8FTSQZIARmPEBlzX18NwCxXzoixJX7ZIRRRajtp6Huvs3/OmtQ+G/tcdc
+ wvoUrFySlutusERjTfH/I7cUsTTOBMheQHaRLm6K7EkpXFvH4ckzdLtoBqI0vEx6wv/1
+ rqFEFH7MnvIrP3JR7yjLBzPAKzwT0ykYdI/xDlw5aMJvG1W67MEId+Gvj31KJsPKM4DK
+ 6J+YfAChCQWfEk1VdxLFOaejHsyuwbvgMIoZEeiaR2gsHZd3Xmb8KfcvlSoCjW10xya5
+ h+4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=86BiqtuaE9Uuzh6uQTzGh9piSST8UhnDgUvET+cCroc=;
+ b=VQ5cEirvwPdFt/n9LaJjUX19QMReSwCtg4W0f1vZlzqJEgy1oEXKLut9p4aSYZECS+
+ /niMDlwpPIrqej6QVEuCh7jN1PM+0yzA9034My1cFbWOT2weFCQCn8zezJY7peD8FfGO
+ W5IAK0ccV9iZpkTlpwF2jFFef1n3sZq09SgAubxl8GgMqIETtCfTAm0THJg87hatCdiz
+ XLnqD3w7BHTXIZRUwr5GvwgWN9kgcXB4YNEblYHLok+TXoGf+z0nYoVToF/68eUWQZEt
+ 8eedu7sg9KWPnrCExn1fTUpZz0XXAIFrrBgAc+OfW6aqoLfuQzUaGf+hgaTTebuiTLpH
+ 65VA==
+X-Gm-Message-State: APjAAAVXH/i65Mc72TgvqTCpupA8mTVYfvsQALI0SYIWhkai1zJxR/Ta
+ qpdIX/OWBr6sBI7mi6MAeu45ig==
+X-Google-Smtp-Source: APXvYqwZh3jLz2nak9BgfuoKLyG2XmvcfvwtoluyObn7I08ywB1zpsk+47kwzWfpQJRqmBXZrCfTmA==
+X-Received: by 2002:a62:524e:: with SMTP id g75mr41211465pfb.106.1556214164330; 
+ Thu, 25 Apr 2019 10:42:44 -0700 (PDT)
+Received: from localhost ([134.134.139.92])
+ by smtp.gmail.com with ESMTPSA id 4sm3975816pfj.45.2019.04.25.10.42.43
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Thu, 25 Apr 2019 10:42:43 -0700 (PDT)
+Date: Thu, 25 Apr 2019 10:42:43 -0700 (PDT)
+X-Google-Original-Date: Thu, 25 Apr 2019 09:28:24 PDT (-0700)
+Subject: Re: [PATCH v2 1/2] x86,
+ arm64: Move ARCH_WANT_HUGE_PMD_SHARE config in arch/Kconfig
+In-Reply-To: <20190409061449.5083-2-alex@ghiti.fr>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: alex@ghiti.fr, catalin.marinas@arm.com, Will Deacon <will.deacon@arm.com>, 
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de
+Message-ID: <mhng-4d1d4acb-f65f-4ed4-bc86-85a14b7c3e16@palmer-si-x1e>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190425_063512_967836_AC1ED5F2 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20190425_104245_621131_849DBC01 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -129,57 +94,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "stable@vger.kernel.org" <stable@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: aou@eecs.berkeley.edu, alex@ghiti.fr, x86@kernel.org,
+ linux-kernel@vger.kernel.org, Christoph Hellwig <hch@infradead.org>,
+ hpa@zytor.com, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, mike.kravetz@oracle.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Linux kernel will auto-disables all boot consoles whenever it
-gets a preferred real console.
+On Mon, 08 Apr 2019 23:14:48 PDT (-0700), alex@ghiti.fr wrote:
+> ARCH_WANT_HUGE_PMD_SHARE config was declared in both architectures:
+> move this declaration in arch/Kconfig and make those architectures
+> select it.
+>
+> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+> ---
+>  arch/Kconfig       | 3 +++
+>  arch/arm64/Kconfig | 2 +-
+>  arch/x86/Kconfig   | 4 +---
+>  3 files changed, 5 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/Kconfig b/arch/Kconfig
+> index 8c858bb133c9..273cefc6b787 100644
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -567,6 +567,9 @@ config HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
+>  config HAVE_ARCH_HUGE_VMAP
+>  	bool
+>
+> +config ARCH_WANT_HUGE_PMD_SHARE
+> +	bool
+> +
+>  config HAVE_ARCH_SOFT_DIRTY
+>  	bool
+>
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 870ef86a64ed..8b7870974961 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -68,6 +68,7 @@ config ARM64
+>  	select ARCH_SUPPORTS_NUMA_BALANCING
+>  	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION
+>  	select ARCH_WANT_FRAME_POINTERS
+> +	select ARCH_WANT_HUGE_PMD_SHARE if ARM64_4K_PAGES || (ARM64_16K_PAGES && !ARM64_VA_BITS_36)
+>  	select ARCH_HAS_UBSAN_SANITIZE_ALL
+>  	select ARM_AMBA
+>  	select ARM_ARCH_TIMER
+> @@ -885,7 +886,6 @@ config SYS_SUPPORTS_HUGETLBFS
+>  	def_bool y
+>
+>  config ARCH_WANT_HUGE_PMD_SHARE
+> -	def_bool y if ARM64_4K_PAGES || (ARM64_16K_PAGES && !ARM64_VA_BITS_36)
+>
+>  config ARCH_HAS_CACHE_LINE_SIZE
+>  	def_bool y
+> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> index 0f2ab09da060..fd5fc2d288be 100644
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -82,6 +82,7 @@ config X86
+>  	select ARCH_USE_QUEUED_SPINLOCKS
+>  	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
+>  	select ARCH_WANTS_DYNAMIC_TASK_STRUCT
+> +	select ARCH_WANT_HUGE_PMD_SHARE
+>  	select ARCH_WANTS_THP_SWAP		if X86_64
+>  	select BUILDTIME_EXTABLE_SORT
+>  	select CLKEVT_I8253
+> @@ -298,9 +299,6 @@ config ARCH_HIBERNATION_POSSIBLE
+>  config ARCH_SUSPEND_POSSIBLE
+>  	def_bool y
+>
+> -config ARCH_WANT_HUGE_PMD_SHARE
+> -	def_bool y
+> -
+>  config ARCH_WANT_GENERAL_HUGETLB
+>  	def_bool y
 
-Currently on RISC-V systems, if we have a real console which is not
-RISCV SBI console then boot consoles (such as earlycon=sbi) are not
-auto-disabled when a real console (ttyS0 or ttySIF0) is available.
-This results in duplicate prints at boot-time after kernel starts
-using real console (i.e. ttyS0 or ttySIF0) if "earlycon=" kernel
-parameter was passed by bootloader.
+Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
 
-The reason for above issue is that RISCV SBI console always adds
-itself as preferred console which is causing other real consoles
-to be not used as preferred console.
-
-Ideally "console=" kernel parameter passed by bootloaders should
-be the one selecting a preferred real console.
-
-This patch fixes above issue by not forcing RISCV SBI console as
-preferred console.
-
-Fixes: afa6b1ccfad5 ("tty: New RISC-V SBI console driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
----
- drivers/tty/hvc/hvc_riscv_sbi.c | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/drivers/tty/hvc/hvc_riscv_sbi.c b/drivers/tty/hvc/hvc_riscv_sbi.c
-index 75155bde2b88..31f53fa77e4a 100644
---- a/drivers/tty/hvc/hvc_riscv_sbi.c
-+++ b/drivers/tty/hvc/hvc_riscv_sbi.c
-@@ -53,7 +53,6 @@ device_initcall(hvc_sbi_init);
- static int __init hvc_sbi_console_init(void)
- {
- 	hvc_instantiate(0, 0, &hvc_sbi_ops);
--	add_preferred_console("hvc", 0, NULL);
- 
- 	return 0;
- }
--- 
-2.17.1
+Let me know if you want this via my tree, as I'd also like patch 2 which
+depends on this one.  I've tenatively added both to my for-next tree for now.
 
 _______________________________________________
 linux-riscv mailing list
