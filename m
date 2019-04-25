@@ -4,74 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7AAC4C43218
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2019 22:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 86319C43218
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2019 23:01:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 93C7320578
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2019 22:17:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A6729206BF
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2019 23:01:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AKR/1T13"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 93C7320578
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ics.forth.gr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mmm9/Sjt";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="iS/FfFBn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A6729206BF
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Subject:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Wh/OkhVer5pX8ujbAQOLVYKOTVnx7fbB0+2C6Jy3ylk=; b=AKR/1T13WsBof6Vaodka2A6Kh
-	GH6iAqgdfB6cd+HdKoT5fcd7twqeXELbqDJP+u243BMOJukD18iKciiNh05j6oPcPrZaUsQ2H4/Y4
-	NbkhWHN7o/S0H9TBojFhqYH6m0ZgeZpzNlPh9nLqUNRERJ3FGkXmqWw9s3RCtUsB+0rtwTcXTMOzu
-	BX7C//bUiGd+VZDTeeizcYXLxlYDyYT+afJhABgnD+kgpv6+yXi9J9K++QMBvhxR524TMHEqOBiiu
-	UxNaqkaafxpDVovdwkFp8OsmHQfLAlg2gtF4AzrHi6LzhWR3K7Q3pjkId13tWY9xhK+shO9CltqVh
-	XIpeyLLSQ==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=b2DY8cCC4Ub+kf+f4o66q5tI4mkZV5cT2DnTTaxASbM=; b=mmm9/Sjth+HEQpdJ3YnqAjEY+
+	W7UmjBmET4PUFdc0N4lC07j+fZWNFpe/7ZsLH+FTofcAWLQCwDvAHFv8UmBKFsXfoVpCVUgmXIRTY
+	/nFYVy+UPLZJ7dyi/QP1vYamkmRKXURi/RmWs041Yk48DSsV64UAQ9TEWCWhMhO+xFo9kExv19qAm
+	rjlqmffj0W2fQUn9rp15o2EeMxkBFQ8INqgtvNKVWXmmB9h90J6AcsTQgLx35/d45ob1zmAWCzJ10
+	qY+XTZCDYik4EMuPJpLN0iITrD0VTx54TbjyfBaEY3wkiqsbyr7dVnEhHltKmAtJaOc5mgosgabFE
+	wSrxTbZLA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hJmgL-00070p-7R; Thu, 25 Apr 2019 22:17:29 +0000
-Received: from mailgate-2.ics.forth.gr ([139.91.1.5])
+	id 1hJnMt-0002Ng-9g; Thu, 25 Apr 2019 23:01:27 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hJmgG-00070K-Lb
- for linux-riscv@lists.infradead.org; Thu, 25 Apr 2019 22:17:27 +0000
-Received: from av1.ics.forth.gr (av3in [139.91.1.77])
- by mailgate-2.ics.forth.gr (8.14.4/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- x3PMH4x4004625; Thu, 25 Apr 2019 22:17:06 GMT
-X-AuditID: 8b5b9d4d-90dff7000000235c-9d-5cc231e0863d
-Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.1.35])
- by av1.ics.forth.gr (SMTP Outbound / FORTH / ICS) with SMTP id
- 20.C4.09052.0E132CC5; Fri, 26 Apr 2019 01:17:04 +0300 (EEST)
-Received: from webmail.ics.forh.gr (localhost [127.0.0.1])
- by enigma.ics.forth.gr (8.15.1//ICS-FORTH/V10.5.0C-EXTNULL-SSL-SASL) with
- ESMTP id x3PMH3WG019482; Fri, 26 Apr 2019 01:17:03 +0300
-X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
-Received: from 77.49.209.14.dsl.dyn.forthnet.gr
- (77.49.209.14.dsl.dyn.forthnet.gr [77.49.209.14]) by webmail.ics.forth.gr
- (Horde Framework) with HTTP; Fri, 26 Apr 2019 01:17:03 +0300
-Date: Fri, 26 Apr 2019 01:17:03 +0300
-Message-ID: <20190426011703.Horde.crlKSpzEfYmoUHqmXPl_mRg@webmail.ics.forth.gr>
-From: mick@ics.forth.gr
-To: Palmer Dabbelt <palmer@sifive.com>
+ id 1hJnMp-0002Jq-GC
+ for linux-riscv@lists.infradead.org; Thu, 25 Apr 2019 23:01:26 +0000
+Received: by mail-pl1-x643.google.com with SMTP id y6so544344plt.1
+ for <linux-riscv@lists.infradead.org>; Thu, 25 Apr 2019 16:01:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=r5LjVVzT8pZLgqyP9tOGPse2CAsVS8xuM6Rf03ycKlk=;
+ b=iS/FfFBneIp2WwJThYjiWnDpipDkmQ5gOLtQ9LCSQ6wbglck6JX4jAcv450hlqfaGh
+ TTm/WQaKqIwBksqBvabYIuip6RoJFDpMdz906J/3+02NBl+CGHi7uuoNfVFw2JqF+8Xx
+ 8wS0J7auUkUTbCZfpLeBAeHcISvFYlHh+nECQcRJ/dx++2rdckjqthjaTYVZ+uRXqd4W
+ k9L4XloPCLqRiAQb/fHnJdo4AepKqWBmZY1yQKEoyyeCHD6lPikCgw+hfddgwRQIKCzg
+ ekwfAY+cq07lvF0L90F60gU3xMgfxucrxPIP8a4lgIJu6WoqTTi02AMO/3zrJBOKm0oa
+ B1tg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=r5LjVVzT8pZLgqyP9tOGPse2CAsVS8xuM6Rf03ycKlk=;
+ b=n5v5Ajn+Hw3yLkg5CDMXGV6zqz/YkHq22ePdNiCt/fS3c4PFfckimVwoOB12rcNZY3
+ yH1wWdak9tad6t8mlam6qWWB8zHiRbK6BuzCNkTwKcCMwQuLl0vklJV1Y1mk8NP1N4GT
+ ykcvXMbYQBtz2c4eqn5GRZ68ZjdSl0VGzwC4HFo7UduBK/Sj+vsHKOUKIU3yPGWIwLh9
+ i9HcY0uwFcsngC/HBlgcxe6ga6CU7ucCDbOs/enw7X98fiUFZ1Widyo3jNpovcH51CPy
+ EoRMVGHs9uIX14eFpEgfU7H9YisrpC0IbBrg2xfErgl9BdBjXvnUhL/0CINoGhLUVaMU
+ 7Dag==
+X-Gm-Message-State: APjAAAWD5/yQGmAY9qq/1FDqauFUsojYwQiAjphgW3gFmWfoqH2Uj6+O
+ LJZeEE+J5Eg/On/ff7Hp6qyVwxY148I=
+X-Google-Smtp-Source: APXvYqw0YCf959CV4J92YqKtgspZCOAsvdgC8cidyBy99HRm7nuUl/J9ylX0gSajg9ORVVuCP06xOw==
+X-Received: by 2002:a17:902:e610:: with SMTP id
+ cm16mr40121953plb.189.1556233280606; 
+ Thu, 25 Apr 2019 16:01:20 -0700 (PDT)
+Received: from localhost ([134.134.139.92])
+ by smtp.gmail.com with ESMTPSA id f13sm21044758pgr.35.2019.04.25.16.01.19
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Thu, 25 Apr 2019 16:01:19 -0700 (PDT)
+Date: Thu, 25 Apr 2019 16:01:19 -0700 (PDT)
+X-Google-Original-Date: Thu, 25 Apr 2019 15:59:41 PDT (-0700)
 Subject: Re: [RFC][PATCH] RISC-V: Add kexec support
-References: <20190410161548.17283-1-mick@ics.forth.gr>
- <mhng-f3d04938-d58f-4475-8c7b-505690c4539d@palmer-si-x1e>
-In-Reply-To: <mhng-f3d04938-d58f-4475-8c7b-505690c4539d@palmer-si-x1e>
-User-Agent: Horde Application Framework 5
-MIME-Version: 1.0
-Content-Disposition: inline
-X-Greylist: inspected by milter-greylist-4.6.2 (mailgate-2.ics.forth.gr
- [139.91.1.5]);
- Thu, 25 Apr 2019 22:17:06 +0000 (GMT) for IP:'139.91.1.77' DOMAIN:'av3in'
- HELO:'av1.ics.forth.gr' FROM:'mick@ics.forth.gr' RCPT:''
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
- (mailgate-2.ics.forth.gr [139.91.1.5]); Thu, 25 Apr 2019 22:17:06 +0000 (GMT)
+In-Reply-To: <20190426011703.Horde.crlKSpzEfYmoUHqmXPl_mRg@webmail.ics.forth.gr>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: mick@ics.forth.gr
+Message-ID: <mhng-f921c4a9-ec71-4e80-81fb-c0c541aaafd1@palmer-si-x1e>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190425_151725_275234_4BF074E0 
-X-CRM114-Status: GOOD (  32.60  )
+X-CRM114-CacheID: sfid-20190425_160123_575715_B8D4FB8D 
+X-CRM114-Status: GOOD (  31.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -85,516 +95,523 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Anup.Patel@wdc.com, linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"; DelSp="Yes"
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Palmer,
-
-Quoting Palmer Dabbelt <palmer@sifive.com>:
-
-> On Wed, 10 Apr 2019 09:15:48 PDT (-0700), mick@ics.forth.gr wrote:
->> This patch adds support for kexec on RISC-V. For now it doesn't
->> include kexec_file or kdump / crashkernel support. I tested it
->> on riscv64 QEMU with BBL and a single core. On SMP systems this
->> should disable all secondary harts through smp_send_stop(),
->> until we get support for hart suspend/resume through SBI, but
->> it doesn't seem to work properly with BBL. On OpenSBI I get
->> a weird trap handler failure where mcause/scause is 0x5 for
->> no apparent reason.
+On Thu, 25 Apr 2019 15:17:03 PDT (-0700), mick@ics.forth.gr wrote:
+> Hello Palmer,
 >
-> Thanks!  I while ago we sketched out doing kexec with the "all harts start
-> themselves up" model of booting, but given that the current plan is  
-> to move to
-> explicit SBI calls for power management it might not be worth the headache to
-> get this actually working.  That said, I'd love to have a proof of  
-> concept that
-> shows this working for the existing SBI.
+> Quoting Palmer Dabbelt <palmer@sifive.com>:
 >
-
-This does work with current SBI, I've re-sent the patch (no changes to the
-kernel part, that's why I didn't add a v2) with an updated commit message
-and a link to the latest kexec-tools patch. I've also submitted a patch on
-OpenSBI that resolved the issue there (it got merged already) and fixed
-SMP "support" (see comments below). So this works with both BBL and
-OpenSBI now ;-)
-
->> The (much larger) patch for kexec-tools (2.0.19) can be found here:
->> https://riscv.ics.forth.gr/RISC-V-Add-kexec-support-kexec_tools.patch
+>> On Wed, 10 Apr 2019 09:15:48 PDT (-0700), mick@ics.forth.gr wrote:
+>>> This patch adds support for kexec on RISC-V. For now it doesn't
+>>> include kexec_file or kdump / crashkernel support. I tested it
+>>> on riscv64 QEMU with BBL and a single core. On SMP systems this
+>>> should disable all secondary harts through smp_send_stop(),
+>>> until we get support for hart suspend/resume through SBI, but
+>>> it doesn't seem to work properly with BBL. On OpenSBI I get
+>>> a weird trap handler failure where mcause/scause is 0x5 for
+>>> no apparent reason.
 >>
->> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
->> ---
->>  arch/riscv/Kconfig                 |  11 ++
->>  arch/riscv/include/asm/kexec.h     |  43 +++++++
->>  arch/riscv/kernel/Makefile         |   4 +-
->>  arch/riscv/kernel/kexec_relocate.S | 175 ++++++++++++++++++++++++++
->>  arch/riscv/kernel/machine_kexec.c  | 191 +++++++++++++++++++++++++++++
->>  include/uapi/linux/kexec.h         |   1 +
->>  6 files changed, 424 insertions(+), 1 deletion(-)
->>  create mode 100644 arch/riscv/include/asm/kexec.h
->>  create mode 100644 arch/riscv/kernel/kexec_relocate.S
->>  create mode 100644 arch/riscv/kernel/machine_kexec.c
+>> Thanks!  I while ago we sketched out doing kexec with the "all harts start
+>> themselves up" model of booting, but given that the current plan is
+>> to move to
+>> explicit SBI calls for power management it might not be worth the headache to
+>> get this actually working.  That said, I'd love to have a proof of
+>> concept that
+>> shows this working for the existing SBI.
 >>
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index 515fc3cc9..0ed5f6d20 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -228,6 +228,17 @@ menu "Kernel features"
->>
->>  source "kernel/Kconfig.hz"
->>
->> +config KEXEC
->> +	bool "Kexec system call"
->> +	select KEXEC_CORE
->> +	help
->> +	  kexec is a system call that implements the ability to shutdown your
->> +	  current kernel, and to start another kernel. It is like a reboot
->> +	  but it is independent of the system firmware. And like a reboot
->> +	  you can start any kernel with it, not just Linux.
->> +
->> +	  The name comes from the similarity to the exec system call.
->> +
->>  endmenu
->>
->>  menu "Boot options"
->> diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/kexec.h
->> new file mode 100644
->> index 000000000..86d2f3c6c
->> --- /dev/null
->> +++ b/arch/riscv/include/asm/kexec.h
->> @@ -0,0 +1,43 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/*
->> + * Copyright (C) 2019 FORTH-ICS/CARV
->> + *		      Nick Kossifidis <mick@ics.forth.gr>
->> + */
->> +
->> +#ifndef _RISCV_KEXEC_H
->> +#define _RISCV_KEXEC_H
->> +
->> +/* Maximum physical address we can use pages from */
->> +#define KEXEC_SOURCE_MEMORY_LIMIT (-1UL)
->> +
->> +/* Maximum address we can reach in physical address mode */
->> +#define KEXEC_DESTINATION_MEMORY_LIMIT (-1UL)
->> +
->> +/* Maximum address we can use for the control code buffer */
->> +#define KEXEC_CONTROL_MEMORY_LIMIT (-1UL)
->> +
->> +/* Reserve a page for the control code buffer */
->> +#define KEXEC_CONTROL_PAGE_SIZE 4096
->> +
->> +#define KEXEC_ARCH KEXEC_ARCH_RISCV
->> +
->> +static inline void
->> +crash_setup_regs(struct pt_regs *newregs,
->> +		 struct pt_regs *oldregs)
->> +{
->> +	/* Dummy implementation for now */
->> +}
->> +
->> +/*
->> + * These are defined on kexec_relocate.S
->> + * and modified on machine_kexec.c
->> + */
->> +const extern unsigned char riscv_kexec_relocate[];
->> +const extern unsigned int riscv_kexec_relocate_size;
->> +
->> +extern unsigned long riscv_kexec_start_address;
->> +extern unsigned long riscv_kexec_indirection_page;
->> +extern unsigned long riscv_kexec_fdt_address;
->> +extern unsigned long riscv_kexec_hartid;
->> +
->> +#endif
->> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
->> index f13f7f276..de50d5f96 100644
->> --- a/arch/riscv/kernel/Makefile
->> +++ b/arch/riscv/kernel/Makefile
->> @@ -40,6 +40,8 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
->>  obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
->>  obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
->>
->> -obj-$(CONFIG_PERF_EVENTS)      += perf_event.o
->> +obj-$(CONFIG_PERF_EVENTS)	+= perf_event.o
->> +
->> +obj-${CONFIG_KEXEC}		+= kexec_relocate.o machine_kexec.o
->>
->>  clean:
->> diff --git a/arch/riscv/kernel/kexec_relocate.S  
->> b/arch/riscv/kernel/kexec_relocate.S
->> new file mode 100644
->> index 000000000..fae6b1360
->> --- /dev/null
->> +++ b/arch/riscv/kernel/kexec_relocate.S
->> @@ -0,0 +1,175 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/*
->> + * Copyright (C) 2019 FORTH-ICS/CARV
->> + *		      Nick Kossifidis <mick@ics.forth.gr>
->> + */
->> +
->> +#include <asm/asm.h>	/* For RISCV_* and REG_* macros */
->> +#include <asm/page.h>	/* For PAGE_SHIFT */
->> +
->> +	.globl riscv_kexec_relocate
->> +riscv_kexec_relocate:
->> +
->> +	/*
->> +	 * s0: Pointer to the current entry
->> +	 * s1: (const) Phys address to jump to after relocation
->> +	 * s2: (const) Phys address of the FDT image
->> +	 * s3: (const) The hartid of the current hart
->> +	 * s4: Pointer to the destination address for the relocation
->> +	 * s5: (const) Number of words per page
->> +	 * s6: (const) 1, used for subtraction
->> +	 * s7: (const) va_pa_offset, used when switching MMU off
->> +	 * s8: (const) Physical address of the main loop
->> +	 * s9: (debug) indirection page counter
->> +	 * s10: (debug) entry counter
->> +	 * s11: (debug) copied words counter
->> +	 */
->> +	REG_L	s0, riscv_kexec_indirection_page
->> +	REG_L	s1, riscv_kexec_start_address
->> +	REG_L	s2, riscv_kexec_fdt_address
->> +	REG_L	s3, riscv_kexec_hartid
->> +	mv	s4, zero
->> +	li	s5, ((1 << PAGE_SHIFT) / RISCV_SZPTR)
->> +	li	s6, 1
->> +	REG_L	s7, va_pa_offset
->> +	mv	s8, zero
->> +	mv	s9, zero
->> +	mv	s10, zero
->> +	mv	s11, zero
->> +
->> +	/* Disable / cleanup interrupts */
->> +	csrw	sie, zero
->> +	csrw	sip, zero
->> +
->> +	/*
->> +	 * When we switch SATP.MODE to "Bare" we'll only
->> +	 * play with physical addresses. However the first time
->> +	 * we try to jump somewhere, the offset on the jump
->> +	 * will be relative to pc which will still be on VA. To
->> +	 * deal with this we set stvec to the physical address at
->> +	 * the start of the loop below so that we jump there in
->> +	 * any case.
->> +	 */
->> +	la	s8, 1f
->> +	sub	s8, s8, s7
->> +	csrw	stvec, s8
->> +
->> +	/* Process entries in a loop */
->> +.align 2
->> +1:
->> +	addi	s10, s10, 1
->> +	REG_L	t0, 0(s0)		/* t0 = *image->entry */
->> +	addi	s0, s0, RISCV_SZPTR	/* image->entry++ */
->> +
->> +	/* IND_DESTINATION entry ? -> save destination address */
->> +	andi	t1, t0, 0x1
->> +	beqz	t1, 2f
->> +	andi	s4, t0, ~0x1
->> +	j	1b
->> +
->> +2:
->> +	/* IND_INDIRECTION entry ? -> update next entry ptr (PA) */
->> +	andi	t1, t0, 0x2
->> +	beqz	t1, 2f
->> +	andi	s0, t0, ~0x2
->> +	addi	s9, s9, 1
->> +	csrw	sptbr, zero
->> +	jalr	zero, s8, 0
->> +
->> +2:
->> +	/* IND_DONE entry ? -> jump to done label */
->> +	andi	t1, t0, 0x4
->> +	beqz	t1, 2f
->> +	j	4f
->> +
->> +2:
->> +	/*
->> +	 * IND_SOURCE entry ? -> copy page word by word to the
->> +	 * destination address we got from IND_DESTINATION
->> +	 */
->> +	andi	t1, t0, 0x8
->> +	beqz	t1, 1b		/* Unknown entry type, ignore it */
->> +	andi	t0, t0, ~0x8
->> +	mv	t3, s5		/* i = num words per page */
->> +3:	/* copy loop */
->> +	REG_L	t1, (t0)	/* t1 = *src_ptr */
->> +	REG_S	t1, (s4)	/* *dst_ptr = *src_ptr */
->> +	addi	t0, t0, RISCV_SZPTR /* stc_ptr++ */
->> +	addi	s4, s4, RISCV_SZPTR /* dst_ptr++ */
->> +	sub	t3, t3, s6	/* i-- */
->> +	addi	s11, s11, 1	/* c++ */
->> +	beqz	t3, 1b		/* copy done ? */
->> +	j	3b
->> +
->> +4:
->> +	/* Wait for the relocation to be visible by other harts */
->> +	fence	w,w
->> +
->> +	/* Pass the arguments to the next kernel  / Cleanup*/
->> +	mv	a0, s3
->> +	mv	a1, s2
->> +	mv	a2, s1
->> +
->> +	/* Cleanup */
->> +	mv	a3, zero
->> +	mv	a4, zero
->> +	mv	a5, zero
->> +	mv	a6, zero
->> +	mv	a7, zero
->> +
->> +	mv	s0, zero
->> +	mv	s1, zero
->> +	mv	s2, zero
->> +	mv	s3, zero
->> +	mv	s4, zero
->> +	mv	s5, zero
->> +	mv	s6, zero
->> +	mv	s7, zero
->> +	mv	s8, zero
->> +	mv	s9, zero
->> +	mv	s10, zero
->> +	mv	s11, zero
->> +
->> +	mv	t0, zero
->> +	mv	t1, zero
->> +	mv	t2, zero
->> +	mv	t3, zero
->> +	mv	t4, zero
->> +	mv	t5, zero
->> +	mv	t6, zero
->> +	csrw	sepc, zero
->> +	csrw	scause, zero
->> +	csrw	sscratch, zero
->> +
->> +	/*
->> +	 * Make sure the relocated code is visible
->> +	 * and jump to the new kernel
->> +	 */
->> +	fence.i
->> +
->> +	jalr	zero, a2, 0
->> +
->> +
->> +	/* Exported variables, set on machine_kexec.c */
->> +	.globl riscv_kexec_start_address
->> +riscv_kexec_start_address:
->> +	RISCV_PTR	0x0
->> +
->> +	.globl riscv_kexec_indirection_page
->> +riscv_kexec_indirection_page:
->> +	RISCV_PTR	0x0
->> +
->> +	.globl riscv_kexec_fdt_address
->> +riscv_kexec_fdt_address:
->> +	RISCV_PTR	0x0
->> +
->> +	.globl riscv_kexec_hartid
->> +riscv_kexec_hartid:
->> +	RISCV_PTR	0x0
->> +
->> +riscv_kexec_relocate_end:
->> +
->> +	.globl riscv_kexec_relocate_size
->> +riscv_kexec_relocate_size:
->> +	.long riscv_kexec_relocate_end - riscv_kexec_relocate
->> +
->> diff --git a/arch/riscv/kernel/machine_kexec.c  
->> b/arch/riscv/kernel/machine_kexec.c
->> new file mode 100644
->> index 000000000..352bf8219
->> --- /dev/null
->> +++ b/arch/riscv/kernel/machine_kexec.c
->> @@ -0,0 +1,191 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Copyright (C) 2019 FORTH-ICS/CARV
->> + *		      Nick Kossifidis <mick@ics.forth.gr>
->> + */
->> +
->> +#include <linux/kexec.h>
->> +#include <asm/kexec.h>		/* For riscv_kexec_* symbol defines */
->> +#include <linux/smp.h>		/* For smp_send_stop () */
->> +#include <asm/cacheflush.h>	/* For local_flush_icache_all() */
->> +#include <asm/barrier.h>	/* For smp_wmb() */
->> +#include <asm/page.h>		/* For PAGE_MASK */
->> +#include <linux/libfdt.h>	/* For fdt_check_header() */
->> +
->> +
->> +/**
->> + * kexec_image_info - Print received image details
->> + */
->> +static void
->> +kexec_image_info(const struct kimage *image)
->> +{
->> +	unsigned long i;
->> +
->> +	pr_debug("Kexec image info:\n");
->> +	pr_debug("\ttype:        %d\n", image->type);
->> +	pr_debug("\tstart:       %lx\n", image->start);
->> +	pr_debug("\thead:        %lx\n", image->head);
->> +	pr_debug("\tnr_segments: %lu\n", image->nr_segments);
->> +
->> +	for (i = 0; i < image->nr_segments; i++) {
->> +		pr_debug("\t    segment[%lu]: %016lx - %016lx", i,
->> +			image->segment[i].mem,
->> +			image->segment[i].mem + image->segment[i].memsz);
->> +		pr_debug("\t\t0x%lx bytes, %lu pages\n",
->> +			(unsigned long) image->segment[i].memsz,
->> +			(unsigned long) image->segment[i].memsz /  PAGE_SIZE);
->> +	}
->> +}
->> +
->> +/**
->> + * machine_kexec_prepare - Initialize kexec
->> + *
->> + * This function is called from do_kexec_load, when the user has
->> + * provided us with an image to be loaded. Its goal is to validate
->> + * the image and prepare the control code buffer as needed.
->> + * Note that kimage_alloc_init has already been called and the
->> + * control buffer has already been allocated.
->> + */
->> +int
->> +machine_kexec_prepare(struct kimage *image)
->> +{
->> +	struct fdt_header fdt = {0};
->> +	void *control_code_buffer = NULL;
->> +	int i = 0;
->> +
->> +	riscv_kexec_start_address = 0;
->> +	riscv_kexec_indirection_page = 0;
->> +	riscv_kexec_fdt_address = 0;
->> +
->> +	kexec_image_info(image);
->> +
->> +	if (image->type == KEXEC_TYPE_CRASH) {
->> +		pr_warn("Loading a crash kernel is unsupported for now.\n");
->> +		return -EINVAL;
->> +	}
->> +
->> +	/* Find the Flattened Device Tree */
->> +	for (i = 0; i < image->nr_segments; i++) {
->> +		if (image->segment[i].memsz <= sizeof(fdt))
->> +			continue;
->> +
->> +		if (copy_from_user(&fdt, image->segment[i].buf, sizeof(fdt)))
->> +			continue;
->> +
->> +		if (fdt_check_header(&fdt))
->> +			continue;
->> +
->> +		riscv_kexec_fdt_address = (unsigned long) image->segment[i].mem;
->> +		break;
->> +	}
->> +
->> +	if (!riscv_kexec_fdt_address) {
->> +		pr_err("Device tree not included in the provided image\n");
->> +		return -EINVAL;
->> +	}
->> +
->> +	/* Initialize the rest of the arguments for the relocation code */
->> +	riscv_kexec_start_address = (unsigned long) image->start;
->> +	riscv_kexec_indirection_page = (unsigned long) &image->head;
->> +
->> +	/* Copy the assembler code for relocation to the control buffer */
->> +	control_code_buffer = page_address(image->control_code_page);
->> +	memcpy(control_code_buffer, riscv_kexec_relocate,
->> +		riscv_kexec_relocate_size);
->> +
->> +#ifdef CONFIG_SMP
->> +	/*
->> +	 * Make sure other harts see the copied data
->> +	 * if they try to read the buffer
->> +	 */
->> +	smp_wmb();
->> +#endif
 >
-> Isn't smp_wmb() already a NOP for !CONFIG_SMP?
+> This does work with current SBI, I've re-sent the patch (no changes to the
+> kernel part, that's why I didn't add a v2) with an updated commit message
+> and a link to the latest kexec-tools patch. I've also submitted a patch on
+> OpenSBI that resolved the issue there (it got merged already) and fixed
+> SMP "support" (see comments below). So this works with both BBL and
+> OpenSBI now ;-)
 >
-
-If I'm not mistaken it becomes a call to barrier() which is
-provided by the compiler, I believe the CONFIG_SMP check there
-makes it cleaner.
-
->> +
->> +	return 0;
->> +}
->> +
->> +
->> +/**
->> + * machine_kexec_cleanup - Cleanup any leftovers from
->> + *			   machine_kexec_prepare
->> + *
->> + * This function is called by kimage_free to handle any arch-specific
->> + * allocations done on machine_kexec_prepare. Since we didn't do any
->> + * allocations there, this is just an empty function. Note that the
->> + * control buffer is freed by kimage_free.
->> + */
->> +void
->> +machine_kexec_cleanup(struct kimage *image)
->> +{
->> +}
->> +
->> +
->> +/*
->> + * machine_shutdown - Prepare for a kexec reboot
->> + *
->> + * This function is called by kernel_kexec just before machine_kexec
->> + * below. Its goal is to prepare the rest of the system (the other
->> + * harts and possibly devices etc) for a kexec reboot. Since on kexec
->> + * the current kernel will be lost, the other harts on the system won't
->> + * know what to run and will hang in an unrecoverable way. Until we
->> + * support CPU suspend through SBI we just stop all other harts by
->> + * forcing them on an infinite wfi loop with interrupts disabled.
->> + */
->> +void machine_shutdown(void)
->> +{
->> +#ifdef CONFIG_SMP
->> +	pr_notice("Stopping secondary harts\n");
->> +	smp_send_stop();
->> +#endif
->> +}
+>>> The (much larger) patch for kexec-tools (2.0.19) can be found here:
+>>> https://riscv.ics.forth.gr/RISC-V-Add-kexec-support-kexec_tools.patch
+>>>
+>>> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
+>>> ---
+>>>  arch/riscv/Kconfig                 |  11 ++
+>>>  arch/riscv/include/asm/kexec.h     |  43 +++++++
+>>>  arch/riscv/kernel/Makefile         |   4 +-
+>>>  arch/riscv/kernel/kexec_relocate.S | 175 ++++++++++++++++++++++++++
+>>>  arch/riscv/kernel/machine_kexec.c  | 191 +++++++++++++++++++++++++++++
+>>>  include/uapi/linux/kexec.h         |   1 +
+>>>  6 files changed, 424 insertions(+), 1 deletion(-)
+>>>  create mode 100644 arch/riscv/include/asm/kexec.h
+>>>  create mode 100644 arch/riscv/kernel/kexec_relocate.S
+>>>  create mode 100644 arch/riscv/kernel/machine_kexec.c
+>>>
+>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>>> index 515fc3cc9..0ed5f6d20 100644
+>>> --- a/arch/riscv/Kconfig
+>>> +++ b/arch/riscv/Kconfig
+>>> @@ -228,6 +228,17 @@ menu "Kernel features"
+>>>
+>>>  source "kernel/Kconfig.hz"
+>>>
+>>> +config KEXEC
+>>> +	bool "Kexec system call"
+>>> +	select KEXEC_CORE
+>>> +	help
+>>> +	  kexec is a system call that implements the ability to shutdown your
+>>> +	  current kernel, and to start another kernel. It is like a reboot
+>>> +	  but it is independent of the system firmware. And like a reboot
+>>> +	  you can start any kernel with it, not just Linux.
+>>> +
+>>> +	  The name comes from the similarity to the exec system call.
+>>> +
+>>>  endmenu
+>>>
+>>>  menu "Boot options"
+>>> diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/kexec.h
+>>> new file mode 100644
+>>> index 000000000..86d2f3c6c
+>>> --- /dev/null
+>>> +++ b/arch/riscv/include/asm/kexec.h
+>>> @@ -0,0 +1,43 @@
+>>> +/* SPDX-License-Identifier: GPL-2.0 */
+>>> +/*
+>>> + * Copyright (C) 2019 FORTH-ICS/CARV
+>>> + *		      Nick Kossifidis <mick@ics.forth.gr>
+>>> + */
+>>> +
+>>> +#ifndef _RISCV_KEXEC_H
+>>> +#define _RISCV_KEXEC_H
+>>> +
+>>> +/* Maximum physical address we can use pages from */
+>>> +#define KEXEC_SOURCE_MEMORY_LIMIT (-1UL)
+>>> +
+>>> +/* Maximum address we can reach in physical address mode */
+>>> +#define KEXEC_DESTINATION_MEMORY_LIMIT (-1UL)
+>>> +
+>>> +/* Maximum address we can use for the control code buffer */
+>>> +#define KEXEC_CONTROL_MEMORY_LIMIT (-1UL)
+>>> +
+>>> +/* Reserve a page for the control code buffer */
+>>> +#define KEXEC_CONTROL_PAGE_SIZE 4096
+>>> +
+>>> +#define KEXEC_ARCH KEXEC_ARCH_RISCV
+>>> +
+>>> +static inline void
+>>> +crash_setup_regs(struct pt_regs *newregs,
+>>> +		 struct pt_regs *oldregs)
+>>> +{
+>>> +	/* Dummy implementation for now */
+>>> +}
+>>> +
+>>> +/*
+>>> + * These are defined on kexec_relocate.S
+>>> + * and modified on machine_kexec.c
+>>> + */
+>>> +const extern unsigned char riscv_kexec_relocate[];
+>>> +const extern unsigned int riscv_kexec_relocate_size;
+>>> +
+>>> +extern unsigned long riscv_kexec_start_address;
+>>> +extern unsigned long riscv_kexec_indirection_page;
+>>> +extern unsigned long riscv_kexec_fdt_address;
+>>> +extern unsigned long riscv_kexec_hartid;
+>>> +
+>>> +#endif
+>>> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+>>> index f13f7f276..de50d5f96 100644
+>>> --- a/arch/riscv/kernel/Makefile
+>>> +++ b/arch/riscv/kernel/Makefile
+>>> @@ -40,6 +40,8 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
+>>>  obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
+>>>  obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+>>>
+>>> -obj-$(CONFIG_PERF_EVENTS)      += perf_event.o
+>>> +obj-$(CONFIG_PERF_EVENTS)	+= perf_event.o
+>>> +
+>>> +obj-${CONFIG_KEXEC}		+= kexec_relocate.o machine_kexec.o
+>>>
+>>>  clean:
+>>> diff --git a/arch/riscv/kernel/kexec_relocate.S
+>>> b/arch/riscv/kernel/kexec_relocate.S
+>>> new file mode 100644
+>>> index 000000000..fae6b1360
+>>> --- /dev/null
+>>> +++ b/arch/riscv/kernel/kexec_relocate.S
+>>> @@ -0,0 +1,175 @@
+>>> +/* SPDX-License-Identifier: GPL-2.0 */
+>>> +/*
+>>> + * Copyright (C) 2019 FORTH-ICS/CARV
+>>> + *		      Nick Kossifidis <mick@ics.forth.gr>
+>>> + */
+>>> +
+>>> +#include <asm/asm.h>	/* For RISCV_* and REG_* macros */
+>>> +#include <asm/page.h>	/* For PAGE_SHIFT */
+>>> +
+>>> +	.globl riscv_kexec_relocate
+>>> +riscv_kexec_relocate:
+>>> +
+>>> +	/*
+>>> +	 * s0: Pointer to the current entry
+>>> +	 * s1: (const) Phys address to jump to after relocation
+>>> +	 * s2: (const) Phys address of the FDT image
+>>> +	 * s3: (const) The hartid of the current hart
+>>> +	 * s4: Pointer to the destination address for the relocation
+>>> +	 * s5: (const) Number of words per page
+>>> +	 * s6: (const) 1, used for subtraction
+>>> +	 * s7: (const) va_pa_offset, used when switching MMU off
+>>> +	 * s8: (const) Physical address of the main loop
+>>> +	 * s9: (debug) indirection page counter
+>>> +	 * s10: (debug) entry counter
+>>> +	 * s11: (debug) copied words counter
+>>> +	 */
+>>> +	REG_L	s0, riscv_kexec_indirection_page
+>>> +	REG_L	s1, riscv_kexec_start_address
+>>> +	REG_L	s2, riscv_kexec_fdt_address
+>>> +	REG_L	s3, riscv_kexec_hartid
+>>> +	mv	s4, zero
+>>> +	li	s5, ((1 << PAGE_SHIFT) / RISCV_SZPTR)
+>>> +	li	s6, 1
+>>> +	REG_L	s7, va_pa_offset
+>>> +	mv	s8, zero
+>>> +	mv	s9, zero
+>>> +	mv	s10, zero
+>>> +	mv	s11, zero
+>>> +
+>>> +	/* Disable / cleanup interrupts */
+>>> +	csrw	sie, zero
+>>> +	csrw	sip, zero
+>>> +
+>>> +	/*
+>>> +	 * When we switch SATP.MODE to "Bare" we'll only
+>>> +	 * play with physical addresses. However the first time
+>>> +	 * we try to jump somewhere, the offset on the jump
+>>> +	 * will be relative to pc which will still be on VA. To
+>>> +	 * deal with this we set stvec to the physical address at
+>>> +	 * the start of the loop below so that we jump there in
+>>> +	 * any case.
+>>> +	 */
+>>> +	la	s8, 1f
+>>> +	sub	s8, s8, s7
+>>> +	csrw	stvec, s8
+>>> +
+>>> +	/* Process entries in a loop */
+>>> +.align 2
+>>> +1:
+>>> +	addi	s10, s10, 1
+>>> +	REG_L	t0, 0(s0)		/* t0 = *image->entry */
+>>> +	addi	s0, s0, RISCV_SZPTR	/* image->entry++ */
+>>> +
+>>> +	/* IND_DESTINATION entry ? -> save destination address */
+>>> +	andi	t1, t0, 0x1
+>>> +	beqz	t1, 2f
+>>> +	andi	s4, t0, ~0x1
+>>> +	j	1b
+>>> +
+>>> +2:
+>>> +	/* IND_INDIRECTION entry ? -> update next entry ptr (PA) */
+>>> +	andi	t1, t0, 0x2
+>>> +	beqz	t1, 2f
+>>> +	andi	s0, t0, ~0x2
+>>> +	addi	s9, s9, 1
+>>> +	csrw	sptbr, zero
+>>> +	jalr	zero, s8, 0
+>>> +
+>>> +2:
+>>> +	/* IND_DONE entry ? -> jump to done label */
+>>> +	andi	t1, t0, 0x4
+>>> +	beqz	t1, 2f
+>>> +	j	4f
+>>> +
+>>> +2:
+>>> +	/*
+>>> +	 * IND_SOURCE entry ? -> copy page word by word to the
+>>> +	 * destination address we got from IND_DESTINATION
+>>> +	 */
+>>> +	andi	t1, t0, 0x8
+>>> +	beqz	t1, 1b		/* Unknown entry type, ignore it */
+>>> +	andi	t0, t0, ~0x8
+>>> +	mv	t3, s5		/* i = num words per page */
+>>> +3:	/* copy loop */
+>>> +	REG_L	t1, (t0)	/* t1 = *src_ptr */
+>>> +	REG_S	t1, (s4)	/* *dst_ptr = *src_ptr */
+>>> +	addi	t0, t0, RISCV_SZPTR /* stc_ptr++ */
+>>> +	addi	s4, s4, RISCV_SZPTR /* dst_ptr++ */
+>>> +	sub	t3, t3, s6	/* i-- */
+>>> +	addi	s11, s11, 1	/* c++ */
+>>> +	beqz	t3, 1b		/* copy done ? */
+>>> +	j	3b
+>>> +
+>>> +4:
+>>> +	/* Wait for the relocation to be visible by other harts */
+>>> +	fence	w,w
+>>> +
+>>> +	/* Pass the arguments to the next kernel  / Cleanup*/
+>>> +	mv	a0, s3
+>>> +	mv	a1, s2
+>>> +	mv	a2, s1
+>>> +
+>>> +	/* Cleanup */
+>>> +	mv	a3, zero
+>>> +	mv	a4, zero
+>>> +	mv	a5, zero
+>>> +	mv	a6, zero
+>>> +	mv	a7, zero
+>>> +
+>>> +	mv	s0, zero
+>>> +	mv	s1, zero
+>>> +	mv	s2, zero
+>>> +	mv	s3, zero
+>>> +	mv	s4, zero
+>>> +	mv	s5, zero
+>>> +	mv	s6, zero
+>>> +	mv	s7, zero
+>>> +	mv	s8, zero
+>>> +	mv	s9, zero
+>>> +	mv	s10, zero
+>>> +	mv	s11, zero
+>>> +
+>>> +	mv	t0, zero
+>>> +	mv	t1, zero
+>>> +	mv	t2, zero
+>>> +	mv	t3, zero
+>>> +	mv	t4, zero
+>>> +	mv	t5, zero
+>>> +	mv	t6, zero
+>>> +	csrw	sepc, zero
+>>> +	csrw	scause, zero
+>>> +	csrw	sscratch, zero
+>>> +
+>>> +	/*
+>>> +	 * Make sure the relocated code is visible
+>>> +	 * and jump to the new kernel
+>>> +	 */
+>>> +	fence.i
+>>> +
+>>> +	jalr	zero, a2, 0
+>>> +
+>>> +
+>>> +	/* Exported variables, set on machine_kexec.c */
+>>> +	.globl riscv_kexec_start_address
+>>> +riscv_kexec_start_address:
+>>> +	RISCV_PTR	0x0
+>>> +
+>>> +	.globl riscv_kexec_indirection_page
+>>> +riscv_kexec_indirection_page:
+>>> +	RISCV_PTR	0x0
+>>> +
+>>> +	.globl riscv_kexec_fdt_address
+>>> +riscv_kexec_fdt_address:
+>>> +	RISCV_PTR	0x0
+>>> +
+>>> +	.globl riscv_kexec_hartid
+>>> +riscv_kexec_hartid:
+>>> +	RISCV_PTR	0x0
+>>> +
+>>> +riscv_kexec_relocate_end:
+>>> +
+>>> +	.globl riscv_kexec_relocate_size
+>>> +riscv_kexec_relocate_size:
+>>> +	.long riscv_kexec_relocate_end - riscv_kexec_relocate
+>>> +
+>>> diff --git a/arch/riscv/kernel/machine_kexec.c
+>>> b/arch/riscv/kernel/machine_kexec.c
+>>> new file mode 100644
+>>> index 000000000..352bf8219
+>>> --- /dev/null
+>>> +++ b/arch/riscv/kernel/machine_kexec.c
+>>> @@ -0,0 +1,191 @@
+>>> +// SPDX-License-Identifier: GPL-2.0
+>>> +/*
+>>> + * Copyright (C) 2019 FORTH-ICS/CARV
+>>> + *		      Nick Kossifidis <mick@ics.forth.gr>
+>>> + */
+>>> +
+>>> +#include <linux/kexec.h>
+>>> +#include <asm/kexec.h>		/* For riscv_kexec_* symbol defines */
+>>> +#include <linux/smp.h>		/* For smp_send_stop () */
+>>> +#include <asm/cacheflush.h>	/* For local_flush_icache_all() */
+>>> +#include <asm/barrier.h>	/* For smp_wmb() */
+>>> +#include <asm/page.h>		/* For PAGE_MASK */
+>>> +#include <linux/libfdt.h>	/* For fdt_check_header() */
+>>> +
+>>> +
+>>> +/**
+>>> + * kexec_image_info - Print received image details
+>>> + */
+>>> +static void
+>>> +kexec_image_info(const struct kimage *image)
+>>> +{
+>>> +	unsigned long i;
+>>> +
+>>> +	pr_debug("Kexec image info:\n");
+>>> +	pr_debug("\ttype:        %d\n", image->type);
+>>> +	pr_debug("\tstart:       %lx\n", image->start);
+>>> +	pr_debug("\thead:        %lx\n", image->head);
+>>> +	pr_debug("\tnr_segments: %lu\n", image->nr_segments);
+>>> +
+>>> +	for (i = 0; i < image->nr_segments; i++) {
+>>> +		pr_debug("\t    segment[%lu]: %016lx - %016lx", i,
+>>> +			image->segment[i].mem,
+>>> +			image->segment[i].mem + image->segment[i].memsz);
+>>> +		pr_debug("\t\t0x%lx bytes, %lu pages\n",
+>>> +			(unsigned long) image->segment[i].memsz,
+>>> +			(unsigned long) image->segment[i].memsz /  PAGE_SIZE);
+>>> +	}
+>>> +}
+>>> +
+>>> +/**
+>>> + * machine_kexec_prepare - Initialize kexec
+>>> + *
+>>> + * This function is called from do_kexec_load, when the user has
+>>> + * provided us with an image to be loaded. Its goal is to validate
+>>> + * the image and prepare the control code buffer as needed.
+>>> + * Note that kimage_alloc_init has already been called and the
+>>> + * control buffer has already been allocated.
+>>> + */
+>>> +int
+>>> +machine_kexec_prepare(struct kimage *image)
+>>> +{
+>>> +	struct fdt_header fdt = {0};
+>>> +	void *control_code_buffer = NULL;
+>>> +	int i = 0;
+>>> +
+>>> +	riscv_kexec_start_address = 0;
+>>> +	riscv_kexec_indirection_page = 0;
+>>> +	riscv_kexec_fdt_address = 0;
+>>> +
+>>> +	kexec_image_info(image);
+>>> +
+>>> +	if (image->type == KEXEC_TYPE_CRASH) {
+>>> +		pr_warn("Loading a crash kernel is unsupported for now.\n");
+>>> +		return -EINVAL;
+>>> +	}
+>>> +
+>>> +	/* Find the Flattened Device Tree */
+>>> +	for (i = 0; i < image->nr_segments; i++) {
+>>> +		if (image->segment[i].memsz <= sizeof(fdt))
+>>> +			continue;
+>>> +
+>>> +		if (copy_from_user(&fdt, image->segment[i].buf, sizeof(fdt)))
+>>> +			continue;
+>>> +
+>>> +		if (fdt_check_header(&fdt))
+>>> +			continue;
+>>> +
+>>> +		riscv_kexec_fdt_address = (unsigned long) image->segment[i].mem;
+>>> +		break;
+>>> +	}
+>>> +
+>>> +	if (!riscv_kexec_fdt_address) {
+>>> +		pr_err("Device tree not included in the provided image\n");
+>>> +		return -EINVAL;
+>>> +	}
+>>> +
+>>> +	/* Initialize the rest of the arguments for the relocation code */
+>>> +	riscv_kexec_start_address = (unsigned long) image->start;
+>>> +	riscv_kexec_indirection_page = (unsigned long) &image->head;
+>>> +
+>>> +	/* Copy the assembler code for relocation to the control buffer */
+>>> +	control_code_buffer = page_address(image->control_code_page);
+>>> +	memcpy(control_code_buffer, riscv_kexec_relocate,
+>>> +		riscv_kexec_relocate_size);
+>>> +
+>>> +#ifdef CONFIG_SMP
+>>> +	/*
+>>> +	 * Make sure other harts see the copied data
+>>> +	 * if they try to read the buffer
+>>> +	 */
+>>> +	smp_wmb();
+>>> +#endif
+>>
+>> Isn't smp_wmb() already a NOP for !CONFIG_SMP?
+>>
 >
-> This is not how I would do it: I'd have this put all the secondary harts into
-> an in-kernel spin table, with machine_kexec then pointing all secondary harts
-> to the new kernel image's entry point before jumping there itself.
+> If I'm not mistaken it becomes a call to barrier() which is
+> provided by the compiler, I believe the CONFIG_SMP check there
+> makes it cleaner.
 >
-
-The idea is to have this implemented on the firmware side since we'll use the
-same facility for suspend to ram, where we'll need to have an way (e.g. IPI)
-of telling a hart to "wake up and jump there", where "there" is the previous
-kernel in case of resume, or the new kernel in case of kexec. Until we  
-have that
-(which I'd like to discuss on the upcomming unix platform wg meeting) I think
-it's cleaner to just disable all secondary harts, since having an  
-approach that
-implements this on supervisor mode will be reduntant + will prevent us from
-using the whole available memory for the new kernel (we'll have to  
-keep a small
-part for the spin code) + overcomplicate things IMHO.
-
-> Maybe I'm missing something, but won't this result in the new kernel  
-> only ever
-> getting a single hart?  Unless the other harts get filtered out of the device
-> tree then the kernel will hang waiting for them to appear.
+>>> +
+>>> +	return 0;
+>>> +}
+>>> +
+>>> +
+>>> +/**
+>>> + * machine_kexec_cleanup - Cleanup any leftovers from
+>>> + *			   machine_kexec_prepare
+>>> + *
+>>> + * This function is called by kimage_free to handle any arch-specific
+>>> + * allocations done on machine_kexec_prepare. Since we didn't do any
+>>> + * allocations there, this is just an empty function. Note that the
+>>> + * control buffer is freed by kimage_free.
+>>> + */
+>>> +void
+>>> +machine_kexec_cleanup(struct kimage *image)
+>>> +{
+>>> +}
+>>> +
+>>> +
+>>> +/*
+>>> + * machine_shutdown - Prepare for a kexec reboot
+>>> + *
+>>> + * This function is called by kernel_kexec just before machine_kexec
+>>> + * below. Its goal is to prepare the rest of the system (the other
+>>> + * harts and possibly devices etc) for a kexec reboot. Since on kexec
+>>> + * the current kernel will be lost, the other harts on the system won't
+>>> + * know what to run and will hang in an unrecoverable way. Until we
+>>> + * support CPU suspend through SBI we just stop all other harts by
+>>> + * forcing them on an infinite wfi loop with interrupts disabled.
+>>> + */
+>>> +void machine_shutdown(void)
+>>> +{
+>>> +#ifdef CONFIG_SMP
+>>> +	pr_notice("Stopping secondary harts\n");
+>>> +	smp_send_stop();
+>>> +#endif
+>>> +}
+>>
+>> This is not how I would do it: I'd have this put all the secondary harts into
+>> an in-kernel spin table, with machine_kexec then pointing all secondary harts
+>> to the new kernel image's entry point before jumping there itself.
+>>
 >
+> The idea is to have this implemented on the firmware side since we'll use the
+> same facility for suspend to ram, where we'll need to have an way (e.g. IPI)
+> of telling a hart to "wake up and jump there", where "there" is the previous
+> kernel in case of resume, or the new kernel in case of kexec. Until we
+> have that
+> (which I'd like to discuss on the upcomming unix platform wg meeting) I think
+> it's cleaner to just disable all secondary harts, since having an
+> approach that
+> implements this on supervisor mode will be reduntant + will prevent us from
+> using the whole available memory for the new kernel (we'll have to
+> keep a small
+> part for the spin code) + overcomplicate things IMHO.
+>
+>> Maybe I'm missing something, but won't this result in the new kernel
+>> only ever
+>> getting a single hart?  Unless the other harts get filtered out of the device
+>> tree then the kernel will hang waiting for them to appear.
+>>
+>
+> You are right it will hang, that's why the kexec-tools part adds nosmp to the
+> next kernel's cmdline unconditionaly for now. Check the more recent commit
+> for the updated kexec-tools patch. This approach worked for me on riscv64
+> qemu with SMP in place (2 cores but I can test it with more).
+>
+> We can add this simple/clean version for now that works with what we have,
+> add kdump/crashkernel support (which can be added/used without having multiple
+> harts active on the new kernel) and update this once we have the firmware
+> part ready.
 
-You are right it will hang, that's why the kexec-tools part adds nosmp to the
-next kernel's cmdline unconditionaly for now. Check the more recent commit
-for the updated kexec-tools patch. This approach worked for me on riscv64
-qemu with SMP in place (2 cores but I can test it with more).
+I'd prefer to do this the right way, as it doesn't seem like much more code.
+Maybe it's a bit pedantic, but I don't want to rely on userspace doing this in
+order to avoid hanging the system -- for example, what happens when we release
+a kernel that breaks on kexec-without-nosmp and then want to start updating to
+the fully supported version?
 
-We can add this simple/clean version for now that works with what we have,
-add kdump/crashkernel support (which can be added/used without having multiple
-harts active on the new kernel) and update this once we have the firmware
-part ready.
-
-Regards,
-Nick
-
+>
+> Regards,
+> Nick
 
 _______________________________________________
 linux-riscv mailing list
