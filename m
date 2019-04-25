@@ -2,75 +2,85 @@ Return-Path: <SRS0=WcIC=S3=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C7849C43219
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2019 20:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 228C1C43218
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2019 20:17:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CB12220717
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2019 20:10:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 288D82077C
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Apr 2019 20:17:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="P+fBFFCY";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="lUo4MbCS"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CB12220717
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZWu+h8Kb";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Vcbq47qD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 288D82077C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OoU9HXLl5X6aXk0Qhv/Q4N8e4Q0GMwhZ/kM5+4+Rk8Y=; b=P+fBFFCY86njYg
-	X5M+ZTYx1BH5ZVTC08082rKclJLjcIX1oCcUXAoW+u5nWaWs3C0m8kdYUEWHVTeBbW4IAjU2JezP7
-	dMJ24/OhVQW1gU98igObJI7MMHnGIzIJSSchiLFRwhJ2u5WYBP/0eyvOmj4axVl/pgQBUq9gWdMkW
-	4Z1/JPNGO+fISmEVh7rCdwj7DiYDZTCwp1gcB65nmI2XWADGjwsU1dzKJrKnfmQDe/yLidsAj1CWV
-	VvDCaYC2GxCp4Irr3fawBI1pA9zellEN8TM+7L1dRyrOger/aStdY1bkG4pYl/NOmPvV6jktHRoQY
-	FP3XskO4mmsYtLuUkF/g==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=YMJ2qxK5bSqS4ZDVk9ODrqhv53azkBSzNu+yK2KCyPE=; b=ZWu+h8Kb7Ck/KpctxzoXLx3oy
+	JN/MVAxeiP7jBE7elayA4wSZU8fbnqFz68gTWZziIADo+q/kyfmqUfeGXT6Dt1Iu8elBgmFG2iD0f
+	/CDQ0GMnkPxzyxbu+bBaRU7bZ5187bptWEp07rJkQG/RdoYv3M2ISwuPT3oyjZJtqqZo6n4YL8cCZ
+	iIJfRaiPDr4dYWKXH9BitxMYirXpgk1uGsD0jBqcmirSvOiPh7aSPPBKguOou5p51ceUqiphoJhvj
+	21G3IKUuCDOs9SjBxfM8/LoJEXVHDuVbLBg4qVlRBvLegdaboY01aOxOFk+BZDg/priAFcjgBfCyD
+	vqXhGoi2w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hJkhB-0005HG-2U; Thu, 25 Apr 2019 20:10:13 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1hJkoS-0006x5-2Q; Thu, 25 Apr 2019 20:17:44 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hJkh9-0003ux-4c
- for linux-riscv@bombadil.infradead.org; Thu, 25 Apr 2019 20:10:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=/r/3jjOHgrSwjsPNzOZRABB5TvzFUErJPXpTfl3JbFo=; b=lUo4MbCSW//yivsJQ9dD57XRL
- fvmgAnuomo1lm2tlz1Lze+Xpb9iGCCPxrjfxhyuRTIUWHxuBHWg6wn6UWFZ/Bfmb4iRp3EEaUNjrm
- YofJWbPCDygFg1BUdWFdDfHoxpuG+9LondqZOiVJtquzaIXKZWNMQuXt2zRSZA5YFyu4+P+NA2pmE
- B0vWcbYu1I0QCSXGUUamnLYbPtLA3hzusLfYjQ+p9NmdvIIJCxdx+bXtYCZTVhw/12M+hTjrmx6/J
- yPG2yGfC2kBn6PrQfWKk6MCtNaY5fSwjJHSjpeqCqappLWngZZ/QySY36UfKBwkWOGuWY1SJlG5da
- SoM2He8Ng==;
-Received: from verein.lst.de ([213.95.11.211] helo=newverein.lst.de)
- by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hJkSX-00081m-3V
- for linux-riscv@lists.infradead.org; Thu, 25 Apr 2019 19:55:06 +0000
-Received: by newverein.lst.de (Postfix, from userid 2407)
- id 02E9868C4E; Thu, 25 Apr 2019 21:54:47 +0200 (CEST)
-Date: Thu, 25 Apr 2019 21:54:47 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH 7/9] riscv: remove duplicate macros from ptrace.h
-Message-ID: <20190425195447.GA22587@lst.de>
-References: <20190411115623.5749-1-hch@lst.de>
- <20190411115623.5749-8-hch@lst.de>
- <alpine.DEB.2.21.9999.1904251208140.17442@viisi.sifive.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <alpine.DEB.2.21.9999.1904251208140.17442@viisi.sifive.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+ id 1hJkoP-0006vJ-9R
+ for linux-riscv@lists.infradead.org; Thu, 25 Apr 2019 20:17:42 +0000
+Received: by mail-pg1-x544.google.com with SMTP id z16so381968pgv.11
+ for <linux-riscv@lists.infradead.org>; Thu, 25 Apr 2019 13:17:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=fA5KHm6WYeqpbYfv6EOm14l5ImEX/Mjdl/+EKZUHPNk=;
+ b=Vcbq47qDVPeF8IWnK7max0BflmgJkP/VmZSdCFTqJLYPbNIOsdYWCc+p/4EOYkkNhy
+ tnCqIsZW5upw4Jo4iffX+PjdGqktr/fJObI4vSTvKSyUnq2cszeZIV9ivAKMNyR6iXIk
+ hrZihzPyOkEgedegO1/lRZcvbKKBlf9eLeAeI0yJglExsJD2fjMTM+kZHk/AcsoVsht4
+ HO9MFEu55YLkWOO3L9IQVDGXMN+bEBWZuh5hn0GYMNloari/j16lOxIRGjeIvOiSTo9g
+ +7wDhecQCFYmj3aTgmamVMn2REZPUi1QFQocJC+2LhiGETiQJvj5fWjEZ1UK7Zmnc6l5
+ Q4CQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=fA5KHm6WYeqpbYfv6EOm14l5ImEX/Mjdl/+EKZUHPNk=;
+ b=YKAUqe/+edRDigr4xsSNJbof3oEKshFt34CPNDaVeJ8OOevdaFGJnIctxW02AE6CTD
+ bIV8JIkDZa5rRyIQrDgw2V2SmnC68pEaYsEbTx1gaHLICAWzEnc6cLZzZf2A7KXwm/0S
+ JUP1hiyVF91t8TKYn9YeixXBgjrYFWGoNOLD7CdglUqxrkqIC/anbvQsa7bCpdokaELy
+ 7g9VA6NvDdbmH5d7uBlQwv4p0T9LP9YyTNGAXijZRPQA3JIrGUH2iC/kKnyo3qe6tO72
+ 08Y67vu9HWqT79BROeyT8U9Z5wZlF/t5Xcs6cqceWagYx+0eKSslCB5VTvFD7/4/pUuJ
+ yaXA==
+X-Gm-Message-State: APjAAAWaOMn0vMrM4ClcDk2g7Rn8zrNq8bpqCBd1j41NTdOx+pWnMjUM
+ I18LlPBlLdvx1D4M7Rmiic6EoQ==
+X-Google-Smtp-Source: APXvYqw0Jw7SDAvQhijd6DulFd4/QSMb1rNE5tFSJiOnCpdjd7KC8iuteodKG/6pa2bIqLGYuboCzg==
+X-Received: by 2002:a65:484a:: with SMTP id i10mr39358793pgs.408.1556223460514; 
+ Thu, 25 Apr 2019 13:17:40 -0700 (PDT)
+Received: from localhost ([134.134.139.92])
+ by smtp.gmail.com with ESMTPSA id w23sm33833071pgj.72.2019.04.25.13.17.39
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Thu, 25 Apr 2019 13:17:39 -0700 (PDT)
+Date: Thu, 25 Apr 2019 13:17:39 -0700 (PDT)
+X-Google-Original-Date: Thu, 25 Apr 2019 13:16:38 PDT (-0700)
+Subject: Re: [2/3] RISC-V: Update tlb flush counters
+In-Reply-To: <20190410224449.10877-3-atish.patra@wdc.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: atish.patra@wdc.com
+Message-ID: <mhng-beb18d22-55b3-4a5f-9e29-a560ab168dff@palmer-si-x1e>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190425_205505_190140_AD1A69E0 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20190425_131741_323489_88FDC790 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -82,30 +92,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>,
- Christoph Hellwig <hch@lst.de>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: aou@eecs.berkeley.edu, anup@brainfault.org,
+ "maintainer:X86 ARCHITECTURE 32-BIT AND 64-BIT" <x86@kernel.org>,
+ linux-kernel@vger.kernel.org, atish.patra@wdc.com, mingo@redhat.com,
+ bp@alien8.de, gary@garyguo.net, hpa@zytor.com, linux-riscv@lists.infradead.org,
+ tglx@linutronix.de, luc.vanoostenryck@gmail.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 25, 2019 at 12:13:18PM -0700, Paul Walmsley wrote:
-> 
-> 
-> On Thu, 11 Apr 2019, Christoph Hellwig wrote:
-> 
-> > No need to have two names for the same thing.
-> > 
-> > Signed-off-by: Christoph Hellwig <hch@lst.de>
-> 
-> This is probably worth cleaning up across the entire tree.  
-> 
-> asm-{generic,x86,arm64,powerpc}/ptrace.h all define similar GET_IP/SET_IP
-> macros - although it seems that arch/riscv is the only architecture that 
-> uses them.
+On Wed, 10 Apr 2019 15:44:48 PDT (-0700), atish.patra@wdc.com wrote:
+> The TLB flush counters under vmstat seems to be very helpful while
+> debugging TLB flush performance in RISC-V.
+>
+> Update the counters in every TLB flush methods respectively.
+>
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+>  arch/riscv/include/asm/tlbflush.h |  5 +++++
+>  arch/riscv/mm/tlbflush.c          | 12 ++++++++++++
+>  2 files changed, 17 insertions(+)
+>
+> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+> index 29a780ca232a..19779a083f52 100644
+> --- a/arch/riscv/include/asm/tlbflush.h
+> +++ b/arch/riscv/include/asm/tlbflush.h
+> @@ -9,6 +9,7 @@
+>  #define _ASM_RISCV_TLBFLUSH_H
+>
+>  #include <linux/mm_types.h>
+> +#include <linux/vmstat.h>
+>
+>  /*
+>   * Flush entire local TLB.  'sfence.vma' implicitly fences with the instruction
+> @@ -16,11 +17,13 @@
+>   */
+>  static inline void local_flush_tlb_all(void)
+>  {
+> +	count_vm_tlb_event(NR_TLB_LOCAL_FLUSH_ALL);
+>  	__asm__ __volatile__ ("sfence.vma" : : : "memory");
+>  }
+>
+>  static inline void local_flush_tlb_mm(struct mm_struct *mm)
+>  {
+> +	count_vm_tlb_event(NR_TLB_LOCAL_FLUSH_ALL);
+>  	/* Flush ASID 0 so that global mappings are not affected */
+>  	__asm__ __volatile__ ("sfence.vma x0, %0" : : "r" (0) : "memory");
+>  }
+> @@ -28,6 +31,7 @@ static inline void local_flush_tlb_mm(struct mm_struct *mm)
+>  static inline void local_flush_tlb_page(struct vm_area_struct *vma,
+>  	unsigned long addr)
+>  {
+> +	count_vm_tlb_event(NR_TLB_LOCAL_FLUSH_ONE);
+>  	__asm__ __volatile__ ("sfence.vma %0, %1"
+>  			      : : "r" (addr), "r" (0)
+>  			      : "memory");
+> @@ -35,6 +39,7 @@ static inline void local_flush_tlb_page(struct vm_area_struct *vma,
+>
+>  static inline void local_flush_tlb_kernel_page(unsigned long addr)
+>  {
+> +	count_vm_tlb_event(NR_TLB_LOCAL_FLUSH_ONE);
+>  	__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory");
+>  }
+>
+> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+> index ceee76f14a0a..8072d7da32bb 100644
+> --- a/arch/riscv/mm/tlbflush.c
+> +++ b/arch/riscv/mm/tlbflush.c
+> @@ -4,6 +4,8 @@
+>   */
+>
+>  #include <linux/mm.h>
+> +#include <linux/vmstat.h>
+> +#include <linux/cpumask.h>
+>  #include <asm/sbi.h>
+>
+>  #define SFENCE_VMA_FLUSH_ALL ((unsigned long) -1)
+> @@ -110,6 +112,7 @@ static void ipi_remote_sfence_vma(void *info)
+>  	unsigned long size = data->size;
+>  	unsigned long i;
+>
+> +	count_vm_tlb_event(NR_TLB_REMOTE_FLUSH_RECEIVED);
+>  	if (size == SFENCE_VMA_FLUSH_ALL) {
+>  		local_flush_tlb_all();
+>  	}
+> @@ -129,6 +132,8 @@ static void ipi_remote_sfence_vma_asid(void *info)
+>  	unsigned long size = data->size;
+>  	unsigned long i;
+>
+> +	count_vm_tlb_event(NR_TLB_REMOTE_FLUSH_RECEIVED);
+> +	/* Flush entire MM context */
+>  	if (size == SFENCE_VMA_FLUSH_ALL) {
+>  		__asm__ __volatile__ ("sfence.vma x0, %0"
+>  				      : : "r" (asid)
+> @@ -158,6 +163,13 @@ static void remote_sfence_vma(unsigned long start, unsigned long size)
+>  static void remote_sfence_vma_asid(cpumask_t *mask, unsigned long start,
+>  				   unsigned long size, unsigned long asid)
+>  {
+> +	int cpuid = smp_processor_id();
+> +
+> +	if (cpumask_equal(mask, cpumask_of(cpuid)))
+> +		count_vm_tlb_event(NR_TLB_LOCAL_FLUSH_ALL);
+> +	else
+> +		count_vm_tlb_event(NR_TLB_REMOTE_FLUSH);
+> +
+>  	if (tlbi_ipi) {
+>  		struct tlbi info = {
+>  			.start = start,
 
-Yes, we had that discussion before.  I've started on a series for that,
-but it is unlikely to touch riscv.
+Looks good, but it's not applying on for-next (based on rc6).  Do you mind
+re-spinning the patches?
+
 
 _______________________________________________
 linux-riscv mailing list
