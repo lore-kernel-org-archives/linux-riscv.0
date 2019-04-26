@@ -2,21 +2,21 @@ Return-Path: <SRS0=v9z2=S4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9EF3BC43219
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2019 05:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4D1C6C43219
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2019 05:51:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 74890206C1
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2019 05:35:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1F727206E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2019 05:51:03 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZYEntnxs";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="PwMxOmAs"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 74890206C1
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QER3RFc2";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="MSMGsljH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1F727206E0
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,60 +25,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RoJsosW1Vb3l8dW2uFISEq3fwjDoG4HZLfJ6QtBPp/0=; b=ZYEntnxszAx7+K
-	W0Y2FgxDa77m6eXMEmQoeTShEZkx7af1IVVFLpEESxKWjvCWzxjQ4m2LG2kh6On6eSj6tCiqwvkhQ
-	1aQnfbL9D/EPeB6q54Wy2lIBZNId9vNQDYcM/rCmnX/Rgwt4mKJkUGaicANMqiiyMO6cHDpF4AB+F
-	vTGX5cogssVtwUaxuOBfVMnKaMEeb31sj31r7cTq4sULeJa643u/NcK198KKVoQmWCAWUg+APirAl
-	aGaVAFqziSJgzDN/GCTaWDjzzmLzoqj9XMT1DIAJndLDu/OCCZ7Okv7hP/0BmSvd8PZnLXq9P2Wlu
-	Z/543RhaZURO55xHJ6pQ==;
+	List-Owner; bh=FtybeEj3K+evIXGNMI9R4MW2PJs2HIx7hlcuxRxBEv0=; b=QER3RFc2i5o4Xp
+	iM1Ipt+5ZC4w1yRBnz1luipZE2k7Xdr+MnCjHsuZSu8qR4tUFFcadWqBGrKkbQEDuJ48Xg8OS86ov
+	ItHoqnCqPQZO/ttF5j/JwatAl2dBvXev/mQDI+bIe+UUpufU13jK8sjyQwp5/t+w5FhNTWAONP3Dn
+	hOvJU5w1xb6CuWokPww3rjAYooy1sSHS9MBCfgd9iFPbgSpnqv58vgK4m6aMsgBg8I3btguq8PeXV
+	zhFv7CTzNWfR4P3uvJs4J046tHtGjjewsKzYmibVe5+HsA86+ev83KbHw5WfxB4192zq/Mth16YE0
+	IYN5wbDDdwBYtYUNasFQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hJtWC-00037u-5z; Fri, 26 Apr 2019 05:35:28 +0000
-Received: from mail-lf1-x141.google.com ([2a00:1450:4864:20::141])
+	id 1hJtlC-0007bs-Hk; Fri, 26 Apr 2019 05:50:58 +0000
+Received: from mail-lj1-x241.google.com ([2a00:1450:4864:20::241])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hJtW9-00037L-2N
- for linux-riscv@lists.infradead.org; Fri, 26 Apr 2019 05:35:26 +0000
-Received: by mail-lf1-x141.google.com with SMTP id d12so1524216lfk.6
- for <linux-riscv@lists.infradead.org>; Thu, 25 Apr 2019 22:35:24 -0700 (PDT)
+ id 1hJtl9-0007bT-QX
+ for linux-riscv@lists.infradead.org; Fri, 26 Apr 2019 05:50:57 +0000
+Received: by mail-lj1-x241.google.com with SMTP id b12so581361lji.4
+ for <linux-riscv@lists.infradead.org>; Thu, 25 Apr 2019 22:50:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=xxo1C77LCpO+psJrdF0wkVInexAcV6zrC0JqBooE20s=;
- b=PwMxOmAsKahZlfo2iZ9sBJAnBP49w+3B+ILKI1GtDNEx5uKYLMfw+RAZTuNd/QSFDX
- DDMwFRhD2u31RtzUeF/KUgF7tdHDvFeRBRwZLkigTj9sy64YhPZNdvgOPrIOvc8oLgmA
- 2ZYGS0oIfXX2huR5drgOFQ09xgO8BKshAUXPmC7nOiCBvaAPc0HuHyM2z8+KK1rEqB1r
- Ijk8ZR5LdItdIs31kRW9N7eHjBdx7wX5E+wqXnCzvatZmya9K4oPECVBkamK5xzLnMl7
- 7trQLnVovXMUnzur6u5blFauPNi/a0YVaburq5by8ibWvCUzUrUya3bEcsa3mcNJaOW9
- 024A==
+ :cc; bh=HNpC31CjPVPMt4LyUXBuFChEyLXh60VsFc6V2/expr4=;
+ b=MSMGsljHd6soZ9TxJZ9DKZWP547y3KOJw6IxtwJSpBG3++X/2b434dVXnSzj9uhhxw
+ beW/L0AEfvqz0mt8VnDkhJxseKqdxG42Z6q9t1XhU/Ijj2t8M67ZN8/dY7APQnTK/blh
+ FUbXRx/IZLCCdgv0lFyLsmVzfYEzmCTGcsPqY9iMssE9Pwt2NVqsMoGuHRzuL4CmJLNM
+ JpA4gnwFuxnuDFaFF+0Vb07cc/PMp3HGd3uDzd52bXbw0Q535BlOeB0IzrAJ/nmeTJRE
+ +hpryQf6NjX2Dnc6VNvwerZYV7N/g11En390+RbKHY/Bd+a7V/l8KQvlf6aURI7nZzkH
+ pT1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=xxo1C77LCpO+psJrdF0wkVInexAcV6zrC0JqBooE20s=;
- b=LuVGL7PBaXI/ewG6yIyOyO0wWaXso1oRgGT+hQmDPzzI4MMSp5i8oJuwqpZO/aoBMm
- h2RZCaBFlW838XBeAirOsp2pKANXF67HBBlryQknauVuhtG8pLtTfgJuAzPlelpCcLTk
- JMuJPjrC+79npulKqw+RI2XaxPv+mFpVdqvys66/hiRcwX7bZh+HmSqAjeUNafBQE+xt
- 3abHUfaFjX3moc+KnW0Fk5mdYU4UJZfjPA5WtXewvP/2E9r+z92Op0fP3tSgOnOI2Ada
- ECrQzg77rtrDG1UHcP4uojYdqsHPuv3fwNT8b4zeIoucyfbHDYyB3RTDQs5UO+qaNpyW
- nVMg==
-X-Gm-Message-State: APjAAAUL1xRGFAGH8Hi0lt/p2mzmyjmlQRLFvADjpEOmNt2BjQ7hmpst
- o+y8GEx0vL4GPFA5qS35ziFVKtPv2krGysEFS8izWw==
-X-Google-Smtp-Source: APXvYqw976bRUl5Uh58lZhG+e/95HRJRYg52VkNXmo2VGCql1DDUro/qPNTfbfaD/30cjwsA461YeNMI4U3jv94oJtk=
-X-Received: by 2002:ac2:52a8:: with SMTP id r8mr23259706lfm.160.1556256923148; 
- Thu, 25 Apr 2019 22:35:23 -0700 (PDT)
+ bh=HNpC31CjPVPMt4LyUXBuFChEyLXh60VsFc6V2/expr4=;
+ b=K+1j8LxihS2rWrIur2NgNmjHqr0R2wPNEOeP4FcfqCIdKYlOdZodQGP7J6t234K36n
+ +7leTplUPEnl+lwcvT6gnHW4sBHhR2BWZF8GKSHxultCgmBjh85MEoDWfGIjwr6AJoBU
+ BW4mz5x7RCPPNMyvq0QPhAyZCPbhf0uZy8XJdhGi29crG7UqpU6wJxyi+//5TMh8cjae
+ DjAbLnbOIHOyGAOJfCGiCoOPWVDB9uiixgHZgwzgTjg7Ph2RxbqRTxJh4UA0ynKGDQL+
+ /Vj7h3mwQ5Io8kFLWJA7tb2pza0mZLyWTwDbVdNw9IfCA86cyeRRK0olwr2RKtYcd8bY
+ +E/Q==
+X-Gm-Message-State: APjAAAVZHBP01h7GhJvocrORpaJLfFyhoel1tsZatFkYmVpRrCp38cVH
+ hZW9MNMEbQfZhhRTctre1qhZKUGxUAvsncIT1sAhTw==
+X-Google-Smtp-Source: APXvYqzD2fg8HY9Ym+sEq9Cijb2pl6+57V2fxKRIECJiXoeIcf6Prr49EDXjBQm9e8693Fbeb85Vu0NYfV1nSWoy/T4=
+X-Received: by 2002:a2e:9a91:: with SMTP id p17mr21952024lji.127.1556257853715; 
+ Thu, 25 Apr 2019 22:50:53 -0700 (PDT)
 MIME-Version: 1.0
 References: <1556171696-7741-1-git-send-email-yash.shah@sifive.com>
- <1556171696-7741-3-git-send-email-yash.shah@sifive.com>
- <20190425101757.GB8469@e107155-lin>
-In-Reply-To: <20190425101757.GB8469@e107155-lin>
+ <1556171696-7741-2-git-send-email-yash.shah@sifive.com>
+ <20190425101318.GA8469@e107155-lin>
+In-Reply-To: <20190425101318.GA8469@e107155-lin>
 From: Yash Shah <yash.shah@sifive.com>
-Date: Fri, 26 Apr 2019 11:04:46 +0530
-Message-ID: <CAJ2_jOGi3uTX2GhbFC-m7hHkSFAAS_-F7J-L_=3OYKpeexaaQA@mail.gmail.com>
-Subject: Re: [PATCH 2/2] RISC-V: sifive_l2_cache: Add L2 cache controller
- driver for SiFive SoCs
+Date: Fri, 26 Apr 2019 11:20:17 +0530
+Message-ID: <CAJ2_jOEBqBnorz9PcQp72Jjju9RX_P8mU=Gq+0xCCcWsBiJksw@mail.gmail.com>
+Subject: Re: [PATCH 1/2] RISC-V: Add DT documentation for SiFive L2 Cache
+ Controller
 To: Sudeep Holla <sudeep.holla@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190425_223525_121754_6AF80D27 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20190425_225055_866801_F1630620 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -99,57 +99,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 25, 2019 at 3:48 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
+On Thu, Apr 25, 2019 at 3:43 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
 >
-> On Thu, Apr 25, 2019 at 11:24:56AM +0530, Yash Shah wrote:
-> > The driver currently supports only SiFive FU540-C000 platform.
-> >
-> > The initial version of L2 cache controller driver includes:
-> > - Initial configuration reporting at boot up.
-> > - Support for ECC related functionality.
+> On Thu, Apr 25, 2019 at 11:24:55AM +0530, Yash Shah wrote:
+> > Add device tree bindings for SiFive FU540 L2 cache controller driver
 > >
 > > Signed-off-by: Yash Shah <yash.shah@sifive.com>
->
-> [....]
->
-> > +static const struct file_operations l2_fops = {
-> > +     .owner = THIS_MODULE,
-> > +     .open = simple_open,
-> > +     .write = l2_write
-> > +};
+> > ---
+> >  .../devicetree/bindings/riscv/sifive-l2-cache.txt  | 53 ++++++++++++++++++++++
+> >  1 file changed, 53 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
+> >
+> > diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
+> > new file mode 100644
+> > index 0000000..15132e2
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
+> > @@ -0,0 +1,53 @@
+> > +SiFive L2 Cache Controller
+> > +--------------------------
+> > +The SiFive Level 2 Cache Controller is used to provide access to fast copies
+> > +of memory for masters in a Core Complex. The Level 2 Cache Controller also
+> > +acts as directory-based coherency manager.
 > > +
-> > +static void setup_sifive_debug(void)
-> > +{
-> > +     sifive_test = debugfs_create_dir("sifive_l2_cache", NULL);
-> > +     if (!sifive_test)
->
-> Drop the conditional check above, Greg K H removed lots of them recently.
-> In his words: When calling debugfs functions, there is no need to ever
-> check the return value.  The function can work or not, but the code
-> logic should never do something different based on this.
->
-> He may not like to see this :)
-
-Sure, thanks for pointing it out. Will drop all the conditional check
-in debugfs functions.
-
->
-> > +             return;
+> > +Required Properties:
+> > +--------------------
+> > +- compatible: Should be "sifive,fu540-c000-ccache"
 > > +
-> > +     if (!debugfs_create_file("sifive_debug_inject_error", 0200,
-> > +                              sifive_test, NULL, &l2_fops))
+> > +- cache-block-size: Specifies the block size in bytes of the cache
+> > +
+> > +- cache-level: Should be set to 2 for a level 2 cache
+> > +
+> > +- cache-sets: Specifies the number of associativity sets of the cache
+> > +
+> > +- cache-size: Specifies the size in bytes of the cache
+> > +
+> > +- cache-unified: Specifies the cache is a unified cache
+> > +
+> > +- interrupt-parent: Must be core interrupt controller
+> > +
+> > +- interrupts: Must contain 3 entries (DirError, DataError and DataFail signals)
+> > +
+> > +- reg: Physical base address and size of L2 cache controller registers map
+> > +
+> > +- reg-names: Should be "control"
+> > +
 >
-> Ditto.
->
-> > +             debugfs_remove_recursive(sifive_test);
-> > +}
+> It would be good if you mark the properties that are present in DT
+> specification and those that are added for sifive,fu540-c000-ccache
+
+I believe there isn't any property which is added explicitly for
+sifive,fu540-c000-ccache.
+
+> explicitly. Also I assume you can retain the stardard "cache" compatible
+> in addition to above. I am interested to see if the cacheinfo infrastructure
+> can be used without any issues.
+
+Yes, I will add the "cache" string to the compatible property.
+
 >
 > --
 > Regards,
 > Sudeep
 
 Thanks for your comments.
-
 - Yash
 
 _______________________________________________
