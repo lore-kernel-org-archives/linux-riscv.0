@@ -2,83 +2,50 @@ Return-Path: <SRS0=v9z2=S4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E16AEC43219
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2019 06:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C8897C43218
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2019 06:21:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BAB67206BA
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2019 06:21:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A0959206BA
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2019 06:21:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Qt1KilgH";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="B956XR0E"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BAB67206BA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="usbf+PnT"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A0959206BA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hbsz4XyIYXWEOpNRTckg5u0kbkf+7rBZuM+IvTM7pGI=; b=Qt1KilgH/Jzf2h
-	hmGcwDHBWU6G3V/9XZJ9EpktkrXjFVHdaBSJ1SVlnxo/Hf2B++VRomKxw9rv+cPi2OGFxG0gtFfwQ
-	oPu3WVgzs60aF5PdR2ByiRVWrcBtl1JRFGYXSePdW+vPwmQcOrYs9J1Q7cDpwL4nPHtaNmQLPQD/F
-	/WY7L9JKnAfEAwhaIRoHe9xqKAtqlkgqp8SrMmGbXZ6TapKkHC3vwLho0yCJF5G4nitR71N+hTcGt
-	qUsMraVSA06yKoY1qXVbLQjTUs+NhrdB9xIPSqkSPc4p2Sn090Q3uixh3zUQvfgwkNoR6neLePwqX
-	9tIWazP/vXtfhcYL4ZAg==;
+	List-Owner; bh=ALs/QWX/mOKiTvQQft0kGC//exEbdgJBfw+qQ+flbes=; b=usbf+PnTWNRgKW
+	o5QBVYT6e8COTqIv14HWXgXXbPMF7EdxTeGbBTXyHyxAoUKz0h84MWxSGhlfLfxMVFBq7WsbKoQUI
+	eRknMOAe3IN1WW3blpiGvmyEASOrwNZsUlxWBFUv16LMaFrBLa8nGljymtr+966SqTFBUeOZm7eDF
+	MNedpjwe+WzzY4sgKspFn8IkPFdIxQbY7rCdQmncsUjlOzaTk3sMiHvxkZTce5BU+WyQC3+g0wig7
+	IZNGUa3b3oV5wJgSBkiQSoH+OcZbmeMNP6E8b6kOC64AU9NyPZwzc5X+gEKgqv8SQZV9dD/EOOUHF
+	72/2sXhBdGaXY1esNucg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hJuEp-0000DQ-JG; Fri, 26 Apr 2019 06:21:35 +0000
-Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hJuEm-0000CA-Ij
- for linux-riscv@lists.infradead.org; Fri, 26 Apr 2019 06:21:33 +0000
-Received: by mail-wr1-x442.google.com with SMTP id b1so2776297wru.3
- for <linux-riscv@lists.infradead.org>; Thu, 25 Apr 2019 23:21:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=MHfiL2ALiZrSpzP8Kz5apkSsL4ZLblvwvjS3oOXzqXk=;
- b=B956XR0Eab0mcPJVqmnXubGaXKdRJSpLE2iuIY2JYwklVmRrjvhL1qNiYicGGkfABn
- ZR1+t06pXO4f0HLR5yVsACP+00Ie9hrPYOCr9I8E9P1gZSagIYWOaa4wPyJY4m+ozJH3
- ecZXwI6VI6UmbAxpCiTR8feoS9An579k740dQnTWSC//24tw1b5hrmdQoxu8iF5syE9r
- r+h84Z/9Ec+z6wCwKJfgejHMqmB6HJjllD+pYC2qoVGWqoG4Cynwur6RO0yHLRpcrsXl
- 5OwiJPTI8IK6edEaGcJsWkjUATZ07GLYQjo0FKJYA3LtLxM9+7yq7ZkNZDlLv0XInXux
- 6ydQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=MHfiL2ALiZrSpzP8Kz5apkSsL4ZLblvwvjS3oOXzqXk=;
- b=BNPLn2xd+nZsmiYx7JOLXSJhiBoPKXhJr/Pzr+fgGaBUZ/M54bMMwPSHiD3g30ZcHu
- xFfIcw3itK94kUefsYLIO/XWjwsP/svsY6oczhUpnlLXn/ZqnYpCaSAbUvsmOwnG7jNS
- +Ei2QU8ojwcJz1yz/YJRa/O9zT22M17XOFWroynX5WzpHi1X6JmqHkZTqSqVTT8CeCVc
- qT94S9YVFAmHH0efbqLUsYSXoFHYtRexw5Ej1BO3EMBUtfGDSl5WPrreW5iTkKa7rwYe
- owe+XN/dNesptv8s3Wh3fFflHgPkDZTG5StspkMNmd/LqdQAVZBVulTQRJVm3Orx3ZGx
- sNfw==
-X-Gm-Message-State: APjAAAVE24jjabIn9T8hLNdXrgbVcx3QpFlnUzbSC/QN7VjlxyWjcPsN
- QIbcU0U7qMtpt2SbuMX4lrAoQcAk83jtLqm2D6nPZQ==
-X-Google-Smtp-Source: APXvYqwS0AEQ713uTrtxyPjqKF38GEnooNTuWItIuSvsw1UBC1jCZSYuGqnknP7DTXT/PTv3bwZ1EZ+tcXFR9Q4AqWE=
-X-Received: by 2002:a5d:5108:: with SMTP id s8mr26165281wrt.99.1556259689461; 
- Thu, 25 Apr 2019 23:21:29 -0700 (PDT)
-MIME-Version: 1.0
+	id 1hJuEp-0000D1-2m; Fri, 26 Apr 2019 06:21:35 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
+ Hat Linux)) id 1hJuEn-0000CS-8B; Fri, 26 Apr 2019 06:21:33 +0000
+Date: Thu, 25 Apr 2019 23:21:33 -0700
+From: Christoph Hellwig <hch@infradead.org>
+To: Atish Patra <atish.patra@wdc.com>
+Subject: Re: [PATCH] tty: Don't force RISCV SBI console as preferred console
+Message-ID: <20190426062133.GA28529@infradead.org>
 References: <20190425133435.56065-1-anup.patel@wdc.com>
  <9a8be7ef-e62e-2a93-9170-e3dc70dfb25f@wdc.com>
+MIME-Version: 1.0
+Content-Disposition: inline
 In-Reply-To: <9a8be7ef-e62e-2a93-9170-e3dc70dfb25f@wdc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 26 Apr 2019 11:51:18 +0530
-Message-ID: <CAAhSdy3z1aDdVZ3dM1bec0z_pNtmfdJ0XukX_0YWwy7Q90G9AA@mail.gmail.com>
-Subject: Re: [PATCH] tty: Don't force RISCV SBI console as preferred console
-To: Atish Patra <atish.patra@wdc.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190425_232132_697617_60ED02CB 
-X-CRM114-Status: GOOD (  20.78  )
+User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -103,75 +70,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 26, 2019 at 10:11 AM Atish Patra <atish.patra@wdc.com> wrote:
->
-> On 4/25/19 6:35 AM, Anup Patel wrote:
-> > The Linux kernel will auto-disables all boot consoles whenever it
-> > gets a preferred real console.
-> >
-> > Currently on RISC-V systems, if we have a real console which is not
-> > RISCV SBI console then boot consoles (such as earlycon=sbi) are not
-> > auto-disabled when a real console (ttyS0 or ttySIF0) is available.
-> > This results in duplicate prints at boot-time after kernel starts
-> > using real console (i.e. ttyS0 or ttySIF0) if "earlycon=" kernel
-> > parameter was passed by bootloader.
-> >
-> > The reason for above issue is that RISCV SBI console always adds
-> > itself as preferred console which is causing other real consoles
-> > to be not used as preferred console.
-> >
->
+On Thu, Apr 25, 2019 at 09:41:21PM -0700, Atish Patra wrote:
 > Do we even need HVC_SBI console to be enabled by default? Disabling
 > CONFIG_HVC_RISCV_SBI seems to be fine while running in QEMU.
-
-Actually, HVC_SBI console is useful on boards (such as SiFive Unleashed)
-lacking upstream serial driver. It allows us to boot upstream kernel to prompt
-on such boards with just timer driver (and probably irqchip driver).
-
-Also, we should be able to use same kernel image on QEMU and SiFive
-Unleashed board so disabling CONFIG_HVC_RISCV_SBI for QEMU is
-a temporary solution.
-
->
+> 
 > If we don't need it, I suggest we should remove the config option from
 > defconfig in addition to this patch.
 
-Like mentioned above, HVC_SBI is useful for newer SOCs and boards
-where serial driver is not yet up-streamed.
-
-Regards,
-Anup
-
->
-> Regards,
-> Atish
-> > Ideally "console=" kernel parameter passed by bootloaders should
-> > be the one selecting a preferred real console.
-> >
-> > This patch fixes above issue by not forcing RISCV SBI console as
-> > preferred console.
-> >
-> > Fixes: afa6b1ccfad5 ("tty: New RISC-V SBI console driver")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > ---
-> >   drivers/tty/hvc/hvc_riscv_sbi.c | 1 -
-> >   1 file changed, 1 deletion(-)
-> >
-> > diff --git a/drivers/tty/hvc/hvc_riscv_sbi.c b/drivers/tty/hvc/hvc_riscv_sbi.c
-> > index 75155bde2b88..31f53fa77e4a 100644
-> > --- a/drivers/tty/hvc/hvc_riscv_sbi.c
-> > +++ b/drivers/tty/hvc/hvc_riscv_sbi.c
-> > @@ -53,7 +53,6 @@ device_initcall(hvc_sbi_init);
-> >   static int __init hvc_sbi_console_init(void)
-> >   {
-> >       hvc_instantiate(0, 0, &hvc_sbi_ops);
-> > -     add_preferred_console("hvc", 0, NULL);
-> >
-> >       return 0;
-> >   }
-> >
->
+I think the whole concept of the SBI console is a little dangerous.
+It means that for one piece of physical hardware (usually the uart)
+we have two entiries (the M-mode firmware and the OS) in control,
+which tends to rarely end well.
 
 _______________________________________________
 linux-riscv mailing list
