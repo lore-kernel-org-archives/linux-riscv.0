@@ -2,89 +2,83 @@ Return-Path: <SRS0=v9z2=S4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4A92DC43218
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2019 04:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9EF3BC43219
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2019 05:35:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 24FC3206A3
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2019 04:41:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 74890206C1
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Apr 2019 05:35:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iEnk22jc";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="MiHXgjDA"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 24FC3206A3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZYEntnxs";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="PwMxOmAs"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 74890206C1
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=iyaPnp9IP5xHdY/YYSf/4u+RVjyZSaVFVNtgzIr1+8c=; b=iEnk22jcFFTVosJPALD/z3Y+L
-	omozq3UnY30EYMp4M9vnRbbmdj3WnbWLlldlPLA9NAn/YiQ4yZUqrQYRmJu3k1xzUhfq1V9xge5Z9
-	CxcgAB8NAMblAEt5CL7Us4AVsPHxV4Z4HbJZpIM/aksq1FDqOvsuu1MUVgjIjPwCFyqiEE9TdiIc8
-	IbE0wCO+wPJCUjsEJBUTldWXT1OmQMfjyGIvaesyvtdbYwgzaJvFgliQpr4Cq0X1kCSd8QAIraq8u
-	4Xh0lUYtXH4KlIQZOGDXwyleZLCzzrBbPVhw96soQvTgm8Yy2ParDFTKaJhOnHn53RtJ121AYwms0
-	mpLamG2ug==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RoJsosW1Vb3l8dW2uFISEq3fwjDoG4HZLfJ6QtBPp/0=; b=ZYEntnxszAx7+K
+	W0Y2FgxDa77m6eXMEmQoeTShEZkx7af1IVVFLpEESxKWjvCWzxjQ4m2LG2kh6On6eSj6tCiqwvkhQ
+	1aQnfbL9D/EPeB6q54Wy2lIBZNId9vNQDYcM/rCmnX/Rgwt4mKJkUGaicANMqiiyMO6cHDpF4AB+F
+	vTGX5cogssVtwUaxuOBfVMnKaMEeb31sj31r7cTq4sULeJa643u/NcK198KKVoQmWCAWUg+APirAl
+	aGaVAFqziSJgzDN/GCTaWDjzzmLzoqj9XMT1DIAJndLDu/OCCZ7Okv7hP/0BmSvd8PZnLXq9P2Wlu
+	Z/543RhaZURO55xHJ6pQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hJsfx-0003b2-AL; Fri, 26 Apr 2019 04:41:29 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1hJtWC-00037u-5z; Fri, 26 Apr 2019 05:35:28 +0000
+Received: from mail-lf1-x141.google.com ([2a00:1450:4864:20::141])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hJsft-0003ai-Sp
- for linux-riscv@lists.infradead.org; Fri, 26 Apr 2019 04:41:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1556253686; x=1587789686;
- h=subject:to:cc:references:from:message-id:date:
- mime-version:in-reply-to:content-transfer-encoding;
- bh=MpWvheFOejWRs2zd9Qglh5YkbiX057ZAvN5hIeqKvGg=;
- b=MiHXgjDAUURujauyLDNi/50tjbBZi1G+uvvWPwZCIHuPGghwJsCqXRh5
- fbid1Snhf8TEIi4RGN+UHmDWuC5A0trUGaQnG9gFKEOWCTeeeu/htFbGB
- cZ7bJUmd7LRKrw1KIEFTYjWUqXn41gpgnDMu6SscXKhgOirMhf8na5db5
- 05p1H/SWmtEjWcGMtCPbP4y2z4NUjTV3rFigqUY1NJ4K6x7TPpyMNzct8
- ZXG19ybhyGDZoXL/3Ner7fcvkRoxNO1XrWCy+EJ7AHl5pGi1LBmPHT+Ap
- 9tGzZDuz0B+o2jZ2XbR9qG2wva4OYVoK74/0dyjPveC3kMdqMYfMBY4EA A==;
-X-IronPort-AV: E=Sophos;i="5.60,396,1549900800"; d="scan'208";a="111830451"
-Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 26 Apr 2019 12:41:23 +0800
-IronPort-SDR: 2hxXF5702uYaRnIwaBIfY84yJdv5GU8ef01XSb6/9hl+0/ptGoeC/+/pCLzc6BFLbWij/uFxAE
- iqae9x2Jxj/N8vAgvNLNFd30STXIYUJKkPC+sHs5ySI1Cu2xKvxQyDR6tWmLQl9sauk1j0LU5i
- VV4r4inyI1N4OtxTOt2efcMPO+nN7obi9i3sHh6thL/3fiwbP66z5I2cMC+jnCAQ/5jbDCiDjd
- Jf9lYSE417K0O8UeK6999kKd7ctphBlOTR6Zwl4lJs9/F//cIzjVV8YHZblv7ELhMQyHollXF1
- 8/ljfew6GT1LUo/NnlQQUt65
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep02.wdc.com with ESMTP; 25 Apr 2019 21:20:00 -0700
-IronPort-SDR: U3aV7ee0cykZHXpN0/znPIqgRaqQfDMLXGGa8LArrP7M+zdfNNiDSefYqC50qQqSyAnAfA2mtE
- T7qBObKPgcOlc/RzeNNWd4By+0xOsWJUVMH9+b9oq7x+523e7mezX+XfZMd1B02bYtz4G39DxP
- 8te9T7QaBXt3D90DnF8wTlOwvXXwzzz5W3lJiy0ULk1RJXiHwgytRcjAxJ7aZF3/RT2DiO+lr+
- yFDWbVTblOwKmQ1BC90SdBhwCwECPdYRp6zZzcAkQJOD5lS/l6Iiaf9TrQdMfgv2jZ0hZTZgPB
- w2E=
-Received: from usa001205.ad.shared (HELO [10.86.53.92]) ([10.86.53.92])
- by uls-op-cesaip01.wdc.com with ESMTP; 25 Apr 2019 21:41:23 -0700
-Subject: Re: [PATCH] tty: Don't force RISCV SBI console as preferred console
-To: Anup Patel <Anup.Patel@wdc.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
- <jslaby@suse.com>, Palmer Dabbelt <palmer@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>
-References: <20190425133435.56065-1-anup.patel@wdc.com>
-From: Atish Patra <atish.patra@wdc.com>
-Message-ID: <9a8be7ef-e62e-2a93-9170-e3dc70dfb25f@wdc.com>
-Date: Thu, 25 Apr 2019 21:41:21 -0700
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:60.0)
- Gecko/20100101 Thunderbird/60.6.1
+ id 1hJtW9-00037L-2N
+ for linux-riscv@lists.infradead.org; Fri, 26 Apr 2019 05:35:26 +0000
+Received: by mail-lf1-x141.google.com with SMTP id d12so1524216lfk.6
+ for <linux-riscv@lists.infradead.org>; Thu, 25 Apr 2019 22:35:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=xxo1C77LCpO+psJrdF0wkVInexAcV6zrC0JqBooE20s=;
+ b=PwMxOmAsKahZlfo2iZ9sBJAnBP49w+3B+ILKI1GtDNEx5uKYLMfw+RAZTuNd/QSFDX
+ DDMwFRhD2u31RtzUeF/KUgF7tdHDvFeRBRwZLkigTj9sy64YhPZNdvgOPrIOvc8oLgmA
+ 2ZYGS0oIfXX2huR5drgOFQ09xgO8BKshAUXPmC7nOiCBvaAPc0HuHyM2z8+KK1rEqB1r
+ Ijk8ZR5LdItdIs31kRW9N7eHjBdx7wX5E+wqXnCzvatZmya9K4oPECVBkamK5xzLnMl7
+ 7trQLnVovXMUnzur6u5blFauPNi/a0YVaburq5by8ibWvCUzUrUya3bEcsa3mcNJaOW9
+ 024A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=xxo1C77LCpO+psJrdF0wkVInexAcV6zrC0JqBooE20s=;
+ b=LuVGL7PBaXI/ewG6yIyOyO0wWaXso1oRgGT+hQmDPzzI4MMSp5i8oJuwqpZO/aoBMm
+ h2RZCaBFlW838XBeAirOsp2pKANXF67HBBlryQknauVuhtG8pLtTfgJuAzPlelpCcLTk
+ JMuJPjrC+79npulKqw+RI2XaxPv+mFpVdqvys66/hiRcwX7bZh+HmSqAjeUNafBQE+xt
+ 3abHUfaFjX3moc+KnW0Fk5mdYU4UJZfjPA5WtXewvP/2E9r+z92Op0fP3tSgOnOI2Ada
+ ECrQzg77rtrDG1UHcP4uojYdqsHPuv3fwNT8b4zeIoucyfbHDYyB3RTDQs5UO+qaNpyW
+ nVMg==
+X-Gm-Message-State: APjAAAUL1xRGFAGH8Hi0lt/p2mzmyjmlQRLFvADjpEOmNt2BjQ7hmpst
+ o+y8GEx0vL4GPFA5qS35ziFVKtPv2krGysEFS8izWw==
+X-Google-Smtp-Source: APXvYqw976bRUl5Uh58lZhG+e/95HRJRYg52VkNXmo2VGCql1DDUro/qPNTfbfaD/30cjwsA461YeNMI4U3jv94oJtk=
+X-Received: by 2002:ac2:52a8:: with SMTP id r8mr23259706lfm.160.1556256923148; 
+ Thu, 25 Apr 2019 22:35:23 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20190425133435.56065-1-anup.patel@wdc.com>
-Content-Language: en-US
+References: <1556171696-7741-1-git-send-email-yash.shah@sifive.com>
+ <1556171696-7741-3-git-send-email-yash.shah@sifive.com>
+ <20190425101757.GB8469@e107155-lin>
+In-Reply-To: <20190425101757.GB8469@e107155-lin>
+From: Yash Shah <yash.shah@sifive.com>
+Date: Fri, 26 Apr 2019 11:04:46 +0530
+Message-ID: <CAJ2_jOGi3uTX2GhbFC-m7hHkSFAAS_-F7J-L_=3OYKpeexaaQA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] RISC-V: sifive_l2_cache: Add L2 cache controller
+ driver for SiFive SoCs
+To: Sudeep Holla <sudeep.holla@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190425_214126_049374_5B2AA79C 
-X-CRM114-Status: GOOD (  20.51  )
+X-CRM114-CacheID: sfid-20190425_223525_121754_6AF80D27 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,66 +90,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Christoph Hellwig <hch@infradead.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "stable@vger.kernel.org" <stable@vger.kernel.org>
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Sachin Ghadi <sachin.ghadi@sifive.com>, robh+dt@kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/25/19 6:35 AM, Anup Patel wrote:
-> The Linux kernel will auto-disables all boot consoles whenever it
-> gets a preferred real console.
-> 
-> Currently on RISC-V systems, if we have a real console which is not
-> RISCV SBI console then boot consoles (such as earlycon=sbi) are not
-> auto-disabled when a real console (ttyS0 or ttySIF0) is available.
-> This results in duplicate prints at boot-time after kernel starts
-> using real console (i.e. ttyS0 or ttySIF0) if "earlycon=" kernel
-> parameter was passed by bootloader.
-> 
-> The reason for above issue is that RISCV SBI console always adds
-> itself as preferred console which is causing other real consoles
-> to be not used as preferred console.
-> 
+On Thu, Apr 25, 2019 at 3:48 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
+>
+> On Thu, Apr 25, 2019 at 11:24:56AM +0530, Yash Shah wrote:
+> > The driver currently supports only SiFive FU540-C000 platform.
+> >
+> > The initial version of L2 cache controller driver includes:
+> > - Initial configuration reporting at boot up.
+> > - Support for ECC related functionality.
+> >
+> > Signed-off-by: Yash Shah <yash.shah@sifive.com>
+>
+> [....]
+>
+> > +static const struct file_operations l2_fops = {
+> > +     .owner = THIS_MODULE,
+> > +     .open = simple_open,
+> > +     .write = l2_write
+> > +};
+> > +
+> > +static void setup_sifive_debug(void)
+> > +{
+> > +     sifive_test = debugfs_create_dir("sifive_l2_cache", NULL);
+> > +     if (!sifive_test)
+>
+> Drop the conditional check above, Greg K H removed lots of them recently.
+> In his words: When calling debugfs functions, there is no need to ever
+> check the return value.  The function can work or not, but the code
+> logic should never do something different based on this.
+>
+> He may not like to see this :)
 
-Do we even need HVC_SBI console to be enabled by default? Disabling 
-CONFIG_HVC_RISCV_SBI seems to be fine while running in QEMU.
+Sure, thanks for pointing it out. Will drop all the conditional check
+in debugfs functions.
 
-If we don't need it, I suggest we should remove the config option from 
-defconfig in addition to this patch.
+>
+> > +             return;
+> > +
+> > +     if (!debugfs_create_file("sifive_debug_inject_error", 0200,
+> > +                              sifive_test, NULL, &l2_fops))
+>
+> Ditto.
+>
+> > +             debugfs_remove_recursive(sifive_test);
+> > +}
+>
+> --
+> Regards,
+> Sudeep
 
-Regards,
-Atish
-> Ideally "console=" kernel parameter passed by bootloaders should
-> be the one selecting a preferred real console.
-> 
-> This patch fixes above issue by not forcing RISCV SBI console as
-> preferred console.
-> 
-> Fixes: afa6b1ccfad5 ("tty: New RISC-V SBI console driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> ---
->   drivers/tty/hvc/hvc_riscv_sbi.c | 1 -
->   1 file changed, 1 deletion(-)
-> 
-> diff --git a/drivers/tty/hvc/hvc_riscv_sbi.c b/drivers/tty/hvc/hvc_riscv_sbi.c
-> index 75155bde2b88..31f53fa77e4a 100644
-> --- a/drivers/tty/hvc/hvc_riscv_sbi.c
-> +++ b/drivers/tty/hvc/hvc_riscv_sbi.c
-> @@ -53,7 +53,6 @@ device_initcall(hvc_sbi_init);
->   static int __init hvc_sbi_console_init(void)
->   {
->   	hvc_instantiate(0, 0, &hvc_sbi_ops);
-> -	add_preferred_console("hvc", 0, NULL);
->   
->   	return 0;
->   }
-> 
+Thanks for your comments.
 
+- Yash
 
 _______________________________________________
 linux-riscv mailing list
