@@ -2,21 +2,22 @@ Return-Path: <SRS0=9XXM=S7=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
-	USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_MUTT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8D07EC43219
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2019 15:27:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CE715C43219
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2019 18:08:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5C54E20656
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2019 15:27:31 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A34322075E
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2019 18:08:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qKgZzuM1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5C54E20656
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="s9boRB0G"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A34322075E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -24,47 +25,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=phXq41f+7prkt8wqLqQVANeyAuflh9l8BiOOU6j3pN8=; b=qKgZzuM1JcmnVE
-	XkPSNERr9z8fPeo0NGDKfXc0SFgPZ2Bb6R2KccwVekhw6YPduONL1kyw9GyoNrHPMwnI0JEzLdT9t
-	NgTha4l+18l9MQervGFs4V8PSr4pasnjipclQDgRGqyU1vAI1CZx1/ZdyvESHi9EOhBEz/dlazxWi
-	OygReHxQl5KzaJ4xqr2yIeka8a2V2lBhSEVBDEkzaxVkdBxbtQjC1HjiSHLLuNSN/yfLm8L00/tbE
-	7hOX88EaS+rfPFlco7PQI/WqHmImvdChOzHx+P6xG+iAuF3YXKD6DwWyOY6FUGx9g0K3Go2WJmzMp
-	dG2iK7K4LUtVGyJf0AUg==;
+	List-Owner; bh=OglnoenZICfg7DIMVcTCspOZbnoxFmJFPHPbsElBivo=; b=s9boRB0G7qvkeI
+	2hNGTiYR3luefKofnic8FgW1eh3hnaBJS2itcg8SFPaNw71Tz8EMU+H7TVHBH34d4d70Odbj4dZWT
+	G4VlXnkwuOjfBdrIDQGsL6oOCM1dBa3kLx+zFENUnjJ7/cAUYphUbF6593Jsermi9wSjxBuwIMLAl
+	iQgzcOQ+kQUc3xBKUsU5tRM7BoZalA0PFe9nIsbmUj81QaDBipgZO9LwfPbffsqmood64IM7CkOFK
+	QyrpiKexKvk44bMGb8f/OJ7NYZ4Iu5TmskHRAs8RYWTNHe3svIXkmYzFAqKBddxndgfsTcoXOOPOn
+	CiueifHc4Ea8bYeApZdQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hL8Bk-0006rr-MG; Mon, 29 Apr 2019 15:27:28 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1hLAhv-0000fS-Np; Mon, 29 Apr 2019 18:08:51 +0000
+Received: from mail-ot1-f65.google.com ([209.85.210.65])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hL8Bh-0006rW-K3
- for linux-riscv@lists.infradead.org; Mon, 29 Apr 2019 15:27:27 +0000
-Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1hL8Bg-0005bK-1n; Mon, 29 Apr 2019 17:27:24 +0200
-Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1hL8Bf-00046t-0a; Mon, 29 Apr 2019 17:27:23 +0200
-Date: Mon, 29 Apr 2019 17:27:22 +0200
-From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH v11 0/2] PWM support for HiFive Unleashed
-Message-ID: <20190429152722.xw5bcocu2t77wb4u@pengutronix.de>
-References: <1553508779-9685-1-git-send-email-yash.shah@sifive.com>
- <CAJ2_jOF8RsLWHkcCJzwfpeMN0+G0oqbHto=nBBnpZDNfuQMKOw@mail.gmail.com>
+ id 1hLAht-0000es-8N
+ for linux-riscv@lists.infradead.org; Mon, 29 Apr 2019 18:08:50 +0000
+Received: by mail-ot1-f65.google.com with SMTP id f23so9466625otl.9
+ for <linux-riscv@lists.infradead.org>; Mon, 29 Apr 2019 11:08:49 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=k8gAARN4apicDkk5HczIkkY69NduYn2gyzEh87JDG00=;
+ b=Y9JhGu+T0GxI57w0Ow5Tr1H3wer3lBfG9VEVaeBgzb6tbPk2XTFVvCf2AU8O8QW7l8
+ tm4q91hJqC0Zcqlv9qVHj7xHYArJmCpbZbHnGRQrvf+LeEsRRnDfHxNUnJVBjsZTTFoa
+ uV/AGxVAv4u6SR4/DHneH/dQoy+50EOeHYDDqIFEO/wQFI6oU1nzz+2TFEwNQF6lPOT7
+ kzJjEvuKrTy6Pp5fpjK/5c0mijTTye0+vHGm8ccxvOsc7w2JBDBbd+FggkuStrW1q3tm
+ 64J/N+ZIPPW0o/WIsJL649ECTWYR//VLc9iAD9KxCeAIkF/ciu74/JB3QqmCnDqiotFk
+ RjaQ==
+X-Gm-Message-State: APjAAAX7n6CAacGsm1stclCwMQ0RSfiaxLRX2Yc/nhnZftQcs6VUgnlE
+ 1+r569/f7SkTl2KM/px14A==
+X-Google-Smtp-Source: APXvYqy13wDJjfHnr6l9xY4z5mnssj1zSTsBbAclybaVJHKRzHVXehef93dFsU95+qt+zSW7u7YIrQ==
+X-Received: by 2002:a9d:360b:: with SMTP id w11mr13052433otb.238.1556561328209; 
+ Mon, 29 Apr 2019 11:08:48 -0700 (PDT)
+Received: from localhost (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id v10sm2732527oiv.36.2019.04.29.11.08.46
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Mon, 29 Apr 2019 11:08:47 -0700 (PDT)
+Date: Mon, 29 Apr 2019 13:08:46 -0500
+From: Rob Herring <robh@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH 2/6] dt-bindings: riscv: sifive: add YAML documentation
+ for the SiFive FU540
+Message-ID: <20190429180846.GA26021@bogus>
+References: <20190411084304.5072-2-paul.walmsley@sifive.com>
+ <20190411084304.5072-3-paul.walmsley@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAJ2_jOF8RsLWHkcCJzwfpeMN0+G0oqbHto=nBBnpZDNfuQMKOw@mail.gmail.com>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+In-Reply-To: <20190411084304.5072-3-paul.walmsley@sifive.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190429_082725_817677_238F9FD6 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190429_110849_299279_8FCBA68D 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -76,33 +87,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Paul Walmsley <paul@pwsan.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- robh+dt@kernel.org, Sachin Ghadi <sachin.ghadi@sifive.com>,
- Thierry Reding <thierry.reding@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+ linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 15, 2019 at 11:36:51AM +0530, Yash Shah wrote:
-> Hi,
-> =
+On Thu, Apr 11, 2019 at 01:43:00AM -0700, Paul Walmsley wrote:
+> Add YAML DT binding documentation for the SiFive FU540 SoC.  This
+> SoC is documented at:
+> 
+>     https://static.dev.sifive.com/FU540-C000-v1.0.pdf
+> 
+> Passes dt-doc-validate, as of yaml-bindings commit 4c79d42e9216.
+> 
+> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+> Signed-off-by: Paul Walmsley <paul@pwsan.com>
+> Cc: Rob Herring <robh+dt@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Palmer Dabbelt <palmer@sifive.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> ---
+>  .../devicetree/bindings/riscv/sifive.yaml     | 26 +++++++++++++++++++
+>  MAINTAINERS                                   |  9 +++++++
+>  2 files changed, 35 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/sifive.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/riscv/sifive.yaml b/Documentation/devicetree/bindings/riscv/sifive.yaml
+> new file mode 100644
+> index 000000000000..d2808d8d79bb
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/riscv/sifive.yaml
+> @@ -0,0 +1,26 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/riscv/sifive/sifive.yaml#
 
-> Any comments on this patch series?
-> Any more changes are needed or it looks good to be merged upstream?
+The path here should match the file path. IOW, drop 'sifive/'.
 
-In my eyes it would be great if Andreas Schwab was able to resolve the
-problems he pointed out in this thread.
-
-Best regards
-Uwe
-
--- =
-
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | http://www.pengutronix.de/  |
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: SiFive SoC-based boards
+> +
+> +maintainers:
+> +  - Paul Walmsley <paul.walmsley@sifive.com>
+> +  - Palmer Dabbelt <palmer@sifive.com>
+> +
+> +description:
+> +  SiFive SoC-based boards
+> +
+> +properties:
+> +  $nodename:
+> +    const: '/'
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - sifive,freedom-unleashed-a00-fu540
+> +          - sifive,freedom-unleashed-a00
+> +      - const: sifive,fu540-c000
+> +      - const: sifive,fu540
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 3ec37f17f90e..c02bf352a8c6 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -14138,6 +14138,15 @@ S:	Supported
+>  K:	sifive
+>  N:	sifive
+>  
+> +SIFIVE FU540 SYSTEM-ON-CHIP
+> +M:	Paul Walmsley <paul.walmsley@sifive.com>
+> +M:	Palmer Dabbelt <palmer@sifive.com>
+> +L:	linux-riscv@lists.infradead.org
+> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/pjw/sifive.git
+> +S:	Supported
+> +K:	fu540
+> +N:	fu540
+> +
+>  SILEAD TOUCHSCREEN DRIVER
+>  M:	Hans de Goede <hdegoede@redhat.com>
+>  L:	linux-input@vger.kernel.org
+> -- 
+> 2.20.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
