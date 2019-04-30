@@ -1,22 +1,22 @@
-Return-Path: <SRS0=9XXM=S7=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=JPD3=TA=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BB78EC43219
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2019 23:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8162AC43219
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2019 00:36:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8CD2D21655
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Apr 2019 23:50:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 50A012147A
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Apr 2019 00:36:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="N97OFBzK";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Z9RbQk9f"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8CD2D21655
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KRg0mUEE";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="hMN6CoeY"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 50A012147A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,63 +25,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=kguMBTRj9O7IZJHlElGzso0hToQMj9I3+svzuMnXrV4=; b=N97OFBzKf/FL1mA+9w7vemZh+
-	/2rSSwGo1xmJ3xJzhAWk5+yR12A35YncPxAeCqtx18oya/GjI+Jw9Fv0Pq2fkqHl9DRK1IOpoj7PU
-	cQNz+Xju6EkcQTxwAgjAD+nUUV2jCxDqQ4cZvLTg9GrESSHzNKmNQrNB1F5r+KOc2RXjzn/NrhQGN
-	uqqJgHZwjTq4zeoOmNhznVeaKQvz3L8pTtqzLYfx6FZtLsWK1hqpRfdIHLi5ebJ0NeDaizKoBDZsX
-	ekBBEnZgbieun4gzDp9EnY6C3iUwRCDYQ0ePS2YZPm2kPuTpY3/LZBk5WbMmA37vjq/ca3JJjSqIO
-	IPm2QMmeQ==;
+	 bh=8LGiVHl2m3Yq9xoqQ7rnG7mLaisSchA8on+Yw57ujI8=; b=KRg0mUEEu82uwF8gGqzaOwIuQ
+	G90j2xWVDEBtjTa1cW+HelykexwE7gqtBqLhLV/Lk8ZfF6M1oelcNGKuAl4LbqJLNpzIVIG7dnBEb
+	D2uSA1hvc2Z782NUoFZlLVj1xsfvi42I+fXkWzSo1clLZUNoGthz3i3ms/vZUGww8qRhMjhKgRGks
+	HX2j+g0lAefGC3x4mY41GqZaDHUDYzFffJr/3oAJGLAzC748CNO4/a1gPRsXeFrOSuYheBGth/6Za
+	5ATH5Wb2AEgomwrCKLNgJdamLAqtnu66OK+YP8IpKc7MyI319zR1CiRVJlEoa1hHiOZ0QyDrFf1or
+	JX0f/UV3g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hLG2C-00041y-LI; Mon, 29 Apr 2019 23:50:08 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1hLGlV-0004K2-GX; Tue, 30 Apr 2019 00:36:57 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hLG29-0003Nb-Au
- for linux-riscv@lists.infradead.org; Mon, 29 Apr 2019 23:50:06 +0000
-Received: by mail-pf1-x442.google.com with SMTP id e24so6107978pfi.12
- for <linux-riscv@lists.infradead.org>; Mon, 29 Apr 2019 16:50:05 -0700 (PDT)
+ id 1hLGlS-0004JU-1v
+ for linux-riscv@lists.infradead.org; Tue, 30 Apr 2019 00:36:55 +0000
+Received: by mail-pf1-x444.google.com with SMTP id 188so6163434pfd.8
+ for <linux-riscv@lists.infradead.org>; Mon, 29 Apr 2019 17:36:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=iki8lEciOli5KOvhEgs9JNfHNGA2ZFukuxTBdMWWHqg=;
- b=Z9RbQk9f9/Px7IbWu4Gh/AbhBLH1/XY5qaP4iXWOCmDcvgzOpHbN9FfhX4JvspNEQJ
- Jx0GSeCf+B9lSir3UxYBQb3OOsHCNQQnirb4zuBR4E4gdALFi+3nR4MgVBiXrfWOVWRt
- TDe5iG2xuVMaaKSKVgatTMI1v03YB+Fg67QBZG4j2mbu4mPcAmDikXOOadBmqymfhDlK
- zFBlEHDkoUYhem00EIGOEKMQkwl0AWonW82q5zT/+GffjfXhSFYl6U7RdqM+NCOvRcXH
- WPgMrKCEGu1aR7Q5aDIttO8ku2+lVuXIYbHbeEBNBIqTXNHVQQkJxi1KnTECOZuRivTp
- f5YQ==
+ bh=GbaCh6NhvaphvajOZaGIcMKIlJS94Qzf/VlSIykaLPU=;
+ b=hMN6CoeYmgoCw44mrL758sSSkEbr6V6KKiWzQhocmqfTxNVGtMqcnR/RW5Ab++FnNa
+ 4liF+DSBZ95xJ8oIbBfRb1mHSNy+XsdXWvsLnmD/NMVU+tKIWb31EvHvtFucIoGnOwJ0
+ 4Cc+2gt9S95VOhgUgt4FG7VkKwY2DS6D+vwpVl7+oZfaDEjLBbWkwqncS0PtIQPj5r+w
+ iGr0rd6ssbA7mbpfLhR4E+hTs15pcCklhXkjSQOMwf84TrhK9EE+WTwbLp/ohY8zXhZq
+ YyFdKFByYNdmsx2ONAqhaoo6/bhfOvXj646nxuk4rgiEnmGJKeWG1AnQx5udDWyv58IR
+ yOEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=iki8lEciOli5KOvhEgs9JNfHNGA2ZFukuxTBdMWWHqg=;
- b=ZTOl2NNE4MZyHZNQ7licJu1zAoNdZP8s5ZVfRTqwXqUoQovN0sc0DfCLsESBP5HKgX
- WP3/uBR6CMbMHuFTOzRbGQXCNG4lmmyeWgG+pNLQU4wTIybBjuEMGzNxk8yE1dqE7H7d
- DSIY/ej2Cmwx6doDJrDdX2CfmLF7pnMYWAC7v0MQq/mH6Bf4c0xAc9DJ57DgXUTe0pzl
- 76VAU5wAbXzQT1+0JwNIoFnTl9rR3qxtzunbJO14Qbi0Xn6Z734GCFoz3LBUVNmwIp6J
- sZryLGJMIhVi4GBa7dZTsxppvXu4dmzoEOM2hseaxudSGmhoVgJdGRO21wyT10GNAF3H
- YX9Q==
-X-Gm-Message-State: APjAAAWVGTt3P0Ax3e6L+nFzM2tm2D6tQg9D+9yCm+V/F8nmlV+oz0Ow
- wFsmTXrKKwQcPDUdKfxv3VeBcQ==
-X-Google-Smtp-Source: APXvYqwe6A2MY53MJJ1uot3hhk0ZU6yNlSb8vhR9KPE/rerJcUMCruUKZf3B4asJaZ1rBqcFeWpckw==
-X-Received: by 2002:a63:6fcf:: with SMTP id
- k198mr61685712pgc.158.1556581804682; 
- Mon, 29 Apr 2019 16:50:04 -0700 (PDT)
+ bh=GbaCh6NhvaphvajOZaGIcMKIlJS94Qzf/VlSIykaLPU=;
+ b=UBsZ04QuZR/IrBGR179GuEGuFhBiqCaTOcgsriL0FkUN6rOjKfzYSnuigkfc0qEh3m
+ rejOJ1lsg3bezk8Z/FJlS54fJU9cgEg9I8y/nbPq5pfZYpOWMssgFcTblrefDzPLzjTq
+ dAZsg/37dUh24avu57+5wATK2gK8mTIDqmKHgj7CG2MzwM13WgrHAGHv9NjSrEOeVzRX
+ RrNymibuec7co6uYQ8UZhID1ylc99aNEI63ggKuaz/lHTK94O9DPiaAoFnIwwyiJejBF
+ gxpsGlNq9LgMxV8L6VEz5b60veB3Pb4zuww+L8iS2tEN9C7tT896KVyB15MAagHF6OBX
+ FG1A==
+X-Gm-Message-State: APjAAAWgAGMrx3MV2fCUN9+l0xOcbPCsali0z4oK8+F3A7AQirx7Iama
+ Be3VJBuPab6vkme7AmAKHdehSg==
+X-Google-Smtp-Source: APXvYqyjC+rvDd8hwITIhvgqtLGWf5npvZ8mvtRVBt1bZ8i9oVfiJjH+CuEapJKP7J0YkNx7T58e8w==
+X-Received: by 2002:a63:b53:: with SMTP id a19mr19302204pgl.216.1556584613110; 
+ Mon, 29 Apr 2019 17:36:53 -0700 (PDT)
 Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id e13sm52032242pgb.37.2019.04.29.16.50.03
+ by smtp.gmail.com with ESMTPSA id j5sm47436174pfe.15.2019.04.29.17.36.51
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Mon, 29 Apr 2019 16:50:03 -0700 (PDT)
-Date: Mon, 29 Apr 2019 16:50:03 -0700 (PDT)
-X-Google-Original-Date: Mon, 29 Apr 2019 16:49:07 PDT (-0700)
-Subject: Re: [PATCH v3 2/3] RISC-V: Implement nosmp commandline option.
-In-Reply-To: <20190424000227.3085-3-atish.patra@wdc.com>
+ Mon, 29 Apr 2019 17:36:51 -0700 (PDT)
+Date: Mon, 29 Apr 2019 17:36:51 -0700 (PDT)
+X-Google-Original-Date: Mon, 29 Apr 2019 16:52:40 PDT (-0700)
+Subject: Re: [PATCH v3 1/3] RISC-V: Add RISC-V specific arch_match_cpu_phys_id
+In-Reply-To: <20190424062100.GB3902@infradead.org>
 From: Palmer Dabbelt <palmer@sifive.com>
-To: atish.patra@wdc.com
-Message-ID: <mhng-56c3b718-eda9-4f5b-8124-7dee869fde1d@palmer-si-x1e>
+To: Christoph Hellwig <hch@infradead.org>
+Message-ID: <mhng-42e98065-6d8f-455c-97d9-0a2dfccc731a@palmer-si-x1e>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190429_165005_391142_8306EDF1 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20190429_173654_126272_F839737C 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,57 +94,31 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: aou@eecs.berkeley.edu, dmitriy@oss-tech.org, anup@brainfault.org,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org,
- johan@kernel.org, Christoph Hellwig <hch@infradead.org>, atish.patra@wdc.com,
- schwab@suse.de, linux-riscv@lists.infradead.org, tglx@linutronix.de
+ johan@kernel.org, linux-kernel@vger.kernel.org,
+ Christoph Hellwig <hch@infradead.org>, atish.patra@wdc.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, schwab@suse.de,
+ linux-riscv@lists.infradead.org, tglx@linutronix.de
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Apr 2019 17:02:26 PDT (-0700), atish.patra@wdc.com wrote:
-> nosmp command line option sets max_cpus to zero. No secondary harts
-> will boot if this is enabled. But present cpu mask will still point to
-> all possible masks.
+On Tue, 23 Apr 2019 23:21:00 PDT (-0700), Christoph Hellwig wrote:
+>>  }
+>> +
+>> +bool arch_match_cpu_phys_id(int cpu, u64 phys_id)
+>> +{
+>> +	return phys_id == cpuid_to_hartid_map(cpu);
+>> +}
+>>  /* Unsupported */
 >
-> Fix present cpu mask for nosmp usecase.
+> Please keep an empty line after function bodys.
 >
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> ---
->  arch/riscv/kernel/smpboot.c | 12 +++++++++++-
->  1 file changed, 11 insertions(+), 1 deletion(-)
+> Otherwise looks good:
 >
-> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> index eb533b5c2c8c..a8ad200581aa 100644
-> --- a/arch/riscv/kernel/smpboot.c
-> +++ b/arch/riscv/kernel/smpboot.c
-> @@ -47,6 +47,17 @@ void __init smp_prepare_boot_cpu(void)
->
->  void __init smp_prepare_cpus(unsigned int max_cpus)
->  {
-> +	int cpuid;
-> +
-> +	/* This covers non-smp usecase mandated by "nosmp" option */
-> +	if (max_cpus == 0)
-> +		return;
-> +
-> +	for_each_possible_cpu(cpuid) {
-> +		if (cpuid == smp_processor_id())
-> +			continue;
-> +		set_cpu_present(cpuid, true);
-> +	}
->  }
->
->  void __init setup_smp(void)
-> @@ -74,7 +85,6 @@ void __init setup_smp(void)
->
->  		cpuid_to_hartid_map(cpuid) = hart;
->  		set_cpu_possible(cpuid, true);
-> -		set_cpu_present(cpuid, true);
->  		cpuid++;
->  	}
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
 
-Thanks.  I've taken all three of these into for-next.
+Oh, sorry, I missed this -- I just fixed up the patch and added your tag.
 
 _______________________________________________
 linux-riscv mailing list
