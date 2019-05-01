@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no
-	version=3.4.0
+	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 219D7C04AA8
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  1 May 2019 19:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65D5FC43219
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  1 May 2019 19:56:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E6A832089E
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  1 May 2019 19:55:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3765E20651
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  1 May 2019 19:56:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="f48ABJia"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E6A832089E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=debian.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="D8TgnV2p";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="AyTGWg9w"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3765E20651
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nHUfqJHNINew08Y8UAZWt93a/VOTbh3Npv2PWKK1f1A=; b=f48ABJialMIEDe
-	eV5pOiUWi735UBQC9BJfDRV7+AQrexkWnSl81y8wifTz/XPFvQyVCHV0hFGqtN78+LIkweu8g3imQ
-	l7FDMgaIW4KW6LwIb2LyaZv5aJ27BL0Pn+hHanxZuDw26nyi+xmlDGj0MxgsRfNCaHeanDlcRQ/4S
-	vtEy2fyBdQO8sx6Pf7uBLe++5ufaF0hS4soKmMxyLdnrBcXbFar8KlKstG2UCXKoGxVIjJ/Gg2lc5
-	XkD04LaIpXR1kPL0j4cIjmUXDxAXIye+M9NONB0rbfbGmdhy8Jel0BmToib52fenQMQMwXmM9AI13
-	/B1OBmg51z+VAdbz4wBw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ktYS4gMRVy/vcB532e22gRBumC6vIjNJC6y1T4xVZik=; b=D8TgnV2pemDL7M
+	0p5+3ykZZdat08Eg8i0SZK1MOmqRdeG15HFNkFRyKn1Bn6q2vKx7ro9tJSD30sKVQ4EBXB9ghAaGD
+	r8WzV1O4Hn9W1o/uCxNEBYYCKbUbZxDXA41ZdkeifapKTHyqfCxJNH4212YhIlSfhI7wxd0PmwPzV
+	jo2AMrWPlh6l7A0ECL/QYTrBUf0YIKNO1/xTPsogiuDjQ43JBPJLciUf7NHb2M3kUlI5iLlYqWveU
+	sRTHykMyLXp/WeR/KfyzZZo9yeSvvOCchVrKDV1Ms9D7aiFLsFInPLXtP/Hih90f7ioaa6qp8ExE6
+	IC9zIbmYJX1cLV1FhJyg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hLvJm-0005fr-Mc; Wed, 01 May 2019 19:55:02 +0000
-Received: from mout.kundenserver.de ([212.227.126.133])
+	id 1hLvLA-0006pU-Jr; Wed, 01 May 2019 19:56:28 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hLvJj-0005Vh-BT
- for linux-riscv@lists.infradead.org; Wed, 01 May 2019 19:55:01 +0000
-Received: from excalibur.cnev.de ([213.196.200.188]) by
- mrelayeu.kundenserver.de (mreue010 [212.227.15.167]) with ESMTPSA (Nemesis)
- id 1M9WeC-1hRPUo41DA-005VNG; Wed, 01 May 2019 21:54:47 +0200
-Received: from karsten by excalibur.cnev.de with local (Exim 4.89)
- (envelope-from <merker@debian.org>)
- id 1hLvJT-0000Cx-TE; Wed, 01 May 2019 21:54:43 +0200
-Date: Wed, 1 May 2019 21:54:43 +0200
-From: Karsten Merker <merker@debian.org>
-To: Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH] RISC-V: Add an Image header that boot loader can parse.
-Message-ID: <20190501195443.trgjv6tujctsw5sw@excalibur.cnev.de>
-References: <mhng-cab2c6b9-f623-4286-99a4-61e4b3a58761@palmer-si-x1e>
- <e801ca8b-c8e2-d8b1-d55a-744414db77e3@wdc.com>
- <20190501170053.GG11740@lakrids.cambridge.arm.com>
- <CAAhSdy2OuCb6wBrs-O=fTWo0D_CgwTztfV-kMDi=tPmSJhM7og@mail.gmail.com>
+ id 1hLvL7-0006p1-5n
+ for linux-riscv@lists.infradead.org; Wed, 01 May 2019 19:56:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1556740586; x=1588276586;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=HiC1BhVQDcUK5m3uXFgIx1Wx/ouIkY0QSuBsbL+0D6U=;
+ b=AyTGWg9wJdMPXq3rAJUV0ezMmO8VbLQbb2s7bkKLXaPU4XPsUZRgNBct
+ d2FE1mqaRLZLe4TJb2aHHHFZpf/H1n4NuJ70IGG5Umtzacwfq9pd0mHIE
+ zZdPSrk70GsC/3jhzHNhB0rmuLGdXiHm2ZUVObLAFiLhgTZWeE1A9TG2q
+ v2VdWZbj4i88lZTraPmiLNJN97eIHGkQmZGJTf1907GEz8WPh7LiuwaWk
+ kT27NWFp1ZfQpOkCzIHXgGdyevUAheD2GXLK5N2nTvEiPspagET1ymtyL
+ SW/dVixvVyb4OPl+ytlTjXEh3pYhohJXwdkAWTog7WbohROwgoXeXhqIp A==;
+X-IronPort-AV: E=Sophos;i="5.60,418,1549900800"; d="scan'208";a="112238828"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 02 May 2019 03:56:24 +0800
+IronPort-SDR: LedXF7kgRzRkvCRQOGwH7qQubRFzsy+5NtqeGruNonrYXoqX6DFCuIRzA2Cwbjb2QrRrp8BTeq
+ tm83MUU8HpiC2ouE3wLixJvnOZV8v0k15mnLKhxOp7ioF5qqlyxpXSm8yldhR0vAuh8Ss+l+9I
+ MiGT9cBARFUXL/NfyJ0tt/ZIf7YuR7oAcIv8cZAtt++47Q0/njGKnHDLhZ1VlKJSyw5o3CYYJd
+ U5oRBOqmJiRXhw3nLI/HofoDaiAMmRx0e9OkTHAKkN5oOKg5prtIZ4q5xb3ikluEz8IxUnLuGa
+ K9FRwJOMOoXw68oks14xLXeO
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep02.wdc.com with ESMTP; 01 May 2019 12:34:51 -0700
+IronPort-SDR: 64bfk7lvm02jAvWULVkiHb/LDqgE0xh3Jfd2ZwMXj3wwvTcqloWgF4crIPBBElJ+uAqK8WOvXg
+ GxUEGfa4SH4uti10/WBT/xLdSi+O3g7k68OGaRp6/gZz16Zw5xg40885TNsmzlC5qXp+ZiV49e
+ lMH/GQPI5qAMQ+xEyuHJOS2M9AeVJJlUKySfll9O+eHlzODL7TigzC3JW08F/O0U3fNi+hp1Qu
+ CqwSo4nIIJBDkyeFwWkfE09yEdXggZGLPEc+bU8yYi5IIqRBdL45HyLwewfTwdJdk03ERuADwU
+ QdY=
+Received: from jedi-01.sdcorp.global.sandisk.com (HELO
+ jedi-01.int.fusionio.com) ([10.11.143.218])
+ by uls-op-cesaip01.wdc.com with ESMTP; 01 May 2019 12:56:22 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [v2 PATCH] RISC-V: Add a PE/COFF compliant Image header.
+Date: Wed,  1 May 2019 12:56:07 -0700
+Message-Id: <20190501195607.32553-1-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.21.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAAhSdy2OuCb6wBrs-O=fTWo0D_CgwTztfV-kMDi=tPmSJhM7og@mail.gmail.com>
-X-No-Archive: yes
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-Provags-ID: V03:K1:Wcvbk2phACwbUNrWanmcgvaG/SC1Qa2xqLynbBepDlxoWVqQ4EY
- Fk4o8lLOXe7Qyzqn5JoguFhonrfnGSpZ6l4q4tzGLSz2KFSBdPUCB7d4kfAEGaxjahIHdyp
- SlDodHWHDtDmnplGuKoJUWruDbJ3tzt8IQsyW8iR+KzpZ189HwyNhx8HI/cH54jKHaMbKuB
- 4ZWxGgAMRvkXt7LlylWkw==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:J9tQ4OSZ3ao=:dzfbPsQ3MnrH1ztAiTmZ2B
- M1AuxzxvjtbGbGSa2DXCW7u6jfchZljqRTBBUaXGbVwN/3sK8XniHlx9tEm2wjO9sZzTkz0Tt
- eXw+lWbpOwAq4zOTBcR3729m0n600y6dqOVU1ZFwOhYCeTzxpn0UyQFDcx/i6Ut2khFjWjypZ
- FF965xlxk9joK+TrlEdnXqc07g+q5foKln6KVyL25UeNAT+gimLJVSEfBOcIFT4dOElj/VBOT
- FK2wWfVEOmw7wpyzIBGggfGvUyCekiBrDBHk/GJ+kjAAuhTBiTlue8f1cPz5vkLhFR8D4meTO
- L62RN1uAGYF7zJ+Sv40erBWz5JR5Uxu+Y8s6VelzQyF18Zj1I3oHXdV/Ql2dQ4PTI7CVNXtha
- TrkBxAWOXNqyl1BkC5ykYSTERZqG9jyYj8sgjMwOjANAM0YiyMWuOQoeb4lA+DW/hvOvIHpSa
- Z9egQj2ChHNTy94b74uIZCXr/etDH1ogIAGzeNL4wArefPlxLrisidR7D8wMVmk4w0S0Mbnaf
- v/V2V91qzPbwC6906PQ4OI3KIsAgp9EipA7SCHqagHbWcBaa6PbonXT/Zm4/rkwC8wUOYRTJE
- B1EgzfkBL8E4oE9mPlFWmE8qcEDcZGYX0FNrTZQc+26kzcQfdrGJmoQr+OuClPW26mVZPE7kh
- zpVHt0InM8kNJ1B5iT1WoVwYjr0+4dQwob6z8HosF2X2J8O5p8ah8waYUowMGFXeOCKxtk86Z
- 5yQ1kbjcMubeKe88OZ31WtLgmCTs20fJGzLrqA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190501_125459_697522_2C7253B3 
-X-CRM114-Status: GOOD (  25.22  )
+X-CRM114-CacheID: sfid-20190501_125625_361234_7518706C 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -88,110 +91,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@sifive.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "zong@andestech.com" <zong@andestech.com>, Atish Patra <atish.patra@wdc.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: mark.rutland@arm.com, Albert Ou <aou@eecs.berkeley.edu>,
+ Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@sifive.com>,
+ Zong Li <zong@andestech.com>, Atish Patra <atish.patra@wdc.com>,
+ merker@debian.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXkgMDEsIDIwMTkgYXQgMTA6NDE6NTJQTSArMDUzMCwgQW51cCBQYXRlbCB3cm90
-ZToKPiBPbiBXZWQsIE1heSAxLCAyMDE5IGF0IDEwOjMwIFBNIE1hcmsgUnV0bGFuZCA8bWFyay5y
-dXRsYW5kQGFybS5jb20+IHdyb3RlOgo+ID4gT24gTW9uLCBBcHIgMjksIDIwMTkgYXQgMTA6NDI6
-NDBQTSAtMDcwMCwgQXRpc2ggUGF0cmEgd3JvdGU6Cj4gPiA+IE9uIDQvMjkvMTkgNDo0MCBQTSwg
-UGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4gPiA+ID4gT24gVHVlLCAyMyBBcHIgMjAxOSAxNjoyNTow
-NiBQRFQgKC0wNzAwKSwgYXRpc2gucGF0cmFAd2RjLmNvbSB3cm90ZToKPiA+ID4gPiA+IEN1cnJl
-bnRseSwgbGFzdCBzdGFnZSBib290IGxvYWRlcnMgc3VjaCBhcyBVLUJvb3QgY2FuIGFjY2VwdCBv
-bmx5Cj4gPiA+ID4gPiB1SW1hZ2Ugd2hpY2ggaXMgYW4gdW5uZWNlc3NhcnkgYWRkaXRpb25hbCBz
-dGVwIGluIGF1dG9tYXRpbmcgYm9vdCBmbG93cy4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBBZGQgYSBz
-aW1wbGUgaW1hZ2UgaGVhZGVyIHRoYXQgYm9vdCBsb2FkZXJzIGNhbiBwYXJzZSBhbmQgZGlyZWN0
-bHkKPiA+ID4gPiA+IGxvYWQga2VybmVsIGZsYXQgSW1hZ2UuIFRoZSBleGlzdGluZyBib290aW5n
-IG1ldGhvZHMgd2lsbCBjb250aW51ZSB0bwo+ID4gPiA+ID4gd29yayBhcyBpdCBpcy4KPiA+ID4g
-PiA+Cj4gPiA+ID4gPiBUZXN0ZWQgb24gYm90aCBRRU1VIGFuZCBIaUZpdmUgVW5sZWFzaGVkIHVz
-aW5nIE9wZW5TQkkgKyBVLUJvb3QgKyBMaW51eC4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBTaWduZWQt
-b2ZmLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2gucGF0cmFAd2RjLmNvbT4KPiA+ID4gPiA+IC0tLQo+
-ID4gPiA+ID4gICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2ltYWdlLmggfCAzMiArKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKwo+ID4gPiA+ID4gICBhcmNoL3Jpc2N2L2tlcm5lbC9oZWFk
-LlMgICAgICAgfCAyOCArKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gPiA+ID4gPiAgIDIg
-ZmlsZXMgY2hhbmdlZCwgNjAgaW5zZXJ0aW9ucygrKQo+ID4gPiA+ID4gICBjcmVhdGUgbW9kZSAx
-MDA2NDQgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9pbWFnZS5oCj4gPiA+ID4gPgo+ID4gPiA+ID4g
-ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaW1hZ2UuaCBiL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vaW1hZ2UuaAo+ID4gPiA+ID4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiA+ID4g
-PiA+IGluZGV4IDAwMDAwMDAwMDAwMC4uNzZhN2UwZDQwNjhhCj4gPiA+ID4gPiAtLS0gL2Rldi9u
-dWxsCj4gPiA+ID4gPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2ltYWdlLmgKPiA+ID4g
-PiA+IEBAIC0wLDAgKzEsMzIgQEAKPiA+ID4gPiA+ICsvKiBTUERYLUxpY2Vuc2UtSWRlbnRpZmll
-cjogR1BMLTIuMCAqLwo+ID4gPiA+ID4gKwo+ID4gPiA+ID4gKyNpZm5kZWYgX19BU01fSU1BR0Vf
-SAo+ID4gPiA+ID4gKyNkZWZpbmUgX19BU01fSU1BR0VfSAo+ID4gPiA+ID4gKwo+ID4gPiA+ID4g
-KyNkZWZpbmUgUklTQ1ZfSU1BR0VfTUFHSUMgICAgICAgICJSSVNDViIKPiA+ID4gPiA+ICsKPiA+
-ID4gPiA+ICsjaWZuZGVmIF9fQVNTRU1CTFlfXwo+ID4gPiA+ID4gKy8qCj4gPiA+ID4gPiArICog
-c3RydWN0IHJpc2N2X2ltYWdlX2hlYWRlciAtIHJpc2N2IGtlcm5lbCBpbWFnZSBoZWFkZXIKPiA+
-ID4gPiA+ICsgKgo+ID4gPiA+ID4gKyAqIEBjb2RlMDogICAgICAgICAgICAgICBFeGVjdXRhYmxl
-IGNvZGUKPiA+ID4gPiA+ICsgKiBAY29kZTE6ICAgICAgICAgICAgICAgRXhlY3V0YWJsZSBjb2Rl
-Cj4gPiA+ID4gPiArICogQHRleHRfb2Zmc2V0OiBJbWFnZSBsb2FkIG9mZnNldAo+ID4gPiA+ID4g
-KyAqIEBpbWFnZV9zaXplOiAgICAgICAgICBFZmZlY3RpdmUgSW1hZ2Ugc2l6ZQo+ID4gPiA+ID4g
-KyAqIEByZXNlcnZlZDogICAgICAgICAgICByZXNlcnZlZAo+ID4gPiA+ID4gKyAqIEBtYWdpYzog
-ICAgICAgICAgICAgICBNYWdpYyBudW1iZXIKPiA+ID4gPiA+ICsgKiBAcmVzZXJ2ZWQ6ICAgICAg
-ICAgICAgcmVzZXJ2ZWQKPiA+ID4gPiA+ICsgKi8KPiA+ID4gPiA+ICsKPiA+ID4gPiA+ICtzdHJ1
-Y3QgcmlzY3ZfaW1hZ2VfaGVhZGVyIHsKPiA+ID4gPiA+ICsgdTMyIGNvZGUwOwo+ID4gPiA+ID4g
-KyB1MzIgY29kZTE7Cj4gPiA+ID4gPiArIHU2NCB0ZXh0X29mZnNldDsKPiA+ID4gPiA+ICsgdTY0
-IGltYWdlX3NpemU7Cj4gPiA+ID4gPiArIHU2NCByZXMxOwo+ID4gPiA+ID4gKyB1NjQgbWFnaWM7
-Cj4gPiA+ID4gPiArIHUzMiByZXMyOwo+ID4gPiA+ID4gKyB1MzIgcmVzMzsKPiA+ID4gPiA+ICt9
-Owo+ID4gPiA+Cj4gPiA+ID4gSSBkb24ndCB3YW50IHRvIGludmVudCBvdXIgb3duIGZpbGUgZm9y
-bWF0LiAgSXMgdGhlcmUgYSByZWFzb24gd2UgY2FuJ3QganVzdAo+ID4gPiA+IHVzZSBzb21ldGhp
-bmcgc3RhbmRhcmQ/ICBPZmYgdGhlIHRvcCBvZiBteSBoZWFkIEkgY2FuIHRoaW5rIG9mIEVMRiBm
-aWxlcyBhbmQKPiA+ID4gPiBtdWx0aWJvb3QuCj4gPiA+Cj4gPiA+IEFkZGl0aW9uYWwgaGVhZGVy
-IGlzIHJlcXVpcmVkIHRvIGFjY29tbW9kYXRlIFBFIGhlYWRlciBmb3JtYXQuIEN1cnJlbnRseSwK
-PiA+ID4gdGhpcyBpcyBvbmx5IHVzZWQgZm9yIGJvb3RpIGNvbW1hbmQgYnV0IGl0IHdpbGwgYmUg
-cmV1c2VkIGZvciBFRkkgaGVhZGVycyBhcwo+ID4gPiB3ZWxsLiBMaW51eCBrZXJuZWwgSW1hZ2Ug
-Y2FuIHByZXRlbmQgYXMgYW4gRUZJIGFwcGxpY2F0aW9uIGlmIFBFL0NPRkYgaGVhZGVyCj4gPiA+
-IGlzIHByZXNlbnQuIFRoaXMgcmVtb3ZlcyB0aGUgbmVlZCBvZiBhbiBleHBsaWNpdCBFRkkgYm9v
-dCBsb2FkZXIgYW5kIEVGSQo+ID4gPiBmaXJtd2FyZSBjYW4gZGlyZWN0bHkgbG9hZCBMaW51eCAo
-b2J2aW91c2x5IGFmdGVyIEVGSSBzdHViIGltcGxlbWVudGF0aW9uCj4gPiA+IGZvciBSSVNDLVYp
-Lgo+ID4KPiA+IEFkZGluZyB0aGUgRUZJIHN0dWIgb24gYXJtNjQgcmVxdWlyZWQgdmVyeSBjYXJl
-ZnVsIGNvbnNpZGVyYXRpb24gb2Ygb3VyCj4gPiBJbWFnZSBoZWFkZXIgYW5kIHRoZSBFRkkgc3Bl
-YywgYWxvbmcgd2l0aCB0aGUgUEUvQ09GRiBzcGVjLgo+ID4KPiA+IEZvciBleGFtcGxlLCB0byBi
-ZSBhIGNvbXBsaWFudCBQRS9DT0ZGIGhlYWRlciwgdGhlIGZpcnN0IHR3byBieXRlcyBvZgo+ID4g
-eW91ciBrZXJuZWwgaW1hZ2UgbmVlZCB0byBiZSAiTVoiIGluIEFTQ0lJLiBPbiBhcm02NCB3ZSBo
-YXBwZW5lZCB0byBmaW5kCj4gPiBhIHZhbGlkIGluc3RydWN0aW9uIHRoYXQgd2UgY291bGQgcmVs
-eSB1cG9uIHRoYXQgbWV0IHRoaXMgcmVxdWlyZW1lbnQuLi4KPiAKPiBUaGUgIk1aIiBBU0NJSSAo
-aS5lLiAweDVhNGQpIGlzICJsaSBzNCwtMTMiIGluc3RydWN0aW9uIGluIFJJU0MtViBzbyB0aGlz
-Cj4gbW9kaWZpZXMgInM0IiByZWdpc3RlciB3aGljaCBpcyBwcmV0dHkgaGFybWxlc3MgZnJvbSBM
-aW51eCBSSVNDLVYgYm9vdGluZwo+IHBlcnNwZWN0aXZlLgo+IAo+IE9mIGNvdXJzZSwgd2Ugc2hv
-dWxkIG9ubHkgYWRkICJNWiIgQVNDSUkgaW4gTGludXggUklTQy1WIGltYWdlIGhlYWRlcgo+IHdo
-ZW4gQ09ORklHX0VGSSBpcyBlbmFibGVkIChqdXN0IGxpa2UgTGludXggQVJNNjQpLgoKUHJvYmFi
-bHkgSSdtIG1pc3Npbmcgc29tZXRoaW5nIG9idmlvdXMsIGJ1dCBJIGNhbm5vdCBjb21wbGV0ZWx5
-CmZvbGxvdyB5b3UgaGVyZS4gTXkgdW5kZXJzdGFuZGluZyBpcyBhcyBmb2xsb3dzOgoKVGhlIGtl
-cm5lbCBnZXRzIGV4ZWN1dGVkIGJ5IGp1bXBpbmcgdG8gdGhlIF9zdGFydCBsYWJlbCwgd2hlcmUg
-aXQKY3VycmVudGx5IGltbWVkaWF0ZWx5IHN0YXJ0cyB3aXRoIHNldHRpbmcgdXAgZXZlcnl0aGlu
-ZyAobWFzawppbnRlcnJ1cHRzLCBkaXNhYmxlIEZQVSwgZXRjKS4gIE5vdyB3ZSBpbnNlcnQgYSBz
-dHJ1Y3R1cmUgYmVmb3JlCnRoZSBhY3R1YWwgaW5pdCBjb2RlIHdoZXJlIHRoZSBmaXJzdCA2NCBi
-aXRzIG9mIHRoZSBzdHJ1Y3R1cmUKKHRoZSBjb2RlMCBhbmQgY29kZTEgZmllbGRzKSBhcmUgZmls
-bGVkIHdpdGggdmFsdWVzIHRoYXQKY29uc3RpdHV0ZSBhIHZhbGlkIGp1bXAgb3Bjb2RlIHRvIHRo
-ZSBhY3R1YWwgaW5pdCBjb2RlIGJlaGluZCB0aGUKZW5kIG9mIHRoZSBuZXcgc3RydWN0dXJlLgoK
-SWYgdGhlIGZpcnN0IGJ5dGUgaW4gYSBQRS9DT0ZGIGhlYWRlciBoYXMgdG8gYmUgYW4gQVNDSUkg
-Ik0iLAp0aGF0IGlzIDAxMDAxMTAxIGluIGJpbmFyeS4gIFJJU0MtViBpcyBsaXR0bGUtZW5kaWFu
-IGFuZCB0aGUgbGFzdAp0d28gYml0cyBvZiB0aGUgbG93ZXN0LXZhbHVlIGJ5dGUgZGVmaW5lIHRo
-ZSB0eXBlIG9mIGluc3RydWN0aW9uLiAKQWNjb3JkaW5nIHRvIHRoZSBjaGFwdGVyICJCYXNlIElu
-c3RydWN0aW9uLUxlbmd0aCBFbmNvZGluZyIgaW4KdGhlIFJJU0MtViBJU0Egc3BlYyBldmVyeXRo
-aW5nIGV4Y2VwdCAxMSBhcyB0aGUgbG93ZXN0IGJpdHMKZGVub3RlcyBhIGNvbXByZXNzZWQgaW5z
-dHJ1Y3Rpb24gYW5kIGlmIEkgaGF2ZSBwdXp6ZWxlZCB0b2dldGhlcgp0aGUgdGhlIHZhcmlvdXMg
-aW5zdHJ1Y3Rpb24gYml0cyBjb3JyZWN0bHksIEFTQ0lJICJNWiIgd291bGQgYmUKZXhjdXRlZCBh
-cyBhIGNvbXByZXNzZWQgbG9hZCBpbW1lZGlhdGUgdG8geDkvczEsIHdvdWxkbid0IGl0PwoKSWYg
-bXkgcHJldmlvdXMgdGhvdWdodHMgYXJlIGNvcnJlY3QsIHRoaXMgd291bGQgYWxzbyBtZWFuIHRo
-YXQKaGF2aW5nIGEgUEUvQ09GRi1jb21wYXRpYmxlIGhlYWRlciBmb3IgRUZJIGJvb3Qgd291bGQg
-bWFrZSBhCmtlcm5lbCBpbWFnZSBpbmhlcmVudGx5IGluY29tcGF0aWJsZSB3aXRoIHBlcmZvcm1p
-bmcgYSBub24tRUZJCmJvb3Qgb2YgdGhlIHNhbWUgaW1hZ2Ugb24gc3lzdGVtcyB0aGF0IGRvbid0
-IGltcGxlbWVudCB0aGUgQwpleHRlbnNpb24uICBBcyB0aGUgd29yay1pbi1wcm9ncmVzcyBSSVND
-LVYgVW5peCBwbGF0Zm9ybSBzcGVjCndpbGwgcHJvYmFibHkgbWFuZGF0ZSBDLCB0aGF0IHByb2Jh
-Ymx5IHdvbid0IGJlIG11Y2ggb2YgYQpwcmFjdGljYWwgcHJvYmxlbSwgdGhvdWdoLgoKUmVnYXJk
-cywKS2Fyc3RlbgotLSAKSWNoIHdpZGVyc3ByZWNoZSBoaWVybWl0IGF1c2Ryw7xja2xpY2ggZGVy
-IE51dHp1bmcgc293aWUgZGVyCldlaXRlcmdhYmUgbWVpbmVyIHBlcnNvbmVuYmV6b2dlbmVuIERh
-dGVuIGbDvHIgWndlY2tlIGRlciBXZXJidW5nCnNvd2llIGRlciBNYXJrdC0gb2RlciBNZWludW5n
-c2ZvcnNjaHVuZy4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+Currently, last stage boot loaders such as U-Boot can accept only
+uImage which is an unnecessary additional step in automating boot flows.
+
+Add a PE/COFF compliant image header that boot loaders can parse and
+directly load kernel flat Image. The existing booting methods will continue
+to work as it is.
+
+Another goal of this header is to support EFI stub for RISC-V in future.
+EFI specification needs PE/COFF image header in the beginning of the kernel
+image in order to load it as an EFI application. In order to support
+EFI stub, code0 should be replaced with "MZ" magic string and res5(at
+offset 0x3c) should point to the rest of the PE/COFF header (which will
+be added during EFI support).
+
+Tested on both QEMU and HiFive Unleashed using OpenSBI + U-Boot + Linux.
+
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+Changes from v1-v2:
+1. Added additional reserved elements to make it fully PE compatible.
+---
+ arch/riscv/include/asm/image.h | 37 ++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/head.S       | 30 +++++++++++++++++++++++++++
+ 2 files changed, 67 insertions(+)
+ create mode 100644 arch/riscv/include/asm/image.h
+
+diff --git a/arch/riscv/include/asm/image.h b/arch/riscv/include/asm/image.h
+new file mode 100644
+index 000000000000..927333ededee
+--- /dev/null
++++ b/arch/riscv/include/asm/image.h
+@@ -0,0 +1,37 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef __ASM_IMAGE_H
++#define __ASM_IMAGE_H
++
++#define RISCV_IMAGE_MAGIC	"RISCV"
++
++#ifndef __ASSEMBLY__
++/*
++ * struct riscv_image_header - riscv kernel image header
++ *
++ * @code0:		Executable code
++ * @code1:		Executable code
++ * @text_offset:	Image load offset
++ * @image_size:		Effective Image size
++ * @reserved:		reserved
++ * @reserved:		reserved
++ * @reserved:		reserved
++ * @magic:		Magic number
++ * @reserved:		reserved
++ * @reserved:		reserved (will be used for PE COFF offset)
++ */
++
++struct riscv_image_header {
++	u32 code0;
++	u32 code1;
++	u64 text_offset;
++	u64 image_size;
++	u64 res1;
++	u64 res2;
++	u64 res3;
++	u64 magic;
++	u32 res4;
++	u32 res5;
++};
++#endif /* __ASSEMBLY__ */
++#endif /* __ASM_IMAGE_H */
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index fe884cd69abd..12d660d929ba 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -19,9 +19,39 @@
+ #include <asm/thread_info.h>
+ #include <asm/page.h>
+ #include <asm/csr.h>
++#include <asm/image.h>
+ 
+ __INIT
+ ENTRY(_start)
++	/*
++	 * Image header expected by Linux boot-loaders. The image header data
++	 * structure is described in asm/image.h.
++	 * Do not modify it without modifying the structure and all bootloaders
++	 * that expects this header format!!
++	 */
++	/* jump to start kernel */
++	j _start_kernel
++	/* reserved */
++	.word 0
++	.balign 8
++#if __riscv_xlen == 64
++	/* Image load offset(2MB) from start of RAM */
++	.dword 0x200000
++#else
++	/* Image load offset(4MB) from start of RAM */
++	.dword 0x400000
++#endif
++	/* Effective size of kernel image */
++	.dword _end - _start
++	.dword 0
++	.dword 0
++	.dword 0
++	.asciz RISCV_IMAGE_MAGIC
++	.word 0
++	.word 0
++
++.global _start_kernel
++_start_kernel:
+ 	/* Mask all interrupts */
+ 	csrw sie, zero
+ 
+-- 
+2.21.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
