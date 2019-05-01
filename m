@@ -2,84 +2,87 @@ Return-Path: <SRS0=oqq8=TB=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,
+	USER_AGENT_NEOMUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 65D5FC43219
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  1 May 2019 19:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7CB78C43219
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  1 May 2019 20:33:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3765E20651
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  1 May 2019 19:56:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4FB5C20656
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  1 May 2019 20:33:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="D8TgnV2p";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="AyTGWg9w"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3765E20651
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ONJHMhQ/"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4FB5C20656
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=debian.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ktYS4gMRVy/vcB532e22gRBumC6vIjNJC6y1T4xVZik=; b=D8TgnV2pemDL7M
-	0p5+3ykZZdat08Eg8i0SZK1MOmqRdeG15HFNkFRyKn1Bn6q2vKx7ro9tJSD30sKVQ4EBXB9ghAaGD
-	r8WzV1O4Hn9W1o/uCxNEBYYCKbUbZxDXA41ZdkeifapKTHyqfCxJNH4212YhIlSfhI7wxd0PmwPzV
-	jo2AMrWPlh6l7A0ECL/QYTrBUf0YIKNO1/xTPsogiuDjQ43JBPJLciUf7NHb2M3kUlI5iLlYqWveU
-	sRTHykMyLXp/WeR/KfyzZZo9yeSvvOCchVrKDV1Ms9D7aiFLsFInPLXtP/Hih90f7ioaa6qp8ExE6
-	IC9zIbmYJX1cLV1FhJyg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BwPSsW0JJuyB2ZimV7n24ZpmKhf+Ch51vc7vTtZb5Nk=; b=ONJHMhQ/88W2vY
+	wVPZWHuGJtV6MbaRKYHchX7ja3qOV0fnP/LFAHhG5GQGf4okEDJ1uaBrfyXAPNqSXO/TfkNXB0Hvs
+	e0mAPi4mahh2esMbWabFgwbrF8M8QvAGn9qi0h3VVMsid/Y2gIdopzEhMZQZOalNg9+mCXPIOUUin
+	3HPw7UvPabMUek6XsrFEUiHpVPOh9E+XQun9nCyC3HqCp41+rEwgooB1QN7XmmIaX0ShTSawtcOXU
+	m8oypE7i66xsCXOHlyItER745l/erX6eYro7tpVuSDblgRRM7VKROwmm5rfeIFL30y5/LmePBvVuM
+	1xhL4eUUTen8ppioWm7w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hLvLA-0006pU-Jr; Wed, 01 May 2019 19:56:28 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1hLvui-00063c-21; Wed, 01 May 2019 20:33:12 +0000
+Received: from mout.kundenserver.de ([212.227.17.24])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hLvL7-0006p1-5n
- for linux-riscv@lists.infradead.org; Wed, 01 May 2019 19:56:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1556740586; x=1588276586;
- h=from:to:cc:subject:date:message-id:mime-version:
- content-transfer-encoding;
- bh=HiC1BhVQDcUK5m3uXFgIx1Wx/ouIkY0QSuBsbL+0D6U=;
- b=AyTGWg9wJdMPXq3rAJUV0ezMmO8VbLQbb2s7bkKLXaPU4XPsUZRgNBct
- d2FE1mqaRLZLe4TJb2aHHHFZpf/H1n4NuJ70IGG5Umtzacwfq9pd0mHIE
- zZdPSrk70GsC/3jhzHNhB0rmuLGdXiHm2ZUVObLAFiLhgTZWeE1A9TG2q
- v2VdWZbj4i88lZTraPmiLNJN97eIHGkQmZGJTf1907GEz8WPh7LiuwaWk
- kT27NWFp1ZfQpOkCzIHXgGdyevUAheD2GXLK5N2nTvEiPspagET1ymtyL
- SW/dVixvVyb4OPl+ytlTjXEh3pYhohJXwdkAWTog7WbohROwgoXeXhqIp A==;
-X-IronPort-AV: E=Sophos;i="5.60,418,1549900800"; d="scan'208";a="112238828"
-Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 02 May 2019 03:56:24 +0800
-IronPort-SDR: LedXF7kgRzRkvCRQOGwH7qQubRFzsy+5NtqeGruNonrYXoqX6DFCuIRzA2Cwbjb2QrRrp8BTeq
- tm83MUU8HpiC2ouE3wLixJvnOZV8v0k15mnLKhxOp7ioF5qqlyxpXSm8yldhR0vAuh8Ss+l+9I
- MiGT9cBARFUXL/NfyJ0tt/ZIf7YuR7oAcIv8cZAtt++47Q0/njGKnHDLhZ1VlKJSyw5o3CYYJd
- U5oRBOqmJiRXhw3nLI/HofoDaiAMmRx0e9OkTHAKkN5oOKg5prtIZ4q5xb3ikluEz8IxUnLuGa
- K9FRwJOMOoXw68oks14xLXeO
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep02.wdc.com with ESMTP; 01 May 2019 12:34:51 -0700
-IronPort-SDR: 64bfk7lvm02jAvWULVkiHb/LDqgE0xh3Jfd2ZwMXj3wwvTcqloWgF4crIPBBElJ+uAqK8WOvXg
- GxUEGfa4SH4uti10/WBT/xLdSi+O3g7k68OGaRp6/gZz16Zw5xg40885TNsmzlC5qXp+ZiV49e
- lMH/GQPI5qAMQ+xEyuHJOS2M9AeVJJlUKySfll9O+eHlzODL7TigzC3JW08F/O0U3fNi+hp1Qu
- CqwSo4nIIJBDkyeFwWkfE09yEdXggZGLPEc+bU8yYi5IIqRBdL45HyLwewfTwdJdk03ERuADwU
- QdY=
-Received: from jedi-01.sdcorp.global.sandisk.com (HELO
- jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip01.wdc.com with ESMTP; 01 May 2019 12:56:22 -0700
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [v2 PATCH] RISC-V: Add a PE/COFF compliant Image header.
-Date: Wed,  1 May 2019 12:56:07 -0700
-Message-Id: <20190501195607.32553-1-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.21.0
+ id 1hLvue-000634-O5
+ for linux-riscv@lists.infradead.org; Wed, 01 May 2019 20:33:10 +0000
+Received: from excalibur.cnev.de ([213.196.200.188]) by
+ mrelayeu.kundenserver.de (mreue107 [212.227.15.183]) with ESMTPSA (Nemesis)
+ id 1MXYAj-1hGI2t16Yp-00Yxxl; Wed, 01 May 2019 22:32:52 +0200
+Received: from karsten by excalibur.cnev.de with local (Exim 4.89)
+ (envelope-from <merker@debian.org>)
+ id 1hLvuK-0000JY-Jd; Wed, 01 May 2019 22:32:48 +0200
+Date: Wed, 1 May 2019 22:32:48 +0200
+From: Karsten Merker <merker@debian.org>
+To: Anup Patel <anup@brainfault.org>, Mark Rutland <mark.rutland@arm.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ Palmer Dabbelt <palmer@sifive.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "zong@andestech.com" <zong@andestech.com>,
+ Atish Patra <atish.patra@wdc.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH] RISC-V: Add an Image header that boot loader can parse.
+Message-ID: <20190501203248.oadcldefusc2ighv@excalibur.cnev.de>
+References: <mhng-cab2c6b9-f623-4286-99a4-61e4b3a58761@palmer-si-x1e>
+ <e801ca8b-c8e2-d8b1-d55a-744414db77e3@wdc.com>
+ <20190501170053.GG11740@lakrids.cambridge.arm.com>
+ <CAAhSdy2OuCb6wBrs-O=fTWo0D_CgwTztfV-kMDi=tPmSJhM7og@mail.gmail.com>
+ <20190501195443.trgjv6tujctsw5sw@excalibur.cnev.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20190501195443.trgjv6tujctsw5sw@excalibur.cnev.de>
+X-No-Archive: yes
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-Provags-ID: V03:K1:uAFOUbMAST/fg63gGkCxdt/hO21IE0Vf8MY/Ms1ItZjbUKKeRaM
+ X3ziOi00VTr0wfRTUPku62LmNHlcdHKpp8aqgEypwoZwWgBcyZgLKum6sg6yZZpAK2dOxAc
+ nF/rWnvuGYeP4ket1h/vVRh8ElovIybmZuVDHzPAPHGE+Zn9C3lM76BMHWkWc2BABa8CABQ
+ ELwBTDw9ewm1qd8ZngyVg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:xhj0qQJdr/8=:2CTkHkDNXsJsE4iCWO5dGZ
+ BsdK0s641viw46BVtn9Dn7tnCjRB48pPsqevSrPPzLTeLheVoKH6VVF8X3wbe/e1A5ADPY9uO
+ F6kxiXkfJX1u7wUzI597bik0oD1Q4T/a6Qo4LbYvhjVsANX4Aay1V6hcz1/N/Yejed1ZvFMH8
+ gpDywyK0iMhAksuE+lUEgPLjFcG8fqzbQmIE3qOPiuS0Srla/w7dPJ0TXMjph93xBTEN0ZijW
+ 2lRM7b+BsgW9WVdFUC0ioivjHcBGIrC8vNySgjo6rHLxhYncQTfmvBja0pUH8J9tAvDA8OY19
+ 7KJsHZz5s3UTmOMFOW9jpRiE+OIsA3IMXsFfq1nFTrnRZEV3b99AKPwLWCHH1JUulK7p21ZzV
+ TEz4H5nyNf0jUXz6gjTNWKsqJsU8G8IeS6EySdb54WqQDYq8/MKDlpt5lAp7Qfj6JXqH9w7yj
+ qLshvo0KwBP71aG520MA0qEEzpapm4NbVWiN7WctYsFYQ6JsItWMePn4ID+RLYlCIR2+strG2
+ dDs6pJ0q93Q0Ia/2YjdVXQEj9cwC6RFNIdHpzGi0jZAHglLq/EwPElhMGz08TRhC/Fzf7jT6X
+ klVMmo5fb8OClfps8V362x74R1UfFYz+fIrz3D9jNf5WfsXwJuHPJwyH8n2krzTYv48l7HUIH
+ tIUCrLxPPYdvbFaHQPFOK9sPl3QZalaSyUKXBIAZlYfWagXnKHtzhua6/sP0gz5oT129h8mdp
+ 8AcIxS/Q3pD5ibzIBUCx4wuddq+8jLpnvlSC9A==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190501_125625_361234_7518706C 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20190501_133309_091353_273102F0 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,133 +94,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@sifive.com>,
- Zong Li <zong@andestech.com>, Atish Patra <atish.patra@wdc.com>,
- merker@debian.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Karsten Merker <merker@debian.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, last stage boot loaders such as U-Boot can accept only
-uImage which is an unnecessary additional step in automating boot flows.
-
-Add a PE/COFF compliant image header that boot loaders can parse and
-directly load kernel flat Image. The existing booting methods will continue
-to work as it is.
-
-Another goal of this header is to support EFI stub for RISC-V in future.
-EFI specification needs PE/COFF image header in the beginning of the kernel
-image in order to load it as an EFI application. In order to support
-EFI stub, code0 should be replaced with "MZ" magic string and res5(at
-offset 0x3c) should point to the rest of the PE/COFF header (which will
-be added during EFI support).
-
-Tested on both QEMU and HiFive Unleashed using OpenSBI + U-Boot + Linux.
-
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
-Changes from v1-v2:
-1. Added additional reserved elements to make it fully PE compatible.
----
- arch/riscv/include/asm/image.h | 37 ++++++++++++++++++++++++++++++++++
- arch/riscv/kernel/head.S       | 30 +++++++++++++++++++++++++++
- 2 files changed, 67 insertions(+)
- create mode 100644 arch/riscv/include/asm/image.h
-
-diff --git a/arch/riscv/include/asm/image.h b/arch/riscv/include/asm/image.h
-new file mode 100644
-index 000000000000..927333ededee
---- /dev/null
-+++ b/arch/riscv/include/asm/image.h
-@@ -0,0 +1,37 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef __ASM_IMAGE_H
-+#define __ASM_IMAGE_H
-+
-+#define RISCV_IMAGE_MAGIC	"RISCV"
-+
-+#ifndef __ASSEMBLY__
-+/*
-+ * struct riscv_image_header - riscv kernel image header
-+ *
-+ * @code0:		Executable code
-+ * @code1:		Executable code
-+ * @text_offset:	Image load offset
-+ * @image_size:		Effective Image size
-+ * @reserved:		reserved
-+ * @reserved:		reserved
-+ * @reserved:		reserved
-+ * @magic:		Magic number
-+ * @reserved:		reserved
-+ * @reserved:		reserved (will be used for PE COFF offset)
-+ */
-+
-+struct riscv_image_header {
-+	u32 code0;
-+	u32 code1;
-+	u64 text_offset;
-+	u64 image_size;
-+	u64 res1;
-+	u64 res2;
-+	u64 res3;
-+	u64 magic;
-+	u32 res4;
-+	u32 res5;
-+};
-+#endif /* __ASSEMBLY__ */
-+#endif /* __ASM_IMAGE_H */
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index fe884cd69abd..12d660d929ba 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -19,9 +19,39 @@
- #include <asm/thread_info.h>
- #include <asm/page.h>
- #include <asm/csr.h>
-+#include <asm/image.h>
- 
- __INIT
- ENTRY(_start)
-+	/*
-+	 * Image header expected by Linux boot-loaders. The image header data
-+	 * structure is described in asm/image.h.
-+	 * Do not modify it without modifying the structure and all bootloaders
-+	 * that expects this header format!!
-+	 */
-+	/* jump to start kernel */
-+	j _start_kernel
-+	/* reserved */
-+	.word 0
-+	.balign 8
-+#if __riscv_xlen == 64
-+	/* Image load offset(2MB) from start of RAM */
-+	.dword 0x200000
-+#else
-+	/* Image load offset(4MB) from start of RAM */
-+	.dword 0x400000
-+#endif
-+	/* Effective size of kernel image */
-+	.dword _end - _start
-+	.dword 0
-+	.dword 0
-+	.dword 0
-+	.asciz RISCV_IMAGE_MAGIC
-+	.word 0
-+	.word 0
-+
-+.global _start_kernel
-+_start_kernel:
- 	/* Mask all interrupts */
- 	csrw sie, zero
- 
--- 
-2.21.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBNYXkgMDEsIDIwMTkgYXQgMDk6NTQ6NDNQTSArMDIwMCwgS2Fyc3RlbiBNZXJrZXIg
+d3JvdGU6Cj4gT24gV2VkLCBNYXkgMDEsIDIwMTkgYXQgMTA6NDE6NTJQTSArMDUzMCwgQW51cCBQ
+YXRlbCB3cm90ZToKPiA+IE9uIFdlZCwgTWF5IDEsIDIwMTkgYXQgMTA6MzAgUE0gTWFyayBSdXRs
+YW5kIDxtYXJrLnJ1dGxhbmRAYXJtLmNvbT4gd3JvdGU6Cj4gPiA+IE9uIE1vbiwgQXByIDI5LCAy
+MDE5IGF0IDEwOjQyOjQwUE0gLTA3MDAsIEF0aXNoIFBhdHJhIHdyb3RlOgo+ID4gPiA+IE9uIDQv
+MjkvMTkgNDo0MCBQTSwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4gPiA+ID4gPiBPbiBUdWUsIDIz
+IEFwciAyMDE5IDE2OjI1OjA2IFBEVCAoLTA3MDApLCBhdGlzaC5wYXRyYUB3ZGMuY29tIHdyb3Rl
+OgoKPiBQcm9iYWJseSBJJ20gbWlzc2luZyBzb21ldGhpbmcgb2J2aW91cywgYnV0IEkgY2Fubm90
+IGNvbXBsZXRlbHkKPiBmb2xsb3cgeW91IGhlcmUuIE15IHVuZGVyc3RhbmRpbmcgaXMgYXMgZm9s
+bG93czoKWy4uLl0KPiBJZiB0aGUgZmlyc3QgYnl0ZSBpbiBhIFBFL0NPRkYgaGVhZGVyIGhhcyB0
+byBiZSBhbiBBU0NJSSAiTSIsCj4gdGhhdCBpcyAwMTAwMTEwMSBpbiBiaW5hcnkuICBSSVNDLVYg
+aXMgbGl0dGxlLWVuZGlhbiBhbmQgdGhlIGxhc3QKPiB0d28gYml0cyBvZiB0aGUgbG93ZXN0LXZh
+bHVlIGJ5dGUgZGVmaW5lIHRoZSB0eXBlIG9mIGluc3RydWN0aW9uLiAKPiBBY2NvcmRpbmcgdG8g
+dGhlIGNoYXB0ZXIgIkJhc2UgSW5zdHJ1Y3Rpb24tTGVuZ3RoIEVuY29kaW5nIiBpbgo+IHRoZSBS
+SVNDLVYgSVNBIHNwZWMgZXZlcnl0aGluZyBleGNlcHQgMTEgYXMgdGhlIGxvd2VzdCBiaXRzCj4g
+ZGVub3RlcyBhIGNvbXByZXNzZWQgaW5zdHJ1Y3Rpb24gYW5kIGlmIEkgaGF2ZSBwdXp6ZWxlZCB0
+b2dldGhlcgo+IHRoZSB0aGUgdmFyaW91cyBpbnN0cnVjdGlvbiBiaXRzIGNvcnJlY3RseSwgQVND
+SUkgIk1aIiB3b3VsZCBiZQo+IGV4Y3V0ZWQgYXMgYSBjb21wcmVzc2VkIGxvYWQgaW1tZWRpYXRl
+IHRvIHg5L3MxLCB3b3VsZG4ndCBpdD8KClNvcnJ5LCBJIGhhdmUgbWlzaW50ZXJwcmV0ZWQgYSBi
+aXRmaWVsZCBpbiB0aGUgc3BlYywgaXQncyBpbmRlZWQKYSBjb21wcmVzc2VkIGxvYWQgaW1tZWRp
+YXRlIHRvIHgyMC9zNC4KClJlZ2FyZHMsCkthcnN0ZW4KLS0gCkljaCB3aWRlcnNwcmVjaGUgaGll
+cm1pdCBhdXNkcsO8Y2tsaWNoIGRlciBOdXR6dW5nIHNvd2llIGRlcgpXZWl0ZXJnYWJlIG1laW5l
+ciBwZXJzb25lbmJlem9nZW5lbiBEYXRlbiBmw7xyIFp3ZWNrZSBkZXIgV2VyYnVuZwpzb3dpZSBk
+ZXIgTWFya3QtIG9kZXIgTWVpbnVuZ3Nmb3JzY2h1bmcuCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
