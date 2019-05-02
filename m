@@ -2,21 +2,22 @@ Return-Path: <SRS0=NPVC=TC=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,T_DKIMWL_WL_HIGH,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 03C70C43219
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  2 May 2019 09:35:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 20D98C43219
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  2 May 2019 09:50:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C4E2720652
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  2 May 2019 09:35:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D686B20873
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  2 May 2019 09:50:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NgHlgM5O";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="kJ/VcYvH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C4E2720652
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bRWVY2Ic";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="BX4nZWab"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D686B20873
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,67 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W0QzDE9r8nZL7BYeERNX6Jaj9d9Nqxsioz9ig34lQ2Q=; b=NgHlgM5OI6APsU
-	ZSJ28FzzXabvSddhG2j34/UHUtIAukJX6pQBA5t5XtDNFmp42yORtOD0YWbIZphGEwbBlRH2+mE9k
-	3rPH1KSneWV5Sy0uThvVcvSdMI/RG0jwv6/tkk0WhvcHY3TosEyvtwi+VFjd2cYZBQQGhNTCwAOVA
-	zxwy3v+LD9GgrEaZQd263W7bkdZJ1rcLz0S0SvPuf8+BlDbkFWAtDT+o9mUavA/Xrcs7nsUJ5Xs5d
-	Gzy/E8yL2l4+B+ON2YpS64kNso2UYCwo11oKQ+N7DW8RluNQn7YWAGr9xAVIKEUNPAo+Q89p0ZatM
-	xmy+yQseL+8BMPm1tz6Q==;
+	List-Owner; bh=UOdFxLUqwix5IviFh7Wf7MIgdYvtrST+LAbh9JGNffk=; b=bRWVY2IccSj7Kh
+	wOeSCgFo3tEIDVAGCEIYJzxj6bfS7kqMrq/xyPnxBRnOGT2/pBr3kqDb2mECR2w1QzWC33ZlAPCD9
+	xS+irU9VL6FkpnZePV6KQtyCsbyuK2qpVRxU4RYc8qis+bBha/IznaBAUDFhFcCOxA+owQAkLdiCh
+	8vWasyvo3b+a5M64UR3D129lcKIgxk84GRhxCbLLjDK6rM95i6T6+W3dXZOhswNgqRd1or7PR6jE2
+	tKHMv6rKH9cZVe8Uer+bPAc5jO83e7EClERbDUFJte9FA+DQUTI5Lwzsj/T00BqFT5q2ckdD60T28
+	powSo6q/yJPV8WAMT1og==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hM886-0001v9-6I; Thu, 02 May 2019 09:35:50 +0000
-Received: from mail-lf1-x141.google.com ([2a00:1450:4864:20::141])
+	id 1hM8ML-0007k8-25; Thu, 02 May 2019 09:50:33 +0000
+Received: from mail-vs1-xe42.google.com ([2607:f8b0:4864:20::e42])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hM883-0001ub-BR
- for linux-riscv@lists.infradead.org; Thu, 02 May 2019 09:35:48 +0000
-Received: by mail-lf1-x141.google.com with SMTP id h18so1346166lfj.11
- for <linux-riscv@lists.infradead.org>; Thu, 02 May 2019 02:35:46 -0700 (PDT)
+ id 1hM8MB-0007b5-NF
+ for linux-riscv@lists.infradead.org; Thu, 02 May 2019 09:50:25 +0000
+Received: by mail-vs1-xe42.google.com with SMTP id b23so1009662vso.1
+ for <linux-riscv@lists.infradead.org>; Thu, 02 May 2019 02:50:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=gLiW98ObQ1S6YFlruRE9Fln9ldebb9TO3ZMt7eGSCa4=;
- b=kJ/VcYvHyjnVugkqfWENJv99k8g6t5EVlK98yNTP787dS27OlftIdT80tN/vQeycG1
- OLXK58RYd2gV0AN/zXDeGH/7jYGtSmh27vXpnBU5/WBtDMrT3yNMJrOeykV2L9OnsWaM
- k0q4Ul2eAe/YiFvguNcj0qV85L6744P18qUjYPw4QM17PauwU9dw7t1UKV9G5chzTd3a
- freJak4M0M62x1Vp4lr3/3hdFX7R67+cCzCHre8/Hj7YG2e6jI+b0DyXSqN/6XL4NYjv
- znUwLiR/WoEaDmdfdiNAWx58cuDsNy5tHxIkU/9FYUyI3Ot3Pd20VpxN4qkegjx0tHvh
- Kg4Q==
+ :cc; bh=keAes192gnrFcSFqXV1m3IUSUAMiPAOK4rQjZDjH5pI=;
+ b=BX4nZWabL1FBUgQQIP5xUtBD0Ydn1/qRre827GC5X0v65wAictFYc2/JYEV1utJ2R/
+ 8ovvH6UcxqPuFoKh70cJGDwl30VleX42wVx3XPO3SjKfCQR2TiiDK8GHPCc8SfjAzMv0
+ JAX6VElspWsKr7ZY/OkmPgh1Kw+7lAoPFTcLVgkRulhmQmXYN38TCXqdx0osl3j5Wkxn
+ hmpSUSHvgtkOoq5C0zDP0nBKjqozOXKVuVsna4xb90+qznOzIS/fcHe1LF4ggVdhPJNZ
+ unTHUdxSjrhDgjuQYQOyrtRVRVn7Xd4gBViun011N4h6aGP0IRfcw2JXd7FmICRUppKn
+ DyVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=gLiW98ObQ1S6YFlruRE9Fln9ldebb9TO3ZMt7eGSCa4=;
- b=qQ7jErvwg7qzYb+NeAKMccrYs84SYrnhqNvZPq0abeLXfjmRsm9R24uAlvTOqVkYhR
- v/Pm/n19gfBaH3+OPHy0GnCUh0fdBmfJ5hCv8ktYO8UfxvxVr23S26loZq38UTRkQYNW
- pnc1Mv+oPZHCq1Wqg+lWxtfvQ9IRKHNm2g9wy4lg6c7lRjpWUsH+13SmmYhh2yXEfj1z
- R/N8pl861Cw8df+ZRChnb095p11TQbn8S1W3et+U4mE0a1X6h8u9BMn9Q6c73JoKMPp+
- JMrB6aJNP0VGrcfhKFVHISyOzSw6A80cdcPCqlhfpkIkdqkt1htiXoer57OaNeFohpai
- UzvA==
-X-Gm-Message-State: APjAAAVcPZl0MdCdfjBzi7+Q0QckbAgLQsI3qf8W7kTh8bdZCbswAPrI
- 1tM2I+c6nYPg7H8wHuOsf+JpRHHqlzRiIK4Fbz5zhg==
-X-Google-Smtp-Source: APXvYqzbPMzpxD0RPAZhpWdShx/+nGO7oeIUDQ2/rulMH8m6jO3wZL7AozC29zzbdQkX6PEqZ8Xr/tJPlZ0x7ozzxpU=
-X-Received: by 2002:ac2:48a5:: with SMTP id u5mr1414737lfg.115.1556789745312; 
- Thu, 02 May 2019 02:35:45 -0700 (PDT)
+ bh=keAes192gnrFcSFqXV1m3IUSUAMiPAOK4rQjZDjH5pI=;
+ b=pP7ncoZHS2vt0Jo4E0R6ftWcwhIrVoYQhKwoEghqHfEjblelPrHhZsEHDq6cEVdJ3A
+ uNy2F+Lp9vExWyubmnCYIG2NWqjhsroGFTn1SzkPBimYCW3QY/awekYEWUZ/au170VFV
+ VbKEQYQOTJLIXN+EGg8HiRrpYNnvQfvcHKt9D+mLjttdCSuCqm/k0r1Df2eVsIWp5OVO
+ 4WuTp71BtvcHK/92CggL5hE1jr7HMoXCq2glAg2b69F+Sp37KCWnYb9FrjGyhEumkRGE
+ rvFIXgYbs8jJXsXt0AYuT0RY2Gzc64m9zvfkGLB2F0gxwaw1fl8X9zYlZLu1e+CgRuzF
+ fRaA==
+X-Gm-Message-State: APjAAAXwPHb3d1WXhUabPrzE2xz5ysFkQVSTh6bqhnn4smglk0n1tSam
+ 7FEaH7bXxXjpeofD7exM16p5OwsbShpn+MS9PO+e2Q==
+X-Google-Smtp-Source: APXvYqxx/FX3/IKosWRbFNCh1CRrGqLdhXbBkxySTU2eoGaeDFJ6o+ccMLi1ZJecmMwPjn5xTCeXYWtfZMqlG3yh9LQ=
+X-Received: by 2002:a67:ea45:: with SMTP id r5mr1312876vso.92.1556790621948;
+ Thu, 02 May 2019 02:50:21 -0700 (PDT)
 MIME-Version: 1.0
-References: <1556171696-7741-1-git-send-email-yash.shah@sifive.com>
- <1556171696-7741-2-git-send-email-yash.shah@sifive.com>
- <20190425101318.GA8469@e107155-lin>
- <CAJ2_jOEBqBnorz9PcQp72Jjju9RX_P8mU=Gq+0xCCcWsBiJksw@mail.gmail.com>
- <20190426093358.GA28309@e107155-lin>
- <CAJ2_jOEoD=Njp+L+H=jG59mA-j9SnwzyNmz7ECogWmbvei_f5Q@mail.gmail.com>
- <20190502004130.GA20802@bogus>
- <CAJ2_jOETZa_oC-xSwfQVw-9Q6OivRG2R0rKMhwCk1knbxWJQVw@mail.gmail.com>
- <20190502091044.GD12498@e107155-lin>
-In-Reply-To: <20190502091044.GD12498@e107155-lin>
-From: Yash Shah <yash.shah@sifive.com>
-Date: Thu, 2 May 2019 15:05:08 +0530
-Message-ID: <CAJ2_jOG7a=gnxWiZ+mDW6KH9cWZC1HO7ZuwCiXBQJuNJJ1NBHA@mail.gmail.com>
-Subject: Re: [PATCH 1/2] RISC-V: Add DT documentation for SiFive L2 Cache
- Controller
-To: Sudeep Holla <sudeep.holla@arm.com>
+References: <1556474956-27786-1-git-send-email-sagar.kadam@sifive.com>
+ <1556474956-27786-2-git-send-email-sagar.kadam@sifive.com>
+ <alpine.DEB.2.21.9999.1904301002170.7063@viisi.sifive.com>
+In-Reply-To: <alpine.DEB.2.21.9999.1904301002170.7063@viisi.sifive.com>
+From: Sagar Kadam <sagar.kadam@sifive.com>
+Date: Thu, 2 May 2019 15:20:11 +0530
+Message-ID: <CAARK3HmQvACXvySfwTWSss_DKqwX_oUF3gwxQuu5am0DoLh+jA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] mtd: spi-nor: add support for is25wp256
+To: Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190502_023547_397546_E51F9663 
-X-CRM114-Status: UNSURE (   6.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190502_025023_812315_D1209056 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,29 +90,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, Rob Herring <robh@kernel.org>, aou@eecs.berkeley.edu,
- devicetree@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>,
- linux-kernel@vger.kernel.org, Sachin Ghadi <sachin.ghadi@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: Palmer Dabbelt <palmer@sifive.com>, bbrezillon@kernel.org, richard@nod.at,
+ tudor.ambarus@microchip.com, linux-kernel@vger.kernel.org,
+ marek.vasut@gmail.com, linux-mtd@lists.infradead.org,
+ linux-riscv@lists.infradead.org, computersforpeace@gmail.com,
+ dwmw2@infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 2, 2019 at 2:40 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
->
->
-> Sorry if I created confusion. I just wanted a note saying all the properties
-> in ePAPR/DeviceTree specification applies for this platform. That would
-> help me check if the standard cacheinfo infrastruction works as is or not.
+Thank you Paul, for your review comments.
 
-Sure, will add this note.
-
-- Yash
+On Tue, Apr 30, 2019 at 10:33 PM Paul Walmsley <paul.walmsley@sifive.com> wrote:
 >
-> --
-> Regards,
-> Sudeep
+> On Sun, 28 Apr 2019, Sagar Shrikant Kadam wrote:
+>
+> > Update spi_nor_id tablet for is25wp256 (32MB)device from ISSI,
+> > present on HiFive Unleashed dev board (Rev: A00).
+> >
+> > Set method to enable quad mode for ISSI device in flash parameters
+> > table.
+>
+> This patch was based on one originally written by Wes and/or Palmer:
+> https://github.com/riscv/riscv-linux/commit/c94e267766d62bc9a669611c3d0c8ed5ea26569b
+>
+> The right thing to do is to note this in the commit message.
+>
+Yes true, this is important as well.
+I had mentioned this in the covering letter, but I missed to add the
+details into the commit message,
+I will submit V3 for this.
+
+
+> > Signed-off-by: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+> > ---
+> >  drivers/mtd/spi-nor/spi-nor.c | 10 +++++++++-
+> >  include/linux/mtd/spi-nor.h   |  1 +
+> >  2 files changed, 10 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+> > index fae1474..c5408ed 100644
+> > --- a/drivers/mtd/spi-nor/spi-nor.c
+> > +++ b/drivers/mtd/spi-nor/spi-nor.c
+> > @@ -1834,6 +1834,10 @@ static int sr2_bit7_quad_enable(struct spi_nor *nor)
+> >                       SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+> >       { "is25wp128",  INFO(0x9d7018, 0, 64 * 1024, 256,
+> >                       SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+> > +     { "is25wp256", INFO(0x9d7019, 0, 64 * 1024, 1024,
+> > +                     SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
+> > +                     SPI_NOR_4B_OPCODES)
+> > +     },
+> >
+> >       /* Macronix */
+> >       { "mx25l512e",   INFO(0xc22010, 0, 64 * 1024,   1, SECT_4K) },
+> > @@ -3650,6 +3654,10 @@ static int spi_nor_init_params(struct spi_nor *nor,
+> >               case SNOR_MFR_MACRONIX:
+> >                       params->quad_enable = macronix_quad_enable;
+> >                       break;
+> > +             case SNOR_MFR_ISSI:
+> > +                     params->quad_enable = macronix_quad_enable;
+> > +                     break;
+> > +
+> >
+> >               case SNOR_MFR_ST:
+> >               case SNOR_MFR_MICRON:
+> > @@ -4127,7 +4135,7 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
+> >       if (ret)
+> >               return ret;
+> >
+> > -     if (nor->addr_width) {
+> > +     if (nor->addr_width && JEDEC_MFR(info) != SNOR_MFR_ISSI) {
+> >               /* already configured from SFDP */
+> >       } else if (info->addr_width) {
+> >               nor->addr_width = info->addr_width;
+> > diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
+> > index b3d360b..ff13297 100644
+> > --- a/include/linux/mtd/spi-nor.h
+> > +++ b/include/linux/mtd/spi-nor.h
+> > @@ -19,6 +19,7 @@
+> >  #define SNOR_MFR_ATMEL               CFI_MFR_ATMEL
+> >  #define SNOR_MFR_GIGADEVICE  0xc8
+> >  #define SNOR_MFR_INTEL               CFI_MFR_INTEL
+> > +#define SNOR_MFR_ISSI                0x9d            /* ISSI */
+> >  #define SNOR_MFR_ST          CFI_MFR_ST      /* ST Micro */
+> >  #define SNOR_MFR_MICRON              CFI_MFR_MICRON  /* Micron */
+> >  #define SNOR_MFR_MACRONIX    CFI_MFR_MACRONIX
+> > --
+> > 1.9.1
+> >
+> >
 
 _______________________________________________
 linux-riscv mailing list
