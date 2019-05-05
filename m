@@ -2,79 +2,102 @@ Return-Path: <SRS0=/wdF=TF=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
-	T_DKIMWL_WL_HIGH,URIBL_BLOCKED,USER_AGENT_NEOMUTT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS,T_DKIMWL_WL_HIGH,
+	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AF757C43219
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  5 May 2019 00:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 96B71C004C9
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  5 May 2019 06:16:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8035C206DF
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  5 May 2019 00:38:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 65A882082F
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  5 May 2019 06:16:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="e/ewHK5R"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8035C206DF
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=debian.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mAhehtG0"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 65A882082F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:In-Reply-To:MIME-Version:
+	References:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2qSiaqOxeUA9IIoRN8/63QMn6i856FbMnFxwXY+sEL0=; b=e/ewHK5Rg+qO99
-	mSCKjugt9w8K7L8rVjT07khz39NDkRPjrvmfnHhFQ6HS55qmJUJ5MHyaE0oDpIUVjPxOJkckHY7TS
-	MlcZolQ8oezG6XFjpLZdba6Xf6EalTaiWr42w3bsv/KCqQUIsFLV8it2rykGSBTTm/7UXrPZE3l3W
-	Atw41lJRzu+j+wiFO8Cp0+39Qg8tqnwguqwxidMTfTNztiMjgAmYiUx6d+gQGhET71gMHxkRKdrrz
-	SPJcK8+BpmoFKxNlgMInVVRYqTQC1sHB6SWpA+CgRnDcX7dzMNhXYD9I+XbyY81RWD2SaKsgSTDNW
-	gL9SN2D8M9TdoIFKm94Q==;
+	List-Owner; bh=dO7L7iEQBFkhP3DQMapZcQ2CTSMMDuScxmh7WaVcb8Y=; b=mAhehtG0PM+Onz
+	4JXmyf2h8OJO55MeRZixN2FtxaCAhXlXkbnLEcyNw9IRRqI31y2MB6COW/44hkWRhrw2veZXew3Zt
+	TKWlN67Pru/EGJd1Tw6W20mtikSHdl4sMmEUnWFI70r4HFPXt0WwO7/H0wnbQIv8UKq8l/WL5SwGo
+	xcdFtNCvQyidkYief90uaBF42vBOtZfdzJvsCJwUrvBkNmpitGAhiAss0Z4wKQXf1+bT18rdnMA7p
+	JlgbhckpZqrwIdWF6GvJeybGQI+1GaWbkBBodOgpMAGmE1z/0Jy681aaCvWleNivRtK235V/4qaE+
+	fMIuZl/2BjtcoBN8reag==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hN5AV-0005Cg-3g; Sun, 05 May 2019 00:38:15 +0000
-Received: from mout.kundenserver.de ([217.72.192.73])
+	id 1hNARM-0004v9-MF; Sun, 05 May 2019 06:16:00 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hN5AR-0005Bv-OI
- for linux-riscv@lists.infradead.org; Sun, 05 May 2019 00:38:13 +0000
-Received: from excalibur.cnev.de ([213.196.205.91]) by
- mrelayeu.kundenserver.de (mreue109 [212.227.15.183]) with ESMTPSA (Nemesis)
- id 1MlNgx-1gtmE80RPp-00llXS; Sun, 05 May 2019 02:37:45 +0200
-Received: from karsten by excalibur.cnev.de with local (Exim 4.89)
- (envelope-from <merker@debian.org>)
- id 1hN59x-0003eA-LV; Sun, 05 May 2019 02:37:41 +0200
-Date: Sun, 5 May 2019 02:37:41 +0200
-From: Karsten Merker <merker@debian.org>
-To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [v2 PATCH] RISC-V: Add a PE/COFF compliant Image header.
-Message-ID: <20190505003741.xbhyxhb3yg4q2afm@excalibur.cnev.de>
-References: <20190501195607.32553-1-atish.patra@wdc.com>
+ id 1hNARA-0004l8-EA
+ for linux-riscv@lists.infradead.org; Sun, 05 May 2019 06:15:49 +0000
+Received: from pps.filterd (m0098420.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
+ x4566wGZ174863
+ for <linux-riscv@lists.infradead.org>; Sun, 5 May 2019 02:15:41 -0400
+Received: from e06smtp07.uk.ibm.com (e06smtp07.uk.ibm.com [195.75.94.103])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 2s9r8x3jdg-1
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <linux-riscv@lists.infradead.org>; Sun, 05 May 2019 02:15:40 -0400
+Received: from localhost
+ by e06smtp07.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
+ Violators will be prosecuted
+ for <linux-riscv@lists.infradead.org> from <rppt@linux.ibm.com>;
+ Sun, 5 May 2019 07:15:38 +0100
+Received: from b06cxnps3074.portsmouth.uk.ibm.com (9.149.109.194)
+ by e06smtp07.uk.ibm.com (192.168.101.137) with IBM ESMTP SMTP Gateway:
+ Authorized Use Only! Violators will be prosecuted; 
+ (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
+ Sun, 5 May 2019 07:15:31 +0100
+Received: from d06av24.portsmouth.uk.ibm.com (mk.ibm.com [9.149.105.60])
+ by b06cxnps3074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ x456FUUd61079648
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Sun, 5 May 2019 06:15:30 GMT
+Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id EB15F42042;
+ Sun,  5 May 2019 06:15:29 +0000 (GMT)
+Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id BE8ED42047;
+ Sun,  5 May 2019 06:15:27 +0000 (GMT)
+Received: from rapoport-lnx (unknown [9.148.8.112])
+ by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+ Sun,  5 May 2019 06:15:27 +0000 (GMT)
+Date: Sun, 5 May 2019 09:15:26 +0300
+From: Mike Rapoport <rppt@linux.ibm.com>
+To: Paul Burton <paul.burton@mips.com>
+Subject: Re: [PATCH 01/15] asm-generic, x86: introduce generic
+ pte_{alloc,free}_one[_kernel]
+References: <1556810922-20248-1-git-send-email-rppt@linux.ibm.com>
+ <1556810922-20248-2-git-send-email-rppt@linux.ibm.com>
+ <20190502190310.voenw3pwgpelmdgw@pburton-laptop>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190501195607.32553-1-atish.patra@wdc.com>
-X-No-Archive: yes
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-Provags-ID: V03:K1:sxTbgCJmLRiraLBFNTdNLGrOPVUH3uIGoJxJS1d4KvT2AdRG3CP
- ARmYczCeXzMQmYpQrL9iP4waOb8+b/S1pKzwMvIT1vRbx3Zg1iOg1pgbYcv6w/2itRxVRe6
- RcTOqmTdBN+0m7v+5KbOwmVqiCJYv8vWI0CtVjNX5RbGb58ISM5BClnrEEwNtVSOkRi+fex
- 25t4rZamoBAz2EtVonjtQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:sMBAA9Hi7sQ=:Lyd/q7qOyI6Zbo9rgcHKZf
- t+fl5iINlqilHbEP7mylVippUEKJJdhqcLQsrcu8UehARi12ogvjb+O4aiVNt+zGeB56ebj8A
- r6AxtBBhpYbVP3zmwkaqS/xfmwZaIrE4kq0lW33CC3vlgAh0Uc2W0FJeRrPpK3MEZHZ9eAHUf
- BLKnChMHld1n8rYCKEopQ4JybcI+wYovMH9B012/eTsx736omXGhp5Zgg/SegqbQ/4RVZ5syf
- 4GKqu0sP9BQ4sCH3XxqyF+aQfAg2rESLYmt4yf7/oYc4wHbq/NVQUXdYCBOfDJQ9VbHWJNZU0
- +RWOi+1WrmlZeoElSRu+Um9Ec5Wri6fR9b+MU0dwBzIq9P1Bcc6zB6N5co2q7+yMsy1jbISHP
- ELdYkg3KcT/vn3nrgTZyipeR5NaauKNl634Q2dSjvCV51LNC64tgLkY2FMzTFQXpzT3Lek4dS
- f+cqa9ob6eH+1aMq3KTGtc2dyXyRfTfqQZnty8M+9b8wUKW2R8LiC9BOmWzMC5YSeoAu+m6dX
- K1cr22X520Uis+jeREf9+KOVl0BBw7U1YlTuH05vqSM/7BqS8t0NkQJ0ruIQ+7tK5ITp3/Pz2
- /LNCPjLRsbKMr5ukKB66jqyHmf79wROLWRusWdLYxiiM6muoMxvuvCVMb7JwaA+YKQ5gELwbV
- ZUMPuo/x3j5C0AWmrl31q0ZBaHciLjG9WNMS6P4zitGrDu8AFhZFbe+pi1pQY9XszdvK8QWDo
- 36ZlhDFuRkFgHTVC9sI9DZiPuY1pnudvQqORng==
+In-Reply-To: <20190502190310.voenw3pwgpelmdgw@pburton-laptop>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-TM-AS-GCONF: 00
+x-cbid: 19050506-0028-0000-0000-0000036A7624
+X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
+x-cbparentid: 19050506-0029-0000-0000-00002429E811
+Message-Id: <20190505061525.GC15755@rapoport-lnx>
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
+ definitions=2019-05-05_04:, , signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501
+ malwarescore=0 suspectscore=2 phishscore=0 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
+ mlxlogscore=835 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1810050000 definitions=main-1905050056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190504_173812_095927_6C2308B0 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190504_231548_610130_1CB4E819 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -86,37 +109,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@sifive.com>,
- linux-kernel@vger.kernel.org, Zong Li <zong@andestech.com>, merker@debian.org,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Michal Hocko <mhocko@suse.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Palmer Dabbelt <palmer@sifive.com>,
+ "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+ Guo Ren <guoren@kernel.org>,
+ "linux-hexagon@vger.kernel.org" <linux-hexagon@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Helge Deller <deller@gmx.de>,
+ "x86@kernel.org" <x86@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Matthew Wilcox <willy@infradead.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Matt Turner <mattst88@gmail.com>,
+ Sam Creasey <sammy@sammy.net>, Arnd Bergmann <arnd@arndb.de>,
+ "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
+ "linux-um@lists.infradead.org" <linux-um@lists.infradead.org>,
+ "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
+ Greentime Hu <green.hu@gmail.com>,
+ "nios2-dev@lists.rocketboards.org" <nios2-dev@lists.rocketboards.org>,
+ Guan Xuetao <gxt@pku.edu.cn>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Richard Kuo <rkuo@codeaurora.org>, Richard Weinberger <richard@nod.at>,
+ Ley Foon Tan <lftan@altera.com>, Andrew Morton <akpm@linux-foundation.org>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXkgMDEsIDIwMTkgYXQgMTI6NTY6MDdQTSAtMDcwMCwgQXRpc2ggUGF0cmEgd3Jv
-dGU6Cgo+IEN1cnJlbnRseSwgbGFzdCBzdGFnZSBib290IGxvYWRlcnMgc3VjaCBhcyBVLUJvb3Qg
-Y2FuIGFjY2VwdCBvbmx5Cj4gdUltYWdlIHdoaWNoIGlzIGFuIHVubmVjZXNzYXJ5IGFkZGl0aW9u
-YWwgc3RlcCBpbiBhdXRvbWF0aW5nIGJvb3QgZmxvd3MuCj4gCj4gQWRkIGEgUEUvQ09GRiBjb21w
-bGlhbnQgaW1hZ2UgaGVhZGVyIHRoYXQgYm9vdCBsb2FkZXJzIGNhbiBwYXJzZSBhbmQKPiBkaXJl
-Y3RseSBsb2FkIGtlcm5lbCBmbGF0IEltYWdlLiBUaGUgZXhpc3RpbmcgYm9vdGluZyBtZXRob2Rz
-IHdpbGwgY29udGludWUKPiB0byB3b3JrIGFzIGl0IGlzLgo+IAo+IEFub3RoZXIgZ29hbCBvZiB0
-aGlzIGhlYWRlciBpcyB0byBzdXBwb3J0IEVGSSBzdHViIGZvciBSSVNDLVYgaW4gZnV0dXJlLgo+
-IEVGSSBzcGVjaWZpY2F0aW9uIG5lZWRzIFBFL0NPRkYgaW1hZ2UgaGVhZGVyIGluIHRoZSBiZWdp
-bm5pbmcgb2YgdGhlIGtlcm5lbAo+IGltYWdlIGluIG9yZGVyIHRvIGxvYWQgaXQgYXMgYW4gRUZJ
-IGFwcGxpY2F0aW9uLiBJbiBvcmRlciB0byBzdXBwb3J0Cj4gRUZJIHN0dWIsIGNvZGUwIHNob3Vs
-ZCBiZSByZXBsYWNlZCB3aXRoICJNWiIgbWFnaWMgc3RyaW5nIGFuZCByZXM1KGF0Cj4gb2Zmc2V0
-IDB4M2MpIHNob3VsZCBwb2ludCB0byB0aGUgcmVzdCBvZiB0aGUgUEUvQ09GRiBoZWFkZXIgKHdo
-aWNoIHdpbGwKPiBiZSBhZGRlZCBkdXJpbmcgRUZJIHN1cHBvcnQpLgo+IAo+IFRlc3RlZCBvbiBi
-b3RoIFFFTVUgYW5kIEhpRml2ZSBVbmxlYXNoZWQgdXNpbmcgT3BlblNCSSArIFUtQm9vdCArIExp
-bnV4Lgo+IAo+IFNpZ25lZC1vZmYtYnk6IEF0aXNoIFBhdHJhIDxhdGlzaC5wYXRyYUB3ZGMuY29t
-PgoKTG9va3MgZ29vZCB0byBtZS4KClJldmlld2VkLWJ5OiBLYXJzdGVuIE1lcmtlciA8bWVya2Vy
-QGRlYmlhbi5vcmc+ClRlc3RlZC1ieTogS2Fyc3RlbiBNZXJrZXIgPG1lcmtlckBkZWJpYW4ub3Jn
-PiAoUUVNVStPcGVuU0JJK1UtQm9vdCkKClJlZ2FyZHMsCkthcnN0ZW4KLS0gCkljaCB3aWRlcnNw
-cmVjaGUgaGllcm1pdCBhdXNkcsO8Y2tsaWNoIGRlciBOdXR6dW5nIHNvd2llIGRlcgpXZWl0ZXJn
-YWJlIG1laW5lciBwZXJzb25lbmJlem9nZW5lbiBEYXRlbiBmw7xyIFp3ZWNrZSBkZXIgV2VyYnVu
-Zwpzb3dpZSBkZXIgTWFya3QtIG9kZXIgTWVpbnVuZ3Nmb3JzY2h1bmcuCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, May 02, 2019 at 07:03:11PM +0000, Paul Burton wrote:
+> Hi Mike,
+> 
+> On Thu, May 02, 2019 at 06:28:28PM +0300, Mike Rapoport wrote:
+> > +/**
+> > + * pte_free_kernel - free PTE-level user page table page
+> > + * @mm: the mm_struct of the current context
+> > + * @pte_page: the `struct page` representing the page table
+> > + */
+> > +static inline void pte_free(struct mm_struct *mm, struct page *pte_page)
+> > +{
+> > +	pgtable_page_dtor(pte_page);
+> > +	__free_page(pte_page);
+> > +}
+> 
+> Nit: the comment names the wrong function (s/pte_free_kernel/pte_free/).
+
+Argh, evil copy-paste :)
+Thanks!
+ 
+> Thanks,
+>     Paul
+> 
+
+-- 
+Sincerely yours,
+Mike.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
