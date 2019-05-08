@@ -1,76 +1,87 @@
-Return-Path: <SRS0=HYxj=TH=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=shrT=TI=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-6.9 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	SPF_PASS,T_DKIMWL_WL_HIGH autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2F691C004C9
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 May 2019 23:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 97E8BC04A6B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 May 2019 05:50:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 019F3205ED
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 May 2019 23:48:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 64F6721655
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 May 2019 05:50:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="p07LzzYR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 019F3205ED
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cP4l73R3";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="kHDOaiT0"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 64F6721655
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=QUXM6ISvZLOgJRZ4c0r+N9QZbAGUyBI/uD7ws4XUhHg=; b=p07LzzYR//QgjnM2mdfisDBeg
-	mB3/NxGEf6AIaOV214rIgGLZrnQl9fC/FCHPCdRD6qZMZ/s4fY4pR/FYmuCC2zQjuS7y25t3aH94N
-	Ps7hrhBIywTnnBfdg1SOoHejp/m9aMI9/S/97Bkhchi4SwakqOzRZRq8ZBwwxgrp/dCxeSXTjobNV
-	2gDufrqeYCYZMW2qKMTqAVLeDH3Ai2qZiWcZQdO8/hAO2VOGlL48bbCh+asK5cF9N2lUTbjBHD6DN
-	hiE09QY/jwR1e8iS46Eh32NYBBcH29xJ2maRfj5Arn3LhxLVAW5bS/Ui2uVFANXkTlPayP1Ge4nvX
-	qoZkAXKSw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5m6H+KBmls7xpUWVauIAVOv0GbMkbCWxjmFmBjTe5Bs=; b=cP4l73R3vxXTd1
+	HiaifW1Do5V8kyPBMbCuwtSejXtPe+kDUbLb6znU5VzeN8A1834aeEhGiaOnXHh+5kE/myEma6P6v
+	B1NKPf6KyGafjsFSXa7nQueHOOEaex5s8WWezAe9xIbBrF2Moo+w0XrwWw7XDiR9N71ahFxnKw5c6
+	ICwa/ZQrbpMlTpM7U9EeSkc/ZrQbPMtIR+ItATxaJcpVgMOOubFS4qHsa0lvgZTcrfHIYC3bURoG2
+	1GMBFDrxGCvrA3zjvOh5hqVwv43XysOeGubMGSdtQ8jhXKynMiuup5CTwnbO9jGbEpfA1d/piEw16
+	scKOqxKt/g48cE1p4Asw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hO9oh-0001VA-8z; Tue, 07 May 2019 23:48:11 +0000
-Received: from mail-pf1-f196.google.com ([209.85.210.196])
+	id 1hOFT9-0007SJ-Vh; Wed, 08 May 2019 05:50:19 +0000
+Received: from mail-lf1-x144.google.com ([2a00:1450:4864:20::144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hO9od-0001UR-Et
- for linux-riscv@lists.infradead.org; Tue, 07 May 2019 23:48:09 +0000
-Received: by mail-pf1-f196.google.com with SMTP id u17so9468259pfn.7
- for <linux-riscv@lists.infradead.org>; Tue, 07 May 2019 16:48:05 -0700 (PDT)
+ id 1hOFT6-0007RZ-G3
+ for linux-riscv@lists.infradead.org; Wed, 08 May 2019 05:50:18 +0000
+Received: by mail-lf1-x144.google.com with SMTP id f1so813661lfl.6
+ for <linux-riscv@lists.infradead.org>; Tue, 07 May 2019 22:50:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=6VNO32gkOjAFDvmj3qsaBg8BBWn0BQYs6mBExH3P2Mw=;
+ b=kHDOaiT0j+o+B2ZBt/yia1FDIojDnQcjSebmgLII5LR7JOWw294hu55v0nXrCpBUdL
+ lArwxfnLA9ISj86HwTGPaYC5GPf3Yz3kYtAQ8pLhG19chrWtfwC9h0w1PKQxDDXtDCM2
+ I3W2V7uNhr/2Kah0vK48oklVzuPcgrNUxSJJDJjU6B0GRdSPIgrhki19Ghmc7ihzs+xc
+ zwhpr146/EcT4Ema9/11rBaZQz68cmJCeTnXtJYoPDd83IGaxJq5NjgABw75EBiAQgEy
+ 5r/WFBCFfViaeuvG4HgbIKCcvKm9uR0U2mrQP3FruchWQmgEyI50Z83lASvgFJ6yNGMX
+ ZV+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=Xc5yB1zQ65A+bT/TEX7kwPlOeoH820lrDziLp7lmLpk=;
- b=sjEtIrFSpa9RJytZoG35u5aGLZEx/nblegktkPmtT3/nC2uaRzo5tRYTK3vsZ7m2Ya
- mHZArjyVwr3uu4sz2c123/zjWL1Ri2xX15eJNxPhVAA/uHUxfi9AG/cyK5dcUQVUTDaT
- eLUBT0HmJwPbyhzfemp8alwyzpfU5vcB2ZjEuO+YOFspRXZN9z5+kQD5/jYfcHW/tUSK
- Qz1+IJj+o7fiY6ojzj2YyBytBTSV26nATi6OBIeB1/U+sP99LoqlPYfP+hNkbrhGX6W4
- 7r81FqM0YNgbhDM1WjfvxoXrjYXsFvCJPSIpReLaLdoLho/zj2VfC50PHsyZSVbbvkRu
- tq5w==
-X-Gm-Message-State: APjAAAUHf3Bs+mh2l1M1NCCR8uoRl/Opl7GTOpVD60DZv4xD0huHvmRb
- tUHv59uj+bEpq9KBH4zxCcKJn1wUfXg=
-X-Google-Smtp-Source: APXvYqzxi+8s0kTgdE3wx6h+YyLz1JxmMhnAT4Dvn0eloXEXtiTyplpknHAhK/JvQQI++cJkR2huwA==
-X-Received: by 2002:aa7:8186:: with SMTP id g6mr45461551pfi.126.1557272884660; 
- Tue, 07 May 2019 16:48:04 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id q17sm35869266pfi.185.2019.05.07.16.48.03
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Tue, 07 May 2019 16:48:03 -0700 (PDT)
-Date: Tue, 07 May 2019 16:48:03 -0700 (PDT)
-X-Google-Original-Date: Tue, 07 May 2019 16:27:44 PDT (-0700)
-Subject: Re: [PATCH] riscv: fix locking violation in page fault handler
-In-Reply-To: <mvm5zqmu35d.fsf@suse.de>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: schwab@suse.de
-Message-ID: <mhng-56794b7f-6cd4-4eb9-a962-83ad256ed3cd@palmer-si-x1e>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=6VNO32gkOjAFDvmj3qsaBg8BBWn0BQYs6mBExH3P2Mw=;
+ b=Pc7dyiVjuj8jHjaa2gmUcHQ98ik6mFqRgv4eU+KWnvSqDg2M0osRD5uh6OHwsZypFh
+ z9Li3NNA6KGGdm6ZUL8Fb4MQURYYUY9n1wYSfCOoIRyrL7xtg6t34rUZNb5pTqNET4u4
+ SRepdXXmt2kSJl4alMY+89Y8M4qHm0JkjD2eGsvwVnFvT7oi9102PJV50QSarve5pjpd
+ 10W3YJn7TGsRaQVwrJkpc2dHkKerjkTDXrMKbU5MNFW+sieS8PcgVJgTK0LRbtrCZBHo
+ gwovzHXy2v8edQHKpG5FYDy1ANpOjeKGq375ORM0Xn1Agb2moEXt6bbt3Uq/IG+fmosv
+ 4X0g==
+X-Gm-Message-State: APjAAAVjEpP46JmRVl/gTUywS5hat6HDQGrYuYr0TBPUiOLDa+C+6WCZ
+ m3I0FP3MBlf4HUQpME037VJJfPAWDQhLR9F9Kj/gWA==
+X-Google-Smtp-Source: APXvYqxFjNGsLoaZWXanwoQsNpAMlsMY20XLb11x/2kdZLwwRghwoGBYiufbVNzDvHDHChGZGZ+z9EalpEtsELhzzQc=
+X-Received: by 2002:ac2:5621:: with SMTP id b1mr8992780lff.27.1557294614444;
+ Tue, 07 May 2019 22:50:14 -0700 (PDT)
+MIME-Version: 1.0
+References: <1557139720-12384-1-git-send-email-yash.shah@sifive.com>
+ <1557139720-12384-3-git-send-email-yash.shah@sifive.com>
+ <d36b7a74-0d08-0143-b479-45f760c347ba@ti.com>
+ <CAJ2_jOFZjTNA3Nf=zNwLT+St21Q2_TPx_XYhggU=yef6LPkLdg@mail.gmail.com>
+ <ba1481d0-f21b-5b0d-e3d5-ecb9faf42407@ti.com>
+In-Reply-To: <ba1481d0-f21b-5b0d-e3d5-ecb9faf42407@ti.com>
+From: Yash Shah <yash.shah@sifive.com>
+Date: Wed, 8 May 2019 11:19:37 +0530
+Message-ID: <CAJ2_jOFPqgFzc_q0kq3GZY2w5KAS6wkbvBx4vZSgLXfAeanR7g@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] RISC-V: sifive_l2_cache: Add L2 cache controller
+ driver for SiFive SoCs
+To: "Andrew F. Davis" <afd@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190507_164807_505736_8A67967E 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20190507_225016_567411_2ED2CC36 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -82,69 +93,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ Sachin Ghadi <sachin.ghadi@sifive.com>, robh+dt@kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 07 May 2019 00:36:46 PDT (-0700), schwab@suse.de wrote:
-> When a user mode process accesses an address in the vmalloc area
-> do_page_fault tries to unlock the mmap semaphore when it isn't locked.
+On Tue, May 7, 2019 at 7:15 PM Andrew F. Davis <afd@ti.com> wrote:
 >
-> Signed-off-by: Andreas Schwab <schwab@suse.de>
-> ---
->  arch/riscv/mm/fault.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+> On 5/7/19 2:48 AM, Yash Shah wrote:
+> > On Mon, May 6, 2019 at 5:48 PM Andrew F. Davis <afd@ti.com> wrote:
+> >>
+> >> On 5/6/19 6:48 AM, Yash Shah wrote:
+> >>> The driver currently supports only SiFive FU540-C000 platform.
+> >>>
+> >>> The initial version of L2 cache controller driver includes:
+> >>> - Initial configuration reporting at boot up.
+> >>> - Support for ECC related functionality.
+> >>>
+> >>> Signed-off-by: Yash Shah <yash.shah@sifive.com>
+> >>> ---
+> >>>  arch/riscv/include/asm/sifive_l2_cache.h |  16 +++
+> >>>  arch/riscv/mm/Makefile                   |   1 +
+> >>>  arch/riscv/mm/sifive_l2_cache.c          | 175 +++++++++++++++++++++++++++++++
+> >>>  3 files changed, 192 insertions(+)
+> >>>  create mode 100644 arch/riscv/include/asm/sifive_l2_cache.h
+> >>>  create mode 100644 arch/riscv/mm/sifive_l2_cache.c
+> >>>
+> >>> diff --git a/arch/riscv/include/asm/sifive_l2_cache.h b/arch/riscv/include/asm/sifive_l2_cache.h
+> >>> new file mode 100644
+> >>> index 0000000..04f6748
+> >>> --- /dev/null
+> >>> +++ b/arch/riscv/include/asm/sifive_l2_cache.h
+> >>> @@ -0,0 +1,16 @@
+> >>> +/* SPDX-License-Identifier: GPL-2.0 */
+> >>> +/*
+> >>> + * SiFive L2 Cache Controller header file
+> >>> + *
+> >>> + */
+> >>> +
+> >>> +#ifndef _ASM_RISCV_SIFIVE_L2_CACHE_H
+> >>> +#define _ASM_RISCV_SIFIVE_L2_CACHE_H
+> >>> +
+> >>> +extern int register_sifive_l2_error_notifier(struct notifier_block *nb);
+> >>> +extern int unregister_sifive_l2_error_notifier(struct notifier_block *nb);
+> >>> +
+> >>> +#define SIFIVE_L2_ERR_TYPE_CE 0
+> >>> +#define SIFIVE_L2_ERR_TYPE_UE 1
+> >>> +
+> >>> +#endif /* _ASM_RISCV_SIFIVE_L2_CACHE_H */
+> >>> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+> >>> index eb22ab4..1523ee5 100644
+> >>> --- a/arch/riscv/mm/Makefile
+> >>> +++ b/arch/riscv/mm/Makefile
+> >>> @@ -3,3 +3,4 @@ obj-y += fault.o
+> >>>  obj-y += extable.o
+> >>>  obj-y += ioremap.o
+> >>>  obj-y += cacheflush.o
+> >>> +obj-y += sifive_l2_cache.o
+> >>> diff --git a/arch/riscv/mm/sifive_l2_cache.c b/arch/riscv/mm/sifive_l2_cache.c
+> >>> new file mode 100644
+> >>> index 0000000..4eb6461
+> >>> --- /dev/null
+> >>> +++ b/arch/riscv/mm/sifive_l2_cache.c
+> >>> @@ -0,0 +1,175 @@
+> >>> +// SPDX-License-Identifier: GPL-2.0
+> >>> +/*
+> >>> + * SiFive L2 cache controller Driver
+> >>> + *
+> >>> + * Copyright (C) 2018-2019 SiFive, Inc.
+> >>> + *
+> >>> + */
+> > [...]
+> >>> +
+> >>> +#ifdef CONFIG_DEBUG_FS
+> >>> +static struct dentry *sifive_test;
+> >>> +
+> >>> +static ssize_t l2_write(struct file *file, const char __user *data,
+> >>> +                     size_t count, loff_t *ppos)
+> >>> +{
+> >>> +     unsigned int val;
+> >>> +
+> >>> +     if (kstrtouint_from_user(data, count, 0, &val))
+> >>> +             return -EINVAL;
+> >>> +     if ((val >= 0 && val < 0xFF) || (val >= 0x10000 && val < 0x100FF))
+> >>
+> >> I'm guessing bit 16 is the enable and the lower 8 are some kind of
+> >> region to enable the error? This is probably a bad interface, it looks
+> >> useful for testing but doesn't provide any debugging info useful for
+> >> running systems. Do you really want userspace to be able to do this?
+> >
+> > Bit 16 selects the type of ECC error (0=data or 1=directory error).
+> > The lower 8 bits toggles (corrupt) that bit index.
+> > Are you suggesting to remove this debug interface altogether or you
+> > want me to improve the current interface?
+> > Something like providing 2 separate debugfs files for data and
+> > directory errors. And create a separate 8-bit debugfs variable to
+> > select the bit index to toggle.
+> >
 >
-> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-> index 88401d5125bc..c51878e5a66a 100644
-> --- a/arch/riscv/mm/fault.c
-> +++ b/arch/riscv/mm/fault.c
-> @@ -181,6 +181,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
->  	up_read(&mm->mmap_sem);
->  	/* User mode accesses just cause a SIGSEGV */
->  	if (user_mode(regs)) {
-> +bad_area_do_trap:
->  		do_trap(regs, SIGSEGV, code, addr, tsk);
->  		return;
->  	}
-> @@ -230,7 +231,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
->  		int index;
->
->  		if (user_mode(regs))
-> -			goto bad_area;
-> +			goto bad_area_do_trap;
->
->  		/*
->  		 * Synchronize this task's top level page-table
+> I was suggesting to remove the whole thing. I don't see it being all
+> that useful, but it is up to you.
 
-I got lost with all the gotos, I think something like this is cleaner
+Thanks for the suggestion, but I will keep it as we do need it for our testing.
 
-    diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-    index 26293bc053a8..cec8be9e2d6a 100644
-    --- a/arch/riscv/mm/fault.c
-    +++ b/arch/riscv/mm/fault.c
-    @@ -229,8 +229,9 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
-                    pte_t *pte_k;
-                    int index;
-    
-    +               /* User mode accesses just cause a SIGSEGV */
-                    if (user_mode(regs))
-    -                       goto bad_area;
-    +                       return do_trap(regs, SIGSEGV, code, addr, tsk);
-    
-                    /*
-                     * Synchronize this task's top level page-table
-
-Unless anyone has a better idea?
-
-Either way:
-
-Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
-
-LMK if you, or anyone else, has a preference.  I'm assuming this will go in
-through my tree, so I've picked up my version for now :)
+- Yash
 
 _______________________________________________
 linux-riscv mailing list
