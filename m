@@ -2,80 +2,91 @@ Return-Path: <SRS0=1KMB=TN=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_MUTT autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 73BCEC04AA7
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 13 May 2019 20:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 95242C04AAA
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 13 May 2019 21:07:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 479DD206A3
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 13 May 2019 20:56:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 64C4E21473
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 13 May 2019 21:07:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pygRlugI"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 479DD206A3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="a2nYP+J2";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="moy9hST8"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 64C4E21473
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UeDy/xWc8JeSoWYU4E98QQ0W4iVZawtYCj9QrEl+80I=; b=pygRlugIFPgsZH
-	wTSaL7ouroJj1toviK73RdkRouyI5kn1na/oVdP3hoFjVH8kUunXVI7QlLC5G4bLHlp4rH0HBchPg
-	XBHH8rJPWxL3xdlBDfoDC/wiQOOAj3c6T0YfRmt7CdpUbrZ7xu1zCuS3JP4RcP/qTyEdRs1+JFuSp
-	fBrTD9jr5wpwUsSsVLab3/ILeIrJaCqCMCznaOmt8lzBsHr+GcWAzvRNLXSJqqEVV4bkhoYgJiPds
-	ClCI6TgqnIR+9KacHTP/EMDElT3S8tO/lL1Yg0o+Vkq6IelXWrAXULCukLaDiEc8kEr0CZPeME1Ah
-	+QZ62EVe+lP4JIY65owg==;
+	List-Owner; bh=ptmdXeJvEKCG3smGyUCGQmX1GO0FbBj7C5XRSU3gnDE=; b=a2nYP+J2rwkzyD
+	xwzjEgZUhRirIgHv6EzsgvWjjc2CYjg9a0UW3P7Ue7A8v0JOo+6FQF8uR/lVOGe9hV8QkhryTidVp
+	Ssyemfy4TTaMmmdxiwF7/Un941LbbfUnrb88I5Ht4Dt2erxadk0+uEvcXfet6eOblkwqr4sHuLukd
+	d7ZtzMFiMHXqro2gQ3BCWHYf32YzkT9ucca6CuUXpKSkoiiRT54E+ioK5e1H7EwdYreesQVYRC8jV
+	T1eKsttcRDJtPJcRiCi5IJmv4usPTgb67khgL0IWMtkzzSqYreQeR1rWs6uqymMUEHEwvMekK3zMh
+	A9Mz/y98t0vdaRbrIhJg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hQHzh-0004FO-Ui; Mon, 13 May 2019 20:56:21 +0000
-Received: from mail-oi1-f195.google.com ([209.85.167.195])
+	id 1hQIAA-0001QO-Af; Mon, 13 May 2019 21:07:10 +0000
+Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hQHze-0004EZ-Ly
- for linux-riscv@lists.infradead.org; Mon, 13 May 2019 20:56:20 +0000
-Received: by mail-oi1-f195.google.com with SMTP id z65so3230646oia.11
- for <linux-riscv@lists.infradead.org>; Mon, 13 May 2019 13:56:18 -0700 (PDT)
+ id 1hQIA7-0001Pq-Db
+ for linux-riscv@lists.infradead.org; Mon, 13 May 2019 21:07:08 +0000
+Received: by mail-io1-xd2e.google.com with SMTP id p2so11268498iol.2
+ for <linux-riscv@lists.infradead.org>; Mon, 13 May 2019 14:07:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:from:to:cc:subject:in-reply-to:message-id:references
+ :user-agent:mime-version;
+ bh=+7m8qAQjBviaFmOghs6Z+97Gn0Ch4ti3J4o9pemJXns=;
+ b=moy9hST8u3nZL8K7X9LmUOb8sPFjKOZk9jjU7eXuqiU+rrXYV1JBnO24vrOKZO6Ly2
+ 1Mge2VulaUA068g32/5UvGe2Gaf7cRcv/9Q0E1GEBQIRu3pJGtfuAxDe0Z/MAT9zghwr
+ SPEDzdu68/OGdeXkJY6u/QCMEQdFFEOdaG/7Z930tzvmGpEJB680G797FIRNJGxe14cl
+ ZvTWtSAcgbSB2llJ2wy38UOvx07Nhko1YRrL8ccK8492ipBnnmcq0BSFNaYHB7vpH7pF
+ nzJjFa5Xh+Wk5Yi7uZDsUfD5o/EfLNJ+mRniDrilmgVo7dYEgx9ZKd4OfLQL0mzYQAOX
+ 36UA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=mcXl3kCKb5KgymSfUTp36sQGmUpApKFd35PSjLLza2s=;
- b=ZAwP7R9EgDmqrW4znR8L1af1ysptd/jo4xmu1TFZmX1UIUIIp2LmzRJBULYwboDn86
- RnH1Eog1qFdIQUZxjsisJld9rqkTv4M/lEtTbNMpEc4hlpdAiXfvHUib0TjRv4b0Fm7n
- DgKvMkBnRi67V9Z0rOLHTHo7U/Suqh38BMtwekoyPyvjjzHk3T0S90toxymp9gsqq0et
- 0DzOBIrpE15ldj+k33QjChCJnQmjtiL97LkfvejzJ27UCAKB3E6XW+5dI7ObyDTrrvkM
- Df9qfBRKJ1FSOx4MaBAGzxwiRxe+08610pr6ucVA66Jbci8MGMkfSXZDDTA804QEQNj3
- dRYQ==
-X-Gm-Message-State: APjAAAVraIBcusjNPvXKSwBtsN07USpVDe2lFL8768sbrc/8eppOweHH
- Pc+Oprkcovn4bVV4UXziRYEuzE8=
-X-Google-Smtp-Source: APXvYqzIsXcXQJgcJ9Z3I5TOGeERLXFISQjzhCutcR9o7qybv7IPuw5Qz8r2lvriy6XfNBbt3ZoU0Q==
-X-Received: by 2002:aca:c202:: with SMTP id s2mr742556oif.91.1557780977251;
- Mon, 13 May 2019 13:56:17 -0700 (PDT)
-Received: from localhost (24-155-109-49.dyn.grandenetworks.net.
- [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id m203sm5706301oib.45.2019.05.13.13.56.16
+ h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
+ :references:user-agent:mime-version;
+ bh=+7m8qAQjBviaFmOghs6Z+97Gn0Ch4ti3J4o9pemJXns=;
+ b=OU4Ct9Mws6vt/kzb+70pPN70Y9qx1bw5pnhGbVNhJGAyA/PvZvll2wLoXrzEqeX6ha
+ g6quzrqlZOlF7GHzNIpxTSe7CSJH74gAKQnToOcz4e5qIjgawJyN6YdkwCAS/yeSTjWn
+ 2gMYjkymrAyAQ8EIxSGnp8Wcgc8fSWw0ZivO+vtp+6rzWT99dF8x10rT86+UPk4mLXyK
+ YlH1MQIpn+gLjBXcTwP3GKGRjdp9tmOIgH00xyyNYNtnLX18CwwSnOtrIp0mn5ETfyby
+ o5LFhc8XKLkT5f1/vXyr/Sj5eABkGi9F9XMon+1eyodG4koNkDqz7HWjw0lPBg0htpaA
+ gFoQ==
+X-Gm-Message-State: APjAAAXAS7Ktj2D8c/wQaDJsBB6z+zunNc6mSNwJV9zjecmbfE5myOJg
+ RkF2D57BsFn0yzOBchPSSz/Kew==
+X-Google-Smtp-Source: APXvYqzAKBcFsS+Y7adHO16lbwFC8l2Evh0Cd9l2abi8zINYBOvpufFAj53P8LJXw8+H5xm3l6EJtA==
+X-Received: by 2002:a6b:c386:: with SMTP id
+ t128mr16804601iof.167.1557781626383; 
+ Mon, 13 May 2019 14:07:06 -0700 (PDT)
+Received: from localhost (c-73-95-159-87.hsd1.co.comcast.net. [73.95.159.87])
+ by smtp.gmail.com with ESMTPSA id
+ p78sm300323itp.35.2019.05.13.14.07.05
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Mon, 13 May 2019 13:56:16 -0700 (PDT)
-Date: Mon, 13 May 2019 15:56:15 -0500
-From: Rob Herring <robh@kernel.org>
-To: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
-Subject: Re: [PATCH v2 v2 1/3] dt-bindings: i2c: extend existing opencore
- bindings.
-Message-ID: <20190513205615.GA5844@bogus>
-References: <1557242108-13580-1-git-send-email-sagar.kadam@sifive.com>
- <1557242108-13580-2-git-send-email-sagar.kadam@sifive.com>
+ Mon, 13 May 2019 14:07:05 -0700 (PDT)
+Date: Mon, 13 May 2019 14:07:05 -0700 (PDT)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+X-X-Sender: paulw@viisi.sifive.com
+To: Rob Herring <robh+dt@kernel.org>
+Subject: Re: [PATCH] dt-bindings: sifive: describe sifive-blocks versioning
+In-Reply-To: <CAL_JsqJRdjoTo2hGrKWvcyer18wt9N6w0nkfa9xx_e2xJ6pkYg@mail.gmail.com>
+Message-ID: <alpine.DEB.2.21.9999.1905131406480.21198@viisi.sifive.com>
+References: <alpine.DEB.2.21.9999.1811211704520.16271@viisi.sifive.com>
+ <CAL_JsqJRdjoTo2hGrKWvcyer18wt9N6w0nkfa9xx_e2xJ6pkYg@mail.gmail.com>
+User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1557242108-13580-2-git-send-email-sagar.kadam@sifive.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190513_135618_714507_5A868363 
-X-CRM114-Status: GOOD (  20.95  )
+X-CRM114-CacheID: sfid-20190513_140707_482488_98A5A33A 
+X-CRM114-Status: UNSURE (   7.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -87,89 +98,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, andrew@lunn.ch, peter@korsgaard.com,
- devicetree@vger.kernel.org, palmer@sifive.com, linux-kernel@vger.kernel.org,
- linux-i2c@vger.kernel.org, paul.walmsley@sifive.com,
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Paul Walmsley <paul@pwsan.com>, Wesley Terpstra <wesley@sifive.com>,
+ Palmer Dabbelt <palmer@sifive.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Megan Wachs <megan@sifive.com>,
  linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 07, 2019 at 08:45:06PM +0530, Sagar Shrikant Kadam wrote:
-> Add FU540-C000 specific device tree bindings to already
-> available i2-ocores file. This device is available on
-> HiFive Unleashed Rev A00 board.
-> 
-> Signed-off-by: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
-> ---
->  Documentation/devicetree/bindings/i2c/i2c-ocores.txt | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/i2c/i2c-ocores.txt b/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
-> index 17bef9a..f6bcf90 100644
-> --- a/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
-> +++ b/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
-> @@ -2,6 +2,7 @@ Device tree configuration for i2c-ocores
->  
->  Required properties:
->  - compatible      : "opencores,i2c-ocores" or "aeroflexgaisler,i2cmst"
-> +                    "sifive,fu540-c000-i2c" or "sifive,i2c0"
 
-If this is Opencores IP, does it really follow the Sifive versioning 
-convention? If so, please reference sifive-blocks-ip-versioning.txt 
-(which appears to have missed going upstream). Also, referencing the IP 
-repository would be good too. If this IP block doesn't follow the same 
-convention, then don't try using it for this binding.
+On Mon, 13 May 2019, Rob Herring wrote:
 
->  - reg             : bus address start and address range size of device
->  - interrupts      : interrupt number
->  - clocks          : handle to the controller clock; see the note below.
-> @@ -67,3 +68,22 @@ or
->  			reg = <0x60>;
->  		};
->  	};
-> +or
+> I just noticed this was never re-spun and applied. We now have
+> bindings in tree referring to it though.
 
-Just a new compatible isn't really a reason to add an example.
+Will send an updated version shortly.
 
-> +	/*
-> +	  An Opencore based I2C node in FU540-C000 chip from SiFive
-> +	  This chip has a hardware erratum for broken IRQ
-> +	  so it's recommended not to define interrupt in the device node
-
-Then interrupts needs to be optional.
-
-> +	*/
-> +	i2c@10030000 {
-> +			compatible = "sifive,i2c0","sifive,fu540-c000-i2c";
-> +			reg = <0x0 0x10030000 0x0 0x1000>;
-> +			reg-names = "i2c-control";
-
-Not doucmented.
-
-> +			clocks = <&tlclk>;
-> +			clock-frequency = <100000>;
-> +
-> +			reg-shift = <2>;
-> +			reg-io-width = <1>;
-> +
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +	};
-> -- 
-> 1.9.1
-> 
-> 
-> -- 
-> The information transmitted is intended only for the person or entity to 
-> which it is addressed and may contain confidential and/or privileged 
-> material. If you are not the intended recipient of this message please do 
-> not read, copy, use or disclose this communication and notify the sender 
-> immediately. It should be noted that any review, retransmission, 
-> dissemination or other use of, or taking action or reliance upon, this 
-> information by persons or entities other than the intended recipient is 
-> prohibited.
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
