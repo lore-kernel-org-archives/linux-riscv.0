@@ -2,69 +2,71 @@ Return-Path: <SRS0=H4VQ=TQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 416A3C04AAF
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 16 May 2019 12:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8B336C04AAF
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 16 May 2019 12:31:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 14E7D20833
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 16 May 2019 12:09:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 58D9E2087B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 16 May 2019 12:31:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lLeU1etH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14E7D20833
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="k0Jk2j/p";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.b="2FkCg+QJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 58D9E2087B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lunn.ch
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KY2cLaGRa02Db7/UNNdZnRSSrf1amO98ufX87zlu1rI=; b=lLeU1etHo85Zq0
-	AKg1tW99NpVxLvOn2y5BiyEPx3up9AMqhxw5KT47Xd/rQAnwIgViJZesyQkYXseiyKmHxlsCa9SXB
-	4mGiq5seho908gSt9J1TL+8S0Lkm/vWKW5GcXGCMIp7AavyWet8mTP+Kw02dBqlU8BtQMYLm8hcl+
-	rURWQnIqedKEbm6YdQcfi1JMFKKAiRcIJP3ndD4B0fCe+v/truSNTmo62XOECcCnmd7I9L3l+xqW6
-	YFQ8tENFc5nR0Gsnesy1QmEUWu+/rXDB+19Y4L0N4Adc0d1BrEPeSfDI1r1gjwu64DMcqxQ3dR9aP
-	d0zGm7ACnXzXiASDD5hg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=z5hWlhO2BhtJfteDEk0+60fZBRIzNus+dKZXTZBDA9g=; b=k0Jk2j/pRFVBrf
+	GyANS5mAJzvy9RvsQfRiAEyuC93ZB0rWflTo74wlZ4owpdoDEriswBoqG5eXl+NX7xUTJFbRKhIqm
+	Q1QKRgWbdmj6v4b3YvhTxjVgYwWa3adw/KBIpe1jw8mcmpEt+GxXbiBEHdQHYQDXgWAdsyFMlqNCp
+	8mLiDV971DOBlamZVuNF4lvwRfWb72emkl8IUIhq7iqcZUYwXBfJTovSXI5jnHKh+ep8FjaUPq87L
+	YWm8sA56PcFq5TVHBePr/r6/E2y+AnexQQjMZ62cODsRUGSFuQGi6I+/37tEOujRjCpxF1+I8bWzg
+	2iFFFGagClVz13oMpRnw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hRFCT-0005GP-Vn; Thu, 16 May 2019 12:09:29 +0000
-Received: from mail-qt1-f196.google.com ([209.85.160.196])
+	id 1hRFXv-0005P4-Si; Thu, 16 May 2019 12:31:39 +0000
+Received: from vps0.lunn.ch ([185.16.172.187])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hRFCQ-0005FS-Pm
- for linux-riscv@lists.infradead.org; Thu, 16 May 2019 12:09:28 +0000
-Received: by mail-qt1-f196.google.com with SMTP id k24so3513351qtq.7
- for <linux-riscv@lists.infradead.org>; Thu, 16 May 2019 05:09:26 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
- bh=sbCp/GCfPLOrsqUDUZupXIkiqQehtjofpHZjd/C2f6o=;
- b=M3eFjakjAZBkfmxj4x1iWTIPH03hRcvP1PXPc2+HNVmC9HjOaFOP/yTzweE2shTDr3
- zJFdp38jfeWtZZtOHY5Km3WfPPlOs2rgULePRLRsCEFHAvSCWvm44D01X9xmR6BPnb66
- RNR3vrgQn1GhdrCQKJeNVofLoaBjZzqxt9y8cMywBL9aiJW4+w8IRkoPgpUoq4JlG/Qb
- iuMRMGv6tGur9uLSCa8sCsq0CyaXBWm4YN/yDJfzpG7RINHRvmX0Hl71WOlRYyeZvhUS
- 8/xfru3fvaW3OuxouFZtNwoaAVu9FM97bfQQGGZGt0IBVEzmE5a5N4GqHC3PDFI4xjXk
- q/Rg==
-X-Gm-Message-State: APjAAAWIao5eCG7Qexx5QlOjC/fpgyH/n7ULmutozEc6nJBFzOZ0TBKa
- qp+TPXMD8gO3OnoHTsWkFYu/0knGIVRwX0QC4Y0=
-X-Google-Smtp-Source: APXvYqzpzoVn5D71fCLV7vftzgJjrpvGFK62g44SGJIS0A8jQiFvVPdcRTVpTxMHZpVzhMI2xYLwhWxRYcibR4GNA+Q=
-X-Received: by 2002:ac8:1c53:: with SMTP id j19mr41777461qtk.152.1558008564993; 
- Thu, 16 May 2019 05:09:24 -0700 (PDT)
+ id 1hRFXr-0005O1-Pe
+ for linux-riscv@lists.infradead.org; Thu, 16 May 2019 12:31:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+ s=20171124; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=8xq/AtLnhhHzaEV7B7DQtMaLbospcYCiDyDYIDbl+EM=; b=2FkCg+QJQNemfvntMoY/Sg2hMR
+ Es9XwCnKNwndQo+A6WrRG5rz/xlK+Qsws4mgav7Mjtd6IqnpBtwer1SzXie7pUP3pIl9icMIJRfM4
+ rjVfOUlzl6zwAErRc6zFfEeUB3JWyORiOyLHCnNeLrMqPtFZMAFuEqcrxOXG2F5eZ22A=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.89)
+ (envelope-from <andrew@lunn.ch>)
+ id 1hRFXc-0002lz-VF; Thu, 16 May 2019 14:31:21 +0200
+Date: Thu, 16 May 2019 14:31:20 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+Subject: Re: [PATCH v3 3/3] i2c-ocores: sifive: add polling mode workaround
+ for FU540-C000 SoC
+Message-ID: <20190516123120.GB14298@lunn.ch>
+References: <1557983320-14461-1-git-send-email-sagar.kadam@sifive.com>
+ <1557983320-14461-4-git-send-email-sagar.kadam@sifive.com>
 MIME-Version: 1.0
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Thu, 16 May 2019 14:09:08 +0200
-Message-ID: <CAK8P3a2+RHAReOZdo8nEvqDeC1EPj83L2Ug4JuVRiUh943AuNw@mail.gmail.com>
-Subject: [GIT PULL] asm-generic: kill <asm/segment.h> and improve nommu
- generic uaccess helpers
-To: Linus Torvalds <torvalds@linux-foundation.org>
+Content-Disposition: inline
+In-Reply-To: <1557983320-14461-4-git-send-email-sagar.kadam@sifive.com>
+User-Agent: Mutt/1.5.23 (2014-03-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190516_050926_837573_DB1327A9 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20190516_053135_984514_AA6AF66C 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -76,88 +78,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch <linux-arch@vger.kernel.org>, linux-riscv@lists.infradead.org,
- Christoph Hellwig <hch@lst.de>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, peter@korsgaard.com,
+ palmer@sifive.com, linux-kernel@vger.kernel.org, robh+dt@kernel.org,
+ linux-i2c@vger.kernel.org, paul.walmsley@sifive.com,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[back from vacation now, sorry for the late pull request for this merge window]
+> @@ -682,13 +693,24 @@ static int ocores_i2c_probe(struct platform_device *pdev)
+>  
+>  	irq = platform_get_irq(pdev, 0);
+>  	if (irq == -ENXIO) {
+> -		i2c->flags |= OCORES_FLAG_POLL;
+> +		/*
+> +		 * Set a OCORES_FLAG_BROKEN_IRQ to enable workaround for
+> +		 * FU540-C000 SoC in polling mode interface of i2c-ocore driver.
+> +		 * Else enable default polling mode interface for SIFIVE/OCORE
+> +		 * device types.
+> +		 */
+> +		match = of_match_node(ocores_i2c_match, pdev->dev.of_node);
+> +		if (match && (long)match->data ==
+> +				(TYPE_SIFIVE_REV0 | OCORES_FLAG_BROKEN_IRQ))
 
-The following changes since commit 9e98c678c2d6ae3a17cb2de55d17f69dddaa231b:
+This looks wrong. You added:
 
-  Linux 5.1-rc1 (2019-03-17 14:22:26 -0700)
++       {
++               .compatible = "sifive,fu540-c000-i2c",
++               .data = (void *)TYPE_SIFIVE_REV0,
++       },
++       {
++               .compatible = "sifive,i2c0",
++               .data = (void *)TYPE_SIFIVE_REV0,
++       },
 
-are available in the Git repository at:
+So match->data just has TYPE_SIFIVE_REV0.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/arnd/asm-generic.git
-tags/asm-generic-nommu
+> +			i2c->flags |= OCORES_FLAG_BROKEN_IRQ;
+> +		else
+> +			i2c->flags |= OCORES_FLAG_POLL;
 
-for you to fetch changes up to 6edd1dbace0e8529ed167e8a5f9da63c0cc763cc:
+These two don't need to be exclusive. It makes more sense to say
+SIFIVE needs to poll and it its IRQ is broken. A lot of your other
+changes then go away.
 
-  asm-generic: optimize generic uaccess for 8-byte loads and stores
-(2019-04-23 21:51:41 +0200)
-
-----------------------------------------------------------------
-asm-generic: kill <asm/segment.h> and improve nommu generic uaccess helpers
-
-Christoph Hellwig writes:
-
-  This is a series doing two somewhat interwinded things.  It improves
-  the asm-generic nommu uaccess helper to optionally be entirely generic
-  and not require any arch helpers for the actual uaccess.  For the
-  generic uaccess.h to actually be generically useful I also had to kill
-  off the mess we made of <asm/segment.h>, which really shouldn't exist
-  on most architectures.
-
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-
-----------------------------------------------------------------
-Christoph Hellwig (4):
-      asm-generic: don't include <asm/segment.h> from <asm/uaccess.h>
-      arch: mostly remove <asm/segment.h>
-      asm-generic: provide entirely generic nommu uaccess
-      asm-generic: optimize generic uaccess for 8-byte loads and stores
-
- arch/alpha/include/asm/segment.h   |  6 ----
- arch/alpha/kernel/smc37c669.c      |  1 -
- arch/alpha/kernel/smc37c93x.c      |  1 -
- arch/arc/include/asm/uaccess.h     |  1 +
- arch/arm/include/asm/Kbuild        |  1 -
- arch/arm64/include/asm/Kbuild      |  1 -
- arch/c6x/include/asm/Kbuild        |  1 -
- arch/h8300/Kconfig                 |  1 +
- arch/h8300/include/asm/Kbuild      |  1 +
- arch/h8300/include/asm/uaccess.h   | 55 ------------------------------------
- arch/hexagon/include/asm/Kbuild    |  1 -
- arch/hexagon/include/asm/uaccess.h |  1 -
- arch/ia64/include/asm/segment.h    |  6 ----
- arch/mips/include/asm/Kbuild       |  1 -
- arch/nds32/include/asm/Kbuild      |  1 -
- arch/nios2/include/asm/Kbuild      |  1 -
- arch/openrisc/include/asm/Kbuild   |  1 -
- arch/openrisc/kernel/ptrace.c      |  1 -
- arch/openrisc/kernel/setup.c       |  1 -
- arch/openrisc/kernel/traps.c       |  1 -
- arch/openrisc/mm/init.c            |  1 -
- arch/openrisc/mm/tlb.c             |  1 -
- arch/parisc/include/asm/Kbuild     |  1 -
- arch/s390/include/asm/segment.h    |  5 ----
- arch/s390/kernel/ptrace.c          |  1 -
- arch/unicore32/include/asm/Kbuild  |  1 -
- arch/xtensa/include/asm/segment.h  | 16 -----------
- include/asm-generic/segment.h      |  9 ------
- include/asm-generic/uaccess.h      | 58 +++++++++++++++++++++++++++++++++++++-
- lib/Kconfig                        |  4 +++
- 30 files changed, 64 insertions(+), 117 deletions(-)
- delete mode 100644 arch/alpha/include/asm/segment.h
- delete mode 100644 arch/h8300/include/asm/uaccess.h
- delete mode 100644 arch/ia64/include/asm/segment.h
- delete mode 100644 arch/s390/include/asm/segment.h
- delete mode 100644 arch/xtensa/include/asm/segment.h
- delete mode 100644 include/asm-generic/segment.h
+       Andrew
 
 _______________________________________________
 linux-riscv mailing list
