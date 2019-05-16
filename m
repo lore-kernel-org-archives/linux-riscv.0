@@ -2,61 +2,69 @@ Return-Path: <SRS0=H4VQ=TQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4972FC04AB4
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 16 May 2019 07:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 416A3C04AAF
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 16 May 2019 12:09:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1CBEB20862
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 16 May 2019 07:42:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 14E7D20833
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 16 May 2019 12:09:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MLRtQg+n"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1CBEB20862
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lLeU1etH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14E7D20833
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qGNKxx2iLkgJQwFCa2G9SGQ2Fvcy9Seds5hKPqWMqRM=; b=MLRtQg+nraPM4c
-	7HYw/FTdwYcAzrPbQ+wkq53CnRCBFt7pHeVGqaI8TuUS32UdIXkVXSOq9lPKppsW6W1ff6CtheSKV
-	5qhAv/OzjutIJ9Yt6z9nw3uGi4RKCoVinR6Nvhwtn7D/GKxCSdHFVwfbQrGqTtU9wFzv72SDepNnu
-	BvCvswCCImog9AaaTA8QhXiiCmPZozs4EWXJDH1+EnD1Wi07w005Cj0ShUzyJOyBG3Q6N+xO9S7cd
-	zRWfmP4ngwPWkwX8TDTfWWW7jCBxBbIg7cBf/IlPgtHhh1mHizdk9tMvfIoKORsdm+bctrcLfhI0V
-	Q/3ELzQ10P+8HP0H1zkg==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KY2cLaGRa02Db7/UNNdZnRSSrf1amO98ufX87zlu1rI=; b=lLeU1etHo85Zq0
+	AKg1tW99NpVxLvOn2y5BiyEPx3up9AMqhxw5KT47Xd/rQAnwIgViJZesyQkYXseiyKmHxlsCa9SXB
+	4mGiq5seho908gSt9J1TL+8S0Lkm/vWKW5GcXGCMIp7AavyWet8mTP+Kw02dBqlU8BtQMYLm8hcl+
+	rURWQnIqedKEbm6YdQcfi1JMFKKAiRcIJP3ndD4B0fCe+v/truSNTmo62XOECcCnmd7I9L3l+xqW6
+	YFQ8tENFc5nR0Gsnesy1QmEUWu+/rXDB+19Y4L0N4Adc0d1BrEPeSfDI1r1gjwu64DMcqxQ3dR9aP
+	d0zGm7ACnXzXiASDD5hg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hRB1j-0005wK-UQ; Thu, 16 May 2019 07:42:07 +0000
-Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+	id 1hRFCT-0005GP-Vn; Thu, 16 May 2019 12:09:29 +0000
+Received: from mail-qt1-f196.google.com ([209.85.160.196])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hRB1h-0005v6-GW
- for linux-riscv@lists.infradead.org; Thu, 16 May 2019 07:42:06 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 6E188AD49;
- Thu, 16 May 2019 07:42:02 +0000 (UTC)
-From: Andreas Schwab <schwab@suse.de>
-To: Palmer Dabbelt <palmer@sifive.com>
-Subject: Re: [PATCH] riscv: fix locking violation in page fault handler
-References: <mvm5zqmu35d.fsf@suse.de>
- <mhng-56794b7f-6cd4-4eb9-a962-83ad256ed3cd@palmer-si-x1e>
-X-Yow: Don't SANFORIZE me!!
-Date: Thu, 16 May 2019 09:42:01 +0200
-In-Reply-To: <mhng-56794b7f-6cd4-4eb9-a962-83ad256ed3cd@palmer-si-x1e> (Palmer
- Dabbelt's message of "Tue, 07 May 2019 16:48:03 -0700 (PDT)")
-Message-ID: <mvmy336luba.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.2 (gnu/linux)
+ id 1hRFCQ-0005FS-Pm
+ for linux-riscv@lists.infradead.org; Thu, 16 May 2019 12:09:28 +0000
+Received: by mail-qt1-f196.google.com with SMTP id k24so3513351qtq.7
+ for <linux-riscv@lists.infradead.org>; Thu, 16 May 2019 05:09:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+ bh=sbCp/GCfPLOrsqUDUZupXIkiqQehtjofpHZjd/C2f6o=;
+ b=M3eFjakjAZBkfmxj4x1iWTIPH03hRcvP1PXPc2+HNVmC9HjOaFOP/yTzweE2shTDr3
+ zJFdp38jfeWtZZtOHY5Km3WfPPlOs2rgULePRLRsCEFHAvSCWvm44D01X9xmR6BPnb66
+ RNR3vrgQn1GhdrCQKJeNVofLoaBjZzqxt9y8cMywBL9aiJW4+w8IRkoPgpUoq4JlG/Qb
+ iuMRMGv6tGur9uLSCa8sCsq0CyaXBWm4YN/yDJfzpG7RINHRvmX0Hl71WOlRYyeZvhUS
+ 8/xfru3fvaW3OuxouFZtNwoaAVu9FM97bfQQGGZGt0IBVEzmE5a5N4GqHC3PDFI4xjXk
+ q/Rg==
+X-Gm-Message-State: APjAAAWIao5eCG7Qexx5QlOjC/fpgyH/n7ULmutozEc6nJBFzOZ0TBKa
+ qp+TPXMD8gO3OnoHTsWkFYu/0knGIVRwX0QC4Y0=
+X-Google-Smtp-Source: APXvYqzpzoVn5D71fCLV7vftzgJjrpvGFK62g44SGJIS0A8jQiFvVPdcRTVpTxMHZpVzhMI2xYLwhWxRYcibR4GNA+Q=
+X-Received: by 2002:ac8:1c53:: with SMTP id j19mr41777461qtk.152.1558008564993; 
+ Thu, 16 May 2019 05:09:24 -0700 (PDT)
 MIME-Version: 1.0
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Thu, 16 May 2019 14:09:08 +0200
+Message-ID: <CAK8P3a2+RHAReOZdo8nEvqDeC1EPj83L2Ug4JuVRiUh943AuNw@mail.gmail.com>
+Subject: [GIT PULL] asm-generic: kill <asm/segment.h> and improve nommu
+ generic uaccess helpers
+To: Linus Torvalds <torvalds@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190516_004205_697070_8ED928CA 
-X-CRM114-Status: UNSURE (   6.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190516_050926_837573_DB1327A9 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -68,25 +76,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: linux-arch <linux-arch@vger.kernel.org>, linux-riscv@lists.infradead.org,
+ Christoph Hellwig <hch@lst.de>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mai 07 2019, Palmer Dabbelt <palmer@sifive.com> wrote:
+[back from vacation now, sorry for the late pull request for this merge window]
 
-> LMK if you, or anyone else, has a preference.  I'm assuming this will go in
-> through my tree, so I've picked up my version for now :)
+The following changes since commit 9e98c678c2d6ae3a17cb2de55d17f69dddaa231b:
 
-You did?
+  Linux 5.1-rc1 (2019-03-17 14:22:26 -0700)
 
-Andreas.
+are available in the Git repository at:
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+  git://git.kernel.org/pub/scm/linux/kernel/git/arnd/asm-generic.git
+tags/asm-generic-nommu
+
+for you to fetch changes up to 6edd1dbace0e8529ed167e8a5f9da63c0cc763cc:
+
+  asm-generic: optimize generic uaccess for 8-byte loads and stores
+(2019-04-23 21:51:41 +0200)
+
+----------------------------------------------------------------
+asm-generic: kill <asm/segment.h> and improve nommu generic uaccess helpers
+
+Christoph Hellwig writes:
+
+  This is a series doing two somewhat interwinded things.  It improves
+  the asm-generic nommu uaccess helper to optionally be entirely generic
+  and not require any arch helpers for the actual uaccess.  For the
+  generic uaccess.h to actually be generically useful I also had to kill
+  off the mess we made of <asm/segment.h>, which really shouldn't exist
+  on most architectures.
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+
+----------------------------------------------------------------
+Christoph Hellwig (4):
+      asm-generic: don't include <asm/segment.h> from <asm/uaccess.h>
+      arch: mostly remove <asm/segment.h>
+      asm-generic: provide entirely generic nommu uaccess
+      asm-generic: optimize generic uaccess for 8-byte loads and stores
+
+ arch/alpha/include/asm/segment.h   |  6 ----
+ arch/alpha/kernel/smc37c669.c      |  1 -
+ arch/alpha/kernel/smc37c93x.c      |  1 -
+ arch/arc/include/asm/uaccess.h     |  1 +
+ arch/arm/include/asm/Kbuild        |  1 -
+ arch/arm64/include/asm/Kbuild      |  1 -
+ arch/c6x/include/asm/Kbuild        |  1 -
+ arch/h8300/Kconfig                 |  1 +
+ arch/h8300/include/asm/Kbuild      |  1 +
+ arch/h8300/include/asm/uaccess.h   | 55 ------------------------------------
+ arch/hexagon/include/asm/Kbuild    |  1 -
+ arch/hexagon/include/asm/uaccess.h |  1 -
+ arch/ia64/include/asm/segment.h    |  6 ----
+ arch/mips/include/asm/Kbuild       |  1 -
+ arch/nds32/include/asm/Kbuild      |  1 -
+ arch/nios2/include/asm/Kbuild      |  1 -
+ arch/openrisc/include/asm/Kbuild   |  1 -
+ arch/openrisc/kernel/ptrace.c      |  1 -
+ arch/openrisc/kernel/setup.c       |  1 -
+ arch/openrisc/kernel/traps.c       |  1 -
+ arch/openrisc/mm/init.c            |  1 -
+ arch/openrisc/mm/tlb.c             |  1 -
+ arch/parisc/include/asm/Kbuild     |  1 -
+ arch/s390/include/asm/segment.h    |  5 ----
+ arch/s390/kernel/ptrace.c          |  1 -
+ arch/unicore32/include/asm/Kbuild  |  1 -
+ arch/xtensa/include/asm/segment.h  | 16 -----------
+ include/asm-generic/segment.h      |  9 ------
+ include/asm-generic/uaccess.h      | 58 +++++++++++++++++++++++++++++++++++++-
+ lib/Kconfig                        |  4 +++
+ 30 files changed, 64 insertions(+), 117 deletions(-)
+ delete mode 100644 arch/alpha/include/asm/segment.h
+ delete mode 100644 arch/h8300/include/asm/uaccess.h
+ delete mode 100644 arch/ia64/include/asm/segment.h
+ delete mode 100644 arch/s390/include/asm/segment.h
+ delete mode 100644 arch/xtensa/include/asm/segment.h
+ delete mode 100644 include/asm-generic/segment.h
 
 _______________________________________________
 linux-riscv mailing list
