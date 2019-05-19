@@ -2,68 +2,57 @@ Return-Path: <SRS0=LIPF=TT=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C1A5DC04AB4
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 19 May 2019 17:45:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3735BC04AB4
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 19 May 2019 21:25:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9807020657
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 19 May 2019 17:45:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 07FDB20644
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 19 May 2019 21:25:45 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QMbeb399";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="g/N50TXJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9807020657
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MNjg8jj5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 07FDB20644
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ucw.cz
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6MNvaxO60SiHArJDYoXYPxHUQ5pRGGqY9WhNeVofYzI=; b=QMbeb399h1QG/d
-	XtBIz0abaiSMlm/+t4sdvrXvG9QETvNt8YJryonjTX5gzkjn8YlE92PuUiMPUjva8V8D+Zz2Mo5OD
-	Gq+n7Al4Rw1X307evnYEQo2jr7FFT3ROOnPhDwLZXqsKOlezA1ImvZIRxzTiuQOP6JKNnMSX5ZVwF
-	mhb+Axc6lLHcIK+xoEfcbc9DjN5d1zr91WzdeIwHtTPXvkcPVvL8LEKNZStO0k1m6oE15Tv4+ff4m
-	eoxiTMzwsFcYYqzpVJsWwsTDFSqxHwAbma78ast3qG/CyKImVNjzV2O4dhV8RcXoqeReVsmL9eLkQ
-	9IYm65Wfa6oJo/td/t7g==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=eWp1M6kCw25ISQPL+5nRVRG5iJ9uVrZL9jeSjRCwAro=; b=MNjg8jj5EMCPygKIQeQnSCGpN
+	9FwUd1jbUOO/SPhb3PzBK3/MrDYlN2eaa/qxHW2IcXJTM6CMv70DVWAnuGxq80ioH2ARivepeLHzX
+	p8NvqzZnv2giZtLXi0+0YSDANaU09fvkcoiysuRqDYJbMawh0fo21K/MpEUGvg1R6WKqo4PBt6zsG
+	496QV8U10/RGg5fUCsfCZ6p4ZZxLyRxnbkhxiMlm218KcV3BnND2sGaqZchU1PtapUTXQTY1yscZn
+	XWY2RXoittwhHGMVFavFio04MFkig4ZtRlKHsaWYmLCSJvKbVFtQSXj9B4imV6ngCLlfxMTb1E3ty
+	u1WFKirLQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hSPsA-0002Co-SH; Sun, 19 May 2019 17:45:22 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1hSTJO-0002l9-1z; Sun, 19 May 2019 21:25:42 +0000
+Received: from atrey.karlin.mff.cuni.cz ([195.113.26.193])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hSPs8-0002CV-LW
- for linux-riscv@lists.infradead.org; Sun, 19 May 2019 17:45:22 +0000
-Subject: Re: [GIT PULL] RISC-V Patches for the 5.2 Merge Window, Part 1 v3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1558287919;
- bh=p39cSE+YEWhDHipYq4l9ZwR+n0AoruN4qVTWJAWJBQs=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=g/N50TXJro8HgipULDBQ0NRm6iWMMBeUcu0xAdPvcDyuyf5IvpXumGiVkSVOtTgN3
- jfVLkpkoZt/HujSErPZRON8IcSnrqFQ9tHIhxbfG/gLESnr3vF3rSDxa6+7MZkLFie
- uECoogAOSAfEOIHnIN52UoKAI1H/UIvKCKnn8lSs=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <mhng-2cfcab49-74d1-4656-9913-36853a5be29d@palmer-si-x1e>
-References: <mhng-2cfcab49-74d1-4656-9913-36853a5be29d@palmer-si-x1e>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <mhng-2cfcab49-74d1-4656-9913-36853a5be29d@palmer-si-x1e>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git
- tags/riscv-for-linus-5.2-mw2
-X-PR-Tracked-Commit-Id: 8fef9900d43feb9d5017c72840966733085e3e82
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: b0bb1269b9788a35af68587505d8df90498df75f
-Message-Id: <155828791965.9186.7458955761237233525.pr-tracker-bot@kernel.org>
-Date: Sun, 19 May 2019 17:45:19 +0000
-To: Palmer Dabbelt <palmer@sifive.com>
+ id 1hSTJK-0002kK-Rb
+ for linux-riscv@lists.infradead.org; Sun, 19 May 2019 21:25:40 +0000
+Received: by atrey.karlin.mff.cuni.cz (Postfix, from userid 512)
+ id 715DB80378; Sun, 19 May 2019 23:25:18 +0200 (CEST)
+Date: Sun, 19 May 2019 23:25:28 +0200
+From: Pavel Machek <pavel@ucw.cz>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH v2] clk: sifive: restrict Kconfig scope for the FU540
+ PRCI driver
+Message-ID: <20190519212527.GD31403@amd>
+References: <20190513213001.23956-1-paul.walmsley@sifive.com>
+MIME-Version: 1.0
+In-Reply-To: <20190513213001.23956-1-paul.walmsley@sifive.com>
+User-Agent: Mutt/1.5.23 (2014-03-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190519_104520_724582_E7802BEE 
-X-CRM114-Status: UNSURE (   1.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190519_142539_047237_641A765B 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -75,28 +64,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Paul Walmsley <paul@pwsan.com>, sboyd@kernel.org, mturquette@baylibre.com,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-clk@vger.kernel.org
+Content-Type: multipart/mixed; boundary="===============6733192306771890243=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 17 May 2019 15:54:33 -0700 (PDT):
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git tags/riscv-for-linus-5.2-mw2
+--===============6733192306771890243==
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="ZARJHfwaSJQLOEUz"
+Content-Disposition: inline
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/b0bb1269b9788a35af68587505d8df90498df75f
 
-Thank you!
+--ZARJHfwaSJQLOEUz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.wiki.kernel.org/userdoc/prtracker
+On Mon 2019-05-13 14:30:04, Paul Walmsley wrote:
+> Restrict Kconfig scope for SiFive clock and reset IP block drivers
+> such that they won't appear on most configurations that are unlikely
+> to support them.  This is based on a suggestion from Pavel Machek
+> <pavel@ucw.cz>.  Ideally this should be dependent on
+> CONFIG_ARCH_SIFIVE, but since that Kconfig directive does not yet
+> exist, add dependencies on RISCV or COMPILE_TEST for now.
+>=20
+> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+> Signed-off-by: Paul Walmsley <paul@pwsan.com>
+> Reported-by: Pavel Machek <pavel@ucw.cz>
+> Cc: Michael Turquette <mturquette@baylibre.com>
+> Cc: Stephen Boyd <sboyd@kernel.org>
+
+Thanks for doing this.
+
+Acked-by: Pavel Machek <pavel@ucw.cz>
+									Pavel
+
+> ---
+> This second version incorporates non-functional changes requested
+> by Stephen Boyd <sboyd@kernel.org>.
+>=20
+>  drivers/clk/sifive/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/drivers/clk/sifive/Kconfig b/drivers/clk/sifive/Kconfig
+> index 8db4a3eb4782..f3b4eb9cb0f5 100644
+> --- a/drivers/clk/sifive/Kconfig
+> +++ b/drivers/clk/sifive/Kconfig
+> @@ -2,6 +2,7 @@
+> =20
+>  menuconfig CLK_SIFIVE
+>  	bool "SiFive SoC driver support"
+> +	depends on RISCV || COMPILE_TEST
+>  	help
+>  	  SoC drivers for SiFive Linux-capable SoCs.
+> =20
+
+--=20
+(english) http://www.livejournal.com/~pavelmachek
+(cesky, pictures) http://atrey.karlin.mff.cuni.cz/~pavel/picture/horses/blo=
+g.html
+
+--ZARJHfwaSJQLOEUz
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: Digital signature
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iEYEARECAAYFAlzhyccACgkQMOfwapXb+vKL9ACgxM0+9bKh/scPwPJjoynP4CP5
+Pz4An3RLsy9e7OUJOOEqqejLViJVsWKX
+=v+he
+-----END PGP SIGNATURE-----
+
+--ZARJHfwaSJQLOEUz--
+
+
+--===============6733192306771890243==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6733192306771890243==--
+
