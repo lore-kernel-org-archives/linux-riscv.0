@@ -2,86 +2,87 @@ Return-Path: <SRS0=cYQk=TU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F27DC04AAC
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 20 May 2019 17:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EA37FC04AAC
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 20 May 2019 18:25:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 74A0120675
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 20 May 2019 17:21:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C67C92173E
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 20 May 2019 18:25:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ij9atkKs";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="BF/jOVKx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 74A0120675
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ob8x2c45";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="WUdWnpkX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C67C92173E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qbGhQ7ZRxpEitD4DG28itwXfHyc4916HWbcTjijB4F4=; b=Ij9atkKsEfGKFk
-	WhCzRdPymJMbcRcdPBQpki19Ivkxqi+vUni7X5snJHNkbb1QHezM1Ci7JZ1dfxB8itIDWg5iKK5Up
-	xRjtkzNRNwmyMsT4vb3EopAC9pICZGMXdo/TPTD9U6+EoVyksRWK8Asmg4oSDXHUlrAe1Q2a5BVCA
-	+MLsl+f/vo/AJ0vM/svBPOnLY/vxsfAzr9c0CgB0nfhO/aBnFo2NxlOxOE+Iq0oGGyVZPpsJ4ezyM
-	Hs9kvfdbx0Q0a1goboHVaUVdJSgJWojROgFT6Q5JsbwHvPZUhbq/KV2bZVZ/cuJoPcsF1WBvifO8q
-	cA3KTMOjVF7WeDHL+GBg==;
+	List-Owner; bh=sGiaVf4LiN+9Djvb8boj5uHgyis9XV3P0Un7gx4GEhY=; b=Ob8x2c45zju2fS
+	RrU+L5n8rUb/V9jRVP2TvTO+8uj6yql8yRLENh8h4GD3M5CU5N/fV0lU/EHTLoXhqyze+03pb+BeA
+	79442HCz+9ATclW7t0fA8wW4MI1ttajmP7xheg2cQiihjfM6R4q9Y2zSwxUM864+k6lAGRnJp0uCa
+	X2bt1rBE8FBwD9DzaMKXeo6pcQEbXAN4oCS3yjqhxYIsS6okUaxyzYoLlwOIsIGGcM3WpcKyWc0ix
+	gSpmnyZhVTUVDKw6Ez9PEMrFa7+iyCZbIUXuLlUuKZSSKUyJZp849SzdunGL9/Tlmxfadpc4wJrCr
+	aaG72Dq6O1E9GVvebyHg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hSlz3-00074M-CT; Mon, 20 May 2019 17:21:57 +0000
-Received: from mail-it1-x12f.google.com ([2607:f8b0:4864:20::12f])
+	id 1hSmyb-0006VQ-CE; Mon, 20 May 2019 18:25:33 +0000
+Received: from mail-io1-xd43.google.com ([2607:f8b0:4864:20::d43])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hSlz0-00073h-PD
- for linux-riscv@lists.infradead.org; Mon, 20 May 2019 17:21:55 +0000
-Received: by mail-it1-x12f.google.com with SMTP id m140so254901itg.2
- for <linux-riscv@lists.infradead.org>; Mon, 20 May 2019 10:21:53 -0700 (PDT)
+ id 1hSmyY-0006Uv-U7
+ for linux-riscv@lists.infradead.org; Mon, 20 May 2019 18:25:32 +0000
+Received: by mail-io1-xd43.google.com with SMTP id p2so11844186iol.2
+ for <linux-riscv@lists.infradead.org>; Mon, 20 May 2019 11:25:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:cc:subject:message-id:user-agent:mime-version;
- bh=U1mBWkntXkHe1OCaEZa+jzt5Ip0fm+Wb1DlBjW6XVX0=;
- b=BF/jOVKxDvMpDHjMQlvokcMXOadG/5ViD73TuHUBrB9dtvRdjbDQVHTNnHaLJLJUs9
- WOwTsOZdjbTpyhpmzN6oT4uSumOGxigzKYt3SFVUC6R9qG8WVYh2ln5esDW1/l4nFnOv
- aRLJWCRooneNAi5N7rznzcbzXww4/UcK2zs/bZji4izYgVB3QpA4L5oAT5XMtpTLvrUE
- 7WYw4NGYujkC90KXN/TWEW+eKrVe9N4MhhfaaDOwsKkC5hQ7HS9C5/Ysgc8Hcz0GvKAd
- boKSsky9t/eTRN/jK3tFfywGkm0u9yAbsPK/vvhTcYKJJMjUkSlmZEIihH9YL/hKVPFS
- qsRA==
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=wmqIFp4icfZnPyLg0HDy/kQuXw1sl4wbvoppE+mg+DQ=;
+ b=WUdWnpkXzLNbxpHv+XgWjZePSEtfJ3srhIv06ANnSQGqGE9T45z1W4UcleITOKhkYa
+ ibsbnPPzo1s+D2G4L2ovyC3a0yd/b1a/gaMECFo2cIV7ytvDOQnBxvEq8/xzd+v2WbFT
+ j/KoKHbpNI2e9lnEHGcBVc106hs3Z1IpolmHudPXXUDSb5kvc7i72xOYoUUku+vIu5UT
+ sgzSJvmRVqF7L9LFGEX3arbANBgDgaSI6QdrjzA+w7i+2BHepr67CP567+9RTmTI9od7
+ /Wjx1hfrFI0aBhPBIDiUwXgGNiKUGBfk/zAs0jA1D48EM3R2jPNyCa1ijcVeQ2Nxx4eL
+ tE1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:user-agent
- :mime-version;
- bh=U1mBWkntXkHe1OCaEZa+jzt5Ip0fm+Wb1DlBjW6XVX0=;
- b=Ekt4RK5oW5Z3DUKxoI+SYEJO9EbkQjc3+q5GETov71ZTRlMLPcyDWUVw589OLTXbeV
- XcZznnCa1Qiy+FVcu6dlnmCq4cj/hfIzvl6XRxVGFwuwGEwOKksOqmV0iAkSvoA2CndO
- EtyTU/NrMV9QG+HFBkbd3bJ8TKdSNveHC6YstmQCizUMy/z3n1gQqI3SPVQB7P7Iz35b
- LEfxjSskNVv2zc8zWNlUncCNcpzTbxqOuGNavPIkYw57xt91kwOy4wZR3F5Xg5FLOQCZ
- 5Xczf+Q+MCSOYC102Ezxxxy+VzHQFYLkxFaxW63X3+Ynryk0Up6wtjOxeTx8g3QCu4Yo
- etSw==
-X-Gm-Message-State: APjAAAUct1WHUcy7zkytwaD6bW1eP87mo/oOL9wa23fNix1k8RJ6uAc1
- rmWo7sKqGlqwsUQpG3ayPZhOLI1ZNg4=
-X-Google-Smtp-Source: APXvYqzm9lzmDOXN1zutvigb7Iph9iyTT4n+F+YUyQlvjbxbo+bmPjFo5lSuHBq42ujfRuR40BSwvg==
-X-Received: by 2002:a24:56d1:: with SMTP id o200mr115019itb.93.1558372913090; 
- Mon, 20 May 2019 10:21:53 -0700 (PDT)
-Received: from localhost (c-73-95-159-87.hsd1.co.comcast.net. [73.95.159.87])
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=wmqIFp4icfZnPyLg0HDy/kQuXw1sl4wbvoppE+mg+DQ=;
+ b=BYpIsxz1qnIBtIKg4OuMFs3pOyhu05mNUrO1lUNlxMQq9nYwfQC7LqWTPd1sanbq4Z
+ JL0S+AkLDo3GInWjRu5g726csPUoX24u0S/j7/iHwD7Mg+fPu9afaIZT0+ww7GKjmSdj
+ ZSMxHRDHsHNxvi7iajK/D6TuxW2Z6vsGWKgMH1zp+yxaF5ZAISaJSwonvQpBmCSTLCWF
+ dMh3OBFUlxeo0vKQfo3q2jgZfYGXp5AL4+9ovqmNQc4hN2eVayCHz1FZH2tLocabJ7fp
+ d7s7fT77zSDKmVn2HnL9Hkt62Y8wlrFNHILLNsEX4vLx+BxtdVNDuble/nXIdEY1x3Y3
+ LD/g==
+X-Gm-Message-State: APjAAAW2K/NeZsykmcPm62gIKvthF0szcr5o6FTibrcNXGJSBifg4UXo
+ dL0aFq78/j1h0S3lyirRXNsZnIZ84RI=
+X-Google-Smtp-Source: APXvYqzlpFilXUERsaEKWrW4gUmc09n06Iun1qu9UaXTzhfY090JdtYxRreS+KDnxD8dlML4Bc4Duw==
+X-Received: by 2002:a6b:7008:: with SMTP id l8mr41127535ioc.210.1558376729850; 
+ Mon, 20 May 2019 11:25:29 -0700 (PDT)
+Received: from viisi.lan (c-73-95-159-87.hsd1.co.comcast.net. [73.95.159.87])
  by smtp.gmail.com with ESMTPSA id
- v134sm56488ita.16.2019.05.20.10.21.52
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Mon, 20 May 2019 10:21:52 -0700 (PDT)
-Date: Mon, 20 May 2019 10:21:51 -0700 (PDT)
+ m25sm137862iti.24.2019.05.20.11.25.29
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 20 May 2019 11:25:29 -0700 (PDT)
 From: Paul Walmsley <paul.walmsley@sifive.com>
-X-X-Sender: paulw@viisi.sifive.com
-To: linux-riscv@lists.infradead.org
-Subject: Patches for v5.2-rc and v5.3 merge window
-Message-ID: <alpine.DEB.2.21.9999.1905201019010.15580@viisi.sifive.com>
-User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: include generic support for MSI irqdomains
+Date: Mon, 20 May 2019 11:25:28 -0700
+Message-Id: <20190520182528.10627-1-paul.walmsley@sifive.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190520_102154_847630_1626F374 
-X-CRM114-Status: UNSURE (   4.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190520_112530_980237_176DDC6E 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -93,21 +94,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: palmer@sifive.com, linux-kernel@vger.kernel.org
+Cc: Wesley Terpstra <wesley@sifive.com>, Paul Walmsley <paul@pwsan.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Some RISC-V systems include PCIe host controllers that support PCIe
+message-signaled interrupts.  For this to work on Linux, we need to
+enable PCI_MSI_IRQ_DOMAIN and define struct msi_alloc_info.  Support
+for the latter is enabled by including the architecture-generic msi.h
+include.
 
-Folks,
+Based on a patch from Wesley Terpstra <wesley@sifive.com>:
 
-Palmer has asked me to collect patches for the v5.2-rc releases and v5.3 
-merge window, so I'll be doing so.  This is just a heads-up so no one is 
-surprised to see 'patch queued' responses from me.
+https://github.com/riscv/riscv-linux/commit/7d55f38fb79f459d2e88bcee7e147796400cafa8
 
+Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+Signed-off-by: Paul Walmsley <paul@pwsan.com>
+Cc: Wesley Terpstra <wesley@sifive.com>
+---
+ arch/riscv/include/asm/Kbuild | 1 +
+ drivers/pci/Kconfig           | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
-- Paul 
+diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+index 3d019e062c6f..b0a9fa34be5a 100644
+--- a/arch/riscv/include/asm/Kbuild
++++ b/arch/riscv/include/asm/Kbuild
+@@ -20,6 +20,7 @@ generic-y += kvm_para.h
+ generic-y += local.h
+ generic-y += local64.h
+ generic-y += mm-arch-hooks.h
++generic-y += msi.h
+ generic-y += percpu.h
+ generic-y += preempt.h
+ generic-y += sections.h
+diff --git a/drivers/pci/Kconfig b/drivers/pci/Kconfig
+index 2ab92409210a..beb3408a0272 100644
+--- a/drivers/pci/Kconfig
++++ b/drivers/pci/Kconfig
+@@ -52,7 +52,7 @@ config PCI_MSI
+ 	   If you don't know what to do here, say Y.
+ 
+ config PCI_MSI_IRQ_DOMAIN
+-	def_bool ARC || ARM || ARM64 || X86
++	def_bool ARC || ARM || ARM64 || X86 || RISCV
+ 	depends on PCI_MSI
+ 	select GENERIC_MSI_IRQ_DOMAIN
+ 
+-- 
+2.20.1
+
 
 _______________________________________________
 linux-riscv mailing list
