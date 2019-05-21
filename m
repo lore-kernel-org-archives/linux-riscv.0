@@ -6,16 +6,16 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2B52FC04AAF
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 21 May 2019 09:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D5CCC04AAF
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 21 May 2019 10:34:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 01C0421479
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 21 May 2019 09:40:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DB3AB21743
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 21 May 2019 10:34:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sY6J/6y3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 01C0421479
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aVtp0JiA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DB3AB21743
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,37 +24,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
 	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AQDjN7a8JnKufwwakYyz2Oot77WbZt1iTk/vVLjMsvk=; b=sY6J/6y3DONwiD
-	GpgkX0rry0KAScqqsl38LdnUWZZxBH0mRjCpfeBmdTRJUgeUAFy4PWbpOSuDup2whg30fciRgd832
-	xLwoRmDJCGmqbercHHzeIvrZQnktMH9rZYmBojgOMNAx6f0U4hGvRjMmSuJhowRyuRhxDp3uutJxX
-	ob3c2xuwcatYa6si96aZIwX3LY8wdJ35VaWTcMQjsJxHBN79NxhQKut8+IcaDULeCm/1dpnj1392X
-	mIzbQ4cQt83s5ilKnOc00DiKHze4fT9v2JbbKLKzUJPm2xEBFphdNtLyvj3EcBIWZV+ObR2SsKHdm
-	nMHsdohRwGT1Vt7h/Z5w==;
+	List-Owner; bh=YMFXgEZWcDSenV6Nda4mQxqUMj+T2ZM6OWHFqDyj+qM=; b=aVtp0JiAL9o4zQ
+	lSMwFIKgEtGPPPLcuG1Kvtw30TOp+Ns5tEp6cIH1UE7cPY5h7l0ZSDcK8q8Q0fjOfNdPBTfNie9UQ
+	SxfRTnUAcITJK6MIF+teB9U14hEyKVg4Yudq2UimrPGJrZr3wtlvNZHsj8+pbjhyMxetvsC7tkUyg
+	jgQ235wolMsUuWHqNthLwkcDQx59wxA+Nmp4OciAhpw0cuhff4y+ehp7hMWVgWwLmjTE20lSYHx3b
+	RvAonlvVhn/XjPZyJ0TzeFSNglUdNqF/BIwsQEopOP/bh2tsGBvFwkxwaus4N/qU2mWnoLJ9UHT9I
+	AseL3N+dblJ3jTLXZDAQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hT1GF-00024F-C6; Tue, 21 May 2019 09:40:43 +0000
+	id 1hT25q-0000Uu-Ho; Tue, 21 May 2019 10:34:02 +0000
 Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hT1GC-00022E-Ag
- for linux-riscv@lists.infradead.org; Tue, 21 May 2019 09:40:41 +0000
+ id 1hT25n-0000U5-Uw
+ for linux-riscv@lists.infradead.org; Tue, 21 May 2019 10:34:01 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 36F1CAF58;
- Tue, 21 May 2019 09:40:38 +0000 (UTC)
+ by mx1.suse.de (Postfix) with ESMTP id 8704EABF4;
+ Tue, 21 May 2019 10:33:58 +0000 (UTC)
 From: Andreas Schwab <schwab@suse.de>
-To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: 5.2-rc1 boot on Unleashed
-References: <5c1ffb76-b18a-dbae-d3ad-f3d2cd41ee44@wdc.com>
-X-Yow: I represent a sardine!!
-Date: Tue, 21 May 2019 11:40:37 +0200
-In-Reply-To: <5c1ffb76-b18a-dbae-d3ad-f3d2cd41ee44@wdc.com> (Atish Patra's
- message of "Mon, 20 May 2019 16:31:13 -0700")
-Message-ID: <mvmtvdoi1re.fsf@suse.de>
+To: Christoph Hellwig <hch@lst.de>
+Subject: Re: [PATCH 9/9] riscv: call pm_power_off from machine_halt /
+ machine_power_off
+References: <20190411115623.5749-1-hch@lst.de>
+ <20190411115623.5749-10-hch@lst.de>
+X-Yow: Did we bring enough BEEF JERKY?
+Date: Tue, 21 May 2019 12:33:57 +0200
+In-Reply-To: <20190411115623.5749-10-hch@lst.de> (Christoph Hellwig's message
+ of "Thu, 11 Apr 2019 13:56:23 +0200")
+Message-ID: <mvmo93whzai.fsf@suse.de>
 User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.2 (gnu/linux)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190521_024040_506466_CD1F41E3 
-X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-CacheID: sfid-20190521_033400_146006_368A8990 
+X-CRM114-Status: UNSURE (   7.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -67,21 +69,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@sifive.com>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mai 20 2019, Atish Patra <atish.patra@wdc.com> wrote:
+On Apr 11 2019, Christoph Hellwig <hch@lst.de> wrote:
 
-> 1. Thanks to Paul, uart & clock drivers are merged. However,
-> 	a. upstream clock drivers require DT changes
+> Also remove the pm_power_off export - at least for now we don't have
+> any modular drivers overriding it.
 
-How does it look like?
+ERROR: "pm_power_off" [drivers/mfd/rk808.ko] undefined!
+ERROR: "pm_power_off" [drivers/mfd/max8907.ko] undefined!
+ERROR: "pm_power_off" [drivers/mfd/axp20x.ko] undefined!
+ERROR: "pm_power_off" [drivers/char/ipmi/ipmi_poweroff.ko] undefined!
 
 Andreas.
 
