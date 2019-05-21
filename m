@@ -2,85 +2,50 @@ Return-Path: <SRS0=Dqti=TV=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 995B2C04AAF
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 21 May 2019 05:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B8E2C04AAF
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 21 May 2019 06:35:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6758521743
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 21 May 2019 05:31:44 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D4E2F2173C
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 21 May 2019 06:35:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Y7OazRok";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="kyLq6vqx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6758521743
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mayGctTm"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D4E2F2173C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qh+xBXYcG4xoVqWGRkZz8y7zGRBlmJv0Wv/gVRT3Rsg=; b=Y7OazRokKr/B3O
-	HqBENzVcOXRPU4HSE/s8JX//5E2k13iahM8O7IHml4JXhIt2R3s5r9pa0mgX0eo1L5SfIvGyjd3NN
-	8PZCKc+e4cy2T+q99aTDgpWi/gzRNp+/9bFrIJUTT055MFRrm6Y2OH1RB1ib2e4QT0ZyqoGcUk8vT
-	wHKwptrt0Dfa1eETDq+lGZ6xgtyu/unuZOCRvioim+ctFZszrW9RdqOgufdccVzuA6p4G8jUNzj4c
-	3n04LgCPxCxGgICbSFCa9l4XeoXGmf60YqB7LgkysQbVfyl7jaglqIRfSUNKHqn+ekdS/p6+UsBQ4
-	V/gpvJFbnE0nUe0AIZoQ==;
+	List-Owner; bh=VS81S+28KIVdUCvR0PSoQxpoFPnGaDG93EkQJHjnVfI=; b=mayGctTmwn6RaN
+	qsYYsQuUG5iNCNC8h5uItINiHhqrOElcAihvXnnF58s9RCKc4+QiKJf++gSbv05hPK5Y5L01M4SDv
+	BnBp6yfdV5rDBxsfIJIW0lKtNXWOK888iMH987Sl73lqbLjbGoqKtnoso5vfgrCOjlRVx295xOOOv
+	leOvm1WPo7O8amgJ5vfCtYUqzHLk5R5E8xrsqJlBcPWSBrly4K6Ri2ovjiDHgr8gzlhBA0YFjcm/E
+	3KGoyGfVkBEaBQLyCpM6iBzC+v8FiM6G1jEnEeMZeKp83hlQW4dQQuXvzyWDr2uLNd2iIaZwBklSY
+	NgLRma2YcfLzaijyFDOA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hSxNE-0001Di-T6; Tue, 21 May 2019 05:31:40 +0000
-Received: from mail-lf1-x144.google.com ([2a00:1450:4864:20::144])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hSxNC-0001DN-Aj
- for linux-riscv@lists.infradead.org; Tue, 21 May 2019 05:31:39 +0000
-Received: by mail-lf1-x144.google.com with SMTP id q17so12046081lfo.4
- for <linux-riscv@lists.infradead.org>; Mon, 20 May 2019 22:31:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=BtJH/XFatQoBOkqt6CnXFYn8cVFYIMDvg7sFFa+676w=;
- b=kyLq6vqxe11UGM5dCp65/VIEmlD+ACNL83MCfoFC4CUz1LW2/BkZq4jQPkPHtoH8Ze
- tbExs1uaTjddyOv7pHBFTilzgdvXBRGSZKZXcpcn8xDRUGBmna44cQXLRF96xO5UXA4u
- eYGAysbsIfGMw15tyeUOW4868nK5HtjkxNHYDXZkLaE0/bvwzSKsmyMn1g8Y97f7epr5
- QPgL7TJOZ7IO8L2Aff3vxpQwf56lh+FleBOwoZLtOZ0xtS8nWiBooOlgBkDp+5b0SYgW
- JtV2bfR2aAL4pJj7ygZJl1GuzifomEgI2FgLpQehqn/Cpw+fhIjwKraPQ3DYgPxGcaM3
- 8xHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=BtJH/XFatQoBOkqt6CnXFYn8cVFYIMDvg7sFFa+676w=;
- b=n40AymswL5010B6gP0F2QIKsXWiuAmnR7S11lpazGUzEmK5+01uEI3R5yDWlnLFZ1/
- ZqleONpnc5Fk9uIrS3blnanIJhJubp1E6B0wCKYQVuKPK5SpO1xz9imwobvzBBayrcyz
- s08PjwT6iL+pGVR9PFe80MaIx4Q4m+MjKqdOwnbKmpz/jqMr7ZS2Xd/YA54QcWkvuYme
- 1lamd08/EI/aYu1yh3PjdATus+Omsb3Mxj2wtv5KZLHnR3/1hh3ILfVkatviXOp2t6cA
- 4+Jo+3a+ROdZp11kOMCEgfe0i1h48SyRSq0PzmgMMO9+cIfQlVcjPOhHd8oYec2m+UUs
- zmZQ==
-X-Gm-Message-State: APjAAAXI5VoFE2paGUO9ZStS1thgjX68VCyyCALTjqre9GZ6W1tLx0hY
- EvlYlW2t9Z7DOkjivCXkvHBqSEWQswGtTYdETa+yxg==
-X-Google-Smtp-Source: APXvYqwTO5cDb3MVcX3rsZTp5AzbDa+LWhvMDys5bBDQIRDcxlANQjUTioD3NEoxscJG3c+mMbm/QAYAZESzHIp/t1k=
-X-Received: by 2002:a19:c60f:: with SMTP id w15mr39497034lff.61.1558416695999; 
- Mon, 20 May 2019 22:31:35 -0700 (PDT)
+	id 1hSyNN-00053G-CN; Tue, 21 May 2019 06:35:53 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
+ Hat Linux)) id 1hSyNL-00052s-Kj; Tue, 21 May 2019 06:35:51 +0000
+Date: Mon, 20 May 2019 23:35:51 -0700
+From: Christoph Hellwig <hch@infradead.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH] riscv: include generic support for MSI irqdomains
+Message-ID: <20190521063551.GA5959@infradead.org>
+References: <20190520182528.10627-1-paul.walmsley@sifive.com>
 MIME-Version: 1.0
-References: <1557142026-15949-1-git-send-email-yash.shah@sifive.com>
- <1557142026-15949-2-git-send-email-yash.shah@sifive.com>
-In-Reply-To: <1557142026-15949-2-git-send-email-yash.shah@sifive.com>
-From: Yash Shah <yash.shah@sifive.com>
-Date: Tue, 21 May 2019 11:00:59 +0530
-Message-ID: <CAJ2_jOG9Ag0spbh3YCxavUE5XEAUP1pHcgCZ56Nu2u4TqfrzHQ@mail.gmail.com>
-Subject: Re: [PATCH v2] edac: sifive: Add EDAC platform driver for SiFive SoCs
-To: linux-edac@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Palmer Dabbelt <palmer@sifive.com>, Borislav Petkov <bp@alien8.de>,
- James Morse <james.morse@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190520_223138_394378_3CCDCB80 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20190520182528.10627-1-paul.walmsley@sifive.com>
+User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,37 +57,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, paulmck@linux.ibm.com, gregkh@linuxfoundation.org,
- linux-kernel@vger.kernel.org, nicolas.ferre@microchip.com,
- Sachin Ghadi <sachin.ghadi@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, mchehab@kernel.org,
- davem@davemloft.net
+Cc: Wesley Terpstra <wesley@sifive.com>, linux-riscv@lists.infradead.org,
+ Paul Walmsley <paul@pwsan.com>, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 6, 2019 at 4:57 PM Yash Shah <yash.shah@sifive.com> wrote:
->
-> The initial ver of EDAC driver supports:
-> - ECC event monitoring and reporting through the EDAC framework for SiFive
->   L2 cache controller.
->
-> The EDAC driver registers for notifier events from the L2 cache controller
-> driver (arch/riscv/mm/sifive_l2_cache.c) for L2 ECC events
->
-> Signed-off-by: Yash Shah <yash.shah@sifive.com>
-> Reviewed-by: James Morse <james.morse@arm.com>
-> ---
-> This patch depends on patch
-> 'RISC-V: sifive_l2_cache: Add L2 cache controller driver for SiFive SoCs'
-> https://lkml.org/lkml/2019/5/6/255
+On Mon, May 20, 2019 at 11:25:28AM -0700, Paul Walmsley wrote:
+> Some RISC-V systems include PCIe host controllers that support PCIe
+> message-signaled interrupts.  For this to work on Linux, we need to
+> enable PCI_MSI_IRQ_DOMAIN and define struct msi_alloc_info.  Support
+> for the latter is enabled by including the architecture-generic msi.h
+> include.
+> 
+> Based on a patch from Wesley Terpstra <wesley@sifive.com>:
+> 
+> https://github.com/riscv/riscv-linux/commit/7d55f38fb79f459d2e88bcee7e147796400cafa8
+> 
+> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+> Signed-off-by: Paul Walmsley <paul@pwsan.com>
+> Cc: Wesley Terpstra <wesley@sifive.com>
 
-The prerequisite patch (sifive_l2_cache driver) has been merged into
-mainline v5.2-rc1
-It should be OK to merge this edac driver now.
+Well, this is very much Wes' patch as-is.  It should probably be
+attributed to him and you should ask for his signoff.
 
-- Yash
+Otherwise this looks fine:
+
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 
 _______________________________________________
 linux-riscv mailing list
