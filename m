@@ -6,79 +6,58 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6DB1FC072A4
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 22 May 2019 04:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B2FEAC072A4
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 22 May 2019 07:32:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 41EE3217D7
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 22 May 2019 04:59:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 869A5217D4
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 22 May 2019 07:32:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lF9oQ2M2";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="itsCJKdw"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 41EE3217D7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gq3rcGAk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 869A5217D4
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ffLxAPz9myxZVnM2YQGLJS2pe5A2jMzbEfdbFEUeutk=; b=lF9oQ2M28Tdkuc
-	IOm+9bIhYRSCwsgINFzACNRAoIM6P7LbVNXMs2RTQ4b5cPCRCaB6yW3F5nyNz0u9VEqe2nALzhBZz
-	l5HVKdU/HIGmT/7w/4XCRrScgSKMP5MOvWMHNe5Se1Z9aAp02h7z47Ya5ICRuJKe3csZGj4ez4uGs
-	WcGViWgNNY17ErFkIg4iDJ5LVECVoK++yQNOObL+O8w01uqWeFSVih7VVzXrrr9NnVkQTCm25lMwN
-	IQ1TtaVAsfHrF16CH53ec8fADvkDn7NBTPEQwb6ppgRoLR38arH+gXO3JqZiMVe62E5JK7m5KPW9I
-	s9Pkp6lGpd9Rx2PD6pvw==;
+	List-Owner; bh=c5iXb/MWMlbwhsEQoL71M2tozDnsDc+tFDe8ifniEhU=; b=gq3rcGAkg4DdPU
+	R6cYmxDJqgdc5pDeohNX4CMQrk/Y6qQRk83CflNECV7OrQNuoipt5FD6lYOsY5jpzI+OJ32fPfpni
+	Nmpah/DyZYxS1awiL/WAwIkf9GqYzvS3sdDjBEKqpFLwRsfViA9sG7FCNvjgaeTla4knB8VPVNuNT
+	GAeDhHa2RWu6R+nOEgEUA+IdwjUTnEruTGH9DLA+Ce4nOFJ8QWiDYTuTicOvTr/4ZD5pJmm1Hmklf
+	BYVWbZKG0VZ0d/2Ph9wufJ+SMnh5dI6exCuWy8M76xj/hZ0JprwoAmEyBVkaQrpaWFp+umEIPFcG8
+	yk44kyVEVIVWl6mMyu3w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hTJLN-0000o7-SR; Wed, 22 May 2019 04:59:13 +0000
-Received: from mail-ua1-x944.google.com ([2607:f8b0:4864:20::944])
+	id 1hTLjC-0001rx-9H; Wed, 22 May 2019 07:31:58 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hTJLK-0000nB-4P
- for linux-riscv@lists.infradead.org; Wed, 22 May 2019 04:59:11 +0000
-Received: by mail-ua1-x944.google.com with SMTP id r7so426805ual.2
- for <linux-riscv@lists.infradead.org>; Tue, 21 May 2019 21:59:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=pfnQkeXApE9YhAL04oZ9pUNXjKBFEtVB3H8ZellBg+s=;
- b=itsCJKdwgb46ITQkTRPoR292kcfck5T1rUAFHDfske/5D5WuP7F7P3FokSkTHFunNf
- 7YQ3BXR/Xmoj2jTOP1hfkdJt1lDEmYafTUxvNuFTUleUmyq5ofyPgY6K17FZitXLDLBW
- kj+iGHmuoeu+c5e9mdy7m0/Q22dVjzeQz6NzlsNr3bF2uX9x2lqdQJugNy9c/inxvahE
- s9deVGS5LGzqxTmCVeVTiUYlsDogXeDmD+B0siLITPFo6hjidNKTbr/yuKGPBpmo54LS
- E5sF5haPxlVlTjHw49x9ASoRzcJXsV2qcr4unFMySxZUMuUTc6FwsM1+q3P1NiMcd6AM
- 6oFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=pfnQkeXApE9YhAL04oZ9pUNXjKBFEtVB3H8ZellBg+s=;
- b=ZTqMUaG/XQNQ+gilLDRZCWR5f91o/Sh7brH1gPWdDb8s8wo/XZOXLXlpN/8xr9g8dc
- 66Gkpgcnz7VF5pjMJdbdL52SumJxitUFCebCAKc1cXDBXGql1DS+fBW45uRikcNUSdWl
- LTUODGS0pSezsnyCzy0jf9fhSNq5ePcZPaWmcj9w9C09fjNvRVWI5ztU3nTHGpY5gAkj
- rlqPflDozsFQDbhccrSTwUlVKo1Sz0Dx9nVcKbJY2W6O7IxcLzQnIFIhK4INxwi6yOAY
- 9URgPoEUaDFytNFEFxy5HNu8er8C5bLqZ4YfYgHI1g7Ic0NVbK379nQxZIIamdJGb47H
- SKKw==
-X-Gm-Message-State: APjAAAV1j/QH1tpdZjFEm4cx9a83zgbF6cvgFtNUXveFyh6ZUklkEl0t
- iuf+TVy7ZKcEobqCI9Qwr5AMA/mvx6jNNIWhLFwyVZWIYmF8yQ==
-X-Google-Smtp-Source: APXvYqxVjzH04GMwRGsl2rdzhYHjRj2cXzo6oi7TYlti/cF3kn9df3BQ4J7NHUBk2S9snvBN4LcYAu8LQxGMcT/lIYg=
-X-Received: by 2002:ab0:3119:: with SMTP id e25mr3548887ual.96.1558501148962; 
- Tue, 21 May 2019 21:59:08 -0700 (PDT)
+ id 1hTLj9-0001rD-1X
+ for linux-riscv@lists.infradead.org; Wed, 22 May 2019 07:31:56 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id 03498AFDF;
+ Wed, 22 May 2019 07:31:51 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: Atish Patra <atish.patra@wdc.com>
+Subject: Re: 5.2-rc1 boot on Unleashed
+References: <5c1ffb76-b18a-dbae-d3ad-f3d2cd41ee44@wdc.com>
+ <mvmtvdoi1re.fsf@suse.de>
+ <636f53d9-1800-df14-896d-c95737203b2d@wdc.com>
+X-Yow: Psychoanalysis??  I thought this was a nude rap session!!!
+Date: Wed, 22 May 2019 09:31:51 +0200
+In-Reply-To: <636f53d9-1800-df14-896d-c95737203b2d@wdc.com> (Atish Patra's
+ message of "Tue, 21 May 2019 11:14:00 -0700")
+Message-ID: <mvm5zq3hrmg.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.2 (gnu/linux)
 MIME-Version: 1.0
-References: <1558445574-16471-1-git-send-email-sagar.kadam@sifive.com>
- <1558445574-16471-4-git-send-email-sagar.kadam@sifive.com>
- <20190521135439.GM22024@lunn.ch>
-In-Reply-To: <20190521135439.GM22024@lunn.ch>
-From: Sagar Kadam <sagar.kadam@sifive.com>
-Date: Wed, 22 May 2019 10:28:58 +0530
-Message-ID: <CAARK3HnTkpkH9rP4oW456V6KYsCah7-gAXdjm5+3cLwJaPs6tg@mail.gmail.com>
-Subject: Re: [PATCH v6 3/3] i2c-ocores: sifive: add polling mode workaround
- for FU540-C000 SoC.
-To: Andrew Lunn <andrew@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190521_215910_186076_FE40DD8A 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20190522_003155_234809_BC37334A 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,44 +69,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- peter@korsgaard.com, Palmer Dabbelt <palmer@sifive.com>,
- linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
- Linux I2C <linux-i2c@vger.kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@sifive.com>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+On Mai 21 2019, Atish Patra <atish.patra@wdc.com> wrote:
 
-On Tue, May 21, 2019 at 7:24 PM Andrew Lunn <andrew@lunn.ch> wrote:
+> On 5/21/19 2:40 AM, Andreas Schwab wrote:
+>> On Mai 20 2019, Atish Patra <atish.patra@wdc.com> wrote:
+>>
+>>> 1. Thanks to Paul, uart & clock drivers are merged. However,
+>>> 	a. upstream clock drivers require DT changes
+>>
+>> How does it look like?
+>>
+>> Andreas.
+>>
 >
-> >  static void ocores_process_polling(struct ocores_i2c *i2c)
-> >  {
-> > +     const struct of_device_id *match;
-> > +
-> > +     match = of_match_node(ocores_i2c_match, i2c->adap.dev.of_node);
-> > +
-> >       while (1) {
-> >               irqreturn_t ret;
-> >               int err;
 >
-> Please keep with the idea of i2c->flags, which is set during probe.
-> Just because it was removed because it was no longer needed does not
-> stop you from putting it back again if it is needed.
+> Here is prci dt entry in Paul's patch series.
 >
-I had modified the implementation, so as to keep it compatible with
-the new implementation of polling mode.
-As per your suggestion, I will keep the older method (the v5 version
-which you Reviewed earlier : https://lkml.org/lkml/2019/5/20/1261)
- and submit a v7 for this.
+> 		prci: clock-controller at 10000000 {
+> 			compatible = "sifive,fu540-c000-prci";
+> 			reg = <0x0 0x10000000 0x0 0x1000>;
+> 			clocks = <&hfclk>, <&rtcclk>;
+> 			#clock-cells = <1>;
+> 		};
 
->        Andrew
+But how about the clocks?
 
-Thanks & Regards,
-Sagar
+Andreas.
+
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
