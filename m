@@ -2,69 +2,62 @@ Return-Path: <SRS0=tx4i=TX=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	T_DKIMWL_WL_HIGH,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
-	autolearn_force=no version=3.4.0
+	T_DKIMWL_WL_HIGH autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C8017C282DE
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 23 May 2019 14:54:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5AA3C282DD
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 23 May 2019 16:28:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 920EE2175B
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 23 May 2019 14:54:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 89BB821019
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 23 May 2019 16:28:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="T/+bsrJm";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.b="gnDHUvE0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 920EE2175B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lunn.ch
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CHTe/U1n"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 89BB821019
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=davemloft.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	From:Subject:To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mUSwyBio1Kk9ivn4K4IOnlW8tngJEXE5unwcLOp1lBg=; b=T/+bsrJmq3F+gG
-	dgYnAf21ToH/w36CgCTMmcBHF+RUxVzlSsMmj1uF3ThOGHmWCB9sMvN5OUEO3ykLHhZ0DudvgYay2
-	D+bOWnzHPKaNTwYmspx3517Xnwi7Z1VdkAswG/cIKlXxLu+DFidJjYNEPCcRefIXw83Mnxrd+ds4B
-	TeR/y1uw/LnwzYYVA/RYn8M5BXQcffqGq6zMcAVrRU4amXx9YlpEjPu3H1Dw4i5ws7JR5OFdvriDf
-	b8VDUD/wrASDh6BEbj2/pywpnDe/B2gN3t8F7dK87E3zDXhAZTP/IapD0CmAn/vEFCug0idf211Ju
-	5okeCIEDcot3r8KfHIaQ==;
+	List-Owner; bh=PsEqIWpdiovY73zEHw+SEOUwEmBPynxSosQOihMCfcA=; b=CHTe/U1nfNSEsR
+	TV0GpH+z/Yu7irZhqzs7P1JaPOwevOu7iAR9FyqmFnQv0z/u5dinh7qXNnOvxk59+TYtjv0pdh+5R
+	3jrAkFSs4xC+F48xJIGOuSpzXnSCsMyyfaukhZweqvF6wOXf7DG8VavN3t0UvsaAE90s3LJEV7gDL
+	fj9ECTkEZSGw8uewWcUDb3cNkMxvnMB3rKeHYuJxSNYEIhM0t3BCOWPlYf8P3KDpxlANP4dpUJnjW
+	cL/wnrKeS2nAremzfkKO+1WMHe9GOAHwJORYkymq7HzvoZEu1ZKWv3TFhlzdAAr2KKmLVtloDH00x
+	mM4N53JZsfJiZbZNRVHQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hTp6u-0005TF-IR; Thu, 23 May 2019 14:54:24 +0000
-Received: from vps0.lunn.ch ([185.16.172.187])
+	id 1hTqa3-0008Mp-NS; Thu, 23 May 2019 16:28:35 +0000
+Received: from shards.monkeyblade.net ([2620:137:e000::1:9])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hTp6r-0005Sq-BH
- for linux-riscv@lists.infradead.org; Thu, 23 May 2019 14:54:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
- s=20171124; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
- Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=QsNRmpnjYf1hJO0vJAth46QB5G5/Hx/TJi5PoeQ3ZKE=; b=gnDHUvE0zYfVe/z+pFqNNld1Lg
- LFU1f7r1uQbzTxj5uh6S7jG65QicVcmNQ2tjUhDripR/Wdu3IwAQGSTVWu3HWfLLgf9uO6bYmgvuK
- /vQxUPYFYvqqQ/biLuaKgrMPlE7rzUfQvNlyA+TSlR3SM/w1zgZoS05GO7HZ8t0fW+/k=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.89)
- (envelope-from <andrew@lunn.ch>)
- id 1hTp6n-00067V-HQ; Thu, 23 May 2019 16:54:17 +0200
-Date: Thu, 23 May 2019 16:54:17 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH 2/2] net: macb: Add support for SiFive FU540-C000
-Message-ID: <20190523145417.GD19369@lunn.ch>
+ id 1hTqa0-0008MQ-ST
+ for linux-riscv@lists.infradead.org; Thu, 23 May 2019 16:28:34 +0000
+Received: from localhost (unknown [IPv6:2601:601:9f80:35cd::3d8])
+ (using TLSv1 with cipher AES256-SHA (256/256 bits))
+ (Client did not present a certificate)
+ (Authenticated sender: davem-davemloft)
+ by shards.monkeyblade.net (Postfix) with ESMTPSA id DC6D61509BADB;
+ Thu, 23 May 2019 09:28:25 -0700 (PDT)
+Date: Thu, 23 May 2019 09:28:25 -0700 (PDT)
+Message-Id: <20190523.092825.2184612182055559835.davem@davemloft.net>
+To: yash.shah@sifive.com
+Subject: Re: [PATCH 0/2] net: macb: Add support for SiFive FU540-C000
+From: David Miller <davem@davemloft.net>
+In-Reply-To: <1558611952-13295-1-git-send-email-yash.shah@sifive.com>
 References: <1558611952-13295-1-git-send-email-yash.shah@sifive.com>
- <1558611952-13295-3-git-send-email-yash.shah@sifive.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1558611952-13295-3-git-send-email-yash.shah@sifive.com>
-User-Agent: Mutt/1.5.23 (2014-03-12)
+X-Mailer: Mew version 6.8 on Emacs 26.1
+Mime-Version: 1.0
+X-Greylist: Sender succeeded SMTP AUTH, not delayed by milter-greylist-4.5.12
+ (shards.monkeyblade.net [149.20.54.216]);
+ Thu, 23 May 2019 09:28:26 -0700 (PDT)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190523_075421_540249_76CB225F 
-X-CRM114-Status: UNSURE (   5.10  )
+X-CRM114-CacheID: sfid-20190523_092832_923280_9330A50D 
+X-CRM114-Status: UNSURE (   4.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -80,22 +73,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
  netdev@vger.kernel.org, palmer@sifive.com, linux-kernel@vger.kernel.org,
  nicolas.ferre@microchip.com, sachin.ghadi@sifive.com, robh+dt@kernel.org,
- paul.walmsley@sifive.com, ynezz@true.cz, linux-riscv@lists.infradead.org,
- davem@davemloft.net
+ paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, ynezz@true.cz
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +static int fu540_macb_tx_set_rate(struct clk_hw *hw, unsigned long rate,
-> +				  unsigned long parent_rate)
-> +{
-> +	rate = fu540_macb_tx_round_rate(hw, rate, &parent_rate);
-> +	iowrite32(rate != 125000000, mgmt->reg);
 
-That looks odd. Writing the result of a comparison to a register?
+Please be consistent in your subsystem prefixes used in your Subject lines.
+You use "net: macb:" then "net/macb:"  Really, plain "macb: " is sufficient.
 
-     Andrew
+Thank you.
 
 _______________________________________________
 linux-riscv mailing list
