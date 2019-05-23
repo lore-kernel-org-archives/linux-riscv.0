@@ -7,84 +7,81 @@ X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	SPF_HELO_NONE,SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 81FDEC46470
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 23 May 2019 21:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CED06C282DD
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 23 May 2019 21:46:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 577902175B
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 23 May 2019 21:19:24 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A013B2168B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 23 May 2019 21:46:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CTlL150N";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="WIEVJh7T"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 577902175B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MOcYIUbU";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="ShEJArcL"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A013B2168B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Dtr4hm+s9OEv2TO+6sFz89NnNhNCZzrvnyciK6jyypY=; b=CTlL150NsoE/QzRSFMa2d5I7pf
-	q51gS/syT31fRtEI+2AcpL7dtilwrqKMCAWlk6df/VruMOz9YN/2qAYzObZavcsIt5+PMexIZY8Ge
-	3AcyZld93hCME7be/CxHvBCBpvvi9PLpQ1wm0lm4Yt7rdLaoT/IQkiAmlJvpSENfNT9+oPG3GQTWe
-	gCPy4DuB1FvENx64DgjtY+6MZ40D4AZpVYe39wcE1vzZTKk8m8K5KcgMGTPjd1jX0yGa+Ee2X3Ws4
-	ANYmE3r78Ml6mVj0eyqKFM+RhsDM/X+QSD/etv5GKopMkLudAFMhc9aWU7fsC3FBxhXhh0aoveMnB
-	qzhy76jQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=TGPV19rEfFQabwmLvwWxfWftktLhL+w3JCTikKNB5v4=; b=MOc
+	YIUbU9vVAySSGpX/RbqMpr+GvRYvLFCmfcBtWzlIw3ReQzvfV5VnMV5WsJi5T+SsXBdP6IFbAuDg9
+	H0NDuZphvKv7E03ONbYqs8GRoLvVDf9BINMc8I1J75BqgOegbb7bo6DR1I4XITZrZuUN/pBuaCBX+
+	nt90t+q3TmQCQsTQQZhvoaAQ18IgO0asyyJ8UkAQBbihj9+ZZ79AYcWJBFZOZz6DtaQILjhtsomVM
+	5mfIkR1WrF5hOfv6Z29W4XaNyL/dsrNOB0ED6B0oOHfPDpQ3/wspgf9t1Iuhhvtf3wVkjSwRB/+vh
+	WWHApTBPI/racOqiYS8xNPA9Pi/x/bg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hTv7O-0002rq-Hr; Thu, 23 May 2019 21:19:18 +0000
-Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
+	id 1hTvXP-0004XS-JH; Thu, 23 May 2019 21:46:11 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hTv7L-0002qE-Hv
- for linux-riscv@lists.infradead.org; Thu, 23 May 2019 21:19:17 +0000
-Received: by mail-pg1-x543.google.com with SMTP id i21so3766320pgi.12
- for <linux-riscv@lists.infradead.org>; Thu, 23 May 2019 14:19:13 -0700 (PDT)
+ id 1hTvXN-0004W2-6L
+ for linux-riscv@lists.infradead.org; Thu, 23 May 2019 21:46:10 +0000
+Received: by mail-pg1-x541.google.com with SMTP id v11so3811233pgl.5
+ for <linux-riscv@lists.infradead.org>; Thu, 23 May 2019 14:46:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=MSZ9qLvgnuUWthhRIbf1Cjhkpu+CFOpygVqw6RbqY5U=;
- b=WIEVJh7TgDCASi/+YnUkSMzEwtd6hlDck+n8tN2K1tMOc34LB1Jh1QvKVxb0cutw3A
- DH4g4vh5nw8eXnfoR/heSxG5RvW1s4Cu7RyyZ6t4otZ8aHQMWiZqrWSxK+3N7aAy6R+4
- l8r6b9AvVpOk1jZ5i+uT/WsV3S0MArSerkECLKNwwo4gMVmHGwsbZ2PrkVXf3810gVjH
- 4xz9PTduCE02rrpFhwTGSl93D/REB0grsaDhqd9PMcZVxOt1JnTht+mXI17goUcKY5W/
- MUmKkcNqR6rdY6EVi4f6uc5ZmjTB//hhHcF8odQI4bMn7jlRbjXi1cGld2z+oA2gXfiR
- dE4g==
+ h=from:to:cc:subject:date:message-id;
+ bh=jLaVtK3dTIBGULW9LqgDdHPCnDBMlxzNCTE/sRHoa70=;
+ b=ShEJArcL1KurA1638gz4USiZ00iMtMSug5yVVcXiRtq5yuXns/UC6ym+0dTJvdOUoj
+ 78DW7v4DCsJEVZi7VsL+DUQGnYD/1Gw8cYLRnzV2fIY9cvZHx4JmP8dJBZ/CkrOvy/r6
+ hi6huQyiN4IcB8uajCWgiy5jB/ADDU4MVssRWpr3I9BmE61Qbz5XtRDsAnlSFWRDu5DV
+ sPy2ijb70+9EyYSeZQxR5v5/w559ski9jk2+HKGKlMcSUeFIRbXFkN2eGJ3NZx0sXHnv
+ YduhiMCdIg52qX7KfA1u3Patzl0qE9lP7Gnrb1Jxs3NK9JufLOthzMFXYm5Ta+3oh9K1
+ nr4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=MSZ9qLvgnuUWthhRIbf1Cjhkpu+CFOpygVqw6RbqY5U=;
- b=b8LUlHi8SeH8efkFzpty3iv/jVbqxdJ/gNpulgt4hDUMRSdR6l+LJsdpVQlLZtT83m
- s34T/mmROWJrlXPqYxhwSfp8PS/yIse+bbvEm7wXupuo6Mf5Mm+pUkpTdTickiFPlH7V
- cPMli6qQpsQd3E9pg2pNYpddiy7U0Wh/Kfp8rScRE44hq9wheWDclRRpnJ7WO7J1iMI8
- eo2wKyGTe6/fWJ0DnokSzINzOgoo40AyxktOPJDl9OyWFeyOiNfUytMPni9EfgXA38u4
- PZx+jGpeDCHzLyLFQqkfLrGlVegPxQVcyVQ0qd7cl8eCgXl5gmT/GfpIAMjsPO7gM4FF
- OitQ==
-X-Gm-Message-State: APjAAAUUW58jnGQVdkprgRS7qc06ZackYPT12N1eMjnBgk/dSVwjCRdc
- XhLVXZBKdSfOGWM0aUXSWBzRPA==
-X-Google-Smtp-Source: APXvYqyUyOAczgUqoXWQtDMPqw03qjPB1y6pLPNlzLwxi361TeJoFHwIvI96nXB0BIicaNoroN8SrA==
-X-Received: by 2002:a62:7610:: with SMTP id r16mr108209123pfc.69.1558646353373; 
- Thu, 23 May 2019 14:19:13 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=jLaVtK3dTIBGULW9LqgDdHPCnDBMlxzNCTE/sRHoa70=;
+ b=PXgV0PTOcdAVul0GiYBNOhT4qmKPq/T3p2c5HMUcD2jHvZrQciE1Kt8cDRfQ1G+8fp
+ unxGkXHu4zLoapkGMM7YRrMDSb/GmTmarV13tR+OSRqkppsmDkufTjw7NDfb6w7jgmLQ
+ onyUGa/crPwRPw2UgChSU+cXkgnSSXMXXZnSWBCZwl9JOGUR1OuUMc7yzI8PN86QwTmX
+ I9EQYRSAsSIuuJ8mE/wW8Fxs0AIVfs6YCYEwcJBgptCDU53MvQwVjVqa+ZgkbGGbr+5x
+ VlrJbpNmH1DZXYxVvLJrVDNol6CeibtmCoLF5Yv+Xu7sfRC33syKW5oEEl7cBNhMEcQb
+ 6xyg==
+X-Gm-Message-State: APjAAAWnvaM5s2v+MXxiKzCvptLkUl3GmT+qlpteFf3505LHHcNc7lWq
+ aMB36bTNC8PfkCRdw/Q6R7D8/Q==
+X-Google-Smtp-Source: APXvYqynmmrSYP3AvQ6rwIRLvBAGL2pYB9a1i/aJMnlDC2kN1XI9/kUmEwXDShzjnRKLI1X8+9HLCQ==
+X-Received: by 2002:a63:5211:: with SMTP id g17mr69897684pgb.405.1558647967581; 
+ Thu, 23 May 2019 14:46:07 -0700 (PDT)
 Received: from nuc7.sifive.com ([12.206.222.2])
- by smtp.gmail.com with ESMTPSA id t5sm234092pgn.80.2019.05.23.14.19.12
+ by smtp.gmail.com with ESMTPSA id q10sm376519pff.132.2019.05.23.14.46.06
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
- Thu, 23 May 2019 14:19:12 -0700 (PDT)
+ Thu, 23 May 2019 14:46:06 -0700 (PDT)
 From: Alan Mikhak <alan.mikhak@sifive.com>
 X-Google-Original-From: Alan Mikhak < alan.mikhak@sifive.com >
 To: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, kishon@ti.com,
  lorenzo.pieralisi@arm.com, linux-riscv@lists.infradead.org,
  palmer@sifive.com, paul.walmsley@sifive.com
-Subject: [PATCH v2 1/2] tools: PCI: Fix broken pcitest compilation
-Date: Thu, 23 May 2019 14:18:00 -0700
-Message-Id: <1558646281-12676-2-git-send-email-alan.mikhak@sifive.com>
+Subject: [PATCH v2] PCI: endpoint: Set endpoint controller pointer to null
+Date: Thu, 23 May 2019 14:45:44 -0700
+Message-Id: <1558647944-13816-1-git-send-email-alan.mikhak@sifive.com>
 X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1558646281-12676-1-git-send-email-alan.mikhak@sifive.com>
-References: <1558646281-12676-1-git-send-email-alan.mikhak@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190523_141915_592806_CF35C212 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20190523_144609_374481_089CEFE1 
+X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -103,49 +100,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-pcitest is currently broken due to the following compiler error
-and related warning. Fix by changing the run_test() function
-signature to return an integer result.
+Set endpoint controller pointer to null in pci_epc_remove_epf()
+to avoid -EBUSY on subsequent call to pci_epc_add_epf().
 
-pcitest.c: In function run_test:
-pcitest.c:143:9: warning: return with a value, in function
-returning void
-  return (ret < 0) ? ret : 1 - ret; /* return 0 if test succeeded */
-
-pcitest.c: In function main:
-pcitest.c:232:9: error: void value not ignored as it ought to be
-  return run_test(test);
+Requires checking for null endpoint function pointer.
 
 Signed-off-by: Alan Mikhak <alan.mikhak@sifive.com>
-Fixes: fef31ecaaf2c ("tools: PCI: Fix compilation warnings")
-Reviewed-by: Paul Walmsley <paul.walmsley@sifive.com>
 ---
- tools/pci/pcitest.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/pci/endpoint/pci-epc-core.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/tools/pci/pcitest.c b/tools/pci/pcitest.c
-index 5fa5c2bdd427..6dce894667f6 100644
---- a/tools/pci/pcitest.c
-+++ b/tools/pci/pcitest.c
-@@ -47,15 +47,15 @@ struct pci_test {
- 	unsigned long	size;
- };
- 
--static void run_test(struct pci_test *test)
-+static int run_test(struct pci_test *test)
+diff --git a/drivers/pci/endpoint/pci-epc-core.c b/drivers/pci/endpoint/pci-epc-core.c
+index e4712a0f249c..2091508c1620 100644
+--- a/drivers/pci/endpoint/pci-epc-core.c
++++ b/drivers/pci/endpoint/pci-epc-core.c
+@@ -519,11 +519,12 @@ void pci_epc_remove_epf(struct pci_epc *epc, struct pci_epf *epf)
  {
--	long ret;
-+	int ret = -EINVAL;
- 	int fd;
+ 	unsigned long flags;
  
- 	fd = open(test->device, O_RDWR);
- 	if (fd < 0) {
- 		perror("can't open PCI Endpoint Test device");
--		return;
-+		return -ENODEV;
- 	}
+-	if (!epc || IS_ERR(epc))
++	if (!epc || IS_ERR(epc) || !epf)
+ 		return;
  
- 	if (test->barnum >= 0 && test->barnum <= 5) {
+ 	spin_lock_irqsave(&epc->lock, flags);
+ 	list_del(&epf->list);
++	epf->epc = NULL;
+ 	spin_unlock_irqrestore(&epc->lock, flags);
+ }
+ EXPORT_SYMBOL_GPL(pci_epc_remove_epf);
 -- 
 2.7.4
 
