@@ -2,90 +2,64 @@ Return-Path: <SRS0=JLSQ=TY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham
+X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 33A64C282E1
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 24 May 2019 08:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ABC17C072B5
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 24 May 2019 08:58:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0A3EB217D7
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 24 May 2019 08:52:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7F6622175B
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 24 May 2019 08:58:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gFi+NQJ2";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=ti.com header.i=@ti.com header.b="Kcvrh1kX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0A3EB217D7
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=ti.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZCKu3Whg"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7F6622175B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=/le2hMAlk6BfenBH5akk+kgYEIB4Dyv99PpFX2/nFZM=; b=gFi+NQJ2Ob0QXo5/OKdzjc++GN
-	7zNsOUwgsG9mfGDD+Zk2gexlDngu69DMTuiY905hnaktm/6rUJ+V8F9/x3s/leXR0GEXjUJhyx8VE
-	q7+N/tygnewUqE5OtWw/PvwQcQIiLjaVlBokeVDRex4BbzMe/gs4/RJSsS1Io1OPdMHVOoyVrhQA7
-	rvB3H2yUCpy5sDpcns3nOCHd7uWXOLeipyKh8kGq1y1LmeGfdQ8fSu7zTP0jIZrGpJb8YL63PqpuV
-	DebPA1wbzgbAuv+cZsJ8y6mCnJJhq6BHbnAW64ChGRGXHkFDKn+9cKgwH74gLtBc4tj0q7FNVx9kM
-	8nJu2dvg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=S5xVRrosTqMsmXQnsWZBRk45z0njoeQ/wv4Cx+pEfp8=; b=ZCKu3WhgvqJL1C
+	wdOI82GpowWYOnO7wLEbF3MrzreAqP14T64OhXsN9e/b1fOyJfjFzzRCQSBVKoGXf9TPnEHgxvrEj
+	TZRICWfyM9C2Cr6+UyJbnUCtsK1yKP65PS+IDd3/Jg6U+cvTI0PxC9uDzCMKgO2Jv75NEAs+ZY2aH
+	mbOxwtE8q5v6Ctz86zTrIzdwN0s1lbrs3UkLaOqDc8EyFGhhrdTZKp64AF+RkrzdogB/5mOMHHHyE
+	n1ro0cV7AICLBqBIWjTNqUBHwnQl6a7Fu4J+cfvUzEN+GVHTNiveQ9By+e8V6ZnjXd8DuMQk5jCd3
+	YElZHCGdLqdkyca3axcA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hU5vk-0000hj-0C; Fri, 24 May 2019 08:52:00 +0000
-Received: from fllv0016.ext.ti.com ([198.47.19.142])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hU5vi-0000hO-9I
- for linux-riscv@lists.infradead.org; Fri, 24 May 2019 08:51:59 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
- by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id x4O8psb4026496;
- Fri, 24 May 2019 03:51:54 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
- s=ti-com-17Q1; t=1558687914;
- bh=tVT52Dzdto40qLgUQsoiwvxwFkE3lFwq1Lgc68900vM=;
- h=Subject:To:References:From:Date:In-Reply-To;
- b=Kcvrh1kXVoX/YJiWEs8BfbWsIDglItrja6+dBLtuB9DVYFkvrV0oRVqmyjZk4oTp7
- grZVsyeaA5YhCj8O6plfJUE8oIS279hb7BaWMb/8nIEa55c8C9QM97qR75Kj193kCD
- SMgZoWRxEJuw2ANWHSTkyUNAbtbzE+Ks3V0XzjJU=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
- by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id x4O8psvr094843
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
- Fri, 24 May 2019 03:51:54 -0500
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5; Fri, 24
- May 2019 03:51:54 -0500
-Received: from lelv0326.itg.ti.com (10.180.67.84) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5 via
- Frontend Transport; Fri, 24 May 2019 03:51:54 -0500
-Received: from [172.24.190.233] (ileax41-snat.itg.ti.com [10.172.224.153])
- by lelv0326.itg.ti.com (8.15.2/8.15.2) with ESMTP id x4O8poJT045361;
- Fri, 24 May 2019 03:51:50 -0500
-Subject: Re: [PATCH v2] PCI: endpoint: Clear BAR before freeing its space
-To: Alan Mikhak <alan.mikhak@sifive.com>, <linux-pci@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <lorenzo.pieralisi@arm.com>,
- <linux-riscv@lists.infradead.org>, Palmer Dabbelt <palmer@sifive.com>, Paul
- Walmsley <paul.walmsley@sifive.com>,
- Bjorn Helgaas <bhelgaas@google.com>, <gustavo.pimentel@synopsys.com>,
- <wen.yang99@zte.com.cn>, <kjlu@umn.edu>
-References: <1558648647-14324-1-git-send-email-alan.mikhak@sifive.com>
- <CABEDWGy8PhHqqRPpZjVrd3VtwxmtxV+Gs-8442e9EvKjFQLELw@mail.gmail.com>
-From: Kishon Vijay Abraham I <kishon@ti.com>
-Message-ID: <a1787130-9f36-3e0f-f35e-640a47dfdf5f@ti.com>
-Date: Fri, 24 May 2019 14:20:36 +0530
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.6.1
+	id 1hU61Z-00043v-OP; Fri, 24 May 2019 08:58:01 +0000
+Received: from usa-sjc-mx-foss1.foss.arm.com ([217.140.101.70]
+ helo=foss.arm.com)
+ by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hU61R-0003v6-3o; Fri, 24 May 2019 08:57:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0AF1A78;
+ Fri, 24 May 2019 01:57:50 -0700 (PDT)
+Received: from e107155-lin (e107155-lin.cambridge.arm.com [10.1.196.42])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC0413F5AF;
+ Fri, 24 May 2019 01:57:46 -0700 (PDT)
+Date: Fri, 24 May 2019 09:57:40 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [RFT PATCH v5 3/5] cpu-topology: Move cpu topology code to
+ common code.
+Message-ID: <20190524085720.GA13121@e107155-lin>
+References: <20190524000653.13005-1-atish.patra@wdc.com>
+ <20190524000653.13005-4-atish.patra@wdc.com>
+ <20190524081333.GA15566@kroah.com>
 MIME-Version: 1.0
-In-Reply-To: <CABEDWGy8PhHqqRPpZjVrd3VtwxmtxV+Gs-8442e9EvKjFQLELw@mail.gmail.com>
-Content-Language: en-US
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+Content-Disposition: inline
+In-Reply-To: <20190524081333.GA15566@kroah.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190524_015158_405723_9ED249CA 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20190524_015753_157119_B5FA478B 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,47 +71,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Peter Zijlstra \(Intel\)" <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>, Atish Patra <atish.patra@wdc.com>,
+ linux-riscv@lists.infradead.org, Morten Rasmussen <morten.rasmussen@arm.com>,
+ Jeffrey Hugo <jhugo@codeaurora.org>, Anup Patel <anup@brainfault.org>,
+ Ingo Molnar <mingo@kernel.org>, devicetree@vger.kernel.org,
+ Albert Ou <aou@eecs.berkeley.edu>, Sudeep Holla <sudeep.holla@arm.com>,
+ Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Jeremy Linton <jeremy.linton@arm.com>,
+ Otto Sabart <ottosabart@seberm.com>, Andreas Schwab <schwab@suse.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 24, 2019 at 10:13:33AM +0200, Greg Kroah-Hartman wrote:
+> On Thu, May 23, 2019 at 05:06:50PM -0700, Atish Patra wrote:
+> > Both RISC-V & ARM64 are using cpu-map device tree to describe
+> > their cpu topology. It's better to move the relevant code to
+> > a common place instead of duplicate code.
+> > 
+> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> > Tested-by: Jeffrey Hugo <jhugo@codeaurora.org>
+> > ---
+> >  arch/arm64/include/asm/topology.h |  23 ---
+> >  arch/arm64/kernel/topology.c      | 303 +-----------------------------
+> >  drivers/base/arch_topology.c      | 296 +++++++++++++++++++++++++++++
+> >  include/linux/arch_topology.h     |  28 +++
+> >  include/linux/topology.h          |   1 +
+> >  5 files changed, 329 insertions(+), 322 deletions(-)
+>
+> What, now _I_ have to maintain drivers/base/arch_topology.c?  That's
+> nice for everyone else, but not me :(
+>
+> Ugh.
+>
+> Anyway, what are you wanting to happen to this series?  I think we need
+> some ARM people to sign off on it before I can take the whole thing,
+> right?
+>
 
+Greg, I am ready to take ownership. Juri the original author of this file
+agreed and I have been reviewing this file since Juri first wrote it.
+I am happy to submit a patch assuming maintainership for this file, was
+just waiting to hear from you when I asked explicitly you and Juri in
+last version of the patch when Will wanted someone from ARM to be reviewer
+of this file at-least. I am happy to take over as reviewer or maintainer
+which ever you prefer.
 
-On 24/05/19 5:20 AM, Alan Mikhak wrote:
-> +Bjorn Helgaas, +Gustavo Pimentel, +Wen Yang, +Kangjie Lu
-> 
-> 
-> On Thu, May 23, 2019 at 2:57 PM Alan Mikhak <alan.mikhak@sifive.com> wrote:
->>
->> Associated pci_epf_bar structure is needed in pci_epc_clear_bar() but
->> would be cleared in pci_epf_free_space(), if called first, and BAR
->> would not get cleared.
->>
->> Signed-off-by: Alan Mikhak <alan.mikhak@sifive.com>
+Sorry if I was not so clear in my earlier mail.
 
-Acked-by: Kishon Vijay Abraham I <kishon@ti.com>
->> ---
->>  drivers/pci/endpoint/functions/pci-epf-test.c | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/drivers/pci/endpoint/functions/pci-epf-test.c b/drivers/pci/endpoint/functions/pci-epf-test.c
->> index 27806987e93b..f81a219dde5b 100644
->> --- a/drivers/pci/endpoint/functions/pci-epf-test.c
->> +++ b/drivers/pci/endpoint/functions/pci-epf-test.c
->> @@ -381,8 +381,8 @@ static void pci_epf_test_unbind(struct pci_epf *epf)
->>                 epf_bar = &epf->bar[bar];
->>
->>                 if (epf_test->reg[bar]) {
->> -                       pci_epf_free_space(epf, epf_test->reg[bar], bar);
->>                         pci_epc_clear_bar(epc, epf->func_no, epf_bar);
->> +                       pci_epf_free_space(epf, epf_test->reg[bar], bar);
->>                 }
->>         }
->>  }
->> --
->> 2.7.4
->>
+--
+Regards,
+Sudeep
 
 _______________________________________________
 linux-riscv mailing list
