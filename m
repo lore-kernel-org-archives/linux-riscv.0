@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	T_DKIMWL_WL_HIGH,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0BAD0C04AB0
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 25 May 2019 08:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 60E54C04AB0
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 25 May 2019 08:24:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D2D5B2168B
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 25 May 2019 08:23:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 364AE2168B
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 25 May 2019 08:24:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ops8O2jI"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D2D5B2168B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FS3qEm4e"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 364AE2168B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,28 +25,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oGQZMbyPw/eUU4Zu50US231b3bXVT4G0rELa4B24UWs=; b=Ops8O2jIcKwXta
-	AnePVcazLo79eHNNuJx9HitsO8U+TIqChx3gDfMU3y2ZF8T70D53yIYj97AIle7U53ZC9hz22jkmX
-	+1zdgzKCdOrfMK3gp9HTkGkzHRg0XdgtZP4KKu22yhzoQ+GwX7quCvj3t5pK48Jc7s0CA+AN/r/Qq
-	wD8wJ5vLoELV/OGe4nBPfixtNRJmaQgcdIV1YoCmkPj30PYSmaehicUoYGCcPaW3nU4a6LnSLJR0S
-	+WUu5K4r/cOZwKfiUcVcQnXOlH57JYo2rY4Tv4eu8ZNbuAyfCrNzaDJ4EdZ1f92SF8z6a18SONFzw
-	hMYNu1UNtuu4W+OcjAQw==;
+	List-Owner; bh=iiIx1BCRiMNiwFMC5OgZPXnnDsQcQcZtwfNZ2B+y+28=; b=FS3qEm4ediuuRY
+	63NqEs0QVvWyxm96QowjEPz20EDYkqD2BTVxnr7IBRczKiSHOzlQ079fWHFz9Y39EYygJZI3EQzd9
+	T2Qy1Sj8L+x48Oz0sj/vHkVpB8TZ6DAnwu1NUURVvVXbQF+4N6EjFuLTdzzRxL43KcDjz3B7VzD1L
+	0rkznIa/S9ToOeLG9G/AkDIApqG3uHAcRJFrPgdRI0vvpfmQizgb9TUTg5yYxP6kL8gfvV6GEAJJX
+	drHfdO/zjX4JIVZ9rpJqCCvq/BzjMvOixbhRkVK1gZdBnbCOiuU/RQQRkgzXKgitqYZQ6E/zGzKrU
+	j0nnzZNOClDIv1VUiAQg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hURxd-0001E0-Sz; Sat, 25 May 2019 08:23:25 +0000
+	id 1hURyN-0001Ja-Fk; Sat, 25 May 2019 08:24:11 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1hURxc-0001Dg-S5; Sat, 25 May 2019 08:23:24 +0000
-Date: Sat, 25 May 2019 01:23:24 -0700
+ Hat Linux)) id 1hURyM-0001JH-PR; Sat, 25 May 2019 08:24:10 +0000
+Date: Sat, 25 May 2019 01:24:10 -0700
 From: Christoph Hellwig <hch@infradead.org>
 To: Alan Mikhak <alan.mikhak@sifive.com>
 Subject: Re: [PATCH v2] PCI: endpoint: Set endpoint controller pointer to null
-Message-ID: <20190525082324.GB18854@infradead.org>
+Message-ID: <20190525082410.GC18854@infradead.org>
 References: <1558647944-13816-1-git-send-email-alan.mikhak@sifive.com>
  <20190524063809.GA25866@infradead.org>
- <CABEDWGxUDkNOcpT1K+Ez2i47TKi8bHRn-32NaVNkCQgkbPbvmw@mail.gmail.com>
+ <alpine.DEB.2.21.9999.1905241200070.31734@viisi.sifive.com>
+ <CABEDWGzbg0tU8ZnEYSOrivhek82Emv3g3Y9X-jv6-svLypXbuw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CABEDWGxUDkNOcpT1K+Ez2i47TKi8bHRn-32NaVNkCQgkbPbvmw@mail.gmail.com>
+In-Reply-To: <CABEDWGzbg0tU8ZnEYSOrivhek82Emv3g3Y9X-jv6-svLypXbuw@mail.gmail.com>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -66,17 +67,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 24, 2019 at 11:23:04AM -0700, Alan Mikhak wrote:
-> Chrisoph,
-> 
-> These changes were implemented in Linux PCI Endpoint framework to
-> exercise PCIe endpoint mode on RISCV.
+On Fri, May 24, 2019 at 12:05:24PM -0700, Alan Mikhak wrote:
+> The get_maintainers.pl script also suggests linux-riscv mailing list.
 
-Well, arch/riscv isn't involved in this patch (which having an interest
-in the PCIe EP stuff I really like).  I still don't see how it relates
-to riscv except that you apparently have been able to use it on a
-RISCV SOC somehow.
-
+For drivers/pci/endpoint stuff?  That kinda sounds like a bug, can you
+paste the output here?
 
 _______________________________________________
 linux-riscv mailing list
