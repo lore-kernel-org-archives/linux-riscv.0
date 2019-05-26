@@ -4,19 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,T_DKIMWL_WL_HIGH,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4900FC282E3
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 26 May 2019 13:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A180C282E3
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 26 May 2019 13:55:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 220592075E
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 26 May 2019 13:54:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2EF1F2075E
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 26 May 2019 13:55:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="u+Bs3k0V"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 220592075E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gRGRc0Wu";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="iUlCqM9Z"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2EF1F2075E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,35 +26,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nmb5NVS0nLrjwxByTY2y4QlVMPjB9hTd1+69Jou2/8I=; b=u+Bs3k0VwCNJNg
-	1DCabIFbdynP3eobfoJ4IJdXpxlj9U5xZYhlIBdvZMDlys++OnQy/vynV6BXaMXh0ZGyTp0qxs7cW
-	xo8HZGWono9pwiRwWoEAGKQN1DENFU5RzzdU+ZPB/uIylsodb3tsD5qVaG+n1B88T9N35AcmiBa9R
-	MCfHOF2Ud9eM79D6sgwRQeXb2yK+B/58kTZLZrVychPQLImjj6j7m3BEPach9SyeaBqEq05/NNZ0k
-	Dnta/sDbsj3R2bXXAAE/t99xvEPERYKwciOLhYb7uRHeQ+02+N2GPl44kcOP6UOlqMMFU+gnqFVWk
-	mouTtkiaDVM3aJKhRscw==;
+	List-Owner; bh=+Oupy3zFsrdbmZBmvw/1UgoA+apWaJuWCMurQzu0qR4=; b=gRGRc0WugTjsbz
+	omOJMzlQfXhN9VTdQkJ2DonMEnlPqqJXLoHbgCwyTU4PFv++nsN43nrYutJUKt4RvTDGjnhC2LCyx
+	igK0tA97UzsG3u8eaF87M3ALBsPcH6oO7zQDryXm4QTuvyZWCUWzhTuxUWz65PlJ+CvTquvlPuO5d
+	SlirvEcPx4QbBOVzbX/WOAXLfkUppkKiasX/qlbptCc7Jm3HBYzvCMDjNT5KZPAC901wxhGUY862O
+	HUw49klB40kPAOcDkIqeVWKryOlXl19L4/VakP4iXrC6xg5Ko4+IL8ccjIRaFoM8IhYuqe3td8cuA
+	4FYx04W9I/5g55lmel0Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hUtb5-0006bT-OY; Sun, 26 May 2019 13:53:59 +0000
-Received: from relay11.mail.gandi.net ([217.70.178.231])
+	id 1hUtcd-00088J-Sq; Sun, 26 May 2019 13:55:35 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hUtav-0006Ua-Ah; Sun, 26 May 2019 13:53:54 +0000
+ id 1hUtcX-00081K-4L; Sun, 26 May 2019 13:55:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+ References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+ Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=eym0BMHdbArtu9uPr+EyfIeUu2p0S0z5kNpGctDciqY=; b=iUlCqM9ZOdk+DHee0mmSHhi3mE
+ /WFQNkWEd5NHRxym94Yq9Ul2upfYEZMaoi5+/ugGMppPAIO6F8QG63G6hnbgiqrVB1lYNceb+jiiG
+ rpUYx8DFRxXc2jVHEADCibTOUtBjIAohnoJhvnWj9DhQWd/KIc4lMlOPvd6QEHBXd5bODmXsQ5gYT
+ LNR2o5hZaNzxWdbwjFwPUTVs11Je+gcbIO8ILE9gco7AFGg3I67BVY3Tv4st9fz8gvxmw0gKebD98
+ KciWJFSsjOgCwJevgQPGHu/8FvR0eP7kc7kryS8khJqP2DNgu2xJBv/qHaTnoUpeQ4T3rrfrjo+sd
+ cuVdgyiQ==;
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hUtcT-0006TG-B9; Sun, 26 May 2019 13:55:27 +0000
+X-Originating-IP: 79.86.19.127
 Received: from alex.numericable.fr (127.19.86.79.rev.sfr.net [79.86.19.127])
  (Authenticated sender: alex@ghiti.fr)
- by relay11.mail.gandi.net (Postfix) with ESMTPSA id EAC53100002;
- Sun, 26 May 2019 13:53:41 +0000 (UTC)
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 3D31BFF805;
+ Sun, 26 May 2019 13:54:47 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v4 05/14] arm64,
- mm: Make randomization selected by generic topdown mmap layout
-Date: Sun, 26 May 2019 09:47:37 -0400
-Message-Id: <20190526134746.9315-6-alex@ghiti.fr>
+Subject: [PATCH v4 06/14] arm: Properly account for stack randomization and
+ stack guard gap
+Date: Sun, 26 May 2019 09:47:38 -0400
+Message-Id: <20190526134746.9315-7-alex@ghiti.fr>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190526134746.9315-1-alex@ghiti.fr>
 References: <20190526134746.9315-1-alex@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190526_065352_880743_BBE78EFE 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20190526_145525_397587_A6976EEE 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -80,93 +97,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This commits selects ARCH_HAS_ELF_RANDOMIZE when an arch uses the generic
-topdown mmap layout functions so that this security feature is on by
-default.
-Note that this commit also removes the possibility for arm64 to have elf
-randomization and no MMU: without MMU, the security added by randomization
-is worth nothing.
+This commit takes care of stack randomization and stack guard gap when
+computing mmap base address and checks if the task asked for randomization.
+This fixes the problem uncovered and not fixed for arm here:
+https://lkml.kernel.org/r/20170622200033.25714-1-riel@redhat.com
 
 Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+Acked-by: Kees Cook <keescook@chromium.org>
 ---
- arch/Kconfig                |  1 +
- arch/arm64/Kconfig          |  1 -
- arch/arm64/kernel/process.c |  8 --------
- mm/util.c                   | 11 +++++++++--
- 4 files changed, 10 insertions(+), 11 deletions(-)
+ arch/arm/mm/mmap.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/arch/Kconfig b/arch/Kconfig
-index df3ab04270fa..3732654446cc 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -710,6 +710,7 @@ config HAVE_ARCH_COMPAT_MMAP_BASES
- config ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
- 	bool
- 	depends on MMU
-+	select ARCH_HAS_ELF_RANDOMIZE
+diff --git a/arch/arm/mm/mmap.c b/arch/arm/mm/mmap.c
+index f866870db749..bff3d00bda5b 100644
+--- a/arch/arm/mm/mmap.c
++++ b/arch/arm/mm/mmap.c
+@@ -18,8 +18,9 @@
+ 	 (((pgoff)<<PAGE_SHIFT) & (SHMLBA-1)))
  
- config HAVE_COPY_THREAD_TLS
- 	bool
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 3d754c19c11e..403bd3fffdbc 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -15,7 +15,6 @@ config ARM64
- 	select ARCH_HAS_DMA_MMAP_PGPROT
- 	select ARCH_HAS_DMA_PREP_COHERENT
- 	select ARCH_HAS_ACPI_TABLE_UPGRADE if ACPI
--	select ARCH_HAS_ELF_RANDOMIZE
- 	select ARCH_HAS_FAST_MULTIPLIER
- 	select ARCH_HAS_FORTIFY_SOURCE
- 	select ARCH_HAS_GCOV_PROFILE_ALL
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 3767fb21a5b8..3f85f8f2d665 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -535,14 +535,6 @@ unsigned long arch_align_stack(unsigned long sp)
- 	return sp & ~0xf;
- }
- 
--unsigned long arch_randomize_brk(struct mm_struct *mm)
--{
--	if (is_compat_task())
--		return randomize_page(mm->brk, SZ_32M);
--	else
--		return randomize_page(mm->brk, SZ_1G);
--}
--
- /*
-  * Called from setup_new_exec() after (COMPAT_)SET_PERSONALITY.
-  */
-diff --git a/mm/util.c b/mm/util.c
-index 717f5d75c16e..8a38126edc74 100644
---- a/mm/util.c
-+++ b/mm/util.c
-@@ -319,7 +319,15 @@ unsigned long randomize_stack_top(unsigned long stack_top)
- }
- 
- #ifdef CONFIG_ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
--#ifdef CONFIG_ARCH_HAS_ELF_RANDOMIZE
-+unsigned long arch_randomize_brk(struct mm_struct *mm)
-+{
-+	/* Is the current task 32bit ? */
-+	if (!IS_ENABLED(CONFIG_64BIT) || is_compat_task())
-+		return randomize_page(mm->brk, SZ_32M);
-+
-+	return randomize_page(mm->brk, SZ_1G);
-+}
-+
- unsigned long arch_mmap_rnd(void)
- {
- 	unsigned long rnd;
-@@ -333,7 +341,6 @@ unsigned long arch_mmap_rnd(void)
- 
- 	return rnd << PAGE_SHIFT;
- }
--#endif /* CONFIG_ARCH_HAS_ELF_RANDOMIZE */
+ /* gap between mmap and stack */
+-#define MIN_GAP (128*1024*1024UL)
+-#define MAX_GAP ((TASK_SIZE)/6*5)
++#define MIN_GAP		(128*1024*1024UL)
++#define MAX_GAP		((TASK_SIZE)/6*5)
++#define STACK_RND_MASK	(0x7ff >> (PAGE_SHIFT - 12))
  
  static int mmap_is_legacy(struct rlimit *rlim_stack)
  {
+@@ -35,6 +36,15 @@ static int mmap_is_legacy(struct rlimit *rlim_stack)
+ static unsigned long mmap_base(unsigned long rnd, struct rlimit *rlim_stack)
+ {
+ 	unsigned long gap = rlim_stack->rlim_cur;
++	unsigned long pad = stack_guard_gap;
++
++	/* Account for stack randomization if necessary */
++	if (current->flags & PF_RANDOMIZE)
++		pad += (STACK_RND_MASK << PAGE_SHIFT);
++
++	/* Values close to RLIM_INFINITY can overflow. */
++	if (gap + pad > gap)
++		gap += pad;
+ 
+ 	if (gap < MIN_GAP)
+ 		gap = MIN_GAP;
 -- 
 2.20.1
 
