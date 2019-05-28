@@ -2,80 +2,85 @@ Return-Path: <SRS0=WwmX=T4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED,USER_AGENT_NEOMUTT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 76EE5C04AB6
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 28 May 2019 15:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B16E8C04AB6
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 28 May 2019 16:20:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4DA9A208C3
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 28 May 2019 15:36:08 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 86CC821721
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 28 May 2019 16:20:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DbL8Cz+1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4DA9A208C3
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=debian.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Cxw557Ra";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="GuNWuCDf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 86CC821721
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LwTYVFvtSD2DsnimE59PCQV0hpEMHk/qAu+iXkMvsrw=; b=DbL8Cz+1CXDqsz
-	+E5T4QvIFGVb24LIvVxOc623SKycH/a6XQhyB1eP6X2My4+2IlzMvaN7ir+RBp2PY6XB7+t2GeHwU
-	HSL5C56n/icfhdlcwPHruiptyoR+bZB3s4P/XdOsx2U3WZNfuo9grDsZMVqj3gM8VQQENl5ClRpgD
-	d6X8BydvIFNeiYj9IGMZH9uxCI6ArusqPrLgxHivQQqmR/4AqZUG/d+7xnw9qBLZIA2yu9cZvaqJP
-	HhLoqlF8gDICoy9Vwaerku0BjylLSOCzRyPymeTSypoGCKCS7/y2S0wU9467jmxh/MY0N+X1jFmaq
-	7YRu772M6J4Chsg+UTyQ==;
+	List-Owner; bh=tffYKKC7iewXV4lOPqGCBr1Q8HPNPDKKlMYleFKndow=; b=Cxw557RagiDCZ5
+	L0uLp5ioj0TEkr+fDgh7GRYyH2oDmGZReUa4n5WZtaaMdHvdmdovJWbSO/SzjVlBX5Ei0RSpc2dSX
+	XnJSm5sLZ5DbJE3nQVOBk01R6/ESWqKbxRDuqZFFf8C20ydD+vYiT4/ve/a/rvs9yUdW6GjkVF7ED
+	fXBhbSAUF1C8wKYjUEXqdAz4yuUvG15xRThbsDITBmesTseOkgVLRtAspSHaysqXo3mMj23RqV7qn
+	ctycbID6Ktj0vp2eCxOKPGBgDz17oqBuMo3GIxjqZ+8X5cpq71nlma5L9uGDe1EBThxKzR0dqrOL/
+	1V144tEvrmXqZz/5A1ug==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hVe8w-0002m7-NU; Tue, 28 May 2019 15:36:02 +0000
-Received: from mout.kundenserver.de ([212.227.17.24])
+	id 1hVeqM-0005zH-Ln; Tue, 28 May 2019 16:20:54 +0000
+Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hVe8k-0002lW-G7
- for linux-riscv@lists.infradead.org; Tue, 28 May 2019 15:35:57 +0000
-Received: from excalibur.cnev.de ([194.8.209.98]) by mrelayeu.kundenserver.de
- (mreue109 [212.227.15.183]) with ESMTPSA (Nemesis) id
- 1Mr9O4-1greUz32BS-00oJRo; Tue, 28 May 2019 17:35:43 +0200
-Received: from karsten by excalibur.cnev.de with local (Exim 4.89)
- (envelope-from <merker@debian.org>)
- id 1hVe8c-0001uJ-Ri; Tue, 28 May 2019 17:35:42 +0200
-Date: Tue, 28 May 2019 17:35:42 +0200
-From: Karsten Merker <merker@debian.org>
-To: Loys Ollivier <lollivier@baylibre.com>
-Subject: Re: Testing the recent RISC-V DT patchsets
-Message-ID: <20190528153542.jfkkwycyc3vu6hld@excalibur.cnev.de>
-References: <alpine.DEB.2.21.9999.1904221705170.18377@viisi.sifive.com>
- <alpine.DEB.2.21.9999.1905280105110.20842@viisi.sifive.com>
- <86o93mpqbx.fsf@baylibre.com>
+ id 1hVeqI-0005yw-AG
+ for linux-riscv@lists.infradead.org; Tue, 28 May 2019 16:20:52 +0000
+Received: by mail-lf1-x142.google.com with SMTP id y13so15054582lfh.9
+ for <linux-riscv@lists.infradead.org>; Tue, 28 May 2019 09:20:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=tfx6gzmd9h6uLhpN9bC1+KJVQLw/ZqJyUF6MGaQbHUc=;
+ b=GuNWuCDfegL53Vmvr/x4X1fzXxTicOMb+pgENySB41Ocv9xAUMv0dqbaDER1ktaFqt
+ 8DEkEWf1fj8oyJayJPRH+eVykl9js9qtuHo3s8HTwNIKFjrtW4CI7/QJx6nAt7T4DX6Q
+ t6OGxYBAw+6e3Qarg2DKbALfAz88donlE7lhxidWSTj1tYFMisvZxUuciWLVpqXz4b8i
+ mKxzKrOUw3yyrRTnvqpasyGU7EJCHkqmLO9eNcq2jqmm2wS01JY5DqLu0+aa+gl3Qvi5
+ L5ETuJnXuwbbQ/xQr60SEz7KXQ/GzxtcJYSb4QMwVmav2BXtBrkT+h3/TI3W9ZOpiaDD
+ VTQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=tfx6gzmd9h6uLhpN9bC1+KJVQLw/ZqJyUF6MGaQbHUc=;
+ b=HWfFW7YzxuU80mdr58BB09+DynY5SWpcLJfPhTDIEwTOEOx4ae0mC44I11wZbYC9E+
+ AA4TRhpxAX62m7MKBN1pOdNCufCGNSrr0zd4vgYJ719+prYQFHzZy+dECXdWkJPPa63r
+ 3cKJjuYWOUsrPmPvEbecbCs6LJXDTeUKulboegFZ3e6IzTlFgV9gVy6dZ2sn6cvPQFOS
+ zae3lf9OundP0hpFoViIM4LhBEvjCshci5z5H0uVQmhrsdg/qL6X+GVkZD/djqSLr0Gj
+ KpZUKPUDhic/uIVv96377OSLL7dan48ZXA2q2eiZDNoO+wGHWspzXo44WygCywPL/c4h
+ wTQA==
+X-Gm-Message-State: APjAAAWBP26FXUVdNeYiJqOaDlnv9dGGdjmWQYlRxWlIaQFBnEvNSf9q
+ xwofUNN3etLAc8vt8qGDKJBxYkajfN5qylAW2qdadw==
+X-Google-Smtp-Source: APXvYqyuyE6yuJ2M89KQGS4Du+B6hPgeLiKAREIAkPmwpgLJWxB3Fav1RoNLZwRWFJbdyPOH9UHbcxUis9onRapMd34=
+X-Received: by 2002:ac2:4c84:: with SMTP id d4mr8768909lfl.1.1559060446876;
+ Tue, 28 May 2019 09:20:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <86o93mpqbx.fsf@baylibre.com>
-X-No-Archive: yes
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-Provags-ID: V03:K1:q1RFbpS43fZk0cIEvnP3mp71E4gqF5+PmQXoFepr6Zzd9xwJRNx
- XZlPVk5Bwiu22vHbMzOpVPGOlsIrjuhRDwTzHdGXKQaOIM+P6XiM+enH/QqmGPecYntTJZU
- z2z9VpYwKAEn1BtqxRd0egnxVe42ZHuc8KoLlERu3/FPIyd452Mw16S7vIUwT6lVKXuXQfs
- Y2WXpbet5ildzafT72g2A==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:MlSVCLPxWJk=:iSdZjF3rN3lUWzuNAX4hpC
- 8E41MTvMzjQ7s71CIfK26w6NemSFWsZEsnJRGyurrm9IR8X34vRhgo+s8otFU3uPvmkd7N2Ia
- lcszkOZX8exczPdKO5Po9suy7YghTDfUGW6Lr5FItX1k8UClIRtz0/PUvUpaGzPMAYTh3hzWZ
- 8ji5iwfDOYxx529YKvy1oultMOtBaiaqtGXdwHYkD2UPRgUD6xZwuduYxxErGAKVSuz49T2do
- a5z9wSuDHJJV9XDPBaNQolGoGHuyZrYYngQLfgMOKDqlIRfBbBJZ7FnDCu8TWP7uqK/TdgKIQ
- ASEgjt1HRnPpCuZzn6Fskp2dyKCHnHwG5m+GHfUo7L0V9v1vPSvfQ8mc0q82/YNMlHQbg3qgI
- 5+Oqir23QukEHvrzwCTzaIyAffRtftp0+tQiYiokYU1T5Dm3LE5vxzN2XyzeNBF3o2++dWBxz
- bkX3jJ/tVrSK6n2tziepoMQQTKrL2eGSIIRr5LAdch82gGxF3w6OTA4h9cCd3TYRduwwcV/2W
- CWFMZg+NNYHXqbGtXy8sytP5+Y/WWsZ6ZOdpXCMc+djyY4/BRiqEnBq5xsRBqaS7ngyiknnG+
- zvfrWZvjfQv/0IumXrjQFytH2p2GP5KUXlLn0blz0/0QjrFjsH32t10+nEX9IDm0k2vzFo3rn
- H+vImuXSBqkBs5JCB1N9WSHfyLQqZpGGC8CXjTT/73qiWTWSs0EWrmkVWMnlp/6nKWn4wq12e
- T4eTtyxL15bq4VfHxXGvrHfvuW+8ClK0PzkOPg==
+References: <1558647944-13816-1-git-send-email-alan.mikhak@sifive.com>
+ <20190524063809.GA25866@infradead.org>
+ <alpine.DEB.2.21.9999.1905241200070.31734@viisi.sifive.com>
+ <CABEDWGzbg0tU8ZnEYSOrivhek82Emv3g3Y9X-jv6-svLypXbuw@mail.gmail.com>
+ <20190525082410.GC18854@infradead.org>
+In-Reply-To: <20190525082410.GC18854@infradead.org>
+From: Alan Mikhak <alan.mikhak@sifive.com>
+Date: Tue, 28 May 2019 09:20:35 -0700
+Message-ID: <CABEDWGxKCqCq2HBU8u1-=QgmMCdb69oXxN5rz65nxNODxdCAnw@mail.gmail.com>
+Subject: Re: [PATCH v2] PCI: endpoint: Set endpoint controller pointer to null
+To: Christoph Hellwig <hch@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190528_083551_895262_DCC06DA8 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20190528_092050_479180_5786F26F 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -87,44 +92,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>,
  Paul Walmsley <paul.walmsley@sifive.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXkgMjgsIDIwMTkgYXQgMDU6MTA6NDJQTSArMDIwMCwgTG95cyBPbGxpdmllciB3
-cm90ZToKPiBPbiBUdWUgMjggTWF5IDIwMTkgYXQgMDE6MzIsIFBhdWwgV2FsbXNsZXkgPHBhdWwu
-d2FsbXNsZXlAc2lmaXZlLmNvbT4gd3JvdGU6Cj4gCj4gPiBBbiB1cGRhdGUgZm9yIHRob3NlIHRl
-c3RpbmcgUklTQy1WIHBhdGNoZXM6IGhlcmUncyBhIG5ldyBicmFuY2ggb2YgCj4gPiByaXNjdi1w
-ay9iYmwgdGhhdCBkb2Vzbid0IHRyeSB0byByZWFkIG9yIG1vZGlmeSB0aGUgRFQgZGF0YSBhdCBh
-bGwsIHdoaWNoIAo+ID4gc2hvdWxkIGJlIHVzZWZ1bCB1bnRpbCBVLUJvb3Qgc2V0dGxlcyBkb3du
-LgpbLi4uXQo+ID4gSGVyZSBpcyBhbiBMaW51eCBrZXJuZWwgYnJhbmNoIHdpdGggdXBkYXRlZCBE
-VCBkYXRhIHRoYXQgY2FuIGJlIGJvb3RlZCAKPiA+IHdpdGggdGhlIGFib3ZlIGJvb3Rsb2FkZXI6
-Cj4gPgo+ID4gICAgaHR0cHM6Ly9naXRodWIuY29tL3NpZml2ZS9yaXNjdi1saW51eC90cmVlL2Rl
-di9wYXVsdy9kdHMtdjUuMi1yYzEtZXhwZXJpbWVudGFsCj4gPgo+ID4gQSBzYW1wbGUgYm9vdCBs
-b2cgZm9sbG93cywgdXNpbmcgYSAnZGVmY29uZmlnJyBidWlsZCBmcm9tIHRoYXQgYnJhbmNoLiAg
-Cj4gCj4gVGhhbmtzIFBhdWwsIEkgY2FuIGNvbmZpcm0gdGhhdCBpdCB3b3Jrcy4KPiAKPiBTb21l
-dGhpbmcgaXMgc3RpbGwgdW5jbGVhciB0byBteXNlbGYuCj4gVXNpbmcgRlNCTCArIHJpc2N2LXBr
-L2JibCB0aGUgbGludXgga2VybmVsICsgZGV2aWNlIHRyZWUgYm9vdHMuCj4gTmVpdGhlciBGU0JM
-IG5vciByaXNjdi1way9iYmwgYXJlIG1vZGlmeWluZyB0aGUgRFQuCj4gCj4gVXNpbmcgRlNCTCAr
-IE9wZW5TQkkgKyBVLUJvb3QgdGhlIHNhbWUga2VybmVsICsgZGV2aWNlIHRyZWUgaGFuZ3Mgb24K
-PiBydW5uaW5nIC9pbml0Lgo+IAo+IFdvdWxkIHlvdSBoYXZlIGFueSBwb2ludGVyIG9uIHdoYXQg
-cmlzY3YtcGsgZG9lcyB0aGF0IE9wZW5TQkkvVS1ib290IGRvZXNuJ3QgPwo+IE9yIG1heWJlIGl0
-IGlzIHRoZSBvdGhlciB3YXkgYXJvdW5kIC0gT3BlblNCSS9VLWJvb3QgZG9lcyBzb21ldGhpbmcg
-dGhhdAo+IGV4dHJhIHRoYXQgc2hvdWxkIG5vdCBoYXBwZW4uCgpIZWxsbywKCkkgZG9uJ3Qga25v
-dyB3aGljaCB2ZXJzaW9uIG9mIE9wZW5TQkkgeW91IGFyZSB1c2luZywgYnV0IHRoZXJlIGlzCmEg
-cHJvYmxlbSB3aXRoIHRoZSBjb21iaW5hdGlvbiBvZiBrZXJuZWwgNS4yLXJjMSBhbmQgT3BlblNC
-SQp2ZXJzaW9ucyBiZWZvcmUgY29tbWl0CgogIGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi9vcGVu
-c2JpL2NvbW1pdC80ZTJjZDQ3ODIwODUzMWM0NzM0MzI5MGYxNWI1NzdkNDBjODI2NDljCgp0aGF0
-IGNhbiByZXN1bHQgaW4gYSBoYW5nIG9uIGV4ZWN1dGluZyBpbml0LCBzbyBpbiBjYXNlIHlvdQpz
-aG91bGQgYmUgdXNpbmcgYW4gb2xkZXIgT3BlblNCSSBidWlsZCB0aGF0IG1pZ2h0IGJlIHRoZSBz
-b3VyY2UKb2YgdGhlIHByb2JsZW0gdGhhdCB5b3UgYXJlIGV4cGVyaWVuY2luZy4KClJlZ2FyZHMs
-CkthcnN0ZW4KLS0gCkljaCB3aWRlcnNwcmVjaGUgaGllcm1pdCBhdXNkcsO8Y2tsaWNoIGRlciBO
-dXR6dW5nIHNvd2llIGRlcgpXZWl0ZXJnYWJlIG1laW5lciBwZXJzb25lbmJlem9nZW5lbiBEYXRl
-biBmw7xyIFp3ZWNrZSBkZXIgV2VyYnVuZwpzb3dpZSBkZXIgTWFya3QtIG9kZXIgTWVpbnVuZ3Nm
-b3JzY2h1bmcuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On Sat, May 25, 2019 at 1:24 AM Christoph Hellwig <hch@infradead.org> wrote:
+>
+> On Fri, May 24, 2019 at 12:05:24PM -0700, Alan Mikhak wrote:
+> > The get_maintainers.pl script also suggests linux-riscv mailing list.
+>
+> For drivers/pci/endpoint stuff?  That kinda sounds like a bug, can you
+> paste the output here?
+
+Please see below output of get_maintainers.pl for all my patches
+related to PCIe endpoint work. It seems get_maintainers.pl suggests
+linux-riscv based on @sifive.com email address.
+
+$ ./scripts/get_maintainer.pl 0001-Set-endpoint-controller-pointer-to-null.patch
+Kishon Vijay Abraham I <kishon@ti.com> (supporter:PCI ENDPOINT SUBSYSTEM)
+Lorenzo Pieralisi <lorenzo.pieralisi@arm.com> (supporter:PCI ENDPOINT SUBSYSTEM)
+Bjorn Helgaas <bhelgaas@google.com> (supporter:PCI SUBSYSTEM)
+Palmer Dabbelt <palmer@sifive.com> (supporter:SIFIVE DRIVERS)
+Paul Walmsley <paul.walmsley@sifive.com> (supporter:SIFIVE DRIVERS)
+linux-pci@vger.kernel.org (open list:PCI ENDPOINT SUBSYSTEM)
+linux-kernel@vger.kernel.org (open list)
+linux-riscv@lists.infradead.org (open list:SIFIVE DRIVERS)
+
+$ ./scripts/get_maintainer.pl
+0001-Allocate-enough-space-for-fixed-size-BAR.patch
+Kishon Vijay Abraham I <kishon@ti.com> (supporter:PCI ENDPOINT
+SUBSYSTEM,commit_signer:7/8=88%,authored:4/8=50%,added_lines:61/136=45%,removed_lines:39/63=62%)
+Lorenzo Pieralisi <lorenzo.pieralisi@arm.com> (supporter:PCI ENDPOINT
+SUBSYSTEM,commit_signer:8/8=100%)
+Bjorn Helgaas <bhelgaas@google.com> (supporter:PCI SUBSYSTEM)
+Palmer Dabbelt <palmer@sifive.com> (supporter:SIFIVE DRIVERS)
+Paul Walmsley <paul.walmsley@sifive.com> (supporter:SIFIVE DRIVERS)
+Gustavo Pimentel <gustavo.pimentel@synopsys.com>
+(commit_signer:2/8=25%,authored:2/8=25%,added_lines:68/136=50%,removed_lines:22/63=35%)
+Kangjie Lu <kjlu@umn.edu> (commit_signer:1/8=12%,authored:1/8=12%)
+Wen Yang <wen.yang99@zte.com.cn> (commit_signer:1/8=12%,authored:1/8=12%)
+linux-pci@vger.kernel.org (open list:PCI ENDPOINT SUBSYSTEM)
+linux-kernel@vger.kernel.org (open list)
+linux-riscv@lists.infradead.org (open list:SIFIVE DRIVERS)
+
+$ ./scripts/get_maintainer.pl 0001-Skip-odd-BAR-when-skipping-64bit-BAR.patch
+Kishon Vijay Abraham I <kishon@ti.com> (supporter:PCI ENDPOINT
+SUBSYSTEM,commit_signer:7/8=88%,authored:4/8=50%,added_lines:61/136=45%,removed_lines:39/63=62%)
+Lorenzo Pieralisi <lorenzo.pieralisi@arm.com> (supporter:PCI ENDPOINT
+SUBSYSTEM,commit_signer:8/8=100%)
+Bjorn Helgaas <bhelgaas@google.com> (supporter:PCI SUBSYSTEM)
+Palmer Dabbelt <palmer@sifive.com> (supporter:SIFIVE DRIVERS)
+Paul Walmsley <paul.walmsley@sifive.com> (supporter:SIFIVE DRIVERS)
+Gustavo Pimentel <gustavo.pimentel@synopsys.com>
+(commit_signer:2/8=25%,authored:2/8=25%,added_lines:68/136=50%,removed_lines:22/63=35%)
+Kangjie Lu <kjlu@umn.edu> (commit_signer:1/8=12%,authored:1/8=12%)
+Wen Yang <wen.yang99@zte.com.cn> (commit_signer:1/8=12%,authored:1/8=12%)
+linux-pci@vger.kernel.org (open list:PCI ENDPOINT SUBSYSTEM)
+linux-kernel@vger.kernel.org (open list)
+linux-riscv@lists.infradead.org (open list:SIFIVE DRIVERS)
+
+$ ./scripts/get_maintainer.pl 0001-Clear-BAR-before-freeing-its-space.patch
+Kishon Vijay Abraham I <kishon@ti.com> (supporter:PCI ENDPOINT
+SUBSYSTEM,commit_signer:7/8=88%,authored:4/8=50%,added_lines:61/136=45%,removed_lines:39/63=62%)
+Lorenzo Pieralisi <lorenzo.pieralisi@arm.com> (supporter:PCI ENDPOINT
+SUBSYSTEM,commit_signer:8/8=100%)
+Bjorn Helgaas <bhelgaas@google.com> (supporter:PCI SUBSYSTEM)
+Palmer Dabbelt <palmer@sifive.com> (supporter:SIFIVE DRIVERS)
+Paul Walmsley <paul.walmsley@sifive.com> (supporter:SIFIVE DRIVERS)
+Gustavo Pimentel <gustavo.pimentel@synopsys.com>
+(commit_signer:2/8=25%,authored:2/8=25%,added_lines:68/136=50%,removed_lines:22/63=35%)
+Kangjie Lu <kjlu@umn.edu> (commit_signer:1/8=12%,authored:1/8=12%)
+Wen Yang <wen.yang99@zte.com.cn> (commit_signer:1/8=12%,authored:1/8=12%)
+linux-pci@vger.kernel.org (open list:PCI ENDPOINT SUBSYSTEM)
+linux-kernel@vger.kernel.org (open list)
+linux-riscv@lists.infradead.org (open list:SIFIVE DRIVERS)
+
+$ ./scripts/get_maintainer.pl 0001-Add-DMA-to-Linux-PCI-EP-Framework.patch
+Kishon Vijay Abraham I <kishon@ti.com> (supporter:PCI ENDPOINT
+SUBSYSTEM,commit_signer:7/8=88%,authored:4/8=50%,added_lines:61/136=45%,removed_lines:39/63=62%)
+Lorenzo Pieralisi <lorenzo.pieralisi@arm.com> (supporter:PCI ENDPOINT
+SUBSYSTEM,commit_signer:8/8=100%)
+Arnd Bergmann <arnd@arndb.de> (supporter:CHAR and MISC DRIVERS)
+Greg Kroah-Hartman <gregkh@linuxfoundation.org> (supporter:CHAR and
+MISC DRIVERS)
+Jingoo Han <jingoohan1@gmail.com> (maintainer:PCI DRIVER FOR SYNOPSYS
+DESIGNWARE)
+Gustavo Pimentel <gustavo.pimentel@synopsys.com> (maintainer:PCI
+DRIVER FOR SYNOPSYS
+DESIGNWARE,commit_signer:2/8=25%,authored:2/8=25%,added_lines:68/136=50%,removed_lines:22/63=35%)
+Bjorn Helgaas <bhelgaas@google.com> (supporter:PCI SUBSYSTEM)
+Palmer Dabbelt <palmer@sifive.com> (supporter:SIFIVE DRIVERS)
+Paul Walmsley <paul.walmsley@sifive.com> (supporter:SIFIVE DRIVERS)
+Wen Yang <wen.yang99@zte.com.cn> (commit_signer:1/8=12%,authored:1/8=12%)
+Kangjie Lu <kjlu@umn.edu> (commit_signer:1/8=12%,authored:1/8=12%)
+linux-pci@vger.kernel.org (open list:PCI ENDPOINT SUBSYSTEM)
+linux-kernel@vger.kernel.org (open list)
+linux-riscv@lists.infradead.org (open list:SIFIVE DRIVERS)
+
+$ ./scripts/get_maintainer.pl 0001-Fix-broken-pcitest-compilation.patch
+Kishon Vijay Abraham I <kishon@ti.com> (supporter:PCI ENDPOINT SUBSYSTEM)
+Lorenzo Pieralisi <lorenzo.pieralisi@arm.com> (supporter:PCI ENDPOINT SUBSYSTEM)
+Palmer Dabbelt <palmer@sifive.com> (supporter:SIFIVE DRIVERS)
+Paul Walmsley <paul.walmsley@sifive.com> (supporter:SIFIVE DRIVERS)
+linux-pci@vger.kernel.org (open list:PCI ENDPOINT SUBSYSTEM)
+linux-kernel@vger.kernel.org (open list)
+linux-riscv@lists.infradead.org (open list:SIFIVE DRIVERS)
+
+$ ./scripts/get_maintainer.pl 0002-Fix-compiler-warning-in-pcitest.patch
+Kishon Vijay Abraham I <kishon@ti.com> (supporter:PCI ENDPOINT SUBSYSTEM)
+Lorenzo Pieralisi <lorenzo.pieralisi@arm.com> (supporter:PCI ENDPOINT SUBSYSTEM)
+Palmer Dabbelt <palmer@sifive.com> (supporter:SIFIVE DRIVERS)
+Paul Walmsley <paul.walmsley@sifive.com> (supporter:SIFIVE DRIVERS)
+linux-pci@vger.kernel.org (open list:PCI ENDPOINT SUBSYSTEM)
+linux-kernel@vger.kernel.org (open list)
+linux-riscv@lists.infradead.org (open list:SIFIVE DRIVERS)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
