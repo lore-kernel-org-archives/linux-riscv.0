@@ -2,87 +2,83 @@ Return-Path: <SRS0=MB+m=T5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham
+X-Spam-Status: No, score=-7.8 required=3.0 tests=DKIM_INVALID,DKIM_SIGNED,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D7F04C28CC0
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 29 May 2019 21:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 66519C28CC1
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 29 May 2019 21:14:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AD10A241E5
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 29 May 2019 21:13:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3B344241E5
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 29 May 2019 21:14:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VmGlDJi+";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="WOw27bn7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AD10A241E5
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="i28Au/D7";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ITAIXJpR"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3B344241E5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=0+AZB5rfmIMPgLYc5O3RwYIitax5KbdPtfcCZs0eAt8=; b=VmGlDJi+5VUquBf4OjKNFIckG
-	rS5pNQiAnHvK8HqZp/H94NkJGZLcwORJ8gkOT4R7KyOEaHLhAbXKS/aoxeqAEW7KQMATRBTGrHxfI
-	9q/qIUyL0ZIwNDhl8BMqfaiWeMixrO2VPNDNyVb+MtdOB9s3OtJxbCgU8uCZgoxGb1G1n4d3yHWXC
-	eM+FP3pui18KW46akCsC8zdQUYU4v9Nap65Fh5Zy//I9ZatcH1yh8vRlLTtRybcgNtvs0qahS1inE
-	DcDRaaG9xhxszlQYef34PHP5qBahQrvd7V6w5xWhmDKX/CTtapmo1mQKwPJG7JLoccdlaefgCwHjQ
-	8znM+2eWA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yC4Sxs4JGsEl2XTu3CR2sp77IVCrjcUNl3phWAx9Ovk=; b=i28Au/D7bJxW1D
+	p5eqAYT7W/b7n35QcL0C2B3HAvTRaPIkEiqz7r0szorcmCxMvYjMahoDuAu/tX1l3uxx43HJGvlEu
+	MYFvwKg8fUJ60oyHOTRnfmedPFrybCbXJ+6gvfJUwXnXWgenqonjyJP3sI2wYB2g67ZfuGqfBkynI
+	jfH7DucUz9Nfmtd2oQ4CpsHjSqEyvLHmCMpbOstJKK2K0yvHH50QtIPQyIXiJA2r0YNBL22NIUXem
+	JpX32UofxqaPjkMD0QCW698A7uM1qYDuY7idTz/73I7kH0hSeW8g8F9F755qa5U2thIBOK72qZWVq
+	PuyMwHmwU5QnyuBiGi7Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hW5tH-0005L4-Dp; Wed, 29 May 2019 21:13:43 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1hW5u6-0005jK-RC; Wed, 29 May 2019 21:14:34 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hW5tF-0005Kl-Bw
- for linux-riscv@lists.infradead.org; Wed, 29 May 2019 21:13:42 +0000
-Received: by mail-pf1-x444.google.com with SMTP id c14so25764pfi.1
- for <linux-riscv@lists.infradead.org>; Wed, 29 May 2019 14:13:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=yJDufFVaadbUIFo6v/4NICdBNGJUg295kYHaJwHNbPY=;
- b=WOw27bn7XkkeABJ6tllWV/bW6WfJM1kc79id79fe1ZoYKB6F/bUtc5CzYQ5z6utKSh
- oM1lPyHTVh5Ac5A2JRGkmIg6SDiutiGiGJ2xacrWg0t1CSncukyH11jkQ01wcAuhmRzJ
- V2wQWMrR2Xw4LKAL9wipD6/yWiS4noFdp7u4aRE3VlbxMzKXWnIOQjwlqlI8andTW/tY
- CGyOn4U4viXTmfLLFnVJw9bj0zM3M1rRcP931+5C9Vi8KCJzwZby8I9jm2yW2/PWxMmV
- 3R9v2/xo9dr61LkKSQZ0U/4lHSvwKmsJa5pBqPOPS9IP+FTu8O9OB04yr1fbQyHTYbSD
- s9ew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=yJDufFVaadbUIFo6v/4NICdBNGJUg295kYHaJwHNbPY=;
- b=cNhbN+8dXd49SufIDi38EpBUDkA/RDoSuT/HEalJL2oNEcwsf8I6tuS09bc57hhwzQ
- rsPip4TDcJiIK/qtHEuT1itjaeKfGGNagMCqAo7a0zj+HFg/zIJd5x6AVNZnBVCpb0cR
- Krfqigpo86NfHHUzJQtK8V9u33tbO0A1l63lC/fHtacOC5BsB8h+nJpbU7PSUTxRhqX2
- NQkgWEGaQT/kZm9qa8wMkN8L655kgkeE2zZlDOvLjz/AFiEM1/m5PTXx/+9Fi83gC4CU
- i9Mnux1SJyopWVGwAA7nsQbkjd0bx7fFum34BNAk1ePpVqu4NxTuhl7zvhOphM+OdX3/
- 6Qhw==
-X-Gm-Message-State: APjAAAVPF57Oqyb0LTjJoMOlygHUgjrW76xskSH/P7nns53gzRupgM6i
- NaKkBSd5INZff/q1ajUbyjCAvdSLNAUhqQ==
-X-Google-Smtp-Source: APXvYqyJFl8ZYuYKbgaQftp7b7t/zHBTknO8/x97UD+tBfa1FwOfAx4tt5Gt9KBA/BMLWEqGTHfMBg==
-X-Received: by 2002:a62:6444:: with SMTP id
- y65mr153238597pfb.148.1559164419256; 
- Wed, 29 May 2019 14:13:39 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id j11sm614047pfe.46.2019.05.29.14.13.37
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Wed, 29 May 2019 14:13:37 -0700 (PDT)
-Date: Wed, 29 May 2019 14:13:37 -0700 (PDT)
-X-Google-Original-Date: Wed, 29 May 2019 14:03:49 PDT (-0700)
-Subject: Re: [PATCH] riscv: remove free_initrd_mem
-In-Reply-To: <20190520063326.26083-1-hch@lst.de>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: Christoph Hellwig <hch@lst.de>, Paul Walmsley <paul.walmsley@sifive.com>
-Message-ID: <mhng-37ed4bee-df0a-4dc3-adbb-a6bf98952241@palmer-si-x1c4>
-Mime-Version: 1.0 (MHng)
+ id 1hW5u4-0005iA-2x; Wed, 29 May 2019 21:14:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1559164506; x=1590700506;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=cwAgfUHqeRqoUhGOkggkpMSiQ/tus4AQpYKjVxtRBd4=;
+ b=ITAIXJpRcF4bkf/h3qZjvGaPk3nr0wYmvnk7rOwkZr+OtbBYrhvod8dj
+ MYZYWqvjVOXTSPhAUo8h9rDYc28kA5P+ffw35kDrkoPL5g4i+3K/ab8VX
+ Ric9EQc1244I8IZb34Wc0cqVFpban/X7LPndGAqnbLDrIJnlU1QS9xEb3
+ yJsflmArJUFldIyM2WbAojqf+GW7bKMy6yK/pcMCzaaK319eaWjK0dbKe
+ FiF2y2yKMLz07e2nL8RxI9JvrMTg5eytDvmsbIrpyRGqRzr+4P8LZW4VC
+ MjurOT1d4uhkPFl838h7RrOLTLCSG9NiZy18dVHmDq5CuSx2MrM6/MuUf g==;
+X-IronPort-AV: E=Sophos;i="5.60,527,1549900800"; d="scan'208";a="208905628"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 30 May 2019 05:15:03 +0800
+IronPort-SDR: ONANkAw9jx9QT91EWRH+hf4s75zzZq0rQNhtQpmb8DZAvR1yM7cgxwBfn5TSe6wzY/bmzwOhi9
+ PBmkajjZAMz4QfSpxn4JcP5d3Z+5p/+GiefMfaB032lhWCVjZaajbCH3322W+8YOGJmf/VhPBp
+ WaWrx4SKl9B0MgIN67iPdqoW1TEo+FSGywlMUdw0VP7fGP399odcKBJL64ShqwTOVAlAZWDtX2
+ gdjNIBPaU2nb7JVYGyDohe8sN5RiEgt/96Ya9qGQyD2Qe9vTUHyrcZXsiL6fkOEOTiwEHfNZ3d
+ YfpzBxo7RTY0D4irb0vRUzxO
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP; 29 May 2019 13:49:40 -0700
+IronPort-SDR: YC8bCUR58DTIbPJfzX0+z9k0MY7/SOZnQyrrSDZ737cU8+bizRT9YHJDuxjCS1KH/ry3jFwTmD
+ uNr9h1DDTdMUkiPPmHOrJy/QdOeFJHltaBX0Gc7Ie/wRqmW+dUOguVt0r4URXJ4R7IQZPcD6lO
+ /lowRQnQLUBmlA4nqyocjdSFjkBraOJ0NNdpuY5VOzWRJzfosDlorV5LefgjsegQzNKmQES/mu
+ zZ2JndFjicoBEQgdzfMNjMQv+tdndkNo46b0+LEEwT52AxYx5duwofoBhBRz+KHRpQdgr3KcUB
+ IyM=
+Received: from jedi-01.sdcorp.global.sandisk.com (HELO
+ jedi-01.int.fusionio.com) ([10.11.143.218])
+ by uls-op-cesaip02.wdc.com with ESMTP; 29 May 2019 14:14:30 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v6 0/7] Unify CPU topology across ARM & RISC-V 
+Date: Wed, 29 May 2019 14:13:33 -0700
+Message-Id: <20190529211340.17087-1-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.21.0
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190529_141341_464379_C7C00F60 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20190529_141432_186961_96411504 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -94,40 +90,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Peter Zijlstra \(Intel\)" <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>, Atish Patra <atish.patra@wdc.com>,
+ Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
+ linux-riscv@lists.infradead.org, Ingo Molnar <mingo@kernel.org>,
+ Anup Patel <anup@brainfault.org>, Russell King <linux@armlinux.org.uk>,
+ Morten Rasmussen <morten.rasmussen@arm.com>, devicetree@vger.kernel.org,
+ Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-arm-kernel@lists.infradead.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jeremy Linton <jeremy.linton@arm.com>, Otto Sabart <ottosabart@seberm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, "David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 19 May 2019 23:33:26 PDT (-0700), Christoph Hellwig wrote:
-> The RISC-V free_initrd_mem is identical to the default one, except
-> that it doesn't poison the freed memory.  Remove it so that the
-> default implementations gets used instead.
->
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  arch/riscv/mm/init.c | 5 -----
->  1 file changed, 5 deletions(-)
->
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 8bf6f9c2d48c..b2341979d3eb 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -92,11 +92,6 @@ static void __init setup_initrd(void)
->  	initrd_start = 0;
->  	initrd_end = 0;
->  }
-> -
-> -void __init free_initrd_mem(unsigned long start, unsigned long end)
-> -{
-> -	free_reserved_area((void *)start, (void *)end, -1, "initrd");
-> -}
->  #endif /* CONFIG_BLK_DEV_INITRD */
->
->  void __init setup_bootmem(void)
+The cpu-map DT entry in ARM can describe the CPU topology in much better
+way compared to other existing approaches. RISC-V can easily adopt this
+binding to represent its own CPU topology. Thus, both cpu-map DT
+binding and topology parsing code can be moved to a common location so
+that RISC-V or any other architecture can leverage that.
 
-Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
+The relevant discussion regarding unifying cpu topology can be found in
+[1].
+
+arch_topology seems to be a perfect place to move the common code. I
+have not introduced any significant functional changes in the moved code.
+The only downside in this approach is that the capacity code will be
+executed for RISC-V as well. But, it will exit immediately after not
+able to find the appropriate DT node. If the overhead is considered too
+much, we can always compile out capacity related functions under a
+different config for the architectures that do not support them.
+
+There was an opportunity to unify topology data structure for ARM32 done
+by patch 3/4. But, I refrained from making any other changes as I am not
+very well versed with original intention for some functions that
+are present in arch_topology.c. I hope this patch series can be served
+as a baseline for such changes in the future.
+
+The patches have been tested for RISC-V and compile tested for ARM64,
+ARM32 & x86.
+
+The socket change[2] is also now part of this series.
+
+[1] https://lkml.org/lkml/2018/11/6/19
+[2] https://lkml.org/lkml/2018/11/7/918
+
+QEMU changes for RISC-V topology are available at
+
+https://github.com/atishp04/qemu/tree/riscv_topology_dt
+
+HiFive Unleashed DT with topology node is available here.
+https://github.com/atishp04/opensbi/tree/HiFive_unleashed_topology
+
+It can be verified with OpenSBI with following additional compile time
+option.
+
+FW_PAYLOAD_FDT="unleashed_topology.dtb"
+
+Changes from v5->v6
+1. Added two more patches from Sudeep about maintainership of arch_topology.c
+   and Kconfig update. 
+2. Added Tested-by & Reviewed-by
+3. Fixed a nit (reordering of variables)
+
+Changes from v4-v5
+1. Removed the arch_topology.h header inclusion from topology.c and arch_topology.c
+file. Added it in linux/topology.h.
+2. core_id is set to -1 upon reset. Otherwise, ARM topology store function does not
+work.
+
+Changes from v3->v4
+1. Get rid of ARM32 specific information in topology structure.
+2. Remove redundant functions from ARM32 and use common code instead. 
+
+Changes from v2->v3
+1. Cover letter update with experiment DT for topology changes.
+2. Added the patch for [2].
+
+Changes from v1->v2
+1. ARM32 can now use the common code as well.
+
+Atish Patra (4):
+dt-binding: cpu-topology: Move cpu-map to a common binding.
+cpu-topology: Move cpu topology code to common code.
+arm: Use common cpu_topology structure and functions.
+RISC-V: Parse cpu topology during boot.
+
+Sudeep Holla (3):
+Documentation: DT: arm: add support for sockets defining package
+boundaries
+base: arch_topology: update Kconfig help description
+MAINTAINERS: Add an entry for generic architecture topology
+
+.../topology.txt => cpu/cpu-topology.txt}     | 134 ++++++--
+MAINTAINERS                                   |   7 +
+arch/arm/include/asm/topology.h               |  20 --
+arch/arm/kernel/topology.c                    |  60 +---
+arch/arm64/include/asm/topology.h             |  23 --
+arch/arm64/kernel/topology.c                  | 303 +-----------------
+arch/riscv/Kconfig                            |   1 +
+arch/riscv/kernel/smpboot.c                   |   3 +
+drivers/base/Kconfig                          |   2 +-
+drivers/base/arch_topology.c                  | 298 +++++++++++++++++
+include/linux/arch_topology.h                 |  26 ++
+include/linux/topology.h                      |   1 +
+12 files changed, 452 insertions(+), 426 deletions(-)
+rename Documentation/devicetree/bindings/{arm/topology.txt => cpu/cpu-topology.txt} (66%)
+
+--
+2.21.0
+
 
 _______________________________________________
 linux-riscv mailing list
