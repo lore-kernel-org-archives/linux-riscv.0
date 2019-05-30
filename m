@@ -2,64 +2,85 @@ Return-Path: <SRS0=X+rF=T6=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	T_DKIMWL_WL_HIGH,USER_AGENT_MUTT autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 05842C28CC0
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 30 May 2019 11:51:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8698BC28CC0
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 30 May 2019 12:56:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CF79A25874
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 30 May 2019 11:51:30 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5A37D2591B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 30 May 2019 12:56:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="g2oyBvCW"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CF79A25874
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aTHcMRJ2";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=ti.com header.i=@ti.com header.b="ddAoZJV3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A37D2591B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=ti.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pC+oxBQGLHFGgy/14oXB69szaUcS1y13sNLXkP/b71Y=; b=g2oyBvCW6VBidL
-	sXpejCAmNK323HdQiCLffLmUbt14NHaaM8aEIBCiSamw0R84X9TIDrbUDw0/ckJyNXe6zsEDBtPO3
-	I+xQFZashXQ/BCUeSqAMnHIoOyHIs5VVomvdVWJaXd9c713uAHyqLkoHEI7EeNeosS/bU4Q6xJrm1
-	hMJOPbujsO2Goezgy8a8GPkGHhI5dMdK0d05gqJcG6M2thTaZ9s4LTvb2V5srHILKurSxlHtcLYgs
-	5IPxiooMZMx+dHddwCQUw9rnSdqy2l95P/WWv12Op//O6mt7pgBGo3tbzmUp5D2NtEjXUam6L/EGH
-	v/V+cfq2Maj2z+rLzUuA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=VzdJ0mKl9AhZP1tKlCPDjCHhCuTJMewbX7qV4mcBMEU=; b=aTHcMRJ2HXTFzTJCi3lTio7TA
+	9hHB69vp8Bg8Sti6Y/Cjw7RRyLEZWMnW2tcJAjBYT6P+rIuUnqacJUNklVcTmOtewfafeVwD2k0nC
+	UUM9fngh7hEjpg543a0U+VTwTxYXglVXxjDdVh8p92ZEdm9p4ebOXr1IvT8gswJk8DNunc8wH4N2H
+	sAdQEyFVFjUV8Te433XXw8lbJ+pJ3LhaTLgHz5cU++4YQ75iXqdFIqGzwKMTsQhnJ05/oxKza8fi0
+	lQjch6KwGO6hA6Q4WtWdKrhYsr0ALnHF+IV1P15RR2jdf98o8hX5jD5XPIoFmnD8GXnz1ls68rhyg
+	Ar0ZoVMrg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hWJae-0005qb-87; Thu, 30 May 2019 11:51:24 +0000
-Received: from foss.arm.com ([217.140.101.70])
- by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hWJaX-0005kQ-Jo; Thu, 30 May 2019 11:51:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.72.51.249])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E85B9374;
- Thu, 30 May 2019 04:51:13 -0700 (PDT)
-Received: from e105550-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com
- [10.72.51.249])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A814B3F5AF;
- Thu, 30 May 2019 04:51:09 -0700 (PDT)
-Date: Thu, 30 May 2019 12:51:03 +0100
-From: Morten Rasmussen <morten.rasmussen@arm.com>
-To: "Andrew F. Davis" <afd@ti.com>
+	id 1hWKbl-0002IK-4N; Thu, 30 May 2019 12:56:37 +0000
+Received: from fllv0016.ext.ti.com ([198.47.19.142])
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hWKbi-0002Hu-91; Thu, 30 May 2019 12:56:35 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+ by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id x4UCu5DC038584;
+ Thu, 30 May 2019 07:56:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+ s=ti-com-17Q1; t=1559220965;
+ bh=yfsOyzA/w0iHAo88Lim+9pYU3sP+lTVSj1gMoRm+IRc=;
+ h=Subject:To:CC:References:From:Date:In-Reply-To;
+ b=ddAoZJV3O3SjnGH9+ATpox3dT93TWhxKCISRrbGLs9LFAbRLHysUrElN6YWYLT8QE
+ d8Q7Fh7/cXQj9fMmUMZWZ+4Uzr2PLcvs60tHreblxsFmBWdfc88CcdNMTAqqPz+ifd
+ +udj9djsPUutSwb+jbCQ+7rKnozfTLt8EKp4wIIQ=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+ by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id x4UCu5Kg096915
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Thu, 30 May 2019 07:56:05 -0500
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5; Thu, 30
+ May 2019 07:56:05 -0500
+Received: from lelv0327.itg.ti.com (10.180.67.183) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5 via
+ Frontend Transport; Thu, 30 May 2019 07:56:05 -0500
+Received: from [10.250.93.148] (ileax41-snat.itg.ti.com [10.172.224.153])
+ by lelv0327.itg.ti.com (8.15.2/8.15.2) with ESMTP id x4UCu3Dt070901;
+ Thu, 30 May 2019 07:56:03 -0500
 Subject: Re: [PATCH v6 1/7] Documentation: DT: arm: add support for sockets
  defining package boundaries
-Message-ID: <20190530115103.GA10919@e105550-lin.cambridge.arm.com>
+To: Morten Rasmussen <morten.rasmussen@arm.com>
 References: <20190529211340.17087-1-atish.patra@wdc.com>
  <20190529211340.17087-2-atish.patra@wdc.com>
  <49f41e62-5354-a674-d95f-5f63851a0ca6@ti.com>
+ <20190530115103.GA10919@e105550-lin.cambridge.arm.com>
+From: "Andrew F. Davis" <afd@ti.com>
+Message-ID: <70639181-09d1-4644-f062-b19e06db7471@ti.com>
+Date: Thu, 30 May 2019 08:56:03 -0400
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <49f41e62-5354-a674-d95f-5f63851a0ca6@ti.com>
-User-Agent: Mutt/1.5.24 (2015-08-30)
+In-Reply-To: <20190530115103.GA10919@e105550-lin.cambridge.arm.com>
+Content-Language: en-US
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190530_045117_656703_D116953D 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20190530_055634_399443_44A3E52D 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -87,50 +108,69 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
  Jeremy Linton <jeremy.linton@arm.com>, Otto Sabart <ottosabart@seberm.com>,
  Sudeep Holla <sudeep.holla@arm.com>, "David S. Miller" <davem@davemloft.net>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 29, 2019 at 07:39:17PM -0400, Andrew F. Davis wrote:
-> On 5/29/19 5:13 PM, Atish Patra wrote:
-> >From: Sudeep Holla <sudeep.holla@arm.com>
-> >
-> >The current ARM DT topology description provides the operating system
-> >with a topological view of the system that is based on leaf nodes
-> >representing either cores or threads (in an SMT system) and a
-> >hierarchical set of cluster nodes that creates a hierarchical topology
-> >view of how those cores and threads are grouped.
-> >
-> >However this hierarchical representation of clusters does not allow to
-> >describe what topology level actually represents the physical package or
-> >the socket boundary, which is a key piece of information to be used by
-> >an operating system to optimize resource allocation and scheduling.
-> >
+On 5/30/19 7:51 AM, Morten Rasmussen wrote:
+> On Wed, May 29, 2019 at 07:39:17PM -0400, Andrew F. Davis wrote:
+>> On 5/29/19 5:13 PM, Atish Patra wrote:
+>>> From: Sudeep Holla <sudeep.holla@arm.com>
+>>>
+>>> The current ARM DT topology description provides the operating system
+>>> with a topological view of the system that is based on leaf nodes
+>>> representing either cores or threads (in an SMT system) and a
+>>> hierarchical set of cluster nodes that creates a hierarchical topology
+>>> view of how those cores and threads are grouped.
+>>>
+>>> However this hierarchical representation of clusters does not allow to
+>>> describe what topology level actually represents the physical package or
+>>> the socket boundary, which is a key piece of information to be used by
+>>> an operating system to optimize resource allocation and scheduling.
+>>>
+>>
+>> Are physical package descriptions really needed? What does "socket" imply
+>> that a higher layer "cluster" node grouping does not? It doesn't imply a
+>> different NUMA distance and the definition of "socket" is already not well
+>> defined, is a dual chiplet processor not just a fancy dual "socket" or are
+>> dual "sockets" on a server board "slotket" card, will we need new names for
+>> those too..
 > 
-> Are physical package descriptions really needed? What does "socket" imply
-> that a higher layer "cluster" node grouping does not? It doesn't imply a
-> different NUMA distance and the definition of "socket" is already not well
-> defined, is a dual chiplet processor not just a fancy dual "socket" or are
-> dual "sockets" on a server board "slotket" card, will we need new names for
-> those too..
+> Socket (or package) just implies what you suggest, a grouping of CPUs
+> based on the physical socket (or package). Some resources might be
+> associated with packages and more importantly socket information is
+> exposed to user-space. At the moment clusters are being exposed to
+> user-space as sockets which is less than ideal for some topologies.
+> 
 
-Socket (or package) just implies what you suggest, a grouping of CPUs
-based on the physical socket (or package). Some resources might be
-associated with packages and more importantly socket information is
-exposed to user-space. At the moment clusters are being exposed to
-user-space as sockets which is less than ideal for some topologies.
+I see the benefit of reporting the physical layout and packaging 
+information to user-space for tracking reasons, but from software 
+perspective this doesn't matter, and the resource partitioning should be 
+described elsewhere (NUMA nodes being the go to example).
 
-At the moment user-space is only told about hw threads, cores, and
-sockets. In the very near future it is going to be told about dies too
-(look for Len Brown's multi-die patch set).
+> At the moment user-space is only told about hw threads, cores, and
+> sockets. In the very near future it is going to be told about dies too
+> (look for Len Brown's multi-die patch set).
+> 
 
-I don't see how we can provide correct information to user-space based
-on the current information in DT. I'm not convinced it was a good idea
-to expose this information to user-space to begin with but that is
-another discussion.
+Seems my hypothetical case is already in the works :(
 
-Morten
+> I don't see how we can provide correct information to user-space based
+> on the current information in DT. I'm not convinced it was a good idea
+> to expose this information to user-space to begin with but that is
+> another discussion.
+> 
+
+Fair enough, it's a little late now to un-expose this info to userspace 
+so we should at least present it correctly. My worry was this getting 
+out of hand with layering, for instance what happens when we need to add 
+die nodes in-between cluster and socket?
+
+Andrew
+
+> Morten
+> 
 
 _______________________________________________
 linux-riscv mailing list
