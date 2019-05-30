@@ -2,73 +2,85 @@ Return-Path: <SRS0=X+rF=T6=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	T_DKIMWL_WL_HIGH autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 90E79C28CC0
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 30 May 2019 17:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 76751C28CC2
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 30 May 2019 17:56:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 56F6525DFC
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 30 May 2019 17:00:46 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5046225ED6
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 30 May 2019 17:56:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hLbrwV6C"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 56F6525DFC
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="O3FTYcvy";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="JT/fEl27"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5046225ED6
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:
-	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=styxdRtBM1br2l3+KKMUt5Ejm2eCUS9SKzrcaCI+kGo=; b=hLbrwV6CNuQHW7
-	3tTgQ7uBBok5AkVC3OhEN+oWuBowFKbJjwLGv97JPGGj22X+46HFSy1HHMjESAzo+iRl/kUJiLfMN
-	VSLRYo6Z6MHfsYv+/lHKnh6QHBv2epLjZC8aPhs+anWBQsA6X4AIGnYnOW/ipvetMiO6f8sXI3xXq
-	HNX3pT6PNjdH4d5HYO0dhAJoAR6yw9FyIaltkjFDHFCGHvAxfPVAHw3s0QKUZtzCWWU5PiJ+9S3Y9
-	XYDcQJYnBkIlOjAvoOU3U+ArJmOOjvq4sokI7BIN5Mg5hQsp2yHyjajxd9R+Xi/BN45+9IaegV84i
-	fkaYm9+uqfxrtb06c98A==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+R/pz1odV3fd02mqCRCppeLpzvu5jJXcZCLCXagx1eQ=; b=O3FTYcvyDebyO+
+	vWWPF4J6mT8cRby8xVB7hgMkdXNtQ4lcknCBMETkOxa8x8Zqq4AcH/SGeqyFQ2qhDC5BN/o5AeSy6
+	4qeNmT/Z3WoPpxo+J2OcMQgD1AtEh6usH8mZ+3qt7mBXv4+zdd/HKOS1g4/gXhTXyl6kajXQZ+JAT
+	5bs/7ED3dwC8DmHedTKmqNbo1Pdy/sxDkD9R6F6wgIj94WV/7v/bdoDBwqhQY3isQ+aRLMpON/zzG
+	Tw89SBpx+H2XIX5vjPpLFsTgJiGhxUte+eav5Ws5dRQTT/lq77+3qo57fPkSJunWP4rDqPpn+Tm+s
+	PJB5Thc7QT7mh5KTD8LQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hWOQ1-0001ug-1u; Thu, 30 May 2019 17:00:45 +0000
-Received: from mail-pg1-f195.google.com ([209.85.215.195])
+	id 1hWPHw-0002sh-WB; Thu, 30 May 2019 17:56:29 +0000
+Received: from mail-lf1-x144.google.com ([2a00:1450:4864:20::144])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hWOPx-0001tg-1a
- for linux-riscv@lists.infradead.org; Thu, 30 May 2019 17:00:42 +0000
-Received: by mail-pg1-f195.google.com with SMTP id n2so2346148pgp.11
- for <linux-riscv@lists.infradead.org>; Thu, 30 May 2019 10:00:40 -0700 (PDT)
+ id 1hWPHt-0002rh-PD
+ for linux-riscv@lists.infradead.org; Thu, 30 May 2019 17:56:27 +0000
+Received: by mail-lf1-x144.google.com with SMTP id l26so5703259lfh.13
+ for <linux-riscv@lists.infradead.org>; Thu, 30 May 2019 10:56:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=Kznmoz7C+qs9+fS1R4x2KVGpxZXkzNDQtpMYN/bgS0w=;
+ b=JT/fEl27W7OW7rJcwHTFEDIgpayKw/JcKZrccKW+R06f8yFn9Sfmqh1Y1+4eFFmINj
+ APEMuKyil8NOFpMdzz9O3cIulvqjkdaZ2tOVr4o7IKRKHWjlMU10TWN403QDqTiF8GE+
+ YMUDO7iGJIUsV3W1TTBlJHn341cr9XU4HEjMADWS4Hwpvt+DlNAxnMEGK68wm14STPK3
+ V6OlCCKBbjh8qEkuB8VASZ4IEKTRT8ja3iIGVWU1VQ5qEJm8cjXWDNruPlhZRD2G2JfP
+ wqXec1kI3sSfJPSkEVYF+NXpHw36TbeTGAPmx4rdsXx16WXyPtJjTNzE5VZuZKQPqe0F
+ k/FA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id;
- bh=RafJQjQDoxuAnZkJLk0AhS+u+V40M1TjnvymgLpRZN8=;
- b=gPmF5+ojtQYDwBsHHE8TJCE8frQtnF/H/mxdLKoKOobAklClkS4E2F2yBWpL1eV8mG
- ofWpG3roqn1V7/SznGi7IbkI6XcqC4Y3PxdOv0VH7dL4zTKbuaVXrmc0gNP84onC0OZI
- kiRhp1ySFF+bkDVDqBzoi8qpmGcJUHnff/Nz6N+gPBWa3yHWWm7f/NkqEeZ/nk70G+nK
- QFjtPr5YorlrLWLzWeLx5uD8LT3eXEFWT5SMVbD+X8BKQEJ/XmVchozm7ZjcSB/k2rkR
- CAUCdMbbXnAZHDnkn/UpeDix8nVPu8fp2YRH2UPr8qiR7igVxUbxn/kU5W84b0Zr3xwz
- Bi2w==
-X-Gm-Message-State: APjAAAUBv5a5Jj+DmMHLh7VRqGBPXAecUfl5J6ZH5fYYWa2M+Hl6/ojw
- qT82Dcw9mjTyp+SUnSQrsbHKsQ==
-X-Google-Smtp-Source: APXvYqxjRIdyOrpOSHhkLDSaOEH0jYT++3opxpNaF33TOkpk5ISFdi5peBzZYvxaquwsr67rE7NxRQ==
-X-Received: by 2002:a62:1dca:: with SMTP id d193mr4609968pfd.93.1559235639897; 
- Thu, 30 May 2019 10:00:39 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id b7sm2821814pgq.71.2019.05.30.10.00.38
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Thu, 30 May 2019 10:00:38 -0700 (PDT)
-Date: Thu, 30 May 2019 10:00:38 -0700 (PDT)
-X-Google-Original-Date: Thu, 30 May 2019 10:00:30 PDT (-0700)
-Subject: Re: 5.2-rc1 boot on Unleashed
-In-Reply-To: <20190529185951.5rsoozymr32xychb@excalibur.cnev.de>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: merker@debian.org
-Message-ID: <mhng-e6adcbe6-91c3-4b15-8b07-246109fb144a@palmer-si-x1e>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=Kznmoz7C+qs9+fS1R4x2KVGpxZXkzNDQtpMYN/bgS0w=;
+ b=o6WtSmHx9TKgDFh5qhXKn36GNNQg+fwgtqM7U3QlEssq6m/2w5FHG5NMLUKKWemLOv
+ l2oGgpJbLF0sQHHeTpsu8/MmgmS71ns3gZqsLCukO0rOsg5oZUhO2+2X07z3yxskI67W
+ wya1fXGUOWBUqU2eMXY7ofIV6wHcx57f2bX6Kj+M2HZKvEC2VrrtZLqDkeV2P79nMcf6
+ 1s1OF2uZXJ50Lm3lUCmcZAgGfuUkFshXp2jLYP2xM0PhfKPvdqqNMXWI0/NY2KlBTaAj
+ MMbPnkkz/A6ZsXSb6nKiavh3pBY2Eiz20+si0Kzy14rXXPCgVEAUJTs+XWL3pwCbyjUi
+ ac3Q==
+X-Gm-Message-State: APjAAAX4G6teiidlt0micHfOMP6cwB7atu5+A9PgbgkITXYUJyw7lK65
+ ccTB4SyuVfIpc1FkdR6dnjbBe9GaJSU8V8iyNOiOPQ==
+X-Google-Smtp-Source: APXvYqyQiWOytOWvETmZ/lX6mjAxJtO7J/9HNjyUp8rLndIVDE+TYfD/IMExAYni2I/+EKIHlCwpa/JO2Z2EXi0B4Gc=
+X-Received: by 2002:ac2:4c84:: with SMTP id d4mr2829996lfl.1.1559238981944;
+ Thu, 30 May 2019 10:56:21 -0700 (PDT)
+MIME-Version: 1.0
+References: <1558650258-15050-1-git-send-email-alan.mikhak@sifive.com>
+ <305100E33629484CBB767107E4246BBB0A6FAFFD@DE02WEMBXB.internal.synopsys.com>
+ <CABEDWGxsQ9NXrN7W_8HVrXQBb9HiBd+d1dNfv+cXmoBpXQnLwA@mail.gmail.com>
+ <305100E33629484CBB767107E4246BBB0A6FC308@DE02WEMBXB.internal.synopsys.com>
+ <CABEDWGxL-WYz1BY7yXJ6eKULgVtKeo67XhgHZjvtm5Ka5foKiA@mail.gmail.com>
+ <192e3a19-8b69-dfaf-aa5c-45c7087548cc@ti.com>
+In-Reply-To: <192e3a19-8b69-dfaf-aa5c-45c7087548cc@ti.com>
+From: Alan Mikhak <alan.mikhak@sifive.com>
+Date: Thu, 30 May 2019 10:56:10 -0700
+Message-ID: <CABEDWGxLeD-K8PjkD5hPSTFGJKs2hxEaAVO+nE5eC9Nx2yw=ig@mail.gmail.com>
+Subject: Re: [PATCH] PCI: endpoint: Add DMA to Linux PCI EP Framework
+To: Kishon Vijay Abraham I <kishon@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190530_100041_308126_CDC9406E 
-X-CRM114-Status: GOOD (  22.60  )
+X-CRM114-CacheID: sfid-20190530_105625_966490_85D02C25 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -80,79 +92,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: schwab@suse.de, Anup Patel <Anup.Patel@wdc.com>, Atish Patra <Atish.Patra@wdc.com>, lukas.auer@aisec.fraunhofer.de, Paul Walmsley <paul.walmsley@sifive.com>, anup@brainfault.org, Troy Benjegerdes <troy.benjegerdes@sifive.com>, linux-riscv@lists.infradead.org, bmeng.cn@gmail.com, Björn Töpel <bjorn.topel@gmail.com>
-MIME-Version: 1.0
+Cc: "lorenzo.pieralisi@arm.com" <lorenzo.pieralisi@arm.com>,
+ "arnd@arndb.de" <arnd@arndb.de>, "jingoohan1@gmail.com" <jingoohan1@gmail.com>,
+ Gustavo Pimentel <Gustavo.Pimentel@synopsys.com>,
+ "palmer@sifive.com" <palmer@sifive.com>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, "kjlu@umn.edu" <kjlu@umn.edu>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "wen.yang99@zte.com.cn" <wen.yang99@zte.com.cn>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 May 2019 11:59:51 PDT (-0700), merker@debian.org wrote:
-> On Wed, May 29, 2019 at 12:38:42PM -0500, Troy Benjegerdes wrote:
->> > On May 29, 2019, at 3:31 AM, Andreas Schwab <schwab@suse.de> wrote:
->> >
->> > On Mai 29 2019, Anup Patel <Anup.Patel@wdc.com> wrote:
->> >
->> >> To achieve this, we need to ensure that users are able to boot kernel Image
->> >> and Image.gz without embedding it in OpenSBI/BBL.
->> >
->> > Especially you need to ensure that you can load a separate initrd,
->> > without the need to encapsulate it further as it is currently required
->> > with u-Boot loading.
->> >
->> > Andreas.
->> >
->>
->> This has been possible for at least 6 months now with the legacy HiFive-U-boot
->> that is integrated in https://github.com/sifive/freedom-u-sdk
->>
->> Currently the build scripts generate a single hifiveu.fit image that U-boot
->> loads, however it is relatively straightforward to change the uEnv.txt file
->> to load BBL, the kernel, device tree, and initrd separately.
->>
->> If some examples (and flashable binary images) demonstrating this would
->> be useful, let me know and I will make some updates.
-
-I don't care about the out of tree stuff.  The core of this issue is that
-everyone's got a bunch of out-of-tree patches floating around, which means
-everyone's running into different bugs.  Linux has been the central headache
-for more than a year, but now that's starting to get into acceptable shape the
-headache is the boot flow.
-
->> What I could use some help on is how we should be using
->> config_distro_bootcmd.h in u-boot to follow what other architectures
->> have done, or if that approach is needlessly complicating things that
->> we could do in a much cleaner way with a clean slate.
+On Wed, May 29, 2019 at 10:48 PM Kishon Vijay Abraham I <kishon@ti.com> wrote:
 >
-> Hello,
+> +Vinod Koul
 >
-> speaking with my Linux distribution maintainer hat on, you should
-> definitely use config_distro_bootcmd.h as that is the interface
-> that all binary Linux distributions expect from U-Boot nowadays.
-> Please don't try to invent your own, incompatible boot
-> environment; we have had that situation on arm-based systems for
-> years before config_distro_bootcmd.h was introduced in 2014 and
-> it was horrible.  Really nobody wants to have that again on
-> modern systems.
+> Hi,
+>
+> >>> On Fri, May 24, 2019 at 1:59 AM Gustavo Pimentel
+> >>> <Gustavo.Pimentel@synopsys.com> wrote:
+> >>>>
+> >>>> Hi Alan,
+> >>>>
+> >>>> This patch implementation is very HW implementation dependent and
+> >>>> requires the DMA to exposed through PCIe BARs, which aren't always the
+> >>>> case. Besides, you are defining some control bits on
+> >>>> include/linux/pci-epc.h that may not have any meaning to other types of
+> >>>> DMA.
+> >>>>
+> >>>> I don't think this was what Kishon had in mind when he developed the
+> >>>> pcitest, but let see what Kishon was to say about it.
+> >>>>
+> >>>> I've developed a DMA driver for DWC PCI using Linux Kernel DMAengine API
+> >>>> and which I submitted some days ago.
+> >>>> By having a DMA driver which implemented using DMAengine API, means the
+> >>>> pcitest can use the DMAengine client API, which will be completely
+> >>>> generic to any other DMA implementation.
+>
+> right, my initial thought process was to use only dmaengine APIs in
+> pci-epf-test so that the system DMA or DMA within the PCIe controller can be
+> used transparently. But can we register DMA within the PCIe controller to the
+> DMA subsystem? AFAIK only system DMA should register with the DMA subsystem.
+> (ADMA in SDHCI doesn't use dmaengine). Vinod Koul can confirm.
+>
+> If DMA within the PCIe controller cannot be registered in DMA subsystem, we
+> should use something like what Alan has done in this patch with dma_read ops.
+> The dma_read ops implementation in the EP controller can either use dmaengine
+> APIs or use the DMA within the PCIe controller.
+>
+> I'll review the patch separately.
+>
+> Thanks
+> Kishon
 
-I agree.  The general goal with the RISC-V software ecosystem is that we should
-be as boring as possible.  Specifically, if something works fine for all the
-other platforms then we should just copy it.  While I'm not well versed in the
-boot flow, from my understanding of this the arm64 guys have something
-reasonable and we should just follow in their footsteps.
+Hi Kishon,
 
-That's certainly what's going on in the kernel with that header patch.  There's
-a lot of debate there, but the debate is really "does this actually match what
-arm64 does?", not "should we copy what am64 does?".
+I have some improvements in mind for a v2 patch in response to
+feedback from Gustavo Pimentel that the current implementation is HW
+specific. I hesitate from submitting a v2 patch because it seems best
+to seek comment on possible directions this may be taking.
 
-> Mainline U-Boot already uses the distro bootcmd environment for
-> the qemu "virt" machine and it works well.
+One alternative is to wait for or modify test functions in
+pci-epf-test.c to call DMAengine client APIs, if possible. I imagine
+pci-epf-test.c test functions would still allocate the necessary local
+buffer on the endpoint side for the same canned tests for everyone to
+use. They would prepare the buffer in the existing manner by filling
+it with random bytes and calculate CRC in the case of a write test.
+However, they would then initiate DMA operations by using DMAengine
+client APIs in a generic way instead of calling memcpy_toio() and
+memcpy_fromio(). They would post-process the buffer in the existing
+manner such as the checking for CRC in the case of a read test.
+Finally, they would release the resources and report results back to
+the user of pcitest across the PCIe bus through the existing methods.
 
-OK, so it sounds like the RISC-V stuff works and all we need to do is get
-SiFive's platform working in upstream u-boot.  On the distro side you should
-just count on that happening, we'll go fix it.  This is the second time this
-week I've had trouble with this whole bootloader mess, so I guess that means
-it's time to go figure it out :)
+Another alternative I have in mind for v2 is to change the struct
+pci_epc_dma that this patch added to pci-epc.h from the following:
+
+struct pci_epc_dma {
+        u32     control;
+        u32     size;
+        u64     sar;
+        u64     dar;
+};
+
+to something similar to the following:
+
+struct pci_epc_dma {
+        size_t  size;
+        void *buffer;
+        int flags;
+};
+
+The 'flags' field can be a bit field or separate boolean values to
+specify such things as linked-list mode vs single-block, etc.
+Associated #defines would be removed from pci-epc.h to be replaced if
+needed with something generic. The 'size' field specifies the size of
+DMA transfer that can fit in the buffer.
+
+That way the dma test functions in pci-epf-test.c can simply kmalloc
+and prepare a local buffer on the endpoint side for the DMA transfer
+and pass its pointer down the stack using the 'buffer' field to lower
+layers. This would allow different PCIe controller drivers to
+implement DMA or not according to their needs. Each implementer can
+decide to use DMAengine client API, which would be preferable, or
+directly read or write to DMA hardware registers to suit their needs.
+
+I would appreciate feedback and comment on such choices as part of this review.
+
+Regards,
+Alan Mikhak
 
 _______________________________________________
 linux-riscv mailing list
