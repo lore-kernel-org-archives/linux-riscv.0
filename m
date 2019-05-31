@@ -2,22 +2,24 @@ Return-Path: <SRS0=cwjh=T7=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-6.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	FROM_EXCESS_BASE64,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9A098C04AB6
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 31 May 2019 07:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 95401C46460
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 31 May 2019 08:17:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6E8232610F
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 31 May 2019 07:50:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6A40C26597
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 31 May 2019 08:17:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eIZbV0cH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6E8232610F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aJFu0rzB";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="KVxYFlKZ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6A40C26597
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -25,56 +27,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HG2oDPs++NXpAi5An5hR2f3mJvd/M/fb6NfF78mpaLI=; b=eIZbV0cH9O1IyL
-	ZvSidMAfgkyrOXE+NUnIYyGJs2RiDs8ts+x9K13DAz0WBNuVmEbK8nfgZst0Xqz8isR2CFaRgDUWp
-	YZAI58cm2vzyr/9yKrGl4nAYALAcmUvd3PODmquAyUgzvDP/nLx3Gja55stjjOHfnpqIvxTMxluYb
-	sBkT+vHhZp5IMRSfKFz86x/I7kg4ivE6SGE/rok6Y/GIjZeWsx7BRc4+Vl6+pqZr9Rw0wyJ+kdSQt
-	sPF5SYqCrEXhXTqs3laOIAjzGfhvf4HfFWeACikgV7XgdvCO1SlHgzYRQEDiIGoiGGKrA8OABdfGQ
-	JIVg7kmm49bBfQ2xKANg==;
+	List-Owner; bh=dywfCw/RIt7iNh4KpdjxHb9eOtEnBzqoyH61BaLtyqc=; b=aJFu0rzBO1V5x6
+	9ccMd+PfJMgnhv5FO4Dph/0bEMdDuckh0tXnshzklkWzkJKh4X0atBOT5kVa3yEysIm2fgjHpkxMP
+	XOn9uYa5I6CmWImG9heSxCuVpUNYyl9+rImLNK3un7t8SZl6Sdjcc9up+lu+XWAPuZHvd41TaKtPq
+	LO4d2lSCPEC7wuVNE8BB2E64/haNF8IC85eTx1SWkm9eTAnTcpwNdmxQUuAGaZuAd+MqjqZppXmj5
+	Kkv1T2/77E8sBUM+pqu0bWtMp2PzXeXCUhysIR5aUZhyPbHJ5cPCZ7VwupwWKMNjsWqK4UaSEBfU4
+	NrPXqDqwkmjCmqz9AggQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hWcIo-0002Ue-Uw; Fri, 31 May 2019 07:50:14 +0000
-Received: from mail-qt1-f194.google.com ([209.85.160.194])
+	id 1hWcin-0004gB-8o; Fri, 31 May 2019 08:17:05 +0000
+Received: from mail-qt1-x844.google.com ([2607:f8b0:4864:20::844])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hWcIm-0002Ty-IU
- for linux-riscv@lists.infradead.org; Fri, 31 May 2019 07:50:13 +0000
-Received: by mail-qt1-f194.google.com with SMTP id x47so6891975qtk.11
- for <linux-riscv@lists.infradead.org>; Fri, 31 May 2019 00:50:10 -0700 (PDT)
+ id 1hWcij-0004b2-0z
+ for linux-riscv@lists.infradead.org; Fri, 31 May 2019 08:17:03 +0000
+Received: by mail-qt1-x844.google.com with SMTP id y57so10379537qtk.4
+ for <linux-riscv@lists.infradead.org>; Fri, 31 May 2019 01:17:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=zG49i3fFvaE3LptqoAqK8TJQLWdwVR/TrQVf7eDZNuQ=;
+ b=KVxYFlKZmYMCR8k3PdItitufjGxL2weHvtHHNuZXE403k77bS0zWvd7VWj+ACSf93p
+ pxkRJ/CyCa/Jfr6fhleMAoKFhfXFb/ENp7jq+t+niIGkMbrd5ixtFGB+mE2p8zAC58RO
+ yJeVomclIfsYuVMW4cWD9V+e9v2wtjgEHK2i9FDultVcfzbCD5fY+BBeF67V5s8yimdo
+ xpeDGXVbHhH/J/pjROkk4K7BeYdxGHx6MhpG2uWGzCaPe+xpB9NHnG99VxgIUZYdovqX
+ k66awXZhb5cTu7otQ6Jx21gjNbuEkmn+U9zs8kH2YWFrVtKLU5fC2ELR4aPMBb/mnfEh
+ W8Rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=GwaITjmEuTof6u7MeG3GyILN9L8qj0XaOeE2YibaLeg=;
- b=HUivt0K24yj2qAzq3BkLn1nvlEMMZf9nenNsAaWbbVUhbecdaKOW+YU8CIgkvA5ihR
- VizUnJ6GAoOzVxJCFqeRy6rnMNS5+wZZn1w91Ud4DQmRMgbzn/mMqb/B7dVqo6+j9iEW
- 83sYf7T41qmLNVglFVZR4rRNaxTRA9dkM/PsvPPyJkm4fWq5MQyN+sSP3WlnaXHUjee9
- VxDCpm2rI23aQ/I8D4igPXFmzFUf3XOUNHJeIXEXIN9Q/RX2BcBKGbOghOT3bnDr0aAo
- BD+SaW6HpEe040lJ8fRe6IPLwpK0cAVOqHan7iD0SmSPZ9IreO2dgA5ueDQ+8Qn+nLLj
- xfdw==
-X-Gm-Message-State: APjAAAVSXRPKAvHQ8MgLLX4E/v3jHPNqi1eTL0sVvAOyulegZBYAPCY2
- 8CloiaMLbIzdtH8UlIw/j8ZZw2j62o8+vSiCjIY=
-X-Google-Smtp-Source: APXvYqwQB/JhCGjqlpNaldYQoGI4yfCEZhY1gzjbw3cSbTwub4t7W4H0B3NZ9jqg8ZYIlsA2SYsCySbJzJJdaOlmM1Y=
-X-Received: by 2002:aed:2bc1:: with SMTP id e59mr6984448qtd.7.1559289010013;
- Fri, 31 May 2019 00:50:10 -0700 (PDT)
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=zG49i3fFvaE3LptqoAqK8TJQLWdwVR/TrQVf7eDZNuQ=;
+ b=SXLj6B36h9PLS2moxXDGNoDlYkYZ4nWj3mRSYmHh6ciaK3yqSpXXKqxtlOVKkHpmL2
+ gbgDzv4nN9Mt6IEMbjk0/vRCVYpqnZs95f3W2yUFkqZOBVtOcbipG8sGZZM8GY8L0axj
+ dlZYt+q9tvBjuPD74g1+uXR8b3/Aysdyp0ulRkEt/rfP5IaIDG6n4uaofGWwg0xDIiJ0
+ gwPB/lwgWpf+IAI7AVuF35R3U7PdC837YSLO7q5OrosRhMMN2IOkjBj6a/sbX1NylNQn
+ B9wKtRgrN4UMpTJ0KoTZlrcqzg2UVbond0t1hvaVuLh6IhkWAtq1j28WprcFvXOq3lbV
+ 4jkQ==
+X-Gm-Message-State: APjAAAXw+7lbKwDZhHHCaLumWYQ0XO5oGkLNelhci+aYnvY0t3OxXu9p
+ hUNJrclqlm4Om717qmqplG9igneGU1BNWbr9Ur0=
+X-Google-Smtp-Source: APXvYqypiJYBUTpH4bwam0exPDV9u17o9bC+HcgbWkIpk1rkN2AfaQyFZtt5i6HZe5ZhCkqZFAl1OZlVJmiZ4r7OSjM=
+X-Received: by 2002:ac8:4442:: with SMTP id m2mr8021337qtn.107.1559290619388; 
+ Fri, 31 May 2019 01:16:59 -0700 (PDT)
 MIME-Version: 1.0
-References: <1558650258-15050-1-git-send-email-alan.mikhak@sifive.com>
- <305100E33629484CBB767107E4246BBB0A6FAFFD@DE02WEMBXB.internal.synopsys.com>
- <CABEDWGxsQ9NXrN7W_8HVrXQBb9HiBd+d1dNfv+cXmoBpXQnLwA@mail.gmail.com>
- <305100E33629484CBB767107E4246BBB0A6FC308@DE02WEMBXB.internal.synopsys.com>
- <CABEDWGxL-WYz1BY7yXJ6eKULgVtKeo67XhgHZjvtm5Ka5foKiA@mail.gmail.com>
- <192e3a19-8b69-dfaf-aa5c-45c7087548cc@ti.com>
- <20190531050727.GO15118@vkoul-mobl>
- <d2d8a904-d796-f9f2-8f4a-61e857355a4f@ti.com>
- <20190531063247.GP15118@vkoul-mobl>
-In-Reply-To: <20190531063247.GP15118@vkoul-mobl>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Fri, 31 May 2019 09:49:53 +0200
-Message-ID: <CAK8P3a2jePe7Qfjciq4fdfngAudzCb-cai4fr3_BG_evnbjhvw@mail.gmail.com>
-Subject: Re: [PATCH] PCI: endpoint: Add DMA to Linux PCI EP Framework
-To: Vinod Koul <vkoul@kernel.org>
+References: <20190530222922.4269-1-luke.r.nels@gmail.com>
+ <CAPhsuW4JXN65P4b_uXdJX12RZFU0HyuREZuwrm+tEQ0rq8-oRA@mail.gmail.com>
+In-Reply-To: <CAPhsuW4JXN65P4b_uXdJX12RZFU0HyuREZuwrm+tEQ0rq8-oRA@mail.gmail.com>
+From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
+Date: Fri, 31 May 2019 10:16:48 +0200
+Message-ID: <CAJ+HfNi8ioZyMjbXGP=G3F_ZUmqO=CXMy6vzpL_rK6jn+hUpXw@mail.gmail.com>
+Subject: Re: [PATCH bpf v2] bpf,
+ riscv: clear high 32 bits for ALU32 add/sub/neg/lsh/rsh/arsh
+To: Song Liu <liu.song.a23@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190531_005012_614247_FE818A5D 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20190531_011701_101715_90A2D846 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -86,70 +92,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "lorenzo.pieralisi@arm.com" <lorenzo.pieralisi@arm.com>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- Gustavo Pimentel <Gustavo.Pimentel@synopsys.com>,
- "palmer@sifive.com" <palmer@sifive.com>, "kjlu@umn.edu" <kjlu@umn.edu>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Kishon Vijay Abraham I <kishon@ti.com>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- Alan Mikhak <alan.mikhak@sifive.com>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "jingoohan1@gmail.com" <jingoohan1@gmail.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "wen.yang99@zte.com.cn" <wen.yang99@zte.com.cn>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Song Liu <songliubraving@fb.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ bpf <bpf@vger.kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Luke Nelson <luke.r.nels@gmail.com>, Networking <netdev@vger.kernel.org>,
+ Palmer Dabbelt <palmer@sifive.com>, Alexei Starovoitov <ast@kernel.org>,
+ open list <linux-kernel@vger.kernel.org>, Yonghong Song <yhs@fb.com>,
+ linux-riscv@lists.infradead.org, Martin KaFai Lau <kafai@fb.com>,
+ Xi Wang <xi.wang@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 31, 2019 at 8:32 AM Vinod Koul <vkoul@kernel.org> wrote:
-> On 31-05-19, 10:50, Kishon Vijay Abraham I wrote:
-> > On 31/05/19 10:37 AM, Vinod Koul wrote:
-> > > On 30-05-19, 11:16, Kishon Vijay Abraham I wrote:
-> > >>
-> > >> right, my initial thought process was to use only dmaengine APIs in
-> > >> pci-epf-test so that the system DMA or DMA within the PCIe controller can be
-> > >> used transparently. But can we register DMA within the PCIe controller to the
-> > >> DMA subsystem? AFAIK only system DMA should register with the DMA subsystem.
-> > >> (ADMA in SDHCI doesn't use dmaengine). Vinod Koul can confirm.
-> > >
-> > > So would this DMA be dedicated for PCI and all PCI devices on the bus?
-> >
-> > Yes, this DMA will be used only by PCI ($patch is w.r.t PCIe device mode. So
-> > all endpoint functions both physical and virtual functions will use the DMA in
-> > the controller).
-> > > If so I do not see a reason why this cannot be using dmaengine. The use
-> >
-> > Thanks for clarifying. I was under the impression any DMA within a peripheral
-> > controller shouldn't use DMAengine.
->
-> That is indeed a correct assumption. The dmaengine helps in cases where
-> we have a dma controller with multiple users, for a single user case it
-> might be overhead to setup dma driver and then use it thru framework.
->
-> Someone needs to see the benefit and cost of using the framework and
-> decide.
-
-I think the main question is about how generalized we want this to be.
-There are lots of difference PCIe endpoint implementations, and in
-case of some licensable IP cores like the designware PCIe there are
-many variants, as each SoC will do the implementation in a slightly
-different way.
-
-If we can have a single endpoint driver than can either have an
-integrated DMA engine or use an external one, then abstracting that
-DMA engine helps make the driver work more readily either way.
-
-Similarly, there may be PCIe endpoint implementations that have
-a dedicated DMA engine in them that is not usable for anything else,
-but that is closely related to an IP core we already have a dmaengine
-driver for. In this case, we can avoid duplication.
-
-      Arnd
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCAzMSBNYXkgMjAxOSBhdCAwMTowOCwgU29uZyBMaXUgPGxpdS5zb25nLmEyM0BnbWFp
+bC5jb20+IHdyb3RlOgo+Cj4gT24gVGh1LCBNYXkgMzAsIDIwMTkgYXQgMzozMCBQTSBMdWtlIE5l
+bHNvbiA8bHVrZS5yLm5lbHNAZ21haWwuY29tPiB3cm90ZToKPiA+Cj4gPiBJbiBCUEYsIDMyLWJp
+dCBBTFUgb3BlcmF0aW9ucyBzaG91bGQgemVyby1leHRlbmQgdGhlaXIgcmVzdWx0cyBpbnRvCj4g
+PiB0aGUgNjQtYml0IHJlZ2lzdGVycy4KPiA+Cj4gPiBUaGUgY3VycmVudCBCUEYgSklUIG9uIFJJ
+U0MtViBlbWl0cyBpbmNvcnJlY3QgaW5zdHJ1Y3Rpb25zIHRoYXQgcGVyZm9ybQo+ID4gc2lnbiBl
+eHRlbnNpb24gb25seSAoZS5nLiwgYWRkdywgc3Vidykgb24gMzItYml0IGFkZCwgc3ViLCBsc2gs
+IHJzaCwKPiA+IGFyc2gsIGFuZCBuZWcuIFRoaXMgYmVoYXZpb3IgZGl2ZXJnZXMgZnJvbSB0aGUg
+aW50ZXJwcmV0ZXIgYW5kIEpJVHMKPiA+IGZvciBvdGhlciBhcmNoaXRlY3R1cmVzLgo+ID4KPiA+
+IFRoaXMgcGF0Y2ggZml4ZXMgdGhlIGJ1Z3MgYnkgcGVyZm9ybWluZyB6ZXJvIGV4dGVuc2lvbiBv
+biB0aGUgZGVzdGluYXRpb24KPiA+IHJlZ2lzdGVyIG9mIDMyLWJpdCBBTFUgb3BlcmF0aW9ucy4K
+PiA+Cj4gPiBGaXhlczogMjM1M2VjYzZmOTFmICgiYnBmLCByaXNjdjogYWRkIEJQRiBKSVQgZm9y
+IFJWNjRHIikKPiA+IENjOiBYaSBXYW5nIDx4aS53YW5nQGdtYWlsLmNvbT4KPiA+IFNpZ25lZC1v
+ZmYtYnk6IEx1a2UgTmVsc29uIDxsdWtlLnIubmVsc0BnbWFpbC5jb20+Cj4KPiBBY2tlZC1ieTog
+U29uZyBMaXUgPHNvbmdsaXVicmF2aW5nQGZiLmNvbT4KPgoKTHVrZSwgdGhhbmtzIGZvciBmaXhp
+bmcgdGhpcyEgTmljZSB3b3JrIQoKQWNrZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuLnRvcGVs
+QGdtYWlsLmNvbT4KCj4KPiA+IC0tLQo+ID4gVGhlIG9yaWdpbmFsIHBhdGNoIGlzCj4gPiBodHRw
+czovL2xrbWwub3JnL2xrbWwvMjAxOS81LzMwLzEzNzAKPiA+Cj4gPiBUaGlzIHZlcnNpb24gaXMg
+cmViYXNlZCBhZ2FpbnN0IHRoZSBicGYgdHJlZS4KPiA+IC0tLQo+ID4gIGFyY2gvcmlzY3YvbmV0
+L2JwZl9qaXRfY29tcC5jIHwgMTggKysrKysrKysrKysrKysrKysrCj4gPiAgMSBmaWxlIGNoYW5n
+ZWQsIDE4IGluc2VydGlvbnMoKykKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQv
+YnBmX2ppdF9jb21wLmMgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXAuYwo+ID4gaW5kZXgg
+ZTVjOGQ2NzViZDZlLi40MjZkNWMzM2VhOTAgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L25l
+dC9icGZfaml0X2NvbXAuYwo+ID4gKysrIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wLmMK
+PiA+IEBAIC03NTEsMTAgKzc1MSwxNCBAQCBzdGF0aWMgaW50IGVtaXRfaW5zbihjb25zdCBzdHJ1
+Y3QgYnBmX2luc24gKmluc24sIHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4LAo+ID4gICAgICAg
+ICBjYXNlIEJQRl9BTFUgfCBCUEZfQUREIHwgQlBGX1g6Cj4gPiAgICAgICAgIGNhc2UgQlBGX0FM
+VTY0IHwgQlBGX0FERCB8IEJQRl9YOgo+ID4gICAgICAgICAgICAgICAgIGVtaXQoaXM2NCA/IHJ2
+X2FkZChyZCwgcmQsIHJzKSA6IHJ2X2FkZHcocmQsIHJkLCBycyksIGN0eCk7Cj4gPiArICAgICAg
+ICAgICAgICAgaWYgKCFpczY0KQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgZW1pdF96ZXh0
+XzMyKHJkLCBjdHgpOwo+ID4gICAgICAgICAgICAgICAgIGJyZWFrOwo+ID4gICAgICAgICBjYXNl
+IEJQRl9BTFUgfCBCUEZfU1VCIHwgQlBGX1g6Cj4gPiAgICAgICAgIGNhc2UgQlBGX0FMVTY0IHwg
+QlBGX1NVQiB8IEJQRl9YOgo+ID4gICAgICAgICAgICAgICAgIGVtaXQoaXM2NCA/IHJ2X3N1Yihy
+ZCwgcmQsIHJzKSA6IHJ2X3N1YncocmQsIHJkLCBycyksIGN0eCk7Cj4gPiArICAgICAgICAgICAg
+ICAgaWYgKCFpczY0KQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgZW1pdF96ZXh0XzMyKHJk
+LCBjdHgpOwo+ID4gICAgICAgICAgICAgICAgIGJyZWFrOwo+ID4gICAgICAgICBjYXNlIEJQRl9B
+TFUgfCBCUEZfQU5EIHwgQlBGX1g6Cj4gPiAgICAgICAgIGNhc2UgQlBGX0FMVTY0IHwgQlBGX0FO
+RCB8IEJQRl9YOgo+ID4gQEAgLTc5NSwxNCArNzk5LDIwIEBAIHN0YXRpYyBpbnQgZW1pdF9pbnNu
+KGNvbnN0IHN0cnVjdCBicGZfaW5zbiAqaW5zbiwgc3RydWN0IHJ2X2ppdF9jb250ZXh0ICpjdHgs
+Cj4gPiAgICAgICAgIGNhc2UgQlBGX0FMVSB8IEJQRl9MU0ggfCBCUEZfWDoKPiA+ICAgICAgICAg
+Y2FzZSBCUEZfQUxVNjQgfCBCUEZfTFNIIHwgQlBGX1g6Cj4gPiAgICAgICAgICAgICAgICAgZW1p
+dChpczY0ID8gcnZfc2xsKHJkLCByZCwgcnMpIDogcnZfc2xsdyhyZCwgcmQsIHJzKSwgY3R4KTsK
+PiA+ICsgICAgICAgICAgICAgICBpZiAoIWlzNjQpCj4gPiArICAgICAgICAgICAgICAgICAgICAg
+ICBlbWl0X3pleHRfMzIocmQsIGN0eCk7Cj4gPiAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gPiAg
+ICAgICAgIGNhc2UgQlBGX0FMVSB8IEJQRl9SU0ggfCBCUEZfWDoKPiA+ICAgICAgICAgY2FzZSBC
+UEZfQUxVNjQgfCBCUEZfUlNIIHwgQlBGX1g6Cj4gPiAgICAgICAgICAgICAgICAgZW1pdChpczY0
+ID8gcnZfc3JsKHJkLCByZCwgcnMpIDogcnZfc3JsdyhyZCwgcmQsIHJzKSwgY3R4KTsKPiA+ICsg
+ICAgICAgICAgICAgICBpZiAoIWlzNjQpCj4gPiArICAgICAgICAgICAgICAgICAgICAgICBlbWl0
+X3pleHRfMzIocmQsIGN0eCk7Cj4gPiAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gPiAgICAgICAg
+IGNhc2UgQlBGX0FMVSB8IEJQRl9BUlNIIHwgQlBGX1g6Cj4gPiAgICAgICAgIGNhc2UgQlBGX0FM
+VTY0IHwgQlBGX0FSU0ggfCBCUEZfWDoKPiA+ICAgICAgICAgICAgICAgICBlbWl0KGlzNjQgPyBy
+dl9zcmEocmQsIHJkLCBycykgOiBydl9zcmF3KHJkLCByZCwgcnMpLCBjdHgpOwo+ID4gKyAgICAg
+ICAgICAgICAgIGlmICghaXM2NCkKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGVtaXRfemV4
+dF8zMihyZCwgY3R4KTsKPiA+ICAgICAgICAgICAgICAgICBicmVhazsKPiA+Cj4gPiAgICAgICAg
+IC8qIGRzdCA9IC1kc3QgKi8KPiA+IEBAIC04MTAsNiArODIwLDggQEAgc3RhdGljIGludCBlbWl0
+X2luc24oY29uc3Qgc3RydWN0IGJwZl9pbnNuICppbnNuLCBzdHJ1Y3QgcnZfaml0X2NvbnRleHQg
+KmN0eCwKPiA+ICAgICAgICAgY2FzZSBCUEZfQUxVNjQgfCBCUEZfTkVHOgo+ID4gICAgICAgICAg
+ICAgICAgIGVtaXQoaXM2NCA/IHJ2X3N1YihyZCwgUlZfUkVHX1pFUk8sIHJkKSA6Cj4gPiAgICAg
+ICAgICAgICAgICAgICAgICBydl9zdWJ3KHJkLCBSVl9SRUdfWkVSTywgcmQpLCBjdHgpOwo+ID4g
+KyAgICAgICAgICAgICAgIGlmICghaXM2NCkKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGVt
+aXRfemV4dF8zMihyZCwgY3R4KTsKPiA+ICAgICAgICAgICAgICAgICBicmVhazsKPiA+Cj4gPiAg
+ICAgICAgIC8qIGRzdCA9IEJTV0FQIyNpbW0oZHN0KSAqLwo+ID4gQEAgLTk2NCwxNCArOTc2LDIw
+IEBAIHN0YXRpYyBpbnQgZW1pdF9pbnNuKGNvbnN0IHN0cnVjdCBicGZfaW5zbiAqaW5zbiwgc3Ry
+dWN0IHJ2X2ppdF9jb250ZXh0ICpjdHgsCj4gPiAgICAgICAgIGNhc2UgQlBGX0FMVSB8IEJQRl9M
+U0ggfCBCUEZfSzoKPiA+ICAgICAgICAgY2FzZSBCUEZfQUxVNjQgfCBCUEZfTFNIIHwgQlBGX0s6
+Cj4gPiAgICAgICAgICAgICAgICAgZW1pdChpczY0ID8gcnZfc2xsaShyZCwgcmQsIGltbSkgOiBy
+dl9zbGxpdyhyZCwgcmQsIGltbSksIGN0eCk7Cj4gPiArICAgICAgICAgICAgICAgaWYgKCFpczY0
+KQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgZW1pdF96ZXh0XzMyKHJkLCBjdHgpOwo+ID4g
+ICAgICAgICAgICAgICAgIGJyZWFrOwo+ID4gICAgICAgICBjYXNlIEJQRl9BTFUgfCBCUEZfUlNI
+IHwgQlBGX0s6Cj4gPiAgICAgICAgIGNhc2UgQlBGX0FMVTY0IHwgQlBGX1JTSCB8IEJQRl9LOgo+
+ID4gICAgICAgICAgICAgICAgIGVtaXQoaXM2NCA/IHJ2X3NybGkocmQsIHJkLCBpbW0pIDogcnZf
+c3JsaXcocmQsIHJkLCBpbW0pLCBjdHgpOwo+ID4gKyAgICAgICAgICAgICAgIGlmICghaXM2NCkK
+PiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGVtaXRfemV4dF8zMihyZCwgY3R4KTsKPiA+ICAg
+ICAgICAgICAgICAgICBicmVhazsKPiA+ICAgICAgICAgY2FzZSBCUEZfQUxVIHwgQlBGX0FSU0gg
+fCBCUEZfSzoKPiA+ICAgICAgICAgY2FzZSBCUEZfQUxVNjQgfCBCUEZfQVJTSCB8IEJQRl9LOgo+
+ID4gICAgICAgICAgICAgICAgIGVtaXQoaXM2NCA/IHJ2X3NyYWkocmQsIHJkLCBpbW0pIDogcnZf
+c3JhaXcocmQsIHJkLCBpbW0pLCBjdHgpOwo+ID4gKyAgICAgICAgICAgICAgIGlmICghaXM2NCkK
+PiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGVtaXRfemV4dF8zMihyZCwgY3R4KTsKPiA+ICAg
+ICAgICAgICAgICAgICBicmVhazsKPiA+Cj4gPiAgICAgICAgIC8qIEpVTVAgb2ZmICovCj4gPiAt
+LQo+ID4gMi4xOS4xCj4gPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
