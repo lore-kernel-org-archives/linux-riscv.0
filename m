@@ -1,91 +1,78 @@
-Return-Path: <SRS0=939U=UA=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=4F3x=UA=lists.infradead.org=mailman-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	T_DKIMWL_WL_HIGH,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.1 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,T_DKIMWL_WL_HIGH autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3ACDBC28CC1
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  1 Jun 2019 09:05:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 001C5C28CC1
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  1 Jun 2019 12:02:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0F7372253C
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  1 Jun 2019 09:05:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BF8DF205ED
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  1 Jun 2019 12:02:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hH+48uLI"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0F7372253C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
-Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IErwBTJL"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BF8DF205ED
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lists.infradead.org
+Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=mailman-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fKnPFlKV9ni1gXrqbIys/Lwum8qfOVQrgXNQOBioFHc=; b=hH+48uLIG2Az3E
-	AySzph42DFk7eBpLqkPm5nPecidDkZ7UeJv0PxbgBKQ+OtNG3RyoYoHKFjiFdIOEa2e9FNACM1g+a
-	Vywy77heByZaMHadjMld5D2Um+eOTKyXQvjKvbcpQAs5z/w3tG6xyqaknFK84km9gidwAgeqitB1A
-	uhdNsaAvtp92pcLVrg7YwzQv3btN3wGFctQNWjWC0qWAzq5VRFAvFz2d3VcYTQQpseI2+Nm3xjsWf
-	+YO626VM90ndcLK7dU8cntsyaRgGArzh75J5QdWS2/IcbWGKeuLFazvKbdIcjGC4mmLUe3TeC08wF
-	6FJ+s8IyFGQeemdDUssg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:List-Id:Date:Message-ID:
+	To:From:Subject:Content-Transfer-Encoding:Content-Type:MIME-Version:Reply-To:
+	Cc:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=5qYPsI9osmMH/1ze6ONthAUy/xCN0XF0AK3qPeWg2TI=; b=IErwBTJLmfgLjlAt8HTYaHl4ET
+	V8LNHtkIAJBXs9JNlbGNIKXzxjndYVczUI2YiQ9aOmJy5kamPzPhIbbLZyIYaBL1VEGxuQs9IQx54
+	lFDGHXRsCmngr0i7jaas5W+kl/YWAEnaGTFkuT0ytswd3JdLDEXI1L5pN3GPZCyEfcYqZoGNI5Ff+
+	M0d9zv3s2T1vcRWmleOTMq6ynliUbb251mHPoA1imjTC5E90j4A1rL+NsT+YYK0o6U7+Ls7dZUm6g
+	cjmisPHi8vPIJ5YOPvWUhb30WIBVsQHlI6bLMlcroIhcbcOgHjZgT4tWCBLMpqgd4FgQlbN4pSIUC
+	XhWNiLXw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hWzwt-0005Ar-T8; Sat, 01 Jun 2019 09:05:11 +0000
-Received: from verein.lst.de ([213.95.11.211] helo=newverein.lst.de)
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hWzwk-0003rJ-AV; Sat, 01 Jun 2019 09:05:03 +0000
-Received: by newverein.lst.de (Postfix, from userid 2407)
- id 5A06068AFE; Sat,  1 Jun 2019 11:04:37 +0200 (CEST)
-Date: Sat, 1 Jun 2019 11:04:37 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH v4 05/14] arm64, mm: Make randomization selected by
- generic topdown mmap layout
-Message-ID: <20190601090437.GF6453@lst.de>
-References: <20190526134746.9315-1-alex@ghiti.fr>
- <20190526134746.9315-6-alex@ghiti.fr>
+	id 1hX2iN-0006UI-96
+	for infradead-linux-riscv@archiver.kernel.org; Sat, 01 Jun 2019 12:02:23 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190526134746.9315-6-alex@ghiti.fr>
-User-Agent: Mutt/1.5.17 (2007-11-01)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190601_020502_519723_6B99924D 
-X-CRM114-Status: UNSURE (   6.06  )
-X-CRM114-Notice: Please train this message.
-X-BeenThere: linux-riscv@lists.infradead.org
-X-Mailman-Version: 2.1.21
-Precedence: list
-List-Id: <linux-riscv.lists.infradead.org>
-List-Unsubscribe: <http://lists.infradead.org/mailman/options/linux-riscv>,
- <mailto:linux-riscv-request@lists.infradead.org?subject=unsubscribe>
-List-Archive: <http://lists.infradead.org/pipermail/linux-riscv/>
-List-Post: <mailto:linux-riscv@lists.infradead.org>
-List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
-List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
- <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
- Will Deacon <will.deacon@arm.com>, Russell King <linux@armlinux.org.uk>,
- Ralf Baechle <ralf@linux-mips.org>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, Paul Burton <paul.burton@mips.com>,
- linux-riscv@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>,
- James Hogan <jhogan@kernel.org>, linux-fsdevel@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>, linux-mips@vger.kernel.org,
- Christoph Hellwig <hch@lst.de>, linux-arm-kernel@lists.infradead.org,
- Luis Chamberlain <mcgrof@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
+Subject: lists.infradead.org mailing list memberships reminder
+From: mailman-owner@lists.infradead.org
+To: infradead-linux-riscv@archiver.kernel.org
+X-No-Archive: yes
+Auto-Submitted: auto-generated
+Message-ID: <mailman.1644.1559390427.12697.mailman@lists.infradead.org>
+Date: Sat, 01 Jun 2019 05:00:27 -0700
+Precedence: bulk
+X-BeenThere: mailman@lists.infradead.org
+X-Mailman-Version: 2.1.21
+List-Id: <mailman.lists.infradead.org>
+X-List-Administrivia: yes
+Sender: "Mailman" <mailman-bounces@lists.infradead.org>
+Errors-To: mailman-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Looks good,
+This is a reminder, sent out once a month, about your
+lists.infradead.org mailing list memberships.  It includes your
+subscription info and how to use it to change it or unsubscribe from a
+list.
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+You can visit the URLs to change your membership status or
+configuration, including unsubscribing, setting digest-style delivery
+or disabling delivery altogether (e.g., for a vacation), and so on.
 
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+In addition to the URL interfaces, you can also use email to make such
+changes.  For more info, send a message to the '-request' address of
+the list (for example, mailman-request@lists.infradead.org) containing
+just the word 'help' in the message body, and an email message will be
+sent to you with instructions.
+
+If you have questions, problems, comments, etc, send them to
+mailman-owner@lists.infradead.org.  Thanks!
+
+Passwords for infradead-linux-riscv@archiver.kernel.org:
+
+List                                     Password // URL
+----                                     --------  
+linux-riscv@lists.infradead.org          xuowetub  
+http://lists.infradead.org/mailman/options/linux-riscv/infradead-linux-riscv%40archiver.kernel.org
