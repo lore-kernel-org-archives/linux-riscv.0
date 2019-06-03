@@ -2,70 +2,59 @@ Return-Path: <SRS0=uF1/=UC=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED,
+	USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9425DC04AB6
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2019 04:30:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DAD57C04AB6
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2019 04:43:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 67CDE27B6A
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2019 04:30:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B48E727B86
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2019 04:43:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="euzfT7Be";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=ti.com header.i=@ti.com header.b="hSrYsDPx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 67CDE27B6A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=ti.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dYwKrowt";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="WA9TJKkM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B48E727B86
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0wCaLtbMlDLstE4iGdbv/oX+GPAhy1fu9N42dZyaR78=; b=euzfT7BeyARHn+
-	PzzuSDWL2AdC9Q/wLk5N2aRSpcX8sEJqErx2FWT54bgC2tWOFe/GOIe0QhXq8M12MAo0QkiA7rZzQ
-	gi6VKpY7bIngZ49++RajHLNcxanM4aiJG6+C+KPQKThWGSUJ03dZ2LjB1MnYikMYn6P682K0CMgFH
-	DQuEbyRT6aNs2exXbANUw1AFIJ2N9QrT7J28vc5QX7EUspnUtUZUuk+sLLpOuL0P/Q5fXRbBwc0wG
-	BMK9aNufK7IYm0+CkHj3+x0Ciji23IJBDKjdM6aWKxBAJVORDIZmyV2NkwQvE4VH4GVzGCuHKYbR3
-	uINE8A8m64NC+zRUfPSQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ci/k8Pmyulmpb5lexqAYLsfjdYpakt6cFmAFbIhjESU=; b=dYwKrowtSAK42C
+	DBzSkBAfWbZio5XV9S3xTVV8YABQ40klXCKarxTzDTfSFBXFGzyNGB4xzNhsFFNXxr7H3PwyvwHea
+	1DUtkWda0OqZ94EAqnr0/F9M4s3vLs+/spnP3ZKWrorPSVdIIaAoN43eXWzO3svlsfciRoxKqrF6w
+	5i8k0qLRzhdgo+LqTJw1lTLQ92GWXncrMrtPKKAtCO9Ayk9hiiFvUuDXYM/fXzQY18C5SlCW2+0D4
+	xnfvvpA4slbtEeWCJx4rvEp5sts4v62dZhvW0Vt6K4vCQM29t6vB6jn+bzZiiYgMMN5UI68q8EQa7
+	a35N5O8D3/ap3bfA2pKw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hXeca-0001dW-AG; Mon, 03 Jun 2019 04:30:56 +0000
-Received: from lelv0143.ext.ti.com ([198.47.23.248])
+	id 1hXeoH-0007Uw-Gz; Mon, 03 Jun 2019 04:43:01 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hXecW-0001d8-U5
- for linux-riscv@lists.infradead.org; Mon, 03 Jun 2019 04:30:54 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
- by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id x534Ui9C000624;
- Sun, 2 Jun 2019 23:30:44 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
- s=ti-com-17Q1; t=1559536244;
- bh=XCE8FuOjQTKbDWChgZDrjUr4wBNlOAOjCpOOOpmJ1kI=;
- h=Subject:To:CC:References:From:Date:In-Reply-To;
- b=hSrYsDPxcBPlzQUWOH70qJoZY+D/Ts/UCjeQZs0pY2Kn3Wky8QWE1mbbJbe3sYYhY
- WM1/dCnPAWOoXR5rFVeETyx3U4C/DxQQb4y5NsR+8RhNdGPUGwt4mdhpm/Wsip3zVl
- wlWyTT9U2xd0YWIsJEZaIMlVRgwlJgT80fYxTlFg=
-Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
- by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id x534UitW072751
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
- Sun, 2 Jun 2019 23:30:44 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5; Sun, 2 Jun
- 2019 23:30:44 -0500
-Received: from lelv0326.itg.ti.com (10.180.67.84) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5 via
- Frontend Transport; Sun, 2 Jun 2019 23:30:44 -0500
-Received: from [172.24.190.233] (ileax41-snat.itg.ti.com [10.172.224.153])
- by lelv0326.itg.ti.com (8.15.2/8.15.2) with ESMTP id x534UbmT115561;
- Sun, 2 Jun 2019 23:30:40 -0500
+ id 1hXeoE-0007UG-Ld
+ for linux-riscv@lists.infradead.org; Mon, 03 Jun 2019 04:43:00 +0000
+Received: from localhost (unknown [106.51.109.249])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 9297427B7F;
+ Mon,  3 Jun 2019 04:42:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1559536977;
+ bh=b0KkH0Lj6BQEkhVygSpgJ3mJjqE4vfh/Xpt0AD6GEtE=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=WA9TJKkMLWxMsSGCBg+GIiPeAkLdPj9QPtUrqyFV53pUeJrwJFb1ZMwRBOM+2ZZPD
+ soo2kg7BO7pclLmv7aHqs95DvajdGpITbc761avkiZAqaLQEOHm3X5z+tG+P0vi/Rj
+ F0jqZWVzFFsLSpaYwDXwWsKnCEtflAKdlqscJcUw=
+Date: Mon, 3 Jun 2019 10:12:51 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Kishon Vijay Abraham I <kishon@ti.com>
 Subject: Re: [PATCH] PCI: endpoint: Add DMA to Linux PCI EP Framework
-To: Arnd Bergmann <arnd@arndb.de>, Vinod Koul <vkoul@kernel.org>
+Message-ID: <20190603044251.GS15118@vkoul-mobl>
 References: <1558650258-15050-1-git-send-email-alan.mikhak@sifive.com>
  <305100E33629484CBB767107E4246BBB0A6FAFFD@DE02WEMBXB.internal.synopsys.com>
  <CABEDWGxsQ9NXrN7W_8HVrXQBb9HiBd+d1dNfv+cXmoBpXQnLwA@mail.gmail.com>
@@ -75,19 +64,15 @@ References: <1558650258-15050-1-git-send-email-alan.mikhak@sifive.com>
  <20190531050727.GO15118@vkoul-mobl>
  <d2d8a904-d796-f9f2-8f4a-61e857355a4f@ti.com>
  <20190531063247.GP15118@vkoul-mobl>
- <CAK8P3a2jePe7Qfjciq4fdfngAudzCb-cai4fr3_BG_evnbjhvw@mail.gmail.com>
-From: Kishon Vijay Abraham I <kishon@ti.com>
-Message-ID: <b5d5aa64-710b-3fcc-4197-2a2114266385@ti.com>
-Date: Mon, 3 Jun 2019 09:59:16 +0530
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.6.1
+ <400a7c28-39b1-f242-7810-a1d38aa51446@ti.com>
 MIME-Version: 1.0
-In-Reply-To: <CAK8P3a2jePe7Qfjciq4fdfngAudzCb-cai4fr3_BG_evnbjhvw@mail.gmail.com>
-Content-Language: en-US
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+Content-Disposition: inline
+In-Reply-To: <400a7c28-39b1-f242-7810-a1d38aa51446@ti.com>
+User-Agent: Mutt/1.11.3 (2019-02-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190602_213053_052249_C1E9BCCC 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20190602_214258_964486_C3FE4765 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -100,15 +85,16 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: "lorenzo.pieralisi@arm.com" <lorenzo.pieralisi@arm.com>,
- "jingoohan1@gmail.com" <jingoohan1@gmail.com>,
- Gustavo Pimentel <Gustavo.Pimentel@synopsys.com>,
- "palmer@sifive.com" <palmer@sifive.com>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Alan Mikhak <alan.mikhak@sifive.com>, "kjlu@umn.edu" <kjlu@umn.edu>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "arnd@arndb.de" <arnd@arndb.de>,
  "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ Gustavo Pimentel <Gustavo.Pimentel@synopsys.com>,
+ "palmer@sifive.com" <palmer@sifive.com>, "kjlu@umn.edu" <kjlu@umn.edu>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  "bhelgaas@google.com" <bhelgaas@google.com>,
+ Alan Mikhak <alan.mikhak@sifive.com>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "jingoohan1@gmail.com" <jingoohan1@gmail.com>,
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
  "wen.yang99@zte.com.cn" <wen.yang99@zte.com.cn>
 Content-Type: text/plain; charset="us-ascii"
@@ -116,57 +102,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Kishon,
 
-On 31/05/19 1:19 PM, Arnd Bergmann wrote:
-> On Fri, May 31, 2019 at 8:32 AM Vinod Koul <vkoul@kernel.org> wrote:
->> On 31-05-19, 10:50, Kishon Vijay Abraham I wrote:
->>> On 31/05/19 10:37 AM, Vinod Koul wrote:
->>>> On 30-05-19, 11:16, Kishon Vijay Abraham I wrote:
->>>>>
->>>>> right, my initial thought process was to use only dmaengine APIs in
->>>>> pci-epf-test so that the system DMA or DMA within the PCIe controller can be
->>>>> used transparently. But can we register DMA within the PCIe controller to the
->>>>> DMA subsystem? AFAIK only system DMA should register with the DMA subsystem.
->>>>> (ADMA in SDHCI doesn't use dmaengine). Vinod Koul can confirm.
->>>>
->>>> So would this DMA be dedicated for PCI and all PCI devices on the bus?
->>>
->>> Yes, this DMA will be used only by PCI ($patch is w.r.t PCIe device mode. So
->>> all endpoint functions both physical and virtual functions will use the DMA in
->>> the controller).
->>>> If so I do not see a reason why this cannot be using dmaengine. The use
->>>
->>> Thanks for clarifying. I was under the impression any DMA within a peripheral
->>> controller shouldn't use DMAengine.
->>
->> That is indeed a correct assumption. The dmaengine helps in cases where
->> we have a dma controller with multiple users, for a single user case it
->> might be overhead to setup dma driver and then use it thru framework.
->>
->> Someone needs to see the benefit and cost of using the framework and
->> decide.
-> 
-> I think the main question is about how generalized we want this to be.
-> There are lots of difference PCIe endpoint implementations, and in
-> case of some licensable IP cores like the designware PCIe there are
-> many variants, as each SoC will do the implementation in a slightly
-> different way.
-> 
-> If we can have a single endpoint driver than can either have an
-> integrated DMA engine or use an external one, then abstracting that
-> DMA engine helps make the driver work more readily either way.
-> 
-> Similarly, there may be PCIe endpoint implementations that have
-> a dedicated DMA engine in them that is not usable for anything else,
-> but that is closely related to an IP core we already have a dmaengine
-> driver for. In this case, we can avoid duplication.
+On 03-06-19, 09:54, Kishon Vijay Abraham I wrote:
 
-right. Either way it makes more sense to register DMA embedded within the PCIe
-endpoint controller instead of creating epc_ops for DMA transfers.
+> right. For the endpoint case, drivers/pci/controller should register with the
+> dmaengine i.e if the controller has aN embedded DMA (I think it should be okay
+> to keep that in drivers/pci/controller itself instead of drivers/dma) and
+> drivers/pci/endpoint/functions/ should use dmaengine API's (Depending on the
+> platform, this will either use system DMA or DMA within the PCI controller).
+
+Typically I would prefer the driver to be part of drivers/dma.
+Would this be a standalone driver or part of the endpoint driver. In
+former case we can move to dmaengine for latter i guess it makes sense
+to stay in PCI
 
 Thanks
-Kishon
+-- 
+~Vinod
 
 _______________________________________________
 linux-riscv mailing list
