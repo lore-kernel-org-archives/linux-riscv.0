@@ -6,86 +6,73 @@ X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
 	T_DKIMWL_WL_HIGH,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1C57DC04AB6
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2019 04:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 92931C04AB6
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2019 07:06:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E6B4F27B86
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2019 04:43:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6895A27C81
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Jun 2019 07:06:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XBWusq7h";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=ti.com header.i=@ti.com header.b="Q5IjgtTZ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E6B4F27B86
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=ti.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CR4tVhBL";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="lEVG3x8r"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6895A27C81
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=19AFUBEtfVPVZo2o1tgs94OXjgnZM1GxD3VElwxGxxM=; b=XBWusq7h0tPSrr
-	gLHIru/eF/0KewnGCASWUQC/J27RkBx5DHwQrwkpP5E/VY1Fo20jVSd//yltn3WdyorE6XSA2Ce6L
-	PK/Y3nNAu/NoebWuT6DpFMwwzapnRgCHNgnSRFDwSzgWEywCCgdRSpZSseBUmoCZuJb2Hefc7U3z0
-	vUoG6zLCj8dJmnMQTyJ2xmqk4HLFeDlVnHfMAFxFsiTZUZhOfboVyaWFir7P8TP6cEZGVs9uAgJRb
-	gc3keGfjNdMSXsbdeDIlYRkTs35+QaAJUALRZOFXhFppkZ296d1WZRyfxGW5DP9BEOmuVHvUKr4Wi
-	VWNf/q/dq1uaohRYvcfA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=wLLPBWkEUykElIRiV9Liaq8S9fhJdNRtlIdIWu+3WjQ=; b=CR4tVhBLA5aUTQvY0vDa7uWt1
+	fU5Yd2B2HD3DuVQkMzopyUBmvreMONVRC3rsSLQOZ7ThB2HWaQOaUKi4rlT3zAbvtrM/wMnQlvQjw
+	LdRUvqo6g7zWMDxnUOs6VrtKH72As1xaBBdEjHaHBN8cek/QApeULY9qhxp+tZjogkZca4MB6pHSf
+	ybsJqpr8ldBfURcJCJjTIvP7Rvnd8J7ObvsNiZmJdZa5jNw3bhLyNAX4IMKbKZ2yaXCvOjEX0DZzA
+	8zVJDNNlQPhWBG8wW5V3ogzpOLF9mgpRG81zA6uSYZq3A4+2Zh5HxX1DKW28uydOsHrlySoJWLqFI
+	Fl8aB0MFw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hXeoS-0007Y6-4O; Mon, 03 Jun 2019 04:43:12 +0000
-Received: from fllv0016.ext.ti.com ([198.47.19.142])
+	id 1hXh3A-000285-W4; Mon, 03 Jun 2019 07:06:33 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hXeoO-0007Xg-MX
- for linux-riscv@lists.infradead.org; Mon, 03 Jun 2019 04:43:10 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
- by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id x534gx0F005516;
- Sun, 2 Jun 2019 23:42:59 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
- s=ti-com-17Q1; t=1559536979;
- bh=E6ITgZk0gwJFpfDrJUzPTP4EDvNlXXfx7GbfX+azVjw=;
- h=Subject:To:CC:References:From:Date:In-Reply-To;
- b=Q5IjgtTZHJ9+BFGFPUp/lGEvpViC6Do8mMW+H48V7eZRMSWupqb4grUfi50StiZ2q
- Pq86FLnhSP2MAskU9bWaige72r9Ms9C25mZq0v6oM5e6y79n6ug1c0SMhYvIFHYsvm
- 6C6N8/tDLSOxBetxl0/Y+bDR6IsDE+UbjkWrEJk4=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
- by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id x534gxZZ089193
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
- Sun, 2 Jun 2019 23:42:59 -0500
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5; Sun, 2 Jun
- 2019 23:42:57 -0500
-Received: from fllv0039.itg.ti.com (10.64.41.19) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5 via
- Frontend Transport; Sun, 2 Jun 2019 23:42:57 -0500
-Received: from [172.24.190.233] (ileax41-snat.itg.ti.com [10.172.224.153])
- by fllv0039.itg.ti.com (8.15.2/8.15.2) with ESMTP id x534gqMU050684;
- Sun, 2 Jun 2019 23:42:53 -0500
-Subject: Re: [PATCH] PCI: endpoint: Add DMA to Linux PCI EP Framework
-To: Alan Mikhak <alan.mikhak@sifive.com>
-References: <1558650258-15050-1-git-send-email-alan.mikhak@sifive.com>
- <305100E33629484CBB767107E4246BBB0A6FAFFD@DE02WEMBXB.internal.synopsys.com>
- <CABEDWGxsQ9NXrN7W_8HVrXQBb9HiBd+d1dNfv+cXmoBpXQnLwA@mail.gmail.com>
- <305100E33629484CBB767107E4246BBB0A6FC308@DE02WEMBXB.internal.synopsys.com>
- <CABEDWGxL-WYz1BY7yXJ6eKULgVtKeo67XhgHZjvtm5Ka5foKiA@mail.gmail.com>
- <192e3a19-8b69-dfaf-aa5c-45c7087548cc@ti.com>
- <CABEDWGxLeD-K8PjkD5hPSTFGJKs2hxEaAVO+nE5eC9Nx2yw=ig@mail.gmail.com>
- <75d578c2-a98c-d1ef-1633-6dc5dc3b0913@ti.com>
- <CABEDWGxBxmiKjoPUSUaUBXUhKkUTXVX0U9ooRou8tcWJojb52g@mail.gmail.com>
-From: Kishon Vijay Abraham I <kishon@ti.com>
-Message-ID: <6e692ff6-e64f-e651-c8ae-34d0034ad7b9@ti.com>
-Date: Mon, 3 Jun 2019 10:11:31 +0530
+ id 1hXh34-00021s-QV; Mon, 03 Jun 2019 07:06:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+ In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
+ :Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=EM7o9Os3M5DtwAMRoFNvFu9547v4JOKUzUUCVl9kaHk=; b=lEVG3x8rhxiF/K2swBFp1EPbx5
+ jw4kFyeq9zinEh74knEhWhaqX9CUNFSTz084t0YhlyedztEYtTgwbsqdsQgLJhByWLxQF/BeKXl8F
+ Jv8o4uuDK9IpFh4ZVLwmhDPtandIo3zkPXuASquUs8V9QpjKESCtlOtGoFMU32u8Xh8nSXI232USv
+ fPcZfS60VwYdyVpAtzs/4UQzKWthZOX/++R3JZB1UOU6bBbe9K9OjgLcNSLP7KM1UNjJHdTUb3dq9
+ af5avJdCnuI35cen1ZvbO+0cbISLnn5LBSpyv9Iv/9oMXZuVo/DYlrwwvrDQ6S6kNoU/lCQB3e37m
+ srEgAcNQ==;
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hXh30-0004dN-HS; Mon, 03 Jun 2019 07:06:24 +0000
+X-Originating-IP: 81.250.144.103
+Received: from [10.30.1.20] (lneuilly-657-1-5-103.w81-250.abo.wanadoo.fr
+ [81.250.144.103]) (Authenticated sender: alex@ghiti.fr)
+ by relay5-d.mail.gandi.net (Postfix) with ESMTPSA id 4D6CA1C0002;
+ Mon,  3 Jun 2019 07:05:37 +0000 (UTC)
+Subject: Re: [PATCH v4 05/14] arm64, mm: Make randomization selected by
+ generic topdown mmap layout
+To: Christoph Hellwig <hch@lst.de>
+References: <20190526134746.9315-1-alex@ghiti.fr>
+ <20190526134746.9315-6-alex@ghiti.fr> <20190601090437.GF6453@lst.de>
+From: Alexandre Ghiti <alex@ghiti.fr>
+Message-ID: <211c4d0b-ec11-c94e-8a7f-9564e7905f50@ghiti.fr>
+Date: Mon, 3 Jun 2019 09:05:37 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
  Thunderbird/60.6.1
 MIME-Version: 1.0
-In-Reply-To: <CABEDWGxBxmiKjoPUSUaUBXUhKkUTXVX0U9ooRou8tcWJojb52g@mail.gmail.com>
-Content-Language: en-US
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+In-Reply-To: <20190601090437.GF6453@lst.de>
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190602_214308_814522_D5CCD4B2 
-X-CRM114-Status: GOOD (  22.85  )
+X-CRM114-CacheID: sfid-20190603_080622_647887_3000A82F 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -97,107 +84,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "lorenzo.pieralisi@arm.com" <lorenzo.pieralisi@arm.com>,
- "arnd@arndb.de" <arnd@arndb.de>, "jingoohan1@gmail.com" <jingoohan1@gmail.com>,
- Gustavo Pimentel <Gustavo.Pimentel@synopsys.com>,
- "palmer@sifive.com" <palmer@sifive.com>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Vinod Koul <vkoul@kernel.org>, "kjlu@umn.edu" <kjlu@umn.edu>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "wen.yang99@zte.com.cn" <wen.yang99@zte.com.cn>
-Content-Type: text/plain; charset="us-ascii"
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>, Russell King <linux@armlinux.org.uk>,
+ Ralf Baechle <ralf@linux-mips.org>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, Paul Burton <paul.burton@mips.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, James Hogan <jhogan@kernel.org>,
+ linux-fsdevel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-mips@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, Luis Chamberlain <mcgrof@kernel.org>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alan,
+On 6/1/19 11:04 AM, Christoph Hellwig wrote:
+> Looks good,
+>
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
 
-On 31/05/19 11:46 PM, Alan Mikhak wrote:
-> On Thu, May 30, 2019 at 10:08 PM Kishon Vijay Abraham I <kishon@ti.com> wrote:
->> Hi Alan,
->>>
->>> Hi Kishon,
->>>
->>> I have some improvements in mind for a v2 patch in response to
->>> feedback from Gustavo Pimentel that the current implementation is HW
->>> specific. I hesitate from submitting a v2 patch because it seems best
->>> to seek comment on possible directions this may be taking.
->>>
->>> One alternative is to wait for or modify test functions in
->>> pci-epf-test.c to call DMAengine client APIs, if possible. I imagine
->>> pci-epf-test.c test functions would still allocate the necessary local
->>> buffer on the endpoint side for the same canned tests for everyone to
->>> use. They would prepare the buffer in the existing manner by filling
->>> it with random bytes and calculate CRC in the case of a write test.
->>> However, they would then initiate DMA operations by using DMAengine
->>> client APIs in a generic way instead of calling memcpy_toio() and
->>> memcpy_fromio(). They would post-process the buffer in the existing
->>
->> No, you can't remove memcpy_toio/memcpy_fromio APIs. There could be platforms
->> without system DMA or they could have system DMA but without MEMCOPY channels
->> or without DMA in their PCI controller.
-> 
-> I agree. I wouldn't remove memcpy_toio/fromio. That is the reason this
-> patch introduces the '-d' flag for pcitest to communicate that user
-> intent across the PCIe bus to pci-epf-test so the endpoint can
-> initiate the transfer using either memcpy_toio/fromio or DMA.
-> 
->>> manner such as the checking for CRC in the case of a read test.
->>> Finally, they would release the resources and report results back to
->>> the user of pcitest across the PCIe bus through the existing methods.
->>>
->>> Another alternative I have in mind for v2 is to change the struct
->>> pci_epc_dma that this patch added to pci-epc.h from the following:
->>>
->>> struct pci_epc_dma {
->>>         u32     control;
->>>         u32     size;
->>>         u64     sar;
->>>         u64     dar;
->>> };
->>>
->>> to something similar to the following:
->>>
->>> struct pci_epc_dma {
->>>         size_t  size;
->>>         void *buffer;
->>>         int flags;
->>> };
->>>
->>> The 'flags' field can be a bit field or separate boolean values to
->>> specify such things as linked-list mode vs single-block, etc.
->>> Associated #defines would be removed from pci-epc.h to be replaced if
->>> needed with something generic. The 'size' field specifies the size of
->>> DMA transfer that can fit in the buffer.
->>
->> I still have to look closer into your DMA patch but linked-list mode or single
->> block mode shouldn't be an user select-able option but should be determined by
->> the size of transfer.
-> 
-> Please consider the following when taking a closer look at this patch.
 
-After seeing comments from Vinod and Arnd, it looks like the better way of
-adding DMA support would be to register DMA within PCI endpoint controller to
-DMA subsystem (as dmaengine) and use only dmaengine APIs in pci_epf_test.
-> 
-> In my specific use case, I need to verify that any valid block size,
-> including a one byte transfer, can be transferred across the PCIe bus
-> by memcpy_toio/fromio() or by DMA either as a single block or as
-> linked-list. That is why, instead of deciding based on transfer size,
-> this patch introduces the '-L' flag for pcitest to communicate the
-> user intent across the PCIe bus to pci-epf-test so the endpoint can
-> initiate the DMA transfer using a single block or in linked-list mode.
-The -L option seems to select an internal DMA configuration which might be
-specific to one implementation. As Gustavo already pointed, we should have only
-generic options in pcitest. This would no longer be applicable when we move to
-dmaengine.
+Thanks for your time,
 
-Thanks
-Kishon
+Alex
+
+
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
