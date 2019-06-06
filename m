@@ -2,21 +2,21 @@ Return-Path: <SRS0=k/lI=UF=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS,T_DKIMWL_WL_HIGH,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	T_DKIMWL_WL_HIGH,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0A388C04AB5
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  6 Jun 2019 08:57:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C158C04AB5
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  6 Jun 2019 09:05:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D2CEE20866
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  6 Jun 2019 08:57:18 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7072B206E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  6 Jun 2019 09:05:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TykYrQGW"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D2CEE20866
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="F+op90HA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7072B206E0
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,26 +25,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g2LCKNFcFywGFjzZOQOTXAmUAjqnc65Nhv8SDIAnjqg=; b=TykYrQGWGspuTY
-	JEkSIb6l4upUl2CTcsre4d7AKx4/CpywBhyjDsrFndCiRRcZpbvnjUQ70iWgW8tUBVwCgzQIb3Y9h
-	wiZx8LnoH1QQiryHcd/c/7lSUcl3Z6bvW7kb5lWQuA9/ccgkUnH2g3RGz2/v/35eK+ylUZIREQvTu
-	xLhMU/fUkRkmGesP0xU9/x+ajkuMBzT5+KOTrSVBzCtdvwzr499J4yJKnGwtmfDoIaIBLxIJjLDLx
-	Am6ghGDvuxwP9kDC55GciyhiL9EVgbB02tcfZoZq9lHlX0h32kNmbB0QEDAprvhBD3THUHA+C0FPd
-	46OwoUq5K4N1nhgWIMcg==;
+	List-Owner; bh=SH3yB/pe6kp1FU9LqNUBa+RfjOeSLofn8uu8GFHraWQ=; b=F+op90HAtFRqav
+	vNMapYTF28Vm0+y1Z3+VXKTr4xKApZE3wOXAFLntikBxldkJTNf7HRJbAQnNv8/6K/8HlVdNlzFLa
+	yWJ/cVYowfFTt2Uio3co1yKHhJ314zWjk6SRdIu0VRJbnk/5m4rO7iAb9gAo+e+oppBj9eK+kB/Hj
+	0CDftpAh7uIXdEaYphw53EZjPxPfmMDxt3mcC9AzhueCEKjwklMve5blQt0bFvbUTZqVuQfxebX7Z
+	LxMT09H5gIi0Pzw631/5NP4PD7e+jUx9yJ5m/1ZsH7LBVw9ZLLwmh7WZcHr0t0JtkZosGzS30oyaU
+	s7o8NIZ5Cj2Pn5WoFe1A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hYoCv-0000pJ-86; Thu, 06 Jun 2019 08:57:13 +0000
+	id 1hYoKv-0005ca-Dw; Thu, 06 Jun 2019 09:05:29 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.90_1 #2 (Red
- Hat Linux)) id 1hYoCj-0000XC-QQ; Thu, 06 Jun 2019 08:57:01 +0000
-Date: Thu, 6 Jun 2019 01:57:01 -0700
+ Hat Linux)) id 1hYoKk-0005KD-CZ; Thu, 06 Jun 2019 09:05:18 +0000
+Date: Thu, 6 Jun 2019 02:05:18 -0700
 From: Christoph Hellwig <hch@infradead.org>
-To: Kevin Hilman <khilman@baylibre.com>
-Subject: Re: [PATCH] RISC-V: defconfig: enable clocks, serial console
-Message-ID: <20190606085701.GA1369@infradead.org>
-References: <20190605175042.13719-1-khilman@baylibre.com>
+To: Palmer Dabbelt <palmer@sifive.com>
+Subject: Re: [PATCH] RISC-V: Break load reservations during switch_to
+Message-ID: <20190606090518.GB1369@infradead.org>
+References: <20190605231735.26581-1-palmer@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190605175042.13719-1-khilman@baylibre.com>
+In-Reply-To: <20190605231735.26581-1-palmer@sifive.com>
 User-Agent: Mutt/1.9.2 (2017-12-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -57,23 +57,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@wdc.com>, linux-riscv@lists.infradead.org,
- Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Loys Ollivier <lollivier@baylibre.com>
+Cc: me@carlosedp.com, linux-kernel@vger.kernel.org, joel@sing.id.au,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ marco@decred.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 05, 2019 at 10:50:42AM -0700, Kevin Hilman wrote:
-> Enable PRCI clock driver and serial console by default, so the default
-> upstream defconfig is bootable to a serial console.
-> 
-> Signed-off-by: Kevin Hilman <khilman@baylibre.com>
+On Wed, Jun 05, 2019 at 04:17:35PM -0700, Palmer Dabbelt wrote:
+>  	REG_S ra,  TASK_THREAD_RA_RA(a3)
+> +	/*
+> +	 * The Linux ABI allows programs to depend on load reservations being
+> +	 * broken on context switches, but the ISA doesn't require that the
+> +	 * hardware ever breaks a load reservation.  The only way to break a
+> +	 * load reservation is with a store conditional, so we emit one here.
+> +	 * Since nothing ever takes a load reservation on TASK_THREAD_RA_RA we
+> +	 * know this will always fail, but just to be on the safe side this
+> +	 * writes the same value that was unconditionally written by the
+> +	 * previous instruction.
+> +	 */
+> +#if (TASK_THREAD_RA_RA != 0)
 
-Looks good:
+I don't think this check works as intended.  TASK_THREAD_RA_RA is a
+parameterized macro, thus the above would never evaluate to 0. The
+error message also is rather odd while we're at it.
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+> +#if (__riscv_xlen == 64)
+> +	sc.d  x0, ra, 0(a3)
+> +#else
+> +	sc.w  x0, ra, 0(a3)
+> +#endif
+
+I'd rather add an macro ala REG_S to asm.h and distinguish between the
+xlen variants there:
+
+#define REG_SC		__REG_SEL(sc.d, sc.w)
 
 _______________________________________________
 linux-riscv mailing list
