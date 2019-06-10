@@ -2,48 +2,50 @@ Return-Path: <SRS0=mVFr=UJ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.8 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
 	SPF_HELO_NONE,SPF_PASS,T_DKIMWL_WL_HIGH,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 15EB0C43218
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2019 22:16:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EC1FCC4321B
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2019 22:16:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E276E2089E
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2019 22:16:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C43FF208E3
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2019 22:16:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="alqGs7TW"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E276E2089E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KgU0+QKQ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C43FF208E3
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=g7j5GQFcm3W6fBpOMZWvGMKmXjgKtIb5NJbcMmmdnoc=; b=alqGs7TWWz+CWZ
-	VZ72BjrindOq8hStTgFyLKikVsSfLYon8nXW7j8XqZ5Z0hG63T2MyYkmi+Nx8pWUwjOXGj6GV+21t
-	sZNpX/Gu4ZTwNZ2W89wNHWJeHJMkoROGJbaxvVGkHrW44KhcwMWfeQsxz/C6dJxAV4/UmyME0yMEA
-	Pv4Dx/dzLClnS3sDTsGuS99Q9R6o90yJUt7ZilJKUuPcC/0DYXoRZOzYpV0BIaQWCdAXZM4XbX+n9
-	t/PypJXFtLwcnE3OOUG7VWgA9inUstZZX1HpoZDPWLljgHaAZtN1DLM1hajQQILrsOIxhLZlc3XF5
-	dXpSxsxsAk44RvJMj+zA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dQ4pTM6Ujk9CE4ZQrzGUfNt17wwoQQS0vIf48PgFTXM=; b=KgU0+QKQPUDShB
+	/X7w1Z+gQCozOhpdj8XyvtrS3m35kKGgVe/uviBB3HmKCuE3tynPP/gNAQO/sCZx+0uSLNjyDuWDi
+	VSx0FQbJ4RrpFDERp+Ywx8c/zty2QKukX3QPqZozs4oSwQU5jyBbJaiROsdIJcffu8IvO+PLFbMMh
+	bYFcHNktz9b2L7+nilSFE0CbC3qqo+eKsnCT6e0M8ZXCK0X9GOETJZUHGqWI8H9bvnlqdBOsv3LVj
+	ba6ZvmE67OpobDCZvxag+kDiNTgh5vzPPrnFC7SpD+vlHS6vFVKFwlsiNtaCZLhDGOgxgNJq+OiJR
+	/azvbcSi0WAXXzy//HWQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1haSaY-0002kf-0P; Mon, 10 Jun 2019 22:16:26 +0000
+	id 1haSaZ-0002me-UD; Mon, 10 Jun 2019 22:16:28 +0000
 Received: from 089144193064.atnat0002.highway.a1.net ([89.144.193.64]
  helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
- id 1haSaV-0002kS-NG; Mon, 10 Jun 2019 22:16:24 +0000
+ id 1haSaY-0002kY-B7; Mon, 10 Jun 2019 22:16:26 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Palmer Dabbelt <palmer@sifive.com>
-Subject: RISC-V nommu support
-Date: Tue, 11 Jun 2019 00:16:04 +0200
-Message-Id: <20190610221621.10938-1-hch@lst.de>
+Subject: [PATCH 01/17] mm: provide a print_vma_addr stub for !CONFIG_MMU
+Date: Tue, 11 Jun 2019 00:16:05 +0200
+Message-Id: <20190610221621.10938-2-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20190610221621.10938-1-hch@lst.de>
+References: <20190610221621.10938-1-hch@lst.de>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -64,34 +66,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Signed-off-by: Christoph Hellwig <hch@lst.de>
+---
+ include/linux/mm.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-below is a series to support nommu mode on RISC-V.  For now this series
-just works under qemu with the qemu-virt platform, but Damien has also
-been able to get kernel based on this tree with additional driver hacks
-to work on the Kendryte KD210, but that will take a while to cleanup
-an upstream.
-
-To be useful this series also require the RISC-V binfmt_flat support,
-which I've sent out separately.
-
-A branch that includes this series and the binfmt_flat support is
-available here:
-
-    git://git.infradead.org/users/hch/riscv.git riscv-nommu
-
-Gitweb:
-
-    http://git.infradead.org/users/hch/riscv.git/shortlog/refs/heads/riscv-nommu
-
-I've also pushed out a builtroot branch that can build a RISC-V nommu
-root filesystem here:
-
-   git://git.infradead.org/users/hch/buildroot.git riscv-nommu
-
-Gitweb:
-
-   http://git.infradead.org/users/hch/buildroot.git/shortlog/refs/heads/riscv-nommu
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index dd0b5f4e1e45..69843ee0c5f8 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -2756,7 +2756,13 @@ extern int randomize_va_space;
+ #endif
+ 
+ const char * arch_vma_name(struct vm_area_struct *vma);
++#ifdef CONFIG_MMU
+ void print_vma_addr(char *prefix, unsigned long rip);
++#else
++static inline void print_vma_addr(char *prefix, unsigned long rip)
++{
++}
++#endif
+ 
+ void *sparse_buffer_alloc(unsigned long size);
+ struct page *sparse_mem_map_populate(unsigned long pnum, int nid,
+-- 
+2.20.1
 
 
 _______________________________________________
