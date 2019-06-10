@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	SPF_HELO_NONE,SPF_PASS,T_DKIMWL_WL_HIGH,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 50CA6C43218
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2019 22:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A3343C43218
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2019 22:17:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2573F21726
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2019 22:17:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 74FDE2145D
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2019 22:17:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UgYKU7N1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2573F21726
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AbitxFAh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 74FDE2145D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,24 +25,25 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GYDX2f/KzWpM75Us5pTPD1fgjOSLhQ2z1QRrMjyGito=; b=UgYKU7N1LhL4fy
-	30tl6DoxF7LhZvF4jhbW4tQIFFcDOtcl4S8rZ2r46V8tXpgY0zk6S3QvLTFJAi8t4somhX5593X4X
-	jeqzVx61AGi42i0XAId0NA5emEIBa2oVoz02tc4jNOIuyMV1iGMGLHMqxfOyu7BebSlsXm/HaFgyK
-	EvlM3eZjUkAP2MDxHQ81Jbse0VwgmwyMN5C70drzeJfDNBYTF/ylaXhZa/THiVQ/l4jN6INOqbGcr
-	myWy1u6VqVmgCJefmkHEPgy5d1zk4U3WwK+FUzS7Zqs0VZTpTOAU2ERQJ/8NsYK7L0r+rHHtuaXu3
-	roeoFZIJOFt4T7KFAn0Q==;
+	List-Owner; bh=4id4LU9YglPJkpEc4mOZ+DvwxHOndqJjNWNwNcLxd9s=; b=AbitxFAhDX6GeQ
+	okXFXZQYOQFbOju2HScHQt/CDYKPLcbUI83zvXwZAi/b8OQ3lU3T1TXlc8ClkvOKfasnX9Dy8pzA2
+	IgJi5bnQntYAScNDP2/3IZdBLqZybAve7W6yAijhy92f1AHsUWKCyKm6lu8/RoxsMTaGNweLipX07
+	gELiLTK8q9jf9ZMoe7sMQxwnZTQZycFsAZ+2xgheosAyc4h8LQfJ1N9uRRzb20kmJ/CRzSQqsaVGc
+	/QtlHcXs5QGPg4I4ueYJCC1+ddTJ/uT5pGBCdsvlfxslZ4/8jPXg7AAlv4eVrPf60KTn5CoXPgPFs
+	A602MwahGVZUpiRyW2eg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1haSbE-0003z1-4O; Mon, 10 Jun 2019 22:17:08 +0000
+	id 1haSbG-00041i-B3; Mon, 10 Jun 2019 22:17:10 +0000
 Received: from 089144193064.atnat0002.highway.a1.net ([89.144.193.64]
  helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
- id 1haSb7-0003jm-Gv; Mon, 10 Jun 2019 22:17:01 +0000
+ id 1haSbA-0003og-6Y; Mon, 10 Jun 2019 22:17:04 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Palmer Dabbelt <palmer@sifive.com>
-Subject: [PATCH 14/17] riscv: poison SBI calls for M-mode
-Date: Tue, 11 Jun 2019 00:16:18 +0200
-Message-Id: <20190610221621.10938-15-hch@lst.de>
+Subject: [PATCH 15/17] riscv: don't allow selecting SBI-based drivers for
+ M-mode
+Date: Tue, 11 Jun 2019 00:16:19 +0200
+Message-Id: <20190610221621.10938-16-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190610221621.10938-1-hch@lst.de>
 References: <20190610221621.10938-1-hch@lst.de>
@@ -66,33 +67,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is no SBI when we run in M-mode, so fail the compile for any code
-trying to use SBI calls.
+From: Damien Le Moal <damien.lemoal@wdc.com>
 
+Do not allow selecting SBI related options with MMU option not set.
+
+Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/riscv/include/asm/sbi.h | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/tty/hvc/Kconfig    | 2 +-
+ drivers/tty/serial/Kconfig | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 21134b3ef404..1e17f07eadaf 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -8,6 +8,7 @@
+diff --git a/drivers/tty/hvc/Kconfig b/drivers/tty/hvc/Kconfig
+index 4d22b911111f..5a1ab6b536ff 100644
+--- a/drivers/tty/hvc/Kconfig
++++ b/drivers/tty/hvc/Kconfig
+@@ -89,7 +89,7 @@ config HVC_DCC
  
- #include <linux/types.h>
+ config HVC_RISCV_SBI
+ 	bool "RISC-V SBI console support"
+-	depends on RISCV
++	depends on RISCV && !M_MODE
+ 	select HVC_DRIVER
+ 	help
+ 	  This enables support for console output via RISC-V SBI calls, which
+diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
+index 0d31251e04cc..59dba9f9e466 100644
+--- a/drivers/tty/serial/Kconfig
++++ b/drivers/tty/serial/Kconfig
+@@ -88,7 +88,7 @@ config SERIAL_EARLYCON_ARM_SEMIHOST
  
-+#ifndef CONFIG_M_MODE
- #define SBI_SET_TIMER 0
- #define SBI_CONSOLE_PUTCHAR 1
- #define SBI_CONSOLE_GETCHAR 2
-@@ -94,4 +95,5 @@ static inline void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
- 	SBI_CALL_4(SBI_REMOTE_SFENCE_VMA_ASID, hart_mask, start, size, asid);
- }
- 
--#endif
-+#endif /* CONFIG_M_MODE */
-+#endif /* _ASM_RISCV_SBI_H */
+ config SERIAL_EARLYCON_RISCV_SBI
+ 	bool "Early console using RISC-V SBI"
+-	depends on RISCV
++	depends on RISCV && !M_MODE
+ 	select SERIAL_CORE
+ 	select SERIAL_CORE_CONSOLE
+ 	select SERIAL_EARLYCON
 -- 
 2.20.1
 
