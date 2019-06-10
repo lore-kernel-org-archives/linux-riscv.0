@@ -1,52 +1,101 @@
-Return-Path: <SRS0=M4Bm=UI=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=mVFr=UJ=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
 	T_DKIMWL_WL_HIGH autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A8921C468BE
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  9 Jun 2019 12:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E685C31E40
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2019 15:55:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 81ED62146E
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  9 Jun 2019 12:29:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D72B2208E3
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Jun 2019 15:55:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ErqWco7z"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 81ED62146E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lt0zI8/7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D72B2208E3
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=de.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:In-Reply-To:MIME-Version:
+	References:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uBReffpFbUbOvmLpSh4dG+8xiV9JbDoOsYRaAl6Mw2E=; b=ErqWco7zz7FTn9
-	dOYL/iZnp8Wed7wQycfjkSDsRMp7twdK2dgeOMo/M0PVpeOeKbYa9yjMSaJIZh2c/HtPfZE11AKvU
-	6aG9XfjlDkvcR8CIp3U6QF8dxvhlmKMe1hWL4U1jnFISM9ZXGULTF7GkPYxz972wfk4JRxM8onoPR
-	2kaRGXacW0iyX/sn/8k7mvW4pNWzbcJfS52+gJjLRb0WUfMtM1gSdz633VLlLgJRbQ4ADU5DkKmYr
-	Qo9FkSVrsNRgSfxuqWU77hC9vQRAT9gWwCbvzz+7zw0QXDdymoyoF05fW+HTwIXAqvKk7kYlYPVnl
-	Lro6+l4JxeFguGQWSvag==;
+	List-Owner; bh=LhU4jR1CI5SOZPu1Y2O6SzZkY4UTRQHsLwSAyKYkKcU=; b=lt0zI8/70gQ93F
+	5NFbgfFShoAx3RrsmDjJY/wLhn0YDolVQyH9rP91GMGeNgcfBfr81102tBVXSAhYIFtrRY5pc+wUz
+	o7BjYrc4QztVzbEdkphe6YEXUN+uyVY0jBnL383cKQjIIr0B2l9Pi85sTOkeoU/rzJh9F9Es79ycg
+	XXZRFZT/sIjj5YFgq6zxcTeykMW8hY8GgllODAtXkww2gVPNzKO/di/MLt1nQf+AF7OzgEOjVrLYc
+	EYJii7FsbgxmY82rbgqko9jqTfWwfaUxIjXuf8Y3VwaHC+RTk0zaLst0B+BR9noxMzVeStxpwYkZ0
+	buycRK1Ap4R78epnbEiA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hZwxL-0002kJ-MW; Sun, 09 Jun 2019 12:29:51 +0000
-Received: from 179.176.115.133.dynamic.adsl.gvt.net.br ([179.176.115.133]
- helo=recife.lan)
- by bombadil.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
- id 1hZwxI-0002Wx-RD; Sun, 09 Jun 2019 12:29:49 +0000
-Date: Sun, 9 Jun 2019 09:29:40 -0300
-From: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
-To: Heiko Carstens <heiko.carstens@de.ibm.com>
+	id 1haMeA-0005E9-HQ; Mon, 10 Jun 2019 15:55:46 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
+ by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
+ id 1haMe7-0005CV-Q4
+ for linux-riscv@lists.infradead.org; Mon, 10 Jun 2019 15:55:45 +0000
+Received: from pps.filterd (m0098414.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
+ x5AFldQw145762
+ for <linux-riscv@lists.infradead.org>; Mon, 10 Jun 2019 11:55:41 -0400
+Received: from e06smtp02.uk.ibm.com (e06smtp02.uk.ibm.com [195.75.94.98])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 2t1rd0dt2f-1
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <linux-riscv@lists.infradead.org>; Mon, 10 Jun 2019 11:55:41 -0400
+Received: from localhost
+ by e06smtp02.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
+ Violators will be prosecuted
+ for <linux-riscv@lists.infradead.org> from <heiko.carstens@de.ibm.com>;
+ Mon, 10 Jun 2019 16:55:39 +0100
+Received: from b06cxnps3075.portsmouth.uk.ibm.com (9.149.109.195)
+ by e06smtp02.uk.ibm.com (192.168.101.132) with IBM ESMTP SMTP Gateway:
+ Authorized Use Only! Violators will be prosecuted; 
+ (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
+ Mon, 10 Jun 2019 16:55:34 +0100
+Received: from d06av26.portsmouth.uk.ibm.com (d06av26.portsmouth.uk.ibm.com
+ [9.149.105.62])
+ by b06cxnps3075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ x5AFtXs559965666
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Mon, 10 Jun 2019 15:55:33 GMT
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id CE8A1AE051;
+ Mon, 10 Jun 2019 15:55:33 +0000 (GMT)
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 34469AE055;
+ Mon, 10 Jun 2019 15:55:33 +0000 (GMT)
+Received: from osiris (unknown [9.145.162.214])
+ by d06av26.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+ Mon, 10 Jun 2019 15:55:33 +0000 (GMT)
+Date: Mon, 10 Jun 2019 17:55:31 +0200
+From: Heiko Carstens <heiko.carstens@de.ibm.com>
+To: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
 Subject: Re: [PATCH v3 00/33] Convert files to ReST - part 1
-Message-ID: <20190609092940.5e34e3b0@recife.lan>
-In-Reply-To: <20190609091642.GA3705@osiris>
 References: <cover.1560045490.git.mchehab+samsung@kernel.org>
- <20190609091642.GA3705@osiris>
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+ <20190609091642.GA3705@osiris> <20190609092940.5e34e3b0@recife.lan>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20190609092940.5e34e3b0@recife.lan>
+X-TM-AS-GCONF: 00
+x-cbid: 19061015-0008-0000-0000-000002F1FB8D
+X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
+x-cbparentid: 19061015-0009-0000-0000-0000225EF2D2
+Message-Id: <20190610155531.GC4031@osiris>
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
+ definitions=2019-06-10_07:, , signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501
+ malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
+ mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1810050000 definitions=main-1906100108
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20190610_085543_978946_3BFCB63B 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,9 +112,8 @@ Cc: Song Liu <songliubraving@fb.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Jonathan Corbet <corbet@lwn.net>, netdev@vger.kernel.org,
  Palmer Dabbelt <palmer@sifive.com>,
  Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-kernel@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>,
- Greentime Hu <green.hu@gmail.com>,
- Mauro Carvalho Chehab <mchehab+samsung@kernel.org>, Yonghong Song <yhs@fb.com>,
+ Alexei Starovoitov <ast@kernel.org>, linux-kernel@vger.kernel.org,
+ Greentime Hu <green.hu@gmail.com>, Yonghong Song <yhs@fb.com>,
  linux-riscv@lists.infradead.org, Vincent Chen <deanbo422@gmail.com>,
  Martin KaFai Lau <kafai@fb.com>
 Content-Type: text/plain; charset="us-ascii"
@@ -73,79 +121,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Em Sun, 9 Jun 2019 11:16:43 +0200
-Heiko Carstens <heiko.carstens@de.ibm.com> escreveu:
-
-> On Sat, Jun 08, 2019 at 11:26:50PM -0300, Mauro Carvalho Chehab wrote:
-> > This is the first part of a series I wrote sometime ago where I manually
-> > convert lots of files to be properly parsed by Sphinx as ReST files.
-> > 
-> > As it touches on lot of stuff, this series is based on today's docs-next
-> > + linux-next, at tag next-20190607.
-> > 
-> > I have right now about 85 patches with this undergoing work. That's
-> > because I opted to do ~1 patch per converted directory.
-> > 
-> > That sounds too much to be send on a single round. So, I'm opting to split
-> > it on 3 parts. Those patches should probably be good to be merged
-> > either by subsystem maintainers or via the docs tree.
-> > 
-> > I opted to mark new files not included yet to the main index.rst (directly or
-> > indirectly ) with the :orphan: tag, in order to avoid adding warnings to the
-> > build system. This should be removed after we find a "home" for all
-> > the converted files within the new document tree arrangement.
-> > 
-> > Both this series and  the next parts are on my devel git tree,
-> > at:
-> > 
-> > 	https://git.linuxtv.org/mchehab/experimental.git/log/?h=convert_rst_renames_v4
-> > 
-> > The final output in html (after all patches I currently have, including 
-> > the upcoming series) can be seen at:
-> > 
-> > 	https://www.infradead.org/~mchehab/rst_conversion/  
+On Sun, Jun 09, 2019 at 09:29:40AM -0300, Mauro Carvalho Chehab wrote:
+> Em Sun, 9 Jun 2019 11:16:43 +0200
+> > Will there be a web page (e.g. kernel.org), which contains always the
+> > latest upstream version?
 > 
-> Will there be a web page (e.g. kernel.org), which contains always the
-> latest upstream version?
-
-Yes:
-
-	https://www.kernel.org/doc/html/latest/
-
-I guess this one is based on Linus tree.
-
-Jon also maintains a version at:
-
-	https://static.lwn.net/kerneldoc/
-
-I guess that one is based on docs-next branch from the Docs tree.
-
-Btw, if you want to build it for yourself, you could use:
-
-	make htmldocs
-
-If your system doesn't have all dependencies, it will give the
-hints about how to install them.
-
+> Yes:
 > 
-> >   docs: Debugging390.txt: convert table to ascii artwork
-> >   docs: s390: convert docs to ReST and rename to *.rst
-> >   s390: include/asm/debug.h add kerneldoc markups  
+> 	https://www.kernel.org/doc/html/latest/
 > 
-> I can pick these up for s390. Or do you want to send the whole series
-> in one go upstream?
+> I guess this one is based on Linus tree.
+> 
+> Jon also maintains a version at:
+> 
+> 	https://static.lwn.net/kerneldoc/
+> 
+> I guess that one is based on docs-next branch from the Docs tree.
+> 
+> Btw, if you want to build it for yourself, you could use:
+> 
+> 	make htmldocs
 
-Yeah, feel free to pick them via the s390 tree.
+Thanks a lot!
 
-Regards,
-Mauro
+> > I can pick these up for s390. Or do you want to send the whole series
+> > in one go upstream?
+> 
+> Yeah, feel free to pick them via the s390 tree.
 
-Thanks,
-Mauro
+Ok, applied! :)
 
-
-Thanks,
-Mauro
 
 _______________________________________________
 linux-riscv mailing list
