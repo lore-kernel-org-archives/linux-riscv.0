@@ -2,20 +2,21 @@ Return-Path: <SRS0=CXC0=UK=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	T_DKIMWL_WL_HIGH autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,T_DKIMWL_WL_HIGH autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DE8C5C43218
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2019 08:15:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1FEE5C4321A
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2019 08:17:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A5E3A20652
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2019 08:15:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E442E20652
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 11 Jun 2019 08:17:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eVFTcjYh"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A5E3A20652
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Z6D7kbBB"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E442E20652
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,38 +25,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5Q2k5TtkTBGBLuGRhf6umLMojUuXermG9ULxhPgGh+8=; b=eVFTcjYhuhHiap
-	TMZNr+tRzrpq1uxT3ext5fjqf73ltC+0dQfFVFLWOAN3Qe3XBAAcHSrrTjCTZJIJTJomfe1G7vvwh
-	lgj7ftXYETVA1BxmZa542iieTUTcx7TVnscx2osKUhIvQdFpm6YXKWpAK97ogYKeo3zwhLKSC5yVb
-	vh9Khf2ldBUxUu62rA2KxW8AAllOwxAA+UBGN55hkV5bp+7XMRQQ/AKbexLAsHeP3V0jiyZ9sNMS6
-	U1kvsTFkcWyF9RtmB9FsyoZ7wVOiDZPD2ThFZZGaM99ud8KJU0DchaiUIQXyjsg7R3FSfp8W06f15
-	yZWJTXuCrd7yPXxFENHw==;
+	List-Owner; bh=oZxc51uwUD2/8gKLvJpivxnRiItS/XC0PmGm5+Gw/6M=; b=Z6D7kbBB93izBW
+	1W+LhOQiVCX+CvOgQO1tFdnB93ZvuOhEiEqI9GXTOo8IbbpQ/CNiMWx6i29wJtNeM6s8Q5kTMqHZQ
+	88QWuqTRtDBCxX7i1cTrEcCmRtZ8Cx9QXIw58agULnKW0BPDXvlJwlOKIrVDer1pfl4ynEHSx14b8
+	jeVxeI9/KqoZoBEuYY8YbbGp8jHikRWmz76UMKzHFogk/T0XFxmaNPjxGUGkxWgzpcifuCHrdm9I5
+	W4hyHV+l/pHaCQycDADgz6RbO6A8gLeFX6u0l7Sjpd7bDxVftXTiF5r0cZsdo+lVC40m7ed2fgDA8
+	6CMLMGpvkb79ZDe0r2uQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1habvu-0004q7-7n; Tue, 11 Jun 2019 08:15:06 +0000
+	id 1habxp-0006uC-2H; Tue, 11 Jun 2019 08:17:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
  by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
- id 1habvZ-0004YL-Fm; Tue, 11 Jun 2019 08:14:47 +0000
+ id 1habxY-0006hq-4P; Tue, 11 Jun 2019 08:16:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EFB9337;
- Tue, 11 Jun 2019 01:05:49 -0700 (PDT)
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4372B337;
+ Tue, 11 Jun 2019 01:16:47 -0700 (PDT)
 Received: from [10.1.29.141] (e121487-lin.cambridge.arm.com [10.1.29.141])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 357373F73C;
- Tue, 11 Jun 2019 01:05:47 -0700 (PDT)
-Subject: Re: binfmt_flat cleanups and RISC-V support
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE1693F73C;
+ Tue, 11 Jun 2019 01:16:44 -0700 (PDT)
+Subject: Re: [PATCH 15/15] riscv: add binfmt_flat support
 To: Christoph Hellwig <hch@lst.de>, Greg Ungerer <gerg@linux-m68k.org>
 References: <20190610212015.9157-1-hch@lst.de>
+ <20190610212015.9157-16-hch@lst.de>
 From: Vladimir Murzin <vladimir.murzin@arm.com>
-Message-ID: <4f000219-4baf-b03e-9003-26482640d3de@arm.com>
-Date: Tue, 11 Jun 2019 09:05:45 +0100
+Message-ID: <d8d81820-8f0d-d5d0-fa3d-3376ddcc5358@arm.com>
+Date: Tue, 11 Jun 2019 09:16:43 +0100
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
  Thunderbird/60.7.0
 MIME-Version: 1.0
-In-Reply-To: <20190610212015.9157-1-hch@lst.de>
+In-Reply-To: <20190610212015.9157-16-hch@lst.de>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190611_011445_581511_AA4C56B6 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20190611_011648_216181_2BF50C68 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,28 +79,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Christoph,
-
 On 6/10/19 10:20 PM, Christoph Hellwig wrote:
-> Hi Greg,
-> 
-> below is a larger stash of cleanups for the binfmt_misc code,
-> preparing for the last patch that now trivially adds RISC-V
-> support, which will be used for the RISC-V nommu series I am
-> about to post.
+> Use the generic support with arguments are on the stack.  Same as arm
+> and m68k.
 
+Out of curiosity, what is reason for keeping arguments on the stack?
 
-I'm wondering if you have a branch with these changes so I can give
-it a try on ARM NOMMU platforms?
+ARM port of uClibc has following comment around manipulating of argv/argc:
 
-Cheers
+        /*
+         * uClinux/arm stacks look a little different from normal
+         * MMU-full Linux/arm stacks (for no good reason)
+         */
+
+So I though it is kind of legacy.
+
+Thanks
 Vladimir
 
 > 
-> _______________________________________________
-> linux-arm-kernel mailing list
-> linux-arm-kernel@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> ---
+>  arch/riscv/Kconfig            | 2 ++
+>  arch/riscv/include/asm/Kbuild | 1 +
+>  2 files changed, 3 insertions(+)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 0c4b12205632..2e3b60cdeef4 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -17,7 +17,9 @@ config RISCV
+>  	select OF
+>  	select OF_EARLY_FLATTREE
+>  	select OF_IRQ
+> +	select ARCH_HAS_BINFMT_FLAT
+>  	select ARCH_WANT_FRAME_POINTERS
+> +	select BINFMT_FLAT_ARGVP_ENVP_ON_STACK
+>  	select CLONE_BACKWARDS
+>  	select COMMON_CLK
+>  	select GENERIC_CLOCKEVENTS
+> diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+> index 5ee646619cc3..1efaeddf1e4b 100644
+> --- a/arch/riscv/include/asm/Kbuild
+> +++ b/arch/riscv/include/asm/Kbuild
+> @@ -5,6 +5,7 @@ generic-y += compat.h
+>  generic-y += device.h
+>  generic-y += div64.h
+>  generic-y += extable.h
+> +generic-y += flat.h
+>  generic-y += dma.h
+>  generic-y += dma-contiguous.h
+>  generic-y += dma-mapping.h
 > 
 
 
