@@ -4,19 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-8.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AA12AC31E45
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2019 07:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 278B4C31E45
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2019 07:13:20 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7305C2084D
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2019 07:13:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F297F2084D
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2019 07:13:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XzO+v/Lq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7305C2084D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="E2OQk/iG"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F297F2084D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,24 +25,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KM0kky1VELRzyiZNG7Lkhe2Yx1+VpGHkHwz6C63bSPQ=; b=XzO+v/LqUNDJjt
-	Hv8wj9dsIDf6g2gQW/fATlOoMRQVrGBcj6beHFcx9TdMU01gqD2loPSGp3QQUZOe+eBkwmJj2p6LY
-	x6nCex4TUt1e+u5HpLBpKcfia6O8NqLIA5nBJbbJqk8ciywcEr3thsfPsxGcln0WSsLkmPCwze0Vq
-	wsP5JBeE9NwBGOHBuEsUuN4oKzJWcZHe9FBrMwfMJ0oZFDfgleU+Zc5stlruZmJIQMzGnaJr3DHvj
-	2S1jMehR0xGoogOR/u10Vm51fEIF6Af/Zwde3dYMhw48Y5+cGXxnbq193HY1lwMlT0n5p3pt3di0/
-	WqoW7g3R0LFDn2O487EA==;
+	List-Owner; bh=bvCAJ3v2t+1+L+fNub2leLbpj7pUO/h3qEvOwZjPsPU=; b=E2OQk/iGSe1+XJ
+	xhiR1E7aO87+NX4Vc5HjMzX3okkD9dnDqKzKKlNU37K6bQUuEOfsD8QIw6i9mRpYk591hV+grarrC
+	us/h3954oC7QEBNG9yR1Nbrh4pB3m/ARdmkfb17dFqOtrq02JRYSCnbHEOOYfv+wvHPcUptPm3LXb
+	cdugiSEQL53rPdMxSJ7JXpFFFKdew/c3QUuaECb8Y9V0XEQRSHYkNmBMxPcMi1U2Jp3rNIBPatEyA
+	KHW4lU7F6w7jIxjbK8KSJUwSY3jct23qBSMf5dANM8OkJVDQxGXFy5QrgZdyBz2gZUf/R+QZ3LEaV
+	hJfwZEcy66yJic7ql1fQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hbJur-00084j-Ij; Thu, 13 Jun 2019 07:12:57 +0000
+	id 1hbJvC-0008NS-7G; Thu, 13 Jun 2019 07:13:18 +0000
 Received: from mpp-cp1-natpool-1-013.ethz.ch ([82.130.71.13] helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
- id 1hbJrV-0004H5-1L; Thu, 13 Jun 2019 07:09:29 +0000
+ id 1hbJrY-0004IX-0J; Thu, 13 Jun 2019 07:09:34 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Greg Ungerer <gerg@linux-m68k.org>
-Subject: [PATCH 07/17] binfmt_flat: remove the unused OLD_FLAT_FLAG_RAM
- definition
-Date: Thu, 13 Jun 2019 09:08:53 +0200
-Message-Id: <20190613070903.17214-8-hch@lst.de>
+Subject: [PATCH 08/17] binfmt_flat: consolidate two version of flat_v2_reloc_t
+Date: Thu, 13 Jun 2019 09:08:54 +0200
+Message-Id: <20190613070903.17214-9-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190613070903.17214-1-hch@lst.de>
 References: <20190613070903.17214-1-hch@lst.de>
@@ -68,28 +67,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Two branches of the ifdef maze actually have the same content, so merge
+them.
+
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- include/linux/flat.h | 3 ---
- 1 file changed, 3 deletions(-)
+ include/linux/flat.h | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/include/linux/flat.h b/include/linux/flat.h
-index 21d901ba191b..2b7cda6e9c1b 100644
+index 2b7cda6e9c1b..19c586b74b99 100644
 --- a/include/linux/flat.h
 +++ b/include/linux/flat.h
-@@ -72,15 +72,12 @@ typedef union {
- # if defined(mc68000) && !defined(CONFIG_COLDFIRE)
+@@ -69,15 +69,13 @@ struct flat_hdr {
+ typedef union {
+ 	unsigned long	value;
+ 	struct {
+-# if defined(mc68000) && !defined(CONFIG_COLDFIRE)
++#if defined(__LITTLE_ENDIAN_BITFIELD) || \
++    (defined(mc68000) && !defined(CONFIG_COLDFIRE))
  		signed long offset : 30;
  		unsigned long type : 2;
--#   	define OLD_FLAT_FLAG_RAM    0x1 /* load program entirely into RAM */
  # elif defined(__BIG_ENDIAN_BITFIELD)
  		unsigned long type : 2;
  		signed long offset : 30;
--#   	define OLD_FLAT_FLAG_RAM    0x1 /* load program entirely into RAM */
- # elif defined(__LITTLE_ENDIAN_BITFIELD)
- 		signed long offset : 30;
- 		unsigned long type : 2;
--#   	define OLD_FLAT_FLAG_RAM    0x1 /* load program entirely into RAM */
+-# elif defined(__LITTLE_ENDIAN_BITFIELD)
+-		signed long offset : 30;
+-		unsigned long type : 2;
  # else
  #   	error "Unknown bitfield order for flat files."
  # endif
