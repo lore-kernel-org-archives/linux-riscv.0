@@ -2,21 +2,21 @@ Return-Path: <SRS0=HRsY=UM=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D4DAC31E45
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2019 07:16:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 582F6C31E45
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2019 07:16:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D96922084D
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2019 07:16:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2F4662084D
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 13 Jun 2019 07:16:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ikYlCN5e"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D96922084D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gk1CzfF1"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2F4662084D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,24 +25,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gk1EgXfyOeRy6QsEUd6frRCP7XOcvAU61CM9GalqeJY=; b=ikYlCN5eM3DnJe
-	g2vMfi7KZNFbvbK7AwcLZHt5EhO1TGE9/77GZYIy+Xcyv5T1vFily4l0io11UxOWr0UyTSVjXdsoe
-	oQCAm8MutG7+tvIwjROQR3OR1b6uxHK286RUbKHgvIucbUksIPDzKUQaJVZLq4Xu19afHMUR542SO
-	CUxWJXaJzEKjOqJLt83ohkTBdgav4CPR26Y7RWAtls4yOH78ou4TCYy4J3zjiRqW4kK/7Eiw8UKQO
-	2mlxP1Oubk7SQeyXJgUbGSB3KobKogGKEKnuqIgdiXgxiExykvgO+PHO0ApaAD3fCR06h00euc8TV
-	SgIR5IZ9kMmXqhlNUI6A==;
+	List-Owner; bh=A5H3Ri43RuI4kIbKYZ4Prmog7JmPWw5qMJANIW8uRwk=; b=gk1CzfF12ugTvC
+	lDPpRyIRp72Wue/80SDYQpHevEq/7dqmbVLvm9bFF8cH1t1y9L4RuNqIxd1x6rCRPm9wFdDhiqRHS
+	PtSCGiPryPOJEfKKKfCIsGzyHMJ0hKNhnZqnPIOiFnmfwpyVbeir0AKfcVol/TGmHrNaVky+iM5Wx
+	LBnE1G+Kpyr3YLlYRICwC1tmjcpvdpTsNSLwZ1GYGDZr6VOmkL3IFYBieD9pZK07gOS+O8HhdvvRa
+	xwRwtPy1kncyKbin0fSTUOmKza/6UY7rYsOLbyQxJLwLF3ecv7nAM6LQ7EsYuS3zWQSw7dwdFzZcE
+	XKkr2OhTDJyb8URaLo2g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hbJy5-0003eK-Ju; Thu, 13 Jun 2019 07:16:17 +0000
+	id 1hbJyU-0003z2-In; Thu, 13 Jun 2019 07:16:42 +0000
 Received: from mpp-cp1-natpool-1-013.ethz.ch ([82.130.71.13] helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
- id 1hbJrv-0004VL-4D; Thu, 13 Jun 2019 07:09:55 +0000
+ id 1hbJry-0004XS-49; Thu, 13 Jun 2019 07:09:58 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Greg Ungerer <gerg@linux-m68k.org>
-Subject: [PATCH 15/17] binfmt_flat: move the MAX_SHARED_LIBS definition to
- binfmt_flat.c
-Date: Thu, 13 Jun 2019 09:09:01 +0200
-Message-Id: <20190613070903.17214-16-hch@lst.de>
+Subject: [PATCH 16/17] binfmt_flat: don't offset the data start
+Date: Thu, 13 Jun 2019 09:09:02 +0200
+Message-Id: <20190613070903.17214-17-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190613070903.17214-1-hch@lst.de>
 References: <20190613070903.17214-1-hch@lst.de>
@@ -68,49 +67,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-MAX_SHARED_LIBS is an implementation detail of the kernel loader,
-and should be kept away from the file format definition.
+Ever since the initial commit of the binfmt_flat shared library
+support back in the bitkeeper days we've offset the actual in-memory
+.data start by one field per possible shared library, or 1 in case
+shared library support isn't enabled.  I can't find anything in the
+loader that actually makes use of it, nor was it present before
+shared library support it.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- fs/binfmt_flat.c     | 6 ++++++
- include/linux/flat.h | 6 ------
- 2 files changed, 6 insertions(+), 6 deletions(-)
+ fs/binfmt_flat.c | 20 ++++++++------------
+ 1 file changed, 8 insertions(+), 12 deletions(-)
 
 diff --git a/fs/binfmt_flat.c b/fs/binfmt_flat.c
-index 0ca65d51bb01..ccd9843e979e 100644
+index ccd9843e979e..80d902fb46e3 100644
 --- a/fs/binfmt_flat.c
 +++ b/fs/binfmt_flat.c
-@@ -68,6 +68,12 @@
- #define RELOC_FAILED 0xff00ff01		/* Relocation incorrect somewhere */
- #define UNLOADED_LIB 0x7ff000ff		/* Placeholder for unused library */
+@@ -573,7 +573,7 @@ static int load_flat_file(struct linux_binprm *bprm,
+ 			goto err;
+ 		}
  
-+#ifdef CONFIG_BINFMT_SHARED_FLAT
-+#define	MAX_SHARED_LIBS			(4)
-+#else
-+#define	MAX_SHARED_LIBS			(1)
-+#endif
-+
- struct lib_info {
- 	struct {
- 		unsigned long start_code;		/* Start of text segment */
-diff --git a/include/linux/flat.h b/include/linux/flat.h
-index d586bb6e64a7..83977c0ce3de 100644
---- a/include/linux/flat.h
-+++ b/include/linux/flat.h
-@@ -12,12 +12,6 @@
+-		len = data_len + extra + MAX_SHARED_LIBS * sizeof(unsigned long);
++		len = data_len + extra;
+ 		len = PAGE_ALIGN(len);
+ 		realdatastart = vm_mmap(NULL, 0, len,
+ 			PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE, 0);
+@@ -587,9 +587,7 @@ static int load_flat_file(struct linux_binprm *bprm,
+ 			vm_munmap(textpos, text_len);
+ 			goto err;
+ 		}
+-		datapos = ALIGN(realdatastart +
+-				MAX_SHARED_LIBS * sizeof(unsigned long),
+-				FLAT_DATA_ALIGN);
++		datapos = ALIGN(realdatastart, FLAT_DATA_ALIGN);
  
- #define	FLAT_VERSION			0x00000004L
+ 		pr_debug("Allocated data+bss+stack (%u bytes): %lx\n",
+ 			 data_len + bss_len + stack_len, datapos);
+@@ -619,7 +617,7 @@ static int load_flat_file(struct linux_binprm *bprm,
+ 		memp_size = len;
+ 	} else {
  
--#ifdef CONFIG_BINFMT_SHARED_FLAT
--#define	MAX_SHARED_LIBS			(4)
--#else
--#define	MAX_SHARED_LIBS			(1)
--#endif
--
- /*
-  * To make everything easier to port and manage cross platform
-  * development,  all fields are in network byte order.
+-		len = text_len + data_len + extra + MAX_SHARED_LIBS * sizeof(u32);
++		len = text_len + data_len + extra;
+ 		len = PAGE_ALIGN(len);
+ 		textpos = vm_mmap(NULL, 0, len,
+ 			PROT_READ | PROT_EXEC | PROT_WRITE, MAP_PRIVATE, 0);
+@@ -634,9 +632,7 @@ static int load_flat_file(struct linux_binprm *bprm,
+ 		}
+ 
+ 		realdatastart = textpos + ntohl(hdr->data_start);
+-		datapos = ALIGN(realdatastart +
+-				MAX_SHARED_LIBS * sizeof(u32),
+-				FLAT_DATA_ALIGN);
++		datapos = ALIGN(realdatastart, FLAT_DATA_ALIGN);
+ 
+ 		reloc = (__be32 __user *)
+ 			(datapos + (ntohl(hdr->reloc_start) - text_len));
+@@ -653,8 +649,9 @@ static int load_flat_file(struct linux_binprm *bprm,
+ 					 (text_len + full_data
+ 						  - sizeof(struct flat_hdr)),
+ 					 0);
+-			memmove((void *) datapos, (void *) realdatastart,
+-					full_data);
++			if (datapos != realdatastart)
++				memmove((void *)datapos, (void *)realdatastart,
++						full_data);
+ #else
+ 			/*
+ 			 * This is used on MMU systems mainly for testing.
+@@ -710,8 +707,7 @@ static int load_flat_file(struct linux_binprm *bprm,
+ 		if (IS_ERR_VALUE(result)) {
+ 			ret = result;
+ 			pr_err("Unable to read code+data+bss, errno %d\n", ret);
+-			vm_munmap(textpos, text_len + data_len + extra +
+-				MAX_SHARED_LIBS * sizeof(u32));
++			vm_munmap(textpos, text_len + data_len + extra);
+ 			goto err;
+ 		}
+ 	}
 -- 
 2.20.1
 
