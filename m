@@ -2,93 +2,62 @@ Return-Path: <SRS0=/FlE=UN=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_MUTT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B4492C31E44
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 14 Jun 2019 08:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CBB63C31E44
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 14 Jun 2019 09:49:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8936121473
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 14 Jun 2019 08:35:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A1C8821721
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 14 Jun 2019 09:49:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Tpaon10U";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=cogentembedded-com.20150623.gappssmtp.com header.i=@cogentembedded-com.20150623.gappssmtp.com header.b="pKRcA/99"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8936121473
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=cogentembedded.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jiy514QL"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A1C8821721
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=4nTN3QLbcEoSp/eSrmgpuEOCwij+kF3DDkAy1Jg75I4=; b=Tpaon10UI4L3qTLz+OmdN45KX
-	/D1UC74kPzqC0vdZaLP5EFCKizm4qJe7oGRy8eZn6KUg68MtJp/mzYq3Ot5kOv/HSozOOscCmwxfB
-	nKmkX4yGAJFVedw/Ebg4Ic1clPZ4w2/9ota4BFOCEvxWJqKkVlOxV8xwSdSt/NtP4+0oBcGQJ/z+0
-	XcXr6O0Q0QKSEhc/Iwo+HWG01HPrQIfod3hiyUcQBhXgtb6KlyMU/m8coa84F/z6t1dEK2FeV4K8l
-	vyH0xxl77KK5gWE8plOs1MOriB6ZMTWaMbv5xD1bmWoBxsT8jDVT+wOveeacGfPsLS9GJNH86XkHT
-	Vmyy+gQIg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3IjbT6sBkm7pmQAZ9jpSvwR/bze08coNofW2PoGTrsQ=; b=jiy514QLc9RVfU
+	picATwXtZF8mReneAIDM8W7d8Ja4p9FVvlBjWhf4nhaWzcx0yUqXrMz7cxoB9uANaTSCExmaYZ03W
+	rN43jOMEezc96q+OrR72thUD516030+rhmbfMiSI1BnrokpXzPQT9m8x3Bcly6rWEfksHwQegIKN4
+	6xrCwlZcfdVz6bPEB5LvuSSfEo75QqTqjhOq953o70Fbc21wO7FC37WM5mW1rh/dUKbJ8b3tT72C5
+	3nWcfOEcPe4fif1rNoTDg2qWZNruKgAY0rp9K8okekhuDI17HYNi5zZvQRC8jq/R+jj8k0q/dvKHi
+	tXmWzWNjprBgwg/kNE4A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hbhge-0008PG-Ev; Fri, 14 Jun 2019 08:35:52 +0000
-Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
+	id 1hbipm-0006om-QJ; Fri, 14 Jun 2019 09:49:22 +0000
+Received: from verein.lst.de ([213.95.11.211] helo=newverein.lst.de)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hbhgN-0008D9-GH
- for linux-riscv@lists.infradead.org; Fri, 14 Jun 2019 08:35:36 +0000
-Received: by mail-lf1-x142.google.com with SMTP id p24so1137632lfo.6
- for <linux-riscv@lists.infradead.org>; Fri, 14 Jun 2019 01:35:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cogentembedded-com.20150623.gappssmtp.com; s=20150623;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=pWi+5Am3aiah73yNoWhssqvYmNUO+DbKo0cUh/HhkqE=;
- b=pKRcA/99Kn1RlfqkHCYqITsKL7wcnLiDSjciQMsaMhyKPrztKtivTtE5j6rxb/p5mm
- m9XTZ4uAkazuHYYFeuR92f/e88xXmS32is65BsB2JBkW6wS0oiYDvfo+Y+c0cXfPJF/B
- r9FM/Df0Rb/33FclCysY54h+m5sSqYcwvaqnXP3YyIlemTEuVl+7OaUdilcQbnk6A4lR
- LU/f5FEfNUuL9DGNwp2Pg+v0B0BOXwVZpQ9RSJLtV4VVl5VMRs/3ApUkL6ieZSnrQ3Vv
- EABPOWr8yihT8hyr5T9ABQSv57oEbueA1tmjA49U0HVBi7OZAojYps6AEv+Nny2MR4oJ
- sJ/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=pWi+5Am3aiah73yNoWhssqvYmNUO+DbKo0cUh/HhkqE=;
- b=U+r6ZaBqJNDR6mNjvEYu65RthkluSYCBcg/XlUfA3GuqYUUJv754WBgyW1i76e4ecz
- PLOBt8uQ7ptaD/gjNcUyQtVGmCZUF5E2FNPbOcLyCjiz1Jjhr2VJ9+qTehETvKA7LvzW
- yjas1jO8nPnVVXT6tPVgXG0ta2QIn8H/i1cVxP7I8Vw/Ylus9PHYBUgAS+8GCJ6VEazA
- UNkaz3kOHjEQkCgjf6fzcS0/M8E8ar6v9A01kei1qHxSnTPQsxlBjyoI3nx1jQ1E9YkV
- goEp0+0PRpOi/jO0/OpG5wHYHsKTfrW9gGhhUM/ECPJ8JowkJeXq60hSTet0hkxvlsj3
- 3mHw==
-X-Gm-Message-State: APjAAAULATWRJUKIGR1NZ80JhEYal35M8Ng5A+HFCaKawqWNIp4BIzAp
- 9yRxYzhk5/VQ3AWxxw04+JIhpA==
-X-Google-Smtp-Source: APXvYqx2uAm03uGrknxT6QYWcLV22zpl1XfOYxHWcwU5kxumOqNqeSXIVWkf4PB3EpjuqDpve5pyOw==
-X-Received: by 2002:a19:22d8:: with SMTP id i207mr44177294lfi.97.1560501333006; 
- Fri, 14 Jun 2019 01:35:33 -0700 (PDT)
-Received: from [192.168.0.199] ([31.173.84.143])
- by smtp.gmail.com with ESMTPSA id 24sm504402ljs.63.2019.06.14.01.35.31
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 14 Jun 2019 01:35:32 -0700 (PDT)
-Subject: Re: [PATCH 15/17] binfmt_flat: move the MAX_SHARED_LIBS definition to
- binfmt_flat.c
-To: Christoph Hellwig <hch@lst.de>, Greg Ungerer <gerg@linux-m68k.org>
-References: <20190613070903.17214-1-hch@lst.de>
- <20190613070903.17214-16-hch@lst.de>
-From: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
-Message-ID: <e000b92e-a047-936e-c20a-9cc8b4f524bb@cogentembedded.com>
-Date: Fri, 14 Jun 2019 11:35:20 +0300
-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+ id 1hbipj-0006mZ-Vd
+ for linux-riscv@lists.infradead.org; Fri, 14 Jun 2019 09:49:21 +0000
+Received: by newverein.lst.de (Postfix, from userid 2407)
+ id 8158F227A86; Fri, 14 Jun 2019 11:48:48 +0200 (CEST)
+Date: Fri, 14 Jun 2019 11:48:47 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Vladimir Murzin <vladimir.murzin@arm.com>
+Subject: Re: [PATCH 02/17] mm: stub out all of swapops.h for !CONFIG_MMU
+Message-ID: <20190614094847.GI17292@lst.de>
+References: <20190610221621.10938-1-hch@lst.de>
+ <20190610221621.10938-3-hch@lst.de>
+ <516c8def-22db-027c-873d-a943454e33af@arm.com>
+ <20190611141841.GA29151@lst.de>
+ <80d01a1d-b6b0-18e8-811c-71af14cba3b9@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <20190613070903.17214-16-hch@lst.de>
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <80d01a1d-b6b0-18e8-811c-71af14cba3b9@arm.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190614_013535_550088_60701ADE 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20190614_024920_188164_A5E55AF1 
+X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,48 +69,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
- Michal Simek <monstr@monstr.eu>, linux-c6x-dev@linux-c6x.org,
- linux-sh@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
+Cc: Damien Le Moal <damien.lemoal@wdc.com>, uclinux-dev@uclinux.org,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ Christoph Hellwig <hch@lst.de>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello!
-
-On 13.06.2019 10:09, Christoph Hellwig wrote:
-
-> MAX_SHARED_LIBS is an implementation detail of the kernel loader,
-> and should be kept away from the file format definition.
+On Tue, Jun 11, 2019 at 03:36:53PM +0100, Vladimir Murzin wrote:
+> It looks like NOMMU ports tend to define those. For ARM they are:
 > 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->   fs/binfmt_flat.c     | 6 ++++++
->   include/linux/flat.h | 6 ------
->   2 files changed, 6 insertions(+), 6 deletions(-)
+> #define __swp_type(x)           (0)
+> #define __swp_offset(x)         (0)
+> #define __swp_entry(typ,off)    ((swp_entry_t) { ((typ) | ((off) << 7)) })
+> #define __pte_to_swp_entry(pte) ((swp_entry_t) { pte_val(pte) })
+> #define __swp_entry_to_pte(x)   ((pte_t) { (x).val })
 > 
-> diff --git a/fs/binfmt_flat.c b/fs/binfmt_flat.c
-> index 0ca65d51bb01..ccd9843e979e 100644
-> --- a/fs/binfmt_flat.c
-> +++ b/fs/binfmt_flat.c
-> @@ -68,6 +68,12 @@
->   #define RELOC_FAILED 0xff00ff01		/* Relocation incorrect somewhere */
->   #define UNLOADED_LIB 0x7ff000ff		/* Placeholder for unused library */
->   
-> +#ifdef CONFIG_BINFMT_SHARED_FLAT
-> +#define	MAX_SHARED_LIBS			(4)
-> +#else
-> +#define	MAX_SHARED_LIBS			(1)
-> +#endif
+> Anyway, I have no strong opinion on which is better :)
 
-    Perhaps the time to remove ()?
-
-[...]
-
-MBR, Sergei
+It just seems a lot easier to stub out swapops.h rather than providing
+stubs in each arch so that inlines which we are never going to use can
+build.  I can look into dropping this from the other nommu ports for
+the next merge window, though.
 
 _______________________________________________
 linux-riscv mailing list
