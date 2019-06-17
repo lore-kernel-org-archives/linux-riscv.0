@@ -2,129 +2,86 @@ Return-Path: <SRS0=4kCy=UQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 04103C31E5B
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2019 18:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6294BC31E5B
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2019 19:00:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CE6D52080C
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2019 18:42:24 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 31A47208C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2019 19:00:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="P0C6Dkl3";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="WcSM3MiL";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="X9jgjmbC"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CE6D52080C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uhT0+Cuz";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="P53e6C57"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 31A47208C4
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ko6oK6+0SK9Ou04rhM8L0gulzSKrFxa19pTuXNgtHJ0=; b=P0C6Dkl3O6KXBD
-	jKMx6OkBGXw3nKmNqfhImfKwyctes6KPlk4L7MMUYWzjQWy8VmTl6GIZXS9wqux7u8Z4Zo6zQDIcr
-	TevPcRIGkT82ZKS6U3TB/5bX1E26itfwA+Vs17A4cwqsEGEcBW84jW4luhiQbgArlG2xFj2G29E1m
-	GgFBkyxhhoE10hUv0aEZrHRcb403yTBmrZXowbGlMnZH74MHdaccd94ft2cKcGA+E3ZEMpZPsyP1L
-	sHyYcoRBwXjos/dVD9YZe8BNolZgwOuyyZ0JrftSHbAhxjGcNgdGY7+7u69eQN09JxbUd+y45bWuI
-	IXbev5iruyK81qDexrTg==;
+	List-Owner; bh=kUrxa8Axfj+l+x1MucEXUDkXv/V0GM9Wqo2PdPkQHF0=; b=uhT0+CuzSwatC6
+	84h4RPkFqHPYNH9700FHecRXyCA9WsCA4BA6wsqxrdLZqpEpZaveD5HW8GQsrlpkQFSEtlUTYRFEI
+	E1TRuGP//qRqXCWh4f1WSrJDkNNCW4KRW53jR3UuGblxgSvs7ye5GbS/1j2NOCAcPZZTtCQ452aR0
+	UDKl0Z98tUyOODs2KziGuxVbBoYUcItlit1+XEv9L7ks+vHsAL3BjGIzpG/f3cLb3OcZKltSay8up
+	GQ8XLcjL11hFGfqmT9nYZ2n/ZE5yJQVOMkG110k8rzc147zKmCYJvHgN4QtCi6fLiy9JjyuNLQlbg
+	NvLnV6mf3y9DpfEtNjlA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hcwaC-0003f2-LZ; Mon, 17 Jun 2019 18:42:20 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1hcwro-0003Cx-TY; Mon, 17 Jun 2019 19:00:32 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hcwa7-0003cl-Ub
- for linux-riscv@lists.infradead.org; Mon, 17 Jun 2019 18:42:19 +0000
+ id 1hcwrJ-0001gz-PG; Mon, 17 Jun 2019 19:00:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1560796936; x=1592332936;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=WdrIn3el4HI8u0Tts7xTjVlebQ0t8O0LN3dUT0Vd4rA=;
- b=WcSM3MiLVIHaIRnCSOZl+LoofQeIaRPRx3kklb5HFHClhLid4Rvez38d
- sEcJ6RKk7PJQiGApoiC9CA4ps0OOz+bKouQ1wu5cVlehwMbVzoHZiN33G
- Huswxd+GM4DzJCOa1umJ9Cx8m9xaR3c660DjT4auREqzTyXAkyOz5Zghv
- YxET5ebp9sBZO53A1EAI7Ht++Aa5vE16yOpFEOUAh/beSsv5TVhItQwro
- MFt0wDeBRI6ovQ9Twm9qEX5/3CO6RUDnTUIzm1IaxQ71kzJXVbXu/aK6h
- A6LYFHJb4Rv8Gx+s6fvbGVyeccW9BNSrNUZGgTP+/wKgQ78gEQbdQf2EO A==;
-X-IronPort-AV: E=Sophos;i="5.63,386,1557158400"; d="scan'208";a="112433996"
-Received: from mail-co1nam04lp2055.outbound.protection.outlook.com (HELO
- NAM04-CO1-obe.outbound.protection.outlook.com) ([104.47.45.55])
- by ob1.hgst.iphmx.com with ESMTP; 18 Jun 2019 02:42:13 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WdrIn3el4HI8u0Tts7xTjVlebQ0t8O0LN3dUT0Vd4rA=;
- b=X9jgjmbCswzAqMam5q4dU291RW2R7Az1jcIhfDA1Ahmp6kxh/TCqPCRBvicAciH3joVi1Zq38B5fuyg3t/XA74euU5DsaR1OT/4Uq3WRFGDfVpYIN/PelZUizwzTmdCRco9PioPMRpJppSsdbaTBru8edVIWiDN4ieRCNMQaxC4=
-Received: from BYAPR04MB4901.namprd04.prod.outlook.com (52.135.232.206) by
- BYAPR04MB5046.namprd04.prod.outlook.com (52.135.235.16) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1987.11; Mon, 17 Jun 2019 18:42:11 +0000
-Received: from BYAPR04MB4901.namprd04.prod.outlook.com
- ([fe80::40b0:3c4b:b778:664d]) by BYAPR04MB4901.namprd04.prod.outlook.com
- ([fe80::40b0:3c4b:b778:664d%7]) with mapi id 15.20.1987.012; Mon, 17 Jun 2019
- 18:42:11 +0000
-From: Alistair Francis <Alistair.Francis@wdc.com>
-To: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "troy.benjegerdes@sifive.com" <troy.benjegerdes@sifive.com>
-Subject: Re: [PATCH v2 0/2] Add macb support for SiFive FU540-C000
-Thread-Topic: [PATCH v2 0/2] Add macb support for SiFive FU540-C000
-Thread-Index: AQHVJMPxUGJ6CrWTfEOSlZ7T+RNJNKafgw4CgAAZzACAAAECfoAAAOIAgAAC1UKAABYjAIAALLGAgABKKYA=
-Date: Mon, 17 Jun 2019 18:42:11 +0000
-Message-ID: <d2836a90b92f3522a398d57ab8555d08956a0d1f.camel@wdc.com>
-References: <1560745167-9866-1-git-send-email-yash.shah@sifive.com>
- <mvmtvco62k9.fsf@suse.de>
- <alpine.DEB.2.21.9999.1906170252410.19994@viisi.sifive.com>
- <mvmpnnc5y49.fsf@suse.de>
- <alpine.DEB.2.21.9999.1906170305020.19994@viisi.sifive.com>
- <mvmh88o5xi5.fsf@suse.de>
- <alpine.DEB.2.21.9999.1906170419010.19994@viisi.sifive.com>
- <F48A4F7F-0B0D-4191-91AD-DC51686D1E78@sifive.com>
-In-Reply-To: <F48A4F7F-0B0D-4191-91AD-DC51686D1E78@sifive.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Alistair.Francis@wdc.com; 
-x-originating-ip: [199.255.44.250]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 1eb723f1-7a9c-4416-b5e7-08d6f353828d
-x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(4618075)(2017052603328)(7193020);
- SRVR:BYAPR04MB5046; 
-x-ms-traffictypediagnostic: BYAPR04MB5046:
-x-ms-exchange-purlcount: 3
-wdcipoutbound: EOP-TRUE
-x-microsoft-antispam-prvs: <BYAPR04MB50465A5BA8390459F0B765D390EB0@BYAPR04MB5046.namprd04.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:4303;
-x-forefront-prvs: 0071BFA85B
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(6029001)(39860400002)(346002)(376002)(366004)(396003)(136003)(189003)(199004)(25786009)(486006)(86362001)(7416002)(966005)(478600001)(6306002)(53936002)(6512007)(7736002)(256004)(6116002)(14444005)(73956011)(72206003)(14454004)(229853002)(110136005)(54906003)(316002)(2906002)(66066001)(2501003)(3846002)(66446008)(4326008)(5660300002)(68736007)(71200400001)(446003)(11346002)(36756003)(81156014)(26005)(76116006)(2616005)(64756008)(99286004)(6486002)(53546011)(71190400001)(476003)(76176011)(6506007)(81166006)(102836004)(66946007)(66476007)(6246003)(66556008)(8936002)(6436002)(305945005)(8676002)(186003)(118296001);
- DIR:OUT; SFP:1102; SCL:1; SRVR:BYAPR04MB5046;
- H:BYAPR04MB4901.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: aUpCGCubp5Fbgb1fqk4XqgRVQyUGU13uv4L9JpEOGpJrLgcDTgyxhPxp4mGlL0BDwojp/dbwPPYFn2+Rzpl1OiRAhTXQ/IbYWx4pqd9Tfz8i5e+RjAPCM1G8QfjXSmV+sQR7tIfdtl7oCky4l6TeDmLaC00NdGCndUHm496pE1VKM+Jd67fG0gPNGut7k09D4TTo/zuL7g81B8WRCGBEjxqu0VvOE5RWdFWt0cWOf0B//JNr3G+0bZpzX/ekTBktsnyLpneOavWdt+f1EI3qodpAhKIw9byRbz23HYRnaxd0buJo0egWSFtYmf7y8qAgG4HGPrfohTYn7H8dLXUId/tVAwO7x618//MtNVQjqTz1eB2NoxMT/0FMlq0toSgnHw9J7zPPNw3EG4VyN3LVUqM9uQD6pELDesXlHNvQwjc=
-Content-ID: <FDADB0944AF2D049A719E1E1B9A030E4@namprd04.prod.outlook.com>
+ t=1560798002; x=1592334002;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=GED2GA9QcE13vUl5xR4mTzXTMt8Lm/cPPiiomsp+YVU=;
+ b=P53e6C57M9r249xd8VkL8cd5WOBcm8J+gNestsr3u24us8oip2SFDZHa
+ 29hs9xZ+7qLftTJX+gC4XH1U99ozabafdEEOTVqAafzVO0cJxQUElJTsw
+ Md3PVYtiUjDs23s2cKOSgzYEmX7Ypv5qBLbXqPk22fqlaoEzXuCFphLnj
+ bs/KXtFY0XYPFN5e8LlJmUr7Rlg3SITA5BgHOThczhS6AZozx4PMxcpqp
+ 3lAyb72B8t+JXMKFQHOSlUQ+KZTL+mgFkbNW8+ahoadmZqMmSlCXBSMjN
+ uyWb/Hl3x7we5sRDTdoKLdb3FbrBhIG/zoBdWid/b9XvjKn75MdmnSJyD g==;
+X-IronPort-AV: E=Sophos;i="5.63,386,1557158400"; d="scan'208";a="115695380"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 18 Jun 2019 03:00:00 +0800
+IronPort-SDR: wPLjssnkTvlNebGc807FY+GmLmbKMqJ6R5ho2bqbsQEPXqtsvJA+WDBBrTljcZJnOH7lNYCeue
+ i05v+8yhjiinkgMFEzj0MyWCJvE7viYg6CGT3ZSUxyttzzZh8dNl79kvF/LUXCKqqyhyc1nLKS
+ exC/RuRp42rFQWHgwym587kszvS/LJ9tZkDC+e7MrsEPCg3CySWkW8SqgYZ5JjdwdFveC1Ivl1
+ u/P5yDjLa8rT/f64f+f/Oi95XPGIH0vn6mOyLuTH8g1GvC/fNVOnbhafhIy3rJXaNmcpqZAIsF
+ mbqQeng2W696LIzDPBu3y0Cx
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep02.wdc.com with ESMTP; 17 Jun 2019 11:59:29 -0700
+IronPort-SDR: IwDlxCoeIEV9birPttBGRyAxGoo4PO9XDI2b6rv6So20SSp7gpuKqDYkVfcj/YgAbcIDEX5xrT
+ zYriFHD9jzhIykf8rB1NYxOkxuLmX63honLpoHi1q20Jm3flrEUNsIYZSBUgfLLHB64iyw6FyK
+ 0waelF1QmvcpSgo00XeILtQHPXonfea34Z56vH/bd/QfZV64qpzowK9j4qXnHfDfiNg845p9sN
+ fwrwNn3yuuI6f/dOANfN3s8Ud38GRQkHl1TlzmvYgjYWhQjjCutzZiUQghSMX/hNiQC2NfVp3N
+ wk4=
+Received: from jedi-01.sdcorp.global.sandisk.com (HELO
+ jedi-01.int.fusionio.com) ([10.11.143.218])
+ by uls-op-cesaip01.wdc.com with ESMTP; 17 Jun 2019 11:59:57 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v7 1/7] Documentation: DT: arm: add support for sockets
+ defining package boundaries
+Date: Mon, 17 Jun 2019 11:59:14 -0700
+Message-Id: <20190617185920.29581-2-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.21.0
+In-Reply-To: <20190617185920.29581-1-atish.patra@wdc.com>
+References: <20190617185920.29581-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1eb723f1-7a9c-4416-b5e7-08d6f353828d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Jun 2019 18:42:11.5415 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Alistair.Francis@wdc.com
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR04MB5046
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190617_114216_109498_0BB2F125 
-X-CRM114-Status: GOOD (  30.02  )
+X-CRM114-CacheID: sfid-20190617_120001_944208_20684EA9 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -136,82 +93,180 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "jamez@wit.com" <jamez@wit.com>, "palmer@sifive.com" <palmer@sifive.com>,
- "ynezz@true.cz" <ynezz@true.cz>,
- "nicolas.ferre@microchip.com" <nicolas.ferre@microchip.com>,
- "robh+dt@kernel.org" <robh+dt@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "sachin.ghadi@sifive.com" <sachin.ghadi@sifive.com>,
- "yash.shah@sifive.com" <yash.shah@sifive.com>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "schwab@suse.de" <schwab@suse.de>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "davem@davemloft.net" <davem@davemloft.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Peter Zijlstra \(Intel\)" <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>, Atish Patra <atish.patra@wdc.com>,
+ Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
+ linux-riscv@lists.infradead.org, Morten Rasmussen <morten.rasmussen@arm.com>,
+ Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Russell King <linux@armlinux.org.uk>, Ingo Molnar <mingo@kernel.org>,
+ devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
+ Richard Fontana <rfontana@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Otto Sabart <ottosabart@seberm.com>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, "David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDE5LTA2LTE3IGF0IDA5OjE0IC0wNTAwLCBUcm95IEJlbmplZ2VyZGVzIHdyb3Rl
-Og0KPiA+IE9uIEp1biAxNywgMjAxOSwgYXQgNjozNCBBTSwgUGF1bCBXYWxtc2xleSA8DQo+ID4g
-cGF1bC53YWxtc2xleUBzaWZpdmUuY29tPiB3cm90ZToNCj4gPiANCj4gPiBPbiBNb24sIDE3IEp1
-biAyMDE5LCBBbmRyZWFzIFNjaHdhYiB3cm90ZToNCj4gPiANCj4gPiA+IE9uIEp1biAxNyAyMDE5
-LCBQYXVsIFdhbG1zbGV5IDxwYXVsLndhbG1zbGV5QHNpZml2ZS5jb20+IHdyb3RlOg0KPiA+ID4g
-DQo+ID4gPiA+IE9uIE1vbiwgMTcgSnVuIDIwMTksIEFuZHJlYXMgU2Nod2FiIHdyb3RlOg0KPiA+
-ID4gPiANCj4gPiA+ID4gPiBPbiBKdW4gMTcgMjAxOSwgUGF1bCBXYWxtc2xleSA8cGF1bC53YWxt
-c2xleUBzaWZpdmUuY29tPg0KPiA+ID4gPiA+IHdyb3RlOg0KPiA+ID4gPiA+IA0KPiA+ID4gPiA+
-ID4gTG9va3MgdG8gbWUgdGhhdCBpdCBzaG91bGRuJ3QgaGF2ZSBhbiBpbXBhY3QgdW5sZXNzIHRo
-ZSBEVA0KPiA+ID4gPiA+ID4gc3RyaW5nIGlzIA0KPiA+ID4gPiA+ID4gcHJlc2VudCwgYW5kIGV2
-ZW4gdGhlbiwgdGhlIGltcGFjdCBtaWdodCBzaW1wbHkgYmUgdGhhdCB0aGUNCj4gPiA+ID4gPiA+
-IE1BQ0IgZHJpdmVyIA0KPiA+ID4gPiA+ID4gbWF5IG5vdCB3b3JrPw0KPiA+ID4gPiA+IA0KPiA+
-ID4gPiA+IElmIHRoZSBtYWNiIGRyaXZlciBkb2Vzbid0IHdvcmsgeW91IGhhdmUgYW4gdW51c2Fi
-bGUgc3lzdGVtLA0KPiA+ID4gPiA+IG9mIGNvdXJzZS4NCj4gPiA+ID4gDQo+ID4gPiA+IFdoeT8N
-Cj4gPiA+IA0KPiA+ID4gQmVjYXVzZSBhIHN5c3RlbSBpcyB1c2VsZXNzIHdpdGhvdXQgbmV0d29y
-ay4NCj4gPiANCj4gPiBGcm9tIGFuIHVwc3RyZWFtIExpbnV4IHBvaW50IG9mIHZpZXcsIFlhc2gn
-cyBwYXRjaGVzIHNob3VsZCBiZSBhbiANCj4gPiBpbXByb3ZlbWVudCBvdmVyIHRoZSBjdXJyZW50
-IG1haW5saW5lIGtlcm5lbCBzaXR1YXRpb24sIHNpbmNlDQo+ID4gdGhlcmUncyANCj4gPiBjdXJy
-ZW50bHkgbm8gdXBzdHJlYW0gc3VwcG9ydCBmb3IgdGhlIChTaUZpdmUtc3BlY2lmaWMpIFRYIGNs
-b2NrDQo+ID4gc3dpdGNoIA0KPiA+IHJlZ2lzdGVyLiAgV2l0aCB0aGUgcmlnaHQgRFQgZGF0YSwg
-YW5kIGEgYm9vdGxvYWRlciB0aGF0IGhhbmRsZXMNCj4gPiB0aGUgUEhZIA0KPiA+IHJlc2V0LCBJ
-IHRoaW5rIG5ldHdvcmtpbmcgc2hvdWxkIHdvcmsgYWZ0ZXIgaGlzIHBhdGNoZXMgYXJlDQo+ID4g
-dXBzdHJlYW0gLS0gDQo+ID4gYWx0aG91Z2ggSSBteXNlbGYgaGF2ZW4ndCB0cmllZCB0aGlzIHll
-dC4NCj4gPiANCj4gDQo+IEhhdmUgd2UgZG9jdW1lbnRlZCB0aGlzIHR4IGNsb2NrIHN3aXRjaCBy
-ZWdpc3RlciBpbiBzb21ldGhpbmcgd2l0aCBhDQo+IGRpcmVjdCBVUkwgbGluayAocmF0aGVyIHRo
-YW4gYSBQREYpPw0KPiANCj4gSeKAmWQgbGlrZSB0byB1cGRhdGUgZnJlZWRvbS11LXNkayAob3Ig
-eW9jdG8pIHRvIGNyZWF0ZSBib290YWJsZSBpbWFnZXMNCj4gd2l0aCBhIHdvcmtpbmcgVS1ib290
-ICh1cHN0cmVhbSBvciBub3QsIEkgZG9u4oCZdCBjYXJlLCBhcyBsb25nIGFzIGl0DQo+IHdvcmtz
-KSwNCj4gYW5kIHdoYXQgSSBoYXZlIHJpZ2h0IG5vdyBpcyB0aGUgb2xkIGxlZ2FjeSBIaUZpdmUg
-VS1ib290WzFdIGFuZCBhDQo+IDQuMTkNCj4ga2VybmVsIHdpdGggYSBidW5jaCBvZiBleHRyYSBw
-YXRjaGVzLg0KDQpZb2N0by9PcGVuRW1iZWRkZWQgZG9lcyB0aGlzIHRvZGF5LiBURlRQIGJvb3Qg
-d29ya3Mgd2l0aCB0aGUgMjAxOS4wNCBVLQ0KQm9vdCAoKyBzb21lIHBhdGNoZXMgb250b3AgZm9y
-IFNNUCBzdXBwb3J0KS4gV2UgdXNlIHRoZSBsYXRlc3QgNS4xDQpzdGFibGUga2VybmVsIHBsdXMg
-NSBvciBzbyBwYXRjaGVzIHRvIGJvb3Qgb24gdGhlIFVubGVhc2VkLiBOZXR3b3JraW5nLA0KZGlz
-cGxheSBhbmQgYXVkaW8gYXJlIGFsbCB3b3JraW5nIHdpdGggdGhlIE1pY3Jvc2VtaSBleHBhbnNp
-b24gYm9hcmQgYXMNCndlbGwuIExldCBtZSBrbm93IGlmIHRoZXJlIGlzIHNvbWV0aGluZyBlbHNl
-IG1pc3NpbmcgYW5kIEknbGwgYWRkIGl0DQppbi4gVGhlcmUgYXJlIHByb2JhYmx5IGRvY3VtZW50
-YXRpb24gZml4ZXMgdGhhdCBhcmUgbmVlZGVkIGFzIHdlbGwuDQoNCkkgd2FzIHRoaW5raW5nIG9m
-IHNraXBwaW5nIHRoZSA1LjIgcmVsZWFzZSB0aG91Z2ggYXMgSSB0aG91Z2h0IHRoZSBEVA0Kc3R1
-ZmYgd2Fzbid0IGdvaW5nIHRvIG1ha2UgaXQgWzFdLiBJIHdpbGwgcHJvYmFibHkgcmUtZXZhbHVh
-dGUgdGhhdA0KZGVjaXNpb24gdGhvdWdoIHdoZW4gNS4yIGNvbWVzIG91dCBhcyBpdCBsb29rcyBs
-aWtlIGl0J3MgYWxsIGdvaW5nIHRvDQp3b3JrIDopDQoNCldpdGggVS1ib290IDIwMTcuMDkgYW5k
-IExpbnV4IDUuMi81LjMgd2Ugc2hvdWxkIGZpbmFsbHkgYmUgdXBzdHJlYW0NCm9ubHkhDQoNCj4g
-DQo+IFRoZSBsZWdhY3kgTS1tb2RlIFUtYm9vdCBoYW5kbGVzIHRoZSBwaHkgcmVzZXQgYWxyZWFk
-eSwgYW5kIEnigJl2ZSBiZWVuDQo+IGFibGUgdG8gbG9hZCB1cHN0cmVhbSBTLW1vZGUgdWJvb3Qg
-YXMgYSBwYXlsb2FkIHZpYSBURlRQLCBhbmQgdGhlbiANCj4gbG9hZCBhbmQgYm9vdCBhIDQuMTkg
-a2VybmVsLiANCj4gDQo+IEl0IHdvdWxkIGJlIG5pY2UgdG8gZ2V0IHRoaXMgYWxsIHdvcmtpbmcg
-d2l0aCA1LngsIGhvd2V2ZXIgdGhlcmUgYXJlDQo+IHN0aWxsDQo+IHNldmVyYWwgbWlzc2luZyBw
-aWVjZXMgdG8gcmVhbGx5IGhhdmUgaXQgd29yayB3ZWxsLg0KDQpMZXQgbWUga25vdyB3aGF0IGlz
-IHN0aWxsIG1pc3NpbmcvZG9lc24ndCB3b3JrIGFuZCBJIGNhbiBhZGQgaXQuIEF0IHRoZQ0KbW9t
-ZW50IHRoZSBvbmx5IGtub3duIGlzc3VlIEkga25vdyBvZiBpcyBhIG1pc3NpbmcgU0QgY2FyZCBk
-cml2ZXIgaW4gVS0NCkJvb3QuDQoNCjE6IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi9tZXRhLXJp
-c2N2L2lzc3Vlcy8xNDMNCg0KQWxpc3RhaXINCg0KPiANCj4gDQo+IFsxXSBodHRwczovL2dpdGh1
-Yi5jb20vc2lmaXZlL0hpRml2ZV9VLUJvb3QNCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18NCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0DQo+IGxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcNCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdg0KX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+From: Sudeep Holla <sudeep.holla@arm.com>
+
+The current ARM DT topology description provides the operating system
+with a topological view of the system that is based on leaf nodes
+representing either cores or threads (in an SMT system) and a
+hierarchical set of cluster nodes that creates a hierarchical topology
+view of how those cores and threads are grouped.
+
+However this hierarchical representation of clusters does not allow to
+describe what topology level actually represents the physical package or
+the socket boundary, which is a key piece of information to be used by
+an operating system to optimize resource allocation and scheduling.
+
+Lets add a new "socket" node type in the cpu-map node to describe the
+same.
+
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
+---
+ .../devicetree/bindings/arm/topology.txt      | 52 ++++++++++++++-----
+ 1 file changed, 39 insertions(+), 13 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/arm/topology.txt b/Documentation/devicetree/bindings/arm/topology.txt
+index b0d80c0fb265..3b8febb46dad 100644
+--- a/Documentation/devicetree/bindings/arm/topology.txt
++++ b/Documentation/devicetree/bindings/arm/topology.txt
+@@ -9,6 +9,7 @@ ARM topology binding description
+ In an ARM system, the hierarchy of CPUs is defined through three entities that
+ are used to describe the layout of physical CPUs in the system:
+ 
++- socket
+ - cluster
+ - core
+ - thread
+@@ -63,21 +64,23 @@ nodes are listed.
+ 
+ 	The cpu-map node's child nodes can be:
+ 
+-	- one or more cluster nodes
++	- one or more cluster nodes or
++	- one or more socket nodes in a multi-socket system
+ 
+ 	Any other configuration is considered invalid.
+ 
+-The cpu-map node can only contain three types of child nodes:
++The cpu-map node can only contain 4 types of child nodes:
+ 
++- socket node
+ - cluster node
+ - core node
+ - thread node
+ 
+ whose bindings are described in paragraph 3.
+ 
+-The nodes describing the CPU topology (cluster/core/thread) can only
+-be defined within the cpu-map node and every core/thread in the system
+-must be defined within the topology.  Any other configuration is
++The nodes describing the CPU topology (socket/cluster/core/thread) can
++only be defined within the cpu-map node and every core/thread in the
++system must be defined within the topology.  Any other configuration is
+ invalid and therefore must be ignored.
+ 
+ ===========================================
+@@ -85,26 +88,44 @@ invalid and therefore must be ignored.
+ ===========================================
+ 
+ cpu-map child nodes must follow a naming convention where the node name
+-must be "clusterN", "coreN", "threadN" depending on the node type (ie
+-cluster/core/thread) (where N = {0, 1, ...} is the node number; nodes which
+-are siblings within a single common parent node must be given a unique and
++must be "socketN", "clusterN", "coreN", "threadN" depending on the node type
++(ie socket/cluster/core/thread) (where N = {0, 1, ...} is the node number; nodes
++which are siblings within a single common parent node must be given a unique and
+ sequential N value, starting from 0).
+ cpu-map child nodes which do not share a common parent node can have the same
+ name (ie same number N as other cpu-map child nodes at different device tree
+ levels) since name uniqueness will be guaranteed by the device tree hierarchy.
+ 
+ ===========================================
+-3 - cluster/core/thread node bindings
++3 - socket/cluster/core/thread node bindings
+ ===========================================
+ 
+-Bindings for cluster/cpu/thread nodes are defined as follows:
++Bindings for socket/cluster/cpu/thread nodes are defined as follows:
++
++- socket node
++
++	 Description: must be declared within a cpu-map node, one node
++		      per physical socket in the system. A system can
++		      contain single or multiple physical socket.
++		      The association of sockets and NUMA nodes is beyond
++		      the scope of this bindings, please refer [2] for
++		      NUMA bindings.
++
++	This node is optional for a single socket system.
++
++	The socket node name must be "socketN" as described in 2.1 above.
++	A socket node can not be a leaf node.
++
++	A socket node's child nodes must be one or more cluster nodes.
++
++	Any other configuration is considered invalid.
+ 
+ - cluster node
+ 
+ 	 Description: must be declared within a cpu-map node, one node
+ 		      per cluster. A system can contain several layers of
+-		      clustering and cluster nodes can be contained in parent
+-		      cluster nodes.
++		      clustering within a single physical socket and cluster
++		      nodes can be contained in parent cluster nodes.
+ 
+ 	The cluster node name must be "clusterN" as described in 2.1 above.
+ 	A cluster node can not be a leaf node.
+@@ -164,13 +185,15 @@ Bindings for cluster/cpu/thread nodes are defined as follows:
+ 4 - Example dts
+ ===========================================
+ 
+-Example 1 (ARM 64-bit, 16-cpu system, two clusters of clusters):
++Example 1 (ARM 64-bit, 16-cpu system, two clusters of clusters in a single
++physical socket):
+ 
+ cpus {
+ 	#size-cells = <0>;
+ 	#address-cells = <2>;
+ 
+ 	cpu-map {
++		socket0 {
+ 			cluster0 {
+ 				cluster0 {
+ 					core0 {
+@@ -253,6 +276,7 @@ cpus {
+ 				};
+ 			};
+ 		};
++	};
+ 
+ 	CPU0: cpu@0 {
+ 		device_type = "cpu";
+@@ -473,3 +497,5 @@ cpus {
+ ===============================================================================
+ [1] ARM Linux kernel documentation
+     Documentation/devicetree/bindings/arm/cpus.yaml
++[2] Devicetree NUMA binding description
++    Documentation/devicetree/bindings/numa.txt
+-- 
+2.21.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
