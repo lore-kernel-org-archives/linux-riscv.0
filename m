@@ -2,21 +2,22 @@ Return-Path: <SRS0=4kCy=UQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 792EBC31E57
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2019 10:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C7F64C31E57
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2019 10:32:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4D65E2084D
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2019 10:28:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A026D20863
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2019 10:32:56 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WZX3ICDZ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="I1Xjncqz"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4D65E2084D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eUJC+05D";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="CXjiCRQZ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A026D20863
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,68 +26,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SsvkJdrEu7/gkNGvjwL3ta7jqw/2+HY0mcBnPvBuSK8=; b=WZX3ICDZJ6/GlY
-	AFNDRbX4mtq7xoUtWzUvLfwTsqnPmkL3AedeKTAJfc4QudXmA97KHz5iEscW3Nl6E6/82V43LJ1cd
-	XPjwGQQfpkNYKfH7WdQCKlffXxbgcqjQjgWfAO/0aC6wk1WkvUwlDekhVUVraiYhNZuUfgTq8DMxM
-	vwvoxB8n0InQ33u++LfWSzh0f5I09joaLzojjgLpYuXYbbOKFAZ9Udw1AHJS1mZr1qfn6CfY9RebB
-	5lFrOW+SpPy8URCu5DJv1rkqC8kQNiH6Zf+L3zvkxjG9lRZug8FVhlTnM5/LQPQnIA/2bysqN3AV8
-	1Y8FBGl9kMeI+PQoMXZw==;
+	List-Owner; bh=kIhcyZyUf+SxdBRmy3ujV3ijBEsarkqEqYHcJUS/4ik=; b=eUJC+05DqWYAbn
+	e5UIwk+h6djerBy5T33ugPHsgfC0NzVybISC550kdS1j+c7xLEDzZdlnJVnrRL/Ak6aIBEgA4XqlO
+	jWahHxUN/CJhba1QGkMi9tpQW8OqZr/cbXZRfQYiIMg4YqR3TnF/HqgL4F1DzUUAh05r9xsu3JSME
+	hrSwqY3TD+QizWvaVkPsNK/W+YtwAgz6T7QqB9LOm2P1Xme4TtCesPV35JguFQaDFMnAhWzAkRc5v
+	shTNsX19wPTv26wWnYxEb+aWU/XvZgT1Zjaz8dMruOzwRgfjJmJM0IZEllM9ZS2mZVQgmYVierOXU
+	8K0fR1cm1Lyi+4JAr8pA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hcorx-00019x-2r; Mon, 17 Jun 2019 10:28:09 +0000
-Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
+	id 1hcowZ-0003lj-Bm; Mon, 17 Jun 2019 10:32:55 +0000
+Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hcort-000168-9C
- for linux-riscv@lists.infradead.org; Mon, 17 Jun 2019 10:28:06 +0000
-Received: by mail-ed1-x541.google.com with SMTP id m10so15427162edv.6
- for <linux-riscv@lists.infradead.org>; Mon, 17 Jun 2019 03:28:05 -0700 (PDT)
+ id 1hcowV-0003lH-Sc
+ for linux-riscv@lists.infradead.org; Mon, 17 Jun 2019 10:32:53 +0000
+Received: by mail-ed1-x544.google.com with SMTP id p15so15404672eds.8
+ for <linux-riscv@lists.infradead.org>; Mon, 17 Jun 2019 03:32:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:from:to:cc:subject:in-reply-to:message-id:references
  :user-agent:mime-version;
- bh=8UBAA4hob1aUdMG3Ki6/LwA/eBo66cYa0fDftPuC+I0=;
- b=I1XjncqzU2jmO6RevBy9IzFleq0nMlnkC6MDumuIsz5JVeH2+1xm/ZhpM/VGcEN+9K
- 9pSyXGeLCIhrXK1FMrm37s22+ShjPNYMS8/Wx1HJfbo39srKyIqMMMhR0mqjHq0Eqj2/
- EEIYhEhsAbI7rnU22Ey0TKxrY8eexf9LGgSGqqGzvkvb6TeYsTMqmkFl0qWa7ckNmYhC
- gRbkiSnv1F7ZON4E588pZS0q2mwTvOSENtx+10LxFski6vF+C1ehb6SXdQghnOXmCoNC
- IgdbbbhFi0YtJmlL+kXM01BwLelRvL7Itusxmc9seVJAYzA6dGsXWWWqK+8gqLxSqbUc
- O3rA==
+ bh=+IsA7g8VrQi1p6+0rUAfrYHbZxeNW1x5cdILWDPWHeM=;
+ b=CXjiCRQZbi5X8btQTrOIGbRQXdZX3a8516roFkgeXdsCioqn/JwMFSuGg2Ey5MbZ+O
+ 5DhR02+EU919lh2z1jxpjoUPE67XvKqzxK2aJjiQFhp4NJAlkF/3S1GTkzmV+ClxXvYt
+ iISU9Omk8RM9Y44LEGHLrFDKScsh6qZwSRjith6zHSKhN/u0H02S8HlmiVfUSa5NdXI+
+ nCXNb2oGzOspj8ri4JiC67txEYRkq3j2a2zE3mZ7C8J03QbaCg7S/VGRVCRS7ykTOLfH
+ JL1hBaAL++VxYzI4BSL1Ssr/8l2/P4BwsaMuICH0qqUo75MYmy6GfUiNd6/VpYRbAp8E
+ U2yg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
  :references:user-agent:mime-version;
- bh=8UBAA4hob1aUdMG3Ki6/LwA/eBo66cYa0fDftPuC+I0=;
- b=pkj3IeapuuivGholo7VAw5hdivf/fqr1F3IxYOMt72CyZ5uVw/qxZdXOE3i5+K9Y4p
- m6KHfkbBB/BMTlM7EKyVxtcKwwJtxiN/YVkq99Blko/4/3gvUhu2GFGqnHsR83rsQs6G
- tLoGG5lLbx5IfxsmAJYv9Aj2w8PDWshnHZAIY1/lfJrB0hf6VVptZafWcXDVTbSWH0yH
- qyhGsjlB4f7vOMwsJOqDgFUXdxGtSiIfJzvG3NFV+lNuzY6vDGzhDbeWLarpmW43sy4f
- WXjOMjTVkPHTHJpA37A+QEAZVtq6P870r1Q77GpjnsDIZSwytNSBekXTVIuBUSMWm6mO
- VfBQ==
-X-Gm-Message-State: APjAAAWDVxYdsCufD/UUFGmAZEb3Em0UI0bl+iZt749oxZnN71tHWG1Y
- 4bG6eRvHc7EED6qFYYSsxOvbxw==
-X-Google-Smtp-Source: APXvYqwMwtN/9BiCAeDSq8bw6UaVIvcm2zKgRR7fZSgp8cG8nJGZNjfgqqkTyxFwZd/sIBVKqa0hXQ==
-X-Received: by 2002:a17:906:a39a:: with SMTP id
- k26mr69719766ejz.82.1560767284087; 
- Mon, 17 Jun 2019 03:28:04 -0700 (PDT)
+ bh=+IsA7g8VrQi1p6+0rUAfrYHbZxeNW1x5cdILWDPWHeM=;
+ b=cup6Rr4IVL6OU07WXQlMk5EEOgrsMkxP+t24FV9wCxEJZUd+FSZmpYRR3oQbELTZMh
+ gXSPDZmHXMwgqkvKvdByaogKbjrhdsw1tagqzdsKkK7L7wVxNGdgAgLWrwZ7btQXi+xL
+ 0k1kCVGM2Wubn1sqzFSVmYuaZV3Wy2lDbyptzaZ3Crq3ChgdsBUNE1JaarNcaKcumib8
+ C7mRnJK9TI8UhWhcHAsbua1Q2/05t+2DxG7Xq1dwOqJywO5g3fdDqD4bIVURf+yHNSxx
+ 7eAT7RMmc7eXXpMApwB8G7KeqVLwC8DHI+o9pgGmH+SKsHfvWhGPBjjmUyTUluMKhOg+
+ fxCA==
+X-Gm-Message-State: APjAAAXf3pIp51wJqlQYt9ASlE11p+Q6kDDXJwPGheVGf79/Whx3HB43
+ nkM+9EU5ncAl5FTTGGEjdhUp/Q==
+X-Google-Smtp-Source: APXvYqwnU3Jslq6jxVegXAsmGj8PvJyDKbQzfvMcZlBL0H3PtYK1yRgW/NRELzzJ/8NU2HNPYZcqnw==
+X-Received: by 2002:a50:b566:: with SMTP id z35mr84088733edd.129.1560767570383; 
+ Mon, 17 Jun 2019 03:32:50 -0700 (PDT)
 Received: from localhost ([81.92.102.43])
- by smtp.gmail.com with ESMTPSA id f24sm3624644edf.30.2019.06.17.03.28.03
+ by smtp.gmail.com with ESMTPSA id z3sm3637022edd.72.2019.06.17.03.32.49
  (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Mon, 17 Jun 2019 03:28:03 -0700 (PDT)
-Date: Mon, 17 Jun 2019 03:28:02 -0700 (PDT)
+ Mon, 17 Jun 2019 03:32:49 -0700 (PDT)
+Date: Mon, 17 Jun 2019 03:32:49 -0700 (PDT)
 From: Paul Walmsley <paul.walmsley@sifive.com>
 X-X-Sender: paulw@viisi.sifive.com
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH v2 0/2] Add macb support for SiFive FU540-C000
-In-Reply-To: <CAJ2_jOH-CacU9+Lce80PQzG1ytxvSZmjfSMwL9=kbXpWxyU96Q@mail.gmail.com>
-Message-ID: <alpine.DEB.2.21.9999.1906170324250.19994@viisi.sifive.com>
-References: <1560745167-9866-1-git-send-email-yash.shah@sifive.com>
- <mvmtvco62k9.fsf@suse.de>
- <alpine.DEB.2.21.9999.1906170252410.19994@viisi.sifive.com>
- <CAJ2_jOH-CacU9+Lce80PQzG1ytxvSZmjfSMwL9=kbXpWxyU96Q@mail.gmail.com>
+To: ShihPo Hung <shihpo.hung@sifive.com>
+Subject: Re: [PATCH v2] riscv: mm: synchronize MMU after pte change
+In-Reply-To: <CALoQrwdLANaOaYiGvFxt23PBdHcgcc_LWVFORNwrAXWBhOyJsA@mail.gmail.com>
+Message-ID: <alpine.DEB.2.21.9999.1906170328330.19994@viisi.sifive.com>
+References: <CALoQrwdLANaOaYiGvFxt23PBdHcgcc_LWVFORNwrAXWBhOyJsA@mail.gmail.com>
 User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190617_032805_331305_CFACF4CE 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20190617_033251_925174_2F955114 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,55 +95,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Albert Ou <aou@eecs.berkeley.edu>, Andreas Schwab <schwab@suse.de>,
- Palmer Dabbelt <palmer@sifive.com>,
- =?ISO-8859-15?Q?Petr_=A6tetiar?= <ynezz@true.cz>, linux-kernel@vger.kernel.org,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Sachin Ghadi <sachin.ghadi@sifive.com>, Rob Herring <robh+dt@kernel.org>,
- sagar.kadam@sifive.com, netdev <netdev@vger.kernel.org>,
- linux-riscv@lists.infradead.org, David Miller <davem@davemloft.net>
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, stable@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Jun 2019, Yash Shah wrote:
+Hi ShihPo,
 
-> On Mon, Jun 17, 2019 at 3:28 PM Paul Walmsley <paul.walmsley@sifive.com> wrote:
->
-> > On Mon, 17 Jun 2019, Andreas Schwab wrote:
-> >
-> > > On Jun 17 2019, Yash Shah <yash.shah@sifive.com> wrote:
-> > >
-> > > > - Add "MACB_SIFIVE_FU540" in Kconfig to support SiFive FU540 in macb
-> > > >   driver. This is needed because on FU540, the macb driver depends on
-> > > >   SiFive GPIO driver.
-> > >
-> > > This of course requires that the GPIO driver is upstreamed first.
-> >
-> > What's the impact of enabling CONFIG_MACB_SIFIVE_FU540 when the GPIO
-> > driver isn't present?  (After modifying the Kconfig "depends" line
-> > appropriately.)
-> >
-> > Looks to me that it shouldn't have an impact unless the DT string is
-> > present, and even then, the impact might simply be that the MACB driver
-> > may not work?
+On Mon, 17 Jun 2019, ShihPo Hung wrote:
+
+> Because RISC-V compliant implementations can cache invalid entries
+> in TLB, an SFENCE.VMA is necessary after changes to the page table.
+> This patch adds an SFENCE.vma for the vmalloc_fault path.
 > 
-> Yes, there won't be an impact other than MACB driver not working.
+> Signed-off-by: ShihPo Hung <shihpo.hung@sifive.com>
+> Cc: Palmer Dabbelt <palmer@sifive.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: linux-riscv@lists.infradead.org
+> Cc: stable@vger.kernel.org
 
-OK.  In that case, there doesn't seem much point to adding the Kconfig 
-option.  Could you please post a new version without it?
+Looks like something in your patch flow converted tabs to whitespace, so 
+the patch doesn't apply.  Then, with the tabs fixed, the comment text 
+exceeds 80 columns.
 
-> In any case, without GPIO driver, PHY won't get reset and the network
-> interface won't come up.
+I've fixed those issues by hand for this patch (revised patch below, as 
+queued for v5.2-rc), but could you please fix these issues for future 
+patches?  Running checkpatch.pl --strict should help identify these issues 
+before posting.
 
-Naturally, in the medium term, we want Linux to handle the reset.  But if 
-there's no GPIO driver present, and the bootloader handles the PHY reset 
-before the kernel starts, would the network driver work in that case?
- 
+
+thanks,
 
 - Paul
+
+
+From: ShihPo Hung <shihpo.hung@sifive.com>
+Date: Mon, 17 Jun 2019 12:26:17 +0800
+Subject: [PATCH] [PATCH v2] riscv: mm: synchronize MMU after pte change
+
+Because RISC-V compliant implementations can cache invalid entries
+in TLB, an SFENCE.VMA is necessary after changes to the page table.
+This patch adds an SFENCE.vma for the vmalloc_fault path.
+
+Signed-off-by: ShihPo Hung <shihpo.hung@sifive.com>
+[paul.walmsley@sifive.com: reversed tab->whitespace conversion,
+ wrapped comment lines]
+Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@sifive.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: linux-riscv@lists.infradead.org
+Cc: stable@vger.kernel.org
+---
+ arch/riscv/mm/fault.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index cec8be9e2d6a..5b72e60c5a6b 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -29,6 +29,7 @@
+ 
+ #include <asm/pgalloc.h>
+ #include <asm/ptrace.h>
++#include <asm/tlbflush.h>
+ 
+ /*
+  * This routine handles page faults.  It determines the address and the
+@@ -278,6 +279,18 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 		pte_k = pte_offset_kernel(pmd_k, addr);
+ 		if (!pte_present(*pte_k))
+ 			goto no_context;
++
++		/*
++		 * The kernel assumes that TLBs don't cache invalid
++		 * entries, but in RISC-V, SFENCE.VMA specifies an
++		 * ordering constraint, not a cache flush; it is
++		 * necessary even after writing invalid entries.
++		 * Relying on flush_tlb_fix_spurious_fault would
++		 * suffice, but the extra traps reduce
++		 * performance. So, eagerly SFENCE.VMA.
++		 */
++		local_flush_tlb_page(addr);
++
+ 		return;
+ 	}
+ }
+-- 
+2.20.1
+
 
 _______________________________________________
 linux-riscv mailing list
