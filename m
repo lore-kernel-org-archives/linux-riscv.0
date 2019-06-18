@@ -1,68 +1,68 @@
-Return-Path: <SRS0=4kCy=UQ=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=m7Kf=UR=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5122CC31E5C
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2019 23:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 86E52C31E5B
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2019 00:25:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 28EC2208C0
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Jun 2019 23:35:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5D30720873
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2019 00:25:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dMVgyFdF";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="RZRNMiqQ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 28EC2208C0
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="b9PIbTCX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5D30720873
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=perches.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QBEG0Y5iYxxrQcXkP7/iCnPVryRI2igrvM7L3lK1jAg=; b=dMVgyFdFArPr32
-	9PbSC6sSJg/EHpu7AXysPYLC+UYATCMD93VnXjmp/+hBT+trMnhR8BuyXKmwp9G3OYIiBJwGiUw4h
-	BodQx3oXJQk/1NcNlHLuy4lX0FMEDAcdEqkjLuD81uw7BK0iZU3vupi3b7b4pyW3L6volo3ltfEk9
-	exSkrXBcB0JzFk2h8BqTs4Eui+sikcXHlbXEsB+LfnnKf96EMMF9lrCsQnLc/0GdZo2Qj4G3zGGaQ
-	i7XWA3+Pco7mQWXI6Lj+VsXKwiABbBnHAF2nzZpzDAhexgCiNHc6lYm3/VOIzgTYxs0yTqdbldkor
-	dSFxLlw6+58wXWeSkd7w==;
+	List-Owner; bh=1gLZlI80elpxknJwh0uIt6v+yeblJN70f3v47J6pVfQ=; b=b9PIbTCX4Eyx94
+	5Msgj20KCrJ7rSX4jDQb7ZrNVuU+cjSyKTvqyDJvkZA3qmF0E02cUGri8NmQdyJXKz+qvgqhcwMfP
+	m+86aOaLHPhuyQ93Icy3IYlBujhZyF91/U2iiUyZ8dQbuXDioCYgzklhcZO7a9qcGm8dilJeHDN94
+	7AK2u/GoTwTnegi06vV9DBprw3IuScOVyDUgaCDh1mkzcLs8c4SrQiGVmtEWKE9wUZA5AYvUGNnj9
+	0Cje9yR93NwNVz1EIqH9fWf6Hs8LtZCHeGNfaX8wn1ltfD2X0wdlrbFBc3a3lh0lmKJUKOeAR4OEX
+	TfAvbxldHE1CgE99QgNA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hd19Y-0003gw-Mz; Mon, 17 Jun 2019 23:35:08 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1hd1wY-00055M-0g; Tue, 18 Jun 2019 00:25:46 +0000
+Received: from smtprelay0202.hostedemail.com ([216.40.44.202]
+ helo=smtprelay.hostedemail.com)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hd19W-0003Dq-1k
- for linux-riscv@lists.infradead.org; Mon, 17 Jun 2019 23:35:07 +0000
-Subject: Re: [GIT PULL] RISC-V patches for v5.2-rc6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1560814505;
- bh=jrDbJSj1l+QKbJqYxevvzNKpDjm3U21oYvoFhSEewz4=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=RZRNMiqQkw64ZR5oA69fW9xkstwUQI3BaEBF8Yn0gMUm5ScpJpEwHMq9KYty5hACk
- Lg9btKcvDyG4VgjocpyhPNMKLxMwm/NkFaKWqG/jXmA+4hvqKZNUVrVV3lTfCYo2jZ
- Wqw4muTyq/N9abG4zU3rF+9/aXKUtZLD9ivFDUDY=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <alpine.DEB.2.21.9999.1906170846340.30717@viisi.sifive.com>
-References: <alpine.DEB.2.21.9999.1906170846340.30717@viisi.sifive.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <alpine.DEB.2.21.9999.1906170846340.30717@viisi.sifive.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
- tags/riscv-for-v5.2/fixes-rc6
-X-PR-Tracked-Commit-Id: 259931fd3b96e4386b361b7f80c1d89b266234c8
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: eb7c825bf74755a9ea975b7a463c6d13ffa7f447
-Message-Id: <156081450530.13377.16512075624141973247.pr-tracker-bot@kernel.org>
-Date: Mon, 17 Jun 2019 23:35:05 +0000
-To: Paul Walmsley <paul.walmsley@sifive.com>
+ id 1hd1wK-0004sV-J8; Tue, 18 Jun 2019 00:25:33 +0000
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
+ [216.40.38.60])
+ by smtprelay02.hostedemail.com (Postfix) with ESMTP id 29EC41F0A;
+ Tue, 18 Jun 2019 00:25:20 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-HE-Tag: clock60_4b5582c271355
+X-Filterd-Recvd-Size: 2222
+Received: from XPS-9350 (cpe-23-242-196-136.socal.res.rr.com [23.242.196.136])
+ (Authenticated sender: joe@perches.com)
+ by omf09.hostedemail.com (Postfix) with ESMTPA;
+ Tue, 18 Jun 2019 00:25:17 +0000 (UTC)
+Message-ID: <547e251d87e307fa4d1e31dfc61b496c152f0905.camel@perches.com>
+Subject: Re: [PATCH v5 2/3] mtd: spi-nor: add support to unlock flash device
+From: Joe Perches <joe@perches.com>
+To: Sagar Kadam <sagar.kadam@sifive.com>, Vignesh Raghavendra <vigneshr@ti.com>
+Date: Mon, 17 Jun 2019 17:25:16 -0700
+In-Reply-To: <CAARK3HmFg=v+cMGAykPPpwxDGaSKk5k+Gz4fSHQPQmg-rCjPhQ@mail.gmail.com>
+References: <1560336476-31763-1-git-send-email-sagar.kadam@sifive.com>
+ <1560336476-31763-3-git-send-email-sagar.kadam@sifive.com>
+ <70732c8e-111f-7c46-9e93-11894d944a1d@ti.com>
+ <CAARK3HmFg=v+cMGAykPPpwxDGaSKk5k+Gz4fSHQPQmg-rCjPhQ@mail.gmail.com>
+User-Agent: Evolution 3.30.5-0ubuntu0.18.10.1 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190617_163506_122390_FC039318 
-X-CRM114-Status: UNSURE (   1.00  )
+X-CRM114-CacheID: sfid-20190617_172532_706770_DEB53984 
+X-CRM114-Status: UNSURE (   8.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -75,26 +75,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+Cc: aou@eecs.berkeley.edu, tudor.ambarus@microchip.com,
+ Wesley Terpstra <wesley@sifive.com>, richard@nod.at,
+ Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ marek.vasut@gmail.com, linux-mtd@lists.infradead.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, miquel.raynal@bootlin.com,
+ linux-riscv@lists.infradead.org, computersforpeace@gmail.com,
+ dwmw2@infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Mon, 17 Jun 2019 08:54:30 -0700 (PDT):
+On Mon, 2019-06-17 at 21:10 +0530, Sagar Kadam wrote:
+> On Sun, Jun 16, 2019 at 6:35 PM Vignesh Raghavendra <vigneshr@ti.com> wrote:
+[]
+> > > +static int issi_unlock(struct spi_nor *nor, loff_t ofs, uint64_t len)
+> > > +{
+[]
+> > > +     if (ret > 0 && !(ret & mask)) {
+> > > +             dev_info(nor->dev,
+> > > +                     "ISSI Block Protection Bits cleared SR=0x%x", ret);
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-v5.2/fixes-rc6
+Please use '\n' terminations on formats
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/eb7c825bf74755a9ea975b7a463c6d13ffa7f447
+> > > +             ret = 0;
+> > > +     } else {
+> > > +             dev_err(nor->dev, "ISSI Block Protection Bits not cleared\n");
 
-Thank you!
+like this one
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.wiki.kernel.org/userdoc/prtracker
+> > > +             ret = -EINVAL;
+> > > +     }
+> > > +     return ret;
+> > > +}
+> > > +
+> > > +/**
+> > >   * spansion_quad_enable() - set QE bit in Configuraiton Register.
+
+s/Configuraiton/Configuration/
+
+
 
 _______________________________________________
 linux-riscv mailing list
