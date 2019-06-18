@@ -2,98 +2,67 @@ Return-Path: <SRS0=m7Kf=UR=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=0.1 required=3.0 tests=DATE_IN_PAST_06_12,
+	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ECF99C31E5B
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2019 16:50:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 49BEFC31E5E
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2019 20:28:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C649620B1F
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2019 16:50:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 216F42147A
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2019 20:28:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VGf9FJj1";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="hqS5I/Cp"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C649620B1F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VF7GQVwX";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="aB7KTV5Z"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 216F42147A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i2OMizok8KM1Og/TbCUnjiF0FxRmQFDh+IEfI3qQgdo=; b=VGf9FJj1sJfTYp
-	e3UGrgepsttmJ9cJQs8aWwi9GDUzhj/JUbQhh/EqgIwRTBr3RrkY8b22Mpwo/vvlfFwDvxlOMHusm
-	Git+p2RVkG48nmkjMFYADqzZxkm79cUHv8d+MPkxbNnm3+8M8W/X3DjZpY6ZyWJ66Sag7aOwv/kDE
-	jvkyLJA/VmPLLl0PV3iVb/o6+SQhMABYsZO/DjIp+Lb53seYYLtWrz/Tz9dZPsmGuTM+4wy38LsFT
-	YwIWvvCKdTJ+HaLIQvrjghz2N0A6mottaJngR18399nNQ+6gkNIvQJxAi6dEGkxFT6ECHM9stWrbw
-	7QKituw43xmgJWlHhYBA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+F2YVRKaO0vr9gu2piCw5iZCc4pKEmRBKPFzDL6eMJg=; b=VF7GQVwXv7MlTg
+	leZRL6QsJXT8zhqou9KXo+XXsfrl+J4hEG33BkzCuPmcfuSL39YCOa71k5yhq5YPeSaWp1Qr8jGZL
+	HUe/mZEh1ZF+rGJDgcaqPPoWC8/4E92l0LUtcoArnThbxLoaNtsYqQlR2bKDdFTZcLhu9tgS+04s/
+	d0A84hgdT4QBGy1J+bogrLT6xffTzLssqD5l0izB35sV5/+kRR5Vnub07vKRFGpqrS4w9h8V3s2LH
+	2xJGtXn+BVFlBbDO0D4YYlEVyjzvhqDzbqDaiHMeC8590QmOyOapjrYryjheRkMixrpAhtubSZmbW
+	8fBlvwwhsNIkHZdjusxg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hdHJC-0008OK-B0; Tue, 18 Jun 2019 16:50:10 +0000
-Received: from mail-io1-xd42.google.com ([2607:f8b0:4864:20::d42])
+	id 1hdKi9-0007kT-1f; Tue, 18 Jun 2019 20:28:09 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hdHIz-0007Ll-2w
- for linux-riscv@lists.infradead.org; Tue, 18 Jun 2019 16:49:58 +0000
-Received: by mail-io1-xd42.google.com with SMTP id e5so31498030iok.4
- for <linux-riscv@lists.infradead.org>; Tue, 18 Jun 2019 09:49:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=J5nux9DmROYeE56s/BQAf6HcvIGxMJ51i9fQdjtJRGo=;
- b=hqS5I/CprE/DXrjhB2RtBrF+oejKGdk3zNCPfvhEilNd8g6oS+9FCyeX5xoWyR95Pv
- QXfQpUrDVSyyPbwMEGtN/Anc7PQkgQch9Ion+L5uVbaRRsodXcJAWiAUSSTp5br1+rqC
- Nob53UB4jzbHqZydh8I42+TynMH/npouE7S2Z4PEOQ+I9MAAdV002tFiTkmYHOab8byS
- jhMHwalM8OjU3wLxgs3gZ4IwWYogLkZl4yUaunnYG6H9SmzH9RHYFHwmJYqs59Dx7kzn
- QlOSOVrA6U7UdmnKfYIHqVc7p0uQD/EUtAdDuexdd4hLamN0a9q8EEJCyuLh6ELLJcYO
- G+oA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=J5nux9DmROYeE56s/BQAf6HcvIGxMJ51i9fQdjtJRGo=;
- b=Oi31miv5EOqY2Nwo8wPVohvL/DyFGZ6qBxKPCNW2grt7a1dX9fch8IdXOSip4HUVis
- CUdW9c/Ehqkr07nD+Y64JGxWaUlZTA0Z5jCAT6A2sI3hIuzc4CCXcue837BufxvmRn+h
- 8OK+3mj6n0LQWCZ07rWJ7EqA+1Hqw8KHmDExtIEiYyPrL33c+q7vSVtWz7OitlsMD0Gt
- nR54UjRb9FOchNdgSBpgfkKAdvFWSXllh+7fNOlJW1VTmI1OPdcPrlzdcdjKzSWs+h01
- 4uKHP2bsPNoXTqiMOqCLXUU2j8GDyxg4P1S8v7INYl3CwBc4H8Mpf+suLraPySxmJUNV
- Z11Q==
-X-Gm-Message-State: APjAAAWbGBxxJMmqQbzE8BEI92bNWyFAB7B8W7bonNwy/+w+EKtFfXii
- IIoiDmL5A0Q7H9+3m0SzA1jKxw==
-X-Google-Smtp-Source: APXvYqyQiMRJSW+WsgFrJq67pivLuHVMSleBEdiKqkJFj7YjDFmJQLp16dpykNpYQIUlonlZMP6LSA==
-X-Received: by 2002:a5d:9291:: with SMTP id s17mr3521902iom.10.1560876593344; 
- Tue, 18 Jun 2019 09:49:53 -0700 (PDT)
-Received: from [192.168.1.196] ([216.160.37.230])
- by smtp.gmail.com with ESMTPSA id b6sm11518234iok.71.2019.06.18.09.49.52
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 18 Jun 2019 09:49:52 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.1\))
-Subject: Re: [PATCH v2 0/2] Add macb support for SiFive FU540-C000
-From: Troy Benjegerdes <troy.benjegerdes@sifive.com>
-In-Reply-To: <CAAhSdy3zODw=JFaN=2F4K5-umihJDivLO8J8LBdkFkuZgzu41Q@mail.gmail.com>
-Date: Tue, 18 Jun 2019 11:49:51 -0500
-Message-Id: <946B2B53-7A16-4B8D-8CB9-34EFFB9E84D6@sifive.com>
-References: <1560745167-9866-1-git-send-email-yash.shah@sifive.com>
- <mvmtvco62k9.fsf@suse.de>
- <alpine.DEB.2.21.9999.1906170252410.19994@viisi.sifive.com>
- <mvmpnnc5y49.fsf@suse.de>
- <alpine.DEB.2.21.9999.1906170305020.19994@viisi.sifive.com>
- <mvmh88o5xi5.fsf@suse.de>
- <alpine.DEB.2.21.9999.1906170419010.19994@viisi.sifive.com>
- <F48A4F7F-0B0D-4191-91AD-DC51686D1E78@sifive.com>
- <d2836a90b92f3522a398d57ab8555d08956a0d1f.camel@wdc.com>
- <alpine.DEB.2.21.9999.1906172019040.15057@viisi.sifive.com>
- <CAAhSdy3zODw=JFaN=2F4K5-umihJDivLO8J8LBdkFkuZgzu41Q@mail.gmail.com>
-To: Anup Patel <anup@brainfault.org>
-X-Mailer: Apple Mail (2.3445.9.1)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190618_094957_179435_0D06EAFE 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+ id 1hdKi7-0007kG-9i; Tue, 18 Jun 2019 20:28:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+ MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender
+ :Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=/yuq+528Ge2GyeWg6aQYCOiRFdbu/e3xfN3FdxpcEzY=; b=aB7KTV5ZzmCoj1Qxm3dVaqBytG
+ 6+FKmt7R881qAHMbcleBouaKC3kmFz2LA9Gvif95NyyHzZYpT55h4RDehfIKQQY69CVa8wVC9pTSV
+ lM5saykAhFfav4/jsmfkmbjCMOcfAFWTC4XcOhZRfq2M8BexwvZFvq+n1RO+Q6bUZMKIXOAKqgS/z
+ Z0xhg86h0mjM6gWv9dljQS4maac4BmrXdCgsk5P5Rrbmx/H/nT9JqF0GEKhiNMUUO+RcYwIj4hQKr
+ S+oRAMGCViKI189iZwgPRWHso0mZugDsGCk+ehRnbRbif4s1O9+a3pZMmiNVfSY4BbgNtTHNIW9P3
+ VhKuGzng==;
+Received: from 177.133.86.196.dynamic.adsl.gvt.net.br ([177.133.86.196]
+ helo=coco.lan)
+ by casper.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
+ id 1hdKi3-0001wm-Jm; Tue, 18 Jun 2019 20:28:04 +0000
+Date: Tue, 18 Jun 2019 11:14:47 -0300
+From: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
+To: Jonathan Corbet <corbet@lwn.net>
+Subject: Re: [PATCH v4 00/28] Convert files to ReST - part 1
+Message-ID: <20190618111122.64cdeb59@coco.lan>
+In-Reply-To: <20190614143640.40ee353a@lwn.net>
+References: <cover.1560361364.git.mchehab+samsung@kernel.org>
+ <20190614143640.40ee353a@lwn.net>
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -105,45 +74,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- Atish Patra <atish.patra@wdc.com>, "jamez@wit.com" <jamez@wit.com>,
- "palmer@sifive.com" <palmer@sifive.com>, "ynezz@true.cz" <ynezz@true.cz>,
- "nicolas.ferre@microchip.com" <nicolas.ferre@microchip.com>,
- "robh+dt@kernel.org" <robh+dt@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "sachin.ghadi@sifive.com" <sachin.ghadi@sifive.com>,
- "yash.shah@sifive.com" <yash.shah@sifive.com>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Lukas Auer <lukas.auer@aisec.fraunhofer.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, "schwab@suse.de" <schwab@suse.de>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Bin Meng <bmeng.cn@gmail.com>, "davem@davemloft.net" <davem@davemloft.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Song Liu <songliubraving@fb.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ bpf@vger.kernel.org, Daniel Borkmann <daniel@iogearbox.net>,
+ Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>,
+ Alexei Starovoitov <ast@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@infradead.org>,
+ Greentime Hu <green.hu@gmail.com>, netdev@vger.kernel.org,
+ Yonghong Song <yhs@fb.com>, linux-riscv@lists.infradead.org,
+ Vincent Chen <deanbo422@gmail.com>, Martin KaFai Lau <kafai@fb.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgo+IE9uIEp1biAxOCwgMjAxOSwgYXQgNDozMiBBTSwgQW51cCBQYXRlbCA8YW51cEBicmFpbmZh
-dWx0Lm9yZz4gd3JvdGU6Cj4gCj4+IGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51
-eC9rZXJuZWwvZ2l0L3RvcnZhbGRzL2xpbnV4LmdpdC9jb21taXQvP2lkPTcyMjk2YmRlNGY0MjA3
-NTY2ODcyZWUzNTU5NTBhNTljYmMyOWY4NTIKCkkgYWRkZWQgeW91ciBwYXRjaGVzLCBhbG9uZyB3
-aXRoIHR3byBvZiBtaW5lLCBhbmQgcmViYXNlZCB0aGVtCnRvIHRoZSBsYXRlc3QgVS1ib290IG1h
-c3RlciwgYW5kIHB1dCB0aGVtIG9uIHRoZSDigJh0by11cHN0cmVhbeKAmSBicmFuY2gKYXQgaHR0
-cHM6Ly9naXRodWIuY29tL3NpZml2ZS91LWJvb3QvdHJlZS90by11cHN0cmVhbQoKSSBhbSBtb3N0
-IGludGVyZXN0ZWQgaW4gcmV2aWV3IG9mIHRoZSBwYXRjaCB0aGF0IGFkZHMgdGhlIERUUyBmaWxl
-cwpmcm9tIExpbnV4IHRvIFUtYm9vdCwgYWxvbmcgd2l0aCBhIOKAmC11LWJvb3QuZHRzaeKAmSBm
-aWxlIHdoaWNoIGluY2x1ZGVzCnNldmVyYWwgZXh0cmEgdGhpbmdzLCBtb3N0IG5vdGFibHkgYW4g
-ZXRoZXJuZXQgZW50cnkgWzFdIHdoaWNoIGRvZXMKbm90IG1hdGNoIHRoZSBuZXcgcHJvcG9zZWQg
-Y2hhbmdlcyBmb3IgdGhlIE1hY0IgZHJpdmVyIHRoYXQgWWFzaAppcyB3b3JraW5nIG9uLgoKSG93
-IGNsb3NlIGFyZSB3ZSB0byBjb25zZW5zdXMgb24gdGhlIG5ldyDigJxzaWZpdmUsZnU1NDAtbWFj
-YuKAnQpkZXZpY2UgdHJlZSBlbnRyeSBmb3JtYXQ/IElzIHRoaXMgc29tZXRoaW5nIHRoYXQgaXMg
-c3RhYmxlIGVub3VnaCB0bwpzdGFydCBiYXNpbmcgc29tZSB3b3JrIGluIE0tbW9kZSBVLWJvb3Qg
-b24geWV0LCBvciBkbyB3ZSBleHBlY3QKbW9yZSBjaGFuZ2VzPwoKWzFdIGh0dHBzOi8vZ2l0aHVi
-LmNvbS9zaWZpdmUvdS1ib290L2NvbW1pdC8zNWU0MTY4ZTM2MTM5NzIyZjMwMTQzYTBjYTBhYTg2
-MzdkZDNlZTA0I2RpZmYtMjdkMmQzNzVkZGFjNTJmMWJjYTcxNTk0MDc1ZTFiZTRSOTMKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Em Fri, 14 Jun 2019 14:36:40 -0600
+Jonathan Corbet <corbet@lwn.net> escreveu:
+
+> On Wed, 12 Jun 2019 14:52:36 -0300
+> Mauro Carvalho Chehab <mchehab+samsung@kernel.org> wrote:
+> 
+> > This is mostly a rebase of the /33 series v3 I sent, on the top of the latest
+> > linux-next  (next-20190612).
+> > 
+> > Changes from v3:
+> > 
+> > - dropped cpufreq conversion - documents are too outdated;
+> > - infiniband patch is not here anymore - as it should be merged via RDMA;
+> > - s390 patches were already merged;
+> > - Dropped Geert as Maintainer from fb/framebuffer.rst, as per his request;
+> > - Did a minor editorial change at popwerpc/cxl.rst per Andrew Donellan
+> >   request;
+> > - Added acks/reviews;
+> > - trivial rebase fixups.  
+> 
+> So I had to pull docs-next forward to -rc4, but then I was able to apply
+> this set except for parts 5, 6, 14, 18, and 19.  
+
+Patch 5 went via Cgroups tree;
+Patch 18 went via power tree;
+Patch 6 is obsolete, as the cgroups-v1 CBQ chapter was removed;
+
+So, what's left from this series are patches 14 and 19.
+
+I have a rebased version of them on the top of linux-next
+on my working tree. Perhaps we should try to push those two late
+during the merge window.
+
+> Some progress made, but
+> this is somewhat painful work...
+
+Yeah, a change like that is not easy.
+
+Thanks,
+Mauro
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
