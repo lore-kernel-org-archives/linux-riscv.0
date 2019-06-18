@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B9C62C31E51
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2019 06:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BBA1AC31E5D
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2019 06:13:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8B26C214AF
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2019 06:13:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 94C48214AF
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 18 Jun 2019 06:13:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dQRt1ym0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8B26C214AF
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pW/tXspO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 94C48214AF
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,51 +25,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:From:MIME-Version:Message-Id:Date:
 	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4bJEO2MeUmBZkjU6jFmbU6NkSvDlCdOIJByh/1OD7wQ=; b=dQRt1ym0Xc73jm
-	bs2NfKbuQkw/H3mryuAXEpKAcEAtQzKTM4PZ5vkFPgCAYpN8z3Lm7xoO87rwDhnhzXw48HToNqDY1
-	PnA/gDrkV9NaOeSNE6ga9TxXCU38zRKJSjkq34Nax6AqmollM93UJP0OqyNiibHxZxYQLPmdM78EU
-	FUb0yuTg0nRQh66AUNBBrBPsLuM6inS0jIJ97wGrV1EZoIp+WgsNCl9tN4n7pFC/69ttM2mwBKk4e
-	bw/pNZLpUKubrixCQU/UxP2J/EQEI88r/jmafB1cRsT0wjjYagnwa8ZIIBUz+I1yWz2OUNGGh1lgk
-	FHRnHbv5cpe9nFF9Sn6g==;
+	List-Owner; bh=r1bZazaBTuyAYtI05jxvRvRdV1CFr/RhzH8lJsEBx4E=; b=pW/tXspOZoihgz
+	1kxB+k5L4qEb0EEFUwaksaz32SucxGGY//u/9bfx0LBk3YYXJI5V3t/OAkbK2wT8o83lq3EkYFFFJ
+	oxZ9h7VMPDx06jcIapVlzEkMNXl7Fuph0rBHXu0x945W3H1PnTyV5u2aRmnbZJFHKTaNpsBgZF+qZ
+	+N2BJ9wW1imzEDd7uev+miU8Ix1r1jf/4nUjYOuDM3ZxzzUwau658KmQ9XPmxMMgTFkqQaRmBAA1u
+	EUlmAaXXWS3K8KQXh8sXRHpapXyGEMSANr3/5GvK2U2V0ohj/cp34z733BONEaj3hBiQaXKQvIWEx
+	fvxLpbh1T6lXtqqwYHkw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hd7NQ-0008DO-Ol; Tue, 18 Jun 2019 06:13:52 +0000
-Received: from mail-io1-f66.google.com ([209.85.166.66])
+	id 1hd7NS-0008Eh-I5; Tue, 18 Jun 2019 06:13:54 +0000
+Received: from mail-io1-f65.google.com ([209.85.166.65])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hd7NN-0008Cf-IX
- for linux-riscv@lists.infradead.org; Tue, 18 Jun 2019 06:13:50 +0000
-Received: by mail-io1-f66.google.com with SMTP id s7so26995211iob.11
- for <linux-riscv@lists.infradead.org>; Mon, 17 Jun 2019 23:13:48 -0700 (PDT)
+ id 1hd7NQ-0008DC-JE
+ for linux-riscv@lists.infradead.org; Tue, 18 Jun 2019 06:13:53 +0000
+Received: by mail-io1-f65.google.com with SMTP id k20so27016499ios.10
+ for <linux-riscv@lists.infradead.org>; Mon, 17 Jun 2019 23:13:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:date:message-id:mime-version
  :content-transfer-encoding:cc:from:to;
- bh=tkmzKPJ8v/O/itnNgoUTzaNNri0XyAwxiGBCEfYBcG0=;
- b=YmdR3VoWtPNL6yU9bJj/8vYa36eDW/GmHIWiHRsr/b1Sx7WrfMByleqYt6UWM7i6mc
- V9j39IerbTTj4IhD0r0WL/W5I32FBVKLK3QbQ0O9j0Ppm9AbULbqYAnJpdHYiV5fZ9HW
- 2vim7SnPdHnfLFByuD/CdAPJw53H+Ly5NoVnhVeORtNtvuvGWEPXQnT7FYn9+QfFuVyI
- kDlh17EKnKITcxBa7+g8biCxdFyL5syeot71aErGMoaEjLOaYy6VAqF7Ycawf1SNaI9Z
- jywjYrxLTz54g22hiW8Ez8y/wVOjMKa0WufK+V47uCdiR2uZ8ltHdLn30qtFndlu2G1U
- LLYg==
-X-Gm-Message-State: APjAAAVJfPknHVRqh/rZM4+2FMNkGVVnCue6ByOSup3o4jakS5I/wpR4
- /J9kKnz/fSidP4E6BPSxVVDOp03+kJ5Vrg==
-X-Google-Smtp-Source: APXvYqyJrTKvL5aqOL4vqLndifQoIftcE6YdC3+xO0ObU+yua7RYLXa3ZnO59zlwbA8zft9/CWY6ZA==
-X-Received: by 2002:a02:b10b:: with SMTP id r11mr892354jah.140.1560838427896; 
- Mon, 17 Jun 2019 23:13:47 -0700 (PDT)
+ bh=hOy3xilB7B1uMvabDCiSHNx/z8iRfTrPW/yFF7m7nz0=;
+ b=pHSFEjtEiOIu9ouerbBwgd4KqsIINIY4v1NLnI1MqcvpTKUl2zk6Nquc8wNtFw/eWg
+ j1XPu5AOk3B5vNXAxk/k5If/qWJcCsSTMu9i/6bvBTgDOsrbEYbi2J14M15EuNIoWF9l
+ Fx3JPs+Zr4kxtX+VEznAbk5QNcS7KWm80Lb7mzsjNClmXYX3sA9/icfFnLMVYlPn/osY
+ y/SayDc2LXduxJ3qXir4GhBA+NXh4wi+v+jHcbWO8GJiaaPlerfQnGC8IW6c92O7nLZt
+ OrOdvz0xI10tbL8kDO6VZuydPsI+Sd9jfbPLrAylnrbAu8VqlebKdFIe1uJ2qgClJ45w
+ GEZg==
+X-Gm-Message-State: APjAAAXKs4H1aon4rNCi1/4gDwjUsEsAqugt+PBGiWutcqIc27ANAjON
+ sQGB0hiCpKLCbpz7dQ8VX0h818uGA7DeOw==
+X-Google-Smtp-Source: APXvYqy3j7XalhIiKZBNO0ZjMRUb7OiF2i6RCCHzXJIxCySVhpzJ3yT7j1dlOwdiYpaUPyrK7crAIQ==
+X-Received: by 2002:a05:6638:38a:: with SMTP id
+ y10mr861293jap.104.1560838431297; 
+ Mon, 17 Jun 2019 23:13:51 -0700 (PDT)
 Received: from localhost (210-61-29-234.HINET-IP.hinet.net. [210.61.29.234])
- by smtp.gmail.com with ESMTPSA id t133sm28866985iof.21.2019.06.17.23.13.46
+ by smtp.gmail.com with ESMTPSA id h18sm11626649iob.80.2019.06.17.23.13.50
  (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Mon, 17 Jun 2019 23:13:47 -0700 (PDT)
-Subject: [PATCH] RISC-V: Avoid using invalid intermediate translations
-Date: Mon, 17 Jun 2019 23:12:03 -0700
-Message-Id: <20190618061203.7256-1-palmer@sifive.com>
+ Mon, 17 Jun 2019 23:13:50 -0700 (PDT)
+Subject: [PATCH] RISC-V: Take a third shot at describing sfence.vma
+Date: Mon, 17 Jun 2019 23:12:16 -0700
+Message-Id: <20190618061216.7303-1-palmer@sifive.com>
 X-Mailer: git-send-email 2.21.0
 MIME-Version: 1.0
 From: Palmer Dabbelt <palmer@sifive.com>
 To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190617_231349_609222_19091B0A 
-X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-CacheID: sfid-20190617_231352_626917_3ACF82AD 
+X-CRM114-Status: UNSURE (   9.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -88,44 +89,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is almost entirely a comment.
+This is the third iteration of this comment.  I've had the diff floating
+around for a while since someone pointed out that the original version
+didn't make any sense, but I forgot who pointed this out.
 
 Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
 ---
- arch/riscv/kernel/head.S | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/tlbflush.h | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index fe884cd69abd..fc5534e9cf4b 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -99,7 +99,9 @@ relocate:
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index 54fee0cadb1e..8fda8974d8c7 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -19,8 +19,9 @@
+ #include <asm/smp.h>
  
- 	/*
- 	 * Load trampoline page directory, which will cause us to trap to
--	 * stvec if VA != PA, or simply fall through if VA == PA
-+	 * stvec if VA != PA, or simply fall through if VA == PA.  We need a
-+	 * full fence here because setup_vm() just wrote these PTEs and we need
-+	 * to ensure the new translations are in use.
- 	 */
- 	la a0, trampoline_pg_dir
- 	srl a0, a0, PAGE_SHIFT
-@@ -118,8 +120,14 @@ relocate:
- 	la gp, __global_pointer$
- .option pop
- 
--	/* Switch to kernel page tables */
-+	/*
-+	 * Switch to kernel page tables.  A full fence is necessary in order to
-+	 * avoid using the trampoline translations, which are only correct for
-+	 * the first superpage.  Fetching the fence is guarnteed to work
-+	 * because that first superpage is translated the same way.
-+	 */
- 	csrw sptbr, a2
-+	sfence.vma
- 
- 	ret
- 
+ /*
+- * Flush entire local TLB.  'sfence.vma' implicitly fences with the instruction
+- * cache as well, so a 'fence.i' is not necessary.
++ * Flush entire local TLB.  'sfence.vma' enforces that all subsequent memory
++ * accesses, both from the instruction and data streams, respect all previously
++ * installed mappings.  Thus we do not need a fence.i here.
+  */
+ static inline void local_flush_tlb_all(void)
+ {
 -- 
 2.21.0
 
