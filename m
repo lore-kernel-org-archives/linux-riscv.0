@@ -2,63 +2,58 @@ Return-Path: <SRS0=P6b6=UX=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_MUTT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BA5EEC43613
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2019 11:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D5011C43613
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2019 11:55:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8FDEE20674
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2019 11:47:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AA8A62133F
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2019 11:55:14 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pKNojIY8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8FDEE20674
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AdmAVEHD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AA8A62133F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ygnhVPUV2hkeSKj3BOZ847VFae7x26F6O4bUD5RvLcA=; b=pKNojIY83lTXxa
-	UpkPFYn3Bn2CbwfNPClT/aiE0KRhQfjyscA+hEqB2YPJ48NiNZzccuCDsfeL/xKrCWrCwFj6oW+bf
-	xlVqRaYUN2F1WTiqPs4KPYWMRJvOTSXNCENclw+Bj6l36X6He5qvHk59enyNYswEvoc82JfKoNYvm
-	BOXs7nYsI6uYTp5oTjnp+MpjZBME3Vahu9JNLy8YZBDFK3OrQn6QQ8mZ30/+nTJNnyNGTAZSe7r/W
-	KHxowrJWk8KV8F9XFn1PwZlXsGdsmp2UskfSF45YmF3FFNIhiIxFUogakYldsd5nHBaxJMg4HJgBw
-	M2pD5oMSYxbd3kGkgWZQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=A00WoRB0LeU5nkwavMiAHQ1v/bmEgKNNlYIX6KYDlZw=; b=AdmAVEHD9jJyI5
+	f/vTMQBDQJJJin/sbMhrTRT3a3ojGPTT4lkjUa5mGjs7xXxHd2cakTdJh3aQY4y0GWn/3v7NNZOMH
+	q1vkAhbFSB4DrbNBsx4UcAy7K9cS9KgQWjLTrE+pPYDV9QYfWjPQ1HJmAv6IBEScYf1M9ICtxb2z2
+	JzinYLtU4gWT2nJTqpbotGixyWaCQTxQ9LmO6AX6Gx/mZERIRRcTOrgP8s7QJWUBmt3CKNuDMR3GD
+	GydlHi3dt3w7S56gIq+b5S3UsK1njFagfO+/TV6thQjA/zdXgD6B8RywwwjBCeBVEY+tg+teWw+I0
+	qIigw0o9f24glakko5Hg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hfNRM-0004n2-2L; Mon, 24 Jun 2019 11:47:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
- id 1hfNRJ-0004lz-8z
- for linux-riscv@lists.infradead.org; Mon, 24 Jun 2019 11:47:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDE242B;
- Mon, 24 Jun 2019 04:47:10 -0700 (PDT)
-Received: from [10.1.32.158] (unknown [10.1.32.158])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7606B3F718;
- Mon, 24 Jun 2019 04:47:09 -0700 (PDT)
+	id 1hfNZ0-0007cF-D8; Mon, 24 Jun 2019 11:55:10 +0000
+Received: from verein.lst.de ([213.95.11.211] helo=newverein.lst.de)
+ by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
+ id 1hfNYr-0006pP-HV
+ for linux-riscv@lists.infradead.org; Mon, 24 Jun 2019 11:55:09 +0000
+Received: by newverein.lst.de (Postfix, from userid 2407)
+ id 647BB68B02; Mon, 24 Jun 2019 13:54:29 +0200 (CEST)
+Date: Mon, 24 Jun 2019 13:54:28 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Vladimir Murzin <vladimir.murzin@arm.com>
 Subject: Re: RISC-V nommu support v2
-To: Christoph Hellwig <hch@lst.de>, Palmer Dabbelt <palmer@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
+Message-ID: <20190624115428.GA9538@lst.de>
 References: <20190624054311.30256-1-hch@lst.de>
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-Message-ID: <28e3d823-7b78-fa2b-5ca7-79f0c62f9ecb@arm.com>
-Date: Mon, 24 Jun 2019 12:47:07 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+ <28e3d823-7b78-fa2b-5ca7-79f0c62f9ecb@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <20190624054311.30256-1-hch@lst.de>
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <28e3d823-7b78-fa2b-5ca7-79f0c62f9ecb@arm.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190624_044713_361851_7BD61D54 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20190624_045507_607118_48444BE9 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,62 +65,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mm@kvack.org, Damien Le Moal <damien.lemoal@wdc.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Damien Le Moal <damien.lemoal@wdc.com>, Palmer Dabbelt <palmer@sifive.com>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, Jun 24, 2019 at 12:47:07PM +0100, Vladimir Murzin wrote:
+> Since you are using binfmt_flat which is kind of 32-bit only I was expecting to see
+> CONFIG_COMPAT (or something similar to that, like ILP32) enabled, yet I could not
+> find it.
 
-On 6/24/19 6:42 AM, Christoph Hellwig wrote:
-> Hi all,
-> 
-> below is a series to support nommu mode on RISC-V.  For now this series
-> just works under qemu with the qemu-virt platform, but Damien has also
-> been able to get kernel based on this tree with additional driver hacks
-> to work on the Kendryte KD210, but that will take a while to cleanup
-> an upstream.
-> 
-> To be useful this series also require the RISC-V binfmt_flat support,
-> which I've sent out separately.
-> 
-> A branch that includes this series and the binfmt_flat support is
-> available here:
-> 
->     git://git.infradead.org/users/hch/riscv.git riscv-nommu.2
-> 
-> Gitweb:
-> 
->     http://git.infradead.org/users/hch/riscv.git/shortlog/refs/heads/riscv-nommu.2
-> 
-> I've also pushed out a builtroot branch that can build a RISC-V nommu
-> root filesystem here:
-> 
->    git://git.infradead.org/users/hch/buildroot.git riscv-nommu.2
-> 
-> Gitweb:
-> 
->    http://git.infradead.org/users/hch/buildroot.git/shortlog/refs/heads/riscv-nommu.2
-> 
-> Changes since v1:
->  - fixes so that a kernel with this series still work on builds with an
->    IOMMU
->  - small clint cleanups
->  - the binfmt_flat base and buildroot now don't put arguments on the stack
-> 
-> 
+There is no such thing in RISC-V.  I don't know of any 64-bit RISC-V
+cpu that can actually run 32-bit RISC-V code, although in theory that
+is possible.  There also is nothing like the x86 x32 or mips n32 mode
+available either for now.
 
-Since you are using binfmt_flat which is kind of 32-bit only I was expecting to see
-CONFIG_COMPAT (or something similar to that, like ILP32) enabled, yet I could not
-find it.
-
-I do not know much about RISC-V architecture, so it is why I'm wondering how you deal
-with that?
-
-Cheers
-Vladimir
+But it turns out that with a few fixes to binfmt_flat it can run 64-bit
+binaries just fine.  I sent that series out a while ago, and IIRC you
+actually commented on it.
 
 _______________________________________________
 linux-riscv mailing list
