@@ -2,70 +2,74 @@ Return-Path: <SRS0=P6b6=UX=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_NEOMUTT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9DBCDC43613
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2019 10:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4CB83C43613
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2019 10:22:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7213321655
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2019 10:17:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2576F20652
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 24 Jun 2019 10:22:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TuJNyeBs";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="rRPqB0n0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7213321655
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linuxfoundation.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uxzsx0k5";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="JwiHHdW7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2576F20652
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p8Ynvg+j1jzuN4nrtSmHgbw2spk5qvfEJS11t2NPfZQ=; b=TuJNyeBsZIdGyJ
-	ox0guTNXcjgTHtK73o5NeearZVf5Lm8HIlSbB6AIcCkYR/7mplFDKNs/984rZI6sqJKb7sRHhFWuz
-	hqBpahkrhT8z8cDlvNpm8M4eU5yrAHhIvcbTU8vsb0n5hpOm1oxbw96JBcMlWs5oPtcGI9tHkXxUj
-	fRIPT8YgZYCy/lDhL7qjyBgwEG4BOB0ZZJybu+rWq4DKCI1aofW93f6r0xMS7vmmf/V/9oEhY6jtk
-	Jt0F4Fo12r+NPjruibFRQwM7DaYjnJZpOtOiDiJWi7UfYrlYx9nlijM8MciPWSTtFw/RtEttD9w8/
-	nEnw9prmPi+Dr2hfoFDQ==;
+	List-Owner; bh=kMpM/FSIKRStrVUC66Vlt7U/Ov5kjnskwGNIMu9ZQwA=; b=uxzsx0k5oTNKEn
+	xcihkV7w3oJ5zxca/IbhrDtD4kt92THyrU6LZKJcKLQ9VAlhd/H50GCIKOoUkVW6Fxtxgm2y3Ic6t
+	83nhKoyzE6rL//33ReouxnvfZx3V/uRXq6h4QZDQq1I3SNwbUolIi8SfBgIURithwgdYqczCSGX19
+	sd0E4WaBe53URsCi7ZDMcKVRwy4DTLT14FdT6K6E1CuiS+l2f3YnYAcYQYkU8D4e7zm/3c5aeQGMg
+	39pXBawbhb4n0QNjgmNStgXYqDCLp/x0XZbZJbL9BBV3wx0xLOoxONCrfWH6B4e/m5/w2/kVw52FK
+	EtE8f2/7uGFCbp3gip/g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hfM26-0002qN-A2; Mon, 24 Jun 2019 10:17:06 +0000
+	id 1hfM7N-0004ud-Tn; Mon, 24 Jun 2019 10:22:33 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hfM20-0002pG-4g
- for linux-riscv@lists.infradead.org; Mon, 24 Jun 2019 10:17:05 +0000
-Received: from localhost (f4.8f.5177.ip4.static.sl-reverse.com
- [119.81.143.244])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id DDAC6205C9;
- Mon, 24 Jun 2019 10:16:58 +0000 (UTC)
+ id 1hfM77-0004i4-2E; Mon, 24 Jun 2019 10:22:18 +0000
+Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 691F9208E4;
+ Mon, 24 Jun 2019 10:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1561371419;
- bh=tsibFGeCM9kozJlvLSct5i3Ff8kYIeVStbM5u+Zsugk=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=rRPqB0n0pQd1J7od2DZhHu0r+760h2ayiLWDkyxw9SLIaoVWdA7E1IXPAlFlOMxUZ
- j07B7tdvd8QVaUhDtasBEv7G64PXDaJjQKOKoAVJt2wM2cCIz7o8nAJgEQ6geOwLsc
- 7xb3igBR/Puu+VcxLn7U/CIuXGitv4lOdg0nEM/s=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH 5.1 096/121] riscv: mm: synchronize MMU after pte change
-Date: Mon, 24 Jun 2019 17:57:08 +0800
-Message-Id: <20190624092325.659180675@linuxfoundation.org>
-X-Mailer: git-send-email 2.22.0
-In-Reply-To: <20190624092320.652599624@linuxfoundation.org>
-References: <20190624092320.652599624@linuxfoundation.org>
-User-Agent: quilt/0.66
+ s=default; t=1561371736;
+ bh=d4H3ytDN4+6bzOFsrB7H72D5xnyH2d7DzxF9eKjN0sY=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=JwiHHdW7tU89KwjK81T7yWoMzvqANGQZczB5UCgT2eBTMTSj/2WtBXwPLu9Bm31O5
+ r/b9kyNOheWOPU6eueHBoKQB11SLCVWYnVhoKTq/4mVb1bd1PgiaqOudYcyxSqF2PT
+ S4tMcKDxPqFg/3U3pumEBb3BDhOvWlvqmdZEXn2I=
+Date: Mon, 24 Jun 2019 11:22:10 +0100
+From: Will Deacon <will@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+Subject: Re: [PATCH RFC 11/14] arm64: Move the ASID allocator code in a
+ separate file
+Message-ID: <20190624102209.ngwtosgr5fvp3ler@willie-the-truck>
+References: <20190321163623.20219-1-julien.grall@arm.com>
+ <20190321163623.20219-12-julien.grall@arm.com>
+ <0dfe120b-066a-2ac8-13bc-3f5a29e2caa3@arm.com>
+ <CAJF2gTTXHHgDboaexdHA284y6kNZVSjLis5-Q2rDnXCxr4RSmA@mail.gmail.com>
+ <c871a5ae-914f-a8bb-9474-1dcfec5d45bf@arm.com>
+ <CAJF2gTStSR7Jmu7=HaO5Wxz=Zn8A5-RD8ktori3oKEhM9vozAA@mail.gmail.com>
+ <20190621141606.GF18954@arrakis.emea.arm.com>
+ <CAJF2gTTVUToRkRtxTmtWDotMGXy5YQCpL1h_2neTBuN3e6oz1w@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTTVUToRkRtxTmtWDotMGXy5YQCpL1h_2neTBuN3e6oz1w@mail.gmail.com>
+User-Agent: NeoMutt/20170113 (1.7.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190624_031703_885791_1866ABBB 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190624_032217_141068_398E8691 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,70 +81,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Palmer Dabbelt <palmer@sifive.com>, stable@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
- ShihPo Hung <shihpo.hung@sifive.com>
+Cc: Julien Grall <julien.grall@arm.com>, aou@eecs.berkeley.edu,
+ suzuki.poulose@arm.com, Marc Zyngier <marc.zyngier@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, julien.thierry@arm.com,
+ Will Deacon <will.deacon@arm.com>, linux-kernel@vger.kernel.org,
+ rppt@linux.ibm.com, hch@infradead.org, Atish Patra <Atish.Patra@wdc.com>,
+ Anup Patel <anup.Patel@wdc.com>, james.morse@arm.com, gary@garyguo.net,
+ Palmer Dabbelt <palmer@sifive.com>, christoffer.dall@arm.com,
+ paul.walmsley@sifive.com, linux-riscv@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: ShihPo Hung <shihpo.hung@sifive.com>
+On Mon, Jun 24, 2019 at 12:35:35AM +0800, Guo Ren wrote:
+> On Fri, Jun 21, 2019 at 10:16 PM Catalin Marinas
+> <catalin.marinas@arm.com> wrote:
+> >
+> > On Wed, Jun 19, 2019 at 07:51:03PM +0800, Guo Ren wrote:
+> > > On Wed, Jun 19, 2019 at 4:54 PM Julien Grall <julien.grall@arm.com> wrote:
+> > > > On 6/19/19 9:07 AM, Guo Ren wrote:
+> > > > > Move arm asid allocator code in a generic one is a agood idea, I've
+> > > > > made a patchset for C-SKY and test is on processing, See:
+> > > > > https://lore.kernel.org/linux-csky/1560930553-26502-1-git-send-email-guoren@kernel.org/
+> > > > >
+> > > > > If you plan to seperate it into generic one, I could co-work with you.
+> > > >
+> > > > Was the ASID allocator work out of box on C-Sky?
+> > >
+> > > Almost done, but one question:
+> > > arm64 remove the code in switch_mm:
+> > >   cpumask_clear_cpu(cpu, mm_cpumask(prev));
+> > >   cpumask_set_cpu(cpu, mm_cpumask(next));
+> > >
+> > > Why? Although arm64 cache operations could affect all harts with CTC
+> > > method of interconnect, I think we should keep these code for
+> > > primitive integrity in linux. Because cpu_bitmap is in mm_struct
+> > > instead of mm->context.
+> >
+> > We didn't have a use for this in the arm64 code, so no point in
+> > maintaining the mm_cpumask. On some arm32 systems (ARMv6) with no
+> > hardware broadcast of some TLB/cache operations, we use it to track
+> > where the task has run to issue IPI for TLB invalidation or some
+> > deferred I-cache invalidation.
+> The operation of set/clear mm_cpumask was removed in arm64 compared to
+> arm32. It seems no side effect on current arm64 system, but from
+> software meaning it's wrong.
+> I think we should keep mm_cpumask just like arm32.
 
-commit bf587caae305ae3b4393077fb22c98478ee55755 upstream.
+It was a while ago now, but I remember the atomic update of the mm_cpumask
+being quite expensive when I was profiling this stuff, so I removed it
+because we don't need it for arm64 (at least, it doesn't allow us to
+optimise our shootdowns in practice).
 
-Because RISC-V compliant implementations can cache invalid entries
-in TLB, an SFENCE.VMA is necessary after changes to the page table.
-This patch adds an SFENCE.vma for the vmalloc_fault path.
+I still think this is over-engineered for what you want on c-sky and making
+this code generic is a mistake.
 
-Signed-off-by: ShihPo Hung <shihpo.hung@sifive.com>
-[paul.walmsley@sifive.com: reversed tab->whitespace conversion,
- wrapped comment lines]
-Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@sifive.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: linux-riscv@lists.infradead.org
-Cc: stable@vger.kernel.org
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-
----
- arch/riscv/mm/fault.c |   13 +++++++++++++
- 1 file changed, 13 insertions(+)
-
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -29,6 +29,7 @@
- 
- #include <asm/pgalloc.h>
- #include <asm/ptrace.h>
-+#include <asm/tlbflush.h>
- 
- /*
-  * This routine handles page faults.  It determines the address and the
-@@ -281,6 +282,18 @@ vmalloc_fault:
- 		pte_k = pte_offset_kernel(pmd_k, addr);
- 		if (!pte_present(*pte_k))
- 			goto no_context;
-+
-+		/*
-+		 * The kernel assumes that TLBs don't cache invalid
-+		 * entries, but in RISC-V, SFENCE.VMA specifies an
-+		 * ordering constraint, not a cache flush; it is
-+		 * necessary even after writing invalid entries.
-+		 * Relying on flush_tlb_fix_spurious_fault would
-+		 * suffice, but the extra traps reduce
-+		 * performance. So, eagerly SFENCE.VMA.
-+		 */
-+		local_flush_tlb_page(addr);
-+
- 		return;
- 	}
- }
-
-
+Will
 
 _______________________________________________
 linux-riscv mailing list
