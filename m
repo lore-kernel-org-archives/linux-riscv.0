@@ -2,76 +2,82 @@ Return-Path: <SRS0=f00Y=UY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C6DBBC48BD7
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2019 07:31:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1896CC48BD4
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2019 08:35:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A140A20863
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2019 07:31:30 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E19E52146E
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 25 Jun 2019 08:35:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZCXCOEN1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A140A20863
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="R2aDFbY0";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="RJvMZ0xf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E19E52146E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=BXmNub+mPJk89FnoNlMS5Nq3kMFUKKCW8+jG6uv0MrY=; b=ZCXCOEN1kgr+b9MtNl0EwCq/e
-	EeRdk15as2BBLxkZQebR0mzQ8QN+Mqt09ETSzIy57FiakyjFCe7V2UwoT9Gk62v3EO7XexWO5yS3z
-	sI4I6vnqPGY2iFCHUayx2OdJNtGtZqXpVieyeW5v3hjZunn6btbuf7jx7BYum8YgtgQTeKq+7mQt9
-	LovRt3KO99iWUMAiR/QYl5v5wA94MIlJfDMAnHMjpUu95X8zUp2nYfGHkfeG0ZSw/sGxo4ilhdyQ5
-	uoaiKt7ClHZU2qzrv9ymqJGcwI0+UjxxvgTIUdHsOMeX9U2XBk3HogwD5G+YY4YtOkGTPBsop5Ukx
-	idbrxzEdw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ekJ12srKIhM9eWO4PQr3JrHHm42KTMbRXRhjUj9swCI=; b=R2aDFbY0v3OxJ1
+	kY4k07V6wCMgva3VNedBsgHCgWugKju+9RDsqqCsITVmkO9YiugCTK1xKKZBjthrLDtuwJkTuGOkz
+	mn2tCfxcHeXhNHcIjBz87cDvJn7QoZ23gpi5MSBvl1Ee7Wyi+XK6b0F1ZK0FebNNkc+dX8C7h0M7z
+	cl1D3Y3fVQowB+IzTRvoRI20PQldm0i5wLnNsLzc7JX50ThqV22SaODRhn4Vp4+Hgsay4a9HYSn7l
+	RywnriVOf8e2cZNkk6MxcgAMjfO7PoeoCP+vyV1Nb04LIKCy0QwAdM3L330eXcWC1AT4w4sevWz7u
+	RjXDaH+1GGENrySqP8OA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hffvN-0006UL-Sn; Tue, 25 Jun 2019 07:31:29 +0000
-Received: from mail-pl1-f193.google.com ([209.85.214.193])
+	id 1hfgvT-0007v2-2I; Tue, 25 Jun 2019 08:35:39 +0000
+Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hffvK-0006Tg-Ld
- for linux-riscv@lists.infradead.org; Tue, 25 Jun 2019 07:31:28 +0000
-Received: by mail-pl1-f193.google.com with SMTP id b7so8381785pls.6
- for <linux-riscv@lists.infradead.org>; Tue, 25 Jun 2019 00:31:26 -0700 (PDT)
+ id 1hfgvQ-0007ps-Tq
+ for linux-riscv@lists.infradead.org; Tue, 25 Jun 2019 08:35:38 +0000
+Received: by mail-lf1-x142.google.com with SMTP id x144so4564074lfa.9
+ for <linux-riscv@lists.infradead.org>; Tue, 25 Jun 2019 01:35:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=Dk5hrs4C1tt/nglJSF3HRfZ1Bert/xei53XsDQtZv3U=;
+ b=RJvMZ0xf0FFZturrGj3s8PD+dfTywtJeBO4V1p/DJyCQhQluUkFNKj08X91XvfwrJz
+ LYTzGaCoqmE8kPTb/FJMJhMTMPB1Q1j0T7j9lwCyYuGYBX6KfVSuZC9k7UjZhIQ4YUzf
+ Zzpe29mDXFXQjNGSPoelt2iWqCLm6UpMYgdCeoFj15fxzCaDsX4lsBug5NKZmS8x4lkF
+ /oFtdAD2gyPlgBWu5ETHYX3IVyBg/2IUZcgY9dDvxlY6Id8TKd7JvCTqHbHu5GQ7xIZI
+ ShCMiXk0NN3dKb4x2CHymD/nE+NsnXo1uivxDiLAMY9dab4IM1SrDQP0F95S2Z2zhQSr
+ gKmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=LSFnG1VLPAxdrZu/1aoqM762Ph1wbr10WuLO1iu5MTU=;
- b=jHhS0FnLpkyrtgEBYz2nP9iQ57zDouOtSRwf2uj7i6PylSPVhj1uAWk+o3viGkKt0S
- mIgM/OeLabkk0+eH09yruhwz3aohldzrqSDiQJvTm8tOnYWY+Oa967MybF64tlGucBJy
- An39zv/cATJJCo0OkyGLC7g3H7dMqPW41W7DQKJvLtlbFvdtZCurhoQk50dnl8YNyrTn
- oxtgiBmwt/ITCwSUj2iE56MpnnesRmGO2mygqkNyig3EbiDgvPuIKePVfaQzRw3vt4sD
- nfeaKdYM/TRhtu1oT18pMfojtGVjgutft2d/AIzHHo9HXKSK2GYbnve/HTNmX3aAPC5k
- NGCA==
-X-Gm-Message-State: APjAAAVSgRM4Wc4Fnj75t2Z+IS97IYl++gzC/iJhkzfjjlrYWp6h/FxQ
- MeOG3AmiWdJnXdlawZiH7koiwQ==
-X-Google-Smtp-Source: APXvYqxA3AiKfUdGgybrZGEd+QlSDx5f6SSD+C9TEX69lBm8COreE3lS5uJ/emXNgMIJT2bbhTf5JQ==
-X-Received: by 2002:a17:902:8f81:: with SMTP id
- z1mr85183321plo.290.1561447885879; 
- Tue, 25 Jun 2019 00:31:25 -0700 (PDT)
-Received: from localhost (220-132-236-182.HINET-IP.hinet.net.
- [220.132.236.182])
- by smtp.gmail.com with ESMTPSA id 12sm13241505pfi.60.2019.06.25.00.31.25
- (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Tue, 25 Jun 2019 00:31:25 -0700 (PDT)
-Date: Tue, 25 Jun 2019 00:31:25 -0700 (PDT)
-X-Google-Original-Date: Tue, 25 Jun 2019 00:30:40 PDT (-0700)
-Subject: Re: RISC-V nommu support v2
-In-Reply-To: <d4fd824d-03ff-e8ab-b19f-9e5ef5c22449@arm.com>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: vladimir.murzin@arm.com
-Message-ID: <mhng-6f11ed95-e3f3-41dc-93c5-1576928b373b@palmer-si-x1e>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=Dk5hrs4C1tt/nglJSF3HRfZ1Bert/xei53XsDQtZv3U=;
+ b=XACYxIrwxyZo9+uhLOGasIBf2zqtYzxAg2wG6etp2yAj9mrriQ0N2y6cG71L4D60vP
+ DcOM0yDq6kGNNREqpeJsIaawX7uhTyT8QFw2Qn1UOadhUrxvb9Mx9ikcctrJ8SkN/54P
+ lmO9jOHdJseY8WGPONNrL4TCYsa1DcLuZdhRNNeSg/oeODVGftUSLQsbfOl1FXAQiQnP
+ ZdbOxfXBaUyvrCBSCvREAC1L7bdJy8qOcGyzgzkK3R++4xa83GxIoyCbRnFxk+MZsY52
+ ZV17EB87yINJ6xWKAXX237JVcEXzUcl44t43z9MbzzzyBivcbk1vq4L9khR5TfCijIWf
+ ffCQ==
+X-Gm-Message-State: APjAAAVnNoUNQBrlDawi/Wc6Ly7JKfxdvuJbah8G0Lf841naIBOm34ya
+ nHBHWwseu2t0SlsUJ/HELv91wv5cu0KS1f9wjJKk+w==
+X-Google-Smtp-Source: APXvYqzjF2ta5Anb3SRj80V5eALP3RJBskJMY6xQfTjbjhnPfmrbwahJYk02lH0NXADJ1BXJc7sI0CSzU2xDanIpddo=
+X-Received: by 2002:ac2:446b:: with SMTP id y11mr73052242lfl.158.1561451732515; 
+ Tue, 25 Jun 2019 01:35:32 -0700 (PDT)
+MIME-Version: 1.0
+References: <1561375453-3135-1-git-send-email-yash.shah@sifive.com>
+ <alpine.DEB.2.21.9999.1906241421550.22820@viisi.sifive.com>
+In-Reply-To: <alpine.DEB.2.21.9999.1906241421550.22820@viisi.sifive.com>
+From: Yash Shah <yash.shah@sifive.com>
+Date: Tue, 25 Jun 2019 14:04:56 +0530
+Message-ID: <CAJ2_jOFaS4ZU4m8sE0SFM0sL32Q8fUbg9jbRoEKHU1U2Zqp3YQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: dts: Re-organize SPI DT nodes
+To: Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190625_003126_704736_DFF8563F 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20190625_013536_965605_7ABDD9FF 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,84 +89,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Damien Le Moal <Damien.LeMoal@wdc.com>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, Christoph Hellwig <hch@lst.de>
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Sachin Ghadi <sachin.ghadi@sifive.com>, Rob Herring <robh+dt@kernel.org>,
+ linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Jun 2019 06:08:50 PDT (-0700), vladimir.murzin@arm.com wrote:
-> On 6/24/19 12:54 PM, Christoph Hellwig wrote:
->> On Mon, Jun 24, 2019 at 12:47:07PM +0100, Vladimir Murzin wrote:
->>> Since you are using binfmt_flat which is kind of 32-bit only I was expecting to see
->>> CONFIG_COMPAT (or something similar to that, like ILP32) enabled, yet I could not
->>> find it.
->>
->> There is no such thing in RISC-V.  I don't know of any 64-bit RISC-V
->> cpu that can actually run 32-bit RISC-V code, although in theory that
->> is possible.  There also is nothing like the x86 x32 or mips n32 mode
->> available either for now.
->>
->> But it turns out that with a few fixes to binfmt_flat it can run 64-bit
->> binaries just fine.  I sent that series out a while ago, and IIRC you
->> actually commented on it.
->>
+On Tue, Jun 25, 2019 at 2:53 AM Paul Walmsley <paul.walmsley@sifive.com> wrote:
 >
-> True, yet my observation was that elf2flt utility assumes that address
-> space cannot exceed 32-bit (for header and absolute relocations). So,
-> from my limited point of view straightforward way to guarantee that would
-> be to build incoming elf in 32-bit mode (it is why I mentioned COMPAT/ILP32).
+> On Mon, 24 Jun 2019, Yash Shah wrote:
 >
-> Also one of your patches expressed somewhat related idea
+> > As per the General convention, define only device DT node in SOC DTSi
+> > file with status = "disabled" and enable device in Board DTS file with
+> > status = "okay"
+> >
+> > Reported-by: Anup Patel <anup@brainfault.org>
+> > Signed-off-by: Yash Shah <yash.shah@sifive.com>
 >
-> "binfmt_flat isn't the right binary format for huge executables to
-> start with"
->
-> Since you said there is no support for compat/ilp32, probably I'm missing some
-> toolchain magic?
->
-> Cheers
-> Vladimir
-To:          Christoph Hellwig <hch@lst.de>
-CC:          vladimir.murzin@arm.com
-CC:          Christoph Hellwig <hch@lst.de>
-CC:          Paul Walmsley <paul.walmsley@sifive.com>
-CC:          Damien Le Moal <Damien.LeMoal@wdc.com>
-CC:          linux-riscv@lists.infradead.org
-CC:          linux-mm@kvack.org
-CC:          linux-kernel@vger.kernel.org
-Subject:     Re: RISC-V nommu support v2
-In-Reply-To: <20190624131633.GB10746@lst.de>
+> This is a good start, but should also cover the other I/O devices in the
+> chip DT file.  The mandatory internal devices, like the PRCI and PLIC, can
+> stay the way they are.
 
-On Mon, 24 Jun 2019 06:16:33 PDT (-0700), Christoph Hellwig wrote:
-> On Mon, Jun 24, 2019 at 02:08:50PM +0100, Vladimir Murzin wrote:
->> True, yet my observation was that elf2flt utility assumes that address
->> space cannot exceed 32-bit (for header and absolute relocations). So,
->> from my limited point of view straightforward way to guarantee that would
->> be to build incoming elf in 32-bit mode (it is why I mentioned COMPAT/ILP32).
->>
->> Also one of your patches expressed somewhat related idea
->>
->> "binfmt_flat isn't the right binary format for huge executables to
->> start with"
->>
->> Since you said there is no support for compat/ilp32, probably I'm missing some
->> toolchain magic?
->
-> There is no magic except for the tiny elf2flt patch, which for
-> now is just in the buildroot repo pointed to in the cover letter
-> (and which I plan to upstream once the kernel support has landed
-> in Linus' tree).  We only support 32-bit code and data address spaces,
-> but we otherwise use the normal RISC-V ABI, that is 64-bit longs and
-> pointers.
+Ok, I will send another patch which will cover the other I/O devices
+as well.  Please ignore this patch.
 
-The medlow code model on RISC-V essentially enforces this -- technically it
-enforces a 32-bit region centered around address 0, but it's not that hard to
-stay away from negative addresses.  That said, as long as elf2flt gives you an
-error it should be fine because all medlow is going to do is give you a
-different looking error message.
+- Yash
+
+>
+>
+> - Paul
 
 _______________________________________________
 linux-riscv mailing list
