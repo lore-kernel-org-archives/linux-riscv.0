@@ -2,91 +2,72 @@ Return-Path: <SRS0=5nvY=U2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8FFB2C48BD6
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 16:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6663AC48BD7
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 16:40:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 68A7E20659
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 16:14:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3AB1E2146E
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 16:40:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AekIoePv";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="CbXK4cnl"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 68A7E20659
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="S6i7YTfP";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=nifty.com header.i=@nifty.com header.b="prVhCqRe"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3AB1E2146E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=socionext.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u5DSK0DQ7uvlT7Cu/9B0oXdREOSZSl/ianL55kssc+Y=; b=AekIoePvfdjWGo
-	fjO8m962ThV/JX9c11bxWnR0ZAN8GqLcSTAH8C6+ZFhF6hTYAQNjVv+ZfodiI4OOcodi1OQgEfb9P
-	Br4fCqAeSFcNV7ZUx+2f42/+L+vLwzQWLEBZqvm02nm4ALh2w+1Yg3siaCXuaRCZQySHwz2cU5s/Z
-	10ThszLLIa/r94cIA2GjPpKW/dcGAl9rVx+2R6BkArexA9nbMhzrkEK9i68KpHfGc9pCRKabT4uI6
-	Bs7z4dyO1EhTn2FYNdr7MK8P9hG2wZcskxDZV7jf8LZsXg8ohS7WePshNzJH8fqhhg2PRPjJpMsFp
-	mq3j54pY5gdG02f/3Y8Q==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=syIivgsm4pn7nqpYNOFJY8ZRW2QogiC1Pp4hNR5UAos=; b=S6i7YTfPf3MKnIOHX25kpziY/D
+	oilymrfG5FTLpuICMnzjaA47zhQFKVEY3hBkHfs08T2MVmYElUV7etOPu9Xj+FIibYWf8YNnie41F
+	YZghEvSQsyoEX7DTdcygvnouPNFJ/mDIFIMHmOiVkSKXWvLPw9SbMguPl9DbKkKojYhmkFNAZP2sj
+	jsz5RqXCig1EcZOAi3dRRybaMNd3QB9EzUdfiV84drZ9GiJFNLzsN3qN+0mPX/Mqd9VOohKeD3q3P
+	U7x33ihqBSiYZAjiwycVsxm+IG2OhKwn+yzerEdr8LNtaUDUS3TrMJoo3GHY0dqzqfFOrZm7j4zfQ
+	2mfn/k9g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hgX29-0007d6-TV; Thu, 27 Jun 2019 16:14:02 +0000
-Received: from mail-io1-xd44.google.com ([2607:f8b0:4864:20::d44])
+	id 1hgXRW-000344-Mq; Thu, 27 Jun 2019 16:40:14 +0000
+Received: from conuserg-11.nifty.com ([210.131.2.78])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgX26-0007cD-CZ
- for linux-riscv@lists.infradead.org; Thu, 27 Jun 2019 16:13:59 +0000
-Received: by mail-io1-xd44.google.com with SMTP id r185so5992845iod.6
- for <linux-riscv@lists.infradead.org>; Thu, 27 Jun 2019 09:13:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:cc:subject:in-reply-to:message-id:references
- :user-agent:mime-version;
- bh=YuETa3oDVUrfM1AlnG0XabGhzbNGHx9EIaL7BfD2Dwk=;
- b=CbXK4cnlfsLqgcWbk9J1O19cC7jqM5R1GyFC5RXTsmRqwoUEV2NJ9LPi2EmzXe+1vG
- qCoPj1cMOEmcGu7KLw8WXb3lc/xVqslxMXana0Sg4KkAdtyQUoLcgGJ7QdndwmAR188i
- 8DcpkgAbLey+JqExVPrENeLIes2OsFyyBDyedRY3g3n6pmy8gKn7GuNEHTTBhGBZBNh9
- bPMLkc/2qSQ8GfEfUbzTK7euEZicmfeApx6Ym7qA9lay+DlWcKVsFYcKuE5E8I6BLdiG
- M+chfQoe+Vq9l2wmRUZRlBOEZeQhj9ljVpVNOQyC15iPt4MJWD1zPw60BZIChkPn2p5Q
- hSIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
- :references:user-agent:mime-version;
- bh=YuETa3oDVUrfM1AlnG0XabGhzbNGHx9EIaL7BfD2Dwk=;
- b=NkWAeAPxcX0OMJ2RtCoqcee3ZYKhONSeW348008OC2x/C1+7JLa/zqpSP67wuJlCD5
- D91YJ76qi4aEdlBHBlPZi0agYsRgj+HfqZd33xK3pzSOwbYrk7NrqW+be/KAx/W2IVFw
- ZCJVNxk+L+E00hzAZskEaVqKhcmZCdlcQX6TWFiO2dwB3aObs94zxXIq+vSag2HRcilj
- 3zeWLOxOjh8IBskjxS8vE8A+iA4Uw1DBlK6xAsfWwFxkXwE2iXANeWvJjoTShNteY9D3
- coAWpFI86sj8BaiSdasxS2x0rQLHrv06cfrSpczJTsYxvPIGSeQXjvElrEZsLt7+uTOM
- knkQ==
-X-Gm-Message-State: APjAAAVInY7Z5WK++oy1jOIJFHPaZC+HI6bwnjXFGnXcE6l+AjzVuwEQ
- 0USypJU5j7mJc2Wxfv8CKt5sAg==
-X-Google-Smtp-Source: APXvYqzBXnSDmyScYxc36jaGMDBkMY9zvxNr9TAKEWXWOEcTbptqw9f6F4ZC/j0rxrwTCJUPKOYG0w==
-X-Received: by 2002:a05:6638:3d6:: with SMTP id
- r22mr5561768jaq.71.1561652037218; 
- Thu, 27 Jun 2019 09:13:57 -0700 (PDT)
-Received: from localhost (c-73-95-159-87.hsd1.co.comcast.net. [73.95.159.87])
- by smtp.gmail.com with ESMTPSA id
- p3sm2749248iog.70.2019.06.27.09.13.56
- (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Thu, 27 Jun 2019 09:13:56 -0700 (PDT)
-Date: Thu, 27 Jun 2019 09:13:55 -0700 (PDT)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-X-X-Sender: paulw@viisi.sifive.com
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH] riscv: ccache: Remove unused variable
-In-Reply-To: <1561624486-22867-1-git-send-email-yash.shah@sifive.com>
-Message-ID: <alpine.DEB.2.21.9999.1906270911270.12689@viisi.sifive.com>
-References: <1561624486-22867-1-git-send-email-yash.shah@sifive.com>
-User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
-MIME-Version: 1.0
+ id 1hgXRO-00023I-PR
+ for linux-riscv@lists.infradead.org; Thu, 27 Jun 2019 16:40:13 +0000
+Received: from grover.flets-west.jp (softbank126125154139.bbtec.net
+ [126.125.154.139]) (authenticated)
+ by conuserg-11.nifty.com with ESMTP id x5RGdDPv001384;
+ Fri, 28 Jun 2019 01:39:15 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-11.nifty.com x5RGdDPv001384
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+ s=dec2015msa; t=1561653556;
+ bh=xleVobQ3gFt1kZA+PgYmMnWJHKMZco/iSd4Mbwa0kJI=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=prVhCqReh/cRQtb64y6I07tftQEAHxTJM/x5kK8d8Rn65LoUO6GCzUy2uTNZVCPVn
+ KTin0hQMjz70IZxS3BWBRvJ2+48cEstHL+a3uRZJNadjA7W7WNbPsqjfgGc+VM97by
+ 7cNqHSzp8VPFYOH4iZiZGFknipGXsNNB3GeuM+5OTRwswP5VTv/Pa5lIqnSTsE/4G3
+ mqX19lqcJEcPn/C689sVp0i5emb90icdAAbACrPX4jvnST38iLD28sOkXzW7nFmOaI
+ F7adKI8fa7UUS3yxAUTRvpEHM+//5aHS3ltIcSlwlrBA6vpqEbILb8xU6fyIuldAo4
+ k6YKc1RBqhWMw==
+X-Nifty-SrcIP: [126.125.154.139]
+From: Masahiro Yamada <yamada.masahiro@socionext.com>
+To: linux-kbuild@vger.kernel.org
+Subject: [PATCH v3 1/4] kbuild: compile-test UAPI headers to ensure they are
+ self-contained
+Date: Fri, 28 Jun 2019 01:38:59 +0900
+Message-Id: <20190627163903.28398-2-yamada.masahiro@socionext.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20190627163903.28398-1-yamada.masahiro@socionext.com>
+References: <20190627163903.28398-1-yamada.masahiro@socionext.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190627_091358_457985_C874559D 
-X-CRM114-Status: UNSURE (   6.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190627_094007_245836_7FE1B128 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,27 +79,291 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: sachin.ghadi@sifive.com, linux-riscv@lists.infradead.org, palmer@sifive.com,
- linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu
+Cc: Song Liu <songliubraving@fb.com>, Michal Marek <michal.lkml@markovi.net>,
+ bpf@vger.kernel.org, Daniel Borkmann <daniel@iogearbox.net>,
+ Jani Nikula <jani.nikula@intel.com>, netdev@vger.kernel.org,
+ Palmer Dabbelt <palmer@sifive.com>, Alexei Starovoitov <ast@kernel.org>,
+ linux-kernel@vger.kernel.org, Masahiro Yamada <yamada.masahiro@socionext.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Yonghong Song <yhs@fb.com>,
+ linux-riscv@lists.infradead.org, Sam Ravnborg <sam@ravnborg.org>,
+ Martin KaFai Lau <kafai@fb.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Jun 2019, Yash Shah wrote:
+Multiple people have suggested compile-testing UAPI headers to ensure
+they can be really included from user-space. "make headers_check" is
+obviously not enough to catch bugs, and we often leak references to
+kernel-space definition to user-space.
 
-> Reading the count register clears the interrupt signal. Currently, the
-> count registers are read into 'regval' variable but the variable is
-> never used. Therefore remove it.
-> 
-> Signed-off-by: Yash Shah <yash.shah@sifive.com>
+Use the new header-test-y syntax to implement it. Please note exported
+headers are compile-tested with a completely different set of compiler
+flags. The header search path is set to $(objtree)/usr/include since
+exported headers should not include unexported ones.
 
-This is a good start.  Could you also add comments in the code that 
-describe what those reads are doing, as you did in the patch description?  
-Otherwise they look pretty mysterious.
+We use -std=gnu89 for the kernel space since the kernel code highly
+depends on GNU extensions. On the other hand, UAPI headers should be
+written in more standardized C, so they are compiled with -std=c90.
+This will emit errors if C++ style comments, the keyword 'inline', etc.
+are used. Please use C style comments (/* ... */), '__inline__', etc.
+in UAPI headers.
 
+There is additional compiler requirement to enable this test because
+many of UAPI headers include <stdlib.h>, <sys/ioctl.h>, <sys/time.h>,
+etc. directly or indirectly. You cannot use kernel.org pre-built
+toolchains [1] since they lack <stdlib.h>.
 
-- Paul
+I added scripts/cc-system-headers.sh to check the system header
+availability, which CONFIG_UAPI_HEADER_TEST depends on.
+
+For now, a lot of headers need to be excluded because they cannot
+be compiled standalone, but this is a good start point.
+
+[1] https://mirrors.edge.kernel.org/pub/tools/crosstool/index.html
+
+Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
+---
+
+Changes in v3: None
+Changes in v2:
+ - Add CONFIG_CPU_{BIG,LITTLE}_ENDIAN guard to avoid build error
+ - Use 'header-test-' instead of 'no-header-test'
+ - Avoid weird 'find' warning when cleaning
+
+ Makefile                     |   2 +-
+ init/Kconfig                 |  11 +++
+ scripts/cc-system-headers.sh |   8 +++
+ usr/.gitignore               |   1 -
+ usr/Makefile                 |   2 +
+ usr/include/.gitignore       |   3 +
+ usr/include/Makefile         | 134 +++++++++++++++++++++++++++++++++++
+ 7 files changed, 159 insertions(+), 2 deletions(-)
+ create mode 100755 scripts/cc-system-headers.sh
+ create mode 100644 usr/include/.gitignore
+ create mode 100644 usr/include/Makefile
+
+diff --git a/Makefile b/Makefile
+index 1f35aca4fe05..f23516980796 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1363,7 +1363,7 @@ CLEAN_DIRS  += $(MODVERDIR) include/ksym
+ CLEAN_FILES += modules.builtin.modinfo
+ 
+ # Directories & files removed with 'make mrproper'
+-MRPROPER_DIRS  += include/config usr/include include/generated          \
++MRPROPER_DIRS  += include/config include/generated          \
+ 		  arch/$(SRCARCH)/include/generated .tmp_objdiff
+ MRPROPER_FILES += .config .config.old .version \
+ 		  Module.symvers tags TAGS cscope* GPATH GTAGS GRTAGS GSYMS \
+diff --git a/init/Kconfig b/init/Kconfig
+index df5bba27e3fe..667d68e1cdf4 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -105,6 +105,17 @@ config HEADER_TEST
+ 	  If you are a developer or tester and want to ensure the requested
+ 	  headers are self-contained, say Y here. Otherwise, choose N.
+ 
++config UAPI_HEADER_TEST
++	bool "Compile test UAPI headers"
++	depends on HEADER_TEST && HEADERS_INSTALL
++	depends on $(success,$(srctree)/scripts/cc-system-headers.sh $(CC))
++	help
++	  Compile test headers exported to user-space to ensure they are
++	  self-contained, i.e. compilable as standalone units.
++
++	  If you are a developer or tester and want to ensure the exported
++	  headers are self-contained, say Y here. Otherwise, choose N.
++
+ config LOCALVERSION
+ 	string "Local version - append to kernel release"
+ 	help
+diff --git a/scripts/cc-system-headers.sh b/scripts/cc-system-headers.sh
+new file mode 100755
+index 000000000000..1b3db369828c
+--- /dev/null
++++ b/scripts/cc-system-headers.sh
+@@ -0,0 +1,8 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0-only
++
++cat << "END" | $@ -E -x c - -o /dev/null >/dev/null 2>&1
++#include <stdlib.h>
++#include <sys/ioctl.h>
++#include <sys/time.h>
++END
+diff --git a/usr/.gitignore b/usr/.gitignore
+index 8e48117a3f3d..be5eae1df7eb 100644
+--- a/usr/.gitignore
++++ b/usr/.gitignore
+@@ -7,4 +7,3 @@ initramfs_data.cpio.gz
+ initramfs_data.cpio.bz2
+ initramfs_data.cpio.lzma
+ initramfs_list
+-include
+diff --git a/usr/Makefile b/usr/Makefile
+index 4a70ae43c9cb..6a89eb019275 100644
+--- a/usr/Makefile
++++ b/usr/Makefile
+@@ -56,3 +56,5 @@ $(deps_initramfs): klibcdirs
+ $(obj)/$(datafile_y): $(obj)/gen_init_cpio $(deps_initramfs) klibcdirs
+ 	$(Q)$(initramfs) -l $(ramfs-input) > $(obj)/$(datafile_d_y)
+ 	$(call if_changed,initfs)
++
++subdir-$(CONFIG_UAPI_HEADER_TEST) += include
+diff --git a/usr/include/.gitignore b/usr/include/.gitignore
+new file mode 100644
+index 000000000000..a0991ff4402b
+--- /dev/null
++++ b/usr/include/.gitignore
+@@ -0,0 +1,3 @@
++*
++!.gitignore
++!Makefile
+diff --git a/usr/include/Makefile b/usr/include/Makefile
+new file mode 100644
+index 000000000000..58ce96fa1701
+--- /dev/null
++++ b/usr/include/Makefile
+@@ -0,0 +1,134 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++# Unlike the kernel space, uapi headers are written in standard C.
++#  - Forbid C++ style comments
++#  - Use '__inline__', '__asm__' instead of 'inline', 'asm'
++#
++# -std=c90 (equivalent to -ansi) catches the violation of those.
++# We cannot go as far as adding -Wpedantic since it emits too many warnings.
++#
++# REVISIT: re-consider the proper set of compiler flags for uapi compile-test.
++
++UAPI_CFLAGS := -std=c90 -Wall -Werror=implicit-function-declaration
++
++override c_flags = $(UAPI_CFLAGS) -Wp,-MD,$(depfile) -I$(objtree)/usr/include
++
++# The following are excluded for now because they fail to build.
++# The cause of errors are mostly missing include directives.
++# Check one by one, and send a patch to each subsystem.
++#
++# Do not add a new header to the blacklist without legitimate reason.
++# Please consider to fix the header first.
++header-test- += asm/ipcbuf.h
++header-test- += asm/msgbuf.h
++header-test- += asm/sembuf.h
++header-test- += asm/shmbuf.h
++header-test- += asm/signal.h
++header-test- += asm/ucontext.h
++header-test- += drm/vmwgfx_drm.h
++header-test- += linux/am437x-vpfe.h
++header-test- += linux/android/binderfs.h
++header-test- += linux/android/binder.h
++header-test-$(CONFIG_CPU_BIG_ENDIAN) += linux/byteorder/big_endian.h
++header-test-$(CONFIG_CPU_LITTLE_ENDIAN) += linux/byteorder/little_endian.h
++header-test- += linux/coda.h
++header-test- += linux/coda_psdev.h
++header-test- += linux/dvb/audio.h
++header-test- += linux/dvb/osd.h
++header-test- += linux/elfcore.h
++header-test- += linux/errqueue.h
++header-test- += linux/fsmap.h
++header-test- += linux/hdlc/ioctl.h
++header-test- += linux/jffs2.h
++header-test- += linux/kexec.h
++header-test- += linux/matroxfb.h
++header-test- += linux/netfilter_bridge/ebtables.h
++header-test- += linux/netfilter_ipv4/ipt_LOG.h
++header-test- += linux/netfilter_ipv6/ip6t_LOG.h
++header-test- += linux/nfc.h
++header-test- += linux/nilfs2_ondisk.h
++header-test- += linux/omap3isp.h
++header-test- += linux/omapfb.h
++header-test- += linux/patchkey.h
++header-test- += linux/phonet.h
++header-test- += linux/reiserfs_xattr.h
++header-test- += linux/scc.h
++header-test- += linux/sctp.h
++header-test- += linux/signal.h
++header-test- += linux/sysctl.h
++header-test- += linux/usb/audio.h
++header-test- += linux/ivtv.h
++header-test- += linux/v4l2-mediabus.h
++header-test- += linux/v4l2-subdev.h
++header-test- += linux/videodev2.h
++header-test- += linux/vm_sockets.h
++header-test- += misc/ocxl.h
++header-test- += mtd/mtd-abi.h
++header-test- += scsi/scsi_bsg_fc.h
++header-test- += scsi/scsi_netlink_fc.h
++header-test- += scsi/scsi_netlink.h
++header-test- += sound/asequencer.h
++header-test- += sound/asound.h
++header-test- += sound/asoc.h
++header-test- += sound/compress_offload.h
++header-test- += sound/emu10k1.h
++header-test- += sound/sfnt_info.h
++header-test- += sound/sof/eq.h
++header-test- += sound/sof/fw.h
++header-test- += sound/sof/header.h
++header-test- += sound/sof/manifest.h
++header-test- += sound/sof/trace.h
++header-test- += xen/evtchn.h
++header-test- += xen/gntdev.h
++header-test- += xen/privcmd.h
++
++# more headers are broken in some architectures
++
++ifeq ($(SRCARCH),arc)
++header-test- += linux/bpf_perf_event.h
++endif
++
++ifeq ($(SRCARCH),ia64)
++header-test- += asm/setup.h
++header-test- += asm/sigcontext.h
++header-test- += asm/perfmon.h
++header-test- += asm/perfmon_default_smpl.h
++header-test- += linux/if_bonding.h
++endif
++
++ifeq ($(SRCARCH),mips)
++header-test- += asm/stat.h
++endif
++
++ifeq ($(SRCARCH),powerpc)
++header-test- += asm/stat.h
++header-test- += linux/bpf_perf_event.h
++endif
++
++ifeq ($(SRCARCH),riscv)
++header-test- += linux/bpf_perf_event.h
++endif
++
++ifeq ($(SRCARCH),s390)
++header-test- += asm/runtime_instr.h
++header-test- += asm/zcrypt.h
++endif
++
++ifeq ($(SRCARCH),sparc)
++header-test- += asm/stat.h
++header-test- += asm/uctx.h
++header-test- += asm/fbio.h
++header-test- += asm/openpromio.h
++endif
++
++# asm-generic/*.h is used by asm/*.h, and should not be included directly
++header-test- += asm-generic/%
++
++# The rest are compile-tested
++header-test-y += $(filter-out $(header-test-), \
++			$(patsubst $(obj)/%,%, $(wildcard \
++			$(addprefix $(obj)/, *.h */*.h */*/*.h */*/*/*.h))))
++
++# For GNU Make <= 4.2.1, $(wildcard $(obj)/*/) matches to not only directories
++# but also regular files. Use $(filter %/, ...) just in case.
++clean-dirs += $(patsubst $(obj)/%/,%,$(filter %/, $(wildcard $(obj)/*/)))
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
