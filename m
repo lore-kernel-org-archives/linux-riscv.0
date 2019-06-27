@@ -2,94 +2,84 @@ Return-Path: <SRS0=5nvY=U2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7AF76C48BD6
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 06:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CD0B1C48BD6
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 08:35:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4B43D205C9
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 06:54:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9F58D2083B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 08:35:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="R7c4HjDT";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="f60lASzR";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=cs.washington.edu header.i=@cs.washington.edu header.b="ZaJnj72v"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4B43D205C9
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=cs.washington.edu
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MyhSK9Qw";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="SCdBkO+j"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9F58D2083B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5maf5eavWW+ji1hJ+wumOLI8Nw1tDpypI7IoORnajTc=; b=R7c4HjDTPmMx28
-	08m4R1V5EGmiuklID0lvazJoBcJdDPHvJYOSJ8yDmfZARUfCW7edcKVUBvCGIlVF1HfhzlhDJgZn0
-	PZ9McUuJTvQIPg2nUY/WqHhq8g9/wdJ2VE/RvRbzsXOr2cRiBcjFOA7UtG+vzZNZCn/jiB3D2jXfz
-	TaHBVzusbpn8CXwLhTWgpUfeHwmcOMPK4Wwp0+dFgYDaaqBSHlXtLM3a+5skDi/hXwrDs3BJLjQHu
-	Qzt1dJfkzautnIZuAyTvOOvzjfGsVgEd+ayyP6MiPByn0uxxDvt/i85DQBluRBRC87c/cx2cEnkCQ
-	o71fsKhDSz5TLGdzHpFw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=RD3TIv14nvsi/KXpYbB+3NufOt+YFY1MTsZV5ol9N7g=; b=Myh
+	SK9QwpAjVJFR+Owk4nrXRmQnkvClPQaQchBSvVSzWOQ7u0HbYVDoN/53s2xtTkKfFty/HIHq30X2V
+	9ptQfyWqJVO77bsu5VClyG49kz81LA8ZHk425AVUv0Fn2aH+ilsbY4z3JCF0d89uRzjaati/tihdr
+	yF76nSUvC4LqPTkHRcnbsMItq38Xg6DoIN1erVq4G1AG4KpDTJf9Q/Qt7Vkb/+OS7Anc4Ji7Wz3fG
+	0gHs8TmYUete79DHqMIbay4eoPLSr+Pya5LinZKt00Mx/l0XEzRI+yELfYFWPce2F5Lpjpi9QUib1
+	hpiINeawrgwy7arcIOPXXKg4VG4Wj8w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hgOIL-0000bq-EG; Thu, 27 Jun 2019 06:54:09 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
+	id 1hgPrw-0003rT-Jz; Thu, 27 Jun 2019 08:35:00 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgO92-0006KM-Rv
- for linux-riscv@bombadil.infradead.org; Thu, 27 Jun 2019 06:44:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Transfer-Encoding:Content-Type:
- Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender
- :Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=brea/2Qx9pBcYGaH6DB1Fc3qM+qPNzkSABIn8ioCvPU=; b=f60lASzRiXR+JIOvf1VBVoa4AS
- urDwTGJ5BY16RbBHpOVviq53kLj8surPEfHyhazyQgiwUJn/bMrok/2x4yCLthBEtEVXrVUoXnF5R
- bmNE1sX409BOJrsmAK/nY575bODxKSi6YC6jhDSUOaoj7qxWEGxrk8i9e2/VSmNeyLU26YOzWgLiF
- lE6y/YJEtXOPpUuBgJCVn7Sc/v+jnI5jIa6+U5D3DX8RZSaLNqDsA8XtpDdqoHqMbPviYC49gAWg6
- 12jc+xZo1ZF7mVX4c/J0Jst+xnhyf6XG6+8rwjF9Ma7GFh5eA15Guv/HkQCsjjZmDOC1KF21mdASN
- vdlPO1bA==;
-Received: from mail-io1-xd42.google.com ([2607:f8b0:4864:20::d42])
- by merlin.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgHFs-0003Iw-LU
- for linux-riscv@lists.infradead.org; Wed, 26 Jun 2019 23:23:09 +0000
-Received: by mail-io1-xd42.google.com with SMTP id j6so570348ioa.5
- for <linux-riscv@lists.infradead.org>; Wed, 26 Jun 2019 16:22:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cs.washington.edu; s=goo201206;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=brea/2Qx9pBcYGaH6DB1Fc3qM+qPNzkSABIn8ioCvPU=;
- b=ZaJnj72valkhOWXD57cAGw+gAAyEfQy/JR47wmIiwfnDtp1TQpOJwz7GpvJSXTUD0u
- ZA/U+rG82kpbeH8Uqa6aoazQ8fD/ngaK2CVgNrTaqAQFz3f57WqXINxufX5TlzRjxCQa
- xI8Ss8Ko+wdFKlJb0vWMvWfg8h0WPripGQ3EU=
+ id 1hgPru-0003r5-6b
+ for linux-riscv@lists.infradead.org; Thu, 27 Jun 2019 08:34:59 +0000
+Received: by mail-pf1-x442.google.com with SMTP id y15so858166pfn.5
+ for <linux-riscv@lists.infradead.org>; Thu, 27 Jun 2019 01:34:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id;
+ bh=pL8dIdDRRR0f0oihVWvRAV0Y3VQl+T0ytK1Ju8LVSAk=;
+ b=SCdBkO+jaQI/+32tsem4MYwzEIOMI3hZVuw9WMUP+0FE7yL9ObALw9j28rf2xf1fB2
+ 0k4ChEaKwpDNuJFt8Tq5B0TyP+w/jxmZzR/6VaJL8AD7ERyFf2whc9aHd04XDY2rhz8l
+ gxA+2qt5QwU9jN5yDFUmKfpxF2Umndj7fxKmMiwbrYbRDMgl69fS4aEd1t82BpCpI6Pb
+ yVRc92Gs409pSpHO0uM0ChMDieNkSvMPtLCtHXp66jykOqer+Jzrh1XxA7rxTsIEnWHp
+ sEQGlVa9v4BcMQmow+58cBwGzSBFsBKfi26+KpJWDyMZ0IKWKcz+JtgDj6di0RtXYPvc
+ Q1MA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=brea/2Qx9pBcYGaH6DB1Fc3qM+qPNzkSABIn8ioCvPU=;
- b=DpOnQdrnxh21FRAiOV/f+FBNWM1XXAc1UfdioLXvvEy7UwY/+EIkAbrZu97uiOdotF
- mNOQSxvq5KZaop9Ffr2MKzkZaILYFoA/Uv39JmXiALt2hPAeE5wuxiZcSaL6hpggBTt2
- 26Gmi/8R0Xg14J1xEHwWqQSEm0xB3A0kGC6z5yqxxBRzFfSwHPH82nglW7UeWZDRbhCS
- f4GzT22+a1/iTVpIV1SLlTQbzdbFoGGuzurDVwMAEBl4Kf1fzDNyKW2Mi7rLW0TTYFPj
- X/zdziFFMpYQz8jognOKArcVv+7/398wRKL88slRV0+JYLW3Gt057X6am6+odpizdU5i
- 3N5Q==
-X-Gm-Message-State: APjAAAUO04b8CwgWGAS4GqMyUS2KGMw7w2mToFanAkidLFZeQJ7fwA9C
- 2DwiymXDiROny4sSD0jYNA/zc8BD4OBODipfqi8VJQ==
-X-Google-Smtp-Source: APXvYqx4WUGRRdnDMn1qRC9QzduXjQrWAsPLCwLSndDqxI0ewueoPskdlrvCJKhtJLOzQy0pNf8LolgeC9PNFB3+1so=
-X-Received: by 2002:a6b:f90f:: with SMTP id j15mr894411iog.43.1561591247732;
- Wed, 26 Jun 2019 16:20:47 -0700 (PDT)
-MIME-Version: 1.0
-References: <20190621225938.27030-1-lukenels@cs.washington.edu>
- <CAJ+HfNgHOt4gMSq_gufwxb=cKekCfLrk-uGJuGeDiOeQV1-wwQ@mail.gmail.com>
-In-Reply-To: <CAJ+HfNgHOt4gMSq_gufwxb=cKekCfLrk-uGJuGeDiOeQV1-wwQ@mail.gmail.com>
-From: Luke Nelson <lukenels@cs.washington.edu>
-Date: Wed, 26 Jun 2019 16:20:37 -0700
-Message-ID: <CADasFoC6ga_DuHL+RxLPzBhMHr+Jj5OgGkjuUgX0o6Rx5vsvdw@mail.gmail.com>
-Subject: Re: [RFC PATCH bpf-next] RV32G eBPF JIT
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=pL8dIdDRRR0f0oihVWvRAV0Y3VQl+T0ytK1Ju8LVSAk=;
+ b=JQ4+47reSnm6CDecqxiGYOz9cgQO5sXGLKILq1cdgvKI/TJ3B/H6d4R346kXlG6rL2
+ jXDbQOS1AZGOK0jWkKQm8ofvb1UkHH01MuZzwZtr3izUuuVLnW3W7+P3lZ3LDtTdkj8h
+ XfNRvv5sGh/Uym7HhcQ6XfOsLMjIdsZ1tRW4rLJo85vWocm5olrSRsi5ytyPAjxfJVYg
+ b3ugSESllVzPBG6/bbos+SyRFbTq3/hOLjs4Z6XKFJMW38es1hFA2Vjojvv5/nGlbjJi
+ 5TMJx9tbZPsOif2xZmFqqlD7K2Diqht188GpMp7VhHm/F/rgxUT6R6uvO1geKAtfxv3S
+ e4Ww==
+X-Gm-Message-State: APjAAAWtXYrS98e77nYOzn59Hcq10R9y/ihMRaomAj4yHuhtv92aMZ6H
+ I6z87yawq1xFiGQmvc1ixnKkG5/hRX4=
+X-Google-Smtp-Source: APXvYqxH22kQuUNW79tCt4NQgJA3jxTp6iros6Z7j9hPr0a1EPw4lm+Na1LtfqSElnEUcJXDR9/eAw==
+X-Received: by 2002:a65:63c3:: with SMTP id n3mr2571078pgv.139.1561624496816; 
+ Thu, 27 Jun 2019 01:34:56 -0700 (PDT)
+Received: from buildserver-90.open-silicon.com ([114.143.65.226])
+ by smtp.googlemail.com with ESMTPSA id n19sm4001003pfa.11.2019.06.27.01.34.53
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+ Thu, 27 Jun 2019 01:34:55 -0700 (PDT)
+From: Yash Shah <yash.shah@sifive.com>
+To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ paul.walmsley@sifive.com
+Subject: [PATCH] riscv: ccache: Remove unused variable
+Date: Thu, 27 Jun 2019 14:04:46 +0530
+Message-Id: <1561624486-22867-1-git-send-email-yash.shah@sifive.com>
+X-Mailer: git-send-email 1.9.1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20190627_013458_307834_39FBE1B8 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,25 +91,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Song Liu <songliubraving@fb.com>, Albert Ou <aou@eecs.berkeley.edu>,
- bpf <bpf@vger.kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Luke Nelson <luke.r.nels@gmail.com>, Netdev <netdev@vger.kernel.org>,
- Palmer Dabbelt <palmer@sifive.com>, Alexei Starovoitov <ast@kernel.org>,
- LKML <linux-kernel@vger.kernel.org>, Yonghong Song <yhs@fb.com>,
- linux-riscv@lists.infradead.org, Martin KaFai Lau <kafai@fb.com>,
- Xi Wang <xi.wang@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: sachin.ghadi@sifive.com, Yash Shah <yash.shah@sifive.com>,
+ palmer@sifive.com, aou@eecs.berkeley.edu
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdW4gMjQsIDIwMTkgYXQgMzoxMSBBTSBCasO2cm4gVMO2cGVsIDxiam9ybi50b3Bl
-bEBnbWFpbC5jb20+IHdyb3RlOgo+ID4gICAtIEZhciBicmFuY2hlcwo+ID4gICAgICAgVGhlc2Ug
-YXJlIG5vdCBzdXBwb3J0ZWQgaW4gUlY2NEcgZWl0aGVyLgo+Cj4gVGhpcyB3b3VsZCBiZSByZWFs
-bHkgbmljZSB0byBoYXZlLCBub3cgdGhhdCB0aGUgc2l6ZSBvZiBCUEYgcHJvZ3JhbXMKPiBhcmUg
-Z2V0dGluZyBsYXJnZXIuCgpJJ3ZlIHNlbnQgb3V0IGFuIHVwZGF0ZWQgdmVyc2lvbiBvZiB0aGUg
-cGF0Y2ggaGVyZSwgd2l0aCBzdXBwb3J0IGZvcgpmYXIgYnJhbmNoZXM6IGh0dHBzOi8vcGF0Y2h3
-b3JrLm96bGFicy5vcmcvcGF0Y2gvMTEyMzA1MgoKVGhhbmtzIQoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Reading the count register clears the interrupt signal. Currently, the
+count registers are read into 'regval' variable but the variable is
+never used. Therefore remove it.
+
+Signed-off-by: Yash Shah <yash.shah@sifive.com>
+---
+ arch/riscv/mm/sifive_l2_cache.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/mm/sifive_l2_cache.c b/arch/riscv/mm/sifive_l2_cache.c
+index 4eb6461..3052a42 100644
+--- a/arch/riscv/mm/sifive_l2_cache.c
++++ b/arch/riscv/mm/sifive_l2_cache.c
+@@ -109,13 +109,13 @@ int unregister_sifive_l2_error_notifier(struct notifier_block *nb)
+ 
+ static irqreturn_t l2_int_handler(int irq, void *device)
+ {
+-	unsigned int regval, add_h, add_l;
++	unsigned int add_h, add_l;
+ 
+ 	if (irq == g_irq[DIR_CORR]) {
+ 		add_h = readl(l2_base + SIFIVE_L2_DIRECCFIX_HIGH);
+ 		add_l = readl(l2_base + SIFIVE_L2_DIRECCFIX_LOW);
+ 		pr_err("L2CACHE: DirError @ 0x%08X.%08X\n", add_h, add_l);
+-		regval = readl(l2_base + SIFIVE_L2_DIRECCFIX_COUNT);
++		readl(l2_base + SIFIVE_L2_DIRECCFIX_COUNT);
+ 		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_CE,
+ 					   "DirECCFix");
+ 	}
+@@ -123,7 +123,7 @@ static irqreturn_t l2_int_handler(int irq, void *device)
+ 		add_h = readl(l2_base + SIFIVE_L2_DATECCFIX_HIGH);
+ 		add_l = readl(l2_base + SIFIVE_L2_DATECCFIX_LOW);
+ 		pr_err("L2CACHE: DataError @ 0x%08X.%08X\n", add_h, add_l);
+-		regval = readl(l2_base + SIFIVE_L2_DATECCFIX_COUNT);
++		readl(l2_base + SIFIVE_L2_DATECCFIX_COUNT);
+ 		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_CE,
+ 					   "DatECCFix");
+ 	}
+@@ -131,7 +131,7 @@ static irqreturn_t l2_int_handler(int irq, void *device)
+ 		add_h = readl(l2_base + SIFIVE_L2_DATECCFAIL_HIGH);
+ 		add_l = readl(l2_base + SIFIVE_L2_DATECCFAIL_LOW);
+ 		pr_err("L2CACHE: DataFail @ 0x%08X.%08X\n", add_h, add_l);
+-		regval = readl(l2_base + SIFIVE_L2_DATECCFAIL_COUNT);
++		readl(l2_base + SIFIVE_L2_DATECCFAIL_COUNT);
+ 		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_UE,
+ 					   "DatECCFail");
+ 	}
+-- 
+1.9.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
