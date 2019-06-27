@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4A412C48BE4
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 19:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 76480C48BE4
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 19:56:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1FE22208CB
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 19:56:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4651D2133F
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 19:56:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BK9FxhTv";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ONopxBXl"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1FE22208CB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ossgt55E";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="eEVUOvLu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4651D2133F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,62 +26,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=plfIGG+etQ+VnJpKe2upgbOg6g8LnVeEXsWdIhL6SAE=; b=BK9FxhTvp7L1ke
-	ciwf/VWbG0kvd/Qi14kGtKre/Lbb+dVQ+d20MM7CMRgfR9yRSehUIZeKmQ2augZ87JgJwsBMwfPQp
-	94ht7JFCxsU+g21TP5i3YO64TUQBQPQ9V56aYfAJJWxvxsJ5Ee9vIsKmm29+tKjMKlNsnXxvq3krc
-	/gnDDONTCuCGohk/P7C/pUxavJOWk6xBpzCrr2W7A9/KEuPWHQZp7KbveM7onRC5D9MmnfzDV0BSx
-	P2K3kLFwmA/pB9WBaSv4votIcHHWEaIFhm4L9wVHEEKZmChSKdz/vs4QRzuBBXwRnWuQeOjc8gsVg
-	pFoMhY6FhaQUu9pmINCg==;
+	List-Owner; bh=r+sakpIybGSca+0E/b7Dh0cFxXUJHhXIxoSPTV/tWRw=; b=Ossgt55Ex3Uu33
+	RSMn6lcqrEF4R+3LIKh3lYsCsRl4HO3yXzq5Jut8jSAnF5Bl9RHE8u2bUP74M0YqHujCCOAwG+wME
+	6xxN6hemrhf6bdGYnK3cXFTo9cS+ZoGdPgX2M9n1SbSwrv45FG0seUpjB8H5sxVa3LbW4hxpd/zCZ
+	5VQDZrV6Vxt0SZm3HZvGr+d8SCjKMzsOotv8JyRgZVbJ1rGETELe7hxhViMF5eY7WpTXj2iaXI310
+	nTCyhNWQGxF8X/4mavBG6tUqJzALdPDlYca2IKO3G1BJ6uaMdvHPkSQ28YyijWxkAOSX1okD+q7kL
+	9YyRPiy3BEa6p4tmu3Rg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hgaVQ-00056Q-1m; Thu, 27 Jun 2019 19:56:28 +0000
+	id 1hgaVq-0005OD-A8; Thu, 27 Jun 2019 19:56:54 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgaUR-0004Ka-Mg; Thu, 27 Jun 2019 19:55:31 +0000
+ id 1hgaUT-0004KW-Az; Thu, 27 Jun 2019 19:55:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1561665328; x=1593201328;
+ t=1561665329; x=1593201329;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=UlrSFoZF245E1zwQ107bOTMAJdrUzCCLZvF7b0tZ2tg=;
- b=ONopxBXltjj7U0U0rZwlL26U6bzs8LGVLffhdTqrmXPSO9O0Wx4CgHhB
- wqGrOzN6/5uRdg/CPd5SSGW8tw1UOevbaCmlpRMqJ8t0oMgkWP5TujtvZ
- QMjYWpc7ZFPHXeHHviZSgGKKAOEGYiBX6kCb2XsraoDj2VUyT4A9Co/vC
- gAw1BeEyZfVaTeP48mObYArIjuMH9+/5UKqMdvKgvzmPs3VUnwlPyXNrN
- ePTRxqhvz/xrmb1D1Vetfw9KeEhdZAFxOcKiEDWOxyqXUdZwX1mpkgtnJ
- hRWyUpBaisoCs/njp6gyaH/aqF/lw1vqh9cyuGWviQSUgvItgNidfAwPw Q==;
-X-IronPort-AV: E=Sophos;i="5.63,424,1557158400"; d="scan'208";a="113353773"
+ bh=m7LM1Yn30CHGyuOfV/dUHRcNlm8MmSeMc/SCvDGd79w=;
+ b=eEVUOvLucpsGbPXQ5dM90b1u2qtr6/KsySu9CHfGm9kQS7FhC6O2BNQF
+ W+PcHJEYgP5Bu2jkfBC4Gwnknpdq3Lkky2mEfHXDcWAgTXxTOGAiwIgVW
+ MEIy2TbZR88Lm2aOCFszMxp79FatXX1b8n7OOUU4MyzGsliNIjSWWVeeE
+ l/y8xgCdE8ZLKDxSFy17iK5aMNiKbMxZM/u2Y3DyjJtSel2BMn7x+FoYh
+ OdeYW5niKOQyHFSNW0pc3cDHmGgOUO0rq5V1PRNLvC6jvm8yFTJri464h
+ MQYAMUKP0hRQNnPCjUrIUQokyU26wGUfzMKmzrvwrYs+MFhBMHy5bqbaL w==;
+X-IronPort-AV: E=Sophos;i="5.63,424,1557158400"; d="scan'208";a="113353775"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 28 Jun 2019 03:55:25 +0800
-IronPort-SDR: nFJgsx69hx7Ggkqm2cXmp1EsmacWhVcwhvGA/BdYwNvTKO7dobh7ovcLqKkfo+mOjrMtEiMUcB
- 7uiMzXsl+psXTdZgHswnSR6bMnOqxZ6mi13vomnCnRguKTnI3rova4J06C/DZA1OGgImZDqSMg
- G6MrAS6aPsrVroY30w6Sor/IQg4914bJKXrmTD6/8adZ6nezrtdTWoO8D0TjgRMeRtPscK+psc
- gOKt8kL1vowW+H1DWghBg9izAZLM3O3H+B/Btqbp3HMSJdSNp2zQxIVq/jjtnzMPWayDirwtIg
- u+CjaZHZKXUXem8xSLJYSyuh
+ by ob1.hgst.iphmx.com with ESMTP; 28 Jun 2019 03:55:27 +0800
+IronPort-SDR: YQaPvpRGXel+gFhv/4+lR+G/R33r5E7U7PEdcYSPIdhqubI+JPMiRJSm0htk6VuJYjSpoiSJpg
+ EyEtA+M81+nBEicjCGH59tOBt7pAAAFBVkdQE2gXDWVUmi3n+sqOkWzgWRl87+SriEmOUTS/gu
+ ETo5WnZdzQZCYFns+GknYYAZAFcUoZfDQ0X4+PT3+pLUQ+aLFAwtuKwpFm5V4l4XL4gHfwxSMs
+ hgdAStc6R0/+FbcX5mizNPUECbWXjNM9spvauzhrkqGj3jbns6GmIBm/CyKrIXTQ7Q+Moh/gdR
+ Y+OJ+oKc8M8GuU8Xl/tEMW54
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep02.wdc.com with ESMTP; 27 Jun 2019 12:54:38 -0700
-IronPort-SDR: Encw0cfMRmKYD40WsCAOzWfG88ljamOqxNwLPBcHEyJKbCQ2JWkak/e97AZfQc+iOnNzYIPPYT
- WTYvzdgfUQ19xEq4rAIpZwneHNe4EdXoGnDevaFx3fC6KVtpI0qY7QGt7eh5OZJR69y0jev9F4
- PPK1F0iUlu+Jl7D3B/Baj9SefpxoIkKk2YZZ/PNm1Ftm/8eXkaB5ueABJcvpQVoeOgLfOlAYp9
- LwAQTXxStsP89JhTBZ5ClqDzKb0/WH2BblrNx7rzkCDqL5AzLFvTQGrEfeaoaTKWTaZIY67Kqy
- 8pc=
+ by uls-op-cesaep02.wdc.com with ESMTP; 27 Jun 2019 12:54:39 -0700
+IronPort-SDR: 4GoDamj7+XgyAJmdeE9KYznaHJBKqx0eZM/gumbXu9GISzR6wl+Al12ZO7VEaYZ9o17iRK85NI
+ snHWMPUO3jXOxsfp9ZrwF0e/3XkAJaMcpG6hWNjupSKxOW9YFhdQc+KXaJnbOw2rDKaE2W2nE/
+ ZjKCrMByiMMN1ru8MahcyfDkerbKQnSBdtfTTh5Cr10cHkA/s8uOjMeZFT9NlpjJhDhRP83ww0
+ sDkRiZOStnKyqft5diKb3Tx4JsSSyxqcnei4vNkzOlVfrPtWM0XkJJhqgfqZp3xy28KIqs8A0H
+ SS4=
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip01.wdc.com with ESMTP; 27 Jun 2019 12:55:25 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 27 Jun 2019 12:55:27 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v8 2/7] dt-binding: cpu-topology: Move cpu-map to a common
- binding.
-Date: Thu, 27 Jun 2019 12:52:57 -0700
-Message-Id: <20190627195302.28300-3-atish.patra@wdc.com>
+Subject: [PATCH v8 4/7] arm: Use common cpu_topology structure and functions.
+Date: Thu, 27 Jun 2019 12:52:59 -0700
+Message-Id: <20190627195302.28300-5-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.21.0
 In-Reply-To: <20190627195302.28300-1-atish.patra@wdc.com>
 References: <20190627195302.28300-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190627_125527_773202_0A1B2468 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20190627_125529_458075_07A3033B 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,12 +100,12 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
  Will Deacon <will.deacon@arm.com>, Atish Patra <atish.patra@wdc.com>,
  Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
  linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
- Ingo Molnar <mingo@kernel.org>, Rob Herring <robh@kernel.org>,
- Anup Patel <anup@brainfault.org>, Russell King <linux@armlinux.org.uk>,
- Morten Rasmussen <morten.rasmussen@arm.com>, devicetree@vger.kernel.org,
- Albert Ou <aou@eecs.berkeley.edu>, Johan Hovold <johan@kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
+ Morten Rasmussen <morten.rasmussen@arm.com>, Anup Patel <anup@brainfault.org>,
+ Russell King <linux@armlinux.org.uk>, Ingo Molnar <mingo@kernel.org>,
+ devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Johan Hovold <johan@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-arm-kernel@lists.infradead.org,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Otto Sabart <ottosabart@seberm.com>, Sudeep Holla <sudeep.holla@arm.com>,
  "David S. Miller" <davem@davemloft.net>
@@ -115,162 +114,220 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-cpu-map binding can be used to described cpu topology for both
-RISC-V & ARM. It makes more sense to move the binding to document
-to a common place.
+Currently, ARM32 and ARM64 uses different data structures to represent
+their cpu topologies. Since, we are moving the ARM64 topology to common
+code to be used by other architectures, we can reuse that for ARM32 as
+well.
 
-The relevant discussion can be found here.
-https://lkml.org/lkml/2018/11/6/19
+Take this opprtunity to remove the redundant functions from ARM32 and
+reuse the common code instead.
 
+To: Russell King <linux@armlinux.org.uk>
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
+Tested-by: Sudeep Holla <sudeep.holla@arm.com> (on TC2)
+Reviewed-by : Sudeep Holla <sudeep.holla@arm.com>
 ---
- .../topology.txt => cpu/cpu-topology.txt}     | 84 +++++++++++++++----
- 1 file changed, 68 insertions(+), 16 deletions(-)
- rename Documentation/devicetree/bindings/{arm/topology.txt => cpu/cpu-topology.txt} (86%)
+ arch/arm/include/asm/topology.h | 20 -----------
+ arch/arm/kernel/topology.c      | 60 ++++-----------------------------
+ drivers/base/arch_topology.c    |  4 ++-
+ include/linux/arch_topology.h   |  6 ++--
+ 4 files changed, 11 insertions(+), 79 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/topology.txt b/Documentation/devicetree/bindings/cpu/cpu-topology.txt
-similarity index 86%
-rename from Documentation/devicetree/bindings/arm/topology.txt
-rename to Documentation/devicetree/bindings/cpu/cpu-topology.txt
-index 3b8febb46dad..99918189403c 100644
---- a/Documentation/devicetree/bindings/arm/topology.txt
-+++ b/Documentation/devicetree/bindings/cpu/cpu-topology.txt
-@@ -1,12 +1,12 @@
- ===========================================
--ARM topology binding description
-+CPU topology binding description
- ===========================================
+diff --git a/arch/arm/include/asm/topology.h b/arch/arm/include/asm/topology.h
+index 2a786f54d8b8..8a0fae94d45e 100644
+--- a/arch/arm/include/asm/topology.h
++++ b/arch/arm/include/asm/topology.h
+@@ -5,26 +5,6 @@
+ #ifdef CONFIG_ARM_CPU_TOPOLOGY
  
- ===========================================
- 1 - Introduction
- ===========================================
- 
--In an ARM system, the hierarchy of CPUs is defined through three entities that
-+In a SMP system, the hierarchy of CPUs is defined through three entities that
- are used to describe the layout of physical CPUs in the system:
- 
- - socket
-@@ -14,9 +14,6 @@ are used to describe the layout of physical CPUs in the system:
- - core
- - thread
- 
--The cpu nodes (bindings defined in [1]) represent the devices that
--correspond to physical CPUs and are to be mapped to the hierarchy levels.
+ #include <linux/cpumask.h>
 -
- The bottom hierarchy level sits at core or thread level depending on whether
- symmetric multi-threading (SMT) is supported or not.
+-struct cputopo_arm {
+-	int thread_id;
+-	int core_id;
+-	int socket_id;
+-	cpumask_t thread_sibling;
+-	cpumask_t core_sibling;
+-};
+-
+-extern struct cputopo_arm cpu_topology[NR_CPUS];
+-
+-#define topology_physical_package_id(cpu)	(cpu_topology[cpu].socket_id)
+-#define topology_core_id(cpu)		(cpu_topology[cpu].core_id)
+-#define topology_core_cpumask(cpu)	(&cpu_topology[cpu].core_sibling)
+-#define topology_sibling_cpumask(cpu)	(&cpu_topology[cpu].thread_sibling)
+-
+-void init_cpu_topology(void);
+-void store_cpu_topology(unsigned int cpuid);
+-const struct cpumask *cpu_coregroup_mask(int cpu);
+-
+ #include <linux/arch_topology.h>
  
-@@ -25,33 +22,31 @@ threads existing in the system and map to the hierarchy level "thread" above.
- In systems where SMT is not supported "cpu" nodes represent all cores present
- in the system and map to the hierarchy level "core" above.
+ /* Replace task scheduler's default frequency-invariant accounting */
+diff --git a/arch/arm/kernel/topology.c b/arch/arm/kernel/topology.c
+index 60e375ce1ab2..238f1da0219c 100644
+--- a/arch/arm/kernel/topology.c
++++ b/arch/arm/kernel/topology.c
+@@ -177,17 +177,6 @@ static inline void parse_dt_topology(void) {}
+ static inline void update_cpu_capacity(unsigned int cpuid) {}
+ #endif
  
--ARM topology bindings allow one to associate cpu nodes with hierarchical groups
-+CPU topology bindings allow one to associate cpu nodes with hierarchical groups
- corresponding to the system hierarchy; syntactically they are defined as device
- tree nodes.
+- /*
+- * cpu topology table
+- */
+-struct cputopo_arm cpu_topology[NR_CPUS];
+-EXPORT_SYMBOL_GPL(cpu_topology);
+-
+-const struct cpumask *cpu_coregroup_mask(int cpu)
+-{
+-	return &cpu_topology[cpu].core_sibling;
+-}
+-
+ /*
+  * The current assumption is that we can power gate each core independently.
+  * This will be superseded by DT binding once available.
+@@ -197,32 +186,6 @@ const struct cpumask *cpu_corepower_mask(int cpu)
+ 	return &cpu_topology[cpu].thread_sibling;
+ }
  
--The remainder of this document provides the topology bindings for ARM, based
--on the Devicetree Specification, available from:
-+Currently, only ARM/RISC-V intend to use this cpu topology binding but it may be
-+used for any other architecture as well.
+-static void update_siblings_masks(unsigned int cpuid)
+-{
+-	struct cputopo_arm *cpu_topo, *cpuid_topo = &cpu_topology[cpuid];
+-	int cpu;
+-
+-	/* update core and thread sibling masks */
+-	for_each_possible_cpu(cpu) {
+-		cpu_topo = &cpu_topology[cpu];
+-
+-		if (cpuid_topo->socket_id != cpu_topo->socket_id)
+-			continue;
+-
+-		cpumask_set_cpu(cpuid, &cpu_topo->core_sibling);
+-		if (cpu != cpuid)
+-			cpumask_set_cpu(cpu, &cpuid_topo->core_sibling);
+-
+-		if (cpuid_topo->core_id != cpu_topo->core_id)
+-			continue;
+-
+-		cpumask_set_cpu(cpuid, &cpu_topo->thread_sibling);
+-		if (cpu != cpuid)
+-			cpumask_set_cpu(cpu, &cpuid_topo->thread_sibling);
+-	}
+-	smp_wmb();
+-}
+-
+ /*
+  * store_cpu_topology is called at boot when only one cpu is running
+  * and with the mutex cpu_hotplug.lock locked, when several cpus have booted,
+@@ -230,7 +193,7 @@ static void update_siblings_masks(unsigned int cpuid)
+  */
+ void store_cpu_topology(unsigned int cpuid)
+ {
+-	struct cputopo_arm *cpuid_topo = &cpu_topology[cpuid];
++	struct cpu_topology *cpuid_topo = &cpu_topology[cpuid];
+ 	unsigned int mpidr;
  
--https://www.devicetree.org/specifications/
-+The cpu nodes, as per bindings defined in [4], represent the devices that
-+correspond to physical CPUs and are to be mapped to the hierarchy levels.
+ 	/* If the cpu topology has been already set, just return */
+@@ -250,12 +213,12 @@ void store_cpu_topology(unsigned int cpuid)
+ 			/* core performance interdependency */
+ 			cpuid_topo->thread_id = MPIDR_AFFINITY_LEVEL(mpidr, 0);
+ 			cpuid_topo->core_id = MPIDR_AFFINITY_LEVEL(mpidr, 1);
+-			cpuid_topo->socket_id = MPIDR_AFFINITY_LEVEL(mpidr, 2);
++			cpuid_topo->package_id = MPIDR_AFFINITY_LEVEL(mpidr, 2);
+ 		} else {
+ 			/* largely independent cores */
+ 			cpuid_topo->thread_id = -1;
+ 			cpuid_topo->core_id = MPIDR_AFFINITY_LEVEL(mpidr, 0);
+-			cpuid_topo->socket_id = MPIDR_AFFINITY_LEVEL(mpidr, 1);
++			cpuid_topo->package_id = MPIDR_AFFINITY_LEVEL(mpidr, 1);
+ 		}
+ 	} else {
+ 		/*
+@@ -265,7 +228,7 @@ void store_cpu_topology(unsigned int cpuid)
+ 		 */
+ 		cpuid_topo->thread_id = -1;
+ 		cpuid_topo->core_id = 0;
+-		cpuid_topo->socket_id = -1;
++		cpuid_topo->package_id = -1;
+ 	}
  
--If not stated otherwise, whenever a reference to a cpu node phandle is made its
--value must point to a cpu node compliant with the cpu node bindings as
--documented in [1].
- A topology description containing phandles to cpu nodes that are not compliant
--with bindings standardized in [1] is therefore considered invalid.
-+with bindings standardized in [4] is therefore considered invalid.
+ 	update_siblings_masks(cpuid);
+@@ -275,7 +238,7 @@ void store_cpu_topology(unsigned int cpuid)
+ 	pr_info("CPU%u: thread %d, cpu %d, socket %d, mpidr %x\n",
+ 		cpuid, cpu_topology[cpuid].thread_id,
+ 		cpu_topology[cpuid].core_id,
+-		cpu_topology[cpuid].socket_id, mpidr);
++		cpu_topology[cpuid].package_id, mpidr);
+ }
  
- ===========================================
- 2 - cpu-map node
- ===========================================
+ static inline int cpu_corepower_flags(void)
+@@ -298,18 +261,7 @@ static struct sched_domain_topology_level arm_topology[] = {
+  */
+ void __init init_cpu_topology(void)
+ {
+-	unsigned int cpu;
+-
+-	/* init core mask and capacity */
+-	for_each_possible_cpu(cpu) {
+-		struct cputopo_arm *cpu_topo = &(cpu_topology[cpu]);
+-
+-		cpu_topo->thread_id = -1;
+-		cpu_topo->core_id =  -1;
+-		cpu_topo->socket_id = -1;
+-		cpumask_clear(&cpu_topo->core_sibling);
+-		cpumask_clear(&cpu_topo->thread_sibling);
+-	}
++	reset_cpu_topology();
+ 	smp_wmb();
  
--The ARM CPU topology is defined within the cpu-map node, which is a direct
-+The ARM/RISC-V CPU topology is defined within the cpu-map node, which is a direct
- child of the cpus node and provides a container where the actual topology
- nodes are listed.
+ 	parse_dt_topology();
+diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+index 5781bb4c457c..797e3cd71bea 100644
+--- a/drivers/base/arch_topology.c
++++ b/drivers/base/arch_topology.c
+@@ -426,6 +426,7 @@ static int __init parse_dt_topology(void)
+ 	of_node_put(cn);
+ 	return ret;
+ }
++#endif
  
- - cpu-map node
+ /*
+  * cpu topology table
+@@ -491,7 +492,7 @@ static void clear_cpu_topology(int cpu)
+ 	cpumask_set_cpu(cpu, &cpu_topo->thread_sibling);
+ }
  
--	Usage: Optional - On ARM SMP systems provide CPUs topology to the OS.
--			  ARM uniprocessor systems do not require a topology
-+	Usage: Optional - On SMP systems provide CPUs topology to the OS.
-+			  Uniprocessor systems do not require a topology
- 			  description and therefore should not define a
- 			  cpu-map node.
+-static void __init reset_cpu_topology(void)
++void __init reset_cpu_topology(void)
+ {
+ 	unsigned int cpu;
  
-@@ -494,8 +489,65 @@ cpus {
- 	};
- };
+@@ -526,6 +527,7 @@ __weak int __init parse_acpi_topology(void)
+ 	return 0;
+ }
  
-+Example 3: HiFive Unleashed (RISC-V 64 bit, 4 core system)
-+
-+{
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+	compatible = "sifive,fu540g", "sifive,fu500";
-+	model = "sifive,hifive-unleashed-a00";
-+
-+	...
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		cpu-map {
-+			socket0 {
-+				cluster0 {
-+					core0 {
-+						cpu = <&CPU1>;
-+					};
-+					core1 {
-+						cpu = <&CPU2>;
-+					};
-+					core2 {
-+						cpu0 = <&CPU2>;
-+					};
-+					core3 {
-+						cpu0 = <&CPU3>;
-+					};
-+				};
-+			};
-+		};
-+
-+		CPU1: cpu@1 {
-+			device_type = "cpu";
-+			compatible = "sifive,rocket0", "riscv";
-+			reg = <0x1>;
-+		}
-+
-+		CPU2: cpu@2 {
-+			device_type = "cpu";
-+			compatible = "sifive,rocket0", "riscv";
-+			reg = <0x2>;
-+		}
-+		CPU3: cpu@3 {
-+			device_type = "cpu";
-+			compatible = "sifive,rocket0", "riscv";
-+			reg = <0x3>;
-+		}
-+		CPU4: cpu@4 {
-+			device_type = "cpu";
-+			compatible = "sifive,rocket0", "riscv";
-+			reg = <0x4>;
-+		}
-+	}
-+};
- ===============================================================================
- [1] ARM Linux kernel documentation
-     Documentation/devicetree/bindings/arm/cpus.yaml
- [2] Devicetree NUMA binding description
-     Documentation/devicetree/bindings/numa.txt
-+[3] RISC-V Linux kernel documentation
-+    Documentation/devicetree/bindings/riscv/cpus.txt
-+[4] https://www.devicetree.org/specifications/
++#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
+ void __init init_cpu_topology(void)
+ {
+ 	reset_cpu_topology();
+diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+index d4e76e0a283f..d4311127970d 100644
+--- a/include/linux/arch_topology.h
++++ b/include/linux/arch_topology.h
+@@ -54,11 +54,9 @@ extern struct cpu_topology cpu_topology[NR_CPUS];
+ void init_cpu_topology(void);
+ void store_cpu_topology(unsigned int cpuid);
+ const struct cpumask *cpu_coregroup_mask(int cpu);
+-#endif
+-
+-#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
+ void update_siblings_masks(unsigned int cpu);
+-#endif
+ void remove_cpu_topology(unsigned int cpuid);
++void reset_cpu_topology(void);
++#endif
+ 
+ #endif /* _LINUX_ARCH_TOPOLOGY_H_ */
 -- 
 2.21.0
 
