@@ -2,77 +2,86 @@ Return-Path: <SRS0=5nvY=U2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4C6B0C48BD7
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 16:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C4F9EC48BEA
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 19:55:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2457D214AF
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 16:43:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9F9BD208CB
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Jun 2019 19:55:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PUXN+teD";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=nifty.com header.i=@nifty.com header.b="x+YPmK0d"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2457D214AF
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=socionext.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="acBE921P";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="pzkqQ0kx"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9F9BD208CB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6JalcO8zvrMlDCbMqGlpY2nwbsaJPNNGKnT2Y1eYEvk=; b=PUXN+teD/REP3F
-	f9YQfNElxr5/8ZSN09V+UErG9s6LtYlNbpzFBLtqm7zurHRMNprR8mCoKTxqiChJxQWU2qE1NCWA9
-	kSAxpIhMSSUy7KzHwSMIPN6pSE6WWDOskbTq2KhC8szV3agrJOe9YTLcZ7+rpbDTyM1ApgK0frZ6C
-	SO3wtKG0XDOTNNx3nNuOO6AjFDhtlgmNLznNiU9PYOYyBrv/UufiN1t/9WfmjErkCkhKaU8dYolHf
-	ZTYy55zPdssmDVwCCd0UcZewc5Lhx4/wb9sEel2MKm8rB1MwiaIefALSt9C7sZnjyTX9ILYxEoKlp
-	g6jIM534IHtz60fCELcg==;
+	List-Owner; bh=S9n2BE8+PVh5+ZwIsgH5UzsEyF2iS4OyFgUwdLfNqyM=; b=acBE921P/2kC3s
+	2tYyB3DUBoE1u52UKYVaz3rLTVBJ2SaWwbv2RqU9DwNs6/1E+KpmnA9QMkyUlZTZEdegNIYAf2JAZ
+	3ukL2Ib2ChlYildrQvU6YXwSYV+PHOp/CDGKJZ+u07rznMQn1w6k+GKhZ/0MJOHSOUA88A+vNrLlG
+	Btb3e5mupjguxbUnTl6SU/wNqmpNZEKFbJ74keAvVZ0HKldOJR1K2LvrFLhnDFn8NZsiiEUbsOT9X
+	bPezoHxetwM+tuSpyA6ycyo4YLgeeZzXYrVlhqIb0fPLD6r6/6CT0GICjXQ0xpMj4s+SE36w02470
+	56MF7Pn3rO4JBiUIGwhQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hgXUW-0004o4-DL; Thu, 27 Jun 2019 16:43:20 +0000
-Received: from conssluserg-04.nifty.com ([210.131.2.83])
+	id 1hgaUT-0004Mr-OJ; Thu, 27 Jun 2019 19:55:29 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgXU9-0004YB-Ok; Thu, 27 Jun 2019 16:42:59 +0000
-Received: from mail-vk1-f178.google.com (mail-vk1-f178.google.com
- [209.85.221.178]) (authenticated)
- by conssluserg-04.nifty.com with ESMTP id x5RGgai7008040;
- Fri, 28 Jun 2019 01:42:37 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-04.nifty.com x5RGgai7008040
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1561653757;
- bh=mjVQLrBPdJBnHT5c+yqrverpI3gXoSHt0lyoRtZKVh8=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=x+YPmK0dx6bvhLMCzmvcqEyTBzJ07PFO64KYLQ74sqFFOoUlR1PyfsGFuN0jYBibn
- O39lAZa08boANWu8MEfBwP451cGoa/Tz+5I/Rk7hzelPDmzuaDR14JRisQ3mqsBPAt
- uM9eYwpD/KHv6Oyzf5cQHYLfY9q+5fi0xLq1cqBsP/yr0r+L/gmVGToMjhTLHIuWnx
- X+L4EFRivPXsfzDii0vitYHy8FD8geSIJZ1GJ2JQc7yIsP2imS4vMZpe8U+41e/bBa
- WtUEyGQ2VqCf+8ntswPHaQ1w9YNkqgWSiXyvvLAIMtfnBorZ+W4/y4R+4UTE3fr/Nf
- cz4e1mtKIkk0A==
-X-Nifty-SrcIP: [209.85.221.178]
-Received: by mail-vk1-f178.google.com with SMTP id y130so638164vkc.0;
- Thu, 27 Jun 2019 09:42:37 -0700 (PDT)
-X-Gm-Message-State: APjAAAXPrTFKr4BV63EbXhGoJsOUutvcbA1wYBJZdo0CYmF28JR8+Aqk
- mTARArH+qjnF0aXPemnt4usQ1gvbs10hCV7FKbQ=
-X-Google-Smtp-Source: APXvYqzEikgizt6Sw+DCd4k5FOnO+SppEPTSGT3JzOTu5C6ZNp4faFBLQFiM9RKT4r3KAmi9gcOpHh0nyzlDZNjlMnQ=
-X-Received: by 2002:a1f:ac1:: with SMTP id 184mr1898318vkk.0.1561653756253;
- Thu, 27 Jun 2019 09:42:36 -0700 (PDT)
+ id 1hgaUR-0004KX-22; Thu, 27 Jun 2019 19:55:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1561665327; x=1593201327;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=R4jfjZMxUWSzFwisiuVjBFLXxDAnXEO77dQqxAyI1wE=;
+ b=pzkqQ0kxyU8Ri51rRUJUnIm9hB2sJaReKXEWJwqpvHdqxZ5Pcb4ZL6Nr
+ vBCVdpAhVjBoG32FDznAHuHwbTEYmQVB7KK1k75F4pfuTcHn8uA6aU0FL
+ iAHl/aM5u6vGiAZPxv48KNpRf8QASZ9IxR6kWvXBzkJmt7qDb+2dRBQiE
+ fLjY2Eb9gZu+BFFQW5CCjQ4vsh7/tQYLsvfh4sKhV2BpVVOhlpKg3F2aA
+ MU1Pb1NeM2FFQZlBzSbLwN2ufqq+goU3hevUZza2ZG1N0t+iAYbX5ltLA
+ SGnPqZ3jujAuxVUJbLDVkpu6W2Z+ZcwmBQRSDBpI0/WeNtqIlFLVEMdKH w==;
+X-IronPort-AV: E=Sophos;i="5.63,424,1557158400"; d="scan'208";a="113353772"
+Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 28 Jun 2019 03:55:25 +0800
+IronPort-SDR: OflgjNsBWzHv1FTECYb6DjK9vxuoGepNdrk4xzHc2NUVqS7cweMhasofFoXiaw4Wop16mgW0SS
+ PMT4X+D78EU2KXPjZCm3mjG8cYjAJwKBQZ9j+/Vpr24t1vfcYg4ZU5v5ZBkbK3qJE6NlWh2AU9
+ v24ZzOl5v5rzEJsgtYcV+2+jiMdgxsVxduPPdkDIlDlFgK6F/7rchiS8ZDWRplrzhV6hlE3lKq
+ RQVv37QyIXv8SWr5e+LBIDQNehd7h1ZqcfOVpiKklR/1ibx1Up+PNR3cjz9uV0uBoc7Bo1mrHA
+ eWBLBz+TD3a5xs6uMxmUaIYF
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep02.wdc.com with ESMTP; 27 Jun 2019 12:54:38 -0700
+IronPort-SDR: zrZX6RAbOPoSs5QMZIqfjIVfLPRAfo+phS5jzwXRWAwg0bCtmLWKKOjf5WM/+ysKs88/8jV8D8
+ GgQ3+6aktI6mnATTDgLps2zNlvwrwikyl1o+hnJ9W+fsGZ8kFR5LOtP7IAZsespf9vIuLZjiYa
+ WFcPoI5TYkJVnyLYWLB8aMxqzD0vx1PP72A8kIWdiQUPlJGZpouXJXliay5wvI/nDfLD2olu4+
+ NeVibRmlcwz/JPb2fSEFN+IVh2bBKk6khcBif0vGeMBP6FlKZDMYZtGeJHolZ65m6FEoLDE2Ke
+ Vq0=
+Received: from jedi-01.sdcorp.global.sandisk.com (HELO
+ jedi-01.int.fusionio.com) ([10.11.143.218])
+ by uls-op-cesaip01.wdc.com with ESMTP; 27 Jun 2019 12:55:25 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v8 1/7] Documentation: DT: arm: add support for sockets
+ defining package boundaries
+Date: Thu, 27 Jun 2019 12:52:56 -0700
+Message-Id: <20190627195302.28300-2-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.21.0
+In-Reply-To: <20190627195302.28300-1-atish.patra@wdc.com>
+References: <20190627195302.28300-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-References: <20190627014617.600-1-yamada.masahiro@socionext.com>
- <87y31np89f.fsf@intel.com>
-In-Reply-To: <87y31np89f.fsf@intel.com>
-From: Masahiro Yamada <yamada.masahiro@socionext.com>
-Date: Fri, 28 Jun 2019 01:42:00 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAS=Uhyq9AitSqRR2aKOg18aae8Ce9FXTufgJq3KNhmsUg@mail.gmail.com>
-Message-ID: <CAK7LNAS=Uhyq9AitSqRR2aKOg18aae8Ce9FXTufgJq3KNhmsUg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/4] Compile-test UAPI and kernel headers
-To: Jani Nikula <jani.nikula@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190627_094258_020873_E53FA60A 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20190627_125527_168358_2411B2B0 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -84,76 +93,307 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Song Liu <songliubraving@fb.com>,
- Jakub Kicinski <jakub.kicinski@netronome.com>,
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
- Palmer Dabbelt <palmer@sifive.com>, Alexei Starovoitov <ast@kernel.org>,
- linux-riscv@lists.infradead.org, Sam Ravnborg <sam@ravnborg.org>,
- Kees Cook <keescook@chromium.org>, xdp-newbies@vger.kernel.org,
- Daniel Borkmann <daniel@iogearbox.net>, Jonathan Corbet <corbet@lwn.net>,
- Anton Vorontsov <anton@enomsg.org>, John Fastabend <john.fastabend@gmail.com>,
- Yonghong Song <yhs@fb.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
- Michal Marek <michal.lkml@markovi.net>,
- "moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Tony Luck <tony.luck@intel.com>, Networking <netdev@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- "David S. Miller" <davem@davemloft.net>, Colin Cross <ccross@android.com>,
- bpf@vger.kernel.org, Martin KaFai Lau <kafai@fb.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Peter Zijlstra \(Intel\)" <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>, Atish Patra <atish.patra@wdc.com>,
+ Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
+ Ingo Molnar <mingo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Anup Patel <anup@brainfault.org>, Russell King <linux@armlinux.org.uk>,
+ Morten Rasmussen <morten.rasmussen@arm.com>, devicetree@vger.kernel.org,
+ Albert Ou <aou@eecs.berkeley.edu>, Johan Hovold <johan@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Otto Sabart <ottosabart@seberm.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 27, 2019 at 8:36 PM Jani Nikula <jani.nikula@linux.intel.com> wrote:
->
-> On Thu, 27 Jun 2019, Masahiro Yamada <yamada.masahiro@socionext.com> wrote:
-> > 1/4: reworked v2.
-> >
-> > 2/4: fix a flaw I noticed when I was working on this series
-> >
-> > 3/4: maybe useful for 4/4 and in some other places
-> >
-> > 4/4: v2. compile as many headers as possible.
-> >
-> >
-> > Changes in v2:
-> >  - Add CONFIG_CPU_{BIG,LITTLE}_ENDIAN guard to avoid build error
-> >  - Use 'header-test-' instead of 'no-header-test'
-> >  - Avoid weird 'find' warning when cleaning
-> >   - New patch
-> >   - New patch
-> >   - Add everything to test coverage, and exclude broken ones
-> >   - Rename 'Makefile' to 'Kbuild'
-> >   - Add CONFIG_KERNEL_HEADER_TEST option
-> >
-> > Masahiro Yamada (4):
-> >   kbuild: compile-test UAPI headers to ensure they are self-contained
-> >   kbuild: do not create wrappers for header-test-y
-> >   kbuild: support header-test-pattern-y
-> >   kbuild: compile-test kernel headers to ensure they are self-contained
->
-> [responding here because I didn't receive the actual patch]
->
-> This looks like it's doing what it's supposed to, but I ran into a bunch
-> of build fails with CONFIG_OF=n. Sent a fix to one [1], but stopped at
-> the next. Looks like you'll have to exclude more. And I'm pretty sure
-> we'll uncover more configurations where this will fail.
+From: Sudeep Holla <sudeep.holla@arm.com>
 
-Thanks for testing.
+The current ARM DT topology description provides the operating system
+with a topological view of the system that is based on leaf nodes
+representing either cores or threads (in an SMT system) and a
+hierarchical set of cluster nodes that creates a hierarchical topology
+view of how those cores and threads are grouped.
 
-I did more compile-tests, and excluded more headers in v3.
+However this hierarchical representation of clusters does not allow to
+describe what topology level actually represents the physical package or
+the socket boundary, which is a key piece of information to be used by
+an operating system to optimize resource allocation and scheduling.
 
-Thanks.
+Lets add a new "socket" node type in the cpu-map node to describe the
+same.
 
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
+---
+ .../devicetree/bindings/arm/topology.txt      | 172 ++++++++++--------
+ 1 file changed, 99 insertions(+), 73 deletions(-)
 
-
+diff --git a/Documentation/devicetree/bindings/arm/topology.txt b/Documentation/devicetree/bindings/arm/topology.txt
+index b0d80c0fb265..3b8febb46dad 100644
+--- a/Documentation/devicetree/bindings/arm/topology.txt
++++ b/Documentation/devicetree/bindings/arm/topology.txt
+@@ -9,6 +9,7 @@ ARM topology binding description
+ In an ARM system, the hierarchy of CPUs is defined through three entities that
+ are used to describe the layout of physical CPUs in the system:
+ 
++- socket
+ - cluster
+ - core
+ - thread
+@@ -63,21 +64,23 @@ nodes are listed.
+ 
+ 	The cpu-map node's child nodes can be:
+ 
+-	- one or more cluster nodes
++	- one or more cluster nodes or
++	- one or more socket nodes in a multi-socket system
+ 
+ 	Any other configuration is considered invalid.
+ 
+-The cpu-map node can only contain three types of child nodes:
++The cpu-map node can only contain 4 types of child nodes:
+ 
++- socket node
+ - cluster node
+ - core node
+ - thread node
+ 
+ whose bindings are described in paragraph 3.
+ 
+-The nodes describing the CPU topology (cluster/core/thread) can only
+-be defined within the cpu-map node and every core/thread in the system
+-must be defined within the topology.  Any other configuration is
++The nodes describing the CPU topology (socket/cluster/core/thread) can
++only be defined within the cpu-map node and every core/thread in the
++system must be defined within the topology.  Any other configuration is
+ invalid and therefore must be ignored.
+ 
+ ===========================================
+@@ -85,26 +88,44 @@ invalid and therefore must be ignored.
+ ===========================================
+ 
+ cpu-map child nodes must follow a naming convention where the node name
+-must be "clusterN", "coreN", "threadN" depending on the node type (ie
+-cluster/core/thread) (where N = {0, 1, ...} is the node number; nodes which
+-are siblings within a single common parent node must be given a unique and
++must be "socketN", "clusterN", "coreN", "threadN" depending on the node type
++(ie socket/cluster/core/thread) (where N = {0, 1, ...} is the node number; nodes
++which are siblings within a single common parent node must be given a unique and
+ sequential N value, starting from 0).
+ cpu-map child nodes which do not share a common parent node can have the same
+ name (ie same number N as other cpu-map child nodes at different device tree
+ levels) since name uniqueness will be guaranteed by the device tree hierarchy.
+ 
+ ===========================================
+-3 - cluster/core/thread node bindings
++3 - socket/cluster/core/thread node bindings
+ ===========================================
+ 
+-Bindings for cluster/cpu/thread nodes are defined as follows:
++Bindings for socket/cluster/cpu/thread nodes are defined as follows:
++
++- socket node
++
++	 Description: must be declared within a cpu-map node, one node
++		      per physical socket in the system. A system can
++		      contain single or multiple physical socket.
++		      The association of sockets and NUMA nodes is beyond
++		      the scope of this bindings, please refer [2] for
++		      NUMA bindings.
++
++	This node is optional for a single socket system.
++
++	The socket node name must be "socketN" as described in 2.1 above.
++	A socket node can not be a leaf node.
++
++	A socket node's child nodes must be one or more cluster nodes.
++
++	Any other configuration is considered invalid.
+ 
+ - cluster node
+ 
+ 	 Description: must be declared within a cpu-map node, one node
+ 		      per cluster. A system can contain several layers of
+-		      clustering and cluster nodes can be contained in parent
+-		      cluster nodes.
++		      clustering within a single physical socket and cluster
++		      nodes can be contained in parent cluster nodes.
+ 
+ 	The cluster node name must be "clusterN" as described in 2.1 above.
+ 	A cluster node can not be a leaf node.
+@@ -164,90 +185,93 @@ Bindings for cluster/cpu/thread nodes are defined as follows:
+ 4 - Example dts
+ ===========================================
+ 
+-Example 1 (ARM 64-bit, 16-cpu system, two clusters of clusters):
++Example 1 (ARM 64-bit, 16-cpu system, two clusters of clusters in a single
++physical socket):
+ 
+ cpus {
+ 	#size-cells = <0>;
+ 	#address-cells = <2>;
+ 
+ 	cpu-map {
+-		cluster0 {
++		socket0 {
+ 			cluster0 {
+-				core0 {
+-					thread0 {
+-						cpu = <&CPU0>;
+-					};
+-					thread1 {
+-						cpu = <&CPU1>;
++				cluster0 {
++					core0 {
++						thread0 {
++							cpu = <&CPU0>;
++						};
++						thread1 {
++							cpu = <&CPU1>;
++						};
+ 					};
+-				};
+ 
+-				core1 {
+-					thread0 {
+-						cpu = <&CPU2>;
+-					};
+-					thread1 {
+-						cpu = <&CPU3>;
++					core1 {
++						thread0 {
++							cpu = <&CPU2>;
++						};
++						thread1 {
++							cpu = <&CPU3>;
++						};
+ 					};
+ 				};
+-			};
+ 
+-			cluster1 {
+-				core0 {
+-					thread0 {
+-						cpu = <&CPU4>;
+-					};
+-					thread1 {
+-						cpu = <&CPU5>;
++				cluster1 {
++					core0 {
++						thread0 {
++							cpu = <&CPU4>;
++						};
++						thread1 {
++							cpu = <&CPU5>;
++						};
+ 					};
+-				};
+-
+-				core1 {
+-					thread0 {
+-						cpu = <&CPU6>;
+-					};
+-					thread1 {
+-						cpu = <&CPU7>;
+-					};
+-				};
+-			};
+-		};
+ 
+-		cluster1 {
+-			cluster0 {
+-				core0 {
+-					thread0 {
+-						cpu = <&CPU8>;
+-					};
+-					thread1 {
+-						cpu = <&CPU9>;
+-					};
+-				};
+-				core1 {
+-					thread0 {
+-						cpu = <&CPU10>;
+-					};
+-					thread1 {
+-						cpu = <&CPU11>;
++					core1 {
++						thread0 {
++							cpu = <&CPU6>;
++						};
++						thread1 {
++							cpu = <&CPU7>;
++						};
+ 					};
+ 				};
+ 			};
+ 
+ 			cluster1 {
+-				core0 {
+-					thread0 {
+-						cpu = <&CPU12>;
++				cluster0 {
++					core0 {
++						thread0 {
++							cpu = <&CPU8>;
++						};
++						thread1 {
++							cpu = <&CPU9>;
++						};
+ 					};
+-					thread1 {
+-						cpu = <&CPU13>;
++					core1 {
++						thread0 {
++							cpu = <&CPU10>;
++						};
++						thread1 {
++							cpu = <&CPU11>;
++						};
+ 					};
+ 				};
+-				core1 {
+-					thread0 {
+-						cpu = <&CPU14>;
++
++				cluster1 {
++					core0 {
++						thread0 {
++							cpu = <&CPU12>;
++						};
++						thread1 {
++							cpu = <&CPU13>;
++						};
+ 					};
+-					thread1 {
+-						cpu = <&CPU15>;
++					core1 {
++						thread0 {
++							cpu = <&CPU14>;
++						};
++						thread1 {
++							cpu = <&CPU15>;
++						};
+ 					};
+ 				};
+ 			};
+@@ -473,3 +497,5 @@ cpus {
+ ===============================================================================
+ [1] ARM Linux kernel documentation
+     Documentation/devicetree/bindings/arm/cpus.yaml
++[2] Devicetree NUMA binding description
++    Documentation/devicetree/bindings/numa.txt
 -- 
-Best Regards
-Masahiro Yamada
+2.21.0
+
 
 _______________________________________________
 linux-riscv mailing list
