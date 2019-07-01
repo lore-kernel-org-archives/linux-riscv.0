@@ -2,70 +2,84 @@ Return-Path: <SRS0=AGdw=U6=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 91B27C0650E
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2019 09:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 61B7CC06510
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2019 10:40:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 69E2420659
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2019 09:19:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 35C7F2133D
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2019 10:40:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OVlc+EyD"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 69E2420659
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UxsdO07x";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Bs9P3wHB"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 35C7F2133D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BLXS53tl6EH1ksKlvZsF2BDZMdQs2Ms3+tsBnRb0NWw=; b=OVlc+EyDSeWhpn
-	3WC4eVKgQqyQYR08Ll111RLqtVT21ZMRoRY+YVvvCzJ+tLYUta5qqPaTAeQr61hfnLvjXP7ydZDY4
-	2XFNCQ7x8DPeuDGncUA02pRP+9uz3e7jI71UV7PqAsLlkzJbYk36ZTIK3rDRYk+fSWxyJRWqplN85
-	k4o3HvEGtxKkDZ6Uv07vES+DWddWUUSXc1PrUOARc+3CwRNxzGnHsHsgCpsf4r4BTfoJ9QcyiegJ4
-	RQuj/4WJuSncRXNsutSTFfkYdwX7rSJMuzCI2LYckSQYVJUJ33dZxxdnyddhGsnCWs2V3Yckl6mV1
-	2cp6L1vrVUejlHyLcruQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=zC3n/wM7qKKlaZBz10Nvk6KjmrGPhVb/cO1bEaJxBBA=; b=Uxs
+	dO07xyVfsTuXdbjuxtBKkHC8ydW4zOLfY/fI8r7I63RqDzXzHYFWlN8b1GEu0QCHB20Mz+pemEBEI
+	ot+ANfHJM2SUVrhcDa+91oVpieveM9lb+nAQlHshA73eJF+NKdNqvJgoWknXBFGbHHeKqZ/tXl6Sm
+	WOK9+CcKdr42/mEd3611jRIn9zlmIQ29hIotb5ZujYdGhSToe9JIwdvBbMn4I2wGCygx+4bRBBHXf
+	Eslg9LxfBZ2t7b5lUqyxc+V8ao1bJmUoYmfXncVyEhCojPH4vSIizkOal4i8laKg4PSTzfX6wueo9
+	geJe6K3LTMLaxeIBt3WNJiCC8v2NxzQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hhsTS-00013C-Cq; Mon, 01 Jul 2019 09:19:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
- id 1hhsR5-0007VD-Cc; Mon, 01 Jul 2019 09:17:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1A8BCFC;
- Mon,  1 Jul 2019 02:17:16 -0700 (PDT)
-Received: from arrakis.emea.arm.com (arrakis.cambridge.arm.com [10.1.196.78])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id
- 62CC23F718; Mon,  1 Jul 2019 02:17:14 -0700 (PDT)
-Date: Mon, 1 Jul 2019 10:17:12 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Guo Ren <guoren@kernel.org>
-Subject: Re: [PATCH RFC 11/14] arm64: Move the ASID allocator code in a
- separate file
-Message-ID: <20190701091711.GA21774@arrakis.emea.arm.com>
-References: <20190321163623.20219-1-julien.grall@arm.com>
- <20190321163623.20219-12-julien.grall@arm.com>
- <0dfe120b-066a-2ac8-13bc-3f5a29e2caa3@arm.com>
- <CAJF2gTTXHHgDboaexdHA284y6kNZVSjLis5-Q2rDnXCxr4RSmA@mail.gmail.com>
- <c871a5ae-914f-a8bb-9474-1dcfec5d45bf@arm.com>
- <CAJF2gTStSR7Jmu7=HaO5Wxz=Zn8A5-RD8ktori3oKEhM9vozAA@mail.gmail.com>
- <20190621141606.GF18954@arrakis.emea.arm.com>
- <CAJF2gTTVUToRkRtxTmtWDotMGXy5YQCpL1h_2neTBuN3e6oz1w@mail.gmail.com>
- <20190624153820.GH29120@arrakis.emea.arm.com>
- <CAJF2gTRUzHUNV+nzECUp5n2L1akdy=Aovb6tSd+PNVnpasBrqw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJF2gTRUzHUNV+nzECUp5n2L1akdy=Aovb6tSd+PNVnpasBrqw@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+	id 1hhtk0-0004Kr-PC; Mon, 01 Jul 2019 10:40:56 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+ by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
+ id 1hhtjx-0004K9-UZ
+ for linux-riscv@lists.infradead.org; Mon, 01 Jul 2019 10:40:55 +0000
+Received: by mail-pg1-x541.google.com with SMTP id i8so2647247pgm.13
+ for <linux-riscv@lists.infradead.org>; Mon, 01 Jul 2019 03:40:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id;
+ bh=J9c7HLFHB/6MQXAk9nbKdUnuKhx+YpHKq1KxJgKxyP8=;
+ b=Bs9P3wHB2+j7xXbfUlkbZGeesB4uPleYuRpo/LZxWgX7auhEjYET5rsTqxsrsgHDvz
+ Ak9ruswEkL+P/ohuhQ6IQrrdeMmgKs38Di6rb7bpxGdg24zaIsayOFSHsx0aP4/HYqua
+ +KodY6PunVNqp8+GtnzrqFoc9TXb8Pkw31QPVKcjpcUzt+eqE623oc82A3pWGT7jtuhi
+ dlO+aJ8AoTQADZHRmQeX9tNGrn3qB5TMeS1ih4Lf1/CzOR6vtDZ763oRUjvxStmXph7Z
+ BT2uXEa9AeDxh7BBebcOV6wDWPWhyttKxVmgPlP0OyyrhwnoDxvh77Gj0rDyUl2zOgtD
+ rypg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=J9c7HLFHB/6MQXAk9nbKdUnuKhx+YpHKq1KxJgKxyP8=;
+ b=C5FT/PV4yJfYX3il+t0GtXGqf72bg0XEZpv6xPl4Qy1yVstIaurtPwFqEGIWQffJzN
+ TgA2FLd3IiDu1tFFPCfFB8lYCBfw9ldnD4ityM3HTVSRg7p8Y9qsAlrkwB1DJY05suQR
+ cZLwcyY5T1UqTR1SAOP1uwwYhdx9s3f/5Jo4DEiY1oYGnPC2EOLyRNOjlea5QC1eadDv
+ faufw5qSaqzLeZkHkDFZCZKqOGdOSZzhp5BbNpASnDWfiQuItcpbhJNUhT1IS4MH1ZCL
+ b8RnbjjmNvdFO7ll2np2NLmVnjMpkz4oQ9NDYsrjTcVbK49G6LwRGTqMPxZssaFZBqEh
+ +zzw==
+X-Gm-Message-State: APjAAAX1lRUyRGs+sGXJvnpzVRlIo+135vRGrm0/1xHwqEJFDFRcQXEl
+ GX62NGFCXNJXy2PPiYGqaNckUb2JytA=
+X-Google-Smtp-Source: APXvYqxRbbkcM3EC4AAooXtro5KK4p2N7RlMCFLz7OVdz7IN7Z9Yh+tGOL9jDwil84AW7t3NWSN6bA==
+X-Received: by 2002:a17:90a:d814:: with SMTP id
+ a20mr30532666pjv.48.1561977652141; 
+ Mon, 01 Jul 2019 03:40:52 -0700 (PDT)
+Received: from buildserver-90.open-silicon.com ([114.143.65.226])
+ by smtp.googlemail.com with ESMTPSA id g62sm10410755pje.11.2019.07.01.03.40.48
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+ Mon, 01 Jul 2019 03:40:51 -0700 (PDT)
+From: Yash Shah <yash.shah@sifive.com>
+To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ paul.walmsley@sifive.com
+Subject: [PATCH v2] riscv: ccache: Remove unused variable
+Date: Mon,  1 Jul 2019 16:10:30 +0530
+Message-Id: <1561977630-32309-1-git-send-email-yash.shah@sifive.com>
+X-Mailer: git-send-email 1.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190701_021719_604931_A002A64C 
-X-CRM114-Status: GOOD (  20.74  )
+X-CRM114-CacheID: sfid-20190701_034054_047531_77BECE62 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,102 +91,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: julien.thierry@arm.com, aou@eecs.berkeley.edu, james.morse@arm.com,
- suzuki.poulose@arm.com, Marc Zyngier <marc.zyngier@arm.com>,
- Anup Patel <anup.Patel@wdc.com>, Will Deacon <will.deacon@arm.com>,
- linux-kernel@vger.kernel.org, rppt@linux.ibm.com, hch@infradead.org,
- Atish Patra <Atish.Patra@wdc.com>, Julien Grall <julien.grall@arm.com>,
- Palmer Dabbelt <palmer@sifive.com>, gary@garyguo.net, paul.walmsley@sifive.com,
- christoffer.dall@arm.com, linux-riscv@lists.infradead.org,
- kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org
+Cc: sachin.ghadi@sifive.com, Yash Shah <yash.shah@sifive.com>,
+ palmer@sifive.com, aou@eecs.berkeley.edu
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 30, 2019 at 12:29:46PM +0800, Guo Ren wrote:
-> On Mon, Jun 24, 2019 at 11:38 PM Catalin Marinas
-> <catalin.marinas@arm.com> wrote:
-> > On Mon, Jun 24, 2019 at 12:35:35AM +0800, Guo Ren wrote:
-> > > On Fri, Jun 21, 2019 at 10:16 PM Catalin Marinas
-> > > <catalin.marinas@arm.com> wrote:
-> > > > BTW, if you find the algorithm fairly straightforward ;), see this
-> > > > bug-fix which took a formal model to identify: a8ffaaa060b8 ("arm64:
-> > > > asid: Do not replace active_asids if already 0").
-> > [...]
-> > > Btw, Is this detected by arm's aisd allocator TLA+ model ? Or a real
-> > > bug report ?
-> >
-> > This specific bug was found by the TLA+ model checker (at the time we
-> > were actually tracking down another bug with multi-threaded CPU sharing
-> > the TLB, bug also confirmed by the formal model).
-> 
-> Could you tell me the ref-link about "another bug with multi-threaded
-> CPU sharing the TLB" ?
-> 
-> In my concept, the multi-core asid mechanism is also applicable to
-> multi-thread shared TLB, but it will generate redundant tlbflush. From
-> the software design logic, multi-threaded is treated as multi-cores
-> without error, but performance is not optimized.
+Reading the count register clears the interrupt signal. Currently, the
+count registers are read into 'regval' variable but the variable is
+never used. Therefore remove it. V2 of this patch add comments to
+justify the readl calls without checking the return value.
 
-From the ASID reservation/allocation perspective, the mechanism is the
-same between multi-threaded with a shared TLB and multi-core. On arm64,
-a local_flush_tlb_all() on a thread invalidates the TLB for the other
-threads of the same core.
+Signed-off-by: Yash Shah <yash.shah@sifive.com>
+---
+ arch/riscv/mm/sifive_l2_cache.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-The actual problem with multi-threaded CPUs is a lot more subtle.
-Digging some internal email from 1.5 years ago and pasting it below
-(where "current ASID algorithm" refers to the one prior to the fix and
-CnP - Common Not Private - means shared TLBs on a multi-threaded CPU):
-
-
-The current ASID roll-over algorithm allows for a small window where
-active_asids for a CPU (P1) is different from the actual ASID in TTBR0.
-This can lead to a roll-over on a different CPU (P2) allocating an ASID
-(for a different task) which is still hardware-active on P1.
-
-A TLBI on a CPU (or a peer CPU with CnP) does not guarantee that all the
-entries corresponding to a valid TTBRx are removed as they can still be
-speculatively loaded immediately after TLBI.
-
-While having two different page tables with the same ASID on different
-CPUs should be fine without CnP, it becomes problematic when CnP is
-enabled:
-
-P1                                      P2
---                                      --
-TTBR0.BADDR = T1
-TTBR0.ASID = A1
-check_and_switch_context(T2,A2)
-  asid_maps[P1] = A2
-  goto fastpath
-                                        check_and_switch_context(T3,A0)
-                                          new_context
-                                            ASID roll-over allocates A1
-                                              since it is not active
-                                          TLBI ALL
-speculate TTBR0.ASID = A1 entry
-                                          TTBR0.BADDR = T3
-                                          TTBR0.ASID = A1
-  TTBR0.BADDR = T2
-  TTBR0.ASID = A2
-
-After this, the common TLB on P1 and P2 (CnP) contains entries
-corresponding to the old T1 and A1. Task T3 using the same ASID A1 can
-hit such entries. (T1,A1) will eventually be removed from the TLB on the
-next context switch on P1 since tlb_flush_pending was set but this is
-not guaranteed to happen.
-
-
-The fix on arm64 (as part of 5ffdfaedfa0a - "arm64: mm: Support Common
-Not Private translations") was to set the reserved TTBR0 in
-check_and_switch_context(), preventing speculative loads into the TLB
-being tagged with the wrong ASID. So this is specific to the ARM CPUs
-behaviour w.r.t. speculative TLB loads, it may not be the case (yet) for
-your architecture.
-
+diff --git a/arch/riscv/mm/sifive_l2_cache.c b/arch/riscv/mm/sifive_l2_cache.c
+index 4eb6461..2e637ad 100644
+--- a/arch/riscv/mm/sifive_l2_cache.c
++++ b/arch/riscv/mm/sifive_l2_cache.c
+@@ -109,13 +109,14 @@ int unregister_sifive_l2_error_notifier(struct notifier_block *nb)
+ 
+ static irqreturn_t l2_int_handler(int irq, void *device)
+ {
+-	unsigned int regval, add_h, add_l;
++	unsigned int add_h, add_l;
+ 
+ 	if (irq == g_irq[DIR_CORR]) {
+ 		add_h = readl(l2_base + SIFIVE_L2_DIRECCFIX_HIGH);
+ 		add_l = readl(l2_base + SIFIVE_L2_DIRECCFIX_LOW);
+ 		pr_err("L2CACHE: DirError @ 0x%08X.%08X\n", add_h, add_l);
+-		regval = readl(l2_base + SIFIVE_L2_DIRECCFIX_COUNT);
++		/* Reading this register clears the DirError interrupt sig */
++		readl(l2_base + SIFIVE_L2_DIRECCFIX_COUNT);
+ 		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_CE,
+ 					   "DirECCFix");
+ 	}
+@@ -123,7 +124,8 @@ static irqreturn_t l2_int_handler(int irq, void *device)
+ 		add_h = readl(l2_base + SIFIVE_L2_DATECCFIX_HIGH);
+ 		add_l = readl(l2_base + SIFIVE_L2_DATECCFIX_LOW);
+ 		pr_err("L2CACHE: DataError @ 0x%08X.%08X\n", add_h, add_l);
+-		regval = readl(l2_base + SIFIVE_L2_DATECCFIX_COUNT);
++		/* Reading this register clears the DataError interrupt sig */
++		readl(l2_base + SIFIVE_L2_DATECCFIX_COUNT);
+ 		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_CE,
+ 					   "DatECCFix");
+ 	}
+@@ -131,7 +133,8 @@ static irqreturn_t l2_int_handler(int irq, void *device)
+ 		add_h = readl(l2_base + SIFIVE_L2_DATECCFAIL_HIGH);
+ 		add_l = readl(l2_base + SIFIVE_L2_DATECCFAIL_LOW);
+ 		pr_err("L2CACHE: DataFail @ 0x%08X.%08X\n", add_h, add_l);
+-		regval = readl(l2_base + SIFIVE_L2_DATECCFAIL_COUNT);
++		/* Reading this register clears the DataFail interrupt sig */
++		readl(l2_base + SIFIVE_L2_DATECCFAIL_COUNT);
+ 		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_UE,
+ 					   "DatECCFail");
+ 	}
 -- 
-Catalin
+1.9.1
+
 
 _______________________________________________
 linux-riscv mailing list
