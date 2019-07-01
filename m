@@ -1,61 +1,73 @@
-Return-Path: <SRS0=a7a/=U5=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=AGdw=U6=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 534E8C5B57E
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 30 Jun 2019 15:35:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 014B0C06508
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2019 01:00:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 27365206E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 30 Jun 2019 15:35:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C9A29212F5
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  1 Jul 2019 01:00:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pISfwvX5"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 27365206E0
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XHX60ucl";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=nifty.com header.i=@nifty.com header.b="ziU+h4rJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C9A29212F5
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=socionext.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
-	To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=SZa4MkDRcPDBkU9p8eH7/lGfTumSFo9XEEa/z3qyLQ8=; b=pISfwvX5NouWs4UCrgIjZUULb
-	jma7W9MmignlIFWr3k+AS9J6LhRwO+ieQNgyB5jorX9op8KusLx3zIToo6I3oRk4XxKJkeaMf6OS1
-	DiVx02s8raikHORAvshnTsnOKCRILwqbFOROCFrNjPQIkybqFo0X2li9qgxCwD0iUeSB4ZwNDJGTe
-	JckpGWJVhnaWMAj3w9FbtTV8AG12TEGp9FWfPjYtPC7MGuKAG8TrAO4DuzqcSAHPv+Uwx9bDdGgmC
-	qJjGvnoa0X9LGaBgMrkmvusKIXszvumke6jnDZTWgnImTaogQWGVTqlB7NJrGKpnCfm9NdDKDZpLz
-	dIZpAZw6Q==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=VOttKcE4zBcDOCnwBicEJ4aeEFh1F9s4i0HJ9jzUir0=; b=XHX60ucl9Jb+Y6+jbQpzw6HMjY
+	4MRs9x0pyoS5Di1MeidVQ7m44kPvxFPG0KvkcmtfRyFpIIxOXStww7UT6RTwEEtU044sZjdzr0jkd
+	zcM9VPXr6FQgRNYaF3o/hufeP3Lyg8aONeeEjxOkr8Ts2PdDpoywvU8cQQwWxiYhIdFYvNLEwWJmx
+	DgNuI8NcHGBiaFZjy0XQND374+Ol8XzmeJATtG3tMyi2dPMkubBlLHSsOQG/3//VHJxZeWgoazgwp
+	GU9KZAnifeeZTccxy79eU21NajiN7cOl/tiHE4Rfa8AjYOA9SQ+vQywrRNaQCCXt0ZtLwlRl8oMUt
+	wNJtlcFw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hhbrR-0000Wc-4I; Sun, 30 Jun 2019 15:35:25 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1hhkgG-0005WP-CS; Mon, 01 Jul 2019 01:00:28 +0000
+Received: from conuserg-12.nifty.com ([210.131.2.79])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hhbr5-0007UX-Es; Sun, 30 Jun 2019 15:35:05 +0000
-X-Originating-IP: 79.86.19.127
-Received: from [192.168.0.12] (127.19.86.79.rev.sfr.net [79.86.19.127])
- (Authenticated sender: alex@ghiti.fr)
- by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id 9122DE0004;
- Sun, 30 Jun 2019 15:34:41 +0000 (UTC)
-Subject: Re: [PATCH v4 00/14] Provide generic top-down mmap layout functions
-From: Alex Ghiti <alex@ghiti.fr>
-To: Paul Burton <paul.burton@mips.com>
-References: <20190526134746.9315-1-alex@ghiti.fr>
- <bfb1565d-0468-8ea8-19f9-b862faa4f1d4@ghiti.fr>
-Message-ID: <c4049021-50fd-32e5-7052-24d58b31e072@ghiti.fr>
-Date: Sun, 30 Jun 2019 11:34:40 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.4.0
-MIME-Version: 1.0
-In-Reply-To: <bfb1565d-0468-8ea8-19f9-b862faa4f1d4@ghiti.fr>
-Content-Language: sv-FI
+ id 1hhkgA-0005UA-EG
+ for linux-riscv@lists.infradead.org; Mon, 01 Jul 2019 01:00:26 +0000
+Received: from grover.flets-west.jp (softbank126125154139.bbtec.net
+ [126.125.154.139]) (authenticated)
+ by conuserg-12.nifty.com with ESMTP id x610x4ft000634;
+ Mon, 1 Jul 2019 09:59:07 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com x610x4ft000634
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+ s=dec2015msa; t=1561942748;
+ bh=MKeZdTTRfl86Y7P6MzXWSAuIsFqD3wq5RLZjRa1I1Lw=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=ziU+h4rJWJvBru7ZdtTN3A5VNXFG3Pr048ghe0KATQ698wjk2Wpz6/MYAs4RIoTl6
+ ZXHX62tCknYKHXGyyw4obJDCVa3hg97aj5/o1K9TAlaIxoZcpM/J7aJ6XgLG9U2eeK
+ FBJ/VCvX3UyrMSrjBISljHjV29nWC20Kzd24DcAJ+jmSqHOYk6hmrtNRCG8cHPyYRL
+ /j1kdEWCNn544fJdrVlL4pOib4nOeVcTWIakaIQ3ejmP0bf1alUm93sVrwLpzTkvgq
+ UNXzuM3OCm5oqkHte62It2zBAnQBPqr4PuJbzuiC6w2k+t9EA+aEojhWXDewuQ4iTI
+ 84kvLpsw2RyZw==
+X-Nifty-SrcIP: [126.125.154.139]
+From: Masahiro Yamada <yamada.masahiro@socionext.com>
+To: linux-kbuild@vger.kernel.org
+Subject: [PATCH 2/7] kbuild: compile-test exported headers to ensure they are
+ self-contained
+Date: Mon,  1 Jul 2019 09:58:40 +0900
+Message-Id: <20190701005845.12475-3-yamada.masahiro@socionext.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20190701005845.12475-1-yamada.masahiro@socionext.com>
+References: <20190701005845.12475-1-yamada.masahiro@socionext.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190630_083503_828069_D3E376A5 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20190630_180022_864468_1215B66F 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,188 +79,278 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
- Will Deacon <will.deacon@arm.com>, Russell King <linux@armlinux.org.uk>,
- Ralf Baechle <ralf@linux-mips.org>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, Luis Chamberlain <mcgrof@kernel.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>, James Hogan <jhogan@kernel.org>,
- linux-fsdevel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-mips@vger.kernel.org, Christoph Hellwig <hch@lst.de>,
- Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Cc: Song Liu <songliubraving@fb.com>, Michal Marek <michal.lkml@markovi.net>,
+ bpf@vger.kernel.org, Daniel Borkmann <daniel@iogearbox.net>,
+ netdev@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>,
+ Alexei Starovoitov <ast@kernel.org>, linux-kernel@vger.kernel.org,
+ Masahiro Yamada <yamada.masahiro@socionext.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Joel Fernandes <joel@joelfernandes.org>,
+ Yonghong Song <yhs@fb.com>, linux-riscv@lists.infradead.org,
+ Sam Ravnborg <sam@ravnborg.org>, Martin KaFai Lau <kafai@fb.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/13/19 1:29 AM, Alex Ghiti wrote:
-> On 5/26/19 9:47 AM, Alexandre Ghiti wrote:
->> This series introduces generic functions to make top-down mmap layout
->> easily accessible to architectures, in particular riscv which was
->> the initial goal of this series.
->> The generic implementation was taken from arm64 and used successively
->> by arm, mips and finally riscv.
->>
->> Note that in addition the series fixes 2 issues:
->> - stack randomization was taken into account even if not necessary.
->> - [1] fixed an issue with mmap base which did not take into account
->> =A0=A0 randomization but did not report it to arm and mips, so by moving
->> =A0=A0 arm64 into a generic library, this problem is now fixed for both
->> =A0=A0 architectures.
->>
->> This work is an effort to factorize architecture functions to avoid
->> code duplication and oversights as in [1].
->>
->> [1]: =
+Multiple people have suggested compile-testing UAPI headers to ensure
+they can be really included from user-space. "make headers_check" is
+obviously not enough to catch bugs, and we often leak unresolved
+references to user-space.
 
->> https://www.mail-archive.com/linux-kernel@vger.kernel.org/msg1429066.html
->>
->> Changes in v4:
->> =A0=A0 - Make ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT select =
+Use the new header-test-y syntax to implement it. Please note exported
+headers are compile-tested with a completely different set of compiler
+flags. The header search path is set to $(objtree)/usr/include since
+exported headers should not include unexported ones.
 
->> ARCH_HAS_ELF_RANDOMIZE
->> =A0=A0=A0=A0 by default as suggested by Kees,
->> =A0=A0 - ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT depends on MMU and define=
-s =
+We use -std=gnu89 for the kernel space since the kernel code highly
+depends on GNU extensions. On the other hand, UAPI headers should be
+written in more standardized C, so they are compiled with -std=c90.
+This will emit errors if C++ style comments, the keyword 'inline', etc.
+are used. Please use C style comments (/* ... */), '__inline__', etc.
+in UAPI headers.
 
->> the
->> =A0=A0=A0=A0 functions needed by ARCH_HAS_ELF_RANDOMIZE =3D> architectur=
-es that =
+There is additional compiler requirement to enable this test because
+many of UAPI headers include <stdlib.h>, <sys/ioctl.h>, <sys/time.h>,
+etc. directly or indirectly. You cannot use kernel.org pre-built
+toolchains [1] since they lack <stdlib.h>.
 
->> use
->> =A0=A0=A0=A0 the generic mmap topdown functions cannot have =
+I reused CONFIG_CC_CAN_LINK to check the system header availability.
+The intention is slightly different, but a compiler that can link
+userspace programs provide system headers.
 
->> ARCH_HAS_ELF_RANDOMIZE
->> =A0=A0=A0=A0 selected without MMU, but I think it's ok since randomizati=
-on =
+For now, a lot of headers need to be excluded because they cannot
+be compiled standalone, but this is a good start point.
 
->> without
->> =A0=A0=A0=A0 MMU does not add much security anyway.
->> =A0=A0 - There is no common API to determine if a process is 32b, so I =
+[1] https://mirrors.edge.kernel.org/pub/tools/crosstool/index.html
 
->> came up with
->> =A0=A0=A0=A0 !IS_ENABLED(CONFIG_64BIT) || is_compat_task() in [PATCH v4 =
-12/14].
->> =A0=A0 - Mention in the change log that x86 already takes care of not =
+Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
+Reviewed-by: Sam Ravnborg <sam@ravnborg.org>
+---
 
->> offseting mmap
->> =A0=A0=A0=A0 base address if the task does not want randomization.
->> =A0=A0 - Re-introduce a comment that should not have been removed.
->> =A0=A0 - Add Reviewed/Acked-By from Paul, Christoph and Kees, thank you =
+Changes in v4:
+  - Sort the blacklist alphabetically
+  - Add a little more comments
+  - Remove scripts/cc-system-headers.sh and reuse CC_CAN_LINK
 
->> for that.
->> =A0=A0 - I tried to minimize the changes from the commits in v3 in order =
+Changes in v3: None
+Changes in v2:
+ - Add CONFIG_CPU_{BIG,LITTLE}_ENDIAN guard to avoid build error
+ - Use 'header-test-' instead of 'no-header-test'
+ - Avoid weird 'find' warning when cleaning
 
->> to make
->> =A0=A0=A0=A0 easier the review of the v4, the commits changed or added a=
-re:
->> =A0=A0=A0=A0 - [PATCH v4 5/14]
->> =A0=A0=A0=A0 - [PATCH v4 8/14]
->> =A0=A0=A0=A0 - [PATCH v4 11/14]
->> =A0=A0=A0=A0 - [PATCH v4 12/14]
->> =A0=A0=A0=A0 - [PATCH v4 13/14]
->
-> Hi Paul,
->
-> Compared to the previous version you already acked, patches 11, 12 and 13
-> would need your feedback, do you have time to take a look at them ?
->
-> Hope I don't bother you,
->
-> Thanks,
->
-> Alex
->
+ Makefile               |   2 +-
+ init/Kconfig           |  10 ++++
+ usr/.gitignore         |   1 -
+ usr/Makefile           |   2 +
+ usr/include/.gitignore |   3 +
+ usr/include/Makefile   | 131 +++++++++++++++++++++++++++++++++++++++++
+ 6 files changed, 147 insertions(+), 2 deletions(-)
+ create mode 100644 usr/include/.gitignore
+ create mode 100644 usr/include/Makefile
 
-Hi Paul,
+diff --git a/Makefile b/Makefile
+index 1f35aca4fe05..f23516980796 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1363,7 +1363,7 @@ CLEAN_DIRS  += $(MODVERDIR) include/ksym
+ CLEAN_FILES += modules.builtin.modinfo
+ 
+ # Directories & files removed with 'make mrproper'
+-MRPROPER_DIRS  += include/config usr/include include/generated          \
++MRPROPER_DIRS  += include/config include/generated          \
+ 		  arch/$(SRCARCH)/include/generated .tmp_objdiff
+ MRPROPER_FILES += .config .config.old .version \
+ 		  Module.symvers tags TAGS cscope* GPATH GTAGS GRTAGS GSYMS \
+diff --git a/init/Kconfig b/init/Kconfig
+index 2e9813daa2c1..74192de8ada6 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -108,6 +108,16 @@ config HEADER_TEST
+ 	  If you are a developer or tester and want to ensure the requested
+ 	  headers are self-contained, say Y here. Otherwise, choose N.
+ 
++config UAPI_HEADER_TEST
++	bool "Compile test UAPI headers"
++	depends on HEADER_TEST && HEADERS_INSTALL && CC_CAN_LINK
++	help
++	  Compile test headers exported to user-space to ensure they are
++	  self-contained, i.e. compilable as standalone units.
++
++	  If you are a developer or tester and want to ensure the exported
++	  headers are self-contained, say Y here. Otherwise, choose N.
++
+ config LOCALVERSION
+ 	string "Local version - append to kernel release"
+ 	help
+diff --git a/usr/.gitignore b/usr/.gitignore
+index 8e48117a3f3d..be5eae1df7eb 100644
+--- a/usr/.gitignore
++++ b/usr/.gitignore
+@@ -7,4 +7,3 @@ initramfs_data.cpio.gz
+ initramfs_data.cpio.bz2
+ initramfs_data.cpio.lzma
+ initramfs_list
+-include
+diff --git a/usr/Makefile b/usr/Makefile
+index 4a70ae43c9cb..6a89eb019275 100644
+--- a/usr/Makefile
++++ b/usr/Makefile
+@@ -56,3 +56,5 @@ $(deps_initramfs): klibcdirs
+ $(obj)/$(datafile_y): $(obj)/gen_init_cpio $(deps_initramfs) klibcdirs
+ 	$(Q)$(initramfs) -l $(ramfs-input) > $(obj)/$(datafile_d_y)
+ 	$(call if_changed,initfs)
++
++subdir-$(CONFIG_UAPI_HEADER_TEST) += include
+diff --git a/usr/include/.gitignore b/usr/include/.gitignore
+new file mode 100644
+index 000000000000..a0991ff4402b
+--- /dev/null
++++ b/usr/include/.gitignore
+@@ -0,0 +1,3 @@
++*
++!.gitignore
++!Makefile
+diff --git a/usr/include/Makefile b/usr/include/Makefile
+new file mode 100644
+index 000000000000..0f9f92c6016a
+--- /dev/null
++++ b/usr/include/Makefile
+@@ -0,0 +1,131 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++# Unlike the kernel space, exported headers are written in standard C.
++#  - Forbid C++ style comments
++#  - Use '__inline__', '__asm__' instead of 'inline', 'asm'
++#
++# -std=c90 (equivalent to -ansi) catches the violation of those.
++# We cannot go as far as adding -Wpedantic since it emits too many warnings.
++UAPI_CFLAGS := -std=c90 -Wall -Werror=implicit-function-declaration
++
++override c_flags = $(UAPI_CFLAGS) -Wp,-MD,$(depfile) -I$(objtree)/usr/include
++
++# The following are excluded for now because they fail to build.
++#
++# Do not add a new header to the blacklist without legitimate reason.
++# Please consider to fix the header first.
++#
++# Sorted alphabetically.
++header-test- += asm/ipcbuf.h
++header-test- += asm/msgbuf.h
++header-test- += asm/sembuf.h
++header-test- += asm/shmbuf.h
++header-test- += asm/signal.h
++header-test- += asm/ucontext.h
++header-test- += drm/vmwgfx_drm.h
++header-test- += linux/am437x-vpfe.h
++header-test- += linux/android/binder.h
++header-test- += linux/android/binderfs.h
++header-test-$(CONFIG_CPU_BIG_ENDIAN) += linux/byteorder/big_endian.h
++header-test-$(CONFIG_CPU_LITTLE_ENDIAN) += linux/byteorder/little_endian.h
++header-test- += linux/coda.h
++header-test- += linux/coda_psdev.h
++header-test- += linux/dvb/audio.h
++header-test- += linux/dvb/osd.h
++header-test- += linux/elfcore.h
++header-test- += linux/errqueue.h
++header-test- += linux/fsmap.h
++header-test- += linux/hdlc/ioctl.h
++header-test- += linux/ivtv.h
++header-test- += linux/jffs2.h
++header-test- += linux/kexec.h
++header-test- += linux/matroxfb.h
++header-test- += linux/netfilter_bridge/ebtables.h
++header-test- += linux/netfilter_ipv4/ipt_LOG.h
++header-test- += linux/netfilter_ipv6/ip6t_LOG.h
++header-test- += linux/nfc.h
++header-test- += linux/nilfs2_ondisk.h
++header-test- += linux/omap3isp.h
++header-test- += linux/omapfb.h
++header-test- += linux/patchkey.h
++header-test- += linux/phonet.h
++header-test- += linux/reiserfs_xattr.h
++header-test- += linux/scc.h
++header-test- += linux/sctp.h
++header-test- += linux/signal.h
++header-test- += linux/sysctl.h
++header-test- += linux/usb/audio.h
++header-test- += linux/v4l2-mediabus.h
++header-test- += linux/v4l2-subdev.h
++header-test- += linux/videodev2.h
++header-test- += linux/vm_sockets.h
++header-test- += misc/ocxl.h
++header-test- += mtd/mtd-abi.h
++header-test- += scsi/scsi_bsg_fc.h
++header-test- += scsi/scsi_netlink.h
++header-test- += scsi/scsi_netlink_fc.h
++header-test- += sound/asequencer.h
++header-test- += sound/asoc.h
++header-test- += sound/asound.h
++header-test- += sound/compress_offload.h
++header-test- += sound/emu10k1.h
++header-test- += sound/sfnt_info.h
++header-test- += sound/sof/eq.h
++header-test- += sound/sof/fw.h
++header-test- += sound/sof/header.h
++header-test- += sound/sof/manifest.h
++header-test- += sound/sof/trace.h
++header-test- += xen/evtchn.h
++header-test- += xen/gntdev.h
++header-test- += xen/privcmd.h
++
++# More headers are broken in some architectures
++
++ifeq ($(SRCARCH),arc)
++header-test- += linux/bpf_perf_event.h
++endif
++
++ifeq ($(SRCARCH),ia64)
++header-test- += asm/setup.h
++header-test- += asm/sigcontext.h
++header-test- += asm/perfmon.h
++header-test- += asm/perfmon_default_smpl.h
++header-test- += linux/if_bonding.h
++endif
++
++ifeq ($(SRCARCH),mips)
++header-test- += asm/stat.h
++endif
++
++ifeq ($(SRCARCH),powerpc)
++header-test- += asm/stat.h
++header-test- += linux/bpf_perf_event.h
++endif
++
++ifeq ($(SRCARCH),riscv)
++header-test- += linux/bpf_perf_event.h
++endif
++
++ifeq ($(SRCARCH),s390)
++header-test- += asm/runtime_instr.h
++header-test- += asm/zcrypt.h
++endif
++
++ifeq ($(SRCARCH),sparc)
++header-test- += asm/stat.h
++header-test- += asm/uctx.h
++header-test- += asm/fbio.h
++header-test- += asm/openpromio.h
++endif
++
++# asm-generic/*.h is used by asm/*.h, and should not be included directly
++header-test- += asm-generic/%
++
++# The rest are compile-tested
++header-test-y += $(filter-out $(header-test-), \
++			$(patsubst $(obj)/%,%, $(wildcard \
++			$(addprefix $(obj)/, *.h */*.h */*/*.h */*/*/*.h))))
++
++# For GNU Make <= 4.2.1, $(wildcard $(obj)/*/) matches to not only directories
++# but also regular files. Use $(filter %/, ...) just in case.
++clean-dirs += $(patsubst $(obj)/%/,%,$(filter %/, $(wildcard $(obj)/*/)))
+-- 
+2.17.1
 
-Would you have time to give your feedback on patches 11, 12 and 13 ?
-
-Thanks,
-
-Alex
-
-
->
->>
->> Changes in v3:
->> =A0=A0 - Split into small patches to ease review as suggested by Christo=
-ph
->> =A0=A0=A0=A0 Hellwig and Kees Cook
->> =A0=A0 - Move help text of new config as a comment, as suggested by =
-
->> Christoph
->> =A0=A0 - Make new config depend on MMU, as suggested by Christoph
->>
->> Changes in v2 as suggested by Christoph Hellwig:
->> =A0=A0 - Preparatory patch that moves randomize_stack_top
->> =A0=A0 - Fix duplicate config in riscv
->> =A0=A0 - Align #if defined on next line =3D> this gives rise to a checkp=
-atch
->> =A0=A0=A0=A0 warning. I found this pattern all around the tree, in the s=
-ame =
-
->> proportion
->> =A0=A0=A0=A0 as the previous pattern which was less pretty:
->> =A0=A0=A0=A0 git grep -C 1 -n -P "^#if defined.+\|\|.*\\\\$"
->>
->> Alexandre Ghiti (14):
->> =A0=A0 mm, fs: Move randomize_stack_top from fs to mm
->> =A0=A0 arm64: Make use of is_compat_task instead of hardcoding this test
->> =A0=A0 arm64: Consider stack randomization for mmap base only when neces=
-sary
->> =A0=A0 arm64, mm: Move generic mmap layout functions to mm
->> =A0=A0 arm64, mm: Make randomization selected by generic topdown mmap la=
-yout
->> =A0=A0 arm: Properly account for stack randomization and stack guard gap
->> =A0=A0 arm: Use STACK_TOP when computing mmap base address
->> =A0=A0 arm: Use generic mmap top-down layout and brk randomization
->> =A0=A0 mips: Properly account for stack randomization and stack guard gap
->> =A0=A0 mips: Use STACK_TOP when computing mmap base address
->> =A0=A0 mips: Adjust brk randomization offset to fit generic version
->> =A0=A0 mips: Replace arch specific way to determine 32bit task with gene=
-ric
->> =A0=A0=A0=A0 version
->> =A0=A0 mips: Use generic mmap top-down layout and brk randomization
->> =A0=A0 riscv: Make mmap allocation top-down by default
->>
->> =A0 arch/Kconfig=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0 |=A0 11 +++
->> =A0 arch/arm/Kconfig=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0 |=A0=A0 2 +-
->> =A0 arch/arm/include/asm/processor.h=A0=A0 |=A0=A0 2 -
->> =A0 arch/arm/kernel/process.c=A0=A0=A0=A0=A0=A0=A0=A0=A0 |=A0=A0 5 --
->> =A0 arch/arm/mm/mmap.c=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 |=
-=A0 52 --------------
->> =A0 arch/arm64/Kconfig=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 |=
-=A0=A0 2 +-
->> =A0 arch/arm64/include/asm/processor.h |=A0=A0 2 -
->> =A0 arch/arm64/kernel/process.c=A0=A0=A0=A0=A0=A0=A0 |=A0=A0 8 ---
->> =A0 arch/arm64/mm/mmap.c=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 |=A0 =
-72 -------------------
->> =A0 arch/mips/Kconfig=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
- |=A0=A0 2 +-
->> =A0 arch/mips/include/asm/processor.h=A0 |=A0=A0 5 --
->> =A0 arch/mips/mm/mmap.c=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 |=
-=A0 84 ----------------------
->> =A0 arch/riscv/Kconfig=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 |=
-=A0 11 +++
->> =A0 fs/binfmt_elf.c=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0 |=A0 20 ------
->> =A0 include/linux/mm.h=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 |=
-=A0=A0 2 +
->> =A0 kernel/sysctl.c=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0 |=A0=A0 6 +-
->> =A0 mm/util.c=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0 | 107 ++++++++++++++++++++++++++++-
->> =A0 17 files changed, 137 insertions(+), 256 deletions(-)
->>
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
