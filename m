@@ -4,19 +4,18 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EEBD0C06510
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2019 13:23:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BD1ACC06510
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2019 13:25:10 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C43E4206E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2019 13:23:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 84B82206E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2019 13:25:10 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nVuwLCpf"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C43E4206E0
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="J6GjYCLK"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 84B82206E0
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,28 +24,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fKnPFlKV9ni1gXrqbIys/Lwum8qfOVQrgXNQOBioFHc=; b=nVuwLCpfrLTLOy
-	THp7m5YgkImweCw/nkRAqLU0LOFC7wzgIKDpeiUGpsz+PNqW6RCepcS+38835VeaAljaRmDsKuD97
-	ejQdFxlzWi7FIVD17rhc/sExDht5Moie0Pd/NDlgz1f4Y2/hBQ4bN6AnUrJQ9MO1cOJt7oxqs6VGc
-	BlasTZOK1/H1bGe9wGYRFohpxoeDPwke9f9SDTHGvhQRL3WSEla/uDw9qRF8Ryz0uUQh6SYWSpIiF
-	wAgb4+BTCzREEIrfRzFnO9HB6uaYnp7lRHq0gxQ+ykWFUGbqgFhIbB0dBlrpJg+Y9NuIylW3tK+aH
-	DIfMoaDXrAaBeVLAdElA==;
+	List-Owner; bh=ahzRMDvSio1G7WkQQaSKkRpICz6I35GgsY+rFnOQ4kI=; b=J6GjYCLK9hTV0A
+	acZnjRB+fs4nx4wiIBrxgVDKTgmxalOGI60pBKBgIrsatii5UvMHgqAF8fx4ZuaQ0h4smo80uC83X
+	4w2XRlx563Z2Iye61tK5Z1i/oMAC8QinB2kIRjHPFwVWEWBBXR8BnQRf12MEKx5SlwjOnNbycpRav
+	Ca+9ZeM6Lfh+te0TzQeQVhIh0C/b2mZp/p0mZjt57BhX4Ht6QLXVZPsfqAyDhzwIpu9GnSf+UNAnb
+	6BYTPUXTi2ig885fsb1GsMyw8saSLNkX+niFqYr7XQbkzk1qwfjLNeEeqgrd2bM8r6cWtfrrKa8jK
+	WS+x+LOniaTrcFpTYwFA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hiIkd-0004kz-5K; Tue, 02 Jul 2019 13:23:15 +0000
+	id 1hiImR-0005pq-4Y; Tue, 02 Jul 2019 13:25:07 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.92 #3 (Red Hat
- Linux)) id 1hiIkN-0004aM-BP; Tue, 02 Jul 2019 13:22:59 +0000
-Date: Tue, 2 Jul 2019 06:22:59 -0700
+ Linux)) id 1hiIle-0005Jj-HX; Tue, 02 Jul 2019 13:24:18 +0000
+Date: Tue, 2 Jul 2019 06:24:18 -0700
 From: Christoph Hellwig <hch@infradead.org>
 To: Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH v3 1/2] x86, arm64: Move ARCH_WANT_HUGE_PMD_SHARE config
- in arch/Kconfig
-Message-ID: <20190702132259.GA17480@infradead.org>
+Subject: Re: [PATCH v3 2/2] riscv: Introduce huge page support for 32/64bit
+ kernel
+Message-ID: <20190702132418.GB17480@infradead.org>
 References: <20190701175900.4034-1-alex@ghiti.fr>
- <20190701175900.4034-2-alex@ghiti.fr>
+ <20190701175900.4034-3-alex@ghiti.fr>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190701175900.4034-2-alex@ghiti.fr>
+In-Reply-To: <20190701175900.4034-3-alex@ghiti.fr>
 User-Agent: Mutt/1.11.4 (2019-03-13)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -72,7 +71,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Looks good,
+> +config ARCH_WANT_GENERAL_HUGETLB
+> +	def_bool y
+> +
+> +config SYS_SUPPORTS_HUGETLBFS
+> +	def_bool y
+
+In a perfect world these would be in mm/Kconfig and only selected
+by the architectures.  But I don't want to force you to clean up all
+that mess first, so:
 
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 
