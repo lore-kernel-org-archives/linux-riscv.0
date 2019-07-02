@@ -2,84 +2,62 @@ Return-Path: <SRS0=30mE=U7=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 74C13C06510
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2019 15:39:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 48888C06510
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2019 15:40:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 444142082F
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2019 15:39:37 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1BFBB20663
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  2 Jul 2019 15:40:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="T+CsXGMZ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="ZrGA6PUL"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 444142082F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Eiito/Kr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1BFBB20663
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=1uSflCrAQwcgaZESSC1VnArcBsOO9f5wfRsHnA5rTiA=; b=T+CsXGMZVrSLX0Vy8qH0fVP9m
-	9miHojjnGz69QZyAnwmmseh98GLHBrb15cL++uWFHsSxvHguWFKoFzE3EH7y/0RrlbHGE5/v8LU+B
-	8b7s6FiKVdCU6CqdCk7BAPlXOCb+0tET3JOp9O4r2Fe/4cODCXJvopnbAynpP0OwVr9oNJQsLAtmW
-	6jznCVhV1PppspxdSzpN/88li1d5TdOtYCNW3iV3k+t2RaSBjIkLmfKBO6a6LNolq5MiSaEFscj6n
-	tdsUnfOiE6ldayzcyMA6UKfliQN8fWMjgCE2hA72Ywsd6lbOxhm6UhumigbULPAxuvZrkEInHhHf3
-	iZ8JwG9cA==;
+	 bh=XMDp4g5PtqDKapPEmBaCa5keibZ8eXS9K699yS5fJgQ=; b=Eiito/KrW+SLF8rVDTuFR1RBf
+	nSRUDLi15rnB9Xvly4xwOAKWoYNqRgu4WjbpB8D9y9+LX2It3mpftzJga9e6BqCTZVxwLwsJaa/Gk
+	I8U1na/yaM6+12ignjs5U1NbSE1bwYfZXYPs8CwtT5oabQiTBBMLX3kAYO4s4f0+gE/JYWBIAYOm/
+	6rTT38bC38CYLxo1sG7rJTevjc4Omy5tcfPiadTVFvUB/PiAd+HeyDtkPZwAdQlxciJLjW7DHYZnE
+	c7nIKwEtKtyH/FYI0FkUbxSTNK4thf8fYi5rEgxbVbqHDa8cItr2VnRIRV/pCkbQ4T8vnsv4XE7en
+	sO5Q1Pn9g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hiKsa-0005ID-E0; Tue, 02 Jul 2019 15:39:36 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
+	id 1hiKtR-00077t-Lf; Tue, 02 Jul 2019 15:40:29 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hiKsM-00057Y-Uk; Tue, 02 Jul 2019 15:39:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Transfer-Encoding:Content-Type:
- In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:Sender:
- Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=VbbwCKNVbaDazA/C9AKG/uIDeWLXTnnfF8JqIharbxQ=; b=ZrGA6PULp5aL9OjvglOCAWQPC8
- Fni1QzE7PCyWceOgWPIJB/o+6ZTlAnnpPxCCHUo+Zr0s7mDP1R21Wi1T9gDDPXuIUQwLEgw5yAGQi
- FzBzpDrCoCfxxcRjxkVdIDywuXsDdpgnMghA5ardeAeGcopqh1nB/a7fWWOzUPKTwvmMf1vIgEwbX
- Pu7Cs9WegYY2FJrLdy3g105bdZziyPpJzbjxSa5QWCSXEZStuI87akVcBoKqTvF6HoBU4c/Dkkrgp
- y+6UzWzjqhcDRvUmEn49/GEqqn0YYIIOY1cCUVzyN4fcq3rJsObJkxBtLIbhAsPyiHGQvupOSHJZ5
- ecBTbhNg==;
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
- by merlin.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hiKsI-0007m4-9Q; Tue, 02 Jul 2019 15:39:20 +0000
+ id 1hiKsz-0005bR-Dy; Tue, 02 Jul 2019 15:40:03 +0000
 X-Originating-IP: 81.250.144.103
 Received: from [10.30.1.20] (lneuilly-657-1-5-103.w81-250.abo.wanadoo.fr
  [81.250.144.103]) (Authenticated sender: alex@ghiti.fr)
- by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id 57833E0005;
- Tue,  2 Jul 2019 15:38:32 +0000 (UTC)
-Subject: Re: [PATCH v3 1/2] x86, arm64: Move ARCH_WANT_HUGE_PMD_SHARE config
- in arch/Kconfig
-To: Hanjun Guo <guohanjun@huawei.com>, Christoph Hellwig <hch@infradead.org>, 
- Mike Kravetz <mike.kravetz@oracle.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will.deacon@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- "H . Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 51AC420016;
+ Tue,  2 Jul 2019 15:39:36 +0000 (UTC)
+Subject: Re: [PATCH v3 2/2] riscv: Introduce huge page support for 32/64bit
+ kernel
+To: Christoph Hellwig <hch@infradead.org>
 References: <20190701175900.4034-1-alex@ghiti.fr>
- <20190701175900.4034-2-alex@ghiti.fr>
- <18144cc2-f552-b2cc-c41a-47c754de2b0d@huawei.com>
+ <20190701175900.4034-3-alex@ghiti.fr> <20190702132418.GB17480@infradead.org>
 From: Alexandre Ghiti <alex@ghiti.fr>
-Message-ID: <62390cef-2417-3b6d-970d-bddecc4ac005@ghiti.fr>
-Date: Tue, 2 Jul 2019 17:38:32 +0200
+Message-ID: <1596717d-430b-a429-4840-89ca30d654eb@ghiti.fr>
+Date: Tue, 2 Jul 2019 17:39:36 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
  Thunderbird/60.6.1
 MIME-Version: 1.0
-In-Reply-To: <18144cc2-f552-b2cc-c41a-47c754de2b0d@huawei.com>
+In-Reply-To: <20190702132418.GB17480@infradead.org>
 Content-Language: fr
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20190702_084001_665298_795CD206 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,70 +69,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Hanjun Guo <guohanjun@huawei.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>, x86@kernel.org,
+ linux-kernel@vger.kernel.org, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, "H . Peter Anvin" <hpa@zytor.com>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Mike Kravetz <mike.kravetz@oracle.com>
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 7/2/19 3:27 AM, Hanjun Guo wrote:
-> On 2019/7/2 1:58, Alexandre Ghiti wrote:
->> ARCH_WANT_HUGE_PMD_SHARE config was declared in both architectures:
->> move this declaration in arch/Kconfig and make those architectures
->> select it.
->>
->> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
->> ---
->>   arch/Kconfig       | 3 +++
->>   arch/arm64/Kconfig | 4 +---
->>   arch/x86/Kconfig   | 4 +---
->>   3 files changed, 5 insertions(+), 6 deletions(-)
->>
->> diff --git a/arch/Kconfig b/arch/Kconfig
->> index c47b328eada0..d2f212dc8e72 100644
->> --- a/arch/Kconfig
->> +++ b/arch/Kconfig
->> @@ -577,6 +577,9 @@ config HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
->>   config HAVE_ARCH_HUGE_VMAP
->>   	bool
->>   
->> +config ARCH_WANT_HUGE_PMD_SHARE
->> +	bool
+On 7/2/19 3:24 PM, Christoph Hellwig wrote:
+>> +config ARCH_WANT_GENERAL_HUGETLB
+>> +	def_bool y
 >> +
->>   config HAVE_ARCH_SOFT_DIRTY
->>   	bool
->>   
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index 697ea0510729..c862575decd3 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -71,6 +71,7 @@ config ARM64
->>   	select ARCH_SUPPORTS_NUMA_BALANCING
->>   	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
->>   	select ARCH_WANT_FRAME_POINTERS
->> +	select ARCH_WANT_HUGE_PMD_SHARE if ARM64_4K_PAGES || (ARM64_16K_PAGES && !ARM64_VA_BITS_36)
->>   	select ARCH_HAS_UBSAN_SANITIZE_ALL
->>   	select ARM_AMBA
->>   	select ARM_ARCH_TIMER
->> @@ -901,9 +902,6 @@ config HW_PERF_EVENTS
->>   config SYS_SUPPORTS_HUGETLBFS
->>   	def_bool y
->>   
->> -config ARCH_WANT_HUGE_PMD_SHARE
->> -	def_bool y if ARM64_4K_PAGES || (ARM64_16K_PAGES && !ARM64_VA_BITS_36)
->> -
-> Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
+>> +config SYS_SUPPORTS_HUGETLBFS
+>> +	def_bool y
+> In a perfect world these would be in mm/Kconfig and only selected
+> by the architectures.  But I don't want to force you to clean up all
+> that mess first, so:
+>
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
 
 
-Thanks for catching the previous mistake again and thanks for that,
+Thanks, I'll clean that up ;)
 
 Alex
 
 
->
-> Thanks
-> Hanjun
->
 >
 > _______________________________________________
 > linux-riscv mailing list
