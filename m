@@ -2,93 +2,91 @@ Return-Path: <SRS0=iddv=VA=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 99729C5B57D
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2019 00:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E9EFC06510
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2019 00:54:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6384A2089C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2019 00:54:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3871321852
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Jul 2019 00:54:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="divigcZT";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="pUM/4nLf"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6384A2089C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Gt8Jsmx9";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="h9qHwL+8"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3871321852
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZnaglEuxXXVO9GbIUnT384b9GoMIowpRCe7plJUc8X8=; b=divigcZTFmX2Y3
-	QO8IKAtZoppW9k6kPLOoA10KNOJs5s2zLhqF2IIQ7OvalDqvK7mbAURKWHS7qeQ2Z6a3FizHgIyur
-	mTjdLqhqPYeDDvomtnd0NvTzPCbpoih6vehBDq3lwJ3oUB9tNLNPh1qsyWiHXIu2jMJLNKOK7WtmE
-	BkokWtPtOO9EmlX3yHxRi2E/E/Kv5ulfLBRYBo0zN8nJarvXlgxGIElNjISAs0irSeC5dU9vkA292
-	5Oq8RBKsHKw19IpRg9DCZeXgNF6TG9eIrbyHdViSVL9Z2rBYA0a+fMXI7Mkf92ab8QII5vcuOWEJX
-	2C3hqOObCfVHkCrOgrLA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VHOMkoIV2PSi6t9eifufvInRl2vUZNM+zlo0Bj2LIeg=; b=Gt8Jsmx9oXLn60
+	MQb9j9vs0ZfmuzzP1kYSInU8gXYIynB7EWFrGlBjdOZNomwvYT8hb0ZqhKz6YU01P8fvtvEsmgaH3
+	8jWFZQYGQTs22Ok2UWqpXn6lDLHsOSzr+GWj4CJXPrs8pAy6qMh5BX7e3Yv6ELIWFtJo+kl03NAmd
+	eVf2jyKEsfETnqFVowW2Lzlj+6YquLiMBpvKvMRn+vaVHgCp/8vwEnCHppklwfwYG/BlEPthlnzs+
+	9jUUr8acItuBWR1aj46npyUDm5eesMz5AmQY69VghcfuhElOjiDcj0JsypJFqlr8Fo7IPRBxOno0z
+	9X9Bca/B19J4CugHGK/A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hiTY0-0001yS-An; Wed, 03 Jul 2019 00:54:56 +0000
+	id 1hiTXv-0001vV-GN; Wed, 03 Jul 2019 00:54:51 +0000
 Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hiTXv-0001ug-0E
- for linux-riscv@lists.infradead.org; Wed, 03 Jul 2019 00:54:52 +0000
+ id 1hiTXo-0001tJ-Bv
+ for linux-riscv@lists.infradead.org; Wed, 03 Jul 2019 00:54:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1562115292; x=1593651292;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=Wy7yC5O2tmsY73xSrxj13jbMBblMeVDokHmeqGBlXTw=;
- b=pUM/4nLfmIikRXUJoIs6Mg2Ipn9jQC5RtfpWwa1MAFBKOw93sSr1pvRL
- RofH47mO45DL262EUtnoywyBIYRIBpLhPNtdLGOOfTB8okC9Xwesuj92n
- ypRqoahwUtzBW24igFDanVQuyKZtBIQT/YwYOTlmfNRuYy718BXjoDx5k
- fAlMz7Bmv25Z7E4DD/M8XJfz7a9TgdoE73sZ+pnP0gAL9U6n2r0LFABIk
- c/ikzvRYYr20VOdQhxd4DBwMTI2uQDN5xcAdt9UnwEk4zvqF93gg2GQEr
- ohqZSrGGWg69dqd4b/NtDHDvivBe/pDTD4fhw+oUy+CeXl3ymrMWkvuo1 A==;
-IronPort-SDR: ThdFQ7xVMZjppmpvrm/OsG06AQabMEAMQTY65xWtHvjmV5iofEIIGWjkgDR87FWHMTRyOQYJm4
- YJ4yQSNFcQC7zH1bv1OhsEgGNG8zMJvjSou758HyxU5x0BmNHihXdEsf8uHW3cvxJSd5tg6clI
- KYCJeA3ed0HG41sdvCD8OG7MMv7dI8deE6UnCYs8T7mTQZ76uLQCl+LvrrczFpLQIXlwFNKuYi
- VkplrM/fMJR0hIXVvRtL7vs5YdxSlDsoHSWLIvoXk0IbCWuqF/RqwXHpqhEeWuCQD/OOfixkHd
- aOQ=
-X-IronPort-AV: E=Sophos;i="5.63,445,1557158400"; d="scan'208";a="116940452"
+ t=1562115285; x=1593651285;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=fVT1Neu72Cl7Ti24Xfa8jpNhBvPMuWv91mK1LHqkCSA=;
+ b=h9qHwL+88zJ+tXUj9R+RdQrudQwg49l+MDenCQO9pF6L9M7/NGgf9I3+
+ aOiabeggKsd6qAK0oD1a04eozLg1yAz8cmYWaDHWJ8Nj6JF/F5jDM5PFB
+ qHlGFw6IP6b+z95/BYvCxRw1+wkGtO43Of8UVraRE0LW6qMN1cY9LHSA6
+ P63zZBEYFZNZuL8qSQQDY2m6AsRnYSHOQxoewwIHUCn0T8DbMb0gvmAuB
+ SnofztBjf2sUx4IlZwZAhG2dI1b8JsKlUee+YNCzTqs8iZGG+qjocMNvU
+ cySojIHi6VBbpIHNypLm4/JLpnJBhk99cnvL8Uo5a/OvTgNdnkHbUZwaF Q==;
+IronPort-SDR: wSQV5reQyOsOnAs0Ifi9NM4TN80/01CCwsa2lcudZPJ79iOzdXFHXXJszLzr32x4oBviNxU3R8
+ R2DWFMzOWDy3biSkfJ6TpDSyldoVkJleCod4yIGcCT/M2ln0MTlJislm0mKQZyEPYk6Diuy1Xi
+ SXwIdqswYsvAEEWYFnNENrf3M9+H7mw4nme5cfMAgfb4viEkuY2DcLd7GMabukTyP31A0YD4yR
+ 0dWknlgLJ5EpMkgXIP7xryqalje+pHUzZTDc9fc3ajO55Ams1y9xAoSAsCvAGaWtKjiNxBxP5Y
+ Aoo=
+X-IronPort-AV: E=Sophos;i="5.63,445,1557158400"; d="scan'208";a="116940450"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
  by ob1.hgst.iphmx.com with ESMTP; 03 Jul 2019 08:54:41 +0800
-IronPort-SDR: pjjr5qUaKQfe7aXFtGOLGMhH6hNcDaSyBHTps5BhdrVEXhL32SSl+DtJP3zevtNNsIYjwYTmJK
- yDUxzKQkYeWwqY10h3EgG07eAiKBTt0fuaI44kUP3ntQpp1C5IrshG5cj3K3vlnuVfhSo7vOx1
- km1Nt/hImeImLh4iOBRz6a16iHGRbuYlrGER8RaDAHLAqwzLKdYbeZnFxkg5fPDdq77NM3ZC5/
- GGWal4Kc2CilqPVi24x4cYYQgWRtSE8cckAjbdyAQmtVFwkRpPAt7LRXN/glVoQxRMAPSzPhPJ
- Jbwlr4EFov/2Fb3YiAvtCO44
+IronPort-SDR: /2ftvYA2TV/HkgmZTTmkUyPO9Z/fy8sKUPWZJrHz5DMvf0B0JUdEWY416E6xhNUGyqBaPVoC1L
+ oqFw5DmDzP8/WpyrmJK2Ti5w04CbSg4YMUPz++ykwlkVI6vK4Byg0PE8OPo3VkEtWImswwgzCQ
+ AZDtECUqr1GTFLx3yYURgkMljciAmOwaAkZmcVTDxdwhwQuz5dIRKgenn7jFA4TuKrlAdZ6bKJ
+ ogUP/wMptVdDiZobhgb6w7tCxF6iLoP/Nsf2NAj4G7BBsi96WhCsGLYvyXRY+hb6+NcIik+w9w
+ jTknYDcE39p/ODZWLZbvng0l
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep02.wdc.com with ESMTP; 02 Jul 2019 17:53:42 -0700
-IronPort-SDR: Vas0ZmY2WTLD4D32wsiC0idNWk2cEvWjiEvuKcoTH7iaPOOiiIfGMUfQGFBsTdaEhdnmTm6L9M
- XbHVpKx2ryuFhZ6ghamcNSTUIizdK/F4l4gDpsY8JI79LPmpikqxk9qq/7SmADCrfP4KjCIfuJ
- OTK60S9lo+MUCN++J+E+OgrPCawor07uRnS+OwkPCSb9c1Vxt9gVwOFMyiqCnZx5Z2gE4JDR7H
- dJSz3XOjIAaAMjEGAsPD1cO5dSzzHIcQp8zoMMJAHnGpddrxWh/IkSvrQwS92uc6wkCxq26qjK
- 9M4=
+ by uls-op-cesaep02.wdc.com with ESMTP; 02 Jul 2019 17:53:41 -0700
+IronPort-SDR: 3uwdGreIxlVjC6rLHAVUNPxCvYFm12JW++t5byZuYThYEKpHQy1rvPmQ3xRuq3bHiMuNnv4Hq7
+ 63wzCLqFIFApUyBBAcjPM74IesbGPjKYsPFPpuufziviVGB/UkXWgcGM2tZsqTjMkIhvf4D+UQ
+ QojHazb4wUUMSjboC3ARtuE89wBtlKhK6Jx8R0Q4qcn4UNQJe3cHoKaHzdb/G2Cyi68fnwbElo
+ tp+WtZHcEEzeowOCXxYJUduMa2yzOo5GB0CBsspNsy7AprVueWfrW2IeIt7UG4W4ouF7OhCsgw
+ AVk=
 Received: from risc6-mainframe.sdcorp.global.sandisk.com (HELO
  risc6-mainframe.int.fusionio.com) ([10.196.157.140])
  by uls-op-cesaip01.wdc.com with ESMTP; 02 Jul 2019 17:54:41 -0700
 From: Alistair Francis <alistair.francis@wdc.com>
 To: linux-riscv@lists.infradead.org,
 	arnd@arndb.de
-Subject: [PATCH RESEND 2/2] riscv/include/uapi: Define a custom __SIGINFO
- struct for RV32
-Date: Tue,  2 Jul 2019 17:52:02 -0700
-Message-Id: <20190703005202.7578-3-alistair.francis@wdc.com>
+Subject: [PATCH RESEND 0/2] RISC-V: Handle the siginfo_t offset problem
+Date: Tue,  2 Jul 2019 17:52:00 -0700
+Message-Id: <20190703005202.7578-1-alistair.francis@wdc.com>
 X-Mailer: git-send-email 2.22.0
-In-Reply-To: <20190703005202.7578-1-alistair.francis@wdc.com>
-References: <20190703005202.7578-1-alistair.francis@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190702_175451_163667_F0810B3D 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20190702_175448_785255_FBABE20C 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -107,58 +105,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The glibc implementation of siginfo_t results in an allignment of 8 bytes
-for the union _sifields on RV32. The kernel has an allignment of 4 bytes
-for the _sifields union. This results in information being lost when
-glibc parses the siginfo_t struct.
+Resending the the correct linux-riscv address.
 
-To fix the issue add a pad variable to the struct to avoid allignment
-mismatches.
+In the RISC-V 32-bit glibc port [1] the siginfo_t struct in the kernel
+doesn't line up with the struct in glibc. In glibc world the _sifields
+union is 8 byte alligned (although I can't figure out why) while in the
+kernel wordl the _sifields union is 4 bytes alligned. This results in
+information being lost in the waitid syscall.
 
-Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
----
+This doesn't seem to be a great fix, but it is somewhat similar to what
+x32 does (which has 64-bit time_t like RV32) and I can't figure out why
+the two allignments are different.
+
+1: https://github.com/alistair23/glibc/commits/alistair/rv32.next
+
+Alistair Francis (2):
+  uapi/asm-generic: Allow defining a custom __SIGINFO struct
+  riscv/include/uapi: Define a custom __SIGINFO struct for RV32
+
  arch/riscv/include/uapi/asm/siginfo.h | 32 +++++++++++++++++++++++++++
- 1 file changed, 32 insertions(+)
+ include/uapi/asm-generic/siginfo.h    | 32 ++++++++++++++-------------
+ 2 files changed, 49 insertions(+), 15 deletions(-)
  create mode 100644 arch/riscv/include/uapi/asm/siginfo.h
 
-diff --git a/arch/riscv/include/uapi/asm/siginfo.h b/arch/riscv/include/uapi/asm/siginfo.h
-new file mode 100644
-index 000000000000..0854ad97bf44
---- /dev/null
-+++ b/arch/riscv/include/uapi/asm/siginfo.h
-@@ -0,0 +1,32 @@
-+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-+#ifndef _ASM_RISCV_SIGINFO_H
-+#define _ASM_RISCV_SIGINFO_H
-+
-+/* Add a pad element for RISC-V 32-bit. We need this as the
-+ * _sifields union is 8 byte allgined in usperace.
-+ */
-+#if __riscv_xlen == 32
-+#ifndef __ARCH_HAS_SWAPPED_SIGINFO
-+#define __SIGINFO 			\
-+struct {				\
-+	int si_signo;			\
-+	int si_errno;			\
-+	int si_code;			\
-+	int pad;			\
-+	union __sifields _sifields;	\
-+}
-+#else
-+#define __SIGINFO 			\
-+struct {				\
-+	int si_signo;			\
-+	int si_code;			\
-+	int si_errno;			\
-+	int pad;			\
-+	union __sifields _sifields;	\
-+}
-+#endif /* __ARCH_HAS_SWAPPED_SIGINFO */
-+#endif
-+
-+#include <asm-generic/siginfo.h>
-+
-+#endif /* _ASM_RISCV_SIGINFO_H */
 -- 
 2.22.0
 
