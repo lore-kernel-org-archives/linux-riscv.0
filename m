@@ -7,66 +7,69 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 271EBC606B0
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  9 Jul 2019 09:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F8FBC606B0
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  9 Jul 2019 09:33:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 007B3205ED
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  9 Jul 2019 09:33:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6640A205ED
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  9 Jul 2019 09:33:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="poA0VkUe"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 007B3205ED
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gKx0ytAM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6640A205ED
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=metux.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=CqBxmy3TjrPuUef5SGaDP+WXCte2NhIVx8pGHBfd0Ds=; b=poA
-	0VkUezvDFixt5/SA/dUHBFxw3B1Ew5IpA3G+/nns20L9ojyGNyiHjAMwY8wiplHrC0s1Igw6ATbOL
-	25jEV9bjxyz8Glzj5z7b0duKIWsew5CsuSEoa7I+X/jfHJPmG8kd0kvGFBscpfJGl0qz+6FBIz4dY
-	5KtKggvYlW8lmiOyWp+AjHI/RDigSP5lIV72teB6e47VQr5KEwUYkpRXbvZRbgetIEivHwTkna3ro
-	NN/tBSqDRYdV0/AXgX135lpA6S0gTFqtjarVYoh6Nzeq555BHuKgaO9OnKixcmDD7JjaIDvcm7lyf
-	8U0tb/fFB+N+DqfjMcC+TmfP/FvNMrw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=gy0iddfcQK2NfaE9yJX03/xUqBQ9ylreWvB6LNsYXXo=; b=gKx0ytAMHEBVWtLEKVCN3ZNEIU
+	Suy0tjl/j4DTu/IW+PDeUC2RVivQfL7FX/B+Yk9Awp+gBHzxuaxXUWLyqPURJwjCV2x8Zf5LOwQVJ
+	I9gi7s1SNf5kk9LYxRiPQX0SP+981iPn2pBogI2wK2lIDCpLjO6vOF707lfshGbkGWAzsvpoHmym2
+	riwuO7lUsg8tsdrH/6c+/4ey7ars+wlrD8YnucMO2IwRtkhP7PsA2wU1EwKIvMV5snSNVK4g5avjw
+	QVl3aealGuW7jNJtWmu2W7KMYW7pJWhtL4e0ZltJVSFP4GEWP2YoKERDqanDa4luKj1GCDb5sO//a
+	auAHk+5g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hkmUf-00051T-Mn; Tue, 09 Jul 2019 09:33:01 +0000
-Received: from mout.kundenserver.de ([212.227.126.133])
+	id 1hkmUc-0004yv-9R; Tue, 09 Jul 2019 09:32:58 +0000
+Received: from mout.kundenserver.de ([212.227.126.187])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hkmUX-0004w1-Bd
- for linux-riscv@lists.infradead.org; Tue, 09 Jul 2019 09:32:56 +0000
+ id 1hkmUX-0004w7-97
+ for linux-riscv@lists.infradead.org; Tue, 09 Jul 2019 09:32:54 +0000
 Received: from orion.localdomain ([95.118.92.226]) by mrelayeu.kundenserver.de
  (mreue012 [212.227.15.167]) with ESMTPSA (Nemesis) id
- 1N1cvQ-1iV4bZ3MRU-0122MZ; Tue, 09 Jul 2019 11:32:41 +0200
+ 1MuVOM-1icC9g2yKA-00rZ1p; Tue, 09 Jul 2019 11:32:42 +0200
 From: "Enrico Weigelt, metux IT consult" <info@metux.net>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 1/4] Makefile: rules for printing kernel architecture and
- localversion
-Date: Tue,  9 Jul 2019 11:32:36 +0200
-Message-Id: <1562664759-16009-1-git-send-email-info@metux.net>
+Subject: [PATCH 3/4] scripts: checkpatch.pl: don't complain that debian/rules
+ is executable
+Date: Tue,  9 Jul 2019 11:32:38 +0200
+Message-Id: <1562664759-16009-3-git-send-email-info@metux.net>
 X-Mailer: git-send-email 1.9.1
-X-Provags-ID: V03:K1:uc03CDIsqb9vBEzIMWVZpyU2revDgAT8kF66aLNaXkdHn4yNDk8
- p4J0t/KayKdxyG9BCpkBBkU883Z/mAiidkam56XGgnJjXVus1UnoYBDpSXCbbaXo1F1J5su
- 0JpsapweoM8r10i+aYj0l1EFuPRJEhzRcGNdzVlCONEBw8XcAK7B3G8+0q1mD7EpIXP+Hja
- HDptjN8qIK8MJh3DG/8yg==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:5EjeTTw4q4M=:HMIXZz/XPCgvbro1gN0kmS
- 0nX4PljAVK0pGfLMSmNHN9UrOjhKd2+AqneTIQGzFw5yQ/pnOsgMDtAiXFQ9zUxb2jbbbgTDV
- 5yvsErr8Jz0jByZBkKxdHNlUFhTTxlXYQzYbrb5Kvo35y5gR8t7gXfkJjy3uXCdQiWy9D9NT5
- 0MYsr6Jciw7CRPmjnfZaIRA0Cf8yNpzq/xvvjoc5oW+uPoREGbJZt+LeNPcit+iXMYRAE5N9O
- CT1um5XV519QyBF9W/uoVNYEmbOzo0IT5vfxv4q3GNMlKAuE/galW1VV0SpIINF8UFwKzrRON
- qqnk9AvP/PqLR1V+CRnAmlU+DtVMCZYGxMLZa2J+Dx8h+9O1RanxF07IamZafWThQZOO75swt
- jz+wS63UXk9bxQVK++XIJtpjnJ++lfCuSFHqNjSKhmefETgihL7LEJxWDkwFOmp4azkI84Iqj
- IgE9h0Y2+4wtJuVu5jrYuVXd4fvnY6huF8ei5Z7TOJloj4YdneL09kD3708MXOLlLhrzCPf8V
- MzDqAU6Xi0jew2LhFsNcycoAHgV2OZtvSCAw+aOonwcAWTc5S3iG5w95TZvi08Cgeu+uTtEHP
- rl0XDuOKIqHkUlF/oYKheO5UdNpbCmTDCyKgY//6ANXvRy5TFyBiSIPCr8g2fnDMh8Qfawnvd
- bK0aN9e+ttkHA46Gwo+Ow1qgY/MFRqb9SGzqiSCxWhE0lP3l3WPZ5Eyh6ZwfrV92dVG/UNyDF
- t1pOnuS9iki+hbpLbuNXRepne+gP8YxEHhjZLA==
+In-Reply-To: <1562664759-16009-1-git-send-email-info@metux.net>
+References: <1562664759-16009-1-git-send-email-info@metux.net>
+X-Provags-ID: V03:K1:HweSVGl0vn7e7vNXNWQVSJQNHHYL075aDXcvaRyc/GMMITZGxnf
+ h0hvJ/FmBbQVefDRdkRV1ZD6FkMCg1tQ/T/ixiBUY86tYRGrvBz2s6pg3UawtxGPHRid8YH
+ ygjyVh9KfqadSy6bBbra9p9ubbrcZROj6JI9FmZfpjlWxdniMeI6gD8rdYa4rEOaA4QHogj
+ pXzHFAnez9yKSY0DUP5vA==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:MlHMSL1MI5Y=:vl/4VtvQv1xavzSbwRYzlH
+ SIW68cUFN8QVBCRz2tj4iswvcWAkPJi2JWAxG6CXekKIeTaz4LrXsSWAWG8iSTQcps/Ic6NY2
+ Jc7ZET1i5v+1kmF2zoUgEWB5MYw7wdLUQ9IkBeuTvRDWisJ8lRCiWOEptiIxIlQlyYjjk6O5m
+ Hak2fRf7kaeew7WCqGxWN1LDsuvJJXLffnJHxlVSgGV8REUle4DEqlXUm6Oh2Kqrxx0mzQYUL
+ FtWosfwQf0A7rlMJuFZNqkydq3ru+w5qJFu68SbPPc2lKBvIeZtEuywByEXkJWIezmbFjdjlq
+ NUPTeGeBJa+tDJNUC6NQIVe5lEZN2UePGHGX8ix6wvivfog4Ci8HteTIKU9J6eISN+w6qWkRa
+ /Y9uJzWeJiIP3C8gjpTf+xEaioS9awCunw4zxSKyIxuoKvSzIiyGfHOl0iZydIdS/YSXcMM1x
+ iqoV9Xmp+6FVl9j1eeeVLhrF0RtjBknXdlsMoz3cmIB//k6New2j6PcHjF+KDvcWMe2756UDr
+ 1eJ07HRgJUbL6s0B/olSYOzD2LsZdgGiAurU0pQoWv+k6pWze8/tTMn9or6yFRi/vsdenbCze
+ eN2AlOadohaGx5PpxZKK/4QX0l1E+vrmgqZIkIPZjRv9xtYDPCG0vGGrOPbfkLDshD5FnDa8+
+ a7YoiBt3iOtaaaeibiRzpO35i9BmeOSkVcMVo2V2GB5GR5Yjmezx0CAdfT3BCrnALqVDcDfdV
+ LX53yFrzp56nUtHPzdzcQYqGFwBy7Pg2mba+0A==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190709_023253_698198_885D9CFB 
-X-CRM114-Status: UNSURE (   7.41  )
+X-CRM114-CacheID: sfid-20190709_023253_613098_982BB832 
+X-CRM114-Status: UNSURE (   8.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -89,31 +92,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-trivial rule to print out the kernel arch and localversion, so
-external tools, like distro packagers, can easily get it.
+checkpatch.pl complains when adding executable "debian/rules",
+obviously a false alarm. Therefore add an exception for that.
 
 Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
 ---
- Makefile | 6 ++++++
- 1 file changed, 6 insertions(+)
+ scripts/checkpatch.pl | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Makefile b/Makefile
-index 3e4868a..5afc3de 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1706,6 +1706,12 @@ kernelrelease:
- kernelversion:
- 	@echo $(KERNELVERSION)
- 
-+kernellocalversion:
-+	@$(CONFIG_SHELL) $(srctree)/scripts/setlocalversion $(srctree) | sed -e 's~^\-~~'
-+
-+kernelarch:
-+	@echo $(ARCH)
-+
- image_name:
- 	@echo $(KBUILD_IMAGE)
- 
+diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
+index 342c7c7..caf0146 100755
+--- a/scripts/checkpatch.pl
++++ b/scripts/checkpatch.pl
+@@ -2587,6 +2587,7 @@ sub process {
+ 		if ($line =~ /^new (file )?mode.*[7531]\d{0,2}$/) {
+ 			my $permhere = $here . "FILE: $realfile\n";
+ 			if ($realfile !~ m@scripts/@ &&
++			    $realfile !~ "debian/rules" &&
+ 			    $realfile !~ /\.(py|pl|awk|sh)$/) {
+ 				ERROR("EXECUTE_PERMISSIONS",
+ 				      "do not set execute permissions for source files\n" . $permhere);
 -- 
 1.9.1
 
