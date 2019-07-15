@@ -1,62 +1,86 @@
-Return-Path: <SRS0=jaFz=VL=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=BPJW=VM=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 004ECC742D2
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 14 Jul 2019 15:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CEEC2C7618F
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Jul 2019 10:45:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C74932063F
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 14 Jul 2019 15:21:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A426E2064B
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 15 Jul 2019 10:45:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eDVAu1HK"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C74932063F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.alibaba.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="El2sRX9X";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="ZYyigqqf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A426E2064B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sg2MzOjWaG4ARy9+OT+/G5oZwQaLliFXvsX8Q10XB1Q=; b=eDVAu1HKUrtblW
-	FaxlwoAEe5Z3FmXtqinwjwannX5GGYp2BbTPx/+C9qPDlb8Nv6omfjHI1bGXtMe5TC7ryPYmK2qwq
-	KEZgXeOELq4OJOyAalLCGbTE/MSn/Qrzob8nuHqhOopuWOc4+5jh6dXDEc7nU/ZjazSDu1gdXmcrn
-	RjuqLrUhTgsvxqTTKw54tNcWcBeK7gaLKdoB1rEV5W70XVhKBynRZJ2AldRpN0OJJ55Fqgq1clG5s
-	kZB+P6wfZBqUyWR0nww9qS8rvYiTzSLpd674Qgijl9W9CjT+qAC4M0vlqSVlYQ++T2EVJHr7GVsyA
-	P95P93/SoxFr8X0EWdYQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CAxXK2bvoANm7Wa+rOA3ihjmXFwjIbQ0d8DXFZEgJh8=; b=El2sRX9Xp3/FPx
+	s/zqO0Nl29O+mydhknUCtlYL4wOhq79/B/Lf9Ui1QJtfocPHcQSUL5hMA40tBcyYbdyaumvImj/y4
+	v+2KD9CcnSbJNG9aNmiWuFL4z5gEZRwMm0qOcIdIv/dZgNsMMKa3xK7UAZXMeaX2SSjxc+WO/MetJ
+	802Iwjo5n8qbWUdIgK1uWe2lAWvXT38IhrWAE39As50wOjRUd0tdg53VKIOQv/8+azC2xZRD0pfWO
+	D+Sy6SWcuSWgJ18KbEz8OorIdtDt2h/VDHHvudA4ie1D3+pw1ehN4ADUeoK2qHevcdABWY4bTIohR
+	xWUHq2nB+yljrNu+1ulw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hmgJZ-0008Es-Nz; Sun, 14 Jul 2019 15:21:25 +0000
-Received: from out30-56.freemail.mail.aliyun.com ([115.124.30.56])
+	id 1hmyUL-0000xm-Sn; Mon, 15 Jul 2019 10:45:45 +0000
+Received: from mail-vs1-xe44.google.com ([2607:f8b0:4864:20::e44])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hmgJK-00083g-M6; Sun, 14 Jul 2019 15:21:13 +0000
-X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R101e4; CH=green; DM=||false|;
- FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04423; MF=alex.shi@linux.alibaba.com; NM=1;
- PH=DS; RN=17; SR=0; TI=SMTPD_---0TWrpoRa_1563117663; 
-Received: from IT-FVFX43SYHV2H.lan(mailfrom:alex.shi@linux.alibaba.com
- fp:SMTPD_---0TWrpoRa_1563117663) by smtp.aliyun-inc.com(127.0.0.1);
- Sun, 14 Jul 2019 23:21:03 +0800
-Subject: Re: [PATCH 01/12] Documentation: move architectures together
-To: Jonathan Corbet <corbet@lwn.net>
-References: <20190712022018.27989-1-alex.shi@linux.alibaba.com>
- <20190712113427.62fa7ffc@lwn.net>
-From: Alex Shi <alex.shi@linux.alibaba.com>
-Message-ID: <36c522c5-975e-e38e-daad-0f3d9f93b186@linux.alibaba.com>
-Date: Sun, 14 Jul 2019 23:21:03 +0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:60.0)
- Gecko/20100101 Thunderbird/60.7.2
+ id 1hmyUI-0000x6-LF
+ for linux-riscv@lists.infradead.org; Mon, 15 Jul 2019 10:45:44 +0000
+Received: by mail-vs1-xe44.google.com with SMTP id u3so11011834vsh.6
+ for <linux-riscv@lists.infradead.org>; Mon, 15 Jul 2019 03:45:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=m69Q++mc12a2NdGKc1ehjmZg7I2gwJhoO4eDVouumsY=;
+ b=ZYyigqqfTJL1M1v1PbJny8OLbsPkDjGGDBR3VfZY/RXWLHKEl/KQK4jlw/2hFoYUKJ
+ BAP7IlQ/rIebx9O3QXfuOYQN9KRgO1XiV0DM0I2Bx9ikTXL/ZBHnq6buUTFkqSYJO+QM
+ ft1o2d3BU8wCUYObg0hqi8NMhO0JQg7UV0gvYWRwi5PyBZ8Gu6U9xNg21yqzjkn5kTbF
+ Qlu1lat0RJHOrtbuqmUcKEaALrFCygdwVlOMfGPSXgYU/2JZvkwPpsA5eNn0jce3B/1p
+ Q26PJ8z4nPqekv7aJdmpDaH4dMquwbydPLnX+VH32cUhVqZMk9jzNkSstcvxlq6wcpZ9
+ +c3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=m69Q++mc12a2NdGKc1ehjmZg7I2gwJhoO4eDVouumsY=;
+ b=eIoN6Cb8WAcBKnTH8WcWe5Nt8GXCfQZeaXNHx55QN+bz4GVSN5qz7EF+Pv936RC7N8
+ aMmBLEUqCOEbREMIAiXhkABlm76e/K8rDHmd/Be8ENfy/QBSlWj3+FD1Sg4lGyiDvPfR
+ oZhwo+nkSmswqTCROmUpRLnutNKr+fzQYHL7D2pC7+7CRqESBeigARMQKybggkt4kbeD
+ qAx+xpZLGpSUVSH5bWNoKWkD/zhYsEAr9mfBUG/Tjm6Oi4K18eonxGWnhs5E+yTrp2Ev
+ tAnPHA3vuCaehE1yHQkKnj0K6KfRCUrdvnbCn873xML1ArJqmlczYcEbMSP39CTBgfkc
+ eAAQ==
+X-Gm-Message-State: APjAAAWEcAlLg6Xe7yhNQHfFtXGaICifikEIishZ/9Z33hl7sC4NHnK2
+ D2qhnO2CLZq1zpNoD4cCt5+8jxJrypjHEVQTeBhWzw==
+X-Google-Smtp-Source: APXvYqzUK7SwMuPo4ZL3JjgvyDVZtw0Ap9WNDsf6lO/m0M9uas49McrkrvqykfTKIOeehCC4Vj9JKrLUnWGRNxkLDYA=
+X-Received: by 2002:a67:7c92:: with SMTP id
+ x140mr16783284vsc.229.1563187541125; 
+ Mon, 15 Jul 2019 03:45:41 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20190712113427.62fa7ffc@lwn.net>
+References: <1562092745-11541-1-git-send-email-sagar.kadam@sifive.com>
+In-Reply-To: <1562092745-11541-1-git-send-email-sagar.kadam@sifive.com>
+From: Sagar Kadam <sagar.kadam@sifive.com>
+Date: Mon, 15 Jul 2019 16:15:29 +0530
+Message-ID: <CAARK3HkMz3AdcVyrteGmqczCaMDTYS1h9uALspm75RFE9c6jFQ@mail.gmail.com>
+Subject: Re: [PATCH v7 0/4] mtd: spi-nor: add support for is25wp256 spi-nor
+ flash
+To: marek.vasut@gmail.com, tudor.ambarus@microchip.com, dwmw2@infradead.org, 
+ computersforpeace@gmail.com, miquel.raynal@bootlin.com, richard@nod.at, 
+ Vignesh Raghavendra <vigneshr@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190714_082110_896333_919D7E12 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20190715_034542_761961_8F85EA33 
+X-CRM114-Status: GOOD (  21.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -68,49 +92,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-s390@vger.kernel.org, linux-fbdev@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-scsi@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, kvm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-omap@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="gbk"
-Content-Transfer-Encoding: base64
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-mtd@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSm9uLAoKVGhhbmtzIGZvciBxdWljayByZXNwb25zZSEKCtTaIDIwMTkvNy8xMyDJz87nMToz
-NCwgSm9uYXRoYW4gQ29yYmV0INC0tcA6Cj4gT24gRnJpLCAxMiBKdWwgMjAxOSAxMDoyMDowNyAr
-MDgwMAo+IEFsZXggU2hpIDxhbGV4LnNoaUBsaW51eC5hbGliYWJhLmNvbT4gd3JvdGU6Cj4gCj4+
-IFRoZXJlIGFyZSBtYW55IGRpZmZlcmVudCBhcmNocyBpbiBEb2N1bWVudGF0aW9uLyBkaXIsIGl0
-J3MgYmV0dGVyIHRvCj4+IG1vdmUgdGhlbSB0b2dldGhlciBpbiAnRG9jdW1lbnRhdGlvbi9hcmNo
-JyB3aGljaCBmb2xsb3dzIGZyb20ga2VybmVsIHNvdXJjZS4KPiAKPiBTbyB0aGlzIHNlZW1zIGNl
-cnRhaW4gdG8gY29sbGlkZSBiYWRseSB3aXRoIE1hdXJvJ3MgUlNULWNvbnZlcnNpb24gbW9uc3Rl
-cgo+IHBhdGNoIHNldC4KCkkgZG9uJ3QgbWVhbiB0aGF0LCBzb3JyeSwgYW5kIHdlIGNhbiBmaWd1
-cmUgb3V0IGlmIGJvdGggb2YgdGhlbSBhcmUgd29ydGh5IHRvIGJlIHBpY2tlZCB1cC4KCj4gCj4g
-TW9yZSB0byB0aGUgcG9pbnQsIHRob3VnaC4uLmlmIHdlIGFyZSBnb2luZyB0byB0aHJhc2ggdXAg
-dGhpbmdzIHRoaXMKPiBiYWRseSwgd2Ugd2FudCB0byBiZSBzdXJlIHRoYXQgd2UncmUgZG9pbmcg
-aXQgcmlnaHQgc28gd2UgZG9uJ3QgZW5kIHVwCj4gcmVuYW1pbmcgZXZlcnl0aGluZyBhZ2Fpbi4g
-IEdyb3VwaW5nIHN0dWZmIGludG8gYSBuZXcgYXJjaC8gc3ViZGlyZWN0b3J5Cj4gYWRkcyBhIGJp
-dCBvZiBvcmRlciwgYnV0IGl0IGRvZXNuJ3QgZG8gbXVjaCB0b3dhcmQgdHJ5aW5nIHRvIG9yZ2Fu
-aXplIG91cgo+IGRvY3VtZW50YXRpb24gZm9yIGl0cyByZWFkZXJzLCBhbmQgaXQgZG9lc24ndCBo
-ZWxwIHVzIHRvIG1vZGVybml6ZSB0aGUKPiBkb2NzIGFuZCBnZXQgcmlkIG9mIHRoZSBvbGQsIHVz
-ZWxlc3Mgc3R1ZmYuICBBIHF1aWNrIGNoZWNrIHNob3dzIHRoYXQgbWFueQo+IG9mIHRoZXNlIGZp
-bGVzIGhhdmUgc2VlbiBubyBjaGFuZ2VzIG90aGVyIHRoYW4gdHlwbyBmaXhlcyBzaW5jZSB0aGUK
-PiBiZWdpbm5pbmcgb2YgdGhlIEdpdCBlcmEuCgpSaWdodCwgdGhlcmUgaXMgc29tZSBkb2NzIHdo
-aWNoIG5lZWQgdG8gYmUgdXBkYXRlIG9yIGV2ZW4gZHJvcCwgYW5kIGEgcmVvcmRlciB3b3VsZCBi
-ZSBhIHRpbWluZyB0byBwdXNoIGVhY2ggb2YgYXJjaCBtYWludGFpbmVyIHRvIGRvIHNvbWV0aGlu
-ZywgaXNuJ3QgaXQ/IEFueXdheSwgcmVvcmRlcmluZyAgZG9jdW1lbnRzIGxpa2Uga2VybmVsIHNv
-dXJjZSBkaXIgY291bGQgYmUgb25lIG9mIGNob2ljZXMuIDopCgo+IAo+IFNvLCBpbiBteSBtaW5k
-LCB0aGlzIG5lZWRzIHNvbWUgdGhvdWdodC4gIE1heWJlIHdlIHdhbnQgYQo+IERvY3VtZW50YXRp
-b24vYXJjaCBpbiB0aGUgZW5kLCBidXQgSSdtIG5vdCBjb252aW5jZWQgdGhhdCB3ZSBzaG91bGQg
-anVzdAo+IGNyZWF0ZSBpdCBhbmQgZmlsbCBpdCB3aXRoIGEgc25vdyBzaG92ZWwuICBUaGlzIG1p
-Z2h0IGJlIGEgZ29vZCB0aGluZyB0bwo+IGRpc2N1c3MgYXQgdGhlIGtlcm5lbCBzdW1taXQgaW4g
-U2VwdGVtYmVyLgoKVGhhbmtzIGZvciBjb25zaWRlcmluZywgYW55d2F5LCBpdCBjb3VsZCBiZSBh
-IGdvb2Qgc3RhcnQgdG8gZ2V0IGhhbmRzIGRpcnR5IHdoZXRoZXIgdGhlIGFyY2ggZGlyIGlzIG5l
-ZWRlZC4gCgpUaGFua3MKQWxleAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+On Wed, Jul 3, 2019 at 12:10 AM Sagar Shrikant Kadam
+<sagar.kadam@sifive.com> wrote:
+>
+> The patch series adds support for 32MiB spi-nor is25wp256 present on HiFive
+> Unleashed A00 board. The flash device gets BFPT_DWORD1_ADDRESS_BYTES_3_ONLY
+> from BFPT table for address width, whereas the flash can support 4 byte
+> address width, so the address width is configured by using the post bfpt
+> fixup hook as done for is25lp256 device in
+> commit cf580a924005 ("mtd: spi-nor: fix nor->addr_width when its value
+> configured from SFDP does not match the actual width") queued in
+> spi-nor/next branch [1].
+>
+> Patches 1 and 3 are based on original work done by Wesley Terpstra and/or
+> Palmer Dabbelt:
+> https://github.com/riscv/riscv-linux/commit/c94e267766d62bc9a669611c3d0c8ed5ea26569b
+>
+> Erase/Read/Write operations are verified on HiFive Unleashed board using  mtd and
+> flash utils (v1.5.2):
+> 1. mtd_debug    : Options available are : erase/read/write.
+> 2. flashcp      : Single utility that erases flash, writes a file to flash and verifies the data back.
+> 3. flash_unlock : Unlock flash memory blocks. Arguments: are offset and number of blocks.
+> 3. flash_lock   : Lock flash memory blocks. Arguments: are offset and number of blocks.
+>
+> The Unlock scheme clears the protection bits of all blocks in the Status register.
+>
+> Lock scheme:
+> A basic implementation based on the stm_lock scheme and is validated for a different
+> number of blocks passed to flash_lock. ISSI devices have top/bottom area selection
+> in function register which is OTP memory. so we are not updating the OTP section
+> of function register.
+>
+> The changes along are available under branch v5.2-rc1-mtd-spi-nor/next at:
+> https://github.com/sagsifive/riscv-linux-hifive
+>
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git/log/?h=spi-nor/next
+>
+> Revision history:
+> V6<->V7:
+> -Incorporated review comments from Vignesh.
+> -Used post bfpt fixup hook as suggested by Vignesh.
+> -Introduce SPI_NOR_HAS_BP3 to identify whether the flash has 4th bit protect bit.
+> -Prefix generic flash access functions with spi_nor_xxxx.
+>
+> V5<->V6:
+> -Incorporated review comments from Vignesh.
+> -Set addr width based on device size and if SPI_NOR_4B_OPCODES is set.
+> -Added 4th block protect identifier (SPI_NOR_HAS_BP3) to flash_info structure
+> -Changed flash_info: flag from u16 to u32 to accommodate SPI_NOR_HAS_BP3
+> -Prefix newly added function with spi_nor_xxx.
+> -Dropped write_fr function, as updating OTP bit's present in function register doesn't seem to be a good idea.
+> -Set lock/unlock schemes based on whether the ISSI device has locking support and  BP3 bit present.
+>
+> V4<->V5:
+> -Rebased to linux version v5.2-rc1.
+> -Updated heading of this cover letter with sub-system, instead of just plain "add support for is25wp256..."
+>
+> V3<->V4:
+> -Extracted comman code and renamed few stm functions so that it can be reused for issi lock implementation.
+> -Added function's to read and write FR register, for selecting Top/Bottom area.
+>
+> V2<->V3:
+> -Rebased patch to mainline v5.1 from earlier v5.1-rc5.
+> -Updated commit messages, and cover letter with reference to git URL and author information.
+> -Deferred flash_lock mechanism and can go as separate patch.
+>
+> V1<-> V2:
+> -Incorporated changes suggested by reviewers regarding patch/cover letter versioning, references of patch.
+> -Updated cover letter with description for flash operations verified with these changes.
+> -Add support for unlocking is25xxxxxx device.
+> -Add support for locking is25xxxxxx device.
+>
+> v1:
+> -Add support for is25wp256 device.
+>
+> Sagar Shrikant Kadam (4):
+>   mtd: spi-nor: add support for is25wp256
+>   mtd: spi-nor: fix nor->addr_width for is25wp256
+>   mtd: spi-nor: add support to unlock the flash device
+>   mtd: spi-nor: add locking support for is25wp256 device
+>
+>  drivers/mtd/spi-nor/spi-nor.c | 343 +++++++++++++++++++++++++++++++++++-------
+>  include/linux/mtd/spi-nor.h   |   8 +
+>  2 files changed, 300 insertions(+), 51 deletions(-)
+>
+> --
+> 1.9.1
+>
+
+Hi All,
+
+Any comments on this series?
+
+BR,
+Sagar Kadam
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
