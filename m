@@ -2,85 +2,71 @@ Return-Path: <SRS0=SAxd=VV=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A5443C7618B
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 05:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 469B1C7618B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 06:00:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 735AD218DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 05:38:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F1445218B0
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 05:59:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XqYS3tIT";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="RxCYFRF4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 735AD218DA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ta+6Lvjg";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="hYY7eEm9"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F1445218B0
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hGfgCxg7XAqxeitMd5zyOAmU8pEk8JcYNLwwwqgal9g=; b=XqYS3tITWiISa6
-	BEB7vnkos+lKJMogt/cDQCYd/ZpZ3wU0fxmfsItON47IpVc4TYryez0FRQq0yZwqUYCvUXuV8kE1a
-	3F88vcWgz3YHaEIRqQealoQZkWVMVQ/bxEZnuHV42DSQUdmBnNWnh6GAt8T504BAewYIgs2mYluVN
-	LzExhswwNEOIVFCYourdz7P7zT3qMGRviWJwN+32zGPmKqZTu0+7ccnLI3cvtZ/F5EI775THvJc7t
-	MHGbcrC0UYOX0CySkyhR8I6GrXUrQiQb4V0vdNZyc3WMkqshyRSwHWAuagLBUCaMf6jAS5dFCeP+e
-	qt9PguO5lYhsfA/GalcQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IEp/B51wHcCG75RLWffsDU75ciU0Yi8kqolvza/o4kU=; b=Ta+6Lvjg8hMp69
+	4B/NMzer2GvocpyXCw+ZzuY1eddUCVyfBwMUdAJe8bpcKlDcML2NZBw2+Atmxf9Ol9rEsh0E+m02E
+	t6ykFFbFR+CxXKYUuML2FSjjn0s229a2xMjIrQaO/NHM9FPB6Ks6Unr9pXDngg6csJcdqk92QKnBB
+	QuilcV4UhQId6cSvdpFDrBf+RnCFpu+NSwM9hgBAyZOJDu2RtuIoE69CC/KaptSELaNvW3xcVM3dU
+	ycwp88krUm0jheTTMno4Qasu/p5ZNMllQ0oJJ5TcADpQIbEG0aGtUCdNAIZoIhaQmDhffcAaWPrNA
+	FC8voeO7oBN0NIo3YiGA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hq9z0-0008Lg-MO; Wed, 24 Jul 2019 05:38:34 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1hqAJf-0001SW-P7; Wed, 24 Jul 2019 05:59:55 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hq9yx-0008L4-Uw
- for linux-riscv@lists.infradead.org; Wed, 24 Jul 2019 05:38:33 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id v15so45989128eds.9
- for <linux-riscv@lists.infradead.org>; Tue, 23 Jul 2019 22:38:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=JFJrr4jnyieGekY6TwmepZZTfIp/uL5Na0pwg49/35Y=;
- b=RxCYFRF4ngINXvt5EguI5wCFt7naJYZRng7l2eI/dVa3U31l2BzZmBCXgrMd7tSGge
- iGEoKhCQt/WKZtFKq21P4LVeqDJrtJ+AQGzDbKs2ZFUkJbrDTHaVE/vUriO4aZJiHYvs
- 8XOSlQZzo0IPW83UVYcZJyjIxY8x9cuv1LbEP7nQKAlu4Mo0Kstdb+8oxCuBG/ih6AFy
- Tce4sCSHCdw2Gw4U8NndocGw1pppG9ddPW+DK44I0n4J7zKlhHxcxftnbPItHzVP7zf8
- stkN8rQwxcq3aF4aM7NSVIqXzia1gNFzw9h/DUxoLajduH2nHgFX3RbXDFTopfoanqP+
- m63Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=JFJrr4jnyieGekY6TwmepZZTfIp/uL5Na0pwg49/35Y=;
- b=hm9OrYcH2vOWG2eQ+UD40e4nQRd7ONdU1zWPHGBtX6Oj2Eha5bVBzKMu8Il1oOKjU8
- eNyKpjvQaKZ9so1CvIjzWiMrN9yamGLP6B2H+AsqllUOj0RMk9PkuaWAbLs+W3ByGNPg
- vcN3Xc0uQuBiID/nI1ymdUz9dMPnX91Piy6rQbQiTYptlZXQvlE7hs/cHI/5aeW2AZ02
- hMbvpyeqs3JKbZGe4aSCeNKztGhMWoUmBPli6TvCFc6xQ7w5nvfAvv+7d8hLlGUUSTIw
- aq4Pt2xlikj42Rjix4959VATk1nWd1DoceJr27LtryRPIN3aAR/2xlyG9S7N/Q2cavZt
- nkhw==
-X-Gm-Message-State: APjAAAXgK9YcGQCK6Q9cmqgjHp77ifrD4rrJOKE2J4SdT+cJFmFKkJIK
- aFwDqH04IG7ZnaDSfXt/eBHgPH0tOd0k4TYTP68=
-X-Google-Smtp-Source: APXvYqwGMv3AXRszj3HqDcfJ3o8LEbRS2m0cd0JuY8j0AQWgqcvxcfR4Xo44rLqrc53MwuNMTqCEJSAzgUvdI6FnXFQ=
-X-Received: by 2002:a17:906:340e:: with SMTP id
- c14mr62418143ejb.170.1563946710317; 
- Tue, 23 Jul 2019 22:38:30 -0700 (PDT)
+ id 1hqAJS-0001Ib-TT; Wed, 24 Jul 2019 05:59:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+ Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=phQRGIZX8xdyAO/X5+InkRxHhCZVhZ1aazOhRZzbJc4=; b=hYY7eEm9URnBZMBcxOrfjy0k3T
+ K8UuRLDXQFeEeb6FPiYEyEDTlTc2dFpTEUyZYiS4XI2aSoydAlygS03H6AVmB5rbbcRZ6bDX1SKfJ
+ F8U+Hy8mxLocqNho42BzpEj4oCGhGu/uLFhmfnUX9L2zuzp0FXlYcBmyJOuRZanT3fbEbgmseq5DC
+ dB2B6rVbrGlj7v2OVoHE+8hTxfUxWgcj06+zNUKT0k1Q2m8z0yPHOPE9d/QahIpirfhQDLuNvEyzC
+ XjUAmFQPIzKYaqeO5tCNhM3xCso1L54hLhpUZTOBESAnEHagxzAO6w5VT2lpqnVH3B+CDe+/H2IXc
+ PsALLtSg==;
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+ by casper.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
+ id 1hqAJX-00071d-OD; Wed, 24 Jul 2019 05:59:50 +0000
+X-Originating-IP: 79.86.19.127
+Received: from alex.numericable.fr (127.19.86.79.rev.sfr.net [79.86.19.127])
+ (Authenticated sender: alex@ghiti.fr)
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 8CC8220004;
+ Wed, 24 Jul 2019 05:58:54 +0000 (UTC)
+From: Alexandre Ghiti <alex@ghiti.fr>
+To: Andrew Morton <akpm@linux-foundation.org>
+Subject: [PATCH REBASE v4 00/14] Provide generic top-down mmap layout functions
+Date: Wed, 24 Jul 2019 01:58:36 -0400
+Message-Id: <20190724055850.6232-1-alex@ghiti.fr>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-References: <CAEUhbmVqB+WpsZYbwLj4ZAAL1aESbNO_6roHdq=EfxgjDbcRTg@mail.gmail.com>
- <alpine.DEB.2.21.9999.1906211355370.13854@viisi.sifive.com>
- <CAEUhbmVQ-HAWYwh1mBp82kBXkpk7fiT9Ow83=qX5-q32B6Pn6w@mail.gmail.com>
-In-Reply-To: <CAEUhbmVQ-HAWYwh1mBp82kBXkpk7fiT9Ow83=qX5-q32B6Pn6w@mail.gmail.com>
-From: Bin Meng <bmeng.cn@gmail.com>
-Date: Wed, 24 Jul 2019 13:38:18 +0800
-Message-ID: <CAEUhbmUi0k_mKwn4uvQaMZCcP3z0Zf_gtCCvzRtEn4Z=iDzaCA@mail.gmail.com>
-Subject: Re: sifive-fu540-prci.h license (included from fu540-c000.dtsi)
-To: Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190723_223832_026993_F300E0D0 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190724_065947_833627_B2161D24 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,45 +78,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@sifive.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
+ Alexandre Ghiti <alex@ghiti.fr>, Catalin Marinas <catalin.marinas@arm.com>,
+ Palmer Dabbelt <palmer@sifive.com>, Will Deacon <will.deacon@arm.com>,
+ Russell King <linux@armlinux.org.uk>, Ralf Baechle <ralf@linux-mips.org>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ Paul Burton <paul.burton@mips.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ James Hogan <jhogan@kernel.org>, linux-fsdevel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org,
+ Christoph Hellwig <hch@lst.de>, linux-arm-kernel@lists.infradead.org,
+ Luis Chamberlain <mcgrof@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+Hi Andrew,
 
-On Wed, Jul 24, 2019 at 1:29 PM Bin Meng <bmeng.cn@gmail.com> wrote:
->
-> Hi Paul,
->
-> On Sat, Jun 22, 2019 at 4:57 AM Paul Walmsley <paul.walmsley@sifive.com> wrote:
-> >
-> > Hello Bin,
-> >
-> > On Fri, 21 Jun 2019, Bin Meng wrote:
-> >
-> > > I see fu540-c000.dtsi is dual licensed under GPL-2.0 OR MIT. But there
-> > > is one file inclusion:
-> > >
-> > > #include <dt-bindings/clock/sifive-fu540-prci.h>
-> > >
-> > > This sifive-fu540-prci.h is only licensed under GPL-2.0.
-> > >
-> > > I think this prevents anyone that has GPL contamination concerns from using it.
-> > >
-> > > Would you please consider making sifive-fu540-prci.h dual licensed as well?
-> >
-> > See below
-> >
->
-> Has the patch been applied?
+This is simply a rebase on top of next-20190719, where I added various
+Acked/Reviewed-by from Kees and Catalin and a note on commit 08/14 suggested
+by Kees regarding the removal of STACK_RND_MASK that is safe doing.
 
-Never mind. I saw this patch in already in the v5.3-rc1 tree. Thanks!
+I would have appreciated a feedback from a mips maintainer but failed to get
+it: can you consider this series for inclusion anyway ? Mips parts have been
+reviewed-by Kees.
 
-Regards,
-Bin
+Thanks,
+
+
+
+This series introduces generic functions to make top-down mmap layout
+easily accessible to architectures, in particular riscv which was
+the initial goal of this series.
+The generic implementation was taken from arm64 and used successively
+by arm, mips and finally riscv.
+
+Note that in addition the series fixes 2 issues:
+- stack randomization was taken into account even if not necessary.
+- [1] fixed an issue with mmap base which did not take into account
+  randomization but did not report it to arm and mips, so by moving
+  arm64 into a generic library, this problem is now fixed for both
+  architectures.
+
+This work is an effort to factorize architecture functions to avoid
+code duplication and oversights as in [1].
+
+[1]: https://www.mail-archive.com/linux-kernel@vger.kernel.org/msg1429066.html
+
+Changes in v4:
+  - Make ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT select ARCH_HAS_ELF_RANDOMIZE
+    by default as suggested by Kees,
+  - ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT depends on MMU and defines the
+    functions needed by ARCH_HAS_ELF_RANDOMIZE => architectures that use
+    the generic mmap topdown functions cannot have ARCH_HAS_ELF_RANDOMIZE
+    selected without MMU, but I think it's ok since randomization without
+    MMU does not add much security anyway.
+  - There is no common API to determine if a process is 32b, so I came up with
+    !IS_ENABLED(CONFIG_64BIT) || is_compat_task() in [PATCH v4 12/14].
+  - Mention in the change log that x86 already takes care of not offseting mmap
+    base address if the task does not want randomization.
+  - Re-introduce a comment that should not have been removed.
+  - Add Reviewed/Acked-By from Paul, Christoph and Kees, thank you for that.
+  - I tried to minimize the changes from the commits in v3 in order to make
+    easier the review of the v4, the commits changed or added are:
+    - [PATCH v4 5/14]
+    - [PATCH v4 8/14]
+    - [PATCH v4 11/14]
+    - [PATCH v4 12/14]
+    - [PATCH v4 13/14]
+
+Changes in v3:
+  - Split into small patches to ease review as suggested by Christoph
+    Hellwig and Kees Cook
+  - Move help text of new config as a comment, as suggested by Christoph
+  - Make new config depend on MMU, as suggested by Christoph
+
+Changes in v2 as suggested by Christoph Hellwig:
+  - Preparatory patch that moves randomize_stack_top
+  - Fix duplicate config in riscv
+  - Align #if defined on next line => this gives rise to a checkpatch
+    warning. I found this pattern all around the tree, in the same proportion
+    as the previous pattern which was less pretty:
+    git grep -C 1 -n -P "^#if defined.+\|\|.*\\\\$"
+
+Alexandre Ghiti (14):
+  mm, fs: Move randomize_stack_top from fs to mm
+  arm64: Make use of is_compat_task instead of hardcoding this test
+  arm64: Consider stack randomization for mmap base only when necessary
+  arm64, mm: Move generic mmap layout functions to mm
+  arm64, mm: Make randomization selected by generic topdown mmap layout
+  arm: Properly account for stack randomization and stack guard gap
+  arm: Use STACK_TOP when computing mmap base address
+  arm: Use generic mmap top-down layout and brk randomization
+  mips: Properly account for stack randomization and stack guard gap
+  mips: Use STACK_TOP when computing mmap base address
+  mips: Adjust brk randomization offset to fit generic version
+  mips: Replace arch specific way to determine 32bit task with generic
+    version
+  mips: Use generic mmap top-down layout and brk randomization
+  riscv: Make mmap allocation top-down by default
+
+ arch/Kconfig                       |  11 +++
+ arch/arm/Kconfig                   |   2 +-
+ arch/arm/include/asm/processor.h   |   2 -
+ arch/arm/kernel/process.c          |   5 --
+ arch/arm/mm/mmap.c                 |  52 --------------
+ arch/arm64/Kconfig                 |   2 +-
+ arch/arm64/include/asm/processor.h |   2 -
+ arch/arm64/kernel/process.c        |   8 ---
+ arch/arm64/mm/mmap.c               |  72 -------------------
+ arch/mips/Kconfig                  |   2 +-
+ arch/mips/include/asm/processor.h  |   5 --
+ arch/mips/mm/mmap.c                |  84 ----------------------
+ arch/riscv/Kconfig                 |  11 +++
+ fs/binfmt_elf.c                    |  20 ------
+ include/linux/mm.h                 |   2 +
+ kernel/sysctl.c                    |   6 +-
+ mm/util.c                          | 107 ++++++++++++++++++++++++++++-
+ 17 files changed, 137 insertions(+), 256 deletions(-)
+
+-- 
+2.20.1
+
 
 _______________________________________________
 linux-riscv mailing list
