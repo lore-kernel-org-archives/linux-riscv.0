@@ -2,60 +2,84 @@ Return-Path: <SRS0=SAxd=VV=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 26FA8C7618B
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 06:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 28E94C7618B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 12:36:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EF5F622387
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 06:14:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F168E21738
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 12:36:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ELvEinWz"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EF5F622387
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iT4GXLmF";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="OPVBip25"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F168E21738
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4ee7OPKZpUI1gkd0Es6gRVL1cjB8p8DQQo3vHmlsGv4=; b=ELvEinWzD6Ew/P
-	kpeX3rUbFs4OsPb1zi8HX4Re2rEclMFnkEUjD2eRsrEA5WyVso7dDMuUIfBnLxqk2bQbv1D41b/5o
-	CE/mImX00VJZGRKDHP7uyfL+lSZiLOua7SYyTfekktr60eiWEuYQbWGnXh+wrFwF3dSrj3+onX019
-	DSUVB40y+8r2cPQC/gyKhX4QAyWJSxDX3KhapJ8dOHcr7b6CoWqnHSA1jfUeW1IGWOTImi1QmX+h5
-	CdlYhf+N8FfqkvDfHWzAj+n7nD8cm0ceO1W9jWnPXL3ApgxxWiTnzKDhHWTZirCsETYMwL7cUa6ap
-	CTBaZiCMKsqORysDfpeQ==;
+	List-Owner; bh=Nd7cc9EPqA1SWS3eXFA0QvX1FunDdzccOihxCtjsQd8=; b=iT4GXLmFu1yTBn
+	2duvTfIrWMjIizjr/rUew570V9N2Wx/cb6EV5KR/1QSaE0F/yCJ8FRgBSEzfSCezcJpfo4fh9vkS1
+	Hx+AJJZgk1gVA4bZCMxYzdPWisurl+xKvkz9Ra+7cTcOP7ZMPkMvakB/nA+oHOZfea1cO4EAjfNwe
+	DnRE3oPvDLzEWW/5QNKYNon3eCBKCLWU0xuQsswHgD2ZrUGSwkkXVAadP6Yz8/HPWnHD8+h8tZ4zK
+	6bQzYvpIhKqvUxqTXFWo6A1Mb10lCnWoNm/eLe062qwEt+4pjzH2yPid+Ne1qaPfssWN6cc9pe/b9
+	Qf2t2NvocbrBlGUvpmVg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hqAXu-0005zl-N1; Wed, 24 Jul 2019 06:14:38 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1hqGVb-00020S-GG; Wed, 24 Jul 2019 12:36:39 +0000
+Received: from mail-qt1-x843.google.com ([2607:f8b0:4864:20::843])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hqAXc-0005n1-Vx; Wed, 24 Jul 2019 06:14:22 +0000
-X-Originating-IP: 79.86.19.127
-Received: from alex.numericable.fr (127.19.86.79.rev.sfr.net [79.86.19.127])
- (Authenticated sender: alex@ghiti.fr)
- by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id D50ADE0004;
- Wed, 24 Jul 2019 06:14:14 +0000 (UTC)
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH REBASE v4 14/14] riscv: Make mmap allocation top-down by
- default
-Date: Wed, 24 Jul 2019 01:58:50 -0400
-Message-Id: <20190724055850.6232-15-alex@ghiti.fr>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20190724055850.6232-1-alex@ghiti.fr>
-References: <20190724055850.6232-1-alex@ghiti.fr>
+ id 1hqGVX-0001xe-N6
+ for linux-riscv@lists.infradead.org; Wed, 24 Jul 2019 12:36:38 +0000
+Received: by mail-qt1-x843.google.com with SMTP id y26so45266574qto.4
+ for <linux-riscv@lists.infradead.org>; Wed, 24 Jul 2019 05:36:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:in-reply-to:references:from:date:message-id:subject:to
+ :cc; bh=voVat0+SUGB52qvYfXcNdUtGtc1hBZGuRMC7BUlflBk=;
+ b=OPVBip25a2WbO9ODN0MyghyJIILAB6LukDE8UAmEorbY0N4kgLUY2uNRwi3FZ94Tq2
+ WVZJ27BVRqUFrwGrF7y3xRswPREKSy4ENkQABk4SMMM8MKReM5GAVLHzjRa+L0qk3ABJ
+ oiMqnhzbp0/PJlMk5iRCEveK469FircUOR20RtoiHnlPymUhZmCBxeTDQcGdLBqY9U0C
+ QCeLWleFpBFgm4lxQB3TLR9YLleAbu4NeFpgw94cGEwIqvbF0rK95tuKMkws8StrO+3/
+ e0PZIk2OoGm6E6dK1TYc1vNFRx6SDnVY4fMxm1fKkEHEmR58mbCgEU3QOT0f4JgMAuQ0
+ TzuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+ :message-id:subject:to:cc;
+ bh=voVat0+SUGB52qvYfXcNdUtGtc1hBZGuRMC7BUlflBk=;
+ b=GSTuel57aT4/AGuhQvL3qeo9by3xlAbBiQpNktj07/35Cxvvp7WqSa3hLku2x5teJn
+ pJkVXbX4bshbJoAKjMHf880VUSdOTsmRUdRkLOkZ/9YKeqxkc6/dxmxUpuNTceDTjhJM
+ ZPMxCJGsehDl4rV/Z1GsxDyB02uEFjy1nQHZ8Yh5CozDfHogYidcj/7xWGP7bbOy08DZ
+ 2iHTZ81s3L9fSwQ0v3UOomQmQtcrGj3cUsemc+3xjO0yMB1pLgTUPPwhOr36+PuwIcUa
+ ScjakHBnd+81wXhQF53AdNe81e7ATJFVqGesTiEKY3o/T8zEd7TCCh7d6Cisl4KwNAcN
+ vjzg==
+X-Gm-Message-State: APjAAAW3MGZyhraG+ziZkOzMLWy5AsOo9kPn1UAx7Vp++W5jt4atTCaN
+ c+SQ0d2pSfd9UtU9q41hFAJDmX3yOSbkb++Bnug=
+X-Google-Smtp-Source: APXvYqweMQQSqCE1gaCRnyucL3mpNVOzYSXi/vtTRECBlg3dbrAT8Icq4DwJgDvi+7/kFYQu2Om5YYbah/bQgvHXyQI=
+X-Received: by 2002:a0c:b159:: with SMTP id r25mr57272575qvc.219.1563971794304; 
+ Wed, 24 Jul 2019 05:36:34 -0700 (PDT)
 MIME-Version: 1.0
+Received: by 2002:ad4:4144:0:0:0:0:0 with HTTP; Wed, 24 Jul 2019 05:36:33
+ -0700 (PDT)
+In-Reply-To: <alpine.DEB.2.21.9999.1906281147260.3867@viisi.sifive.com>
+References: <1556093512-5006-1-git-send-email-liush.damon@gmail.com>
+ <alpine.DEB.2.21.9999.1906281147260.3867@viisi.sifive.com>
+From: sh liu <liush.damon@gmail.com>
+Date: Wed, 24 Jul 2019 20:36:33 +0800
+Message-ID: <CADnCVLwL0DK0Xa8FHhxCyqpJNU3Az=Xvdr3_MqA85ju_nUBZDg@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: redefine PTRS_PER_PGD/PTRS_PER_PMD/PTRS_PER_PTE
+To: Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190723_231421_342246_F0EA755F 
-X-CRM114-Status: UNSURE (   7.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190724_053635_753769_5610D2A1 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,92 +91,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
- Alexandre Ghiti <alex@ghiti.fr>, Catalin Marinas <catalin.marinas@arm.com>,
- Palmer Dabbelt <palmer@sifive.com>, Will Deacon <will.deacon@arm.com>,
- Russell King <linux@armlinux.org.uk>, Ralf Baechle <ralf@linux-mips.org>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- Paul Burton <paul.burton@mips.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
- James Hogan <jhogan@kernel.org>, linux-fsdevel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org,
- Christoph Hellwig <hch@lst.de>, linux-arm-kernel@lists.infradead.org,
- Luis Chamberlain <mcgrof@kernel.org>
+Cc: sorear2@gmail.com, palmer@sifive.com, anup.patel@wdc.com,
+ linux-kernel@vger.kernel.org, rppt@linux.ibm.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In order to avoid wasting user address space by using bottom-up mmap
-allocation scheme, prefer top-down scheme when possible.
+I think the previous description is unclear, and it is difficult for
+readers to understand the meaning of these macros, because I never
+understand. So I submitted this patch with reference to the definition
+of arm. I think this way can make the reader easier to understand, and
+I also think that this definition is more reasonable.
 
-Before:
-root@qemuriscv64:~# cat /proc/self/maps
-00010000-00016000 r-xp 00000000 fe:00 6389       /bin/cat.coreutils
-00016000-00017000 r--p 00005000 fe:00 6389       /bin/cat.coreutils
-00017000-00018000 rw-p 00006000 fe:00 6389       /bin/cat.coreutils
-00018000-00039000 rw-p 00000000 00:00 0          [heap]
-1555556000-155556d000 r-xp 00000000 fe:00 7193   /lib/ld-2.28.so
-155556d000-155556e000 r--p 00016000 fe:00 7193   /lib/ld-2.28.so
-155556e000-155556f000 rw-p 00017000 fe:00 7193   /lib/ld-2.28.so
-155556f000-1555570000 rw-p 00000000 00:00 0
-1555570000-1555572000 r-xp 00000000 00:00 0      [vdso]
-1555574000-1555576000 rw-p 00000000 00:00 0
-1555576000-1555674000 r-xp 00000000 fe:00 7187   /lib/libc-2.28.so
-1555674000-1555678000 r--p 000fd000 fe:00 7187   /lib/libc-2.28.so
-1555678000-155567a000 rw-p 00101000 fe:00 7187   /lib/libc-2.28.so
-155567a000-15556a0000 rw-p 00000000 00:00 0
-3fffb90000-3fffbb1000 rw-p 00000000 00:00 0      [stack]
-
-After:
-root@qemuriscv64:~# cat /proc/self/maps
-00010000-00016000 r-xp 00000000 fe:00 6389       /bin/cat.coreutils
-00016000-00017000 r--p 00005000 fe:00 6389       /bin/cat.coreutils
-00017000-00018000 rw-p 00006000 fe:00 6389       /bin/cat.coreutils
-2de81000-2dea2000 rw-p 00000000 00:00 0          [heap]
-3ff7eb6000-3ff7ed8000 rw-p 00000000 00:00 0
-3ff7ed8000-3ff7fd6000 r-xp 00000000 fe:00 7187   /lib/libc-2.28.so
-3ff7fd6000-3ff7fda000 r--p 000fd000 fe:00 7187   /lib/libc-2.28.so
-3ff7fda000-3ff7fdc000 rw-p 00101000 fe:00 7187   /lib/libc-2.28.so
-3ff7fdc000-3ff7fe2000 rw-p 00000000 00:00 0
-3ff7fe4000-3ff7fe6000 r-xp 00000000 00:00 0      [vdso]
-3ff7fe6000-3ff7ffd000 r-xp 00000000 fe:00 7193   /lib/ld-2.28.so
-3ff7ffd000-3ff7ffe000 r--p 00016000 fe:00 7193   /lib/ld-2.28.so
-3ff7ffe000-3ff7fff000 rw-p 00017000 fe:00 7193   /lib/ld-2.28.so
-3ff7fff000-3ff8000000 rw-p 00000000 00:00 0
-3fff888000-3fff8a9000 rw-p 00000000 00:00 0      [stack]
-
-Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
-Reviewed-by: Kees Cook <keescook@chromium.org>
----
- arch/riscv/Kconfig | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 59a4727ecd6c..6a63973873fd 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -54,6 +54,17 @@ config RISCV
- 	select EDAC_SUPPORT
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
-+	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
-+	select HAVE_ARCH_MMAP_RND_BITS
-+
-+config ARCH_MMAP_RND_BITS_MIN
-+	default 18
-+
-+# max bits determined by the following formula:
-+#  VA_BITS - PAGE_SHIFT - 3
-+config ARCH_MMAP_RND_BITS_MAX
-+	default 33 if 64BIT # SV48 based
-+	default 18
- 
- config MMU
- 	def_bool y
--- 
-2.20.1
-
+2019-06-29 2:52 GMT+08:00, Paul Walmsley <paul.walmsley@sifive.com>:
+> On Wed, 24 Apr 2019, damon wrote:
+>
+>> Use the number of addresses to define the relevant macros.
+>>
+>> Signed-off-by: damon <liush.damon@gmail.com>
+>
+> This patch looks reasonable to me.  But what's missing from the
+> description is the motivation.  Is this a prerequisite for another patch
+> that you're planning to post?  Or because you think this is clearer than
+> the original?  Or something else?  etc.
+>
+>
+> - Paul
+>
 
 _______________________________________________
 linux-riscv mailing list
