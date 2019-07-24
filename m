@@ -2,21 +2,20 @@ Return-Path: <SRS0=SAxd=VV=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 128DEC76186
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 17:18:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D84A4C76186
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 17:20:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D4D5520840
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 17:18:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id ABFA420840
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 17:20:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BOH1sy6+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D4D5520840
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NEDM0qXM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ABFA420840
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,58 +24,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LopCSp1g5m3CcG/XRn9ROzidaXhMMdtl2PdPe5Rh3rY=; b=BOH1sy6+qAXZlX
-	aifCfCxGQ55PcsZgAsuHcwsqnWh1Rg8L9yvI0PJZjfjQ3316I/9SUijWqUIQAZuMBdl4RSf16YoPY
-	+fyI6u97GNzSOtKU9s+2JmNHOEdmpmIdqRyxEdQeRFdqi1cAOOLz2rx8ja3Q0ufb40oteu3vBc9/f
-	FFyQ+i5FOjMGr6BHP6AY7DPnkZJH11tsdORZRwg9+n6HH1WOdbvqIraqhHtEo3rAhV++3W+NJGpoQ
-	vTkviOO8H+SBVGTzvhUC+Kz7CrKQGVUdvjS34+1aSm29FtLynpd4fu8qkx2cC6aX4w9/gde9i+Dtd
-	saS9WhYzJ3/W5b8F/yYA==;
+	List-Owner; bh=wAtxVmIQ8zu5zq+efXFz1aQKyNEaIsAttQn7dKwYTVc=; b=NEDM0qXMD+OKUy
+	Axl47XXc1DnlCjx22JsEUs/ERY5t7cy/uRLr1ui4PG0FwYoenoakU9MrUlHkLbCxA4Gy3Yyt9aMn7
+	OAHHHulMnxBjND94Qec2yrOxz4j00lQezf3wx+s/GalJESMacTKnaajGklGO8W55sdBf+c6wCaoy9
+	0pclZ0n6qSR9SJAyucjKdK2PR6EsSmx6zXDENE62hKjnKwsWDNKMmcl2QF0B/Rn7kWGNtwSYizrIT
+	Klqui/bde7aDsjMy45C4Ph2b5a3/r8RYmC0w2H2WtEzhmTltig3YZOKtXEAuTUAKlcl6UNkTfP8pu
+	DbgpxSOpC5pRqAm0fWyg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hqKuQ-0006Ab-QU; Wed, 24 Jul 2019 17:18:34 +0000
-Received: from mail-pf1-f196.google.com ([209.85.210.196])
+	id 1hqKvm-0000NI-V0; Wed, 24 Jul 2019 17:19:58 +0000
+Received: from mail-pf1-f194.google.com ([209.85.210.194])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hqKsm-0002Uz-Du; Wed, 24 Jul 2019 17:16:55 +0000
-Received: by mail-pf1-f196.google.com with SMTP id u14so21291752pfn.2;
- Wed, 24 Jul 2019 10:16:51 -0700 (PDT)
+ id 1hqKtf-0004fE-N0; Wed, 24 Jul 2019 17:17:49 +0000
+Received: by mail-pf1-f194.google.com with SMTP id f17so17279746pfn.6;
+ Wed, 24 Jul 2019 10:17:47 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=156P/sv9kl3W4lzShHBiZ6Cb3GP3B3vD0ubCKwHKThU=;
- b=VJTzeZ8jTKPVuWkMvogUfWOBC9IhP3FXTw5tOdVgTdsRm4KgjuoMu4Jn/kSTILHxT7
- OLnbaUdDsfUryNMVUAeICsym44pZRlnmxJT0XPEWLK/ajVI4VMNfZtJkKHBrOjLuM5i/
- v5PtcGa44JwGI13lmKZFXGYSvlYHjgsdvLUNXK69+7v3VqEWuq+z+UjmhQM1kpSoXQlo
- 8FEUZa1dTzFaPC+Mvw/HHeNh0cB6MGOI/9ApM395eVG7nSHz5ToQuFKQsPf/FRhwbwp/
- fwx36yU5+a7xT/Kpms8Zhumurlurxwq4ViuoCJ3Ppo2TxZgD/DZzLzCA5L44nqPegz2d
- q80g==
-X-Gm-Message-State: APjAAAVRLlkQq9m6y6WhVKpKaUEMKMnbzv29orI68cWmVR6bev9lTazx
- guHtqt9rVFUQtrYpQzaab6V5IhzA
-X-Google-Smtp-Source: APXvYqwTVGKd3fvTa9LEjWhqIcTFIJiIjYs9TLAcnxEPWXeforQowmcaSvI2CRLGqprBSYmGXcozlQ==
-X-Received: by 2002:a17:90a:8a91:: with SMTP id
- x17mr89006769pjn.95.1563988610289; 
- Wed, 24 Jul 2019 10:16:50 -0700 (PDT)
+ bh=v5o93rppXWOEe1khDbdKPwUWVhMWimUKdS1T4a7dv9A=;
+ b=aDF2aR/oyueKRc+Tnork9U+DUHlWIiUIlWEtVBN+yw/hOCurwy+Bsq94ItAn34W+jX
+ VYRjZTvANJKCds0W4YEZTQU0P5ufLnzpLtLo2a2Q69U1EQn/qrnTvLDltwCeuUtQ6Cdb
+ 5NJb4dnp8mT/9iuPvt7rQMCE6EHhTxFcdOVz2bYUVPl6jGn48UWA4PLirFmgrQWDx/4K
+ x723Wvay55ZWo+P+Vl7ONVyUc51ji2mu0M+AXrNeSCnwzEul4xsG36iq4uN5qvFFM4m/
+ TDCVDGKZlEp2e+RCa1/HcxMpbt38CnugCmWoVDQ1JPa/H5H6IBcKrKz5PICzFyVA7eK9
+ Jtxw==
+X-Gm-Message-State: APjAAAXNmrE7RmzDz1QvmMwONsIxMevFTJ3iNoLJn1T5UbjRCUSUbo1l
+ VEcBKcFvltfN4yc+kn1uouk=
+X-Google-Smtp-Source: APXvYqz8XfN6M40/6fe7BxMTCZJQCCPcbWguJPVyb/SH7u8lYYU33WfbbFpre78nAUrnVv5x6QkoeQ==
+X-Received: by 2002:a17:90a:bd93:: with SMTP id
+ z19mr89794097pjr.49.1563988666568; 
+ Wed, 24 Jul 2019 10:17:46 -0700 (PDT)
 Received: from 42.do-not-panic.com (42.do-not-panic.com. [157.230.128.187])
- by smtp.gmail.com with ESMTPSA id n140sm49450927pfd.132.2019.07.24.10.16.49
+ by smtp.gmail.com with ESMTPSA id t10sm46821994pjr.13.2019.07.24.10.17.45
  (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Wed, 24 Jul 2019 10:16:49 -0700 (PDT)
+ Wed, 24 Jul 2019 10:17:45 -0700 (PDT)
 Received: by 42.do-not-panic.com (Postfix, from userid 1000)
- id ADB7B402A1; Wed, 24 Jul 2019 17:16:48 +0000 (UTC)
-Date: Wed, 24 Jul 2019 17:16:48 +0000
+ id 1E29A402A1; Wed, 24 Jul 2019 17:17:45 +0000 (UTC)
+Date: Wed, 24 Jul 2019 17:17:45 +0000
 From: Luis Chamberlain <mcgrof@kernel.org>
 To: Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH REBASE v4 12/14] mips: Replace arch specific way to
- determine 32bit task with generic version
-Message-ID: <20190724171648.GW19023@42.do-not-panic.com>
+Subject: Re: [PATCH REBASE v4 00/14] Provide generic top-down mmap layout
+ functions
+Message-ID: <20190724171745.GX19023@42.do-not-panic.com>
 References: <20190724055850.6232-1-alex@ghiti.fr>
- <20190724055850.6232-13-alex@ghiti.fr>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190724055850.6232-13-alex@ghiti.fr>
+In-Reply-To: <20190724055850.6232-1-alex@ghiti.fr>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190724_101652_621308_90B577AE 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20190724_101748_110262_13DC7588 
+X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,42 +101,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 24, 2019 at 01:58:48AM -0400, Alexandre Ghiti wrote:
-> Mips uses TASK_IS_32BIT_ADDR to determine if a task is 32bit, but
-> this define is mips specific and other arches do not have it: instead,
-> use !IS_ENABLED(CONFIG_64BIT) || is_compat_task() condition.
-> 
-> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-> Reviewed-by: Kees Cook <keescook@chromium.org>
-> ---
->  arch/mips/mm/mmap.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/mips/mm/mmap.c b/arch/mips/mm/mmap.c
-> index faa5aa615389..d4eafbb82789 100644
-> --- a/arch/mips/mm/mmap.c
-> +++ b/arch/mips/mm/mmap.c
-> @@ -17,6 +17,7 @@
->  #include <linux/sched/signal.h>
->  #include <linux/sched/mm.h>
->  #include <linux/sizes.h>
-> +#include <linux/compat.h>
->  
->  unsigned long shm_align_mask = PAGE_SIZE - 1;	/* Sane caches */
->  EXPORT_SYMBOL(shm_align_mask);
-> @@ -191,7 +192,7 @@ static inline unsigned long brk_rnd(void)
->  
->  	rnd = rnd << PAGE_SHIFT;
->  	/* 32MB for 32bit, 1GB for 64bit */
-> -	if (TASK_IS_32BIT_ADDR)
-> +	if (!IS_ENABLED(CONFIG_64BIT) || is_compat_task())
->  		rnd = rnd & SZ_32M;
->  	else
->  		rnd = rnd & SZ_1G;
-> -- 
+Other than the two comments:
 
-Since there are at least two users why not just create an inline for
-this which describes what we are looking for and remove the comments?
+Reviewed-by: Luis Chamberlain <mcgrof@kernel.org>
 
   Luis
 
