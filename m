@@ -1,86 +1,95 @@
-Return-Path: <SRS0=SAxd=VV=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=2iVI=VW=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 962E3C76186
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 20:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DE02BC76186
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2019 01:24:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 67EA7206DD
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 24 Jul 2019 20:34:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B2D1F21901
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 25 Jul 2019 01:24:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uETD46XO";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="L/w7YB1g"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 67EA7206DD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BwDIDCt9";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="mEyy7VVh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B2D1F21901
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=umMN+DINgfsLwoJGecKHNUvrTWdTH4W/F9gADUDeyCs=; b=uETD46XOhreZMj
-	atooa2nzFwv13e/dPm/+cKW+s6o6fpYWhePuU57EvhgN5nyBZAaXdED4+JPld368T36tcmRn+Uj9C
-	uWI4o6VO/1yLcMcZhAsmiyHTRLI/BzTiz/qcDdH+GjQcBLJ6YlMWYLgsjHY82+b9beW0q+y9WKSQ3
-	7a7lvz5SEHaxUBWhRqm7vDpxYMVRZtSIbQGX1toptPZn4e+jRDH0//7VvvxtSEXFlFZVCqgVtCwrU
-	JSXBEAVyLRduANI0k1ndETqCR9mtDwFRqr0/UNdCIk/BpticxAjOMs6hf7qgt0TUSbR8KnlKurp9f
-	8u30nt9MGfGZ2LQQaatg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=Exzmtu7ped+ymVUAqksX9d1eoCuG1lPsnKdCejEXkVA=; b=BwDIDCt9wb6x6snhror5aq2GO
+	NXr33AIgTQiBqgEvLGG8Lhb9sHbWHIEUq5EVl5uDNGgsXlEzChXtERKu0NpDOWP1iF0d1bBgc6KyZ
+	BxEC2zCVCazolnoGiMGVWT2Z/8Lm3y/++dqIhHHRvkzPCgkSGyt2s1/rUabl1ualfK4cfPyhUWCrw
+	8n6g1l7S1x4AdL7SbpCWKsjPl80NWgzpSObQ+TZyD5keZjEPrRrINzRUTgdhi8YDrmT1my+IkH1RJ
+	95MxzAHekmRs8uRKRiLB8+yjiHP+4xJHVuZ7qkLOwP4+7z8EUNum/a2MI/vod/iOTAJfAGMR+J858
+	izYyfLQ+A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hqNxl-0008GK-0r; Wed, 24 Jul 2019 20:34:13 +0000
-Received: from mail-io1-xd41.google.com ([2607:f8b0:4864:20::d41])
+	id 1hqSV1-0007Db-Kl; Thu, 25 Jul 2019 01:24:51 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hqNxf-0008F3-7M
- for linux-riscv@lists.infradead.org; Wed, 24 Jul 2019 20:34:11 +0000
-Received: by mail-io1-xd41.google.com with SMTP id j6so17277294ioa.5
- for <linux-riscv@lists.infradead.org>; Wed, 24 Jul 2019 13:34:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:cc:subject:message-id:user-agent:mime-version;
- bh=Xe754XdQFiMOz0DCn2UE7HYtLMDtwZfqOEnlJWYqqBE=;
- b=L/w7YB1g6rwLdJCd50raJQe5EjeHMw7jN5fwyaUcTUOYeTAIjT5z8dRsGkpb9Ol2mY
- IFuF5D1EFmHtnxp3LiRFBs3vfb0FwoZ/doQpjGN9NW8FGdJNkAUi4nsqr7KpN8+/etZr
- IKN7miGwPezunChdFgIZT2Pngv+Uticzot8pgU53X+B+p5lrhrn3md7zeHrDUr2hsckO
- ecYYzb9pXECvU5upoNFpVZzSImg54xvgBUMrsLXrvRLMnbE2ZHYbsQjZhmAzlSHd/dKh
- LCQABnH2e1w7JEcbSbGl1OiDs3LWQsur0qqLogMN2xGfdQe3KxTL1iqO9rHfsGlsOzMl
- wC2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:user-agent
- :mime-version;
- bh=Xe754XdQFiMOz0DCn2UE7HYtLMDtwZfqOEnlJWYqqBE=;
- b=YyZyF1LRshUu/HQRWBirhwBAr50k5+ePZxEmZ4YeSKWyDrEQQmgXlBrR4ZLcQYWIhy
- +8kaV7j4W/AfBqj413k9oD1b3/qc3YzwD3LjL+VcJyQ4iEUgkLk4KHPgoub2yTnXlYcs
- VaH8LWayzwa6KbCigQRQjbIKBYr1vFvi9VmrZ9ljPK7DMgCxADwTlgOplDF5TeKbr6In
- 4yjzGJ2LTr0t/S5HyjaiLLTjxeowLMuGAnl8YCb4pC56kYEjQznu7dgD+bf3uyQ2eVp+
- 54VYDg9LxJlh/W5QmRQSITSTLxMX3gGfMDEWUNZCN7s6BNNSVkuthTpsvbCAKW21mXzS
- Hy+Q==
-X-Gm-Message-State: APjAAAW4VplrsCQ7MKLgA9JUYXUQ/dDmoJWxqvOmhVmIjajCTyW7NRX1
- ar1IRk0JevQbmd8X9V89cPQpAA==
-X-Google-Smtp-Source: APXvYqwO+v2VYplsQ/5ClrTxQxYoVRVi+nuWq0G66IWyPpRGjCRkod5Qu66H/jszMP3KqY9o82uJ0Q==
-X-Received: by 2002:a6b:6d08:: with SMTP id a8mr69878303iod.191.1564000445971; 
- Wed, 24 Jul 2019 13:34:05 -0700 (PDT)
-Received: from localhost (67-0-24-96.albq.qwest.net. [67.0.24.96])
- by smtp.gmail.com with ESMTPSA id c23sm39477798iod.11.2019.07.24.13.34.05
- (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Wed, 24 Jul 2019 13:34:05 -0700 (PDT)
-Date: Wed, 24 Jul 2019 13:34:03 -0700 (PDT)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-X-X-Sender: paulw@viisi.sifive.com
-To: torvalds@linux-foundation.org
-Subject: [GIT PULL] RISC-V updates for v5.3
-Message-ID: <alpine.DEB.2.21.9999.1907241331250.28120@viisi.sifive.com>
-User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
+ id 1hqSUg-00070v-89; Thu, 25 Jul 2019 01:24:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1564017870; x=1595553870;
+ h=subject:to:cc:references:from:message-id:date:
+ mime-version:in-reply-to:content-transfer-encoding;
+ bh=p+jTfu4cIazD5eixTiPopv5has0130QcUTKO/yKoUes=;
+ b=mEyy7VVhzwtkA9+0C+6hlbHXsG7x3CUnIZy+ZJumyjgAXwtIswN7mJdl
+ jDAgT5XUeVCeTn/9NftaV2LWN8sXgzrrW2LP4kueNyZ4IDI1p4FWgkRPH
+ 2d8yOI6fMyiX+vsfsoJ+cbEGg2H/SiRxFapZ9lUQho54HJK97nbgsTgiy
+ cFmZc/HW8+Cqngwy5xUIH2ZWzsKGBJfDxUJiwujL3srL+vMk2aAC0BSfX
+ laKd5ul9xADThxLtUdw6VUyFvdi0t91Gi+UIElgYa37Z8w9mESDH9ZB6q
+ U2Q6ZGcf8i+E7OPcNEH5cGt47XR3MBCoiIYIbTYlw2rfl0un/MT+wKuMI Q==;
+IronPort-SDR: fqBvd+9hf8yTa+Z2TvDA5JgsLnjtwcKYJZnSS5tYQA914Bl4oCZVoMUkQ3g2UPG89JxhgFo6a2
+ /vF0+zclONdyutf7vVUn/5w0nne2VGa0IH2YqyDfPNmeqgPvVh/mNY03mZVMLlXvYCSZBrjJAv
+ gLmaxWAur9mwF7MZXLAR8glpoQGDFAyGaUm26ttV63kAYLWmjSmYmbIEVb6VnSo3lRWZSCzIWT
+ sOplgskktMhfIE55M+mmcyBKPFFgaIgVbMz9zr4u0AKA/2+q7wfyq7WlKufrjaegVck/TRj8wl
+ IvQ=
+X-IronPort-AV: E=Sophos;i="5.64,304,1559491200"; d="scan'208";a="118681831"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 25 Jul 2019 09:24:26 +0800
+IronPort-SDR: te6sJyns275o4+/eg1wdrIys7xiTSkDK6ChDUOU1WqLp6QzuPv8XtVzgXfB/ha/xamJ6Y23deF
+ 0aOTJ/oXitM9Q+BFF/0DqFnTawaQHE9QPzKBt8PmiNmtQpFE9myu9GdGoFYr6/52sxiNPEd+Pp
+ Q5nq0J4UvCWPHve0kSvpIjpGAVW5RMYs+dJOto/5t0lokzADfI/jRNKH4zek/fb1Ywarcso+cL
+ kDV37ftOGiJYaWsbxToR6jDnyJJUQd6ulKrqIB8bE8qhjkhAKft+CMSvJVr8ChxZt3dPYEaJJO
+ qpujwd0y1o6KjJfDT11UJMZI
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep02.wdc.com with ESMTP; 24 Jul 2019 18:22:37 -0700
+IronPort-SDR: V40xfE9gili+44NnP3tPlPZ2UZfyLw5G2k1ffUp3o9aNa94g6a0EQQzDNiFNIxamCt67BvNlyN
+ ZGvjsXZempGW2czFlejGBR0PiLWWQ4yDXhugkuGPBv9/uk+J7VPYqwZAAbktNZCMUFnKT+3hn3
+ /sfby85RS1py25X+dAL4O6KmG/qeVSPieHigi0K0Y1S1wB2ZAnHQykLenqJL5RQjpChOQpUYrV
+ pes/KNeXeL28/On8K5wifkMeeQnVLcCOOZmbtYE8vB3ccGhofWq+D1uFHJxa1UXS+9DbKpCq5c
+ O0I=
+Received: from r6220.sdcorp.global.sandisk.com (HELO [192.168.1.2])
+ ([10.196.157.143])
+ by uls-op-cesaip02.wdc.com with ESMTP; 24 Jul 2019 18:24:23 -0700
+Subject: Re: [PATCH v8 0/7] Unify CPU topology across ARM & RISC-V
+To: Paul Walmsley <paul.walmsley@sifive.com>
+References: <20190627195302.28300-1-atish.patra@wdc.com>
+ <alpine.DEB.2.21.9999.1907121012050.2267@viisi.sifive.com>
+ <alpine.DEB.2.21.9999.1907221224170.23563@viisi.sifive.com>
+From: Atish Patra <atish.patra@wdc.com>
+Message-ID: <ea88d4f4-eff8-adba-3135-0d480f501d48@wdc.com>
+Date: Wed, 24 Jul 2019 18:24:22 -0700
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:60.0)
+ Gecko/20100101 Thunderbird/60.8.0
 MIME-Version: 1.0
+In-Reply-To: <alpine.DEB.2.21.9999.1907221224170.23563@viisi.sifive.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190724_133407_274775_E641CBC6 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20190724_182430_411349_5D905E00 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,70 +101,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: Mark Rutland <Mark.Rutland@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Peter Zijlstra \(Intel\)" <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Palmer Dabbelt <palmer@sifive.com>,
+ Will Deacon <will.deacon@arm.com>,
+ Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Will Deacon <will@kernel.org>, Ingo Molnar <mingo@kernel.org>,
+ Anup Patel <anup@brainfault.org>, Russell King <linux@armlinux.org.uk>,
+ Morten Rasmussen <morten.rasmussen@arm.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Johan Hovold <johan@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Jeremy Linton <jeremy.linton@arm.com>, Otto Sabart <ottosabart@seberm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, "David S. Miller" <davem@davemloft.net>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 7/22/19 12:25 PM, Paul Walmsley wrote:
+> On Fri, 12 Jul 2019, Paul Walmsley wrote:
+> 
+>> On Thu, 27 Jun 2019, Atish Patra wrote:
+>>
+>>> The cpu-map DT entry in ARM can describe the CPU topology in much better
+>>> way compared to other existing approaches. RISC-V can easily adopt this
+>>> binding to represent its own CPU topology. Thus, both cpu-map DT
+>>> binding and topology parsing code can be moved to a common location so
+>>> that RISC-V or any other architecture can leverage that.
+>>> different config for the architectures that do not support them.
+>>
+>> Once v5.3-rc1 is released, let's plan to get these patches rebased and
+>> reposted and into linux-next as soon as possible.
+> 
+> These CPU topology patches are now queued for v5.4-rc1.  They should enter
+> linux-next shortly.
+> 
+> 
+> - Paul
+> 
 
-Linus,
+Thanks!!
 
-I inadvertently based these changes on the commit immediately 
-preceding the v5.3-rc1 tag, rather than the v5.3-rc1 tag itself.  Let me 
-know if you'd like us to rebase them.
-
-
-- Paul
-
-
-The following changes since commit 3bfe1fc46794631366faa3ef075e1b0ff7ba120a:
-
-  Merge tag 'for-5.3/dm-changes-2' of git://git.kernel.org/pub/scm/linux/kernel/git/device-mapper/linux-dm (2019-07-18 14:49:33 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv/for-v5.3-rc2
-
-for you to fetch changes up to 26091eef3c179f940d2967e9bef6e22c9e1c445f:
-
-  riscv: dts: Add DT node for SiFive FU540 Ethernet controller driver (2019-07-22 14:49:31 -0700)
-
-----------------------------------------------------------------
-RISC-V updates for v5.3-rc2
-
-Four minor RISC-V-related changes for v5.3-rc2:
-
-- Add support for the new clone3 syscall for RV64, relying on the
-  generic support
-
-- Add DT data for the gigabit Ethernet controller on the SiFive FU540
-  and the HiFive Unleashed board
-
-- Update MAINTAINERS to add me to the arch/riscv maintainers' list
-
-- Add support for PCIe message-signaled interrupts by reusing the
-  generic header file
-
-----------------------------------------------------------------
-Palmer Dabbelt (1):
-      MAINTAINERS: Add Paul as a RISC-V maintainer
-
-Paul Walmsley (1):
-      riscv: enable sys_clone3 syscall for rv64
-
-Wesley Terpstra (1):
-      riscv: include generic support for MSI irqdomains
-
-Yash Shah (1):
-      riscv: dts: Add DT node for SiFive FU540 Ethernet controller driver
-
- MAINTAINERS                                         |  1 +
- arch/riscv/boot/dts/sifive/fu540-c000.dtsi          | 15 +++++++++++++++
- arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts |  9 +++++++++
- arch/riscv/include/asm/Kbuild                       |  1 +
- arch/riscv/include/uapi/asm/unistd.h                |  1 +
- 5 files changed, 27 insertions(+)
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
