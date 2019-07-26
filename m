@@ -7,84 +7,86 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F03D1C76190
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Jul 2019 19:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 99C9FC7618F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Jul 2019 19:46:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C05702189F
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Jul 2019 19:46:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6F8252189F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Jul 2019 19:46:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kDWduHE+";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="IAOxudBk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C05702189F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UbIeIaRG";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="E/r8UFZ5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F8252189F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NsfKPTfwge7jhJN091T3vnUhr559l8VME9gyZgMbzmA=; b=kDWduHE+aZtwww
-	iFJdTj3oOsAdof1blK5VOPFSzQ3onAK5K+SVMG5gwt9lyS8F4gb1VM8RjGpW/J0NCrYdvQE/WyDBD
-	rD6B5PsMAluavw8RBFC6b47+zc2Lita+gRtvJOQqQk2S87Fus7ZXY+NEFGhYbYfCHWZy5MXNYnicf
-	3gKhau+B2tJ6iFDj08UsBsNdXfcdvhNM+6fqVLCoiYt9r3pbXqlU5gQG7lz/Qh8SNHr6GNjHHHBgy
-	DwiHd03v+ksuvs8Lb2uj4zdCNLFrNdRzLHTPXRUWB0iO+KSPpOsN7YtF1lsNtYT06f1gQhq1SN47/
-	NCtLJArHyUf1TdyPLwYQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Uk/L0FWFga43+FYq1fTKc/cZjsIpD8sAUKIZvbcPpIE=; b=UbIeIaRGskvIq2
+	m1uThZgnMYeVxBlWTTekCGe+9DPKNyAOifV1T/OZEaQbdoHuMGwCUZURDOfEWsKldB2CQrubTJHIH
+	/nOZ7Cg2wLaRcgpG/GSr/ZvN8wiLjqkEdepqldGuTd+hZuw8eae6Cp1FQzxigDtyNqjhIWV7SZ6vN
+	bJ3Dym/sUcklkn+fwhed39x8R3WEDGNj0M3qTx7EqJxFxqLYX8iv5GoE6enM+4qwMK42/ywXEmdi6
+	OV1eRXhdcSiqVMNkxpTR7HrMzbxn+ChWobqJ6NhkJZcvwjOl+mig7OO25CohOvumAgO9An4zd7AG4
+	v+Q1MpzvWIL5f5M1D4Ng==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hr6B5-00022P-Te; Fri, 26 Jul 2019 19:46:55 +0000
+	id 1hr6B8-00024V-7g; Fri, 26 Jul 2019 19:46:58 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hr6B3-00021G-Lh
- for linux-riscv@lists.infradead.org; Fri, 26 Jul 2019 19:46:55 +0000
+ id 1hr6B5-00021u-97
+ for linux-riscv@lists.infradead.org; Fri, 26 Jul 2019 19:46:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1564170414; x=1595706414;
- h=from:to:cc:subject:date:message-id:mime-version:
- content-transfer-encoding;
- bh=w14oJ81u6w2W34wdULaaio4UuiCV/eOoDOsEOvwCQng=;
- b=IAOxudBk/xHMi3rQmXuQv3ocXKMe7vmnkpgCvCUEeBwRUttSUB9VvDTK
- SlnuIao8zQBrHsVQW4fIfC+dZojWkHb1k8q/AkpTAmgHU/ceD3a593bi8
- nmpAFE6LzwjkrWeY1Fnz7arX/DENop8/RygkAcEU8F7ZfwQMWrCE5SAEe
- xGR5yzcW8w+gy8E0hDd19iVcEDxt12f3prLcCglWrY1mLElNKXk23RtMS
- 61kDScVG0/NFAR16vILFHqfFOFuBd4OueJp08U1Ea7DwOjg4dEzNwG1JF
- QwT+eG7FbL/QmIYeKg1Sr1gGmy/Aag2Q1sUvxzD9E6mhjJk912xs2Y4xD g==;
-IronPort-SDR: 0vSizvsf25w5Qw5a+9weFXWkmxBXteFQSiTTWtS45/R5ZDKnvxRrSyJXRw6PAqo8MJDVMfV5jl
- pBhpiD7YV55v6abLv8VqVLMdrv21A2zX8pEQeTHg7yZsX9bStCNWy7DLAEsfzJjIZRH+z6Vs9N
- V4OxJ9qWflW8DP9UlJrZzfd+c7DDPaCXVtIrbERirg1DIVOapJJmWEC6pd5OYgsPKJbr5y+UQ2
- m4qgxpUCjJb2xeS86J89tWC6MMK5ecJTyZcMPhwobNhY2cwq2Fp1gAb4k3KVRHPME/iFV4kQ+U
- SNU=
-X-IronPort-AV: E=Sophos;i="5.64,312,1559491200"; d="scan'208";a="115831167"
+ t=1564170416; x=1595706416;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=zuljV/XFkkELlNYpQrLLimGaj7xDNrUz/oDJpIkonzM=;
+ b=E/r8UFZ5DAfvWibeL4TMjZjSq1QMjtwBC01meVRfkeW2+FcYKYz4rCNT
+ 1Lua5YlLJS4WdzbS86Tu2ehPgGO9l1rnkVy4ZQVMtYbZWzmh+i4l09vNA
+ Sy73HM4pyv4aLsoTa2SfKG/Welm3EC1sPVXlGFlaqgODp0ZDePkPocQBN
+ Xr1uQgedCNYSdxK3rcbGw7DeE3jfjK4xVeuf6O0XIxw5ECPO18FL2K22t
+ 2UqaOBF7mp6AlZyYGRR5Rc70LPncCIt+SVzd/fLFF8GNFmoEK+K4DAlhe
+ Q1ZJU+ow8iKPh2GLR4KCiKivlQOJIyDqcFhz/siVPRQLuq1oo/73dYOq4 g==;
+IronPort-SDR: 0cMtTOU3IDKITwGhSe3E8j15V2cvU1FqKx2/BYKjpmhpfJbh02o99bGF3omxtU5JjxaZFoQQVf
+ BR51oU5JibokcMz0Q8csq4HSyz07keyfTD5EDn1/FUSubAHM0fb1bgd0W1oTQwqMDPB6g6jSa3
+ /v1HjEpqkoq98m870xBxAFv7oE6p5rZBzb3sefgLwgIJt5dWqo5PYlTSeH58wqyx0zu8BYXNNP
+ D0VhYXnXTWcFrIl8mMANns+H4sBp36uY1LBoTNg3CocobBrrEsSDT571JkBHS8qgIuDumQk575
+ 6Ns=
+X-IronPort-AV: E=Sophos;i="5.64,312,1559491200"; d="scan'208";a="115831169"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
  by ob1.hgst.iphmx.com with ESMTP; 27 Jul 2019 03:46:48 +0800
-IronPort-SDR: InJpmhimfKxGYRwgSMB7vaic6X6qExt6jU34PnxwWUoPBnurruMYFrJjQYdLYeD7blDblN7DsJ
- k3AK65sO/tEogUF0aFABvcTyLmDmhAQNPCdmERFGgKQUVflWEko34r+zM3lZLIsSnasoqmxXIP
- 33lXz/EomJ18kDFsYDuE13q+9kaVcFr3Q/q3FcMonHNEg8xeSJ3yV08OXQNj6mXK3CPP7NNprs
- Oqzgje03zwIkc58fEzXtEno1LzUVHXKCkiOqUQcQVb0W1VWrtOlS5OuHBtWR0246Dd1WaTMWIj
- 0TV3m2vHwpW66ut3Q63IMW5J
+IronPort-SDR: jJewodiQENiyPgFuJEXidqqDpIN+ASFP/AXXwtg4772VBHtXVQOEGhKdCDQrFqyWUkFn3h70q4
+ i5lQjkJgaBPIwynQSMS0pT6/QEHPmLPtSF8IsXEFF2TnK2kYFVT/NhMBzrz72Hoj4RLHUR6n/s
+ BqZNoUoa3o7Enj2eGDTConrDoiFpCytq+ycTyhqmSUsdaSuhfe0rPNuM4GHe8S7f7V4rQUAQle
+ hi9Zdhg9iMGn2M0ZYJtE6VSGfyCuAcs1/OmU6Y69KyjQwPOD8v+ia2U979a5wVJ2SmvOK8KyGD
+ sTXQf9S9IVhEjqPngKwpCPIi
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP; 26 Jul 2019 12:44:56 -0700
-IronPort-SDR: HAtODe7BtpcPlbhxcQtN84PgABdtn9KVeCxDnDLg0eCJzExb2XsvQ+7vVs7bSESg9dXpMWBa7v
- 8XA2Ccy4KEmkY7BHg5bYkxTdAX0FkephrCa6PP1UoVXT4/fKtHSJTmeFpQn1+qrodgxo9wmLRk
- m8h5HvbIhxFC/mq717nZ4gy7VA6Uek6OF5BZCQAoLgpZWwjfjK4ncq45/t4bNtMengEBHY6iLH
- iXN07HIQkdQndP8Vpuup8bVgg5HSai1M/AntD3QQWM/462VId0g4hSqGApN8ZT0mnUvkRote2j
- uvc=
+IronPort-SDR: wTxhkBHItRBK6MQN42Flf6IDsh0NhG04f+bcBRld7ws7XJL62cnVGK7DynbnmXlEJ2GUnFXWG0
+ peU7/eOrwiFPw9pbSRMd1QwreStg8598I0Tm1oqu1ia9hVcU0eFKVL/GxeBBOS++awvjNnrZ4K
+ us0zET2Sf80U+I6/KdcnhsS+YOGXYChPOQIGCNhyMeJotR22b/t2IonRa0IKyI8xhU5mKEmJj5
+ 4rTMHJT0NehUAirTRMneA1RTzOh30uD1OSLu0Q3X8WhW/57CSiAE9dZlVX0cuFIfe29ogq+IrQ
+ WoE=
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip01.wdc.com with ESMTP; 26 Jul 2019 12:46:47 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 26 Jul 2019 12:46:48 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 1/4] RISC-V: Remove per cpu clocksource
-Date: Fri, 26 Jul 2019 12:46:35 -0700
-Message-Id: <20190726194638.8068-1-atish.patra@wdc.com>
+Subject: [PATCH 3/4] RISC-V: Support case insensitive ISA string parsing.
+Date: Fri, 26 Jul 2019 12:46:37 -0700
+Message-Id: <20190726194638.8068-3-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.21.0
+In-Reply-To: <20190726194638.8068-1-atish.patra@wdc.com>
+References: <20190726194638.8068-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190726_124653_747027_DA69A74F 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20190726_124655_355718_5A35D1C1 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -108,45 +110,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is only one clocksource in RISC-V. The boot cpu initializes
-that clocksource. No need to keep a percpu data structure.
+As per riscv specification, ISA naming strings are
+case insensitive. However, currently only lower case
+strings are parsed during cpu procfs.
+
+Support parsing of upper case letters as well.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- drivers/clocksource/timer-riscv.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/riscv/kernel/cpu.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 5e6038fbf115..09e031176bc6 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -55,7 +55,7 @@ static u64 riscv_sched_clock(void)
- 	return get_cycles64();
- }
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 7da3c6a93abd..185143478830 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -5,6 +5,7 @@
  
--static DEFINE_PER_CPU(struct clocksource, riscv_clocksource) = {
-+static struct clocksource riscv_clocksource = {
- 	.name		= "riscv_clocksource",
- 	.rating		= 300,
- 	.mask		= CLOCKSOURCE_MASK(64),
-@@ -92,7 +92,6 @@ void riscv_timer_interrupt(void)
- static int __init riscv_timer_init_dt(struct device_node *n)
- {
- 	int cpuid, hartid, error;
--	struct clocksource *cs;
+ #include <linux/init.h>
+ #include <linux/seq_file.h>
++#include <linux/ctype.h>
+ #include <linux/of.h>
+ #include <asm/smp.h>
  
- 	hartid = riscv_of_processor_hartid(n);
- 	if (hartid < 0) {
-@@ -112,8 +111,7 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+@@ -57,10 +58,10 @@ static void print_isa(struct seq_file *f, const char *orig_isa)
+ 	 * kernels on harts with the same ISA that the kernel is compiled for.
+ 	 */
+ #if defined(CONFIG_32BIT)
+-	if (strncmp(isa, "rv32i", 5) != 0)
++	if (strncasecmp(isa, "rv32i", 5) != 0)
+ 		return;
+ #elif defined(CONFIG_64BIT)
+-	if (strncmp(isa, "rv64i", 5) != 0)
++	if (strncasecmp(isa, "rv64i", 5) != 0)
+ 		return;
+ #endif
  
- 	pr_info("%s: Registering clocksource cpuid [%d] hartid [%d]\n",
- 	       __func__, cpuid, hartid);
--	cs = per_cpu_ptr(&riscv_clocksource, cpuid);
--	error = clocksource_register_hz(cs, riscv_timebase);
-+	error = clocksource_register_hz(&riscv_clocksource, riscv_timebase);
- 	if (error) {
- 		pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
- 		       error, cpuid);
+@@ -76,8 +77,8 @@ static void print_isa(struct seq_file *f, const char *orig_isa)
+ 	 * extension from userspace as it's not accessible from there.
+ 	 */
+ 	for (e = ext; *e != '\0'; ++e) {
+-		if (isa[0] == e[0]) {
+-			if (isa[0] != 's')
++		if (tolower(isa[0]) == e[0]) {
++			if (tolower(isa[0] != 's'))
+ 				seq_write(f, isa, 1);
+ 
+ 			isa++;
 -- 
 2.21.0
 
