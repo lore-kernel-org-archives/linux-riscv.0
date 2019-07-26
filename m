@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 59113C76191
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Jul 2019 19:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0554FC7618F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Jul 2019 19:47:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2EC592189F
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Jul 2019 19:47:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CC6C52189F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 26 Jul 2019 19:47:03 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oEl/S3IP";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="QPztT1Cp"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2EC592189F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TYoe3Bsp";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="d2O8cPd9"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CC6C52189F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,67 +26,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RYlBT7RC95bn/NhgiWb5VIr4eTTo53zCRVWmnTU17YE=; b=oEl/S3IPXbUR/8
-	u0WOOZeW/PaUxWlm4qahVLYgRHEE7q+7G+XRWawHUqILYf3qsNyk9Jd8Dbg2HyUVJAY0NutPK/Ied
-	JdS1O0iVriVwGOdYALN4lWX0h+RM+hOo4U73yD4cBdjQ/qnGD+rAmgybc7rA5GjtTQkt/Hc1N6nNJ
-	Ib5BfP11qSXF/sT7GpKz2WyPLPEHANBgrrZ7hkMjfpJmQf32LxtwkljXRsF5zsG1qVLCVrtWVg4Ko
-	hM/rImwZ+nOoKkIRS8dAxt0NUkFGzv8T6xJfQz72Vdzl3Wgh82EulC9QAQNyBD/q09s4YCbhE3xZ0
-	TpoFIJjF3la9bmg+ZqjQ==;
+	List-Owner; bh=AyaprUm3LqnKUtZOsXQL6NiMe1kmrzDS/Bm9O1gcUU0=; b=TYoe3Bsp5ApRsX
+	gDHVHx9olWwkGHoetHB3dc17++j0pZSoGu2h7qHlhccDD2yd1DLBthNJxsa84CCOcID/ra1m+bj2D
+	vnZJjdqcf8NCIQksf7rZxnr61hUVhZ/HXkI3rznDqwaKpShkBypJiWj0cOqTzYOC7qMW78RHpiIEC
+	08Br9eb2VYX7ebzzOAv9JNaWVvo2C8mjN6YCQDKH/7Rsbtm3KnRz8OawbCzZrUNZCo0k4tvYXwOOf
+	aGhMYxlZfTDUZrRGGqVhaG0ROkFH54CiAXJ7VxVOd4z6O9xq0zUqKx33QTWpgm+UnXVkhlVgnrhoz
+	/fDtU/mNP1zzNjKvwLtg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hr6BB-00029M-8z; Fri, 26 Jul 2019 19:47:01 +0000
+	id 1hr6B9-00026a-EY; Fri, 26 Jul 2019 19:46:59 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hr6B6-00021u-LL
- for linux-riscv@lists.infradead.org; Fri, 26 Jul 2019 19:46:58 +0000
+ id 1hr6B5-00021G-4I
+ for linux-riscv@lists.infradead.org; Fri, 26 Jul 2019 19:46:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1564170417; x=1595706417;
+ t=1564170415; x=1595706415;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=4G/AiivRvt04iQqbVTDPT9b5v5TEP81JdiptpePFLX8=;
- b=QPztT1CpXETguBuN8/3qDlvxJGXuTvRZYrhdVmHRTNm3qJmau8DlO8sF
- FSuXBJCBOaejx6vhLgk41vyATvvVOEVG3SGRUGw1+nd59sAGTX8SzKR8Q
- z/SscCfIvpIYwVf9D5/hzpLz3djt1UJYWQdy/Tjk6rl8dsJQk9f6C/c4X
- y61NsnSVmOcm+7SJfg8gYVODo5gS2eksTr0yABBOQpcqNph9Fl6ksXa9T
- 4PdjqBm32zzkkX40bqRVu/l0Elb2rF17RYYJSjcemL4iox8NzdQ/3viHd
- 1UpcD4/3SPBuZqvspLo5T4wiX1VVjPHtxYVxWVxiK9i+QBHSIUxC+ezqc g==;
-IronPort-SDR: ac8LtnTN9uoIOa7CxCKnOQuTCn2sg5Ux6Ez8VjOWrJAlmWjnozONaJf8ihDZrLH8CkY8o9C8Yd
- V2VpRez9hFy4XTpZpUd9HiZo029u2ppKLRk8x2heYpX0sFGvG6Ea9OMqWJvNtBUilIpS+hPx4O
- t5PdUADtGAbqWJXHtk4ezIOttVEp6kaHdNH/yHF+XGs3oy5zzUID+erEE3P2i07tR3025Hn3j0
- ePt7hBKjO9hQndTVEudGuLvwpvKZz/YJiodtQj27JNfF56i24af/St4G+YZjdDnZTXE2Drf8jM
- YrQ=
-X-IronPort-AV: E=Sophos;i="5.64,312,1559491200"; d="scan'208";a="115831170"
+ bh=hokvHxTUgVK45jR+2fi50ThrUw3wJd/1zf9QL7Bw3Kw=;
+ b=d2O8cPd9h+ixSvS0lCN4iihcoXGyOcM3Ev4KVFpD0AJC6SNzT07RpEkf
+ KgUlO7ermbDs6DFYBeO+wBeuvBuBJgpI2rlN2GX7EeXCpZNKH3a2N5aZv
+ fSMt0RS2V/Mf/BjbzhUho3iWd5UfOhL63A97Vf1LvdUAxnols47R46iAn
+ JTFhKafq4XkW11ArPckvwCiVuFGWUnhrAA6Kvt+V0vYdIhJ31v7H3BFmG
+ b6mlDmtA39/sHZfbe6u1PwAQ7Na9zf3g/5osyA2GoxkA2zpertZcxEMi1
+ 0f7xsTEsy6mpD/dpCc3z+GfzGp+SKAAJCBdBNv2TUgtNtrtPrl635IXJt A==;
+IronPort-SDR: K5H6l0OzOONKp3Gjn4JYOeddNMwws6jkOySopvpovh3KmsL2VfjqFrhhEbPV66Scg8in2ZLoFw
+ E5Uu0Nw15dlZfl53n7HelC3S8pNjFk9J1CLDm+LcxNb1raq+fD/d5xG5PR/vhlYQR/9bvWNfP5
+ FxMYgiEHAzrHODDizHIxsWhLGG5rCQkdd9DIJftn5gKXxf7TB85F+vcoQsgsuUMKe+yST+u16F
+ flXkCBb4W2NonDf9L3FBmTt9Lw8tHSkGfkoEj6MzedaKSbDrvduCYEGC2jOANjfMCJsnf+ldAw
+ gBk=
+X-IronPort-AV: E=Sophos;i="5.64,312,1559491200"; d="scan'208";a="115831168"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 27 Jul 2019 03:46:49 +0800
-IronPort-SDR: NqWIBem3/+GD9lBaDonHEN7VaK3Go8FigEJpjSzzV9mhLVV1tAKDwA1b5idzdj8+yzYx/mfjHY
- 6HiSEU0P9KfyB3rTtuVI3Rof19eeESI8T3kxg9rH5n/TUBbIwdDejuUpDMBN4nqfjfFwe8SrnM
- B6qzMWKzR/vbDNbkqXO9oNGXolU4VW2X4N90seVUSU+qpuNzj89ShMXsFLp9fMQZ6JC/GZh8fR
- bLYgDdhIlte+xH5esPwcRHdUkkgou6WIYeHNwmlnyA6NIrSbj0GBhrN9vs337K24NtocKkEBLI
- sCkUIB4B9r0L+ngqu/CcS0TY
+ by ob1.hgst.iphmx.com with ESMTP; 27 Jul 2019 03:46:48 +0800
+IronPort-SDR: Vqh0Bm0X+CwINSMkMrx6sNrmFNj0ZnZJU/cTK8COGkMiSexrfjyhScSh+e8yaEeu05IshJuQor
+ pFst0hMzGstg4taGbkW0aZLv578wLDc514iNT988hIASYn23O8EnIMD/2o6SnixI7k0nkTX6uE
+ YiDck28Feus9AMcwPonZ9QXmIk7hO43SByG7lD15k7c1GgCHXew9zST+XtIuWRf+0bQI7ie/if
+ 1WaWA0a7W/zglFvLvBGGlGyWGtfA7axB6hA9BR/p/yqghS5IdW3lWkCzbl9pqQzg12OjuWBnkb
+ vT3V+nM+lltAYUImSXmShAbG
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep02.wdc.com with ESMTP; 26 Jul 2019 12:44:57 -0700
-IronPort-SDR: J+Ohxn5O071I/GlSvFKCslQ9U8iEOicbnZ4EcP2qBdVSymXxULqZFXIfnOnMBQFvrfRo8ZHBlm
- fFpNFzKwqBNbM0XfVEW+YRpM+1MQbVg4/t+Xwxpji2jecPcLABfxtsEcO8eILswds3CPKKERls
- R1MTIVpFz5P7/9+zl0AvLs+6yKfvCYsW4I7XaCjhX01og23X+/jlzsOfLnB6mLSnGdWs5F69Cv
- t0gCfuOsBiMP1ZYMyIfhHFZKG2FE5t3hOTvud6Dlgv4xYVIKMTx5bEfe9N4nm0/YTE60F4sS2n
- gco=
+ by uls-op-cesaep02.wdc.com with ESMTP; 26 Jul 2019 12:44:56 -0700
+IronPort-SDR: 9iMwrXBU5LvFTWyA+niCgR2Co2erNZr114as8cLaEkSoetsTrmHnNDs4WIz8+HxDKaoUQAU4JI
+ sJob0TmRZdRycFnETTgmhlmYaK+o1vb4GVAH+XjhlRU+0qy6myp0aV1biVLLC/GJ9WgYVkHZM3
+ RmvBMjWxxgRbeASeOj77r6fz8Tb4kP5mlQ864x/dsW5um5AsJyTiBnnzonE33V44zdOWkuzJLk
+ RBqvkfSAFQsTAKDKboBxGzbOdwnPxhugKeumV2kWQX+5bHoqd8Qv0cMMGU2gBDaN8iph2/MbQG
+ QG4=
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip01.wdc.com with ESMTP; 26 Jul 2019 12:46:48 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 26 Jul 2019 12:46:47 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] RISC-V: Fix unsupported isa string info.
-Date: Fri, 26 Jul 2019 12:46:38 -0700
-Message-Id: <20190726194638.8068-4-atish.patra@wdc.com>
+Subject: [PATCH 2/4] RISC-V: Add riscv_isa reprensenting ISA features common
+ across CPUs
+Date: Fri, 26 Jul 2019 12:46:36 -0700
+Message-Id: <20190726194638.8068-2-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.21.0
 In-Reply-To: <20190726194638.8068-1-atish.patra@wdc.com>
 References: <20190726194638.8068-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190726_124656_793503_0A459C2E 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20190726_124655_202197_12B52E15 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,10 +99,10 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <anup.patel@wdc.com>, Alan Kao <alankao@andestech.com>,
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alan Kao <alankao@andestech.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Daniel Lezcano <daniel.lezcano@linaro.org>, Johan Hovold <johan@kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
  Palmer Dabbelt <palmer@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
  linux-riscv@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>,
  Allison Randal <allison@lohutok.net>
@@ -110,121 +111,152 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, kernel prints a info warning if any of the extensions
-from "mafdcsu" is missing in device tree. This is not entirely
-correct as Linux can boot with "f or d" extensions if kernel is
-configured accordingly. Moreover, it will continue to print the
-info string for future extensions such as hypervisor as well which
-is misleading. /proc/cpuinfo also doesn't print any other extensions
-except "mafdcsu".
+From: Anup Patel <anup.patel@wdc.com>
 
-Make sure that info log is only printed only if kernel is configured
-to have any mandatory extensions but device tree doesn't describe it.
-All the extensions present in device tree and follow the order
-described in the RISC-V specification (except 'S') are printed via
-/proc/cpuinfo always.
+This patch adds riscv_isa integer to represent ISA features common
+across all CPUs. The riscv_isa is not same as elf_hwcap because
+elf_hwcap will only have ISA features relevant for user-space apps
+whereas riscv_isa will have ISA features relevant to both kernel
+and user-space apps.
 
+One of the use case is KVM hypervisor where riscv_isa will be used
+to do following operations:
+
+1. Check whether hypervisor extension is available
+2. Find ISA features that need to be virtualized (e.g. floating
+   point support, vector extension, etc.)
+
+Signed-off-by: Anup Patel <anup.patel@wdc.com>
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/kernel/cpu.c | 47 ++++++++++++++++++++++++++++++++---------
- 1 file changed, 37 insertions(+), 10 deletions(-)
+ arch/riscv/include/asm/hwcap.h | 25 ++++++++++++++++++++++
+ arch/riscv/kernel/cpufeature.c | 39 +++++++++++++++++++++++++++++++---
+ 2 files changed, 61 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 185143478830..3d050440364c 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -8,6 +8,7 @@
- #include <linux/ctype.h>
- #include <linux/of.h>
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 7ecb7c6a57b1..e069f60ad5d2 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -22,5 +22,30 @@ enum {
+ };
+ 
+ extern unsigned long elf_hwcap;
++
++#define RISCV_ISA_EXT_A		(1UL << ('A' - 'A'))
++#define RISCV_ISA_EXT_a		RISCV_ISA_EXT_A
++#define RISCV_ISA_EXT_C		(1UL << ('C' - 'A'))
++#define RISCV_ISA_EXT_c		RISCV_ISA_EXT_C
++#define RISCV_ISA_EXT_D		(1UL << ('D' - 'A'))
++#define RISCV_ISA_EXT_d		RISCV_ISA_EXT_D
++#define RISCV_ISA_EXT_F		(1UL << ('F' - 'A'))
++#define RISCV_ISA_EXT_f		RISCV_ISA_EXT_F
++#define RISCV_ISA_EXT_H		(1UL << ('H' - 'A'))
++#define RISCV_ISA_EXT_h		RISCV_ISA_EXT_H
++#define RISCV_ISA_EXT_I		(1UL << ('I' - 'A'))
++#define RISCV_ISA_EXT_i		RISCV_ISA_EXT_I
++#define RISCV_ISA_EXT_M		(1UL << ('M' - 'A'))
++#define RISCV_ISA_EXT_m		RISCV_ISA_EXT_M
++#define RISCV_ISA_EXT_S		(1UL << ('S' - 'A'))
++#define RISCV_ISA_EXT_s		RISCV_ISA_EXT_S
++#define RISCV_ISA_EXT_U		(1UL << ('U' - 'A'))
++#define RISCV_ISA_EXT_u		RISCV_ISA_EXT_U
++
++extern unsigned long riscv_isa;
++
++#define riscv_isa_extension_available(ext_char)	\
++		(riscv_isa & RISCV_ISA_EXT_##ext_char)
++
+ #endif
+ #endif
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index b1ade9a49347..d76c806b4fc9 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -12,6 +12,7 @@
  #include <asm/smp.h>
-+#include <asm/hwcap.h>
  
- /*
-  * Returns the hart ID of the given device tree node, or -ENODEV if the node
-@@ -47,11 +48,14 @@ int riscv_of_processor_hartid(struct device_node *node)
- 
- #ifdef CONFIG_PROC_FS
- 
--static void print_isa(struct seq_file *f, const char *orig_isa)
-+static void print_isa(struct seq_file *f, const char *orig_isa,
-+		      unsigned long cpuid)
+ unsigned long elf_hwcap __read_mostly;
++unsigned long riscv_isa __read_mostly;
+ #ifdef CONFIG_FPU
+ bool has_fpu __read_mostly;
+ #endif
+@@ -20,7 +21,8 @@ void riscv_fill_hwcap(void)
  {
--	static const char *ext = "mafdcsu";
-+	static const char *mandatory_ext = "mafdcsu";
- 	const char *isa = orig_isa;
- 	const char *e;
-+	char unsupported_isa[26] = {0};
-+	int index = 0;
+ 	struct device_node *node;
+ 	const char *isa;
+-	size_t i;
++	char print_str[BITS_PER_LONG+1];
++	size_t i, j, isa_len;
+ 	static unsigned long isa2hwcap[256] = {0};
  
- 	/*
- 	 * Linux doesn't support rv32e or rv128i, and we only support booting
-@@ -71,27 +75,50 @@ static void print_isa(struct seq_file *f, const char *orig_isa)
- 	isa += 5;
+ 	isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
+@@ -31,9 +33,11 @@ void riscv_fill_hwcap(void)
+ 	isa2hwcap['c'] = isa2hwcap['C'] = COMPAT_HWCAP_ISA_C;
  
- 	/*
--	 * Check the rest of the ISA string for valid extensions, printing those
--	 * we find.  RISC-V ISA strings define an order, so we only print the
-+	 * RISC-V ISA strings define an order, so we only print all the
- 	 * extension bits when they're in order. Hide the supervisor (S)
- 	 * extension from userspace as it's not accessible from there.
-+	 * Throw a warning only if any mandatory extensions are not available
-+	 * and kernel is configured to have that mandatory extensions.
- 	 */
--	for (e = ext; *e != '\0'; ++e) {
--		if (tolower(isa[0]) == e[0]) {
-+	for (e = mandatory_ext; *e != '\0'; ++e) {
-+		if (tolower(isa[0]) != e[0]) {
-+#if defined(CONFIG_ISA_RISCV_C)
-+			if (tolower(isa[0] == 'c'))
-+				continue;
-+#endif
-+#if defined(CONFIG_FP)
-+			if ((tolower(isa[0]) == 'f') || tolower(isa[0] == 'd'))
-+				continue;
-+#endif
-+			unsupported_isa[index] = e[0];
-+			index++;
-+		}
-+		if (isa[0] != '\0') {
-+			/* Only write if part of isa string */
- 			if (tolower(isa[0] != 's'))
- 				seq_write(f, isa, 1);
--
- 			isa++;
+ 	elf_hwcap = 0;
++	riscv_isa = 0;
+ 
+ 	for_each_of_cpu_node(node) {
+ 		unsigned long this_hwcap = 0;
++		unsigned long this_isa = 0;
+ 
+ 		if (riscv_of_processor_hartid(node) < 0)
+ 			continue;
+@@ -43,8 +47,22 @@ void riscv_fill_hwcap(void)
+ 			continue;
  		}
- 	}
-+	if (isa[0] != '\0') {
-+		/* Add remainging isa strings */
-+		for (e = isa; *e != '\0'; ++e) {
-+#if !defined(CONFIG_VIRTUALIZATION)
-+			if ((tolower(e[0]) != 'h'))
+ 
+-		for (i = 0; i < strlen(isa); ++i)
++		i = 0;
++		isa_len = strlen(isa);
++#if defined(CONFIG_32BIT)
++		if (strncasecmp(isa, "rv32", 4) != 0)
++			i += 4;
++#elif defined(CONFIG_64BIT)
++		if (strncasecmp(isa, "rv64", 4) != 0)
++			i += 4;
 +#endif
-+				seq_write(f, e, 1);
++		for (; i < isa_len; ++i) {
+ 			this_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
++			if ('a' <= isa[i] && isa[i] <= 'z')
++				this_isa |= (1UL << (isa[i] - 'a'));
++			if ('A' <= isa[i] && isa[i] <= 'Z')
++				this_isa |= (1UL << (isa[i] - 'A'));
 +		}
-+	}
- 	seq_puts(f, "\n");
  
- 	/*
- 	 * If we were given an unsupported ISA in the device tree then print
- 	 * a bit of info describing what went wrong.
- 	 */
--	if (isa[0] != '\0')
--		pr_info("unsupported ISA \"%s\" in device tree\n", orig_isa);
-+	if (unsupported_isa[0])
-+		pr_info("unsupported ISA extensions \"%s\" in device tree for cpu [%ld]\n",
-+			unsupported_isa, cpuid);
- }
+ 		/*
+ 		 * All "okay" hart should have same isa. Set HWCAP based on
+@@ -55,6 +73,11 @@ void riscv_fill_hwcap(void)
+ 			elf_hwcap &= this_hwcap;
+ 		else
+ 			elf_hwcap = this_hwcap;
++
++		if (riscv_isa)
++			riscv_isa &= this_isa;
++		else
++			riscv_isa = this_isa;
+ 	}
  
- static void print_mmu(struct seq_file *f, const char *mmu_type)
-@@ -135,7 +162,7 @@ static int c_show(struct seq_file *m, void *v)
- 	seq_printf(m, "processor\t: %lu\n", cpu_id);
- 	seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hartid_map(cpu_id));
- 	if (!of_property_read_string(node, "riscv,isa", &isa))
--		print_isa(m, isa);
-+		print_isa(m, isa, cpu_id);
- 	if (!of_property_read_string(node, "mmu-type", &mmu))
- 		print_mmu(m, mmu);
- 	if (!of_property_read_string(node, "compatible", &compat)
+ 	/* We don't support systems with F but without D, so mask those out
+@@ -64,7 +87,17 @@ void riscv_fill_hwcap(void)
+ 		elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
+ 	}
+ 
+-	pr_info("elf_hwcap is 0x%lx\n", elf_hwcap);
++	memset(print_str, 0, sizeof(print_str));
++	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
++		if (riscv_isa & (1UL << i))
++			print_str[j++] = (char)('A' + i);
++	pr_info("riscv: ISA extensions %s\n", print_str);
++
++	memset(print_str, 0, sizeof(print_str));
++	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
++		if (elf_hwcap & (1UL << i))
++			print_str[j++] = (char)('A' + i);
++	pr_info("riscv: ELF capabilities %s\n", print_str);
+ 
+ #ifdef CONFIG_FPU
+ 	if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))
 -- 
 2.21.0
 
