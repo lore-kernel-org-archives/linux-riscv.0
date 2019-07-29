@@ -2,139 +2,88 @@ Return-Path: <SRS0=e5eF=V2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F94AC433FF
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2019 19:51:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E9851C433FF
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2019 20:08:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6302C2184E
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2019 19:51:18 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B8076205F4
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2019 20:08:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IsMDHJL3";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Ib6bvmdE";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="lHaOAAdJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6302C2184E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FtAL35PN"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B8076205F4
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WOt0LFa7pj3Jz+p0YE1VT1BaZ2QwHwd17JRxGZoGUkM=; b=IsMDHJL3hCps12
-	lUjvVEqkB2F+vpDMnoonVHpK3K7eJ6YtO6IspsNJ9A6/vDm0my9F2OChuuMbP+Fp0OMHTTq3IYott
-	R12JxVrvEF78H9z7iveNetlRzM9gRZEEjiRVhqpQ0flDpRyCIWIGENffcq0AaGXBuvej04TL2wFL6
-	4gALs4qHWakEpD5WTB8iGcrdJ97WohTbH8C3jsLbnZDuyPRhJ+TaIvcemwZRFk7QvEkbsycUPuwJa
-	nfcNmVhyo5hbSLTCwYyweWWYW3aznIErcLyn15SQDslOEJ7RJSGq5GxvIKr3Xzg16x9R84nz2QbXx
-	BGTs4SfwksWz7w0+bL1Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DBYcU4+2p9FNJpyWvK+3AbqkhnSZ/0O80Hu1dSjYSxY=; b=FtAL35PN5p0Z+r
+	likkcoNBFP9vghOVfNRlnkfjZVMliuVeB1qAP2A+06r5TGYt0qvCJB9q7HHbG/ayFW9hrQABBTrkh
+	mQPbg19o/xxNqc7FIZeNC2P8DBkgZxXdu/U08FGUazkJCez+9kI806c0+/N3q+lSqxKlgZIT5PF0e
+	llYKXLJ+xOS/eoDElrctuj9dIo0rpmG+Hy6+8iplwMkmhwxoAmhOFK5guhVBp5Do1QTj3T8BK018b
+	PaszTL6CAJfph2Ha0Wd5b9KSLg4pqOnb0RC7HRHBNkPZnsvUoYRoOZeZ1kLKN9MWHl7jWp2eg2pqc
+	7jcKAxDzTR2gPpEUMhBQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hsBft-0003Yf-1W; Mon, 29 Jul 2019 19:51:13 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1hsBwh-0003AX-LK; Mon, 29 Jul 2019 20:08:35 +0000
+Received: from mail-wm1-f67.google.com ([209.85.128.67])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hsBfq-0003XM-I2
- for linux-riscv@lists.infradead.org; Mon, 29 Jul 2019 19:51:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1564429870; x=1595965870;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=NO/0MsVKP71zr1N2x8BGfD/IHsCvghxnvN3rCJWUCV4=;
- b=Ib6bvmdEzNIyoRar3I15F9OzZj0Xa8JXRzm3BbLh6U8NhzncsUKnNgpF
- lqVTGHWD8kYlBuMv+G4XqR3uN4sbHBUcXPBKJUOjC3oaDVAtfseyTjWUH
- CTTD9khGQ9B4jW2OGvYbb8EQTQirddP7TTmnPn5bsnBD0dvhL4G9pV7x6
- JYlBhhhtoSE7SBTGh6+UBN6dpizK0emEaomRRg7388dNu5ABjaTKb+2Oj
- QC1RSBiYq15KciKpe3Ud73jUl4/aAsWVU8MOf+N/BHG/6OePHHsSQkfem
- GFu967OmBaSI9m83CXTsrSbcyuB97tNAmRszgE8rRTfW5FsNrvRQtvbgF Q==;
-IronPort-SDR: gJZs9x29wo72RQLI5rHcDPbrbC+rxWTNycBh2lgauP5bp3kZ6zV6r2d2ehN4X45ps814+UglE/
- FapRe4G+Kx97XUkWbYHrLsqlW0ATCarPQRvU+HRsN8XQFmlwgaV3z4vJG/ObDuZX6V1C2A3KWa
- YcAORgXb7hEtPcw6/C9bXEAD2XQE2OmCU0RvDzOu6+XeYPbf8OaVn2nX7Jzl7eXJfNUtIv9vWp
- 9A9p2sX72ooIqynOw9da9YHeu/SFymyK+c8OF+IMHBD0U+t55fpIgODW6DZ5+FXpUljBI0sj2H
- nDA=
-X-IronPort-AV: E=Sophos;i="5.64,324,1559491200"; d="scan'208";a="115439495"
-Received: from mail-sn1nam01lp2057.outbound.protection.outlook.com (HELO
- NAM01-SN1-obe.outbound.protection.outlook.com) ([104.47.32.57])
- by ob1.hgst.iphmx.com with ESMTP; 30 Jul 2019 03:51:03 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=HnpB+bVzG1zFbSj/AnvYkVjUPu7zwtioqYeLvw5t4VCJZUKebAo5M9Lpu0kQvW7pmG27XdQXMYC3ArfFVszOGRTaPAbS5D/esh/G26T6Dcy+/dBgN5yRffVRG9BzJxu/UwPmfXkmSmlkxcFwYzCq99SINAW5tdoE3BDwgH5DQTf1kvAdJg5NHhTlEvTqhg/pfyLQF4gLq+Jta3AfX+0YnY4Rr4gjo66uH80NJi5rTjogNwmKp85OKDjgG+2+cC4erceB4XIVsRVKXUboXP80qdhX7k4TfU9Lmves2YFB4GQAnYrNd2Me0nLJdfGfU8bLSz4FWmgOSA0e7E5cujpF2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NO/0MsVKP71zr1N2x8BGfD/IHsCvghxnvN3rCJWUCV4=;
- b=gZ1kLnDO5cdfAhPuhMCgQqyk/qpEclkHBcZ0AynVl/DXQYM9AGR6GYbxE315k/rM7niO4+FsxAGx8J/iH3o2q3ZFJN/kkN9e5oHBTA3gwzCIjfuf8HwgIV/+/I+Z9WrZdkUkEz+TSYDJcZJunVNMhdi9UlExG5AIjoUFH3WJQwYFiZLZQ7YQybHgSWNE8AqE+nCyTc9Nc6PNMA3Q+mvBRifGAtqsxbUOxDpQRc2qvHWcNghxM8/vu4bIuBry3iPg8FNMfBCC8KDEODgbHjdrrkWRmBeT1bBIk04s2eCeulzePbE6xZWdU227YyWPquX0Hv94jUnkAxf5fMXt6yxugQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1;spf=pass
- smtp.mailfrom=wdc.com;dmarc=pass action=none header.from=wdc.com;dkim=pass
- header.d=wdc.com;arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NO/0MsVKP71zr1N2x8BGfD/IHsCvghxnvN3rCJWUCV4=;
- b=lHaOAAdJ2eOWrESvG9cywMLVCDVHtLNk04JFk1Ln51tX1g05K1DogVIgfSV/Ub16AfG4aTu6Z+FdCnPqcii7YHAf3ouIWiuIe5xUBtbS0lreZ/gipNlAH3SNrF2RY2LLYlR9QN3tk9Q9+voK/cYMt5gu6UjwQDCE94AyNcwQuXM=
-Received: from BYAPR04MB3782.namprd04.prod.outlook.com (52.135.214.142) by
- BYAPR04MB5432.namprd04.prod.outlook.com (20.178.51.17) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2115.10; Mon, 29 Jul 2019 19:51:00 +0000
-Received: from BYAPR04MB3782.namprd04.prod.outlook.com
- ([fe80::ac9a:967e:70a5:e926]) by BYAPR04MB3782.namprd04.prod.outlook.com
- ([fe80::ac9a:967e:70a5:e926%7]) with mapi id 15.20.2115.005; Mon, 29 Jul 2019
- 19:51:00 +0000
-From: Atish Patra <Atish.Patra@wdc.com>
-To: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "rkrcmar@redhat.com" <rkrcmar@redhat.com>, "pbonzini@redhat.com"
- <pbonzini@redhat.com>, "palmer@sifive.com" <palmer@sifive.com>, Anup Patel
- <Anup.Patel@wdc.com>
+ id 1hsBwe-0003A1-W6
+ for linux-riscv@lists.infradead.org; Mon, 29 Jul 2019 20:08:34 +0000
+Received: by mail-wm1-f67.google.com with SMTP id x15so54991300wmj.3
+ for <linux-riscv@lists.infradead.org>; Mon, 29 Jul 2019 13:08:32 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:openpgp:message-id
+ :date:user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=6rsC8apArHKEVoNHEE6WG1aGK7OUBEY0mfmbG+EETjA=;
+ b=AiyFeuCUf3fSC4mLhZkSq5xfR0BCICAeDYOeM682HGzET3jfr8UZoFv/ahGk7di2S/
+ 0Tj6tfkSqmO8vxSBSCiKRuydnEtfBWs8QRFhDjyLWJKT+vFF5ui9bRRCc1mqbNG6VuUF
+ eMF0DtnDgGJsBP32+1Qb+O/n6zyHKsPDlXg5J07H3f8+tTbVi2yp+v2ENOwl/yvhxnBP
+ OJFQ5jypldcs8/tTypbl5rcBSJI9Ilqy3z5ImUKc08EnXucPMiHIlwJcJ3Ws5AFp8mHa
+ daA3WukFHLzr8BkVN4SfdaQrEXVwHUiqt3/ctUyWzRQmlRPxhmbHROfzPI4xRW+TGvy8
+ k78A==
+X-Gm-Message-State: APjAAAWmceHhKqRznmuVlazCPYKLo7hU9MTbVVjzE/XGm7BDQP5rfWWb
+ 8ytLpI84rlt3/2QccGHVzh/TfQ==
+X-Google-Smtp-Source: APXvYqxyEEo5XtUOjp1CdVRP84iqaQNMR2dGcZMgh/1fmCKwlmEs/P5oV9wEcoLLXuWQbjicsjgaWQ==
+X-Received: by 2002:a1c:d10c:: with SMTP id
+ i12mr101100699wmg.152.1564430911427; 
+ Mon, 29 Jul 2019 13:08:31 -0700 (PDT)
+Received: from ?IPv6:2001:b07:6468:f312:29d3:6123:6d5f:2c04?
+ ([2001:b07:6468:f312:29d3:6123:6d5f:2c04])
+ by smtp.gmail.com with ESMTPSA id j33sm131236463wre.42.2019.07.29.13.08.30
+ (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
+ Mon, 29 Jul 2019 13:08:30 -0700 (PDT)
 Subject: Re: [RFC PATCH 15/16] RISC-V: KVM: Add SBI v0.1 support
-Thread-Topic: [RFC PATCH 15/16] RISC-V: KVM: Add SBI v0.1 support
-Thread-Index: AQHVRgTdLbP8aD0d50+SPOvQQEaYeqbh/v2AgAAC3IA=
-Date: Mon, 29 Jul 2019 19:51:00 +0000
-Message-ID: <0e19ff14a51e210af91c4b0f2e649b8f5e140ce1.camel@wdc.com>
+To: Atish Patra <Atish.Patra@wdc.com>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "rkrcmar@redhat.com" <rkrcmar@redhat.com>,
+ "palmer@sifive.com" <palmer@sifive.com>, Anup Patel <Anup.Patel@wdc.com>
 References: <20190729115544.17895-1-anup.patel@wdc.com>
  <20190729115544.17895-16-anup.patel@wdc.com>
  <b461c82f-960a-306e-b76b-f2c329cabf21@redhat.com>
-In-Reply-To: <b461c82f-960a-306e-b76b-f2c329cabf21@redhat.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Atish.Patra@wdc.com; 
-x-originating-ip: [199.255.45.61]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: cb898cc9-e796-4736-6019-08d7145e14e5
-x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(4618075)(2017052603328)(7193020);
- SRVR:BYAPR04MB5432; 
-x-ms-traffictypediagnostic: BYAPR04MB5432:
-x-microsoft-antispam-prvs: <BYAPR04MB54328E32EF693A367280E483FADD0@BYAPR04MB5432.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:8882;
-x-forefront-prvs: 01136D2D90
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(4636009)(396003)(346002)(376002)(136003)(39860400002)(366004)(189003)(199004)(476003)(446003)(11346002)(53546011)(186003)(256004)(2616005)(66066001)(26005)(66556008)(66946007)(36756003)(102836004)(486006)(6506007)(118296001)(305945005)(76116006)(64756008)(86362001)(25786009)(66446008)(76176011)(14454004)(7736002)(99286004)(71190400001)(71200400001)(66476007)(478600001)(5660300002)(4744005)(53936002)(2501003)(7416002)(68736007)(4326008)(2906002)(6116002)(2201001)(6512007)(110136005)(229853002)(6486002)(6436002)(6636002)(8936002)(8676002)(81166006)(54906003)(81156014)(6246003)(3846002)(316002);
- DIR:OUT; SFP:1102; SCL:1; SRVR:BYAPR04MB5432;
- H:BYAPR04MB3782.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: dY9cpiUkzq9jMG/mBMslqduUDYmYHXcP0wHC0LpH1v4+72janntXmVUGi0U1qMAa3o9BVTM3zsdYSRmZnv9id5n3bbJRePR2i03qsYY+20XEN8CPP4mTKjslPHdpb/ajzZFvbaC9A1rdKFpKDRxGRytGcavPowGNXNm7jimVCLRHfp9w+Z/SATz4QT59j9TIZNJQdPwlEbNAJ6ZFfoywXDlzylmr3R7TZ4AOekn+ZaB5dk18Gl6rxa1NATC1P7m1R9Inn+Y+KC2OMCrL07HMAN/hZYSKUV64nxBOFe+S3rtmCrHYf7AOjXP+Eg9hk+irfNqdzL7/YT7P1yNYKE5bN2ApYb6wFRTPlqe64lkKIK+JCHMlN7PrWwTDFGL27+2jzIVxp2hoh2F1VSUAEyKN+SbmpPMVrQDrbMKTrQeHB7Y=
-Content-ID: <DA894D5BDDBAB64FBD4E2016B8DCCBBF@namprd04.prod.outlook.com>
+ <0e19ff14a51e210af91c4b0f2e649b8f5e140ce1.camel@wdc.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Openpgp: preference=signencrypt
+Message-ID: <b6c884cc-e156-d125-b3a2-c8a843de34c2@redhat.com>
+Date: Mon, 29 Jul 2019 22:08:32 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.8.0
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cb898cc9-e796-4736-6019-08d7145e14e5
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Jul 2019 19:51:00.4733 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Atish.Patra@wdc.com
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR04MB5432
+In-Reply-To: <0e19ff14a51e210af91c4b0f2e649b8f5e140ce1.camel@wdc.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190729_125110_907979_816BEB50 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20190729_130833_032730_5FF5B042 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -160,23 +109,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2019-07-29 at 21:40 +0200, Paolo Bonzini wrote:
-> On 29/07/19 13:57, Anup Patel wrote:
-> > +	csr_write(CSR_HSTATUS, vcpu->arch.guest_context.hstatus |
-> > HSTATUS_SPRV);
-> > +	csr_write(CSR_SSTATUS, vcpu->arch.guest_context.sstatus);
-> > +	val = *addr;
+On 29/07/19 21:51, Atish Patra wrote:
+> On Mon, 2019-07-29 at 21:40 +0200, Paolo Bonzini wrote:
+>> On 29/07/19 13:57, Anup Patel wrote:
+>>> +	csr_write(CSR_HSTATUS, vcpu->arch.guest_context.hstatus |
+>>> HSTATUS_SPRV);
+>>> +	csr_write(CSR_SSTATUS, vcpu->arch.guest_context.sstatus);
+>>> +	val = *addr;
+>>
+>> What happens if this load faults?
+>>
 > 
-> What happens if this load faults?
-> 
+> It should redirect the trap back to VS mode. Currently, it is not
+> implemented. It is on the TO-DO list for future iteration of the
+> series.
 
-It should redirect the trap back to VS mode. Currently, it is not
-implemented. It is on the TO-DO list for future iteration of the
-series.
+Ok, please add TODO comments for the more important tasks like this one
+(and/or post a somewhat complete list in reply to 00/16).
 
-Regards,
-Atish
-> Paolo
+Thanks!
+
+Paolo
+
 
 _______________________________________________
 linux-riscv mailing list
