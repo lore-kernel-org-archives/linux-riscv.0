@@ -7,18 +7,18 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 447CAC7618B
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2019 11:57:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BFB62C7618E
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2019 11:57:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 18EEA214AE
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2019 11:57:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9770A214AE
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 29 Jul 2019 11:57:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="M2Cao6IK";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="mm+MDu5y";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="RF3IBKY8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 18EEA214AE
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fWbrrXEl";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="SKzUfMHh";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="WCWoIW+l"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9770A214AE
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,72 +27,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wSW9P9OFbKPBZ458dpC4BkSNr6FmG2n3DZ7QzOoMswk=; b=M2Cao6IK3AAUf1
-	uTOh4W5Frlwj9e7R6ujz7zLaIavZLKTiBR7H8IRYWHDl028CQjcpgWtyl73WTpe4a6ashNSUR+Xl4
-	SStRqcgIJAY+JZAdM/wdGFqouAwW3X1QERknAXYWILVIlD/wlbL/eCj6DrlD8Yryhgda8VuEkD/bb
-	TgjTG9H63dRVFOjrokWcAswxaKxMHJnCEhTBbtQ5z4/Vds79yHBZQathipXuV4cQNJO3UO3BzwHx6
-	lFzequJaFRvzI0jjh/NzhtY9vIQ+goeL8MQ5NimtKMMEIPxYShx3h0i55M2INzUs2v5HOvbZA8ICg
-	9hBNmlxrbJQflJkhoaew==;
+	List-Owner; bh=L9U/h6kEYF4bjC5vf+7f83GbsCas1BMnpyz0cyZgzxs=; b=fWbrrXElJjXETz
+	KKgZPjBBA3ISV3Mk2JuGKGcoUSk8Gfr0ZYSJotFJJ5AJJkE7naZJxUAdwa9u5C/aOP60QRX7l3Rrk
+	m9wW/f9uHmmBVqL339WPp5gz91pJkBgHbm0B03LyE8/IwyAG/gCJIbOydHuH1+4Lr6zDtoZyCtuai
+	LhCySU4VuYCLXqSVYQKM8Fdfd90xV3BwMqMmuYWWVJiz6PD7qvT2qvqDefehByfRyk1ONFd/FsYza
+	2Y1MT6DFw94KbKutqSCt77qRTSCUJeaJGp+lYah+MsxLnXK50vLdW7cdcPTa92wf6mie7/qtWnXur
+	ckgdIrPqSa/H7idIiPqA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hs4HR-0002p9-D2; Mon, 29 Jul 2019 11:57:29 +0000
+	id 1hs4HY-0002yp-UB; Mon, 29 Jul 2019 11:57:36 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hs4HN-0002jS-EI
- for linux-riscv@lists.infradead.org; Mon, 29 Jul 2019 11:57:26 +0000
+ id 1hs4HU-0002vU-JB
+ for linux-riscv@lists.infradead.org; Mon, 29 Jul 2019 11:57:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1564401485; x=1595937485;
+ t=1564401496; x=1595937496;
  h=from:to:cc:subject:date:message-id:references:
  in-reply-to:content-transfer-encoding:mime-version;
- bh=GsHF4gHHIbU3ilO1vh5sF7BYtbgWJM7ACKryGsSPY9I=;
- b=mm+MDu5yKHaEM4p3ug5C2nMf304s+qVbaz5/ZkH0HxNWEi53dMLdknPl
- xPXFkqb5u3GhrRw0Zy2+/5zXFUfPSihoWyoei+ye1Awmo3Oj/5NOIKVnL
- T9Ho5ND+/zv9p/iD132Xv3LQpbJk39au9tT/VUUOr28IsTvwSeP3JBqXn
- gEVEn8CA+P1OXV4NzTvg46Pfg/W9NvZSIsT1NPG4g2HoiMdmqUAwT7T6U
- 51Tjtig01PbAT4ausxUi4l7I9flVb3GTCEAm/oXQhpKHqqU5wYF5F+J2q
- LBjbNjcPmXoS45bCfbcB4ToO4mSN/BN9ERne5FiqRxTwRiOe4w1WEINGD Q==;
-IronPort-SDR: F6ImFoCDhuGj8zTlhJfMRYbcmd+4jksiH829yljufbK8yx63ZGQmvilM78ue8fhN0tKODGXxXL
- WbEDTORd47btTC3y56vkg/SHgr+XVijPx1t2+baUS7hOBQiEQiLMiZp+9w9zC6UUc5TUj8dq7Z
- cSR7m4CFhw7Ja3+ysyKmIkeaviZhaHjvJkr77UGerQzP/BZWBl6HDeU566Ga/dclp+khYMisfn
- V/nvttyuf5hyld2g13fso/+NnHcuf2Qba0lRI+pc3wDzvFzj+O5DutCGA1Zv9+lViWSRzosX58
- 7iE=
-X-IronPort-AV: E=Sophos;i="5.64,322,1559491200"; d="scan'208";a="214553109"
-Received: from mail-sn1nam04lp2054.outbound.protection.outlook.com (HELO
- NAM04-SN1-obe.outbound.protection.outlook.com) ([104.47.44.54])
- by ob1.hgst.iphmx.com with ESMTP; 29 Jul 2019 19:57:54 +0800
+ bh=9TtH9E8Bk3v3JNyHLxqJzJnl52zb+9YRDc0iPmjrjew=;
+ b=SKzUfMHhIdCFapfg4RyoKb6h4qORIkUYf418W4a0P1YggEVzMneyNVFI
+ m51Dgh6aBR8ynDatP3kC5a5FYQ44ZuKTHwxoAbe3KpQyeJrgw9kaXWyfo
+ +0Yy9cW59c+fDL8ni1kbrpXMlQkWx+B50VAivJ4m9Bh9nloiZCH2jep/+
+ PoQ0XtUvp22kn7+fM0podi7IxZeE02BNNwpXnlpERVvifAeKQntEmJMbB
+ SuALP0dss69R8zPeWu3qI03+dVKt4dq4R3zHLC8Qm88/XnuxjA0qm3zGV
+ y733PVsdQBocTmW/d2xPZ33fJ2dOQmTpOB1Y6bvsHAj9scnOnEqavRq7t Q==;
+IronPort-SDR: qE5oVM3M3p5SMqCPYnLy/jgGdvuA9I+1OxXWR86/lQbIAl01wwbmtMSbi8QeEza8GPmksbc/Ac
+ //JHb9LM6JI5TJGGBlz6Te9BfQuXgXPJP9pKB04mZ6H4xp0fGoRYD1iEXyHKAwyWg8l0HNssBq
+ PnwcQB652gv+FVXVHpcIBzLelq6i2UMwIaz+jiA9fQG/krzRkfSZAlqTgC0n5+XdvbuvYM+Zx9
+ 3Zl2rTGskzZl+cng2AExJ1TtTgme0/paQho2+h4C4NIIPfhjv+/VmsUSOOKKqy+oUrz++Q2Vsl
+ Ku4=
+X-IronPort-AV: E=Sophos;i="5.64,322,1559491200"; d="scan'208";a="214553150"
+Received: from mail-by2nam01lp2051.outbound.protection.outlook.com (HELO
+ NAM01-BY2-obe.outbound.protection.outlook.com) ([104.47.34.51])
+ by ob1.hgst.iphmx.com with ESMTP; 29 Jul 2019 19:58:14 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=odiEZFkfbE62b8uPeGwAfqzz8bDC1mjc6WjvV0/5N7wPgqMWmWp7968CV2Qfw7I2JuPajDxMQM4cAAajNkUuXib3oJuSMTlmmQtrULMWcTIS6Q4Ket/H5kXCuBudSagsdtXo6AjmxuO2rhMBBAwj+G5h2o20Knqe0RasNRAiViCxG4YBHiAIHiycW4PLgNfX+H4vTwz0OATMs4ovkVwjwD8om75793eSMuIa/iBylPdaiiaa8tSOT0fwhJDw7AAiS3YwJonI6KHSJKc1PreKiyXgNAfMy24RTTt/IZblViu27TqUdjykxB7642dZDAMxxNpdpljxAC2jImWxBjj16g==
+ b=eX4ll9ZO/nX3lNwnt+A8xS+gSZJQsPDVY/ckVl5s2twZTsvLsWGwFC8C35N00/RJf4yFrR7mNoxe/rAaP59AHCQp4pjuhuMycPHCXQr6Mwl9MOK7Os9udUcv47+RvECgDIipKYF/MxF5IJp1ffT6GcqqUMJvzS0gfHxjjASE6hOZaP7xnkZO+dzDsBGRF3x+iLeZkVpBxdYNNak6qhkJHZ0s3F64sRuuZInaO0b4AovCzk4ZOsoLuR5lJSN7mGZciDLUTVSjtg8bKTqn/FGbxDwpIOanOt0Nqn43cwoVM/2QuE0PDEMyqrxW09rg1OuFk97cVLCgiP1EKCA4c1d8sA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=a2IZcUTSXw05WdZG7vyD2MEZ25YP0LbtIOSpJsTLdtg=;
- b=AYT1CLN8cjAn509hRFNn5LH9XLYyrZJ8Xw8yR7Rf2HcfdKOqxMJyn8xGuvJl+3WtErj9a3lrA8UnHH+SRawIgjSek1tsQB2YwVArgoORhq6ZZd4Qx6sMQMBy6I4w37SFcBG2O94TKDdxqHJyGO3d6GLK3fKR65Itt5PHadbFMWFAfG8sgsorUsYP/0AdXExe3E4LWC/Q6f1f5FZodFtNnGAf/XRKgk+G7a3bOfsqSWKXnywSPPz7uz8y6Uh+UHEUnhoOfpfHIbRovBdAMEjPmWGUF4lHQu3Q4awzv/Tw24JPKXdFGEmgr2DPAEwDMGgM95E8Nwt+jao9Bb0KbqbI0A==
+ bh=yBRBhW5YKHj3jAlMQDx+Ooj/mkK5nIb8WtMGBuEk1rQ=;
+ b=HvryuH6P2ZlP0ZoUzKQWixPzUp8D9nqLM7EIbJyZfwc/aFC9pLE3E6/DERfjbY9sAHWRTsISGaw0dVmR8r/bURETX97jc4bUclTNjmpcrvXV5amti2FCHJa+2dgR4V6Jr/V2JNGMTZg3w8K5naR0AyHZj6+t8ozr3Fo7O33fcWunJtelG09oRN4mrZcK03R66/a3QfHPE09Fif5RMMWCwb/mTWPCibsjlq8TIf5zgFmkkMdgrnGZLGZfec7HKyefGYfWCCuWhsLNIQeLe+63JBk633zNiBRrQX0oEkCrZ01TJYinmXmFAyP8FwMTTlHpOBj2fsYMpDNY7zMqqkmbbA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1;spf=pass
  smtp.mailfrom=wdc.com;dmarc=pass action=none header.from=wdc.com;dkim=pass
  header.d=wdc.com;arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=a2IZcUTSXw05WdZG7vyD2MEZ25YP0LbtIOSpJsTLdtg=;
- b=RF3IBKY8wVs9lTF78eZVPbyEbaaAka759BjvEREaC2lQ5TCrBFCj1k9MU/h9KKrwZHMEPjeziW9D0C44N4+bkYXVlI17WNbppBRbpIN8EzSquAFgOb/eQKZMmexsMnlG0kN3r46b+g68i6DfoxNv89bikHlwaw3E3M0DPlreJJs=
+ bh=yBRBhW5YKHj3jAlMQDx+Ooj/mkK5nIb8WtMGBuEk1rQ=;
+ b=WCWoIW+lrR4dFJfFiN1mkfDb2YJM7N64Dz/vjiQmcwiFf2pzocOn9tlJl6/4V4AH2nlDpBvObt4JWThpTAZvbsftVLMZRLpmdqA8v3npYCX2d+5zcTDFZyEAAL07V5jle0AIRyA2CAbvaVwGMDcvZBxl4wYvGLqFKXQwozN41Is=
 Received: from MN2PR04MB6061.namprd04.prod.outlook.com (20.178.246.15) by
- MN2PR04MB5952.namprd04.prod.outlook.com (20.179.21.143) with Microsoft SMTP
+ MN2PR04MB5678.namprd04.prod.outlook.com (20.179.21.211) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2115.15; Mon, 29 Jul 2019 11:57:17 +0000
+ 15.20.2115.14; Mon, 29 Jul 2019 11:57:29 +0000
 Received: from MN2PR04MB6061.namprd04.prod.outlook.com
  ([fe80::a815:e61a:b4aa:60c8]) by MN2PR04MB6061.namprd04.prod.outlook.com
  ([fe80::a815:e61a:b4aa:60c8%7]) with mapi id 15.20.2115.005; Mon, 29 Jul 2019
- 11:57:17 +0000
+ 11:57:29 +0000
 From: Anup Patel <Anup.Patel@wdc.com>
 To: Palmer Dabbelt <palmer@sifive.com>, Paul Walmsley
  <paul.walmsley@sifive.com>, Paolo Bonzini <pbonzini@redhat.com>, Radim K
  <rkrcmar@redhat.com>
-Subject: [RFC PATCH 09/16] RISC-V: KVM: Handle WFI exits for VCPU
-Thread-Topic: [RFC PATCH 09/16] RISC-V: KVM: Handle WFI exits for VCPU
-Thread-Index: AQHVRgTELJpWYbc670q25LJ6UKFygQ==
-Date: Mon, 29 Jul 2019 11:57:17 +0000
-Message-ID: <20190729115544.17895-10-anup.patel@wdc.com>
+Subject: [RFC PATCH 11/16] RISC-V: KVM: Implement stage2 page table programming
+Thread-Topic: [RFC PATCH 11/16] RISC-V: KVM: Implement stage2 page table
+ programming
+Thread-Index: AQHVRgTMjvWB0tfM1UmiHgwTo4JEWA==
+Date: Mon, 29 Jul 2019 11:57:29 +0000
+Message-ID: <20190729115544.17895-12-anup.patel@wdc.com>
 References: <20190729115544.17895-1-anup.patel@wdc.com>
 In-Reply-To: <20190729115544.17895-1-anup.patel@wdc.com>
 Accept-Language: en-US
@@ -108,35 +109,35 @@ x-ms-exchange-messagesentrepresentingtype: 1
 x-mailer: git-send-email 2.17.1
 x-originating-ip: [106.51.23.101]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 9f7472b8-62fe-49a5-75aa-08d7141be738
+x-ms-office365-filtering-correlation-id: 0d2a246b-32ec-4369-2bbc-08d7141bee80
 x-ms-office365-filtering-ht: Tenant
 x-microsoft-antispam: BCL:0; PCL:0;
  RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(7168020)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(4618075)(2017052603328)(7193020);
- SRVR:MN2PR04MB5952; 
-x-ms-traffictypediagnostic: MN2PR04MB5952:
-x-microsoft-antispam-prvs: <MN2PR04MB59528E8116E7065AF476D6678DDD0@MN2PR04MB5952.namprd04.prod.outlook.com>
+ SRVR:MN2PR04MB5678; 
+x-ms-traffictypediagnostic: MN2PR04MB5678:
+x-microsoft-antispam-prvs: <MN2PR04MB567878CFCCE0C1BB28208C2E8DDD0@MN2PR04MB5678.namprd04.prod.outlook.com>
 wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:4502;
+x-ms-oob-tlc-oobclassifiers: OLM:3044;
 x-forefront-prvs: 01136D2D90
 x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(4636009)(39860400002)(366004)(376002)(396003)(136003)(346002)(189003)(199004)(478600001)(2906002)(446003)(6436002)(486006)(6512007)(53936002)(36756003)(11346002)(2616005)(44832011)(78486014)(386003)(6506007)(102836004)(55236004)(4326008)(71200400001)(476003)(76176011)(71190400001)(9456002)(7736002)(26005)(50226002)(81166006)(81156014)(8676002)(8936002)(186003)(99286004)(6486002)(68736007)(14444005)(1076003)(256004)(7416002)(305945005)(66446008)(25786009)(66066001)(6116002)(3846002)(52116002)(14454004)(316002)(54906003)(86362001)(66556008)(66476007)(110136005)(66946007)(5660300002)(64756008);
- DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB5952;
+ SFS:(10019020)(4636009)(376002)(39860400002)(136003)(366004)(396003)(346002)(199004)(189003)(7416002)(52116002)(6436002)(6486002)(7736002)(476003)(2616005)(2906002)(5660300002)(66066001)(4326008)(446003)(53946003)(68736007)(11346002)(81156014)(81166006)(14454004)(53936002)(26005)(186003)(78486014)(99286004)(36756003)(44832011)(486006)(305945005)(8676002)(54906003)(110136005)(25786009)(8936002)(478600001)(76176011)(102836004)(71200400001)(30864003)(6512007)(1076003)(66446008)(64756008)(66946007)(256004)(55236004)(316002)(9456002)(86362001)(66476007)(50226002)(66556008)(6506007)(386003)(71190400001)(14444005)(6116002)(3846002);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB5678;
  H:MN2PR04MB6061.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
+ PTR:InfoNoRecords; A:1; MX:1; 
 x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: P1a/H6Nxfd4zCZqMFJq7IZRe/8F4yfC4WY68eLGMJufeSkqKPiPsRgeQ1s7WgKnJ1w22O+etvu90JH5+IaO7keH6TFgDWEKMlPu28bppizLnHgoPlEKXrXudz/pVSM303b0kmSL2FIQWOyflBEpDXeQieISeMR3Z4mh2mAR5Wt6ZgAdiRq+WWkgm/P2pmUlFi8wp5WNn8z1ev1jv0CQbSLS6S5k8yveY1lYhpx5w12RmpyhFLsqHnuxTiN2X+wQeptTINmz9VNBauyWDnQxXQYhtBIlVSiSqti5v9L0lbwgA6nRfbEGU63MWUHNzP4TxT4RyzR6x80vXbeqoi7NLZeCfninD49TbxULedhL+7uPMOBaBmPDJEIUChfrXfiYOAClSLU+tfRjxfujCxQ8XQHiBv1TOJjcIFZOek127uPI=
+x-microsoft-antispam-message-info: 6NKxQx/kfG+WuOj+P1eG/GjJxW0Z0MiLEwCBAz/10R2PCeOGImirkcX5Q8aS2EVxR0z47jdLG+tuxw4wqkObnMfo+Souyv9WZw/UflFquWviJZgwcZezs+TfoIvvljNN6mXwKiIJlKvY41kCpxrwF4Id11m0DfcU3jxKyE610zF1Pzy0UUqIiY/Uk5HCOKEHzrmgzcb+kQ/cChlPBP/ylg6rvT5lGF5X2tMAT5CzdXEwz59KbmhCSWLPxRa/lNUXrw+y6WoCxyQ42ZCY/Nu/j39vqw6yIg+j+tP7h7bvPyzc+1zGFjysFSAS4HN9YtwPNbVuAgzbyJ6UThkH4QoVpr0w/2V2ZfSJiWLzql3PpgnCadMuE5dACYLSojuJkpyBYe2QgV5BnCIslnz9VsWcxOoDgFJnZvzVNa8NJ7XTnhs=
 MIME-Version: 1.0
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f7472b8-62fe-49a5-75aa-08d7141be738
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Jul 2019 11:57:17.4352 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d2a246b-32ec-4369-2bbc-08d7141bee80
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Jul 2019 11:57:29.7022 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
 X-MS-Exchange-CrossTenant-userprincipalname: Anup.Patel@wdc.com
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB5952
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB5678
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190729_045725_527916_680BE206 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20190729_045732_707244_514F3241 
+X-CRM114-Status: GOOD (  18.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -161,130 +162,748 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We get illegal instruction trap whenever Guest/VM executes WFI
-instruction.
+This patch implements all required functions for programming
+the stage2 page table for each Guest/VM.
 
-This patch handles WFI trap by blocking the trapped VCPU using
-kvm_vcpu_block() API. The blocked VCPU will be automatically
-resumed whenever a VCPU interrupt is injected from user-space
-or from in-kernel IRQCHIP emulation.
+At high-level, the flow of stage2 related functions is similar
+from KVM ARM/ARM64 implementation but the stage2 page table
+format is quite different for KVM RISC-V.
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
 ---
- arch/riscv/kvm/vcpu_exit.c | 86 ++++++++++++++++++++++++++++++++++++++
- 1 file changed, 86 insertions(+)
+ arch/riscv/include/asm/kvm_host.h     |  10 +
+ arch/riscv/include/asm/pgtable-bits.h |   1 +
+ arch/riscv/kvm/mmu.c                  | 636 +++++++++++++++++++++++++-
+ 3 files changed, 637 insertions(+), 10 deletions(-)
 
-diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-index 4dafefa59338..2d09640c98b2 100644
---- a/arch/riscv/kvm/vcpu_exit.c
-+++ b/arch/riscv/kvm/vcpu_exit.c
-@@ -12,6 +12,9 @@
- #include <linux/kvm_host.h>
- #include <asm/csr.h>
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index dcc31f9ca13d..354d179c43cf 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -69,6 +69,13 @@ struct kvm_mmio_decode {
+ 	int shift;
+ };
  
-+#define INSN_MASK_WFI		0xffffff00
-+#define INSN_MATCH_WFI		0x10500000
++#define KVM_MMU_PAGE_CACHE_NR_OBJS	32
 +
- #define INSN_MATCH_LB		0x3
- #define INSN_MASK_LB		0x707f
- #define INSN_MATCH_LH		0x1003
-@@ -178,6 +181,85 @@ static ulong get_insn(struct kvm_vcpu *vcpu)
- 	return val;
- }
- 
-+typedef int (*illegal_insn_func)(struct kvm_vcpu *vcpu,
-+				 struct kvm_run *run,
-+				 ulong insn);
-+
-+static int truly_illegal_insn(struct kvm_vcpu *vcpu,
-+			      struct kvm_run *run,
-+			      ulong insn)
-+{
-+	/* TODO: Redirect trap to Guest VCPU */
-+	return -ENOTSUPP;
-+}
-+
-+static int system_opcode_insn(struct kvm_vcpu *vcpu,
-+			      struct kvm_run *run,
-+			      ulong insn)
-+{
-+	if ((insn & INSN_MASK_WFI) == INSN_MATCH_WFI) {
-+		vcpu->stat.wfi_exit_stat++;
-+		if (!kvm_riscv_vcpu_has_interrupt(vcpu)) {
-+			kvm_vcpu_block(vcpu);
-+			kvm_clear_request(KVM_REQ_UNHALT, vcpu);
-+		}
-+		vcpu->arch.guest_context.sepc += INSN_LEN(insn);
-+		return 1;
-+	}
-+
-+	return truly_illegal_insn(vcpu, run, insn);
-+}
-+
-+static illegal_insn_func illegal_insn_table[32] = {
-+	truly_illegal_insn, /* 0 */
-+	truly_illegal_insn, /* 1 */
-+	truly_illegal_insn, /* 2 */
-+	truly_illegal_insn, /* 3 */
-+	truly_illegal_insn, /* 4 */
-+	truly_illegal_insn, /* 5 */
-+	truly_illegal_insn, /* 6 */
-+	truly_illegal_insn, /* 7 */
-+	truly_illegal_insn, /* 8 */
-+	truly_illegal_insn, /* 9 */
-+	truly_illegal_insn, /* 10 */
-+	truly_illegal_insn, /* 11 */
-+	truly_illegal_insn, /* 12 */
-+	truly_illegal_insn, /* 13 */
-+	truly_illegal_insn, /* 14 */
-+	truly_illegal_insn, /* 15 */
-+	truly_illegal_insn, /* 16 */
-+	truly_illegal_insn, /* 17 */
-+	truly_illegal_insn, /* 18 */
-+	truly_illegal_insn, /* 19 */
-+	truly_illegal_insn, /* 20 */
-+	truly_illegal_insn, /* 21 */
-+	truly_illegal_insn, /* 22 */
-+	truly_illegal_insn, /* 23 */
-+	truly_illegal_insn, /* 24 */
-+	truly_illegal_insn, /* 25 */
-+	truly_illegal_insn, /* 26 */
-+	truly_illegal_insn, /* 27 */
-+	system_opcode_insn, /* 28 */
-+	truly_illegal_insn, /* 29 */
-+	truly_illegal_insn, /* 30 */
-+	truly_illegal_insn  /* 31 */
++struct kvm_mmu_page_cache {
++	int nobjs;
++	void *objects[KVM_MMU_PAGE_CACHE_NR_OBJS];
 +};
 +
-+static int illegal_inst_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
-+			      unsigned long stval)
-+{
-+	ulong insn = stval;
+ struct kvm_cpu_context {
+ 	unsigned long zero;
+ 	unsigned long ra;
+@@ -154,6 +161,9 @@ struct kvm_vcpu_arch {
+ 	/* MMIO instruction details */
+ 	struct kvm_mmio_decode mmio_decode;
+ 
++	/* Cache pages needed to program page tables with spinlock held */
++	struct kvm_mmu_page_cache mmu_page_cache;
 +
-+	if (unlikely((insn & 3) != 3)) {
-+		if (insn == 0)
-+			insn = get_insn(vcpu);
-+		if ((insn & 3) != 3)
-+			return truly_illegal_insn(vcpu, run, insn);
+ 	/* VCPU power-off state */
+ 	bool power_off;
+ 
+diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+index bbaeb5d35842..be49d62fcc2b 100644
+--- a/arch/riscv/include/asm/pgtable-bits.h
++++ b/arch/riscv/include/asm/pgtable-bits.h
+@@ -26,6 +26,7 @@
+ 
+ #define _PAGE_SPECIAL   _PAGE_SOFT
+ #define _PAGE_TABLE     _PAGE_PRESENT
++#define _PAGE_LEAF      (_PAGE_READ | _PAGE_WRITE | _PAGE_EXEC)
+ 
+ /*
+  * _PAGE_PROT_NONE is set on not-present pages (and ignored by the hardware) to
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 963f3c373781..9561c5e85f75 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -18,6 +18,432 @@
+ #include <asm/page.h>
+ #include <asm/pgtable.h>
+ 
++#ifdef CONFIG_64BIT
++#define stage2_have_pmd		true
++#define stage2_gpa_size		((phys_addr_t)(1ULL << 39))
++#define stage2_cache_min_pages	2
++#else
++#define pmd_index(x)		0
++#define pfn_pmd(x, y)		({ pmd_t __x = { 0 }; __x; })
++#define stage2_have_pmd		false
++#define stage2_gpa_size		((phys_addr_t)(1ULL << 32))
++#define stage2_cache_min_pages	1
++#endif
++
++static int stage2_cache_topup(struct kvm_mmu_page_cache *pcache,
++			      int min, int max)
++{
++	void *page;
++
++	BUG_ON(max > KVM_MMU_PAGE_CACHE_NR_OBJS);
++	if (pcache->nobjs >= min)
++		return 0;
++	while (pcache->nobjs < max) {
++		page = (void *)__get_free_page(GFP_KERNEL | __GFP_ZERO);
++		if (!page)
++			return -ENOMEM;
++		pcache->objects[pcache->nobjs++] = page;
 +	}
 +
-+	return illegal_insn_table[(insn & 0x7c) >> 2](vcpu, run, insn);
++	return 0;
 +}
 +
- static int emulate_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 			unsigned long fault_addr)
++static void stage2_cache_flush(struct kvm_mmu_page_cache *pcache)
++{
++	while (pcache && pcache->nobjs)
++		free_page((unsigned long)pcache->objects[--pcache->nobjs]);
++}
++
++static void *stage2_cache_alloc(struct kvm_mmu_page_cache *pcache)
++{
++	void *p;
++
++	if (!pcache)
++		return NULL;
++
++	BUG_ON(!pcache->nobjs);
++	p = pcache->objects[--pcache->nobjs];
++
++	return p;
++}
++
++struct local_guest_tlb_info {
++	struct kvm_vmid *vmid;
++	gpa_t addr;
++};
++
++static void local_guest_tlb_flush_vmid_gpa(void *info)
++{
++	struct local_guest_tlb_info *infop = info;
++
++	__kvm_riscv_hfence_gvma_vmid_gpa(READ_ONCE(infop->vmid->vmid_version),
++					 infop->addr);
++}
++
++static void stage2_remote_tlb_flush(struct kvm *kvm, gpa_t addr)
++{
++	struct local_guest_tlb_info info;
++	struct kvm_vmid *vmid = &kvm->arch.vmid;
++
++	/* TODO: This should be SBI call */
++	info.vmid = vmid;
++	info.addr = addr;
++	preempt_disable();
++	smp_call_function_many(cpu_all_mask, local_guest_tlb_flush_vmid_gpa,
++			       &info, true);
++	preempt_enable();
++}
++
++static int stage2_set_pgd(struct kvm *kvm, gpa_t addr, const pgd_t *new_pgd)
++{
++	pgd_t *pgdp = &kvm->arch.pgd[pgd_index(addr)];
++
++	*pgdp = *new_pgd;
++	if (pgd_val(*pgdp) & _PAGE_LEAF)
++		stage2_remote_tlb_flush(kvm, addr);
++
++	return 0;
++}
++
++static int stage2_set_pmd(struct kvm *kvm, struct kvm_mmu_page_cache *pcache,
++			  gpa_t addr, const pmd_t *new_pmd)
++{
++	int rc;
++	pmd_t *pmdp;
++	pgd_t new_pgd;
++	pgd_t *pgdp = &kvm->arch.pgd[pgd_index(addr)];
++
++	if (!pgd_val(*pgdp)) {
++		pmdp = stage2_cache_alloc(pcache);
++		if (!pmdp)
++			return -ENOMEM;
++		new_pgd = pfn_pgd(PFN_DOWN(__pa(pmdp)), __pgprot(_PAGE_TABLE));
++		rc = stage2_set_pgd(kvm, addr, &new_pgd);
++		if (rc)
++			return rc;
++	}
++
++	if (pgd_val(*pgdp) & _PAGE_LEAF)
++		return -EEXIST;
++
++	pmdp = (void *)pgd_page_vaddr(*pgdp);
++	pmdp = &pmdp[pmd_index(addr)];
++
++	*pmdp = *new_pmd;
++	if (pmd_val(*pmdp) & _PAGE_LEAF)
++		stage2_remote_tlb_flush(kvm, addr);
++
++	return 0;
++}
++
++static int stage2_set_pte(struct kvm *kvm,
++			  struct kvm_mmu_page_cache *pcache,
++			  gpa_t addr, const pte_t *new_pte)
++{
++	int rc;
++	pte_t *ptep;
++	pmd_t new_pmd;
++	pmd_t *pmdp;
++	pgd_t new_pgd;
++	pgd_t *pgdp = &kvm->arch.pgd[pgd_index(addr)];
++
++	if (!pgd_val(*pgdp)) {
++		pmdp = stage2_cache_alloc(pcache);
++		if (!pmdp)
++			return -ENOMEM;
++		new_pgd = pfn_pgd(PFN_DOWN(__pa(pmdp)), __pgprot(_PAGE_TABLE));
++		rc = stage2_set_pgd(kvm, addr, &new_pgd);
++		if (rc)
++			return rc;
++	}
++
++	if (pgd_val(*pgdp) & _PAGE_LEAF)
++		return -EEXIST;
++
++	if (stage2_have_pmd) {
++		pmdp = (void *)pgd_page_vaddr(*pgdp);
++		pmdp = &pmdp[pmd_index(addr)];
++		if (!pmd_present(*pmdp)) {
++			ptep = stage2_cache_alloc(pcache);
++			if (!ptep)
++				return -ENOMEM;
++			new_pmd = pfn_pmd(PFN_DOWN(__pa(ptep)),
++					  __pgprot(_PAGE_TABLE));
++			rc = stage2_set_pmd(kvm, pcache, addr, &new_pmd);
++			if (rc)
++				return rc;
++		}
++
++		if (pmd_val(*pmdp) & _PAGE_LEAF)
++			return -EEXIST;
++
++		ptep = (void *)pmd_page_vaddr(*pmdp);
++	} else {
++		ptep = (void *)pgd_page_vaddr(*pgdp);
++	}
++
++	ptep = &ptep[pte_index(addr)];
++
++	*ptep = *new_pte;
++	if (pte_val(*ptep) & _PAGE_LEAF)
++		stage2_remote_tlb_flush(kvm, addr);
++
++	return 0;
++}
++
++static int stage2_map_page(struct kvm *kvm,
++			   struct kvm_mmu_page_cache *pcache,
++			   gpa_t gpa, phys_addr_t hpa,
++			   unsigned long page_size, pgprot_t prot)
++{
++	pte_t new_pte;
++	pmd_t new_pmd;
++	pgd_t new_pgd;
++
++	if (page_size == PAGE_SIZE) {
++		new_pte = pfn_pte(PFN_DOWN(hpa), prot);
++		return stage2_set_pte(kvm, pcache, gpa, &new_pte);
++	}
++
++	if (stage2_have_pmd && page_size == PMD_SIZE) {
++		new_pmd = pfn_pmd(PFN_DOWN(hpa), prot);
++		return stage2_set_pmd(kvm, pcache, gpa, &new_pmd);
++	}
++
++	if (page_size == PGDIR_SIZE) {
++		new_pgd = pfn_pgd(PFN_DOWN(hpa), prot);
++		return stage2_set_pgd(kvm, gpa, &new_pgd);
++	}
++
++	return -EINVAL;
++}
++
++enum stage2_op {
++	STAGE2_OP_NOP = 0,	/* Nothing */
++	STAGE2_OP_CLEAR,	/* Clear/Unmap */
++	STAGE2_OP_WP,		/* Write-protect */
++};
++
++static void stage2_op_pte(struct kvm *kvm, gpa_t addr, pte_t *ptep,
++			  enum stage2_op op)
++{
++	BUG_ON(addr & (PAGE_SIZE - 1));
++
++	if (!pte_present(*ptep))
++		return;
++
++	if (op == STAGE2_OP_CLEAR)
++		set_pte(ptep, __pte(0));
++	else if (op == STAGE2_OP_WP)
++		set_pte(ptep, __pte(pte_val(*ptep) & ~_PAGE_WRITE));
++	stage2_remote_tlb_flush(kvm, addr);
++}
++
++static void stage2_op_pmd(struct kvm *kvm, gpa_t addr, pmd_t *pmdp,
++			  enum stage2_op op)
++{
++	int i;
++	pte_t *ptep;
++
++	BUG_ON(addr & (PMD_SIZE - 1));
++
++	if (!pmd_present(*pmdp))
++		return;
++
++	if (pmd_val(*pmdp) & _PAGE_LEAF)
++		ptep = NULL;
++	else
++		ptep = (pte_t *)pmd_page_vaddr(*pmdp);
++
++	if (op == STAGE2_OP_CLEAR)
++		set_pmd(pmdp, __pmd(0));
++
++	if (ptep) {
++		for (i = 0; i < PTRS_PER_PTE; i++)
++			stage2_op_pte(kvm, addr + i * PAGE_SIZE, &ptep[i], op);
++		if (op == STAGE2_OP_CLEAR)
++			put_page(virt_to_page(ptep));
++	} else {
++		if (op == STAGE2_OP_WP)
++			set_pmd(pmdp, __pmd(pmd_val(*pmdp) & ~_PAGE_WRITE));
++		stage2_remote_tlb_flush(kvm, addr);
++	}
++}
++
++static void stage2_op_pgd(struct kvm *kvm, gpa_t addr, pgd_t *pgdp,
++			  enum stage2_op op)
++{
++	int i;
++	pte_t *ptep;
++	pmd_t *pmdp;
++
++	BUG_ON(addr & (PGDIR_SIZE - 1));
++
++	if (!pgd_val(*pgdp))
++		return;
++
++	ptep = NULL;
++	pmdp = NULL;
++	if (!(pgd_val(*pgdp) & _PAGE_LEAF)) {
++		if (stage2_have_pmd)
++			pmdp = (pmd_t *)pgd_page_vaddr(*pgdp);
++		else
++			ptep = (pte_t *)pgd_page_vaddr(*pgdp);
++	}
++
++	if (op == STAGE2_OP_CLEAR)
++		set_pgd(pgdp, __pgd(0));
++
++	if (pmdp) {
++		for (i = 0; i < PTRS_PER_PMD; i++)
++			stage2_op_pmd(kvm, addr + i * PMD_SIZE, &pmdp[i], op);
++		if (op == STAGE2_OP_CLEAR)
++			put_page(virt_to_page(pmdp));
++	} else if (ptep) {
++		for (i = 0; i < PTRS_PER_PTE; i++)
++			stage2_op_pte(kvm, addr + i * PAGE_SIZE, &ptep[i], op);
++		if (op == STAGE2_OP_CLEAR)
++			put_page(virt_to_page(ptep));
++	} else {
++		if (op == STAGE2_OP_WP)
++			set_pgd(pgdp, __pgd(pgd_val(*pgdp) & ~_PAGE_WRITE));
++		stage2_remote_tlb_flush(kvm, addr);
++	}
++}
++
++static void stage2_unmap_range(struct kvm *kvm, gpa_t start, gpa_t size)
++{
++	pmd_t *pmdp;
++	pte_t *ptep;
++	pgd_t *pgdp;
++	gpa_t addr = start, end = start + size;
++
++	while (addr < end) {
++		pgdp = &kvm->arch.pgd[pgd_index(addr)];
++		if (!pgd_val(*pgdp)) {
++			addr += PGDIR_SIZE;
++			continue;
++		} else if (!(addr & (PGDIR_SIZE - 1)) &&
++			  ((end - addr) >= PGDIR_SIZE)) {
++			stage2_op_pgd(kvm, addr, pgdp, STAGE2_OP_CLEAR);
++			addr += PGDIR_SIZE;
++			continue;
++		}
++
++		if (stage2_have_pmd) {
++			pmdp = (pmd_t *)pgd_page_vaddr(*pgdp);
++			if (!pmd_present(*pmdp)) {
++				addr += PMD_SIZE;
++				continue;
++			} else if (!(addr & (PMD_SIZE - 1)) &&
++				   ((end - addr) >= PMD_SIZE)) {
++				stage2_op_pmd(kvm, addr, pmdp,
++					      STAGE2_OP_CLEAR);
++				addr += PMD_SIZE;
++				continue;
++			}
++			ptep = (pte_t *)pmd_page_vaddr(*pmdp);
++		} else {
++			ptep = (pte_t *)pgd_page_vaddr(*pgdp);
++		}
++
++		stage2_op_pte(kvm, addr, ptep, STAGE2_OP_CLEAR);
++		addr += PAGE_SIZE;
++	}
++}
++
++static void stage2_wp_range(struct kvm *kvm, gpa_t start, gpa_t end)
++{
++	pmd_t *pmdp;
++	pte_t *ptep;
++	pgd_t *pgdp;
++	gpa_t addr = start;
++
++	while (addr < end) {
++		pgdp = &kvm->arch.pgd[pgd_index(addr)];
++		if (!pgd_val(*pgdp)) {
++			addr += PGDIR_SIZE;
++			continue;
++		} else if (!(addr & (PGDIR_SIZE - 1)) &&
++			   ((end - addr) >= PGDIR_SIZE)) {
++			stage2_op_pgd(kvm, addr, pgdp, STAGE2_OP_WP);
++			addr += PGDIR_SIZE;
++			continue;
++		}
++
++		if (stage2_have_pmd) {
++			pmdp = (pmd_t *)pgd_page_vaddr(*pgdp);
++			if (!pmd_present(*pmdp)) {
++				addr += PMD_SIZE;
++				continue;
++			} else if (!(addr & (PMD_SIZE - 1)) &&
++				   ((end - addr) >= PMD_SIZE)) {
++				stage2_op_pmd(kvm, addr, pmdp, STAGE2_OP_WP);
++				addr += PMD_SIZE;
++				continue;
++			}
++			ptep = (pte_t *)pmd_page_vaddr(*pmdp);
++		} else {
++			ptep = (pte_t *)pgd_page_vaddr(*pgdp);
++		}
++
++		stage2_op_pte(kvm, addr, ptep, STAGE2_OP_WP);
++		addr += PAGE_SIZE;
++	}
++}
++
++void stage2_wp_memory_region(struct kvm *kvm, int slot)
++{
++	struct kvm_memslots *slots = kvm_memslots(kvm);
++	struct kvm_memory_slot *memslot = id_to_memslot(slots, slot);
++	phys_addr_t start = memslot->base_gfn << PAGE_SHIFT;
++	phys_addr_t end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
++
++	spin_lock(&kvm->mmu_lock);
++	stage2_wp_range(kvm, start, end);
++	spin_unlock(&kvm->mmu_lock);
++	kvm_flush_remote_tlbs(kvm);
++}
++
++int stage2_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
++		   unsigned long size, bool writable)
++{
++	pte_t pte;
++	int ret = 0;
++	unsigned long pfn;
++	phys_addr_t addr, end;
++	struct kvm_mmu_page_cache pcache = { 0, };
++
++	end = (gpa + size + PAGE_SIZE - 1) & PAGE_MASK;
++	pfn = __phys_to_pfn(hpa);
++
++	for (addr = gpa; addr < end; addr += PAGE_SIZE) {
++		pte = pfn_pte(pfn, PAGE_KERNEL);
++
++		if (!writable)
++			pte = pte_wrprotect(pte);
++
++		ret = stage2_cache_topup(&pcache,
++					 stage2_cache_min_pages,
++					 KVM_MMU_PAGE_CACHE_NR_OBJS);
++		if (ret)
++			goto out;
++
++		spin_lock(&kvm->mmu_lock);
++		ret = stage2_set_pte(kvm, &pcache, addr, &pte);
++		spin_unlock(&kvm->mmu_lock);
++		if (ret)
++			goto out;
++
++		pfn++;
++	}
++
++out:
++	stage2_cache_flush(&pcache);
++	return ret;
++
++}
++
+ void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *free,
+ 			   struct kvm_memory_slot *dont)
  {
-@@ -438,6 +520,10 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	ret = -EFAULT;
- 	run->exit_reason = KVM_EXIT_UNKNOWN;
- 	switch (scause) {
-+	case EXC_INST_ILLEGAL:
-+		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV)
-+			ret = illegal_inst_fault(vcpu, run, stval);
-+		break;
- 	case EXC_INST_PAGE_FAULT:
- 	case EXC_LOAD_PAGE_FAULT:
- 	case EXC_STORE_PAGE_FAULT:
+@@ -35,7 +461,7 @@ void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen)
+ 
+ void kvm_arch_flush_shadow_all(struct kvm *kvm)
+ {
+-	/* TODO: */
++	kvm_riscv_stage2_free_pgd(kvm);
+ }
+ 
+ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
+@@ -49,7 +475,13 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+ 				const struct kvm_memory_slot *new,
+ 				enum kvm_mr_change change)
+ {
+-	/* TODO: */
++	/*
++	 * At this point memslot has been committed and there is an
++	 * allocated dirty_bitmap[], dirty pages will be be tracked while the
++	 * memory slot is write protected.
++	 */
++	if (change != KVM_MR_DELETE && mem->flags & KVM_MEM_LOG_DIRTY_PAGES)
++		stage2_wp_memory_region(kvm, mem->slot);
+ }
+ 
+ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+@@ -57,34 +489,218 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ 				const struct kvm_userspace_memory_region *mem,
+ 				enum kvm_mr_change change)
+ {
+-	/* TODO: */
+-	return 0;
++	hva_t hva = mem->userspace_addr;
++	hva_t reg_end = hva + mem->memory_size;
++	bool writable = !(mem->flags & KVM_MEM_READONLY);
++	int ret = 0;
++
++	if (change != KVM_MR_CREATE && change != KVM_MR_MOVE &&
++			change != KVM_MR_FLAGS_ONLY)
++		return 0;
++
++	/*
++	 * Prevent userspace from creating a memory region outside of the GPA
++	 * space addressable by the KVM guest GPA space.
++	 */
++	if ((memslot->base_gfn + memslot->npages) >=
++	    (stage2_gpa_size >> PAGE_SHIFT))
++		return -EFAULT;
++
++	down_read(&current->mm->mmap_sem);
++
++	/*
++	 * A memory region could potentially cover multiple VMAs, and
++	 * any holes between them, so iterate over all of them to find
++	 * out if we can map any of them right now.
++	 *
++	 *     +--------------------------------------------+
++	 * +---------------+----------------+   +----------------+
++	 * |   : VMA 1     |      VMA 2     |   |    VMA 3  :    |
++	 * +---------------+----------------+   +----------------+
++	 *     |               memory region                |
++	 *     +--------------------------------------------+
++	 */
++	do {
++		struct vm_area_struct *vma = find_vma(current->mm, hva);
++		hva_t vm_start, vm_end;
++
++		if (!vma || vma->vm_start >= reg_end)
++			break;
++
++		/*
++		 * Mapping a read-only VMA is only allowed if the
++		 * memory region is configured as read-only.
++		 */
++		if (writable && !(vma->vm_flags & VM_WRITE)) {
++			ret = -EPERM;
++			break;
++		}
++
++		/* Take the intersection of this VMA with the memory region */
++		vm_start = max(hva, vma->vm_start);
++		vm_end = min(reg_end, vma->vm_end);
++
++		if (vma->vm_flags & VM_PFNMAP) {
++			gpa_t gpa = mem->guest_phys_addr +
++				    (vm_start - mem->userspace_addr);
++			phys_addr_t pa;
++
++			pa = (phys_addr_t)vma->vm_pgoff << PAGE_SHIFT;
++			pa += vm_start - vma->vm_start;
++
++			/* IO region dirty page logging not allowed */
++			if (memslot->flags & KVM_MEM_LOG_DIRTY_PAGES) {
++				ret = -EINVAL;
++				goto out;
++			}
++
++			ret = stage2_ioremap(kvm, gpa, pa,
++					     vm_end - vm_start, writable);
++			if (ret)
++				break;
++		}
++		hva = vm_end;
++	} while (hva < reg_end);
++
++	if (change == KVM_MR_FLAGS_ONLY)
++		goto out;
++
++	spin_lock(&kvm->mmu_lock);
++	if (ret)
++		stage2_unmap_range(kvm, mem->guest_phys_addr,
++				   mem->memory_size);
++	spin_unlock(&kvm->mmu_lock);
++
++out:
++	up_read(&current->mm->mmap_sem);
++	return ret;
+ }
+ 
+ int kvm_riscv_stage2_map(struct kvm_vcpu *vcpu, gpa_t gpa, unsigned long hva,
+ 			 bool is_write)
+ {
+-	/* TODO: */
+-	return 0;
++	int ret;
++	short lsb;
++	kvm_pfn_t hfn;
++	bool writeable;
++	gfn_t gfn = gpa >> PAGE_SHIFT;
++	struct vm_area_struct *vma;
++	struct kvm *kvm = vcpu->kvm;
++	struct kvm_mmu_page_cache *pcache = &vcpu->arch.mmu_page_cache;
++	unsigned long vma_pagesize;
++
++	down_read(&current->mm->mmap_sem);
++
++	vma = find_vma_intersection(current->mm, hva, hva + 1);
++	if (unlikely(!vma)) {
++		kvm_err("Failed to find VMA for hva 0x%lx\n", hva);
++		up_read(&current->mm->mmap_sem);
++		return -EFAULT;
++	}
++
++	vma_pagesize = vma_kernel_pagesize(vma);
++
++	up_read(&current->mm->mmap_sem);
++
++	if (vma_pagesize != PGDIR_SIZE &&
++	    vma_pagesize != PMD_SIZE &&
++	    vma_pagesize != PAGE_SIZE) {
++		kvm_err("Invalid VMA page size 0x%lx\n", vma_pagesize);
++		return -EFAULT;
++	}
++
++	/* We need minimum second+third level pages */
++	ret = stage2_cache_topup(pcache, stage2_cache_min_pages,
++				 KVM_MMU_PAGE_CACHE_NR_OBJS);
++	if (ret) {
++		kvm_err("Failed to topup stage2 cache\n");
++		return ret;
++	}
++
++	hfn = gfn_to_pfn_prot(kvm, gfn, is_write, &writeable);
++	if (hfn == KVM_PFN_ERR_HWPOISON) {
++		if (is_vm_hugetlb_page(vma))
++			lsb = huge_page_shift(hstate_vma(vma));
++		else
++			lsb = PAGE_SHIFT;
++
++		send_sig_mceerr(BUS_MCEERR_AR, (void __user *)hva,
++				lsb, current);
++		return 0;
++	}
++	if (is_error_noslot_pfn(hfn))
++		return -EFAULT;
++	if (!writeable && is_write)
++		return -EPERM;
++
++	spin_lock(&kvm->mmu_lock);
++
++	if (writeable) {
++		kvm_set_pfn_dirty(hfn);
++		ret = stage2_map_page(kvm, pcache, gpa, hfn << PAGE_SHIFT,
++				      vma_pagesize, PAGE_WRITE_EXEC);
++	} else {
++		ret = stage2_map_page(kvm, pcache, gpa, hfn << PAGE_SHIFT,
++				      vma_pagesize, PAGE_READ_EXEC);
++	}
++
++	if (ret)
++		kvm_err("Failed to map in stage2\n");
++
++	spin_unlock(&kvm->mmu_lock);
++	kvm_set_pfn_accessed(hfn);
++	kvm_release_pfn_clean(hfn);
++	return ret;
+ }
+ 
+ void kvm_riscv_stage2_flush_cache(struct kvm_vcpu *vcpu)
+ {
+-	/* TODO: */
++	stage2_cache_flush(&vcpu->arch.mmu_page_cache);
+ }
+ 
+ int kvm_riscv_stage2_alloc_pgd(struct kvm *kvm)
+ {
+-	/* TODO: */
++	if (kvm->arch.pgd != NULL) {
++		kvm_err("kvm_arch already initialized?\n");
++		return -EINVAL;
++	}
++
++	kvm->arch.pgd = alloc_pages_exact(PAGE_SIZE, GFP_KERNEL | __GFP_ZERO);
++	if (!kvm->arch.pgd)
++		return -ENOMEM;
++	kvm->arch.pgd_phys = virt_to_phys(kvm->arch.pgd);
++
+ 	return 0;
+ }
+ 
+ void kvm_riscv_stage2_free_pgd(struct kvm *kvm)
+ {
+-	/* TODO: */
++	void *pgd = NULL;
++
++	spin_lock(&kvm->mmu_lock);
++	if (kvm->arch.pgd) {
++		stage2_unmap_range(kvm, 0UL, stage2_gpa_size);
++		pgd = READ_ONCE(kvm->arch.pgd);
++		kvm->arch.pgd = NULL;
++		kvm->arch.pgd_phys = 0;
++	}
++	spin_unlock(&kvm->mmu_lock);
++
++	/* Free the HW pgd, one page at a time */
++	if (pgd)
++		free_pages_exact(pgd, PAGE_SIZE);
+ }
+ 
+ void kvm_riscv_stage2_update_pgtbl(struct kvm_vcpu *vcpu)
+ {
+-	/* TODO: */
++	unsigned long hgatp = HGATP_MODE;
++	struct kvm_arch *k = &vcpu->kvm->arch;
++
++	hgatp |= (k->vmid.vmid << HGATP_VMID_SHIFT) & HGATP_VMID_MASK;
++	hgatp |= (k->pgd_phys >> PAGE_SHIFT) & HGATP_PPN;
++
++	csr_write(CSR_HGATP, hgatp);
++
++	if (!kvm_riscv_stage2_vmid_bits())
++		__kvm_riscv_hfence_gvma_all();
+ }
 -- 
 2.17.1
 
