@@ -4,19 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CC6E0C433FF
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2019 05:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D89FC0650F
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2019 05:55:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9F8242087F
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2019 05:54:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D240A2087F
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 30 Jul 2019 05:55:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ryOJf+nu"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9F8242087F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fVltQVsK"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D240A2087F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,36 +25,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XvBMyaivihLFeazOtLmmxHwYD9XJ+DB5mcv5IAEUGeQ=; b=ryOJf+nu1f/kxu
-	Gl6eOBnzIr9GD2qo1014MTMYoRyID+2fphROLVmYB4IihksQrYhGt/4yxWo/SPLst084CRtZmKQ1x
-	Whz79F81fcknC/C4N7aZ0AA2j1v2yTHBLSOCMv6YXot0vCq2ha8ImQA+VzY2paPJ/kaYweYEFxjWq
-	AKtJPF82NMnS54N9zPLYDqQiiPVgVkbCXDK/IobKOxm3arPIk29/o9zm7dU7IoKKcN5gFq8Z0daGT
-	GgcT1Eo9x3sr8LiXC8l6MFbanNwkS8lYwv5rx+xwR2PyzsfofvRKZ6Sf4ND9W5boLm7fjyeFCrTR6
-	rhAPHcofGtQrn2Han6kw==;
+	List-Owner; bh=iva9MGYeiRw7+1qZ12lBxcAQTJwP/Lbuk/MzTg+lNhI=; b=fVltQVsKS9IVi4
+	l7Do1a3SfM//GhTudQ1d6a2lsEl1+dedsdYUx/FkD063hMpoN/Ml6hrV7qj+Xg2x/w1u+X6jMBOBV
+	D3e2eJvg3hn/obhLaQTPshSFQoOHEs79CcX+coA7QlXOSuHJalMfYofH0O8XzsqsXPvZup+42WOyr
+	0Kb4W+zql4x23XrLaPqTPWLU6FuZaAbSxuYFNUSCEU7q7WT7iOVcA8sGgRetJHxYX1bbpqCLk78TA
+	EFYsW5RoYSbA52ODDFWil/eKf2sh8ms+4VuIxKCpPewVCcUlZ6DMtp7Llfvjjj4sb2Sh9XN4Xfpzv
+	RCRvuA96+r5EuWixeZRw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hsL5J-0001wy-B1; Tue, 30 Jul 2019 05:54:05 +0000
+	id 1hsL6K-0003ID-91; Tue, 30 Jul 2019 05:55:08 +0000
 Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hsL52-0001kS-FG; Tue, 30 Jul 2019 05:53:50 +0000
+ id 1hsL60-0002Ol-NN; Tue, 30 Jul 2019 05:54:50 +0000
 X-Originating-IP: 79.86.19.127
 Received: from alex.numericable.fr (127.19.86.79.rev.sfr.net [79.86.19.127])
  (Authenticated sender: alex@ghiti.fr)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 8A9D220002;
- Tue, 30 Jul 2019 05:53:36 +0000 (UTC)
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id A580220003;
+ Tue, 30 Jul 2019 05:54:42 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v5 02/14] arm64: Make use of is_compat_task instead of
- hardcoding this test
-Date: Tue, 30 Jul 2019 01:51:01 -0400
-Message-Id: <20190730055113.23635-3-alex@ghiti.fr>
+Subject: [PATCH v5 03/14] arm64: Consider stack randomization for mmap base
+ only when necessary
+Date: Tue, 30 Jul 2019 01:51:02 -0400
+Message-Id: <20190730055113.23635-4-alex@ghiti.fr>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190730055113.23635-1-alex@ghiti.fr>
 References: <20190730055113.23635-1-alex@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190729_225348_663184_94C95CC2 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20190729_225448_911181_C2875521 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,9 +81,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Each architecture has its own way to determine if a task is a compat task,
-by using is_compat_task in arch_mmap_rnd, it allows more genericity and
-then it prepares its moving to mm/.
+Do not offset mmap base address because of stack randomization if
+current task does not want randomization.
+Note that x86 already implements this behaviour.
 
 Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 Acked-by: Catalin Marinas <catalin.marinas@arm.com>
@@ -91,22 +91,26 @@ Acked-by: Kees Cook <keescook@chromium.org>
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 Reviewed-by: Luis Chamberlain <mcgrof@kernel.org>
 ---
- arch/arm64/mm/mmap.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/mm/mmap.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
-index b050641b5139..bb0140afed66 100644
+index bb0140afed66..e4acaead67de 100644
 --- a/arch/arm64/mm/mmap.c
 +++ b/arch/arm64/mm/mmap.c
-@@ -43,7 +43,7 @@ unsigned long arch_mmap_rnd(void)
- 	unsigned long rnd;
+@@ -54,7 +54,11 @@ unsigned long arch_mmap_rnd(void)
+ static unsigned long mmap_base(unsigned long rnd, struct rlimit *rlim_stack)
+ {
+ 	unsigned long gap = rlim_stack->rlim_cur;
+-	unsigned long pad = (STACK_RND_MASK << PAGE_SHIFT) + stack_guard_gap;
++	unsigned long pad = stack_guard_gap;
++
++	/* Account for stack randomization if necessary */
++	if (current->flags & PF_RANDOMIZE)
++		pad += (STACK_RND_MASK << PAGE_SHIFT);
  
- #ifdef CONFIG_COMPAT
--	if (test_thread_flag(TIF_32BIT))
-+	if (is_compat_task())
- 		rnd = get_random_long() & ((1UL << mmap_rnd_compat_bits) - 1);
- 	else
- #endif
+ 	/* Values close to RLIM_INFINITY can overflow. */
+ 	if (gap + pad > gap)
 -- 
 2.20.1
 
