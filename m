@@ -6,58 +6,87 @@ X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 248B4C32751
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 10:19:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 55018C32751
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 12:57:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ECA5120651
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 10:19:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 29283206B8
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 12:57:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="T1vooW0s"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ECA5120651
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lJ2KARrV";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="PZgGYI16"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 29283206B8
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OH9NOmpSDv8TPRgVLtFMv09iYCxPPt3sHWH41XGzoWs=; b=T1vooW0skkBXyd
-	5sVnmWbINodlcGGFxdZRK6OVGqG5C0cPa6HnU+79Mm0u9cKsevmJrcuITzF1IZHeJTePFaLtiSSAH
-	Pi9HflFIsBxolIfIiKO71omNdAyWwqJ6YlGJO1jlKsPQUAETX5LQUnyB84A1GLmrg2Rs+Z5kPM9FS
-	CIr5Sh9MG8eiF4H/Tm6a2LtQjK2pnuc+mcg64qLW/3ZfIo2DuSapM8s3GLHvckuhlIN03UI80WQpq
-	HszU7Z09shdhkR5JhuuzVitaJJgSOvGx2GxRWTYVvYQAOmm9uMKJmw9g22Eyn4E1EUzy1Jg6NrxZS
-	Zdo51TFDXNUvl6ygpp0w==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MWMEFhDnMAATlulk7961LPqeqFE4674U+b1Xy57cC2g=; b=lJ2KARrVB1aQPk
+	5rskYqYBXsjjDwEbzEh/qb8/QWmrS4gVREaznxpou4f1QHH2BxE+BUg90Mic5mx3iHLfA7f3upIkW
+	uo87yNCpL8pKEtB/3iZQexJVsulT+lf3oGjWea2ck45q2aYyXf1PNOpdn8bvU1dYwjP/uSEpBkGHr
+	RMh4rStHJl42rIYNOAfrNGXgMKbB3IAWvhgIfHumQ+7qppSt+vA29YXutoA11keoIW3PNssWEyp7b
+	6gIPZpQFGO9Z9fIhpvo6X3ZZNXXfwJe8UbtELTQAPo33Ia5MTlbW+1jRFHVj416bboFr554nVJKW/
+	JDbUunKV2YqmRc7txaLw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hslhz-0007da-PB; Wed, 31 Jul 2019 10:19:47 +0000
-Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+	id 1hsoAw-0007gU-72; Wed, 31 Jul 2019 12:57:50 +0000
+Received: from mail-qt1-x843.google.com ([2607:f8b0:4864:20::843])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hslhx-0007d7-3g
- for linux-riscv@lists.infradead.org; Wed, 31 Jul 2019 10:19:47 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 5D515AE6D;
- Wed, 31 Jul 2019 10:19:41 +0000 (UTC)
-From: Andreas Schwab <schwab@suse.de>
-To: Paul Walmsley <paul.walmsley@sifive.com>
+ id 1hsoAt-0007b8-3k
+ for linux-riscv@lists.infradead.org; Wed, 31 Jul 2019 12:57:48 +0000
+Received: by mail-qt1-x843.google.com with SMTP id k10so66478190qtq.1
+ for <linux-riscv@lists.infradead.org>; Wed, 31 Jul 2019 05:57:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=YgnLAKLufivOrqZFxbDlu0ei8AOp1tT3NDUMKHzOeXk=;
+ b=PZgGYI162CwLbs8uLOygXLbz2ZTqtzLwSFHlCqt7zvrY6R8SJFkLS6Uj/wl3hG+Fgz
+ tGTommPP/idfsyT5kVdoweK+eiedU2rUTbr8jltc9wS5ZPpa+xhd641apVYkv5GlExh/
+ Fhtp70a04k9dPZD2+vMkD0PcKNv8d+lR2CRw0Ptd1OShBi1f9xgqX33leOWN3ZcDWW4o
+ 9Ins7KsYlrPoJe2gIJrdW+yKGtDIndjoglGFbqM/ZbdQQwsNRYPy2XSSb48ASs1sKdGl
+ Hly3d0IfwXd45hoKYf8B3kjq9n/YqA5RJPzu8XRGjf+3LB5o+QtE5tUyu9o5z7EBinSx
+ sLCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=YgnLAKLufivOrqZFxbDlu0ei8AOp1tT3NDUMKHzOeXk=;
+ b=r5e9ndR9RygB3WGXPcVhnw/wkWP5cFPbJCFakjLs9nRWqwAYby7VGzh/0tzcb0cIHm
+ hKdVChfT33L6dpG3Go6VTH7mf17I4lG1Jxpqlv84WMYLq1Bi3RpctLQjlENVfap4w/0e
+ cf2GY6ibrSbCKeFat1Djw3yzeb8fRkgjBicTfYE+OdFlH1noGHZx4cQdQbdoCp7NZgLb
+ /+qcELIix+M9CMYh+Wz1bXUjxGuX3rQ2zTk+dYcq2wlR07GmDu5BV5aLVbWldwrQz8St
+ l2HDMV6Afet0WD97A38TiXQngbG/NxPrkh1XRpibYObvJqd3bWX958mKzA1+8Ywqd1oG
+ Mp/w==
+X-Gm-Message-State: APjAAAWCk2gfsBIGlRAcgT80psaXnbT5qa52TCucGY288Pzk9nStGHt2
+ Cz3qlkb/y5IZ7eU31ucMQXq6Mw==
+X-Google-Smtp-Source: APXvYqxyYMGbM0LSzEk8fB5Lyco7uM+LTYS7HjWIIr3xZ830bNc14kgRNrwTX5jRIWwBDa2xilfDXw==
+X-Received: by 2002:a05:6214:601:: with SMTP id
+ z1mr70558383qvw.197.1564577865475; 
+ Wed, 31 Jul 2019 05:57:45 -0700 (PDT)
+Received: from [192.168.62.194] (71-34-183-103.desm.qwest.net. [71.34.183.103])
+ by smtp.gmail.com with ESMTPSA id v75sm32497256qka.38.2019.07.31.05.57.42
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 31 Jul 2019 05:57:44 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.1\))
 Subject: Re: Random memory corruption with v5.2
+From: Troy Benjegerdes <troy.benjegerdes@sifive.com>
+In-Reply-To: <mvmftmm8q10.fsf@suse.de>
+Date: Wed, 31 Jul 2019 07:57:37 -0500
+Message-Id: <4E88AE22-DBAC-4EA2-AA42-CA5EA7ACB233@sifive.com>
 References: <mvm8sshcdwc.fsf@suse.de>
  <CAEn-LTpM-0TMxkNNh6nnLH9Bnr9Zm+VFLf=z1y9sER6RXrQooQ@mail.gmail.com>
  <mvm1ry8au3f.fsf@suse.de>
  <alpine.DEB.2.21.9999.1907301709510.4874@viisi.sifive.com>
-X-Yow: HERE!!  Put THIS on!!  I'm in CHARGE!!
-Date: Wed, 31 Jul 2019 12:19:39 +0200
-In-Reply-To: <alpine.DEB.2.21.9999.1907301709510.4874@viisi.sifive.com> (Paul
- Walmsley's message of "Tue, 30 Jul 2019 17:22:01 -0700 (PDT)")
-Message-ID: <mvmftmm8q10.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.2.90 (gnu/linux)
-MIME-Version: 1.0
+ <mvmftmm8q10.fsf@suse.de>
+To: Andreas Schwab <schwab@suse.de>
+X-Mailer: Apple Mail (2.3445.9.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190731_031945_300220_7708A10F 
-X-CRM114-Status: UNSURE (   6.49  )
+X-CRM114-CacheID: sfid-20190731_055747_204375_E0AC3CA9 
+X-CRM114-Status: UNSURE (   7.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -71,26 +100,29 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: linux-riscv@lists.infradead.org,
- David Abdurachmanov <david.abdurachmanov@gmail.com>
+ David Abdurachmanov <david.abdurachmanov@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Jul 30 2019, Paul Walmsley <paul.walmsley@sifive.com> wrote:
 
-> - Commit bf587caae305ae3b4393077fb22c98478ee55755 ("riscv: mm: synchronize 
-> MMU after pte change") 
 
-When I revert that commit, I'm getting soft lockups.  Doesn't that point
-to some deeper issue with TLB flushes?
+> On Jul 31, 2019, at 5:19 AM, Andreas Schwab <schwab@suse.de> wrote:
+> 
+> On Jul 30 2019, Paul Walmsley <paul.walmsley@sifive.com> wrote:
+> 
+>> - Commit bf587caae305ae3b4393077fb22c98478ee55755 ("riscv: mm: synchronize 
+>> MMU after pte change") 
+> 
+> When I revert that commit, I'm getting soft lockups.  Doesn't that point
+> to some deeper issue with TLB flushes?
+> 
+> Andreas.
 
-Andreas.
+What are you using for filesystem/storage? Is it the SDcard, network, or something else?
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
