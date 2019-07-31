@@ -2,144 +2,92 @@ Return-Path: <SRS0=UPnX=V4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AD880C433FF
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 00:35:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DD138C433FF
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 01:24:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7E7FE20665
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 00:35:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B010F214DA
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 01:24:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BWb1ZcUV";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ZSAu0UJ0";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="yHkwNk5E"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7E7FE20665
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bP31HFLI";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ktC8lVft"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B010F214DA
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8AKWrf8uLsZtiRY6zvM0Mmn4gHnKcAUyfZdSpR00AHw=; b=BWb1ZcUVGX53ot
-	p4Oy6DVbVQSu/4s/0/pQ/RXagDftRfidTXJAJIOk+JVS55rSSpbMy7Fhiqa9dIosvy3KHjOEYonCy
-	4a7JbBg4XYlAiYtOIjo2ANJSJX8NUzbH9NSJ8NZfTYS1RiK132HNtypiP3BxZrNQboMlpmnjCHw1D
-	sZLa9RNQ0ZSd7hHtcV5IlHOuEPInxt1Mkc9fa6gNudQVHm+y5+vNM0X5yYQWrjjTHMDGdHZMNG3wa
-	oecjApLvd6BdhOYktbK5N6Z7tQ0HGdX+3SmhYF7l9bpj7jCbc/sJXCRqtpfguFFKAY6+JQxMElCa8
-	ixWqEXD17jXMUvknAjXA==;
+	List-Owner; bh=JMvG5lmQHuwSwKUghxekG0NTEA2YZUcmJ73RUWwdfv4=; b=bP31HFLInz+r2H
+	0MhKwNNJwNhZFiaZPi3jmLnB+h3duhJCjwBnkaKBl9C/fWbim1PyN2PL7hl8AD0KmAJoW+C5wITap
+	GCB+RGpLBy6K9ktd53zxkhdZjBdBcPxiLz2mK20dYuHNpo12SONJEdwqzE+AMSSgCBgVQVm5tmu4a
+	XCOXOqFAJCEbmiKmABAMPMKOxgdHf1AUPhRRzLB9Z2tPLC95gJyI7ex5/oeqb5ziKL0JjOQHBwpM3
+	vdEsYR4/k/mh6B686Ygq65SVkT5CvY0gd+ghRuO8ovSAY7njdrSolf2cgEYHQAUX1GwVDFiqwzZQ5
+	I+TsEE9sTqL9XREhGkHQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hscaB-00029t-TF; Wed, 31 Jul 2019 00:35:07 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1hsdMF-0007rJ-Tm; Wed, 31 Jul 2019 01:24:47 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hsca6-0001Bz-KL
- for linux-riscv@lists.infradead.org; Wed, 31 Jul 2019 00:35:06 +0000
+ id 1hsdMB-0007mr-Qc
+ for linux-riscv@lists.infradead.org; Wed, 31 Jul 2019 01:24:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1564533324; x=1596069324;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=3MetdInZ0WXq/vRjEpP92VtQ0JemjZ9FQvZQE9X5sgo=;
- b=ZSAu0UJ0Ah6h5E2QhTcMnkpqAH/9sJJFcDmdBnLVhzy/T3j+W8W+XoE6
- 1uYuw0BVuuMWtV8al1lVGGJ0Jmb7LfXfnqzjA1rsMe+j/IeehyjfrcC+G
- kqgS7C0Nx2mtOUMRmhzgAoGGdOxug9XQF028FTsTlF0hWxqT+uyGfVA5u
- XBbY4bQeArk2Td9T1HOBzv3J3i1BuaiNiCJy07CMbK9DD00TMeHZm4ixN
- 9Er6fcOYuls2y/QBcN5NNh4qVTpZ2qWcTgLZJulmJhv0SAOET80voxN0R
- RBAKVAFBm9qEyU+Q6Ud3N5zYb69yDFxjWeIm2n0osHUUGyEYe9hgjo6R1 g==;
-IronPort-SDR: YZgUTS6vAL0wyZVefZ8Or1Sz6iDj3dFlcTRLWmF9JNUqY3RFKLAeGOYe5u+f/P0kM0BML9SkZz
- ddZevAL5iCb6FyynZZTiJFnvcyXgrKs2GXOm8d3OqhFZEG+jvTXWxcynJC5GNDg/JBYhvofWpF
- z4wVIVJUm0DI+JDxWIPokTGU6qGQgt6nI91+dzn0+PuvcGiOR5uii/KqfyJR76ZYJD4QqUV3zo
- giKUFMoZlnTc3cn00x0ktaXU+Cc9fXWPVikcp5eD7Sb2ISK1nIlgdFaa96iCEwQ1oc5QkQ/qCG
- slw=
-X-IronPort-AV: E=Sophos;i="5.64,327,1559491200"; d="scan'208";a="214726862"
-Received: from mail-by2nam05lp2058.outbound.protection.outlook.com (HELO
- NAM05-BY2-obe.outbound.protection.outlook.com) ([104.47.50.58])
- by ob1.hgst.iphmx.com with ESMTP; 31 Jul 2019 08:35:18 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=MDRwvNTGdIKklZ1Rk8sS4i4UKaibbGlSyJOM5qQDrf3ZydmVPJOQpGqNS4MpXTpUGlu8DB+Lfbbze088yybLTm5516q4zW5Lj/XO+rMucVbjM+r8AGxXVNeyK5slE4mQzV093+Q2g5y2pVlZglKWM5ZiFMMeqFnV8C75NaPfH2UHvUNyNNSkrGVo9mieaup5xTynAdKLkM8ZjblI/555j68RakCvxWfJyvF2Y7ULgpC+q6+0oe2ZAaifGjIySYuoaGnLrNFs+yN5b8M+cibB2msGdK1DgKMpjYyazLEPwkLVgqFqZ17FOcy2WbFRIZAJ+HGXipQJMrznNEX/BDbELw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3MetdInZ0WXq/vRjEpP92VtQ0JemjZ9FQvZQE9X5sgo=;
- b=kc1qmMU2fXg/Q67AVbxxDo3PNKb66U+EFxdvHbEvXpKnGYkilGpnYu0bHIo9zG1gL3PkZo2GOZ3c2MfMFmalnMoZg3CC9a135tM9N9hX3X59aJKmYS/uxZ2HmOR16HyObqc2hB/v+8pA/58g/tYvlSuDj8aXR/IDWgj4EziyjZDP+SFjjOwXZeGvsgw6vRBcOG5st3a+MNnl4l2BB5X7PTHb7d16+32+sFrptxy6sDOvnPu+pMTrWVbd0AsFDKpQfhdhvr3gmwcDiM89/2HXS/iuEfbieVz7uYzn963x/S/yT19wZBgbUNcQa08S2PaESVeH0hvvb5Yrja8qwY4oGg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1;spf=pass
- smtp.mailfrom=wdc.com;dmarc=pass action=none header.from=wdc.com;dkim=pass
- header.d=wdc.com;arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3MetdInZ0WXq/vRjEpP92VtQ0JemjZ9FQvZQE9X5sgo=;
- b=yHkwNk5E927zVeSbQl4J4gwxmnNsQCyprBXdcgCp4YPQ+xHkpE6g5kpGcbAOZhGoxBoekYY9X8N11qQBgZGhUISDObLDm6f+LVGY/oP6ln9YxSWo0wXYK2BkT6uXoMFhd9i72VV/fr/P5SJeYy12F5+bPtyfJo0qHPUGbR9NDFk=
-Received: from BYAPR04MB3782.namprd04.prod.outlook.com (52.135.214.142) by
- BYAPR04MB6231.namprd04.prod.outlook.com (20.178.235.89) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2115.15; Wed, 31 Jul 2019 00:34:57 +0000
-Received: from BYAPR04MB3782.namprd04.prod.outlook.com
- ([fe80::ac9a:967e:70a5:e926]) by BYAPR04MB3782.namprd04.prod.outlook.com
- ([fe80::ac9a:967e:70a5:e926%7]) with mapi id 15.20.2115.005; Wed, 31 Jul 2019
- 00:34:57 +0000
-From: Atish Patra <Atish.Patra@wdc.com>
-To: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>
-Subject: Re: [PATCH 3/4] RISC-V: Support case insensitive ISA string parsing.
-Thread-Topic: [PATCH 3/4] RISC-V: Support case insensitive ISA string parsing.
-Thread-Index: AQHVQ+refROWkRWGQ0GJqrWaHX74e6bdXtyAgAAaDYCAABM8AIAAMKIAgABcAYCAAAOGAIAAAveAgAPQpgCAAfB4AIAAB1QA
-Date: Wed, 31 Jul 2019 00:34:57 +0000
-Message-ID: <021f5c82273d643b28567a3dd05254492d53bf5c.camel@wdc.com>
-References: <20190726194638.8068-1-atish.patra@wdc.com>
- <20190726194638.8068-3-atish.patra@wdc.com>
- <alpine.DEB.2.21.9999.1907261346560.26670@viisi.sifive.com>
- <a8a6be2c-2dcb-fe58-2c32-e3baa357819c@wdc.com>
- <alpine.DEB.2.21.9999.1907261625220.26670@viisi.sifive.com>
- <MN2PR04MB6061790AFE4E0AAA838678028DC30@MN2PR04MB6061.namprd04.prod.outlook.com>
- <alpine.DEB.2.21.9999.1907270043190.26998@viisi.sifive.com>
- <CAAhSdy0Eycc0ORSnh6LJeC_D_x9yLOkoc7OkPNuN6qOcZEGVWg@mail.gmail.com>
- <alpine.DEB.2.21.9999.1907270108420.26998@viisi.sifive.com>
- <8ed4d461ffe5ac41b475d22b38019578b29a8d09.camel@wdc.com>
- <alpine.DEB.2.21.9999.1907301611040.4874@viisi.sifive.com>
-In-Reply-To: <alpine.DEB.2.21.9999.1907301611040.4874@viisi.sifive.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Atish.Patra@wdc.com; 
-x-originating-ip: [199.255.44.250]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 3cc3651f-0f8c-48ef-5a9a-08d7154eea22
-x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(4618075)(2017052603328)(7193020);
- SRVR:BYAPR04MB6231; 
-x-ms-traffictypediagnostic: BYAPR04MB6231:
-x-microsoft-antispam-prvs: <BYAPR04MB623179624F7EE3E5196F2015FADF0@BYAPR04MB6231.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
-x-forefront-prvs: 011579F31F
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(4636009)(136003)(366004)(376002)(346002)(39860400002)(396003)(189003)(199004)(66556008)(3846002)(6116002)(66946007)(4326008)(66476007)(64756008)(2906002)(6512007)(66446008)(66066001)(53936002)(229853002)(478600001)(118296001)(186003)(25786009)(76176011)(26005)(99286004)(36756003)(6506007)(7416002)(76116006)(102836004)(305945005)(14454004)(71200400001)(2501003)(256004)(7736002)(6436002)(68736007)(316002)(5640700003)(2351001)(14444005)(2616005)(11346002)(476003)(446003)(486006)(81156014)(6916009)(5660300002)(8936002)(81166006)(6246003)(54906003)(71190400001)(6486002)(8676002)(86362001);
- DIR:OUT; SFP:1102; SCL:1; SRVR:BYAPR04MB6231;
- H:BYAPR04MB3782.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: EnBq2rZO6+GleWZXjqYhY99pKSIRyh5iIcdxi+t64Qu8IxHXTYR3RBvn3zXUbVTm07DyIFG98TjB63KT7e3V2EHoXp1N/USDyTVDRztQq3QXfGmHoaBaCPz4NKi67zhvYPHqcSQyHw0CTYaHy+Wb2TL2nDvmJAjedQE1Qvh/5MXcZ2ukcSghRQQpxOpZlXAwTsHHLgNd2FG2pl1HWCxu/6BEiLhyxFuiDvs8OXyrYaBpGwaP87LwvCtQXHMl2Tm2TUq9EVEp03jYtHLpA087706IjYCyGuNzwung0ktsiBn2mF3mlZ59UX7+zOgTIGAUK0+WtW6bZ0PDy6np5+sXKHBNyYZxKXV/qctdXXQ9nQMxJ1wchs/o+3JBnQruqlrFC1DBrynG97Y3pFVTSsFlF5DOVpMFdgQ+65edXvTcJYo=
-Content-ID: <78F5DFFDA7A3B3408CE1699C068FB1F6@namprd04.prod.outlook.com>
+ t=1564536284; x=1596072284;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=Y6AGFaAE1PMVJZ6+rsgH3B7LWIELYj+tSokwx8q21Gg=;
+ b=ktC8lVftovL14pMO6BP5UdvcSQrXrTdI9dcNksj+YvBbibWvytZDBl8b
+ MrE9RKkkZ9e7zBlV6SVGLdmisVQQnZdwjvrAkfjeP/IedAxiwG78Z/KfO
+ 28jIK1FTM1QjqiWSUBiUKCid0/qK7kJS8xsoqYbB5w8QgMjNBDnfGjarr
+ wPWp/agU/MW0f9xUabGLVz7bn/AFq+bjQywp3a3mL9PP2u/VgeL60Xl04
+ E4OjbI/UlWOhepVfX+vekYIgwLH7t7m7MaNSunUSwAjsqbo5MSWdtFJBw
+ qJijLIfvomItM++JvfnbumHCmGdB0gZm1ZxRCO83Ukq19g9zQjpB9p/yZ w==;
+IronPort-SDR: ePI33lOutM/ivOUXj2jaS+YEcK6Iaa/pwAhUG8KAHK1Ar7uaaX6VeKuXjFW4rrHmIEY/ae2Q7v
+ CNDasg8YYlTiAPWRCZomuhAXYQof1sgo4w2wktUPXoofpYXNpksT1sjWeCjmgYMDtL+pkAm/FK
+ Lq2AHw7S7YCAb+9+9L1lF1mRw2s1Cdx/mbS/imYOq0z3bLWV5cBHxEF7DQwpzwP1Qx94Li1tdY
+ /Bitf8nqxi8O0c4g4eG4MLPJtk+vCIzltH4Cv8OZLdfOLxicVof7TtNn+crdyREpYmVMtlLhkz
+ ETE=
+X-IronPort-AV: E=Sophos;i="5.64,328,1559491200"; d="scan'208";a="119218128"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 31 Jul 2019 09:24:37 +0800
+IronPort-SDR: 56/TH+6ZU/A8/Q5wSdbeSVhvZfX/24LQ81vTgfDD0CPZi9Zzk6gIQRR4GO8aVcwDqTrkaPLKL5
+ Pfvw0JAZAYZxfzxrwW+FqdZA5VyvJJy9AN/9/vsdJTwy+vKnId55nGlow07WK2idR8cO+J8lfu
+ iHm01s7GtufltVRufd1rtuSxyTITsVgYWVhoxbS2P85P8i0Aw+ZMlAIZWUl9KsBcsR5MP4qpNs
+ Hr9t7rou6qsfeunWfgrhynEYrqunnHG5gMks67Y6Sn067bUHuymyfjtUAAUyYDHrNOfsFzDdt+
+ qMkKA5uTYrfE2ULqH1uzHXUp
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP; 30 Jul 2019 18:22:38 -0700
+IronPort-SDR: xNRp1O/Qr49vPg3S7RUEcytEJKT39eWC7sCIQ7RAoaIdl7XdAMDHcJjQWkNq/0hzCNZ5Pxx5Ya
+ +Dei7WHbONIUPCU3+tcv2mPcLWV/ImofiPdDOCzmrnJogrIKQ0AuLV7t53N5WAZCo6aDHVU8Xz
+ Z2j42T5y75hWW3MbvHeD2pQ5m2D/SDpGts+NhkqcGUM6cegK/g/YhRdf6ZggHyrEpZOTbEgNM0
+ fo21GU7bpdxwwJz0tJIG/0cQ5j/6tzgbsSr+O3lgGjo7HYeKTP0Ju8lxAzjmD7UiXHE2cFfO3F
+ MEg=
+Received: from jedi-01.sdcorp.global.sandisk.com (HELO
+ jedi-01.int.fusionio.com) ([10.11.143.218])
+ by uls-op-cesaip02.wdc.com with ESMTP; 30 Jul 2019 18:24:37 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v2 2/5] RISC-V: Add riscv_isa reprensenting ISA features
+ common across CPUs
+Date: Tue, 30 Jul 2019 18:24:15 -0700
+Message-Id: <20190731012418.24565-3-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.21.0
+In-Reply-To: <20190731012418.24565-1-atish.patra@wdc.com>
+References: <20190731012418.24565-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3cc3651f-0f8c-48ef-5a9a-08d7154eea22
-X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Jul 2019 00:34:57.4767 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Atish.Patra@wdc.com
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR04MB6231
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190730_173502_781595_726315AC 
-X-CRM114-Status: GOOD (  25.60  )
+X-CRM114-CacheID: sfid-20190730_182443_970855_07BF5DAF 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -151,139 +99,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
- "alankao@andestech.com" <alankao@andestech.com>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "johan@kernel.org" <johan@kernel.org>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "palmer@sifive.com" <palmer@sifive.com>,
- "anup@brainfault.org" <anup@brainfault.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "allison@lohutok.net" <allison@lohutok.net>
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Anup Patel <anup.patel@wdc.com>, Alexios Zavras <alexios.zavras@intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Johan Hovold <johan@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Atish Patra <atish.patra@wdc.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ Enrico Weigelt <info@metux.net>, Thomas Gleixner <tglx@linutronix.de>,
+ Allison Randal <allison@lohutok.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2019-07-30 at 17:08 -0700, Paul Walmsley wrote:
-> On Mon, 29 Jul 2019, Atish Patra wrote:
-> 
-> > The yaml document did not specify anything about all isa-strings
-> > has to 
-> > be lowercase unless I missed something. The two enum values are
-> > all 
-> > lowercase but the description says all ISA strings are documented
-> > in ISA 
-> > specification which describes the ISA strings to be case
-> > insensitive. 
-> > IMHO, this creates confusion resulting the patch.
-> 
-> If it's helpful in understanding my earlier comments, I don't think
-> that 
-> your patches were "wrong," or anything like that.  And you're right
-> that 
-> the DT YAML binding does not unequivocally state that all future
-> additions 
-> to the riscv,isa string must be in lowercase.  But to be clear, the
-> DT 
-> YAML schema defines exactly what is currently permissible for
-> riscv,isa 
-> strings in kernel-oriented DT data, and right now, all of the
-> permissible 
-> values are lowercase.
-> 
+From: Anup Patel <anup.patel@wdc.com>
 
-Going forward, yaml schema should define only the mandatory isa strings
-(i.e. rv64imafdc) or the list should be updated as we keep adding new
-extensions (i.e. rv64imafdch with kvm patches).
+This patch adds riscv_isa integer to represent ISA features common
+across all CPUs. The riscv_isa is not same as elf_hwcap because
+elf_hwcap will only have ISA features relevant for user-space apps
+whereas riscv_isa will have ISA features relevant to both kernel
+and user-space apps.
 
+One of the use case is KVM hypervisor where riscv_isa will be used
+to do following operations:
 
-> Good Linux kernel patches are driven by clear functional
-> motivations.  
-> Like, "The current kernel crashes or doesn't support the hardware in 
-> situation X; thus we change the kernel to add feature or bugfix
-> Y."  And 
-> in the kernel, solutions that involve fewer lines of code are
-> generally 
-> preferred to solutions that involve more lines of code - more bugs,
-> more 
-> noise, etc.  
-> 
+1. Check whether hypervisor extension is available
+2. Find ISA features that need to be virtualized (e.g. floating
+   point support, vector extension, etc.)
 
-I completely agree with you on this.
+Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ arch/riscv/include/asm/hwcap.h | 25 +++++++++++++++++++++
+ arch/riscv/kernel/cpufeature.c | 41 +++++++++++++++++++++++++++++++---
+ 2 files changed, 63 insertions(+), 3 deletions(-)
 
-> Where these case-insensitivity parsing patches fall short, in my
-> opinion, 
-> is that they don't have strong functional motivations.  There's been
-> a 
-> precedent for a few years now in the mainline kernel that the RISC-V
-> ISA 
-> string is all lowercase.  I've asked you and Anup for situations
-> where 
-> that precedent isn't sufficient to handle functionality that's
-> described 
-> in the RISC-V specification, or to phrase it differently, "what
-> breaks if 
-> we don't make this change?"  So far no one's been able to cite
-> anything 
-> here.  There's just a repeated appeal to authority to the section of
-> the 
-> RISC-V specification that states that "[t]he ISA naming strings are
-> case 
-> insensitive."  As you can probably sense, this doesn't seem like a
-> strong 
-> justification for changing the existing behavior.  From a functional
-> point 
-> of view, if case doesn't matter, why care if the DT data and kernel
-> only 
-> support lowercase strings?  An all-lowercase string should be
-> functionally 
-> equivalent to an all-uppercase or mixed-case string.  Since there's
-> no 
-> functional point to the changes,cause mysterious DT parsing problems.
->  why add more code to the kernel?
-> 
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 7ecb7c6a57b1..e069f60ad5d2 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -22,5 +22,30 @@ enum {
+ };
+ 
+ extern unsigned long elf_hwcap;
++
++#define RISCV_ISA_EXT_A		(1UL << ('A' - 'A'))
++#define RISCV_ISA_EXT_a		RISCV_ISA_EXT_A
++#define RISCV_ISA_EXT_C		(1UL << ('C' - 'A'))
++#define RISCV_ISA_EXT_c		RISCV_ISA_EXT_C
++#define RISCV_ISA_EXT_D		(1UL << ('D' - 'A'))
++#define RISCV_ISA_EXT_d		RISCV_ISA_EXT_D
++#define RISCV_ISA_EXT_F		(1UL << ('F' - 'A'))
++#define RISCV_ISA_EXT_f		RISCV_ISA_EXT_F
++#define RISCV_ISA_EXT_H		(1UL << ('H' - 'A'))
++#define RISCV_ISA_EXT_h		RISCV_ISA_EXT_H
++#define RISCV_ISA_EXT_I		(1UL << ('I' - 'A'))
++#define RISCV_ISA_EXT_i		RISCV_ISA_EXT_I
++#define RISCV_ISA_EXT_M		(1UL << ('M' - 'A'))
++#define RISCV_ISA_EXT_m		RISCV_ISA_EXT_M
++#define RISCV_ISA_EXT_S		(1UL << ('S' - 'A'))
++#define RISCV_ISA_EXT_s		RISCV_ISA_EXT_S
++#define RISCV_ISA_EXT_U		(1UL << ('U' - 'A'))
++#define RISCV_ISA_EXT_u		RISCV_ISA_EXT_U
++
++extern unsigned long riscv_isa;
++
++#define riscv_isa_extension_available(ext_char)	\
++		(riscv_isa & RISCV_ISA_EXT_##ext_char)
++
+ #endif
+ #endif
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index b1ade9a49347..177529d48d87 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -12,6 +12,9 @@
+ #include <asm/smp.h>
+ 
+ unsigned long elf_hwcap __read_mostly;
++unsigned long riscv_isa __read_mostly;
++EXPORT_SYMBOL_GPL(riscv_isa);
++
+ #ifdef CONFIG_FPU
+ bool has_fpu __read_mostly;
+ #endif
+@@ -20,7 +23,8 @@ void riscv_fill_hwcap(void)
+ {
+ 	struct device_node *node;
+ 	const char *isa;
+-	size_t i;
++	char print_str[BITS_PER_LONG+1];
++	size_t i, j, isa_len;
+ 	static unsigned long isa2hwcap[256] = {0};
+ 
+ 	isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
+@@ -31,9 +35,11 @@ void riscv_fill_hwcap(void)
+ 	isa2hwcap['c'] = isa2hwcap['C'] = COMPAT_HWCAP_ISA_C;
+ 
+ 	elf_hwcap = 0;
++	riscv_isa = 0;
+ 
+ 	for_each_of_cpu_node(node) {
+ 		unsigned long this_hwcap = 0;
++		unsigned long this_isa = 0;
+ 
+ 		if (riscv_of_processor_hartid(node) < 0)
+ 			continue;
+@@ -43,8 +49,22 @@ void riscv_fill_hwcap(void)
+ 			continue;
+ 		}
+ 
+-		for (i = 0; i < strlen(isa); ++i)
++		i = 0;
++		isa_len = strlen(isa);
++#if defined(CONFIG_32BIT)
++		if (strncasecmp(isa, "rv32", 4) != 0)
++			i += 4;
++#elif defined(CONFIG_64BIT)
++		if (strncasecmp(isa, "rv64", 4) != 0)
++			i += 4;
++#endif
++		for (; i < isa_len; ++i) {
+ 			this_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
++			if ('a' <= isa[i] && isa[i] <= 'z')
++				this_isa |= (1UL << (isa[i] - 'a'));
++			if ('A' <= isa[i] && isa[i] <= 'Z')
++				this_isa |= (1UL << (isa[i] - 'A'));
++		}
+ 
+ 		/*
+ 		 * All "okay" hart should have same isa. Set HWCAP based on
+@@ -55,6 +75,11 @@ void riscv_fill_hwcap(void)
+ 			elf_hwcap &= this_hwcap;
+ 		else
+ 			elf_hwcap = this_hwcap;
++
++		if (riscv_isa)
++			riscv_isa &= this_isa;
++		else
++			riscv_isa = this_isa;
+ 	}
+ 
+ 	/* We don't support systems with F but without D, so mask those out
+@@ -64,7 +89,17 @@ void riscv_fill_hwcap(void)
+ 		elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
+ 	}
+ 
+-	pr_info("elf_hwcap is 0x%lx\n", elf_hwcap);
++	memset(print_str, 0, sizeof(print_str));
++	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
++		if (riscv_isa & (1UL << i))
++			print_str[j++] = (char)('A' + i);
++	pr_info("riscv: ISA extensions %s\n", print_str);
++
++	memset(print_str, 0, sizeof(print_str));
++	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
++		if (elf_hwcap & (1UL << i))
++			print_str[j++] = (char)('A' + i);
++	pr_info("riscv: ELF capabilities %s\n", print_str);
+ 
+ #ifdef CONFIG_FPU
+ 	if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))
+-- 
+2.21.0
 
-There was no immediate functional requirement but to have a more future
-proof code. As I said earlier, the idea of the patch came from the
-confusion created by discrepancies between two different piece of
-documentation/specification. As long those are resolved, absolutely no
-need of this patch.
-
-
-> Later in your E-mail, it sounds like you ultimately agree with these
-> basic 
-> conclusions.  If that's so, I don't understand the amount of effort
-> that 
-> you and Anup have put into pushing back here.  There's nothing
-> personal 
-> about these review comments.  If there's some meta-problem here
-> that's 
-> unrelated to the technical merit of the patches, please send a
-> private 
-> E-mail.  Otherwise, if you disagree with the functional conclusions
-> in the 
-> previous paragraph, let's hash the issues out here.
-> 
-> > I am fine with dropping this patch if yaml clearly document the
-> > case 
-> > sensititve thing.
-> 
-> Great!  If you still think so now, let's resolve this issue with a 
-> one-line patch to the DT YAML schema to note that riscv,isa DT
-> string 
-> values should be all lowercase.  Will you send a patch?
-> 
-
-Yeah. Sending it right now.
-
-Regards,
-Atish
-> 
-> - Paul
 
 _______________________________________________
 linux-riscv mailing list
