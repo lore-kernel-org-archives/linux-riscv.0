@@ -2,92 +2,90 @@ Return-Path: <SRS0=UPnX=V4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DD138C433FF
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 01:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D7E69C433FF
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 01:24:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B010F214DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 01:24:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AED48206E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 01:24:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bP31HFLI";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ktC8lVft"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B010F214DA
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VB3Tq8nM";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="QkMZsgzW"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AED48206E0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JMvG5lmQHuwSwKUghxekG0NTEA2YZUcmJ73RUWwdfv4=; b=bP31HFLInz+r2H
-	0MhKwNNJwNhZFiaZPi3jmLnB+h3duhJCjwBnkaKBl9C/fWbim1PyN2PL7hl8AD0KmAJoW+C5wITap
-	GCB+RGpLBy6K9ktd53zxkhdZjBdBcPxiLz2mK20dYuHNpo12SONJEdwqzE+AMSSgCBgVQVm5tmu4a
-	XCOXOqFAJCEbmiKmABAMPMKOxgdHf1AUPhRRzLB9Z2tPLC95gJyI7ex5/oeqb5ziKL0JjOQHBwpM3
-	vdEsYR4/k/mh6B686Ygq65SVkT5CvY0gd+ghRuO8ovSAY7njdrSolf2cgEYHQAUX1GwVDFiqwzZQ5
-	I+TsEE9sTqL9XREhGkHQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gd9dEP2KTBPcRjgjyGuG6Beo/l6pgEJiPr9Sio9TXSk=; b=VB3Tq8nMrCd4tx
+	u6qmYBxTrUKggf68/wM81mAkaGoj4sibLgwxyJfH6T/HNw9pAlYkwtel/xqGxBKWuX6OvTs+p2IEs
+	uFt1awKHcUQHwfVVpezxPCFmSHkR2hVx4bEMYmiQc8kjWug4c/GYd1dqFNByFvPDtdtvR8vGFbsJw
+	U2EQuyL/evn12WXCct8d4KzLZVKS6utD7yiCTk45SNER1PO4btpBA40dfpKfEaqkXWlrzM/5mHjAd
+	yiVUygpWxB4DKRVgf8sjVwemOZ7NGmiuH/siT1bPPJFVd/T9cr1iRp7ImBepnvRry7fRexcI1/hh+
+	D19y1pQDjPNVS2z09QCA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hsdMF-0007rJ-Tm; Wed, 31 Jul 2019 01:24:47 +0000
+	id 1hsdMC-0007nF-3i; Wed, 31 Jul 2019 01:24:44 +0000
 Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hsdMB-0007mr-Qc
- for linux-riscv@lists.infradead.org; Wed, 31 Jul 2019 01:24:45 +0000
+ id 1hsdM9-0007lV-MV
+ for linux-riscv@lists.infradead.org; Wed, 31 Jul 2019 01:24:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1564536284; x=1596072284;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=Y6AGFaAE1PMVJZ6+rsgH3B7LWIELYj+tSokwx8q21Gg=;
- b=ktC8lVftovL14pMO6BP5UdvcSQrXrTdI9dcNksj+YvBbibWvytZDBl8b
- MrE9RKkkZ9e7zBlV6SVGLdmisVQQnZdwjvrAkfjeP/IedAxiwG78Z/KfO
- 28jIK1FTM1QjqiWSUBiUKCid0/qK7kJS8xsoqYbB5w8QgMjNBDnfGjarr
- wPWp/agU/MW0f9xUabGLVz7bn/AFq+bjQywp3a3mL9PP2u/VgeL60Xl04
- E4OjbI/UlWOhepVfX+vekYIgwLH7t7m7MaNSunUSwAjsqbo5MSWdtFJBw
- qJijLIfvomItM++JvfnbumHCmGdB0gZm1ZxRCO83Ukq19g9zQjpB9p/yZ w==;
-IronPort-SDR: ePI33lOutM/ivOUXj2jaS+YEcK6Iaa/pwAhUG8KAHK1Ar7uaaX6VeKuXjFW4rrHmIEY/ae2Q7v
- CNDasg8YYlTiAPWRCZomuhAXYQof1sgo4w2wktUPXoofpYXNpksT1sjWeCjmgYMDtL+pkAm/FK
- Lq2AHw7S7YCAb+9+9L1lF1mRw2s1Cdx/mbS/imYOq0z3bLWV5cBHxEF7DQwpzwP1Qx94Li1tdY
- /Bitf8nqxi8O0c4g4eG4MLPJtk+vCIzltH4Cv8OZLdfOLxicVof7TtNn+crdyREpYmVMtlLhkz
- ETE=
-X-IronPort-AV: E=Sophos;i="5.64,328,1559491200"; d="scan'208";a="119218128"
+ t=1564536282; x=1596072282;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=JNdFTTJDwVdGW8P5Pk91XlkU/IeFj6Dz26xPddYDU28=;
+ b=QkMZsgzWTv3w6558EtiUlpxWN00XBFgOg8EjzRtsABUJs827V9eD9c2l
+ H+33px+k6A6U3TwyVBy1a0oZJLFeRa9GIhqwUiKnmK4Nb460xtGPtIIQL
+ iKRXI4d8C24F9XOBJW0RhM7ef7cgRCgE124Xg4V59bQsphT7cTIP0naQS
+ tYLLR218sgk5oXIa3nNGCXP/PHjvqhwWa+tipGpCwbFqjL5hZDpVFGPUl
+ j+cAmUPwqulU/hkFlT1JGUXker+IF+DaNFp0lpyovsorlUgGLCa72mjHQ
+ gRvsix0xLspvfapkhuPOnvLTuZqHCLPaG+ELK/g6kn0hkjOzAcxP2QW8z w==;
+IronPort-SDR: QrJVbu0Od3OiQ0Hl+xgH0d8M9Bg7n/AqBVUyLYf6fq27vC8N9YpU9Sp536+Niq4XcC1XNDijo3
+ lcDwxkR3ph2ZYwiElZF9Qt9CjSMQQx0h+GflG13vdVdqoYoCEsqP3ASDQ13qXywdU7Vr1nj+a7
+ 4GdbLi1vsHMWnAFm78lrTPVLALvKa93qOmBZZ1AdRUbCCveFepLnNs4ge5qWDsxui54VQbgB5K
+ azhHYFMIXrBxbKssHhpBXPTB0QQhF2akBELGv/w64Pw6d7tWRnL1i9KLJVp+bY2NdDKcsY5Wqf
+ LCY=
+X-IronPort-AV: E=Sophos;i="5.64,328,1559491200"; d="scan'208";a="119218121"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 31 Jul 2019 09:24:37 +0800
-IronPort-SDR: 56/TH+6ZU/A8/Q5wSdbeSVhvZfX/24LQ81vTgfDD0CPZi9Zzk6gIQRR4GO8aVcwDqTrkaPLKL5
- Pfvw0JAZAYZxfzxrwW+FqdZA5VyvJJy9AN/9/vsdJTwy+vKnId55nGlow07WK2idR8cO+J8lfu
- iHm01s7GtufltVRufd1rtuSxyTITsVgYWVhoxbS2P85P8i0Aw+ZMlAIZWUl9KsBcsR5MP4qpNs
- Hr9t7rou6qsfeunWfgrhynEYrqunnHG5gMks67Y6Sn067bUHuymyfjtUAAUyYDHrNOfsFzDdt+
- qMkKA5uTYrfE2ULqH1uzHXUp
+ by ob1.hgst.iphmx.com with ESMTP; 31 Jul 2019 09:24:36 +0800
+IronPort-SDR: VwwgFdzjlzR2/cTU0rDB49Lq66Lz6+2yY1JrPlpzrNwyQB2tTCz6+arv20jyQPMEftUB19ML+V
+ 83ZVU8p+qufoe9myzXueBWrcgLtl5kBVjrlftufupFNedCtOhhY/5kUnTyJMqosFrV6ZZ7VLjs
+ PdBKpSC5h+XEtdByZh3DCgWQuZ+lBT9DBNNSEJ5l8skQCh4i4N4x9MYmhkX5xywkjDVzaMeEho
+ /ET9EKogqhHklPaE5DmleOe6DIW/Pn0kUCSjuAcLdQLuATRtK+E5HGHCLLBJWYyAI6uWRag217
+ RQ4/xFXbrFsWT0YO+5KLIWF1
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP; 30 Jul 2019 18:22:38 -0700
-IronPort-SDR: xNRp1O/Qr49vPg3S7RUEcytEJKT39eWC7sCIQ7RAoaIdl7XdAMDHcJjQWkNq/0hzCNZ5Pxx5Ya
- +Dei7WHbONIUPCU3+tcv2mPcLWV/ImofiPdDOCzmrnJogrIKQ0AuLV7t53N5WAZCo6aDHVU8Xz
- Z2j42T5y75hWW3MbvHeD2pQ5m2D/SDpGts+NhkqcGUM6cegK/g/YhRdf6ZggHyrEpZOTbEgNM0
- fo21GU7bpdxwwJz0tJIG/0cQ5j/6tzgbsSr+O3lgGjo7HYeKTP0Ju8lxAzjmD7UiXHE2cFfO3F
- MEg=
+ by uls-op-cesaep01.wdc.com with ESMTP; 30 Jul 2019 18:22:37 -0700
+IronPort-SDR: R03ASlzY6GN7SI1Abs1LdfvtEfAh/JPexQ2OoDZva26KHh3shgAf1ahUfCObsGpRrqo0lTN8nC
+ MqP5rYkp6YuBUXJ59M67mMa317qLfkCpsEMqGVZ0IIp4+C6imSHZPTCB2TD5eLIkecCiO9yDw3
+ JMp2/aKq1Cjp4cKpCNUpTSkgmC8qwIvzITxLp0xe6VOCk6GEO0L3WO1/h61XnHh24w/1cYDzlQ
+ Nz/7AssexUE7FXCypWkTmUYmkFLw/jLzX7xu08wqUIx5mzOwIJJCIatTexN3wIVK3MONDoFFAR
+ vL4=
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 30 Jul 2019 18:24:37 -0700
+ by uls-op-cesaip02.wdc.com with ESMTP; 30 Jul 2019 18:24:36 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/5] RISC-V: Add riscv_isa reprensenting ISA features
- common across CPUs
-Date: Tue, 30 Jul 2019 18:24:15 -0700
-Message-Id: <20190731012418.24565-3-atish.patra@wdc.com>
+Subject: [PATCH v2 0/5] Miscellaneous fixes 
+Date: Tue, 30 Jul 2019 18:24:13 -0700
+Message-Id: <20190731012418.24565-1-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.21.0
-In-Reply-To: <20190731012418.24565-1-atish.patra@wdc.com>
-References: <20190731012418.24565-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190730_182443_970855_07BF5DAF 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20190730_182441_854417_0E6EB726 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,168 +98,50 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Anup Patel <anup.patel@wdc.com>, Alexios Zavras <alexios.zavras@intel.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Alexios Zavras <alexios.zavras@intel.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Johan Hovold <johan@kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Atish Patra <atish.patra@wdc.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
- Enrico Weigelt <info@metux.net>, Thomas Gleixner <tglx@linutronix.de>,
- Allison Randal <allison@lohutok.net>
+ Anup Patel <anup.patel@wdc.com>, Johan Hovold <johan@kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
+ Palmer Dabbelt <palmer@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org, Enrico Weigelt <info@metux.net>,
+ Thomas Gleixner <tglx@linutronix.de>, Allison Randal <allison@lohutok.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Anup Patel <anup.patel@wdc.com>
+This patch series have some unrelated fixes related
+to clocksource, dt-bindings and isa strings.
 
-This patch adds riscv_isa integer to represent ISA features common
-across all CPUs. The riscv_isa is not same as elf_hwcap because
-elf_hwcap will only have ISA features relevant for user-space apps
-whereas riscv_isa will have ISA features relevant to both kernel
-and user-space apps.
+I combined them into series as most of them are
+prerequisite for kvm patch series.
 
-One of the use case is KVM hypervisor where riscv_isa will be used
-to do following operations:
+Changes from v1->v2:
 
-1. Check whether hypervisor extension is available
-2. Find ISA features that need to be virtualized (e.g. floating
-   point support, vector extension, etc.)
+1. Dropped the case-insensitive support patch and added a dt-bindings
+   update patch.
+2. Added a export symbol patch.
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/include/asm/hwcap.h | 25 +++++++++++++++++++++
- arch/riscv/kernel/cpufeature.c | 41 +++++++++++++++++++++++++++++++---
- 2 files changed, 63 insertions(+), 3 deletions(-)
+Anup Patel (1):
+RISC-V: Add riscv_isa reprensenting ISA features common across CPUs
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index 7ecb7c6a57b1..e069f60ad5d2 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -22,5 +22,30 @@ enum {
- };
- 
- extern unsigned long elf_hwcap;
-+
-+#define RISCV_ISA_EXT_A		(1UL << ('A' - 'A'))
-+#define RISCV_ISA_EXT_a		RISCV_ISA_EXT_A
-+#define RISCV_ISA_EXT_C		(1UL << ('C' - 'A'))
-+#define RISCV_ISA_EXT_c		RISCV_ISA_EXT_C
-+#define RISCV_ISA_EXT_D		(1UL << ('D' - 'A'))
-+#define RISCV_ISA_EXT_d		RISCV_ISA_EXT_D
-+#define RISCV_ISA_EXT_F		(1UL << ('F' - 'A'))
-+#define RISCV_ISA_EXT_f		RISCV_ISA_EXT_F
-+#define RISCV_ISA_EXT_H		(1UL << ('H' - 'A'))
-+#define RISCV_ISA_EXT_h		RISCV_ISA_EXT_H
-+#define RISCV_ISA_EXT_I		(1UL << ('I' - 'A'))
-+#define RISCV_ISA_EXT_i		RISCV_ISA_EXT_I
-+#define RISCV_ISA_EXT_M		(1UL << ('M' - 'A'))
-+#define RISCV_ISA_EXT_m		RISCV_ISA_EXT_M
-+#define RISCV_ISA_EXT_S		(1UL << ('S' - 'A'))
-+#define RISCV_ISA_EXT_s		RISCV_ISA_EXT_S
-+#define RISCV_ISA_EXT_U		(1UL << ('U' - 'A'))
-+#define RISCV_ISA_EXT_u		RISCV_ISA_EXT_U
-+
-+extern unsigned long riscv_isa;
-+
-+#define riscv_isa_extension_available(ext_char)	\
-+		(riscv_isa & RISCV_ISA_EXT_##ext_char)
-+
- #endif
- #endif
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index b1ade9a49347..177529d48d87 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -12,6 +12,9 @@
- #include <asm/smp.h>
- 
- unsigned long elf_hwcap __read_mostly;
-+unsigned long riscv_isa __read_mostly;
-+EXPORT_SYMBOL_GPL(riscv_isa);
-+
- #ifdef CONFIG_FPU
- bool has_fpu __read_mostly;
- #endif
-@@ -20,7 +23,8 @@ void riscv_fill_hwcap(void)
- {
- 	struct device_node *node;
- 	const char *isa;
--	size_t i;
-+	char print_str[BITS_PER_LONG+1];
-+	size_t i, j, isa_len;
- 	static unsigned long isa2hwcap[256] = {0};
- 
- 	isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
-@@ -31,9 +35,11 @@ void riscv_fill_hwcap(void)
- 	isa2hwcap['c'] = isa2hwcap['C'] = COMPAT_HWCAP_ISA_C;
- 
- 	elf_hwcap = 0;
-+	riscv_isa = 0;
- 
- 	for_each_of_cpu_node(node) {
- 		unsigned long this_hwcap = 0;
-+		unsigned long this_isa = 0;
- 
- 		if (riscv_of_processor_hartid(node) < 0)
- 			continue;
-@@ -43,8 +49,22 @@ void riscv_fill_hwcap(void)
- 			continue;
- 		}
- 
--		for (i = 0; i < strlen(isa); ++i)
-+		i = 0;
-+		isa_len = strlen(isa);
-+#if defined(CONFIG_32BIT)
-+		if (strncasecmp(isa, "rv32", 4) != 0)
-+			i += 4;
-+#elif defined(CONFIG_64BIT)
-+		if (strncasecmp(isa, "rv64", 4) != 0)
-+			i += 4;
-+#endif
-+		for (; i < isa_len; ++i) {
- 			this_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
-+			if ('a' <= isa[i] && isa[i] <= 'z')
-+				this_isa |= (1UL << (isa[i] - 'a'));
-+			if ('A' <= isa[i] && isa[i] <= 'Z')
-+				this_isa |= (1UL << (isa[i] - 'A'));
-+		}
- 
- 		/*
- 		 * All "okay" hart should have same isa. Set HWCAP based on
-@@ -55,6 +75,11 @@ void riscv_fill_hwcap(void)
- 			elf_hwcap &= this_hwcap;
- 		else
- 			elf_hwcap = this_hwcap;
-+
-+		if (riscv_isa)
-+			riscv_isa &= this_isa;
-+		else
-+			riscv_isa = this_isa;
- 	}
- 
- 	/* We don't support systems with F but without D, so mask those out
-@@ -64,7 +89,17 @@ void riscv_fill_hwcap(void)
- 		elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
- 	}
- 
--	pr_info("elf_hwcap is 0x%lx\n", elf_hwcap);
-+	memset(print_str, 0, sizeof(print_str));
-+	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
-+		if (riscv_isa & (1UL << i))
-+			print_str[j++] = (char)('A' + i);
-+	pr_info("riscv: ISA extensions %s\n", print_str);
-+
-+	memset(print_str, 0, sizeof(print_str));
-+	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
-+		if (elf_hwcap & (1UL << i))
-+			print_str[j++] = (char)('A' + i);
-+	pr_info("riscv: ELF capabilities %s\n", print_str);
- 
- #ifdef CONFIG_FPU
- 	if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))
--- 
+Atish Patra (4):
+RISC-V: Remove per cpu clocksource
+RISC-V: Fix unsupported isa string info.
+RISC-V: Export few kernel symbols
+dt-bindings: Update the isa string description
+
+.../devicetree/bindings/riscv/cpus.yaml       |  6 ++-
+arch/riscv/include/asm/hwcap.h                | 25 ++++++++++
+arch/riscv/kernel/cpu.c                       | 47 +++++++++++++++----
+arch/riscv/kernel/cpufeature.c                | 41 ++++++++++++++--
+arch/riscv/kernel/smp.c                       |  2 +-
+arch/riscv/kernel/time.c                      |  1 +
+drivers/clocksource/timer-riscv.c             |  6 +--
+7 files changed, 109 insertions(+), 19 deletions(-)
+
+--
 2.21.0
 
 
