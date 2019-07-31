@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3EDE3C32751
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D87D8C32750
 	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 01:24:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 15242206E0
+	by mail.kernel.org (Postfix) with ESMTPS id AC582208C3
 	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 31 Jul 2019 01:24:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nL+3hHsq";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="g2tMizxr"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 15242206E0
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MVF6ddEM";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="dS3CUMPF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AC582208C3
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,67 +26,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NsfKPTfwge7jhJN091T3vnUhr559l8VME9gyZgMbzmA=; b=nL+3hHsqirZ1hY
-	2Q8tjhbki/QSoXfnpV9Px0nkgBuvCC/7WqxGUQ2IFQogBf0yuhu7OkFpZmuGrdeMqHcFSm4gZt3pI
-	8v/H7CW5gVnwi1EzLU8wHadRnBaNi/+qmvPhVYvklZ+b+uQ1KKTBVX7laaiAORueEiA2yEqUJnG64
-	+RKBhEHZz2Ff2PXF/Txo5iTuP02SA3tKZ61IAlA5q86wlUTzlJGjyL3g22dFg74mC0wSmbt3LQW26
-	ZayuQlbtQaq0xGo4O/OpmpwXqqsSr8SuIdiNpRabAJO2ErD4ZWP8c4WZPRlK1YzDIbqAwNE+Oq+MK
-	DSkHwLm07IDfaVBE+07w==;
+	List-Owner; bh=L5VU1U/Y4YlGD/wAVIGFBHxpJ/SBdm9akbwaAtGvHU0=; b=MVF6ddEMsOpnTX
+	vXN1MJvIdDXYWPj6hecf5h3I6L/w6pUm4XQkX2YgKq2plwdDPZ39Q8c7zyov318Fjhmq8hO5X5+k1
+	kc9ULTU10hsRVyQPLdEaZauA4ktmtMwTfUFeHhY+4O0H4ySZqp1gNOxsDM05ZcvmRbgd1g9S1t6Nw
+	fDZYZc/UkcQsRRU24+cuN9JOC4OLel4WflOP3pmkqk2s6NbwBgMp+IPEtLPpHM6Yy7qp3x7+IdvkX
+	/ZHshKdY8TCUtbHBgELrg0IVdeZmKRyYBIhUGfMHlkelhCT5MggjdgFx3ITXXdX/6BdEHX092GNpF
+	86QCUj6MIfyQi43OiB4Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hsdME-0007ph-Oo; Wed, 31 Jul 2019 01:24:46 +0000
+	id 1hsdMI-0007vz-Pt; Wed, 31 Jul 2019 01:24:50 +0000
 Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hsdMB-0007lV-DM
- for linux-riscv@lists.infradead.org; Wed, 31 Jul 2019 01:24:44 +0000
+ id 1hsdMD-0007o1-AJ
+ for linux-riscv@lists.infradead.org; Wed, 31 Jul 2019 01:24:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1564536283; x=1596072283;
+ t=1564536285; x=1596072285;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=w14oJ81u6w2W34wdULaaio4UuiCV/eOoDOsEOvwCQng=;
- b=g2tMizxrhurE55XCX321okvMCT1ABuL1ly5W+5RfZC2kZ1I4vfDEjEaP
- USTHUdtG5IO/VppiSr9o6CBF4bw1aT6DilL8Yl7zFlZtU7aGjV+FmMFe9
- fGC+ZcuSR72PejPlAn2p+Z206qKVuSDlzyTM1UkJeynM4Jkm6CLTAF34X
- mhm9EOhC/4N+B8hzmATXeBwJ0xZh3oEpoGJf8uSKNy/bBQBdPF99yFDe6
- nf/xagV2sKK8C7TYns6QoyqPr0Mh9gKXQuGKsLCGX1/uCWOMuRjdjhq2g
- pzP6h27l2EXH06jeU21UtqU+SeT7oLLeBH7EgFm0cjbiLcrZhbgg8rPmi A==;
-IronPort-SDR: HczyfGKqIfF8M48ElrROARaT7RULwpPYqxMJ7xydqSnywncJPOeGEgpsPlMBq5vZmbGIM73bEb
- MQ4og0c3Jpdp+SXivqhzO5W23695l9n5vk9H6DhM7ZsuMtyyuBMJEaXmneCaSuCY0CPHe9PfaY
- o1CKsxS4XsJjm/TslkJN/ZfznDv0as9hKApFfwiPsRBDpgcFpyAWX/c8RrYvKEvokdYSq2m6g2
- 38JzvoPrRfEwQYFsVWMTTNpj9DAPsKxeSYnfVO7gGxMUEkj8XToBOxXbgrXSA4QTMW+UbafXrX
- 1ao=
-X-IronPort-AV: E=Sophos;i="5.64,328,1559491200"; d="scan'208";a="119218124"
+ bh=EgHMt/UGrlopQ8ONP3bfsGEh2iUNdhTT7QH850cl4Xs=;
+ b=dS3CUMPFcWoMLzWvLT7IET4pt3PB+krx82E5Vd3UIN4109ZXuy+fnCNY
+ BWc774MgscsdVOiQ0mUnW+LU3BlI7im34r00Av135oZVogRL2+KZQcSbp
+ IxV+Z1UgECAkzZLdRsaPZS0JhUIl6od1+gxUIRwUUn3L3NAaylVl8D5YZ
+ xH0ZxalhpmUCsgQSUigQZHDC0S7LwCOnbNTevAhrEZinHaG1XEhE6hMq4
+ BC8px4p4CrY4+HffxlbR42anHy2KC2Jf+oFlpG7IoBUwrSP3nnBTvzB7i
+ ujmSEpssviQHnPJPJ00zQUjDu1VOb/jDrYVD9cXUfEn5KObXg/JGigCoo Q==;
+IronPort-SDR: LBOSBsjkH0zdsONyhNYa8bMNbFenwjaQWZvNQFlb8ot3C3JYmzt0waXK5J/z+Oaw8VnFOrKTXw
+ CApeyPyctK7mPPU7p5xxiiCWWDy5g3WHcMlxCWgELgSPBID05ftC0+8DlteD2TOySbjunFJFcZ
+ LiRLHidsK61pDp2VRve3oMDW+MkhCr4FKtPe7mBjgqgd9GcK7jSskhfx2AbxhPdIQRMKbceO8q
+ V/S060U3ohGXjfTVJkaO7bvA4IW+7fA2sGCQBUB55Z2vjNF4Ujsj+qtTc9LnXOawgupAyEQFmi
+ rMc=
+X-IronPort-AV: E=Sophos;i="5.64,328,1559491200"; d="scan'208";a="119218136"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 31 Jul 2019 09:24:36 +0800
-IronPort-SDR: BetU/9tW/lEnmog4Tt3Ru8OROU/+OJrRb0h7MnKWIeA1mFIzGmvn/ynFpjA7lxr9k7mLWyR6V3
- syRI2/gUZfg2HbBfyXYmfHUGZrNDwJrxFXGqxRb5ZwrDQS9wwEaD81ItBuOEXCu1ITXme9SR7j
- 6ARqYxDRGaoi4NcUlevOrwZVVRO+4d4NdM/Im4xDDcalqAL31MizcyqVjMXZ5TkArCbTHaFtX/
- 9SjpyhnCQJHqe+dOgQKssKJ/cc+NAbs48Xfg/XbxeivAa2Lz2KvFN34Rfay+8AUmWeA3KejgzM
- ly2bfmYUHMi+bJeYCD+1H6y2
+ by ob1.hgst.iphmx.com with ESMTP; 31 Jul 2019 09:24:37 +0800
+IronPort-SDR: /8VnL9XwV5y76hsLTb9O5An+lwvWUVdivGYLxjbgebcR5k5eAKR/xjOa2mdnmDs2HQj4aRZms3
+ ro1C6EiG7SiRkcJVxUz+1exzAZkt015clax4s7x2ipCHZwaQ0M7pMjk4p2EszycLayDKSBMDqc
+ p4sFAul2cAblMCvu3TPwaszKu4RYGrBkX4DPRqdE6JCw2QYKIlmfY4mepZF/Qswbi5DRIiOaF0
+ xf3VUpUDrBjP8GMPZwGfLjTjqiF2EYl20HzRXubf9vv9LLzUT1TW0EPAtzUPa68GdJvzeuYXFI
+ HuiuDhduVyqZpzaLWHZcOMZ8
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP; 30 Jul 2019 18:22:37 -0700
-IronPort-SDR: 3sIcbQgxnvm/OmZX79OUSeBBjL/aRRiiJnuYpbIO4ukQp1vBudqAkfTquNuNNV1yxRpXr5VXYc
- BDPkC4kHvf9e6rAQFeGOlPL1/Juf8fqKjuEt69N/+Vc6qIsdKhLHD/jlPRvxT1byy7KeQNMHX+
- XiWV1JpOikc6JZwyARbD6vaXdBZSu/LjSzYW5wtXtjdG73uT2ql5rpdbuTqFScrr+LPWIdZY48
- AGJPh+uMNAqF0M2AzlsQO7XMNrLdhOQ8eFaOlI/+VxcraJ4IRcn5TB5M338/QYEzkYopcwugPf
- lPs=
+ by uls-op-cesaep01.wdc.com with ESMTP; 30 Jul 2019 18:22:39 -0700
+IronPort-SDR: 6WhK99KFChD4uhKSHGkuZlee3PzPR5qo3CSAAgjGPRSkQu2snl96a05sxvbzaGR5qJ3zsthNzq
+ LhcsNwSlhqBqRVlpk+2KJvZ/e53UiIl2vxpy8pfxv1DlnIOKVI0jtLj1dl6QdJBvU4sn0zcVEt
+ 9R7KfnddbM0lhOd8B4om/rbcORIcoqAtijqMEKuEGESPOrdpQ1ctoHW9rkCpBLojn4EAy9KWGQ
+ 1chiav2O6t788cuwTmsS6g5JwMNBibpKzipWgY3MXmLBpli8xbCNlIxEj/fHaoHNFRKzMT/3V9
+ kvA=
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 30 Jul 2019 18:24:36 -0700
+ by uls-op-cesaip02.wdc.com with ESMTP; 30 Jul 2019 18:24:37 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/5] RISC-V: Remove per cpu clocksource
-Date: Tue, 30 Jul 2019 18:24:14 -0700
-Message-Id: <20190731012418.24565-2-atish.patra@wdc.com>
+Subject: [PATCH v2 4/5] RISC-V: Export few kernel symbols
+Date: Tue, 30 Jul 2019 18:24:17 -0700
+Message-Id: <20190731012418.24565-5-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.21.0
 In-Reply-To: <20190731012418.24565-1-atish.patra@wdc.com>
 References: <20190731012418.24565-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190730_182443_563911_0DF14CE3 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20190730_182445_471456_19C334B0 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -112,45 +112,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is only one clocksource in RISC-V. The boot cpu initializes
-that clocksource. No need to keep a percpu data structure.
+Export few symbols used by kvm module. Without this, kvm can not
+be compiled as a module.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- drivers/clocksource/timer-riscv.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/riscv/kernel/smp.c  | 2 +-
+ arch/riscv/kernel/time.c | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 5e6038fbf115..09e031176bc6 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -55,7 +55,7 @@ static u64 riscv_sched_clock(void)
- 	return get_cycles64();
- }
- 
--static DEFINE_PER_CPU(struct clocksource, riscv_clocksource) = {
-+static struct clocksource riscv_clocksource = {
- 	.name		= "riscv_clocksource",
- 	.rating		= 300,
- 	.mask		= CLOCKSOURCE_MASK(64),
-@@ -92,7 +92,6 @@ void riscv_timer_interrupt(void)
- static int __init riscv_timer_init_dt(struct device_node *n)
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 5a9834503a2f..402979f575de 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -193,4 +193,4 @@ void smp_send_reschedule(int cpu)
  {
- 	int cpuid, hartid, error;
--	struct clocksource *cs;
+ 	send_ipi_message(cpumask_of(cpu), IPI_RESCHEDULE);
+ }
+-
++EXPORT_SYMBOL_GPL(smp_send_reschedule);
+diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
+index 541a2b885814..9dd1f2e64db1 100644
+--- a/arch/riscv/kernel/time.c
++++ b/arch/riscv/kernel/time.c
+@@ -9,6 +9,7 @@
+ #include <asm/sbi.h>
  
- 	hartid = riscv_of_processor_hartid(n);
- 	if (hartid < 0) {
-@@ -112,8 +111,7 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+ unsigned long riscv_timebase;
++EXPORT_SYMBOL_GPL(riscv_timebase);
  
- 	pr_info("%s: Registering clocksource cpuid [%d] hartid [%d]\n",
- 	       __func__, cpuid, hartid);
--	cs = per_cpu_ptr(&riscv_clocksource, cpuid);
--	error = clocksource_register_hz(cs, riscv_timebase);
-+	error = clocksource_register_hz(&riscv_clocksource, riscv_timebase);
- 	if (error) {
- 		pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
- 		       error, cpuid);
+ void __init time_init(void)
+ {
 -- 
 2.21.0
 
