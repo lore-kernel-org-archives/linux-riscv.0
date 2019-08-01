@@ -2,92 +2,85 @@ Return-Path: <SRS0=GtJH=V5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DF37CC433FF
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2019 00:58:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 89F00C19759
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2019 03:35:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B13A6206A2
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2019 00:58:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5F00420B7C
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  1 Aug 2019 03:35:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pvIadJYF";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="S5NLwUs6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B13A6206A2
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pIwbFkOA";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="YfTqkkhe"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5F00420B7C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NsfKPTfwge7jhJN091T3vnUhr559l8VME9gyZgMbzmA=; b=pvIadJYFGODmEQ
-	3+AW8fo6jJ6xXVLxpU2tYZwaQdbxD51OtsP6eLwvbV5izzdthtNGX3Qly66XgpIH7+zYndFDlDR74
-	rwQLKDA7Nb9i9KyDJceMS8A0vX3ZbOsTWna67sBAXP2V0e7Ui+Tk11xTLB5enIaWCYZTL3Hms4UBO
-	zAcjSte1+9yvIavjIVku97NSU8onrDtXcByYeegfGRIdJepniUI3+P+e+poqEUgMyORRldfD6/N/k
-	hziP6i0bdOdf5YLHJjG9jsxkmNYilKTtsKW2p2lRti0Ejjcv+VaFNEN74LdzWtKzTUSsLfrdB7gc8
-	dY5sXVCIiVbeH1jw3/3g==;
+	List-Owner; bh=sqexeaek/kEVcHAtw8iOxzfI+JBqyGgcByaotMQcQOI=; b=pIwbFkOARRHdXp
+	/gZj4W5c7n/loBVR8/wL4aeplfhuIAkYHmDUX/le0YGeBMhfrcLpbhva5u0jRAS21SZTLdqZFsbNk
+	N1MSCbSR2u8slDocHGfeLXCwf1FYoShbDkeNX942wORpVT6im17jKmPr+Cjx7QfGBpnxwCIHMarFE
+	fdYwUdBFae2N7viEMqV7dAYl3DvxGpgImUgnPeryvb9ss+C1xDDuBxvFS6Y92CFvA8LnDgYaITFds
+	sJQmsCdpNEz6qtxmqfp/1Qj86GbfI87fsV3tOMidUJLEprAelEQK8NZD7BAaem4I8gD9p96Tmi9m/
+	0cFqo2BR8zLGJM4rECGA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hszQd-0000EB-8F; Thu, 01 Aug 2019 00:58:47 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1ht1s5-0004ts-Dq; Thu, 01 Aug 2019 03:35:17 +0000
+Received: from mail-qt1-x843.google.com ([2607:f8b0:4864:20::843])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hszQZ-0000BB-AC
- for linux-riscv@lists.infradead.org; Thu, 01 Aug 2019 00:58:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1564621123; x=1596157123;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=w14oJ81u6w2W34wdULaaio4UuiCV/eOoDOsEOvwCQng=;
- b=S5NLwUs6oF8vqp4n5TLE3DTiWxe9l1rOKXFmFspLeAdjd7bEmfLiCzeB
- BIhhBPsFDygSStcwYqFqYD2kw40uIWojpP0w2noq9JYWbJ/vkbgdDtqJA
- F1kR+sa4esTVrh0UUEyAkijda28EI3O7wz2ExdjiH1trjW33u+9L5AW6L
- 4ULn4cb65G9W6KgWnzVIKLB1gE0aqEswndN9FExZM8m2UQgKYDQuZ8vpz
- VSjvkUKi+aJlD4eYF7/UaV/QAUV/2R5vgtS0XTR6SmJQWR0/qZ4jA6NGl
- OAf5V286yXcFeDJqIkZomHeDWzrh/46RTSYRj3eXMNAPe368TzTmibbNK Q==;
-IronPort-SDR: S0wZ7LuTnIv6H2JyAFiltHfETULAih7zaSPWzvLKuakaoCTC1glep0yfn8RwrdQpbkd5uS58OO
- rb6iwq9SZsj9yNDKT61he/vUwbzpn5eVETqd6eDLpp36TWSNhmO0QE5C7xcduSFR+etku4/Brs
- /4hqyvT4KL99J34qUTjNqA2lz12trlvyP1IIsWDLKFsG53ziugJ8le3D6uqFxEj4VNVHIylJvu
- FH6RBB8FwXkZ7XaIZy0DEclO+sooretsiuxSNE0jftrozAz+Q1woaEOAuqBMLfXNlrWXVgQn/d
- 4+0=
-X-IronPort-AV: E=Sophos;i="5.64,332,1559491200"; d="scan'208";a="114650416"
-Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 01 Aug 2019 08:58:38 +0800
-IronPort-SDR: TMTblHVDc/MUzxqclaBazvRqfHWk0+aAa0F5Dkw9hM/B/KFHS0d/tBzJihxvev73fm4/kIoDKh
- 0XmdC/cLZkyjVIVs81Qi5wrPMrwnHj5QZ8b0qDL85XiHp+BFoizbNOoCLwLiYRLhsU+204lQN9
- Y5hpNsVSyfGnt+b9uPfS7xz5IxlbwLDIXTC9pQ4wlZY4SVKTzolXavLC3HtEIogBK254Otez88
- 6+oPjlPdMHK1cI1w7JSo/vHk6RKNXCmHcWmqAYnCcwBbvbwS6AWIyVxbGvYh31Z2p4zjDixjFD
- /1JuvyIHENCfUkezhoj2CRXp
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 31 Jul 2019 17:56:38 -0700
-IronPort-SDR: D1VyBwHI3DUdkTTZUMWdQnpNnOzsGERZEN5QbIDf+Y89fdGaTxP9sKHHLk1m6KTrqI3jYvCOC3
- bCkxZlsYMtuY6KRf+3Yqfny58of2tXGpv+1nBcYrz2dg+559EPzcAiGE029FLbqjc1NIejCJWs
- TeyPbP/s0dajWY0cJv8Dobe6WiCaS1Pve9JQmZViFJAvaY30yPpSUASBWJFBA8cL7WEst0AuXj
- JSmO9A1YKvlFvfZVhpX1SfSM5R0qDm1UmWFjeLdQmakFKkFePnHvub5SYqi80wMJsNX0EgXmM2
- +VE=
-Received: from jedi-01.sdcorp.global.sandisk.com (HELO
- jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip01.wdc.com with ESMTP; 31 Jul 2019 17:58:37 -0700
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/5] RISC-V: Remove per cpu clocksource
-Date: Wed, 31 Jul 2019 17:58:39 -0700
-Message-Id: <20190801005843.10343-2-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.21.0
-In-Reply-To: <20190801005843.10343-1-atish.patra@wdc.com>
-References: <20190801005843.10343-1-atish.patra@wdc.com>
+ id 1ht1s2-0004tT-9C
+ for linux-riscv@lists.infradead.org; Thu, 01 Aug 2019 03:35:15 +0000
+Received: by mail-qt1-x843.google.com with SMTP id x22so63866573qtp.12
+ for <linux-riscv@lists.infradead.org>; Wed, 31 Jul 2019 20:35:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=pbBP1a5vz9LXfKrpqmLYROgp0dhYosum5tb/DUbL2NE=;
+ b=YfTqkkhedP+30s5tEYK+1pvWEbwvFULIzEK/DaGsig/1f0A6WsHk+ovEGa3iYsMmfe
+ Nk/Jij7FxNUBbO2AdwscxfrXkWFQgEioqU5JydD+iqdEr0sHNsZziR7KGVkG1k15yPxh
+ g7msAiNaIfHm8FkRugefuVTQH1atly5yDXy5axyInrIF1vgeCo8BZ8rTieQ2svHqjiBS
+ z7U4203ve8JS7RlqvMuu53J+iT6cFxAXDf5dOPGPG1O3J0/Ra1i9LcLWsbV3xh1vR+Kp
+ TUWREKLrZ6dy9IxGmlNh9nJieNnn4T5GEMMCEBbF6Gqydd1hhOtODlGHmKi/pEFl9L51
+ gMnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=pbBP1a5vz9LXfKrpqmLYROgp0dhYosum5tb/DUbL2NE=;
+ b=nNm/0arCNmjBRjwTwlXicws1ANcoDiHocNoFi+7nIIUh9iUksoovSCVj568J9U/qcV
+ qBPk/Ij3InJnpU0DHOrvfYfBAWLecTijvgLer0VsjuzwSyW9qYkpgiucfzKazsBNIkzl
+ G1TI/Q+CtcX+hfHR73TL/xAbYntLTOIctTx44ldrs32P7PBO7754ueZyDqDEb+MrTduf
+ XcSFP28RCsr8nSskI5eeiGJ+pMdw+9h81Npcp17FoMEACGXJINeb7TLiVoVmNJlo9WYa
+ HMOI1PHYNCCV+8zHB3xQAC0/lE37HWqFHzUDt+OgxVIzOZ8wPQfjovUSrPM1W6DpSaH4
+ 8/7Q==
+X-Gm-Message-State: APjAAAUigIz5iDldN4TiANjSxP2sCzqM3sbt5QVMWfY416YczWMZmhAf
+ /vcCvFPjb6JKDNcwBe3euVgLwxoX8EApSK9DbJ8=
+X-Google-Smtp-Source: APXvYqzhcZCTwiX7Qnv2duqf9sCENlg+TpJDs9LzbWZZkr/9Wer2rXkPvtIg+YgdewF22FLewWMVhnRRzxMJO/P9/ew=
+X-Received: by 2002:a0c:8910:: with SMTP id 16mr91100016qvp.55.1564630513367; 
+ Wed, 31 Jul 2019 20:35:13 -0700 (PDT)
 MIME-Version: 1.0
+References: <20190109203911.7887-1-logang@deltatee.com>
+ <20190109203911.7887-3-logang@deltatee.com>
+ <CAEbi=3d0RNVKbDUwRL-o70O12XBV7q6n_UT-pLqFoh9omYJZKQ@mail.gmail.com>
+ <c4298fdd-6fd6-fa7f-73f7-5ff016788e49@deltatee.com>
+In-Reply-To: <c4298fdd-6fd6-fa7f-73f7-5ff016788e49@deltatee.com>
+From: Greentime Hu <green.hu@gmail.com>
+Date: Thu, 1 Aug 2019 11:34:37 +0800
+Message-ID: <CAEbi=3cn4+7zk2DU1iRa45CDwTsJYfkAV8jXHf-S7Jz63eYy-A@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] RISC-V: Implement sparsemem
+To: Logan Gunthorpe <logang@deltatee.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190731_175843_399568_F0C20332 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20190731_203514_350383_63109C6A 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,65 +92,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>,
- Yangtao Li <tiny.windzz@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Anup Patel <anup.patel@wdc.com>, Johan Hovold <johan@kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
- Palmer Dabbelt <palmer@sifive.com>, Gary Guo <gary@garyguo.net>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
- Enrico Weigelt <info@metux.net>, Thomas Gleixner <tglx@linutronix.de>,
- Allison Randal <allison@lohutok.net>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Rob Herring <robh@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Waterman <andrew@sifive.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Stephen Bates <sbates@raithlin.com>, Zong Li <zong@andestech.com>,
+ paul.walmsley@sifive.com, Olof Johansson <olof@lixom.net>,
+ greentime.hu@sifive.com, linux-riscv@lists.infradead.org,
+ Michael Clark <michaeljclark@mac.com>, Christoph Hellwig <hch@lst.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is only one clocksource in RISC-V. The boot cpu initializes
-that clocksource. No need to keep a percpu data structure.
-
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- drivers/clocksource/timer-riscv.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 5e6038fbf115..09e031176bc6 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -55,7 +55,7 @@ static u64 riscv_sched_clock(void)
- 	return get_cycles64();
- }
- 
--static DEFINE_PER_CPU(struct clocksource, riscv_clocksource) = {
-+static struct clocksource riscv_clocksource = {
- 	.name		= "riscv_clocksource",
- 	.rating		= 300,
- 	.mask		= CLOCKSOURCE_MASK(64),
-@@ -92,7 +92,6 @@ void riscv_timer_interrupt(void)
- static int __init riscv_timer_init_dt(struct device_node *n)
- {
- 	int cpuid, hartid, error;
--	struct clocksource *cs;
- 
- 	hartid = riscv_of_processor_hartid(n);
- 	if (hartid < 0) {
-@@ -112,8 +111,7 @@ static int __init riscv_timer_init_dt(struct device_node *n)
- 
- 	pr_info("%s: Registering clocksource cpuid [%d] hartid [%d]\n",
- 	       __func__, cpuid, hartid);
--	cs = per_cpu_ptr(&riscv_clocksource, cpuid);
--	error = clocksource_register_hz(cs, riscv_timebase);
-+	error = clocksource_register_hz(&riscv_clocksource, riscv_timebase);
- 	if (error) {
- 		pr_err("RISCV timer register failed [%d] for cpu = [%d]\n",
- 		       error, cpuid);
--- 
-2.21.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgTG9nYW4sCgpMb2dhbiBHdW50aG9ycGUgPGxvZ2FuZ0BkZWx0YXRlZS5jb20+IOaWvCAyMDE5
+5bm0OOaciDHml6Ug6YCx5ZubIOS4iuWNiDE6MDjlr6vpgZPvvJoKPgo+Cj4KPiBPbiAyMDE5LTA3
+LTMxIDEyOjMwIGEubS4sIEdyZWVudGltZSBIdSB3cm90ZToKPiA+IEkgbG9vayB0aGlzIGlzc3Vl
+IG1vcmUgY2xvc2VseS4KPiA+IEkgZm91bmQgaXQgYWx3YXlzIHNldHMgZWFjaCBtZW1ibG9jayBy
+ZWdpb24gdG8gbm9kZSAwLiBEb2VzIHRoaXMgbWFrZSBzZW5zZT8KPiA+IEkgYW0gbm90IHN1cmUg
+aWYgSSB1bmRlcnN0YW5kIHRoaXMgY29ycmVjdGx5LiBEbyB5b3UgaGF2ZSBhbnkgaWRlYSBmb3IK
+PiA+IHRoaXM/IFRoYW5rIHlvdS4gOikKPgo+IFllcywgSSB0aGluayB0aGlzIGlzIG5vcm1hbC4g
+V2hlbiB3ZSB0YWxrIGFib3V0IG1lbW9yeSBub2RlcyB3ZSdyZQo+IHRhbGtpbmcgYWJvdXQgTlVN
+QSBub2RlcyB3aGljaCBpcyB1bnJlbGF0ZWQgdG8gZGV2aWNlIHRyZWUgbm9kZXMuCgpPaywgYnV0
+IGl0IHNlZW1zIHRoZSBzZWNvbmQgbWVtYmxvY2tfcmVnaW9uIG1heSBvdmVyd3JpdGUgdGhlIGZp
+cnN0Cm1lbWJsb2NrX3JlZ2lvbiBpbiBmb3JfZWFjaF9tZW1ibG9jayhtZW1vcnksIHJlZykgIGxv
+b3AuIEl0IGFsd2F5cwp1c2VzIHRoaXMgQVBJIHRvIHNldCB0byBub2RlIDAuCm1lbWJsb2NrX3Nl
+dF9ub2RlKFBGTl9QSFlTKHN0YXJ0X3BmbiksUEZOX1BIWVMoZW5kX3BmbiAtIHN0YXJ0X3Bmbiks
+CiZtZW1ibG9jay5tZW1vcnksMCkKCgo+IEknbSBub3QgcmVhbGx5IHN1cmUgd2hhdCdzIGNhdXNp
+bmcgdGhlIGNyYXNoLiBIYXZlIHlvdSB2ZXJpZmllZCBpdCdzCj4gdGhpcyBwYXRjaCB0aGF0IGNh
+dXNlcyBpdD8gSXMgaXQgcmVsYXRlZCB0byB0aGVyZSBiZWluZyBhIGhvbGUgaW4geW91cgo+IG1l
+bW9yeSwgZG9lcyBpdCB3b3JrIGlmIHlvdSBvbmx5IGhhdmUgb25lIG1lbW9yeSBub2RlPwo+CgpJ
+dCB3b3JrcyBmaW5lIGlmIHRoZXJlIGlzIG9ubHkgb25lIG1lbW9yeSBub2RlIGRlc2NyaWJlZCBp
+biBkdHMuCgpJIHRoaW5rIGl0IGlzIHJlbGF0ZWQgdG8gdGhlcmUgYmVpbmcgYSBob2xlIGluIHRo
+ZSBkZXZpY2UgdHJlZSBzY3JpcHQuCkkgZG9uJ3QgYWN0dWFsbHkgaGF2ZSBhIHBsYXRmb3JtIHdp
+dGggYSBob2xlIGluIHRoZSBtZW1vcnkgcmVnaW9uLCBzbwpJIHVzZSBkZXZpY2UgdHJlZSBzY3Jp
+cHQgdG8gZGVzY3JpYmUgaXQuCgpUaGUgcGh5c2ljYWwgYWRkcmVzcyBsYXlvdXQgd2lsbCBiZSBs
+aWtlIHRoaXMuCjJHQi0zR0ItaG9sZS02R0ItN0dCCgptZW1vcnlAODAwMDAwMDAgewogICAgZGV2
+aWNlX3R5cGUgPSAibWVtb3J5IjsKICAgIHJlZyA9IDwweDAgMHg4MDAwMDAwMCAweDAgMHg0MDAw
+MDAwMD47Cn07Cm1lbW9yeUAxODAwMDAwMDAgewogICAgZGV2aWNlX3R5cGUgPSAibWVtb3J5IjsK
+ICAgIHJlZyA9IDwweDEgMHg4MDAwMDAwMCAweDAgMHg0MDAwMDAwMD47Cn07CgpUaGFuayB5b3Ug
+Zm9yIHRoZSBxdWljayByZXBseS4gOikKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
