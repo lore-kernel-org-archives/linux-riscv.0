@@ -2,90 +2,75 @@ Return-Path: <SRS0=rJkP=WC=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0A556C31E40
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2019 17:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 893C3C31E40
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2019 17:59:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CB59A2089E
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2019 17:53:24 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 54C1D20B1F
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  6 Aug 2019 17:59:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="j4jjIETi";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="I6eRro/i"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CB59A2089E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TFrJhVxc"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 54C1D20B1F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2dc0SHNxIldcOV3CFUS6gCqRbAV6OayBe1PjqndOEJ0=; b=j4jjIETi4VKTKs
-	xSHypQTdoVF3h4ZzHqio3jSvyTX2csspSNCwpyn1FtbPXcBokReHNumfX7tyZBtijrbcTccqyJyZA
-	/6jm7HNy0fagvooDTHvxilljEvIPfZLES/d1mE9ZN9z9pe5iP8rVgTrZ8fYnhlZIrwaJns4Kbi4ZG
-	wZa7Z4UCeyew9hXprH6t/6bk14GVDvMQMKHaklyDymjRvZqPs1a23g3RrgdXlo02BNuZL1lPTKapc
-	kRB/NU2JVIbOU1GIxGJ630E60L5xXjTRpD1uCvwwfAY9LhG981ToPxqvZBGvvFmVhSMKdiK7fqtLv
-	Yw4qD5u4xlgLu8C29P4Q==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=YoRLaEnRu8/WQRDvClKv9GjNYdBf/QwBCoJ+qSwmfbA=; b=TFrJhVxcfdi73F+tibN6b4VjL
+	8GcQaIvNFchhvHf1MDLBhQfnm9hyYRAElbeArZXqZljdSb2S5Bf522OJ8SH7h1iIYt8XjFljCGj6K
+	F1CFUYqDjNISezOHt/YZf7PvU50NHIQc4XcxvgR6EK5RUo3BbcUO82yW6Nezwf+g8hqmFpxgw2H+0
+	VJY9BGYsVuZXsLfKeOQnwhXI2p8cbxBKDAbjQ4RnFxW+EFz3yY9/2ip0jmMhTr1/HKTAEfLcJM+b/
+	f3Ssvwugovw6R0rZ+18yvKWFfRwLLpHKixD4+mJri1dF64YwDv62mFQmI8kZ1B49OA3E5wWG4Robv
+	nK7nTWgBw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hv3e9-00032K-E7; Tue, 06 Aug 2019 17:53:17 +0000
-Received: from mail-ot1-x341.google.com ([2607:f8b0:4864:20::341])
+	id 1hv3kE-0004TH-G7; Tue, 06 Aug 2019 17:59:34 +0000
+Received: from mail-pl1-f193.google.com ([209.85.214.193])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hv3e7-00031z-0a
- for linux-riscv@lists.infradead.org; Tue, 06 Aug 2019 17:53:16 +0000
-Received: by mail-ot1-x341.google.com with SMTP id l15so94650675otn.9
- for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2019 10:53:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:cc:subject:in-reply-to:message-id:references
- :user-agent:mime-version;
- bh=Vidl/iliYyM68CgUWKBvBBZXppJjyGynlsyQn0zL3dU=;
- b=I6eRro/i9b5l7UEkPd5CFMM6sE/m4+ty7HmtFxtk4DET7OdwI+vvGL5k2jUAoHw8gM
- SVzWxV162RQwHTegKmfEWNIR9y4OZdPVGADYduSDqf2dBmpZ/W3r4VqYxTwBXTO9LW9l
- 39LeYAS7yqNAubFXX7L5HAhp4Q1KJP36+QmpA76eHaXYET/2YhYoD5Qy2CCnjAR3AnGs
- TA4hG3S9eeXnVuhQ8Af1hs6E88x6afISJuHDVQaQw76ewbiPXYg52VndcpHWvk6Nw0dX
- Gzi/nJM7Jk5cOSqq44zqG1RySglVC1DDNYXw76iqR1BlOS4xozQ0DvPSHbnHzCyhJbHr
- 90cA==
+ id 1hv3kC-0004Sf-EG
+ for linux-riscv@lists.infradead.org; Tue, 06 Aug 2019 17:59:33 +0000
+Received: by mail-pl1-f193.google.com with SMTP id b7so38221927pls.6
+ for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2019 10:59:26 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
- :references:user-agent:mime-version;
- bh=Vidl/iliYyM68CgUWKBvBBZXppJjyGynlsyQn0zL3dU=;
- b=laQqxHQzWpc0/ntHko1ZFhUg7hghQhJOMLWAvfxCeubkYZUF76JnQDAukd+Km3GHyl
- F0Dz/YgAoE0RrUpRoCKuqGPu6xZMcauUGiazJxyK9NypplnGNVOrD8eaVPlhZS6AbTC/
- ZwUk+rySzzWnjoN1WlYKonH0u2WrS7Ulx23c8LWs35dytaZ3RtUEfJsEwNKfS8Iwb6pg
- hhYS7CVK+Dxg6lEo4hKbyRIf9+ZN1vOLmGXPfpD+sWxyUK+XnqRykaCsippXrunMKCks
- 2vuCEiijQ2L0Agx7ohaiZ8cXj+hLEVv2hZ7jL+n/kGyUKMT5vTBhqWsmV63pWG5ZVOKq
- Zvbg==
-X-Gm-Message-State: APjAAAXF2dAggrJqvxwjXcQFR/ZWb4Jq0O8d2I1qk+jvljnoYhAAtqRG
- tOLuni05TBwLpIniZJrCZfyVVw==
-X-Google-Smtp-Source: APXvYqxii8Gup+YkcjZUXoNSg9trWA/r/DHmUTx1K1KeHy/IKb3PXSnw4Vs44XzqJoKBOYujCBkYSg==
-X-Received: by 2002:a5e:a70b:: with SMTP id b11mr39589iod.286.1565113993921;
- Tue, 06 Aug 2019 10:53:13 -0700 (PDT)
-Received: from localhost (c-73-95-159-87.hsd1.co.comcast.net. [73.95.159.87])
- by smtp.gmail.com with ESMTPSA id
- t133sm124248306iof.21.2019.08.06.10.53.13
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=oQJkGARJWjx+VqOyjrfidLGa25LtkECWplg+h1Xop0w=;
+ b=BUb2XOzeV9lSdZL5U6w+ubmdzavTz3VVIS2GnNrIBYbv2pPDJ/Jq88QiIQozNETGJM
+ afJpsBFPwFccPGzO8MBdendiMO4DeEnWxzlYp5Hnhbs7wboVpKMz2pEa74zTdrdDyZxd
+ 7HH4CYwnzzZQMQIc/uy9h0E8EwbIOIfVRAKyV9xtbrec7rH8FJbMsXdnMmYV6wlUPIFn
+ e0luXldQNzA8MdJJ95QCzpugojDdOk2MxHNsJ7DfzS+j+uT7Ncjr9nT2Ic/dLHMoJU6S
+ b9sSppJnMULlXMiWIkX5rS4/6fqbpjPxVhrXhLfj1fTvLya2EIO40Su3dnirza8z2u0l
+ dY0g==
+X-Gm-Message-State: APjAAAXjOUxbkrpNWU4PkZqVurKetyT3mZiLv8qUsdKf0GOgW+3fLnck
+ Ih3hj53sH8ncEhE/dvam5s9hgg==
+X-Google-Smtp-Source: APXvYqxuwq+UWVp/vUXQ2jH2cOxAM/dtvJYMXCBp350xuPl7/AvtCK8bkiTk+t+EVPUHiv8WSNapdA==
+X-Received: by 2002:a17:902:1102:: with SMTP id
+ d2mr4319785pla.149.1565114365401; 
+ Tue, 06 Aug 2019 10:59:25 -0700 (PDT)
+Received: from localhost ([12.206.222.5])
+ by smtp.gmail.com with ESMTPSA id y8sm84964072pfn.52.2019.08.06.10.59.24
  (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Tue, 06 Aug 2019 10:53:13 -0700 (PDT)
-Date: Tue, 6 Aug 2019 10:53:12 -0700 (PDT)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-X-X-Sender: paulw@viisi.sifive.com
-To: Palmer Dabbelt <palmer@sifive.com>
+ Tue, 06 Aug 2019 10:59:24 -0700 (PDT)
+Date: Tue, 06 Aug 2019 10:59:24 -0700 (PDT)
+X-Google-Original-Date: Tue, 06 Aug 2019 10:59:09 PDT (-0700)
 Subject: Re: About __udivdi3
-In-Reply-To: <mhng-206638da-813f-4beb-bb68-ec2ff8fe0730@palmer-si-x1c4>
-Message-ID: <alpine.DEB.2.21.9999.1908061051570.13971@viisi.sifive.com>
-References: <mhng-206638da-813f-4beb-bb68-ec2ff8fe0730@palmer-si-x1c4>
-User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
-MIME-Version: 1.0
+In-Reply-To: <alpine.DEB.2.21.9999.1908061051570.13971@viisi.sifive.com>
+From: Palmer Dabbelt <palmer@sifive.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Message-ID: <mhng-b8da0042-274d-4d0e-ae54-4c21459238e8@palmer-si-x1e>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190806_105315_068824_F7A44438 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190806_105932_481569_02FEFE13 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,37 +85,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Cc: tesheng@andestech.com, dslin1010@gmail.com, alankao@andestech.com,
  rick@andestech.com, Christoph Hellwig <hch@infradead.org>, kclin@andestech.com,
  linux-riscv@lists.infradead.org, Jim Wilson <jimw@sifive.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-(privately)
+On Tue, 06 Aug 2019 10:53:12 PDT (-0700), Paul Walmsley wrote:
+> (privately)
+>
+> On Tue, 6 Aug 2019, Palmer Dabbelt wrote:
+>
+>> Yep.  I think the best bet is to just drop it, with something like this:
+>>
+>>    commit f7f2185e0e3e60a8b77fb519a98b752242ade235
+>>    gpg: Signature made Tue 06 Aug 2019 08:06:30 AM PDT
+>>    gpg:                using RSA key 00CE76D1834960DFCE886DF8EF4CA1502CCBAB41
+>>    gpg:                issuer "palmer@dabbelt.com"
+>>    gpg: Good signature from "Palmer Dabbelt <palmer@dabbelt.com>" [ultimate]
+>>    gpg:                 aka "Palmer Dabbelt <palmer@sifive.com>" [ultimate]
+>>    Author: Palmer Dabbelt <palmer@sifive.com>
+>>    Date:   Tue Aug 6 08:03:59 2019 -0700
+>>           RISC-V: Remove udivdi3
+>>           This should never have landed in the first place: it was added as
+>> part
+>>        of 64-bit divide support for 32-bit systems, but the kernel doesn't
+>>        allow this sort of division.  I must have forgotten to remove it.
+>
+> Just FYI, you probably already know this, but this patch was mangled on
+> the list.  I'll reformat it and queue it up, but figured you probably
+> would want to know if you didn't already.
 
-On Tue, 6 Aug 2019, Palmer Dabbelt wrote:
-
-> Yep.  I think the best bet is to just drop it, with something like this:
-> 
->    commit f7f2185e0e3e60a8b77fb519a98b752242ade235
->    gpg: Signature made Tue 06 Aug 2019 08:06:30 AM PDT
->    gpg:                using RSA key 00CE76D1834960DFCE886DF8EF4CA1502CCBAB41
->    gpg:                issuer "palmer@dabbelt.com"
->    gpg: Good signature from "Palmer Dabbelt <palmer@dabbelt.com>" [ultimate]
->    gpg:                 aka "Palmer Dabbelt <palmer@sifive.com>" [ultimate]
->    Author: Palmer Dabbelt <palmer@sifive.com>
->    Date:   Tue Aug 6 08:03:59 2019 -0700
->           RISC-V: Remove udivdi3
->           This should never have landed in the first place: it was added as
-> part
->        of 64-bit divide support for 32-bit systems, but the kernel doesn't
->        allow this sort of division.  I must have forgotten to remove it.
-
-Just FYI, you probably already know this, but this patch was mangled on 
-the list.  I'll reformat it and queue it up, but figured you probably 
-would want to know if you didn't already.
-
-
-- Paul
+Ya, they're mangled when I inline them.  I'm usually just asking for people to
+look at the concept here, and I send a real patch out later.
 
 _______________________________________________
 linux-riscv mailing list
