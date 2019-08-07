@@ -2,66 +2,90 @@ Return-Path: <SRS0=DSzU=WD=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D27BBC31E40
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2019 00:19:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BCC90C433FF
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2019 00:38:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9EB3D2173C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2019 00:19:18 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8E23221738
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2019 00:38:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NKUigcJN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9EB3D2173C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ap00lE0F";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="LQDph4NS"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8E23221738
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xmN3/jVUR/Z3h3r1SBxbDxfLftIwIovN8I1hD4ufdwQ=; b=NKUigcJNzTkd5a
-	AuU05M2N6XaQflm76vcrsE4xNzsjXiJco3GRZPMGqem7m9r3Z6JEIFjnkKo27elx3n2aAZhyO8IEn
-	dQvuUhNlHqTeiHg4TqnkAMO9vhgx5n5HWTSawBVouNGvL0J9y+M4LWzpGBI1umLJsjcyZMwWcezdM
-	W+mwEhrKKIn8hHGhbQFRldIZev1EoQpL8nxdCdhkGL54nnEXS3su9BhEYM9Gws8f32JYJPjLPKa2F
-	3o7o9TdUGC/xNILICopdOa+NZSdFigDGbAAKSurm/Y7guTfvkrZ0COPPBafKSGZlCOAVL9BuYObjm
-	Q7FsiE0mVTsMdakLXzjw==;
+	List-Owner; bh=iiSf0LLGc/zcxfOLxKx1xUJwH6pulM3sT0BOdcHp6ds=; b=Ap00lE0FW7oXX7
+	9YhRKFUFhymFbLVOoB3mt2GaqSmqNWu3Z9CndOj2WUokM96qQ1nmFPakxBg3PWwPCujxPR/xf48te
+	ZCO5vMiOhA0qxM8Bv1GOzgeZlTQOtE2+lMo5CGaoSvvQCByFmkNlIQ2YIYehezPHlZ3ccZFu4GS17
+	h6ZNFC4j4kUC0cNhpgfMghVRLZB5HDcvRqvU9gjLbUK/laR9CB9gdZxyDjE4RD/QyXQ3s1+AVoope
+	J/Lv8eFjLFDLzsxdrsVOdbh/J6wSYo5N19ASVN2JuWDWNMSPNV5Uq4yOUKufIW81yrj2NHCWP0bu0
+	RZdXN/6mwRR6Uqd6ZS/g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hv9fh-0001BU-2B; Wed, 07 Aug 2019 00:19:17 +0000
-Received: from 59-120-53-16.hinet-ip.hinet.net ([59.120.53.16]
- helo=ATCSQR.andestech.com)
+	id 1hv9yf-0001XC-9X; Wed, 07 Aug 2019 00:38:53 +0000
+Received: from mail-ot1-x343.google.com ([2607:f8b0:4864:20::343])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hv9fd-0001B5-Ny
- for linux-riscv@lists.infradead.org; Wed, 07 Aug 2019 00:19:15 +0000
-Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
- by ATCSQR.andestech.com with ESMTP id x7707lDs067769;
- Wed, 7 Aug 2019 08:07:47 +0800 (GMT-8)
- (envelope-from alankao@andestech.com)
-Received: from andestech.com (10.0.15.65) by ATCPCS16.andestech.com
- (10.0.1.222) with Microsoft SMTP Server id 14.3.123.3; Wed, 7 Aug 2019
- 08:18:46 +0800
-Date: Wed, 7 Aug 2019 08:18:46 +0800
-From: Alan Kao <alankao@andestech.com>
-To: Palmer Dabbelt <palmer@sifive.com>
+ id 1hv9yO-0001Dq-G6
+ for linux-riscv@lists.infradead.org; Wed, 07 Aug 2019 00:38:37 +0000
+Received: by mail-ot1-x343.google.com with SMTP id l15so97484503otn.9
+ for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2019 17:38:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:from:to:cc:subject:in-reply-to:message-id:references
+ :user-agent:mime-version;
+ bh=r9aZG3WBUIIVJBTg4zGg11dwwhiuolyehMNVzZ5eqrQ=;
+ b=LQDph4NSxNmCCPjHbwh7t+2ZW9h3DwfDdXwrGdaioqazRmL5vkLdGGgzWPVm1zKyzn
+ BA7k83m5DpsXflOvSfYfdGmFiueyl3YN9a7zJkfVtbiwxWzpyrWdDqZb3XXaASaEpHR7
+ ULDs9XvDov/DZpX6qZggmu9UwoBu7RueSZMYsWhFFn1aUx9JZIdX9QJlyEHCoCnDr9s9
+ HtbfpB5LmIFbLLBBXjCnQuJVQ+PSDxUQEGRfWDMR2QkOF2UheEbn3UcgyMC1XQZBMnMI
+ JAqXtxz3WWtqxhy+AF6b02tPRaLyWjdj9yjpuEq1+tPEfvvIK1ZpFdcqxjNyIkl6yDK8
+ SXVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
+ :references:user-agent:mime-version;
+ bh=r9aZG3WBUIIVJBTg4zGg11dwwhiuolyehMNVzZ5eqrQ=;
+ b=GRq86OrufrpH5MGa61PeU/HHKVlz69HVMJc/RFx7hhx5zqvUrUZsHDIBFFs9pTeM2k
+ RYeHsuVaWBF2Wos5J+fL6LPY9hBULcJ634puGxvEVEBG2kwW9zubkc1O99z2hixTUeF9
+ rgROY0nxVbet4tnAllCbYlJIQuowJRNLpo6xirsughoG2/sIvk093HtknZ5k1DnHKo/E
+ hWAQl+DwT7dpLrvskhuTrzGbLx2DnPSdviRWTqCFAONOr1D3/KKJuRGwwCyXQDUaC9nY
+ R9DJIgqIn/5J/Vww4o3h/VU2QMFQuu9SE06DQX0ABXi1trmGHeICOE+Jvtxbwfolof4h
+ W/FA==
+X-Gm-Message-State: APjAAAX/qJL/pKBVR4tNxGVCFme6mFwkdQqW27ErK96aF9W/QIRWvJov
+ cw7pX8VffxAlfuAWypqnvcXqew==
+X-Google-Smtp-Source: APXvYqzORKNPpmwutZw7E7T/rup0QJ5/yH37vr3jNp0Acp5krKxTOeK6ykXgM0DUPGoIkU9Y4J4KZw==
+X-Received: by 2002:a5d:87da:: with SMTP id q26mr6535508ios.193.1565138315621; 
+ Tue, 06 Aug 2019 17:38:35 -0700 (PDT)
+Received: from localhost (c-73-95-159-87.hsd1.co.comcast.net. [73.95.159.87])
+ by smtp.gmail.com with ESMTPSA id
+ b14sm99393706iod.33.2019.08.06.17.38.34
+ (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
+ Tue, 06 Aug 2019 17:38:35 -0700 (PDT)
+Date: Tue, 6 Aug 2019 17:38:34 -0700 (PDT)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+X-X-Sender: paulw@viisi.sifive.com
+To: Alan Kao <alankao@andestech.com>
 Subject: Re: [PATCH] RISC-V: Remove udivdi3
-Message-ID: <20190807001846.GA21655@andestech.com>
+In-Reply-To: <20190807001846.GA21655@andestech.com>
+Message-ID: <alpine.DEB.2.21.9999.1908061738130.13971@viisi.sifive.com>
 References: <20190807000508.9477-1-palmer@sifive.com>
+ <20190807001846.GA21655@andestech.com>
+User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190807000508.9477-1-palmer@sifive.com>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-Originating-IP: [10.0.15.65]
-X-DNSRBL: 
-X-MAIL: ATCSQR.andestech.com x7707lDs067769
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190806_171914_037975_0D8A7A97 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20190806_173836_608372_0281D9A5 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,90 +97,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Nicolas Pitre <nico@fluxnic.net>,
- Paul Walmsley <paul.walmsley@sifive.com>
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>,
+ Nicolas Pitre <nico@fluxnic.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 06, 2019 at 05:05:08PM -0700, Palmer Dabbelt wrote:
-> This should never have landed in the first place: it was added as part
-> of 64-bit divide support for 32-bit systems, but the kernel doesn't
-> allow this sort of division.  I must have forgotten to remove it.
-> 
-> This patch removes the support.  Since this routine only worked on
-> 64-bit platforms but was only built on 32-bit platforms, it's
-> essentially just nonsense anyway.
-> 
+On Wed, 7 Aug 2019, Alan Kao wrote:
 
-It would be more complete if we add
-"Reported-by: Eric Lin <tesheng@andestech.com>" here.
+> On Tue, Aug 06, 2019 at 05:05:08PM -0700, Palmer Dabbelt wrote:
+> > This should never have landed in the first place: it was added as part
+> > of 64-bit divide support for 32-bit systems, but the kernel doesn't
+> > allow this sort of division.  I must have forgotten to remove it.
+> > 
+> > This patch removes the support.  Since this routine only worked on
+> > 64-bit platforms but was only built on 32-bit platforms, it's
+> > essentially just nonsense anyway.
+> > 
+> 
+> It would be more complete if we add
+> "Reported-by: Eric Lin <tesheng@andestech.com>" here.
+> 
+> > Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+> > Acked-by: Nicolas Pitre <nico@fluxnic.net>
 
-> Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
-> Acked-by: Nicolas Pitre <nico@fluxnic.net>
-> ---
->  arch/riscv/lib/Makefile  |  2 --
->  arch/riscv/lib/udivdi3.S | 32 --------------------------------
->  2 files changed, 34 deletions(-)
->  delete mode 100644 arch/riscv/lib/udivdi3.S
-> 
-> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> index 8e364ebf37de..267feaa10f6a 100644
-> --- a/arch/riscv/lib/Makefile
-> +++ b/arch/riscv/lib/Makefile
-> @@ -5,5 +5,3 @@ lib-y	+= memset.o
->  lib-y	+= uaccess.o
->  
->  lib-$(CONFIG_64BIT) += tishift.o
-> -
-> -lib-$(CONFIG_32BIT) += udivdi3.o
-> diff --git a/arch/riscv/lib/udivdi3.S b/arch/riscv/lib/udivdi3.S
-> deleted file mode 100644
-> index 3f07476a91a9..000000000000
-> --- a/arch/riscv/lib/udivdi3.S
-> +++ /dev/null
-> @@ -1,32 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0-only */
-> -/*
-> - * Copyright (C) 2016-2017 Free Software Foundation, Inc.
-> - */
-> -
-> -#include <linux/linkage.h>
-> -
-> -ENTRY(__udivdi3)
-> -	mv	a2, a1
-> -	mv	a1, a0
-> -	li	a0, -1
-> -	beqz	a2, .L5
-> -	li	a3, 1
-> -	bgeu	a2, a1, .L2
-> -.L1:
-> -	blez	a2, .L2
-> -	slli	a2, a2, 1
-> -	slli	a3, a3, 1
-> -	bgtu	a1, a2, .L1
-> -.L2:
-> -	li	a0, 0
-> -.L3:
-> -	bltu	a1, a2, .L4
-> -	sub	a1, a1, a2
-> -	or	a0, a0, a3
-> -.L4:
-> -	srli	a3, a3, 1
-> -	srli	a2, a2, 1
-> -	bnez	a3, .L3
-> -.L5:
-> -	ret
-> -ENDPROC(__udivdi3)
-> -- 
-> 2.21.0
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Thanks, queued for v5.3-rc with Eric's Reported-by.
+
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
