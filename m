@@ -2,87 +2,84 @@ Return-Path: <SRS0=DSzU=WD=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 02F8AC31E40
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2019 02:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6B6D7C433FF
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2019 02:33:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CE3E4208C3
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2019 02:30:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3F918208C3
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  7 Aug 2019 02:33:45 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KC90gpR0";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="UDOJPO3z"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CE3E4208C3
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dLEa4chq";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=pobox.com header.i=@pobox.com header.b="GV4AwY3c";
+	dkim=fail reason="key not found in DNS" (0-bit key) header.d=fluxnic.net header.i=@fluxnic.net header.b="bOBzoNWA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3F918208C3
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=fluxnic.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jpobHcW1LQj/ROTumNIKhMNqjixgAalr3uiLgD3g60w=; b=KC90gpR0QiZNTD
-	Dh+T80L+MCbcbEt6asrb3JVRCol/4VcIlR82VYHjv/BA9LfehgFO9vsnosd0SHIbnF2vS6D8W7DF5
-	ySINUoqXNJk3FxTScidJ9txYbKYkOEvYhqw4/4SEjDxLnmqHZb4uCYYVaeM5wOzAjOyFvNnI854xh
-	YsamCgtdxSSRiG46rk61rnXayh5nWXD5OncUUqagtdl+zGJ5JSrbw93iO3kDD5Oj1OiRJXwKYjmG/
-	sbO4o2IXNjEe8NrWYLnSG0DFjVG0Qtl13eTAb8SUx85TbKyZE+cxZBn6g22szLDSz3OxYK+feV7GD
-	UZy1U0XFh96pa2EBSwVA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wa1/6qLGA8OutWXq+6zE4HuvIqTcoLidSmEICiJ5sao=; b=dLEa4chqAZj7HX
+	wK066+riNVZWgLh7NK7/I13zC3S+x9EkPzEOaDIfrhC+rAhcuSj4U9Kb3BPZbVkb2LSbIdjYf8WSJ
+	8SnX9UGRmShHIwI4L6w1nVYcvor5PYtpWy6nnznNobj5+96ALILvEFGmU5yh6AH6aJDAXumrtkuW0
+	K7Gs4d/oIXOa7Bmqb4fzKJviu6dBISYHBSMwbcuGd33g5T7AWGv9+lKLQb8/pXkTEzpii0klxR6qi
+	emBlMEZWBdVl163sBfSgoyDp1+sQaKEK5gXfMKOOERYILnKtSqYlyE10t82nsHwwN4RYmG5p723Ox
+	Ej8MBGhPpL+6SxnGb1eQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hvBih-00015x-A6; Wed, 07 Aug 2019 02:30:31 +0000
-Received: from mail-ot1-x342.google.com ([2607:f8b0:4864:20::342])
+	id 1hvBln-0001U9-Ea; Wed, 07 Aug 2019 02:33:43 +0000
+Received: from pb-smtp2.pobox.com ([64.147.108.71])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hvBif-00015K-5E
- for linux-riscv@lists.infradead.org; Wed, 07 Aug 2019 02:30:30 +0000
-Received: by mail-ot1-x342.google.com with SMTP id z23so69951006ote.13
- for <linux-riscv@lists.infradead.org>; Tue, 06 Aug 2019 19:30:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:cc:subject:message-id:user-agent:mime-version;
- bh=fcElZ7wudLl4OkkEiYYbZc12nuQcPIrxhzg+jbUkCuA=;
- b=UDOJPO3zORas6F4lihQxqeo6VOtTY+/Xof7TmRXnf8qQUc4oez8VQ/ykzcGIVigsL4
- GJUsYrn9ctOdXiLvrCEuuAkVfhfbC/4RNOx9O8f6r+ALL9lk0XaWiEZefw8Gikyg70j7
- YWiReY8nHjjs37lp24se6ySXefKSqFwgxZet5atWG7LwNkf+o46yRjA8XmKuXrDs803m
- FdwKFQGlB8fMBtl/0FCegXzTLcqfvF5Oyy0NpUDd07EwRJtE3wSUgBSj+3/xGh07JVBe
- m7mO//rTcZJzlpA1SlT7YukYp28nav+zwLLex55kBNQfGLdHK2CB9TjxYd93qXzYdjGp
- op3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:user-agent
- :mime-version;
- bh=fcElZ7wudLl4OkkEiYYbZc12nuQcPIrxhzg+jbUkCuA=;
- b=Q963Bk8q8A+Wo1c2ZNAyMw07MmJaDEC5KrGTCq5NS7X19emMxw1tgpASFY4fJm4bSf
- KzygFPBdUo5NUa5chFJTlv7/ek1pjqzEa9FgJcZIm9gqk8VYhFa1f723GlGzwFBDJaCQ
- dvWWRGhgOnGrBcFhrhw8ybxCZcv4ZKsKo97tWtbEouf4Q294ISrGfqjbd6eBm+ueQbaE
- C9JNI4BnvNWBIaY/TpJyil5lAwECgbBQv0ggwFcFIQk6sP1fpDp0rad6UPBcLtebgEvP
- A895WMsloZKmz0brJ0YN0D9yB7V3n8Zdsa8y/dKkztOZ7YCBSKrjQnaVgg5aiciQWZWj
- RgpA==
-X-Gm-Message-State: APjAAAWQsV64sm/ILFfmCaI9Jk0JihzzaYvZ93fRPErV1QhkSvXa/KQl
- KQ68bQnR1RV9CxVgCOLoIPA0n9feWgM=
-X-Google-Smtp-Source: APXvYqy5awZKyZbsdh5g/oDEBb/x5E1IQyxC8xQ0M2N6V6fiNDKO+jW2FnJkWzfnrjdoiyAlwXiY8Q==
-X-Received: by 2002:a05:6638:40c:: with SMTP id
- q12mr7740016jap.17.1565145026561; 
- Tue, 06 Aug 2019 19:30:26 -0700 (PDT)
-Received: from localhost (c-73-95-159-87.hsd1.co.comcast.net. [73.95.159.87])
- by smtp.gmail.com with ESMTPSA id
- y20sm73451455ion.77.2019.08.06.19.30.25
- (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Tue, 06 Aug 2019 19:30:25 -0700 (PDT)
-Date: Tue, 6 Aug 2019 19:30:24 -0700 (PDT)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-X-X-Sender: paulw@viisi.sifive.com
-To: linux-riscv@lists.infradead.org
-Subject: [PATCH] riscv: kbuild: drop CONFIG_RISCV_ISA_C
-Message-ID: <alpine.DEB.2.21.9999.1908061929230.19468@viisi.sifive.com>
-User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
+ id 1hvBlk-0001M2-Do
+ for linux-riscv@lists.infradead.org; Wed, 07 Aug 2019 02:33:41 +0000
+Received: from pb-smtp2.pobox.com (unknown [127.0.0.1])
+ by pb-smtp2.pobox.com (Postfix) with ESMTP id B454D15C4D1;
+ Tue,  6 Aug 2019 22:33:36 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed; d=pobox.com; h=date:from:to
+ :cc:subject:in-reply-to:message-id:references:mime-version
+ :content-type; s=sasl; bh=Ck7g7h0DLpc/51G470KEQPNlZ6M=; b=GV4AwY
+ 3cEOEMVsnIqzQ9riZjhKPblhtx59ZBJM6RctBWi1pL+75fX3i8Zdb9pa+DMbp8my
+ 9Nq/NzMtzTQutX1/LzVW1o4cpS0ebBxfU+LFbG8gHxpt8cHTS8ZQ+wrYYvwWisrv
+ M+zNZRX3Byyl50V4wrbqihmkAGx3asiYtwHnQ=
+Received: from pb-smtp2.nyi.icgroup.com (unknown [127.0.0.1])
+ by pb-smtp2.pobox.com (Postfix) with ESMTP id AD4E015C4CF;
+ Tue,  6 Aug 2019 22:33:36 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed; d=fluxnic.net;
+ h=date:from:to:cc:subject:in-reply-to:message-id:references:mime-version:content-type;
+ s=2016-12.pbsmtp; bh=5TxUhFLsv3T5vTv45QBt6IrS7MXkrk5IE9Q+Bx60fxA=;
+ b=bOBzoNWAI8Lqnztv4xxerqkzHCuK/bmBhzzPMcMHy4LiYnPvez9cQEczZzTpFUydNVyuCdUMKrDpBRdYbICrRUjR59NOtboSozW5JVN4br6QoK8/FkO4m1YjGAzIQvlrwpKo5cgwcRBwZ935mFFt7hPACWSeIVFaMlOXeKnvZ28=
+Received: from yoda.home (unknown [24.203.50.76])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by pb-smtp2.pobox.com (Postfix) with ESMTPSA id 3C43C15C4CE;
+ Tue,  6 Aug 2019 22:33:36 -0400 (EDT)
+Received: from xanadu.home (xanadu.home [192.168.2.2])
+ by yoda.home (Postfix) with ESMTPSA id 527B92DA017B;
+ Tue,  6 Aug 2019 22:33:35 -0400 (EDT)
+Date: Tue, 6 Aug 2019 22:33:35 -0400 (EDT)
+From: Nicolas Pitre <nico@fluxnic.net>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH] RISC-V: Remove udivdi3
+In-Reply-To: <alpine.DEB.2.21.9999.1908061907340.25231@viisi.sifive.com>
+Message-ID: <nycvar.YSQ.7.76.1908062230570.19480@knanqh.ubzr>
+References: <20190807000508.9477-1-palmer@sifive.com>
+ <20190807001846.GA21655@andestech.com>
+ <alpine.DEB.2.21.9999.1908061738130.13971@viisi.sifive.com>
+ <alpine.DEB.2.21.9999.1908061907340.25231@viisi.sifive.com>
+User-Agent: Alpine 2.21 (LFD 202 2017-01-01)
 MIME-Version: 1.0
+X-Pobox-Relay-ID: C1E0530A-B8BB-11E9-814E-72EEE64BB12D-78420484!pb-smtp2.pobox.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190806_193029_212255_9C8A0545 
-X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-CacheID: sfid-20190806_193340_581174_FE529BB5 
+X-CRM114-Status: UNSURE (   8.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -95,62 +92,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: atish.patra@wdc.com, linux-kernel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>,
+ Alan Kao <alankao@andestech.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, 6 Aug 2019, Paul Walmsley wrote:
 
-The baseline ISA support requirement for the RISC-V Linux kernel
-mandates compressed instructions, so it doesn't make sense for
-compressed instruction support to be configurable.
+> This patch breaks the rv32_defconfig build, since udelay() still relies on 
+> __udivdi3().  I'll queue "riscv: delay: use do_div() instead of 
+> __udivdi3()" along with it: 
+> 
+> https://lore.kernel.org/linux-riscv/alpine.DEB.2.21.9999.1908061906240.25231@viisi.sifive.com/T/#u
 
-Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Atish Patra <atish.patra@wdc.com>
+> +       u64 n;
+> +       u32 rem;
+> 
+>         if (unlikely(usecs > MAX_UDELAY_US)) {
+> -               __delay((u64)usecs * riscv_timebase / 1000000ULL);
+> +               n = (u64)usecs * riscv_timebase;
+> +               rem = do_div(n, 1000000);
 
----
- arch/riscv/Kconfig  | 10 ----------
- arch/riscv/Makefile |  2 +-
- 2 files changed, 1 insertion(+), 11 deletions(-)
+You may omit rem and ignore the return value here.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 59a4727ecd6c..8c5b9329ec46 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -197,16 +197,6 @@ config TUNE_GENERIC
- 
- endchoice
- 
--config RISCV_ISA_C
--	bool "Emit compressed instructions when building Linux"
--	default y
--	help
--	   Adds "C" to the ISA subsets that the toolchain is allowed to emit
--	   when building Linux, which results in compressed instructions in the
--	   Linux binary.
--
--	   If you don't know what to do here, say Y.
--
- menu "supported PMU type"
- 	depends on PERF_EVENTS
- 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 7a117be8297c..e23e066c55e2 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -38,7 +38,7 @@ endif
- riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
- riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
- riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
--riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
-+riscv-march-y				:= $(riscv-march-y)c
- KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
- KBUILD_AFLAGS += -march=$(riscv-march-y)
- 
--- 
-2.22.0
 
+Nicolas
 
 _______________________________________________
 linux-riscv mailing list
