@@ -2,71 +2,59 @@ Return-Path: <SRS0=gQVT=WE=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DB253C0650F
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2019 06:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 82F68C0650F
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2019 07:50:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AC57D2184E
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2019 06:34:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 56768218FC
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  8 Aug 2019 07:50:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CpTi+j4+";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="efcoXMj1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AC57D2184E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rz6BZj2i"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 56768218FC
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uePbcUKWw8GCRXty1LQfFx9cDxd1Fxil1CVjm5oP0+o=; b=CpTi+j4+ZrJA02
-	FfkklY9z1laDVbCJvOUfiWCzJMFA3g0p7kmohHrNjBa0P7maMSMLqYly2FQ3z4FSy/bRGkt+WrCmC
-	USH8ED61Orf8914RYsWl27RioWr6Eb8klB1SStsRj5WPxr2cF9R/li92u9EG+YsUuJLcZdKNXL+5N
-	fqfidqCFBgdBe3Q1C49Xv+lxTzLxbs0FwlOeXX7hdzksNYoU1mlCspXpmyzWX3lFAPQUuwMRVzQP+
-	MbPRLSPfbFlIgwZYc8tNAVTkXskBIKYGpK2DXuft9K1qYfftFNkRYpcrv2zlp41booEQbqMj1geF0
-	9VCp5zglg7sHCPO4VppQ==;
+	List-Owner; bh=WZ+a+ykKCYSyOOmdmayWL6ewbKrpft7URTBw5Ua7L0g=; b=rz6BZj2igTvUIv
+	ej+dmoJK4fu3SwS1uBKkFqXnRDK0t+fQvQpRvH8YsgS9U3PuQGBsG5RIbgB80GRYlIyWvMgurczTQ
+	9Uh2Ea3ny8U9mLzT7McACk4vj9XWYb/5/g7G16V1ddfY2WgrGozwWmFPjQWo4967Xa+GNxGu4VSA5
+	eXvG7v/q0SFLrwaQ4H6qQD34mBgR+WpLXsFPToaInI9LkTz4yL4okkbtjl+IZdvaC9nFF+Gzcc2tx
+	Uw3nTKaNeWrQZgeT30Vu4VX8yA5dU6rqsApBDDE2I11rz1G7BYJeGsgf5P5MVPKUSn9GsSIvTBMEv
+	HYRqd8UI1qVQKUM/iHFg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hvc07-0004zp-71; Thu, 08 Aug 2019 06:34:15 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
+	id 1hvdBz-0002Iq-MJ; Thu, 08 Aug 2019 07:50:35 +0000
+Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hvbzs-0004pb-Nw; Thu, 08 Aug 2019 06:34:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Transfer-Encoding:MIME-Version:
- References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
- Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=hhD4vBSrp0XSthw0GklS6gaJ3KMWMaDwTu/gQP9IYFM=; b=efcoXMj1ClalXe+5HQBUVzXThY
- A3Out9vqbAWaCO5QEDMppGyxra5/3B4HOXwWjgCeeJCLeV88ip4sFKliGdV4RPbtX3VYdgP9+vkQp
- pCM6pAG/CbjabNA1u9cSnoccMcAdW8kd+8dPJ8oVZxkiTsxPdcvEJpPqLN7yRSvMKFIQqQczDwzM8
- iHvmAdDf1WLKOraLhci7vcn7yebWeMCHHnBVkNqRd8U8emPZm4NB7lwbsVwWDlbnz7xxWoihvpSAB
- 36ywCShl5906QGsNJOh8H3ssxz9AUXmxMPpZKSoC39anqjDH6Vrr4BkENEbYKCQ/t0JKPhqZnp8Ks
- iZ3cGEBQ==;
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
- by merlin.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hvbzp-0006zb-4h; Thu, 08 Aug 2019 06:33:58 +0000
-X-Originating-IP: 79.86.19.127
-Received: from alex.numericable.fr (127.19.86.79.rev.sfr.net [79.86.19.127])
- (Authenticated sender: alex@ghiti.fr)
- by relay8-d.mail.gandi.net (Postfix) with ESMTPSA id 6957F1BF207;
- Thu,  8 Aug 2019 06:33:19 +0000 (UTC)
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v6 14/14] riscv: Make mmap allocation top-down by default
-Date: Thu,  8 Aug 2019 02:17:56 -0400
-Message-Id: <20190808061756.19712-15-alex@ghiti.fr>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20190808061756.19712-1-alex@ghiti.fr>
-References: <20190808061756.19712-1-alex@ghiti.fr>
+ id 1hvdBx-0002IK-1P
+ for linux-riscv@lists.infradead.org; Thu, 08 Aug 2019 07:50:34 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+ id 32BFA68B02; Thu,  8 Aug 2019 09:50:30 +0200 (CEST)
+Date: Thu, 8 Aug 2019 09:50:29 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH] riscv: move sifive_l2_cache.c to drivers/misc
+Message-ID: <20190808075029.GB30308@lst.de>
+References: <20190807151009.31971-1-hch@lst.de>
+ <20190807152215.GA26690@kroah.com> <20190807152438.GA16495@lst.de>
+ <alpine.DEB.2.21.9999.1908070832500.13971@viisi.sifive.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <alpine.DEB.2.21.9999.1908070832500.13971@viisi.sifive.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20190808_005033_236923_FB7D5F4F 
+X-CRM114-Status: GOOD (  15.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,95 +66,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
- Alexandre Ghiti <alex@ghiti.fr>, linux-mm@kvack.org,
- Catalin Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@sifive.com>,
- Will Deacon <will.deacon@arm.com>, Russell King <linux@armlinux.org.uk>,
- Ralf Baechle <ralf@linux-mips.org>, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, Luis Chamberlain <mcgrof@kernel.org>,
- Paul Burton <paul.burton@mips.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- James Hogan <jhogan@kernel.org>, linux-riscv@lists.infradead.org,
- linux-mips@vger.kernel.org, Christoph Hellwig <hch@lst.de>,
- linux-arm-kernel@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>
+Cc: arnd@arndb.de, Greg KH <gregkh@linuxfoundation.org>, palmer@sifive.com,
+ linux-kernel@vger.kernel.org, james.morse@arm.com,
+ linux-riscv@lists.infradead.org, mchehab@kernel.org,
+ Christoph Hellwig <hch@lst.de>, linux-edac@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In order to avoid wasting user address space by using bottom-up mmap
-allocation scheme, prefer top-down scheme when possible.
+On Wed, Aug 07, 2019 at 08:40:58AM -0700, Paul Walmsley wrote:
+> On Wed, 7 Aug 2019, Christoph Hellwig wrote:
+> 
+> > On Wed, Aug 07, 2019 at 05:22:15PM +0200, Greg KH wrote:
+> > > > Fixes: a967a289f169 ("RISC-V: sifive_l2_cache: Add L2 cache controller driver for SiFive SoCs")
+> > > > Signed-off-by: Christoph Hellwig <hch@lst.de>
+> > > > ---
+> > > >  arch/riscv/mm/Makefile                            | 1 -
+> > > >  drivers/misc/Makefile                             | 1 +
+> > > >  {arch/riscv/mm => drivers/misc}/sifive_l2_cache.c | 0
+> > > >  3 files changed, 1 insertion(+), 1 deletion(-)
+> > > >  rename {arch/riscv/mm => drivers/misc}/sifive_l2_cache.c (100%)
+> > > 
+> > > Why isn't this in drivers/edac/ ?
+> > > why is this a misc driver?  Seems like it should sit next to the edac
+> > > stuff.
+> > 
+> > No idea.  EDAC maintainers, would you object to taking what is 
+> > currently in arch/riscv/mm//sifive_l2_cache.c to drivers/edac/ ?
+> 
+> If this driver is moved out of arch/riscv/mm, it should ideally go into 
+> some sort of common L2 cache controller driver directory, along 
+> with other L2 cache controller drivers like arch/arm/mm/*l2c*. 
+> 
+> Like many L2 cache controllers, this controller also supports cache 
+> flushing operations and SoC-specific way operations.  We just don't use 
+> those on RISC-V - yet.
 
-Before:
-root@qemuriscv64:~# cat /proc/self/maps
-00010000-00016000 r-xp 00000000 fe:00 6389       /bin/cat.coreutils
-00016000-00017000 r--p 00005000 fe:00 6389       /bin/cat.coreutils
-00017000-00018000 rw-p 00006000 fe:00 6389       /bin/cat.coreutils
-00018000-00039000 rw-p 00000000 00:00 0          [heap]
-1555556000-155556d000 r-xp 00000000 fe:00 7193   /lib/ld-2.28.so
-155556d000-155556e000 r--p 00016000 fe:00 7193   /lib/ld-2.28.so
-155556e000-155556f000 rw-p 00017000 fe:00 7193   /lib/ld-2.28.so
-155556f000-1555570000 rw-p 00000000 00:00 0
-1555570000-1555572000 r-xp 00000000 00:00 0      [vdso]
-1555574000-1555576000 rw-p 00000000 00:00 0
-1555576000-1555674000 r-xp 00000000 fe:00 7187   /lib/libc-2.28.so
-1555674000-1555678000 r--p 000fd000 fe:00 7187   /lib/libc-2.28.so
-1555678000-155567a000 rw-p 00101000 fe:00 7187   /lib/libc-2.28.so
-155567a000-15556a0000 rw-p 00000000 00:00 0
-3fffb90000-3fffbb1000 rw-p 00000000 00:00 0      [stack]
-
-After:
-root@qemuriscv64:~# cat /proc/self/maps
-00010000-00016000 r-xp 00000000 fe:00 6389       /bin/cat.coreutils
-00016000-00017000 r--p 00005000 fe:00 6389       /bin/cat.coreutils
-00017000-00018000 rw-p 00006000 fe:00 6389       /bin/cat.coreutils
-2de81000-2dea2000 rw-p 00000000 00:00 0          [heap]
-3ff7eb6000-3ff7ed8000 rw-p 00000000 00:00 0
-3ff7ed8000-3ff7fd6000 r-xp 00000000 fe:00 7187   /lib/libc-2.28.so
-3ff7fd6000-3ff7fda000 r--p 000fd000 fe:00 7187   /lib/libc-2.28.so
-3ff7fda000-3ff7fdc000 rw-p 00101000 fe:00 7187   /lib/libc-2.28.so
-3ff7fdc000-3ff7fe2000 rw-p 00000000 00:00 0
-3ff7fe4000-3ff7fe6000 r-xp 00000000 00:00 0      [vdso]
-3ff7fe6000-3ff7ffd000 r-xp 00000000 fe:00 7193   /lib/ld-2.28.so
-3ff7ffd000-3ff7ffe000 r--p 00016000 fe:00 7193   /lib/ld-2.28.so
-3ff7ffe000-3ff7fff000 rw-p 00017000 fe:00 7193   /lib/ld-2.28.so
-3ff7fff000-3ff8000000 rw-p 00000000 00:00 0
-3fff888000-3fff8a9000 rw-p 00000000 00:00 0      [stack]
-
-Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-Acked-by: Paul Walmsley <paul.walmsley@sifive.com>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
-Reviewed-by: Kees Cook <keescook@chromium.org>
-Reviewed-by: Luis Chamberlain <mcgrof@kernel.org>
----
- arch/riscv/Kconfig | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 59a4727ecd6c..87dc5370becb 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -54,6 +54,18 @@ config RISCV
- 	select EDAC_SUPPORT
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
-+	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
-+	select HAVE_ARCH_MMAP_RND_BITS
-+
-+config ARCH_MMAP_RND_BITS_MIN
-+	default 18 if 64BIT
-+	default 8
-+
-+# max bits determined by the following formula:
-+#  VA_BITS - PAGE_SHIFT - 3
-+config ARCH_MMAP_RND_BITS_MAX
-+	default 24 if 64BIT # SV39 based
-+	default 17
- 
- config MMU
- 	def_bool y
--- 
-2.20.1
-
+Well, another reason to not have it under arch/riscv/ as it is a SOC
+specific driver, which we all have somewhere else, just like arm64
+and new arm ports do.  And especially not unconditionally built.
 
 _______________________________________________
 linux-riscv mailing list
