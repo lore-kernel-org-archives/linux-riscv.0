@@ -2,21 +2,21 @@ Return-Path: <SRS0=eWHs=WI=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C58DBC31E40
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 12 Aug 2019 14:58:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CDF4BC31E40
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 12 Aug 2019 14:59:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 94EB120679
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 12 Aug 2019 14:58:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A298E208C2
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 12 Aug 2019 14:59:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bpPupMnR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 94EB120679
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aF55+34p"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A298E208C2
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,27 +25,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D+vIBmubStGmm2HWUQxCLUsf8tUA/DkSdbxFlLzbEsQ=; b=bpPupMnR/5mPn9
-	UsPPH+CRFI+wrZkCeWVrJ0uBn0zV+tows5KgaOqCF+Dqpef0HiAQ7zO+oyI5N2Za99GkE5A+nwEMU
-	yoxPtNi07/HyaKX9GpFjzO77cplY1bvfJEEkRRyJYRKCtTfZuEuZeJ9eMFe4a63JX6vNQAvtAyLEX
-	VKee83xrSGLiL++Z8uO3tRa9vSdKsz8vrs/WX2VDaOg73HidNN2+t2Ou4qJIkztgVPxH2qWEq+gfb
-	2r9TTektutTUtTKDGDQ3VxUi6hOlpHAqf2niBi8rq3IBa74314FFW5ie9UVXY+l92YnaK7jpBeDWo
-	tcjYXlw014PCekg69Q/g==;
+	List-Owner; bh=PmORlcSb/oa7gRovGA/Jq80jhHZX0yf2G4/Yz0SHNUM=; b=aF55+34pYTTeD1
+	7Kl4cjY+5b09D80LpNAjncafxrM0WczMz3YNIGt+mznS8Awv3Wj004pnw2oAAV/ARiMP57YutAaTo
+	C0DRg0HXMWyrvPWoUlEoJXn1tsrVrKp4kpbZqt+X4k3AoK7C3LFEsB0sI5YTBkDrpCepxuMonuxj6
+	hSH/P5OKew7ch0K9poy/m2KZyKN0jpL1/ALoFN5VHcSapF5WmvdqgCgScUmmlhspMITRWsyYxg5Cw
+	j89DQBg4FlnHb801paIPSRTCyoQVekBElfDBCmZBUmj3N4WEKjhNYfBFq+riRB7Nu6RrxOo2wAQ/P
+	tsxTxu5FLTpXfc8S+v2Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hxBm5-0003i9-FU; Mon, 12 Aug 2019 14:58:17 +0000
+	id 1hxBnG-0003nt-1i; Mon, 12 Aug 2019 14:59:30 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.92 #3 (Red Hat
- Linux)) id 1hxBm4-0003i0-CB; Mon, 12 Aug 2019 14:58:16 +0000
-Date: Mon, 12 Aug 2019 07:58:16 -0700
+ Linux)) id 1hxBnE-0003nb-EN; Mon, 12 Aug 2019 14:59:28 +0000
+Date: Mon, 12 Aug 2019 07:59:28 -0700
 From: Christoph Hellwig <hch@infradead.org>
 To: Vincent Chen <vincent.chen@sifive.com>
-Subject: Re: [PATCH 1/2] riscv: Correct the initialized flow of FP register
-Message-ID: <20190812145816.GD26897@infradead.org>
+Subject: Re: [PATCH 2/2] riscv: Make __fstate_clean() can work correctly.
+Message-ID: <20190812145928.GE26897@infradead.org>
 References: <1565251121-28490-1-git-send-email-vincent.chen@sifive.com>
- <1565251121-28490-2-git-send-email-vincent.chen@sifive.com>
+ <1565251121-28490-3-git-send-email-vincent.chen@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <1565251121-28490-2-git-send-email-vincent.chen@sifive.com>
+In-Reply-To: <1565251121-28490-3-git-send-email-vincent.chen@sifive.com>
 User-Agent: Mutt/1.11.4 (2019-03-13)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -65,41 +65,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +static inline void fstate_off(struct task_struct *task,
-> +			       struct pt_regs *regs)
-> +{
-> +	regs->sstatus = (regs->sstatus & ~(SR_FS)) | SR_FS_OFF;
+Maybe s/can //g in the subject?
 
-No need for the inner braces here.
+> +	regs->sstatus = (regs->sstatus & ~(SR_FS)) | SR_FS_CLEAN;
 
-> +}
-> +
->  static inline void fstate_save(struct task_struct *task,
->  			       struct pt_regs *regs)
->  {
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index f23794b..e3077ee 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -64,8 +64,16 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
->  	unsigned long sp)
->  {
->  	regs->sstatus = SR_SPIE;
-> -	if (has_fpu)
-> +	if (has_fpu) {
->  		regs->sstatus |= SR_FS_INITIAL;
-> +#ifdef CONFIG_FPU
-> +		/*
-> +		 * Restore the initial value to the FP register
-> +		 * before starting the user program.
-> +		 */
-> +		fstate_restore(current, regs);
-> +#endif
+No need for the inner braces here either.
 
-fstate_restore has a no-op stub for the !CONFIG_FPU case, so the ifdef
-here is not needed.
-
-Otherwise this looks good to me:
+Otherwise:
 
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 
