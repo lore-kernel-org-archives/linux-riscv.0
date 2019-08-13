@@ -2,81 +2,63 @@ Return-Path: <SRS0=0jWI=WJ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 58133C32750
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2019 16:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 27223C32750
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2019 16:30:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2D84320840
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2019 16:15:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EC74020679
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 13 Aug 2019 16:30:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LPRbvjmw"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2D84320840
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=deltatee.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ssfIMxQ5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EC74020679
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3l2/DE/d38c8G8AvAVex4EGXzKLYp/0SEBrrDYS4vYI=; b=LPRbvjmw7c4XjX
-	ZrQ5z1nJGGSW5je2EfWd2XRcVIx8CgH3iQxehgledOocIKsmOjSmVWmfAQUym1TVfLPJIXhxafGq7
-	0j9X6A04tCaYhXIiU3gcQGfMz5sQe6RZqMLItQiix78e0RkyKoveSYQ921DhLCEADBjw9+xB2dOMw
-	iNsPCSGQtrpQvGiIAdSEIZ/MbXGt7cYQUsEfyyW9ke6CwwQoC9JrITvt6INYG0R4NeijbnU0yYAQY
-	MenkNU5a14r/jr3DIeOnFJQ0je5pZuqnv7cKG/JWO/te1X0fqHpJs0m4kcB2d0DmdHgeGiHGV/P5b
-	iaaOCzP3UwICky0T+hgw==;
+	List-Owner; bh=lIdu2piebB1GypXSU5G0yYTfRsNbJu7oCjy5+YWPKvE=; b=ssfIMxQ5x1EPOO
+	F/ZHIh11IQMx/B+vfj6iIqc7XcjL3fvtHN0THEOaoNygnqLSbFVbDn30lxMb6JfSqCSwPo7ZMAAiZ
+	QeSLsCOIgbBjY5buUbVRY/nceJaJeN1NUCzElTZznU4nozVADjwb2hDjD2ScVJY7dk4zcNZ2wsEOX
+	KduUQ675t3ajgx2sGPG+8aBrdQuZRUE7FqQF9FP59u38cQ5wm8110CH/Ncw2Xi+k6rI2JcHKWu6Rb
+	rHClYzwzVcb0+iUuE0+ucUfD1rJeNLM3wzHEQWzXsAkwG+S0L6JdVsRnv7mncArEM5HfBksyYLbcb
+	iBfRpcy92Oj4taF02iag==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hxZRu-0005Yc-DH; Tue, 13 Aug 2019 16:15:02 +0000
-Received: from ale.deltatee.com ([207.54.116.67])
- by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hxZRr-0005NK-4i
- for linux-riscv@lists.infradead.org; Tue, 13 Aug 2019 16:15:00 +0000
-Received: from guinness.priv.deltatee.com ([172.16.1.162])
- by ale.deltatee.com with esmtp (Exim 4.89)
- (envelope-from <logang@deltatee.com>)
- id 1hxZRj-0008W3-Gj; Tue, 13 Aug 2019 10:14:52 -0600
-To: Greentime Hu <green.hu@gmail.com>
-References: <20190109203911.7887-1-logang@deltatee.com>
- <20190109203911.7887-3-logang@deltatee.com>
- <CAEbi=3d0RNVKbDUwRL-o70O12XBV7q6n_UT-pLqFoh9omYJZKQ@mail.gmail.com>
- <c4298fdd-6fd6-fa7f-73f7-5ff016788e49@deltatee.com>
- <CAEbi=3cn4+7zk2DU1iRa45CDwTsJYfkAV8jXHf-S7Jz63eYy-A@mail.gmail.com>
- <CAEbi=3eZcgWevpX9VO9ohgxVDFVprk_t52Xbs3-TdtZ+js3NVA@mail.gmail.com>
- <0926a261-520e-4c40-f926-ddd40bb8ce44@deltatee.com>
- <CAEbi=3ebNM-t_vA4OA7KCvQUF08o6VmL1j=kMojVnYsYsN_fBw@mail.gmail.com>
- <e2603558-7b2c-2e5f-e28c-f01782dc4e66@deltatee.com>
- <CAEbi=3d7_xefYaVXEnMJW49Bzdbbmc2+UOwXWrCiBo7YkTAihg@mail.gmail.com>
- <96156909-1453-d487-ff66-a041d67c74d6@deltatee.com>
- <CAEbi=3dC86dhGdwdarS_x+6-5=WPydUBKjo613qRZxKLDAqU_g@mail.gmail.com>
-From: Logan Gunthorpe <logang@deltatee.com>
-Message-ID: <5506c875-9387-acc9-a7fe-5b7c10036c40@deltatee.com>
-Date: Tue, 13 Aug 2019 10:14:49 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.8.0
+	id 1hxZgs-0003a2-VF; Tue, 13 Aug 2019 16:30:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
+ id 1hxZgU-0002Cf-6D
+ for linux-riscv@lists.infradead.org; Tue, 13 Aug 2019 16:30:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E7FC337;
+ Tue, 13 Aug 2019 09:30:05 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com
+ [10.121.207.14])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A59463F706;
+ Tue, 13 Aug 2019 09:30:04 -0700 (PDT)
+Date: Tue, 13 Aug 2019 17:29:58 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Christoph Hellwig <hch@lst.de>
+Subject: Re: [PATCH 08/15] riscv: provide native clint access for M-mode
+Message-ID: <20190813162958.GA27821@lakrids.cambridge.arm.com>
+References: <20190813154747.24256-1-hch@lst.de>
+ <20190813154747.24256-9-hch@lst.de>
 MIME-Version: 1.0
-In-Reply-To: <CAEbi=3dC86dhGdwdarS_x+6-5=WPydUBKjo613qRZxKLDAqU_g@mail.gmail.com>
-Content-Language: en-CA
-X-SA-Exim-Connect-IP: 172.16.1.162
-X-SA-Exim-Rcpt-To: hch@lst.de, michaeljclark@mac.com,
- linux-riscv@lists.infradead.org, greentime.hu@sifive.com, olof@lixom.net,
- paul.walmsley@sifive.com, sbates@raithlin.com, linux-kernel@vger.kernel.org,
- palmer@sifive.com, andrew@sifive.com, aou@eecs.berkeley.edu, robh@kernel.org,
- green.hu@gmail.com
-X-SA-Exim-Mail-From: logang@deltatee.com
-Subject: Re: [PATCH v4 2/2] RISC-V: Implement sparsemem
-X-SA-Exim-Version: 4.2.1 (built Tue, 02 Aug 2016 21:08:31 +0000)
-X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
+Content-Disposition: inline
+In-Reply-To: <20190813154747.24256-9-hch@lst.de>
+User-Agent: Mutt/1.11.1+11 (2f07cb52) (2018-12-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190813_091459_539258_13AA59E7 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190813_093006_351552_F130BC3D 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,47 +70,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Waterman <andrew@sifive.com>, Palmer Dabbelt <palmer@sifive.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Stephen Bates <sbates@raithlin.com>, paul.walmsley@sifive.com,
- Olof Johansson <olof@lixom.net>, greentime.hu@sifive.com,
- linux-riscv@lists.infradead.org, Michael Clark <michaeljclark@mac.com>,
- Christoph Hellwig <hch@lst.de>
+Cc: linux-kernel@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
+ Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Aug 13, 2019 at 05:47:40PM +0200, Christoph Hellwig wrote:
+> RISC-V has the concept of a cpu level interrupt controller.  Part of it
+> is expose as bits in the status registers, and 2 new CSRs per privilege
+> level in the instruction set, but the machanisms to trigger IPIs and
+> timer events, as well as reading the actual timer value are not
+> specified in the RISC-V spec but usually delegated to a block of MMIO
+> registers.  This patch adds support for those MMIO registers in the
+> timer and IPI code.  For now only the SiFive layout also supported by
+> a few other implementations is supported, but the code should be
+> easily extensible to others in the future.
+> 
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
 
+> +/*
+> + * This is the layout used by the SiFive clint, which is also shared by the qemu
+> + * virt platform, and the Kendryte KD210 at least.
+> + */
+> +#define CLINT_IPI_OFF		0
+> +#define CLINT_TIME_VAL_OFF	0xbff8
+> +#define CLINT_TIME_CMP_OFF	0x4000;
+> +
+> +u32 __iomem *clint_ipi_base;
+> +u64 __iomem *clint_time_val;
+> +u64 __iomem *clint_time_cmp;
+> +
+> +void clint_init_boot_cpu(void)
+> +{
+> +	struct device_node *np;
+> +	void __iomem *base;
+> +
+> +	np = of_find_compatible_node(NULL, NULL, "riscv,clint0");
 
-On 2019-08-13 12:04 a.m., Greentime Hu wrote:
-> I think  flat mem doesn't support memory-with-hole scenario.
-> In mm/Kconfig, it says
-> "
->           For systems that have holes in their physical address
->           spaces and for features like NUMA and memory hotplug,
->           choose "Sparse Memory"
-> "
-> IMHO, the memory-with-hole scenario should only be tested for sparse
-> mem but flat mem.
+Since the MMIO layout is that of the SiFive clint, the compatible string
+should be specific to that. e.g. "sifive,clint". That way it will be
+possible to distinguish it from other implementations.
 
-Fair enough.
+What exactly is the "0" suffix for? Is that a version number?
 
-> The generic pfn_valid() is just for non-mmu arches. 
+If that's a CPU index, then I don't think that's the right way to encode
+this unless the programming interface actually differs across CPUs. It
+would be better to use an explicit phandle to express the affinity.
 
-The generic pfn_valid() in asm-generic is only for non-mmu arches.
+Thanks,
+Mark.
 
-> Every architecture
-> with mmu defines their own pfn_valid().
-
-Not true. Arm64, for example just uses the generic implementation in
-mmzone.h. My main question is whether we can just do that. If we can't
-we should probably structure it like powerpc where they only use the
-arch-specific helper for CONFIG_FLATMEM instead of when CONFIG_SPARSEMEM
-isn't set.
-
-Logan
 
 _______________________________________________
 linux-riscv mailing list
