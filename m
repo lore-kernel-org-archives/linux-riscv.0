@@ -5,18 +5,18 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4F843C3A59B
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 17 Aug 2019 07:53:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 15E4BC3A59B
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 17 Aug 2019 07:53:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1F76B21743
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 17 Aug 2019 07:53:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DB84E21744
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 17 Aug 2019 07:53:56 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="khZymChp"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1F76B21743
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mXMvCpNg"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DB84E21744
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,26 +25,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uu9gvz2cyWPi5O87njOXkaRXr8qCFzL+hZ/XUvH6T38=; b=khZymChp8uJlIM
-	S6iak4RlRFBaEhKTcEoIZUWP3vktboE/tknRIujGLYc8ZENPVodG7/5O/oPG1GtDOOb9Qgxr7q4/e
-	SJB6ixzGxP9EoZfEnNae0h9selEgXSom2WDqgCcz+0gGZKJ10YeGBLU/VHTg5XadI1Q9vLM+0Gbrq
-	MNVD1wWLRUfmIC1882cxfKjXU+0Or9FTTRJY5VKqtn8n6lqXU5A7d3uatPEDZqibGBZP7f7UJxN3E
-	Cahm7XcmtcesXlrTvYKjk3Y6tMoxvFkDjYPTPlMyJ7wX5tya9GFsfqLyBy139CIcS2cOM+LqjRXud
-	NoN5tIhRvaCs8QBEv11g==;
+	List-Owner; bh=Q00SQojy1H7QUzw+PiJzNhdW7FJZgZtLXkzyBWrDnjY=; b=mXMvCpNgXuBMIt
+	/aarkR/iipIfQJ4RUoYMOTPmHdUqGtaPYIILDcw83AGIiP3xVrZ+WsmRssiG9IJXxeQLjXonAxTZe
+	K9EnmkyNeHmrNJWbiR5QuWXgmOhv9q2LiE6cqQCYAmGPgYR0IcWFxKSPQu+WI8LboysyyFsEC+TVF
+	Euavwyzh5CN0C6eci1D4kfmLOaho2EqhIwXcsjjcr8F64iGzIKacnUEjLCI+a4+nZTRWGmChtHRo/
+	Fq5rJBpFzxyyJGxbcW70Qv1K5x6GzG6Jvbc7nktV0nPS3SmGGkCaT/PVxY7H4Mp8n6lGdAz952YGa
+	D+8oCU1HT6nJN6lttUkQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hytWG-0001pP-5f; Sat, 17 Aug 2019 07:53:00 +0000
+	id 1hytX6-0002hJ-EN; Sat, 17 Aug 2019 07:53:52 +0000
 Received: from [2001:4bb8:18c:28b5:44f9:d544:957f:32cb] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
- id 1hytSD-00055m-Im; Sat, 17 Aug 2019 07:48:50 +0000
+ id 1hytSK-0005Ci-OB; Sat, 17 Aug 2019 07:48:57 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Arnd Bergmann <arnd@arndb.de>, Guo Ren <guoren@kernel.org>,
  Michal Simek <monstr@monstr.eu>, Greentime Hu <green.hu@gmail.com>,
  Vincent Chen <deanbo422@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
  x86@kernel.org
-Subject: [PATCH 13/26] xtensa: clean up ioremap
-Date: Sat, 17 Aug 2019 09:32:40 +0200
-Message-Id: <20190817073253.27819-14-hch@lst.de>
+Subject: [PATCH 15/26] asm-generic: ioremap_uc should behave the same with and
+ without MMU
+Date: Sat, 17 Aug 2019 09:32:42 +0200
+Message-Id: <20190817073253.27819-16-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190817073253.27819-1-hch@lst.de>
 References: <20190817073253.27819-1-hch@lst.de>
@@ -74,47 +75,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use ioremap as the main implemented function, and defined
-ioremap_nocache to it as a deprecated alias.
+Whatever reason there is for the existence of ioremap_uc, and the fact
+that it returns NULL by default on architectures with an MMU applies
+equally to nommu architectures, so don't provide different defaults.
+
+In practice the difference is meaningless as the only portable driver
+that uses ioremap_uc is atyfb which probably doesn't show up on nommu
+devices.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/xtensa/include/asm/io.h | 14 ++++----------
- 1 file changed, 4 insertions(+), 10 deletions(-)
+ include/asm-generic/io.h | 36 ++++++++++++++++--------------------
+ 1 file changed, 16 insertions(+), 20 deletions(-)
 
-diff --git a/arch/xtensa/include/asm/io.h b/arch/xtensa/include/asm/io.h
-index da3e783f896b..ffadc99c8601 100644
---- a/arch/xtensa/include/asm/io.h
-+++ b/arch/xtensa/include/asm/io.h
-@@ -31,8 +31,7 @@ void xtensa_iounmap(volatile void __iomem *addr);
- /*
-  * Return the virtual address for the specified bus memory.
+diff --git a/include/asm-generic/io.h b/include/asm-generic/io.h
+index d02806513670..a98ed6325727 100644
+--- a/include/asm-generic/io.h
++++ b/include/asm-generic/io.h
+@@ -935,18 +935,7 @@ static inline void *phys_to_virt(unsigned long address)
+  * defined your own ioremap_*() variant you must then declare your own
+  * ioremap_*() variant as defined to itself to avoid the default NULL return.
   */
--static inline void __iomem *ioremap_nocache(unsigned long offset,
--		unsigned long size)
-+static inline void __iomem *ioremap(unsigned long offset, unsigned long size)
- {
- 	if (offset >= XCHAL_KIO_PADDR
- 	    && offset - XCHAL_KIO_PADDR < XCHAL_KIO_SIZE)
-@@ -51,15 +50,10 @@ static inline void __iomem *ioremap_cache(unsigned long offset,
- 		return xtensa_ioremap_cache(offset, size);
- }
- #define ioremap_cache ioremap_cache
--#define ioremap_nocache ioremap_nocache
 -
--#define ioremap_wc ioremap_nocache
--#define ioremap_wt ioremap_nocache
+-#ifdef CONFIG_MMU
+-
+-#ifndef ioremap_uc
+-#define ioremap_uc ioremap_uc
+-static inline void __iomem *ioremap_uc(phys_addr_t offset, size_t size)
+-{
+-	return NULL;
+-}
+-#endif
+-
+-#else /* !CONFIG_MMU */
++#ifndef CONFIG_MMU
  
--static inline void __iomem *ioremap(unsigned long offset, unsigned long size)
+ /*
+  * Change "struct page" to physical address.
+@@ -980,14 +969,6 @@ static inline void __iomem *ioremap_nocache(phys_addr_t offset, size_t size)
+ }
+ #endif
+ 
+-#ifndef ioremap_uc
+-#define ioremap_uc ioremap_uc
+-static inline void __iomem *ioremap_uc(phys_addr_t offset, size_t size)
 -{
 -	return ioremap_nocache(offset, size);
 -}
-+#define ioremap_nocache ioremap
-+#define ioremap_wc ioremap
-+#define ioremap_wt ioremap
+-#endif
+-
+ #ifndef ioremap_wc
+ #define ioremap_wc ioremap_wc
+ static inline void __iomem *ioremap_wc(phys_addr_t offset, size_t size)
+@@ -1004,6 +985,21 @@ static inline void __iomem *ioremap_wt(phys_addr_t offset, size_t size)
+ }
+ #endif
  
- static inline void iounmap(volatile void __iomem *addr)
- {
++/*
++ * ioremap_uc is special in that we do require an explicit architecture
++ * implementation.  In general you do now want to use this function in a
++ * driver and use plain ioremap, which is uncached by default.  Similarly
++ * architectures should not implement it unless they have a very good
++ * reason.
++ */
++#ifndef ioremap_uc
++#define ioremap_uc ioremap_uc
++static inline void __iomem *ioremap_uc(phys_addr_t offset, size_t size)
++{
++	return NULL;
++}
++#endif
++
+ #ifdef CONFIG_HAS_IOPORT_MAP
+ #ifndef CONFIG_GENERIC_IOMAP
+ #ifndef ioport_map
 -- 
 2.20.1
 
