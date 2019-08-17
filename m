@@ -2,87 +2,90 @@ Return-Path: <SRS0=lGgd=WN=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 74471C3A59B
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 17 Aug 2019 19:11:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BA56FC3A59B
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 17 Aug 2019 20:59:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 11CE521019
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 17 Aug 2019 19:11:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8466C21744
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 17 Aug 2019 20:59:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ndSNomDP";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="FYZoGl/c"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 11CE521019
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hjQW34Ac";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="PCXESTLe"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8466C21744
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
-	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1kUT3eoEiWS095QF897CgyvMj8MufS2blONdkToGSlE=; b=ndSNomDP0vmE9/
-	tnFHT9TOv2Ii31yDK7Ms2r8RPcZulFYTt3a35SqodEmDUC/tCLh75L1lYKQmmUcwtK56yaRzXngTc
-	ucSliw0/WxokmORuaKpiI8ShhL3qUB63RscmOq8K0gtiE27WTAcK7Q+O0nHdnZQalj/DuveueBiME
-	fTqn46bT4e5ZoSUNhy8twozzr5uJHIlNdamha6V4fcse+XAH18/j3TTbWi21fUbYoe6e6ru/Xdgvh
-	dezM8XKWH7Z5floE8/Z6n68jGSaDzhXnG/T8EGVzkT+QwHL3H+Ggc+BGNlunZ50JVu940yvdhAPrS
-	SR17ZmXb5RYXwrd+uz2Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YZlg/aY3LxD7hEK9UmkoHoLC0R8AM2lYj7VWtMU9Y4M=; b=hjQW34Ac+3WPbv
+	6fXLLB40Nps2Cf3E/tZ3dhSBYuMnNehy6x4T4JzSTR8bxtBtvV10/in5SpT2DjHC0VKQN7FSLWJBn
+	Bq5lU9DMvnWBvc4m7uzd6GI6e4NWmInpegYtBFVsEF0B3EHX9gvBylWFrmkBN0AWuXTOj/advkPoG
+	YpQjxg6q6+wWbbaFLrECe4+o+q2C/1SJSM2Ss2xFZHNw58+vKdfanLqW1Wqskyim1EVeFkpihTHQ9
+	2k2EO+8y3/MUWRmeCwumk+KAPzuqowj/AnD+hkk9sOoKjQrF/NqA8jGzXEwBgRiJ+195WgcOTsA5Z
+	UqP2BEknL/BTaKkJtxXg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hz46v-0008Eg-Nf; Sat, 17 Aug 2019 19:11:33 +0000
-Received: from mail-io1-xd41.google.com ([2607:f8b0:4864:20::d41])
+	id 1hz5mp-0004sO-Su; Sat, 17 Aug 2019 20:58:55 +0000
+Received: from mail-io1-xd42.google.com ([2607:f8b0:4864:20::d42])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hz46s-0008EE-Fu
- for linux-riscv@lists.infradead.org; Sat, 17 Aug 2019 19:11:32 +0000
-Received: by mail-io1-xd41.google.com with SMTP id j5so12942708ioj.8
- for <linux-riscv@lists.infradead.org>; Sat, 17 Aug 2019 12:11:29 -0700 (PDT)
+ id 1hz5mH-0004Sf-2D
+ for linux-riscv@lists.infradead.org; Sat, 17 Aug 2019 20:58:23 +0000
+Received: by mail-io1-xd42.google.com with SMTP id e20so13168870iob.9
+ for <linux-riscv@lists.infradead.org>; Sat, 17 Aug 2019 13:58:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:subject:message-id:user-agent:mime-version;
- bh=3MH+KcofjVATRoRd6ATBavy8RSHNWVPLU7weq/zXh4U=;
- b=FYZoGl/cSEfVM66LpSdmNAnFbLSCoFHSsZ5OXRuLwEDeWX6LvKAW2otVpnXo3AORgk
- rivKaz72+580JUZv7wv4dFWs/k1yj0QC53wegg0Fm2Qx4lpqP2gqmxxroyGj+cXTX75N
- 3o7kAuITyCAcMYdKKZR0VOi/ycaFkJBUp1TEK62o5FQOhW1YGvdUaPGhR4drGq0WXgHL
- 8mOF17QmJ6hKSaXtitFhonm2hD7fCe3yHbpPCYEkkH1UWgfblRnLZQT4rDXOYa0JVE0N
- fphAa++KClqlpIgrQw8Lu4ZytqoCO5+Pr9hjnD/vGbh9fVbp2lnxHV9/xaC18GvJPK7W
- MPkA==
+ h=date:from:to:cc:subject:in-reply-to:message-id:references
+ :user-agent:mime-version;
+ bh=NuXJCtDYAF42ezbdDjEFYfu2iBTjQndKb/Edf61OrOk=;
+ b=PCXESTLeUcBNUWogs1gHv/iSg/bRj7rmybc37GwKrHxDe7CTeYQGPE82FFro2CLT61
+ 8Q4IgUqoS7Jmsm9wuhAF9CCdJ8jA631YD8dGqkPPvzXyvuP2itYPnDRcHbp+2vkqaUSt
+ u4rxsZS9lGz/LPzZ8kGOEVrnbFqSW3syoXedbPJGimP78UP/Tg6J92XflG29pM3lwatF
+ OjAvDNX5+3tv2rh85pO4hmLeTRsEGL0KJ9d8KAbhP2qYNSdGVQpqF+mf38a8oxmStDJ9
+ 9nvCgcj7mRwE6p6VKc6zn+f1lPTm2K1/WP8Olg56A4X8/QbiEq8e7laZGSLETkAb5Egu
+ FN1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:subject:message-id:user-agent
- :mime-version;
- bh=3MH+KcofjVATRoRd6ATBavy8RSHNWVPLU7weq/zXh4U=;
- b=n3Eqo/GsJrbffdl8aZ8VR9An3O0mysfNyyN9/XpO4EMg7E0lfUa6hRzXC+Ab7BhakY
- bTHJaFPscasZgYzvErJqYJkPAGMp9fxe5ruTIqW4uWmSuaKRTr5g/QuiVtuyCMxToJa0
- hNTaEU/fZtWWmofkm5/0QRXt36OlKutjZ6hShVi3uCvZMot+3QTTQ7Omqx3+jg0fb8h+
- NsSBYmC/n5MclcyHJFE0rnyA+lRjF49sw8RwVM6tcMap/WqFfdOckWrirGyzlQM5YRub
- KJ//wTGEnazHWfTdt4i8ptCHcCtfy2ghmgCJUnSYOb7MqpTXevMEgB9hxH2XcNSZo43h
- Oa9Q==
-X-Gm-Message-State: APjAAAUYBbTSEJYycpWmoA/Gpz1SuOC2oPq+FwQxLxWdLgjQIuZbWe11
- /wo1HA0zncABM75rteJZfbUXY8eFKa8=
-X-Google-Smtp-Source: APXvYqwlKu0g92JDVhxTuFF7zl2fOdmCEuEf/ScxA0MtRInXAGhmljHAyHBuCxi/plIOUWT5+hS2fQ==
-X-Received: by 2002:a02:a703:: with SMTP id k3mr17420217jam.12.1566069088210; 
- Sat, 17 Aug 2019 12:11:28 -0700 (PDT)
+ h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
+ :references:user-agent:mime-version;
+ bh=NuXJCtDYAF42ezbdDjEFYfu2iBTjQndKb/Edf61OrOk=;
+ b=JQvueoTmgAsPnPjuWRt4/2XXhjlqQUQzwEFeNLwv229YJOHV27PVpd0aGbvjKmzdvd
+ o4gpHpphPk6QYE1MPh1EQt+ERpGikVYJwd+LzLuc5OP05o7olKnvv0CsMkfGRUK+e/nY
+ H/sx+kmXcW8POVN4Bk7G1WHTSQ4QOvuLy1iSdhXpWe6eiRPDjSGhBgtHgrU605xZfvBF
+ COwh4+AnQf8mX4DgF0xJsIiI5TEW0rdkOSYT1MTAF3kBRodIE49Z/bZknp46Qy3Uywj8
+ spFy2kmdIR2o1JO+9G8Pow1Z0bGh1P9AyXX5GfKFRaDCLjCYS2TUfGKTKBY9wn4n45IU
+ U8KA==
+X-Gm-Message-State: APjAAAUkV+l6bAX+clq+TqBhv2/GGlxXthPM8SGkmUKZVn3yLJ5fVPV9
+ UKZG5Dx8hyTXBytHVUsjLraaWA==
+X-Google-Smtp-Source: APXvYqyKpLbmhNe3o5mV41HWvHYU+SiPLQTRVuTNOtg0cL831wKHUivDHHya6XYWHKa9ZnFnQ2CM9Q==
+X-Received: by 2002:a6b:8f0d:: with SMTP id r13mr15237433iod.121.1566075498344; 
+ Sat, 17 Aug 2019 13:58:18 -0700 (PDT)
 Received: from localhost (c-73-95-159-87.hsd1.co.comcast.net. [73.95.159.87])
  by smtp.gmail.com with ESMTPSA id
- q8sm8421823ion.82.2019.08.17.12.11.27
- for <linux-riscv@lists.infradead.org>
+ 6sm9905577iog.40.2019.08.17.13.58.16
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 17 Aug 2019 12:11:27 -0700 (PDT)
-Date: Sat, 17 Aug 2019 12:11:27 -0700 (PDT)
+ Sat, 17 Aug 2019 13:58:17 -0700 (PDT)
+Date: Sat, 17 Aug 2019 13:58:16 -0700 (PDT)
 From: Paul Walmsley <paul.walmsley@sifive.com>
 X-X-Sender: paulw@viisi.sifive.com
-To: linux-riscv@lists.infradead.org
-Subject: Improving our commit messages
-Message-ID: <alpine.DEB.2.21.9999.1908171200020.4130@viisi.sifive.com>
+To: Christoph Hellwig <hch@lst.de>
+Subject: Re: [PATCH 14/26] asm-generic: don't provide __ioremap
+In-Reply-To: <20190817073253.27819-15-hch@lst.de>
+Message-ID: <alpine.DEB.2.21.9999.1908171357180.4130@viisi.sifive.com>
+References: <20190817073253.27819-1-hch@lst.de>
+ <20190817073253.27819-15-hch@lst.de>
 User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190817_121130_562910_93517F3B 
-X-CRM114-Status: UNSURE (   5.88  )
+X-CRM114-CacheID: sfid-20190817_135821_114062_86CCBB46 
+X-CRM114-Status: UNSURE (   6.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -95,42 +98,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Vincent Chen <deanbo422@gmail.com>, linux-arch@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-hexagon@vger.kernel.org, x86@kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-xtensa@linux-xtensa.org,
+ Arnd Bergmann <arnd@arndb.de>, linux-m68k@lists.linux-m68k.org,
+ openrisc@lists.librecores.org, Greentime Hu <green.hu@gmail.com>,
+ linux-mtd@lists.infradead.org, Guan Xuetao <gxt@pku.edu.cn>,
+ linux-arm-kernel@lists.infradead.org, Michal Simek <monstr@monstr.eu>,
+ linux-parisc@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-alpha@vger.kernel.org, nios2-dev@lists.rocketboards.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sat, 17 Aug 2019, Christoph Hellwig wrote:
 
-Fellow linux-riscv folks,
+> __ioremap is not a kernel API, but used for helpers with differing
+> semantics in arch code.  We should not provide it in as-generic.
+> 
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
 
-I've received feedback from a longtime kernel developer that some of the 
-patch descriptions that we're sending upstream could be better-written.  
-I've also noticed other (non-RISC-V) kernel developers being more 
-attentive to the quality of patch descriptions than has often been the 
-case in the past.
-
-So far, as maintainers, we've used a light touch on patch descriptions.  
-But I think it's time for us all to be more active here.  And as 
-maintainers, we'll become more discerning, also - we'll start pushing back 
-more if something isn't clear.
-
-Everyone should please quickly re-read this section of 
-"submitting-patches":
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst#n102
-
-As a maintainer, I'd say the most important goal for anyone writing 
-patches is to answer the question "why": Why should someone want to apply 
-this patch?  Why is it needed?  It's okay to summarize "how," particularly 
-for more complex patches, but competent developers should be able to read 
-that from the code.  "why" is really the most important question to 
-answer.
-
-Please also don't hesitate to use a spell-checker if you're uncertain 
-about spelling.  English spelling sucks, there's no two ways about it; but 
-at least a spell checker can help.
-
-Thanks for your attention everyone,
+Reviewed-by: Paul Walmsley <paul.walmsley@sifive.com>
+Tested-by: Paul Walmsley <paul.walmsley@sifive.com> # rv32, rv64 boot
+Acked-by: Paul Walmsley <paul.walmsley@sifive.com> # arch/riscv
 
 
 - Paul
