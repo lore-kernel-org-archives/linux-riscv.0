@@ -5,18 +5,18 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4871EC3A59F
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 17 Aug 2019 07:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ABDFDC3A59B
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 17 Aug 2019 07:54:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1C4F021743
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 17 Aug 2019 07:53:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7D8F021743
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 17 Aug 2019 07:54:44 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Qd83Fg2P"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1C4F021743
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ruag3IGp"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7D8F021743
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,26 +25,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jubPsS/BZauWrSsaQJLqLlEDy6jf24vItkpWWOvA1Ck=; b=Qd83Fg2PMunxwT
-	+e4l+8TkJTJKW0ppBAlk1N9273g4EoD8/78wMC8qjPKLMpPTSpDh9Ut0oZdYU/dxx+S0x36LTweEN
-	B9LucS8MBR/dUoHjmP5UYL7N0rxNbSNlGXvQnLeXnsOL7qCgDMctDKGknujPWLq6GGJp+quOXYpOC
-	h/AK24XomFxZl+GyTVx/KwYJZg3i/vKC2VFV24Y8/LXfGGeKZ5Rt6KXteEq/+Bita5WqxDUIutA8I
-	VtxNsBzF+NrdKYHp1vIyWQmCivVfNlHKCG8oywPZPmwL3AyDtQYQ1Xcd8uIP/sWyge8+fzgZHtBWh
-	RI7GO8OhVDPXvpIKh6Hw==;
+	List-Owner; bh=aViGHoaO/06ZAjSFTRn/gyiImhrDO+MGHSksAeLEe8g=; b=ruag3IGpg+nSoN
+	RwbuybD+EPng6G84I5i9rVKi++NNwLmtFUuR68Om3JQ6/SKTxCN+j74uXqGZCCRSxjyHT8m9HONx9
+	RxoRfqz+6acmxKB40PJtX8ZL9iSt9KYm9N76LxXNwiKFn0turGuBPFX7MV06rLBKd7d99U0mZ422S
+	Nn66ZT2/rtCkNCIgGrUx0aO1mdycAIzYF+FQH1SBwQkkz9o8tl77MfLnbHIcHfTHuErxa0hAZIHGi
+	WsaNyXbMVE2YAisyOZR6EVZRAiOPiMCMo8EOrCrI12PmQG/CQ+ucl/9EhgNyVZD1W3cC5L1ntkCIK
+	vNx1rr9+yT6S4Hl8Qr1A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hytX9-0002kC-HG; Sat, 17 Aug 2019 07:53:55 +0000
+	id 1hytXv-0003YW-B8; Sat, 17 Aug 2019 07:54:43 +0000
 Received: from [2001:4bb8:18c:28b5:44f9:d544:957f:32cb] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
- id 1hytSH-00059n-FF; Sat, 17 Aug 2019 07:48:53 +0000
+ id 1hytSN-0005GA-NB; Sat, 17 Aug 2019 07:49:00 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Arnd Bergmann <arnd@arndb.de>, Guo Ren <guoren@kernel.org>,
  Michal Simek <monstr@monstr.eu>, Greentime Hu <green.hu@gmail.com>,
  Vincent Chen <deanbo422@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
  x86@kernel.org
-Subject: [PATCH 14/26] asm-generic: don't provide __ioremap
-Date: Sat, 17 Aug 2019 09:32:41 +0200
-Message-Id: <20190817073253.27819-15-hch@lst.de>
+Subject: [PATCH 16/26] asm-generic: don't provide ioremap for CONFIG_MMU
+Date: Sat, 17 Aug 2019 09:32:43 +0200
+Message-Id: <20190817073253.27819-17-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190817073253.27819-1-hch@lst.de>
 References: <20190817073253.27819-1-hch@lst.de>
@@ -74,34 +74,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-__ioremap is not a kernel API, but used for helpers with differing
-semantics in arch code.  We should not provide it in as-generic.
+All MMU-enabled ports have a non-trivial ioremap and should thus provide
+the prototype for their implementation instead of providing a generic
+one unless a different symbol is not defined.  Note that this only
+affects sparc32 nds32 as all others do provide their own version.
+
+Also update the kerneldoc comments in asm-generic/io.h to explain the
+situation around the default ioremap* implementations correctly.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- include/asm-generic/io.h | 9 ---------
- 1 file changed, 9 deletions(-)
+ arch/nds32/include/asm/io.h    |  2 ++
+ arch/sparc/include/asm/io_32.h |  1 +
+ include/asm-generic/io.h       | 29 ++++++++---------------------
+ 3 files changed, 11 insertions(+), 21 deletions(-)
 
+diff --git a/arch/nds32/include/asm/io.h b/arch/nds32/include/asm/io.h
+index 16f262322b8f..fb0e8a24c7af 100644
+--- a/arch/nds32/include/asm/io.h
++++ b/arch/nds32/include/asm/io.h
+@@ -6,6 +6,7 @@
+ 
+ #include <linux/types.h>
+ 
++void __iomem *ioremap(phys_addr_t phys_addr, size_t size);
+ extern void iounmap(volatile void __iomem *addr);
+ #define __raw_writeb __raw_writeb
+ static inline void __raw_writeb(u8 val, volatile void __iomem *addr)
+@@ -80,4 +81,5 @@ static inline u32 __raw_readl(const volatile void __iomem *addr)
+ #define writew(v,c)	({ __iowmb(); writew_relaxed((v),(c)); })
+ #define writel(v,c)	({ __iowmb(); writel_relaxed((v),(c)); })
+ #include <asm-generic/io.h>
++
+ #endif /* __ASM_NDS32_IO_H */
+diff --git a/arch/sparc/include/asm/io_32.h b/arch/sparc/include/asm/io_32.h
+index df2dc1784673..9a52d9506f80 100644
+--- a/arch/sparc/include/asm/io_32.h
++++ b/arch/sparc/include/asm/io_32.h
+@@ -127,6 +127,7 @@ static inline void sbus_memcpy_toio(volatile void __iomem *dst,
+  * Bus number may be embedded in the higher bits of the physical address.
+  * This is why we have no bus number argument to ioremap().
+  */
++void __iomem *ioremap(phys_addr_t offset, size_t size);
+ void iounmap(volatile void __iomem *addr);
+ /* Create a virtual mapping cookie for an IO port range */
+ void __iomem *ioport_map(unsigned long port, unsigned int nr);
 diff --git a/include/asm-generic/io.h b/include/asm-generic/io.h
-index b83e2802c969..d02806513670 100644
+index a98ed6325727..6a5edc23afe2 100644
 --- a/include/asm-generic/io.h
 +++ b/include/asm-generic/io.h
-@@ -963,15 +963,6 @@ static inline void __iomem *ioremap(phys_addr_t offset, size_t size)
- }
- #endif
- 
--#ifndef __ioremap
--#define __ioremap __ioremap
--static inline void __iomem *__ioremap(phys_addr_t offset, size_t size,
--				      unsigned long flags)
--{
--	return ioremap(offset, size);
--}
--#endif
+@@ -922,28 +922,16 @@ static inline void *phys_to_virt(unsigned long address)
+ /**
+  * DOC: ioremap() and ioremap_*() variants
+  *
+- * If you have an IOMMU your architecture is expected to have both ioremap()
+- * and iounmap() implemented otherwise the asm-generic helpers will provide a
+- * direct mapping.
++ * Architectures with an MMU are expected to provide ioremap() and iounmap()
++ * themselves.  For NOMMU architectures we provide a default nop-op
++ * implementation that expect that the physical address used for MMIO are
++ * already marked as uncached, and can be used as kernel virtual addresses.
+  *
+- * There are ioremap_*() call variants, if you have no IOMMU we naturally will
+- * default to direct mapping for all of them, you can override these defaults.
+- * If you have an IOMMU you are highly encouraged to provide your own
+- * ioremap variant implementation as there currently is no safe architecture
+- * agnostic default. To avoid possible improper behaviour default asm-generic
+- * ioremap_*() variants all return NULL when an IOMMU is available. If you've
+- * defined your own ioremap_*() variant you must then declare your own
+- * ioremap_*() variant as defined to itself to avoid the default NULL return.
++ * ioremap_wc() and ioremap_wt() can provide more relaxed caching attributes
++ * for specific drivers if the architecture choses to implement them.  If they
++ * are not implemented we fall back to plain ioremap.
+  */
+ #ifndef CONFIG_MMU
 -
+-/*
+- * Change "struct page" to physical address.
+- *
+- * This implementation is for the no-MMU case only... if you have an MMU
+- * you'll need to provide your own definitions.
+- */
+-
+ #ifndef ioremap
+ #define ioremap ioremap
+ static inline void __iomem *ioremap(phys_addr_t offset, size_t size)
+@@ -954,14 +942,13 @@ static inline void __iomem *ioremap(phys_addr_t offset, size_t size)
+ 
  #ifndef iounmap
  #define iounmap iounmap
- 
+-
+ static inline void iounmap(void __iomem *addr)
+ {
+ }
+ #endif
+ #endif /* CONFIG_MMU */
++
+ #ifndef ioremap_nocache
+-void __iomem *ioremap(phys_addr_t phys_addr, size_t size);
+ #define ioremap_nocache ioremap_nocache
+ static inline void __iomem *ioremap_nocache(phys_addr_t offset, size_t size)
+ {
 -- 
 2.20.1
 
