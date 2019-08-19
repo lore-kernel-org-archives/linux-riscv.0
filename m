@@ -4,18 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2BD4CC3A59B
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2019 08:51:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DAD62C3A59B
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2019 08:56:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F294B2082C
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2019 08:51:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id ABA502184E
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2019 08:56:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YAjJywPu"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F294B2082C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="txRMKJhp"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ABA502184E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,48 +25,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BJ3UVej6fulcSqyFfK5VK01+v9j12ysjk39x42MeYoA=; b=YAjJywPuvoF8Cb
-	QzBLP0JxiqggrYkXqIefmU5IE0FB3jjDLEBDMOgjRj0Ciapf+hqFu9VgKt0/BoePt3PwRkOSP8UlS
-	oimnrDIPralsGgStXDwJFbeuLdan3f1GSuxUXOnYk4BbeM2FxViUsumYt2p0M/MII0Y47GFrxBLyV
-	3vYvlu0aPpTLeGeRCjlF3MLDmbKNlSRLRWDXKQV6YTdN7lOoIMPqZH1d/jwqVtWY4//aEujXX1fUl
-	lF/4rQrrE5qGno3KMjYe7f9hU6USUIpwnCmP5lke6w4sKZVW74ULaw+bjjEy5A1mb5ceart6u0Oz1
-	xJ7Qo2IInN2aS9Vxv8WA==;
+	List-Owner; bh=VH2C1VNZ4FGhGhZ5WGppW4KUl6YWa0UZyWNtgVz9WWE=; b=txRMKJhpLjClRK
+	zVds+gNdDZSJINPDu8aFaYTNsKnrnWmkRQeufF7OOLiOWPQ3JY66IQ2Dx2nXt84+/1xPkXGuJaEPm
+	mwqBizeAfq58DRiFpZk/d9MkgYFBTJtCbunoCWYTTGr02rwuF3MZbIpgsDYTbBflvEKeZ4OkBTiQ/
+	k29VZoDA+WC/0FEk40o9sn8LyaNDr3CrS2JUzKVKBUM9lzfSJxml5X5uzAbyR4mckV3KsKT0afA98
+	kiUe5/IHnN/FeMq0qI8A53j91TNuuZzAcxGKs9MsCI224DCoC6v+p4Yr1CyNhGyrJj2MIEq5t08tc
+	KnAusI+8LHF8K77O9hMQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hzdNZ-0000Jq-MY; Mon, 19 Aug 2019 08:51:05 +0000
-Received: from mail-oi1-f194.google.com ([209.85.167.194])
+	id 1hzdSn-0002dv-HL; Mon, 19 Aug 2019 08:56:29 +0000
+Received: from mail-oi1-f193.google.com ([209.85.167.193])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hzdNO-000098-F5; Mon, 19 Aug 2019 08:50:55 +0000
-Received: by mail-oi1-f194.google.com with SMTP id c15so735301oic.3;
- Mon, 19 Aug 2019 01:50:53 -0700 (PDT)
+ id 1hzdSZ-0002QI-FH; Mon, 19 Aug 2019 08:56:16 +0000
+Received: by mail-oi1-f193.google.com with SMTP id c15so744119oic.3;
+ Mon, 19 Aug 2019 01:56:15 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=XvpHNQzLHQyAljD3a4MUdfT4ynucGZ6tzJYlGCkwzvk=;
- b=MvgVzfQh96j0E3U0jHDtimDvGDtIdjcJCdCXd6RHpFyTjMveFeeg56TujWQWMdk7A3
- 6SUlySAHYX5FAeVknB5y808/bKnD9S+SxSMH1mvACwT7/AgEiTVsAkBtDp12YayjXqa9
- 9HrW0pE5Uwfb3eujsUTijvzrJub1GvgppCocLpGE9mzPPN23JZqU4s+VHVbQ2eaVUTjj
- z1ruxppCahnI8IhepPjxcqM4oQafJAKlT9j2WQx8PDHS7g2gEmSayl7juONxIc3jHG90
- 1wZ+GE+luZrltnA2ZpAReaAdjiK+cMZxOERvc5Ay4Evq0mWQ4t2jfVsHh19Q1Qt8kX+F
- FSAg==
-X-Gm-Message-State: APjAAAWqgsXEUcKxW9amll1FlZWwQPPI228gqworO3GhULfOLTbh4WA7
- pFEZotOYNslTiKC20sJvnU60h4tadGFtuSBVwOQ=
-X-Google-Smtp-Source: APXvYqwmqcH0DTBSRr1W5PEboqZl9eNrRnGfwBz/22T1r10yVcw0KO4fHH9AZZHFDFACKa88tOO5vT/zZa40mMCQj8M=
-X-Received: by 2002:a54:4618:: with SMTP id p24mr2849469oip.148.1566204653079; 
- Mon, 19 Aug 2019 01:50:53 -0700 (PDT)
+ bh=6G5Q8MNHtBsxtM0EYIY9kLhACl1vZMsZYLOG6VK87LE=;
+ b=ozDAE40FHDkHaDRIPFM5yhkgQazN9ijiuFzEPzJBaHsLgBvY+aPgE9UOJTjyQJgDKg
+ OIrDyQc8i1HwxBjH6pa/+3qVt0sFKsgCeb3xVNeuYWFFrqBs+fSIvzIJE6oWy+x5Oamc
+ 1CjRojNaYgHzBw3OwRJ0rmtdXsLHEpeChxsLbYSxm1fyd+wwEraximbPqah0OPG+LA+x
+ gmJ1324OQSzT9ZFqsSX5Z+3A78LzM2mOCSr/9kkipWtG4MI5qKPbqUSit7fUMcxTg0BL
+ MUsyKUzQxiWoKH3ZwahrpBlFa2it4K8BBq7xteNHRyWeRAzxEGlCTVI7GWg1lTCFn+6g
+ mh7g==
+X-Gm-Message-State: APjAAAXP08mQI94aTvYSvWqgoaMbINnEirY/Geqm5G2EQxUWPZr5PWUH
+ vbDRBRO4hWq9TorIaRURyWPH1QPg0q0H13NG3Bs=
+X-Google-Smtp-Source: APXvYqwNkMBh58jQZs/taAE8CIPOk6D0evfJ20SfbPqDG1zrFPybSy7xKWIfKgi9aIO2Yy6HJzobqI2PMgSWcaN0QpY=
+X-Received: by 2002:a54:478d:: with SMTP id o13mr12702951oic.54.1566204974376; 
+ Mon, 19 Aug 2019 01:56:14 -0700 (PDT)
 MIME-Version: 1.0
 References: <20190817073253.27819-1-hch@lst.de>
- <20190817073253.27819-4-hch@lst.de>
-In-Reply-To: <20190817073253.27819-4-hch@lst.de>
+ <20190817073253.27819-9-hch@lst.de>
+In-Reply-To: <20190817073253.27819-9-hch@lst.de>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 19 Aug 2019 10:50:41 +0200
-Message-ID: <CAMuHMdVT3VSQ1S=YEoTjYzxwpavy+43XUWA-wzCO56FuHK6R-g@mail.gmail.com>
-Subject: Re: [PATCH 03/26] m68k, microblaze: remove ioremap_fullcache
+Date: Mon, 19 Aug 2019 10:56:02 +0200
+Message-ID: <CAMuHMdWyXGjokWi7tn9JHCTz9YMb_vHn6XKeE7KzH5n-54Sy0A@mail.gmail.com>
+Subject: Re: [PATCH 08/26] m68k: simplify ioremap_nocache
 To: Christoph Hellwig <hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190819_015054_503715_7AF3F709 
-X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-CacheID: sfid-20190819_015615_513540_C55ECFD3 
+X-CRM114-Status: UNSURE (   9.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -100,20 +101,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 17, 2019 at 9:41 AM Christoph Hellwig <hch@lst.de> wrote:
-> No callers of this function.
+Hi Christoph,
+
+On Sat, Aug 17, 2019 at 9:48 AM Christoph Hellwig <hch@lst.de> wrote:
+> Just define ioremap_nocache to ioremap instead of duplicating the
+> inline.  Also defined ioremap_uc in terms of ioremap instead of
+> the using a double indirection.
 >
 > Signed-off-by: Christoph Hellwig <hch@lst.de>
 
->  arch/m68k/include/asm/kmap.h     | 7 -------
-
 Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+
+BTW, shouldn't we get rid of the sole user of ioremap_uc(), too?
+Seems to make a difference on x86 only, where it is "strongly uncached"
+(whatever that may mean ;-)
 
 Gr{oetje,eeting}s,
 
                         Geert
 
--- 
+--
 Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
 In personal conversations with technical people, I call myself a hacker. But
