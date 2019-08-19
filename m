@@ -2,22 +2,21 @@ Return-Path: <SRS0=iyEb=WP=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 09246C3A59D
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2019 10:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1A163C3A5A0
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2019 14:46:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CE8402085A
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2019 10:56:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E36952082A
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 19 Aug 2019 14:46:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HYKX0tE7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CE8402085A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=c-sky.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TAP97OXL"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E36952082A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -25,42 +24,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RjlQbLUCLuH7cAU9GzavHCOq9UR5ZEmc9L6h2MEaUUs=; b=HYKX0tE7nl8qEl
-	0Z1LiUAKR+bI2yayABZdUFU0PDajaiJtepq9I42D0MA1xulTdcSqA2dfhRx/quLwK2OzykqrRbSOw
-	O6Dm44NoxHcXmKDL/GnMlMY6RGgTuPra2ufkGV0b019tsjxv6DfLLfyqPWZO/YuzCtij7wrdUgutS
-	j+QRCpXbAvplKJ7+AjqxrJ5V1K5evoIsYq1IA8Q7fJ+C/oIa3zfL7mVCiPf1hMUhabiJMeNPvSM24
-	6qldaHBdT0srRTRzr1doHIkN+PTTzwg5QQ+UVMvv7Avz9iAARDz62M8tqhyytbo6KJupR1986Da5B
-	5XiFvr5gtWwL/wthoVnA==;
+	List-Owner; bh=d6C9VmLFiB9O76lX1U9+7/KVSFfIkGkpfk4rHDkpRkQ=; b=TAP97OXLuDePPD
+	gD1HNCYqSkkiHsSULJVK3kGjfaeTiPCUuX5nzAPnUtQuxzgiusqml+0RMpgcAxDwJBjy0OUPtfBkz
+	evCxy3RMfs+iKhbSleAD29aZQjTPrkwl2UWB5D3fXcYd++b84Esrq/aIBqh6OkNIvXFqpzfkziKOk
+	WF4+AUhxDHdBjnNR48eUP8nQspEGsc/QNccBOXuCE55Zg2qB+jBMW3HuqaT5STzw0qf36D4VapBpO
+	TSQsmOOYsnhJH8F9Qo4G441Yn/uS+fAAZbJ8CHKDo8lA28SZI5CSNkPO2JxYZLLoq5O7wPs1tHHiB
+	ZcTOJBCmYvvwjpRDEadQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hzfKv-0000iv-7J; Mon, 19 Aug 2019 10:56:29 +0000
-Received: from smtp2200-217.mail.aliyun.com ([121.197.200.217])
- by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hzfKr-0000iE-Dp
- for linux-riscv@lists.infradead.org; Mon, 19 Aug 2019 10:56:28 +0000
-X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07440019|-1; CH=green;
- DM=CONTINUE|CONTINUE|true|0.340673-0.0196074-0.63972; FP=0|0|0|0|0|-1|-1|-1;
- HT=e02c03303; MF=han_mao@c-sky.com; NM=1; PH=DS; RN=3; RT=3; SR=0;
- TI=SMTPD_---.FEaxY0q_1566212179; 
-Received: from localhost(mailfrom:han_mao@c-sky.com
- fp:SMTPD_---.FEaxY0q_1566212179)
- by smtp.aliyun-inc.com(10.147.44.129);
- Mon, 19 Aug 2019 18:56:19 +0800
-Date: Mon, 19 Aug 2019 18:56:19 +0800
-From: Mao Han <han_mao@c-sky.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH V3 0/3] riscv: Add perf callchain support
-Message-ID: <20190819105618.GA6377@vmh-VirtualBox>
-References: <cover.1558081981.git.han_mao@c-sky.com>
- <alpine.DEB.2.21.9999.1908161008450.18249@viisi.sifive.com>
- <20190819081758.GA15999@vmh-VirtualBox>
+	id 1hzivU-0000eM-VG; Mon, 19 Aug 2019 14:46:28 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.92 #3 (Red Hat
+ Linux)) id 1hzivT-0000e4-Q5; Mon, 19 Aug 2019 14:46:27 +0000
+Date: Mon, 19 Aug 2019 07:46:27 -0700
+From: "hch@infradead.org" <hch@infradead.org>
+To: Atish Patra <Atish.Patra@wdc.com>
+Subject: Re: [PATCH] RISC-V: Issue a local tlb flush if possible.
+Message-ID: <20190819144627.GA27061@infradead.org>
+References: <20190810014309.20838-1-atish.patra@wdc.com>
+ <20190812145631.GC26897@infradead.org>
+ <f58814e156b918531f058acfac944abef34f5fb1.camel@wdc.com>
+ <20190813143027.GA31668@infradead.org>
+ <3f55d5878044129a3cbb72b13b712e9a1c218dc7.camel@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190819081758.GA15999@vmh-VirtualBox>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190819_035625_624363_FC2DD448 
-X-CRM114-Status: GOOD (  19.87  )
+In-Reply-To: <3f55d5878044129a3cbb72b13b712e9a1c218dc7.camel@wdc.com>
+User-Agent: Mutt/1.11.4 (2019-03-13)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -72,78 +60,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "hch@infradead.org" <hch@infradead.org>,
+ "alexios.zavras@intel.com" <alexios.zavras@intel.com>,
+ "palmer@sifive.com" <palmer@sifive.com>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "allison@lohutok.net" <allison@lohutok.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 19, 2019 at 04:18:01PM +0800, Mao Han wrote:
-> Hi Paul,
-> On Fri, Aug 16, 2019 at 10:14:01AM -0700, Paul Walmsley wrote:
-> > Hello Mao Han,
-> > 
-> > On Fri, 17 May 2019, Mao Han wrote:
-> > 
-> > > This patch set add perf callchain(FP/DWARF) support for RISC-V.
-> > > It comes from the csky version callchain support with some
-> > > slight modifications. The patchset base on Linux 5.1.
-> > > 
-> > > CC: Palmer Dabbelt <palmer@sifive.com>
-> > > CC: linux-riscv <linux-riscv@lists.infradead.org>
-> > > CC: Christoph Hellwig <hch@lst.de>
-> > > CC: Guo Ren <guoren@kernel.org>
-> > 
-> > I tried these patches on v5.3-rc4, both on the HiFive Unleashed board 
-> > with a Debian-based rootfs and QEMU rv64 with a Fedora-based rootfs.  For 
-> > QEMU, I used defconfig, and for the HiFive Unleashed, I added a few more 
-> > Kconfig directives; and on both, I enabled CONFIG_PERF_EVENTS.  I built 
-> > the perf tools from the kernel tree.
-> > 
-> > Upon running "/root/bin/perf record -e cpu-clock --call-graph fp 
-> > /bin/ls", I see the backtraces below.  The first is on the HiFive 
-> > Unleashed, the second is on QEMU.  
-> > 
-> > Could you take a look and tell me if you see similar issues?  And if not, 
-> > could you please walk me through your process for testing these patches on 
-> > rv64, so I can reproduce it here?
-> >
-> 
-> I'v tried the command line above and got similar issues with probability.
-> unwind_frame_kernel can not stop unwind when fp is a quite large
-> value(like 0x70aac93ff0eff584) which can pass the simple stack check.
->         if (kstack_end((void *)frame->fp))
->                 return -EPERM;
->         if (frame->fp & 0x3 || frame->fp < TASK_SIZE)
->                 return -EPERM;
-> handle_exception from arch/riscv/kernel/entry.S will use s0(fp) as temp
-> register. The context for this frame is unpredictable. We may add more
-> strict check in unwind_frame_kernel or keep s0 always 0 in handle_exception
-> to fix this issue.
-> 
+On Thu, Aug 15, 2019 at 08:37:04PM +0000, Atish Patra wrote:
+> We get ton of them. Here is the stack dump.
 
-perf record -e cpu-clock --call-graph fp /bin/ls seems can work stably
-with this change applied.
-diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
-index 8b57903..dd27c67 100644
---- a/arch/riscv/kernel/perf_callchain.c
-+++ b/arch/riscv/kernel/perf_callchain.c
-@@ -16,6 +16,8 @@ static int unwind_frame_kernel(struct stackframe *frame)
-                return -EPERM;
-        if (frame->fp & 0x3 || frame->fp < TASK_SIZE)
-                return -EPERM;
-+        if (frame->fp < CONFIG_PAGE_OFFSET)
-+                return -EPERM;
- 
-        *frame = *((struct stackframe *)frame->fp - 1);
-        if (__kernel_text_address(frame->ra)) {
-
-
-PS: I got some compile error while compiling glibc 2.30 with linux
-v5.3-rc4 header. vfork.S include linux/sched.h(./include/uapi/linux/sched.h)
-which has a struct clone_args inside, added by
-7f192e3cd316ba58c88dfa26796cf77789dd9872.
-
+Looks like we might not need to flush anything at all here as the
+mm_struct was never scheduled to run on any cpu?
 
 _______________________________________________
 linux-riscv mailing list
