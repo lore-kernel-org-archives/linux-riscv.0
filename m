@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-9.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C4157C3A589
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2019 08:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ABB61C3A589
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2019 08:57:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 93A9222DCB
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2019 08:57:44 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 81CBA22DCB
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2019 08:57:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="j60S3ZKK"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 93A9222DCB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="o8zLPYZI"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 81CBA22DCB
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=c-sky.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,40 +26,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=H/mvkXxkVwW1uJYytTgWpUgHn0eLm0U/xgRlu2rwWb8=; b=j60S3ZKKzhR5pLuRJo7SUnSdnv
-	3YnvzO1DYCpDdqcq/UmeowdYdXkyaJRZdd7b//S5T8v5urSftJhCVMbGdBGaSa4Bs6O9ydaXg4SNg
-	i2NKw+H2qy8Y13sLX21D9kiTxjnAAyMfaA9i6Q9GsLTErGej8HiC/h7VCktaCH5oOvEdgcDTEGfb8
-	yyQIRpaPaBxvbHLjdmhjCPh4a+s+dR1PM1FJCVn0bDeTfukGVc3Th2nR6fZls7erpZugZXYMXYrN9
-	thZiHJXAgxH1anXF8HHVK73GKrVGWomKcqDbL4E5vxfxK4heFiFB3Kj+I3/lm9EwYf5OxD2Q3O9Pn
-	cqfRj2vw==;
+	bh=qbbXO/Y4Rr/DDSwNZjqhFtC5QKbe/KQrh6QnL6PX+0U=; b=o8zLPYZIhqQ5bfDOyNf4d5Keux
+	IOnM2nTDvSH2BBIDH8Zse5Z+j+mM2lDq7NArJshJgt/o3JEiVlIRRl8PtqpYlMB5TGln2PLVsIgqW
+	ENtVf8B50TyfH+74tfcS4pTiA77ttuiBsreHJuhQAqWczB2FLGaDsIQhQflpSW/g8oXuIMD2FShJs
+	OlOT9LbewErlQNdxIOEp9TUoItbYc4MqUv8z11bk65bUNhr/g+2Vh71pWfWICI5enLN3g3C9lAHfO
+	wF68yUgavkuWsOsCbdXjT1vlVelJCZgmZRNy52yaFS0YdrSLIftI3E6Ua5rhX4ogw46ka3Pw6ClbI
+	4s7U8+hg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hzzxS-0006UL-BO; Tue, 20 Aug 2019 08:57:38 +0000
+	id 1hzzxU-0006WV-2u; Tue, 20 Aug 2019 08:57:40 +0000
 Received: from smtp2200-217.mail.aliyun.com ([121.197.200.217])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hzzxM-0006Ps-T6
- for linux-riscv@lists.infradead.org; Tue, 20 Aug 2019 08:57:35 +0000
-X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07436282|-1; CH=green;
- DM=CONTINUE|CONTINUE|true|0.25575-0.00953499-0.734715; FP=0|0|0|0|0|-1|-1|-1;
- HT=e02c03292; MF=han_mao@c-sky.com; NM=1; PH=DS; RN=8; RT=8; SR=0;
- TI=SMTPD_---.FF9YHrM_1566291448; 
+ id 1hzzxO-0006Po-Il
+ for linux-riscv@lists.infradead.org; Tue, 20 Aug 2019 08:57:36 +0000
+X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07436283|-1; CH=green;
+ DM=CONTINUE|CONTINUE|true|0.692448-0.0313479-0.276204; FP=0|0|0|0|0|-1|-1|-1;
+ HT=e02c03275; MF=han_mao@c-sky.com; NM=1; PH=DS; RN=8; RT=8; SR=0;
+ TI=SMTPD_---.FF9vUNc_1566291446; 
 Received: from localhost(mailfrom:han_mao@c-sky.com
- fp:SMTPD_---.FF9YHrM_1566291448)
- by smtp.aliyun-inc.com(10.147.42.198);
- Tue, 20 Aug 2019 16:57:28 +0800
+ fp:SMTPD_---.FF9vUNc_1566291446)
+ by smtp.aliyun-inc.com(10.147.41.137);
+ Tue, 20 Aug 2019 16:57:27 +0800
 From: Mao Han <han_mao@c-sky.com>
 To: linux-riscv@lists.infradead.org
-Subject: [PATCH V4 3/3] riscv: Add support for libdw
-Date: Tue, 20 Aug 2019 16:57:18 +0800
-Message-Id: <a67beecc3cbbbd675cdeb50cab24c481e9fc0292.1566290744.git.han_mao@c-sky.com>
+Subject: [PATCH V4 1/3] riscv: Add perf callchain support
+Date: Tue, 20 Aug 2019 16:57:16 +0800
+Message-Id: <820d80272fc5627b8d00e684663a614470217606.1566290744.git.han_mao@c-sky.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <cover.1566290744.git.han_mao@c-sky.com>
 References: <cover.1566290744.git.han_mao@c-sky.com>
 In-Reply-To: <cover.1566290744.git.han_mao@c-sky.com>
 References: <cover.1566290744.git.han_mao@c-sky.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190820_015733_256430_49CFD3A2 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20190820_015734_880334_E738909B 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,9 +81,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch add support for DWARF register mappings and libdw registers
-initialization, which is used by perf callchain analyzing when
---call-graph=dwarf is given.
+This patch add support for perf callchain sampling on riscv platform.
+The return address of leaf function is retrieved from pt_regs as
+it is not saved in the outmost frame.
 
 Signed-off-by: Mao Han <han_mao@c-sky.com>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>
@@ -93,361 +93,159 @@ Cc: linux-riscv <linux-riscv@lists.infradead.org>
 Cc: Christoph Hellwig <hch@lst.de>
 Cc: Guo Ren <guoren@kernel.org>
 ---
- tools/arch/riscv/include/uapi/asm/perf_regs.h | 42 ++++++++++++
- tools/perf/Makefile.config                    |  6 +-
- tools/perf/arch/riscv/Build                   |  1 +
- tools/perf/arch/riscv/Makefile                |  3 +
- tools/perf/arch/riscv/include/perf_regs.h     | 96 +++++++++++++++++++++++++++
- tools/perf/arch/riscv/util/Build              |  2 +
- tools/perf/arch/riscv/util/dwarf-regs.c       | 72 ++++++++++++++++++++
- tools/perf/arch/riscv/util/unwind-libdw.c     | 57 ++++++++++++++++
- 8 files changed, 278 insertions(+), 1 deletion(-)
- create mode 100644 tools/arch/riscv/include/uapi/asm/perf_regs.h
- create mode 100644 tools/perf/arch/riscv/Build
- create mode 100644 tools/perf/arch/riscv/Makefile
- create mode 100644 tools/perf/arch/riscv/include/perf_regs.h
- create mode 100644 tools/perf/arch/riscv/util/Build
- create mode 100644 tools/perf/arch/riscv/util/dwarf-regs.c
- create mode 100644 tools/perf/arch/riscv/util/unwind-libdw.c
+ arch/riscv/Makefile                |   3 +
+ arch/riscv/kernel/Makefile         |   3 +-
+ arch/riscv/kernel/perf_callchain.c | 115 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 120 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/kernel/perf_callchain.c
 
-diff --git a/tools/arch/riscv/include/uapi/asm/perf_regs.h b/tools/arch/riscv/include/uapi/asm/perf_regs.h
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 7a117be..946565b 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -54,6 +54,9 @@ endif
+ ifeq ($(CONFIG_MODULE_SECTIONS),y)
+ 	KBUILD_LDFLAGS_MODULE += -T $(srctree)/arch/riscv/kernel/module.lds
+ endif
++ifeq ($(CONFIG_PERF_EVENTS),y)
++        KBUILD_CFLAGS += -fno-omit-frame-pointer
++endif
+ 
+ KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-relax)
+ 
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 2420d37..b1bea89 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -38,6 +38,7 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
+ obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
+ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+ 
+-obj-$(CONFIG_PERF_EVENTS)      += perf_event.o
++obj-$(CONFIG_PERF_EVENTS)	+= perf_event.o
++obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
+ 
+ clean:
+diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
 new file mode 100644
-index 0000000..df1a581
+index 0000000..d75d15c
 --- /dev/null
-+++ b/tools/arch/riscv/include/uapi/asm/perf_regs.h
-@@ -0,0 +1,42 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
++++ b/arch/riscv/kernel/perf_callchain.c
+@@ -0,0 +1,115 @@
++// SPDX-License-Identifier: GPL-2.0
 +/* Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd. */
 +
-+#ifndef _ASM_RISCV_PERF_REGS_H
-+#define _ASM_RISCV_PERF_REGS_H
++#include <linux/perf_event.h>
++#include <linux/uaccess.h>
 +
-+enum perf_event_riscv_regs {
-+	PERF_REG_RISCV_PC,
-+	PERF_REG_RISCV_RA,
-+	PERF_REG_RISCV_SP,
-+	PERF_REG_RISCV_GP,
-+	PERF_REG_RISCV_TP,
-+	PERF_REG_RISCV_T0,
-+	PERF_REG_RISCV_T1,
-+	PERF_REG_RISCV_T2,
-+	PERF_REG_RISCV_S0,
-+	PERF_REG_RISCV_S1,
-+	PERF_REG_RISCV_A0,
-+	PERF_REG_RISCV_A1,
-+	PERF_REG_RISCV_A2,
-+	PERF_REG_RISCV_A3,
-+	PERF_REG_RISCV_A4,
-+	PERF_REG_RISCV_A5,
-+	PERF_REG_RISCV_A6,
-+	PERF_REG_RISCV_A7,
-+	PERF_REG_RISCV_S2,
-+	PERF_REG_RISCV_S3,
-+	PERF_REG_RISCV_S4,
-+	PERF_REG_RISCV_S5,
-+	PERF_REG_RISCV_S6,
-+	PERF_REG_RISCV_S7,
-+	PERF_REG_RISCV_S8,
-+	PERF_REG_RISCV_S9,
-+	PERF_REG_RISCV_S10,
-+	PERF_REG_RISCV_S11,
-+	PERF_REG_RISCV_T3,
-+	PERF_REG_RISCV_T4,
-+	PERF_REG_RISCV_T5,
-+	PERF_REG_RISCV_T6,
-+	PERF_REG_RISCV_MAX,
++/* Kernel callchain */
++struct stackframe {
++	unsigned long fp;
++	unsigned long ra;
 +};
-+#endif /* _ASM_RISCV_PERF_REGS_H */
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 89ac5a1..eaf25ee 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -60,6 +60,10 @@ ifeq ($(SRCARCH),arm64)
-   LIBUNWIND_LIBS = -lunwind -lunwind-aarch64
- endif
- 
-+ifeq ($(SRCARCH),riscv)
-+  NO_PERF_REGS := 0
-+endif
 +
- ifeq ($(SRCARCH),csky)
-   NO_PERF_REGS := 0
- endif
-@@ -82,7 +86,7 @@ endif
- # Disable it on all other architectures in case libdw unwind
- # support is detected in system. Add supported architectures
- # to the check.
--ifneq ($(SRCARCH),$(filter $(SRCARCH),x86 arm arm64 powerpc s390 csky))
-+ifneq ($(SRCARCH),$(filter $(SRCARCH),x86 arm arm64 powerpc s390 csky riscv))
-   NO_LIBDW_DWARF_UNWIND := 1
- endif
- 
-diff --git a/tools/perf/arch/riscv/Build b/tools/perf/arch/riscv/Build
-new file mode 100644
-index 0000000..e4e5f33
---- /dev/null
-+++ b/tools/perf/arch/riscv/Build
-@@ -0,0 +1 @@
-+perf-y += util/
-diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-new file mode 100644
-index 0000000..7fbca17
---- /dev/null
-+++ b/tools/perf/arch/riscv/Makefile
-@@ -0,0 +1,3 @@
-+ifndef NO_DWARF
-+PERF_HAVE_DWARF_REGS := 1
-+endif
-diff --git a/tools/perf/arch/riscv/include/perf_regs.h b/tools/perf/arch/riscv/include/perf_regs.h
-new file mode 100644
-index 0000000..7a8bcde
---- /dev/null
-+++ b/tools/perf/arch/riscv/include/perf_regs.h
-@@ -0,0 +1,96 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/* Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd. */
-+
-+#ifndef ARCH_PERF_REGS_H
-+#define ARCH_PERF_REGS_H
-+
-+#include <stdlib.h>
-+#include <linux/types.h>
-+#include <asm/perf_regs.h>
-+
-+#define PERF_REGS_MASK	((1ULL << PERF_REG_RISCV_MAX) - 1)
-+#define PERF_REGS_MAX	PERF_REG_RISCV_MAX
-+#if __riscv_xlen == 64
-+#define PERF_SAMPLE_REGS_ABI    PERF_SAMPLE_REGS_ABI_64
-+#else
-+#define PERF_SAMPLE_REGS_ABI	PERF_SAMPLE_REGS_ABI_32
-+#endif
-+
-+#define PERF_REG_IP	PERF_REG_RISCV_PC
-+#define PERF_REG_SP	PERF_REG_RISCV_SP
-+
-+static inline const char *perf_reg_name(int id)
++static int unwind_frame_kernel(struct stackframe *frame)
 +{
-+	switch (id) {
-+	case PERF_REG_RISCV_PC:
-+		return "pc";
-+	case PERF_REG_RISCV_RA:
-+		return "ra";
-+	case PERF_REG_RISCV_SP:
-+		return "sp";
-+	case PERF_REG_RISCV_GP:
-+		return "gp";
-+	case PERF_REG_RISCV_TP:
-+		return "tp";
-+	case PERF_REG_RISCV_T0:
-+		return "t0";
-+	case PERF_REG_RISCV_T1:
-+		return "t1";
-+	case PERF_REG_RISCV_T2:
-+		return "t2";
-+	case PERF_REG_RISCV_S0:
-+		return "s0";
-+	case PERF_REG_RISCV_S1:
-+		return "s1";
-+	case PERF_REG_RISCV_A0:
-+		return "a0";
-+	case PERF_REG_RISCV_A1:
-+		return "a1";
-+	case PERF_REG_RISCV_A2:
-+		return "a2";
-+	case PERF_REG_RISCV_A3:
-+		return "a3";
-+	case PERF_REG_RISCV_A4:
-+		return "a4";
-+	case PERF_REG_RISCV_A5:
-+		return "a5";
-+	case PERF_REG_RISCV_A6:
-+		return "a6";
-+	case PERF_REG_RISCV_A7:
-+		return "a7";
-+	case PERF_REG_RISCV_S2:
-+		return "s2";
-+	case PERF_REG_RISCV_S3:
-+		return "s3";
-+	case PERF_REG_RISCV_S4:
-+		return "s4";
-+	case PERF_REG_RISCV_S5:
-+		return "s5";
-+	case PERF_REG_RISCV_S6:
-+		return "s6";
-+	case PERF_REG_RISCV_S7:
-+		return "s7";
-+	case PERF_REG_RISCV_S8:
-+		return "s8";
-+	case PERF_REG_RISCV_S9:
-+		return "s9";
-+	case PERF_REG_RISCV_S10:
-+		return "s10";
-+	case PERF_REG_RISCV_S11:
-+		return "s11";
-+	case PERF_REG_RISCV_T3:
-+		return "t3";
-+	case PERF_REG_RISCV_T4:
-+		return "t4";
-+	case PERF_REG_RISCV_T5:
-+		return "t5";
-+	case PERF_REG_RISCV_T6:
-+		return "t6";
-+	default:
-+		return NULL;
++	if (kstack_end((void *)frame->fp))
++		return -EPERM;
++	if (frame->fp & 0x3 || frame->fp < TASK_SIZE)
++		return -EPERM;
++	if (frame->fp < CONFIG_PAGE_OFFSET)
++		return -EPERM;
++
++	*frame = *((struct stackframe *)frame->fp - 1);
++	if (__kernel_text_address(frame->ra)) {
++		int graph = 0;
++
++		frame->ra = ftrace_graph_ret_addr(NULL, &graph, frame->ra,
++				NULL);
++	}
++	return 0;
++}
++
++static void notrace walk_stackframe(struct stackframe *fr,
++			struct perf_callchain_entry_ctx *entry)
++{
++	do {
++		perf_callchain_store(entry, fr->ra);
++	} while (unwind_frame_kernel(fr) >= 0);
++}
++
++/*
++ * Get the return address for a single stackframe and return a pointer to the
++ * next frame tail.
++ */
++static unsigned long user_backtrace(struct perf_callchain_entry_ctx *entry,
++			unsigned long fp, unsigned long reg_ra)
++{
++	struct stackframe buftail;
++	unsigned long ra = 0;
++	unsigned long *user_frame_tail =
++			(unsigned long *)(fp - sizeof(struct stackframe));
++
++	/* Check accessibility of one struct frame_tail beyond */
++	if (!access_ok(user_frame_tail, sizeof(buftail)))
++		return 0;
++	if (__copy_from_user_inatomic(&buftail, user_frame_tail,
++				      sizeof(buftail)))
++		return 0;
++
++	if (reg_ra != 0)
++		ra = reg_ra;
++	else
++		ra = buftail.ra;
++
++	fp = buftail.fp;
++	perf_callchain_store(entry, ra);
++
++	return fp;
++}
++
++/*
++ * This will be called when the target is in user mode
++ * This function will only be called when we use
++ * "PERF_SAMPLE_CALLCHAIN" in
++ * kernel/events/core.c:perf_prepare_sample()
++ *
++ * How to trigger perf_callchain_[user/kernel] :
++ * $ perf record -e cpu-clock --call-graph fp ./program
++ * $ perf report --call-graph
++ *
++ * On RISC-V platform, the program being sampled and the C library
++ * need to be compiled with -fno-omit-frame-pointer, otherwise
++ * the user stack will not contain function frame.
++ */
++void perf_callchain_user(struct perf_callchain_entry_ctx *entry,
++			 struct pt_regs *regs)
++{
++	unsigned long fp = 0;
++
++	/* RISC-V does not support virtualization. */
++	if (perf_guest_cbs && perf_guest_cbs->is_in_guest())
++		return;
++
++	fp = regs->s0;
++	perf_callchain_store(entry, regs->sepc);
++
++	fp = user_backtrace(entry, fp, regs->ra);
++	while (fp && !(fp & 0x3) && entry->nr < entry->max_stack)
++		fp = user_backtrace(entry, fp, 0);
++}
++
++void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
++			   struct pt_regs *regs)
++{
++	struct stackframe fr;
++
++	/* RISC-V does not support virtualization. */
++	if (perf_guest_cbs && perf_guest_cbs->is_in_guest()) {
++		pr_warn("RISC-V does not support perf in guest mode!");
++		return;
 +	}
 +
-+	return NULL;
-+}
-+
-+#endif /* ARCH_PERF_REGS_H */
-diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
-new file mode 100644
-index 0000000..1160bb2
---- /dev/null
-+++ b/tools/perf/arch/riscv/util/Build
-@@ -0,0 +1,2 @@
-+perf-$(CONFIG_DWARF) += dwarf-regs.o
-+perf-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-diff --git a/tools/perf/arch/riscv/util/dwarf-regs.c b/tools/perf/arch/riscv/util/dwarf-regs.c
-new file mode 100644
-index 0000000..f3555f6
---- /dev/null
-+++ b/tools/perf/arch/riscv/util/dwarf-regs.c
-@@ -0,0 +1,72 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd.
-+ * Mapping of DWARF debug register numbers into register names.
-+ */
-+
-+#include <stddef.h>
-+#include <errno.h> /* for EINVAL */
-+#include <string.h> /* for strcmp */
-+#include <dwarf-regs.h>
-+
-+struct pt_regs_dwarfnum {
-+	const char *name;
-+	unsigned int dwarfnum;
-+};
-+
-+#define REG_DWARFNUM_NAME(r, num) {.name = r, .dwarfnum = num}
-+#define REG_DWARFNUM_END {.name = NULL, .dwarfnum = 0}
-+
-+struct pt_regs_dwarfnum riscv_dwarf_regs_table[] = {
-+	REG_DWARFNUM_NAME("%zero", 0),
-+	REG_DWARFNUM_NAME("%ra", 1),
-+	REG_DWARFNUM_NAME("%sp", 2),
-+	REG_DWARFNUM_NAME("%gp", 3),
-+	REG_DWARFNUM_NAME("%tp", 4),
-+	REG_DWARFNUM_NAME("%t0", 5),
-+	REG_DWARFNUM_NAME("%t1", 6),
-+	REG_DWARFNUM_NAME("%t2", 7),
-+	REG_DWARFNUM_NAME("%s0", 8),
-+	REG_DWARFNUM_NAME("%s1", 9),
-+	REG_DWARFNUM_NAME("%a0", 10),
-+	REG_DWARFNUM_NAME("%a1", 11),
-+	REG_DWARFNUM_NAME("%a2", 12),
-+	REG_DWARFNUM_NAME("%a3", 13),
-+	REG_DWARFNUM_NAME("%a4", 14),
-+	REG_DWARFNUM_NAME("%a5", 15),
-+	REG_DWARFNUM_NAME("%a6", 16),
-+	REG_DWARFNUM_NAME("%a7", 17),
-+	REG_DWARFNUM_NAME("%s2", 18),
-+	REG_DWARFNUM_NAME("%s3", 19),
-+	REG_DWARFNUM_NAME("%s4", 20),
-+	REG_DWARFNUM_NAME("%s5", 21),
-+	REG_DWARFNUM_NAME("%s6", 22),
-+	REG_DWARFNUM_NAME("%s7", 23),
-+	REG_DWARFNUM_NAME("%s8", 24),
-+	REG_DWARFNUM_NAME("%s9", 25),
-+	REG_DWARFNUM_NAME("%s10", 26),
-+	REG_DWARFNUM_NAME("%s11", 27),
-+	REG_DWARFNUM_NAME("%t3", 28),
-+	REG_DWARFNUM_NAME("%t4", 29),
-+	REG_DWARFNUM_NAME("%t5", 30),
-+	REG_DWARFNUM_NAME("%t6", 31),
-+	REG_DWARFNUM_END,
-+};
-+
-+#define RISCV_MAX_REGS ((sizeof(riscv_dwarf_regs_table) / \
-+		 sizeof(riscv_dwarf_regs_table[0])) - 1)
-+
-+const char *get_arch_regstr(unsigned int n)
-+{
-+	return (n < RISCV_MAX_REGS) ? riscv_dwarf_regs_table[n].name : NULL;
-+}
-+
-+int regs_query_register_offset(const char *name)
-+{
-+	const struct pt_regs_dwarfnum *roff;
-+
-+	for (roff = riscv_dwarf_regs_table; roff->name != NULL; roff++)
-+		if (!strcmp(roff->name, name))
-+			return roff->dwarfnum;
-+	return -EINVAL;
-+}
-diff --git a/tools/perf/arch/riscv/util/unwind-libdw.c b/tools/perf/arch/riscv/util/unwind-libdw.c
-new file mode 100644
-index 0000000..19536e1
---- /dev/null
-+++ b/tools/perf/arch/riscv/util/unwind-libdw.c
-@@ -0,0 +1,57 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd. */
-+
-+#include <elfutils/libdwfl.h>
-+#include "../../util/unwind-libdw.h"
-+#include "../../util/perf_regs.h"
-+#include "../../util/event.h"
-+
-+bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
-+{
-+	struct unwind_info *ui = arg;
-+	struct regs_dump *user_regs = &ui->sample->user_regs;
-+	Dwarf_Word dwarf_regs[32];
-+
-+#define REG(r) ({						\
-+	Dwarf_Word val = 0;					\
-+	perf_reg_value(&val, user_regs, PERF_REG_RISCV_##r);	\
-+	val;							\
-+})
-+
-+	dwarf_regs[0]  = 0;
-+	dwarf_regs[1]  = REG(RA);
-+	dwarf_regs[2]  = REG(SP);
-+	dwarf_regs[3]  = REG(GP);
-+	dwarf_regs[4]  = REG(TP);
-+	dwarf_regs[5]  = REG(T0);
-+	dwarf_regs[6]  = REG(T1);
-+	dwarf_regs[7]  = REG(T2);
-+	dwarf_regs[8]  = REG(S0);
-+	dwarf_regs[9]  = REG(S1);
-+	dwarf_regs[10] = REG(A0);
-+	dwarf_regs[11] = REG(A1);
-+	dwarf_regs[12] = REG(A2);
-+	dwarf_regs[13] = REG(A3);
-+	dwarf_regs[14] = REG(A4);
-+	dwarf_regs[15] = REG(A5);
-+	dwarf_regs[16] = REG(A6);
-+	dwarf_regs[17] = REG(A7);
-+	dwarf_regs[18] = REG(S2);
-+	dwarf_regs[19] = REG(S3);
-+	dwarf_regs[20] = REG(S4);
-+	dwarf_regs[21] = REG(S5);
-+	dwarf_regs[22] = REG(S6);
-+	dwarf_regs[23] = REG(S7);
-+	dwarf_regs[24] = REG(S8);
-+	dwarf_regs[25] = REG(S9);
-+	dwarf_regs[26] = REG(S10);
-+	dwarf_regs[27] = REG(S11);
-+	dwarf_regs[28] = REG(T3);
-+	dwarf_regs[29] = REG(T4);
-+	dwarf_regs[30] = REG(T5);
-+	dwarf_regs[31] = REG(T6);
-+	dwfl_thread_state_register_pc(thread, REG(PC));
-+
-+	return dwfl_thread_state_registers(thread, 0, PERF_REG_RISCV_MAX,
-+					   dwarf_regs);
++	fr.fp = regs->s0;
++	fr.ra = regs->ra;
++	walk_stackframe(&fr, entry);
 +}
 -- 
 2.7.4
