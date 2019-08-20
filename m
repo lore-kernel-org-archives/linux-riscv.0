@@ -2,64 +2,65 @@ Return-Path: <SRS0=TqGV=WQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 782AFC3A589
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2019 08:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 55CBCC3A589
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2019 09:10:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4A6C922DCB
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2019 08:57:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 22F42205ED
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2019 09:10:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="amgv3zJJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4A6C922DCB
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=c-sky.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SIo4Fzxk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 22F42205ED
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=VQebcahq2cZ3QIGxqvJ80clD7OaC5WIN+nzSptTo7vo=; b=amgv3zJJREtTBfPe6JuwtUncEw
-	PRyB7xkyY1Jii0K9sUAtWmIL16NxIS9hvB9/op/4H8TSl9swAtSLAjTD6H8DOUAKqPdkwCg5v5XIL
-	hNqGoClQ1g5UBx16CKptB1b2vejo8Qhk6RHnXvYbUTjzlbUuOqmUiOM21TvhTtHR4xEIK4d37DbnI
-	nCBV2ckvsFH0fy4r5FJNheCALQsdFAE0BGJ2OU8zgjK/KxQYw4XFpXvIsLKjEAYxHFpam0mrtErZr
-	7fasBFFQsfUWDtpXMRUF3DHv1boWzwEJ+yhi8+KDO/tXPWpCFJUoHMNmp2YG2wjC4YyKBtOH4zdRI
-	oRgDcLKw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8Ow0kUbwMmtjPUarWjMiq34c0DTez6L1E+HPEV8YJxw=; b=SIo4FzxkITPu1j
+	KNufOQ26IUV1RNE4MORiNj8OzwSLzNvy+al8LjaJVz6nC2RW7F0yzZHmiKtuZseSz1wtNx64c0q+s
+	Mw51q2eU84TGLMZ6b2Y60oTAelwl5V2AVkn8JBjH+A+3f3adI2Dr7ldqgw1h75r2XeG9EZo8fOl44
+	Hu3eHdlxkJAM+b1Nuz3IO+uJw0kRgNQeo4wuH+coIjedCztSb/joa1UHFRMCzw9WuLBgjZGrWdBLm
+	sjoAmiOxWMKXtpf06WjjDDTeToUHTEscYz5/LheVF78iQnOAz+J7E5HCkEGRUcfvBRiOr2FxetF6b
+	6RJMPzc2RXQwrI+rJGDA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hzzxi-0006dW-VP; Tue, 20 Aug 2019 08:57:54 +0000
-Received: from mail142-1.mail.alibaba.com ([198.11.142.1])
+	id 1i009r-0003jg-Vk; Tue, 20 Aug 2019 09:10:27 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hzzxf-0006cr-Lp
- for linux-riscv@lists.infradead.org; Tue, 20 Aug 2019 08:57:53 +0000
-X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07440871|-1; CH=green;
- DM=CONTINUE|CONTINUE|true|0.365205-0.0142482-0.620547; FP=0|0|0|0|0|-1|-1|-1;
- HT=e02c03278; MF=han_mao@c-sky.com; NM=1; PH=DS; RN=8; RT=8; SR=0;
- TI=SMTPD_---.FF8F-f._1566291447; 
-Received: from localhost(mailfrom:han_mao@c-sky.com
- fp:SMTPD_---.FF8F-f._1566291447)
- by smtp.aliyun-inc.com(10.147.40.200);
- Tue, 20 Aug 2019 16:57:27 +0800
-From: Mao Han <han_mao@c-sky.com>
-To: linux-riscv@lists.infradead.org
-Subject: [PATCH V4 2/3] riscv: Add support for perf registers sampling
-Date: Tue, 20 Aug 2019 16:57:17 +0800
-Message-Id: <e131ad4ba70ae90195163e3a8b7ef61f79f99b1b.1566290744.git.han_mao@c-sky.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <cover.1566290744.git.han_mao@c-sky.com>
-References: <cover.1566290744.git.han_mao@c-sky.com>
-In-Reply-To: <cover.1566290744.git.han_mao@c-sky.com>
-References: <cover.1566290744.git.han_mao@c-sky.com>
+ id 1i009o-0003j5-Ox
+ for linux-riscv@lists.infradead.org; Tue, 20 Aug 2019 09:10:26 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id EBB09ADDA;
+ Tue, 20 Aug 2019 09:10:22 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH 2/3] macb: Update compatibility string for SiFive
+ FU540-C000
+References: <1563534631-15897-1-git-send-email-yash.shah@sifive.com>
+ <1563534631-15897-2-git-send-email-yash.shah@sifive.com>
+ <4075b955-a187-6fd7-a2e6-deb82b5d4fb6@microchip.com>
+ <CAJ2_jOEHoh+D76VpAoVq3XnpAZEQxdQtaVX5eiKw5X4r+ypKVw@mail.gmail.com>
+ <alpine.DEB.2.21.9999.1908131142150.5033@viisi.sifive.com>
+X-Yow: Are we live or on tape?
+Date: Tue, 20 Aug 2019 11:10:20 +0200
+In-Reply-To: <alpine.DEB.2.21.9999.1908131142150.5033@viisi.sifive.com> (Paul
+ Walmsley's message of "Tue, 13 Aug 2019 11:42:49 -0700 (PDT)")
+Message-ID: <mvm5zmskxs3.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.2.90 (gnu/linux)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190820_015751_849718_4A88A7F3 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20190820_021024_960175_4D775314 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,162 +72,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
- Guo Ren <guoren@kernel.org>, Greentime Hu <green.hu@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Christoph Hellwig <hch@lst.de>,
- Mao Han <han_mao@c-sky.com>
-MIME-Version: 1.0
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Albert Ou <aou@eecs.berkeley.edu>, netdev <netdev@vger.kernel.org>,
+ Palmer Dabbelt <palmer@sifive.com>,
+ Nicolas Ferre <Nicolas.Ferre@microchip.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Sachin Ghadi <sachin.ghadi@sifive.com>, Yash Shah <yash.shah@sifive.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Petr =?utf-8?Q?=C5=A0tetiar?= <ynezz@true.cz>, linux-riscv@lists.infradead.org,
+ David Miller <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch implements the perf registers sampling and validation API
-for riscv arch. The valid registers and their register ID are defined in
-perf_regs.h. Perf tool can backtrace in userspace with unwind library
-and the registers/user stack dump support.
+On Aug 13 2019, Paul Walmsley <paul.walmsley@sifive.com> wrote:
 
-Signed-off-by: Mao Han <han_mao@c-sky.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Greentime Hu <green.hu@gmail.com>
-Cc: Palmer Dabbelt <palmer@sifive.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>
-Cc: Christoph Hellwig <hch@lst.de>
-Cc: Guo Ren <guoren@kernel.org>
----
- arch/riscv/Kconfig                      |  2 ++
- arch/riscv/include/uapi/asm/perf_regs.h | 42 +++++++++++++++++++++++++++++++
- arch/riscv/kernel/Makefile              |  1 +
- arch/riscv/kernel/perf_regs.c           | 44 +++++++++++++++++++++++++++++++++
- 4 files changed, 89 insertions(+)
- create mode 100644 arch/riscv/include/uapi/asm/perf_regs.h
- create mode 100644 arch/riscv/kernel/perf_regs.c
+> Dave, Nicolas,
+>
+> On Mon, 22 Jul 2019, Yash Shah wrote:
+>
+>> On Fri, Jul 19, 2019 at 5:36 PM <Nicolas.Ferre@microchip.com> wrote:
+>> >
+>> > On 19/07/2019 at 13:10, Yash Shah wrote:
+>> > > Update the compatibility string for SiFive FU540-C000 as per the new
+>> > > string updated in the binding doc.
+>> > > Reference: https://lkml.org/lkml/2019/7/17/200
+>> >
+>> > Maybe referring to lore.kernel.org is better:
+>> > https://lore.kernel.org/netdev/CAJ2_jOFEVZQat0Yprg4hem4jRrqkB72FKSeQj4p8P5KA-+rgww@mail.gmail.com/
+>> 
+>> Sure. Will keep that in mind for future reference.
+>> 
+>> >
+>> > > Signed-off-by: Yash Shah <yash.shah@sifive.com>
+>> >
+>> > Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+>> 
+>> Thanks.
+>
+> Am assuming you'll pick this up for the -net tree for v5.4-rc1 or earlier.
+> If not, please let us know.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 59a4727..4bc976d 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -35,6 +35,8 @@ config RISCV
- 	select HAVE_DMA_CONTIGUOUS
- 	select HAVE_FUTEX_CMPXCHG if FUTEX
- 	select HAVE_PERF_EVENTS
-+	select HAVE_PERF_REGS
-+	select HAVE_PERF_USER_STACK_DUMP
- 	select HAVE_SYSCALL_TRACEPOINTS
- 	select IRQ_DOMAIN
- 	select SPARSE_IRQ
-diff --git a/arch/riscv/include/uapi/asm/perf_regs.h b/arch/riscv/include/uapi/asm/perf_regs.h
-new file mode 100644
-index 0000000..df1a581
---- /dev/null
-+++ b/arch/riscv/include/uapi/asm/perf_regs.h
-@@ -0,0 +1,42 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/* Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd. */
-+
-+#ifndef _ASM_RISCV_PERF_REGS_H
-+#define _ASM_RISCV_PERF_REGS_H
-+
-+enum perf_event_riscv_regs {
-+	PERF_REG_RISCV_PC,
-+	PERF_REG_RISCV_RA,
-+	PERF_REG_RISCV_SP,
-+	PERF_REG_RISCV_GP,
-+	PERF_REG_RISCV_TP,
-+	PERF_REG_RISCV_T0,
-+	PERF_REG_RISCV_T1,
-+	PERF_REG_RISCV_T2,
-+	PERF_REG_RISCV_S0,
-+	PERF_REG_RISCV_S1,
-+	PERF_REG_RISCV_A0,
-+	PERF_REG_RISCV_A1,
-+	PERF_REG_RISCV_A2,
-+	PERF_REG_RISCV_A3,
-+	PERF_REG_RISCV_A4,
-+	PERF_REG_RISCV_A5,
-+	PERF_REG_RISCV_A6,
-+	PERF_REG_RISCV_A7,
-+	PERF_REG_RISCV_S2,
-+	PERF_REG_RISCV_S3,
-+	PERF_REG_RISCV_S4,
-+	PERF_REG_RISCV_S5,
-+	PERF_REG_RISCV_S6,
-+	PERF_REG_RISCV_S7,
-+	PERF_REG_RISCV_S8,
-+	PERF_REG_RISCV_S9,
-+	PERF_REG_RISCV_S10,
-+	PERF_REG_RISCV_S11,
-+	PERF_REG_RISCV_T3,
-+	PERF_REG_RISCV_T4,
-+	PERF_REG_RISCV_T5,
-+	PERF_REG_RISCV_T6,
-+	PERF_REG_RISCV_MAX,
-+};
-+#endif /* _ASM_RISCV_PERF_REGS_H */
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index b1bea89..696020f 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -40,5 +40,6 @@ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
- 
- obj-$(CONFIG_PERF_EVENTS)	+= perf_event.o
- obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
-+obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
- 
- clean:
-diff --git a/arch/riscv/kernel/perf_regs.c b/arch/riscv/kernel/perf_regs.c
-new file mode 100644
-index 0000000..04a38fb
---- /dev/null
-+++ b/arch/riscv/kernel/perf_regs.c
-@@ -0,0 +1,44 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd. */
-+
-+#include <linux/errno.h>
-+#include <linux/kernel.h>
-+#include <linux/perf_event.h>
-+#include <linux/bug.h>
-+#include <asm/perf_regs.h>
-+#include <asm/ptrace.h>
-+
-+u64 perf_reg_value(struct pt_regs *regs, int idx)
-+{
-+	if (WARN_ON_ONCE((u32)idx >= PERF_REG_RISCV_MAX))
-+		return 0;
-+
-+	return ((unsigned long *)regs)[idx];
-+}
-+
-+#define REG_RESERVED (~((1ULL << PERF_REG_RISCV_MAX) - 1))
-+
-+int perf_reg_validate(u64 mask)
-+{
-+	if (!mask || mask & REG_RESERVED)
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
-+u64 perf_reg_abi(struct task_struct *task)
-+{
-+#if __riscv_xlen == 64
-+	return PERF_SAMPLE_REGS_ABI_64;
-+#else
-+	return PERF_SAMPLE_REGS_ABI_32;
-+#endif
-+}
-+
-+void perf_get_regs_user(struct perf_regs *regs_user,
-+			struct pt_regs *regs,
-+			struct pt_regs *regs_user_copy)
-+{
-+	regs_user->regs = task_pt_regs(current);
-+	regs_user->abi = perf_reg_abi(current);
-+}
+This is still missing in v5.4-rc5, which means that networking is broken.
+
+Andreas.
+
 -- 
-2.7.4
-
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
