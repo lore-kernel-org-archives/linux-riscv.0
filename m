@@ -2,60 +2,62 @@ Return-Path: <SRS0=TqGV=WQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 29694C3A589
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D1E62C3A59D
 	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2019 14:59:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 008FE22DBF
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2019 14:59:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A88AA233A1
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 20 Aug 2019 14:59:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IxqbJ3WR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 008FE22DBF
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sLZCz8Xd"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A88AA233A1
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ETzHQIBmecZskIN7fhOsCtrsFyMfsJ462HoGS43rBhI=; b=IxqbJ3WR7i+9JL
-	mJ9t8WzVw3tZ4sknRhjoTpXYztHfAnuhD7gKhb1Pp/8oZh+dFv29B4Q/0dcb40K6c0k4Rf9h69Gzf
-	TaDqbAJBrGGQPYlDIPNbwhaYVGPs5hJDVYmUN4ttfiS/1lCrOhWVJYR8eii2/IEQMzIEfyTKRAyQv
-	dWJ34dJF4immo00iO68tpDzh/kCOZXMm34iW5xUyThWrflH8rQZCmbMtyJDDM0Sv1NGFGaQtEVKey
-	P39tSm5sVvR9z5KgGH4oizwU37/e6oU7shGwL67eiewhHXnmNhgVr5R9eDMnWfq/evGdVjtzc0i0f
-	v9vkzvyQdjsYSbWPqCnQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/dsCxmwjvt1Kw1CBW56YKsqkNIHwRI2XCru/WLUijFM=; b=sLZCz8XdRnk7LL
+	FwNAc9eVVeYMD4fYbhsE0L0shyG2+plua79/PeEbhvKi89qS6TrYrlGqLZ9OkEb/LHIL7QUDpIhCM
+	6LHfUNbq+oUWna+cDXrp4WalsnApkzOm1dEhm8BFISXzIC6EUW30aUMNFoOL24qZjOHvwqSzczR87
+	l1pE7tsxTAbAywQ1LDcH7TgUIc1G/iKdc2dWDViqj+pLFXxTwWJ/p1pf2rWDvN3JV6nA9Yss957/i
+	yxx4Onml6QwG/K4rDbCE6PsmgUS+OsZAtAgdtJdojST8Nlo4W+A+tY8zAFyng3Nn7zUcYb1yE7+oa
+	+KTpup4KNImhjTDAWj8A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i05bd-0005rv-Ox; Tue, 20 Aug 2019 14:59:29 +0000
+	id 1i05bj-0005xP-QR; Tue, 20 Aug 2019 14:59:35 +0000
 Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i05ai-0004yO-Lc; Tue, 20 Aug 2019 14:58:34 +0000
+ id 1i05ai-0004yQ-Sg; Tue, 20 Aug 2019 14:58:34 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 3DB25AE42;
- Tue, 20 Aug 2019 14:58:29 +0000 (UTC)
+ by mx1.suse.de (Postfix) with ESMTP id 8A0C7AE6D;
+ Tue, 20 Aug 2019 14:58:31 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: catalin.marinas@arm.com, hch@lst.de, wahrenst@gmx.net,
  marc.zyngier@arm.com, robh+dt@kernel.org,
  Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
  iommu@lists.linux-foundation.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org
-Subject: [PATCH v2 00/11] Raspberry Pi 4 DMA addressing support
-Date: Tue, 20 Aug 2019 16:58:08 +0200
-Message-Id: <20190820145821.27214-1-nsaenzjulienne@suse.de>
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v2 02/11] arm: use generic dma_zone_size
+Date: Tue, 20 Aug 2019 16:58:10 +0200
+Message-Id: <20190820145821.27214-3-nsaenzjulienne@suse.de>
 X-Mailer: git-send-email 2.22.0
+In-Reply-To: <20190820145821.27214-1-nsaenzjulienne@suse.de>
+References: <20190820145821.27214-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190820_075833_000630_38287657 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20190820_075833_072711_E04938F9 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,9 +69,8 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: phill@raspberryi.org, linux-s390@vger.kernel.org, f.fainelli@gmail.com,
- frowand.list@gmail.com, linuxppc-dev@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, eric@anholt.net, mbrugger@suse.com,
+Cc: phill@raspberryi.org, f.fainelli@gmail.com, frowand.list@gmail.com,
+ Russell King <linux@armlinux.org.uk>, eric@anholt.net, mbrugger@suse.com,
  linux-rpi-kernel@lists.infradead.org, akpm@linux-foundation.org,
  will@kernel.org, nsaenzjulienne@suse.de, m.szyprowski@samsung.com
 Content-Type: text/plain; charset="us-ascii"
@@ -77,115 +78,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
-this series attempts to address some issues we found while bringing up
-the new Raspberry Pi 4 in arm64 and it's intended to serve as a follow
-up of these discussions:
-v1: https://lkml.org/lkml/2019/7/31/922
-RFC: https://lkml.org/lkml/2019/7/17/476
+'dma_zone_size' was created as a generic replacement to
+'arm_dma_zone_size'. Use it accordingly.
 
-The new Raspberry Pi 4 has up to 4GB of memory but most peripherals can
-only address the first GB: their DMA address range is
-0xc0000000-0xfc000000 which is aliased to the first GB of physical
-memory 0x00000000-0x3c000000. Note that only some peripherals have these
-limitations: the PCIe, V3D, GENET, and 40-bit DMA channels have a wider
-view of the address space by virtue of being hooked up trough a second
-interconnect.
-
-Part of this is solved in arm32 by setting up the machine specific
-'.dma_zone_size = SZ_1G', which takes care of reserving the coherent
-memory area at the right spot. That said no buffer bouncing (needed for
-dma streaming) is available at the moment, but that's a story for
-another series.
-
-Unfortunately there is no such thing as 'dma_zone_size' in arm64. Only
-ZONE_DMA32 is created which is interpreted by dma-direct and the arm64
-arch code as if all peripherals where be able to address the first 4GB
-of memory.
-
-In the light of this, the series implements the following changes:
-
-- Create generic 'dma_zone_size' in order for hardware description code
-  to set it up when needed.
-
-- Add a function in early_init_dt_scan() to setup 'dma_zone_size' for
-  the RPi4.
-
-- Create both DMA zones in arm64, ZONE_DMA will contain the area
-  addressable by all peripherals and ZONE_DMA32 the rest of the 32 bit
-  addressable memory. ZONE_DMA32 might be left empty.
-
-- Reserve the CMA area in a place suitable for all peripherals.
-
-- Inform dma-direct of the new runtime calculated min_mask.
-
-This series has been tested on multiple devices both by checking the
-zones setup matches the expectations and by double-checking physical
-addresses on pages allocated on the three relevant areas GFP_DMA,
-GFP_DMA32, GFP_KERNEL:
-
-- On an RPi4 with variations on the ram memory size. But also forcing
-  the situation where all three memory zones are nonempty by setting a 3G
-  ZONE_DMA32 ceiling on a 4G setup. Both with and without NUMA support.
-
-- On a Synquacer box[1] with 32G of memory.
-
-- On an ACPI based Huawei TaiShan server[2] with 256G of memory.
-
-- On a QEMU virtual machine running arm64's OpenSUSE Tumbleweed.
-
-That's all.
-
-Regards,
-Nicolas
-
-[1] https://www.96boards.org/product/developerbox/
-[2] https://e.huawei.com/en/products/cloud-computing-dc/servers/taishan-server/taishan-2280-v2
-
+Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 ---
 
-Changes in v2:
-- More in depth testing.
-- Create new global 'dma_zone_size'.
-- New approach to getting the dma_zone_size, instead of parsing the dts
-  we hardcode it conditionally to the machine compatible name.
-- Fix ZONE_DMA and ZONE_DMA32 split, now ZONE_DMA32 remains empty if
-  ZONE_DMA fits the whole 32 bit addressable space.
-- Take into account devices with DMA offset.
-- Rename new dma-direct variable to zone_dma_bits.
-- Try new approach by merging both ZONE_DMA and ZONE_DMA32 comments
-  in mmzone.h, add new up to date examples.
+Changes in v2: None
 
-Nicolas Saenz Julienne (11):
-  asm-generic: add dma_zone_size
-  arm: use generic dma_zone_size
-  of/fdt: add of_fdt_machine_is_compatible function
-  of/fdt: add early_init_dt_get_dma_zone_size()
-  arm64: mm: use arm64_dma_phys_limit instead of calling
-    max_zone_dma_phys()
-  arm64: rename variables used to calculate ZONE_DMA32's size
-  arm64: re-introduce max_zone_dma_phys()
-  arm64: use both ZONE_DMA and ZONE_DMA32
-  dma-direct: turn ARCH_ZONE_DMA_BITS into a variable
-  arm64: edit zone_dma_bits to fine tune dma-direct min mask
-  mm: refresh ZONE_DMA and ZONE_DMA32 comments in 'enum zone_type'
+ arch/arm/include/asm/dma.h |  8 +++++---
+ arch/arm/mm/init.c         | 12 ++++--------
+ 2 files changed, 9 insertions(+), 11 deletions(-)
 
- arch/arm/include/asm/dma.h      |  8 ++--
- arch/arm/mm/init.c              | 12 ++----
- arch/arm64/Kconfig              |  4 ++
- arch/arm64/mm/init.c            | 73 +++++++++++++++++++++++++--------
- arch/powerpc/include/asm/page.h |  9 ----
- arch/powerpc/mm/mem.c           | 16 +++++---
- arch/s390/include/asm/page.h    |  2 -
- arch/s390/mm/init.c             |  1 +
- drivers/of/fdt.c                | 15 +++++++
- include/asm-generic/dma.h       |  8 +++-
- include/linux/dma-direct.h      |  2 +
- include/linux/mmzone.h          | 46 ++++++++++++---------
- kernel/dma/direct.c             | 13 +++---
- mm/page_alloc.c                 |  3 ++
- 14 files changed, 140 insertions(+), 72 deletions(-)
-
+diff --git a/arch/arm/include/asm/dma.h b/arch/arm/include/asm/dma.h
+index a81dda65c576..52d19ffd92b4 100644
+--- a/arch/arm/include/asm/dma.h
++++ b/arch/arm/include/asm/dma.h
+@@ -2,16 +2,18 @@
+ #ifndef __ASM_ARM_DMA_H
+ #define __ASM_ARM_DMA_H
+ 
++#include <asm-generic/dma.h>
++
+ /*
+  * This is the maximum virtual address which can be DMA'd from.
+  */
++#undef MAX_DMA_ADDRESS
+ #ifndef CONFIG_ZONE_DMA
+ #define MAX_DMA_ADDRESS	0xffffffffUL
+ #else
+ #define MAX_DMA_ADDRESS	({ \
+-	extern phys_addr_t arm_dma_zone_size; \
+-	arm_dma_zone_size && arm_dma_zone_size < (0x10000000 - PAGE_OFFSET) ? \
+-		(PAGE_OFFSET + arm_dma_zone_size) : 0xffffffffUL; })
++	dma_zone_size && dma_zone_size < (0x10000000 - PAGE_OFFSET) ? \
++		(PAGE_OFFSET + dma_zone_size) : 0xffffffffUL; })
+ #endif
+ 
+ #ifdef CONFIG_ISA_DMA_API
+diff --git a/arch/arm/mm/init.c b/arch/arm/mm/init.c
+index 16d373d587c4..95680bad245a 100644
+--- a/arch/arm/mm/init.c
++++ b/arch/arm/mm/init.c
+@@ -79,10 +79,6 @@ static void __init find_limits(unsigned long *min, unsigned long *max_low,
+ }
+ 
+ #ifdef CONFIG_ZONE_DMA
+-
+-phys_addr_t arm_dma_zone_size __read_mostly;
+-EXPORT_SYMBOL(arm_dma_zone_size);
+-
+ /*
+  * The DMA mask corresponding to the maximum bus address allocatable
+  * using GFP_DMA.  The default here places no restriction on DMA
+@@ -109,8 +105,8 @@ void __init setup_dma_zone(const struct machine_desc *mdesc)
+ {
+ #ifdef CONFIG_ZONE_DMA
+ 	if (mdesc->dma_zone_size) {
+-		arm_dma_zone_size = mdesc->dma_zone_size;
+-		arm_dma_limit = PHYS_OFFSET + arm_dma_zone_size - 1;
++		dma_zone_size = mdesc->dma_zone_size;
++		arm_dma_limit = PHYS_OFFSET + dma_zone_size - 1;
+ 	} else
+ 		arm_dma_limit = 0xffffffff;
+ 	arm_dma_pfn_limit = arm_dma_limit >> PAGE_SHIFT;
+@@ -164,9 +160,9 @@ static void __init zone_sizes_init(unsigned long min, unsigned long max_low,
+ 	 * Adjust the sizes according to any special requirements for
+ 	 * this machine type.
+ 	 */
+-	if (arm_dma_zone_size)
++	if (dma_zone_size)
+ 		arm_adjust_dma_zone(zone_size, zhole_size,
+-			arm_dma_zone_size >> PAGE_SHIFT);
++			dma_zone_size >> PAGE_SHIFT);
+ #endif
+ 
+ 	free_area_init_node(0, zone_size, min, zhole_size);
 -- 
 2.22.0
 
