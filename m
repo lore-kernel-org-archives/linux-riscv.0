@@ -2,48 +2,50 @@ Return-Path: <SRS0=RYOb=WR=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A5045C3A5A1
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2019 14:58:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 567B9C3A59E
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2019 14:58:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7167E22DA7
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2019 14:58:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2CCDF22DA7
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 21 Aug 2019 14:58:44 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="s1mifhxd"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7167E22DA7
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Sdd/qESj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2CCDF22DA7
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PtSmf8UKLw6E2E0W/L7ml/ddcBApuATyqZUopdSq4do=; b=s1mifhxdxctZaY
-	QW0dddgjYAhCJcluMB048xhxxLFYcRh8TKmU+aNEblwC9Ifsf9VgKBpGYrChm3+60XCHhcAdG5T5n
-	fL8nszmL/QYqsSmmVaAiUD15l81rm4crO0V9RfGAMF2+5zcM3NUQOnE2CKy1vrkbZJPt4UmBV3pfZ
-	JFHq+rMEFElL7+BIxvV/qf63Yjm5ndC5/Vl83nS+eAzD2lu3JmtD7zcyRXt3yt8+hm6n9YPvP9xku
-	o1JI8lXr6q72O1tCIJX/vLgKkPoUDFM8wKGIB+YOlBqAND3IsRPnH3obkpHllh9Mq2iUMVzt5LuHf
-	1VkaNNjvPEeoQ0I7u+/A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FVokYJnOsreeAG3adsx/3rWUuYZ51bv7tsJnNYRlJ4o=; b=Sdd/qESjYpC9C2
+	nQLaHpUqJ6l5pe9aMODt9SxFxKtxBu9YDtzZx5sZo6Accax6CJKxtGTkYaKqcxbiPeBxFqCF+X/ET
+	cVI7UhGiEOTdByQUB2oe1IZkdRmp5178UhMZ7MeFg2doNYCoHv7ARL0HqKo4eg3iu+mryoaIMSlFE
+	AZFZCokiudufAT3Q30M6KLtxwDA584XvNtSu/2jRGrbb77Aw5huu2p7OQL/9hKv7y6HI9PAfNs5N6
+	T+oPNf9mGabB6nZDg26gtR0cTEMnpcda5U/jrn+Xe0kkkyKGjDs4a3cUDX15TEmLqiEH12UrHcQN+
+	0sRpe65qMbDsrxZIyqiw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i0S4P-00062E-1s; Wed, 21 Aug 2019 14:58:41 +0000
+	id 1i0S4R-00064U-Bx; Wed, 21 Aug 2019 14:58:43 +0000
 Received: from [182.171.81.139] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
- id 1i0S4N-00061v-Jw; Wed, 21 Aug 2019 14:58:39 +0000
+ id 1i0S4P-00062A-3P; Wed, 21 Aug 2019 14:58:41 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Palmer Dabbelt <palmer@sifive.com>,
  Paul Walmsley <paul.walmsley@sifive.com>
-Subject: misc riscv cleanups
-Date: Wed, 21 Aug 2019 23:58:31 +0900
-Message-Id: <20190821145837.3686-1-hch@lst.de>
+Subject: [PATCH 1/6] riscv: refactor the IPI code
+Date: Wed, 21 Aug 2019 23:58:32 +0900
+Message-Id: <20190821145837.3686-2-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20190821145837.3686-1-hch@lst.de>
+References: <20190821145837.3686-1-hch@lst.de>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -62,11 +64,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+This prepares for adding native non-SBI IPI code.
 
-this series has a couple small cleanups and micro-optimizations
-that resulted from the nommu work.  Pushing them out ASAP to avoid
-conflicts the tlbflush work from Atish.
+Signed-off-by: Christoph Hellwig <hch@lst.de>
+---
+ arch/riscv/kernel/smp.c | 55 +++++++++++++++++++++++------------------
+ 1 file changed, 31 insertions(+), 24 deletions(-)
+
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 5a9834503a2f..8cd730239613 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -78,13 +78,38 @@ static void ipi_stop(void)
+ 		wait_for_interrupt();
+ }
+ 
++static void send_ipi_mask(const struct cpumask *mask, enum ipi_message_type op)
++{
++	int cpuid, hartid;
++	struct cpumask hartid_mask;
++
++	cpumask_clear(&hartid_mask);
++	mb();
++	for_each_cpu(cpuid, mask) {
++		set_bit(op, &ipi_data[cpuid].bits);
++		hartid = cpuid_to_hartid_map(cpuid);
++		cpumask_set_cpu(hartid, &hartid_mask);
++	}
++	mb();
++	sbi_send_ipi(cpumask_bits(&hartid_mask));
++}
++
++static void send_ipi_single(int cpu, enum ipi_message_type op)
++{
++	send_ipi_mask(cpumask_of(cpu), op);
++}
++
++static inline void clear_ipi(void)
++{
++	csr_clear(CSR_SIP, SIE_SSIE);
++}
++
+ void riscv_software_interrupt(void)
+ {
+ 	unsigned long *pending_ipis = &ipi_data[smp_processor_id()].bits;
+ 	unsigned long *stats = ipi_data[smp_processor_id()].stats;
+ 
+-	/* Clear pending IPI */
+-	csr_clear(CSR_SIP, SIE_SSIE);
++	clear_ipi();
+ 
+ 	while (true) {
+ 		unsigned long ops;
+@@ -118,23 +143,6 @@ void riscv_software_interrupt(void)
+ 	}
+ }
+ 
+-static void
+-send_ipi_message(const struct cpumask *to_whom, enum ipi_message_type operation)
+-{
+-	int cpuid, hartid;
+-	struct cpumask hartid_mask;
+-
+-	cpumask_clear(&hartid_mask);
+-	mb();
+-	for_each_cpu(cpuid, to_whom) {
+-		set_bit(operation, &ipi_data[cpuid].bits);
+-		hartid = cpuid_to_hartid_map(cpuid);
+-		cpumask_set_cpu(hartid, &hartid_mask);
+-	}
+-	mb();
+-	sbi_send_ipi(cpumask_bits(&hartid_mask));
+-}
+-
+ static const char * const ipi_names[] = {
+ 	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
+ 	[IPI_CALL_FUNC]		= "Function call interrupts",
+@@ -156,12 +164,12 @@ void show_ipi_stats(struct seq_file *p, int prec)
+ 
+ void arch_send_call_function_ipi_mask(struct cpumask *mask)
+ {
+-	send_ipi_message(mask, IPI_CALL_FUNC);
++	send_ipi_mask(mask, IPI_CALL_FUNC);
+ }
+ 
+ void arch_send_call_function_single_ipi(int cpu)
+ {
+-	send_ipi_message(cpumask_of(cpu), IPI_CALL_FUNC);
++	send_ipi_single(cpu, IPI_CALL_FUNC);
+ }
+ 
+ void smp_send_stop(void)
+@@ -176,7 +184,7 @@ void smp_send_stop(void)
+ 
+ 		if (system_state <= SYSTEM_RUNNING)
+ 			pr_crit("SMP: stopping secondary CPUs\n");
+-		send_ipi_message(&mask, IPI_CPU_STOP);
++		send_ipi_mask(&mask, IPI_CPU_STOP);
+ 	}
+ 
+ 	/* Wait up to one second for other CPUs to stop */
+@@ -191,6 +199,5 @@ void smp_send_stop(void)
+ 
+ void smp_send_reschedule(int cpu)
+ {
+-	send_ipi_message(cpumask_of(cpu), IPI_RESCHEDULE);
++	send_ipi_single(cpu, IPI_RESCHEDULE);
+ }
+-
+-- 
+2.20.1
 
 
 _______________________________________________
