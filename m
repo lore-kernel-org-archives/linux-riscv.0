@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C011EC3A59D
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2019 07:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 521A1C3A59D
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2019 07:59:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 926F121726
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2019 07:59:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2688121726
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2019 07:59:18 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BfEZQNNF";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="etHhQFVU"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 926F121726
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QHOIqQkG";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="kC8WT6a+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2688121726
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,70 +26,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZCyiSX7HcrwJYLQPtQongj7/NxACEDtQqo+U6RsSlZs=; b=BfEZQNNFx1IE2h
-	n6MVo272X7qlrlJmmwiZvyZThOMJ5LK7zzhkz7CSqj3o11NujT5dyjNmBFlH+v1KzD5CxtOvvRMsa
-	WTygNuSmrsQAqh5W9JZSjO4HnBGu1kqZXemoBQkjgU0jKl/c6bi1Qzn8TCBgqiBUqpFRAJLriWpSD
-	XzDvokIs2koV1T2twT8YFnd55E+DvftxV9BWpT3L2gxAOg7oDD3SNEgdo1O8mPzb1c4NCymqZDgag
-	5ftpQRzgA/fErQ0c0Bs+HZH0668qKF1P6KuGAZDAx42Orx8RSEK6t0gdkv1qQSsZoja1dRftyAGXn
-	AfyBC5J79YPDq0gTpLKw==;
+	List-Owner; bh=COyFw8rX19A99m3x/3NJjJMZNJkP2kK2qBgBq+8tI00=; b=QHOIqQkGglC7Ui
+	R/VwOThhnzRxGrt9hz4JPRC881wABuxkqHrNA7dPF3T4ibvV4z7qZcF6miyXaP59dHQ/U+VHysDUW
+	JySGCdgUiiDngn27tDVSyPfrzGczDxkk79I/PJCtRkfdfgYKjoVoJgBKICHmqjYe0oA4iXRmJ8X+4
+	yRkMm0Kdt6rLwC/Ow7QAsxl/hQn3eO7IbK+hWRLW7H3UdDOgGIz16gPNyr+krbkS+DSeA0+TeEcNs
+	aCmCS2vTFW4TkLRrzM37YGo7LQYYrVZtyioNI7oxrIzAmEu6JXwEA5V99ImPiqUmZF8z5j43lA/0l
+	AOUd6NHUpDOae1756HEg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i0i03-0000Ur-8v; Thu, 22 Aug 2019 07:59:15 +0000
+	id 1i0hzz-0000RI-GO; Thu, 22 Aug 2019 07:59:11 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i0hzs-0000Kp-38
- for linux-riscv@lists.infradead.org; Thu, 22 Aug 2019 07:59:05 +0000
+ id 1i0hzq-0000LX-VM
+ for linux-riscv@lists.infradead.org; Thu, 22 Aug 2019 07:59:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1566460787; x=1597996787;
+ t=1566460785; x=1597996785;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=zMgrwQo3ioYoX5CQO1W5apOPVVHZ8O/Xw2bhvtHvfOw=;
- b=etHhQFVUvwfhYPSOCLWtZZfFwr+1UlK1vq40YzOPMdJvhMBg08OQtsNv
- tKfhPZIjoKGdKi4NGfc4Ias0HZQdOR4RdOE0KeZdog930U3+5Fcbpwn/q
- 0NyhdraE+F7cb8y+2iySBx08BWFLKqVJ/lcUg/4VLHQkiHrtQWNUux9dD
- 8sskCasek7SMdieODRCHIBpjjkVwcenCV7EUNTsTGW+SbQRH+6F7UKqel
- 3eMO/5FJYrPxbNTxWY5QqSyeEmCEyZgtkrbb+OZ8rAEoBYqxXidbeVBx/
- +lwJpu++qr1M/xrOyaWgZFbiUQiyEK3IerrcIMkdi8Ehwfb54vDVvZiZP Q==;
-IronPort-SDR: J/JBWkEaw70kIbMeUuTB0arACo6oSxN8LSP4tOgKTY1CVb15DirSBtDH95R26yN9wJfmd+eJWP
- TWKBMmvX6fev+78Dplw2aOyR1+BjRhHgIw9iZrtVrd+syThVoZQQ/A51j6YXk9BIVZYEZW94Hi
- guEGB6UH/nrBB+q11VnJFRT6RCM6Z/uzXdRQlJR2fIHgc/ch/zlZDBpruRhl+MpR7vY+p03wmZ
- xUgITtdSGXT0t3RuKJ+CzAaM3328Yo6GUHvkaXysBZXBVhJGLWylbXus8d+Ubnv9Kmawzr2Psz
- Z7I=
-X-IronPort-AV: E=Sophos;i="5.64,415,1559491200"; d="scan'208";a="216831489"
+ bh=8phmIoE0V9/kOpVUv4HvROJtbVLacwF1vHNNlNefEhM=;
+ b=kC8WT6a+P1tKdgPeXGolPV52QeM1xRtiRiywRhFnpLOAKAgDlOVhOaQN
+ RBI/Xr7KGHPfaUhOWF4vxb9GsL56DaiXIL4pdFcyd2CtRsdyBYYeRrCGj
+ NKWa4gc5mAm0w0a6uhFNODBzoX1lyV90QKykyvdfy1OEoYOtyy0ZvH/mf
+ Ll7hWLBFyBsyHOKCFpxHCnINssnFgxa7zLsC85GtLariOZg+QGD3MI+Fi
+ HSX6Tbi+7ycOuKe2wu6scY3sC3IhkiXFrCswff4fEIQoxWHpUmT+qMK+M
+ hqIJ+VbOVtrTwBH8X+2ckfpGEMwIrAsaCJqQkNjA8OdW0tWXqrXjgkAJk A==;
+IronPort-SDR: 4sIWcuugBP+ntAEPdbpiXNcA6dOetArdJ8xNgOJ62FoUewZOsAIyMaKfJ7PGxS5QsGdkZ4F9lP
+ WCgrWOKsMdum8Kh3X72RPzPK+NJ5R/SL9Oxl7o04al8fFp8GQCSCaLcoHFeXhArzE/ByrHE23B
+ FFDALE6boIR9mAs5yw5h+3LiDqhU5LMQFF/iiywdnmZcQoio0t/02W4RA3+RlUeiDXaPwL7SRx
+ hYUHJRZUKXlrst1T7t9MHe2ibmqxVwPo6Dcx2gZ2dPpCoXIBRXx1mqkp3vFH1HEOi/qvt7sOmM
+ Vk4=
+X-IronPort-AV: E=Sophos;i="5.64,415,1559491200"; d="scan'208";a="216831488"
 Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
  by ob1.hgst.iphmx.com with ESMTP; 22 Aug 2019 15:59:39 +0800
-IronPort-SDR: Ua9SbI/aYHBDxDyMfgFdd/+5ozKDd6Xf1p/KDFx+LZJ2xOZzJ9ixY2eqVR4ZYpxf4M+ftJUUey
- Fn08d8qKLQJx3hT0RMvauJYKy574vqWv9M15lF8YVQ62Ahl0swnD4d+iyanQVUXgQX2rLO+pG+
- 4UX1SvlXjaVkO4jjctQJ4kkNHu04uRt7Xt5EWFG4ab+0STcHkieD+3638N1DvWWA/vOHLYe3Rw
- JzVxVHP4MmLQMlaqXNRrEoM19iVnCq4SwgXpZB/X0D9yxJNAA6Ixfd8KZfiwKcQWWGKrXJUk10
- ATjlD5op+vXzzFd1/VonKBAm
+IronPort-SDR: pM1ZAtk3CkNE0yye9D85Vpog5AAnI1/E2yswuLGl1ZcFLQZaAHqbF940sfRNX4+odD87EuzJk9
+ FAozzmYFMPgamhoFmX8ScfjYBOX6O5+JpJQYNpPNNjJtw4niqkhaKs6lWN0I/YAmBlW90pkcWd
+ 9STgmGAjIrhGx7MnJAC5wtdADRFb0S3mtL/yfEcwWDUiXVmxVDsMco6VoKi5JSKOxGKT5MJxhN
+ sm7v9azGQdtDmfNr8YN6CtIvwyyh+dnHFhjYyeD3to477HT1vMTdOfaERzZFo/fYsny9XFDd6A
+ QCS8Cv5XR+epijvEy4av2qBL
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
  22 Aug 2019 00:56:18 -0700
-IronPort-SDR: 7VJp5AX1m3dQMbgrglO08YJQbJAypaQXuQTfTNHQ3OB2+NiU57sfGAMfxX/aL2VOobx6ltblnx
- LktuVXVYN25WuohHaGZgbFHpzHBTIBkAER1BV5wVs7vtyLXxeGXzwobK/aDtd+1AXCl4bBByj8
- s/niCGcIiy4ZSwPKQLi7THnQrriAEe/6k1/YEV7A4c9LCcHQBB74I1s8jZcxTTZD4udB2oVhw1
- 9Tfo8Ai5rcFo8yWnWPhXzGi8hMGGxcTyc4/qj4d+/v6bs3XmBI/YlGP/JtneDHWSNlgx/R9R3M
- Coc=
+IronPort-SDR: NyAzBNUkbXZSDc3CCgXO4invnzF3pGfNKGTLFadKLNzd3Ur7CPuE7ulisiOMKLtzfBDYC9RyG2
+ LMaHafEx98U1VaOYEcC0cnvWNpqWA0FB3j4/VMAC1q8O6EemE5bv+FgKtERY0oa9WJzNeyKU+Z
+ g8DVracyX2mKSutvG8FA+QR0bcfzMFM12hYAGW4KAyYhJEzizxfuokO7UPLqF/iodhLhAxJD1Q
+ 5JaglGPag+ntRC2KrnYzUYenP7GCEmKCBCxy07yj4eWOlbfQVNbYp9LH3jeXttyGBwMbWYuITv
+ PYQ=
 WDCIronportException: Internal
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
  by uls-op-cesaip02.wdc.com with ESMTP; 22 Aug 2019 00:58:59 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v4 3/3] RISC-V: Issue a tlb page flush if possible
-Date: Thu, 22 Aug 2019 00:51:51 -0700
-Message-Id: <20190822075151.24838-4-atish.patra@wdc.com>
+Subject: [PATCH v4 2/3] RISC-V: Issue a local tlbflush if possible.
+Date: Thu, 22 Aug 2019 00:51:50 -0700
+Message-Id: <20190822075151.24838-3-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.21.0
 In-Reply-To: <20190822075151.24838-1-atish.patra@wdc.com>
 References: <20190822075151.24838-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190822_005904_166351_0469C150 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190822_005903_045473_540BB55A 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -110,32 +109,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If tlbflush request is for page only, there is no need to do a
-complete local tlb shootdown.
+In RISC-V, tlb flush happens via SBI which is expensive. If the local
+cpu is the only cpu in cpumask, there is no need to invoke a SBI call.
 
-Just do a local tlb flush for the given address.
+Just do a local flush and return.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/mm/tlbflush.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/riscv/mm/tlbflush.c | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 8172fbf46123..b1c04751bcf1 100644
+index 1293b8017ee0..8172fbf46123 100644
 --- a/arch/riscv/mm/tlbflush.c
 +++ b/arch/riscv/mm/tlbflush.c
-@@ -27,7 +27,10 @@ static void __sbi_tlb_flush_range(struct cpumask *cmask, unsigned long start,
+@@ -2,6 +2,7 @@
  
- 	if (cpumask_any_but(cmask, cpuid) >= nr_cpu_ids) {
- 		/* local cpu is the only cpu present in cpumask */
--		local_flush_tlb_all();
-+		if (size <= PAGE_SIZE)
-+			local_flush_tlb_page(start);
-+		else
-+			local_flush_tlb_all();
- 	} else {
- 		riscv_cpuid_to_hartid_mask(cmask, &hmask);
- 		sbi_remote_sfence_vma(cpumask_bits(&hmask), start, size);
+ #include <linux/mm.h>
+ #include <linux/smp.h>
++#include <linux/sched.h>
+ #include <asm/sbi.h>
+ 
+ void flush_tlb_all(void)
+@@ -9,16 +10,30 @@ void flush_tlb_all(void)
+ 	sbi_remote_sfence_vma(NULL, 0, -1);
+ }
+ 
++/*
++ * This function must not be called with cmask being null.
++ * Kernel may panic if cmask is NULL.
++ */
+ static void __sbi_tlb_flush_range(struct cpumask *cmask, unsigned long start,
+ 		unsigned long size)
+ {
+ 	struct cpumask hmask;
++	unsigned int cpuid;
+ 
+ 	if (cpumask_empty(cmask))
+ 		return;
+ 
+-	riscv_cpuid_to_hartid_mask(cmask, &hmask);
+-	sbi_remote_sfence_vma(hmask.bits, start, size);
++	cpuid = get_cpu();
++
++	if (cpumask_any_but(cmask, cpuid) >= nr_cpu_ids) {
++		/* local cpu is the only cpu present in cpumask */
++		local_flush_tlb_all();
++	} else {
++		riscv_cpuid_to_hartid_mask(cmask, &hmask);
++		sbi_remote_sfence_vma(cpumask_bits(&hmask), start, size);
++	}
++
++	put_cpu();
+ }
+ 
+ void flush_tlb_mm(struct mm_struct *mm)
 -- 
 2.21.0
 
