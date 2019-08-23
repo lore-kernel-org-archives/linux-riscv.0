@@ -1,102 +1,65 @@
-Return-Path: <SRS0=8Mks=WS=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=dhz4=WT=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BAF41C3A5A2
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2019 20:56:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 59D13C3A5A2
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 23 Aug 2019 06:16:46 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8F61C233FC
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 22 Aug 2019 20:56:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2C73822CF7
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 23 Aug 2019 06:16:46 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OV+mP8MV";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="C1g4rct5"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8F61C233FC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="W5jWXugb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2C73822CF7
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=c-sky.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=q3dNwJYKr/mJKvXPzIH8sY4HzQYxC6AJcGzvkQcBVic=; b=OV+mP8MVC0V0H9
-	lv+GBPVi8mdkXQv+m/FR142PYqVwnujnq/rCVviJARsEYnVhj3jyq9vT39og8Wq2Axl+XnDoF+87t
-	x0Xvxr0VLJ/04I2LQ0meJ6adtOAXCzFhBGxgf2jI+IN2gg0SHt/kqA521Q+Nd1IybdwNgN4RgXc6n
-	tfnZKIbWKgRmdUWjZbJVk7WnjcvWEKuGUSWsCvdDdpzR7x+U0r3+LvsFfbPJpe/l/qalQMf7YNYQg
-	Atpjfxaqo9+gUpCIXBsdsRwEnImwNWsF1UbRby0yUIa9LKNW4wYhIXAjgnqUowvCMMOHFxBDuVWqX
-	rrlOphoq+MVAQCYz5LzA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=VQebcahq2cZ3QIGxqvJ80clD7OaC5WIN+nzSptTo7vo=; b=W5jWXugbsAbvOO+kom/wfuh4DU
+	kRD/9nUxJaxVJZz9gZV+89VgVn3ZZ1CtoMRFj48N098awlt69VFZWlj2koO4KFf+n8Thwqvcw4Ia0
+	KZG3XwckSVGIeaLRjwuR4Iwnb2h9Nv1TK7W0YzQ0qrkBa9ZuwNQKP7o2bqXkUwf/HQI8SG7Mil6Vm
+	sUFMzuAsX7HQ5QseY5HQxFsRmfS6cfpCdYGd49WEYDxus+XjlM6hdl6FQuaJTBDyI9+ZW0s6NA44J
+	93CbuhiaKZxGUi0qQPvjwzzTzoM8Eb3UcQO7wCjwJfWsXBFhMn3QNxgP73fOhutBxcMrrwWtW3CIt
+	FI4yNoZw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i0u7t-0006Vj-Lx; Thu, 22 Aug 2019 20:56:09 +0000
-Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
+	id 1i12sN-0007dq-Op; Fri, 23 Aug 2019 06:16:43 +0000
+Received: from smtp2200-217.mail.aliyun.com ([121.197.200.217])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i0u7r-0006VH-09
- for linux-riscv@lists.infradead.org; Thu, 22 Aug 2019 20:56:08 +0000
-Received: by mail-pl1-x642.google.com with SMTP id go14so4145141plb.0
- for <linux-riscv@lists.infradead.org>; Thu, 22 Aug 2019 13:56:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=dkOlZMnbpz2S+cmJ2jL1bEKYw67H/e7YSCRv/YErFnY=;
- b=C1g4rct5u8o+HEUCUxjjtCRBK+wdSIunOTkXavVoyR1q+BlgNILLKX1zPuzbwyAHKj
- 9TF1SEFlmRDP05qxnmW4ALaMPlIEG2w6btrYdU/3W2tNMWMkx6+G+pMPR7U3oVll3a23
- fBWiKd/Gg+jeaO1kgZ6cL0BxLe8fI6YG7JhOQLP1gQQPqzoT8frJFyjShiJHvpEAuYhD
- WiqGn2ylvIDXuTYnOuQevCXKTeEe78sgerxUZqTaBdCcaTvbsjl1pX49Ed+bGEur7PlQ
- +6EJgLzTEaviONg4mAigafhVxz0P8O8T9q6d3zLZtFH/JsoR1lTkvpStbu8CQL7gtPvR
- n4TQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=dkOlZMnbpz2S+cmJ2jL1bEKYw67H/e7YSCRv/YErFnY=;
- b=KwXsSjoooDUaqIgyOHM97Oyu9UtpKNdZNrCntaBu+zwf9Px7366lvV3sqx0Dd8mO0q
- VZl7huERyeYbNGLHc6nRYguaJW7MKOryQBGvV33g1rIX/+lsmo7HEkbF8toG7Xl3iCYe
- cGPvbBbLrt7LJKpXWm5Cn6z2Xh4qmvK3UgzFIOhNDZKGxXQh4Z1f7Doj96G0zHFC2/BC
- mndrt78MTvDHvwxGhBgQWKNBZtb8bA/GwDm2gYcOrPB+z08xBoaLrzkWRQrKAB3icSdf
- gq3VuDsUd4rcH7/4pcYRYfrMaDcNTm7HtUyaBnDQCeapA3yqx3juZWAF+95Fv5iJgK9B
- hCTw==
-X-Gm-Message-State: APjAAAWWI7YOsK001kyHcCQRL9Sgr6vADOXMZ0zMgHsSTR43oVV6Opd7
- lAquyPL0be+QmylCy08ROMM=
-X-Google-Smtp-Source: APXvYqz4oB1N6lhiWyngJv8lmCAclasVsaOWSsJMsAXM5Bfe8NVNTn2DC2RcURoEfpgsjyb6Hc0EEA==
-X-Received: by 2002:a17:902:684f:: with SMTP id
- f15mr818360pln.332.1566507365441; 
- Thu, 22 Aug 2019 13:56:05 -0700 (PDT)
-Received: from localhost.localdomain.com ([12.206.222.2])
- by smtp.gmail.com with ESMTPSA id w2sm179056pgc.32.2019.08.22.13.56.03
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 22 Aug 2019 13:56:04 -0700 (PDT)
-From: David Abdurachmanov <david.abdurachmanov@gmail.com>
-X-Google-Original-From: David Abdurachmanov <david.abdurachmanov@sifive.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Oleg Nesterov <oleg@redhat.com>, Kees Cook <keescook@chromium.org>,
- Andy Lutomirski <luto@amacapital.net>, Will Drewry <wad@chromium.org>,
- Shuah Khan <shuah@kernel.org>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>,
- Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
- David Abdurachmanov <david.abdurachmanov@sifive.com>,
- Thomas Gleixner <tglx@linutronix.de>, Allison Randal <allison@lohutok.net>,
- Alexios Zavras <alexios.zavras@intel.com>, Anup Patel <Anup.Patel@wdc.com>,
- Vincent Chen <vincentc@andestech.com>, Alan Kao <alankao@andestech.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, netdev@vger.kernel.org,
- bpf@vger.kernel.org
-Subject: [PATCH v2] riscv: add support for SECCOMP and SECCOMP_FILTER
-Date: Thu, 22 Aug 2019 13:55:22 -0700
-Message-Id: <20190822205533.4877-1-david.abdurachmanov@sifive.com>
-X-Mailer: git-send-email 2.21.0
-MIME-Version: 1.0
+ id 1i12rr-0007F5-DI
+ for linux-riscv@lists.infradead.org; Fri, 23 Aug 2019 06:16:15 +0000
+X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07440525|-1; CH=green;
+ DM=CONTINUE|CONTINUE|true|0.365205-0.0142482-0.620547; FP=0|0|0|0|0|-1|-1|-1;
+ HT=e02c03278; MF=han_mao@c-sky.com; NM=1; PH=DS; RN=9; RT=9; SR=0;
+ TI=SMTPD_---.FGwL6Dt_1566540966; 
+Received: from localhost(mailfrom:han_mao@c-sky.com
+ fp:SMTPD_---.FGwL6Dt_1566540966)
+ by smtp.aliyun-inc.com(10.147.44.145);
+ Fri, 23 Aug 2019 14:16:06 +0800
+From: Mao Han <han_mao@c-sky.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH V5 2/3] riscv: Add support for perf registers sampling
+Date: Fri, 23 Aug 2019 14:15:59 +0800
+Message-Id: <e131ad4ba70ae90195163e3a8b7ef61f79f99b1b.1566540652.git.han_mao@c-sky.com>
+X-Mailer: git-send-email 2.7.4
+In-Reply-To: <cover.1566540652.git.han_mao@c-sky.com>
+References: <cover.1566540652.git.han_mao@c-sky.com>
+In-Reply-To: <cover.1566540652.git.han_mao@c-sky.com>
+References: <cover.1566540652.git.han_mao@c-sky.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190822_135607_046050_31763B82 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20190822_231612_184834_95F6F406 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -108,220 +71,161 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: me@carlosedp.com, david.abdurachmanov@gmail.com
+Cc: linux-arch@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>,
+ linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>,
+ Greentime Hu <green.hu@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Christoph Hellwig <hch@lst.de>, Mao Han <han_mao@c-sky.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch was extensively tested on Fedora/RISCV (applied by default on
-top of 5.2-rc7 kernel for <2 months). The patch was also tested with 5.3-rc
-on QEMU and SiFive Unleashed board.
+This patch implements the perf registers sampling and validation API
+for riscv arch. The valid registers and their register ID are defined in
+perf_regs.h. Perf tool can backtrace in userspace with unwind library
+and the registers/user stack dump support.
 
-libseccomp (userspace) was rebased:
-https://github.com/seccomp/libseccomp/pull/134
-
-Fully passes libseccomp regression testing (simulation and live).
-
-There is one failing kernel selftest: global.user_notification_signal
-
-v1 -> v2:
-  - return immediatly if secure_computing(NULL) returns -1
-  - fixed whitespace issues
-  - add missing seccomp.h
-  - remove patch #2 (solved now)
-  - add riscv to seccomp kernel selftest
-
-Cc: keescook@chromium.org
-Cc: me@carlosedp.com
-
-Signed-off-by: David Abdurachmanov <david.abdurachmanov@sifive.com>
+Signed-off-by: Mao Han <han_mao@c-sky.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Greentime Hu <green.hu@gmail.com>
+Cc: Palmer Dabbelt <palmer@sifive.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/Kconfig                            | 14 ++++++++++
- arch/riscv/include/asm/seccomp.h              | 10 +++++++
- arch/riscv/include/asm/thread_info.h          |  5 +++-
- arch/riscv/kernel/entry.S                     | 27 +++++++++++++++++--
- arch/riscv/kernel/ptrace.c                    | 10 +++++++
- tools/testing/selftests/seccomp/seccomp_bpf.c |  8 +++++-
- 6 files changed, 70 insertions(+), 4 deletions(-)
- create mode 100644 arch/riscv/include/asm/seccomp.h
+ arch/riscv/Kconfig                      |  2 ++
+ arch/riscv/include/uapi/asm/perf_regs.h | 42 +++++++++++++++++++++++++++++++
+ arch/riscv/kernel/Makefile              |  1 +
+ arch/riscv/kernel/perf_regs.c           | 44 +++++++++++++++++++++++++++++++++
+ 4 files changed, 89 insertions(+)
+ create mode 100644 arch/riscv/include/uapi/asm/perf_regs.h
+ create mode 100644 arch/riscv/kernel/perf_regs.c
 
 diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 59a4727ecd6c..441e63ff5adc 100644
+index 59a4727..4bc976d 100644
 --- a/arch/riscv/Kconfig
 +++ b/arch/riscv/Kconfig
-@@ -31,6 +31,7 @@ config RISCV
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_ATOMIC64 if !64BIT
- 	select HAVE_ARCH_AUDITSYSCALL
-+	select HAVE_ARCH_SECCOMP_FILTER
- 	select HAVE_MEMBLOCK_NODE_MAP
+@@ -35,6 +35,8 @@ config RISCV
  	select HAVE_DMA_CONTIGUOUS
  	select HAVE_FUTEX_CMPXCHG if FUTEX
-@@ -235,6 +236,19 @@ menu "Kernel features"
- 
- source "kernel/Kconfig.hz"
- 
-+config SECCOMP
-+	bool "Enable seccomp to safely compute untrusted bytecode"
-+	help
-+	  This kernel feature is useful for number crunching applications
-+	  that may need to compute untrusted bytecode during their
-+	  execution. By using pipes or other transports made available to
-+	  the process as file descriptors supporting the read/write
-+	  syscalls, it's possible to isolate those applications in
-+	  their own address space using seccomp. Once seccomp is
-+	  enabled via prctl(PR_SET_SECCOMP), it cannot be disabled
-+	  and the task is only allowed to execute a few safe syscalls
-+	  defined by each seccomp mode.
-+
- endmenu
- 
- menu "Boot options"
-diff --git a/arch/riscv/include/asm/seccomp.h b/arch/riscv/include/asm/seccomp.h
+ 	select HAVE_PERF_EVENTS
++	select HAVE_PERF_REGS
++	select HAVE_PERF_USER_STACK_DUMP
+ 	select HAVE_SYSCALL_TRACEPOINTS
+ 	select IRQ_DOMAIN
+ 	select SPARSE_IRQ
+diff --git a/arch/riscv/include/uapi/asm/perf_regs.h b/arch/riscv/include/uapi/asm/perf_regs.h
 new file mode 100644
-index 000000000000..bf7744ee3b3d
+index 0000000..df1a581
 --- /dev/null
-+++ b/arch/riscv/include/asm/seccomp.h
-@@ -0,0 +1,10 @@
++++ b/arch/riscv/include/uapi/asm/perf_regs.h
+@@ -0,0 +1,42 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
++/* Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd. */
 +
-+#ifndef _ASM_SECCOMP_H
-+#define _ASM_SECCOMP_H
++#ifndef _ASM_RISCV_PERF_REGS_H
++#define _ASM_RISCV_PERF_REGS_H
 +
-+#include <asm/unistd.h>
++enum perf_event_riscv_regs {
++	PERF_REG_RISCV_PC,
++	PERF_REG_RISCV_RA,
++	PERF_REG_RISCV_SP,
++	PERF_REG_RISCV_GP,
++	PERF_REG_RISCV_TP,
++	PERF_REG_RISCV_T0,
++	PERF_REG_RISCV_T1,
++	PERF_REG_RISCV_T2,
++	PERF_REG_RISCV_S0,
++	PERF_REG_RISCV_S1,
++	PERF_REG_RISCV_A0,
++	PERF_REG_RISCV_A1,
++	PERF_REG_RISCV_A2,
++	PERF_REG_RISCV_A3,
++	PERF_REG_RISCV_A4,
++	PERF_REG_RISCV_A5,
++	PERF_REG_RISCV_A6,
++	PERF_REG_RISCV_A7,
++	PERF_REG_RISCV_S2,
++	PERF_REG_RISCV_S3,
++	PERF_REG_RISCV_S4,
++	PERF_REG_RISCV_S5,
++	PERF_REG_RISCV_S6,
++	PERF_REG_RISCV_S7,
++	PERF_REG_RISCV_S8,
++	PERF_REG_RISCV_S9,
++	PERF_REG_RISCV_S10,
++	PERF_REG_RISCV_S11,
++	PERF_REG_RISCV_T3,
++	PERF_REG_RISCV_T4,
++	PERF_REG_RISCV_T5,
++	PERF_REG_RISCV_T6,
++	PERF_REG_RISCV_MAX,
++};
++#endif /* _ASM_RISCV_PERF_REGS_H */
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index b1bea89..696020f 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -40,5 +40,6 @@ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+ 
+ obj-$(CONFIG_PERF_EVENTS)	+= perf_event.o
+ obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
++obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
+ 
+ clean:
+diff --git a/arch/riscv/kernel/perf_regs.c b/arch/riscv/kernel/perf_regs.c
+new file mode 100644
+index 0000000..04a38fb
+--- /dev/null
++++ b/arch/riscv/kernel/perf_regs.c
+@@ -0,0 +1,44 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd. */
 +
-+#include <asm-generic/seccomp.h>
++#include <linux/errno.h>
++#include <linux/kernel.h>
++#include <linux/perf_event.h>
++#include <linux/bug.h>
++#include <asm/perf_regs.h>
++#include <asm/ptrace.h>
 +
-+#endif /* _ASM_SECCOMP_H */
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index 905372d7eeb8..a0b2a29a0da1 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -75,6 +75,7 @@ struct thread_info {
- #define TIF_MEMDIE		5	/* is terminating due to OOM killer */
- #define TIF_SYSCALL_TRACEPOINT  6       /* syscall tracepoint instrumentation */
- #define TIF_SYSCALL_AUDIT	7	/* syscall auditing */
-+#define TIF_SECCOMP		8	/* syscall secure computing */
- 
- #define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
- #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
-@@ -82,11 +83,13 @@ struct thread_info {
- #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
- #define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
- #define _TIF_SYSCALL_AUDIT	(1 << TIF_SYSCALL_AUDIT)
-+#define _TIF_SECCOMP		(1 << TIF_SECCOMP)
- 
- #define _TIF_WORK_MASK \
- 	(_TIF_NOTIFY_RESUME | _TIF_SIGPENDING | _TIF_NEED_RESCHED)
- 
- #define _TIF_SYSCALL_WORK \
--	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_TRACEPOINT | _TIF_SYSCALL_AUDIT)
-+	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_TRACEPOINT | _TIF_SYSCALL_AUDIT | \
-+	 _TIF_SECCOMP )
- 
- #endif /* _ASM_RISCV_THREAD_INFO_H */
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index bc7a56e1ca6f..0bbedfa3e47d 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -203,8 +203,25 @@ check_syscall_nr:
- 	/* Check to make sure we don't jump to a bogus syscall number. */
- 	li t0, __NR_syscalls
- 	la s0, sys_ni_syscall
--	/* Syscall number held in a7 */
--	bgeu a7, t0, 1f
-+	/*
-+	 * The tracer can change syscall number to valid/invalid value.
-+	 * We use syscall_set_nr helper in syscall_trace_enter thus we
-+	 * cannot trust the current value in a7 and have to reload from
-+	 * the current task pt_regs.
-+	 */
-+	REG_L a7, PT_A7(sp)
-+	/*
-+	 * Syscall number held in a7.
-+	 * If syscall number is above allowed value, redirect to ni_syscall.
-+	 */
-+	bge a7, t0, 1f
-+	/*
-+	 * Check if syscall is rejected by tracer or seccomp, i.e., a7 == -1.
-+	 * If yes, we pretend it was executed.
-+	 */
-+	li t1, -1
-+	beq a7, t1, ret_from_syscall_rejected
-+	/* Call syscall */
- 	la s0, sys_call_table
- 	slli t0, a7, RISCV_LGPTR
- 	add s0, s0, t0
-@@ -215,6 +232,12 @@ check_syscall_nr:
- ret_from_syscall:
- 	/* Set user a0 to kernel a0 */
- 	REG_S a0, PT_A0(sp)
-+	/*
-+	 * We didn't execute the actual syscall.
-+	 * Seccomp already set return value for the current task pt_regs.
-+	 * (If it was configured with SECCOMP_RET_ERRNO/TRACE)
-+	 */
-+ret_from_syscall_rejected:
- 	/* Trace syscalls, but only if requested by the user. */
- 	REG_L t0, TASK_TI_FLAGS(tp)
- 	andi t0, t0, _TIF_SYSCALL_WORK
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index 368751438366..63e47c9f85f0 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -154,6 +154,16 @@ void do_syscall_trace_enter(struct pt_regs *regs)
- 		if (tracehook_report_syscall_entry(regs))
- 			syscall_set_nr(current, regs, -1);
- 
-+	/*
-+	 * Do the secure computing after ptrace; failures should be fast.
-+	 * If this fails we might have return value in a0 from seccomp
-+	 * (via SECCOMP_RET_ERRNO/TRACE).
-+	 */
-+	if (secure_computing(NULL) == -1) {
-+		syscall_set_nr(current, regs, -1);
-+		return;
-+	}
++u64 perf_reg_value(struct pt_regs *regs, int idx)
++{
++	if (WARN_ON_ONCE((u32)idx >= PERF_REG_RISCV_MAX))
++		return 0;
 +
- #ifdef CONFIG_HAVE_SYSCALL_TRACEPOINTS
- 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
- 		trace_sys_enter(regs, syscall_get_nr(current, regs));
-diff --git a/tools/testing/selftests/seccomp/seccomp_bpf.c b/tools/testing/selftests/seccomp/seccomp_bpf.c
-index 6ef7f16c4cf5..492e0adad9d3 100644
---- a/tools/testing/selftests/seccomp/seccomp_bpf.c
-+++ b/tools/testing/selftests/seccomp/seccomp_bpf.c
-@@ -112,6 +112,8 @@ struct seccomp_data {
- #  define __NR_seccomp 383
- # elif defined(__aarch64__)
- #  define __NR_seccomp 277
-+# elif defined(__riscv)
-+#  define __NR_seccomp 277
- # elif defined(__hppa__)
- #  define __NR_seccomp 338
- # elif defined(__powerpc__)
-@@ -1582,6 +1584,10 @@ TEST_F(TRACE_poke, getpid_runs_normally)
- # define ARCH_REGS	struct user_pt_regs
- # define SYSCALL_NUM	regs[8]
- # define SYSCALL_RET	regs[0]
-+#elif defined(__riscv) && __riscv_xlen == 64
-+# define ARCH_REGS	struct user_regs_struct
-+# define SYSCALL_NUM	a7
-+# define SYSCALL_RET	a0
- #elif defined(__hppa__)
- # define ARCH_REGS	struct user_regs_struct
- # define SYSCALL_NUM	gr[20]
-@@ -1671,7 +1677,7 @@ void change_syscall(struct __test_metadata *_metadata,
- 	EXPECT_EQ(0, ret) {}
- 
- #if defined(__x86_64__) || defined(__i386__) || defined(__powerpc__) || \
--    defined(__s390__) || defined(__hppa__)
-+    defined(__s390__) || defined(__hppa__) || defined(__riscv)
- 	{
- 		regs.SYSCALL_NUM = syscall;
- 	}
++	return ((unsigned long *)regs)[idx];
++}
++
++#define REG_RESERVED (~((1ULL << PERF_REG_RISCV_MAX) - 1))
++
++int perf_reg_validate(u64 mask)
++{
++	if (!mask || mask & REG_RESERVED)
++		return -EINVAL;
++
++	return 0;
++}
++
++u64 perf_reg_abi(struct task_struct *task)
++{
++#if __riscv_xlen == 64
++	return PERF_SAMPLE_REGS_ABI_64;
++#else
++	return PERF_SAMPLE_REGS_ABI_32;
++#endif
++}
++
++void perf_get_regs_user(struct perf_regs *regs_user,
++			struct pt_regs *regs,
++			struct pt_regs *regs_user_copy)
++{
++	regs_user->regs = task_pt_regs(current);
++	regs_user->abi = perf_reg_abi(current);
++}
 -- 
-2.21.0
+2.7.4
 
 
 _______________________________________________
