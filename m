@@ -2,22 +2,22 @@ Return-Path: <SRS0=dhz4=WT=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_ADSP_ALL,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=0.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_ADSP_ALL,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C83FBC3A5A3
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 23 Aug 2019 11:42:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D4105C3A5A4
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 23 Aug 2019 11:44:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9B68C22CEC
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 23 Aug 2019 11:42:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AA3BA22CEC
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 23 Aug 2019 11:44:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kd9aapqz";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=amazon.com header.i=@amazon.com header.b="vFkF2h6N"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9B68C22CEC
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="A/tzhLzg";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=amazon.com header.i=@amazon.com header.b="aGd0V+IF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AA3BA22CEC
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=amazon.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,62 +26,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3MLvFErhE9ZJM1NgHe7VTB2GC9whzYhrC2y0OsPuh2I=; b=kd9aapqzr490js
-	23Loxx32/Arxpk4O58EFtlmE9tc7OQMuGBoDLuJFBtSokHGtr4kgxAqsqsx1p0G7E+TjS1cKE1/7d
-	EpGnP4HtxuLxA0RCdDycJUJKJLzrikpzTw5EBCrrfpEYYeO/t4ThuvpHcKzb/WL+CpyPZDDiX2GgM
-	sbWMPJdb00D59kXAZynducd6A7ZB5Pw/u8W60VMNDC7JumvqROMbnWS8LPIK682dx/0xU+ezBL6cq
-	3OAhWj2wTE1Vz3kn55+4gqkmvOqy8wF2KtUKV4g7wJP2UYt9rf+53C0GHWSTgMrCRNEq0gjuj5h9e
-	+2TZaj55ijfw1u85iQog==;
+	List-Owner; bh=c3XefBXUr0eQza8Fc9yQqevh5RKp8zW5W4XeGt0x/DY=; b=A/tzhLzgObCvmi
+	6CM0FWicfT+AEnlSKDxDu6TkMzywN+UYuJYI8KKn9eZgaDPjz30bRTLROBXSu4vM71iw6cl6UuaWZ
+	qv1/EqZJg0YLjkUkfujzXmaAtooF7/V35wbDStLvHrBBZF1FGeHEtz0S68Zt7lbOtahzt22srOk4V
+	P8infqVwaaICiqitJFf2MhsugWu4bouXsXFeqJJkU/Gk7AMF4eidWJ3arZrgXPrwf5W6ayJMAytKk
+	GHohP7KJYFLvkSnXIc8nUPP4nCPW6rPTxrj8vKBSRO+V9jV+9sGnZdxupm/M+xCaci7NreeC8c0MY
+	CxPI0cRn9J8ctzWAV3cA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i17xe-00039V-EQ; Fri, 23 Aug 2019 11:42:30 +0000
-Received: from smtp-fw-4101.amazon.com ([72.21.198.25])
+	id 1i17zu-0003dP-G4; Fri, 23 Aug 2019 11:44:50 +0000
+Received: from smtp-fw-33001.amazon.com ([207.171.190.10])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i17xb-00039C-W0
- for linux-riscv@lists.infradead.org; Fri, 23 Aug 2019 11:42:29 +0000
+ id 1i17zr-0003d1-U9
+ for linux-riscv@lists.infradead.org; Fri, 23 Aug 2019 11:44:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
- t=1566560547; x=1598096547;
+ t=1566560687; x=1598096687;
  h=from:to:cc:subject:date:message-id:references:
  in-reply-to:content-transfer-encoding:mime-version;
- bh=efWf68RHTEU5jfUDP/jimurqpfPCyrlIgwD0X4wcJVg=;
- b=vFkF2h6Nr/ecemEKbelP6HXIzJcVknnzaYUHX+F3VU6oApPIwG6U2I4S
- Ta6I0BhvD9zFypbvura2UDaQ62tphuQrL2uzV+N+WURy0JsBisOhs9y8v
- bQrtbWBy4hyUykjmn+IJsgU5zoA55IO7NzJ/6QxpRKfr3u8uB5QKbXP2b g=;
-X-IronPort-AV: E=Sophos;i="5.64,421,1559520000"; d="scan'208";a="780987669"
-Received: from iad6-co-svc-p1-lb1-vlan3.amazon.com (HELO
- email-inbound-relay-2b-baacba05.us-west-2.amazon.com) ([10.124.125.6])
- by smtp-border-fw-out-4101.iad4.amazon.com with ESMTP;
- 23 Aug 2019 11:42:25 +0000
+ bh=RHYS8jGRkdr3gB9hs1d2WnBjre+WbM/f68EhPrZ6uEY=;
+ b=aGd0V+IFmEhhOVD6XFz1K+hfKvUvwxfmSd6QCGoGaf4e+wUT9E9EiYZb
+ He8XU0JP3cP7cfdRu42bUEwkdkYCAEbd3Y1S/ddvbmxrUvtsx4povt5K/
+ JS3B7XnAFsCGx/Oqou/Z7KIkiQsOIT+mK3N0NBI0Yu70rg8mSBHGu/4p/ k=;
+X-IronPort-AV: E=Sophos;i="5.64,421,1559520000"; d="scan'208";a="823019313"
+Received: from sea3-co-svc-lb6-vlan2.sea.amazon.com (HELO
+ email-inbound-relay-2a-6e2fc477.us-west-2.amazon.com) ([10.47.22.34])
+ by smtp-border-fw-out-33001.sea14.amazon.com with ESMTP;
+ 23 Aug 2019 11:44:45 +0000
 Received: from EX13MTAUWC001.ant.amazon.com
  (pdx4-ws-svc-p6-lb7-vlan2.pdx.amazon.com [10.170.41.162])
- by email-inbound-relay-2b-baacba05.us-west-2.amazon.com (Postfix) with ESMTPS
- id 7EE04A1EAF; Fri, 23 Aug 2019 11:42:24 +0000 (UTC)
-Received: from EX13D20UWC001.ant.amazon.com (10.43.162.244) by
+ by email-inbound-relay-2a-6e2fc477.us-west-2.amazon.com (Postfix) with ESMTPS
+ id 901A6A24D2; Fri, 23 Aug 2019 11:44:44 +0000 (UTC)
+Received: from EX13D20UWC002.ant.amazon.com (10.43.162.163) by
  EX13MTAUWC001.ant.amazon.com (10.43.162.135) with Microsoft SMTP Server (TLS)
- id 15.0.1367.3; Fri, 23 Aug 2019 11:42:23 +0000
+ id 15.0.1367.3; Fri, 23 Aug 2019 11:44:44 +0000
 Received: from EX13D20UWC001.ant.amazon.com (10.43.162.244) by
- EX13D20UWC001.ant.amazon.com (10.43.162.244) with Microsoft SMTP Server (TLS)
- id 15.0.1367.3; Fri, 23 Aug 2019 11:42:23 +0000
+ EX13D20UWC002.ant.amazon.com (10.43.162.163) with Microsoft SMTP Server (TLS)
+ id 15.0.1367.3; Fri, 23 Aug 2019 11:44:43 +0000
 Received: from EX13D20UWC001.ant.amazon.com ([10.43.162.244]) by
  EX13D20UWC001.ant.amazon.com ([10.43.162.244]) with mapi id 15.00.1367.000;
- Fri, 23 Aug 2019 11:42:23 +0000
+ Fri, 23 Aug 2019 11:44:43 +0000
 From: "Graf (AWS), Alexander" <graf@amazon.com>
 To: Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH v5 08/20] RISC-V: KVM: Implement
- KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls
-Thread-Topic: [PATCH v5 08/20] RISC-V: KVM: Implement
- KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls
-Thread-Index: AQHVWOFJW41zI61GkUGV/QWGSrKC3acHMjmAgAADPoCAAWIugIAABkF9
-Date: Fri, 23 Aug 2019 11:42:23 +0000
-Message-ID: <D4DA3654-9297-4CE4-8FF6-9BE6E13A89AD@amazon.com>
+Subject: Re: [PATCH v5 00/20] KVM RISC-V Support
+Thread-Topic: [PATCH v5 00/20] KVM RISC-V Support
+Thread-Index: AQHVWYn+hiT/O4W/4EWKNvIhq6UCB6cIl+EAgAAFWns=
+Date: Fri, 23 Aug 2019 11:44:43 +0000
+Message-ID: <757C929B-D26C-46D9-98E8-1191E3B86F3C@amazon.com>
 References: <20190822084131.114764-1-anup.patel@wdc.com>
- <20190822084131.114764-9-anup.patel@wdc.com>
- <d306ffaf-c9ac-4a9f-4382-95001487364d@amazon.com>
- <CAAhSdy0t7P1a_eYmLo9sSYTCbumCqqWcvuv4yJXGCBQOXvw5TQ@mail.gmail.com>
- <2871ee6a-ae7c-6937-e8ef-38a8c318638a@amazon.com>,
- <CAAhSdy05EWBP5Y5oTpW_J6AT=fe=E1UNGXVncsBRWTrr_sgjWw@mail.gmail.com>
-In-Reply-To: <CAAhSdy05EWBP5Y5oTpW_J6AT=fe=E1UNGXVncsBRWTrr_sgjWw@mail.gmail.com>
+ <8a2a9ea6-5636-e79a-b041-580159e703b2@amazon.com>,
+ <CAAhSdy2RC6Gw708wZs+FM56UkkyURgbupwdeTak7VcyarY9irg@mail.gmail.com>
+In-Reply-To: <CAAhSdy2RC6Gw708wZs+FM56UkkyURgbupwdeTak7VcyarY9irg@mail.gmail.com>
 Accept-Language: en-US
 Content-Language: de-DE
 X-MS-Has-Attach: 
@@ -90,8 +85,9 @@ x-ms-exchange-transport-fromentityheader: Hosted
 MIME-Version: 1.0
 Precedence: Bulk
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190823_044228_228944_C025FB05 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20190823_044448_016823_F5485B9F 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 List-Id: <linux-riscv.lists.infradead.org>
@@ -119,197 +115,55 @@ Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.i
 
 
 
-> Am 23.08.2019 um 13:21 schrieb Anup Patel <anup@brainfault.org>:
+> Am 23.08.2019 um 13:26 schrieb Anup Patel <anup@brainfault.org>:
 > 
->> On Thu, Aug 22, 2019 at 7:42 PM Alexander Graf <graf@amazon.com> wrote:
+>> On Fri, Aug 23, 2019 at 1:39 PM Alexander Graf <graf@amazon.com> wrote:
 >> 
+>>> On 22.08.19 10:42, Anup Patel wrote:
+>>> This series adds initial KVM RISC-V support. Currently, we are able to boot
+>>> RISC-V 64bit Linux Guests with multiple VCPUs.
+>>> 
+>>> Few key aspects of KVM RISC-V added by this series are:
+>>> 1. Minimal possible KVM world-switch which touches only GPRs and few CSRs.
+>>> 2. Full Guest/VM switch is done via vcpu_get/vcpu_put infrastructure.
+>>> 3. KVM ONE_REG interface for VCPU register access from user-space.
+>>> 4. PLIC emulation is done in user-space. In-kernel PLIC emulation, will
+>>>    be added in future.
+>>> 5. Timer and IPI emuation is done in-kernel.
+>>> 6. MMU notifiers supported.
+>>> 7. FP lazy save/restore supported.
+>>> 8. SBI v0.1 emulation for KVM Guest available.
+>>> 
+>>> Here's a brief TODO list which we will work upon after this series:
+>>> 1. Handle trap from unpriv access in reading Guest instruction
+>>> 2. Handle trap from unpriv access in SBI v0.1 emulation
+>>> 3. Implement recursive stage2 page table programing
+>>> 4. SBI v0.2 emulation in-kernel
+>>> 5. SBI v0.2 hart hotplug emulation in-kernel
+>>> 6. In-kernel PLIC emulation
+>>> 7. ..... and more .....
 >> 
+>> Please consider patches I did not comment on as
 >> 
->>> On 22.08.19 16:00, Anup Patel wrote:
->>>> On Thu, Aug 22, 2019 at 5:31 PM Alexander Graf <graf@amazon.com> wrote:
->>>> 
->>>>> On 22.08.19 10:44, Anup Patel wrote:
->>>>> For KVM RISC-V, we use KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls to access
->>>>> VCPU config and registers from user-space.
->>>>> 
->>>>> We have three types of VCPU registers:
->>>>> 1. CONFIG - these are VCPU config and capabilities
->>>>> 2. CORE   - these are VCPU general purpose registers
->>>>> 3. CSR    - these are VCPU control and status registers
->>>>> 
->>>>> The CONFIG registers available to user-space are ISA and TIMEBASE. Out
->>>>> of these, TIMEBASE is a read-only register which inform user-space about
->>>>> VCPU timer base frequency. The ISA register is a read and write register
->>>>> where user-space can only write the desired VCPU ISA capabilities before
->>>>> running the VCPU.
->>>>> 
->>>>> The CORE registers available to user-space are PC, RA, SP, GP, TP, A0-A7,
->>>>> T0-T6, S0-S11 and MODE. Most of these are RISC-V general registers except
->>>>> PC and MODE. The PC register represents program counter whereas the MODE
->>>>> register represent VCPU privilege mode (i.e. S/U-mode).
->>>>> 
->>>>> The CSRs available to user-space are SSTATUS, SIE, STVEC, SSCRATCH, SEPC,
->>>>> SCAUSE, STVAL, SIP, and SATP. All of these are read/write registers.
->>>>> 
->>>>> In future, more VCPU register types will be added (such as FP) for the
->>>>> KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls.
->>>>> 
->>>>> Signed-off-by: Anup Patel <anup.patel@wdc.com>
->>>>> Acked-by: Paolo Bonzini <pbonzini@redhat.com>
->>>>> Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
->>>>> ---
->>>>>   arch/riscv/include/uapi/asm/kvm.h |  40 ++++-
->>>>>   arch/riscv/kvm/vcpu.c             | 235 +++++++++++++++++++++++++++++-
->>>>>   2 files changed, 272 insertions(+), 3 deletions(-)
->>>>> 
->>>>> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
->>>>> index 6dbc056d58ba..024f220eb17e 100644
->>>>> --- a/arch/riscv/include/uapi/asm/kvm.h
->>>>> +++ b/arch/riscv/include/uapi/asm/kvm.h
->>>>> @@ -23,8 +23,15 @@
->>>>> 
->>>>>   /* for KVM_GET_REGS and KVM_SET_REGS */
->>>>>   struct kvm_regs {
->>>>> +     /* out (KVM_GET_REGS) / in (KVM_SET_REGS) */
->>>>> +     struct user_regs_struct regs;
->>>>> +     unsigned long mode;
->>>> 
->>>> Is there any particular reason you're reusing kvm_regs and don't invent
->>>> your own struct? kvm_regs is explicitly meant for the get_regs and
->>>> set_regs ioctls.
->>> 
->>> We are implementing only ONE_REG interface so most of these
->>> structs are unused hence we tried to reuse these struct instead
->>> of introducing new structs. (Similar to KVM ARM64)
->>> 
->>>> 
->>>>>   };
->>>>> 
->>>>> +/* Possible privilege modes for kvm_regs */
->>>>> +#define KVM_RISCV_MODE_S     1
->>>>> +#define KVM_RISCV_MODE_U     0
->>>>> +
->>>>>   /* for KVM_GET_FPU and KVM_SET_FPU */
->>>>>   struct kvm_fpu {
->>>>>   };
->>>>> @@ -41,10 +48,41 @@ struct kvm_guest_debug_arch {
->>>>>   struct kvm_sync_regs {
->>>>>   };
->>>>> 
->>>>> -/* dummy definition */
->>>>> +/* for KVM_GET_SREGS and KVM_SET_SREGS */
->>>>>   struct kvm_sregs {
->>>>> +     unsigned long sstatus;
->>>>> +     unsigned long sie;
->>>>> +     unsigned long stvec;
->>>>> +     unsigned long sscratch;
->>>>> +     unsigned long sepc;
->>>>> +     unsigned long scause;
->>>>> +     unsigned long stval;
->>>>> +     unsigned long sip;
->>>>> +     unsigned long satp;
->>>> 
->>>> Same comment here.
->>> 
->>> Same as above, we are trying to use unused struct.
->>> 
->>>> 
->>>>>   };
->>>>> 
->>>>> +#define KVM_REG_SIZE(id)             \
->>>>> +     (1U << (((id) & KVM_REG_SIZE_MASK) >> KVM_REG_SIZE_SHIFT))
->>>>> +
->>>>> +/* If you need to interpret the index values, here is the key: */
->>>>> +#define KVM_REG_RISCV_TYPE_MASK              0x00000000FF000000
->>>>> +#define KVM_REG_RISCV_TYPE_SHIFT     24
->>>>> +
->>>>> +/* Config registers are mapped as type 1 */
->>>>> +#define KVM_REG_RISCV_CONFIG         (0x01 << KVM_REG_RISCV_TYPE_SHIFT)
->>>>> +#define KVM_REG_RISCV_CONFIG_ISA     0x0
->>>>> +#define KVM_REG_RISCV_CONFIG_TIMEBASE        0x1
->>>>> +
->>>>> +/* Core registers are mapped as type 2 */
->>>>> +#define KVM_REG_RISCV_CORE           (0x02 << KVM_REG_RISCV_TYPE_SHIFT)
->>>>> +#define KVM_REG_RISCV_CORE_REG(name) \
->>>>> +             (offsetof(struct kvm_regs, name) / sizeof(unsigned long))
->>>> 
->>>> I see, you're trying to implicitly use the struct offsets as index.
->>>> 
->>>> I'm not a really big fan of it, but I can't pinpoint exactly why just
->>>> yet. It just seems too magical (read: potentially breaking down the
->>>> road) for me.
->>>> 
->>>>> +
->>>>> +/* Control and status registers are mapped as type 3 */
->>>>> +#define KVM_REG_RISCV_CSR            (0x03 << KVM_REG_RISCV_TYPE_SHIFT)
->>>>> +#define KVM_REG_RISCV_CSR_REG(name)  \
->>>>> +             (offsetof(struct kvm_sregs, name) / sizeof(unsigned long))
->>>>> +
->>>>>   #endif
->>>>> 
->>>>>   #endif /* __LINUX_KVM_RISCV_H */
->>>>> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
->>>>> index 7f59e85c6af8..9396a83c0611 100644
->>>>> --- a/arch/riscv/kvm/vcpu.c
->>>>> +++ b/arch/riscv/kvm/vcpu.c
->>>>> @@ -164,6 +164,215 @@ vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
->>>>>       return VM_FAULT_SIGBUS;
->>>>>   }
->>>>> 
->>>>> +static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
->>>>> +                                      const struct kvm_one_reg *reg)
->>>>> +{
->>>>> +     unsigned long __user *uaddr =
->>>>> +                     (unsigned long __user *)(unsigned long)reg->addr;
->>>>> +     unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
->>>>> +                                         KVM_REG_SIZE_MASK |
->>>>> +                                         KVM_REG_RISCV_CONFIG);
->>>>> +     unsigned long reg_val;
->>>>> +
->>>>> +     if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
->>>>> +             return -EINVAL;
->>>>> +
->>>>> +     switch (reg_num) {
->>>>> +     case KVM_REG_RISCV_CONFIG_ISA:
->>>>> +             reg_val = vcpu->arch.isa;
->>>>> +             break;
->>>>> +     case KVM_REG_RISCV_CONFIG_TIMEBASE:
->>>>> +             reg_val = riscv_timebase;
->>>> 
->>>> What does this reflect? The current guest time hopefully not? An offset?
->>>> Related to what?
->>> 
->>> riscv_timebase is the frequency in HZ of the system timer.
->>> 
->>> The name "timebase" is not appropriate but we have been
->>> carrying it since quite some time now.
+>> Reviewed-by: Alexander Graf <graf@amazon.com>
 >> 
->> What do you mean by "some time"? So far I only see a kernel internal
->> variable named after it. That's dramatically different from something
->> exposed via uapi.
->> 
->> Just name it tbfreq.
+>> Overall, I'm quite happy with the code. It's a very clean implementation
+>> of a KVM target.
 > 
-> Sure, I will use TBFREQ name.
+> Thanks Alex.
 > 
 >> 
->> So if this is the frequency, where is the offset? You will need it on
->> save/restore. If you're saying that's out of scope for now, that's fine
->> with me too :).
+>> The only major nit I have is the guest address space read: I don't think
+>> we should pull in code that we know allows user space to DOS the kernel.
+>> For that, we need to find an alternative. Either you implement a
+>> software page table walker and resolve VAs manually or you find a way to
+>> ensure that *any* exception taken during the read does not affect
+>> general code execution.
 > 
-> tbfreq is read-only and fixed.
-> 
-> The Guest tbfreq has to be same as Host tbfreq. This means we
-> can only migrate Guest from Host A to Host B only if:
-> 1. They have matching ISA capabilities
+> I will send v6 next week. I will try my best to implement unpriv trap
+> handling in v6 itself.
 
-That's what we have on almost all archs, it's a fair statement.
-
-> 2. They have matching tbfreq
-
-This was true for most archs in the early virtualization days, but CPU vendors learned since then. It really makes people upset if they can not move their guests to a new CPU.
-
-If you see bits in the spec that are missing (tb freq scaling / trapping on tb reads), please work with the ISA people to resolve them going forward.
+Are you sure unpriv is the only exception that can hit there? What about NMIs? Do you have #MCs yet (ECC errors)? Do you have something like ARM's #SError which can asynchronously hit at any time because of external bus (PCI) errors?
 
 Alex
 
@@ -318,6 +172,8 @@ Alex
 > Anup
 > 
 >> 
+>> 
+>> Thanks,
 >> 
 >> Alex
 
