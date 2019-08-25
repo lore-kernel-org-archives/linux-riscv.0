@@ -2,22 +2,21 @@ Return-Path: <SRS0=k0Aq=WY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.3 required=3.0 tests=DATE_IN_PAST_24_48,
-	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D1906C3A5A1
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2019 17:36:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1839DC3A5A1
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2019 17:36:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A8EDB23404
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2019 17:36:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E0C822339E
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2019 17:36:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mxTyzJmj";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="hBpwGl91"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A8EDB23404
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="P6mOLoTG";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="LS7sDUBj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E0C822339E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,65 +25,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yA9xdXUAHz4XJnU+oRhBnf8zUR9GfDu00Qk7wET54Uc=; b=mxTyzJmjM5cSqB
-	Evu0bTZ7bh7decE/bTDvbHNE6A+1HfECPlizFy364+veGCLuV+JwgWWjJaIu7emPJHccJEbqIWk17
-	+d7C7cLiAjwo+V7shyXGxkftbdb+ubxuItHzRZ0LnjWzTLaejYAg3pXNMceI47fkZYQ67Ngg0aN1E
-	aoT6Kgzf+XhJr3FInPFMA7iwzgqX9irqH/QS47caw4/Bno0hDGKc11T9MF9UIJCYpjWoTOFNm+sIw
-	TePcE5+C5kTL6oC8BoEI35e1EaGtJQAJu6t5/g66aBljmg0eEvCJWaPVzzVZh3CO4EzjtEegLV9+I
-	tAYx4Q9GjXaT5eDyYgCw==;
+	List-Owner; bh=i0rpUJirHNlDyG2G07VM15bbaLwFZyDhbhk1WoRtEK0=; b=P6mOLoTGw/ZXWy
+	VyW2cRYHPWwUmes3vcd29UQhnZw+98i5GLkcgkXcs7bk+zlCKYUz+aXHtes2MAY4Jjy1OAbi0LULA
+	5adVakp6f9bBfsrZ1PygBTgNydKIllkVmT58oqrQaGM62U7ryF5LfVqb08BDR0e0is7WXtS4e5PZF
+	y+8EZ2VqN6s2rOXM/pTk4cermE+RY8oIBW3hAgZywYwNufeu+KRgt8Q67FL89GyJ1Fih3Ksk9R1tX
+	80gE21rBG9DP7NY0iWik13XniHCCSkCUriw+FmGpZ4RlhDcyA5ANm5JDvcBi+ZGv2oW23HCkk177X
+	U5ThYog8jeDCz2kE8+YQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i31sI-0001cd-Lv; Wed, 28 Aug 2019 17:36:50 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1i31sO-0001iD-Ve; Wed, 28 Aug 2019 17:36:56 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i31s1-0001HY-K2
- for linux-riscv@lists.infradead.org; Wed, 28 Aug 2019 17:36:35 +0000
-Received: by mail-pf1-x444.google.com with SMTP id g2so267497pfq.0
- for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2019 10:36:33 -0700 (PDT)
+ id 1i31sL-0001ew-1z
+ for linux-riscv@lists.infradead.org; Wed, 28 Aug 2019 17:36:54 +0000
+Received: by mail-pf1-x443.google.com with SMTP id y9so254610pfl.4
+ for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2019 10:36:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to;
- bh=UBNYDOQLiPHI747g3CvJSLTMKiFZvSX4+F+h+ZK0RGk=;
- b=hBpwGl91JHahbLFCmv2w1Mjzc7Oz3kRyNRNlfokM3jA96+3Z6siqSGJK3qXqEvZYXw
- 209fRwW977JPTkPz9WVu94EDq8zT1usK2FPzVbiynFtN99nMvFDHeFEXObaCht1TcFgd
- 4xrqVdOp6iVorPHpgxumzhQ/jyb1V//MFBv7E=
+ bh=M47pTZiAE3Wr8BbtgIHsQv1k4WtO4wX2CZjP2HeXAjI=;
+ b=LS7sDUBjIS1Uff386cu0zqhDdYqMUwYYKZKmEjwIsi9QTzN89/DsKYkhHeAzX+HiWz
+ XUGR2aF5xzEjpRru0i1N004SQj75D1ew2JaMZGVGSMb1w0/XqTl0B3R7YnrgYSZbcJln
+ 64EK3Y0c7M9n+gQt3BqNXH4dE9RFbDkXKcD/Y=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=UBNYDOQLiPHI747g3CvJSLTMKiFZvSX4+F+h+ZK0RGk=;
- b=fkIsubowSQwcVnij2PcqR59NAfqb1NkKQzt0Xdvz98dY4/+7E1MDvz7jtcTuSziMtR
- 5peW1LjtyhCczhjBFFe6vVAbKBqCgeSQiDC35MNZr8mxVrM2GOmr/jA9k51wuyqAKYb7
- sTZzp/e64Em1kfBkXJhhfwVnTeOGvwvsJNJnp1CBPQr8Q6wYe1eenBQb4i5SUCMFkUnx
- xYcil2QByjOc7X0grsRE73+Yvych6WLR6e0a4PDxSx3g7oa+6Uw/QAXPHd9lh7IvNFsb
- awQA0IZclNRNp/nzqhFEB8ukuQXRU5KayT1mQodztjZo11RiION9D+O0rwz61AkS8LU1
- TgBA==
-X-Gm-Message-State: APjAAAX1OMGpWXM+hJjdbpI+t/XfFImVcmmA2LOrcPsHLBaCWhhsBiZt
- aVwuGy4NU8XF8lnTZSBmfS17dg==
-X-Google-Smtp-Source: APXvYqzwkMj0PJ8taLffJ8W2JrcvATme98GQGJX0LS7TPTRiUEPTNp5IYu8fT7uFmLx8nEqHd37GDw==
-X-Received: by 2002:a17:90a:f0d8:: with SMTP id
- fa24mr5639027pjb.142.1567013792822; 
- Wed, 28 Aug 2019 10:36:32 -0700 (PDT)
+ bh=M47pTZiAE3Wr8BbtgIHsQv1k4WtO4wX2CZjP2HeXAjI=;
+ b=MtA7OhZB4mWmHl08WKtKKZFV+ezYannFtQgDYKljCIdEIJAGcDMI/FA//O8uEvCe7X
+ lLQYi/cQlFrboUB+UyJWFVH2xUqKJddDlHtG0ofMR6o7ETjOkturkIhapGlYD496EHZj
+ ROzCu0Q/qBtNmf0wB46QjGkrwlNgkyVdz9hKUUNh8Rl8CI5z8ixyFP2e+qOqwN18rd/y
+ Vqc0X/9LWrf9Ub3LnnpP6O/ms0u+55/yhhNvF+1VJGDHe5QX2HDHZE0+r6CIhiAahdF3
+ F9AOcZ4lZkKYSah+otpEHPZCbLkE/VlsBSoi33sc+lVcXr4rW1zN6f8ddqdCA8Upcqds
+ Qn5Q==
+X-Gm-Message-State: APjAAAWYwQAv8y5EHAPkw/atj0m4n37y/GK/SXBD4fMWJYDS6IfGiap+
+ 6jTsZm4d8yBNdqmz9jEmop9VKQ==
+X-Google-Smtp-Source: APXvYqw01wf5KpqvU0SBLWBJjcZSJTFTWWCu5dmEtVFN/KxdMMnVgA4WZSzYIDlb53k7Xqylep0gCg==
+X-Received: by 2002:a63:6fc9:: with SMTP id k192mr4431758pgc.20.1567013812543; 
+ Wed, 28 Aug 2019 10:36:52 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id m145sm5047005pfd.68.2019.08.28.10.36.24
+ by smtp.gmail.com with ESMTPSA id w207sm3832866pff.93.2019.08.28.10.36.51
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 28 Aug 2019 10:36:29 -0700 (PDT)
-Date: Mon, 26 Aug 2019 10:48:34 -0700
+ Wed, 28 Aug 2019 10:36:51 -0700 (PDT)
+Date: Sun, 25 Aug 2019 14:51:42 -0700
 From: Kees Cook <keescook@chromium.org>
-To: David Abdurachmanov <david.abdurachmanov@gmail.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>
 Subject: Re: [PATCH v2] riscv: add support for SECCOMP and SECCOMP_FILTER
-Message-ID: <201908261043.08510F5E66@keescook>
+Message-ID: <201908251446.04BCB8C@keescook>
 References: <20190822205533.4877-1-david.abdurachmanov@sifive.com>
  <alpine.DEB.2.21.9999.1908231717550.25649@viisi.sifive.com>
- <20190826145756.GB4664@cisco>
- <CAEn-LTrtn01=fp6taBBG_QkfBtgiJyt6oUjZJOi6VN8OeXp6=g@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAEn-LTrtn01=fp6taBBG_QkfBtgiJyt6oUjZJOi6VN8OeXp6=g@mail.gmail.com>
+In-Reply-To: <alpine.DEB.2.21.9999.1908231717550.25649@viisi.sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190828_103634_072575_0313D67A 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190828_103653_117683_A7A3F950 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -103,8 +98,9 @@ Cc: Song Liu <songliubraving@fb.com>, Alan Kao <alankao@andestech.com>,
  Tycho Andersen <tycho@tycho.ws>, Daniel Borkmann <daniel@iogearbox.net>,
  Yonghong Song <yhs@fb.com>, me@carlosedp.com,
  Albert Ou <aou@eecs.berkeley.edu>, Alexios Zavras <alexios.zavras@intel.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- Allison Randal <allison@lohutok.net>, Will Drewry <wad@chromium.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Allison Randal <allison@lohutok.net>,
+ Will Drewry <wad@chromium.org>,
+ David Abdurachmanov <david.abdurachmanov@gmail.com>,
  David Abdurachmanov <david.abdurachmanov@sifive.com>, netdev@vger.kernel.org,
  Anup Patel <Anup.Patel@wdc.com>, linux-kernel@vger.kernel.org,
  Andy Lutomirski <luto@amacapital.net>, Vincent Chen <vincentc@andestech.com>,
@@ -114,12 +110,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 26, 2019 at 09:39:50AM -0700, David Abdurachmanov wrote:
-> I don't have the a build with SECCOMP for the board right now, so it
-> will have to wait. I just finished a new kernel (almost rc6) for Fedora,
+On Fri, Aug 23, 2019 at 05:30:53PM -0700, Paul Walmsley wrote:
+> On Thu, 22 Aug 2019, David Abdurachmanov wrote:
+> 
+> > There is one failing kernel selftest: global.user_notification_signal
+> 
+> Is this the only failing test?  Or are the rest of the selftests skipped 
+> when this test fails, and no further tests are run, as seems to be shown 
+> here:
+> 
+>   https://lore.kernel.org/linux-riscv/CADnnUqcmDMRe1f+3jG8SPR6jRrnBsY8VVD70VbKEm0NqYeoicA@mail.gmail.com/
+> 
+> For example, looking at the source, I'd naively expect to see the 
+> user_notification_closed_listener test result -- which follows right 
+> after the failing test in the selftest source.  But there aren't any 
+> results?
+> 
+> Also - could you follow up with the author of this failing test to see if 
+> we can get some more clarity about what might be going wrong here?  It 
+> appears that the failing test was added in commit 6a21cc50f0c7f ("seccomp: 
+> add a return code to trap to userspace") by Tycho Andersen 
+> <tycho@tycho.ws>.
 
-FWIW, I don't think this should block landing the code: all the tests
-fail without seccomp support. ;) So this patch is an improvement!
+So, the original email says the riscv series is tested on top of 5.2-rc7,
+but just for fun, can you confirm that you're building a tree that includes
+9dd3fcb0ab73 ("selftests/seccomp: Handle namespace failures gracefully")? I
+assume it does, but I suspect something similar is happening, where the
+environment is slightly different than expected and the test stalls.
+
+Does it behave the same way under emulation (i.e. can I hope to
+reproduce this myself?)
 
 -- 
 Kees Cook
