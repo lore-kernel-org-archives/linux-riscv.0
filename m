@@ -6,80 +6,86 @@ X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1839DC3A5A1
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2019 17:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 89FBFC3A5A6
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2019 17:52:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E0C822339E
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2019 17:36:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 61B0B233A1
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2019 17:52:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="P6mOLoTG";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="LS7sDUBj"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E0C822339E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SuQ5ybKP";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=amacapital-net.20150623.gappssmtp.com header.i=@amacapital-net.20150623.gappssmtp.com header.b="XhlIuiCr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 61B0B233A1
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=amacapital.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i0rpUJirHNlDyG2G07VM15bbaLwFZyDhbhk1WoRtEK0=; b=P6mOLoTGw/ZXWy
-	VyW2cRYHPWwUmes3vcd29UQhnZw+98i5GLkcgkXcs7bk+zlCKYUz+aXHtes2MAY4Jjy1OAbi0LULA
-	5adVakp6f9bBfsrZ1PygBTgNydKIllkVmT58oqrQaGM62U7ryF5LfVqb08BDR0e0is7WXtS4e5PZF
-	y+8EZ2VqN6s2rOXM/pTk4cermE+RY8oIBW3hAgZywYwNufeu+KRgt8Q67FL89GyJ1Fih3Ksk9R1tX
-	80gE21rBG9DP7NY0iWik13XniHCCSkCUriw+FmGpZ4RlhDcyA5ANm5JDvcBi+ZGv2oW23HCkk177X
-	U5ThYog8jeDCz2kE8+YQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CebnI2O4RLciwuQy+vmGf4WStb1nWJIw54lAy40zqKw=; b=SuQ5ybKPfdU23e
+	IUiTYvSxmp6yGOqpr2cvCDQ5QsD0h7u7xX8zP4d0LwzT0ciIaQCr8GEaeHtBXZe4pwN5fuR5OqG0h
+	Eoohs/QF2Cf+7FY+RW0VfOxMLtkO77Y9kYVfQlP7YHjZeK1cn254j4axymVBxqqwvdCj6b9M8C3iM
+	+yhRgjKT9hoO4xsP6grLrrg2lUncRDWqoHjWLifnifNDbBiH2Su2drHaTp9yG5F2KzM+dMsGIWcs1
+	pM9eFsEkLQRBDyeDhmYFxXCOuQsSfWpbj4u3ygeh9d5FOII5AI5ly8fkB/W/sSsQ/gzAgzXGpyvZ1
+	1BdNb5YOBc4FSKgZE1gA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i31sO-0001iD-Ve; Wed, 28 Aug 2019 17:36:56 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1i3279-00087c-K0; Wed, 28 Aug 2019 17:52:11 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i31sL-0001ew-1z
- for linux-riscv@lists.infradead.org; Wed, 28 Aug 2019 17:36:54 +0000
-Received: by mail-pf1-x443.google.com with SMTP id y9so254610pfl.4
- for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2019 10:36:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=M47pTZiAE3Wr8BbtgIHsQv1k4WtO4wX2CZjP2HeXAjI=;
- b=LS7sDUBjIS1Uff386cu0zqhDdYqMUwYYKZKmEjwIsi9QTzN89/DsKYkhHeAzX+HiWz
- XUGR2aF5xzEjpRru0i1N004SQj75D1ew2JaMZGVGSMb1w0/XqTl0B3R7YnrgYSZbcJln
- 64EK3Y0c7M9n+gQt3BqNXH4dE9RFbDkXKcD/Y=
+ id 1i3277-000876-3S
+ for linux-riscv@lists.infradead.org; Wed, 28 Aug 2019 17:52:10 +0000
+Received: by mail-pg1-x543.google.com with SMTP id u17so123185pgi.6
+ for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2019 10:52:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=amacapital-net.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=jQX3yoLyPfk/0j+lt93BtL/GBDo4w3swgacBIDakXXQ=;
+ b=XhlIuiCrJiPd178mhAYLbMaCFhZdbbqbwaKU3q6uJ30qMagqqTw/bFQdZlNUymLTK8
+ dAlhmcyR3vP0ZtDqdiHYyudCImcd6mGVQj44mv4tr0vwZxX8d6TFobwdN4uxlZ1uDl/t
+ X/kt1Ft483Gh0bH+NGznab4xcFdJ/6TYS+9Yo3rpExBYeqGDHZD6RaHPArHNC3kr2rgJ
+ NxILOLue3/+PKN00bZKV+tNBQ8D4tNvwKWRAPKMbVtIL1UD4Gr4sqUnHjy2NZtrlK7hv
+ Jg6WoKH+rCjRnSUQMig8d9M/n0qExNh5AHuPyAICyXxTEnIuGS65lVHCT01gHzZmPOSt
+ MLHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=M47pTZiAE3Wr8BbtgIHsQv1k4WtO4wX2CZjP2HeXAjI=;
- b=MtA7OhZB4mWmHl08WKtKKZFV+ezYannFtQgDYKljCIdEIJAGcDMI/FA//O8uEvCe7X
- lLQYi/cQlFrboUB+UyJWFVH2xUqKJddDlHtG0ofMR6o7ETjOkturkIhapGlYD496EHZj
- ROzCu0Q/qBtNmf0wB46QjGkrwlNgkyVdz9hKUUNh8Rl8CI5z8ixyFP2e+qOqwN18rd/y
- Vqc0X/9LWrf9Ub3LnnpP6O/ms0u+55/yhhNvF+1VJGDHe5QX2HDHZE0+r6CIhiAahdF3
- F9AOcZ4lZkKYSah+otpEHPZCbLkE/VlsBSoi33sc+lVcXr4rW1zN6f8ddqdCA8Upcqds
- Qn5Q==
-X-Gm-Message-State: APjAAAWYwQAv8y5EHAPkw/atj0m4n37y/GK/SXBD4fMWJYDS6IfGiap+
- 6jTsZm4d8yBNdqmz9jEmop9VKQ==
-X-Google-Smtp-Source: APXvYqw01wf5KpqvU0SBLWBJjcZSJTFTWWCu5dmEtVFN/KxdMMnVgA4WZSzYIDlb53k7Xqylep0gCg==
-X-Received: by 2002:a63:6fc9:: with SMTP id k192mr4431758pgc.20.1567013812543; 
- Wed, 28 Aug 2019 10:36:52 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id w207sm3832866pff.93.2019.08.28.10.36.51
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 28 Aug 2019 10:36:51 -0700 (PDT)
-Date: Sun, 25 Aug 2019 14:51:42 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=jQX3yoLyPfk/0j+lt93BtL/GBDo4w3swgacBIDakXXQ=;
+ b=cdHCowrovQokNhyDFyRJykHH6EI3dMHALtltCPlirbPT4O7zjZKkdOrkCbYVvaqGc7
+ MKE0gicJ5n6kmFsZnF38GJFo6jsP9xehI3+EhqCRIz9pcex8G+kk7rM8kA0BIWWxPz9n
+ lGeKXZqO5fIsrxfDUAku4T9l07g9OhumbAXScmf/SO4QcjJeWb5XmmbFX9hhcgfEXnBc
+ TP1rVMnk0hdRlhAeYp5bI6x5uxs6+T1MmnIvy1wgNQLEnW3PvaUKIjv2aV8YKkdvpSzQ
+ riK3RHRjmjv2N8pVwZ1x78Utbw+SA07likf1dcNJ2L59DzDgEUmlYq+k5u4VIRG/Oypl
+ xrSg==
+X-Gm-Message-State: APjAAAXlHmCrPvlH1IgIgImvJedSHS4Tl2eEZy+62e5Bphi0/CeqmjIX
+ foVkdrnK/5SiFLuOd7/dnqO8+s+7NCk=
+X-Google-Smtp-Source: APXvYqxOrLR3mQwFe9lP+xvQ8UaEwRlRzDb4ILg8zRF5qtKWo+EbZYY96fc4AyXGZBZM2GL8Qh83Qw==
+X-Received: by 2002:a17:90a:9905:: with SMTP id
+ b5mr2493871pjp.117.1567014727512; 
+ Wed, 28 Aug 2019 10:52:07 -0700 (PDT)
+Received: from ?IPv6:2600:1012:b023:28ef:14c8:9cc:b602:d8f?
+ ([2600:1012:b023:28ef:14c8:9cc:b602:d8f])
+ by smtp.gmail.com with ESMTPSA id x10sm2728615pjo.4.2019.08.28.10.52.06
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 28 Aug 2019 10:52:06 -0700 (PDT)
+Mime-Version: 1.0 (1.0)
 Subject: Re: [PATCH v2] riscv: add support for SECCOMP and SECCOMP_FILTER
-Message-ID: <201908251446.04BCB8C@keescook>
+From: Andy Lutomirski <luto@amacapital.net>
+X-Mailer: iPhone Mail (16G77)
+In-Reply-To: <201908251451.73C6812E8@keescook>
+Date: Wed, 28 Aug 2019 10:52:05 -0700
+Message-Id: <419CB0D1-E51C-49D5-9745-7771C863462F@amacapital.net>
 References: <20190822205533.4877-1-david.abdurachmanov@sifive.com>
- <alpine.DEB.2.21.9999.1908231717550.25649@viisi.sifive.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <alpine.DEB.2.21.9999.1908231717550.25649@viisi.sifive.com>
+ <201908251451.73C6812E8@keescook>
+To: Kees Cook <keescook@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190828_103653_117683_A7A3F950 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20190828_105209_281694_4F680C0C 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,56 +101,35 @@ Cc: Song Liu <songliubraving@fb.com>, Alan Kao <alankao@andestech.com>,
  Palmer Dabbelt <palmer@sifive.com>, Alexei Starovoitov <ast@kernel.org>,
  Oleg Nesterov <oleg@redhat.com>, linux-kselftest@vger.kernel.org,
  linux-riscv@lists.infradead.org, Shuah Khan <shuah@kernel.org>,
- Tycho Andersen <tycho@tycho.ws>, Daniel Borkmann <daniel@iogearbox.net>,
- Yonghong Song <yhs@fb.com>, me@carlosedp.com,
- Albert Ou <aou@eecs.berkeley.edu>, Alexios Zavras <alexios.zavras@intel.com>,
- Thomas Gleixner <tglx@linutronix.de>, Allison Randal <allison@lohutok.net>,
- Will Drewry <wad@chromium.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Yonghong Song <yhs@fb.com>,
+ me@carlosedp.com, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexios Zavras <alexios.zavras@intel.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Allison Randal <allison@lohutok.net>, Will Drewry <wad@chromium.org>,
  David Abdurachmanov <david.abdurachmanov@gmail.com>,
  David Abdurachmanov <david.abdurachmanov@sifive.com>, netdev@vger.kernel.org,
  Anup Patel <Anup.Patel@wdc.com>, linux-kernel@vger.kernel.org,
- Andy Lutomirski <luto@amacapital.net>, Vincent Chen <vincentc@andestech.com>,
- bpf@vger.kernel.org, Martin KaFai Lau <kafai@fb.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ Vincent Chen <vincentc@andestech.com>, bpf@vger.kernel.org,
+ Martin KaFai Lau <kafai@fb.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 23, 2019 at 05:30:53PM -0700, Paul Walmsley wrote:
-> On Thu, 22 Aug 2019, David Abdurachmanov wrote:
-> 
-> > There is one failing kernel selftest: global.user_notification_signal
-> 
-> Is this the only failing test?  Or are the rest of the selftests skipped 
-> when this test fails, and no further tests are run, as seems to be shown 
-> here:
-> 
->   https://lore.kernel.org/linux-riscv/CADnnUqcmDMRe1f+3jG8SPR6jRrnBsY8VVD70VbKEm0NqYeoicA@mail.gmail.com/
-> 
-> For example, looking at the source, I'd naively expect to see the 
-> user_notification_closed_listener test result -- which follows right 
-> after the failing test in the selftest source.  But there aren't any 
-> results?
-> 
-> Also - could you follow up with the author of this failing test to see if 
-> we can get some more clarity about what might be going wrong here?  It 
-> appears that the failing test was added in commit 6a21cc50f0c7f ("seccomp: 
-> add a return code to trap to userspace") by Tycho Andersen 
-> <tycho@tycho.ws>.
-
-So, the original email says the riscv series is tested on top of 5.2-rc7,
-but just for fun, can you confirm that you're building a tree that includes
-9dd3fcb0ab73 ("selftests/seccomp: Handle namespace failures gracefully")? I
-assume it does, but I suspect something similar is happening, where the
-environment is slightly different than expected and the test stalls.
-
-Does it behave the same way under emulation (i.e. can I hope to
-reproduce this myself?)
-
--- 
-Kees Cook
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Cgo+IE9uIEF1ZyAyNSwgMjAxOSwgYXQgMjo1OSBQTSwgS2VlcyBDb29rIDxrZWVzY29va0BjaHJv
+bWl1bS5vcmc+IHdyb3RlOgo+IAo+PiBPbiBUaHUsIEF1ZyAyMiwgMjAxOSBhdCAwMTo1NToyMlBN
+IC0wNzAwLCBEYXZpZCBBYmR1cmFjaG1hbm92IHdyb3RlOgo+PiBUaGlzIHBhdGNoIHdhcyBleHRl
+bnNpdmVseSB0ZXN0ZWQgb24gRmVkb3JhL1JJU0NWIChhcHBsaWVkIGJ5IGRlZmF1bHQgb24KPj4g
+dG9wIG9mIDUuMi1yYzcga2VybmVsIGZvciA8MiBtb250aHMpLiBUaGUgcGF0Y2ggd2FzIGFsc28g
+dGVzdGVkIHdpdGggNS4zLXJjCj4+IG9uIFFFTVUgYW5kIFNpRml2ZSBVbmxlYXNoZWQgYm9hcmQu
+Cj4gCj4gT29wcywgSSBzZWUgdGhlIG1lbnRpb24gb2YgUUVNVSBoZXJlLiBXaGVyZSdzIHRoZSBi
+ZXN0IHBsYWNlIHRvIGZpbmQKPiBpbnN0cnVjdGlvbnMgb24gY3JlYXRpbmcgYSBxZW11IHJpc2N2
+IGltYWdlL2Vudmlyb25tZW50PwoKSSBkb27igJl0IHN1cHBvc2Ugb25lIG9mIHlvdSByaXNjdiBm
+b2xrcyB3b3VsZCBsaWtlIHRvIGNvbnRyaWJ1dGUgcmlzY3Ygc3VwcG9ydCB0byB2aXJ0bWU/ICB2
+aXJ0bWUtcnVuIOKAlGFyY2g9cmlzY3Ygd291bGQgYmUgcXVpdGUgbmljZSwgYW5kIHRoZSB0b3Rh
+bCBwYXRjaCBzaG91bGQgYmUganVzdCBhIGNvdXBsZSBsaW5lcy4gIFVuZm9ydHVuYXRlbHksIGl0
+IGhlbHBzIGEgbG90IHRvIHVuZGVyc3RhbmQgdGhlIHN1YnRsZXRpZXMgb2YgYm9vdGluZyB0aGUg
+YXJjaGl0ZWN0dXJlIHRvIHdyaXRlIHRob3NlIGNvdXBsZSBsaW5lcyA6KQoKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
