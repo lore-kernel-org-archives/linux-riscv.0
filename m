@@ -2,87 +2,83 @@ Return-Path: <SRS0=k0Aq=WY=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 97374C3A5A1
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2019 18:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E73D6C3A5A1
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2019 18:09:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 69B7722DA7
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2019 18:01:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B8D582053B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 28 Aug 2019 18:09:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="s+ChZsVQ";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="ASkY1rUl"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 69B7722DA7
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="izcH9qgy";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="T/GkjUuK"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B8D582053B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y6AM+zgFhCO06HgN9jhmzkk4hJvNjv0tcqJXkgwJPy4=; b=s+ChZsVQFNUAwV
-	mHC5chuagD6LJ72cGT8Q6ilGLliIjZxv5xGILq3KdG6mcZxWPfUUCbiO88cb3MXOuyQCwNrGZMvaT
-	YPW17Ng8RecyxnokCjIO/yAix/TGUNBgf+YOQBWAJ0O4sekGTCdn/wqV0w9h8Eyxj31o6PkQ2WM0k
-	n0WFOxme+nw9UefAbYXArdA/tzV/KvKMbSh9xzBlz9s5RSMRKoYzrvaYPe594MneRWzVh6vcEgg5e
-	1EpqtsoplC21OrPu1cHt9Du2TDCDN2FNk0QUHyybJADxlz1FEnn2+5E1ZGwCNtDKt2ZCxEz56L6L2
-	iBHV9n7XdTr1+plt8s2A==;
+	List-Owner; bh=8oHuu2MChCOkbl9Tnll44f0evmrxnf3y11djihhi5+0=; b=izcH9qgyNIK/rD
+	DB+e5C/4dP+gcBPD8/Zz3rhv/CXyxRktRm2/A72+8Mi/uELtA33Mu7jIcqgQjaYz5ePMWJWXuYlP+
+	Qr7Njm5fD1x8+ffb0YxBVwnSQv3Z2Msqf6P3IWsluAug1xLxRmdkaMMOzLqz2cVy55NLmufTsFQJ1
+	OH1M1jL+IDTPs/wm1Hl+iB3XCidmXPfRzMchfmGhFRaHbu3juENbg0eZw1G2mL8spETXx9d7a31oh
+	Q5A3+c+O1aN55vZYiNnUAtJVgkYik8jFGvXVKsIaOJcDxmwnLE7lNtKU9knixS+wK8riP66t554g8
+	vesRN/zNRduMtr1ygSXQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i32G1-0002l4-By; Wed, 28 Aug 2019 18:01:21 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1i32Nw-0004Xq-0u; Wed, 28 Aug 2019 18:09:32 +0000
+Received: from mail-vs1-xe44.google.com ([2607:f8b0:4864:20::e44])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i32Fu-0002jn-Kk
- for linux-riscv@lists.infradead.org; Wed, 28 Aug 2019 18:01:19 +0000
-Received: by mail-pf1-x444.google.com with SMTP id w26so265774pfq.12
- for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2019 11:01:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:content-transfer-encoding:in-reply-to;
- bh=BFJvddMVdRzlLg4JaQXTPKjXHEos9ALpLQhTxwQRgB0=;
- b=ASkY1rUlh5uPsHc6yy1UDllwaGq7eHHaqrx9mHH1JQk+Juc6hS4cevD9XTNCDZesbH
- Mmo9mFrqYcCia1Ti/2PSg9CY+Q8KpxUS8DMx9XHSfqZZ6kXEF39+pefIA2AvUzXJi4+i
- 2z/Sepk/beKs+aXtnAYFGTpIHKCQHRn848/5Y=
+ id 1i32NW-0004Mf-Rb
+ for linux-riscv@lists.infradead.org; Wed, 28 Aug 2019 18:09:08 +0000
+Received: by mail-vs1-xe44.google.com with SMTP id q16so621763vsm.2
+ for <linux-riscv@lists.infradead.org>; Wed, 28 Aug 2019 11:09:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=FH2NOkI7wNtasjU18y8L32Bmo2nfckBhtCBctsbMnr8=;
+ b=T/GkjUuK2wuAJPAqyAxjsz1/mFpPPfWw/Xet/c7ibPqMgsoeq542KzUk+EBhER4BVg
+ bkUHNvJ0grvtNI7Eo28Z0qAfQGpsk4IDbys6o5r3BxAQ0kEP8L73kQ39Cpr5ep67UPH6
+ uPXzlohMnXIRz6lGViCgJCyVL89cqF/rI7odee9MU3MwmqXfeR+eCCNrhxbyWkFQA/XF
+ /S+VAztP+ge/ZlnbyIKUJ9ta37ijdoVQ9q6wxSHzqpM14b40T2BoDHgFiaMQPQ7RJ056
+ 0VOQPrd/ckrptmi8vcn7lIxH57fUo9x0LDZsk+wjw9LSoVyUESJMhuyvg09mRWASzrTp
+ QA3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:content-transfer-encoding
- :in-reply-to;
- bh=BFJvddMVdRzlLg4JaQXTPKjXHEos9ALpLQhTxwQRgB0=;
- b=tFnONJ5tGmR55le4C7gNXfokugZ0Eyh6pgDSdGrCFqT+aH4bRoLs3EWM6BusVJ/6h1
- 4eveBS2adrK/IueUfB3JtqDoLD+6FXSqbuUzMWjscXP0DGDiOmWNQI92LNI8zZzMt2q6
- GS5s31lyeZ5fJh/E82kQW+k8YTWNaOtbAxuWEYjhm72UN9kD/nQzdQtS9eVpsPn5SbMs
- DMrvWOlx+tY6DMwZyrt67T8wL3hDFnBBC0CLmFVXrmDNftWfR13yQ/e37bvQ09ecFX4v
- 05dxYbGWKi5TB9BY1m7mZbF9iZjjW5GpTvKeFYfQju+5gh4yH06FHKIEa2espuQTOynH
- uwtA==
-X-Gm-Message-State: APjAAAW6r/fzpOQ1nBeObyaCMa7Fyu7cm72GmcTttP3dJ5r02DnCo9Ew
- clNFNxmxX3u7MVKYe9068QCarA==
-X-Google-Smtp-Source: APXvYqxl9ldGbN+Y6p7HIDBEFutfmUjTW+7dVVdP5QoMG/5a9Fx5qHPh4AtBUYcTgv24Hatkm1LSYw==
-X-Received: by 2002:a17:90a:6581:: with SMTP id
- k1mr5476919pjj.47.1567015272079; 
- Wed, 28 Aug 2019 11:01:12 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id z4sm3347892pfg.166.2019.08.28.11.01.10
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 28 Aug 2019 11:01:11 -0700 (PDT)
-Date: Wed, 28 Aug 2019 11:01:10 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Andy Lutomirski <luto@amacapital.net>
-Subject: Re: [PATCH v2] riscv: add support for SECCOMP and SECCOMP_FILTER
-Message-ID: <201908281100.D78277FD@keescook>
-References: <20190822205533.4877-1-david.abdurachmanov@sifive.com>
- <201908251451.73C6812E8@keescook>
- <419CB0D1-E51C-49D5-9745-7771C863462F@amacapital.net>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=FH2NOkI7wNtasjU18y8L32Bmo2nfckBhtCBctsbMnr8=;
+ b=ip5XvN5tF+GJSoU5SdgmX32Z4FjZE6SlTGQPr2/jtJ0PdYg40+fsBaiaj095ofrd2Z
+ fmhcnlAu3ZAX2nGv1L4yqF5tu5zEkd36my4xTumHdtC3yNTVRoXPbxV766xjqOdJuRiI
+ /T16TZQfEJrfQZXGPKb5ejF4Xnjzd/Vi9ziOxl8k0UDAPv4u3JSp5b9+c8xbwa9567tr
+ 9hrJYdR3lB9k8RG3omtlR8FWLbyZg0om7xdWBN6dfFEH5uiT68Grb4hR/bWSZ48ZK9il
+ ZyAqZMJT4KlU7t44UsizcjoZpjFer6BTaLKHCqjSm61RyMs0TAvfzsLVyroZFQpRh13O
+ AXfw==
+X-Gm-Message-State: APjAAAWXYPP6GKCKJBjciO1bGO0YtQXEBeICDvUBWqM5pq+h+sVqbMzZ
+ mqeZSV9dm+QGLYG9zQ4icxu+qr8q0odqngqqqVAvRg==
+X-Google-Smtp-Source: APXvYqyURo7rnH5WL7d4rlsbKyu3inzGzxxABHgNQwJFaoudu7gS//knOa/s/zMfx2shYgTXGc5/sEZ5pfMhx5xHJb8=
+X-Received: by 2002:a67:2d08:: with SMTP id t8mr3371760vst.178.1567015744349; 
+ Wed, 28 Aug 2019 11:09:04 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <419CB0D1-E51C-49D5-9745-7771C863462F@amacapital.net>
+References: <1565699895-4770-1-git-send-email-sagar.kadam@sifive.com>
+ <1565699895-4770-2-git-send-email-sagar.kadam@sifive.com>
+ <CAEUhbmU6xHjUWK3iM_RqURHGuqgmSxQw6RtWthT4+2aL1xLDcA@mail.gmail.com>
+In-Reply-To: <CAEUhbmU6xHjUWK3iM_RqURHGuqgmSxQw6RtWthT4+2aL1xLDcA@mail.gmail.com>
+From: Sagar Kadam <sagar.kadam@sifive.com>
+Date: Wed, 28 Aug 2019 11:08:53 -0700
+Message-ID: <CAARK3H=gNy7o0NL6KCkcBQANoutwhMHE_-nfbfB2NVUATRgemA@mail.gmail.com>
+Subject: Re: [PATCH v8 1/4] mtd: spi-nor: add support for is25wp256
+To: Bin Meng <bmeng.cn@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190828_110117_125046_531EBF8A 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20190828_110906_892548_270FB6EB 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,43 +90,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Song Liu <songliubraving@fb.com>, Alan Kao <alankao@andestech.com>,
- Palmer Dabbelt <palmer@sifive.com>, Alexei Starovoitov <ast@kernel.org>,
- Oleg Nesterov <oleg@redhat.com>, linux-kselftest@vger.kernel.org,
- linux-riscv@lists.infradead.org, Shuah Khan <shuah@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Yonghong Song <yhs@fb.com>,
- me@carlosedp.com, Albert Ou <aou@eecs.berkeley.edu>,
- Alexios Zavras <alexios.zavras@intel.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- Allison Randal <allison@lohutok.net>, Will Drewry <wad@chromium.org>,
- David Abdurachmanov <david.abdurachmanov@gmail.com>,
- David Abdurachmanov <david.abdurachmanov@sifive.com>, netdev@vger.kernel.org,
- Anup Patel <Anup.Patel@wdc.com>, linux-kernel@vger.kernel.org,
- Vincent Chen <vincentc@andestech.com>, bpf@vger.kernel.org,
- Martin KaFai Lau <kafai@fb.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Vignesh R <vigneshr@ti.com>,
+ tudor.ambarus@microchip.com, Richard Weinberger <richard@nod.at>,
+ Palmer Dabbelt <palmer@sifive.com>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ Marek Vasut <marek.vasut@gmail.com>, linux-mtd <linux-mtd@lists.infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Brian Norris <computersforpeace@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBBdWcgMjgsIDIwMTkgYXQgMTA6NTI6MDVBTSAtMDcwMCwgQW5keSBMdXRvbWlyc2tp
-IHdyb3RlOgo+IAo+IAo+ID4gT24gQXVnIDI1LCAyMDE5LCBhdCAyOjU5IFBNLCBLZWVzIENvb2sg
-PGtlZXNjb29rQGNocm9taXVtLm9yZz4gd3JvdGU6Cj4gPiAKPiA+PiBPbiBUaHUsIEF1ZyAyMiwg
-MjAxOSBhdCAwMTo1NToyMlBNIC0wNzAwLCBEYXZpZCBBYmR1cmFjaG1hbm92IHdyb3RlOgo+ID4+
-IFRoaXMgcGF0Y2ggd2FzIGV4dGVuc2l2ZWx5IHRlc3RlZCBvbiBGZWRvcmEvUklTQ1YgKGFwcGxp
-ZWQgYnkgZGVmYXVsdCBvbgo+ID4+IHRvcCBvZiA1LjItcmM3IGtlcm5lbCBmb3IgPDIgbW9udGhz
-KS4gVGhlIHBhdGNoIHdhcyBhbHNvIHRlc3RlZCB3aXRoIDUuMy1yYwo+ID4+IG9uIFFFTVUgYW5k
-IFNpRml2ZSBVbmxlYXNoZWQgYm9hcmQuCj4gPiAKPiA+IE9vcHMsIEkgc2VlIHRoZSBtZW50aW9u
-IG9mIFFFTVUgaGVyZS4gV2hlcmUncyB0aGUgYmVzdCBwbGFjZSB0byBmaW5kCj4gPiBpbnN0cnVj
-dGlvbnMgb24gY3JlYXRpbmcgYSBxZW11IHJpc2N2IGltYWdlL2Vudmlyb25tZW50Pwo+IAo+IEkg
-ZG9u4oCZdCBzdXBwb3NlIG9uZSBvZiB5b3UgcmlzY3YgZm9sa3Mgd291bGQgbGlrZSB0byBjb250
-cmlidXRlIHJpc2N2IHN1cHBvcnQgdG8gdmlydG1lPyAgdmlydG1lLXJ1biDigJRhcmNoPXJpc2N2
-IHdvdWxkIGJlIHF1aXRlIG5pY2UsIGFuZCB0aGUgdG90YWwgcGF0Y2ggc2hvdWxkIGJlIGp1c3Qg
-YSBjb3VwbGUgbGluZXMuICBVbmZvcnR1bmF0ZWx5LCBpdCBoZWxwcyBhIGxvdCB0byB1bmRlcnN0
-YW5kIHRoZSBzdWJ0bGV0aWVzIG9mIGJvb3RpbmcgdGhlIGFyY2hpdGVjdHVyZSB0byB3cml0ZSB0
-aG9zZSBjb3VwbGUgbGluZXMgOikKCkFzIGl0IHR1cm5zIG91dCwgdGhpcyBpcyB3aGVyZSBJJ20g
-c3R1Y2suIEFsbCB0aGUgaW5zdHJ1Y3Rpb25zIEkgY2FuCmZpbmQgYXJlIGFib3V0IGJvb3Rpbmcg
-YSBrZXJuZWwgb2ZmIGEgZGlzayBpbWFnZS4gOigKCi0tIApLZWVzIENvb2sKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Bin,
+
+On Mon, Aug 26, 2019 at 2:49 AM Bin Meng <bmeng.cn@gmail.com> wrote:
+>
+> On Tue, Aug 13, 2019 at 8:40 PM Sagar Shrikant Kadam
+> <sagar.kadam@sifive.com> wrote:
+> >
+> > Update spi_nor_id table for is25wp256 (32MB) device from ISSI,
+> > present on HiFive Unleashed dev board (Rev: A00).
+> >
+> > Set method to enable quad mode for ISSI device in flash parameters
+> > table.
+> >
+> > Based on code originally written by Wesley Terpstra <wesley@sifive.com>
+> > and/or Palmer Dabbelt <palmer@sifive.com>
+> > https://github.com/riscv/riscv-linux/commit/c94e267766d62bc9a669611c3d0c8ed5ea26569b
+> >
+> > Signed-off-by: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+> > Reviewed-by: Vignesh Raghavendra <vigneshr@ti.com>
+> > ---
+> >  drivers/mtd/spi-nor/spi-nor.c | 9 ++++++++-
+> >  include/linux/mtd/spi-nor.h   | 1 +
+> >  2 files changed, 9 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+> > index 03cc788..6635127 100644
+> > --- a/drivers/mtd/spi-nor/spi-nor.c
+> > +++ b/drivers/mtd/spi-nor/spi-nor.c
+> > @@ -1946,7 +1946,10 @@ static int spi_nor_spansion_clear_sr_bp(struct spi_nor *nor)
+> >                         SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+> >         { "is25wp128",  INFO(0x9d7018, 0, 64 * 1024, 256,
+> >                         SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+> > -
+> > +       { "is25wp256", INFO(0x9d7019, 0, 64 * 1024, 1024,
+>
+> The sector number should be 512, not 1024.
+
+Thanks for pointing this out.
+I had rectified it in recent U-boot patchset here
+  https://patchwork.ozlabs.org/patch/1146522/
+but I missed the change in the linux one as it was sent earlier.
+I will include this change in the next version of the patch
+
+Thanks & BR,
+Sagar
+>
+> > +                       SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
+> > +                       SPI_NOR_4B_OPCODES)
+> > +       },
+> >         /* Macronix */
+> >         { "mx25l512e",   INFO(0xc22010, 0, 64 * 1024,   1, SECT_4K) },
+> >         { "mx25l2005a",  INFO(0xc22012, 0, 64 * 1024,   4, SECT_4K) },
+> > @@ -3776,6 +3779,10 @@ static int spi_nor_init_params(struct spi_nor *nor,
+> >                 case SNOR_MFR_ST:
+> >                 case SNOR_MFR_MICRON:
+> >                         break;
+> > +               case SNOR_MFR_ISSI:
+> > +                       params->quad_enable = macronix_quad_enable;
+> > +                       break;
+> > +
+> >
+> >                 default:
+> >                         /* Kept only for backward compatibility purpose. */
+> > diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
+> > index 9f57cdf..5d6583e 100644
+> > --- a/include/linux/mtd/spi-nor.h
+> > +++ b/include/linux/mtd/spi-nor.h
+> > @@ -21,6 +21,7 @@
+> >  #define SNOR_MFR_INTEL         CFI_MFR_INTEL
+> >  #define SNOR_MFR_ST            CFI_MFR_ST      /* ST Micro */
+> >  #define SNOR_MFR_MICRON                CFI_MFR_MICRON  /* Micron */
+> > +#define SNOR_MFR_ISSI          0x9d            /* ISSI */
+> >  #define SNOR_MFR_MACRONIX      CFI_MFR_MACRONIX
+> >  #define SNOR_MFR_SPANSION      CFI_MFR_AMD
+> >  #define SNOR_MFR_SST           CFI_MFR_SST
+>
+> Regards,
+> Bin
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
