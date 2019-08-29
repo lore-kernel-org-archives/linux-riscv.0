@@ -7,18 +7,18 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B684DC3A59F
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2019 13:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 97C14C3A5A6
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2019 13:56:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 897BC2189D
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2019 13:56:31 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6A574215EA
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2019 13:56:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tBLk604r";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="HQFI0JA4";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="VJIhpMUN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 897BC2189D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jL+/959G";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="bPraIjxN";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="K9Z/Qs70"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6A574215EA
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,72 +27,74 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fEwMaQ0AgxodCqHjNElN5sM73ZJwz2ZWbJIcoNy6ViE=; b=tBLk604rMHyJoY
-	nNSzDVN3igBO9XOnePlyhoaNGINf6BkkJXrUAFKao58/L6iKxZ/BrOjo0oO3HbNNiA0LmA6E1bE0b
-	vZZU4+xi58n8oA8sIcg7930EYX7zM/ytYcCl+/4VVKczf4R2k4nBRtEjV6XZvBn3r9wXJ2yfE0sti
-	mOxjeNGK6M+Yhkenel3XV2FHonC1SX1l3quVk0D0kI0Yok9v9rGvzLfRvzBSQiXKD9K/Na8OXcRwQ
-	56MtxzzPH6Zx/7XYZhfrUJnWN+MQLKBN0VFMKkDoc8qDv4Lg38/SkptA7ofh/yA+noETHfxT/On/i
-	NTqvsQ2piG7zM0Br4/iw==;
+	List-Owner; bh=kQ+2qFOiJtbQkne+ySWzv8xlAFC64iKwOlouxR9u6m8=; b=jL+/959GC22QNq
+	wvql6kfSS20eFwP3j9R5m3fy5w1nsx+sz8si1qSTutu3D3nbMLhyNRHHFJaGWd66pxtGVkD6m5AtI
+	0gCUeVlsGt0rhQB0sUTr7p463xvyWUHEwFRobKTAMT4g9vSLvtKonMPLEHxNgVr7PvIVrxomU/3ww
+	9EIiD3MyB5YW+kOTD3DFjHOTGl0gpafMsY4JII3/VCGq13+EpsKQ4cjVpeohp+ZrWtKbcm4RQsDPz
+	pO0+78wHiIFo/4oKI88+3AVL+xD9DhgXJ313cl7J2IWCA38XD5fnRrB9UMzcPAxgK88x+tbv7xMg/
+	qrtS54y3oAap1DG5m4wA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i3Kuc-0002cu-NS; Thu, 29 Aug 2019 13:56:30 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1i3Kui-0002hc-Hp; Thu, 29 Aug 2019 13:56:36 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i3KuZ-0002aY-MS
- for linux-riscv@lists.infradead.org; Thu, 29 Aug 2019 13:56:29 +0000
+ id 1i3Kue-0002dj-FN
+ for linux-riscv@lists.infradead.org; Thu, 29 Aug 2019 13:56:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1567086988; x=1598622988;
+ t=1567086992; x=1598622992;
  h=from:to:cc:subject:date:message-id:references:
  in-reply-to:content-transfer-encoding:mime-version;
- bh=mMiscCo4/3qPLv/VjcFLletW0S1/F5R7sVVPJRPUsis=;
- b=HQFI0JA4UoS50ZWwmU4bM4GrOHSHX6jhgnuxrKQ92En4JU8uOxzNVSnE
- ssKJ7xmBlgSW80+KBtG7GVys2NT+OGx12ToqXujk4j+PedqHmFzjgSUOB
- yDhEXNcqzujg3bLMmHO8S9wOzom9VyBWNg3EAdCOzEI68T/VgDLHN/fwV
- BHyv1fbNMwtV+sWjeFxukxpNTC4OXn6NMUHRwAGLTTg424q0S3dbpk/nq
- f0BVTJYFdCQ+WZqgXOaNBkwyY6XZ4f9zL2qr2CoNh5Zq+d0FKI3KdOPOO
- 7wXzep0gxkyv5WKMOXbKqpdZS+S/rPTGrJ/aEV2AaJwx4z1c6anE6ON4r g==;
-IronPort-SDR: a5rKIdTZb6YkA08nn8FBNM2x/Pt7Gn3qjcvYoAOmcAVVF11Nxj+2Sx5ZrAXqoLuQb17Ss8Z5H7
- 8MRxz/lGTg/tzJPCInNj9bmFbzmDl9ETE8H4hYi6ZTKsBUXrJyzNMNgE7qVMdopCYwmmDgLEvC
- MFRbw0kZT1kZ1dbSxnpzE5DfObhzV4wMm7PhBt8zrP7Hr/qQ7soOL54iW42OnGS/iJjrzKtXs2
- gtQGGwIaY5gEkMUxQFVc9D6Yj+mC6PKTONiwms9n14gdP9nUfWuRnCo+h1YLR/EOmSsbOB1OuK
- ugI=
-X-IronPort-AV: E=Sophos;i="5.64,443,1559491200"; d="scan'208";a="121525713"
-Received: from mail-by2nam05lp2050.outbound.protection.outlook.com (HELO
- NAM05-BY2-obe.outbound.protection.outlook.com) ([104.47.50.50])
- by ob1.hgst.iphmx.com with ESMTP; 29 Aug 2019 21:56:27 +0800
+ bh=zrObQnfNUE5qCkCHzB+EGyXqf5ta3QK/XDYYkkC/IUk=;
+ b=bPraIjxNI5kvvKjbHU/RlbrIdr9cTGNWKaGXYPYlOYVL2+bEAAjuv7RJ
+ INY3JwLwmFlk/ytV5B0WhBPILC7DWhrwZU/DRBRrA/37Pc+atqx2GuoMD
+ 8cX3zp4nI9jZO9xMwZGMtP4ziAm03z9Rr8cj6mnqES87Oypm74i8lQiV6
+ AT+8Hqn7XcnayYUlqxDJ2zFIXerx4YH6/4LSim6/of6b3vx+bGwnWTDlu
+ 9Z5sWOydegtrL82xzKUpuZ90/1OT39AHQ+3twJpnaeGhfzlStGF6dFLgf
+ ecou/3Ke1+2CRF7h4Rrq7V+A4KgD8btSZeLBZHTe52oVoh4juAECPjemi g==;
+IronPort-SDR: Ll+/pX/aHtgV+ZMhKhVulDS4btB28OL5nLUSRjCHQIhNin6s7NxrL354kJLUAwoU70RyJH2T86
+ lFexl6K6hKIuiDqRQZO5NNUXugWmpoLsXevUDi9rmCM06Rs2C76yhLt/2wKT8xCuyh/t+HUYvI
+ 8SzZYmPy4kstjHCrRCmJSmmoBzyMofOAWtqlaW81Yk4ZX9xt+LW1HYQR3xhBAz0Zp19VO2mrvr
+ ziydYJPt3DIahrGnxaxltpdwSt0GLnRmA5cV+jkCMWHEqB86I6K/UPzTZn/ct1y85uqR78rUbM
+ qg4=
+X-IronPort-AV: E=Sophos;i="5.64,443,1559491200"; d="scan'208";a="223615948"
+Received: from mail-co1nam04lp2057.outbound.protection.outlook.com (HELO
+ NAM04-CO1-obe.outbound.protection.outlook.com) ([104.47.45.57])
+ by ob1.hgst.iphmx.com with ESMTP; 29 Aug 2019 21:56:08 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=B6lF0BEocytgk9+Sv736x4fnXKPBd+wT2lUeVBlLV70gSxbz3O8cSIcII2e+j+IoNGJBRRAOqALpcP4qwGQvhw7W1k7p0ROWI/pjBC6LgqR7XjBG0rXNmdbW46Rf1fYxCx2A4vcLpIs79Vzm0KflmZv4FLDTMfhIs4BOQf6TdZUlBbHh+qi8I/GMMrEjBfcOc2dKhGyGxZMMQO16frx0vnQRb8YlrYVUtb/rQpqaVbRZaluNfAVGVLdykPeU7qswrwYZFAgPfWmUW5LCK/tbEgt6uZAgKhBDbPhN4kMYtTd/Kp26ZXEoTtI5W8iQzRwNaEHnIQo+GTDNQnkWRHPzEQ==
+ b=CODgDmWL5qdt8OVMHscD6bilzHCiO1e0cTn/txSpaxx3PCsBfpLvOGcuu+Az+2hcvpdXz5Q7EuGhj3y9n4VoH7XTUmnbOhCtwwq254AAEYtiH71A2jQuGfrrYFBAkwoI4yNexAZnxGvurmxiBZuWS9arAG71wy07IXgxbDTiyLMFSHD9abcAk0fjs5fKoUs4TshksQC6oNFHWnqd4QLhumhSdngXY/GhOxYDha9dMZie5t8wxyWlcH9zB2JpAmi/vdpYNeJ17gyIJaDFiMAruWEWpZySkv9f8Z+OAY0pSkIiymqvTNWAsYdx6rAFd8ves0mY2b+mOYVCPYC9b+eODw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=v6ezOPvPuzfQxuMpOuZeQEaTTjNAYyIgN2r1GiME27I=;
- b=NfegkPr7PxhpwczZAvyTXSRrDGUmtOctq5GNossKTAO6AMyshAh/G/vUKfFhTfALvvNdvDZ2CxVa6JJRCWvW95pg+v0UIOhcPEjruSeFLsikG5j5MebvuGsXaysT/HIWIOZXj3vsEemGrMuP60AasWu0yy1gHASfF77ONcFvdnKuZQ0Ivv/evrv4FCXjwBOdJzd7T2eprsiXqAxJL1b/9zFNNtUvRQ8ylemDKMQKrU+/ZhIZ4gdfwhfl1UUx34TzCiDhrj9xpLZgciuZpeTgpSHIIX8jDM8Ys5FPtQSvyRmDUe99eO/63Ihji9BkL5d9jhros18xyeBK30HRF2HjLw==
+ bh=1SX1rrdX5ttC+L9wPEEXCOZ4LrMOSAkOPKnAMIzQD4E=;
+ b=U9oqOgehCgirVmvSgCKqn42fOS1XJCTp9FN6tXs2MezKC+k982OOqws/j4AI1NOHNQkGvyH/8/P85N6Xheu2BZP9aP6W0Y2TyuIwIXJuJpt1e7JCtnrb2zyzeLaxn8m4qr0Cfr2H5aLaf+Q6ntSra/OlSLqwbkN4JtCcWwsvtiLZaI+9lQHkrlTqi1TIPV1w9eCJ5NP6udiUqouwCBf1KbuH3iZQpHv+eMfWvHsVE30ZKuZohrjBLkyzw6xCGrHhyEfXRjAUTg41lh+r33t/jZPk22u5BubHJyfn4EFa6QaEO4bYo9k1vS1bpqcHN0sMJTvC70M6V5PUbF3YitD+Jg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=v6ezOPvPuzfQxuMpOuZeQEaTTjNAYyIgN2r1GiME27I=;
- b=VJIhpMUNH4yJd3bJs4bgx5IphamhUsLQrRxE0syP9QCDwVOlJvTlWAiw5PNvqDyfSVugPiOIDVpTiLaLtKkWF4OXLpjqlIr4XPFMnmrg46dCga11DKcOZRHEnXvUQg4f62UpuhfKSbuiZ/c3Z3cVAJVJAFxbyE3NS2XZmSLQyqs=
+ bh=1SX1rrdX5ttC+L9wPEEXCOZ4LrMOSAkOPKnAMIzQD4E=;
+ b=K9Z/Qs701dudBpJ4u7JwomIXsQMM0J7gJIQLr5Ae2GNO/oIqrhQlWVcriAZjugszogGTbEHU/Pp15fTM8SV7XeITwTGJ786Swi6SqWdvF867kA0iTZ7uRqwN18RbexXtTZlTRgJ6pQDcTFiPvv0X0yLXNizlB7BNi5Al1fES8z8=
 Received: from MN2PR04MB6061.namprd04.prod.outlook.com (20.178.246.15) by
- MN2PR04MB5616.namprd04.prod.outlook.com (20.179.22.29) with Microsoft SMTP
+ MN2PR04MB6255.namprd04.prod.outlook.com (20.178.245.75) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2199.21; Thu, 29 Aug 2019 13:56:25 +0000
+ 15.20.2199.21; Thu, 29 Aug 2019 13:56:06 +0000
 Received: from MN2PR04MB6061.namprd04.prod.outlook.com
  ([fe80::e1a5:8de2:c3b1:3fb0]) by MN2PR04MB6061.namprd04.prod.outlook.com
  ([fe80::e1a5:8de2:c3b1:3fb0%7]) with mapi id 15.20.2220.013; Thu, 29 Aug 2019
- 13:56:25 +0000
+ 13:56:06 +0000
 From: Anup Patel <Anup.Patel@wdc.com>
 To: Palmer Dabbelt <palmer@sifive.com>, Paul Walmsley
  <paul.walmsley@sifive.com>, Paolo Bonzini <pbonzini@redhat.com>, Radim K
  <rkrcmar@redhat.com>
-Subject: [PATCH v6 11/21] RISC-V: KVM: Handle WFI exits for VCPU
-Thread-Topic: [PATCH v6 11/21] RISC-V: KVM: Handle WFI exits for VCPU
-Thread-Index: AQHVXnGLmMAkHOr9W0O2flFRXn5nSA==
-Date: Thu, 29 Aug 2019 13:56:24 +0000
-Message-ID: <20190829135427.47808-12-anup.patel@wdc.com>
+Subject: [PATCH v6 08/21] RISC-V: KVM: Implement
+ KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls
+Thread-Topic: [PATCH v6 08/21] RISC-V: KVM: Implement
+ KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls
+Thread-Index: AQHVXnGAyg4l9w5iKUeGoGPaoFq95A==
+Date: Thu, 29 Aug 2019 13:56:06 +0000
+Message-ID: <20190829135427.47808-9-anup.patel@wdc.com>
 References: <20190829135427.47808-1-anup.patel@wdc.com>
 In-Reply-To: <20190829135427.47808-1-anup.patel@wdc.com>
 Accept-Language: en-US
@@ -108,36 +110,36 @@ x-ms-exchange-messagesentrepresentingtype: 1
 x-mailer: git-send-email 2.17.1
 x-originating-ip: [49.207.51.114]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 763deee5-ed97-4b01-3715-08d72c88ae46
+x-ms-office365-filtering-correlation-id: f2d2d134-ea5f-436d-93d2-08d72c88a2f0
 x-ms-office365-filtering-ht: Tenant
 x-microsoft-antispam: BCL:0; PCL:0;
  RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(7168020)(4627221)(201703031133081)(201702281549075)(8990200)(5600166)(711020)(4605104)(1401327)(4618075)(2017052603328)(7193020);
- SRVR:MN2PR04MB5616; 
-x-ms-traffictypediagnostic: MN2PR04MB5616:
+ SRVR:MN2PR04MB6255; 
+x-ms-traffictypediagnostic: MN2PR04MB6255:
 x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <MN2PR04MB5616729992CE7E8531148AE38DA20@MN2PR04MB5616.namprd04.prod.outlook.com>
+x-microsoft-antispam-prvs: <MN2PR04MB62551EBA18F9F398D2889C838DA20@MN2PR04MB6255.namprd04.prod.outlook.com>
 wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:4502;
+x-ms-oob-tlc-oobclassifiers: OLM:5236;
 x-forefront-prvs: 0144B30E41
 x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(4636009)(39860400002)(136003)(366004)(376002)(346002)(396003)(189003)(199004)(7416002)(52116002)(81166006)(316002)(6506007)(386003)(25786009)(7736002)(81156014)(305945005)(2906002)(36756003)(71190400001)(14454004)(99286004)(1076003)(256004)(14444005)(4326008)(66946007)(76176011)(66446008)(64756008)(66556008)(66476007)(102836004)(6116002)(50226002)(55236004)(476003)(6512007)(3846002)(71200400001)(5660300002)(26005)(186003)(44832011)(86362001)(66066001)(6436002)(446003)(8936002)(6486002)(110136005)(54906003)(2616005)(486006)(53936002)(11346002)(478600001)(8676002);
- DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB5616;
+ SFS:(10019020)(4636009)(39860400002)(366004)(396003)(346002)(376002)(136003)(199004)(189003)(446003)(55236004)(11346002)(30864003)(76176011)(386003)(2616005)(53936002)(36756003)(25786009)(5660300002)(4326008)(6436002)(316002)(6486002)(99286004)(6506007)(71190400001)(256004)(14444005)(6512007)(486006)(52116002)(2906002)(476003)(1076003)(102836004)(478600001)(81166006)(81156014)(110136005)(8676002)(54906003)(26005)(66446008)(64756008)(66556008)(66476007)(86362001)(7416002)(6116002)(50226002)(7736002)(14454004)(3846002)(66066001)(8936002)(44832011)(71200400001)(66946007)(186003)(305945005);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB6255;
  H:MN2PR04MB6061.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
+ PTR:InfoNoRecords; A:1; MX:1; 
 x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: ebFz6wfPnA9vXJE0IrL8nRODIEZ5qMxpHHNiG+X0L9YauIo98oJ+Vlzn2mcsXYoM3RoRqOjP2OhqvrCLR/mEuwxqcUi5IV9Z+MYscCiXYO/MRKvuRahyUGT4jV3FVl6YF/KlOAMRg7ZoSVvycZuihLCvfL3c6HPt7sMvjh1mr01/BhCzmUqQu97h+hnlzZloL78Jk9Yy3g/KFQJmRAJIxqS98SUVDpfry1fHf1TCYCNWRfPorrjWsMbsa/NXT1w0sx+BsGiYbK8pSmfnuxhKgdxub+BlQhuXjac1QcZj0lzV3DGWP4p3qD+a09OmabDmgHIA3Z1rs4FmN8FVI9pmbGVvxaIbrNVE/BtqXbtrLNLKvy/fu6BjoRMrSg1PwSaIcYJaa16dwMfO1AO0YPU5r8vm8eCrczwY8ER6gcaO+JM=
+x-microsoft-antispam-message-info: qc6/1lYlww+GT+z5IKl6uSYJOLKL1UvX+LNCCtfpsivaKX1czqepKZTPII4Nsby3YJDEkeQD4sswlQlsG2e8zseeViI1+2kxYYQR4dmtAI3+FriRdhBeu2+tlCdzvRghDOZPaRQr26plBCXbnUTh2LD6OabZ3BrWRn1NOE/7iAw2YLq77SPlGeo10uFieu4WuaJPd1UTSTbHsSQXhcMQ4nsBu0bxmHj8ANVdXx/mZ6uRh5Rn7y+pIfxPQ/y8SUNFqg1HLvJw9/EH1f9Jag7eo09sAEmKy09bu8pzUQnC5AzzdOERELIv0/DQAN9ZjCyfjU6MLlSt/KLzpsai4KFt5lvrln2bRfv/SNhpOaxgUINdPdKUqav9GHwEbC3m7G4/tifaKvEYW0AsLgCNHjOP9vpQ60FrH33jOX0ECqEHZzo=
 MIME-Version: 1.0
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 763deee5-ed97-4b01-3715-08d72c88ae46
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Aug 2019 13:56:24.8605 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f2d2d134-ea5f-436d-93d2-08d72c88a2f0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Aug 2019 13:56:06.1262 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: zYKfuoZ/lnmODnHmTcQISClm75JXWDe7SeSRSjeKZVrR1MVO+7SP78mIDsxwcbzW6QJVzBEJ0khAWgzhXFSb0g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB5616
+X-MS-Exchange-CrossTenant-userprincipalname: yvr85vrUt6C2PYcKfPUEmRKZGPfkx8xpEurrZcVxN+5hoVmbDwXc9Vj8vEibfJ+Hvb2YzolTuUN1x5cEK6sIEw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB6255
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190829_065627_877946_CAE3CEBD 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20190829_065632_712753_07907EDF 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -162,117 +164,361 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We get illegal instruction trap whenever Guest/VM executes WFI
-instruction.
+For KVM RISC-V, we use KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls to access
+VCPU config and registers from user-space.
 
-This patch handles WFI trap by blocking the trapped VCPU using
-kvm_vcpu_block() API. The blocked VCPU will be automatically
-resumed whenever a VCPU interrupt is injected from user-space
-or from in-kernel IRQCHIP emulation.
+We have three types of VCPU registers:
+1. CONFIG - these are VCPU config and capabilities
+2. CORE   - these are VCPU general purpose registers
+3. CSR    - these are VCPU control and status registers
+
+The CONFIG registers available to user-space are ISA and TIMEBASE. Out
+of these, TIMEBASE is a read-only register which inform user-space about
+VCPU timer base frequency. The ISA register is a read and write register
+where user-space can only write the desired VCPU ISA capabilities before
+running the VCPU.
+
+The CORE registers available to user-space are PC, RA, SP, GP, TP, A0-A7,
+T0-T6, S0-S11 and MODE. Most of these are RISC-V general registers except
+PC and MODE. The PC register represents program counter whereas the MODE
+register represent VCPU privilege mode (i.e. S/U-mode).
+
+The CSRs available to user-space are SSTATUS, SIE, STVEC, SSCRATCH, SEPC,
+SCAUSE, STVAL, SIP, and SATP. All of these are read/write registers.
+
+In future, more VCPU register types will be added (such as FP) for the
+KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls.
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
 Acked-by: Paolo Bonzini <pbonzini@redhat.com>
 Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
 ---
- arch/riscv/kvm/vcpu_exit.c | 71 ++++++++++++++++++++++++++++++++++++++
- 1 file changed, 71 insertions(+)
+ arch/riscv/include/uapi/asm/kvm.h |  46 +++++-
+ arch/riscv/kvm/vcpu.c             | 235 +++++++++++++++++++++++++++++-
+ 2 files changed, 278 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-index 700d8158e55b..321062fff65b 100644
---- a/arch/riscv/kvm/vcpu_exit.c
-+++ b/arch/riscv/kvm/vcpu_exit.c
-@@ -12,6 +12,13 @@
- #include <linux/kvm_host.h>
- #include <asm/csr.h>
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index 6dbc056d58ba..08c4515ad71b 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -23,8 +23,15 @@
  
-+#define INSN_OPCODE_MASK	0x007c
-+#define INSN_OPCODE_SHIFT	2
-+#define INSN_OPCODE_SYSTEM	28
-+
-+#define INSN_MASK_WFI		0xffffff00
-+#define INSN_MATCH_WFI		0x10500000
-+
- #define INSN_MATCH_LB		0x3
- #define INSN_MASK_LB		0x707f
- #define INSN_MATCH_LH		0x1003
-@@ -112,6 +119,66 @@
- 				 (s32)(((insn) >> 7) & 0x1f))
- #define MASK_FUNCT3		0x7000
+ /* for KVM_GET_REGS and KVM_SET_REGS */
+ struct kvm_regs {
++	/* out (KVM_GET_REGS) / in (KVM_SET_REGS) */
++	struct user_regs_struct regs;
++	unsigned long mode;
+ };
  
-+static int truly_illegal_insn(struct kvm_vcpu *vcpu,
-+			      struct kvm_run *run,
-+			      ulong insn)
++/* Possible privilege modes for kvm_regs */
++#define KVM_RISCV_MODE_S	1
++#define KVM_RISCV_MODE_U	0
++
+ /* for KVM_GET_FPU and KVM_SET_FPU */
+ struct kvm_fpu {
+ };
+@@ -41,10 +48,47 @@ struct kvm_guest_debug_arch {
+ struct kvm_sync_regs {
+ };
+ 
+-/* dummy definition */
++/* for KVM_GET_SREGS and KVM_SET_SREGS */
+ struct kvm_sregs {
++	unsigned long sstatus;
++	unsigned long sie;
++	unsigned long stvec;
++	unsigned long sscratch;
++	unsigned long sepc;
++	unsigned long scause;
++	unsigned long stval;
++	unsigned long sip;
++	unsigned long satp;
++};
++
++/* for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
++struct kvm_riscv_config {
++	unsigned long isa;
++	unsigned long tbfreq;
+ };
+ 
++#define KVM_REG_SIZE(id)		\
++	(1U << (((id) & KVM_REG_SIZE_MASK) >> KVM_REG_SIZE_SHIFT))
++
++/* If you need to interpret the index values, here is the key: */
++#define KVM_REG_RISCV_TYPE_MASK		0x00000000FF000000
++#define KVM_REG_RISCV_TYPE_SHIFT	24
++
++/* Config registers are mapped as type 1 */
++#define KVM_REG_RISCV_CONFIG		(0x01 << KVM_REG_RISCV_TYPE_SHIFT)
++#define KVM_REG_RISCV_CONFIG_REG(name)	\
++	(offsetof(struct kvm_riscv_config, name) / sizeof(unsigned long))
++
++/* Core registers are mapped as type 2 */
++#define KVM_REG_RISCV_CORE		(0x02 << KVM_REG_RISCV_TYPE_SHIFT)
++#define KVM_REG_RISCV_CORE_REG(name)	\
++		(offsetof(struct kvm_regs, name) / sizeof(unsigned long))
++
++/* Control and status registers are mapped as type 3 */
++#define KVM_REG_RISCV_CSR		(0x03 << KVM_REG_RISCV_TYPE_SHIFT)
++#define KVM_REG_RISCV_CSR_REG(name)	\
++		(offsetof(struct kvm_sregs, name) / sizeof(unsigned long))
++
+ #endif
+ 
+ #endif /* __LINUX_KVM_RISCV_H */
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 3223f723f79e..b95dfc959009 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -165,6 +165,215 @@ vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
+ 	return VM_FAULT_SIGBUS;
+ }
+ 
++static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
++					 const struct kvm_one_reg *reg)
 +{
-+	/* Redirect trap to Guest VCPU */
-+	kvm_riscv_vcpu_trap_redirect(vcpu, EXC_INST_ILLEGAL, insn);
++	unsigned long __user *uaddr =
++			(unsigned long __user *)(unsigned long)reg->addr;
++	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++					    KVM_REG_SIZE_MASK |
++					    KVM_REG_RISCV_CONFIG);
++	unsigned long reg_val;
 +
-+	return 1;
-+}
++	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
++		return -EINVAL;
 +
-+static int system_opcode_insn(struct kvm_vcpu *vcpu,
-+			      struct kvm_run *run,
-+			      ulong insn)
-+{
-+	if ((insn & INSN_MASK_WFI) == INSN_MATCH_WFI) {
-+		vcpu->stat.wfi_exit_stat++;
-+		if (!kvm_arch_vcpu_runnable(vcpu)) {
-+			srcu_read_unlock(&vcpu->kvm->srcu, vcpu->arch.srcu_idx);
-+			kvm_vcpu_block(vcpu);
-+			vcpu->arch.srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-+			kvm_clear_request(KVM_REQ_UNHALT, vcpu);
-+		}
-+		vcpu->arch.guest_context.sepc += INSN_LEN(insn);
-+		return 1;
-+	}
-+
-+	return truly_illegal_insn(vcpu, run, insn);
-+}
-+
-+static int illegal_inst_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
-+			      unsigned long insn)
-+{
-+	unsigned long ut_scause = 0, ut_stval = 0;
-+	struct kvm_cpu_context *ct;
-+
-+	if (unlikely((insn & 3) != 3)) {
-+		if (insn == 0) {
-+			ct = &vcpu->arch.guest_context;
-+			insn = kvm_riscv_vcpu_unpriv_read(vcpu, true,
-+							  ct->sepc,
-+							  &ut_scause,
-+							  &ut_stval);
-+			if (ut_scause) {
-+				kvm_riscv_vcpu_trap_redirect(vcpu, ut_scause,
-+							     ut_stval);
-+				return 1;
-+			}
-+		}
-+		if ((insn & 3) != 3)
-+			return truly_illegal_insn(vcpu, run, insn);
-+	}
-+
-+	switch ((insn & INSN_OPCODE_MASK) >> INSN_OPCODE_SHIFT) {
-+	case INSN_OPCODE_SYSTEM:
-+		return system_opcode_insn(vcpu, run, insn);
-+	default:
-+		return truly_illegal_insn(vcpu, run, insn);
-+	}
-+}
-+
- static int emulate_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 			unsigned long fault_addr)
- {
-@@ -507,6 +574,10 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	ret = -EFAULT;
- 	run->exit_reason = KVM_EXIT_UNKNOWN;
- 	switch (scause) {
-+	case EXC_INST_ILLEGAL:
-+		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV)
-+			ret = illegal_inst_fault(vcpu, run, stval);
++	switch (reg_num) {
++	case KVM_REG_RISCV_CONFIG_REG(isa):
++		reg_val = vcpu->arch.isa;
 +		break;
- 	case EXC_INST_PAGE_FAULT:
- 	case EXC_LOAD_PAGE_FAULT:
- 	case EXC_STORE_PAGE_FAULT:
++	case KVM_REG_RISCV_CONFIG_REG(tbfreq):
++		reg_val = riscv_timebase;
++		break;
++	default:
++		return -EINVAL;
++	};
++
++	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
++		return -EFAULT;
++
++	return 0;
++}
++
++static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
++					 const struct kvm_one_reg *reg)
++{
++	unsigned long __user *uaddr =
++			(unsigned long __user *)(unsigned long)reg->addr;
++	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++					    KVM_REG_SIZE_MASK |
++					    KVM_REG_RISCV_CONFIG);
++	unsigned long reg_val;
++
++	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
++		return -EINVAL;
++
++	if (copy_from_user(&reg_val, uaddr, KVM_REG_SIZE(reg->id)))
++		return -EFAULT;
++
++	switch (reg_num) {
++	case KVM_REG_RISCV_CONFIG_REG(isa):
++		if (!vcpu->arch.ran_atleast_once) {
++			vcpu->arch.isa = reg_val;
++			vcpu->arch.isa &= riscv_isa_extension_base(NULL);
++			vcpu->arch.isa &= KVM_RISCV_ISA_ALLOWED;
++		} else {
++			return -ENOTSUPP;
++		}
++		break;
++	case KVM_REG_RISCV_CONFIG_REG(tbfreq):
++		return -ENOTSUPP;
++	default:
++		return -EINVAL;
++	};
++
++	return 0;
++}
++
++static int kvm_riscv_vcpu_get_reg_core(struct kvm_vcpu *vcpu,
++				       const struct kvm_one_reg *reg)
++{
++	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
++	unsigned long __user *uaddr =
++			(unsigned long __user *)(unsigned long)reg->addr;
++	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++					    KVM_REG_SIZE_MASK |
++					    KVM_REG_RISCV_CORE);
++	unsigned long reg_val;
++
++	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
++		return -EINVAL;
++
++	if (reg_num == KVM_REG_RISCV_CORE_REG(regs.pc))
++		reg_val = cntx->sepc;
++	else if (KVM_REG_RISCV_CORE_REG(regs.pc) < reg_num &&
++		 reg_num <= KVM_REG_RISCV_CORE_REG(regs.t6))
++		reg_val = ((unsigned long *)cntx)[reg_num];
++	else if (reg_num == KVM_REG_RISCV_CORE_REG(mode))
++		reg_val = (cntx->sstatus & SR_SPP) ?
++				KVM_RISCV_MODE_S : KVM_RISCV_MODE_U;
++	else
++		return -EINVAL;
++
++	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
++		return -EFAULT;
++
++	return 0;
++}
++
++static int kvm_riscv_vcpu_set_reg_core(struct kvm_vcpu *vcpu,
++				       const struct kvm_one_reg *reg)
++{
++	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
++	unsigned long __user *uaddr =
++			(unsigned long __user *)(unsigned long)reg->addr;
++	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++					    KVM_REG_SIZE_MASK |
++					    KVM_REG_RISCV_CORE);
++	unsigned long reg_val;
++
++	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
++		return -EINVAL;
++
++	if (copy_from_user(&reg_val, uaddr, KVM_REG_SIZE(reg->id)))
++		return -EFAULT;
++
++	if (reg_num == KVM_REG_RISCV_CORE_REG(regs.pc))
++		cntx->sepc = reg_val;
++	else if (KVM_REG_RISCV_CORE_REG(regs.pc) < reg_num &&
++		 reg_num <= KVM_REG_RISCV_CORE_REG(regs.t6))
++		((unsigned long *)cntx)[reg_num] = reg_val;
++	else if (reg_num == KVM_REG_RISCV_CORE_REG(mode)) {
++		if (reg_val == KVM_RISCV_MODE_S)
++			cntx->sstatus |= SR_SPP;
++		else
++			cntx->sstatus &= ~SR_SPP;
++	} else
++		return -EINVAL;
++
++	return 0;
++}
++
++static int kvm_riscv_vcpu_get_reg_csr(struct kvm_vcpu *vcpu,
++				      const struct kvm_one_reg *reg)
++{
++	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
++	unsigned long __user *uaddr =
++			(unsigned long __user *)(unsigned long)reg->addr;
++	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++					    KVM_REG_SIZE_MASK |
++					    KVM_REG_RISCV_CSR);
++	unsigned long reg_val;
++
++	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
++		return -EINVAL;
++	if (reg_num >= sizeof(struct kvm_sregs) / sizeof(unsigned long))
++		return -EINVAL;
++
++	if (reg_num == KVM_REG_RISCV_CSR_REG(sip))
++		kvm_riscv_vcpu_flush_interrupts(vcpu);
++
++	reg_val = ((unsigned long *)csr)[reg_num];
++
++	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
++		return -EFAULT;
++
++	return 0;
++}
++
++static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
++				      const struct kvm_one_reg *reg)
++{
++	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
++	unsigned long __user *uaddr =
++			(unsigned long __user *)(unsigned long)reg->addr;
++	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++					    KVM_REG_SIZE_MASK |
++					    KVM_REG_RISCV_CSR);
++	unsigned long reg_val;
++
++	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
++		return -EINVAL;
++	if (reg_num >= sizeof(struct kvm_sregs) / sizeof(unsigned long))
++		return -EINVAL;
++
++	if (copy_from_user(&reg_val, uaddr, KVM_REG_SIZE(reg->id)))
++		return -EFAULT;
++
++	((unsigned long *)csr)[reg_num] = reg_val;
++
++	if (reg_num == KVM_REG_RISCV_CSR_REG(sip))
++		WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
++
++	return 0;
++}
++
++static int kvm_riscv_vcpu_set_reg(struct kvm_vcpu *vcpu,
++				  const struct kvm_one_reg *reg)
++{
++	if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_CONFIG)
++		return kvm_riscv_vcpu_set_reg_config(vcpu, reg);
++	else if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_CORE)
++		return kvm_riscv_vcpu_set_reg_core(vcpu, reg);
++	else if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_CSR)
++		return kvm_riscv_vcpu_set_reg_csr(vcpu, reg);
++
++	return -EINVAL;
++}
++
++static int kvm_riscv_vcpu_get_reg(struct kvm_vcpu *vcpu,
++				  const struct kvm_one_reg *reg)
++{
++	if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_CONFIG)
++		return kvm_riscv_vcpu_get_reg_config(vcpu, reg);
++	else if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_CORE)
++		return kvm_riscv_vcpu_get_reg_core(vcpu, reg);
++	else if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_CSR)
++		return kvm_riscv_vcpu_get_reg_csr(vcpu, reg);
++
++	return -EINVAL;
++}
++
+ long kvm_arch_vcpu_async_ioctl(struct file *filp,
+ 			       unsigned int ioctl, unsigned long arg)
+ {
+@@ -189,8 +398,30 @@ long kvm_arch_vcpu_async_ioctl(struct file *filp,
+ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 			 unsigned int ioctl, unsigned long arg)
+ {
+-	/* TODO: */
+-	return -EINVAL;
++	struct kvm_vcpu *vcpu = filp->private_data;
++	void __user *argp = (void __user *)arg;
++	long r = -EINVAL;
++
++	switch (ioctl) {
++	case KVM_SET_ONE_REG:
++	case KVM_GET_ONE_REG: {
++		struct kvm_one_reg reg;
++
++		r = -EFAULT;
++		if (copy_from_user(&reg, argp, sizeof(reg)))
++			break;
++
++		if (ioctl == KVM_SET_ONE_REG)
++			r = kvm_riscv_vcpu_set_reg(vcpu, &reg);
++		else
++			r = kvm_riscv_vcpu_get_reg(vcpu, &reg);
++		break;
++	}
++	default:
++		break;
++	}
++
++	return r;
+ }
+ 
+ int kvm_arch_vcpu_ioctl_get_sregs(struct kvm_vcpu *vcpu,
 -- 
 2.17.1
 
