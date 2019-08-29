@@ -2,99 +2,64 @@ Return-Path: <SRS0=Tq7r=WZ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 33134C3A59F
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2019 06:21:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D4411C3A5A7
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2019 06:57:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 04122215EA
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2019 06:21:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AA125215EA
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2019 06:57:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="f0oMXQSb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 04122215EA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GyERlgvX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AA125215EA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=c-sky.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:In-Reply-To:MIME-Version:
-	References:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hzB4rqEk5dwFvyqHskuZsAU3lIUDblmW6nchU1B4hxo=; b=f0oMXQSb2v8Jhr
-	VeBM/OOJXww+s1sqKfuBwXDXa60pW/k2OdTlKVqqjrPqosMtoXOneKJ0AmCly2/QIqxeuol9kkHzg
-	KKZuCcN4rtnk2rk2YJNjGhLh7HL+ugXBrkH/n8Jl4dIZnSKLo2r363UhIsP5HEGFg/9edi4MIfv8c
-	QornD06Br8+BaBj9S6lwam9SfuCW62SLj3wKCnGNnPvtKIazl7OCMT90mDj0F0yjW5cQEI75y3U4f
-	t6hHI1U9I3cj3KzFxTfnoiv/rfWNYRkSkti7ELGyKLKGuar3F/erpw6dl2E/UTrAg+TzK9y6oTBut
-	9AS1RogpdRNxxTNkktzg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=hF1hP5np/TKClV7EiDrEjK3zJNPjlWVLtoV14E7dnNc=; b=GyERlgvXPsQUl97FXN4woyj1wq
+	0Lv8ZzKbTgOurUtj3hz4Owpalx7Jiesq2PSA+DAQutqrHVeSDzF94UZ8qCgHj4D680eTX2v+adQPQ
+	hGAQUcmo7BBR+jb/E/cQmjr3IXwWwlJV/B+BB3igJwO+/ksaarRw//RYw7Nz3xH2hAFrP70b175k9
+	RZVjz7GBWtefdm6aCSaFMNNW8Ai82sTAOU2nJzREtaERsO1dA8vRl8OyqGIN8PNV0ljHmHOVxLSbz
+	j5ppaT+xGhqRLUfEUIMJyE+qRzRgCun4fnigs1joML/e+DRLUHkMOLOyhAP6Xgg53eVSluWTWHo7a
+	cB9q5qUQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i3Dob-00027K-1A; Thu, 29 Aug 2019 06:21:49 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1i3EMx-0004le-T8; Thu, 29 Aug 2019 06:57:19 +0000
+Received: from smtp2200-217.mail.aliyun.com ([121.197.200.217])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i3DoX-00026U-DH
- for linux-riscv@lists.infradead.org; Thu, 29 Aug 2019 06:21:47 +0000
-Received: from pps.filterd (m0098393.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
- x7T682Ue134011
- for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2019 02:21:35 -0400
-Received: from e06smtp01.uk.ibm.com (e06smtp01.uk.ibm.com [195.75.94.97])
- by mx0a-001b2d01.pphosted.com with ESMTP id 2up8xj0vuw-1
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
- for <linux-riscv@lists.infradead.org>; Thu, 29 Aug 2019 02:21:34 -0400
-Received: from localhost
- by e06smtp01.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
- Violators will be prosecuted
- for <linux-riscv@lists.infradead.org> from <rppt@linux.ibm.com>;
- Thu, 29 Aug 2019 07:21:32 +0100
-Received: from b06cxnps4076.portsmouth.uk.ibm.com (9.149.109.198)
- by e06smtp01.uk.ibm.com (192.168.101.131) with IBM ESMTP SMTP Gateway:
- Authorized Use Only! Violators will be prosecuted; 
- (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
- Thu, 29 Aug 2019 07:21:28 +0100
-Received: from d06av24.portsmouth.uk.ibm.com (mk.ibm.com [9.149.105.60])
- by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- x7T6LRAU47513778
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 29 Aug 2019 06:21:27 GMT
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 25B7D42041;
- Thu, 29 Aug 2019 06:21:27 +0000 (GMT)
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 1C54B4204B;
- Thu, 29 Aug 2019 06:21:26 +0000 (GMT)
-Received: from rapoport-lnx (unknown [9.148.8.160])
- by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Thu, 29 Aug 2019 06:21:26 +0000 (GMT)
-Date: Thu, 29 Aug 2019 09:21:24 +0300
-From: Mike Rapoport <rppt@linux.ibm.com>
-To: Logan Gunthorpe <logang@deltatee.com>
-Subject: Re: [PATCH v6] RISC-V: Implement sparsemem
-References: <20190828214054.3562-1-logang@deltatee.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190828214054.3562-1-logang@deltatee.com>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-TM-AS-GCONF: 00
-x-cbid: 19082906-4275-0000-0000-0000035E90A0
-X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
-x-cbparentid: 19082906-4276-0000-0000-00003870C69D
-Message-Id: <20190829062123.GA16471@rapoport-lnx>
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
- definitions=2019-08-29_04:, , signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501
- malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1906280000 definitions=main-1908290067
+ id 1i3EMt-0004j3-GC
+ for linux-riscv@lists.infradead.org; Thu, 29 Aug 2019 06:57:17 +0000
+X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07436282|-1; CH=green;
+ DM=CONTINUE|CONTINUE|true|0.50963-0.027241-0.463129; FP=0|0|0|0|0|-1|-1|-1;
+ HT=e01a16378; MF=han_mao@c-sky.com; NM=1; PH=DS; RN=9; RT=9; SR=0;
+ TI=SMTPD_---.FKp9f.G_1567061829; 
+Received: from localhost(mailfrom:han_mao@c-sky.com
+ fp:SMTPD_---.FKp9f.G_1567061829)
+ by smtp.aliyun-inc.com(10.147.44.145);
+ Thu, 29 Aug 2019 14:57:09 +0800
+From: Mao Han <han_mao@c-sky.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH V6 1/3] riscv: Add perf callchain support
+Date: Thu, 29 Aug 2019 14:57:00 +0800
+Message-Id: <86d18d80affc39cf9579a24f1beb7c8631cfa9bd.1567060834.git.han_mao@c-sky.com>
+X-Mailer: git-send-email 2.7.4
+In-Reply-To: <cover.1567060834.git.han_mao@c-sky.com>
+References: <cover.1567060834.git.han_mao@c-sky.com>
+In-Reply-To: <cover.1567060834.git.han_mao@c-sky.com>
+References: <cover.1567060834.git.han_mao@c-sky.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190828_232145_457459_D6118409 
-X-CRM114-Status: GOOD (  34.69  )
+X-CRM114-CacheID: sfid-20190828_235715_776035_A16C3C06 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -106,248 +71,178 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Waterman <andrew@sifive.com>, Palmer Dabbelt <palmer@sifive.com>,
- linux-kernel@vger.kernel.org, Michael Clark <michaeljclark@mac.com>,
- Zong Li <zong@andestech.com>, Olof Johansson <olof@lixom.net>,
- Greentime Hu <greentime.hu@sifive.com>, linux-riscv@lists.infradead.org,
- Stephen Bates <sbates@raithlin.com>, Christoph Hellwig <hch@lst.de>
+Cc: Palmer Dabbelt <palmer@sifive.com>, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, Guo Ren <guoren@kernel.org>,
+ Greentime Hu <green.hu@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Christoph Hellwig <hch@lst.de>, Mao Han <han_mao@c-sky.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 28, 2019 at 03:40:54PM -0600, Logan Gunthorpe wrote:
-> Implement sparsemem support for Risc-v which helps pave the
-> way for memory hotplug and eventually P2P support.
-> 
-> Introduce Kconfig options for virtual and physical address bits which
-> are used to calculate the size of the vmemmap and set the
-> MAX_PHYSMEM_BITS.
-> 
-> The vmemmap is located directly before the VMALLOC region and sized
-> such that we can allocate enough pages to populate all the virtual
-> address space in the system (similar to the way it's done in arm64).
-> 
-> During initialization, call memblocks_present() and sparse_init(),
-> and provide a stub for vmemmap_populate() (all of which is similar to
-> arm64).
-> 
-> [greentime.hu@sifive.com:
->   fixed pfn_valid, FIXADDR_TOP and fixed a bug rebasing onto v5.3]
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-> Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Andrew Waterman <andrew@sifive.com>
-> Cc: Olof Johansson <olof@lixom.net>
-> Cc: Michael Clark <michaeljclark@mac.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Zong Li <zong@andestech.com>
+This patch add support for perf callchain sampling on riscv platform.
+The return address of leaf function is retrieved from pt_regs as
+it is not saved in the outmost frame.
 
-Reviewed-by: Mike Rapoport <rppt@linux.ibm.com>
+Signed-off-by: Mao Han <han_mao@c-sky.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Greentime Hu <green.hu@gmail.com>
+Cc: Palmer Dabbelt <palmer@sifive.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Guo Ren <guoren@kernel.org>
+---
+ arch/riscv/Makefile                |  3 ++
+ arch/riscv/kernel/Makefile         |  3 +-
+ arch/riscv/kernel/perf_callchain.c | 95 ++++++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/stacktrace.c     |  2 +-
+ 4 files changed, 101 insertions(+), 2 deletions(-)
+ create mode 100644 arch/riscv/kernel/perf_callchain.c
 
-> ---
->  arch/riscv/Kconfig                 | 21 +++++++++++++++++++++
->  arch/riscv/include/asm/fixmap.h    |  2 +-
->  arch/riscv/include/asm/page.h      |  2 ++
->  arch/riscv/include/asm/pgtable.h   | 21 +++++++++++++++++----
->  arch/riscv/include/asm/sparsemem.h | 11 +++++++++++
->  arch/riscv/mm/init.c               | 10 ++++++++++
->  6 files changed, 62 insertions(+), 5 deletions(-)
->  create mode 100644 arch/riscv/include/asm/sparsemem.h
-> 
-> Changes in v6:
->  * Rebased onto v5.3-rc6 (no changes)
->  * Fixed up commit message wording (per Mike's feedback)
->  * Set SPARSEMEM_STATIC for 32BIT builds (per Mike)
-> 
-> Changes in v5:
->  * Rebased onto v5.3-rc5 (required moving the initialization to
->    after setup_vm_final() in paging_init())
->  * Fixed FIXADDR_TOP value (per Greentime)
->  * Use generic pfn_valid() function for sparsemem to fix a bug
->    with having holes in memory (also Greentime)
-> 
-> Changes in v4:
->  * Rebased onto v5.0-rc1
->  * Changed the SECTION_SIZE_BITS to 27, per Nick Kossifidis
-> 
-> Changes in v3 (only sent the common patches):
->  * Rebased on v4.20-rc1
->  * Minor fixups
->  * Collected Ack from Will Deacon
-> 
-> Changes in v2:
->  * Rebase on v4.19-rc8
->  * Move the STRUCT_PAGE_MAX_SHIFT define into a common header (near
->    the definition of struct page). As suggested by Christoph.
->  * Clean up the unnecessary nid variable in the memblocks_present()
->    function, per Christoph.
->  * Collected tags from Palmer and Catalin.
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 59a4727ecd6c..53b7556beb4a 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -54,6 +54,7 @@ config RISCV
->  	select EDAC_SUPPORT
->  	select ARCH_HAS_GIGANTIC_PAGE
->  	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
-> +	select SPARSEMEM_STATIC if 32BIT
-> 
->  config MMU
->  	def_bool y
-> @@ -62,12 +63,32 @@ config ZONE_DMA32
->  	bool
->  	default y if 64BIT
-> 
-> +config VA_BITS
-> +	int
-> +	default 32 if 32BIT
-> +	default 39 if 64BIT
-> +
-> +config PA_BITS
-> +	int
-> +	default 34 if 32BIT
-> +	default 56 if 64BIT
-> +
->  config PAGE_OFFSET
->  	hex
->  	default 0xC0000000 if 32BIT && MAXPHYSMEM_2GB
->  	default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
->  	default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
-> 
-> +config ARCH_FLATMEM_ENABLE
-> +	def_bool y
-> +
-> +config ARCH_SPARSEMEM_ENABLE
-> +	def_bool y
-> +	select SPARSEMEM_VMEMMAP_ENABLE
-> +
-> +config ARCH_SELECT_MEMORY_MODEL
-> +	def_bool ARCH_SPARSEMEM_ENABLE
-> +
->  config ARCH_WANT_GENERAL_HUGETLB
->  	def_bool y
-> 
-> diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-> index 9c66033c3a54..7b0259c044c9 100644
-> --- a/arch/riscv/include/asm/fixmap.h
-> +++ b/arch/riscv/include/asm/fixmap.h
-> @@ -31,7 +31,7 @@ enum fixed_addresses {
->  };
-> 
->  #define FIXADDR_SIZE		(__end_of_fixed_addresses * PAGE_SIZE)
-> -#define FIXADDR_TOP		(VMALLOC_START)
-> +#define FIXADDR_TOP		(VMEMMAP_START)
->  #define FIXADDR_START		(FIXADDR_TOP - FIXADDR_SIZE)
-> 
->  #define FIXMAP_PAGE_IO		PAGE_KERNEL
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index 707e00a8430b..3db261c4810f 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -110,8 +110,10 @@ extern unsigned long min_low_pfn;
->  #define page_to_bus(page)	(page_to_phys(page))
->  #define phys_to_page(paddr)	(pfn_to_page(phys_to_pfn(paddr)))
-> 
-> +#ifdef CONFIG_FLATMEM
->  #define pfn_valid(pfn) \
->  	(((pfn) >= pfn_base) && (((pfn)-pfn_base) < max_mapnr))
-> +#endif
-> 
->  #define ARCH_PFN_OFFSET		(pfn_base)
-> 
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index a364aba23d55..dbc19e61ee66 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -83,6 +83,23 @@ extern pgd_t swapper_pg_dir[];
->  #define __S110	PAGE_SHARED_EXEC
->  #define __S111	PAGE_SHARED_EXEC
-> 
-> +#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
-> +#define VMALLOC_END      (PAGE_OFFSET - 1)
-> +#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
-> +
-> +/*
-> + * Roughly size the vmemmap space to be large enough to fit enough
-> + * struct pages to map half the virtual address space. Then
-> + * position vmemmap directly below the VMALLOC region.
-> + */
-> +#define VMEMMAP_SHIFT \
-> +	(CONFIG_VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
-> +#define VMEMMAP_SIZE	(1UL << VMEMMAP_SHIFT)
-> +#define VMEMMAP_END	(VMALLOC_START - 1)
-> +#define VMEMMAP_START	(VMALLOC_START - VMEMMAP_SIZE)
-> +
-> +#define vmemmap		((struct page *)VMEMMAP_START)
-> +
->  /*
->   * ZERO_PAGE is a global shared page that is always zero,
->   * used for zero-mapped memory areas, etc.
-> @@ -416,10 +433,6 @@ static inline void pgtable_cache_init(void)
->  	/* No page table caches to initialize */
->  }
-> 
-> -#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
-> -#define VMALLOC_END      (PAGE_OFFSET - 1)
-> -#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
-> -
->  /*
->   * Task size is 0x4000000000 for RV64 or 0xb800000 for RV32.
->   * Note that PGDIR_SIZE must evenly divide TASK_SIZE.
-> diff --git a/arch/riscv/include/asm/sparsemem.h b/arch/riscv/include/asm/sparsemem.h
-> new file mode 100644
-> index 000000000000..b58ba2d9ed6e
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/sparsemem.h
-> @@ -0,0 +1,11 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +#ifndef __ASM_SPARSEMEM_H
-> +#define __ASM_SPARSEMEM_H
-> +
-> +#ifdef CONFIG_SPARSEMEM
-> +#define MAX_PHYSMEM_BITS	CONFIG_PA_BITS
-> +#define SECTION_SIZE_BITS	27
-> +#endif /* CONFIG_SPARSEMEM */
-> +
-> +#endif /* __ASM_SPARSEMEM_H */
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 42bf939693d3..73f40c9d3dee 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -442,6 +442,16 @@ static void __init setup_vm_final(void)
->  void __init paging_init(void)
->  {
->  	setup_vm_final();
-> +	memblocks_present();
-> +	sparse_init();
->  	setup_zero_page();
->  	zone_sizes_init();
->  }
-> +
-> +#ifdef CONFIG_SPARSEMEM
-> +int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
-> +			       struct vmem_altmap *altmap)
-> +{
-> +	return vmemmap_populate_basepages(start, end, node);
-> +}
-> +#endif
-> --
-> 2.20.1
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 7a117be..946565b 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -54,6 +54,9 @@ endif
+ ifeq ($(CONFIG_MODULE_SECTIONS),y)
+ 	KBUILD_LDFLAGS_MODULE += -T $(srctree)/arch/riscv/kernel/module.lds
+ endif
++ifeq ($(CONFIG_PERF_EVENTS),y)
++        KBUILD_CFLAGS += -fno-omit-frame-pointer
++endif
+ 
+ KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-relax)
+ 
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 2420d37..b1bea89 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -38,6 +38,7 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
+ obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
+ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+ 
+-obj-$(CONFIG_PERF_EVENTS)      += perf_event.o
++obj-$(CONFIG_PERF_EVENTS)	+= perf_event.o
++obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
+ 
+ clean:
+diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
+new file mode 100644
+index 0000000..72168e1
+--- /dev/null
++++ b/arch/riscv/kernel/perf_callchain.c
+@@ -0,0 +1,95 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd. */
++
++#include <linux/perf_event.h>
++#include <linux/uaccess.h>
++
++/* Kernel callchain */
++struct stackframe {
++	unsigned long fp;
++	unsigned long ra;
++};
++
++/*
++ * Get the return address for a single stackframe and return a pointer to the
++ * next frame tail.
++ */
++static unsigned long user_backtrace(struct perf_callchain_entry_ctx *entry,
++			unsigned long fp, unsigned long reg_ra)
++{
++	struct stackframe buftail;
++	unsigned long ra = 0;
++	unsigned long *user_frame_tail =
++			(unsigned long *)(fp - sizeof(struct stackframe));
++
++	/* Check accessibility of one struct frame_tail beyond */
++	if (!access_ok(user_frame_tail, sizeof(buftail)))
++		return 0;
++	if (__copy_from_user_inatomic(&buftail, user_frame_tail,
++				      sizeof(buftail)))
++		return 0;
++
++	if (reg_ra != 0)
++		ra = reg_ra;
++	else
++		ra = buftail.ra;
++
++	fp = buftail.fp;
++	if (ra != 0)
++		perf_callchain_store(entry, ra);
++	else
++		return 0;
++
++	return fp;
++}
++
++/*
++ * This will be called when the target is in user mode
++ * This function will only be called when we use
++ * "PERF_SAMPLE_CALLCHAIN" in
++ * kernel/events/core.c:perf_prepare_sample()
++ *
++ * How to trigger perf_callchain_[user/kernel] :
++ * $ perf record -e cpu-clock --call-graph fp ./program
++ * $ perf report --call-graph
++ *
++ * On RISC-V platform, the program being sampled and the C library
++ * need to be compiled with -fno-omit-frame-pointer, otherwise
++ * the user stack will not contain function frame.
++ */
++void perf_callchain_user(struct perf_callchain_entry_ctx *entry,
++			 struct pt_regs *regs)
++{
++	unsigned long fp = 0;
++
++	/* RISC-V does not support perf in guest mode. */
++	if (perf_guest_cbs && perf_guest_cbs->is_in_guest())
++		return;
++
++	fp = regs->s0;
++	perf_callchain_store(entry, regs->sepc);
++
++	fp = user_backtrace(entry, fp, regs->ra);
++	while (fp && !(fp & 0x3) && entry->nr < entry->max_stack)
++		fp = user_backtrace(entry, fp, 0);
++}
++
++bool fill_callchain(unsigned long pc, void *entry)
++{
++	return perf_callchain_store(entry, pc);
++}
++
++void notrace walk_stackframe(struct task_struct *task,
++	struct pt_regs *regs, bool (*fn)(unsigned long, void *), void *arg);
++void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
++			   struct pt_regs *regs)
++{
++
++	/* RISC-V does not support perf in guest mode. */
++	if (perf_guest_cbs && perf_guest_cbs->is_in_guest()) {
++		pr_warn("RISC-V does not support perf in guest mode!");
++		return;
++	}
++
++	walk_stackframe(NULL, regs, fill_callchain, entry);
++}
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index f156427..9b376c1 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -19,7 +19,7 @@ struct stackframe {
+ 	unsigned long ra;
+ };
+ 
+-static void notrace walk_stackframe(struct task_struct *task,
++void notrace walk_stackframe(struct task_struct *task,
+ 	struct pt_regs *regs, bool (*fn)(unsigned long, void *), void *arg)
+ {
+ 	unsigned long fp, sp, pc;
 -- 
-Sincerely yours,
-Mike.
+2.7.4
 
 
 _______________________________________________
