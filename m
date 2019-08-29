@@ -7,18 +7,18 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DBC47C3A5A6
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2019 13:57:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6C818C3A59F
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2019 13:57:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AC8F323428
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2019 13:57:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 40A9223403
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 29 Aug 2019 13:57:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="G1EsH3vh";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="MBE0I64k";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="OB2orX8D"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AC8F323428
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GhvMd7O5";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="KMDPqD4O";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="LgiG3OId"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 40A9223403
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,72 +27,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JjJsk4Pb9A/4Icr8ocQH/WJqXH6TzUu72yQXNYoJV58=; b=G1EsH3vhuGPXFx
-	Uy2cyU/WmK7DegNK2MRf5QKi5gL9qQszyn0kdg+2n4LDTILCKf6qbbr2dkNy+jLYKVqswYwpF7G/3
-	cFCLFOec8nnOmhf5JBHjzQbNc51cUzb47tpJEQp1S9yN8fyWhVFketVFFw/6RaKn5Hwf+fmSfglgc
-	6cHSHuXLS9zM/jeFWzSDpvJZQApfXlgoFK323imyxDIn3I9L48P6ngh6/WbMPztiyisGOYDO/Qft9
-	gb6Wt1kKBfwLtOKlojg2ygqyQWPkuvbljxehJQt1hIrpvVrJD3xSC2diEkUtQUnmAkdT2K6bIi5uz
-	974fpSOctgcN82U3jrsg==;
+	List-Owner; bh=qzIEEWEm7FKUcBQz05H6T/ykituZT5Ay4eh02cX25HU=; b=GhvMd7O5b5gztS
+	EhONdo22EctBGPY25kPW83lHyUf5q1c0a6opjGrvZsHi+F1e5Ws3jJac7GWNDa5HHTSSX6ZktPkiL
+	ARvtVJGnyAYa8a51k02lRsOx1GiYzWnkA8uIsrtRYJW1lyJWafiEXr7y4kTBhOr6nBTOHLgv43pqr
+	eYg2qpGrKNYLEMfZuz9ilPaQ1L5SDae9hoBS9Klze49h89FR+IZyiKk4zPp65vQfGIwO2LzoQ4vab
+	rw/AZOLmtFC/ioTxLVtqjL9Y1C4SGRXDUpQKAbYpbLYHm3dlv4KmR8x14j7+/8v6Y0B09Nl2/QUNU
+	3Sg7BzcpcqCnmv4EzofQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i3KvQ-0003Jg-Os; Thu, 29 Aug 2019 13:57:20 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1i3KvZ-0003ST-9d; Thu, 29 Aug 2019 13:57:29 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i3Kv7-00035F-D0
- for linux-riscv@lists.infradead.org; Thu, 29 Aug 2019 13:57:03 +0000
+ id 1i3KvM-0003FU-AT
+ for linux-riscv@lists.infradead.org; Thu, 29 Aug 2019 13:57:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1567087022; x=1598623022;
+ t=1567087036; x=1598623036;
  h=from:to:cc:subject:date:message-id:references:
  in-reply-to:content-transfer-encoding:mime-version;
- bh=NgbKWnn+CXo3HW/1hSoRiQtMxauIAIBVA+f/9T2z5TU=;
- b=MBE0I64kAd19qMwCIdMiyiEXz7B2m1ZYHbVYlOyrwSu4mHjV/c519OXY
- pTULm3DS3Af/a61XGutV1dj5g5oyU0esI440uDLqXJiyNYMLq2FfpEJl4
- +gKYRvozPDoTm7hScSe5z2n4yCGTFdEwT3G3heYQAsyWm5xhuFGsz6BvN
- U74pBuAtm3Z/G3aQlhhkWuS5FPTdmYD9omUuCcVTj6jvD879IZhp4haO0
- ecx/if0W0vXdADjBb8J5WiS8pF5bAfgJG6H7L7NJLLrhniQtJR8DQPXYq
- al8OVCpQjNZ9QanKaDDar62k6AgmpoxUcwRT6Ad3LBmo8Uvn2w+tRUQCc w==;
-IronPort-SDR: 2W7Su1o7NqwJ5bMl4/Ad0QlRmjZZWmoka0NDmQ8F7SIIBc4zPELvp/8VAMYXIK0wCc9RHPCyJZ
- jaeY3nPUjnA6XpKGItqVLKuq952uGFeWoaSaGMkqIkAwvuuDpTt3Kb219yOX00D7cW0tr/tLsi
- ZTrgI8XEGUW8xQLvx35fQAFoSOCARwJz/jvopjt2fYgWkJVFFNhTScTrRydVHNj+Pci79V6NLb
- UEZrhyRJVKs9JwzWHyG3A08NxmSdGye/pUtAyhVPTLDkJU3DI8mGYjFOjWUtEncVYXODWVq+mr
- mYI=
-X-IronPort-AV: E=Sophos;i="5.64,443,1559491200"; d="scan'208";a="121525759"
-Received: from mail-by2nam05lp2058.outbound.protection.outlook.com (HELO
- NAM05-BY2-obe.outbound.protection.outlook.com) ([104.47.50.58])
- by ob1.hgst.iphmx.com with ESMTP; 29 Aug 2019 21:57:00 +0800
+ bh=M7oNVDegS8hVbbck37yFb7EKnzRYiQYbgXTcmIog66M=;
+ b=KMDPqD4OzG64wHgNOZcW3lJTNQ3/aCfeZzCM0rSeI0U2VkaNw6IRk+XU
+ 7rGXDdgMCxQ0OmbMzyz0pHTyCAmWHqQ4iQOKRFt9nXOIYXEc1ICJD2Id3
+ /5OcUQlTaMxi8yOzi9AiGevUdy066K6TLBejqfqqKo+5z3KSxd123of1K
+ X0ttGbi79TOzv2U5KsiFjTNOrWYu/78U5BS/WH6KVp+UySAq5+M3za6ex
+ 3yXTp9yhvGAh7bG/0BrKKrmEVHUTBqb6UotfYy71zhApqqrC5smAlIkFW
+ ygn1eCHHzGSJ4HIbEHhvNkndTIqPqD40ysLz48rDC4hy0uSuYWcuVF7DF g==;
+IronPort-SDR: XF2azSPLMAfcr9GkvQmeImSAJZUZxmmDGgmOaKV7KVxElSXMTIqF9BosCKKpjaP/2BMyaFKNHd
+ R3wcDz/bzmqRk6BI3AYpW71xLa3YkM/4Pw5DvVsgQoRuzGGTV9KINxkVEz+idCDWSoSjuYnpBd
+ lpPiuFJIbp+oc2Ca5D9UNkFC5O8NK0orsJuJzHucMTnJisDZsOHpPslG2kujfZEee4PZj26Vh/
+ 7n/uMc+e5A550J2BvplQUeA+PgUNORXQyfB4eUf6G1nN8QI+06PUHFXPh5UxMg1ANhnG07HiFV
+ qT4=
+X-IronPort-AV: E=Sophos;i="5.64,443,1559491200"; d="scan'208";a="223616011"
+Received: from mail-co1nam04lp2059.outbound.protection.outlook.com (HELO
+ NAM04-CO1-obe.outbound.protection.outlook.com) ([104.47.45.59])
+ by ob1.hgst.iphmx.com with ESMTP; 29 Aug 2019 21:57:14 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=R8MSToSnQHwtMe025ikTRrcl+M3txxKKBxf3oqxHKpzLszngaoOdomTXtzOkuwusdkuFNDjkxuA8ToQP1vDvbvLPcGtzVoiEqZH/DVzbHf/JhwVQM0qhNiMj49LujnAk2ZDzR/7yHtjhPMrXXBPHueHTq9YeSh39yWNhhQDGHc+1xd1WYhm8AiyTvoT9YEUYeBD1Cp2k6ReqxLJv2gRlyUtfnItG+dUCWB+S+fLPXOvJnQokX8vaPeFp601XkzcELZSIbqp30YfUnKCzJXhgmEi5TIRcamlCheWziCKyMfdUzRFIYSN8DF7svfqgnlmXiIoDgWYyzareRIDIJ8tlxg==
+ b=UZb5Y52aoguCY/ws3BJZwahfuNKL+xMF7H6ybVzRridcYtFWdj6QuZzyo/LqCOjh7BE1OJAoPJMZtTCHUKJuH3+4MqFuyvgKxsYU3C/lqxekCmWCmyBx1Mf/bk4CWAyNcPrLcPd4znP9Oi6la3XX5fQ+ovN6oX6Ca/6vtI/NSU4hPpFsHOlBnw5mKy8UqNSZ2uxuck/vE8oGzyzYcrR02XvyotS3bZW5u9wQcfnl/fLelGxjFXtHBP0r3m2QhLSP7df2zHBHnWOjzqVZwCSiHqFy++41gZNed7v/Q2qUuFW+oI4Ck88cReYr6ez9YEizPcTRtgiYVQyD6kYHCKM5+g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xw5WuZjPL121i8rT42gf0cpfsgSYegyXjO/W17K164o=;
- b=Z85ZTU/NmXvfBmnrv3YNWnq6nUPVaN7YaLJkVpfbn6ZrgtHtlIWLbSxNjsNxDk37wKFv8rCXpUOSCNMPvnmB8sKBWkMwrxtPhVSNjwi8aOpE5QPuzhu6qyQdx5d1bpojR0DvC8EzmsgW/tjyyu0XigAErMEbgOuEqYyaLQ5T6RWjNcvABOlLIOHAwBDkv3V+4rjFJHFybPY4K7MzsAOmKD/pq+t6hXS4qb6MkqKG5vVAGgWyPC0VFaGc3hFhP0cmQVnmAcJPlS+Qqfn2t75wewN7JAd5SSg4FKaC5e8Zl/9dw1ZPB55a22YvWWk89wCfYVynEapXuXAmxuhslm60FA==
+ bh=9Z8wHDMZ0PkSoweyUHqubvSXDhR7X8i3hxWJHV7rtjQ=;
+ b=lTsTerPr0e8vUUlbMkpD8coRs1fppzaQajB+O/JBaGB0iXspqNfUmd9Tumozr3/1NPMmfoDxb095hG5rRsG+F6hlhZ0d+8KT3LO/0WoQq0V+y/nPmS9TQWZPSagmlxiQ5fa3Q0Q8CgqVzWZJ9Ef6ZLM69O+Chm7PKW57hcZota7V/RwOuuvU30BMtFy+nKa9Xr/S9PJvMS5L8Wc2H5ni2US6nmv2AmbzHE8fsw79h34HZ4dRUVABEFacv/k05Ee4xGaBmbN0PRnJ6CLkZtSz/Y5CeeefAegLALoZBWoe6FWBB5hAVrw554+z8U4T9yFSSCNCS3NI1IOcyYDh5IQ2rA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xw5WuZjPL121i8rT42gf0cpfsgSYegyXjO/W17K164o=;
- b=OB2orX8DMjBNbnk+PPsyElRV+9b+Sj4IRZV695DCjqB4NAEFXRJAgXEGyfeq7kfvjik/qSAnePi3QZsS7MOZQhaBF34OkK3ytdU2SKl4g0WlC1F8WOADCan5IUUgRD1CrlBStwQ+GTXXnTGKCVtsISAOqWuWFFghuS4C2XcQH54=
+ bh=9Z8wHDMZ0PkSoweyUHqubvSXDhR7X8i3hxWJHV7rtjQ=;
+ b=LgiG3OIdrs8+DORP3NH3mrz9eZSQ2l9Sj2Ifp6Y/l7AXndWUtO3PE5YMj1VaA0LFjmt6/k5gziSsiySxPLJ3ws+LYS/DEnFhuaASiw6kQSQKKq/Wr5IX9iPlDQZBRdvWeu4ZIUdEagpa3JMXnIyHrLR9bVS/ej4w26+E7bYdH6Q=
 Received: from MN2PR04MB6061.namprd04.prod.outlook.com (20.178.246.15) by
- MN2PR04MB5616.namprd04.prod.outlook.com (20.179.22.29) with Microsoft SMTP
+ MN2PR04MB6255.namprd04.prod.outlook.com (20.178.245.75) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2199.21; Thu, 29 Aug 2019 13:56:58 +0000
+ 15.20.2199.21; Thu, 29 Aug 2019 13:57:13 +0000
 Received: from MN2PR04MB6061.namprd04.prod.outlook.com
  ([fe80::e1a5:8de2:c3b1:3fb0]) by MN2PR04MB6061.namprd04.prod.outlook.com
  ([fe80::e1a5:8de2:c3b1:3fb0%7]) with mapi id 15.20.2220.013; Thu, 29 Aug 2019
- 13:56:58 +0000
+ 13:57:13 +0000
 From: Anup Patel <Anup.Patel@wdc.com>
 To: Palmer Dabbelt <palmer@sifive.com>, Paul Walmsley
  <paul.walmsley@sifive.com>, Paolo Bonzini <pbonzini@redhat.com>, Radim K
  <rkrcmar@redhat.com>
-Subject: [PATCH v6 16/21] RISC-V: KVM: FP lazy save/restore
-Thread-Topic: [PATCH v6 16/21] RISC-V: KVM: FP lazy save/restore
-Thread-Index: AQHVXnGfynwfJ218i0ySTZmIKixWDg==
-Date: Thu, 29 Aug 2019 13:56:58 +0000
-Message-ID: <20190829135427.47808-17-anup.patel@wdc.com>
+Subject: [PATCH v6 18/21] RISC-V: KVM: Add SBI v0.1 support
+Thread-Topic: [PATCH v6 18/21] RISC-V: KVM: Add SBI v0.1 support
+Thread-Index: AQHVXnGor3ahhOmh2UqqkYsTy5M5jw==
+Date: Thu, 29 Aug 2019 13:57:13 +0000
+Message-ID: <20190829135427.47808-19-anup.patel@wdc.com>
 References: <20190829135427.47808-1-anup.patel@wdc.com>
 In-Reply-To: <20190829135427.47808-1-anup.patel@wdc.com>
 Accept-Language: en-US
@@ -108,36 +108,36 @@ x-ms-exchange-messagesentrepresentingtype: 1
 x-mailer: git-send-email 2.17.1
 x-originating-ip: [49.207.51.114]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: aa9d8668-14cb-40fa-09a1-08d72c88c22e
+x-ms-office365-filtering-correlation-id: 438d6cb1-51fb-46ba-d7b4-08d72c88cad9
 x-ms-office365-filtering-ht: Tenant
 x-microsoft-antispam: BCL:0; PCL:0;
  RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(7168020)(4627221)(201703031133081)(201702281549075)(8990200)(5600166)(711020)(4605104)(1401327)(4618075)(2017052603328)(7193020);
- SRVR:MN2PR04MB5616; 
-x-ms-traffictypediagnostic: MN2PR04MB5616:
+ SRVR:MN2PR04MB6255; 
+x-ms-traffictypediagnostic: MN2PR04MB6255:
 x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <MN2PR04MB5616AA456450C99920A013BF8DA20@MN2PR04MB5616.namprd04.prod.outlook.com>
+x-microsoft-antispam-prvs: <MN2PR04MB6255E1305B94DEED687749E78DA20@MN2PR04MB6255.namprd04.prod.outlook.com>
 wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:7219;
+x-ms-oob-tlc-oobclassifiers: OLM:6108;
 x-forefront-prvs: 0144B30E41
 x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(4636009)(39860400002)(136003)(366004)(376002)(346002)(396003)(189003)(199004)(7416002)(52116002)(81166006)(316002)(6506007)(386003)(30864003)(25786009)(7736002)(81156014)(305945005)(2906002)(36756003)(71190400001)(14454004)(99286004)(1076003)(256004)(14444005)(4326008)(66946007)(76176011)(66446008)(64756008)(66556008)(66476007)(102836004)(6116002)(50226002)(55236004)(476003)(6512007)(3846002)(71200400001)(5660300002)(26005)(186003)(44832011)(86362001)(66066001)(6436002)(446003)(8936002)(6486002)(110136005)(54906003)(2616005)(486006)(53936002)(53946003)(11346002)(478600001)(8676002);
- DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB5616;
+ SFS:(10019020)(4636009)(39860400002)(366004)(396003)(346002)(376002)(136003)(199004)(189003)(446003)(55236004)(11346002)(76176011)(386003)(2616005)(53936002)(36756003)(25786009)(5660300002)(4326008)(6436002)(316002)(6486002)(99286004)(6506007)(71190400001)(256004)(14444005)(6512007)(486006)(52116002)(2906002)(476003)(1076003)(102836004)(478600001)(81166006)(81156014)(110136005)(8676002)(54906003)(26005)(66446008)(64756008)(66556008)(66476007)(86362001)(7416002)(6116002)(50226002)(7736002)(14454004)(3846002)(66066001)(8936002)(44832011)(71200400001)(66946007)(186003)(305945005);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB6255;
  H:MN2PR04MB6061.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
+ PTR:InfoNoRecords; A:1; MX:1; 
 x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: ADyZ4vCeII7u70dNU+wla0Izx95A26jYeVvo2QGnRyoziYRinq9yHZycf8BdwpJZmJP2r9mpJgQ21oumwXruYVFbwRC07fTFuhpiXLHbQy3SSBnLP42PbfX7hr7XhUXHVmXqR44BLyoKjMyTcKG23Di3lz87auckHy/jJRDigGF4MWfMsZYOoCx27bqwoLgIot8D2WyjDlfqIxhwNfuv3uGmN/20kdK6nDjerzgyIEOkH121v4UInSU07tu0xEbdHxt5z4NxYAxhCwz23VYXfrndtZ2lKmjYaoyj9PovL0qcYXbcpXD1RWomjcXfyJmMBYiexJqhaNt29iV6AQHMeIM4VP3yyUJzeEmWAbvrWfHGHaJ8g8i5W1PpHU+3Nu1DIXrHxF0HfH3xXTocWvuAzBTDSUL2XXDZE574olkFYI4=
+x-microsoft-antispam-message-info: JjN3nRSLokzU+BGP9fbPhniDPJwXSkA3uBB/tOOKyeWTht+zH4yxPzz/+Wx0buEwK0x3o0CqASBBh3IXVTqxAZDpPXE2GsZpHyUxN3W15huTymOeg45SJ7mHvUJm8e/+vsszy1mzYickWN4xzohXidsZCzFqhW2tNDMELvXBulDQFoMvTGxkxo73NsDkosvt/6+4WF2Q/HvKFtSEfBqG67tjgAEQBx84BXcQpbi+/5e8RvTd3g/NiA5jKZwJdReQr5KX7wO92ds0+tGOli7iTseXGdQeKBlJOjSI2A/V6n9MKGvdMUJAn2ObPuH2vNSUKui9Gs9BrendgfB/o5ev5WzyIcZJlLr0+ng2hgCYmdQcD1E5k7MfYIuwHRKhx8pHXwdCaTMf1k/vtZV7QBnmD1Ynfv+E7uS8jlUm8wRcAgk=
 MIME-Version: 1.0
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aa9d8668-14cb-40fa-09a1-08d72c88c22e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Aug 2019 13:56:58.5033 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 438d6cb1-51fb-46ba-d7b4-08d72c88cad9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Aug 2019 13:57:13.0410 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: mQhi4mdpQZUfuJXU8NvRjNPaAf1dA3/NbHkZbvTIiKFudHt0W1pIAYDrHhRRTsTQ5Qe0p/Hh1sXTKi2DQil9bQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB5616
+X-MS-Exchange-CrossTenant-userprincipalname: NYqYdwbwbYkrbyZ8nsQwT13NHy/BQxyZ75X0qmqD5EWKttMGcHv9tIgZgS7FWxSyTPodiLMVf/FLZHijNtob0Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB6255
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190829_065701_612398_12A06004 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20190829_065716_787067_D586BC94 
+X-CRM114-Status: GOOD (  19.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -164,431 +164,172 @@ Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.i
 
 From: Atish Patra <atish.patra@wdc.com>
 
-This patch adds floating point (F and D extension) context save/restore
-for guest VCPUs. The FP context is saved and restored lazily only when
-kernel enter/exits the in-kernel run loop and not during the KVM world
-switch. This way FP save/restore has minimal impact on KVM performance.
+The KVM host kernel running in HS-mode needs to handle SBI calls coming
+from guest kernel running in VS-mode.
+
+This patch adds SBI v0.1 support in KVM RISC-V. All the SBI calls are
+implemented correctly except remote tlb flushes. For remote TLB flushes,
+we are doing full TLB flush and this will be optimized in future.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
 Acked-by: Paolo Bonzini <pbonzini@redhat.com>
 Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
-Reviewed-by: Alexander Graf <graf@amazon.com>
 ---
- arch/riscv/include/asm/kvm_host.h |   5 +
- arch/riscv/kernel/asm-offsets.c   |  72 +++++++++++++
- arch/riscv/kvm/vcpu.c             |  81 ++++++++++++++
- arch/riscv/kvm/vcpu_switch.S      | 174 ++++++++++++++++++++++++++++++
- 4 files changed, 332 insertions(+)
+ arch/riscv/include/asm/kvm_host.h |   2 +
+ arch/riscv/kvm/Makefile           |   2 +-
+ arch/riscv/kvm/vcpu_exit.c        |   3 +
+ arch/riscv/kvm/vcpu_sbi.c         | 104 ++++++++++++++++++++++++++++++
+ 4 files changed, 110 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/kvm/vcpu_sbi.c
 
 diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 54356b228e5f..30be3cef76b6 100644
+index 30be3cef76b6..70b2e45a837b 100644
 --- a/arch/riscv/include/asm/kvm_host.h
 +++ b/arch/riscv/include/asm/kvm_host.h
-@@ -116,6 +116,7 @@ struct kvm_cpu_context {
- 	unsigned long sepc;
- 	unsigned long sstatus;
- 	unsigned long hstatus;
-+	union __riscv_fp_state fp;
- };
+@@ -250,4 +250,6 @@ bool kvm_riscv_vcpu_has_interrupt(struct kvm_vcpu *vcpu);
+ void kvm_riscv_vcpu_power_off(struct kvm_vcpu *vcpu);
+ void kvm_riscv_vcpu_power_on(struct kvm_vcpu *vcpu);
  
- struct kvm_vcpu_csr {
-@@ -236,6 +237,10 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 			unsigned long scause, unsigned long stval);
++int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu);
++
+ #endif /* __RISCV_KVM_HOST_H__ */
+diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+index 3e0c7558320d..b56dc1650d2c 100644
+--- a/arch/riscv/kvm/Makefile
++++ b/arch/riscv/kvm/Makefile
+@@ -9,6 +9,6 @@ ccflags-y := -Ivirt/kvm -Iarch/riscv/kvm
+ kvm-objs := $(common-objs-y)
  
- void __kvm_riscv_switch_to(struct kvm_vcpu_arch *vcpu_arch);
-+void __kvm_riscv_fp_f_save(struct kvm_cpu_context *context);
-+void __kvm_riscv_fp_f_restore(struct kvm_cpu_context *context);
-+void __kvm_riscv_fp_d_save(struct kvm_cpu_context *context);
-+void __kvm_riscv_fp_d_restore(struct kvm_cpu_context *context);
+ kvm-objs += main.o vm.o vmid.o tlb.o mmu.o
+-kvm-objs += vcpu.o vcpu_exit.o vcpu_switch.o vcpu_timer.o
++kvm-objs += vcpu.o vcpu_exit.o vcpu_switch.o vcpu_timer.o vcpu_sbi.o
  
- int kvm_riscv_vcpu_set_interrupt(struct kvm_vcpu *vcpu, unsigned int irq);
- int kvm_riscv_vcpu_unset_interrupt(struct kvm_vcpu *vcpu, unsigned int irq);
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index 711656710190..9980069a1acf 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -185,6 +185,78 @@ void asm_offsets(void)
- 	OFFSET(KVM_ARCH_HOST_SSCRATCH, kvm_vcpu_arch, host_sscratch);
- 	OFFSET(KVM_ARCH_HOST_STVEC, kvm_vcpu_arch, host_stvec);
- 
-+	/* F extension */
+ obj-$(CONFIG_KVM)	+= kvm.o
+diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+index 321062fff65b..9079793ddfff 100644
+--- a/arch/riscv/kvm/vcpu_exit.c
++++ b/arch/riscv/kvm/vcpu_exit.c
+@@ -585,6 +585,9 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		    (vcpu->arch.guest_context.hstatus & HSTATUS_STL))
+ 			ret = stage2_page_fault(vcpu, run, scause, stval);
+ 		break;
++	case EXC_SUPERVISOR_SYSCALL:
++		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV)
++			ret = kvm_riscv_vcpu_sbi_ecall(vcpu);
+ 	default:
+ 		break;
+ 	};
+diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+new file mode 100644
+index 000000000000..6190b5c68e2a
+--- /dev/null
++++ b/arch/riscv/kvm/vcpu_sbi.c
+@@ -0,0 +1,104 @@
++// SPDX-License-Identifier: GPL-2.0
++/**
++ * Copyright (c) 2019 Western Digital Corporation or its affiliates.
++ *
++ * Authors:
++ *     Atish Patra <atish.patra@wdc.com>
++ */
 +
-+	OFFSET(KVM_ARCH_FP_F_F0, kvm_cpu_context, fp.f.f[0]);
-+	OFFSET(KVM_ARCH_FP_F_F1, kvm_cpu_context, fp.f.f[1]);
-+	OFFSET(KVM_ARCH_FP_F_F2, kvm_cpu_context, fp.f.f[2]);
-+	OFFSET(KVM_ARCH_FP_F_F3, kvm_cpu_context, fp.f.f[3]);
-+	OFFSET(KVM_ARCH_FP_F_F4, kvm_cpu_context, fp.f.f[4]);
-+	OFFSET(KVM_ARCH_FP_F_F5, kvm_cpu_context, fp.f.f[5]);
-+	OFFSET(KVM_ARCH_FP_F_F6, kvm_cpu_context, fp.f.f[6]);
-+	OFFSET(KVM_ARCH_FP_F_F7, kvm_cpu_context, fp.f.f[7]);
-+	OFFSET(KVM_ARCH_FP_F_F8, kvm_cpu_context, fp.f.f[8]);
-+	OFFSET(KVM_ARCH_FP_F_F9, kvm_cpu_context, fp.f.f[9]);
-+	OFFSET(KVM_ARCH_FP_F_F10, kvm_cpu_context, fp.f.f[10]);
-+	OFFSET(KVM_ARCH_FP_F_F11, kvm_cpu_context, fp.f.f[11]);
-+	OFFSET(KVM_ARCH_FP_F_F12, kvm_cpu_context, fp.f.f[12]);
-+	OFFSET(KVM_ARCH_FP_F_F13, kvm_cpu_context, fp.f.f[13]);
-+	OFFSET(KVM_ARCH_FP_F_F14, kvm_cpu_context, fp.f.f[14]);
-+	OFFSET(KVM_ARCH_FP_F_F15, kvm_cpu_context, fp.f.f[15]);
-+	OFFSET(KVM_ARCH_FP_F_F16, kvm_cpu_context, fp.f.f[16]);
-+	OFFSET(KVM_ARCH_FP_F_F17, kvm_cpu_context, fp.f.f[17]);
-+	OFFSET(KVM_ARCH_FP_F_F18, kvm_cpu_context, fp.f.f[18]);
-+	OFFSET(KVM_ARCH_FP_F_F19, kvm_cpu_context, fp.f.f[19]);
-+	OFFSET(KVM_ARCH_FP_F_F20, kvm_cpu_context, fp.f.f[20]);
-+	OFFSET(KVM_ARCH_FP_F_F21, kvm_cpu_context, fp.f.f[21]);
-+	OFFSET(KVM_ARCH_FP_F_F22, kvm_cpu_context, fp.f.f[22]);
-+	OFFSET(KVM_ARCH_FP_F_F23, kvm_cpu_context, fp.f.f[23]);
-+	OFFSET(KVM_ARCH_FP_F_F24, kvm_cpu_context, fp.f.f[24]);
-+	OFFSET(KVM_ARCH_FP_F_F25, kvm_cpu_context, fp.f.f[25]);
-+	OFFSET(KVM_ARCH_FP_F_F26, kvm_cpu_context, fp.f.f[26]);
-+	OFFSET(KVM_ARCH_FP_F_F27, kvm_cpu_context, fp.f.f[27]);
-+	OFFSET(KVM_ARCH_FP_F_F28, kvm_cpu_context, fp.f.f[28]);
-+	OFFSET(KVM_ARCH_FP_F_F29, kvm_cpu_context, fp.f.f[29]);
-+	OFFSET(KVM_ARCH_FP_F_F30, kvm_cpu_context, fp.f.f[30]);
-+	OFFSET(KVM_ARCH_FP_F_F31, kvm_cpu_context, fp.f.f[31]);
-+	OFFSET(KVM_ARCH_FP_F_FCSR, kvm_cpu_context, fp.f.fcsr);
++#include <linux/errno.h>
++#include <linux/err.h>
++#include <linux/kvm_host.h>
++#include <asm/csr.h>
++#include <asm/kvm_vcpu_timer.h>
 +
-+	/* D extension */
++#define SBI_VERSION_MAJOR			0
++#define SBI_VERSION_MINOR			1
 +
-+	OFFSET(KVM_ARCH_FP_D_F0, kvm_cpu_context, fp.d.f[0]);
-+	OFFSET(KVM_ARCH_FP_D_F1, kvm_cpu_context, fp.d.f[1]);
-+	OFFSET(KVM_ARCH_FP_D_F2, kvm_cpu_context, fp.d.f[2]);
-+	OFFSET(KVM_ARCH_FP_D_F3, kvm_cpu_context, fp.d.f[3]);
-+	OFFSET(KVM_ARCH_FP_D_F4, kvm_cpu_context, fp.d.f[4]);
-+	OFFSET(KVM_ARCH_FP_D_F5, kvm_cpu_context, fp.d.f[5]);
-+	OFFSET(KVM_ARCH_FP_D_F6, kvm_cpu_context, fp.d.f[6]);
-+	OFFSET(KVM_ARCH_FP_D_F7, kvm_cpu_context, fp.d.f[7]);
-+	OFFSET(KVM_ARCH_FP_D_F8, kvm_cpu_context, fp.d.f[8]);
-+	OFFSET(KVM_ARCH_FP_D_F9, kvm_cpu_context, fp.d.f[9]);
-+	OFFSET(KVM_ARCH_FP_D_F10, kvm_cpu_context, fp.d.f[10]);
-+	OFFSET(KVM_ARCH_FP_D_F11, kvm_cpu_context, fp.d.f[11]);
-+	OFFSET(KVM_ARCH_FP_D_F12, kvm_cpu_context, fp.d.f[12]);
-+	OFFSET(KVM_ARCH_FP_D_F13, kvm_cpu_context, fp.d.f[13]);
-+	OFFSET(KVM_ARCH_FP_D_F14, kvm_cpu_context, fp.d.f[14]);
-+	OFFSET(KVM_ARCH_FP_D_F15, kvm_cpu_context, fp.d.f[15]);
-+	OFFSET(KVM_ARCH_FP_D_F16, kvm_cpu_context, fp.d.f[16]);
-+	OFFSET(KVM_ARCH_FP_D_F17, kvm_cpu_context, fp.d.f[17]);
-+	OFFSET(KVM_ARCH_FP_D_F18, kvm_cpu_context, fp.d.f[18]);
-+	OFFSET(KVM_ARCH_FP_D_F19, kvm_cpu_context, fp.d.f[19]);
-+	OFFSET(KVM_ARCH_FP_D_F20, kvm_cpu_context, fp.d.f[20]);
-+	OFFSET(KVM_ARCH_FP_D_F21, kvm_cpu_context, fp.d.f[21]);
-+	OFFSET(KVM_ARCH_FP_D_F22, kvm_cpu_context, fp.d.f[22]);
-+	OFFSET(KVM_ARCH_FP_D_F23, kvm_cpu_context, fp.d.f[23]);
-+	OFFSET(KVM_ARCH_FP_D_F24, kvm_cpu_context, fp.d.f[24]);
-+	OFFSET(KVM_ARCH_FP_D_F25, kvm_cpu_context, fp.d.f[25]);
-+	OFFSET(KVM_ARCH_FP_D_F26, kvm_cpu_context, fp.d.f[26]);
-+	OFFSET(KVM_ARCH_FP_D_F27, kvm_cpu_context, fp.d.f[27]);
-+	OFFSET(KVM_ARCH_FP_D_F28, kvm_cpu_context, fp.d.f[28]);
-+	OFFSET(KVM_ARCH_FP_D_F29, kvm_cpu_context, fp.d.f[29]);
-+	OFFSET(KVM_ARCH_FP_D_F30, kvm_cpu_context, fp.d.f[30]);
-+	OFFSET(KVM_ARCH_FP_D_F31, kvm_cpu_context, fp.d.f[31]);
-+	OFFSET(KVM_ARCH_FP_D_FCSR, kvm_cpu_context, fp.d.fcsr);
-+
- 	/*
- 	 * THREAD_{F,X}* might be larger than a S-type offset can handle, but
- 	 * these are used in performance-sensitive assembly so we can't resort
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 7c270ba5e4b4..bb3f2a857b22 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -32,6 +32,76 @@ struct kvm_stats_debugfs_item debugfs_entries[] = {
- 	{ NULL }
- };
- 
-+#ifdef CONFIG_FPU
-+static void kvm_riscv_vcpu_fp_reset(struct kvm_vcpu *vcpu)
++static void kvm_sbi_system_shutdown(struct kvm_vcpu *vcpu, u32 type)
 +{
-+	unsigned long isa = vcpu->arch.isa;
-+	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
++	int i;
++	struct kvm_vcpu *tmp;
 +
-+	cntx->sstatus &= ~SR_FS;
-+	if (riscv_isa_extension_available(&isa, f) ||
-+	    riscv_isa_extension_available(&isa, d))
-+		cntx->sstatus |= SR_FS_INITIAL;
-+	else
-+		cntx->sstatus |= SR_FS_OFF;
++	kvm_for_each_vcpu(i, tmp, vcpu->kvm)
++		tmp->arch.power_off = true;
++	kvm_make_all_cpus_request(vcpu->kvm, KVM_REQ_SLEEP);
++
++	memset(&vcpu->run->system_event, 0, sizeof(vcpu->run->system_event));
++	vcpu->run->system_event.type = type;
++	vcpu->run->exit_reason = KVM_EXIT_SYSTEM_EVENT;
 +}
 +
-+static void kvm_riscv_vcpu_fp_clean(struct kvm_cpu_context *cntx)
++int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu)
 +{
-+	cntx->sstatus &= ~SR_FS;
-+	cntx->sstatus |= SR_FS_CLEAN;
-+}
++	int i, ret = 1;
++	u64 next_cycle;
++	struct kvm_vcpu *rvcpu;
++	bool next_sepc = true;
++	ulong hmask, ut_scause = 0, ut_stval = 0;
++	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
 +
-+static void kvm_riscv_vcpu_guest_fp_save(struct kvm_cpu_context *cntx,
-+					 unsigned long isa)
-+{
-+	if ((cntx->sstatus & SR_FS) == SR_FS_DIRTY) {
-+		if (riscv_isa_extension_available(&isa, d))
-+			__kvm_riscv_fp_d_save(cntx);
-+		else if (riscv_isa_extension_available(&isa, f))
-+			__kvm_riscv_fp_f_save(cntx);
-+		kvm_riscv_vcpu_fp_clean(cntx);
-+	}
-+}
++	if (!cp)
++		return -EINVAL;
 +
-+static void kvm_riscv_vcpu_guest_fp_restore(struct kvm_cpu_context *cntx,
-+					    unsigned long isa)
-+{
-+	if ((cntx->sstatus & SR_FS) != SR_FS_OFF) {
-+		if (riscv_isa_extension_available(&isa, d))
-+			__kvm_riscv_fp_d_restore(cntx);
-+		else if (riscv_isa_extension_available(&isa, f))
-+			__kvm_riscv_fp_f_restore(cntx);
-+		kvm_riscv_vcpu_fp_clean(cntx);
-+	}
-+}
-+
-+static void kvm_riscv_vcpu_host_fp_save(struct kvm_cpu_context *cntx)
-+{
-+	/* No need to check host sstatus as it can be modified outside */
-+	if (riscv_isa_extension_available(NULL, d))
-+		__kvm_riscv_fp_d_save(cntx);
-+	else if (riscv_isa_extension_available(NULL, f))
-+		__kvm_riscv_fp_f_save(cntx);
-+}
-+
-+static void kvm_riscv_vcpu_host_fp_restore(struct kvm_cpu_context *cntx)
-+{
-+	if (riscv_isa_extension_available(NULL, d))
-+		__kvm_riscv_fp_d_restore(cntx);
-+	else if (riscv_isa_extension_available(NULL, f))
-+		__kvm_riscv_fp_f_restore(cntx);
-+}
++	switch (cp->a7) {
++	case SBI_SET_TIMER:
++#if __riscv_xlen == 32
++		next_cycle = ((u64)cp->a1 << 32) | (u64)cp->a0;
 +#else
-+static void kvm_riscv_vcpu_fp_reset(struct kvm_vcpu *vcpu) {}
-+static void kvm_riscv_vcpu_guest_fp_save(struct kvm_cpu_context *cntx,
-+					 unsigned long isa) {}
-+static void kvm_riscv_vcpu_guest_fp_restore(struct kvm_cpu_context *cntx,
-+					    unsigned long isa) {}
-+static void kvm_riscv_vcpu_host_fp_save(struct kvm_cpu_context *cntx) {}
-+static void kvm_riscv_vcpu_host_fp_restore(struct kvm_cpu_context *cntx) {}
++		next_cycle = (u64)cp->a0;
 +#endif
++		kvm_riscv_vcpu_timer_next_event(vcpu, next_cycle);
++		break;
++	case SBI_CLEAR_IPI:
++		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_S_SOFT);
++		break;
++	case SBI_SEND_IPI:
++		hmask = kvm_riscv_vcpu_unpriv_read(vcpu, false, cp->a0,
++						   &ut_scause, &ut_stval);
++		if (ut_scause) {
++			kvm_riscv_vcpu_trap_redirect(vcpu, ut_scause,
++						     ut_stval);
++			next_sepc = false;
++		} else {
++			for_each_set_bit(i, &hmask, BITS_PER_LONG) {
++				rvcpu = kvm_get_vcpu_by_id(vcpu->kvm, i);
++				kvm_riscv_vcpu_set_interrupt(rvcpu, IRQ_S_SOFT);
++			}
++		}
++		break;
++	case SBI_SHUTDOWN:
++		kvm_sbi_system_shutdown(vcpu, KVM_SYSTEM_EVENT_SHUTDOWN);
++		ret = 0;
++		break;
++	case SBI_REMOTE_FENCE_I:
++		sbi_remote_fence_i(NULL);
++		break;
++	/*
++	 * TODO: There should be a way to call remote hfence.bvma.
++	 * Preferred method is now a SBI call. Until then, just flush
++	 * all tlbs.
++	 */
++	case SBI_REMOTE_SFENCE_VMA:
++		/* TODO: Parse vma range. */
++		sbi_remote_sfence_vma(NULL, 0, 0);
++		break;
++	case SBI_REMOTE_SFENCE_VMA_ASID:
++		/* TODO: Parse vma range for given ASID */
++		sbi_remote_sfence_vma(NULL, 0, 0);
++		break;
++	default:
++		/*
++		 * For now, just return error to Guest.
++		 * TODO: In-future, we will route unsupported SBI calls
++		 * to user-space.
++		 */
++		cp->a0 = -ENOTSUPP;
++		break;
++	};
 +
- #define KVM_RISCV_ISA_ALLOWED	(riscv_isa_extension_mask(a) | \
- 				 riscv_isa_extension_mask(c) | \
- 				 riscv_isa_extension_mask(d) | \
-@@ -54,6 +124,8 @@ static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
- 
- 	memcpy(cntx, reset_cntx, sizeof(*cntx));
- 
-+	kvm_riscv_vcpu_fp_reset(vcpu);
++	if (ret >= 0)
++		cp->sepc += 4;
 +
- 	kvm_riscv_vcpu_timer_reset(vcpu);
- 
- 	WRITE_ONCE(vcpu->arch.irqs_pending, 0);
-@@ -223,6 +295,7 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
- 			vcpu->arch.isa = reg_val;
- 			vcpu->arch.isa &= riscv_isa_extension_base(NULL);
- 			vcpu->arch.isa &= KVM_RISCV_ISA_ALLOWED;
-+			kvm_riscv_vcpu_fp_reset(vcpu);
- 		} else {
- 			return -ENOTSUPP;
- 		}
-@@ -600,6 +673,10 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 
- 	kvm_riscv_stage2_update_hgatp(vcpu);
- 
-+	kvm_riscv_vcpu_host_fp_save(&vcpu->arch.host_context);
-+	kvm_riscv_vcpu_guest_fp_restore(&vcpu->arch.guest_context,
-+					vcpu->arch.isa);
-+
- 	vcpu->cpu = cpu;
- }
- 
-@@ -609,6 +686,10 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
- 
- 	vcpu->cpu = -1;
- 
-+	kvm_riscv_vcpu_guest_fp_save(&vcpu->arch.guest_context,
-+				     vcpu->arch.isa);
-+	kvm_riscv_vcpu_host_fp_restore(&vcpu->arch.host_context);
-+
- 	csr_write(CSR_HGATP, 0);
- 
- 	csr->vsstatus = csr_read(CSR_VSSTATUS);
-diff --git a/arch/riscv/kvm/vcpu_switch.S b/arch/riscv/kvm/vcpu_switch.S
-index 4598f33b2139..7539eac6e320 100644
---- a/arch/riscv/kvm/vcpu_switch.S
-+++ b/arch/riscv/kvm/vcpu_switch.S
-@@ -201,3 +201,177 @@ ENTRY(__kvm_riscv_unpriv_trap)
- 	csrr	a2, CSR_STVAL
- 	sret
- ENDPROC(__kvm_riscv_unpriv_trap)
-+
-+#ifdef	CONFIG_FPU
-+	.align 3
-+	.global __kvm_riscv_fp_f_save
-+__kvm_riscv_fp_f_save:
-+	csrr t2, CSR_SSTATUS
-+	li t1, SR_FS
-+	csrs CSR_SSTATUS, t1
-+	frcsr t0
-+	fsw f0,  KVM_ARCH_FP_F_F0(a0)
-+	fsw f1,  KVM_ARCH_FP_F_F1(a0)
-+	fsw f2,  KVM_ARCH_FP_F_F2(a0)
-+	fsw f3,  KVM_ARCH_FP_F_F3(a0)
-+	fsw f4,  KVM_ARCH_FP_F_F4(a0)
-+	fsw f5,  KVM_ARCH_FP_F_F5(a0)
-+	fsw f6,  KVM_ARCH_FP_F_F6(a0)
-+	fsw f7,  KVM_ARCH_FP_F_F7(a0)
-+	fsw f8,  KVM_ARCH_FP_F_F8(a0)
-+	fsw f9,  KVM_ARCH_FP_F_F9(a0)
-+	fsw f10, KVM_ARCH_FP_F_F10(a0)
-+	fsw f11, KVM_ARCH_FP_F_F11(a0)
-+	fsw f12, KVM_ARCH_FP_F_F12(a0)
-+	fsw f13, KVM_ARCH_FP_F_F13(a0)
-+	fsw f14, KVM_ARCH_FP_F_F14(a0)
-+	fsw f15, KVM_ARCH_FP_F_F15(a0)
-+	fsw f16, KVM_ARCH_FP_F_F16(a0)
-+	fsw f17, KVM_ARCH_FP_F_F17(a0)
-+	fsw f18, KVM_ARCH_FP_F_F18(a0)
-+	fsw f19, KVM_ARCH_FP_F_F19(a0)
-+	fsw f20, KVM_ARCH_FP_F_F20(a0)
-+	fsw f21, KVM_ARCH_FP_F_F21(a0)
-+	fsw f22, KVM_ARCH_FP_F_F22(a0)
-+	fsw f23, KVM_ARCH_FP_F_F23(a0)
-+	fsw f24, KVM_ARCH_FP_F_F24(a0)
-+	fsw f25, KVM_ARCH_FP_F_F25(a0)
-+	fsw f26, KVM_ARCH_FP_F_F26(a0)
-+	fsw f27, KVM_ARCH_FP_F_F27(a0)
-+	fsw f28, KVM_ARCH_FP_F_F28(a0)
-+	fsw f29, KVM_ARCH_FP_F_F29(a0)
-+	fsw f30, KVM_ARCH_FP_F_F30(a0)
-+	fsw f31, KVM_ARCH_FP_F_F31(a0)
-+	sw t0, KVM_ARCH_FP_F_FCSR(a0)
-+	csrw CSR_SSTATUS, t2
-+	ret
-+
-+	.align 3
-+	.global __kvm_riscv_fp_d_save
-+__kvm_riscv_fp_d_save:
-+	csrr t2, CSR_SSTATUS
-+	li t1, SR_FS
-+	csrs CSR_SSTATUS, t1
-+	frcsr t0
-+	fsd f0,  KVM_ARCH_FP_D_F0(a0)
-+	fsd f1,  KVM_ARCH_FP_D_F1(a0)
-+	fsd f2,  KVM_ARCH_FP_D_F2(a0)
-+	fsd f3,  KVM_ARCH_FP_D_F3(a0)
-+	fsd f4,  KVM_ARCH_FP_D_F4(a0)
-+	fsd f5,  KVM_ARCH_FP_D_F5(a0)
-+	fsd f6,  KVM_ARCH_FP_D_F6(a0)
-+	fsd f7,  KVM_ARCH_FP_D_F7(a0)
-+	fsd f8,  KVM_ARCH_FP_D_F8(a0)
-+	fsd f9,  KVM_ARCH_FP_D_F9(a0)
-+	fsd f10, KVM_ARCH_FP_D_F10(a0)
-+	fsd f11, KVM_ARCH_FP_D_F11(a0)
-+	fsd f12, KVM_ARCH_FP_D_F12(a0)
-+	fsd f13, KVM_ARCH_FP_D_F13(a0)
-+	fsd f14, KVM_ARCH_FP_D_F14(a0)
-+	fsd f15, KVM_ARCH_FP_D_F15(a0)
-+	fsd f16, KVM_ARCH_FP_D_F16(a0)
-+	fsd f17, KVM_ARCH_FP_D_F17(a0)
-+	fsd f18, KVM_ARCH_FP_D_F18(a0)
-+	fsd f19, KVM_ARCH_FP_D_F19(a0)
-+	fsd f20, KVM_ARCH_FP_D_F20(a0)
-+	fsd f21, KVM_ARCH_FP_D_F21(a0)
-+	fsd f22, KVM_ARCH_FP_D_F22(a0)
-+	fsd f23, KVM_ARCH_FP_D_F23(a0)
-+	fsd f24, KVM_ARCH_FP_D_F24(a0)
-+	fsd f25, KVM_ARCH_FP_D_F25(a0)
-+	fsd f26, KVM_ARCH_FP_D_F26(a0)
-+	fsd f27, KVM_ARCH_FP_D_F27(a0)
-+	fsd f28, KVM_ARCH_FP_D_F28(a0)
-+	fsd f29, KVM_ARCH_FP_D_F29(a0)
-+	fsd f30, KVM_ARCH_FP_D_F30(a0)
-+	fsd f31, KVM_ARCH_FP_D_F31(a0)
-+	sw t0, KVM_ARCH_FP_D_FCSR(a0)
-+	csrw CSR_SSTATUS, t2
-+	ret
-+
-+	.align 3
-+	.global __kvm_riscv_fp_f_restore
-+__kvm_riscv_fp_f_restore:
-+	csrr t2, CSR_SSTATUS
-+	li t1, SR_FS
-+	lw t0, KVM_ARCH_FP_F_FCSR(a0)
-+	csrs CSR_SSTATUS, t1
-+	flw f0,  KVM_ARCH_FP_F_F0(a0)
-+	flw f1,  KVM_ARCH_FP_F_F1(a0)
-+	flw f2,  KVM_ARCH_FP_F_F2(a0)
-+	flw f3,  KVM_ARCH_FP_F_F3(a0)
-+	flw f4,  KVM_ARCH_FP_F_F4(a0)
-+	flw f5,  KVM_ARCH_FP_F_F5(a0)
-+	flw f6,  KVM_ARCH_FP_F_F6(a0)
-+	flw f7,  KVM_ARCH_FP_F_F7(a0)
-+	flw f8,  KVM_ARCH_FP_F_F8(a0)
-+	flw f9,  KVM_ARCH_FP_F_F9(a0)
-+	flw f10, KVM_ARCH_FP_F_F10(a0)
-+	flw f11, KVM_ARCH_FP_F_F11(a0)
-+	flw f12, KVM_ARCH_FP_F_F12(a0)
-+	flw f13, KVM_ARCH_FP_F_F13(a0)
-+	flw f14, KVM_ARCH_FP_F_F14(a0)
-+	flw f15, KVM_ARCH_FP_F_F15(a0)
-+	flw f16, KVM_ARCH_FP_F_F16(a0)
-+	flw f17, KVM_ARCH_FP_F_F17(a0)
-+	flw f18, KVM_ARCH_FP_F_F18(a0)
-+	flw f19, KVM_ARCH_FP_F_F19(a0)
-+	flw f20, KVM_ARCH_FP_F_F20(a0)
-+	flw f21, KVM_ARCH_FP_F_F21(a0)
-+	flw f22, KVM_ARCH_FP_F_F22(a0)
-+	flw f23, KVM_ARCH_FP_F_F23(a0)
-+	flw f24, KVM_ARCH_FP_F_F24(a0)
-+	flw f25, KVM_ARCH_FP_F_F25(a0)
-+	flw f26, KVM_ARCH_FP_F_F26(a0)
-+	flw f27, KVM_ARCH_FP_F_F27(a0)
-+	flw f28, KVM_ARCH_FP_F_F28(a0)
-+	flw f29, KVM_ARCH_FP_F_F29(a0)
-+	flw f30, KVM_ARCH_FP_F_F30(a0)
-+	flw f31, KVM_ARCH_FP_F_F31(a0)
-+	fscsr t0
-+	csrw CSR_SSTATUS, t2
-+	ret
-+
-+	.align 3
-+	.global __kvm_riscv_fp_d_restore
-+__kvm_riscv_fp_d_restore:
-+	csrr t2, CSR_SSTATUS
-+	li t1, SR_FS
-+	lw t0, KVM_ARCH_FP_D_FCSR(a0)
-+	csrs CSR_SSTATUS, t1
-+	fld f0,  KVM_ARCH_FP_D_F0(a0)
-+	fld f1,  KVM_ARCH_FP_D_F1(a0)
-+	fld f2,  KVM_ARCH_FP_D_F2(a0)
-+	fld f3,  KVM_ARCH_FP_D_F3(a0)
-+	fld f4,  KVM_ARCH_FP_D_F4(a0)
-+	fld f5,  KVM_ARCH_FP_D_F5(a0)
-+	fld f6,  KVM_ARCH_FP_D_F6(a0)
-+	fld f7,  KVM_ARCH_FP_D_F7(a0)
-+	fld f8,  KVM_ARCH_FP_D_F8(a0)
-+	fld f9,  KVM_ARCH_FP_D_F9(a0)
-+	fld f10, KVM_ARCH_FP_D_F10(a0)
-+	fld f11, KVM_ARCH_FP_D_F11(a0)
-+	fld f12, KVM_ARCH_FP_D_F12(a0)
-+	fld f13, KVM_ARCH_FP_D_F13(a0)
-+	fld f14, KVM_ARCH_FP_D_F14(a0)
-+	fld f15, KVM_ARCH_FP_D_F15(a0)
-+	fld f16, KVM_ARCH_FP_D_F16(a0)
-+	fld f17, KVM_ARCH_FP_D_F17(a0)
-+	fld f18, KVM_ARCH_FP_D_F18(a0)
-+	fld f19, KVM_ARCH_FP_D_F19(a0)
-+	fld f20, KVM_ARCH_FP_D_F20(a0)
-+	fld f21, KVM_ARCH_FP_D_F21(a0)
-+	fld f22, KVM_ARCH_FP_D_F22(a0)
-+	fld f23, KVM_ARCH_FP_D_F23(a0)
-+	fld f24, KVM_ARCH_FP_D_F24(a0)
-+	fld f25, KVM_ARCH_FP_D_F25(a0)
-+	fld f26, KVM_ARCH_FP_D_F26(a0)
-+	fld f27, KVM_ARCH_FP_D_F27(a0)
-+	fld f28, KVM_ARCH_FP_D_F28(a0)
-+	fld f29, KVM_ARCH_FP_D_F29(a0)
-+	fld f30, KVM_ARCH_FP_D_F30(a0)
-+	fld f31, KVM_ARCH_FP_D_F31(a0)
-+	fscsr t0
-+	csrw CSR_SSTATUS, t2
-+	ret
-+#endif
++	return ret;
++}
 -- 
 2.17.1
 
