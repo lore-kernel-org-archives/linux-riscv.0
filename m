@@ -2,58 +2,62 @@ Return-Path: <SRS0=PBLo=W5=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7DB1AC3A5A5
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  2 Sep 2019 14:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7907BC3A5A7
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  2 Sep 2019 14:12:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 547992173E
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  2 Sep 2019 14:12:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4FDF821881
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  2 Sep 2019 14:12:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZThLN3/q"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 547992173E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VjdDB1/i"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4FDF821881
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gARCdShtf9CJrFCQ+5UxSSSM2EdBmvNhdYx7jGRvkLU=; b=ZThLN3/qhXWlCT
-	hFWSo40HaZw+RD7+gj0tWwD/SbiJzFu3sYqa9Zn3jsDmRQXKm7sX0AC4N4Mcl+n4yqYMU362AiOgf
-	ABF8mDJwtmMedQHAZR9aLGJz45emY2We9iioDA6bHX9+Q/AfprEMEoW3v5FkKibthiJ0AtKHC9jXl
-	ednESbAJxOqXqDYRvoKbAB+d07HrRl9+3MZqIpJB6yHO3llumE3FuxIhragH/5lao8z1vGUoGvcV9
-	TOEMZ7EtHDUrr34n75i+R3fYCYBXzhEQNJWuX+vwDXV1EF02BFYu+0mqbp6PeZoUU8ktJPytYLtwX
-	51iPf7ypQVZ5mjwXwoyQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=56GAefihE7NuvSoc5iIVmh/jkynDLqHyy61dGVCnMdM=; b=VjdDB1/iQAte3Y
+	fKm3ND94ekUndHCZLF9+0UkYKWRfRY0lZZCjTqSXqX9NNDaP/5p5z0XzaCwCrnyEPky1DGl1aUMm2
+	/+fZ+pcXjYnuo1ObE42q8uJLaUyXQspx7y4fwc0eVlsjYA3e+Txlh1mtXKvrKSECGwgvhDGbMdNOL
+	820o25R35736vhfeZkyT83sIbIBl8nm/uwzMR8NI4Nj6dTeqHJZXkFm0V+F7LjjHIWXrBL9zcRrMK
+	lGN1Z6HDkG0d/3Gxsw9IC1r9hlcv0+wmXMtvQlF3o1wus+cT7NM997odnZdB693k4NazNrN0mds0N
+	P/1hcgCYOvFM6QIyL1OQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i4n3i-0001xN-K9; Mon, 02 Sep 2019 14:11:54 +0000
+	id 1i4n43-0002Jn-AW; Mon, 02 Sep 2019 14:12:15 +0000
 Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i4n2o-0000xm-36; Mon, 02 Sep 2019 14:11:00 +0000
+ id 1i4n2o-0000yU-Jq; Mon, 02 Sep 2019 14:11:00 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 58E82ABE9;
- Mon,  2 Sep 2019 14:10:53 +0000 (UTC)
+ by mx1.suse.de (Postfix) with ESMTP id 40930AF24;
+ Mon,  2 Sep 2019 14:10:57 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: catalin.marinas@arm.com, hch@lst.de, wahrenst@gmx.net,
  marc.zyngier@arm.com, robh+dt@kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org
-Subject: [PATCH v3 0/4] Raspberry Pi 4 DMA addressing support
-Date: Mon,  2 Sep 2019 16:10:38 +0200
-Message-Id: <20190902141043.27210-1-nsaenzjulienne@suse.de>
+ linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH v3 4/4] mm: refresh ZONE_DMA and ZONE_DMA32 comments in 'enum
+ zone_type'
+Date: Mon,  2 Sep 2019 16:10:42 +0200
+Message-Id: <20190902141043.27210-5-nsaenzjulienne@suse.de>
 X-Mailer: git-send-email 2.23.0
+In-Reply-To: <20190902141043.27210-1-nsaenzjulienne@suse.de>
+References: <20190902141043.27210-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190902_071058_421289_60947206 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20190902_071058_948807_5ED6EFC5 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,95 +77,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
-this series attempts to address some issues we found while bringing up
-the new Raspberry Pi 4 in arm64 and it's intended to serve as a follow
-up of these discussions:
-v2: https://lkml.org/lkml/2019/8/20/767
-v1: https://lkml.org/lkml/2019/7/31/922
-RFC: https://lkml.org/lkml/2019/7/17/476
+These zones usage has evolved with time and the comments were outdated.
+This joins both ZONE_DMA and ZONE_DMA32 explanation and gives up to date
+examples on how they are used on different architectures.
 
-The new Raspberry Pi 4 has up to 4GB of memory but most peripherals can
-only address the first GB: their DMA address range is
-0xc0000000-0xfc000000 which is aliased to the first GB of physical
-memory 0x00000000-0x3c000000. Note that only some peripherals have these
-limitations: the PCIe, V3D, GENET, and 40-bit DMA channels have a wider
-view of the address space by virtue of being hooked up trough a second
-interconnect.
-
-Part of this is solved on arm32 by setting up the machine specific
-'.dma_zone_size = SZ_1G', which takes care of reserving the coherent
-memory area at the right spot. That said no buffer bouncing (needed for
-dma streaming) is available at the moment, but that's a story for
-another series.
-
-Unfortunately there is no such thing as 'dma_zone_size' in arm64. Only
-ZONE_DMA32 is created which is interpreted by dma-direct and the arm64
-arch code as if all peripherals where be able to address the first 4GB
-of memory.
-
-In the light of this, the series implements the following changes:
-
-- Create both DMA zones in arm64, ZONE_DMA will contain the first 1G
-  area and ZONE_DMA32 the rest of the 32 bit addressable memory. So far
-  the RPi4 is the only arm64 device with such DMA addressing limitations
-  so this hardcoded solution was deemed preferable.
-
-- Properly set ARCH_ZONE_DMA_BITS.
-
-- Reserve the CMA area in a place suitable for all peripherals.
-
-This series has been tested on multiple devices both by checking the
-zones setup matches the expectations and by double-checking physical
-addresses on pages allocated on the three relevant areas GFP_DMA,
-GFP_DMA32, GFP_KERNEL:
-
-- On an RPi4 with variations on the ram memory size. But also forcing
-  the situation where all three memory zones are nonempty by setting a 3G
-  ZONE_DMA32 ceiling on a 4G setup. Both with and without NUMA support.
-
-- On a Synquacer box[1] with 32G of memory.
-
-- On an ACPI based Huawei TaiShan server[2] with 256G of memory.
-
-- On a QEMU virtual machine running arm64's OpenSUSE Tumbleweed.
-
-That's all.
-
-Regards,
-Nicolas
-
-[1] https://www.96boards.org/product/developerbox/
-[2] https://e.huawei.com/en/products/cloud-computing-dc/servers/taishan-server/taishan-2280-v2
+Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 
 ---
 
 Changes in v3:
-- Fixed ZONE_DMA's size to 1G
-- Update mmzone.h's comment to match changes in arm64
-- Remove all dma-direct patches
+- Update comment to match changes in arm64
 
 Changes in v2:
-- Update comment to reflect new zones split
-- ZONE_DMA will never be left empty
 - Try another approach merging both ZONE_DMA comments into one
 - Address Christoph's comments
 - If this approach doesn't get much traction I'll just drop the patch
   from the series as it's not really essential
 
-Nicolas Saenz Julienne (4):
-  arm64: mm: use arm64_dma_phys_limit instead of calling
-    max_zone_dma_phys()
-  arm64: rename variables used to calculate ZONE_DMA32's size
-  arm64: use both ZONE_DMA and ZONE_DMA32
-  mm: refresh ZONE_DMA and ZONE_DMA32 comments in 'enum zone_type'
+ include/linux/mmzone.h | 45 ++++++++++++++++++++++++------------------
+ 1 file changed, 26 insertions(+), 19 deletions(-)
 
- arch/arm64/Kconfig            |  4 ++
- arch/arm64/include/asm/page.h |  2 +
- arch/arm64/mm/init.c          | 71 +++++++++++++++++++++++++----------
- include/linux/mmzone.h        | 45 ++++++++++++----------
- 4 files changed, 83 insertions(+), 39 deletions(-)
-
+diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
+index 3f38c30d2f13..bf1b916c9ecb 100644
+--- a/include/linux/mmzone.h
++++ b/include/linux/mmzone.h
+@@ -357,33 +357,40 @@ struct per_cpu_nodestat {
+ #endif /* !__GENERATING_BOUNDS.H */
+ 
+ enum zone_type {
+-#ifdef CONFIG_ZONE_DMA
+ 	/*
+-	 * ZONE_DMA is used when there are devices that are not able
+-	 * to do DMA to all of addressable memory (ZONE_NORMAL). Then we
+-	 * carve out the portion of memory that is needed for these devices.
+-	 * The range is arch specific.
++	 * ZONE_DMA and ZONE_DMA32 are used when there are peripherals not able
++	 * to DMA to all of the addressable memory (ZONE_NORMAL).
++	 * On architectures where this area covers the whole 32 bit address
++	 * space ZONE_DMA32 is used. ZONE_DMA is left for the ones with smaller
++	 * DMA addressing constraints. This distinction is important as a 32bit
++	 * DMA mask is assumed when ZONE_DMA32 is defined. Some 64-bit
++	 * platforms may need both zones as they support peripherals with
++	 * different DMA addressing limitations.
++	 *
++	 * Some examples:
++	 *
++	 *  - i386 and x86_64 have a fixed 16M ZONE_DMA and ZONE_DMA32 for the
++	 *    rest of the lower 4G.
++	 *
++	 *  - arm only uses ZONE_DMA, the size, up to 4G, may vary depending on
++	 *    the specific device.
++	 *
++	 *  - arm64 has a fixed 1G ZONE_DMA and ZONE_DMA32 for the rest of the
++	 *    lower 4G.
+ 	 *
+-	 * Some examples
++	 *  - powerpc only uses ZONE_DMA, the size, up to 2G, may vary
++	 *    depending on the specific device.
+ 	 *
+-	 * Architecture		Limit
+-	 * ---------------------------
+-	 * parisc, ia64, sparc	<4G
+-	 * s390, powerpc	<2G
+-	 * arm			Various
+-	 * alpha		Unlimited or 0-16MB.
++	 *  - s390 uses ZONE_DMA fixed to the lower 2G.
+ 	 *
+-	 * i386, x86_64 and multiple other arches
+-	 * 			<16M.
++	 *  - ia64 and riscv only use ZONE_DMA32.
++	 *
++	 *  - parisc uses neither.
+ 	 */
++#ifdef CONFIG_ZONE_DMA
+ 	ZONE_DMA,
+ #endif
+ #ifdef CONFIG_ZONE_DMA32
+-	/*
+-	 * x86_64 needs two ZONE_DMAs because it supports devices that are
+-	 * only able to do DMA to the lower 16M but also 32 bit devices that
+-	 * can only do DMA areas below 4G.
+-	 */
+ 	ZONE_DMA32,
+ #endif
+ 	/*
 -- 
 2.23.0
 
