@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 63F87C41514
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Sep 2019 14:07:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 85A45C3A5A7
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Sep 2019 14:07:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3BAFD23401
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Sep 2019 14:07:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5935B22CEA
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Sep 2019 14:07:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="B0c5P7uO"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3BAFD23401
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tMUXmHnE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5935B22CEA
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,24 +25,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nJ1I4Q2svjh1ft08hUFyQVrQtK+Q2drM2wPiZUkbRms=; b=B0c5P7uOVKcs7n
-	HgQHRoi7bBGBmGdQwg5bfIb7dSIPjemiokCLHwSrBFgyHiBDX483pjYa0Fe+Z9Voin5bbuMDH0MlR
-	uWMAY9dgmclHzWe7Pwz4aT9QeEgstihG6+O8KxJRsXQO4wWDkWDqS+MNdi2FEX8yK/bSiVUNF5oqs
-	PhfaSB6+dgGfD5+Z3izBTkGk3sMlIB9MtDCUtmcUGAxHxPtXTaAtXkYVNda022326OePsNrTAneeH
-	pg2XXuNGDcjCe+jL6vGno1rUUsK0cXONvHENMJED2AIRV+tHUgT1zE+n+hay260GIrBtOaNWSAXMI
-	hVv7+MtMwh78nVSUXOuA==;
+	List-Owner; bh=BgsE+YFgGxZUF7HjK4CsXZ3++YtuqZS3d++PYNGBGio=; b=tMUXmHnEp730lW
+	N7OMpa/UQ9VrgQHyaCX5NQJ1r3ZDlGoP+PM/RKBLp92Udx86C8McL9u6qIPswUQSs8RFhTbo+PaIl
+	DFXvcxTybDW2IVFVVk9WnMaTHLK4OZPtZRFzjYpHhifVutS+efGXYGvAGWMi8vFUGqaHx3NMlTmNP
+	ypSsz5y/BJCu8ZvOzY4I1upIMnoUg/X42jKNpz0PPFo6UQ56/G9WAU/gDa7Vl2g2UiHXMerOKs8iu
+	VfCJUoqVJYBAo25w/igwY6EQmEIfMF5SzzmZCK1a7IA4nKVBpZcbp1MHtytTfxm6ttHXRdVmx1Hd9
+	kjENCVW7X2vR0WljdLVA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i5Vw4-00056p-QN; Wed, 04 Sep 2019 14:07:00 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
+	id 1i5Vwb-0005gD-MT; Wed, 04 Sep 2019 14:07:33 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35] helo=huawei.com)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i5Vps-00052e-79; Wed, 04 Sep 2019 14:00:38 +0000
-Received: from DGGEMS404-HUB.china.huawei.com (unknown [172.30.72.58])
- by Forcepoint Email with ESMTP id 15B6780AA5D6B48338E9;
- Wed,  4 Sep 2019 22:00:31 +0800 (CST)
-Received: from localhost (10.133.213.239) by DGGEMS404-HUB.china.huawei.com
- (10.3.19.204) with Microsoft SMTP Server id 14.3.439.0; Wed, 4 Sep 2019
- 22:00:21 +0800
+ id 1i5Vpt-00058Y-Or; Wed, 04 Sep 2019 14:00:39 +0000
+Received: from DGGEMS412-HUB.china.huawei.com (unknown [172.30.72.59])
+ by Forcepoint Email with ESMTP id 6DEEA87C3895A6B5B070;
+ Wed,  4 Sep 2019 22:00:35 +0800 (CST)
+Received: from localhost (10.133.213.239) by DGGEMS412-HUB.china.huawei.com
+ (10.3.19.212) with Microsoft SMTP Server id 14.3.439.0; Wed, 4 Sep 2019
+ 22:00:27 +0800
 From: YueHaibing <yuehaibing@huawei.com>
 To: <broonie@kernel.org>, <f.fainelli@gmail.com>, <rjui@broadcom.com>,
  <sbranden@broadcom.com>, <eric@anholt.net>, <wahrenst@gmx.net>,
@@ -56,10 +56,10 @@ To: <broonie@kernel.org>, <f.fainelli@gmail.com>, <rjui@broadcom.com>,
  <mripard@kernel.org>, <wens@csie.org>, <ldewangan@nvidia.com>,
  <thierry.reding@gmail.com>, <jonathanh@nvidia.com>,
  <yamada.masahiro@socionext.com>, <michal.simek@xilinx.com>
-Subject: [PATCH -next 18/36] spi: mxs: use devm_platform_ioremap_resource() to
- simplify code
-Date: Wed, 4 Sep 2019 21:59:00 +0800
-Message-ID: <20190904135918.25352-19-yuehaibing@huawei.com>
+Subject: [PATCH -next 20/36] spi: nuc900: use devm_platform_ioremap_resource()
+ to simplify code
+Date: Wed, 4 Sep 2019 21:59:02 +0800
+Message-ID: <20190904135918.25352-21-yuehaibing@huawei.com>
 X-Mailer: git-send-email 2.10.2.windows.1
 In-Reply-To: <20190904135918.25352-1-yuehaibing@huawei.com>
 References: <20190904135918.25352-1-yuehaibing@huawei.com>
@@ -67,8 +67,8 @@ MIME-Version: 1.0
 X-Originating-IP: [10.133.213.239]
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190904_070036_799280_1C9ED644 
-X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-CacheID: sfid-20190904_070038_125699_56C7D089 
+X-CRM114-Status: UNSURE (   8.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -99,35 +99,31 @@ This is detected by coccinelle.
 Reported-by: Hulk Robot <hulkci@huawei.com>
 Signed-off-by: YueHaibing <yuehaibing@huawei.com>
 ---
- drivers/spi/spi-mxs.c | 4 +---
+ drivers/spi/spi-nuc900.c | 4 +---
  1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/spi/spi-mxs.c b/drivers/spi/spi-mxs.c
-index 7bf53cf..996c1c8 100644
---- a/drivers/spi/spi-mxs.c
-+++ b/drivers/spi/spi-mxs.c
-@@ -532,7 +532,6 @@ static int mxs_spi_probe(struct platform_device *pdev)
+diff --git a/drivers/spi/spi-nuc900.c b/drivers/spi/spi-nuc900.c
+index f65a029e..6140035 100644
+--- a/drivers/spi/spi-nuc900.c
++++ b/drivers/spi/spi-nuc900.c
+@@ -327,7 +327,6 @@ static int nuc900_spi_probe(struct platform_device *pdev)
+ {
+ 	struct nuc900_spi *hw;
  	struct spi_master *master;
- 	struct mxs_spi *spi;
- 	struct mxs_ssp *ssp;
--	struct resource *iores;
- 	struct clk *clk;
- 	void __iomem *base;
- 	int devid, clk_freq;
-@@ -545,12 +544,11 @@ static int mxs_spi_probe(struct platform_device *pdev)
- 	 */
- 	const int clk_freq_default = 160000000;
+-	struct resource *res;
+ 	int err = 0;
  
--	iores = platform_get_resource(pdev, IORESOURCE_MEM, 0);
- 	irq_err = platform_get_irq(pdev, 0);
- 	if (irq_err < 0)
- 		return irq_err;
+ 	master = spi_alloc_master(&pdev->dev, sizeof(struct nuc900_spi));
+@@ -358,8 +357,7 @@ static int nuc900_spi_probe(struct platform_device *pdev)
+ 	hw->bitbang.chipselect     = nuc900_spi_chipsel;
+ 	hw->bitbang.txrx_bufs      = nuc900_spi_txrx;
  
--	base = devm_ioremap_resource(&pdev->dev, iores);
-+	base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
- 
+-	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-	hw->regs = devm_ioremap_resource(&pdev->dev, res);
++	hw->regs = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(hw->regs)) {
+ 		err = PTR_ERR(hw->regs);
+ 		goto err_pdata;
 -- 
 2.7.4
 
