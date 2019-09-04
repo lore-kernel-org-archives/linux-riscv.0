@@ -1,76 +1,68 @@
-Return-Path: <SRS0=vaJP=W6=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=6ibT=W7=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C5EBC3A5A2
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2019 23:36:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BA971C3A5A2
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Sep 2019 02:06:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4B80822CED
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  3 Sep 2019 23:36:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8D64D21883
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Sep 2019 02:06:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JtHQxTFm"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4B80822CED
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UDv2ZNOz"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8D64D21883
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:MIME-Version:Message-Id:Date:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=U8Sirm7d04RhUs/98fHpPPeJVpD9wZvPqlvo74mDe3o=; b=JtHQxTFmUM4CVM
-	3DRRSchx+4z+O7couURxgEIq/K8QfNQftfTwrHPVAvbYpa2ooYnjlXTjDgUjVgS8bru3ExtBujxCa
-	gYbzg0QWMn2JI5D3tz6AVjjaaMdiJMMBdI8ECnrzKCMDfO85Z0xlTVPSHJ3JNy9vUIbwhFpDj3vC/
-	Yc98P01utH4wBQ0qMkvuSewEI4u61RZ3FUDHK6W544djKj2CrYoaNliUqxT5iDik8QDYPO/ExnQKQ
-	WAPMe9xfRpXUkOVXxs6ngZsZ+gDcUq93U054Tyb5V1BfAP4bS+/uI1BLjFO5isjQSrY7Ao2LaxB+L
-	tilDsHFmfwCDzSnRPKug==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=G3DmeVGAo4wMAHoiVF2xS+VoZp7pFyaavY0CLiI04YM=; b=UDv2ZNOzNLqBpK
+	XcLpDyf5cmBz/mSW8EIvcUhi8ftnR4nC4yvb+v1qrCxAWEOF5iZkFKjhgDnUo+sCsP1kWdZMQdG2A
+	DU7+vEdu8D9oUNhhh7qAbdplyn/KH8rQureshKpwFOTmj2Zsh1x/68eeMie3aAD3r0borxAltSyzN
+	yjjnBHAtRNyR6BoRshasNQApBKYUlWXTYVOlSRMMOjDwrv0G20oZQjFVFNvSD+ODJsSQik+toiZdZ
+	yShnI/c6NpeTDGhTZMYXiMXu36JKV5gwY03sBH8csU9doXr0xR8zvp2LuDE+RSL/xjcL2IGHSTdxq
+	G/omt1iF6s8K0CqXXwaQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i5ILW-0002j9-G5; Tue, 03 Sep 2019 23:36:22 +0000
-Received: from mail-pf1-f196.google.com ([209.85.210.196])
+	id 1i5KgT-0005Mu-1d; Wed, 04 Sep 2019 02:06:09 +0000
+Received: from 59-120-53-16.hinet-ip.hinet.net ([59.120.53.16]
+ helo=ATCSQR.andestech.com)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i5ILT-0002iV-Ey
- for linux-riscv@lists.infradead.org; Tue, 03 Sep 2019 23:36:20 +0000
-Received: by mail-pf1-f196.google.com with SMTP id y9so11922704pfl.4
- for <linux-riscv@lists.infradead.org>; Tue, 03 Sep 2019 16:36:19 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=VTVfOizTRSDhAR0ftvZ5XR/ALeURLSbukVJWeeIGIQ4=;
- b=dMKoIkZBTSPGGF/JBWprzQEFKxywdOQUDTw0pmW1H70pooXkBl8lOP12AS4Id6sjxs
- vMa7uRaVXCDgER8HVjVoC2NY4ftkM1jdYKnW0Bse5+978HUm8Fs2uhir78sdBtbOGe+R
- uKtkGkcvz6TkodtTu4SM1M+JXHCOismLWszXLZMKcQBBqUrxUzCrkrCZzwlRBJ7cJ4TV
- 32EZAYGTbWEEzsYwPTzmKgS0ho/UI+VJ+HCigtIpk4B80O5uiaEQE9ASy/KkzR/wmyWK
- MOCXEkfZUGrWvFyFnNj6mnB+WnRsl3ROWaSGv/FYFHt2CBMZdKFW0zGrfl7LoORqEndD
- VNIg==
-X-Gm-Message-State: APjAAAUHjJBqScXkIlKhnJnNb1cC0WSU8cuN5dHNGjDk+VK+uv8zyVMR
- cVivaqe/p/+QqVh4/E5yZTSw9ylQw+s=
-X-Google-Smtp-Source: APXvYqwE0UYLOqp0Oj4x7qF5BBzrBWk5mcZ8VWUKyGEJozqrgtDMW1pLlD49KNG2NXHPa0sUUoHJrA==
-X-Received: by 2002:a62:8204:: with SMTP id w4mr28496930pfd.30.1567553778357; 
- Tue, 03 Sep 2019 16:36:18 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id v184sm19722336pgd.34.2019.09.03.16.36.17
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 03 Sep 2019 16:36:17 -0700 (PDT)
-Subject: [PATCH] RISC-V: Add Plan 9 support to the defconfigs
-Date: Tue,  3 Sep 2019 16:35:10 -0700
-Message-Id: <20190903233510.9846-1-palmer@sifive.com>
-X-Mailer: git-send-email 2.21.0
+ id 1i5KgO-0005MV-6N
+ for linux-riscv@lists.infradead.org; Wed, 04 Sep 2019 02:06:07 +0000
+Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
+ by ATCSQR.andestech.com with ESMTP id x841qSq9066455;
+ Wed, 4 Sep 2019 09:52:28 +0800 (GMT-8)
+ (envelope-from alankao@andestech.com)
+Received: from andestech.com (10.0.15.65) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.123.3; Wed, 4 Sep 2019
+ 10:05:39 +0800
+Date: Wed, 4 Sep 2019 10:05:39 +0800
+From: Alan Kao <alankao@andestech.com>
+To: Palmer Dabbelt <palmer@sifive.com>
+Subject: Re: [PATCH 08/15] riscv: provide native clint access for M-mode
+Message-ID: <20190904020539.GA18202@andestech.com>
+References: <20190828061146.GA21670@lst.de>
+ <mhng-e03fb9a6-73ee-437e-aee1-e30427f5d644@palmer-si-x1e>
 MIME-Version: 1.0
-From: Palmer Dabbelt <palmer@sifive.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <mhng-e03fb9a6-73ee-437e-aee1-e30427f5d644@palmer-si-x1e>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-Originating-IP: [10.0.15.65]
+X-DNSRBL: 
+X-MAIL: ATCSQR.andestech.com x841qSq9066455
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190903_163619_501240_9B5A830D 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190903_190604_498681_6300B3E5 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -82,84 +74,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>
+Cc: mark.rutland@arm.com, Damien Le Moal <Damien.LeMoal@wdc.com>,
+ linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org, Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QEMU contains facilities for sharing directory trees between a guest and
-host that are based on plan 9's network filesystem.  This patch adds the
-relevant entries to our defconfigs to enable these, the most interesting
-of which is probably CONFIG_VIRTIO_PCI.
+On Tue, Sep 03, 2019 at 11:48:52AM -0700, Palmer Dabbelt wrote:
+> On Tue, 27 Aug 2019 23:11:46 PDT (-0700), Christoph Hellwig wrote:
+> >On Tue, Aug 27, 2019 at 04:37:16PM -0700, Palmer Dabbelt wrote:
+> >>clint0 would be version 0 of the clint, with is the core-local interrupt
+> >>controller in rocket chip.  It should be "sifive,clint-1.0.0", not
+> >>"riscv,clint0", as it's a SiFive widget.  Unfortunately there are a lot of
+> >>legacy device trees floating around, but I'm only considering what's been
+> >>upstream to be actually part of the spec.
+> >>
+> >>In this case the code should match on a "sifive,clint-1.0.0", and the
+> >>device trees should be fixed up to match.  We match on "riscv,plic0" for
+> >>legacy systems, and I guess it makes sense to do something similar here.
+> >
+> >IFF we decided to change it I'd rather separate DT noes for the ipi
+> >bank vs timecmp register vs timeval to support variable layouts.  The
+> >downside is that we can't just boot on unmodified upstream qemu, which
+> >has used the "riscv,clint0" for years.
+> 
+> Like I alluded to above, matching on "riscv,clint0" seems reasonable to me
+> as it's a defacto standard -- we'll just have to make sure that if we ever
+> end up with a RISC-V CLINT that the DT entry is something else.
 
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- arch/riscv/configs/defconfig      | 4 ++++
- arch/riscv/configs/rv32_defconfig | 4 ++++
- 2 files changed, 8 insertions(+)
+De facto, but not mandatory.
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 3efff552a261..79ae1f932b2e 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -29,6 +29,8 @@ CONFIG_IP_PNP_DHCP=y
- CONFIG_IP_PNP_BOOTP=y
- CONFIG_IP_PNP_RARP=y
- CONFIG_NETLINK_DIAG=y
-+CONFIG_NET_9P=y
-+CONFIG_NET_9P_VIRTIO=y
- CONFIG_PCI=y
- CONFIG_PCIEPORTBUS=y
- CONFIG_PCI_HOST_GENERIC=y
-@@ -73,6 +75,7 @@ CONFIG_USB_STORAGE=y
- CONFIG_USB_UAS=y
- CONFIG_MMC=y
- CONFIG_MMC_SPI=y
-+CONFIG_VIRTIO_PCI=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_EXT4_FS=y
- CONFIG_EXT4_FS_POSIX_ACL=y
-@@ -86,6 +89,7 @@ CONFIG_NFS_V4=y
- CONFIG_NFS_V4_1=y
- CONFIG_NFS_V4_2=y
- CONFIG_ROOT_NFS=y
-+CONFIG_9P_FS=y
- CONFIG_CRYPTO_USER_API_HASH=y
- CONFIG_CRYPTO_DEV_VIRTIO=y
- CONFIG_PRINTK_TIME=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 7da93e494445..5bf9e919900a 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -29,6 +29,8 @@ CONFIG_IP_PNP_DHCP=y
- CONFIG_IP_PNP_BOOTP=y
- CONFIG_IP_PNP_RARP=y
- CONFIG_NETLINK_DIAG=y
-+CONFIG_NET_9P=y
-+CONFIG_NET_9P_VIRTIO=y
- CONFIG_PCI=y
- CONFIG_PCIEPORTBUS=y
- CONFIG_PCI_HOST_GENERIC=y
-@@ -69,6 +71,7 @@ CONFIG_USB_OHCI_HCD=y
- CONFIG_USB_OHCI_HCD_PLATFORM=y
- CONFIG_USB_STORAGE=y
- CONFIG_USB_UAS=y
-+CONFIG_VIRTIO_PCI=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_SIFIVE_PLIC=y
- CONFIG_EXT4_FS=y
-@@ -83,6 +86,7 @@ CONFIG_NFS_V4=y
- CONFIG_NFS_V4_1=y
- CONFIG_NFS_V4_2=y
- CONFIG_ROOT_NFS=y
-+CONFIG_9P_FS=y
- CONFIG_CRYPTO_USER_API_HASH=y
- CONFIG_CRYPTO_DEV_VIRTIO=y
- CONFIG_PRINTK_TIME=y
--- 
-2.21.0
+> 
+> As far as splitting the memory maps goes, I don't have a strong opinion but
+> it seems like that'll introduce more complexity than it's worth.
+> 
 
+At least the splitting can keep reminding us and any new comers in the future
+that CLINT is not (yet) a must in RISC-V landscape.  A previous discussion
+FYI: ( https://lkml.org/lkml/2019/8/20/1361 )
+
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
