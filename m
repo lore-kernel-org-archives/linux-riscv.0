@@ -3,20 +3,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-5.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 145F9C3A5A9
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2019 02:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E4D9C3A5A9
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2019 02:49:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DC782206BA
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2019 02:30:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 250C9206BB
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  5 Sep 2019 02:49:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QU2Z+qTf"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DC782206BA
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BUq/NOvp"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 250C9206BB
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=c-sky.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,42 +25,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jrrqpgO/W+O1ls9urwInQXOo4EVXm5xe2Q0KsNsUuks=; b=QU2Z+qTfLhiwPz
-	UAE1NKIPf8pP88XUvX84Owu5Tclo3729JNsv7D4vRzz/Tcl6peKfnrbP0cIEwyFdCkgWm3abUs9CY
-	PDeH1D92pvdba9PXeIy2TCM4ajcRgFGLsDHDf/4Xy1Z48Ufl6W7N/XvTty/yu0OiSToXdmPtxmcTB
-	r+c65zZQenTAoX/L9bUF2W+v4hnwbIHTbjA5DwzA5HB+7V/t0bhDuIX/U8ehiKCIZsdSW3Ilu3Alz
-	LE2VXjXICCcK8+ERHT7nbSFaj1zR/dygBZYO9tX0nkEWtOap2ZsKbSnS5uG9Rhk2Sc6wZfnPZZp1T
-	MK33wF0HFDaPCJlBk/jw==;
+	List-Owner; bh=kmGO0NP3Yi1VbnDK0ShqzK5nTqGTluQeWodc0zIT/e4=; b=BUq/NOvpgvDp1m
+	bx9qLSFIXfky+zgnlbz//24jkHPB36Q+O5n+fRyfkdRpq7VHEvJ3OaVAdn1xM1E667prFpzIoo5my
+	QM9fp8AC8lcuEiXdm2HgZmIAvq2oEtHYHrVVPS4oWRtHAAvfVWvYvAuGYamVOzdp/PF+K/VsEtKAH
+	OOASwkowXZFV723k6WyMaLNAWybMvQYDnwGB4OxIO3oFuPU7QMgA0OC7GgbQa3UW6SARn2whnDWYN
+	/mD+E+hr2+q22TPCYmcyl/Q5BK3tt+WTyy+lDbk9F9QcvWRjwXEvCMVTpOjTKZdacIIczMvH39/ck
+	RUihUUQuo/97U+VJBwKA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i5hXL-0000a6-Q0; Thu, 05 Sep 2019 02:30:15 +0000
+	id 1i5hqG-0005pE-4L; Thu, 05 Sep 2019 02:49:48 +0000
 Received: from smtp2200-217.mail.aliyun.com ([121.197.200.217])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i5hXI-0008RD-II
- for linux-riscv@lists.infradead.org; Thu, 05 Sep 2019 02:30:14 +0000
-X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07812042|-1; CH=green;
- DM=CONTINUE|CONTINUE|true|0.0543389-0.00436749-0.941294; FP=0|0|0|0|0|-1|-1|-1;
- HT=e02c03312; MF=han_mao@c-sky.com; NM=1; PH=DS; RN=4; RT=4; SR=0;
- TI=SMTPD_---.FOxzzyz_1567650603; 
+ id 1i5hqD-0005oX-7Q
+ for linux-riscv@lists.infradead.org; Thu, 05 Sep 2019 02:49:46 +0000
+X-Alimail-AntiSpam: AC=CONTINUE; BC=0.08002193|-1; CH=green;
+ DM=CONTINUE|CONTINUE|true|0.0740845-0.00454813-0.921367; FP=0|0|0|0|0|-1|-1|-1;
+ HT=e02c03278; MF=han_mao@c-sky.com; NM=1; PH=DS; RN=4; RT=4; SR=0;
+ TI=SMTPD_---.FOyO4sV_1567651782; 
 Received: from localhost(mailfrom:han_mao@c-sky.com
- fp:SMTPD_---.FOxzzyz_1567650603)
- by smtp.aliyun-inc.com(10.147.42.197);
- Thu, 05 Sep 2019 10:30:03 +0800
-Date: Thu, 5 Sep 2019 10:30:02 +0800
+ fp:SMTPD_---.FOyO4sV_1567651782)
+ by smtp.aliyun-inc.com(10.147.42.253);
+ Thu, 05 Sep 2019 10:49:42 +0800
+Date: Thu, 5 Sep 2019 10:49:41 +0800
 From: Mao Han <han_mao@c-sky.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH V6 1/3] riscv: Add perf callchain support
-Message-ID: <20190905023002.GA3949@vmh-VirtualBox>
+Subject: Re: [PATCH V6 3/3] riscv: Add support for libdw
+Message-ID: <20190905024940.GB3949@vmh-VirtualBox>
 References: <cover.1567060834.git.han_mao@c-sky.com>
- <86d18d80affc39cf9579a24f1beb7c8631cfa9bd.1567060834.git.han_mao@c-sky.com>
- <alpine.DEB.2.21.9999.1909041247560.13502@viisi.sifive.com>
+ <4cba2dfb6b1ef0df01185c6bce78a0a2867d0a7d.1567060834.git.han_mao@c-sky.com>
+ <alpine.DEB.2.21.9999.1909041422220.13502@viisi.sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <alpine.DEB.2.21.9999.1909041247560.13502@viisi.sifive.com>
+In-Reply-To: <alpine.DEB.2.21.9999.1909041422220.13502@viisi.sifive.com>
 User-Agent: Mutt/1.5.24 (2015-08-30)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190904_193012_787287_55A328B3 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20190904_194945_441475_E1779A19 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,28 +79,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 04, 2019 at 12:54:41PM -0700, Paul Walmsley wrote:
+On Wed, Sep 04, 2019 at 02:24:57PM -0700, Paul Walmsley wrote:
 > Hello Mao Han,
 > 
 > On Thu, 29 Aug 2019, Mao Han wrote:
 > 
-> > This patch add support for perf callchain sampling on riscv platform.
-> > The return address of leaf function is retrieved from pt_regs as
-> > it is not saved in the outmost frame.
-> > 
-> > Signed-off-by: Mao Han <han_mao@c-sky.com>
-> > Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> > Cc: Greentime Hu <green.hu@gmail.com>
-> > Cc: Palmer Dabbelt <palmer@sifive.com>
-> > Cc: linux-riscv <linux-riscv@lists.infradead.org>
-> > Cc: Christoph Hellwig <hch@lst.de>
-> > Cc: Guo Ren <guoren@kernel.org>
+> > This patch add support for DWARF register mappings and libdw registers
+> > initialization, which is used by perf callchain analyzing when
+> > --call-graph=dwarf is given.
 > 
-> There are some 'checkpatch.pl --strict' warnings with this patch (below).  
-> These have been fixed here.  The following patch has been queued for 
-> v5.4-rc1 with Greentime's Tested-by:.  Thanks for your hard work following 
-> up on the feedback with these patches -
-Thanks for the fixes. I'll check patches with --strict next time.
+> > diff --git a/tools/arch/riscv/include/uapi/asm/perf_regs.h b/tools/arch/riscv/include/uapi/asm/perf_regs.h
+> > new file mode 100644
+> > index 0000000..df1a581
+> > --- /dev/null
+> > +++ b/tools/arch/riscv/include/uapi/asm/perf_regs.h
+> > @@ -0,0 +1,42 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> 
+> As with 
+> 
+> https://lore.kernel.org/linux-riscv/CAJF2gTRXH_bx0rwsTZMTnX+umZfVTL_iVnewPtVM50sLaqJPTg@mail.gmail.com/T/#t
+> 
+> is it possible to change this license string to "GPL-2.0 WITH 
+> Linux-syscall-note" to match the other Linux architectures? 
+>
+Thanks for suggestion. I didn't notice the UAPI headers are supposed to 
+have the exception notes. I'll update the license string and resend them.
 
 Thanks,
 Mao Han
