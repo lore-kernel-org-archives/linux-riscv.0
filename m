@@ -2,22 +2,22 @@ Return-Path: <SRS0=7IGV=XB=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-5.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6F634C43331
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  6 Sep 2019 22:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 70024C43140
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  6 Sep 2019 22:36:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3904020854
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  6 Sep 2019 22:33:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 449A02082C
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  6 Sep 2019 22:36:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pYexD79W";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="ZcgTOH2j"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3904020854
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VvojudVJ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="U4aVJDu5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 449A02082C
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,65 +26,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IEX91Hcs83553PwLt4OXM89NBI8wa0f3uOMNEiOMxiE=; b=pYexD79Wl1cbcR
-	e//OJjavngG0EjhwjAjo9ixrbzsGB1UiWkKoEtQhHRxOkKBX0MEDkDZl+NTT9rEmIQ/IdNOPYBMOu
-	pDd14Avw0zrTcogzNVz0VOKaf9k3zwOact7Bkg6iuu/Y4KJMMtDrGx4s5CdJCkD8swuq6Nx27K1QU
-	56Hh8KSmC1X+rl31dWF7HqEc6GTS5NmvgqtQBipj6UGbHJenE9C/onb0bW99kF5ddc9CwVLouIq9U
-	+x7T0QEX57XLi7gYiBK55NsPphW7RUWm7i42LqLtKiw50Hh5qYcWeMIbcxlR6Muz2HZEVEKUdmHBq
-	KoXNO3FEwYhftIOVHIDA==;
+	List-Owner; bh=/e354OkilaTBMENAfdpy7Eh4Z4pGDoNYvOuuxnora+c=; b=VvojudVJKl1NVL
+	PzEcTZElzcbfV7APtGpgHnL7/3LJJOAwL19EQgwfY153u/KVvtuKz98wbVR0dgfmUiwhVmC9p1UBc
+	znmXtf1hnPlb4t21PFgBJkfu2QYz3ihJ00uj/hGExlShOlXMwYzjQom7WHuZQhfE3yAU0UNndpbHq
+	ELecARO7tERZtuVXTuaa/ptN6BR+k7helXeO7qkJ5lI88Ro5jcKSbMnj82OU3dOoMLvdqeeWBUG/b
+	mSqWkoOMUIfJBUKJrMWidIkzAwaiMW4Vkx2z+32IL7ijBudg7NnSpbsiRSeSOvTRuKKSgvg8hYlMn
+	zpNL4ScYcdL7wybHJjgw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i6Mn1-0002wj-QD; Fri, 06 Sep 2019 22:33:11 +0000
-Received: from mail-io1-xd43.google.com ([2607:f8b0:4864:20::d43])
+	id 1i6Mpy-0004YJ-Ur; Fri, 06 Sep 2019 22:36:14 +0000
+Received: from mail-io1-xd44.google.com ([2607:f8b0:4864:20::d44])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i6Mmy-0002w0-Q6
- for linux-riscv@lists.infradead.org; Fri, 06 Sep 2019 22:33:10 +0000
-Received: by mail-io1-xd43.google.com with SMTP id j4so16319325iog.11
- for <linux-riscv@lists.infradead.org>; Fri, 06 Sep 2019 15:33:04 -0700 (PDT)
+ id 1i6Mpw-0004Xv-MA
+ for linux-riscv@lists.infradead.org; Fri, 06 Sep 2019 22:36:13 +0000
+Received: by mail-io1-xd44.google.com with SMTP id f4so15660819ion.2
+ for <linux-riscv@lists.infradead.org>; Fri, 06 Sep 2019 15:36:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:from:to:cc:subject:in-reply-to:message-id:references
  :user-agent:mime-version;
- bh=YRsccmFbDQQjungCxi/rfzbQ2IZD8msr9cyayv1Eid4=;
- b=ZcgTOH2jNyuEvpZxi4ZVGo6r3CKvNsWrq2VWnLanEds/0AAZvZeKuFE9gYXsFIJ54u
- /sdDa9wCmYdQds2kybVvEZWLXpGtnj39ehpMP/91t+kvUNF3jhgq52a6wMgBAmb15KwO
- f0xROPrHflfSto6hFc1BZA9BvJm/2IgZClYWmD4+9mXI24yq5vVFaNPEBeSQwhHoL123
- yo5GbF2hbmfH+ia7/IL/DA2cxU4IdYn/tOkSi+qCJEXECxifR8uhx9t+Q4yR6YmNLgr5
- cRj3i/6wOlL1Nb1Pb/FGYUPiAPU3u5Bo5MIvhQqNFAdrgMwcOX2qoz0JEnJfTYJDcHKC
- bI1Q==
+ bh=/OtDkC3pdZM2krctzGQ+0mwUr2A4Fs4btQ+iI6by6RE=;
+ b=U4aVJDu5VXkgoIzNl4rkJ0nf2rR1BtS2JRC7srMfDmAux89pa3jMXCPQ+73gGP4pQo
+ Fb6D2ltlQysy5TqKEABHdV+ayc4GTots+ylmlZ8aSR88vtlI4wIP+51mF7gDrjl1I3vb
+ 4O5WhDwC76LXCOkjNL+0FQRq7q8YIQVRKzBdI/ORwFTDo5PgD3CfM2FFCmGCjBE6Iz3W
+ hZFSoXNEQMqtrToRHblAMK5u0Rd++k65C3zVKL8whgA0qN9mPt6L6fWeyb4MQ1SX/2zw
+ w3/cEkDJ7QJAXrSsjya9DcI/Lc/UotopuyJ4alzf+dl0dV8OxKidh9YYMgKS6zkIR/cS
+ IRng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
  :references:user-agent:mime-version;
- bh=YRsccmFbDQQjungCxi/rfzbQ2IZD8msr9cyayv1Eid4=;
- b=AL/JDj2qrAPsFn1O/ULZMy12JjnxGZJaWZnx1Qgj/aXvBzEvxA6gNHuQQJhnc77NIc
- C6qu8p2e+pVZdD/vnaf+Ai+AtSTXgK1SKp+4D1MURAqAa5ROs7eaPZHyo/L4TMQOiFqE
- JLhEuw1VNeqImEVT0sqo7OpdzvHl86+xCiuWIPaKrNY5ouHyy8i1VYHaaPOk3CspKO4J
- 4AT5+vmpPEkGrzi0KvOftEpRjVzQ7R5WNTrSfdtVgIaTyzGsSMzyxuxYWOGF3B3MLKwD
- UtGnWBJTdVEmD8FNi/9pTxMLd0azcYunggbUw0dJyFLDAuSiRm0N+QpHNVvdVd5jSDHI
- b++A==
-X-Gm-Message-State: APjAAAVsOVwjmyhjCdmB8w0+lhujo8pqUQmir8pVZBLSeaLU0sCD0d8/
- 9sh/1Lt5IJ7f2Hg78jEoYO+FLw==
-X-Google-Smtp-Source: APXvYqyxdUW/2++hNyntiZhHPRTa5wOzs/5LZb+eIJajhIYFEi8CvuN3riIJHG7wc9yCykPSpHpnIg==
-X-Received: by 2002:a6b:ee17:: with SMTP id i23mr12722648ioh.168.1567809184139; 
- Fri, 06 Sep 2019 15:33:04 -0700 (PDT)
+ bh=/OtDkC3pdZM2krctzGQ+0mwUr2A4Fs4btQ+iI6by6RE=;
+ b=D2OzQ78Jn7UUdKRRvzxqs9wfKARcGy70lhR/VQYPPUmitcgNQhB9VnhTHEe/0uGNl7
+ VNir8yiO4kWsvPlSTpOZJh5ezwYh95mEAr13yZFcY8z2j4XplObfD2jZePXhbiB3GHmo
+ kIL0HYSdN98loKMbKOY68y4Gi05IdFtugMC9mstj5BgZc9YbyXCtsuNuNxAxQAsIZEpi
+ RBffkf/oAsKmBz40nKtg71Ex+iwZti1kLTQufTPHEbFyvHr3noNGCUngQptQkLwobIko
+ HR/mneXUpLAzdhANm2zmi35Su71O5Xrr0MCYPQx+NdKIsfVEQwtJE5UJEOGkO1E2q+lI
+ 4ByQ==
+X-Gm-Message-State: APjAAAVmRi5bfPMZtvnC3mTVqrPmseaRtZoJ8UKGeXEKEbXYVMGpNCQC
+ ly/i1ySz5znjtUa0Fv74oK76vg==
+X-Google-Smtp-Source: APXvYqz4MaleudQolCZG/PjbQC417j+Ug7KgFVxamxGmKjA3pdAN9qsIdwzmJJTiIGhfUx+hi+xiBA==
+X-Received: by 2002:a02:c546:: with SMTP id g6mr12808435jaj.59.1567809372001; 
+ Fri, 06 Sep 2019 15:36:12 -0700 (PDT)
 Received: from localhost (75-161-11-128.albq.qwest.net. [75.161.11.128])
- by smtp.gmail.com with ESMTPSA id u6sm4457439iop.18.2019.09.06.15.33.03
+ by smtp.gmail.com with ESMTPSA id d20sm6201253ioh.2.2019.09.06.15.36.10
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 06 Sep 2019 15:33:03 -0700 (PDT)
-Date: Fri, 6 Sep 2019 15:33:02 -0700 (PDT)
+ Fri, 06 Sep 2019 15:36:11 -0700 (PDT)
+Date: Fri, 6 Sep 2019 15:36:09 -0700 (PDT)
 From: Paul Walmsley <paul.walmsley@sifive.com>
 X-X-Sender: paulw@viisi.sifive.com
 To: Christoph Hellwig <hch@lst.de>
 Subject: Re: [PATCH] riscv: move sifive_l2_cache.c to drivers/soc
-In-Reply-To: <20190819062619.GA20211@lst.de>
-Message-ID: <alpine.DEB.2.21.9999.1909061527510.6292@viisi.sifive.com>
+In-Reply-To: <alpine.DEB.2.21.9999.1909061525040.6292@viisi.sifive.com>
+Message-ID: <alpine.DEB.2.21.9999.1909061533260.6292@viisi.sifive.com>
 References: <20190818082935.14869-1-hch@lst.de>
- <20190819060904.GA4841@zn.tnic> <20190819062619.GA20211@lst.de>
+ <alpine.DEB.2.21.9999.1909061525040.6292@viisi.sifive.com>
 User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190906_153308_850662_CB076A2C 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20190906_153612_719332_4C5B14DC 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,39 +96,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: palmer@sifive.com, linux-kernel@vger.kernel.org,
- Yash Shah <yash.shah@sifive.com>, Borislav Petkov <bp@alien8.de>,
- linux-riscv@lists.infradead.org, linux-edac@vger.kernel.org
+Cc: palmer@sifive.com, linux-kernel@vger.kernel.org, bp@alien8.de,
+ linux-riscv@lists.infradead.org, mchehab@kernel.org,
+ linux-edac@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Aug 2019, Christoph Hellwig wrote:
+One other comment on this patch:
 
-> On Mon, Aug 19, 2019 at 08:09:04AM +0200, Borislav Petkov wrote:
-> > On Sun, Aug 18, 2019 at 10:29:35AM +0200, Christoph Hellwig wrote:
-> > > The sifive_l2_cache.c is in no way related to RISC-V architecture
-> > > memory management.  It is a little stub driver working around the fact
-> > > that the EDAC maintainers prefer their drivers to be structured in a
-> > > certain way
-> > 
-> > That changed recently so I guess we can do the per-IP block driver after
-> > all, if people would still prefer it.
-> 
-> That would seem like the best idea.  But I don't really know this code
-> well enough myself, and I really need to get this code out of the
-> forced on RISC-V codebase as some SOCs I'm working with simply don't
-> have the memory for it..
+On Fri, 6 Sep 2019, Paul Walmsley wrote:
 
-If that's your primary concern, then in the short term, how about just 
-sending a single-line patch to the arch/riscv/mm Makefile to skip building 
-it if !CONFIG_SOC_SIFIVE?  Assuming, that is, you won't be enabling EDAC 
-support for those low-end SoCs.  Then you won't need to get the ack 
-from the EDAC folks in the short term.  
+> On Sun, 18 Aug 2019, Christoph Hellwig wrote:
+>
+> > diff --git a/drivers/edac/Kconfig b/drivers/edac/Kconfig
+> > index 200c04ce5b0e..9241b3e7a050 100644
+> > --- a/drivers/edac/Kconfig
+> > +++ b/drivers/edac/Kconfig
+> > @@ -462,7 +462,7 @@ config EDAC_ALTERA_SDMMC
+> >  
+> >  config EDAC_SIFIVE
+> >  	bool "Sifive platform EDAC driver"
+> > -	depends on EDAC=y && RISCV
+> > +	depends on EDAC=y && SIFIVE_L2
 
-Then a patch to make the SiFive platform EDAC driver build contingent on 
-CONFIG_SOC_SIFIVE could be sent separately.
+Since the guidance from the EDAC maintainers is that this driver is to be 
+a platform driver -- which would, for example, also include EDAC support for 
+other IP blocks (e.g., DRAM controllers) on SiFive SoCs -- this should 
+depend on SOC_SIFIVE, not SIFIVE_L2.
 
 
 - Paul
