@@ -2,58 +2,62 @@ Return-Path: <SRS0=LyqE=XE=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B5CDBC00307
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2019 08:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C5D8FC49ED6
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2019 09:58:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 82DB62086D
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2019 08:47:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 985C9218AC
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  9 Sep 2019 09:58:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="S4R0QZmC"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 82DB62086D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jS0ZfGka"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 985C9218AC
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=BI6nMcF2aO2FF1MqeyN6GuxkC2Y4aHTyieGHQ/Urepk=; b=S4R0QZmCHiEDHijFwYElliNo9
-	zxKE+BbbSNOG26/k28+4/VmQhT1cVNsvYW/qraZ86pQpsRiRYpTP+6qeJuY4jNsk63k4KVxgMTjy2
-	iTJSEyTdy76Ki6h7P18Uac2nSKf8ck+CH/hz9WcctdkBDS2H7WN4+igBP3jowUIBj/v1/kz0FwU2I
-	ITC65QI45O7+cgEcik//U1LKf94ZLTazi8foXT4J4UYSvOkq4tuOhnCc7Z4qA7n8f8XbpM5iALYze
-	it6LQlJZNNUSk93jwFW/VQz1ssaYjcfDYnXZ/9heQqofuwQTjaeYS/AGToZ8a+x7gOekfA7eRrEFT
-	MHijn9nkg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rgCcTghfGeDOcolh2ZeW2ijfzpwjKiX+KteKhclNQBk=; b=jS0ZfGkaVIWtQg
+	VrwqNcDGyj8GZBy5nng0zvUW4HXI7sLER5Cj6KY7SAIG7nloXLwB95N2N5iHsMk0/pnN2y7iuifib
+	H/0bbrLKb7Gb6tF+gwbcsh9/Kxb6e6UL/QMQ+NAP6lvoeGa1Z7Tk/zfpUVqMbffQjfAIANPR7gScw
+	41noQ/gu4BmE2KLtRc7sfBPwUTjlSomd1WWdJMi2jsI7BliEVjNgnEpGQzPZ1FTkm8cWBt5aLeOX9
+	jt1C5bcXwipVC6fm6fajHABM5wXzj1ukMnwZiMT5HNNTk/AtzpHXP+Ol9sUIyjNPv1DkRpvAtP7Bm
+	J8m/LYWnreuEHC6cTCtQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i7FKG-00016J-BH; Mon, 09 Sep 2019 08:47:08 +0000
+	id 1i7GRQ-0003x3-Hd; Mon, 09 Sep 2019 09:58:36 +0000
 Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i7FJu-0000kY-2x; Mon, 09 Sep 2019 08:46:48 +0000
+ id 1i7GR5-0003h3-Pr; Mon, 09 Sep 2019 09:58:17 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 549CAAC37;
- Mon,  9 Sep 2019 08:46:42 +0000 (UTC)
-Message-ID: <7fc8f4d9a992ef9e92e0d188d32c8763a11d39e3.camel@suse.de>
-Subject: Re: [PATCH v4 3/4] arm64: use both ZONE_DMA and ZONE_DMA32
+ by mx1.suse.de (Postfix) with ESMTP id D3401ABE3;
+ Mon,  9 Sep 2019 09:58:13 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Date: Mon, 09 Sep 2019 10:46:39 +0200
-In-Reply-To: <20190908212711.GA84759@huawei_p9_lite.cambridge.arm.com>
-References: <20190906120617.18836-1-nsaenzjulienne@suse.de>
- <20190906120617.18836-4-nsaenzjulienne@suse.de>
- <20190908212711.GA84759@huawei_p9_lite.cambridge.arm.com>
-User-Agent: Evolution 3.32.4 
+To: catalin.marinas@arm.com, hch@lst.de, wahrenst@gmx.net,
+ marc.zyngier@arm.com, robh+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v5 1/4] arm64: mm: use arm64_dma_phys_limit instead of calling
+ max_zone_dma_phys()
+Date: Mon,  9 Sep 2019 11:58:04 +0200
+Message-Id: <20190909095807.18709-2-nsaenzjulienne@suse.de>
+X-Mailer: git-send-email 2.23.0
+In-Reply-To: <20190909095807.18709-1-nsaenzjulienne@suse.de>
+References: <20190909095807.18709-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190909_014646_365509_3E9B41C4 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20190909_025815_977956_689D523B 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -65,102 +69,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-rpi-kernel@lists.infradead.org, f.fainelli@gmail.com,
- marc.zyngier@arm.com, Will Deacon <will@kernel.org>,
- linux-kernel@vger.kernel.org, robh+dt@kernel.org, linux-mm@kvack.org,
- mbrugger@suse.com, wahrenst@gmx.net, linux-riscv@lists.infradead.org,
- phill@raspberrypi.org, robin.murphy@arm.com, hch@lst.de,
- linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
-Content-Type: multipart/mixed; boundary="===============8758070118959519939=="
+Cc: f.fainelli@gmail.com, will@kernel.org, mbrugger@suse.com,
+ linux-rpi-kernel@lists.infradead.org, phill@raspberrypi.org,
+ robin.murphy@arm.com, nsaenzjulienne@suse.de, m.szyprowski@samsung.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+By the time we call zones_sizes_init() arm64_dma_phys_limit already
+contains the result of max_zone_dma_phys(). We use the variable instead
+of calling the function directly to save some precious cpu time.
 
---===============8758070118959519939==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-1LCc1QPqK5YGKmT2hHJ7"
+Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+---
+ arch/arm64/mm/init.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index f3c795278def..6112d6c90fa8 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -181,7 +181,7 @@ static void __init zone_sizes_init(unsigned long min, unsigned long max)
+ 	unsigned long max_zone_pfns[MAX_NR_ZONES]  = {0};
+ 
+ #ifdef CONFIG_ZONE_DMA32
+-	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(max_zone_dma_phys());
++	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(arm64_dma_phys_limit);
+ #endif
+ 	max_zone_pfns[ZONE_NORMAL] = max;
+ 
+-- 
+2.23.0
 
---=-1LCc1QPqK5YGKmT2hHJ7
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Sun, 2019-09-08 at 22:27 +0100, Catalin Marinas wrote:
-> On Fri, Sep 06, 2019 at 02:06:14PM +0200, Nicolas Saenz Julienne wrote:
-> > @@ -430,7 +454,7 @@ void __init arm64_memblock_init(void)
-> > =20
-> >  	high_memory =3D __va(memblock_end_of_DRAM() - 1) + 1;
-> > =20
-> > -	dma_contiguous_reserve(arm64_dma32_phys_limit);
-> > +	dma_contiguous_reserve(arm64_dma_phys_limit ? : arm64_dma32_phys_limi=
-t);
-> >  }
-> > =20
-> >  void __init bootmem_init(void)
-> > @@ -534,6 +558,7 @@ static void __init free_unused_memmap(void)
-> >  void __init mem_init(void)
-> >  {
-> >  	if (swiotlb_force =3D=3D SWIOTLB_FORCE ||
-> > +	    max_pfn > (arm64_dma_phys_limit >> PAGE_SHIFT) ||
-> >  	    max_pfn > (arm64_dma32_phys_limit >> PAGE_SHIFT))
-> >  		swiotlb_init(1);
->=20
-> So here we want to initialise the swiotlb only if we need bounce
-> buffers. Prior to this patch, we assumed that swiotlb is needed if
-> max_pfn is beyond the reach of 32-bit devices. With ZONE_DMA, we need to
-> lower this limit to arm64_dma_phys_limit.
->
-> If ZONE_DMA is enabled, just comparing max_pfn with arm64_dma_phys_limit
-> is sufficient since the dma32 one limit always higher. However, if
-> ZONE_DMA is disabled, arm64_dma_phys_limit is 0, so we may initialise
-> swiotlb unnecessarily. I guess you need a similar check to the
-> dma_contiguous_reserve() above.
-
-Of course.
-
->=20
-> With that:
->=20
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
->=20
-> Unless there are other objections, I can queue this series for 5.5 in a
-> few weeks time (too late for 5.4).
-
-Thanks!
-
-
---=-1LCc1QPqK5YGKmT2hHJ7
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl12EW8ACgkQlfZmHno8
-x/6gGAf+LvKqKpyRZyqYfBtVHx+Mh2KJ7diP9UrN83ZhxXEFsw7VTMSKhZkJ4Gwb
-JukrC1rd+n1kNI5WHOQGKm3PgrtSn1zuBnf1/cWHvzy9kpD2n9UebAzNpkwg7SBR
-e8h3pfAr4rEZTRalQhGBZfqHjqV6hPPrbMduCeJicfm6R1qQxSC35WG/etDmPG8i
-IdERWdQ4oqIHyzxGaq4BMsZLVL9gmtAs/Dd78a8y6EMWZt1DTMicGO01riV0TmOs
-mK+UJa6GL6K43yWnCa31wxSCwuiOK0ta/iZWcvgSdQEhGejqWzpXLrYPeGsFGYrV
-8bc6QLV1/FvuZWy/lmEW05gQVGejyA==
-=lI20
------END PGP SIGNATURE-----
-
---=-1LCc1QPqK5YGKmT2hHJ7--
-
-
-
---===============8758070118959519939==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8758070118959519939==--
-
-
