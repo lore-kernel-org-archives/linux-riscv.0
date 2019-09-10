@@ -2,58 +2,62 @@ Return-Path: <SRS0=VX3L=XF=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D2316C4740A
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Sep 2019 14:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EFE2BC4740A
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Sep 2019 14:43:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A815021670
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Sep 2019 14:36:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C109C208E4
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Sep 2019 14:43:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dWPnjPJt"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A815021670
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UCkmdhNJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C109C208E4
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5CYDu5lqdZ3TRb0eb9HKlDwEO/zM1m03WIEOe8cpMX4=; b=dWPnjPJtsX/roR
-	DN8joDafSxF3mUM8wSwtbwI3/3c9zKaMAwB0OnohGTgbmMDWMMsTO4SZXEqGzOFCxsNFf7AKBR2Lh
-	ohZMZZnwfq7e70sX4hCc67y5IcCVlTaO/EPncfQqSu6SIXhSrMUQhPMR9BiHuD698LUc3p0E/g7xv
-	Rt+QEsB1GmXCiJe0geGNAQACdwvcHFIHVt0DNUHCl8lCyY7JbmtooRApoWX9E2RZSmc2me67rkAL0
-	doWohyNfHo4pbAiPtpq0dl5qmjttWo8XtjyDKtrTTjVowQHTVvVNTDP/tGA3uXKfTPDOnQOoAcHS4
-	dluQkMM8yovEhZZZBhAQ==;
+	List-Owner; bh=wCB+aSvLk6YU4j+gT1Zg8y0jdJRLmZSGBx2RZZBSDMQ=; b=UCkmdhNJcImoix
+	9yE8SvdrSYsl3vMCbRO8GxTAvWzw8IKb/LgMiP1nsSJrZrYinpB+Tyf7o/u+8w7HG/BESZILIIHLK
+	zx7KqseKTrZIQh32R+tvffaofXTbwoB3iZOyAnDkVDL5xkA+cvgZd3URSfCsibdLUxj2TIMTCATVT
+	neEpkWyGHG3Y9eGXa0+oQ1IBqUoQnXhKn8sl9CArCfpxejZHE69REdJrPGDWrVSfuHIcXD6AUJj/O
+	iXcLbYvYWqmhMeAekpJCQ8XUc8r4BCnruJceewQKPSGc310bLbkOx5rK3EtuK1yCEd3oaO0BGqQbP
+	GnFa323WbxETMlg6ODlg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i7hG2-0000Hr-71; Tue, 10 Sep 2019 14:36:38 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1i7hMZ-0003zw-Cv; Tue, 10 Sep 2019 14:43:23 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i7hFy-0000HA-JC
- for linux-riscv@lists.infradead.org; Tue, 10 Sep 2019 14:36:36 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
- id CC9FD68AFE; Tue, 10 Sep 2019 16:36:30 +0200 (CEST)
-Date: Tue, 10 Sep 2019 16:36:30 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: Andreas Schwab <schwab@suse.de>
+ id 1i7hLn-00035M-Nu
+ for linux-riscv@lists.infradead.org; Tue, 10 Sep 2019 14:42:37 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id CD812B742;
+ Tue, 10 Sep 2019 14:42:33 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: Christoph Hellwig <hch@lst.de>
 Subject: Re: [PATCH] serial/sifive: select SERIAL_EARLYCON
-Message-ID: <20190910143630.GA6794@lst.de>
 References: <20190910055923.28384-1-hch@lst.de> <mvm4l1kskny.fsf@suse.de>
  <20190910070503.GA31743@lst.de> <mvmzhjcr2d4.fsf@suse.de>
+ <20190910143630.GA6794@lst.de>
+X-Yow: I'm in DISGUISE as a BAGGAGE CHECKER....I can watch the house, if it's
+ ORANGE...
+Date: Tue, 10 Sep 2019 16:42:33 +0200
+In-Reply-To: <20190910143630.GA6794@lst.de> (Christoph Hellwig's message of
+ "Tue, 10 Sep 2019 16:36:30 +0200")
+Message-ID: <mvmftl4p606.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.3 (gnu/linux)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mvmzhjcr2d4.fsf@suse.de>
-User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190910_073634_776458_420B514E 
-X-CRM114-Status: UNSURE (   6.73  )
+X-CRM114-CacheID: sfid-20190910_074236_265285_D91D96D6 
+X-CRM114-Status: UNSURE (   9.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -68,20 +72,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: gregkh@linuxfoundation.org, jslaby@suse.com, linux-kernel@vger.kernel.org,
  linux-serial@vger.kernel.org, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org, Christoph Hellwig <hch@lst.de>
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+T24gU2VwIDEwIDIwMTksIENocmlzdG9waCBIZWxsd2lnIDxoY2hAbHN0LmRlPiB3cm90ZToKCj4g
 T24gVHVlLCBTZXAgMTAsIDIwMTkgYXQgMTA6MTg6MTVBTSArMDIwMCwgQW5kcmVhcyBTY2h3YWIg
-d3JvdGU6Cj4gPiBIb3cgc28/ICBX0ZZ0aCBPRiBhbmQgYSBzdGRvdXQgcGF0aCB5b3UganVzdCBz
-ZXQgZWFybHljb24gb24gdGhlCj4gPiBjb21tYW5kIGxpbmUgd2l0aG91dCBhbnkgYXJndW1lbnRz
-IGFuZCBpdCB3aWxsIGJlIGZvdW5kLgo+IAo+IERvZXNuJ3Qgd29yayBmb3IgbWUuCj4gCj4gWyAg
-ICAwLjAwMDAwMF0gTWFsZm9ybWVkIGVhcmx5IG9wdGlvbiAnZWFybHljb24nCgpUaGF0IGZ1bmN0
-aW9uYWxpdHkgaXMgaW1wbGVtZW50ZWQgYnkgcGFyYW1fc2V0dXBfZWFybHljb24gYW5kCmVhcmx5
-X2luaXRfZHRfc2Nhbl9jaG9zZW5fc3Rkb3V0LiAgQ2hlY2sgd2h5IHRob3NlIGFyZW4ndCBidWls
-dCBpbnRvCnlvdXIga2VybmVsLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+d3JvdGU6Cj4+ID4gSG93IHNvPyAgV9GWdGggT0YgYW5kIGEgc3Rkb3V0IHBhdGggeW91IGp1c3Qg
+c2V0IGVhcmx5Y29uIG9uIHRoZQo+PiA+IGNvbW1hbmQgbGluZSB3aXRob3V0IGFueSBhcmd1bWVu
+dHMgYW5kIGl0IHdpbGwgYmUgZm91bmQuCj4+IAo+PiBEb2Vzbid0IHdvcmsgZm9yIG1lLgo+PiAK
+Pj4gWyAgICAwLjAwMDAwMF0gTWFsZm9ybWVkIGVhcmx5IG9wdGlvbiAnZWFybHljb24nCj4KPiBU
+aGF0IGZ1bmN0aW9uYWxpdHkgaXMgaW1wbGVtZW50ZWQgYnkgcGFyYW1fc2V0dXBfZWFybHljb24g
+YW5kCj4gZWFybHlfaW5pdF9kdF9zY2FuX2Nob3Nlbl9zdGRvdXQuICBDaGVjayB3aHkgdGhvc2Ug
+YXJlbid0IGJ1aWx0IGludG8KPiB5b3VyIGtlcm5lbC4KClRoZXkgYXJlLgoKQW5kcmVhcy4KCi0t
+IApBbmRyZWFzIFNjaHdhYiwgU1VTRSBMYWJzLCBzY2h3YWJAc3VzZS5kZQpHUEcgS2V5IGZpbmdl
+cnByaW50ID0gMDE5NiBCQUQ4IDFDRTkgMTk3MCBGNEJFICAxNzQ4IEU0RDQgODhFMyAwRUVBIEI5
+RDcKIkFuZCBub3cgZm9yIHNvbWV0aGluZyBjb21wbGV0ZWx5IGRpZmZlcmVudC4iCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
