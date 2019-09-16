@@ -2,76 +2,68 @@ Return-Path: <SRS0=O4lQ=XL=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CBDFFC4CECE
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Sep 2019 22:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 96618C49ED7
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Sep 2019 23:05:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9BC332171F
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Sep 2019 22:17:30 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 65CBE214D9
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Sep 2019 23:05:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZLS9tSEV"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9BC332171F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="u5BKr2iX";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="dX2xokf8"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 65CBE214D9
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=gcdYc7MHzUf2apGgR2h03w57X+xTSLoTZhug4Qo8wxM=; b=ZLS9tSEVmD5JwX/No++20zSKJ
-	iaiVubfn70MFIjzvtNx7UW+dR2opOgkHr5QBvJ4Chma3dtEZpgOGUHgfg2IQzfawPO5a38KzDRybh
-	2PxeaPlVvt76UtYDmukDneghySylMHHJSnX7Pg5rsAX5YSk0KXHqzBO08o1ub/d5azTsCXjj2M0OX
-	ogweSfPlc/fkp0K3B1pAXvFDkjbHNFOt7ibZHArP8UiiW0AcFPkY30qThFoJcZuXxEDv7/il0w7qj
-	xczJ46yGMsI5TeQnUqRGqXh4SqZFk5VEx3+0GCl3pfxgzaAuJa6tfLeU9FCg/KbltwW1tPIHDqFmF
-	74BhrO2kw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BIGa1LRm5DHf8adGgv2hFZYAzLEbqVjczGu1AFsLcdc=; b=u5BKr2iXUAsEXY
+	xnPnapBqP/6VoKJlv9UUQbeLaMOGSJOQ0LpYfsxGDcrZ6nho5Q+eC3jnjBb9bQ4Of7y/uNo/8c6q1
+	GZZQvKUHISzU0/OSInfcHMcCaYfMN8nyfPMlMcUHgTUh8LaXwYL/SjDVXv0rtdBzv4eW5dpZEmBTt
+	oTIiKLn/wN7aMxaJJcyvRyl95t8wj79hF6CwiEzQn4muHrutkP01uRnS4SXf4SmrE0oNv6NBUZi+7
+	2D4/RIKrScJS8jDYAnf0F9dgcYj3Vmau1dhKWd09WKHVesG9XJ2rFvKDzMlLnCD07gu/2+w6/1H/0
+	XER7epYp1nJ7Kp1mkfbA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1i9zJJ-0002Id-Ub; Mon, 16 Sep 2019 22:17:29 +0000
-Received: from mail-pl1-f194.google.com ([209.85.214.194])
+	id 1iA03w-0001aK-Ud; Mon, 16 Sep 2019 23:05:40 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1i9zJG-0002I3-LE
- for linux-riscv@lists.infradead.org; Mon, 16 Sep 2019 22:17:28 +0000
-Received: by mail-pl1-f194.google.com with SMTP id w10so522552plq.5
- for <linux-riscv@lists.infradead.org>; Mon, 16 Sep 2019 15:17:25 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=WswZLnUEYCGfpfuQ51663IL0Rbi4vuXzWm78VorCSEY=;
- b=FxklSuDDzXjWyLXsBa45TjwTvab4wk7IM+Ovljf4Biw4etRgG1+2xd6Ha/LSv9t9uo
- NDb6TR/x8bpRMLG+Ua+8azxVMB22q05TE3tTFRn67S3HzUR60utctICIQytMYXE3o7kd
- UNFr01B1wQS6ebu9bCbm8nb3T+tWg76NTwBwaFv9dLbdDN16p30Ucba9I93JdG6OtxXX
- bQcwVky2DKAftAjN/Ru2mG2UOYB1nIakwaZNjDy2wmgFMu1pRapFG1rE1FIzs67PRVrt
- 3tzquBj3vSiP+XITrI+exspW/JpNSF8dQB8U8u4GAxNkgJ8O+aAR4MMepWU+3YKDcosF
- YXUQ==
-X-Gm-Message-State: APjAAAU/+558hP/1x8896JbwE9DXV5lGyv/dkoSDSZEL04LwNSvJ3T3D
- Zhwclk0SbgPXktKu6ol+WV8Aaw==
-X-Google-Smtp-Source: APXvYqxWxOB9rd6IHEXpksPhYXEmRsptRYL8TloZUWLAfq9jxHLKmjFY1le5Bmt/tHHZLxTtxHsvIw==
-X-Received: by 2002:a17:902:820f:: with SMTP id
- x15mr429596pln.130.1568672245046; 
- Mon, 16 Sep 2019 15:17:25 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id 22sm92469pfo.131.2019.09.16.15.17.24
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 16 Sep 2019 15:17:24 -0700 (PDT)
-Date: Mon, 16 Sep 2019 15:17:24 -0700 (PDT)
-X-Google-Original-Date: Mon, 16 Sep 2019 15:15:22 PDT (-0700)
-Subject: Re: [PATCH] irqchip/sifive-plic: add irq_mask and irq_unmask
-In-Reply-To: <20190916223323.07664bc2@why>
-From: Palmer Dabbelt <palmer@sifive.com>
-To: maz@kernel.org
-Message-ID: <mhng-f418eee3-0240-4c67-8cda-b2c14f9a9df0@palmer-si-x1e>
-Mime-Version: 1.0 (MHng)
+ id 1iA03Z-0001G3-Uc
+ for linux-riscv@lists.infradead.org; Mon, 16 Sep 2019 23:05:19 +0000
+Subject: Re: [GIT PULL] RISC-V updates for v5.4-rc1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1568675117;
+ bh=EYR2fYa2Pxx3FqcnzK82r9ahc0fLXxJECj8/NIbLbAQ=;
+ h=From:In-Reply-To:References:Date:To:Cc:From;
+ b=dX2xokf8ic/lXlfIshVdLl9QyXGeqb4eumKC1pbqPcjhL/gnAFHdkD842PRodoI9i
+ utToS69Crg33a+17Ta6Qv6XuBU8oZHnKXacerTuN7saNleyJL5k/wECci97zMTlwvE
+ /glNl5s7JeeeNB3Jq7cWQW17UbPJeJRdzwjl0nKA=
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <alpine.DEB.2.21.9999.1909160819190.11980@viisi.sifive.com>
+References: <alpine.DEB.2.21.9999.1909160819190.11980@viisi.sifive.com>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <alpine.DEB.2.21.9999.1909160819190.11980@viisi.sifive.com>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+ tags/riscv/for-v5.4-rc1
+X-PR-Tracked-Commit-Id: 9ce06497c2722a0f9109e4cc3ce35b7a69617886
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 58d4fafd0b4c36838077a5d7b17df537b7226f1c
+Message-Id: <156867511761.30760.331827168346797172.pr-tracker-bot@kernel.org>
+Date: Mon, 16 Sep 2019 23:05:17 +0000
+To: Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190916_151726_708014_64A82D17 
-X-CRM114-Status: GOOD (  28.24  )
+X-CRM114-CacheID: sfid-20190916_160518_010065_974C6A33 
+X-CRM114-Status: UNSURE (   0.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,208 +75,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: jason@lakedaemon.net, David Abdurachmanov <david.abdurachmanov@sifive.com>,
- Darius Rad <darius@bluespec.com>, linux-kernel@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
- tglx@linutronix.de
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Sep 2019 14:33:23 PDT (-0700), maz@kernel.org wrote:
-> On Mon, 16 Sep 2019 13:51:58 -0700 (PDT)
-> Palmer Dabbelt <palmer@sifive.com> wrote:
->
->> On Mon, 16 Sep 2019 12:04:56 PDT (-0700), Darius Rad wrote:
->> > On 9/15/19 2:20 PM, Marc Zyngier wrote:
->> >> On Sun, 15 Sep 2019 18:31:33 +0100,
->> >> Palmer Dabbelt <palmer@sifive.com> wrote:
->> >>
->> >> Hi Palmer,
->> >>
->> >>>
->> >>> On Sun, 15 Sep 2019 07:24:20 PDT (-0700), maz@kernel.org wrote:
->> >>>> On Thu, 12 Sep 2019 22:40:34 +0100,
->> >>>> Darius Rad <darius@bluespec.com> wrote:
->> >>>>
->> >>>> Hi Darius,
->> >>>>
->> >>>>>
->> >>>>> As per the existing comment, irq_mask and irq_unmask do not need
->> >>>>> to do anything for the PLIC.  However, the functions must exist
->> >>>>> (the pointers cannot be NULL) as they are not optional, based on
->> >>>>> the documentation (Documentation/core-api/genericirq.rst) as well
->> >>>>> as existing usage (e.g., include/linux/irqchip/chained_irq.h).
->> >>>>>
->> >>>>> Signed-off-by: Darius Rad <darius@bluespec.com>
->> >>>>> ---
->> >>>>>  drivers/irqchip/irq-sifive-plic.c | 13 +++++++++----
->> >>>>>  1 file changed, 9 insertions(+), 4 deletions(-)
->> >>>>>
->> >>>>> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
->> >>>>> index cf755964f2f8..52d5169f924f 100644
->> >>>>> --- a/drivers/irqchip/irq-sifive-plic.c
->> >>>>> +++ b/drivers/irqchip/irq-sifive-plic.c
->> >>>>> @@ -111,6 +111,13 @@ static void plic_irq_disable(struct irq_data *d)
->> >>>>>  	plic_irq_toggle(cpu_possible_mask, d->hwirq, 0);
->> >>>>>  }
->> >>>>>  +/*
->> >>>>> + * There is no need to mask/unmask PLIC interrupts.  They are "masked"
->> >>>>> + * by reading claim and "unmasked" when writing it back.
->> >>>>> + */
->> >>>>> +static void plic_irq_mask(struct irq_data *d) { }
->> >>>>> +static void plic_irq_unmask(struct irq_data *d) { }
->> >>>>
->> >>>> This outlines a bigger issue. If your irqchip doesn't require
->> >>>> mask/unmask, you're probably not using the right interrupt
->> >>>> flow. Looking at the code, I see you're using handle_simple_irq, which
->> >>>> is almost universally wrong.
->> >>>>
->> >>>> As per the description above, these interrupts should be using the
->> >>>> fasteoi flow, which is designed for this exact behaviour (the
->> >>>> interrupt controller knows which interrupt is in flight and doesn't
->> >>>> require SW to do anything bar signalling the EOI).
->> >>>>
->> >>>> Another thing is that mask/unmask tends to be a requirement, while
->> >>>> enable/disable tends to be optional. There is no hard line here, but
->> >>>> the expectations are that:
->> >>>>
->> >>>> (a) A disabled line can drop interrupts
->> >>>> (b) A masked line cannot drop interrupts
->> >>>>
->> >>>> Depending what the PLIC architecture mandates, you'll need to
->> >>>> implement one and/or the other. Having just (a) is indicative of a HW
->> >>>> bug, and I'm not assuming that this is the case. (b) only is pretty
->> >>>> common, and (a)+(b) has a few adepts. My bet is that it requires (b)
->> >>>> only.
->> >>>>
->> >>>>> +
->> >>>>>  #ifdef CONFIG_SMP
->> >>>>>  static int plic_set_affinity(struct irq_data *d,
->> >>>>>  			     const struct cpumask *mask_val, bool force)
->> >>>>> @@ -138,12 +145,10 @@ static int plic_set_affinity(struct irq_data *d,
->> >>>>>   static struct irq_chip plic_chip = {
->> >>>>>  	.name		= "SiFive PLIC",
->> >>>>> -	/*
->> >>>>> -	 * There is no need to mask/unmask PLIC interrupts.  They are "masked"
->> >>>>> -	 * by reading claim and "unmasked" when writing it back.
->> >>>>> -	 */
->> >>>>>  	.irq_enable	= plic_irq_enable,
->> >>>>>  	.irq_disable	= plic_irq_disable,
->> >>>>> +	.irq_mask	= plic_irq_mask,
->> >>>>> +	.irq_unmask	= plic_irq_unmask,
->> >>>>>  #ifdef CONFIG_SMP
->> >>>>>  	.irq_set_affinity = plic_set_affinity,
->> >>>>>  #endif
->> >>>>
->> >>>> Can you give the following patch a go? It brings the irq flow in line
->> >>>> with what the HW can do. It is of course fully untested (not even
->> >>>> compile tested...).
->> >>>>
->> >>>> Thanks,
->> >>>>
->> >>>> 	M.
->> >>>>
->> >>>> From c0ce33a992ec18f5d3bac7f70de62b1ba2b42090 Mon Sep 17 00:00:00 2001
->> >>>> From: Marc Zyngier <maz@kernel.org>
->> >>>> Date: Sun, 15 Sep 2019 15:17:45 +0100
->> >>>> Subject: [PATCH] irqchip/sifive-plic: Switch to fasteoi flow
->> >>>>
->> >>>> The SiFive PLIC interrupt controller seems to have all the HW
->> >>>> features to support the fasteoi flow, but the driver seems to be
->> >>>> stuck in a distant past. Bring it into the 21st century.
->> >>>
->> >>> Thanks.  We'd gotten these comments during the review process but
->> >>> nobody had gotten the time to actually fix the issues.
->> >>
->> >> No worries. The IRQ subsystem is an acquired taste... ;-)
->> >>
->> >>>>
->> >>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
->> >>>> ---
->> >>>>  drivers/irqchip/irq-sifive-plic.c | 29 +++++++++++++++--------------
->> >>>>  1 file changed, 15 insertions(+), 14 deletions(-)
->> >>>>
->> >>>> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
->> >>>> index cf755964f2f8..8fea384d392b 100644
->> >>>> --- a/drivers/irqchip/irq-sifive-plic.c
->> >>>> +++ b/drivers/irqchip/irq-sifive-plic.c
->> >>>> @@ -97,7 +97,7 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
->> >>>>  	}
->> >>>>  }
->> >>>>  -static void plic_irq_enable(struct irq_data *d)
->> >>>> +static void plic_irq_mask(struct irq_data *d)
->> >>
->> >> Of course, this is wrong. The perks of trying to do something at the
->> >> last minute while boarding an airplane. Don't do that.
->> >>
->> >> This should of course read "plic_irq_unmask"...
->> >>
->> >>>>  {
->> >>>>  	unsigned int cpu = cpumask_any_and(irq_data_get_affinity_mask(d),
->> >>>>  					   cpu_online_mask);
->> >>>> @@ -106,7 +106,7 @@ static void plic_irq_enable(struct irq_data *d)
->> >>>>  	plic_irq_toggle(cpumask_of(cpu), d->hwirq, 1);
->> >>>>  }
->> >>>>  -static void plic_irq_disable(struct irq_data *d)
->> >>>> +static void plic_irq_unmask(struct irq_data *d)
->> >>
->> >> ... and this should be "plic_irq_mask".
->> >>
->> >> [...]
->> >>
->> >>> Reviewed-by: Palmer Dabbelt <palmer@sifive.com>
->> >>> Tested-by: Palmer Dabbelt <palmer@sifive.com> (QEMU Boot)
->> >>
->> >> Huhuh... It may be that QEMU doesn't implement the full-fat PLIC, as
->> >> the above bug should have kept the IRQ lines masked.
->> >>
->> >>> We should test them on the hardware, but I don't have any with me
->> >>> right now.  David's probably in the best spot to do this, as he's got
->> >>> a setup that does all the weird interrupt sources (ie, PCIe).
->> >>>
->> >>> David: do you mind testing this?  I've put the patch here:
->> >>>
->> >>>    ssh://gitolite.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git
->> >>>    -b plic-fasteoi
->> >>
->> >> I've pushed out a branch with the fixed patch:
->> >>
->> >> git://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git irq/plic-fasteoi
->> >>
->> >
->> > That patch works for me on real-ish hardware.  I tried on two FPGA
->> > systems that have different PLIC implementations.  Both include
->> > a PCIe root port (and associated interrupt source).  So for
->> > whatever it's worth:
->> >
->> > Tested-by: Darius Rad <darius@bluespec.com>
->>
->> Awesome, thanks.  Would it be OK to put a "(on two hardware PLIC
->> implementations)" after that, just so we're clear as to who tested
->> what?
->
-> Sure, no problem.
->
->> Assuming one of yours wasn't a SiFive PLIC then it'd be great if
->> David could still give this a whack, but I don't think it strictly
->> needs to block merging the patch.  I've included the right David this
->> time, with any luck that will be more fruitful :)
->
-> Well, we still have time before -rc1. Once David gets a chance to test
-> it, I'll apply it. Additional question: do you want this backported to
-> -stable? If so, how far?
+The pull request you sent on Mon, 16 Sep 2019 08:20:33 -0700 (PDT):
 
-Generally I've just been CCing stable on bug fixes and letting the automation 
-handle it.  4.19 was the first version with a PLIC driver, and that was pretty 
-broken so this should be deep down in the noise for anyone who's trying to use 
-that -- and I doubt anyone is trying to do so.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv/for-v5.4-rc1
 
->
-> Thanks,
->
-> 	M.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/58d4fafd0b4c36838077a5d7b17df537b7226f1c
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.wiki.kernel.org/userdoc/prtracker
 
 _______________________________________________
 linux-riscv mailing list
