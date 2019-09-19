@@ -2,78 +2,98 @@ Return-Path: <SRS0=fbrL=XO=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E177C49ED7
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 19 Sep 2019 13:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BEFABC49ED7
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 19 Sep 2019 15:18:54 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6F88321D56
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 19 Sep 2019 13:37:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 94FE920665
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 19 Sep 2019 15:18:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="m1WIDU7Y";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="mwBzoNaT"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F88321D56
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="o9wxNjXf";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="Yqn2hP5/"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 94FE920665
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C5lky1NEd1+yUeBc5bo+Xj+pRTCOMNK0c2fA6BEN3Aw=; b=m1WIDU7Ykw4/2j
-	NDVvAbtJqkSJKbsAaR/ITdT9md2mkh8ME0jhtDnQ4UvWr/bZxzn9ISz1xnC1tK+tTAGRIXqE0ebwB
-	F8JzTt+14hmOB1uAjgutIwdhkm+0OhHc5kFTt8e/q1kuLmrT8WeIkb01oMewhaBLVw8hbnyVWaVzQ
-	MSmvzeNmk63KhlcX79pLk7nrbpQqngET6rrUjDTyKV5dmIfehHMe7+d0807Jcjs/WFfVUDm6gedDd
-	FpsZU0YCj3qYzMhetXegbztlS3Q4PZi1V4W1gx3Sjc247aNawq7ZkI+zgtLtoMHOensq9JT0AQc95
-	127JMTRgiqoWCDM+GHQg==;
+	List-Owner; bh=im6A2UWtNzGMuhro3SYmFNsZ6SR9azUj7/SoGJO8u/k=; b=o9wxNjXfJt7pNQ
+	UipTleyd7lHS5ZSZPyFHIBP0+7KleMBHEFgMPP4LP3OOjea99EDSNQYnvTV2YzBcqZ4m6BxAtuX0f
+	Gl+MViVdTbpEIPpfhFDzed2SXFywqIxuigcXJ2QDUtMtWLY4x807AIU15xoOxxAJUl1cZ61C2TlNr
+	GXx1C3Hds/x7RLDtX2/2WIzG7Yd+mVeA2g0iG/rIdwil33pqNRqvHmKpIgKKmr9Su+EUD3en9/fR1
+	VDmClouEq1OtXwU7d0pHNwP7dsxbLCZz9jSrF4+XqHmZGdtnrAxBBjE9+HTP33LUU1wSo5j8T6p0/
+	UDICB3Hp10z4XP0RdRCw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iAwcp-0003KG-44; Thu, 19 Sep 2019 13:37:35 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1iAyCr-0001Jq-Rd; Thu, 19 Sep 2019 15:18:53 +0000
+Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iAwcS-00037i-WD; Thu, 19 Sep 2019 13:37:14 +0000
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com
- [209.85.221.54])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id B164F21D7E;
- Thu, 19 Sep 2019 13:37:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1568900232;
- bh=4h3Wk30EhI1KisIg5rn7cH+Dc4+DOKJ7JCZLxO6zmPI=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=mwBzoNaTiK9xjLVihi6v8b+ryPsg0IP++84Wia1oIqwwNfxtQ14YDYKpBHJ3dYMni
- fBW0yG7v0NaSg/4OkKv0v7bY4ZNVgMqn10+8QuxFJes4isxMfpfRJSSSnElwMfLq/C
- aLk1/rm+0igwywEd+xuqNGYA8E4GRYk48izsxAtU=
-Received: by mail-wr1-f54.google.com with SMTP id i1so3142042wro.4;
- Thu, 19 Sep 2019 06:37:11 -0700 (PDT)
-X-Gm-Message-State: APjAAAW8dgMQNJRE1bjCpAla3if5YuhWtSuHvyGBGjh2U/65RLc+KgKd
- HDUyzAhL/KhRwRw0Eu2F2wMfIv729E19BKYhQME=
-X-Google-Smtp-Source: APXvYqzlXvVrim8rTycGbIV+PmHAEsjEw4YXguoJ0i5mulID6kS2AA+pRkt/c/jlP2DTaZZMrey31vSOQlTtKW2gKOA=
-X-Received: by 2002:a5d:6b49:: with SMTP id x9mr6988060wrw.80.1568900230203;
- Thu, 19 Sep 2019 06:37:10 -0700 (PDT)
-MIME-Version: 1.0
-References: <20190912140256.fwbutgmadpjbjnab@willie-the-truck>
- <mhng-166dcd4f-9483-4aab-a83a-914d70ddb5a4@palmer-si-x1e>
- <MN2PR04MB606117F2AC47385EF23D267D8D8D0@MN2PR04MB6061.namprd04.prod.outlook.com>
- <20190916181800.7lfpt3t627byoomt@willie-the-truck>
- <MN2PR04MB60612846CD50ED157DE5AB548D8F0@MN2PR04MB6061.namprd04.prod.outlook.com>
-In-Reply-To: <MN2PR04MB60612846CD50ED157DE5AB548D8F0@MN2PR04MB6061.namprd04.prod.outlook.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 19 Sep 2019 21:36:58 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRu4cSPd09mXkUOxnL2HO0wnAzqeVr3a3He0AFGCFD00g@mail.gmail.com>
-Message-ID: <CAJF2gTRu4cSPd09mXkUOxnL2HO0wnAzqeVr3a3He0AFGCFD00g@mail.gmail.com>
+ id 1iAyCn-0001J2-4C
+ for linux-riscv@lists.infradead.org; Thu, 19 Sep 2019 15:18:51 +0000
+Received: by mail-ed1-x544.google.com with SMTP id c4so3597153edl.0
+ for <linux-riscv@lists.infradead.org>; Thu, 19 Sep 2019 08:18:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=eJ0UWMRY33TSZcE2wFwrgcT5zmWwOXQ+xlDh/x5Rbok=;
+ b=Yqn2hP5/7LoUE96rW6LgXvDeRFDoEgSIYLWO331yu/t8KvfcDLYs0svMMqhPl0nEKU
+ 3028G05kj86vZEYdH0BT8B4Snvw/8TzsFj/6z3cDmgcLrYqAf9CTKaxFxWz6TetvRVWD
+ JaOhJxFoN6Lysw3uc3I7TCd+bGbTAYEQdtrh530GBo5Aqg2kjpsReLMDlMYPva23+thK
+ 3paKUHNXhfjBIBDEcc9d7OpRoL4M9YEswI1G3XEqU9hMkBTILBRZAfv3lk1GyAApc7kF
+ uBVf89FvXfuH3jiXShL1/vpa79fW+aGEKUGlC597SIRD1tjHojMUhcUCeA7TA1Um/ffs
+ UzGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=eJ0UWMRY33TSZcE2wFwrgcT5zmWwOXQ+xlDh/x5Rbok=;
+ b=HfNW1CxL0G1Ob9BAeOgJpV72i6M3xyYyXejhOvU093i+QIIQ0y2uE6gKTg6uBMZPz2
+ 0YYwrctwwwNAs1R8cdrGG6J7pPA4T6BHQK+jUirlUIGPvkJiBMbcxBsRRvSV2kCTHFqt
+ rRaviSkwrMa8B7vdJZKAIdvlh92COe57rexBfFiJCCj0TL3lryGsY8u9ndHq/3/2BfLY
+ u4LHzabJFOR7XE1GTYKrHLLa60HDlLf2o8OZXF3JnOZQMnQOSFvUPkYhEdQiz30XvlUv
+ RqcdmqwIUrX6GAH13Li5WSwFvXXSRbL4FyG6MaDuyMqt/rPXbVCeUrg32WxDCFu30Oay
+ ZFEw==
+X-Gm-Message-State: APjAAAW6iWaNTOEyhmBAd5iQrq7siY3GVL3z08dOBilMOXM9UEWLi7NO
+ XA8sEM2vfdqZFQkEeoSM5/iAFA==
+X-Google-Smtp-Source: APXvYqyjE5Z/ExpKjAFeUwQaYOlsDCBhURZQ6GgY1ZAERUi1xVf6/dGQvcGXJsfycKEfjO1ON7WJpA==
+X-Received: by 2002:a17:906:6a92:: with SMTP id
+ p18mr14982887ejr.253.1568906327557; 
+ Thu, 19 Sep 2019 08:18:47 -0700 (PDT)
+Received: from lophozonia ([85.195.192.192])
+ by smtp.gmail.com with ESMTPSA id x4sm763681eds.87.2019.09.19.08.18.45
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 19 Sep 2019 08:18:46 -0700 (PDT)
+Date: Thu, 19 Sep 2019 17:18:44 +0200
+From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+To: Guo Ren <guoren@kernel.org>
 Subject: Re: [PATCH RFC 11/14] arm64: Move the ASID allocator code in a
  separate file
-To: Anup Patel <Anup.Patel@wdc.com>
+Message-ID: <20190919151844.GG1013538@lophozonia>
+References: <CAJF2gTTmFq3yYa9UrdZRAFwJgC=KmKTe2_NFy_UZBUQovqQJPg@mail.gmail.com>
+ <20190619123939.GF7767@fuggles.cambridge.arm.com>
+ <CAJF2gTSiiiewTLwVAXvPLO7rTSUw1rg8VtFLzANdP2S2EEbTjg@mail.gmail.com>
+ <20190624104006.lvm32nahemaqklxc@willie-the-truck>
+ <CAJF2gTSC1sGgmiTCgzKUTdPyUZ3LG4H7N8YbMyWr-E+eifGuYg@mail.gmail.com>
+ <20190912140256.fwbutgmadpjbjnab@willie-the-truck>
+ <CAJF2gTT2c45HRfATF+=zs-HNToFAKgq1inKRmJMV3uPYBo4iVg@mail.gmail.com>
+ <CAJF2gTTsHCsSpf1ncVb=ZJS2d=r+AdDi2=5z-REVS=uUg9138A@mail.gmail.com>
+ <057a0af3-93f7-271c-170e-4b31e6894c3c@linaro.org>
+ <CAJF2gTRbyfrUqAULPqJTXdxx8YOscPqAEuMsoJ+dTNobNrUV1g@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTRbyfrUqAULPqJTXdxx8YOscPqAEuMsoJ+dTNobNrUV1g@mail.gmail.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190919_063713_084149_3B2959CA 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20190919_081849_191272_FF5F6F95 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,76 +105,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "julien.thierry@arm.com" <julien.thierry@arm.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- Palmer Dabbelt <palmer@sifive.com>, Will Deacon <will.deacon@arm.com>,
- "christoffer.dall@arm.com" <christoffer.dall@arm.com>,
- Atish Patra <Atish.Patra@wdc.com>,
- "julien.grall@arm.com" <julien.grall@arm.com>,
- "gary@garyguo.net" <gary@garyguo.net>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Will Deacon <will@kernel.org>,
- "kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>,
- "rppt@linux.ibm.com" <rppt@linux.ibm.com>,
- Christoph Hellwig <hch@infradead.org>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
- "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
- "marc.zyngier@arm.com" <marc.zyngier@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "iommu@lists.linux-foundation.org" <iommu@lists.linux-foundation.org>,
- "james.morse@arm.com" <james.morse@arm.com>
+Cc: aou@eecs.berkeley.edu,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, suzuki.poulose@arm.com,
+ Marc Zyngier <marc.zyngier@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Palmer Dabbelt <palmer@sifive.com>, christoffer.dall@arm.com,
+ iommu@lists.linux-foundation.org, Mike Rapoport <rppt@linux.ibm.com>,
+ Anup Patel <anup.Patel@wdc.com>, Atish Patra <Atish.Patra@wdc.com>,
+ Julien Grall <julien.grall@arm.com>, james.morse@arm.com, gary@garyguo.net,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ Will Deacon <will@kernel.org>, kvmarm@lists.cs.columbia.edu,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Tue, Sep 17, 2019 at 11:42 AM Anup Patel <Anup.Patel@wdc.com> wrote:
-
+On Thu, Sep 19, 2019 at 09:07:15PM +0800, Guo Ren wrote:
+> > The solution I had to this problem is pinning the ASID [1] used by the
+> > IOMMU, to prevent the CPU from recycling the ASID on rollover. This way
+> > the CPU doesn't have to wait for IOMMU invalidations to complete, when
+> > scheduling a task that might not even have anything to do with the IOMMU.
 > >
-> > With a reply stating that the patch "absolutely does not work" ;)
->
-> This patch was tested on existing HW (which does not have ASID implementation)
-> and tested on QEMU (which has very simplistic Implementation of ASID).
->
-> When I asked Gary Guo about way to get access to their HW (in same patch
-> email thread), I did not get any reply. After so many months passed, I now
-> doubt the his comment "absolutely does not work".
-> >
-> > What exactly do you want people to do with that? It's an awful lot of effort to
-> > review this sort of stuff and given that Guo Ren is talking about sharing page
-> > tables between the CPU and an accelerator, maybe you're better off
-> > stabilising Linux for the platforms that you can actually test rather than
-> > getting so far ahead of yourselves that you end up with a bunch of wasted
-> > work on patches that probably won't get merged any time soon.
->
-> The intention of the ASID patch was to encourage RISC-V implementations
-> having ASID in HW and also ensure that things don't break on existing HW.
->
-> I don't see our efforts being wasted in trying to make Linux RISC-V feature
-> complete and encouraging more feature rich RISC-V CPUs.
->
-> Delays in merging patches are fine as long as people have something to try
-> on their RISC-V CPU implementations.
->
-I'm the supporter of that patch:
-http://archive.lwn.net:8080/linux-kernel/20190329045111.14040-1-anup.patel@wdc.com/T/#u
+> 
+> > In the Arm SMMU, ASID and IOASID (PASID) are separate identifiers. IOASID
+> > indexes an entry in the context descriptor table, which contains the ASID.
+> > So with unpinned shared ASID you don't need to invalidate the ATC on
+> > rollover, since the IOASID doesn't change, but you do need to modify the
+> > context descriptor and invalidate cached versions of it.
+> The terminology confused me a lot. I perfer use PASID for IOMMU and
+> ASID is for CPU.
+> Arm's entry of the context descriptor table contains a "IOASID"
 
-Because it implicit hw broadcast tlb invalidation optimization.
+The terminology I've been using so far is different:
+* IOASID is PASID
+* The entry in the context descriptor table contains an ASID, which
+  is either "shared" with CPUs or "private" to the SMMU (the SMMU spec
+  says "shared" or "non-shared").
+* So the CPU and SMMU TLBs use ASIDs, and the PCI ATC uses IOASID
 
-Honestly it's not suitable for remote tlb flush with software IPI, but
-it's still much better than current RISC-V's.
+> IOASID != ASID for CPU_TLB and IOMMU_TLB.
+> 
+> When you say "since the IOASID doesn't change",Is it PASID or my IOASID ? -_*!
 
-I'll try it on our hardware: 910. wait a moment :)
+I was talking about PASID. Maybe we can drop "IOASID" and talk only
+about ASID and PASID :)
 
--- 
-Best Regards
- Guo Ren
+> PASID in PCI-sig was used to determine transfer address space.
+> For intel, the entry which is indexed by PASID also contain S1/S2.PGD
+> and DID(VMID).
+> For arm, the entry which is indexed by PASID only contain S1.PGD and
+> IOASID. Compare to Intel Vt-d Scalable mode, arm's design can't
+> support PCI Virtual Function.
 
-ML: https://lore.kernel.org/linux-csky/
+The SMMU does support PCI Virtual Function - an hypervisor can assign a
+VF to a guest, and let that guest partition the VF into smaller contexts
+by using PASID.  What it can't support is assigning partitions of a PCI
+function (VF or PF) to multiple Virtual Machines, since there is a
+single S2 PGD per function (in the Stream Table Entry), rather than one
+S2 PGD per PASID context.
+
+Thanks,
+Jean
+
+> > Once you have pinned ASIDs, you could also declare that IOASID = ASID. I
+> > don't remember finding an argument to strictly forbid it, even though ASID
+> > and IOASID have different sizes on Arm (respectively 8/16 and 20 bits).
+> ASID and IOASID are hard to keep the same between CPU system and IOMMU
+> system. So I introduce S1/S2.PGD.PPN as a bridge between CPUs and
+> IOMMUs.
+> See my proposal [1]
+> 
+> 1: https://lore.kernel.org/linux-csky/1568896556-28769-1-git-send-email-guoren@kernel.org/T/#u
+> -- 
+> Best Regards
+>  Guo Ren
+> 
+> ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
