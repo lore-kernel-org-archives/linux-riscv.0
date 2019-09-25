@@ -2,74 +2,141 @@ Return-Path: <SRS0=bXEr=XU=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0BBD4C432C1
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2019 00:16:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 657FCC432C1
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2019 04:29:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D0E6620872
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2019 00:16:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 34C912146E
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 25 Sep 2019 04:29:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bfJbTwhr"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D0E6620872
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="d+x64KnG";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="GGwsyphS";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="xWgYeRSq"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 34C912146E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:MIME-Version:Message-Id:Date:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mRxOUeqapovISbLSnO4MseDO9OyuihW3xDt4lfYFN1w=; b=bfJbTwhrsCz45x
-	H+oAdj3QkhPSfzA/bqvnyza6835P/GefMR5TF8qvisOv0J9ZZz7Kk0BZtz8delWlJEb7T/E9R6oR5
-	HxfJznxQ9aJkMqyxmEL8WGMnVy6eF7NTf3/zzL2bZn59PiSXqr/QUAM1ypuHddjdvQm/iiY+rhU3o
-	HPUJH7p1mkILh7nZEMIAbva2XFvhlBfuNJw1nVuO3A71l/hFp9+Bw79+s+BHgUFVHUtHt/bjxyAoR
-	cpIhfPmR7IC4MQeCPOx8PdVaCnbO3yU93ovd085uJTTfiicMZ+fTPlzKXMjzg5lVUTmIBunGPkFd8
-	JaSI53+ME3rEbTYJ94JQ==;
+	List-Owner; bh=G96pjaoONsD/yXIbkIzCF/6iEamGp0FP964h16X5FJM=; b=d+x64KnGJsOoC9
+	9EYrZfM9VxHY9pNZDjwRN3jSH1xoIM5swGo0vYI9/ELo32sW8SrRR9PevRuU3hk83uMLAeo0k0Zj3
+	gjtm0dEF16TnAT7Qe2vIlM4x6/vWil9XFW3HL/7KmWy4gzWSYt1HaL9cTnQw8mt6s/pFP44D3zLzA
+	WpUcrUNQ/EqTAXz6dIS19SuB8fa8K1mvf7iYHt2xIahfwska5QCj/oJY05gF9ps03R4C3vAXUKNSe
+	Pz0MEiZqIySFDEmZETaaTHYwB6JdCbdQqfZUNzBp6TYGu7zT8lZhyEr38GJNV/APwa+zb8DH9GVkf
+	VQ9PjPxZrn7HMw1zBs5Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iCuzA-0005Dq-Jn; Wed, 25 Sep 2019 00:16:48 +0000
-Received: from mail-pf1-f196.google.com ([209.85.210.196])
+	id 1iCywA-0005N8-IT; Wed, 25 Sep 2019 04:29:58 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iCuz5-0005DU-WA
- for linux-riscv@lists.infradead.org; Wed, 25 Sep 2019 00:16:46 +0000
-Received: by mail-pf1-f196.google.com with SMTP id q21so2268351pfn.11
- for <linux-riscv@lists.infradead.org>; Tue, 24 Sep 2019 17:16:41 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=GUy92otsO7OGtR8tORwxTtrbT2fTJHl/EHieICSRiM4=;
- b=k77E+9ACjrbjZsbbIWOBjaQEpr5Y/aPIoAvZZGseJvzGxIyKYK7yGOqKACp0SohKuY
- XXRm8e7aRpIoMJX4Kxx3sHmntb06neElSYdfuGL+hz4c7wqTjQq0H4w9HfzGB5MN++cK
- DwwSDHor2bwc0mZSDhQPV6iSseK3lpg1OJgkzR77JDZOHCd3a6WeTqSH2+NxN6Af5ZDO
- tv2+rga+gJTeDZCGRdvZrcVhgtkeaK/1E6T3f2NmzppToUMQL4C+6zvC1CGXGkEdFtg4
- JzcKXGaZu7+3ciOxObo991wv5WkguU6nTVl5m/4Mlyv2rh0uhdzZ0oP9aqssKCdQmtJr
- O21Q==
-X-Gm-Message-State: APjAAAXuIr05jY8zDw03nPI47YBLdJtbK8b2IaDJ0KOUBWNHCiqkEEXS
- Pe6v9DGv2UJFYba58mRTz4/cNw==
-X-Google-Smtp-Source: APXvYqwXGPVj8lR5SB6ESQqPEewNM1bRVXwCbupxnsqlnpTm8UhKAltemb3fquXUV/G/YaODLvhEpQ==
-X-Received: by 2002:aa7:86c1:: with SMTP id h1mr6564484pfo.128.1569370600147; 
- Tue, 24 Sep 2019 17:16:40 -0700 (PDT)
-Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id z3sm1104571pjd.25.2019.09.24.17.16.39
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 24 Sep 2019 17:16:39 -0700 (PDT)
-Subject: [PATCH] RISC-V: Clear load reservations while restoring hart contexts
-Date: Tue, 24 Sep 2019 17:15:56 -0700
-Message-Id: <20190925001556.12827-1-palmer@sifive.com>
-X-Mailer: git-send-email 2.21.0
+ id 1iCyw8-0005MS-09
+ for linux-riscv@lists.infradead.org; Wed, 25 Sep 2019 04:29:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1569385796; x=1600921796;
+ h=from:to:cc:subject:date:message-id:
+ content-transfer-encoding:mime-version;
+ bh=sy7bw9A1dgchQPEOcdrZCFPR7e0jhnirUwAj72H/WcM=;
+ b=GGwsyphSoSyNkHklh6h5QI+H6FeewpPyBvkkrWPR1tOuRiGn5GJJoQGA
+ RyaHpVALZKkX71i3KKjw5UUKPIjwIb5DSWbEHzYStn0Lwj1VdHdVhpxQS
+ wCCgs8WqNxVgxQ8L+wfZZdRIFHQovgpXy7DrfYo24+0Hw3s7gGSc81zv9
+ Lyrnpfz50HZVQ69InNqtGB0XX96nHW90zVwW5NvR3o2086dy97jvEY7Z2
+ Hh8bKz70SDxQAkI11EYL/s26fseJwZIJtNJkvYJX7DI7E/3F3yZDXmTtA
+ wXav5emFqH5SBKuG2nA6MTKqCpj4vLz0nq26mFMVilbYRI1ich7rurFJw A==;
+IronPort-SDR: x7N0zbq1iNOPQMHE4iFWsNxHEh6pH10N0hOeAzcyxe9oKd1aOMqoH3cNkrTheuGNc+yoOYUGU2
+ xdfLO7ojpUdGLhEzky8xCQ5DYoLV7tWUBe+b6bWHnHsoZbg/kWH+Nxf8ADhUXDzqLZtsUBeCM/
+ rmdvLFUTyQHwSYSbUwJtxXpbrIfYBx5yyCjyoyQMXNpsh+3jyN2deWcRQkwaE8gL+wj+9/qOK/
+ 1RkRJVYw1Pj6UCnn7u2d4cl818RqMjOnLZH9ekrx3T+4PjB7U8b4VhlfLP0Oep0bA8eIGbpuoj
+ c9A=
+X-IronPort-AV: E=Sophos;i="5.64,546,1559491200"; d="scan'208";a="119815051"
+Received: from mail-cys01nam02lp2058.outbound.protection.outlook.com (HELO
+ NAM02-CY1-obe.outbound.protection.outlook.com) ([104.47.37.58])
+ by ob1.hgst.iphmx.com with ESMTP; 25 Sep 2019 12:29:53 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Vrk3moAglHaPfAV/Gg0ZBYdLGtxPtDzJjZLFaZfdMkg7we3SCd9MVfoPCrP5SfHexdCnT6ayMqcNY9keqif/GhOTtzpnHurtBYgKV3RF3BKH1gcQvUfN+/KoO+pecu7rWJiDGv6HBm9FPSwrO7G3dHThA4N1jUaZWIrpaOfXDvRKfAjwczoVoMBbslPymI4U9VTglIKblB2aEpmEsHnBYcHucFf5fxY/rgKtRV4Cphyz8MVl8Vyau7xCDG9PpaXdDkhG4e9E+JseuVgsMVjBxGO/CRuJBiY0xWT2KenGBGZZQ9RUSj1AwD3hwDEYrQFaw55DfWGyQoOTxUNppbyDHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ubKR6GBpv5yoFzYa2DiT46DRMrTZfYw1L6gA3ER9cuo=;
+ b=OtS4H3XCMUK3ipibH+F2q8huzqg6UFxRKH/7eNYCY4jD2wpWKnjSpln0s9GBzMm6DymVuHM93iYufZBCfC7PPlodhg4TrYGBkYGH9BtHpF5YUgCpi/zsoDu8j9bG2mKGBg9X67OtLATyJ5M9X2EOXfkqlnq7lqkor9Va6y1AILCnLPYFN1672aj2r1woNcP1b9dg60Kf4j9RcuK/+uldOnaNyPzDY1vA0UXMvif0y9QEk4sZdrHx2a9gp2Ca9UP5Pl67rRM9bihh2/2C4MsBYpDi+dsJWvHReotaACfUFhzj3GTRiM2jshhssFIA5oDMmWyp+ozy6T9pWoH3AHOsKQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ubKR6GBpv5yoFzYa2DiT46DRMrTZfYw1L6gA3ER9cuo=;
+ b=xWgYeRSqJFSgLn8gr1cAqBdUdJqZUWJFuipxbC1itm2hdLHQLQyNdrLQ0ZrNHOKYrK4WI+1qIY8QtsJbS3Hx/Ejz4jYDBWhcgxO7usGXGFzzAvd5XFi6KDQ7kSuMHnY4s7jXWXYPDtcB84lOOMKw5ylJx9kVdFxOR9Oe/+GJXH8=
+Received: from MN2PR04MB6061.namprd04.prod.outlook.com (20.178.246.15) by
+ MN2PR04MB5805.namprd04.prod.outlook.com (20.179.20.93) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2284.23; Wed, 25 Sep 2019 04:29:50 +0000
+Received: from MN2PR04MB6061.namprd04.prod.outlook.com
+ ([fe80::e1a5:8de2:c3b1:3fb0]) by MN2PR04MB6061.namprd04.prod.outlook.com
+ ([fe80::e1a5:8de2:c3b1:3fb0%7]) with mapi id 15.20.2284.023; Wed, 25 Sep 2019
+ 04:29:50 +0000
+From: Anup Patel <Anup.Patel@wdc.com>
+To: Palmer Dabbelt <palmer@sifive.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Roman Kiryanov <rkir@google.com>
+Subject: [PATCH 0/2] Enable Goldfish RTC for RISC-V
+Thread-Topic: [PATCH 0/2] Enable Goldfish RTC for RISC-V
+Thread-Index: AQHVc1nepxqfGWFS50OoivEjdAa3tA==
+Date: Wed, 25 Sep 2019 04:29:50 +0000
+Message-ID: <20190925042912.119553-1-anup.patel@wdc.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-clientproxiedby: MA1PR0101CA0053.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:20::15) To MN2PR04MB6061.namprd04.prod.outlook.com
+ (2603:10b6:208:d8::15)
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=Anup.Patel@wdc.com; 
+x-ms-exchange-messagesentrepresentingtype: 1
+x-mailer: git-send-email 2.17.1
+x-originating-ip: [199.255.44.175]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: fc54e0aa-ea00-4846-4b85-08d7417100e7
+x-ms-office365-filtering-ht: Tenant
+x-microsoft-antispam: BCL:0; PCL:0;
+ RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600167)(711020)(4605104)(1401327)(4618075)(2017052603328)(7193020);
+ SRVR:MN2PR04MB5805; 
+x-ms-traffictypediagnostic: MN2PR04MB5805:
+x-ms-exchange-purlcount: 1
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <MN2PR04MB5805E495440354B1FEE4EDF08D870@MN2PR04MB5805.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-oob-tlc-oobclassifiers: OLM:8273;
+x-forefront-prvs: 01713B2841
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10019020)(4636009)(376002)(39860400002)(346002)(136003)(396003)(366004)(199004)(189003)(25786009)(6506007)(316002)(186003)(256004)(4326008)(5660300002)(50226002)(8936002)(476003)(4744005)(26005)(14444005)(2616005)(2906002)(486006)(44832011)(99286004)(81156014)(81166006)(6116002)(3846002)(2171002)(36756003)(102836004)(6436002)(52116002)(6306002)(14454004)(6486002)(66556008)(71200400001)(8676002)(71190400001)(66446008)(66476007)(66946007)(64756008)(305945005)(110136005)(7736002)(478600001)(54906003)(6512007)(1076003)(86362001)(386003)(966005)(66066001);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB5805;
+ H:MN2PR04MB6061.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; A:1; MX:1; 
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: igm0aYLscvYME82zsMqfGG6kPM1izxXKZqII7TORDIzR92jihR5vmDik2QxVgfcGi4Uf/GVHorm6nQfXhIaBnNFTrD85o2ZaCIKVCa1aar2HDMOLHgbxABxgN0/KMvhl7fH5qPEIKM2l0iqXjZ26fayDDxSjTCYdRbmw/AcxF1saG/Eo+VMHvsA4yMIBEH3Nuhe74qWm5Z9q/zNj5UwZYM7+ggDnNJKwa+fMB/7N+FRIQ42EwK7NUQNwzRvs64AIW9JNAxd9jHnNGqYPLtLRGBTwnXIihlf2edHbRskrnsOsTz0Unwdr3VdFrJBbmox28x1bgiKRPXeT7u021b/XIug6ZkB3I1QJyq26+TwABC0EbwgSDqJOVt1FHJytwJYRqDEvDH2wzhoYCLrgtWkHgQBU8rKvHJJy85e4hz0zsK3USRx/37Xr0uATIJ0DdIIXcF+welu5dv5y8GznUQj+Lg==
 MIME-Version: 1.0
-From: Palmer Dabbelt <palmer@sifive.com>
-To: linux-riscv@lists.infradead.org
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fc54e0aa-ea00-4846-4b85-08d7417100e7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Sep 2019 04:29:50.6498 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: A1R3b8T53+5aDA7c/lgluP/dfKsit4Xi77QAQN9PWhImEB8Il3NLGGpyHnh/hKDOU0dDlXsE5pguK6llGa49FA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB5805
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190924_171644_059102_8D906B21 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20190924_212956_078778_F0DD23AB 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,70 +148,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, me@carlosedp.com, Palmer Dabbelt <palmer@sifive.com>,
- linux-kernel@vger.kernel.org, joel@sing.id.au, marco@decred.org
+Cc: Anup Patel <anup@brainfault.org>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Christoph Hellwig <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is almost entirely a comment.  The bug is unlikely to manifest on
-existing hardware because there is a timeout on load reservations, but
-manifests on QEMU because there is no timeout.
+We will be using Goldfish RTC device real date-time on QEMU RISC-V virt
+machine so this series:
+1. Allows GOLDFISH kconfig option to be enabled for RISC-V
+2. Enables GOLDFISH RTC driver in RISC-V defconfigs
 
-Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
----
- arch/riscv/include/asm/asm.h |  1 +
- arch/riscv/kernel/entry.S    | 21 ++++++++++++++++++++-
- 2 files changed, 21 insertions(+), 1 deletion(-)
+This series can be found in goldfish_rtc_v1 branch at:
+https//github.com/avpatel/linux.git
 
-diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-index 5a02b7d50940..9c992a88d858 100644
---- a/arch/riscv/include/asm/asm.h
-+++ b/arch/riscv/include/asm/asm.h
-@@ -22,6 +22,7 @@
- 
- #define REG_L		__REG_SEL(ld, lw)
- #define REG_S		__REG_SEL(sd, sw)
-+#define REG_SC		__REG_SEL(sc.d, sc.w)
- #define SZREG		__REG_SEL(8, 4)
- #define LGREG		__REG_SEL(3, 2)
- 
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 74ccfd464071..9fbb256da55d 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -98,7 +98,26 @@ _save_context:
-  */
- 	.macro RESTORE_ALL
- 	REG_L a0, PT_SSTATUS(sp)
--	REG_L a2, PT_SEPC(sp)
-+	/*
-+	 * The current load reservation is effectively part of the processor's
-+	 * state, in the sense that load reservations cannot be shared between
-+	 * different hart contexts.  We can't actually save and restore a load
-+	 * reservation, so instead here we clear any existing reservation --
-+	 * it's always legal for implementations to clear load reservations at
-+	 * any point (as long as the forward progress guarantee is kept, but
-+	 * we'll ignore that here).
-+	 *
-+	 * Dangling load reservations can be the result of taking a trap in the
-+	 * middle of an LR/SC sequence, but can also be the result of a taken
-+	 * forward branch around an SC -- which is how we implement CAS.  As a
-+	 * result we need to clear reservations between the last CAS and the
-+	 * jump back to the new context.  While it is unlikely the store
-+	 * completes, implementations are allowed to expand reservations to be
-+	 * arbitrarily large.
-+	 */
-+	REG_L  a2, PT_SEPC(sp)
-+	REG_SC x0, a2, PT_SEPC(sp)
-+
- 	csrw CSR_SSTATUS, a0
- 	csrw CSR_SEPC, a2
- 
--- 
-2.21.0
+For the QEMU patches adding Goldfish RTC to virt machine refer:
+https://lists.gnu.org/archive/html/qemu-devel/2019-09/msg05465.html
 
+Anup Patel (2):
+  platform: goldfish: Allow goldfish virtual platform drivers for RISCV
+  RISC-V: defconfig: Enable Goldfish RTC driver
+
+ arch/riscv/configs/defconfig      | 3 +++
+ arch/riscv/configs/rv32_defconfig | 3 +++
+ drivers/platform/goldfish/Kconfig | 2 +-
+ 3 files changed, 7 insertions(+), 1 deletion(-)
+
+--
+2.17.1
 
 _______________________________________________
 linux-riscv mailing list
