@@ -4,18 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F072C4360C
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 27 Sep 2019 22:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4CCB8C4360C
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 27 Sep 2019 22:22:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6F591217D9
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 27 Sep 2019 22:21:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1FE992075D
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 27 Sep 2019 22:22:01 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DxmqBCKZ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F591217D9
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YaEny90C"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1FE992075D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,27 +25,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wrzJZQ5gAsHrhF1ql91dZBUN3j0B8QLpcz1jpj7M2DE=; b=DxmqBCKZHawceG
-	2XNO7lzCy/C8F19hnYnKrV2v0bZz9rAflt4okv3VZ/FAebo43KS9pyPXQ7vNSjWD0cnAqr5AaEd8M
-	NuCrpz/0WfjWCNlsPSm+wOzVTE7Jq9cvN3wBZZckHd+HgHwQXCpEKWLDVKS0dQKbrzSrpRUlzcT1R
-	oRRxKSIJc2gpBajxTLO5SXPlytX+dGv2O/e6TyNBcZVjBmOhSmauITl5QO8pGIc5IOIM7c0mpBbcp
-	YzgsGU5xFqrAC4bwvUnr20VkPmkDyuI5S3sQ5po7DoYIAIMWh0WXYtNwENAULGRaOQ7ZfG6DdsJFp
-	37C/hQ5AtPmRRFzHtTdQ==;
+	List-Owner; bh=nuAhiGNeEUr9nKXmifWAlpeHsyCkAmFbM2nyCdKvgLU=; b=YaEny90Ca44I2J
+	f+3wbudn7FD6ckXpgbbrEc8xo+PybE4OYy8TTsglp5z2hF4/1Iw2azTGSRvIZNuOdhE3y7ParROZU
+	c9zUt++0C++kd6QjCbTkT/VY5NplbdQ9K891byfQDGLlrMdMUrH8CbNcly6b+lz3tcKLtohQ8KSIH
+	RZHSu7GpHYd8ecvvbXtwhO4F8USK7Y0zE6033KPJxKoDfU6NosnGHhxe9RjUBCfWKx0uDpjaab090
+	EnyFsf2pEoNC7d0H+zMwQDogmlt3wZ2i7VLmmtcSMPcb5ndbM0OBMHukh14JOTdMqp0l9ezrnEO2M
+	zSdszCxmr/yxXCTO3QGw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iDybu-0002it-4N; Fri, 27 Sep 2019 22:21:10 +0000
+	id 1iDyci-0002oq-TG; Fri, 27 Sep 2019 22:22:00 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.92.2 #3 (Red
- Hat Linux)) id 1iDybs-0002ih-0Z; Fri, 27 Sep 2019 22:21:08 +0000
-Date: Fri, 27 Sep 2019 15:21:07 -0700
+ Hat Linux)) id 1iDych-0002of-9D; Fri, 27 Sep 2019 22:21:59 +0000
+Date: Fri, 27 Sep 2019 15:21:59 -0700
 From: Christoph Hellwig <hch@infradead.org>
-To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [PATCH v2 3/3] RISC-V: Move SBI related macros under uapi.
-Message-ID: <20190927222107.GC4700@infradead.org>
-References: <20190927000915.31781-1-atish.patra@wdc.com>
- <20190927000915.31781-4-atish.patra@wdc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [GIT PULL] RISC-V additional updates for v5.4-rc1
+Message-ID: <20190927222159.GD4700@infradead.org>
+References: <alpine.DEB.2.21.9999.1909271123370.17782@viisi.sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190927000915.31781-4-atish.patra@wdc.com>
+In-Reply-To: <alpine.DEB.2.21.9999.1909271123370.17782@viisi.sifive.com>
 User-Agent: Mutt/1.12.1 (2019-06-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -57,29 +57,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Alan Kao <alankao@andestech.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@sifive.com>,
- linux-kernel@vger.kernel.org, Mike Rapoport <rppt@linux.ibm.com>,
- Gary Guo <gary@garyguo.net>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>,
- Allison Randal <allison@lohutok.net>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 26, 2019 at 05:09:15PM -0700, Atish Patra wrote:
-> All SBI related macros can be reused by KVM RISC-V and userspace tools
-> such as kvmtool, qemu-kvm. SBI calls can also be emulated by userspace
-> if required. Any future vendor extensions can leverage this to emulate
-> the specific extension in userspace instead of kernel.
+On Fri, Sep 27, 2019 at 11:25:13AM -0700, Paul Walmsley wrote:
+> Atish Patra (1):
+>       RISC-V: Export kernel symbols for kvm
 
-Just because userspace can use them that doesn't mean they are a
-userspace API.  Please don't do this as this limits how we can ever
-remove previously existing symbols.  Just copy over the current
-version of the file into the other project of your choice instead
-of creating and API we need to maintain.
+None of these have any current users, they should go in with the kvm
+series once the virtualization spec has been finalized.
 
 _______________________________________________
 linux-riscv mailing list
