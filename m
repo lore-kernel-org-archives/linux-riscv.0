@@ -2,84 +2,88 @@ Return-Path: <SRS0=CW4g=X4=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2B6DAC32792
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  3 Oct 2019 09:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3E066C10F14
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  3 Oct 2019 09:11:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F31B621848
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  3 Oct 2019 09:10:18 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 08818217D7
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  3 Oct 2019 09:11:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WQUJAF6E";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="bByRo3SH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F31B621848
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="O0FFGYgi";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="UXdpOExk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 08818217D7
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=N6yx0JUGDpEoklMrVmtX2/G3tQGd8hp2qX3vE7qR5Ds=; b=WQU
-	JAF6EK7UCQtiuL+FZA93csDWzuIE9/GFWoD88X/gHq796KAiKeayb32tYRQuEUkHOyjh1cPlvQRR/
-	F4IwbrxvdZEqGm+HnV/7TKEWTVXu6KvUctvvPgGpNc2OdeEPiBPCY+W/mdB+VzbTpxDNSk8kyRfZp
-	C3a4u1Ks7Gx4k4uxXOlfaz3GHlXTIiXPhXvs3Qnq+QoR2xKBNM2n4v2OzufP51ABDVaan/MFkl6AO
-	rqyR+c4O6ITYrcXM+78HaTxxqqFOtYCBwSh3shy84lwnf0MDzjnbrYxsoLNnRmbqyU3XKqK/bs95k
-	PTGJkl5aE5bhQ5V8lnfXaBqjXStEHKQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=+4MX5gy/QfEAAz5iMdtJIdYJ7F85s1seI38KfTwG95k=; b=O0FFGYgi0wwfrUM7/ApH2BPC6R
+	k62LwcNs2WaHLV4XvqqfEzEM051asDYBZNukmTZ1LiAQkC99DKgPAR9628EybmI8aWWzSR/l2z4No
+	wASuxlD4/+1wGzPJfJJY0JaT3RKIze8KABfEG5kJLvFHBO77wmou1sQVYqTsrpESbl1bJjoUx5sNd
+	Y59IkcVnWG0za9JNTqIpknBWFtrURSMmC0OYyYhOeVKcJkwJiuJokA3wiPs8DwL1j6aQg5rS6QYoj
+	GNSZfAQEe6WS+c8xHWjcpX6gAKuiGNQNjc0scsUgFuwkUoqV+XZ1oP5aIjoZjppxj1pa9rG+VoGmH
+	FJq6qrGQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iFx7p-0001M4-ID; Thu, 03 Oct 2019 09:10:17 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1iFx8W-0001ea-UK; Thu, 03 Oct 2019 09:11:00 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iFx7m-0001Ky-K0
- for linux-riscv@lists.infradead.org; Thu, 03 Oct 2019 09:10:16 +0000
-Received: by mail-pl1-x630.google.com with SMTP id k7so1212554pll.1
- for <linux-riscv@lists.infradead.org>; Thu, 03 Oct 2019 02:10:09 -0700 (PDT)
+ id 1iFx8R-0001WH-QX
+ for linux-riscv@lists.infradead.org; Thu, 03 Oct 2019 09:10:57 +0000
+Received: by mail-pg1-x543.google.com with SMTP id c17so1377019pgg.4
+ for <linux-riscv@lists.infradead.org>; Thu, 03 Oct 2019 02:10:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id;
- bh=iMtypI6KAEMcJ9rYi5Q4bPpiz/5ORhxuJ1l1aCrdEbI=;
- b=bByRo3SHUyhiwyJbLrcdfQjTPirjMvPtcf3RppEl/w+VbKdFA+wURYYRn+SB1WOfU/
- rJLBKRm7f1HTY51dvB7v+Y/HISSu/LTvBi1DfHBOryRw8YQKyEYepfaWNIWhZaG5TdjV
- mxJlgkgGDEg2gQlcg8mwuaYalNfMlpkEkMJcNENJY18VVOtaLK1H8vj46wCYyj7fecNd
- X1N5BMAXzLLPDM1/akeRy3dfp2JQJjJa43RMVQxAblSamCTlQ0opAXWffIqBkPDHJsK5
- bzupQuUdQu0EeZJhXIS/Ch7CiIWM1TXwVneZFQSmT5BKm72MgWVWDRAswjQ9OpLEGcf7
- vM0w==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references;
+ bh=cl61NZhY5d45/Lbiju2rWHR/95fvQW/rzQHybTAnNrk=;
+ b=UXdpOExk+DjqpI/3nuWER3Cht8DW7Do+r38+1fLADJv0vQ4hNM1f0Ag+4C9yGsB/VT
+ zKWib8P0kpXAnS/PC2MSlK2mTflHfsCAav/ICDSntt8nvfmkm7FcYbRvA4jN0dElY8Rx
+ vG2fIfbBtsHQwsEnulSya+KIj2MLK722ZMeDS0pumkvmQiozd6U/IBhEAiVNCbUinUVq
+ 2y5t9eWzfu6Z0i8iXDZb9OHImA8FnVb56aPXeTRguPG4FpaQGKEK5i6MUb17I84bJ9pG
+ LPIw85fwBbdKx3g/sOEZDWFumMBxSOWOfJaqclkg4yt9Uj2UMNXnTap+8sb7nwmfSM86
+ 8cxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=iMtypI6KAEMcJ9rYi5Q4bPpiz/5ORhxuJ1l1aCrdEbI=;
- b=GQZGAke66jcVDz4PqVwymAYSmk0da1RRX+nVZ3Z7vMls7SN4XX2+5ZtpYxnoLg71YB
- anaVXjUlmGNIGtPp0qTIyyNsZcQw8PqBxr/K3UrLiU2sjbtZYz9Mqv64BU6AUQr8nktq
- skzNFNXaqIkxA9MzEJOeTJYNy6iE4jGMNvD9DbXJQboBeKBobtTnjuaX6jrqq6WUEGnu
- 9KQHCOiFs0+0AUa2D10xNx634VdeAF6MFneXHeXyVEJGBHfQyXlgHIsuAXU9YzEEqzoF
- 1MpEDedVEiZohwc2vmBwNtDiupYrueN1c/mWwDL9hTsmbCx4LM69hUWYZlCX9tP+SbNa
- GvgA==
-X-Gm-Message-State: APjAAAU2a+dLcMqT5cpEFUbFSy/Qgu1KqlOlrGNu0HKEW1Y4G2XVx8d1
- yv/9VET2xq8o9lonNlGLX7wzeQ==
-X-Google-Smtp-Source: APXvYqzyE9oM4lS/SzNWMKW5+lppU+ud83w4p3tCW57BC7S0wD+m/pVotdICLfarV0z6n6L75nCJTA==
-X-Received: by 2002:a17:902:bcc4:: with SMTP id
- o4mr8164748pls.142.1570093808283; 
- Thu, 03 Oct 2019 02:10:08 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references;
+ bh=cl61NZhY5d45/Lbiju2rWHR/95fvQW/rzQHybTAnNrk=;
+ b=EvBH/lf/++AUymCunh20akDTwHNsCHaHEs3XdlszYaa5+VMON1KBqWUGyKXF3XKyOm
+ 8FqGmCy7xAVDJgEWQMG6L+HgVFVxmHoYtBZEJhFW5NsEm5zZeQwg5tPEuhZS4lgVh7Q/
+ 2O+WRLIk3MreduXi1FqjEnMM5zItn2H3TyZcXMjkaT2ECM9AhS5DRthf8ETiYpuQVE5R
+ h92ry5MHnicowWLfMgsheqPIosio+GQm6NdDRP4eMMO32ifApSY467CQPi7O+EIt8vrK
+ IFCqU0XjQzfO1b+F3RbL7AFGMjwdaqB1/1oJq265Tmobv7dpV92lc+5IdPrARMZQwJXI
+ Lf1Q==
+X-Gm-Message-State: APjAAAWBtglzycVXuNvi3uQ+10I93NhrWcCyNR/3xjAMj1xpVju//uOV
+ qSfkflL/jHjeYgv7Ed/n7Fezfg==
+X-Google-Smtp-Source: APXvYqzlBZJdgGNxd7XyFiEOJlwPzViCn8Ox6kTrAJFA7m0/z333Jav775/eeVAQrCP1PSa2KM2oZA==
+X-Received: by 2002:a62:e109:: with SMTP id q9mr9618993pfh.231.1570093854790; 
+ Thu, 03 Oct 2019 02:10:54 -0700 (PDT)
 Received: from localhost.localdomain (111-241-164-136.dynamic-ip.hinet.net.
  [111.241.164.136])
- by smtp.gmail.com with ESMTPSA id f128sm3445422pfg.143.2019.10.03.02.10.04
+ by smtp.gmail.com with ESMTPSA id f128sm3445422pfg.143.2019.10.03.02.10.51
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 03 Oct 2019 02:10:07 -0700 (PDT)
+ Thu, 03 Oct 2019 02:10:54 -0700 (PDT)
 From: Green Wan <green.wan@sifive.com>
 To: linux-hackers@sifive.com
-Subject: [PATCH v4 0/4] dmaengine: sf-pdma: Add platform dma driver
-Date: Thu,  3 Oct 2019 17:09:00 +0800
-Message-Id: <20191003090945.29210-1-green.wan@sifive.com>
+Subject: [PATCH v4 1/4] dt-bindings: dmaengine: sf-pdma: add bindins for
+ SiFive PDMA
+Date: Thu,  3 Oct 2019 17:09:01 +0800
+Message-Id: <20191003090945.29210-2-green.wan@sifive.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20191003090945.29210-1-green.wan@sifive.com>
+References: <20191003090945.29210-1-green.wan@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191003_021014_663781_09D48C61 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191003_021055_897742_86DC7A40 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -110,64 +114,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add PDMA driver support for SiFive HiFive Unleashed RevA00 board. Mainly follows
-DMAengine controller doc[1] to implement and take other DMA drivers as reference.
-Such as
+Add DT bindings document for Platform DMA(PDMA) driver of board,
+HiFive Unleashed Rev A00.
 
-  - drivers/dma/fsl-edma.c
-  - drivers/dma/dw-edma/
-  - drivers/dma/pxa-dma.c
-
-Using DMA test client[2] to test. Detailed datasheet is doc[3]. Driver supports:
-
- - 4 physical DMA channels, share same DONE and error interrupt handler. 
- - Support MEM_TO_MEM
- - Tested by DMA test client
- - patches include DT Bindgins document and dts for fu450-c000 SoC. Separate dts
-   patch for easier review and apply to different branch or SoC platform.
- - retry 1 time if DMA error occurs.
-
-[Reference Doc]
- [1] ./Documentation/driver-api/dmaengine/provider.rst
- [2] ./Documentation/driver-api/dmaengine/dmatest.rst
- [3] https://static.dev.sifive.com/FU540-C000-v1.0.pdf 
-
-[Simple steps to test of DMA Test client]
- $ echo 1 > /sys/module/dmatest/parameters/iterations
- $ echo dma0chan0 > /sys/module/dmatest/parameters/channel
- $ echo dma0chan1 > /sys/module/dmatest/parameters/channel
- $ echo dma0chan2 > /sys/module/dmatest/parameters/channel
- $ echo dma0chan3 > /sys/module/dmatest/parameters/channel
- $ echo 1 > /sys/module/dmatest/parameters/run
-
-[Expected test result]
-[  267.563323] dmatest: dma0chan0-copy0: summary 45629 tests, 0 failures 38769.01 iops 309661 KB/s (0)
-[  267.572427] dmatest: dma0chan1-copy0: summary 45863 tests, 0 failures 40286.85 iops 321643 KB/s (0)
-[  267.581392] dmatest: dma0chan2-copy0: summary 45975 tests, 0 failures 41178.48 iops 328740 KB/s (0)
-[  267.590542] dmatest: dma0chan3-copy0: summary 44768 tests, 0 failures 38560.29 iops 307726 KB/s (0)
-
-Green Wan (4):
-  dt-bindings: dmaengine: sf-pdma: add bindins for SiFive PDMA
-  riscv: dts: add support for PDMA device of HiFive Unleashed Rev A00
-  dmaengine: sf-pdma: add platform DMA support for HiFive Unleashed A00
-  MAINTAINERS: Add Green as SiFive PDMA driver maintainer
-
- .../bindings/dma/sifive,fu540-c000-pdma.yaml  |  55 ++
- MAINTAINERS                                   |   6 +
- arch/riscv/boot/dts/sifive/fu540-c000.dtsi    |   7 +
- drivers/dma/Kconfig                           |   2 +
- drivers/dma/Makefile                          |   1 +
- drivers/dma/sf-pdma/Kconfig                   |   6 +
- drivers/dma/sf-pdma/Makefile                  |   1 +
- drivers/dma/sf-pdma/sf-pdma.c                 | 601 ++++++++++++++++++
- drivers/dma/sf-pdma/sf-pdma.h                 | 124 ++++
- 9 files changed, 803 insertions(+)
+Signed-off-by: Green Wan <green.wan@sifive.com>
+---
+ .../bindings/dma/sifive,fu540-c000-pdma.yaml  | 55 +++++++++++++++++++
+ 1 file changed, 55 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
- create mode 100644 drivers/dma/sf-pdma/Kconfig
- create mode 100644 drivers/dma/sf-pdma/Makefile
- create mode 100644 drivers/dma/sf-pdma/sf-pdma.c
- create mode 100644 drivers/dma/sf-pdma/sf-pdma.h
 
+diff --git a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+new file mode 100644
+index 000000000000..2ca3ddbe1ff4
+--- /dev/null
++++ b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+@@ -0,0 +1,55 @@
++# SPDX-License-Identifier: GPL-2.0
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/dma/sifive,fu540-c000-pdma.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SiFive Unleashed Rev C000 Platform DMA
++
++maintainers:
++  - Green Wan <green.wan@sifive.com>
++  - Palmer Debbelt <palmer@sifive.com>
++  - Paul Walmsley <paul.walmsley@sifive.com>
++
++description: |
++  Platform DMA is a DMA engine of SiFive Unleashed. It supports 4
++  channels. Each channel has 2 interrupts. One is for DMA done and
++  the other is for DME error.
++
++  In different SoC, DMA could be attached to different IRQ line.
++  DT file need to be changed to meet the difference. For technical
++  doc,
++
++  https://static.dev.sifive.com/FU540-C000-v1.0.pdf
++
++properties:
++  compatible:
++    items:
++      - const: sifive,fu540-c000-pdma
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    minItems: 1
++    maxItems: 8
++
++  '#dma-cells':
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - '#dma-cells'
++
++examples:
++  - |
++    dma@3000000 {
++      compatible = "sifive,fu540-c000-pdma";
++      reg = <0x0 0x3000000 0x0 0x8000>;
++      interrupts = <23 24 25 26 27 28 29 30>;
++      #dma-cells = <1>;
++    };
++
++...
 -- 
 2.17.1
 
