@@ -1,23 +1,22 @@
-Return-Path: <SRS0=g64V=X7=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=jxlM=YA=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 79FE7ECE58B
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  6 Oct 2019 19:19:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0CBC8C4740A
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2019 08:27:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 530562077B
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  6 Oct 2019 19:19:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CD8982084D
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  7 Oct 2019 08:27:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Jyg3Mb8Q";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="yoHDBSHf"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 530562077B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="D2xKjDWF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CD8982084D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -25,53 +24,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lS2hvKvIeNt7/NxuZCiixoY6OMdPVxOGjxBFbK+HCh0=; b=Jyg3Mb8QdM95kq
-	mGMBnWn5RGtk2iC7rdMA3zV04HRJ7/AhpaZbRp1zGgzVTIH0Rc1buyYMem+cwm0f7PR49VdlOWhji
-	Xyi9qtjEnsJQabBGC9p6mQTaQTIiakH8/OlbSpVi4Ieb8s7DFfDP67puZE68HNQyYyF+a8p9qTcjZ
-	oQ4fDt/07u30jin7+Xz4US5EzFLphnKt4EGTkXsfxjhr9iH6541wauJLa+P7fijVAmqXIrhyx4Xco
-	7qztaBBooyCBsC9T6wtj4Hacr97SspeOBZzCa1JqEEmwFy2rCICmk9TmFBcXC5l47IQVA+Ytoucg3
-	TkPYgLaIr0Oc6Rrprx7g==;
+	List-Owner; bh=V6BYKbBgzWaojzqLTnsCKDZqITnKV2GalZYeJ9Kun7U=; b=D2xKjDWF6PrC0K
+	LV7uYRcS0VEunx/Q0SwmwUfID4lX7B2dIEvy8ZhFaOP86NJbZE5awO9pxoAX8O7HKD7ZDJK6cPOFN
+	OYl3AEoRtL83AycNJUNm3K30AFm5MWL/FrsgWmo8EvxpB2baiWiVkdGrKEm6sFo+Wlc/2R5QCi5y5
+	5zOu0zfESnMR2YVkOnIgff8jgGJVwzVC+0VBx+2LE+09LmfGWUvCewNe85UE28bNdxJf38TeiF/Dq
+	537trbV3p1sG1FJZGfEIXmtm6Ga0Z05I7izhNSeXPTGy4epoMibjEbgVaCIT5EAozX8AbScXJ/65X
+	9P71NFFX7Rkne52IUKaw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iHC3n-0007Nd-Kv; Sun, 06 Oct 2019 19:19:15 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1iHOMD-0000Up-Gn; Mon, 07 Oct 2019 08:27:05 +0000
+Received: from mail-ot1-f66.google.com ([209.85.210.66])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iHC3l-0007ND-9g
- for linux-riscv@lists.infradead.org; Sun, 06 Oct 2019 19:19:14 +0000
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com
- [209.85.128.48])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id ED46D2087E
- for <linux-riscv@lists.infradead.org>; Sun,  6 Oct 2019 19:19:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1570389552;
- bh=ktUpIaexhlxRiG4ce7iLuw4QHFnf1O8GxwmdLQRzKQQ=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=yoHDBSHfwn2R9DQNKNey6IjgYQQ3iKumA9xVSa4w7i0ZBbVIjDv7j4kF/rzp6dak+
- g+yjLDpx0ycO6XeI4GT37gZAk6+zY6rrqL9xPsh93vnexztlzjyD1+CL1A0VKcY7bU
- RNHZComg9ON5ELsv2hs0AaFM4rfSAe5HKQvYxpnE=
-Received: by mail-wm1-f48.google.com with SMTP id r19so10359181wmh.2
- for <linux-riscv@lists.infradead.org>; Sun, 06 Oct 2019 12:19:11 -0700 (PDT)
-X-Gm-Message-State: APjAAAUkBHl9+luJzO9aQFiZLe0WQXxSOdfMmc7kGww0isfE9FQopwbX
- gCcL2itz7H2oqC2XBxZoWmqoeZt9ccBxvZf16/Kiog==
-X-Google-Smtp-Source: APXvYqzx1ZnDJzMrKkfkPpBPdQaV6IOTwM8ALHjC39JfwEbpQY+QpI4wEbZ4dp0MU/oNOnC7f2vGFBUaGlcGv6Uudg8=
-X-Received: by 2002:a1c:1bcf:: with SMTP id b198mr19073715wmb.0.1570389548492; 
- Sun, 06 Oct 2019 12:19:08 -0700 (PDT)
+ id 1iHOMA-0000UG-Ah; Mon, 07 Oct 2019 08:27:03 +0000
+Received: by mail-ot1-f66.google.com with SMTP id 41so10217618oti.12;
+ Mon, 07 Oct 2019 01:27:02 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=VKymJxaLp2SF18G9ExdMOsAdXsmgBDVfrU/If3JZGxo=;
+ b=mkZofDguwBO+rOy3/HkQJ1XcO06d3W7lMJsHjpK2xWKRGnvh7P+qkK/0QGNK86bur2
+ 1tV5XglofN/ZuUThdbBy514hxT5NR3bDKI5YOILA881pEN6t1nElF4773+XU7LVVT6Im
+ 8zygXzaW52yu0krDPMqYtXOwPX9mQuTuOyOwKvqyvF7VsBDwGEIg+oIXw2+iZ5x0kWd3
+ uhPpZIy9Plq0JYRuH1EOvdbJtwSuitLiPBgvQ6Mavnx9sdSGZt3PxOLhbyqhRbyjLChH
+ +DKoxhbk8g1ha6vrJJerHpj+mpyvH9O4PyNeZHyMJ0mDe4EtHE54tySYgAEA4peSchLr
+ hT1g==
+X-Gm-Message-State: APjAAAWx7PdoSvc3KOmCOM6HanCB2ITZDc7BS1PZpAiKjLFQyT2xv+RA
+ ir+VSFk/TmTMMB0Y2e8C7jl1bB/U8HXlGFiwsBw=
+X-Google-Smtp-Source: APXvYqxEOkV8nJCSllSqxdkQVypo90wcNgBvYDBNSKRgpoLJCvXTnmOdSLlUAojqzzfR9rCgupdlwodIFF5kpYpgt28=
+X-Received: by 2002:a9d:17e6:: with SMTP id j93mr20339687otj.297.1570436821298; 
+ Mon, 07 Oct 2019 01:27:01 -0700 (PDT)
 MIME-Version: 1.0
-References: <419CB0D1-E51C-49D5-9745-7771C863462F@amacapital.net>
- <mhng-c8a768f7-1a90-4228-b654-be9e879c92ec@palmer-si-x1c4>
- <CALCETrUmqKz4vu2VCPC5MYGFyiG4djbOmKG32oLtQPb=o6rJ_Q@mail.gmail.com>
-In-Reply-To: <CALCETrUmqKz4vu2VCPC5MYGFyiG4djbOmKG32oLtQPb=o6rJ_Q@mail.gmail.com>
-From: Andy Lutomirski <luto@kernel.org>
-Date: Sun, 6 Oct 2019 12:18:57 -0700
-X-Gmail-Original-Message-ID: <CALCETrVrQf2B5T6GhoWWuMzrmvTBx9TWxEEN5ZEaXFCiajqMZg@mail.gmail.com>
-Message-ID: <CALCETrVrQf2B5T6GhoWWuMzrmvTBx9TWxEEN5ZEaXFCiajqMZg@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: add support for SECCOMP and SECCOMP_FILTER
-To: Andy Lutomirski <luto@kernel.org>
+References: <20191004145544.5066-1-krzk@kernel.org>
+ <20191004145544.5066-3-krzk@kernel.org>
+In-Reply-To: <20191004145544.5066-3-krzk@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 7 Oct 2019 10:26:49 +0200
+Message-ID: <CAMuHMdW0DSujexoGq4CJAYP40DvMcigk08aEnyQ72haY6jds5Q@mail.gmail.com>
+Subject: Re: [RESEND TRIVIAL 3/3] treewide: arch: Fix Kconfig indentation
+To: Krzysztof Kozlowski <krzk@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191006_121913_379996_ECD855A3 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20191007_012702_369334_0A0D0EE2 
+X-CRM114-Status: UNSURE (   6.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,58 +78,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Song Liu <songliubraving@fb.com>, Alan Kao <alankao@andestech.com>,
- Palmer Dabbelt <palmer@sifive.com>, Alexei Starovoitov <ast@kernel.org>,
- Oleg Nesterov <oleg@redhat.com>,
- "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- linux-riscv@lists.infradead.org, Shuah Khan <shuah@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Yonghong Song <yhs@fb.com>,
- me@carlosedp.com, Albert Ou <aou@eecs.berkeley.edu>,
- Kees Cook <keescook@chromium.org>, Alexios Zavras <alexios.zavras@intel.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- Allison Randal <allison@lohutok.net>, Will Drewry <wad@chromium.org>,
- David Abdurachmanov <david.abdurachmanov@gmail.com>,
- David Abdurachmanov <david.abdurachmanov@sifive.com>,
- Network Development <netdev@vger.kernel.org>, Anup Patel <Anup.Patel@wdc.com>,
- LKML <linux-kernel@vger.kernel.org>, Vincent Chen <vincentc@andestech.com>,
- bpf <bpf@vger.kernel.org>, Martin KaFai Lau <kafai@fb.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Linux Fbdev development list <linux-fbdev@vger.kernel.org>,
+ linux-efi <linux-efi@vger.kernel.org>,
+ Linux-sh list <linux-sh@vger.kernel.org>, linux-iio@vger.kernel.org,
+ linux-pci <linux-pci@vger.kernel.org>,
+ "open list:REMOTE PROCESSOR \(REMOTEPROC\) SUBSYSTEM"
+ <linux-remoteproc@vger.kernel.org>,
+ DRI Development <dri-devel@lists.freedesktop.org>,
+ platform-driver-x86@vger.kernel.org, linux-ide@vger.kernel.org,
+ dm-devel@redhat.com, keyrings@vger.kernel.org,
+ MTD Maling List <linux-mtd@lists.infradead.org>,
+ Linux I2C <linux-i2c@vger.kernel.org>, linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, ac100@lists.launchpad.net,
+ linux-rtc@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ scsi <linux-scsi@vger.kernel.org>,
+ "open list:ARM/Rockchip SoC..." <linux-rockchip@lists.infradead.org>,
+ linux-rdma <linux-rdma@vger.kernel.org>, esc.storagedev@microsemi.com,
+ linux-security-module@vger.kernel.org, linux-clk <linux-clk@vger.kernel.org>,
+ ACPI Devel Maling List <linux-acpi@vger.kernel.org>,
+ bcm-kernel-feedback-list@broadcom.com,
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ linux-input@vger.kernel.org, xen-devel@lists.xenproject.org,
+ virtualization@lists.linux-foundation.org,
+ Linux Media Mailing List <linux-media@vger.kernel.org>,
+ "moderated list:H8/300 ARCHITECTURE" <uclinux-h8-devel@lists.sourceforge.jp>,
+ driverdevel <devel@driverdev.osuosl.org>,
+ Linux PM list <linux-pm@vger.kernel.org>,
+ linux-arm-msm <linux-arm-msm@vger.kernel.org>, linux-um@lists.infradead.org,
+ linux-block@vger.kernel.org,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ Openrisc <openrisc@lists.librecores.org>, linux-mediatek@lists.infradead.org,
+ linux-rpi-kernel <linux-rpi-kernel@lists.infradead.org>,
+ linux-tegra <linux-tegra@vger.kernel.org>,
+ openipmi-developer@lists.sourceforge.net,
+ "open list:TI ETHERNET SWITCH DRIVER \(CPSW\)" <linux-omap@vger.kernel.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-edac@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-raid@vger.kernel.org,
+ Jiri Kosina <trivial@kernel.org>, Linux MM <linux-mm@kvack.org>,
+ netdev <netdev@vger.kernel.org>, Linux MMC List <linux-mmc@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-spi <linux-spi@vger.kernel.org>,
+ Linux IOMMU <iommu@lists.linux-foundation.org>,
+ Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+ alpha <linux-alpha@vger.kernel.org>, dmaengine@vger.kernel.org,
+ linux-integrity <linux-integrity@vger.kernel.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBTZXAgMjcsIDIwMTkgYXQgMTo1OCBQTSBBbmR5IEx1dG9taXJza2kgPGx1dG9Aa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBUdWUsIFNlcCAzLCAyMDE5IGF0IDM6MjcgUE0gUGFsbWVy
-IERhYmJlbHQgPHBhbG1lckBzaWZpdmUuY29tPiB3cm90ZToKPiA+Cj4gPiBPbiBXZWQsIDI4IEF1
-ZyAyMDE5IDEwOjUyOjA1IFBEVCAoLTA3MDApLCBsdXRvQGFtYWNhcGl0YWwubmV0IHdyb3RlOgo+
-ID4gPgo+ID4gPgo+ID4gPj4gT24gQXVnIDI1LCAyMDE5LCBhdCAyOjU5IFBNLCBLZWVzIENvb2sg
-PGtlZXNjb29rQGNocm9taXVtLm9yZz4gd3JvdGU6Cj4gPiA+Pgo+ID4gPj4+IE9uIFRodSwgQXVn
-IDIyLCAyMDE5IGF0IDAxOjU1OjIyUE0gLTA3MDAsIERhdmlkIEFiZHVyYWNobWFub3Ygd3JvdGU6
-Cj4gPiA+Pj4gVGhpcyBwYXRjaCB3YXMgZXh0ZW5zaXZlbHkgdGVzdGVkIG9uIEZlZG9yYS9SSVND
-ViAoYXBwbGllZCBieSBkZWZhdWx0IG9uCj4gPiA+Pj4gdG9wIG9mIDUuMi1yYzcga2VybmVsIGZv
-ciA8MiBtb250aHMpLiBUaGUgcGF0Y2ggd2FzIGFsc28gdGVzdGVkIHdpdGggNS4zLXJjCj4gPiA+
-Pj4gb24gUUVNVSBhbmQgU2lGaXZlIFVubGVhc2hlZCBib2FyZC4KPiA+ID4+Cj4gPiA+PiBPb3Bz
-LCBJIHNlZSB0aGUgbWVudGlvbiBvZiBRRU1VIGhlcmUuIFdoZXJlJ3MgdGhlIGJlc3QgcGxhY2Ug
-dG8gZmluZAo+ID4gPj4gaW5zdHJ1Y3Rpb25zIG9uIGNyZWF0aW5nIGEgcWVtdSByaXNjdiBpbWFn
-ZS9lbnZpcm9ubWVudD8KPiA+ID4KPiA+ID4gSSBkb27igJl0IHN1cHBvc2Ugb25lIG9mIHlvdSBy
-aXNjdiBmb2xrcyB3b3VsZCBsaWtlIHRvIGNvbnRyaWJ1dGUgcmlzY3Ygc3VwcG9ydCB0byB2aXJ0
-bWU/ICB2aXJ0bWUtcnVuIOKAlGFyY2g9cmlzY3Ygd291bGQgYmUgcXVpdGUgbmljZSwgYW5kIHRo
-ZSB0b3RhbCBwYXRjaCBzaG91bGQgYmUganVzdCBhIGNvdXBsZSBsaW5lcy4gIFVuZm9ydHVuYXRl
-bHksIGl0IGhlbHBzIGEgbG90IHRvIHVuZGVyc3RhbmQgdGhlIHN1YnRsZXRpZXMgb2YgYm9vdGlu
-ZyB0aGUgYXJjaGl0ZWN0dXJlIHRvIHdyaXRlIHRob3NlIGNvdXBsZSBsaW5lcyA6KQo+ID4KCkZZ
-SSwgaXQgd29ya3Mgbm93OgoKJCB2aXJ0bWUtY29uZmlna2VybmVsIC0tYXJjaD1yaXNjdiAtLWRl
-ZmNvbmZpZwogIEdFTiAgICAgTWFrZWZpbGUKWy4uLl0KQ29uZmlndXJlZC4gIEJ1aWxkIHdpdGgg
-J21ha2UgQVJDSD1yaXNjdiBDUk9TU19DT01QSUxFPXJpc2N2NjQtbGludXgtZ251LSAtajQnCgok
-IG1ha2UgQVJDSD1yaXNjdiBDUk9TU19DT01QSUxFPXJpc2N2NjQtbGludXgtZ251LSAtajQKWy4u
-Ll0KCiQgdmlydG1lLXJ1biAtLWtkaXI9LiAtLWFyY2g9cmlzY3Y2NCAtLW1vZHM9YXV0byAtLXJv
-b3QgW3BhdGggdG8gYQpyaXNjdiBmaWxlc3lzdGVtXQoKVGhpcyBpcyB3aXRoIHZpcnRtZSBtYXN0
-ZXIgYW5kIGEgcWVtdS1zeXN0ZW0tcmlzY3Y2NCBmcm9tIHFlbXUgZ2l0IG9uCm15IHBhdGguICBJ
-dCBkb2VzICpub3QqIHdvcmsgd2l0aCBGZWRvcmEgMzAncyBxZW11LgoKU28gbm93IHlvdSBjYW4g
-YWxsIGp1bXAgb24gdGhlIHZpcnRtZSBiYW5kd2Fnb24gYW5kIGhhdmUgYW4gZWFzeSB3YXkKdG8g
-dGVzdCByaXNjdiBrZXJuZWxzLiA6KSAgQWx0aG91Z2gsIGlmIHlvdSB3YW50IHRvIHJ1biBrZXJu
-ZWwKc2VsZnRlc3RzLCB5b3UgbWF5IGZpbmQgdGhlIHByb2Nlc3Mgb2YgYWN0dWFsbHkgcnVubmlu
-ZyB0aGVtIHRvIGJlCm1vcmUgZnVuIGlmIHlvdSB1c2UgLS1yb2RpciBvciAtLXJ3ZGlyIHRvIG1h
-cCB0aGUga2VybmVsIHNlbGZ0ZXN0cwpkaXJlY3RvcnkgaW50byB0aGUgZ3Vlc3QuCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Oct 4, 2019 at 4:57 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> Adjust indentation from spaces to tab (+optional two spaces) as in
+> coding style with command like:
+>     $ sed -e 's/^        /\t/' -i */Kconfig
+>
+> Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
+
+>  arch/m68k/Kconfig.bus                  |  2 +-
+>  arch/m68k/Kconfig.debug                | 16 ++++++++--------
+>  arch/m68k/Kconfig.machine              |  8 ++++----
+
+For m68k:
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
