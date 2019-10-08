@@ -2,21 +2,21 @@ Return-Path: <SRS0=zF8f=YB=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-5.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1929CECE58C
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2019 15:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2EDCEC4360C
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2019 15:45:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E38A921721
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2019 15:40:00 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EAA39217D7
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2019 15:45:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dQgBKWiu"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E38A921721
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JsJDYOky"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EAA39217D7
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,27 +25,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fKnPFlKV9ni1gXrqbIys/Lwum8qfOVQrgXNQOBioFHc=; b=dQgBKWiu5Mk1K1
-	8R2epYS0BtV5xIWjJiwFILLVwHt8SW5dZTYaRiP9TxVQD6OQsiYrMBHBtasZvKfY/C2sK13bXsbZQ
-	Nm4Ra7Bd4C4EZa01BwlFT1cAbd0SF9Wj7QC0M4n4H1Z3I7c0OLA3zeXtX5P8tC4tK+VsZQNGlNU03
-	xVHGJzjvS1utMX/WO7VRUdO7ApPGGQYqg7k5B/riweaZaogKwsIgt0mEXn/juEpx9zXCgvDm+0S72
-	M0mv7uAleSXuKGep4YFG/wsd1MnNskbA6RA4pkCeWtUt36KLP46+GkkdnTHX781nVLj/9aJfrZIz3
-	HwpxJ6GKkCOk9jxIrTdQ==;
+	List-Owner; bh=drYrERZY76tiwFUSJnAfUdJ4F+HnyOLOdiz5zE7PZ/g=; b=JsJDYOkyTCzR0P
+	Lcsa2Vy4NYtiu/a7k23/dBiopw/E+dDskxNTG3uxucdiq4WDkpe+eMUP7ee0/MZeIUQG43TvNKieW
+	wQcBDbwPjSO29MeZoOZDpXrwneD+AhLzMFrH+zH1oFFw267YdJk+eCaEdpNNmTctnVqJZDiMbmvOT
+	B7xgKIWBKXi+zlc8jbRSs7iyFA4r/yAGPrnmu8+e6zmpy4EvLd9LCznk7W9j/CG+3Yj9kALiSfVXZ
+	sE9V6k0+WTfpnXQXH/t7D+aXLrGz9sUD/jSrftUsgx06M1jG9KlL4ApCvg4Mw7Pd5mLykyOOLsC27
+	oej4aItYRK8s/+cuOjZQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iHrai-0005VV-2a; Tue, 08 Oct 2019 15:40:00 +0000
+	id 1iHrfr-00040l-Cj; Tue, 08 Oct 2019 15:45:19 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.92.2 #3 (Red
- Hat Linux)) id 1iHrag-0005VI-Su; Tue, 08 Oct 2019 15:39:58 +0000
-Date: Tue, 8 Oct 2019 08:39:58 -0700
+ Hat Linux)) id 1iHrei-0001rR-O5; Tue, 08 Oct 2019 15:44:08 +0000
+Date: Tue, 8 Oct 2019 08:44:08 -0700
 From: Christoph Hellwig <hch@infradead.org>
 To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [v1 PATCH  1/2] RISC-V: Remove unsupported isa string info print
-Message-ID: <20191008153958.GB20318@infradead.org>
+Subject: Re: [v1 PATCH  2/2] RISC-V: Consolidate isa correctness check
+Message-ID: <20191008154408.GC20318@infradead.org>
 References: <20191004012000.2661-1-atish.patra@wdc.com>
- <20191004012000.2661-2-atish.patra@wdc.com>
+ <20191004012000.2661-3-atish.patra@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20191004012000.2661-2-atish.patra@wdc.com>
+In-Reply-To: <20191004012000.2661-3-atish.patra@wdc.com>
 User-Agent: Mutt/1.12.1 (2019-06-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -70,9 +70,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Looks good,
+> +int riscv_read_check_isa(struct device_node *node, const char **isa)
+> +{
+> +	u32 hart;
+> +
+> +	if (of_property_read_u32(node, "reg", &hart)) {
+> +		pr_warn("Found CPU without hart ID\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	if (of_property_read_string(node, "riscv,isa", isa)) {
+> +		pr_warn("CPU with hartid=%d has no \"riscv,isa\" property\n",
+> +			hart);
+> +		return -ENODEV;
+> +	}
+> +
+> +	/*
+> +	 * Linux doesn't support rv32e or rv128i, and we only support booting
+> +	 * kernels on harts with the same ISA that the kernel is compiled for.
+> +	 */
+> +#if defined(CONFIG_32BIT)
+> +	if (strncmp(*isa, "rv32i", 5) != 0)
+> +		return -ENODEV;
+> +#elif defined(CONFIG_64BIT)
+> +	if (strncmp(*isa, "rv64i", 5) != 0)
+> +		return -ENODEV;
+> +#endif
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+Using IS_ENABLED here would clean the checks up a bit.
+
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index b1ade9a49347..eaad5aa07403 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -38,10 +38,8 @@ void riscv_fill_hwcap(void)
+>  		if (riscv_of_processor_hartid(node) < 0)
+>  			continue;
+>  
+> -		if (of_property_read_string(node, "riscv,isa", &isa)) {
+> -			pr_warn("Unable to find \"riscv,isa\" devicetree entry\n");
+> +		if (riscv_read_check_isa(node, &isa) < 0)
+>  			continue;
+
+Do we really get rid of warnings if we didn't find anything proper?
 
 _______________________________________________
 linux-riscv mailing list
