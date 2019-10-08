@@ -2,50 +2,50 @@ Return-Path: <SRS0=zF8f=YB=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B5363C4360C
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2019 06:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3493DC10F14
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2019 06:13:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8AE0121871
+	by mail.kernel.org (Postfix) with ESMTPS id ED8BA21721
 	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  8 Oct 2019 06:13:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Xe98QES3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8AE0121871
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tnEnnAPn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED8BA21721
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1Jsz+Ze4f56NN8LK6AIxUhp9JbX+LcqsElr8Oh9yBVQ=; b=Xe98QES3vn352q
-	3AsmayQjPCVe7yagL8ecfasO9FyF4/STI9J/tuQBpC7su4AipGJuuuiqqMuiVGqMv7P+JOeUjbHBc
-	qRu7c1cDUyS/fHKR6hIVesGr8bcjY15VLMdomL8QDt/MrzGBEqx9hKkh36CdBAH/3z5VUdUPnZ2b6
-	BrlnY5ZwqRkCdoAOGirx3S5qAxDMdmpQFAuLsRwu28YC1JcJO+uKD+NK+E/klPlfSwQRsxTbDxjYJ
-	Ujw177kSK1pMWSsCEacMnlu4Y7qqU7J72LqtzmEaDEHNvLPHNQF7BztB3UhaIBhC75kNrasZRVu6f
-	S6VpbtoLEMi0iVN7jtig==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=J/sqy2/UtfPQoirnXc+d0CNLf2adVmPHEl/h9PqZ6ug=; b=tnEnnAPnDh1WJt
+	KXjROPQcBDZLskgEUP3BHdyK3kVGEArUEM9TiPNZBlrzne4zV1W9nfCjGGz1ecp+FZol5WhKwTMjC
+	rYoFzHKTyR6eiKL8E1jDewJ7OhjRzATlpAtpv5urBBwV0NmJbpIXq5/okyUg+Ya0EyopqtOPHUtbh
+	MJsNDrbZ3LwDbDl6ouc8Z4Pp99fVD6VKUPrnHeClC4h8eHjDXHJP9v8GrLXDv68hO8dw3UAu57Sri
+	pxzlB+KwiiWlBjMQPb64ziB3EVJ05B2jm0WXn9jD1nsY9gI812PXZGJ8jcjkoFTcbdUYXlItbsw7u
+	rKJiIroHSGCtbooZwyTQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iHikA-0005sy-IT; Tue, 08 Oct 2019 06:13:10 +0000
+	id 1iHik9-0005sI-W9; Tue, 08 Oct 2019 06:13:09 +0000
 Received: from 59-120-53-16.hinet-ip.hinet.net ([59.120.53.16]
  helo=ATCSQR.andestech.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iHik7-0005r7-Eh
+ id 1iHik7-0005r6-Ei
  for linux-riscv@lists.infradead.org; Tue, 08 Oct 2019 06:13:09 +0000
 Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
- by ATCSQR.andestech.com with ESMTP id x985u7EV075289;
- Tue, 8 Oct 2019 13:56:07 +0800 (GMT-8)
+ by ATCSQR.andestech.com with ESMTP id x985uS4f075344;
+ Tue, 8 Oct 2019 13:56:28 +0800 (GMT-8)
  (envelope-from nickhu@andestech.com)
 Received: from atcsqa06.andestech.com (10.0.15.65) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.123.3; Tue, 8 Oct 2019
- 14:11:59 +0800
+ 14:12:20 +0800
 From: Nick Hu <nickhu@andestech.com>
 To: <alankao@andestech.com>, <paul.walmsley@sifive.com>, <palmer@sifive.com>, 
  <aou@eecs.berkeley.edu>, <aryabinin@virtuozzo.com>,
@@ -56,17 +56,19 @@ To: <alankao@andestech.com>, <paul.walmsley@sifive.com>, <palmer@sifive.com>,
  <kstewart@linuxfoundation.org>, <linux-doc@vger.kernel.org>,
  <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
  <kasan-dev@googlegroups.com>, <linux-mm@kvack.org>
-Subject: [PATCH v3 0/3] KASAN support for RISC-V
-Date: Tue, 8 Oct 2019 14:11:50 +0800
-Message-ID: <cover.1570514544.git.nickhu@andestech.com>
+Subject: [PATCH v3 3/3] kasan: Add riscv to KASAN documentation.
+Date: Tue, 8 Oct 2019 14:11:53 +0800
+Message-ID: <8f3c66f3f24450b21b749a5e6e6eabf066632ac9.1570514545.git.nickhu@andestech.com>
 X-Mailer: git-send-email 2.17.0
+In-Reply-To: <cover.1570514544.git.nickhu@andestech.com>
+References: <cover.1570514544.git.nickhu@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.65]
 X-DNSRBL: 
-X-MAIL: ATCSQR.andestech.com x985u7EV075289
+X-MAIL: ATCSQR.andestech.com x985uS4f075344
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191007_231307_767773_5409F6F2 
-X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-CacheID: sfid-20191007_231307_759310_5F4CFD92 
+X-CRM114-Status: UNSURE (   6.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -85,39 +87,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KASAN is an important runtime memory debugging feature in linux kernel
-which can detect use-after-free and out-of-bounds problems.
+Add riscv to the KASAN documentation to mention that riscv
+is supporting generic kasan now.
 
-Changes in v2:
-  - Remove the porting of memmove and exclude the check instead.
-  - Fix some code noted by Christoph Hellwig
+Signed-off-by: Nick Hu <nickhu@andestech.com>
+---
+ Documentation/dev-tools/kasan.rst | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Changes in v3:
-  - Update the KASAN documentation to mention that riscv is supported.
-
-Nick Hu (3):
-  kasan: Archs don't check memmove if not support it.
-  riscv: Add KASAN support
-  kasan: Add riscv to KASAN documentation.
-
- Documentation/dev-tools/kasan.rst   |   4 +-
- arch/riscv/Kconfig                  |   1 +
- arch/riscv/include/asm/kasan.h      |  27 ++++++++
- arch/riscv/include/asm/pgtable-64.h |   5 ++
- arch/riscv/include/asm/string.h     |   9 +++
- arch/riscv/kernel/head.S            |   3 +
- arch/riscv/kernel/riscv_ksyms.c     |   2 +
- arch/riscv/kernel/setup.c           |   5 ++
- arch/riscv/kernel/vmlinux.lds.S     |   1 +
- arch/riscv/lib/memcpy.S             |   5 +-
- arch/riscv/lib/memset.S             |   5 +-
- arch/riscv/mm/Makefile              |   6 ++
- arch/riscv/mm/kasan_init.c          | 104 ++++++++++++++++++++++++++++
- mm/kasan/common.c                   |   2 +
- 14 files changed, 173 insertions(+), 6 deletions(-)
- create mode 100644 arch/riscv/include/asm/kasan.h
- create mode 100644 arch/riscv/mm/kasan_init.c
-
+diff --git a/Documentation/dev-tools/kasan.rst b/Documentation/dev-tools/kasan.rst
+index b72d07d70239..34fbb7212cbc 100644
+--- a/Documentation/dev-tools/kasan.rst
++++ b/Documentation/dev-tools/kasan.rst
+@@ -21,8 +21,8 @@ global variables yet.
+ 
+ Tag-based KASAN is only supported in Clang and requires version 7.0.0 or later.
+ 
+-Currently generic KASAN is supported for the x86_64, arm64, xtensa and s390
+-architectures, and tag-based KASAN is supported only for arm64.
++Currently generic KASAN is supported for the x86_64, arm64, xtensa, s390 and
++riscv architectures, and tag-based KASAN is supported only for arm64.
+ 
+ Usage
+ -----
 -- 
 2.17.0
 
