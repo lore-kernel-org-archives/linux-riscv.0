@@ -2,21 +2,21 @@ Return-Path: <SRS0=AS9l=YG=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AB117C4360C
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 13 Oct 2019 13:05:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65405C4360C
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 13 Oct 2019 13:05:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 800B62085B
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 13 Oct 2019 13:05:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 39BFC2082F
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 13 Oct 2019 13:05:18 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pvVmQhmD"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 800B62085B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OiJMoYkl"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 39BFC2082F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=intel.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,37 +25,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nxY2OsUHMmYu+GEOYb4RcThQxvLqaUaXYrOJ0CVDM3A=; b=pvVmQhmD6qbIoe
-	MH0WnOQwLHqvZFXCGwJzNuA6rjsQIXJU40pB/g1mTYBTjDHGEZSo3msSvmwnSa+5sqvUETHGoQcAX
-	IRiSMqUzKgoS75uHMn7iPD9j12puOC1MERabWsLDYWy4L5xswwvkuVUAXI2UjX1tgEFY9iVTBFn6H
-	TQ39xfU3RncwCi4eOvKuBb4TjKA38nZHjvq6yR0zrg4SM7vfVDWXicEaiaMslzPhTntv2XIEik+MU
-	8G7JzRXAOKR3XdpkG6DxyDvkVjvWz9mcXBik1a3ojhs59TBvlB2enWQsbkBZ5S7mfG6EnLeyMPPml
-	UwoOozGYue/rEwu9skEQ==;
+	List-Owner; bh=cbdGyyJUGtLzQGcrLIEsTdBn4HZKQqTHz9hhrggGa50=; b=OiJMoYkldDb62o
+	yFeN2EcxAJsRL6cMO7wqzd0kAzuZWMkYrAD7wScuc4VNNfijj9GfkKUwlHFr0qKQfJRrXTFE8nEUm
+	rC4lB1PrwQ0O9ENdKaTHG5mwu60JCyqanFjtiFiyNe8MKnR4aLtoD/026Otvqtpd1Yqp97XS//Q2W
+	NPSetEkUfjRh4Vs+9YEcHD36FlibpAbNUS1bcgLs9AElLbbn1l6Lk23yYp3Hm6HkUcteAJTKypZOX
+	wTe6vAYhdFB2ugeOfhZRPWzSR1TVeRO7gnMjYNMczlENQLblVlmZcYCg7lheGbt4d6EEkB5NO0Pr5
+	htugaK1hkmDg9u1tzaaw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iJdYZ-0007Ol-Iy; Sun, 13 Oct 2019 13:05:07 +0000
-Received: from mga09.intel.com ([134.134.136.24])
+	id 1iJdYb-0007YO-5L; Sun, 13 Oct 2019 13:05:09 +0000
+Received: from mga17.intel.com ([192.55.52.151])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iJdYV-0006e9-Jm
+ id 1iJdYV-0006e2-J6
  for linux-riscv@lists.infradead.org; Sun, 13 Oct 2019 13:05:05 +0000
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
- by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 13 Oct 2019 06:04:59 -0700
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+ by fmsmga107.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 13 Oct 2019 06:05:00 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.67,292,1566889200"; d="scan'208";a="185243091"
+X-IronPort-AV: E=Sophos;i="5.67,292,1566889200"; d="scan'208";a="346492348"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
- by orsmga007.jf.intel.com with ESMTP; 13 Oct 2019 06:04:55 -0700
+ by orsmga004.jf.intel.com with ESMTP; 13 Oct 2019 06:04:56 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
  (envelope-from <lkp@intel.com>)
- id 1iJdYN-000Aof-A8; Sun, 13 Oct 2019 21:04:55 +0800
+ id 1iJdYN-000ApH-EF; Sun, 13 Oct 2019 21:04:55 +0800
 Date: Sun, 13 Oct 2019 21:04:47 +0800
 From: kbuild test robot <lkp@intel.com>
 To: Green Wan <green.wan@sifive.com>
-Subject: [RFC PATCH] dmaengine: sf-pdma: sf_pdma_disclaim_chan() can be static
-Message-ID: <20191013130447.2t2hbjcaatguytm3@332d0cec05f4>
+Subject: Re: [PATCH v4 3/4] dmaengine: sf-pdma: add platform DMA support for
+ HiFive Unleashed A00
+Message-ID: <201910132151.A52iK7nK%lkp@intel.com>
 References: <20191003090945.29210-4-green.wan@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
@@ -63,8 +64,8 @@ In-Reply-To: <20191003090945.29210-4-green.wan@sifive.com>
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191013_060503_711016_17C73203 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20191013_060503_647834_8BFBC837 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,34 +95,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Green,
 
-Fixes: 31c3b98b5a01 ("dmaengine: sf-pdma: add platform DMA support for HiFive Unleashed A00")
-Signed-off-by: kbuild test robot <lkp@intel.com>
+Thank you for the patch! Perhaps something to improve:
+
+[auto build test WARNING on linus/master]
+[cannot apply to v5.4-rc2 next-20191011]
+[if your patch is applied to the wrong git tree, please drop us a note to help
+improve the system. BTW, we also suggest to use '--base' option to specify the
+base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
+
+url:    https://github.com/0day-ci/linux/commits/Green-Wan/dmaengine-sf-pdma-Add-platform-dma-driver/20191003-172343
+reproduce:
+        # apt-get install sparse
+        # sparse version: v0.6.1-rc1-43-g0ccb3b4-dirty
+        make ARCH=x86_64 allmodconfig
+        make C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__'
+
+If you fix the issue, kindly add following tag
+Reported-by: kbuild test robot <lkp@intel.com>
+
+
+sparse warnings: (new ones prefixed by >>)
+
+>> drivers/dma/sf-pdma/sf-pdma.c:100:6: sparse: sparse: symbol 'sf_pdma_disclaim_chan' was not declared. Should it be static?
+>> drivers/dma/sf-pdma/sf-pdma.c:107:32: sparse: sparse: symbol 'sf_pdma_prep_dma_memcpy' was not declared. Should it be static?
+
+Please review and possibly fold the followup patch.
+
 ---
- sf-pdma.c |    4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-index 70197ad95c1a6..973ed9d8cfa44 100644
---- a/drivers/dma/sf-pdma/sf-pdma.c
-+++ b/drivers/dma/sf-pdma/sf-pdma.c
-@@ -97,14 +97,14 @@ static void sf_pdma_fill_desc(struct sf_pdma_chan *chan,
- 	writeq(src, regs->src_addr);
- }
- 
--void sf_pdma_disclaim_chan(struct sf_pdma_chan *chan)
-+static void sf_pdma_disclaim_chan(struct sf_pdma_chan *chan)
- {
- 	struct pdma_regs *regs = &chan->regs;
- 
- 	writel(PDMA_CLEAR_CTRL, regs->ctrl);
- }
- 
--struct dma_async_tx_descriptor *
-+static struct dma_async_tx_descriptor *
- 	sf_pdma_prep_dma_memcpy(struct dma_chan *dchan,
- 				dma_addr_t dest,
- 				dma_addr_t src,
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 
 _______________________________________________
 linux-riscv mailing list
