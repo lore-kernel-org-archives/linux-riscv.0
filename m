@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B8B2DECE597
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2019 17:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 68CC4ECE58E
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2019 17:38:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8F68421835
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2019 17:38:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3986921D7A
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 17 Oct 2019 17:38:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZOuMdyNi"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8F68421835
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Fyhzkx8j"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3986921D7A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,24 +25,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u+E4cUBeC+2i46BZw2CYDnS1SJN4MhE8D3Oh/0KuBvA=; b=ZOuMdyNipp4KI9
-	5uW3eBo2GX+kHWepyOatP8UXYg2S6uRr0DMvZtfjiaK4ZHsbcd/pB67QrjQ40heAyX3VOoTtAXdAL
-	97qg/hKjF4fzykDLa5sIUwP77DhvQaOVfQDCkc3yU3nVWePHvGqB5MMGno0tepn8W/FH54B6IHP0t
-	O08yC5gW31gUIxx0UYv4ClkS/46yTj4GXhivLckb93getF6JHyDpVc/nCIOaDuJI/pnN3zws4Oz+3
-	tss8yRNnCDR1q7bLzarL0065rD3sbYddYqgXfx2Sgz6uvaYvvzZGOBErtpDtgb60d0ULXbiAklDQt
-	jppCWPLXQ1IrN7r4NgFQ==;
+	List-Owner; bh=4rRmxuD+3iHZ3oZK99zNXE7vfDYCQTr5xAp21yCNPxc=; b=Fyhzkx8jse49xf
+	LUzj8rBfiPqgmyKqOjn7NLs2WUHj/QasvEklOb4n9zkaI8CACwWt9/yFIqQlrM+xJRnhRDGYy1WWb
+	rbd+qz+iAksvuQbZ29KIKoyeMAg0ZwEihllWyXDuD9zMzY1BbQzzgM6UHbUClMiLo76GvOm0YToXI
+	1UyzhN4bWHQ8FhGohdswIx2mMucbToco5Q5PES7v/xetuQ/W+DfckMkNiZAeW56AFqi8cgHkIS6Wz
+	UItq4PsiCmXGN7sJKuIWRc+qEC+hdjDWWLTw0Rn5GcixJ++ZspGlRKiggPI6Bievhm/fGZMnwb5Ka
+	sNSbYLiws/K9PN+VeTRg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iL9j4-000810-LO; Thu, 17 Oct 2019 17:38:14 +0000
+	id 1iL9jE-0008Ee-SI; Thu, 17 Oct 2019 17:38:24 +0000
 Received: from [2001:4bb8:18c:d7b:c70:4a89:bc61:3] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iL9j0-0007u5-TW; Thu, 17 Oct 2019 17:38:11 +0000
+ id 1iL9j3-0007y5-CO; Thu, 17 Oct 2019 17:38:13 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Palmer Dabbelt <palmer@sifive.com>,
  Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH 10/15] riscv: read the hart ID from mhartid on boot
-Date: Thu, 17 Oct 2019 19:37:38 +0200
-Message-Id: <20191017173743.5430-11-hch@lst.de>
+Subject: [PATCH 11/15] riscv: use the correct interrupt levels for M-mode
+Date: Thu, 17 Oct 2019 19:37:39 +0200
+Message-Id: <20191017173743.5430-12-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191017173743.5430-1-hch@lst.de>
 References: <20191017173743.5430-1-hch@lst.de>
@@ -58,57 +58,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@wdc.com>, Damien Le Moal <Damien.LeMoal@wdc.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Damien Le Moal <damien.lemoal@wdc.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
+The numerical levels for External/Timer/Software interrupts differ
+between S-mode and M-mode.
 
-When in M-Mode, we can use the mhartid CSR to get the ID of the running
-HART. Doing so, direct M-Mode boot without firmware is possible.
-
-Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 Signed-off-by: Christoph Hellwig <hch@lst.de>
-Reviewed-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/include/asm/csr.h | 1 +
- arch/riscv/kernel/head.S     | 8 ++++++++
- 2 files changed, 9 insertions(+)
+ arch/riscv/kernel/irq.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 0dae5c361f29..d0b5113e1a54 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -81,6 +81,7 @@
- #define SIE_SEIE		(_AC(0x1, UL) << IRQ_S_EXT)
- 
- /* symbolic CSR names: */
-+#define CSR_MHARTID		0xf14
- #define CSR_MSTATUS		0x300
- #define CSR_MIE			0x304
- #define CSR_MTVEC		0x305
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 679e63d29edb..583784cb3a32 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -50,6 +50,14 @@ _start_kernel:
- 	csrw CSR_XIE, zero
- 	csrw CSR_XIP, zero
- 
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index 804ff70bb853..dbd1fd7c22e4 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -14,9 +14,15 @@
+ /*
+  * Possible interrupt causes:
+  */
+-#define INTERRUPT_CAUSE_SOFTWARE	IRQ_S_SOFT
+-#define INTERRUPT_CAUSE_TIMER		IRQ_S_TIMER
+-#define INTERRUPT_CAUSE_EXTERNAL	IRQ_S_EXT
 +#ifdef CONFIG_RISCV_M_MODE
-+	/*
-+	 * The hartid in a0 is expected later on, and we have no firmware
-+	 * to hand it to us.
-+	 */
-+	csrr a0, CSR_MHARTID
-+#endif
-+
- 	/* Load the global pointer */
- .option push
- .option norelax
++# define INTERRUPT_CAUSE_SOFTWARE	IRQ_M_SOFT
++# define INTERRUPT_CAUSE_TIMER		IRQ_M_TIMER
++# define INTERRUPT_CAUSE_EXTERNAL	IRQ_M_EXT
++#else
++# define INTERRUPT_CAUSE_SOFTWARE	IRQ_S_SOFT
++# define INTERRUPT_CAUSE_TIMER		IRQ_S_TIMER
++# define INTERRUPT_CAUSE_EXTERNAL	IRQ_S_EXT
++#endif /* CONFIG_RISCV_M_MODE */
+ 
+ int arch_show_interrupts(struct seq_file *p, int prec)
+ {
 -- 
 2.20.1
 
