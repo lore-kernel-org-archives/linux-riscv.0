@@ -2,21 +2,21 @@ Return-Path: <SRS0=JNhR=YL=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 27358CA9EA0
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 18 Oct 2019 16:00:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5B1BACA9EA0
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 18 Oct 2019 16:00:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EFE6721897
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 18 Oct 2019 16:00:00 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 27EC52082C
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 18 Oct 2019 16:00:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="L4qTrfWW"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EFE6721897
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="L9XSVEEM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 27EC52082C
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,28 +25,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xnOqo+EFcytJywMslEAxgfCdm8RSzP0/iEkc2QpLDoc=; b=L4qTrfWWSzuro3
-	SzvflB6EfMmEyjY3WeuDIx/X+3DpuLUWCrOQBln1pbtMphkye1P0rE4pAyT2wNko7LdtcVHJkqtpK
-	TCYOjI4LuCOIYaflAnkg2PXDyyBQ8NiL8MZA8Hv7cEa/HP3ot0xLMGhLKIxEHosvmIg6nUOywiMj0
-	I/6SZNl0CHZ8nFodg+fSBR46l4nOEcOsqPjWi5jefNtZJAEsxMaDmWeXRpEiMD9o9+XSCEfDuwDmD
-	77KbBlHHE/KrXRX+Ql5HkP8Y9AuTv/tUEYMo+VUwkX4M/9WFBOD4CvRH+pKF4z75/u7OrsRmau42A
-	n6bSYOs6yeHCeza46maA==;
+	List-Owner; bh=9sR8pMmUUBiRuHr/hP3cusfo4DyIwG6Hy71WXDiuR5E=; b=L9XSVEEMsOmJEc
+	K5SDee9fmvNfB9uEgVCKN6PlTDeVTMQovUlFP8+yBsWttdW7qK8CDNksKm2zlKCcry/Iy0iK+h7Mh
+	euJXGOgemeIW5uQvW+7HqIHWb44tT2UGZ5EI343h5qWIwikoVZI+VdamB+AmJ5BEoXcLk6Oi37SEs
+	d1XhuBOuSYlo7Tk2TvSzj4nZAJM/nc+0k4E6ahgrN7fovPhoFSveBXFU9PUO6PtGSFdc8q6tmktRb
+	MOd56O+LPCOXYAUo4YAwgHJ0tL9NMHiBge61a9RAXQolARs0JyH/GflIyV8RtZwdfBuJVk9HNR7Bg
+	ok948fGlqiP4/M18URYA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iLUfX-0001eF-Gn; Fri, 18 Oct 2019 15:59:59 +0000
+	id 1iLUfb-0001jW-Q4; Fri, 18 Oct 2019 16:00:03 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.92.3 #3 (Red
- Hat Linux)) id 1iLUcN-00079R-Og; Fri, 18 Oct 2019 15:56:43 +0000
-Date: Fri, 18 Oct 2019 08:56:43 -0700
+ Hat Linux)) id 1iLUdL-00086G-K0; Fri, 18 Oct 2019 15:57:43 +0000
+Date: Fri, 18 Oct 2019 08:57:43 -0700
 From: Christoph Hellwig <hch@infradead.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH v3 8/8] riscv: for C functions called only from assembly, 
- mark with __visible
-Message-ID: <20191018155643.GF25386@infradead.org>
-References: <20191018080841.26712-1-paul.walmsley@sifive.com>
- <20191018080841.26712-9-paul.walmsley@sifive.com>
+To: Steven Price <steven.price@arm.com>
+Subject: Re: [PATCH v12 07/22] riscv: mm: Add p?d_leaf() definitions
+Message-ID: <20191018155743.GG25386@infradead.org>
+References: <20191018101248.33727-1-steven.price@arm.com>
+ <20191018101248.33727-8-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20191018080841.26712-9-paul.walmsley@sifive.com>
+In-Reply-To: <20191018101248.33727-8-steven.price@arm.com>
 User-Agent: Mutt/1.12.1 (2019-06-15)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -59,29 +58,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
+Cc: Mark Rutland <Mark.Rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ Albert Ou <aou@eecs.berkeley.edu>, "H. Peter Anvin" <hpa@zytor.com>,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>, "Liang,
+ Kan" <kan.liang@linux.intel.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ x86@kernel.org, Ingo Molnar <mingo@redhat.com>,
+ Palmer Dabbelt <palmer@sifive.com>, Arnd Bergmann <arnd@arndb.de>,
+ =?iso-8859-1?B?Suly9G1l?= Glisse <jglisse@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Andy Lutomirski <luto@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-arm-kernel@lists.infradead.org,
+ Ard Biesheuvel <ard.biesheuvel@linaro.org>, linux-kernel@vger.kernel.org,
+ James Morse <james.morse@arm.com>, Andrew Morton <akpm@linux-foundation.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 18, 2019 at 01:08:41AM -0700, Paul Walmsley wrote:
-> Rather than adding prototypes for C functions called only by assembly
-> code, mark them as __visible.  This avoids adding prototypes that will
-> never be used by the callers.  Resolves the following sparse warnings:
-> 
-> arch/riscv/kernel/ptrace.c:151:6: warning: symbol 'do_syscall_trace_enter' was not declared. Should it be static?
-> arch/riscv/kernel/ptrace.c:175:6: warning: symbol 'do_syscall_trace_exit' was not declared. Should it be static?
-> 
-> Based on a suggestion from Luc Van Oostenryck.
-> 
-> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
+> +	return pud_present(pud)
+> +		&& (pud_val(pud) & (_PAGE_READ | _PAGE_WRITE | _PAGE_EXEC));
+> +}
 
-Looks good,
-
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+The operators always need to go before the line break, not after it
+per linux coding style.  There are a few more spots like this, so please
+audit the whole series for it.
 
 _______________________________________________
 linux-riscv mailing list
