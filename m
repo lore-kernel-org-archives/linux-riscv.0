@@ -2,61 +2,87 @@ Return-Path: <SRS0=37yX=YQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AC19BCA9EA0
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2019 03:23:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D65EBCA9EB7
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2019 03:24:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 77E26207FC
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2019 03:23:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AB12321872
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2019 03:24:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CPvJfYm0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 77E26207FC
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tnWfz1+W";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="yLN/ddNF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AB12321872
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6PUyW88tz8s6nU5qYKYU731rzEyIMpP3eTgw7idrOXE=; b=CPvJfYm0GGO64x
-	CkTerXpe7/4WZNvDltdB5l2szXFldKMf+PmeJN0TvHks4GTwKLwulxoMrK8nFZXhoFYDK0bfYRAkH
-	hex7LbfmhATH7dXrXGvX8IctbLoRzmtZY5es2/MLCYFmXKl00o3BMyWX+VJJ15kwjmvFWxLWhDNic
-	UO3mDWCwNVBxzFY/ypZGNr+temoXc6afHeWR0UcQcJEBT37bbmw35BPtXf1Ek95b/nRsjNMyqX2E/
-	5R/O/bqDixzuvJU1gwdhs3Nl3LksOZadKDAwxhBdahrsyemHEtRtNcjdbNTyCVIkeaGf9OTHKC+wg
-	K62i/ve+INHOrrF89DGA==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hwK5YnItBDChcrfipyzLvFWNHop5f79+WpP7zfLfNDI=; b=tnWfz1+WDrTy2y
+	bOHW7nMHkRzYL9oPNtnOM/iuNNGVoGguHexBkPB3ZBz+Aua7q5kZiJswJNZ8dgMwMct22wk3gUZsu
+	o2BUsPIG/acONmc0ZafSf3llKV7LjeN6KdYpH8pOrTWMZdiC4LS2nCJNI3J/y+xxa9oaDZXRn1M7F
+	+oc+Eno3fDwQt4PDgOMLkdj6DIrTOZJLE3oWQS9BeLdPDdD5H0k7TNdSzl5Vv6O/X0m6pzsXvWx4q
+	IwwiYRWKeDkNXzEq20BKteVJYgZOTh1nwqqI+CQpIHKHSpMrTuoaQyvVk8cPVGIYiutxv4cIhxC+U
+	dvHAAjUptrNySvksobHw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iN7FM-0002h4-O0; Wed, 23 Oct 2019 03:23:40 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190] helo=huawei.com)
+	id 1iN7GH-0002uN-I4; Wed, 23 Oct 2019 03:24:37 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iN7FC-0002SY-Bw
- for linux-riscv@lists.infradead.org; Wed, 23 Oct 2019 03:23:33 +0000
-Received: from DGGEMS407-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id C9AE1AD42C1A918AAE94;
- Wed, 23 Oct 2019 11:23:25 +0800 (CST)
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- DGGEMS407-HUB.china.huawei.com (10.3.19.207) with Microsoft SMTP Server id
- 14.3.439.0; Wed, 23 Oct 2019 11:23:18 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH 1/2] riscv: Fix implicit declaration of 'page_to_section'
-Date: Wed, 23 Oct 2019 11:23:01 +0800
-Message-ID: <20191023032302.160388-1-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.20.1
+ id 1iN7GE-0002tc-1o
+ for linux-riscv@lists.infradead.org; Wed, 23 Oct 2019 03:24:35 +0000
+Received: by mail-wm1-x341.google.com with SMTP id 6so4977087wmf.0
+ for <linux-riscv@lists.infradead.org>; Tue, 22 Oct 2019 20:24:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=PoiwGNtU0nAEwpqhaQ40WOeNzy+Ug1D1A+7yaqwVZpE=;
+ b=yLN/ddNFMfFhvPjBZjTwKqoSwWn/DGdu7QUqpRbP8p9LI1mFK7KIlnrmHTLH01uos+
+ X0D82O2AYz2IOS9/+jyeTWKP9FcdB/e3uP6Z42DJbWTV6MQr7OkuzYq3kjk1RuEoOSOC
+ eNv3Qo7LIIG+xOTLtiUJ+6EnRnxxTFzlGvAGBHGPUMmYKgEhFhfnbJFhQI1rQPdG1OiE
+ d96LttnBqOssIU7NYDQc5/uF1ZD1QnrxEj/9dMaee9uPD4JB1Vjxwda0O5TfOCTW1vBp
+ YBogOBQGt8j3ddQYskXwVEGM3mtoVnSL2pbeaIDRQvrjheAM3nxeNfolhNL/blZzk/9l
+ TX+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=PoiwGNtU0nAEwpqhaQ40WOeNzy+Ug1D1A+7yaqwVZpE=;
+ b=ScJUi28M8nqDlyT7TfkuDbT+0Xa00+hjUDFKk91e4hhW4wa3UUp1V/YQ+Fq5jjGg0S
+ 3u2tsa6XhmJXH76/bz1wLUz1ZI8PJ1sao95DFG/d77feAwbOOFOlWMGvGyNwHusw2uU9
+ EpHKDXwUkdQvkufGoFWAIMCS6JC3lKIAtoSGTa2SiWi6UT/jJdUKSdx6uyI7cJjtsNmb
+ +04aIIJ9FIG7nDFdedyU0Dm/KsTDRNyaG20LtYqqlXT1Fyb+2Viv+aDUaiKoh/JXnCuR
+ C203jcKvybnvkkjQH/x1vf4sHakvIitV/dUrNjsupKNF6hhndBYiLAIVznn0xLmdNRKl
+ YGsA==
+X-Gm-Message-State: APjAAAXtFIOGQwf5LQUreEsPh31N1Yqi5AI/2xsYl7rclObm5dRpqAHl
+ 1XnQf2lGiv2gTGn0IFKFCznQ9FvfJ3Ow1XQSS4ra1g==
+X-Google-Smtp-Source: APXvYqy5Sx8ql4wbo4/WWnaIsB4nlRntpQJU9X6Eo8IJsbZIxg84bb2+RxjkQXSTZmod8Omr2TCvJvSRKbaedXpuwn0=
+X-Received: by 2002:a1c:9695:: with SMTP id y143mr5676311wmd.103.1571801071659; 
+ Tue, 22 Oct 2019 20:24:31 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.25]
-X-CFilter-Loop: Reflected
+References: <20190925063706.56175-3-anup.patel@wdc.com>
+ <mhng-edb410db-fdd1-46f6-84c3-ae3b843f7e3a@palmer-si-x1c4>
+ <MN2PR04MB606160F5306A5F3C5D97FB788D900@MN2PR04MB6061.namprd04.prod.outlook.com>
+ <alpine.DEB.2.21.9999.1910221213490.28831@viisi.sifive.com>
+ <17db4a6244d09abf867daf2a6c10de6a5cd58c89.camel@wdc.com>
+ <alpine.DEB.2.21.9999.1910221751500.25457@viisi.sifive.com>
+In-Reply-To: <alpine.DEB.2.21.9999.1910221751500.25457@viisi.sifive.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 23 Oct 2019 08:54:19 +0530
+Message-ID: <CAAhSdy3KccuzC0pV6Jy_diLwkdgb=SdHBQnsSoGrgpu6g7TCQA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] RISC-V: defconfig: Enable Goldfish RTC driver
+To: Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191022_202331_102321_335FA160 
-X-CRM114-Status: UNSURE (   6.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191022_202434_119097_2182C0F7 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -68,37 +94,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>,
- Logan Gunthorpe <logang@deltatee.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Albert Ou <aou@eecs.berkeley.edu>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ Anup Patel <Anup.Patel@wdc.com>, "palmer@sifive.com" <palmer@sifive.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "hch@infradead.org" <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ "rkir@google.com" <rkir@google.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-V2l0aCBDT05GSUdfU1BBUlNFTUVNIGFuZCAhQ09ORklHX1NQQVJTRU1FTV9WTUVNTUFQLAoKYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmg6IEluIGZ1bmN0aW9uIOKAmG1rX3B0ZeKAmToK
-aW5jbHVkZS9hc20tZ2VuZXJpYy9tZW1vcnlfbW9kZWwuaDo2NDoxNDogZXJyb3I6IGltcGxpY2l0
-IGRlY2xhcmF0aW9uIG9mIGZ1bmN0aW9uIOKAmHBhZ2VfdG9fc2VjdGlvbuKAmTsgZGlkIHlvdSBt
-ZWFuIOKAmHByZXNlbnRfc2VjdGlvbuKAmT8gWy1XZXJyb3I9aW1wbGljaXQtZnVuY3Rpb24tZGVj
-bGFyYXRpb25dCiAgaW50IF9fc2VjID0gcGFnZV90b19zZWN0aW9uKF9fcGcpOyAgIFwKICAgICAg
-ICAgICAgICBefn5+fn5+fn5+fn5+fn4KCkZpeGVkIGJ5IGNoYW5naW5nIG1rX3B0ZSgpIGZyb20g
-aW5saW5lIGZ1bmN0aW9uIHRvIG1hY3JvLgoKQ2M6IExvZ2FuIEd1bnRob3JwZSA8bG9nYW5nQGRl
-bHRhdGVlLmNvbT4KRml4ZXM6IGQ5NWYxYTU0MmMzZCAoIlJJU0MtVjogSW1wbGVtZW50IHNwYXJz
-ZW1lbSIpClNpZ25lZC1vZmYtYnk6IEtlZmVuZyBXYW5nIDx3YW5na2VmZW5nLndhbmdAaHVhd2Vp
-LmNvbT4KLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCB8IDUgKy0tLS0KIDEg
-ZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgNCBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vcGd0YWJsZS5oCmluZGV4IDQyMjkyZDk5Y2M3NC4uMWRiMjE0NGY5MjIxIDEwMDY0NAotLS0g
-YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL3BndGFibGUuaApAQCAtMTg0LDEwICsxODQsNyBAQCBzdGF0aWMgaW5saW5lIHB0ZV90
-IHBmbl9wdGUodW5zaWduZWQgbG9uZyBwZm4sIHBncHJvdF90IHByb3QpCiAJcmV0dXJuIF9fcHRl
-KChwZm4gPDwgX1BBR0VfUEZOX1NISUZUKSB8IHBncHJvdF92YWwocHJvdCkpOwogfQogCi1zdGF0
-aWMgaW5saW5lIHB0ZV90IG1rX3B0ZShzdHJ1Y3QgcGFnZSAqcGFnZSwgcGdwcm90X3QgcHJvdCkK
-LXsKLQlyZXR1cm4gcGZuX3B0ZShwYWdlX3RvX3BmbihwYWdlKSwgcHJvdCk7Ci19CisjZGVmaW5l
-IG1rX3B0ZShwYWdlLHByb3QpICAgICAgIHBmbl9wdGUocGFnZV90b19wZm4ocGFnZSkscHJvdCkK
-IAogI2RlZmluZSBwdGVfaW5kZXgoYWRkcikgKCgoYWRkcikgPj4gUEFHRV9TSElGVCkgJiAoUFRS
-U19QRVJfUFRFIC0gMSkpCiAKLS0gCjIuMjAuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Oct 23, 2019 at 6:37 AM Paul Walmsley <paul.walmsley@sifive.com> wrote:
+>
+> On Tue, 22 Oct 2019, Alistair Francis wrote:
+>
+> > I think it makese sense for this to go into Linux first.
+> >
+> > The QEMU patches are going to be accepted, just some nit picking to do
+> > first :)
+> >
+> > After that we have to wait for a PR and then a QEMU release until most
+> > people will see the change in QEMU. In that time Linux 5.4 will be
+> > released, if this can make it into 5.4 then everyone using 5.4 will get
+> > the new RTC as soon as they upgrade QEMU (QEMU provides the device
+> > tree). If this has to wait until QEMU has support then it won't be
+> > supported for users until even later.
+> >
+> > Users are generally slow to update kernels (buildroot is still using
+> > 5.1 by default for example) so the sooner changes like this go in the
+> > better.
+>
+> The defconfigs are really just for kernel developers.  We expect users to
+> define their own Kconfigs for their own needs.
+>
+> If using the Goldfish code really is what we all want to do (see below),
+> then the kernel patch that should go in right away -- which also has no
+> dependence on what QEMU does -- would be the first patch of this series:
+>
+> https://lore.kernel.org/linux-riscv/20190925063706.56175-2-anup.patel@wdc.com/
+>
+> And that should go in via whoever is maintaining the Goldfish driver, not
+> the RISC-V tree.  (It looks like drivers/platform/goldfish is completely
+> unmaintained - a red flag! - so probably someone needs to persuade Greg or
+> Andrew to take it.)
+
+GregKH has already queued this for Linux-5.5 and you can see this
+commit present in linux-next tree:
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/drivers/platform/goldfish?h=next-20191022
+
+>
+> Incidentally, just looking at drivers/platform/goldfish, that driver seems
+> to be some sort of Google-specific RPC driver.  Are you all really sure
+
+Nopes, it's not RPC driver. In fact, all Goldfish virtual platform devices
+are MMIO devices.
+
+> you want to enable that just for an RTC?  Seems like overkill - there are
+> much simpler RTCs out there.
+
+No, it's not overkill. All Goldfish virtual platform devices are quite simple
+MMIO devices having bare minimum registers required for device
+functioning.
+
+The problem is VirtIO spec does not define any RTC device so instead of
+inventing our own virtual RTC device we re-use RTC device defined in
+Goldfish virtual platform for QEMU virt machine. This way we can re-use
+the Linux Goldfish RTC driver.
+
+BTW, I will send-out QEMU Goldfish RTC patches today or tomorrow
+addressing nit comments from Alistair.
+
+Regards,
+Anup
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
