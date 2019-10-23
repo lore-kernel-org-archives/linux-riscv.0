@@ -2,139 +2,94 @@ Return-Path: <SRS0=37yX=YQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 74C8BCA9EB6
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2019 17:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C1D77CA9EB6
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2019 18:20:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4A6DD21872
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2019 17:43:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9A2F621872
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2019 18:20:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NckfqKz3";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="YUN2pWwc";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="HttcN/Z/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4A6DD21872
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NUPfr+27";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Rgd5N1hv"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9A2F621872
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uOCmD/U/eDoS9qwMZJTO2voLX/C5z1Wn145lNULmNOQ=; b=NckfqKz3/ZVqW9
-	/n/x0/W0nBkkb84kbrifwLRsWOpPQ5tQDulG3Jw3gVGcArGDO1/WoAzFy9uCjtHL07SmPoVZYW6p/
-	JCvm4i0mUICYCImMtSG1pvK6weuqCoAs6DsIUVIh4aspAdewWlqK17O+I4ICfxulFJVaL72h3Zvoe
-	dmI59w9iScBaQPZk6KjtH2Bbch2kLhZGfGI5KdG38k2DOrjeZulKVc4DJgSrtBPROlA+YDm+ITHF3
-	4Fr9GZDbfwiUvPwDIvsQ7E904f+9XwbQbN62fqquKLrJSPOBIzUo5SPcKYT+Je+rO9k6vu5vRPixh
-	mKk/NSUuhZTMZwA5SSZw==;
+	List-Owner; bh=YyWiH60cE3P0A2HWgO8xUwiKWN4kwUtPEjQYAzz1rFg=; b=NUPfr+27fXfAtz
+	lpwlwLhI+hSVMSYSQL4yFuUysqCbFBIEK4crJMq/+WYp3m0DGen0BpSB1A5Co2aUfojkwR/wDIWLi
+	p/Z03CB4F9ynM5EHhItCDuIuqLNCsZ9Jp2B/wxK6cCRfKOplnj073Gt42cLNaej0UVyKevbFQs8pH
+	VWEQkUpi1vh3KtGlquMBMxSeSYvuXXLf9jCTcDHS6OXLj3CMGLoHT1quTNFGpMso+IMWfpeRwsWrN
+	i9njMmbkBMCGCnchDSXXktgsGW28HMeOPgsTAMQ3CdELpxoAUSZT560+7CGpTSIDtw06pnupxTsAj
+	5wsWY9CrUf3832/TcaRg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iNKfB-0007Yn-2P; Wed, 23 Oct 2019 17:43:13 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1iNLFZ-0005S3-Fl; Wed, 23 Oct 2019 18:20:49 +0000
+Received: from mail-il1-x142.google.com ([2607:f8b0:4864:20::142])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iNKey-0007IW-TQ
- for linux-riscv@lists.infradead.org; Wed, 23 Oct 2019 17:43:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1571852580; x=1603388580;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=c4CudQ10WLvR/3PXKwCE+8VTs2ntB+heiRySI+1CkPg=;
- b=YUN2pWwc4W666Nt8foTiwNgNjdcDls0AFXP5bCwKFi2LhS0LMlR7vv61
- ddkt3Qx6dAPkzVX2TVJxCOqm2AJwhNVSUMSaTGzBmrohGPZ0TMI52iO4w
- 9gOpBq7G6rOGF6pWUe7XYXxeW3KeSqLkRMxfYpVn96uYkxVP6QYbsdmmj
- zQxCPTXg3uPrGHYWaK0N5ai+VG9V7AS6OFGPDFgwAt+U1MHp6ps5h5Rto
- qk0OwXBDXkfOIt/Eke9fBUGvveJo8Jy9Ec7Cpf6svJS6yxBHUNRSCXj0o
- t8ARS74YI6f0hO2oS58UL0v9H/vox2Vwplrue5//TGQd9Qx3RzZftYVRg Q==;
-IronPort-SDR: b42L00FJ8PWMTQKMlJglTeTbC5UN5HilxPnXApfFU4Pe9B7UoJsCzzSJCv5h5l+J/ThS5lmMSR
- zTSDbL4b7ev6X0FlpzK3PZIuXJVr9QVWXqxgqFdkXRWZvIXKeqUe+79+HOKPSHl7KpGwIYydIQ
- 1hvNwdl51BAYQ3E/g9rcCCePLkaQx+yO1VTFdW8uAdrZ2ELPU9dQWSheCQM8JbyWtwVeCMwoes
- /c9+jKrBEOOobfFfNJIG9lFhgsOjQ4r+zZh3ZCmXlVO/XNI23DjrdsBOn2Q9jbPzWc3YMLM83V
- 2j0=
-X-IronPort-AV: E=Sophos;i="5.68,221,1569254400"; d="scan'208";a="121186004"
-Received: from mail-dm3nam05lp2053.outbound.protection.outlook.com (HELO
- NAM05-DM3-obe.outbound.protection.outlook.com) ([104.47.49.53])
- by ob1.hgst.iphmx.com with ESMTP; 24 Oct 2019 01:42:56 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=hLzGopOSzrm0glUo0o/2Sm8BoLTqEVjHN0U06JgC4c/oMFyWI6UpCWkEZu+xaAKjBAQCC/JsxcYwssfTJEP1xmn0qEplYu2wNICH2YsBGINKpUf4hrub7NZL2EFaKRRXp/9TGOAFpuSa4jp6OJTk0JIrb09mTFeO7Pf4AUipM6kmtASTNRR0pC/uYfc9OfkD4hYJ5FZ4YGoC1RPPWOW7MsTzN8+kvXLRSck5ipFGU/uq4L0TjGuGpJwc5fLkPaAfCYnDv8rsNKRCvaFiMQElXixbUifJBDDczAxs+JqP9K81/8sqt1cUu+pqhSsUgFbd0NOTWhjbLibBN4Kh0W16xQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=c4CudQ10WLvR/3PXKwCE+8VTs2ntB+heiRySI+1CkPg=;
- b=M5x2zYt8N8JE5e+Nut1NsObgsSFSQWkaLV449hxzL049qHJ0GG9HH7K5ldc2sLUcOm4N3jlrO+jw60ybkbOk+qFeqWH3c6cl7Gl2i4XYGAzqIFpAsHrL0ucw90AiYFIgu1C3viTbTG5Yzq9wVNaQ7sna/Zs3KGwSnd6uNOfqJoQ45hbS2WI3A94zraLf1YJXUz6+6lvz7r5OoyJIx5JUsh9RZpP8zM1dviFzZ/xjEM9eCW4xnmcYvLEr6TIYG7LhKqdUfRAysJuaP/5xO6XpasHdT/XVM1UB33EdLe7T3pidmkYYwL0i/7byXkLbm2SZ6eNICvUPuyIAYEaa36c88Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=c4CudQ10WLvR/3PXKwCE+8VTs2ntB+heiRySI+1CkPg=;
- b=HttcN/Z/xBnzRju/LxRb80/nVZTIPBlCTYK9ItSiaH0jlrgl/BJ8y2EvB1HgqIe9D//9E7GBU8xAbLi4x4dpPqX9K9CgWQDC6yWTZP7bOkRc0yLtdh9KSdHPTJZ/SWstFlZsKbTm3+WIW/ndUMP1M05/fASYyudexeODosZRHFE=
-Received: from BYAPR04MB4901.namprd04.prod.outlook.com (52.135.232.206) by
- BYAPR04MB4310.namprd04.prod.outlook.com (52.135.205.13) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2347.16; Wed, 23 Oct 2019 17:42:55 +0000
-Received: from BYAPR04MB4901.namprd04.prod.outlook.com
- ([fe80::4933:8361:f5e3:a6c6]) by BYAPR04MB4901.namprd04.prod.outlook.com
- ([fe80::4933:8361:f5e3:a6c6%4]) with mapi id 15.20.2387.021; Wed, 23 Oct 2019
- 17:42:55 +0000
-From: Alistair Francis <Alistair.Francis@wdc.com>
-To: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>
+ id 1iNLFX-0005Rg-HQ
+ for linux-riscv@lists.infradead.org; Wed, 23 Oct 2019 18:20:48 +0000
+Received: by mail-il1-x142.google.com with SMTP id z10so19827169ilo.8
+ for <linux-riscv@lists.infradead.org>; Wed, 23 Oct 2019 11:20:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:from:to:cc:subject:in-reply-to:message-id:references
+ :user-agent:mime-version;
+ bh=cr0Vtx0reZzkDlmdhcZ3EYluM7nHng2kcraV93Vgyr8=;
+ b=Rgd5N1hvz98N4/5VEEjWMENv0zY4o15fAXfVUmgXOr5kFwb2L1JpLNz74sJlH0XA8x
+ +X/AkcKRO1SXMyEjgnLOVWCTYrKz0HWpMpvCqdceKMS5XsK+3L4gwptudK9AQ60Hdf0S
+ 2+o4rzJjttjdcn5wqz8LgV8iCH2TpGlmVT1LVfFDyzgkPdd/Qvq/yaSNzVnhsZYPzful
+ Xx2UoMpzlFlQeJUHzBUpVkOjsqQ7/bDkYRebDZw01F6cXRoR//2X5S2w+KWN9gh7N5C0
+ dcXVc97a2onezO/+e8+f6xibPyK6YKAoANs7QIxhk3hYACxdP3W+FG+O9XYOywPF+vgC
+ VYiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
+ :references:user-agent:mime-version;
+ bh=cr0Vtx0reZzkDlmdhcZ3EYluM7nHng2kcraV93Vgyr8=;
+ b=DSmJiBsE0MhHMNsaio3dNm3KqZ8MydoVHnnbJUY5SoN5P3b/wD6m36g2haCHiUrtoC
+ w7+QyJ3aiJUswNujIl2yr8lOSB7SkuTbF5EKaZp5nRxMJViA62NXmTeZElkaAALqlhMY
+ pRZfIU6vs+yZ1oUcm6ictPKoiglisVdJ+lAIenX0AcgUZOkblNsIMsYC6J8GvgqeBpHV
+ 13V6OVFgbMzPjmsI4NY1Ja/ZvtDpLhec1K83PEwDAkmv6dvrmdpd5mW+oQiSGb8oLbW8
+ gzm4wWTxZEC8UUupui4zvCQ8F7qCb0NfmK7vMYWwWxWiUtqKHQLLYyOg75PaTfVEtnaZ
+ nqRQ==
+X-Gm-Message-State: APjAAAX4Q8LMpy5Ym3r1d6REPt4lNWwcL6yKumBgzaWgvIpLvV2dp3OK
+ 6IsgIk/c5LGW3bnRs+I6HLCwYmUL6Os=
+X-Google-Smtp-Source: APXvYqw3iYvv5VTYTmNduAhmYFVuDjtYBkkgceBDIdE9o6mjkUsbecydETj/isIWbbDpFLIhTEgJeA==
+X-Received: by 2002:a92:9198:: with SMTP id e24mr17314487ill.184.1571854846193; 
+ Wed, 23 Oct 2019 11:20:46 -0700 (PDT)
+Received: from localhost ([64.62.168.194])
+ by smtp.gmail.com with ESMTPSA id f8sm6989137ioo.27.2019.10.23.11.20.45
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 23 Oct 2019 11:20:45 -0700 (PDT)
+Date: Wed, 23 Oct 2019 11:20:43 -0700 (PDT)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+X-X-Sender: paulw@viisi.sifive.com
+To: Alistair Francis <Alistair.Francis@wdc.com>
 Subject: Re: [PATCH v2 2/2] RISC-V: defconfig: Enable Goldfish RTC driver
-Thread-Topic: [PATCH v2 2/2] RISC-V: defconfig: Enable Goldfish RTC driver
-Thread-Index: AQHVc2vLFlE68F2kkUyeFzcwcqAG+qdXYO6AgAKZbICADTsXgIAAOUoAgAAmwoCAARToAA==
-Date: Wed, 23 Oct 2019 17:42:54 +0000
-Message-ID: <678b7a7a82adb389e34f023d282a7935f41e356a.camel@wdc.com>
+In-Reply-To: <678b7a7a82adb389e34f023d282a7935f41e356a.camel@wdc.com>
+Message-ID: <alpine.DEB.2.21.9999.1910231105170.16536@viisi.sifive.com>
 References: <20190925063706.56175-3-anup.patel@wdc.com>
  <mhng-edb410db-fdd1-46f6-84c3-ae3b843f7e3a@palmer-si-x1c4>
  <MN2PR04MB606160F5306A5F3C5D97FB788D900@MN2PR04MB6061.namprd04.prod.outlook.com>
  <alpine.DEB.2.21.9999.1910221213490.28831@viisi.sifive.com>
  <17db4a6244d09abf867daf2a6c10de6a5cd58c89.camel@wdc.com>
  <alpine.DEB.2.21.9999.1910221751500.25457@viisi.sifive.com>
-In-Reply-To: <alpine.DEB.2.21.9999.1910221751500.25457@viisi.sifive.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Alistair.Francis@wdc.com; 
-x-originating-ip: [199.255.44.174]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: dc16d029-ddc2-43c1-458d-08d757e06f87
-x-ms-traffictypediagnostic: BYAPR04MB4310:
-x-ms-exchange-purlcount: 2
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BYAPR04MB43100FC6DD8954726486AFE8906B0@BYAPR04MB4310.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
-x-forefront-prvs: 019919A9E4
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(4636009)(366004)(136003)(39860400002)(346002)(396003)(376002)(51444003)(189003)(199004)(86362001)(54906003)(5660300002)(71200400001)(81166006)(81156014)(6512007)(99286004)(6916009)(305945005)(71190400001)(316002)(6486002)(25786009)(8676002)(966005)(4001150100001)(6436002)(36756003)(6306002)(2351001)(2906002)(8936002)(4326008)(14454004)(102836004)(186003)(256004)(486006)(7736002)(118296001)(14444005)(5640700003)(6116002)(76176011)(478600001)(476003)(229853002)(446003)(26005)(3846002)(11346002)(66946007)(76116006)(66476007)(6246003)(66556008)(64756008)(66446008)(6506007)(2501003)(2616005)(66066001);
- DIR:OUT; SFP:1102; SCL:1; SRVR:BYAPR04MB4310;
- H:BYAPR04MB4901.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: ZFUr+OWmLxCfuwCgqjx2NRzPCqk5oWfHUj7Rd5YX5fvguNloCu7rPjo4B83KCz+ZwALubYu+JEsPNtV0mIm9MTZRTdq2bytxL5p12YL0o1gv+qRAZiirg7+XqaBlkAcIDrpJGI6E5bL+jzrUDRm9cCznj6Nfbw995sKZFWsWDuACOFuEDP7q5Rj65SoH24i4e5FesRDX4WhkGs5m2pHoaHPw/1hQME/1SqUjcJ3asuKX0uyVdgtZNGnraxX0/VkjRaHK0myUzSAlqF5Hl0H0hVAANmsNhbgQLc975lDvbCG3nWwIPKj6IjX3DhOTGbletcavZUl5oDNSrGbHkqRb+bzhKi/uzpWEB4wEHvy/5zS0xjO5PWjW5Do2W7MCYqi5h4tKs9NjtxIrZLF94Tbnp/RwAINu9ijuI/8iTbnQ13udwY1DYwQjW+sHkLAcEkKUS8wunrSU5qMNHRQ16goKudo6sqkbMiZI68X0zI9uULE=
-Content-ID: <27FB96AE614D134FA6D3A0E23FD80F14@namprd04.prod.outlook.com>
+ <678b7a7a82adb389e34f023d282a7935f41e356a.camel@wdc.com>
+User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc16d029-ddc2-43c1-458d-08d757e06f87
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Oct 2019 17:42:54.9332 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: YvXS9v1xdX7Rr2ERJdyNs5ozpxCEM/zAs5KTfS9hggPEgia7mIPL4qlVT/49R2h0UrMe2a0OD2mGwMXNJH3V+oIKbjf/bLtjNaMcO0oZlqw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR04MB4310
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191023_104301_055756_688BA4E3 
-X-CRM114-Status: GOOD (  27.37  )
+X-CRM114-CacheID: sfid-20191023_112047_640251_945E914C 
+X-CRM114-Status: GOOD (  20.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -159,85 +114,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2019-10-22 at 18:06 -0700, Paul Walmsley wrote:
-> On Tue, 22 Oct 2019, Alistair Francis wrote:
-> 
-> > I think it makese sense for this to go into Linux first.
+On Wed, 23 Oct 2019, Alistair Francis wrote:
+
+> On Tue, 2019-10-22 at 18:06 -0700, Paul Walmsley wrote:
+> > On Tue, 22 Oct 2019, Alistair Francis wrote:
 > > 
-> > The QEMU patches are going to be accepted, just some nit picking to
-> > do
-> > first :)
+> > > I think it makese sense for this to go into Linux first.
+> > > 
+> > > The QEMU patches are going to be accepted, just some nit picking to 
+> > > do first :)
+> > > 
+> > > After that we have to wait for a PR and then a QEMU release until 
+> > > most people will see the change in QEMU. In that time Linux 5.4 will 
+> > > be released, if this can make it into 5.4 then everyone using 5.4 
+> > > will get the new RTC as soon as they upgrade QEMU (QEMU provides the 
+> > > device tree). If this has to wait until QEMU has support then it 
+> > > won't be supported for users until even later.
+> > > 
+> > > Users are generally slow to update kernels (buildroot is still using 
+> > > 5.1 by default for example) so the sooner changes like this go in 
+> > > the better.
 > > 
-> > After that we have to wait for a PR and then a QEMU release until
-> > most
-> > people will see the change in QEMU. In that time Linux 5.4 will be
-> > released, if this can make it into 5.4 then everyone using 5.4 will
-> > get
-> > the new RTC as soon as they upgrade QEMU (QEMU provides the device
-> > tree). If this has to wait until QEMU has support then it won't be
-> > supported for users until even later.
-> > 
-> > Users are generally slow to update kernels (buildroot is still
-> > using
-> > 5.1 by default for example) so the sooner changes like this go in
-> > the
-> > better.
+> > The defconfigs are really just for kernel developers.  We expect users 
+> > to define their own Kconfigs for their own needs.
 > 
-> The defconfigs are really just for kernel developers.  We expect
-> users to 
-> define their own Kconfigs for their own needs.
+> From experience most people use the defconfig, at least as a starting
+> point.
 
-From experience most people use the defconfig, at least as a starting
-point.
+We'll definitely add it to the defconfigs, but I think it makes sense to 
+do that once the patches hit the QEMU master branch.  (No need to wait for 
+a QEMU release.)
 
-> 
-> If using the Goldfish code really is what we all want to do (see
-> below), 
-> then the kernel patch that should go in right away -- which also has
-> no 
-> dependence on what QEMU does -- would be the first patch of this
-> series:
-> 
-> https://lore.kernel.org/linux-riscv/20190925063706.56175-2-anup.patel@wdc.com/
+That roughly matches what I understand the Linux kernel's approach is to 
+adding hardware support: no point in adding hardware support until it 
+looks likely that it will actually exist.  Otherwise it just adds churn 
+and maintenance burden.
 
-Ok, so it looks like this patch will be a 5.5 patch not a 5.4 patch. It
-looks like that can't be helped. I just don't want the defconfig change
-waiting on QEMU as I think that just slows everything down.
+> I was under the impression that everyone was on board with this going
+> in. In QEMU land it doesn't make sense to add it if the kernel isn't
+> going to, so we need to be on the same page here.
 
-> 
-> And that should go in via whoever is maintaining the Goldfish driver,
-> not 
-> the RISC-V tree.  (It looks like drivers/platform/goldfish is
-> completely 
-> unmaintained - a red flag! - so probably someone needs to persuade
-> Greg or 
-> Andrew to take it.)
-> 
-> Incidentally, just looking at drivers/platform/goldfish, that driver
-> seems 
-> to be some sort of Google-specific RPC driver.  Are you all really
-> sure 
-> you want to enable that just for an RTC?  Seems like overkill - there
-> are 
-> much simpler RTCs out there.
+Whatever RTC gets added into QEMU, we'll take defconfig patches for.  I 
+don't care which one it is.  Based on the patches that hit the kernel 
+lists, it initially looked like the Goldfish RTC was more complicated than 
+it needed to be; but it turned out I just didn't look deeply enough.
 
-I was under the impression that everyone was on board with this going
-in. In QEMU land it doesn't make sense to add it if the kernel isn't
-going to, so we need to be on the same page here.
+> From the other discussions it looks like you are happy with this change
+> overall right?
 
-From the other discussions it looks like you are happy with this change
-overall right?
+Yes
 
-Alistair
 
-> 
-> 
-> - Paul
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+- Paul
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
