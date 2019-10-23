@@ -2,22 +2,22 @@ Return-Path: <SRS0=37yX=YQ=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-5.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C1D77CA9EB6
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2019 18:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B6072CA9EB6
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2019 18:27:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9A2F621872
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2019 18:20:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7AABE2064B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 23 Oct 2019 18:27:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NUPfr+27";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Rgd5N1hv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9A2F621872
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YM57T3x5";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="lhTutehB"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7AABE2064B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,70 +26,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YyWiH60cE3P0A2HWgO8xUwiKWN4kwUtPEjQYAzz1rFg=; b=NUPfr+27fXfAtz
-	lpwlwLhI+hSVMSYSQL4yFuUysqCbFBIEK4crJMq/+WYp3m0DGen0BpSB1A5Co2aUfojkwR/wDIWLi
-	p/Z03CB4F9ynM5EHhItCDuIuqLNCsZ9Jp2B/wxK6cCRfKOplnj073Gt42cLNaej0UVyKevbFQs8pH
-	VWEQkUpi1vh3KtGlquMBMxSeSYvuXXLf9jCTcDHS6OXLj3CMGLoHT1quTNFGpMso+IMWfpeRwsWrN
-	i9njMmbkBMCGCnchDSXXktgsGW28HMeOPgsTAMQ3CdELpxoAUSZT560+7CGpTSIDtw06pnupxTsAj
-	5wsWY9CrUf3832/TcaRg==;
+	List-Owner; bh=phppEIvXinoTLWVB2IGp2Z5Pmr8R1s1hHwtCv/AAo0Q=; b=YM57T3x5b0Ulx8
+	HoibkVH69gHtP6oWKUy3ImhRYLTk+A7WL01RM1UTvGjYrlRTlFBSH1fkKJqtsXVB7oAFK+ppfF8NZ
+	bUrBFdVs1yhS69sMUqaUjrYJCiZcJvcdaJICXcm/dcLsE8SpeBzfyivjZYcs8YIdMxnKb+W1BOAIv
+	pDstU2S4qPEykrXcDXjQfm8xWNu4LeBZL0eZXC0kcZ1DYjjoAHiIafw+/r5bZSJ3VHlai3g73E1IY
+	xLaSNSvK8o+eTDJeyY9BA3EV+DKdSVxxc/KOLOA0Z1hU/ma4a7bt68jJ9wWvs4whmaCaZfzD5lZe/
+	nb8N3zdFrt+vmq/G4LgA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iNLFZ-0005S3-Fl; Wed, 23 Oct 2019 18:20:49 +0000
-Received: from mail-il1-x142.google.com ([2607:f8b0:4864:20::142])
+	id 1iNLLc-0007JL-Lx; Wed, 23 Oct 2019 18:27:04 +0000
+Received: from mail-il1-x144.google.com ([2607:f8b0:4864:20::144])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iNLFX-0005Rg-HQ
- for linux-riscv@lists.infradead.org; Wed, 23 Oct 2019 18:20:48 +0000
-Received: by mail-il1-x142.google.com with SMTP id z10so19827169ilo.8
- for <linux-riscv@lists.infradead.org>; Wed, 23 Oct 2019 11:20:46 -0700 (PDT)
+ id 1iNLLZ-0007IQ-MO
+ for linux-riscv@lists.infradead.org; Wed, 23 Oct 2019 18:27:03 +0000
+Received: by mail-il1-x144.google.com with SMTP id m16so13444831iln.13
+ for <linux-riscv@lists.infradead.org>; Wed, 23 Oct 2019 11:27:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:from:to:cc:subject:in-reply-to:message-id:references
  :user-agent:mime-version;
- bh=cr0Vtx0reZzkDlmdhcZ3EYluM7nHng2kcraV93Vgyr8=;
- b=Rgd5N1hvz98N4/5VEEjWMENv0zY4o15fAXfVUmgXOr5kFwb2L1JpLNz74sJlH0XA8x
- +X/AkcKRO1SXMyEjgnLOVWCTYrKz0HWpMpvCqdceKMS5XsK+3L4gwptudK9AQ60Hdf0S
- 2+o4rzJjttjdcn5wqz8LgV8iCH2TpGlmVT1LVfFDyzgkPdd/Qvq/yaSNzVnhsZYPzful
- Xx2UoMpzlFlQeJUHzBUpVkOjsqQ7/bDkYRebDZw01F6cXRoR//2X5S2w+KWN9gh7N5C0
- dcXVc97a2onezO/+e8+f6xibPyK6YKAoANs7QIxhk3hYACxdP3W+FG+O9XYOywPF+vgC
- VYiQ==
+ bh=RkJKF0j9uFpC5ZmCPsgCAHHsmJXOIc2DH5GNueCG5EY=;
+ b=lhTutehBUlpS3Sx6m0ik9vQiyWMq9Mm3RK1rsUn+BBB9y7i42TJVwtVds2UiMmQxqp
+ Da3S7H5S/7ut2hcHXWb3KD+A5PXjdu8+HpUZCxcDqOCb5qlAOz9/bwX0ZUysKytZnUfG
+ bMOTkFQWdd1msxjCT8XD46RpW/i2scYQ8gugLGccBpVKHP9TDWOB4Kit60Bf3A0h6sVh
+ J25+POfGR63tGMWUfsSUVg62hZjHMZx+FZnRLXBKXWcnh32SpljsVoVO+WXv5C6Q3Tfp
+ teBHTpxBPVwvQH0+SI8HRWUVMllRVd8uWfJ0g6pYgvEX7EyhqE3sQn0lrgL7UTB43rCr
+ cSTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
  :references:user-agent:mime-version;
- bh=cr0Vtx0reZzkDlmdhcZ3EYluM7nHng2kcraV93Vgyr8=;
- b=DSmJiBsE0MhHMNsaio3dNm3KqZ8MydoVHnnbJUY5SoN5P3b/wD6m36g2haCHiUrtoC
- w7+QyJ3aiJUswNujIl2yr8lOSB7SkuTbF5EKaZp5nRxMJViA62NXmTeZElkaAALqlhMY
- pRZfIU6vs+yZ1oUcm6ictPKoiglisVdJ+lAIenX0AcgUZOkblNsIMsYC6J8GvgqeBpHV
- 13V6OVFgbMzPjmsI4NY1Ja/ZvtDpLhec1K83PEwDAkmv6dvrmdpd5mW+oQiSGb8oLbW8
- gzm4wWTxZEC8UUupui4zvCQ8F7qCb0NfmK7vMYWwWxWiUtqKHQLLYyOg75PaTfVEtnaZ
- nqRQ==
-X-Gm-Message-State: APjAAAX4Q8LMpy5Ym3r1d6REPt4lNWwcL6yKumBgzaWgvIpLvV2dp3OK
- 6IsgIk/c5LGW3bnRs+I6HLCwYmUL6Os=
-X-Google-Smtp-Source: APXvYqw3iYvv5VTYTmNduAhmYFVuDjtYBkkgceBDIdE9o6mjkUsbecydETj/isIWbbDpFLIhTEgJeA==
-X-Received: by 2002:a92:9198:: with SMTP id e24mr17314487ill.184.1571854846193; 
- Wed, 23 Oct 2019 11:20:46 -0700 (PDT)
+ bh=RkJKF0j9uFpC5ZmCPsgCAHHsmJXOIc2DH5GNueCG5EY=;
+ b=gMjSeHEKH2dXWwnylhEH+4I1o+MyWlXHd9uNNkxtMtxFNdO05i8XDdw0rVohFeODLt
+ 5a5WjCvzoS/c7D/uloTqRjUts29oYfutrNPOEWPlyuXLo579O7noXqJi7IHbnPMIFmbP
+ iqVlnmy+DRtK3TWiq6QlFXa0R26pGaY2VHgIo2k4YdANpaQD198535ttwlc+8pKk7Pvx
+ x7IebfhqlvhX7Z/uCuNKkx90qhafdubqeKv03v8i1mxjt4XkgJKOWUW8bNtl/j4nTmDF
+ dgBNjs1k7RRA8WGLS9d5W7wTx93SGvrNeAXqRU1a+nn1JGXj41kWMqOwEVqbXbR9ywnu
+ 9ShA==
+X-Gm-Message-State: APjAAAXl6QaVuMYSOm1N5eK8z3sa7hedIT5fbdI6pIhWhEYy+FxDX3Iy
+ 8U+5XZN1ErxPVH2XzDQT5j4wPw==
+X-Google-Smtp-Source: APXvYqz4yApQMNxgNkvIf4Z212wXIfr5BHVblDav5IMfmoFupkkkKB890XCiKHQ+koqtI9ecP+82bA==
+X-Received: by 2002:a92:980b:: with SMTP id l11mr22329851ili.194.1571855220737; 
+ Wed, 23 Oct 2019 11:27:00 -0700 (PDT)
 Received: from localhost ([64.62.168.194])
- by smtp.gmail.com with ESMTPSA id f8sm6989137ioo.27.2019.10.23.11.20.45
+ by smtp.gmail.com with ESMTPSA id u190sm9474355ilc.36.2019.10.23.11.26.59
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 23 Oct 2019 11:20:45 -0700 (PDT)
-Date: Wed, 23 Oct 2019 11:20:43 -0700 (PDT)
+ Wed, 23 Oct 2019 11:27:00 -0700 (PDT)
+Date: Wed, 23 Oct 2019 11:26:58 -0700 (PDT)
 From: Paul Walmsley <paul.walmsley@sifive.com>
 X-X-Sender: paulw@viisi.sifive.com
-To: Alistair Francis <Alistair.Francis@wdc.com>
-Subject: Re: [PATCH v2 2/2] RISC-V: defconfig: Enable Goldfish RTC driver
-In-Reply-To: <678b7a7a82adb389e34f023d282a7935f41e356a.camel@wdc.com>
-Message-ID: <alpine.DEB.2.21.9999.1910231105170.16536@viisi.sifive.com>
-References: <20190925063706.56175-3-anup.patel@wdc.com>
- <mhng-edb410db-fdd1-46f6-84c3-ae3b843f7e3a@palmer-si-x1c4>
- <MN2PR04MB606160F5306A5F3C5D97FB788D900@MN2PR04MB6061.namprd04.prod.outlook.com>
- <alpine.DEB.2.21.9999.1910221213490.28831@viisi.sifive.com>
- <17db4a6244d09abf867daf2a6c10de6a5cd58c89.camel@wdc.com>
- <alpine.DEB.2.21.9999.1910221751500.25457@viisi.sifive.com>
- <678b7a7a82adb389e34f023d282a7935f41e356a.camel@wdc.com>
+To: Logan Gunthorpe <logang@deltatee.com>
+Subject: Re: [PATCH 2/2] riscv: Fix undefined reference to
+ vmemmap_populate_basepages
+In-Reply-To: <2f1d943a-6021-3a2c-1d04-2e5939925f86@deltatee.com>
+Message-ID: <alpine.DEB.2.21.9999.1910231126460.16536@viisi.sifive.com>
+References: <20191023032302.160388-1-wangkefeng.wang@huawei.com>
+ <20191023032302.160388-2-wangkefeng.wang@huawei.com>
+ <2f1d943a-6021-3a2c-1d04-2e5939925f86@deltatee.com>
 User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191023_112047_640251_945E914C 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20191023_112701_760032_F71EF26B 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,68 +99,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "palmer@sifive.com" <palmer@sifive.com>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "anup@brainfault.org" <anup@brainfault.org>, Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "hch@infradead.org" <hch@infradead.org>, Atish Patra <Atish.Patra@wdc.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "rkir@google.com" <rkir@google.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org,
+ Albert Ou <aou@eecs.berkeley.edu>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Oct 2019, Alistair Francis wrote:
+On Wed, 23 Oct 2019, Logan Gunthorpe wrote:
 
-> On Tue, 2019-10-22 at 18:06 -0700, Paul Walmsley wrote:
-> > On Tue, 22 Oct 2019, Alistair Francis wrote:
+> On 2019-10-22 9:23 p.m., Kefeng Wang wrote:
+> > Using CONFIG_SPARSEMEM_VMEMMAP instead of CONFIG_SPARSEMEM to fix
+> > following build issue.
 > > 
-> > > I think it makese sense for this to go into Linux first.
-> > > 
-> > > The QEMU patches are going to be accepted, just some nit picking to 
-> > > do first :)
-> > > 
-> > > After that we have to wait for a PR and then a QEMU release until 
-> > > most people will see the change in QEMU. In that time Linux 5.4 will 
-> > > be released, if this can make it into 5.4 then everyone using 5.4 
-> > > will get the new RTC as soon as they upgrade QEMU (QEMU provides the 
-> > > device tree). If this has to wait until QEMU has support then it 
-> > > won't be supported for users until even later.
-> > > 
-> > > Users are generally slow to update kernels (buildroot is still using 
-> > > 5.1 by default for example) so the sooner changes like this go in 
-> > > the better.
+> >   riscv64-linux-ld: arch/riscv/mm/init.o: in function 'vmemmap_populate':
+> >   init.c:(.meminit.text+0x8): undefined reference to 'vmemmap_populate_basepages'
 > > 
-> > The defconfigs are really just for kernel developers.  We expect users 
-> > to define their own Kconfigs for their own needs.
+> > Cc: Logan Gunthorpe <logang@deltatee.com>
+> > Fixes: d95f1a542c3d ("RISC-V: Implement sparsemem")
+> > Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 > 
-> From experience most people use the defconfig, at least as a starting
-> point.
+> Yup!
+> 
+> Reviewed-by: Logan Gunthorpe <logang@deltatee.com>
 
-We'll definitely add it to the defconfigs, but I think it makes sense to 
-do that once the patches hit the QEMU master branch.  (No need to wait for 
-a QEMU release.)
-
-That roughly matches what I understand the Linux kernel's approach is to 
-adding hardware support: no point in adding hardware support until it 
-looks likely that it will actually exist.  Otherwise it just adds churn 
-and maintenance burden.
-
-> I was under the impression that everyone was on board with this going
-> in. In QEMU land it doesn't make sense to add it if the kernel isn't
-> going to, so we need to be on the same page here.
-
-Whatever RTC gets added into QEMU, we'll take defconfig patches for.  I 
-don't care which one it is.  Based on the patches that hit the kernel 
-lists, it initially looked like the Goldfish RTC was more complicated than 
-it needed to be; but it turned out I just didn't look deeply enough.
-
-> From the other discussions it looks like you are happy with this change
-> overall right?
-
-Yes
+Thanks, queued for v5.4-rc.
 
 
 - Paul
