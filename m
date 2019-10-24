@@ -2,52 +2,61 @@ Return-Path: <SRS0=OP9P=YR=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D63B1CA9EAF
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2019 07:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3FCF9CA9EAF
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2019 07:21:26 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A84AC21906
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2019 07:03:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 118EC21872
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 24 Oct 2019 07:21:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iS19MilL"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A84AC21906
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OKx6dliB"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 118EC21872
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nvQfEcoSYw8ggSIvuqNiYFM7q3QjPzjGSBNQ+wCWUS8=; b=iS19MilLUuBoMd
-	hLDsDCKU8Y+4bwqF/izleoivPC4wXN/hVO2ckcKj0lQcseuUHn8R9ZTF1HCTMPPkdwgXqNJWvWDE7
-	G0J2sxdTV0eh6StWNXSBSoe2K3xU+G9rhiFXpfiKcwhl+MtEXbySlTaelWOww62AmGo8qAkZaQq5p
-	i5YzJ3/M7F+CwRtuJDoWPeE6p6LyCO17sCGmhmsxU4RdcS62Lpk3mvm/R8d5DEl77z8qOeVRtk00I
-	A1FrVWRZ16YXdD4ZMoSNymw+HEmoGfIp4xZ8HDy0bfb+Q+m2HWhqxKVNBqjslKA9vaRzfZmh3aYC9
-	cNJv01zxBiQpldvIa/RA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Gq1rvwYq0S7dIlJbRummFFJ4OFi/DJvA2ZLEe7/lvcc=; b=OKx6dliB+VDTGh
+	Q5S7pogJ3toemp6uNtjEd0F4g3vtinpELhxMrMAKMbq3HwkuPijMBHx1fjDr46xlBq6hypMqO2eb8
+	7INDi0I/VoiXCvT5gGCGjgJwHVZ/33Bs254POXfnaAL8hrlv37AXpIrhwpN5seog80z5hGetHiky7
+	A4EXdg3RJAYn4xRW3uGedcObgxXMzKsJwxqQ05DkbuyzHWgiGDtut1qzuCXTJhZAB7nESgTeQ3K5T
+	Nf2BtVqsxAsFcw/xBZ7OUqomxRva77fsyY5V7iVaQdx00HAU5DKOkqNKdg70uLZopLRPEh0A9l9U+
+	q1m33Zw/f0z7v5Xm8+3g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iNX9N-0004Mv-Kn; Thu, 24 Oct 2019 07:03:13 +0000
-Received: from hch by bombadil.infradead.org with local (Exim 4.92.3 #3 (Red
- Hat Linux)) id 1iNX9L-0004MN-If; Thu, 24 Oct 2019 07:03:11 +0000
-Date: Thu, 24 Oct 2019 00:03:11 -0700
-From: Christoph Hellwig <hch@infradead.org>
-To: Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH] irqchip: Skip contexts other supervisor in plic_init()
-Message-ID: <20191024070311.GA16652@infradead.org>
-References: <alpine.DEB.2.21.9999.1910231152580.16536@viisi.sifive.com>
- <mhng-aefb3209-29c4-46db-8cf2-e12db46d9a6e@palmer-si-x1c4>
- <20191024013019.GA675@infradead.org> <20191024075116.48055961@why>
+	id 1iNXQy-0005qD-PZ; Thu, 24 Oct 2019 07:21:24 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1iNXQv-0005pR-MY
+ for linux-riscv@lists.infradead.org; Thu, 24 Oct 2019 07:21:23 +0000
+Received: from DGGEMS409-HUB.china.huawei.com (unknown [172.30.72.58])
+ by Forcepoint Email with ESMTP id 89B7791A5303F06AF5F6;
+ Thu, 24 Oct 2019 15:21:12 +0800 (CST)
+Received: from localhost.localdomain.localdomain (10.175.113.25) by
+ DGGEMS409-HUB.china.huawei.com (10.3.19.209) with Microsoft SMTP Server id
+ 14.3.439.0; Thu, 24 Oct 2019 15:21:04 +0800
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Subject: [PATCH] riscv: only select serial sifive if TTY is enabled
+Date: Thu, 24 Oct 2019 15:20:03 +0800
+Message-ID: <20191024072003.87116-1-wangkefeng.wang@huawei.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20191024075116.48055961@why>
-User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Originating-IP: [10.175.113.25]
+X-CFilter-Loop: Reflected
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20191024_002121_928634_1896A848 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -59,41 +68,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: jason@lakedaemon.net, Palmer Dabbelt <palmer@sifive.com>,
- linux-kernel@vger.kernel.org, Christoph Hellwig <hch@infradead.org>,
- alan.mikhak@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, tglx@linutronix.de
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@sifive.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Albert Ou <aou@eecs.berkeley.edu>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2019 at 07:51:16AM +0100, Marc Zyngier wrote:
-> > > > Will this need to change for RISC-V M-mode Linux support?
-> > > > 
-> > > > https://lore.kernel.org/linux-riscv/20191017173743.5430-1-hch@lst.de/  
-> > > 
-> > > Yes.  
-> > 
-> > For M-mode we'll want to check IRQ_M_EXT above.  So we should just
-> > merge this patch ASAP and then for my rebased M-mode series I'll
-> > fix the check to do that for the M-Mode case, which is much cleaner
-> > than my hack.
-> 
-> Does this need to be taken as a fix, potentially Cc to stable? Or is
-> that 5.5 material?
+There is some warning if TTY is not enabled, and lead to
+build error, only select serial sifive if TTY enabled, and
+this also makes randconfig happy.
 
-So I though that the S-mode context were kinda aways to be sorted before
-M-mode, but I can't find anything guranteeing it.  So I think this
-actually is a fix, and getting this queued up in the next -rc would
-really help me with the nommu stuff - otherwise we'd need to take it
-through the riscv tree for 5.5 to avoid conflicts.
+Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+---
+ arch/riscv/Kconfig.socs | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Btw, here is my:
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 536c0ef4aee8..c1043799e194 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -2,8 +2,8 @@ menu "SoC selection"
+ 
+ config SOC_SIFIVE
+        bool "SiFive SoCs"
+-       select SERIAL_SIFIVE
+-       select SERIAL_SIFIVE_CONSOLE
++       select SERIAL_SIFIVE if TTY
++       select SERIAL_SIFIVE_CONSOLE if TTY
+        select CLK_SIFIVE
+        select CLK_SIFIVE_FU540_PRCI
+        select SIFIVE_PLIC
+-- 
+2.20.1
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
-
-for the patch.
 
 _______________________________________________
 linux-riscv mailing list
