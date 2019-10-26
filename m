@@ -1,93 +1,84 @@
-Return-Path: <SRS0=akOg=YS=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=MVaN=YT=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8B7F7CA9EA0
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2019 23:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7D0CDCA9EBC
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 26 Oct 2019 03:22:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5A1EC21D82
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 25 Oct 2019 23:31:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4C18121872
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 26 Oct 2019 03:22:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UVJwfMz2";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="U/8ANm9Z"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A1EC21D82
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kTjCe0G6";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="C9LwTpoM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4C18121872
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=maBS+4p0+p2iNR1m1ou3P4zkIo65YTG1NFgD+BTfMtg=; b=UVJwfMz2I2eu9l
-	JgkGSBrsPD2KAUX93Y2HFHUdrUQr2Qqbk8K1TQn8SnOoRJWEqYV1gdwFkW/rlhiWbaYbLl9Cth9tT
-	ND77IuI0r5C9hPkWl6Uk+DAx5LYZS+zmuCsYm3RBVds1qfyf9CTFTxNKFrefSjzbN7iT7VOYMfy/u
-	XKASmlcOwjK4x6r7p34aNbmib1gVMiVo9X4201O1+ZuX0Ji0vEsQ4vzcHVRwfErOOGwEIxRYB+kct
-	+BtM0M4vSmJttyH1cvR3jq/pzR8POWq/gQpok/Im3nwJWyZVhkKoHjTB0jp+P31FXvghUCbqq+/lx
-	23oMU3EdAuA4WGWNnfJA==;
+	List-Owner; bh=XpBr+dbmPJyktGvuC3GwCGt5BTjtqNOCsoL6N8qCiME=; b=kTjCe0G6ma0JLY
+	BhXNj4VmSArbc3u/oz5j7w7qs3WkACZ1dVGCoJHXeJ51Gx5y3+JBptdl5etnFWPf7Sgra4AHkobgw
+	GcQrcAOfsfiFnT2fdnr5W/497hNwQeunnS8yAJS+IlYqjfgNAjhkGJAV6gjKiKR1rKemxBEhpLuAq
+	eyWLnzLGYIC3rcGq3UJ9Wc4EiXNw/Hp7RJ+8mMiu2D4bQYAuB3Vh4IoKNS6eLQOpIsIshs9CPp5wY
+	jQXK42zQYN3dyPHDDop8V1bdgUYNuTq3ugcH/pth1NQFvu32DVMaiq0AJWGOiq4a+mr9ZhxVR97ln
+	eQk+CUT+5+cn3ncbAP4Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iO92z-00035Z-BD; Fri, 25 Oct 2019 23:31:09 +0000
-Received: from mail-il1-x144.google.com ([2607:f8b0:4864:20::144])
+	id 1iOCew-0003Ec-OU; Sat, 26 Oct 2019 03:22:34 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iO92w-00034B-NN
- for linux-riscv@lists.infradead.org; Fri, 25 Oct 2019 23:31:07 +0000
-Received: by mail-il1-x144.google.com with SMTP id v2so3252954ilq.4
- for <linux-riscv@lists.infradead.org>; Fri, 25 Oct 2019 16:31:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:cc:subject:in-reply-to:message-id:references
- :user-agent:mime-version;
- bh=lR5/5+r8bCmhCIY6LJthT487CIpdBcb0dtxi4yHzNfo=;
- b=U/8ANm9ZjTcvnGCy0ASTe45RLMWWXvVGkN/QrSOs+PzJIGkftolprsdRaRykpvpKFC
- 5cfDoSA2aGycaGrQ5gyL/wmmkY41E0CLqZ/kN3aHzFGjv+/+pGuwkMcuPFyuQhHelbmt
- GvcjTVl0h3fSMQW57MfYY9SyrBWSz39avXHo4AYqVwcNPPcbkW4KgwyP8Qdws5HlIVNq
- cvZRcarlZOdTTH2YVIWluME8foAufixQH9SSG3WYEX/QD9pLjoO3ttCOY9pNcj1WbXZ5
- DFXRCbZFd0kqTDJsvNlurcq4uSy8Ui0T00ooqnrVxkTMN9sr3B5LilYfEu2cR13WZmog
- hxfQ==
+ id 1iOCet-0003DQ-Ac
+ for linux-riscv@lists.infradead.org; Sat, 26 Oct 2019 03:22:33 +0000
+Received: by mail-wr1-x443.google.com with SMTP id r1so4389874wrs.9
+ for <linux-riscv@lists.infradead.org>; Fri, 25 Oct 2019 20:22:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=FDkPt2vxGvwt3QPswZka6NmewYvhNdxaRnBgmjWNMNE=;
+ b=C9LwTpoMiaGEtarmKKTOEugKrY4v8PqKTr/nwd8Q6hsQ0nXW13bIbP+NnYd8Zvv+Fu
+ rZ+9G77bPVots2ydjdBiOh9zuet8WyKKEyOBGhEkknv5Me+seTlOfxgxy0GiRD4vxU3N
+ dy9s9GpEj1dYi8+E9wftSWMDmtnsuw0o+zgvOHHvCkWvwK2WZf2E4TBaI8hdZC3H0uUA
+ VFikOoun+D4A5NnI/tYjBEBX9r35NzIbkqSON1Sa/RT1x6hQjDlPwHiKOevFW9W9vKmq
+ NkPp/8DD38VvRZ9FLUFWSqRpdnKG6jlP8HTBD4GXjW8h9s+MmJZeW42sEoeGFkkUfx/i
+ VlVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
- :references:user-agent:mime-version;
- bh=lR5/5+r8bCmhCIY6LJthT487CIpdBcb0dtxi4yHzNfo=;
- b=AjKxqV3NOCGx5NDJCCO/7+6OcPzil5BxuRvShyQZyK0uLVOa4D8KXZTHP2MbGGEeZu
- Iui9W4SyZGvSayi+6/3NPytflvcQR43pp/N21VQZmGKyr/pK858dviQHpPy1i/GH/3O1
- AXEp/a9VsX8ammtYOqfaZGdRa0DUW55wSyAdIzJA9cS+5oZJn2508ACVw69yWY1o2ijt
- 8oJlJImrJWzbAg2BJMsmepAtScFX/cJ7rrnkomy960TUrlgdrnPPKqFMQtMXDvIy/SQI
- 5B05CkvVq8XsTNWLWNhAqbxoe2GzeeqZwCyct/qxmMKcacXx7QQvyxhnIus3S09gh7X+
- a19Q==
-X-Gm-Message-State: APjAAAUKwkq0I4EjVixfZu2fxqivsum9dEWUQw0G2g4WxgRH/5fx7BEx
- 6/2sGU4ZuBRueTOSejFLvhORd2Stgzo=
-X-Google-Smtp-Source: APXvYqxCRkC7bsr4R1MRLbbtPijuvmtcRENpyOsfBauaT1t9TfBCyyNa3dtelKHzUngB/GzRY3j/mA==
-X-Received: by 2002:a92:c80b:: with SMTP id v11mr6695297iln.62.1572046262026; 
- Fri, 25 Oct 2019 16:31:02 -0700 (PDT)
-Received: from localhost ([64.62.168.194])
- by smtp.gmail.com with ESMTPSA id n3sm557223ilm.8.2019.10.25.16.31.01
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 25 Oct 2019 16:31:01 -0700 (PDT)
-Date: Fri, 25 Oct 2019 16:30:59 -0700 (PDT)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-X-X-Sender: paulw@viisi.sifive.com
-To: Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH v9 01/22] RISC-V: Add bitmap reprensenting ISA features
- common across CPUs
-In-Reply-To: <CAAhSdy3xV0UjDKUgHoKbyoeV5kaC9rVSy=qoBpF=XrrbT=W=-Q@mail.gmail.com>
-Message-ID: <alpine.DEB.2.21.9999.1910251629540.12828@viisi.sifive.com>
-References: <20191016160649.24622-1-anup.patel@wdc.com>
- <20191016160649.24622-2-anup.patel@wdc.com>
- <CAAhSdy3xV0UjDKUgHoKbyoeV5kaC9rVSy=qoBpF=XrrbT=W=-Q@mail.gmail.com>
-User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=FDkPt2vxGvwt3QPswZka6NmewYvhNdxaRnBgmjWNMNE=;
+ b=XPzVNbLwGegEf/MWApzPwsXcKoSXakwjVySvWEG2nxqQT9IfKqqZ9h9tBYbWZSZCoO
+ 6av6dnfkLmK2YLT1+GqOSKSytP7NS8nr8OPMVVTsFJJAPUjRh6T8lw0A6+s2FeQfpl27
+ gHv3dDutSzwMsr5E8Spj8bllKb8RiiskM7j77FWg/7Yq5IkR7S0LDvBMjhUUDCxNHNak
+ 73dQUlCwld7KN+TN+3SoDMdC5DlGXagh8wJFqqFdnYhBCgQpaq9aYZRdr9UAqrGjlflu
+ H+PVcV7MeQtBT+qiEVnoFb/BGjwJFSv5+z/aWHbgbK6Gk7px3b0IeejOeslR7jv+80/X
+ VLQQ==
+X-Gm-Message-State: APjAAAUeCfY9zyAWTqvU9Lm4ImJ+nvmYYSqzJkeggPnex/CIAGGB4tMy
+ PW96GJrEj4xvihaSuYAQy6IWpSIFw/EWLGuqELjFYA==
+X-Google-Smtp-Source: APXvYqzGZAwZcrHBPmOgmCPHvyvMfVI74sgWBPVAhX27aA6UWJHfjZjS6tcIVVoOKyt4lXWyW/tRQWr+XDi0GMbCxqI=
+X-Received: by 2002:a05:6000:351:: with SMTP id
+ e17mr5324719wre.96.1572060147773; 
+ Fri, 25 Oct 2019 20:22:27 -0700 (PDT)
 MIME-Version: 1.0
+References: <20191016160649.24622-1-anup.patel@wdc.com>
+ <alpine.DEB.2.21.9999.1910251609500.12828@viisi.sifive.com>
+In-Reply-To: <alpine.DEB.2.21.9999.1910251609500.12828@viisi.sifive.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 26 Oct 2019 08:52:16 +0530
+Message-ID: <CAAhSdy1zfL2kPM-Le6TZSqS2TU1RkgC+zTbB4y31t8TXwVjhEg@mail.gmail.com>
+Subject: Re: [PATCH v9 00/22] KVM RISC-V Support
+To: Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191025_163106_768722_58A22690 
-X-CRM114-Status: UNSURE (   6.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191025_202231_428924_C126EA31 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -113,15 +104,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Oct 2019, Anup Patel wrote:
+On Sat, Oct 26, 2019 at 4:40 AM Paul Walmsley <paul.walmsley@sifive.com> wrote:
+>
+> Hi Anup,
+>
+> On Wed, 16 Oct 2019, Anup Patel wrote:
+>
+> > This series adds initial KVM RISC-V support. Currently, we are able to boot
+> > RISC-V 64bit Linux Guests with multiple VCPUs.
+> >
+> > Few key aspects of KVM RISC-V added by this series are:
+> > 1. Minimal possible KVM world-switch which touches only GPRs and few CSRs.
+> > 2. Full Guest/VM switch is done via vcpu_get/vcpu_put infrastructure.
+> > 3. KVM ONE_REG interface for VCPU register access from user-space.
+> > 4. PLIC emulation is done in user-space.
+> > 5. Timer and IPI emuation is done in-kernel.
+> > 6. MMU notifiers supported.
+> > 7. FP lazy save/restore supported.
+> > 8. SBI v0.1 emulation for KVM Guest available.
+> > 9. Forward unhandled SBI calls to KVM userspace.
+> > 10. Hugepage support for Guest/VM
+>
+> Several patches in this series cause 'checkpatch.pl --strict' to flag
+> issues.  When you respin this series, could you fix those, please?
 
-> Can you consider this patch for Linux-5.4-rcX ??
+I generally run checkpatch.pl every time before sending patches.
 
-Unless another user of the riscv_isa bitmap comes along, it seems best 
-merged along with its user: the RISC-V KVM patches.
+I will try checkpatch.pl with --strict parameter as well in v10 series.
 
+Regards,
+Anup
 
-- Paul
+>
+>
+> thanks,
+>
+> - Paul
 
 _______________________________________________
 linux-riscv mailing list
