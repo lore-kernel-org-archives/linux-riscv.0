@@ -1,68 +1,73 @@
-Return-Path: <SRS0=mxPQ=YU=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=MZUz=YV=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1CDBCCA9EAF
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 27 Oct 2019 11:30:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D8B2CA9EAF
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2019 02:42:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E30F221D7F
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 27 Oct 2019 11:30:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CB88D20B7C
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 28 Oct 2019 02:42:20 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dZNUbnYI";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="E9rIU8Kw"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E30F221D7F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="e67ifBqF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CB88D20B7C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0OCsx2dABKvCVvZ5g/vG4yRZfWTuceK5ws5SFxjco8w=; b=dZNUbnYI37/YnV
-	7mFNdtN2SBiNnckG6unjMmEK0Y4W3Feak+P7ZdGNvtcy6NsGTWpxTkboLdIQ6hwjjVe81DuAxTR2z
-	LRSAPMvPdbBCKyBUKyEjgaJGI2BzmVQlmVzkCWsWGFQNL4V5Y59xp5L7Wozl45LAblEe+wN2X8Vh9
-	DrTjc9akNqpqgjn+q0P4n7OWlNtPqJO1/csH9Wd3Ww6ng6K0EPDpKNZNPqy5+Xp4jmHdmEQZh954H
-	rUaUD35WckKrQW5wCyLULdvF0oNbEtgpc6PTm+CWbV8ZNLcJD1AYpgP5j2ZO+eMQTcjw8Ekupowd3
-	AxP/rBa+KieWFEFWngnQ==;
+	List-Owner; bh=8dHgnDrKykGBMOQSQGrFLtpkUSzDRl+8ozm7D51vnLU=; b=e67ifBqFqPXkoW
+	7hhBoyw+gFoGimICpKI1Zle610wALtXT0lwtnibm6cdHn+5/KFbwU2Sh4IJLMWIdYN8PujdiE2V2X
+	S/Sf5rcSN4usfibA2fXYg3SH1EMm/686dhO1HFFJI1PSPAzlEV6j/MC3eFfAWRx8SWDa1zLRvRtWE
+	4BRVP8aVyhr6icgPMxIElFRsLb24gO1Ap3sb9Mn8QKGLg7NH3vh6/1HxgpnDorHwZQT33L1Rz6Z5p
+	PVziK+ZHlntdfhuX6vwpifWd8fCfdxNwwPg6p9jRHH7zUinW7z9lka0qEi08ID1my+O49q0zVnD/o
+	dksn//G3/8UvVOPoQiYg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iOgkQ-0007n4-4C; Sun, 27 Oct 2019 11:30:14 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1iOuz4-00070G-K6; Mon, 28 Oct 2019 02:42:18 +0000
+Received: from 59-120-53-16.hinet-ip.hinet.net ([59.120.53.16]
+ helo=ATCSQR.andestech.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iOgkK-0006ed-7B
- for linux-riscv@lists.infradead.org; Sun, 27 Oct 2019 11:30:09 +0000
-Subject: Re: [GIT PULL] RISC-V updates for v5.4-rc5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1572175804;
- bh=C7auwD1WXWbMnFdBuCDr/ykryLHxN64hBFI3GfcQY7E=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=E9rIU8KwjAmwtRcMrwUc9kHyeOyKFUwkAoctz8MOAdDkw2EAYlRc5vkH1LXlzyq4a
- 2fcr0n1r9ueu9RJcxDVKujrVgJOc5uYTaHWpjWbLXkCFiUXgqW9Yj4ZwACwwobr7vh
- vCfodc7/t3c5rO6OWqy4p8dUcvwQg27wBxwRDCC0=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <alpine.DEB.2.21.9999.1910261701250.12828@viisi.sifive.com>
-References: <alpine.DEB.2.21.9999.1910261701250.12828@viisi.sifive.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <alpine.DEB.2.21.9999.1910261701250.12828@viisi.sifive.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
- tags/riscv/for-v5.4-rc5-b
-X-PR-Tracked-Commit-Id: e8f44c50dfe75315d1ff6efc837d62cbe7368c9b
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 6995a6a5a538dae047ff16ec267394e5258e84b7
-Message-Id: <157217580489.15608.4260623730121864685.pr-tracker-bot@kernel.org>
-Date: Sun, 27 Oct 2019 11:30:04 +0000
-To: Paul Walmsley <paul.walmsley@sifive.com>
+ id 1iOuz1-0006rg-0W
+ for linux-riscv@lists.infradead.org; Mon, 28 Oct 2019 02:42:17 +0000
+Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
+ by ATCSQR.andestech.com with ESMTP id x9S2O9tf087229;
+ Mon, 28 Oct 2019 10:24:09 +0800 (GMT-8)
+ (envelope-from nickhu@andestech.com)
+Received: from atcsqa06.andestech.com (10.0.15.65) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.123.3; Mon, 28 Oct 2019
+ 10:41:38 +0800
+From: Nick Hu <nickhu@andestech.com>
+To: <aryabinin@virtuozzo.com>, <glider@google.com>, <dvyukov@google.com>,
+ <corbet@lwn.net>, <paul.walmsley@sifive.com>, <palmer@sifive.com>,
+ <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
+ <gregkh@linuxfoundation.org>, <alankao@andestech.com>,
+ <Anup.Patel@wdc.com>, <atish.patra@wdc.com>,
+ <kasan-dev@googlegroups.com>, <linux-doc@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <linux-mm@kvack.org>, <green.hu@gmail.com>
+Subject: [PATCH v4 1/3] kasan: No KASAN's memmove check if archs don't have it.
+Date: Mon, 28 Oct 2019 10:40:59 +0800
+Message-ID: <20191028024101.26655-2-nickhu@andestech.com>
+X-Mailer: git-send-email 2.17.0
+In-Reply-To: <20191028024101.26655-1-nickhu@andestech.com>
+References: <20191028024101.26655-1-nickhu@andestech.com>
+MIME-Version: 1.0
+X-Originating-IP: [10.0.15.65]
+X-DNSRBL: 
+X-MAIL: ATCSQR.andestech.com x9S2O9tf087229
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191027_043008_315308_0908595B 
-X-CRM114-Status: UNSURE (   0.66  )
+X-CRM114-CacheID: sfid-20191027_194215_341108_2F0BA4C1 
+X-CRM114-Status: UNSURE (   6.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -75,26 +80,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
- linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+Cc: Nick Hu <nickhu@andestech.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sat, 26 Oct 2019 17:02:43 -0700 (PDT):
+If archs don't have memmove then the C implementation from lib/string.c is used,
+and then it's instrumented by compiler. So there is no need to add KASAN's
+memmove to manual checks.
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv/for-v5.4-rc5-b
+Signed-off-by: Nick Hu <nickhu@andestech.com>
+---
+ mm/kasan/common.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/6995a6a5a538dae047ff16ec267394e5258e84b7
-
-Thank you!
-
+diff --git a/mm/kasan/common.c b/mm/kasan/common.c
+index 6814d6d6a023..897f9520bab3 100644
+--- a/mm/kasan/common.c
++++ b/mm/kasan/common.c
+@@ -107,6 +107,7 @@ void *memset(void *addr, int c, size_t len)
+ 	return __memset(addr, c, len);
+ }
+ 
++#ifdef __HAVE_ARCH_MEMMOVE
+ #undef memmove
+ void *memmove(void *dest, const void *src, size_t len)
+ {
+@@ -115,6 +116,7 @@ void *memmove(void *dest, const void *src, size_t len)
+ 
+ 	return __memmove(dest, src, len);
+ }
++#endif
+ 
+ #undef memcpy
+ void *memcpy(void *dest, const void *src, size_t len)
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.wiki.kernel.org/userdoc/prtracker
+2.17.0
+
 
 _______________________________________________
 linux-riscv mailing list
