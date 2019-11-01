@@ -1,79 +1,175 @@
-Return-Path: <SRS0=nej/=YZ=lists.infradead.org=mailman-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=5eSd=YZ=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 68BD3CA9ECF
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  1 Nov 2019 12:03:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F2C9DCA9ED1
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  1 Nov 2019 12:18:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3D493208E3
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  1 Nov 2019 12:03:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CA21C21734
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  1 Nov 2019 12:18:14 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qBaw+RbF"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3D493208E3
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lists.infradead.org
-Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=mailman-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="E4FROlSy";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="WMGeLp/A"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA21C21734
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:List-Id:Date:Message-ID:
-	To:From:Subject:Content-Transfer-Encoding:Content-Type:MIME-Version:Reply-To:
-	Cc:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=5qYPsI9osmMH/1ze6ONthAUy/xCN0XF0AK3qPeWg2TI=; b=qBaw+RbFxkI0pWQUz/iopvH5lC
-	CBVKIbpGdm5BgJFyw7GUmdyGfeTNvmV2kc3flivOYgXZiunysZubL2Fcei9Dlbxwcgy/9Aokd/ydw
-	bo4NXZZD1jHSwdc3LrhW5nxjZVWsZaoF7qHm+bn5aeeoM7FQxrAqr4DUFSY2ZWU6r9YJ7px5FcjeI
-	izaIuWjYdCdT8IxcNMGikGSP/f2ZM+DdTEwOjivomDIcCk3NFrJyP9YQCYRPOseyaFGQtiopNwkb4
-	3Dz7s54IG7azqefnpPmutCKTM6zCtAQvKmsOGkvXPxf6tOCRwk4/vv02envNt4VBG312lcmhehZry
-	fWz7h2vg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zLnAxflKfotXLyFN3zFzHUamg/+sSaU3PhJxuCc1L+8=; b=E4FROlSypckIJf
+	3LwXKI6Ishv/A5mVbJPj0M99MmRxM9osAz+T4p50OcHR1TbNHNT/PZGm/r7epfJDUjWUSoY+bueOo
+	NFvl502fdU6G+lciWFOp4VTFDk8hFrD83tgOmtPeW5ypJ9vAEN6UXFPMq5cz2ROCKZn9AZ64BUN9B
+	VLioSxrGf4oN/WX6rpAUb1GcMnFRudYDvpy+2tQf64V4/PcPDXphHODlggA80B6BvFfz31AbnEm4s
+	jmkE4IS8YgaqBucALkOpX50H8ArNM8dcMcMjJdrV1044roxOHhiXmkBlzr56sCz9wP0Aivv9Pb7hK
+	vtiV52THnLsxjHsdPUFg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iQVeP-0006L9-RT
-	for infradead-linux-riscv@archiver.kernel.org; Fri, 01 Nov 2019 12:03:33 +0000
+	id 1iQVsc-0007in-0d; Fri, 01 Nov 2019 12:18:14 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1iQVsZ-0007ga-G5
+ for linux-riscv@lists.infradead.org; Fri, 01 Nov 2019 12:18:12 +0000
+Received: by mail-wm1-x341.google.com with SMTP id t26so4816625wmi.4
+ for <linux-riscv@lists.infradead.org>; Fri, 01 Nov 2019 05:18:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=ZOoIzpG2z8fi2GZrvyp00RYzBAVVduBNjTY7LDpDnDA=;
+ b=WMGeLp/AVcDchEPwD5VJFbDRfoXly9LNsd0siehQ54HLKyIZ8qz9gi8KhSFn/ECKpG
+ 4taW6nS3xhiwjHUhlKwrUKHiRbPhs2tXHJbH1qNcz50q5vHK3RsSKuYORB7lqzRv+kKs
+ hlzTPidpqQOgpmDIDqPQWVRFFc279Bdiwn3Fo+zG7ZmOK3rWuWObm1y60wX26Y0lLe2R
+ rxYZZwUwn6q4AWS6avO/Ttxqrm9T9MPIkI6l8saqG21Hm3uzAKNsJTZk8gGvFL4ZXobX
+ QQ84THyc3nfF1poe9cx5U0FWZlISf+jXrv+zA2bXISGSyXsVB4eUT5G0vYx3eZZY9NgO
+ xZAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=ZOoIzpG2z8fi2GZrvyp00RYzBAVVduBNjTY7LDpDnDA=;
+ b=gA3XyhPMphICahxfCplmkAu/jBAFT5hf8gFV3dL1f1v0DtxdNUY2g6oqa9XnmTDCB9
+ xN9FCIgzZl+MKCItzSHWWNkqNq/uDcYgzM/W4rCFgZnxVpxrofYyBVbiz1uj172oOgfE
+ 18C3/WM0JSC5pAE0T45XVgAtLvjH7w0+IxVnpPryiATUE7Raa+a3e0XrdRVUzqqJh6rz
+ aTzsOBi29c1xf0L6LqOU93HfSI9G42xrykcxM1RL9nwiyNJic+l3fCf8Yna33oHUDaKu
+ oG05kmt52hXYdhZaOMh7DXupDm2dDvkiS4+43uTFkbLEuWhXGASrNRtjzTREtqGjP95q
+ ILiQ==
+X-Gm-Message-State: APjAAAWzzzkedB2xW4zzN4DLk6sc38Wohmiskw4wJA0Lz1RcqZ2LG4vy
+ s9SuzJhssLOO+6nM2EhTr84=
+X-Google-Smtp-Source: APXvYqyYGMPZVOcwrT99SjO70XvqnXNb10RZu4lXx7hjfGuoisqKxZ/u5JHTJkzyPdKNoiU5Az3ORw==
+X-Received: by 2002:a1c:1d53:: with SMTP id d80mr6277323wmd.88.1572610690236; 
+ Fri, 01 Nov 2019 05:18:10 -0700 (PDT)
+Received: from suzukaze.ipads-lab.se.sjtu.edu.cn ([202.120.40.82])
+ by smtp.gmail.com with ESMTPSA id p15sm7759400wrs.94.2019.11.01.05.18.05
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 01 Nov 2019 05:18:09 -0700 (PDT)
+From: Chuhong Yuan <hslester96@gmail.com>
+To: 
+Subject: [PATCH] spi: sifive: disable clk when probe fails and remove
+Date: Fri,  1 Nov 2019 20:17:45 +0800
+Message-Id: <20191101121745.13413-1-hslester96@gmail.com>
+X-Mailer: git-send-email 2.23.0
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20191101_051811_536509_82E5DEA7 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
+X-BeenThere: linux-riscv@lists.infradead.org
+X-Mailman-Version: 2.1.29
+Precedence: list
+List-Id: <linux-riscv.lists.infradead.org>
+List-Unsubscribe: <http://lists.infradead.org/mailman/options/linux-riscv>,
+ <mailto:linux-riscv-request@lists.infradead.org?subject=unsubscribe>
+List-Archive: <http://lists.infradead.org/pipermail/linux-riscv/>
+List-Post: <mailto:linux-riscv@lists.infradead.org>
+List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
+List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
+ <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Palmer Dabbelt <palmer@sifive.com>, Chuhong Yuan <hslester96@gmail.com>,
+ linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+ Mark Brown <broonie@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Subject: lists.infradead.org mailing list memberships reminder
-From: mailman-owner@lists.infradead.org
-To: infradead-linux-riscv@archiver.kernel.org
-X-No-Archive: yes
-Auto-Submitted: auto-generated
-Message-ID: <mailman.3412.1572609618.3279.mailman@lists.infradead.org>
-Date: Fri, 01 Nov 2019 05:00:18 -0700
-Precedence: bulk
-X-BeenThere: mailman@lists.infradead.org
-X-Mailman-Version: 2.1.29
-List-Id: <mailman.lists.infradead.org>
-X-List-Administrivia: yes
-Sender: "Mailman" <mailman-bounces@lists.infradead.org>
-Errors-To: mailman-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
+Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
+Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is a reminder, sent out once a month, about your
-lists.infradead.org mailing list memberships.  It includes your
-subscription info and how to use it to change it or unsubscribe from a
-list.
+The driver forgets to disable and unprepare clk when probe fails and
+remove.
+Add the calls to fix the problem.
 
-You can visit the URLs to change your membership status or
-configuration, including unsubscribing, setting digest-style delivery
-or disabling delivery altogether (e.g., for a vacation), and so on.
+Signed-off-by: Chuhong Yuan <hslester96@gmail.com>
+---
+ drivers/spi/spi-sifive.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-In addition to the URL interfaces, you can also use email to make such
-changes.  For more info, send a message to the '-request' address of
-the list (for example, mailman-request@lists.infradead.org) containing
-just the word 'help' in the message body, and an email message will be
-sent to you with instructions.
+diff --git a/drivers/spi/spi-sifive.c b/drivers/spi/spi-sifive.c
+index 35254bdc42c4..f7c1e20432e0 100644
+--- a/drivers/spi/spi-sifive.c
++++ b/drivers/spi/spi-sifive.c
+@@ -357,14 +357,14 @@ static int sifive_spi_probe(struct platform_device *pdev)
+ 	if (!cs_bits) {
+ 		dev_err(&pdev->dev, "Could not auto probe CS lines\n");
+ 		ret = -EINVAL;
+-		goto put_master;
++		goto disable_clk;
+ 	}
+ 
+ 	num_cs = ilog2(cs_bits) + 1;
+ 	if (num_cs > SIFIVE_SPI_MAX_CS) {
+ 		dev_err(&pdev->dev, "Invalid number of spi slaves\n");
+ 		ret = -EINVAL;
+-		goto put_master;
++		goto disable_clk;
+ 	}
+ 
+ 	/* Define our master */
+@@ -393,7 +393,7 @@ static int sifive_spi_probe(struct platform_device *pdev)
+ 			       dev_name(&pdev->dev), spi);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Unable to bind to interrupt\n");
+-		goto put_master;
++		goto disable_clk;
+ 	}
+ 
+ 	dev_info(&pdev->dev, "mapped; irq=%d, cs=%d\n",
+@@ -402,11 +402,13 @@ static int sifive_spi_probe(struct platform_device *pdev)
+ 	ret = devm_spi_register_master(&pdev->dev, master);
+ 	if (ret < 0) {
+ 		dev_err(&pdev->dev, "spi_register_master failed\n");
+-		goto put_master;
++		goto disable_clk;
+ 	}
+ 
+ 	return 0;
+ 
++disable_clk:
++	clk_disable_unprepare(spi->clk);
+ put_master:
+ 	spi_master_put(master);
+ 
+@@ -420,6 +422,7 @@ static int sifive_spi_remove(struct platform_device *pdev)
+ 
+ 	/* Disable all the interrupts just in case */
+ 	sifive_spi_write(spi, SIFIVE_SPI_REG_IE, 0);
++	clk_disable_unprepare(spi->clk);
+ 
+ 	return 0;
+ }
+-- 
+2.23.0
 
-If you have questions, problems, comments, etc, send them to
-mailman-owner@lists.infradead.org.  Thanks!
 
-Passwords for infradead-linux-riscv@archiver.kernel.org:
-
-List                                     Password // URL
-----                                     --------  
-linux-riscv@lists.infradead.org          xuowetub  
-http://lists.infradead.org/mailman/options/linux-riscv/infradead-linux-riscv%40archiver.kernel.org
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
