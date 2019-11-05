@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-8.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4AC48C5DF61
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2019 17:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4BED9C5DF61
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2019 17:57:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2345321D7D
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2019 17:56:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 24410217F5
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2019 17:57:44 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PmYRg4nx";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="PY395sIJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2345321D7D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="G7KF6FLe";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="UphG7W/P"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 24410217F5
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,67 +26,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ul3eCujsfMX9/T9K7KIFv1YaRVfwy/u9fdsW8RnMn1c=; b=PmYRg4nxSMgIL/
-	Crhrj+FPQE6Ap3YFCApBwnOXg/0n142vxrnXgF1/VA1z6mfY9MrzkEXSH0THPKu/BObamt1kPtJV9
-	9fcQ9WBlkaQi7uSySNBB7CkOzUhPhqow8gqtj7piMD3GOxA3rlQWD/IqrhOOyoknzUO2UES6oJlks
-	9qekyox3TWSz8wulV8Urts+Gbc1AquFRPUggmDkqmIVqZkCHm/yOzOGb3HJkSdHZ5f2K5BQR2tdxH
-	EyX6hAbdQIJ1wEgBZtWIP+psktC+V0cm0xZGAxD7gRn5WZcna98Wl4YZOYgmZyiYl0m31Oa6QsZsU
-	oNoTOLdLLWs73zGFyjgA==;
+	List-Owner; bh=zHade6eV6Q5GI44CJrST0eRr0J3myvpaHgaEMSntjts=; b=G7KF6FLenT8Gp5
+	v4NpWvozu22n/GN+z72wdTxGnu9EKkXy/giNSMz67FJkOLfeD0/5XriZOeuucdKcz/hHUFxLDOj8N
+	7Re0F6d+vv13SRMT5REOwRQyrr11FkjQvRkrOLO+yJqARw0dlqHPndDDOv6CTzGC7VKoOfu3dlZs/
+	SYdl454mDwAkWPC8+I/Z/x7fmUhmmuz6e8QEN7QbFLAPEvgq06LJVxH2p1t6XYN/nSNI01alT1j4l
+	6Og2P8yIaoKcgdL7B9PO5SBFyfoTmphT8RpoF/4e1hyZGVZqZsu0TZ6h9JSEGgEFFd3jAw4YAKdt/
+	x4PUb/scZEIW5bpGRnYA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iS33r-0006wP-1D; Tue, 05 Nov 2019 17:56:11 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1iS35L-00077u-9p; Tue, 05 Nov 2019 17:57:43 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iS33m-0006vn-CD
- for linux-riscv@lists.infradead.org; Tue, 05 Nov 2019 17:56:09 +0000
-Received: by mail-pg1-x544.google.com with SMTP id l24so14774384pgh.10
- for <linux-riscv@lists.infradead.org>; Tue, 05 Nov 2019 09:56:05 -0800 (PST)
+ id 1iS35G-00076v-7q
+ for linux-riscv@lists.infradead.org; Tue, 05 Nov 2019 17:57:41 +0000
+Received: by mail-pf1-x443.google.com with SMTP id v19so16118318pfm.3
+ for <linux-riscv@lists.infradead.org>; Tue, 05 Nov 2019 09:57:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=date:from:to:cc:subject:in-reply-to:message-id:references
  :user-agent:mime-version;
- bh=gEtDP14dN6Aopp+R4qBmWYNaj39NX6WXZoaeemngS3Y=;
- b=PY395sIJIeAvoOi6WRPmLSQFj814XdRslNX2nsBoIxS92tUK4URsIpYMwW8m9776cd
- sfzc52RQMUaZXMvTIjmjI8YB2eWwbKzuVGcAGkBEDruqEuaflYTU40WUSngDmcpkAA9w
- G0NM15wjdHgH1mkwzJpEOFqNydQeogFgoTKcaEc1Aq7EXkKRmcSkhUlAOBsdBSX0jHPS
- 1Ha5rwiu4aP1k55U1oIw6sALV2rXAAlQrTshfd05MpXJ0RgQEpSJeT3n5qNkRnMAM7eo
- H4FpTp9gHydm/zRtPjZIrsUl7Spd8ZNfQsrteth0AOvlQ5nxpcj5l1b/pB019EzzbBfo
- gh/A==
+ bh=c0mtHUCtv4Yo3jGG/+KHkyMmGtxcfes6cDs+e6Frq+s=;
+ b=UphG7W/P8xgSpCGuYHEcZ08huUl9wAKSpHkU0pRF86YW294robH5U3MqecxtxB6oCK
+ ghmshSzuPxqNIEl0pRmOpXhK+JSdeuXBMZZQdliIvGmY2WqMTsFI6YmHrUUay0m0vLMj
+ pRMc5fpSk002fCAh6WlyuKjsF8CsUEM8ZJ/sJBnSNzNw3rXWKdj9orqY/NeOL2oQRzAZ
+ LsEjB0XebUQfcm9HTSmJIBzjhjugpgtWWRPshwVCz70zoxvT2rMb/DFd0Ax1y8Doi6eP
+ JK6Hv3mAdWvnViOeiZID2I+GewsXsn0du7KlL9Zc3Sigzl6ksqY7oJdjTg2w3pXfAW1X
+ mUQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
  :references:user-agent:mime-version;
- bh=gEtDP14dN6Aopp+R4qBmWYNaj39NX6WXZoaeemngS3Y=;
- b=G1tB/UMh+V7lZoSEMvnIa2h8PqHWv9d7FOWl2CEyTIdPbFa6hOyO+B5P64+DDwLkY0
- yephLKVYECAHyxghuHFoR2Y2RpMz1/wooX4q+1RhaHGOxZZtDH0QLtEi6LC1o4PoI+qA
- 4VbU3QCvCKgpHYetuP5p2RAGIBDpGWGaWqKA35vkACMGYoCTsIlj16NHNAcf4FxIMC/0
- 08roH6C1+XofiOto13aHk2wiyDmd2Vst13fVSImf4PAyt66hFz0mlCnTN31M1ehVJo6a
- NwVPwizitQIVM8IqW8FNBvW8/taIfjwiptiF7C/28xU3X5Ij6XbpHoRR5miBTaO1yxt0
- k0dg==
-X-Gm-Message-State: APjAAAW7h365n1PYQMBWwm/CsbUw/N4RYjjEnld0urd0RflvSwRZQRBd
- OHXwa5LRkryACx1vMaOHhgDBlw==
-X-Google-Smtp-Source: APXvYqxIzbwt1VQ4GnAd4cRx9QszC95A4+wdzauFhSwvV93mlD1EH3Sh83aS41Sk17giA8vmhwk7oA==
-X-Received: by 2002:a17:90a:5895:: with SMTP id
- j21mr300320pji.129.1572976564735; 
- Tue, 05 Nov 2019 09:56:04 -0800 (PST)
+ bh=c0mtHUCtv4Yo3jGG/+KHkyMmGtxcfes6cDs+e6Frq+s=;
+ b=SQY+e11Vy3IcgPQkFsnwpNUHWvf/mX8Aktg0V+uWwnSMgk5U77VF3xhMkMcnsrS6cA
+ q5NYlRqhnLpC+YpJjybiudpGw0t/hBL35+34kXKz/+hqspq4WTHZTEeHvaRGnsI54EQJ
+ q/9vaO1T7j1/0FTiaLXvGdVv+Y8RK+KbGW19L7I19pVY93dYIm5eYDy8AuJPjelARl1T
+ +dTUtSZHk3PQNWLADnYephsy7AysXq5II09/RGtIo0azuxE+f0pS/gatOm/bliu9em4N
+ q7AvheIFhjf47Ek0RJFC/0MMSftnBAAEyDRGl4kNqBLFdFknd6TI8Tq1aHPb+jyBlr/H
+ B7fQ==
+X-Gm-Message-State: APjAAAVcE3c2yfjGJdGItp4QlmWi8/S8M3vlh7j1iCDl2wdObxWRTk5g
+ L2LgcwgxUOdEBiY3CH2DdU8veA==
+X-Google-Smtp-Source: APXvYqy3wwWydxrHeyjc6Eb35cWY/2/qFcCcpx8amSpa/BE+rR4sVcHxNi9WoyJzsyrfNormQeSjWw==
+X-Received: by 2002:a63:fa0d:: with SMTP id y13mr25432401pgh.18.1572976657179; 
+ Tue, 05 Nov 2019 09:57:37 -0800 (PST)
 Received: from localhost ([64.62.168.194])
- by smtp.gmail.com with ESMTPSA id v19sm75366pjr.14.2019.11.05.09.56.03
+ by smtp.gmail.com with ESMTPSA id w15sm6061286pfn.13.2019.11.05.09.57.36
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 05 Nov 2019 09:56:04 -0800 (PST)
-Date: Tue, 5 Nov 2019 09:56:03 -0800 (PST)
+ Tue, 05 Nov 2019 09:57:36 -0800 (PST)
+Date: Tue, 5 Nov 2019 09:57:35 -0800 (PST)
 From: Paul Walmsley <paul.walmsley@sifive.com>
 X-X-Sender: paulw@viisi.sifive.com
-To: daniel.lezcano@linaro.org, tglx@linutronix.de
+To: tglx@linutronix.de, jason@lakedaemon.net, maz@kernel.org
 Subject: Re: [PATCH 01/12] riscv: abstract out CSR names for supervisor vs
  machine mode
 In-Reply-To: <20191028121043.22934-2-hch@lst.de>
-Message-ID: <alpine.DEB.2.21.9999.1911050955040.20606@viisi.sifive.com>
+Message-ID: <alpine.DEB.2.21.9999.1911050956230.20606@viisi.sifive.com>
 References: <20191028121043.22934-1-hch@lst.de>
  <20191028121043.22934-2-hch@lst.de>
 User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191105_095606_455834_C4C65784 
-X-CRM114-Status: GOOD (  22.71  )
+X-CRM114-CacheID: sfid-20191105_095738_315327_36B0C470 
+X-CRM114-Status: GOOD (  22.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -106,7 +105,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Daniel, Thomas,
+Jason, Marc, Thomas,
 
 On Mon, 28 Oct 2019, Christoph Hellwig wrote:
 
@@ -117,16 +116,17 @@ On Mon, 28 Oct 2019, Christoph Hellwig wrote:
 > 
 > Contains contributions from Damien Le Moal <Damien.LeMoal@wdc.com>
 > and Paul Walmsley <paul.walmsley@sifive.com>.
+> 
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
 
-Care to give a quick ack to the drivers/clocksource/timer-riscv.c changes?
+Care to give a quick ack to the drivers/irqchip changes?
 
 
 thanks,
 
 - Paul
 
-> 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
+
 > ---
 >  arch/riscv/Kconfig                 |  4 ++
 >  arch/riscv/include/asm/csr.h       | 72 +++++++++++++++++++++++++----
