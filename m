@@ -2,70 +2,58 @@ Return-Path: <SRS0=JmrV=Y6=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C1279C5DF63
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2019 18:16:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9DC6AC5DF63
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2019 18:29:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 92D1820663
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2019 18:16:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6D2A620869
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2019 18:29:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OjOS2OMP"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 92D1820663
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="u9sbAZWQ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D2A620869
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ief8BsJ1IYcmImKeNmRA464FlKFo+a+Wfoe47647cjM=; b=OjOS2OMPltJPDT
-	CrIaQowhoR/1DPiHW1V0a7+0LzBbYtFYZfqITIsNCfiui+SC7hdnv2dhbvGIv4ofrPFL/ZHeeTCW8
-	SwJWjY/OmnHPoS+40Pjiuw5gQ0QOavgoAAJWJdHRze1AROtm78pYCnFadwl5nbQrfNbivlo9DOHdv
-	uMb9pIYWLRFY7/K2hUj4W1h35WEGj8KmNFlt7GVyd/zjmxm85Rym0MvQTZ5kja5HQGuFGSZQYORCq
-	5VzbwOolz0dTnAdpOTzJjKvUov2RFTV8/P8rB6PRGGZHWknBdAYlinTVayCM/bs0gXH/MTPfYA93f
-	ysyVMiJCqS2JXMZXSV6A==;
+	List-Owner; bh=MxZhKdPubkMqnzGftM3qwg60USMququQ1yoVMoU7NHQ=; b=u9sbAZWQ4SzLkj
+	ncDl/9/o3YngVqU8/qaSWpcg5+Cw5R1EqH3ZrzRvjKCBYXLR/Ir5+fKSCnS3mFXGTS3Xo6dOBoOQF
+	HqUhygFzpu2lRHdrj7nzevNHwTKpIWVtIiy62tk3UhBOZ55BhZAjztL2WtuaqHomplETuBd0jm845
+	+U5Uaho18K2xWWX565Rs62c58Lv654EU0y8qtIHJkYnqiP5q3s8RDeZIqXnsdh9MdtpNCT27B1QTm
+	atRZR18UDgkmHg99ZGTI7Z4Nbk1dsNpDhuhAnDaGdkjveok7vfhJbfWw2J2kyaTgdK3HTnq0cM3or
+	JVG3IGQ5mD5Dn0qQCAzQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iSPrS-0006Li-Mt; Wed, 06 Nov 2019 18:16:54 +0000
-Received: from mail-ot1-f68.google.com ([209.85.210.68])
+	id 1iSQ3c-0002Q8-KU; Wed, 06 Nov 2019 18:29:28 +0000
+Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iSPrP-0006KW-Lb; Wed, 06 Nov 2019 18:16:53 +0000
-Received: by mail-ot1-f68.google.com with SMTP id n23so11408562otr.13;
- Wed, 06 Nov 2019 10:16:49 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=15BA2o2ULwBaZdW2cSXzi/G8aVSlqB+lkO94w9/s3/8=;
- b=rrVFfgdoZNWmWT838w7yPJ5AFE+s5DM8ooHHDU0SlY1idafWXcpIdcXZnUHI3RoIz3
- JqmetHbKKqgTmvh/dJgINW7dFHWLIvu1xlApEQQmpZNtEsfozFBkjiZIWub2wN33AYZr
- Vr36RCI1QLnjb9NKaM7ovIDEAnhuefu8TqmtmnLMsAe2Edjznuv5Vp8DmgTun+kk7q0K
- wU37u31qI7fmGzeJaStqFNc7s9w8N1UzQ425qOle1/3inO8thNadglufwtS0cmVLyNn1
- Fc0txj3zSH7hBdsZH2ZN3cmnyfT4wC6DxSDT/hz9yeKodDX5CtgO63QxyEkzBIMQtqw7
- V1wA==
-X-Gm-Message-State: APjAAAVZnVOj5f523aEASjHCKkQ1u3G2984KUeMGyQOOg8hsiZVrsPTw
- BzS5v+7gBjeJMsWARPXarjqAeny6i2kh+m8WXoc=
-X-Google-Smtp-Source: APXvYqyJzH2QJnGyQxa9UcvqsSRwLOqnLR39MniE098RrjM8S3f0LW/gsjuzU8BhMp3pbPwutON3uAZxVc/hg56lCG0=
-X-Received: by 2002:a9d:191e:: with SMTP id j30mr2894554ota.297.1573064209066; 
- Wed, 06 Nov 2019 10:16:49 -0800 (PST)
-MIME-Version: 1.0
+ id 1iSQ3E-00021q-0Z; Wed, 06 Nov 2019 18:29:05 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+ id B095A68AFE; Wed,  6 Nov 2019 19:28:57 +0100 (CET)
+Date: Wed, 6 Nov 2019 19:28:57 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: Re: [PATCH 11/21] asm-generic: don't provide ioremap for CONFIG_MMU
+Message-ID: <20191106182857.GA21062@lst.de>
 References: <20191029064834.23438-12-hch@lst.de>
  <mhng-33ea9141-2440-4a2d-8133-62094486fc48@palmer-si-x1c4>
-In-Reply-To: <mhng-33ea9141-2440-4a2d-8133-62094486fc48@palmer-si-x1c4>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 6 Nov 2019 19:16:38 +0100
-Message-ID: <CAMuHMdVuDp_8UDeWv8tdPAH5JS84=-yfwZjOk-YQcoYKM9za+w@mail.gmail.com>
-Subject: Re: [PATCH 11/21] asm-generic: don't provide ioremap for CONFIG_MMU
-To: Palmer Dabbelt <palmer@dabbelt.com>
+ <CAMuHMdVuDp_8UDeWv8tdPAH5JS84=-yfwZjOk-YQcoYKM9za+w@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdVuDp_8UDeWv8tdPAH5JS84=-yfwZjOk-YQcoYKM9za+w@mail.gmail.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191106_101651_706899_BA404978 
-X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-CacheID: sfid-20191106_102904_205789_CE5844E1 
+X-CRM114-Status: UNSURE (   9.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -93,39 +81,23 @@ Cc: "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
  Linux ARM <linux-arm-kernel@lists.infradead.org>,
  Michal Simek <monstr@monstr.eu>, Parisc List <linux-parisc@vger.kernel.org>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- alpha <linux-alpha@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, alpha <linux-alpha@vger.kernel.org>,
  MTD Maling List <linux-mtd@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
+On Wed, Nov 06, 2019 at 07:16:38PM +0100, Geert Uytterhoeven wrote:
+> > shouldn't they all just be that first one?  In other words, wouldn't it be
+> > better to always provide the generic ioremap prototype and unify the ports
+> > instead?
+> 
+> Agreed. But I'd go for the second one.
 
-On Wed, Nov 6, 2019 at 7:11 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> It looks like the difference in prototype between the architectures is between
->
->     void __iomem *ioremap(resource_size_t, size_t)
->     void __iomem *ioremap(phys_addr_t, size_t)
->     void __iomem *ioremap(phys_addr_t, unsigned long)
->     void __iomem *ioremap(unsigned long, unsigned long)
->
-> shouldn't they all just be that first one?  In other words, wouldn't it be
-> better to always provide the generic ioremap prototype and unify the ports
-> instead?
-
-Agreed. But I'd go for the second one.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Eventually we should unify it and only have a single prototype.
+But we have lots of implementations including inline functions, so
+this will take a few more steps.
 
 _______________________________________________
 linux-riscv mailing list
