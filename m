@@ -7,81 +7,82 @@ X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7F53AC5DF63
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2019 17:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A53ADC5DF65
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2019 18:11:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 23542217F4
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2019 17:56:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 794492166E
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2019 18:11:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LH5/LYeC";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="PGZwZeqh"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 23542217F4
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tbhFzZPL";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="PNo3xZ45"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 794492166E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:
-	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=BoXXznI/PmNbB1YolcL0DgCJBIWhtYhpdD1CIZE+Sq8=; b=LH5/LYeCPF8+Nm
-	3lw6u6yyJu65ZFl132kCsHrw+mlz+Qi8fxG+XQej7HQNipqIa9rIeaQ/S4iuyuWeAE8NUm0rnnnKd
-	cMJvHiQTrITebH9yG9CkuLtk2UIMYwvpMQZIRQerNTUszelZ/B0vO36PDFeIA/ws/FKnw88VfB0b5
-	U6/yB3VYUXGAEtGMAfx7TIG/jQ4d1mayQ6EqRr5xhlKT9G2IvxCwfZ1xyN0ljqC2GVLxiXmycESJA
-	sKEb/yQl3ROcpXjdpI+pMpLGJqFfN3WzVt72RVp8alI4O7h0iuDRvxFMr5xK1zWzjbAwNxP1t5E0g
-	m3SPrcNVuwQR1vHJIYNg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=/9RrCnmjm4TmF+Uz0HusrxxnC8TEhURq/zO6/SdpTlg=; b=tbhFzZPLbba/egT54hYILvSy1
+	LbimburGWrVsgUOsMdyAAE4ixrpw0L83IegOjKU/vKpvR99eSzF0wqIq1BADznz9+R/n7b8uRoRW2
+	SuTUsRPshFzk9U/oj/5er2qrI6DR/oZKMNZhqN7HxGEl3l6wuilg9kmKZVS2JTJ8sLv9GemJ40sjC
+	g6O0y1U2ZDC4CWK92TEciGZs0sXJof6/t3nbTuREyO8qonBnXKQKjLRVTVJYT83E0bQKlM3L7LNeQ
+	N/4dyk4Q5tY2PQh6YOrRlzSqczmINIqDleTKSxZuPy1YRaf4jbU2FyFvB+EW02gTTIaFgQmG/paSh
+	7dM+HwhrA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iSPY2-0006KO-Af; Wed, 06 Nov 2019 17:56:50 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1iSPmX-0003ud-1Y; Wed, 06 Nov 2019 18:11:49 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iSPXr-00063y-VG
- for linux-riscv@lists.infradead.org; Wed, 06 Nov 2019 17:56:41 +0000
-Received: by mail-pg1-x544.google.com with SMTP id 15so17648270pgt.7
- for <linux-riscv@lists.infradead.org>; Wed, 06 Nov 2019 09:56:35 -0800 (PST)
+ id 1iSPmP-0003ko-1a
+ for linux-riscv@lists.infradead.org; Wed, 06 Nov 2019 18:11:44 +0000
+Received: by mail-pf1-x443.google.com with SMTP id 3so19518635pfb.10
+ for <linux-riscv@lists.infradead.org>; Wed, 06 Nov 2019 10:11:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id;
- bh=xZW1gMrCUoJqpGWBEYHWFfV09K+K/0uVmzI4MIoxGS8=;
- b=PGZwZeqhjPGqmbBUrw44Auucb8k6dPtlYxXbuNpTAeEMGmKlsnFWXhrKzSARRD1P5Z
- ofkafacEFrUvuMMQ8srHmApZNGXOM2FXgWNtdGS1rg8UPKc85d79tzD5/t3BF7GMjDtX
- WoCFpoFoR/nlY6sa8P7ME55iO2h9Yfcb7ZSd7Zw+om2XJAjYyCK0yIJtNHDyXsnWFiZL
- JcRZR97cwQ2ZvZRsXx81CQhAqwyUUPUY90oJrysCQQ7l1b0iCyPludGEBBLbIE1elh0S
- JIqszC7OB8xZ2n5/8rEoDBU7MzMibg41EDmgXW2rJwIAtaViAg8zHwFVYITgL2sVpvu1
- UzBw==
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=j8eNwULKpZxPZC3Ue7l8WChG2Sw1ZeM6zGQJhcLB2q4=;
+ b=PNo3xZ45pD8y2N6reebfbfZpOdqqiBr1Lz+k6yQFI0L0/2p4rg9rq6quFNZC0fUzEy
+ WlsJw4SBofaliFzu25uc3GL+jfLPaDDaxBBSeFuxKZdU+M46CbuLmJCyYZ3YubRPMmb4
+ KJuh7ZayA7bBdQZfTwcK1CQOU3wgdx+7HYStjSw481T2P1SlQpPljbqXrje6nW+uncab
+ xnl2WqnQq3h3MzYeukOBvYmW22S70Ab9cogKRn6Y5e/sTOn8Whd6Q8gV3t9/yTSsvIJH
+ qW1nfHNHClKIYFKkd63n+sMzCsL83vOlxoTHUSAO8sIcR8NpgIG3bG3BN+f8kRlw/+Kv
+ 8mzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id;
- bh=xZW1gMrCUoJqpGWBEYHWFfV09K+K/0uVmzI4MIoxGS8=;
- b=nwZ1fsik8FDA83e6mr+cCOuQcL9EFJsZwaGsXMgKqIVGzDqIznGoI281LPbNoLzwjB
- ERX4fix9UU7Y8FAC+oCwjoSIG64KZQxU8yZKreQkHEErE8GvMrLaB9IzAwKhihdkeCBP
- 2JBjG+0fZP9OdTUOb4SvWnaPpr3Uu77SDOyN6xscmVKldKY0xiCMsfq4Kcz63bGjUI2a
- BnTtUj4InYMgRyVAonoxvUrVjv/ehWBsqfpMYr0VAg962pZOn9wjE9jsXEhxqmqk45jc
- tkjmW4hfzjPeoaxLTotWudPSrE3MtTZ8dEYzuZq+0FZzSWo1lXXzUnhJA8phjY0d7OyA
- WfWA==
-X-Gm-Message-State: APjAAAX5MfJZ0374eViEvszBZvzAwWeZAzpoNqTypXiib9KCv1dnnh8O
- KfZwVfVOJHg9OToGWAaWcrI60Q==
-X-Google-Smtp-Source: APXvYqyZI0/opOONYHdOR3l6SH/z69P+ajsTKg8L6ObdzcVPlsahU45e+bD0ChxR/pgAJsTDNgZ9EA==
-X-Received: by 2002:a17:90a:340c:: with SMTP id
- o12mr5529604pjb.18.1573062994968; 
- Wed, 06 Nov 2019 09:56:34 -0800 (PST)
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=j8eNwULKpZxPZC3Ue7l8WChG2Sw1ZeM6zGQJhcLB2q4=;
+ b=O6l6H4/iBtA1QRCvLdqPlaaSFFDJO71eNW8AMa6hf0JpVgfYi2c39bzDbq3edVsCv9
+ MWjtSWARdwB8950N2C+06rTHtVm6T1vUhWhM8cnlY9E1UuuuT0SKE7bHHNSr5H25Z1rt
+ by43PhSbDSZOeJ+5I096v2q98CmhrTIlc3EiOxvYbE2Sr3gh4Y04homeEndKGp56sg4t
+ Y6BEfwOpeP004rcgkIeOFyxKvx7oNoM/6aZ/CnqvdSudTbVbbzj15t63YxGqe+JHdmfn
+ QlIZZiSnn6pyw2ZWXMNX1MKoKkO7jF+UHi8BIi/tiAraGa3qVOASo0WTd5c5iThc7duN
+ PZ8g==
+X-Gm-Message-State: APjAAAWtqu6vTzxLrWncHi3dmVTd+b077+BH2krQqTlm3mLktMb8e8Jy
+ Az5KC1WCxl8Sh5aEWg9jx7vDbw==
+X-Google-Smtp-Source: APXvYqyi7QvVvwFbCwtrCcolLw/HV05dOHLVSXF3jAYddzEgRk4byr6sPDxWkoeeO54icKRZXqVAsQ==
+X-Received: by 2002:a62:170b:: with SMTP id 11mr4988303pfx.85.1573063899585;
+ Wed, 06 Nov 2019 10:11:39 -0800 (PST)
 Received: from localhost ([12.206.222.5])
- by smtp.gmail.com with ESMTPSA id z11sm32745913pfg.117.2019.11.06.09.56.34
+ by smtp.gmail.com with ESMTPSA id i5sm12394738pfo.52.2019.11.06.10.11.36
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 06 Nov 2019 09:56:34 -0800 (PST)
-Date: Wed, 06 Nov 2019 09:56:34 -0800 (PST)
-X-Google-Original-Date: Wed, 06 Nov 2019 09:56:23 PST (-0800)
-Subject: Re: [PATCH 10/21] asm-generic: ioremap_uc should behave the same with
- and without MMU
-In-Reply-To: <20191029064834.23438-11-hch@lst.de>
+ Wed, 06 Nov 2019 10:11:37 -0800 (PST)
+Date: Wed, 06 Nov 2019 10:11:37 -0800 (PST)
+X-Google-Original-Date: Wed, 06 Nov 2019 10:11:28 PST (-0800)
+Subject: Re: [PATCH 11/21] asm-generic: don't provide ioremap for CONFIG_MMU
+In-Reply-To: <20191029064834.23438-12-hch@lst.de>
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: Christoph Hellwig <hch@lst.de>
-Message-ID: <mhng-3f709a8a-a8c3-4612-b4de-847d13b4af0a@palmer-si-x1c4>
+Message-ID: <mhng-33ea9141-2440-4a2d-8133-62094486fc48@palmer-si-x1c4>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191106_095640_010389_0F720D68 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20191106_101141_084449_E376FFAA 
+X-CRM114-Status: GOOD (  24.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -105,94 +106,124 @@ Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, monstr@monstr.eu,
  linux-parisc@vger.kernel.org, linux-mips@vger.kernel.org,
  linux-alpha@vger.kernel.org, nios2-dev@lists.rocketboards.org
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Oct 2019 23:48:23 PDT (-0700), Christoph Hellwig wrote:
-> Whatever reason there is for the existence of ioremap_uc, and the fact
-> that it returns NULL by default on architectures with an MMU applies
-> equally to nommu architectures, so don't provide different defaults.
+On Mon, 28 Oct 2019 23:48:24 PDT (-0700), Christoph Hellwig wrote:
+> All MMU-enabled ports have a non-trivial ioremap and should thus provide
+> the prototype for their implementation instead of providing a generic
+> one unless a different symbol is not defined.  Note that this only
+> affects sparc32 nds32 as all others do provide their own version.
 >
-> In practice the difference is meaningless as the only portable driver
-> that uses ioremap_uc is atyfb which probably doesn't show up on nommu
-> devices.
+> Also update the kerneldoc comments in asm-generic/io.h to explain the
+> situation around the default ioremap* implementations correctly.
 >
 > Signed-off-by: Christoph Hellwig <hch@lst.de>
 > ---
->  include/asm-generic/io.h | 36 ++++++++++++++++--------------------
->  1 file changed, 16 insertions(+), 20 deletions(-)
+>  arch/nds32/include/asm/io.h    |  2 ++
+>  arch/sparc/include/asm/io_32.h |  1 +
+>  include/asm-generic/io.h       | 29 ++++++++---------------------
+>  3 files changed, 11 insertions(+), 21 deletions(-)
 >
+> diff --git a/arch/nds32/include/asm/io.h b/arch/nds32/include/asm/io.h
+> index 16f262322b8f..fb0e8a24c7af 100644
+> --- a/arch/nds32/include/asm/io.h
+> +++ b/arch/nds32/include/asm/io.h
+> @@ -6,6 +6,7 @@
+>
+>  #include <linux/types.h>
+>
+> +void __iomem *ioremap(phys_addr_t phys_addr, size_t size);
+>  extern void iounmap(volatile void __iomem *addr);
+>  #define __raw_writeb __raw_writeb
+>  static inline void __raw_writeb(u8 val, volatile void __iomem *addr)
+> @@ -80,4 +81,5 @@ static inline u32 __raw_readl(const volatile void __iomem *addr)
+>  #define writew(v,c)	({ __iowmb(); writew_relaxed((v),(c)); })
+>  #define writel(v,c)	({ __iowmb(); writel_relaxed((v),(c)); })
+>  #include <asm-generic/io.h>
+> +
+>  #endif /* __ASM_NDS32_IO_H */
+> diff --git a/arch/sparc/include/asm/io_32.h b/arch/sparc/include/asm/io_32.h
+> index df2dc1784673..9a52d9506f80 100644
+> --- a/arch/sparc/include/asm/io_32.h
+> +++ b/arch/sparc/include/asm/io_32.h
+> @@ -127,6 +127,7 @@ static inline void sbus_memcpy_toio(volatile void __iomem *dst,
+>   * Bus number may be embedded in the higher bits of the physical address.
+>   * This is why we have no bus number argument to ioremap().
+>   */
+> +void __iomem *ioremap(phys_addr_t offset, size_t size);
+>  void iounmap(volatile void __iomem *addr);
+>  /* Create a virtual mapping cookie for an IO port range */
+>  void __iomem *ioport_map(unsigned long port, unsigned int nr);
 > diff --git a/include/asm-generic/io.h b/include/asm-generic/io.h
-> index d02806513670..a98ed6325727 100644
+> index a98ed6325727..6a5edc23afe2 100644
 > --- a/include/asm-generic/io.h
 > +++ b/include/asm-generic/io.h
-> @@ -935,18 +935,7 @@ static inline void *phys_to_virt(unsigned long address)
->   * defined your own ioremap_*() variant you must then declare your own
->   * ioremap_*() variant as defined to itself to avoid the default NULL return.
+> @@ -922,28 +922,16 @@ static inline void *phys_to_virt(unsigned long address)
+>  /**
+>   * DOC: ioremap() and ioremap_*() variants
+>   *
+> - * If you have an IOMMU your architecture is expected to have both ioremap()
+> - * and iounmap() implemented otherwise the asm-generic helpers will provide a
+> - * direct mapping.
+> + * Architectures with an MMU are expected to provide ioremap() and iounmap()
+> + * themselves.  For NOMMU architectures we provide a default nop-op
+> + * implementation that expect that the physical address used for MMIO are
+> + * already marked as uncached, and can be used as kernel virtual addresses.
+>   *
+> - * There are ioremap_*() call variants, if you have no IOMMU we naturally will
+> - * default to direct mapping for all of them, you can override these defaults.
+> - * If you have an IOMMU you are highly encouraged to provide your own
+> - * ioremap variant implementation as there currently is no safe architecture
+> - * agnostic default. To avoid possible improper behaviour default asm-generic
+> - * ioremap_*() variants all return NULL when an IOMMU is available. If you've
+> - * defined your own ioremap_*() variant you must then declare your own
+> - * ioremap_*() variant as defined to itself to avoid the default NULL return.
+> + * ioremap_wc() and ioremap_wt() can provide more relaxed caching attributes
+> + * for specific drivers if the architecture choses to implement them.  If they
+> + * are not implemented we fall back to plain ioremap.
 >   */
+>  #ifndef CONFIG_MMU
 > -
-> -#ifdef CONFIG_MMU
+> -/*
+> - * Change "struct page" to physical address.
+> - *
+> - * This implementation is for the no-MMU case only... if you have an MMU
+> - * you'll need to provide your own definitions.
+> - */
 > -
-> -#ifndef ioremap_uc
-> -#define ioremap_uc ioremap_uc
-> -static inline void __iomem *ioremap_uc(phys_addr_t offset, size_t size)
-> -{
-> -	return NULL;
-> -}
-> -#endif
-> -
-> -#else /* !CONFIG_MMU */
-> +#ifndef CONFIG_MMU
+>  #ifndef ioremap
+>  #define ioremap ioremap
+>  static inline void __iomem *ioremap(phys_addr_t offset, size_t size)
+> @@ -954,14 +942,13 @@ static inline void __iomem *ioremap(phys_addr_t offset, size_t size)
 >
->  /*
->   * Change "struct page" to physical address.
-> @@ -980,14 +969,6 @@ static inline void __iomem *ioremap_nocache(phys_addr_t offset, size_t size)
+>  #ifndef iounmap
+>  #define iounmap iounmap
+> -
+>  static inline void iounmap(void __iomem *addr)
+>  {
 >  }
 >  #endif
->
-> -#ifndef ioremap_uc
-> -#define ioremap_uc ioremap_uc
-> -static inline void __iomem *ioremap_uc(phys_addr_t offset, size_t size)
-> -{
-> -	return ioremap_nocache(offset, size);
-> -}
-> -#endif
-> -
->  #ifndef ioremap_wc
->  #define ioremap_wc ioremap_wc
->  static inline void __iomem *ioremap_wc(phys_addr_t offset, size_t size)
-> @@ -1004,6 +985,21 @@ static inline void __iomem *ioremap_wt(phys_addr_t offset, size_t size)
->  }
->  #endif
->
-> +/*
-> + * ioremap_uc is special in that we do require an explicit architecture
-> + * implementation.  In general you do now want to use this function in a
-
-Presumably that's supposed to be "do not want to use"?
-
-> + * driver and use plain ioremap, which is uncached by default.  Similarly
-> + * architectures should not implement it unless they have a very good
-> + * reason.
-> + */
-> +#ifndef ioremap_uc
-> +#define ioremap_uc ioremap_uc
-> +static inline void __iomem *ioremap_uc(phys_addr_t offset, size_t size)
-> +{
-> +	return NULL;
-> +}
-> +#endif
+>  #endif /* CONFIG_MMU */
 > +
->  #ifdef CONFIG_HAS_IOPORT_MAP
->  #ifndef CONFIG_GENERIC_IOMAP
->  #ifndef ioport_map
+>  #ifndef ioremap_nocache
+> -void __iomem *ioremap(phys_addr_t phys_addr, size_t size);
+>  #define ioremap_nocache ioremap_nocache
+>  static inline void __iomem *ioremap_nocache(phys_addr_t offset, size_t size)
+>  {
 
-With the fix:
+It looks like the difference in prototype between the architectures is between
 
-Reviewed-by: Palmer Dabbelt <palmer@dabbelt.com>
+    void __iomem *ioremap(resource_size_t, size_t)
+    void __iomem *ioremap(phys_addr_t, size_t)
+    void __iomem *ioremap(phys_addr_t, unsigned long)
+    void __iomem *ioremap(unsigned long, unsigned long)
+
+shouldn't they all just be that first one?  In other words, wouldn't it be 
+better to always provide the generic ioremap prototype and unify the ports 
+instead?
 
 _______________________________________________
 linux-riscv mailing list
