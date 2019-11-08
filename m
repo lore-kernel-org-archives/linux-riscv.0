@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B3AC6C5DF61
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Nov 2019 02:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E7DB1C5DF60
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Nov 2019 04:53:26 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8055F2084D
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Nov 2019 02:21:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B7F5F21848
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 Nov 2019 04:53:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="li5RU0M3";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=canb.auug.org.au header.i=@canb.auug.org.au header.b="U4rtQaWy"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8055F2084D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kJJdY7ce";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=canb.auug.org.au header.i=@canb.auug.org.au header.b="Aga5bP62"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B7F5F21848
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=canb.auug.org.au
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,46 +26,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Subject:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=LK/QM1Yamk9rIN4peCh8ILHeVw6ajEFwjd3/RJFmx9c=; b=li5RU0M3nx9UhLz+0iWxJJtX4
-	Z6pnaXN5Z9XCw9BQaK23HKA6nVSXB77wmOg0qOE7Zb31toRDihL0XWfucVVLgkIX8gc9Rl7D2m8IS
-	0TIa4ALEkgVDqa5qOilfqU2Bv+qtFyaFKaMpnYnXFAlOkHnLiCAClM983e5/wOk55t5vsNN+TP24i
-	qLxSc7EOulOD/tUIpR51vFMAqKnFAftrMF6JFdjPPjcEi10HRMrQ4fOxfWakeQwua0WufI6ekHF8T
-	t8QM6vm78q+f/FBWgekEpEGfaFLe3vRK6PxCM+HobI866Em5cYnruIVXA/pvVYtvlEx4TImTjWdc9
-	lCZ56OgKQ==;
+	 bh=vT6ki39Xb1wozRpFa8uR1QHUEr+e55dVQufQ4aOh4Wg=; b=kJJdY7ce3CRqCpD3vA54axmRB
+	6Dq7JT7IaecrNCkj05WTtIuew1exRlm8aBr+c3HN383gFpwtaKJcPxqN1MiL2O1baLjR8WSiNyqfN
+	wKLiD0xFkwtFO+G3MtJCKzP1iJa+Y83YaTNvHYS0gyuX30sffiajSlB0N1Cojl3vEnjHE7fcx0arl
+	m/KdveW5ZEcXHs6yfdrp0vluQshjNlUnrqRAPiRejUg/9vy/MvqXL4BADJyCWfzDJjkYKAZaiB3O4
+	XSVw8SR0rlQrcoPI/lB1Vwa2o+779/XHZRVQMkB9RLgrKDNml7YvX4Xq8xJwMuHaucBfEavFAPnnl
+	K0BpU0Xjw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iSttl-0005cB-Aw; Fri, 08 Nov 2019 02:21:17 +0000
-Received: from ozlabs.org ([203.11.71.1])
+	id 1iSwGz-0000N7-AU; Fri, 08 Nov 2019 04:53:25 +0000
+Received: from ozlabs.org ([2401:3900:2:1::2])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iSttE-0004sd-OC; Fri, 08 Nov 2019 02:20:46 +0000
+ id 1iSwGc-0008PN-JB; Fri, 08 Nov 2019 04:53:04 +0000
 Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
  SHA256) (No client certificate requested)
- by mail.ozlabs.org (Postfix) with ESMTPSA id 478PBS3PfSz9sPV;
- Fri,  8 Nov 2019 13:20:31 +1100 (AEDT)
+ by mail.ozlabs.org (Postfix) with ESMTPSA id 478SZB0Shjz9s7T;
+ Fri,  8 Nov 2019 15:52:50 +1100 (AEDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=canb.auug.org.au;
- s=201702; t=1573179640;
- bh=S6Hvp/X50jZ7EFZZYb6XjoD8DIp7pBL6EOxbI/Y+OmY=;
+ s=201702; t=1573188777;
+ bh=lsTl8lWOKmxCnD0se991UB82l6huuBGMFOozceyJHpc=;
  h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=U4rtQaWysYr5ul3hUzj3tXyGWA+dGyTSnc3y2qfDAh4w887T0Hzfb8DdEqQP21j78
- bLKePda8G55isteH/DTvpPd03ZK9+vFIP2iUGpxiv+3xIK9OuZtjmN/RAIpP15dfdj
- 0Ld5faxNX3hXehfbb36CbglNc4LqiXGpHLudhhFf9471GTQ/nh4M9Ia5iSSIjnNJxu
- 63CUKpyBsz0dhmHgaL3lh9b0hx4Rx9HV9YWgOC91UBjeJRdrNX18Qn75Ld9VMLlUVV
- mTc9cTLqYFj2lbrszxLu+sBzbYPOLWb8hL6IZrY3G9dxk9CJ02Ie/8JWe6/omQo4Sy
- vyjmwU0AmsEPQ==
-Date: Fri, 8 Nov 2019 13:20:00 +1100
+ b=Aga5bP62YWYX6iNtz585PAG4ScKlPSlTrEjqwE3ki+YzY7ybieoqKfiAYYHN3ZWFB
+ dgeiWeIzKbrAc1LjDEbqb+7n6BKo8ZoNAEGb/GpuSMY/qWGblDc3ftTHDFdi/3SYk7
+ f1uv5aZrwD6T5U/U9em7j4VZ9CxAvSzmWzmiTf/WhUxI4t1uwco2iMnRw+QceM6uTZ
+ tLRh0cdl4StpJ6QyKwe/vbR2oz7U5o4mUFwxyUqRMMEe92kUlQJVrFAdfZZd5xU9JS
+ ZYhkfWeXPzcZdut4sV7iiXkFFIh/Y1JyCFSYtdaVfsbRy5iI42riGD6QP401UVoRGe
+ p7+WJZ1Mo/MGA==
+Date: Fri, 8 Nov 2019 15:52:48 +1100
 From: Stephen Rothwell <sfr@canb.auug.org.au>
 To: Christoph Hellwig <hch@lst.de>
 Subject: Re: generic-iomap tree for linux-next
-Message-ID: <20191108132000.3e7bd5b8@canb.auug.org.au>
-In-Reply-To: <20191107204743.GA22863@lst.de>
+Message-ID: <20191108155248.0a32a03a@canb.auug.org.au>
+In-Reply-To: <20191108132000.3e7bd5b8@canb.auug.org.au>
 References: <20191029064834.23438-1-hch@lst.de> <20191107204743.GA22863@lst.de>
+ <20191108132000.3e7bd5b8@canb.auug.org.au>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191107_182045_027033_4126968A 
-X-CRM114-Status: UNSURE (   7.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191107_205302_832564_D2C24B18 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,53 +89,77 @@ Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, Michal Simek <monstr@monstr.eu>,
  linux-parisc@vger.kernel.org, linux-mips@vger.kernel.org,
  linux-alpha@vger.kernel.org, nios2-dev@lists.rocketboards.org
-Content-Type: multipart/mixed; boundary="===============5698636969386706776=="
+Content-Type: multipart/mixed; boundary="===============8187709496846521406=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5698636969386706776==
-Content-Type: multipart/signed; boundary="Sig_/cPVZY9JpGW.gARWJr=rYvJb";
+--===============8187709496846521406==
+Content-Type: multipart/signed; boundary="Sig_/tVtmaodFaJa/ooywirx=fo/";
  protocol="application/pgp-signature"; micalg=pgp-sha256
 
---Sig_/cPVZY9JpGW.gARWJr=rYvJb
+--Sig_/tVtmaodFaJa/ooywirx=fo/
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: quoted-printable
 
 Hi Christoph,
 
-On Thu, 7 Nov 2019 21:47:43 +0100 Christoph Hellwig <hch@lst.de> wrote:
+On Fri, 8 Nov 2019 13:20:00 +1100 Stephen Rothwell <sfr@canb.auug.org.au> w=
+rote:
 >
-> can you add the generic-ioremap tree:
+> On Thu, 7 Nov 2019 21:47:43 +0100 Christoph Hellwig <hch@lst.de> wrote:
+> >
+> > can you add the generic-ioremap tree:
+> >=20
+> >    git://git.infradead.org/users/hch/ioremap.git
+> >=20
+> > to linux-next?  =20
 >=20
->    git://git.infradead.org/users/hch/ioremap.git
->=20
-> to linux-next?=20
+> I assume you mean the for-next branch?
 
-I assume you mean the for-next branch?
+With that assumption, added from today.
+
+Thanks for adding your subsystem tree as a participant of linux-next.  As
+you may know, this is not a judgement of your code.  The purpose of
+linux-next is for integration testing and to lower the impact of
+conflicts between subsystems in the next merge window.=20
+
+You will need to ensure that the patches/commits in your tree/series have
+been:
+     * submitted under GPL v2 (or later) and include the Contributor's
+        Signed-off-by,
+     * posted to the relevant mailing list,
+     * reviewed by you (or another maintainer of your subsystem tree),
+     * successfully unit tested, and=20
+     * destined for the current or next Linux merge window.
+
+Basically, this should be just what you would send to Linus (or ask him
+to fetch).  It is allowed to be rebased if you deem it necessary.
+
 --=20
 Cheers,
-Stephen Rothwell
+Stephen Rothwell=20
+sfr@canb.auug.org.au
 
---Sig_/cPVZY9JpGW.gARWJr=rYvJb
+--Sig_/tVtmaodFaJa/ooywirx=fo/
 Content-Type: application/pgp-signature
 Content-Description: OpenPGP digital signature
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAl3E0NAACgkQAVBC80lX
-0GwJFAgAgWvXVOBZdx5Do4eCmZ0ZSFyBsTuUtYHPbtNtwQy/iB3LV9BkCAPS767N
-fkEYwRYkqSzUXOA/WIHUXJad89wLVEs1LjxmjeEqJQ2TvsUFGO8vjnTPyXDrfB3W
-VTmeqX0QVqJIwGn29lL9S3UqJ1r1FZVLCcSFLOZQzyRCWmgT+sF9Hofg/5Lwv6xV
-2c+V3LdCr0cTLB+ZHFOz0toYCQMeXlRJM82WAUPhV+jYc53MqEM2VxmJ2G51xIJm
-YEIGyjw5cgDkdJhgj0f+iXPoG7BZ7OM6KPpEVZHEv6pdVP2bcuz37swC+XmbpMAX
-PVoofTbgfmgGmqZ8GiRY+i/KHc43fg==
-=dI/j
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAl3E9KAACgkQAVBC80lX
+0GzmWwf+Klgi0tTyTa+t0RWIsOgTgCRRshcd2R+zC2TAQiqpOvNWxiNkHSOO6rPt
+AIwk9/iB+0v8JHEaYe+JqqmAtlRJjfMKtLkGBCB8WLQ/Sw+V+BW+2kZfZbMDL47C
+Q2NA/MqqCVxs38kWlJA+gd3xF1FJLjYYuHlhaksjzlHUVGVcCxeXRrd521DYPcwm
+9ZzSoL0488rxdiISFluZ44y3nKSgX3Ye5J4DnymJod7hsctYKZvWL+GxoizD+i6m
+HgzcYw5CxoMeQcS9WgBNCafeABW7i7w3jfCsmBjTNWCuUkE+Pruoct6C6G6Q5LqS
+jgJAqa5QBfJCS5OsMXSaf1cZapFTkQ==
+=R1aO
 -----END PGP SIGNATURE-----
 
---Sig_/cPVZY9JpGW.gARWJr=rYvJb--
+--Sig_/tVtmaodFaJa/ooywirx=fo/--
 
 
---===============5698636969386706776==
+--===============8187709496846521406==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -146,5 +170,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5698636969386706776==--
+--===============8187709496846521406==--
 
