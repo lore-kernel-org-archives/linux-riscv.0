@@ -2,22 +2,21 @@ Return-Path: <SRS0=/vz5=ZE=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.3 required=3.0
+X-Spam-Status: No, score=-3.3 required=3.0
 	tests=BUG6152_INVALID_DATE_TZ_ABSURD,DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,
-	INCLUDES_PATCH,INVALID_DATE_TZ_ABSURD,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	INVALID_DATE_TZ_ABSURD,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 98969C43331
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Nov 2019 12:43:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 83E3DC17440
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Nov 2019 12:58:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6751020818
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Nov 2019 12:43:03 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 59184214E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 Nov 2019 12:58:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tUCL+Kvt"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6751020818
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qVzHrEbL"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 59184214E0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,32 +25,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:From:Date:
 	MIME-Version:Subject:To:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=f5w3spfd69kbTXIrauf3LyJhFMaObZSWq07FwV7dZc4=; b=tUCL+KvtvtXArOEC9eZuE/Fjb
-	6zOHITrtXV0UcLkZN7IA+OsQo2E/cH8e93oJxFXyX3InuDgFox1e87AqX/FTcMNv7tJXGPrF2BxiZ
-	3mdEu7Nz+pTjBtZT41cPJdzRl8NZQEIPhdH+n/uUPRNG0DGaCj6g+X1JoqoT1VasCe8QghmAT4f5f
-	sG3IdPrsqdXK8th5L+oCqBjujuT841CuIK/weFhh4jaGU8zaTOvcxQgnmxj5KWfmTfVqyG3ITmFsL
-	qhcnWjpIjRCJthQ7iFnXrPwnAsiTTC2SG8QK+kdFkczzkMJr8Bfp5wG8TUkVTD5Ptjz4iVFB27pNH
-	eYj57kVCA==;
+	 bh=B8b0TftiiO4QqhMe/IqntwKcnxJoqOqKhp6NefTQGPA=; b=qVzHrEbLeeU80NXamodpCVkV6
+	EGYvU4ogxfA9UJ5/D86Yt7hlfXMgo7bGRz6Ob4tKOG9J9fJb1pYzOiaODA3M94yU74X6xnIPi9lrw
+	RqmTLgMNGiWtjifbedf+Tb8IrRO6E8fv/hGT2iI2gkNJh/UQV+nBXp7ZBSIOp2n5lxymUfZ1Ehu+/
+	3rR3Q1lgTqFip/L5urwWfg6hy4wi2VzkCOVmddVhE0heUGONTBob5ESXTmph+DH3S0/Vq4vfEP7yS
+	jm4qVVNqKKvLv6a7jgjQsHB5Qo/lswuoLSb+bk/IOH3/II6y11ql9sAHSIvHpk8iReb8ha3Tk1pcq
+	+dDdvUEVA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iUVVd-0000SC-1m; Tue, 12 Nov 2019 12:43:01 +0000
+	id 1iUVkJ-0007RR-96; Tue, 12 Nov 2019 12:58:11 +0000
 Received: from inca-roads.misterjones.org ([213.251.177.50])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iUVVa-0000RR-1y
- for linux-riscv@lists.infradead.org; Tue, 12 Nov 2019 12:42:59 +0000
+ id 1iUVkG-0007Qn-TK
+ for linux-riscv@lists.infradead.org; Tue, 12 Nov 2019 12:58:10 +0000
 Received: from www-data by cheepnis.misterjones.org with local (Exim 4.80)
  (envelope-from <maz@kernel.org>)
- id 1iUVVR-0007EZ-3z; Tue, 12 Nov 2019 13:42:49 +0100
+ id 1iUVk8-0007QY-JF; Tue, 12 Nov 2019 13:58:00 +0100
 To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH 1/4] irqchip: sifive: Support hierarchy irq domain
+Subject: Re: [PATCH 3/4] gpio: sifive: Add GPIO driver for SiFive SoCs
 X-PHP-Originating-Script: 0:main.inc
 MIME-Version: 1.0
-Date: Tue, 12 Nov 2019 13:52:09 +0109
+Date: Tue, 12 Nov 2019 14:07:21 +0109
 From: Marc Zyngier <maz@kernel.org>
-In-Reply-To: <1573560684-48104-2-git-send-email-yash.shah@sifive.com>
+In-Reply-To: <1573560684-48104-4-git-send-email-yash.shah@sifive.com>
 References: <1573560684-48104-1-git-send-email-yash.shah@sifive.com>
- <1573560684-48104-2-git-send-email-yash.shah@sifive.com>
-Message-ID: <ad0a3b419a3f5c3475d5fafcc2a037fb@www.loen.fr>
+ <1573560684-48104-4-git-send-email-yash.shah@sifive.com>
+Message-ID: <d82620dd33bdd6bb4d34e49600a506d1@www.loen.fr>
 X-Sender: maz@kernel.org
 User-Agent: Roundcube Webmail/0.7.2
 X-SA-Exim-Connect-IP: <locally generated>
@@ -66,8 +65,9 @@ X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on cheepnis.misterjones.org);
  SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191112_044258_250912_075772E8 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20191112_045809_090289_59CB48ED 
+X-CRM114-Status: UNSURE (   7.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,99 +93,30 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2019-11-12 13:21, Yash Shah wrote:
-> Add support for hierarchy irq domains. This is needed as 
-> pre-requisite for
-> gpio-sifive driver.
+> Adds the GPIO driver for SiFive RISC-V SoCs.
 >
+> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
+> [Atish: Various fixes and code cleanup]
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
 > Signed-off-by: Yash Shah <yash.shah@sifive.com>
-> ---
->  drivers/irqchip/Kconfig           |  1 +
->  drivers/irqchip/irq-sifive-plic.c | 41
-> +++++++++++++++++++++++++++++++++++----
->  2 files changed, 38 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-> index ccbb897..a398552 100644
-> --- a/drivers/irqchip/Kconfig
-> +++ b/drivers/irqchip/Kconfig
-> @@ -488,6 +488,7 @@ endmenu
->  config SIFIVE_PLIC
->  	bool "SiFive Platform-Level Interrupt Controller"
->  	depends on RISCV
-> +	select IRQ_DOMAIN_HIERARCHY
->  	help
->  	   This enables support for the PLIC chip found in SiFive (and
->  	   potentially other) RISC-V systems.  The PLIC controls devices
-> diff --git a/drivers/irqchip/irq-sifive-plic.c
-> b/drivers/irqchip/irq-sifive-plic.c
-> index 7d0a12f..2fa1c84 100644
-> --- a/drivers/irqchip/irq-sifive-plic.c
-> +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -154,15 +154,48 @@ static struct irq_chip plic_chip = {
->  static int plic_irqdomain_map(struct irq_domain *d, unsigned int 
-> irq,
->  			      irq_hw_number_t hwirq)
->  {
-> -	irq_set_chip_and_handler(irq, &plic_chip, handle_fasteoi_irq);
-> -	irq_set_chip_data(irq, NULL);
-> +	irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
-> +			    handle_fasteoi_irq, NULL, NULL);
->  	irq_set_noprobe(irq);
->  	return 0;
->  }
->
-> +static int plic_irq_domain_translate(struct irq_domain *d,
-> +				     struct irq_fwspec *fwspec,
-> +				     unsigned long *hwirq, unsigned int *type)
+
+[...]
+
+> +static int sifive_gpio_child_to_parent_hwirq(struct gpio_chip *gc,
+> +					     unsigned int child,
+> +					     unsigned int child_type,
+> +					     unsigned int *parent,
+> +					     unsigned int *parent_type)
 > +{
-> +	if (WARN_ON(fwspec->param_count < 1))
-> +		return -EINVAL;
-> +	*hwirq = fwspec->param[0];
-> +	*type = IRQ_TYPE_NONE;
-> +	return 0;
-> +}
+> +	/* All these interrupts are level high in the CPU */
+> +	*parent_type = IRQ_TYPE_LEVEL_HIGH;
 
-This is actually what should be called irq_domain_translate_onecell().
+It is bizare that you enforce LEVEL_HIGH here, while setting it to NONE
+in the PLIC driver. These things should be consistent.
 
-Consider implementing that instead, and using it in this driver. I'm
-pretty sure other drivers could use it (I spotted irq-nvic.c).
+> +	*parent = child + 7;
 
-> +
-> +static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned
-> int virq,
-> +				 unsigned int nr_irqs, void *arg)
-> +{
-> +	int i, ret;
-> +	irq_hw_number_t hwirq;
-> +	unsigned int type = IRQ_TYPE_NONE;
-> +	struct irq_fwspec *fwspec = arg;
-> +
-> +	ret = plic_irq_domain_translate(domain, fwspec, &hwirq, &type);
-> +	if (ret)
-> +		return ret;
-> +
-> +	for (i = 0; i < nr_irqs; i++) {
-> +		ret = plic_irqdomain_map(domain, virq + i, hwirq + i);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static const struct irq_domain_ops plic_irqdomain_ops = {
-> -	.map		= plic_irqdomain_map,
-> -	.xlate		= irq_domain_xlate_onecell,
-> +	.translate	= plic_irq_domain_translate,
-> +	.alloc		= plic_irq_domain_alloc,
-> +	.free		= irq_domain_free_irqs_top,
->  };
->
->  static struct irq_domain *plic_irqdomain;
-
-Otherwise, looks OK.
-
-Thanks,
+Irk, magic numbers...
 
          M.
 -- 
