@@ -6,16 +6,16 @@ X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,USER_AGENT_SANE_2 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E105C47411
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Nov 2019 16:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A68A8C33C99
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Nov 2019 16:51:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DD0C322CBB
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Nov 2019 15:49:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BD586222D3
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 Nov 2019 15:32:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TmMLTbn7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DD0C322CBB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="W7FII/ZK"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD586222D3
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=goodmis.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,38 +24,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xWmD4brqu5aylU8JVHjHl51hhv3H17Fuszmyfq0D4wg=; b=TmMLTbn7S9mT62
-	U6QaGUtyB8OgkFW8ayLxSwGWY7k0Q7hs9zp9xmOTbTfA9aCRfrehYBmaWiLeZHEzt0mj5cL8VjvLh
-	4kcfHOKIYERFKQen3ZSeohBvvx8BUFpsFqBUOdAC8U77eG5cQeS+9waYRL/4+ZB40Rw2w5+DGxdeY
-	IyVso994ULLlwCgBLDODlteFomt3/Z927HSIqQ55lUeSUPqBHBsrDh/A5YeKltBn424lz3BrLFZwe
-	SrT1LM9ZNFVtCM0khgl8V3RLM76q7dvISipT9O5HBdu3msqbWf3RSqDQE3INoiyDFTzCL67ySWKgj
-	gWNBw57R0Btj2hTpeIwA==;
+	List-Owner; bh=la1fcWRqkrLphM1uzmzI9A+GcfFlZDG8o9aFNCyzSoM=; b=W7FII/ZKZ/5flE
+	P6jqcSglsiersJ+A3xvMgm4jIS2THCJp1f870aYm5kno9c9mq7BHKKq4JStXD9uVPiiBo+lz95yML
+	A0Jj2j6YPG1wIKtqI2iewPhpuTTv78lm0Gnxh+hQzOXYh4VmF9yJIRV02xZQRQhnixPgvU/ngvc4P
+	8P5zPg2RbgY0cwqkX859tv9VO3vznID+crIqMx7E5OSPxRVUwi7f+zF5aUW2d64Ah4y3CfEeC9HAy
+	s6iFj0qtOQfUDRJohM5PGybn1rMq9Y3gT2xm5qTnWd5NCNzlLh4mE2CyRs1dCcxHAZ5KI2byGRv5c
+	IO49MLZN0ybNnYWJ6V2w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iUutz-0002vH-UR; Wed, 13 Nov 2019 15:49:51 +0000
+	id 1iUudA-00054Z-RT; Wed, 13 Nov 2019 15:32:28 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iUutx-0002ur-LN
- for linux-riscv@lists.infradead.org; Wed, 13 Nov 2019 15:49:50 +0000
+ id 1iUud7-000541-Im; Wed, 13 Nov 2019 15:32:26 +0000
 Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com
  [66.24.58.225])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 26B8222B4B;
- Wed, 13 Nov 2019 15:49:47 +0000 (UTC)
-Date: Wed, 13 Nov 2019 10:49:45 -0500
+ by mail.kernel.org (Postfix) with ESMTPSA id BEBEA20679;
+ Wed, 13 Nov 2019 15:32:15 +0000 (UTC)
+Date: Wed, 13 Nov 2019 10:32:14 -0500
 From: Steven Rostedt <rostedt@goodmis.org>
-To: Dmitry Safonov <dima@arista.com>
-Subject: Re: [PATCH 01/50] kallsyms/printk: Add loglvl to print_ip_sym()
-Message-ID: <20191113104945.604e34d2@gandalf.local.home>
-In-Reply-To: <20191106030542.868541-2-dima@arista.com>
+To: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>
+Subject: Re: [PATCH 00/50] Add log level to show_stack()
+Message-ID: <20191113103214.1585923c@gandalf.local.home>
+In-Reply-To: <20191112044447.GA121272@google.com>
 References: <20191106030542.868541-1-dima@arista.com>
- <20191106030542.868541-2-dima@arista.com>
+ <20191106083538.z5nlpuf64cigxigh@pathway.suse.cz>
+ <20191108103719.GB175344@google.com>
+ <20191108130447.h3wfgo4efjkto56f@pathway.suse.cz>
+ <20191111012336.GA85185@google.com>
+ <20191111091207.u3lrd6cmumnx4czr@pathway.suse.cz>
+ <20191112044447.GA121272@google.com>
 X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191113_074949_717271_8D6A102D 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20191113_073225_656276_6962F098 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,74 +71,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Juri Lelli <juri.lelli@redhat.com>,
- Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>,
- James Hogan <jhogan@kernel.org>, Dmitry Safonov <0x7f454c46@gmail.com>,
- linux-mips@vger.kernel.org, Ben Segall <bsegall@google.com>,
- linux-riscv@lists.infradead.org, Vincent Chen <deanbo422@gmail.com>,
- Will Deacon <will@kernel.org>, Ingo Molnar <mingo@kernel.org>,
+Cc: Juri Lelli <juri.lelli@redhat.com>, linux-sh@vger.kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Ben Segall <bsegall@google.com>,
+ Guo Ren <guoren@kernel.org>, Pavel Machek <pavel@ucw.cz>,
  Vincent Guittot <vincent.guittot@linaro.org>,
- Paul Burton <paulburton@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Mel Gorman <mgorman@suse.de>,
- Jiri Slaby <jslaby@suse.com>, Petr Mladek <pmladek@suse.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Greentime Hu <green.hu@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>, Michal Simek <monstr@monstr.eu>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- Ralf Baechle <ralf@linux-mips.org>,
- Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>
+ Paul Burton <paulburton@kernel.org>, Dmitry Safonov <dima@arista.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Mel Gorman <mgorman@suse.de>,
+ Jiri Slaby <jslaby@suse.com>, Matt Turner <mattst88@gmail.com>,
+ uclinux-h8-devel@lists.sourceforge.jp, Len Brown <len.brown@intel.com>,
+ linux-pm@vger.kernel.org, Heiko Carstens <heiko.carstens@de.ibm.com>,
+ linux-um@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Richard Henderson <rth@twiddle.net>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-kernel@vger.kernel.org,
+ Ralf Baechle <ralf@linux-mips.org>, Paul Mackerras <paulus@samba.org>,
+ Andrew Morton <akpm@linux-foundation.org>, linux-ia64@vger.kernel.org,
+ Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>,
+ James Hogan <jhogan@kernel.org>, "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Max Filippov <jcmvbkbc@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
+ Ingo Molnar <mingo@kernel.org>, linux-s390@vger.kernel.org,
+ linux-c6x-dev@linux-c6x.org, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>,
+ linux-xtensa@linux-xtensa.org, Vasily Gorbik <gor@linux.ibm.com>,
+ Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
+ linux-m68k@lists.linux-m68k.org, Stafford Horne <shorne@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, Chris Zankel <chris@zankel.net>,
+ Tony Luck <tony.luck@intel.com>, Douglas Anderson <dianders@chromium.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Dmitry Safonov <0x7f454c46@gmail.com>, Will Deacon <will@kernel.org>,
+ Daniel Thompson <daniel.thompson@linaro.org>,
+ Brian Cain <bcain@codeaurora.org>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ kgdb-bugreport@lists.sourceforge.net, linux-snps-arc@lists.infradead.org,
+ Fenghua Yu <fenghua.yu@intel.com>, Borislav Petkov <bp@alien8.de>,
+ Jeff Dike <jdike@addtoit.com>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+ Greentime Hu <green.hu@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
+ linux-parisc@vger.kernel.org, linux-alpha@vger.kernel.org,
+ Ley Foon Tan <lftan@altera.com>, "David S. Miller" <davem@davemloft.net>,
+ Rich Felker <dalias@libc.org>, Petr Mladek <pmladek@suse.com>,
+ Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Jonas Bonn <jonas@southpole.se>, Richard Weinberger <richard@nod.at>,
+ x86@kernel.org, Russell King <linux@armlinux.org.uk>,
+ clang-built-linux@googlegroups.com, Ingo Molnar <mingo@redhat.com>,
+ Mark Salter <msalter@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ openrisc@lists.librecores.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ Michal Simek <monstr@monstr.eu>, Vineet Gupta <vgupta@synopsys.com>,
+ linux-mips@vger.kernel.org, Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Jason Wessel <jason.wessel@windriver.com>,
+ nios2-dev@lists.rocketboards.org, linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed,  6 Nov 2019 03:04:52 +0000
-Dmitry Safonov <dima@arista.com> wrote:
+On Tue, 12 Nov 2019 13:44:47 +0900
+Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com> wrote:
 
-> --- a/kernel/trace/ftrace.c
-> +++ b/kernel/trace/ftrace.c
-> @@ -2002,12 +2002,12 @@ void ftrace_bug(int failed, struct dyn_ftrace *rec)
->  	case -EFAULT:
->  		FTRACE_WARN_ON_ONCE(1);
->  		pr_info("ftrace faulted on modifying ");
+> > > I do recall that we talked about per-CPU printk state bit which would
+> > > start/end "just print it" section. We probably can extend it to "just
+> > > log_store" type of functionality. Doesn't look like a very bad idea.  
+> > 
+> > The problem with per-CPU printk is that we would need to disable
+> > interrupts.  
+> 
+> Or disable preemption and have loglevel per-CPU and per-context.
+> preempt_count can navigate us to the right context loglevel on
+> particular CPU. I'm talking here only about backtrace (error)
+> reporting contexts. Those can be atomic perfectly fine.
 
-Hmm, I wonder if I should change that from info to something more
-important, as this is important information for debugging. But this has
-nothing to do with this patch set.
-
-> -		print_ip_sym(ip);
-> +		print_ip_sym(KERN_INFO, ip);
-
-Acked-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
+With my real-time hat on, I'm totally against disabling of preemption
+for this purpose.
 
 -- Steve
-
->  		break;
->  	case -EINVAL:
->  		FTRACE_WARN_ON_ONCE(1);
->  		pr_info("ftrace failed to modify ");
-> -		print_ip_sym(ip);
-> +		print_ip_sym(KERN_INFO, ip);
->  		print_ip_ins(" actual:   ", (unsigned char *)ip);
->  		pr_cont("\n");
->  		if (ftrace_expected) {
-> @@ -2018,12 +2018,12 @@ void ftrace_bug(int failed, struct dyn_ftrace *rec)
->  	case -EPERM:
->  		FTRACE_WARN_ON_ONCE(1);
->  		pr_info("ftrace faulted on writing ");
-> -		print_ip_sym(ip);
-> +		print_ip_sym(KERN_INFO, ip);
->  		break;
->  	default:
->  		FTRACE_WARN_ON_ONCE(1);
->  		pr_info("ftrace faulted on unknown error ");
-> -		print_ip_sym(ip);
-> +		print_ip_sym(KERN_INFO, ip);
->  	}
->  	print_bug_type();
->  	if (rec) {
-
 
 _______________________________________________
 linux-riscv mailing list
