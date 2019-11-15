@@ -2,95 +2,92 @@ Return-Path: <SRS0=Ubum=ZH=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C4946C432C3
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Nov 2019 03:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E4616C432C3
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Nov 2019 19:24:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 94EB8206D3
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Nov 2019 03:37:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B7168206D9
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 Nov 2019 19:24:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SDXvS81m";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="rosvxXmb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 94EB8206D3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fbkOx4Tq";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=gstardust.com header.i=@gstardust.com header.b="WhtkylUZ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=messagingengine.com header.i=@messagingengine.com header.b="XZ2HH4TG"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B7168206D9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=gstardust.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CkSq7JkRGG1n99HnZbTlsT+4cTsXzbrPMlJ3gy6M62U=; b=SDXvS81m7bUXiu
-	AFEwVwEf2yIehneKwlbcov3jpPXC57MmERtTXQk3nL+64KWcpPjzJZFKL4/sbw4gsSoN4JYchC73z
-	CQZ38GSZsYWe/zHznQTC+fWeqp6jFKvh/l8/VahRtY5lYb+JGlXx6uXU7g9U4+zqPKaTymcSfuroR
-	LL+xigpbTJ8zScLptvnrTrqkH/zwgOWvBf4SgUmMI0TIm74iZMxSwpYS3++89NYsbkLReqGBfYBiy
-	DRaaZVw7cQDJ/5sBgMlcuASk5xC5P1OXg7D961+7dyaU3eY3o6cIFT5/mzytK1/UGxYqnxXyGIEMm
-	D2881qXLktt4lVorZJ1g==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=1ZcWBnuSJ1oihl7kcyhInXgcMREhbiYUIRoe/LsbxDk=; b=fbkOx4TqCTVOCHTlGl45/8HVDI
+	1Cx/VpE3IqAAzVxK0W3MiDaSpH/HGF9FHJj590V2IF1e1J3K99a7VHzx3EDfXRVAmog6n3GEBFKB1
+	2GkA6qJgZ534v2l5KAWWq4R3vfd/qh8LOpHU2xl0FgF0CBkClY/Dmq/fg2Ij9MCXNoL9gDwI1MAUk
+	M5Nx5pKq2p76BE7Tuop1vNc8DFyX+hC6+WDNp+GsiGTqzip+KNjns9cG4woGiBCCSu4uCeaChJSTp
+	tOTJEx/GtfwtrzdV1pUaWBMDztFiKNKHRCCivhV82etvRSY+kWHQgNcWxUHJHDS24aWn/C5DIGu98
+	KST8W1Bw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iVSPx-00070V-0J; Fri, 15 Nov 2019 03:37:05 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1iVhCs-00038G-JZ; Fri, 15 Nov 2019 19:24:34 +0000
+Received: from out1-smtp.messagingengine.com ([66.111.4.25])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iVSPu-0006zv-DI; Fri, 15 Nov 2019 03:37:03 +0000
-Received: by mail-pg1-x542.google.com with SMTP id 29so5104381pgm.6;
- Thu, 14 Nov 2019 19:37:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:date:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to:user-agent;
- bh=R4XvROx888fXHPMG3Yq7w0aZuXsuTxn0lpM2IVqDtzs=;
- b=rosvxXmbxVwR1vACXmA9SkZCr7uwAAKB6UJ8GlY8l4n3tXBdK85d2C9bdYAAEJpyjW
- fFT+vr+mLl81JuDMdjUW+anF/Xfc5QEH7c2oMcSh2P3aCNGkUk5+dRVglouCIodq7WHR
- JntZpByfaG3f7z0ITWNWyjrHYUvHFedDz7NuSv9ofmpS9hbezDyvMp+CoX7pBe/a9BYH
- /5ccIl6Ob9b8/5VHy4+InTzOLbgcfU08QWMmpxugSNVufjRM7H87w0j0Xx9TVnx7E9kd
- kxH5U2h1R9bMcCLWkDU/RL/xXI7ZSl6Xqv3IfS/GbHtrXQnrqR+tQq1vNAk34F04bDED
- gXaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:date:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=R4XvROx888fXHPMG3Yq7w0aZuXsuTxn0lpM2IVqDtzs=;
- b=ZVjBhQ9YWdlji8NtmNcP0bYiySgKgF4NUXshjlCQFZ18qqFkN/B7+TKBLZjXsvtmOl
- c1iHFgJEX5wT/QuHJFLyvCi1B00iGF3BUIaY2DOnHH5SMKNrQjH8Ll91tigYejp+ReD8
- zB8PuYG+xoJkofkaEs2UCrdO0PJo/0ZG5hL7FPoI7peXNtxniQGyMhru9WB9VxovlKQA
- oHOweHdlPS6LXggIYnhATX1shQded9dVVn4HDCF9dNSz7jhgBRqGiSi2Fhwq/NjaRlSR
- 8vlCtra0KTUyk8xvPbs/Y0mreVXtgO+hFUFKDLsx2FKGFVHdZTNhVT87slODd+B5PvUs
- nf5A==
-X-Gm-Message-State: APjAAAVyHf8uNiuRmJVh7F4O8oF5I2XQS4ceiwjd8UfWUTfhQr26VOrN
- U1/AoeNCODX/lbKsQ0/fPfU=
-X-Google-Smtp-Source: APXvYqwa2DybaatOPAzowDw1CIcEQNF5GJFztVtnxnB/hIwTXcIG59PN65RlFcbDJvpIicCUEmC1oA==
-X-Received: by 2002:a63:7cf:: with SMTP id 198mr13931473pgh.372.1573789020559; 
- Thu, 14 Nov 2019 19:37:00 -0800 (PST)
-Received: from localhost ([2a00:79e1:abc:f604:6e29:95ff:fe2d:8f34])
- by smtp.gmail.com with ESMTPSA id y22sm8178148pfn.6.2019.11.14.19.36.58
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 14 Nov 2019 19:36:59 -0800 (PST)
-From: Sergey Senozhatsky <sergey.senozhatsky@gmail.com>
-X-Google-Original-From: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>
-Date: Fri, 15 Nov 2019 12:36:57 +0900
-To: Steven Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH 00/50] Add log level to show_stack()
-Message-ID: <20191115033657.GA407@tigerII.localdomain>
-References: <20191106030542.868541-1-dima@arista.com>
- <20191106083538.z5nlpuf64cigxigh@pathway.suse.cz>
- <20191108103719.GB175344@google.com>
- <20191108130447.h3wfgo4efjkto56f@pathway.suse.cz>
- <20191111012336.GA85185@google.com>
- <13e72b62-c842-8ed5-5b41-bc1692b28f53@arista.com>
- <20191112021747.GA68506@google.com>
- <20191113103922.3dc3e8e9@gandalf.local.home>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20191113103922.3dc3e8e9@gandalf.local.home>
-User-Agent: Mutt/1.12.2 (2019-09-21)
+ id 1iVhCo-00037D-LZ
+ for linux-riscv@lists.infradead.org; Fri, 15 Nov 2019 19:24:32 +0000
+Received: from compute7.internal (compute7.nyi.internal [10.202.2.47])
+ by mailout.nyi.internal (Postfix) with ESMTP id 7CB0821368;
+ Fri, 15 Nov 2019 14:24:27 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+ by compute7.internal (MEProxy); Fri, 15 Nov 2019 14:24:27 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gstardust.com;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references; s=
+ mesmtp; bh=LA/D0opDpDyWXoqXEkuEXTg65siHoVHU2kTTczpzWG8=; b=Whtky
+ lUZFoGZIlq7WADixwANxHY4XD3zo9VL38wq00QOEZvRuwAAtV79nWMXCxc1iP2Tu
+ kUk6KZZf7NgGhGAGGCMtI+MP9bpcOvIFRAGglpOj3HEnZKuQyT+nCKowuCRhle3Y
+ JXBTLkJuhmUMprbMonmZWnMfXVF/qtbsOJ7rzE=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:date:from:in-reply-to:message-id
+ :references:subject:to:x-me-proxy:x-me-proxy:x-me-sender
+ :x-me-sender:x-sasl-enc; s=fm1; bh=LA/D0opDpDyWXoqXEkuEXTg65siHo
+ VHU2kTTczpzWG8=; b=XZ2HH4TGogFNwsnBS0sZA+ONnLKL5FxzhQ0fPc9mwJR3z
+ O+ljNwZxAzCVKxNzwd1E0ZR1PxflKen9K/B2DfCUKM6mm71JesFmkkjJjosxk7xt
+ Wr9qp2W2KeBFQsBP0c3GmGRM6bkblL3iKXXWdsEzn0uUoXD+bo4AyLfN6NrnVjx6
+ lw+TrEPshHZmA9raRf/g4emPIKzk/BKHQ56HrPcw0xiwQZJ26xmUggOnlMzq5WNd
+ 9qpf4X7JxSl3lwWHbGBr4uHX5GPQufsqwy4g74FLgxCyMn/D5poibsVqpddm5YaM
+ eij/9/o3tOFRf39q8bgBQSgkv32aeVEwHCMfyFkSg==
+X-ME-Sender: <xms:a_vOXUucTjxeOSLftKOazqTTrVhEugD1DBNxF14kWmao-mQksMZMAA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedufedrudefhedguddvfecutefuodetggdotefrod
+ ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+ necuuegrihhlohhuthemuceftddtnecunecujfgurhephffvufffkffojghfsedttdertd
+ ertddtnecuhfhrohhmpeforghrtgcuifgruhhthhhivghruceotghonhhsuhhlthdqmhhg
+ sehgshhtrghrughushhtrdgtohhmqeenucfkphepudegvddrheelrdehledrvdelnecurf
+ grrhgrmhepmhgrihhlfhhrohhmpegtohhnshhulhhtqdhmghesghhsthgrrhguuhhsthdr
+ tghomhenucevlhhushhtvghrufhiiigvpedt
+X-ME-Proxy: <xmx:a_vOXawfZl4fJbrYXrV3r_PdMwQBe7Rin7O-36E5HqDG-H3ApmEpXw>
+ <xmx:a_vOXXxtUZZMydpLRFuAQFJd4KupGmohTAIYCx3UXXHWUSBtQXCjfA>
+ <xmx:a_vOXQ5laOM_J0S4sgfFizXFgPzvrFFu8446Yo3cTS6Dt0z9V_kUvQ>
+ <xmx:a_vOXU0xXwOkzd8CNeKwZzQy-5IYLiuIUWfmo9iZdWkwFRSCkjTcuA>
+Received: from SurfBoard.localdomain (unknown [142.59.59.29])
+ by mail.messagingengine.com (Postfix) with ESMTPA id 30C52306005C;
+ Fri, 15 Nov 2019 14:24:27 -0500 (EST)
+From: Marc Gauthier <consult-mg@gstardust.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH 1/2] riscv: Align shared mappings to SHMLBA
+Date: Fri, 15 Nov 2019 14:23:53 -0500
+Message-Id: <20191115192354.19814-2-consult-mg@gstardust.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20191115192354.19814-1-consult-mg@gstardust.com>
+References: <20191115192354.19814-1-consult-mg@gstardust.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191114_193702_477423_88BD856B 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20191115_112430_957674_5A777CAD 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,91 +99,180 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Juri Lelli <juri.lelli@redhat.com>,
- Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>,
- linux-sh@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Ben Segall <bsegall@google.com>, Guo Ren <guoren@kernel.org>,
- Pavel Machek <pavel@ucw.cz>, Vincent Guittot <vincent.guittot@linaro.org>,
- Paul Burton <paulburton@kernel.org>, Dmitry Safonov <dima@arista.com>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Mel Gorman <mgorman@suse.de>,
- Jiri Slaby <jslaby@suse.com>, Matt Turner <mattst88@gmail.com>,
- uclinux-h8-devel@lists.sourceforge.jp, Petr Mladek <pmladek@suse.com>,
- linux-pm@vger.kernel.org, Heiko Carstens <heiko.carstens@de.ibm.com>,
- linux-um@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Richard Henderson <rth@twiddle.net>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-kernel@vger.kernel.org,
- Ralf Baechle <ralf@linux-mips.org>, Paul Mackerras <paulus@samba.org>,
- Andrew Morton <akpm@linux-foundation.org>, linux-ia64@vger.kernel.org,
- Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>,
- James Hogan <jhogan@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Max Filippov <jcmvbkbc@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
- Ingo Molnar <mingo@kernel.org>, linux-s390@vger.kernel.org,
- linux-c6x-dev@linux-c6x.org, Yoshinori Sato <ysato@users.sourceforge.jp>,
- linux-hexagon@vger.kernel.org, Helge Deller <deller@gmx.de>,
- linux-xtensa@linux-xtensa.org, Vasily Gorbik <gor@linux.ibm.com>,
- Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
- linux-m68k@lists.linux-m68k.org, Stafford Horne <shorne@gmail.com>,
- linux-arm-kernel@lists.infradead.org, Chris Zankel <chris@zankel.net>,
- Tony Luck <tony.luck@intel.com>, Douglas Anderson <dianders@chromium.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Dmitry Safonov <0x7f454c46@gmail.com>, Will Deacon <will@kernel.org>,
- Daniel Thompson <daniel.thompson@linaro.org>,
- Brian Cain <bcain@codeaurora.org>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- kgdb-bugreport@lists.sourceforge.net, linux-snps-arc@lists.infradead.org,
- Fenghua Yu <fenghua.yu@intel.com>, Borislav Petkov <bp@alien8.de>,
- Jeff Dike <jdike@addtoit.com>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- Greentime Hu <green.hu@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
- linux-parisc@vger.kernel.org, linux-alpha@vger.kernel.org,
- Ley Foon Tan <lftan@altera.com>, "David S. Miller" <davem@davemloft.net>,
- Rich Felker <dalias@libc.org>, Len Brown <len.brown@intel.com>,
- Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Jonas Bonn <jonas@southpole.se>, Richard Weinberger <richard@nod.at>,
- x86@kernel.org, Russell King <linux@armlinux.org.uk>,
- clang-built-linux@googlegroups.com, Ingo Molnar <mingo@redhat.com>,
- Mark Salter <msalter@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- openrisc@lists.librecores.org, Paul Walmsley <paul.walmsley@sifive.com>,
- Michal Simek <monstr@monstr.eu>, Vineet Gupta <vgupta@synopsys.com>,
- linux-mips@vger.kernel.org, Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Jason Wessel <jason.wessel@windriver.com>,
- nios2-dev@lists.rocketboards.org, linuxppc-dev@lists.ozlabs.org
+Cc: Marc Gauthier <consult-mg@gstardust.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On (19/11/13 10:39), Steven Rostedt wrote:
-[..]
-> > void show_stack(struct task_struct *task, unsigned long *sp, int log_level)
-> > {
-> > 	printk_emergency_enter(log_level);
-> > 	__show_stack(task, sp);
-> > 	printk_emergency_exit();
-> > }
-> > // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-> >
-> > show_stack() never schedules, disabling preemption around it should
-> > not change anything. Should it be interrupted, we will handle it via
-> > preempt count.
->
-> Please no! The whole point of the printk rewrite was to allow for
-> printk to be preemptible and used in more contexts. The show_stack() can
-> be all over the place and is not a fast function. Let's not disable
-> preemption for it.
+Align shared mappings according to SHMLBA for VIPT cache performance.
 
-I never said that this code should be used all over the place. What
-I did say several times was that this code is for quick debugging,
-when one sits behind a slow serial console and wants to tweak loglevel
-of all printk-s of a particular context/function only.
+arch_get_unmapped_area() and arch_get_unmapped_area_topdown() are
+essentially copies of their default implementations in mm/mmap.c,
+modified to align the address to SHMLBA for shared mappings, i.e.
+where MAP_SHARED is specified or a file pointer is provided.
 
-	-ss
+Allow MAP_FIXED to request unaligned shared mappings.  Although this
+may potentially reduce performance, very little software does this, as
+it is not portable across architectures that enforce alignment.
+
+Signed-off-by: Marc Gauthier <consult-mg@gstardust.com>
+---
+ arch/riscv/include/asm/pgtable.h |   4 ++
+ arch/riscv/kernel/sys_riscv.c    | 112 +++++++++++++++++++++++++++++++
+ 2 files changed, 116 insertions(+)
+
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index d3221017194d..7d1cc47ac5f9 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -436,6 +436,10 @@ extern void *dtb_early_va;
+ extern void setup_bootmem(void);
+ extern void paging_init(void);
+ 
++/* We provide arch_get_unmapped_area to handle VIPT caches efficiently. */
++#define HAVE_ARCH_UNMAPPED_AREA
++#define HAVE_ARCH_UNMAPPED_AREA_TOPDOWN
++
+ /*
+  * Task size is 0x4000000000 for RV64 or 0x9fc00000 for RV32.
+  * Note that PGDIR_SIZE must evenly divide TASK_SIZE.
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index f3619f59d85c..3465811f718e 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -3,11 +3,15 @@
+  * Copyright (C) 2012 Regents of the University of California
+  * Copyright (C) 2014 Darius Rad <darius@bluespec.com>
+  * Copyright (C) 2017 SiFive
++ * Copyright (C) 2019 Aril Inc
+  */
+ 
+ #include <linux/syscalls.h>
+ #include <asm/unistd.h>
+ #include <asm/cacheflush.h>
++#include <linux/shm.h>
++#include <linux/mman.h>
++#include <linux/security.h>
+ 
+ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+ 			   unsigned long prot, unsigned long flags,
+@@ -65,3 +69,111 @@ SYSCALL_DEFINE3(riscv_flush_icache, uintptr_t, start, uintptr_t, end,
+ 
+ 	return 0;
+ }
++
++/*
++ * RISC-V requires implementations to function correctly in the presence
++ * of cache aliasing, regardless of page alignment.  It says nothing about
++ * performance.  To ensure healthy performance with commonly implemented
++ * VIPT caches, the following code avoids most cases of cache aliasing by
++ * aligning shared mappings such that all mappings of a given physical
++ * page of an object are at a multiple of SHMLBA bytes from each other.
++ *
++ * It does not enforce alignment.  Using MAP_FIXED to request unaligned
++ * shared mappings is not common, and may perform poorly with VIPT caches.
++ */
++unsigned long
++arch_get_unmapped_area(struct file *filp, unsigned long addr,
++                unsigned long len, unsigned long pgoff, unsigned long flags)
++{
++	struct mm_struct *mm = current->mm;
++	struct vm_area_struct *vma, *prev;
++	struct vm_unmapped_area_info info;
++	const unsigned long pgoffset = pgoff << PAGE_SHIFT;
++	int do_align = (filp || (flags & MAP_SHARED));
++
++	if (len > TASK_SIZE - mmap_min_addr)
++		return -ENOMEM;
++
++	if (flags & MAP_FIXED)
++		return addr;
++
++	if (addr) {
++		if (do_align)
++			addr = ALIGN(addr, SHMLBA) + (pgoffset & (SHMLBA - 1));
++		else
++			addr = PAGE_ALIGN(addr);
++		vma = find_vma_prev(mm, addr, &prev);
++		if (TASK_SIZE - len >= addr && addr >= mmap_min_addr &&
++		    (!vma || addr + len <= vm_start_gap(vma)) &&
++		    (!prev || addr >= vm_end_gap(prev)))
++			return addr;
++	}
++
++	info.flags = 0;
++	info.length = len;
++	info.low_limit = mm->mmap_base;
++	info.high_limit = TASK_SIZE;
++	info.align_mask = do_align ? SHMLBA - 1 : 0;
++	info.align_offset = pgoffset;
++	return vm_unmapped_area(&info);
++}
++
++/*
++ * Similar to arch_get_unmapped_area(), but allocating top-down from below the
++ * stack's low limit (the base).
++ */
++unsigned long
++arch_get_unmapped_area_topdown(struct file *filp, unsigned long addr,
++			  unsigned long len, unsigned long pgoff,
++			  unsigned long flags)
++{
++	struct vm_area_struct *vma, *prev;
++	struct mm_struct *mm = current->mm;
++	struct vm_unmapped_area_info info;
++	const unsigned long pgoffset = pgoff << PAGE_SHIFT;
++	int do_align = (filp || (flags & MAP_SHARED));
++
++	/* requested length too big for entire address space */
++	if (len > TASK_SIZE - mmap_min_addr)
++		return -ENOMEM;
++
++	if (flags & MAP_FIXED)
++		return addr;
++
++	/* requesting a specific address */
++	if (addr) {
++		if (do_align)
++			addr = ALIGN(addr, SHMLBA) + (pgoffset & (SHMLBA - 1));
++		else
++			addr = PAGE_ALIGN(addr);
++		vma = find_vma_prev(mm, addr, &prev);
++		if (TASK_SIZE - len >= addr && addr >= mmap_min_addr &&
++				(!vma || addr + len <= vm_start_gap(vma)) &&
++				(!prev || addr >= vm_end_gap(prev)))
++			return addr;
++	}
++
++	info.flags = VM_UNMAPPED_AREA_TOPDOWN;
++	info.length = len;
++	info.low_limit = max(PAGE_SIZE, mmap_min_addr);
++	info.high_limit = mm->mmap_base;
++	info.align_mask = do_align ? SHMLBA - 1 : 0;
++	info.align_offset = pgoffset;
++	addr = vm_unmapped_area(&info);
++
++	/*
++	 * A failed mmap() very likely causes application failure,
++	 * so fall back to the bottom-up function here. This scenario
++	 * can happen with large stack limits and large mmap()
++	 * allocations.
++	 */
++	if (offset_in_page(addr)) {
++		VM_BUG_ON(addr != -ENOMEM);
++		info.flags = 0;
++		info.low_limit = TASK_UNMAPPED_BASE;
++		info.high_limit = TASK_SIZE;
++		addr = vm_unmapped_area(&info);
++	}
++
++	return addr;
++}
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
