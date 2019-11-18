@@ -2,72 +2,79 @@ Return-Path: <SRS0=Rdmy=ZK=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 75D84C432C3
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2019 16:44:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BB15CC432C0
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2019 16:53:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 456BC218AF
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2019 16:44:44 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8FEAE21479
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2019 16:53:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HU1izPjx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 456BC218AF
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=deltatee.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uSn0IEcH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8FEAE21479
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J1Helv4tlB5Q1hTRn8NQ5Q1EyXZeixUBy8s1zcNqr6g=; b=HU1izPjxHf+5L2
-	zeTEWm1yN8eWd3l4uHG7otUnLwt1YkWLUjX6OG+tkH8efAZKXFOGBN3Hr7jcyLKHlW5lNy8oX9EYt
-	M4z7xHFrupsPzwhCJBaHHz9GJw4rM0/VQy6pbOoKWMAfgtjC8eUdtqIoCwqxzLLPLYBeu0xj5XOfM
-	4F3biBx2SV1UtFkN8joCLSAb8GAlgW1LPVv4doZSZcEQfLGVV3Cp8l7EAXYsoi2BZzwXUhH4fkFCd
-	aGavKDBbu/asjtsvCogaTspqObMGSmzLnIZaTIJ8TvH+t6F8lOdJ8KZO9mA3Kkc69YVKk01lkqKrP
-	FtIqxylX5LK6a0J1BLqA==;
+	List-Owner; bh=DfTr7EtIQ0abqcvU0YivMN7xI8UIp7sf5r51/K8hgOY=; b=uSn0IEcHg9gTZj
+	BVIReOilJF24IWfmBxXgevclhE6GYOwkybcGr0Kx0qh2tuuap6WlMn1104eHY+Auv3qZueF8mbd/j
+	SB1VjZzkFg1G8ipLoQy0FgNnMHcZN2OolPDyb9a4XtENomCVlDAKGfZbhSUzPWhj3voraXiR6TeHn
+	0wISj7Pp+xSh+rxk6wVu1kLGt6UxXFTf5o7gm5UjBp9zttiOL0Xtyy5JIjRPA/45GOWymNHLf2joq
+	3Z/fW4AaLwXZgE6oHmyQcF00RSxo+EVHUTiRiX87wwgJlGwtAXYnGVJP44sJq6V0nQ5s1LVy1NrIA
+	AwAHL46sGUBr30c0P1kQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iWk8p-00017Q-1M; Mon, 18 Nov 2019 16:44:43 +0000
-Received: from ale.deltatee.com ([207.54.116.67])
+	id 1iWkHe-0006As-KR; Mon, 18 Nov 2019 16:53:50 +0000
+Received: from mail-oi1-f194.google.com ([209.85.167.194])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iWk8l-00016F-Tl
- for linux-riscv@lists.infradead.org; Mon, 18 Nov 2019 16:44:41 +0000
-Received: from guinness.priv.deltatee.com ([172.16.1.162])
- by ale.deltatee.com with esmtp (Exim 4.92)
- (envelope-from <logang@deltatee.com>)
- id 1iWk8Q-0000Vr-JU; Mon, 18 Nov 2019 09:44:19 -0700
-To: Yash Shah <yash.shah@sifive.com>,
- "Paul Walmsley ( Sifive)" <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <1574056694-28927-1-git-send-email-yash.shah@sifive.com>
-From: Logan Gunthorpe <logang@deltatee.com>
-Message-ID: <86b0a2c6-91ee-6ea6-92e7-1e5235b559f5@deltatee.com>
-Date: Mon, 18 Nov 2019 09:44:14 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.9.0
+ id 1iWkHb-0006AD-Qv
+ for linux-riscv@lists.infradead.org; Mon, 18 Nov 2019 16:53:49 +0000
+Received: by mail-oi1-f194.google.com with SMTP id n14so15903949oie.13
+ for <linux-riscv@lists.infradead.org>; Mon, 18 Nov 2019 08:53:47 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=hqTOasQxtcpYkZR/qyY0Ns887QHHgqrNr6obLQsmNsI=;
+ b=Bdpn6KwtHTeBQUSVMig9rFvGQxSjIYG3+ZKra1LwADX9eef4E0U1OV3da5GvYnY8xU
+ 7cZ0R8p8K4J7z6SQxGeKUcLBJReC8c6n6CM2yRjt8N0gqA1m3QKgJuzKDcKDz3A+BqpZ
+ dHtM9zHZTmu1GDQox5VNFrpNKRBDMNc13hi+hGdFMfisUwzt4uwc3wturfpDBw4fTyTf
+ kDbl4nnBNVptV693yDUQpy1kxJ06w9nlLUTUnnpp01+SD6J2+H0YuxQZHOyjv8O/FGg3
+ HoEfAPdi0rBd14h18V9Y7t6ho56Ea+8FpKBqjCVC8dlhZqpKRj11WlR0lBr1ZSOU66wO
+ Dkqg==
+X-Gm-Message-State: APjAAAVByfr121+qEBgDIqYmUTimE6Ghn6Sc5rgJbRErdr53NwQ4xt77
+ KTB3kEgpCVVXHGL+dC/SYw==
+X-Google-Smtp-Source: APXvYqxhK6+LinJAXcIhwyYoIbpoJYerjNgZrjGX55HdjJe+rrjIeNxntyurC83Ly9lLYUCNhH+m7w==
+X-Received: by 2002:aca:451:: with SMTP id 78mr21727660oie.170.1574096026456; 
+ Mon, 18 Nov 2019 08:53:46 -0800 (PST)
+Received: from localhost (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id o18sm6447650otj.38.2019.11.18.08.53.45
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 18 Nov 2019 08:53:45 -0800 (PST)
+Date: Mon, 18 Nov 2019 10:53:45 -0600
+From: Rob Herring <robh@kernel.org>
+To: Yash Shah <yash.shah@sifive.com>
+Subject: Re: [PATCH 2/4] gpio: sifive: Add DT documentation for SiFive GPIO
+Message-ID: <20191118165345.GA3935@bogus>
+References: <1573560684-48104-1-git-send-email-yash.shah@sifive.com>
+ <1573560684-48104-3-git-send-email-yash.shah@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <1574056694-28927-1-git-send-email-yash.shah@sifive.com>
-Content-Language: en-CA
-X-SA-Exim-Connect-IP: 172.16.1.162
-X-SA-Exim-Rcpt-To: sachin.ghadi@sifive.com, wangkefeng.wang@huawei.com,
- tglx@linutronix.de, bmeng.cn@gmail.com, ren_guo@c-sky.com, rppt@linux.ibm.com,
- Anup.Patel@wdc.com, aou@eecs.berkeley.edu, palmer@dabbelt.com,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- paul.walmsley@sifive.com, yash.shah@sifive.com
-X-SA-Exim-Mail-From: logang@deltatee.com
-Subject: Re: [PATCH v2] RISC-V: Add address map dumper
-X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
-X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
+Content-Disposition: inline
+In-Reply-To: <1573560684-48104-3-git-send-email-yash.shah@sifive.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191118_084439_962512_A40B326D 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20191118_085347_872794_9A93C35C 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,99 +86,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "wangkefeng.wang@huawei.com" <wangkefeng.wang@huawei.com>,
+Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
  "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "Anup.Patel@wdc.com" <Anup.Patel@wdc.com>,
- "rppt@linux.ibm.com" <rppt@linux.ibm.com>,
- Sachin Ghadi <sachin.ghadi@sifive.com>,
+ "jason@lakedaemon.net" <jason@lakedaemon.net>,
+ "atish.patra@wdc.com" <atish.patra@wdc.com>, "maz@kernel.org" <maz@kernel.org>,
+ "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "bgolaszewski@baylibre.com" <bgolaszewski@baylibre.com>,
  "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "ren_guo@c-sky.com" <ren_guo@c-sky.com>,
+ Sagar Kadam <sagar.kadam@sifive.com>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
  "tglx@linutronix.de" <tglx@linutronix.de>,
- "bmeng.cn@gmail.com" <bmeng.cn@gmail.com>
+ "bmeng.cn@gmail.com" <bmeng.cn@gmail.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Sachin Ghadi <sachin.ghadi@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2019-11-17 10:58 p.m., Yash Shah wrote:
-> Add support for dumping the kernel address space layout to the console.
-> User can enable CONFIG_DEBUG_VM to dump the virtual memory region into
-> dmesg buffer during boot-up.
+On Tue, Nov 12, 2019 at 12:12:06PM +0000, Yash Shah wrote:
+> DT documentation for GPIO controller added.
 > 
+> Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
+> [Atish: Compatible string update]
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
 > Signed-off-by: Yash Shah <yash.shah@sifive.com>
-
-Looks good to me, thanks.
-
-Reviewed-by: Logan Gunthorpe <logang@deltatee.com>
-
 > ---
-> This patch is based on Linux 5.4-rc6 and tested on SiFive HiFive
-> Unleashed board.
+>  .../devicetree/bindings/gpio/gpio-sifive.txt       | 33 ++++++++++++++++++++++
+>  1 file changed, 33 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/gpio/gpio-sifive.txt
+
+Please make this a schema. See 
+Documentation/devicetree/writing-schema.rst.
+
 > 
-> Changes in v2:
-> - Avoid #ifdefs inside functions
-> - Helper functions instead of macros
-> - Drop newly added CONFIG_DEBUG_VM_LAYOUT, instead use CONFIG_DEBUG_VM
-> ---
->  arch/riscv/mm/init.c | 36 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 36 insertions(+)
-> 
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 573463d..7828136 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -45,6 +45,41 @@ void setup_zero_page(void)
->  	memset((void *)empty_zero_page, 0, PAGE_SIZE);
->  }
->  
-> +#ifdef CONFIG_DEBUG_VM
-> +static inline void print_mlk(char *name, unsigned long b, unsigned long t)
-> +{
-> +	pr_notice("%12s : 0x%08lx - 0x%08lx   (%4ld kB)\n", name, b, t,
-> +		  (((t) - (b)) >> 10));
-> +}
+> diff --git a/Documentation/devicetree/bindings/gpio/gpio-sifive.txt b/Documentation/devicetree/bindings/gpio/gpio-sifive.txt
+> new file mode 100644
+> index 0000000..d3416d5
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/gpio/gpio-sifive.txt
+> @@ -0,0 +1,33 @@
+> +SiFive GPIO controller bindings
 > +
-> +static inline void print_mlm(char *name, unsigned long b, unsigned long t)
-> +{
-> +	pr_notice("%12s : 0x%08lx - 0x%08lx   (%4ld MB)\n", name, b, t,
-> +		  (((t) - (b)) >> 20));
-> +}
+> +Required properties:
+> +- compatible: Should be "sifive,<chip>-gpio" and "sifive,gpio<version>".
+> +  Supported compatible strings are: "sifive,fu540-c000-gpio" for the SiFive
+> +  GPIO v0 as integrated onto the SiFive FU540 chip, and "sifive,gpio0" for the
+> +  SiFive GPIO v0 IP block with no chip integration tweaks.
+> +  Please refer to sifive-blocks-ip-versioning.txt for details.
+> +- reg: Physical base address and length of the controller's registers.
+> +- clocks: Should contain a clock identifier for the GPIO's parent clock.
+> +- #gpio-cells : Should be 2
+> +  - The first cell is the GPIO offset number.
+> +  - The second cell indicates the polarity of the GPIO
+> +- gpio-controller : Marks the device node as a GPIO controller.
+> +- interrupt-controller: Marks the device node as an interrupt controller.
+> +- #interrupt-cells : Should be 2.
+> +  - The first cell is the GPIO offset number within the GPIO controller.
+> +  - The second cell is the edge/level to use for interrupt generation.
+> +- interrupts: Specify the interrupts, one per GPIO
+
+How many GPIOs?
+
 > +
-> +static void print_vm_layout(void)
-> +{
-> +	pr_notice("Virtual kernel memory layout:\n");
-> +	print_mlk("fixmap", (unsigned long)FIXADDR_START,
-> +		  (unsigned long)FIXADDR_TOP);
-> +	print_mlm("vmemmap", (unsigned long)VMEMMAP_START,
-> +		  (unsigned long)VMEMMAP_END);
-> +	print_mlm("vmalloc", (unsigned long)VMALLOC_START,
-> +		  (unsigned long)VMALLOC_END);
-> +	print_mlm("lowmem", (unsigned long)PAGE_OFFSET,
-> +		  (unsigned long)high_memory);
-> +	print_mlk(".init", (unsigned long)__init_begin,
-> +		  (unsigned long)__init_end);
-> +	print_mlk(".text", (unsigned long)_text, (unsigned long)_etext);
-> +	print_mlk(".data", (unsigned long)_sdata, (unsigned long)_edata);
-> +	print_mlk(".bss", (unsigned long)__bss_start,
-> +		  (unsigned long)__bss_stop);
-> +}
-> +#else
-> +static void print_vm_layout(void) { }
-> +#endif /* CONFIG_DEBUG_VM */
+> +Example:
 > +
->  void __init mem_init(void)
->  {
->  #ifdef CONFIG_FLATMEM
-> @@ -55,6 +90,7 @@ void __init mem_init(void)
->  	memblock_free_all();
->  
->  	mem_init_print_info(NULL);
-> +	print_vm_layout();
->  }
->  
->  #ifdef CONFIG_BLK_DEV_INITRD
+> +gpio: gpio@10060000 {
+> +	compatible = "sifive,fu540-c000-gpio","sifive,gpio0";
+
+space                                         ^
+
+> +	interrupt-parent = <&plic>;
+> +	interrupts = <7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22>;
+> +	reg = <0x0 0x10060000 0x0 0x1000>;
+> +	clocks = <&tlclk>;
+> +	gpio-controller;
+> +	#gpio-cells = <2>;
+> +	interrupt-controller;
+> +	#interrupt-cells = <2>;
+> +};
+> -- 
+> 2.7.4
 > 
 
 _______________________________________________
