@@ -1,94 +1,86 @@
-Return-Path: <SRS0=Rdmy=ZK=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=EdxZ=ZL=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F0CC2C33CA3
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2019 22:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 81BEFC432C3
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Nov 2019 15:03:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BE83A2230C
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2019 22:57:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 56364222A0
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 19 Nov 2019 15:03:14 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nHh1OM2/";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="DwNgp0S8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BE83A2230C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ighl0nOC";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="ghhb7CWn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 56364222A0
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BjGn4ATncR9xw0YreGVMzBcukWqZRzjxQEI2q3gMH9s=; b=nHh1OM2/OUjWN4
-	gjzpUbt/aLMVIUht7uF6HUn3eTPwqEf952GSRbEs3AwTM0t5y7/0cepqBejeWfUtAQhgGrKLUBR0T
-	prey01gLY/Qg+sZTjW0a50eNdiQn/NCHmWN2FGYvZTAwMZtsdJN9Q+z3/J02jsKpYPo/K3JwJwBav
-	pnVuL37bOPavhkVQ7LbxMyn57kIH2cS79dIz6UlYstn9u3K2m96iSLkQu2cU0WCuYPIbpx7LhSdZa
-	4AEHVuWygPjZuXxZQ6EY2jQ1+ECUksLuhUGf4FMk7aidVm8GumZr/vAYUFqpkY7ocWT6TdQCSxUUQ
-	U3nB45hdgc9GiidDrqEw==;
+	List-Owner; bh=5iHLrAjzoX0MARzszHBA8Mex2EWVmWuIG3U1DTOIzOk=; b=ighl0nOCK9hU67
+	Jp6KC1I+J2kbLfFB0UpDIvUN3kPTTGRiAgeAP/B1qss1Pj4dN53kCkiXrjIUjv5N56hJyP+FA0G35
+	19NAl4H9V0Od2ByPuj2HDwegWYAEYrRxtRHKndQ/xnxVbyP4qWMcuX68tewwLs/lFVXsoVRqwBIWF
+	kPgY+OjzpiC4ktpfLip2tGd4/dTn25qCJDDT4aEiirjz5ZrZsHN4U/ZMwuCEh5hB5hPF6OMR9Da1d
+	hdhhW/BHZeOi+a+z3lIZuUd+N50kLvXnP3RXsTiwjO6lovHdPeRanKl8EpHxkqMVRvdH5nvXHICAO
+	Fz+mkqyg9U2o6u7FcyKQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iWpxS-0007UR-MB; Mon, 18 Nov 2019 22:57:22 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1iX528-0007zO-T6; Tue, 19 Nov 2019 15:03:12 +0000
+Received: from mail-lj1-x241.google.com ([2a00:1450:4864:20::241])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iWpxL-0007G9-IT
- for linux-riscv@lists.infradead.org; Mon, 18 Nov 2019 22:57:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1574117835; x=1605653835;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=KZ2JqN/3j29BS4ImRKlwmi0ywl5knXuSWD10el98EP0=;
- b=DwNgp0S8Tlb86lbSrJUs8eF1bdEhC99HqYa84kbZT2g23V0FDmnHrGbO
- G0jGjLPlmTsskyJQTLTTShuJomT2C+gW50YlrqrZS8v71+L9+8bmHOMkG
- m5uL9Rt0oVphtKoSFA+Vy44tLYLoSjiilw7vKsuMCJsZwbARoDgrkLvqm
- CYr251a1P7VwvUTWkFl5x/iqReM5OPgyHSvvIRXHLa7Ye+/8DKQUbX/IO
- RXgY6yX4Qhwu5kccOjOCJqPGZ4AH2GLShtwLe9t08u3RIZ1dctO7EaE21
- 2EwLu5yA6EqO4HTPy8gOHR38CcpA+ms62HVZwtK7SXEcsrLOVkGoBxgpK A==;
-IronPort-SDR: fuhxAFLiNmamreQIqUOsahkexsOJLtZiV8WGNW07dBv9023CXVEb9kde/t+Udm1v1hvCwDryyW
- POId8HrKonX5QxY84UQLGTmCceV9N70mSA+XUayPkMRpnjn3Qq+lrXrTIAl/3x2pNJC77/X3e4
- 5LMp+uSTCC/V8YD+IC5cT12FAfvOa89ThC+tv4NVeYtCtfv9CpJA7TGXHE1cqG7dGrHWTFXsvp
- E00fymF5KPbMmj4lwpL7zBHVeGo9GAZAbNa8QeZgXlXvTWew/Dnm4Fx694aeMLHaIWcBrWS7wh
- 7wo=
-X-IronPort-AV: E=Sophos;i="5.68,321,1569254400"; d="scan'208";a="124142835"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 19 Nov 2019 06:57:06 +0800
-IronPort-SDR: N6QYgGFxs6kmz/QTGWWzs9KtcWSLPPTK0+CtQgo962WQ/++5/aGm3yePo2ZkxARIfIfi8xRSoS
- MicDqRpyW3KUJrsP46XpOKiFITHAfML53SnxG2m5RzpBuVtRFVwNV6jfWNZry6itLzZmocosP7
- yZr332aI3Y5gZgPyQHSLosU71tPhPkEQ6D+YQLBNJLswaXAbyDKW7z5BE71vQ7Z4fBh8L6StB+
- GidUjNjaHjkxmrHIFgieGWFpZNxIswfx+2yQILqZ0Hbk1FjSvjAzsdk9E4NeXk69IWcJvqeZRw
- yDxTRnOJEzkPSSjMijAUGIqA
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 18 Nov 2019 14:52:19 -0800
-IronPort-SDR: ORHKxrkZNmOAAk3pK3OLRdWFogOk5FChZF2KqD1suGAmeo6KkAAxmcain2T9LpS+qzh7Lt3Bww
- wblaxNVjpdEYDaZpWBLXidK6W8o+GdlbF3xXCmZ3AJw4ONHgBurYnUQwQszRVzaRSNokzwadtg
- RNTKaB4zSqL57k9FgYVtbieyr0ixbcjv0hRuEvrTfR+YmfHJZI9YVeOFvAAu9Qh3KW5RQM959K
- sWu+n9H6Cim/nmmvCi4CsABsUsIe0faHBK0PFz/6/1Kepjx7wjU/tU2EySX/uHNDK8P82N7T+N
- IvY=
-WDCIronportException: Internal
-Received: from yoda.sdcorp.global.sandisk.com (HELO yoda.int.fusionio.com)
- ([10.196.158.237])
- by uls-op-cesaip02.wdc.com with ESMTP; 18 Nov 2019 14:57:07 -0800
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v3 3/4] RISC-V: Introduce a new config for SBI v0.1
-Date: Mon, 18 Nov 2019 14:45:38 -0800
-Message-Id: <20191118224539.2171-4-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.23.0
-In-Reply-To: <20191118224539.2171-1-atish.patra@wdc.com>
-References: <20191118224539.2171-1-atish.patra@wdc.com>
+ id 1iX525-0007yw-Mh
+ for linux-riscv@lists.infradead.org; Tue, 19 Nov 2019 15:03:12 +0000
+Received: by mail-lj1-x241.google.com with SMTP id t5so23732159ljk.0
+ for <linux-riscv@lists.infradead.org>; Tue, 19 Nov 2019 07:03:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=PbOCer/DbEIDkV9HM4Ua32e1t8DBngr+pDXysIFGRg8=;
+ b=ghhb7CWnwNxAbrzbSuXvrfTWrUaikmjOuxcxbZzhekhweUFV9we26m0KktjuUT12cy
+ DozWtpM03n61uITyiCInX3tY4YBxpKlEOG2nSGKyK5N9nZYuhQI7I8nlgr7v9u4WTAiC
+ azEp+p7C9AEL7DBegmAPPbrND76N9Jjf0OWzfEkUmTdIa55WHk3ybiz29nshZn4Gtits
+ Bc0GjA0BnNBYKZpWPx7MQIa9cxGUQeloQ3M7jYsv2LvZQFDeLGf0L2qUnJTskweJCjCu
+ 156mBCrJ72nFj2G7luKBxfO5xwCFDuJ3NdbRLreV7CtFnrHx/itCksfMS1Fxmfo83llm
+ eq1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=PbOCer/DbEIDkV9HM4Ua32e1t8DBngr+pDXysIFGRg8=;
+ b=CVrXzZGr0alOLsu31ha7090Iyc3Rx0OJT8bE0GTZf5cZ10f9LMjcCM9SQ6ExHZCMK3
+ VHbknBnBw1eE4F2qFA/w4FpvMS0Cid/EbPaKQilk/xyp0Us2S8Bb7bjhodgI96cmQamz
+ Rk4Wh9Q9qPoSKWMwgStdegByOswt0D3fMZV5stRSvVuc82+eLJXJfNQhTH+zeLatYWkc
+ dYK7s0RbqUuVke6i19OtYYkzLQo23ZSbvTQ53zbNEoVejGwfWC9PModfOc2lbjLV2nv0
+ 75cXBHFrLjHtF+KcYf3HgexxN4zJEmBnyvzheD8lZonuKtINbDVuWMj8skTxub5nyWuh
+ 6TTA==
+X-Gm-Message-State: APjAAAWrKJITiANDvrM3I5ZkkuS2Z6udDvo2hR/YwQd8qGkg3qfn8kda
+ C0PvHi3qxh7GnOsxA5k4Wbf3QKdpDuDAfoxCY2/Y6g==
+X-Google-Smtp-Source: APXvYqxK4BLaj4M+k3bwc7DPGWsPytu2MBOD+HBWoGml8EjxWn/fiVfiTHJU/tL8gTg0U5x+X6BHUCC0vamRMq4wY+M=
+X-Received: by 2002:a2e:8597:: with SMTP id b23mr4384572lji.218.1574175787982; 
+ Tue, 19 Nov 2019 07:03:07 -0800 (PST)
 MIME-Version: 1.0
+References: <1573560684-48104-1-git-send-email-yash.shah@sifive.com>
+ <1573560684-48104-4-git-send-email-yash.shah@sifive.com>
+ <CAMpxmJWcuV7goPWxOWv_Og9GwzGrioF62SfS1LCiHf9eDX=vdw@mail.gmail.com>
+ <CH2PR13MB33680443C101511E66ECADF08C4D0@CH2PR13MB3368.namprd13.prod.outlook.com>
+ <CAMpxmJU+P=nWe9fpp45Jw=GwX3+V0sVVshRcE7AD1Kyz_F0qJQ@mail.gmail.com>
+In-Reply-To: <CAMpxmJU+P=nWe9fpp45Jw=GwX3+V0sVVshRcE7AD1Kyz_F0qJQ@mail.gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 19 Nov 2019 16:02:56 +0100
+Message-ID: <CACRpkdb9KKPsu7dkjVmHbgQcdo1Zx9uC_jtd6HFwM+RO2EA4nw@mail.gmail.com>
+Subject: Re: [PATCH 3/4] gpio: sifive: Add GPIO driver for SiFive SoCs
+To: Bartosz Golaszewski <bgolaszewski@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191118_145715_625552_31F4824A 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20191119_070309_767934_17F0A087 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,192 +92,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
- Alexios Zavras <alexios.zavras@intel.com>, Anup Patel <anup@brainfault.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Atish Patra <atish.patra@wdc.com>,
- Jonathan Behrens <behrensj@mit.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
- Mao Han <han_mao@c-sky.com>, Gary Guo <gary@garyguo.net>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
- Christoph Hellwig <hch@lst.de>, Allison Randal <allison@lohutok.net>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "jason@lakedaemon.net" <jason@lakedaemon.net>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "maz@kernel.org" <maz@kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "atish.patra@wdc.com" <atish.patra@wdc.com>, Yash Shah <yash.shah@sifive.com>,
+ "robh+dt@kernel.org" <robh+dt@kernel.org>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ Sagar Kadam <sagar.kadam@sifive.com>,
+ "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
+ "tglx@linutronix.de" <tglx@linutronix.de>,
+ "bmeng.cn@gmail.com" <bmeng.cn@gmail.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Sachin Ghadi <sachin.ghadi@sifive.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We now have SBI v0.2 which is more scalable and extendable to handle
-future needs for RISC-V supervisor interfaces.
-
-Introduce a new config and move all SBI v0.1 code under that config.
-This allows to implement the new replacement SBI extensions cleanly
-and remove v0.1 extensions easily in future. Currently, the config
-is enabled by default. Once all M-mode software with v0.1 are no
-longer in use, this config option and all relevant code can be easily
-removed.
-
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/Kconfig      |  6 ++++
- arch/riscv/kernel/sbi.c | 69 +++++++++++++++++++++++++++++------------
- 2 files changed, 55 insertions(+), 20 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 8eebbc8860bb..4881b87d0d14 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -272,6 +272,12 @@ menu "Kernel features"
- 
- source "kernel/Kconfig.hz"
- 
-+config RISCV_SBI_V01
-+	bool "SBI v0.1 support"
-+	default y
-+	help
-+	  This config allows kernel to use SBI v0.1 APIs. This will be
-+	  deprecated in future once legacy M-mode software are no longer in use.
- endmenu
- 
- menu "Boot options"
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index 1cee3ef009bb..6c864fd7fb95 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -52,6 +52,7 @@ int sbi_err_map_linux_errno(int err)
- 	};
- }
- 
-+#ifdef CONFIG_RISCV_SBI_V01
- /**
-  * sbi_console_putchar() - Writes given character to the console device.
-  * @ch: The data to be written to the console.
-@@ -78,39 +79,47 @@ int sbi_console_getchar(void)
- }
- 
- /**
-- * sbi_set_timer() - Program the timer for next timer event.
-- * @stime_value: The value after which next timer event should fire.
-+ * sbi_shutdown() - Remove all the harts from executing supervisor code.
-  *
-  * Return: None
-  */
--void sbi_set_timer(uint64_t stime_value)
-+void sbi_shutdown(void)
- {
--#if __riscv_xlen == 32
--	sbi_ecall(SBI_EXT_0_1_SET_TIMER, 0, stime_value,
--			  stime_value >> 32, 0, 0, 0, 0);
--#else
--	sbi_ecall(SBI_EXT_0_1_SET_TIMER, 0, stime_value, 0, 0, 0, 0, 0);
--#endif
-+	sbi_ecall(SBI_EXT_0_1_SHUTDOWN, 0, 0, 0, 0, 0, 0, 0);
- }
- 
- /**
-- * sbi_shutdown() - Remove all the harts from executing supervisor code.
-+ * sbi_clear_ipi() - Clear any pending IPIs for the calling hart.
-  *
-  * Return: None
-  */
--void sbi_shutdown(void)
-+void sbi_clear_ipi(void)
- {
--	sbi_ecall(SBI_EXT_0_1_SHUTDOWN, 0, 0, 0, 0, 0, 0, 0);
-+	sbi_ecall(SBI_EXT_0_1_CLEAR_IPI, 0, 0, 0, 0, 0, 0, 0);
- }
- 
-+#endif
-+
- /**
-- * sbi_clear_ipi() - Clear any pending IPIs for the calling hart.
-+ * sbi_set_timer() - Program the timer for next timer event.
-+ * @stime_value: The value after which next timer event should fire.
-  *
-  * Return: None
-  */
--void sbi_clear_ipi(void)
-+void sbi_set_timer(uint64_t stime_value)
- {
--	sbi_ecall(SBI_EXT_0_1_CLEAR_IPI, 0, 0, 0, 0, 0, 0, 0);
-+#ifdef CONFIG_RISCV_SBI_V01
-+	if (sbi_spec_is_0_1()) {
-+#if __riscv_xlen == 32
-+		sbi_ecall(SBI_EXT_0_1_SET_TIMER, 0, stime_value,
-+			  stime_value >> 32, 0, 0, 0, 0);
-+#else
-+		sbi_ecall(SBI_EXT_0_1_SET_TIMER, 0, stime_value, 0, 0, 0, 0, 0);
-+#endif
-+		return;
-+	}
-+#endif
-+
- }
- 
- /**
-@@ -121,8 +130,13 @@ void sbi_clear_ipi(void)
-  */
- void sbi_send_ipi(const unsigned long *hart_mask)
- {
--	sbi_ecall(SBI_EXT_0_1_SEND_IPI, 0, (unsigned long)hart_mask,
-+#ifdef CONFIG_RISCV_SBI_V01
-+	if (sbi_spec_is_0_1()) {
-+		sbi_ecall(SBI_EXT_0_1_SEND_IPI, 0, (unsigned long)hart_mask,
- 			0, 0, 0, 0, 0);
-+		return;
-+	}
-+#endif
- }
- 
- /**
-@@ -133,8 +147,13 @@ void sbi_send_ipi(const unsigned long *hart_mask)
-  */
- void sbi_remote_fence_i(const unsigned long *hart_mask)
- {
--	sbi_ecall(SBI_EXT_0_1_REMOTE_FENCE_I, 0, (unsigned long)hart_mask,
--			0, 0, 0, 0, 0);
-+#ifdef CONFIG_RISCV_SBI_V01
-+	if (sbi_spec_is_0_1()) {
-+		sbi_ecall(SBI_EXT_0_1_REMOTE_FENCE_I, 0,
-+			 (unsigned long)hart_mask, 0, 0, 0, 0, 0);
-+		return;
-+	}
-+#endif
- }
- 
- /**
-@@ -150,8 +169,13 @@ void sbi_remote_sfence_vma(const unsigned long *hart_mask,
- 					 unsigned long start,
- 					 unsigned long size)
- {
--	sbi_ecall(SBI_EXT_0_1_REMOTE_SFENCE_VMA, 0,
-+#ifdef CONFIG_RISCV_SBI_V01
-+	if (sbi_spec_is_0_1()) {
-+		sbi_ecall(SBI_EXT_0_1_REMOTE_SFENCE_VMA, 0,
- 			(unsigned long)hart_mask, start, size, 0, 0, 0);
-+		return;
-+	}
-+#endif
- }
- 
- /**
-@@ -170,8 +194,13 @@ void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
- 					      unsigned long size,
- 					      unsigned long asid)
- {
--	sbi_ecall(SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID, 0,
-+#ifdef CONFIG_RISCV_SBI_V01
-+	if (sbi_spec_is_0_1()) {
-+		sbi_ecall(SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID, 0,
- 			(unsigned long)hart_mask, start, size, asid, 0, 0);
-+		return;
-+	}
-+#endif
- }
- 
- /**
--- 
-2.23.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBOb3YgMTgsIDIwMTkgYXQgMTE6MTUgQU0gQmFydG9zeiBHb2xhc3pld3NraQo8Ymdv
+bGFzemV3c2tpQGJheWxpYnJlLmNvbT4gd3JvdGU6Cj4gcG9uLiwgMTggbGlzIDIwMTkgbyAxMTow
+MyBZYXNoIFNoYWggPHlhc2guc2hhaEBzaWZpdmUuY29tPiBuYXBpc2HFgihhKToKCj4gPiBBcyBz
+dWdnZXN0ZWQgaW4gdGhlIGNvbW1lbnRzIHJlY2VpdmVkIG9uIHRoZSBSRkMgdmVyc2lvbiBvZiB0
+aGlzIHBhdGNoWzBdLCBJIGFtIHRyeWluZyB0byB1c2UgcmVnbWFwIE1NSU8gYnkgbG9va2luZyBh
+dCBncGlvLW12ZWJ1LmMuIEkgZ290IHlvdXIgcG9pbnQgcmVnYXJkaW5nIHRoZSB1c2FnZSBvZiBv
+d24gbG9ja3MgaXMgbm90IG1ha2luZyBhbnkgc2Vuc2UuCj4gPiBIZXJlIGlzIHdoYXQgSSB3aWxs
+IGRvIGluIHYyOgo+ID4gMS4gZHJvcCB0aGUgdXNhZ2Ugb2Ygb3duIGxvY2tzCj4gPiAyLiBjb25z
+aXN0ZW50bHkgdXNlIHJlZ21hcF8qIGFwaXMgZm9yIHJlZ2lzdGVyIGFjY2VzcyAocmVwbGFjZSBh
+bGwgaW93cml0ZXMpLgo+ID4gRG9lcyB0aGlzIG1ha2Ugc2Vuc2Ugbm93Pwo+Cj4gVGhlIHRoaW5n
+IGlzOiB0aGUgZ3Bpby1tbWlvIGNvZGUgeW91J3JlIChjb3JyZWN0bHkpIHJldXNpbmcgdXNlcyBh
+Cj4gZGlmZmVyZW50IGxvY2sgLSBuYW1lbHk6IGJncGlvX2xvY2sgaW4gc3RydWN0IGdwaW9fY2hp
+cC4gSWYgeW91IHdhbnQKPiB0byB1c2UgcmVnbWFwIGZvciByZWdpc3RlciBvcGVyYXRpb25zLCB0
+aGVuIHlvdSBuZWVkIHRvIHNldAo+IGRpc2FibGVfbG9ja2luZyBpbiByZWdtYXBfY29uZmlnIHRv
+IHRydWUgYW5kIHRoZW4gdGFrZSB0aGlzIGxvY2sKPiBtYW51YWxseSBvbiBldmVyeSBhY2Nlc3Mu
+CgpJcyBpdCByZWFsbHkgc28/IFRoZSBiZ3Bpb19sb2NrIGRvZXMgcHJvdGVjdCB0aGUgcmVnaXN0
+ZXJzIHVzZWQKYnkgcmVnbWFwLW1taW8gYnV0IHVubGVzcyB0aGUgaW50ZXJydXB0IGNvZGUgaXMg
+YWxzbyB1c2luZyB0aGUKc2FtZSByZWdpc3RlcnMgaXQgaXMgZmluZSB0byBoYXZlIGEgZGlmZmVy
+ZW50IGxvY2sgZm9yIHRob3NlLgoKSXMgdGhlIGludGVycnVwdCBjb2RlIHJlYWxseSBwb2tpbmcg
+aW50byB0aGUgdmVyeSBzYW1lIHJlZ2lzdGVycwphcyBwYXNzZWQgdG8gYmdwaW9faW5pdCgpPwoK
+T2YgY291cnNlIGl0IGNvdWxkIGJlIHNlZW4gYXMgYSBiaXQgZGlydHkgdG8gcG9rZSBhcm91bmQg
+aW4gdGhlCnNhbWUgbWVtb3J5IHNwYWNlIHdpdGggcmVnbWFwIGFuZCB0aGUgYmdwaW9fKiBhY2Nl
+c3NvcnMKYnV0IGluIHByYWN0aWNlIGl0J3Mgbm8gcHJvYmxlbSBpZiB0aGV5IG5ldmVyIHRvdWNo
+IHRoZSBzYW1lCnRoaW5ncy4KCllvdXJzLApMaW51cyBXYWxsZWlqCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
