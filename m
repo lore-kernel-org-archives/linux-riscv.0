@@ -2,20 +2,20 @@ Return-Path: <SRS0=euR7=ZM=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AFE4BC432C0
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 Nov 2019 10:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AE518C432C0
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 Nov 2019 10:39:10 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 889512243F
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 Nov 2019 10:24:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 871FB2243F
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 Nov 2019 10:39:10 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="txi2fUjs"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 889512243F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pR1AyMgU"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 871FB2243F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,41 +24,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:From:Date:
 	MIME-Version:Subject:To:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=PpQLxZ7UZDRwFOJXS86glOOK+SBO7f6YmwjyBtPZkQY=; b=txi2fUjs7r2Oi8T6T5mMVqHdT
-	yqlwn6hfeRWf24lO0f91fk39SPv5mpUKokMeulac3L+XY+uuUMvINt76p2X0vhtZ+AvifNRgSH77j
-	ZrCVIoVRdrwUCsQ+HdFd5MTiwcPv+Pa3sYtnKjqOQ1OPhJaOGAPmuAxitpIJfmd+xmFsxprsiEEzo
-	9pGwUWp0+amfGucgkYrGGIfNik7wvm4ld91TOKa5pDhpg62GdNiWBq2o1zjGmitPGUdwaorNMkWlp
-	3zBdU9Uy2WqPGZI68Mnxn9qsyuc8ae/Hopz8xuQ4+7hXBfzJmaNqymuOiAZGj7rIyNwGtssTUHjYm
-	HgFGKQtuQ==;
+	 bh=mWokpabRINsgJiub24UtyFv31ZfwdN1Er0kLVg7V8Jc=; b=pR1AyMgUclbsbPJcfVRGl2Lyn
+	fZRiQ+AtmGX+J0D6oomCh32R1Q1b9sGCDA3yHKmY5hAObr4Wp1wmjc5to7Vwwp6FyFBQHLqZ1o5sa
+	PQ1CBSARDBrFgVDPDGMkBhOy02oxalhgkNYrsljWd5F0o3im8mWVx4Dkm4iXx03IshFqE+tdG2BZc
+	jE+rRrpR8zOxawbS4cJe8TxeVLEscXzFjaycUIng8KWWH8NnLM9KwCO5iH/NfCOH/wSYpT8T7u1Aw
+	/IaBwoulB3NTpcGrogs94A2ulMQlBKKZhfbVgqcxCn2R+ZaGx4KCLkjd/Sa2lkgcbeVMj6e8KDm7a
+	uaotSDxTQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iXN9m-0004dP-Ax; Wed, 20 Nov 2019 10:24:18 +0000
+	id 1iXNO9-0001uT-4h; Wed, 20 Nov 2019 10:39:09 +0000
 Received: from inca-roads.misterjones.org ([213.251.177.50])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iXN9i-0004cr-JP
- for linux-riscv@lists.infradead.org; Wed, 20 Nov 2019 10:24:16 +0000
+ id 1iXNO6-0001tx-5F
+ for linux-riscv@lists.infradead.org; Wed, 20 Nov 2019 10:39:07 +0000
 Received: from www-data by cheepnis.misterjones.org with local (Exim 4.80)
  (envelope-from <maz@kernel.org>)
- id 1iXN9a-0001Lb-Iw; Wed, 20 Nov 2019 11:24:06 +0100
-To: Thomas Gleixner <tglx@linutronix.de>
+ id 1iXNNz-0001Zl-U1; Wed, 20 Nov 2019 11:38:59 +0100
+To: Yash Shah <yash.shah@sifive.com>
 Subject: Re: [PATCH v2 1/5] genirq: introduce =?UTF-8?Q?irq=5Fdomain=5Ftra?=
  =?UTF-8?Q?nslate=5Fonecell?=
 X-PHP-Originating-Script: 0:main.inc
 MIME-Version: 1.0
-Date: Wed, 20 Nov 2019 10:24:06 +0000
+Date: Wed, 20 Nov 2019 10:38:59 +0000
 From: Marc Zyngier <maz@kernel.org>
-In-Reply-To: <alpine.DEB.2.21.1911201034240.6731@nanos.tec.linutronix.de>
+In-Reply-To: <1574233128-28114-2-git-send-email-yash.shah@sifive.com>
 References: <1574233128-28114-1-git-send-email-yash.shah@sifive.com>
  <1574233128-28114-2-git-send-email-yash.shah@sifive.com>
- <alpine.DEB.2.21.1911201034240.6731@nanos.tec.linutronix.de>
-Message-ID: <31ed00455bd8374b26ea6b649c14e288@www.loen.fr>
+Message-ID: <5ec51559d8b4cd3b8e80943788b52926@www.loen.fr>
 X-Sender: maz@kernel.org
 User-Agent: Roundcube Webmail/0.7.2
 X-SA-Exim-Connect-IP: <locally generated>
-X-SA-Exim-Rcpt-To: tglx@linutronix.de, yash.shah@sifive.com,
- linus.walleij@linaro.org, bgolaszewski@baylibre.com, robh+dt@kernel.org,
- mark.rutland@arm.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, jason@lakedaemon.net, bmeng.cn@gmail.com,
+X-SA-Exim-Rcpt-To: yash.shah@sifive.com, linus.walleij@linaro.org,
+ bgolaszewski@baylibre.com, robh+dt@kernel.org, mark.rutland@arm.com,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ tglx@linutronix.de, jason@lakedaemon.net, bmeng.cn@gmail.com,
  atish.patra@wdc.com, sagar.kadam@sifive.com, linux-gpio@vger.kernel.org,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com
@@ -66,9 +65,8 @@ X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on cheepnis.misterjones.org);
  SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191120_022414_781097_A1BC93B7 
-X-CRM114-Status: UNSURE (   6.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191120_023906_344475_882B53A0 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,35 +79,90 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
- jason@lakedaemon.net, atish.patra@wdc.com, linus.walleij@linaro.org,
- linux-kernel@vger.kernel.org, bgolaszewski@baylibre.com,
- Yash Shah <yash.shah@sifive.com>, robh+dt@kernel.org, palmer@dabbelt.com,
- Sagar Kadam <sagar.kadam@sifive.com>, linux-gpio@vger.kernel.org,
- "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, bmeng.cn@gmail.com,
- Sachin Ghadi <sachin.ghadi@sifive.com>
+ jason@lakedaemon.net, atish.patra@wdc.com,
+ Sachin Ghadi <sachin.ghadi@sifive.com>, linus.walleij@linaro.org,
+ linux-kernel@vger.kernel.org, bgolaszewski@baylibre.com, robh+dt@kernel.org,
+ palmer@dabbelt.com, Sagar Kadam <sagar.kadam@sifive.com>,
+ linux-gpio@vger.kernel.org, "Paul
+ Walmsley \( Sifive\)" <paul.walmsley@sifive.com>, tglx@linutronix.de,
+ bmeng.cn@gmail.com, linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2019-11-20 09:34, Thomas Gleixner wrote:
-> On Wed, 20 Nov 2019, Yash Shah wrote:
+On 2019-11-20 06:59, Yash Shah wrote:
+> Add a new function irq_domain_translate_onecell() that is to be used 
+> as
+> the translate function in struct irq_domain_ops for the v2 IRQ API.
 >
->> Add a new function irq_domain_translate_onecell() that is to be used 
->> as
->> the translate function in struct irq_domain_ops for the v2 IRQ API.
+> Signed-off-by: Yash Shah <yash.shah@sifive.com>
+> ---
+>  include/linux/irqdomain.h |  5 +++++
+>  kernel/irq/irqdomain.c    | 20 ++++++++++++++++++++
+>  2 files changed, 25 insertions(+)
 >
-> What is the V2 IRQ API?
+> diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
+> index 583e7ab..cad9eb8 100644
+> --- a/include/linux/irqdomain.h
+> +++ b/include/linux/irqdomain.h
+> @@ -426,6 +426,11 @@ int irq_domain_translate_twocell(struct 
+> irq_domain *d,
+>  				 unsigned long *out_hwirq,
+>  				 unsigned int *out_type);
+>
+> +int irq_domain_translate_onecell(struct irq_domain *d,
+> +				 struct irq_fwspec *fwspec,
+> +				 unsigned long *out_hwirq,
+> +				 unsigned int *out_type);
+> +
+>  /* IPI functions */
+>  int irq_reserve_ipi(struct irq_domain *domain, const struct cpumask 
+> *dest);
+>  int irq_destroy_ipi(unsigned int irq, const struct cpumask *dest);
+> diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
+> index 132672b..6972a48 100644
+> --- a/kernel/irq/irqdomain.c
+> +++ b/kernel/irq/irqdomain.c
+> @@ -987,6 +987,26 @@ const struct irq_domain_ops 
+> irq_domain_simple_ops = {
+>  EXPORT_SYMBOL_GPL(irq_domain_simple_ops);
+>
+>  /**
+> + * irq_domain_translate_onecell() - Generic translate for direct one 
+> cell
+> + * bindings
+> + *
+> + * Device Tree IRQ specifier translation function which works with 
+> one cell
 
-I believe that's a reference to a rather misleading comment in 
-irqdomain.h:
+nit: the whole point of the 'new' translate function is that they are
+firmware-agnostic. Just drop the DT reference here.
 
-#ifdef	CONFIG_IRQ_DOMAIN_HIERARCHY
-	/* extended V2 interfaces to support hierarchy irq_domains */
+> + * bindings where the cell values map directly to the hwirq number.
+> + */
+> +int irq_domain_translate_onecell(struct irq_domain *d,
+> +				 struct irq_fwspec *fwspec,
+> +				 unsigned long *out_hwirq,
+> +				 unsigned int *out_type)
+> +{
+> +	if (WARN_ON(fwspec->param_count < 1))
+> +		return -EINVAL;
+> +	*out_hwirq = fwspec->param[0];
+> +	*out_type = IRQ_TYPE_NONE;
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(irq_domain_translate_onecell);
+> +
+> +/**
+>   * irq_domain_translate_twocell() - Generic translate for direct two 
+> cell
+>   * bindings
+>   *
 
-which we could drop, as everything refers to hierarchical domain
-support.
+Can you please also update (potentially in a separate patch) the 
+potential
+users of this? I mentioned the nvic driver last time...
 
 Thanks,
 
