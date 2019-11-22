@@ -2,85 +2,87 @@ Return-Path: <SRS0=TXMU=ZO=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B654C432C0
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Nov 2019 22:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F104CC432C3
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Nov 2019 22:57:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D2B2320714
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Nov 2019 22:57:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C3CFF2070E
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 22 Nov 2019 22:57:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="m5JkL1RY";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="TtdrSbZ1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D2B2320714
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="F6xGASAs";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="ZNg6oVsY"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C3CFF2070E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cj24wtyRKc+DYBEbKTAG/MIlAaNxvHJhAMmnPzgmx2c=; b=m5JkL1RYWeIIpM
-	BMnVHIG8bdgIDdykQHUs84QehtFv9ytRLshdl92SmDPyuXJqtkEGU+AnbGnoH/oKKovbmrmFyxnB+
-	b92sWLu/FAGnc5Psu/WRthe6QtkHZEVjQTl+zsEE5bpujHwvPueSTuMA49AQ5MskueNoLRs7xVh82
-	7+X4Ln4aQn+hm3cPvHTKN41k5xNbfiCJvm8D8wbi5UtYBx4qKnMiaN3X2ug2UlmBM7r3fJguPWOX5
-	UYXdYKelHbBy1a9rRbPmPrqgfRiwHRuh8FUhy4RTMRAtOakh2Sn6RGX/gi25GXXcbg41LkQXq0tUM
-	cSkIHuX2L8pBpI7ORP3Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6fzgr2LaL3KAAZDsqQ+9qlwPKR13tavvAAN7+MZBGtA=; b=F6xGASAsAI3dcB
+	9vxSwurrRCIv8sFAChLniRroYAm6O2J25ELT4NbGHZ6JPshcdjAzVGhLt9PMV8vOJvhpN8Ne08vnG
+	zLtEKCPRzVSo1fn/fCqPo8kdt0fCaQYpNo8LYo4PFuHBwhCxnnwD4rLqW9mYnpc+l/zRX04tAjWVa
+	I+u95jWlMGAAYd3XiAsbZ6fec23CiuFflag0DWcL3pxgYylXD3yrZ+lIJzdh2lwGu5hHO/K3KbVlH
+	Ak2TrlAWzjV6JmERSPl0CfmnejWZpUQT50djwMlOdufF+hA6RL6670D8SNp4RVA2BhAeqvysCdOb5
+	hFKAs03FBSobJFQvDTzw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iYHrv-0008NX-U3; Fri, 22 Nov 2019 22:57:39 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1iYHs7-0008Rn-SD; Fri, 22 Nov 2019 22:57:51 +0000
+Received: from mail-il1-x143.google.com ([2607:f8b0:4864:20::143])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iYHrt-0008Mu-3d
- for linux-riscv@lists.infradead.org; Fri, 22 Nov 2019 22:57:38 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id j13so10012512ioe.0
- for <linux-riscv@lists.infradead.org>; Fri, 22 Nov 2019 14:57:35 -0800 (PST)
+ id 1iYHs5-0008Qw-Db
+ for linux-riscv@lists.infradead.org; Fri, 22 Nov 2019 22:57:50 +0000
+Received: by mail-il1-x143.google.com with SMTP id p6so8570428ilp.1
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Nov 2019 14:57:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=Uj2Ztb9iUAhbf9rH9PWOL69mPO/eEt+nZByhj8SBdF0=;
- b=TtdrSbZ13QpZA+903XTzpENZhwLPlCl3eTbFupVTijcqqQXV6OKHmcjVrRp3tzA7Kh
- moALB6g9sRrAlmWGrcMWWJsLVEWzpOBkn1rJN7CxBa5FdW/D1Y27t5zsnt7JWe2DOnLj
- OOWZzFSHbxZ25VHBCA8lM+IYM03/UDpIXO6fTmOSxP9PWgHutbno13uQEAiIuTeAaEQK
- FOBtW9im2KVSkmOpaGamtbEOiHXSJQjmQRBaRixtxtjgblZzHQCJ8NfGo3X7bfkdpZg0
- +jrlfl+a2emN/TBtXwWZndcuOpG6GZLLT++33jgsi3R4vp4pGRmBFvwgZASxW02JBv4Z
- n52Q==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=u3ZBGYnvbJ/3nC+9DjDgIqK97Mwi6LQxKmI4rG9RExg=;
+ b=ZNg6oVsYlzBrw+efMsCCKJFqUM7pP5WJAG3qgMjIb0gYMFdfjOLDYsIxGc8FzaxZ1u
+ RbVAQ2XiHWGtar5BEx1bZQmXaUagK/styfpLTil1J057VCH5u4FGEc5J7f/XRUqlAYAs
+ i5HpA2gbxnG8lOh0IeB+P0Q9UqAVktrc+UYcSQfdo3LZHQpX81RZI3ImSIIujMdA1797
+ uv3Yp9rNZ9DnTtkCi2392cEkIk2qJNF453a8+tvt8BK9Y13Q0HvO3tuCwK5KNcS5BNbe
+ jlYieAQgReeHxuyWipzj2dBlt8eEu3IimpQSd7QcQA6SijuBE0Rdhtbi6CE8+SXm4YFb
+ 2LKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=Uj2Ztb9iUAhbf9rH9PWOL69mPO/eEt+nZByhj8SBdF0=;
- b=Trig4hVJlGD3L2ULFvq224EnwFXb+NdbHDGqdvIBsDhbcY/NW3fqKMLVjKv2PytjIu
- T0k9iLupkhQFz04g09iVCLy+w+Bm7T/bxqX3Xy9jeIr9fPFPEImAIqv1IzxeBKx9OrBs
- //NwycatJ7jCcMTKLxh0Oz5HxkjnUDHNnpcOF/v2fwuI+aJBkZnddmdIacBA0VINird4
- aXvSqQPp1Kf/VSG92hwWsbRzXtjQtPCIzyF/19zJylV5hVDoOwz9xMX9/1GvQInm+fgN
- X787hKHLYf5nfLlz0LR+LFLEB2l0Y17+y3JquhnLA+15GIPbN+jnrCNcp3jKZWgXVGth
- BpKA==
-X-Gm-Message-State: APjAAAVtnVK+ROMejof07VsCm2PZCGUZf4sLw1awFqUB1mLaMD2YrErm
- StUp1bXuIBxOsLaqG/lNlFJosGkeeUI=
-X-Google-Smtp-Source: APXvYqyDDR6XWNHRiIJMoWrs9+l4wDYNEH8Foe6GnyqUiQ3MqB9IEAxn9IL9m83C6JG2XUbIuXEZBQ==
-X-Received: by 2002:a6b:c8cd:: with SMTP id y196mr8658070iof.266.1574463454895; 
- Fri, 22 Nov 2019 14:57:34 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=u3ZBGYnvbJ/3nC+9DjDgIqK97Mwi6LQxKmI4rG9RExg=;
+ b=hUakf0Mp8lD3PhgNIqtGdBKKMXlqbhbu99exeMnm3mD3t7n+GQpWgPJSKB2WNovMST
+ YtfMXTYW3ZBbrp1zOCynRZFuZXRZ+yGMEy+0hhIFdqyeqC+2FppkPWF52yi8pJ8FhrcH
+ I5I36NyvGjBa/YP47A3fwwaFf9Vko6xluCA+pGYfxxvS23h5kvU9kDOwjxvkjAHDMdzk
+ m7/bUzDSta+rhDebjqI+g9lgkVg8ZHPPpatGhq+sqB6flkNfu4N1TjejqfqxWNmo3g7j
+ NAy4LdjpjyR34P9epmcVAjp3amSmt0WLU8iKsOziWRaJgEm1EYrUwQOtrCt8OXPNbe6w
+ tYAg==
+X-Gm-Message-State: APjAAAVYACwZ1/gpY27UDRmfOsJtW2bkoqxUceDKGB+euJiD0LXdWwTC
+ G+Msy9BG6NiRlvnx+t8Kpa8GI5jY0S8=
+X-Google-Smtp-Source: APXvYqxtiKJSC7igr3lL77ErIu+id/gxtWpxS43pAdQZ2RUOnTCZoaoEUbp6J8KXzVQejZdOdWf0NQ==
+X-Received: by 2002:a92:109c:: with SMTP id 28mr19458344ilq.142.1574463468403; 
+ Fri, 22 Nov 2019 14:57:48 -0800 (PST)
 Received: from viisi.Home ([64.62.168.194])
- by smtp.gmail.com with ESMTPSA id x9sm3277098ilp.43.2019.11.22.14.57.05
+ by smtp.gmail.com with ESMTPSA id x9sm3277098ilp.43.2019.11.22.14.57.39
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 22 Nov 2019 14:57:06 -0800 (PST)
+ Fri, 22 Nov 2019 14:57:41 -0800 (PST)
 From: Paul Walmsley <paul.walmsley@sifive.com>
 To: linux-riscv@lists.infradead.org
-Subject: [PATCH 0/2] riscv: defconfigs: enable debugging options 
-Date: Fri, 22 Nov 2019 14:56:57 -0800
-Message-Id: <20191122225659.21876-1-paul.walmsley@sifive.com>
+Subject: [PATCH 1/2] riscv: defconfigs: enable debugfs
+Date: Fri, 22 Nov 2019 14:56:58 -0800
+Message-Id: <20191122225659.21876-2-paul.walmsley@sifive.com>
 X-Mailer: git-send-email 2.24.0.rc0
+In-Reply-To: <20191122225659.21876-1-paul.walmsley@sifive.com>
+References: <20191122225659.21876-1-paul.walmsley@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191122_145737_180867_DA05305F 
-X-CRM114-Status: UNSURE (   4.87  )
+X-CRM114-CacheID: sfid-20191122_145749_459426_2C75CF9F 
+X-CRM114-Status: UNSURE (   8.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -99,29 +101,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable more debugging options in the defconfig.  Debugfs is generally
-useful for everyone; the other options are intended to make it easier
-for developers and testers to catch problems earlier.
+debugfs is broadly useful, so enable it in the RISC-V defconfigs.
 
+Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+---
+ arch/riscv/configs/defconfig      | 1 +
+ arch/riscv/configs/rv32_defconfig | 1 +
+ 2 files changed, 2 insertions(+)
 
-- Paul
-
-Paul Walmsley (2):
-  riscv: defconfigs: enable debugfs
-  riscv: defconfigs: enable more debugging options
-
- arch/riscv/configs/defconfig      | 24 ++++++++++++++++++++++++
- arch/riscv/configs/rv32_defconfig | 24 ++++++++++++++++++++++++
- 2 files changed, 48 insertions(+)
-
-
-Kernel object size difference:
-   text	   data	    bss	    dec	    hex	filename
-6665154	2132584	 312608	9110346	 8b034a	vmlinux.rv64.orig
-6779347	2299448	 313600	9392395	 8f510b	vmlinux.rv64.patched
-6445414	1797616	 255248	8498278	 81ac66	vmlinux.rv32.orig
-6552029	1921996	 257448	8731473	 853b51	vmlinux.rv32.patched
-
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 420a0dbef386..f0710d8f50cc 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -100,4 +100,5 @@ CONFIG_9P_FS=y
+ CONFIG_CRYPTO_USER_API_HASH=y
+ CONFIG_CRYPTO_DEV_VIRTIO=y
+ CONFIG_PRINTK_TIME=y
++CONFIG_DEBUG_FS=y
+ # CONFIG_RCU_TRACE is not set
+diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+index 87ee6e62b64b..bdec58e6c5f7 100644
+--- a/arch/riscv/configs/rv32_defconfig
++++ b/arch/riscv/configs/rv32_defconfig
+@@ -97,4 +97,5 @@ CONFIG_9P_FS=y
+ CONFIG_CRYPTO_USER_API_HASH=y
+ CONFIG_CRYPTO_DEV_VIRTIO=y
+ CONFIG_PRINTK_TIME=y
++CONFIG_DEBUG_FS=y
+ # CONFIG_RCU_TRACE is not set
 -- 
 2.24.0.rc0
 
