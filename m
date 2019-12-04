@@ -2,89 +2,68 @@ Return-Path: <SRS0=zqCN=Z2=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 70BD8C43603
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2019 18:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 03D28C2D0BE
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2019 19:25:26 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 451992073C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2019 18:56:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CB3752084F
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2019 19:25:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="C4T2LcD8";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="LXRQoSCX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 451992073C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oMcHyo6U";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="zd0KqNte"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CB3752084F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:In-Reply-To
-	:Subject:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=GrTDw7KQHR9Zr6li1nTe2wl4QZFVN56MIBJeTe4Eo8k=; b=C4T2LcD82P+FLe
-	VtI9U6gu/Eddu3Da/HvAk9vFH+Z5MntoRkbWzqN1LE/Nz+VZ9vuKkLraCzM9MozTedEmegAaP6B3X
-	Wj3IVWlXA9FaAcLS0Rqp8Zl6FU/0WSyZeViZhpb/71ADlAli6oeTVRZvgKqjFot1dVXfZh0r3XF6c
-	MZ4EaEdf3yVd7v4RUObY+Ldz3qbyVZAlZ/tbiKxt4gGS6/kggxkPhk2KFJwq3U+NF9qLJR0X4qHFV
-	G2qyQlRYivmQAvP4x7Y+lgWPNH21F636r0PWC3xBlj0kVEd9p3UXvXTvYKJYTWVIksfaAQLLSYZ3o
-	9MM/OaATBvLo/GnqVdOw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=nRcZKB9a9kFrkIfrVsDgcuG7/3uCjIjyyXkh34PqGMI=; b=oMcHyo6ULPhRwAebgK4BGO5u2
+	2zrIEaNV+7ncxIjxEZ0Kd51pPgnTXrbaZELtQ1cwyvISk8d8QBBMrv9enUKAGxI+moZ6t+yyy/5h2
+	RjiPXE+yRZ/2M3kLwxo78x2xXvEOZcAMxegx2M159BQw7ZaFQd0x0nMZ9lFKf35zlcMAIvNY3u5VD
+	FLx+YLvmRbw7+sWSRtRNV8Y/Q5ADo9sGgCN/OScndqol+ohIXJ88D6cyDlAFGjz3vAOyRfW5TtOrP
+	HinD7tHkN78MbQuoKtbvhDG/0Y78O4Y2M6WqcJkqldH/rlgQBNrWjCW6uQVyzPP8I5Tg0s9lGtt4c
+	3SrCW1fEg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1icZpA-0002EK-Dh; Wed, 04 Dec 2019 18:56:32 +0000
-Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
+	id 1icaH6-000548-Cz; Wed, 04 Dec 2019 19:25:24 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1icZp7-0002Dz-V6
- for linux-riscv@lists.infradead.org; Wed, 04 Dec 2019 18:56:31 +0000
-Received: by mail-pg1-x543.google.com with SMTP id l24so301013pgk.2
- for <linux-riscv@lists.infradead.org>; Wed, 04 Dec 2019 10:56:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:from:subject:in-reply-to:cc:to:message-id:mime-version
- :content-transfer-encoding;
- bh=GrTDw7KQHR9Zr6li1nTe2wl4QZFVN56MIBJeTe4Eo8k=;
- b=LXRQoSCXDDzGjopeIkIgLn0pJfsK8cqywHU+y97e1KdZyOyYx/gPKaZyxcIpuPXupx
- ymgBf/yz1Ar9s52nRWKEQViqQDQDRnLWuNuPEMvYiSuJ5ltwTer2wA11zDeygYopmzWC
- AT0a6zOZ5KJ4z90fM1BSRk4BPfgPxlJZtAn7yfhY8qnnYlP69/lnHC/NYnb5RIn5zk6p
- RhpaRjpQyzFafVefqQz1v0JP4ooQTefm8NvFYKqzPrpvYSsnnDyUyqHUGDyBUGvbbNRO
- 94IEDAIs9KGpGB1STeLpNZvMzz73MVed+6HZTj/aBiDzpCydD/dbjsiPvi+mpdapgbe7
- yfsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:subject:in-reply-to:cc:to:message-id
- :mime-version:content-transfer-encoding;
- bh=GrTDw7KQHR9Zr6li1nTe2wl4QZFVN56MIBJeTe4Eo8k=;
- b=AU4XIAybaMhAkwq72ma4t9Fa4Fm+l/T65f9ypMXV2ma8+dqJXg2SF9+4sYoyRBFbdF
- n5p4DpzdVSv0N3WlhwvE2PdWzvlcWLEIjK8g8+iefn8H6ywj7VAecwM0HdGO53Mu6TOv
- tsOINqQ5jZTbFcxQAmu4IkrxWEhpaX439pR3BnSgwKX5TMgLRaq4KM/wwp9eI/a8kYsk
- 9kxAAGls1EC9Qqm1MCQuXnMhxXIwCo0mfREiOWpMbILkhdzQk+riEIOs6n0hqupaWua7
- FU1bdM0g9nBU6FlVCw0d9zoalUuy5rTKQkY+GQTnXV0EhzYTSSQrcvkQaJ/XrRQqR6iS
- AunA==
-X-Gm-Message-State: APjAAAU3bDfosUWVnVrTM06Be5LmDhkJznkLi+vpBZVWltXCjGN/QG5t
- +Zo9sP/TKQQUCPjT79Ir8eFTtg==
-X-Google-Smtp-Source: APXvYqzldcvtOJEAnDxB1swtWUECL8KXNDu21UIbDRV+iIzG32ZNOnlVsAiwtPDsWhDU9jnDN64qzw==
-X-Received: by 2002:a63:ca4d:: with SMTP id o13mr5025430pgi.360.1575485788875; 
- Wed, 04 Dec 2019 10:56:28 -0800 (PST)
-Received: from localhost ([2620:0:1000:2514:7f69:cd98:a2a2:a03d])
- by smtp.gmail.com with ESMTPSA id f13sm9160328pfa.57.2019.12.04.10.56.28
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 04 Dec 2019 10:56:28 -0800 (PST)
-Date: Wed, 04 Dec 2019 10:56:28 -0800 (PST)
-X-Google-Original-Date: Wed, 04 Dec 2019 10:56:12 PST (-0800)
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-X-Google-Original-From: Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH v5 0/4] Add support for SBI v0.2 
-In-Reply-To: <20191126190503.19303-1-atish.patra@wdc.com>
-To: Atish Patra <Atish.Patra@wdc.com>
-Message-ID: <mhng-fc56738d-7643-4125-b6f7-486afb948a53@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8bit
+ id 1icaH4-00053M-4T
+ for linux-riscv@lists.infradead.org; Wed, 04 Dec 2019 19:25:23 +0000
+Subject: Re: [GIT PULL] Second set of RISC-V updates for v5.5-rc1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1575487520;
+ bh=p001tXcFFs4/gCV/Xle86ZqhJzzEvFjeeOtj7m5tDYk=;
+ h=From:In-Reply-To:References:Date:To:Cc:From;
+ b=zd0KqNteV4mItYA7tH6031GmT+IAq5Vfi+HbOMI+Z07IxkSpw/jXCvg0wVBNMi0co
+ qNrYVOqSaSERjM8Ypdkj181rWOyErZVREr2VfiYqjGC/CBKEdkdlsAIofn6BD/m9R1
+ bmerxKjSiS790gf/SFzvexbF8eVBl9u3g61B804M=
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <alpine.DEB.2.21.9999.1912040050430.56420@viisi.sifive.com>
+References: <alpine.DEB.2.21.9999.1912040050430.56420@viisi.sifive.com>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <alpine.DEB.2.21.9999.1912040050430.56420@viisi.sifive.com>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+ tags/riscv/for-v5.5-rc1-2
+X-PR-Tracked-Commit-Id: 1646220a6d4b27153ddb5ffb117aa1f4c39e3d1f
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 6cdc7f2efc25a6dbddf7c57bb2eee5d6c033d678
+Message-Id: <157548751994.30814.9638490489513007318.pr-tracker-bot@kernel.org>
+Date: Wed, 04 Dec 2019 19:25:19 +0000
+To: Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191204_105630_028725_03497CBB 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20191204_112522_198348_6DA98CD0 
+X-CRM114-Status: UNSURE (   0.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,68 +75,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, alexios.zavras@intel.com, anup@brainfault.org,
- linux-kernel@vger.kernel.org, rppt@linux.ibm.com,
- Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, tglx@linutronix.de, han_mao@c-sky.com
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 26 Nov 2019 11:04:59 PST (-0800), Atish Patra wrote:
-> The Supervisor Binary Interface(SBI) specification[1] now defines a
-> base extension that provides extendability to add future extensions
-> while maintaining backward compatibility with previous versions.
-> The new version is defined as 0.2 and older version is marked as 0.1.
->
-> This series adds support v0.2 and a unified calling convention
-> implementation between 0.1 and 0.2. It also add other SBI v0.2
-> functionality defined in [2]. The base support for SBI v0.2 is already
-> available in OpenSBI v0.5. This series needs additional patches[3] in
-> OpenSBI.
->
-> Tested on both BBL, OpenSBI with/without the above patch series.
->
-> [1] https://github.com/riscv/riscv-sbi-doc/blob/master/riscv-sbi.adoc
-> [2] https://github.com/riscv/riscv-sbi-doc/pull/27
-> [3] http://lists.infradead.org/pipermail/opensbi/2019-November/000738.html
->
-> Changes from v4->v5
-> 1. Fixed few minor comments related to static & inline.
-> 2. Make sure that every patch is boot tested individually.
->
-> Changes from v3->v4.
-> 1. Rebased on top of for-next.
-> 2. Fixed issuses with checkpatch --strict.
-> 3. Unfied all IPI/fence related functions.
-> 4. Added Hfence related SBI calls.
-> 5. Moved to function pointer based boot time switch between v01 and v02 calls.
-> Changes from v2->v3.
-> 1. Moved v0.1 extensions to a new config.
-> 2. Added support for relacement extensions of v0.1 extensions.
->
-> Changes from v1->v2
-> 1. Removed the legacy calling convention.
-> 2. Moved all SBI related calls to sbi.c.
-> 3. Moved all SBI related macros to uapi.
->
-> Atish Patra (4):
-> RISC-V: Mark existing SBI as 0.1 SBI.
-> RISC-V: Add basic support for SBI v0.2
-> RISC-V: Introduce a new config for SBI v0.1
-> RISC-V: Implement new SBI v0.2 extensions
->
-> arch/riscv/Kconfig           |   6 +
-> arch/riscv/include/asm/sbi.h | 177 +++++++-----
-> arch/riscv/kernel/Makefile   |   1 +
-> arch/riscv/kernel/sbi.c      | 547 ++++++++++++++++++++++++++++++++++-
-> arch/riscv/kernel/setup.c    |   2 +
-> 5 files changed, 660 insertions(+), 73 deletions(-)
+The pull request you sent on Wed, 4 Dec 2019 00:52:08 -0800 (PST):
 
-There's a few issues with the implementation, but I think the bigger question
-is what do to with the spec.  The SBI stuff sort of snuck in to Linux without
-actually having a proper spec written down, so I'm happy to just say "let's
-take the 0.2 stuff as soon as it's frozen" as we're at least in a better spot
-than with the legacy stuff.  Nominally we'd need to wait for a ratified
-specification here, which probably means a 1.0 specification, but that's a way
-off and I don't want to just sit around on the legacy stuff.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv/for-v5.5-rc1-2
+
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/6cdc7f2efc25a6dbddf7c57bb2eee5d6c033d678
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.wiki.kernel.org/userdoc/prtracker
 
