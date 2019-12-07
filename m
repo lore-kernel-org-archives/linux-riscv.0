@@ -1,103 +1,90 @@
-Return-Path: <SRS0=e5Sa=Z4=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=S/DD=Z5=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9A784C43603
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  6 Dec 2019 21:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E6544C43603
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  7 Dec 2019 01:07:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6B3932467A
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  6 Dec 2019 21:23:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B8A242064B
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  7 Dec 2019 01:07:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ahe+oVDH";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.b="QbFw/8Xl"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6B3932467A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lfM4zpwY";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="vnGHB43i"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B8A242064B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
-	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=33UvPPPikXdBo5UqVXIO9fOcJEfCIytsFl6Vq5hgbDY=; b=ahe+oVDHXnHggbGfJowk96LzD
-	igCyfBMANttZH0rIFmF+pUNZFsri9q/q416znTzgaC3uQTffysT/XeBhn73HNNrc9iesNYnejqEdu
-	zCDdvGZPQcGBfVpRLmg+Y7lyoQWt19fnY8ZAlszrmsgVazuESv8Lzr7cth/KpR7bkZZn0BgJf8/Sp
-	2v6VnAtC4a/8NnxfeFtDXkV64aso90yvpOx3PXZ0IQOBHX/W7O2rUitfgKbaQOkz55H3BeswWJTg0
-	wiv309/IRW8QPhYGe8t3fY8HvaAIIOJbgAknR5kGuccu98nEeYmLU4VIbdcm4yb5RG03cRSbAwO9F
-	KtY3wMw5g==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:In-Reply-To
+	:Subject:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=jgPnL+5CfrvgeIvrxi5m1URbPq9UfCHRkF3knFWgGMo=; b=lfM4zpwYYxamiO
+	iULaUpXKV/3dKElySxXMKyPM8siz8w2slljyTHj8iDB5yoVigWkBDgZhg9T+hkkzu1epJMywf5O8P
+	cnJz0t0jv2lp6XSzxqXlCimYPdP312n6HKzYC71i7dczA1w85rTmtYaMwt8mar0Ai8pRRTklIEQbl
+	JW+/yqEIH8ZGfCsgj5+5997bZ9igHzc+cO15aIS5+2r5w48SUwBUgAO+3VtKyMa4Ky1H1UH6dFYzt
+	olzfCa+etwqfJiz8AAz/9OnU42Jrbvw89Zv+LycaMkhBPKJlkPT8cwEB4tyXApRPKdhOGHFWgA+GT
+	IMqO6bkjYTcHBgvtzPJA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1idL4L-0007hT-FD; Fri, 06 Dec 2019 21:23:21 +0000
-Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
+	id 1idOZa-0007Q0-J7; Sat, 07 Dec 2019 01:07:50 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1idL4J-0007ge-Fj
- for linux-riscv@lists.infradead.org; Fri, 06 Dec 2019 21:23:20 +0000
-Received: by mail-lf1-x142.google.com with SMTP id l18so6336621lfc.1
- for <linux-riscv@lists.infradead.org>; Fri, 06 Dec 2019 13:23:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=linux-foundation.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=33UvPPPikXdBo5UqVXIO9fOcJEfCIytsFl6Vq5hgbDY=;
- b=QbFw/8XlQT2pipRqdCg9I+rSe4FLl6AknneKlqx43cRU3CNqoWkLozz28r7O2ZmCOz
- zOYuDWbSSWb74gksR4qXilyw7QCfb4OvPTYw4S4vAvWvrq1NQPfh+Tc+iCjJF5j5Az70
- Pw4O4duHeBe9zR9bdDicQDvbEQwD9fNNlNPMY=
+ id 1idOZY-0007PF-Fa
+ for linux-riscv@lists.infradead.org; Sat, 07 Dec 2019 01:07:50 +0000
+Received: by mail-pg1-x541.google.com with SMTP id b1so4156946pgq.10
+ for <linux-riscv@lists.infradead.org>; Fri, 06 Dec 2019 17:07:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=date:from:subject:in-reply-to:cc:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=jgPnL+5CfrvgeIvrxi5m1URbPq9UfCHRkF3knFWgGMo=;
+ b=vnGHB43imTN0QjS6hkVorlkKBz9FeRi7coqQYKVSZrNzu/moiA3L0lN/rlICiyRZHJ
+ Mh53ovWyz5PC6CNMvZVO7WD6S1sTZ6O5LGg+ugmfR6s7ghr/zccdDSRcdHvZVCHtN7vk
+ +MzaGgY460pFTYKZdZiU7yd9ELl1QotycSPLtwCk/MTZObu2SBttSveckWvIQRTPRJDb
+ VYkI+7gPM5D0vkj3UthTfXLDDaaf2wdIiaP37tRn3NR00CjhJJIC0ncgx/AYpOOCXfST
+ dbTRMxmf0dzFCZwJ4u5YxSgKZvnIl2uYwBkXhuvQHoEXnEj9IYeGoFnA8p/d1a5RZMQi
+ KScw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=33UvPPPikXdBo5UqVXIO9fOcJEfCIytsFl6Vq5hgbDY=;
- b=lapeLJWfkTFFQfBWMCyBcH1jBjgjyVjG53g2R2i4JWX5P+45Tg++I/LlmKDu1Fp67/
- U1zr0yWzxDxpT02WMjzqcG5H7SGdSXinA0bOTLCR+e14osjKJ3TSkuA+0K832CgOTGRM
- 5IoBRBA23Xft5gRjCknhcgNBmgd/sTbyeOFiJsoVwJY0fodVsXAL6nJG7XrjN7JqbQ0i
- mNvgK604bbG4Mt2nbVlUSzyCO27vMAKT7QgLNbNzoxqdolSiDgGwk5HWU5LocJxlQMAI
- ptbDv9bibf2QjJTh9Fhq1zrhTW/ER3CTYJ+c797Lu82fyKgk1Bbg0e2ESpDr3RJocjNY
- Vdsw==
-X-Gm-Message-State: APjAAAWSqraeXfxJe/wCoyLo2iHqDGK7uEbZZ7hcGgV51fhA2UjXANJV
- hcIOLYzP7jcsIf9CFzOy+G7W1gKZxM8=
-X-Google-Smtp-Source: APXvYqxrux3Oihdc+mGaIkyKpZ5ttRLR0wsV2weM+h/2AaCzgFU9ptU0iqlSfbfkrM9WdZokU9Kq7w==
-X-Received: by 2002:ac2:5582:: with SMTP id v2mr2688702lfg.183.1575667393321; 
- Fri, 06 Dec 2019 13:23:13 -0800 (PST)
-Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com.
- [209.85.208.177])
- by smtp.gmail.com with ESMTPSA id e17sm5349162ljg.101.2019.12.06.13.23.11
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 06 Dec 2019 13:23:12 -0800 (PST)
-Received: by mail-lj1-f177.google.com with SMTP id c19so9093638lji.11
- for <linux-riscv@lists.infradead.org>; Fri, 06 Dec 2019 13:23:11 -0800 (PST)
-X-Received: by 2002:a2e:86c4:: with SMTP id n4mr5352792ljj.97.1575667391454;
- Fri, 06 Dec 2019 13:23:11 -0800 (PST)
-MIME-Version: 1.0
-References: <alpine.DEB.2.21.9999.1912040050430.56420@viisi.sifive.com>
- <CAAhSdy2id0FoLBxWwN7WHEk5Am770BizkK=sZO0-G54MtYa6DQ@mail.gmail.com>
- <9044bad02aa6553cdb2523294500b50fccf3fd2a.camel@wdc.com>
- <alpine.DEB.2.21.9999.1912041128400.186402@viisi.sifive.com>
- <81530734312456aab8b9625d7e9bb071c43db1c5.camel@wdc.com>
- <alpine.DEB.2.21.9999.1912041644170.206929@viisi.sifive.com>
- <84c4ee600c0dd235a0fcc257115807af7207b5f6.camel@wdc.com>
- <alpine.DEB.2.21.9999.1912051435130.239155@viisi.sifive.com>
- <99bbf5710da82c8b52e59ad5fc4e44471573ecd3.camel@wdc.com>
- <3286a00cb9c8033872f533ec3e7f3db3e652c30c.camel@wdc.com>
- <CADnnUqe-=yTAFbwin_Lti6mQKqO2ABVYMa1XgTv_J=usT5w2gg@mail.gmail.com>
- <CAAhSdy0BXtkZPbav3QRtdMN9GcYG0SuxBDpwjFC8B_pr35s+Kg@mail.gmail.com>
-In-Reply-To: <CAAhSdy0BXtkZPbav3QRtdMN9GcYG0SuxBDpwjFC8B_pr35s+Kg@mail.gmail.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Fri, 6 Dec 2019 13:22:55 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wjGqZk7XcmtqJ7J0Em_XP1ECYU4CDBwFuMOjLrBH0-AHw@mail.gmail.com>
-Message-ID: <CAHk-=wjGqZk7XcmtqJ7J0Em_XP1ECYU4CDBwFuMOjLrBH0-AHw@mail.gmail.com>
-Subject: Re: [GIT PULL] Second set of RISC-V updates for v5.5-rc1
-To: Anup Patel <anup@brainfault.org>
-Content-Type: text/plain; charset="UTF-8"
+ h=x-gm-message-state:date:from:subject:in-reply-to:cc:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=jgPnL+5CfrvgeIvrxi5m1URbPq9UfCHRkF3knFWgGMo=;
+ b=bAdU83Ie9V3GhEok9Llug47Q9HFcwjJOBbVqLS8Keo098Vx/TSo4Lhdol8qECZ7LyG
+ esvm1oIxkwT4Mb171qOf98whHbQktyLSyAFAo1JJmFAolM0KPVVhocF/wUng7/wWOjpW
+ hQdMrCRnRRVYAJ9mqAjHw6/kjVGuCi/QnxsFem0Fwq4vfdnw3uHqVcxIxXXF2ftQqvwQ
+ Lyxc4py21NXw4h8e6UkDdMENknpHAfReB0Ljod1AxpQcYhTdBwtJx7gzdISF37ipr5br
+ ZfP2ojozIqx/PSTw/mAR2fkZWqF3HYOfJzRuESDFFNDR3ZifagGP7W+JHHo29TgHGmD8
+ W/1A==
+X-Gm-Message-State: APjAAAVt9uzc88M3Vk+9Dh8fsX4Ah/CbEZrb9/1Tz70XmGtjlqxJtGtP
+ tvsOs+Ka5SlbQhWGDDtkZrELEw==
+X-Google-Smtp-Source: APXvYqw+i60gFlnrvD0Dor+Sp0d2gAyk8B4gXSdQsjoxvzXIiXKLyW9wvw9NoSdBgAup/UtS8uprIg==
+X-Received: by 2002:a62:be12:: with SMTP id l18mr10004721pff.206.1575680865151; 
+ Fri, 06 Dec 2019 17:07:45 -0800 (PST)
+Received: from localhost ([2620:0:1000:2514:7f69:cd98:a2a2:a03d])
+ by smtp.gmail.com with ESMTPSA id y128sm17328385pfg.17.2019.12.06.17.07.44
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 06 Dec 2019 17:07:44 -0800 (PST)
+Date: Fri, 06 Dec 2019 17:07:44 -0800 (PST)
+X-Google-Original-Date: Fri, 06 Dec 2019 16:33:00 PST (-0800)
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+X-Google-Original-From: Palmer Dabbelt <palmer@dabbelt.com>
+Subject: RE: [PATCH v3 5/6] gpio: sifive: Add GPIO driver for SiFive SoCs
+In-Reply-To: <208a63e8819b84f9dc03f270f2606294@www.loen.fr>
+To: maz@kernel.org
+Message-ID: <mhng-be0f81d1-78d1-4e9c-8dae-1344635fbbb7@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191206_132319_526596_7DF92131 
-X-CRM114-Status: UNSURE (   6.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191206_170748_544981_6B63FCBE 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -109,45 +96,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Carlos Eduardo de Paula <me@carlosedp.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Atish Patra <Atish.Patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "hch@lst.de" <hch@lst.de>
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
+ jason@lakedaemon.net, Atish Patra <Atish.Patra@wdc.com>,
+ sachin.ghadi@sifive.com, linus.walleij@linaro.org,
+ linux-kernel@vger.kernel.org, bgolaszewski@baylibre.com, yash.shah@sifive.com,
+ robh+dt@kernel.org, sagar.kadam@sifive.com, linux-gpio@vger.kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, tglx@linutronix.de,
+ bmeng.cn@gmail.com, linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 6, 2019 at 1:15 PM Anup Patel <anup@brainfault.org> wrote:
+On Fri, 29 Nov 2019 01:12:10 PST (-0800), maz@kernel.org wrote:
+> On 2019-11-29 06:27, Yash Shah wrote:
+>>> -----Original Message-----
+>>> From: Linus Walleij <linus.walleij@linaro.org>
+>>> Sent: 28 November 2019 17:50
+>>> To: Yash Shah <yash.shah@sifive.com>
+>>> Cc: bgolaszewski@baylibre.com; robh+dt@kernel.org;
+>>> mark.rutland@arm.com; palmer@dabbelt.com; Paul Walmsley ( Sifive)
+>>> <paul.walmsley@sifive.com>; aou@eecs.berkeley.edu;
+>>> tglx@linutronix.de;
+>>> jason@lakedaemon.net; maz@kernel.org; bmeng.cn@gmail.com;
+>>> atish.patra@wdc.com; Sagar Kadam <sagar.kadam@sifive.com>; linux-
+>>> gpio@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>>> riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Sachin
+>>> Ghadi
+>>> <sachin.ghadi@sifive.com>
+>>> Subject: Re: [PATCH v3 5/6] gpio: sifive: Add GPIO driver for SiFive
+>>> SoCs
+>>>
+>>> On Mon, Nov 25, 2019 at 6:58 AM Yash Shah <yash.shah@sifive.com>
+>>> wrote:
+>>>
+>>> > Adds the GPIO driver for SiFive RISC-V SoCs.
+>>> >
+>>> > Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
+>>> > [Atish: Various fixes and code cleanup]
+>>> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+>>> > Signed-off-by: Yash Shah <yash.shah@sifive.com>
+>>>
+>>> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+>>>
+>>> I suppose Marc will merge all patches into the irqchip tree as they
+>>> are logically
+>>> dependent? If you want the GPIO bindings and this driver directly
+>>> merged
+>>> (no deps) then I can do that as well.
+>>
+>> Yes, the GPIO driver have logical dependency on irqchip patches. It
+>> is best if Marc merges all the patches into the irqchip tree.
+>>
+>> @Marc Zyngier, Are you going to merge all the patches into the
+>> irqchip tree?
 >
-> Better approach is to have a fragmented .config for extra DEBUG options.
+> I'm happy to pick this up, but that's definitely 5.6 material as
+> I stopped collecting new 5.5 features a couple of weeks ago.
 
-Guys, stop this silly thread already.
-
-The fact is, defconfig is useful for basic smoke testing - automated
-compile and boot testing, and getting perhaps random people to test
-something.
-
-But it is not appropriate for a distro to use. Anybody who makes that
-argument is wrong. If you actually know what you are doing, the
-defconfig is entirely irrelevant, and no, trying to make special debug
-fragments isn't going to make it more so.
-
-So if you are a RISC-V distro: stop using the defconfig. You shouldn't
-have used it in the first place. It's not meant to be a usable one.
-
-And no, don't start making "more defconfigs". We've had that mess too.
-It's broken too.
-
-If you are a distro maintainer and you cannot be bothered to make your
-own config file, then you should just stop being a distro maintainer,
-and maybe take up farming instead.
-
-Right now you guys are just wasting everybody elses time. Stop it.
-
-Or at least remove me from the cc, because I'm  not interested in this
-whiny "I'm too lazy to maintain my own config, and I _insist_ that the
-defconfig is meant only for me".
-
-             Linus
+Thanks!
 
