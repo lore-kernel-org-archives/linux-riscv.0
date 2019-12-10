@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EA78CC2D0C5
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 11:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E8C2C43603
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 11:12:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AFF7A2073D
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 11:11:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 23CC3208C3
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 11:12:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jkF1YQW1";
-	dkim=pass (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="qQxbrYM3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AFF7A2073D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="V5mdp2ml";
+	dkim=pass (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="Ld5xGV6G"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 23CC3208C3
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,52 +26,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=YbCalaTn2X7HF4eRtvgddainZMNLa53BndvIrXNSIWM=; b=jkF1YQW14AYKvuHs54Knt3IDt
-	qIGEE7ujaQrXggPp9iIIYXyds+RkQELc7zd6OA/9lVycmAUpISNryvysmekWyHLTuCBh/PAQ3T2KS
-	ciJNSeDx/U0O3d3LHt/dpa61z4KKkYEg0iMUJ8YRvmrC0qTdXcwAzuL7F0fnnn67tV8AhZQ2FbfuE
-	2pqE/3KY8fUuZJOajKhHs3neHfWu/3BhR+enmRctXa1JmXZg+YFWroZ4tIhA+nZGQec7j5Q4P/riZ
-	C76zFVXA/MVUqas6FBK+JrC2bLq6jltWxEZpANhd1fy+tD6vFvS/AcB8rddW67MsiGcUrbe5uQ9yh
-	MdJXvYDbA==;
+	 bh=yyZnI0HbL8bdpVO5C50UB7u9//b3VEqrqOf+EFqI6YY=; b=V5mdp2mluxcwR2ltBEAXjg7MV
+	azg1Bz38GFkndocmO4NLetkDkHuiJMWClMNQs3YCnV+j9T7gohZvRkg6izQEdK3Y7HYHTDy9IOOdu
+	DXF1tr8VN4t2cdvllYAERsDmRb5f0O3QlUQBPEIcG4HyWFbSQ0NzYMZVtJRX/vOjxLeg8qMzmUz1p
+	zvIZKQcqWo7HTalOl2UwjU/AnWxNMRZH7GdVqhkdqwy61gsLmraadmptr9XsAqb7XoKzzSWj/kMnB
+	9LXpc8Ar0K0kfRQ2iLLuJ6MFMEs/hteSPpxB1bcgJbs3WMy5sZZgHp6lcOtVgWZP9yulhDSD2DDNb
+	hfFL/sjlg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iedQl-0008BE-Hk; Tue, 10 Dec 2019 11:11:51 +0000
-Received: from mail-dm6nam10on20607.outbound.protection.outlook.com
- ([2a01:111:f400:7e88::607]
- helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1iedRG-00005H-9z; Tue, 10 Dec 2019 11:12:22 +0000
+Received: from mail-dm6nam10on2044.outbound.protection.outlook.com
+ ([40.107.93.44] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iedQh-00085r-Ue
- for linux-riscv@lists.infradead.org; Tue, 10 Dec 2019 11:11:49 +0000
+ id 1iedRD-0008V0-5Z
+ for linux-riscv@lists.infradead.org; Tue, 10 Dec 2019 11:12:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=IZgKU5Qwaxa0Rq8RN0lRD2uXsA7jozOKb+Wc8i+VtfzRd1VJ4+EooB+exvKnzxrkq1QFmlZUNwfjw4knx6UZJ5QPQbqSf9LXz4jq5D8LfiZN3qnJDRe3rHyzWFH/ym7OKOKoVf57M5kmCN5YonjVoX/ia3ir1CvS0ZEmr7zmgpqLJWrOBDEywldweCq7pv+N5TOZ7qguCRbplph7GSJ9EuCqNOD9KluzGI3Vx4o+VPn1yDeTPU34EnQXnWlUSN3bWk1pdir9rr6xoWOsYuoRWvRW9a89fc91kxWf/iaDOqE4I8hZQQZ9mKPhb+tDn6/xkrTNYS36UVXn4CdomoZrJw==
+ b=oX5oWBRQpnR5i8e+FN0c7eJ/S7qOgbzBJL7Pt18Db3oxIFVj8L7T8E4ceMADZ5/OGYHAYdkZt+Fpxx9ci6C8nBXUeSFfzHDIY3j00CTFc6cu+u3oMvs1K9oas7gRSkT9x3ThbG3rq/vbE/cKFklbdvKdGnWdSpOhuKvYBmZRmoeiuuNd/7Ypou7PpH9SpqwLT8DadJ7eiJSzQWhJYlxhy6Guu+/cMOIuct4PW/roqFYpbk1ZgCiGY375PfUxJ0LaUdpxAXhRrYPY9SaTsWZ7VK+Q6tKJvX8yrGGkkl8rCi1vtEIXKcEIhglgdpBHPg/NMzzDWyk2lqFIO6EK1GINTw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YbCalaTn2X7HF4eRtvgddainZMNLa53BndvIrXNSIWM=;
- b=CU+vbEvlN974++ikVC9Bo61UmwUvinnCqq3q+SUV/bwc5NHqTvPA90yJbR8qFZe4JswuUb2XBObC2Fl92LpQq/FNI2KXrT+k/KTI1UlPDhgYSMtD54gbkN+xYOnpECGVXKHxbinxty7TA4iiUFNnH+DmW55msOpP/PxQLp5YFtgN3OepuJj8x2mkTqMd3U5CPfOV51a11ysCVvHuIKeqbcysnLhEmYqeU0I2jAKA2lHZ69IvPnO4Agh2a1FRCidmPXP8iqGOeVffD3h9gDOoAxA0xF5ZAw4s4SrXKqDWGTz670Y/lXtnQoankb33S+PRua2WvQwTAC1wmK/PxRInng==
+ bh=yyZnI0HbL8bdpVO5C50UB7u9//b3VEqrqOf+EFqI6YY=;
+ b=Onctk9s6dx2GR+iAHSA6bPxZaLy/XHNUaVakITGRV+XP3ujBtM0KSzwxtYj5G1n40Jh3/1b/Fwgp8czT0w0jtfdXC6tD9I/0ouuhMnoELip/3xnIoxrfvT1hHe8saawdk1P4Fp3qusR/QwMcCxSd/Iuyi/4PjmmeoHhhw4vVPnmKncP0KmYvif7Twf3k+FeAVXdwjfEXeGtiNyuKEf5XqS+38GQ7rWp18ziRatEU8rRTc1TfpEccBQv8qIx0PuRyy45Ld6EjXkWLwm1xMv189J3wZPJCM8H53lxe2vknXczFVy5+xFtsx5SvKAJj+g85BuSapkNaC2gpgbkJ0XJwMg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=sifive.com; dmarc=pass action=none header.from=sifive.com;
  dkim=pass header.d=sifive.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YbCalaTn2X7HF4eRtvgddainZMNLa53BndvIrXNSIWM=;
- b=qQxbrYM3VMr8uChXawMgU/us8WnmKTrxnD5Kou57ZmgaTLzhc2thyh8WzZGjPRt5+pGJprOJD+jAYbE/oTgns42K1a2wi4FAOmTqvrcYsoAYNP600AK3x2IecsDJCnjP85EfuFK/YQgk0O4W9qe6j6+Sa3OM8ILKxYBxktrzF6M=
+ bh=yyZnI0HbL8bdpVO5C50UB7u9//b3VEqrqOf+EFqI6YY=;
+ b=Ld5xGV6G2Yu+FzKGnYQIfMoQ7IMfkpxug0v7mULXYmzxwM0DVN55fhYYX4gyoaqmHppErdGsAFYC6m4vfa9X1lNxhSjRj6iA5OmFKi239+yxKQNJoba13GNmQyLW9pLAI+vb8V71bTU7Yc0/Cb5Oc6ve7+kLbfaPLdu2gyyA2D4=
 Authentication-Results: spf=none (sender IP is )
  smtp.mailfrom=yash.shah@sifive.com; 
 Received: from CH2PR13MB3368.namprd13.prod.outlook.com (52.132.246.90) by
  CH2PR13MB3656.namprd13.prod.outlook.com (20.180.4.204) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2538.14; Tue, 10 Dec 2019 11:11:44 +0000
+ 15.20.2538.14; Tue, 10 Dec 2019 11:12:17 +0000
 Received: from CH2PR13MB3368.namprd13.prod.outlook.com
  ([fe80::eccb:16ac:e897:85d5]) by CH2PR13MB3368.namprd13.prod.outlook.com
  ([fe80::eccb:16ac:e897:85d5%3]) with mapi id 15.20.2538.012; Tue, 10 Dec 2019
- 11:11:44 +0000
+ 11:12:17 +0000
 From: Yash Shah <yash.shah@sifive.com>
 To: linus.walleij@linaro.org, bgolaszewski@baylibre.com, robh+dt@kernel.org,
  mark.rutland@arm.com, palmer@dabbelt.com, paul.walmsley@sifive.com
-Subject: [PATCH v4 1/6] genirq: introduce irq_domain_translate_onecell
-Date: Tue, 10 Dec 2019 16:41:09 +0530
-Message-Id: <1575976274-13487-2-git-send-email-yash.shah@sifive.com>
+Subject: [PATCH v4 6/6] riscv: dts: Add DT support for SiFive FU540 GPIO driver
+Date: Tue, 10 Dec 2019 16:41:14 +0530
+Message-Id: <1575976274-13487-7-git-send-email-yash.shah@sifive.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1575976274-13487-1-git-send-email-yash.shah@sifive.com>
 References: <1575976274-13487-1-git-send-email-yash.shah@sifive.com>
@@ -83,19 +82,19 @@ MIME-Version: 1.0
 Received: from dhananjayk-PowerEdge-R620.open-silicon.com (114.143.65.226) by
  PN1PR0101CA0028.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c00:c::14) with
  Microsoft SMTP Server (version=TLS1_2, cipher=) via Frontend Transport;
- Tue, 10 Dec 2019 11:11:39 +0000
+ Tue, 10 Dec 2019 11:12:11 +0000
 X-Mailer: git-send-email 2.7.4
 X-Originating-IP: [114.143.65.226]
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 8228d1a2-39fb-4756-38cc-08d77d61bd71
+X-MS-Office365-Filtering-Correlation-Id: 22aa622c-3155-4a56-0a67-08d77d61d0f5
 X-MS-TrafficTypeDiagnostic: CH2PR13MB3656:
 X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <CH2PR13MB3656CF4A1F58D4DEAC4B415A8C5B0@CH2PR13MB3656.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:2201;
+X-Microsoft-Antispam-PRVS: <CH2PR13MB3656E79A536FBFC54B076CB38C5B0@CH2PR13MB3656.namprd13.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:3513;
 X-Forefront-PRVS: 02475B2A01
 X-Forefront-Antispam-Report: SFV:NSPM;
- SFS:(10009020)(396003)(39850400004)(366004)(136003)(346002)(376002)(199004)(189003)(36756003)(66476007)(1006002)(107886003)(52116002)(6666004)(66946007)(6506007)(26005)(956004)(316002)(2616005)(81166006)(8936002)(81156014)(16526019)(186003)(8676002)(44832011)(6636002)(5660300002)(86362001)(6486002)(7416002)(66556008)(6512007)(4326008)(478600001)(2906002);
+ SFS:(10009020)(6029001)(396003)(39850400004)(366004)(136003)(346002)(376002)(199004)(189003)(36756003)(66476007)(1006002)(107886003)(52116002)(66946007)(6506007)(26005)(956004)(316002)(2616005)(81166006)(8936002)(81156014)(16526019)(186003)(8676002)(44832011)(6636002)(5660300002)(86362001)(6486002)(7416002)(66556008)(6512007)(4326008)(478600001)(2906002);
  DIR:OUT; SFP:1101; SCL:1; SRVR:CH2PR13MB3656;
  H:CH2PR13MB3368.namprd13.prod.outlook.com; FPR:; SPF:None; LANG:en;
  PTR:InfoNoRecords; A:1; MX:1; 
@@ -103,18 +102,18 @@ Received-SPF: None (protection.outlook.com: sifive.com does not designate
  permitted sender hosts)
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: XHRUh+TyfD8O0J13qczc8vdv91+bw/fvj0g6GLx42eVbjH5cal7IpuOajTg260yF4fRrEPC3NYakrCPUyyApA2SL8fkWDvqrISBa7KrQHseIUXE66CYHvvsDL2AzGgcEZlNDbaf48LYPKiU5EVhEMDqtet4KIQa8yFr60HKcWZMW+21aJ0ul9Mkinfi6OMLemu2DcU8U7XBIdLSy0qmsV6Z25fcgqy6zA55hdQX6ioonT5M9HQTVnzBDZxTIoIxxf9qLf3wQieFQJWAmtBnDqc+ZmdkriyOfUCLk8Oi1k5I1qlbStxVYWrhJpxH/rWqI2RdJbotlBwZ2hB7Fhb9IPDhVHBJvGxMY2HJWnJsNdSs8q+MIi4kh4Vs4e86AjqnsQQAlKcoBF9WKHRFvbtU+F/5zAxN+yg7t9z5b1M28JxX60hkaGnjeThzaZVfsgZ9F
+X-Microsoft-Antispam-Message-Info: Ms664EI6kxaJhYNcol2aZYmG/RvlGMIKO2go+e9ZVThW/C9bcG1BOP/FjGNErz3Re2ArGnmB0gEeq6f/wXFbUOK53uAZ6+HdrXZlAeKjNwQo6K+fTlo8kf3FRwMzNwe8xPe3y3nlGHftUXpyuCA0q8G/hbT7hpZJ15F24Wn2nGTfzGADhWEk/mH9lMGHDJe72+IGVVdbQYei257u3H49uWL17pkq5enG3X+QSLzqA7d7Effzxpi9slbvG/UdxD42/cZ4ukYr6ONzPfK6J4VCgYQpihAb2/HeW12EuKV7vpS9dSwggqDGW2J2fxArD0E4niZJKBTZj8DjBS4H+vbEyHeJ3lDPm4V+5xwSw/uHfX+Bo0wuN64UkI9FBPMd/B1zLye+y7ViEgwnztbFheWz6BZJXP4z5W0UA8HEhYPgGgYsYFvtElLCh5cu5szD+h9Z
 X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8228d1a2-39fb-4756-38cc-08d77d61bd71
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2019 11:11:44.1946 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 22aa622c-3155-4a56-0a67-08d77d61d0f5
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2019 11:12:16.9712 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HOvu+lzzAoOJBYfbEd7kZExGsJMSDwucYOHgIgptRG+Nf0PM0DHI7Ybl1BVy/7Gmv8MfgBlZnob8bO109oyhrg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: iT4tjzfzPl2q5H7otacZfUtcbShKHvIMyBNpASgzCsacsBL2iU+b9zWMP61bIcKnsomapYdIcpOzHwPYwdiSsw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR13MB3656
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191210_031148_042765_67CABDB7 
-X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-CacheID: sfid-20191210_031219_219308_D60573BD 
+X-CRM114-Status: UNSURE (   8.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -135,59 +134,52 @@ Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, jason@lakedaemon.net,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a new function irq_domain_translate_onecell() that is to be used as
-the translate function in struct irq_domain_ops.
+Add the gpio DT node in SiFive FU540 soc-specific DT file.
+Enable the gpio node in HiFive Unleashed board-specific DT file.
 
 Signed-off-by: Yash Shah <yash.shah@sifive.com>
 ---
- include/linux/irqdomain.h |  5 +++++
- kernel/irq/irqdomain.c    | 17 +++++++++++++++++
- 2 files changed, 22 insertions(+)
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi          | 15 ++++++++++++++-
+ arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts |  4 ++++
+ 2 files changed, 18 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
-index 583e7ab..cad9eb8 100644
---- a/include/linux/irqdomain.h
-+++ b/include/linux/irqdomain.h
-@@ -426,6 +426,11 @@ int irq_domain_translate_twocell(struct irq_domain *d,
- 				 unsigned long *out_hwirq,
- 				 unsigned int *out_type);
- 
-+int irq_domain_translate_onecell(struct irq_domain *d,
-+				 struct irq_fwspec *fwspec,
-+				 unsigned long *out_hwirq,
-+				 unsigned int *out_type);
+diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+index afa43c7..96dca93 100644
+--- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
++++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+@@ -246,6 +246,19 @@
+ 			#pwm-cells = <3>;
+ 			status = "disabled";
+ 		};
+-
++		gpio: gpio@10060000 {
++			compatible = "sifive,fu540-c000-gpio", "sifive,gpio0";
++			interrupt-parent = <&plic0>;
++			interrupts = <7>, <8>, <9>, <10>, <11>, <12>, <13>,
++				     <14>, <15>, <16>, <17>, <18>, <19>, <20>,
++				     <21>, <22>;
++			reg = <0x0 0x10060000 0x0 0x1000>;
++			gpio-controller;
++			#gpio-cells = <2>;
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			clocks = <&prci PRCI_CLK_TLCLK>;
++			status = "disabled";
++		};
+ 	};
+ };
+diff --git a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+index 88cfcb9..609198c 100644
+--- a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
++++ b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+@@ -94,3 +94,7 @@
+ &pwm1 {
+ 	status = "okay";
+ };
 +
- /* IPI functions */
- int irq_reserve_ipi(struct irq_domain *domain, const struct cpumask *dest);
- int irq_destroy_ipi(unsigned int irq, const struct cpumask *dest);
-diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
-index 132672b..cf57d87d 100644
---- a/kernel/irq/irqdomain.c
-+++ b/kernel/irq/irqdomain.c
-@@ -987,6 +987,23 @@ const struct irq_domain_ops irq_domain_simple_ops = {
- EXPORT_SYMBOL_GPL(irq_domain_simple_ops);
- 
- /**
-+ * irq_domain_translate_onecell() - Generic translate for direct one cell
-+ * bindings
-+ */
-+int irq_domain_translate_onecell(struct irq_domain *d,
-+				 struct irq_fwspec *fwspec,
-+				 unsigned long *out_hwirq,
-+				 unsigned int *out_type)
-+{
-+	if (WARN_ON(fwspec->param_count < 1))
-+		return -EINVAL;
-+	*out_hwirq = fwspec->param[0];
-+	*out_type = IRQ_TYPE_NONE;
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(irq_domain_translate_onecell);
-+
-+/**
-  * irq_domain_translate_twocell() - Generic translate for direct two cell
-  * bindings
-  *
++&gpio {
++	status = "okay";
++};
 -- 
 2.7.4
 
