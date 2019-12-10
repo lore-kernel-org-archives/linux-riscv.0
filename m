@@ -2,22 +2,23 @@ Return-Path: <SRS0=1Sxd=2A=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.6 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	DKIM_VALID_AU,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 47D44C43603
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 05:31:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E9D11C43603
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 05:33:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 191AA206D5
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 05:31:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BA00120828
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 05:33:01 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PXWQ3zK+";
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="tQ7NTeRH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 191AA206D5
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Sfe9QINk";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="qo5TxFS7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BA00120828
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,63 +27,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0i5fqFii9h3zbWBDVAysAxtbLv8smZHCpf4SOKLHP/I=; b=PXWQ3zK+I5vMdD
-	1K+zHJ6kU5BkrvDeM6y6NjcHgfGcttBUBxPcjqDOyLUbhWiWUQ4t/QeuTALh/hUgQUkHiBepQ4+ae
-	NYyFuOVOmkIpuJ+1XH9ucSFFB9DymkRqByjn9ESzSxqvxKGadNc8pQjIJOpfQTflxYDJiDrW8XKis
-	trHYOk2t+6MLUOyaeV3G6prIK8Vwq3aU3tgVdxnBv1EJcdN8fbq6rG8Dlvc8rywS7L7X3vf8ps86N
-	zxOzE9DiI1upoPDtfB285RZa+xyeSl7iZu6TAV0BCo+txH0NV6mpJkBfprJpRjeA3AO/tWnff6koq
-	eDbgjZ+BHaMWtdzpQPuw==;
+	List-Owner; bh=pARBlMYqvOprGNNaD4cEJATEpLkcbgueMuYWWsX5QXM=; b=Sfe9QINk0Uw443
+	l2peRoeTGLLqy8EkBi9AIVG81U/31+Z4Q+NFmefq9oV5sgbYP0semnUQbASNXv8meEA13zHBKuFXk
+	dffFZb5FgyB1Qoo/Lzya6hLMHZZR866YJhUuKyaxT6UDrFFU5oHkjOG9GaQ5kMZb/NlO/BI7CcVMt
+	9G85j05fLJaz7Fa9DRT0soxY3VlOi3o79atb06pUrRMmUsMdKUsToQIBxaKUXgPOE4D1pMwOK9jCR
+	trLx+PgYMy2LCunI+Zzsj5aS8WiwVqcbnk7/HMC2gFLysbKlvant/1mU6G5K7UkP9je37+SyakcMf
+	sf1ccEKWtcFL2BciV9oA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ieY7d-0005Us-Vl; Tue, 10 Dec 2019 05:31:45 +0000
-Received: from mail-qt1-x842.google.com ([2607:f8b0:4864:20::842])
+	id 1ieY8q-0005fW-UX; Tue, 10 Dec 2019 05:33:00 +0000
+Received: from mail-qt1-x841.google.com ([2607:f8b0:4864:20::841])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ieY7b-0005Tw-Ht
- for linux-riscv@lists.infradead.org; Tue, 10 Dec 2019 05:31:44 +0000
-Received: by mail-qt1-x842.google.com with SMTP id t17so1682905qtr.7
- for <linux-riscv@lists.infradead.org>; Mon, 09 Dec 2019 21:31:40 -0800 (PST)
+ id 1ieY8o-0005eQ-3M
+ for linux-riscv@lists.infradead.org; Tue, 10 Dec 2019 05:32:59 +0000
+Received: by mail-qt1-x841.google.com with SMTP id g17so1660123qtp.11
+ for <linux-riscv@lists.infradead.org>; Mon, 09 Dec 2019 21:32:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
  :cc:content-transfer-encoding;
- bh=0i5fqFii9h3zbWBDVAysAxtbLv8smZHCpf4SOKLHP/I=;
- b=tQ7NTeRHAxaLNx6IHMXSqyBmJf1gYVzude/M4QCDh2PlbjUzZWSuF/VGZ9HZuZ1qY/
- zRqG2q0O57zGo8OLc0aTt6cCoy+v728+FGFWdR3q4NrKc5WjmIkVRMxG3os3wTy71PiT
- e55ZNE+XG6nCfbyKVpnAkgeeWKHlZNhRQ2pyspfAXPPPcwlx3Qs98vs4K8I4qosdW2Ro
- qXfg99EKHSV0wBEGiSKUoP68UcF8Tv322d+Fl7Bw1C8DmiHyVq1vju8tDJqkLReeaFH6
- To+/5yzd/3j/0Rho77UBs+d9oMyT6eJTf2RTUyhuCIWKAECYHrVRoV5LGRzBUpHvrYq3
- P/AA==
+ bh=pARBlMYqvOprGNNaD4cEJATEpLkcbgueMuYWWsX5QXM=;
+ b=qo5TxFS7WobJt6/HnO+0OYNxmZnhCYVjZrLKJQoSbO6lrnLMxe6KlfvBB8frB3mo7B
+ oGW2M1VX04Z3YpVqCragD302lQgoQgJNiThPAXQEtDqn1zTrVBZaFVcEjjEKcATjLazG
+ AFabANzyETfrDtYMzu/wljj1p+KGt9702LDCxXGqZGQT4bYkFENJMRm8JJ8URwWp4At1
+ KZWlwOq18kvX482nrd/PRv4UdnK0kowOVVVCHz89VcoG6G3n86NOQUYrukup60HbJJsf
+ XoLT+xUpuOev5TEuAhnQvRion06QwWyacY86hI/JgaGhEwtgd6BUk1GboWUmg11dtxfA
+ yNIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc:content-transfer-encoding;
- bh=0i5fqFii9h3zbWBDVAysAxtbLv8smZHCpf4SOKLHP/I=;
- b=QjzE+hrnIzWl+WPthwJ06J6I/XxfV0fnYVYNzd8Bwlb+i3STwPAiDZVo33Qz3zl0G8
- Pqt6O3MyItHmn+Rt4uVP/P0Idi9jrRL4T3Ia/5X0VYv+giIMs0/x7Mdvex1AKFnCzrnr
- 1gkAOeyDeNgKZCkkYP5ojune2+ti0cj4bsfBwx59cTolu4u5m0Dxb5sOQCWZE2cohkl9
- NXwhntW62FmAgjv3GpVZzXviDdf4u7XEC3Qt2n12l4ZFqnwniTyGQmZPm3zr+MZzifX4
- eS6nl0TaocEr+VuCm9xiSTP9Rl/wEZtTMh3mEm54naruiqCiaPBY0HYHO+xZs9f3J4Ds
- 1pJA==
-X-Gm-Message-State: APjAAAVKLAozaLTeMuAv5nvUNScaLkAPqEgx+TPWbrj5TjjcvTCh7NjM
- c8/YUrblrg3RGlsGjY65SHdqEa+OOWtnefR3RjBKj6et24XZIg==
-X-Google-Smtp-Source: APXvYqyt0Hno3XoOYazUzPfoq8HIUPXgg2qVyO9UxGrvCfIciJG9wGyISvcyjdvUm+i1pmUEpuEObOvV8wUJni1oyws=
-X-Received: by 2002:ac8:2310:: with SMTP id a16mr28240964qta.46.1575955899915; 
- Mon, 09 Dec 2019 21:31:39 -0800 (PST)
+ bh=pARBlMYqvOprGNNaD4cEJATEpLkcbgueMuYWWsX5QXM=;
+ b=SbqHGaV8P8J4u+NPS8o1Gch6HGacztB0IAuRM57PvRRCcxokWUroIvkDHgUF8WtxtM
+ SgWYFXBqkqxiuwHVkMHDbdokRCV2iY3Y008vcM+vYZ5tJCmx0riFY/YgxdvUD0BjixBM
+ /DTi4p0K0qvsxiI9Htq4NhTqTcZpy3Mk7IlWzAsIuy5BSMGKx4M8G+FzpBOQ6PU1Mrs1
+ C6PNMvF+4JJgzmclQ5pZHwTdLlAisrBdk2kvwWBy8PgDDcaGUTfd+GeB52ee7ZGXOgyz
+ oEG6zzt6tcgzhLvBqApPaSlbaiHu4tlXc9ihV/Ek6/IvXFaNnS9NmLY40dthMvdt2Iaf
+ DURQ==
+X-Gm-Message-State: APjAAAUD7JKBqSKgzx+MwLt/aovaRYkO2kDLQnRBMzsv7Irttjy1QOhY
+ +Ua5XCkHP7hAeLlNWFyJJM6Pjl4gWAnUUTDmGUY=
+X-Google-Smtp-Source: APXvYqydE5ONyFyL4aFxrLVjR7W3kXqSnLjySLRaNX/it6I4quzW8g9mDD+vUVD7IBAjUumwGv2vuVfqDbY8nSsKWso=
+X-Received: by 2002:ac8:34b5:: with SMTP id w50mr1645379qtb.107.1575955975988; 
+ Mon, 09 Dec 2019 21:32:55 -0800 (PST)
 MIME-Version: 1.0
 References: <20191209173136.29615-1-bjorn.topel@gmail.com>
  <20191209173136.29615-3-bjorn.topel@gmail.com>
-In-Reply-To: <20191209173136.29615-3-bjorn.topel@gmail.com>
+ <CADasFoDOyJA0nDVCyA6EY78dHSSxxV+EXS=xUyLDW4_VhJvBkQ@mail.gmail.com>
+In-Reply-To: <CADasFoDOyJA0nDVCyA6EY78dHSSxxV+EXS=xUyLDW4_VhJvBkQ@mail.gmail.com>
 From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
-Date: Tue, 10 Dec 2019 06:31:28 +0100
-Message-ID: <CAJ+HfNi=kDP--Vuuphdn4YhZDbBfoNXzcPDDaDo7vdvuJ0D1=Q@mail.gmail.com>
+Date: Tue, 10 Dec 2019 06:32:45 +0100
+Message-ID: <CAJ+HfNi4Ht_+a7+-NWE0LLfGRXJDq1g0cpuyshHY=BJ-+UX4ig@mail.gmail.com>
 Subject: Re: [PATCH bpf-next 2/8] riscv, bpf: add support for far branching
-To: Daniel Borkmann <daniel@iogearbox.net>, Alexei Starovoitov <ast@kernel.org>,
- Netdev <netdev@vger.kernel.org>
+To: Luke Nelson <lukenels@cs.washington.edu>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191209_213143_616385_A392BEE5 
-X-CRM114-Status: UNSURE (   8.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191209_213258_146623_75F985E3 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,27 +94,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, bpf <bpf@vger.kernel.org>
+Cc: Daniel Borkmann <daniel@iogearbox.net>, Netdev <netdev@vger.kernel.org>,
+ Alexei Starovoitov <ast@kernel.org>, linux-riscv@lists.infradead.org,
+ bpf <bpf@vger.kernel.org>, Xi Wang <xi.wang@gmail.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 9 Dec 2019 at 18:31, Bj=C3=B6rn T=C3=B6pel <bjorn.topel@gmail.com> =
-wrote:
+On Mon, 9 Dec 2019 at 22:08, Luke Nelson <lukenels@cs.washington.edu> wrote=
+:
 >
-> This commit adds branch relaxation to the BPF JIT, and with that
-> support for far (offset greater than 12b) branching.
+> On Mon, Dec 9, 2019 at 9:32 AM Bj=C3=B6rn T=C3=B6pel <bjorn.topel@gmail.c=
+om> wrote:
+> >
+> > This commit adds branch relaxation to the BPF JIT, and with that
+> > support for far (offset greater than 12b) branching.
+> >
+> > The branch relaxation requires more than two passes to converge. For
+> > most programs it is three passes, but for larger programs it can be
+> > more.
+> >
+> > Signed-off-by: Bj=C3=B6rn T=C3=B6pel <bjorn.topel@gmail.com>
 >
-> The branch relaxation requires more than two passes to converge. For
-> most programs it is three passes, but for larger programs it can be
-> more.
+> We have been developing a formal verification tool for BPF JIT
+> compilers, which we have used in the past to find bugs in the RV64
+> and x32 BPF JITs:
 >
-> Signed-off-by: Bj=C3=B6rn T=C3=B6pel <bjorn.topel@gmail.com>
-> ---
->  arch/riscv/net/bpf_jit_comp.c | 352 ++++++++++++++++++----------------
-[...]
-> +}
-> +
-> +static void emit_branch(u8 cond, u8 rd, u8 rs, int insn, int rvoff,
+> https://unsat.cs.washington.edu/projects/serval/
+>
+> Recently I added support for verifying the JIT for branch and jump
+> instructions, and thought it a good opportunity to verify these
+> patches that add support for far jumps and branching.
+>
+> I ported these patches to our tool and ran verification, which
+> didn't find any bugs according to our specification of BPF and
+> RISC-V.
+>
+> The tool and code are publicly available, and you can read a more
+> detailed writeup of the results here:
+>
+> https://github.com/uw-unsat/bpf-jit-verif/tree/far-jump-review
+>
+> Currently the tool works on a manually translated version of the
+> JIT from C to Rosette, but we are experimenting with ways of making
+> this process more automated.
+>
+>
+> Reviewed-by: Luke Nelson <lukenels@cs.washington.edu>
+> Cc: Xi Wang <xi.wang@gmail.com>
 
-The "insn" is not used. I'll do a respin.
+Wow! Very cool! Thanks a bunch for this!
 
