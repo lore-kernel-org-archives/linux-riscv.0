@@ -2,76 +2,79 @@ Return-Path: <SRS0=1Sxd=2A=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 92149C43603
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 11:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BF339C43603
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 11:11:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6492B2077B
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 11:11:44 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 86B242077B
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 11:11:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bGj4cYAg";
-	dkim=pass (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="ULEK9X9E"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6492B2077B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="awPf3juH";
+	dkim=pass (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="F/5oyS0b"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 86B242077B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Type:Message-Id:Date:Subject:To:From:Reply-To:
+	Content-Type:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=k+ftaHXA6rnHHEgYtPLs4V3TGx654g7b/zAmMUjpd+s=; b=bGj
-	4cYAgPL5hsgq4kaycEJ+q5XatHPhL4i6IJam6DmHPR5ZgbfNGDl+jBM1YPoBWFBOQ7RSCEuvqQNUF
-	OTS8qpzF0LxGfiOkUXPqelEiQexAtzQNetCkL5X23iVc2hNc2fDwnEz38f5fNTUA1wgxX+U2iJmog
-	3nUl80gl9uup4Mtn5fi9rlI5aIxfQDkzsXmb2aGY2Otss+a/VC71gbpL/8WX6UVSOky3hz0Ya0o5a
-	NygQteNcHqnoRtWGaUSs9MonA74EVwF0ZC8eYdDoHbozr0CDWG2zNh6kNwit+Afe8yVMCz0s5RyUw
-	h8EgLUtWqhxSAV3etYz6+w8RBpsqdyw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=Hn6YCoYCYA7GW3tXGIgknALyVvFhDXEMfvZIbFjHj5k=; b=awPf3juHnAb9pXO88I2FDxUSC
+	1TD5vNE65p7WkERA1gv6gOOQ7rJ7Q6KuiQAr8JeFA7NQiZwaOZCLQMUjqQbB90hdGdU4cSj1LpFs5
+	WY5p8VrBStf7PYMTo+t3dznYneZMNr2bO9MTbIsalFdQyln0By/SQIpo/W+prYVSVuf2ZnL59+lXN
+	lRZDhchU5p0H4zEHn0j8kIfmWJpPoFDCSDkclB6V02LCbbKP3FKrXnbHdnafpo1cHqTMNXIMGVFRQ
+	HysWRceSESInMvJF6NreUV2tkHBkH4EJ1zf9QkbR2e8/ORgsz51dM6O2NmAs6AtHj7+lAjwECuuYs
+	qdGtWQKIg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iedQd-00084f-Dn; Tue, 10 Dec 2019 11:11:43 +0000
-Received: from mail-eopbgr690069.outbound.protection.outlook.com
- ([40.107.69.69] helo=NAM04-CO1-obe.outbound.protection.outlook.com)
+	id 1iedQp-0008FM-Qj; Tue, 10 Dec 2019 11:11:55 +0000
+Received: from mail-dm6nam10on2068.outbound.protection.outlook.com
+ ([40.107.93.68] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iedQa-00083y-Gp
- for linux-riscv@lists.infradead.org; Tue, 10 Dec 2019 11:11:42 +0000
+ id 1iedQn-0008BN-4Z
+ for linux-riscv@lists.infradead.org; Tue, 10 Dec 2019 11:11:54 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=HzkYRoRvXzCDZplfNzotJ6/H0S8WLkk1EpIw6ORQxifF883RaUI6pi2aRUiWG75FC0dzLWuZqq3770kAmBD53VU/5+ojHfMO8NshLIeTqPhiPtn9M+lQTKN3vt7E+d3EuG87CIDku12xubzEZpaXuyKMV0wUczaADD2TTy86LgbLTi7OhabrVhlbcX8c6eno+lo+CZ/7nn6e0h6ZfedwDzZ8HdXBPQCNgDD2pbDjOsoOzW8GOTj9b/utzYQKSoiZVtcUmVjAcuJFE4vYBDB82M7M0v7DBMGPFOUQuDqzCNRhGyrkORcz28iZh8lvWJTVCeX6SBNGrDrUjsJ6OVFViw==
+ b=I+2opCtANSoc8kprSFZ533LKIgBcmC1VBoBF0QNuKjF2HvA6VRfpPpjLwOVZZ57bxw2rVZNsFNSZXPCTQJGWGnjEO/OJHdLCp0FskTJ7A/Sz3xKl0zsGMIQGnmFMSax5gqftJUp+tBkM25B5XuxMGxZQpyby8NyTzArQ7vE9ACd2esNmghJEUxZb2q5vSJeNhfvo0KUhQ4g7TkexXXkY+GwMBMX+z7JtQimXz3fvw2kHekISDV3pNi6vhPgW2bs5ElGi13dAy55sRsQNNKq88LmjnuKO+Vw9raVYeb/cxoKZRXrGUx/VaNOnYOlkMtlrplzzvvCIaM2z+wp+4+Nnxw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=k+ftaHXA6rnHHEgYtPLs4V3TGx654g7b/zAmMUjpd+s=;
- b=EQvSzu/JukaL5KTr5SaqPm+V4ioPXi/D3F1zJnc9lUZMo/xlkh+ThPttuwU7I9Ce2xSj055U9r6yELE8VpVA5HfTnT4/oCZyuDIgYiE6S3tXKVyON8Clfc5KoGFWvT7GPAkbvy5mIJuFrWaZ2tSh8nHSZ+hL9KvVstJJsQDimJ1SRjVyydZBeeJjwBB8xzD+Siy3hjXqJBVRsD5GuQD9XZ6M7P4CwE3uQww+igR1pileCS3L5GHQTOV6Tu9r+24VrUpcxt4Awc57LqIlDjy+zaWl4cJMH+2TaoTBgDsuYedMlw6Fo6joNTtbwYyRBAzvDcW/vXMB/pgvc2WKFuCFAQ==
+ bh=Hn6YCoYCYA7GW3tXGIgknALyVvFhDXEMfvZIbFjHj5k=;
+ b=nYIZXa+oQczylW8F8xK7O1V0TF0LdayGdcbJspQSATyQVsOqz1i43X33d0CAfSSAUk+2SecyLuU+NwvZTlpv3qy4yuOZ2vRUXZAO3T8yFzaTXcesq7EKm3n4/6FWPoJfcGdgr+aMweoeJxYGqFAvPXC1Dpt5WdQsqDiU58w3lQZBYYQdzp2ZlC4M8eMOBRj2ca5MWDUMm4to4p4qXID5t/6L0wTw5Q875rYjOSW9ZwMTWPgp9lhWznquRX7bcefMm/1MM0D+kpZ9yw3MFgTzRJWLlANTCtGZgFHQAMfTAWpzIIeHFGz4kUZeLuS/FBIQNFhG9iE90ELSJZgCB3HXww==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=sifive.com; dmarc=pass action=none header.from=sifive.com;
  dkim=pass header.d=sifive.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=k+ftaHXA6rnHHEgYtPLs4V3TGx654g7b/zAmMUjpd+s=;
- b=ULEK9X9EbxznMH/RmZAKso+slZLwwmyeGZodBhysYCYn3eTP4qRPHPFLB8dZZQenPYh4DtjC7D1RyvuA3LSiWDYt9kFRgLG9rbMqwTqVLbQZPJ5HK8twYWm3RP7SUg+/GfgHyfpT9OT4AM4sQvYnKZByIEOTJtY/RXSClcOlujg=
+ bh=Hn6YCoYCYA7GW3tXGIgknALyVvFhDXEMfvZIbFjHj5k=;
+ b=F/5oyS0bTN9YU6LEiQ4KL5dq4cvaWwJW8jREl9MVpnHDuFknHRRzVZLvGxbQl6IvBm6lBBRR0ZRQ79xikKAf51kEH27ghDVONNWjw48cWiLqoZsU9OJK+uxpp6rWU4mCd+N5Md9kgpWQpG/kEz5rK22wr5XSiroClJCLIcc0kDM=
 Authentication-Results: spf=none (sender IP is )
  smtp.mailfrom=yash.shah@sifive.com; 
 Received: from CH2PR13MB3368.namprd13.prod.outlook.com (52.132.246.90) by
  CH2PR13MB3656.namprd13.prod.outlook.com (20.180.4.204) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2538.14; Tue, 10 Dec 2019 11:11:38 +0000
+ 15.20.2538.14; Tue, 10 Dec 2019 11:11:51 +0000
 Received: from CH2PR13MB3368.namprd13.prod.outlook.com
  ([fe80::eccb:16ac:e897:85d5]) by CH2PR13MB3368.namprd13.prod.outlook.com
  ([fe80::eccb:16ac:e897:85d5%3]) with mapi id 15.20.2538.012; Tue, 10 Dec 2019
- 11:11:37 +0000
+ 11:11:51 +0000
 From: Yash Shah <yash.shah@sifive.com>
 To: linus.walleij@linaro.org, bgolaszewski@baylibre.com, robh+dt@kernel.org,
  mark.rutland@arm.com, palmer@dabbelt.com, paul.walmsley@sifive.com
-Subject: [PATCH v4 0/6] GPIO & Hierarchy IRQ support for HiFive Unleashed
-Date: Tue, 10 Dec 2019 16:41:08 +0530
-Message-Id: <1575976274-13487-1-git-send-email-yash.shah@sifive.com>
+Subject: [PATCH v4 2/6] irqchip: nvic: Use irq_domain_translate_onecell
+ instead of custom func
+Date: Tue, 10 Dec 2019 16:41:10 +0530
+Message-Id: <1575976274-13487-3-git-send-email-yash.shah@sifive.com>
 X-Mailer: git-send-email 2.7.4
+In-Reply-To: <1575976274-13487-1-git-send-email-yash.shah@sifive.com>
+References: <1575976274-13487-1-git-send-email-yash.shah@sifive.com>
 Content-Type: text/plain
 X-ClientProxiedBy: PN1PR0101CA0028.INDPRD01.PROD.OUTLOOK.COM
  (2603:1096:c00:c::14) To CH2PR13MB3368.namprd13.prod.outlook.com
@@ -80,19 +83,19 @@ MIME-Version: 1.0
 Received: from dhananjayk-PowerEdge-R620.open-silicon.com (114.143.65.226) by
  PN1PR0101CA0028.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c00:c::14) with
  Microsoft SMTP Server (version=TLS1_2, cipher=) via Frontend Transport;
- Tue, 10 Dec 2019 11:11:32 +0000
+ Tue, 10 Dec 2019 11:11:45 +0000
 X-Mailer: git-send-email 2.7.4
 X-Originating-IP: [114.143.65.226]
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: b7fda11a-cdce-4751-ea98-08d77d61b96a
+X-MS-Office365-Filtering-Correlation-Id: cd1308c9-7003-4a3d-bb5d-08d77d61c171
 X-MS-TrafficTypeDiagnostic: CH2PR13MB3656:
 X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <CH2PR13MB365677E52E2FC2A541B3956B8C5B0@CH2PR13MB3656.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:8882;
+X-Microsoft-Antispam-PRVS: <CH2PR13MB3656D1D7C7E3EC25111825E88C5B0@CH2PR13MB3656.namprd13.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:376;
 X-Forefront-PRVS: 02475B2A01
 X-Forefront-Antispam-Report: SFV:NSPM;
- SFS:(10009020)(6029001)(396003)(39850400004)(366004)(136003)(346002)(376002)(199004)(189003)(36756003)(66476007)(1006002)(107886003)(52116002)(6666004)(66946007)(6506007)(26005)(956004)(316002)(2616005)(81166006)(8936002)(81156014)(16526019)(186003)(8676002)(44832011)(966005)(6636002)(5660300002)(86362001)(6486002)(7416002)(66556008)(6512007)(4326008)(478600001)(2906002);
+ SFS:(10009020)(396003)(39850400004)(366004)(136003)(346002)(376002)(199004)(189003)(36756003)(66476007)(1006002)(107886003)(52116002)(6666004)(66946007)(6506007)(26005)(956004)(316002)(2616005)(81166006)(8936002)(81156014)(16526019)(186003)(8676002)(44832011)(6636002)(5660300002)(86362001)(6486002)(7416002)(66556008)(6512007)(4326008)(478600001)(2906002);
  DIR:OUT; SFP:1101; SCL:1; SRVR:CH2PR13MB3656;
  H:CH2PR13MB3368.namprd13.prod.outlook.com; FPR:; SPF:None; LANG:en;
  PTR:InfoNoRecords; A:1; MX:1; 
@@ -100,18 +103,19 @@ Received-SPF: None (protection.outlook.com: sifive.com does not designate
  permitted sender hosts)
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: jq126DPC1c7G97V4VVCA95CgS90rkO6iHGGr7UmCy3k78t5ZiIyD5BRfbbFPXmJVcpvsd9NAhsV3eur0fpooOY7p1tMG7f9WNhdby3vez1mo+5JWxox5ugyUllxbh7FKzHbOFxPA0Ikh8q2h2tIXNb1oiq+XQ8Kx4Gmj1pKWA/4ackKoRoTzyPoyyKIAKmJS94oMOsjNWG9/82TFVD4XzFPFoUxyp67nJ/DV/h/Ki38JPpVtX1TkWkUNYEYQZHwqY5b9V7ccirAtORy95Ey5Kg+eLeNOdyNHOnPwSzpmg9DtbPZAyQ0M5XjDCY3FXEzMfTAMLJfmg+N+ssNa/KLRzDiEpKmW6f/ZNok9RCJYyh/mhslCxzFXM6k6bZaF+NEsZpNPMODhre7sgyG2qAuSSJTJgKRtTrOcOf1EXpuMXh+PSKQl80eDZ7QG+O6bdghZw2FPcDW11hvCXpuELYamC+mdRRQALOzjJmk0WJ9gm6k=
+X-Microsoft-Antispam-Message-Info: Gn0Pg3+5miRH+oWVWcR/qUVKxqPoWyuEKqdpcyAoHmbxOH70emsTd3MB3DHbdID9kQ9sBcUbM3yC04uVyVQYj8q0Y4ab+hiohhYE13PrSiyqFiZJkXvq3rVZRgeXyzWcGya0Twwb01z5jOZ+qAopZ4sdV9ocYOaWbriGfTRn4BzyyXEjqiKbyugCThpATNAzPKhEhcaD0Wwct7iCXqGtxo4JZOKTullznv3Qa0bRqnyYazLw0vyOn/vqG4WgiHIjVyMNurjuXodZaFVGawdvZjtweKu2ar8PTTM46WSAySVpTGQQmLKz3Y5ck7mO45kJ4UWaBwu2MebIge4/x+K4HRmtzZQ+8cDvTVdhmmCIv4IGWCE7bc3gZurVhbVEiQPBu60ju7UhM7ief+m9qG/B7XJVbmw4BpwfgT/pBMH6HoIQO7fp+C85QCk7k5h+ZYj7
 X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b7fda11a-cdce-4751-ea98-08d77d61b96a
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2019 11:11:37.8572 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cd1308c9-7003-4a3d-bb5d-08d77d61c171
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2019 11:11:50.9778 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IwkgpWrFxnN/EyThHp01mQMVS3kEg08kkjZZ82mcOWxRZv10Ry1U6k1Fn+GHsTKYRkW0xIhM4F9de3e+JhBLlQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: 795WsnLWmXViWasT+OpUm88sRKYQ/WAeh630NBEbifHp/teK3ub5GE0+bpjK33nmthY+NJjExCMyb35vgMIvJA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR13MB3656
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191210_031140_618217_16C17377 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20191210_031153_228491_73D04EE7 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -131,72 +135,54 @@ Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, jason@lakedaemon.net,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series adds GPIO drivers, DT documentation and DT nodes for
-HiFive Unleashed board. The gpio patches are mostly based on Wesley's patch.
-The patchset also adds hierarchy irq domain support as it is required by this
-gpio driver. It also includes the irqdomain patch to introduce
-irq_domain_translate_onecell() and irq-nvic driver patch to use this newly
-introduced function.
+Make use of newly introduced irq_domain_translate_onecell() instead of
+custom made function.
 
-This patchset is based on Linux 5.4-rc6 and tested on HiFive Unleashed board
+Signed-off-by: Yash Shah <yash.shah@sifive.com>
+---
+ drivers/irqchip/irq-nvic.c | 15 ++-------------
+ 1 file changed, 2 insertions(+), 13 deletions(-)
 
-Changes:
-v4 vs v3:
-- Rename the DT yaml document to more standard naming (sifive,gpio.yaml)
-- Drop "clock-names" property from yaml document
-- Add "minItems" to "interrupts" node in yaml
-
-v3 vs v2:
-- Include patch for irq-nvic driver to use irq_domain_translate_onecell
-- Remove unnecessary inclusion of header files
-- Use a single prefix for all symbols in this driver
-- Rename the "enabled" field of struct sifive_gpio to "irq_state"
-- Remove unused variables and locking from probe()
-- Other minor changes
-
-v2 vs v1:
-- Add patch to introduce irq_domain_translate_onecell() and use it in
-  the sifive PLIC driver
-- Drop the usage of own locks, instead use internal bgpio_locks
-- Consistently use regmap for register access throughout the gpio code
-- Convert the GPIO DT documentation into a json schema
-- Other minor changes based upon feedback received on v1
-
-v1 vs RFC:
-Incorporated below changes as suggested by Linus Walleij on RFC version of this
-patchset[0]
-- Dropped PWM patches as they are already merged.
-- Include "GPIO_GENERIC" and "REGMAP_MMIO" in Kconfig select option
-- Remove unwanted inclusion of header files
-- Use regmap MMIO instead of customised sifive_assign_bit()
-- Use GPIOLIB_GENERIC and bgpio_init() to set up the accessors
-- Use hierarchical irqdomain
-
-[0] https://lore.kernel.org/linux-riscv/20181010123519.RVexDppaPFpIWl7QU_hpP8tc5qqWPJgeuLYn0FaGbeQ@z/
-
-Yash Shah (6):
-  genirq: introduce irq_domain_translate_onecell
-  irqchip: nvic: Use irq_domain_translate_onecell instead of custom func
-  irqchip: sifive: Support hierarchy irq domain
-  gpio: sifive: Add DT documentation for SiFive GPIO
-  gpio: sifive: Add GPIO driver for SiFive SoCs
-  riscv: dts: Add DT support for SiFive FU540 GPIO driver
-
- .../devicetree/bindings/gpio/sifive,gpio.yaml      |  68 ++++++
- arch/riscv/boot/dts/sifive/fu540-c000.dtsi         |  15 +-
- .../riscv/boot/dts/sifive/hifive-unleashed-a00.dts |   4 +
- drivers/gpio/Kconfig                               |   9 +
- drivers/gpio/Makefile                              |   1 +
- drivers/gpio/gpio-sifive.c                         | 252 +++++++++++++++++++++
- drivers/irqchip/Kconfig                            |   1 +
- drivers/irqchip/irq-nvic.c                         |  15 +-
- drivers/irqchip/irq-sifive-plic.c                  |  30 ++-
- include/linux/irqdomain.h                          |   5 +
- kernel/irq/irqdomain.c                             |  17 ++
- 11 files changed, 399 insertions(+), 18 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
- create mode 100644 drivers/gpio/gpio-sifive.c
-
+diff --git a/drivers/irqchip/irq-nvic.c b/drivers/irqchip/irq-nvic.c
+index a166d30..f747e22 100644
+--- a/drivers/irqchip/irq-nvic.c
++++ b/drivers/irqchip/irq-nvic.c
+@@ -45,17 +45,6 @@ nvic_handle_irq(irq_hw_number_t hwirq, struct pt_regs *regs)
+ 	handle_IRQ(irq, regs);
+ }
+ 
+-static int nvic_irq_domain_translate(struct irq_domain *d,
+-				     struct irq_fwspec *fwspec,
+-				     unsigned long *hwirq, unsigned int *type)
+-{
+-	if (WARN_ON(fwspec->param_count < 1))
+-		return -EINVAL;
+-	*hwirq = fwspec->param[0];
+-	*type = IRQ_TYPE_NONE;
+-	return 0;
+-}
+-
+ static int nvic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+ 				unsigned int nr_irqs, void *arg)
+ {
+@@ -64,7 +53,7 @@ static int nvic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+ 	unsigned int type = IRQ_TYPE_NONE;
+ 	struct irq_fwspec *fwspec = arg;
+ 
+-	ret = nvic_irq_domain_translate(domain, fwspec, &hwirq, &type);
++	ret = irq_domain_translate_onecell(domain, fwspec, &hwirq, &type);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -75,7 +64,7 @@ static int nvic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+ }
+ 
+ static const struct irq_domain_ops nvic_irq_domain_ops = {
+-	.translate = nvic_irq_domain_translate,
++	.translate = irq_domain_translate_onecell,
+ 	.alloc = nvic_irq_domain_alloc,
+ 	.free = irq_domain_free_irqs_top,
+ };
 -- 
 2.7.4
 
