@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D89A9C43603
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 11:12:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EA78CC2D0C5
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 11:12:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A489C20726
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 11:12:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AFF7A2073D
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 11:11:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CtppB5RJ";
-	dkim=pass (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="Dh687ewk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A489C20726
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jkF1YQW1";
+	dkim=pass (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="qQxbrYM3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AFF7A2073D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,51 +26,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=lSaK8n7MUy89PWGX7t2FffQsatulGBvU5QlXzOTu/iY=; b=CtppB5RJsixM9+OejZ5aMNE7p
-	dbnVajqgxf0X0kEoTuORNq5mGQQ56oCcEDyAMZT5w9udpYL5iwZ2CcipLg4ZbNCI6s++vZfy8ipCm
-	U4GL+geLiOcAChE4L4giz+CtimXCpucXLqQNNPqbH+JgaSBL2QPFrZPWCZBNzSq+cDl5KboKAwiTb
-	7YgLO/2yajTMA5O5NWEfLI8QorPGnoUL1C1hMRxoMYb40XjRX16IuqBI+AVodF3nEJ2LbUVhhaPaL
-	U4QqVALVTDkBG06kIzzRjYXXCklst/LFYdmGwCGf1KMrdoAoKiXNxxWE6Jj5OHnx4UpqzDxQS1ZGs
-	pq8ODsLXQ==;
+	 bh=YbCalaTn2X7HF4eRtvgddainZMNLa53BndvIrXNSIWM=; b=jkF1YQW14AYKvuHs54Knt3IDt
+	qIGEE7ujaQrXggPp9iIIYXyds+RkQELc7zd6OA/9lVycmAUpISNryvysmekWyHLTuCBh/PAQ3T2KS
+	ciJNSeDx/U0O3d3LHt/dpa61z4KKkYEg0iMUJ8YRvmrC0qTdXcwAzuL7F0fnnn67tV8AhZQ2FbfuE
+	2pqE/3KY8fUuZJOajKhHs3neHfWu/3BhR+enmRctXa1JmXZg+YFWroZ4tIhA+nZGQec7j5Q4P/riZ
+	C76zFVXA/MVUqas6FBK+JrC2bLq6jltWxEZpANhd1fy+tD6vFvS/AcB8rddW67MsiGcUrbe5uQ9yh
+	MdJXvYDbA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iedR9-0008T1-UR; Tue, 10 Dec 2019 11:12:15 +0000
-Received: from mail-dm6nam10on2060.outbound.protection.outlook.com
- ([40.107.93.60] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1iedQl-0008BE-Hk; Tue, 10 Dec 2019 11:11:51 +0000
+Received: from mail-dm6nam10on20607.outbound.protection.outlook.com
+ ([2a01:111:f400:7e88::607]
+ helo=NAM10-DM6-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iedR6-0008Rd-Uh
- for linux-riscv@lists.infradead.org; Tue, 10 Dec 2019 11:12:14 +0000
+ id 1iedQh-00085r-Ue
+ for linux-riscv@lists.infradead.org; Tue, 10 Dec 2019 11:11:49 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cLvOqP8+512qqEleh0/+e7Yys5KTQ1jjR4b/hs2qppfe4yZ4lmE6gYKZ8nZyymSZ8nvvXXPMBWogSLN1eqqEeEQlJE/n9+n0+RtjStG5rx5sfc6ySQaIpB//Xtlw+Vy2+/BPSNAFv00400pjCLSlJA7UtTk2uShsPGoy8J5Tt8qpTOuKG0DkK1tZpFXRQqChE4gtCF0qtO/LDaG/oFEZ0nDe39KNaNZpxLLMkSa/UQHlIq/4FI8roICljd/Qqkcovn1B5fF0yAN9b6YYFKW4NmngiI1dDAsSSN6fTCvAmVGOO/4UCWK64wgoUOxlvEUW69bHwcplmBGoElHgvnj44A==
+ b=IZgKU5Qwaxa0Rq8RN0lRD2uXsA7jozOKb+Wc8i+VtfzRd1VJ4+EooB+exvKnzxrkq1QFmlZUNwfjw4knx6UZJ5QPQbqSf9LXz4jq5D8LfiZN3qnJDRe3rHyzWFH/ym7OKOKoVf57M5kmCN5YonjVoX/ia3ir1CvS0ZEmr7zmgpqLJWrOBDEywldweCq7pv+N5TOZ7qguCRbplph7GSJ9EuCqNOD9KluzGI3Vx4o+VPn1yDeTPU34EnQXnWlUSN3bWk1pdir9rr6xoWOsYuoRWvRW9a89fc91kxWf/iaDOqE4I8hZQQZ9mKPhb+tDn6/xkrTNYS36UVXn4CdomoZrJw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lSaK8n7MUy89PWGX7t2FffQsatulGBvU5QlXzOTu/iY=;
- b=aNWCdqa6Yegvc1vaNQXoj9epPZbreSrRut26PZwpzdfjuxxeLkctLNtJ7hhXhpQzFM2+fMeRuLzJm3hc+9PhH4uOpBPHnn6HAcSQ6fYs/a4zL1HfmGIXqB1LYcKvAaR/P1MKJUmR0s91ClBt4yIVZi6OVeM0GIkuNlDlUrmVNeZbnbQNA9g9pj6w/UrYrfQoKE4KNj+KP7cvzt+MEzUfSMK461gZ/gvMhuJnrkMiIaU9dECq17DHcarylXA0GaUkWwYx1XhigBw3DVJ6M1awf/pVnzT2jFVdf7lGryF8Tacluo1+9loc73F2E6CrOmfHzxA55UXeBOkJkBTGbvqEiw==
+ bh=YbCalaTn2X7HF4eRtvgddainZMNLa53BndvIrXNSIWM=;
+ b=CU+vbEvlN974++ikVC9Bo61UmwUvinnCqq3q+SUV/bwc5NHqTvPA90yJbR8qFZe4JswuUb2XBObC2Fl92LpQq/FNI2KXrT+k/KTI1UlPDhgYSMtD54gbkN+xYOnpECGVXKHxbinxty7TA4iiUFNnH+DmW55msOpP/PxQLp5YFtgN3OepuJj8x2mkTqMd3U5CPfOV51a11ysCVvHuIKeqbcysnLhEmYqeU0I2jAKA2lHZ69IvPnO4Agh2a1FRCidmPXP8iqGOeVffD3h9gDOoAxA0xF5ZAw4s4SrXKqDWGTz670Y/lXtnQoankb33S+PRua2WvQwTAC1wmK/PxRInng==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=sifive.com; dmarc=pass action=none header.from=sifive.com;
  dkim=pass header.d=sifive.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lSaK8n7MUy89PWGX7t2FffQsatulGBvU5QlXzOTu/iY=;
- b=Dh687ewksWuQKQ6Hw8EjaDeO0z66GePFlMh9n8QdgWdR8zgHPXJrt/mAV5feBrM25ANvFINTNRHlAlLP3nP5YodPRpb2PSF3t1t/JnXA67+7Y1CR3zUM/Cw7Jkqf3jWQdJ3s8djLuvpTX5BLRxBUtGWgekSWsP0tw5T54T0fDTY=
+ bh=YbCalaTn2X7HF4eRtvgddainZMNLa53BndvIrXNSIWM=;
+ b=qQxbrYM3VMr8uChXawMgU/us8WnmKTrxnD5Kou57ZmgaTLzhc2thyh8WzZGjPRt5+pGJprOJD+jAYbE/oTgns42K1a2wi4FAOmTqvrcYsoAYNP600AK3x2IecsDJCnjP85EfuFK/YQgk0O4W9qe6j6+Sa3OM8ILKxYBxktrzF6M=
 Authentication-Results: spf=none (sender IP is )
  smtp.mailfrom=yash.shah@sifive.com; 
 Received: from CH2PR13MB3368.namprd13.prod.outlook.com (52.132.246.90) by
  CH2PR13MB3656.namprd13.prod.outlook.com (20.180.4.204) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2538.14; Tue, 10 Dec 2019 11:12:10 +0000
+ 15.20.2538.14; Tue, 10 Dec 2019 11:11:44 +0000
 Received: from CH2PR13MB3368.namprd13.prod.outlook.com
  ([fe80::eccb:16ac:e897:85d5]) by CH2PR13MB3368.namprd13.prod.outlook.com
  ([fe80::eccb:16ac:e897:85d5%3]) with mapi id 15.20.2538.012; Tue, 10 Dec 2019
- 11:12:10 +0000
+ 11:11:44 +0000
 From: Yash Shah <yash.shah@sifive.com>
 To: linus.walleij@linaro.org, bgolaszewski@baylibre.com, robh+dt@kernel.org,
  mark.rutland@arm.com, palmer@dabbelt.com, paul.walmsley@sifive.com
-Subject: [PATCH v4 5/6] gpio: sifive: Add GPIO driver for SiFive SoCs
-Date: Tue, 10 Dec 2019 16:41:13 +0530
-Message-Id: <1575976274-13487-6-git-send-email-yash.shah@sifive.com>
+Subject: [PATCH v4 1/6] genirq: introduce irq_domain_translate_onecell
+Date: Tue, 10 Dec 2019 16:41:09 +0530
+Message-Id: <1575976274-13487-2-git-send-email-yash.shah@sifive.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1575976274-13487-1-git-send-email-yash.shah@sifive.com>
 References: <1575976274-13487-1-git-send-email-yash.shah@sifive.com>
@@ -82,19 +83,19 @@ MIME-Version: 1.0
 Received: from dhananjayk-PowerEdge-R620.open-silicon.com (114.143.65.226) by
  PN1PR0101CA0028.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c00:c::14) with
  Microsoft SMTP Server (version=TLS1_2, cipher=) via Frontend Transport;
- Tue, 10 Dec 2019 11:12:05 +0000
+ Tue, 10 Dec 2019 11:11:39 +0000
 X-Mailer: git-send-email 2.7.4
 X-Originating-IP: [114.143.65.226]
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: ca5359b3-a188-41f2-1fba-08d77d61ccf7
+X-MS-Office365-Filtering-Correlation-Id: 8228d1a2-39fb-4756-38cc-08d77d61bd71
 X-MS-TrafficTypeDiagnostic: CH2PR13MB3656:
 X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <CH2PR13MB365657DA87943D294ACE55828C5B0@CH2PR13MB3656.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:2733;
+X-Microsoft-Antispam-PRVS: <CH2PR13MB3656CF4A1F58D4DEAC4B415A8C5B0@CH2PR13MB3656.namprd13.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:2201;
 X-Forefront-PRVS: 02475B2A01
 X-Forefront-Antispam-Report: SFV:NSPM;
- SFS:(10009020)(6029001)(396003)(39850400004)(366004)(136003)(346002)(376002)(199004)(189003)(36756003)(66476007)(1006002)(107886003)(52116002)(6666004)(66946007)(6506007)(26005)(956004)(316002)(2616005)(81166006)(8936002)(81156014)(16526019)(186003)(8676002)(44832011)(6636002)(5660300002)(86362001)(6486002)(7416002)(66556008)(6512007)(4326008)(478600001)(2906002);
+ SFS:(10009020)(396003)(39850400004)(366004)(136003)(346002)(376002)(199004)(189003)(36756003)(66476007)(1006002)(107886003)(52116002)(6666004)(66946007)(6506007)(26005)(956004)(316002)(2616005)(81166006)(8936002)(81156014)(16526019)(186003)(8676002)(44832011)(6636002)(5660300002)(86362001)(6486002)(7416002)(66556008)(6512007)(4326008)(478600001)(2906002);
  DIR:OUT; SFP:1101; SCL:1; SRVR:CH2PR13MB3656;
  H:CH2PR13MB3368.namprd13.prod.outlook.com; FPR:; SPF:None; LANG:en;
  PTR:InfoNoRecords; A:1; MX:1; 
@@ -102,18 +103,19 @@ Received-SPF: None (protection.outlook.com: sifive.com does not designate
  permitted sender hosts)
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: FSyl6OIUbLpAciuL6ltd9MsSXbDnk++WwRmfLU5p3ad6L+OvgyWpYy2Rs6swSitSsFscxOGTudCmeJ24OLsdacQsLEP916Co7Tk+KS5L+wZH1ZDvmA1+5wuxZei8P7lMt/CJeovyt8fpwYxuWGv08dwWRVSwZXap0I20k82ViJd6Ooo5ZvJgmakrU1DawvYv28GVixCZkvRLVxOq5pdaGzk4uWQ9e5G6iGEUBduB/7BuWeCpztnr1PG20eHauTmz75gjC2yQoL1xMmJjC5fmEghkZDFmeZCaCBprZI3OfaFoZAqIEQzFEMTgCkY61RM12OWrtJLy3F3imL9fNBcpy3soEF5I1OjXp0U9SKbM0igZG5BHU5gp+wzW8bmCF1kD6pXmC0kN7QlA0+FALVd4QnLIg1nHx5Scgg9pCnp0T4/5KCAzuBUp7ZPoEmGQ9rkR
+X-Microsoft-Antispam-Message-Info: XHRUh+TyfD8O0J13qczc8vdv91+bw/fvj0g6GLx42eVbjH5cal7IpuOajTg260yF4fRrEPC3NYakrCPUyyApA2SL8fkWDvqrISBa7KrQHseIUXE66CYHvvsDL2AzGgcEZlNDbaf48LYPKiU5EVhEMDqtet4KIQa8yFr60HKcWZMW+21aJ0ul9Mkinfi6OMLemu2DcU8U7XBIdLSy0qmsV6Z25fcgqy6zA55hdQX6ioonT5M9HQTVnzBDZxTIoIxxf9qLf3wQieFQJWAmtBnDqc+ZmdkriyOfUCLk8Oi1k5I1qlbStxVYWrhJpxH/rWqI2RdJbotlBwZ2hB7Fhb9IPDhVHBJvGxMY2HJWnJsNdSs8q+MIi4kh4Vs4e86AjqnsQQAlKcoBF9WKHRFvbtU+F/5zAxN+yg7t9z5b1M28JxX60hkaGnjeThzaZVfsgZ9F
 X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ca5359b3-a188-41f2-1fba-08d77d61ccf7
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2019 11:12:10.5149 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8228d1a2-39fb-4756-38cc-08d77d61bd71
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2019 11:11:44.1946 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XAU/Y3dGMncqX7QzzbrP1ubSeIcnIAYLzpn0VeK/Rxke2DwYFioyFM0pedPTHJoBIWGx6ifp1XXemgDNDb5y0w==
+X-MS-Exchange-CrossTenant-UserPrincipalName: HOvu+lzzAoOJBYfbEd7kZExGsJMSDwucYOHgIgptRG+Nf0PM0DHI7Ybl1BVy/7Gmv8MfgBlZnob8bO109oyhrg==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR13MB3656
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191210_031213_044810_E45774EC 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20191210_031148_042765_67CABDB7 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -133,311 +135,59 @@ Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, jason@lakedaemon.net,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Adds the GPIO driver for SiFive RISC-V SoCs.
+Add a new function irq_domain_translate_onecell() that is to be used as
+the translate function in struct irq_domain_ops.
 
-Reviewed-by: Bartosz Golaszewski <bgolaszewski@baylibre.com>
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-Signed-off-by: Wesley W. Terpstra <wesley@sifive.com>
-[Atish: Various fixes and code cleanup]
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
 Signed-off-by: Yash Shah <yash.shah@sifive.com>
 ---
- drivers/gpio/Kconfig       |   9 ++
- drivers/gpio/Makefile      |   1 +
- drivers/gpio/gpio-sifive.c | 252 +++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 262 insertions(+)
- create mode 100644 drivers/gpio/gpio-sifive.c
+ include/linux/irqdomain.h |  5 +++++
+ kernel/irq/irqdomain.c    | 17 +++++++++++++++++
+ 2 files changed, 22 insertions(+)
 
-diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-index 38e096e..05e8a41 100644
---- a/drivers/gpio/Kconfig
-+++ b/drivers/gpio/Kconfig
-@@ -453,6 +453,15 @@ config GPIO_SAMA5D2_PIOBU
- 	  The difference from regular GPIOs is that they
- 	  maintain their value during backup/self-refresh.
+diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
+index 583e7ab..cad9eb8 100644
+--- a/include/linux/irqdomain.h
++++ b/include/linux/irqdomain.h
+@@ -426,6 +426,11 @@ int irq_domain_translate_twocell(struct irq_domain *d,
+ 				 unsigned long *out_hwirq,
+ 				 unsigned int *out_type);
  
-+config GPIO_SIFIVE
-+	bool "SiFive GPIO support"
-+	depends on OF_GPIO
-+	select GPIO_GENERIC
-+	select GPIOLIB_IRQCHIP
-+	select REGMAP_MMIO
-+	help
-+	  Say yes here to support the GPIO device on SiFive SoCs.
++int irq_domain_translate_onecell(struct irq_domain *d,
++				 struct irq_fwspec *fwspec,
++				 unsigned long *out_hwirq,
++				 unsigned int *out_type);
 +
- config GPIO_SIOX
- 	tristate "SIOX GPIO support"
- 	depends on SIOX
-diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-index d2fd19c..bf7984e 100644
---- a/drivers/gpio/Makefile
-+++ b/drivers/gpio/Makefile
-@@ -121,6 +121,7 @@ obj-$(CONFIG_ARCH_SA1100)		+= gpio-sa1100.o
- obj-$(CONFIG_GPIO_SAMA5D2_PIOBU)	+= gpio-sama5d2-piobu.o
- obj-$(CONFIG_GPIO_SCH311X)		+= gpio-sch311x.o
- obj-$(CONFIG_GPIO_SCH)			+= gpio-sch.o
-+obj-$(CONFIG_GPIO_SIFIVE)		+= gpio-sifive.o
- obj-$(CONFIG_GPIO_SIOX)			+= gpio-siox.o
- obj-$(CONFIG_GPIO_SODAVILLE)		+= gpio-sodaville.o
- obj-$(CONFIG_GPIO_SPEAR_SPICS)		+= gpio-spear-spics.o
-diff --git a/drivers/gpio/gpio-sifive.c b/drivers/gpio/gpio-sifive.c
-new file mode 100644
-index 0000000..147a1bd
---- /dev/null
-+++ b/drivers/gpio/gpio-sifive.c
-@@ -0,0 +1,252 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2019 SiFive
+ /* IPI functions */
+ int irq_reserve_ipi(struct irq_domain *domain, const struct cpumask *dest);
+ int irq_destroy_ipi(unsigned int irq, const struct cpumask *dest);
+diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
+index 132672b..cf57d87d 100644
+--- a/kernel/irq/irqdomain.c
++++ b/kernel/irq/irqdomain.c
+@@ -987,6 +987,23 @@ const struct irq_domain_ops irq_domain_simple_ops = {
+ EXPORT_SYMBOL_GPL(irq_domain_simple_ops);
+ 
+ /**
++ * irq_domain_translate_onecell() - Generic translate for direct one cell
++ * bindings
 + */
-+
-+#include <linux/bitops.h>
-+#include <linux/device.h>
-+#include <linux/errno.h>
-+#include <linux/of_irq.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/init.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+#include <linux/regmap.h>
-+
-+#define SIFIVE_GPIO_INPUT_VAL	0x00
-+#define SIFIVE_GPIO_INPUT_EN	0x04
-+#define SIFIVE_GPIO_OUTPUT_EN	0x08
-+#define SIFIVE_GPIO_OUTPUT_VAL	0x0C
-+#define SIFIVE_GPIO_RISE_IE	0x18
-+#define SIFIVE_GPIO_RISE_IP	0x1C
-+#define SIFIVE_GPIO_FALL_IE	0x20
-+#define SIFIVE_GPIO_FALL_IP	0x24
-+#define SIFIVE_GPIO_HIGH_IE	0x28
-+#define SIFIVE_GPIO_HIGH_IP	0x2C
-+#define SIFIVE_GPIO_LOW_IE	0x30
-+#define SIFIVE_GPIO_LOW_IP	0x34
-+#define SIFIVE_GPIO_OUTPUT_XOR	0x40
-+
-+#define SIFIVE_GPIO_MAX		32
-+#define SIFIVE_GPIO_IRQ_OFFSET	7
-+
-+struct sifive_gpio {
-+	void __iomem		*base;
-+	struct gpio_chip	gc;
-+	struct regmap		*regs;
-+	u32			irq_state;
-+	unsigned int		trigger[SIFIVE_GPIO_MAX];
-+	unsigned int		irq_parent[SIFIVE_GPIO_MAX];
-+};
-+
-+static void sifive_gpio_set_ie(struct sifive_gpio *chip, unsigned int offset)
++int irq_domain_translate_onecell(struct irq_domain *d,
++				 struct irq_fwspec *fwspec,
++				 unsigned long *out_hwirq,
++				 unsigned int *out_type)
 +{
-+	unsigned long flags;
-+	unsigned int trigger;
-+
-+	spin_lock_irqsave(&chip->gc.bgpio_lock, flags);
-+	trigger = (chip->irq_state & BIT(offset)) ? chip->trigger[offset] : 0;
-+	regmap_update_bits(chip->regs, SIFIVE_GPIO_RISE_IE, BIT(offset),
-+			   (trigger & IRQ_TYPE_EDGE_RISING) ? BIT(offset) : 0);
-+	regmap_update_bits(chip->regs, SIFIVE_GPIO_FALL_IE, BIT(offset),
-+			   (trigger & IRQ_TYPE_EDGE_FALLING) ? BIT(offset) : 0);
-+	regmap_update_bits(chip->regs, SIFIVE_GPIO_HIGH_IE, BIT(offset),
-+			   (trigger & IRQ_TYPE_LEVEL_HIGH) ? BIT(offset) : 0);
-+	regmap_update_bits(chip->regs, SIFIVE_GPIO_LOW_IE, BIT(offset),
-+			   (trigger & IRQ_TYPE_LEVEL_LOW) ? BIT(offset) : 0);
-+	spin_unlock_irqrestore(&chip->gc.bgpio_lock, flags);
-+}
-+
-+static int sifive_gpio_irq_set_type(struct irq_data *d, unsigned int trigger)
-+{
-+	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-+	struct sifive_gpio *chip = gpiochip_get_data(gc);
-+	int offset = irqd_to_hwirq(d);
-+
-+	if (offset < 0 || offset >= gc->ngpio)
++	if (WARN_ON(fwspec->param_count < 1))
 +		return -EINVAL;
-+
-+	chip->trigger[offset] = trigger;
-+	sifive_gpio_set_ie(chip, offset);
++	*out_hwirq = fwspec->param[0];
++	*out_type = IRQ_TYPE_NONE;
 +	return 0;
 +}
++EXPORT_SYMBOL_GPL(irq_domain_translate_onecell);
 +
-+static void sifive_gpio_irq_enable(struct irq_data *d)
-+{
-+	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-+	struct sifive_gpio *chip = gpiochip_get_data(gc);
-+	int offset = irqd_to_hwirq(d) % SIFIVE_GPIO_MAX;
-+	u32 bit = BIT(offset);
-+	unsigned long flags;
-+
-+	irq_chip_enable_parent(d);
-+
-+	/* Switch to input */
-+	gc->direction_input(gc, offset);
-+
-+	spin_lock_irqsave(&gc->bgpio_lock, flags);
-+	/* Clear any sticky pending interrupts */
-+	regmap_write(chip->regs, SIFIVE_GPIO_RISE_IP, bit);
-+	regmap_write(chip->regs, SIFIVE_GPIO_FALL_IP, bit);
-+	regmap_write(chip->regs, SIFIVE_GPIO_HIGH_IP, bit);
-+	regmap_write(chip->regs, SIFIVE_GPIO_LOW_IP, bit);
-+	spin_unlock_irqrestore(&gc->bgpio_lock, flags);
-+
-+	/* Enable interrupts */
-+	assign_bit(offset, (unsigned long *)&chip->irq_state, 1);
-+	sifive_gpio_set_ie(chip, offset);
-+}
-+
-+static void sifive_gpio_irq_disable(struct irq_data *d)
-+{
-+	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-+	struct sifive_gpio *chip = gpiochip_get_data(gc);
-+	int offset = irqd_to_hwirq(d) % SIFIVE_GPIO_MAX;
-+
-+	assign_bit(offset, (unsigned long *)&chip->irq_state, 0);
-+	sifive_gpio_set_ie(chip, offset);
-+	irq_chip_disable_parent(d);
-+}
-+
-+static void sifive_gpio_irq_eoi(struct irq_data *d)
-+{
-+	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-+	struct sifive_gpio *chip = gpiochip_get_data(gc);
-+	int offset = irqd_to_hwirq(d) % SIFIVE_GPIO_MAX;
-+	u32 bit = BIT(offset);
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&gc->bgpio_lock, flags);
-+	/* Clear all pending interrupts */
-+	regmap_write(chip->regs, SIFIVE_GPIO_RISE_IP, bit);
-+	regmap_write(chip->regs, SIFIVE_GPIO_FALL_IP, bit);
-+	regmap_write(chip->regs, SIFIVE_GPIO_HIGH_IP, bit);
-+	regmap_write(chip->regs, SIFIVE_GPIO_LOW_IP, bit);
-+	spin_unlock_irqrestore(&gc->bgpio_lock, flags);
-+
-+	irq_chip_eoi_parent(d);
-+}
-+
-+static struct irq_chip sifive_gpio_irqchip = {
-+	.name		= "sifive-gpio",
-+	.irq_set_type	= sifive_gpio_irq_set_type,
-+	.irq_mask	= irq_chip_mask_parent,
-+	.irq_unmask	= irq_chip_unmask_parent,
-+	.irq_enable	= sifive_gpio_irq_enable,
-+	.irq_disable	= sifive_gpio_irq_disable,
-+	.irq_eoi	= sifive_gpio_irq_eoi,
-+};
-+
-+static int sifive_gpio_child_to_parent_hwirq(struct gpio_chip *gc,
-+					     unsigned int child,
-+					     unsigned int child_type,
-+					     unsigned int *parent,
-+					     unsigned int *parent_type)
-+{
-+	*parent_type = IRQ_TYPE_NONE;
-+	*parent = child + SIFIVE_GPIO_IRQ_OFFSET;
-+	return 0;
-+}
-+
-+static const struct regmap_config sifive_gpio_regmap_config = {
-+	.reg_bits = 32,
-+	.reg_stride = 4,
-+	.val_bits = 32,
-+	.fast_io = true,
-+	.disable_locking = true,
-+};
-+
-+static int sifive_gpio_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *node = pdev->dev.of_node;
-+	struct device_node *irq_parent;
-+	struct irq_domain *parent;
-+	struct gpio_irq_chip *girq;
-+	struct sifive_gpio *chip;
-+	int ret, ngpio;
-+
-+	chip = devm_kzalloc(dev, sizeof(*chip), GFP_KERNEL);
-+	if (!chip)
-+		return -ENOMEM;
-+
-+	chip->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(chip->base)) {
-+		dev_err(dev, "failed to allocate device memory\n");
-+		return PTR_ERR(chip->base);
-+	}
-+
-+	chip->regs = devm_regmap_init_mmio(dev, chip->base,
-+					   &sifive_gpio_regmap_config);
-+	if (IS_ERR(chip->regs))
-+		return PTR_ERR(chip->regs);
-+
-+	ngpio = of_irq_count(node);
-+	if (ngpio >= SIFIVE_GPIO_MAX) {
-+		dev_err(dev, "Too many GPIO interrupts (max=%d)\n",
-+			SIFIVE_GPIO_MAX);
-+		return -ENXIO;
-+	}
-+
-+	irq_parent = of_irq_find_parent(node);
-+	if (!irq_parent) {
-+		dev_err(dev, "no IRQ parent node\n");
-+		return -ENODEV;
-+	}
-+	parent = irq_find_host(irq_parent);
-+	if (!parent) {
-+		dev_err(dev, "no IRQ parent domain\n");
-+		return -ENODEV;
-+	}
-+
-+	ret = bgpio_init(&chip->gc, dev, 4,
-+			 chip->base + SIFIVE_GPIO_INPUT_VAL,
-+			 chip->base + SIFIVE_GPIO_OUTPUT_VAL,
-+			 NULL,
-+			 chip->base + SIFIVE_GPIO_OUTPUT_EN,
-+			 chip->base + SIFIVE_GPIO_INPUT_EN,
-+			 0);
-+	if (ret) {
-+		dev_err(dev, "unable to init generic GPIO\n");
-+		return ret;
-+	}
-+
-+	/* Disable all GPIO interrupts before enabling parent interrupts */
-+	regmap_write(chip->regs, SIFIVE_GPIO_RISE_IE, 0);
-+	regmap_write(chip->regs, SIFIVE_GPIO_FALL_IE, 0);
-+	regmap_write(chip->regs, SIFIVE_GPIO_HIGH_IE, 0);
-+	regmap_write(chip->regs, SIFIVE_GPIO_LOW_IE, 0);
-+	chip->irq_state = 0;
-+
-+	chip->gc.base = -1;
-+	chip->gc.ngpio = ngpio;
-+	chip->gc.label = dev_name(dev);
-+	chip->gc.parent = dev;
-+	chip->gc.owner = THIS_MODULE;
-+	girq = &chip->gc.irq;
-+	girq->chip = &sifive_gpio_irqchip;
-+	girq->fwnode = of_node_to_fwnode(node);
-+	girq->parent_domain = parent;
-+	girq->child_to_parent_hwirq = sifive_gpio_child_to_parent_hwirq;
-+	girq->handler = handle_bad_irq;
-+	girq->default_type = IRQ_TYPE_NONE;
-+
-+	platform_set_drvdata(pdev, chip);
-+	return gpiochip_add_data(&chip->gc, chip);
-+}
-+
-+static const struct of_device_id sifive_gpio_match[] = {
-+	{ .compatible = "sifive,gpio0" },
-+	{ .compatible = "sifive,fu540-c000-gpio" },
-+	{ },
-+};
-+
-+static struct platform_driver sifive_gpio_driver = {
-+	.probe		= sifive_gpio_probe,
-+	.driver = {
-+		.name	= "sifive_gpio",
-+		.of_match_table = of_match_ptr(sifive_gpio_match),
-+	},
-+};
-+builtin_platform_driver(sifive_gpio_driver)
++/**
+  * irq_domain_translate_twocell() - Generic translate for direct two cell
+  * bindings
+  *
 -- 
 2.7.4
 
