@@ -1,72 +1,89 @@
-Return-Path: <SRS0=1Sxd=2A=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=nQZe=2B=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1FAF0C43603
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 21:15:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2B033C43603
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2019 08:43:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E6F4D205C9
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2019 21:15:46 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 00C1B2077B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2019 08:43:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bdF+3SkT";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="hwckcBTw"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E6F4D205C9
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="m8ymkK/g";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="VY1fSL/r"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 00C1B2077B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VB2kXzUyCs+LHMHfy4rybjdh/XGXzGUTou10XIeA+/A=; b=bdF+3SkTWJAZal
-	VcxnZxCN8qm6qdOhZ3r/3bFUT3aPPtRMkFSjYq1B9+onxvxtDpRMH15sPta5ktp42CnIQazykKu5T
-	u5bbxda25BdUf3OVAtS0ATfkrPxKUH/BPETmXsxDAMZrKq8yOcg8kWy1HcPaNWQFCQiaBaXkG3RV7
-	yv5JBuHJTBirGA+dwucRQKJ7mY5CHdWkxyhUbvXdH9mjrbt8DoiHha10n7W9PlFeKIcGKtZmfOilf
-	maLJUhOfr+BGkqjQLV5Hx+ZmE2pGOMJAOEbI6R3k2FfxLEAUQpAXmi5edr3vEEgDsfqGyZ54Q1yMz
-	498X2rMaq87xeXETPkMw==;
+	List-Owner; bh=kQeuS19F3KEdXprKaRD06DcqpTfUguGJp+E8RkyDNtI=; b=m8ymkK/g2P/i7+
+	iQOx0M8T9G72mtXlj6VgFS+nPDy6VJVtIGqKpnJRtPfUU4myDxE7iTuHUy5BnPmb9bpLa9cHESP0p
+	Z/VEl6jk+/ZjRMd3NbjIR4NTtgiTOyPOUP8eEq0Rup25yje90TnWbuQFSUe4Ey+QLS/iIgEPbVEP2
+	1xY0iODZAaXgJxsJlcFmXywQrhe9GJL1hR4Uuoz2KlEwBqai0ZKG8DI9F/x3h+X2XTRIH/6eNyELo
+	uJoI9IgkbpTT+CjSDMIsocKuCgYGjCXEW6IjH8edytZ3kgWiEgoJ+iLRfZWPxHDmG4E1Qmiv6UQnF
+	Dcgrw8Tp8MrHAffaEAKA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iemrA-0001t9-FU; Tue, 10 Dec 2019 21:15:44 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1iexaV-0005z4-5o; Wed, 11 Dec 2019 08:43:15 +0000
+Received: from mail-qv1-xf42.google.com ([2607:f8b0:4864:20::f42])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iemom-00074O-QV; Tue, 10 Dec 2019 21:13:18 +0000
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
- [73.47.72.35])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 7FBCE21556;
- Tue, 10 Dec 2019 21:13:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1576012396;
- bh=AlB50L9uHf+wEk2eppPCYqPzcfDZ+tSlFufi17speCI=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=hwckcBTw4TgGY73/NSULq30fifSMIOtbMbg6Zes+QuEwg9VQG88o+HuSvTREtgVAF
- 38TKlC6UBiKB1hQDC7V80775QRvmCiOSCmXQ4P7KYoYlNuhsdRKhF2gh3k4MeDaj2t
- 2Ew2LYkJI+gR0WlXlhQ86zjm9OcTWjjZhojQU34A=
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.4 316/350] int128: move __uint128_t compiler test to
- Kconfig
-Date: Tue, 10 Dec 2019 16:07:01 -0500
-Message-Id: <20191210210735.9077-277-sashal@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20191210210735.9077-1-sashal@kernel.org>
-References: <20191210210735.9077-1-sashal@kernel.org>
+ id 1iexaS-0005yB-1F
+ for linux-riscv@lists.infradead.org; Wed, 11 Dec 2019 08:43:13 +0000
+Received: by mail-qv1-xf42.google.com with SMTP id o18so5407901qvf.1
+ for <linux-riscv@lists.infradead.org>; Wed, 11 Dec 2019 00:43:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=kQeuS19F3KEdXprKaRD06DcqpTfUguGJp+E8RkyDNtI=;
+ b=VY1fSL/r1auTchjXjG0GETcmGWwfB6GldDBRZEGQMdCt01QI+QDkI5MX4VcXg7L7wO
+ 66TA7vnLMgNXMvyBNu2p7xpoM5a1z0pNR9tqxuMfwdJS01Q2hoGyGEhqwhX/5Ad0GFbw
+ ULfKzKKfXzAtKfcrL+k3sOKWghQew0fgrir9DFyL8L0dyWjJADv4wo0bB+LQmh+IfYjc
+ Prc7AYw3r9RECIRa0RpTe1NWrtp52LD7UGVwNT5fdFDr4GXlQmwnyQDghOVnPwPFDHEc
+ TrrhNe281AuSSH6gWug9aKmokDALzvt8A84ynyoX27sQS+4FoaAtjzxC7nvUOM8m9lKO
+ GFYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=kQeuS19F3KEdXprKaRD06DcqpTfUguGJp+E8RkyDNtI=;
+ b=eM17FcDzSYfBThNpsj/6+O0LOfhVP3+CQf9BhKQ51+993cEgVdCJbcPr2Q2tcA5jfM
+ ot/ot6ch3DXPpdbQIJrIY7LT4tQQQ8ORx6NmO68j2G9ZQjp7QvtXTuwvXq5rFPvbM3A7
+ gTe5qSAIA26USS+GGnXTUXVzSGdGTFtgSaPEdNzYQus5FkSuLE8tZawYUvYdPZs7DeUU
+ yNZJ3XHJJwZh1/36OnBGOHblZ68W4sj8QHoAYO72gPEIt5Py8O4UMvoiE/qT9I65bthu
+ xYoG7PwGFmGnEbU04QVdmoX4NWre7mK5C33P1okjLuRB4Brzku4plcwDiREJ6Q3v4+p6
+ t+BA==
+X-Gm-Message-State: APjAAAWIXdGoSTSMgNSSs7kXpZxDno2b8DRw8uh7opz3jo9xZIGDz8S6
+ LrKn22kUBx0IieIHJxE945GsqNuAWaVj0wRwCWJ41buy
+X-Google-Smtp-Source: APXvYqweaMiD2ZiXWYey5K6krVHrwXhWFdg3f53tPr8UKp9ZC0L6v7VCyZwhxpxHXFGNXWM7pLmO5OrULXovRSxi0gI=
+X-Received: by 2002:a05:6214:108a:: with SMTP id
+ o10mr1831132qvr.246.1576053790054; 
+ Wed, 11 Dec 2019 00:43:10 -0800 (PST)
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-Content-Transfer-Encoding: 8bit
+References: <20191028121043.22934-1-hch@lst.de>
+ <alpine.DEB.2.21.9999.1910301311240.6452@viisi.sifive.com>
+ <20191031155222.GA7270@lst.de>
+ <alpine.DEB.2.21.9999.1911221817010.14532@viisi.sifive.com>
+In-Reply-To: <alpine.DEB.2.21.9999.1911221817010.14532@viisi.sifive.com>
+From: Greentime Hu <green.hu@gmail.com>
+Date: Wed, 11 Dec 2019 16:42:33 +0800
+Message-ID: <CAEbi=3e4dzDex=zU2Bwvi+b=Jwz2NsT4fZPcT_o8umnJaub3Mg@mail.gmail.com>
+Subject: Re: RISC-V nommu support v6
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191210_131316_911403_3D2EAE45 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20191211_004312_072899_6F8F09F8 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,137 +95,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>,
- Masahiro Yamada <yamada.masahiro@socionext.com>, linux-crypto@vger.kernel.org,
- linux-riscv@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
- linux-arm-kernel@lists.infradead.org
+Cc: Damien Le Moal <damien.lemoal@wdc.com>, Palmer Dabbelt <palmer@sifive.com>,
+ Christoph Hellwig <hch@lst.de>, linux-riscv@lists.infradead.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+Paul Walmsley <paul.walmsley@sifive.com> =E6=96=BC 2019=E5=B9=B411=E6=9C=88=
+23=E6=97=A5 =E9=80=B1=E5=85=AD =E4=B8=8A=E5=8D=8810:24=E5=AF=AB=E9=81=93=EF=
+=BC=9A
+>
+> On Thu, 31 Oct 2019, Christoph Hellwig wrote:
+>
+> > On Wed, Oct 30, 2019 at 01:21:21PM -0700, Paul Walmsley wrote:
+> > > I tried building this series from your git branch mentioned above, an=
+d
+> > > booted it with a buildroot userspace built from your custom buildroot
+> > > tree.  Am seeing some segmentation faults from userspace (below).
+> > >
+> > > Am still planning to merge your patches.
+> > >
+> > > But I'm wondering whether you are seeing these segmentation faults al=
+so?
+> > > Or is it something that might be specific to my test setup?
+> >
+> > I just built a fresh image using make -j4 with that report and it works
+> > perfectly fine with my tree.
+>
+> Another colleague just gave this a quick test, following your instruction=
+s
+> as I did.  He encountered the same segmentation faulting issue.  Might be
+> worth taking a look at this once v5.5-rc1 is released.  Could be a
+> userspace issue, though.
 
-[ Upstream commit c12d3362a74bf0cd9e1d488918d40607b62a3104 ]
+Hi Christoph,
 
-In order to use 128-bit integer arithmetic in C code, the architecture
-needs to have declared support for it by setting ARCH_SUPPORTS_INT128,
-and it requires a version of the toolchain that supports this at build
-time. This is why all existing tests for ARCH_SUPPORTS_INT128 also test
-whether __SIZEOF_INT128__ is defined, since this is only the case for
-compilers that can support 128-bit integers.
+I think it should be replaced with this macro for cores without S-mode.
 
-Let's fold this additional test into the Kconfig declaration of
-ARCH_SUPPORTS_INT128 so that we can also use the symbol in Makefiles,
-e.g., to decide whether a certain object needs to be included in the
-first place.
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 9bca97ffb67a..5c8b24bf4e4e 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -248,7 +248,7 @@ ENTRY(reset_regs)
+        li      t4, 0
+        li      t5, 0
+        li      t6, 0
+-       csrw    sscratch, 0
++       csrw    CSR_SCRATCH, 0
 
-Cc: Masahiro Yamada <yamada.masahiro@socionext.com>
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/arm64/Kconfig | 2 +-
- arch/riscv/Kconfig | 2 +-
- arch/x86/Kconfig   | 2 +-
- crypto/ecc.c       | 2 +-
- init/Kconfig       | 4 ++++
- lib/ubsan.c        | 2 +-
- lib/ubsan.h        | 2 +-
- 7 files changed, 10 insertions(+), 6 deletions(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 3f047afb982c8..54c38c9cab88a 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -67,7 +67,7 @@ config ARM64
- 	select ARCH_USE_QUEUED_SPINLOCKS
- 	select ARCH_SUPPORTS_MEMORY_FAILURE
- 	select ARCH_SUPPORTS_ATOMIC_RMW
--	select ARCH_SUPPORTS_INT128 if GCC_VERSION >= 50000 || CC_IS_CLANG
-+	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && (GCC_VERSION >= 50000 || CC_IS_CLANG)
- 	select ARCH_SUPPORTS_NUMA_BALANCING
- 	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 8eebbc8860bbd..75a6c91176221 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -164,7 +164,7 @@ config ARCH_RV32I
- config ARCH_RV64I
- 	bool "RV64I"
- 	select 64BIT
--	select ARCH_SUPPORTS_INT128 if GCC_VERSION >= 50000
-+	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && GCC_VERSION >= 50000
- 	select HAVE_FUNCTION_TRACER
- 	select HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FTRACE_MCOUNT_RECORD
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 8ef85139553f5..f2aed8012e9c0 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -24,7 +24,7 @@ config X86_64
- 	depends on 64BIT
- 	# Options that are inherently 64-bit kernel only:
- 	select ARCH_HAS_GIGANTIC_PAGE
--	select ARCH_SUPPORTS_INT128
-+	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
- 	select ARCH_USE_CMPXCHG_LOCKREF
- 	select HAVE_ARCH_SOFT_DIRTY
- 	select MODULES_USE_ELF_RELA
-diff --git a/crypto/ecc.c b/crypto/ecc.c
-index dfe114bc0c4af..6e6aab6c987c2 100644
---- a/crypto/ecc.c
-+++ b/crypto/ecc.c
-@@ -336,7 +336,7 @@ static u64 vli_usub(u64 *result, const u64 *left, u64 right,
- static uint128_t mul_64_64(u64 left, u64 right)
- {
- 	uint128_t result;
--#if defined(CONFIG_ARCH_SUPPORTS_INT128) && defined(__SIZEOF_INT128__)
-+#if defined(CONFIG_ARCH_SUPPORTS_INT128)
- 	unsigned __int128 m = (unsigned __int128)left * right;
- 
- 	result.m_low  = m;
-diff --git a/init/Kconfig b/init/Kconfig
-index b4daad2bac233..020526f681c03 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
-@@ -785,6 +785,10 @@ config ARCH_SUPPORTS_NUMA_BALANCING
- config ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
- 	bool
- 
-+config CC_HAS_INT128
-+	def_bool y
-+	depends on !$(cc-option,-D__SIZEOF_INT128__=0)
-+
- #
- # For architectures that know their GCC __int128 support is sound
- #
-diff --git a/lib/ubsan.c b/lib/ubsan.c
-index 0c4681118fcd2..fc552d524ef77 100644
---- a/lib/ubsan.c
-+++ b/lib/ubsan.c
-@@ -119,7 +119,7 @@ static void val_to_string(char *str, size_t size, struct type_descriptor *type,
- {
- 	if (type_is_int(type)) {
- 		if (type_bit_width(type) == 128) {
--#if defined(CONFIG_ARCH_SUPPORTS_INT128) && defined(__SIZEOF_INT128__)
-+#if defined(CONFIG_ARCH_SUPPORTS_INT128)
- 			u_max val = get_unsigned_val(type, value);
- 
- 			scnprintf(str, size, "0x%08x%08x%08x%08x",
-diff --git a/lib/ubsan.h b/lib/ubsan.h
-index b8fa83864467f..7b56c09473a98 100644
---- a/lib/ubsan.h
-+++ b/lib/ubsan.h
-@@ -78,7 +78,7 @@ struct invalid_value_data {
- 	struct type_descriptor *type;
- };
- 
--#if defined(CONFIG_ARCH_SUPPORTS_INT128) && defined(__SIZEOF_INT128__)
-+#if defined(CONFIG_ARCH_SUPPORTS_INT128)
- typedef __int128 s_max;
- typedef unsigned __int128 u_max;
- #else
--- 
-2.20.1
-
+ #ifdef CONFIG_FPU
+        csrr    t0, CSR_MISA
 
