@@ -2,79 +2,92 @@ Return-Path: <SRS0=+8gn=2G=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.6 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	DKIM_VALID_AU,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 29F34C43603
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2019 04:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8EEC0C2D0BF
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2019 09:13:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EF0D820674
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2019 04:50:31 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6029C206D7
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2019 09:13:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="X5dJGiSs";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=nifty.com header.i=@nifty.com header.b="UkWkxvBE"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EF0D820674
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="an/HphUR";
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="WXf++/PI"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6029C206D7
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
-	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=5/7EtpYysHXSpkosM3HRCkSpxTMVEjj1QJPpob2x148=; b=X5dJGiSsd8gBWzyBNNdyh8s/D
-	ymNYv65YVev6xpCH624Om/mB9FtOzXz79I36EEsNU8x4F2pcyA95SoXMkNWnLaQEp7y9eajdFwfLp
-	KMNYym7ER3nCS9/mJrGMlTEgJOQyU9I4+Uc+aHv81sMcnMl/Bn38nUukGh6+ELJommvg1PZDVNKf7
-	Xf80+J+AcQ6/SnMQBSyfr13dM2Upvs5gsiC2QCrsN0yPqLK+jqXRwdD9JhwYzsylNznzBHIxINeRx
-	flmZRYIpa2WM8Rt5fboVx6XLKB2LKJ9siqrrkkaRf7t1LhFk++133nXPrnBdJ4AwQqh778ytlr2YF
-	11f7KQaEw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vpY7MBXQP9D/muTQHYI2tuNdnNT18mzMK9mr9lmyumc=; b=an/HphUReDLi9l
+	xOJp3LmJitKiZFIX1oLtpcf2vitrKAzO0y1xYiCN/dJXNgnSQsAlqeTYIZAgCWVNKReu1EYu1//9y
+	92WDmMHPMQ9dPKcg/43Bc3eRPCaFh546G+wQax3TvDGRrtP6/94bInnsWlhfPIIqnXoiFnRFxpyoV
+	z7Qd+J6/rmClI4Mv0iZqVqqGKONqQ3ouXcwMDZyLXVIyGqTmTgxGOF2Gl7QmMYnSlUlSFXf0RGAp+
+	Jd/OTm4Vh4FhegLEwM3/vV53GwJkbpKD02BsJFNJ5HhPQIcy6XHwrK+Ow3sBmxOJix+h/EV9Mc08Y
+	AQ14ryuuwKgw/a3DICdg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1igiL0-00035c-MY; Mon, 16 Dec 2019 04:50:30 +0000
-Received: from conssluserg-01.nifty.com ([210.131.2.80])
+	id 1igmRw-0003JW-6a; Mon, 16 Dec 2019 09:13:56 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1igiKw-000332-Nw
- for linux-riscv@lists.infradead.org; Mon, 16 Dec 2019 04:50:28 +0000
-Received: from mail-vk1-f182.google.com (mail-vk1-f182.google.com
- [209.85.221.182]) (authenticated)
- by conssluserg-01.nifty.com with ESMTP id xBG4nr73031332
- for <linux-riscv@lists.infradead.org>; Mon, 16 Dec 2019 13:49:54 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com xBG4nr73031332
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1576471795;
- bh=5/7EtpYysHXSpkosM3HRCkSpxTMVEjj1QJPpob2x148=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=UkWkxvBEaIfR2P9nc9Rn4RGtqDGe+VvgoxSnvfANZoYzMkLtcXjfVVK/fsVDHDeEu
- 3vBMLZROVuiftulpUeCgZR09Q8RvCs/cMORXilEs/HGgZlVue7Wq2/2li6PC3fuwDu
- IYUpa2xE99GixAgVU+dKlmC/JUp35VOIuBSvZ/MCWZyghCJC6hUN/mkDZbYXr3+nG7
- KVc/CE7i0PI6DlzAVsSKBYJGbbqnAVPYyoLPz3zHusfRdd6sJwIEgC5Dso3Ki98BsS
- C35t5zMOShRJLfakDWjhn4dwOdPP+/9/I38DgOjNO1lNs4C+COcjAfAgljjU+obR4K
- kUM/oU15dD1Ow==
-X-Nifty-SrcIP: [209.85.221.182]
-Received: by mail-vk1-f182.google.com with SMTP id c129so489116vkh.7
- for <linux-riscv@lists.infradead.org>; Sun, 15 Dec 2019 20:49:54 -0800 (PST)
-X-Gm-Message-State: APjAAAUjKWrkJ9EZs2FlIbyFC8/f38tJHzy5X+K+/uocU1Jtb1asQxGu
- I6G6MHr5WlVEe8qizUnovxtZFcL80Hhrz3RaFSo=
-X-Google-Smtp-Source: APXvYqz35kOLUZ2z+OuiTtbn2CHp56wPlFE2bzoPB78j9pXor4kPi41IeSe4cHug5H0b0brmIToB41xZkiyYqevu5m0=
-X-Received: by 2002:a1f:72c3:: with SMTP id n186mr10233164vkc.12.1576471793202; 
- Sun, 15 Dec 2019 20:49:53 -0800 (PST)
+ id 1igmRt-0003Gy-AX
+ for linux-riscv@lists.infradead.org; Mon, 16 Dec 2019 09:13:54 +0000
+Received: by mail-pf1-x442.google.com with SMTP id b19so5254260pfo.2
+ for <linux-riscv@lists.infradead.org>; Mon, 16 Dec 2019 01:13:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=vpY7MBXQP9D/muTQHYI2tuNdnNT18mzMK9mr9lmyumc=;
+ b=WXf++/PI7Qj1eL7NF3/ysask8jTXfygbq3KmxUxE4Ly3cTk1wkgW9Oh9lRRCCaRqux
+ SlKDDtj6aug//loLK7vPWhfbUKbw0Pw0jawhDC8jAVB6/2TUptn1mXUtLZEDTIQPyHCt
+ yUBIez9eXZJVQPXdOBicsnh8u5wBSTHcmooFYg8N0xFyCxaraVtG3iAxOETh+JzC70ah
+ vdVeV4rDnqq2ZLIlovXlRf7hLcU7HDnTqJy1/oowuIjgyyRPsMALcKMJcDhoD7i2pdTU
+ nYu/fmY7k28qZC3zNCm09EUnRGlMRGUij0DNVh6EIeHfVTFF5OFYhe9t4FlmgbRiAvs6
+ aNlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=vpY7MBXQP9D/muTQHYI2tuNdnNT18mzMK9mr9lmyumc=;
+ b=GGRAigDIacYiTNvYpcFdx5082LbWDRawq82gcB76ZfoW7sL0oWSUDR6GK+OQewEsrZ
+ XAimpPzaA+5ZJEVPkTAy81IhfIIqfXf4BK5LxSxF83R8KW1ahh0jc+9FvFv9RVZEVMBR
+ arGrMBonqVxeDoI+8H3FfvYC5q4tPKQo4Uj/LIdHI/UMQ+I/12Wu2X5+C2BsYtvZruBG
+ VFCgJ1Zm303DwyFJxbg+lKVIbncbhpEoUCFGJ3vzJWc8KZMrRVL86BYf/SF+7UsqcchK
+ bdc/R6VQCROOWZZ2I/ochah+GpFnCuaUTjCKb+fIM15oOVkea+JE+r9tNvtJK6BKw4n4
+ b8jw==
+X-Gm-Message-State: APjAAAXqT6ZwBN/MH+J0aCOZDzqrVCI33lM0zEW2QqWqHlWoMcRlBH8q
+ /QOc82csRGiHv58RS+rtB38=
+X-Google-Smtp-Source: APXvYqzaZ3jJM3dOls1Pof33GJoVy83OTL34tNJngEBHjYW5m38n1ijiIvLP4nD5pePW34rW+GPiFQ==
+X-Received: by 2002:a63:364d:: with SMTP id d74mr16898806pga.408.1576487632409; 
+ Mon, 16 Dec 2019 01:13:52 -0800 (PST)
+Received: from btopel-mobl.ger.intel.com (fmdmzpr04-ext.fm.intel.com.
+ [192.55.55.39])
+ by smtp.gmail.com with ESMTPSA id x21sm12505033pfn.164.2019.12.16.01.13.50
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 16 Dec 2019 01:13:51 -0800 (PST)
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn.topel@gmail.com>
+To: daniel@iogearbox.net,
+	ast@kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH bpf-next v2 0/9] riscv: BPF JIT fix,
+ optimizations and far jumps support
+Date: Mon, 16 Dec 2019 10:13:34 +0100
+Message-Id: <20191216091343.23260-1-bjorn.topel@gmail.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-References: <cover.1575879069.git.tommyhebb@gmail.com>
- <1eaa4143fdb000563cde114bb7e0166b1fc229bf.1575879069.git.tommyhebb@gmail.com>
-In-Reply-To: <1eaa4143fdb000563cde114bb7e0166b1fc229bf.1575879069.git.tommyhebb@gmail.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Mon, 16 Dec 2019 13:49:17 +0900
-X-Gmail-Original-Message-ID: <CAK7LNARHuMaKUtsX8qJx2XiH+OciNFo+w_WBqZHKHV+ZQSvAwg@mail.gmail.com>
-Message-ID: <CAK7LNARHuMaKUtsX8qJx2XiH+OciNFo+w_WBqZHKHV+ZQSvAwg@mail.gmail.com>
-Subject: Re: [PATCH 1/4] kconfig: list all definitions of a symbol in help text
-To: Thomas Hebb <tommyhebb@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191215_205027_017372_BB2571C0 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20191216_011353_388246_A6A55972 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,128 +99,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn.topel@gmail.com>,
+ linux-riscv@lists.infradead.org, bpf@vger.kernel.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 9, 2019 at 5:19 PM Thomas Hebb <tommyhebb@gmail.com> wrote:
->
-> In Kconfig, each symbol (representing a config option) can be defined in
-> multiple places. Each definition may or may not have a prompt, which
-> allows the option to be set via an interface like menuconfig. Each
-> definition has a set of dependencies, which determine whether its prompt
-> is visible and whether other pieces of the definition, like a default
-> value, take effect.
->
-> Historically, a symbol's help text (i.e. what's shown when a user
-> presses '?' in menuconfig) contained some symbol-wide information not
-> tied to any particular definition (e.g. what other symbols it selects)
-> as well as the location (file name and line number) and dependencies of
-> each prompt. Notably, the help text did not show the location or
-> dependencies of definitions without prompts.
->
-> Because this made it hard to reason about symbols that had no prompts,
-> bcdedcc1afd6 ("menuconfig: print more info for symbol without prompts")
-> changed the help text so that, instead of containing the location and
-> dependencies of each prompt, it contained the location and dependencies
-> of the symbol's first definition, regardless of whether or not that
-> definition had a prompt.
->
-> For symbols with only one definition, that change makes sense. However,
-> it breaks down for symbols with multiple definitions: each definition
-> has its own set of dependencies (the `dep` field of `struct menu`), and
-> those dependencies are ORed together to get the symbol's dependency list
-> (the `dir_dep` field of `struct symbol`). By printing only the
-> dependencies of the first definition, the help text misleads users into
-> believing that an option is more narrowly-applicable than it actually
-> is.
->
-> For an extreme example of this, we can look at the SYS_TEXT_BASE symbol
-> in the Das U-Boot project, which also uses Kconfig. (I could not find an
+Hi!
 
-"Das U-Boot" is a moving reference.
+This series contain one non-critical fix, support for far jumps. and
+some optimizations for the BPF JIT.
 
-Could you explicitly say the release version (e.g. v2019.10)
-from which you took the example?
+Previously, the JIT only supported 12b branch targets for conditional
+branches, and 21b for unconditional branches. Starting with this
+series, 32b branching is supported.
+
+As part of supporting far jumps, branch relaxation was introduced. The
+idea is to start with a pessimistic jump (e.g. auipc/jalr) and for
+each pass the JIT will have an opportunity to pick a better
+instruction (e.g. jal) and shrink the image. Instead of two passes,
+the JIT requires more passes. It typically converges after 3 passes.
+
+The optimizations mentioned in the subject are for calls and tail
+calls. In the tail call generation we can save one instruction by
+using the offset in jalr. Calls are optimized by doing (auipc)/jal(r)
+relative jumps instead of loading the entire absolute address and
+doing jalr. This required that the JIT image allocator was made RISC-V
+specific, so we can ensure that the JIT image and the kernel text are
+in range (32b).
+
+The last two patches of the series is not critical to the series, but
+are two UAPI build issues for BPF events. A closer look from the
+RV-folks would be much appreciated.
+
+The test_bpf.ko module, selftests/bpf/test_verifier and
+selftests/seccomp/seccomp_bpf pass all tests.
+
+RISC-V is still missing proper kprobe and tracepoint support, so a lot
+of BPF selftests cannot be run.
 
 
-> illustrative example in the Linux source, unfortunately). This config
-> option specifies the load address of the built binary and, as such, is
-> applicable to basically every configuration possible. And yet, without
-> this patch, its help text is as follows:
->
->   Symbol: SYS_TEXT_BASE [=0x00200000]
->   Type  : hex
->   Prompt: Text Base
->     Location:
->       -> Boot images
->     Defined at arch/arm/mach-aspeed/Kconfig:9
->     Depends on: ARM [=y] && ARCH_ASPEED [=n]
->
-> The help text indicates that the option only applicable for a specific
-> unselected architecture (aspeed), because that architecture's promptless
-> definition (which just sets a default value), happens to be the first
-> one seen.
->
-> Because source locations and dependencies are fundamentally properties
-> of definitions and not of symbols, we should treat them as such. This
-> patch brings back the pre-bcdedcc1afd6 behavior for definitions with
-> prompts but also separately prints the location and dependencies of
-> those without prompts, solving the original problem in a different way.
-> With this change, our SYS_TEXT_BASE example becomes
->
->   Symbol: SYS_TEXT_BASE [=0x00200000]
->   Type  : hex
->   Defined with prompt at Kconfig:548
->     Prompt: Text Base
->     Depends on: !NIOS2 [=n] && !XTENSA [=n] && !EFI_APP [=n]
->     Location:
->       -> Boot images
->   Defined without prompt at arch/arm/mach-aspeed/Kconfig:9
->     Depends on: ARM [=y] && ARCH_ASPEED [=n]
->   Defined without prompt at arch/arm/mach-socfpga/Kconfig:28
->     Depends on: ARM [=y] && ARCH_SOCFPGA [=n]
->   <snip>
->   Defined without prompt at board/sifive/fu540/Kconfig:15
->     Depends on: RISCV [=n] && TARGET_SIFIVE_FU540 [=n]
->
-> which is a much more accurate representation.
+Thanks,
+Björn
 
-This is nice improvement (fix).
+v1->v2: [1]
+ * Removed unused function parameter from emit_branch()
+ * Added patch to support far branch in tail call emit
 
-Just a nit about the help format.
-I think "with prompt" / "without prompt" is redundant information,
-and a bit annoying.
-
-For the definition "with prompt",
-the next line is always " Prompt: ... ".
-
-For the definition "without prompt",
-the " Prompt: ... " line is missing.
-
-So, we can know the presence of the prompt, anyway.
+[1] https://lore.kernel.org/bpf/20191209173136.29615-1-bjorn.topel@gmail.com/
 
 
-To simplify the for-loop, how about the code like this?
+Björn Töpel (9):
+  riscv, bpf: fix broken BPF tail calls
+  riscv, bpf: add support for far branching
+  riscv, bpf: add support for far branching when emitting tail call
+  riscv, bpf: add support for far jumps and exits
+  riscv, bpf: optimize BPF tail calls
+  riscv, bpf: provide RISC-V specific JIT image alloc/free
+  riscv, bpf: optimize calls
+  riscv, bpf: add missing uapi header for BPF_PROG_TYPE_PERF_EVENT
+    programs
+  riscv, perf: add arch specific perf_arch_bpf_user_pt_regs
 
-        /* Print the definitions with prompts before the ones without */
-        for_all_properties(sym, prop, P_SYMBOL) {
-                str_printf(r, "Defined at %s:%d\n",
-                                prop->menu->file->name, prop->menu->lineno);
+ arch/riscv/include/asm/perf_event.h          |   4 +
+ arch/riscv/include/asm/pgtable.h             |   4 +
+ arch/riscv/include/uapi/asm/bpf_perf_event.h |   9 +
+ arch/riscv/net/bpf_jit_comp.c                | 531 ++++++++++---------
+ tools/include/uapi/asm/bpf_perf_event.h      |   2 +
+ 5 files changed, 312 insertions(+), 238 deletions(-)
+ create mode 100644 arch/riscv/include/uapi/asm/bpf_perf_event.h
 
-                if (prop->menu->prompt)
-                        get_prompt_str(r, prop->menu->prompt, head);
-                else
-                        get_dep_str(r, prop->menu->dep, "  Depends on: ");
-        }
+-- 
+2.20.1
 
-
-
-
---
-Best Regards
-Masahiro Yamada
 
