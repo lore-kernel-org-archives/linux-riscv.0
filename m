@@ -2,59 +2,72 @@ Return-Path: <SRS0=+8gn=2G=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 49CF7C2D0C0
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2019 14:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C037CC43603
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2019 15:10:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1EF4B20684
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2019 14:02:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8A80020409
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2019 15:10:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="o6mLDuiS"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1EF4B20684
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="u+prijGU"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8A80020409
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=iogearbox.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pcMYk9Deu++0QV3Jk7b/gja2xqw/hPskKqqbjWaqMPo=; b=o6mLDuiSpm/4N7jwuY9cx3jZmr
-	Ew94auVZWtmgUIKdxJJ345u0ZWNwEIYe/KTJnHjZ9OlzBuAO6Y7M//sTq+jJD6WQs/bOq5wraTjrQ
-	yS9fmNYoj4t5U9oGK1sG0lW+kx0AWpigEHz343DvcPkl0i7Os9SL7SZUv7D21AopYcxidj4eMnl1o
-	/7nB9uOTplNN9+VSxoKpM+I3ZZ8hfFULWhJeOHry6W8M1NqvtQqfoCh6oJsnvaU+Zb2XoaEaefktT
-	qx+tde3W9hS3P59wtUu67oIRPjoQh32rzOnf0RE4M7BBV9xtuscp+Hm8mbIyozxwX1TQyu9BwCCXj
-	L6Uix98w==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=f3ZMKgNZNE3G3mPic3bnY8Jw3Dx+vDgg3QBMz6tcf0k=; b=u+prijGU6fRUIP
+	VV8wPC5ap9KIHUPiYwLaoTgea5CFCjD070+9HhChvPoSZjWx8kZw/LNvGceTu56FQ3PIRswM5q3lS
+	MIBmLFVI+6hqRI0Rm3ZPSHoKT3GRghUk1mQkFYQJocWQQcev8EGb3UoBnHSBuw+SFrjBu7prjUMdD
+	xMdDunzBr5jfZBz4Wz8GHCosZE+Jijk7qgL/6nOoPsn2QnOwgzWew/Jnl3kzBQsKxJ47CGwArRA24
+	AaRRC9CIAG4NU+t6zaTB4E38JRI7ISM5piCz6t0mRosv2PNzj7rif8KaByaceQgpT7K6Rj20Hggzn
+	XPE1dVw0T5Cbz3fWxRRA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1igqwu-00084Q-5G; Mon, 16 Dec 2019 14:02:12 +0000
-Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+	id 1igs0h-0001Ek-AF; Mon, 16 Dec 2019 15:10:11 +0000
+Received: from www62.your-server.de ([213.133.104.62])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1igqwr-00083S-BI
- for linux-riscv@lists.infradead.org; Mon, 16 Dec 2019 14:02:10 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 5792FB0B8
- for <linux-riscv@lists.infradead.org>; Mon, 16 Dec 2019 14:02:04 +0000 (UTC)
-From: Andreas Schwab <schwab@suse.de>
-To: linux-riscv@lists.infradead.org
-Subject: earlycon: earlycon_map: Couldn't map 0x0000000010010000
-X-Yow: TAPPING?  You POLITICIANS!  Don't you realize that the END of the
- ``Wash Cycle'' is a TREASURED MOMENT for most people?!
-Date: Mon, 16 Dec 2019 15:02:03 +0100
-Message-ID: <mvm8snccqsk.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.3 (gnu/linux)
+ id 1igs0c-000092-Bc
+ for linux-riscv@lists.infradead.org; Mon, 16 Dec 2019 15:10:08 +0000
+Received: from sslproxy01.your-server.de ([88.198.220.130])
+ by www62.your-server.de with esmtpsa (TLSv1.2:DHE-RSA-AES256-GCM-SHA384:256)
+ (Exim 4.89_1) (envelope-from <daniel@iogearbox.net>)
+ id 1igs0R-0004Lt-4j; Mon, 16 Dec 2019 16:09:55 +0100
+Received: from [2001:1620:665:0:5795:5b0a:e5d5:5944] (helo=linux.fritz.box)
+ by sslproxy01.your-server.de with esmtpsa
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.89)
+ (envelope-from <daniel@iogearbox.net>)
+ id 1igs0Q-0000NE-Ld; Mon, 16 Dec 2019 16:09:54 +0100
+Subject: Re: [PATCH bpf-next v2 6/9] riscv, bpf: provide RISC-V specific JIT
+ image alloc/free
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>, ast@kernel.org, 
+ netdev@vger.kernel.org
+References: <20191216091343.23260-1-bjorn.topel@gmail.com>
+ <20191216091343.23260-7-bjorn.topel@gmail.com>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <7ceab77a-92e7-6415-3045-3e16876d4ef8@iogearbox.net>
+Date: Mon, 16 Dec 2019 16:09:53 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
 MIME-Version: 1.0
-Content-Type: text/plain
+In-Reply-To: <20191216091343.23260-7-bjorn.topel@gmail.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 8bit
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.101.4/25665/Mon Dec 16 10:52:23 2019)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191216_060209_536503_61DACC0D 
-X-CRM114-Status: UNSURE (   4.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191216_071006_448717_45DD7765 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,19 +79,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu, palmer@dabbelt.com,
+ bpf@vger.kernel.org, paul.walmsley@sifive.com
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-earlycon appears to be broken in 5.5-rc.
+On 12/16/19 10:13 AM, Björn Töpel wrote:
+> This commit makes sure that the JIT images is kept close to the kernel
+> text, so BPF calls can use relative calling with auipc/jalr or jal
+> instead of loading the full 64-bit address and jalr.
+> 
+> The BPF JIT image region is 128 MB before the kernel text.
+> 
+> Signed-off-by: Björn Töpel <bjorn.topel@gmail.com>
+> ---
+>   arch/riscv/include/asm/pgtable.h |  4 ++++
+>   arch/riscv/net/bpf_jit_comp.c    | 13 +++++++++++++
+>   2 files changed, 17 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 7ff0ed4f292e..cc3f49415620 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -404,6 +404,10 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+>   #define VMALLOC_END      (PAGE_OFFSET - 1)
+>   #define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
+>   
+> +#define BPF_JIT_REGION_SIZE	(SZ_128M)
+> +#define BPF_JIT_REGION_START	(PAGE_OFFSET - BPF_JIT_REGION_SIZE)
+> +#define BPF_JIT_REGION_END	(VMALLOC_END)
+> +
 
-[    0.000000] earlycon: earlycon_map: Couldn't map 0x0000000010010000
-[    0.000000] earlycon: sifive0 at MMIO 0x0000000010010000 (options '')
-[    0.000000] Malformed early option 'earlycon'
+Series looks good to me, thanks; I'd like to get an ACK from Palmer/others on this one.
 
-Andreas.
+>   /*
+>    * Roughly size the vmemmap space to be large enough to fit enough
+>    * struct pages to map half the virtual address space. Then
+> diff --git a/arch/riscv/net/bpf_jit_comp.c b/arch/riscv/net/bpf_jit_comp.c
+> index 8aa19c846881..46cff093f526 100644
+> --- a/arch/riscv/net/bpf_jit_comp.c
+> +++ b/arch/riscv/net/bpf_jit_comp.c
+> @@ -1656,3 +1656,16 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+>   					   tmp : orig_prog);
+>   	return prog;
+>   }
+> +
+> +void *bpf_jit_alloc_exec(unsigned long size)
+> +{
+> +	return __vmalloc_node_range(size, PAGE_SIZE, BPF_JIT_REGION_START,
+> +				    BPF_JIT_REGION_END, GFP_KERNEL,
+> +				    PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+> +				    __builtin_return_address(0));
+> +}
+> +
+> +void bpf_jit_free_exec(void *addr)
+> +{
+> +	return vfree(addr);
+> +}
+> 
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
 
