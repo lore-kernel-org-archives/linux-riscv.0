@@ -2,97 +2,61 @@ Return-Path: <SRS0=W2t6=2I=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.6 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	DKIM_VALID_AU,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0A061C43603
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2019 08:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7A671C2D0C3
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2019 08:30:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D424A24650
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2019 08:28:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5081F20717
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2019 08:30:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SdZ1R67c";
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Lp1KSgZ6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D424A24650
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="N4wb12xR"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5081F20717
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yMJjOAhIzheu14B4aOvGzeJWtYIQ1QEezPPz+lKiEmE=; b=SdZ1R67ccpMerI
-	VXstQNP7XbJS1wN4lM8ktTI2nVEbKuPwPvJ5Zwu3uL22lOCgM5tupnWntuhDoehy5pJ4mQJQbJ/lk
-	Wdpq1YuQMEDCiFK5HnIk5cwGmSIiVoOmnlNluXy87O2xUncAEZe9eL4cg82luT4/Qs74/8t4zwsP4
-	s6VLHefzBkw/UNnIre0uWke6m/PBgWxFZyauXZRrPEwtvlsJm4Hmh164TlNIL7c0VHBsstQLWowMs
-	VEWV4O+yVAhaJZQIbwXrldynQNvQQHIN9pOwmaj3k6P15Z1ryStTQURXl8elURX3lnbE8ALfQ/e66
-	hr6QRo2mudUXkcRgg9kg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:Message-ID:In-Reply-To:Date:References:Subject:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=wYeFkI6owIUbC8hrFV3LHdXnmmmYBLtuevxuoKXn3os=; b=N4wb12xRlx8EDmG+96PfsFmlS
+	E9ODHKb1Jgb98zNoEUY6Tva3yaFVQkpCMdX1XMIt09WUdNgTzgdezTN2mIkdgsVNyh1j3VKuL9Fi0
+	8SgzX9lrUEDzAYP3sb85gq6zkIFJYC1LhWDP4Z7j/sqE2CW3XJ/Ll5daWs3ONaLqUY3gk6HMS+N6f
+	uCfpKXCx84pBHLbN6lLcIxvUO/Nis3xXAa/xybc2gHRNH8+2cOX15K92DLw1KVqGOhikEGfJZ87Lz
+	mGFdTHSZBL1P4/ZxSnN5f0qmcIrUYZ/tnz/1ZPXh8LEUqtN8TbM/FLPs5+2a0fRxsNrPxYsTFj2LZ
+	/YCjPv6Ng==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ihUh1-00072Q-6q; Wed, 18 Dec 2019 08:28:27 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1ihUix-0008UV-BX; Wed, 18 Dec 2019 08:30:27 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ihUgy-00071z-05
- for linux-riscv@lists.infradead.org; Wed, 18 Dec 2019 08:28:25 +0000
-Received: by mail-wr1-x441.google.com with SMTP id y17so1255160wrh.5
- for <linux-riscv@lists.infradead.org>; Wed, 18 Dec 2019 00:28:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=yMJjOAhIzheu14B4aOvGzeJWtYIQ1QEezPPz+lKiEmE=;
- b=Lp1KSgZ6INSYA5JSybOiENZq20hSCbKyoto/I24wVBb9/7qnO7zYlauk/WO2Z3tlLw
- MAZ77NiEZCoKXUFBkIlh0d/FMyRUQl0vadGHWJzySQOEqYPZUBl41NU9JPeKcN3yqn7r
- E1XZjGTpYA583Dw4d8X5Pq41EqRVvTTOWhmQ2N2MLn8KUETtRAWKlxYXsDIG105vFlp4
- cIkhLSp9B6wt6oiYzr+mYnO+qcHHrUNz0VuDfsj5znzwj7qifVWHl8ae43M/Bdd8+41K
- dwm2W03a3As+A3UM7DMhkHsmlw0AT3PcxXoYpBf0ZbkbGZtt43r/2Mka7asYsi6T4dDp
- j/yw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=yMJjOAhIzheu14B4aOvGzeJWtYIQ1QEezPPz+lKiEmE=;
- b=pzOGRdPUCjpRL2ZA8+frHdiOdYSdxr/XKe+AJmro0hHQZsm6FVdg7HLRX5PzuXnxkF
- 6Tx1XgOETDlubI6k/3vZSjqG09cJrqxn8T6Q81aDmQxtJQgauGOwXJ3mFVnf171EfLkA
- 1YW3To34j0VkIHgTjLftnMMr1dVo5uRNI5gMZFMEaZh90bMUFxULVO64TCm0jXO6MmsY
- Xych7Gy237eW+oAcAduWo+EWqQjYnGeQRxlU6WVCcP5qo2MBN9fvwW4H1W36m5H/F4/j
- KJ24tiDgxjbdAogMaJmGj8LKaO9/yVQ/qncH4IYW0fECu1jWiGsNipiaUkf/pobK2l6i
- L3dQ==
-X-Gm-Message-State: APjAAAXx6Kjsq9rgfc17iUAYqFcpYHxCOtYmkK0ng2E/ZepiFbt9vwtL
- i4si1g6vKifpgKFsrU1ZWdZd2/CFFvo=
-X-Google-Smtp-Source: APXvYqz2hPmvQA+b5bhpb/9dzuG9/IQOYezjagYgbzpVHXDchyUxdy2KJFxpptGjOdA6bt8fP/Q/TQ==
-X-Received: by 2002:a5d:608a:: with SMTP id w10mr1268616wrt.136.1576657702457; 
- Wed, 18 Dec 2019 00:28:22 -0800 (PST)
-Received: from localhost.localdomain (78-63-27-146.static.zebra.lt.
- [78.63.27.146])
- by smtp.gmail.com with ESMTPSA id o4sm1683699wrx.25.2019.12.18.00.28.20
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 18 Dec 2019 00:28:21 -0800 (PST)
-From: David Abdurachmanov <david.abdurachmanov@gmail.com>
-X-Google-Original-From: David Abdurachmanov <david.abdurachmanov@sifive.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- David Abdurachmanov <david.abdurachmanov@sifive.com>,
- "Stefan O'Rear" <sorear2@gmail.com>, Yash Shah <yash.shah@sifive.com>,
- Logan Gunthorpe <logang@deltatee.com>,
- Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: [PATCH v2] define vmemmap before pfn_to_page calls
-Date: Wed, 18 Dec 2019 10:28:11 +0200
-Message-Id: <20191218082814.895851-1-david.abdurachmanov@sifive.com>
-X-Mailer: git-send-email 2.24.1
+ id 1ihUiu-0008TL-9d
+ for linux-riscv@lists.infradead.org; Wed, 18 Dec 2019 08:30:25 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id 7234EAC52;
+ Wed, 18 Dec 2019 08:30:20 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: David Abdurachmanov <david.abdurachmanov@gmail.com>
+Subject: Re: [PATCH] define vmemmap before pfn_to_page calls
+References: <20191217131530.513096-1-david.abdurachmanov@sifive.com>
+X-Yow: Yow!  Now we can become alcoholics!
+Date: Wed, 18 Dec 2019 09:30:19 +0100
+In-Reply-To: <20191217131530.513096-1-david.abdurachmanov@sifive.com> (David
+ Abdurachmanov's message of "Tue, 17 Dec 2019 15:15:28 +0200")
+Message-ID: <mvm8sna5944.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.3 (gnu/linux)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191218_002824_067174_8F1FFA3C 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20191218_003024_483342_781D71D7 
+X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,84 +68,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: david.abdurachmanov@gmail.com
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ David Abdurachmanov <david.abdurachmanov@sifive.com>,
+ Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org,
+ Mike Rapoport <rppt@linux.ibm.com>, Yash Shah <yash.shah@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Logan Gunthorpe <logang@deltatee.com>, linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-pfn_to_page & page_to_pfn depend on vmemmap being available before the calls
-if kernel is configured with CONFIG_SPARSEMEM_VMEMMAP=y. This was caused
-by NOMMU changes which moved vmemmap definition bellow functions definitions
-calling pfn_to_page & page_to_pfn.
+On Dez 17 2019, David Abdurachmanov wrote:
 
-Noticed while compiled 5.5-rc2 kernel for Fedora/RISCV.
+> pfn_to_page call depends on `vmemmap` being available before the call.
 
-v2:
-- Add a comment for vmemmap in source
+Only if CONFIG_SPARSEMEM_VMEMMAP, as it seems.
 
-Signed-off-by: David Abdurachmanov <david.abdurachmanov@sifive.com>
-Fixes: 6bd33e1ece52 ("riscv: add nommu support")
-Reviewed-by: Anup Patel <anup@brainfault.org>
----
- arch/riscv/include/asm/pgtable.h | 38 ++++++++++++++++++--------------
- 1 file changed, 21 insertions(+), 17 deletions(-)
+Andreas.
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 7ff0ed4f292e..36ae01761352 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -90,6 +90,27 @@ extern pgd_t swapper_pg_dir[];
- #define __S110	PAGE_SHARED_EXEC
- #define __S111	PAGE_SHARED_EXEC
- 
-+#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
-+#define VMALLOC_END      (PAGE_OFFSET - 1)
-+#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
-+
-+/*
-+ * Roughly size the vmemmap space to be large enough to fit enough
-+ * struct pages to map half the virtual address space. Then
-+ * position vmemmap directly below the VMALLOC region.
-+ */
-+#define VMEMMAP_SHIFT \
-+	(CONFIG_VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
-+#define VMEMMAP_SIZE	BIT(VMEMMAP_SHIFT)
-+#define VMEMMAP_END	(VMALLOC_START - 1)
-+#define VMEMMAP_START	(VMALLOC_START - VMEMMAP_SIZE)
-+
-+/*
-+ * Define vmemmap for pfn_to_page & page_to_pfn calls. Needed if kernel
-+ * is configured with CONFIG_SPARSEMEM_VMEMMAP enabled.
-+ */
-+#define vmemmap		((struct page *)VMEMMAP_START)
-+
- static inline int pmd_present(pmd_t pmd)
- {
- 	return (pmd_val(pmd) & (_PAGE_PRESENT | _PAGE_PROT_NONE));
-@@ -400,23 +421,6 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
- #define __pte_to_swp_entry(pte)	((swp_entry_t) { pte_val(pte) })
- #define __swp_entry_to_pte(x)	((pte_t) { (x).val })
- 
--#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
--#define VMALLOC_END      (PAGE_OFFSET - 1)
--#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
--
--/*
-- * Roughly size the vmemmap space to be large enough to fit enough
-- * struct pages to map half the virtual address space. Then
-- * position vmemmap directly below the VMALLOC region.
-- */
--#define VMEMMAP_SHIFT \
--	(CONFIG_VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
--#define VMEMMAP_SIZE	BIT(VMEMMAP_SHIFT)
--#define VMEMMAP_END	(VMALLOC_START - 1)
--#define VMEMMAP_START	(VMALLOC_START - VMEMMAP_SIZE)
--
--#define vmemmap		((struct page *)VMEMMAP_START)
--
- #define PCI_IO_SIZE      SZ_16M
- #define PCI_IO_END       VMEMMAP_START
- #define PCI_IO_START     (PCI_IO_END - PCI_IO_SIZE)
 -- 
-2.24.1
-
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
