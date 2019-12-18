@@ -2,92 +2,94 @@ Return-Path: <SRS0=W2t6=2I=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DCBDBC2D0BF
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2019 21:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 29C41C2D0BF
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2019 21:39:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A18C624679
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2019 21:39:45 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EC4D6227BF
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2019 21:39:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FmdxTg12";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="I5w9k4sV"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A18C624679
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Xf0F0sVZ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="dLitjokm"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EC4D6227BF
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qOC3+RUoHtU++C1ezcsT7g+Us/8rlxALeXD9ycTTQhg=; b=FmdxTg12TYTXcH
-	p+dGgnNl8M1ZVrUZR7KB/fKT7N0skGnYSgIDFy0vNv0PkjkMB/k8VrJBtJvY5EbdqKGGX5H/JHDKr
-	+CRbOAqyc8Az5tgGjuiyviBIysbgtHNrxicEiKkkw8mdqUOU9Z+CRD3QQ4DHQOYOBlOYTYM3mswE0
-	qwzwvH6kgfwa6BS0ju+DP80sYJnPCVshOaGiVN50FuPULFoi7ijYzo17xhb9lK9vJfoveiEnflxZs
-	7pPb8bDQQP14lVJwKXLOpx2e1B76tk2z/62AxedBa43VPYkGctyABSDosiLz/Y0yzKr/QY/eJq/Ld
-	aelDdNrGuG0HXlhZwLtw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=h16CsA+7dnlqx65iQ1V3c5bLlKu0sSrCK+owfSjPLZM=; b=Xf0F0sVZz1DSTZ
+	J4FgiCB6iL0e29qwmLLif3xzoyFDaZrVARqYkOxRxOqKx7qBY3yfyKrUZoPkbKoml57nE8+hD/KaM
+	5bZ3zzo/MNBhnIY2Xs76fbUm0VRXk7wiBmsQ6jIpt8UH6wrhP+b/EbvWv/Kmu3k4ECaGiddoMLjn0
+	S91IE7A1lDH8rPzvx9jeTzRWvdn0Vz3rMnV/p6KAjHxA8pstGh2UsUWnageysqizP9dp3/IrHsuNV
+	ngrTZ6jDXNChTQkVAQzrAUP2HD+H0zIrNPMjyfide+mnCovy+np5nRndA7hpszj93NGCL5NSe2nnJ
+	TdPfLP4FTFIs2umBiu7Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ihh2m-00076i-L3; Wed, 18 Dec 2019 21:39:44 +0000
+	id 1ihh2o-00079M-Hs; Wed, 18 Dec 2019 21:39:46 +0000
 Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ihh2i-00072s-Pk
+ id 1ihh2j-00073o-Ks
  for linux-riscv@lists.infradead.org; Wed, 18 Dec 2019 21:39:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1576705181; x=1608241181;
- h=from:to:cc:subject:date:message-id:mime-version:
- content-transfer-encoding;
- bh=v8HddCjwnP5FyVMQJWro7VQJAFHYljHP5zq5vtrPivM=;
- b=I5w9k4sVwujYKVyXoN4YZfpn0K2dh1X10Mg6Uq8Wrdh4FibJOVKWBD7R
- alUInHE0e3zGLorGJShlMkAr01+Q4K860WW6xh6nh+uhBP63jknfUO/D7
- gNX0DMKSurbJyB2MaDG8akB3I85NyIvaB3mwkeWA2S84oD9UrDaOk+srh
- ddog9weOLAr2RagjtS+5HJdGTC6SVdE/MizdIquYY2uNjUOd8xVwQs82g
- dqzFukInEDHy5o25oJJeIs2vfBDvLh2vCrCm07wgHfzMBkfMUCSRQD3/e
- 7dtd+un1jT76rkwIcwxFfnmEKOPy4/ux9Sz97n5K15YMt8zQJMkyD0Y3O g==;
-IronPort-SDR: +QBFaBPUdO8mYnK7LHkSCORD03LmPPrl/tXAWMKayXUuD7fpPUgk6XeVQCfV+hFT6+jGzpA8cR
- 8au96oKRKi6VCMk+lpbz0MN+0lw52Sc76sJAe4fWclc2A5fdEcsGk9XTYj5jn7/zgQzmtGhKMf
- KvUpQBNb2YEK+v8FY+jSHd3TPtoblsoWYR6hmeUK81FeXaAHy6eU0sfN6UGDE1t7vC5nly8UXD
- SrVY50CGJ43kDDNVoxQyC1RGd9/5rI8Gjg9S4WhEwI9TwM6NtKTEb1kbNjrjMLY2Ls3469WfUj
- nRs=
-X-IronPort-AV: E=Sophos;i="5.69,330,1571673600"; d="scan'208";a="130100625"
+ t=1576705182; x=1608241182;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=+loTlbtAVmDNqKG5gyPbZ0rjffG1s2UyA+gSQE4hEM0=;
+ b=dLitjokm1hZUOXCg9foUcW31X/dOyfitXY/g8f5w7ufelfoDEkvAQO1v
+ UTv7f5zaZ+MkCTlsXBIm/qCGlYgip1bWVaBaSNUuSVZs8W/EQCWNGMDwc
+ jOXMxn2M/BZ41IRo0x2nLFQ+RGRvpBhu/WxefnDE/UMJQ7Wqv7VAdRqzS
+ 2ExZ+exwPC718bmo6//hbke4ibPGIDAZg95g47mcIGpFW9zNaFgT+ityR
+ +91PCCYNAybFWkl3pq9Zzxnny16Vwl1iEn1dpvInsXrtjkeGWxS/usis1
+ pp6X/N61T175lT4yhTA+FeMvKbPKuvm/VWkwJvWWwu9IC9KwtLi1KYGac g==;
+IronPort-SDR: A+dSutqxqplIKeF1evlvu6aZdmdzyF17GqzaMSbokZAqe8MFoRm4kUpGtUrUQbMA/DK0jvt8/q
+ Cca/JBRfjQfp20wcS7ZEZPpfDpI+dRaD3JtBL8wkXA2y9Tqk+CnjYaALQXE0vjmADFGnnUcGHj
+ Jz+s1yTV/snbTrzpvLi5eiSDx7MUQGmcJ9tOzJ+x43MKGNwzgKUNvbqfcoHnMVVUk7y62YgVRy
+ AAYQii+bj1YpVbJY95oIRtiozDtqHS8vpP6P4wM8zRwIMoJszBoJcA3K7FwzwgUImJ5IjaJPJ4
+ bu8=
+X-IronPort-AV: E=Sophos;i="5.69,330,1571673600"; d="scan'208";a="130100632"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 19 Dec 2019 05:39:37 +0800
-IronPort-SDR: sXi6tB8JdYlN1c/LXqWhPxYq/+S2kjl9UGu78qZDagdgLp8UajkKnZvn680bZfgYfFAy47bZ5g
- 5jQf7qOeV/nV1RGBTNntxWswjfQPq+FdpJlIRVSEPBM4n/W7zi8NhiZEITP+Sv95l1lwiPW7P6
- 2a1qWAfhmeap70YlTj6sscxD/pynQlfD21CEFA1vusIm3GciMVqTkKjsANamUH9BentJ4jCZ85
- q7Poqr11bmG7ERLvIytsx7tickObxdVt5YNVvUrUhQt5wvc72siEykPenhxn8rZ6UFPwFvEdta
- L+O8jq/MeCB+hpMwkFJ3ZxJZ
+ by ob1.hgst.iphmx.com with ESMTP; 19 Dec 2019 05:39:38 +0800
+IronPort-SDR: Zu3KPGrDWbcwgNs9dbaItOT3risj9YYWf2h8ZKcb0NeU8DTOHSadSPyfCsS6jwdY15CV79nJ5I
+ TH1xFSmnsycyaQ1q9Fasj5DPEniLEstFFeCNmlA7kg1Iri80I6xIJxcaUoYu9hzeUeQM6S2507
+ DetaQWi6Low2dFU2YthWe/otsrUEhdd9IueWVPk2as3Z23dLDlCkT2Iu3E8A+CXhzlo4FqeN4X
+ J1+zGXvPNKecdPIVRFjz4GqJ6RFmVL27oaw+sYZmvo0cehwN0piyvAOgeQYVxRFO2K2CHdNjbb
+ AdWAK1ZaNLY4I3RoRGFDt7pO
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 18 Dec 2019 13:33:59 -0800
-IronPort-SDR: i0GqJ4pvI0E4KdQ8DBhp9xHtwyGFGQIfO6P/FJjeFmfzdP4+6zCQRFX5AYhGSTLZSkfT0sy0Bh
- 6Ouq1QqLqLUU0dEfGIlUFDGqsSt4QbKvxO4JyFujBxvAximyunKqIkXP0oAvRoppb2nOHVwXLl
- jzksbZwneDPELVbeOaKVlGmHycKvZoReXgz0YS7A0zc9XjPNaxdh/d8RUr9gsia9W3FHnyqZ5X
- lPljjLCnEuEog2k/j2o2tTWFqaHaPiBhOh0npZIdliOrX4ZcexdwgqDl3AhHMM+pJ1fn3aZ63l
- ego=
+ 18 Dec 2019 13:34:00 -0800
+IronPort-SDR: xQtxRi5tOp6wtw3UFUFR8RLs/sz8SPKL5YegLH+fLmwbLuGpaRhr13w1P7+0yGrtqav+M/2sp2
+ yyjSE/QjG0m+ybkav//p7yzzr4ku/R0+hjhMrt9yFWvK7QbYAGEyNb6oZCEyTk4sqFN5IcG6GG
+ jerb3VEbEGtNSBjAI2Uw93tY4KwYCNVxsGgZVzgDyuLZrMe5Z53iiXGWSKkFOL5I/STDpEXu2x
+ E4g284Cyy98Dfjr1LZAbMFU3wbvo9UGh6ul4bQkhccYEc4wFLzpiJsc6a9VnL4lXakTWcpglUh
+ LLo=
 WDCIronportException: Internal
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 18 Dec 2019 13:39:37 -0800
+ by uls-op-cesaip02.wdc.com with ESMTP; 18 Dec 2019 13:39:38 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v6 0/5] Add support for SBI v0.2 
-Date: Wed, 18 Dec 2019 13:39:13 -0800
-Message-Id: <20191218213918.16676-1-atish.patra@wdc.com>
+Subject: [PATCH v6 3/5] RISC-V: Add SBI v0.2 extension definitions
+Date: Wed, 18 Dec 2019 13:39:16 -0800
+Message-Id: <20191218213918.16676-4-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
+In-Reply-To: <20191218213918.16676-1-atish.patra@wdc.com>
+References: <20191218213918.16676-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191218_133940_840947_24E4B7FA 
-X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-CacheID: sfid-20191218_133941_695220_16C47B24 
+X-CRM114-Status: UNSURE (   8.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -109,61 +111,56 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Supervisor Binary Interface(SBI) specification[1] now defines a
-base extension that provides extendability to add future extensions
-while maintaining backward compatibility with previous versions.
-The new version is defined as 0.2 and older version is marked as 0.1.
+Few v0.1 SBI calls are being replaced by new SBI calls that follows
+v0.2 calling convention.
 
+This patch just defines these new extensions.
 
-This series adds support v0.2 and a unified calling convention
-implementation between 0.1 and 0.2. It also add other SBI v0.2
-functionality defined in [2]. The base support for SBI v0.2 is already
-available in OpenSBI v0.5. This series needs additional patches[3] in
-OpenSBI. 
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ arch/riscv/include/asm/sbi.h | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-Tested on both BBL, OpenSBI with/without the above patch series. 
-
-[1] https://github.com/riscv/riscv-sbi-doc/blob/master/riscv-sbi.adoc
-[2] https://github.com/riscv/riscv-sbi-doc/pull/27
-[3] http://lists.infradead.org/pipermail/opensbi/2019-November/000738.html
-
-Changes from v5->v6
-1. Fixed few compilation issues around config.
-2. Fixed hart mask generation issues for RFENCE & IPI extensions.
-
-Changes from v4->v5
-1. Fixed few minor comments related to static & inline.
-2. Make sure that every patch is boot tested individually.
-
-Changes from v3->v4.
-1. Rebased on for-next.
-2. Fixed issuses with checkpatch --strict.
-3. Unfied all IPI/fence related functions.
-4. Added Hfence related SBI calls.
-
-Changes from v2->v3.
-1. Moved v0.1 extensions to a new config.
-2. Added support for relacement extensions of v0.1 extensions.
-
-Changes from v1->v2
-1. Removed the legacy calling convention.
-2. Moved all SBI related calls to sbi.c.
-3. Moved all SBI related macros to uapi.
-
-Atish Patra (5):
-RISC-V: Mark existing SBI as 0.1 SBI.
-RISC-V: Add basic support for SBI v0.2
-RISC-V: Add SBI v0.2 extension definitions
-RISC-V: Introduce a new config for SBI v0.1
-RISC-V: Implement new SBI v0.2 extensions
-
-arch/riscv/Kconfig           |   6 +
-arch/riscv/include/asm/sbi.h | 178 +++++++-----
-arch/riscv/kernel/sbi.c      | 522 ++++++++++++++++++++++++++++++++++-
-arch/riscv/kernel/setup.c    |   2 +
-4 files changed, 635 insertions(+), 73 deletions(-)
-
---
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 1aeb4bb7baa8..9612133213ba 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -21,6 +21,9 @@ enum sbi_ext_id {
+ 	SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID = 0x7,
+ 	SBI_EXT_0_1_SHUTDOWN = 0x8,
+ 	SBI_EXT_BASE = 0x10,
++	SBI_EXT_TIME = 0x54494D45,
++	SBI_EXT_IPI = 0x735049,
++	SBI_EXT_RFENCE = 0x52464E43,
+ };
+ 
+ enum sbi_ext_base_fid {
+@@ -33,6 +36,24 @@ enum sbi_ext_base_fid {
+ 	SBI_EXT_BASE_GET_MIMPID,
+ };
+ 
++enum sbi_ext_time_fid {
++	SBI_EXT_TIME_SET_TIMER = 0,
++};
++
++enum sbi_ext_ipi_fid {
++	SBI_EXT_IPI_SEND_IPI = 0,
++};
++
++enum sbi_ext_rfence_fid {
++	SBI_EXT_RFENCE_REMOTE_FENCE_I = 0,
++	SBI_EXT_RFENCE_REMOTE_SFENCE_VMA,
++	SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID,
++	SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA,
++	SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA_VMID,
++	SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA,
++	SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA_ASID,
++};
++
+ #define SBI_SPEC_VERSION_DEFAULT	0x1
+ #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
+ #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
+-- 
 2.24.0
 
 
