@@ -2,119 +2,143 @@ Return-Path: <SRS0=B3U6=2N=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 69357C2D0C0
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2019 08:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A0F27C3F68F
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2019 11:35:26 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3F96C20709
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2019 08:53:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6F4832075B
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2019 11:35:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XS3fuksT";
-	dkim=pass (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="pS8B7ty9"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3F96C20709
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EHtBSR96";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="rKxae8IP";
+	dkim=pass (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="h+X0DJcA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F4832075B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=oQ/dDLtt0d1WvYIfZFppn7oKq+7G/ziJEWJHyyPzQig=; b=XS3fuksT+uQR1KMnWdbNxS0cw
-	Bm/tm1QdEbhVkKNz4GzE6VojbweMeiHcY27cqnydEwA47NAJmRwmqHFgI5Rw31wB7vm93iHvMha6t
-	MJGenqPKH64YDpAZikkD9DYpyP2t/GkGlZDjvjbJHZTL6+Pylhued5R6IlwkXiCF9TAGYvMhMFRea
-	npSbhUj0GRP5QfxI0oiU2A9syRztjgc0ElSpEJP5S9mQ1PTCvMcXkh/ehikF4MmkEex9YKNQ/IrB8
-	NtPEKjAEXaQra4OdABxJ+n/833CeHQe/THAjP/gWcUqJOBSB5Rj5odJvcHYgSzLrCZSRrPe0nkXuI
-	Y2qxPo/ng==;
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PFR2e+HEgBgux6CBn8kMhzlUmyIw9t4ez5ZhbqwkuMo=; b=EHtBSR96DDOeRnblb4pqfV7xxb
+	ymV2toVIPeDBaJdTkf7EZryxcK9cKngY/Rx1kTYNLL37krygxwiMoYVABir8j7IMK6UQW7yRhJRst
+	+lUlyPlLhpvafOB/DbyYU2J2JAvDp/4pdgoYTkGtePtUoUrbHwZaUzcWD+enfUUtTQOHBJPKsrsUg
+	9xDxuy8tm3uzG+n7C1rArN6eSKEwRG3hf9sL06yrbNdvkCzisCG/vc4+PNL7pu9OqLDtaDyFWE+hc
+	b/0ED2Zs9P6u0/BDgfhAtPKnfuYkgx74EJ2u3xp62/KpilQ5VLVNEkQz46cxP/00fc7f//gmlg2+s
+	88y7R8Dg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ijJSx-0003z4-6A; Mon, 23 Dec 2019 08:53:27 +0000
-Received: from mail-mw2nam10on2075.outbound.protection.outlook.com
- ([40.107.94.75] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1ijLzh-0000CT-3x; Mon, 23 Dec 2019 11:35:25 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ijJSu-0003yL-IL
- for linux-riscv@lists.infradead.org; Mon, 23 Dec 2019 08:53:26 +0000
+ id 1ijLzd-0000BN-G7; Mon, 23 Dec 2019 11:35:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1577100921; x=1608636921;
+ h=from:to:cc:subject:date:message-id:
+ content-transfer-encoding:mime-version;
+ bh=yeSaGfLMF5FXGAxTwBHOx/9uAdE9VhgbQj5S4/15hG4=;
+ b=rKxae8IP84FGNVhN4i/6b4h2HkoNHjmxtkHPKHGQsmdlO4inEatpAtqo
+ lqAT1UhqClBue7SEgH8pFbbxBo+k1deMusATWCPhLlOA7kV+rAEV8alRv
+ ZI6oyf49/AqPI5Hd2MP0HbBVnW3sLsfz2dzkEcqiWWpIiJNsvBGyUwiNC
+ R7gDP1kPFByACsIdqfIJQow3DV6A1Dz9EhhJzJfa+ZiVMX/wf7JmWa/Tm
+ FPT/wQNc/mcsWHMhx1mo3aPOWDrRr/sHwQ6SJB4DlNQPHkP/s+6QIJ1Uv
+ aidmKXi+9/G8DbGbK0qclfvCmt7SeKRbzgr0iImimTPJB3PmyjRDItO0L Q==;
+IronPort-SDR: kN7wKhJO/Gphp06rSJqOATc6RVXzKRqLXFGmP/fhggDgnKj6hYoMETBxgAndpxX7tZuxUz+954
+ lHBl9ufMKRUsN5pH3AUXx3yCvbWq3tZTrdqgAs9jSgnYi6Go3iYfb8WkPJ+LVVyi0rhOI52aGy
+ +tyEoI4hjnqS+/awd6U6pZ3dTnd5/oV4Ng7oudnJ+z4HUPjgZdp4BjWSbWaDXT/1KwYzLmCz6y
+ M4t+lMFDF3JxUaLtdXW/zVDe8iNmcnz7FSsMxopVJl/RMIaf+kMqHpeAHN85yzzvOq1F+xS5JB
+ Ed8=
+X-IronPort-AV: E=Sophos;i="5.69,347,1571673600"; d="scan'208";a="125956066"
+Received: from mail-bn7nam10lp2102.outbound.protection.outlook.com (HELO
+ NAM10-BN7-obe.outbound.protection.outlook.com) ([104.47.70.102])
+ by ob1.hgst.iphmx.com with ESMTP; 23 Dec 2019 19:35:11 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=St/rLMCjmcXMhLj0ZNGomJBnr02l1T9tPJ1SpSsO5MZhX4Ez+H76d+TgVRurbt3jw1w6OsDD8OkfLW72rXHeik0EY+RH21dC9iDM5AkaAwXQkUNoaZnNkbC8PimVGQxMim48uXpjmFUw0YRdPAAQ1V0Dyl7fhWJFf9rJgxwZixnW81uQZwtbQpp4u2DgtaWExMYSGHbEt9+wBLNisXWXAuSlSffmURgaEaqCJLiyD3vGtwIDRZ6WlNLzMM5M81TbSjjUR8GvpPBfFlKgZR1xrlk2jw5ls4Jpt4Po/12kQD2zsFV2vRlpGt9utGxuwZgSgQI0u6EgfLgRlzTA/dyWBw==
+ b=Wpr92VCpISIkwo3C/o9Mj7oQaByATD7/HeWbiUjb1xXOr3ehm6Ec1pGVextbdSFbML5Ie9NrAtOSWeYjq21AovLwagNXBlI+6TK1O1+lco5DAZ/k9dSXY5dfpxELxm4cyMVjWh4cAHIJab31rDrAO5e9UXSgfls8glUFUESKUhx1gHTASzR1S7kWJnNXOO9XygrWTURf+IUTqfBPMD6/xfwiPb81WRq8yrlRlJjBLSgdY7fcHhyw73WR126V6vt3qXdXv0zXe6jAlm3NiI7TRBVnzwuc0qiqu99weHaEzzR3MHT18/r6dvahkU5V3s8dQYrOTY1FinntZiSgQY3sRw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oQ/dDLtt0d1WvYIfZFppn7oKq+7G/ziJEWJHyyPzQig=;
- b=MxrO+zQ6n20o8pBKt2sGzPqBsPUsmpbA15L+d3ieIeChGUhHAOPIeHg1+jht6tnUv9PEdqHElyl06eLCaSHWAp1Ea6q7Gy1+VgHn3dDneGyWhqTJVs0WV35FdYOhlmiEHwwSTL8dVgBP4wOrNleW8uQ3WVJRRXsYu4/NtiImRKDQ7dkWaDpbqWx7Of2E5T9LirZUvxhe3ncwTnyyhZ5zliS/Z364hC9qQehccHvo47S1FSJrz51kkOLZjuOyhJRNeURs7BUDIyNMFTzxB/dRbje52MfdFoUKkVyGHuETuShIZyVVPmBdT1ZlNzobJR1akaxqurPliy7M3yIdeXO5iQ==
+ bh=PFR2e+HEgBgux6CBn8kMhzlUmyIw9t4ez5ZhbqwkuMo=;
+ b=MmChiVWyGF4rw/BCwIpc16eI9v1BJIVW+iW2WqHIwjhbNVi1XswcLQeqZ+xJh8kOynfb+Or1ki+tfd77IOlqtPHwpaQgTW/+XF0h57E4oyrPbICyLm8+kP6N6psRwojKuKXRzePLZE6sCkNniQZ/9n6FJEndUL4G/knWzdM9TOLaSjK3FGUnv30FVJW0q/bJLg3w9RJF0EZfoiwW2Z2U+uyTEQF2euq8ohU3MoIK+65FLnMqjyZ9OqicOxOOZYkn7F4QuGYx381+Ucha2gtJeeZMpa0O9/6+02/Sl8aMFuepbpnqQhgIeVTefcJjCIshI1swonLU4rXEYDPPTVg9lg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=sifive.com; dmarc=pass action=none header.from=sifive.com;
- dkim=pass header.d=sifive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
- s=selector1;
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oQ/dDLtt0d1WvYIfZFppn7oKq+7G/ziJEWJHyyPzQig=;
- b=pS8B7ty9KDtsH80K1xhIiyaKX/nhxOus7ADtwdO2YFn7RfGroIuXw7ycG/WpP0YRkEBuUqF41LFQIFxFwU2FlhCMR7EgH7yg6QhAlR+dvNmm6/c1bBvZFhPkJUaLEL/2/3+WYTz9IqaUio1e8UEmQhEuY/OCxhDDvyP33VAdQ10=
-Received: from CH2PR13MB3368.namprd13.prod.outlook.com (52.132.246.90) by
- CH2PR13MB3605.namprd13.prod.outlook.com (52.132.246.89) with Microsoft SMTP
+ bh=PFR2e+HEgBgux6CBn8kMhzlUmyIw9t4ez5ZhbqwkuMo=;
+ b=h+X0DJcAXtBNRadgxcusuDUHEUyHlS2OBDAKZIXlllMIgqdn524MGRzH/eohnGKfq54KwL6RbvxM61F736AMDBt7xwwkkfrJhn6tZ36o9o4pdYHOIj+ocwf3DcUp3LE+0Fw3WSh0Ns2C0la02TrFd2c6xH6u9CK0IV/DqMUslX8=
+Received: from MN2PR04MB6061.namprd04.prod.outlook.com (20.178.246.15) by
+ MN2PR04MB7072.namprd04.prod.outlook.com (10.186.146.20) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2581.6; Mon, 23 Dec 2019 08:53:20 +0000
-Received: from CH2PR13MB3368.namprd13.prod.outlook.com
- ([fe80::eccb:16ac:e897:85d5]) by CH2PR13MB3368.namprd13.prod.outlook.com
- ([fe80::eccb:16ac:e897:85d5%3]) with mapi id 15.20.2581.007; Mon, 23 Dec 2019
- 08:53:20 +0000
-From: Yash Shah <yash.shah@sifive.com>
-To: Palmer Dabbelt <palmerdabbelt@google.com>
-Subject: RE: [PATCH 2/2] riscv: cacheinfo: Add support to determine no. of L2
- cache way enabled
-Thread-Topic: [PATCH 2/2] riscv: cacheinfo: Add support to determine no. of L2
- cache way enabled
-Thread-Index: AQHVroNnDfRRIpnH4Ei8kimblaIK3qe46uMAgA6T+RA=
-Date: Mon, 23 Dec 2019 08:53:20 +0000
-Message-ID: <CH2PR13MB3368B844DB765AE9166C1F1A8C2E0@CH2PR13MB3368.namprd13.prod.outlook.com>
-References: <1575890706-36162-3-git-send-email-yash.shah@sifive.com>
- <1575890706-36162-1-git-send-email-yash.shah@sifive.com>
- <mhng-a1ba4b8a-4c6a-43e9-a87a-f8bbbe3555d8@palmerdabbelt-glaptop>
-In-Reply-To: <mhng-a1ba4b8a-4c6a-43e9-a87a-f8bbbe3555d8@palmerdabbelt-glaptop>
+ 15.20.2559.15; Mon, 23 Dec 2019 11:35:11 +0000
+Received: from MN2PR04MB6061.namprd04.prod.outlook.com
+ ([fe80::a9a0:3ffa:371f:ad89]) by MN2PR04MB6061.namprd04.prod.outlook.com
+ ([fe80::a9a0:3ffa:371f:ad89%7]) with mapi id 15.20.2559.017; Mon, 23 Dec 2019
+ 11:35:11 +0000
+Received: from wdc.com (106.51.20.238) by
+ MA1PR01CA0077.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00::17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=) via Frontend Transport;
+ Mon, 23 Dec 2019 11:35:05 +0000
+From: Anup Patel <Anup.Patel@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini
+ <pbonzini@redhat.com>, Radim K <rkrcmar@redhat.com>
+Subject: [PATCH v10 00/19] KVM RISC-V Support
+Thread-Topic: [PATCH v10 00/19] KVM RISC-V Support
+Thread-Index: AQHVuYUI1J4Xji1dIUi4uEOCYb8klQ==
+Date: Mon, 23 Dec 2019 11:35:10 +0000
+Message-ID: <20191223113443.68969-1-anup.patel@wdc.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
+x-clientproxiedby: MA1PR01CA0077.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00::17)
+ To MN2PR04MB6061.namprd04.prod.outlook.com
+ (2603:10b6:208:d8::15)
 authentication-results: spf=none (sender IP is )
- smtp.mailfrom=yash.shah@sifive.com; 
-x-originating-ip: [114.143.65.226]
+ smtp.mailfrom=Anup.Patel@wdc.com; 
+x-ms-exchange-messagesentrepresentingtype: 1
+x-mailer: git-send-email 2.17.1
+x-originating-ip: [106.51.20.238]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 68da9839-2fbb-4bfa-fcde-08d787858f80
-x-ms-traffictypediagnostic: CH2PR13MB3605:
-x-ld-processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
+x-ms-office365-filtering-ht: Tenant
+x-ms-office365-filtering-correlation-id: ab1da0d7-16a6-4008-2166-08d7879c2b35
+x-ms-traffictypediagnostic: MN2PR04MB7072:
 x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <CH2PR13MB36057327B6A3BFF1EF40FE028C2E0@CH2PR13MB3605.namprd13.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:4714;
+x-microsoft-antispam-prvs: <MN2PR04MB70727F31AC7BF641DA3119608D2E0@MN2PR04MB7072.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-oob-tlc-oobclassifiers: OLM:277;
 x-forefront-prvs: 0260457E99
 x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(396003)(346002)(136003)(376002)(39840400004)(366004)(189003)(199004)(13464003)(33656002)(8676002)(7696005)(76116006)(9686003)(6916009)(478600001)(6506007)(81166006)(53546011)(81156014)(8936002)(71200400001)(5660300002)(26005)(66946007)(86362001)(66446008)(54906003)(66476007)(66556008)(64756008)(4326008)(2906002)(316002)(44832011)(7416002)(52536014)(186003)(55016002);
- DIR:OUT; SFP:1101; SCL:1; SRVR:CH2PR13MB3605;
- H:CH2PR13MB3368.namprd13.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-received-spf: None (protection.outlook.com: sifive.com does not designate
- permitted sender hosts)
+ SFS:(10019020)(4636009)(136003)(366004)(376002)(396003)(346002)(39860400002)(199004)(189003)(8886007)(478600001)(52116002)(316002)(16526019)(2906002)(8936002)(1076003)(7696005)(36756003)(66946007)(66476007)(86362001)(66446008)(26005)(64756008)(66556008)(4326008)(966005)(5660300002)(8676002)(186003)(7416002)(81156014)(2616005)(956004)(71200400001)(55016002)(44832011)(55236004)(81166006)(1006002)(54906003)(110136005)(6666004)(32040200004);
+ DIR:OUT; SFP:1102; SCL:1; SRVR:MN2PR04MB7072;
+ H:MN2PR04MB6061.namprd04.prod.outlook.com; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; A:1; MX:1; 
 x-ms-exchange-senderadcheck: 1
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: X3jpY3J5oaLiIeYht4LaVfv4CgVaxh5aAVkbTKK6TQnlEdSm6OuSH+pj/H7tGx8L+tiwtBd1RZuFR1ULgplPUwIRmvofAZU7FQpm3HBorkzrdq9eOqrhJGD7FP995i/NsQegR2JC/t1KX9Loabf5OOXhLnOjI8gXaeUHa/RoZPlIhIxTfJzjVxccWrmf4R+NjTsWX655sR/DhY5oPc1d5q3illOOAmT8RMwXmf6F1xKn9jWFiM0izfY65rNgKn/29nxGSJNtV/Qh2+VKHkdK39ODC+aH2ZZg/cLnyAjLWykN1hG1wODRv7x3QXKg6WAbSyMwJj7c4rlIuSgIMp+ozggdNbrCsdnW63arsggdkjoNmVlUET91J0Nhwv3RiUp9HmbbOL4y0dPiFGj0UCpeeynhNUYk374zNYhBl66K2XghBzOKJ9OepQ5+GjgUilSKL1uSfXaYZC99SsaE/OubKrKtpXa2hVBfYafJvgOh5XlaP58m+zZu+JfbQvOxEeKv
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+x-microsoft-antispam-message-info: RRb8jhm24zD73g3a3Km7EvOk2uNRzMTCIkSpyglgZygpD7oiGQa/4KnHnF+aHEgP0CSaLGjW38ueUeu8Tg5szXqqmFqbpdUbPEl2T97ZUmJhBx4Al5Ik2ItQPBX6pmwR7dnirIZHNJnNkuhNPVrWmouRZPmSIMt4TOQcJ7yJeA26KxiJ/1M6bWqCJ4KnIuj8Qli2ddgcGBkaajPAy0aMQoLjkE4qLmfmQyALE4ZDPpV1V9VN6qM0WgM3zzL32+yLM6uo/x4vUPepneg+KForNXemi/zmzjjOt9/IqsBKJvQja3kVwCppOxY0L1/sJwgcU3lwOB1KfDVp8O8bKfEqCsqnLw4nxehtTLANWnJG06qojP6Cvq9AJ5wsK6z0oMm2+O1T5SOPv18KvwOSlr8yB7/2hrM21M1Uec5IVIW3oupfaKPMZ7NKrY+DHXrWFtVaU8R98xHCXXsEWGQqNJku7CesxALjt0A8wtdoxEHdNGiNRSKdrJ2YrEZaPCZaWfdP+gh9eKs6rRBIeD+M/dXY67BqOCLz2GwkhA4AKPUAvbs=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 68da9839-2fbb-4bfa-fcde-08d787858f80
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Dec 2019 08:53:20.2850 (UTC)
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab1da0d7-16a6-4008-2166-08d7879c2b35
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Dec 2019 11:35:10.8653 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: +7wXTjDqoEN7hHJb+aF6xf5xfy6pK6sLRGW4e4A6bUpzdsb6/E04B+RdBd9Zx4oIRaNB5Rygq/uHNyNrhUgamQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR13MB3605
+X-MS-Exchange-CrossTenant-userprincipalname: rnAk0P2AHJViUIha5aJ8F8l0nsXBRT8cvH/7Gf4+ubx27K795ab+3y9xoSR20nrfDgpo8Iouue29maaPpOWKJA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB7072
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191223_005324_706561_00500B7D 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20191223_033521_695089_D9C98A8A 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -126,56 +150,221 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- Atish Patra <Atish.Patra@wdc.com>, Greg KH <gregkh@linuxfoundation.org>,
+Cc: Damien Le Moal <Damien.LeMoal@wdc.com>,
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>, Anup Patel <anup@brainfault.org>,
+ Anup Patel <Anup.Patel@wdc.com>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "alexios.zavras@intel.com" <alexios.zavras@intel.com>,
- "robh+dt@kernel.org" <robh+dt@kernel.org>,
- "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "bmeng.cn@gmail.com" <bmeng.cn@gmail.com>,
+ Atish Patra <Atish.Patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
+ "kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
+ Alexander Graf <graf@amazon.com>,
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "allison@lohutok.net" <allison@lohutok.net>
+ Christoph Hellwig <hch@lst.de>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBQYWxtZXIgRGFiYmVsdCA8cGFs
-bWVyZGFiYmVsdEBnb29nbGUuY29tPg0KPiBTZW50OiAxNCBEZWNlbWJlciAyMDE5IDA3OjQzDQo+
-IFRvOiBZYXNoIFNoYWggPHlhc2guc2hhaEBzaWZpdmUuY29tPg0KPiBDYzogcm9iaCtkdEBrZXJu
-ZWwub3JnOyBtYXJrLnJ1dGxhbmRAYXJtLmNvbTsgUGF1bCBXYWxtc2xleSAoIFNpZml2ZSkNCj4g
-PHBhdWwud2FsbXNsZXlAc2lmaXZlLmNvbT47IGFvdUBlZWNzLmJlcmtlbGV5LmVkdTsNCj4gYm1l
-bmcuY25AZ21haWwuY29tOyBhbGxpc29uQGxvaHV0b2submV0OyBhbGV4aW9zLnphdnJhc0BpbnRl
-bC5jb207IEF0aXNoDQo+IFBhdHJhIDxBdGlzaC5QYXRyYUB3ZGMuY29tPjsgdGdseEBsaW51dHJv
-bml4LmRlOyBHcmVnIEtIDQo+IDxncmVna2hAbGludXhmb3VuZGF0aW9uLm9yZz47IGRldmljZXRy
-ZWVAdmdlci5rZXJuZWwub3JnOyBsaW51eC0NCj4gcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZzsg
-bGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZzsgWWFzaCBTaGFoDQo+IDx5YXNoLnNoYWhAc2lm
-aXZlLmNvbT4NCj4gU3ViamVjdDogUmU6IFtQQVRDSCAyLzJdIHJpc2N2OiBjYWNoZWluZm86IEFk
-ZCBzdXBwb3J0IHRvIGRldGVybWluZSBuby4gb2YgTDINCj4gY2FjaGUgd2F5IGVuYWJsZWQNCj4g
-DQo+IE9uIE1vbiwgMDkgRGVjIDIwMTkgMDM6MjU6MDYgUFNUICgtMDgwMCksIHlhc2guc2hhaEBz
-aWZpdmUuY29tIHdyb3RlOg0KPiA+IEluIG9yZGVyIHRvIGRldGVybWluZSB0aGUgbnVtYmVyIG9m
-IEwyIGNhY2hlIHdheXMgZW5hYmxlZCBhdCBydW50aW1lLA0KPiA+IGltcGxlbWVudCBhIHByaXZh
-dGUgYXR0cmlidXRlIHVzaW5nIGNhY2hlX2dldF9wcml2X2dyb3VwKCkgaW4NCj4gPiBjYWNoZWlu
-Zm8gZnJhbWV3b3JrLiBSZWFkaW5nIHRoaXMgYXR0cmlidXRlDQo+ICgibnVtYmVyX29mX3dheXNf
-ZW5hYmxlZCIpDQo+ID4gd2lsbCByZXR1cm4gdGhlIG51bWJlciBvZiBlbmFibGVkIEwyIGNhY2hl
-IHdheXMgYXQgcnVudGltZS4NCj4gPg0KPiA+IFNpZ25lZC1vZmYtYnk6IFlhc2ggU2hhaCA8eWFz
-aC5zaGFoQHNpZml2ZS5jb20+DQo+ID4gLS0tDQo+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-c2lmaXZlX2wyX2NhY2hlLmggfCAgMiArKw0KPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jYWNoZWlu
-Zm8uYyAgICAgICAgICAgIHwgMzENCj4gKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKw0K
-PiA+ICBkcml2ZXJzL3NvYy9zaWZpdmUvc2lmaXZlX2wyX2NhY2hlLmMgICAgIHwgIDUgKysrKysN
-Cj4gPiAgMyBmaWxlcyBjaGFuZ2VkLCAzOCBpbnNlcnRpb25zKCspDQo+ID4NCj4gPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zaWZpdmVfbDJfY2FjaGUuaA0KPiA+IGIvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9zaWZpdmVfbDJfY2FjaGUuaA0KPiA+IGluZGV4IDA0ZjY3NDgu
-LjIxN2E0MmYgMTAwNjQ0DQo+ID4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zaWZpdmVf
-bDJfY2FjaGUuaA0KPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2lmaXZlX2wyX2Nh
-Y2hlLmgNCj4gPiBAQCAtMTAsNiArMTAsOCBAQA0KPiA+ICBleHRlcm4gaW50IHJlZ2lzdGVyX3Np
-Zml2ZV9sMl9lcnJvcl9ub3RpZmllcihzdHJ1Y3Qgbm90aWZpZXJfYmxvY2sNCj4gPiAqbmIpOyAg
-ZXh0ZXJuIGludCB1bnJlZ2lzdGVyX3NpZml2ZV9sMl9lcnJvcl9ub3RpZmllcihzdHJ1Y3QNCj4g
-PiBub3RpZmllcl9ibG9jayAqbmIpOw0KPiA+DQo+ID4gK2ludCBzaWZpdmVfbDJfbGFyZ2VzdF93
-YXllbmFibGVkKHZvaWQpOw0KPiANCj4gSSB0aG91Z2h0IHRoZSBwbGFuIHdhcyB0byBnZXQgdGhp
-cyBzdHVmZiBvdXQgb2YgYXJjaC9yaXNjdj8gIEl0IGxvb2tzIGxpa2UgaXQgb25seQ0KPiBnb3Qg
-aGFsZi13YXkgZG9uZS4NCg0KQXJlIHlvdSBzdWdnZXN0aW5nIHRvIG1vdmUgdGhpcyBoZWFkZXIg
-ZmlsZSBvdXQgb2YgIi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtLyIgdG8gbWF5YmUgImluY2x1ZGUv
-c29jL3NpZml2ZS8iPw0KDQotIFlhc2gNCg0K
+This series adds initial KVM RISC-V support. Currently, we are able to boot
+RISC-V 64bit Linux Guests with multiple VCPUs.
+
+Few key aspects of KVM RISC-V added by this series are:
+1. Minimal possible KVM world-switch which touches only GPRs and few CSRs.
+2. Full Guest/VM switch is done via vcpu_get/vcpu_put infrastructure.
+3. KVM ONE_REG interface for VCPU register access from user-space.
+4. PLIC emulation is done in user-space.
+5. Timer and IPI emuation is done in-kernel.
+6. MMU notifiers supported.
+7. FP lazy save/restore supported.
+8. SBI v0.1 emulation for KVM Guest available.
+9. Forward unhandled SBI calls to KVM userspace.
+10. Hugepage support for Guest/VM
+
+Here's a brief TODO list which we will work upon after this series:
+1. SBI v0.2 emulation in-kernel
+2. SBI v0.2 hart state management emulation in-kernel
+3. In-kernel PLIC emulation
+4. ..... and more .....
+
+This series can be found in riscv_kvm_v10 branch at:
+https//github.com/avpatel/linux.git
+
+Our work-in-progress KVMTOOL RISC-V port can be found in riscv_v1 branch
+at: https//github.com/avpatel/kvmtool.git
+
+The QEMU RISC-V hypervisor emulation is done by Alistair and is available
+in mainline/alistair/riscv-hyp-ext-v0.5.1 branch at:
+https://github.com/kvm-riscv/qemu.git
+
+To play around with KVM RISC-V, refer KVM RISC-V wiki at:
+https://github.com/kvm-riscv/howto/wiki
+https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-QEMU
+
+Changes since v9:
+ - Squash PATCH19 and PATCH20 into PATCH5
+ - Squash PATCH18 into PATCH11
+ - Squash PATCH17 into PATCH16
+ - Added ONE_REG interface for VCPU timer in PATCH13
+ - Use HTIMEDELTA for VCPU timer in PATCH13
+ - Updated KVM RISC-V mailing list in MAINTAINERS entry
+ - Update KVM kconfig option to depend on RISCV_SBI and MMU
+ - Check for SBI v0.2 and SBI v0.2 RFENCE extension at boot-time
+ - Use SBI v0.2 RFENCE extension in VMID implementation
+ - Use SBI v0.2 RFENCE extension in Stage2 MMU implementation
+ - Use SBI v0.2 RFENCE extension in SBI implementation
+ - Moved to RISC-V Hypervisor v0.5 draft spec
+ - Updated Documentation/virt/kvm/api.txt for timer ONE_REG interface
+ - Rebased patches on Linux-5.5-rc3
+
+Changes since v8:
+ - Rebased series on Linux-5.4-rc3 and Atish's SBI v0.2 patches
+ - Use HRTIMER_MODE_REL instead of HRTIMER_MODE_ABS in timer emulation
+ - Fixed kvm_riscv_stage2_map() to handle hugepages
+ - Added patch to forward unhandled SBI calls to user-space
+ - Added patch for iterative/recursive stage2 page table programming
+ - Added patch to remove per-CPU vsip_shadow variable
+ - Added patch to fix race-condition in kvm_riscv_vcpu_sync_interrupts()
+
+Changes since v7:
+- Rebased series on Linux-5.4-rc1 and Atish's SBI v0.2 patches
+- Removed PATCH1, PATCH3, and PATCH20 because these already merged
+- Use kernel doc style comments for ISA bitmap functions
+- Don't parse X, Y, and Z extension in riscv_fill_hwcap() because it will
+  be added in-future
+- Mark KVM RISC-V kconfig option as EXPERIMENTAL
+- Typo fix in commit description of PATCH6 of v7 series
+- Use separate structs for CORE and CSR registers of ONE_REG interface
+- Explicitly include asm/sbi.h in kvm/vcpu_sbi.c
+- Removed implicit switch-case fall-through in kvm_riscv_vcpu_exit()
+- No need to set VSSTATUS.MXR bit in kvm_riscv_vcpu_unpriv_read()
+- Removed register for instruction length in kvm_riscv_vcpu_unpriv_read()
+- Added defines for checking/decoding instruction length
+- Added separate patch to forward unhandled SBI calls to userspace tool
+
+Changes since v6:
+- Rebased patches on Linux-5.3-rc7
+- Added "return_handled" in struct kvm_mmio_decode to ensure that
+  kvm_riscv_vcpu_mmio_return() updates SEPC only once
+- Removed trap_stval parameter from kvm_riscv_vcpu_unpriv_read()
+- Updated git repo URL in MAINTAINERS entry
+
+Changes since v5:
+- Renamed KVM_REG_RISCV_CONFIG_TIMEBASE register to
+  KVM_REG_RISCV_CONFIG_TBFREQ register in ONE_REG interface
+- Update SPEC in kvm_riscv_vcpu_mmio_return() for MMIO exits
+- Use switch case instead of illegal instruction opcode table for simplicit=
+y
+- Improve comments in stage2_remote_tlb_flush() for a potential remote TLB
+  flush optimization
+- Handle all unsupported SBI calls in default case of
+  kvm_riscv_vcpu_sbi_ecall() function
+- Fixed kvm_riscv_vcpu_sync_interrupts() for software interrupts
+- Improved unprivilege reads to handle traps due to Guest stage1 page table
+- Added separate patch to document RISC-V specific things in
+  Documentation/virt/kvm/api.txt
+
+Changes since v4:
+- Rebased patches on Linux-5.3-rc5
+- Added Paolo's Acked-by and Reviewed-by
+- Updated mailing list in MAINTAINERS entry
+
+Changes since v3:
+- Moved patch for ISA bitmap from KVM prep series to this series
+- Make vsip_shadow as run-time percpu variable instead of compile-time
+- Flush Guest TLBs on all Host CPUs whenever we run-out of VMIDs
+
+Changes since v2:
+- Removed references of KVM_REQ_IRQ_PENDING from all patches
+- Use kvm->srcu within in-kernel KVM run loop
+- Added percpu vsip_shadow to track last value programmed in VSIP CSR
+- Added comments about irqs_pending and irqs_pending_mask
+- Used kvm_arch_vcpu_runnable() in-place-of kvm_riscv_vcpu_has_interrupt()
+  in system_opcode_insn()
+- Removed unwanted smp_wmb() in kvm_riscv_stage2_vmid_update()
+- Use kvm_flush_remote_tlbs() in kvm_riscv_stage2_vmid_update()
+- Use READ_ONCE() in kvm_riscv_stage2_update_hgatp() for vmid
+
+Changes since v1:
+- Fixed compile errors in building KVM RISC-V as module
+- Removed unused kvm_riscv_halt_guest() and kvm_riscv_resume_guest()
+- Set KVM_CAP_SYNC_MMU capability only after MMU notifiers are implemented
+- Made vmid_version as unsigned long instead of atomic
+- Renamed KVM_REQ_UPDATE_PGTBL to KVM_REQ_UPDATE_HGATP
+- Renamed kvm_riscv_stage2_update_pgtbl() to kvm_riscv_stage2_update_hgatp(=
+)
+- Configure HIDELEG and HEDELEG in kvm_arch_hardware_enable()
+- Updated ONE_REG interface for CSR access to user-space
+- Removed irqs_pending_lock and use atomic bitops instead
+- Added separate patch for FP ONE_REG interface
+- Added separate patch for updating MAINTAINERS file
+
+Anup Patel (15):
+  RISC-V: Export riscv_cpuid_to_hartid_mask() API
+  RISC-V: Add bitmap reprensenting ISA features common across CPUs
+  RISC-V: Add hypervisor extension related CSR defines
+  RISC-V: Add initial skeletal KVM support
+  RISC-V: KVM: Implement VCPU create, init and destroy functions
+  RISC-V: KVM: Implement VCPU interrupts and requests handling
+  RISC-V: KVM: Implement KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls
+  RISC-V: KVM: Implement VCPU world-switch
+  RISC-V: KVM: Handle MMIO exits for VCPU
+  RISC-V: KVM: Handle WFI exits for VCPU
+  RISC-V: KVM: Implement VMID allocator
+  RISC-V: KVM: Implement stage2 page table programming
+  RISC-V: KVM: Implement MMU notifiers
+  RISC-V: KVM: Document RISC-V specific parts of KVM API.
+  RISC-V: KVM: Add MAINTAINERS entry
+
+Atish Patra (4):
+  RISC-V: KVM: Add timer functionality
+  RISC-V: KVM: FP lazy save/restore
+  RISC-V: KVM: Implement ONE REG interface for FP registers
+  RISC-V: KVM: Add SBI v0.1 support
+
+ Documentation/virt/kvm/api.txt          |  169 +++-
+ MAINTAINERS                             |   11 +
+ arch/riscv/Kconfig                      |    2 +
+ arch/riscv/Makefile                     |    2 +
+ arch/riscv/include/asm/csr.h            |   78 +-
+ arch/riscv/include/asm/hwcap.h          |   22 +
+ arch/riscv/include/asm/kvm_host.h       |  264 ++++++
+ arch/riscv/include/asm/kvm_vcpu_timer.h |   44 +
+ arch/riscv/include/asm/pgtable-bits.h   |    1 +
+ arch/riscv/include/uapi/asm/kvm.h       |  127 +++
+ arch/riscv/kernel/asm-offsets.c         |  148 ++++
+ arch/riscv/kernel/cpufeature.c          |   83 +-
+ arch/riscv/kernel/smp.c                 |    2 +
+ arch/riscv/kvm/Kconfig                  |   34 +
+ arch/riscv/kvm/Makefile                 |   14 +
+ arch/riscv/kvm/main.c                   |   97 +++
+ arch/riscv/kvm/mmu.c                    |  762 +++++++++++++++++
+ arch/riscv/kvm/tlb.S                    |   43 +
+ arch/riscv/kvm/vcpu.c                   | 1013 +++++++++++++++++++++++
+ arch/riscv/kvm/vcpu_exit.c              |  639 ++++++++++++++
+ arch/riscv/kvm/vcpu_sbi.c               |  171 ++++
+ arch/riscv/kvm/vcpu_switch.S            |  382 +++++++++
+ arch/riscv/kvm/vcpu_timer.c             |  225 +++++
+ arch/riscv/kvm/vm.c                     |   86 ++
+ arch/riscv/kvm/vmid.c                   |  120 +++
+ drivers/clocksource/timer-riscv.c       |    8 +
+ include/clocksource/timer-riscv.h       |   16 +
+ include/uapi/linux/kvm.h                |    8 +
+ 28 files changed, 4558 insertions(+), 13 deletions(-)
+ create mode 100644 arch/riscv/include/asm/kvm_host.h
+ create mode 100644 arch/riscv/include/asm/kvm_vcpu_timer.h
+ create mode 100644 arch/riscv/include/uapi/asm/kvm.h
+ create mode 100644 arch/riscv/kvm/Kconfig
+ create mode 100644 arch/riscv/kvm/Makefile
+ create mode 100644 arch/riscv/kvm/main.c
+ create mode 100644 arch/riscv/kvm/mmu.c
+ create mode 100644 arch/riscv/kvm/tlb.S
+ create mode 100644 arch/riscv/kvm/vcpu.c
+ create mode 100644 arch/riscv/kvm/vcpu_exit.c
+ create mode 100644 arch/riscv/kvm/vcpu_sbi.c
+ create mode 100644 arch/riscv/kvm/vcpu_switch.S
+ create mode 100644 arch/riscv/kvm/vcpu_timer.c
+ create mode 100644 arch/riscv/kvm/vm.c
+ create mode 100644 arch/riscv/kvm/vmid.c
+ create mode 100644 include/clocksource/timer-riscv.h
+
+--=20
+2.17.1
+
 
