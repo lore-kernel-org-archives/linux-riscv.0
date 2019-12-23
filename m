@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6421DC2D0C0
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2019 08:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 71309C2D0C0
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2019 08:46:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 37F4520715
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2019 08:46:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 383F2206B7
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2019 08:46:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="p1/NGzer";
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="W7i1Ah1D"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 37F4520715
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sezRSsD9";
+	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="VibfO/Jb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 383F2206B7
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,69 +26,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mUTtbbQMP+MkijNUcJm66aR4PVCMb8ex0jR1j8T76sE=; b=p1/NGzervO/if9
-	E0Vy2ZwXcXegFcb77uYuL7b4D+TjodtgK4ubjwp6bacALKN8fTxnXU+SeKC33z5sMzhy71i7cooBj
-	a+Xsmc2L/5lP2JIeRuWjZwIMaDX6zLez9pA6CWcFDnsm2C9gqvoe08stfpSKWdQTS7gJEX46elzMi
-	GCAtO0DaiO4E7AnVoMLkVRLfcCCqEfGwDCEn/jRIck9fOjfZnosARyBgD7/uexAJQ4BAcSAWYQUY1
-	cXnWJfdDWmw0S73PyDCn8PJ9NtfGCY67D04RVXuNjE6966KtQJF3GSGOo5cL34LbqNfjO8U4xqp8u
-	9v5J4+52uN7iEqk0KUvg==;
+	List-Owner; bh=ff1G2isf3ENPBF2E46NZvxlde1YZeJauMKR6NxdElmA=; b=sezRSsD9bXtRWN
+	dbcm1oA6c3B172KLa7RGyyKBPkFmTFq3uHgfNMr3FmrXm0QHy0AYC2BV0qQS3vExpw0H1ZBL+gjV2
+	QkSc+TppqMSe8k034DYZKES71OwN0+mEEUCdP6Rh11PR0/SykPJr+kfq1I4HKmd7VB0+m/A7WEmzn
+	16QggWspj8Y4x9QFDC/v++PhnRNVGxXV94C4aQqQgLPW/vAE07CXDVilt8v9VRzsRoUv+yPIsTtYY
+	MCJ0X2JUJOLcS4wq0MOwZteOD47ECFLBcrnQ/KcpfJRlx2ouhHgD6P0dtok8HP5wr+wmUyN7+R+HG
+	zQMQUrWdxdWCxPzwfxkg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ijJMQ-00012D-9T; Mon, 23 Dec 2019 08:46:42 +0000
-Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+	id 1ijJMW-00017d-4f; Mon, 23 Dec 2019 08:46:48 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ijJMN-00010I-Fn
- for linux-riscv@lists.infradead.org; Mon, 23 Dec 2019 08:46:40 +0000
-Received: by mail-pg1-x541.google.com with SMTP id b137so8463154pga.6
- for <linux-riscv@lists.infradead.org>; Mon, 23 Dec 2019 00:46:39 -0800 (PST)
+ id 1ijJMT-00015Z-MA
+ for linux-riscv@lists.infradead.org; Mon, 23 Dec 2019 08:46:47 +0000
+Received: by mail-pg1-x543.google.com with SMTP id k3so8473627pgc.3
+ for <linux-riscv@lists.infradead.org>; Mon, 23 Dec 2019 00:46:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=mUTtbbQMP+MkijNUcJm66aR4PVCMb8ex0jR1j8T76sE=;
- b=W7i1Ah1DaVi0VrtUHgCix96WCPg3lt2WH+YFmFrQreaTFHa9No9pj0FhPJ4t9PP0b/
- SXGw+6mIPCYGt6xS94jT3+Q0KGUvXrkNmBoRNUeB3jsU4GGBaie28VzrQC+TL+syeBHJ
- fqRxBvK2JSjO4k9Gapb6NuUP0cuXFzhk7ZDkXYTYAIpynTU3nby7K+8L+mdvDcBPkZz7
- IwmM7X1c5JmVbCmIyNiaBz95aPnStKFUOEJcxN5rq8bz7BCT07P5yyDPNoxhNnS62Ayq
- nqPCY5dFUxNh1ThK1lG5OIBkVchE/HnOE//b3iSkhSht5tk9VL00+SMqDzZQFHq+xsk2
- VzvQ==
+ bh=ff1G2isf3ENPBF2E46NZvxlde1YZeJauMKR6NxdElmA=;
+ b=VibfO/Jbrl3zvORkS4IIjAcQRdVJEcsvyxUWPE9Wg6Or5bYbgt7kUvv+ERe/v0D8cK
+ nCyXtShCcbVas+YSSIG5WREjXocauJsfW+gSN13hCSEapPMvBaBOR+t4HqmrCc9vfdC2
+ +vYZYvr+AlU9nrV1dedvsFlSoq9mZVxwrjJBabYQJ5jgKmm4NDHgmSMdwtlryMvQxt4l
+ Q/yDrCJD8wGcvm9NBzft+H9djtvGTP1NWtTad6QuTqpnWDjD/7ybs/fICaVaMYMigIwl
+ 24k3LbSz6g3jro7qyeXwKR6slev/8IhOb3nob8jRDncsu+jIJTCvS4hRIko3APXbncEJ
+ Mf8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=mUTtbbQMP+MkijNUcJm66aR4PVCMb8ex0jR1j8T76sE=;
- b=HoUitf9Pkiwyl8j0EhAxGVPNWQP6QOv23c0Be5EVO8oiST6l1CWEDLX64EX6t1eQUd
- aGmOOK2ECRMblBlEG8oKiz7jFRsLqBkhoYsj0uJxUmdhwToaf4kn63NGapveRaY4cA0g
- 0spwnQyo+1D6NRzprnFWQRK0vT9bQSaLbDpAUCXq56JHflKuAyyXNPil9WFhhRE9M1ox
- QbLer/ZzltGhz7EwW6KFNo9fxs8N+Z65RGwlUg+SqRTwIfPvoha93+TG+C+gcMYwEfOT
- jpv6L7n/Sm3566U+su/ptaxScPHdKv4RVXgbg6kjw4TAB7eHezCRbzvvcxq5BtS6DkWx
- 1wrw==
-X-Gm-Message-State: APjAAAXFW5sN8mMKqvQyfDJfJAM+X8RFWxFrcXP/v3HWfjSUzJ2dqyhe
- cYvuPdQRaERoO3Ud/r0iUw/rZg==
-X-Google-Smtp-Source: APXvYqx/ccXA1Bz+Pky/9s1hsSq6vCZkh+m2udFmyyAmxtTB5VNmldRlF64rJrpTo/09/dMep38XCA==
-X-Received: by 2002:aa7:9111:: with SMTP id 17mr5179582pfh.163.1577090798825; 
- Mon, 23 Dec 2019 00:46:38 -0800 (PST)
+ bh=ff1G2isf3ENPBF2E46NZvxlde1YZeJauMKR6NxdElmA=;
+ b=cvsdSQI2DLayhEIMn03RMTPBvqKKIL1KyKFMHJqPU2JS2DGhzKlZeZT4RGbyvJ1XUk
+ qR3rmM5KxclFFx5MrdEhWFSfnf8vVjO0TQePnCOhCQvAEnMjsgOzbcZPMLq9kCH23MuC
+ /lUSLImJ6kD8nhkMFTv8DwfVySXydYBqqoDeFrczaBFhCfzdRlImolR4PkIMXkHOOhay
+ DMPhXxRqCpBMUqHTMG6Pq19BFI7UDqhUfXAOM6LGeN8Z10WoQvgDLp9cf0nmHZBCHrGP
+ FuRQAy9HX3bg0pS7KFF9MfjBadgkePAbZ6s2Rl9w+wepZir5Qim2877f+ey36c0g0SUz
+ ZhRw==
+X-Gm-Message-State: APjAAAWkAKhpo5wmpcyV0FGAsiiyFWzoCKJJQPO4asYmhiRIDi3GXr1S
+ B+BZk+QuGgqufaIqmNLV53EHAw==
+X-Google-Smtp-Source: APXvYqziyy9+w5umsVZLAP3PlpDcZfc5datLpMELsbD8i83kTAgMKYnXrd9Dl1fqOgSr7xzPGzo+Cw==
+X-Received: by 2002:a63:62c2:: with SMTP id
+ w185mr24538363pgb.271.1577090804127; 
+ Mon, 23 Dec 2019 00:46:44 -0800 (PST)
 Received: from hsinchu02.internal.sifive.com
  (220-132-236-182.HINET-IP.hinet.net. [220.132.236.182])
- by smtp.gmail.com with ESMTPSA id m71sm22000516pje.0.2019.12.23.00.46.37
+ by smtp.gmail.com with ESMTPSA id m71sm22000516pje.0.2019.12.23.00.46.42
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 23 Dec 2019 00:46:38 -0800 (PST)
+ Mon, 23 Dec 2019 00:46:43 -0800 (PST)
 From: Zong Li <zong.li@sifive.com>
 To: paul.walmsley@sifive.com, palmer@dabbelt.com, rostedt@goodmis.org,
  anup@brainfault.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
-Subject: [PATCH 1/2] riscv: ftrace: correct the condition logic in function
- graph tracer
-Date: Mon, 23 Dec 2019 16:46:13 +0800
-Message-Id: <20191223084614.67126-2-zong.li@sifive.com>
+Subject: [PATCH 2/2] clocksource/drivers/riscv: add notrace to
+ riscv_sched_clock
+Date: Mon, 23 Dec 2019 16:46:14 +0800
+Message-Id: <20191223084614.67126-3-zong.li@sifive.com>
 X-Mailer: git-send-email 2.24.1
 In-Reply-To: <20191223084614.67126-1-zong.li@sifive.com>
 References: <20191223084614.67126-1-zong.li@sifive.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191223_004639_524570_EBBAF67E 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191223_004645_726103_8F669BCB 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,30 +104,49 @@ Cc: Zong Li <zong.li@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The condition should be logical NOT to assign the hook address to parent
-address. Because the return value 0 of function_graph_enter upon
-success.
+When enabling ftrace graph tracer, it gets the tracing clock in
+ftrace_push_return_trace. Eventually, it invokes the riscv_sched_clock to
+get the clock. If add mcount instrument in riscv_sched_clock, it will
+call ftrace_push_return_trace and cause infinite loop.
 
-Fixes: e949b6db51dc (riscv/function_graph: Simplify with function_graph_enter())
+The result of failure as follow:
+
+command: echo function_graph >current_tracer
+[   46.176787] Unable to handle kernel paging request at virtual address ffffffe04fb38c48
+[   46.177309] Oops [#1]
+[   46.177478] Modules linked in:
+[   46.177770] CPU: 0 PID: 256 Comm: $d Not tainted 5.5.0-rc1 #47
+[   46.177981] epc: ffffffe00035e59a ra : ffffffe00035e57e sp : ffffffe03a7569b0
+[   46.178216]  gp : ffffffe000d29b90 tp : ffffffe03a756180 t0 : ffffffe03a756968
+[   46.178430]  t1 : ffffffe00087f408 t2 : ffffffe03a7569a0 s0 : ffffffe03a7569f0
+[   46.178643]  s1 : ffffffe00087f408 a0 : 0000000ac054cda4 a1 : 000000000087f411
+[   46.178856]  a2 : 0000000ac054cda4 a3 : 0000000000373ca0 a4 : ffffffe04fb38c48
+[   46.179099]  a5 : 00000000153e22a8 a6 : 00000000005522ff a7 : 0000000000000005
+[   46.179338]  s2 : ffffffe03a756a90 s3 : ffffffe00032811c s4 : ffffffe03a756a58
+[   46.179570]  s5 : ffffffe000d29fe0 s6 : 0000000000000001 s7 : 0000000000000003
+[   46.179809]  s8 : 0000000000000003 s9 : 0000000000000002 s10: 0000000000000004
+[   46.180053]  s11: 0000000000000000 t3 : 0000003fc815749c t4 : 00000000000efc90
+[   46.180293]  t5 : ffffffe000d29658 t6 : 0000000000040000
+[   46.180482] status: 0000000000000100 badaddr: ffffffe04fb38c48 cause: 000000000000000f
 
 Signed-off-by: Zong Li <zong.li@sifive.com>
 ---
- arch/riscv/kernel/ftrace.c | 2 +-
+ drivers/clocksource/timer-riscv.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index b94d8db5ddcc..c40fdcdeb950 100644
---- a/arch/riscv/kernel/ftrace.c
-+++ b/arch/riscv/kernel/ftrace.c
-@@ -142,7 +142,7 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
- 	 */
- 	old = *parent;
- 
--	if (function_graph_enter(old, self_addr, frame_pointer, parent))
-+	if (!function_graph_enter(old, self_addr, frame_pointer, parent))
- 		*parent = return_hooker;
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index 4e54856ce2a5..c4f15c4068c0 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -56,7 +56,7 @@ static unsigned long long riscv_clocksource_rdtime(struct clocksource *cs)
+ 	return get_cycles64();
  }
  
+-static u64 riscv_sched_clock(void)
++static u64 notrace riscv_sched_clock(void)
+ {
+ 	return get_cycles64();
+ }
 -- 
 2.24.1
 
