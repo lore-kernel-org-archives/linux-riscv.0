@@ -5,20 +5,20 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.7 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	DKIM_VALID_AU,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ACA7BC2D0C6
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 29 Dec 2019 08:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C11EC2D0C6
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 29 Dec 2019 08:19:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 78E7220722
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 29 Dec 2019 08:18:46 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F22E220748
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 29 Dec 2019 08:19:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bHNwx+ox";
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="dxj3V1Ii"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 78E7220722
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cwL6ikKl";
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="b9hb0mvr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F22E220748
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,50 +27,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:MIME-Version:
 	Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ANOl3CnPFLyB6riFOKnyBL3T9PtdCr1lGKXikea0YcI=; b=bHNwx+oxQCFWMX
-	28OLD6ZIi7upNrTeBF4pcWvDEtXNHWckT4iD8MtDTf+NP4Tqa/tkrk7eeMeveq/loxu84fjNm4/Cm
-	g3hYWrG4He4tSpjH6kUFXi1IhTfQ+kc99dMuf4r/X4iUROPX+7LA7Evgo6odfIC+WUurPTiJjGHbh
-	XjFHlJwK0Or1ruXBhFD7accsENfcbUxmizK+ZlDfcYKZ8VhKO0JZ1SrZMRYJdUweYwlhEtp3O2TM7
-	6PcTtUrzz9UrQjJ168aYyIID0iXzfbuLrEDD7k+MF1X5jmo1MT7OEgohvVBk/NqfeW9lcgJeN9EpG
-	RRZLL+WqlBE7N5f14LEw==;
+	List-Owner; bh=ixbpgZkfNGAKCOr0lEPoSYVoWXPtjLRNZNzpPO1U1MA=; b=cwL6ikKllp65fU
+	7wCeH4TBBVTcbl0eT0k+9SEOERU2+0DB5Y2o3o3SIn8wGEZ3/vmsnoDRCOG05QVxYQoGLwYGLwt+a
+	tT2Z8tmY/Fdpafb0zZBWZRybTPnYQOvocsWnlEsN7HljlfbVWiXdfd5yOrC4OyYQ8TgFgRhfeO1zR
+	mNBPmP3qeGxe/C7o1IeMazFtcvKPWIOQI/2UbPw+51UeHhze0kdEAWueu1s55EP2ebjHNe4OePn4E
+	2T/zwJ+aEdmPc4a91DHZElp2j9pChGbLpz35Re5l69HxLWAdLyYHry8Y+GFAAmznMdMdM7KZNq5hP
+	wwuDDoyJXIFI0xwCo3ew==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ilTmf-0005aq-1E; Sun, 29 Dec 2019 08:18:45 +0000
-Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
+	id 1ilTmx-0005si-KO; Sun, 29 Dec 2019 08:19:03 +0000
+Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ilTaj-0000t9-IQ; Sun, 29 Dec 2019 08:06:26 +0000
-Received: by mail-pl1-x642.google.com with SMTP id bd4so13499545plb.8;
- Sun, 29 Dec 2019 00:06:24 -0800 (PST)
+ id 1ilTal-0000vb-BY; Sun, 29 Dec 2019 08:06:28 +0000
+Received: by mail-pj1-x1044.google.com with SMTP id bg7so6881996pjb.5;
+ Sun, 29 Dec 2019 00:06:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=ANOl3CnPFLyB6riFOKnyBL3T9PtdCr1lGKXikea0YcI=;
- b=dxj3V1IisuDpq2NL5Q6A8NOvQgKXCeunf/9Z/eimC99L8bNK9plw1/sS7HNjHNf+wF
- SfErrsxT1W9JLW5PBYinKjKs7zadepUCWoomPrpTxJFyuSfA3Lw3e72l8FeRCLk8R/ho
- efGwN01DWTe8/K/mFblhsZo8Wm8pU2kGZVBDlD6uyfUF8hrtIiBTrcK/uR2wlxNrT/dL
- fjDYf647oMz3uNYJHyHdbdA94GeFS7ENvCUnjDKSepsLBdGEijoPzNTGUnN03mAXBOq4
- vFN3vRczWJwlZ36qw1+X172TkQT0iP4TPYja+ni8K6yKezKzoqShxtN2bKRf8B/RSiHy
- BaZQ==
+ bh=ixbpgZkfNGAKCOr0lEPoSYVoWXPtjLRNZNzpPO1U1MA=;
+ b=b9hb0mvrVhTd0TFON/cY4jJeydT/P7lXvGuK137ZrT3sGB72vyWzVXVjaECXZs2pIw
+ WPY449C9wwvFqPrG3Qa1ezCsPXXPFs2RmsgxU9ZntgkrPMrbqLvDOGMtRJJxYxOyvsra
+ VV+UBrDbyqvaGIwi1XxasEEnq5hYltcEl3EojwVF8PP1GC+vIftFjqW/gALodDDdVKbp
+ 3aOvC8ETRdUlTQNbSQi9POQ+g4SE8mMEdOf4DbCWK4jWrEjpYPl93PF7r616xrMlvR/Q
+ VmI9M4VbsPF3TG2zRzy3OSA/paeHh1zowJrP4V0XERdgK6UkAKR8tLLhfLuOd52S53/x
+ XN2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=ANOl3CnPFLyB6riFOKnyBL3T9PtdCr1lGKXikea0YcI=;
- b=ZF9DOu2jqGxlfPU9TZCwQKj7TNqDBBqWndARPC7K373wmWRpnXxRHHbotyfWOO5OR6
- hQ5VOFMfPE2i2GoDr6iEiyEX9gWALaNxLqQverQmij9P/0/WTR3W9TGbXOj+pIjfut7S
- cGIMJaOE2jSRTxY8pRlBFkXQjeOsc9DVn4vdmj9Cgso+u2OH9sxCahiMqdkvGA6CIgPc
- nz2YhP4HToqldLEo4S3COi4mRFPNCFRWmeHLH7ke82Zm3eVQD11kSIgW5PtYckbdZqKn
- SaOhDezDXrWdm1b8B4ky/ZPBn04iCONjjyhiLFne/ksls73q3OAK0cs5MS6BJQ6N4Foj
- dRbw==
-X-Gm-Message-State: APjAAAUXLfEIcllWWW4eOMOcec6KpylltW4De0MErxRGpaqFQtjDJ9RV
- pp9o2grLVIVBMqPVvRCcvDg=
-X-Google-Smtp-Source: APXvYqzZqQph6OcOb8yEENrkWM/eD0nkMWTrwwYH2jNC+yCIcGe4z4tadg45LLsnTqBcHb5E6WeHXw==
-X-Received: by 2002:a17:90b:3011:: with SMTP id
- hg17mr37811661pjb.90.1577606783376; 
- Sun, 29 Dec 2019 00:06:23 -0800 (PST)
+ bh=ixbpgZkfNGAKCOr0lEPoSYVoWXPtjLRNZNzpPO1U1MA=;
+ b=XKrETZEW/e29wy2MtFZXgcj3QaFYeOP7J2DXAteuTEoHELEOSIsds9akbmok8VScPD
+ qS5sB01Yd8fNxBEjI0T+VAWTd9JDqadV9SMJVugRtVBdJEsAt7aqpyrxw9IvlemnVXyN
+ DZllAlFdgIONRZSpN7qYXZo6DAGwRrZaFB/fEIjR8bYVK0NfynmytPpRFBprI0BXNWGr
+ grpHXVC9NNOVE+3AiSEcdjbh610q1ndo9zCsOfFl5VebZKdNfnwBZNc21Sx0q+z/Znau
+ DCaDb9+lbEi+Pma8NgkJ1OW9AThTbpuoQQOr0Lkhu/BS11rCpmigU7w3j/5/BqZaTMDh
+ WoDg==
+X-Gm-Message-State: APjAAAWhcTjtieY/87aFSiq50WrMtAIwls4EWYzA7eg3Eo9nSIl/VjDY
+ ZC2ynUGm8X+4wwUl038ZnWM=
+X-Google-Smtp-Source: APXvYqyDkPiBHYfCdoCXLDgoh2qk/Ypift8UAhqFU0bdxV2l2xmLFYvYYcF0WaO5Y76DoV6YInaAnw==
+X-Received: by 2002:a17:902:d694:: with SMTP id
+ v20mr22004925ply.127.1577606785450; 
+ Sun, 29 Dec 2019 00:06:25 -0800 (PST)
 Received: from localhost ([2001:19f0:6001:12c8:5400:2ff:fe72:6403])
- by smtp.gmail.com with ESMTPSA id q21sm45775431pff.105.2019.12.29.00.06.22
+ by smtp.gmail.com with ESMTPSA id k1sm43874410pgk.90.2019.12.29.00.06.24
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Sun, 29 Dec 2019 00:06:22 -0800 (PST)
+ Sun, 29 Dec 2019 00:06:25 -0800 (PST)
 From: Yangtao Li <tiny.windzz@gmail.com>
 To: claudiu.beznea@microchip.com, thierry.reding@gmail.com,
  u.kleine-koenig@pengutronix.de, nicolas.ferre@microchip.com,
@@ -88,16 +88,15 @@ To: claudiu.beznea@microchip.com, thierry.reding@gmail.com,
  linux-amlogic@lists.infradead.org, linux-mediatek@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-tegra@vger.kernel.org
-Subject: [PATCH 07/32] pwm: mediatek: convert to devm_platform_ioremap_resource
-Date: Sun, 29 Dec 2019 08:05:45 +0000
-Message-Id: <20191229080610.7597-7-tiny.windzz@gmail.com>
+Subject: [PATCH 09/32] pwm: pxa: convert to devm_platform_ioremap_resource
+Date: Sun, 29 Dec 2019 08:05:47 +0000
+Message-Id: <20191229080610.7597-9-tiny.windzz@gmail.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20191229080610.7597-1-tiny.windzz@gmail.com>
 References: <20191229080610.7597-1-tiny.windzz@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191229_000625_629124_78CAC5D7 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191229_000627_450629_05FA4DA5 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -117,30 +116,30 @@ Use devm_platform_ioremap_resource() to simplify code.
 
 Signed-off-by: Yangtao Li <tiny.windzz@gmail.com>
 ---
- drivers/pwm/pwm-mediatek.c | 4 +---
+ drivers/pwm/pwm-pxa.c | 4 +---
  1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/pwm/pwm-mediatek.c b/drivers/pwm/pwm-mediatek.c
-index b94e0d09c300..e4a715d3860c 100644
---- a/drivers/pwm/pwm-mediatek.c
-+++ b/drivers/pwm/pwm-mediatek.c
-@@ -207,7 +207,6 @@ static const struct pwm_ops pwm_mediatek_ops = {
- static int pwm_mediatek_probe(struct platform_device *pdev)
+diff --git a/drivers/pwm/pwm-pxa.c b/drivers/pwm/pwm-pxa.c
+index a2a0912c2dcd..d06cf60e6575 100644
+--- a/drivers/pwm/pwm-pxa.c
++++ b/drivers/pwm/pwm-pxa.c
+@@ -166,7 +166,6 @@ static int pwm_probe(struct platform_device *pdev)
  {
- 	struct pwm_mediatek_chip *pc;
--	struct resource *res;
- 	unsigned int i;
- 	int ret;
+ 	const struct platform_device_id *id = platform_get_device_id(pdev);
+ 	struct pxa_pwm_chip *pwm;
+-	struct resource *r;
+ 	int ret = 0;
  
-@@ -217,8 +216,7 @@ static int pwm_mediatek_probe(struct platform_device *pdev)
+ 	if (IS_ENABLED(CONFIG_OF) && id == NULL)
+@@ -193,8 +192,7 @@ static int pwm_probe(struct platform_device *pdev)
+ 		pwm->chip.of_pwm_n_cells = 1;
+ 	}
  
- 	pc->soc = of_device_get_match_data(&pdev->dev);
- 
--	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	pc->regs = devm_ioremap_resource(&pdev->dev, res);
-+	pc->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(pc->regs))
- 		return PTR_ERR(pc->regs);
+-	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-	pwm->mmio_base = devm_ioremap_resource(&pdev->dev, r);
++	pwm->mmio_base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(pwm->mmio_base))
+ 		return PTR_ERR(pwm->mmio_base);
  
 -- 
 2.17.1
