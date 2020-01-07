@@ -2,22 +2,22 @@ Return-Path: <SRS0=vGTX=24=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-0.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D3A6EC33C99
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 Jan 2020 10:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 43E7DC33C99
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 Jan 2020 10:24:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A094B20678
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 Jan 2020 10:15:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1640B208C4
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 Jan 2020 10:24:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kGTzNe6w";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="MNzKzm7a"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A094B20678
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iPERgGuL";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="W97EYdAz"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1640B208C4
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,63 +26,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IV53HJu5vtMeP3yUD2f83Yq1n1kzL3QCCENu2AjBags=; b=kGTzNe6w+9LTlH
-	JHn2wio3AWHNkp0ENtgWMFYXq1OMaKr4cZc/FpChx6zbBo7RAoAFwUq0KqjqtZ7KHFwN4mNR7mgDW
-	m4k+fdd2TEKgk7IGA+k/4ZrJnIgwjyP4Fd9Cq51y6hFiu3Q2Qy4K4ULB+ibt0aap0BV0gbXKf969U
-	HNbuF4bbO2FjNN0TSxvYsp0uWJdPuVaNF38XoQnvMOujD3ynkMEf9ZrSWw/0Ct7F/B0t+LNTHwd1U
-	9s4o0RQSedZZL5Mrs2FJxOiQ8wRzksosXmRyIYjy/Yr0/1SRaHA7MMB+dL6GO3fXs99FYczSSJBSk
-	qN0eTMZVWZcnb5CfFQYQ==;
+	List-Owner; bh=x/FJ6ST8pkDrcHZpucYQ0+Lv1MfR+E42jWdOkBgx1mI=; b=iPERgGuLyqWkRM
+	31W/4FJ2aauxltOH5Om9w0A5kRBQZiiBgVgD+mskHAOH29z8osLLdcUqX+7cuVmISfECU5R1Q5z8K
+	ilk/kmRUO0q82Ue6g1Bjos2mvkNC5mYbRb/Df6kMK5oAE8sI0hbVjkDkb0HobMDk4B3WZxjoINW28
+	BUbJbncis5xcck+/Wv6Wqo6sNwKUvJ54njgKII56knP5r0gI42sHE1xYi0Q6ytMIMwrAU2SJqperJ
+	3q7gjpJPB0VLwUrylhICpcWRZ3ZY26X3f1FwTKLEV+JKomKp5blsA/6fa3S5Xo3GC/3meUGhx31lY
+	YICEKfKzeuKQWes3noSw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ioltM-0003bp-4y; Tue, 07 Jan 2020 10:15:16 +0000
-Received: from mail-qk1-x741.google.com ([2607:f8b0:4864:20::741])
+	id 1iom2E-0006xZ-Pa; Tue, 07 Jan 2020 10:24:26 +0000
+Received: from mail-qk1-x744.google.com ([2607:f8b0:4864:20::744])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iolsc-0001jY-S5
- for linux-riscv@lists.infradead.org; Tue, 07 Jan 2020 10:14:33 +0000
-Received: by mail-qk1-x741.google.com with SMTP id k6so42157377qki.5
- for <linux-riscv@lists.infradead.org>; Tue, 07 Jan 2020 02:14:29 -0800 (PST)
+ id 1iom2B-0006wg-UZ
+ for linux-riscv@lists.infradead.org; Tue, 07 Jan 2020 10:24:25 +0000
+Received: by mail-qk1-x744.google.com with SMTP id k6so42176310qki.5
+ for <linux-riscv@lists.infradead.org>; Tue, 07 Jan 2020 02:24:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
  :cc:content-transfer-encoding;
- bh=IV53HJu5vtMeP3yUD2f83Yq1n1kzL3QCCENu2AjBags=;
- b=MNzKzm7acvtyxpLBCqWCWJe5aUv2p3Md8x8dKQDyCnXWClxe5YvI2z6MDKioklgX34
- qV/Nq7+VO2jGc/HA6tEstb2jCeNxMIG+r69EM8AUf7peNgKgjSPbrI65m6tx2dueHI/v
- mr7/3LEKDN4FDukgRGeHosn2s5wK2rZUvwm4h+xlUVvstKw8OrVXmCkMBblPCy9K8SjH
- fncFX2wSjr6zcc56+cQW6kBEki7k/sy9SQrpU6N2fTV2by2G2R/tmjSIq6mC/JNVFqi7
- sxHpmHNJvOrtYcZoVFvXRFQyoIBGbSs2IamMxGRrYLJB+f+NnMOZR/VJcyV+JhzWuR4p
- bGlA==
+ bh=x/FJ6ST8pkDrcHZpucYQ0+Lv1MfR+E42jWdOkBgx1mI=;
+ b=W97EYdAzT4wGqtQz+nEZlGtjbw82WKRpKzkSTWeomNngXkJlZ0LrcHRfyaGeiAZIHW
+ rvQqZTlXYdzvxPdu9Q5+NrnulPy3kmaBbC2uFh/j3Cuxd4oRLMi7YY9C//4Xu749Q/ct
+ x/Xe/qmgLkLWCE7G1Ub2gZwh4dA+h322tFNABvjbiALnpDJDu57PlQOQpLAOAyoWMLwC
+ zsBxwvVmOUyr8JG8J6EbtEPZohnwSzLANzd9BzI57ROgoUv1E4mb+A3z01ciSUyYAYcM
+ jSlBqOX4KE0Z9aHSGTMSW0EqfgAWxH5rdd8+7HUdJ9nSQ7naiX8Bw7GkPQjqHdu6f5co
+ rriQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc:content-transfer-encoding;
- bh=IV53HJu5vtMeP3yUD2f83Yq1n1kzL3QCCENu2AjBags=;
- b=FJxznNIDByHU8zJmmloKFADRhd0Ph3oQWFzDiUPNjxtYkI4jQfP7vfaHOkUgRSrzdU
- Ujx2RjuuDJ9gJdr8pkx2vsRHRNo4js5AQCltrsEOBGcaAIKKUI0ue5dU5PO7dCM4BpGY
- 0VNryu2frqohSP/w+dywLbEmj76+9bTkDeft+21tP+CsoA7c5rRjVfr1il8pwgvwgVU3
- fsRCC3lBx0PnVfGt7jHT2+bIZ3ap5Zm1B5+Bx+I6DI3REz5uWUob3XwWkBSFv8P4MxMc
- 37bl7N/tOWbMJDVTad4DVN5LwCjUay5XdPZTcSD0m79hPowBcG7O9en5kBcA3ydZn3/G
- MH9w==
-X-Gm-Message-State: APjAAAXn746jmZ3jkuqxDChuvqouhoMFigHEN6LVxeKUWOihphhW/aJ7
- CyvBH0S7B3mIl+0guKf8WupYj+6tLzoefhLqcjM=
-X-Google-Smtp-Source: APXvYqydUbr/MzbLw/deZNn57Qfvm2tVjYE/xluruvEHVuN91HSZF6qqKtG64WQTcNJh/oWD8TsvFbVxW/GPLF3icIg=
-X-Received: by 2002:a05:620a:a5c:: with SMTP id
- j28mr76917679qka.218.1578392068699; 
- Tue, 07 Jan 2020 02:14:28 -0800 (PST)
+ bh=x/FJ6ST8pkDrcHZpucYQ0+Lv1MfR+E42jWdOkBgx1mI=;
+ b=kMtZz0AQ5Haa0C668t6ptB6zKFNkHtcVY4drZ2ZntRb0p+lC95BDfiYlUZFbG47eTC
+ MtIOHrnMLwelv/KLIIpy//xLo6IFboy3HQbIVltJzwoy0YVpHn+cEGFjCEkza8w+uraX
+ Uw3q984DF7PDeqrGn89JG3jtuKxjAnFo9UTGFatK2JdgW+dwLdAdoAM6hsNP3Zl+sbyD
+ 5HdJqEOgMYzA+pOOo+9FK4G5YXPZk5Sh/v9wJZM8emyZTxxdT2Tu3tdW5oRUn7NyYXct
+ 5PxaA9tszjBmcs7Ka5APHHw38Q/WzNt/gz2h5egvu638s9JsobWl5tB86iAt3MuUJ2OU
+ pYJg==
+X-Gm-Message-State: APjAAAVRo//hWhv8aawlQ4oJAV5A0mxcjyYHoM/eZ19fBMp+c0D65Qv+
+ STHPTJJewiqImpK0hK7ril+PAusCc8QHEl70Ryw=
+X-Google-Smtp-Source: APXvYqzDx+S0/3olC7XANuGvHUw4RJp7j1GA9/yRyv+B3EeVXv6gW65lJFGfrkkk5uU/pbXjmLKIBfxaiWk1FtUzW/E=
+X-Received: by 2002:a05:620a:14a4:: with SMTP id
+ x4mr86439378qkj.493.1578392662584; 
+ Tue, 07 Jan 2020 02:24:22 -0800 (PST)
 MIME-Version: 1.0
 References: <20191216091343.23260-1-bjorn.topel@gmail.com>
- <20191216091343.23260-8-bjorn.topel@gmail.com>
- <mhng-041b1051-f9ac-4cd8-95bf-731bb1bfbdb8@palmerdabbelt-glaptop>
-In-Reply-To: <mhng-041b1051-f9ac-4cd8-95bf-731bb1bfbdb8@palmerdabbelt-glaptop>
+ <20191216091343.23260-7-bjorn.topel@gmail.com>
+ <7ceab77a-92e7-6415-3045-3e16876d4ef8@iogearbox.net>
+ <CAJ+HfNgmcjLniyG0oj7OE60=NASfskVzP_bgX_JXp+SLczmyOQ@mail.gmail.com>
+ <alpine.DEB.2.21.9999.2001031730370.283180@viisi.sifive.com>
+In-Reply-To: <alpine.DEB.2.21.9999.2001031730370.283180@viisi.sifive.com>
 From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
-Date: Tue, 7 Jan 2020 11:14:17 +0100
-Message-ID: <CAJ+HfNhvTdsBq_tmKNcxVdS=nro=jwL5yLxnyDXO02Vai+5YNg@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 7/9] riscv, bpf: optimize calls
-To: Palmer Dabbelt <palmerdabbelt@google.com>
+Date: Tue, 7 Jan 2020 11:24:11 +0100
+Message-ID: <CAJ+HfNgrekRMM_XS1eK_Cn77BNEgs2gxEsTEvxDpKH9M4R7TJQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2 6/9] riscv, bpf: provide RISC-V specific JIT
+ image alloc/free
+To: Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200107_021430_905506_80143024 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20200107_022424_013959_6B8003D8 
+X-CRM114-Status: UNSURE (   6.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,128 +98,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Netdev <netdev@vger.kernel.org>, linux-riscv@lists.infradead.org,
- bpf <bpf@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Daniel Borkmann <daniel@iogearbox.net>,
+ Netdev <netdev@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ bpf <bpf@vger.kernel.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Dec 2019 at 19:58, Palmer Dabbelt <palmerdabbelt@google.com> wro=
-te:
->
-> On Mon, 16 Dec 2019 01:13:41 PST (-0800), Bjorn Topel wrote:
-> > Instead of using emit_imm() and emit_jalr() which can expand to six
-> > instructions, start using jal or auipc+jalr.
-> >
-> > Signed-off-by: Bj=C3=B6rn T=C3=B6pel <bjorn.topel@gmail.com>
-> > ---
-> >  arch/riscv/net/bpf_jit_comp.c | 101 +++++++++++++++++++++-------------
-> >  1 file changed, 64 insertions(+), 37 deletions(-)
-> >
-> > diff --git a/arch/riscv/net/bpf_jit_comp.c b/arch/riscv/net/bpf_jit_com=
-p.c
-> > index 46cff093f526..8d7e3343a08c 100644
-> > --- a/arch/riscv/net/bpf_jit_comp.c
-> > +++ b/arch/riscv/net/bpf_jit_comp.c
-> > @@ -811,11 +811,12 @@ static void emit_sext_32_rd(u8 *rd, struct rv_jit=
-_context *ctx)
-> >       *rd =3D RV_REG_T2;
-> >  }
-> >
-> > -static void emit_jump_and_link(u8 rd, int rvoff, struct rv_jit_context=
- *ctx)
-> > +static void emit_jump_and_link(u8 rd, s64 rvoff, bool force_jalr,
-> > +                            struct rv_jit_context *ctx)
-> >  {
-> >       s64 upper, lower;
-> >
-> > -     if (is_21b_int(rvoff)) {
-> > +     if (rvoff && is_21b_int(rvoff) && !force_jalr) {
-> >               emit(rv_jal(rd, rvoff >> 1), ctx);
-> >               return;
-> >       }
-> > @@ -832,6 +833,28 @@ static bool is_signed_bpf_cond(u8 cond)
-> >               cond =3D=3D BPF_JSGE || cond =3D=3D BPF_JSLE;
-> >  }
-> >
-> > +static int emit_call(bool fixed, u64 addr, struct rv_jit_context *ctx)
-> > +{
-> > +     s64 off =3D 0;
-> > +     u64 ip;
-> > +     u8 rd;
-> > +
-> > +     if (addr && ctx->insns) {
-> > +             ip =3D (u64)(long)(ctx->insns + ctx->ninsns);
-> > +             off =3D addr - ip;
-> > +             if (!is_32b_int(off)) {
-> > +                     pr_err("bpf-jit: target call addr %pK is out of r=
-ange\n",
-> > +                            (void *)addr);
-> > +                     return -ERANGE;
-> > +             }
-> > +     }
-> > +
-> > +     emit_jump_and_link(RV_REG_RA, off, !fixed, ctx);
-> > +     rd =3D bpf_to_rv_reg(BPF_REG_0, ctx);
-> > +     emit(rv_addi(rd, RV_REG_A0, 0), ctx);
->
-> Why are they out of order?  It seems like it'd be better to just have the=
- BPF
-> calling convention match the RISC-V calling convention, as that'd avoid
-> juggling the registers around.
->
+Paul,
 
-BPF passes arguments in R1, R2, ..., and return value in R0. Given
-that a0 plays the role of R1 and R0, how can we avoid the register
-juggling (without complicating the JIT too much)? It would be nice
-though... and ARM64 has the same concern AFAIK.
+Back from the holidays. Sorry about the delay!
 
+On Sat, 4 Jan 2020 at 02:32, Paul Walmsley <paul.walmsley@sifive.com> wrote=
+:
+>
 [...]
-> > @@ -1599,36 +1611,51 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf=
-_prog *prog)
-> >       for (i =3D 0; i < 16; i++) {
-> >               pass++;
-> >               ctx->ninsns =3D 0;
-> > -             if (build_body(ctx, extra_pass)) {
-> > +             if (build_body(ctx, extra_pass, ctx->offset)) {
-> >                       prog =3D orig_prog;
-> >                       goto out_offset;
-> >               }
-> >               build_prologue(ctx);
-> >               ctx->epilogue_offset =3D ctx->ninsns;
-> >               build_epilogue(ctx);
-> > -             if (ctx->ninsns =3D=3D prev_ninsns)
-> > -                     break;
-> > +
-> > +             if (ctx->ninsns =3D=3D prev_ninsns) {
-> > +                     if (jit_data->header)
-> > +                             break;
-> > +
-> > +                     image_size =3D sizeof(u32) * ctx->ninsns;
-> > +                     jit_data->header =3D
-> > +                             bpf_jit_binary_alloc(image_size,
-> > +                                                  &jit_data->image,
-> > +                                                  sizeof(u32),
-> > +                                                  bpf_fill_ill_insns);
-> > +                     if (!jit_data->header) {
-> > +                             prog =3D orig_prog;
-> > +                             goto out_offset;
-> > +                     }
-> > +
-> > +                     ctx->insns =3D (u32 *)jit_data->image;
-> > +                     /* Now, when the image is allocated, the image
-> > +                      * can potentially shrink more (auipc/jalr ->
-> > +                      * jal).
-> > +                      */
-> > +             }
 >
-> It seems like these fragments should go along with patch #2 that introduc=
-es the
-> code, as I don't see anything above that makes this necessary here.
+> Looks like Palmer's already reviewed it.  One additional request: could
+> you update the VM layout debugging messages in arch/riscv/mm/init.c to
+> include this new area?
 >
 
-No, you're right.
+Sure, I'll send that as a follow-up! Related; Other archs, e.g. arm64,
+has moved away from dumping the VM layout (commit 071929dbdd86
+("arm64: Stop printing the virtual memory layout")), and instead rely
+on _PTDUMP. Going forward that probably applies to riscv as well!
 
 
+Cheers,
 Bj=C3=B6rn
 
