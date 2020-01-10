@@ -2,95 +2,87 @@ Return-Path: <SRS0=xAtJ=27=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 52380C33CA2
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5BCCC3F68F
 	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2020 10:46:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2382D2087F
+	by mail.kernel.org (Postfix) with ESMTPS id 86C392082E
 	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2020 10:46:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kJJ3V2eS";
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="JcJvFnOk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2382D2087F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SOqM2Svb";
+	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="PK5GOb+g"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 86C392082E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=LhPJp+PAwva7bPHMH862TV/8J9fNaEOj4YyHAq59Kg8=; b=kJJ3V2eSJ2WPRGMDOiRRix35u
-	HmGowIre/zKCNseqQkYGBxfJy7v/RkT86byIx6Y1J2SRAg+gnRkHeZepQKRe1KYTpH6SPRMZsmDxE
-	Z36Lw6O6FxYwc3Rjryuiruf7dIA6hYuBEnx1MhVLg72x1h0HB2FlWEyzdyVloxWYD6IglfJ9KL7Zf
-	zJ5rqTmEoqNs9Nuaybxd7aseiW30JJfK5Oy9PDlQdDPqa5r+q4MGzstf3z7bJGakIaRPzyekTGfZq
-	DxZKKy6gviCkC6PmOjKzS6Op24g9KHlas+sYnSwx0cc0zqb7tQ/MH4reqi1ZX3MxRUKg1vthvXoMq
-	zVxqouRPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:
+	From:Reply-To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+1JMH3O1qhWg8U2E+XjrJRR+Lg3GG1qOiYki3Lbx/N0=; b=SOqM2Svbh2fr3dBIcNmBC8D3fm
+	aRJBn2haJLhIZ2JnuU6S6MFlLxhYQs/lfw51CnHl0V4u9ZR2GMlTqgZtui/10wlX6w0gXfvEsXQor
+	vwoT7XAkePueLK0CYvYZvp5hHzJ54P+E5CZguZJzZGA09U8XzarZyoDm49xYU2VsekiZ++FUlf+Cv
+	v//SvsNlOMXs9oGn1QrDMqG1JyP1t1gxLC7Pk4/KBhf5AUVviFQSha8mFAtyh69E3v0aXRMtkt4FW
+	R1XHGUnIjTN7do5CMLXZ25HDf2tTi3PzPT3eYCI+8AAhn0u9/wZJCcw5DQHTYAo20BUxCn3MxYR5f
+	CP/Rktmg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iproQ-0007MA-5r; Fri, 10 Jan 2020 10:46:42 +0000
-Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
+	id 1iproP-0007LR-K4; Fri, 10 Jan 2020 10:46:41 +0000
+Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iproM-0007K6-Jr
+ id 1iproM-0007Jl-CY
  for linux-riscv@lists.infradead.org; Fri, 10 Jan 2020 10:46:40 +0000
-Received: by mail-pl1-x642.google.com with SMTP id az3so699296plb.11
- for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2020 02:46:38 -0800 (PST)
+Received: by mail-pg1-x542.google.com with SMTP id x7so813608pgl.11
+ for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2020 02:46:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:subject:date:message-id:in-reply-to:references:in-reply-to
- :references; bh=LhPJp+PAwva7bPHMH862TV/8J9fNaEOj4YyHAq59Kg8=;
- b=JcJvFnOkAVeVV9XrhUVdhbhf5yYoi7T7LuWmU1eyQuEIS8cjao55ztp8J2hmKsZERu
- 7ySGrS8OoHgH0Aw5tYKzVadcXyLU2DVpBAMKYuF0TTn1BFOSbg8vdTs9/3iqdDc65XQs
- c6IjGBNIzk8C7jGJoIKOKNqfpuNH2po2onG67zoY2sT7UhFn3elCxWo0HZBvadCoTFju
- c8Sc12UpEskHnz74klkv9hrvvPkl2rDeatvyWYcMC5p1ySBjVa3DKhA/1ieYK0RZZ3O2
- jP2RjSE9Ib8CJCB9rgZxE8OfMsetjRgBjGzorTj6U7vi4i8D2ucgJd/K7Ec9B0L5fA86
- 8T+Q==
+ h=from:to:subject:date:message-id;
+ bh=+1JMH3O1qhWg8U2E+XjrJRR+Lg3GG1qOiYki3Lbx/N0=;
+ b=PK5GOb+g1UwA8M3PiwFU2ug4hFEgL1/6tvc1NdbZfz8h4xV6lOxAojI9imoJXfaHud
+ Hr0AeHsuKESAg78NwDRNUsNYX1dOG7LRoQoj+uANdWxPPT08to8mkR4Ivu6BNeZJYw/f
+ Q4DGIGllx/551GGHCG67UG6KL3hl6oOYiymIGBwBohjypre3Qc/htOXhsa+fzQv2dsY3
+ apkTBUKvNuJvh0kaZPZaEDGU6lCXf4sRLNDzLfcis4oXVYJDcq19uyh/3fc+3kqnv43D
+ vwWt9VeeuWOyDLyN5jwb8DTINyCVpIl7/7ky4KVWbAugnFbjKH6hEZKdcQgU8467T1p3
+ WA3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
- :references:in-reply-to:references;
- bh=LhPJp+PAwva7bPHMH862TV/8J9fNaEOj4YyHAq59Kg8=;
- b=jdhVi/TnSYD33HPEA+pGuhw1eaRWXIybdInrstJ3/B7yRK9Oxmkd5hDCYNdZtT4aBX
- ChNT1VbhqcpIbEXS/arsblNqtjiVhS3tuxvhktk82q9KiroDKtxKqeTv9T3OjN8NUjYI
- nYtjEcPXOmNbPlTXkkWmNp1xhDizlVJ2dHnio+1btC1tNGKahjovAVkqPVkNLdcZzUDX
- m7qmeHD9amQF9vEHrkASH6sYERa27nTopOE5VboZyAIXHxb8fEDRsV8qmD241m8ouNmI
- YAISX9jc6yNn3ZSZEqkx7NwlFk4dQJfa74aF7fUhIv5uWwjPhSy4AsTIa1pgIReXeD7p
- Pnbg==
-X-Gm-Message-State: APjAAAWJK+bULeMfGx5b5i0CocDLDRRh1mi8GwCMMvVtJHf+JGLgl5Xw
- 9A3yDvnuJ9UgOOV+Vngut5McRA==
-X-Google-Smtp-Source: APXvYqxvFezduVV4IwfVnEBIdXpJcuKRSwEUMeh6oea69WBD3hgikon+ZODyeGzzks3V+W+ht/b4MQ==
-X-Received: by 2002:a17:90a:ac0f:: with SMTP id
- o15mr3859733pjq.133.1578653198083; 
- Fri, 10 Jan 2020 02:46:38 -0800 (PST)
+ h=x-gm-message-state:from:to:subject:date:message-id;
+ bh=+1JMH3O1qhWg8U2E+XjrJRR+Lg3GG1qOiYki3Lbx/N0=;
+ b=FrPbG47Ovsd56N0wJrk6bs7hH5V7ojy4tAjsVTNn6a7uN8nSjO1uLnlGmbvFddudA+
+ qOP9OzgXE7jLazX0T8nqZ1Va0shbzwvncuC0SSKvAVMYYL3lPWd7m9zOz+oyoskQxS0p
+ d0DCIL3RD41nmbUghxIqmvt1CWIxdDaWpQNgu00RpFPlgPSqeB6NPuI9JAsXfK/P5zbG
+ d0UJ8lwyvmc6bnqz63aJ6tnE1LLyCtHztOD14cyPMpzNgAj+bmULxJQUD8KYJ4BtYEDb
+ KYwWz13JOmHlIRr4pceW3qHxNde1zy6VtiWt9b+TKcFlMtM2q8hobyPlQhuFWLCgpueZ
+ OYfQ==
+X-Gm-Message-State: APjAAAX6aNJga++r02ZzE0ci07Mj7a2jhNed9gg+WSnbxCxFMuL5sjLc
+ aGKiGeY2rag0RR/bEaUpOg2vfg==
+X-Google-Smtp-Source: APXvYqzopepT7mtIC0eNuWFQ0ZudFWgCJ/+AAjUfIW3P4MLVwsJdOvlttFMiAHZWi4JGlJL2KthQzQ==
+X-Received: by 2002:a63:f202:: with SMTP id v2mr3530796pgh.420.1578653195226; 
+ Fri, 10 Jan 2020 02:46:35 -0800 (PST)
 Received: from greentime-VirtualBox.internal.sifive.com
  (220-132-236-182.HINET-IP.hinet.net. [220.132.236.182])
- by smtp.gmail.com with ESMTPSA id e10sm2590901pfj.7.2020.01.10.02.46.35
+ by smtp.gmail.com with ESMTPSA id e10sm2590901pfj.7.2020.01.10.02.46.32
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 10 Jan 2020 02:46:37 -0800 (PST)
+ Fri, 10 Jan 2020 02:46:34 -0800 (PST)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: greentime.hu@sifive.com, greentime@kernel.org, anup@brainfault.org,
  palmer@dabbelt.com, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, rppt@linux.ibm.com, gkulkarni@marvell.com,
  will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
  paul.walmsley@sifive.com, hch@lst.de
-Subject: [RFC PATCH v2 1/4] riscv: Add support pte_protnone and pmd_protnone
- if CONFIG_NUMA_BALANCING
-Date: Fri, 10 Jan 2020 18:46:24 +0800
-Message-Id: <1ff7e57f16cb43c8816b90716a872b8f0f101c42.1577694824.git.greentime.hu@sifive.com>
+Subject: [RFC PATCH v2 0/4] riscv: Add numa support for riscv64 platform
+Date: Fri, 10 Jan 2020 18:46:23 +0800
+Message-Id: <cover.1577694824.git.greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.17.1
-In-Reply-To: <cover.1577694824.git.greentime.hu@sifive.com>
-References: <cover.1577694824.git.greentime.hu@sifive.com>
-In-Reply-To: <cover.1577694824.git.greentime.hu@sifive.com>
-References: <cover.1577694824.git.greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200110_024638_649464_C6A6EE3E 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200110_024638_640003_36459B9E 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -105,52 +97,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-These two functions are used to distinguish between PROT_NONENUMA
-protections and hinting fault protections.
+riscv: Add numa support for riscv64 platform
 
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
----
- arch/riscv/include/asm/pgtable.h | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+This implementation is based on arm64 porting. It is tested with
+qemu-system-riscv64, SiFive Unleashed board and OmniXtend FPGA platform.
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 36ae01761352..9650a4ce073e 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -166,6 +166,11 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
- 	return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
- }
- 
-+static inline pte_t pmd_pte(pmd_t pmd)
-+{
-+	return __pte(pmd_val(pmd));
-+}
-+
- /* Yields the page frame number (PFN) of a page table entry */
- static inline unsigned long pte_pfn(pte_t pte)
- {
-@@ -279,6 +284,21 @@ static inline pte_t pte_mkhuge(pte_t pte)
- 	return pte;
- }
- 
-+#ifdef CONFIG_NUMA_BALANCING
-+/*
-+ * See the comment in include/asm-generic/pgtable.h
-+ */
-+static inline int pte_protnone(pte_t pte)
-+{
-+	return (pte_val(pte) & (_PAGE_PRESENT | _PAGE_PROT_NONE)) == _PAGE_PROT_NONE;
-+}
-+
-+static inline int pmd_protnone(pmd_t pmd)
-+{
-+	return pte_protnone(pmd_pte(pmd));
-+}
-+#endif
-+
- /* Modify page protection bits */
- static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
- {
+There will be two nodes in /sys/devices/system/node if it is described in
+dts and CONFIG_NUMA is enabled. We can use numastat/numactl/numademo to see
+its status.
+
+Changes in v2:
+- split this patch to more patches to be more readable
+- set cpu->hotplugable to 0 since it is not supported yet
+- add more explanation for moving unflatten_device_tree() to paging_init()
+
+Greentime Hu (4):
+  riscv: Add support pte_protnone and pmd_protnone if
+    CONFIG_NUMA_BALANCING
+  riscv: Move unflatten_device_tree() to paging_init() because
+    riscv_numa_init() needs the dt information.
+  riscv: Use variable this_cpu instead of smp_processor_id()
+  riscv: Add numa support for riscv64 platform
+
+ arch/riscv/Kconfig               |  30 ++-
+ arch/riscv/include/asm/mmzone.h  |  13 ++
+ arch/riscv/include/asm/numa.h    |  46 ++++
+ arch/riscv/include/asm/pci.h     |  10 +
+ arch/riscv/include/asm/pgtable.h |  20 ++
+ arch/riscv/kernel/setup.c        |  26 ++-
+ arch/riscv/kernel/smpboot.c      |  20 +-
+ arch/riscv/mm/Makefile           |   1 +
+ arch/riscv/mm/init.c             |   3 +
+ arch/riscv/mm/numa.c             | 372 +++++++++++++++++++++++++++++++
+ 10 files changed, 536 insertions(+), 5 deletions(-)
+ create mode 100644 arch/riscv/include/asm/mmzone.h
+ create mode 100644 arch/riscv/include/asm/numa.h
+ create mode 100644 arch/riscv/mm/numa.c
+
 -- 
 2.17.1
 
