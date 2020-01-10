@@ -2,87 +2,95 @@ Return-Path: <SRS0=xAtJ=27=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B5BCCC3F68F
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2020 10:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AAD53C33CA2
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2020 10:46:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 86C392082E
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2020 10:46:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7D52220838
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2020 10:46:45 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SOqM2Svb";
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="PK5GOb+g"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 86C392082E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="F3sqAz3C";
+	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="MLzAPeFP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7D52220838
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+1JMH3O1qhWg8U2E+XjrJRR+Lg3GG1qOiYki3Lbx/N0=; b=SOqM2Svbh2fr3dBIcNmBC8D3fm
-	aRJBn2haJLhIZ2JnuU6S6MFlLxhYQs/lfw51CnHl0V4u9ZR2GMlTqgZtui/10wlX6w0gXfvEsXQor
-	vwoT7XAkePueLK0CYvYZvp5hHzJ54P+E5CZguZJzZGA09U8XzarZyoDm49xYU2VsekiZ++FUlf+Cv
-	v//SvsNlOMXs9oGn1QrDMqG1JyP1t1gxLC7Pk4/KBhf5AUVviFQSha8mFAtyh69E3v0aXRMtkt4FW
-	R1XHGUnIjTN7do5CMLXZ25HDf2tTi3PzPT3eYCI+8AAhn0u9/wZJCcw5DQHTYAo20BUxCn3MxYR5f
-	CP/Rktmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=grRObLxQC1dul6+pRDryDJ7iJ01KOBHN6lMhZ8cccKs=; b=F3sqAz3CVAt4+8AJDM38CkaZp
+	ZM4eT63X/T3fwmxCvJWYumVQwUpVxKWDLwl4zDeDDJq0k9oGw8xgHDhOfRnO6x/Gcvlr3/Fyz3W6W
+	uD5kXvqCcLNJh3fGYWyVOHOWfJRVPWRRvtSWI5Hr0Mvo5tQdmtVx8xe6YBvvCRcwLx37vlocFflKc
+	LWNOhi0fZA4tGx8q5r9UEb2pXKaTXSAdk8DS/xUn7dDdu+JBM4cZ0GieVKA3fbvhuic8pAjryGZba
+	8c9WYERwJ/LK/et20738whBtI8rBEdXiXdzqR6r5jeMU/6VrkGLuyBmEb86P8883bzWai/ZjkVmQR
+	1sJzYQjSg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iproP-0007LR-K4; Fri, 10 Jan 2020 10:46:41 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1iproS-0007Po-Gm; Fri, 10 Jan 2020 10:46:44 +0000
+Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iproM-0007Jl-CY
- for linux-riscv@lists.infradead.org; Fri, 10 Jan 2020 10:46:40 +0000
-Received: by mail-pg1-x542.google.com with SMTP id x7so813608pgl.11
- for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2020 02:46:35 -0800 (PST)
+ id 1iproP-0007Ku-4d
+ for linux-riscv@lists.infradead.org; Fri, 10 Jan 2020 10:46:42 +0000
+Received: by mail-pj1-x1044.google.com with SMTP id m1so826948pjv.4
+ for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2020 02:46:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:subject:date:message-id;
- bh=+1JMH3O1qhWg8U2E+XjrJRR+Lg3GG1qOiYki3Lbx/N0=;
- b=PK5GOb+g1UwA8M3PiwFU2ug4hFEgL1/6tvc1NdbZfz8h4xV6lOxAojI9imoJXfaHud
- Hr0AeHsuKESAg78NwDRNUsNYX1dOG7LRoQoj+uANdWxPPT08to8mkR4Ivu6BNeZJYw/f
- Q4DGIGllx/551GGHCG67UG6KL3hl6oOYiymIGBwBohjypre3Qc/htOXhsa+fzQv2dsY3
- apkTBUKvNuJvh0kaZPZaEDGU6lCXf4sRLNDzLfcis4oXVYJDcq19uyh/3fc+3kqnv43D
- vwWt9VeeuWOyDLyN5jwb8DTINyCVpIl7/7ky4KVWbAugnFbjKH6hEZKdcQgU8467T1p3
- WA3g==
+ h=from:to:subject:date:message-id:in-reply-to:references:in-reply-to
+ :references; bh=grRObLxQC1dul6+pRDryDJ7iJ01KOBHN6lMhZ8cccKs=;
+ b=MLzAPeFP7beVrC6x+pwPY1qQC2rVVqzuSTfjc8+bRTihlVcEg7ZwA3MfAslldQG9Cv
+ ZyvVEsJl0cgjboyrzSLRjEvV25cTv82M+8Peu2lfgGfk88pKjVnLLx7b3fMJ+RUflfG5
+ /YlKW84oVlryTB3jUcIXJaLF56I3ImJ8pkkIQZRjwpljmVY57b6+IHKaT1POBjTkCzjj
+ hGBSSqt8We/IlAzqHbJtNpHnCatzdJayrLuLaLHyPz2ELD5jotdxWY3FvMXsN9rbre9h
+ i5sj0ECT3wckyK6vKKOiGc8pdUYszh+TOmRBzg2AUEsojNI9t7flYq81e8yUFChvuoMN
+ hSDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:subject:date:message-id;
- bh=+1JMH3O1qhWg8U2E+XjrJRR+Lg3GG1qOiYki3Lbx/N0=;
- b=FrPbG47Ovsd56N0wJrk6bs7hH5V7ojy4tAjsVTNn6a7uN8nSjO1uLnlGmbvFddudA+
- qOP9OzgXE7jLazX0T8nqZ1Va0shbzwvncuC0SSKvAVMYYL3lPWd7m9zOz+oyoskQxS0p
- d0DCIL3RD41nmbUghxIqmvt1CWIxdDaWpQNgu00RpFPlgPSqeB6NPuI9JAsXfK/P5zbG
- d0UJ8lwyvmc6bnqz63aJ6tnE1LLyCtHztOD14cyPMpzNgAj+bmULxJQUD8KYJ4BtYEDb
- KYwWz13JOmHlIRr4pceW3qHxNde1zy6VtiWt9b+TKcFlMtM2q8hobyPlQhuFWLCgpueZ
- OYfQ==
-X-Gm-Message-State: APjAAAX6aNJga++r02ZzE0ci07Mj7a2jhNed9gg+WSnbxCxFMuL5sjLc
- aGKiGeY2rag0RR/bEaUpOg2vfg==
-X-Google-Smtp-Source: APXvYqzopepT7mtIC0eNuWFQ0ZudFWgCJ/+AAjUfIW3P4MLVwsJdOvlttFMiAHZWi4JGlJL2KthQzQ==
-X-Received: by 2002:a63:f202:: with SMTP id v2mr3530796pgh.420.1578653195226; 
- Fri, 10 Jan 2020 02:46:35 -0800 (PST)
+ h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ :references:in-reply-to:references;
+ bh=grRObLxQC1dul6+pRDryDJ7iJ01KOBHN6lMhZ8cccKs=;
+ b=YkPzyREAheRht+Wa5mjurkpASzeB90202Li2LTjXIhEtJn5v3Akk4cOjzCOp8O2XOr
+ VI8gkFeBAZYuzsUWb+XCeZ2QP2Yo+rznEDWlT8kSMj77hoxX5/OYsuVd0OvtGU8F9oRD
+ mljVm6KbGusnIbJmi8kaLw8r47mdbyRZ3sgTXse3ku9AcZTEKgUiTIq/8XOizXZ3kIdY
+ imyD22p4uVRViTRcShk+w3tYiqOGHRRs8nAJmesu+Sq+xxw79yllJAXtiYSXunfpXUpi
+ kp98XShlJjzPIvU9PtkFwnEZj/fdsKFPn3WxOc7PnTiNYEM2lGKa032CpwGxGdrEoPIP
+ PNfQ==
+X-Gm-Message-State: APjAAAVUwEcj3Df7NPTyCB9mPJJP0mhkK4N90kaC31HkDVdjJdDQ6p+o
+ 3XBQ05NiGgbHn7PbfRdSWI32aQ==
+X-Google-Smtp-Source: APXvYqw7cMaRzsdl58xecnTXyAQj6Du4Yfz9N/+tRgW6t5lhCN16jA9FuUWa+krZ2rl01UgmPMmWqw==
+X-Received: by 2002:a17:90a:cc02:: with SMTP id
+ b2mr3771167pju.137.1578653200591; 
+ Fri, 10 Jan 2020 02:46:40 -0800 (PST)
 Received: from greentime-VirtualBox.internal.sifive.com
  (220-132-236-182.HINET-IP.hinet.net. [220.132.236.182])
- by smtp.gmail.com with ESMTPSA id e10sm2590901pfj.7.2020.01.10.02.46.32
+ by smtp.gmail.com with ESMTPSA id e10sm2590901pfj.7.2020.01.10.02.46.38
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 10 Jan 2020 02:46:34 -0800 (PST)
+ Fri, 10 Jan 2020 02:46:40 -0800 (PST)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: greentime.hu@sifive.com, greentime@kernel.org, anup@brainfault.org,
  palmer@dabbelt.com, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, rppt@linux.ibm.com, gkulkarni@marvell.com,
  will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
  paul.walmsley@sifive.com, hch@lst.de
-Subject: [RFC PATCH v2 0/4] riscv: Add numa support for riscv64 platform
-Date: Fri, 10 Jan 2020 18:46:23 +0800
-Message-Id: <cover.1577694824.git.greentime.hu@sifive.com>
+Subject: [RFC PATCH v2 2/4] riscv: Move unflatten_device_tree() to
+ paging_init() because riscv_numa_init() needs the dt information.
+Date: Fri, 10 Jan 2020 18:46:25 +0800
+Message-Id: <57f7439888a99002285da8114d4a99baa676e865.1577694824.git.greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <cover.1577694824.git.greentime.hu@sifive.com>
+References: <cover.1577694824.git.greentime.hu@sifive.com>
+In-Reply-To: <cover.1577694824.git.greentime.hu@sifive.com>
+References: <cover.1577694824.git.greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200110_024638_640003_36459B9E 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20200110_024641_178669_1CEB8459 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,43 +105,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv: Add numa support for riscv64 platform
+It is moved to paging_init() is because that of_numa_init() will use
+of_numa_parse_cpu_nodes() and of_numa_parse_memory_nodes(). We have to
+unflatten_device_tree() first then we can call riscv_numa_init(), but
+riscv_numa_init() shall be called before memblocks_present() because the
+node information will be used in memblocks_present().
 
-This implementation is based on arm64 porting. It is tested with
-qemu-system-riscv64, SiFive Unleashed board and OmniXtend FPGA platform.
+So the calling order will be looked like this.
+unflatten_device_tree(); //To get dt information for memory and nodes
+riscv_numa_init(); //It can use of_numa_parse_* and set the nodes information
+memblocks_present(); //The node information can be used now
 
-There will be two nodes in /sys/devices/system/node if it is described in
-dts and CONFIG_NUMA is enabled. We can use numastat/numactl/numademo to see
-its status.
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+---
+ arch/riscv/kernel/setup.c | 1 -
+ arch/riscv/mm/init.c      | 1 +
+ 2 files changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v2:
-- split this patch to more patches to be more readable
-- set cpu->hotplugable to 0 since it is not supported yet
-- add more explanation for moving unflatten_device_tree() to paging_init()
-
-Greentime Hu (4):
-  riscv: Add support pte_protnone and pmd_protnone if
-    CONFIG_NUMA_BALANCING
-  riscv: Move unflatten_device_tree() to paging_init() because
-    riscv_numa_init() needs the dt information.
-  riscv: Use variable this_cpu instead of smp_processor_id()
-  riscv: Add numa support for riscv64 platform
-
- arch/riscv/Kconfig               |  30 ++-
- arch/riscv/include/asm/mmzone.h  |  13 ++
- arch/riscv/include/asm/numa.h    |  46 ++++
- arch/riscv/include/asm/pci.h     |  10 +
- arch/riscv/include/asm/pgtable.h |  20 ++
- arch/riscv/kernel/setup.c        |  26 ++-
- arch/riscv/kernel/smpboot.c      |  20 +-
- arch/riscv/mm/Makefile           |   1 +
- arch/riscv/mm/init.c             |   3 +
- arch/riscv/mm/numa.c             | 372 +++++++++++++++++++++++++++++++
- 10 files changed, 536 insertions(+), 5 deletions(-)
- create mode 100644 arch/riscv/include/asm/mmzone.h
- create mode 100644 arch/riscv/include/asm/numa.h
- create mode 100644 arch/riscv/mm/numa.c
-
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 365ff8420bfe..bcd85f502fb2 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -67,7 +67,6 @@ void __init setup_arch(char **cmdline_p)
+ 
+ 	setup_bootmem();
+ 	paging_init();
+-	unflatten_device_tree();
+ 	clint_init_boot_cpu();
+ 
+ #ifdef CONFIG_SWIOTLB
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 69f6678db7f3..fbe69fe47806 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -491,6 +491,7 @@ static inline void setup_vm_final(void)
+ void __init paging_init(void)
+ {
+ 	setup_vm_final();
++	unflatten_device_tree();
+ 	memblocks_present();
+ 	sparse_init();
+ 	setup_zero_page();
 -- 
 2.17.1
 
