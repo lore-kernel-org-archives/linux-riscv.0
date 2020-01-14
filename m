@@ -2,71 +2,92 @@ Return-Path: <SRS0=Xw3g=3D=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 67B0BC33CB1
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2020 10:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B6E8EC33CB2
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2020 22:55:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3DB3024676
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2020 10:06:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8667224658
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2020 22:55:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qlg946Em";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="rXWK6rTa"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3DB3024676
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linuxfoundation.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="d69IOpZX";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="nMUjESMW"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8667224658
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JDyiE4803p9t14UxckAskkpvk1P2YRdD7L3zhErq04E=; b=qlg946EmnbYWqe
-	bavqO8mzNrG9owtbgcu2LAkFu0eUtxK1tSo+5Bl/aomQUBVNHj+aAkQCgt/ElkGOJlJvA/H2QV5yQ
-	BCHbR2sRhgEqm+1GzgF6NuveC52CodMk7TF/LImSNUOq8JGj2s4nNMgx8urBKwIya6//6kWr5Z1Rh
-	l2Er1m05PxSkUDFSs1lgDHhSmMXhCv7AQk2AGFMi6ZrlxkAsqsgMyeOIeigLzcMTKAd+r/1ZEjmGV
-	3QVOO4NzcRHdg0bv03AbLnoR4in45mXfW5I35ogIHP8hyBgmShTkoCXJKR/QIAeDGGBXCVOGUTwup
-	tTbJZmmO+BY7fFJZKAng==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:References:Message-ID:In-Reply-To:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=Sf9mie0Pz934kmh4EmyF4Fmp91t8y8zzkblqm9jbhoM=; b=d69IOpZXqdFMToG3XMkywdWqS
+	CHYthggbB96/eEFvlJHa4WFg0gqw51kTIcl/M/Cv34rkwQeiYyGS/wpT17G0i8qXZGccYtG7DrXC7
+	EzorC231LZasHZ6FU6k3JhKNVTiRSUZM4YsQPJNbUplrNWW4nUeo0OU7u/Ei+/HLDnBZNwpzXdI9k
+	40ozFdyThxNnNoVOh+D2UcXWhiBiDSxfE6wjoAPB06lnT1hJGQ3y9zr0fHQGQ18MQ2ZYfZRSG6IEt
+	i+6xRXhdmMO7IWpt8hvQw5rKwSsrEnT3MszoigekkIW5V56Rx6GGXkO82ya7vMEewxRmvHohGyzFZ
+	6DoR5BkuA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1irJ5b-0005sh-S9; Tue, 14 Jan 2020 10:06:23 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1irV5h-00076e-NC; Tue, 14 Jan 2020 22:55:17 +0000
+Received: from mail-io1-xd44.google.com ([2607:f8b0:4864:20::d44])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1irJ4s-0005EE-E1
- for linux-riscv@lists.infradead.org; Tue, 14 Jan 2020 10:05:42 +0000
-Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
- [83.86.89.107])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 91BA52467D;
- Tue, 14 Jan 2020 10:05:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1578996338;
- bh=jMKI6v65FTBsSYZvJUeHNjo+HJGBAmYqD6BdTqDO74M=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=rXWK6rTaQm1Lx1OyZOwu1Mvdsig3DkqhYxkVhoGZsgyr7Kcg9tiqQeXTKgss1tgrC
- mpTP/j3gbV1Gpx2m8uQM6nI0ohRW+vrLEOTodSZwZr7rnFZThiXMr/SiGzSHf91hAq
- 3HezGaDPuSSIvD8hufEt0iWfYcO9V3+WNE0I7TII=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH 5.4 61/78] riscv: Implement copy_thread_tls
-Date: Tue, 14 Jan 2020 11:01:35 +0100
-Message-Id: <20200114094401.622410384@linuxfoundation.org>
-X-Mailer: git-send-email 2.24.1
-In-Reply-To: <20200114094352.428808181@linuxfoundation.org>
-References: <20200114094352.428808181@linuxfoundation.org>
-User-Agent: quilt/0.66
+ id 1irV5f-000763-B6
+ for linux-riscv@lists.infradead.org; Tue, 14 Jan 2020 22:55:16 +0000
+Received: by mail-io1-xd44.google.com with SMTP id z193so15743032iof.1
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2020 14:55:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:from:to:cc:subject:in-reply-to:message-id:references
+ :user-agent:mime-version;
+ bh=Sf9mie0Pz934kmh4EmyF4Fmp91t8y8zzkblqm9jbhoM=;
+ b=nMUjESMW4hf0JSEUW7WoDc/wRMRIYxfCCqEAV6LYnnOW2/D78908KeuZHoRr5gL7xJ
+ 68a8fmTrh1hvunWKfpG5JS407uh2Ea8s8juPCXbxuMVYeLzc3tLWjJSxaDPttOfNuafM
+ ac1wgJAm4g6dP3agcZb2RL8vuQLqcBPrbm3zKvTeH2nH0Dj8/1IsFoYE7+ukAbEl4y3x
+ ihXxvstnhpmHr4hbgSryr2MtQSDI/aGQJyLhcJoFt8YyDErSCpXdlzDdMG6v5h4OzfOu
+ Sa/r+tYMRvKxkUh3Gxc57g7YnAp/3cJtdtBPI97/0pLipUJ2o/LUGw6ww4DSUrQVSmgY
+ Au4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
+ :references:user-agent:mime-version;
+ bh=Sf9mie0Pz934kmh4EmyF4Fmp91t8y8zzkblqm9jbhoM=;
+ b=nUc3jp+t8QU2PgaN2rwLbI8k9s9npMdB0VG5iUcwhfioGzw+xZXrAIDbHJh8KaNyDc
+ 2PepzPxl17RAp8PhfuLzeNx9k5pYFlvIFmJRjsC+pwd48niaB+jMb2oLn+xLWhOTofIv
+ eEid/Mn/hfOST5WCFFEeF4eI/rN52df9/7NKP9mlSWnG4ehk9+GN3G0VaScZcohp4XIY
+ t94668fxz0nyOzo8yT9TCgos9vHR+TVQxZartcgkvLBn7t1DIRkVSYgJsO8C7bSG5fzB
+ ch3IkDCzPP6sut04Wvxmi4l4b6invqsRb7FlSmqhMm9ltZYc+2T+IVfzSa8stdJ1u728
+ XECw==
+X-Gm-Message-State: APjAAAWxqGLkPGNNuYSwiOAUkwG39Ev6fEpNkBWtOb/bBxXqgXq48QwV
+ DnqLfbzxseBi9RjqQ5aYqgTsvA==
+X-Google-Smtp-Source: APXvYqz8djSH1ntG8s3wT163J3moUwwfYppKnhWa0LzYyjUzA4PFzcv9GCKm1p3MIafWF+BoL3+Kag==
+X-Received: by 2002:a5d:8c8d:: with SMTP id g13mr17945399ion.65.1579042513968; 
+ Tue, 14 Jan 2020 14:55:13 -0800 (PST)
+Received: from localhost (75-161-100-226.albq.qwest.net. [75.161.100.226])
+ by smtp.gmail.com with ESMTPSA id u20sm2535276iom.27.2020.01.14.14.55.12
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 14 Jan 2020 14:55:13 -0800 (PST)
+Date: Tue, 14 Jan 2020 14:55:12 -0800 (PST)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+X-X-Sender: paulw@viisi.sifive.com
+To: Greentime Hu <greentime.hu@sifive.com>
+Subject: Re: [PATCH v3] riscv: make sure the cores stay looping in
+ .Lsecondary_park
+In-Reply-To: <CAHCEehKchrwd7TTmSrhtEPeCmkrYrx7TX_c6ogpCpSkCKnBQoQ@mail.gmail.com>
+Message-ID: <alpine.DEB.2.21.9999.2001141449500.21279@viisi.sifive.com>
+References: <20200109031516.29639-1-greentime.hu@sifive.com>
+ <alpine.DEB.2.21.9999.2001091126480.135239@viisi.sifive.com>
+ <alpine.DEB.2.21.9999.2001121011100.160130@viisi.sifive.com>
+ <CAHCEehKchrwd7TTmSrhtEPeCmkrYrx7TX_c6ogpCpSkCKnBQoQ@mail.gmail.com>
+User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200114_020538_512513_17DEAA63 
-X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-CacheID: sfid-20200114_145515_540907_D7C7C99E 
+X-CRM114-Status: UNSURE (   9.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -79,63 +100,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- linux-riscv@lists.infradead.org, Amanieu dAntras <amanieu@gmail.com>,
- Christian Brauner <christian.brauner@ubuntu.com>, stable@vger.kernel.org
+Cc: Andreas Schwab <schwab@suse.de>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Gt <green.hu@gmail.com>,
+ Anup Patel <anup@brainfault.org>, greentime@kernel.org,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Amanieu d'Antras <amanieu@gmail.com>
+Hi Greentime,
 
-commit 20bda4ed62f507ed72e30e817b43c65fdba60be7 upstream.
+On Tue, 14 Jan 2020, Greentime Hu wrote:
 
-This is required for clone3 which passes the TLS value through a
-struct rather than a register.
+> I think it is because the sections are too far for bqeu to jump and
+> the config I used just small enough for it to jump so I didn't see
+> this bug. Sorry about that.
 
-Signed-off-by: Amanieu d'Antras <amanieu@gmail.com>
-Cc: linux-riscv@lists.infradead.org
-Cc: <stable@vger.kernel.org> # 5.3.x
-Link: https://lore.kernel.org/r/20200102172413.654385-6-amanieu@gmail.com
-Signed-off-by: Christian Brauner <christian.brauner@ubuntu.com>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+No problem.
 
----
- arch/riscv/Kconfig          |    1 +
- arch/riscv/kernel/process.c |    6 +++---
- 2 files changed, 4 insertions(+), 3 deletions(-)
+> I tried this fix to boot in Unleashed board.
+> 
+>  #ifdef CONFIG_SMP
+>         li t0, CONFIG_NR_CPUS
+> -       bgeu a0, t0, .Lsecondary_park
+> +       blt a0, t0, .Lgood_cores
+> +       tail .Lsecondary_park
+> +.Lgood_cores:
+>  #endif
 
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -61,6 +61,7 @@ config RISCV
- 	select SPARSEMEM_STATIC if 32BIT
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
- 	select HAVE_ARCH_MMAP_RND_BITS
-+	select HAVE_COPY_THREAD_TLS
- 
- config ARCH_MMAP_RND_BITS_MIN
- 	default 18 if 64BIT
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -99,8 +99,8 @@ int arch_dup_task_struct(struct task_str
- 	return 0;
- }
- 
--int copy_thread(unsigned long clone_flags, unsigned long usp,
--	unsigned long arg, struct task_struct *p)
-+int copy_thread_tls(unsigned long clone_flags, unsigned long usp,
-+	unsigned long arg, struct task_struct *p, unsigned long tls)
- {
- 	struct pt_regs *childregs = task_pt_regs(p);
- 
-@@ -120,7 +120,7 @@ int copy_thread(unsigned long clone_flag
- 		if (usp) /* User fork */
- 			childregs->sp = usp;
- 		if (clone_flags & CLONE_SETTLS)
--			childregs->tp = childregs->a5;
-+			childregs->tp = tls;
- 		childregs->a0 = 0; /* Return value of fork() */
- 		p->thread.ra = (unsigned long)ret_from_fork;
- 	}
+Looks reasonable to me.  Care to update and repost the patch?
 
 
+- Paul
 
