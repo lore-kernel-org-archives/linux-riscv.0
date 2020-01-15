@@ -2,84 +2,66 @@ Return-Path: <SRS0=2VG0=3E=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0155BC33CB1
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2020 11:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 40231C33CB1
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2020 15:08:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C6E6B2077B
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2020 11:33:31 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 12D952187F
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2020 15:08:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Dy/OwQwm";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Ipkc0c9T"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C6E6B2077B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="inWDgO6d"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 12D952187F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bjtZ5eSDKVKPCaPVF0QkrfK9h+NZ0t3IhMm/2SNFSYY=; b=Dy/OwQwm3Olwsnj3Ok34GRZqPi
-	1s8LUgiW0k4DCdc0OdKDrpy8O4kUl02a8NrOYT9JmyWYFSeeSTg7yt3I36CycqT6LEI6hNnE+XP9c
-	nOLotcMfOlQox6FGioSrY++WKUEzqBwDV5sU07g2UzXKVhxvS5q395h5OQWZNrwmvGKjhqE7ZzaGW
-	YjWkNE2uKrQmteTJnwhR4LAuH6Cj9KhtyMVxK2gktZoxoF5qTY4HzbqL/JCnNyHkYqtQVc8TpFxSZ
-	Aq6gbwtY4Jeci9Zuu3c2rEuF5fBfqp/FbVbvgybVyuCmb4J0rI1PYiBtSiqEoMDyiPKvu76miUuCO
-	mrfkFcIg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nssVaUpC9zozVuhZev2NEUAP0LO4GtNymyOE64f5XUI=; b=inWDgO6dxZLVMn
+	5TPK+CsOToZSPp+Q76s0NP+mE5PcRQNJPhiBa5Zj2noFh58hef5+BQbyi2D8MNbd6mo7mbr2yAouY
+	ei6mUyY2fmAtYb3bWiCa1chYxuM2vd0HkhUiLD7YADme71ls8octZHX8ORVei93uvN82C043o4URd
+	Ntwa4wzXn/VwdfTkiFT8VlU7tN3nZ0EI9aOVRsv4IU4NNEUKDDs0jSqthfzn/Ko+qd0FsbUqMHlPA
+	1exUliy4K1dEUIzolv8f4k9xJDP+OcnqJeYLSHJPxB/ExqHirb2Jju6gopjj38scDXkjnt9EbgWC5
+	qIRxeErL/HnQTNWSBjlw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1irgvR-00040S-CW; Wed, 15 Jan 2020 11:33:29 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1irkH1-0000LZ-Ua; Wed, 15 Jan 2020 15:07:59 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1irgvJ-0003yv-UY
- for linux-riscv@lists.infradead.org; Wed, 15 Jan 2020 11:33:28 +0000
-Received: by mail-wm1-x343.google.com with SMTP id p17so17457000wmb.0
- for <linux-riscv@lists.infradead.org>; Wed, 15 Jan 2020 03:33:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id;
- bh=bjtZ5eSDKVKPCaPVF0QkrfK9h+NZ0t3IhMm/2SNFSYY=;
- b=Ipkc0c9TvwHgCZpX171XDuHI2ImOVWFpZtsbC93JtqSRfDcXVUGgkbmufiP1m+wyYj
- 7VGmqsyGr2dLptJC8qPssX4wuvXLiF9WlHY98MUbVf1JjJpPmVuKGAi5ISEqoN9Ln25W
- +y+y51ISOrXX8TfWGHCOTTlMAeoPMoxFQProTGu261lv+WkKU2PqWRxoZ4iNTO4jZMcl
- qXHSRnFTQt+NN+t1nPHSRuoMYNZmhI3CmSLdVQFXiVEsyLS0tKtldAa9l//ghx+5vdWU
- l5cLKPQaXociYaFR4s43AbDnzxq53CSYpPwZaaekRXUCA4P5nwGuBCwMfvz9j5qrDHe4
- qXxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=bjtZ5eSDKVKPCaPVF0QkrfK9h+NZ0t3IhMm/2SNFSYY=;
- b=T6w3blrLjG/RhG4duqbCM3148vs0htVfh/JgRp+7O/bRFSIJiBSvDEptHMrgMqhyQ/
- ujeRPWSO+2TjZ/3DOjV8SQBxJSPKzEKTMcOte8hTKHjAm+6oT5631XG790k/zGoSShNK
- ge8aN69MtrpIX5jPBvuU621ohObpNNRy9Vw6OiCyrcBykAalKDIY7PNUWbRa0xA/7rFM
- 2cxN0nuWOc4FXUg+y85BkxSoxYi1W8Gk6jovirTmg4qceSaJR6cn3acmWoulJh6OFy3k
- a+1vfmlkaHJENwgYsyByY4N4Y7WiG6Ngvtbk5DrMs5emsECwAm+L82gOTdh4osNxBaG6
- a0bQ==
-X-Gm-Message-State: APjAAAVGglAT5gNfd9glk+Ec7v+VLolEXIFSRsf9++QZCI8Qcph9ukdS
- ALnq1e3aWcljiVJbT/ms4SjoVbqbv8W0oA==
-X-Google-Smtp-Source: APXvYqxam+VTA908+XGqxn+E6SO3/si0ritI029uDRCZAPoh0ozQqwfgoeJc7oTFItean/5norE7hA==
-X-Received: by 2002:a1c:498a:: with SMTP id w132mr30992904wma.10.1579087999863; 
- Wed, 15 Jan 2020 03:33:19 -0800 (PST)
-Received: from localhost.localdomain ([2a02:a58:8166:7500:34f4:3149:a617:3dd])
- by smtp.gmail.com with ESMTPSA id
- h17sm24892867wrs.18.2020.01.15.03.33.18
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 15 Jan 2020 03:33:19 -0800 (PST)
-From: Ilie Halip <ilie.halip@gmail.com>
-To: linux-riscv@lists.infradead.org
-Subject: [PATCH] riscv: delete temporary files
-Date: Wed, 15 Jan 2020 13:32:42 +0200
-Message-Id: <20200115113243.23096-1-ilie.halip@gmail.com>
-X-Mailer: git-send-email 2.17.1
+ id 1irkGv-0000AX-Mo
+ for linux-riscv@lists.infradead.org; Wed, 15 Jan 2020 15:07:58 +0000
+Received: from DGGEMS406-HUB.china.huawei.com (unknown [172.30.72.60])
+ by Forcepoint Email with ESMTP id E3CF758C6746AF420D9C;
+ Wed, 15 Jan 2020 23:07:38 +0800 (CST)
+Received: from localhost.localdomain.localdomain (10.175.113.25) by
+ DGGEMS406-HUB.china.huawei.com (10.3.19.206) with Microsoft SMTP Server id
+ 14.3.439.0; Wed, 15 Jan 2020 23:07:31 +0800
+From: Wei Yongjun <weiyongjun1@huawei.com>
+To: Yash Shah <yash.shah@sifive.com>, Borislav Petkov <bp@alien8.de>, "Mauro
+ Carvalho Chehab" <mchehab@kernel.org>, Tony Luck <tony.luck@intel.com>,
+ "James Morse" <james.morse@arm.com>, Robert Richter <rrichter@marvell.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>
+Subject: [PATCH]  EDAC/sifive: fix return value check in ecc_register()
+Date: Wed, 15 Jan 2020 15:03:03 +0000
+Message-ID: <20200115150303.112627-1-weiyongjun1@huawei.com>
+X-Mailer: git-send-email 2.20.1
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-8859-1"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.175.113.25]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200115_033322_644370_F44642D8 
-X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-CacheID: sfid-20200115_070753_916982_D844E803 
+X-CRM114-Status: UNSURE (   8.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -92,41 +74,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
- Ilie Halip <ilie.halip@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- Mao Han <han_mao@c-sky.com>
+Cc: kernel-janitors@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Wei Yongjun <weiyongjun1@huawei.com>, linux-edac@vger.kernel.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Temporary files used in the VDSO build process linger on even after make
-mrproper: vdso-dummy.o.tmp, vdso.so.dbg.tmp.
+In case of error, the function edac_device_alloc_ctl_info() returns NULL
+pointer not ERR_PTR(). The IS_ERR() test in the return value check
+should be replaced with NULL test.
 
-Delete them once they're no longer needed.
-
-Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
+Fixes: 91abaeaaff35 ("EDAC/sifive: Add EDAC platform driver for SiFive SoCs")
+Signed-off-by: Wei Yongjun <weiyongjun1@huawei.com>
 ---
- arch/riscv/kernel/vdso/Makefile | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/edac/sifive_edac.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index 49a5852fd07d..33b16f4212f7 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -58,7 +58,8 @@ quiet_cmd_vdsold = VDSOLD  $@
-       cmd_vdsold = $(CC) $(KBUILD_CFLAGS) $(call cc-option, -no-pie) -nostdlib -nostartfiles $(SYSCFLAGS_$(@F)) \
-                            -Wl,-T,$(filter-out FORCE,$^) -o $@.tmp && \
-                    $(CROSS_COMPILE)objcopy \
--                           $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@
-+                           $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
-+                   rm $@.tmp
+diff --git a/drivers/edac/sifive_edac.c b/drivers/edac/sifive_edac.c
+index c0cc72a3b2be..3a3dcb14ed99 100644
+--- a/drivers/edac/sifive_edac.c
++++ b/drivers/edac/sifive_edac.c
+@@ -54,8 +54,8 @@ static int ecc_register(struct platform_device *pdev)
+ 	p->dci = edac_device_alloc_ctl_info(0, "sifive_ecc", 1, "sifive_ecc",
+ 					    1, 1, NULL, 0,
+ 					    edac_device_alloc_index());
+-	if (IS_ERR(p->dci))
+-		return PTR_ERR(p->dci);
++	if (!p->dci)
++		return -ENOMEM;
  
- # install commands for the unstripped file
- quiet_cmd_vdso_install = INSTALL $@
+ 	p->dci->dev = &pdev->dev;
+ 	p->dci->mod_name = "Sifive ECC Manager";
 
-base-commit: dc6fcba72f0435b7884f2e92fd634bb9f78a2c60
--- 
-2.17.1
+
 
 
