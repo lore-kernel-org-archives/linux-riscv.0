@@ -2,91 +2,84 @@ Return-Path: <SRS0=0i+E=3F=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=3.4.0
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 411ECC32771
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2020 02:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A9765C33CAF
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2020 04:29:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 19C93222C3
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2020 02:33:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7CF842075B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2020 04:29:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cq84DwgU";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="RqbHK8Vo"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 19C93222C3
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Rg9nO2iq";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="VJZd2J3E"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7CF842075B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	MIME-Version:References:Message-ID:In-Reply-To:Subject:To:From:Date:Reply-To:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ZMxDPPtpfyDr16DAViPOjphNjCxUKCyR951nmWvnX+0=; b=cq84DwgUpL5++HFStUIoeYKeC
-	kuDLO61oyShtVi4D7NiIFwR9Fdhi3nTfspTbOGNRoM/UiPYaAaP3kehYvEqp/RFEO6gmTu8nvolJ/
-	n/ojF62ym2C7xd8x3MDijcpuXuZBG1Wv5I0eoAL8KNX6CMpHnbiJXT90hHXFaht+Q+DCxcY49RscS
-	/g4TyUvw328PtuRL523crqsngkN+rbPHJqnA2GipIIvHdglxMmDDjU9foIeJsPPpjpgb4+YlBJI7S
-	NnrISnxqVATGpHr/1196+gHDUEvMmYNJgjI3rShA0F3YeedzjfGuOhlYZqOi6nQY5QRjFnfq2gtoF
-	Ruq9kykMw==;
+	 bh=fdDF50I5hxOY/uPvyTi5Nyzs/7Qte+oY6PsGo1nyL58=; b=Rg9nO2iqj5vI1SGaZJsr2b7zc
+	kf4O53Z4fM9Hv3tVGve2Y+GLaZg4qkkye2tcvXdWRmP2o/6BR9kBfCJCmT5Y1qQTdvgOkHmAN67lH
+	bfjyrH4oiV0SRS2N/Z7TxOGUnYZsuFm7u8Hea7Y1C/3zmaXEhBwn9/Elri2R1pgd9U2ozFvvPcFio
+	HBBTMHgkur4UsVOPe0RMCa3XqVoJxNiOHBjY6+cH+/LuwBJXRuPClLeyVrAMH3mj4XwKsPDbf8XmB
+	58w56U4MbKao0T9qcrcFQ2NZysT+uxNwV6+wXBm8jPMa3NAUrm9ZdmWsF3cdSMIlMlKle9v18VI3K
+	/QWJ9MMKg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iruxx-00038L-Nq; Thu, 16 Jan 2020 02:33:01 +0000
-Received: from mail-io1-xd43.google.com ([2607:f8b0:4864:20::d43])
+	id 1irwmK-00060V-MM; Thu, 16 Jan 2020 04:29:08 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iruxv-00037V-Lw
- for linux-riscv@lists.infradead.org; Thu, 16 Jan 2020 02:33:01 +0000
-Received: by mail-io1-xd43.google.com with SMTP id c16so20064152ioh.6
- for <linux-riscv@lists.infradead.org>; Wed, 15 Jan 2020 18:32:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:cc:subject:in-reply-to:message-id:references
- :user-agent:mime-version;
- bh=ZMxDPPtpfyDr16DAViPOjphNjCxUKCyR951nmWvnX+0=;
- b=RqbHK8VoNCXEI+hIdHVL/MC88sR1q4OPTXukFJTkCL/S7mLSBkvaWjPbEO2L6KiNFE
- FhJusyzBBdV6kQ+a+YlTrvqU1YKNRBO4mhi1ULYHYxGkptEAQoBXJsH3mv+FHZHbmjUA
- lwLqyjkVstTa24clYlsBGKvyucNtx5Vu6wGV8j+2BRaOcMvQaU0kKYIPj29mQIn+/36R
- 0NiXjAbEOA0a3MXvPd8ZyKRp5YExsJTzMX6AD+vrtGPu2uRtZKQQS4IIkgAk7HSgJtC8
- tVDjeI9PNc+AZ/kdpwMMxAEqhSUELgnJcgLO+//z3PFC0Cx1sEcLfqiWo4CIiUoIzZFy
- uz5w==
+ id 1irwmH-000609-QG
+ for linux-riscv@lists.infradead.org; Thu, 16 Jan 2020 04:29:07 +0000
+Received: by mail-wm1-x342.google.com with SMTP id q9so2265428wmj.5
+ for <linux-riscv@lists.infradead.org>; Wed, 15 Jan 2020 20:29:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=fdDF50I5hxOY/uPvyTi5Nyzs/7Qte+oY6PsGo1nyL58=;
+ b=VJZd2J3EFk4ApDAMA0KbDnAQusdZC6K5RRRZ4scnAuuUXCdOd7bkkyKATo3LVHqGfc
+ 7+Y2mXmYskr27gV6fWdm2yaZ3EhnQGcM86zrXjhQFrFjgSNc7pTO2vd541y2uQbQr5mV
+ ThYe9oy1kI5ia7dtARf11oWgcp0HBfN0QtCKqoQpcatBifaj9SNUd5SWpr0rHhWvWd4l
+ zS8cMHIrVSZ/nC3cIfbSbYrPL/t4VrFQlPrEbKPbliWdVH8VkpE3nPQdW8k1mMYCN0LU
+ tFVhCB0X+cph3Ck6dc79N+jsk6K9A6NAczEle4XN7zkxo0BDuU0UOtaIPX4rBPQWnIBJ
+ T60Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
- :references:user-agent:mime-version;
- bh=ZMxDPPtpfyDr16DAViPOjphNjCxUKCyR951nmWvnX+0=;
- b=OckkUsCNMtGvUhBwy/RHCEyDTflL3TlyyLQ0eDKHeLqOiRgOYR8zlpXUc6LBN43QU4
- cW9MDpGf+B6Ny0eNIJBadohCV0VQ0q1qGiznEYgQrgsT/MKFuIpWm9cCuIjtEkZHxX6S
- 56E/xaxzgKLIU4LXfxXNnOe2zJh/dhDyFVwhPeopYyYIPoYMdDBBBMQ4R5bkISTLjB6K
- CHZAnvK2qtppNvUHd3e7bxkb4C/rIY4IMCcMk26/nulgyZLBK5Zed4OZdV0py7PGtCTb
- +8qOKO9w/RjAqpKDa0jCDx8FEubq1xFMSOgk2anNIvE0A5Y7MDPc5VznMGYpVXEi2CN7
- 4BoA==
-X-Gm-Message-State: APjAAAUKWwYCbkwo/5sc2ieFtShPYRWOu7THzeG9DTL5TsRWjRRRgoLJ
- O6QXMKqM5lCFnSebJZ6+wKO+sg==
-X-Google-Smtp-Source: APXvYqyh+g2Hzupz8itLKiU78z1Ffu3lm87KUi123IE5FELOjy2k517AvOgTd2cAPDjAJzP0F4bC4Q==
-X-Received: by 2002:a6b:e004:: with SMTP id z4mr24598779iog.235.1579141978190; 
- Wed, 15 Jan 2020 18:32:58 -0800 (PST)
-Received: from localhost ([64.62.168.194])
- by smtp.gmail.com with ESMTPSA id z15sm6458956ill.20.2020.01.15.18.32.57
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 15 Jan 2020 18:32:57 -0800 (PST)
-Date: Wed, 15 Jan 2020 18:32:55 -0800 (PST)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-X-X-Sender: paulw@viisi.sifive.com
-To: Greentime Hu <greentime.hu@sifive.com>, anup@brainfault.org
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=fdDF50I5hxOY/uPvyTi5Nyzs/7Qte+oY6PsGo1nyL58=;
+ b=tVdZQ42Mpm/6699Rd7R0dhpqVtboCr0kUhV5mpSn9ZEkhZUAcjb+J0L6IE+85ZBrTY
+ z4hH1hLofZwtwut6cvWejoh0nFA96XMJ+6IINigC258mxXkIjVbIwQyCQDUdm7eXzaj+
+ H0cgBt0ifZLb0JADkvIq7raeReVvUwoLBOHX5cc5V8MCjX7Hnfjj93PPIivwo75gyvXE
+ jQLyl9hceSY2UG1HD2MZFq599wTqTPaxfh/X2UwB4g/jRN5NaM/K+FbCpUZV2RxWzXWF
+ sKxuMBGL3fuXhGx/X/MPLpEXTsnWxmlVr0xCJwxq0v4mj0ESljprhLJJaL5H0ktNBYh2
+ UEwQ==
+X-Gm-Message-State: APjAAAVyz2KZmxTjcmGdGW6cuuMQrwCIHJW4fjNw4fuOBrPiwre8F0aQ
+ VGjNeOGVPK1v29pOIWdb24AMOLLuuBy0p4JMPLFqRA==
+X-Google-Smtp-Source: APXvYqypT/bLy+NNQni/dEXiQ2hXcvwwOV1Jt+QjqxuT3KVv1AgYCM0umVbd9agiKV4gTPlgz17zzqhzBlat53lL0Zg=
+X-Received: by 2002:a1c:9602:: with SMTP id y2mr3733923wmd.23.1579148943558;
+ Wed, 15 Jan 2020 20:29:03 -0800 (PST)
+MIME-Version: 1.0
+References: <20200115065436.7702-1-greentime.hu@sifive.com>
+ <alpine.DEB.2.21.9999.2001151832001.98477@viisi.sifive.com>
+In-Reply-To: <alpine.DEB.2.21.9999.2001151832001.98477@viisi.sifive.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 16 Jan 2020 09:58:53 +0530
+Message-ID: <CAAhSdy0r1AZVW3JL-KoUi5eh_b78Bw2VogOBA8CidydK5RzJAw@mail.gmail.com>
 Subject: Re: [PATCH v4] riscv: make sure the cores stay looping in
  .Lsecondary_park
-In-Reply-To: <20200115065436.7702-1-greentime.hu@sifive.com>
-Message-ID: <alpine.DEB.2.21.9999.2001151832001.98477@viisi.sifive.com>
-References: <20200115065436.7702-1-greentime.hu@sifive.com>
-User-Agent: Alpine 2.21.9999 (DEB 301 2018-08-15)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200115_183259_931262_E469B719 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200115_202905_992457_F3351231 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,28 +91,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: schwab@suse.de, linux-kernel@vger.kernel.org, palmer@dabbelt.com,
- green.hu@gmail.com, greentime@kernel.org, linux-riscv@lists.infradead.org
+Cc: Andreas Schwab <schwab@suse.de>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Greentime Hu <green.hu@gmail.com>,
+ greentime@kernel.org, Greentime Hu <greentime.hu@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jan 2020, Greentime Hu wrote:
+On Thu, Jan 16, 2020 at 8:02 AM Paul Walmsley <paul.walmsley@sifive.com> wrote:
+>
+> On Wed, 15 Jan 2020, Greentime Hu wrote:
+>
+> > The code in secondary_park is currently placed in the .init section. The
+> > kernel reclaims and clears this code when it finishes booting. That
+> > causes the cores parked in it to go to somewhere unpredictable, so we
+> > move this function out of init to make sure the cores stay looping there.
+> >
+> > The instruction bgeu a0, t0, .Lsecondary_park may have "a relocation
+> > truncated to fit" issue during linking time. It is because that sections
+> > are too far to jump. Let's use tail to jump to the .Lsecondary_park.
+> >
+> > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+>
+> Thanks, queued for v5.5-rc.  Anup's Reviewed-by: has been dropped since
+> the patch changed significantly - Anup, if you are still happy with it,
+> please reply with another Reviewed-by:.  Thanks,
 
-> The code in secondary_park is currently placed in the .init section. The
-> kernel reclaims and clears this code when it finishes booting. That
-> causes the cores parked in it to go to somewhere unpredictable, so we
-> move this function out of init to make sure the cores stay looping there.
-> 
-> The instruction bgeu a0, t0, .Lsecondary_park may have "a relocation
-> truncated to fit" issue during linking time. It is because that sections
-> are too far to jump. Let's use tail to jump to the .Lsecondary_park.
-> 
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+You can keep my Reviewed-by. I did not see any functional
+changes in the patch so I am fine.
 
-Thanks, queued for v5.5-rc.  Anup's Reviewed-by: has been dropped since 
-the patch changed significantly - Anup, if you are still happy with it, 
-please reply with another Reviewed-by:.  Thanks,
-
-
-- Paul
+Thanks,
+Anup
 
