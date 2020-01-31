@@ -2,82 +2,96 @@ Return-Path: <SRS0=YNzb=3U=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.8 required=3.0 tests=DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.7 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DE6B5C33CB2
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 31 Jan 2020 11:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A8D3C33CB2
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 31 Jan 2020 13:14:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B524B20705
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 31 Jan 2020 11:00:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F3A2D20658
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 31 Jan 2020 13:14:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QpFWucXj";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="TbMrqJMQ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B524B20705
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ss6tPxCl";
+	dkim=pass (2048-bit key) header.d=carlosedp-com.20150623.gappssmtp.com header.i=@carlosedp-com.20150623.gappssmtp.com header.b="YcMRPgyR"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F3A2D20658
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=carlosedp.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:
-	Subject:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XWIJzyqaNanE6sGvomf53Oez53czsVV0qXwjLD8Y5/g=; b=QpFWucXjIGCNcHYnnGBCNrzvj7
-	J96xHeDI7Z5IknjBIJLz91HRlRdvMaLmVrX0tUTlBIwLJyTzqnfYT4SR2O7hzEnZYGimg6Wa86Yv6
-	2o9M3xrH3V+nwGZRZFC0V19ncJ4uVzyHxl1PKNaAMukEIWK4irfRqk6ACBvDnPczFLcztn360lEI4
-	jvT4hW2LeArMwbQ9wnqzvo/B4Cm4WAPhYFGPrmVBhww8/f2pypd6U0LnTzevtmDnYgpJOCv2xY+Xn
-	tJxQML8Lu1JNpWI59y/vXn1yHh6RLGcgkFvFftzsy/L1ZFGHbmBDr9v8G5bPxWdulxKMpkHX5rnE3
-	PSvE2t8g==;
+	bh=TNUO2pionn3/lxCQtHK5IwhLh/kgwnFCLwwA1BNOWLA=; b=ss6tPxClrjGniHgOoI0T9odXu4
+	0Fw6N9foK/J39cVNwRAyu+MeuEyuCH21BSZ+lmASAtYIt/xusczVztBU02reE1U7HftbEyopHzaUP
+	YqfDlWqeGEZrRRcMLvR7cy70ki6nQTiC8/zM9u3BmOMAbx5Togk2IRvoGXebrIxK004Mc05UPR1P2
+	BzgnNr6sHnP+mEk9ceWBSwhJOGhmI4HE9E8s8Yoz2hn8PiDsk85efhJgdUe1nQA+eIwzIXunfCxU6
+	vXMER0M+DS87+pykCUWs4elrqrw2MWP2xCuKPOMBHQfBY8b+CzHKJODDsxgMMAoD0PcdAxCJNm8uS
+	TPLu8EQA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ixU2Q-0001TT-3O; Fri, 31 Jan 2020 11:00:38 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1ixW7p-00075f-0M; Fri, 31 Jan 2020 13:14:21 +0000
+Received: from mail-oi1-x241.google.com ([2607:f8b0:4864:20::241])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ixU2N-0001Sw-Hi
- for linux-riscv@lists.infradead.org; Fri, 31 Jan 2020 11:00:37 +0000
-Received: by mail-wr1-x444.google.com with SMTP id k11so8060112wrd.9
- for <linux-riscv@lists.infradead.org>; Fri, 31 Jan 2020 03:00:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:subject:cc:from:to:message-id;
- bh=XWIJzyqaNanE6sGvomf53Oez53czsVV0qXwjLD8Y5/g=;
- b=TbMrqJMQurYl1r3yVVFYJDjfu79Z2ryj+KUqrb3m6xcDEevs/arYA1dcQT7eQDLBYR
- 68XPSJjIfEQUtXxVgC2xrGHKVVj6BZ2x8MM+Kk3Qw9J+5snj8wIaKAvh/uOPRvLpo/2a
- PQ/ns/1KLqEsZkzS5hTAN53il+OHsw+cc2GQV0C3w9Y0j4ujE7P9JxpbEmBDKaPROfm0
- OBABh8KnTwXv/1BV9dGiBo+eYWucchPhmaqx8yqhD94v5FyePZ9x6z7ZLe+l9xVsi29u
- KEvWVsFgP8q9Xr2tet5zZZftpTDrPqYnYlyiDTpoGPObIbGjpTUBWG4uSSeI+AAxgow1
- ynrg==
+ id 1ixW7l-00074n-TQ
+ for linux-riscv@lists.infradead.org; Fri, 31 Jan 2020 13:14:19 +0000
+Received: by mail-oi1-x241.google.com with SMTP id l136so7197975oig.1
+ for <linux-riscv@lists.infradead.org>; Fri, 31 Jan 2020 05:14:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=carlosedp-com.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:from:date:message-id:subject:to;
+ bh=TNUO2pionn3/lxCQtHK5IwhLh/kgwnFCLwwA1BNOWLA=;
+ b=YcMRPgyRh9fmEAFratf0WAunzDCmZYOKyBIJjtuea/nkkd/09mwtsIGI946nlvFqWN
+ C52LqbEBIkLLd4dVbvvK6qoCLAH0iatVog/0f1h/6XO8yu4dIWoDN7Fw8pO1uE/qWJtu
+ A6RdpJlOkgJRWEWRayyEc0xUaaVuc3GLWHQ7x3xSmdVMpiGa9h5+9xJwoG/bykTWpalH
+ h29MkfBYTRrhN3UevPhFPGgbFSg8Tz2G8KOdzQojAMBme5ZKWqRrnLkFPtsXMZpn/SVc
+ 6I0tAYfiObVIX0RvSsXv/y6snJlz2aeTUYHtju4LRnqlnfxDLDV/t0fPy4lIcjitiCVZ
+ muiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:cc:from:to:message-id;
- bh=XWIJzyqaNanE6sGvomf53Oez53czsVV0qXwjLD8Y5/g=;
- b=Z1UYYe2Fk1FAJlmxpik7FfdGUB452rRDmFe1Z966jTuCKItjISDofs4XX8ekwIa9qZ
- Na7fZjINb9JNcbur8dqjMGYpeVQYGNB37NDgiL9K65pFlB4qF8GkOdP+eVn600XIBM8s
- bAaTWhtQhDGkumb6B94fnDY1UjyKWfb4605vcWBh/xiNRgq/ly01V4p8tuKP2HsBhSAm
- UJWXzWkmFoPuv1x5WZrbWsqF+ZOKVYRWxFOCRBoq2afAXO72EV3+0NdMkSyc3DobhsQQ
- Rp1tte6hfuf05x5zSUNbiGkyoerZb9NmIAvRX6NidfqLE94/HL/AmcT5dkGfwNwsvrGW
- yjMA==
-X-Gm-Message-State: APjAAAVataFXeqFnr22g/myFFdWjs7Yby6u01eM2FDaiQ0kOYo+v5Pl0
- 0pTxXLSwP0Ro9HKhDAOBWFNtCw==
-X-Google-Smtp-Source: APXvYqwPQyoMm3zb0nCIZv1kHf9M1e0vbMMGVHsQadhX9HAL4gHjXEr3waNmAVc2M6BpviPfAJakww==
-X-Received: by 2002:adf:e984:: with SMTP id h4mr11717375wrm.275.1580468433264; 
- Fri, 31 Jan 2020 03:00:33 -0800 (PST)
-Received: from localhost ([185.201.63.254])
- by smtp.gmail.com with ESMTPSA id s22sm9956121wmh.4.2020.01.31.03.00.31
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 31 Jan 2020 03:00:32 -0800 (PST)
-Date: Fri, 31 Jan 2020 03:00:32 -0800 (PST)
-X-Google-Original-Date: Fri, 31 Jan 2020 10:59:20 GMT (+0000)
-Subject: [GIT PULL] RISC-V Patches for the 5.6 Merge Window, Part 1
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-84383e2c-cd04-4915-a165-f10367359beb@palmerdabbelt-glaptop1>
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+ bh=TNUO2pionn3/lxCQtHK5IwhLh/kgwnFCLwwA1BNOWLA=;
+ b=l5boCm0d/FWc4ZbJ5g9R92xqzkcRiOUtwtRO81LCE0neCgEodATToVzvlN8gxIDIZ+
+ 55kHSnqFuy0dLvtZ4t3NKFqZzIDP7BJyWTGZ2ypkDDQhmbZ8mgWWgHwf6A/F+EaX+85t
+ 7Jz/knTDVO++qHwr+uNoMqee6AHAMMfufNiUMPxLQrmJIq7i/wg3gKik1w0VnAHLi+Pn
+ NqZYbgnV8/WjZu4qh+Y0PTru04/h1auRr22ebAs445/XHxFv8En6pE6LdgX1M11XCuBM
+ thzX/Zx59d/Lj6+QZC8AUW4iis/8FSC9rd2/jSa2zKpRhevDPwfipfV+UGNsnESaa47k
+ WPoA==
+X-Gm-Message-State: APjAAAXT6vTAEBFEJovTPjp1VKgMXOredcLgTGHtLFRdH2uIN3qcsNPR
+ tG5FQdPB7Mix6R7Lbbu1+0tlP75nBqIWxA==
+X-Google-Smtp-Source: APXvYqxjuB5MF/eC1IH+BFtix+wiNqUtaVu2287862jpCodWKAhe6k6lv7DTApZr0oSrx4oju9NY4w==
+X-Received: by 2002:aca:ab0f:: with SMTP id u15mr6351207oie.26.1580476453953; 
+ Fri, 31 Jan 2020 05:14:13 -0800 (PST)
+Received: from mail-ot1-f53.google.com (mail-ot1-f53.google.com.
+ [209.85.210.53])
+ by smtp.gmail.com with ESMTPSA id s128sm2650331oia.4.2020.01.31.05.14.13
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 31 Jan 2020 05:14:13 -0800 (PST)
+Received: by mail-ot1-f53.google.com with SMTP id b18so6535211otp.0
+ for <linux-riscv@lists.infradead.org>; Fri, 31 Jan 2020 05:14:13 -0800 (PST)
+X-Received: by 2002:a05:6830:114f:: with SMTP id
+ x15mr7262001otq.291.1580476452672; 
+ Fri, 31 Jan 2020 05:14:12 -0800 (PST)
+MIME-Version: 1.0
+From: Carlos Eduardo de Paula <me@carlosedp.com>
+Date: Fri, 31 Jan 2020 10:14:01 -0300
+X-Gmail-Original-Message-ID: <CADnnUqfDnkvCJVqBkDw+gV7_zs5Q_Mb3anQTu+UujjJ8bBk+ng@mail.gmail.com>
+Message-ID: <CADnnUqfDnkvCJVqBkDw+gV7_zs5Q_Mb3anQTu+UujjJ8bBk+ng@mail.gmail.com>
+Subject: Errors and segmentation fault while building Golang on Kernel after
+ v5.4-rc3
+To: linux-riscv@lists.infradead.org, 
+ David Abdurachmanov <david.abdurachmanov@sifive.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Joel Sing <joel@sing.id.au>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200131_030035_642834_B68668F6 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20200131_051418_003253_D94FA85E 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,71 +103,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit def9d2780727cec3313ed3522d0123158d87224d:
+Golang has been recently upstreamed and I've been building multiple
+versions on my Unleashed board successfully with kernel 5.3-rc4 and
+previous.
 
-  Linux 5.5-rc7 (2020-01-19 16:02:49 -0800)
+I noticed that after I updated my Kernel from v5.3-rc4 to v5.5-rc5,
+Golang doesn't build anymore failing on multiple points and
+segfaulting as well.
 
-are available in the Git repository at:
+I've captured a few logs with the error building here:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.6-mw0
+I've bisected the versions between v5.4-rc3 and v5.4 and it pointed
+out that the commit below is the starting point.
 
-for you to fetch changes up to 61ffb9d27860769c5d5596f6e4cca3cded2755e0:
+eb93685847a9055283d05951c1b205e737f38533 is the first bad commit
+commit eb93685847a9055283d05951c1b205e737f38533
+Author: Paul Walmsley <paul.walmsley@sifive.com>
+Date: Wed Aug 7 19:07:34 2019 -0700
 
-  riscv: dts: Add DT support for SiFive FU540 GPIO driver (2020-01-29 14:58:08 +0000)
+riscv: fix flush_tlb_range() end address for flush_tlb_page()
 
-----------------------------------------------------------------
-RISC-V Patches for the 5.6 Merge Window, Part 1
+The RISC-V kernel implementation of flush_tlb_page() when CONFIG_SMP
+is set is wrong. It passes zero to flush_tlb_range() as the final
+address to flush, but it should be at least 'addr'.
 
-This tag contains a handful of patches that I'd like to target for this merge
-window:
+Some other Linux architecture ports use the beginning address to
+flush, plus PAGE_SIZE, as the final address to flush. This might
+flush slightly more than what's needed, but it seems unlikely that
+being more clever would improve anything. So let's just take that
+implementation for now.
 
-* Support for kasan.
-* 32-bit physical addresses on rv32i-based systems.
-* Support for CONFIG_DEBUG_VIRTUAL
-* DT entry for the FU540 GPIO controller, which has recently had a device
-  driver merged.
+While here, convert the macro into a static inline function, primarily
+to avoid unintentional multiple evaluations of 'addr'.
 
-These boot a buildroot-based system on QEMU's virt board for me.
+This second version of the patch fixes a coding style issue found by
+Christoph Hellwig <hch@lst.de>.
 
-----------------------------------------------------------------
-Nick Hu (3):
-      kasan: No KASAN's memmove check if archs don't have it.
-      riscv: Add KASAN support
-      kasan: Add riscv to KASAN documentation.
+Reported-by: Andreas Schwab <schwab@suse.de>
+Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 
-Olof Johansson (1):
-      riscv: keep 32-bit kernel to 32-bit phys_addr_t
+:040000 040000 1a4ee20b3614c93de2a925bba2df6f2e1518f227
+6b4ffd3e1a2245912cf734a8a3f61db7eb0ccd67 M arch
 
-Yash Shah (1):
-      riscv: dts: Add DT support for SiFive FU540 GPIO driver
+> git bisect visualize
+eb93685 N 6 months ago Paul ..riscv: fix flush_tlb_range() end address
+for flush_tlb_page() HEAD, refs/bisect/bad
 
-Zong Li (1):
-      riscv: mm: add support for CONFIG_DEBUG_VIRTUAL
 
- Documentation/dev-tools/kasan.rst                  |   4 +-
- arch/riscv/Kconfig                                 |   4 +-
- arch/riscv/boot/dts/sifive/fu540-c000.dtsi         |  15 ++-
- .../riscv/boot/dts/sifive/hifive-unleashed-a00.dts |   4 +
- arch/riscv/include/asm/kasan.h                     |  27 ++++++
- arch/riscv/include/asm/page.h                      |  16 +++-
- arch/riscv/include/asm/pgtable-64.h                |   5 +
- arch/riscv/include/asm/string.h                    |   9 ++
- arch/riscv/kernel/head.S                           |   3 +
- arch/riscv/kernel/riscv_ksyms.c                    |   2 +
- arch/riscv/kernel/setup.c                          |   5 +
- arch/riscv/kernel/vmlinux.lds.S                    |   1 +
- arch/riscv/lib/memcpy.S                            |   5 +-
- arch/riscv/lib/memset.S                            |   5 +-
- arch/riscv/mm/Makefile                             |   8 ++
- arch/riscv/mm/kasan_init.c                         | 104 +++++++++++++++++++++
- arch/riscv/mm/physaddr.c                           |  37 ++++++++
- mm/kasan/common.c                                  |   2 +
- 18 files changed, 245 insertions(+), 11 deletions(-)
- create mode 100644 arch/riscv/include/asm/kasan.h
- create mode 100644 arch/riscv/mm/kasan_init.c
- create mode 100644 arch/riscv/mm/physaddr.c
+> git diff eb93685^!
+
+```diff
+diff --git a/arch/riscv/include/asm/tlbflush.h
+b/arch/riscv/include/asm/tlbflush.h
+index 687dd19..4d9bbe8 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -53,10 +53,17 @@ static inline void remote_sfence_vma(struct
+cpumask *cmask, unsigned long start,
+}
+
+#define flush_tlb_all() sbi_remote_sfence_vma(NULL, 0, -1)
+-#define flush_tlb_page(vma, addr) flush_tlb_range(vma, addr, 0)
++
+#define flush_tlb_range(vma, start, end) \
+remote_sfence_vma(mm_cpumask((vma)->vm_mm), start, (end) - (start))
+-#define flush_tlb_mm(mm) \
++
++static inline void flush_tlb_page(struct vm_area_struct *vma,
++ unsigned long addr)
++{
++ flush_tlb_range(vma, addr, addr + PAGE_SIZE);
++}
++
++#define flush_tlb_mm(mm) \
+remote_sfence_vma(mm_cpumask(mm), 0, -1)
+
+#endif /* CONFIG_SMP */
+```
+
+I was not able to revert this change from recent v5.5.0 so I don't
+know if this is the problem or some close commits:
+
+> git log 2b245b8b..2f478b60 |grep riscv
+2f478b6 N 6 months ago Linus..Merge tag 'riscv/for-v5.3-rc5' of
+git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux
+69703eb N 6 months ago Vince..riscv: Make __fstate_clean() work correctly.
+8ac71d7 N 6 months ago Vince..riscv: Correct the initialized flow of FP register
+eb93685 N 6 months ago Paul ..riscv: fix flush_tlb_range() end address
+for flush_tlb_page()
+
+Carlos
+-- 
+________________________________________
+Carlos Eduardo de Paula
+me@carlosedp.com
+http://carlosedp.com
+http://twitter.com/carlosedp
+Linkedin
+________________________________________
 
