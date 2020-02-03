@@ -1,88 +1,105 @@
 Return-Path: <SRS0=tMB7=3X=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
-X-Spam-Level: 
-X-Spam-Status: No, score=-0.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Level: *
+X-Spam-Status: No, score=1.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,URIBL_DBL_ABUSE_MALW autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EE3E1C33CAC
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2020 12:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E4594C35247
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2020 15:06:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C5B0F2084E
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2020 12:28:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B75152080C
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2020 15:06:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rz2D5YGD";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="jB9d7cw/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C5B0F2084E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jmWOmxwy";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=carlosedp-com.20150623.gappssmtp.com header.i=@carlosedp-com.20150623.gappssmtp.com header.b="urR6T8w2"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B75152080C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=carlosedp.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bps9/ugZnw/LOkhCjhjvZvxvS5kO2i7OXxXUPo/WJGE=; b=rz2D5YGDpKLVIE
-	BOmuQ0F3mu2e3ZvKQO+tcxpIwFnkYo/MLzOY7vf6Q3gjEIKRStSq1PU9ErzWB9QvAdVplOdJBTjBj
-	mG4yCMXQD3YKAfKxxxoDOfvQ8Ubx3iUrgmAZUgAVbSyvZUVvKX6trBPHogupK/HNPVZlkbSJeco0h
-	bjumlLiXI/qvabXgQ7EJsLQYJG0Vy1ffxE6X2HcBf9803YhVJ5ncnZMYAE8uVJJKk76r81VQACzB7
-	LdM+QjX7TU3sRjTrurQVkjhrQhW/DvUWj6yEUbJWiwIMhx34GXMUT8UNbn6RPJVNxUtDLKOA+ZLAW
-	DzVyYzrpNRE3V+feDtdg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=fua2L2gYtaeCa/r27isu8tZyemVSsa+CBo7k3aOse/k=; b=jmWOmxwyFaLEzUt3bOvvpdxDC
+	CmMnz9+YvR6Qk+r8TsdNKED/9b5z/a7EYV3sS5d37x88akeAAeYm+znK30CX4ep2KITSgfhDd0Mci
+	1GmoV+hgxo85ncO/8sOuUnyLbHjdMxCXTLdLXC+iOXXaNX0QhuvHz8l4+6WUS78mZON4nbMlAvgcJ
+	HDuo9p9avOmH0Nt3lwxhTX8voXzLRTxsQscUjKoMmgxP2hl/aipeWDU8GeEXTzfPzk9an3BBTj9fJ
+	f64Vy9Uk26K21XSGhYksFHUlX+aRcaBNs8GB/WkOROsdQfGweMZIe3r8L6V70YdepYgZYqPFdyFV/
+	MiWT18mhA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iyaqR-000787-Kt; Mon, 03 Feb 2020 12:28:51 +0000
-Received: from mail-qk1-x743.google.com ([2607:f8b0:4864:20::743])
+	id 1iydJ8-0001DS-Kf; Mon, 03 Feb 2020 15:06:38 +0000
+Received: from mail-ot1-x341.google.com ([2607:f8b0:4864:20::341])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iyaqO-00077f-CQ
- for linux-riscv@lists.infradead.org; Mon, 03 Feb 2020 12:28:49 +0000
-Received: by mail-qk1-x743.google.com with SMTP id q15so13996672qki.2
- for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2020 04:28:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ id 1iydJ5-0001Cj-TQ
+ for linux-riscv@lists.infradead.org; Mon, 03 Feb 2020 15:06:37 +0000
+Received: by mail-ot1-x341.google.com with SMTP id h9so13866505otj.11
+ for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2020 07:06:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=carlosedp-com.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=Bps9/ugZnw/LOkhCjhjvZvxvS5kO2i7OXxXUPo/WJGE=;
- b=jB9d7cw/PfiS8u8EbQs9pbNd5O2Hc7F0Au7RXWC+0X/zEoq8P5dW767fu/Sc/f/7Pg
- TiU8XRBuDYjCVjTZGWK5Swxp/mLNZj2/oaHXilAq2XR6lBRIOODl6O0rcsNhf0SQY8MI
- nz87gFswjm/HuWRFTDlNU5evHzM+3I19xI3EbPRaKCfgS3Jb3aYy00Hr8dLky8ttfHFg
- GXw5vY//jJdNKGf8EtGktjAegQM0PdkYkZgzkzTsVREXTq4NZzAGbrYvwjfmYWCmprYz
- I5pRwgT9sXGL9EBlBB4SXjWEM+Oenc+f/rLbVLh249ZtgwVBLieSDQ56YGIGAZ8OErYW
- bjuA==
+ :cc; bh=fua2L2gYtaeCa/r27isu8tZyemVSsa+CBo7k3aOse/k=;
+ b=urR6T8w2CNi1p6mWdfa/YVOpFJgSkVxsYhejrFCWNJHWymQ0bfdiH4uEE7SB2gnAtn
+ 15Yaf5ZeqGC1eld+XUO5JVfc+WCpeNjYI/ygw32J7DoqFh7eWAM2rmptQNoc4slgrxvJ
+ HYgNi38VDxfeXj8BsVLkhp8CTO7GiZ0GBgZgoEYqT6MajCMKJzCHSEKCcWFKMH8rJ4cx
+ E+ErdLF509unqjq9U1/a1agQGUlj/b+w9t3+0SOc+li6yxrmA22dNZ37sw9znxNYy652
+ JFoW40eGh+QwBzbjc3v3AXx4Ecp9EkRDx6capAp+hf0BFpNa0HjYtRZn+o7slTxwCd9Z
+ I/qA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=Bps9/ugZnw/LOkhCjhjvZvxvS5kO2i7OXxXUPo/WJGE=;
- b=FVfvtwbDdvRAOo2LMw0o+tfzGrZUHjE6v19sMHoxxCExgXEFbjbbJWxpt01kMlTAre
- s9UZUi+yjFBuh6fymAk20C/6YPRBlBXpx9blvvH6BPcOL89zC78oQfYmjjVQXZHwGTIU
- 0G4xZWzVakn9SC7tB1qGLI/34K/rInEcRJuSFGo5Yv4oGM/eQiLb5Y4c+s8gssSQNQFH
- CWwfqKwbzJMwHA067ilH4HoRaHcqSRK0VixBTPhRK2GYiCyI5WZ1lO7gmjvghW61XpWe
- HPE1HttMhsc3ERWTYCsA6wISk6n8PY1pwd/ZrDISQJRSx98cYRzzG/AJp3T01th0TvLy
- VmoA==
-X-Gm-Message-State: APjAAAWJ9Lekxwgm7SsQFNLr5x8/m9zSTsrxWSu9/oe7CgKOtpWzO1vH
- niKMb34IVNXZ1TgoiiPvqfq6ceCn6XJ4BI/znBo=
-X-Google-Smtp-Source: APXvYqzFTVokDAvj4jM1EbkUWGFzCx3Rgz95Htz+3sKmmtcmARXUP7r9f9Tq9n+1DpqFFfKtylDEQ3g+9C6ZwMhwMic=
-X-Received: by 2002:a37:8046:: with SMTP id b67mr23085188qkd.218.1580732927145; 
- Mon, 03 Feb 2020 04:28:47 -0800 (PST)
+ :message-id:subject:to:cc;
+ bh=fua2L2gYtaeCa/r27isu8tZyemVSsa+CBo7k3aOse/k=;
+ b=VW1Ls8Uff315+qZRyi2mVegoRiCU+OBEI9JT2HRCQQ72/cpyqc6oOh6UxkFIjDSHX4
+ 5d7tCOKztou4Md6XDcutkEUUS71+zAeymIosXxay6aRN83sS5mVKEyvufKhSXVIRoxl8
+ zcoe86B/3bm9UhizXpBVjgh7CM4NkwKGl1YeNianu2KepCo7/rr5i4C50OY3+eMRsTG/
+ /Skxa98efD18D6ne4imxYb9Yzl+hbgcJbx5AFhXnwGWn98rqwD44NIPBJXK0+LBJOlz+
+ 4ijYCivMQixgRj1kZmoioLUCMwN1XJ6d6HFj34J/Q6GG00pWmGkcKIuZ+MvA6PpjnRF1
+ uGSw==
+X-Gm-Message-State: APjAAAUhG2znFlnEMj+V5GK3wYslDLiol3pFJSNVe68Cb6H/IRsMSGFz
+ kIRtLDl830kB2NS91Kg7VFFy6vLNcHnYmg==
+X-Google-Smtp-Source: APXvYqxOCPHinAPj1RqshqjtfGDp+UNNWy7OuNWgqsxaKDggj9thHYZvogBmicAUgwJGYE2t+ufWIQ==
+X-Received: by 2002:a9d:588d:: with SMTP id x13mr17315308otg.6.1580742392748; 
+ Mon, 03 Feb 2020 07:06:32 -0800 (PST)
+Received: from mail-ot1-f43.google.com (mail-ot1-f43.google.com.
+ [209.85.210.43])
+ by smtp.gmail.com with ESMTPSA id t203sm5701717oig.39.2020.02.03.07.06.31
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Mon, 03 Feb 2020 07:06:31 -0800 (PST)
+Received: by mail-ot1-f43.google.com with SMTP id i6so13904914otr.7
+ for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2020 07:06:31 -0800 (PST)
+X-Received: by 2002:a05:6830:1498:: with SMTP id
+ s24mr19354384otq.79.1580742391135; 
+ Mon, 03 Feb 2020 07:06:31 -0800 (PST)
 MIME-Version: 1.0
-References: <20191216091343.23260-1-bjorn.topel@gmail.com>
- <20191216091343.23260-7-bjorn.topel@gmail.com>
- <3f6d3495-efdf-e663-2a84-303fde947a1d@ghiti.fr>
-In-Reply-To: <3f6d3495-efdf-e663-2a84-303fde947a1d@ghiti.fr>
-From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
-Date: Mon, 3 Feb 2020 13:28:35 +0100
-Message-ID: <CAJ+HfNgOrx1D-tSxXsoZsMxZtHX-Ksdeg8bZFFPRPGChup4oFg@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 6/9] riscv, bpf: provide RISC-V specific JIT
- image alloc/free
-To: Alex Ghiti <alex@ghiti.fr>
+References: <CADnnUqfDnkvCJVqBkDw+gV7_zs5Q_Mb3anQTu+UujjJ8bBk+ng@mail.gmail.com>
+ <CAEn-LTrSXHdfp9OPGRSoJCfi8D8Cg8FqS=_-JYpDatAT0X5C0w@mail.gmail.com>
+ <CADnnUqciAtweH6KqxvK7Z5ZL-uqOQHujWQBrt+aj2y+31BpuHQ@mail.gmail.com>
+ <CADnnUqe1GrqJ5EUQQoPp063bs9SqQkHUSqK_hcWqpkJQcxySTg@mail.gmail.com>
+ <CAOnJCULxNeuS3v1UEFAC_uG4heQfR3QCK-STv48LCK1pbH-18A@mail.gmail.com>
+ <94ee0543-e0e6-2be4-9168-e0c8a55ca92a@williamgrant.id.au>
+ <CADnnUqduWL2gMBASF=8OX8huALW9Z2tWz73kcjDK5GL+xHtsbw@mail.gmail.com>
+ <40bc5468-21e8-f6ac-fcb6-eff2efa7fd13@williamgrant.id.au>
+ <CAOnJCUKTDTjB8rAov8XLkfT+PAymstcy6y4A75ijRstK6y202A@mail.gmail.com>
+In-Reply-To: <CAOnJCUKTDTjB8rAov8XLkfT+PAymstcy6y4A75ijRstK6y202A@mail.gmail.com>
+From: Carlos Eduardo de Paula <me@carlosedp.com>
+Date: Mon, 3 Feb 2020 12:06:19 -0300
+X-Gmail-Original-Message-ID: <CADnnUqfJ=YvFSkpsCMDd9owAE_Pwxkn=mzJ8S2YvYqRff60xxA@mail.gmail.com>
+Message-ID: <CADnnUqfJ=YvFSkpsCMDd9owAE_Pwxkn=mzJ8S2YvYqRff60xxA@mail.gmail.com>
+Subject: Re: Errors and segmentation fault while building Golang on Kernel
+ after v5.4-rc3
+To: Atish Patra <atishp@atishpatra.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200203_042848_422481_6065EB15 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20200203_070635_996877_663F0C1E 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,37 +111,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Daniel Borkmann <daniel@iogearbox.net>, Netdev <netdev@vger.kernel.org>,
- Alexei Starovoitov <ast@kernel.org>, vincent.chen@sifive.com,
- Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
- bpf <bpf@vger.kernel.org>
+Cc: David Abdurachmanov <david.abdurachmanov@gmail.com>,
+ David Abdurachmanov <david.abdurachmanov@sifive.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ William Grant <me@williamgrant.id.au>, Joel Sing <joel@sing.id.au>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 2 Feb 2020 at 14:37, Alex Ghiti <alex@ghiti.fr> wrote:
+On Sun, Feb 2, 2020 at 9:30 AM Atish Patra <atishp@atishpatra.org> wrote:
 >
-[...]
+> On Sat, Feb 1, 2020 at 3:37 PM William Grant <me@williamgrant.id.au> wrote:
+> >
+> > On 2/2/20 5:58 am, Carlos Eduardo de Paula wrote:
+> > > Hi Atish, I've added that patch to latest OpenSBI from master, dd'ed
+> > > it to my mmcblk0p3 partition but still got problems building Golang
+> > > using kernel v5.5.
+> > >
+> > > [... snip ...]
+> > >
+> > > Did it worked for you William?
+> > >
+> > > Carlos
+> >
+> > Ah, sorry, I didn't actually test Atish's patch. It's not quite right,
+> > since .tlb_range_flush_limit = 0 implies the default is used. I think
+> > setting it to 1 should work,
 >
-> I think it would be better to completely avoid this patch and the
-> definition of this
-> new zone by using the generic implementation if we had the patch
-> discussed here
-> regarding modules memory allocation (that in any case we need to fix
-> modules loading):
+> My bad. That's what happens when you are jet lagged and sent a patch
+> at 5AM without testing :(.
+> Ideally, it should be set to zero. I have fixed the issue in platform
+> header and sent a patch series.
 >
-> https://lore.kernel.org/linux-riscv/d868acf5-7242-93dc-0051-f97e64dc4387@=
-ghiti.fr/T/#m2be30cb71dc9aa834a50d346961acee26158a238
+> http://lists.infradead.org/pipermail/opensbi/2020-February/001060.html
 >
-
-This patch is already upstream. I agree that when the module
-allocation fix is upstream, the BPF image allocation can be folded
-into the module allocation. IOW, I wont send any page table dumper
-patch for BPF memory.
-
-But keep in mind that the RV BPF JIT relies on having the kernel text
-within the 32b range (as does modules)
+> --
+> Regards,
+> Atish
 
 
-Cheers,
-Bj=C3=B6rn
+No worries Atish :)
+
+I've changed the parameter to "1" and confirm that it works.
+
+Built and tested Golang on v5.5.
+Carlos
 
