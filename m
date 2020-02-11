@@ -1,91 +1,74 @@
-Return-Path: <SRS0=tGDq=36=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=dIuf=37=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7D052C35254
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2020 17:59:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D5588C352A5
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2020 02:26:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4EAEF20715
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2020 17:59:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AA6C220714
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2020 02:26:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WLLSEZy7";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="tHwli6sF"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4EAEF20715
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="T7DwndTj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AA6C220714
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:In-Reply-To
-	:Subject:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=pCOOvs7wgP9Kvj4DJOrAWEYZ2o8fXqpYVG+BiTgHmVc=; b=WLLSEZy7iYDUk6
-	Jo3YWoywqoSp7D/N3952ors88B98deL/y5ZiDoGIBgHPkPQrvIR4Nlqo1aXX3OkDgrEORxMhJu4YS
-	FDWAoH82Pv2v6flddNv6mozYbyMPZh1csduA6HyLA2/lM1Z5CVYDVf93RcryOnuDwv6R2dn7rc0/E
-	qWLI1HmGzbDkXBi8+Zpwl1mGvvXcfbGY2KX+O9X2QOlRY4Fkn16fNlVtzxePF6u0MIGkoYwRvBS3n
-	zxmu2Kad/0EGv1Q4IDM8f9bOoT/pbM6CwQ+6NV7Rbg0NqXqQQqjeHRQLC4qcuTKe8dOPvWW56vHrs
-	2/KWgPSFmxa7RXDXsLrA==;
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WLq4UlIuZ4TU8jzuDj92taWWCALVupc7hYWK8++iDpY=; b=T7DwndTjqEDbw2
+	0NqhnHdFXa1ehwWhKxzZH/uQNjRYDw47cKCbmzCqQUSwNSFnQuQG0Etm7qfajyDPpiIocrRUkLAm6
+	S9k4TaPXc9gX8/DyctdTp9fErVPE7YK4lGyrcALbh/BAw0nTHBLnT7ARNFCIx19voeRSW0PuhmsCu
+	yFTMuFXGRT5gwUTmzenNO6rw8PHN12qRifiLlfL/MlcaYW42/m5igVdTMW2occc+PJqiRIxx31tl6
+	RUlo5AG9GyYoKXwz5jprZNEj4cQ16l20BJgZolXBw3IUP452ITUZ1L/f0LS4abhtsA1w8uhNoA5pY
+	+/56jXRaGxo7Taa/zC8g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j1DLM-0001Xh-O4; Mon, 10 Feb 2020 17:59:36 +0000
-Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
- by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j1DLK-0001W7-Kz
- for linux-riscv@lists.infradead.org; Mon, 10 Feb 2020 17:59:35 +0000
-Received: by mail-pj1-x1044.google.com with SMTP id e9so66603pjr.4
- for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2020 09:59:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:from:subject:in-reply-to:cc:to:message-id:mime-version
- :content-transfer-encoding;
- bh=pCOOvs7wgP9Kvj4DJOrAWEYZ2o8fXqpYVG+BiTgHmVc=;
- b=tHwli6sFHuojuCLon0/ryBewWROo+uN/yAbgmkGqIZJwRPwdmOdkYmng+ZvxsWshbl
- l6w0lKjgiDnA/24zxy5knJ7PId2iOUUUUEmLt0CbOBZ2/wuBqK/KLXjqgbQavyCPNoKL
- VkBPLORv4g4y6amBeTKwSxSkgTLGMS5gfvwcIH1PD0nVXmVg2CP/y3EpeMzGpv8nKjDA
- AIYFitsGZqHcHUQtcAjGvONsQu04Fre4sYAZQTK3B+h95lcT0GJSBrSxv+0thd/OKw7+
- xDnKk4C0Msz914E775JW3VP4y2f3cWfZgMUyWySGjAcY+NWRNiN7yBxVNxasWwN0sK2D
- RYYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:subject:in-reply-to:cc:to:message-id
- :mime-version:content-transfer-encoding;
- bh=pCOOvs7wgP9Kvj4DJOrAWEYZ2o8fXqpYVG+BiTgHmVc=;
- b=dYQIZdaldZNkQFEbKLWXrih9JQi87gTywPCazhRsmwc0to5OPeOpT49s6iw3ckNaP7
- Si/ZpvlFB1EokJGtsD9x+weVPkzmXxJl9+Lbt7wyJFAPY2pAf/FvdMu4KZ215dF5cpLD
- kBXIB449xTVeCRYFk/U8lbc/Q10YwhgH+hqvyMzp9w3AuORfr/H2BAYijR27Vm1lwcw/
- eqL/KgBqBZ6Q4kofWlzY8VuKyhmURbda3PMS8pxYOpwqd5BQ+3m+H1lRsTpxswOHaRV3
- xquIEX5PzkaBHeVOjOhxXWI8TX6X7EY7xBCa3eKpLOY0QX8KZxmeOESoJ9DNYO/G8uda
- vYKw==
-X-Gm-Message-State: APjAAAUT/SoRk5OwZ+5TFzw6KAbzBd+E/5qbaLiY8jvyGWFhSWSn6Srt
- jZBii4QNoXMd2GNwpUW9GfymaQ==
-X-Google-Smtp-Source: APXvYqxAGmn4pRH4Znxw5xSkc/iSQ1uQ/8XO5AmkDzcftwKPqsBPYgIQRIhjSDhHSj++pUTaroWIGw==
-X-Received: by 2002:a17:90a:fb45:: with SMTP id
- iq5mr237107pjb.93.1581357570204; 
- Mon, 10 Feb 2020 09:59:30 -0800 (PST)
-Received: from localhost (pat_11.qualcomm.com. [192.35.156.11])
- by smtp.gmail.com with ESMTPSA id g13sm979000pfo.169.2020.02.10.09.59.28
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 10 Feb 2020 09:59:28 -0800 (PST)
-Date: Mon, 10 Feb 2020 09:59:28 -0800 (PST)
-X-Google-Original-Date: Mon, 10 Feb 2020 06:57:59 PST (-0800)
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-X-Google-Original-From: Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH] gpio/sifive: fix static checker warning
-In-Reply-To: <1580189061-14091-1-git-send-email-yash.shah@sifive.com>
-To: yash.shah@sifive.com
-Message-ID: <mhng-5d97135c-42fa-437e-93e4-339b97d0123b@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
+	id 1j1LFR-00062i-3o; Tue, 11 Feb 2020 02:26:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1j1LFM-00061n-T5; Tue, 11 Feb 2020 02:25:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1FA6531B;
+ Mon, 10 Feb 2020 18:25:54 -0800 (PST)
+Received: from [10.162.16.95] (p8cg001049571a15.blr.arm.com [10.162.16.95])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EAA353F6CF;
+ Mon, 10 Feb 2020 18:25:37 -0800 (PST)
+Subject: Re: [PATCH V13] mm/debug: Add tests validating architecture page
+ table helpers
+To: Russell King - ARM Linux admin <linux@armlinux.org.uk>,
+ Christophe Leroy <christophe.leroy@c-s.fr>
+References: <1580897674-16456-1-git-send-email-anshuman.khandual@arm.com>
+ <202002060619.wEOdAZU1%lkp@intel.com>
+ <78d3ce6b-e100-2561-6b09-124c29731d1a@arm.com>
+ <20200209205231.44d098f8749e88190b8ba10c@linux-foundation.org>
+ <955229f7-f161-f720-0e75-a3163f63817d@arm.com>
+ <aef1048f-68c4-d14f-e669-8f288ba9ac7a@c-s.fr>
+ <20200210100200.GB25745@shell.armlinux.org.uk>
+ <7cb3a5bb-eaea-a01c-4047-e3c000b7ad1d@c-s.fr>
+ <20200210110639.GC25745@shell.armlinux.org.uk>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+Message-ID: <82317d50-57a2-ce84-7557-21635d57448e@arm.com>
+Date: Tue, 11 Feb 2020 07:55:41 +0530
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.9.1
+MIME-Version: 1.0
+In-Reply-To: <20200210110639.GC25745@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=utf-8
+Content-Language: en-US
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200210_095934_711480_8FD877DA 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20200210_182557_028265_D1F1F2AD 
+X-CRM114-Status: GOOD (  25.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,66 +80,168 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Zyngier <maz@kernel.org>, Atish Patra <Atish.Patra@wdc.com>,
- wesley@sifive.com, linus.walleij@linaro.org, linux-kernel@vger.kernel.org,
- bgolaszewski@baylibre.com, yash.shah@sifive.com, sachin.ghadi@sifive.com,
- linux-gpio@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, uclinux-h8-devel@lists.sourceforge.jp,
+ linux-m68k@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-sh@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
+ James Hogan <jhogan@kernel.org>,
+ Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, Michal Hocko <mhocko@kernel.org>,
+ linux-mm@kvack.org, Dave Hansen <dave.hansen@intel.com>,
+ Paul Mackerras <paulus@samba.org>, sparclinux@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Thomas Gleixner <tglx@linutronix.de>, linux-s390@vger.kernel.org,
+ kbuild test robot <lkp@intel.com>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ x86@kernel.org, Matthew Wilcox <willy@infradead.org>,
+ Steven Price <Steven.Price@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Gerald Schaefer <gerald.schaefer@de.ibm.com>, Mark Salter <msalter@redhat.com>,
+ Matt Turner <mattst88@gmail.com>, linux-snps-arc@lists.infradead.org,
+ Ingo Molnar <mingo@kernel.org>, linux-xtensa@linux-xtensa.org,
+ Kees Cook <keescook@chromium.org>,
+ Masahiro Yamada <yamada.masahiro@socionext.com>, linux-alpha@vger.kernel.org,
+ Aurelien Jacquiot <jacquiot.aurelien@gmail.com>, linux-c6x-dev@linux-c6x.org,
+ Mark Brown <broonie@kernel.org>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A . Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, Guan Xuetao <gxt@pku.edu.cn>,
+ Vlastimil Babka <vbabka@suse.cz>, Richard Henderson <rth@twiddle.net>,
+ linux-arm-kernel@lists.infradead.org, Chris Zankel <chris@zankel.net>,
+ Michal Simek <monstr@monstr.eu>, kbuild-all@lists.01.org,
+ Brian Cain <bcain@codeaurora.org>, Ard Biesheuvel <ard.biesheuvel@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-mips@vger.kernel.org,
+ Ralf Baechle <ralf@linux-mips.org>, linux-kernel@vger.kernel.org,
+ Paul Burton <paul.burton@mips.com>, Mike Rapoport <rppt@linux.vnet.ibm.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Vineet Gupta <vgupta@synopsys.com>,
+ Martin Schwidefsky <schwidefsky@de.ibm.com>, Qian Cai <cai@lca.pw>,
+ Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org,
+ "David S. Miller" <davem@davemloft.net>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Jan 2020 21:24:21 PST (-0800), yash.shah@sifive.com wrote:
-> Typcasting "irq_state" leads to the below static checker warning:
-> The fix is to declare "irq_state" as unsigned long instead of u32.
->
-> 	drivers/gpio/gpio-sifive.c:97 sifive_gpio_irq_enable()
-> 	warn: passing casted pointer '&chip->irq_state' to
-> 	'assign_bit()' 32 vs 64.
->
-> Fixes: 96868dce644d ("gpio/sifive: Add GPIO driver for SiFive SoCs")
-> Reported-by: Dan Carpenter <dan.carpenter@oracle.com>
-> Signed-off-by: Yash Shah <yash.shah@sifive.com>
-> ---
->  drivers/gpio/gpio-sifive.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/gpio/gpio-sifive.c b/drivers/gpio/gpio-sifive.c
-> index 147a1bd..c54dd08 100644
-> --- a/drivers/gpio/gpio-sifive.c
-> +++ b/drivers/gpio/gpio-sifive.c
-> @@ -35,7 +35,7 @@ struct sifive_gpio {
->  	void __iomem		*base;
->  	struct gpio_chip	gc;
->  	struct regmap		*regs;
-> -	u32			irq_state;
-> +	unsigned long		irq_state;
->  	unsigned int		trigger[SIFIVE_GPIO_MAX];
->  	unsigned int		irq_parent[SIFIVE_GPIO_MAX];
->  };
-> @@ -94,7 +94,7 @@ static void sifive_gpio_irq_enable(struct irq_data *d)
->  	spin_unlock_irqrestore(&gc->bgpio_lock, flags);
->
->  	/* Enable interrupts */
-> -	assign_bit(offset, (unsigned long *)&chip->irq_state, 1);
-> +	assign_bit(offset, &chip->irq_state, 1);
->  	sifive_gpio_set_ie(chip, offset);
->  }
->
-> @@ -104,7 +104,7 @@ static void sifive_gpio_irq_disable(struct irq_data *d)
->  	struct sifive_gpio *chip = gpiochip_get_data(gc);
->  	int offset = irqd_to_hwirq(d) % SIFIVE_GPIO_MAX;
->
-> -	assign_bit(offset, (unsigned long *)&chip->irq_state, 0);
-> +	assign_bit(offset, &chip->irq_state, 0);
->  	sifive_gpio_set_ie(chip, offset);
->  	irq_chip_disable_parent(d);
->  }
 
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
-I'm assuming this is going to go in via some other tree (as I don't even have
-gpio-sifive.c yet), but LMK if you want it via the RISC-V tree.
+On 02/10/2020 04:36 PM, Russell King - ARM Linux admin wrote:
+> On Mon, Feb 10, 2020 at 11:46:23AM +0100, Christophe Leroy wrote:
+>>
+>>
+>> Le 10/02/2020 à 11:02, Russell King - ARM Linux admin a écrit :
+>>> On Mon, Feb 10, 2020 at 07:38:38AM +0100, Christophe Leroy wrote:
+>>>>
+>>>>
+>>>> Le 10/02/2020 à 06:35, Anshuman Khandual a écrit :
+>>>>>
+>>>>>
+>>>>> On 02/10/2020 10:22 AM, Andrew Morton wrote:
+>>>>>> On Thu, 6 Feb 2020 13:49:35 +0530 Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+>>>>>>
+>>>>>>>
+>>>>>>> On 02/06/2020 04:40 AM, kbuild test robot wrote:
+>>>>>>>> Hi Anshuman,
+>>>>>>>>
+>>>>>>>> Thank you for the patch! Yet something to improve:
+>>>>>>>>
+>>>>>>>> [auto build test ERROR on powerpc/next]
+>>>>>>>> [also build test ERROR on s390/features linus/master arc/for-next v5.5]
+>>>>>>>> [cannot apply to mmotm/master tip/x86/core arm64/for-next/core next-20200205]
+>>>>>>>> [if your patch is applied to the wrong git tree, please drop us a note to help
+>>>>>>>> improve the system. BTW, we also suggest to use '--base' option to specify the
+>>>>>>>> base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
+>>>>>>>>
+>>>>>>>> url:    https://github.com/0day-ci/linux/commits/Anshuman-Khandual/mm-debug-Add-tests-validating-architecture-page-table-helpers/20200205-215507
+>>>>>>>> base:   https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git next
+>>>>>>>> config: ia64-allmodconfig (attached as .config)
+>>>>>>>> compiler: ia64-linux-gcc (GCC) 7.5.0
+>>>>>>>> reproduce:
+>>>>>>>>           wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>>>>>>>>           chmod +x ~/bin/make.cross
+>>>>>>>>           # save the attached .config to linux build tree
+>>>>>>>>           GCC_VERSION=7.5.0 make.cross ARCH=ia64
+>>>>>>>>
+>>>>>>>> If you fix the issue, kindly add following tag
+>>>>>>>> Reported-by: kbuild test robot <lkp@intel.com>
+>>>>>>>>
+>>>>>>>> All error/warnings (new ones prefixed by >>):
+>>>>>>>>
+>>>>>>>>      In file included from include/asm-generic/pgtable-nopud.h:8:0,
+>>>>>>>>                       from arch/ia64/include/asm/pgtable.h:586,
+>>>>>>>>                       from include/linux/mm.h:99,
+>>>>>>>>                       from include/linux/highmem.h:8,
+>>>>>>>>                       from mm/debug_vm_pgtable.c:14:
+>>>>>>>>      mm/debug_vm_pgtable.c: In function 'pud_clear_tests':
+>>>>>>>>>> include/asm-generic/pgtable-nop4d-hack.h:47:32: error: implicit declaration of function '__pgd'; did you mean '__p4d'? [-Werror=implicit-function-declaration]
+>>>>>>>>       #define __pud(x)    ((pud_t) { __pgd(x) })
+>>>>>>>>                                      ^
+>>>>>>>>>> mm/debug_vm_pgtable.c:141:8: note: in expansion of macro '__pud'
+>>>>>>>>        pud = __pud(pud_val(pud) | RANDOM_ORVALUE);
+>>>>>>>>              ^~~~~
+>>>>>>>>>> include/asm-generic/pgtable-nop4d-hack.h:47:22: warning: missing braces around initializer [-Wmissing-braces]
+>>>>>>>>       #define __pud(x)    ((pud_t) { __pgd(x) })
+>>>>>>>>                            ^
+>>>>>>>>>> mm/debug_vm_pgtable.c:141:8: note: in expansion of macro '__pud'
+>>>>>>>>        pud = __pud(pud_val(pud) | RANDOM_ORVALUE);
+>>>>>>>>              ^~~~~
+>>>>>>>>      cc1: some warnings being treated as errors
+>>>>>>>
+>>>>>>> This build failure is expected now given that we have allowed DEBUG_VM_PGTABLE
+>>>>>>> with EXPERT without platform requiring ARCH_HAS_DEBUG_VM_PGTABLE. This problem
+>>>>>>> i.e build failure caused without a platform __pgd(), is known to exist both on
+>>>>>>> ia64 and arm (32bit) platforms. Please refer https://lkml.org/lkml/2019/9/24/314
+>>>>>>> for details where this was discussed earlier.
+>>>>>>>
+>>>>>>
+>>>>>> I'd prefer not to merge a patch which is known to cause build
+>>>>>> regressions.  Is there some temporary thing we can do to prevent these
+>>>>>> errors until arch maintainers(?) get around to implementing the
+>>>>>> long-term fixes?
+>>>>>
+>>>>> We could explicitly disable CONFIG_DEBUG_VM_PGTABLE on ia64 and arm platforms
+>>>>> which will ensure that others can still use the EXPERT path.
+>>>>>
+>>>>> config DEBUG_VM_PGTABLE
+>>>>> 	bool "Debug arch page table for semantics compliance"
+>>>>> 	depends on MMU
+>>>>> 	depends on !(IA64 || ARM)
+>>>>> 	depends on ARCH_HAS_DEBUG_VM_PGTABLE || EXPERT
+>>>>> 	default n if !ARCH_HAS_DEBUG_VM_PGTABLE
+>>>>> 	default y if DEBUG_VM
+>>>>>
+>>>>
+>>>> On both ia32 and arm, the fix is trivial.
+>>>>
+>>>> Can we include the fix within this patch, just the same way as the
+>>>> mm_p4d_folded() fix for x86 ?
+>>>
+>>> Why should arm include a macro for something that nothing (apart from
+>>> this checker) requires?  If the checker requires it but the rest of
+>>> the kernel does not, it suggests that the checker isn't actually
+>>> correct, and the results can't be relied upon.
+>>>
+>>
+>> As far as I can see, the problem is that arm opencodes part of the API
+>> instead of including asm-generic/pgtable-nopmd.h
+>>
+>> Here, the ARM has 2 levels, ie only PGD and PTE. But instead of defining
+>> __pgd and __pte and getting everything else from asm-generic, it defines a
+>> __pmd then redefines the folded levels like the pud, etc ...
+>>
+>> That's exactly what the checker aims at detecting: architectures than do not
+>> properly use the standard linux page table structures.
+> 
+> There are good reasons for the way ARM does stuff.  The generic crap was
+> written without regard for the circumstances that ARM has, and thus is
+> entirely unsuitable for 32-bit ARM.
 
-Thanks!
+Since we dont have an agreement here, lets just settle with disabling the
+test for now on platforms where the build fails. CONFIG_EXPERT is enabling
+this test for better adaptability and coverage, hence how about re framing
+the config like this ? This at the least conveys the fact that EXPERT only
+works when platform is neither IA64 or ARM.
+
+config DEBUG_VM_PGTABLE
+	bool "Debug arch page table for semantics compliance"
+	depends on MMU
+	depends on ARCH_HAS_DEBUG_VM_PGTABLE || (EXPERT &&  !(IA64 || ARM))
+	default n if !ARCH_HAS_DEBUG_VM_PGTABLE
+	default y if DEBUG_VM
 
