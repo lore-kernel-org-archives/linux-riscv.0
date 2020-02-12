@@ -4,20 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AB1B0C35242
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 01:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3DA6BC352A3
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 01:52:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 72D5020842
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 01:52:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1333120848
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 01:52:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SmAPyQ9e";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="jnM8Wf2x"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 72D5020842
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XioNVDHY";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="E28ovyvk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1333120848
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,70 +26,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O+c9WUtL6/Lnv35RbuPb68w31uHNCt8mbEATKbG+Chg=; b=SmAPyQ9eWAkkxt
-	bYmYc0cAgqLDK5JsHknjiRrGweOoWWgajvAv/3RUcKLviyan1phwXWRc5yHyOM08RXgxeuOm2QvNs
-	t8EhNEP+nWANwO2NlOFttcjYO48hVmlLTwSP0PLrIl4GRc/ZiiLWvBLnBdGjz7EsBHgnNANPcSPaU
-	QdmtH4Cuuaa/YaGm8TyeaOWHOq8xoPMum8XEpqTgZciG9HMtqwcD/mYljmF+VZugvOcJorw1Jq3AU
-	SLWgBBxwpOKIOXNnLFbgOHfJO2Hg70cDJXAgU/Dh7tlwkS1YzVeOIWWwSFKegaRWFAI8PNCMGW9tE
-	ZrO3rgTDdQC1Xzr5ESBg==;
+	List-Owner; bh=MxCh/FtZwJCnWho+0XKg48VZXKb3jpF+eSXQMmk+U70=; b=XioNVDHY5YMptW
+	x9myS7ogoGWwMO+64nze4KmR/JKPMAJP5488OcVTFxMTTaQ0SwWSMcA/1ZrnMWzQ+LL7eqVOfaA5G
+	7+jNDpTrPa06cnmaTTs8UjhqwIuyvlkRwSMSPXXwpu800rjZfJwLcFXnSbW8bnt2HJg1dlPAQE0NT
+	UAxqvyUKiUYrVa5zCkgZu5QpHhh/tRlr05p7DSSyqT1lNTRQIBc7Ot+cAPxWGEIEFl9jIjFfMIzun
+	ZVftHovWcO/nBRTGvofU2qW7nECdvcYzpeHTRY/fQD8ufQMQzE5ov7ZJwXd59HMGaWyWjsTwZYiVk
+	FA9BFqgAUFloFEVX5fBQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j1hCR-0006KF-LP; Wed, 12 Feb 2020 01:52:23 +0000
+	id 1j1hCW-0006SN-O1; Wed, 12 Feb 2020 01:52:28 +0000
 Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j1hC3-0005mO-IE
- for linux-riscv@lists.infradead.org; Wed, 12 Feb 2020 01:52:03 +0000
+ id 1j1hC7-0005mO-PA
+ for linux-riscv@lists.infradead.org; Wed, 12 Feb 2020 01:52:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1581472319; x=1613008319;
+ t=1581472323; x=1613008323;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=UorqLKP57b6PMCT+1VL4L6XYE1Vd36TEURwukvr+gSY=;
- b=jnM8Wf2xlfN/vvKLknOWJKjqzKgxnPpcJTucoZdVopx/lT/zF2HnpOEb
- XJAD0nKEWEOnH4Ry7Vxx+Rg5qxn+U8l9F/G0FWmXfsPcTp0wKAidKy3mf
- Lxcj+SqbZsoIcZYzU0hZdfg1A1dZ6dq/MqG+fu/6XGCLO3yJ6fQ5L3i4S
- +HNiaNV8NZ/ZFqJhZebevahWs82SNpjlllrz4dUH9lLqPigTZoCrBJCM4
- tnsaR53epcPp4N9jIo0PudhDj3k4q+AclcsDC0f1JagGOSAwkSY8ENbgM
- YA/WRrRbnZmSmrwCXXi8VRxIu87jZBp2GqdRokDwAUsIGQ8J+Tv8QvoAT g==;
-IronPort-SDR: 18YDgViW5Z7si7fxHAj1l3KIeFFffXWQbqmupI/UQLUAefI4hYt7d1aYDhqj3/Rw6XHk4JIB2x
- 6wpO08cyLn52zyWw4H6PHMgRKGVtyHSc+jWFUwwnfuWkYPFadyhUlpSEXE5fZjS8QqlM0LMGoh
- ueAqqI/xMiGRiibwE8VVnVI1gJyIm9E8ETqMosMA/t4LTlXmAziF2fLJlJkE1A+bOoMT6Zn0KP
- ZqpWKhlXfvE8xRr4VityMjVOzjvf1k2CSTynnXkG6tJa2ZPuNpcPfMUTMfwjRt7HxLQkyhzDFK
- YUQ=
-X-IronPort-AV: E=Sophos;i="5.70,428,1574092800"; d="scan'208";a="237648930"
+ bh=HvujFwzpw9mkwEK+Mb1EePlXzqe88waJ7+oOaZrzSZk=;
+ b=E28ovyvk518w/5wF3wbZX1eobdOTtBnJBbOhcOP/J5XqTPOow2Chykvi
+ rZwLxHiydejYqK/rhGSqOXe17iLpWTCyZ/7okdX7IKZfEUvGLyMs/Uq31
+ Bb90RzJRz0E8Z75h5MjV4j7BGREWVTsBGindMa1OTMp5ofC4BK5uio+No
+ c8bCgpgy3peDwFodm1J/YYHexjZfDtbRYUi4RaIoTvCfo8AKKvzuiROhS
+ AD0JCL5/xWEKL5OgnVuPacpb9BCnBAJvb+Uktgy3+VCRANx4/YFJytIoo
+ LReHDwcLHywiMl427v4JoU+LanxnqsJoaxIHwjHGDtYFtG7DbJPD8I2ia w==;
+IronPort-SDR: POKlgQjycF0+SKrffIFLqbpYguHuHfzHJCokxbsqbBO9HX4HSAQ3xMH87gxHyrOcoEU2YKaK/L
+ jHDBSIbFPWkarvu/HiIfWtAyHHTQXnAsETrg5oacUqRXgVGOtHGYcpOIDeprAyCROxBun8AwlD
+ lmhnCwWDZbECl+K4Ekjvnq4i9tMoZVN+iASse72RTZeNYUsXafcX2NqLxbJ1b171XEbdnlwTkj
+ bXHXIpsOygsYA1wI3LYSwwUGPxJ52nZGt+7INPPp6e3fNT0NXTUG71hkT871oAeHE/BSNWmcam
+ wkc=
+X-IronPort-AV: E=Sophos;i="5.70,428,1574092800"; d="scan'208";a="237648942"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2020 09:51:53 +0800
-IronPort-SDR: N+D/HCrr8K66hoHjfoWw4chWLyM6kgC+KhSxl7nAgNpvW2UozNljIJUPIObeO3QMFk2naKswYa
- dSd60ROUMZhpvajD6yNQCmD+yPu8HGMLy3TzoBrQMqcRR79OZEzPiG+Y5ZNdXeoiU7Bk55zF4h
- YrJq8PZH3b2a3ICkeQdlQrPTGqavRF2QXC8F20T0qCQDVX5X8h4IS77ZFpN0jutd+stiDYvGvq
- RFIQTM8JA9BTD+t4J8B/OU/tHOEibDFSbRd2pMju8o2tIG0Rh9dtOALgVsVDXB7qs48FZNZirt
- RZdFNpHRbyeQbuWOKzSHWuu2
+ by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2020 09:51:54 +0800
+IronPort-SDR: 5TMonbGTvwseRKDWFqn1ULL5eMP3O0hf9ViT4PyjB1VcJrAqN/q4MrBXE1BtYhBPGO6bdN4jMr
+ GNmZibZvy1MwK6dklvsnyzkppJTs8Ef9IZNN9F773T2HKkyTbyT34D6ESfC3dvk8ANnYaHf/gp
+ KD2iPzAdDtZnyBMZG9SIrcc+955bJs4xaiVgXaGJXAKpLu52zG68n/EPIOj7oDNwD6nvnkj7To
+ 3SS+YNKnvdAuYAKqrj50R+ofMXIuuBygqRxbhGTcFZ3j72hTM/p7TeAeGV4PR5Es+py+SBQ9D/
+ 2mnR56wlPTpg+Pe3C7FNCuT4
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 11 Feb 2020 17:44:43 -0800
-IronPort-SDR: IgX0S216h6D2hbXGY3kVD1E13NZqxFPoY/weaf/bvPL3vzwQUsRDaGsf0mdAoaLn6rzv6uO+IF
- UNoSB0kSEEKGcM2k1Z4t/9O+Hvw822wgNz90VtehOIoZVX+/uolaNI+b28yos/dRG9nYCctnPm
- D85wxWVam6UlSDiVSTbCRl0csfeayWhXwY9Fd7kkVEUG1QkK6WDz7rvBMmbgwAKkCFL7uQrzCw
- eg1mgbOmSc56LXlk0pp2qojkrtaecT49mcAhYKp1mhjT+rnCh/S3ARkb70lEXChudHg9MvrZML
- tf4=
+ 11 Feb 2020 17:44:44 -0800
+IronPort-SDR: vKfKktzwYwi+ypxIVNxWzM/zlHW3uSimMaqbKtKbdKO70vA7bMVnMTUlPusid/gNySjqBhQfY1
+ Ra2m4bJ/rccO9FHpqT5A3PF21wEucKS8s/JaBLZu00mnop74izIk+AW7Ev4WEJAiL5EpFDshUh
+ tQpBrWDm7lTfqXBy5wSNiX0hxvjSm9arjdHhjn04/TyOKh7zB8YQSJynzodWWdLl3tvwRrvp6k
+ sKHN4gkHvnTokDWAuEQVJA6mryzk6RDG4N0+hDl61pehi60+EMEGabbs0crcLT2ABYIciemfFL
+ dYc=
 WDCIronportException: Internal
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 11 Feb 2020 17:51:53 -0800
+ by uls-op-cesaip02.wdc.com with ESMTP; 11 Feb 2020 17:51:54 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v8 01/11] RISC-V: Mark existing SBI as 0.1 SBI.
-Date: Tue, 11 Feb 2020 17:48:12 -0800
-Message-Id: <20200212014822.28684-2-atish.patra@wdc.com>
+Subject: [PATCH v8 03/11] RISC-V: Add SBI v0.2 extension definitions
+Date: Tue, 11 Feb 2020 17:48:14 -0800
+Message-Id: <20200212014822.28684-4-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20200212014822.28684-1-atish.patra@wdc.com>
 References: <20200212014822.28684-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200211_175159_986278_6D198444 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20200211_175204_055648_E2B758E6 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -116,132 +117,57 @@ Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As per the new SBI specification, current SBI implementation version
-is defined as 0.1 and will be removed/replaced in future. Each of the
-function call in 0.1 is defined as a separate extension which makes
-easier to replace them one at a time.
+Few v0.1 SBI calls are being replaced by new SBI calls that follows
+v0.2 calling convention.
 
-Rename existing implementation to reflect that. This patch is just
-a preparatory patch for SBI v0.2 and doesn't introduce any functional
-changes.
+This patch just defines these new extensions.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 Reviewed-by: Anup Patel <anup@brainfault.org>
 Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- arch/riscv/include/asm/sbi.h | 44 ++++++++++++++++++++----------------
- 1 file changed, 24 insertions(+), 20 deletions(-)
+ arch/riscv/include/asm/sbi.h | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
 diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 2570c1e683d3..b38bc36f7429 100644
+index fbdb7443784a..e478368a47f3 100644
 --- a/arch/riscv/include/asm/sbi.h
 +++ b/arch/riscv/include/asm/sbi.h
-@@ -1,6 +1,7 @@
- /* SPDX-License-Identifier: GPL-2.0-only */
- /*
-  * Copyright (C) 2015 Regents of the University of California
-+ * Copyright (c) 2019 Western Digital Corporation or its affiliates.
-  */
+@@ -21,6 +21,9 @@ enum sbi_ext_id {
+ 	SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID = 0x7,
+ 	SBI_EXT_0_1_SHUTDOWN = 0x8,
+ 	SBI_EXT_BASE = 0x10,
++	SBI_EXT_TIME = 0x54494D45,
++	SBI_EXT_IPI = 0x735049,
++	SBI_EXT_RFENCE = 0x52464E43,
+ };
  
- #ifndef _ASM_RISCV_SBI_H
-@@ -9,17 +10,17 @@
- #include <linux/types.h>
+ enum sbi_ext_base_fid {
+@@ -33,6 +36,24 @@ enum sbi_ext_base_fid {
+ 	SBI_EXT_BASE_GET_MIMPID,
+ };
  
- #ifdef CONFIG_RISCV_SBI
--#define SBI_SET_TIMER 0
--#define SBI_CONSOLE_PUTCHAR 1
--#define SBI_CONSOLE_GETCHAR 2
--#define SBI_CLEAR_IPI 3
--#define SBI_SEND_IPI 4
--#define SBI_REMOTE_FENCE_I 5
--#define SBI_REMOTE_SFENCE_VMA 6
--#define SBI_REMOTE_SFENCE_VMA_ASID 7
--#define SBI_SHUTDOWN 8
-+#define SBI_EXT_0_1_SET_TIMER 0x0
-+#define SBI_EXT_0_1_CONSOLE_PUTCHAR 0x1
-+#define SBI_EXT_0_1_CONSOLE_GETCHAR 0x2
-+#define SBI_EXT_0_1_CLEAR_IPI 0x3
-+#define SBI_EXT_0_1_SEND_IPI 0x4
-+#define SBI_EXT_0_1_REMOTE_FENCE_I 0x5
-+#define SBI_EXT_0_1_REMOTE_SFENCE_VMA 0x6
-+#define SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID 0x7
-+#define SBI_EXT_0_1_SHUTDOWN 0x8
- 
--#define SBI_CALL(which, arg0, arg1, arg2, arg3) ({		\
-+#define SBI_CALL(which, arg0, arg1, arg2, arg3) ({             \
- 	register uintptr_t a0 asm ("a0") = (uintptr_t)(arg0);	\
- 	register uintptr_t a1 asm ("a1") = (uintptr_t)(arg1);	\
- 	register uintptr_t a2 asm ("a2") = (uintptr_t)(arg2);	\
-@@ -43,48 +44,50 @@
- 
- static inline void sbi_console_putchar(int ch)
- {
--	SBI_CALL_1(SBI_CONSOLE_PUTCHAR, ch);
-+	SBI_CALL_1(SBI_EXT_0_1_CONSOLE_PUTCHAR, ch);
- }
- 
- static inline int sbi_console_getchar(void)
- {
--	return SBI_CALL_0(SBI_CONSOLE_GETCHAR);
-+	return SBI_CALL_0(SBI_EXT_0_1_CONSOLE_GETCHAR);
- }
- 
- static inline void sbi_set_timer(uint64_t stime_value)
- {
- #if __riscv_xlen == 32
--	SBI_CALL_2(SBI_SET_TIMER, stime_value, stime_value >> 32);
-+	SBI_CALL_2(SBI_EXT_0_1_SET_TIMER, stime_value,
-+			  stime_value >> 32);
- #else
--	SBI_CALL_1(SBI_SET_TIMER, stime_value);
-+	SBI_CALL_1(SBI_EXT_0_1_SET_TIMER, stime_value);
- #endif
- }
- 
- static inline void sbi_shutdown(void)
- {
--	SBI_CALL_0(SBI_SHUTDOWN);
-+	SBI_CALL_0(SBI_EXT_0_1_SHUTDOWN);
- }
- 
- static inline void sbi_clear_ipi(void)
- {
--	SBI_CALL_0(SBI_CLEAR_IPI);
-+	SBI_CALL_0(SBI_EXT_0_1_CLEAR_IPI);
- }
- 
- static inline void sbi_send_ipi(const unsigned long *hart_mask)
- {
--	SBI_CALL_1(SBI_SEND_IPI, hart_mask);
-+	SBI_CALL_1(SBI_EXT_0_1_SEND_IPI, hart_mask);
- }
- 
- static inline void sbi_remote_fence_i(const unsigned long *hart_mask)
- {
--	SBI_CALL_1(SBI_REMOTE_FENCE_I, hart_mask);
-+	SBI_CALL_1(SBI_EXT_0_1_REMOTE_FENCE_I, hart_mask);
- }
- 
- static inline void sbi_remote_sfence_vma(const unsigned long *hart_mask,
- 					 unsigned long start,
- 					 unsigned long size)
- {
--	SBI_CALL_3(SBI_REMOTE_SFENCE_VMA, hart_mask, start, size);
-+	SBI_CALL_3(SBI_EXT_0_1_REMOTE_SFENCE_VMA, hart_mask,
-+			  start, size);
- }
- 
- static inline void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
-@@ -92,7 +95,8 @@ static inline void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
- 					      unsigned long size,
- 					      unsigned long asid)
- {
--	SBI_CALL_4(SBI_REMOTE_SFENCE_VMA_ASID, hart_mask, start, size, asid);
-+	SBI_CALL_4(SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID, hart_mask,
-+			  start, size, asid);
- }
- #else /* CONFIG_RISCV_SBI */
- /* stubs for code that is only reachable under IS_ENABLED(CONFIG_RISCV_SBI): */
++enum sbi_ext_time_fid {
++	SBI_EXT_TIME_SET_TIMER = 0,
++};
++
++enum sbi_ext_ipi_fid {
++	SBI_EXT_IPI_SEND_IPI = 0,
++};
++
++enum sbi_ext_rfence_fid {
++	SBI_EXT_RFENCE_REMOTE_FENCE_I = 0,
++	SBI_EXT_RFENCE_REMOTE_SFENCE_VMA,
++	SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID,
++	SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA,
++	SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA_VMID,
++	SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA,
++	SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA_ASID,
++};
++
+ #define SBI_SPEC_VERSION_DEFAULT	0x1
+ #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
+ #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
 -- 
 2.24.0
 
