@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3890DC2BA83
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 10:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6EFDFC2BA83
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 10:35:20 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 077A02168B
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 10:35:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4432F21739
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 10:35:20 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="M+RWlv3b";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="hvW7lrDA"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 077A02168B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WZnssz7m";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Q5uQaS3u"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4432F21739
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,70 +26,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z1IrGwXnk567rCJBdop4MANTG7oPLLhsp9cHhZA1n38=; b=M+RWlv3bCnMHrf
-	SbpKtdYVqnIM99f5mVxPw3MVO2iFtB87XAM9hrYRr0cvomPf/9yZ2S4iW9hCEcZse6npeEB82kc9R
-	bG8sLrNcBQX0dXjBAPja70mVUUmPXWZuiE9zrFvwPVqrocEzw0zcp4SI3Df8V+cwOh9JKukjH5trq
-	tHabN26JQOcqyqpAnaVTogfymFQYLzvpgi58LEGyvNtSf8K0aX4++vDfky9/OOWrt4YBIqQtoR9t9
-	9dK+bi8F6qZU423zzQuVmAvr4RbAkf1FQwRdmgtR+N9TqAUAZSqPCYXI/OLC/yQU0XqUXTpWmYAhL
-	9DDQU2nUdQWJGTL0cBBw==;
+	List-Owner; bh=6K/DxpfPlFT0caFXd0S88LLQ2CXabjyXNQFeF5FH8VI=; b=WZnssz7mascW8G
+	vxVSbFFTNj5RilE/N8f6sJoh2gPH53IVLRAiKLaNXXAKLtCJTTU8QKZ2+ZD+LBKxO4V3j9JsvTp9T
+	Z1tUpye18+aSOkQPGUSMaCb6ZNiof/6HqVQcPSJlWFhHAGLK84xrtEQv7HO7N5XfomAyHDfH89ANL
+	bFNEWrp8BgP/75BjljSsCUNour3q+p2s07ZAH/t7T89XJAXb0LRT+lEh523QvKNmmVVFnKfQXZ1Q/
+	Ve5uwK86ly8wul5Uzp29oPO7HUYUn5/XNpmIAxofjnWrlF03RT9xJYYXFFzPtMGU0FZ3T3D4QxXnJ
+	nrIDll1Qmj5fu7GYlbPA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j1pMP-0003ke-SW; Wed, 12 Feb 2020 10:35:13 +0000
+	id 1j1pMS-0003xw-E9; Wed, 12 Feb 2020 10:35:16 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j1pLr-0002KQ-0Y
- for linux-riscv@lists.infradead.org; Wed, 12 Feb 2020 10:34:41 +0000
+ id 1j1pLt-0002L5-PE
+ for linux-riscv@lists.infradead.org; Wed, 12 Feb 2020 10:34:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1581503680; x=1613039680;
+ t=1581503682; x=1613039682;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=/PTKJ+YcgE/HN6s7hvfi243jvvcU9khWyfuZtNRbj60=;
- b=hvW7lrDAFlCLa0rpVsq6JJ5w92d8cvfSHIv/e1++D3Hg1OoxEz0NCddc
- UTM2BdcpLclL3BW5cb7llQmLa5sZTsFHnpR0JYTLM55n8EnaYrleF6FhU
- mbqTTduAsuq8gLHbYJb85ABlaOVjRJbvrFGrvqXnIcjiYQoaCrcbgvKdK
- jkSTKjstDwR4GlXnvadZlsRxdIlRF8vcn4d8/9jxqEOJrD4IxIMC9DGSV
- bm5RJ1w+9L3FHe5dpau6mZQZuaJZhD1NdqfI2IPNO1I4+JoSH+divseSH
- pbWlHvCv87xHqFTiZ61T8M5+ogtEkv2YUoR8wInQQeYGsmRbP61gmnNDQ A==;
-IronPort-SDR: WwKV9PMVwHpasY4r5aMqbD3VRZKoHEBJ4HnP6njbl9SoFftFEDGTXh1TIe4fSt5OL+SBnFh6K1
- jNxb9wCscziqLqOLGbHZMfcsJpTqkDsQ3QOhAmbPdFHNGxY4ohTUbjYLAeXaZVgREImtwmyMJY
- fqhNX+EvPUnq8D+S14XsiGwFY5Fme6doeVuwM1lSlq14D47CkG8qQTOelhzcKYZWSj9efQEmoD
- LbtHSvgt9gsemDBfry3Y6YwOUqixVAlEdF7YtlrDSgEpH2g1gxb7gZ98GugU4L1NXXL/uBTlGl
- VfI=
-X-IronPort-AV: E=Sophos;i="5.70,428,1574092800"; d="scan'208";a="131113049"
+ bh=JsnDMs2QdZAGUVQ7hZS7FTyEWwtXgzt8F7In8tUQjto=;
+ b=Q5uQaS3uC0Txv35xMy9bGCZx9DD3R1+BZbjpbuxTNN3j4hXdE6u/SpQo
+ Lhoej0h3G3aUra/sOcWSLsDc/UAkb6KjK6lv8jwv8kZ+dUnsFEFemB4Sv
+ Lc53S8PKVckddJDBY/1pdUryaMOFJMUBNPRTh6bJYqZQqJfymcV2+A83m
+ zJCFYLOJTSc/x8RbnJD4lmeeLdjjbryo89lW4vP2/im+czZzKFzsciO7j
+ jqyGKixmmd53BMhyAf43aHkw85qcO5n2Ce6JEXHs6bbf5mNNty0O6uE2L
+ dIaW0XKsMFoeGQVOLLd7HoA5XNtqtK17OLhRJR1znjym+q0zc+ZNmWlz1 w==;
+IronPort-SDR: ppd97TtsQLhQqTu38rqA6jw1uLBmbwwgJ4yF+v2ukQPkjv93uhWbmxC9xLuJodmT5BXE67GdhU
+ cb4yHWBeF0sS+CSEh+odNSqn2Hw2sqJb39SEAoFS7IV3Z5wz/jbPP9zuWVnCSofVhxWySJGT6X
+ FRDNNKzt587nD4RNsPbeL7x5mOqlCJUJ58ZxYsi+kHNd+Pb8I2Y3tA6ZLbicCL52uH9sQKm1Tc
+ 3+lKJL7qqli148GdIdLLFqiWCXXZ/dgCwAtF25sgsO8XoWID1pofTdYbw/9sXaWmFquBVFLh7T
+ nGE=
+X-IronPort-AV: E=Sophos;i="5.70,428,1574092800"; d="scan'208";a="131113056"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2020 18:34:38 +0800
-IronPort-SDR: VH1aol0peSvNH8X3/wIlgZQIg/6q26u82F26+4K52H0KvCZgbjCE6Vu4Moc3FIM4yqhr5s6rWC
- Kcgsp4jELNKxJZlfBA/YtEfd3fI17i0hREwsIQos4ZAarBfoISW2+hdL/GNzvatcA4aa4hBKRC
- ZFzCHeZyr0YC+t05he0ELWI0kNzQThraqpwjdKYW7RdRmj/HlVP9/Rlj3vku/BwH6DmRXd5f/c
- oEuVqv7iGts46OmUijxRuiTR0nd30vorzb/UQ11+9DaS5M7c1XVQe7QJsIFQeUX1RA9URCMd5b
- 0H05UWpZV+vIir5r0M9kFUcN
+ by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2020 18:34:42 +0800
+IronPort-SDR: +QLe3qAOlT3Ng2tzF1QCO81OCC0Mxj3xej9U3t01UfglYPbC4Yjt9ogtqw/a9ZHSDrdh6yPFkn
+ 6h2jB2NF+i6QaqOYVujPeofdf3f3Z+fQenAXRMD7uWfBPYQf8cKKlYrzO6dcG/5kYceCAsI8RX
+ jlc45Hyd8DK4fefp42ZDZ1hF1BULkMdZgX8tTdBQCcfQPdgSofy+ukHNc0OcK0N7BK3hFXy2ur
+ nX0fYsXiFSwuRc7nIT5lh3sz5jynZjZ6JNE/ztJBAKnWPw2Kd5BoKsYTM+ln2NR31JLMow67rI
+ Euo0kmsw3YvI6DaKFROhaFay
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 12 Feb 2020 02:27:27 -0800
-IronPort-SDR: knzS+tK0FmCuFp5oMjW19avMydx25WqBktO6k1ESjDNJBn5x7rb4+9M/hRmQx/nlwR//F8sFyb
- IDJZtzSatXljsUGO42Aur0xazZAvODiB7sjtESYqUVgC1OLBPQ053Y/OrilqDQS05Vf4XHdvXM
- HRfHcrKCp6kYWf1Ip38HGJ4NK1sHu67oLQculVcEbIvBwdEpZBBGkt3inarerEQrq9HPu9XdWM
- cZ8GsInuSS4bocCouss+P8Gp6QIxvR3t9+AeSZyD6kT+kI8NZ9dn5a/vIin9c6WTs3mhRzxD85
- +aU=
+ 12 Feb 2020 02:27:30 -0800
+IronPort-SDR: vit2bMMoD52yq4u44QpYl2+w3DGbouoQuN+TO8Xr8iALqYz1w4K+mWBOcdao218iXoQCGxSfgO
+ 2AIgjqk3/wg38h+G2HYJ2RQjekuOi07bswIQdgQyv0pLEPr3JYxQHCCx+7GPJQcZy6wKVziGJr
+ L7u58wISP/lec//aHLe2mKOCtZRG78uL9RN3yWLK0vrayN5vUuPzc50hrkSnItczB7TOGbUnic
+ jBFhD3+2eGVRLbS85rE5nUQeJKnjtTnrUM/ZJ6syYcNE1HgkoboOCIZJGswu6G3B++qN5SWhyz
+ P8c=
 WDCIronportException: Internal
 Received: from washi.fujisawa.hgst.com ([10.149.53.254])
- by uls-op-cesaip01.wdc.com with ESMTP; 12 Feb 2020 02:34:36 -0800
+ by uls-op-cesaip01.wdc.com with ESMTP; 12 Feb 2020 02:34:39 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: linux-riscv@lists.infradead.org,
 	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: [PATCH 04/10] riscv: Add BUILTIN_DTB support
-Date: Wed, 12 Feb 2020 19:34:26 +0900
-Message-Id: <20200212103432.660256-5-damien.lemoal@wdc.com>
+Subject: [PATCH 08/10] riscv: Add Kendryte K210 device tree
+Date: Wed, 12 Feb 2020 19:34:30 +0900
+Message-Id: <20200212103432.660256-9-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.24.1
 In-Reply-To: <20200212103432.660256-1-damien.lemoal@wdc.com>
 References: <20200212103432.660256-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200212_023439_100320_8949B3B0 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20200212_023441_889721_9398479D 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -105,101 +105,198 @@ Cc: Anup Patel <Anup.Patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable a kernel builtin dtb for boards not capable of providing a
-device tree to the kernel.
+Add a generic device tree for Kendryte K210 SoC based boards. This (for
+now) very simple device tree works for the Kendryte KD233 development
+board, the Sipeed MAIX M1 Dock based boards and the Sipeed MAIXDUINO
+board.
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 ---
- arch/riscv/Kbuild            |  1 +
- arch/riscv/Kconfig           | 18 ++++++++++++++++++
- arch/riscv/boot/dts/Makefile |  4 ++++
- arch/riscv/kernel/setup.c    |  6 ++++++
- arch/riscv/mm/init.c         |  4 ++++
- 5 files changed, 33 insertions(+)
+ arch/riscv/boot/dts/Makefile           |   1 +
+ arch/riscv/boot/dts/kendryte/Makefile  |   2 +
+ arch/riscv/boot/dts/kendryte/k210.dts  |  23 +++++
+ arch/riscv/boot/dts/kendryte/k210.dtsi | 123 +++++++++++++++++++++++++
+ 4 files changed, 149 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/kendryte/Makefile
+ create mode 100644 arch/riscv/boot/dts/kendryte/k210.dts
+ create mode 100644 arch/riscv/boot/dts/kendryte/k210.dtsi
 
-diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-index d1d0aa70fdf1..988804e430e4 100644
---- a/arch/riscv/Kbuild
-+++ b/arch/riscv/Kbuild
-@@ -1,3 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
- obj-y += kernel/ mm/ net/
-+obj-$(CONFIG_USE_BUILTIN_DTB)	+= boot/dts/
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 1a3b5a5276be..28899e15f548 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -355,6 +355,24 @@ config CMDLINE_FORCE
- 
- endchoice
- 
-+config USE_BUILTIN_DTB
-+	bool "Use builtin DTB"
-+	help
-+	  Link a device tree blob for particular hardware into the kernel,
-+	  suppressing use of the DTB pointer provided by the bootloader.
-+	  This option should only be used with hardware or bootloaders that
-+	  are not capable of providing a DTB to the kernel, or for
-+	  experimental hardware without stable device tree bindings.
-+
-+config BUILTIN_DTB_SOURCE
-+	string "Source file for builtin DTB"
-+	default ""
-+	depends on USE_BUILTIN_DTB
-+	help
-+	  Base name (without suffix, relative to arch/riscv/boot/dts) for
-+	  the a DTS file that will be used to produce the DTB linked into
-+	  the kernel.
-+
- endmenu
- 
- menu "Power management options"
 diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-index dcc3ada78455..0bf2669aa12d 100644
+index 0bf2669aa12d..87815557f2db 100644
 --- a/arch/riscv/boot/dts/Makefile
 +++ b/arch/riscv/boot/dts/Makefile
-@@ -1,2 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
-+ifneq ($(CONFIG_BUILTIN_DTB_SOURCE),"")
-+obj-$(CONFIG_USE_BUILTIN_DTB) += $(patsubst "%",%,$(CONFIG_BUILTIN_DTB_SOURCE)).dtb.o
-+else
+@@ -3,4 +3,5 @@ ifneq ($(CONFIG_BUILTIN_DTB_SOURCE),"")
+ obj-$(CONFIG_USE_BUILTIN_DTB) += $(patsubst "%",%,$(CONFIG_BUILTIN_DTB_SOURCE)).dtb.o
+ else
  subdir-y += sifive
-+endif
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 0a6d415b0a5a..3e89be9d888c 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -68,7 +68,13 @@ void __init setup_arch(char **cmdline_p)
- 
- 	setup_bootmem();
- 	paging_init();
++subdir-y += kendryte
+ endif
+diff --git a/arch/riscv/boot/dts/kendryte/Makefile b/arch/riscv/boot/dts/kendryte/Makefile
+new file mode 100644
+index 000000000000..815444e69e89
+--- /dev/null
++++ b/arch/riscv/boot/dts/kendryte/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_SOC_KENDRYTE) += k210.dtb
+diff --git a/arch/riscv/boot/dts/kendryte/k210.dts b/arch/riscv/boot/dts/kendryte/k210.dts
+new file mode 100644
+index 000000000000..0d1f28fce6b2
+--- /dev/null
++++ b/arch/riscv/boot/dts/kendryte/k210.dts
+@@ -0,0 +1,23 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ */
 +
-+#if IS_ENABLED(CONFIG_USE_BUILTIN_DTB)
-+	unflatten_and_copy_device_tree();
-+#else
- 	unflatten_device_tree();
-+#endif
++/dts-v1/;
 +
- 	clint_init_boot_cpu();
- 
- #ifdef CONFIG_SWIOTLB
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 965a8cf4829c..1274e889d008 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -480,7 +480,11 @@ static void __init setup_vm_final(void)
- #else
- asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- {
-+#if IS_ENABLED(CONFIG_USE_BUILTIN_DTB)
-+	dtb_early_va = __dtb_start;
-+#else
- 	dtb_early_va = (void *)dtb_pa;
-+#endif
- }
- 
- static inline void setup_vm_final(void)
++#include "k210.dtsi"
++
++/ {
++	model = "Kendryte K210 generic";
++	compatible = "kendryte,k210";
++
++	chosen {
++		bootargs = "earlycon console=ttySIF0";
++		stdout-path = "serial0";
++	};
++};
++
++&uarths0 {
++	status = "okay";
++};
++
+diff --git a/arch/riscv/boot/dts/kendryte/k210.dtsi b/arch/riscv/boot/dts/kendryte/k210.dtsi
+new file mode 100644
+index 000000000000..4b9eeabb07f7
+--- /dev/null
++++ b/arch/riscv/boot/dts/kendryte/k210.dtsi
+@@ -0,0 +1,123 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (C) 2019 Sean Anderson <seanga2@gmail.com>
++ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ */
++
++/ {
++	/*
++	 * Although the K210 is a 64-bit CPU, the address bus is only 32-bits
++	 * wide, and the upper half of all addresses is ignored.
++	 */
++	#address-cells = <1>;
++	#size-cells = <1>;
++	compatible = "kendryte,k210";
++
++	aliases {
++		serial0 = &uarths0;
++	};
++
++	clocks {
++		in0: oscillator {
++			compatible = "fixed-clock";
++			#clock-cells = <0>;
++			clock-frequency = <26000000>;
++		};
++	};
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <7800000>;
++		cpu0: cpu@0 {
++			device_type = "cpu";
++			reg = <0>;
++			compatible = "riscv";
++			riscv,isa = "rv64imafdc";
++			mmu-type = "none";
++			i-cache-size = <0x8000>;
++			i-cache-block-size = <64>; /* bogus */
++			d-cache-size = <0x8000>;
++			d-cache-block-size = <64>; /* bogus */
++			clocks = <&sysctl 0>;
++			clock-frequency = <390000000>;
++			cpu0_intc: interrupt-controller {
++				#interrupt-cells = <1>;
++				interrupt-controller;
++				compatible = "riscv,cpu-intc";
++			};
++		};
++		cpu1: cpu@1 {
++			device_type = "cpu";
++			reg = <1>;
++			compatible = "riscv";
++			riscv,isa = "rv64imafdc";
++			mmu-type = "none";
++			i-cache-size = <0x8000>;
++			i-cache-block-size = <64>; /* bogus */
++			d-cache-size = <0x8000>;
++			d-cache-block-size = <64>; /* bogus */
++			clocks = <&sysctl 0>;
++			clock-frequency = <390000000>;
++			cpu1_intc: interrupt-controller {
++				#interrupt-cells = <1>;
++				interrupt-controller;
++				compatible = "riscv,cpu-intc";
++			};
++		};
++	};
++
++	sram0: memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x400000>;
++	};
++
++	sram1: memory@80400000 {
++		device_type = "memory";
++		reg = <0x80400000 0x200000>;
++	};
++
++	kpu_sram: memory@80600000 {
++		device_type = "memory";
++		reg = <0x80600000 0x200000>;
++	};
++
++	soc {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		compatible = "kendryte,k210-soc", "simple-bus";
++		ranges;
++		interrupt-parent = <&plic0>;
++
++		sysctl: sysctl@50440000 {
++			compatible = "kendryte,k210-sysctl", "syscon";
++			reg = <0x50440000 0x1000>;
++			#clock-cells = <1>;
++		};
++
++		clint0: interrupt-controller@2000000 {
++			compatible = "riscv,clint0";
++			reg = <0x2000000 0xC000>;
++			interrupts-extended = <&cpu0_intc 3>,  <&cpu1_intc 3>;
++			clocks = <&sysctl 0>;
++		};
++
++		plic0: interrupt-controller@c000000 {
++			#interrupt-cells = <1>;
++			interrupt-controller;
++			compatible = "kendryte,k210-plic0", "riscv,plic0";
++			reg = <0xC000000 0x3FFF008>;
++			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 0xffffffff>,
++					      <&cpu1_intc 11>, <&cpu1_intc 0xffffffff>;
++			riscv,ndev = <65>;
++			riscv,max-priority = <0x07>;
++		};
++
++		uarths0: serial@38000000 {
++			compatible = "kendryte,k210-uart0", "sifive,uart0";
++			reg = <0x38000000 0x20>;
++			interrupts = <33>;
++			clocks = <&sysctl 0>;
++		};
++	};
++};
 -- 
 2.24.1
 
