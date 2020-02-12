@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E4190C3B187
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 01:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AB1B0C35242
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 01:52:26 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BBC5B20848
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 01:52:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 72D5020842
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 01:52:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gkn0jGog";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ktiuVbXN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BBC5B20848
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SmAPyQ9e";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="jnM8Wf2x"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 72D5020842
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,71 +26,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0F7l2OMNGoXcAmqipTa9BUzObo0hCNhbWRXjKL+4VkU=; b=gkn0jGoguOWvMP
-	JlRnKj/eAOsx+LHFT7bgr324DwaBJJJUspjvO7yxVBCNuoYpCA2V0WIQDbtQqCGvXw4PRG9rKiASu
-	1KDARJwb9AEVbBLlmSbCDmpmJ875p306gFTXWsyxf3H9kPKoNbcHOPsSN3gogEIfOJyYhHHoSDqs7
-	n5cqVF9YJRDH2CkvLgRoidm/DYmFcNZQpLCjEVpMBQxXdrvOCTXFOFiJOWpo63pFM4LvnpmauQdxu
-	OglZ9+y5FBQJfqwbpOkFj+cBgQi1I2vyKVeoCiq9q8WJzmYVprNYRDE0JvaPkOFFi4xOE9p7Ouygj
-	cMy8xwIUnMB0gSruIeNg==;
+	List-Owner; bh=O+c9WUtL6/Lnv35RbuPb68w31uHNCt8mbEATKbG+Chg=; b=SmAPyQ9eWAkkxt
+	bYmYc0cAgqLDK5JsHknjiRrGweOoWWgajvAv/3RUcKLviyan1phwXWRc5yHyOM08RXgxeuOm2QvNs
+	t8EhNEP+nWANwO2NlOFttcjYO48hVmlLTwSP0PLrIl4GRc/ZiiLWvBLnBdGjz7EsBHgnNANPcSPaU
+	QdmtH4Cuuaa/YaGm8TyeaOWHOq8xoPMum8XEpqTgZciG9HMtqwcD/mYljmF+VZugvOcJorw1Jq3AU
+	SLWgBBxwpOKIOXNnLFbgOHfJO2Hg70cDJXAgU/Dh7tlwkS1YzVeOIWWwSFKegaRWFAI8PNCMGW9tE
+	ZrO3rgTDdQC1Xzr5ESBg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j1hCN-0006E8-72; Wed, 12 Feb 2020 01:52:19 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1j1hCR-0006KF-LP; Wed, 12 Feb 2020 01:52:23 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j1hC3-0005mQ-HY
- for linux-riscv@lists.infradead.org; Wed, 12 Feb 2020 01:52:01 +0000
+ id 1j1hC3-0005mO-IE
+ for linux-riscv@lists.infradead.org; Wed, 12 Feb 2020 01:52:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1581472329; x=1613008329;
+ t=1581472319; x=1613008319;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=/GlgOKcxd7uoN0nxIQqstOE4PEIJ6PWJbqedHD+Oytw=;
- b=ktiuVbXNURtLFope/msqd39z1H86ybNaUZREA8kO4IVsUK5qbDyPWZ6r
- n7eQDbni/jjs8V1PDTUwBTriQj1v3TQg1lL3FEU/37wVg118mdJOPNZcq
- Yf+dpdfJFztTQ28RucSutv4LCwVnU6MfFtlNrSSshaIP8YxCioOfqraPs
- Wm8ERTUG/NHdS0C8mbQmaJMRubtB0bqQed78FIGTiWsbTimN4xmIk2QQy
- x+/4iLgPwzo9C6hPbDBXl/uT6PlMGuwJ3WlXNnxLOSz91fEg745Ao2V3/
- hjDfnzYOWrDVIWsNNex0piLs80ljmOcUe9xqJTF6oG8oBEvyZbCuAEgAw g==;
-IronPort-SDR: 2WMVNAD6hu8+av1CFoftMPmzni6DSkVWMbdhToffiJdS5r62Spfd8U2vVPGGhhr0Lzu63FnU/R
- JxMwMEGvxHxKvVkUd1eKlqV+miPHYtbtyMEzQbdP3EKbarGNCBsJMJes3saRZu6COOg2pZ2z7a
- QhJC5PE8nmZb/Rswf6PAQBfwbFOnnK75d9nx2uqYb4ENUyqfrSz5b2y4RdGBpadBH/vJf7ROGA
- z3pg0ir6HINJFQZ/MhpGCKVoMPPvp5tS4zDKuA/5CNkYrfufTH4BLlYwytW+a1DjjGk5MTgMKu
- Jc8=
-X-IronPort-AV: E=Sophos;i="5.70,428,1574092800"; d="scan'208";a="231429790"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
+ bh=UorqLKP57b6PMCT+1VL4L6XYE1Vd36TEURwukvr+gSY=;
+ b=jnM8Wf2xlfN/vvKLknOWJKjqzKgxnPpcJTucoZdVopx/lT/zF2HnpOEb
+ XJAD0nKEWEOnH4Ry7Vxx+Rg5qxn+U8l9F/G0FWmXfsPcTp0wKAidKy3mf
+ Lxcj+SqbZsoIcZYzU0hZdfg1A1dZ6dq/MqG+fu/6XGCLO3yJ6fQ5L3i4S
+ +HNiaNV8NZ/ZFqJhZebevahWs82SNpjlllrz4dUH9lLqPigTZoCrBJCM4
+ tnsaR53epcPp4N9jIo0PudhDj3k4q+AclcsDC0f1JagGOSAwkSY8ENbgM
+ YA/WRrRbnZmSmrwCXXi8VRxIu87jZBp2GqdRokDwAUsIGQ8J+Tv8QvoAT g==;
+IronPort-SDR: 18YDgViW5Z7si7fxHAj1l3KIeFFffXWQbqmupI/UQLUAefI4hYt7d1aYDhqj3/Rw6XHk4JIB2x
+ 6wpO08cyLn52zyWw4H6PHMgRKGVtyHSc+jWFUwwnfuWkYPFadyhUlpSEXE5fZjS8QqlM0LMGoh
+ ueAqqI/xMiGRiibwE8VVnVI1gJyIm9E8ETqMosMA/t4LTlXmAziF2fLJlJkE1A+bOoMT6Zn0KP
+ ZqpWKhlXfvE8xRr4VityMjVOzjvf1k2CSTynnXkG6tJa2ZPuNpcPfMUTMfwjRt7HxLQkyhzDFK
+ YUQ=
+X-IronPort-AV: E=Sophos;i="5.70,428,1574092800"; d="scan'208";a="237648930"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2020 09:52:06 +0800
-IronPort-SDR: vtUoKMEFlwHYdaIany3sfWnk/wZBBr5HzGgOeCRJ057iw+y8pM0NXvIETwxJj+KKWs/13OJYl0
- yk3Gwy3Jp1E/J3HjmLHL8CMQbcNq7ecGQKF8Kv36IqtfJQyoX+l7Tkvae6DODFpmzOjVgxW14g
- QxRauToPafOZHbmXTE40E2dug2DJm8NwA9267GsICsiL6nasolA24iTSRHBFqPYrBjaoSfVUnk
- VhvWYAYLhpTGmCcZx1sGD+49CUxWbSflmwKjHA8z9F8VttJ3nXdK2o3LeB36GP/DO1SmK+lqQN
- 1O5g5B3nepUfQ4FRZkb3EfEn
+ by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2020 09:51:53 +0800
+IronPort-SDR: N+D/HCrr8K66hoHjfoWw4chWLyM6kgC+KhSxl7nAgNpvW2UozNljIJUPIObeO3QMFk2naKswYa
+ dSd60ROUMZhpvajD6yNQCmD+yPu8HGMLy3TzoBrQMqcRR79OZEzPiG+Y5ZNdXeoiU7Bk55zF4h
+ YrJq8PZH3b2a3ICkeQdlQrPTGqavRF2QXC8F20T0qCQDVX5X8h4IS77ZFpN0jutd+stiDYvGvq
+ RFIQTM8JA9BTD+t4J8B/OU/tHOEibDFSbRd2pMju8o2tIG0Rh9dtOALgVsVDXB7qs48FZNZirt
+ RZdFNpHRbyeQbuWOKzSHWuu2
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 11 Feb 2020 17:44:47 -0800
-IronPort-SDR: XZ75HwAnE+P9lENVdrLEHufZnVd6QXvw4PlHcN8S93gGExvO48x/WJUDn7MTDuO4bI3wHgW50H
- MHBVvZ/q9OyOCP1bQeXi05EnwfKB2KyHKZKc8L3G4TR/jKpXN79tL6Th63k3XWkQeBpFt9AOF3
- SEIe85g8xUgf3X3SwO0AgKgB+dvhbSnLE6NyLtvSL9DVjs1hzxGRjW5TV9KKZ8sAmq97ysAaPm
- /GVm534nwwLYp7sxcnV8n7047rUNFyaBfryyFT4r6L036dFrzNANTj2QC4QSg1gVrFbdZg1suP
- SNU=
+ 11 Feb 2020 17:44:43 -0800
+IronPort-SDR: IgX0S216h6D2hbXGY3kVD1E13NZqxFPoY/weaf/bvPL3vzwQUsRDaGsf0mdAoaLn6rzv6uO+IF
+ UNoSB0kSEEKGcM2k1Z4t/9O+Hvw822wgNz90VtehOIoZVX+/uolaNI+b28yos/dRG9nYCctnPm
+ D85wxWVam6UlSDiVSTbCRl0csfeayWhXwY9Fd7kkVEUG1QkK6WDz7rvBMmbgwAKkCFL7uQrzCw
+ eg1mgbOmSc56LXlk0pp2qojkrtaecT49mcAhYKp1mhjT+rnCh/S3ARkb70lEXChudHg9MvrZML
+ tf4=
 WDCIronportException: Internal
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 11 Feb 2020 17:51:57 -0800
+ by uls-op-cesaip02.wdc.com with ESMTP; 11 Feb 2020 17:51:53 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v8 10/11] irqchip/sifive-plic: Initialize the plic handler
- when cpu comes online
-Date: Tue, 11 Feb 2020 17:48:21 -0800
-Message-Id: <20200212014822.28684-11-atish.patra@wdc.com>
+Subject: [PATCH v8 01/11] RISC-V: Mark existing SBI as 0.1 SBI.
+Date: Tue, 11 Feb 2020 17:48:12 -0800
+Message-Id: <20200212014822.28684-2-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20200212014822.28684-1-atish.patra@wdc.com>
 References: <20200212014822.28684-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200211_175159_634350_5EF4ECB1 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20200211_175159_986278_6D198444 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,131 +101,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Jason Cooper <jason@lakedaemon.net>,
- Vincent Chen <vincent.chen@sifive.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Anup Patel <anup@brainfault.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, Mike Rapoport <rppt@linux.ibm.com>,
- Atish Patra <atish.patra@wdc.com>, Mao Han <han_mao@c-sky.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- "Eric W. Biederman" <ebiederm@xmission.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Marc Zyngier <maz@kernel.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Borislav Petkov <bp@suse.de>, Thomas Gleixner <tglx@linutronix.de>,
- Allison Randal <allison@lohutok.net>, Kees Cook <keescook@chromium.org>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, Atish Patra <atish.patra@wdc.com>,
+ linux-riscv@lists.infradead.org, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Marc Zyngier <maz@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Borislav Petkov <bp@suse.de>,
+ Jason Cooper <jason@lakedaemon.net>, Mao Han <han_mao@c-sky.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Allison Randal <allison@lohutok.net>, Vincent Chen <vincent.chen@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ "Eric W. Biederman" <ebiederm@xmission.com>, Anup Patel <anup@brainfault.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, plic threshold and priority are only initialized once in the
-beginning. However, threshold can be set to disabled if cpu is marked
-offline with cpu hotplug feature. This will not allow to change the
-irq affinity to a cpu that just came online.
+As per the new SBI specification, current SBI implementation version
+is defined as 0.1 and will be removed/replaced in future. Each of the
+function call in 0.1 is defined as a separate extension which makes
+easier to replace them one at a time.
 
-Add plic specific cpu hotplug callback and initialize the per cpu handler
-when cpu comes online.
+Rename existing implementation to reflect that. This patch is just
+a preparatory patch for SBI v0.2 and doesn't introduce any functional
+changes.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- drivers/irqchip/irq-sifive-plic.c | 34 ++++++++++++++++++++++++-------
- include/linux/cpuhotplug.h        |  1 +
- 2 files changed, 28 insertions(+), 7 deletions(-)
+ arch/riscv/include/asm/sbi.h | 44 ++++++++++++++++++++----------------
+ 1 file changed, 24 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 0aca5807a119..9b564b19f4bf 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -4,6 +4,7 @@
-  * Copyright (C) 2018 Christoph Hellwig
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 2570c1e683d3..b38bc36f7429 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -1,6 +1,7 @@
+ /* SPDX-License-Identifier: GPL-2.0-only */
+ /*
+  * Copyright (C) 2015 Regents of the University of California
++ * Copyright (c) 2019 Western Digital Corporation or its affiliates.
   */
- #define pr_fmt(fmt) "plic: " fmt
-+#include <linux/cpu.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/irq.h>
-@@ -55,6 +56,8 @@
- #define     CONTEXT_THRESHOLD		0x00
- #define     CONTEXT_CLAIM		0x04
  
-+#define	PLIC_DISABLE_THRESHOLD		0xffffffff
-+
- static void __iomem *plic_regs;
+ #ifndef _ASM_RISCV_SBI_H
+@@ -9,17 +10,17 @@
+ #include <linux/types.h>
  
- struct plic_handler {
-@@ -208,6 +211,26 @@ static int plic_find_hart_id(struct device_node *node)
- 	return -1;
+ #ifdef CONFIG_RISCV_SBI
+-#define SBI_SET_TIMER 0
+-#define SBI_CONSOLE_PUTCHAR 1
+-#define SBI_CONSOLE_GETCHAR 2
+-#define SBI_CLEAR_IPI 3
+-#define SBI_SEND_IPI 4
+-#define SBI_REMOTE_FENCE_I 5
+-#define SBI_REMOTE_SFENCE_VMA 6
+-#define SBI_REMOTE_SFENCE_VMA_ASID 7
+-#define SBI_SHUTDOWN 8
++#define SBI_EXT_0_1_SET_TIMER 0x0
++#define SBI_EXT_0_1_CONSOLE_PUTCHAR 0x1
++#define SBI_EXT_0_1_CONSOLE_GETCHAR 0x2
++#define SBI_EXT_0_1_CLEAR_IPI 0x3
++#define SBI_EXT_0_1_SEND_IPI 0x4
++#define SBI_EXT_0_1_REMOTE_FENCE_I 0x5
++#define SBI_EXT_0_1_REMOTE_SFENCE_VMA 0x6
++#define SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID 0x7
++#define SBI_EXT_0_1_SHUTDOWN 0x8
+ 
+-#define SBI_CALL(which, arg0, arg1, arg2, arg3) ({		\
++#define SBI_CALL(which, arg0, arg1, arg2, arg3) ({             \
+ 	register uintptr_t a0 asm ("a0") = (uintptr_t)(arg0);	\
+ 	register uintptr_t a1 asm ("a1") = (uintptr_t)(arg1);	\
+ 	register uintptr_t a2 asm ("a2") = (uintptr_t)(arg2);	\
+@@ -43,48 +44,50 @@
+ 
+ static inline void sbi_console_putchar(int ch)
+ {
+-	SBI_CALL_1(SBI_CONSOLE_PUTCHAR, ch);
++	SBI_CALL_1(SBI_EXT_0_1_CONSOLE_PUTCHAR, ch);
  }
  
-+static void plic_handler_init(struct plic_handler *handler, u32 threshold)
-+{
-+	irq_hw_number_t hwirq;
-+
-+	/* priority must be > threshold to trigger an interrupt */
-+	writel(threshold, handler->hart_base + CONTEXT_THRESHOLD);
-+	for (hwirq = 1; hwirq < plic_irqdomain->hwirq_max; hwirq++)
-+		plic_toggle(handler, hwirq, 0);
-+}
-+
-+static int plic_starting_cpu(unsigned int cpu)
-+{
-+	u32 threshold = 0;
-+	struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
-+
-+	plic_handler_init(handler, threshold);
-+
-+	return 0;
-+}
-+
- static int __init plic_init(struct device_node *node,
- 		struct device_node *parent)
+ static inline int sbi_console_getchar(void)
  {
-@@ -243,9 +266,7 @@ static int __init plic_init(struct device_node *node,
- 	for (i = 0; i < nr_contexts; i++) {
- 		struct of_phandle_args parent;
- 		struct plic_handler *handler;
--		irq_hw_number_t hwirq;
- 		int cpu, hartid;
--		u32 threshold = 0;
+-	return SBI_CALL_0(SBI_CONSOLE_GETCHAR);
++	return SBI_CALL_0(SBI_EXT_0_1_CONSOLE_GETCHAR);
+ }
  
- 		if (of_irq_parse_one(node, i, &parent)) {
- 			pr_err("failed to parse parent for context %d.\n", i);
-@@ -279,7 +300,7 @@ static int __init plic_init(struct device_node *node,
- 		handler = per_cpu_ptr(&plic_handlers, cpu);
- 		if (handler->present) {
- 			pr_warn("handler already present for context %d.\n", i);
--			threshold = 0xffffffff;
-+			plic_handler_init(handler, PLIC_DISABLE_THRESHOLD);
- 			goto done;
- 		}
+ static inline void sbi_set_timer(uint64_t stime_value)
+ {
+ #if __riscv_xlen == 32
+-	SBI_CALL_2(SBI_SET_TIMER, stime_value, stime_value >> 32);
++	SBI_CALL_2(SBI_EXT_0_1_SET_TIMER, stime_value,
++			  stime_value >> 32);
+ #else
+-	SBI_CALL_1(SBI_SET_TIMER, stime_value);
++	SBI_CALL_1(SBI_EXT_0_1_SET_TIMER, stime_value);
+ #endif
+ }
  
-@@ -291,13 +312,12 @@ static int __init plic_init(struct device_node *node,
- 			plic_regs + ENABLE_BASE + i * ENABLE_PER_HART;
+ static inline void sbi_shutdown(void)
+ {
+-	SBI_CALL_0(SBI_SHUTDOWN);
++	SBI_CALL_0(SBI_EXT_0_1_SHUTDOWN);
+ }
  
- done:
--		/* priority must be > threshold to trigger an interrupt */
--		writel(threshold, handler->hart_base + CONTEXT_THRESHOLD);
--		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
--			plic_toggle(handler, hwirq, 0);
- 		nr_handlers++;
- 	}
+ static inline void sbi_clear_ipi(void)
+ {
+-	SBI_CALL_0(SBI_CLEAR_IPI);
++	SBI_CALL_0(SBI_EXT_0_1_CLEAR_IPI);
+ }
  
-+	cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
-+				  "irqchip/sifive/plic:starting",
-+				  plic_starting_cpu, NULL);
- 	pr_info("mapped %d interrupts with %d handlers for %d contexts.\n",
- 		nr_irqs, nr_handlers, nr_contexts);
- 	set_handle_irq(plic_handle_irq);
-diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-index e51ee772b9f5..5360e03db08c 100644
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -100,6 +100,7 @@ enum cpuhp_state {
- 	CPUHP_AP_IRQ_ARMADA_XP_STARTING,
- 	CPUHP_AP_IRQ_BCM2836_STARTING,
- 	CPUHP_AP_IRQ_MIPS_GIC_STARTING,
-+	CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
- 	CPUHP_AP_ARM_MVEBU_COHERENCY,
- 	CPUHP_AP_MICROCODE_LOADER,
- 	CPUHP_AP_PERF_X86_AMD_UNCORE_STARTING,
+ static inline void sbi_send_ipi(const unsigned long *hart_mask)
+ {
+-	SBI_CALL_1(SBI_SEND_IPI, hart_mask);
++	SBI_CALL_1(SBI_EXT_0_1_SEND_IPI, hart_mask);
+ }
+ 
+ static inline void sbi_remote_fence_i(const unsigned long *hart_mask)
+ {
+-	SBI_CALL_1(SBI_REMOTE_FENCE_I, hart_mask);
++	SBI_CALL_1(SBI_EXT_0_1_REMOTE_FENCE_I, hart_mask);
+ }
+ 
+ static inline void sbi_remote_sfence_vma(const unsigned long *hart_mask,
+ 					 unsigned long start,
+ 					 unsigned long size)
+ {
+-	SBI_CALL_3(SBI_REMOTE_SFENCE_VMA, hart_mask, start, size);
++	SBI_CALL_3(SBI_EXT_0_1_REMOTE_SFENCE_VMA, hart_mask,
++			  start, size);
+ }
+ 
+ static inline void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
+@@ -92,7 +95,8 @@ static inline void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
+ 					      unsigned long size,
+ 					      unsigned long asid)
+ {
+-	SBI_CALL_4(SBI_REMOTE_SFENCE_VMA_ASID, hart_mask, start, size, asid);
++	SBI_CALL_4(SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID, hart_mask,
++			  start, size, asid);
+ }
+ #else /* CONFIG_RISCV_SBI */
+ /* stubs for code that is only reachable under IS_ENABLED(CONFIG_RISCV_SBI): */
 -- 
 2.24.0
 
