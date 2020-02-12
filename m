@@ -2,95 +2,92 @@ Return-Path: <SRS0=YGDp=4A=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C143DC352A3
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 01:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5CA83C35242
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 01:52:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 736502082F
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 01:52:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3044C20848
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 01:52:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Y1Xj3YUe";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Tr2uqXox"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 736502082F
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="efv6gqie";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Lgu3oDLO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3044C20848
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EVnOfEv+hFFCZsjUWWIfDGrWfd+Xl5BhNDFAY2YBWqs=; b=Y1Xj3YUeXdMMAl
-	5tICR014MWo48lvrHgfMjQjZjlhEnPyNceHxhRdw1/i+RGucChoAGCWwGEVf9CDDJ81TphilK9mSd
-	Pq3OWjKi76Hyh2Q6V0jePiL5LjDutosh/2fHO50YWb5E94ceQek0tAlxpyvvDSyoHe1KttOMnqCFD
-	xzE8mkDKAqMV5quQtQZXlucYYqhVkwtHmZV2iQ9AsdvUk8C4dnbimHbgjH9fwVk9Tvcz6/X0DLh15
-	bcEqqVPq4K9rUikLekBFZoTlmIl5yaNgB5FbKAiE1ECiI4JD6oaECsA1wj/lO6gKPvgwhmUexMD/i
-	8TVN+bTIz7wfCkAmHeTA==;
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=h27Z9FNnR/nTOvJ7T6abMGe3071QvyjBy8U3zdnBuPc=; b=efv6gqie76PA7s
+	QNez8Dt6AY/WXUP7g9pMTCWKUJ991YjTA7J3EuY5X1YBJXU53UaTOkM2OJEmLxi288ryZZwH7vbWh
+	2hr+ablZKmypGOb4046g5mkbaK6yZA9sp7sJBlOl6yoPX9zQ45XdAxaFgwv3dUIZqyp4EgwYVRxuG
+	2OtTPT1r5UNOfCwDtP6/NGM/f7V9gDrJYGCZTQix+Q5gPnKK1JI1oN7WtvbKO7/VQZS7b92YPi5mg
+	HrzggQOoDnVUXb0kNOqZ94BmNBfpgck9lWSlNrjWhJ3go7jLfCC9bmsUVvhMKdJVMYSaMP/nyPr9A
+	tIi4zaffXghS3M6ZOkOw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j1hC8-0005vZ-9n; Wed, 12 Feb 2020 01:52:04 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1j1hCC-0005zt-4m; Wed, 12 Feb 2020 01:52:08 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j1hC0-0005mv-Tj
+ id 1j1hC0-0005mO-0h
  for linux-riscv@lists.infradead.org; Wed, 12 Feb 2020 01:51:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1581472325; x=1613008325;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=in+am6V5cB5vIxYi0RDDoJhhDT9YUsFBQJfrnYzjyic=;
- b=Tr2uqXox94dOe4seon4ItwZ5CVmx6RiL+W1iwl6D5+2tUT8j+bdfrKPp
- MTSK/KAjKFnpgOME2GRcXYjSd7Wn10Gj7NyOEWBK2a935UtmOGrNU0CY/
- i7ejbYTXXQDp6WEFN8CXjYb2zTWHT+Dipv93Ajihoup+x9P9c5OHC+8te
- fSCmon0luIo7OyPOHAlGqx5j8UER5JFWPzjDGOmP0N7c7llk6Qql8bmj3
- qYUHTFJU4hAEW+eQ2apuEBfu7P2pv20P8ROfB+zbm4Z6ca+eAYXM7IKzo
- Q1ebKuq9WS2lbbZY4JoKUWO7/IqJBo1QUjRGq/zcJyHWmoZSUzwu87bjF w==;
-IronPort-SDR: QizuUHqCic4HCHGQdNXTLoi7t6OLnfOOj9l0JQcUxckua5dmDJmJC3fz2dZsWQThI130QuBtOU
- nWQNaQgy/sBvyisRER1g/aRPT/dGXOzfo7QKu7c+1LEBsLGKNVWX8lUwKwp/hrTFLaOXS8No9u
- WawGyMBQ2UAkZjuVVNnosyyONS6W9T1KNSe3gUZ8RXqyrRh2WmulHkwipBY7nPrW+6SuPvlE61
- gQqRkWX9SDFrmIGaud0/fnHrior1B282k3yFOyD3ToTx3prFh+9aY0HIUiE+R5++X8CVoZ/GRv
- BjY=
-X-IronPort-AV: E=Sophos;i="5.70,428,1574092800"; d="scan'208";a="231429771"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
+ t=1581472315; x=1613008315;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=5fLxqpGfQmcjZB4SEqPkjidgJg4T+I5OvAtf/YXSDv0=;
+ b=Lgu3oDLOGqiMH86mwKPK3oltkmjDQlkWzjOVl1LNEA+I/pIKp7Oy7/tA
+ BSZy9IWL9uDfck63osLSCxiSooZ1OSJMYIO/LrtJ2QPFnzT8sNZCPJTnS
+ /inu5qvblCJqIJCW3E/gpo+m1nT513AVcTy3Q9RPpnfmkwyldPDly8aCt
+ Rd/HIzGwerYtWCpvVQk/dxSQHcf6RNVbQYNwGKrZozRzWailtOAAeQRnC
+ FI7Kxih6MXCdGSX6+pYTZAv/tA6UYs0FPKTmcAsrwB8hQ0c55OdWszX3j
+ HEdyI+Lz1EF82LKD0lVhSIM3erT5lEJM9XYBMUQAmIu3N4Rg9gQFkZlPQ g==;
+IronPort-SDR: benLdZ5udAx4KqF1EOgYUhfL9L5lnaZrP72s7z5C+jjpx6/J4xXPXre+OzJ6dugl7cFNGqcPDe
+ Fgi0kYZG/qsJjOHyssvdLcH+lJkyQ7q7pDxXS20r7a0WbjwkqC3rv45D7bLRGGIS00tY3oivft
+ fccFXYjL4VtsW8tUGWVfLg3qSdakv3qfPlsTGOocxk+2RUbZndBe2p8CHY22MV5OM94ivmcT/c
+ f9Bbl28D+ywteXUa4D+YoczPsa4T9Gwxj17bHch1iNXJ7+R7PBxJIpxMT+RtPbNptlIsgZxEvu
+ q1A=
+X-IronPort-AV: E=Sophos;i="5.70,428,1574092800"; d="scan'208";a="237648928"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2020 09:52:03 +0800
-IronPort-SDR: O25yLmshz0dkr3PZs45yBwZG01OIAT4x1ovSDZ3ANBX50a8FhbgLnrOsvzgjL3QO0XFWqxNsEF
- h33KLVLQ4D5aogVABtNVSvr9X7bd1INiI6aqnlCC8eCD05Uv65T6axuthboU7iMxtU2ZXsxNCb
- ynOAVVYMJI7D5e6JexPAwlovcYfag0n2wwgadR/zcnlv0wQA3VxflKQRlvBKp0zar8+hrCyofT
- 0eMykWofV93Dw/pFocCgvzAamC9LtGcwznLH3EoETZl3qrGB9bf0DUBt+TSWLgMUbnKXjb5h7p
- 48vlMoU6ovoqvU8Wn5aodzDY
+ by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2020 09:51:53 +0800
+IronPort-SDR: 9psypPJ4vanMtJr2N9oyIwD+omvLTEJzBY6tyAPcrM3H0N3TpcqctsbMIibQ58RaG8Aqo4n8Cb
+ /3HmJroDvIrJueVkGylhHNe3g/XCbdPdyngrGrVbfFK/jR/734U2cMZpixTbl8VEPFgT+rA1TB
+ WexrxZBEPpjrUqweRL7iaP188ehDZ9ePD7HsBpyK0IuwV+h5UP3dpRGQ9EEuFVtXNs/62rlXFL
+ b36ilEdwqY5rINIePjpVpVDLUyUXE5qAD7kXhOt3UrFrpv8MEbBjFjQoVnefDGmy0rmZpK2zy1
+ Cu4ipxc7AQom6K+aHTbKq6GN
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 11 Feb 2020 17:44:45 -0800
-IronPort-SDR: opbXy4mSsm4DAWNqPVi6m7QjC3sARWoITBtt3fU/+yhyuHcKphGIHbPZjMbdIT2SJDl5yHGuV2
- 2xiGINWbo/GFxvHa7nzt6qEAzQPNRJu+mJrhViMRavAytA6eWhHlo1iUiR9n922KOX/QOIEoHu
- LBshM86C+l5P76PUAL7RvBbsaH/ZH4BP1DDZmn8xDgQXx6sNJ/zURe6IxOvCs6VpfbLYcx0XjG
- UhlYLju0ofKPJEtbMWkgSVCEgGU3okzgrzBTgvEJA/5ibiMNx4p480Kfb22/L5GElQ9+i8oJqb
- rO8=
+ 11 Feb 2020 17:44:42 -0800
+IronPort-SDR: Hy31uM001YTf70zkpyhY/6R96UZXmMSb9FmdW2iFY4jmZ/u3/bhslOXYMXH9BQokfwmfTvZIw+
+ jdcokz2i7Kc6c0uZ6MYDa546OYxV92tnUXxnjGygFSCyaZoLB1F2R6FUAubfb+y8j1YgI8AUVP
+ y/jV9R4yQdYnoYrDKIu4kwuzgqa0mNHtZ3WF/+Mj3fc0ggpm9GxAXQ8Indfr8h5H4QyAXfKzDu
+ j4Og1gWpPVkspMqzBlkQhvxxdCuOCXWtNzFsGzo73PyBQwqNeT5blSASykqraIONqn59XLQXC1
+ yks=
 WDCIronportException: Internal
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 11 Feb 2020 17:51:55 -0800
+ by uls-op-cesaip02.wdc.com with ESMTP; 11 Feb 2020 17:51:52 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v8 06/11] RISC-V: Move relocate and few other functions out of
- __init
-Date: Tue, 11 Feb 2020 17:48:17 -0800
-Message-Id: <20200212014822.28684-7-atish.patra@wdc.com>
+Subject: [PATCH v8 00/11] Add support for SBI v0.2 and CPU hotplug
+Date: Tue, 11 Feb 2020 17:48:11 -0800
+Message-Id: <20200212014822.28684-1-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
-In-Reply-To: <20200212014822.28684-1-atish.patra@wdc.com>
-References: <20200212014822.28684-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200211_175157_092928_8F680C4B 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20200211_175156_570641_0B0C4DF8 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -117,240 +114,98 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>, Jason Cooper <jason@lakedaemon.net>,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The secondary hart booting and relocation code are under .init section.
-As a result, it will be freed once kernel booting is done. However,
-ordered booting protocol and CPU hotplug always requires these sections
-to be present to bringup harts after initial kernel boot.
+The Supervisor Binary Interface(SBI) specification[1] now defines a
+base extension that provides extendability to add future extensions
+while maintaining backward compatibility with previous versions.
+The new version is defined as 0.2 and older version is marked as 0.1.
 
-Move the required sections to a different section and make sure that
-they are in memory within first 2MB offset as trampoline page directory
-only maps first 2MB.
+This series adds support v0.2 and a unified calling convention
+implementation between 0.1 and 0.2. It also add other SBI v0.2
+functionality defined in [2]. The base support for SBI v0.2 is already
+available in OpenSBI v0.5. It also adds SBI HSM extension and cpu-hotplug
+support for RISC-V which requires additional patches[3] in OpenSBI.
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/kernel/head.S        | 153 +++++++++++++++++---------------
- arch/riscv/kernel/vmlinux.lds.S |   5 +-
- 2 files changed, 86 insertions(+), 72 deletions(-)
+[1] https://github.com/riscv/riscv-sbi-doc/blob/master/riscv-sbi.adoc
+[2] https://github.com/riscv/riscv-sbi-doc/pull/27
+[3] http://lists.infradead.org/pipermail/opensbi/2020-January/001050.html
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index a4242be66966..c1be597d22a1 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -14,7 +14,7 @@
- #include <asm/hwcap.h>
- #include <asm/image.h>
- 
--__INIT
-+__HEAD
- ENTRY(_start)
- 	/*
- 	 * Image header expected by Linux boot-loaders. The image header data
-@@ -45,8 +45,85 @@ ENTRY(_start)
- 	.ascii RISCV_IMAGE_MAGIC2
- 	.word 0
- 
--.global _start_kernel
--_start_kernel:
-+.align 2
-+#ifdef CONFIG_MMU
-+relocate:
-+	/* Relocate return address */
-+	li a1, PAGE_OFFSET
-+	la a2, _start
-+	sub a1, a1, a2
-+	add ra, ra, a1
-+
-+	/* Point stvec to virtual address of intruction after satp write */
-+	la a2, 1f
-+	add a2, a2, a1
-+	csrw CSR_TVEC, a2
-+
-+	/* Compute satp for kernel page tables, but don't load it yet */
-+	srl a2, a0, PAGE_SHIFT
-+	li a1, SATP_MODE
-+	or a2, a2, a1
-+
-+	/*
-+	 * Load trampoline page directory, which will cause us to trap to
-+	 * stvec if VA != PA, or simply fall through if VA == PA.  We need a
-+	 * full fence here because setup_vm() just wrote these PTEs and we need
-+	 * to ensure the new translations are in use.
-+	 */
-+	la a0, trampoline_pg_dir
-+	srl a0, a0, PAGE_SHIFT
-+	or a0, a0, a1
-+	sfence.vma
-+	csrw CSR_SATP, a0
-+.align 2
-+1:
-+	/* Set trap vector to spin forever to help debug */
-+	la a0, .Lsecondary_park
-+	csrw CSR_TVEC, a0
-+
-+	/* Reload the global pointer */
-+.option push
-+.option norelax
-+	la gp, __global_pointer$
-+.option pop
-+
-+	/*
-+	 * Switch to kernel page tables.  A full fence is necessary in order to
-+	 * avoid using the trampoline translations, which are only correct for
-+	 * the first superpage.  Fetching the fence is guarnteed to work
-+	 * because that first superpage is translated the same way.
-+	 */
-+	csrw CSR_SATP, a2
-+	sfence.vma
-+
-+	ret
-+#endif /* CONFIG_MMU */
-+#ifdef CONFIG_SMP
-+	/* Set trap vector to spin forever to help debug */
-+	la a3, .Lsecondary_park
-+	csrw CSR_TVEC, a3
-+
-+	slli a3, a0, LGREG
-+	.global secondary_start_common
-+secondary_start_common:
-+
-+#ifdef CONFIG_MMU
-+	/* Enable virtual memory and relocate to virtual address */
-+	la a0, swapper_pg_dir
-+	call relocate
-+#endif
-+	tail smp_callin
-+#endif /* CONFIG_SMP */
-+
-+.Lsecondary_park:
-+	/* We lack SMP support or have too many harts, so park this hart */
-+	wfi
-+	j .Lsecondary_park
-+
-+END(_start)
-+
-+	__INIT
-+ENTRY(_start_kernel)
- 	/* Mask all interrupts */
- 	csrw CSR_IE, zero
- 	csrw CSR_IP, zero
-@@ -125,59 +202,6 @@ clear_bss_done:
- 	call parse_dtb
- 	tail start_kernel
- 
--#ifdef CONFIG_MMU
--relocate:
--	/* Relocate return address */
--	li a1, PAGE_OFFSET
--	la a2, _start
--	sub a1, a1, a2
--	add ra, ra, a1
--
--	/* Point stvec to virtual address of intruction after satp write */
--	la a2, 1f
--	add a2, a2, a1
--	csrw CSR_TVEC, a2
--
--	/* Compute satp for kernel page tables, but don't load it yet */
--	srl a2, a0, PAGE_SHIFT
--	li a1, SATP_MODE
--	or a2, a2, a1
--
--	/*
--	 * Load trampoline page directory, which will cause us to trap to
--	 * stvec if VA != PA, or simply fall through if VA == PA.  We need a
--	 * full fence here because setup_vm() just wrote these PTEs and we need
--	 * to ensure the new translations are in use.
--	 */
--	la a0, trampoline_pg_dir
--	srl a0, a0, PAGE_SHIFT
--	or a0, a0, a1
--	sfence.vma
--	csrw CSR_SATP, a0
--.align 2
--1:
--	/* Set trap vector to spin forever to help debug */
--	la a0, .Lsecondary_park
--	csrw CSR_TVEC, a0
--
--	/* Reload the global pointer */
--.option push
--.option norelax
--	la gp, __global_pointer$
--.option pop
--
--	/*
--	 * Switch to kernel page tables.  A full fence is necessary in order to
--	 * avoid using the trampoline translations, which are only correct for
--	 * the first superpage.  Fetching the fence is guarnteed to work
--	 * because that first superpage is translated the same way.
--	 */
--	csrw CSR_SATP, a2
--	sfence.vma
--
--	ret
--#endif /* CONFIG_MMU */
--
- .Lsecondary_start:
- #ifdef CONFIG_SMP
- 	/* Set trap vector to spin forever to help debug */
-@@ -202,16 +226,10 @@ relocate:
- 	beqz tp, .Lwait_for_cpu_up
- 	fence
- 
--#ifdef CONFIG_MMU
--	/* Enable virtual memory and relocate to virtual address */
--	la a0, swapper_pg_dir
--	call relocate
-+	tail secondary_start_common
- #endif
- 
--	tail smp_callin
--#endif
--
--END(_start)
-+END(_start_kernel)
- 
- #ifdef CONFIG_RISCV_M_MODE
- ENTRY(reset_regs)
-@@ -292,13 +310,6 @@ ENTRY(reset_regs)
- END(reset_regs)
- #endif /* CONFIG_RISCV_M_MODE */
- 
--.section ".text", "ax",@progbits
--.align 2
--.Lsecondary_park:
--	/* We lack SMP support or have too many harts, so park this hart */
--	wfi
--	j .Lsecondary_park
--
- __PAGE_ALIGNED_BSS
- 	/* Empty zero page */
- 	.balign PAGE_SIZE
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 12f42f96d46e..18c397953bfc 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -10,6 +10,7 @@
- #include <asm/cache.h>
- #include <asm/thread_info.h>
- 
-+#include <linux/sizes.h>
- OUTPUT_ARCH(riscv)
- ENTRY(_start)
- 
-@@ -20,8 +21,10 @@ SECTIONS
- 	/* Beginning of code and text segment */
- 	. = LOAD_OFFSET;
- 	_start = .;
--	__init_begin = .;
- 	HEAD_TEXT_SECTION
-+	. = ALIGN(PAGE_SIZE);
-+
-+	__init_begin = .;
- 	INIT_TEXT_SECTION(PAGE_SIZE)
- 	INIT_DATA_SECTION(16)
- 	/* we have to discard exit text and such at runtime, not link time */
--- 
+The patches are also available in following github repositery.
+
+OpenSBI     : https://github.com/atishp04/opensbi/tree/sbi_hsm_v1
+Linux Kernel: https://github.com/atishp04/linux/tree/sbi_v0.2_v8
+
+Changes from v7->v8:
+1. Refactored to code to have modular cpu_ops calls.
+2. Refactored HSM extension from sbi.c to cpu_ops_sbi.c.
+3. Fix plic driver to handle cpu hotplug.
+
+Changes from v6->v7:
+1. Rebased on v5.5
+2. Fixed few compilation issues for !CONFIG_SMP and !CONFIG_RISCV_SBI
+3. Added SBI HSM extension
+4. Add CPU hotplug support
+
+Changes from v5->v6
+1. Fixed few compilation issues around config.
+2. Fixed hart mask generation issues for RFENCE & IPI extensions.
+
+Changes from v4->v5
+1. Fixed few minor comments related to static & inline.
+2. Make sure that every patch is boot tested individually.
+
+Changes from v3->v4.
+1. Rebased on for-next.
+2. Fixed issuses with checkpatch --strict.
+3. Unfied all IPI/fence related functions.
+4. Added Hfence related SBI calls.
+
+Changes from v2->v3.
+1. Moved v0.1 extensions to a new config.
+2. Added support for relacement extensions of v0.1 extensions.
+
+Changes from v1->v2
+1. Removed the legacy calling convention.
+2. Moved all SBI related calls to sbi.c.
+3. Moved all SBI related macros to uapi.
+
+Atish Patra (11):
+RISC-V: Mark existing SBI as 0.1 SBI.
+RISC-V: Add basic support for SBI v0.2
+RISC-V: Add SBI v0.2 extension definitions
+RISC-V: Introduce a new config for SBI v0.1
+RISC-V: Implement new SBI v0.2 extensions
+RISC-V: Move relocate and few other functions out of __init
+RISC-V: Add cpu_ops and modify default booting method
+RISC-V: Add SBI HSM extension
+RISC-V: Add supported for ordered booting method using HSM
+irqchip/sifive-plic: Initialize the plic handler when cpu comes online
+RISC-V: Support cpu hotplug
+
+arch/riscv/Kconfig                   |  19 +-
+arch/riscv/include/asm/cpu_ops.h     |  46 +++
+arch/riscv/include/asm/sbi.h         | 194 ++++++----
+arch/riscv/include/asm/smp.h         |  24 ++
+arch/riscv/kernel/Makefile           |   6 +
+arch/riscv/kernel/cpu-hotplug.c      |  87 +++++
+arch/riscv/kernel/cpu_ops.c          |  48 +++
+arch/riscv/kernel/cpu_ops_sbi.c      | 113 ++++++
+arch/riscv/kernel/cpu_ops_spinwait.c |  42 +++
+arch/riscv/kernel/head.S             | 179 +++++----
+arch/riscv/kernel/sbi.c              | 524 ++++++++++++++++++++++++++-
+arch/riscv/kernel/setup.c            |  24 +-
+arch/riscv/kernel/smpboot.c          |  56 +--
+arch/riscv/kernel/traps.c            |   2 +-
+arch/riscv/kernel/vmlinux.lds.S      |   5 +-
+drivers/irqchip/irq-sifive-plic.c    |  34 +-
+include/linux/cpuhotplug.h           |   1 +
+17 files changed, 1227 insertions(+), 177 deletions(-)
+create mode 100644 arch/riscv/include/asm/cpu_ops.h
+create mode 100644 arch/riscv/kernel/cpu-hotplug.c
+create mode 100644 arch/riscv/kernel/cpu_ops.c
+create mode 100644 arch/riscv/kernel/cpu_ops_sbi.c
+create mode 100644 arch/riscv/kernel/cpu_ops_spinwait.c
+
+--
 2.24.0
 
 
