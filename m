@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6EFDFC2BA83
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 10:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5F759C352A4
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 10:35:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4432F21739
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 10:35:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 29C922168B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2020 10:35:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WZnssz7m";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Q5uQaS3u"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4432F21739
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CLFpCNK6";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="nezhCDKt"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 29C922168B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,70 +26,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6K/DxpfPlFT0caFXd0S88LLQ2CXabjyXNQFeF5FH8VI=; b=WZnssz7mascW8G
-	vxVSbFFTNj5RilE/N8f6sJoh2gPH53IVLRAiKLaNXXAKLtCJTTU8QKZ2+ZD+LBKxO4V3j9JsvTp9T
-	Z1tUpye18+aSOkQPGUSMaCb6ZNiof/6HqVQcPSJlWFhHAGLK84xrtEQv7HO7N5XfomAyHDfH89ANL
-	bFNEWrp8BgP/75BjljSsCUNour3q+p2s07ZAH/t7T89XJAXb0LRT+lEh523QvKNmmVVFnKfQXZ1Q/
-	Ve5uwK86ly8wul5Uzp29oPO7HUYUn5/XNpmIAxofjnWrlF03RT9xJYYXFFzPtMGU0FZ3T3D4QxXnJ
-	nrIDll1Qmj5fu7GYlbPA==;
+	List-Owner; bh=xAdf9MWR3YvNiiehei5iI+sll6PN+7k4I/yrqwDKcPc=; b=CLFpCNK6xeiRe1
+	O+GtVXU5ZeiMuh19RX35bIC9PkfsA85cOAqbtKDFyuTb9fHcxWFrPp3qe9WqQ4HSXb6TNkF6crDCv
+	RCJkn5H9JjazaHNzc8Rcs6zg7S35ND4pT6ptEeg7/cTCHc6qhuh8JGKYfqQvfyMWp7As4HDUzzhNN
+	yyL5hs7DM/MDmFp6MLb0fvU/5EA76ayODXXI2zxnyZVzkChmgAyKM9rewlAZQcmjYJHTR8q9amdJm
+	PtcC95pFDCiHJhZ9cEAUbV4xdnOGVw7NpP2jhMBo2wG3cigdTFznhHIlxO1C4To37ByTOR9KiQ9tr
+	O9SiufukkGVesyc9++zA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j1pMS-0003xw-E9; Wed, 12 Feb 2020 10:35:16 +0000
+	id 1j1pMV-00040f-Jd; Wed, 12 Feb 2020 10:35:19 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j1pLt-0002L5-PE
+ id 1j1pLt-0002KR-09
  for linux-riscv@lists.infradead.org; Wed, 12 Feb 2020 10:34:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
  t=1581503682; x=1613039682;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=JsnDMs2QdZAGUVQ7hZS7FTyEWwtXgzt8F7In8tUQjto=;
- b=Q5uQaS3uC0Txv35xMy9bGCZx9DD3R1+BZbjpbuxTNN3j4hXdE6u/SpQo
- Lhoej0h3G3aUra/sOcWSLsDc/UAkb6KjK6lv8jwv8kZ+dUnsFEFemB4Sv
- Lc53S8PKVckddJDBY/1pdUryaMOFJMUBNPRTh6bJYqZQqJfymcV2+A83m
- zJCFYLOJTSc/x8RbnJD4lmeeLdjjbryo89lW4vP2/im+czZzKFzsciO7j
- jqyGKixmmd53BMhyAf43aHkw85qcO5n2Ce6JEXHs6bbf5mNNty0O6uE2L
- dIaW0XKsMFoeGQVOLLd7HoA5XNtqtK17OLhRJR1znjym+q0zc+ZNmWlz1 w==;
-IronPort-SDR: ppd97TtsQLhQqTu38rqA6jw1uLBmbwwgJ4yF+v2ukQPkjv93uhWbmxC9xLuJodmT5BXE67GdhU
- cb4yHWBeF0sS+CSEh+odNSqn2Hw2sqJb39SEAoFS7IV3Z5wz/jbPP9zuWVnCSofVhxWySJGT6X
- FRDNNKzt587nD4RNsPbeL7x5mOqlCJUJ58ZxYsi+kHNd+Pb8I2Y3tA6ZLbicCL52uH9sQKm1Tc
- 3+lKJL7qqli148GdIdLLFqiWCXXZ/dgCwAtF25sgsO8XoWID1pofTdYbw/9sXaWmFquBVFLh7T
- nGE=
-X-IronPort-AV: E=Sophos;i="5.70,428,1574092800"; d="scan'208";a="131113056"
+ bh=ESk461PTWhQj2NJS9XRKqyWGK8sJVW6ys8TIHmp5BLs=;
+ b=nezhCDKtfbtZs/YGRF9Jtd5JFB4r6HcKIY2tRSB6jDcucupuArPx6XMu
+ vmmiteWpY2b19mcIPWK1NN0Zn4AxLJH9MMHegh8d9+1Lj07TXRqJAb7HM
+ BKuTbnpjTH+8AjHjLbNU2l852KdkCs9lSn6Irs/72tqwHR3szWPXaF5R5
+ COIox32NKX/09QvjRMzQ5JlC0N7QdZCWXcBMSUQXvSB1r90Y0ZYnfX9Y5
+ 1mkim/9Kv/u1uKxUHm5OfMu3+ISwUUrr3m0iK5YBVAhrJtb7A2Sq/0nwe
+ LsX40d0JAnmxo5dLKA8+M+YtmOPsv7SKEVk5/mlYWmO59xG2zpZyD/QY+ Q==;
+IronPort-SDR: ioMiSHrl2hrAFgz5ZP0ho4QbtbE2dZPVMriwQGCNXO4zeIhLb5TgLawHKG0gDq4OkPqG+nLM4r
+ /gaAdSrP1YDXwQD/OwQ8nOXyq0Qzq2P4D4n6klMGTRQJLFF6ZL9EZv7nFE/Nt6hssvEewjVXmw
+ yQBSKRhI9OGH/oK6GYqbvpmINwM2MTwvfhlvT9XwGQ1MIloAtn8xgJkWalGiA1g4x0E15FM5Yb
+ ioqsyyY1F3XtkpirwhnCCqU2itJoAiS7SbEwiu6U26DSN7JYOWjyd6nXC1ZuR+09lU150GQ8ny
+ qgo=
+X-IronPort-AV: E=Sophos;i="5.70,428,1574092800"; d="scan'208";a="131113052"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2020 18:34:42 +0800
-IronPort-SDR: +QLe3qAOlT3Ng2tzF1QCO81OCC0Mxj3xej9U3t01UfglYPbC4Yjt9ogtqw/a9ZHSDrdh6yPFkn
- 6h2jB2NF+i6QaqOYVujPeofdf3f3Z+fQenAXRMD7uWfBPYQf8cKKlYrzO6dcG/5kYceCAsI8RX
- jlc45Hyd8DK4fefp42ZDZ1hF1BULkMdZgX8tTdBQCcfQPdgSofy+ukHNc0OcK0N7BK3hFXy2ur
- nX0fYsXiFSwuRc7nIT5lh3sz5jynZjZ6JNE/ztJBAKnWPw2Kd5BoKsYTM+ln2NR31JLMow67rI
- Euo0kmsw3YvI6DaKFROhaFay
+ by ob1.hgst.iphmx.com with ESMTP; 12 Feb 2020 18:34:40 +0800
+IronPort-SDR: LtoNlZ2RiUk0Ltzw+3oANMv8R2rdhKq9UFTwaLGtUs4gehko75HgEOWRDqIS33QbXkbzH0Q0sX
+ abcsrCyJhgLEC+kruvjPNha6D3i9CJ6qv3LagrzrX5yiy/KMiNaTUl9pyaLVQUaKdu/DUcfZVr
+ EdflJicP5RK7pp91eEqezqJlb+sYcdtGRz4IWf8B0ltxCxwKc5duYbQlq29zPDQRp4KIIcLsSp
+ yxw7MIbuqF6YF4d/KOvJL56Pz9UxjdqQ8swDNqu8oYJjrnh/KpeM+ddnuwYTDsPeySP7gNOzIx
+ 8npHkQN3AjmnNuKenQ0E8sM2
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 12 Feb 2020 02:27:30 -0800
-IronPort-SDR: vit2bMMoD52yq4u44QpYl2+w3DGbouoQuN+TO8Xr8iALqYz1w4K+mWBOcdao218iXoQCGxSfgO
- 2AIgjqk3/wg38h+G2HYJ2RQjekuOi07bswIQdgQyv0pLEPr3JYxQHCCx+7GPJQcZy6wKVziGJr
- L7u58wISP/lec//aHLe2mKOCtZRG78uL9RN3yWLK0vrayN5vUuPzc50hrkSnItczB7TOGbUnic
- jBFhD3+2eGVRLbS85rE5nUQeJKnjtTnrUM/ZJ6syYcNE1HgkoboOCIZJGswu6G3B++qN5SWhyz
- P8c=
+ 12 Feb 2020 02:27:29 -0800
+IronPort-SDR: GD8+YKsWVfBfk/SGuDXfFUO1AFPPyEM3xOKXPQwexlO1fm7BHZborUGdJfkjSZr6gw3XDdRYA4
+ mEYaxycEIQnNXX8Hc+npPY3lVIXNe9odM5M4h/jD64+qo8eu/L/5KK+kFsotX2aoSdalNYQ8+L
+ W0uiNkK82QODVAFXGer0v3DH4SrSr8wOKUZAM0MWoR5PDXqj+4D+G8frJ2YZJx4PrMK4aqxAEw
+ wo+OWy0z4wn4kJu5Gso9XaaNFkBgfwAbi9we8pGm0u+63cJBX7MBHBSpY377+s3ffBvhcBuf5V
+ fFE=
 WDCIronportException: Internal
 Received: from washi.fujisawa.hgst.com ([10.149.53.254])
- by uls-op-cesaip01.wdc.com with ESMTP; 12 Feb 2020 02:34:39 -0800
+ by uls-op-cesaip01.wdc.com with ESMTP; 12 Feb 2020 02:34:38 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: linux-riscv@lists.infradead.org,
 	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: [PATCH 08/10] riscv: Add Kendryte K210 device tree
-Date: Wed, 12 Feb 2020 19:34:30 +0900
-Message-Id: <20200212103432.660256-9-damien.lemoal@wdc.com>
+Subject: [PATCH 06/10] riscv: Add Kendryte K210 SoC support
+Date: Wed, 12 Feb 2020 19:34:28 +0900
+Message-Id: <20200212103432.660256-7-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.24.1
 In-Reply-To: <20200212103432.660256-1-damien.lemoal@wdc.com>
 References: <20200212103432.660256-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200212_023441_889721_9398479D 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20200212_023441_156373_7C202B7E 
+X-CRM114-Status: GOOD (  21.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -105,198 +105,349 @@ Cc: Anup Patel <Anup.Patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a generic device tree for Kendryte K210 SoC based boards. This (for
-now) very simple device tree works for the Kendryte KD233 development
-board, the Sipeed MAIX M1 Dock based boards and the Sipeed MAIXDUINO
-board.
+From: Christoph Hellwig <hch@lst.de>
 
+Add support for the Kendryte K210 RISC-V SoC. For now, this support
+only provides a simple sysctl driver allowing to setup the CPU and
+uart clock. This support is enabled through the new Kconfig option
+SOC_KENDRYTE and defines the config option CONFIG_K210_SYSCTL
+to enable the K210 SoC sysctl driver compilation.
+
+The sysctl driver also registers an early SoC initialization function
+allowing enabling the general purpose use of the 2MB of SRAM normally
+reserved for the SoC AI engine. This initialization function is
+automatically called before the dt early initialization using the flat
+dt root node compatible property matching the value "kendryte,k210".
+
+Signed-off-by: Christoph Hellwig <hch@lst.de>
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 ---
- arch/riscv/boot/dts/Makefile           |   1 +
- arch/riscv/boot/dts/kendryte/Makefile  |   2 +
- arch/riscv/boot/dts/kendryte/k210.dts  |  23 +++++
- arch/riscv/boot/dts/kendryte/k210.dtsi | 123 +++++++++++++++++++++++++
- 4 files changed, 149 insertions(+)
- create mode 100644 arch/riscv/boot/dts/kendryte/Makefile
- create mode 100644 arch/riscv/boot/dts/kendryte/k210.dts
- create mode 100644 arch/riscv/boot/dts/kendryte/k210.dtsi
+ arch/riscv/Kconfig.socs            |   6 +
+ drivers/soc/Kconfig                |   1 +
+ drivers/soc/Makefile               |   1 +
+ drivers/soc/kendryte/Kconfig       |  14 ++
+ drivers/soc/kendryte/Makefile      |   3 +
+ drivers/soc/kendryte/k210-sysctl.c | 245 +++++++++++++++++++++++++++++
+ 6 files changed, 270 insertions(+)
+ create mode 100644 drivers/soc/kendryte/Kconfig
+ create mode 100644 drivers/soc/kendryte/Makefile
+ create mode 100644 drivers/soc/kendryte/k210-sysctl.c
 
-diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-index 0bf2669aa12d..87815557f2db 100644
---- a/arch/riscv/boot/dts/Makefile
-+++ b/arch/riscv/boot/dts/Makefile
-@@ -3,4 +3,5 @@ ifneq ($(CONFIG_BUILTIN_DTB_SOURCE),"")
- obj-$(CONFIG_USE_BUILTIN_DTB) += $(patsubst "%",%,$(CONFIG_BUILTIN_DTB_SOURCE)).dtb.o
- else
- subdir-y += sifive
-+subdir-y += kendryte
- endif
-diff --git a/arch/riscv/boot/dts/kendryte/Makefile b/arch/riscv/boot/dts/kendryte/Makefile
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index d325b67d00df..4d5d4a65b2a2 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -10,4 +10,10 @@ config SOC_SIFIVE
+ 	help
+ 	  This enables support for SiFive SoC platform hardware.
+ 
++config SOC_KENDRYTE
++	bool "Kendryte K210 SoC"
++	depends on !MMU
++	help
++	  This enables support for Kendryte K210 SoC hardware.
++
+ endmenu
+diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
+index 1778f8c62861..425ab6f7e375 100644
+--- a/drivers/soc/Kconfig
++++ b/drivers/soc/Kconfig
+@@ -22,5 +22,6 @@ source "drivers/soc/ux500/Kconfig"
+ source "drivers/soc/versatile/Kconfig"
+ source "drivers/soc/xilinx/Kconfig"
+ source "drivers/soc/zte/Kconfig"
++source "drivers/soc/kendryte/Kconfig"
+ 
+ endmenu
+diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+index 8b49d782a1ab..af58063bb989 100644
+--- a/drivers/soc/Makefile
++++ b/drivers/soc/Makefile
+@@ -28,3 +28,4 @@ obj-$(CONFIG_ARCH_U8500)	+= ux500/
+ obj-$(CONFIG_PLAT_VERSATILE)	+= versatile/
+ obj-y				+= xilinx/
+ obj-$(CONFIG_ARCH_ZX)		+= zte/
++obj-$(CONFIG_SOC_KENDRYTE)	+= kendryte/
+diff --git a/drivers/soc/kendryte/Kconfig b/drivers/soc/kendryte/Kconfig
 new file mode 100644
-index 000000000000..815444e69e89
+index 000000000000..49785b1b0217
 --- /dev/null
-+++ b/arch/riscv/boot/dts/kendryte/Makefile
-@@ -0,0 +1,2 @@
++++ b/drivers/soc/kendryte/Kconfig
+@@ -0,0 +1,14 @@
 +# SPDX-License-Identifier: GPL-2.0
-+dtb-$(CONFIG_SOC_KENDRYTE) += k210.dtb
-diff --git a/arch/riscv/boot/dts/kendryte/k210.dts b/arch/riscv/boot/dts/kendryte/k210.dts
++
++if SOC_KENDRYTE
++
++config K210_SYSCTL
++	bool "Kendryte K210 system controller"
++	default y
++	depends on RISCV
++	help
++	  Enables controlling the K210 various clocks and to enable
++	  general purpose use of the extra 2MB of SRAM normally
++	  reserved for the AI engine.
++
++endif
+diff --git a/drivers/soc/kendryte/Makefile b/drivers/soc/kendryte/Makefile
 new file mode 100644
-index 000000000000..0d1f28fce6b2
+index 000000000000..002d9ce95c0d
 --- /dev/null
-+++ b/arch/riscv/boot/dts/kendryte/k210.dts
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: GPL-2.0+
++++ b/drivers/soc/kendryte/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0
++
++obj-$(CONFIG_K210_SYSCTL)	+= k210-sysctl.o
+diff --git a/drivers/soc/kendryte/k210-sysctl.c b/drivers/soc/kendryte/k210-sysctl.c
+new file mode 100644
+index 000000000000..7d4ecd954af0
+--- /dev/null
++++ b/drivers/soc/kendryte/k210-sysctl.c
+@@ -0,0 +1,245 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ * Copyright (c) 2019 Christoph Hellwig.
++ * Copyright (c) 2019 Western Digital Corporation or its affiliates.
 + */
++#include <linux/types.h>
++#include <linux/io.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/clk-provider.h>
++#include <linux/clkdev.h>
++#include <asm/soc.h>
 +
-+/dts-v1/;
++#define K210_SYSCTL_CLK0_FREQ		26000000UL
 +
-+#include "k210.dtsi"
++/* Registers base address */
++#define K210_SYSCTL_SYSCTL_BASE_ADDR	0x50440000ULL
 +
-+/ {
-+	model = "Kendryte K210 generic";
-+	compatible = "kendryte,k210";
++/* Registers */
++#define K210_SYSCTL_PLL0		0x08
++#define K210_SYSCTL_PLL1		0x0c
++/* clkr: 4bits, clkf1: 6bits, clkod: 4bits, bwadj: 4bits */
++#define   PLL_RESET		(1 << 20)
++#define   PLL_PWR		(1 << 21)
++#define   PLL_INTFB		(1 << 22)
++#define   PLL_BYPASS		(1 << 23)
++#define   PLL_TEST		(1 << 24)
++#define   PLL_OUT_EN		(1 << 25)
++#define   PLL_TEST_EN		(1 << 26)
++#define K210_SYSCTL_PLL_LOCK		0x18
++#define   PLL0_LOCK1		(1 << 0)
++#define   PLL0_LOCK2		(1 << 1)
++#define   PLL0_SLIP_CLEAR	(1 << 2)
++#define   PLL0_TEST_CLK_OUT	(1 << 3)
++#define   PLL1_LOCK1		(1 << 8)
++#define   PLL1_LOCK2		(1 << 9)
++#define   PLL1_SLIP_CLEAR	(1 << 10)
++#define   PLL1_TEST_CLK_OUT	(1 << 11)
++#define   PLL2_LOCK1		(1 << 16)
++#define   PLL2_LOCK2		(1 << 16)
++#define   PLL2_SLIP_CLEAR	(1 << 18)
++#define   PLL2_TEST_CLK_OUT	(1 << 19)
++#define K210_SYSCTL_CLKSEL0	0x20
++#define   CLKSEL_ACLK		(1 << 0)
++#define K210_SYSCTL_CLKEN_CENT		0x28
++#define   CLKEN_CPU		(1 << 0)
++#define   CLKEN_SRAM0		(1 << 1)
++#define   CLKEN_SRAM1		(1 << 2)
++#define   CLKEN_APB0		(1 << 3)
++#define   CLKEN_APB1		(1 << 4)
++#define   CLKEN_APB2		(1 << 5)
++#define K210_SYSCTL_CLKEN_PERI		0x2c
++#define   CLKEN_ROM		(1 << 0)
++#define   CLKEN_DMA		(1 << 1)
++#define   CLKEN_AI		(1 << 2)
++#define   CLKEN_DVP		(1 << 3)
++#define   CLKEN_FFT		(1 << 4)
++#define   CLKEN_GPIO		(1 << 5)
++#define   CLKEN_SPI0		(1 << 6)
++#define   CLKEN_SPI1		(1 << 7)
++#define   CLKEN_SPI2		(1 << 8)
++#define   CLKEN_SPI3		(1 << 9)
++#define   CLKEN_I2S0		(1 << 10)
++#define   CLKEN_I2S1		(1 << 11)
++#define   CLKEN_I2S2		(1 << 12)
++#define   CLKEN_I2C0		(1 << 13)
++#define   CLKEN_I2C1		(1 << 14)
++#define   CLKEN_I2C2		(1 << 15)
++#define   CLKEN_UART1		(1 << 16)
++#define   CLKEN_UART2		(1 << 17)
++#define   CLKEN_UART3		(1 << 18)
++#define   CLKEN_AES		(1 << 19)
++#define   CLKEN_FPIO		(1 << 20)
++#define   CLKEN_TIMER0		(1 << 21)
++#define   CLKEN_TIMER1		(1 << 22)
++#define   CLKEN_TIMER2		(1 << 23)
++#define   CLKEN_WDT0		(1 << 24)
++#define   CLKEN_WDT1		(1 << 25)
++#define   CLKEN_SHA		(1 << 26)
++#define   CLKEN_OTP		(1 << 27)
++#define   CLKEN_RTC		(1 << 29)
 +
-+	chosen {
-+		bootargs = "earlycon console=ttySIF0";
-+		stdout-path = "serial0";
-+	};
++struct k210_sysctl {
++	void __iomem		*regs;
++	struct clk_hw		hw;
 +};
 +
-+&uarths0 {
-+	status = "okay";
-+};
++static void k210_set_bits(u32 val, void __iomem *reg)
++{
++	writel(readl(reg) | val, reg);
++}
 +
-diff --git a/arch/riscv/boot/dts/kendryte/k210.dtsi b/arch/riscv/boot/dts/kendryte/k210.dtsi
-new file mode 100644
-index 000000000000..4b9eeabb07f7
---- /dev/null
-+++ b/arch/riscv/boot/dts/kendryte/k210.dtsi
-@@ -0,0 +1,123 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright (C) 2019 Sean Anderson <seanga2@gmail.com>
-+ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
-+ */
++static void k210_clear_bits(u32 val, void __iomem *reg)
++{
++	writel(readl(reg) & ~val, reg);
++}
 +
-+/ {
++static void k210_pll1_enable(void __iomem *regs)
++{
++	u32 val;
++
++	val = readl(regs + K210_SYSCTL_PLL1);
++	val &= ~0xfffff;
++	val |= (59 << 4) | (3 << 10) | (59 << 15);
++	writel(val, regs + K210_SYSCTL_PLL1);
++
++	k210_clear_bits(PLL_BYPASS, regs + K210_SYSCTL_PLL1);
++	k210_set_bits(PLL_PWR, regs + K210_SYSCTL_PLL1);
++
 +	/*
-+	 * Although the K210 is a 64-bit CPU, the address bus is only 32-bits
-+	 * wide, and the upper half of all addresses is ignored.
++	 * Reset the pll. The magic NOPs come from the Kendryte reference SDK.
 +	 */
-+	#address-cells = <1>;
-+	#size-cells = <1>;
-+	compatible = "kendryte,k210";
++	k210_clear_bits(PLL_RESET, regs + K210_SYSCTL_PLL1);
++	k210_set_bits(PLL_RESET, regs + K210_SYSCTL_PLL1);
++	nop();
++	nop();
++	k210_clear_bits(PLL_RESET, regs + K210_SYSCTL_PLL1);
 +
-+	aliases {
-+		serial0 = &uarths0;
-+	};
++	for (;;) {
++		val = readl(regs + K210_SYSCTL_PLL_LOCK);
++		if (val & PLL1_LOCK2)
++			break;
++		writel(val | PLL1_SLIP_CLEAR, regs + K210_SYSCTL_PLL_LOCK);
++	}
 +
-+	clocks {
-+		in0: oscillator {
-+			compatible = "fixed-clock";
-+			#clock-cells = <0>;
-+			clock-frequency = <26000000>;
-+		};
-+	};
++	k210_set_bits(PLL_OUT_EN, regs + K210_SYSCTL_PLL1);
++}
 +
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		timebase-frequency = <7800000>;
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			reg = <0>;
-+			compatible = "riscv";
-+			riscv,isa = "rv64imafdc";
-+			mmu-type = "none";
-+			i-cache-size = <0x8000>;
-+			i-cache-block-size = <64>; /* bogus */
-+			d-cache-size = <0x8000>;
-+			d-cache-block-size = <64>; /* bogus */
-+			clocks = <&sysctl 0>;
-+			clock-frequency = <390000000>;
-+			cpu0_intc: interrupt-controller {
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+				compatible = "riscv,cpu-intc";
-+			};
-+		};
-+		cpu1: cpu@1 {
-+			device_type = "cpu";
-+			reg = <1>;
-+			compatible = "riscv";
-+			riscv,isa = "rv64imafdc";
-+			mmu-type = "none";
-+			i-cache-size = <0x8000>;
-+			i-cache-block-size = <64>; /* bogus */
-+			d-cache-size = <0x8000>;
-+			d-cache-block-size = <64>; /* bogus */
-+			clocks = <&sysctl 0>;
-+			clock-frequency = <390000000>;
-+			cpu1_intc: interrupt-controller {
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+				compatible = "riscv,cpu-intc";
-+			};
-+		};
-+	};
++static unsigned long k210_sysctl_clk_recalc_rate(struct clk_hw *hw,
++		unsigned long parent_rate)
++{
++	struct k210_sysctl *s = container_of(hw, struct k210_sysctl, hw);
++	u32 clksel0, pll0;
++	u64 pll0_freq, clkr0, clkf0, clkod0;
 +
-+	sram0: memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x400000>;
-+	};
++	/*
++	 * If the clock selector is not set, use the base frequency.
++	 * Otherwise, use PLL0 frequency with a frequency divisor.
++	 */
++	clksel0 = readl(s->regs + K210_SYSCTL_CLKSEL0);
++	if (!(clksel0 & CLKSEL_ACLK))
++		return K210_SYSCTL_CLK0_FREQ;
 +
-+	sram1: memory@80400000 {
-+		device_type = "memory";
-+		reg = <0x80400000 0x200000>;
-+	};
++	/*
++	 * Get PLL0 frequency:
++	 * freq = base frequency * clkf0 / (clkr0 * clkod0)
++	 */
++	pll0 = readl(s->regs + K210_SYSCTL_PLL0);
++	clkr0 = 1 + (pll0 & 0x0000000f);
++	clkf0 = 1 + ((pll0 & 0x000003f0) >> 4);
++	clkod0 = 1 + ((pll0 & 0x00003c00) >> 10);
++	pll0_freq = clkf0 * K210_SYSCTL_CLK0_FREQ / (clkr0 * clkod0);
 +
-+	kpu_sram: memory@80600000 {
-+		device_type = "memory";
-+		reg = <0x80600000 0x200000>;
-+	};
++	/* Get the frequency divisor from the clock selector */
++	return pll0_freq / (2ULL << ((clksel0 & 0x00000006) >> 1));
++}
 +
-+	soc {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		compatible = "kendryte,k210-soc", "simple-bus";
-+		ranges;
-+		interrupt-parent = <&plic0>;
-+
-+		sysctl: sysctl@50440000 {
-+			compatible = "kendryte,k210-sysctl", "syscon";
-+			reg = <0x50440000 0x1000>;
-+			#clock-cells = <1>;
-+		};
-+
-+		clint0: interrupt-controller@2000000 {
-+			compatible = "riscv,clint0";
-+			reg = <0x2000000 0xC000>;
-+			interrupts-extended = <&cpu0_intc 3>,  <&cpu1_intc 3>;
-+			clocks = <&sysctl 0>;
-+		};
-+
-+		plic0: interrupt-controller@c000000 {
-+			#interrupt-cells = <1>;
-+			interrupt-controller;
-+			compatible = "kendryte,k210-plic0", "riscv,plic0";
-+			reg = <0xC000000 0x3FFF008>;
-+			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 0xffffffff>,
-+					      <&cpu1_intc 11>, <&cpu1_intc 0xffffffff>;
-+			riscv,ndev = <65>;
-+			riscv,max-priority = <0x07>;
-+		};
-+
-+		uarths0: serial@38000000 {
-+			compatible = "kendryte,k210-uart0", "sifive,uart0";
-+			reg = <0x38000000 0x20>;
-+			interrupts = <33>;
-+			clocks = <&sysctl 0>;
-+		};
-+	};
++static const struct clk_ops k210_sysctl_clk_ops = {
++	.recalc_rate	= k210_sysctl_clk_recalc_rate,
 +};
++
++static const struct clk_init_data k210_clk_init_data = {
++	.name		= "k210-sysctl-pll1",
++	.ops		= &k210_sysctl_clk_ops,
++};
++
++static int k210_sysctl_probe(struct platform_device *pdev)
++{
++	struct k210_sysctl *s;
++	int error;
++
++	pr_info("Kendryte K210 SoC sysctl\n");
++
++	s = devm_kzalloc(&pdev->dev, sizeof(*s), GFP_KERNEL);
++	if (!s)
++		return -ENOMEM;
++
++	s->regs = devm_ioremap_resource(&pdev->dev,
++			platform_get_resource(pdev, IORESOURCE_MEM, 0));
++	if (IS_ERR(s->regs))
++		return PTR_ERR(s->regs);
++
++	s->hw.init = &k210_clk_init_data;
++	error = devm_clk_hw_register(&pdev->dev, &s->hw);
++	if (error) {
++		dev_err(&pdev->dev, "failed to register clk");
++		return error;
++	}
++
++	error = devm_of_clk_add_hw_provider(&pdev->dev, of_clk_hw_simple_get,
++					    &s->hw);
++	if (error) {
++		dev_err(&pdev->dev, "adding clk provider failed\n");
++		return error;
++	}
++
++	return 0;
++}
++
++static const struct of_device_id k210_sysctl_of_match[] = {
++	{ .compatible = "kendryte,k210-sysctl", },
++	{}
++};
++
++static struct platform_driver k210_sysctl_driver = {
++	.driver	= {
++		.name		= "k210-sysctl",
++		.of_match_table	= k210_sysctl_of_match,
++	},
++	.probe			= k210_sysctl_probe,
++};
++
++static int __init k210_sysctl_init(void)
++{
++	return platform_driver_register(&k210_sysctl_driver);
++}
++core_initcall(k210_sysctl_init);
++
++/*
++ * This needs to be called very early during initialization, given that
++ * PLL1 needs to be enabled to be able to use all SRAM.
++ */
++static void __init k210_soc_early_init(const void *fdt)
++{
++	void __iomem *regs;
++
++	regs = ioremap(K210_SYSCTL_SYSCTL_BASE_ADDR, 0x1000);
++	if (!regs)
++		panic("K210 sysctl ioremap");
++
++	/* Enable PLL1 to make the KPU SRAM useable */
++	k210_pll1_enable(regs);
++
++	k210_set_bits(PLL_OUT_EN, regs + K210_SYSCTL_PLL0);
++
++	k210_set_bits(CLKEN_CPU | CLKEN_SRAM0 | CLKEN_SRAM1,
++		      regs + K210_SYSCTL_CLKEN_CENT);
++	k210_set_bits(CLKEN_ROM | CLKEN_TIMER0 | CLKEN_RTC,
++		      regs + K210_SYSCTL_CLKEN_PERI);
++
++	k210_set_bits(CLKSEL_ACLK, regs + K210_SYSCTL_CLKSEL0);
++
++	iounmap(regs);
++}
++SOC_EARLY_INIT_DECLARE("kendryte,k210", k210_soc_early_init);
 -- 
 2.24.1
 
