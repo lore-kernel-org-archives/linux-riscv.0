@@ -2,89 +2,91 @@ Return-Path: <SRS0=3FEc=4F=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 234CDC7619D
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2020 08:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D69DBC7619D
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2020 08:32:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EC2B820725
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2020 08:32:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AC0C920725
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2020 08:32:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NsQBWZbP";
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="hJQ43EsI"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EC2B820725
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kj8rvt02";
+	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="BNGkX/+P"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AC0C920725
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Hcs3IYu1loQeGMz6D7BaruDwBKpT/QAWJLc9WJ9RvcU=; b=NsQBWZbPic8BvL
-	1NUGwA17DeK51ePhNTJUna3Zv6wj11kT7do7PkwEIvfKXpJj+mooA15KDF6V3snNuDXdhXLDcdglX
-	vHKBkWFiqAaFr/RxS9A6us6TmaIwsQakXHb4Uc8DWG3u0cDxwjTN9xvb6/vBnLpH4IBH8bkTJ9fcx
-	0LwprLgVuC8w7WxVAIMvNvntFfDQ2Wa+Nn2iLx29o2LrUEfwfqCQtHe05F1869hiswfwMsfdgJFa1
-	TRowV88qtV6Zol70zWSUjXhZn+HxyLGC9OtXPJch5hqHhR4Txv1w2qyN055rbufdCANJamrrKyAUz
-	+OqyP/gKeYVbXOrui7/A==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QV05nl1zAojbiLTVKnGFtXrM2l5IHlEM0aaK8Qpllr0=; b=kj8rvt02LX6lnl
+	9Pu37xo2L1LNj2lfPZyDjgG4eghqEAeoWugiNq2cMrDnFdkrweEXQNr79/MtFYwluvDyWPgWUXnT0
+	BZobIAEzqLKCcys7nAUEH5mSTPON2EcNSmSMa3mJrtUCUiVB/v/Zpkl81TFzSzOzF++Un/qvTvb+D
+	Lumyt/18vV+8h6TH4CjPtcxNGSL5Hev2mHzYziyCjjHIo32tWuHJnANKX1BoKopfh14RY8dbSnYv7
+	3IyBiETSDZRcgIB2osHce9eUhScjH/aQ5qMMliJKzFXjsEbb+RheNz9RpQ6s8v+4Z6GJ0gLLRxYtL
+	5HZGeF+0c/OECv5Qu9Hg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j3bpR-0005aa-L8; Mon, 17 Feb 2020 08:32:33 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1j3bpU-0005eU-Kr; Mon, 17 Feb 2020 08:32:36 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j3bpO-0005Zi-H9
- for linux-riscv@lists.infradead.org; Mon, 17 Feb 2020 08:32:31 +0000
-Received: by mail-pl1-x644.google.com with SMTP id y1so6408395plp.7
- for <linux-riscv@lists.infradead.org>; Mon, 17 Feb 2020 00:32:29 -0800 (PST)
+ id 1j3bpR-0005aL-3V
+ for linux-riscv@lists.infradead.org; Mon, 17 Feb 2020 08:32:34 +0000
+Received: by mail-pl1-x641.google.com with SMTP id c23so6411403plz.4
+ for <linux-riscv@lists.infradead.org>; Mon, 17 Feb 2020 00:32:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=Hcs3IYu1loQeGMz6D7BaruDwBKpT/QAWJLc9WJ9RvcU=;
- b=hJQ43EsIlapSjLKR42NfRJjH1Lsaw4P+FKomgrWFxgqnsCwR2ujO2E5Mqw+bPn0Yxu
- wipai+3ldCMpM3eS07bSj3k5yqo6YZQVMW0tuIltyYqE4aqN0JIUZjlt0uSkIgN4ob1o
- LoJjzNq62ebA+QLaIeie7/kd4Kvrq7jvVAz8DfqYhXkAx8DOUF69YcY38Kav0xSrk6zY
- QbgebI39Tva9CMqOkV6GCu3glUouzusjITCZT/XCA0/MYiiAgxxOcjHtbyOlDEQ7cVm9
- NDjvXCMOA3VE52APYJEffDbdHhbZLuJ7Q+a2OhrKWfTIzEkj45SeJmOQpZtt1HDZGWyR
- dJCg==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=QV05nl1zAojbiLTVKnGFtXrM2l5IHlEM0aaK8Qpllr0=;
+ b=BNGkX/+PNF9RrOz6P/Y6buFJK2xKWgREEdOZvQ+I1uGvbmA6GCcw5m7IrkzMBUJwab
+ KJpUCn9lE8gwmhWqZI/C/5Xao5cBTD/fPTfRhvMN0pXBmxWTDI84GO7oHsXURPJsu2TF
+ ym4mvOQdmPj9/utlRvsanB8cgN9dD6seW49s14szKlYozUXNR0MJY9zqJ5y5enlWJsdk
+ Bs4WhCnozkqTT6VcA3pJkCeX6sYW1e8zDO0BCAkMeNuZrD7mgPZK8EKxyZoKMmy6CyLG
+ axVCXifesrfol+pHH6KaJlfQvSYpuRy64DeAwabzTfFZ5WLxxlwM2AZoNU2P4/IhSTwq
+ M2NQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=Hcs3IYu1loQeGMz6D7BaruDwBKpT/QAWJLc9WJ9RvcU=;
- b=nbdO4geToTTPP8Ne2MeYVwZbrbZ5vAoFR5lJxDO/XQpuXTJvK4gYaSMRAPv3VcpZlc
- gayONtjSPOnBkhC5g8YeHKFXveMEjIg9aXJgKOqyLNq1eSpmYx+ALzZR1swwooEWorx9
- mgh8BnhPu8GZ+boYbzzt5k2PQQLxbAdmDIAJa2bdpzUMRDvRUptO+rJ7hFCGXlEOyYWC
- KozCnFNIR++KGo9UPCsSfc/NnV5X0PWP+MbVwVNZGkMRs29r/mvBXBNTGMWrft/oGkHo
- VTB21l0MWa4KYr4wIfPLqOeKcDp1YLAApNc2IAyUILj9Z7nuDeq94kFG1ZiW1tedXAhx
- egdw==
-X-Gm-Message-State: APjAAAWUGDQRtqKR4ZJTBUnNxdT3oFjtg39YjqYC1kvbMHGtyZHbh6Fq
- Euzry4LojlokNP83U3L+iNygJw==
-X-Google-Smtp-Source: APXvYqxB9MmYpJKEMtx+61G6Xv0FfZl6HfdanIBdAUEALAkOL7licVIihuYQiaDeJscs1E4Ns8JUMQ==
-X-Received: by 2002:a17:90a:1785:: with SMTP id
- q5mr18885984pja.143.1581928349196; 
- Mon, 17 Feb 2020 00:32:29 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=QV05nl1zAojbiLTVKnGFtXrM2l5IHlEM0aaK8Qpllr0=;
+ b=PTtKo6HOSwrr/IsEledYDx73y9lK2S2+0/CPmR0DhmT4+A3A1QVTE9IRKL/lb/QjPr
+ sbhin0kAfXezIPhHUnCUAzUKtTdUMIFSUuzcjt1+1esE68c5tozY+8xGd3GP1AZmK++E
+ 7fKfmfEZbEldQENTlYjXs0/6frplajHFGjX6hVxzRPhHnqkjtyhy1Y8IIxqrLOffjsJS
+ wmEBgW4/Ihy6ALjmbQrfyouBLgA/7uRBOWQ2nSVar1ARAFCk8QamjAeqr44CHkOa++7o
+ wWAn7AZG2ewGsodV9ug6TMal+I+J+PIsJIRb0KhJBoPhSyt90ZBYDaLMiy7FtC585am6
+ vdTA==
+X-Gm-Message-State: APjAAAUcnJewiJzW4NAnuNdcsywa44EB805zZJpBgXJNe+WYK8pchnw9
+ umtE8WtgNRArBWdzuimvL1u+N73EU2g=
+X-Google-Smtp-Source: APXvYqydROiyBhUZtlVN72Fe7TPNNBjcp6x58zxguFrmVQMWPOO9xgPGygDk/r8mmo8ephQKtYQ0gA==
+X-Received: by 2002:a17:90a:191:: with SMTP id
+ 17mr18926233pjc.88.1581928352545; 
+ Mon, 17 Feb 2020 00:32:32 -0800 (PST)
 Received: from hsinchu02.internal.sifive.com
  (220-132-236-182.HINET-IP.hinet.net. [220.132.236.182])
- by smtp.gmail.com with ESMTPSA id z10sm16989319pgz.88.2020.02.17.00.32.27
+ by smtp.gmail.com with ESMTPSA id z10sm16989319pgz.88.2020.02.17.00.32.31
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 17 Feb 2020 00:32:28 -0800 (PST)
+ Mon, 17 Feb 2020 00:32:32 -0800 (PST)
 From: Zong Li <zong.li@sifive.com>
 To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 0/8] Support strict kernel memory permissions for security
-Date: Mon, 17 Feb 2020 16:32:15 +0800
-Message-Id: <20200217083223.2011-1-zong.li@sifive.com>
+Subject: [PATCH 2/8] riscv: add ARCH_HAS_SET_DIRECT_MAP support
+Date: Mon, 17 Feb 2020 16:32:17 +0800
+Message-Id: <20200217083223.2011-3-zong.li@sifive.com>
 X-Mailer: git-send-email 2.25.0
+In-Reply-To: <20200217083223.2011-1-zong.li@sifive.com>
+References: <20200217083223.2011-1-zong.li@sifive.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200217_003230_599995_533E0546 
-X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-CacheID: sfid-20200217_003233_141586_6297DE96 
+X-CRM114-Status: UNSURE (   9.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -101,37 +103,74 @@ Cc: Zong Li <zong.li@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The main purpose of this patch series is changing the kernel mapping permission
-, make sure that code is not writeable, data is not executable, and read-only
-data is neither writable nor executable.
+Add set_direct_map_*() functions for setting the direct map alias for
+the page to its default permissions and to an invalid state that cannot
+be cached in a TLB. (See d253ca0c ("x86/mm/cpa: Add set_direct_map_*()
+functions")) Add a similar implementation for RISC-V.
 
-This patch series also supports the relevant implementations such as
-ARCH_HAS_SET_MEMORY, ARCH_HAS_SET_DIRECT_MAP,
-ARCH_SUPPORTS_DEBUG_PAGEALLOC and DEBUG_WX.
+Signed-off-by: Zong Li <zong.li@sifive.com>
+---
+ arch/riscv/Kconfig                  |  1 +
+ arch/riscv/include/asm/set_memory.h |  3 +++
+ arch/riscv/mm/pageattr.c            | 24 ++++++++++++++++++++++++
+ 3 files changed, 28 insertions(+)
 
-Zong Li (8):
-  riscv: add ARCH_HAS_SET_MEMORY support
-  riscv: add ARCH_HAS_SET_DIRECT_MAP support
-  riscv: add ARCH_SUPPORTS_DEBUG_PAGEALLOC support
-  riscv: move exception table immediately after RO_DATA
-  riscv: add alignment for text, rodata and data sections
-  riscv: add STRICT_KERNEL_RWX support
-  riscv: add DEBUG_WX support
-  riscv: add two hook functions of ftrace
-
- arch/riscv/Kconfig                  |   6 +
- arch/riscv/Kconfig.debug            |  30 +++++
- arch/riscv/include/asm/ptdump.h     |   6 +
- arch/riscv/include/asm/set_memory.h |  41 ++++++
- arch/riscv/kernel/ftrace.c          |  18 +++
- arch/riscv/kernel/vmlinux.lds.S     |  12 +-
- arch/riscv/mm/Makefile              |   1 +
- arch/riscv/mm/init.c                |  47 +++++++
- arch/riscv/mm/pageattr.c            | 187 ++++++++++++++++++++++++++++
- 9 files changed, 344 insertions(+), 4 deletions(-)
- create mode 100644 arch/riscv/include/asm/set_memory.h
- create mode 100644 arch/riscv/mm/pageattr.c
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 76ed36543b3a..07bf1a7c0dd2 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -60,6 +60,7 @@ config RISCV
+ 	select HAVE_EBPF_JIT if 64BIT
+ 	select EDAC_SUPPORT
+ 	select ARCH_HAS_GIGANTIC_PAGE
++	select ARCH_HAS_SET_DIRECT_MAP
+ 	select ARCH_HAS_SET_MEMORY
+ 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+ 	select SPARSEMEM_STATIC if 32BIT
+diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+index 936f08063566..a9783a878dca 100644
+--- a/arch/riscv/include/asm/set_memory.h
++++ b/arch/riscv/include/asm/set_memory.h
+@@ -14,4 +14,7 @@ int set_memory_rw(unsigned long addr, int numpages);
+ int set_memory_x(unsigned long addr, int numpages);
+ int set_memory_nx(unsigned long addr, int numpages);
+ 
++int set_direct_map_invalid_noflush(struct page *page);
++int set_direct_map_default_noflush(struct page *page);
++
+ #endif /* _ASM_RISCV_SET_MEMORY_H */
+diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+index fcd59ef2835b..7be6cd67e2ef 100644
+--- a/arch/riscv/mm/pageattr.c
++++ b/arch/riscv/mm/pageattr.c
+@@ -148,3 +148,27 @@ int set_memory_nx(unsigned long addr, int numpages)
+ {
+ 	return __set_memory(addr, numpages, __pgprot(0), __pgprot(_PAGE_EXEC));
+ }
++
++int set_direct_map_invalid_noflush(struct page *page)
++{
++	unsigned long start = (unsigned long)page_address(page);
++	unsigned long end = start + PAGE_SIZE;
++	struct pageattr_masks masks = {
++		.set_mask = __pgprot(0),
++		.clear_mask = __pgprot(_PAGE_PRESENT)
++	};
++
++	return walk_page_range(&init_mm, start, end, &pageattr_ops, &masks);
++}
++
++int set_direct_map_default_noflush(struct page *page)
++{
++	unsigned long start = (unsigned long)page_address(page);
++	unsigned long end = start + PAGE_SIZE;
++	struct pageattr_masks masks = {
++		.set_mask = PAGE_KERNEL,
++		.clear_mask = __pgprot(0)
++	};
++
++	return walk_page_range(&init_mm, start, end, &pageattr_ops, &masks);
++}
 -- 
 2.25.0
 
