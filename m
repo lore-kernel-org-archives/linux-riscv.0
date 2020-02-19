@@ -2,22 +2,22 @@ Return-Path: <SRS0=GYez=4H=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-5.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=no autolearn_force=no version=3.4.0
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6A9A2C34022
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2020 08:50:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6FC43C34022
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2020 09:06:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F0972208E4
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2020 08:50:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 437012464E
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2020 09:06:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WKzQjVTK";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="gKZfe2wM"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F0972208E4
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qA37Hm62";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="WrHeYr+L"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 437012464E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,59 +26,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=iBiYQC8M9ymGiegkopRwji5qFDJJG690doCVk2tdx18=; b=WKzQjVTK5XOBhAWIX3EChp52R
-	HYLawM8nkHTlPIkF+UVp6pVgsW/EkulvdU+hawFfKymS79z0CgtFwgRL9LV5DLHEXU3h+dEGCjfkO
-	8eRbka+Ta/JkiGV7GdXlE+PwSeWcv2DPyz9rLXPos2mwp1gQ/aemjMf3k6+zzBA/kSe50ANaM2QNG
-	4eDYf3JrOhqW+E3Yc4gIUGy4G6Gp/S5rRDJExnrAUEQ9fP/8KKMqnd+0rKVV6s6DTW24eczk8+XRH
-	KpH4tKZA0BrE8QBg9Rv8bJs/SIcL4FBR6ykvpcwffpxkr0ijPPU7JU9m4YEMSLPWKiDL0GYzI+8yD
-	3MAMvdU3w==;
+	 bh=g5u0snihwa6Egt0Qk0Qh1M1KCMq5VuHmrqtC2JmzYRI=; b=qA37Hm62Pozhf7zJ4/ZKjQJJ/
+	JCzTepSsGlK65EiE+CTdHESMyzERig25ztBfmEG3ygfZNmEZEJaXZ9Aiv4FPBFtB/hj7TM+CGOzgb
+	kKkeUX7vICuYjyA0OOFXldTRJJwq3UcYJIU0mOVNHKDdew36hsVT7lTRX1pV3M3lJrybvq3kUn66d
+	hqEthZqk0PIMD7+TxQshV1nF76WBq/nOXPYw3iPtlUm31P0U9dyieoscn1e5cQqqhZrIoz/738BLQ
+	gzEnGx0aNGIPGLw1iCrcKRAj6Rnv+IB97O3JmtR7ZiPKJOjJXH+RGTgqC4HpbilpJc95+Pgi0ZiJQ
+	LKnYQKLSQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j4L4L-0006G7-6W; Wed, 19 Feb 2020 08:50:57 +0000
-Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
+	id 1j4LJE-00039t-Ba; Wed, 19 Feb 2020 09:06:20 +0000
+Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j4L3n-0005fl-8b
- for linux-riscv@lists.infradead.org; Wed, 19 Feb 2020 08:50:25 +0000
-Received: by mail-wm1-x344.google.com with SMTP id s10so5512341wmh.3
- for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2020 00:50:21 -0800 (PST)
+ id 1j4LJA-00037g-V0
+ for linux-riscv@lists.infradead.org; Wed, 19 Feb 2020 09:06:18 +0000
+Received: by mail-wr1-x444.google.com with SMTP id m16so27192193wrx.11
+ for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2020 01:06:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to;
- bh=iBiYQC8M9ymGiegkopRwji5qFDJJG690doCVk2tdx18=;
- b=gKZfe2wMBHfwx/ZnbSf1p0XlL7p3iCmUo9I/qUFhJom/XZc9yVZqSfNMe7hrdNVuOW
- PtmhSgeL5tYYWKWfV0cu3PypWXVMbsf/W4Pt6c2jq6CzLQ1fb/JdfqiZTjmsUdlAZ/n1
- 9htfrFfPqy3Ol9lSm8C631cBJwD7AItkX+sGVwFHn1DjI6r1XamJEaQYl/m9YrLM1kaB
- Jt4hsw0dEuvIhK7w6uCiNBwbDgIxB1T0s9qzjBbh/5aOXuobep6y5J5iT6ZdAEE8xuxf
- 6JxpiuBjXa8bt8bwg3yrOKDi58rksd2yRm4wUON/hr7mRzs/iNVoRqWVDldqSjnY1fjM
- qT7Q==
+ bh=g5u0snihwa6Egt0Qk0Qh1M1KCMq5VuHmrqtC2JmzYRI=;
+ b=WrHeYr+LxI3ni7qNcbeMCpT/+7ReG3fSl4yFztfPLszWLVkBbMKTlt2NYXDMktsVVv
+ eQY8piaGh4g+DKsXGH+bYRYvsMahQAtl0DZMvQFrY2a1kKsJRqWU+x+HgY7npqvfV0/v
+ iYXkekA0zm+P5js5VetP585W0VhIgV5OHBGhm5aINeAfeFPhhZEALXcRFZPt1OwXirQG
+ +Pw6rcekd9yTUhPNHZuvrSxZzkmulBIGbg5YTZ1PXICHmJquFokx5miB68NNQPPIHGjP
+ k1n+tTnj0S++bcDjDl5Ll0w7NrXJ630ckEq4i4ClLDSKMO6a0Yjjb8taqqIwDDC1+Yal
+ boYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=iBiYQC8M9ymGiegkopRwji5qFDJJG690doCVk2tdx18=;
- b=l7MfGSsXEj3r7YjdYELvzzQWa/Z7gAErGhS+uaQO1MQma5PWzcEGfQWfRQYTU/rxfl
- X5CDPy6410GdbJEE1E64LWYxDIYDI/+xNmHbUQfgej1hek1b4VvQAiq125lvp81MbJrg
- tTmhz3/vZKtsmTWLUv8+WPDFeno6TTlKZx2qoVhgPNanQVCC3GbFo4ZPC3miQnDokbXL
- AGsHZI13B90P260yhyrZiehnvpOHe8CV2SBKQzepp8UESfCL/oTTcsxTI3143Ck5nMvu
- fX6+MvedF8X5qD+wYFScFrIEn+3H15f+FCfmaSAKVy5X8HC6O+58Wa1RaYViD3wlYj+s
- koGw==
-X-Gm-Message-State: APjAAAVTDhaf1ikGVwZZAyb24ER8p3wPbX5yE8wzSCN28kKR5UQ7f7y2
- Eh7o7woG9LIud6G+G7cAlMs=
-X-Google-Smtp-Source: APXvYqxgT7hcRCElP13oDRyXm/zJh6PBDq8H2bcwYmvAwwP1MYkqtIzYdJnc+hzFT6p3jMvUFS0NgA==
-X-Received: by 2002:a1c:1b93:: with SMTP id b141mr8991436wmb.114.1582102220179; 
- Wed, 19 Feb 2020 00:50:20 -0800 (PST)
+ bh=g5u0snihwa6Egt0Qk0Qh1M1KCMq5VuHmrqtC2JmzYRI=;
+ b=RM6YHuY/qNqyRpzjeIIjudczBiVzqic/34L+UFvjcMhXXFOt3PraKeByW9nDCB34HN
+ c5qYc5/tb4Ayx4C4/eKrF2Ux+SYT+WJCynTPte9M/9+njRVqXsqUeuAsySgqnHVdm+eT
+ XQ9mGArKAp/W/8Jk10eZ9+MPRVj9u5+Zr/MLsdmlydM0+rziCBKPeM2l6YXaBRFK8UiE
+ QxhIqdCRPGM/RLjyS+GkzoCxEsjagxg5irLEfuMS3CcJorbibUZufBi0CyANIkO+XOm/
+ 4ifArVv4rTmTcIMDdQX+Qfz4Z0n4ATV5gs8CWPUcKSKMuJS761wNC2wksfoWc/ktnwAP
+ xZew==
+X-Gm-Message-State: APjAAAW9+Baw+U8OuuE+by8V4UjHw0jwUvz0XUsJLJfrc+DLQr1YcaCu
+ vxlcGGKBMfD0LTa4dlKcYH0=
+X-Google-Smtp-Source: APXvYqwB3mvWMMUQZrubqH3g3gNmhK3ZDnDOknE2O5MTlbd8pBp2NrxTAhIfgel+z6FtYi2ht6ffhA==
+X-Received: by 2002:adf:df83:: with SMTP id z3mr34427726wrl.389.1582103175606; 
+ Wed, 19 Feb 2020 01:06:15 -0800 (PST)
 Received: from aurora.visucore.com (92-110-144-95.cable.dynamic.v4.ziggo.nl.
  [92.110.144.95])
- by smtp.gmail.com with ESMTPSA id q14sm1963853wrj.81.2020.02.19.00.50.18
+ by smtp.gmail.com with ESMTPSA id 5sm2093005wrc.75.2020.02.19.01.06.14
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Wed, 19 Feb 2020 00:50:19 -0800 (PST)
-Date: Wed, 19 Feb 2020 09:50:17 +0100
+ Wed, 19 Feb 2020 01:06:14 -0800 (PST)
+Date: Wed, 19 Feb 2020 10:06:12 +0100
 From: "Wladimir J. van der Laan" <laanwj@gmail.com>
-To: Sean Anderson <seanga2@gmail.com>
+To: Carlos Eduardo de Paula <me@carlosedp.com>
 Subject: Re: [PATCH 08/10] riscv: Add Kendryte K210 device tree
-Message-ID: <20200219085017.qpfyvmzfz27fojzl@aurora.visucore.com>
-References: <20200212103432.660256-1-damien.lemoal@wdc.com>
- <20200212103432.660256-9-damien.lemoal@wdc.com>
+Message-ID: <20200219090612.7onbaoygy6waumnw@aurora.visucore.com>
+References: <20200212103432.660256-9-damien.lemoal@wdc.com>
  <48e10b3d-12f3-a65c-8017-99c780c63040@gmail.com>
  <BYAPR04MB581671F46D3FE67FD3C8B2B7E7140@BYAPR04MB5816.namprd04.prod.outlook.com>
  <bd74c841-2447-2f11-f924-a501230b3927@gmail.com>
@@ -87,14 +86,14 @@ References: <20200212103432.660256-1-damien.lemoal@wdc.com>
  <19e78a77-4b7f-a057-eb6e-7384f3fc67c1@gmail.com>
  <CADnnUqfSq5sNXMQLktU0R_XLvYrf00nqMG5UPkTwaeL-Cy1m_A@mail.gmail.com>
  <8108cb8e-a909-24b0-f1c4-24a5bebf4e65@gmail.com>
+ <CADnnUqenadntSrngNGjnu40inxZWK1Nm3T64BnyY114hEwC_Og@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <8108cb8e-a909-24b0-f1c4-24a5bebf4e65@gmail.com>
+In-Reply-To: <CADnnUqenadntSrngNGjnu40inxZWK1Nm3T64BnyY114hEwC_Og@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200219_005023_475405_E9151FFE 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200219_010617_001951_5659963D 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -106,25 +105,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Carlos Eduardo de Paula <me@carlosedp.com>, Anup Patel <Anup.Patel@wdc.com>,
- Damien Le Moal <Damien.LeMoal@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+Cc: Damien Le Moal <Damien.LeMoal@wdc.com>, Anup Patel <Anup.Patel@wdc.com>,
+ Sean Anderson <seanga2@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-> > Wladimir (don't know his email) started playing with UART1 interface
-> > to the 8285 module to allow WiFi communication. We thought about
-> > having a TUN/TAP interface over it to bring the TCP/IP stack up.
-> > https://twitter.com/orionwl/status/1229442145628585990
+On Tue, Feb 18, 2020 at 04:26:17PM -0300, Carlos Eduardo de Paula wrote:
+> On Tue, Feb 18, 2020 at 2:48 PM Sean Anderson <seanga2@gmail.com> wrote:
+> >
+> > So the LCD connector is supposed to be for a ST7789V controller, but
+> > there doesn't appear to be a driver in Linux for it. I don't have an
+> > appropriate LCD screen, so I will not be able to write a driver.
+> >
 > 
-> Nice. I don't think too many raw register pokes should be needed,
-> because you are just using a uart to communicate...
+> Actually there is a driver and config DRM_PANEL_SITRONIX_ST7789V, in
+> gpu/drm/panel/panel-sitronix-st7789v.c and also FB_TFT_ST7789V and
+> CONFIG_FB_TFT_ST7789V with the driver a in
+> staging/fbtft/fb_st7789v.c. Might be easier :)
+> 
+> Weird that the Kendryte SDK refers to the LCD as NT35310
+> (https://github.com/kendryte/kendryte-standalone-demo/tree/develop/lcd).
 
-The reason I needed any raw register pokes at all is because I don't have a sysctl / fpioa driver, and didn't
-feel like writing one at this time, so just write the appropriate values to the registers to map the UART1 to the
-correct pins and enable WIFI_EN. After setting up those, Linux's driver works as-is for the UART!
+I remember checking the datasheet for both a while ago and NT35310 and ST7789V
+seem to be more or less compatible, with only register differences
+for more obscure functionality.
+
+The more involved part is likely to adapt the spi-dw driver, apart from making the
+ctrlr0 shifts configurable, there's the "OCTAL" mode that is used and extra
+register that isn't set in the Linux driver (spi_ctrlr0 / 0xf4) concerning
+"instruction address translation mode" and other things that needs to
+be set correctly for LCD transfers to work.
+
+> > There is no need for GPIOs. The datasheet shows SPI0 as hooked up to the
+> > SD card, but the default pinconf doesn't have it hooked up. In addition,
+> > the dedicated SPI0 data lines are already connected to the LCD. For
+
+Yes - apparently only if you set sysctl spi_dvp_data_enable to route the
+SPI0_0-7 pins to to the LCD data pins (bypassing FPIOA).
+
+BTW speaking of which, does anyone know what's up with the K210's DMA
+controller? It looks like it can only transfer 32-bit values from and to
+peripherals? At least the kendryte-standalone-sdk goes to great lengths to
+first allocate a 32-bit buffer then manually copy it to say, bytes or 16-bit
+words. Seems quite a silly workaround with a lot of overhead.
 
 Wladimir
+
 
