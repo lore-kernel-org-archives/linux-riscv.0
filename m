@@ -2,93 +2,96 @@ Return-Path: <SRS0=GYez=4H=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 76A07C34022
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2020 07:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 75574C34022
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2020 07:30:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4984C2176D
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2020 07:28:53 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 481672176D
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2020 07:30:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Kn0k+JYm";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="hRVJ/xGy"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4984C2176D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ksC5lcK9";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="kBmX0xFj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 481672176D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7RE8yadqunBbRH3qS8QB++tHjtjwApk9t/HNNGZGt0k=; b=Kn0k+JYm6UGfab
-	96zwvz5zosoGMePorEhMZsBtS0tx/YgLbHrbrrqdXAqsNvu/lts2K+rjVxhGGqDEEjaQ4nT5q12kI
-	K3J5+dZOgHbrWKKfk++b+Yb6l9aEB6De2oLTvgss3H9U5bmLcGX+EQ/y18ysa1uITxgCLYrqZ6jdn
-	FPzhZzK5cs66yIjRdhMB6WITY3KgIYBcfl4fbZa5eW/JuhdOJP4Mw8io9It5EFTxWbA/WLj5iUGiX
-	xP2+HRQsM1HscUryJWYiTcruTUzjlIrHPDmRNBQF0mqgP5FrvL1ngEjOl/M9DyP9IUOLOl/GuFiXz
-	ZeoMNqA1qZIC4h3AlZhw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=b1kXoez8kqveUNmv9BKElRMXEDsw4WWFUQ32xPFMPNQ=; b=ksC5lcK9QuOadDa55JVaxffMa
+	/kPpFaARarGZWcXBWXQK/m06EUVbh93RXm6mh6TgIXKc5e/ZdoDK/wBHzOmJf1Qe1/7LzGW0LqDA4
+	TUhk81Q1Rl8K1Y5sjnI+uOZ1gbcdFD1jpW2KlLdDDOYBOlp869feuQx0Nycs87KUUa/0SER7tSI5u
+	oSnv8i4QUNG/V39hYDZhCiFmiEC284PCjGkkUrsZTsvPQimRpkjipdXL8j+F0e7na9vcVhDC79/xC
+	+F8FGk73qpwwAbIdm4SYIhtE92DOOkA6MnqfaV6ARf6y5x0T6OWPlBpXrl4rjDGLgj+FtWrT72mS+
+	dC/CbzP5g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j4Jmu-0005O1-3C; Wed, 19 Feb 2020 07:28:52 +0000
-Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
+	id 1j4Joo-0006qy-DD; Wed, 19 Feb 2020 07:30:50 +0000
+Received: from mail-qk1-x744.google.com ([2607:f8b0:4864:20::744])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j4Jmp-0005K3-Ja
- for linux-riscv@lists.infradead.org; Wed, 19 Feb 2020 07:28:48 +0000
-Received: by mail-pj1-x1044.google.com with SMTP id j17so2162488pjz.3
- for <linux-riscv@lists.infradead.org>; Tue, 18 Feb 2020 23:28:47 -0800 (PST)
+ id 1j4Jol-0006qT-8Q
+ for linux-riscv@lists.infradead.org; Wed, 19 Feb 2020 07:30:48 +0000
+Received: by mail-qk1-x744.google.com with SMTP id v2so22183954qkj.2
+ for <linux-riscv@lists.infradead.org>; Tue, 18 Feb 2020 23:30:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=7RE8yadqunBbRH3qS8QB++tHjtjwApk9t/HNNGZGt0k=;
- b=hRVJ/xGyrloptlAPvAR32rydKjzeXKJcG9PPOH8C3EGAsSmJ03rjrLXvlvMTFhW7rr
- fBXBhhkT9NQbLh4ejvI3dkLvP/Y0IJrf+Bcghe2PAJv65e3U5WGB9S78gjRCu9ZsciuY
- 3kwnZPgs2nVaHzrc0E2mzVXCnhbas2BkuhMyf+SwSgxlMQMYT7Y7GclaF2nTOOvf7SZI
- NBBtTAgVyt6FXKRt01wR+cVNq2FG2/+gd3JSaO5dVPAwXOY3Ub3+bYlP7VlD54mJpdT0
- R216NXu/9BbvGu0s3c95lfv9k6UCikHTqNEzQbG8cih7WFivzEEZzuVVHJtgYmhlKGjG
- oRsA==
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=b1kXoez8kqveUNmv9BKElRMXEDsw4WWFUQ32xPFMPNQ=;
+ b=kBmX0xFjBmS8VXUZ5JGumIy10Vo5NR+nHPLeViYsjrGdKBDseN5U+pLZ/eI3Pho3zX
+ yLZDTG6dvkz+QZIKwrrUs48hQyDUyMQ4wdBrsn40b8fecY1SHu5vRGd/SXAq7naO4LGu
+ LnyMIXxMI+YxyMCDmQ4j7sw9vQCZobYS0RJpvPxTySJdrahVpnwk/+TOAg+WnKXJ8sJB
+ nFGK5v8Zgb+1DyIJTvs8Gyn0RNm5eU0KPgCJ7EHAnYz24DLyXfDdsqN03fZi4pPWLkH9
+ w49YEqjOiKcZ7prTOCaUGxLdE4XGjy7HaQqRwzBqVko2bf84fpcxvL4hdo0yzEgNZxuF
+ bzhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=7RE8yadqunBbRH3qS8QB++tHjtjwApk9t/HNNGZGt0k=;
- b=DgHJYSH+MGvDmVXm2KmzdNLTawA1lnr7mDvOFU8pavTId4SY8ua8P4XDDDx7T4emVd
- pGs0sdOZ3RWMah1v+E2XV/DnTmia0/MvLLazKqo3BgmMwGos5a0Xa0u10XVTBX9631dz
- djy7yaEh3VcIMoSgWN6qJ9ifYtvm2fXxaQEaJ5/1SKCsP1SIlNQrwHrhj5qaHOp8LiUk
- YkolLAEkS6ptPB63TOeM3ROsq6VJ0lHlwh6M1/xFqvwYY3zEcZk81iY8YQmo2rRrWEGl
- 0ahYO2362kURHMiQJUGV/oRP2jQfkTypBgjXNhjsId04HkdXp8fIuY+TKF0cCEJNxD86
- rN4g==
-X-Gm-Message-State: APjAAAW1OwdgqJWVnSkoBAbqjkR+vBPuQz+74UD9maptq1bLDwgdSJyy
- qLVMRetF49n02q9gqD+hNKEmXJMC9f/JbQ==
-X-Google-Smtp-Source: APXvYqzpvsON3Fj/73h0kzTbPUfHmS7shpX2yONmhg6vBNNd5ttRZCtyvYFBlaGa8V947i52c9BnlA==
-X-Received: by 2002:a17:902:8eca:: with SMTP id
- x10mr23990054plo.94.1582097326738; 
- Tue, 18 Feb 2020 23:28:46 -0800 (PST)
-Received: from VincentChen-ThinkPad-T480s.internal.sifive.com
- (220-132-236-182.HINET-IP.hinet.net. [220.132.236.182])
- by smtp.gmail.com with ESMTPSA id c188sm1500699pfb.151.2020.02.18.23.28.45
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
- Tue, 18 Feb 2020 23:28:46 -0800 (PST)
-From: Vincent Chen <vincent.chen@sifive.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com
-Subject: [PATCH 2/2] riscv: Change code model of module to medany to improve
- data accessing
-Date: Wed, 19 Feb 2020 15:28:24 +0800
-Message-Id: <1582097304-5547-3-git-send-email-vincent.chen@sifive.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1582097304-5547-1-git-send-email-vincent.chen@sifive.com>
-References: <1582097304-5547-1-git-send-email-vincent.chen@sifive.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=b1kXoez8kqveUNmv9BKElRMXEDsw4WWFUQ32xPFMPNQ=;
+ b=XuXRMdjs+JIbO6KZXhOrGIZ9ACein+DikMsl/ZiVNU/t4K2+biiV405oKazge0s0E2
+ O3fwIZl2tuZKboviarukv+ry431LZqESqN2VkPUPYmzwpGH4wkjQiJ3qJOforsWtrEMI
+ XYnQ9rTYe3bXUziryGOWGGF2xWhysXFaqELaIzjciCRmAgd4DKXJi7AKbqv8QfJ7CKBe
+ IOoNFoRNHIiUT5hKP7GYMc5fa0iSMkFXDiZPcn8nBevL6VcLy4+/uL3ZWanfG/Vzc8o7
+ Swfd5qY8uruy8/bzjHKQNCo7kL2STMqHssHGBkTDAXAIXAecTIndzXmdJJ6BDc+D/U2z
+ K8OA==
+X-Gm-Message-State: APjAAAUlDtVk5TLDMd5zbkSdBiPhMcoqPa62ewZSuqiyHznz4WquoPrw
+ eMlX8LMLBxtMl44saRRmprJN5BmdI7INtOpx5NtXRQ==
+X-Google-Smtp-Source: APXvYqxpehlijMXAzcXkwNC1uSWRO4BZXY4/6dcGGpPayh19hDoOzDmiqDy0/na/Esm7e7rm2jm7jOSeut5OumKLD4s=
+X-Received: by 2002:a37:a143:: with SMTP id k64mr22168808qke.397.1582097445923; 
+ Tue, 18 Feb 2020 23:30:45 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <CADnnUqfhxWN=cyyr0QQyKrrO13LuDFS9NTqOLwm10CnwB3sDXA@mail.gmail.com>
+ <68bb87cb-50d7-5e85-37f4-ad2cc44865f1@ghiti.fr>
+ <CA+ZOyahEPtuNqgSUHVcZpZp3WP3oX4jFOiqJvO827ye4+1DT8Q@mail.gmail.com>
+ <c12ed63e-c717-9fa0-7a6c-74d6d4a83a04@ghiti.fr>
+ <CABvJ_xiBVQjfJfZU0Dfp0fc9n_zAoc=DSHPFuDMKu4k5n0qJtQ@mail.gmail.com>
+ <CAAhSdy2gEK++MtyV9=o9r_-6CkaWMsQ0YZwB-TAkCCe3B4qTFg@mail.gmail.com>
+ <CABvJ_xjc+ojwqgMhxZ2a0Q+BvxzxUR6ab__+8iA6zx65GMKkxA@mail.gmail.com>
+ <a55f265e-71b2-5ebb-b079-6345007a442e@ghiti.fr>
+ <CABvJ_xjVLJEebCac_sb6-Yd_iHU1x8Daqw-iFqcGn11YKktm8Q@mail.gmail.com>
+ <MN2PR04MB6061ED6ABC668B59A7A544CF8D020@MN2PR04MB6061.namprd04.prod.outlook.com>
+ <CABvJ_xg_+XHhND-_8mq8gUN_yN-abMjDOWGg+MFVP0gwSAhxtw@mail.gmail.com>
+ <CABvJ_xgRE3P0uVhx9zyVZOzMjNYewJQK-nyhv8e5cfpNweLAGw@mail.gmail.com>
+ <CABvJ_xiqAmdqUjZ9s8w9E3BYU8ruFnACpiGZMH-Vc8nCKiwUcA@mail.gmail.com>
+ <2b69bae3-b00f-a991-16f6-8f682faeddfe@ghiti.fr>
+ <CABvJ_xjm9wBqTm2mbbUXcEAT88cr=86AKitQbXdfPJ9WYP702w@mail.gmail.com>
+ <4df14ac8-adb6-08d9-0d1b-04553c2241f3@ghiti.fr>
+In-Reply-To: <4df14ac8-adb6-08d9-0d1b-04553c2241f3@ghiti.fr>
+From: Vincent Chen <vincent.chen@sifive.com>
+Date: Wed, 19 Feb 2020 15:30:34 +0800
+Message-ID: <CABvJ_xhBixgFhBqc9Xp8D9XpfJFkWqasOaytpGzLYZ3_JL2jvQ@mail.gmail.com>
+Subject: Re: Error on loading some network Kernel modules
+To: Alex Ghiti <alex@ghiti.fr>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200218_232847_644742_76938998 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20200218_233047_302439_71EC6B18 
+X-CRM114-Status: GOOD (  26.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,39 +103,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Vincent Chen <vincent.chen@sifive.com>, linux-riscv@lists.infradead.org,
- deanbo422@gmail.com
+Cc: Carlos Eduardo de Paula <me@carlosedp.com>,
+ David Abdurachmanov <david.abdurachmanov@gmail.com>,
+ Anup Patel <anup@brainfault.org>, Anup Patel <Anup.Patel@wdc.com>,
+ Paul Walmsley <paul@pwsan.com>, Zong Li <zongbox@gmail.com>,
+ Romain Dolbeau <romain.dolbeau@european-processor-initiative.eu>,
+ Zong Li <zong.li@sifive.com>, linux-riscv <linux-riscv@lists.infradead.org>,
+ Aurelien Jarno <aurelien@aurel32.net>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-All the loaded module locates in the region [＆_end-2G，VMALLOC_END] at
-runtime, so the distance from the module start to the end of the kernel
-image does not exceed 2GB. Hence, the code model of the kernel module can
-be changed to medany to improve the performance data access.
+On Wed, Feb 19, 2020 at 2:46 PM Alex Ghiti <alex@ghiti.fr> wrote:
+>
+> Hi Vincent,
+>
+> On 2/10/20 4:53 AM, Vincent Chen wrote:
+> > On Mon, Feb 10, 2020 at 2:37 PM Alex Ghiti <alex@ghiti.fr> wrote:
+> >>
+> >> Hi Vincent,
+> >>
+> >> On 2/7/20 9:51 AM, Vincent Chen wrote:
+> >>> On Fri, Feb 7, 2020 at 10:39 PM Vincent Chen <vincent.chen@sifive.com> wrote:
+> >>>>
+> >>>>>> For point1, we don't need a dedicated region as long as we are allocating
+> >>>>>> modules from VMALLOC area. Let's avoid another virtual memory region if
+> >>>>>> possible.
+> >>>>>>
+> >>>>>
+> >>>>> Your comments inspire me if we can know the end of the percpu data
+> >>>>> region, we can dynamically calculate the start address in each module
+> >>>>> allocation by "<end of the percpu data region> - 2GB" if needed. I am
+> >>>>> finding a way to derive the <end of the percpu data region>.
+> >>>>>
+> >>>>
+> >>>> In the implementation of the idea, I found that I did have some
+> >>>> misunderstandings about the mechanism of accessing static percpu
+> >>>> symbol. Currently, I think this issue can be solved by modifying the
+> >>>> module_allocate() to the following.
+> >>>> #define MODULE_START max(PFN_ALIGN(&_end - 2 *
+> >>>> SZ_1G), PFN_ALIGN(&_text + 8 * SZ_1K - 2 * SZ_1G))
+> >>>> void *module_alloc(unsigned long size)
+> >>>> {
+> >>>> return __vmalloc_node_range(size, 1, MODULE_START,
+> >>>> VMALLOC_END, GFP_KERNEL,
+> >>>> PAGE_KERNEL_EXEC, 0,
+> >>>> NUMA_NO_NODE,
+> >>>> __builtin_return_address(0));
+> >>>> }
+> >>>> After applying a similar modification above, the kernel can
+> >>>> successfully insert the test module provided by Romain. Any feedback
+> >>>> is welcome. If someone is curious about the reason, I roughly
+> >>>> described it at the end of this mail. I am sorry if someone was misled
+> >>>> by early discussion.
+> >>>>
+> >>>>
+> >>>> As mentioned early, kernel pre-allocates a memory region for each CPU
+> >>>> to place the instances of the percpu data. According to the
+> >>>> declaration type, each memory region can be divided into three chunks.
+> >>>> These three chunks from low memory to high memory are static chunk,
+> >>>> reserved chunk, and dynamic chunk.
+> >>>> a. The static chunk is used for the static percpu symbols declared in the kernel
+> >>>> b. The reserved chunk is used for the static percpu symbols declared
+> >>>> in the kernel module
+> >>>> c. The dynamic chunk is used for all dynamic percpu symbols.
+> >>>>
+> >>>> The order of the percpu symbols in each memory region is the same and
+> >>>> is recorded in a symbol list maintained by the kernel. Therefore, the
+> >>>> address of a specific CPU's percpu symbol is "The address of this
+> >>>> percpu symbol in the symbol list" + "The offset from symbols list to
+> >>>> the specific CPU region".
+> >>>> a. The symbol list is created based on the ".data..percpu" section. In
+> >>>> other words, the start address of this symbol list is the start
+> >>>> address of ".data..percpu". When a dynamic percpu symbol is created or
+> >>>> a kernel module import a static percpu symbol, the kernel will follow
+> >>>> the above chunk rule to add this percpu symbol to its suitable region.
+> >>>> b. When each memory area was created, "The offset from symbols list to
+> >>>> the specific CPU region" has been recorded.
+> >>>>
+> >>>> Back to the issue, according to the rules above, the kernel will
+> >>>> relocate the ".data..percpu" section of the loaded module to the end
+> >>>> of the ".data..percpu" section of the kernel image. The end of the
+> >>>> ".data..percpu" section of the kernel image almost equals _text, and
+> >>>> the current size of the reserved chunk is 8KB. Therefore, the
+> >>>> appropriate range to place the loaded module is [max(PFN_ALIGN(&_end -
+> >>>> 2 *SZ_1G), PFN_ALIGN(&_text + 8 * SZ_1K - 2 * SZ_1G)),  VMALLOC_END].
+> >>>
+> >>> I did not notice that the size of the kernel .text section is
+> >>> impossible below 2 PAGES. Therefore, the modification of module_alloc
+> >>> function can be reduced to the following.
+> >>> void *module_alloc(unsigned long size)
+> >>>    {
+> >>>    return __vmalloc_node_range(size, 1, PFN_ALIGN(&_end - 2 *SZ_1G),
+> >>>    VMALLOC_END, GFP_KERNEL,
+> >>>    PAGE_KERNEL_EXEC, 0,
+> >>>    NUMA_NO_NODE,
+> >>>    __builtin_return_address(0));
+> >>>    }
+> >>> It is the same as Alex's suggestion. Is Alex willing to send this
+> >>> patch to resolve this bug?
+> >>>
+> >>
+> >> You did all the work, please send a patch explaining what you learnt and
+> >> feel free to add a Suggested-By. Anyway, I'll add a Reviewed-by when you
+> >> propose something.
+> >>
+> >> Thank you Vincent for all your research,
+> >>
+> >> Alex
+> >
+> > OK, I understood. Thank you and Anup for giving me some suggestions
+> > from different viewpoints. I will add Suggested-By for you all if
+> > possible :)
+> >
+> > Vincent
+> >
+>
+> Are you going to propose something soon regarding this issue ? I
+> strongly believe we need to fix modules loading for 5.6.
+>
+> Thanks,
+>
+> Alex
 
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
----
- arch/riscv/Makefile | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+Thanks for your reminder. I just posted the patch to the mailing list.
 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 33a1d7cbf775..a6abe5847e42 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -13,8 +13,10 @@ LDFLAGS_vmlinux :=
- ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
- 	LDFLAGS_vmlinux := --no-relax
- endif
--KBUILD_AFLAGS_MODULE += -fPIC
--KBUILD_CFLAGS_MODULE += -fPIC
-+
-+ifeq ($(CONFIG_64BIT)$(CONFIG_CMODEL_MEDLOW),yy)
-+KBUILD_CFLAGS_MODULE += -mcmodel=medany
-+endif
- 
- export BITS
- ifeq ($(CONFIG_ARCH_RV64I),y)
--- 
-2.7.4
-
+Vincent
 
