@@ -2,83 +2,99 @@ Return-Path: <SRS0=GYez=4H=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 39789C34022
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2020 08:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6A9A2C34022
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2020 08:50:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F2BFB208E4
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2020 08:48:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F0972208E4
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2020 08:50:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aB1w8mhR";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="MSUsTpIZ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F2BFB208E4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WKzQjVTK";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="gKZfe2wM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F0972208E4
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
-	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=mCuYnOW/nN1S1R1VRqhrDQWyIZkHH7ztfs+NzqumWlY=; b=aB1w8mhRHIahL2yd7v4hG2oAc
-	Nx204TFrShzYFHaAOXdJ9d90uNl+Vm1358csRTWkJ+pdPE0NWFY72uxCxuLLtTlP/Wp8uf4eUDJAi
-	kDBVCdPucd0Ppf5t2lNKhw1Ulhvq/Gv9EMqINyC2sbqIRnywWHfUOiCcguxYXDv1Rg20LX1dp+BaK
-	vb+roCVZFx0er81u7FWIEqc234p4tXoQKijdx+Arm35vMSrgxCKtaeHQ6yNLaRA5WRJfg+BhcWn6K
-	DVDAum0ixev8BKAocEG3D2zjkkcMOmj6cAWmzI1vH5F3jw1Bnx0dD0UX8MinmgaKhvjzhSt9GeRvx
-	bCgPD+odw==;
+	 bh=iBiYQC8M9ymGiegkopRwji5qFDJJG690doCVk2tdx18=; b=WKzQjVTK5XOBhAWIX3EChp52R
+	HYLawM8nkHTlPIkF+UVp6pVgsW/EkulvdU+hawFfKymS79z0CgtFwgRL9LV5DLHEXU3h+dEGCjfkO
+	8eRbka+Ta/JkiGV7GdXlE+PwSeWcv2DPyz9rLXPos2mwp1gQ/aemjMf3k6+zzBA/kSe50ANaM2QNG
+	4eDYf3JrOhqW+E3Yc4gIUGy4G6Gp/S5rRDJExnrAUEQ9fP/8KKMqnd+0rKVV6s6DTW24eczk8+XRH
+	KpH4tKZA0BrE8QBg9Rv8bJs/SIcL4FBR6ykvpcwffpxkr0ijPPU7JU9m4YEMSLPWKiDL0GYzI+8yD
+	3MAMvdU3w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j4L2L-0003dY-I2; Wed, 19 Feb 2020 08:48:53 +0000
-Received: from mail-oi1-x243.google.com ([2607:f8b0:4864:20::243])
+	id 1j4L4L-0006G7-6W; Wed, 19 Feb 2020 08:50:57 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j4L2B-0003Tt-Vf
- for linux-riscv@lists.infradead.org; Wed, 19 Feb 2020 08:48:46 +0000
-Received: by mail-oi1-x243.google.com with SMTP id p125so23039791oif.10
- for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2020 00:48:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=mCuYnOW/nN1S1R1VRqhrDQWyIZkHH7ztfs+NzqumWlY=;
- b=MSUsTpIZT3MVZGDdWoqte+cXqQHuVLjXVkCCpkT3O/cmFI+mpAVoXPQHRFIL+iZGbb
- dzaVs9BRgUeTrG9zUhKApCj1q9pzdc97p/vbZBG5b8LrE6KcHB2vIDXkDTrDvdiFpccO
- eFOnGvqDdXnB8LflQskxoYmxGl8jgD+xGbuZO+LItDw4je+/7Z19Z7uD2eWzw54zG9y/
- kYU3fBFguBpwSltFrsRT4qswCpZRI7U9CGQMmDYCGqFUy8Gs9SGOv+LLR7nDSiMtLUOJ
- UwwGhPAVhDq4lDS5tm7RenUyt7H/WTXptLwkLCXPsDz42gCya3rsb6rJci/9BjuPUTpf
- kLEQ==
+ id 1j4L3n-0005fl-8b
+ for linux-riscv@lists.infradead.org; Wed, 19 Feb 2020 08:50:25 +0000
+Received: by mail-wm1-x344.google.com with SMTP id s10so5512341wmh.3
+ for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2020 00:50:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=iBiYQC8M9ymGiegkopRwji5qFDJJG690doCVk2tdx18=;
+ b=gKZfe2wMBHfwx/ZnbSf1p0XlL7p3iCmUo9I/qUFhJom/XZc9yVZqSfNMe7hrdNVuOW
+ PtmhSgeL5tYYWKWfV0cu3PypWXVMbsf/W4Pt6c2jq6CzLQ1fb/JdfqiZTjmsUdlAZ/n1
+ 9htfrFfPqy3Ol9lSm8C631cBJwD7AItkX+sGVwFHn1DjI6r1XamJEaQYl/m9YrLM1kaB
+ Jt4hsw0dEuvIhK7w6uCiNBwbDgIxB1T0s9qzjBbh/5aOXuobep6y5J5iT6ZdAEE8xuxf
+ 6JxpiuBjXa8bt8bwg3yrOKDi58rksd2yRm4wUON/hr7mRzs/iNVoRqWVDldqSjnY1fjM
+ qT7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=mCuYnOW/nN1S1R1VRqhrDQWyIZkHH7ztfs+NzqumWlY=;
- b=dRZ0BHBmQMTBlxA4fflBnmdSy7U7D1+hqv/CRA9X66yOi6eHxpdbpTNUFXAWunp1PH
- VqqQsmN7t9i0wb0NIwTBIe0Ec/H+ggQGpZzd2oONcqN3+0eLlP+oO7hwsaQ2HwrdGo3U
- Davozx/6NMQoyAMw9C9dq0jGjlSiXJ13nMly+o3+jZfEfaGa0miUBdfhkXwl50hqL1bk
- hYHXQWTFc7aKhqrRWl2uDu+HBBX1rHAmLi2ZcZak/WrgsgVr+wbcc2kaOo+McU5eSSJ4
- xmHbTPsZHDrmYqwA2dyONEwr3mzRJdoHJyeTrO2OfaxuBtq8pXP5y2y9Ak7AFYFMJ19/
- q7Uw==
-X-Gm-Message-State: APjAAAUMyZi2AgLZ6Q/Y05+3RNk5vyBf0vBsgSy+LOSIR3n8Drgeodxz
- kSOL+bRSuNjvm+3FS8mtcJhtBUDU1KeVFmNNT4ektA==
-X-Google-Smtp-Source: APXvYqzHNC8bIYW5AL7XK13BFcS2BvjK1L4FkWEEVqfm5/ywlA+CFg1fxZU63e8lQF0eBK+p4VyQxQ9RoQqscAkH6tY=
-X-Received: by 2002:aca:43c1:: with SMTP id q184mr3725881oia.116.1582102121733; 
- Wed, 19 Feb 2020 00:48:41 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=iBiYQC8M9ymGiegkopRwji5qFDJJG690doCVk2tdx18=;
+ b=l7MfGSsXEj3r7YjdYELvzzQWa/Z7gAErGhS+uaQO1MQma5PWzcEGfQWfRQYTU/rxfl
+ X5CDPy6410GdbJEE1E64LWYxDIYDI/+xNmHbUQfgej1hek1b4VvQAiq125lvp81MbJrg
+ tTmhz3/vZKtsmTWLUv8+WPDFeno6TTlKZx2qoVhgPNanQVCC3GbFo4ZPC3miQnDokbXL
+ AGsHZI13B90P260yhyrZiehnvpOHe8CV2SBKQzepp8UESfCL/oTTcsxTI3143Ck5nMvu
+ fX6+MvedF8X5qD+wYFScFrIEn+3H15f+FCfmaSAKVy5X8HC6O+58Wa1RaYViD3wlYj+s
+ koGw==
+X-Gm-Message-State: APjAAAVTDhaf1ikGVwZZAyb24ER8p3wPbX5yE8wzSCN28kKR5UQ7f7y2
+ Eh7o7woG9LIud6G+G7cAlMs=
+X-Google-Smtp-Source: APXvYqxgT7hcRCElP13oDRyXm/zJh6PBDq8H2bcwYmvAwwP1MYkqtIzYdJnc+hzFT6p3jMvUFS0NgA==
+X-Received: by 2002:a1c:1b93:: with SMTP id b141mr8991436wmb.114.1582102220179; 
+ Wed, 19 Feb 2020 00:50:20 -0800 (PST)
+Received: from aurora.visucore.com (92-110-144-95.cable.dynamic.v4.ziggo.nl.
+ [92.110.144.95])
+ by smtp.gmail.com with ESMTPSA id q14sm1963853wrj.81.2020.02.19.00.50.18
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Wed, 19 Feb 2020 00:50:19 -0800 (PST)
+Date: Wed, 19 Feb 2020 09:50:17 +0100
+From: "Wladimir J. van der Laan" <laanwj@gmail.com>
+To: Sean Anderson <seanga2@gmail.com>
+Subject: Re: [PATCH 08/10] riscv: Add Kendryte K210 device tree
+Message-ID: <20200219085017.qpfyvmzfz27fojzl@aurora.visucore.com>
+References: <20200212103432.660256-1-damien.lemoal@wdc.com>
+ <20200212103432.660256-9-damien.lemoal@wdc.com>
+ <48e10b3d-12f3-a65c-8017-99c780c63040@gmail.com>
+ <BYAPR04MB581671F46D3FE67FD3C8B2B7E7140@BYAPR04MB5816.namprd04.prod.outlook.com>
+ <bd74c841-2447-2f11-f924-a501230b3927@gmail.com>
+ <BYAPR04MB5816ED294439828E562EB085E7140@BYAPR04MB5816.namprd04.prod.outlook.com>
+ <CADnnUqe3AbTStJg9LS4qupH-OnBDGjuEFbnX8EXW8MUr4kwoGQ@mail.gmail.com>
+ <19e78a77-4b7f-a057-eb6e-7384f3fc67c1@gmail.com>
+ <CADnnUqfSq5sNXMQLktU0R_XLvYrf00nqMG5UPkTwaeL-Cy1m_A@mail.gmail.com>
+ <8108cb8e-a909-24b0-f1c4-24a5bebf4e65@gmail.com>
 MIME-Version: 1.0
-References: <CANXhq0pbm0pgsOLdFSJvTjpd8e7-6-pCRSvFM-+H6oY3aYeiPg@mail.gmail.com>
- <mhng-402cee57-2e8b-4f71-8daa-6bfa75f5080b@palmerdabbelt-glaptop1>
-In-Reply-To: <mhng-402cee57-2e8b-4f71-8daa-6bfa75f5080b@palmerdabbelt-glaptop1>
-From: Zong Li <zong.li@sifive.com>
-Date: Wed, 19 Feb 2020 16:48:31 +0800
-Message-ID: <CANXhq0pRrFGzDHHgXewuyCsH-z9V207K1j-Qgjy9kHZzBDL+Kg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: force hart_lottery to put in .sdata section
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <8108cb8e-a909-24b0-f1c4-24a5bebf4e65@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200219_004844_357820_76958729 
-X-CRM114-Status: GOOD (  25.28  )
+X-CRM114-CacheID: sfid-20200219_005023_475405_E9151FFE 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,81 +106,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <anup@brainfault.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Albert Ou <aou@eecs.berkeley.edu>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Carlos Eduardo de Paula <me@carlosedp.com>, Anup Patel <Anup.Patel@wdc.com>,
+ Damien Le Moal <Damien.LeMoal@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2020 at 5:26 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Wed, 05 Feb 2020 03:07:52 PST (-0800), zong.li@sifive.com wrote:
-> > On Tue, Feb 4, 2020 at 7:40 PM Anup Patel <anup@brainfault.org> wrote:
-> >>
-> >> On Tue, Feb 4, 2020 at 4:49 PM Zong Li <zong.li@sifive.com> wrote:
-> >> >
-> >> > In PIC code model, the zero initialized data always be put in .bss
-> >> > section, so when building kernel as PIE, the hart_lottery won't present
-> >> > in small data section, and it causes more than one harts to get the
-> >> > lottery, because the main hart clears the content of .bss section
-> >> > immediately after it getting the lottery.
-> >> >
-> >> > Signed-off-by: Zong Li <zong.li@sifive.com>
-> >> > ---
-> >> >  arch/riscv/kernel/setup.c | 2 +-
-> >> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >> >
-> >> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> >> > index 22b671dbbcf1..45c63dc06360 100644
-> >> > --- a/arch/riscv/kernel/setup.c
-> >> > +++ b/arch/riscv/kernel/setup.c
-> >> > @@ -40,7 +40,7 @@ struct screen_info screen_info = {
-> >> >  #endif
-> >> >
-> >> >  /* The lucky hart to first increment this variable will boot the other cores */
-> >> > -atomic_t hart_lottery;
-> >> > +atomic_t hart_lottery __section(.sdata);
-> >> >  unsigned long boot_cpu_hartid;
-> >> >
-> >> >  void __init parse_dtb(void)
-> >> > --
-> >> > 2.25.0
-> >> >
-> >> >
-> >>
-> >> Looks good to me. Please ensure that it is tested with both
-> >> RV32 and RV64.
-> >>
-> >
-> > I had tested it on RV32 and RV64, it works on both.
->
-> Can you be more specific about your setup?  Before you patch, hart_lottery
 
-I applied the Alex's CONFIG_RELOCATABLE patch
-(https://patchwork.kernel.org/patch/11349207/) on Linux 5.6-rc1, and
-selected the RELOCATABLE in Kconfig by manual, the firmware was using
-OpenSBI, then ran the Linux kernel on QEMU. (I ran the RV64 on
-sifive_u machine and RV32 on virt machine).
+> > Wladimir (don't know his email) started playing with UART1 interface
+> > to the 8285 module to allow WiFi communication. We thought about
+> > having a TUN/TAP interface over it to bring the TCP/IP stack up.
+> > https://twitter.com/orionwl/status/1229442145628585990
+> 
+> Nice. I don't think too many raw register pokes should be needed,
+> because you are just using a uart to communicate...
 
-> should be in .sbss, which we put inside .sdata.  I'm a bit worried there's some
-> other issue going on here that this is just masking.  That said, putting sbss
-> in sdata seems like a generally bad idea so I'd be in favor of getting rid of
-> it.
+The reason I needed any raw register pokes at all is because I don't have a sysctl / fpioa driver, and didn't
+feel like writing one at this time, so just write the appropriate values to the registers to map the UART1 to the
+correct pins and enable WIFI_EN. After setting up those, Linux's driver works as-is for the UART!
 
-It happened at the beginning, I would help to give a quick test the
-change you made.
-
->
-> I've queued this up onto for-next, as even if it is fixing a bug related to the
-> relocatable kernels we don't have support for that yet.  I've also sent a patch
-> that stops putting .sbss into .sdata.
->
-> Thanks!
->
-> >> Reviewed-by: Anup Patel <anup@brainfault.org>
-> >>
-> >> Regards,
-> >> Anup
+Wladimir
 
