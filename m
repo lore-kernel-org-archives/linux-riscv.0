@@ -2,22 +2,22 @@ Return-Path: <SRS0=xk+u=4J=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-14.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C8B88C11D25
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 21 Feb 2020 00:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 12694C11D00
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 21 Feb 2020 00:45:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9C655207FD
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 21 Feb 2020 00:45:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D4D91207FD
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 21 Feb 2020 00:45:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="M9uvOLT6";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="clzcfDdE"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9C655207FD
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eWd6kcXf";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="AdLmJcIN"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D4D91207FD
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,70 +26,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0B+eri2I3bJnbL8HjI1t4zPu6YBKBV5C/Vdmrqwl9Y0=; b=M9uvOLT6ihhW2L
-	iu5jALYSfpK+Bdrmg54lUsVgZr25dKgGeMpAQAsmLqjnf5qHmGQFlCl5TZjBJD+JQNMWmAEJeY3UB
-	PuIkp+UeQxcJYA+ndNJ4PkX9Z4r1hPIr5nvnjPE4LipwLtF3Vf/mvRQ6RKw34RlMs1VhWeP/pe7PU
-	stjcuKUfUlEqlHdnextoKwIP5yPNaFugMKXdZF4USmB8opwVIk/9vv8bQrvIhRTdXeE0XtizgB04i
-	6/yTJ7rfCnpVQ6sNUFcXfa6Qw3TVi7CIxNc5EZrcFIn6/HipIgzfYDiaWNrkPlz0xtRNTobYoacaw
-	hxKvZG3kXRbVvAfDpLCg==;
+	List-Owner; bh=tAWM7dWdA/8aexB1raQyducLjOaBSjNIJLOT+tCRpc0=; b=eWd6kcXfyOtRjl
+	AbOfjQHUyOX9DBFKAIs6Nk3bjBgvRij31Fx1jtlijHk9/8CupB9nBlNXm32EA/I4kJ2PW+ekIqsSt
+	KAnIa47wl4J8RgbUF02rYSTqX7VRHAEnj8aQXMfeOs+TfM9zV98vA8JRA8gwiiw0ztYA2n3FacnwI
+	1Yy3DekjZRB8WR9MRdipCan9c1vZb9HH37padEa15VGezdh6dW5epSM/NJtZTOWmS36N1NuEfZ4VO
+	vfwztrtwtaIxFa9KhtjO63piMvTc4GJCqFoh0C4Qhu6LtDckf0RuOH9g2ryIYOo1shWbjpQ/SSrp5
+	Ntmn1PrQ369gP2ifV7xg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j4wRf-0006QL-DF; Fri, 21 Feb 2020 00:45:31 +0000
+	id 1j4wRk-0006ZK-JY; Fri, 21 Feb 2020 00:45:36 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j4wRB-0004P7-GX
- for linux-riscv@lists.infradead.org; Fri, 21 Feb 2020 00:45:03 +0000
+ id 1j4wRC-0004PR-T8
+ for linux-riscv@lists.infradead.org; Fri, 21 Feb 2020 00:45:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1582245925; x=1613781925;
+ t=1582245927; x=1613781927;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=2m0oWojVmsmlTxUBpJeORdPegf1p+2OhgvzSpGqYQmo=;
- b=clzcfDdE1onJyHv8elB1koqP0VcuZSNGQMNmKohlgWg5R2bHRQqJBi2p
- 7CCNYB3o49uykPsO2tATqorVHRWSJ1ZQKNLQwIItrey8zRscaD18ACYHG
- cbtbHUth3SpG8hxmliCHoIAUi/8PkzrHGKZTPPSPuXDaOycJfQqDi1fdB
- gUWuipqdd4u/nuMMj4qnN3UDl7GMjs8wAV/28tEVWs00ZnuUkEV15XByE
- IkzKpT/nUvPMsLhJCTqONUa3LspS8JpwbwkdwPlqZ21TlmHYcSKtu6+jB
- qbNtHTw6+4AuYCNUdarGZNiTAkVs8wmP1MrYVKHKmfdKMo8d7aE9QQ2P+ A==;
-IronPort-SDR: 3XE3LJPf6nGgWdbAtRtn42yq1EETnStUwG5QOVmiq+tMbfZenm9ImeHojZ+ZjBju9IzunaHVEg
- o3iyB+XBQFSTDVkF8VjNEfno1/mONrn8t8NhvqYUS6bjfvhE3CaGVzjLC63j2IeTpDCqNfMZ4/
- BpYtyZu/UfrGHv92eAzdY3ffvWCm99+HUlrpYNCexovY5t4jOaWg0m2Ymzv9fJ5XzdGDBvrdrl
- BHpZHVqJayS2C27e0LOw6lYhRTLRm8CZI60VvIjGIW9EwkCXs3JqiZYGYqjrxmpugAUtu4hJnL
- L4g=
-X-IronPort-AV: E=Sophos;i="5.70,466,1574092800"; d="scan'208";a="232211084"
+ bh=37uvvoOiKvDtqugsaFLZ7LIIksjflF/Df/E9QV5jylU=;
+ b=AdLmJcINZ00s+2MeXo838IYJ6mw8wJO5qacuoWPXNxt/W4g5HGyENBxw
+ htIIlXwAvCbJM+rNJD4cZxx4WoUGW0Osp3vSViHtH7FsIqu87q5V6V/V5
+ u6qQ6bpQ08ngcM+6yuJYhV18YRhGLZlWtdbkPoaeMxbQX3386q5CKD8R+
+ uJ9zlosorqSI3InwJ7wmJzm3Ct87xIMf91llr4/EIHYZTLwz09wO+pXoe
+ L4AFrpiosd38eGXf4v72wwifprUe1Sq88Nd0c5pgS8QI0cRFHssWplSlo
+ R5DIRqOJGTWfifltumevhIGcfvzTq0mLgJRthe4spnz8UPYiM5oI3UlZT w==;
+IronPort-SDR: le79XQ0hdzkbBixzOnpC9mfIozCNpOobHnO1511nt4P8wBby0ayrhkS8LJquqnH+tLk25P4Ts3
+ Yz+DlUk48ROKa/DFNu68vKImtYwHGfP02DDtbkEML+7DtZ7dJWRxF7lu8OC1DmB+0mMs0dgidE
+ QwrMyGHCX1tFetdFWic33lnI047xqqwSLpNJcjaU31NtzWIjqY4mWUb+S7fheqijlQz5B0Rsir
+ eDOw0yDVCRgP9Ry/q5mX8pRA/E5CTErF7/O3N1Dqh3qA3KzFev9B91dCua+LfWnFEf6GHEfCwh
+ hx0=
+X-URL-LookUp-ScanningError: 1
+X-IronPort-AV: E=Sophos;i="5.70,466,1574092800"; d="scan'208";a="232211080"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 21 Feb 2020 08:45:09 +0800
-IronPort-SDR: 4gs2ziDCAiOAeVPkqSfVtG/bC89a7RbgmTJZOMiOaRLIgEPobyhUBQwvwbvZNyltEeMOpIhgE8
- Xc0RUDjWFjYwmI23rKJtF/nrxk0BcgC8Mz/v6Rrj0oHVS0gQeUwzp4yDZSp4gVX5PC5BOagW6Z
- 5UvJIpHBUCNmPu+Dxfn3cjoCWOyviAZt/oqxRascNyTOUh5xOHUqCk+ZJKtLz3b6fGxlYnUu5u
- WSV3hbb5/ECEIuz77defghhNZPzGw/jj+coab2xCFkuPkpR9pOVRcV9y+YOQ5CJxMlM/lHQDU/
- vPrqYFhGA1AnQG2KlrCn18ka
+ by ob1.hgst.iphmx.com with ESMTP; 21 Feb 2020 08:45:07 +0800
+IronPort-SDR: ly3M5x8hDtOSpR0UPwEiWP/PPkp90rtauS7QRrMXLcxui+ZOxfjZhOXQTYbq3qYcVsiuKkswMB
+ S5BVbQ0FugnR0kHmmvZvjSzq9Mns3xz3GDOiDo5O5d6zaV8lG7Z/ClbEfRKHF5tGYRoaajluZF
+ 1JSLj1rL8QS9YRV60GXPfsAYgjEffaVDYfjuUpRngxe2zbm6by2okMtAnXjJxtN8KfBoz/Bse7
+ S9QHEfGWwgyVs5WkAjhHKbHa0PO3WqvEkuKI6hf6Pu1dyEIyewjOLsWxfMhvDV91gKtDcIy4oa
+ Mk2kPFGiUdwv34GqjayOK8Cg
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 20 Feb 2020 16:37:25 -0800
-IronPort-SDR: wGT3Sv/mzGV8P6O5WhMCYtDXgo4pCT4PaNinCS+z4RmxzvTqESy2u0LubptOTAqUIalFzBPiHr
- 3i71xIfNzgrCIJZ17GHEof4TVTIammN9tb9sr6PQLMOwIOfUvtrFQUCHZb/rZKQMXCRjBCrvW1
- Z7flVMxuvNtX9Mqc2UXmgaIy+PFooXoLKjRk9xQCEXk2v6D9JJZH8DfvzN3Ppi1z7howRZFrTN
- aUvDyPk2Hhwz8hyrpOrxdd+V8AMwCQ/eRDRjSJFcXq3m0Y/VoLKuNfrzSUl3JZxI+WuCxnjyQO
- K4A=
+ 20 Feb 2020 16:37:24 -0800
+IronPort-SDR: cv3KQs6GxuvQneycJ3ZkjFHK11NakiFw9nfmzS6wDQDhSZDIe3W3g0X12a8FoXYvvENIKo+riC
+ UAibA676YcT6Q/0eKCGSqO+6Q1p9c2dT4zUiePdDEcegmiEOcLylyQBlSkrvjKUZOoNeVvFnWo
+ Hx6gmDQHn2cf/LGO4IME1AKQUlhm2BItiADXiTFQbvEShOp++lHtfG/Ox6HuNrps/l6QvdKnxH
+ K9ZPhRkvfSLyqLxvZYdY/uNMtx+cFoTOYXdTy1WZ4nspNT33yoXxHW34mgn8D/HlbpnduNrsrH
+ +U0=
 WDCIronportException: Internal
 Received: from yoda.sdcorp.global.sandisk.com (HELO yoda.int.fusionio.com)
  ([10.196.158.80])
  by uls-op-cesaip01.wdc.com with ESMTP; 20 Feb 2020 16:44:49 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v9 11/12] RISC-V: Support cpu hotplug
-Date: Thu, 20 Feb 2020 16:44:12 -0800
-Message-Id: <20200221004413.12869-12-atish.patra@wdc.com>
+Subject: [PATCH v9 09/12] RISC-V: Add SBI HSM extension definitions
+Date: Thu, 20 Feb 2020 16:44:10 -0800
+Message-Id: <20200221004413.12869-10-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.25.0
 In-Reply-To: <20200221004413.12869-1-atish.patra@wdc.com>
 References: <20200221004413.12869-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200220_164501_616974_3B0C5408 
-X-CRM114-Status: GOOD (  23.44  )
+X-CRM114-CacheID: sfid-20200220_164503_342146_6B68077E 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -117,402 +119,50 @@ Cc: Marc Zyngier <maz@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch enable support for cpu hotplug in RISC-V. It uses SBI HSM
-extension to online/offline any hart. As a result, the harts are
-returned to firmware once they are offline. If the harts are brought
-online afterwards, they re-enter Linux kernel as if a secondary hart
-booted for the first time. All booting requirements are honored during
-this process.
+SBI specification defines HSM extension that allows to start/stop a hart
+by a supervisor anytime. The specification is available at
 
-Tested both on QEMU and HighFive Unleashed board with. Test result follows.
+https://github.com/riscv/riscv-sbi-doc/blob/master/riscv-sbi.adoc
 
----------------------------------------------------
-Offline cpu 2
----------------------------------------------------
-$ echo 0 > /sys/devices/system/cpu/cpu2/online
-[   32.828684] CPU2: off
-$ cat /proc/cpuinfo
-processor       : 0
-hart            : 0
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 1
-hart            : 1
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 3
-hart            : 3
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 4
-hart            : 4
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 5
-hart            : 5
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 6
-hart            : 6
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 7
-hart            : 7
-isa             : rv64imafdcsu
-mmu             : sv48
-
----------------------------------------------------
-online cpu 2
----------------------------------------------------
-$ echo 1 > /sys/devices/system/cpu/cpu2/online
-$ cat /proc/cpuinfo
-processor       : 0
-hart            : 0
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 1
-hart            : 1
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 2
-hart            : 2
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 3
-hart            : 3
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 4
-hart            : 4
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 5
-hart            : 5
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 6
-hart            : 6
-isa             : rv64imafdcsu
-mmu             : sv48
-
-processor       : 7
-hart            : 7
-isa             : rv64imafdcsu
-mmu             : sv48
+Add those definitions here.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/Kconfig               | 12 ++++-
- arch/riscv/include/asm/cpu_ops.h | 12 +++++
- arch/riscv/include/asm/smp.h     | 17 +++++++
- arch/riscv/kernel/Makefile       |  1 +
- arch/riscv/kernel/cpu-hotplug.c  | 87 ++++++++++++++++++++++++++++++++
- arch/riscv/kernel/cpu_ops_sbi.c  | 34 +++++++++++++
- arch/riscv/kernel/setup.c        | 19 ++++++-
- 7 files changed, 180 insertions(+), 2 deletions(-)
- create mode 100644 arch/riscv/kernel/cpu-hotplug.c
+ arch/riscv/include/asm/sbi.h | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 8c0f5385fa30..27bfc7947e44 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -20,7 +20,6 @@ config RISCV
- 	select CLONE_BACKWARDS
- 	select COMMON_CLK
- 	select GENERIC_CLOCKEVENTS
--	select GENERIC_CPU_DEVICES
- 	select GENERIC_IRQ_SHOW
- 	select GENERIC_PCI_IOMAP
- 	select GENERIC_SCHED_CLOCK
-@@ -247,6 +246,17 @@ config NR_CPUS
- 	depends on SMP
- 	default "8"
- 
-+config HOTPLUG_CPU
-+	bool "Support for hot-pluggable CPUs"
-+	depends on SMP
-+	select GENERIC_IRQ_MIGRATION
-+	help
-+
-+	  Say Y here to experiment with turning CPUs off and on.  CPUs
-+	  can be controlled through /sys/devices/system/cpu.
-+
-+	  Say N if you want to disable CPU hotplug.
-+
- choice
- 	prompt "CPU Tuning"
- 	default TUNE_GENERIC
-diff --git a/arch/riscv/include/asm/cpu_ops.h b/arch/riscv/include/asm/cpu_ops.h
-index daf29f70407d..efd6700d245d 100644
---- a/arch/riscv/include/asm/cpu_ops.h
-+++ b/arch/riscv/include/asm/cpu_ops.h
-@@ -18,12 +18,24 @@
-  *			is a mechanism for doing so, tests whether it is
-  *			possible to boot the given HART.
-  * @cpu_start:		Boots a cpu into the kernel.
-+ * @cpu_disable:	Prepares a cpu to die. May fail for some
-+ *			mechanism-specific reason, which will cause the hot
-+ *			unplug to be aborted. Called from the cpu to be killed.
-+ * @cpu_stop:		Makes a cpu leave the kernel. Must not fail. Called from
-+ *			the cpu being stopped.
-+ * @cpu_is_stopped:	Ensures a cpu has left the kernel. Called from another
-+ *			cpu.
-  */
- struct cpu_operations {
- 	const char	*name;
- 	int		(*cpu_prepare)(unsigned int cpu);
- 	int		(*cpu_start)(unsigned int cpu,
- 				     struct task_struct *tidle);
-+#ifdef CONFIG_HOTPLUG_CPU
-+	int		(*cpu_disable)(unsigned int cpu);
-+	void		(*cpu_stop)(void);
-+	int		(*cpu_is_stopped)(unsigned int cpu);
-+#endif
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index abbf0a7d3b6e..0981a0c97eda 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -26,6 +26,7 @@ enum sbi_ext_id {
+ 	SBI_EXT_TIME = 0x54494D45,
+ 	SBI_EXT_IPI = 0x735049,
+ 	SBI_EXT_RFENCE = 0x52464E43,
++	SBI_EXT_HSM = 0x48534D,
  };
  
- extern const struct cpu_operations *cpu_ops[NR_CPUS];
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index 023f74fb8b3b..f4c7cfda6b7f 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -43,6 +43,13 @@ void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
-  */
- #define raw_smp_processor_id() (current_thread_info()->cpu)
- 
-+#if defined CONFIG_HOTPLUG_CPU
-+int __cpu_disable(void);
-+void __cpu_die(unsigned int cpu);
-+void cpu_stop(void);
-+#else
-+#endif /* CONFIG_HOTPLUG_CPU */
-+
- #else
- 
- static inline void show_ipi_stats(struct seq_file *p, int prec)
-@@ -69,4 +76,14 @@ static inline void riscv_cpuid_to_hartid_mask(const struct cpumask *in,
- }
- 
- #endif /* CONFIG_SMP */
-+
-+#if defined(CONFIG_HOTPLUG_CPU) && (CONFIG_SMP)
-+bool cpu_has_hotplug(unsigned int cpu);
-+#else
-+static inline bool cpu_has_hotplug(unsigned int cpu)
-+{
-+	return false;
-+}
-+#endif
-+
- #endif /* _ASM_RISCV_SMP_H */
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index a0be34b96846..9601ac907f70 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -47,5 +47,6 @@ obj-$(CONFIG_RISCV_SBI)		+= sbi.o
- ifeq ($(CONFIG_RISCV_SBI), y)
- obj-$(CONFIG_SMP) += cpu_ops_sbi.o
- endif
-+obj-$(CONFIG_HOTPLUG_CPU)	+= cpu-hotplug.o
- 
- clean:
-diff --git a/arch/riscv/kernel/cpu-hotplug.c b/arch/riscv/kernel/cpu-hotplug.c
-new file mode 100644
-index 000000000000..2a37cfb6eb46
---- /dev/null
-+++ b/arch/riscv/kernel/cpu-hotplug.c
-@@ -0,0 +1,87 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2018 Western Digital Corporation or its affiliates.
-+ */
-+
-+#include <linux/kernel.h>
-+#include <linux/mm.h>
-+#include <linux/sched.h>
-+#include <linux/err.h>
-+#include <linux/irq.h>
-+#include <linux/cpu.h>
-+#include <linux/sched/hotplug.h>
-+#include <asm/irq.h>
-+#include <asm/cpu_ops.h>
-+#include <asm/sbi.h>
-+
-+void cpu_stop(void);
-+void arch_cpu_idle_dead(void)
-+{
-+	cpu_stop();
-+}
-+
-+bool cpu_has_hotplug(unsigned int cpu)
-+{
-+	if (cpu_ops[cpu]->cpu_stop)
-+		return true;
-+
-+	return false;
-+}
-+
-+/*
-+ * __cpu_disable runs on the processor to be shutdown.
-+ */
-+int __cpu_disable(void)
-+{
-+	int ret = 0;
-+	unsigned int cpu = smp_processor_id();
-+
-+	if (!cpu_ops[cpu] || !cpu_ops[cpu]->cpu_stop)
-+		return -EOPNOTSUPP;
-+
-+	if (cpu_ops[cpu]->cpu_disable)
-+		ret = cpu_ops[cpu]->cpu_disable(cpu);
-+
-+	if (ret)
-+		return ret;
-+
-+	remove_cpu_topology(cpu);
-+	set_cpu_online(cpu, false);
-+	irq_migrate_all_off_this_cpu();
-+
-+	return ret;
-+}
-+
-+/*
-+ * Called on the thread which is asking for a CPU to be shutdown.
-+ */
-+void __cpu_die(unsigned int cpu)
-+{
-+	int ret = 0;
-+
-+	if (!cpu_wait_death(cpu, 5)) {
-+		pr_err("CPU %u: didn't die\n", cpu);
-+		return;
-+	}
-+	pr_notice("CPU%u: off\n", cpu);
-+
-+	/* Verify from the firmware if the cpu is really stopped*/
-+	if (cpu_ops[cpu]->cpu_is_stopped)
-+		ret = cpu_ops[cpu]->cpu_is_stopped(cpu);
-+	if (ret)
-+		pr_warn("CPU%d may not have stopped: %d\n", cpu, ret);
-+}
-+
-+/*
-+ * Called from the idle thread for the CPU which has been shutdown.
-+ */
-+void cpu_stop(void)
-+{
-+	idle_task_exit();
-+
-+	(void)cpu_report_death();
-+
-+	cpu_ops[smp_processor_id()]->cpu_stop();
-+	/* It should never reach here */
-+	BUG();
-+}
-diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
-index 70d02dfe0ab8..8848c5b6e1c4 100644
---- a/arch/riscv/kernel/cpu_ops_sbi.c
-+++ b/arch/riscv/kernel/cpu_ops_sbi.c
-@@ -74,8 +74,42 @@ static int sbi_cpu_prepare(unsigned int cpuid)
- 	return 0;
- }
- 
-+#ifdef CONFIG_HOTPLUG_CPU
-+static int sbi_cpu_disable(unsigned int cpuid)
-+{
-+	if (!cpu_ops_sbi.cpu_stop)
-+		return -EOPNOTSUPP;
-+	return 0;
-+}
-+
-+static void sbi_cpu_stop(void)
-+{
-+	int ret;
-+
-+	ret = sbi_hsm_hart_stop();
-+	pr_crit("Unable to stop the cpu %u (%d)\n", smp_processor_id(), ret);
-+}
-+
-+static int sbi_cpu_is_stopped(unsigned int cpuid)
-+{
-+	int rc;
-+	int hartid = cpuid_to_hartid_map(cpuid);
-+
-+	rc = sbi_hsm_hart_get_status(hartid);
-+
-+	if (rc == SBI_HSM_HART_STATUS_NOT_AVAILABLE)
-+		return 0;
-+	return rc;
-+}
-+#endif
-+
- const struct cpu_operations cpu_ops_sbi = {
- 	.name		= "sbi",
- 	.cpu_prepare	= sbi_cpu_prepare,
- 	.cpu_start	= sbi_cpu_start,
-+#ifdef CONFIG_HOTPLUG_CPU
-+	.cpu_disable	= sbi_cpu_disable,
-+	.cpu_stop	= sbi_cpu_stop,
-+	.cpu_is_stopped	= sbi_cpu_is_stopped,
-+#endif
+ enum sbi_ext_base_fid {
+@@ -56,6 +57,19 @@ enum sbi_ext_rfence_fid {
+ 	SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA_ASID,
  };
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 582ecbed6442..b3f8986a3b25 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -16,12 +16,13 @@
- #include <linux/of_platform.h>
- #include <linux/sched/task.h>
- #include <linux/swiotlb.h>
-+#include <linux/smp.h>
  
- #include <asm/clint.h>
-+#include <asm/cpu_ops.h>
- #include <asm/setup.h>
- #include <asm/sections.h>
- #include <asm/pgtable.h>
--#include <asm/smp.h>
- #include <asm/sbi.h>
- #include <asm/tlbflush.h>
- #include <asm/thread_info.h>
-@@ -43,6 +44,7 @@ struct screen_info screen_info = {
- /* The lucky hart to first increment this variable will boot the other cores */
- atomic_t hart_lottery;
- unsigned long boot_cpu_hartid;
-+static DEFINE_PER_CPU(struct cpu, cpu_devices);
- 
- void __init parse_dtb(void)
- {
-@@ -90,3 +92,18 @@ void __init setup_arch(char **cmdline_p)
- 
- 	riscv_fill_hwcap();
- }
++enum sbi_ext_hsm_fid {
++	SBI_EXT_HSM_HART_START = 0,
++	SBI_EXT_HSM_HART_STOP,
++	SBI_EXT_HSM_HART_STATUS,
++};
 +
-+static int __init topology_init(void)
-+{
-+	int i;
++enum sbi_hsm_hart_status {
++	SBI_HSM_HART_STATUS_AVAILABLE = 0,
++	SBI_HSM_HART_STATUS_NOT_AVAILABLE,
++	SBI_HSM_HART_STATUS_START_PENDING,
++	SBI_HSM_HART_STATUS_STOP_PENDING,
++};
 +
-+	for_each_possible_cpu(i) {
-+		struct cpu *cpu = &per_cpu(cpu_devices, i);
-+
-+		cpu->hotpluggable = cpu_has_hotplug(i);
-+		register_cpu(cpu, i);
-+	}
-+
-+	return 0;
-+}
-+subsys_initcall(topology_init);
+ #define SBI_SPEC_VERSION_DEFAULT	0x1
+ #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
+ #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
 -- 
 2.25.0
 
