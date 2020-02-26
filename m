@@ -2,99 +2,94 @@ Return-Path: <SRS0=fzfn=4O=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5C52CC4BA21
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2020 21:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9A20DC4BA2C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2020 22:02:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2D77B2072D
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2020 21:32:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 667D22467B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2020 22:02:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TT3/kCbn";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=carlosedp-com.20150623.gappssmtp.com header.i=@carlosedp-com.20150623.gappssmtp.com header.b="wPgvgwCs"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2D77B2072D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=carlosedp.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="doe/BN0J";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="QYNv3xbQ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 667D22467B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
-	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=q+3v35ElCbupo/qCfNun7bNsXyKvaSAB7a3GeWQ0Cy4=; b=TT3/kCbnSeFiqMTZHque8YTet
-	A903sY0Zi24Jb/7nDNr5RUO/4+S2whLgP9b82tsNFJwrOh8aKlJgKpc0kPMagzPLA74DXYaaZFs4q
-	QaKa28kAxDni6dA7CqOx0k0rx7y/+XML7nbVNml92fizG5M8fwfdfOyBRD/XHu4TkZIfmH9WCSgVj
-	rvWfOp+MjmMT0EXF3vofbpchj+W2R/8/hN55zfRbIkRSX+zOaZqTBZ4VBCZZ42OkT9m+RUVKQ6YqS
-	iVP5u90OMPB0ENGH/PII1dunAUyE0qnnaGYv4rsuHoPtcAlt20+WDFJPMLWQeZjmjAGBzK5c1tRTt
-	6ymUAjsWw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=h1JExgiMD+lH0uVv4idZIhf5/ioPnOKrhLJ1dC6VgFo=; b=doe/BN0JTIBA77
+	pDL7LcsIh5qvsV13xhRxRc1PlY7ZnZJ9kdkVG7TjWzdC3+bkms/udvrfUPp6sxOfQL0e1zTLumzcC
+	Xe1BXDB0DtZ54QKR881EnEhdd+Ts9hRgh+qpLCxXXOKsi2reFzVU06NkVpR+Xo6RxVzv/fH/219zQ
+	q1cdHCU2beHzK6tF5IPbFO5gHpPl29j1ZmjHvNK+HjMBSl+cWRQKNkwjENwN5vQmo3oA/idkFSguF
+	9rQnmC9Xp2JIQpT53mRn8JXte8To2jlK/ZyF4q8Nmc15tk30uGnQDsCDOFSU/cyDoSvXcU4/tI7aX
+	FbCKbIMhFiJ6GfzIcTrA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j74Hw-0008VM-Dn; Wed, 26 Feb 2020 21:32:16 +0000
-Received: from mail-oi1-x244.google.com ([2607:f8b0:4864:20::244])
+	id 1j74l9-0003pm-06; Wed, 26 Feb 2020 22:02:27 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j74Ht-0008V5-8P
- for linux-riscv@lists.infradead.org; Wed, 26 Feb 2020 21:32:14 +0000
-Received: by mail-oi1-x244.google.com with SMTP id a22so1035728oid.13
- for <linux-riscv@lists.infradead.org>; Wed, 26 Feb 2020 13:32:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=carlosedp-com.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=q+3v35ElCbupo/qCfNun7bNsXyKvaSAB7a3GeWQ0Cy4=;
- b=wPgvgwCsrcQj4zF3xEwWbYk9GwXIOv6pdUzYf6MU1lX+a+JsUpLzLiUa5hgsTJAxG7
- Eac24tDUm2G5DMWl8Hc/EymTzJBXXafG2YLehm+ruY3OlO+6KDWMpn1yabOtQOFSRs+n
- jHEcS2rIVVDBtkVRHCvN9WCZzYxqJdc9Y+4TFCeWoCwGhOz9rwhqeFEfE7UJMWlYaiXm
- Uq0ccTDQUtzT2EsbYmodHqX1Q2RbVNXTADj/iJAJYpOK2/IzRO6ELOEgsyU0oSYilDzU
- MZ4KwBWB+nr+ZIQvppoHwP/l0f6WMjfKrIxhpklZSmrwDspunU8/PEN1BMkBU5o5qruS
- HPLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=q+3v35ElCbupo/qCfNun7bNsXyKvaSAB7a3GeWQ0Cy4=;
- b=GmU9y1RoUYkUQjAdrTv+TFlGapPcq+J2vR0gQlPrtssKAdipAlRAiHe3mIn4GHQYPE
- AjjcZVkkURBjoxV6FWAZAxxZ/pT880KUaUEQUd3FeQx2w0r5sYRjFkdNLuBDZjb53IMt
- hOHS7IL16Pv0T0e3xaTnBTl0KQL8ovBAY5a7hpGVdmH1plP7m2o1lrQF91NGr/1p1cQl
- yIHYa7kQfavERpq2ATFWvwovHpr7XqYUYVbco62nWqOzb0RmIn9u2L+ue6fh1E0OLMpW
- QYy8/Knm8dqA35JdFejd0HEFy8hneq4S8XhPyBVVwHyg7n2LpUcv9e+gTHrhxikmaI0c
- Yw4w==
-X-Gm-Message-State: APjAAAWaJS7Y+ZmRiR2iT6A0mWlir3YYBj8ficpCEqsZSeabDya0iUwX
- Y5FIqmLnconJdXU7Gy8RBmLdPwZTk+cNoQ==
-X-Google-Smtp-Source: APXvYqy0ySqWdIXlSB+0XoIjTNBw4voZLxsv/MuZ3mOvdg7u0qKlrmMlNlO0SdUaNCOx+WtUFHT2Vg==
-X-Received: by 2002:a54:4091:: with SMTP id i17mr843235oii.99.1582752731619;
- Wed, 26 Feb 2020 13:32:11 -0800 (PST)
-Received: from mail-oi1-f176.google.com (mail-oi1-f176.google.com.
- [209.85.167.176])
- by smtp.gmail.com with ESMTPSA id 67sm1239621oid.30.2020.02.26.13.32.10
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 26 Feb 2020 13:32:11 -0800 (PST)
-Received: by mail-oi1-f176.google.com with SMTP id a142so1077326oii.7
- for <linux-riscv@lists.infradead.org>; Wed, 26 Feb 2020 13:32:10 -0800 (PST)
-X-Received: by 2002:a05:6808:b39:: with SMTP id
- t25mr829747oij.71.1582752730403; 
- Wed, 26 Feb 2020 13:32:10 -0800 (PST)
+ id 1j74l6-0003ne-0A
+ for linux-riscv@lists.infradead.org; Wed, 26 Feb 2020 22:02:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1582754543; x=1614290543;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=jRyds8eoTAAKDT7JLLNlxolFt94lyE19pGg9nDfait4=;
+ b=QYNv3xbQ4dv8q5fO6pgH6JGLrg3S+6a5PLkHQPc4UNL0PoWinV5sQDvk
+ lOt9kU4+7ClBHhVEEff3ikwTpIh9aig/tyWtbc/Zh5loNDhA6f4EEh1f5
+ IG4iXKMcLLfbVgpKytXxGy/+jPu8c8wZOgp8imjmlpXmE9motqs+ZQclI
+ 9Fmx4y+g14x/PE0BrGSlOY07GZxZN27i0OmtqFwiqO1+G1VPf3UDUMfZR
+ URUc4FBF9LOYynecnvXPKht1z8huOV0IGWKdjw7w/GJW1XINrjjCtaicY
+ Gmk5/1UFKfQbpJCy4EVoWvG+JT6qv3W+/8VGH4dIP5yh1voYbVVG2yUfN Q==;
+IronPort-SDR: Rdzanhfuh6Vf6lE7Da66SA4Zrx1FtNsMj9CBPWNE8IZfGiqvGZpo/Q+2MVjDj7O5bkdDhqi/EK
+ toP6QY14fxA3gw/yeE8IhTvLdE+Fkxzp+81b/y/B33FoFytxzcvNiGJ1+Un+REcB4z+VJlFk7G
+ FYnANblk/53TcQeWzgUj0tJcHPBjstd58GoMt5LoL1Lcc/C5qdz8q5ZceClpJGTY4oYvDzp7U0
+ RnFpQSEh87SxoJoKx0/3obqtoJGRYC2FORy3kUAraEIx54zNDVsU/xZ+f47ns+Sf5ERu/fgDeQ
+ fKk=
+X-IronPort-AV: E=Sophos;i="5.70,489,1574092800"; d="scan'208";a="238981814"
+Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 27 Feb 2020 06:02:20 +0800
+IronPort-SDR: dgFUxnvbW6iCVvcwo5QCO1Au50vHf/GmhylT4emLr9Z1kfYq2o35KQ2GBE23V4J29eXaYqxxDJ
+ hgiAQompxfbj7dfbe4IbZJw9S2qKLc4pXhTcbhN7m+IfNZpicnTgy/TKaD24foR7FZlAEg8Gh9
+ 4ukyRpKhUeVdPlzNbl199kIjQdmm8/m/uLQZkCCrzERxTrQ40iBRUezbj6gl4mqYPmSCPqtL2r
+ uwBLSlR3ce6iyShwnxyWmb97rCXHYPvQW+IgZ6Ns+cp6DFAxSzwoblgJdULqMBOMtvZwTbl0j0
+ 9rQxBrQcEEmBlg1MAMb5AoxP
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 26 Feb 2020 13:54:45 -0800
+IronPort-SDR: mSlcY6dyF4dBL8ImVFBxA3zdVutQAuezz9OKXsX6CdcMko8fUm2UIoA4teKrnODrnMTChKTJSx
+ CgHq/KtB1J9K7/na6uXIxu6dxtO8CfpVhYuW28iXGvq0H63z47EbDP7NELB5CyNFNixnxYOp+b
+ PZ05gBEngHdH8FFJ0S0CogK2HmUoCWSzPeZANFjTt+hCwRHfzzmdHXiz09IHa6kaEsTeH8ZhP/
+ rlogz0iQi4eQXt0YPrl6+YCRZulGCJbBpOoPhlmphC7iNY/U1kTLOEjloUmOVKmNze2uXtgiGJ
+ O4k=
+WDCIronportException: Internal
+Received: from yoda.sdcorp.global.sandisk.com (HELO yoda.int.fusionio.com)
+ ([10.196.158.80])
+ by uls-op-cesaip02.wdc.com with ESMTP; 26 Feb 2020 14:02:20 -0800
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v10 01/12] RISC-V: Mark existing SBI as 0.1 SBI.
+Date: Wed, 26 Feb 2020 14:02:02 -0800
+Message-Id: <20200226220213.27423-2-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.25.0
+In-Reply-To: <20200226220213.27423-1-atish.patra@wdc.com>
+References: <20200226220213.27423-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-References: <20200212103432.660256-1-damien.lemoal@wdc.com>
- <CADnnUqcFbmspQ0fcggoyPTE4mckoGahHmaNdcJeC7GJD7C16uA@mail.gmail.com>
- <BYAPR04MB5816C1EADCEF92F1F1DE60E0E7140@BYAPR04MB5816.namprd04.prod.outlook.com>
- <CADnnUqeWqL4+_ZTKBWW_wh=pqOn1DdgOr=P3iw4hJzEjYCxCeA@mail.gmail.com>
-In-Reply-To: <CADnnUqeWqL4+_ZTKBWW_wh=pqOn1DdgOr=P3iw4hJzEjYCxCeA@mail.gmail.com>
-From: Carlos Eduardo de Paula <me@carlosedp.com>
-Date: Wed, 26 Feb 2020 18:31:59 -0300
-X-Gmail-Original-Message-ID: <CADnnUqfQCc_-M0Ga-u7swRoZyxVRz08JMYxDCFZha8tA=MaJZw@mail.gmail.com>
-Message-ID: <CADnnUqfQCc_-M0Ga-u7swRoZyxVRz08JMYxDCFZha8tA=MaJZw@mail.gmail.com>
-Subject: Re: [PATCH 00/10] Kendryte k210 SoC boards support
-To: Damien Le Moal <Damien.LeMoal@wdc.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200226_133213_323143_CCFB027D 
-X-CRM114-Status: UNSURE (   6.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200226_140224_053045_85D3A00C 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -106,40 +101,157 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- Anup Patel <Anup.Patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Kate Stewart <kstewart@linuxfoundation.org>,
+ Madhavan Srinivasan <maddy@linux.vnet.ibm.com>, Zong Li <zong.li@sifive.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>,
+ Michael Kelley <mikelley@microsoft.com>, Atish Patra <atish.patra@wdc.com>,
+ Gary Guo <gary@garyguo.net>, linux-riscv@lists.infradead.org,
+ Mike Rapoport <rppt@linux.ibm.com>, Kees Cook <keescook@chromium.org>,
+ Marc Zyngier <maz@kernel.org>,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ Daniel Jordan <daniel.m.jordan@oracle.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Greentime Hu <greentime.hu@sifive.com>, Borislav Petkov <bp@suse.de>,
+ Mao Han <han_mao@c-sky.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jason Cooper <jason@lakedaemon.net>, Sudeep Holla <sudeep.holla@arm.com>,
+ Alexios Zavras <alexios.zavras@intel.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Nick Hu <nickhu@andestech.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Vincent Chen <vincent.chen@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ "Eric W. Biederman" <ebiederm@xmission.com>, Anup Patel <anup@brainfault.org>,
+ Steven Price <steven.price@arm.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> >
-> > >
-> > > Thanks.
-> > >
-> >
-> >
-> > --
-> > Damien Le Moal
-> > Western Digital Research
->
+As per the new SBI specification, current SBI implementation version
+is defined as 0.1 and will be removed/replaced in future. Each of the
+function call in 0.1 is defined as a separate extension which makes
+easier to replace them one at a time.
 
-I've integrated all required changes into a buildroot fork from your
-repo where it's possible to build the complete image (Kernel + Patches
-+ Busybox iniramfs) in a single place and there is no need to place
-the toolchain outside, build the kernel and etc.
+Rename existing implementation to reflect that. This patch is just
+a preparatory patch for SBI v0.2 and doesn't introduce any functional
+changes.
 
-The changes are in https://github.com/carlosedp/riscv64-nommu-buildroot.
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+---
+ arch/riscv/include/asm/sbi.h | 44 ++++++++++++++++++++----------------
+ 1 file changed, 24 insertions(+), 20 deletions(-)
 
-@Damien Le Moal I can send you a PR if you want.
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 2570c1e683d3..3db30e739c8f 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -1,6 +1,7 @@
+ /* SPDX-License-Identifier: GPL-2.0-only */
+ /*
+  * Copyright (C) 2015 Regents of the University of California
++ * Copyright (c) 2020 Western Digital Corporation or its affiliates.
+  */
+ 
+ #ifndef _ASM_RISCV_SBI_H
+@@ -9,17 +10,17 @@
+ #include <linux/types.h>
+ 
+ #ifdef CONFIG_RISCV_SBI
+-#define SBI_SET_TIMER 0
+-#define SBI_CONSOLE_PUTCHAR 1
+-#define SBI_CONSOLE_GETCHAR 2
+-#define SBI_CLEAR_IPI 3
+-#define SBI_SEND_IPI 4
+-#define SBI_REMOTE_FENCE_I 5
+-#define SBI_REMOTE_SFENCE_VMA 6
+-#define SBI_REMOTE_SFENCE_VMA_ASID 7
+-#define SBI_SHUTDOWN 8
++#define SBI_EXT_0_1_SET_TIMER 0x0
++#define SBI_EXT_0_1_CONSOLE_PUTCHAR 0x1
++#define SBI_EXT_0_1_CONSOLE_GETCHAR 0x2
++#define SBI_EXT_0_1_CLEAR_IPI 0x3
++#define SBI_EXT_0_1_SEND_IPI 0x4
++#define SBI_EXT_0_1_REMOTE_FENCE_I 0x5
++#define SBI_EXT_0_1_REMOTE_SFENCE_VMA 0x6
++#define SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID 0x7
++#define SBI_EXT_0_1_SHUTDOWN 0x8
+ 
+-#define SBI_CALL(which, arg0, arg1, arg2, arg3) ({		\
++#define SBI_CALL(which, arg0, arg1, arg2, arg3) ({             \
+ 	register uintptr_t a0 asm ("a0") = (uintptr_t)(arg0);	\
+ 	register uintptr_t a1 asm ("a1") = (uintptr_t)(arg1);	\
+ 	register uintptr_t a2 asm ("a2") = (uintptr_t)(arg2);	\
+@@ -43,48 +44,50 @@
+ 
+ static inline void sbi_console_putchar(int ch)
+ {
+-	SBI_CALL_1(SBI_CONSOLE_PUTCHAR, ch);
++	SBI_CALL_1(SBI_EXT_0_1_CONSOLE_PUTCHAR, ch);
+ }
+ 
+ static inline int sbi_console_getchar(void)
+ {
+-	return SBI_CALL_0(SBI_CONSOLE_GETCHAR);
++	return SBI_CALL_0(SBI_EXT_0_1_CONSOLE_GETCHAR);
+ }
+ 
+ static inline void sbi_set_timer(uint64_t stime_value)
+ {
+ #if __riscv_xlen == 32
+-	SBI_CALL_2(SBI_SET_TIMER, stime_value, stime_value >> 32);
++	SBI_CALL_2(SBI_EXT_0_1_SET_TIMER, stime_value,
++			  stime_value >> 32);
+ #else
+-	SBI_CALL_1(SBI_SET_TIMER, stime_value);
++	SBI_CALL_1(SBI_EXT_0_1_SET_TIMER, stime_value);
+ #endif
+ }
+ 
+ static inline void sbi_shutdown(void)
+ {
+-	SBI_CALL_0(SBI_SHUTDOWN);
++	SBI_CALL_0(SBI_EXT_0_1_SHUTDOWN);
+ }
+ 
+ static inline void sbi_clear_ipi(void)
+ {
+-	SBI_CALL_0(SBI_CLEAR_IPI);
++	SBI_CALL_0(SBI_EXT_0_1_CLEAR_IPI);
+ }
+ 
+ static inline void sbi_send_ipi(const unsigned long *hart_mask)
+ {
+-	SBI_CALL_1(SBI_SEND_IPI, hart_mask);
++	SBI_CALL_1(SBI_EXT_0_1_SEND_IPI, hart_mask);
+ }
+ 
+ static inline void sbi_remote_fence_i(const unsigned long *hart_mask)
+ {
+-	SBI_CALL_1(SBI_REMOTE_FENCE_I, hart_mask);
++	SBI_CALL_1(SBI_EXT_0_1_REMOTE_FENCE_I, hart_mask);
+ }
+ 
+ static inline void sbi_remote_sfence_vma(const unsigned long *hart_mask,
+ 					 unsigned long start,
+ 					 unsigned long size)
+ {
+-	SBI_CALL_3(SBI_REMOTE_SFENCE_VMA, hart_mask, start, size);
++	SBI_CALL_3(SBI_EXT_0_1_REMOTE_SFENCE_VMA, hart_mask,
++			  start, size);
+ }
+ 
+ static inline void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
+@@ -92,7 +95,8 @@ static inline void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
+ 					      unsigned long size,
+ 					      unsigned long asid)
+ {
+-	SBI_CALL_4(SBI_REMOTE_SFENCE_VMA_ASID, hart_mask, start, size, asid);
++	SBI_CALL_4(SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID, hart_mask,
++			  start, size, asid);
+ }
+ #else /* CONFIG_RISCV_SBI */
+ /* stubs for code that is only reachable under IS_ENABLED(CONFIG_RISCV_SBI): */
+-- 
+2.25.0
 
-Carlos
-
---
-________________________________________
-Carlos Eduardo de Paula
-me@carlosedp.com
-http://carlosedp.com
-http://twitter.com/carlosedp
-Linkedin
-________________________________________
 
