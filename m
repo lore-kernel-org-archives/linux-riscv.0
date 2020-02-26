@@ -2,90 +2,99 @@ Return-Path: <SRS0=fzfn=4O=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.4 required=3.0 tests=DKIMWL_WL_HIGH,DKIMWL_WL_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=unavailable autolearn_force=no
+X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CF4C0C4BA21
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2020 19:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5C52CC4BA21
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2020 21:32:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A25F320656
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2020 19:14:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2D77B2072D
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2020 21:32:17 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="j7ASc+S8";
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.b="lynomhex"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A25F320656
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TT3/kCbn";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=carlosedp-com.20150623.gappssmtp.com header.i=@carlosedp-com.20150623.gappssmtp.com header.b="wPgvgwCs"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2D77B2072D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=carlosedp.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
-	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=II+mmd4o8Thv9U8AkaEb8+H9vZCo78uQ32TXbZDWSJs=; b=j7ASc+S83V+vsM
-	VoRZrgRZN0qWGNHJUg76VwPeUIiN+Rrc++FL18OM1/PokvCOYLbR+uXSZAEXMlBzhI5j89pmi6Ecf
-	Zx6GePivfR+dCaoQcuF1kNQKHnn77q/VMGWy2suW6gWd4H4fNTEYV0AQbXemrDOQZGSanH9+cNtzG
-	E774O8x8k0w6o4vVqPjnEn+A2j7oVj62sKAOCVifL9G5DSA3/CuA9FIYvlJMFg0N/Nn01mGqaAkaP
-	FHgD9SnKU5mmoWqk5K7C4wwNKhP9xM1Vcq2Um1961jOcpXdxPDJwa431u202UeJciPbq4jWAl616N
-	DUBuLurvIu8TcL9C/Lsg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=q+3v35ElCbupo/qCfNun7bNsXyKvaSAB7a3GeWQ0Cy4=; b=TT3/kCbnSeFiqMTZHque8YTet
+	A903sY0Zi24Jb/7nDNr5RUO/4+S2whLgP9b82tsNFJwrOh8aKlJgKpc0kPMagzPLA74DXYaaZFs4q
+	QaKa28kAxDni6dA7CqOx0k0rx7y/+XML7nbVNml92fizG5M8fwfdfOyBRD/XHu4TkZIfmH9WCSgVj
+	rvWfOp+MjmMT0EXF3vofbpchj+W2R/8/hN55zfRbIkRSX+zOaZqTBZ4VBCZZ42OkT9m+RUVKQ6YqS
+	iVP5u90OMPB0ENGH/PII1dunAUyE0qnnaGYv4rsuHoPtcAlt20+WDFJPMLWQeZjmjAGBzK5c1tRTt
+	6ymUAjsWw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j728y-0007tV-UH; Wed, 26 Feb 2020 19:14:52 +0000
-Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
+	id 1j74Hw-0008VM-Dn; Wed, 26 Feb 2020 21:32:16 +0000
+Received: from mail-oi1-x244.google.com ([2607:f8b0:4864:20::244])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j728w-0007sq-63
- for linux-riscv@lists.infradead.org; Wed, 26 Feb 2020 19:14:51 +0000
-Received: by mail-pj1-x1042.google.com with SMTP id n96so55095pjc.3
- for <linux-riscv@lists.infradead.org>; Wed, 26 Feb 2020 11:14:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=II+mmd4o8Thv9U8AkaEb8+H9vZCo78uQ32TXbZDWSJs=;
- b=lynomhexXn+T3hobct4dEhAkKUBooMzG46ig+lFR3nqPLY1Tcs+kYI72Bztx/AxP47
- rZ2gV/crLo1Q8v7yuzzJDCkb1eIw11IcOCNhyhp7oPNRNdnhYGiE1ZSlcEZQX7QUPXfc
- 0ftFf1cnM7fFsqy3Oxmj1Jgo+NFodElHbtmfXhOe0zCrMFERtQ4IFv2OzwoZYemUXxEO
- v8fRLTqd65edidpf7lVVbSGWpVqlwMMVM3uyMn6MaYzRiG963bdh60ajgm4z9pFOiYjs
- 2U8CYAYjaGFrsHneTOICUYUvwaRJkgSh57sB3zp2esinOaeqXsqo8F+3E6/UIq4tAl9B
- rLuA==
+ id 1j74Ht-0008V5-8P
+ for linux-riscv@lists.infradead.org; Wed, 26 Feb 2020 21:32:14 +0000
+Received: by mail-oi1-x244.google.com with SMTP id a22so1035728oid.13
+ for <linux-riscv@lists.infradead.org>; Wed, 26 Feb 2020 13:32:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=carlosedp-com.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=q+3v35ElCbupo/qCfNun7bNsXyKvaSAB7a3GeWQ0Cy4=;
+ b=wPgvgwCsrcQj4zF3xEwWbYk9GwXIOv6pdUzYf6MU1lX+a+JsUpLzLiUa5hgsTJAxG7
+ Eac24tDUm2G5DMWl8Hc/EymTzJBXXafG2YLehm+ruY3OlO+6KDWMpn1yabOtQOFSRs+n
+ jHEcS2rIVVDBtkVRHCvN9WCZzYxqJdc9Y+4TFCeWoCwGhOz9rwhqeFEfE7UJMWlYaiXm
+ Uq0ccTDQUtzT2EsbYmodHqX1Q2RbVNXTADj/iJAJYpOK2/IzRO6ELOEgsyU0oSYilDzU
+ MZ4KwBWB+nr+ZIQvppoHwP/l0f6WMjfKrIxhpklZSmrwDspunU8/PEN1BMkBU5o5qruS
+ HPLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=II+mmd4o8Thv9U8AkaEb8+H9vZCo78uQ32TXbZDWSJs=;
- b=VbOdSQk2Sm6b940q56Scgunge+1uLzcB/3lGLek6oWbiOF8Jgk+Aj9n3igSnjwarKs
- AE8iB7g9N9p7a8RCpuCrkF+G0JEK8MKkyDbN4ag1/aVJWi3VnHw3SxwrFBrsi43TcG3W
- I5TDwOjBIjAo1blKa0AT1QdOiJaND1eMfFx7Upn51fmyeb6qLWEa+1FlaMb/BVWkzZ3X
- 9FGnxrnL3ewDv+xxPLWvN1JeUKibnR7ugcuCaT9KvNQjX7A2ij3q2n3zqj2hSl9kPyso
- p31Ltj56AyXQe61kQYaHag0fL7+p7zqYR/xn/f9gK/MxZPzkN3RPh4R9Wk6bwadiRQxT
- 3ofw==
-X-Gm-Message-State: APjAAAVvVF6xU2GIUT9p+rvSil20WeCRJXxPVCDIbasXYijfhKB+x1Zk
- LHWE/xZyM13lBDLZmMZaUUBLtQ==
-X-Google-Smtp-Source: APXvYqxgwE8i5lOdoCI9nD6vqdTgXjxGcDQJ2HHnuQj5ks3jysXLE7aUpKyoGIoUfgaath9Z67nAAQ==
-X-Received: by 2002:a17:90a:a587:: with SMTP id b7mr643340pjq.18.1582744486510; 
- Wed, 26 Feb 2020 11:14:46 -0800 (PST)
-Received: from localhost ([2620:0:1000:2514:23a5:d584:6a92:3e3c])
- by smtp.gmail.com with ESMTPSA id 5sm3895584pfx.163.2020.02.26.11.14.45
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 26 Feb 2020 11:14:45 -0800 (PST)
-Date: Wed, 26 Feb 2020 11:14:45 -0800 (PST)
-X-Google-Original-Date: Wed, 26 Feb 2020 11:14:44 PST (-0800)
-Subject: When are my patches getting merged [Was: Re: [GIT PULL] RISC-V Fixes
- for 5.6-rc4]
-In-Reply-To: <5226d756-e348-29d1-258d-0ab4b63c0677@ghiti.fr>
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-75f261ed-b883-408f-84ea-6425b49abb20@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8bit
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=q+3v35ElCbupo/qCfNun7bNsXyKvaSAB7a3GeWQ0Cy4=;
+ b=GmU9y1RoUYkUQjAdrTv+TFlGapPcq+J2vR0gQlPrtssKAdipAlRAiHe3mIn4GHQYPE
+ AjjcZVkkURBjoxV6FWAZAxxZ/pT880KUaUEQUd3FeQx2w0r5sYRjFkdNLuBDZjb53IMt
+ hOHS7IL16Pv0T0e3xaTnBTl0KQL8ovBAY5a7hpGVdmH1plP7m2o1lrQF91NGr/1p1cQl
+ yIHYa7kQfavERpq2ATFWvwovHpr7XqYUYVbco62nWqOzb0RmIn9u2L+ue6fh1E0OLMpW
+ QYy8/Knm8dqA35JdFejd0HEFy8hneq4S8XhPyBVVwHyg7n2LpUcv9e+gTHrhxikmaI0c
+ Yw4w==
+X-Gm-Message-State: APjAAAWaJS7Y+ZmRiR2iT6A0mWlir3YYBj8ficpCEqsZSeabDya0iUwX
+ Y5FIqmLnconJdXU7Gy8RBmLdPwZTk+cNoQ==
+X-Google-Smtp-Source: APXvYqy0ySqWdIXlSB+0XoIjTNBw4voZLxsv/MuZ3mOvdg7u0qKlrmMlNlO0SdUaNCOx+WtUFHT2Vg==
+X-Received: by 2002:a54:4091:: with SMTP id i17mr843235oii.99.1582752731619;
+ Wed, 26 Feb 2020 13:32:11 -0800 (PST)
+Received: from mail-oi1-f176.google.com (mail-oi1-f176.google.com.
+ [209.85.167.176])
+ by smtp.gmail.com with ESMTPSA id 67sm1239621oid.30.2020.02.26.13.32.10
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 26 Feb 2020 13:32:11 -0800 (PST)
+Received: by mail-oi1-f176.google.com with SMTP id a142so1077326oii.7
+ for <linux-riscv@lists.infradead.org>; Wed, 26 Feb 2020 13:32:10 -0800 (PST)
+X-Received: by 2002:a05:6808:b39:: with SMTP id
+ t25mr829747oij.71.1582752730403; 
+ Wed, 26 Feb 2020 13:32:10 -0800 (PST)
+MIME-Version: 1.0
+References: <20200212103432.660256-1-damien.lemoal@wdc.com>
+ <CADnnUqcFbmspQ0fcggoyPTE4mckoGahHmaNdcJeC7GJD7C16uA@mail.gmail.com>
+ <BYAPR04MB5816C1EADCEF92F1F1DE60E0E7140@BYAPR04MB5816.namprd04.prod.outlook.com>
+ <CADnnUqeWqL4+_ZTKBWW_wh=pqOn1DdgOr=P3iw4hJzEjYCxCeA@mail.gmail.com>
+In-Reply-To: <CADnnUqeWqL4+_ZTKBWW_wh=pqOn1DdgOr=P3iw4hJzEjYCxCeA@mail.gmail.com>
+From: Carlos Eduardo de Paula <me@carlosedp.com>
+Date: Wed, 26 Feb 2020 18:31:59 -0300
+X-Gmail-Original-Message-ID: <CADnnUqfQCc_-M0Ga-u7swRoZyxVRz08JMYxDCFZha8tA=MaJZw@mail.gmail.com>
+Message-ID: <CADnnUqfQCc_-M0Ga-u7swRoZyxVRz08JMYxDCFZha8tA=MaJZw@mail.gmail.com>
+Subject: Re: [PATCH 00/10] Kendryte k210 SoC boards support
+To: Damien Le Moal <Damien.LeMoal@wdc.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200226_111450_248815_A267B2A2 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20200226_133213_323143_CCFB027D 
+X-CRM114-Status: UNSURE (   6.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,78 +106,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ Anup Patel <Anup.Patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[Moving Linus and linux-kernel to BCC, as it's a RISC-V thing]
+> >
+> > >
+> > > Thanks.
+> > >
+> >
+> >
+> > --
+> > Damien Le Moal
+> > Western Digital Research
+>
 
-On Tue, 25 Feb 2020 23:56:54 PST (-0800), alex@ghiti.fr wrote:
-> Hi Palmer,
->
-> On 2/25/20 6:37 PM, Palmer Dabbelt wrote:
->> The following changes since commit 11a48a5a18c63fd7621bb050228cebf13566e4d8:
->>
->>    Linux 5.6-rc2 (2020-02-16 13:16:59 -0800)
->>
->> are available in the Git repository at:
->>
->>    git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linux-5.6-rc4
->>
->> for you to fetch changes up to 8458ca147c204e7db124e8baa8fede219006e80d:
->>
->>    riscv: adjust the indent (2020-02-24 13:12:53 -0800)
->>
->> ----------------------------------------------------------------
->> RISC-V Fixes for 5.6-rc4
->>
->> This tag contains a handful of RISC-V related fixes that I've collected and
->> would like to target for 5.6-rc4:
->>
->> * A fix to set up the PMPs on boot, which allows the kernel to access memory on
->>    systems that don't set up permissive PMPs before getting to Linux.  This only
->>    effects machine-mode kernels, which currently means only NOMMU kernels.
->> * A fix to avoid enabling supervisor-mode interrupts when running in
->>    machine-mode, also only for NOMMU kernels.
->> * A pair of fixes to our KASAN support to avoid corrupting memory.
->> * A gitignore fix.
->>
->> This boots on QEMU's virt board for me.
->>
->> ----------------------------------------------------------------
->> Anup Patel (1):
->>        RISC-V: Don't enable all interrupts in trap_init()
->>
->> Damien Le Moal (1):
->>        riscv: Fix gitignore
->>
->> Greentime Hu (1):
->>        riscv: set pmp configuration if kernel is running in M-mode
->>
->> Zong Li (2):
->>        riscv: allocate a complete page size for each page table
->>        riscv: adjust the indent
->>
->>   arch/riscv/boot/.gitignore   |  2 ++
->>   arch/riscv/include/asm/csr.h | 12 ++++++++++
->>   arch/riscv/kernel/head.S     |  6 +++++
->>   arch/riscv/kernel/traps.c    |  4 ++--
->>   arch/riscv/mm/kasan_init.c   | 53 ++++++++++++++++++++++++++------------------
->>   5 files changed, 53 insertions(+), 24 deletions(-)
->>
->
-> What about this patch https://patchwork.kernel.org/patch/11395273/ from
-> Vincent that fixes module loading problems described here:
->
-> https://lore.kernel.org/linux-riscv/d868acf5-7242-93dc-0051-f97e64dc4387@ghiti.fr/T/
->
-> Do you consider it for 5.6 ?
+I've integrated all required changes into a buildroot fork from your
+repo where it's possible to build the complete image (Kernel + Patches
++ Busybox iniramfs) in a single place and there is no need to place
+the toolchain outside, build the kernel and etc.
 
-I haven't gotten to them yet, but at a glance it's probably a big enough change
-that it should should go in during a merge window.  The module loading stuff is
-a bit of a rats nest because it never really got finished, so I want to make
-sure things get sufficient testing over there.
+The changes are in https://github.com/carlosedp/riscv64-nommu-buildroot.
 
-I'll try to take a look, though -- it's only ~1K messages deep in my inbox, so
-there's hope :).
+@Damien Le Moal I can send you a PR if you want.
+
+Carlos
+
+--
+________________________________________
+Carlos Eduardo de Paula
+me@carlosedp.com
+http://carlosedp.com
+http://twitter.com/carlosedp
+Linkedin
+________________________________________
 
