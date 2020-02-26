@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 10D68C4BA2D
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2020 22:02:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 35976C4BA2C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2020 22:02:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D0FFA21D7E
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2020 22:02:53 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E0E0C21D7E
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2020 22:02:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fIlJw2Qg";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="naIcG66/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D0FFA21D7E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FYPiux3y";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="mlaV+0Sp"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E0E0C21D7E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,71 +26,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fHku65SBWQxfTvS+qFUUuDFh22CSwp5WG8f6nCukwHQ=; b=fIlJw2QgzCSIep
-	t8a5jF0KyyC/gTvfqnk4zyHqOn7r7x1S8KYr0Jn8pbFW6XrfaBZ5tBKw5FK07qOZQmlIIrtYRzQIl
-	ObceTVAMHa7ph8mh1mCPs50YOvXgAyBk5aHOUj/7a1rzDgLDDctE28ZQKkRWo9m2xUZsvt+MV23yR
-	TEsiWfzgq9b8JS95epHlTvcTAWqnSGVrJLVvlBwy4StraqlLGVkXSavX7c/EG8AYQiOYJi8D3najQ
-	51m2Plso9ivQtqSUguhEhB9SJup3WxZwcg9xnFdDyF4lByt31LOYxbcAQqE72cNXoIemFBSM9Retd
-	PstoYWeDoAuVCd6JgyGw==;
+	List-Owner; bh=zMKRgPZQqBDX7dImFKAFTs2xTyaBV4wkVFd8eAzc4fM=; b=FYPiux3yz+fseE
+	m7rdEw22QagliOSdwFaes8C4BfLaqfzy7uqDleKZB+RDTH5tFpbyExBmNf81TnqCWxs27WRVPTCJt
+	PWgOfnkL9YBPABZNDXtXepVBCFujXHcuUBBtA6VeecHcMOJjrFLPQQolAnTHIbTxw6daFWG/XrOJL
+	ugKiJdZipUcCG8ej2ma3gPFeoOIen+lv/monH5eKOew40Xx0hKThCv7x15DpsbQ2JkjvGbs+GGYMT
+	S0glPZEJTwwyXtWmEOemYLUZGP+z6Xde2im/uDqpe1WIEPKZkSsZ1nuMZ4IrLZ2mePkNyyJlNGryW
+	VfgVQrgiKh/7piNB2x5g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j74lV-0004HN-Eg; Wed, 26 Feb 2020 22:02:49 +0000
+	id 1j74lY-0004Kn-J8; Wed, 26 Feb 2020 22:02:52 +0000
 Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j74l9-0003nS-Pj
- for linux-riscv@lists.infradead.org; Wed, 26 Feb 2020 22:02:30 +0000
+ id 1j74lC-0003nS-9b
+ for linux-riscv@lists.infradead.org; Wed, 26 Feb 2020 22:02:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1582754547; x=1614290547;
+ t=1582754550; x=1614290550;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=8c/5N2kvrmrBNODCFRL3268dedGpJfrgPqdASr288Ac=;
- b=naIcG66/hiISqNp2gukWQxKARavqSGh0zbTSn4J46ieVmwef35zaKrkR
- 6xv4DX2XXlpG3FkZWEX7VPK6jfl0vymm32KXH6ehV5jNJUGzuXWVU+7LM
- /Tdz94Xbv1T/5IxGPNiMihYbLOWHiMQmwlzF0ORIiOwIv53LbW99Flo3z
- fynfSaZ6KIcBO60KzQm+sF6trV2uzEgj7zL93UvjdySGg3yDqA0860lND
- 66I94fdw3DZEGanOYBmVy1qRUyJ7Yeh858DBDD0pGLPVQ2VtGMyeFOGIr
- yqih2ZyOIG9or8D04gxRNu+ZXsO/1hAfGKyq6ALmN4GYqZPcBnBM2gqBW w==;
-IronPort-SDR: cVkA17/lTMxTiWPO7ljvc+5OSxzxGSaRF2W9R/NtqI7ur/4kJG1mCB7/mti0XBGkf05HBeHpdj
- PJYyHrQPQ/G0YZhKMEI4o1o8kwrBtZ9S6Xsbk2Ttp1izpKPxwn5+YJIsII6wntm4E7o2+W6Boy
- 2tvnhwwnx/ewVJfldLAbTPYAPGtyYyTQHq2i69fFc9a0DI/So7O9jgtnj7IInPnSBJrK4oqOlp
- Wrm3FiiaKBGx9rmWrpkq82tDhNMgJnOKTz6KohEX9x2RmOX1lQercw8k4nrsvzY+5Zqd2lLPAJ
- h/Y=
-X-IronPort-AV: E=Sophos;i="5.70,489,1574092800"; d="scan'208";a="238981848"
+ bh=JqXfvLC9I8btjifDyDxA+vz0y13stX9yiYKqjoJkjmU=;
+ b=mlaV+0Sp48IJOw8+821+WJevWHnRJMwW1crepbohOjCRO+b6Yn+3Sak9
+ 34FRkfK4lWd346cW9wetFJFxrV5YoRzR29/Y9EB0Xq89Cd2Gepod03YBW
+ m4vLdu/iEfbEk54/HH0vLd4NXukv0TUnhiDC6+uADAzMqL7nQXtcQYmBe
+ dioktv/ipSNQ4xIwTvxujQKHWTDB7HVi5ufVPZ6V6OZ/T6+yCx6a3WSwL
+ ePnFm3ohZIszw6P6ZSRsVyoldruiFa1IEwuZd0VS92gGHHAcxb4s5llL7
+ QYXNKyDPeRcl3jnwz5QHyYAhgW4iL22WZbXOjI6LUHj+LretufSaFTBCh w==;
+IronPort-SDR: nqMKBQUzQlQlxEQW/6B+x4fQtBAdyM9qBg2Uk5H56U05cTF/hDDtuqlfGS85ds/Rl8ucaykbpk
+ eWdFDNxXOZ0CeWvhetXF+zKRe83wsPkmjp9ylXXAqgG50LbFdjAT3kuFrR9dnK9UKsTQ/6KHQg
+ Hbb1aGnvd5a5RpNYsQjJ2wMBjBPJFPUVHdSsrFtXeHZ6jvG5g3NdYgKmmVk+dFIq1TcYSm+p6z
+ mL8KLzjIi2/x7g+Op4Gc/Gzx0Mq0EMUWrSAPsqAFgzLsOGwTPiDtXblK5YeM03oYhZNqsIeIX6
+ Ml4=
+X-IronPort-AV: E=Sophos;i="5.70,489,1574092800"; d="scan'208";a="238981863"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 27 Feb 2020 06:02:23 +0800
-IronPort-SDR: wZOGIWzRUV3uAINLY2pqq8xeuNKFjoLFvgcygBM0K0iUsxKewlNF5iOhJ3HibEp+4+KtnhBx40
- OaQaSFJsdyynhF3rNoicWUix9IMDAuGGbAPMQTXtr406TPmETOBCuzK64u6h7zOL4UjTOuFzdD
- rvdAkuLn+vWKUDJg1mWycdG7PixiUjfzl+/T08buAHZhkFSDLBi18CcDz5BxZeSx/WobWOvPad
- JotjCkeGBQB6c06lmmwuDu5LdouWhV0TrcPNKplmjKZV4X5+I13NkeC++sRZ3p3HiKr3gc72Hc
- fe3Q663WheqjEEFwyHPvxml4
+ by ob1.hgst.iphmx.com with ESMTP; 27 Feb 2020 06:02:24 +0800
+IronPort-SDR: AbQq68+MPk2C1QEx4XkHqrt60bHJiswhc2nNbWfmz/hn35DQk3hE8L0NVkmHotWOxgXFUfpqYa
+ RdMBN8ZnNInKMEvH7D/yLS8FCvsHDX/w+s2ih8DmJCOPIWMY/mcl9VJeo9Aq8zp7RvxdZyoQvS
+ xeNzPfwUBVZuQehbQOcx4knK9uCZeDoxjROc2AZ5CsW8YqS4xVEc4pvdjyZTy7EVzN0bdSH35M
+ jKa69opLDRcQPQROhfVq/WBf4PJtg18ODZ/WfA9HEftCUevxpNvzs31sh3R27IHAKibtc81aHO
+ V44b3C3gxC+veHeUT1FfaZQn
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 26 Feb 2020 13:54:48 -0800
-IronPort-SDR: s6Ejgq1nBFxBYHarBsCuzoUVOVE1YbVTs9qxa4sYrd9rkYfee4esjUDTuej4OkwkvfTZt1ghJ0
- Tv5iH9Zgx2gkJLogqRWziy5F14cyj9GrOOphO/XCnzW5xlaVdOC0na4kAi8RmzNStpazyfgM+Q
- vlPeZ2Vd/XMmZ88TDttlVPPHfuLqOW+aF4uMR0nQNucY60PJD4jTY+3JhwvJN+vAI00H4h22wa
- fvMbx9TX11dSEnwTESX1Cjrr0H/2ye/iQr8DOz+IfkOBmG6JKbat2yq+vu/P2A0yU7aPbZ5C8K
- GLw=
+ 26 Feb 2020 13:54:49 -0800
+IronPort-SDR: EVY8lUPNbgljmW6HqEuqUs1GnjnBfBSafUXNYMK1AMj6XuCsBqsRkDnNQI1K0i0CCkdrN7W9V9
+ ysHazwBXnlQMwZfgMr8PTvYVU9zP8Xyi9hfVBkXLxN9hZDPt5ln0P5Jv3UJDkg2dU9+tPydUPz
+ gVWO1CYmsd52gIsvas27XINqLZ+RvJPkXX6yH30hsTpy6aeRfPlD4Lvlji8UTOFG3GoB+LvUgY
+ gKa7m8TeX4ssIDVdSdE9QFEJx3uLqo46bT/S/VbJtIeiqdIaAr62kQniHQwh0ZLSdesWkyhoT4
+ Uq4=
 WDCIronportException: Internal
 Received: from yoda.sdcorp.global.sandisk.com (HELO yoda.int.fusionio.com)
  ([10.196.158.80])
- by uls-op-cesaip02.wdc.com with ESMTP; 26 Feb 2020 14:02:23 -0800
+ by uls-op-cesaip02.wdc.com with ESMTP; 26 Feb 2020 14:02:24 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v10 06/12] RISC-V: Move relocate and few other functions out
- of __init
-Date: Wed, 26 Feb 2020 14:02:07 -0800
-Message-Id: <20200226220213.27423-7-atish.patra@wdc.com>
+Subject: [PATCH v10 08/12] RISC-V: Export SBI error to linux error mapping
+ function
+Date: Wed, 26 Feb 2020 14:02:09 -0800
+Message-Id: <20200226220213.27423-9-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.25.0
 In-Reply-To: <20200226220213.27423-1-atish.patra@wdc.com>
 References: <20200226220213.27423-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200226_140227_929347_59F4E06F 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20200226_140230_419881_A9861106 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -119,246 +119,59 @@ Cc: Kate Stewart <kstewart@linuxfoundation.org>,
  Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
  Nick Hu <nickhu@andestech.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Vincent Chen <vincent.chen@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Anup Patel <anup.patel@wdc.com>, Vincent Chen <vincent.chen@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
  "Eric W. Biederman" <ebiederm@xmission.com>, Anup Patel <anup@brainfault.org>,
  Steven Price <steven.price@arm.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The secondary hart booting and relocation code are under .init section.
-As a result, it will be freed once kernel booting is done. However,
-ordered booting protocol and CPU hotplug always requires these functions
-to be present to bringup harts after initial kernel boot.
+All SBI related extensions will not be implemented in sbi.c to avoid
+bloating. Thus, sbi_err_map_linux_errno() will be used in other files
+implementing that specific extension.
 
-Move the required functions to a different section and make sure that
-they are in memory within first 2MB offset as trampoline page directory
-only maps first 2MB.
+Export the function so that it can be used later.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Anup Patel <anup.patel@wdc.com>
 ---
- arch/riscv/kernel/head.S        | 153 +++++++++++++++++---------------
- arch/riscv/kernel/vmlinux.lds.S |   5 +-
- 2 files changed, 86 insertions(+), 72 deletions(-)
+ arch/riscv/include/asm/sbi.h | 1 +
+ arch/riscv/kernel/sbi.c      | 3 ++-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 271860fc2c3f..b85376d84098 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -14,7 +14,7 @@
- #include <asm/hwcap.h>
- #include <asm/image.h>
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 8766f6af9eb8..82ff88f06ddc 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -130,6 +130,7 @@ static inline unsigned long sbi_minor_version(void)
+ {
+ 	return sbi_spec_version & SBI_SPEC_VERSION_MINOR_MASK;
+ }
++int sbi_err_map_linux_errno(int err);
+ #else /* CONFIG_RISCV_SBI */
+ /* stubs for code that is only reachable under IS_ENABLED(CONFIG_RISCV_SBI): */
+ void sbi_set_timer(uint64_t stime_value);
+diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+index 932b23272be5..3a2a5352316b 100644
+--- a/arch/riscv/kernel/sbi.c
++++ b/arch/riscv/kernel/sbi.c
+@@ -46,7 +46,7 @@ struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+ }
+ EXPORT_SYMBOL(sbi_ecall);
  
--__INIT
-+__HEAD
- ENTRY(_start)
- 	/*
- 	 * Image header expected by Linux boot-loaders. The image header data
-@@ -45,8 +45,85 @@ ENTRY(_start)
- 	.ascii RISCV_IMAGE_MAGIC2
- 	.word 0
+-static int sbi_err_map_linux_errno(int err)
++int sbi_err_map_linux_errno(int err)
+ {
+ 	switch (err) {
+ 	case SBI_SUCCESS:
+@@ -63,6 +63,7 @@ static int sbi_err_map_linux_errno(int err)
+ 		return -ENOTSUPP;
+ 	};
+ }
++EXPORT_SYMBOL(sbi_err_map_linux_errno);
  
--.global _start_kernel
--_start_kernel:
-+.align 2
-+#ifdef CONFIG_MMU
-+relocate:
-+	/* Relocate return address */
-+	li a1, PAGE_OFFSET
-+	la a2, _start
-+	sub a1, a1, a2
-+	add ra, ra, a1
-+
-+	/* Point stvec to virtual address of intruction after satp write */
-+	la a2, 1f
-+	add a2, a2, a1
-+	csrw CSR_TVEC, a2
-+
-+	/* Compute satp for kernel page tables, but don't load it yet */
-+	srl a2, a0, PAGE_SHIFT
-+	li a1, SATP_MODE
-+	or a2, a2, a1
-+
-+	/*
-+	 * Load trampoline page directory, which will cause us to trap to
-+	 * stvec if VA != PA, or simply fall through if VA == PA.  We need a
-+	 * full fence here because setup_vm() just wrote these PTEs and we need
-+	 * to ensure the new translations are in use.
-+	 */
-+	la a0, trampoline_pg_dir
-+	srl a0, a0, PAGE_SHIFT
-+	or a0, a0, a1
-+	sfence.vma
-+	csrw CSR_SATP, a0
-+.align 2
-+1:
-+	/* Set trap vector to spin forever to help debug */
-+	la a0, .Lsecondary_park
-+	csrw CSR_TVEC, a0
-+
-+	/* Reload the global pointer */
-+.option push
-+.option norelax
-+	la gp, __global_pointer$
-+.option pop
-+
-+	/*
-+	 * Switch to kernel page tables.  A full fence is necessary in order to
-+	 * avoid using the trampoline translations, which are only correct for
-+	 * the first superpage.  Fetching the fence is guarnteed to work
-+	 * because that first superpage is translated the same way.
-+	 */
-+	csrw CSR_SATP, a2
-+	sfence.vma
-+
-+	ret
-+#endif /* CONFIG_MMU */
-+#ifdef CONFIG_SMP
-+	/* Set trap vector to spin forever to help debug */
-+	la a3, .Lsecondary_park
-+	csrw CSR_TVEC, a3
-+
-+	slli a3, a0, LGREG
-+	.global secondary_start_common
-+secondary_start_common:
-+
-+#ifdef CONFIG_MMU
-+	/* Enable virtual memory and relocate to virtual address */
-+	la a0, swapper_pg_dir
-+	call relocate
-+#endif
-+	tail smp_callin
-+#endif /* CONFIG_SMP */
-+
-+.Lsecondary_park:
-+	/* We lack SMP support or have too many harts, so park this hart */
-+	wfi
-+	j .Lsecondary_park
-+
-+END(_start)
-+
-+	__INIT
-+ENTRY(_start_kernel)
- 	/* Mask all interrupts */
- 	csrw CSR_IE, zero
- 	csrw CSR_IP, zero
-@@ -128,59 +205,6 @@ clear_bss_done:
- 	call parse_dtb
- 	tail start_kernel
- 
--#ifdef CONFIG_MMU
--relocate:
--	/* Relocate return address */
--	li a1, PAGE_OFFSET
--	la a2, _start
--	sub a1, a1, a2
--	add ra, ra, a1
--
--	/* Point stvec to virtual address of intruction after satp write */
--	la a2, 1f
--	add a2, a2, a1
--	csrw CSR_TVEC, a2
--
--	/* Compute satp for kernel page tables, but don't load it yet */
--	srl a2, a0, PAGE_SHIFT
--	li a1, SATP_MODE
--	or a2, a2, a1
--
--	/*
--	 * Load trampoline page directory, which will cause us to trap to
--	 * stvec if VA != PA, or simply fall through if VA == PA.  We need a
--	 * full fence here because setup_vm() just wrote these PTEs and we need
--	 * to ensure the new translations are in use.
--	 */
--	la a0, trampoline_pg_dir
--	srl a0, a0, PAGE_SHIFT
--	or a0, a0, a1
--	sfence.vma
--	csrw CSR_SATP, a0
--.align 2
--1:
--	/* Set trap vector to spin forever to help debug */
--	la a0, .Lsecondary_park
--	csrw CSR_TVEC, a0
--
--	/* Reload the global pointer */
--.option push
--.option norelax
--	la gp, __global_pointer$
--.option pop
--
--	/*
--	 * Switch to kernel page tables.  A full fence is necessary in order to
--	 * avoid using the trampoline translations, which are only correct for
--	 * the first superpage.  Fetching the fence is guarnteed to work
--	 * because that first superpage is translated the same way.
--	 */
--	csrw CSR_SATP, a2
--	sfence.vma
--
--	ret
--#endif /* CONFIG_MMU */
--
- .Lsecondary_start:
- #ifdef CONFIG_SMP
- 	/* Set trap vector to spin forever to help debug */
-@@ -205,16 +229,10 @@ relocate:
- 	beqz tp, .Lwait_for_cpu_up
- 	fence
- 
--#ifdef CONFIG_MMU
--	/* Enable virtual memory and relocate to virtual address */
--	la a0, swapper_pg_dir
--	call relocate
-+	tail secondary_start_common
- #endif
- 
--	tail smp_callin
--#endif
--
--END(_start)
-+END(_start_kernel)
- 
- #ifdef CONFIG_RISCV_M_MODE
- ENTRY(reset_regs)
-@@ -295,13 +313,6 @@ ENTRY(reset_regs)
- END(reset_regs)
- #endif /* CONFIG_RISCV_M_MODE */
- 
--.section ".text", "ax",@progbits
--.align 2
--.Lsecondary_park:
--	/* We lack SMP support or have too many harts, so park this hart */
--	wfi
--	j .Lsecondary_park
--
- __PAGE_ALIGNED_BSS
- 	/* Empty zero page */
- 	.balign PAGE_SIZE
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 1e0193ded420..b32640300d07 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -10,6 +10,7 @@
- #include <asm/cache.h>
- #include <asm/thread_info.h>
- 
-+#include <linux/sizes.h>
- OUTPUT_ARCH(riscv)
- ENTRY(_start)
- 
-@@ -20,8 +21,10 @@ SECTIONS
- 	/* Beginning of code and text segment */
- 	. = LOAD_OFFSET;
- 	_start = .;
--	__init_begin = .;
- 	HEAD_TEXT_SECTION
-+	. = ALIGN(PAGE_SIZE);
-+
-+	__init_begin = .;
- 	INIT_TEXT_SECTION(PAGE_SIZE)
- 	INIT_DATA_SECTION(16)
- 	/* we have to discard exit text and such at runtime, not link time */
+ #ifdef CONFIG_RISCV_SBI_V01
+ /**
 -- 
 2.25.0
 
