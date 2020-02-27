@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ED286C3F2C9
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2020 22:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1538DC3F2C2
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2020 22:27:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B01B4246A2
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2020 22:27:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D42F8246A2
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2020 22:27:10 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ajb0lfKB";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Aa+3t8Jg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B01B4246A2
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CNY8tgpQ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="fcoClOgL"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D42F8246A2
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,70 +26,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FA99i+lXVpH03dKLCB/VNwnyGxUUoHfwSRDfUssXRTY=; b=Ajb0lfKBoRGh76
-	V5ALK65d/xbbKj7KcL6gTY9WgHyBEjcu52uxz5dtV5tp63OHy3SLQGEILhALVm2i5YBOG+OjbzCP1
-	rlb28F6JAtNnH5ncwtiUAljiJ9vOjTz7R9rqD/UVcAwE64Dn5H5ixs4niWm5I6oDeyW+bdYvSAej3
-	log33fU9wQCH2xnMu/kJtyDppWsS16E+BOcf+S6QS2dCLCYyS7pjiDvxyP8exnTgDkc5+44suBkUa
-	3s5+x19hZa+JNufFFWdOSxzMtyguhzwH9LkbHo+aGb9HDiHYa9kzRg6orCqJhH4DxmcRVzeVZ1f5o
-	ppCzpoxF1mg4cQRikxmg==;
+	List-Owner; bh=sS1zZ4MwtCqm9iYiwROtnVTjPMx9muysW3lROcK3bh4=; b=CNY8tgpQ9X6QAX
+	oyZ3sPPxBPEtluSmJh8mcVyYRCXJcOjAYoJtwbTQgVbJTPB82ZmtEjUmZOHJ8PNw5l+BJG/CvIpnh
+	6zkiCA0oUj158s2VmcLz3pLEiaaxampbkxJqL8UxN919/1nC65jcwxEZEO0gxZqZ0r9nhXQGoo2jH
+	dD5ddgp5P9TB8cdZgRacznUHcu5VizGf/QbbYwHxyy7ds3/mgQCCdTBEEakkVqWpdoJd/fkXFXmau
+	ZNy682LUl8+DxUruy6/VXQd7MmfViSIcf8v0ityTn5oVBbhdfhSt+rpgRtCk6XTwAxTVo28GX0pGA
+	KqrK+DZW3QHEZndOYVMQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j7RcV-0000eL-OA; Thu, 27 Feb 2020 22:27:03 +0000
+	id 1j7RcY-0000i1-4D; Thu, 27 Feb 2020 22:27:06 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j7RcO-0000Wn-Su
- for linux-riscv@lists.infradead.org; Thu, 27 Feb 2020 22:26:58 +0000
+ id 1j7RcQ-0000Xr-EP
+ for linux-riscv@lists.infradead.org; Thu, 27 Feb 2020 22:26:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1582842417; x=1614378417;
+ t=1582842419; x=1614378419;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=8+bQmOk3su3vFKh2m+lkIXpoSPkei2/BxO2wUo2lbAs=;
- b=Aa+3t8JgjVcr9PS26ddOdy2QpOitbHMCS6wNIA8T3JqaF7st6D2dE5pm
- zLIf01DF038IU0+EdO+qHUazwGX2o5+/yKf3o1rzw1S1ASesA0WK6SzFb
- X0B1AXvDdkiKIzN5603T9UAdW+g4ICn4x5hpKXmDfkZ8l64cCqhdmOGy1
- 85pKhQ1KdalgnihcoFEWLHZSvhpSZApl5MjE4tEXefO68NHkASe44H4Pf
- IiiqkhIlD9c49z59wZEyh4QDkap04mSfSmOjScjT3DZxIs7B35DKOJO6B
- EcbsNQ5h0bGpfJ4cUVUL/k4TsoKMnJ/i5YQ2EGDo3izzFl7w5BmwESIkO g==;
-IronPort-SDR: RMQ02UV8T/A4lr5JhsYRxSX3FPxJhgPqlFiB8VSffbl446B+Aw/SgFhUFf6ZlEcets4UfxJ0HI
- Hzcwq3eV49LZRRR5Q90Bn/cBx/yCLI+ufvprEvygSs5d6qHGsUdnh9A+U8pyLdJ8vwWqrwrMG1
- 2Gyn4E2uCXBIm1c1eDnQDMXNr1auh3JSlgul7rg9KOiGqDHLG6Ewk3iQpBWYkRV/3rcAB5W8I9
- 7oHsPlI/Z6k5Q29E6RrEXaLUXeJBwU3p1r4hfJSBlvKawzLVlQE741Xp85y5zSa0FI4g/ISlQ9
- pnY=
-X-IronPort-AV: E=Sophos;i="5.70,493,1574092800"; d="scan'208";a="132395341"
+ bh=EHUEM7B8bQdVUOO+XqChXw4fxBDln7t5tGAkDnrQZUI=;
+ b=fcoClOgL8vmNcmD4+LHb2jtuczSB/2tAxf1R5ioIZz4x4dHmmIGr8lcy
+ 1r6xQSfU4PC7DYBVU2GxWcLFuXmPpKzkacXht3JdHMQT0HhOEClGIrxiD
+ OEmj7kZ25SmLgi9yAFBeIwRyy2I/EOVYt+A+E/9fVW5E7sSuhrMGQhm8x
+ 576absiYASdzW5e9zFx+QDvm5msSdyq/bxrP6ftR5dHADA6I54Kd/GKGS
+ akLOplXYHjD5OtjFZu5jTwFqIOwVJKAL60tcfudrsyPkdIdOk7dZuexHu
+ 8mX1GSa/b0OwPbDvoBfDqIHq+DImusknU0AUxmAmk0lZRSQsqZoxsCo2S A==;
+IronPort-SDR: wLDL8UsqploJgP9TMhuXVLqVr1YGBQ2op4aIryXTbKGlqMZr//iVOtn4AqsP0qa/QpAvlXyDw1
+ FkuyG4ozUOTPQu1PBKum2HTHI8uC01wBL69qWUS7iFW736lGv3OJwwuesk2Mw8HPjcuG+yzuyb
+ AdAoEU8Rzib95MSyGVkXxi3bwE8qc5i/0hKsZyfHDDhjMTp3+cYtUKdv+/Kn2mttuF5ZHwLLsd
+ I0kxXM5jaAE5n6SGnl4eYGnK6/m5KffgZLV+uMGzlFC5nrUPM94LXSzWMgLARcc2cY2jOQr7c4
+ jus=
+X-IronPort-AV: E=Sophos;i="5.70,493,1574092800"; d="scan'208";a="132395349"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 28 Feb 2020 06:26:50 +0800
-IronPort-SDR: fRkY5xxI07W8R7mQKcbalSogblOqZnjqq/0ZUzSlfKG8bGjR4fxXmSh14y+PVwG0fu4AEiWVmi
- alm/owK1N0tqWT/11ClB9dnCx/GGgrEbwzpSzLmpe2M3nJlNf/kfwjBmYC3ChXeXl5Q3gmhogZ
- NwGCqu9UihMtkf6zitMHd4IbMbcemzYjLuorsng8lRrQ4U5rT7ZFmEosH4Ggz7O8kTJPJkcna7
- K/KdrQlwjZ+zXyhSoxBV6pp+fTv1aN94UNzeqPPsCv32q1FrJKO+hB/IXMZLX3Rrbwp8sVoY9k
- b0mwwt93AVgGNXRuOf8qlKwH
+ by ob1.hgst.iphmx.com with ESMTP; 28 Feb 2020 06:26:51 +0800
+IronPort-SDR: sGBlDKi9mYn4ZJcPxUTylnmVruKAKquDF+yReAh+nfbsit9x67O5w9Wn+VQbC79z9MwDiLR50W
+ eUKUC7vQsKnsWUva2ifssacSh0CaFfSrzCsKHsexW9Gq/WeEVaxesh03gVaaVZ2PH972LfZMW6
+ /LQQOXjpIiT7Ujfh69z5+wrxCgfxqcN6jaayfFaguyBP4sjm5roVqrLIcUJq13S+3KBoDXzOEx
+ EWkh0jE7nESEoIgAZ4obPpgfOm2Q+h5za25kk1N4IR4dOVw/tY9ptdXwj/1pKHQrEHXAspWTEe
+ L1DlzQkyc8VPAF2AhSXjxU1y
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 27 Feb 2020 14:18:49 -0800
-IronPort-SDR: doNdtjDyQyTl5eHyB8x3had8Qj7buf7Q0oxV6xcruIObUlvaR3SwBNMXHHv35+bayB4a+jhNLs
- N5S5SEE1DogcN0LD6KxHe7gBN+8i0ZwIOU5CG4dDQN6k65Vja7f10nvah4Nk9sPUJ5YHrP9ghF
- fxQGvMEbuEAE9Uv6pwXxYBJyqn0g09Uv3x8uE/2xV2kPrXD0bHt1eNYazxluniZONh8DaRNLAt
- RZDc0vGNHAjphjPfo66mj6MFLQHy6XiHsRPCWXpdUNSQQNipkQJ6082q5MK4KjDtQn087G0uHP
- gzA=
+ 27 Feb 2020 14:18:50 -0800
+IronPort-SDR: YD6YeGhFTlMMzdBLGRQBddTkJ6fAkSTBalLAPGagkJGff3jvnk7ShMgdkHvtKi9lHv93MiTJbP
+ FV0+/TE0pxagvgx828IfHnvvjOqvC2T8v+6Ty+CgZmCQXQSyiDRddCYok6zWKkRmESGV4x2Fw9
+ mKVzPNX0rl/ZGJ1gk3abMm6UWic9LMlHkU0O7g25BCdLp9h4g/687VuCmXgx+ZO+Jn1OMi9Fr3
+ zVwGYMMJ7kONZzI2JEyWWz0rQ6T787ZP9WDvADtR0PbT3QYUvWWcCI9gCmCRK3g2X/LVCoiIV1
+ ulE=
 WDCIronportException: Internal
 Received: from jedi-01.sdcorp.global.sandisk.com (HELO
  jedi-01.int.fusionio.com) ([10.11.143.218])
- by uls-op-cesaip02.wdc.com with ESMTP; 27 Feb 2020 14:26:49 -0800
+ by uls-op-cesaip02.wdc.com with ESMTP; 27 Feb 2020 14:26:50 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [v1 PATCH 1/5] efi: Move arm-stub to a common file
-Date: Thu, 27 Feb 2020 14:26:40 -0800
-Message-Id: <20200227222644.9468-2-atish.patra@wdc.com>
+Subject: [v1 PATCH 3/5] RISC-V: Define fixmap bindings for generic early
+ ioremap support
+Date: Thu, 27 Feb 2020 14:26:42 -0800
+Message-Id: <20200227222644.9468-4-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20200227222644.9468-1-atish.patra@wdc.com>
 References: <20200227222644.9468-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200227_142657_019954_D621BF06 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20200227_142658_531871_DB38A6DE 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -123,112 +124,89 @@ Cc: Kate Stewart <kstewart@linuxfoundation.org>, linux-efi@vger.kernel.org,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Most of the arm-stub code is written in an architecture independent manner.
-As a result, RISC-V can reuse most of the arm-stub code.
-
-Rename the arm-stub.c to efi-stub.c so that ARM, ARM64 and RISC-V can use it.
-This patch doesn't introduce any functional changes.
+UEFI uses early IO or memory mappings for runtime services before
+normal ioremap() is usable. This patch only adds minimum necessary
+fixmap bindings and headers for generic ioremap support to work.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm/Kconfig                                     |  2 +-
- arch/arm64/Kconfig                                   |  2 +-
- drivers/firmware/efi/Kconfig                         |  4 ++--
- drivers/firmware/efi/libstub/Makefile                | 12 ++++++------
- .../firmware/efi/libstub/{arm-stub.c => efi-stub.c}  |  0
- 5 files changed, 10 insertions(+), 10 deletions(-)
- rename drivers/firmware/efi/libstub/{arm-stub.c => efi-stub.c} (100%)
+ arch/riscv/Kconfig              |  1 +
+ arch/riscv/include/asm/Kbuild   |  1 +
+ arch/riscv/include/asm/fixmap.h | 21 ++++++++++++++++++++-
+ arch/riscv/include/asm/io.h     |  1 +
+ 4 files changed, 23 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 97864aabc2a6..cccb9df48055 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -1955,7 +1955,7 @@ config EFI
- 	select UCS2_STRING
- 	select EFI_PARAMS_FROM_FDT
- 	select EFI_STUB
--	select EFI_ARMSTUB
-+	select EFI_GENERIC_STUB
- 	select EFI_RUNTIME_WRAPPERS
- 	---help---
- 	  This option provides support for runtime services provided
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 0b30e884e088..edf955832e55 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1720,7 +1720,7 @@ config EFI
- 	select EFI_PARAMS_FROM_FDT
- 	select EFI_RUNTIME_WRAPPERS
- 	select EFI_STUB
--	select EFI_ARMSTUB
-+	select EFI_GENERIC_STUB
- 	default y
- 	help
- 	  This option provides support for runtime services provided
-diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
-index ecc83e2f032c..708fe86cc66d 100644
---- a/drivers/firmware/efi/Kconfig
-+++ b/drivers/firmware/efi/Kconfig
-@@ -106,12 +106,12 @@ config EFI_PARAMS_FROM_FDT
- config EFI_RUNTIME_WRAPPERS
- 	bool
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 27bfc7947e44..42c122170cfd 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -65,6 +65,7 @@ config RISCV
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
+ 	select HAVE_COPY_THREAD_TLS
+ 	select HAVE_ARCH_KASAN if MMU && 64BIT
++	select GENERIC_EARLY_IOREMAP
  
--config EFI_ARMSTUB
-+config EFI_GENERIC_STUB
- 	bool
+ config ARCH_MMAP_RND_BITS_MIN
+ 	default 18 if 64BIT
+diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+index ec0ca8c6ab64..517394390106 100644
+--- a/arch/riscv/include/asm/Kbuild
++++ b/arch/riscv/include/asm/Kbuild
+@@ -4,6 +4,7 @@ generic-y += checksum.h
+ generic-y += compat.h
+ generic-y += device.h
+ generic-y += div64.h
++generic-y += early_ioremap.h
+ generic-y += extable.h
+ generic-y += flat.h
+ generic-y += dma.h
+diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+index 42d2c42f3cc9..7a4beb7e29a3 100644
+--- a/arch/riscv/include/asm/fixmap.h
++++ b/arch/riscv/include/asm/fixmap.h
+@@ -25,9 +25,28 @@ enum fixed_addresses {
+ #define FIX_FDT_SIZE	SZ_1M
+ 	FIX_FDT_END,
+ 	FIX_FDT = FIX_FDT_END + FIX_FDT_SIZE / PAGE_SIZE - 1,
++	FIX_EARLYCON_MEM_BASE,
++
+ 	FIX_PTE,
+ 	FIX_PMD,
+-	FIX_EARLYCON_MEM_BASE,
++	/*
++	 * Make sure that it is 2MB aligned.
++	 */
++#define NR_FIX_SZ_2M	(SZ_2M / PAGE_SIZE)
++	FIX_THOLE = NR_FIX_SZ_2M - FIX_PMD - 1,
++
++	__end_of_permanent_fixed_addresses,
++	/*
++	 * Temporary boot-time mappings, used by early_ioremap(),
++	 * before ioremap() is functional.
++	 */
++#define NR_FIX_BTMAPS		(SZ_256K / PAGE_SIZE)
++#define FIX_BTMAPS_SLOTS	7
++#define TOTAL_FIX_BTMAPS	(NR_FIX_BTMAPS * FIX_BTMAPS_SLOTS)
++
++	FIX_BTMAP_END = __end_of_permanent_fixed_addresses,
++	FIX_BTMAP_BEGIN = FIX_BTMAP_END + TOTAL_FIX_BTMAPS - 1,
++
+ 	__end_of_fixed_addresses
+ };
  
- config EFI_ARMSTUB_DTB_LOADER
- 	bool "Enable the DTB loader"
--	depends on EFI_ARMSTUB
-+	depends on EFI_GENERIC_STUB
- 	default y
- 	help
- 	  Select this config option to add support for the dtb= command
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-index 4d6246c6f651..f1d7de1e0d87 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -22,7 +22,7 @@ cflags-$(CONFIG_ARM)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
- 				   -fno-builtin -fpic \
- 				   $(call cc-option,-mno-single-pic-base)
+diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
+index 0f477206a4ed..047f414b6948 100644
+--- a/arch/riscv/include/asm/io.h
++++ b/arch/riscv/include/asm/io.h
+@@ -14,6 +14,7 @@
+ #include <linux/types.h>
+ #include <asm/mmiowb.h>
+ #include <asm/pgtable.h>
++#include <asm/early_ioremap.h>
  
--cflags-$(CONFIG_EFI_ARMSTUB)	+= -I$(srctree)/scripts/dtc/libfdt
-+cflags-$(CONFIG_EFI_GENERIC_STUB)	+= -I$(srctree)/scripts/dtc/libfdt
- 
- KBUILD_CFLAGS			:= $(cflags-y) -DDISABLE_BRANCH_PROFILING \
- 				   -include $(srctree)/drivers/firmware/efi/libstub/hidden.h \
-@@ -44,13 +44,13 @@ lib-y				:= efi-stub-helper.o gop.o secureboot.o tpm.o \
- 				   skip_spaces.o lib-cmdline.o lib-ctype.o
- 
- # include the stub's generic dependencies from lib/ when building for ARM/arm64
--arm-deps-y := fdt_rw.c fdt_ro.c fdt_wip.c fdt.c fdt_empty_tree.c fdt_sw.c
-+efi-deps-y := fdt_rw.c fdt_ro.c fdt_wip.c fdt.c fdt_empty_tree.c fdt_sw.c
- 
- $(obj)/lib-%.o: $(srctree)/lib/%.c FORCE
- 	$(call if_changed_rule,cc_o_c)
- 
--lib-$(CONFIG_EFI_ARMSTUB)	+= arm-stub.o fdt.o string.o \
--				   $(patsubst %.c,lib-%.o,$(arm-deps-y))
-+lib-$(CONFIG_EFI_GENERIC_STUB)		+= efi-stub.o fdt.o string.o \
-+				   $(patsubst %.c,lib-%.o,$(efi-deps-y))
- 
- lib-$(CONFIG_ARM)		+= arm32-stub.o
- lib-$(CONFIG_ARM64)		+= arm64-stub.o
-@@ -72,8 +72,8 @@ CFLAGS_arm64-stub.o		:= -DTEXT_OFFSET=$(TEXT_OFFSET)
- # a verification pass to see if any absolute relocations exist in any of the
- # object files.
- #
--extra-$(CONFIG_EFI_ARMSTUB)	:= $(lib-y)
--lib-$(CONFIG_EFI_ARMSTUB)	:= $(patsubst %.o,%.stub.o,$(lib-y))
-+extra-$(CONFIG_EFI_GENERIC_STUB)	:= $(lib-y)
-+lib-$(CONFIG_EFI_GENERIC_STUB)	:= $(patsubst %.o,%.stub.o,$(lib-y))
- 
- STUBCOPY_FLAGS-$(CONFIG_ARM64)	+= --prefix-alloc-sections=.init \
- 				   --prefix-symbols=__efistub_
-diff --git a/drivers/firmware/efi/libstub/arm-stub.c b/drivers/firmware/efi/libstub/efi-stub.c
-similarity index 100%
-rename from drivers/firmware/efi/libstub/arm-stub.c
-rename to drivers/firmware/efi/libstub/efi-stub.c
+ /*
+  * MMIO access functions are separated out to break dependency cycles
 -- 
 2.24.0
 
