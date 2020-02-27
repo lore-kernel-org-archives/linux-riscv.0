@@ -2,85 +2,90 @@ Return-Path: <SRS0=0+L8=4P=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B3245C3F2C2
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2020 21:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DB499C3F2C2
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2020 21:35:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 82B4424677
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2020 21:35:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AF54F24677
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2020 21:35:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oqPUnTR2";
-	dkim=pass (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="i6EIGQ3d"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 82B4424677
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ktwEAIT1";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="02iHtvHC"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AF54F24677
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:From:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=G0O9kKzyDJ9FSlQ2jKewTH9H5I8gkBrB+SkUAWROkL4=; b=oqPUnTR2ZGy/gD
-	n66TGF+AJULHYeIHYDySv+zX+gx1z5bMaYlL+fcmEQc8tzVECaU0pZncpRd0xQ+DmMpIXRs6H/crN
-	Jb8dGb5Sp7UgGCTfJDT12qoWHjir+eIkmIh71R6EO/w3j8ctEmh+lGkxAnMTFjN88o7ekJMDYtwku
-	1VFd+Ni7fhbbipsx7EhInDZxcYnwdwMA3ocfTUkWk8WEHTHENNdGrkDGS6EsUbTSUVJzAyw5hNkop
-	1QG/YAWguwPCtZsJ1HeQ8pewpMY1AmWE8XYFZKloXfdn2eqwnQxKapqfHyPOD2gs9rho32YhWBWfB
-	rUMffkxlPezmxy7CEIug==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=AcocSUGKmr1hGuXmIYHI/PJN7pt2xJxuohE1KdhBYJU=; b=ktwEAIT1fqkl0pg1qwNY4YNes
+	H9A7X0PwZqtj8F+DKpFdKBrfOPQ9fCi+W6ykzXbScbxDzqiZBsVmWhD1WUSBMpiZp0cOpkmNniW1Z
+	f7zD5j0wHknRVWJDveJHKa82bXNifc2/MNpowCcpaZRir1M5siwv5FflQ2I24sjV78rYSeX1QmzLo
+	A9BHfv12Gsp8FRZU6FKa9m7AHVlj8mGRriQaONY9kvzfOHHCT4HHk84gTMpu2RcFjobWHwvtRsG6H
+	Dm/LFAIwwQqnQpNjAReu/VbN8dDUkWjDMsWtQ9L8nJ/U0X34rPCGFO7Jo0oGNJJMdw/Q8rnEYNtKc
+	DUq+Z2EfA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j7Qot-0007ft-Kn; Thu, 27 Feb 2020 21:35:47 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1j7Qow-0007i8-6h; Thu, 27 Feb 2020 21:35:50 +0000
+Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j7Qor-0007et-0g
- for linux-riscv@lists.infradead.org; Thu, 27 Feb 2020 21:35:46 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id e9so341405pjr.4
- for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2020 13:35:43 -0800 (PST)
+ id 1j7Qos-0007fT-3V
+ for linux-riscv@lists.infradead.org; Thu, 27 Feb 2020 21:35:48 +0000
+Received: by mail-pj1-x1044.google.com with SMTP id r67so347566pjb.0
+ for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2020 13:35:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=subject:date:message-id:mime-version:content-transfer-encoding:cc
- :from:to; bh=G0O9kKzyDJ9FSlQ2jKewTH9H5I8gkBrB+SkUAWROkL4=;
- b=i6EIGQ3d7rHIXjbEkBE6rwEhCCxNHaSbxeeyhAyVhLMNecrhrSo8grFcO1ufnawwGC
- MxnYxcTow9o0i3n10sgk4j3+WzbPEES0BiOKsagfPJxaYn/Tq1oUaI/4LIIjXVI+heOW
- rcf5ZDkrHAHjHrhpu9zVBFgZO5QfnoWtGND80o2Z/ICQR1ytF3SJVu++l4y9+JCsKuQ3
- hbN+svIYlICuoIwaTwFOTWw6zlogypV1hOGOG9yA3IifX9iqsqrFrGB4XvkFhUsxKLig
- dju6pTGD+0I16lkkxuUX5Xqmb0J5/SiyGYLOy5HzTPAg38uc7feDTLggdn6UVdXA6rAN
- YIbA==
+ h=subject:date:message-id:in-reply-to:references:mime-version
+ :content-transfer-encoding:cc:from:to;
+ bh=AcocSUGKmr1hGuXmIYHI/PJN7pt2xJxuohE1KdhBYJU=;
+ b=02iHtvHC/YXKtORtJx0po9jlRvhSKPjJItwMvsClrrrEtPAQtNhZXnEO3BM9iGkOq+
+ IC/sLV5zmSl9X8af5/YbMvtz6iDCBcVP0vAw3ZgcwTe/Wz5szQxxF2lPVZwMGROtGR18
+ 1f0q3a5sgvzgneII3BP7vjLzo0z1jOUpyD90F8icIb58n+vNGUB0RHfXdm3DmqkM4aP8
+ XpAadSZ1qt/vdnoWv5eWOujwuW/S+KlyKXZRtxqSuRgamdwRkaIhLCRTvNLcW1MPrGeX
+ KvYkngqxlnspCbt09zwf6oFTquOx9AglO/pp1uAkAj4Z73tn5/IRpYjon0GOUMkn9596
+ YjjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=G0O9kKzyDJ9FSlQ2jKewTH9H5I8gkBrB+SkUAWROkL4=;
- b=HlVHZxsPKaGR0cE6Jufh1TUAs57VmUviwSG1CmBWTaUgZeyCjjqg+S0BduO0G67N97
- HQviUXZC7ZROYhvp5Cb7dg7F+tCgliqLzGaFeR9ppBPzOTA7usw2/LgkcBt7sTSmoKQW
- XBGwQ/k1iS+ga1nkJAu3SK7b0F1VU9MG4J+41rDvmyIQt2V7y0JDpJor5GSZ302op9B0
- 5XCJ3TEuT8ofggo6iLiSzsTC9P1rfcf7mp7fDuSH6Ml+ngX0q5c57J2GH2EV0loD+pW2
- xeK/YjDdgMFAIklpMkpYTtsZUXmBAxs0wHTkpWzGV69qddPFFE1Sn6oNsWA/TsXQ6Afx
- z6OA==
-X-Gm-Message-State: APjAAAVkQ2NyQWMxIkLUwkUt8npsC3KxU4yxqLYa05/s/mwBwDMksnSF
- UZruIFBG0xjVqIFiE1p1jj4fPA==
-X-Google-Smtp-Source: APXvYqyZCGt4ClRBMdy9UUPGl4KYsS1CxF/cBzU+sMD73yyjfy0IU3zFYIVYmA3b16pdgVWQqYw9gw==
-X-Received: by 2002:a17:902:524:: with SMTP id 33mr784178plf.241.1582839342530; 
- Thu, 27 Feb 2020 13:35:42 -0800 (PST)
+ h=x-gm-message-state:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding:cc:from:to;
+ bh=AcocSUGKmr1hGuXmIYHI/PJN7pt2xJxuohE1KdhBYJU=;
+ b=B2OQaST/RfjRVZeUJxZE42U3yyvyro7kq4wD0ExFlu+vuSXojhSOdt8IOkLi4zMy06
+ 59gHM002awGLeOJbkhWMc9o7EyLbOPHj/RpUCmMNYnxS/MQiEemq3+X99aHtZb11aFZT
+ Ox3damZptaNnma6KdsSxRm6L5OndStnpSf6uPwGBYQzGxz710qD4aG53i7E9aJkxTe+T
+ 6yfEtyl6kjFIw37Krfl9Ora0st+754tQeI1EbLtax7wUtzYrI5F+oAqfrPPH5BdSd1DF
+ 5XXhdMsmCaqEO5NASIbZWQKTK/1/Jxd4VeanSDpIYQfgBMtg/ebckaVx25yyqrbebafb
+ fg7g==
+X-Gm-Message-State: APjAAAVcQaOipw/3TYewuVQ1DcrYAVdyMgVRMQfJWEv4lQvFdXmaC2HX
+ sXijzpqZevoymKi5zezmw7UxVQ==
+X-Google-Smtp-Source: APXvYqzgsQV2UfdPsP4ccDri4Rwx1yutDxP11+BF7+wtZwGOEOBnQ4QOq2PwSH4DbO4CjVTitVaO3g==
+X-Received: by 2002:a17:90a:c691:: with SMTP id
+ n17mr1019733pjt.41.1582839344878; 
+ Thu, 27 Feb 2020 13:35:44 -0800 (PST)
 Received: from localhost ([2620:0:1000:2514:23a5:d584:6a92:3e3c])
- by smtp.gmail.com with ESMTPSA id w17sm3243132pfg.33.2020.02.27.13.35.41
+ by smtp.gmail.com with ESMTPSA id u6sm7709711pgj.7.2020.02.27.13.35.44
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 27 Feb 2020 13:35:41 -0800 (PST)
-Subject: RISC-V: Fix the build on LLVM-based toolchains
-Date: Thu, 27 Feb 2020 13:34:47 -0800
-Message-Id: <20200227213450.87194-1-palmer@dabbelt.com>
+ Thu, 27 Feb 2020 13:35:44 -0800 (PST)
+Subject: [PATCH 2/3] RISC-V: Inline the assembly register save/restore macros
+Date: Thu, 27 Feb 2020 13:34:49 -0800
+Message-Id: <20200227213450.87194-3-palmer@dabbelt.com>
 X-Mailer: git-send-email 2.25.1.481.gfbce0eb801-goog
+In-Reply-To: <20200227213450.87194-1-palmer@dabbelt.com>
+References: <20200227213450.87194-1-palmer@dabbelt.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200227_133545_059683_ED42CC5C 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20200227_133546_155620_016F1085 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,27 +97,193 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: clang-built-linux@googlegroups.com, kernel-team@android.com
+Cc: clang-built-linux@googlegroups.com,
+ Palmer Dabbelt <palmerdabbelt@google.com>, kernel-team@android.com
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V LLVM port has progressed to the point where it should be able to use
-it to compile Linux.  Unfortunately we ended up with a few GNU-isms in our port
-so that doesn't work out of the box, but I don't think the code without them is
-any uglier than the code with them so I'm happy to support both toolchains.
-There are still some issues using the GNU assembler to compile clang's assembly
-(at least got_pcrel_hi, but there may be others).  I'm going to call those
-binutils bugs, though, and chase them around over there.
+From: Palmer Dabbelt <palmerdabbelt@google.com>
 
-While the first one could be considered a bug fix, I think the bug is unlikely
-enough to manifst that I'm going to wait for the merge window for these.  I'm
-going to preemptively drop them on for-next now, but as I haven't really
-started building that branch they'll be rebased (my current plan is to start
-taking 5.7 patches on top of rc4, as it seems like things are shaping up to be
-fairly solid on our end).  If there are any comments I'll handle them as part
-of the rebase, but I'd like the various autobuilders to start chewing on these.
+These are only used once, and when reading the code I've always found them to
+be more of a headache than a benefit.  While they were never worth removing
+before, LLVM's integrated assembler doesn't support LOCAL so rather that trying
+to figure out how to refactor the macros it seems saner to just inline them.
 
-Unfortunately the kernel compiled with LLVM doesn't boot for me.
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+---
+ arch/riscv/kernel/entry.S | 143 ++++++++++++++++----------------------
+ 1 file changed, 61 insertions(+), 82 deletions(-)
 
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index bad4d85b5e91..f2e8e7c8089d 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -13,17 +13,11 @@
+ #include <asm/thread_info.h>
+ #include <asm/asm-offsets.h>
+ 
+-	.text
+-	.altmacro
+-
+-/*
+- * Prepares to enter a system call or exception by saving all registers to the
+- * stack.
+- */
+-	.macro SAVE_ALL
+-	LOCAL _restore_kernel_tpsp
+-	LOCAL _save_context
++#if !IS_ENABLED(CONFIG_PREEMPTION)
++.set resume_kernel, restore_all
++#endif
+ 
++ENTRY(handle_exception)
+ 	/*
+ 	 * If coming from userspace, preserve the user thread pointer and load
+ 	 * the kernel thread pointer.  If we came from the kernel, the scratch
+@@ -90,77 +84,6 @@ _save_context:
+ 	REG_S s3, PT_BADADDR(sp)
+ 	REG_S s4, PT_CAUSE(sp)
+ 	REG_S s5, PT_TP(sp)
+-	.endm
+-
+-/*
+- * Prepares to return from a system call or exception by restoring all
+- * registers from the stack.
+- */
+-	.macro RESTORE_ALL
+-	REG_L a0, PT_STATUS(sp)
+-	/*
+-	 * The current load reservation is effectively part of the processor's
+-	 * state, in the sense that load reservations cannot be shared between
+-	 * different hart contexts.  We can't actually save and restore a load
+-	 * reservation, so instead here we clear any existing reservation --
+-	 * it's always legal for implementations to clear load reservations at
+-	 * any point (as long as the forward progress guarantee is kept, but
+-	 * we'll ignore that here).
+-	 *
+-	 * Dangling load reservations can be the result of taking a trap in the
+-	 * middle of an LR/SC sequence, but can also be the result of a taken
+-	 * forward branch around an SC -- which is how we implement CAS.  As a
+-	 * result we need to clear reservations between the last CAS and the
+-	 * jump back to the new context.  While it is unlikely the store
+-	 * completes, implementations are allowed to expand reservations to be
+-	 * arbitrarily large.
+-	 */
+-	REG_L  a2, PT_EPC(sp)
+-	REG_SC x0, a2, PT_EPC(sp)
+-
+-	csrw CSR_STATUS, a0
+-	csrw CSR_EPC, a2
+-
+-	REG_L x1,  PT_RA(sp)
+-	REG_L x3,  PT_GP(sp)
+-	REG_L x4,  PT_TP(sp)
+-	REG_L x5,  PT_T0(sp)
+-	REG_L x6,  PT_T1(sp)
+-	REG_L x7,  PT_T2(sp)
+-	REG_L x8,  PT_S0(sp)
+-	REG_L x9,  PT_S1(sp)
+-	REG_L x10, PT_A0(sp)
+-	REG_L x11, PT_A1(sp)
+-	REG_L x12, PT_A2(sp)
+-	REG_L x13, PT_A3(sp)
+-	REG_L x14, PT_A4(sp)
+-	REG_L x15, PT_A5(sp)
+-	REG_L x16, PT_A6(sp)
+-	REG_L x17, PT_A7(sp)
+-	REG_L x18, PT_S2(sp)
+-	REG_L x19, PT_S3(sp)
+-	REG_L x20, PT_S4(sp)
+-	REG_L x21, PT_S5(sp)
+-	REG_L x22, PT_S6(sp)
+-	REG_L x23, PT_S7(sp)
+-	REG_L x24, PT_S8(sp)
+-	REG_L x25, PT_S9(sp)
+-	REG_L x26, PT_S10(sp)
+-	REG_L x27, PT_S11(sp)
+-	REG_L x28, PT_T3(sp)
+-	REG_L x29, PT_T4(sp)
+-	REG_L x30, PT_T5(sp)
+-	REG_L x31, PT_T6(sp)
+-
+-	REG_L x2,  PT_SP(sp)
+-	.endm
+-
+-#if !IS_ENABLED(CONFIG_PREEMPTION)
+-.set resume_kernel, restore_all
+-#endif
+-
+-ENTRY(handle_exception)
+-	SAVE_ALL
+ 
+ 	/*
+ 	 * Set the scratch register to 0, so that if a recursive exception
+@@ -298,7 +221,63 @@ resume_userspace:
+ 	csrw CSR_SCRATCH, tp
+ 
+ restore_all:
+-	RESTORE_ALL
++	REG_L a0, PT_STATUS(sp)
++	/*
++	 * The current load reservation is effectively part of the processor's
++	 * state, in the sense that load reservations cannot be shared between
++	 * different hart contexts.  We can't actually save and restore a load
++	 * reservation, so instead here we clear any existing reservation --
++	 * it's always legal for implementations to clear load reservations at
++	 * any point (as long as the forward progress guarantee is kept, but
++	 * we'll ignore that here).
++	 *
++	 * Dangling load reservations can be the result of taking a trap in the
++	 * middle of an LR/SC sequence, but can also be the result of a taken
++	 * forward branch around an SC -- which is how we implement CAS.  As a
++	 * result we need to clear reservations between the last CAS and the
++	 * jump back to the new context.  While it is unlikely the store
++	 * completes, implementations are allowed to expand reservations to be
++	 * arbitrarily large.
++	 */
++	REG_L  a2, PT_EPC(sp)
++	REG_SC x0, a2, PT_EPC(sp)
++
++	csrw CSR_STATUS, a0
++	csrw CSR_EPC, a2
++
++	REG_L x1,  PT_RA(sp)
++	REG_L x3,  PT_GP(sp)
++	REG_L x4,  PT_TP(sp)
++	REG_L x5,  PT_T0(sp)
++	REG_L x6,  PT_T1(sp)
++	REG_L x7,  PT_T2(sp)
++	REG_L x8,  PT_S0(sp)
++	REG_L x9,  PT_S1(sp)
++	REG_L x10, PT_A0(sp)
++	REG_L x11, PT_A1(sp)
++	REG_L x12, PT_A2(sp)
++	REG_L x13, PT_A3(sp)
++	REG_L x14, PT_A4(sp)
++	REG_L x15, PT_A5(sp)
++	REG_L x16, PT_A6(sp)
++	REG_L x17, PT_A7(sp)
++	REG_L x18, PT_S2(sp)
++	REG_L x19, PT_S3(sp)
++	REG_L x20, PT_S4(sp)
++	REG_L x21, PT_S5(sp)
++	REG_L x22, PT_S6(sp)
++	REG_L x23, PT_S7(sp)
++	REG_L x24, PT_S8(sp)
++	REG_L x25, PT_S9(sp)
++	REG_L x26, PT_S10(sp)
++	REG_L x27, PT_S11(sp)
++	REG_L x28, PT_T3(sp)
++	REG_L x29, PT_T4(sp)
++	REG_L x30, PT_T5(sp)
++	REG_L x31, PT_T6(sp)
++
++	REG_L x2,  PT_SP(sp)
++
+ #ifdef CONFIG_RISCV_M_MODE
+ 	mret
+ #else
+-- 
+2.25.1.481.gfbce0eb801-goog
 
 
