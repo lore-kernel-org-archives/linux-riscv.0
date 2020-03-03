@@ -1,95 +1,87 @@
-Return-Path: <SRS0=udg5=4T=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=DZC9=4U=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DA4DAC3F2CD
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2020 23:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C259EC3F2D7
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2020 00:50:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AA34121D56
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  2 Mar 2020 23:14:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8E50C2467B
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2020 00:50:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ozERQWp4";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ePfUt0J1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AA34121D56
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="T6Qiru0C";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=cs.washington.edu header.i=@cs.washington.edu header.b="PpAHUPt4"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8E50C2467B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=cs.washington.edu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tSMPw7DPdcsy0NmOhL2SOir1RkpzDH0968wiTgUt0rU=; b=ozERQWp4TgBNNp
-	yO1EQdumVSUflofIh4pzzk0jxKARoxlqxcDibqerPZ02abtbdBc8zH7disLkmWRBATg8uyhpGCkWq
-	vM7Wua9ihxVKuLxNY6j2Q9Ajq/MDqY1aecY+f3+mi9kKa92XeDA6IZV3iBcSc92U1KcorOFEOo1mS
-	IiCcEHrgj87zTgDo61JbxmBTksqwUv2ZuDt7GTCHoUnssRrbX0b5KVIM48TN6FnRlD9taY7cLtble
-	1mLSXtCsZ7gAeeJeRLaivqsVN5yV1PgGyOcycXLCWSDA/H2ofAItciY+1e5jzbz3yljnJWhExREGf
-	xW6u1JqbW5wT9xZ4zooA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3D53AC+mvbtFOvWhCdqdKfZxPLHDl2gFgUFn+w2hIMI=; b=T6Qiru0CUNGq2F
+	6t+HmS7kQfEceZnSOHpcN65pD+Lo45pm+juh8mOv5dC4dym6WElWj3+H3ERjaG9IgZv8DkxGZPnoL
+	ef90ORXi0TS31LjFhSj21mz7UnCGEqAL4ltfixUBlH7yNEpJDVmbR8R5YPbxOqxvssNJEFHIL+6VG
+	HK9IoOcbH8xCJ12P3ZbAPgjd8eSVWNGlhVXpapdgqDBTI+NA0nsRATOV6p+lgjIka3z8SARBjesR4
+	4+OEfwBDxzHT8KmrRQPsfOcwTvQuz/snYDdc44Fz4nhkk/w6xosAdB9Yc8PBPkn06mWU/6Xq64yJl
+	JiBc6q9goULpRQY/P5dQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j8uGN-0002yX-V9; Mon, 02 Mar 2020 23:14:15 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1j8vlm-0004Ej-Cy; Tue, 03 Mar 2020 00:50:46 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j8uGK-0002uB-0E
- for linux-riscv@lists.infradead.org; Mon, 02 Mar 2020 23:14:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1583190868; x=1614726868;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=An4QxOIbgeJWb2ziaNibTecv8A2NG8L/MhNmQAwRso4=;
- b=ePfUt0J1EXQ1fe0hUg4f4wNRLBT+Kja7siH3qgx4W96JPara3HRAkfWP
- M5bJq5J8pTGIRyHYVFQto/CwG+ILSfG5QG57L+/73lCdiHY7BKsn70mjj
- jEUH7zQ2IIwLHiqOR0HYSUuh0qFkDs1OLCotElsTyh1Dcz4dPAs3smePD
- E7BGlGVOvVJn2nFqrgm3ojuG9VgwhyLFi6hmErT2TYQ4kur28fZI0Pkdz
- 02XjW18+PPdjj2XI/dW83ayvmyfiGd2Nx3UCI5jzZBkq4ZPgi3Q2gmnDS
- Bez90exsAGUFJPtaSgs66chC9i9TlHLf9y/lq1ZI7DLBToMLDcNL546zy w==;
-IronPort-SDR: 7yJlo/Co5QSNwmP5XoOfl4FH01quYrc8vXCX8a6gsRENenhliTOs+aJOdBvW54/gdMrXDqxXRi
- yTI3oV8xJ3FRlLgnSgsQOwMZxqV5axibyIcWVY9N5bzFSjV5Fe6Ges57Iu4EZqIsdJ8cyWED5J
- QJH5nuU9Pk9IdJ7Xi7D1ZS6LSHMt6Xk2tkWABQXbP4r/7hOse+r6/WwbJmJpdcZFCpKfhRJqKT
- 7u85Gvv1VPcDUxcZXYaDIGR9VX0CLKx+i784S6Ja9Ee/P1UFyBw4DlDI4exSUcq9CTj0fWH6MU
- S6E=
-X-IronPort-AV: E=Sophos;i="5.70,508,1574092800"; d="scan'208";a="233148686"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 03 Mar 2020 07:13:57 +0800
-IronPort-SDR: 49TZO/bUf5jj8/Z7CwqRbRVeJB7+M1LaOPwfbX1kmHS6iFoS1FiMDN+ha567Vdf8NG9fk8G4P+
- zHW1+fZk2gjQ4vAyE4lV+mv4rflIFJzHRF9DmirgjKu4yJodLr/4ooQdIrwYk7bWFfGShkud0b
- JLxlsNCJBB33lGDj2yFOoMDnqynCK22q8CqNQgcmTN6zLwKQr/FeHg427+F2R/McbJ0Q2S6RDI
- dbGzOP95D4EwekfUfzHWytViHbxuB0rp1iu4CfuVSc0r9xi1SzzCM8y5R0VKgmNvYFYmGkHC7Y
- GpOFBWQTS3qEGSE9LZNLJjoa
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 02 Mar 2020 15:06:07 -0800
-IronPort-SDR: NEpdmUaJ9bZcwWy8DsNyzAMLJ6giCXg883z2OrKbGpn9zhr9ixzPWVF5akUozek7BXnM+Tz9d3
- 8gygzaSLUuJyrBukLook9gUK02xsKRSGqMqA19E3jQTahWs+ae7F/JTc+QkvxmbS/qF3T4+6nQ
- DgwvnMaMA4pSBim38e/x7ZC7M5CgWn0rrkpqbzTaRF/phSsdctlNEh73vT8pN1+AR1E2njw/yr
- cezushU2p0XEvaZ1K+hzmBMR9FGhYEZvNp8Aor64A32FMAzPtVprZQyfUoM9CdjCgeL3skoV5+
- w9I=
-WDCIronportException: Internal
-Received: from usa002267.ad.shared (HELO yoda.hgst.com) ([10.86.54.35])
- by uls-op-cesaip02.wdc.com with ESMTP; 02 Mar 2020 15:13:51 -0800
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/2] irqchip/sifive-plic: Enable/Disable external
- interrupts upon cpu online/offline
-Date: Mon,  2 Mar 2020 15:11:45 -0800
-Message-Id: <20200302231146.15530-2-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.25.0
-In-Reply-To: <20200302231146.15530-1-atish.patra@wdc.com>
-References: <20200302231146.15530-1-atish.patra@wdc.com>
+ id 1j8vlj-0004Dt-R2
+ for linux-riscv@lists.infradead.org; Tue, 03 Mar 2020 00:50:45 +0000
+Received: by mail-pg1-x541.google.com with SMTP id a14so652861pgb.11
+ for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2020 16:50:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=cs.washington.edu; s=goo201206;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=3D53AC+mvbtFOvWhCdqdKfZxPLHDl2gFgUFn+w2hIMI=;
+ b=PpAHUPt4FCpGWNJvv2H+zWoZ/LA1u2BGY9BD6oYuRZ082FfiQItrhfnvk6zxQw5bV0
+ S1SqJIvNF4X08qwdo9WXxJfSPlA+HpuXz9dDX83mfanb7Cea9/VK1Osaqx3OT2+cBMrb
+ DKheoeY/V9en1FOiSSqFrlw3IyYNvxiMbJMyc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=3D53AC+mvbtFOvWhCdqdKfZxPLHDl2gFgUFn+w2hIMI=;
+ b=Z7YrW8tbLkAFNLrvt2GXpkBYUeYXXVFN/9zWLHnLUhAqHw1GKho0qpUKuj9U+xFQiw
+ om6RTHDxYpUcjZyMwlEVRx5ps+ZpFcWAv+RXBTQ58F8ADqskSNvvMJsCfdvp9U6nCml/
+ 6T5bPa6SwgRMyV2SwLCpDskiEsBnTxLZJKzysCEnyllIVlk1VO2OLg+yQYPqTFQ8Q8yq
+ vvHCsyAjP+gwL3z0YIeMlvdeR4LphpjSZtWs8YXDJOCBkCv1uscNmsP8xGh/NDRY8oeW
+ 1F1i13AVbxQZetvZyhA0qm/ZoOfOendMOwSDCHK5D0wnZWVBWO/upSkypINN6rIDD/Ho
+ 5q8A==
+X-Gm-Message-State: ANhLgQ1W3kkqcFRGUwekjAXkCFt/XpVKTxA9RWCxW6LQSsmRTVVcx+FX
+ CxpLhPx1wiXGARvGAgfOOgNTzQ==
+X-Google-Smtp-Source: ADFU+vu5i1xpepiSeDF6CXGaG9tUWLD/lfAtDAgCi5AnBUm0RKEt53xDaBdP3NJys5zaFri5Xz/k4g==
+X-Received: by 2002:a63:131f:: with SMTP id i31mr1588034pgl.101.1583196639743; 
+ Mon, 02 Mar 2020 16:50:39 -0800 (PST)
+Received: from ryzen.cs.washington.edu ([2607:4000:200:11:b5cd:49c6:f4f6:8295])
+ by smtp.gmail.com with ESMTPSA id c15sm357529pja.30.2020.03.02.16.50.38
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 02 Mar 2020 16:50:38 -0800 (PST)
+From: Luke Nelson <lukenels@cs.washington.edu>
+X-Google-Original-From: Luke Nelson <luke.r.nels@gmail.com>
+To: bpf@vger.kernel.org
+Subject: [PATCH bpf-next v4 0/4] eBPF JIT for RV32G
+Date: Mon,  2 Mar 2020 16:50:31 -0800
+Message-Id: <20200303005035.13814-1-luke.r.nels@gmail.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200302_151412_079095_DDF96BC0 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20200302_165043_903111_1D7D4333 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,151 +93,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Jason Cooper <jason@lakedaemon.net>, Vincent Chen <vincent.chen@sifive.com>,
- Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
- Steven Price <steven.price@arm.com>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Atish Patra <atish.patra@wdc.com>, Anju T Sudhakar <anju@linux.vnet.ibm.com>,
- James Morse <james.morse@arm.com>, "Eric W. Biederman" <ebiederm@xmission.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Borislav Petkov <bp@suse.de>, Thomas Gleixner <tglx@linutronix.de>
+Cc: Song Liu <songliubraving@fb.com>, linux-doc@vger.kernel.org,
+ Yonghong Song <yhs@fb.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Alexei Starovoitov <ast@kernel.org>, netdev@vger.kernel.org,
+ Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
+ linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Jonathan Corbet <corbet@lwn.net>,
+ Jakub Kicinski <kuba@kernel.org>, Andrii Nakryiko <andriin@fb.com>,
+ Xi Wang <xi.wang@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Luke Nelson <luke.r.nels@gmail.com>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn.topel@gmail.com>,
+ linux-kernel@vger.kernel.org, Martin KaFai Lau <kafai@fb.com>,
+ Stephen Hemminger <stephen@networkplumber.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "David S. Miller" <davem@davemloft.net>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, PLIC threshold is only initialized once in the beginning.
-However, threshold can be set to disabled if a CPU is marked offline with
-CPU hotplug feature. This will not allow to change the irq affinity to a
-CPU that just came online.
+This series adds an eBPF JIT for 32-bit RISC-V (RV32G) to the kernel,
+adapted from the RV64 JIT and the 32-bit ARM JIT.
 
-Add PLIC specific CPU hotplug callbacks and enable the threshold when a CPU
-comes online. Take this opportunity to move the external interrupt enable
-code from trap init to PLIC driver as well. On cpu offline path, the driver
-performs the exact opposite operations i.e. disable the interrupt and
-the threshold.
+There are two main changes required for this to work compared to
+the RV64 JIT.
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
----
- arch/riscv/kernel/traps.c         |  2 +-
- drivers/irqchip/irq-sifive-plic.c | 38 +++++++++++++++++++++++++++----
- include/linux/cpuhotplug.h        |  1 +
- 3 files changed, 36 insertions(+), 5 deletions(-)
+First, eBPF registers are 64-bit, while RV32G registers are 32-bit.
+BPF registers either map directly to 2 RISC-V registers, or reside
+in stack scratch space and are saved and restored when used.
 
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index ffb3d94bf0cc..55ea614d89bf 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -157,5 +157,5 @@ void __init trap_init(void)
- 	/* Set the exception vector address */
- 	csr_write(CSR_TVEC, &handle_exception);
- 	/* Enable interrupts */
--	csr_write(CSR_IE, IE_SIE | IE_EIE);
-+	csr_write(CSR_IE, IE_SIE);
- }
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index aa4af886e43a..7c7f37393f99 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -4,6 +4,7 @@
-  * Copyright (C) 2018 Christoph Hellwig
-  */
- #define pr_fmt(fmt) "plic: " fmt
-+#include <linux/cpu.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/irq.h>
-@@ -55,6 +56,9 @@
- #define     CONTEXT_THRESHOLD		0x00
- #define     CONTEXT_CLAIM		0x04
- 
-+#define	PLIC_DISABLE_THRESHOLD		0xf
-+#define	PLIC_ENABLE_THRESHOLD		0
-+
- static void __iomem *plic_regs;
- 
- struct plic_handler {
-@@ -230,6 +234,32 @@ static int plic_find_hart_id(struct device_node *node)
- 	return -1;
- }
- 
-+static void plic_set_threshold(struct plic_handler *handler, u32 threshold)
-+{
-+	/* priority must be > threshold to trigger an interrupt */
-+	writel(threshold, handler->hart_base + CONTEXT_THRESHOLD);
-+}
-+
-+static int plic_dying_cpu(unsigned int cpu)
-+{
-+	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-+
-+	csr_clear(CSR_IE, IE_EIE);
-+	plic_set_threshold(handler, PLIC_DISABLE_THRESHOLD);
-+
-+	return 0;
-+}
-+
-+static int plic_starting_cpu(unsigned int cpu)
-+{
-+	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-+
-+	csr_set(CSR_IE, IE_EIE);
-+	plic_set_threshold(handler, PLIC_ENABLE_THRESHOLD);
-+
-+	return 0;
-+}
-+
- static int __init plic_init(struct device_node *node,
- 		struct device_node *parent)
- {
-@@ -267,7 +297,6 @@ static int __init plic_init(struct device_node *node,
- 		struct plic_handler *handler;
- 		irq_hw_number_t hwirq;
- 		int cpu, hartid;
--		u32 threshold = 0;
- 
- 		if (of_irq_parse_one(node, i, &parent)) {
- 			pr_err("failed to parse parent for context %d.\n", i);
-@@ -301,7 +330,7 @@ static int __init plic_init(struct device_node *node,
- 		handler = per_cpu_ptr(&plic_handlers, cpu);
- 		if (handler->present) {
- 			pr_warn("handler already present for context %d.\n", i);
--			threshold = 0xffffffff;
-+			plic_set_threshold(handler, PLIC_DISABLE_THRESHOLD);
- 			goto done;
- 		}
- 
-@@ -313,13 +342,14 @@ static int __init plic_init(struct device_node *node,
- 			plic_regs + ENABLE_BASE + i * ENABLE_PER_HART;
- 
- done:
--		/* priority must be > threshold to trigger an interrupt */
--		writel(threshold, handler->hart_base + CONTEXT_THRESHOLD);
- 		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
- 			plic_toggle(handler, hwirq, 0);
- 		nr_handlers++;
- 	}
- 
-+	cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
-+				  "irqchip/sifive/plic:starting",
-+				  plic_starting_cpu, plic_dying_cpu);
- 	pr_info("mapped %d interrupts with %d handlers for %d contexts.\n",
- 		nr_irqs, nr_handlers, nr_contexts);
- 	set_handle_irq(plic_handle_irq);
-diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-index d37c17e68268..77d70b633531 100644
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -102,6 +102,7 @@ enum cpuhp_state {
- 	CPUHP_AP_IRQ_ARMADA_XP_STARTING,
- 	CPUHP_AP_IRQ_BCM2836_STARTING,
- 	CPUHP_AP_IRQ_MIPS_GIC_STARTING,
-+	CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
- 	CPUHP_AP_ARM_MVEBU_COHERENCY,
- 	CPUHP_AP_MICROCODE_LOADER,
- 	CPUHP_AP_PERF_X86_AMD_UNCORE_STARTING,
+Second, many 64-bit ALU operations do not trivially map to 32-bit
+operations. Operations that move bits between high and low words,
+such as ADD, LSH, MUL, and others must emulate the 64-bit behavior
+in terms of 32-bit instructions.
+
+Supported features:
+
+The RV32 JIT supports the same features and instructions as the
+RV64 JIT, with the following exceptions:
+
+- ALU64 DIV/MOD: Requires loops to implement on 32-bit hardware.
+
+- BPF_XADD | BPF_DW: There's no 8-byte atomic instruction in RV32.
+
+These features are also unsupported on other BPF JITs for 32-bit
+architectures.
+
+Testing:
+
+- lib/test_bpf.c
+test_bpf: Summary: 378 PASSED, 0 FAILED, [349/366 JIT'ed]
+test_bpf: test_skb_segment: Summary: 2 PASSED, 0 FAILED
+
+- tools/testing/selftests/bpf/test_verifier.c
+Summary: 1415 PASSED, 122 SKIPPED, 43 FAILED
+
+Tested both with and without BPF JIT hardening.
+
+This is the same set of tests that pass using the BPF interpreter
+with the JIT disabled.
+
+Running the BPF kernel tests / selftests on riscv32 is non-trivial,
+to help others reproduce the test results I made a guide here:
+https://github.com/lukenels/meta-linux-utils/tree/master/rv32-linux
+
+Verification and synthesis:
+
+We developed the RV32 JIT using our automated verification tool,
+Serval. We have used Serval in the past to verify patches to the
+RV64 JIT. We also used Serval to superoptimize the resulting code
+through program synthesis.
+
+You can find the tool and a guide to the approach and results here:
+https://github.com/uw-unsat/serval-bpf/tree/rv32-jit-v4
+
+Thanks again for all the comments!
+
+Changelog:
+
+v3 -> v4:
+  * Added more comments and cleaned up style nits (Björn Töpel).
+  * Factored common code in RV64 and RV32 JITs into a separate header
+    (Song Liu, Björn Töpel).
+  * Added an optimization in the BPF_ALU64 BPF_ADD BPF_X case.
+  * Updated MAINTAINERS and kernel documentation (Björn Töpel).
+
+v2 -> v3:
+  * Added support for far jumps / branches similar to RV64 JIT.
+  * Added support for tail calls.
+  * Cleaned up code with more optimizations and comments.
+  * Removed special zero-extension instruction from BPF_ALU64
+    case (Jiong Wang).
+
+v1 -> v2:
+  * Added support for far conditional branches.
+  * Added the zero-extension optimization (Jiong Wang).
+  * Added more optimizations for operations with an immediate operand.
+
+Luke Nelson (4):
+  riscv, bpf: move common riscv JIT code to header
+  riscv, bpf: add RV32G eBPF JIT
+  bpf, doc: add BPF JIT for RV32G to BPF documentation
+  MAINTAINERS: Add entry for RV32G BPF JIT
+
+ Documentation/admin-guide/sysctl/net.rst |    3 +-
+ Documentation/networking/filter.txt      |    2 +-
+ MAINTAINERS                              |   13 +-
+ arch/riscv/Kconfig                       |    2 +-
+ arch/riscv/net/Makefile                  |    7 +-
+ arch/riscv/net/bpf_jit.h                 |  504 ++++++++
+ arch/riscv/net/bpf_jit_comp.c            |  443 +------
+ arch/riscv/net/bpf_jit_comp32.c          | 1466 ++++++++++++++++++++++
+ 8 files changed, 1992 insertions(+), 448 deletions(-)
+ create mode 100644 arch/riscv/net/bpf_jit.h
+ create mode 100644 arch/riscv/net/bpf_jit_comp32.c
+
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Alexei Starovoitov <ast@kernel.org>
+Cc: Daniel Borkmann <daniel@iogearbox.net>
+Cc: Martin KaFai Lau <kafai@fb.com>
+Cc: Song Liu <songliubraving@fb.com>
+Cc: Yonghong Song <yhs@fb.com>
+Cc: Andrii Nakryiko <andriin@fb.com>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: Jakub Kicinski <kuba@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: "Björn Töpel" <bjorn.topel@gmail.com>
+Cc: Luke Nelson <luke.r.nels@gmail.com>
+Cc: Xi Wang <xi.wang@gmail.com>
+Cc: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
+Cc: Stephen Hemminger <stephen@networkplumber.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: linux-doc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: netdev@vger.kernel.org
+Cc: bpf@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+
 -- 
-2.25.0
+2.20.1
 
 
