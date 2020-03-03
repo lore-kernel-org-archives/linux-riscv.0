@@ -2,90 +2,85 @@ Return-Path: <SRS0=DZC9=4U=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B0228C3F2C6
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2020 18:57:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3D060C3F2D1
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2020 21:13:08 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 81CCE206D7
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2020 18:57:37 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0B7B120848
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2020 21:13:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rcFGYTn4";
-	dkim=pass (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="omvBLagy"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 81CCE206D7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="t6ozQFx3";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="jOAECUUu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0B7B120848
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:Message-ID:To:From:Subject:Date:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2U7xU0WivIPvRRMGWiKDxnJ5G5AYpY+E3IRtCMPj8hU=; b=rcFGYTn4DH1BkexXChz+qaZW9y
-	bwB3WlmNuE+Sn04nLmogs6w7r95IyXEioVgB1ATo61aD4QcydSid968LhpQhfux5VhsaVfLUARppN
-	HZi+7147SKWSI+PS22G5p1pXKaqnzr1pQ7dlwvcsnUNnG+hEhCx2WzLUlEemW4qRVwpwgCYr4rwfk
-	gmazE7tLdUPloMOKX2EIMsBPzGpAyULRZjI1PLMcRQ2WLpjItAoA9wFDYSuzKDyJBmvBGKuWPP80m
-	QjslVOUQJmHm+jQyw/2SlfWhXkODrR3eT1TtXTgHe9yuyCN1fJ8JIujY0/8qvuOfFrsFY+bHdlX7L
-	jcqOzyzw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=5FXbiSS6phrCyBSlDdRJ6x/G1vIq9Bm0/o5FHfb1vIw=; b=t6ozQFx3fjqI1tqqe1UjLGXpT
+	0g4NNMIWqPv9qZgyL49RKIL9pxKQRtwhaWzpYSAS5OkGFxhddMhXE5k+8s5Lc/852xBGry8/QcQfB
+	xTThB+FRX0RW/RkW/RYZOwIl+WweS2Qly2AwShg80fQSx/fSERGRND796xPvyh1Yv+Qx8Fz6s5PEy
+	MDJ+1z6QvbcAhUWbF9mngAePHW0zW7KAYnKULWUMILSAOec1nH0KK6dvLV3/yHrZ2tTVJlI6450kq
+	saOTLYsrNQpIP1siaBbTiuNGEo8MaDto1oUCAjuWUwzRgKfvHSGQP68zuOPI//3FchND9Af4jzEfy
+	RyfalrU+Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j9CjY-0006tc-Es; Tue, 03 Mar 2020 18:57:36 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1j9Eqa-0000S4-Dy; Tue, 03 Mar 2020 21:13:00 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j9CjV-0006t0-0D
- for linux-riscv@lists.infradead.org; Tue, 03 Mar 2020 18:57:34 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id b22so1722151pls.12
- for <linux-riscv@lists.infradead.org>; Tue, 03 Mar 2020 10:57:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=2U7xU0WivIPvRRMGWiKDxnJ5G5AYpY+E3IRtCMPj8hU=;
- b=omvBLagykPa3p9CrJdi3NJgfwTmgiT7q2489rAyEDOZi7ktGA5Zrgc14vSfr+9xUAA
- wHzp461MHZFLBKmBvz2gC3ddwCm1hIjfoWzG2vdiEPAhxtgfybIyHvYHtTgF/QyBwLL0
- QLKFa90sPsNpOgfCHgHNSWnklpnqkO85BpfPHsDjyTCtBVlRA2EHXWwYYY2iZFgQmWHQ
- 2aR1ozu45paILnHdfhg8RV1ZdLwhZPTGgmfZSwEbGNJKgi5K+1qwSRhk/C6wk47Nzlu7
- pCRdTvP9LMJeoEBMdQ49KMC5gi4x0oc9hmu6YZabel9ykezpfGEaqee70ZA2QBa5pjzj
- KoUw==
+ id 1j9EqX-0000Rk-Ps
+ for linux-riscv@lists.infradead.org; Tue, 03 Mar 2020 21:12:59 +0000
+Received: by mail-pf1-x444.google.com with SMTP id f5so2107743pfk.9
+ for <linux-riscv@lists.infradead.org>; Tue, 03 Mar 2020 13:12:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=5FXbiSS6phrCyBSlDdRJ6x/G1vIq9Bm0/o5FHfb1vIw=;
+ b=jOAECUUuemFMG+jcbroZneMtc7qWtKzzWb6YZ9KudcoaFS9YHVa2rAlh8vcMqr9TJF
+ /CXBV46A2COS8wJsUSXE7j8rLvZ5nCTjMeQVm9aZQAI51KRHRN/I6OyveCMeqjE6dvX/
+ ER6p7yw2ITr+oI7Kmz3rEm8pIGLlYzTHjEVaw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=2U7xU0WivIPvRRMGWiKDxnJ5G5AYpY+E3IRtCMPj8hU=;
- b=B6hjWq9H+mmtazHiFIvZ0vXt0Fg+ImEM+/PgtnUbl3UM4UUEo46cp4W3isNreRwWg1
- LFP4QSsEYxq+SR5I7EbV/sAR71UF6DWSK0seruYAPYEOt/mbp1+x/D0E6SeVP1NhqSAb
- FnsaZVA0kkMdgDngeOK7LQI0+kP9aVRRa60fmI7gz64Pzy4Xi0MShEQan8+GLxtECpCY
- cts6RUJHCHG0Iuv3o5hgenYaW0e3gYKoJu37fhXKRRUbU9gpXOhRNBK5Jbpio+BRj3c6
- 2O3jBTqIBZEewMvtHDEnMEwQnessBNnyfDd5F2xW8ufgGF4Cc56+W/x8RvwUKVK0kRGB
- Af2Q==
-X-Gm-Message-State: ANhLgQ2ULh1olQsviY6UcwDkjNUjZVLPomryX0QN1AfaoaQI44I/bVwC
- LX1FlhpXJzlceGpYfyr0mJ03DgFTU9c=
-X-Google-Smtp-Source: ADFU+vt58DDy/uf+MBmmPlzDefhYmB7TqSq6xLUJLxWbwYCzskpSHTwut5fpept9Noy3YkSwL6rIRw==
-X-Received: by 2002:a17:902:b692:: with SMTP id
- c18mr5597530pls.7.1583261850754; 
- Tue, 03 Mar 2020 10:57:30 -0800 (PST)
-Received: from localhost ([2620:0:1000:2514:23a5:d584:6a92:3e3c])
- by smtp.gmail.com with ESMTPSA id x2sm24456166pge.2.2020.03.03.10.57.30
- for <linux-riscv@lists.infradead.org>
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=5FXbiSS6phrCyBSlDdRJ6x/G1vIq9Bm0/o5FHfb1vIw=;
+ b=Zl5JXv+XsO9t98igbkW8GwN+LAoUEvAxvxYvIOjgNCqug82mQuAX/XXVK6z3GFMUND
+ guorkOXPa8iy6/RHuAJECUgGoy8F8w4Sw4V6ERHFKqGPloVE7W6czk0AQeYXFQSewegA
+ TFyG0Bh2NF1rSAuTiJInl8rZgDbHA5bnkMqt9/C4UZamN9tiZxUj0TWlBdSsKXytCkzI
+ hzF9ydscdhZCM7Ux05wmxOTYy83hw4saLNC+jGL77+kcohYHTTYyAbrFgcROyuUxTrh6
+ 0gJrfEYxEl1w+QTyfSt1TmHb5wdq/o/QF6RbxItXSrUDTVXoa0Nesl418crQHOC8frkv
+ dzkA==
+X-Gm-Message-State: ANhLgQ323iG7X+IbvvtuPC0zT5NA1Egv039MHx+fKEKzOpMap+bJ5nAI
+ /tFhx35j9Pi4/00QNgpJbLVyiQ==
+X-Google-Smtp-Source: ADFU+vucXyIb8FnssOZOLkbGPk1bO96Ow3P+bV2pc/F3360lz3zUkWYHVF36hCwUG1VnUGGhwoTMmg==
+X-Received: by 2002:a63:ab04:: with SMTP id p4mr5861705pgf.37.1583269976999;
+ Tue, 03 Mar 2020 13:12:56 -0800 (PST)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+ by smtp.gmail.com with ESMTPSA id i5sm123701pju.42.2020.03.03.13.12.55
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 03 Mar 2020 10:57:30 -0800 (PST)
-Date: Tue, 03 Mar 2020 10:57:30 -0800 (PST)
-X-Google-Original-Date: Tue, 03 Mar 2020 10:57:28 PST (-0800)
-Subject: for-next based on rc4
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: linux-riscv@lists.infradead.org
-Message-ID: <mhng-1817491a-46cd-4ed3-b8cb-bf3319dad665@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8bit
+ Tue, 03 Mar 2020 13:12:55 -0800 (PST)
+Date: Tue, 3 Mar 2020 13:12:54 -0800
+From: Kees Cook <keescook@chromium.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH] riscv: fix seccomp reject syscall code path
+Message-ID: <202003031312.3EB46603@keescook>
+References: <202003022042.2A99B9B0@keescook>
+ <mhng-f926452f-8491-4deb-9721-a52487de676d@palmerdabbelt-glaptop1>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <mhng-f926452f-8491-4deb-9721-a52487de676d@palmerdabbelt-glaptop1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200303_105733_093368_972702F2 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200303_131257_864202_3F4FB1E4 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,26 +92,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: tycho@tycho.ws, aou@eecs.berkeley.edu, david.abdurachmanov@gmail.com,
+ linux-kernel@vger.kernel.org, oleg@redhat.com, luto@amacapital.net,
+ keith.packard@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-rc4 is looking pretty good to me, so I'm going to use that as the starting
-point for the next for-next.  A quick poke at my inbox reveals:
+On Tue, Mar 03, 2020 at 09:55:10AM -0800, Palmer Dabbelt wrote:
+> On Mon, 02 Mar 2020 20:46:46 PST (-0800), keescook@chromium.org wrote:
+> > On Sun, Feb 23, 2020 at 10:17:57AM -0700, Tycho Andersen wrote:
+> > > On Sat, Feb 08, 2020 at 08:18:17AM -0700, Tycho Andersen wrote:
+> > > > ...
+> > > 
+> > > Ping, any risc-v people have thoughts on this?
+> > > 
+> > > Tycho
+> > 
+> > Re-ping. :) Can someone please pick this up? Original patch here:
+> > https://lore.kernel.org/lkml/20200208151817.12383-1-tycho@tycho.ws/
+> 
+> Sorry, the other messages didn't end up in my inbox.  I'll take a look, as this
+> seems like a good candidate for rc5.
 
-* K210 support
-* Static kernel memory permissions
-* Percpu in modules
-* UEFI
-* KGDB
+Awesome; thanks!
 
-as the big patch sets, but there's some smaller things interspersed that my
-grepping isn't going to catch.  For the record, for-next currently contains:
+-Kees
 
-* abc71bf0a703 - (HEAD -> for-next, riscv/for-next) RISC-V: Stop using LOCAL for the uaccess fixups (22 seconds ago) <Palmer Dabbelt>
-* fdff9911f266 - RISC-V: Inline the assembly register save/restore macros (12 minutes ago) <Palmer Dabbelt>
-* 52e7c52d2ded - RISC-V: Stop relying on GCC's register allocator's hueristics (17 minutes ago) <Palmer Dabbelt>
-* 064223b947a8 - RISC-V: Stop putting .sbss in .sdata (17 minutes ago) <Palmer Dabbelt>
-* aff7783392e0 - riscv: force hart_lottery to put in .sdata section (17 minutes ago) <Zong Li>
-* 2fab7a15604c - riscv: Delete CONFIG_SYSFS_SYSCALL from defconfigs (17 minutes ago) <Deepa Dinamani>
-* ab70a73aa45b - riscv: Use flush_icache_mm for flush_icache_user_range (17 minutes ago) <Guo Ren>
+-- 
+Kees Cook
 
