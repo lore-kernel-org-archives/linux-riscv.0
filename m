@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 60C51C3F2D1
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2020 19:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D2EADC3F2CE
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2020 19:45:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 07A832166E
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2020 19:45:03 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 881902166E
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2020 19:45:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ds31M8gM";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="dFKycVrt"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 07A832166E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Lv+6DQwx";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="cm8Oe8hW"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 881902166E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,66 +26,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
 	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=3fVbVj1IrATBDErEo1uLC59B5/ucD63uaWNFH+ydCrM=; b=ds31M8gMyBRCGE
-	u8A957ntZnmjLE/+QhjbDo1mC+34R/jyrCOMy3+oCocCLZbdOznrXDkMuTjNKm3H06xQ4v1Fxh8Cq
-	LTBzQXL0knXHEvbelolniG+Z1Zli1aSiIrVX/ikwttTN523bRWpzk4CMERWVe13WtNLjPxu25joD/
-	TjcJEQe2ozo84QL5jlayfy9RsMuqjA8h3Td3cxBgqEnvctArynBr0X/XSUfV95ABQnczcUHQ/09JI
-	5I99hbHAt7Y4eYB9eSVFQEA5ZHZ3FP6w1xsIMiROeGh6rEoUhJfTm80esjSOz8ld66dfO2JDDAuzf
-	laeRQKCacbUFkdU2w9Mg==;
+	List-Owner; bh=9oKB3i1ZL0ZQYFGAjNrsDY0V469iYMU+fibmYfZRHIQ=; b=Lv+6DQwxIMb5JS
+	HJFHfvsdK1OJOZ0zLwl67KZWo0q+L3gkmNLk/7VE/HL3k2vWVGAmHO8tdutfdgZWF9l/zJC4Nk6Tr
+	t19/QdRKx4CeehGD+cEJ7dgdyPRCaRxJ4Rcl2bO790DXv5jlR2tI+Ee11YApFrSARAeSwT75vCZCC
+	vP8XT11E9/k65YVhw1rcI0iswwb2piWFe3ymtl3h/vJJV/i23mLtzXUmP2zD2/zMSj4XX1zCBqHPn
+	CAInUA9VMPYadqKzcJ1KrLsQPWPPMMqRFeShBuzHAwvqdFJnTF7Ao6jPWCmYa8LhDkh16dO5W5tE7
+	zsFpLF8s/jSI+jQdBpPw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j9Zwu-0001nS-Ev; Wed, 04 Mar 2020 19:44:56 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1j9Zwy-0001sM-83; Wed, 04 Mar 2020 19:45:00 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j9Zwq-0001je-VT
- for linux-riscv@lists.infradead.org; Wed, 04 Mar 2020 19:44:55 +0000
-Received: by mail-pl1-x644.google.com with SMTP id d9so1463536plo.11
- for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2020 11:44:51 -0800 (PST)
+ id 1j9Zws-0001li-Rl
+ for linux-riscv@lists.infradead.org; Wed, 04 Mar 2020 19:44:56 +0000
+Received: by mail-pl1-x641.google.com with SMTP id ay11so1486587plb.0
+ for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2020 11:44:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=3fVbVj1IrATBDErEo1uLC59B5/ucD63uaWNFH+ydCrM=;
- b=dFKycVrtx748gtTRovo9q0LWBY2AtTkV6nUHFEDp/2xUgmOClS4Txvj9JezZm3e28b
- rzxZJFpp4WTi2x1sFRVrejpBS4ZIinb1FyTCUx68oBA60eeCXcY9Te/CaUEqLpo9TF2+
- rA1Rp7stk+DFnMVE39FrRe0GHcDPwtPWCdKU3zTFZ2ghB9yBJsoXlNy4aKG7W1pZkV7c
- ueBanmQwHMZ7GmlQyoqG9A4nGHvkUDmVD8pk4MTihhaK0yX8KQ2uP1exOuB8yDTFPIaB
- YbBiey9+ufA9DjYw9+iR8eOX+OLYm8K6y7ORX5KB88gdt1g6FKHL0jhZzbJacvWBYkR2
- xWQg==
+ bh=9oKB3i1ZL0ZQYFGAjNrsDY0V469iYMU+fibmYfZRHIQ=;
+ b=cm8Oe8hW9I9P7eOdygATX5aEmBO8dUfVJvUpbFmxj0T+XNonhgwfdYx+ExzPGFRpy9
+ goeBgpIEhIXK3siig5tHXzTfbIVIntC+WkBmH85UFtIHFZONRAxyckdmxxbC5ELBr1Ey
+ 3PMTxeAKKiCoewuh9laJf7wNqN+U9JHI4VOPl23oBgfDkMBe1rBsLc1lxeSkDE0rdqHL
+ UBZxqQEIbrhmRiXu/rAZgYCXmW6QqGxWir4qT+ue98DUmA6b9BwlFUr8NuH3w4KJ8LP5
+ AX9R+t82cUCMAMot3sDrh0KdY0oYfKuQahYi8v0iJS8g+dG/qTT7Pgt73qsuu9i2nFF0
+ CiAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=3fVbVj1IrATBDErEo1uLC59B5/ucD63uaWNFH+ydCrM=;
- b=a6xQv9spe2iMKGEPNzKTYvNREDKLQGO5KNTT1kSBAiemKrXd96nJfC7y6bUb6Cukop
- hfvLY8zUSDMyNyb8uqABLY3dUXzRXhAslTvNF8/toQXFWxm7jjBsS1GSyrXBBCimNLwi
- Jm1KY5eizGBxcitMb9J4CieEjKjGm9eSVaOlFJJmPYmYRGziTTGdzl3OguTNs0bvg1ow
- TYO7+aitpjTMGY3ieE3nwySUbULTa89WXMO31X/OmhEs6A0ocoDO/T4tPkJC3Pwl33tM
- BNu9GB9jpSJT/QkpsfJqubgxV6o/wVRVDBCrvwd3i/jvBm7KNIfOTGvFROt/+tLsex/K
- FH7g==
-X-Gm-Message-State: ANhLgQ2ZhXxOZlCnw7HqIzVrsarDcmBbbwWKCIxHtjwcyQIZL5+CdMiw
- NG+EWW/EoN8803eBTeITvTjqfwUf+iY=
-X-Google-Smtp-Source: ADFU+vvYty2VuFlY/HcOdVCaEUxweRcV5D5HlYNKWGxgFseno6qCTDQOqsLtL7AE8p+Wa3gwZFQweQ==
-X-Received: by 2002:a17:902:8341:: with SMTP id
- z1mr4379387pln.178.1583351090714; 
- Wed, 04 Mar 2020 11:44:50 -0800 (PST)
+ bh=9oKB3i1ZL0ZQYFGAjNrsDY0V469iYMU+fibmYfZRHIQ=;
+ b=NItP4bRjoOyR5Vc1WVC1Qq6d0qoR76rJS3Jh2CAUEHHw+zgveI/7Tx4DPHM8niS0kg
+ Pou09XvNsDM96kFpm9nAGjMJZN578w4+8tI206U9TdZFMETwmz33Evsho+eVkHFSgxT+
+ vFRVntudqPSMitEU27LyEe1fDBfdcT6WfhKO4vip2oq3l0KUd8dQa6ADhHVaw59/FVoN
+ 74W+TXUgVqBusTr07ANJhjVrm31xXsCCpdFu1JlUvOx/nQMYRHeZJ70+vp2+2S2hogBs
+ 5l32SEejnAFFZzn1Wn31N7WCpj9889Jtt/NPJg1PN3u23DnySfv+qj9bZJ89AtA/K4Yq
+ oodw==
+X-Gm-Message-State: ANhLgQ25Y6TG2yp2eJajTGlyfcKvJJ6M5sO83NYu8rMPhTwuheHXzPEV
+ n4/FqTMtRaHxTFS6LpaTvu/UkAXZ7b0=
+X-Google-Smtp-Source: ADFU+vsJsACf7IJaA67Acsp8azXatTuyfxm9j3APl4hr5Df8o0d+oY61/MfSp4AVE2GjdQy247NGfA==
+X-Received: by 2002:a17:902:9a86:: with SMTP id
+ w6mr4407536plp.37.1583351093542; 
+ Wed, 04 Mar 2020 11:44:53 -0800 (PST)
 Received: from localhost ([2620:0:1000:2514:23a5:d584:6a92:3e3c])
- by smtp.gmail.com with ESMTPSA id d5sm23469929pga.36.2020.03.04.11.44.50
+ by smtp.gmail.com with ESMTPSA id v123sm3856567pfv.146.2020.03.04.11.44.52
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 04 Mar 2020 11:44:50 -0800 (PST)
-Date: Wed, 04 Mar 2020 11:44:50 -0800 (PST)
-X-Google-Original-Date: Wed, 04 Mar 2020 11:40:55 PST (-0800)
-Subject: Re: [PATCH 08/10] riscv: Add Kendryte K210 device tree
-In-Reply-To: <20200212103432.660256-9-damien.lemoal@wdc.com>
+ Wed, 04 Mar 2020 11:44:53 -0800 (PST)
+Date: Wed, 04 Mar 2020 11:44:53 -0800 (PST)
+X-Google-Original-Date: Wed, 04 Mar 2020 11:43:49 PST (-0800)
+Subject: Re: [PATCH 10/10] riscv: create a loader.bin for the kendryte
+ kflash.py tool
+In-Reply-To: <20200212103432.660256-11-damien.lemoal@wdc.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: Damien Le Moal <Damien.LeMoal@wdc.com>
-Message-ID: <mhng-ce3c62c0-37e9-4e40-8840-416777a55a12@palmerdabbelt-glaptop1>
+Message-ID: <mhng-32c79d0e-b900-421f-9a1c-fd07c54da833@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200304_114453_025325_2643054D 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20200304_114454_911809_4BECF790 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,202 +103,57 @@ Cc: linux-riscv@lists.infradead.org, Anup Patel <Anup.Patel@wdc.com>,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Feb 2020 02:34:30 PST (-0800), Damien Le Moal wrote:
-> Add a generic device tree for Kendryte K210 SoC based boards. This (for
-> now) very simple device tree works for the Kendryte KD233 development
-> board, the Sipeed MAIX M1 Dock based boards and the Sipeed MAIXDUINO
-> board.
+On Wed, 12 Feb 2020 02:34:32 PST (-0800), Damien Le Moal wrote:
+> From: Christoph Hellwig <hch@lst.de>
 >
+> This can be loaded into the Kendryte KD210 based boards using:
+>
+> kflash.py/kflash.py -t arch/riscv/boot/loader.bin
+>
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
 > Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 > ---
->  arch/riscv/boot/dts/Makefile           |   1 +
->  arch/riscv/boot/dts/kendryte/Makefile  |   2 +
->  arch/riscv/boot/dts/kendryte/k210.dts  |  23 +++++
->  arch/riscv/boot/dts/kendryte/k210.dtsi | 123 +++++++++++++++++++++++++
->  4 files changed, 149 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/kendryte/Makefile
->  create mode 100644 arch/riscv/boot/dts/kendryte/k210.dts
->  create mode 100644 arch/riscv/boot/dts/kendryte/k210.dtsi
+>  arch/riscv/Makefile      | 4 ++--
+>  arch/riscv/boot/Makefile | 3 +++
+>  2 files changed, 5 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index b9009a2fbaf5..440969763e14 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -84,11 +84,11 @@ vdso_install:
+>  	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
+>
+>  ifeq ($(CONFIG_RISCV_M_MODE),y)
+> -KBUILD_IMAGE := $(boot)/loader
+> +KBUILD_IMAGE := $(boot)/loader.bin
+>  else
+>  KBUILD_IMAGE := $(boot)/Image.gz
+>  endif
+> -BOOT_TARGETS := Image Image.gz loader
+> +BOOT_TARGETS := Image Image.gz loader loader.bin
+>
+>  all:	$(notdir $(KBUILD_IMAGE))
+>
+> diff --git a/arch/riscv/boot/Makefile b/arch/riscv/boot/Makefile
+> index 36db8145f9f4..3530c59b3ea7 100644
+> --- a/arch/riscv/boot/Makefile
+> +++ b/arch/riscv/boot/Makefile
+> @@ -41,6 +41,9 @@ $(obj)/Image.lzma: $(obj)/Image FORCE
+>  $(obj)/Image.lzo: $(obj)/Image FORCE
+>  	$(call if_changed,lzo)
+>
+> +$(obj)/loader.bin: $(obj)/loader FORCE
+> +	$(call if_changed,objcopy)
+> +
+>  install:
+>  	$(CONFIG_SHELL) $(srctree)/$(src)/install.sh $(KERNELRELEASE) \
+>  	$(obj)/Image System.map "$(INSTALL_PATH)"
 
-OK, so if the same DTB works for all of these anyway then that at least lets us
-kick the can down the road on the "how to look up a DT for a board" problem.
+I'm a bit worried about having a big pile of odd formats floating around in
+here, but given that there are very few RISC-V boards around I think it's OK to
+err on the side of just collecting everything in one place and organizing it
+later -- it's kind of hard to organize two things :)
 
 Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-
-> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-> index 0bf2669aa12d..87815557f2db 100644
-> --- a/arch/riscv/boot/dts/Makefile
-> +++ b/arch/riscv/boot/dts/Makefile
-> @@ -3,4 +3,5 @@ ifneq ($(CONFIG_BUILTIN_DTB_SOURCE),"")
->  obj-$(CONFIG_USE_BUILTIN_DTB) += $(patsubst "%",%,$(CONFIG_BUILTIN_DTB_SOURCE)).dtb.o
->  else
->  subdir-y += sifive
-> +subdir-y += kendryte
->  endif
-> diff --git a/arch/riscv/boot/dts/kendryte/Makefile b/arch/riscv/boot/dts/kendryte/Makefile
-> new file mode 100644
-> index 000000000000..815444e69e89
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/kendryte/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_SOC_KENDRYTE) += k210.dtb
-> diff --git a/arch/riscv/boot/dts/kendryte/k210.dts b/arch/riscv/boot/dts/kendryte/k210.dts
-> new file mode 100644
-> index 000000000000..0d1f28fce6b2
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/kendryte/k210.dts
-> @@ -0,0 +1,23 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (C) 2020 Western Digital Corporation or its affiliates.
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "k210.dtsi"
-> +
-> +/ {
-> +	model = "Kendryte K210 generic";
-> +	compatible = "kendryte,k210";
-> +
-> +	chosen {
-> +		bootargs = "earlycon console=ttySIF0";
-> +		stdout-path = "serial0";
-> +	};
-> +};
-> +
-> +&uarths0 {
-> +	status = "okay";
-> +};
-> +
-> diff --git a/arch/riscv/boot/dts/kendryte/k210.dtsi b/arch/riscv/boot/dts/kendryte/k210.dtsi
-> new file mode 100644
-> index 000000000000..4b9eeabb07f7
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/kendryte/k210.dtsi
-> @@ -0,0 +1,123 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (C) 2019 Sean Anderson <seanga2@gmail.com>
-> + * Copyright (C) 2020 Western Digital Corporation or its affiliates.
-> + */
-> +
-> +/ {
-> +	/*
-> +	 * Although the K210 is a 64-bit CPU, the address bus is only 32-bits
-> +	 * wide, and the upper half of all addresses is ignored.
-> +	 */
-> +	#address-cells = <1>;
-> +	#size-cells = <1>;
-> +	compatible = "kendryte,k210";
-> +
-> +	aliases {
-> +		serial0 = &uarths0;
-> +	};
-> +
-> +	clocks {
-> +		in0: oscillator {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <26000000>;
-> +		};
-> +	};
-> +
-> +	cpus {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		timebase-frequency = <7800000>;
-> +		cpu0: cpu@0 {
-> +			device_type = "cpu";
-> +			reg = <0>;
-> +			compatible = "riscv";
-> +			riscv,isa = "rv64imafdc";
-> +			mmu-type = "none";
-> +			i-cache-size = <0x8000>;
-> +			i-cache-block-size = <64>; /* bogus */
-> +			d-cache-size = <0x8000>;
-> +			d-cache-block-size = <64>; /* bogus */
-> +			clocks = <&sysctl 0>;
-> +			clock-frequency = <390000000>;
-> +			cpu0_intc: interrupt-controller {
-> +				#interrupt-cells = <1>;
-> +				interrupt-controller;
-> +				compatible = "riscv,cpu-intc";
-> +			};
-> +		};
-> +		cpu1: cpu@1 {
-> +			device_type = "cpu";
-> +			reg = <1>;
-> +			compatible = "riscv";
-> +			riscv,isa = "rv64imafdc";
-> +			mmu-type = "none";
-> +			i-cache-size = <0x8000>;
-> +			i-cache-block-size = <64>; /* bogus */
-> +			d-cache-size = <0x8000>;
-> +			d-cache-block-size = <64>; /* bogus */
-> +			clocks = <&sysctl 0>;
-> +			clock-frequency = <390000000>;
-> +			cpu1_intc: interrupt-controller {
-> +				#interrupt-cells = <1>;
-> +				interrupt-controller;
-> +				compatible = "riscv,cpu-intc";
-> +			};
-> +		};
-> +	};
-> +
-> +	sram0: memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x80000000 0x400000>;
-> +	};
-> +
-> +	sram1: memory@80400000 {
-> +		device_type = "memory";
-> +		reg = <0x80400000 0x200000>;
-> +	};
-> +
-> +	kpu_sram: memory@80600000 {
-> +		device_type = "memory";
-> +		reg = <0x80600000 0x200000>;
-> +	};
-> +
-> +	soc {
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		compatible = "kendryte,k210-soc", "simple-bus";
-> +		ranges;
-> +		interrupt-parent = <&plic0>;
-> +
-> +		sysctl: sysctl@50440000 {
-> +			compatible = "kendryte,k210-sysctl", "syscon";
-> +			reg = <0x50440000 0x1000>;
-> +			#clock-cells = <1>;
-> +		};
-> +
-> +		clint0: interrupt-controller@2000000 {
-> +			compatible = "riscv,clint0";
-> +			reg = <0x2000000 0xC000>;
-> +			interrupts-extended = <&cpu0_intc 3>,  <&cpu1_intc 3>;
-> +			clocks = <&sysctl 0>;
-> +		};
-> +
-> +		plic0: interrupt-controller@c000000 {
-> +			#interrupt-cells = <1>;
-> +			interrupt-controller;
-> +			compatible = "kendryte,k210-plic0", "riscv,plic0";
-> +			reg = <0xC000000 0x3FFF008>;
-> +			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 0xffffffff>,
-> +					      <&cpu1_intc 11>, <&cpu1_intc 0xffffffff>;
-> +			riscv,ndev = <65>;
-> +			riscv,max-priority = <0x07>;
-> +		};
-> +
-> +		uarths0: serial@38000000 {
-> +			compatible = "kendryte,k210-uart0", "sifive,uart0";
-> +			reg = <0x38000000 0x20>;
-> +			interrupts = <33>;
-> +			clocks = <&sysctl 0>;
-> +		};
-> +	};
-> +};
 
