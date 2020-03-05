@@ -2,65 +2,89 @@ Return-Path: <SRS0=aH+X=4W=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B94F5C3F2D1
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2020 00:55:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 19AF2C3F2CE
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2020 00:57:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8C6AB20842
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2020 00:55:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E152E20842
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2020 00:57:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Fg7sGIVg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8C6AB20842
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tthLtZdu";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="hQ+wDCVa"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E152E20842
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o484NUF9cKY9S3WGJ2FjXIKk39XvaXlGwH0l+aMWIJM=; b=Fg7sGIVgiupmLA
-	7TGmpti0/7M/TIm/rR2qgRW9nx/qbugvWl09Iidyyi5EacAcwkoSqHig1JATy3vZUYJQSeFrlxIuP
-	ldUQPValBFK58/lvChDie5E3/loHwclK/3gbCdaw7ZrWKbZzR3t4U2VXD/15imxc/1JLYWnwOrpU8
-	5Z9qpI5psPX1v3NdSR+XvwaC+af4TDhngiBRJl6xQWUqEtyA/mkcBrgsnnjn44jB5G8TeSFw3R+e/
-	PWCFWUhNYOHhKK9W6imHuWqxB0kMY1LUk+Bi82z/slXhrSPx7IpEaiNQauqIHnW14GJ3lB/sw1O9X
-	yUjX505QYesVWJrZsDYQ==;
+	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
+	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=o9J+supnrYLSUg8HBVX6gCsPDHMxj5Rl4InzzMMgNk4=; b=tthLtZduEqhWhP
+	8eoBDnPex5nOIO25ZDHOS5lE5cGP/UGrUf2kB4plN4Qa7w7sHPZIsnFrDXpL6WB2Fps9PnB2v1gx9
+	FAyypLLYfLdfrISNAn+sW7Da6EnZbfyUEx7MFmvaqHmxvXmkYQid2y2J2rqCLYzf531QLEXviaGwx
+	15cgryYOxT9JzBxuxvHqBh+9Mf661zl981IJuZH1/sM8/Y5EIQ3qWUhYEeX2cNTN1ON4IJakC+KGR
+	fbO8hlzAhi/wyR4abfCxDPTVX4/QmYODfVFiXqyoEgKBtiX8EUQL9q1EjWLsw7QmIvP1nW3eo9RZm
+	fIz6sZo4Gm8kPJPdwoLw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j9enB-00062v-UA; Thu, 05 Mar 2020 00:55:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j9emu-0004el-SX; Thu, 05 Mar 2020 00:54:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D656F31B;
- Wed,  4 Mar 2020 16:54:54 -0800 (PST)
-Received: from [10.163.1.88] (unknown [10.163.1.88])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 60E2D3F534;
- Wed,  4 Mar 2020 16:54:46 -0800 (PST)
-Subject: Re: [PATCH V14] mm/debug: Add tests validating architecture page
- table helpers
-To: Qian Cai <cai@lca.pw>, Christophe Leroy <christophe.leroy@c-s.fr>
-References: <c022e863-0807-fab1-cd41-3c320381f448@c-s.fr>
- <11F41980-97CF-411F-8120-41287DC1A382@lca.pw>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-Message-ID: <57a3bc61-bbd5-e251-9621-7bc28f7901a1@arm.com>
-Date: Thu, 5 Mar 2020 06:24:44 +0530
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.9.1
-MIME-Version: 1.0
-In-Reply-To: <11F41980-97CF-411F-8120-41287DC1A382@lca.pw>
-Content-Type: text/plain; charset=utf-8
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
+	id 1j9epg-0006Ya-CQ; Thu, 05 Mar 2020 00:57:48 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1j9epd-0006Xl-TV
+ for linux-riscv@lists.infradead.org; Thu, 05 Mar 2020 00:57:47 +0000
+Received: by mail-pf1-x443.google.com with SMTP id i19so1899563pfa.2
+ for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2020 16:57:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=o9J+supnrYLSUg8HBVX6gCsPDHMxj5Rl4InzzMMgNk4=;
+ b=hQ+wDCVa7veVaJOhswZk31E6FovSFwVCXjKkZlGb9+jgYG+l3dTnq4geE0epl3SxRI
+ NSnKJfat/3r9aLQUlt3YeW8qEtcAIlpPEvBe/7ZeoGsMa6PE430uieuyq5TFAO5eiFp4
+ 91JSSEx7G5SiDY4luoBPcluAqk3EL83j0I57DQPd9Hi4FJ/kKRjNybyqAuPzad4ryisR
+ 98Hr9aU5zKVbnqqMT4bsr+q6HpbCOOrlvqO7tX5Uq086/Yaoact3aTdhiLWuYjhL0aA8
+ ivwsIhYpHA7gpkGF24f2+1kjwqtnps6vlbBtH+iR8f8dHX7S2I2gUZRAbhlt/IVdU9/m
+ ofFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=o9J+supnrYLSUg8HBVX6gCsPDHMxj5Rl4InzzMMgNk4=;
+ b=XtaBO2SPm5HkNVaIFoPPp5ELhTiJ4kBq8EBL//JV32bxJ7r1p4gzEMdU9G4OEx/ggu
+ 5XRdL25FkEOwscP6t4piGw+UvQceVeJcFsyJXcl51BJduwlytpjV8nGihDBnax7BuyLR
+ o4/gdPUnQTTTA5Wpk7VOEOeTy2nCU+3Mm9NmECdXooWRU3fNOjY84huGnffMCXVUIkL8
+ SEwzJto2c7HHbZo+wvAlPpTNx1g3+NznlHaR80xwmhzF34vKHcRaClLQ4OpLtKq0WjyK
+ x/hFJqp0BSIXr10O8AaZb+pEZ0v0Ny/SraHdRiTZeQVv+mL7+6T4L4zcp/WDGMh/qRbG
+ mOJw==
+X-Gm-Message-State: ANhLgQ23vbtChdYlBf3GjPQGaZ6qLwDk1VfB8GH9M9upcdeVrjoL+MOK
+ E5PpK9JjAX69bHZGffTzb9M0yA==
+X-Google-Smtp-Source: ADFU+vsWbCh8e7ot3LQGH2zg1bgwU1AUXI8CJL97bju480ETGjnDsCiZtJz6DKw1vk1uawKDcMKYrg==
+X-Received: by 2002:a62:e20e:: with SMTP id a14mr5669133pfi.138.1583369864936; 
+ Wed, 04 Mar 2020 16:57:44 -0800 (PST)
+Received: from localhost ([2620:0:1000:2514:23a5:d584:6a92:3e3c])
+ by smtp.gmail.com with ESMTPSA id d82sm12867200pfd.187.2020.03.04.16.57.43
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 04 Mar 2020 16:57:43 -0800 (PST)
+Date: Wed, 04 Mar 2020 16:57:43 -0800 (PST)
+X-Google-Original-Date: Wed, 04 Mar 2020 16:28:27 PST (-0800)
+Subject: Re: [PATCH 2/8] riscv: add ARCH_HAS_SET_DIRECT_MAP support
+In-Reply-To: <20200217083223.2011-3-zong.li@sifive.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: zong.li@sifive.com
+Message-ID: <mhng-67b20408-35a0-4b4a-97cf-a64b81a69c92@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200304_165456_965233_5C6FC8CA 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20200304_165745_949844_908E0ACD 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -72,58 +96,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Heiko Carstens <heiko.carstens@de.ibm.com>,
- Linux Memory Management List <linux-mm@kvack.org>,
- Paul Mackerras <paulus@samba.org>, "H. Peter Anvin" <hpa@zytor.com>,
- linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
- linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
- Michael Ellerman <mpe@ellerman.id.au>,
- the arch/x86 maintainers <x86@kernel.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, linux-snps-arc@lists.infradead.org,
- Vasily Gorbik <gor@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A . Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- Vineet Gupta <vgupta@synopsys.com>, LKML <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
+ linux-kernel@vger.kernel.org, zong.li@sifive.com,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, 17 Feb 2020 00:32:17 PST (-0800), zong.li@sifive.com wrote:
+> Add set_direct_map_*() functions for setting the direct map alias for
+> the page to its default permissions and to an invalid state that cannot
+> be cached in a TLB. (See d253ca0c ("x86/mm/cpa: Add set_direct_map_*()
+> functions")) Add a similar implementation for RISC-V.
+>
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> ---
+>  arch/riscv/Kconfig                  |  1 +
+>  arch/riscv/include/asm/set_memory.h |  3 +++
+>  arch/riscv/mm/pageattr.c            | 24 ++++++++++++++++++++++++
+>  3 files changed, 28 insertions(+)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 76ed36543b3a..07bf1a7c0dd2 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -60,6 +60,7 @@ config RISCV
+>  	select HAVE_EBPF_JIT if 64BIT
+>  	select EDAC_SUPPORT
+>  	select ARCH_HAS_GIGANTIC_PAGE
+> +	select ARCH_HAS_SET_DIRECT_MAP
+>  	select ARCH_HAS_SET_MEMORY
+>  	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+>  	select SPARSEMEM_STATIC if 32BIT
+> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+> index 936f08063566..a9783a878dca 100644
+> --- a/arch/riscv/include/asm/set_memory.h
+> +++ b/arch/riscv/include/asm/set_memory.h
+> @@ -14,4 +14,7 @@ int set_memory_rw(unsigned long addr, int numpages);
+>  int set_memory_x(unsigned long addr, int numpages);
+>  int set_memory_nx(unsigned long addr, int numpages);
+>
+> +int set_direct_map_invalid_noflush(struct page *page);
+> +int set_direct_map_default_noflush(struct page *page);
+> +
+>  #endif /* _ASM_RISCV_SET_MEMORY_H */
+> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+> index fcd59ef2835b..7be6cd67e2ef 100644
+> --- a/arch/riscv/mm/pageattr.c
+> +++ b/arch/riscv/mm/pageattr.c
+> @@ -148,3 +148,27 @@ int set_memory_nx(unsigned long addr, int numpages)
+>  {
+>  	return __set_memory(addr, numpages, __pgprot(0), __pgprot(_PAGE_EXEC));
+>  }
+> +
+> +int set_direct_map_invalid_noflush(struct page *page)
+> +{
+> +	unsigned long start = (unsigned long)page_address(page);
+> +	unsigned long end = start + PAGE_SIZE;
+> +	struct pageattr_masks masks = {
+> +		.set_mask = __pgprot(0),
+> +		.clear_mask = __pgprot(_PAGE_PRESENT)
+> +	};
+> +
+> +	return walk_page_range(&init_mm, start, end, &pageattr_ops, &masks);
+> +}
+> +
+> +int set_direct_map_default_noflush(struct page *page)
+> +{
+> +	unsigned long start = (unsigned long)page_address(page);
+> +	unsigned long end = start + PAGE_SIZE;
+> +	struct pageattr_masks masks = {
+> +		.set_mask = PAGE_KERNEL,
+> +		.clear_mask = __pgprot(0)
+> +	};
+> +
+> +	return walk_page_range(&init_mm, start, end, &pageattr_ops, &masks);
+> +}
 
-
-On 03/04/2020 04:59 PM, Qian Cai wrote:
-> 
-> 
->> On Mar 4, 2020, at 1:49 AM, Christophe Leroy <christophe.leroy@c-s.fr> wrote:
->>
->> AFAIU, you are not taking an interrupt here. You are stuck in the pte_update(), most likely due to nested locks. Try with LOCKDEP ?
-> 
-> Not exactly sure what did you mean here, but the kernel has all lockdep enabled and did not flag anything here.
-
-As the patch has been dropped from Linux next (next-20200304) perhaps in
-order to fold back the __pa_symbol() fix [1], so I am planning to respin
-the original patch once more as V15 while adding Qian's signed off by for
-the powerpc part. For now lets enable radix MMU ppc64 along with existing
-ppc32. As PPC_RADIX_MMU depends on PPC_BOOK3S_64, the following change
-should be good enough ?
-
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 497b7d0b2d7e..8d5ae14c5d4c 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -116,6 +116,7 @@  config PPC
- 	#
- 	select ARCH_32BIT_OFF_T if PPC32
- 	select ARCH_HAS_DEBUG_VIRTUAL
-+	select ARCH_HAS_DEBUG_VM_PGTABLE if (PPC_RADIX_MMU || PPC32)
- 	select ARCH_HAS_DEVMEM_IS_ALLOWED
- 	select ARCH_HAS_ELF_RANDOMIZE
- 	select ARCH_HAS_FORTIFY_SOURCE
-
-[1] https://patchwork.kernel.org/patch/11407715/
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
