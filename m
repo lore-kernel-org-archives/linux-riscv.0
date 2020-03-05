@@ -6,85 +6,67 @@ X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C5257C3F2D2
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2020 15:55:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EE005C3F2D2
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2020 15:57:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9A3EF20848
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2020 15:55:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BBE452072D
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2020 15:57:45 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ctg1pr/f";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="oDU5Pv5T"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9A3EF20848
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TZDweQjv"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BBE452072D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
-	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=zlV2/HhklUPk+6HazhFg2c3NcHDRCugdQYzaRPS6yNU=; b=ctg1pr/fYWSGeg
-	iDIQ6/hEVM05yuKmZ4PJwRv5nnc4c3xp/6WKC3b9iDP2Ozu1PzH4VMzC4UPmaBfbNPF+oLXbEnV/s
-	kJDe5yYooofMNBh/b7Q5VNoXO48jOG9KqdcfIvTq+Y4pDXulrLVgyYp2UGXJfnbiCe3Jj0iD9pGea
-	enkKo8Z581lKfZf0ykOcJP8NyU8UP/fMdPFQwkNBp/wxkLi2SVlA/r1yUcc/UGei9T1AoxNyTmmFT
-	5wQAXjSRuSEyi4lkXr0QCLovLBJQidJ1cdwgmsWOon95h+1fA+RNgJd1SK5jU6prKKh2wycK4HZm+
-	7lsCYJRnfypVnonJRShQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=t7XhK3WbkpRhcGElkBXa8rYe7Rj/91Ur64dvi8C1PnU=; b=TZDweQjvgEXzbdOm0J9S8TfVY
+	5tdiW6sRe7V4X9QBNMO72UfZKfL3tpJUsFgOKwZSeiEMIbrxiQZ5uCoKJ9E5Z+4FzY1QJ34NSs8a2
+	cxwi9B6y/y52yidW5K+wBTmaKpSqd7S1bOQ63Y0QWu2Sf7aehWdzj6rzo21Xk2xXa1Vhpw4p42IKN
+	oIjvXPhseXJ2MjeR97izXzLYEVJkbN3zzwJrkfDPSE26/uxcv9QRWzdZgZT0sn30nhxqklMrdgE59
+	75Tk/uye95ahazuCUclUGGhTXvZAwD3P4j7neExFyDpD71MKpA0z9DtDtNB/pJmltllYIL8I6vMJu
+	AhNXIugEw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j9sqP-0005Hc-S3; Thu, 05 Mar 2020 15:55:29 +0000
-Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
+	id 1j9ssW-0005ds-RF; Thu, 05 Mar 2020 15:57:40 +0000
+Received: from mga09.intel.com ([134.134.136.24])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j9sqN-0005Ga-8Y
- for linux-riscv@lists.infradead.org; Thu, 05 Mar 2020 15:55:28 +0000
-Received: by mail-pj1-x1042.google.com with SMTP id o21so2423059pjs.0
- for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2020 07:55:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=zlV2/HhklUPk+6HazhFg2c3NcHDRCugdQYzaRPS6yNU=;
- b=oDU5Pv5Tq7eaDkdXZgiOnF2OrFlP5yNMtB7KGbTTN/Bon+6j0m3jnH5bSZGnDWBPGZ
- DPHh0SnpRCxrWkKm+jyrDnIeiK/wGA3oiSLBoX86vLkwwGlV9ytRFKSyIETYjl610/iA
- Gwdmez+Pq2qYts0kAvqLHLRctmWiVhyRfO5Oele2kYtm5nuFkTkBa2/MCTG91LXFaZuk
- A7JJQixojSCqudwflVfKOOJUgDZXKkZSwNavS/lAVo/Ga1Ty7Bblk5hk4aEKJ4+MDjy5
- eMhQLETOJiJ2Psrg4sei318QCkfAXFvX9/XQfVocIjeK3xREXHi92BnFrHCBKrvZKJ5+
- E8yw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=zlV2/HhklUPk+6HazhFg2c3NcHDRCugdQYzaRPS6yNU=;
- b=bw5ec2I5yQHDbAWqyks0J1Mxe2FemOX78azRciAZLscmKniVUtfF2//PJBgs6naaHT
- OQJc+E+ROR2djedKBQsY6kGtAZxDQwNoITn8+QQhUftXeP5dxxUYExmecbxfzzHwPjpj
- vgtmoxMKECznKT8Uc+i+vVAbcdiOYbFlVy9p5AnNztQgPyjBFPpTU9PxONfVKKjzRXJz
- tcRGC6krnjDIllkBM4QQwuo9N9RcGN4t6YxXWO90cJMPa/JJufzXFMnL2QSuhv2bTiMf
- CyDERSxlzeftl//zY5hNrkiObSIQHXRCro4wPtOKYoK8UCsiIQkXcIge+KFppqVLxngH
- 5GBw==
-X-Gm-Message-State: ANhLgQ1sIjXvQAQmYokbEGtQwilK36jKRg0WhETp7bykEjzM5QwXiKK9
- R9qJwVntIlBMlc6fd8Qzes4ydQ==
-X-Google-Smtp-Source: ADFU+vujL3wjPEssfVg2CK4Lcyyb6fMr4/WV3FRA1e4Tf9tofUg/l7ANxmbO8T6vy8+++Xmp2K6UxQ==
-X-Received: by 2002:a17:902:aa01:: with SMTP id
- be1mr8440330plb.293.1583423724799; 
- Thu, 05 Mar 2020 07:55:24 -0800 (PST)
-Received: from localhost ([2620:0:1000:2514:23a5:d584:6a92:3e3c])
- by smtp.gmail.com with ESMTPSA id v123sm7307086pfv.146.2020.03.05.07.55.23
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 05 Mar 2020 07:55:24 -0800 (PST)
-Date: Thu, 05 Mar 2020 07:55:24 -0800 (PST)
-X-Google-Original-Date: Thu, 05 Mar 2020 07:55:22 PST (-0800)
-Subject: Re: [PATCH 0/8] Support strict kernel memory permissions for security
-In-Reply-To: <20200217083223.2011-1-zong.li@sifive.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: zong.li@sifive.com
-Message-ID: <mhng-f31549a4-4c1b-4f9d-a034-2d0217bc1ecd@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
+ id 1j9ssS-0003oF-0p
+ for linux-riscv@lists.infradead.org; Thu, 05 Mar 2020 15:57:39 +0000
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+ by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 05 Mar 2020 07:53:33 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.70,518,1574150400"; d="scan'208";a="234452025"
+Received: from smile.fi.intel.com (HELO smile) ([10.237.68.40])
+ by orsmga008.jf.intel.com with ESMTP; 05 Mar 2020 07:53:27 -0800
+Received: from andy by smile with local (Exim 4.93)
+ (envelope-from <andriy.shevchenko@linux.intel.com>)
+ id 1j9soS-00792v-DX; Thu, 05 Mar 2020 17:53:28 +0200
+Date: Thu, 5 Mar 2020 17:53:28 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Daniel Borkmann <daniel@iogearbox.net>
+Subject: Re: [PATCH bpf-next v5 0/4] eBPF JIT for RV32G
+Message-ID: <20200305155328.GO1224808@smile.fi.intel.com>
+References: <20200305050207.4159-1-luke.r.nels@gmail.com>
+ <CAJ+HfNjrUxVqpBgC-WLHbZX7_7Gd-Lk7ghrmASTmaNySuXVUfg@mail.gmail.com>
+ <4633123d-dc61-ab79-d2ee-e0cef66e4cea@iogearbox.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <4633123d-dc61-ab79-d2ee-e0cef66e4cea@iogearbox.net>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200305_075527_354986_52477B46 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20200305_075738_691729_32AFA7A1 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,47 +78,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
- linux-kernel@vger.kernel.org, zong.li@sifive.com,
- Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Song Liu <songliubraving@fb.com>, linux-doc@vger.kernel.org,
+ Yonghong Song <yhs@fb.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Alexei Starovoitov <ast@kernel.org>, Netdev <netdev@vger.kernel.org>,
+ Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
+ linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Jakub Kicinski <kuba@kernel.org>,
+ Andrii Nakryiko <andriin@fb.com>, Xi Wang <xi.wang@gmail.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Luke Nelson <luke.r.nels@gmail.com>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+ =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn.topel@gmail.com>,
+ LKML <linux-kernel@vger.kernel.org>, Martin KaFai Lau <kafai@fb.com>,
+ Stephen Hemminger <stephen@networkplumber.org>,
+ Luke Nelson <lukenels@cs.washington.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, bpf <bpf@vger.kernel.org>,
+ "David S. Miller" <davem@davemloft.net>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Feb 2020 00:32:15 PST (-0800), zong.li@sifive.com wrote:
-> The main purpose of this patch series is changing the kernel mapping permission
-> , make sure that code is not writeable, data is not executable, and read-only
-> data is neither writable nor executable.
->
-> This patch series also supports the relevant implementations such as
-> ARCH_HAS_SET_MEMORY, ARCH_HAS_SET_DIRECT_MAP,
-> ARCH_SUPPORTS_DEBUG_PAGEALLOC and DEBUG_WX.
->
-> Zong Li (8):
->   riscv: add ARCH_HAS_SET_MEMORY support
->   riscv: add ARCH_HAS_SET_DIRECT_MAP support
->   riscv: add ARCH_SUPPORTS_DEBUG_PAGEALLOC support
->   riscv: move exception table immediately after RO_DATA
->   riscv: add alignment for text, rodata and data sections
->   riscv: add STRICT_KERNEL_RWX support
->   riscv: add DEBUG_WX support
->   riscv: add two hook functions of ftrace
->
->  arch/riscv/Kconfig                  |   6 +
->  arch/riscv/Kconfig.debug            |  30 +++++
->  arch/riscv/include/asm/ptdump.h     |   6 +
->  arch/riscv/include/asm/set_memory.h |  41 ++++++
->  arch/riscv/kernel/ftrace.c          |  18 +++
->  arch/riscv/kernel/vmlinux.lds.S     |  12 +-
->  arch/riscv/mm/Makefile              |   1 +
->  arch/riscv/mm/init.c                |  47 +++++++
->  arch/riscv/mm/pageattr.c            | 187 ++++++++++++++++++++++++++++
->  9 files changed, 344 insertions(+), 4 deletions(-)
->  create mode 100644 arch/riscv/include/asm/set_memory.h
->  create mode 100644 arch/riscv/mm/pageattr.c
+On Thu, Mar 05, 2020 at 04:19:27PM +0100, Daniel Borkmann wrote:
+> On 3/5/20 6:40 AM, Björn Töpel wrote:
+> > On Thu, 5 Mar 2020 at 06:02, Luke Nelson <lukenels@cs.washington.edu> wrote:
+> > > 
+> > > This series adds an eBPF JIT for 32-bit RISC-V (RV32G) to the kernel,
+> > > adapted from the RV64 JIT and the 32-bit ARM JIT.
+> > > 
+> > 
+> > Nice work! Thanks for hanging in there!
+> > 
+> > For the series,
+> > Acked-by: Björn Töpel <bjorn.topel@gmail.com>
+> > Reviewed-by: Björn Töpel <bjorn.topel@gmail.com>
+> 
+> Applied, thanks everyone!
 
-Sorry, I had to run last night without quite finishing the patch set.  Just so
-we're on the same page: there's some issues with the patch set, I'm assuming
-you're submitting a v2 so I'm dropping this from my inbox.
+> P.s.: I fixed the MAINTAINERS entry in the last one to have both netdev and bpf
+> to be consistent with all the other JIT entries there.
 
-Thanks!
+Does parse-maintainer.pl happy about your changes?
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
