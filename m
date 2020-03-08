@@ -2,21 +2,22 @@ Return-Path: <SRS0=d4BA=4Z=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-7.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+	SPF_PASS,UNWANTED_LANGUAGE_BODY,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1E15AC10DCE
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  8 Mar 2020 09:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E55B2C10F27
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  8 Mar 2020 09:53:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E8E3420866
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  8 Mar 2020 09:53:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BACEE2087F
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun,  8 Mar 2020 09:53:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EO4tXfWe";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="COk/YYhD"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E8E3420866
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sFeLL2vO";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="DZ3cuu0c"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BACEE2087F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,44 +26,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:MIME-Version:
 	Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AyFxeAew0FTSG5aQcTLN+lyy2ZxIwF6LrhjGw/V72YE=; b=EO4tXfWexzMko8
-	u2WmEQEVZVxGir4ETcNLbtWWBGLcuPrFzPAFd36XcYR2YG2pYIS7deGcIA1+Hzm/1PxqVsSeSjOuR
-	Wj13tWtlvu3vSShBKESMp7NHV9pjWrWgCsdp2KDwiELWNaC6Ct1+p7r0OZE/c1OTxthkKROvApJ31
-	4UYk6mb0BLVlyFahu7du0PQr7zJmCP4UTwQdpF7v2pGN5Aqw6TaopjtCH1oQgLLiV8/VgRbal/9Mf
-	cqUGnpGygazW/Nsa610b/dPSVCwLlMoVhWVn45mBMu4zydHg5AlP5C+TxEapc+SlJWuu0MA+K8dN0
-	AKL1xtTuponmbWun3pHg==;
+	List-Owner; bh=u0XP57eCeD96urC5Sd1jDuxkN6QGOnWt9kxFK0THATU=; b=sFeLL2vOdpsi9w
+	nRMEr9lTfDmmVfbols4PVspnq0QYvZ0dvzbZ690pQLAl9xAAZeqLBJ8v50aCtz/xk/ysXJQ92rw0R
+	9njEPbziCC4mTe0rKdTo+5ThlOwePDdLOXjlPyKwhPcf7Ps4YDWeusb8wskvJ1yXMgV25vrjZW0lF
+	ugStJ1oQ6FG3+YGy5K77hpgTSsuCdtxMAZwJqPbDm0rhUia0CMIeUbZssYen7bbzEcBVylvS0D3WW
+	TsWiJOUJSGYCxAFAJ/p7hU1vl3V98s01d9C6eOFwDerSh6nhVmoH2sAe+iO0Ej8ksUprow24H7xv/
+	UahdxHXXlbX+JfSKZt0A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jAscm-0002Ie-Gx; Sun, 08 Mar 2020 09:53:32 +0000
+	id 1jAscq-0002Wv-MY; Sun, 08 Mar 2020 09:53:36 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jAsch-00027n-Rd
- for linux-riscv@lists.infradead.org; Sun, 08 Mar 2020 09:53:29 +0000
+ id 1jAsck-0002C5-Ff
+ for linux-riscv@lists.infradead.org; Sun, 08 Mar 2020 09:53:31 +0000
 Received: from localhost.localdomain (unknown [89.208.247.74])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 473AB2084E;
- Sun,  8 Mar 2020 09:53:25 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id EDB6B20828;
+ Sun,  8 Mar 2020 09:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1583661207;
- bh=v/rkpyCiyVkM4xjp/Bzdx6fW3ahc9p7Z2LZmcrKYbCo=;
+ s=default; t=1583661210;
+ bh=5bpP4wMCQfaX+IKe4Ot/2AMhW1qZtJCQhDHd5qDbi0s=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=COk/YYhD/miww0ROVSzFmR11LP/jEXVV6+FaX3E84SFuHxHnu2Yp+Unmbs4LAHhkS
- yCU3abWp7tROP9Re/rE1nKGxQio1BPicgCzb1HfG2OAxB2Phy6iMWjW4A8BQ5Ifv+O
- OG8x72VcAXMonY72tx637xB9Slgymapas1zu1MTM=
+ b=DZ3cuu0ct5yXdL2CfQe9Xou1gpghhwYdyQxzpU69tPebqcnlA6BwdgX/Q7dopJX6P
+ p80MIGbibANWcaQod6FczX+BWexkzJOY8AZN6yaySIsljcvkMF50NuUUaAJmdTpswt
+ HvvmBYjYFuOr8dXNrJ8XTUhrpnCKtTXRIn970HJo=
 From: guoren@kernel.org
 To: paul.walmsley@sifive.com, palmer@dabbelt.com, Anup.Patel@wdc.com,
  greentime.hu@sifive.com
-Subject: [RFC PATCH V3 03/11] riscv: Extending cpufeature.c to detect
- V-extension
-Date: Sun,  8 Mar 2020 17:49:46 +0800
-Message-Id: <20200308094954.13258-4-guoren@kernel.org>
+Subject: [RFC PATCH V3 04/11] riscv: Add CSR defines related to VECTOR
+ extension
+Date: Sun,  8 Mar 2020 17:49:47 +0800
+Message-Id: <20200308094954.13258-5-guoren@kernel.org>
 X-Mailer: git-send-email 2.17.0
 In-Reply-To: <20200308094954.13258-1-guoren@kernel.org>
 References: <20200308094954.13258-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200308_015327_927495_2D0B0882 
-X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-CacheID: sfid-20200308_015330_572882_AC2CECD7 
+X-CRM114-Status: UNSURE (   7.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -83,51 +84,56 @@ Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.i
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-From: Guo Ren <ren_guo@c-sky.com>
-
-Current cpufeature.c doesn't support detecting V-extension, because
-"rv64" also contain a 'v' letter and we need to skip it.
+Follow the spec to define the regs' bits and regs' number.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- arch/riscv/include/uapi/asm/hwcap.h | 1 +
- arch/riscv/kernel/cpufeature.c      | 4 +++-
- 2 files changed, 4 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/csr.h | 17 +++++++++++++++--
+ 1 file changed, 15 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/uapi/asm/hwcap.h b/arch/riscv/include/uapi/asm/hwcap.h
-index dee98ee28318..a913e9a38819 100644
---- a/arch/riscv/include/uapi/asm/hwcap.h
-+++ b/arch/riscv/include/uapi/asm/hwcap.h
-@@ -21,5 +21,6 @@
- #define COMPAT_HWCAP_ISA_F	(1 << ('F' - 'A'))
- #define COMPAT_HWCAP_ISA_D	(1 << ('D' - 'A'))
- #define COMPAT_HWCAP_ISA_C	(1 << ('C' - 'A'))
-+#define COMPAT_HWCAP_ISA_V	(1 << ('V' - 'A'))
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index 435b65532e29..49b93b638680 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -24,6 +24,12 @@
+ #define SR_FS_CLEAN	_AC(0x00004000, UL)
+ #define SR_FS_DIRTY	_AC(0x00006000, UL)
  
- #endif /* _UAPI_ASM_RISCV_HWCAP_H */
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index a5ad00043104..c8527d770c98 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -30,6 +30,7 @@ void riscv_fill_hwcap(void)
- 	isa2hwcap['f'] = isa2hwcap['F'] = COMPAT_HWCAP_ISA_F;
- 	isa2hwcap['d'] = isa2hwcap['D'] = COMPAT_HWCAP_ISA_D;
- 	isa2hwcap['c'] = isa2hwcap['C'] = COMPAT_HWCAP_ISA_C;
-+	isa2hwcap['v'] = isa2hwcap['V'] = COMPAT_HWCAP_ISA_V;
++#define SR_VS           _AC(0x01800000, UL) /* Vector Status */
++#define SR_VS_OFF       _AC(0x00000000, UL)
++#define SR_VS_INITIAL   _AC(0x00800000, UL)
++#define SR_VS_CLEAN     _AC(0x01000000, UL)
++#define SR_VS_DIRTY     _AC(0x01800000, UL)
++
+ #define SR_XS		_AC(0x00018000, UL) /* Extension Status */
+ #define SR_XS_OFF	_AC(0x00000000, UL)
+ #define SR_XS_INITIAL	_AC(0x00008000, UL)
+@@ -31,9 +37,9 @@
+ #define SR_XS_DIRTY	_AC(0x00018000, UL)
  
- 	elf_hwcap = 0;
+ #ifndef CONFIG_64BIT
+-#define SR_SD		_AC(0x80000000, UL) /* FS/XS dirty */
++#define SR_SD		_AC(0x80000000, UL) /* FS/VS/XS dirty */
+ #else
+-#define SR_SD		_AC(0x8000000000000000, UL) /* FS/XS dirty */
++#define SR_SD		_AC(0x8000000000000000, UL) /* FS/VS/XS dirty */
+ #endif
  
-@@ -44,7 +45,8 @@ void riscv_fill_hwcap(void)
- 			continue;
- 		}
+ /* SATP flags */
+@@ -102,6 +108,13 @@
+ #define CSR_MIP			0x344
+ #define CSR_MHARTID		0xf14
  
--		for (i = 0; i < strlen(isa); ++i)
-+		/* Skip rv64/rv32 to support v/V:vector */
-+		for (i = 4; i < strlen(isa); ++i)
- 			this_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
- 
- 		/*
++#define CSR_VSTART		0x8
++#define CSR_VXSAT		0x9
++#define CSR_VXRM		0xa
++#define CSR_VL			0xc20
++#define CSR_VTYPE		0xc21
++#define CSR_VLENB		0xc22
++
+ #ifdef CONFIG_RISCV_M_MODE
+ # define CSR_STATUS	CSR_MSTATUS
+ # define CSR_IE		CSR_MIE
 -- 
 2.17.0
 
