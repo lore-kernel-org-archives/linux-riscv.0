@@ -2,92 +2,89 @@ Return-Path: <SRS0=yxlK=42=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 00FC3C18E5B
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 049D4C18E7A
 	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2020 16:56:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C7A0220727
+	by mail.kernel.org (Postfix) with ESMTPS id CBF6B20828
 	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2020 16:56:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gb2DY+VH";
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="BbPLO03d"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C7A0220727
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EaRHpDQC";
+	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="mF9Mfr/8"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CBF6B20828
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vHHEfisV2sac3yFCwT8HncLiEjhV+vQXrDf+i+Lfo5s=; b=gb2DY+VHiVjONR
-	GvgCJLg5OMFXO4VFzC5ASaahXEA70qobC4Gc3yLxkLZAUel4cal18Y3UiZnXM0/3JiZ1H7gIJesEZ
-	ANsgFqDybvOzJQ9ab0MHmZDXXTSFJNwI82UHxvB/Uau1mS1Sv01sh19pbXpEO7BrxheAnQynCQopb
-	iVt4bjPnSB3uCA/rnSYI1r4t4qMx9fDUcjNsGAzAglrt7prc9LS+bOK5NZEckx7013BVxuO/lc52/
-	sNICt9ZoIkScwjRYeb91ero3p4NH3zaW3bdU3JN/Ki9rJPjd9RcKAzWS2JszwK9QogOwiZTOGvlBs
-	4PkcNDGrU/O2ZUEAgN7g==;
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YKC9LNaZtyUY/Ff2305WgJwZtiH/JDgzAH1pAGoBoKg=; b=EaRHpDQCBeyj6F
+	W2Aj11GWH9PyMaG9hAefp735c/HgjmdHxF+Bg1EK+BMRe1LX2NjibyjdY0eIElkwEyp8m0N5GHV68
+	TBCmwm40GvXeGz3SgMFksYjrDkLSVfYX8wLIVTA35EUgm06qlmkkB6uD5Dr3bRvPP7ZXzVGwZ/l18
+	/yuUtF1pWk4y58wydv6Or49MPUtaotPccvV7BW5jTTsJ/7rl65siFlVXjOHAXQK/Tafo9ZzlltvDJ
+	lQC7UOetqoWDERecwjvjHI8X3ARxubgdqVW2oOCzUv0HH45H29rimlezgHGuJbwdZrQpsuQfW5uzx
+	JM1q70QaPzXzAZ8K+jLA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jBLh7-0001q4-Mt; Mon, 09 Mar 2020 16:55:57 +0000
-Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
+	id 1jBLh3-0001lI-SE; Mon, 09 Mar 2020 16:55:53 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jBLh5-0001mx-I7
- for linux-riscv@lists.infradead.org; Mon, 09 Mar 2020 16:55:56 +0000
-Received: by mail-pj1-x1042.google.com with SMTP id ca13so114919pjb.2
- for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2020 09:55:55 -0700 (PDT)
+ id 1jBLh1-0001kF-Pb
+ for linux-riscv@lists.infradead.org; Mon, 09 Mar 2020 16:55:53 +0000
+Received: by mail-pl1-x641.google.com with SMTP id g12so4225078plo.3
+ for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2020 09:55:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=vHHEfisV2sac3yFCwT8HncLiEjhV+vQXrDf+i+Lfo5s=;
- b=BbPLO03dyCa+SyiNdur03wskOA1e08hVCPGslDAS1VUBdOVZO6yyoMP9lPpTBQcmcs
- YIJMzo/kcYik2akSNkRjdEXgA6A68YhK0XKtJV+feTLUp2TBVgslgOYf4DU/h73984p6
- Lr39AvgO+AMKpJzkJXt4oHLkSiIPda9FtnVTpg909nn54MLvY8BPlnAWnAhjblrg/bni
- iJLQY1p2iilrIfTO3xwxe7Q2FfX4JGSfIQbRFSwjgKdBddKQl/bk1JaUDPiMLppDiGly
- qJMb+e5NkKIKt9emfqKxAqjXalN22WWABKOrz4V0ZGPAfQARUw10zya+lHoq9lqFhWXZ
- 2RWA==
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=YKC9LNaZtyUY/Ff2305WgJwZtiH/JDgzAH1pAGoBoKg=;
+ b=mF9Mfr/83Mi60PJDifAAgN2akM9nEfNqk9CHt5jlMY4lyvbmaTza7qEmUrnkqWu/87
+ sdoudwgpopvaiVKUindhwzWAUUFvQrua85KAxeRhVvmHl1bvM4dQqqf50bCU50nQ6at+
+ Te7+0a/h9Pwf9iIdxhJPJvFd0U8Hpf01Z41NLsSlRvv+8P8FQ6xNa7lT+l0WlFh4XJbI
+ IyXTvv105PQQC8xZuBcKi20Y2rC0AY5y12jIoyR5SyiISQBWoQ1KLl4iqZ2WJOYI7iZ1
+ ZvVW1QUQiiV+piqh0Et7/UnA120i6gC0R2iNFkENXxIN1fRjl86xLib0acsjL1niES5X
+ 5bJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=vHHEfisV2sac3yFCwT8HncLiEjhV+vQXrDf+i+Lfo5s=;
- b=g2+zrL+BnonSyVWfzsHkqbvpdQNs2mo0rYJna2OCTT7rkKD671J0ukUPiqNlvcSj63
- ox3PDY12Aq+pxshPVdsV/EeDDOgQoekzYUNyISHUtf7aXEN11Z+218oRKmUldfRbzWqW
- VHG7VNGOa7KZUZ3iSNivGdjCiQmx+XTo8V7do8ZnXlKLaPZdFFd/JV6p+Z8+Vgx2UN7L
- cuLX+B+7qHQcW1+cu3CE1H5ixNzjJ5nwi3WVo8FFxqIY72Uv/fPDK4EQ44EfVk+y/Nxm
- IJUPNYuIiRdii+ToTNloShqetsDqutLvQlr7y9EdSJ0R39U6e3axf9UWJtgYDPWtnb4T
- qRHw==
-X-Gm-Message-State: ANhLgQ0BPJFU+a1ukFgpPKgwVphpDZ1eqBLhfE7BA8/RVMtMCvv2POb0
- 59ffBclVfW6Eb1fSNUiBt5QjIg==
-X-Google-Smtp-Source: ADFU+vugSzzgoz7P/m6okoBnNDkn/m4RKfS4UaZxqEjoQ8tY5gOY5KCpG8thfmum+g91BYz9JrNrNw==
-X-Received: by 2002:a17:902:a409:: with SMTP id
- p9mr17015682plq.211.1583772955012; 
- Mon, 09 Mar 2020 09:55:55 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=YKC9LNaZtyUY/Ff2305WgJwZtiH/JDgzAH1pAGoBoKg=;
+ b=rQ/3gRiFZSQRlqEtYkX+0iGsS1CKwmYMJ9IOZusKeSGIeRwnsOXefzYFLOnBL+6aQE
+ INLxBfmOBWC2QqqwCQ6Hdbno0P1iZ+bPWuGKmb7X81U4Zbbx0xl61AD0UbmJ1y29/lvg
+ X49M4hsmmkjbweTn9dNw7oflWysOhg5O9FQEa1ZrDNmZS0jdXADX9RNvZDUfblmI5G6O
+ y8rApyk4omwNEOiRoUPfMrhtxNZI5XZyVYTDamR5z/OvwFOzlEGz6XPPmZatZKOiPcqS
+ YL7jMIXVVUn/S4EjZmv3ptkGuTMfl8JSMbui7LUKrr1t22hriohzlne4G36e88eqUVfG
+ qA1w==
+X-Gm-Message-State: ANhLgQ144i7IhzLqdD4ssK5YbcMpWLZtw8tpYhJ8x3bdGLAn2a6ZTDti
+ YcB9CYXu4JQjec8Kn7u9nm6QkA==
+X-Google-Smtp-Source: ADFU+vtfAu9oURnvRZb4wdaOx8JAoyHiyo47BPzGc96sPN8/2lneZdc9XKADgW+HjDDeUytpou7qnA==
+X-Received: by 2002:a17:902:8d93:: with SMTP id
+ v19mr16980723plo.327.1583772951184; 
+ Mon, 09 Mar 2020 09:55:51 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (220-132-236-182.HINET-IP.hinet.net. [220.132.236.182])
- by smtp.gmail.com with ESMTPSA id cm2sm104013pjb.23.2020.03.09.09.55.53
+ by smtp.gmail.com with ESMTPSA id cm2sm104013pjb.23.2020.03.09.09.55.48
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 09 Mar 2020 09:55:54 -0700 (PDT)
+ Mon, 09 Mar 2020 09:55:50 -0700 (PDT)
 From: Zong Li <zong.li@sifive.com>
 To: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/9] riscv: add ARCH_HAS_SET_DIRECT_MAP support
-Date: Tue, 10 Mar 2020 00:55:37 +0800
-Message-Id: <e9850f9bf5a38be492fd57bbd5f1d7f8f7578cc5.1583772574.git.zong.li@sifive.com>
+Subject: [PATCH v3 0/9] Support strict kernel memory permissions for security
+Date: Tue, 10 Mar 2020 00:55:35 +0800
+Message-Id: <cover.1583772574.git.zong.li@sifive.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1583772574.git.zong.li@sifive.com>
-References: <cover.1583772574.git.zong.li@sifive.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200309_095555_604946_527C1AF2 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200309_095551_879934_68DD1377 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -103,74 +100,54 @@ Cc: Zong Li <zong.li@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add set_direct_map_*() functions for setting the direct map alias for
-the page to its default permissions and to an invalid state that cannot
-be cached in a TLB. (See d253ca0c ("x86/mm/cpa: Add set_direct_map_*()
-functions")) Add a similar implementation for RISC-V.
+The main purpose of this patch series is changing the kernel mapping permission
+, make sure that code is not writeable, data is not executable, and read-only
+data is neither writable nor executable.
 
-Signed-off-by: Zong Li <zong.li@sifive.com>
----
- arch/riscv/Kconfig                  |  1 +
- arch/riscv/include/asm/set_memory.h |  3 +++
- arch/riscv/mm/pageattr.c            | 24 ++++++++++++++++++++++++
- 3 files changed, 28 insertions(+)
+This patch series also supports the relevant implementations such as
+ARCH_HAS_SET_MEMORY, ARCH_HAS_SET_DIRECT_MAP,
+ARCH_SUPPORTS_DEBUG_PAGEALLOC and DEBUG_WX.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 9ab592aa1b5f..71fabb0ffdbe 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -60,6 +60,7 @@ config RISCV
- 	select HAVE_EBPF_JIT if 64BIT
- 	select EDAC_SUPPORT
- 	select ARCH_HAS_GIGANTIC_PAGE
-+	select ARCH_HAS_SET_DIRECT_MAP
- 	select ARCH_HAS_SET_MEMORY
- 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
- 	select SPARSEMEM_STATIC if 32BIT
-diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-index 79a810f0f38b..620d81c372d9 100644
---- a/arch/riscv/include/asm/set_memory.h
-+++ b/arch/riscv/include/asm/set_memory.h
-@@ -21,4 +21,7 @@ static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
- static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
- #endif
- 
-+int set_direct_map_invalid_noflush(struct page *page);
-+int set_direct_map_default_noflush(struct page *page);
-+
- #endif /* _ASM_RISCV_SET_MEMORY_H */
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index fcd59ef2835b..7be6cd67e2ef 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -148,3 +148,27 @@ int set_memory_nx(unsigned long addr, int numpages)
- {
- 	return __set_memory(addr, numpages, __pgprot(0), __pgprot(_PAGE_EXEC));
- }
-+
-+int set_direct_map_invalid_noflush(struct page *page)
-+{
-+	unsigned long start = (unsigned long)page_address(page);
-+	unsigned long end = start + PAGE_SIZE;
-+	struct pageattr_masks masks = {
-+		.set_mask = __pgprot(0),
-+		.clear_mask = __pgprot(_PAGE_PRESENT)
-+	};
-+
-+	return walk_page_range(&init_mm, start, end, &pageattr_ops, &masks);
-+}
-+
-+int set_direct_map_default_noflush(struct page *page)
-+{
-+	unsigned long start = (unsigned long)page_address(page);
-+	unsigned long end = start + PAGE_SIZE;
-+	struct pageattr_masks masks = {
-+		.set_mask = PAGE_KERNEL,
-+		.clear_mask = __pgprot(0)
-+	};
-+
-+	return walk_page_range(&init_mm, start, end, &pageattr_ops, &masks);
-+}
+Changes in v3:
+ - Fix build error on nommu configuration. We already support nommu on
+   RISC-V, so we should consider nommu case and test not only rv32/64,
+   but also nommu.
+
+Changes in v2:
+ - Use _data to specify the start of data section with write permission.
+ - Change ftrace patch text implementaion.
+ - Separate DEBUG_WX patch to another patchset.
+
+Zong Li (9):
+  riscv: add ARCH_HAS_SET_MEMORY support
+  riscv: add ARCH_HAS_SET_DIRECT_MAP support
+  riscv: add ARCH_SUPPORTS_DEBUG_PAGEALLOC support
+  riscv: move exception table immediately after RO_DATA
+  riscv: add alignment for text, rodata and data sections
+  riscv: add STRICT_KERNEL_RWX support
+  riscv: add macro to get instruction length
+  riscv: introduce interfaces to patch kernel code
+  riscv: patch code by fixmap mapping
+
+ arch/riscv/Kconfig                  |   6 +
+ arch/riscv/include/asm/bug.h        |   8 ++
+ arch/riscv/include/asm/fixmap.h     |   2 +
+ arch/riscv/include/asm/patch.h      |  12 ++
+ arch/riscv/include/asm/set_memory.h |  48 +++++++
+ arch/riscv/kernel/Makefile          |   4 +-
+ arch/riscv/kernel/ftrace.c          |  13 +-
+ arch/riscv/kernel/patch.c           | 120 ++++++++++++++++++
+ arch/riscv/kernel/traps.c           |   3 +-
+ arch/riscv/kernel/vmlinux.lds.S     |  11 +-
+ arch/riscv/mm/Makefile              |   2 +-
+ arch/riscv/mm/init.c                |  44 +++++++
+ arch/riscv/mm/pageattr.c            | 187 ++++++++++++++++++++++++++++
+ 13 files changed, 445 insertions(+), 15 deletions(-)
+ create mode 100644 arch/riscv/include/asm/patch.h
+ create mode 100644 arch/riscv/include/asm/set_memory.h
+ create mode 100644 arch/riscv/kernel/patch.c
+ create mode 100644 arch/riscv/mm/pageattr.c
+
 -- 
 2.25.1
 
