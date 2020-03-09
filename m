@@ -2,97 +2,91 @@ Return-Path: <SRS0=yxlK=42=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 95466C10F27
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2020 13:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8D405C18E5C
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2020 16:56:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 603BF20848
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2020 13:53:00 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 58A3D20727
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2020 16:56:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dK8flmOK";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="bskPpamX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 603BF20848
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="l5eViQwn";
+	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="GByup/CP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 58A3D20727
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PfZu5RD0EkiRIzyfyoJo3cq7qDSD4XfrrbjoyTCBf4U=; b=dK8flmOKOAbqNc
-	u5BfB8T4icVInuq47TclER/cQo/CV5gAXAx5e3zHMLBx9gib+pZ9XodJhCqov1Y542/c1nlBhcEMM
-	GvwtCjDCK87gTh9/rSBwzAZoVUEa1e0/+uu8UXMkB9XZ/ugQUdxUOr1Ke+39Xs31kfkGzRAQc/Jz8
-	ntXz6cN2Qu5Lg8U89tYYTZWB4qOLXWf9S41SAyk52pq7dPQ0tFdwd263F4891jN0v4dNYJE6YtUIO
-	awaijgB0p8+L5eMkZF4JL5z0AomBiXyqQR/AyKGThx1J9ZDaYLOPfUTzpmPpkcRC5kYmHk4E1jx4o
-	43ybEHwR590c7+4b6L8g==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=t+sOri2FxRcWtNEoCzFhDA9PpUDCsy8ZKbuRwF8DnYo=; b=l5eViQwnjQ5zlx
+	rXCMkeKS5+WBVYnSN+Y07BSNdODMJSeNmec51VI5GL1raBiZEV3HhpPd7bM43sfrwth76pEJhv8i+
+	CAgaA+rUoUeH3P/W7fBvB64mpxv4jcFmYPEnT7cKreetcJ9vbE6HaJMoBtr51oEkaxy90Mps0cGIL
+	M1uUYndci3dLYCN+iZ35Y/ZAH+IXlwaSmmIFw+Wl8kNfjxRZgiyCjvtYohEXaT7rinAdZAkKuU3sF
+	Y/rNf+kkuHUaXxHXSLBBNFy8e65u+CB/1JAZ8DKuGxnaCDbPrmvcBl0MV4NenoOUDcUVzS+4vFSaw
+	uxoExNjhDuXAN7PIomaQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jBIpy-0007Xd-MK; Mon, 09 Mar 2020 13:52:54 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1jBLh5-0001n2-Hk; Mon, 09 Mar 2020 16:55:55 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jBIpw-0007X8-NQ
- for linux-riscv@lists.infradead.org; Mon, 09 Mar 2020 13:52:54 +0000
-Received: by mail-wr1-x441.google.com with SMTP id v4so11262054wrs.8
- for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2020 06:52:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=PfZu5RD0EkiRIzyfyoJo3cq7qDSD4XfrrbjoyTCBf4U=;
- b=bskPpamXDjt6HermMBgC7riSz1e6tedwQyK04CGOiWZ9CavV1oDf8Yvo+ixJagBjsO
- vbGjtJ33rJ2PpBPjMruYDD6MM6t/ph3vYbww5KZDzbsz2FiOdskBi1ESKuCr/XKw5chi
- ewp5cPwop40x0qJ4s4ojUyX8g0dPFta/q6ZFFEfHIny41ZIHe9up72XbU4RGhM7KNv5p
- OKHoAlhSAf4oMcbACZh4gEExYMey+nqEhBTNum+A2UghGiFIhkuO/WSW3ZgReXYjFuWC
- crWSNFaqh/Oz8ZvCo2QMhgQeJfJdHl4Qj+pL7CSL9dXcY8t88julw7HokOACfWIocxM8
- fyhA==
+ id 1jBLh3-0001l4-HK
+ for linux-riscv@lists.infradead.org; Mon, 09 Mar 2020 16:55:55 +0000
+Received: by mail-pl1-x641.google.com with SMTP id t3so1960258plz.9
+ for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2020 09:55:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=t+sOri2FxRcWtNEoCzFhDA9PpUDCsy8ZKbuRwF8DnYo=;
+ b=GByup/CPxw6+uWC5i9i57G+tx1/0qlQ9mxB7ym/z04BJBTDe2BuGL0UaFnTuXDE0+y
+ DxroElj9BenJf8LoT5q+Y45ceFnWVsFVkdeC4vOci7KdXsbvl+aFZpyQ/P5AnoUEw+Tz
+ 0XcdDnt5IQ606O/Vmj7QBnpSZW68EfS9DXw6OoOnuUrp3aEqlZybVs83SkN8NuyrN6Av
+ jNfjOx0d6BjtM//WlXKEBUwRGnwwpkW8Q1OLzxZaXpaPn1CqJb2USdY9XdB8H9V5dMee
+ TFWDLtuTpGEvIG3ub6zYV7elzrrhfEDFcRKN+rdtzZNi3LcLRIrCGu7sXqbdGpgKlj3d
+ g+Tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=PfZu5RD0EkiRIzyfyoJo3cq7qDSD4XfrrbjoyTCBf4U=;
- b=KDFfnufnwlbxq8o7x09zt+E5AJef3MjCfv93bjVq0ruebJ7lyT+neyCCn+XaxH49ag
- 1UW1cVWDP0+pETerOBcL1wLqMOZ7zUhzqXaCVek4nUTjUsgOfynv0XosU0zMy/wSNJTe
- 9EgfcFJjyMEuuALp7SSwFmdjXkXuYa0N+2UrUb/9dKgMukEghMp8RLrSS1FWTD0eesWB
- e2smM3hl1483HR+IVneAlk4UFc5uDXdLwv+W3fr9XjdT1X4VZoshfu0UC7yu8iTWLTOz
- o4bPYUjbtPLvSe1WFWLd08mLmw2yLLCa2H2uS5/FV/kvm8mx3wsvofbU9bxq4XIEFPAY
- Mrlg==
-X-Gm-Message-State: ANhLgQ1KkBPZvMwI8r62OiZE5UUTPfZDyO3036HeXOHcTzItHytD+dbl
- wnFoMiaPwvIBSeLergCFngCCCajZ+IE=
-X-Google-Smtp-Source: ADFU+vsAKabuIQXOSE7o3xg7D222ujCIl4Yh+N8hP4yA3DJUzAA3XMts4YjRQ/egv8e3+zEZfzmuxg==
-X-Received: by 2002:a5d:4b82:: with SMTP id b2mr21302349wrt.102.1583761971175; 
- Mon, 09 Mar 2020 06:52:51 -0700 (PDT)
-Received: from [192.168.86.34]
- (cpc89974-aztw32-2-0-cust43.18-1.cable.virginm.net. [86.30.250.44])
- by smtp.googlemail.com with ESMTPSA id v20sm9940563wrv.17.2020.03.09.06.52.49
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 09 Mar 2020 06:52:50 -0700 (PDT)
-Subject: Re: [PATCH] nvmem: jz4780-efuse: fix build warnings on ARCH=x86_64 or
- riscv
-To: "H. Nikolaus Schaller" <hns@goldelico.com>,
- PrasannaKumar Muralidharan <prasannatsmkumar@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-References: <79e1dec195d287001515600b1dae0bcaa33fbf65.1583522277.git.hns@goldelico.com>
-From: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
-Message-ID: <e444754a-3bd3-d46f-d2f9-188fb2cc6f0e@linaro.org>
-Date: Mon, 9 Mar 2020 13:52:49 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.8.0
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=t+sOri2FxRcWtNEoCzFhDA9PpUDCsy8ZKbuRwF8DnYo=;
+ b=RESQied1fUaCrsLjRqOz7bK/xmCQ+OfG21of/AOIGZ8EMx5jzgYtPH+/urM4FRkxdM
+ vyF3b8DNN1w4e2qFQ+ylPVd2Z3uwhkeLWBnVKP7vDqJarEUDdqW5+K5oG9jPZy37Wm3K
+ eBDIF2SBQrjWG8CltW9T2gJImmemhwIy/AhDSV5D1f4aA9gMb7u47Tr6zt682V2NbyP+
+ uYsx8AnXRP0lhRAGf1dqnBd82LKCmIdnpVNR/M3umFc6+nobaEb72zMXxkbP1VGzsAfi
+ zeN8o65o92hUjx8Tok25r3OuugolooiUDgoVcqJH3A8+y/N5NLIMdAOXx8AymTw1qzsn
+ SRtg==
+X-Gm-Message-State: ANhLgQ1aCExvxsMlrNTImexw9g4n5QCrhc2nBCLhi5vFuDXmYxcvl0au
+ tL9sKwLXH99q8sa9VcHs+J7CMQ==
+X-Google-Smtp-Source: ADFU+vtUOJLBzqPaE+z4HqWqtoGyoRlYUkGhYfve2/S+oXYgz5dUBhN02bOjpcHJ/8NjzQVS0QNQdw==
+X-Received: by 2002:a17:902:fe15:: with SMTP id
+ g21mr17419647plj.215.1583772953089; 
+ Mon, 09 Mar 2020 09:55:53 -0700 (PDT)
+Received: from hsinchu02.internal.sifive.com
+ (220-132-236-182.HINET-IP.hinet.net. [220.132.236.182])
+ by smtp.gmail.com with ESMTPSA id cm2sm104013pjb.23.2020.03.09.09.55.51
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 09 Mar 2020 09:55:52 -0700 (PDT)
+From: Zong Li <zong.li@sifive.com>
+To: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/9] riscv: add ARCH_HAS_SET_MEMORY support
+Date: Tue, 10 Mar 2020 00:55:36 +0800
+Message-Id: <ce1ed9995e8340f4dae3ad76c5f52f297449859f.1583772574.git.zong.li@sifive.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1583772574.git.zong.li@sifive.com>
+References: <cover.1583772574.git.zong.li@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <79e1dec195d287001515600b1dae0bcaa33fbf65.1583522277.git.hns@goldelico.com>
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200309_065252_802948_B75FDADA 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20200309_095553_587324_D64B00AE 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,42 +98,239 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Stephen Rothwell <sfr@canb.auug.org.au>, kbuild test robot <lkp@intel.com>,
- malat@debian.org, linux-kernel@vger.kernel.org, paul@crapouillou.net,
- linux-riscv@lists.infradead.org, letux-kernel@openphoenux.org
+Cc: Zong Li <zong.li@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add set_memory_ro/rw/x/nx architecture hooks to change the page
+attribution.
 
+Use own set_memory.h rather than generic set_memory.h
+(i.e. include/asm-generic/set_memory.h), because we want to add other
+function prototypes here.
 
-On 06/03/2020 19:17, H. Nikolaus Schaller wrote:
-> kbuild-robot did find a type error in the min(a, b)
-> function used by this driver if built for x86_64 or riscv.
-> 
-> Althought it is very unlikely that this driver is built
-> for those platforms it could be used as a template
-> for something else and therefore should be correct.
-> 
-> The problem is that we implicitly cast a size_t to
-> unsigned int inside the implementation of the min() function.
-> 
-> Since size_t may differ on different compilers and
-> plaforms there may be warnings or not.
-> 
-> So let's use only size_t variables on all platforms.
-> 
-> Reported-by: kbuild test robot <lkp@intel.com>
-> Reported-by: Stephen Rothwell <sfr@canb.auug.org.au>
-> Cc: srinivas.kandagatla@linaro.org
-> Cc: prasannatsmkumar@gmail.com
-> Cc: malat@debian.org
-> Cc: paul@crapouillou.net
-> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
-> ---
->   drivers/nvmem/jz4780-efuse.c | 6 +++---
->   1 file changed, 3 insertions(+), 3 deletions(-)
-> 
+Signed-off-by: Zong Li <zong.li@sifive.com>
+---
+ arch/riscv/Kconfig                  |   1 +
+ arch/riscv/include/asm/set_memory.h |  24 +++++
+ arch/riscv/mm/Makefile              |   2 +-
+ arch/riscv/mm/pageattr.c            | 150 ++++++++++++++++++++++++++++
+ 4 files changed, 176 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/set_memory.h
+ create mode 100644 arch/riscv/mm/pageattr.c
 
-Applied thanks,
-srini
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index af9b03609c5a..9ab592aa1b5f 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -60,6 +60,7 @@ config RISCV
+ 	select HAVE_EBPF_JIT if 64BIT
+ 	select EDAC_SUPPORT
+ 	select ARCH_HAS_GIGANTIC_PAGE
++	select ARCH_HAS_SET_MEMORY
+ 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+ 	select SPARSEMEM_STATIC if 32BIT
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+new file mode 100644
+index 000000000000..79a810f0f38b
+--- /dev/null
++++ b/arch/riscv/include/asm/set_memory.h
+@@ -0,0 +1,24 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2019 SiFive
++ */
++
++#ifndef _ASM_RISCV_SET_MEMORY_H
++#define _ASM_RISCV_SET_MEMORY_H
++
++/*
++ * Functions to change memory attributes.
++ */
++#ifdef CONFIG_MMU
++int set_memory_ro(unsigned long addr, int numpages);
++int set_memory_rw(unsigned long addr, int numpages);
++int set_memory_x(unsigned long addr, int numpages);
++int set_memory_nx(unsigned long addr, int numpages);
++#else
++static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
++static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
++static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
++static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
++#endif
++
++#endif /* _ASM_RISCV_SET_MEMORY_H */
+diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+index 814e16a8d68a..363ef01c30b1 100644
+--- a/arch/riscv/mm/Makefile
++++ b/arch/riscv/mm/Makefile
+@@ -7,7 +7,7 @@ endif
+ 
+ obj-y += init.o
+ obj-y += extable.o
+-obj-$(CONFIG_MMU) += fault.o
++obj-$(CONFIG_MMU) += fault.o pageattr.o
+ obj-y += cacheflush.o
+ obj-y += context.o
+ 
+diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+new file mode 100644
+index 000000000000..fcd59ef2835b
+--- /dev/null
++++ b/arch/riscv/mm/pageattr.c
+@@ -0,0 +1,150 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2019 SiFive
++ */
++
++#include <linux/pagewalk.h>
++#include <asm/pgtable.h>
++#include <asm/tlbflush.h>
++#include <asm/bitops.h>
++
++struct pageattr_masks {
++	pgprot_t set_mask;
++	pgprot_t clear_mask;
++};
++
++static unsigned long set_pageattr_masks(unsigned long val, struct mm_walk *walk)
++{
++	struct pageattr_masks *masks = walk->private;
++	unsigned long new_val = val;
++
++	new_val &= ~(pgprot_val(masks->clear_mask));
++	new_val |= (pgprot_val(masks->set_mask));
++
++	return new_val;
++}
++
++static int pageattr_pgd_entry(pgd_t *pgd, unsigned long addr,
++			      unsigned long next, struct mm_walk *walk)
++{
++	pgd_t val = READ_ONCE(*pgd);
++
++	if (pgd_leaf(val)) {
++		val = __pgd(set_pageattr_masks(pgd_val(val), walk));
++		set_pgd(pgd, val);
++	}
++
++	return 0;
++}
++
++static int pageattr_p4d_entry(p4d_t *p4d, unsigned long addr,
++			      unsigned long next, struct mm_walk *walk)
++{
++	p4d_t val = READ_ONCE(*p4d);
++
++	if (p4d_leaf(val)) {
++		val = __p4d(set_pageattr_masks(p4d_val(val), walk));
++		set_p4d(p4d, val);
++	}
++
++	return 0;
++}
++
++static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
++			      unsigned long next, struct mm_walk *walk)
++{
++	pud_t val = READ_ONCE(*pud);
++
++	if (pud_leaf(val)) {
++		val = __pud(set_pageattr_masks(pud_val(val), walk));
++		set_pud(pud, val);
++	}
++
++	return 0;
++}
++
++static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
++			      unsigned long next, struct mm_walk *walk)
++{
++	pmd_t val = READ_ONCE(*pmd);
++
++	if (pmd_leaf(val)) {
++		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
++		set_pmd(pmd, val);
++	}
++
++	return 0;
++}
++
++static int pageattr_pte_entry(pte_t *pte, unsigned long addr,
++			      unsigned long next, struct mm_walk *walk)
++{
++	pte_t val = READ_ONCE(*pte);
++
++	val = __pte(set_pageattr_masks(pte_val(val), walk));
++	set_pte(pte, val);
++
++	return 0;
++}
++
++static int pageattr_pte_hole(unsigned long addr, unsigned long next,
++			     int depth, struct mm_walk *walk)
++{
++	/* Nothing to do here */
++	return 0;
++}
++
++const static struct mm_walk_ops pageattr_ops = {
++	.pgd_entry = pageattr_pgd_entry,
++	.p4d_entry = pageattr_p4d_entry,
++	.pud_entry = pageattr_pud_entry,
++	.pmd_entry = pageattr_pmd_entry,
++	.pte_entry = pageattr_pte_entry,
++	.pte_hole = pageattr_pte_hole,
++};
++
++static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
++			pgprot_t clear_mask)
++{
++	int ret;
++	unsigned long start = addr;
++	unsigned long end = start + PAGE_SIZE * numpages;
++	struct pageattr_masks masks = {
++		.set_mask = set_mask,
++		.clear_mask = clear_mask
++	};
++
++	if (!numpages)
++		return 0;
++
++	down_read(&init_mm.mmap_sem);
++	ret =  walk_page_range_novma(&init_mm, start, end, &pageattr_ops, NULL,
++				     &masks);
++	up_read(&init_mm.mmap_sem);
++
++	flush_tlb_kernel_range(start, end);
++
++	return ret;
++}
++
++int set_memory_ro(unsigned long addr, int numpages)
++{
++	return __set_memory(addr, numpages, __pgprot(_PAGE_READ),
++			    __pgprot(_PAGE_WRITE));
++}
++
++int set_memory_rw(unsigned long addr, int numpages)
++{
++	return __set_memory(addr, numpages, __pgprot(_PAGE_READ | _PAGE_WRITE),
++			    __pgprot(0));
++}
++
++int set_memory_x(unsigned long addr, int numpages)
++{
++	return __set_memory(addr, numpages, __pgprot(_PAGE_EXEC), __pgprot(0));
++}
++
++int set_memory_nx(unsigned long addr, int numpages)
++{
++	return __set_memory(addr, numpages, __pgprot(0), __pgprot(_PAGE_EXEC));
++}
+-- 
+2.25.1
+
 
