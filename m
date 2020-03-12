@@ -1,121 +1,85 @@
-Return-Path: <SRS0=niZi=44=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=jpEU=45=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 39A78C10F27
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2020 12:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5D2CCC2BAEE
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2020 02:31:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0CE4D20873
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2020 12:22:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7CCAE20578
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2020 02:31:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SJIeqqeQ";
-	dkim=pass (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="Bw/ZDauF"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0CE4D20873
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Qa0ZIs08";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="DOLbUlYY"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7CCAE20578
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ERRAudjHVGjnDjF+mvJRryzoiMROt5zPxRgvGuUPDl4=; b=SJIeqqeQtlAD+Z002NMkA8Dc5
-	aXcJ6kE5TfWIqFmFxZbdJJmnUr6eLM+gJef2KTcnDmzU9z5HjWtfe74h+Z3GrQ3jvlgDRG+1X62Vu
-	sdDNOfl8q+C0zknS1WYFhLAPRPLMaAwbb6CMgq/HGFCnvceIoYDcePD8IKmB47aZGOtxYyN4KecvG
-	iE8g9Y9eyGOdBBdzIqkMIEFXLRW9TL8uPl80JTs7cFDvIGtaP5V4iic2yNi2Gxg9Sa4Hl1sFzjfJr
-	+UbQL1MUjduLdQOXUqdcGKFkEwupC/OnRD59r5ALpvpbWV5eR8CtdAv1PbfsaowLWNJfY/aKn1a0/
-	iGrOCBkvw==;
+	 bh=Nf1770vAHPjgs0AVRH7uHKcJYCmibKaWql/j0gb33Bs=; b=Qa0ZIs08aYbWO8nNyg/5/Tt90
+	NjuaSIfqvU8aVA5TuOzznMJeNx8ukPLgjcAWDKu1VHfeBJOKExlh9HoC88Bry2THWPRLP1IJuzDCc
+	HcHp8OdenmvW1ARomdbZztsimS4qybAXKvqVbYG/jBaTrzswqLgToEaxnyAIBrat62xtFYwxfpht9
+	us/LQlUuZj1kOnPa/Stgf9e8hm4yfuc1GKhVe/mgBqYFWYXPp6kLOp5daUlHW6wpnhjU7AdLwZQI5
+	Elggk5jNKdnt/Z1LlLzcrhSuwp2zakKuOAYZYkthYrgLFIHUNNPqkPAGpECjAMm4XMYuNUixVvvoQ
+	c4leq+h3w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jC0NG-0006EO-GV; Wed, 11 Mar 2020 12:22:10 +0000
-Received: from mail-dm6nam11on20628.outbound.protection.outlook.com
- ([2a01:111:f400:7eaa::628]
- helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1jCDd4-0004VZ-8j; Thu, 12 Mar 2020 02:31:22 +0000
+Received: from mail-qk1-x742.google.com ([2607:f8b0:4864:20::742])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jC0ND-0006D2-TM
- for linux-riscv@lists.infradead.org; Wed, 11 Mar 2020 12:22:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cbqnRtdF6lsAVO8vMUDq+GKDWPid9LHY47HAIGrE2+0UB+SNzKG2To1xglgaJtU+mA44CjBe7N2r6slqHqgHM/reh0fqxo9s6yU3HI3toDEURs/y4axQ2Cuddh9/U76CijcLMDtaj8vZgOp4xfF1QiRl29NpS7Tij53mOJVhirwulgwOJfI1fubk8vuoVXTI3nlzj/q1RkL8oM9H9gU0SJ0QHrrkbmGjEmahjTxtQFIDNeLoEBoa5b/7CxmV4E/KvvVL0RPhG/ggE126YsCDGsWp/W/VbQOD+X1TtPXsFLhmGGjGeNi3BBCL6dpBbRn/L37XbylR/t12rrhoC7LItA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ERRAudjHVGjnDjF+mvJRryzoiMROt5zPxRgvGuUPDl4=;
- b=ldWF6kjZYqQqw/jh4h14c4J+H5iSgqad5UXls/p3ViNmhucwShYmqZu5KF6FS7Mtwb5DUGuRH2nzYloZotnR957DkMjIeAmIzKVOJUdH46x3oVWixjJ/TALAciktQMp1H8SZDixb90cVqE86zZN6a+SsvCZgW7l9ZdB+BQHgPrPk2kkj9RFQg4KjEG7C95N3GoC+fI1etIhfL9ZyQnJUhyDxhEs0cJ98W8hhnSGaqq+usfC5E5Z4TvVikA8iIouyV4t39cm8d1RFDLsPgaxoLWuDYDHvOPbb1dVWbZqZSDsEJRJzWec3IdtjHRJ4ymm+Nb0cwntQXiZDwUfBFEUyrA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=sifive.com; dmarc=pass action=none header.from=sifive.com;
- dkim=pass header.d=sifive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ERRAudjHVGjnDjF+mvJRryzoiMROt5zPxRgvGuUPDl4=;
- b=Bw/ZDauFq0U0kg50j3SshhVyllH6E7c7imDNVbZx/K6aKf0/HvC5KUJB+gol1NTARQAWCRSMF5VHvhwmVS7Y+T0v95Yn4+AXvyzv0yVatJdRYo4Ccd0lIHtd8zLVql1quDFu3/zKOBkjvwLqflxM/Q6vijMRrMVmMiEFA/vnXxI=
-Received: from MN2PR13MB3552.namprd13.prod.outlook.com (2603:10b6:208:16f::22)
- by MN2PR13MB2734.namprd13.prod.outlook.com (2603:10b6:208:f3::29)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2814.7; Wed, 11 Mar
- 2020 12:22:04 +0000
-Received: from MN2PR13MB3552.namprd13.prod.outlook.com
- ([fe80::c8a2:5e5e:9769:6a8a]) by MN2PR13MB3552.namprd13.prod.outlook.com
- ([fe80::c8a2:5e5e:9769:6a8a%7]) with mapi id 15.20.2814.007; Wed, 11 Mar 2020
- 12:22:04 +0000
-From: Yash Shah <yash.shah@sifive.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>
-Subject: RE: [PATCH] tty: sifive: Finish transmission before changing the clock
-Thread-Topic: [PATCH] tty: sifive: Finish transmission before changing the
- clock
-Thread-Index: AQHV9DjmyxKWiUuFkUuyXFb+1DKKS6hDUOug
-Date: Wed, 11 Mar 2020 12:22:04 +0000
-Message-ID: <MN2PR13MB3552C9E76C003A8A302540808CFC0@MN2PR13MB3552.namprd13.prod.outlook.com>
-References: <20200307042637.83728-1-palmer@dabbelt.com>
-In-Reply-To: <20200307042637.83728-1-palmer@dabbelt.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=yash.shah@sifive.com; 
-x-originating-ip: [120.138.124.57]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 364698b5-4faa-47d1-6285-08d7c5b6cf0c
-x-ms-traffictypediagnostic: MN2PR13MB2734:
-x-ld-processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <MN2PR13MB2734ACBC6B7E6D00D3176E818CFC0@MN2PR13MB2734.namprd13.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
-x-forefront-prvs: 0339F89554
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(376002)(39850400004)(136003)(366004)(396003)(346002)(199004)(86362001)(81166006)(4326008)(53546011)(6506007)(478600001)(8676002)(33656002)(9686003)(55016002)(52536014)(5660300002)(64756008)(66946007)(107886003)(81156014)(66556008)(6636002)(66476007)(76116006)(66446008)(186003)(26005)(54906003)(316002)(7696005)(8936002)(110136005)(71200400001)(44832011)(2906002);
- DIR:OUT; SFP:1101; SCL:1; SRVR:MN2PR13MB2734;
- H:MN2PR13MB3552.namprd13.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; 
-received-spf: None (protection.outlook.com: sifive.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: RZbUl1TiVKXNuR8olEEh38+m8w1uDJhzr3EeG2XUBJo4qbg9Gqgcdo73WKgcfmXz45WurETQCPLd4TYHLKl+UOqsSqbLS5UDhb9mXxOVr9jeWossfN7RRAv34nqdcw4KuW7gZu3eSSrRvLf/qn/A6sxdBEu9UZWyCBDawBblYPDiyWUpT3ieVnioMuzr66EHpjc06+RcDHn7AOMqcvLxJDBNdzKgBaxF8YtQ/HD3kwoqTY4e4pWWOgSYsGJWpynh41e+AP+j7pBDOChSvfafzPyAftBa08yPEF9o8Z7bNiQsABkQu3xEHA2u4kJnN/wyQXV3ZiYW+kNZK5jCgH7F/KOPTtUY9yCQ3V9D+caMfN3J4OKvsnAvsDvuk6DvYYktp13ALJfslprcOI91gPxICnF5Yn072kyR4njVDW8CIpo3p4F8gIAR1sRNI6D31y3q
-x-ms-exchange-antispam-messagedata: J+AvgJTPFJu9znJZTpHDJFQ1OffbVbXMxB42zlBeadWHnEwVcWjbytuq9jcP86ItYmVE4N8t0yALkxDvaR0+SozCSx3RnWgFSnUGb6nrgxlghnxMGvChJbvd7K0Dzc4ZwwKfz/YhkGjpwexu0psp9g==
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ id 1jCDd1-0004V1-Ap
+ for linux-riscv@lists.infradead.org; Thu, 12 Mar 2020 02:31:21 +0000
+Received: by mail-qk1-x742.google.com with SMTP id f3so4286638qkh.1
+ for <linux-riscv@lists.infradead.org>; Wed, 11 Mar 2020 19:31:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=Nf1770vAHPjgs0AVRH7uHKcJYCmibKaWql/j0gb33Bs=;
+ b=DOLbUlYYpMerzBss5qT2unt9DnC2mRT+tZJJgYqGNmNuR3riRkgQgB8KC88LLofCx6
+ /SFUQL9mP/eyXRA154dalsvOWR7mtieMpSauu8II5cTLUB8kLNKd/B71AejqSTvvA9qk
+ VjzEXy7wElhq2qvpjW4X5VgMPHfke6hLqITE3kNynEv6M2yCoCC/lDM58Im9fBPxz+LM
+ Tm14uvl2xFBtvnwQNDezSfY+lI2KJtL7NtEaPzgzdTw8Ri5ji4snmB2kBcUgLgcKmQPQ
+ nNul2veC4Ejc0wKdi1gpbG4Q5faAqAJxB4J6Db3+cduNpE5XziUS5varMxZD+smrASyf
+ GcfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=Nf1770vAHPjgs0AVRH7uHKcJYCmibKaWql/j0gb33Bs=;
+ b=WM3FPGGR1nDN+3MgWUdzFC9CEbZxjhIx+OGhLstuLj0N8CNaOEM8QKfB4h370lBQ2R
+ LYXv8v86AxYQW9WnFvDjTE3DeuBn0DNuvVVibOMXMRnQdEkzdmSMTIBnMG//JYuIzKta
+ YtVFAJ8U3rlgNExQA1h7ID0a0pScS0XIyUmPOAZXogfNLTuSmU5WsfJze8vsJetjphvy
+ AfUfSgTiO89oEilQiBgrTo/MTSojKxlNCKyUJpoRkCM0O/TQlfHgd6n0Jg/KfbeZZSpF
+ 2uDv2x02kNGKbjZqVlPnrFe1UwrDVztPj7nUJ/qZydoExpwlM5HoaWEe+ZzwiITEoKgl
+ QMWQ==
+X-Gm-Message-State: ANhLgQ2XSMscE6RK3usmkconmD6jd93Zy0rISzqYyEd/2YxpsXsOjp5C
+ k/IHdio/WwGTJ4EorySMXg8pw8Fnu8pxcj6Nz5X9Pw==
+X-Google-Smtp-Source: ADFU+vvpd5b+sdet2H+L9PrwvJ3OZmaHdW7Qzz8B/eoifKzVQUo+sznUkE89HzQf7tdtXQI0EAsmUYNhkwUjrdhfokY=
+X-Received: by 2002:a05:620a:6d9:: with SMTP id
+ 25mr5564793qky.457.1583980275702; 
+ Wed, 11 Mar 2020 19:31:15 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 364698b5-4faa-47d1-6285-08d7c5b6cf0c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Mar 2020 12:22:04.1671 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: cagPcr2urqiWRqKNuuwhp/sm6z5rtW7KJtRhgCaAjKloLJbJXYYSXcfotfgWHD7RguwRHok/kHL4rz208bP4Jw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR13MB2734
+References: <1583224900-25824-1-git-send-email-vincent.chen@sifive.com>
+ <mhng-cf4b7d3b-9841-44a1-9ffd-ac7f4cdeb75d@palmerdabbelt-glaptop1>
+In-Reply-To: <mhng-cf4b7d3b-9841-44a1-9ffd-ac7f4cdeb75d@palmerdabbelt-glaptop1>
+From: Vincent Chen <vincent.chen@sifive.com>
+Date: Thu, 12 Mar 2020 10:31:03 +0800
+Message-ID: <CABvJ_xh4UOZvF__hqBEj9DS1DbRm9qHHtKgM0ZSnKeT7JQDJMQ@mail.gmail.com>
+Subject: Re: [PATCH] tty: serial: Add CONSOLE_POLL support to SiFive UART
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200311_052208_026531_FC30ADC9 
-X-CRM114-Status: GOOD (  30.79  )
+X-CRM114-CacheID: sfid-20200311_193119_437614_A230F763 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -128,166 +92,70 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Greg KH <gregkh@linuxfoundation.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Sachin Ghadi <sachin.ghadi@sifive.com>,
- "linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, "jslaby@suse.com" <jslaby@suse.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "kernel-team@android.com" <kernel-team@android.com>
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-serial@vger.kernel.org,
+ jslaby@suse.com
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> -----Original Message-----
-> From: linux-riscv <linux-riscv-bounces@lists.infradead.org> On Behalf Of
-> Palmer Dabbelt
-> Sent: 07 March 2020 09:57
-> To: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmerdabbelt@google.com>; Greg KH
-> <gregkh@linuxfoundation.org>; jslaby@suse.com; linux-
-> kernel@vger.kernel.org; Palmer Dabbelt <palmer@dabbelt.com>; linux-
-> serial@vger.kernel.org; Paul Walmsley <paul.walmsley@sifive.com>; linux-
-> riscv@lists.infradead.org; kernel-team@android.com
-> Subject: [PATCH] tty: sifive: Finish transmission before changing the clo=
-ck
->=20
-> From: Palmer Dabbelt <palmerdabbelt@google.com>
->=20
-> SiFive's UART has a software controller clock divider that produces the f=
-inal
-> baud rate clock.  Whenever the clock that drives the UART is changed this
-> divider must be updated accordingly, and given that these two events are
-> controlled by software they cannot be done atomically.
-> During the period between updating the UART's driving clock and internal
-> divider the UART will transmit a different baud rate than what the user h=
-as
-> configured, which will probably result in a corrupted transmission stream=
-.
->=20
-> The SiFive UART has a FIFO, but due to an issue with the programming
-> interface there is no way to directly determine when the UART has finishe=
-d
-> transmitting.  We're essentially restricted to dead reckoning in order to=
- figure
-> that out: we can use the FIFO's TX busy register to figure out when the l=
-ast
-> frame has begun transmission and just delay for a long enough that the la=
-st
-> frame is guaranteed to get out.
->=20
-> As far as the actual implementation goes: I've modified the existing exis=
-ting
-> clock notifier function to drain both the FIFO and the shift register in =
-on
-> PRE_RATE_CHANGE.  As far as I know there is no hardware flow control in
-> this UART, so there's no good way to ask the other end to stop transmissi=
-on
-> while we can't receive (inserting software flow control messages seems li=
-ke a
-> bad idea here).
->=20
-> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> ---
-> I have not tested this, as I don't have any hardware.  I'm also not even
-> remotely familiar with the serial subsystem, so I don't know if there's a
-> better way of going about this.  I'm specifically worried about a udelay(=
-) that
-> could be quite long.  Maybe some sort of "delay for short times, sleep fo=
-r
-> long times" approach would be better?
->=20
-> I don't know if this manifests in practice on existing hardware when runn=
-ing
-> real workloads, but I'd be willing to bet that it would be possible to tr=
-igger
-> the bug on purpose as by my calculations there's about a 10k cycle window=
- in
-> which the clock can't change.  IIRC there's a lot of instability when cha=
-nging
-> the clock frequency on the HiFive Unleashed so I doubt people are going t=
-o
-> stumble across the issue regularly in practice.
->=20
->  drivers/tty/serial/sifive.c | 28 ++++++++++++++++++++++++----
->  1 file changed, 24 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c in=
-dex
-> d5f81b98e4d7..d34031e842d0 100644
-> --- a/drivers/tty/serial/sifive.c
-> +++ b/drivers/tty/serial/sifive.c
-> @@ -618,10 +618,10 @@ static void sifive_serial_shutdown(struct uart_port
-> *port)
->   *
->   * On the V0 SoC, the UART IP block is derived from the CPU clock source
->   * after a synchronous divide-by-two divider, so any CPU clock rate chan=
-ge
-> - * requires the UART baud rate to be updated.  This presumably could
-> corrupt any
-> - * serial word currently being transmitted or received.  It would probab=
-ly
-> - * be better to stop receives and transmits, then complete the baud rate
-> - * change, then re-enable them.
-> + * requires the UART baud rate to be updated.  This presumably corrupts
-> + any
-> + * serial word currently being transmitted or received.  In order to
-> + avoid
-> + * corrupting the output data stream, we drain the transmit queue
-> + before
-> + * allowing the clock's rate to be changed.
->   */
->  static int sifive_serial_clk_notifier(struct notifier_block *nb,
->  				      unsigned long event, void *data) @@ -
-> 629,6 +629,26 @@ static int sifive_serial_clk_notifier(struct notifier_bl=
-ock
-> *nb,
->  	struct clk_notifier_data *cnd =3D data;
->  	struct sifive_serial_port *ssp =3D notifier_to_sifive_serial_port(nb);
->=20
-> +	if (event =3D=3D PRE_RATE_CHANGE) {
-> +		/*
-> +		 * The TX watermark is always set to 1 by this driver, which
-> +		 * means that the TX busy bit will lower when there are 0
-> bytes
-> +		 * left in the TX queue -- in other words, when the TX FIFO is
-> +		 * empty.
-> +		 */
-> +		__ssp_wait_for_xmitr(ssp);
-> +		/*
-> +		 * On the cycle the TX FIFO goes empty there is still a full
-> +		 * UART frame left to be transmitted in the shift register.
-> +		 * The UART provides no way for software to directly
-> determine
-> +		 * when that last frame has been transmitted, so we just
-> sleep
-> +		 * here instead.  As we're not tracking the number of stop
-> bits
-> +		 * they're just worst cased here.  The rest of the serial
-> +		 * framing parameters aren't configurable by software.
-> +		 */
-> +		udelay(DIV_ROUND_UP(12 * 1000 * 1000, ssp->baud_rate));
-> +	}
-> +
->  	if (event =3D=3D POST_RATE_CHANGE && ssp->clkin_rate !=3D cnd-
-> >new_rate) {
->  		ssp->clkin_rate =3D cnd->new_rate;
->  		__ssp_update_div(ssp);
-> --
-> 2.25.1.481.gfbce0eb801-goog
->=20
+On Sat, Mar 7, 2020 at 2:13 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>
+> On Tue, 03 Mar 2020 00:41:40 PST (-0800), vincent.chen@sifive.com wrote:
+> > Add CONSOLE_POLL support for future KGDB porting.
+> >
+> > Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> > ---
+> >  drivers/tty/serial/sifive.c | 27 +++++++++++++++++++++++++++
+> >  1 file changed, 27 insertions(+)
+> >
+> > diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
+> > index d5f81b98e4d7..acdbaca4de36 100644
+> > --- a/drivers/tty/serial/sifive.c
+> > +++ b/drivers/tty/serial/sifive.c
+> > @@ -818,6 +818,29 @@ static int __init sifive_serial_console_setup(struct console *co, char *options)
+> >       return uart_set_options(&ssp->port, co, baud, parity, bits, flow);
+> >  }
+> >
+> > +#ifdef CONFIG_CONSOLE_POLL
+> > +static int sifive_serial_poll_get_char(struct uart_port *port)
+> > +{
+> > +     struct sifive_serial_port *ssp = port_to_sifive_serial_port(port);
+> > +     char is_empty, ch;
+> > +
+> > +     ch = __ssp_receive_char(ssp, &is_empty);
+> > +     if (is_empty)
+> > +             return NO_POLL_CHAR;
+> > +
+> > +     return ch;
+> > +}
+> > +
+> > +static void sifive_serial_poll_put_char(struct uart_port *port,
+> > +                                     unsigned char c)
+> > +{
+> > +     struct sifive_serial_port *ssp = port_to_sifive_serial_port(port);
+> > +
+> > +     sifive_serial_console_putchar(port, c);
+> > +     __ssp_wait_for_xmitr(ssp);
+>
+> So we still have that TX watermark bug in the SiFive UARTs.  If this function
+> is supposed to wait until the word is actually out on the line then this isn't
+> sufficient, but if it's just supposed to wait until the next write won't block
+> then this is fine.
+>
+> I'm not really a serial person, so mabye someone else knows?  For those
+> unfamiliar with the issue, there's a pretty good description in the patch to
+> fix it
+>
+>     https://github.com/sifive/sifive-blocks/pull/90
+>
+I read the description is this patch and it is very clear to
+understand the issue.
+Thanks for your sharing.
 
-A quick test on HiFive Unleashed board showed some improvements.
-Prior to this patch, I have been observing some random corrupted characters=
- on serial console when continuously changing the CPU clock rate.
-After applying this patch I don't see those corrupted characters anymore wh=
-ile changing the clock rate.
+In this case, the __ssp_wait_for_xmitr() is used to prevent the word in the
+TX FIFO buffer from being corrupted by the next write. Therefore, I
+think it might
+be sufficient to check thetxdata.full bit.
 
-Tested-by: Yash Shah <yash.shah@sifive.com>
-
-This observation is based on a quick initial test on HiFive Unleashed. I am=
- planning to further test it by inducing the error on purpose. Will try to =
-update the result soon.
-
-- Yash
-
+Thanks for your comment.
 
