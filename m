@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 257E8C10F29
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2020 00:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8B5DEC10DCE
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2020 00:48:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D1B15205C9
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2020 00:48:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5CDC6205C9
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2020 00:48:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Z5j01HYv";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="UCFD0lYn"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D1B15205C9
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KTpkskf+";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="fIZ3nbgS"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5CDC6205C9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,70 +26,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1AezZ3pP55Joc945ERCB/TKvW7CDwpk+RTJ+XbnCTtA=; b=Z5j01HYvLMKlOl
-	qfHHtpYOxk1XsMAIdxmekzIBGF0eGEsQ5QbbV4Tid4iQgRiCWhG60g0fYW+VNhM09FtJZde13dqIk
-	ICv3euyfDsvw2Z910djuuAPLf3fGIFib7VFR2lMvix2JR0uYYTm0N79PLb90yS48pw6AGQglDXPTc
-	K7TYdAy5clg7YB6WOCFo/zdfp0VuDJ/MYLsNhUL11rpiX0qnWFX6MMdKxkfz/TGBy6mvLtj4wmc5u
-	vdUhBmppEXdyEfATDRqsR6U4GDcIvLtRGoUjEkUr0bSlFnO0+jOLxhm1hukf3MhONhC+f9QcWM/Fd
-	mvi2EtVFGlN24Wpod7Dg==;
+	List-Owner; bh=gXV1vZXcAPhAHJmvdqpXTOyAJ4vUnMtYRXSr9nbeS/8=; b=KTpkskf+r2QmxC
+	KAihY34ccztAQyIajp/SCgqO9LYZgQFysSDB96hQmQX9uB36GvHRNkrQ6UZ71axGHeAuuRBanyh/c
+	s5JUJq056Q6w21RgjpKxcVVTveqSgOXc/EyAacaxfCZAayYRogb6yEmS7M8TkVCGj1WHrKhSDVIbx
+	AdMfZLAFLGAPUDnmAiGqZIZpfaN4BBwC8UXnBneBdhHatm9Jv3nr1fblZbps03p30b+mZHEJWkskS
+	aYC/Ts6ervKxZXpANbJYzqGDeu9wn4gQFHh9Gt9qK9Cffq44zpWLY+tsOfVk3cfYWDmN2crlXBDIj
+	H7kkmgsqZsR0xzT4rzAw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jDdvL-0005Bz-7j; Mon, 16 Mar 2020 00:48:07 +0000
+	id 1jDdvO-0005Fv-LP; Mon, 16 Mar 2020 00:48:10 +0000
 Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jDdv5-0004tA-06
- for linux-riscv@lists.infradead.org; Mon, 16 Mar 2020 00:47:53 +0000
+ id 1jDdv7-0004tA-AA
+ for linux-riscv@lists.infradead.org; Mon, 16 Mar 2020 00:47:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1584319672; x=1615855672;
+ t=1584319674; x=1615855674;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=PYhEVpmbjCnBVgw9L4xp6JuupFXA1P8lyt0WquX0Y0w=;
- b=UCFD0lYnW4Ez1ESPjCmfw06yBFfeXRqlH5K2yCLoePgC5TdGxxBioVeg
- CGuy+Ewh8zbljyZ5qWASa/cZEHyrF0VzOjZSGrhgXLPADDv3dqgcEHZoo
- TgHQ5naZXUpkFqqaMnWTJAs7T3UetGFc/zyx0pP9qDD2G4DXaHD9IU79B
- mDxsGS5tDv24Ac3mIkN6OEU7RpJOt+Fal4V5Bzgs+KXeDhLbHmCgphetD
- jxMh+KyfRF1GoEl9w6IXYS7xJyoD2PGpq85kcTXWdaKKSS+q8Qv/uOz/t
- 5EQMKzouYIcIXihSWpDtYpFms5+/FTIAZEdCBKQFi0YOEHy4Z1tpp3JnE g==;
-IronPort-SDR: nPpLgBbyLiFxNQe740F09Gg6BsxDvkCK5phsn5qoA9OehvvWXbU+EF95iGi5HahOseoUMMSnGb
- YE+zwS+L4K8WW5u7APKb3aTywZI8zgQ9fw4LeHmaDXB0uC5856qn6cZGsCI7oaJXkzro/a2KmR
- DLVZ+W+RIxRGP3vi40nhWTSkS12y7/buQGvBQvKzkKA5dP+Ekxc7KL1WGiiPfyaic4sBoxUniJ
- EbJ3kMGwL1zsBCtP/GdKAaHLHoCtpIyLxhuO5xcvQkGTYdMKqTly9IATUaMP+N1UWYCe68vd8H
- 7Io=
-X-IronPort-AV: E=Sophos;i="5.70,558,1574092800"; d="scan'208";a="133011923"
+ bh=BDo2sBvHlU3CR5McHQ6Yn49Lu9d+VWJ6PFc0nIwO1Qc=;
+ b=fIZ3nbgSBWCjK9zNMYAAPaP/uThFFWcrg+bSepe2suenYp8OsLv8Ex8M
+ WTTVRu29KWlN/5c6/zJOB1kc+g2X8+f5PQV8Jktu2O4AfigAUaaS3Owll
+ EQIIoLa6FI8oT4ZxuePdyVmJ5WRyA4y1+tCZbkcmaDSKgLwB8EF9Ug+Yc
+ SdpWzy5yS16l7B4ldnX3VzYv5H6nMWmZonWGcZDNGslgmHmnpdD+qw9d1
+ uG12DDI0V8+Iz2cbgJGbFUU9DV4GN6vghNsWyPiNYEG/hv3qLeKud3Hci
+ YjP+Mqr8JW2MGILyfSlmxqI+53k02BcoHrYMLUq2DT0UscBo0lYhB16Wu g==;
+IronPort-SDR: yL6jZBn79ywVna+5N+Vs4pF7ylJuFVYu/NBePXFeXvX8JXq1ElR9v9XofhHCxq8hOwTaxd30dy
+ d7BhovbEKOcwzdca7rCao1XTc4NZFzzAk9v2PnkaTlF1lf3Tmwjw21vrpdQEA0VhW/35iWMBUR
+ ZQIZDMr9sx6LP5jEr7m3kpFKilJuJ8Meowf/R43sgCE3m0RQzezHMFEqHxsAIQX7yLY6VVb/Ny
+ ZdxrPXlp8iExL9vKo2qMUwppi1RLoZAI1N0rKX/5Rdab9fKhXHAuCrF/7G8o6Y2eYaucJlnJq+
+ B3g=
+X-IronPort-AV: E=Sophos;i="5.70,558,1574092800"; d="scan'208";a="133011926"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 16 Mar 2020 08:47:49 +0800
-IronPort-SDR: t/LV1OSTa+YpUin4V7rfYhzQjWOR4itOB/EBPwRTuV1+sXnLCCzA099Rb1Ezjb3Orf+f+HoXHv
- 1cf1BNkHbpYqldqWjgj1Q+wBVBC1w1zzzmdIE9GmDQrCeVQQsQnuKMg3TC4xdkiLqEZt5TXdiq
- LuXjYizzP9tAFW9ffwuNrqfWQkFwMY3qQr6f+tRl6zjn9vGdkw3oTXLH//QwqloVn/XG1FkAFI
- 7xsuQflfWIZAdvbikBHsOYcWfEgcFWDlWtIrV9JbV0nmf6YSR7Pj57t5HNY6/Fk9+DEP/euaqX
- b93O7w4sRb2MyHEF5mW6KYFN
+ by ob1.hgst.iphmx.com with ESMTP; 16 Mar 2020 08:47:52 +0800
+IronPort-SDR: lIf6+iWC02/RAqp0SodS7cLmBN6gIj7MpEwnuXFj/wGMtD6HDVD2wCrcUbKvRZa01cVl+f5ljK
+ PL1603fEZ+cJBi7hfS8My6WW50EdlipGNTbSJTyR0FGN8VDPPpjEDb3QhQD0SLktDbO9HC9H5H
+ rm7Y3kgp0VigjgWvFJ+g4d+OpCel8qVkKMNoePhOIoP+ywZ6TMx+fHiT0APOzC7VSn8dIwcHSc
+ hMNzkqEWSv/nDbN1LxvdJEuJSH0kqhQWi2OLJUWTW3vpAPzwUAr+VkNnLY7i0euKccPLr4wcGv
+ ieJoctqZH+iwqspr6siinDwQ
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 15 Mar 2020 17:39:19 -0700
-IronPort-SDR: l2TLJudhnDS2Y5q2wYwobtc1hRM38AzpAABAbsa0OCU7KOLYj5xTxJDpPvTDDEGErG74GCwsMg
- PBv9dpfJqtW5GNJ3kDHtHCNVyjQETHW4PvTtLBIbKADwJX0Zjwi5Yn974VcHPVC6gGG7CiTrMX
- UlHjQeDUqRGKDU0tgx+j2i5MySWHRgRjPCuxKbB7Pfb63L7ptBc8KQIqt//Evi+St07WXdVAOu
- 2nHFj+ZoT9gzyRi2xhmcL8IRoGgbEtB4TFSHey8sXhqICbtrK/LM0HITZQRvtNcNM9EzZ8PLRq
- Qfk=
+ 15 Mar 2020 17:39:21 -0700
+IronPort-SDR: QSj9Do7OCAwanHxvn9fIr1Dr6pje8VkqgWIFPtk1hvR2UmvuidUoAnMM7KvNxtOVsD94O3ejUH
+ mjFsA4jERQDQAgxwHEHXOG4ayExKn9lStNtdxH2VbevrfCpR3ocvh4CJGcyEATDQeR4gv28fu6
+ 4G8ObBINonf+VciDDxU34aTpS7q2ltfqmAmpYG0oiVMQH0hMk6F3qFe5w02fEeTlU3WU4baCwM
+ AJtXy+ShLcBNmffAO69yQoBXyRNH/axWQnrNOc4VkyrtTM7QwP4Htxh2rJF1Q+J9hJbTtLpeyX
+ U1M=
 WDCIronportException: Internal
 Received: from washi.fujisawa.hgst.com ([10.149.53.254])
- by uls-op-cesaip02.wdc.com with ESMTP; 15 Mar 2020 17:47:48 -0700
+ by uls-op-cesaip02.wdc.com with ESMTP; 15 Mar 2020 17:47:51 -0700
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: linux-riscv@lists.infradead.org,
 	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: [PATCH v4 3/9] riscv: Add SOC early init support
-Date: Mon, 16 Mar 2020 09:47:38 +0900
-Message-Id: <20200316004744.209292-4-damien.lemoal@wdc.com>
+Subject: [PATCH v4 6/9] riscv: Add Kendryte K210 device tree
+Date: Mon, 16 Mar 2020 09:47:41 +0900
+Message-Id: <20200316004744.209292-7-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.24.1
 In-Reply-To: <20200316004744.209292-1-damien.lemoal@wdc.com>
 References: <20200316004744.209292-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200315_174751_060891_24AACC73 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20200315_174753_391367_D185BF98 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -105,146 +105,227 @@ Cc: Anup Patel <Anup.Patel@wdc.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a mechanism for early SoC initialization for platforms that need
-additional hardware initialization not possible through the regular
-device tree and drivers mechanism. With this, a SoC specific
-initialization function can be called very early, before DTB parsing
-is done by parse_dtb() in Linux RISC-V kernel setup code.
-
-This can be very useful for early hardware initialization for No-MMU
-kernels booted directly in M-mode because it is quite likely that no
-other booting stage exist prior to the No-MMU kernel.
-
-Example use of a SoC early initialization is as follows:
-
-static void vendor_abc_early_init(const void *fdt)
-{
-	/*
-	 * some early init code here that can use simple matches
-	 * against the flat device tree file.
-	 */
-}
-SOC_EARLY_INIT_DECLARE("vendor,abc", abc_early_init);
-
-This early initialization function is executed only if the flat device
-tree for the board has a 'compatible = "vendor,abc"' entry;
+Add a generic device tree for Kendryte K210 SoC based boards. This is
+for now a very simple device tree describing the core elements of the
+SoC. This is suitable (and tested) for the Kendryte KD233 development
+board, the Sipeed MAIX M1 Dan Dock board and the Sipeed MAIXDUINO board.
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Reviewed-by: Sean Anderson <seanga2@gmail.com>
 ---
- arch/riscv/include/asm/soc.h    | 23 +++++++++++++++++++++++
- arch/riscv/kernel/Makefile      |  1 +
- arch/riscv/kernel/head.S        |  1 +
- arch/riscv/kernel/soc.c         | 28 ++++++++++++++++++++++++++++
- arch/riscv/kernel/vmlinux.lds.S |  6 ++++++
- 5 files changed, 59 insertions(+)
- create mode 100644 arch/riscv/include/asm/soc.h
- create mode 100644 arch/riscv/kernel/soc.c
+ arch/riscv/boot/dts/Makefile           |   1 +
+ arch/riscv/boot/dts/kendryte/Makefile  |   2 +
+ arch/riscv/boot/dts/kendryte/k210.dts  |  23 +++++
+ arch/riscv/boot/dts/kendryte/k210.dtsi | 123 +++++++++++++++++++++++++
+ include/dt-bindings/clock/k210-clk.h   |  20 ++++
+ 5 files changed, 169 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/kendryte/Makefile
+ create mode 100644 arch/riscv/boot/dts/kendryte/k210.dts
+ create mode 100644 arch/riscv/boot/dts/kendryte/k210.dtsi
+ create mode 100644 include/dt-bindings/clock/k210-clk.h
 
-diff --git a/arch/riscv/include/asm/soc.h b/arch/riscv/include/asm/soc.h
+diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+index 0bf2669aa12d..87815557f2db 100644
+--- a/arch/riscv/boot/dts/Makefile
++++ b/arch/riscv/boot/dts/Makefile
+@@ -3,4 +3,5 @@ ifneq ($(CONFIG_BUILTIN_DTB_SOURCE),"")
+ obj-$(CONFIG_USE_BUILTIN_DTB) += $(patsubst "%",%,$(CONFIG_BUILTIN_DTB_SOURCE)).dtb.o
+ else
+ subdir-y += sifive
++subdir-y += kendryte
+ endif
+diff --git a/arch/riscv/boot/dts/kendryte/Makefile b/arch/riscv/boot/dts/kendryte/Makefile
 new file mode 100644
-index 000000000000..7cec1968c8b4
+index 000000000000..815444e69e89
 --- /dev/null
-+++ b/arch/riscv/include/asm/soc.h
++++ b/arch/riscv/boot/dts/kendryte/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_SOC_KENDRYTE) += k210.dtb
+diff --git a/arch/riscv/boot/dts/kendryte/k210.dts b/arch/riscv/boot/dts/kendryte/k210.dts
+new file mode 100644
+index 000000000000..0d1f28fce6b2
+--- /dev/null
++++ b/arch/riscv/boot/dts/kendryte/k210.dts
 @@ -0,0 +1,23 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ */
++
++/dts-v1/;
++
++#include "k210.dtsi"
++
++/ {
++	model = "Kendryte K210 generic";
++	compatible = "kendryte,k210";
++
++	chosen {
++		bootargs = "earlycon console=ttySIF0";
++		stdout-path = "serial0";
++	};
++};
++
++&uarths0 {
++	status = "okay";
++};
++
+diff --git a/arch/riscv/boot/dts/kendryte/k210.dtsi b/arch/riscv/boot/dts/kendryte/k210.dtsi
+new file mode 100644
+index 000000000000..c1df56ccb8d5
+--- /dev/null
++++ b/arch/riscv/boot/dts/kendryte/k210.dtsi
+@@ -0,0 +1,123 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (C) 2019 Sean Anderson <seanga2@gmail.com>
++ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ */
++#include <dt-bindings/clock/k210-clk.h>
++
++/ {
++	/*
++	 * Although the K210 is a 64-bit CPU, the address bus is only 32-bits
++	 * wide, and the upper half of all addresses is ignored.
++	 */
++	#address-cells = <1>;
++	#size-cells = <1>;
++	compatible = "kendryte,k210";
++
++	aliases {
++		serial0 = &uarths0;
++	};
++
++	/*
++	 * The K210 has an sv39 MMU following the priviledge specification v1.9.
++	 * Since this is a non-ratified draft specification, the kernel does not
++	 * support it and the K210 support enabled only for the !MMU case.
++	 * Be consistent with this by setting the CPUs MMU type to "none".
++	 */
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <7800000>;
++		cpu0: cpu@0 {
++			device_type = "cpu";
++			reg = <0>;
++			compatible = "kendryte,k210", "sifive,rocket0", "riscv";
++			riscv,isa = "rv64imafdc";
++			mmu-type = "none";
++			i-cache-size = <0x8000>;
++			i-cache-block-size = <64>;
++			d-cache-size = <0x8000>;
++			d-cache-block-size = <64>;
++			clocks = <&sysctl K210_CLK_CPU>;
++			clock-frequency = <390000000>;
++			cpu0_intc: interrupt-controller {
++				#interrupt-cells = <1>;
++				interrupt-controller;
++				compatible = "riscv,cpu-intc";
++			};
++		};
++		cpu1: cpu@1 {
++			device_type = "cpu";
++			reg = <1>;
++			compatible = "kendryte,k210", "sifive,rocket0", "riscv";
++			riscv,isa = "rv64imafdc";
++			mmu-type = "none";
++			i-cache-size = <0x8000>;
++			i-cache-block-size = <64>;
++			d-cache-size = <0x8000>;
++			d-cache-block-size = <64>;
++			clocks = <&sysctl K210_CLK_CPU>;
++			clock-frequency = <390000000>;
++			cpu1_intc: interrupt-controller {
++				#interrupt-cells = <1>;
++				interrupt-controller;
++				compatible = "riscv,cpu-intc";
++			};
++		};
++	};
++
++	sram: memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x400000>,
++		      <0x80400000 0x200000>,
++		      <0x80600000 0x200000>;
++		reg-names = "sram0", "sram1", "aisram";
++	};
++
++	clocks {
++		in0: oscillator {
++			compatible = "fixed-clock";
++			#clock-cells = <0>;
++			clock-frequency = <26000000>;
++		};
++	};
++
++	soc {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		compatible = "kendryte,k210-soc", "simple-bus";
++		ranges;
++		interrupt-parent = <&plic0>;
++
++		sysctl: sysctl@50440000 {
++			compatible = "kendryte,k210-sysctl", "simple-mfd";
++			reg = <0x50440000 0x1000>;
++			#clock-cells = <1>;
++		};
++
++		clint0: interrupt-controller@2000000 {
++			compatible = "riscv,clint0";
++			reg = <0x2000000 0xC000>;
++			interrupts-extended = <&cpu0_intc 3>,  <&cpu1_intc 3>;
++			clocks = <&sysctl K210_CLK_ACLK>;
++		};
++
++		plic0: interrupt-controller@c000000 {
++			#interrupt-cells = <1>;
++			interrupt-controller;
++			compatible = "kendryte,k210-plic0", "riscv,plic0";
++			reg = <0xC000000 0x4000000>;
++			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 0xffffffff>,
++					      <&cpu1_intc 11>, <&cpu1_intc 0xffffffff>;
++			riscv,ndev = <65>;
++			riscv,max-priority = <7>;
++		};
++
++		uarths0: serial@38000000 {
++			compatible = "kendryte,k210-uarths", "sifive,uart0";
++			reg = <0x38000000 0x1000>;
++			interrupts = <33>;
++			clocks = <&sysctl K210_CLK_CPU>;
++		};
++	};
++};
+diff --git a/include/dt-bindings/clock/k210-clk.h b/include/dt-bindings/clock/k210-clk.h
+new file mode 100644
+index 000000000000..5a2fd64d1a49
+--- /dev/null
++++ b/include/dt-bindings/clock/k210-clk.h
+@@ -0,0 +1,20 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
-+ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
++ * Copyright (c) 2020 Western Digital Corporation or its affiliates.
 + */
-+
-+#ifndef _ASM_RISCV_SOC_H
-+#define _ASM_RISCV_SOC_H
-+
-+#include <linux/of.h>
-+#include <linux/linkage.h>
-+#include <linux/types.h>
-+
-+#define SOC_EARLY_INIT_DECLARE(name, compat, fn)			\
-+	static const struct of_device_id __soc_early_init__##name	\
-+		__used __section(__soc_early_init_table)		\
-+		 = { .compatible = compat, .data = fn  }
-+
-+void soc_early_init(void);
-+
-+extern unsigned long __soc_early_init_table_start;
-+extern unsigned long __soc_early_init_table_end;
-+
-+#endif
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 97d0c35f8b37..e4a22999dbc6 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -10,6 +10,7 @@ endif
- extra-y += head.o
- extra-y += vmlinux.lds
- 
-+obj-y	+= soc.o
- obj-y	+= cpu.o
- obj-y	+= cpufeature.o
- obj-y	+= entry.o
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 85f2073e7fe4..52ed11b4fda6 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -131,6 +131,7 @@ clear_bss_done:
- 	call kasan_early_init
- #endif
- 	/* Start the kernel */
-+	call soc_early_init
- 	call parse_dtb
- 	tail start_kernel
- 
-diff --git a/arch/riscv/kernel/soc.c b/arch/riscv/kernel/soc.c
-new file mode 100644
-index 000000000000..0b3b3dc9ad0f
---- /dev/null
-+++ b/arch/riscv/kernel/soc.c
-@@ -0,0 +1,28 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
-+ */
-+#include <linux/init.h>
-+#include <linux/libfdt.h>
-+#include <asm/pgtable.h>
-+#include <asm/soc.h>
++#ifndef K210_CLK_H
++#define K210_CLK_H
 +
 +/*
-+ * This is called extremly early, before parse_dtb(), to allow initializing
-+ * SoC hardware before memory or any device driver initialization.
++ * Arbitrary identifiers for clocks.
++ * The structure is: in0 -> pll0 -> aclk -> cpu
++ *
++ * Since we use the hardware defaults for now, set all these to the same clock.
 + */
-+void __init soc_early_init(void)
-+{
-+	void (*early_fn)(const void *fdt);
-+	const struct of_device_id *s;
-+	const void *fdt = dtb_early_va;
++#define K210_CLK_PLL0   0
++#define K210_CLK_PLL1   0
++#define K210_CLK_ACLK   0
++#define K210_CLK_CPU    0
 +
-+	for (s = (void *)&__soc_early_init_table_start;
-+	     (void *)s < (void *)&__soc_early_init_table_end; s++) {
-+		if (!fdt_node_check_compatible(fdt, 0, s->compatible)) {
-+			early_fn = s->data;
-+			early_fn(fdt);
-+			return;
-+		}
-+	}
-+}
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 1e0193ded420..32b160942f40 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -24,6 +24,12 @@ SECTIONS
- 	HEAD_TEXT_SECTION
- 	INIT_TEXT_SECTION(PAGE_SIZE)
- 	INIT_DATA_SECTION(16)
-+	. = ALIGN(8);
-+	__soc_early_init_table : {
-+		__soc_early_init_table_start = .;
-+		KEEP(*(__soc_early_init_table))
-+		__soc_early_init_table_end = .;
-+	}
- 	/* we have to discard exit text and such at runtime, not link time */
- 	.exit.text :
- 	{
++#endif /* K210_CLK_H */
 -- 
 2.24.1
 
