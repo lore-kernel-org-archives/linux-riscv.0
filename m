@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7011CC10DCE
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2020 00:48:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 257E8C10F29
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2020 00:48:10 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3DA44205C9
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2020 00:48:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D1B15205C9
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2020 00:48:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LVJtMx7C";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="nmqQUSpC"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3DA44205C9
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Z5j01HYv";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="UCFD0lYn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D1B15205C9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,71 +26,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sOM3aEmjEqWWOAVUA5kLxhBWRDkm4mIPbH4c62vvABo=; b=LVJtMx7CDrNBMl
-	89bouyfMxZEcoGvbpZWMvTPxDjvF+mh9zdyjbPbo/y9ebjm2HUG0Clx4WLgb3UvUtFlecpqkKedyq
-	/OEJ3zw/5yEMMq1L0LmIfM3l3aTnXwEDEfb3vUlWjwIC5fbp2B1rU2V+TJCHFWH2NRj6e8kuTKta8
-	5sNg8QPSXXBelgqKwncVhlZpUc4O4HzenJD3suMc5XPKePddVeTnexvNpWMDtOV5yVbbw3xFHHPqH
-	wKnzBQKHWTwpXZoZlFcE7HEH2Kp5yJ61QBepGCbnaZvw0yK0kPCQxsEhKQzUDEboqx3N47x21EbEN
-	Y4zxQ6VMOzq4tsyS/Whg==;
+	List-Owner; bh=1AezZ3pP55Joc945ERCB/TKvW7CDwpk+RTJ+XbnCTtA=; b=Z5j01HYvLMKlOl
+	qfHHtpYOxk1XsMAIdxmekzIBGF0eGEsQ5QbbV4Tid4iQgRiCWhG60g0fYW+VNhM09FtJZde13dqIk
+	ICv3euyfDsvw2Z910djuuAPLf3fGIFib7VFR2lMvix2JR0uYYTm0N79PLb90yS48pw6AGQglDXPTc
+	K7TYdAy5clg7YB6WOCFo/zdfp0VuDJ/MYLsNhUL11rpiX0qnWFX6MMdKxkfz/TGBy6mvLtj4wmc5u
+	vdUhBmppEXdyEfATDRqsR6U4GDcIvLtRGoUjEkUr0bSlFnO0+jOLxhm1hukf3MhONhC+f9QcWM/Fd
+	mvi2EtVFGlN24Wpod7Dg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jDdvG-00057H-NT; Mon, 16 Mar 2020 00:48:02 +0000
+	id 1jDdvL-0005Bz-7j; Mon, 16 Mar 2020 00:48:07 +0000
 Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jDdv6-0004td-N8
- for linux-riscv@lists.infradead.org; Mon, 16 Mar 2020 00:47:54 +0000
+ id 1jDdv5-0004tA-06
+ for linux-riscv@lists.infradead.org; Mon, 16 Mar 2020 00:47:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1584319673; x=1615855673;
+ t=1584319672; x=1615855672;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=ntv2epMPlTVdoKFDBWuow5pGs7sY9f+O3nNQNhnjiU8=;
- b=nmqQUSpCP2Piq0Z1dx/LkZeKCM30VjVwI/Y8Z4SMiyIuQIHkwaeEbYNh
- q9ZDx2V4ZBNYlSD8KdFwAsfYgdAkoiI+0zn+5A10YpVqcD1dadFQknvRZ
- q1cYfxC+mU/pmrbW5kzWHAlY00+/636IU5zUeF2mgyWfaFAxmq9KhQ4nm
- rFdZfWWefTae09c95yyxOE2ZMtsRYs7RlD/J5+pgN9Unwz8R36V2yqEf4
- Hf3vbgsGiKhcpM48URDRYdXBPY3iy+cD7QrKQHFRs6hem3u9p4HRt6PjN
- xPXTWQSOsgqlx9vmHrVrYALuL0qs+5mGeE5Brck6J+Q28zQMf+zt39Z4a Q==;
-IronPort-SDR: A3rgdcmompXTJJWufYEwuV9nFW+/8LCvo0XpzMe9U/JBziHOUZvzgNco7xIf3PiZ6jzPC3e81b
- WIDKEb4Wz6LjCinWlCQ8FFVR8Cf6v1zJ9GyPi82pwPGxJ7Cu6Xdh0eB73vhwg/2i07Prmq/MLj
- R1Mb+NFSSqSdSDpHePrvaLIIsSlJsZoalZR+7HZ1JiBisZU4lAeEFxPZStYdAhbcd+6bNgeoaF
- FaDxGLwivi/oIrbUMyM72u1LfloNDo7ht9lTBg55WWmNJTeshcZbCN7H8BEgw4J7Smxy+7OEps
- QYs=
-X-IronPort-AV: E=Sophos;i="5.70,558,1574092800"; d="scan'208";a="133011925"
+ bh=PYhEVpmbjCnBVgw9L4xp6JuupFXA1P8lyt0WquX0Y0w=;
+ b=UCFD0lYnW4Ez1ESPjCmfw06yBFfeXRqlH5K2yCLoePgC5TdGxxBioVeg
+ CGuy+Ewh8zbljyZ5qWASa/cZEHyrF0VzOjZSGrhgXLPADDv3dqgcEHZoo
+ TgHQ5naZXUpkFqqaMnWTJAs7T3UetGFc/zyx0pP9qDD2G4DXaHD9IU79B
+ mDxsGS5tDv24Ac3mIkN6OEU7RpJOt+Fal4V5Bzgs+KXeDhLbHmCgphetD
+ jxMh+KyfRF1GoEl9w6IXYS7xJyoD2PGpq85kcTXWdaKKSS+q8Qv/uOz/t
+ 5EQMKzouYIcIXihSWpDtYpFms5+/FTIAZEdCBKQFi0YOEHy4Z1tpp3JnE g==;
+IronPort-SDR: nPpLgBbyLiFxNQe740F09Gg6BsxDvkCK5phsn5qoA9OehvvWXbU+EF95iGi5HahOseoUMMSnGb
+ YE+zwS+L4K8WW5u7APKb3aTywZI8zgQ9fw4LeHmaDXB0uC5856qn6cZGsCI7oaJXkzro/a2KmR
+ DLVZ+W+RIxRGP3vi40nhWTSkS12y7/buQGvBQvKzkKA5dP+Ekxc7KL1WGiiPfyaic4sBoxUniJ
+ EbJ3kMGwL1zsBCtP/GdKAaHLHoCtpIyLxhuO5xcvQkGTYdMKqTly9IATUaMP+N1UWYCe68vd8H
+ 7Io=
+X-IronPort-AV: E=Sophos;i="5.70,558,1574092800"; d="scan'208";a="133011923"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 16 Mar 2020 08:47:51 +0800
-IronPort-SDR: qb3Jzckd4miCX56z2gZ9jGfdLVrxS85wu1IoeQ7Ut0rT8aeGbp+dNi2zdODgSoOj8H9n9sekzR
- Y835IVDpOiuCN/zZ8BLiS2en2Mv5of5jB1pRNDDlRFpmXM+LZ0zytCWsRtsvu0eDD/hkZGJN/V
- +yIo8zxMDZw1N1nlQLIrHvd+2f2TkWwjpaW8fQ4J2j4m46UzsCqHFbImcVGs2Wc3aF1NzO52ET
- 5ceF04Ht6RSeN32PNb8SI0Md4nR/2DGPhogbPpiD7IP8TidgAFOa7Iebec+Pqfo30UUjgv8QLV
- LVYNKvRpfXoF4Mcg+xnF6OGb
+ by ob1.hgst.iphmx.com with ESMTP; 16 Mar 2020 08:47:49 +0800
+IronPort-SDR: t/LV1OSTa+YpUin4V7rfYhzQjWOR4itOB/EBPwRTuV1+sXnLCCzA099Rb1Ezjb3Orf+f+HoXHv
+ 1cf1BNkHbpYqldqWjgj1Q+wBVBC1w1zzzmdIE9GmDQrCeVQQsQnuKMg3TC4xdkiLqEZt5TXdiq
+ LuXjYizzP9tAFW9ffwuNrqfWQkFwMY3qQr6f+tRl6zjn9vGdkw3oTXLH//QwqloVn/XG1FkAFI
+ 7xsuQflfWIZAdvbikBHsOYcWfEgcFWDlWtIrV9JbV0nmf6YSR7Pj57t5HNY6/Fk9+DEP/euaqX
+ b93O7w4sRb2MyHEF5mW6KYFN
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 15 Mar 2020 17:39:21 -0700
-IronPort-SDR: uECJb4fk5IPWZFo2ZGUE5KyiJVPICrcQzTwBMamwMkOosccYIN16NLSKcC2MgbIPyoe/3Fq8Bh
- ulnqgFSMzO41hPN8SCvXuvakEtTu7UDtOswqzg/ISX6ydS4sXd7Nqnignl0He0POIUzaNx6Vj8
- 1x8vE/PuS143xSOiuGGiq7NjPaYb5mYp97a3J6WbEgYKUZtDN2gqx4rTFuPKSotREKgMbWeIH6
- Zqk6+iNeKLjWGsxMlUoWBnqJV84AZ9+BvcrAbIUZmKfrjXWQItXe3ztBPwbT8X/5JQNUru51MY
- 3e4=
+ 15 Mar 2020 17:39:19 -0700
+IronPort-SDR: l2TLJudhnDS2Y5q2wYwobtc1hRM38AzpAABAbsa0OCU7KOLYj5xTxJDpPvTDDEGErG74GCwsMg
+ PBv9dpfJqtW5GNJ3kDHtHCNVyjQETHW4PvTtLBIbKADwJX0Zjwi5Yn974VcHPVC6gGG7CiTrMX
+ UlHjQeDUqRGKDU0tgx+j2i5MySWHRgRjPCuxKbB7Pfb63L7ptBc8KQIqt//Evi+St07WXdVAOu
+ 2nHFj+ZoT9gzyRi2xhmcL8IRoGgbEtB4TFSHey8sXhqICbtrK/LM0HITZQRvtNcNM9EzZ8PLRq
+ Qfk=
 WDCIronportException: Internal
 Received: from washi.fujisawa.hgst.com ([10.149.53.254])
- by uls-op-cesaip02.wdc.com with ESMTP; 15 Mar 2020 17:47:50 -0700
+ by uls-op-cesaip02.wdc.com with ESMTP; 15 Mar 2020 17:47:48 -0700
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: linux-riscv@lists.infradead.org,
 	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: [PATCH v4 5/9] riscv: Select required drivers for Kendryte SOC
-Date: Mon, 16 Mar 2020 09:47:40 +0900
-Message-Id: <20200316004744.209292-6-damien.lemoal@wdc.com>
+Subject: [PATCH v4 3/9] riscv: Add SOC early init support
+Date: Mon, 16 Mar 2020 09:47:38 +0900
+Message-Id: <20200316004744.209292-4-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.24.1
 In-Reply-To: <20200316004744.209292-1-damien.lemoal@wdc.com>
 References: <20200316004744.209292-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200315_174752_798595_47F8D135 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200315_174751_060891_24AACC73 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -106,32 +105,146 @@ Cc: Anup Patel <Anup.Patel@wdc.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch selects drivers required for the Kendryte K210 SOC.
-Since K210 SoC based boards do not provide a device tree, this patch
-also enables the BUILTIN_DTB option.
+Add a mechanism for early SoC initialization for platforms that need
+additional hardware initialization not possible through the regular
+device tree and drivers mechanism. With this, a SoC specific
+initialization function can be called very early, before DTB parsing
+is done by parse_dtb() in Linux RISC-V kernel setup code.
+
+This can be very useful for early hardware initialization for No-MMU
+kernels booted directly in M-mode because it is quite likely that no
+other booting stage exist prior to the No-MMU kernel.
+
+Example use of a SoC early initialization is as follows:
+
+static void vendor_abc_early_init(const void *fdt)
+{
+	/*
+	 * some early init code here that can use simple matches
+	 * against the flat device tree file.
+	 */
+}
+SOC_EARLY_INIT_DECLARE("vendor,abc", abc_early_init);
+
+This early initialization function is executed only if the flat device
+tree for the board has a 'compatible = "vendor,abc"' entry;
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Signed-off-by: Anup Patel <anup.patel@wdc.com>
 ---
- arch/riscv/Kconfig.socs | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/include/asm/soc.h    | 23 +++++++++++++++++++++++
+ arch/riscv/kernel/Makefile      |  1 +
+ arch/riscv/kernel/head.S        |  1 +
+ arch/riscv/kernel/soc.c         | 28 ++++++++++++++++++++++++++++
+ arch/riscv/kernel/vmlinux.lds.S |  6 ++++++
+ 5 files changed, 59 insertions(+)
+ create mode 100644 arch/riscv/include/asm/soc.h
+ create mode 100644 arch/riscv/kernel/soc.c
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 69071578e181..a843100124ae 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -37,6 +37,10 @@ config SOC_VIRT
- config SOC_KENDRYTE
- 	bool "Kendryte K210 SoC"
- 	depends on !MMU
-+	select BUILTIN_DTB
-+	select SERIAL_SIFIVE if TTY
-+	select SERIAL_SIFIVE_CONSOLE if TTY
-+	select SIFIVE_PLIC
- 	help
- 	  This enables support for Kendryte K210 SoC platform hardware.
+diff --git a/arch/riscv/include/asm/soc.h b/arch/riscv/include/asm/soc.h
+new file mode 100644
+index 000000000000..7cec1968c8b4
+--- /dev/null
++++ b/arch/riscv/include/asm/soc.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ */
++
++#ifndef _ASM_RISCV_SOC_H
++#define _ASM_RISCV_SOC_H
++
++#include <linux/of.h>
++#include <linux/linkage.h>
++#include <linux/types.h>
++
++#define SOC_EARLY_INIT_DECLARE(name, compat, fn)			\
++	static const struct of_device_id __soc_early_init__##name	\
++		__used __section(__soc_early_init_table)		\
++		 = { .compatible = compat, .data = fn  }
++
++void soc_early_init(void);
++
++extern unsigned long __soc_early_init_table_start;
++extern unsigned long __soc_early_init_table_end;
++
++#endif
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 97d0c35f8b37..e4a22999dbc6 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -10,6 +10,7 @@ endif
+ extra-y += head.o
+ extra-y += vmlinux.lds
  
++obj-y	+= soc.o
+ obj-y	+= cpu.o
+ obj-y	+= cpufeature.o
+ obj-y	+= entry.o
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 85f2073e7fe4..52ed11b4fda6 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -131,6 +131,7 @@ clear_bss_done:
+ 	call kasan_early_init
+ #endif
+ 	/* Start the kernel */
++	call soc_early_init
+ 	call parse_dtb
+ 	tail start_kernel
+ 
+diff --git a/arch/riscv/kernel/soc.c b/arch/riscv/kernel/soc.c
+new file mode 100644
+index 000000000000..0b3b3dc9ad0f
+--- /dev/null
++++ b/arch/riscv/kernel/soc.c
+@@ -0,0 +1,28 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ */
++#include <linux/init.h>
++#include <linux/libfdt.h>
++#include <asm/pgtable.h>
++#include <asm/soc.h>
++
++/*
++ * This is called extremly early, before parse_dtb(), to allow initializing
++ * SoC hardware before memory or any device driver initialization.
++ */
++void __init soc_early_init(void)
++{
++	void (*early_fn)(const void *fdt);
++	const struct of_device_id *s;
++	const void *fdt = dtb_early_va;
++
++	for (s = (void *)&__soc_early_init_table_start;
++	     (void *)s < (void *)&__soc_early_init_table_end; s++) {
++		if (!fdt_node_check_compatible(fdt, 0, s->compatible)) {
++			early_fn = s->data;
++			early_fn(fdt);
++			return;
++		}
++	}
++}
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index 1e0193ded420..32b160942f40 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -24,6 +24,12 @@ SECTIONS
+ 	HEAD_TEXT_SECTION
+ 	INIT_TEXT_SECTION(PAGE_SIZE)
+ 	INIT_DATA_SECTION(16)
++	. = ALIGN(8);
++	__soc_early_init_table : {
++		__soc_early_init_table_start = .;
++		KEEP(*(__soc_early_init_table))
++		__soc_early_init_table_end = .;
++	}
+ 	/* we have to discard exit text and such at runtime, not link time */
+ 	.exit.text :
+ 	{
 -- 
 2.24.1
 
