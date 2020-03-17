@@ -2,59 +2,71 @@ Return-Path: <SRS0=LWxS=5C=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C3058C1975A
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2020 20:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A3A61C1975A
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2020 21:01:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9C75120754
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2020 20:05:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 705162051A
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2020 21:01:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="r4j9aUZT"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9C75120754
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=codeaurora.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kHUlr+ls"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 705162051A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/wlmViSvNmpBTa6BJIUmi8amiDkO5Jql6cqJ8FgTvwg=; b=r4j9aUZTMcXjqZ
-	UYU0FUIb4lJP+lREsapLKzTlsbvoR2m2kRODYq7013NmqQ6rAwy4umPCS592JOOb3P6MK4/C10JTo
-	Bw9HZby8QnxRPMLCW/9NrU0Fu4WtIvpr/JF8xE2yKsBwYQRhQ8AbVu1qAiTWOCCIK2IcEyhpuV2On
-	t8LudkAMdu/FLZJsYWvSK4R5uCC3pdsBOWhELvTPXze2FcSXXBpQHkpyKtFOEgtKjwRknu2onBpHy
-	W+9q6DcfwRk3hQ1WbGUerCD38PcD+8nUmfCAxxxmvxlCFvY4nEcs2WjgQTaw8qo2bIc0sxn/qxk+a
-	yucLEVAt+mxCiHWGqwuA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=VeAHv1Hp+boT+ICggf029a0q01HLDy5MKOkH0V5mYTA=; b=kHUlr+lsZPfh2grku7s1gn2td
+	c/0O65DZ2y7cubSBRSgXLl2N4bdh1TfoJCogaBk0fC7KyTR2vpThs0tS1es6RrWbzb+eyuHRcHFK1
+	CSSz4eK5vEldlHtVpH38yBXEVtDyZj9GRQAZecfK1YVxws0h3iVidTluqqHA+ip2D97PZEuEDdhQ2
+	JNwj9VSFG57+KCN1YmP5pwsoWq9EkCdw0olOqkTiPek8kq5HNR0pHtQIZAdSY3PvMUMH8vJgdlYrE
+	1vNGbYQCAIaSNFAdPbUlSvUZ6KB/tnM9EyY5k+4KiUREhpga+75xbPV9nO9hIsVKLcyiTDo2nVyb/
+	dRkWmtsFw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jEITD-0000qR-4F; Tue, 17 Mar 2020 20:05:47 +0000
-Received: from alexa-out-sd-02.qualcomm.com ([199.106.114.39])
+	id 1jEJLI-0007lc-R6; Tue, 17 Mar 2020 21:01:40 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jEITA-0000nb-5P
- for linux-riscv@lists.infradead.org; Tue, 17 Mar 2020 20:05:45 +0000
-Received: from unknown (HELO ironmsg01-sd.qualcomm.com) ([10.53.140.141])
- by alexa-out-sd-02.qualcomm.com with ESMTP; 17 Mar 2020 13:05:36 -0700
-Received: from gurus-linux.qualcomm.com ([10.46.162.81])
- by ironmsg01-sd.qualcomm.com with ESMTP; 17 Mar 2020 13:05:34 -0700
-Received: by gurus-linux.qualcomm.com (Postfix, from userid 383780)
- id 9009A4B9F; Tue, 17 Mar 2020 13:05:34 -0700 (PDT)
-From: Guru Das Srinagesh <gurus@codeaurora.org>
-To: linux-pwm@vger.kernel.org
-Subject: [PATCH v9 00/11] Convert PWM period and duty cycle to u64
-Date: Tue, 17 Mar 2020 13:05:15 -0700
-Message-Id: <cover.1584473399.git.gurus@codeaurora.org>
-X-Mailer: git-send-email 1.9.1
+ id 1jEJL8-0007Yd-Hu
+ for linux-riscv@lists.infradead.org; Tue, 17 Mar 2020 21:01:32 +0000
+Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1jEJKW-00039f-Bg; Tue, 17 Mar 2020 22:00:52 +0100
+Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1jEJKM-0003eU-V8; Tue, 17 Mar 2020 22:00:42 +0100
+Date: Tue, 17 Mar 2020 22:00:42 +0100
+From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+To: Thierry Reding <thierry.reding@gmail.com>
+Subject: Re: [RFC PATCH 1/7] pwm: rename the PWM_POLARITY_INVERSED enum
+Message-ID: <20200317210042.ryrof3amr7fxp4w5@pengutronix.de>
+References: <20200317123231.2843297-1-oleksandr.suvorov@toradex.com>
+ <20200317123231.2843297-2-oleksandr.suvorov@toradex.com>
+ <20200317174043.GA1464607@ulmo>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20200317174043.GA1464607@ulmo>
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200317_130544_227222_631D0057 
-X-CRM114-Status: GOOD (  18.30  )
+X-CRM114-CacheID: sfid-20200317_140130_606438_F19EAD39 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,205 +78,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Kate Stewart <kstewart@linuxfoundation.org>,
- Daniel Vetter <daniel@ffwll.ch>, linux-fbdev@vger.kernel.org,
- David Airlie <airlied@linux.ie>, "Wesley W. Terpstra" <wesley@sifive.com>,
- Michael Turquette <mturquette@baylibre.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Kamil Debski <kamil@wypas.org>, dri-devel@lists.freedesktop.org,
- Liam Girdwood <lgirdwood@gmail.com>, Atish Patra <atish.patra@wdc.com>,
- Thierry Reding <thierry.reding@gmail.com>,
- Benjamin Gaignard <benjamin.gaignard@linaro.org>,
- linux-riscv@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
- linux-clk@vger.kernel.org,
- =?UTF-8?q?Ville=20Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>,
- Alexandre Torgue <alexandre.torgue@st.com>,
- Guru Das Srinagesh <gurus@codeaurora.org>,
- Daniel Thompson <daniel.thompson@linaro.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Axel Lin <axel.lin@ingics.com>,
- Arnd Bergmann <arnd@arndb.de>, Alexander Shiyan <shc_work@mail.ru>,
- Fabio Estevam <festevam@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
- NXP Linux Team <linux-imx@nxp.com>, Mukesh Ojha <mojha@codeaurora.org>,
- Gerald Baeza <gerald.baeza@st.com>, intel-gfx@lists.freedesktop.org,
- Guenter Roeck <linux@roeck-us.net>, linux-media@vger.kernel.org,
- Jean Delvare <jdelvare@suse.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>,
- Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Mark Brown <broonie@kernel.org>, Jani Nikula <jani.nikula@linux.intel.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Subbaraman Narayanamurthy <subbaram@codeaurora.org>,
- Thomas Gleixner <tglx@linutronix.de>, Fabrice Gasnier <fabrice.gasnier@st.com>,
- Ding Xiang <dingxiang@cmss.chinamobile.com>,
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Heiko Stuebner <heiko@sntech.de>, linux-pwm@vger.kernel.org,
+ Marcel Ziswiler <marcel.ziswiler@toradex.com>, linux-kernel@vger.kernel.org,
+ Oleksandr Suvorov <oleksandr.suvorov@toradex.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Kevin Hilman <khilman@baylibre.com>,
+ Chen-Yu Tsai <wens@csie.org>, linux-rockchip@lists.infradead.org,
+ Ludovic Desroches <ludovic.desroches@microchip.com>,
+ bcm-kernel-feedback-list@broadcom.com, NXP Linux Team <linux-imx@nxp.com>,
+ devicetree@vger.kernel.org, Ray Jui <rjui@broadcom.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Maxime Ripard <mripard@kernel.org>,
+ Philippe Schenker <philippe.schenker@toradex.com>,
+ Paul Barker <pbarker@konsulko.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Paul Cercueil <paul@crapouillou.net>, Igor Opaniuk <igor.opaniuk@toradex.com>,
+ Scott Branden <sbranden@broadcom.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Tony Prisk <linux@prisktech.co.nz>, Palmer Dabbelt <palmer@dabbelt.com>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
- Allison Randal <allison@lohutok.net>, linux-hwmon@vger.kernel.org,
- Chris Wilson <chris@chris-wilson.co.uk>, Anson Huang <Anson.Huang@nxp.com>,
- Richard Fontana <rfontana@redhat.com>, Stephen Boyd <sboyd@kernel.org>,
- Jingoo Han <jingoohan1@gmail.com>, linux-kernel@vger.kernel.org,
- Yash Shah <yash.shah@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Dan Carpenter <dan.carpenter@oracle.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
+ Shawn Guo <shawnguo@kernel.org>, Claudiu Beznea <claudiu.beznea@microchip.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Because period and duty cycle are defined in the PWM framework structs as ints
-with units of nanoseconds, the maximum time duration that can be set is limited
-to ~2.147 seconds. Consequently, applications desiring to set greater time
-periods via the PWM framework are not be able to do so - like, for instance,
-causing an LED to blink at an interval of 5 seconds.
+Hello,
 
-Redefining the period and duty cycle struct members in the core PWM framework
-structs as u64 values will enable larger time durations to be set and solve
-this problem. Such a change to the framework mandates that drivers using these
-struct members (and corresponding helper functions) also be modified correctly
-in order to prevent compilation errors.
+On Tue, Mar 17, 2020 at 06:40:43PM +0100, Thierry Reding wrote:
+> On Tue, Mar 17, 2020 at 02:32:25PM +0200, Oleksandr Suvorov wrote:
+> > The polarity enum definition PWM_POLARITY_INVERSED is misspelled.
+> > Rename it to PWM_POLARITY_INVERTED.
+> 
+> It isn't misspelled. "inversed" is a synonym for "inverted". Both
+> spellings are correct.
 
-This patch series introduces the changes to all the drivers first, followed by
-the framework change at the very end so that when the latter is applied, all
-the drivers are in good shape and there are no compilation errors.
+Some time ago I stumbled about "inversed", too. My spell checker doesn't
+know it and I checked some dictionaries and none of them knew that word:
 
-Changes from v8:
-  - Gathered all received "Acked-by: " and "Reviewed-by: " tags
-  - Dropped patch to clk-pwm.c for reasons mentiond in [2]
-  - Expanded audience of unreviewed patches
+https://www.lexico.com/search?utf8=%E2%9C%93&filter=dictionary&dictionary=en&query=inversed
+https://de.pons.com/%C3%BCbersetzung/englisch-deutsch/inversed
+https://dictionary.cambridge.org/spellcheck/english-german/?q=inversed
 
-Changes from v7:
-  - Changed commit messages of all patches to be brief and to the point.
-  - Added explanation of change in cover letter.
-  - Dropped change to pwm-sti.c as upon review it was unnecessary as struct
-    pwm_capture is not being modified in the PWM core.
+https://en.wiktionary.org/wiki/inverse#Verb mentions "inverse" as a verb
+having "inversed" as past participle.
 
-Changes from v6:
-  - Split out the driver changes out into separate patches, one patch per file
-    for ease of reviewing.
+Having said this I think (independent of the question if "inversed"
+exists) using two similar terms for the same thing just results in
+confusion. I hit that in the past already and I like it being addressed.
 
-Changes from v5:
-  - Dropped the conversion of struct pwm_capture to u64 for reasons mentioned
-    in https://www.spinics.net/lists/linux-pwm/msg11541.html
+> And as you noted in the cover letter, there's a conflict between the
+> macro defined in dt-bindings/pwm/pwm.txt. If they end up being included
+> in the wrong order you'll get a compile error.
 
-Changes from v4:
-  - Split the patch into two: one for changes to the drivers, and the actual
-    switch to u64 for ease of reverting should the need arise.
-  - Re-examined the patch and made the following corrections:
-      * intel_panel.c:
-	DIV64_U64_ROUND_UP -> DIV_ROUND_UP_ULL (as only the numerator would be
-	64-bit in this case).
-      * pwm-sti.c:
-	do_div -> div_u64 (do_div is optimized only for x86 architectures, and
-	div_u64's comment block suggests to use this as much as possible).
+There are also other symbols that exist twice (GPIO_ACTIVE_HIGH was the
+first to come to my mind). I'm not aware of any problems related to
+these. What am I missing?
+ 
+> The enum was named this way on purpose to make it separate from the
+> definition for the DT bindings.
 
-Changes from v3:
-  - Rebased to current tip of for-next.
+Then please let's make it different by picking a different prefix or
+something like that.
 
-Changes from v2:
-  - Fixed %u -> %llu in a dev_dbg in pwm-stm32-lp.c, thanks to kbuild test robot
-  - Added a couple of fixes to pwm-imx-tpm.c and pwm-sifive.c
+> Note that DT bindings are an ABI and can
+> never change, whereas the enum pwm_polarity is part of a Linux internal
+> API and doesn't have the same restrictions as an ABI.
 
-Changes from v1:
-  - Fixed compilation errors seen when compiling for different archs.
+I thought only binary device trees (dtb) are supposed to be ABI.
 
-v1:
-  - Reworked the change pushed upstream earlier [1] so as to not add an
-    extension to an obsolete API. With this change, pwm_ops->apply() can be
-    used to set pwm_state parameters as usual.
-
-[1] https://lore.kernel.org/lkml/20190916140048.GB7488@ulmo/
-[2] https://lore.kernel.org/lkml/20200312190859.GA19605@codeaurora.org/
-
-Guru Das Srinagesh (11):
-  drm/i915: Use 64-bit division macro
-  hwmon: pwm-fan: Use 64-bit division macro
-  ir-rx51: Use 64-bit division macro
-  pwm: clps711x: Use 64-bit division macro
-  pwm: pwm-imx-tpm: Use 64-bit division macro
-  pwm: imx27: Use 64-bit division macro and function
-  pwm: sifive: Use 64-bit division macro
-  pwm: stm32-lp: Use %llu format specifier for period
-  pwm: sun4i: Use 64-bit division function
-  backlight: pwm_bl: Use 64-bit division function
-  pwm: core: Convert period and duty cycle to u64
-
- drivers/gpu/drm/i915/display/intel_panel.c |  2 +-
- drivers/hwmon/pwm-fan.c                    |  2 +-
- drivers/media/rc/ir-rx51.c                 |  3 ++-
- drivers/pwm/core.c                         |  4 ++--
- drivers/pwm/pwm-clps711x.c                 |  2 +-
- drivers/pwm/pwm-imx-tpm.c                  |  2 +-
- drivers/pwm/pwm-imx27.c                    |  5 ++---
- drivers/pwm/pwm-sifive.c                   |  2 +-
- drivers/pwm/pwm-stm32-lp.c                 |  2 +-
- drivers/pwm/pwm-sun4i.c                    |  2 +-
- drivers/pwm/sysfs.c                        |  8 ++++----
- drivers/video/backlight/pwm_bl.c           |  3 ++-
- include/linux/pwm.h                        | 12 ++++++------
- 13 files changed, 25 insertions(+), 24 deletions(-)
-
-Cc: Lee Jones <lee.jones@linaro.org>
-Cc: Daniel Thompson <daniel.thompson@linaro.org>
-Cc: Jingoo Han <jingoohan1@gmail.com>
-Cc: Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>
-Cc: linux-fbdev@vger.kernel.org
-Cc: Maxime Ripard <mripard@kernel.org>
-Cc: Chen-Yu Tsai <wens@csie.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Fabrice Gasnier <fabrice.gasnier@st.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@st.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: linux-riscv@lists.infradead.org
-Cc: Yash Shah <yash.shah@sifive.com>
-Cc: Atish Patra <atish.patra@wdc.com>
-Cc: Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: NXP Linux Team <linux-imx@nxp.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: NXP Linux Team <linux-imx@nxp.com>
-Cc: Alexander Shiyan <shc_work@mail.ru>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Richard Fontana <rfontana@redhat.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Kate Stewart <kstewart@linuxfoundation.org>
-Cc: Allison Randal <allison@lohutok.net>
-Cc: linux-media@vger.kernel.org
-Cc: Kamil Debski <kamil@wypas.org>
-Cc: Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>
-Cc: Jean Delvare <jdelvare@suse.com>
-Cc: Guenter Roeck <linux@roeck-us.net>
-Cc: Liam Girdwood <lgirdwood@gmail.com>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: linux-hwmon@vger.kernel.org
-Cc: Jani Nikula <jani.nikula@linux.intel.com>
-Cc: Joonas Lahtinen <joonas.lahtinen@linux.intel.com>
-Cc: David Airlie <airlied@linux.ie>
-Cc: Daniel Vetter <daniel@ffwll.ch>
-Cc: Chris Wilson <chris@chris-wilson.co.uk>
-Cc: "Ville Syrjälä" <ville.syrjala@linux.intel.com>
-Cc: intel-gfx@lists.freedesktop.org
-Cc: dri-devel@lists.freedesktop.org
-Cc: Michael Turquette <mturquette@baylibre.com>
-Cc: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org
-Cc: Rodrigo Vivi <rodrigo.vivi@intel.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Mukesh Ojha <mojha@codeaurora.org>
-Cc: Dan Carpenter <dan.carpenter@oracle.com>
-Cc: Anson Huang <Anson.Huang@nxp.com>
-Cc: Gerald Baeza <gerald.baeza@st.com>
-Cc: Benjamin Gaignard <benjamin.gaignard@linaro.org>
-Cc: Axel Lin <axel.lin@ingics.com>
-Cc: Ding Xiang <dingxiang@cmss.chinamobile.com>
-Cc: Wesley W. Terpstra <wesley@sifive.com>
+Best regards
+Uwe
 
 -- 
-The Qualcomm Innovation Center, Inc. is a member of the Code Aurora Forum,
-a Linux Foundation Collaborative Project
-
+Pengutronix e.K.                           | Uwe Kleine-K�nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
 
