@@ -2,82 +2,93 @@ Return-Path: <SRS0=3so1=5D=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 95F2DC1975A
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2020 00:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D04D5C2BB1D
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2020 01:12:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6948F20724
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2020 00:49:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9D768206EC
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2020 01:12:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PApTh/cI";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Io7cCr2U"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6948F20724
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cPGk9yHJ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="kL4eHM2k"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D768206EC
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
-	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=mEZjMRu2hEVHCCshJE6Ur56JVGlCCroTKLH+YSFAD7w=; b=PApTh/cIRJTkPqVCxjNzmcRGs
-	n7HkRGW7QtqjKjvV5aYlW5npO7KGihyGj/lGxF7s6dsyLiCuxDuRto+EwBDe2DdLr97QcySfWIDfy
-	dRUX9F282JctRHIKRgl1cxlAZe+9V3QhdTTS4dpUwWTOHKNiNo8HJxygLe4cGjAFd6pPixTjnhzUh
-	g7HLzE3Wr0lvbMvITcMbzwFz7bWu6GxB/QSEhOf5YZpvITG88cMtp1QBn93T8Lo/iPppJSkMM6xM3
-	Nrjt5Jk+57EvINwyJ5SkufU65N3c8/TaTP+y4krqh38PmecF/+VFEX2p3Y2xsG7sFU3abghrXvzDm
-	dZyCHidAQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Pt36uZ+BeMvUS1deBofXERobixL0GmUTcNXz+C/odjA=; b=cPGk9yHJerN3uz
+	7d2YPElb8dIKctQPVayiwcuzA2GaAirPNIWunJmw0lIAdKjllmUz1+yQdbYGUa8upy6j4qU6iuGAh
+	8OIQDiZNzjdD8mZMoHh4UfWfZL03c07ogJlLUaXsdVDycaHW/WRuQ4oWA+L+mWc7gEuRSm08qd8Ug
+	CH7CC7QLju1Wzm2EEeUrvhzqNDPJ2m4qnqysfyC8UPVwHnDuQOywcId7g7aF0tp/dZLRA3OhRuH42
+	EKxklcjDvV+xIT1xSzAch6nt/Yk6O57bp/X1A2wuWZgl+GPCpRPl0XtAjK9HrJ8YMvaety02TAoaI
+	PT8ZL1GSQ4AonCp1Apow==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jEMu0-0007FL-LY; Wed, 18 Mar 2020 00:49:44 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1jENFd-0006xC-9Z; Wed, 18 Mar 2020 01:12:05 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jEMty-0007Es-3E; Wed, 18 Mar 2020 00:49:43 +0000
-Received: by mail-pg1-x542.google.com with SMTP id u12so12671368pgb.10;
- Tue, 17 Mar 2020 17:49:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=mEZjMRu2hEVHCCshJE6Ur56JVGlCCroTKLH+YSFAD7w=;
- b=Io7cCr2Ux3LNSgzS/WNfg+3Nv6rjTYHZTgDS03ZRcXDj93Q+S5moUxm0sRGywBHEbx
- JVTRcyB58gDjfIZLSTC5eRL68oDPalq2F4KGkMgRXJKpmpNMnpomfkDzjGIQoOL74DSv
- 4ltNeOcpmHVfK6YMpE0JXoawQKT3dKELvrI6yVpSydusg7FHIkVDwtc6QakVETnsgZe2
- GHezEWSDwKV2FLtll34AUtPmJhL2/YhvSmjRit+ui4U61ypowKhtxzUXMVU3zFXkbT2S
- xqlz3lnuZnHbI7715ufXM/amo9ubX4Ro4NYNUbzlqZgWpC4ix0pwiaml58soZIeI9mfi
- QT9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=mEZjMRu2hEVHCCshJE6Ur56JVGlCCroTKLH+YSFAD7w=;
- b=TWDIrLRq0eDmzSlQyI4RcSrqmKPojR/cyAgxs7aJYg6cTdGT/FmadKg1cDSCfk4z5v
- qI47IxWdjGx/eH5ckZHJmIC1G/a/Y4yAGQimP9LY9WPZbiRP8zJcpyzwcS3R6OYgEHNE
- a0MCTEdWljiXMH1ELpnARijtiemNfcdd/14v7raO5mrbZHsca0Nwedn+0eOuFIrQJxaX
- 9OMfrXPANXwLN3jXkcIO0UK2gQ4cBrb+/VnOgw5VwfD1i/9jGgMOUxYxhCTuYCIuDh5V
- 5VooQh/Y9pqYYehDXvJuury7dsvJVToImi+J/mVo5+nlHnIWKIw08CdfjWhGUKazqEBQ
- oglg==
-X-Gm-Message-State: ANhLgQ0qNtZ//x41ZUORpfcZLQvEYdKIsHAbE13ydmg69YyAz2CabSZA
- 2bW4mjc54+GcYRmJNzU6oiFrmfBTlsKzgrOYB00=
-X-Google-Smtp-Source: ADFU+vulDfQJe56I6PtipWkmVU80PG2acfuR+y5k+u68pckhTDj9tsFiLPV2dZecfSsyzei9Czac70YRpukrXrlNl+Q=
-X-Received: by 2002:aa7:8dcc:: with SMTP id j12mr1528707pfr.57.1584492581383; 
- Tue, 17 Mar 2020 17:49:41 -0700 (PDT)
+ id 1jENFa-0006us-Ql
+ for linux-riscv@lists.infradead.org; Wed, 18 Mar 2020 01:12:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1584493923; x=1616029923;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=MIh7Er5TSP6bkmcwbyQ0jmFEGwBC9Y1OxPn6vxSmZt8=;
+ b=kL4eHM2kgCAc4A1RQP+RN4rQwOW/KPVjniHiEkac0/m8kGlcakPuwegv
+ BavVLgewRkwN22jDMofMtEOehMl1aYBrViF+4NjUHgHmtrVy66oOWkb8t
+ ruMLD00Ff+ic7J4Kp6VGkDpMTrLNkCpnpO4ztRzmnNfcEH3QVNCK22rPp
+ 7UrPE/S5wOv5Cf7MyWHHDDELz93zz7PMZpxv7YKDmkTubxtSdszOndZYS
+ 7yFdpxL1jYjJXbEQYJA1boomc+NaTP86+jWnjobu6wmoJrq9hHJbz+4kq
+ GgpiiigqLwdjxnFZY2xmFe1VKVfOjrvfpBm44STpIUesJjl4/+fC3Venl A==;
+IronPort-SDR: Ut7WQyNNE/a1+QHt9f1JkxvL3cw5pKzRnfOVlxTa9mDmyeUxeoi8th+e3gLWWwjoRFBpuUeeEM
+ rrXh9uQYkdzs014ROuU9VeSsSjmN3GVxuWXctOZru3KCG0B0yx863B5KZCflyCj/nNW8qvCrUK
+ 4g764mQJMnDjf6msiE06jvrUp0Ee0F5riND+olAqddFoAsSByISd/07xOuoNpW45Hi1fO4cDft
+ WwyRwxJw7RisYEK7k2GFN5saVcaqSgjPr08Y7/3TWMkr5+0z35KctiSGbgY1Alf4/Gn0UJnCgo
+ jdc=
+X-IronPort-AV: E=Sophos;i="5.70,565,1574092800"; d="scan'208";a="134242141"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 18 Mar 2020 09:11:56 +0800
+IronPort-SDR: wc3EG6dYOayPhE/1nn3s0tuGpACQF4v6nQ4ThbcWb36ftOGTJW87DKf8ww9CQuk2lcL73kiLHF
+ YOa5J/dmRN+/4Pq5cuAxdd/+3DNyOqulnDdJDFNYGL27NOvxDpbPqj9wrafHsZMr5/0TNR5piM
+ tz0QCkKTtJCo+U8TAz+TFfOMLd1dRtWYgBG0yltL6UyH/2TXnmKUU9glRWUmZhjzXADSzWrRLJ
+ OMiiYNtczfPzzOSfF/WeWjIMjK4xQzdYgKq9UXtob40mQyNSp6bX6sm/6lM3zw/P4unTQjNwXU
+ NBlY/cSe6Ppcsr19QrIsHHJB
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 17 Mar 2020 18:03:23 -0700
+IronPort-SDR: +SfGws8zmt5EX9c0tHOlF+E1fwRxychf9aMMraXjH8eQIb0Coebl9PZdHhFmySuEsAZFbK2bFS
+ 8kZOwTwMPw03pCL1ZH3vzjrTJtG37zbW3V1GlvJP2jIj9Ocf88YrMBrNst9jQSFePrDjP5WP5Q
+ gkzR0wWCCtyJYsI64igGFGQ+CFH8AYli3vPRiAza9bcLSNPdt7qzZdvjq+iDdCAEcAxQC2TTvl
+ c8t0YJHNeavo6N1gBpF/pXaw/SJsB66uGszK5zYUbTFMKpawSNOUQNDsUWgQ8dsKwQnT66mRRv
+ vSg=
+WDCIronportException: Internal
+Received: from mccorma-lt.ad.shared (HELO yoda.hgst.com) ([10.86.54.125])
+ by uls-op-cesaip01.wdc.com with ESMTP; 17 Mar 2020 18:11:56 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v11 01/11] RISC-V: Mark existing SBI as 0.1 SBI.
+Date: Tue, 17 Mar 2020 18:11:34 -0700
+Message-Id: <20200318011144.91532-2-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200318011144.91532-1-atish.patra@wdc.com>
+References: <20200318011144.91532-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-References: <CAHOvCC7ZLpOkdWPjY3art8LYOh2SJWwgqYRHRMVm-E4-kD06mA@mail.gmail.com>
- <20200317134043.GA22433@bombadil.infradead.org>
-In-Reply-To: <20200317134043.GA22433@bombadil.infradead.org>
-From: JaeJoon Jung <rgbi3307@gmail.com>
-Date: Wed, 18 Mar 2020 09:49:30 +0900
-Message-ID: <CAHOvCC4WSiCD93A=DyfY8_3uqZAGXrdj4=GA4cyQx6ZqdakUtg@mail.gmail.com>
-Subject: Re: [PATCH] Add next, prev pointer in xa_node at the lib/xarray.c
-To: Matthew Wilcox <willy@infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200317_174942_165996_EFEC02ED 
-X-CRM114-Status: GOOD (  20.37  )
+X-CRM114-CacheID: sfid-20200317_181202_900322_69F0FEE2 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,103 +100,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, linux-kernel@vger.kernel.org,
- koct9i@gmail.com, maple-tree@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Zong Li <zong.li@sifive.com>,
+ Nick Hu <nickhu@andestech.com>, Vincent Chen <vincent.chen@sifive.com>,
+ Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Mike Rapoport <rppt@linux.ibm.com>, Atish Patra <atish.patra@wdc.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Gary Guo <gary@garyguo.net>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>, linux-riscv@lists.infradead.org,
+ Bin Meng <bmeng.cn@gmail.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Mao Han <han_mao@c-sky.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Matthew,
-Thank you for your deep response.
+As per the new SBI specification, current SBI implementation version
+is defined as 0.1 and will be removed/replaced in future. Each of the
+function call in 0.1 is defined as a separate extension which makes
+easier to replace them one at a time.
 
-I think XArray is a very well-made structure that requires no further
-improvement if the indexes are dense in a 64-bit system.
+Rename existing implementation to reflect that. This patch is just
+a preparatory patch for SBI v0.2 and doesn't introduce any functional
+changes.
 
-Since xa_node is 576 bytes and is set to fit 7 per 4kB page,
-adding a data type to xa_node is rather a memory waste problem.
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+---
+ arch/riscv/include/asm/sbi.h | 41 +++++++++++++++++++-----------------
+ 1 file changed, 22 insertions(+), 19 deletions(-)
 
-#define XA_CHUNK_SHIFT          (CONFIG_BASE_SMALL ? 4 : 6)
-XA_CHUNK_SIZE is 32 or 64
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 2570c1e683d3..2a637ebd7a22 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -1,6 +1,7 @@
+ /* SPDX-License-Identifier: GPL-2.0-only */
+ /*
+  * Copyright (C) 2015 Regents of the University of California
++ * Copyright (c) 2020 Western Digital Corporation or its affiliates.
+  */
+ 
+ #ifndef _ASM_RISCV_SBI_H
+@@ -9,15 +10,15 @@
+ #include <linux/types.h>
+ 
+ #ifdef CONFIG_RISCV_SBI
+-#define SBI_SET_TIMER 0
+-#define SBI_CONSOLE_PUTCHAR 1
+-#define SBI_CONSOLE_GETCHAR 2
+-#define SBI_CLEAR_IPI 3
+-#define SBI_SEND_IPI 4
+-#define SBI_REMOTE_FENCE_I 5
+-#define SBI_REMOTE_SFENCE_VMA 6
+-#define SBI_REMOTE_SFENCE_VMA_ASID 7
+-#define SBI_SHUTDOWN 8
++#define SBI_EXT_0_1_SET_TIMER 0x0
++#define SBI_EXT_0_1_CONSOLE_PUTCHAR 0x1
++#define SBI_EXT_0_1_CONSOLE_GETCHAR 0x2
++#define SBI_EXT_0_1_CLEAR_IPI 0x3
++#define SBI_EXT_0_1_SEND_IPI 0x4
++#define SBI_EXT_0_1_REMOTE_FENCE_I 0x5
++#define SBI_EXT_0_1_REMOTE_SFENCE_VMA 0x6
++#define SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID 0x7
++#define SBI_EXT_0_1_SHUTDOWN 0x8
+ 
+ #define SBI_CALL(which, arg0, arg1, arg2, arg3) ({		\
+ 	register uintptr_t a0 asm ("a0") = (uintptr_t)(arg0);	\
+@@ -43,48 +44,49 @@
+ 
+ static inline void sbi_console_putchar(int ch)
+ {
+-	SBI_CALL_1(SBI_CONSOLE_PUTCHAR, ch);
++	SBI_CALL_1(SBI_EXT_0_1_CONSOLE_PUTCHAR, ch);
+ }
+ 
+ static inline int sbi_console_getchar(void)
+ {
+-	return SBI_CALL_0(SBI_CONSOLE_GETCHAR);
++	return SBI_CALL_0(SBI_EXT_0_1_CONSOLE_GETCHAR);
+ }
+ 
+ static inline void sbi_set_timer(uint64_t stime_value)
+ {
+ #if __riscv_xlen == 32
+-	SBI_CALL_2(SBI_SET_TIMER, stime_value, stime_value >> 32);
++	SBI_CALL_2(SBI_EXT_0_1_SET_TIMER, stime_value,
++		   stime_value >> 32);
+ #else
+-	SBI_CALL_1(SBI_SET_TIMER, stime_value);
++	SBI_CALL_1(SBI_EXT_0_1_SET_TIMER, stime_value);
+ #endif
+ }
+ 
+ static inline void sbi_shutdown(void)
+ {
+-	SBI_CALL_0(SBI_SHUTDOWN);
++	SBI_CALL_0(SBI_EXT_0_1_SHUTDOWN);
+ }
+ 
+ static inline void sbi_clear_ipi(void)
+ {
+-	SBI_CALL_0(SBI_CLEAR_IPI);
++	SBI_CALL_0(SBI_EXT_0_1_CLEAR_IPI);
+ }
+ 
+ static inline void sbi_send_ipi(const unsigned long *hart_mask)
+ {
+-	SBI_CALL_1(SBI_SEND_IPI, hart_mask);
++	SBI_CALL_1(SBI_EXT_0_1_SEND_IPI, hart_mask);
+ }
+ 
+ static inline void sbi_remote_fence_i(const unsigned long *hart_mask)
+ {
+-	SBI_CALL_1(SBI_REMOTE_FENCE_I, hart_mask);
++	SBI_CALL_1(SBI_EXT_0_1_REMOTE_FENCE_I, hart_mask);
+ }
+ 
+ static inline void sbi_remote_sfence_vma(const unsigned long *hart_mask,
+ 					 unsigned long start,
+ 					 unsigned long size)
+ {
+-	SBI_CALL_3(SBI_REMOTE_SFENCE_VMA, hart_mask, start, size);
++	SBI_CALL_3(SBI_EXT_0_1_REMOTE_SFENCE_VMA, hart_mask, start, size);
+ }
+ 
+ static inline void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
+@@ -92,7 +94,8 @@ static inline void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
+ 					      unsigned long size,
+ 					      unsigned long asid)
+ {
+-	SBI_CALL_4(SBI_REMOTE_SFENCE_VMA_ASID, hart_mask, start, size, asid);
++	SBI_CALL_4(SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID, hart_mask,
++		   start, size, asid);
+ }
+ #else /* CONFIG_RISCV_SBI */
+ /* stubs for code that is only reachable under IS_ENABLED(CONFIG_RISCV_SBI): */
+-- 
+2.25.1
 
-XA_CHUNK_SIZE is 32 or 64, and currently XAarray is 64 optimized,
-so modifying it may have a counterproductive effect.
-
-There is a downside to the well-designed XArray, but if the indexes
-are not dense or deleted a lot, the memory of the slots in the xa_node
-is increased and the search cost for logn increases at f (n) = O
-(nlogn)
-
-My worries are here and I hope you understand my efforts to solve it.
-
-My attempts described below are meaningful when XA_CHUNK_SHIFT is 4 or
-2, and can solve the slowdown in search speed when indexes are deleted
-and not concentrated.
-
-When XA_CHUNK_SHIFT is 2(XA_CHUNK_SIZE is 4), the XArray configuration
-is as follows.
-(It is difficult to express the picture in text.)
-
-xarray->head : xa_node : index: 0  16  32  48
-                +---+---+---+
-                                |   |   |   |
-        +-----------------------+   |   |   +------------+
-        |              +------------+   |                |
-        |              |                |                |
-    0  4  8  12    16  20  24  28   32  36  40  44   48  52  56  60
-    +--+--+---+    +---+---+---+    +---+---+---+    +---+---+---+
-        |              |                |                |
-  +-----+              |                +-------+        +---------------+
-  |                    |                        |                        |
-  0 1 2 3 <==>... <==> 16 17 18 19 <==>... <==> 32 33 34 35 <==>...
-<==> 48 49 ..
-
-In the above, if xa_node is connected to next and prev, it does not
-search the parent node, so the logn disappears from f (n) = O (nlogn),
-which improves search efficiency with f (n) = O (n). In fact, this is
-already well-known in traditional algorithms, but I hope you can
-understand it with the effort applied to XArray.
-
-Best Regards,
-JaeJoon Jung.
-
-On Tue, 17 Mar 2020 at 22:40, Matthew Wilcox <willy@infradead.org> wrote:
->
-> On Tue, Mar 17, 2020 at 04:32:34PM +0900, JaeJoon Jung wrote:
-> > Hi Matthew,
-> > I add next, prev pointer in the xa_node to improve search performance.
-> > XArray currently has the following search capabilities:
-> >
-> > Search algorithm performance is O(n) = n x log(n)
->
-> That's not how "big-O" notation is used.
-> https://en.wikipedia.org/wiki/Big_O_notation
->
-> What you mean to say here is O(n.log(n)).
->
-> > For example,
-> > XA_CHUNK_SHIFT 2
-> > XA_CHUNK_SIZE 4
->
-> I'm not really interested in the performance of a cut-down radix tree.
-> You can re-run the numbers with a SHIFT of 6 and SIZE of 64 to get a
-> more useful set of performance numbers.
->
-> > If you connect the leaf node with the next and prev pointers as follows,
-> > the search performance is improved to O (n) = n.
->
-> But that's not free.  Right now, the xa_node is finely tuned in
-> size to 576 bytes on 64-bit systems (32-bit systems are a secondary
-> consideration).  That gets us 7 nodes per page.  Increasing the size any
-> further reduces the number per page to 6, which is a pretty meaningful
-> increase in memory usage.
->
-> > @@ -1125,6 +1125,8 @@ struct xa_node {
-> >         unsigned char   count;          /* Total entry count */
-> >         unsigned char   nr_values;      /* Value entry count */
-> >         struct xa_node __rcu *parent;   /* NULL at top of tree */
-> > +        struct xa_node __rcu *prev;     /* previous node pointer */
-> > +        struct xa_node __rcu *next;     /* next node pointer */
->
-> You should be indenting with tabs, not spaces.  Or your mail system is
-> messing with your patches.
->
 
