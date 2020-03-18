@@ -2,90 +2,104 @@ Return-Path: <SRS0=3so1=5D=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
-	version=3.4.0
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B1F65C10DCE
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2020 18:03:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4A8C2C4332D
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2020 22:07:29 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 89DA520719
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2020 18:03:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1431D2076E
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2020 22:07:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tSgTqaWJ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="TQ4vvSRH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 89DA520719
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fFwLG8j0";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=oracle.com header.i=@oracle.com header.b="wrvlWHLt"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1431D2076E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=oracle.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
-	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=+eM9a9W2vn4WlLm8RIK9kwfFrKjYpl0TGuyjyC6IJgo=; b=tSgTqaWJCbbHpv
-	S2AkrwcmWs99YOKiqwsH/Dl2GkGeKxaW5spHPKEuBjAKEOgLFtqAgyKROj9UTKJPKFJFrdXMrmMHT
-	JWt7X3hvjNX1U60p6U0DZb6i5Ly9N44MvWi9LFaN6QN7HsHLm2kGvGYGwAHyVPxvJavdvv9AVue/M
-	lAph71ehnrMS9cpFBOrC00W3GN0KP7ZB6Mq+mF8kCRdixBsHflLEofy0hSagu0x60Ls4W/8++H5Y4
-	bGdBP76F3Lgi1gKdxG5kgAzX54wKnmcRf86YECbh9jv6oFn4hZzMlq2UCRDNllb31p6ENWjYrkfc3
-	req+z+T1SlRLInSUQHIw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=k8JY6quewTG4QphZgbCCxbDqYoFEe8V39retRAxh45c=; b=fFwLG8j0LY+Us7
+	TMBZ5l0P5L+wz8BAtn8Uhhqg7cxpz5fmWA5S3hNe/VlUH8XHFIsEDwCuf8iYdWOU5fcUmsYHRiwzb
+	DeXFoAOGIW4BSF2AzmLbLJhywvb1vZxnL2cY/jEwAnPnqtkIBqZPUg80PXqzgpnkLevjDPUgfKtzw
+	D4z7MKe6yE8Sr/NztkbB5Xk7bL5I7+DNurkeD5QaW2CEa3EM6NMGAR3hv8gf3IStxZtkB4uh4fZ7s
+	satLLSbAdFGHIUuxkevA6wHz+DUCT7Cp7GVxzOD1cyVrvX6ukc7xE8gC2m5MkymmZ0E/OpTnpx3c6
+	l3jFIHCo/igyyK3ND6/g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jEd2Q-0005zH-Hm; Wed, 18 Mar 2020 18:03:30 +0000
-Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
+	id 1jEgqV-0004os-Fj; Wed, 18 Mar 2020 22:07:27 +0000
+Received: from aserp2120.oracle.com ([141.146.126.78])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jEd2N-0005yp-FG
- for linux-riscv@lists.infradead.org; Wed, 18 Mar 2020 18:03:29 +0000
-Received: by mail-pj1-x1043.google.com with SMTP id q16so1332061pje.1
- for <linux-riscv@lists.infradead.org>; Wed, 18 Mar 2020 11:03:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=+eM9a9W2vn4WlLm8RIK9kwfFrKjYpl0TGuyjyC6IJgo=;
- b=TQ4vvSRHjfw0ztqFIOdjMIULpDidGu4tlLnCZMkGpebg19wsHIF76ItRD7BT/QLpnr
- CcOfP7pAJC8M6pE3U/SZx0FDUq7QjU1b/pxzuD9NzeBHx5HddS41x2b89+JB5r/r2StD
- t+gwJ0Z7V1WtEAYuP4HlIpyLSgSw1xf7ICuQXGCV6xspEAshMzq7VFxHyZP4op0rALur
- PK9co4Nk0sL6L7+FY4V3NvDPiHHZvjCSH/g9M5M3dPhZf2d1U4g5bVBaKq6ol73RlRLY
- x2aSWbP+1CRVvN5ie5nfhX3k70atmGmAhAv9LpFSiZ9M6sVJUg3Re38Fm8VUZNG7UO+i
- QLNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=+eM9a9W2vn4WlLm8RIK9kwfFrKjYpl0TGuyjyC6IJgo=;
- b=TK9M9ugVENorSKXArXcTdoKOQWXcKgIKLMWEGuuveQW+IRVsDnS82TYyg/E+EuiIpU
- B6MD53yKWmKq6uHr4dFmop/xnZgS0xbT+EnV5nkAkCFkadlUtrINsyzN6fxgqtTzeY88
- giJphRzhnExh7V+e34LIwSffX3B1rUlF5LcKcKJ+8i6p42Zf7k+1mh6H0fqjwqg3zY4c
- mRxD0d02194o/VxkhzAc2RSS/GjBMxSVu3Y8GHlaYY/mxkS+yow7DYHSJbr1yQVWAKND
- /x/jiNNRC/6vqP3m5/V3tuLjVi1Te8inCKyU9qt7HIfi67+aIUIktVXfBCBJeeMCMaZh
- jc5w==
-X-Gm-Message-State: ANhLgQ2rRrNdalbGpNX37aMVw+GkZhbAgz9JlQRVvoQis4lwsuSkG4iR
- 1VTHnDlHM3uuktkJgfMB7tG7hA==
-X-Google-Smtp-Source: ADFU+vtxf8uer2iHkDwG5t0VNkx7ErzNHbyv2jFSMSBDIgV65AZlPIcLPKge2X6sjaRdnytbtfj3Jw==
-X-Received: by 2002:a17:902:9a03:: with SMTP id
- v3mr1016462plp.223.1584554606031; 
- Wed, 18 Mar 2020 11:03:26 -0700 (PDT)
-Received: from localhost (c-67-161-15-180.hsd1.ca.comcast.net. [67.161.15.180])
- by smtp.gmail.com with ESMTPSA id z7sm62477pfz.24.2020.03.18.11.03.24
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 18 Mar 2020 11:03:25 -0700 (PDT)
-Date: Wed, 18 Mar 2020 11:03:25 -0700 (PDT)
-X-Google-Original-Date: Wed, 18 Mar 2020 10:32:24 PDT (-0700)
-Subject: Re: [PATCH 1/5] kgdb: Add kgdb_has_hit_break function
-In-Reply-To: <1583225220-26137-1-git-send-email-vincent.chen@sifive.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: vincent.chen@sifive.com
-Message-ID: <mhng-a17f59fc-9e51-4c9d-9b4b-4c707825c459@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
+ id 1jEgqS-0004nC-Ja; Wed, 18 Mar 2020 22:07:26 +0000
+Received: from pps.filterd (aserp2120.oracle.com [127.0.0.1])
+ by aserp2120.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 02ILwmOd081884;
+ Wed, 18 Mar 2020 22:06:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=from : to : cc :
+ subject : date : message-id : in-reply-to : references : mime-version :
+ content-transfer-encoding; s=corp-2020-01-29;
+ bh=k8JY6quewTG4QphZgbCCxbDqYoFEe8V39retRAxh45c=;
+ b=wrvlWHLtdKxG3gmfpT7RVPT/vlS1QJv3JwDgsH3Qg52NFKkSo3gwJDDwarCO16LIZldU
+ AqflgViW1EXUjf/COcfCCAD4sZrzecED8B6lSaUDtfL5NulhlS3nes7W3bKXUzfV4q1s
+ Bx+lg4yMfZPu3DdXvZ4Py1VZLkWe8cM5AXgMz/HWd7u4ZgG7CKEfLBJW1aCnUGPjzL0R
+ nTE1rl66g/Lg9MRnceqm6fg87ocvOS0VC/Yl064Pl1L+fRSwZfXnmpzJW5kBVPcBwYQQ
+ tjTKP4PF+OxmaZn2Gs6T6/8VnT9rNYxeLke+4RKyyYHAIecsPXkdiPgrpcl5mn3RcITR fQ== 
+Received: from userp3030.oracle.com (userp3030.oracle.com [156.151.31.80])
+ by aserp2120.oracle.com with ESMTP id 2yrq7m54xy-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 18 Mar 2020 22:06:53 +0000
+Received: from pps.filterd (userp3030.oracle.com [127.0.0.1])
+ by userp3030.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 02ILwhfd142874;
+ Wed, 18 Mar 2020 22:06:53 GMT
+Received: from aserv0121.oracle.com (aserv0121.oracle.com [141.146.126.235])
+ by userp3030.oracle.com with ESMTP id 2ys8rjkmk3-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 18 Mar 2020 22:06:53 +0000
+Received: from abhmp0008.oracle.com (abhmp0008.oracle.com [141.146.116.14])
+ by aserv0121.oracle.com (8.14.4/8.13.8) with ESMTP id 02IM6pAc003506;
+ Wed, 18 Mar 2020 22:06:51 GMT
+Received: from monkey.oracle.com (/71.63.128.209)
+ by default (Oracle Beehive Gateway v4.0)
+ with ESMTP ; Wed, 18 Mar 2020 15:06:51 -0700
+From: Mike Kravetz <mike.kravetz@oracle.com>
+To: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-doc@vger.kernel.org
+Subject: [PATCH 2/4] hugetlbfs: move hugepagesz= parsing to arch independent
+ code
+Date: Wed, 18 Mar 2020 15:06:32 -0700
+Message-Id: <20200318220634.32100-3-mike.kravetz@oracle.com>
+X-Mailer: git-send-email 2.24.1
+In-Reply-To: <20200318220634.32100-1-mike.kravetz@oracle.com>
+References: <20200318220634.32100-1-mike.kravetz@oracle.com>
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9564
+ signatures=668685
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0
+ bulkscore=0 phishscore=0
+ malwarescore=0 mlxscore=0 mlxlogscore=999 adultscore=0 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2003020000
+ definitions=main-2003180094
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9564
+ signatures=668685
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ lowpriorityscore=0 suspectscore=0
+ adultscore=0 bulkscore=0 mlxlogscore=999 priorityscore=1501 clxscore=1015
+ malwarescore=0 mlxscore=0 phishscore=0 impostorscore=0 spamscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2003020000
+ definitions=main-2003180094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200318_110327_649615_B659342A 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20200318_150724_725559_96BA5D0C 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,48 +111,266 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: daniel.thompson@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>,
- dianders@chromium.org, vincent.chen@sifive.com, jason.wessel@windriver.com,
- linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Vasily Gorbik <gor@linux.ibm.com>,
+ Jonathan Corbet <corbet@lwn.net>, Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Paul Mackerras <paulus@samba.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Longpeng <longpeng2@huawei.com>, Will Deacon <will@kernel.org>,
+ "David S . Miller" <davem@davemloft.net>,
+ Mike Kravetz <mike.kravetz@oracle.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Mar 2020 00:47:00 PST (-0800), vincent.chen@sifive.com wrote:
-> The break instruction in RISC-V does not have an immediate value field, so
-> the kernel cannot identify the purpose of each trap exception through the
-> opcode. This makes the existing identification schemes in other
-> architecture unsuitable for the RISC-V kernel. To solve this problem, this
-> patch adds kgdb_has_hit_break(), which can help RISC-V kernel identify
-> the KGDB trap exception.
->
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> ---
->  kernel/debug/debug_core.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
->
-> diff --git a/kernel/debug/debug_core.c b/kernel/debug/debug_core.c
-> index 2b7c9b67931d..01bc3eea3d4d 100644
-> --- a/kernel/debug/debug_core.c
-> +++ b/kernel/debug/debug_core.c
-> @@ -417,6 +417,18 @@ int kgdb_isremovedbreak(unsigned long addr)
->  	return 0;
->  }
->
-> +int kgdb_has_hit_break(unsigned long addr)
-> +{
-> +	int i;
-> +
-> +	for (i = 0; i < KGDB_MAX_BREAKPOINTS; i++) {
-> +		if (kgdb_break[i].state == BP_ACTIVE &&
-> +		    kgdb_break[i].bpt_addr == addr)
-> +			return 1;
-> +	}
-> +	return 0;
-> +}
-> +
->  int dbg_remove_all_break(void)
->  {
->  	int error;
+Now that architectures provide arch_hugetlb_valid_size(), parsing
+of "hugepagesz=" can be done in architecture independent code.
+Create a single routine to handle hugepagesz= parsing and remove
+all arch specific routines.  We can also remove the interface
+hugetlb_bad_size() as this is no longer used outside arch independent
+code.
 
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+This also provides consistent behavior of hugetlbfs command line
+options.  The hugepagesz= option should only be specified once for
+a specific size, but some architectures allow multiple instances.
+This appears to be more of an oversight when code was added by some
+architectures to set up ALL huge pages sizes.
+
+Signed-off-by: Mike Kravetz <mike.kravetz@oracle.com>
+---
+ arch/arm64/mm/hugetlbpage.c   | 15 ---------------
+ arch/powerpc/mm/hugetlbpage.c | 15 ---------------
+ arch/riscv/mm/hugetlbpage.c   | 16 ----------------
+ arch/s390/mm/hugetlbpage.c    | 18 ------------------
+ arch/sparc/mm/init_64.c       | 22 ----------------------
+ arch/x86/mm/hugetlbpage.c     | 16 ----------------
+ include/linux/hugetlb.h       |  1 -
+ mm/hugetlb.c                  | 24 ++++++++++++++++++------
+ 8 files changed, 18 insertions(+), 109 deletions(-)
+
+diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+index da30127086d0..4aa9534a45d7 100644
+--- a/arch/arm64/mm/hugetlbpage.c
++++ b/arch/arm64/mm/hugetlbpage.c
+@@ -476,18 +476,3 @@ bool __init arch_hugetlb_valid_size(unsigned long long size)
+ 
+ 	return false;
+ }
+-
+-static __init int setup_hugepagesz(char *opt)
+-{
+-	unsigned long long ps = memparse(opt, &opt);
+-
+-	if arch_hugetlb_valid_size(ps)) {
+-		add_huge_page_size(ps);
+-		return 1;
+-	}
+-
+-	hugetlb_bad_size();
+-	pr_err("hugepagesz: Unsupported page size %llu K\n", ps >> 10);
+-	return 0;
+-}
+-__setup("hugepagesz=", setup_hugepagesz);
+diff --git a/arch/powerpc/mm/hugetlbpage.c b/arch/powerpc/mm/hugetlbpage.c
+index b78f660252f3..166960ba1236 100644
+--- a/arch/powerpc/mm/hugetlbpage.c
++++ b/arch/powerpc/mm/hugetlbpage.c
+@@ -589,21 +589,6 @@ static int __init add_huge_page_size(unsigned long long size)
+ 	return 0;
+ }
+ 
+-static int __init hugepage_setup_sz(char *str)
+-{
+-	unsigned long long size;
+-
+-	size = memparse(str, &str);
+-
+-	if (add_huge_page_size(size) != 0) {
+-		hugetlb_bad_size();
+-		pr_err("Invalid huge page size specified(%llu)\n", size);
+-	}
+-
+-	return 1;
+-}
+-__setup("hugepagesz=", hugepage_setup_sz);
+-
+ static int __init hugetlbpage_init(void)
+ {
+ 	bool configured = false;
+diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
+index f1990882f16c..bdf89d7eb714 100644
+--- a/arch/riscv/mm/hugetlbpage.c
++++ b/arch/riscv/mm/hugetlbpage.c
+@@ -22,22 +22,6 @@ bool __init arch_hugetlb_valid_size(unsigned long long size)
+ 		return false;
+ }
+ 
+-static __init int setup_hugepagesz(char *opt)
+-{
+-	unsigned long long ps = memparse(opt, &opt);
+-
+-	if (arch_hugetlb_valid_size(ps)) {
+-		hugetlb_add_hstate(ilog2(ps) - PAGE_SHIFT);
+-		return 1;
+-	}
+-
+-	hugetlb_bad_size();
+-	pr_err("hugepagesz: Unsupported page size %lu M\n", ps >> 20);
+-	return 0;
+-
+-}
+-__setup("hugepagesz=", setup_hugepagesz);
+-
+ #ifdef CONFIG_CONTIG_ALLOC
+ static __init int gigantic_pages_init(void)
+ {
+diff --git a/arch/s390/mm/hugetlbpage.c b/arch/s390/mm/hugetlbpage.c
+index d92e8c5c3e71..b809762f206e 100644
+--- a/arch/s390/mm/hugetlbpage.c
++++ b/arch/s390/mm/hugetlbpage.c
+@@ -261,24 +261,6 @@ bool __init arch_hugetlb_valid_size(unsigned long long size)
+ 		return false;
+ }
+ 
+-static __init int setup_hugepagesz(char *opt)
+-{
+-	unsigned long long size;
+-	char *string = opt;
+-
+-	size = memparse(opt, &opt);
+-	if (arch_hugetlb_valid_size(size)) {
+-		hugetlb_add_hstate(ilog2(size) - PAGE_SHIFT);
+-	} else {
+-		hugetlb_bad_size();
+-		pr_err("hugepagesz= specifies an unsupported page size %s\n",
+-			string);
+-		return 0;
+-	}
+-	return 1;
+-}
+-__setup("hugepagesz=", setup_hugepagesz);
+-
+ static unsigned long hugetlb_get_unmapped_area_bottomup(struct file *file,
+ 		unsigned long addr, unsigned long len,
+ 		unsigned long pgoff, unsigned long flags)
+diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
+index 4cc248817b19..5c29203fd460 100644
+--- a/arch/sparc/mm/init_64.c
++++ b/arch/sparc/mm/init_64.c
+@@ -398,28 +398,6 @@ bool __init arch_hugetlb_valid_size(unsigned long long size)
+ 
+ 	return true;
+ }
+-
+-static int __init setup_hugepagesz(char *string)
+-{
+-	unsigned long long hugepage_size;
+-	int rc = 0;
+-
+-	hugepage_size = memparse(string, &string);
+-
+-	if (!arch_hugetlb_valid_size(hugepage_size)) {
+-		hugetlb_bad_size();
+-		pr_err("hugepagesz=%llu not supported by MMU.\n",
+-			hugepage_size);
+-		goto out;
+-	}
+-
+-	add_huge_page_size(hugepage_size);
+-	rc = 1;
+-
+-out:
+-	return rc;
+-}
+-__setup("hugepagesz=", setup_hugepagesz);
+ #endif	/* CONFIG_HUGETLB_PAGE */
+ 
+ void update_mmu_cache(struct vm_area_struct *vma, unsigned long address, pte_t *ptep)
+diff --git a/arch/x86/mm/hugetlbpage.c b/arch/x86/mm/hugetlbpage.c
+index 51e6208fdeec..dd3ed09f6c23 100644
+--- a/arch/x86/mm/hugetlbpage.c
++++ b/arch/x86/mm/hugetlbpage.c
+@@ -191,22 +191,6 @@ bool __init arch_hugetlb_valid_size(unsigned long long size)
+ 		return false;
+ }
+ 
+-static __init int setup_hugepagesz(char *opt)
+-{
+-	unsigned long long ps = memparse(opt, &opt);
+-
+-	if (arch_hugetlb_valid_size(ps)) {
+-		hugetlb_add_hstate(ilog2(ps) - PAGE_SHIFT);
+-	} else {
+-		hugetlb_bad_size();
+-		printk(KERN_ERR "hugepagesz: Unsupported page size %llu M\n",
+-			ps >> 20);
+-		return 0;
+-	}
+-	return 1;
+-}
+-__setup("hugepagesz=", setup_hugepagesz);
+-
+ #ifdef CONFIG_CONTIG_ALLOC
+ static __init int gigantic_pages_init(void)
+ {
+diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
+index 33343eb980d0..47244853ceb4 100644
+--- a/include/linux/hugetlb.h
++++ b/include/linux/hugetlb.h
+@@ -504,7 +504,6 @@ int huge_add_to_page_cache(struct page *page, struct address_space *mapping,
+ int __init __alloc_bootmem_huge_page(struct hstate *h);
+ int __init alloc_bootmem_huge_page(struct hstate *h);
+ 
+-void __init hugetlb_bad_size(void);
+ void __init hugetlb_add_hstate(unsigned order);
+ struct hstate *size_to_hstate(unsigned long size);
+ 
+diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+index 2f99359b93af..cd4ec07080fb 100644
+--- a/mm/hugetlb.c
++++ b/mm/hugetlb.c
+@@ -3149,12 +3149,6 @@ static int __init hugetlb_init(void)
+ }
+ subsys_initcall(hugetlb_init);
+ 
+-/* Should be called on processing a hugepagesz=... option */
+-void __init hugetlb_bad_size(void)
+-{
+-	parsed_valid_hugepagesz = false;
+-}
+-
+ void __init hugetlb_add_hstate(unsigned int order)
+ {
+ 	struct hstate *h;
+@@ -3224,6 +3218,24 @@ static int __init hugetlb_nrpages_setup(char *s)
+ }
+ __setup("hugepages=", hugetlb_nrpages_setup);
+ 
++static int __init hugepagesz_setup(char *s)
++{
++	unsigned long long size;
++	char *saved_s = s;
++
++	size = memparse(s, &s);
++
++	if (!arch_hugetlb_valid_size(size)) {
++		parsed_valid_hugepagesz = false;
++		pr_err("HugeTLB: unsupported hugepagesz %s\n", saved_s);
++		return 0;
++	}
++
++	hugetlb_add_hstate(ilog2(size) - PAGE_SHIFT);
++	return 1;
++}
++__setup("hugepagesz=", hugepagesz_setup);
++
+ static int __init default_hugepagesz_setup(char *s)
+ {
+ 	unsigned long long size;
+-- 
+2.24.1
+
 
