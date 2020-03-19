@@ -2,110 +2,75 @@ Return-Path: <SRS0=2Vdo=5E=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 509EEC4332D
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2020 17:08:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9ABD8C4332D
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2020 17:31:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1ED632072D
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2020 17:08:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4A5922071C
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2020 17:31:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aoezpQNH";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=oracle.com header.i=@oracle.com header.b="kekiTGkN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1ED632072D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=oracle.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TQ1qMGvF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4A5922071C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NPUm1EQJVtgWLM+t8BAch1GSQ3QvGTbOEaPKJ5CUYgc=; b=aoezpQNHbiPMLo
-	KcFcd4Jz7+tduzw3e3uNUJv22V3qtEztfQg4LO6FWeAHG0CAB1Y8L/kRlS5j6MVKVjr2MjRkKTvqq
-	qDgwPxzz7HsFOCIS09fz7lAFssQ3Kf0ylQ7NDrWZyAKKTkm6WMgDmaEJiBTomlEYD8EMnuTzt8Uri
-	d7oPblTzph0PqIUtxC4+AaK8yPSNEXc0nZ0fC53LP4em0GlrmzID2jRI+lzB/7quztV1i+z6HhqQ2
-	MHngxKnVX6kSB6BnXhe+QvMOts/y/2mXx9/TFltFWEp/wHezy99SE9fdevriOUWzHbVK5cYR6boED
-	1LootD14YVdA5p/Gnd/Q==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=E4zdo5A5W1/vL2XHPh1fuZjTzAOMqREs2Cx4EiVbgNs=; b=TQ1qMGvFoyVJofjOwvAeaYzeD
+	Xey7PQOkf6i4ehDIZx76TEiyyAsYib5IIAIh4sQm3Qxe6E7PppxCXoSVIzVdcR/U1d8xPb+dxDL3e
+	1ExICqt6JCi+/FiAYAkz6zA6+vQjOOH8fXJasJir9/KuBdjr0mM0O00LjXqYkgKyAuVmRWZ61+zqT
+	bmMkTVJu74ZeO7zbHk49xPObTnCv87VpwmyWnYI5B8KdXG28ZZa4kxG/Y3x6GelY4C2nCAWFUTW+C
+	rS6aWIAIkEjt8OOYlluOIR5afjdBAc/2aKN0b+KeW2ZNyLUz+qLDr5n+PDgcDLWDiyS/XwT1VzRLQ
+	bRTUyp+aA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jEyeU-0002VG-3K; Thu, 19 Mar 2020 17:08:14 +0000
-Received: from userp2130.oracle.com ([156.151.31.86])
+	id 1jEz13-0003kv-AO; Thu, 19 Mar 2020 17:31:33 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jEyeR-0002Uo-3R; Thu, 19 Mar 2020 17:08:12 +0000
-Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
- by userp2130.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 02JGmttO114276;
- Thu, 19 Mar 2020 17:00:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
- h=subject : to : cc :
- references : from : message-id : date : mime-version : in-reply-to :
- content-type : content-transfer-encoding; s=corp-2020-01-29;
- bh=NPUm1EQJVtgWLM+t8BAch1GSQ3QvGTbOEaPKJ5CUYgc=;
- b=kekiTGkNqqwLecdSsDCvWSDHKiPSanlqw799v3S5DFviUWnOQ3ztxRngAFS7QVKVuacE
- H9fypgtnLfqIpxFhavkZBD1a0KagmuckYo9UcETMNO1iP4WtlY9820y30sxTyZBU/QAl
- w9Wn//zIzJHveGw/tKV6XN1dfwnJLt2KSUiQCTHSuoCDrQz6ImC0G3g1DYmT4pRJzde+
- lcbcd88a8M0kwISscWrYGjsJfKQEoBaxGtyAWoSsXZqwEYYjfirWeePzu2C0uf3zIBOA
- 9A9/jYT1gvE+okRihBVBTU1phAcMxT9JD8fHCQnGjn0ZMFVm1KXd5kFQ6mqgsPmZ5dOY Tg== 
-Received: from aserp3030.oracle.com (aserp3030.oracle.com [141.146.126.71])
- by userp2130.oracle.com with ESMTP id 2yrpprhk34-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 19 Mar 2020 17:00:45 +0000
-Received: from pps.filterd (aserp3030.oracle.com [127.0.0.1])
- by aserp3030.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 02JGoqSX138311;
- Thu, 19 Mar 2020 17:00:45 GMT
-Received: from userv0121.oracle.com (userv0121.oracle.com [156.151.31.72])
- by aserp3030.oracle.com with ESMTP id 2ys8twc791-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 19 Mar 2020 17:00:45 +0000
-Received: from abhmp0001.oracle.com (abhmp0001.oracle.com [141.146.116.7])
- by userv0121.oracle.com (8.14.4/8.13.8) with ESMTP id 02JH0aeb016891;
- Thu, 19 Mar 2020 17:00:36 GMT
-Received: from [192.168.1.206] (/71.63.128.209)
- by default (Oracle Beehive Gateway v4.0)
- with ESMTP ; Thu, 19 Mar 2020 10:00:36 -0700
-Subject: Re: [PATCH 2/4] hugetlbfs: move hugepagesz= parsing to arch
- independent code
-To: Christophe Leroy <christophe.leroy@c-s.fr>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-doc@vger.kernel.org
-References: <20200318220634.32100-1-mike.kravetz@oracle.com>
- <20200318220634.32100-3-mike.kravetz@oracle.com>
- <2ca058dc-47e6-1d08-154b-77d2cbe98e34@c-s.fr>
-From: Mike Kravetz <mike.kravetz@oracle.com>
-Message-ID: <bb1c86b0-5d06-8999-5e3a-f9d20ca46fa1@oracle.com>
-Date: Thu, 19 Mar 2020 10:00:33 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.5.0
+ id 1jEz0r-0003Xi-Om
+ for linux-riscv@lists.infradead.org; Thu, 19 Mar 2020 17:31:24 +0000
+Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1jEz0K-0003KX-8i; Thu, 19 Mar 2020 18:30:48 +0100
+Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1jEz0H-0003li-AB; Thu, 19 Mar 2020 18:30:45 +0100
+Date: Thu, 19 Mar 2020 18:30:45 +0100
+From: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+To: Thierry Reding <thierry.reding@gmail.com>
+Subject: Re: [RFC PATCH 1/7] pwm: rename the PWM_POLARITY_INVERSED enum
+Message-ID: <20200319173045.ystpijvwtyvil2vq@pengutronix.de>
+References: <20200317123231.2843297-1-oleksandr.suvorov@toradex.com>
+ <20200317123231.2843297-2-oleksandr.suvorov@toradex.com>
+ <20200317174043.GA1464607@ulmo>
+ <20200317210042.ryrof3amr7fxp4w5@pengutronix.de>
+ <20200318225953.GA2874972@ulmo>
+ <20200319065039.szhh5dm6v3ejwijd@pengutronix.de>
+ <20200319163700.GA3354541@ulmo>
 MIME-Version: 1.0
-In-Reply-To: <2ca058dc-47e6-1d08-154b-77d2cbe98e34@c-s.fr>
 Content-Type: text/plain; charset=utf-8
-Content-Language: en-US
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9565
- signatures=668685
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
- phishscore=0 mlxscore=0
- malwarescore=0 suspectscore=0 mlxlogscore=999 spamscore=0 bulkscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2003020000
- definitions=main-2003190073
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9565
- signatures=668685
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0
- bulkscore=0
- suspectscore=0 lowpriorityscore=0 phishscore=0 adultscore=0 clxscore=1011
- impostorscore=0 priorityscore=1501 spamscore=0 mlxlogscore=999 mlxscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2003020000
- definitions=main-2003190073
+In-Reply-To: <20200319163700.GA3354541@ulmo>
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200319_100811_185853_6F0364ED 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20200319_103122_003761_2642987E 
+X-CRM114-Status: GOOD (  40.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -117,83 +82,194 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
- Jonathan Corbet <corbet@lwn.net>, Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>,
- "David S.Miller" <davem@davemloft.net>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Paul Mackerras <paulus@samba.org>, Andrew Morton <akpm@linux-foundation.org>,
- Longpeng <longpeng2@huawei.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Heiko Stuebner <heiko@sntech.de>, linux-pwm@vger.kernel.org,
+ Marcel Ziswiler <marcel.ziswiler@toradex.com>, linux-kernel@vger.kernel.org,
+ Oleksandr Suvorov <oleksandr.suvorov@toradex.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Kevin Hilman <khilman@baylibre.com>,
+ Chen-Yu Tsai <wens@csie.org>, linux-rockchip@lists.infradead.org,
+ Ludovic Desroches <ludovic.desroches@microchip.com>,
+ bcm-kernel-feedback-list@broadcom.com, NXP Linux Team <linux-imx@nxp.com>,
+ devicetree@vger.kernel.org, Ray Jui <rjui@broadcom.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Maxime Ripard <mripard@kernel.org>,
+ Philippe Schenker <philippe.schenker@toradex.com>,
+ Paul Barker <pbarker@konsulko.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Paul Cercueil <paul@crapouillou.net>, Igor Opaniuk <igor.opaniuk@toradex.com>,
+ Scott Branden <sbranden@broadcom.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, Claudiu Beznea <claudiu.beznea@microchip.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/19/20 12:04 AM, Christophe Leroy wrote:
-> 
-> 
-> Le 18/03/2020 à 23:06, Mike Kravetz a écrit :
->> Now that architectures provide arch_hugetlb_valid_size(), parsing
->> of "hugepagesz=" can be done in architecture independent code.
->> Create a single routine to handle hugepagesz= parsing and remove
->> all arch specific routines.  We can also remove the interface
->> hugetlb_bad_size() as this is no longer used outside arch independent
->> code.
->>
->> This also provides consistent behavior of hugetlbfs command line
->> options.  The hugepagesz= option should only be specified once for
->> a specific size, but some architectures allow multiple instances.
->> This appears to be more of an oversight when code was added by some
->> architectures to set up ALL huge pages sizes.
->>
->> Signed-off-by: Mike Kravetz <mike.kravetz@oracle.com>
->> ---
->>   arch/arm64/mm/hugetlbpage.c   | 15 ---------------
->>   arch/powerpc/mm/hugetlbpage.c | 15 ---------------
->>   arch/riscv/mm/hugetlbpage.c   | 16 ----------------
->>   arch/s390/mm/hugetlbpage.c    | 18 ------------------
->>   arch/sparc/mm/init_64.c       | 22 ----------------------
->>   arch/x86/mm/hugetlbpage.c     | 16 ----------------
->>   include/linux/hugetlb.h       |  1 -
->>   mm/hugetlb.c                  | 24 ++++++++++++++++++------
->>   8 files changed, 18 insertions(+), 109 deletions(-)
->>
-> 
-> [snip]
-> 
->> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
->> index 2f99359b93af..cd4ec07080fb 100644
->> --- a/mm/hugetlb.c
->> +++ b/mm/hugetlb.c
->> @@ -3149,12 +3149,6 @@ static int __init hugetlb_init(void)
->>   }
->>   subsys_initcall(hugetlb_init);
->>   -/* Should be called on processing a hugepagesz=... option */
->> -void __init hugetlb_bad_size(void)
->> -{
->> -    parsed_valid_hugepagesz = false;
->> -}
->> -
->>   void __init hugetlb_add_hstate(unsigned int order)
->>   {
->>       struct hstate *h;
->> @@ -3224,6 +3218,24 @@ static int __init hugetlb_nrpages_setup(char *s)
->>   }
->>   __setup("hugepages=", hugetlb_nrpages_setup);
->>   +static int __init hugepagesz_setup(char *s)
->> +{
->> +    unsigned long long size;
->> +    char *saved_s = s;
->> +
->> +    size = memparse(s, &s);
-> 
-> You don't use s after that, so you can pass NULL instead of &s and avoid the saved_s
+Hello,
 
-Thanks!
+On Thu, Mar 19, 2020 at 05:37:00PM +0100, Thierry Reding wrote:
+> On Thu, Mar 19, 2020 at 07:50:39AM +0100, Uwe Kleine-König wrote:
+> > On Wed, Mar 18, 2020 at 11:59:53PM +0100, Thierry Reding wrote:
+> > > On Tue, Mar 17, 2020 at 10:00:42PM +0100, Uwe Kleine-König wrote:
+> > > > Having said this I think (independent of the question if "inversed"
+> > > > exists) using two similar terms for the same thing just results in
+> > > > confusion. I hit that in the past already and I like it being addressed.
+> > > 
+> > > I don't know. It's pretty common to use different words for the same
+> > > thing. They're called synonyms.
+> > 
+> > In literature yes, I agree. In a novel it is annoying to repeat the same
+> > words over and over again and some variation is good. In programming
+> > however the goal is a different one. There the goal should be to be
+> > precise and consistent.
+> 
+> We also need to make sure that things don't break.
 
-I'll incorporate in v2.
+And I'm entirely on your side here.
+
+> It's a very bad idea to have a macro with the same name as an enum
+> value for reasons I stated before. I think that's the most important
+> thing here.
+
+You might have missed it, but that's OK for me, too. And note that after
+applying the whole series the enum is gone and so the problem. (First
+hunk of include/linux/pwm.h in patch 5.)
+
+> Also, if inversed is a synonym of inverted, we don't loose any precision
+> at all.
+
+grep doesn't know about synonyms, so if I grep for stuff about inverted
+PWMs in the kernel I completely miss one half as it's called inversed
+there. (Yeah sure, I can also grep for "inversed|inverted", but therefor
+I have to know first that both are used interchangable here.)
+
+That's a bit like a schematic that has "RESET#" in one place and
+"nRESET" in an other. If you stumble about that you wonder if they are
+two different names for the same signal or if they are actually two
+different ones.
+
+Have you ever read a specification that described some property, gave it
+a name and then later used a synonym to describe it? In my eyes that's a
+bad idea.
+
+> All you have to remember is that you're dealing with a device
+> tree constant in one case and an API enumeration in the other.
+
+Everything you need to remember (or learn) about a subsystem makes it
+harder work with it.
+ 
+> So I think the current form is actually more precise, though I guess it
+> could be confusing if you don't care about the difference.
+
+If there is a technical need to have different names that's one thing.
+But using synonyms to differentiate them is not optimal. Then please
+let's have names where looking at the identifier makes it obvious which
+is for the device trees and which for the API enum.
+
+> > > > > And as you noted in the cover letter, there's a conflict between the
+> > > > > macro defined in dt-bindings/pwm/pwm.txt. If they end up being included
+> > > > > in the wrong order you'll get a compile error.
+> > > > 
+> > > > There are also other symbols that exist twice (GPIO_ACTIVE_HIGH was the
+> > > > first to come to my mind). I'm not aware of any problems related to
+> > > > these. What am I missing?
+> > > 
+> > > There's currently no problem, obviously. But if for some reason the
+> > > include files end up being included in a different order (i.e. the
+> > > dt-bindings header is included before linux/pwm.h) then the macro will
+> > > be evaluated and result in something like:
+> > > 
+> > > 	enum pwm_polarity {
+> > > 		PWM_POLARITY_NORMAL,
+> > > 		1,
+> > > 	};
+> > > 
+> > > and that's not valid C, so will cause a build error.
+> > 
+> > I admit I didn't look closely here and I assume you are right. If I
+> > understand Oleksandr right this is only an intermediate step and when
+> > the series is applied completely this issue is gone. Still it might be
+> > worth to improve the series here.
+> 
+> 	$ gcc -o /dev/null -x c - <<- EOF
+> 	>     #define PWM_POLARITY_INVERTED (1 << 0)
+> 	>
+> 	>     enum pwm_polarity {
+> 	>         PWM_POLARITY_NORMAL,
+> 	>         PWM_POLARITY_INVERTED,
+> 	>     };
+> 	> EOF
+> 	<stdin>:1:35: error: expected identifier before ‘(’ token
+> 	<stdin>:5:9: note: in expansion of macro ‘PWM_POLARITY_INVERTED’
+> 
+> Q.E.D.
+
+I don't understand why you proved something here. I didn't doubt this.
+
+> > My original question was about similar problems with GPIO_ACTIVE_HIGH.
+> > Are you aware of problems there?
+> 
+> The problem exists there equally. We're probably not running into it
+> because drivers don't end up including dt-bindings/gpio/gpio.h and
+> include/linux/gpio/machine.h at the same time. Or they end up always
+> including them in the right order.
+
+Oh, that's worse than I expected. There are two .c files that include
+dt-bindings/gpio/gpio.h:
+
+	drivers/rtc/rtc-omap.c
+	drivers/tty/serial/omap-serial.c
+
+So the definition isn't even used in the gpio core to parse dt-stuff.
+(And both files don't use any definition of that file :-|)
+
+> For PWM the situation is slightly more complicated because we only have
+> one header for the kernel API, so the likelihood of including it along
+> with the dt-bindings header is increased compared to GPIO.
+
+If a consumer or provider includes the dt-bindings file there is
+something fishy. (Still catching this with a compiler message better
+than "expected identifier before ‘(’ token" would be good.)
+ 
+> > > > > Note that DT bindings are an ABI and can
+> > > > > never change, whereas the enum pwm_polarity is part of a Linux internal
+> > > > > API and doesn't have the same restrictions as an ABI.
+> > > > 
+> > > > I thought only binary device trees (dtb) are supposed to be ABI.
+> > > 
+> > > Yes, the DTB is the ABI. dt-bindings/pwm/pwm.h is used to generate DTBs,
+> > > which basically makes it ABI as well.
+> > 
+> > We disagree here. With this argument you could fix quite some things as
+> > ABI.
+> 
+> I don't understand what you're trying to say.
+
+I don't want to follow your argument that dt-bindings/pwm/pwm.h is ABI
+as well. device tree binaries follow an ABI (similar to machine code),
+but the compiler and the source code (including headers) are not.
+
+> > > Yes, the symbol name may not be part of the ABI, but changing the
+> > > symbol becomes very inconvenient because everyone that depends on it
+> > > would have to change.
+> > 
+> > Oleksandr adapted all in-tree users, so it only affects out-of-tree
+> > users. In my book this is fine.
+> 
+> There used to be a time when it was assumed that eventually device tree
+> sources would live outside of the kernel tree. Given that they are a HW
+> description, they really ought not to be relying on the Linux kernel
+> tree as a way of keeping them consistent. That's really only out of
+> convenience.
+
+The other way round however is fine, isn't it? So use the dt definition
+in the kernel should be ok.
+
+Best regards
+Uwe
 
 -- 
-Mike Kravetz
+Pengutronix e.K.                           | Uwe Kleine-König            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
 
