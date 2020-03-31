@@ -2,66 +2,63 @@ Return-Path: <SRS0=BeQS=5Q=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 788B9C43331
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 09:34:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CF884C43331
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 09:34:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 453D8207FF
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 09:34:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A5A1C207FF
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 09:34:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dIIgpmDv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 453D8207FF
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JISbRtSO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A5A1C207FF
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=6+GA6TPn1/jyf3of6CTm6UByCblZrDhZ24yjKpPpfxA=; b=dIIgpmDvoCg8ozlL6aAl/ru4q
-	ufIu9ua8FIyy3tbjKFcrT0immJ9/DXglZYiLsV1nI9gJ992cCzx3U7stQFujiusvl6s1zhNqVV2aq
-	x5A2TaCPgJuhFPL999aEuYikLkbtU/B90Qko+fynDspyJTLUoaItiROrVBYknv19ZHCT64yrjaeQX
-	5FCRM59BOXnBYXJaNPgIKCxF/OY4gszI9K+oybZ/r4bFdoNUFbWsQ5AZdVHT40x0X1UfOJHxhVkb5
-	qU9AtemjbFLGD78A/FlCSXYd50E9WapWxlyeEgf2AHU5vHcwoBq2Wi6YgLaX46kOYfq2wTpQYLFmg
-	IozB6QXxA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=1wLMVDxa6PXQvBvY5Ssw+izceFt5diPMaqIezePv6AE=; b=JIS
+	bRtSO7XImdf63zmahswU2YjMR3fk2poavHH8pnzY3gUKcngc5C+EZ6XmGvPOKHF4LW2DcP6Pq6l6M
+	1k2/OK9aXIXioKVQ6wGo1FZU61eijlT9IcqmNt2jlob8uN+x0v2s6QMr0I+6tlUHs1TtiXw8k9i4/
+	ApZkLG4a+l2EfBht9Fv0o0xSzDRZgsdLn9QztSg6zyvbW4QEEUrJ6H0T+xipPEw/bYjh34piC77nL
+	iipXNXiPDNxVphSLqGhnU9PuxmlbHUlTk+KDBX6a77B7WsOMvLqDDK+MBNoLc7+zBg6NUQZUKn0bR
+	veU9YSsh7ySrse4e/uuPrFh7mVg3NMw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jJDHZ-0003nY-BM; Tue, 31 Mar 2020 09:34:05 +0000
+	id 1jJDHc-0003qm-7K; Tue, 31 Mar 2020 09:34:08 +0000
 Received: from 59-120-53-16.hinet-ip.hinet.net ([59.120.53.16]
  helo=ATCSQR.andestech.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jJDHV-0003mK-B9
- for linux-riscv@lists.infradead.org; Tue, 31 Mar 2020 09:34:03 +0000
+ id 1jJDHX-0003n5-Dg
+ for linux-riscv@lists.infradead.org; Tue, 31 Mar 2020 09:34:04 +0000
 Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
- by ATCSQR.andestech.com with ESMTP id 02V9WLWb065506;
- Tue, 31 Mar 2020 17:32:21 +0800 (GMT-8)
+ by ATCSQR.andestech.com with ESMTP id 02V9W6MH065446;
+ Tue, 31 Mar 2020 17:32:06 +0800 (GMT-8)
  (envelope-from tesheng@andestech.com)
 Received: from atcsqa06.andestech.com (10.0.15.65) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.123.3; Tue, 31 Mar 2020
- 17:33:15 +0800
+ 17:32:58 +0800
 From: Eric Lin <tesheng@andestech.com>
 To: <linux-riscv@lists.infradead.org>
-Subject: [PATCH 3/3] riscv/mm: Add pkmap in print_vm_layout()
-Date: Tue, 31 Mar 2020 17:32:41 +0800
-Message-ID: <20200331093241.3728-4-tesheng@andestech.com>
+Subject: [PATCH 0/3] Highmem support for 32-bit RISC-V
+Date: Tue, 31 Mar 2020 17:32:38 +0800
+Message-ID: <20200331093241.3728-1-tesheng@andestech.com>
 X-Mailer: git-send-email 2.17.0
-In-Reply-To: <20200331093241.3728-1-tesheng@andestech.com>
-References: <20200331093241.3728-1-tesheng@andestech.com>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-Originating-IP: [10.0.15.65]
 X-DNSRBL: 
-X-MAIL: ATCSQR.andestech.com 02V9WLWb065506
+X-MAIL: ATCSQR.andestech.com 02V9W6MH065446
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200331_023401_643334_26B5A4F7 
-X-CRM114-Status: UNSURE (   5.90  )
+X-CRM114-CacheID: sfid-20200331_023403_709832_FEEAF052 
+X-CRM114-Status: UNSURE (   6.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -75,8 +72,7 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: aou@eecs.berkeley.edu, gary@garyguo.net, alex@ghiti.fr,
- david.abdurachmanov@gmail.com, steven.price@arm.com,
- Alan Kao <alankao@andestech.com>, Anup.Patel@wdc.com,
+ david.abdurachmanov@gmail.com, steven.price@arm.com, Anup.Patel@wdc.com,
  linux-kernel@vger.kernel.org, rppt@linux.ibm.com, atish.patra@wdc.com,
  yash.shah@sifive.com, Eric Lin <tesheng@andestech.com>, palmer@dabbelt.com,
  green.hu@gmail.com, zong.li@sifive.com, paul.walmsley@sifive.com,
@@ -84,51 +80,27 @@ Cc: aou@eecs.berkeley.edu, gary@garyguo.net, alex@ghiti.fr,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When enabling CONFIG_HIGHMEM, lowmem will before pkmap
-region and the memory layout will be like as below:
+With Highmem support, the kernel can map more than 1GB physical memory.
 
-Virtual kernel memory layout:
-      lowmem : 0xc0000000 - 0xf5400000   ( 852 MB)
-       pkmap : 0xf5600000 - 0xf5800000   (   2 MB)
-      fixmap : 0xf5800000 - 0xf5c00000   (4096 kB)
-      pci io : 0xf5c00000 - 0xf6c00000   (  16 MB)
-     vmemmap : 0xf6c00000 - 0xf7bfffff   (  15 MB)
-     vmalloc : 0xf7c00000 - 0xffc00000   ( 128 MB)
+This patchset implements Highmem for RV32, referencing to mostly nds32
+and others like arm and mips, and it has been tested on Andes A25MP platform.
 
-Signed-off-by: Eric Lin <tesheng@andestech.com>
-Cc: Alan Kao <alankao@andestech.com>
----
- arch/riscv/mm/init.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Eric Lin (3):
+  riscv/mm: Add pkmap region and CONFIG_HIGHMEM
+  riscv/mm: Implement kmap() and kmap_atomic()
+  riscv/mm: Add pkmap in print_vm_layout()
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 59afb479176a..b32d558e3f99 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -80,6 +80,12 @@ static inline void print_mlm(char *name, unsigned long b, unsigned long t)
- static void print_vm_layout(void)
- {
- 	pr_notice("Virtual kernel memory layout:\n");
-+#ifdef CONFIG_HIGHMEM
-+	print_mlm("lowmem", (unsigned long)PAGE_OFFSET,
-+		  (unsigned long)high_memory);
-+	print_mlm("pkmap", (unsigned long)PKMAP_BASE,
-+		  (unsigned long)FIXADDR_START);
-+#endif
- 	print_mlk("fixmap", (unsigned long)FIXADDR_START,
- 		  (unsigned long)FIXADDR_TOP);
- 	print_mlm("pci io", (unsigned long)PCI_IO_START,
-@@ -88,8 +94,10 @@ static void print_vm_layout(void)
- 		  (unsigned long)VMEMMAP_END);
- 	print_mlm("vmalloc", (unsigned long)VMALLOC_START,
- 		  (unsigned long)VMALLOC_END);
-+#ifndef CONFIG_HIGHMEM
- 	print_mlm("lowmem", (unsigned long)PAGE_OFFSET,
- 		  (unsigned long)high_memory);
-+#endif
- }
- #else
- static void print_vm_layout(void) { }
+ arch/riscv/Kconfig               | 18 +++++++
+ arch/riscv/include/asm/fixmap.h  |  9 +++-
+ arch/riscv/include/asm/highmem.h | 49 +++++++++++++++++
+ arch/riscv/include/asm/pgtable.h | 27 ++++++++++
+ arch/riscv/mm/Makefile           |  1 +
+ arch/riscv/mm/highmem.c          | 74 +++++++++++++++++++++++++
+ arch/riscv/mm/init.c             | 92 ++++++++++++++++++++++++++++++--
+ 7 files changed, 266 insertions(+), 4 deletions(-)
+ create mode 100644 arch/riscv/include/asm/highmem.h
+ create mode 100644 arch/riscv/mm/highmem.c
+
 -- 
 2.17.0
 
