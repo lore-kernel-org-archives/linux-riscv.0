@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 42F54C43331
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 05:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 788B9C43331
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 09:34:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0BC5820757
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 05:11:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 453D8207FF
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 09:34:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YdSRoO1X"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0BC5820757
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dIIgpmDv"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 453D8207FF
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SPeXiziaifLJknjKBhXlXl/G5l6GudhQiF67zIg0x1g=; b=YdSRoO1XWgRJpT
-	8q5TIUWjL5NwyBbdpKIXSJfVfxR9Zk2vnZuAdL1QT7RwqNjoWgmJafpAYLwoxY2GR1ovXmAUF5OZE
-	1QeFiul4JZ7WnMGfqDBFtTmsFHKZUGFc51qebK6JnzR2joHNwMDHJ8sbcnp6y/+SfZNjaV0bGXRb6
-	HCFImMXDddnQ4F33VxS+3pBSVQEFafE+7Q9AFLEWl21xeP0DDgZljC4uC67p7srbhsVcnyuXDYmid
-	dCLrp/8kjIyiKqA9DdhFs/EAt2HvmAajSrOqa1qjZAcl91jxops0H5b4ynqt6iGPi61nx546Sp1nQ
-	ba/t3SjfWc1tCiBUVNBw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=6+GA6TPn1/jyf3of6CTm6UByCblZrDhZ24yjKpPpfxA=; b=dIIgpmDvoCg8ozlL6aAl/ru4q
+	ufIu9ua8FIyy3tbjKFcrT0immJ9/DXglZYiLsV1nI9gJ992cCzx3U7stQFujiusvl6s1zhNqVV2aq
+	x5A2TaCPgJuhFPL999aEuYikLkbtU/B90Qko+fynDspyJTLUoaItiROrVBYknv19ZHCT64yrjaeQX
+	5FCRM59BOXnBYXJaNPgIKCxF/OY4gszI9K+oybZ/r4bFdoNUFbWsQ5AZdVHT40x0X1UfOJHxhVkb5
+	qU9AtemjbFLGD78A/FlCSXYd50E9WapWxlyeEgf2AHU5vHcwoBq2Wi6YgLaX46kOYfq2wTpQYLFmg
+	IozB6QXxA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jJ9B5-0004en-R5; Tue, 31 Mar 2020 05:11:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jJ9Ad-0004JQ-41; Tue, 31 Mar 2020 05:10:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D3B61FB;
- Mon, 30 Mar 2020 22:10:38 -0700 (PDT)
-Received: from p8cg001049571a15.arm.com (unknown [10.163.1.70])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7B4383F71E;
- Mon, 30 Mar 2020 22:10:18 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-mm@kvack.org
-Subject: [PATCH V3 1/3] mm/sparsemem: Enable vmem_altmap support in
- vmemmap_populate_basepages()
-Date: Tue, 31 Mar 2020 10:39:45 +0530
-Message-Id: <1585631387-18819-2-git-send-email-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1585631387-18819-1-git-send-email-anshuman.khandual@arm.com>
-References: <1585631387-18819-1-git-send-email-anshuman.khandual@arm.com>
+	id 1jJDHZ-0003nY-BM; Tue, 31 Mar 2020 09:34:05 +0000
+Received: from 59-120-53-16.hinet-ip.hinet.net ([59.120.53.16]
+ helo=ATCSQR.andestech.com)
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jJDHV-0003mK-B9
+ for linux-riscv@lists.infradead.org; Tue, 31 Mar 2020 09:34:03 +0000
+Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
+ by ATCSQR.andestech.com with ESMTP id 02V9WLWb065506;
+ Tue, 31 Mar 2020 17:32:21 +0800 (GMT-8)
+ (envelope-from tesheng@andestech.com)
+Received: from atcsqa06.andestech.com (10.0.15.65) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.123.3; Tue, 31 Mar 2020
+ 17:33:15 +0800
+From: Eric Lin <tesheng@andestech.com>
+To: <linux-riscv@lists.infradead.org>
+Subject: [PATCH 3/3] riscv/mm: Add pkmap in print_vm_layout()
+Date: Tue, 31 Mar 2020 17:32:41 +0800
+Message-ID: <20200331093241.3728-4-tesheng@andestech.com>
+X-Mailer: git-send-email 2.17.0
+In-Reply-To: <20200331093241.3728-1-tesheng@andestech.com>
+References: <20200331093241.3728-1-tesheng@andestech.com>
+MIME-Version: 1.0
+Content-Type: text/plain
+X-Originating-IP: [10.0.15.65]
+X-DNSRBL: 
+X-MAIL: ATCSQR.andestech.com 02V9WLWb065506
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200330_221039_284100_0A54DA77 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20200331_023401_643334_26B5A4F7 
+X-CRM114-Status: UNSURE (   5.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,223 +74,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
- Thomas Gleixner <tglx@linutronix.de>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-ia64@vger.kernel.org,
- linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
- jgg@mellanox.com, aneesh.kumar@linux.ibm.com, x86@kernel.org,
- "Matthew Wilcox \(Oracle\)" <willy@infradead.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Fenghua Yu <fenghua.yu@intel.com>, rcampbell@nvidia.com,
- Pavel Tatashin <pasha.tatashin@soleen.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>, jglisse@redhat.com,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- dan.j.williams@intel.com, linux-arm-kernel@lists.infradead.org,
- Tony Luck <tony.luck@intel.com>, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
- robin.murphy@arm.com, "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: aou@eecs.berkeley.edu, gary@garyguo.net, alex@ghiti.fr,
+ david.abdurachmanov@gmail.com, steven.price@arm.com,
+ Alan Kao <alankao@andestech.com>, Anup.Patel@wdc.com,
+ linux-kernel@vger.kernel.org, rppt@linux.ibm.com, atish.patra@wdc.com,
+ yash.shah@sifive.com, Eric Lin <tesheng@andestech.com>, palmer@dabbelt.com,
+ green.hu@gmail.com, zong.li@sifive.com, paul.walmsley@sifive.com,
+ akpm@linux-foundation.org, bp@suse.de, logang@deltatee.com, tglx@linutronix.de
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-vmemmap_populate_basepages() is used across platforms to allocate backing
-memory for vmemmap mapping. This is used as a standard default choice or
-as a fallback when intended huge pages allocation fails. This just creates
-entire vmemmap mapping with base pages (PAGE_SIZE).
+When enabling CONFIG_HIGHMEM, lowmem will before pkmap
+region and the memory layout will be like as below:
 
-On arm64 platforms, vmemmap_populate_basepages() is called instead of the
-platform specific vmemmap_populate() when ARM64_SWAPPER_USES_SECTION_MAPS
-is not enabled as in case for ARM64_16K_PAGES and ARM64_64K_PAGES configs.
+Virtual kernel memory layout:
+      lowmem : 0xc0000000 - 0xf5400000   ( 852 MB)
+       pkmap : 0xf5600000 - 0xf5800000   (   2 MB)
+      fixmap : 0xf5800000 - 0xf5c00000   (4096 kB)
+      pci io : 0xf5c00000 - 0xf6c00000   (  16 MB)
+     vmemmap : 0xf6c00000 - 0xf7bfffff   (  15 MB)
+     vmalloc : 0xf7c00000 - 0xffc00000   ( 128 MB)
 
-At present vmemmap_populate_basepages() does not support allocating from
-driver defined struct vmem_altmap while trying to create vmemmap mapping
-for a device memory range. It prevents ARM64_16K_PAGES and ARM64_64K_PAGES
-configs on arm64 from supporting device memory with vmemap_altmap request.
-
-This enables vmem_altmap support in vmemmap_populate_basepages() unlocking
-device memory allocation for vmemap mapping on arm64 platforms with 16K or
-64K base page configs.
-
-Each architecture should evaluate and decide on subscribing device memory
-based base page allocation through vmemmap_populate_basepages(). Hence lets
-keep it disabled on all archs in order to preserve the existing semantics.
-A subsequent patch enables it on arm64.
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Tony Luck <tony.luck@intel.com>
-Cc: Fenghua Yu <fenghua.yu@intel.com>
-Cc: Dave Hansen <dave.hansen@linux.intel.com>
-Cc: Andy Lutomirski <luto@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: David Hildenbrand <david@redhat.com>
-Cc: Mike Rapoport <rppt@linux.ibm.com>
-Cc: Michal Hocko <mhocko@suse.com>
-Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>
-Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Dan Williams <dan.j.williams@intel.com>
-Cc: Pavel Tatashin <pasha.tatashin@soleen.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-ia64@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org
-Cc: x86@kernel.org
-Cc: linux-kernel@vger.kernel.org
-
-Acked-by: Will Deacon <will@kernel.org>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Signed-off-by: Eric Lin <tesheng@andestech.com>
+Cc: Alan Kao <alankao@andestech.com>
 ---
- arch/arm64/mm/mmu.c      |  2 +-
- arch/ia64/mm/discontig.c |  2 +-
- arch/riscv/mm/init.c     |  2 +-
- arch/x86/mm/init_64.c    |  6 +++---
- include/linux/mm.h       |  5 +++--
- mm/sparse-vmemmap.c      | 16 +++++++++++-----
- 6 files changed, 20 insertions(+), 13 deletions(-)
+ arch/riscv/mm/init.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index a374e4f51a62..2feed38106d6 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1036,7 +1036,7 @@ static void free_empty_tables(unsigned long addr, unsigned long end,
- int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
- 		struct vmem_altmap *altmap)
- {
--	return vmemmap_populate_basepages(start, end, node);
-+	return vmemmap_populate_basepages(start, end, node, NULL);
- }
- #else	/* !ARM64_SWAPPER_USES_SECTION_MAPS */
- int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
-diff --git a/arch/ia64/mm/discontig.c b/arch/ia64/mm/discontig.c
-index 4f33f6e7e206..20409f3afea8 100644
---- a/arch/ia64/mm/discontig.c
-+++ b/arch/ia64/mm/discontig.c
-@@ -656,7 +656,7 @@ void arch_refresh_nodedata(int update_node, pg_data_t *update_pgdat)
- int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
- 		struct vmem_altmap *altmap)
- {
--	return vmemmap_populate_basepages(start, end, node);
-+	return vmemmap_populate_basepages(start, end, node, NULL);
- }
- 
- void vmemmap_free(unsigned long start, unsigned long end,
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index b55be44ff9bd..0ce2f25e1bc5 100644
+index 59afb479176a..b32d558e3f99 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -545,6 +545,6 @@ void __init paging_init(void)
- int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
- 			       struct vmem_altmap *altmap)
+@@ -80,6 +80,12 @@ static inline void print_mlm(char *name, unsigned long b, unsigned long t)
+ static void print_vm_layout(void)
  {
--	return vmemmap_populate_basepages(start, end, node);
-+	return vmemmap_populate_basepages(start, end, node, NULL);
+ 	pr_notice("Virtual kernel memory layout:\n");
++#ifdef CONFIG_HIGHMEM
++	print_mlm("lowmem", (unsigned long)PAGE_OFFSET,
++		  (unsigned long)high_memory);
++	print_mlm("pkmap", (unsigned long)PKMAP_BASE,
++		  (unsigned long)FIXADDR_START);
++#endif
+ 	print_mlk("fixmap", (unsigned long)FIXADDR_START,
+ 		  (unsigned long)FIXADDR_TOP);
+ 	print_mlm("pci io", (unsigned long)PCI_IO_START,
+@@ -88,8 +94,10 @@ static void print_vm_layout(void)
+ 		  (unsigned long)VMEMMAP_END);
+ 	print_mlm("vmalloc", (unsigned long)VMALLOC_START,
+ 		  (unsigned long)VMALLOC_END);
++#ifndef CONFIG_HIGHMEM
+ 	print_mlm("lowmem", (unsigned long)PAGE_OFFSET,
+ 		  (unsigned long)high_memory);
++#endif
  }
- #endif
-diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
-index 3b289c2f75cd..c22677571619 100644
---- a/arch/x86/mm/init_64.c
-+++ b/arch/x86/mm/init_64.c
-@@ -1474,7 +1474,7 @@ static int __meminit vmemmap_populate_hugepages(unsigned long start,
- 			vmemmap_verify((pte_t *)pmd, node, addr, next);
- 			continue;
- 		}
--		if (vmemmap_populate_basepages(addr, next, node))
-+		if (vmemmap_populate_basepages(addr, next, node, NULL))
- 			return -ENOMEM;
- 	}
- 	return 0;
-@@ -1486,7 +1486,7 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
- 	int err;
- 
- 	if (end - start < PAGES_PER_SECTION * sizeof(struct page))
--		err = vmemmap_populate_basepages(start, end, node);
-+		err = vmemmap_populate_basepages(start, end, node, NULL);
- 	else if (boot_cpu_has(X86_FEATURE_PSE))
- 		err = vmemmap_populate_hugepages(start, end, node, altmap);
- 	else if (altmap) {
-@@ -1494,7 +1494,7 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
- 				__func__);
- 		err = -ENOMEM;
- 	} else
--		err = vmemmap_populate_basepages(start, end, node);
-+		err = vmemmap_populate_basepages(start, end, node, NULL);
- 	if (!err)
- 		sync_global_pgds(start, end - 1);
- 	return err;
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 1cd8b8f8534d..955be0331833 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -2987,14 +2987,15 @@ pgd_t *vmemmap_pgd_populate(unsigned long addr, int node);
- p4d_t *vmemmap_p4d_populate(pgd_t *pgd, unsigned long addr, int node);
- pud_t *vmemmap_pud_populate(p4d_t *p4d, unsigned long addr, int node);
- pmd_t *vmemmap_pmd_populate(pud_t *pud, unsigned long addr, int node);
--pte_t *vmemmap_pte_populate(pmd_t *pmd, unsigned long addr, int node);
-+pte_t *vmemmap_pte_populate(pmd_t *pmd, unsigned long addr, int node,
-+			    struct vmem_altmap *altmap);
- void *vmemmap_alloc_block(unsigned long size, int node);
- struct vmem_altmap;
- void *vmemmap_alloc_block_buf(unsigned long size, int node);
- void *altmap_alloc_block_buf(unsigned long size, struct vmem_altmap *altmap);
- void vmemmap_verify(pte_t *, int, unsigned long, unsigned long);
- int vmemmap_populate_basepages(unsigned long start, unsigned long end,
--			       int node);
-+			       int node, struct vmem_altmap *altmap);
- int vmemmap_populate(unsigned long start, unsigned long end, int node,
- 		struct vmem_altmap *altmap);
- void vmemmap_populate_print_last(void);
-diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
-index 200aef686722..a407abc9b46c 100644
---- a/mm/sparse-vmemmap.c
-+++ b/mm/sparse-vmemmap.c
-@@ -140,12 +140,18 @@ void __meminit vmemmap_verify(pte_t *pte, int node,
- 			start, end - 1);
- }
- 
--pte_t * __meminit vmemmap_pte_populate(pmd_t *pmd, unsigned long addr, int node)
-+pte_t * __meminit vmemmap_pte_populate(pmd_t *pmd, unsigned long addr, int node,
-+				       struct vmem_altmap *altmap)
- {
- 	pte_t *pte = pte_offset_kernel(pmd, addr);
- 	if (pte_none(*pte)) {
- 		pte_t entry;
--		void *p = vmemmap_alloc_block_buf(PAGE_SIZE, node);
-+		void *p;
-+
-+		if (altmap)
-+			p = altmap_alloc_block_buf(PAGE_SIZE, altmap);
-+		else
-+			p = vmemmap_alloc_block_buf(PAGE_SIZE, node);
- 		if (!p)
- 			return NULL;
- 		entry = pfn_pte(__pa(p) >> PAGE_SHIFT, PAGE_KERNEL);
-@@ -213,8 +219,8 @@ pgd_t * __meminit vmemmap_pgd_populate(unsigned long addr, int node)
- 	return pgd;
- }
- 
--int __meminit vmemmap_populate_basepages(unsigned long start,
--					 unsigned long end, int node)
-+int __meminit vmemmap_populate_basepages(unsigned long start, unsigned long end,
-+					 int node, struct vmem_altmap *altmap)
- {
- 	unsigned long addr = start;
- 	pgd_t *pgd;
-@@ -236,7 +242,7 @@ int __meminit vmemmap_populate_basepages(unsigned long start,
- 		pmd = vmemmap_pmd_populate(pud, addr, node);
- 		if (!pmd)
- 			return -ENOMEM;
--		pte = vmemmap_pte_populate(pmd, addr, node);
-+		pte = vmemmap_pte_populate(pmd, addr, node, altmap);
- 		if (!pte)
- 			return -ENOMEM;
- 		vmemmap_verify(pte, node, addr, addr + PAGE_SIZE);
+ #else
+ static void print_vm_layout(void) { }
 -- 
-2.20.1
+2.17.0
 
 
