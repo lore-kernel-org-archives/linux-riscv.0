@@ -2,88 +2,84 @@ Return-Path: <SRS0=BeQS=5Q=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 01CF1C43331
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 15:48:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A6EFCC43331
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 15:52:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BAF4220781
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 15:48:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6CCE520714
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 15:52:56 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="er5B7X3m";
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="gV/o0CDR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BAF4220781
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="I0qQNqO2";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="bXqBtIy0";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="q5+Duvjw"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6CCE520714
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5aQkCdg3OoDULAq8LLMFvMfwkl2FbDtSgUr/S5jyTE0=; b=er5B7X3mpKwivD
-	vW8Xk80jVi7iDfUzsJ66Iri2fR9u5RqLO6Bm1tAC6B1cWYWXjmFd8FYSsMkTo+zOEUtKvtUgDI8y4
-	qJpDG0T8/tfAHxrX2rIhg+sCXGzes1/GBSjUPGhwoqWU2IAaS9vToXqkCXklXkMehG6zfnMWLpOs7
-	9wha+qHAr+ECuaQU99AiOFWJvkPPFBHzGXKibD3tOeHcyOL7u4mi0iBGl5Qt1nQtZ/Qzp+Uwo2IdY
-	qOKGUhnV1me6xrg8A+OEHsxB3KC3KM1JYn+SNSQklOAmnMpr67P4ffT3Na0+KXxADy87e/V+wCjiv
-	c05nXLGpxmvVNH/ahKDw==;
+	List-Owner; bh=pXFklhFpR1B4fioDyCWLrlkRyO50KztRlrR0YdkFNXs=; b=I0qQNqO2aYG09b
+	WcJ6/Va98py3btqUEgsXi8xd5r5GpIwDBmpUIHCtO4M3ZQMCO65qdYJUyJUh8AAqCLRrqWEBr0GbJ
+	oBKqQkSTxGhTaBy5YZ8pT0bIi+qyjsFNQaOwxYdgaxrwNgP7xmP3GcEUyuKXzlkhkFrhwbn4a+Xg9
+	kfb49s+LD1KVvKCmlXrFx7ZZ8rUuPleWTM2MK+qbw365HSna/rovY5u/UvTgUX/RYa2Oyhkd8J1u9
+	jTAfvJEfGm8IR/59zq17FEsP1Crn50h2IBpSV3EbIdpW6EKs7ZQr6JuxUj4pnzS3Y50115I9zLm9r
+	KdCQ+XKvsQ+Eflf1cvRg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jJJ8B-0006oC-OF; Tue, 31 Mar 2020 15:48:47 +0000
-Received: from mail-oi1-x244.google.com ([2607:f8b0:4864:20::244])
+	id 1jJJC3-0003Nr-Gg; Tue, 31 Mar 2020 15:52:47 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jJJ89-0006n0-Bo
- for linux-riscv@lists.infradead.org; Tue, 31 Mar 2020 15:48:46 +0000
-Received: by mail-oi1-x244.google.com with SMTP id m14so19368420oic.0
- for <linux-riscv@lists.infradead.org>; Tue, 31 Mar 2020 08:48:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=5aQkCdg3OoDULAq8LLMFvMfwkl2FbDtSgUr/S5jyTE0=;
- b=gV/o0CDRlWRC5hqOTTAwBJXyxpg7vFKl7HdX4ht9K/R9ZfhMV2uVKzoEFX1Jyg1TEf
- 9Ymob3UBmIDpJRcb9CtZ+zdHejt0KkANEtXEZGsacx+gRoJNqHoA8JoqvC4MHX3/o21O
- v/fWRwFFgBgkyp0Mm/LnWY1h/U1u0ojXzXbK2SChw0azbD2iPlHkCYeE0hrsfriU8q//
- +WxMY1/wMpHcinT2sDGerb6xNT8VYt50EXB+vCbl2hUSWLp8rhN14V2HR0NDzuJ5CdAk
- IhYXrBcqVrIyUkXFw7MXieNikdWfeQkBIkZ+hmu6LlzeqNLp4E2+4OJaLJnT81DJ4X+k
- 0V9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=5aQkCdg3OoDULAq8LLMFvMfwkl2FbDtSgUr/S5jyTE0=;
- b=O1NbtKrWQ64gQThdUh1+mSXqkXCK2T/TmRPSpHL6WVN7kgBBapODjhJ/RkjI2jJkwF
- ZVaZH90o9x1ibHQR5JHO5GrXADCHtNJWkVVbkkRHrpKN8oWlvaWuh37yqnkxxn7rPTIo
- yMUUYFjkAZlWj9AeqJ7EptBKvrSuEawE58b9ftuIyltOKWR4+Uo2H2IWniFq+z/qkYgW
- /bCmf2DV8gEC9+uPV8NK/TB+fdOwp17Ylg/vf6XlwvZqbysu2ziZgHu5LINERRSK8Bgq
- tRi6uIAJ/ZK9tw6xTVL5Th9diEbJ0zgnjVSfeaW9of+W0kcj1wBWzuOeEdNK4nliXYma
- G5Dg==
-X-Gm-Message-State: ANhLgQ0Nxr1aJR/DC5qnLL1vk/5C/D15g5Z9+Hlim9PRUmTLbtK8HBVp
- M2hneVJvQkWBsmm9xvwHYwxAOyIzhEQ=
-X-Google-Smtp-Source: APiQypIQPs0Ep2t3Ki3oPn5ufXwqeZTGDd3c8oxshzo+/6JD4Dhrvcf3WmDV+p6XbwFCCZmYIx0EVg==
-X-Received: by 2002:a17:90b:110f:: with SMTP id
- gi15mr4581906pjb.184.1585668211402; 
- Tue, 31 Mar 2020 08:23:31 -0700 (PDT)
-Received: from localhost.localdomain (123-195-35-41.dynamic.kbronet.com.tw.
- [123.195.35.41])
- by smtp.gmail.com with ESMTPSA id g30sm12097660pgn.40.2020.03.31.08.23.29
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
- Tue, 31 Mar 2020 08:23:30 -0700 (PDT)
-From: Vincent Chen <vincent.chen@sifive.com>
-To: jason.wessel@windriver.com, daniel.thompson@linaro.org,
- dianders@chromium.org, paul.walmsley@sifive.com, palmer@dabbelt.com
-Subject: [PATCH v2 1/5] kgdb: Add kgdb_has_hit_break function
-Date: Tue, 31 Mar 2020 23:23:07 +0800
-Message-Id: <1585668191-16287-2-git-send-email-vincent.chen@sifive.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1585668191-16287-1-git-send-email-vincent.chen@sifive.com>
-References: <1585668191-16287-1-git-send-email-vincent.chen@sifive.com>
+ id 1jJJB9-0002kp-1r
+ for linux-riscv@bombadil.infradead.org; Tue, 31 Mar 2020 15:51:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+ Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:From:Date:Sender
+ :Reply-To:Content-ID:Content-Description;
+ bh=pXFklhFpR1B4fioDyCWLrlkRyO50KztRlrR0YdkFNXs=; b=bXqBtIy0Um1WecZe476xX7pLTn
+ xoJvtyOmzHR4c0L2KJ/DVrCU7rEYpEUq7Z8nSuSvYyl6Fejn/omkeKUkSZCIplb396TYxTDAwFnaE
+ dAfOw9/emseVg5Sy+SqgYBDKP9yGc7aWfkEHicYKMnyhe6ZinISXT4EA7MjYQTthiVtlo/+CrnLMG
+ olDefehT2aV4boJDP1+pZtHnV98UcjVM1D7MH74zqdaMZRaLONBtCEYWTozyjHfUuBkMtDUCNup5I
+ dpXPbjNsvlT18VcYqxBATf/8DkJQ0wz2EtFdMExthtqll/FU1KhNXCc+teOgYPyhpImnB58GWLxHQ
+ /HtXbeDA==;
+Received: from mail.kernel.org ([198.145.29.99])
+ by casper.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jJIsa-0005Fd-6P
+ for linux-riscv@lists.infradead.org; Tue, 31 Mar 2020 15:32:43 +0000
+Received: from devnote2 (NE2965lan1.rev.em-net.ne.jp [210.141.244.193])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id DC7E420848;
+ Tue, 31 Mar 2020 15:32:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1585668757;
+ bh=bmkXYYgvw1XSZNm/X50bQ/Cgpms8RFKqYh9xAdP+cuY=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=q5+DuvjwofW/NxsUc3JfbmW7ShRD98IQBS2DvV2tbKVdx34U3F2S1b/WmFoRj5URf
+ nvrLLjyuoP7a/EhQImwcMauBCl1aEqWZmjT9GRsBTt/Q6E1EDTgiITIKLh/4HjT6c3
+ e4cP43e6tVvv2svOgg0kMqbeOUi9bA2o3wbrGEa8=
+Date: Wed, 1 Apr 2020 00:32:33 +0900
+From: Masami Hiramatsu <mhiramat@kernel.org>
+To: Zong Li <zong.li@sifive.com>
+Subject: Re: [PATCH v3 8/9] riscv: introduce interfaces to patch kernel code
+Message-Id: <20200401003233.17fe4b6f7075e5b8f0ed5114@kernel.org>
+In-Reply-To: <d27d9e68491e1df67dbee6c22df6a72ff95bab18.1583772574.git.zong.li@sifive.com>
+References: <cover.1583772574.git.zong.li@sifive.com>
+ <d27d9e68491e1df67dbee6c22df6a72ff95bab18.1583772574.git.zong.li@sifive.com>
+X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200331_084845_401974_31AD0036 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20200331_163240_864063_E4C2748C 
+X-CRM114-Status: GOOD (  31.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,49 +91,237 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: kgdb-bugreport@lists.sourceforge.net, linux-riscv@lists.infradead.org,
- Vincent Chen <vincent.chen@sifive.com>
+Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu, palmer@dabbelt.com,
+ linux-kernel@vger.kernel.org, paul.walmsley@sifive.com
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The break instruction in RISC-V does not have an immediate value field, so
-the kernel cannot identify the purpose of each trap exception through the
-opcode. This makes the existing identification schemes in other
-architecture unsuitable for the RISC-V kernel. To solve this problem, this
-patch adds kgdb_has_hit_break(), which can help RISC-V kernel identify
-the KGDB trap exception.
+Hi,
 
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Acked-by: Daniel Thompson <daniel.thompson@linaro.org>
----
- kernel/debug/debug_core.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+On Tue, 10 Mar 2020 00:55:43 +0800
+Zong Li <zong.li@sifive.com> wrote:
 
-diff --git a/kernel/debug/debug_core.c b/kernel/debug/debug_core.c
-index 2b7c9b67931d..01bc3eea3d4d 100644
---- a/kernel/debug/debug_core.c
-+++ b/kernel/debug/debug_core.c
-@@ -417,6 +417,18 @@ int kgdb_isremovedbreak(unsigned long addr)
- 	return 0;
- }
- 
-+int kgdb_has_hit_break(unsigned long addr)
-+{
-+	int i;
-+
-+	for (i = 0; i < KGDB_MAX_BREAKPOINTS; i++) {
-+		if (kgdb_break[i].state == BP_ACTIVE &&
-+		    kgdb_break[i].bpt_addr == addr)
-+			return 1;
-+	}
-+	return 0;
-+}
-+
- int dbg_remove_all_break(void)
- {
- 	int error;
+> On strict kernel memory permission, we couldn't patch code without
+> writable permission. Preserve two holes in fixmap area, so we can map
+> the kernel code temporarily to fixmap area, then patch the instructions.
+> 
+> We need two pages here because we support the compressed instruction, so
+> the instruction might be align to 2 bytes. When patching the 32-bit
+> length instruction which is 2 bytes alignment, it will across two pages.
+> 
+> Introduce two interfaces to patch kernel code:
+> riscv_patch_text_nosync:
+>  - patch code without synchronization, it's caller's responsibility to
+>    synchronize all CPUs if needed.
+> riscv_patch_text:
+>  - patch code and always synchronize with stop_machine()
+> 
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> ---
+>  arch/riscv/include/asm/fixmap.h |   2 +
+>  arch/riscv/include/asm/patch.h  |  12 ++++
+>  arch/riscv/kernel/Makefile      |   4 +-
+>  arch/riscv/kernel/patch.c       | 120 ++++++++++++++++++++++++++++++++
+>  4 files changed, 137 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/include/asm/patch.h
+>  create mode 100644 arch/riscv/kernel/patch.c
+> 
+> diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+> index 42d2c42f3cc9..2368d49eb4ef 100644
+> --- a/arch/riscv/include/asm/fixmap.h
+> +++ b/arch/riscv/include/asm/fixmap.h
+> @@ -27,6 +27,8 @@ enum fixed_addresses {
+>  	FIX_FDT = FIX_FDT_END + FIX_FDT_SIZE / PAGE_SIZE - 1,
+>  	FIX_PTE,
+>  	FIX_PMD,
+> +	FIX_TEXT_POKE1,
+> +	FIX_TEXT_POKE0,
+>  	FIX_EARLYCON_MEM_BASE,
+>  	__end_of_fixed_addresses
+>  };
+> diff --git a/arch/riscv/include/asm/patch.h b/arch/riscv/include/asm/patch.h
+> new file mode 100644
+> index 000000000000..b5918a6e0615
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/patch.h
+> @@ -0,0 +1,12 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2020 SiFive
+> + */
+> +
+> +#ifndef _ASM_RISCV_PATCH_H
+> +#define _ASM_RISCV_PATCH_H
+> +
+> +int riscv_patch_text_nosync(void *addr, const void *insns, size_t len);
+> +int riscv_patch_text(void *addr, u32 insn);
+> +
+> +#endif /* _ASM_RISCV_PATCH_H */
+> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> index f40205cb9a22..d189bd3d8501 100644
+> --- a/arch/riscv/kernel/Makefile
+> +++ b/arch/riscv/kernel/Makefile
+> @@ -4,7 +4,8 @@
+>  #
+>  
+>  ifdef CONFIG_FTRACE
+> -CFLAGS_REMOVE_ftrace.o = -pg
+> +CFLAGS_REMOVE_ftrace.o	= -pg
+> +CFLAGS_REMOVE_patch.o	= -pg
+>  endif
+>  
+>  extra-y += head.o
+> @@ -26,6 +27,7 @@ obj-y	+= traps.o
+>  obj-y	+= riscv_ksyms.o
+>  obj-y	+= stacktrace.o
+>  obj-y	+= cacheinfo.o
+> +obj-y	+= patch.o
+>  obj-$(CONFIG_MMU) += vdso.o vdso/
+>  
+>  obj-$(CONFIG_RISCV_M_MODE)	+= clint.o
+> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+> new file mode 100644
+> index 000000000000..8a4fc65ee022
+> --- /dev/null
+> +++ b/arch/riscv/kernel/patch.c
+> @@ -0,0 +1,120 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2020 SiFive
+> + */
+> +
+> +#include <linux/spinlock.h>
+> +#include <linux/mm.h>
+> +#include <linux/uaccess.h>
+> +#include <linux/stop_machine.h>
+> +#include <asm/kprobes.h>
+> +#include <asm/cacheflush.h>
+> +#include <asm/fixmap.h>
+> +
+> +struct riscv_insn_patch {
+> +	void *addr;
+> +	u32 insn;
+> +	atomic_t cpu_count;
+> +};
+> +
+> +#ifdef CONFIG_MMU
+> +static DEFINE_RAW_SPINLOCK(patch_lock);
+> +
+> +static void __kprobes *patch_map(void *addr, int fixmap)
+
+Please use NOKPROBE_SYMBOL() instead of __kprobes. __kprobes is old style.
+
+> +{
+> +	uintptr_t uintaddr = (uintptr_t) addr;
+> +	struct page *page;
+> +
+> +	if (core_kernel_text(uintaddr))
+> +		page = phys_to_page(__pa_symbol(addr));
+> +	else if (IS_ENABLED(CONFIG_STRICT_MODULE_RWX))
+> +		page = vmalloc_to_page(addr);
+> +	else
+> +		return addr;
+> +
+> +	BUG_ON(!page);
+> +
+> +	return (void *)set_fixmap_offset(fixmap, page_to_phys(page) +
+> +					 (uintaddr & ~PAGE_MASK));
+> +}
+> +
+> +static void __kprobes patch_unmap(int fixmap)
+> +{
+> +	clear_fixmap(fixmap);
+> +}
+> +
+> +static int __kprobes riscv_insn_write(void *addr, const void *insn, size_t len)
+
+Why would you add "riscv_" prefix for those functions? It seems a bit odd.
+
+> +{
+> +	void *waddr = addr;
+> +	bool across_pages = (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SIZE;
+> +	unsigned long flags = 0;
+> +	int ret;
+> +
+> +	raw_spin_lock_irqsave(&patch_lock, flags);
+
+This looks a bit odd since stop_machine() is protected by its own mutex,
+and also the irq is already disabled here.
+
+Thank you,
+
+> +
+> +	if (across_pages)
+> +		patch_map(addr + len, FIX_TEXT_POKE1);
+> +
+> +	waddr = patch_map(addr, FIX_TEXT_POKE0);
+> +
+> +	ret = probe_kernel_write(waddr, insn, len);
+> +
+> +	patch_unmap(FIX_TEXT_POKE0);
+> +
+> +	if (across_pages)
+> +		patch_unmap(FIX_TEXT_POKE1);
+> +
+> +	raw_spin_unlock_irqrestore(&patch_lock, flags);
+> +
+> +	return ret;
+> +}
+> +#else
+> +static int __kprobes riscv_insn_write(void *addr, const void *insn, size_t len)
+> +{
+> +	return probe_kernel_write(addr, insn, len);
+> +}
+> +#endif /* CONFIG_MMU */
+> +
+> +int __kprobes riscv_patch_text_nosync(void *addr, const void *insns, size_t len)
+> +{
+> +	u32 *tp = addr;
+> +	int ret;
+> +
+> +	ret = riscv_insn_write(tp, insns, len);
+> +
+> +	if (!ret)
+> +		flush_icache_range((uintptr_t) tp, (uintptr_t) tp + len);
+> +
+> +	return ret;
+> +}
+> +
+> +static int __kprobes riscv_patch_text_cb(void *data)
+> +{
+> +	struct riscv_insn_patch *patch = data;
+> +	int ret = 0;
+> +
+> +	if (atomic_inc_return(&patch->cpu_count) == 1) {
+> +		ret =
+> +		    riscv_patch_text_nosync(patch->addr, &patch->insn,
+> +					    GET_INSN_LENGTH(patch->insn));
+> +		atomic_inc(&patch->cpu_count);
+> +	} else {
+> +		while (atomic_read(&patch->cpu_count) <= num_online_cpus())
+> +			cpu_relax();
+> +		smp_mb();
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +int __kprobes riscv_patch_text(void *addr, u32 insn)
+> +{
+> +	struct riscv_insn_patch patch = {
+> +		.addr = addr,
+> +		.insn = insn,
+> +		.cpu_count = ATOMIC_INIT(0),
+> +	};
+> +
+> +	return stop_machine_cpuslocked(riscv_patch_text_cb,
+> +				       &patch, cpu_online_mask);
+> +}
+> -- 
+> 2.25.1
+> 
+
+
 -- 
-2.7.4
-
+Masami Hiramatsu <mhiramat@kernel.org>
 
