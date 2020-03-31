@@ -2,66 +2,89 @@ Return-Path: <SRS0=BeQS=5Q=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-9.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 282DDC43331
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 09:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 80A39C43331
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 10:11:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D7E8C20675
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 09:38:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5203E206DB
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2020 10:11:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="btw06Uzx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D7E8C20675
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TeURMREQ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="R6Jg645E"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5203E206DB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=OUlrZC/jATrdMXw10aZ5qI0/2xnwzogUsRtOAkexaQE=; b=btw06Uzx8ELhiLoVKeEAlfMRy
-	jK9IDipb7A1pktbY1oOiazuE+lwsppYPenF2xFUFwnrme2xsYD9ou5MnhGBwJK8oZdjtmanIILV5e
-	ih8+iKTGRXFYO1J9grVDxd6JyKvASxIo5fYektttIvwyj26hN7VchqCxHeJ37Hcry5i0a2eYaR/Pe
-	QjUUlJHMxMnctsXyrZxaFfmMmqLDXRDoHOT30fCl+m1gCszNTkl9jm4DOgWOS0ccJ0InhsjYVTP69
-	hN3kQI/G3Mqc9Ufpf1ey9ZVg1caO0kalwShg2CNP2a1HyDyTUkbsLbeWxlzsoD29849JJpv/qClwh
-	6Ui8aGjdg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=csmtkrkkAbdjV6T9mGVCcadIQKTYqskGmkUxceMKIBU=; b=TeURMREQB0FR+x
+	yIJEKGbdZH98YSJBNDZHvGBsGDYE8oS5ZNXbGnb4ywRMW+HXT6iicUjjYlXXydahBiCRXRTu3VZI+
+	zKWj57YL/7IIk87Rt1+AIAlXM2q99x2soY5R+n/hwF+V+ikIjqvtvQkEQdm9Pk++JjD6P3c6USz5z
+	WW8vynV1qxBtfUbvSE9Ckp7Uzs6AbdFUEcP4X4RxhjVJ+BiYwmim4aJXqO+ZPZE+FW0XMYq6/tPQK
+	OLTSF4XIwkivGP9xAiop/bm14jtmSnc80dkqAvbIVN73xFbhPGiKZ/gRA3+EOkq/QKmpXwNBeFXbI
+	0BmuEUEbrcTUleDFzQ4w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jJDLN-00060Z-0s; Tue, 31 Mar 2020 09:38:01 +0000
-Received: from 59-120-53-16.hinet-ip.hinet.net ([59.120.53.16]
- helo=ATCSQR.andestech.com)
+	id 1jJDrL-00032v-VP; Tue, 31 Mar 2020 10:11:03 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jJDLJ-0005ze-9C
- for linux-riscv@lists.infradead.org; Tue, 31 Mar 2020 09:37:58 +0000
-Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
- by ATCSQR.andestech.com with ESMTP id 02V9WGga065487;
- Tue, 31 Mar 2020 17:32:16 +0800 (GMT-8)
- (envelope-from tesheng@andestech.com)
-Received: from atcsqa06.andestech.com (10.0.15.65) by ATCPCS16.andestech.com
- (10.0.1.222) with Microsoft SMTP Server id 14.3.123.3; Tue, 31 Mar 2020
- 17:33:08 +0800
-From: Eric Lin <tesheng@andestech.com>
-To: <linux-riscv@lists.infradead.org>
-Subject: [PATCH 2/3] riscv/mm: Implement kmap() and kmap_atomic()
-Date: Tue, 31 Mar 2020 17:32:40 +0800
-Message-ID: <20200331093241.3728-3-tesheng@andestech.com>
-X-Mailer: git-send-email 2.17.0
-In-Reply-To: <20200331093241.3728-1-tesheng@andestech.com>
-References: <20200331093241.3728-1-tesheng@andestech.com>
+ id 1jJDrJ-00032Z-Lk
+ for linux-riscv@lists.infradead.org; Tue, 31 Mar 2020 10:11:02 +0000
+Received: by mail-pf1-x441.google.com with SMTP id h72so10130222pfe.4
+ for <linux-riscv@lists.infradead.org>; Tue, 31 Mar 2020 03:11:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=csmtkrkkAbdjV6T9mGVCcadIQKTYqskGmkUxceMKIBU=;
+ b=R6Jg645Ekhoa+9H2sclU0mGXjw1I9gI37D5bmWOunwlXVWOR25umHenRIYpp5VvaVd
+ zcA3dD5WcrTkmIDeWIXG9cRVYfS5MAOSg++iD5npWGxhH00bZ51t6HNM1V7+bU7v+V4d
+ BlPpwQJam7d4Mx/9G0XPi0bcWuHY8VnFLLN84cKY8psXRhG/Ua7XxQjr/n/vdE8l6/ev
+ urf1CVBCnex1NW02kG5+dhF15YKk5S7U23r8N5LZ762KzSgInxbV03Xov0coy+lNMP9V
+ 3vNTmOzRYrFDvE85WSzLBozbxDKMP3YoXBbU1vMatIQuEOzahWXSCShJPIpDcrEpUsqW
+ jUWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=csmtkrkkAbdjV6T9mGVCcadIQKTYqskGmkUxceMKIBU=;
+ b=UUDbe4SUv4dxAucbTmmIgL2N9RxLYNcGAGRKyIiUhKc1aIb2H/jYWqxugXMOSb7Uu5
+ jNWtG2VBkeDBJHMpKCDowedNYsxyTuHDvlAowNNJ92xFZwnNmpEd1wrbgnMIKIX3NxBq
+ 8TPHFuqMd7MVURuXbg/nXg0ekt/5LPUeJ6ilX9LCiVPWgKrUYN706Yr9MrxDMxyzwuz2
+ MQABGkaWXetMTJSqxglFtu00b0BvEJGj9eiBalwoWL51+UaW87RaYKpqPqUKUQ0htj61
+ f4p1hMPDhp4c7cEn1eUGE2+GuL9pWEKFGE17CprWkSldI9l2RLHziQBg+NMvvIMf/eJ9
+ If+w==
+X-Gm-Message-State: AGi0PuaaGqmvI5/0P/ApP7JVP6mQGdMz97Rvz4qqotON25LtEb85WiIY
+ rB20fQP1BpPOicK/UCQEO2o=
+X-Google-Smtp-Source: APiQypKiHHBSPaH2cLzNzRTC2404m7jq5F7xMao/oPIuL6IzPYmJYJXDbFSpcE6XHhJFs9EXH2dnSg==
+X-Received: by 2002:a63:f117:: with SMTP id f23mr3325427pgi.44.1585649460961; 
+ Tue, 31 Mar 2020 03:11:00 -0700 (PDT)
+Received: from btopel-mobl.ger.intel.com ([192.55.55.43])
+ by smtp.gmail.com with ESMTPSA id ck3sm1535258pjb.44.2020.03.31.03.10.56
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 31 Mar 2020 03:11:00 -0700 (PDT)
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn.topel@gmail.com>
+To: netdev@vger.kernel.org, bpf@vger.kernel.org, ast@kernel.org,
+ daniel@iogearbox.net
+Subject: [PATCH bpf] riscv: remove BPF JIT for nommu builds
+Date: Tue, 31 Mar 2020 12:10:46 +0200
+Message-Id: <20200331101046.23252-1-bjorn.topel@gmail.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.0.15.65]
-X-DNSRBL: 
-X-MAIL: ATCSQR.andestech.com 02V9WGga065487
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200331_023757_582439_B951A3D3 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20200331_031101_738822_AA65CF68 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,219 +96,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, gary@garyguo.net, alex@ghiti.fr,
- david.abdurachmanov@gmail.com, steven.price@arm.com,
- Alan Kao <alankao@andestech.com>, Anup.Patel@wdc.com,
- linux-kernel@vger.kernel.org, rppt@linux.ibm.com, atish.patra@wdc.com,
- yash.shah@sifive.com, Eric Lin <tesheng@andestech.com>, palmer@dabbelt.com,
- green.hu@gmail.com, zong.li@sifive.com, paul.walmsley@sifive.com,
- akpm@linux-foundation.org, bp@suse.de, logang@deltatee.com, tglx@linutronix.de
+Cc: hch@infradead.org,
+ =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn.topel@gmail.com>,
+ linux-riscv@lists.infradead.org, Damien.LeMoal@wdc.com,
+ kbuild test robot <lkp@intel.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Both kmap() and kmap_atomic() help kernel to create
-temporary mappings from a highmem page.
+The BPF JIT fails to build for kernels configured to !MMU. Without an
+MMU, the BPF JIT does not make much sense, therefore this patch
+disables the JIT for nommu builds.
 
-Be aware that use kmap() might put calling function to sleep
-and it cannot use in interrupt context. kmap_atomic() is an
-atomic version of kmap() which can be used in interrupt context
-and it is faster than kmap() because it doesn't hold a lock.
+This was reported by the kbuild test robot:
 
-Here we preserve some memory slots from fixmap region for
-kmap_atomic() and kmap() will use pkmap region.
+   All errors (new ones prefixed by >>):
 
-Signed-off-by: Eric Lin <tesheng@andestech.com>
-Cc: Alan Kao <alankao@andestech.com>
+      arch/riscv/net/bpf_jit_comp64.c: In function 'bpf_jit_alloc_exec':
+   >> arch/riscv/net/bpf_jit_comp64.c:1094:47: error: 'BPF_JIT_REGION_START' undeclared (first use in this function)
+       1094 |  return __vmalloc_node_range(size, PAGE_SIZE, BPF_JIT_REGION_START,
+            |                                               ^~~~~~~~~~~~~~~~~~~~
+      arch/riscv/net/bpf_jit_comp64.c:1094:47: note: each undeclared identifier is reported only once for each function it appears in
+   >> arch/riscv/net/bpf_jit_comp64.c:1095:9: error: 'BPF_JIT_REGION_END' undeclared (first use in this function)
+       1095 |         BPF_JIT_REGION_END, GFP_KERNEL,
+            |         ^~~~~~~~~~~~~~~~~~
+      arch/riscv/net/bpf_jit_comp64.c:1098:1: warning: control reaches end of non-void function [-Wreturn-type]
+       1098 | }
+            | ^
+
+Reported-by: kbuild test robot <lkp@intel.com>
+Signed-off-by: Björn Töpel <bjorn.topel@gmail.com>
 ---
- arch/riscv/include/asm/fixmap.h  |  9 +++-
- arch/riscv/include/asm/highmem.h | 30 +++++++++++++
- arch/riscv/include/asm/pgtable.h |  5 +++
- arch/riscv/mm/Makefile           |  1 +
- arch/riscv/mm/highmem.c          | 74 ++++++++++++++++++++++++++++++++
- 5 files changed, 118 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/mm/highmem.c
+ arch/riscv/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-index 42d2c42f3cc9..8dedc2bf2917 100644
---- a/arch/riscv/include/asm/fixmap.h
-+++ b/arch/riscv/include/asm/fixmap.h
-@@ -1,6 +1,7 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- /*
-  * Copyright (C) 2019 Western Digital Corporation or its affiliates.
-+ * Copyright (C) 2020 Andes Technology Corporation
-  */
- 
- #ifndef _ASM_RISCV_FIXMAP_H
-@@ -10,6 +11,7 @@
- #include <linux/sizes.h>
- #include <asm/page.h>
- #include <asm/pgtable.h>
-+#include <asm/kmap_types.h>
- 
- #ifdef CONFIG_MMU
- /*
-@@ -28,7 +30,12 @@ enum fixed_addresses {
- 	FIX_PTE,
- 	FIX_PMD,
- 	FIX_EARLYCON_MEM_BASE,
--	__end_of_fixed_addresses
-+#ifdef CONFIG_HIGHMEM
-+	FIX_KMAP_RESERVED,
-+	FIX_KMAP_BEGIN,
-+	FIX_KMAP_END = FIX_KMAP_BEGIN + (KM_TYPE_NR * NR_CPUS),
-+#endif
-+	__end_of_fixed_addresses,
- };
- 
- #define FIXMAP_PAGE_IO		PAGE_KERNEL
-diff --git a/arch/riscv/include/asm/highmem.h b/arch/riscv/include/asm/highmem.h
-index 7fc79e58f607..ec7c83d55830 100644
---- a/arch/riscv/include/asm/highmem.h
-+++ b/arch/riscv/include/asm/highmem.h
-@@ -17,3 +17,33 @@
- #define PKMAP_NR(virt)	(((virt) - (PKMAP_BASE)) >> PAGE_SHIFT)
- #define PKMAP_ADDR(nr)	(PKMAP_BASE + ((nr) << PAGE_SHIFT))
- #define kmap_prot		PAGE_KERNEL
-+
-+static inline void flush_cache_kmaps(void)
-+{
-+	flush_cache_all();
-+}
-+
-+/* Declarations for highmem.c */
-+extern unsigned long highstart_pfn, highend_pfn;
-+
-+extern pte_t *pkmap_page_table;
-+
-+extern void *kmap_high(struct page *page);
-+extern void kunmap_high(struct page *page);
-+
-+extern void kmap_init(void);
-+
-+/*
-+ * The following functions are already defined by <linux/highmem.h>
-+ * when CONFIG_HIGHMEM is not set.
-+ */
-+#ifdef CONFIG_HIGHMEM
-+extern void *kmap(struct page *page);
-+extern void kunmap(struct page *page);
-+extern void *kmap_atomic(struct page *page);
-+extern void __kunmap_atomic(void *kvaddr);
-+extern void *kmap_atomic_pfn(unsigned long pfn);
-+extern struct page *kmap_atomic_to_page(void *ptr);
-+#endif
-+
-+#endif
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index d9a3769f1f4e..1a774d5a8bbc 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -200,6 +200,11 @@ static inline pgd_t *pgd_offset(const struct mm_struct *mm, unsigned long addr)
- /* Locate an entry in the kernel page global directory */
- #define pgd_offset_k(addr)      pgd_offset(&init_mm, (addr))
- 
-+#ifdef CONFIG_HIGHMEM
-+/* Locate an entry in the second-level page table */
-+#define pmd_off_k(addr)  pmd_offset((pud_t *)pgd_offset_k(addr), addr)
-+#endif
-+
- static inline struct page *pmd_page(pmd_t pmd)
- {
- 	return pfn_to_page(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
-diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
-index 50b7af58c566..6f9305afc632 100644
---- a/arch/riscv/mm/Makefile
-+++ b/arch/riscv/mm/Makefile
-@@ -16,6 +16,7 @@ obj-$(CONFIG_SMP) += tlbflush.o
- endif
- obj-$(CONFIG_HUGETLB_PAGE) += hugetlbpage.o
- obj-$(CONFIG_KASAN)   += kasan_init.o
-+obj-$(CONFIG_HIGHMEM) += highmem.o
- 
- ifdef CONFIG_KASAN
- KASAN_SANITIZE_kasan_init.o := n
-diff --git a/arch/riscv/mm/highmem.c b/arch/riscv/mm/highmem.c
-new file mode 100644
-index 000000000000..b01ebe34619e
---- /dev/null
-+++ b/arch/riscv/mm/highmem.c
-@@ -0,0 +1,74 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2005-2020 Andes Technology Corporation
-+ */
-+
-+#include <linux/export.h>
-+#include <linux/highmem.h>
-+#include <linux/sched.h>
-+#include <linux/smp.h>
-+#include <linux/interrupt.h>
-+#include <asm/fixmap.h>
-+#include <asm/pgtable.h>
-+#include <asm/tlbflush.h>
-+
-+void *kmap(struct page *page)
-+{
-+	unsigned long vaddr;
-+
-+	might_sleep();
-+	if (!PageHighMem(page))
-+		return page_address(page);
-+	vaddr = (unsigned long)kmap_high(page);
-+	return (void *)vaddr;
-+}
-+EXPORT_SYMBOL(kmap);
-+
-+void kunmap(struct page *page)
-+{
-+	BUG_ON(in_interrupt());
-+	if (!PageHighMem(page))
-+		return;
-+	kunmap_high(page);
-+}
-+EXPORT_SYMBOL(kunmap);
-+
-+void *kmap_atomic(struct page *page)
-+{
-+	unsigned int idx;
-+	unsigned long vaddr;
-+	int type;
-+	pte_t *ptep;
-+
-+	preempt_disable();
-+	pagefault_disable();
-+
-+	if (!PageHighMem(page))
-+		return page_address(page);
-+
-+	type = kmap_atomic_idx_push();
-+
-+	idx = type + KM_TYPE_NR * smp_processor_id();
-+	vaddr = __fix_to_virt(FIX_KMAP_BEGIN + idx);
-+
-+	ptep = pte_offset_kernel(pmd_off_k(vaddr), vaddr);
-+	set_pte(ptep, mk_pte(page, kmap_prot));
-+
-+	return (void *)vaddr;
-+}
-+EXPORT_SYMBOL(kmap_atomic);
-+
-+void __kunmap_atomic(void *kvaddr)
-+{
-+	if (kvaddr >= (void *)FIXADDR_START && kvaddr < (void *)FIXADDR_TOP) {
-+		unsigned long vaddr = (unsigned long)kvaddr;
-+		pte_t *ptep;
-+
-+		kmap_atomic_idx_pop();
-+		ptep = pte_offset_kernel(pmd_off_k(vaddr), vaddr);
-+		set_pte(ptep, __pte(0));
-+	}
-+	pagefault_enable();
-+	preempt_enable();
-+}
-+EXPORT_SYMBOL(__kunmap_atomic);
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 8672e77a5b7a..bd35ac72fe24 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -55,7 +55,7 @@ config RISCV
+ 	select ARCH_HAS_PTE_SPECIAL
+ 	select ARCH_HAS_MMIOWB
+ 	select ARCH_HAS_DEBUG_VIRTUAL
+-	select HAVE_EBPF_JIT
++	select HAVE_EBPF_JIT if MMU
+ 	select EDAC_SUPPORT
+ 	select ARCH_HAS_GIGANTIC_PAGE
+ 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
 -- 
-2.17.0
+2.20.1
 
 
