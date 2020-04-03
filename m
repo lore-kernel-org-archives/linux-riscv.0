@@ -2,23 +2,23 @@ Return-Path: <SRS0=G4ZZ=5T=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
+X-Spam-Status: No, score=-8.4 required=3.0 tests=DKIMWL_WL_HIGH,DKIMWL_WL_MED,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9D777C2BA15
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2020 16:03:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 27D81C43331
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2020 17:35:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 70DBD2073B
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2020 16:03:37 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F14D520737
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2020 17:35:27 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XdnL/2jP";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="madpdA2I"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 70DBD2073B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="b2AsaE3M";
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.b="EBPVsvst"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F14D520737
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
@@ -26,66 +26,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
 	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=DTKHsm8Q5bJhu3UTT4PCRZaQwVAbDrF/ulx8WyttahM=; b=XdnL/2jPUK8KIS
-	stx8O8BrRZxt6Zsp3WTbmu/cez9ZdbhdFZ+3EruAyx5rKfLtwVNrcKiIPqQiZOrs7akNo1GAp7LY5
-	hjrP9ivYO1OZDQaps8UVojhC1ygLC98Wub3CRgxXebg5SSLNWr/2+c5yFaE5uu/LHvsT/NKv/WWi1
-	ff2K4hVIJwrjPBeXVrFvPRS5hmjoS5vwN2dYWyApcwOaxZkJlQYZQ8478qO58veJWeW/8Ya6Pe8OA
-	fR6Hb0mXgJUFvtT55lPjaZ9u3kNYdPdtxyoahXkvfFDVTQHHq5buKCu+hO6hmJqkNLmIJ8j8xh/zx
-	jIS+jELUwucldQVdbHjQ==;
+	List-Owner; bh=e1Jz3mW1+kHVFV4bKHsCQgpmGnhsmI5d7p4GD2NK6Jw=; b=b2AsaE3MRghYad
+	IQJziNjmfrAIxrIIFMdaffd+V+f9irAlRRnuMUOIAGNFtGI7778fnzt5SlmDdBUlX43xos7JlQSS5
+	R9k8BW3QOTwURTCIklaAsXi6EtT8es8bD5lLAQt0kg2OsupOLLAqzOA6uuHoKmR5LO+YHwWe0wWwf
+	p4lnWKGUnnGK4zUNbhLREIujOLY7JJDyZ/7xXSdydIdbqDKj13jAXC+B0hIRFOUul8iixzll/zTWy
+	M98lJO8MbNi2/gWQ3vjZPaVLETrGso8H9LR21JEFk54Sp0zlcX3wKzm3H9+BdvVRbEMlmqWHIETN6
+	HusA8zh0VS6FLbCOAyPQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jKOnA-0004Wc-41; Fri, 03 Apr 2020 16:03:36 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1jKQE2-0006n5-Tl; Fri, 03 Apr 2020 17:35:26 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jKOn7-0004WE-Ep
- for linux-riscv@lists.infradead.org; Fri, 03 Apr 2020 16:03:34 +0000
-Received: by mail-pf1-x442.google.com with SMTP id a13so3685726pfa.2
- for <linux-riscv@lists.infradead.org>; Fri, 03 Apr 2020 09:03:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ id 1jKQE0-0006mN-UC
+ for linux-riscv@lists.infradead.org; Fri, 03 Apr 2020 17:35:26 +0000
+Received: by mail-pl1-x643.google.com with SMTP id d24so2965177pll.8
+ for <linux-riscv@lists.infradead.org>; Fri, 03 Apr 2020 10:35:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=DTKHsm8Q5bJhu3UTT4PCRZaQwVAbDrF/ulx8WyttahM=;
- b=madpdA2IZsdgOJo7MhH9aIn36WnyTvf608VJNjKU4iQQnucZhT80EAfp8b5iaHLY33
- LSYMLiu30MGYQ2eY6huT6/vbDK2QXwsRGx2IDE0vfuf628W+WPHsUFyRcOyxzWNEkEb/
- cKNLyPO2tHnPFQ0gvQ+EAz+FeGw8lYU4LyeH9kS2XjJgi6fCfhK4gNYNoniPuc2Z9o61
- UmT0irwwMz67xe5HPJeTVth2tZl5jbMI/1MSsKLPl+NPmIckAnS1WRuMKKI333Y2bOMM
- sLiczLpvNYRE+J+kFgg7/AnUK+ylht12j4YFpVxc/15pFgZll6Mpx1TnmpQYNwhU2puc
- Tf1g==
+ bh=e1Jz3mW1+kHVFV4bKHsCQgpmGnhsmI5d7p4GD2NK6Jw=;
+ b=EBPVsvsta0srvEAqWr0fr9qfSkkqs/Q2Phqf+lsxoEouUCBM7iFiGcn+D0wWwrXWmK
+ sM0Ie9ZOun633qfoO6u9ev2P16CWrDdNYIK4M4XC067sskeZ4mw8MEyD6HlzOiGifD0z
+ yJmSiyQrSCYYTFu8ksLLcoyM0E2SmgvG1AURzHufcfoMtWrmfWdV+Ss5WnGGPwDfB0g0
+ ihbuiF3e/yYBT01jU0M2mpObapZXX/VAyL+LocCHiS4iUuffzxWE5oae3cgKYGb8a7+L
+ j8f5YU8upiQ0Wyr05mO5dFCJgvYyOcb5ETelpyca02QMnwS/X5TDW768mov35o1Onzcw
+ fYiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=DTKHsm8Q5bJhu3UTT4PCRZaQwVAbDrF/ulx8WyttahM=;
- b=WL/eUehrJl1OQDmNsw0gss78K2BkDjkCyNDWZlbppF43qnNVX/dtjqN706psPuYXA6
- GvM2ZjhiCvGacRn3/MWAzZfAW/9AMW5dybhKwavmTrvLxSJkkhV/Gm+yJMffN1H+Fxu5
- 7jl29C/pZRY2jnBAVtMdo37+/jaRTmvJTTAm9gPHAybWMFCauy/7TAdqPDDPZ3XMH0zO
- LbuV1mx5oIY7QdZDzORJY6eBXhmYw41/o7tU5CoRCBYJoGM/Rd/CmMgG9piEyVo6YQlJ
- rm7vYMej2EWE4tH2e6YXmeUqATaGXPEpupzV7a8NWPOhj9+4X3PXryMwd4B8qQUV7KPG
- 2+JA==
-X-Gm-Message-State: AGi0PubHQZ7wY0Tnlbf38ZVyIUYkG5bahlFpEbl7QDT8ndg0pKJCMkKA
- jJDYLL5MV9MTYCqSs/NFyIqiVQ==
-X-Google-Smtp-Source: APiQypLwNtCv00HA9e0S6QvIOb3nB6LJV0niSjYaoe896vIwkyMM8yAXAWSWnXGBB9z28MtkIAFODQ==
-X-Received: by 2002:a65:5a87:: with SMTP id c7mr8682833pgt.237.1585929812310; 
- Fri, 03 Apr 2020 09:03:32 -0700 (PDT)
+ bh=e1Jz3mW1+kHVFV4bKHsCQgpmGnhsmI5d7p4GD2NK6Jw=;
+ b=sY7TQ/z35KM5CFH6IxUOp/R/MWN2hL1G0/WvEQTncxEw5Ctzb8WUKI6cDNPRG84yrc
+ mEp2/8RALLSOMANusPAPn5ioFbKXsBvImId6Q0MrM6TIoi7RGExCGe5lhfzDcxqQINPF
+ mVJoWnHTxn0TJhVC+Ypv+qGUgHRATr/HPGTWYkYPguzStihx28td8a7Kph1Lcg7pY8Z8
+ he0w/yVNCNlgvpFQidWLEHWIqfXoyEU8RfYiM2lOj+TXdG/3q1Z/dq5MPDzqmZL717Rf
+ FfiZtabj1QYiVeLI9NTbl9if5M3iQQKY88RpLXXFBaipxRzpbwfUQbfe+68fi/rP/FX/
+ 7znQ==
+X-Gm-Message-State: AGi0PuablIVV7oHfY7Xnwy7OVTNJw5x5CY0cB6ilXfq3762fXzweXh3r
+ ttQiaq5WPCo1nrFn/JR34EQd6QI2wjs=
+X-Google-Smtp-Source: APiQypI+Q3WGK6zfJo3SW55+gzzq9kj6/3qS+R1T7GxurnRzKhshzL99vBmf8fn+reyTSWbMUvbZ6A==
+X-Received: by 2002:a17:902:a40e:: with SMTP id
+ p14mr8976298plq.295.1585935321438; 
+ Fri, 03 Apr 2020 10:35:21 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id l9sm4212358pff.16.2020.04.03.09.03.30
+ by smtp.gmail.com with ESMTPSA id b11sm4824679pfr.155.2020.04.03.10.35.20
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 03 Apr 2020 09:03:31 -0700 (PDT)
-Date: Fri, 03 Apr 2020 09:03:31 -0700 (PDT)
-X-Google-Original-Date: Fri, 03 Apr 2020 09:03:23 PDT (-0700)
-Subject: Re: [PATCH] riscv: mm: synchronize MMU after page table update
-In-Reply-To: <20200324054945.26733-1-nickhu@andestech.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: nickhu@andestech.com
-Message-ID: <mhng-3d02c4a1-effd-4074-a3e0-de38c04ec8d7@palmerdabbelt-glaptop1>
+ Fri, 03 Apr 2020 10:35:20 -0700 (PDT)
+Date: Fri, 03 Apr 2020 10:35:20 -0700 (PDT)
+X-Google-Original-Date: Fri, 03 Apr 2020 10:35:13 PDT (-0700)
+Subject: Re: Kendryte K210 support v4
+In-Reply-To: <CO2PR04MB2343F5DC42542E7FC9268FF2E7CC0@CO2PR04MB2343.namprd04.prod.outlook.com>
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: Damien Le Moal <Damien.LeMoal@wdc.com>
+Message-ID: <mhng-10bc8cda-b6c0-4561-b3d4-0336fdb6e41d@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200403_090333_497353_76D25495 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20200403_103524_995049_4C3CADDC 
+X-CRM114-Status: GOOD (  24.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,69 +97,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, aou@eecs.berkeley.edu, alankao@andestech.com,
- nickhu@andestech.com, anup@brainfault.org, linux-kernel@vger.kernel.org,
- npiggin@gmail.com, rppt@linux.ibm.com, alexios.zavras@intel.com,
- linux-riscv@lists.infradead.org, guoren@kernel.org, zong.li@sifive.com,
- Paul Walmsley <paul.walmsley@sifive.com>, akpm@linux-foundation.org,
- nylon7@andestech.com, tglx@linutronix.de
+Cc: linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Mar 2020 22:49:45 PDT (-0700), nickhu@andestech.com wrote:
-> Similar to commit bf587caae305 ("riscv: mm: synchronize MMU after pte change")
->
-> For those riscv implementations whose TLB cannot synchronize with dcache,
-> an SFENCE.VMA is necessary after page table update.
-> This patch fixed two functions:
->
-> 1. pgd_alloc
-> During fork, a parent process prepares pgd for its child and updates satp
-> later, but they may not run on the same core. Adding a remote SFENCE.VMA to
-> invalidate TLB in other cores is needed. Thus use flush_tlb_all() instead
-> of local_flush_tlb_all() here.
-> Similar approaches can be found in arm and csky.
->
-> 2. __set_fixmap
-> Add a SFENCE.VMA after fixmap pte update.
-> Similar approaches can be found in arm and sh.
->
-> Signed-off-by: Nick Hu <nickhu@andestech.com>
-> Signed-off-by: Nylon Chen <nylon7@andestech.com>
-> Cc: Alan Kao <alankao@andestech.com>
-> ---
->  arch/riscv/include/asm/pgalloc.h | 1 +
->  arch/riscv/mm/init.c             | 2 +-
->  2 files changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
-> index 3f601ee8233f..071468fa14b7 100644
-> --- a/arch/riscv/include/asm/pgalloc.h
-> +++ b/arch/riscv/include/asm/pgalloc.h
-> @@ -51,6 +51,7 @@ static inline pgd_t *pgd_alloc(struct mm_struct *mm)
->  		memcpy(pgd + USER_PTRS_PER_PGD,
->  			init_mm.pgd + USER_PTRS_PER_PGD,
->  			(PTRS_PER_PGD - USER_PTRS_PER_PGD) * sizeof(pgd_t));
-> +		flush_tlb_all();
->  	}
->  	return pgd;
->  }
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index fab855963c73..a7f329503ed0 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -203,8 +203,8 @@ void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
->  		set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, prot));
->  	} else {
->  		pte_clear(&init_mm, addr, ptep);
-> -		local_flush_tlb_page(addr);
->  	}
-> +	local_flush_tlb_page(addr);
->  }
->
->  static pte_t *__init get_pte_virt(phys_addr_t pa)
+On Thu, 26 Mar 2020 17:38:50 PDT (-0700), Damien Le Moal wrote:
+>> On 2020/03/27 8:59, Palmer Dabbelt wrote:
+>> On Thu, 26 Mar 2020 16:40:34 PDT (-0700), Damien Le Moal wrote:
+>>> On 2020/03/27 7:09, Palmer Dabbelt wrote:
+>>> On Mon, 23 Mar 2020 21:19:05 PDT (-0700), Damien Le Moal wrote:
+>>>>> Palmer,
+>>>>
+>>>> Ping ?
+>>>>
+>>>> It would be great to get this series in 5.7.
+>>>
+>>> Well, the real issue here is that the new series don't appear to address the
+>>> fundamental issue I had with the patch set (kernel binaries that only run on
+>>> one system).  As a result it's gone on the list of things I need to go fix,
+>>> which is quite a bit longer than the review queue.
+>>>
+>> 
+>> I do not understand... Are you referring to the compressed instruction #ifdef
+>> that was in the unaligned load/store handler ? The latest v4 removed that and I
+>> actuall tested all 4 combinations of kernel and user space being compiled with
+>> and without compressed instructions. All worked fine.
+>> 
+>> We had the same problem in OpenSBI by the way and we fixed it there too.
+>> 
+>> It's the BUILTIN_DTB issue -- this should look up the DTB to use based on some
+>> sort of SOC unique identifier, either something unique in the device tree that
+>> was provided (assuming whatever loads Linux on the Kendryte provides one) or
+>> mvendorid+marchid+mimpid (probably with some sort of masking).
+> 
+> Hmmm. Yes, that would be nice. However, an SoC identifier is not the same as a
+> board identifier, and since the device tree describes not just the SoC, I am not
+> sure this would in the end be a unique enough ID and so not improve anything.
 
-As a general rule, any fences are supposed to have a comment describing why
-they're there.  The generic fences will be caught by checkpatch, but I don't
-remember if these are.
+IIRC there's only one DT for this platform anyway, so it at least fixes the
+issue here.
+
+> The other problem with this I think is that this does not improve in any way the
+> "bad" case where none of the embedded DTBs available match the hardware. What to
+> do then ? At that point, the kernel code is such in an early stage that it
+> cannot even display anything. That is the same situation with the current single
+> BUILTIN dtb: if the dtb is wrong, the kernel will likely not boot.
+>
+> The current BUILTIN_DTB approach comes from other arch where that already
+> exists. Nothing new here, and it looks like other arch at least didn't mind the
+> end-result special kernel-for-this-paltform-only approach. We are talking about
+> a tiny hardware/super embedded thing here. I sure would not want to use BUILTIN
+> DTB for anything bigger then the Kendryte boards and this may be where we can
+> improve using KConfig: allow selecting BUILTIN DTB only if the KENDRYTE SOC is
+> selected ?
+
+Well, the ARM stuff has a whole bunch of compile-time issues with supporting
+multiple vendors' SOCs at the same time.  That's proving to be a big headache.
+
+> 
+> In the end, I would really like to see this series in 5.7 to enable all the
+> hobbyist and hackers out there to more easily contribute improvements in this
+> area. I do not see much problem with starting with the BUILTIN DTB as it is and
+> improve on it as we go. There will not be any "backward compatibility" problems
+> that I can see.
+
+OK, I'll just go fix it.
 
