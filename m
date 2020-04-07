@@ -4,19 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-8.4 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9FA48C2BA16
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2020 05:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DF8A8C2BA80
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2020 05:12:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6E60E206F7
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2020 05:12:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B698D206F7
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2020 05:12:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jnv806kM"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6E60E206F7
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Jgh2S4HY"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B698D206F7
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,41 +25,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
 	Message-ID:References:To:Subject:From:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eh+Ragx6cMrdIV92NsdyArN/rHbCMJQopzJN4+wc1gw=; b=jnv806kMC8E4an
-	EM6Ok0riNECjTEBIyTYi0i4/6XpEomsr9qOL3acd33VWt9uH9CPHZ/yTm+gHbge8WilndTF/BqnAO
-	VLX9exHT4X5KOLV0mGine4gzi6eQHrSN0x4STeIdkhu86zJsKrBY2gOSCVk7WoUUPAtTs0NvqzG5y
-	Pnhk+CHTD/mbyHixJzeL3/b/GmrMNgAOofP80Ru2LMdy/lbC0QjKVXNcQGPpdKm1RaubFP/PWINJ8
-	tq9maHoMVFT0QKMXdDS4H6V5gIT4esh3rsdssig51lHvOgil2f/GsmvpU2K0Z3HpgcliHoBBfY269
-	RBXO956qcLqkendPY3SQ==;
+	List-Owner; bh=4hYtyk7Tn+UvSwt/Oa7wzFFSbn8EhyICzh18tFRtQXM=; b=Jgh2S4HYrmE5nr
+	eqYK0VajbfMNekJGs9nUO7+BJvWPvwMffd+e2N157TRpFzokf2uqh0e5doPuLXFgROCF5L88itm6B
+	6uPRrCE7iROb0xCTo1m5nAHAIL2ja9tkR8Q7cAq2EVLnpw8vBvWPu4tBkIUbLhUwhbmy/qS19lTc0
+	3WT0UlCFdOMHpML+rnUZP8qfVgEovMKadjNTCFuBkDh94jxPR3FB8cCbZjv42pUrC/XB6vrQ/k7iz
+	5kbAQFW47ADYI0N7ne234vYMTGRGEAgCJik9dBsT7lqIhV6RDn3/XiczC8NW7sgWZ8bNlurEgbzQg
+	ln4lNbphHFjBZKVd4YPw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jLgX7-0000ce-Fk; Tue, 07 Apr 2020 05:12:21 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1jLgXO-0000iL-NU; Tue, 07 Apr 2020 05:12:38 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jLgX4-0000bj-IY
- for linux-riscv@lists.infradead.org; Tue, 07 Apr 2020 05:12:19 +0000
+ id 1jLgXL-0000hH-4F
+ for linux-riscv@lists.infradead.org; Tue, 07 Apr 2020 05:12:36 +0000
 X-Originating-IP: 2.7.45.25
 Received: from [192.168.1.101] (lfbn-lyo-1-453-25.w2-7.abo.wanadoo.fr
  [2.7.45.25]) (Authenticated sender: alex@ghiti.fr)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id BDA4920007;
- Tue,  7 Apr 2020 05:12:15 +0000 (UTC)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id BE671240004;
+ Tue,  7 Apr 2020 05:12:31 +0000 (UTC)
 From: Alex Ghiti <alex@ghiti.fr>
-Subject: Re: [RFC PATCH 1/7] riscv: Get rid of compile time logic with
- MAX_EARLY_MAPPING_SIZE
+Subject: Re: [RFC PATCH 2/7] riscv: Allow to dynamically define VA_BITS
 To: Palmer Dabbelt <palmer@dabbelt.com>
-References: <mhng-ee39eb13-2567-479e-b0f4-5d23dff8496c@palmerdabbelt-glaptop1>
-Message-ID: <befad912-5fab-897c-48d6-9a703a6b4240@ghiti.fr>
-Date: Tue, 7 Apr 2020 01:12:15 -0400
+References: <mhng-1f8477e3-7cb4-454f-b443-8cf032325385@palmerdabbelt-glaptop1>
+Message-ID: <8922d36f-1b4e-0575-33e7-197e3f0b3817@ghiti.fr>
+Date: Tue, 7 Apr 2020 01:12:31 -0400
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.3.0
 MIME-Version: 1.0
-In-Reply-To: <mhng-ee39eb13-2567-479e-b0f4-5d23dff8496c@palmerdabbelt-glaptop1>
+In-Reply-To: <mhng-1f8477e3-7cb4-454f-b443-8cf032325385@palmerdabbelt-glaptop1>
 Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Language: en-US
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200406_221218_749950_878369E5 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20200406_221235_438959_8263D95C 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,71 +77,94 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-
 On 4/3/20 11:17 AM, Palmer Dabbelt wrote:
-> On Sun, 22 Mar 2020 04:00:22 PDT (-0700), alex@ghiti.fr wrote:
->> There is no need to compare at compile time MAX_EARLY_MAPPING_SIZE value
->> with PGDIR_SIZE since MAX_EARLY_MAPPING_SIZE is set to 128MB which is 
->> less
->> than PGDIR_SIZE that is equal to 1GB: that allows to simplify early_pmd
->> definition.
+> On Sun, 22 Mar 2020 04:00:23 PDT (-0700), alex@ghiti.fr wrote:
+>> With 4-level page table folding at runtime, we don't know at compile time
+>> the size of the virtual address space so we must set VA_BITS dynamically
+>> so that sparsemem reserves the right amount of memory for struct pages.
 >>
 >> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 >> ---
->>  arch/riscv/mm/init.c | 16 ++++------------
->>  1 file changed, 4 insertions(+), 12 deletions(-)
+>>  arch/riscv/Kconfig                 | 10 ----------
+>>  arch/riscv/include/asm/pgtable.h   | 10 +++++++++-
+>>  arch/riscv/include/asm/sparsemem.h |  2 +-
+>>  3 files changed, 10 insertions(+), 12 deletions(-)
 >>
->> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->> index 238bd0033c3f..18bbb426848e 100644
->> --- a/arch/riscv/mm/init.c
->> +++ b/arch/riscv/mm/init.c
->> @@ -247,13 +247,7 @@ static void __init create_pte_mapping(pte_t *ptep,
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index f5f3d474504d..8e4b1cbcf2c2 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -99,16 +99,6 @@ config ZONE_DMA32
+>>      bool
+>>      default y if 64BIT
 >>
->>  pmd_t trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
->>  pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
+>> -config VA_BITS
+>> -    int
+>> -    default 32 if 32BIT
+>> -    default 39 if 64BIT
 >> -
->> -#if MAX_EARLY_MAPPING_SIZE < PGDIR_SIZE
->> -#define NUM_EARLY_PMDS        1UL
->> -#else
->> -#define NUM_EARLY_PMDS        (1UL + MAX_EARLY_MAPPING_SIZE / 
->> PGDIR_SIZE)
->> -#endif
->> -pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata 
->> __aligned(PAGE_SIZE);
->> +pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
->>
->>  static pmd_t *__init get_pmd_virt(phys_addr_t pa)
->>  {
->> @@ -267,14 +261,12 @@ static pmd_t *__init get_pmd_virt(phys_addr_t pa)
->>
->>  static phys_addr_t __init alloc_pmd(uintptr_t va)
->>  {
->> -    uintptr_t pmd_num;
+>> -config PA_BITS
+>> -    int
+>> -    default 34 if 32BIT
+>> -    default 56 if 64BIT
 >> -
->>      if (mmu_enabled)
->>          return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
+>>  config PAGE_OFFSET
+>>      hex
+>>      default 0xC0000000 if 32BIT && MAXPHYSMEM_2GB
+>> diff --git a/arch/riscv/include/asm/pgtable.h 
+>> b/arch/riscv/include/asm/pgtable.h
+>> index 185ffe3723ec..dce401eed1d3 100644
+>> --- a/arch/riscv/include/asm/pgtable.h
+>> +++ b/arch/riscv/include/asm/pgtable.h
+>> @@ -26,6 +26,14 @@
+>>  #endif /* CONFIG_64BIT */
 >>
->> -    pmd_num = (va - PAGE_OFFSET) >> PGDIR_SHIFT;
->> -    BUG_ON(pmd_num >= NUM_EARLY_PMDS);
->> -    return (uintptr_t)&early_pmd[pmd_num * PTRS_PER_PMD];
->> +    BUG_ON((va - PAGE_OFFSET) >> PGDIR_SHIFT);
->> +
->> +    return (uintptr_t)early_pmd;
->>  }
->>
->>  static void __init create_pmd_mapping(pmd_t *pmdp,
+>>  #ifdef CONFIG_MMU
+>> +#ifdef CONFIG_64BIT
+>> +#define VA_BITS        39
+>> +#define PA_BITS        56
+>> +#else
+>> +#define VA_BITS        32
+>> +#define PA_BITS        34
 > 
-> My specific worry here was that allyesconfig kernels are quite large, 
-> and that
-> dropping the code to handle large kernels would make it even harder to boot
-> them.  That said, I can't actually get one to boot so I'm happy to just 
-> push
-> that off until later and drop the code we can't practically use.
+> We've moved to 32-bit physical addresses on rv32 in Linux.  The mismatch 
+> was
+> causing too many issues in generic code.
+
+Ok I missed this one, thanks.
+
+> 
+>> +#endif
+>> +
+>>  /* Number of entries in the page global directory */
+>>  #define PTRS_PER_PGD    (PAGE_SIZE / sizeof(pgd_t))
+>>  /* Number of entries in the page table */
+>> @@ -108,7 +116,7 @@ extern pgd_t swapper_pg_dir[];
+>>   * position vmemmap directly below the VMALLOC region.
+>>   */
+>>  #define VMEMMAP_SHIFT \
+>> -    (CONFIG_VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
+>> +    (VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
+>>  #define VMEMMAP_SIZE    BIT(VMEMMAP_SHIFT)
+>>  #define VMEMMAP_END    (VMALLOC_START - 1)
+>>  #define VMEMMAP_START    (VMALLOC_START - VMEMMAP_SIZE)
+>> diff --git a/arch/riscv/include/asm/sparsemem.h 
+>> b/arch/riscv/include/asm/sparsemem.h
+>> index 45a7018a8118..f08d72155bc8 100644
+>> --- a/arch/riscv/include/asm/sparsemem.h
+>> +++ b/arch/riscv/include/asm/sparsemem.h
+>> @@ -4,7 +4,7 @@
+>>  #define _ASM_RISCV_SPARSEMEM_H
+>>
+>>  #ifdef CONFIG_SPARSEMEM
+>> -#define MAX_PHYSMEM_BITS    CONFIG_PA_BITS
+>> +#define MAX_PHYSMEM_BITS    PA_BITS
+>>  #define SECTION_SIZE_BITS    27
+>>  #endif /* CONFIG_SPARSEMEM */
+> 
+> Aside from the 32-bit PA issue:
 > 
 > Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> 
-> Thanks!
-> 
 
 Thanks,
 
