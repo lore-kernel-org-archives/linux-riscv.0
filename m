@@ -5,18 +5,18 @@ X-Spam-Level:
 X-Spam-Status: No, score=-8.4 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 601E8C2BA16
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2020 05:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 49BF1C2BA16
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2020 05:15:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 373A0206BE
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2020 05:14:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 21F7F206BE
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2020 05:15:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oatlkYyb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 373A0206BE
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nW8sXIZk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 21F7F206BE
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,41 +25,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
 	Message-ID:References:To:Subject:From:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AEmBO96Vcuh4aOFMT+j90ARQ8MxNgZIyNL/Gv35JGH4=; b=oatlkYybC2Rcf4
-	a2ix3xacCAwcCjPs/1IyAPvTk4UEONpOHVPe/abMUak4waRJ6o3y6xPZynhsCRB8hi82rvBcDC+hP
-	haB8Hs4fN7Zequ+DziFYeGOmNZrWRfxuuEWqqQ7viqxHoz0ttEy0JzTKIqUreHMnGf4UnBSTj0Z5j
-	6rj+K+p9kexLQ/IiRRPifeQV4OarJmma+/hBMWq2WHOJyZUb9IFMFAMN6/SFxbfehmLrlXeOhxoSq
-	sgh3Jn+7dzPbTv5MIYB251sDF0ypI2qiWTNqrY35+0rtb9HwL9erOSfy62BEMwrxFidOrbmDdGEii
-	CqWSFi7vrwWryRAPhvRQ==;
+	List-Owner; bh=wlODluTxJI5l1UBkKpwNJ1Glya2gsisdDLBl5J6DP6M=; b=nW8sXIZkhc2Fh+
+	5/S1pXRuiXeUAhPJjuefH42yCVdoqObl2L5+YDXQvOqMfyoEJW7S7YnBo8R8w1ie9nZHJgqiwYT75
+	/ywWjqCWbppRee1i52/LV2kOOypgSZN/W+idL5nevq8+sl2tE/MXKw6C7wnF8P8zRVJN9KClc7uPm
+	NKZZ58rSP2CJGQ/AD9wM+2YJ3E0NgY+dbDmEEJBnLChxST9FTnzfjY57chKx5cCbNV+I8g5rbvim0
+	gHHnu+S1ZofAF7KUm3CKGUG+zuqVkhyvHlqqAhqhtBLWKqO1VZhQK4FJqvUBHVq7QFNHBNBTCTGLa
+	0rdZUj35t6aS1/bdlzMw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jLgZJ-0001S3-F8; Tue, 07 Apr 2020 05:14:37 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1jLgZf-0001Y5-8t; Tue, 07 Apr 2020 05:14:59 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jLgZG-0001Qp-0V
- for linux-riscv@lists.infradead.org; Tue, 07 Apr 2020 05:14:35 +0000
+ id 1jLgZb-0001X5-NS
+ for linux-riscv@lists.infradead.org; Tue, 07 Apr 2020 05:14:58 +0000
 X-Originating-IP: 2.7.45.25
 Received: from [192.168.1.101] (lfbn-lyo-1-453-25.w2-7.abo.wanadoo.fr
  [2.7.45.25]) (Authenticated sender: alex@ghiti.fr)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 8E1DDFF805;
- Tue,  7 Apr 2020 05:14:28 +0000 (UTC)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 4E2CF240006;
+ Tue,  7 Apr 2020 05:14:53 +0000 (UTC)
 From: Alex Ghiti <alex@ghiti.fr>
-Subject: Re: [RFC PATCH 5/7] riscv: Use pgtable_l4_enabled to output mmu type
- in cpuinfo
+Subject: Re: [RFC PATCH 6/7] dt-bindings: riscv: Remove "riscv, svXX" property
+ from device-tree
 To: Palmer Dabbelt <palmer@dabbelt.com>
-References: <mhng-a151714b-ba54-41dc-bbc6-e215c9594e59@palmerdabbelt-glaptop1>
-Message-ID: <eb30b9db-00c7-6f06-f276-0e8e9be4d7df@ghiti.fr>
-Date: Tue, 7 Apr 2020 01:14:27 -0400
+References: <mhng-264d030a-d77e-43b6-a2d8-d4598205e2af@palmerdabbelt-glaptop1>
+Message-ID: <56690fc1-fdc3-67d9-5a39-e92d0ec6810c@ghiti.fr>
+Date: Tue, 7 Apr 2020 01:14:52 -0400
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.3.0
 MIME-Version: 1.0
-In-Reply-To: <mhng-a151714b-ba54-41dc-bbc6-e215c9594e59@palmerdabbelt-glaptop1>
+In-Reply-To: <mhng-264d030a-d77e-43b6-a2d8-d4598205e2af@palmerdabbelt-glaptop1>
 Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Language: en-US
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200406_221434_321720_2723CA6F 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20200406_221457_018827_560CF168 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,119 +78,50 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-
 On 4/3/20 11:53 AM, Palmer Dabbelt wrote:
-> On Sun, 22 Mar 2020 04:00:26 PDT (-0700), alex@ghiti.fr wrote:
->> Now that the mmu type is determined at runtime using SATP
->> characteristic, use the global variable pgtable_l4_enabled to output
->> mmu type of the processor through /proc/cpuinfo instead of relying on
->> device tree infos.
+> On Sun, 22 Mar 2020 04:00:27 PDT (-0700), alex@ghiti.fr wrote:
+>> This property can not be used before virtual memory is set up
+>> and then the  distinction between sv39 and sv48 is done at runtime
+>> using SATP csr property: this property is now useless, so remove it.
 >>
 >> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 >> ---
->>  arch/riscv/boot/dts/sifive/fu540-c000.dtsi |  4 ----
->>  arch/riscv/kernel/cpu.c                    | 24 ++++++++++++----------
->>  2 files changed, 13 insertions(+), 15 deletions(-)
+>>  Documentation/devicetree/bindings/riscv/cpus.yaml | 13 -------------
+>>  1 file changed, 13 deletions(-)
 >>
->> diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi 
->> b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
->> index 7db861053483..6138590a2229 100644
->> --- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
->> +++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
->> @@ -50,7 +50,6 @@
->>              i-cache-size = <32768>;
->>              i-tlb-sets = <1>;
->>              i-tlb-size = <32>;
->> -            mmu-type = "riscv,sv39";
->>              reg = <1>;
->>              riscv,isa = "rv64imafdc";
->>              tlb-split;
->> @@ -74,7 +73,6 @@
->>              i-cache-size = <32768>;
->>              i-tlb-sets = <1>;
->>              i-tlb-size = <32>;
->> -            mmu-type = "riscv,sv39";
->>              reg = <2>;
->>              riscv,isa = "rv64imafdc";
->>              tlb-split;
->> @@ -98,7 +96,6 @@
->>              i-cache-size = <32768>;
->>              i-tlb-sets = <1>;
->>              i-tlb-size = <32>;
->> -            mmu-type = "riscv,sv39";
->>              reg = <3>;
->>              riscv,isa = "rv64imafdc";
->>              tlb-split;
->> @@ -122,7 +119,6 @@
->>              i-cache-size = <32768>;
->>              i-tlb-sets = <1>;
->>              i-tlb-size = <32>;
->> -            mmu-type = "riscv,sv39";
->>              reg = <4>;
->>              riscv,isa = "rv64imafdc";
->>              tlb-split;
->> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
->> index 40a3c442ac5f..38a699b997a8 100644
->> --- a/arch/riscv/kernel/cpu.c
->> +++ b/arch/riscv/kernel/cpu.c
->> @@ -8,6 +8,8 @@
->>  #include <linux/of.h>
->>  #include <asm/smp.h>
+>> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml 
+>> b/Documentation/devicetree/bindings/riscv/cpus.yaml
+>> index 04819ad379c2..12baabbac213 100644
+>> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+>> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+>> @@ -39,19 +39,6 @@ properties:
+>>        Identifies that the hart uses the RISC-V instruction set
+>>        and identifies the type of the hart.
 >>
->> +extern bool pgtable_l4_enabled;
->> +
->>  /*
->>   * Returns the hart ID of the given device tree node, or -ENODEV if 
->> the node
->>   * isn't an enabled and valid RISC-V hart node.
->> @@ -54,18 +56,19 @@ static void print_isa(struct seq_file *f, const 
->> char *isa)
->>      seq_puts(f, "\n");
->>  }
->>
->> -static void print_mmu(struct seq_file *f, const char *mmu_type)
->> +static void print_mmu(struct seq_file *f)
->>  {
->> +    char sv_type[16];
->> +
->>  #if defined(CONFIG_32BIT)
->> -    if (strcmp(mmu_type, "riscv,sv32") != 0)
->> -        return;
->> +    strncpy(sv_type, "sv32", 5);
->>  #elif defined(CONFIG_64BIT)
->> -    if (strcmp(mmu_type, "riscv,sv39") != 0 &&
->> -        strcmp(mmu_type, "riscv,sv48") != 0)
->> -        return;
->> +    if (pgtable_l4_enabled)
->> +        strncpy(sv_type, "sv48", 5);
->> +    else
->> +        strncpy(sv_type, "sv39", 5);
->>  #endif
+>> -  mmu-type:
+>> -    allOf:
+>> -      - $ref: "/schemas/types.yaml#/definitions/string"
+>> -      - enum:
+>> -          - riscv,sv32
+>> -          - riscv,sv39
+>> -          - riscv,sv48
+>> -    description:
+>> -      Identifies the MMU address translation mode used on this
+>> -      hart.  These values originate from the RISC-V Privileged
+>> -      Specification document, available from
+>> -      https://riscv.org/specifications/
 >> -
->> -    seq_printf(f, "mmu\t\t: %s\n", mmu_type+6);
->> +    seq_printf(f, "mmu\t\t: %s\n", sv_type);
->>  }
->>
->>  static void *c_start(struct seq_file *m, loff_t *pos)
->> @@ -90,14 +93,13 @@ static int c_show(struct seq_file *m, void *v)
->>  {
->>      unsigned long cpu_id = (unsigned long)v - 1;
->>      struct device_node *node = of_get_cpu_node(cpu_id, NULL);
->> -    const char *compat, *isa, *mmu;
->> +    const char *compat, *isa;
->>
->>      seq_printf(m, "processor\t: %lu\n", cpu_id);
->>      seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hartid_map(cpu_id));
->>      if (!of_property_read_string(node, "riscv,isa", &isa))
->>          print_isa(m, isa);
->> -    if (!of_property_read_string(node, "mmu-type", &mmu))
->> -        print_mmu(m, mmu);
->> +    print_mmu(m);
->>      if (!of_property_read_string(node, "compatible", &compat)
->>          && strcmp(compat, "riscv"))
->>          seq_printf(m, "uarch\t\t: %s\n", compat);
+>>    riscv,isa:
+>>      allOf:
+>>        - $ref: "/schemas/types.yaml#/definitions/string"
 > 
-> Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> I'd prefer if we continue to define this in the schema: while Linux 
+> won't use
+> it, it's still useful for other programs that want to statically 
+> determine the
+> available VA widths.
+
+Sure, I'll remove that in next version.
 
 Thanks,
 
