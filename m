@@ -2,68 +2,64 @@ Return-Path: <SRS0=IoIa=5Y=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.4 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+X-Spam-Status: No, score=-8.4 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F512C2D0F4
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2020 03:52:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E80F9C2BA16
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2020 04:39:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 07AAE2078C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2020 03:52:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B596520747
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2020 04:39:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GPm5o8tk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 07AAE2078C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mrHxeyK1"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B596520747
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=uu9w96uZytnHsrs7f5e7tXVrqaYyD9wlQfx6TNmWLWg=; b=GPm5o8tkWRCiYFqxdLmX2Snr+
-	5QmjBTN80bIF1Ncwt9kCr1TOfxXgxW6hxPdPmcO1Q3ZDxU1dNNjmvd6u7EGXuB9sTw4VitAEc09DA
-	NHgqdELNjS9u6yIEBowVgWOnrZ3cgsEKvYrnEwKb71TqtpyHZ6dlFjvUJYZFcq4wIGjSqYEgOxYLJ
-	aBoszlwxc4xEsU3oAQmCppOeTMznVEAP7iY8w4Ob5Xy7r2A5DaqwBKdNKkFXJOkcZCEu2PI5yB4nU
-	kYRauQfTyoc+z7z7SkDj3jqfWTIFAGFklJJVq8l3SjFc3u/LfKoHRj5ZYV5Zn3uTasTAmfkESckfZ
-	7/CJH1CSA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=V0EsmAxKHFni/6xX8GD1DuGxVxUq7D7glbJjgj0XUr4=; b=mrHxeyK1rOIHCM
+	++yTDsx0bEegyPuAzmoCVcVustnBsWQkqdg0f4LZarXnLvphqlbB74Ig4e/TOLnSE8Fp5weZTJTUP
+	TZxHIS1VsHvm9O2OUencNBkazPcCW6vfmKQKl5GFwEDU7woftz4TuzsaFIZ1h34mShXax5LmAM2p9
+	lQKSJPYbLCmi+boEclkwMxGnHJ4DseUgIpzCiUHQzcGZgh3NAGIgnepS8s8en4RvMqn/d3cfx75IQ
+	mhEEhe7vlEs0O+VAu/OTXYv4Fqw7AW/b9xOKb6FwJxERsLzRod7iueWzaOgCPZNIvT4N0+BIce6Kv
+	sP860BHPj2MWK+A+JiBw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jM1lX-0003O0-2z; Wed, 08 Apr 2020 03:52:39 +0000
-Received: from 59-120-53-16.hinet-ip.hinet.net ([59.120.53.16]
- helo=ATCSQR.andestech.com)
+	id 1jM2Ux-0004yC-PA; Wed, 08 Apr 2020 04:39:35 +0000
+Received: from relay10.mail.gandi.net ([217.70.178.230])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jM1lT-0003NU-Vo
- for linux-riscv@lists.infradead.org; Wed, 08 Apr 2020 03:52:37 +0000
-Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
- by ATCSQR.andestech.com with ESMTP id 0383nq2K088232;
- Wed, 8 Apr 2020 11:49:52 +0800 (GMT-8)
- (envelope-from alankao@andestech.com)
-Received: from andestech.com (10.0.15.65) by ATCPCS16.andestech.com
- (10.0.1.222) with Microsoft SMTP Server id 14.3.123.3; Wed, 8 Apr 2020
- 11:51:17 +0800
-Date: Wed, 8 Apr 2020 11:51:18 +0800
-From: Alan Kao <alankao@andestech.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH 0/3] Highmem support for 32-bit RISC-V
-Message-ID: <20200408035118.GA1451@andestech.com>
-References: <20200331093241.3728-1-tesheng@andestech.com>
- <CAK8P3a3LokurC0n9XiwtPQh9ZgQcswMKY4b+TEsQh1VgYDNeWA@mail.gmail.com>
+ id 1jM2Ut-0004xi-61
+ for linux-riscv@lists.infradead.org; Wed, 08 Apr 2020 04:39:34 +0000
+Received: from [192.168.1.11] (lfbn-lyo-1-453-25.w2-7.abo.wanadoo.fr
+ [2.7.45.25]) (Authenticated sender: alex@ghiti.fr)
+ by relay10.mail.gandi.net (Postfix) with ESMTPSA id 353E2240003;
+ Wed,  8 Apr 2020 04:39:25 +0000 (UTC)
+Subject: Re: [RFC PATCH 4/7] riscv: Implement sv48 support
+To: Anup Patel <anup@brainfault.org>
+References: <mhng-938dc4d2-df13-48cf-a53e-4db7f23d52a5@palmerdabbelt-glaptop1>
+ <04fed5f4-799b-94f4-731b-81475f8a73ba@ghiti.fr>
+ <CAAhSdy0cxa0dUE2CV-t6G=fYO-UMJCJ9g-Y=KTZep1p+bPt6_A@mail.gmail.com>
+From: Alex Ghiti <alex@ghiti.fr>
+Message-ID: <d014cd26-fe6c-3534-bfaf-e07bc91ae25e@ghiti.fr>
+Date: Wed, 8 Apr 2020 00:39:24 -0400
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.3.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <CAK8P3a3LokurC0n9XiwtPQh9ZgQcswMKY4b+TEsQh1VgYDNeWA@mail.gmail.com>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-Originating-IP: [10.0.15.65]
-X-DNSRBL: 
-X-MAIL: ATCSQR.andestech.com 0383nq2K088232
+In-Reply-To: <CAAhSdy0cxa0dUE2CV-t6G=fYO-UMJCJ9g-Y=KTZep1p+bPt6_A@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200407_205236_282442_716A71E2 
-X-CRM114-Status: GOOD (  18.76  )
+X-CRM114-CacheID: sfid-20200407_213931_503160_7CA41A73 
+X-CRM114-Status: GOOD (  28.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,98 +71,770 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Eric Lin <tesheng@andestech.com>, Gary Guo <gary@garyguo.net>,
- alex@ghiti.fr, David Abdurachmanov <david.abdurachmanov@gmail.com>,
- Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Steven Price <steven.price@arm.com>,
- atish.patra@wdc.com, yash.shah@sifive.com, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Greentime Hu <green.hu@gmail.com>,
- zong.li@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
- Mike Rapoport <rppt@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Borislav Petkov <bp@suse.de>, Logan Gunthorpe <logang@deltatee.com>,
- linux-riscv@lists.infradead.org
+Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Christoph Hellwig <hch@lst.de>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 02, 2020 at 11:31:37AM +0200, Arnd Bergmann wrote:
-> On Tue, Mar 31, 2020 at 11:34 AM Eric Lin <tesheng@andestech.com> wrote:
-> >
-> > With Highmem support, the kernel can map more than 1GB physical memory.
-> >
-> > This patchset implements Highmem for RV32, referencing to mostly nds32
-> > and others like arm and mips, and it has been tested on Andes A25MP platform.
+Hi Anup,
+
+On 4/7/20 1:56 AM, Anup Patel wrote:
+> On Tue, Apr 7, 2020 at 10:44 AM Alex Ghiti <alex@ghiti.fr> wrote:
+>>
+>>
+>> On 4/3/20 11:53 AM, Palmer Dabbelt wrote:
+>>> On Sun, 22 Mar 2020 04:00:25 PDT (-0700), alex@ghiti.fr wrote:
+>>>> By adding a new 4th level of page table, give the possibility to 64bit
+>>>> kernel to address 2^48 bytes of virtual address: in practice, that
+>>>> roughly
+>>>> offers ~160TB of virtual address space to userspace and allows up to 64TB
+>>>> of physical memory.
+>>>>
+>>>> By default, the kernel will try to boot with a 4-level page table. If the
+>>>> underlying hardware does not support it, we will automatically
+>>>> fallback to
+>>>> a standard 3-level page table by folding the new PUD level into PGDIR
+>>>> level.
+>>>>
+>>>> Early page table preparation is too early in the boot process to use any
+>>>> device-tree entry, then in order to detect HW capabilities at runtime, we
+>>>> use SATP feature that ignores writes with an unsupported mode. The
+>>>> current
+>>>> mode used by the kernel is then made available through cpuinfo.
+>>>
+>>> Ya, I think that's the right way to go about this.  There's no reason to
+>>> rely on duplicate DT mechanisms for things the ISA defines for us.
+>>>
+>>>>
+>>>> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+>>>> ---
+>>>>   arch/riscv/Kconfig                  |   6 +-
+>>>>   arch/riscv/include/asm/csr.h        |   3 +-
+>>>>   arch/riscv/include/asm/fixmap.h     |   1 +
+>>>>   arch/riscv/include/asm/page.h       |  15 +++-
+>>>>   arch/riscv/include/asm/pgalloc.h    |  36 ++++++++
+>>>>   arch/riscv/include/asm/pgtable-64.h |  98 ++++++++++++++++++++-
+>>>>   arch/riscv/include/asm/pgtable.h    |   5 +-
+>>>>   arch/riscv/kernel/head.S            |  37 ++++++--
+>>>>   arch/riscv/mm/context.c             |   4 +-
+>>>>   arch/riscv/mm/init.c                | 128 +++++++++++++++++++++++++---
+>>>>   10 files changed, 302 insertions(+), 31 deletions(-)
+>>>>
+>>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>>>> index a475c78e66bc..79560e94cc7c 100644
+>>>> --- a/arch/riscv/Kconfig
+>>>> +++ b/arch/riscv/Kconfig
+>>>> @@ -66,6 +66,7 @@ config RISCV
+>>>>       select ARCH_HAS_GCOV_PROFILE_ALL
+>>>>       select HAVE_COPY_THREAD_TLS
+>>>>       select HAVE_ARCH_KASAN if MMU && 64BIT
+>>>> +    select RELOCATABLE if 64BIT
+>>>>
+>>>>   config ARCH_MMAP_RND_BITS_MIN
+>>>>       default 18 if 64BIT
+>>>> @@ -104,7 +105,7 @@ config PAGE_OFFSET
+>>>>       default 0xC0000000 if 32BIT && MAXPHYSMEM_2GB
+>>>>       default 0x80000000 if 64BIT && !MMU
+>>>>       default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
+>>>> -    default 0xffffffe000000000 if 64BIT && !MAXPHYSMEM_2GB
+>>>> +    default 0xffffc00000000000 if 64BIT && !MAXPHYSMEM_2GB
+>>>>
+>>>>   config ARCH_FLATMEM_ENABLE
+>>>>       def_bool y
+>>>> @@ -148,8 +149,11 @@ config GENERIC_HWEIGHT
+>>>>   config FIX_EARLYCON_MEM
+>>>>       def_bool MMU
+>>>>
+>>>> +# On a 64BIT relocatable kernel, the 4-level page table is at runtime
+>>>> folded
+>>>> +# on a 3-level page table when sv48 is not supported.
+>>>>   config PGTABLE_LEVELS
+>>>>       int
+>>>> +    default 4 if 64BIT && RELOCATABLE
+>>>>       default 3 if 64BIT
+>>>>       default 2
+>>>
+>>> I assume this means you're relying on relocation to move the kernel around
+>>> independently of PAGE_OFFSET in order to fold in the missing page table
+>>> level?
+>>
+>> Yes, relocation is needed to fallback to 3-level and move PAGE_OFFSET
+>> accordingly.
+>>
+>>> That seems reasonable, but it does impose a performance penalty as
+>>> relocatable
+>>> kernels necessitate slower generated code.  Additionally, there will
+>>> likely be
+>>> a performance penalty due to the extra memory access on TLB misses that is
+>>> unnecessary for workloads that don't necessitate the longer VA width on
+>>> machines that support it.
+>>
+>> Sorry, I had no time to answer your previous mail regarding performance:
+>> I have no number. But the only penalty caused by this patchset on
+>> 3-level page table is the check in page table management functions to
+>> know if 4-level is activated or not. And as you said, the extra cost of
+>> relocatable kernel that I had ignored since necessary anyway.
 > 
-> I would much prefer to not see highmem added to new architectures at all
-> if possible, see https://lwn.net/Articles/813201/ for some background.
+> I guess we don't need relocation if we can avoid page table folding by
+> detecting Sv48 mode very early in setup_vm(). Is there any other place
+> where relocation would be required ?
+
+Folding the 4th level is only a part of the problem, we also have to 
+dynamically change the virtual address of the kernel: how can we achieve 
+that without relocations ?
+
+KASLR also uses relocations, see Zong's recent patchset.
+
+Thanks,
+
+Alex
+
 > 
-
-Understood.
-
-> For the arm32 architecture, we are thinking about implementing a
-> VMPLIT_4G_4G option to replace highmem in the long run. The most
-> likely way this would turn out at the moment looks like:
+> If we can totally avoid relocation then it will certainly help in performance.
 > 
-
-Thanks for sharing the status from ARM32.  Is there any available branch
-already?  It would be good to have a reference implementation.
-
-> - have a 256MB region for vmalloc space at the top of the 4GB address
->   space, containing vmlinux, module, mmio mappings and vmalloc
->   allocations
+> Regards,
+> Anup
 > 
-> - have 3.75GB starting at address zero for either user space or the
->   linear map.
-> 
-> - reserve one address space ID for kernel mappings to avoid tlb flushes
->   during normal context switches
-> 
-> - On any kernel entry, switch the page table to the one with the linear
->   mapping, and back to the user page table before returning to user space
->
-
-After some survey I found previous disccusion
-(https://lkml.org/lkml/2019/4/24/2110). The 5.2-based patch ended up not
-being merged.  But at least we will have something to start if we want to.
-
-Also interestingly, there was a PR for privileged spec that separates
-addressing modes (https://github.com/riscv/riscv-isa-manual/pull/128) as
-Sdas extension, but there was no progress afterwards.
-
-Not very related to this thread, but there were some discussion about
-ASID design in RISC-V (https://github.com/riscv/riscv-isa-manual/issues/348).
-It is now in ratified 1.11 privileged spec.
-
-> - add a generic copy_from_user/copy_to_user implementation based
->   on get_user_pages() in asm-generic/uaccess.h, using memcpy()
->   to copy from/to the page in the linear map.
-> 
-> - possible have architectures override get_user/put_user to use a
->   cheaper access based on a page table switch to read individual
->   words if that is cheaper than get_user_pages().
-> 
-> There was an implementation of this for x86 a long time ago, but
-> it never got merged, mainly because there were no ASIDs on x86
-> at the time and the TLB flushing during context switch were really
-> expensive. As far as I can tell, all of the modern embedded cores
-> do have ASIDs, and unlike x86, most do not support more than 4GB
-> of physical RAM, so this scheme can work to replace highmem
-> in most of the remaining cases, and provide additional benefits
-> (larger user address range, higher separate of kernel/user addresses)
-> at a relatively small performance cost.
-> 
->        Arnd
-> 
-
-It seems to me that VMSPLIT_4G_4G is quite different from other VMSPLITs,
-because it requires much more changes.
-
-Thanks for showing the stance of kernel community against HIGHMEM support.
-The cited discussion thread is comprehensive and clear.  Despite that RV32
-users cannot get upstream support for their large memory, mechnisms like
-VMSPLIT_4G_4G seems to be a promising way to go.  That being said, to
-support the theoretical 16G physical memory, eventually kmap* will still
-be needed.
-
-Alan
+>>
+>>>
+>>> I think the best bet here would be to have a Kconfig option for the
+>>> number of
+>>> page table levels (which could be MAXPHYSMEM or a second partially free
+>>> parameter) and then another boolean argument along the lines of "also
+>>> support
+>>> machines with smaller VA widths".  It seems best to turn on the largest VA
+>>> width and support for folding by default, as I assume that's what
+>>> distros would
+>>> do.
+>>
+>> I'm not a big fan of a new Kconfig option to allow people to have a
+>> 3-level page table because that implies maintaining a new kernel, even
+>> for us, having to compile 2 kernels each time we change something to mm
+>> code will be painful.
+>>
+>> I have just reviewed Zong's KASLR patchset: he needs to parse the dtb to
+>> find out the reserved regions in order to not override one of them when
+>> copying the kernel to its new destination. And after that, he loops back
+>> to setup_vm to re-create the mapping to the new kernel.
+>> If that's the way we take for KASLR, we can follow the same path here:
+>> boot with 4-level by default, go to check what is wanted in the device
+>> tree and if it is 3-level, loop back to setup_vm.
+>>
+>>>
+>>> I didn't really look closely at the rest of this, but it generally
+>>> smells OK.
+>>> The diff will need to be somewhat different for the next version, anyway :)
+>>>
+>>> Thanks for doing this!
+>>>
+>>>> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+>>>> index 435b65532e29..3828d55af85e 100644
+>>>> --- a/arch/riscv/include/asm/csr.h
+>>>> +++ b/arch/riscv/include/asm/csr.h
+>>>> @@ -40,11 +40,10 @@
+>>>>   #ifndef CONFIG_64BIT
+>>>>   #define SATP_PPN    _AC(0x003FFFFF, UL)
+>>>>   #define SATP_MODE_32    _AC(0x80000000, UL)
+>>>> -#define SATP_MODE    SATP_MODE_32
+>>>>   #else
+>>>>   #define SATP_PPN    _AC(0x00000FFFFFFFFFFF, UL)
+>>>>   #define SATP_MODE_39    _AC(0x8000000000000000, UL)
+>>>> -#define SATP_MODE    SATP_MODE_39
+>>>> +#define SATP_MODE_48    _AC(0x9000000000000000, UL)
+>>>>   #endif
+>>>>
+>>>>   /* Exception cause high bit - is an interrupt if set */
+>>>> diff --git a/arch/riscv/include/asm/fixmap.h
+>>>> b/arch/riscv/include/asm/fixmap.h
+>>>> index 42d2c42f3cc9..26e7799c5675 100644
+>>>> --- a/arch/riscv/include/asm/fixmap.h
+>>>> +++ b/arch/riscv/include/asm/fixmap.h
+>>>> @@ -27,6 +27,7 @@ enum fixed_addresses {
+>>>>       FIX_FDT = FIX_FDT_END + FIX_FDT_SIZE / PAGE_SIZE - 1,
+>>>>       FIX_PTE,
+>>>>       FIX_PMD,
+>>>> +    FIX_PUD,
+>>>>       FIX_EARLYCON_MEM_BASE,
+>>>>       __end_of_fixed_addresses
+>>>>   };
+>>>> diff --git a/arch/riscv/include/asm/page.h
+>>>> b/arch/riscv/include/asm/page.h
+>>>> index 691f2f9ded2f..f1a26a0690ef 100644
+>>>> --- a/arch/riscv/include/asm/page.h
+>>>> +++ b/arch/riscv/include/asm/page.h
+>>>> @@ -32,11 +32,19 @@
+>>>>    * physical memory (aligned on a page boundary).
+>>>>    */
+>>>>   #ifdef CONFIG_RELOCATABLE
+>>>> -extern unsigned long kernel_virt_addr;
+>>>>   #define PAGE_OFFSET        kernel_virt_addr
+>>>> +
+>>>> +#ifdef CONFIG_64BIT
+>>>> +/*
+>>>> + * By default, CONFIG_PAGE_OFFSET value corresponds to SV48 address
+>>>> space so
+>>>> + * define the PAGE_OFFSET value for SV39.
+>>>> + */
+>>>> +#define PAGE_OFFSET_L3        0xffffffe000000000
+>>>> +#define PAGE_OFFSET_L4        _AC(CONFIG_PAGE_OFFSET, UL)
+>>>> +#endif /* CONFIG_64BIT */
+>>>>   #else
+>>>>   #define PAGE_OFFSET        _AC(CONFIG_PAGE_OFFSET, UL)
+>>>> -#endif
+>>>> +#endif /* CONFIG_RELOCATABLE */
+>>>>
+>>>>   #define KERN_VIRT_SIZE        -PAGE_OFFSET
+>>>>
+>>>> @@ -104,6 +112,9 @@ extern unsigned long pfn_base;
+>>>>
+>>>>   extern unsigned long max_low_pfn;
+>>>>   extern unsigned long min_low_pfn;
+>>>> +#ifdef CONFIG_RELOCATABLE
+>>>> +extern unsigned long kernel_virt_addr;
+>>>> +#endif
+>>>>
+>>>>   #define __pa_to_va_nodebug(x)    ((void *)((unsigned long) (x) +
+>>>> va_pa_offset))
+>>>>   #define __va_to_pa_nodebug(x)    ((unsigned long)(x) - va_pa_offset)
+>>>> diff --git a/arch/riscv/include/asm/pgalloc.h
+>>>> b/arch/riscv/include/asm/pgalloc.h
+>>>> index 3f601ee8233f..540eaa5a8658 100644
+>>>> --- a/arch/riscv/include/asm/pgalloc.h
+>>>> +++ b/arch/riscv/include/asm/pgalloc.h
+>>>> @@ -36,6 +36,42 @@ static inline void pud_populate(struct mm_struct
+>>>> *mm, pud_t *pud, pmd_t *pmd)
+>>>>
+>>>>       set_pud(pud, __pud((pfn << _PAGE_PFN_SHIFT) | _PAGE_TABLE));
+>>>>   }
+>>>> +
+>>>> +static inline void p4d_populate(struct mm_struct *mm, p4d_t *p4d,
+>>>> pud_t *pud)
+>>>> +{
+>>>> +    if (pgtable_l4_enabled) {
+>>>> +        unsigned long pfn = virt_to_pfn(pud);
+>>>> +
+>>>> +        set_p4d(p4d, __p4d((pfn << _PAGE_PFN_SHIFT) | _PAGE_TABLE));
+>>>> +    }
+>>>> +}
+>>>> +
+>>>> +static inline void p4d_populate_safe(struct mm_struct *mm, p4d_t *p4d,
+>>>> +                     pud_t *pud)
+>>>> +{
+>>>> +    if (pgtable_l4_enabled) {
+>>>> +        unsigned long pfn = virt_to_pfn(pud);
+>>>> +
+>>>> +        set_p4d_safe(p4d,
+>>>> +                 __p4d((pfn << _PAGE_PFN_SHIFT) | _PAGE_TABLE));
+>>>> +    }
+>>>> +}
+>>>> +
+>>>> +static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned
+>>>> long addr)
+>>>> +{
+>>>> +    if (pgtable_l4_enabled)
+>>>> +        return (pud_t *)__get_free_page(
+>>>> +                GFP_KERNEL | __GFP_RETRY_MAYFAIL | __GFP_ZERO);
+>>>> +    return NULL;
+>>>> +}
+>>>> +
+>>>> +static inline void pud_free(struct mm_struct *mm, pud_t *pud)
+>>>> +{
+>>>> +    if (pgtable_l4_enabled)
+>>>> +        free_page((unsigned long)pud);
+>>>> +}
+>>>> +
+>>>> +#define __pud_free_tlb(tlb, pud, addr)  pud_free((tlb)->mm, pud)
+>>>>   #endif /* __PAGETABLE_PMD_FOLDED */
+>>>>
+>>>>   #define pmd_pgtable(pmd)    pmd_page(pmd)
+>>>> diff --git a/arch/riscv/include/asm/pgtable-64.h
+>>>> b/arch/riscv/include/asm/pgtable-64.h
+>>>> index b15f70a1fdfa..cc4ffbe778f3 100644
+>>>> --- a/arch/riscv/include/asm/pgtable-64.h
+>>>> +++ b/arch/riscv/include/asm/pgtable-64.h
+>>>> @@ -8,16 +8,32 @@
+>>>>
+>>>>   #include <linux/const.h>
+>>>>
+>>>> -#define PGDIR_SHIFT     30
+>>>> +extern bool pgtable_l4_enabled;
+>>>> +
+>>>> +#define PGDIR_SHIFT     (pgtable_l4_enabled ? 39 : 30)
+>>>>   /* Size of region mapped by a page global directory */
+>>>>   #define PGDIR_SIZE      (_AC(1, UL) << PGDIR_SHIFT)
+>>>>   #define PGDIR_MASK      (~(PGDIR_SIZE - 1))
+>>>>
+>>>> +/* pud is folded into pgd in case of 3-level page table */
+>>>> +#define PUD_SHIFT    30
+>>>> +#define PUD_SIZE    (_AC(1, UL) << PUD_SHIFT)
+>>>> +#define PUD_MASK    (~(PUD_SIZE - 1))
+>>>> +
+>>>>   #define PMD_SHIFT       21
+>>>>   /* Size of region mapped by a page middle directory */
+>>>>   #define PMD_SIZE        (_AC(1, UL) << PMD_SHIFT)
+>>>>   #define PMD_MASK        (~(PMD_SIZE - 1))
+>>>>
+>>>> +/* Page Upper Directory entry */
+>>>> +typedef struct {
+>>>> +    unsigned long pud;
+>>>> +} pud_t;
+>>>> +
+>>>> +#define pud_val(x)      ((x).pud)
+>>>> +#define __pud(x)        ((pud_t) { (x) })
+>>>> +#define PTRS_PER_PUD    (PAGE_SIZE / sizeof(pud_t))
+>>>> +
+>>>>   /* Page Middle Directory entry */
+>>>>   typedef struct {
+>>>>       unsigned long pmd;
+>>>> @@ -25,7 +41,6 @@ typedef struct {
+>>>>
+>>>>   #define pmd_val(x)      ((x).pmd)
+>>>>   #define __pmd(x)        ((pmd_t) { (x) })
+>>>> -
+>>>>   #define PTRS_PER_PMD    (PAGE_SIZE / sizeof(pmd_t))
+>>>>
+>>>>   static inline int pud_present(pud_t pud)
+>>>> @@ -60,6 +75,16 @@ static inline void pud_clear(pud_t *pudp)
+>>>>       set_pud(pudp, __pud(0));
+>>>>   }
+>>>>
+>>>> +static inline pud_t pfn_pud(unsigned long pfn, pgprot_t prot)
+>>>> +{
+>>>> +    return __pud((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
+>>>> +}
+>>>> +
+>>>> +static inline unsigned long _pud_pfn(pud_t pud)
+>>>> +{
+>>>> +    return pud_val(pud) >> _PAGE_PFN_SHIFT;
+>>>> +}
+>>>> +
+>>>>   static inline unsigned long pud_page_vaddr(pud_t pud)
+>>>>   {
+>>>>       return (unsigned long)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
+>>>> @@ -70,6 +95,15 @@ static inline struct page *pud_page(pud_t pud)
+>>>>       return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
+>>>>   }
+>>>>
+>>>> +#define mm_pud_folded    mm_pud_folded
+>>>> +static inline bool mm_pud_folded(struct mm_struct *mm)
+>>>> +{
+>>>> +    if (pgtable_l4_enabled)
+>>>> +        return false;
+>>>> +
+>>>> +    return true;
+>>>> +}
+>>>> +
+>>>>   #define pmd_index(addr) (((addr) >> PMD_SHIFT) & (PTRS_PER_PMD - 1))
+>>>>
+>>>>   static inline pmd_t *pmd_offset(pud_t *pud, unsigned long addr)
+>>>> @@ -90,4 +124,64 @@ static inline unsigned long _pmd_pfn(pmd_t pmd)
+>>>>   #define pmd_ERROR(e) \
+>>>>       pr_err("%s:%d: bad pmd %016lx.\n", __FILE__, __LINE__, pmd_val(e))
+>>>>
+>>>> +#define pud_ERROR(e)    \
+>>>> +    pr_err("%s:%d: bad pud %016lx.\n", __FILE__, __LINE__, pud_val(e))
+>>>> +
+>>>> +static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
+>>>> +{
+>>>> +    if (pgtable_l4_enabled)
+>>>> +        *p4dp = p4d;
+>>>> +    else
+>>>> +        set_pud((pud_t *)p4dp, (pud_t){ p4d_val(p4d) });
+>>>> +}
+>>>> +
+>>>> +static inline int p4d_none(p4d_t p4d)
+>>>> +{
+>>>> +    if (pgtable_l4_enabled)
+>>>> +        return (p4d_val(p4d) == 0);
+>>>> +
+>>>> +    return 0;
+>>>> +}
+>>>> +
+>>>> +static inline int p4d_present(p4d_t p4d)
+>>>> +{
+>>>> +    if (pgtable_l4_enabled)
+>>>> +        return (p4d_val(p4d) & _PAGE_PRESENT);
+>>>> +
+>>>> +    return 1;
+>>>> +}
+>>>> +
+>>>> +static inline int p4d_bad(p4d_t p4d)
+>>>> +{
+>>>> +    if (pgtable_l4_enabled)
+>>>> +        return !p4d_present(p4d);
+>>>> +
+>>>> +    return 0;
+>>>> +}
+>>>> +
+>>>> +static inline void p4d_clear(p4d_t *p4d)
+>>>> +{
+>>>> +    if (pgtable_l4_enabled)
+>>>> +        set_p4d(p4d, __p4d(0));
+>>>> +}
+>>>> +
+>>>> +static inline unsigned long p4d_page_vaddr(p4d_t p4d)
+>>>> +{
+>>>> +    if (pgtable_l4_enabled)
+>>>> +        return (unsigned long)pfn_to_virt(
+>>>> +                p4d_val(p4d) >> _PAGE_PFN_SHIFT);
+>>>> +
+>>>> +    return pud_page_vaddr((pud_t) { p4d_val(p4d) });
+>>>> +}
+>>>> +
+>>>> +#define pud_index(addr) (((addr) >> PUD_SHIFT) & (PTRS_PER_PUD - 1))
+>>>> +
+>>>> +static inline pud_t *pud_offset(p4d_t *p4d, unsigned long address)
+>>>> +{
+>>>> +    if (pgtable_l4_enabled)
+>>>> +        return (pud_t *)p4d_page_vaddr(*p4d) + pud_index(address);
+>>>> +
+>>>> +    return (pud_t *)p4d;
+>>>> +}
+>>>> +
+>>>>   #endif /* _ASM_RISCV_PGTABLE_64_H */
+>>>> diff --git a/arch/riscv/include/asm/pgtable.h
+>>>> b/arch/riscv/include/asm/pgtable.h
+>>>> index dce401eed1d3..06361db3f486 100644
+>>>> --- a/arch/riscv/include/asm/pgtable.h
+>>>> +++ b/arch/riscv/include/asm/pgtable.h
+>>>> @@ -13,8 +13,7 @@
+>>>>
+>>>>   #ifndef __ASSEMBLY__
+>>>>
+>>>> -/* Page Upper Directory not used in RISC-V */
+>>>> -#include <asm-generic/pgtable-nopud.h>
+>>>> +#include <asm-generic/pgtable-nop4d.h>
+>>>>   #include <asm/page.h>
+>>>>   #include <asm/tlbflush.h>
+>>>>   #include <linux/mm_types.h>
+>>>> @@ -27,7 +26,7 @@
+>>>>
+>>>>   #ifdef CONFIG_MMU
+>>>>   #ifdef CONFIG_64BIT
+>>>> -#define VA_BITS        39
+>>>> +#define VA_BITS        (pgtable_l4_enabled ? 48 : 39)
+>>>>   #define PA_BITS        56
+>>>>   #else
+>>>>   #define VA_BITS        32
+>>>> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+>>>> index 1c2fbefb8786..22617bd7477f 100644
+>>>> --- a/arch/riscv/kernel/head.S
+>>>> +++ b/arch/riscv/kernel/head.S
+>>>> @@ -113,6 +113,8 @@ clear_bss_done:
+>>>>       call setup_vm
+>>>>   #ifdef CONFIG_MMU
+>>>>       la a0, early_pg_dir
+>>>> +    la a1, satp_mode
+>>>> +    REG_L a1, (a1)
+>>>>       call relocate
+>>>>   #endif /* CONFIG_MMU */
+>>>>
+>>>> @@ -131,24 +133,28 @@ clear_bss_done:
+>>>>   #ifdef CONFIG_MMU
+>>>>   relocate:
+>>>>   #ifdef CONFIG_RELOCATABLE
+>>>> -    /* Relocate return address */
+>>>> -    la a1, kernel_virt_addr
+>>>> -    REG_L a1, 0(a1)
+>>>> +    /*
+>>>> +     * Relocate return address but save it in case 4-level page table is
+>>>> +     * not supported.
+>>>> +     */
+>>>> +    mv s1, ra
+>>>> +    la a3, kernel_virt_addr
+>>>> +    REG_L a3, 0(a3)
+>>>>   #else
+>>>> -    li a1, PAGE_OFFSET
+>>>> +    li a3, PAGE_OFFSET
+>>>>   #endif
+>>>>       la a2, _start
+>>>> -    sub a1, a1, a2
+>>>> -    add ra, ra, a1
+>>>> +    sub a3, a3, a2
+>>>> +    add ra, ra, a3
+>>>>
+>>>>       /* Point stvec to virtual address of intruction after satp write */
+>>>>       la a2, 1f
+>>>> -    add a2, a2, a1
+>>>> +    add a2, a2, a3
+>>>>       csrw CSR_TVEC, a2
+>>>>
+>>>> +    /* First try with a 4-level page table */
+>>>>       /* Compute satp for kernel page tables, but don't load it yet */
+>>>>       srl a2, a0, PAGE_SHIFT
+>>>> -    li a1, SATP_MODE
+>>>>       or a2, a2, a1
+>>>>
+>>>>       /*
+>>>> @@ -162,6 +168,19 @@ relocate:
+>>>>       or a0, a0, a1
+>>>>       sfence.vma
+>>>>       csrw CSR_SATP, a0
+>>>> +#if defined(CONFIG_RELOCATABLE) && defined(CONFIG_64BIT)
+>>>> +    /*
+>>>> +     * If we fall through here, that means the HW does not support SV48.
+>>>> +     * We need a 3-level page table then simply fold pud into pgd level
+>>>> +     * and finally jump back to relocate with 3-level parameters.
+>>>> +     */
+>>>> +    call setup_vm_fold_pud
+>>>> +
+>>>> +    la a0, early_pg_dir
+>>>> +    li a1, SATP_MODE_39
+>>>> +    mv ra, s1
+>>>> +    tail relocate
+>>>> +#endif
+>>>>   .align 2
+>>>>   1:
+>>>>       /* Set trap vector to spin forever to help debug */
+>>>> @@ -213,6 +232,8 @@ relocate:
+>>>>   #ifdef CONFIG_MMU
+>>>>       /* Enable virtual memory and relocate to virtual address */
+>>>>       la a0, swapper_pg_dir
+>>>> +    la a1, satp_mode
+>>>> +    REG_L a1, (a1)
+>>>>       call relocate
+>>>>   #endif
+>>>>
+>>>> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+>>>> index 613ec81a8979..152b423c02ea 100644
+>>>> --- a/arch/riscv/mm/context.c
+>>>> +++ b/arch/riscv/mm/context.c
+>>>> @@ -9,6 +9,8 @@
+>>>>   #include <asm/cacheflush.h>
+>>>>   #include <asm/mmu_context.h>
+>>>>
+>>>> +extern uint64_t satp_mode;
+>>>> +
+>>>>   /*
+>>>>    * When necessary, performs a deferred icache flush for the given MM
+>>>> context,
+>>>>    * on the local CPU.  RISC-V has no direct mechanism for instruction
+>>>> cache
+>>>> @@ -59,7 +61,7 @@ void switch_mm(struct mm_struct *prev, struct
+>>>> mm_struct *next,
+>>>>       cpumask_set_cpu(cpu, mm_cpumask(next));
+>>>>
+>>>>   #ifdef CONFIG_MMU
+>>>> -    csr_write(CSR_SATP, virt_to_pfn(next->pgd) | SATP_MODE);
+>>>> +    csr_write(CSR_SATP, virt_to_pfn(next->pgd) | satp_mode);
+>>>>       local_flush_tlb_all();
+>>>>   #endif
+>>>>
+>>>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+>>>> index 18bbb426848e..ad96667d2ab6 100644
+>>>> --- a/arch/riscv/mm/init.c
+>>>> +++ b/arch/riscv/mm/init.c
+>>>> @@ -24,6 +24,17 @@
+>>>>
+>>>>   #include "../kernel/head.h"
+>>>>
+>>>> +#ifdef CONFIG_64BIT
+>>>> +uint64_t satp_mode = IS_ENABLED(CONFIG_MAXPHYSMEM_2GB) ?
+>>>> +                SATP_MODE_39 : SATP_MODE_48;
+>>>> +bool pgtable_l4_enabled = IS_ENABLED(CONFIG_MAXPHYSMEM_2GB) ? false :
+>>>> true;
+>>>> +#else
+>>>> +uint64_t satp_mode = SATP_MODE_32;
+>>>> +bool pgtable_l4_enabled = false;
+>>>> +#endif
+>>>> +EXPORT_SYMBOL(pgtable_l4_enabled);
+>>>> +EXPORT_SYMBOL(satp_mode);
+>>>> +
+>>>>   unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
+>>>>                               __page_aligned_bss;
+>>>>   EXPORT_SYMBOL(empty_zero_page);
+>>>> @@ -245,9 +256,12 @@ static void __init create_pte_mapping(pte_t *ptep,
+>>>>
+>>>>   #ifndef __PAGETABLE_PMD_FOLDED
+>>>>
+>>>> +pud_t trampoline_pud[PTRS_PER_PUD] __page_aligned_bss;
+>>>>   pmd_t trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
+>>>> +pud_t fixmap_pud[PTRS_PER_PUD] __page_aligned_bss;
+>>>>   pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
+>>>>   pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
+>>>> +pud_t early_pud[PTRS_PER_PUD] __initdata __aligned(PAGE_SIZE);
+>>>>
+>>>>   static pmd_t *__init get_pmd_virt(phys_addr_t pa)
+>>>>   {
+>>>> @@ -264,7 +278,8 @@ static phys_addr_t __init alloc_pmd(uintptr_t va)
+>>>>       if (mmu_enabled)
+>>>>           return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
+>>>>
+>>>> -    BUG_ON((va - PAGE_OFFSET) >> PGDIR_SHIFT);
+>>>> +    /* Only one PMD is available for early mapping */
+>>>> +    BUG_ON((va - PAGE_OFFSET) >> PUD_SHIFT);
+>>>>
+>>>>       return (uintptr_t)early_pmd;
+>>>>   }
+>>>> @@ -296,19 +311,70 @@ static void __init create_pmd_mapping(pmd_t *pmdp,
+>>>>       create_pte_mapping(ptep, va, pa, sz, prot);
+>>>>   }
+>>>>
+>>>> -#define pgd_next_t        pmd_t
+>>>> -#define alloc_pgd_next(__va)    alloc_pmd(__va)
+>>>> -#define get_pgd_next_virt(__pa)    get_pmd_virt(__pa)
+>>>> +static pud_t *__init get_pud_virt(phys_addr_t pa)
+>>>> +{
+>>>> +    if (mmu_enabled) {
+>>>> +        clear_fixmap(FIX_PUD);
+>>>> +        return (pud_t *)set_fixmap_offset(FIX_PUD, pa);
+>>>> +    } else {
+>>>> +        return (pud_t *)((uintptr_t)pa);
+>>>> +    }
+>>>> +}
+>>>> +
+>>>> +static phys_addr_t __init alloc_pud(uintptr_t va)
+>>>> +{
+>>>> +    if (mmu_enabled)
+>>>> +        return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
+>>>> +
+>>>> +    /* Only one PUD is available for early mapping */
+>>>> +    BUG_ON((va - PAGE_OFFSET) >> PGDIR_SHIFT);
+>>>> +
+>>>> +    return (uintptr_t)early_pud;
+>>>> +}
+>>>> +
+>>>> +static void __init create_pud_mapping(pud_t *pudp,
+>>>> +                      uintptr_t va, phys_addr_t pa,
+>>>> +                      phys_addr_t sz, pgprot_t prot)
+>>>> +{
+>>>> +    pmd_t *nextp;
+>>>> +    phys_addr_t next_phys;
+>>>> +    uintptr_t pud_index = pud_index(va);
+>>>> +
+>>>> +    if (sz == PUD_SIZE) {
+>>>> +        if (pud_val(pudp[pud_index]) == 0)
+>>>> +            pudp[pud_index] = pfn_pud(PFN_DOWN(pa), prot);
+>>>> +        return;
+>>>> +    }
+>>>> +
+>>>> +    if (pud_val(pudp[pud_index]) == 0) {
+>>>> +        next_phys = alloc_pmd(va);
+>>>> +        pudp[pud_index] = pfn_pud(PFN_DOWN(next_phys), PAGE_TABLE);
+>>>> +        nextp = get_pmd_virt(next_phys);
+>>>> +        memset(nextp, 0, PAGE_SIZE);
+>>>> +    } else {
+>>>> +        next_phys = PFN_PHYS(_pud_pfn(pudp[pud_index]));
+>>>> +        nextp = get_pmd_virt(next_phys);
+>>>> +    }
+>>>> +
+>>>> +    create_pmd_mapping(nextp, va, pa, sz, prot);
+>>>> +}
+>>>> +
+>>>> +#define pgd_next_t        pud_t
+>>>> +#define alloc_pgd_next(__va)    alloc_pud(__va)
+>>>> +#define get_pgd_next_virt(__pa)    get_pud_virt(__pa)
+>>>>   #define create_pgd_next_mapping(__nextp, __va, __pa, __sz, __prot)    \
+>>>> -    create_pmd_mapping(__nextp, __va, __pa, __sz, __prot)
+>>>> -#define fixmap_pgd_next        fixmap_pmd
+>>>> +    create_pud_mapping(__nextp, __va, __pa, __sz, __prot)
+>>>> +#define fixmap_pgd_next        (pgtable_l4_enabled ?            \
+>>>> +            (uintptr_t)fixmap_pud : (uintptr_t)fixmap_pmd)
+>>>> +#define trampoline_pgd_next    (pgtable_l4_enabled ?            \
+>>>> +            (uintptr_t)trampoline_pud : (uintptr_t)trampoline_pmd)
+>>>>   #else
+>>>>   #define pgd_next_t        pte_t
+>>>>   #define alloc_pgd_next(__va)    alloc_pte(__va)
+>>>>   #define get_pgd_next_virt(__pa)    get_pte_virt(__pa)
+>>>>   #define create_pgd_next_mapping(__nextp, __va, __pa, __sz, __prot)    \
+>>>>       create_pte_mapping(__nextp, __va, __pa, __sz, __prot)
+>>>> -#define fixmap_pgd_next        fixmap_pte
+>>>> +#define fixmap_pgd_next        ((uintptr_t)fixmap_pte)
+>>>>   #endif
+>>>>
+>>>>   static void __init create_pgd_mapping(pgd_t *pgdp,
+>>>> @@ -319,6 +385,13 @@ static void __init create_pgd_mapping(pgd_t *pgdp,
+>>>>       phys_addr_t next_phys;
+>>>>       uintptr_t pgd_index = pgd_index(va);
+>>>>
+>>>> +#ifndef __PAGETABLE_PMD_FOLDED
+>>>> +    if (!pgtable_l4_enabled) {
+>>>> +        create_pud_mapping((pud_t *)pgdp, va, pa, sz, prot);
+>>>> +        return;
+>>>> +    }
+>>>> +#endif
+>>>> +
+>>>>       if (sz == PGDIR_SIZE) {
+>>>>           if (pgd_val(pgdp[pgd_index]) == 0)
+>>>>               pgdp[pgd_index] = pfn_pgd(PFN_DOWN(pa), prot);
+>>>> @@ -449,15 +522,22 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>>>>
+>>>>       /* Setup early PGD for fixmap */
+>>>>       create_pgd_mapping(early_pg_dir, FIXADDR_START,
+>>>> -               (uintptr_t)fixmap_pgd_next, PGDIR_SIZE, PAGE_TABLE);
+>>>> +               fixmap_pgd_next, PGDIR_SIZE, PAGE_TABLE);
+>>>>
+>>>>   #ifndef __PAGETABLE_PMD_FOLDED
+>>>> -    /* Setup fixmap PMD */
+>>>> +    /* Setup fixmap PUD and PMD */
+>>>> +    if (pgtable_l4_enabled)
+>>>> +        create_pud_mapping(fixmap_pud, FIXADDR_START,
+>>>> +               (uintptr_t)fixmap_pmd, PUD_SIZE, PAGE_TABLE);
+>>>>       create_pmd_mapping(fixmap_pmd, FIXADDR_START,
+>>>>                  (uintptr_t)fixmap_pte, PMD_SIZE, PAGE_TABLE);
+>>>> +
+>>>>       /* Setup trampoline PGD and PMD */
+>>>>       create_pgd_mapping(trampoline_pg_dir, PAGE_OFFSET,
+>>>> -               (uintptr_t)trampoline_pmd, PGDIR_SIZE, PAGE_TABLE);
+>>>> +               trampoline_pgd_next, PGDIR_SIZE, PAGE_TABLE);
+>>>> +    if (pgtable_l4_enabled)
+>>>> +        create_pud_mapping(trampoline_pud, PAGE_OFFSET,
+>>>> +               (uintptr_t)trampoline_pmd, PUD_SIZE, PAGE_TABLE);
+>>>>       create_pmd_mapping(trampoline_pmd, PAGE_OFFSET,
+>>>>                  load_pa, PMD_SIZE, PAGE_KERNEL_EXEC);
+>>>>   #else
+>>>> @@ -490,6 +570,29 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>>>>       dtb_early_pa = dtb_pa;
+>>>>   }
+>>>>
+>>>> +#if defined(CONFIG_RELOCATABLE) && defined(CONFIG_64BIT)
+>>>> +/*
+>>>> + * This function is called only if the current kernel is 64bit and
+>>>> the HW
+>>>> + * does not support sv48.
+>>>> + */
+>>>> +asmlinkage __init void setup_vm_fold_pud(void)
+>>>> +{
+>>>> +    pgtable_l4_enabled = false;
+>>>> +    kernel_virt_addr = PAGE_OFFSET_L3;
+>>>> +    satp_mode = SATP_MODE_39;
+>>>> +
+>>>> +    /*
+>>>> +     * PTE/PMD levels do not need to be cleared as they are common
+>>>> between
+>>>> +     * 3- and 4-level page tables: the 30 least significant bits
+>>>> +     * (2 * 9 + 12) are common.
+>>>> +     */
+>>>> +    memset(trampoline_pg_dir, 0, sizeof(pgd_t) * PTRS_PER_PGD);
+>>>> +    memset(early_pg_dir, 0, sizeof(pgd_t) * PTRS_PER_PGD);
+>>>> +
+>>>> +    setup_vm(dtb_early_pa);
+>>>> +}
+>>>> +#endif
+>>>> +
+>>>>   static void __init setup_vm_final(void)
+>>>>   {
+>>>>       uintptr_t va, map_size;
+>>>> @@ -525,12 +628,13 @@ static void __init setup_vm_final(void)
+>>>>           }
+>>>>       }
+>>>>
+>>>> -    /* Clear fixmap PTE and PMD mappings */
+>>>> +    /* Clear fixmap page table mappings */
+>>>>       clear_fixmap(FIX_PTE);
+>>>>       clear_fixmap(FIX_PMD);
+>>>> +    clear_fixmap(FIX_PUD);
+>>>>
+>>>>       /* Move to swapper page table */
+>>>> -    csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) |
+>>>> SATP_MODE);
+>>>> +    csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) |
+>>>> satp_mode);
+>>>>       local_flush_tlb_all();
+>>>>   }
+>>>>   #else
+>>
+>> Alex
 
