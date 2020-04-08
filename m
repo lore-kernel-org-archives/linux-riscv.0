@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D0A72C2BA16
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2020 07:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 59CDDC2BA2B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2020 07:57:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A5D3B20769
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2020 07:57:18 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 31F9420769
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2020 07:57:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hguDn0jT";
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Kn66xOjs"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A5D3B20769
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dqXWl9dn";
+	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="GoQ2lksF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 31F9420769
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,69 +26,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tOQsL1UwAyeSD7aVc86VJnzoqXGbBrzuC9r/s6opFAQ=; b=hguDn0jTLi72lT
-	Ss52iNDE4aQkhhRBJSjyJm4VcKiKsVfWuEdrFAjokSBYbPZwuywUN8ie5WPwL5NUMSayZXYXKd0bq
-	wduvya4k9jGQ6XqeQyvLk4G8lRWaEWf8bsJ1wvwLjejKb31geIGBy3RUBp6Rg8yNs4Yith0elhudC
-	s3eV1pwsG+Hq1c3YfOog2ZtLW16a2KD74HhZJkuqMsS/NHz601YnzSHZi1IrLhiW7rmGr4Kr8dlg9
-	5+eH98h69gKerREnVlMKSVLBRoGfcepH2YAdH3qB6MwST5OY5IaTaWv7uN85lK66BeQfiVIxtXA++
-	/E3Tf4KS0VP1Ejj+NxfQ==;
+	List-Owner; bh=XkJsQ5wK/x/TlqEbA+mDNHgNHjaEj7vOian5h3Az/dI=; b=dqXWl9dnRLkWKo
+	HPAORMPD7nclg/tKAEfrayTyGEQROL0ZEFwhq9G3mkEvLaacTvZlbQV/kpNAffmYT6oassl2If/yR
+	dUQIFCaSTwEHA0FIltlP/isUW+/0bl02cebHxyfgh2DC1+iz3jLA01Z4jt+e0uLKu74Z1KHOjzm/4
+	NI9Cw5HbZ41uTG7CA+sd7u/+UYIY5u26DuZl2uXztqi2MrxiLudulNPTYALTSKCt1h6tIIj2rkjHq
+	oAEvPGZOFhT/D7Oge9roP/bJT3czwgcsvKIwqB6nsJEzCdnMo3J9cZLu7qvUslFAkQVlCWQrO6UVf
+	dcGx/GfcfBUnVt1Ssc1Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jM5aE-0007P5-Gk; Wed, 08 Apr 2020 07:57:14 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1jM5aJ-0007We-FA; Wed, 08 Apr 2020 07:57:19 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jM5aB-0007Nj-U5
- for linux-riscv@lists.infradead.org; Wed, 08 Apr 2020 07:57:13 +0000
-Received: by mail-pg1-x544.google.com with SMTP id s4so2961502pgk.10
- for <linux-riscv@lists.infradead.org>; Wed, 08 Apr 2020 00:57:11 -0700 (PDT)
+ id 1jM5aF-0007Qp-Mb
+ for linux-riscv@lists.infradead.org; Wed, 08 Apr 2020 07:57:17 +0000
+Received: by mail-pg1-x541.google.com with SMTP id m13so2970197pgd.8
+ for <linux-riscv@lists.infradead.org>; Wed, 08 Apr 2020 00:57:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=tOQsL1UwAyeSD7aVc86VJnzoqXGbBrzuC9r/s6opFAQ=;
- b=Kn66xOjs81SGng0oCT/+Z7hx0FVYo/eEbSiAPSkG9YVazysZSGW4dQ90RJVw3fhxTU
- LjJTuf3qNq70mPiPOSxgd3h57DEvXCZ4aaKn8N0CWCciCzKED0k7HF0Tu2fNtAMQ4T0k
- 4c6XsSZEpyV80iSmIYTvIqO9MXT32jyPMkSRuqmIC1LEYBF6OB3BZ+ajDJ4YboAcW1DI
- 7NKm61fnwUrEFJkjyStI7+n8KexOl+3V3WwgZQYS/GQpoeqSunEHf249g+eF8J4tP0PX
- cJCST86Qnj/SwsTN+DWIWo6oRiD/mhGFKz4rr2flD9ipTpcUO41ef2MS2ymx9Vevq3uT
- D9Pg==
+ bh=XkJsQ5wK/x/TlqEbA+mDNHgNHjaEj7vOian5h3Az/dI=;
+ b=GoQ2lksF14YYCaOtMuoKYM7vT3Yx9eYSzDJeBCT1onK+swzFQVmrxQNz8A0Tx1UV7w
+ N4ukqiuGUz7US9jG6G1pNTsCLz0BIPllR5BjjArtNUhj2U6cj8SyMJrr0nyeieYkUBWS
+ lRuu0Ksmv3TE6giCaCh0dC879/19i4O751Yez/1Q6bLNmfw/Avdp1LOLgu3G/M+9XGP2
+ OD2j9gih+Y+EHJJMt6O6mMQ8IEtjo/iu/nAwwpROg7jmT5q2oS8i+Fyi2h759BYMgIic
+ FXmTCxNbmRzSoqCsLEcV0QdM/JF3rA1UzVR/48veI1V1jXkwkN5Aj5Sh4zsr73xcomL4
+ u3yg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=tOQsL1UwAyeSD7aVc86VJnzoqXGbBrzuC9r/s6opFAQ=;
- b=i6QKaKRFJjfEGR+hmEOjrpJ1cmbATZviin2c8ClbZF3kZFNqGyDxprGxaJV0/0MuNk
- wviR1Xn4MtGJca+4BwGdWN5nocDLbFYuRV7yvHhuSrw8MbkBTrTu0QNvUUO/WUj+HQF6
- 5BjOtZ1mZFaxxo4wua5dD9yKtId2wZDmS1doOet+xvDEv0dW3qNFxlGmiwK6gA862Y/i
- z1QQE+yOzk3Ush4vEcc1yYOXxsB/JjEL0hnqYK7HC/yno7k7aGyE+sUjWwrTpZ+21pBm
- dPV4m4yFh841LNMtPdFx0O/mZtCQkOH8wzkZmegs8dhKifiRY4TatIVVeLbyC8Zd3ekZ
- IQeg==
-X-Gm-Message-State: AGi0PuYH1DESi1VK64ha9y8dkltaUF/QcMJoprq/FbBS3Sx+djuq/IHm
- Hrs+YEWYXhcBGDZrnM6u9z1/Uw==
-X-Google-Smtp-Source: APiQypKDfW2TB8LOB4CYBluerKzQ+zb+Jp1k53ujx1q7dkVM3x7cUFvX9tSZRYulxwzoPAbZJn1KxQ==
-X-Received: by 2002:a05:6a00:2cf:: with SMTP id
- b15mr6388378pft.174.1586332631240; 
- Wed, 08 Apr 2020 00:57:11 -0700 (PDT)
+ bh=XkJsQ5wK/x/TlqEbA+mDNHgNHjaEj7vOian5h3Az/dI=;
+ b=ZAIioFoDcwrb3AQr1EZNbxZOH6picyYZTRd44/yMDH69uYspBupbOy/QQ814kH7RzS
+ 4z73sA0Ek6yqUq9QKfqN1FA09zPmZ4tKP7g5v/EVLi6brAWW1MReoVaW+HXUA1E2HSRX
+ Ie4eJMnYzFIQy0R3hWEFyAdIHOMN7pv2FHjpQDiJo3bazRKvvyzGyDj2FZDu2fZ4OI5N
+ HgZFWPgnyEK5xQDZ3Nb4UtsXo554Cflr7cIHIb7x3My0Q4AbAhJg4GhGNokYKyFZxQ80
+ 0CBOBGECWdywZXm9mEboROJBSW3vbxYo8dOsQmGE+mhAT0iFzpg7AaZeCyEnrRMXe/3j
+ tY2g==
+X-Gm-Message-State: AGi0PuY1JQe9h3I8UYkfxyNRFj5BogiEqIIMvLh6gt66+qY+6sSDISH+
+ cyOA9Uvvzs5sAxW3krz/V0voqw==
+X-Google-Smtp-Source: APiQypJAFMM/eXRWkh6FXOGZKFYt6ev58qcGDr+z+KrnA0/S0UYY70C6txy6deaM8WjT5DJ2UcB/OQ==
+X-Received: by 2002:a62:1e84:: with SMTP id e126mr6071812pfe.315.1586332634924; 
+ Wed, 08 Apr 2020 00:57:14 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id d85sm485599pfd.157.2020.04.08.00.57.09
+ by smtp.gmail.com with ESMTPSA id d85sm485599pfd.157.2020.04.08.00.57.13
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 08 Apr 2020 00:57:10 -0700 (PDT)
+ Wed, 08 Apr 2020 00:57:14 -0700 (PDT)
 From: Zong Li <zong.li@sifive.com>
 To: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
  mhiramat@kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [PATCH v5 1/9] riscv: add macro to get instruction length
-Date: Wed,  8 Apr 2020 15:56:56 +0800
-Message-Id: <621303b9cdea215af57329b401b15750c1f683ab.1586332296.git.zong.li@sifive.com>
+Subject: [PATCH v5 3/9] riscv: patch code by fixmap mapping
+Date: Wed,  8 Apr 2020 15:56:58 +0800
+Message-Id: <27f31750f58cd0ad2805579b16b001aa88103688.1586332296.git.zong.li@sifive.com>
 X-Mailer: git-send-email 2.26.0
 In-Reply-To: <cover.1586332296.git.zong.li@sifive.com>
 References: <cover.1586332296.git.zong.li@sifive.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200408_005711_963358_ACA5F44E 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200408_005715_755718_A775B000 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,47 +102,69 @@ Cc: Zong Li <zong.li@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Extract the calculation of instruction length for common use.
+On strict kernel memory permission, the ftrace have to change the
+permission of text for dynamic patching the intructions. Use
+riscv_patch_text_nosync() to patch code instead of probe_kernel_write.
 
 Signed-off-by: Zong Li <zong.li@sifive.com>
+Suggested-by: Masami Hiramatsu <mhiramat@kernel.org>
+Reviewed-by: Masami Hiramatsu <mhiramat@kernel.org>
 ---
- arch/riscv/include/asm/bug.h | 8 ++++++++
- arch/riscv/kernel/traps.c    | 3 ++-
- 2 files changed, 10 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/ftrace.c | 26 +++++++++++++++++---------
+ 1 file changed, 17 insertions(+), 9 deletions(-)
 
-diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
-index 75604fec1b1b..d6f1ec08d97b 100644
---- a/arch/riscv/include/asm/bug.h
-+++ b/arch/riscv/include/asm/bug.h
-@@ -19,6 +19,14 @@
- #define __BUG_INSN_32	_UL(0x00100073) /* ebreak */
- #define __BUG_INSN_16	_UL(0x9002) /* c.ebreak */
+diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+index c40fdcdeb950..08396614d6f4 100644
+--- a/arch/riscv/kernel/ftrace.c
++++ b/arch/riscv/kernel/ftrace.c
+@@ -7,9 +7,23 @@
  
-+#define GET_INSN_LENGTH(insn)						\
-+({									\
-+	unsigned long __len;						\
-+	__len = ((insn & __INSN_LENGTH_MASK) == __INSN_LENGTH_32) ?	\
-+		4UL : 2UL;						\
-+	__len;								\
-+})
+ #include <linux/ftrace.h>
+ #include <linux/uaccess.h>
++#include <linux/memory.h>
+ #include <asm/cacheflush.h>
++#include <asm/patch.h>
+ 
+ #ifdef CONFIG_DYNAMIC_FTRACE
++int ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
++{
++	mutex_lock(&text_mutex);
++	return 0;
++}
 +
- typedef u32 bug_insn_t;
- 
- #ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index ffb3d94bf0cc..a4d136355f78 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -118,7 +118,8 @@ static inline unsigned long get_break_insn_length(unsigned long pc)
- 
- 	if (probe_kernel_address((bug_insn_t *)pc, insn))
- 		return 0;
--	return (((insn & __INSN_LENGTH_MASK) == __INSN_LENGTH_32) ? 4UL : 2UL);
++int ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
++{
++	mutex_unlock(&text_mutex);
++	return 0;
++}
 +
-+	return GET_INSN_LENGTH(insn);
+ static int ftrace_check_current_call(unsigned long hook_pos,
+ 				     unsigned int *expected)
+ {
+@@ -46,20 +60,14 @@ static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
+ {
+ 	unsigned int call[2];
+ 	unsigned int nops[2] = {NOP4, NOP4};
+-	int ret = 0;
+ 
+ 	make_call(hook_pos, target, call);
+ 
+-	/* replace the auipc-jalr pair at once */
+-	ret = probe_kernel_write((void *)hook_pos, enable ? call : nops,
+-				 MCOUNT_INSN_SIZE);
+-	/* return must be -EPERM on write error */
+-	if (ret)
++	/* Replace the auipc-jalr pair at once. Return -EPERM on write error. */
++	if (patch_text_nosync
++	    ((void *)hook_pos, enable ? call : nops, MCOUNT_INSN_SIZE))
+ 		return -EPERM;
+ 
+-	smp_mb();
+-	flush_icache_range((void *)hook_pos, (void *)hook_pos + MCOUNT_INSN_SIZE);
+-
+ 	return 0;
  }
  
- asmlinkage __visible void do_trap_break(struct pt_regs *regs)
 -- 
 2.26.0
 
