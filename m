@@ -2,22 +2,22 @@ Return-Path: <SRS0=IoIa=5Y=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1E38FC2BA16
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2020 07:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C9FBC2BA1B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2020 07:57:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E648820747
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2020 07:57:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5392020747
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2020 07:57:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="L+khQVf/";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="mPZ6G/Dv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E648820747
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IwGDa8hM";
+	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="TOZYTN0Z"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5392020747
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,69 +26,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Quhy5/QZPA8/P4q/9fnjufmjHKuWjkZaQYF9/wabbVw=; b=L+khQVf/aHmpJg
-	ZESn/MgzMFyM7cLIb+so4ro6NFA0oGDHZiQBfFjR1I/yI/hQI3LHjQKRFKJauUyJT2B7okqxu+lLZ
-	VJHBFLhwltg3D7/UlhyPZTGii5kwYadns5nfBNtDtSIJvQrzzTJcQ1dJ9H4VpOYmeg7vqmrPYcOo6
-	cVIVG7CKJQDL1qPZeahNWxpNUAoNlytdcWNpdSvg0uJ6Pl231ysNpHXPxh0Yj3pC3GTvrB6/SzGSu
-	Y77cXwx8Otk3Cu9Bm+QM/UsjrY4CoQjRWcM70ZYiS0EYacdoxPzB/i+bSS/v3mN6TuidC78Pv/GlX
-	/6PsI9BMu2mE5bbvOrGg==;
+	List-Owner; bh=E4WIiXeGbKDxs9UbyyfZOjVgyCJTWA/AduHG+mw3Ozg=; b=IwGDa8hMbArYAv
+	jElh/cwS297LhR0injtc9o/6yyLkFXJHbV7BfFbNuSrNRCeSWP4e9z0KZNXeY8MheVLZh0/mtCRqQ
+	hBDkTBW1dNEztVkouruFNGqZMscMSZ/Md5GkKkvM2wEVj5HUWzhYhO1DjAaWZelrMXwzVDqhqAzhC
+	uGjXdaqsEXY83k7hUd9KuiIfzVNfRwrbLYIgR6jZyrLxO7e3zHOEs4+ZK0lW2lThb4MxEUzsxUQoB
+	vI7ezuh5Fk8lc3vzp+jVV5ocfqIWr6syILwQtnkhlZNUuISmmyfTzpGJo1/G0b/IIkndscVpqE1bW
+	niQJ0ekrNCY5wQ8Hu5vw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jM5aY-0007sr-93; Wed, 08 Apr 2020 07:57:34 +0000
-Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
+	id 1jM5aa-0007w6-6A; Wed, 08 Apr 2020 07:57:36 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jM5aN-0007ct-Jc
- for linux-riscv@lists.infradead.org; Wed, 08 Apr 2020 07:57:24 +0000
-Received: by mail-pj1-x1041.google.com with SMTP id kx8so840832pjb.5
- for <linux-riscv@lists.infradead.org>; Wed, 08 Apr 2020 00:57:23 -0700 (PDT)
+ id 1jM5aR-0007iW-91
+ for linux-riscv@lists.infradead.org; Wed, 08 Apr 2020 07:57:28 +0000
+Received: by mail-pl1-x641.google.com with SMTP id s23so2218089plq.13
+ for <linux-riscv@lists.infradead.org>; Wed, 08 Apr 2020 00:57:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=Quhy5/QZPA8/P4q/9fnjufmjHKuWjkZaQYF9/wabbVw=;
- b=mPZ6G/DvSUkmvJrsHi7YzN51egMqhQiZtrVAWVMnop5ZSHgLEIBO5VaJpn2sJ8xXc5
- ceGghSnnkHeQjGqVbbP2GSy0IaxBEEDD6Uf8jv9x8gIZlTQBljt2bYXg6NVDSFCdlCZu
- 8816ZszTSt5DuxQO6UH5wDNaGBBzdvNleauumy+j4WmLKypcrS3dk46ERhxQb0XuNgpI
- ZF9HkUjimJRUSoU1j4w7FGVsVl7LPc7yXlvcMju/o9Dfbc/lTI3GZnewD5hzYZvIjtsT
- F2Kr+fHNYLd4hVK2lKG/xFoBanJbWknoy5vYCfoT2CFkMrgBE5EeLDHzF4N5HwLlEfYh
- 7lyw==
+ bh=E4WIiXeGbKDxs9UbyyfZOjVgyCJTWA/AduHG+mw3Ozg=;
+ b=TOZYTN0ZmTo7tkdrjh0d1AhqQRXNkDEiNfrJu4HSuIaIiOkXzgv343+X9uduChlxuH
+ 5GPD/mmxsXBoBB14GTJKfsYkmdbX+iUL+dCVfbt+u75yXYegqNi1SrMLOcTYAi4T88lv
+ qtT4EPWIizz8lTpXFwCmAj5VEUJfA30aJ5B+himyfvXRvcepspXbnZEigEMTMyxBRsI1
+ rCfbOUbOO2fuhdV2fehBFtONQJoNk61FccNMvakWX+2TCphrgANZ1IFSPA42eCeWa9OG
+ M+RbsCIz3G7evFBUt61IGLqkg9rI5gPYiJuMTj5URYLiZTZW/IrnKhHTcL/h5ex2W4c1
+ 2vRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=Quhy5/QZPA8/P4q/9fnjufmjHKuWjkZaQYF9/wabbVw=;
- b=SdfCgFfc2tbUC05BEIAHvaDYvVcitO2/i2IUSejAj4jgNNvBOMnIDLkU4KAwBN16OI
- JrG+XN4u0QUWnkCEpGg4KadyG+iWc5Qtj7to4SoZFr9ixIHTIa4tHqzagAhesMRJdDn5
- hrk8pwBjZDPOyMlCv995/puN4vHuKi4P6MrlUST/vya+ARjUO8AP7nbaGbynjyewGOr0
- 4Jsfuq4Wmptcq34pmcodgB3BoC1oVRsjwOaMIMiBrTwQztj40+vWnQtEzXkykA5wtv5A
- 3z3GCvcl3WT/XAXCT60D8Teh8Bk27DHQXjSl8Qmqy0AtsjHBWFyczTwzixLXMUs/v/tU
- 6Jzg==
-X-Gm-Message-State: AGi0PubdWBCryzm+njf6ZLlUFb3nIWffSuH1clPU3rXq31vIzK2S4bAb
- oa1SCiRfv/hp/NEUlqhZZhSZNA==
-X-Google-Smtp-Source: APiQypJXFX/0Lnb7UwEs543bcGfXQmbM061XO3WoufDW75ChPwGGHilbdAdbTBnLkBOrX4EDrVWkHw==
-X-Received: by 2002:a17:90a:65c5:: with SMTP id
- i5mr2480742pjs.18.1586332642779; 
- Wed, 08 Apr 2020 00:57:22 -0700 (PDT)
+ bh=E4WIiXeGbKDxs9UbyyfZOjVgyCJTWA/AduHG+mw3Ozg=;
+ b=fCEaTQqjO7tb0x3uj0he3oC9RigFQyMsbJFnAwjIq5Z0y3IiqMrChYVuPmE2iKoyP3
+ y7hyyRAxLVka40PWtPQ+cf+WuBDBlNbECwN8ran2FOsGIjpq4E+Qs5VZZiXX6gsS5tlA
+ 5iOnSiNDXbSCL7oHS64dRonhCObqlrBwGRqNkx7zi4LeWlDV5cNHcaH4ImXoohPT6yqk
+ tk55qI318kFXoMvNwSrU2EWH5Ucf2b0Xv340mZAZC/EiqA7cHo9LytmSiZeXDCY2CcEW
+ keMuShZLMpXR9IFSGTjc1mtJFZlLYSCaOPR8ROW944cP18XU3a0uNR1soHtylyGYoP0f
+ UDDw==
+X-Gm-Message-State: AGi0PuZ3RTH+EmJ7bSoSidlG7C8BXpzqKNLBjZhcOP1U+vdS+Wk8PjKV
+ qrUt9phQa7UabDeFNPT4mha/PWiBpW0w1A==
+X-Google-Smtp-Source: APiQypIgaMKX49GV/U1HjE4l3Up0jhdZCobmLhyfkuxFpjq9sh+MzskfqRAcr1tN8QgE7gggnLep2w==
+X-Received: by 2002:a17:90a:714b:: with SMTP id
+ g11mr3741642pjs.17.1586332646601; 
+ Wed, 08 Apr 2020 00:57:26 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id d85sm485599pfd.157.2020.04.08.00.57.21
+ by smtp.gmail.com with ESMTPSA id d85sm485599pfd.157.2020.04.08.00.57.25
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 08 Apr 2020 00:57:22 -0700 (PDT)
+ Wed, 08 Apr 2020 00:57:26 -0700 (PDT)
 From: Zong Li <zong.li@sifive.com>
 To: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
  mhiramat@kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [PATCH v5 7/9] riscv: move exception table immediately after RO_DATA
-Date: Wed,  8 Apr 2020 15:57:02 +0800
-Message-Id: <6dba29ff224e253bcacc7891caecadb5666d8059.1586332296.git.zong.li@sifive.com>
+Subject: [PATCH v5 9/9] riscv: add STRICT_KERNEL_RWX support
+Date: Wed,  8 Apr 2020 15:57:04 +0800
+Message-Id: <100e739c5fd722a96fcc640c8ee0c82fe34fcb6a.1586332296.git.zong.li@sifive.com>
 X-Mailer: git-send-email 2.26.0
 In-Reply-To: <cover.1586332296.git.zong.li@sifive.com>
 References: <cover.1586332296.git.zong.li@sifive.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200408_005723_647527_FBD00449 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200408_005727_332797_EC408AB7 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,45 +99,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>, Zong Li <zong.li@sifive.com>
+Cc: Zong Li <zong.li@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move EXCEPTION_TABLE immediately after RO_DATA. Make it easy to set the
-attribution of the sections which should be read-only at a time.
-Add _data to specify the start of data section with write permission.
-This patch is prepared for STRICT_KERNEL_RWX support.
+The commit contains that make text section as non-writable, rodata
+section as read-only, and data section as non-executable.
+
+The init section should be changed to non-executable.
 
 Signed-off-by: Zong Li <zong.li@sifive.com>
-Suggested-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- arch/riscv/kernel/vmlinux.lds.S | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ arch/riscv/Kconfig                  |  1 +
+ arch/riscv/include/asm/set_memory.h |  8 ++++++
+ arch/riscv/mm/init.c                | 44 +++++++++++++++++++++++++++++
+ 3 files changed, 53 insertions(+)
 
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 1e0193ded420..02e948b620af 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -58,6 +58,10 @@ SECTIONS
- 		*(.srodata*)
- 	}
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 1e1efc998baf..58b556167d59 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -61,6 +61,7 @@ config RISCV
+ 	select ARCH_HAS_GIGANTIC_PAGE
+ 	select ARCH_HAS_SET_DIRECT_MAP
+ 	select ARCH_HAS_SET_MEMORY
++	select ARCH_HAS_STRICT_KERNEL_RWX
+ 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+ 	select SPARSEMEM_STATIC if 32BIT
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+index 4c5bae7ca01c..c38df4771c09 100644
+--- a/arch/riscv/include/asm/set_memory.h
++++ b/arch/riscv/include/asm/set_memory.h
+@@ -22,6 +22,14 @@ static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
+ static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
+ #endif
  
-+	EXCEPTION_TABLE(0x10)
++#ifdef CONFIG_STRICT_KERNEL_RWX
++void set_kernel_text_ro(void);
++void set_kernel_text_rw(void);
++#else
++static inline void set_kernel_text_ro(void) { }
++static inline void set_kernel_text_rw(void) { }
++#endif
 +
-+	_data = .;
+ int set_direct_map_invalid_noflush(struct page *page);
+ int set_direct_map_default_noflush(struct page *page);
+ 
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index fab855963c73..b55be44ff9bd 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -12,6 +12,7 @@
+ #include <linux/sizes.h>
+ #include <linux/of_fdt.h>
+ #include <linux/libfdt.h>
++#include <linux/set_memory.h>
+ 
+ #include <asm/fixmap.h>
+ #include <asm/tlbflush.h>
+@@ -477,6 +478,17 @@ static void __init setup_vm_final(void)
+ 	csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) | SATP_MODE);
+ 	local_flush_tlb_all();
+ }
 +
- 	RW_DATA(L1_CACHE_BYTES, PAGE_SIZE, THREAD_SIZE)
- 	.sdata : {
- 		__global_pointer$ = . + 0x800;
-@@ -69,8 +73,6 @@ SECTIONS
++void free_initmem(void)
++{
++	unsigned long init_begin = (unsigned long)__init_begin;
++	unsigned long init_end = (unsigned long)__init_end;
++
++	/* Make the region as non-execuatble. */
++	set_memory_nx(init_begin, (init_end - init_begin) >> PAGE_SHIFT);
++	free_initmem_default(POISON_FREE_INITMEM);
++}
++
+ #else
+ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ {
+@@ -488,6 +500,38 @@ static inline void setup_vm_final(void)
+ }
+ #endif /* CONFIG_MMU */
  
- 	BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
- 
--	EXCEPTION_TABLE(0x10)
--
- 	.rel.dyn : {
- 		*(.rel.dyn*)
- 	}
++#ifdef CONFIG_STRICT_KERNEL_RWX
++void set_kernel_text_rw(void)
++{
++	unsigned long text_start = (unsigned long)_text;
++	unsigned long text_end = (unsigned long)_etext;
++
++	set_memory_rw(text_start, (text_end - text_start) >> PAGE_SHIFT);
++}
++
++void set_kernel_text_ro(void)
++{
++	unsigned long text_start = (unsigned long)_text;
++	unsigned long text_end = (unsigned long)_etext;
++
++	set_memory_ro(text_start, (text_end - text_start) >> PAGE_SHIFT);
++}
++
++void mark_rodata_ro(void)
++{
++	unsigned long text_start = (unsigned long)_text;
++	unsigned long text_end = (unsigned long)_etext;
++	unsigned long rodata_start = (unsigned long)__start_rodata;
++	unsigned long data_start = (unsigned long)_data;
++	unsigned long max_low = (unsigned long)(__va(PFN_PHYS(max_low_pfn)));
++
++	set_memory_ro(text_start, (text_end - text_start) >> PAGE_SHIFT);
++	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
++	set_memory_nx(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
++	set_memory_nx(data_start, (max_low - data_start) >> PAGE_SHIFT);
++}
++#endif
++
+ void __init paging_init(void)
+ {
+ 	setup_vm_final();
 -- 
 2.26.0
 
