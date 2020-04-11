@@ -1,4 +1,4 @@
-Return-Path: <SRS0=2LB7=52=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=GTha=53=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1B1E8C2D0EC
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2020 23:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 83615C2D0EC
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 11 Apr 2020 01:26:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DBADF2084D
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2020 23:42:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4D1DB20769
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 11 Apr 2020 01:26:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="idcp2M2s";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="NmDocq9x"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DBADF2084D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mkcfMY6/";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="J1MAqiqY"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4D1DB20769
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,60 +26,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=yH7CZBgnz1B1/ZHbifibHf0BF6579gmm7i+Y/fqUA94=; b=idcp2M2sdi8QyS8icTyxleXXR
-	mPhLp/r4t2bWCvjlfZGfhllHAT/ppJFhFLxxT3+fF7wnRJ342Ek30xo2SrKaQbtKK5eKPp3yCtmOg
-	+cp6wiMEnKIktDrtRBfulw6ElHHVC+GHHRB8kmrY5PEGlQQ9ihqXmSrYCod3Io4DEBUdUtadyR/Rb
-	8FQwq9j333xuHyx+i8xJo7+oS6SSG10cSAPSZU1Gj5Kzu6AB4QG35i2mI5vuab64yZtwGfR+3TjTH
-	bsXE9rlFquHt6Mdi+np1AtxbQoenRZVbwWBL9IaimrNrloHTP7Tqpa8/VTMFOoHao2dfpg2z/StOJ
-	+0hVRbwtA==;
+	 bh=fGyivi60XNHI5+oBu+ayGN8mGCdZW4sTPpBcocKHnio=; b=mkcfMY6/ezf6hC7uC7Xup7d14
+	yhm7nt6x1Jv1yYQtiS6FVP9VetMfZQGR0dzEy5m3na2dqILgeTLjq+Uz7zyIK7mh1HltX+SsnPQM7
+	7NCsuCxImcnLsXsnhEnjXzOjOMP2y7FG4uSRxNy6635VHCC2bxRyIIE0yG9YpwPHk/EmVv36AJ9ZE
+	6ruKvhkKdxXLTYWIKyZ7jr7Capj0umeh2LJjSpdIuikN+IT/Iy/68Owzvv4eOvf3hZlach72F44eD
+	mgqWgJC2rTX0+jNynl9P7rQ4aVjWDnYNPQgkGs/RyFLNn+SJmWyOjV/7RoQEBnu8BpAwqxd0XuipS
+	M5HGvT5iQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jN3Ho-0006Hh-8v; Fri, 10 Apr 2020 23:42:12 +0000
+	id 1jN4uB-0004u0-Rz; Sat, 11 Apr 2020 01:25:55 +0000
 Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jN3Hl-0006HD-IF
- for linux-riscv@lists.infradead.org; Fri, 10 Apr 2020 23:42:11 +0000
-Received: by mail-wm1-x343.google.com with SMTP id t203so4026290wmt.2
- for <linux-riscv@lists.infradead.org>; Fri, 10 Apr 2020 16:42:07 -0700 (PDT)
+ id 1jN4u8-0004tT-PS
+ for linux-riscv@lists.infradead.org; Sat, 11 Apr 2020 01:25:54 +0000
+Received: by mail-wm1-x343.google.com with SMTP id x4so4154348wmj.1
+ for <linux-riscv@lists.infradead.org>; Fri, 10 Apr 2020 18:25:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=yH7CZBgnz1B1/ZHbifibHf0BF6579gmm7i+Y/fqUA94=;
- b=NmDocq9xf4iTu+8VxZwFnEXtaJin/895/EhohKVpOyU+U7u2LhW+Cxf5EF1j47WNoG
- CtxNkVi+DBemEgnRKYdAEDll2ZD4po8rPaMqPyo1dfhF+MptiItI08T338tzwp9VUQg2
- 4aQ0+/ncYQY85HjArYWNe1FLWoBpXqZ79SQTE9bbYk6+tWGZWe031TifluS9AWjZv07J
- XBDllwML8pvSduTrzbU4O4ZE7P4oVtAIng9dTzStDwjU8zikM30mljMfzIorzafRhGPa
- O32vt5Q8zvlftlWYY5S77yUwYELvXQ7TgOXrTa8aqSBF7cWZOFUx8sX9vONmTQ+Ida6T
- nH6w==
+ :cc; bh=fGyivi60XNHI5+oBu+ayGN8mGCdZW4sTPpBcocKHnio=;
+ b=J1MAqiqYEBj1Ptldf+sXZHLhYffALMafTH1+rdvY5pQHA/pvBix5oD7Pjc1a9HZno/
+ 4lZSAUUj66iNePvo3vD0N/8Kf+zvClnd5aLdxAOVyFT2cICiOZ2Yfw46x0bpUMMQFDeu
+ EbB/2q3xJumN1rXRTFBl/VXlje1R0bLOYPGSm02oNknGNC8N2DCx9CIz036Cb19SqLBL
+ jOdBwDXIlVioVra1Y7vPDEKjEtYqunIUqWlX9s3asBXxFNBQEghpvv0ErSZNijcQesH/
+ RcCoAaYtXJ6xokHk5A2Hc62fG5zx01BFqsYh3AnjgPwuIugWiMjn8icuAZVBjIO9Eqrp
+ CZqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=yH7CZBgnz1B1/ZHbifibHf0BF6579gmm7i+Y/fqUA94=;
- b=DtoTBtasc5BYazurWF0IztBizmlL8FDrk70SsALRIaUOSmzjPdPwffGQWbRzyzOcL+
- ZFHX0LT3nKp1BRaVjEZHfzttHsYrCI7tIvmHfPNIUcAZffheMZOv1W4UY20zfnY5rj9h
- 5MaWLTAYj+fXPMESDn+3UFOuh7emKEB3RGk8P7auenH2P5G927iTUv6duClTfJLolwF/
- QbR4xEnumbOPLZJw3d8+LN7yNE+eJ+L8S/jmMDRYvwClsDHtGH8pgGQqlavo/fcmKMBr
- hcvzWuwlboo07KWRlVuU8a2lRTFt7u2ZQlc+eTgSMdRJH/Ildxcx6AwuMJZsSxDMW/jp
- CstA==
-X-Gm-Message-State: AGi0PuaAHUO+gYrXHcZndGGBg2AfO0Ei1I5is575jYOgmwU7vWWpDsQb
- /KcFxsgjWgD3k7AzaU6QcVk1XvKle2ZFfhEa/g1/
-X-Google-Smtp-Source: APiQypJNFxgKt0wVb7sZvaaTFuOJTLou3F00J4Ynxv9xQwmyP0/eODnPZaDSE8M3/7Ioq2MrFCda8aXthkedleECbmM=
-X-Received: by 2002:a7b:c38b:: with SMTP id s11mr7304528wmj.55.1586562126185; 
- Fri, 10 Apr 2020 16:42:06 -0700 (PDT)
+ bh=fGyivi60XNHI5+oBu+ayGN8mGCdZW4sTPpBcocKHnio=;
+ b=i0LzSmwKvgwepdHTBWBwzHZX9a5tOZQf1Ze0OTvseAFVOTs9IPEdjcz9STfdRjoJbt
+ pt4tJDYHIwgc4/pdi93l6vlleVLBUzPrSpFeHiR8NwUqXDb2NduNFg50hExEzHcjHCaU
+ GlhoBdB6W5kWBD+aIYYgSBL/qXTpyY/w2W91ja1unA0V2ta+LDrV1Qs7wImt9VvOeyI8
+ zRVfmQyECItHoBpFact2bXPLLFgRG22IbzysHNW3qVI6Z5KW2swaCgDuuWfI+ouYDMa8
+ B8scApRslYQvrvAC4TSeIV5oG3MTd7JnydDpt50c3ugaP9KN/2/8e5/FwYOyBIfP5gVb
+ XBtA==
+X-Gm-Message-State: AGi0PuYqPsrrOrxGh7HCMbLxXFWY4a5jnWBy+Q22xoMZX7VWiAb2gDaA
+ MciEH+EMFgmXmpM9LAfbwCpGuJUWSYN22rFcUOc+
+X-Google-Smtp-Source: APiQypJE5lFwOQI+fOHoL3ljHrYkvJpJ5UG4QZWuEGsJM9B1YWcRXagk7TCJisBMLXRhKUkFhK5lcUYOs1915PLKsBA=
+X-Received: by 2002:a05:600c:4152:: with SMTP id
+ h18mr4936825wmm.31.1586568349022; 
+ Fri, 10 Apr 2020 18:25:49 -0700 (PDT)
 MIME-Version: 1.0
 References: <1586232452-8998-1-git-send-email-vincent.chen@sifive.com>
 In-Reply-To: <1586232452-8998-1-git-send-email-vincent.chen@sifive.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 10 Apr 2020 16:41:54 -0700
-Message-ID: <CAOnJCUL1mR=FPYUHOHaqisHpP6b2hwfWaWNXfCiKc0i42ina=g@mail.gmail.com>
+Date: Fri, 10 Apr 2020 18:25:37 -0700
+Message-ID: <CAOnJCUJ9apfBGtXsSGLECTo=BX51mCg+dZQ-t9ZoKTL9hdKuoQ@mail.gmail.com>
 Subject: Re: [RFC] riscv: use vDSO common flow to reduce the latency of the
  time-related functions
 To: Vincent Chen <vincent.chen@sifive.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200410_164209_680747_22BEA510 
-X-CRM114-Status: GOOD (  26.36  )
+X-CRM114-CacheID: sfid-20200410_182553_031796_6EAC56AB 
+X-CRM114-Status: GOOD (  25.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -110,9 +111,6 @@ On Mon, Apr 6, 2020 at 9:07 PM Vincent Chen <vincent.chen@sifive.com> wrote:
 > eliminated. After applying this patch, the latency of gettimeofday()
 > measured on the HiFive unleashed board can be reduced by %61.
 >
-
-That's great.
-
 > Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 > ---
 >  arch/riscv/Kconfig                         |  3 ++
@@ -234,7 +232,9 @@ That's great.
 > +}
 > +
 
-How will it work on RV32 ?
+Looking at other arch implementations, do we need to surround it with
+instruction fences ?
+(Assuming that future platforms will implements time CSR access in hardware)
 
 > +static __always_inline const struct vdso_data *__arch_get_vdso_data(void)
 > +{
